@@ -1,0 +1,38 @@
+{
+  "name": "romcal",
+  "version": "0.0.0",
+  "description": "node implementation of the original romcal library written in C",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pejulian/romcal.git"
+  },
+  "keywords": [
+    "roman",
+    "calendar",
+    "liturgical"
+  ],
+  "author": "Julian Pereira <bleushade@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pejulian/romcal/issues"
+  },
+  "bin": {
+    "romcal": "index.js"
+  },
+  "homepage": "https://github.com/pejulian/romcal",
+  "dependencies": {
+    "node-calendar": "^0.1.4",
+    "moment": "^2.7.0",
+    "lodash": "^2.4.1",
+    "cheerio": "^0.17.0",
+    "twix": "^0.5.1"
+  },
+  "devDependencies": {
+    "mocha": "^1.21.3",
+    "chai": "^1.9.1"
+  }
+}
