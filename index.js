@@ -39,20 +39,24 @@ function _dateOfEaster( year ) {
 
 function _movableSolemnities( easter, firstSundayOfAdvent ) {
 	var dates = {
-		octaveOfEaster: moment.twix( easter, moment(easter).add('days', 8 ) ),
-		ascensionOfTheLord: moment(easter).add('days', 39 ),
-		pentecostSunday: moment(easter).add('days', 49 ),
-		trinitySunday: moment(easter).add('days', 56 ),
-		corpusChristi: moment(easter).add('days', 63 ),
-		sacredHeart: moment(easter).add('days', 68 ),
-		christTheKing: moment(firstSundayOfAdvent).subtract('days', 7 ), 
-		ashWednesday: moment(easter).subtract('days', 46 ),
-		palmSunday: moment(easter).subtract('days', 7 ),
-		holyThursday: moment(easter).subtract('days', 3 ),
-		goodFriday: moment(easter).subtract('days', 2 ),
-		holySaturday: moment(easter).subtract('days', 1 ),
+        epiphany: moment({ year: easter.year(), month: 0, day: 2 }),
+		octaveOfEaster: moment.twix( easter, moment(easter).add( 8, 'days' ) ),
+        holyWeek: moment.twix( easter, moment(easter).subtract( 7, 'days') ),
+        firstSundayOfEaster: moment(easter).add( 7, 'days' ),
+        secondSundayOfEaster: moment(easter).add( 14, 'days' ),
+        thirdSundayOfEaster: moment(easter).add( 21, 'days' ),
+		ascensionOfTheLord: moment(easter).add( 39, 'days' ),
+		pentecostSunday: moment(easter).add( 49, 'days' ),
+		trinitySunday: moment(easter).add( 56, 'days' ),
+		corpusChristi: moment(easter).add( 63, 'days' ),
+		sacredHeart: moment(easter).add( 68, 'days' ),
+		christTheKing: moment(firstSundayOfAdvent).subtract( 7, 'days' ), 
+		ashWednesday: moment(easter).subtract( 46, 'days' ),
+		palmSunday: moment(easter).subtract( 7, 'days' ),
+		holyThursday: moment(easter).subtract( 3, 'days' ),
+		goodFriday: moment(easter).subtract( 2, 'days' ),
+		holySaturday: moment(easter).subtract( 1, 'days' ),
 	};
-
 
 	return dates;
 }
@@ -69,7 +73,7 @@ function _feastsOfTheLord( christmas ) {
 	if ( christmas.day() === 0 )
 		dates.holyFamily = moment({year: year, month: 11, day: 30});
 	else
-		dates.holyFamily = moment(christmas).add('days', 7);
+		dates.holyFamily = moment(christmas).add( 7, 'days');
 
 	return dates
 }
@@ -87,6 +91,7 @@ function _fixedSolemnities( year ) {
 			immaculateConception: moment({year:year, month: 11, day: 8}),
 			christmas: moment({year:year, month: 11, day: 25})
 		};
+
 	return dates;
 }
 
@@ -131,12 +136,42 @@ function _adventSeason( christmas ) {
     }
 
     dates.firstSundayOfAdvent = firstSundayOfAdvent;
-    dates.secondSundayOfAdvent = moment(dates.firstSundayOfAdvent).add('days', 7 );
-    dates.thirdSundayOfAdvent = moment(dates.secondSundayOfAdvent).add('days', 7 );
-    dates.fourthSundayOfAdvent = moment(dates.thirdSundayOfAdvent).add('days', 7 );
+    dates.secondSundayOfAdvent = moment(dates.firstSundayOfAdvent).add( 7, 'days' );
+    dates.thirdSundayOfAdvent = moment(dates.secondSundayOfAdvent).add( 7, 'days' );
+    dates.fourthSundayOfAdvent = moment(dates.thirdSundayOfAdvent).add( 7, 'days' );
 
     return dates;
 }
+
+function _epiphanyRubric( epiphany, fixedSolemnities ) {
+
+    if ( epiphany.date() === 6 ) {
+        fixedSolemnities.maryMotherOfGod = moment({year:year, month: 0, day: 1});
+
+        // if ( moment({year:year, month: 0, day: 2}).day() === 0 )
+
+    }
+
+}
+
+
+function _lentHolyWeekAdjustments( fixedSolemnities, movableSolemnities ) {
+
+    var annunciation = fixedSolemnities.annunciation,
+        palmSunday = movableSolemnities.palmSunday,
+        secondSundayOfEaster = movableSolemnities.secondSundayOfEaster;
+
+    // If the Annunciation (Mar 25) falls on Palm Sunday, it is celebrated on the Saturday preceding
+    if ( annunciation.isSame( palmSunday ) )
+        fixedSolemnities.annunciation = moment(palmSunday).startOf('week').subtract( 1, 'days' );
+
+    //  If it falls during Holy Week or within the Octave of Easter, the Annunciation is transferred to the Monday of the Second Week of Easter
+    if ( movableSolemnities.holyWeek.contains( annunciation ) || movableSolemnities.octaveOfEaster.contains( annunciation ) )
+        fixedSolemnities.annunciation = moment(secondSundayOfEaster).add( 1, 'days' );
+
+}
+
+
 
 module.exports = {
 
