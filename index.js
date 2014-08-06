@@ -17,6 +17,23 @@ var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'S
 		SUNDAY: 'Sunday',
 		MEMORIAL: 'Memorial',
 		OPT_MEMORIAL: 'Optional Memorial',
+	},
+	liturgicalColors = {
+		RED: {
+			hex: '#ff0000'
+		},
+		PURPLE: {
+			hex: '#800080'
+		},
+		GREEN: {
+			hex: '#008000'
+		},
+		WHITE: {
+			hex: '#ffffff'
+		},
+		GOLD: {
+			hex: '#FFD700'
+		}
 	};
 
 /**
@@ -333,7 +350,7 @@ function _adventSeason( christmas ) {
 
     	switch( date.day() ) {
     		case 0:
-	    		dates[ ordinalNumbers[sundays] + 'SundayOfAdvent' ] = {
+	    		dates[ 'the' + ordinalNumbers[sundays] + 'SundayOfAdvent' ] = {
 	    			moment: date,
 	    			type: types.SUNDAY,
 	    			name: ordinalNumbers[sundays] + ' Sunday of Advent'
@@ -354,6 +371,28 @@ function _adventSeason( christmas ) {
     		currentWeek++;
     }
     return dates;
+}
+
+/* Ordinary Time in the early part of the year begins the day after the Baptism of the Lord 
+ * and concludes the day before Ash Wednesday.
+ *
+ * Ordinary Time in the later part of the year begins the day after Pentecost and concludes 
+ * the day before the First Sunday of Advent.
+ *
+ * The Solemnity of Christ the King is always the 34th (and last) Sunday of Ordinary Time 
+ * and is the week before the First Sunday of Advent. The Sundays of Ordinary Time in the 
+ * latter part of the year are numbered backwards from Christ the King to Pentecost.
+ */
+function _ordinaryTime( baptismOfTheLord, ashWednesday, pentecostSunday, the1stSundayOfAdvent ) {
+
+	var firstIterator = moment.twix( moment( baptismOfTheLord ).add( 1, 'days'), moment( ashWednesday ).subtract( 1, 'days')).iterate('days'),
+		secondIterator = moment.twix( moment( pentecostSunday ).add( 1, 'days'), moment( the1stSundayOfAdvent ).subtract( 1, 'days')).iterate('days');
+
+	console.log( baptismOfTheLord.toString() );
+	console.log( ashWednesday.toString() );
+	while( firstIterator.hasNext() ) {
+		console.log( firstIterator.next().toString() );
+	}
 }
 
 /*
@@ -435,8 +474,9 @@ module.exports = {
 		var easter = _dateOfEaster( year ),
 			fixedSolemnities = _fixedSolemnities( year ),
 			adventSeason = _adventSeason( fixedSolemnities.christmas.moment ),
-			movableSolemnities = _movableSolemnities( easter, adventSeason['1stSundayOfAdvent'].moment ),
-			feastsOfTheLord = _feastsOfTheLord( fixedSolemnities.christmas.moment );
+			movableSolemnities = _movableSolemnities( easter, adventSeason.the1stSundayOfAdvent.moment ),
+			feastsOfTheLord = _feastsOfTheLord( fixedSolemnities.christmas.moment ),
+			ordinaryTime = _ordinaryTime( feastsOfTheLord.baptismOfTheLord.moment, movableSolemnities.ashWednesday.moment, movableSolemnities.pentecostSunday.moment, adventSeason.the1stSundayOfAdvent );
 
 		// Run rules as defined by Celebratio Baptismatis Domini
 		_epiphanyRubric( 
