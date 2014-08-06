@@ -6,7 +6,12 @@ var calendar = require('node-calendar'),
 	cheerio = require('cheerio');
 
 var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], 
-	ordinalNumbers = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th'], 
+	ordinalNumbers = [
+        '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th',
+        '11th', '12th', '13th', '14th', '15th', '16th', '17th', '18th', '19th', '20th',
+        '21st', '22nd', '23rd', '24th', '25th', '26th', '27th', '28th', '29th', '30th',
+        '31st', '32nd', '33rd', '34th', '35th', '36th', '37th', '38th', '39th', '40th',
+    ], 
 	types = {
 		SOLEMNITY: 'Solemnity',
 		FEAST: 'Feast',
@@ -71,7 +76,7 @@ function _movableSolemnities( easter, firstSundayOfAdvent ) {
 
 	var dates = {
         epiphanyOfOurLord: {
-        	moment: moment({ year: easter.year(), month: 0, day: 2 }),
+        	moment: moment({ year: easter.year(), month: 0, day: 6 }),
         	type: types.SOLEMNITY,
         	name: 'Epiphany of the Lord'
         },
@@ -387,12 +392,49 @@ function _ordinaryTime( baptismOfTheLord, ashWednesday, pentecostSunday, the1stS
 
 	var firstIterator = moment.twix( moment( baptismOfTheLord ).add( 1, 'days'), moment( ashWednesday ).subtract( 1, 'days')).iterate('days'),
 		secondIterator = moment.twix( moment( pentecostSunday ).add( 1, 'days'), moment( the1stSundayOfAdvent ).subtract( 1, 'days')).iterate('days');
+        console.log( baptismOfTheLord.toString() );
 
-	console.log( baptismOfTheLord.toString() );
-	console.log( ashWednesday.toString() );
-	while( firstIterator.hasNext() ) {
-		console.log( firstIterator.next().toString() );
+    var dates = {}, sundays = 1, ctr = 0; currentWeek = 0;
+    while( firstIterator.hasNext() ) {
+        var date = firstIterator.next();
+        switch( date.day() ) {
+            case 0:
+                dates[ 'the' + ordinalNumbers[sundays] + 'SundayOfOrdinaryTime' ] = {
+                    moment: date,
+                    type: types.SUNDAY,
+                    name: ordinalNumbers[sundays] + ' Sunday of Ordinary Time'
+                };
+                sundays++;
+                break;
+            default:
+                dates[ days[ date.day() ] + 'OfThe' + ordinalNumbers[ currentWeek ] + 'WeekOfOrdinaryTime' ] = {
+                    moment: date,
+                    types: types.WEEKDAY,
+                    name: days[ date.day() ] + ' of the ' + ordinalNumbers[ currentWeek ] + ' week of Ordinary Time'
+                }
+                break;
+        }
+
+        ctr++;
+        if ( ctr % 7 === 0 )
+            currentWeek++;
 	}
+
+    // lodash.map( dates, function( v, k, c ) {
+    //     console.log( k + ' : ' +  v.moment.toString() );
+    // });
+
+    // while ( secondIterator.hasNext() ) {
+
+    // }
+
+
+
+
+}
+
+function _seasonOfLent( easter ) {
+
 }
 
 /*
@@ -401,9 +443,11 @@ function _ordinaryTime( baptismOfTheLord, ashWednesday, pentecostSunday, the1stS
  * Baptism of the Lord would be omitted, this feast is to be transferred to the 
  * Monday immediately following that Sunday
  */
-function _epiphanyRubric( epiphanyOfOurLord, fixedSolemnities, feastsOfTheLord ) {
+function _epiphanyRubric( movableSolemnities, fixedSolemnities, feastsOfTheLord ) {
 
-	var year = epiphanyOfOurLord.year();
+	var dates = {},
+        epiphanyOfOurLord = movableSolemnities.epiphanyOfOurLord.moment,
+        year = epiphanyOfOurLord.year();
 
 	// If Epiphany is celebrated on Jan. 6
     if ( epiphanyOfOurLord.date() === 6 ) {
@@ -422,11 +466,8 @@ function _epiphanyRubric( epiphanyOfOurLord, fixedSolemnities, feastsOfTheLord )
 
         }
 
-
-
     }
-    // If Epiphany is not celebrated on Jan. 6 (i.e., celebrated on Sunday)
-    else {
+    else { // If Epiphany is not celebrated on Jan. 6 (i.e., celebrated on Sunday)
 
     	// Jan. 1 is the Solemnity of Mary, Mother of God.
         fixedSolemnities.maryMotherOfGod = moment({year:year, month: 0, day: 1});
@@ -435,12 +476,25 @@ function _epiphanyRubric( epiphanyOfOurLord, fixedSolemnities, feastsOfTheLord )
         var iterator = moment.twix( moment({year:year, month: 0, day: 2}), 
         							moment({year:year, month: 0, day: 8})).iterate('days');
 
+        // Epiphany is celebrated on the Sunday occurring from Jan. 2 through Jan. 8.
         while ( iterator.hasNext() ) {
+            var date = iterator.next();
         	if ( iterator.next().day() === 0 ) {
-
+                movableSolemnities.epiphanyOfOurLord = date;
         		return;
         	}
+            else {
+                
+            }
         }
+
+        // If Epiphany occurs on Jan. 7 or Jan. 8, then the Baptism of the Lord is the next day (Monday)
+        if ( epiphanyOfOurLord.date() === 7 || epiphanyOfOurLord.date() === 8 )
+            feastsOfTheLord.baptismOfTheLord = moment( epiphanyOfOurLord ).add( 1, 'days' );
+
+        // If Epiphany occurs before Jan. 6, the Sunday following Epiphany is the Baptism of the Lord.
+        if ( epiphanyOfOurLord.date() < 6 )
+            feastsOfTheLord.baptismOfTheLord = moment( epiphanyOfOurLord ).endOf('week').add( 1, 'days' );
         
     }
 }
@@ -480,7 +534,7 @@ module.exports = {
 
 		// Run rules as defined by Celebratio Baptismatis Domini
 		_epiphanyRubric( 
-			movableSolemnities.epiphanyOfOurLord.moment, 
+			movableSolemnities, 
 			fixedSolemnities, 
 			feastsOfTheLord 
 		);
