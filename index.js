@@ -719,7 +719,7 @@ function _memorials( year ) {
 
         },
         ourLadyOfLourdes: {
-            
+
         }
     };
     return dates;
@@ -743,7 +743,10 @@ function _seasonOfLent ( easter, fixedSolemnities, movableSolemnities ) {
 			dates[ 'the' + ordinalNumbers[sundays] + 'SundayOfLent' ] = {
     			moment: date,
     			type: types.SUNDAY,
-    			name: ordinalNumbers[sundays] + ' Sunday of Lent'
+    			name: ordinalNumbers[sundays] + ' Sunday of Lent',
+                data: {
+                    weekNumber: currentWeek + 1,
+                }
     		};
     		sundays++;
 		}
@@ -761,7 +764,10 @@ function _seasonOfLent ( easter, fixedSolemnities, movableSolemnities ) {
 				dates[ days[ date.day() ] + 'OfThe' + ordinalNumbers[ currentWeek ] + 'WeekOfLent' ] = {
 					moment: date,
 					type: types.WEEKDAY,
-					name: days[ date.day() ] + ' of the ' + ordinalNumbers[ currentWeek ] + ' week of Lent'
+					name: days[ date.day() ] + ' of the ' + ordinalNumbers[ currentWeek ] + ' week of Lent',
+                    data: {
+                        weekNumber: currentWeek + 1
+                    }
 				}
 			}
 		}
