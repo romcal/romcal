@@ -13,15 +13,42 @@ var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'S
         '31st', '32nd', '33rd', '34th', '35th', '36th', '37th', '38th', '39th', '40th',
     ], 
 	types = {
-		SOLEMNITY: 'Solemnity',
-		FEAST: 'Feast',
-		HOLY_WEEK: 'Holy Week',
-		COMMEM: 'Commemoration',
-		TRIDUUM: 'Triduum',
-		WEEKDAY: 'Weekday',
-		SUNDAY: 'Sunday',
-		MEMORIAL: 'Memorial',
-		OPT_MEMORIAL: 'Optional Memorial',
+		SOLEMNITY: {
+            name: 'Solemnity',
+            rank: 8
+        },
+		FEAST: {
+            name: 'Feast',
+            rank: 7
+        },
+		TRIDUUM: {
+            name: 'Triduum',
+            rank: 6
+        },
+        HOLY_WEEK: {
+            name: 'Holy Week',
+            rank: 5
+        },
+		MEMORIAL: {
+            name: 'Memorial',
+            rank: 4
+        },
+        COMMEM: {
+            name: 'Commemoration',
+            rank: 3
+        },
+		OPT_MEMORIAL: {
+            name: 'Optional Memorial',
+            rank: 2
+        },
+        SUNDAY: {
+            name: 'Sunday',
+            rank: 1
+        },
+        WEEKDAY: {
+            name: 'Weekday',
+            rank: 0
+        }
 	},
 	liturgicalColors = {
 		RED: {
@@ -76,32 +103,32 @@ function _movableSolemnities( easter, firstSundayOfAdvent ) {
         },
 		pentecostSunday: {
 			moment: moment.utc(easter).add( 49, 'days' ),
-			types: types.SOLEMNITY,
+			type: types.SOLEMNITY,
         	name: 'Pentecost'
 		},
 		trinitySunday: {
 			moment: moment.utc(easter).add( 56, 'days' ),
-			types: types.SOLEMNITY,
+			type: types.SOLEMNITY,
         	name: 'Trinity Sunday'
 		},
 		corpusChristi: {
 			moment: moment.utc(easter).add( 63, 'days' ),
-			types: types.SOLEMNITY,
+			type: types.SOLEMNITY,
         	name: 'The Body and Blood of Christ'
 		},
 		sacredHeart: {
 			moment: moment.utc(easter).add( 68, 'days' ),
-			types: types.SOLEMNITY,
+			type: types.SOLEMNITY,
         	name: 'Sacred Heart of Jesus'
 		},
 		immaculateHeartOfMary: {
 			moment: moment.utc(easter).add( 69, 'days' ),
-			types: types.MEMORIAL,
+			type: types.MEMORIAL,
         	name: 'Immaculate Heart of Mary'
 		},
 		christTheKing: {
 			moment: moment.utc(firstSundayOfAdvent).subtract( 7, 'days' ), 
-			types: types.SOLEMNITY,
+			type: types.SOLEMNITY,
         	name: 'Christ the King'
 		},
 		ashWednesday: {
@@ -429,9 +456,10 @@ function _fixedSolemnities( year ) {
 	return dates;
 }
 
-function _adventSeason( christmas ) {
+function _adventSeason( fixedSolemnities ) {
 
-	var dates = {};
+	var christmas = fixedSolemnities.christmas.moment,
+        dates = {};
 		lengthOfAdvent = 0;
 
     // The length of Advent depends upon the day of the week on which Christmas occurs
@@ -480,7 +508,7 @@ function _adventSeason( christmas ) {
     		default:
     			dates[ days[ date.day() ] + 'OfThe' + ordinalNumbers[ currentWeek ] + 'WeekOfAdvent' ] = {
     				moment: date,
-    				types: types.WEEKDAY,
+    				type: types.WEEKDAY,
     				name: days[ date.day() ] + ' of the ' + ordinalNumbers[ currentWeek ] + ' week of Advent'
     			}
     			break;
@@ -491,7 +519,20 @@ function _adventSeason( christmas ) {
     		currentWeek++;
     }
 
-    return dates;
+    // It is not possible for a fixed date Solemnity to fall on a Sunday of Advent
+    
+        // If a fixed date Solemnity occurs on a Sunday of Advent, the Solemnity is transferred to the following Monday.  
+        // This affects Immaculate Conception.
+        for( var i = 0; i < sundays; i++ ) {
+            var nthSundayOfAdvent = dates['the' + ordinalNumbers[i] + 'SundayOfAdvent' ];
+            if ( fixedSolemnities.immaculateConception.moment.isSame( nthSundayOfAdvent ) )
+                fixedSolemnities.immaculateConception.moment = moment.utc( nthSundayOfAdvent ).add( 1, 'days' );
+        }
+
+    return {
+        adventSeason: dates,
+        fixedSolemnities: fixedSolemnities
+    };
 }
 
 /* Ordinary Time in the early part of the year begins the day after the Baptism of the Lord 
@@ -530,7 +571,7 @@ function _ordinaryTime( movableSolemnities, feastsOfTheLord, fixedSolemnities ) 
             default:
                 dates[ days[ date.day() ] + 'OfThe' + ordinalNumbers[ currentWeek ] + 'WeekOfOrdinaryTime' ] = {
                     moment: date,
-                    types: types.WEEKDAY,
+                    type: types.WEEKDAY,
                     name: days[ date.day() ] + ' of the ' + ordinalNumbers[ currentWeek ] + ' week of Ordinary Time'
                 };
                 break;
@@ -555,7 +596,7 @@ function _ordinaryTime( movableSolemnities, feastsOfTheLord, fixedSolemnities ) 
     	var date = lastWeekIterator.next();
     	dates[ days[ date.day() ] + 'OfThe' + ordinalNumbers[ 33 ] + 'WeekOfOrdinaryTime' ] = {
             moment: date,
-            types: types.WEEKDAY,
+            type: types.WEEKDAY,
             name: days[ date.day() ] + ' of the ' + ordinalNumbers[ 33 ] + ' week of Ordinary Time'
         };
     }
@@ -574,7 +615,7 @@ function _ordinaryTime( movableSolemnities, feastsOfTheLord, fixedSolemnities ) 
     	else { // Monday - Saturday
 			dates[ days[ date.day() ] + 'OfThe' + ordinalNumbers[ weekOfOrdinaryTime ] + 'WeekOfOrdinaryTime' ] = {
 	            moment: date,
-	            types: types.WEEKDAY,
+	            type: types.WEEKDAY,
 	            name: days[ date.day() ] + ' of the ' + ordinalNumbers[ weekOfOrdinaryTime ] + ' week of Ordinary Time'
 	        };
     	}
@@ -587,8 +628,101 @@ function _ordinaryTime( movableSolemnities, feastsOfTheLord, fixedSolemnities ) 
     return dates;
 }
 
-function _memorials {
+function _memorials( year ) {
 
+    var dates = {
+        // January
+        saintBasilAndGregory: {
+            moment: moment.utc({ year: year, month: 0, day: 2 }),
+            type: types.MEMORIAL,
+            name: 'Saints Basil the Great & Gregory Nazianzen, Bishops & Doctors'
+        },
+        theMostHolyNameOfJesus: {
+            moment: moment.utc({ year: year, month: 0, day: 3 }),
+            type: types.OPT_MEMORIAL,
+            name: 'The Most Holy Name of Jesus'
+        },
+        saintRaymondOfPenyafort: {
+            moment: moment.utc({ year: year, month: 0, day: 7 }),
+            type: types.OPT_MEMORIAL,
+            name: 'Saint Raymond of Penyafort'            
+        },
+        saintHilaryOfPoitiers: {
+            moment: moment.utc({ year: year, month: 0, day: 13 }),
+            type: types.OPT_MEMORIAL,
+            name: 'Saint Hilary of Poitiers, Bishop & Doctor'
+        },
+        saintAnthonyOfEgypt: {
+            moment: moment.utc({ year: year, month: 0, day: 17 }),
+            type: types.MEMORIAL,
+            name: 'Saint Anthony of Egypt, Abbot'
+        },
+        saintsFabianAndSebastian: {
+            moment: moment.utc({ year: year, month: 0, day: 20 }),
+            type: types.OPT_MEMORIAL,
+            name: 'Saints Fabian & Sebastian, Pope and Martyrs'
+        },
+        saintAgnes: {
+            moment: moment.utc({ year: year, month: 0, day: 21 }),
+            type: types.MEMORIAL,
+            name: 'Saint Agnes, Virgin & Martyr'
+        }, 
+        saintVincent: {
+            moment: moment.utc({ year: year, month: 0, day: 22 }),
+            type: types.OPT_MEMORIAL,
+            name: 'Saint Vincent, Deacon & Martyr'        
+        },
+        saintFrancisDeSales: {
+            moment: moment.utc({ year: year, month: 0, day: 24 }),
+            type: types.MEMORIAL,
+            name: 'Saint Francis de Sales, Bishop & Doctor'
+        },
+        conversionOfSaintPaul: {
+            moment: moment.utc({ year: year, month: 0, day: 25 }),
+            type: types.FEAST,
+            name: 'The Conversion of Saint Paul, Apostle'
+        },
+        saintsTimothyAndTitus: {
+            moment: moment.utc({ year: year, month: 0, day: 26 }),
+            type: types.MEMORIAL,
+            name: 'Saints Timothy & Titus, Bishops'
+        },
+        saintAngelaMerici: {
+            moment: moment.utc({ year: year, month: 0, day: 27 }),
+            type: types.OPT_MEMORIAL,
+            name: 'Saint Angela Merici, Virgin'
+        },
+        saintThomasAquinas: {
+            moment: moment.utc({ year: year, month: 0, day: 28 }),
+            type: types.MEMORIAL,
+            name: 'Saint Thomas Aquinas, Priest & Doctor'
+        },
+        saintJohnBosco: {
+            moment: moment.utc({ year: year, month: 0, day: 31 }),
+            type: types.MEMORIAL,
+            name: 'Saint John Bosco, Priest'
+        },
+        // February
+        saintsBlaseAndAnsgar: {
+
+        },
+        saintAgatha: {
+
+        },
+        saintsPaulMikiAndCo: {
+
+        },
+        saintsJeromeAndJosephine: {
+
+        },
+        saintScholastica: {
+
+        },
+        ourLadyOfLourdes: {
+            
+        }
+    };
+    return dates;
 }
 
 function _seasonOfLent ( easter, fixedSolemnities, movableSolemnities ) {
@@ -619,14 +753,14 @@ function _seasonOfLent ( easter, fixedSolemnities, movableSolemnities ) {
 			if ( ctr < 3 ) {
 				dates[ days[ date.day() ] +  'AfterAshWednesday' ] = {
 					moment: date,
-					types: types.WEEKDAY,
+					type: types.WEEKDAY,
 					name: days[ date.day() ] + ' after Ash Wednesday'
 				}
 			}
 			else {
 				dates[ days[ date.day() ] + 'OfThe' + ordinalNumbers[ currentWeek ] + 'WeekOfLent' ] = {
 					moment: date,
-					types: types.WEEKDAY,
+					type: types.WEEKDAY,
 					name: days[ date.day() ] + ' of the ' + ordinalNumbers[ currentWeek ] + ' week of Lent'
 				}
 			}
@@ -648,14 +782,28 @@ function _seasonOfLent ( easter, fixedSolemnities, movableSolemnities ) {
     var holyWeek = palmSunday.twix( easterSunday ),
     	octaveOfEaster = easterSunday.twix( secondSundayOfEaster );
 
-    //  If Annunciation falls during Holy Week or within the Octave of Easter, the Annunciation is transferred to the Monday of the Second Week of Easter
-    if ( holyWeek.contains( annunciation ) || octaveOfEaster.contains( annunciation ) )
-        fixedSolemnities.annunciation.moment = moment.utc(secondSundayOfEaster).add( 1, 'days' );
+    // It is not possible for a fixed date Solemnity to fall on a Sunday of Easter.
 
-    // If Joseph, Husband of Mary (Mar 19) falls on Palm Sunday or during Holy Week, 
-    // it is moved to the Saturday preceding Palm Sunday.
-    if ( holyWeek.contains( josephHusbandOfMary ) )
-    	fixedSolemnities.josephHusbandOfMary.moment = moment( palmSunday ).subtract( 7, 'days' );
+        //  If Annunciation falls during Holy Week or within the Octave of Easter, the Annunciation is transferred to the Monday of the Second Week of Easter
+        if ( holyWeek.contains( annunciation ) || octaveOfEaster.contains( annunciation ) )
+            fixedSolemnities.annunciation.moment = moment.utc(secondSundayOfEaster).add( 1, 'days' );
+
+        // If Joseph, Husband of Mary (Mar 19) falls on Palm Sunday or during Holy Week, 
+        // it is moved to the Saturday preceding Palm Sunday.
+        if ( holyWeek.contains( josephHusbandOfMary ) )
+        	fixedSolemnities.josephHusbandOfMary.moment = moment( palmSunday ).subtract( 8, 'days' );
+
+    // It is not possible for a fixed date Solemnity to fall on a Sunday of Lent
+
+        // If a fixed date Solemnity occurs on a Sunday of Lent, the Solemnity is transferred to the following Monday.  
+        // This affects Joseph, Husband of Mary and Annunciation.
+        for( var i = 0; i < sundays; i++ ) {
+            var nthSundayOfLent = dates['the' + ordinalNumbers[i] + 'SundayOfLent' ];
+            if ( josephHusbandOfMary.isSame( nthSundayOfLent ) )
+                fixedSolemnities.josephHusbandOfMary.moment = moment.utc( nthSundayOfLent ).add( 1, 'days' );
+            if ( annunciation.isSame( nthSundayOfLent ) )
+                fixedSolemnities.annunciation.moment = moment.utc( nthSundayOfLent ).add( 1, 'days' );
+        }
 
     return {
     	lentSeason: dates,
@@ -676,10 +824,15 @@ module.exports = {
 			year = moment.utc().year();
 
 		var easter = _dateOfEaster( year ),
-			fixedSolemnities = _fixedSolemnities( year ),
-			adventSeason = _adventSeason( fixedSolemnities.christmas.moment ),
-			// The function _movableSolemnities calculates the date of epiphany based on the epiphany rubric
-			movableSolemnities = _movableSolemnities( easter, adventSeason.the1stSundayOfAdvent.moment );
+			fixedSolemnities = _fixedSolemnities( year );
+		
+        // Some adjustments for immaculate conception if it falls on a Sunday of Advent
+        var data = _adventSeason( fixedSolemnities ),
+            adventSeason = data.adventSeason;
+        fixedSolemnities = data.fixedSolemnities;
+		
+        // The function _movableSolemnities calculates the date of epiphany based on the epiphany rubric
+		var movableSolemnities = _movableSolemnities( easter, adventSeason.the1stSundayOfAdvent.moment );
 
 		// The function _seasonOfLent does calculations for 2 feasts which may overlap holy week
 		var result = _seasonOfLent( easter, fixedSolemnities, movableSolemnities ),
@@ -704,7 +857,7 @@ module.exports = {
 		lodash.merge( merged, ordinaryTime );
 
 		var liturgicalDates = [],
-			sortedLiturgicalDates;
+			sortedDates = [];
 
 		lodash.map( merged, function( value, key, collection ) {
 			value.data = {};
@@ -712,13 +865,27 @@ module.exports = {
 			liturgicalDates.push( value );
 		});
 
-		sortedLiturgicalDates = lodash.sortBy( liturgicalDates, function( value ) {
+        // Sort dates in ascending order
+		sortedDates = lodash.sortBy( liturgicalDates, function( value ) {
 			return value.moment.valueOf();
 		});
 
-		lodash.map( sortedLiturgicalDates, function( value, key ) {
-
-		});
+        var filtered = {};
+        lodash.map( sortedDates, function( value, key ) {
+            var k = value.moment.valueOf();
+            if ( lodash.isUndefined( filtered[ k ] ) ) {
+                filtered[ k ] = value;
+            }
+            else {
+                
+                // If the overlapping date ranks higher than the current date, it will replace that date
+                var item = filtered[ k ];
+                if ( value.type.rank > item.type.rank )
+                    filtered[k] = value;
+                // else
+                    // console.log( value.name + ' does not replace ' + item.name );
+            }
+        });
 
 	}
 };
