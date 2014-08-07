@@ -46,102 +46,96 @@ var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'S
   *	"Explanatory Supplement to the Astronomical Almanac", P. Kenneth
   *	Seidelmann, editor.
   */
-function _dateOfEaster( year ) {
+function _dateOfEaster( Y ) {
 
-	var century = Math.floor(year/100),
-     	N = year - 19*Math.floor(year/19),
-    	K = Math.floor((century - 17)/25),
-    	I = century - Math.floor(century/4) - Math.floor((century - K)/3) + 19*N + 15;
+	var C = Math.floor(Y/100),
+    	N = Y - 19*Math.floor(Y/19),
+    	K = Math.floor((C - 17)/25),
+    	I = C - Math.floor(C/4) - Math.floor((C - K)/3) + 19*N + 15,
 
     I = I - 30*Math.floor((I/30));
     I = I - Math.floor(I/28)*(1 - Math.floor(I/28)*Math.floor(29/(I + 1))*Math.floor((21 - N)/11));
-    
-    var J = year + Math.floor(year/4) + I + 2 - century + Math.floor(century/4);
+
+    var J = Y + Math.floor(Y/4) + I + 2 - C + Math.floor(C/4);
     J = J - 7*Math.floor(J/7);
-    
+
     var L = I - J,
     	M = 3 + Math.floor((L + 40)/44),
-    	D = L + 28 - 31*Math.floor(M/4);
+     	D = L + 28 - 31*Math.floor(M/4);
 
-    // For moment
-    M = M - 1;
-
-    var M = (M < 10) ? '0' + M : M,
-    	D = (D < 10) ? '0' + D : D;
-
-    return moment({ year: year, month: M, day: D });
+    return moment.utc({ year: Y, month: ( M - 1 ), day: D });
 }
 
 function _movableSolemnities( easter, firstSundayOfAdvent ) {
 
 	var dates = {
-        epiphanyOfOurLord: {
-        	moment: moment({ year: easter.year(), month: 0, day: 6 }),
+        epiphanyOfOurLord: { // Date will be adjusted by the epiphany rubric
+        	moment: moment.utc({ year: easter.year(), month: 0, day: 6 }),
         	type: types.SOLEMNITY,
         	name: 'Epiphany of the Lord'
         },
 		pentecostSunday: {
-			moment: moment(easter).add( 49, 'days' ),
+			moment: moment.utc(easter).add( 49, 'days' ),
 			types: types.SOLEMNITY,
         	name: 'Pentecost'
 		},
 		trinitySunday: {
-			moment: moment(easter).add( 56, 'days' ),
+			moment: moment.utc(easter).add( 56, 'days' ),
 			types: types.SOLEMNITY,
         	name: 'Trinity Sunday'
 		},
 		corpusChristi: {
-			moment: moment(easter).add( 63, 'days' ),
+			moment: moment.utc(easter).add( 63, 'days' ),
 			types: types.SOLEMNITY,
         	name: 'The Body and Blood of Christ'
 		},
 		sacredHeart: {
-			moment: moment(easter).add( 68, 'days' ),
+			moment: moment.utc(easter).add( 68, 'days' ),
 			types: types.SOLEMNITY,
         	name: 'Sacred Heart of Jesus'
 		},
 		christTheKing: {
-			moment: moment(firstSundayOfAdvent).subtract( 7, 'days' ), 
+			moment: moment.utc(firstSundayOfAdvent).subtract( 7, 'days' ), 
 			types: types.SOLEMNITY,
         	name: 'Christ the King'
 		},
 		ashWednesday: {
-			moment: moment(easter).subtract( 46, 'days' ),
+			moment: moment.utc(easter).subtract( 46, 'days' ),
 			type: types.WEEKDAY,
 			name: 'Ash Wednesday'
 		},
 		palmSunday: {
-			moment: moment(easter).subtract( 7, 'days' ),
+			moment: moment.utc(easter).subtract( 7, 'days' ),
 			type: types.SOLEMNITY,
 			name: 'Palm Sunday'
 		},
 		mondayOfHolyWeek: {
-			moment: moment(easter).subtract( 6, 'days' ),
+			moment: moment.utc(easter).subtract( 6, 'days' ),
 			type: types.HOLY_WEEK,
 			name: 'Monday of Holy Week'
 		},
 		tuesdayOfHolyWeek: {
-			moment: moment(easter).subtract( 5, 'days' ),
+			moment: moment.utc(easter).subtract( 5, 'days' ),
 			type: types.HOLY_WEEK,
 			name: 'Tuesday of Holy Week'
 		},
 		wednesdayOfHolyWeek: {
-			moment: moment(easter).subtract( 4, 'days' ),
+			moment: moment.utc(easter).subtract( 4, 'days' ),
 			type: types.HOLY_WEEK,
 			name: 'Wednesday of Holy Week'
 		},
 		holyThursday: {
-			moment: moment(easter).subtract( 3, 'days' ),
+			moment: moment.utc(easter).subtract( 3, 'days' ),
 			type: types.TRIDUUM,
 			name: 'Holy Thursday'
 		},
 		goodFriday: {
-			moment: moment(easter).subtract( 2, 'days' ),
+			moment: moment.utc(easter).subtract( 2, 'days' ),
 			type: types.TRIDUUM,
 			name: 'Good Friday'
 		},
 		holySaturday: {
-			moment: moment(easter).subtract( 1, 'days' ),
+			moment: moment.utc(easter).subtract( 1, 'days' ),
 			type: types.TRIDUUM,
 			name: 'Holy Saturday/Easter Vigil'
 		},
@@ -151,161 +145,283 @@ function _movableSolemnities( easter, firstSundayOfAdvent ) {
 			name: 'Easter Sunday'
 		},
 		mondayInTheOctaveOfEaster: {
-			moment: moment(easter).add( 1, 'days'),
+			moment: moment.utc(easter).add( 1, 'days'),
 			type: types.SOLEMNITY,
 			name: 'Monday in the Octave of Easter'
 		},
 		tuesdayInTheOctaveOfEaster: {
-			moment: moment(easter).add( 2, 'days'),
+			moment: moment.utc(easter).add( 2, 'days'),
 			type: types.SOLEMNITY,
 			name: 'Tuesday in the Octave of Easter'			
 		},
 		wednesdayInTheOctaveOfEaster: {
-			moment: moment(easter).add( 3, 'days'),
+			moment: moment.utc(easter).add( 3, 'days'),
 			type: types.SOLEMNITY,
 			name: 'Wednesday in the Octave of Easter'			
 		},
 		thursdayInTheOctaveOfEaster: {
-			moment: moment(easter).add( 4, 'days'),
+			moment: moment.utc(easter).add( 4, 'days'),
 			type: types.SOLEMNITY,
 			name: 'Thursday in the Octave of Easter'			
 		},
 		fridayInTheOctaveOfEaster: {
-			moment: moment(easter).add( 5, 'days'),
+			moment: moment.utc(easter).add( 5, 'days'),
 			type: types.SOLEMNITY,
 			name: 'Friday in the Octave of Easter'			
 		},
 		saturdayInTheOctaveOfEaster: {
-			moment: moment(easter).add( 6, 'days'),
+			moment: moment.utc(easter).add( 6, 'days'),
 			type: types.SOLEMNITY,
 			name: 'Saturday in the Octave of Easter'			
 		},
 	 	secondSundayOfEaster: {
-        	moment: moment(easter).add( 7, 'days' ),
+        	moment: moment.utc(easter).add( 7, 'days' ),
         	types: types.SOLEMNITY,
         	name: '2nd Sunday of Easter'
         },
         thirdSundayOfEaster: {
-        	moment: moment(easter).add( 14, 'days' ),
+        	moment: moment.utc(easter).add( 14, 'days' ),
         	types: types.SUNDAY,
         	name: '3rd Sunday of Easter'
         },
         fourthSundayOfEaster: {
-        	moment: moment(easter).add( 21, 'days' ),
+        	moment: moment.utc(easter).add( 21, 'days' ),
         	types: types.SUNDAY,
         	name: '4th Sunday of Easter'
         },
         fifthSundayOfEaster: {
-        	moment: moment(easter).add( 28, 'days' ),
+        	moment: moment.utc(easter).add( 28, 'days' ),
         	types: types.SUNDAY,
         	name: '5th Sunday of Easter'
         },
         sixthSundayOfEaster: {
-        	moment: moment(easter).add( 35, 'days' ),
+        	moment: moment.utc(easter).add( 35, 'days' ),
         	types: types.SUNDAY,
         	name: '6th Sunday of Easter'
         },
 		ascensionOfTheLord: {
-			moment: moment(easter).add( 39, 'days' ),
+			moment: moment.utc(easter).add( 39, 'days' ),
 			types: types.SOLEMNITY,
         	name: 'Ascension of the Lord'
 		},
 		seventhSundayOfEaster: {
-			moment: moment(easter).add( 41, 'days' ),
+			moment: moment.utc(easter).add( 41, 'days' ),
 			types: types.SUNDAY,
         	name: '7th Sunday of Easter'
 		}
 	};
 
+	// EPIPHANY RUBRIC
+	// Epiphany is celebrated on the first Sunday after the first Saturday in January, 
+	// which means it could fall on any day from January 2 to January 8. 
+
+	var firstDayOfYear = moment.utc({ year: easter.year(), month: 0, day: 1 });
+
+	// If first day of the year is a Saturday, Mary Mother of God is on Saturday
+	// and Epiphany is on the next day
+	if ( firstDayOfYear.day() === 6 ) 
+		dates.epiphanyOfOurLord.moment = moment.utc(firstDayOfYear).add( 1, 'days' );
+	
+	// If first day of the year is a Sunday, Mary Mother of God is on that Sunday and
+	// the Sunday proceeding will be Epiphany
+	else if ( firstDayOfYear.day() === 0 )
+		dates.epiphanyOfOurLord.moment = moment.utc( firstDayOfYear ).add( 7, 'days' );
+	
+	// If first day of the year is on a weekday (i.e. Monday - Friday),
+	// Epiphany will be celebrated on the Sunday proceeding
+	else
+		dates.epiphanyOfOurLord.moment = moment.utc( firstDayOfYear ).endOf('week').add( 1, 'days' );
 
 	return dates;
 }
 
-function _feastsOfTheLord( christmas ) {
+function _feastsOfTheLord( fixedSolemnities, movableSolemnities ) {
 
-	var year = christmas.year(), 
+	var christmas = fixedSolemnities.christmas.moment,
+		year = christmas.year(), 
 		dates = {
 			// Will be adjusted according to the epiphany rubric
 			baptismOfTheLord: {
-				moment: moment({year: year, month: 0, day: 7 }),
+				moment: moment.utc({year: year, month: 0, day: 7 }),
 				type: types.FEAST,
 				name: 'Baptism of the Lord'
 			},
 			presentationOfTheLord: {
-				moment: moment({year:year, month: 1, day: 2}),
+				moment: moment.utc({year:year, month: 1, day: 2}),
 				type: types.FEAST,
 				name: 'Presentation of the Lord'
 			},
 			transfiguration: {
-				moment: moment({year:year, month: 7, day: 6}),
+				moment: moment.utc({year:year, month: 7, day: 6}),
 				type: types.FEAST,
 				name: 'Transfiguration'
 			},
 			triumphOfTheCross: {
-				moment: moment({year:year, month: 8, day: 14}),
+				moment: moment.utc({year:year, month: 8, day: 14}),
 				type: types.FEAST,
 				name: 'Triumph of the Cross'
 			}
 		};
 
 	if ( christmas.day() === 0 )
-		dates.holyFamily = moment({year: year, month: 11, day: 30});
-	else
-		dates.holyFamily = moment(christmas).add( 7, 'days');
+		dates.holyFamily = {
+			moment: moment.utc({year: year, month: 11, day: 30}),
+			type: types.FEAST,
+			name: 'Holy Family'
+		};
+	else {
 
-	return dates
+		// If Christmas is not a Sunday, then Holy Family is celebrated on the Sunday after Christmas
+		dates.holyFamily = {
+			moment: moment.utc( christmas ).endOf('week').add( 1, 'days'),
+			type: types.FEAST,
+			name: 'Holy Family'
+		};
+
+		// On January 1, the faithful celebrate the solemnity of Mary, Mother of God; 
+		// however, if Jan. 1 falls on the Sunday after Christmas, then the feast of 
+		// the Holy Family would be celebrated on Dec. 30.
+		if ( dates.holyFamily.moment.isSame( moment.utc({ year: (year + 1), month: 0, day: 1 } ) ) ) 
+			dates.holyFamily.moment = moment.utc({year: year, month: 11, day: 30});
+	}
+
+	var epiphanyOfOurLord = movableSolemnities.epiphanyOfOurLord.moment;
+
+	// If Epiphany is celebrated on Jan. 6:
+	if ( epiphanyOfOurLord.date() === 6 ) { 
+
+		// The Baptism of the Lord occurs on the Sunday following Jan. 6.
+		dates.baptismOfTheLord.moment = moment.utc( epiphanyOfOurLord ).add( 7, 'days' );
+
+		// Days from Jan. 2 through Jan. 5 are called "*day before Epiphany".
+		var beforeIterator = moment.twix( moment.utc({year:year, month: 0, day: 2}), moment.utc({year:year, month: 0, day: 5}) ).iterate('days');
+		while( beforeIterator.hasNext() ) {
+
+			var date = beforeIterator.next();
+
+			// If a Sunday occurs on a day from Jan. 2 through Jan. 5, it is called the "Second Sunday of Christmas".
+			if ( date.day() === 0 ) {
+				movableSolemnities['secondSundayOfChristmas'] = {
+					moment: date,
+					types: types.SUNDAY,
+					name: ordinalNumbers[1] + ' Sunday of Christmas'
+				};
+			}
+			else {			
+				movableSolemnities[ days[ date.day() ] + 'BeforeEpiphany' ] = {
+					moment: date,
+					type: types.WEEKDAY,
+					name: days[ date.day() ] + ' before Epiphany'
+				};
+			}
+		}
+
+		// Days between Jan. 6 and the following Sunday are called "*day after Epiphany".
+		var afterIterator = moment.twix( epiphanyOfOurLord, dates.baptismOfTheLord.moment ).iterateInner('days');
+		while( afterIterator.hasNext() ) {
+			var date = afterIterator.next();
+			if ( date.day() === 0 ) break; // Break when this loop reaches a sunday
+			movableSolemnities[ days[ date.day() ] + 'AfterEpiphany' ] = {
+				moment: date,
+				type: types.WEEKDAY,
+				name: days[ date.day() ] + ' after Epiphany'
+			};	
+		}
+	}
+	// If Epiphany is not celebrated on Jan. 6 (i.e., celebrated on Sunday):
+	else {
+
+		// Days after Jan. 1 but before the Sunday occurring from Jan. 2 through Jan. 8 are called "*day before Epiphany".
+		var beforeIterator = moment.twix( moment.utc({ year: year, month: 0, day: 2 }), moment.utc({ year: year, month: 0, day: 8 })).iterate('days');
+		while( beforeIterator.hasNext() ) {
+			var date = beforeIterator.next();
+			if ( date.day() === 0 ) break; // Break when this loop reaches a sunday
+			movableSolemnities[ days[ date.day() ] + 'BeforeEpiphany' ] = {
+				moment: date,
+				types: types.WEEKDAY,
+				name: ordinalNumbers[1] + ' before Epiphany'
+			};
+		}
+
+		// If Epiphany occurs on Jan. 7 or Jan. 8, then the Baptism of the Lord is the next day (Monday)
+		if ( epiphanyOfOurLord.date() === 7 || epiphanyOfOurLord.date() === 8 )
+			dates.baptismOfTheLord.moment = moment.utc( epiphanyOfOurLord ).add( 1, 'days' );
+
+		// Epiphany occurs on or before Jan. 6, then the days of the week following Epiphany are 
+		// called "*day after Epiphany" and the Sunday following Epiphany is the Baptism of the Lord.
+		if ( epiphanyOfOurLord.date() <= 6 ) {
+
+			dates.baptismOfTheLord.moment = moment.utc( epiphanyOfOurLord ).add( 7, 'days' );
+
+			var afterIterator = moment.twix(epiphanyOfOurLord, dates.baptismOfTheLord.moment ).iterateInner('days');
+			while( afterIterator.hasNext() ) {
+				var date = afterIterator.next();
+				if ( date.day() === 0 ) break; // Break when this loop reaches a sunday
+				movableSolemnities[ days[ date.day() ] + 'AfterEpiphany' ] = {
+					moment: date,
+					type: types.WEEKDAY,
+					name: days[ date.day() ] + ' after Epiphany'
+				};	
+			}
+		}
+	}
+
+	return {
+		feastsOfTheLord: dates,
+		movableSolemnities: movableSolemnities
+	};
 }
 
 function _fixedSolemnities( year ) {
 	var dates = {
 			maryMotherOfGod: {
-				moment: moment({year:year, month: 0, day: 1}),
+				moment: moment.utc({year:year, month: 0, day: 1}),
 				type: types.SOLEMNITY,
 				name: 'Mary, Mother of God'
 			},
 			// Will be adjusted according to the epiphany rubric
 			epiphanyOfOurLord: {
-				moment: moment({year:year, month: 0, day: 6}),
+				moment: moment.utc({year:year, month: 0, day: 6}),
 				type: types.SOLEMNITY,
 				name: 'Epiphany of the Lord'
 			},
 			josephHusbandOfMary: {
-				moment: moment({year:year, month: 2, day: 19}),
+				moment: moment.utc({year:year, month: 2, day: 19}),
 				type: types.SOLEMNITY,
 				name: 'Joseph, Husband of Mary'
 			},
 			annunciation: {
-				moment: moment({year:year, month: 2, day: 25}),
+				moment: moment.utc({year:year, month: 2, day: 25}),
 				type: types.SOLEMNITY,
 				name: 'Annunciation'
 			},
 			birthOfJohnTheBaptist: {
-				moment: moment({year:year, month: 5, day: 24}),
+				moment: moment.utc({year:year, month: 5, day: 24}),
 				type: types.SOLEMNITY,
 				name: 'Birth of John the Baptist'
 			},
 			peterAndPaulApostles: {
-				moment: moment({year:year, month: 5, day: 29}),
+				moment: moment.utc({year:year, month: 5, day: 29}),
 				type: types.SOLEMNITY,
 				name: 'Peter & Paul, Apostles'
 			},
 			assumption: {
-				moment: moment({year:year, month: 7, day: 15}),
+				moment: moment.utc({year:year, month: 7, day: 15}),
 				type: types.SOLEMNITY,
 				name: 'Assumption'
 			},
 			allSaints: {
-				moment: moment({year:year, month: 10, day: 1}),
+				moment: moment.utc({year:year, month: 10, day: 1}),
 				type: types.SOLEMNITY,
 				name: 'All Saints'
 			},
 			immaculateConception: {
-				moment: moment({year:year, month: 11, day: 8}),
+				moment: moment.utc({year:year, month: 11, day: 8}),
 				type: types.SOLEMNITY,
 				name: 'Immaculate Conception'
 			},
 			christmas: {
-				moment: moment({year:year, month: 11, day: 25}),
+				moment: moment.utc({year:year, month: 11, day: 25}),
 				type: types.SOLEMNITY,
 				name: 'Christmas'
 			}
@@ -346,7 +462,7 @@ function _adventSeason( christmas ) {
     		break;
     }
 
-    var iterator = moment.twix( moment(christmas).subtract( lengthOfAdvent, 'days') , moment(christmas).subtract( 1, 'days') ).iterate('days'),
+    var iterator = moment.twix( moment.utc(christmas).subtract( lengthOfAdvent, 'days') , christmas ).iterateInner('days'),
     	sundays = 0, ctr = 0; currentWeek = 0;
 
     while( iterator.hasNext() ) {
@@ -363,7 +479,7 @@ function _adventSeason( christmas ) {
 	    		sundays++;
     			break;
     		default:
-    			dates[ days[ date.day() ] + 'OfThe' + ordinalNumbers[ currentWeek ] + 'OfAdvent' ] = {
+    			dates[ days[ date.day() ] + 'OfThe' + ordinalNumbers[ currentWeek ] + 'WeekOfAdvent' ] = {
     				moment: date,
     				types: types.WEEKDAY,
     				name: days[ date.day() ] + ' of the ' + ordinalNumbers[ currentWeek ] + ' week of Advent'
@@ -375,6 +491,7 @@ function _adventSeason( christmas ) {
 		if ( ctr % 7 === 0 )
     		currentWeek++;
     }
+
     return dates;
 }
 
@@ -388,11 +505,15 @@ function _adventSeason( christmas ) {
  * and is the week before the First Sunday of Advent. The Sundays of Ordinary Time in the 
  * latter part of the year are numbered backwards from Christ the King to Pentecost.
  */
-function _ordinaryTime( baptismOfTheLord, ashWednesday, pentecostSunday, the1stSundayOfAdvent ) {
+function _ordinaryTime( movableSolemnities, feastsOfTheLord ) {
 
-	var firstIterator = moment.twix( moment( baptismOfTheLord ).add( 1, 'days'), moment( ashWednesday ).subtract( 1, 'days')).iterate('days'),
-		secondIterator = moment.twix( moment( pentecostSunday ).add( 1, 'days'), moment( the1stSundayOfAdvent ).subtract( 1, 'days')).iterate('days');
-        console.log( baptismOfTheLord.toString() );
+	var baptismOfTheLord = feastsOfTheLord.baptismOfTheLord.moment,
+		ashWednesday = movableSolemnities.ashWednesday.moment,
+		pentecostSunday = movableSolemnities.pentecostSunday.moment,
+		christTheKing = movableSolemnities.christTheKing.moment;
+
+	var firstIterator = moment.twix( baptismOfTheLord, ashWednesday ).iterateInner('days'),
+		secondIterator = moment.twix( pentecostSunday, christTheKing ).iterateInner('days');
 
     var dates = {}, sundays = 1, ctr = 0; currentWeek = 0;
     while( firstIterator.hasNext() ) {
@@ -420,85 +541,31 @@ function _ordinaryTime( baptismOfTheLord, ashWednesday, pentecostSunday, the1stS
             currentWeek++;
 	}
 
-    // lodash.map( dates, function( v, k, c ) {
-    //     console.log( k + ' : ' +  v.moment.toString() );
-    // });
+	// The Solemnity of Christ the King is always the 34th (and last) Sunday of Ordinary Time 
+	// and is the week before the First Sunday of Advent. The Sundays of Ordinary Time in the 
+	// latter part of the year are numbered backwards from Christ the King to Pentecost.
 
-    // while ( secondIterator.hasNext() ) {
+	var latterOrdinaryTime = [];
+    while ( secondIterator.hasNext() ) {
+    	latterOrdinaryTime.push( secondIterator.next() );
+    }
 
-    // }
+    lodash.forOwnRight( latterOrdinaryTime, function( date ) {
+    	
+
+    });
 
 
+	// lodash.map( dates, function( v,k,c) {
+	// 	console.log( k + ":" + v.moment.toString() );
+	// })
 
-
+    return dates;
 }
 
 function _seasonOfLent( easter ) {
 
 }
-
-/*
- * In places where the solemnity of the Epiphany is to be transferred to the Sunday 
- * falling on 7 January or 8 January, with the result that the feast of the 
- * Baptism of the Lord would be omitted, this feast is to be transferred to the 
- * Monday immediately following that Sunday
- */
-function _epiphanyRubric( movableSolemnities, fixedSolemnities, feastsOfTheLord ) {
-
-	var dates = {},
-        epiphanyOfOurLord = movableSolemnities.epiphanyOfOurLord.moment,
-        year = epiphanyOfOurLord.year();
-
-	// If Epiphany is celebrated on Jan. 6
-    if ( epiphanyOfOurLord.date() === 6 ) {
-        
-        // Jan. 1 is the Solemnity of Mary, Mother of God.
-        fixedSolemnities.maryMotherOfGod = moment({year:year, month: 0, day: 1});
-
-        // The Baptism of the Lord occurs on the Sunday following Jan. 6.
-        feastsOfTheLord.baptismOfTheLord = moment( epiphanyOfOurLord ).endOf('week').add( 1, 'days');
-
-        // If a Sunday occurs between Jan. 2 through Jan. 5, it is called the "Second Sunday of Christmas".
-        if ( moment({year:year, month: 0, day: 2}).day() === 0 ||
-        	 moment({year:year, month: 0, day: 3}).day() === 0 ||
-        	 moment({year:year, month: 0, day: 4}).day() === 0 || 
-        	 moment({year:year, month: 0, day: 5}).day() === 0 ) {
-
-        }
-
-    }
-    else { // If Epiphany is not celebrated on Jan. 6 (i.e., celebrated on Sunday)
-
-    	// Jan. 1 is the Solemnity of Mary, Mother of God.
-        fixedSolemnities.maryMotherOfGod = moment({year:year, month: 0, day: 1});
-
-        // Epiphany is celebrated on the Sunday occurring from Jan. 2 through Jan. 8.
-        var iterator = moment.twix( moment({year:year, month: 0, day: 2}), 
-        							moment({year:year, month: 0, day: 8})).iterate('days');
-
-        // Epiphany is celebrated on the Sunday occurring from Jan. 2 through Jan. 8.
-        while ( iterator.hasNext() ) {
-            var date = iterator.next();
-        	if ( iterator.next().day() === 0 ) {
-                movableSolemnities.epiphanyOfOurLord = date;
-        		return;
-        	}
-            else {
-                
-            }
-        }
-
-        // If Epiphany occurs on Jan. 7 or Jan. 8, then the Baptism of the Lord is the next day (Monday)
-        if ( epiphanyOfOurLord.date() === 7 || epiphanyOfOurLord.date() === 8 )
-            feastsOfTheLord.baptismOfTheLord = moment( epiphanyOfOurLord ).add( 1, 'days' );
-
-        // If Epiphany occurs before Jan. 6, the Sunday following Epiphany is the Baptism of the Lord.
-        if ( epiphanyOfOurLord.date() < 6 )
-            feastsOfTheLord.baptismOfTheLord = moment( epiphanyOfOurLord ).endOf('week').add( 1, 'days' );
-        
-    }
-}
-
 
 function _lentHolyWeekAdjustments( fixedSolemnities, movableSolemnities ) {
 
@@ -508,49 +575,46 @@ function _lentHolyWeekAdjustments( fixedSolemnities, movableSolemnities ) {
 
     // If the Annunciation (Mar 25) falls on Palm Sunday, it is celebrated on the Saturday preceding
     if ( annunciation.isSame( palmSunday ) )
-        fixedSolemnities.annunciation = moment(palmSunday).startOf('week').subtract( 1, 'days' );
+        fixedSolemnities.annunciation = moment.utc(palmSunday).startOf('week').subtract( 1, 'days' );
 
     //  If it falls during Holy Week or within the Octave of Easter, the Annunciation is transferred to the Monday of the Second Week of Easter
     if ( movableSolemnities.holyWeek.contains( annunciation ) || movableSolemnities.octaveOfEaster.contains( annunciation ) )
-        fixedSolemnities.annunciation = moment(secondSundayOfEaster).add( 1, 'days' );
-
+        fixedSolemnities.annunciation = moment.utc(secondSundayOfEaster).add( 1, 'days' );
 }
-
-
 
 module.exports = {
 
 	dates: function( year ) {
 
 		if ( lodash.isEmpty( year ) )
-			year = moment().year();
+			year = moment.utc().year();
+		else if ( lodash.isString( year ) )
+			year = parseInt( year );
+		else if ( lodash.isObject( year ) )
+			year = moment.utc().year();
 
 		var easter = _dateOfEaster( year ),
 			fixedSolemnities = _fixedSolemnities( year ),
 			adventSeason = _adventSeason( fixedSolemnities.christmas.moment ),
-			movableSolemnities = _movableSolemnities( easter, adventSeason.the1stSundayOfAdvent.moment ),
-			feastsOfTheLord = _feastsOfTheLord( fixedSolemnities.christmas.moment ),
-			ordinaryTime = _ordinaryTime( feastsOfTheLord.baptismOfTheLord.moment, movableSolemnities.ashWednesday.moment, movableSolemnities.pentecostSunday.moment, adventSeason.the1stSundayOfAdvent );
+			// The function _movableSolemnities calculates the date of epiphany based on the epiphany rubric
+			movableSolemnities = _movableSolemnities( easter, adventSeason.the1stSundayOfAdvent.moment );
 
-		// Run rules as defined by Celebratio Baptismatis Domini
-		_epiphanyRubric( 
-			movableSolemnities, 
-			fixedSolemnities, 
-			feastsOfTheLord 
-		);
+		// The function _feastsOfTheLord calculates much of the rules described in the epiphany rubric
+		var response = _feastsOfTheLord( fixedSolemnities, movableSolemnities ),
+			feastsOfTheLord = response.feastsOfTheLord,
+			movableSolemnities = response.movableSolemnities;
+		
+
+		var ordinaryTime = _ordinaryTime( movableSolemnities, feastsOfTheLord );
 
 		var merged = {};
 		lodash.merge( merged, fixedSolemnities );
 		lodash.merge( merged, adventSeason );
 		lodash.merge( merged, movableSolemnities );
 		lodash.merge( merged, feastsOfTheLord );
+		lodash.merge( merged, ordinaryTime );
 
 		var liturgicalDates = {};
-		lodash.map( merged, function( value, key, collection ) {
-			liturgicalDates[ value.valueOf ] = {
-				moment: value
-			};
-		});
 
 
 
