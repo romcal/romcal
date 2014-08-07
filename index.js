@@ -94,6 +94,11 @@ function _movableSolemnities( easter, firstSundayOfAdvent ) {
 			types: types.SOLEMNITY,
         	name: 'Sacred Heart of Jesus'
 		},
+		immaculateHeartOfMary: {
+			moment: moment.utc(easter).add( 69, 'days' ),
+			types: types.MEMORIAL,
+        	name: 'Immaculate Heart of Mary'
+		},
 		christTheKing: {
 			moment: moment.utc(firstSundayOfAdvent).subtract( 7, 'days' ), 
 			types: types.SOLEMNITY,
@@ -379,12 +384,6 @@ function _fixedSolemnities( year ) {
 				type: types.SOLEMNITY,
 				name: 'Mary, Mother of God'
 			},
-			// Will be adjusted according to the epiphany rubric
-			epiphanyOfOurLord: {
-				moment: moment.utc({year:year, month: 0, day: 6}),
-				type: types.SOLEMNITY,
-				name: 'Epiphany of the Lord'
-			},
 			josephHusbandOfMary: {
 				moment: moment.utc({year:year, month: 2, day: 19}),
 				type: types.SOLEMNITY,
@@ -505,12 +504,13 @@ function _adventSeason( christmas ) {
  * and is the week before the First Sunday of Advent. The Sundays of Ordinary Time in the 
  * latter part of the year are numbered backwards from Christ the King to Pentecost.
  */
-function _ordinaryTime( movableSolemnities, feastsOfTheLord ) {
+function _ordinaryTime( movableSolemnities, feastsOfTheLord, fixedSolemnities ) {
 
 	var baptismOfTheLord = feastsOfTheLord.baptismOfTheLord.moment,
 		ashWednesday = movableSolemnities.ashWednesday.moment,
 		pentecostSunday = movableSolemnities.pentecostSunday.moment,
-		christTheKing = movableSolemnities.christTheKing.moment;
+		christTheKing = movableSolemnities.christTheKing.moment,
+		year = baptismOfTheLord.year();
 
 	var firstIterator = moment.twix( baptismOfTheLord, ashWednesday ).iterateInner('days'),
 		secondIterator = moment.twix( pentecostSunday, christTheKing ).iterateInner('days');
@@ -532,7 +532,7 @@ function _ordinaryTime( movableSolemnities, feastsOfTheLord ) {
                     moment: date,
                     types: types.WEEKDAY,
                     name: days[ date.day() ] + ' of the ' + ordinalNumbers[ currentWeek ] + ' week of Ordinary Time'
-                }
+                };
                 break;
         }
 
@@ -550,36 +550,118 @@ function _ordinaryTime( movableSolemnities, feastsOfTheLord ) {
     	latterOrdinaryTime.push( secondIterator.next() );
     }
 
+    var lastWeekIterator = moment.twix( moment( christTheKing ).add( 1, 'days' ), moment( christTheKing ).endOf('week') ).iterateInner('days');
+    while( lastWeekIterator.hasNext() ) {
+    	var date = lastWeekIterator.next();
+    	dates[ days[ date.day() ] + 'OfThe' + ordinalNumbers[ 33 ] + 'WeekOfOrdinaryTime' ] = {
+            moment: date,
+            types: types.WEEKDAY,
+            name: days[ date.day() ] + ' of the ' + ordinalNumbers[ 33 ] + ' week of Ordinary Time'
+        };
+    }
+
+    var weekOfOrdinaryTime = 32,
+    	counter = 0;
     lodash.forOwnRight( latterOrdinaryTime, function( date ) {
     	
+    	if ( date.day() === 0 ) { // Sunday
+			dates[ 'the' + ordinalNumbers[weekOfOrdinaryTime] + 'SundayOfOrdinaryTime' ] = {
+                moment: date,
+                type: types.SUNDAY,
+                name: ordinalNumbers[weekOfOrdinaryTime] + ' Sunday of Ordinary Time'
+            };
+    	}
+    	else { // Monday - Saturday
+			dates[ days[ date.day() ] + 'OfThe' + ordinalNumbers[ weekOfOrdinaryTime ] + 'WeekOfOrdinaryTime' ] = {
+	            moment: date,
+	            types: types.WEEKDAY,
+	            name: days[ date.day() ] + ' of the ' + ordinalNumbers[ weekOfOrdinaryTime ] + ' week of Ordinary Time'
+	        };
+    	}
 
+    	counter++;
+    	if ( counter % 7 === 0 )
+    		weekOfOrdinaryTime--;
     });
-
-
-	// lodash.map( dates, function( v,k,c) {
-	// 	console.log( k + ":" + v.moment.toString() );
-	// })
 
     return dates;
 }
 
-function _seasonOfLent( easter ) {
+function _memorials {
 
 }
 
-function _lentHolyWeekAdjustments( fixedSolemnities, movableSolemnities ) {
+function _seasonOfLent ( easter, fixedSolemnities, movableSolemnities ) {
 
-    var annunciation = fixedSolemnities.annunciation,
-        palmSunday = movableSolemnities.palmSunday,
-        secondSundayOfEaster = movableSolemnities.secondSundayOfEaster;
+    var annunciation = fixedSolemnities.annunciation.moment,
+        palmSunday = movableSolemnities.palmSunday.moment,
+        easterSunday = movableSolemnities.easterSunday.moment,
+        josephHusbandOfMary = fixedSolemnities.josephHusbandOfMary.moment,
+        secondSundayOfEaster = movableSolemnities.secondSundayOfEaster.moment,
+        ashWednesday = movableSolemnities.ashWednesday.moment;
+
+	var dates = {}, sundays = 0, ctr = 0, currentWeek = 0,
+		iterator = moment.twix( moment( ashWednesday ).add( 1, 'days' ), palmSunday ).iterateInner('days');
+
+	while ( iterator.hasNext() ) {
+		var date = iterator.next();
+		if ( date.day() === 0 ) {
+			dates[ 'the' + ordinalNumbers[sundays] + 'SundayOfLent' ] = {
+    			moment: date,
+    			type: types.SUNDAY,
+    			name: ordinalNumbers[sundays] + ' Sunday of Lent'
+    		};
+    		sundays++;
+		}
+		else {
+			// The days from after Ash Wednesday till before the first Sunday of Lent
+			// are known as "** after Ash Wednesday"
+			if ( ctr < 3 ) {
+				dates[ days[ date.day() ] +  'AfterAshWednesday' ] = {
+					moment: date,
+					types: types.WEEKDAY,
+					name: days[ date.day() ] + ' after Ash Wednesday'
+				}
+			}
+			else {
+				dates[ days[ date.day() ] + 'OfThe' + ordinalNumbers[ currentWeek ] + 'WeekOfLent' ] = {
+					moment: date,
+					types: types.WEEKDAY,
+					name: days[ date.day() ] + ' of the ' + ordinalNumbers[ currentWeek ] + ' week of Lent'
+				}
+			}
+		}
+
+    	ctr++; // Increment days
+		if ( ctr % 7 === 0 )
+    		currentWeek++;
+	}
+
+	// lodash.map( dates, function( v, k, c ) {
+	// 	console.log( k + ":" + v.moment.toString() );
+	// });
 
     // If the Annunciation (Mar 25) falls on Palm Sunday, it is celebrated on the Saturday preceding
     if ( annunciation.isSame( palmSunday ) )
-        fixedSolemnities.annunciation = moment.utc(palmSunday).startOf('week').subtract( 1, 'days' );
+        fixedSolemnities.annunciation.moment = moment.utc(palmSunday).startOf('week').subtract( 1, 'days' );
 
-    //  If it falls during Holy Week or within the Octave of Easter, the Annunciation is transferred to the Monday of the Second Week of Easter
-    if ( movableSolemnities.holyWeek.contains( annunciation ) || movableSolemnities.octaveOfEaster.contains( annunciation ) )
-        fixedSolemnities.annunciation = moment.utc(secondSundayOfEaster).add( 1, 'days' );
+    var holyWeek = palmSunday.twix( easterSunday ),
+    	octaveOfEaster = easterSunday.twix( secondSundayOfEaster );
+
+    //  If Annunciation falls during Holy Week or within the Octave of Easter, the Annunciation is transferred to the Monday of the Second Week of Easter
+    if ( holyWeek.contains( annunciation ) || octaveOfEaster.contains( annunciation ) )
+        fixedSolemnities.annunciation.moment = moment.utc(secondSundayOfEaster).add( 1, 'days' );
+
+    // If Joseph, Husband of Mary (Mar 19) falls on Palm Sunday or during Holy Week, 
+    // it is moved to the Saturday preceding Palm Sunday.
+    if ( holyWeek.contains( josephHusbandOfMary ) )
+    	fixedSolemnities.josephHusbandOfMary.moment = moment( palmSunday ).subtract( 7, 'days' );
+
+    return {
+    	lentSeason: dates,
+    	fixedSolemnities: fixedSolemnities,
+    	movableSolemnities: movableSolemnities
+    };
 }
 
 module.exports = {
@@ -599,43 +681,44 @@ module.exports = {
 			// The function _movableSolemnities calculates the date of epiphany based on the epiphany rubric
 			movableSolemnities = _movableSolemnities( easter, adventSeason.the1stSundayOfAdvent.moment );
 
+		// The function _seasonOfLent does calculations for 2 feasts which may overlap holy week
+		var result = _seasonOfLent( easter, fixedSolemnities, movableSolemnities ),
+			lentSeason = result.lentSeason;
+		fixedSolemnities = result.fixedSolemnities;
+		movableSolemnities = result.movableSolemnities;
+
 		// The function _feastsOfTheLord calculates much of the rules described in the epiphany rubric
 		var response = _feastsOfTheLord( fixedSolemnities, movableSolemnities ),
-			feastsOfTheLord = response.feastsOfTheLord,
-			movableSolemnities = response.movableSolemnities;
+			feastsOfTheLord = response.feastsOfTheLord;
+		movableSolemnities = response.movableSolemnities;
 		
-
-		var ordinaryTime = _ordinaryTime( movableSolemnities, feastsOfTheLord );
+		// Output of ordinary time is based on the output of _seasonOfLent and _feastsOfTheLord
+		var ordinaryTime = _ordinaryTime( movableSolemnities, feastsOfTheLord, fixedSolemnities );
 
 		var merged = {};
 		lodash.merge( merged, fixedSolemnities );
 		lodash.merge( merged, adventSeason );
 		lodash.merge( merged, movableSolemnities );
 		lodash.merge( merged, feastsOfTheLord );
+		lodash.merge( merged, lentSeason );
 		lodash.merge( merged, ordinaryTime );
 
-		var liturgicalDates = {};
+		var liturgicalDates = [],
+			sortedLiturgicalDates;
 
+		lodash.map( merged, function( value, key, collection ) {
+			value.data = {};
+			value.unixTimestamp = value.moment.valueOf();
+			liturgicalDates.push( value );
+		});
 
+		sortedLiturgicalDates = lodash.sortBy( liturgicalDates, function( value ) {
+			return value.moment.valueOf();
+		});
 
-	 	var iterator = moment.twix(
-    		{ year: year, month: 0, day: 1 }, 
-    		{ year: year, month: 11, day: 31 }
-    	).iterate('days');
+		lodash.map( sortedLiturgicalDates, function( value, key ) {
 
-	 	var dates = {};
-    	while ( iterator.hasNext() ) {
-    		var date = iterator.next();
-    		dates[ date.valueOf() ] = {
-    			moment: date
-    		};
-    	}
-
-
-		// console.log( adventSeason.firstSundayOfAdvent.toString() );
-		// console.log( adventSeason.secondSundayOfAdvent.toString() );
-		// console.log( adventSeason.thirdSundayOfAdvent.toString() );
-		// console.log( adventSeason.fourthSundayOfAdvent.toString() );
+		});
 
 	}
 };
