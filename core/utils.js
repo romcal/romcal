@@ -56,6 +56,7 @@ module.exports = {
 	types: function() {
 		return types = {
 			"SOLEMNITY":{"key":"SOLEMNITY","name":"Solemnity","rank":10},
+			"FEAST_OF_THE_LORD":{"key":"FEAST_OF_THE_LORD","name":"Feast","rank":9},
 			"FEAST":{"key":"FEAST","name":"Feast","rank":9},
 			"TRIDUUM":{"key":"TRIDUUM","name":"Triduum","rank":8},
 			"HOLY_WEEK":{"key":"HOLY_WEEK","name":"Holy Week","rank":7},
@@ -73,13 +74,15 @@ module.exports = {
 	
 	liturgicalColors: function() {
 		return {
-			"RED":{"name":"RED","hex":"#ff0000","rgb":[255,0,0]},
+			"RED":{"name":"RED","hex":"#FF0000","rgb":[255,0,0]},
+			"ROSE":{"name":"ROSE","hex":"#FF007F","rgb":[255,0,127]},
 			"PURPLE":{"name":"PURPLE","hex":"#800080","rgb":[128,0,128]},
 			"GREEN":{"name":"GREEN","hex":"#008000","rgb":[0,128,0]},
-			"WHITE":{"name":"WHITE","hex":"#ffffff","rgb":[255,255,255]},
+			"WHITE":{"name":"WHITE","hex":"#FFFFFF","rgb":[255,255,255]},
 			"GOLD":{"name":"GOLD","hex":"#FFD700","rgb":[255, 215, 0]}
 		};
 	},
+	
 	dateOfEaster: function( Y ) {
 		/**
 		  * This algorithm is based on the algorithm of Oudin (1940) and quoted in

@@ -16,22 +16,22 @@ module.exports = {
 				// Will be adjusted according to the epiphany rubric
 				baptismOfTheLord: {
 					moment: moment.utc({year: year, month: 0, day: 7 }),
-					type: types.FEAST,
+					type: types.FEAST_OF_THE_LORD,
 					name: 'Baptism of the Lord'
 				},
 				presentationOfTheLord: {
 					moment: moment.utc({year:year, month: 1, day: 2}),
-					type: types.FEAST,
+					type: types.FEAST_OF_THE_LORD,
 					name: 'Presentation of the Lord'
 				},
 				transfiguration: {
 					moment: moment.utc({year:year, month: 7, day: 6}),
-					type: types.FEAST,
+					type: types.FEAST_OF_THE_LORD,
 					name: 'Transfiguration'
 				},
 				triumphOfTheCross: {
 					moment: moment.utc({year:year, month: 8, day: 14}),
-					type: types.FEAST,
+					type: types.FEAST_OF_THE_LORD,
 					name: 'Triumph of the Cross'
 				}
 			};
@@ -39,7 +39,7 @@ module.exports = {
 		if ( christmas.day() === 0 )
 			dates.holyFamily = {
 				moment: moment.utc({year: year, month: 11, day: 30}),
-				type: types.FEAST,
+				type: types.FEAST_OF_THE_LORD,
 				name: 'Holy Family'
 			};
 		else {
@@ -47,7 +47,7 @@ module.exports = {
 			// If Christmas is not a Sunday, then Holy Family is celebrated on the Sunday after Christmas
 			dates.holyFamily = {
 				moment: moment.utc( christmas ).endOf('week').add( 1, 'days'),
-				type: types.FEAST,
+				type: types.FEAST_OF_THE_LORD,
 				name: 'Holy Family'
 			};
 			dates.holyFamily.moment.hour(0).minute(0).seconds(0).millisecond(0);

@@ -58,13 +58,13 @@ module.exports = {
 		// Get all other feasts and memorials in the general roman calendar
 		otherCelebrations = require('./core/otherCelebrations').dates( year );
 
-		var sortedDates =  formatters.mergeAndSort(
-			[ fixedSolemnities, adventSeason, movableSolemnities, feastsOfTheLord, lentSeason, ordinaryTime, otherCelebrations ]);
+		var sortedDates =  formatters.mergeAndSort([ fixedSolemnities, adventSeason, movableSolemnities, feastsOfTheLord, lentSeason, ordinaryTime, otherCelebrations ]);
 		sortedDates = formatters.resolveCoincidingEvents( sortedDates );
 		sortedDates = formatters.applyLiturgicalColors( sortedDates );
 
-		lodash.map( sortedDates, function( value, key ) {
-			console.log( value.moment.toString() + " : " + value.name );
-		});
+		// lodash.map( sortedDates, function( value, key ) {
+		// 	if ( value.type.color && value.type.color.name === 'GOLD' )
+		// 		console.log( value.moment.toString(), ':', value.literalKey, ':', value.type.color );
+		// });
 	}
 };
