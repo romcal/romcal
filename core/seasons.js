@@ -188,7 +188,7 @@ module.exports = {
 	    		case 0:
 		    		dates[ 'the' + ordinalNumbers[sundays] + 'SundayOfAdvent' ] = {
 		    			moment: date,
-		    			type: types.SUNDAY,
+		    			type: types.SUNDAY_OF_ADVENT,
 		    			name: ordinalNumbers[sundays] + ' Sunday of Advent'
 		    		};
 		    		sundays++;
@@ -196,7 +196,7 @@ module.exports = {
 	    		default:
 	    			dates[ days[ date.day() ] + 'OfThe' + ordinalNumbers[ currentWeek ] + 'WeekOfAdvent' ] = {
 	    				moment: date,
-	    				type: types.WEEKDAY,
+	    				type: types.WEEKDAY_OF_ADVENT,
 	    				name: days[ date.day() ] + ' of the ' + ordinalNumbers[ currentWeek ] + ' week of Advent'
 	    			}
 	    			break;
@@ -332,7 +332,7 @@ module.exports = {
 			if ( date.day() === 0 ) {
 				dates[ 'the' + ordinalNumbers[sundays] + 'SundayOfLent' ] = {
 	    			moment: date,
-	    			type: types.SUNDAY,
+	    			type: types.SUNDAY_OF_LENT,
 	    			name: ordinalNumbers[sundays] + ' Sunday of Lent',
 	                data: {
 	                    weekNumber: currentWeek + 1,
@@ -346,14 +346,14 @@ module.exports = {
 				if ( ctr < 3 ) {
 					dates[ days[ date.day() ] +  'AfterAshWednesday' ] = {
 						moment: date,
-						type: types.WEEKDAY,
+						type: types.WEEKDAY_OF_LENT,
 						name: days[ date.day() ] + ' after Ash Wednesday'
 					}
 				}
 				else {
 					dates[ days[ date.day() ] + 'OfThe' + ordinalNumbers[ currentWeek ] + 'WeekOfLent' ] = {
 						moment: date,
-						type: types.WEEKDAY,
+						type: types.WEEKDAY_OF_LENT,
 						name: days[ date.day() ] + ' of the ' + ordinalNumbers[ currentWeek ] + ' week of Lent',
 	                    data: {
 	                        weekNumber: currentWeek + 1

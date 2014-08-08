@@ -15,19 +15,59 @@ module.exports = {
 	        '31st', '32nd', '33rd', '34th', '35th', '36th', '37th', '38th', '39th', '40th',
     	];
 	},
+	calendars: function() {
+		return {
+			"GENERAL_CALENDAR": {
+				name: "General Calendar",
+			},
+			"NATIONAL_CALENDAR": {
+				name: "National Calendar",
+				countries: [
+					"AR", // Argentina
+					"AU", // Australia
+					"BE", // Belgium
+					"BO", // Bolivia
+					"BA", // Bosnia and Herzegovina
+					"", 
+					"", 
+					"", 
+					"", 
+					"", 
+					"", 
+					"", 
+					"", 
+					"", 
+					"", 
+					"", 
+					"", 
+					"", 
+					"", 
+					"", 
+					"", 
+					"", 
+					"", 
+					"", 
+					"", 
+					""
+				]
+			}
+		};
+	},
 	types: function() {
 		return types = {
-			"SOLEMNITY":{"name":"Solemnity","rank":10},
-			"FEAST":{"name":"Feast","rank":9},
-			"TRIDUUM":{"name":"Triduum","rank":8},
-			"HOLY_WEEK":{"name":"Holy Week","rank":7},
-			"SUNDAY_OF_LENT_ADVENT":{"name":"Sunday","rank":6},
-			"WEEKDAY_OF_LENT_ADVENT":{"name":"Weekday","rank":5},
-			"MEMORIAL":{"name":"Memorial","rank":4},
-			"COMMEM":{"name":"Commemoration","rank":3},
-			"OPT_MEMORIAL":{"name":"Optional Memorial","rank":2},
-			"SUNDAY":{"name":"Sunday","rank":1},
-			"WEEKDAY":{"name":"Weekday","rank":0}
+			"SOLEMNITY":{"key":"SOLEMNITY","name":"Solemnity","rank":10},
+			"FEAST":{"key":"FEAST","name":"Feast","rank":9},
+			"TRIDUUM":{"key":"TRIDUUM","name":"Triduum","rank":8},
+			"HOLY_WEEK":{"key":"HOLY_WEEK","name":"Holy Week","rank":7},
+			"SUNDAY_OF_LENT":{"key":"SUNDAY_OF_LENT","name":"Sunday","rank":6},
+			"SUNDAY_OF_ADVENT":{"key":"SUNDAY_OF_ADVENT","name":"Sunday","rank":6},
+			"MEMORIAL":{"key":"MEMORIAL","name":"Memorial","rank":5},
+			"OPT_MEMORIAL":{"key":"OPT_MEMORIAL","name":"Optional Memorial","rank":4},
+			"COMMEM":{"key":"COMMEM","name":"Commemoration","rank":3},
+			"WEEKDAY_OF_LENT":{"key":"WEEKDAY_OF_LENT","name":"Weekday","rank":2},
+			"WEEKDAY_OF_ADVENT":{"key":"WEEKDAY_OF_ADVENT","name":"Weekday","rank":2},
+			"SUNDAY":{"key":"SUNDAY","name":"Sunday","rank":1},
+			"WEEKDAY":{"key":"WEEKDAY","name":"Weekday","rank":0}
 		};
 	},
 	liturgicalColors: function() {

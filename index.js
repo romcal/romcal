@@ -8,7 +8,7 @@ var calendar = require('node-calendar'),
 	seasons = require('./core/seasons');
 
 
-// Results of computation
+// Storage vars
 var dateOfEaster,
 	feastsOfTheLord,
 	fixedSolemnities,
@@ -16,7 +16,8 @@ var dateOfEaster,
 	adventSeason,
 	lentSeason,
 	otherCelebrations,
-	ordinaryTime;
+	ordinaryTime,
+	types = utils.types();
 	
 module.exports = {
 
@@ -64,7 +65,7 @@ module.exports = {
 		lodash.merge( merged, feastsOfTheLord );
 		lodash.merge( merged, lentSeason );
 		lodash.merge( merged, ordinaryTime );
-		// lodash.merge( merged, otherCelebrations );
+		lodash.merge( merged, otherCelebrations );
 
 		var liturgicalDates = [],
 			sortedDates = [];
@@ -87,13 +88,30 @@ module.exports = {
                 filtered[ k ] = value;
             }
             else {
-                
+
+                var existing = filtered[ k ], // The existing date
+                	candidate = value; // The date to test
+            	
+
                 // If the overlapping date ranks higher than the current date, it will replace that date
-                var item = filtered[ k ];
-                if ( value.type.rank > item.type.rank )
-                    filtered[k] = value;
-                // else
-                    // console.log( value.name + ' does not replace ' + item.name );
+                if ( candidate.type.rank > existing.type.rank ) {
+		            	
+	            	// console.log('candidate is', candidate.name, 'with type', candidate.type.key );
+	            	// console.log('existing is', existing.name, 'with type', existing.type.key );
+
+	            	// If a memorial/opt. memorial will replace a weekeday in lent,
+	            	// it will be reduced to the rank of commemoration
+	            	if ( existing.type.key === types.WEEKDAY_OF_LENT.key ) {
+	            		if ( candidate.type.key === types.MEMORIAL.key || candidate.type.key === types.OPT_MEMORIAL.key ) {
+            				console.log( candidate.name + ' will be reduced to a commemoration');
+            				candidate.type = types.COMMEM;
+						}
+					}
+                
+                    filtered[k] = candidate;
+                }
+                else
+                    console.log( candidate.name + ' does not replace ' + existing.name );
             }
         });
 	}

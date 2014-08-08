@@ -166,37 +166,37 @@ module.exports = {
 			},
 		 	secondSundayOfEaster: {
 	        	moment: moment.utc(easter).add( 7, 'days' ),
-	        	types: types.SOLEMNITY,
+	        	type: types.SOLEMNITY,
 	        	name: '2nd Sunday of Easter'
 	        },
 	        thirdSundayOfEaster: {
 	        	moment: moment.utc(easter).add( 14, 'days' ),
-	        	types: types.SUNDAY,
+	        	type: types.SUNDAY,
 	        	name: '3rd Sunday of Easter'
 	        },
 	        fourthSundayOfEaster: {
 	        	moment: moment.utc(easter).add( 21, 'days' ),
-	        	types: types.SUNDAY,
+	        	type: types.SUNDAY,
 	        	name: '4th Sunday of Easter'
 	        },
 	        fifthSundayOfEaster: {
 	        	moment: moment.utc(easter).add( 28, 'days' ),
-	        	types: types.SUNDAY,
+	        	type: types.SUNDAY,
 	        	name: '5th Sunday of Easter'
 	        },
 	        sixthSundayOfEaster: {
 	        	moment: moment.utc(easter).add( 35, 'days' ),
-	        	types: types.SUNDAY,
+	        	type: types.SUNDAY,
 	        	name: '6th Sunday of Easter'
 	        },
 			ascensionOfTheLord: {
 				moment: moment.utc(easter).add( 39, 'days' ),
-				types: types.SOLEMNITY,
+				type: types.SOLEMNITY,
 	        	name: 'Ascension of the Lord'
 			},
 			seventhSundayOfEaster: {
 				moment: moment.utc(easter).add( 41, 'days' ),
-				types: types.SUNDAY,
+				type: types.SUNDAY,
 	        	name: '7th Sunday of Easter'
 			}
 		};
