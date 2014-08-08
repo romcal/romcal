@@ -5,8 +5,8 @@ var calendar = require('node-calendar'),
 	lodash = require('lodash'), 
 	utils = require('./core/utils'),
 	solemnities = require('./core/solemnities'),
-	seasons = require('./core/seasons');
-
+	seasons = require('./core/seasons'),
+	formatters = require('./core/formatters');
 
 // Storage vars
 var dateOfEaster,
@@ -21,7 +21,7 @@ var dateOfEaster,
 	
 module.exports = {
 
-	compute: function( year ) {
+	calendarFor: function( year ) {
 
 		if ( lodash.isEmpty( year ) )
 			year = moment.utc().year();
@@ -58,61 +58,13 @@ module.exports = {
 		// Get all other feasts and memorials in the general roman calendar
 		otherCelebrations = require('./core/otherCelebrations').dates( year );
 
-		var merged = {};
-		lodash.merge( merged, fixedSolemnities );
-		lodash.merge( merged, adventSeason );
-		lodash.merge( merged, movableSolemnities );
-		lodash.merge( merged, feastsOfTheLord );
-		lodash.merge( merged, lentSeason );
-		lodash.merge( merged, ordinaryTime );
-		lodash.merge( merged, otherCelebrations );
+		var sortedDates =  formatters.mergeAndSort(
+			[ fixedSolemnities, adventSeason, movableSolemnities, feastsOfTheLord, lentSeason, ordinaryTime, otherCelebrations ]);
+		sortedDates = formatters.resolveCoincidingEvents( sortedDates );
+		sortedDates = formatters.applyLiturgicalColors( sortedDates );
 
-		var liturgicalDates = [],
-			sortedDates = [];
-
-		lodash.map( merged, function( value, key, collection ) {
-			value.data = {};
-			value.unixTimestamp = value.moment.valueOf();
-			liturgicalDates.push( value );
+		lodash.map( sortedDates, function( value, key ) {
+			console.log( value.moment.toString() + " : " + value.name );
 		});
-
-        // Sort dates in ascending order
-		sortedDates = lodash.sortBy( liturgicalDates, function( value ) {
-			return value.moment.valueOf();
-		});
-
-        var filtered = {};
-        lodash.map( sortedDates, function( value, key ) {
-            var k = value.moment.valueOf();
-            if ( lodash.isUndefined( filtered[ k ] ) ) {
-                filtered[ k ] = value;
-            }
-            else {
-
-                var existing = filtered[ k ], // The existing date
-                	candidate = value; // The date to test
-            	
-
-                // If the overlapping date ranks higher than the current date, it will replace that date
-                if ( candidate.type.rank > existing.type.rank ) {
-		            	
-	            	// console.log('candidate is', candidate.name, 'with type', candidate.type.key );
-	            	// console.log('existing is', existing.name, 'with type', existing.type.key );
-
-	            	// If a memorial/opt. memorial will replace a weekeday in lent,
-	            	// it will be reduced to the rank of commemoration
-	            	if ( existing.type.key === types.WEEKDAY_OF_LENT.key ) {
-	            		if ( candidate.type.key === types.MEMORIAL.key || candidate.type.key === types.OPT_MEMORIAL.key ) {
-            				console.log( candidate.name + ' will be reduced to a commemoration');
-            				candidate.type = types.COMMEM;
-						}
-					}
-                
-                    filtered[k] = candidate;
-                }
-                else
-                    console.log( candidate.name + ' does not replace ' + existing.name );
-            }
-        });
 	}
 };

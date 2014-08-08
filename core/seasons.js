@@ -50,6 +50,7 @@ module.exports = {
 				type: types.FEAST,
 				name: 'Holy Family'
 			};
+			dates.holyFamily.moment.hour(0).minute(0).seconds(0).millisecond(0);
 
 			// On January 1, the faithful celebrate the solemnity of Mary, Mother of God; 
 			// however, if Jan. 1 falls on the Sunday after Christmas, then the feast of 
@@ -207,6 +208,21 @@ module.exports = {
 	    		currentWeek++;
 	    }
 
+	    // Define the octave of Christmas
+	    var octaveOfChristmas = moment( christmas ).add( 1, 'days').twix( moment(christmas).add( 7, 'days') ).iterateInner('days'),
+	    	counter = 1;
+	    while( octaveOfChristmas.hasNext() ) {
+	    	var date = octaveOfChristmas.next();
+	    	if ( date.day() !== 0 && date.date() < 32 ) {
+	    		dates[ 'the' + ordinalNumbers[ counter ]  + 'OfTheOctaveOfChristmas' ] = {
+	    			moment: date,
+	    			type: types.WEEKDAY,
+	    			name: ordinalNumbers[ counter ] + ' day of the Octave of Christmas'
+	    		};
+	    	}
+	    	counter++;
+	    }
+
 	    // It is not possible for a fixed date Solemnity to fall on a Sunday of Advent
 	    
 	        // If a fixed date Solemnity occurs on a Sunday of Advent, the Solemnity is transferred to the following Monday.  
@@ -216,6 +232,10 @@ module.exports = {
 	            if ( fixedSolemnities.immaculateConception.moment.isSame( nthSundayOfAdvent ) )
 	                fixedSolemnities.immaculateConception.moment = moment.utc( nthSundayOfAdvent ).add( 1, 'days' );
 	        }
+
+	    // lodash.map( dates, function( value, key ) {
+	    // 	console.log( value.moment.toString() + ' : ' + value.name );
+	    // });
 
 	    return {
 	        adventSeason: dates,
@@ -321,7 +341,7 @@ module.exports = {
 	        palmSunday = movableSolemnities.palmSunday.moment,
 	        easterSunday = movableSolemnities.easterSunday.moment,
 	        josephHusbandOfMary = fixedSolemnities.josephHusbandOfMary.moment,
-	        secondSundayOfEaster = movableSolemnities.secondSundayOfEaster.moment,
+	        divineMercySunday = movableSolemnities.divineMercySunday.moment,
 	        ashWednesday = movableSolemnities.ashWednesday.moment;
 
 		var dates = {}, sundays = 0, ctr = 0, currentWeek = 0,
@@ -376,13 +396,13 @@ module.exports = {
 	        fixedSolemnities.annunciation.moment = moment.utc(palmSunday).startOf('week').subtract( 1, 'days' );
 
 	    var holyWeek = palmSunday.twix( easterSunday ),
-	    	octaveOfEaster = easterSunday.twix( secondSundayOfEaster );
+	    	octaveOfEaster = easterSunday.twix( divineMercySunday );
 
 	    // It is not possible for a fixed date Solemnity to fall on a Sunday of Easter.
 
 	        //  If Annunciation falls during Holy Week or within the Octave of Easter, the Annunciation is transferred to the Monday of the Second Week of Easter
 	        if ( holyWeek.contains( annunciation ) || octaveOfEaster.contains( annunciation ) )
-	            fixedSolemnities.annunciation.moment = moment.utc(secondSundayOfEaster).add( 1, 'days' );
+	            fixedSolemnities.annunciation.moment = moment.utc(divineMercySunday).add( 1, 'days' );
 
 	        // If Joseph, Husband of Mary (Mar 19) falls on Palm Sunday or during Holy Week, 
 	        // it is moved to the Saturday preceding Palm Sunday.

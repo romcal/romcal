@@ -70,13 +70,14 @@ module.exports = {
 			"WEEKDAY":{"key":"WEEKDAY","name":"Weekday","rank":0}
 		};
 	},
+	
 	liturgicalColors: function() {
 		return {
-			"RED":{"hex":"#ff0000"},
-			"PURPLE":{"hex":"#800080"},
-			"GREEN":{"hex":"#008000"},
-			"WHITE":{"hex":"#ffffff"},
-			"GOLD":{"hex":"#FFD700"}
+			"RED":{"name":"RED","hex":"#ff0000","rgb":[255,0,0]},
+			"PURPLE":{"name":"PURPLE","hex":"#800080","rgb":[128,0,128]},
+			"GREEN":{"name":"GREEN","hex":"#008000","rgb":[0,128,0]},
+			"WHITE":{"name":"WHITE","hex":"#ffffff","rgb":[255,255,255]},
+			"GOLD":{"name":"GOLD","hex":"#FFD700","rgb":[255, 215, 0]}
 		};
 	},
 	dateOfEaster: function( Y ) {

@@ -1,5 +1,7 @@
 var moment = require('moment'),
-	types = require('./utils').types();
+	utils = require('./utils'),
+	types = utils.types(),
+	liturgicalColors = utils.liturgicalColors();
 
 module.exports = {
 	fixedSolemnities: function( year ) {
@@ -164,10 +166,10 @@ module.exports = {
 				type: types.SOLEMNITY,
 				name: 'Saturday in the Octave of Easter'			
 			},
-		 	secondSundayOfEaster: {
+		 	divineMercySunday: {
 	        	moment: moment.utc(easter).add( 7, 'days' ),
 	        	type: types.SOLEMNITY,
-	        	name: '2nd Sunday of Easter'
+	        	name: 'Divine Mercy Sunday (2nd Sunday of Easter)'
 	        },
 	        thirdSundayOfEaster: {
 	        	moment: moment.utc(easter).add( 14, 'days' ),
@@ -219,9 +221,10 @@ module.exports = {
 		
 		// If first day of the year is on a weekday (i.e. Monday - Friday),
 		// Epiphany will be celebrated on the Sunday proceeding
-		else
+		else {
 			dates.epiphanyOfOurLord.moment = moment.utc( firstDayOfYear ).endOf('week').add( 1, 'days' );
-
+			dates.epiphanyOfOurLord.moment.hour(0).minute(0).seconds(0).millisecond(0);
+		}
 		return dates;
 	}
 };

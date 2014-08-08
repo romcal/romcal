@@ -1,4 +1,4 @@
 var RomCal = require('../index'),
 	moment = require('moment');
 
-romcal = new RomCal.compute('2008');
+var romcal = new RomCal.calendarFor('2008');
