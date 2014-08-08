@@ -870,7 +870,7 @@ module.exports = {
 	        saintAmbrose: {
 	        	moment: moment.utc({ year: year, month: 11, day: 7 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint Ambrose, bishop and doctor'
+	            name: 'Saint Ambrose, bishop & doctor'
 	        },
 	        saintJuanDiego: {
 	        	moment: moment.utc({ year: year, month: 11, day: 9 }),
@@ -890,7 +890,7 @@ module.exports = {
 	        saintLucyOfSyracuse: {
 	        	moment: moment.utc({ year: year, month: 11, day: 13 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint Lucy of Syracuse, virgin and martyr'
+	            name: 'Saint Lucy of Syracuse, virgin & martyr'
 	        },
 	        saintJohnOfTheCross: {
 	        	moment: moment.utc({ year: year, month: 11, day: 14 }),

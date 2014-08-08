@@ -209,10 +209,12 @@ module.exports = {
 	    }
 
 	    // Define the octave of Christmas
-	    var octaveOfChristmas = moment( christmas ).add( 1, 'days').twix( moment(christmas).add( 7, 'days') ).iterateInner('days'),
+	    var octaveOfChristmas = moment( christmas ).add( 1, 'days').twix( moment(christmas).add( 7, 'days') ),
+	    	octaveIterator = octaveOfChristmas.iterateInner('days'),
 	    	counter = 1;
-	    while( octaveOfChristmas.hasNext() ) {
-	    	var date = octaveOfChristmas.next();
+
+	    while( octaveIterator.hasNext() ) {
+	    	var date = octaveIterator.next();
 	    	if ( date.day() !== 0 && date.date() < 32 ) {
 	    		dates[ 'the' + ordinalNumbers[ counter ]  + 'OfTheOctaveOfChristmas' ] = {
 	    			moment: date,
@@ -232,10 +234,6 @@ module.exports = {
 	            if ( fixedSolemnities.immaculateConception.moment.isSame( nthSundayOfAdvent ) )
 	                fixedSolemnities.immaculateConception.moment = moment.utc( nthSundayOfAdvent ).add( 1, 'days' );
 	        }
-
-	    // lodash.map( dates, function( value, key ) {
-	    // 	console.log( value.moment.toString() + ' : ' + value.name );
-	    // });
 
 	    return {
 	        adventSeason: dates,
@@ -387,10 +385,6 @@ module.exports = {
 	    		currentWeek++;
 		}
 
-		// lodash.map( dates, function( v, k, c ) {
-		// 	console.log( k + ":" + v.moment.toString() );
-		// });
-
 	    // If the Annunciation (Mar 25) falls on Palm Sunday, it is celebrated on the Saturday preceding
 	    if ( annunciation.isSame( palmSunday ) )
 	        fixedSolemnities.annunciation.moment = moment.utc(palmSunday).startOf('week').subtract( 1, 'days' );
@@ -426,5 +420,15 @@ module.exports = {
 	    	fixedSolemnities: fixedSolemnities,
 	    	movableSolemnities: movableSolemnities
 	    };
+	},
+	seasonRanges: function( fixedSolemnities, movableSolemnities, adventSeason, feastsOfTheLord ) {
+		return {
+			earlierOrdinaryTime: moment.twix( moment( feastsOfTheLord.baptismOfTheLord.moment ).add( 1, 'days' ), moment( movableSolemnities.ashWednesday.moment ).subtract( 1, 'days' ) ), 
+			lenternRange: moment.twix( movableSolemnities.ashWednesday.moment, moment( movableSolemnities.palmSunday.moment ).subtract( 1, 'days' ) ),
+			easterSeasonRange: moment.twix( movableSolemnities.easterSunday.moment, moment( movableSolemnities.pentecostSunday.moment ).subtract( 1, 'days') ),
+			latterOrdinaryTime: moment.twix( moment( movableSolemnities.pentecostSunday.moment ).add( 1, 'days'), moment( adventSeason.the1stSundayOfAdvent.moment ).subtract( 1, 'days' ) ),
+			adventRange: moment.twix( adventSeason.the1stSundayOfAdvent.moment, moment ( fixedSolemnities.christmas.moment ).subtract( 1, 'days') ),
+			christmasOctaveRange: moment.twix( fixedSolemnities.christmas.moment, moment.utc( fixedSolemnities.christmas.moment ).add( 7, 'days') )
+		};
 	}
 };
