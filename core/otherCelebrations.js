@@ -32,17 +32,17 @@ module.exports = {
 	        },
 	        saintsFabianOrSebastian: {
 	            moment: moment.utc({ year: year, month: 0, day: 20 }),
-	            type: types.OPT_MEMORIAL,
-	            name: 'Saints Fabian & Sebastian, Pope and Martyrs'
+	            type: types.OPT_MEMORIAL_MARTYR,
+	            name: 'Saints Fabian & Sebastian, Pope & Martyrs'
 	        },
 	        saintAgnes: {
 	            moment: moment.utc({ year: year, month: 0, day: 21 }),
-	            type: types.MEMORIAL,
+	            type: types.MEMORIAL_MARTYR,
 	            name: 'Saint Agnes, Virgin & Martyr'
 	        }, 
 	        saintVincent: {
 	            moment: moment.utc({ year: year, month: 0, day: 22 }),
-	            type: types.OPT_MEMORIAL,
+	            type: types.OPT_MEMORIAL_MARTYR,
 	            name: 'Saint Vincent, Deacon & Martyr'        
 	        },
 	        saintFrancisDeSales: {
@@ -79,18 +79,18 @@ module.exports = {
 	        // February
 	        saintsBlaseOrAnsgar: {
 				moment: moment.utc({ year: year, month: 1, day: 3 }),
-	            type: types.OPT_MEMORIAL,
+	            type: types.OPT_MEMORIAL_MARTYR,
 	            name: 'Saint Blase, Bishop & Martyr, or Saint Ansgar, Bishop'
 	        },
 	        saintAgatha: {
 				moment: moment.utc({ year: year, month: 1, day: 5 }),
-	            type: types.MEMORIAL,
+	            type: types.MEMORIAL_MARTYR,
 	            name: 'Saint Agatha, Virgin & Martyr'
 	        },
 	        saintsPaulMikiAndCo: {
 				moment: moment.utc({ year: year, month: 1, day: 6 }),
-	            type: types.MEMORIAL,
-	            name: 'Saints Paul Miki and Companions, Martyrs'
+	            type: types.MEMORIAL_MARTYR,
+	            name: 'Saints Paul Miki & Companions, Martyrs'
 	        },
 	        saintsJeromeOrJosephine: {
 				moment: moment.utc({ year: year, month: 1, day: 8 }),
@@ -129,7 +129,7 @@ module.exports = {
 	        },
 	        saintPolycarp: {
 				moment: moment.utc({ year: year, month: 1, day: 23 }),
-	            type: types.MEMORIAL,
+	            type: types.MEMORIAL_MARTYR,
 	            name: 'Saint Polycarp, Bishop & Martyr'
 	        },
 
@@ -193,12 +193,12 @@ module.exports = {
 	        },
 	        saintStanislaus: {
 				moment: moment.utc({ year: year, month: 3, day: 11 }),
-	            type: types.MEMORIAL,
+	            type: types.MEMORIAL_MARTYR,
 	            name: 'Saint Stanislaus, Bishop & Martyr'
 	        },
 	        saintMartin: {
 				moment: moment.utc({ year: year, month: 3, day: 13 }),
-	            type: types.OPT_MEMORIAL,
+	            type: types.OPT_MEMORIAL_MARTYR,
 	            name: 'Saint Martin I, Pope & Martyr'
 	        },
 	        saintAnselmOfCanterbury: {
@@ -208,13 +208,13 @@ module.exports = {
 	        },
 	        saintGeorgeOrAdalbert: {
 				moment: moment.utc({ year: year, month: 3, day: 23 }),
-	            type: types.OPT_MEMORIAL,
+	            type: types.OPT_MEMORIAL_MARTYR,
 	            name: 'Saint George, Martyr, or Saint Adalbert, Bishop & Martyr'
 	        },
 	        saintFidelisOfSigmaringen: {
 				moment: moment.utc({ year: year, month: 3, day: 24 }),
-	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Fidelis of Sigmaringen, Priest and Martyr'
+	            type: types.OPT_MEMORIAL_MARTYR,
+	            name: 'Saint Fidelis of Sigmaringen, Priest & Martyr'
 	        },
 	        saintMarkTheEvangelist: {
 				moment: moment.utc({ year: year, month: 3, day: 25 }),
@@ -223,7 +223,7 @@ module.exports = {
 	        },
 	        saintsPeterChanelOrLouisGrignonDeMontfort: {
 				moment: moment.utc({ year: year, month: 3, day: 28 }),
-	            type: types.OPT_MEMORIAL,
+	            type: types.OPT_MEMORIAL_MARTYR,
 	            name: 'Saint Peter Chanel, Priest & Martyr; or Saint Louis Grignon de Montfort, Priest'
 	        },
 	        saintCatherineOfSiena: {
@@ -246,17 +246,17 @@ module.exports = {
 	        saintAthanasius: {
 				moment: moment.utc({ year: year, month: 4, day: 2 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint Athanasius, bishop and doctor'
+	            name: 'Saint Athanasius, Bishop & Doctor'
 	        },
 	        saintsPhilipAndJames: {
 				moment: moment.utc({ year: year, month: 4, day: 3 }),
 	            type: types.FEAST,
-	            name: 'Saints Philip and James, Apostles'
+	            name: 'Saints Philip & James, Apostles'
 	        },
 	        saintsNereusAndAchilleusOrPancras: {
 				moment: moment.utc({ year: year, month: 4, day: 12 }),
-	            type: types.OPT_MEMORIAL,
-	            name: 'Saints Nereus and Achilleus, martyrs or Saint Pancras, martyr'
+	            type: types.OPT_MEMORIAL_MARTYR,
+	            name: 'Saints Nereus & Achilleus, Martyrs or Saint Pancras, Martyr'
 	        },
 	        ourLadyOfFatima: {
 				moment: moment.utc({ year: year, month: 4, day: 13 }),
@@ -270,18 +270,18 @@ module.exports = {
 	        },
 	        saintJohnI: {
 				moment: moment.utc({ year: year, month: 4, day: 18 }),
-	            type: types.OPT_MEMORIAL,
-	            name: 'Saint John I, pope and martyr'
+	            type: types.OPT_MEMORIAL_MARTYR,
+	            name: 'Saint John I, Pope & Martyr'
 	        },
 	        saintBernadineOfSiena: {
 				moment: moment.utc({ year: year, month: 4, day: 20 }),
 	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Bernardine of Siena, priest'
+	            name: 'Saint Bernardine of Siena, Priest'
 	        },
 	        saintChristopherMagallanesAndCo: {
 				moment: moment.utc({ year: year, month: 4, day: 21 }),
 	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Christopher Magallanes and companions, martyrs'
+	            name: 'Saint Christopher Magallanes & Companions, Martyrs'
 	        },
 	        saintRitaOfCascia: {
 				moment: moment.utc({ year: year, month: 4, day: 22 }),
@@ -291,17 +291,17 @@ module.exports = {
 	        saintBedeTheVenerableOrSaintGregoryVIIOrSaintMaryMagdaleneDePazzi: {
 				moment: moment.utc({ year: year, month: 4, day: 25 }),
 	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Bede the Venerable, priest and doctor; or Saint Gregory VII, pope or Saint Mary Magdalene de Pazzi, virgin'
+	            name: 'Saint Bede the Venerable, Priest & Doctor; or Saint Gregory VII, Pope or Saint Mary Magdalene de Pazzi, Virgin'
 	        },
 	        saintPhilipNeri: {
 				moment: moment.utc({ year: year, month: 4, day: 26 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint Philip Neri, priest'
+	            name: 'Saint Philip Neri, Priest'
 	        },
 	        saintAugustineOfCanterbury: {
 				moment: moment.utc({ year: year, month: 4, day: 27 }),
 	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Augustine (Austin) of Canterbury, bishop'
+	            name: 'Saint Augustine (Austin) of Canterbury, Bishop'
 	        },
 	        visitationOfTheBlessedVirginMary: {
 				moment: moment.utc({ year: year, month: 4, day: 31 }),
@@ -312,33 +312,33 @@ module.exports = {
 	        // June
 	        saintJustinMartyr: {
 				moment: moment.utc({ year: year, month: 5, day: 1 }),
-	            type: types.MEMORIAL,
+	            type: types.MEMORIAL_MARTYR,
 	            name: 'Saint Justin Martyr'
 	        },
 	        saintsMarcelinusAndPeter: {
 				moment: moment.utc({ year: year, month: 5, day: 2 }),
-	            type: types.OPT_MEMORIAL,
-	            name: 'Saints Marcellinus and Peter, martyrs'
+	            type: types.OPT_MEMORIAL_MARTYR,
+	            name: 'Saints Marcellinus & Peter, Martyrs'
 	        },
 	        saintsCharlesLwangaAndCo: {
 				moment: moment.utc({ year: year, month: 5, day: 3 }),
-	            type: types.MEMORIAL,
-	            name: 'Saints Charles Lwanga and companions, martyrs'
+	            type: types.MEMORIAL_MARTYR,
+	            name: 'Saints Charles Lwanga & Companions, Martyrs'
 	        },
 	        saintBoniface: {
 				moment: moment.utc({ year: year, month: 5, day: 5 }),
-	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Boniface, bishop and martyr'
+	            type: types.OPT_MEMORIAL_MARTYR,
+	            name: 'Saint Boniface, Bishop & Martyr'
 	        },
 	        saintNorbert: {
 				moment: moment.utc({ year: year, month: 5, day: 6 }),
 	            type: types.MEMORIAL,
-	            name: ' Saint Norbert, bishop'
+	            name: ' Saint Norbert, Bishop'
 	        },
 	        saintEphrem: {
 				moment: moment.utc({ year: year, month: 5, day: 9 }),
 	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Ephrem, deacon and doctor'
+	            name: 'Saint Ephrem, Deacon & Doctor'
 	        },
 	        saintBarnabasTheApostle: {
 				moment: moment.utc({ year: year, month: 5, day: 11 }),
@@ -348,36 +348,36 @@ module.exports = {
 	        saintAnthonyOfPadua: {
 				moment: moment.utc({ year: year, month: 5, day: 13 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint Anthony of Padua, priest and doctor'
+	            name: 'Saint Anthony of Padua, Priest & Doctor'
 	        },
 	        saintRomuald: {
 				moment: moment.utc({ year: year, month: 5, day: 19 }),
 	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Romuald, abbot'
+	            name: 'Saint Romuald, Abbot'
 	        },
 	        saintAloysiusGonzaga: {
 				moment: moment.utc({ year: year, month: 5, day: 21 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint Aloysius Gonzaga, religious'
+	            name: 'Saint Aloysius Gonzaga, Religious'
 	        },
 	        saintPaulinusOfNolaOrSaintsJohnFisherAndThomasMore: {
 				moment: moment.utc({ year: year, month: 5, day: 22 }),
-	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Paulinus of Nola, bishop or Saints John Fisher, bishop and martyr and Thomas More, martyr'
+	            type: types.OPT_MEMORIAL_MARTYR,
+	            name: 'Saint Paulinus of Nola, Bishop or Saints John Fisher, Bishop & Martyr & Thomas More, Martyr'
 	        },
 	        saintCyrilOfAlexandria: {
 				moment: moment.utc({ year: year, month: 5, day: 27 }),
 	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Cyril of Alexandria, bishop and doctor'
+	            name: 'Saint Cyril of Alexandria, Bishop & Doctor'
 	        },
 	        saintIrenaeus: {
 				moment: moment.utc({ year: year, month: 5, day: 28 }),
-	            type: types.MEMORIAL,
-	            name: 'Saint Irenaeus, bishop and martyr'
+	            type: types.MEMORIAL_MARTYR,
+	            name: 'Saint Irenaeus, Bishop & Martyr'
 	        },
 	        firstMartyrsOfTheChurchOfRome: {
 				moment: moment.utc({ year: year, month: 5, day: 30 }),
-	            type: types.OPT_MEMORIAL,
+	            type: types.OPT_MEMORIAL_MARTYR,
 	            name: 'First Martyrs of the Church of Rome'
 	        },
 
@@ -395,22 +395,22 @@ module.exports = {
 	        saintAnthonyZaccaria: {
 				moment: moment.utc({ year: year, month: 6, day: 5 }),
 	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Anthony Zaccaria, priest'
+	            name: 'Saint Anthony Zaccaria, Priest'
 	        },
 	        saintMariaGoretti: {
 				moment: moment.utc({ year: year, month: 6, day: 6 }),
-	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Maria Goretti, virgin and martyr'
+	            type: types.OPT_MEMORIAL_MARTYR,
+	            name: 'Saint Maria Goretti, Virgin & Martyr'
 	        },
 	        saintAugustineZhaoRongAndCo: {
 				moment: moment.utc({ year: year, month: 6, day: 9 }),
-	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Augustine Zhao Rong and companions, martyrs'
+	            type: types.OPT_MEMORIAL_MARTYR,
+	            name: 'Saint Augustine Zhao Rong & Companions, Martyrs'
 	        },
 	        saintBenedict: {
 				moment: moment.utc({ year: year, month: 6, day: 11 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint Benedict, abbot'
+	            name: 'Saint Benedict, Abbot'
 	        },
 	        saintHenry: {
 				moment: moment.utc({ year: year, month: 6, day: 13 }),
@@ -420,12 +420,12 @@ module.exports = {
 	        saintCamiliusDeLellis: {
 				moment: moment.utc({ year: year, month: 6, day: 14 }),
 	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Camillus de Lellis, priest'
+	            name: 'Saint Camillus de Lellis, Priest'
 	        },
 	        saintBonaventure: {
 				moment: moment.utc({ year: year, month: 6, day: 15 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint Bonaventure, bishop and doctor'
+	            name: 'Saint Bonaventure, Bishop & Doctor'
 	        },
 	        ourLadyOfMountCarmel: {
 				moment: moment.utc({ year: year, month: 6, day: 16 }),
@@ -440,7 +440,7 @@ module.exports = {
 	        saintLawrenceOfBrindisi: {
 				moment: moment.utc({ year: year, month: 6, day: 21 }),
 	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Lawrence of Brindisi, priest and doctor'
+	            name: 'Saint Lawrence of Brindisi, Priest & Doctor'
 	        },
 	        saintMaryOfMagdalene: {
 				moment: moment.utc({ year: year, month: 6, day: 22 }),
@@ -450,7 +450,7 @@ module.exports = {
 	        saintBirgitta: {
 				moment: moment.utc({ year: year, month: 6, day: 23 }),
 	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Birgitta, religious'
+	            name: 'Saint Birgitta, Religious'
 	        },
 	        saintSharbelMakhluf: {
 				moment: moment.utc({ year: year, month: 6, day: 24 }),
@@ -460,12 +460,12 @@ module.exports = {
 	        saintJames: {
 				moment: moment.utc({ year: year, month: 6, day: 25 }),
 	            type: types.FEAST,
-	            name: 'Saint James, apostle'
+	            name: 'Saint James, Apostle'
 	        },
 	        saintsJoachimAndAnne: {
 				moment: moment.utc({ year: year, month: 6, day: 26 }),
 	            type: types.MEMORIAL,
-	            name: 'Saints Joachim and Anne'
+	            name: 'Saints Joachim & Anne'
 	        },
 	        saintMartha: {
 				moment: moment.utc({ year: year, month: 6, day: 29 }),
@@ -475,29 +475,29 @@ module.exports = {
 	        saintPeterChrysologus: {
 				moment: moment.utc({ year: year, month: 6, day: 30 }),
 	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Peter Chrysologus, bishop and doctor'
+	            name: 'Saint Peter Chrysologus, Bishop & Doctor'
 	        },
 	        saintIgnatiusOfLoyola: {
 				moment: moment.utc({ year: year, month: 6, day: 31 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint Ignatius of Loyola, priest'
+	            name: 'Saint Ignatius of Loyola, Priest'
 	        },
 
 	        // August
 	        saintAlphonsusMariaDeLiguori: {
 				moment: moment.utc({ year: year, month: 7, day: 1 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint Alphonsus Maria de Liguori, bishop and doctor of the Church'
+	            name: 'Saint Alphonsus Maria de Liguori, Bishop & Doctor of the Church'
 	        },
 	        saintEusebiusOfVercelli: {
 				moment: moment.utc({ year: year, month: 7, day: 2 }),
 	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Eusebius of Vercelli, bishop, or Saint Peter Julian Eymard, priest'
+	            name: 'Saint Eusebius of Vercelli, Bishop, or Saint Peter Julian Eymard, Priest'
 	        },
 	        saintJeanVianney: {
 				moment: moment.utc({ year: year, month: 7, day: 4 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint Jean Vianney (the Cure of Ars), priest'
+	            name: 'Saint Jean Vianney (the Cure of Ars), Priest'
 	        },
 	        dedicationOfTheBasilicaOfSaintMaryMajor: {
 				moment: moment.utc({ year: year, month: 7, day: 5 }),
@@ -506,43 +506,43 @@ module.exports = {
 	        },
 	        saintSixtusIIOrSaintCajetan: {
 				moment: moment.utc({ year: year, month: 7, day: 7 }),
-	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Sixtus II, pope, and companions, martyrs, or Saint Cajetan, priest'
+	            type: types.OPT_MEMORIAL_MARTYR,
+	            name: 'Saint Sixtus II, Pope, & Companions, Martyrs, or Saint Cajetan, Priest'
 	        },
 	        saintDominic: {
 				moment: moment.utc({ year: year, month: 7, day: 8 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint Dominic, priest'
+	            name: 'Saint Dominic, Priest'
 	        },
 	        saintTeresaBenedictaOfTheCross: {
 				moment: moment.utc({ year: year, month: 7, day: 9 }),
-	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Teresa Benedicta of the Cross (Edith Stein), virgin and martyr'	        
+	            type: types.OPT_MEMORIAL_MARTYR,
+	            name: 'Saint Teresa Benedicta of the Cross (Edith Stein), Virgin & Martyr'	        
 	        },
 	        saintLawrence: {
 				moment: moment.utc({ year: year, month: 7, day: 10 }),
-	            type: types.FEAST,
-	            name: 'Saint Lawrence, deacon and martyr'
+	            type: types.FEAST_MARTYR,
+	            name: 'Saint Lawrence, Deacon & Martyr'
 	        },
 	        saintClare: {
 				moment: moment.utc({ year: year, month: 7, day: 11 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint Clare, virgin'
+	            name: 'Saint Clare, Virgin'
 	        },
 	        saintJaneFrancesDeChantal: {
 				moment: moment.utc({ year: year, month: 7, day: 12 }),
 	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Jane Frances de Chantal, religious'
+	            name: 'Saint Jane Frances de Chantal, Religious'
 	        },
 	        saintsPontianAndHippolytus: {
 				moment: moment.utc({ year: year, month: 7, day: 13 }),
-	            type: types.OPT_MEMORIAL,
-	            name: 'Saints Pontian, pope, and Hippolytus, priest, martyrs'
+	            type: types.OPT_MEMORIAL_MARTYR,
+	            name: 'Saints Pontian, Pope, & Hippolytus, Priest, Martyrs'
 	        },
 	        saintMaximilianMaryKolbe: {
 				moment: moment.utc({ year: year, month: 7, day: 14 }),
-	            type: types.MEMORIAL,
-	            name: 'Saint Maximilian Mary Kolbe, priest and martyr'
+	            type: types.MEMORIAL_MARTYR,
+	            name: 'Saint Maximilian Mary Kolbe, Priest & Martyr'
 	        },
 	        saintStephenOfHungary: {
 				moment: moment.utc({ year: year, month: 7, day: 16 }),
@@ -552,17 +552,17 @@ module.exports = {
 	        saintJohnEudes: {
 				moment: moment.utc({ year: year, month: 7, day: 19 }),
 	            type: types.OPT_MEMORIAL,
-	            name: 'Saint John Eudes, priest'
+	            name: 'Saint John Eudes, Priest'
 	        },
 	        saintBernardOfClairvaux: {
 				moment: moment.utc({ year: year, month: 7, day: 20 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint Bernard of Clairvaux, abbot and doctor of the Church'
+	            name: 'Saint Bernard of Clairvaux, Abbot & Doctor of the Church'
 	        },
 	        saintPiuxX: {
 				moment: moment.utc({ year: year, month: 7, day: 21 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint Pius X, pope'
+	            name: 'Saint Pius X, Pope'
 	        },
 	        quuenshipOfBlessedVirginMary: {
 				moment: moment.utc({ year: year, month: 7, day: 22 }),
@@ -572,7 +572,7 @@ module.exports = {
 	        saintRoseOfLima: {
 				moment: moment.utc({ year: year, month: 7, day: 23 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint Rose of Lima, virgin'
+	            name: 'Saint Rose of Lima, Virgin'
 	        },
 	        saintBartholomewTheApostle: {
 				moment: moment.utc({ year: year, month: 7, day: 24 }),
@@ -582,7 +582,7 @@ module.exports = {
 	        saintLouisOrJosephOfCalasanz: {
 				moment: moment.utc({ year: year, month: 7, day: 25 }),
 	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Louis or Saint Joseph of Calasanz, priest'
+	            name: 'Saint Louis or Saint Joseph of Calasanz, Priest'
 	        },
 	        saintMonica: {
 				moment: moment.utc({ year: year, month: 7, day: 27 }),
@@ -592,19 +592,19 @@ module.exports = {
 	        saintAugustineOfHippo: {
 				moment: moment.utc({ year: year, month: 7, day: 28 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint Augustine of Hippo, bishop and doctor of the Church'
+	            name: 'Saint Augustine of Hippo, Bishop & Doctor of the Church'
 	        },
 	        beheadingOfSaintJohnTheBaptist: {
 				moment: moment.utc({ year: year, month: 7, day: 29 }),
-	            type: types.MEMORIAL,
-	            name: 'The Beheading of Saint John the Baptist, martyr'
+	            type: types.MEMORIAL_MARTYR,
+	            name: 'The Beheading of Saint John the Baptist, Martyr'
 	        },
 
 	        // September
 	        saintGregoryTheGreat: {
 				moment: moment.utc({ year: year, month: 8, day: 3 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint Gregory the Great, pope and doctor'
+	            name: 'Saint Gregory the Great, Pope & Doctor'
 	        },
 	        birthOfTheBlessedVirginMary: {
 				moment: moment.utc({ year: year, month: 8, day: 8 }),
@@ -614,7 +614,7 @@ module.exports = {
 	        saintPeterClaver: {
 				moment: moment.utc({ year: year, month: 8, day: 9 }),
 	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Peter Claver, priest'
+	            name: 'Saint Peter Claver, Priest'
 	        },
 	        holyNameOfTheBlessedVirginMary: {
 				moment: moment.utc({ year: year, month: 8, day: 12 }),
@@ -624,7 +624,7 @@ module.exports = {
 	        saintJohnChrysostom: {
 				moment: moment.utc({ year: year, month: 8, day: 13 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint John Chrysostom, bishop and doctor'
+	            name: 'Saint John Chrysostom, Bishop & Doctor'
 	        },
 	        ourLadyOfSorrows: {
 				moment: moment.utc({ year: year, month: 8, day: 15 }),
@@ -633,23 +633,23 @@ module.exports = {
 	        },
 	        saintsCorneliusAndCyprian: {
 				moment: moment.utc({ year: year, month: 8, day: 16 }),
-	            type: types.MEMORIAL,
-	            name: 'Saints Cornelius, pope, and Cyprian, bishop, martyrs'
+	            type: types.MEMORIAL_MARTYR,
+	            name: 'Saints Cornelius, Pope, & Cyprian, Bishop, Martyrs'
 	        },
 	        saintRobertBellarmine: {
 				moment: moment.utc({ year: year, month: 8, day: 17 }),
 	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Robert Bellarmine, bishop and doctor'
+	            name: 'Saint Robert Bellarmine, Bishop & Doctor'
 	        },
 	        saintJanuarius: {
 				moment: moment.utc({ year: year, month: 8, day: 19 }),
-	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Januarius, bishop and martyr'
+	            type: types.OPT_MEMORIAL_MARTYR,
+	            name: 'Saint Januarius, Bishop & Martyr'
 	        },
 	        saintAndrewKimTaegonAndPaulChongHasangAndCo: {
 				moment: moment.utc({ year: year, month: 8, day: 20 }),
-	            type: types.MEMORIAL,
-	            name: 'Saint Andrew Kim Taegon, priest, and Paul Chong Hasang and companions, martyrs'
+	            type: types.MEMORIAL_MARTYR,
+	            name: 'Saint Andrew Kim Taegon, Priest, & Paul Chong Hasang & Companions, Martyrs'
 	        },
 	        saintMatthewTheEvangelist: {
 				moment: moment.utc({ year: year, month: 8, day: 21 }),
@@ -659,39 +659,39 @@ module.exports = {
 	        saintPioOfPietrelcina: {
 				moment: moment.utc({ year: year, month: 8, day: 23 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint Pio of Pietrelcina (Padre Pio), priest'
+	            name: 'Saint Pio of Pietrelcina (Padre Pio), Priest'
 	        },
 	        saintsCosmasAndDamian: {
 				moment: moment.utc({ year: year, month: 8, day: 26 }),
-	            type: types.OPT_MEMORIAL,
-	            name: 'Saints Cosmas and Damian, martyrs'
+	            type: types.OPT_MEMORIAL_MARTYR,
+	            name: 'Saints Cosmas & Damian, Martyrs'
 	        },
 	        saintVincentDePaul: {
 				moment: moment.utc({ year: year, month: 8, day: 27 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint Vincent de Paul, priest'
+	            name: 'Saint Vincent de Paul, Priest'
 	        },
 	        saintWenceslausOrSaintsRuizAndCo: {
 				moment: moment.utc({ year: year, month: 8, day: 28 }),
-	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Wenceslaus, martyr or Saints Lawrence Ruiz and companions, martyrs'
+	            type: types.OPT_MEMORIAL_MARTYR,
+	            name: 'Saint Wenceslaus, Martyr or Saints Lawrence Ruiz & Companions, Martyrs'
 	        },
 	        saintsMichaelGabrielAndRaphael: {
 				moment: moment.utc({ year: year, month: 8, day: 29 }),
 	            type: types.FEAST,
-	            name: 'Saints Michael, Gabriel and Raphael, Archangels'
+	            name: 'Saints Michael, Gabriel & Raphael, Archangels'
 	        },
 	        saintJerome: {
 				moment: moment.utc({ year: year, month: 8, day: 30 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint Jerome, priest and doctor'
+	            name: 'Saint Jerome, Priest & Doctor'
 	        },
 
 	        // October
 	        saintThereseOfTheChildOfJesus: {
 				moment: moment.utc({ year: year, month: 9, day: 1 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint Therese of the Child Jesus, virgin and doctor'
+	            name: 'Saint Therese of the Child Jesus, Virgin & Doctor'
 	        },
 	        guardianAngels: {
 				moment: moment.utc({ year: year, month: 9, day: 2 }),
@@ -706,7 +706,7 @@ module.exports = {
 	        saintBruno: {
 				moment: moment.utc({ year: year, month: 9, day: 6 }),
 	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Bruno, priest'
+	            name: 'Saint Bruno, Priest'
 	        },
 	        ourLadyOfTheRosary: {
 				moment: moment.utc({ year: year, month: 9, day: 7 }),
@@ -715,28 +715,28 @@ module.exports = {
 	        },
 	        saintDenisAndCoOrSaintJohnLeonardi: {
 				moment: moment.utc({ year: year, month: 9, day: 9 }),
-	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Denis and companions, martyrs or Saint John Leonardi, priest'
+	            type: types.OPT_MEMORIAL_MARTYR,
+	            name: 'Saint Denis & Companions, Martyrs or Saint John Leonardi, Priest'
 	        },
 	        saintCallistusI: {
 				moment: moment.utc({ year: year, month: 9, day: 14 }),
-	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Callistus I, pope and martyr'
+	            type: types.OPT_MEMORIAL_MARTYR,
+	            name: 'Saint Callistus I, Pope & Martyr'
 	        },
 	        saintTeresaOfJesus: {
 				moment: moment.utc({ year: year, month: 9, day: 15 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint Teresa of Jesus, virgin and doctor'
+	            name: 'Saint Teresa of Jesus, Virgin & Doctor'
 	        },
 	        saintHedwigOrSaintMargaretMaryAlacoque: {
 				moment: moment.utc({ year: year, month: 9, day: 16 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint Hedwig, religious or Saint Margaret Mary Alacoque, virgin'
+	            name: 'Saint Hedwig, Religious or Saint Margaret Mary Alacoque, Virgin'
 	        },
 	        saintIgnatiusOfAntioch: {
 				moment: moment.utc({ year: year, month: 9, day: 17 }),
-	            type: types.MEMORIAL,
-	            name: 'Saint Ignatius of Antioch, bishop and martyr'
+	            type: types.MEMORIAL_MARTYR,
+	            name: 'Saint Ignatius of Antioch, Bishop & Martyr'
 	        },
 	        saintLukeTheEvangelist: {
 				moment: moment.utc({ year: year, month: 9, day: 18 }),
@@ -745,23 +745,23 @@ module.exports = {
 	        },
 	        saintsJeanDeBrebeufIsaacJorguesAndCoOrSaintPaulOfTheCross: {
 				moment: moment.utc({ year: year, month: 9, day: 19 }),
-	            type: types.OPT_MEMORIAL,
-	            name: 'Saints Jean de Brebeuf, Isaac Jogues, priests and martyrs; and their companions, martyrs or Saint Paul of the Cross, priest'
+	            type: types.OPT_MEMORIAL_MARTYR,
+	            name: 'Saints Jean de Brebeuf, Isaac Jogues, priests & Martyrs; & their Companions, Martyrs or Saint Paul of the Cross, Priest'
 	        },
 	        saintJohnOfCapistrano: {
 				moment: moment.utc({ year: year, month: 9, day: 23 }),
 	            type: types.OPT_MEMORIAL,
-	            name: 'Saint John of Capistrano, priest'
+	            name: 'Saint John of Capistrano, Priest'
 	        },
 	        saintAnthonyMaryClaret: {
 	        	moment: moment.utc({ year: year, month: 9, day: 24 }),
 	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Anthony Mary Claret, bishop'
+	            name: 'Saint Anthony Mary Claret, Bishop'
 	        },
 	        saintsSimonAndJude: {
 	        	moment: moment.utc({ year: year, month: 9, day: 28 }),
 	            type: types.FEAST,
-	            name: 'Saint Simon and Saint Jude, apostles'
+	            name: 'Saint Simon & Saint Jude, Apostles'
 	        },
 
 	        // November
@@ -773,12 +773,12 @@ module.exports = {
 	        saintMartinDePorres: {
 	        	moment: moment.utc({ year: year, month: 10, day: 3 }),
 	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Martin de Porres, religious'
+	            name: 'Saint Martin de Porres, Religious'
 	        },
 	        saintCharlesBorromeo: {
 	        	moment: moment.utc({ year: year, month: 10, day: 4 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint Charles Borromeo, bishop'
+	            name: 'Saint Charles Borromeo, Bishop'
 	        },
 	        dedicationOfTheLateranBasilica: {
 	        	moment: moment.utc({ year: year, month: 10, day: 9 }),
@@ -788,37 +788,37 @@ module.exports = {
 	        saintLeoTheGreat: {
 	        	moment: moment.utc({ year: year, month: 10, day: 10 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint Leo the Great, pope and doctor'
+	            name: 'Saint Leo the Great, Pope & Doctor'
 	        },
 	        saintMartinOfTours: {
 	        	moment: moment.utc({ year: year, month: 10, day: 11 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint Martin of Tours, bishop'
+	            name: 'Saint Martin of Tours, Bishop'
 	        },
 	        saintJosaphat: {
 	        	moment: moment.utc({ year: year, month: 10, day: 12 }),
-	            type: types.MEMORIAL,
-	            name: 'Saint Josaphat, bishop and martyr'
+	            type: types.MEMORIAL_MARTYR,
+	            name: 'Saint Josaphat, Bishop & Martyr'
 	        },
 	        saintAlbertTheGreat: {
 	        	moment: moment.utc({ year: year, month: 10, day: 15 }),
 	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Albert the Great, bishop and doctor'
+	            name: 'Saint Albert the Great, Bishop & Doctor'
 	        },
 	        saintMargaretOfScotlantOrGertrudeTheGreat: {
 	        	moment: moment.utc({ year: year, month: 10, day: 16 }),
 	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Margaret of Scotland or Saint Gertrude the Great, virgin'
+	            name: 'Saint Margaret of Scotland or Saint Gertrude the Great, Virgin'
 	        },
 	        saintElizabethOfHungary: {
 	        	moment: moment.utc({ year: year, month: 10, day: 17 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint Elizabeth of Hungary, religious'
+	            name: 'Saint Elizabeth of Hungary, Religious'
 	        },
 	        dedicationOfTheBasilicasOfSaintsPeterAndPaul: {
 	        	moment: moment.utc({ year: year, month: 10, day: 18 }),
 	            type: types.OPT_MEMORIAL,
-	            name: 'Dedication of the basilicas of Saints Peter and Paul, Apostles'
+	            name: 'Dedication of the basilicas of Saints Peter & Paul, Apostles'
 	        },	
 	        presentationOfTheBlessedVirginMary: {
 	        	moment: moment.utc({ year: year, month: 10, day: 21 }),
@@ -832,13 +832,13 @@ module.exports = {
 	        },
 	        saintClementIOrSaintColumban: {
 	        	moment: moment.utc({ year: year, month: 10, day: 23 }),
-	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Clement I, pope and martyr or Saint Columban, religious'
+	            type: types.OPT_MEMORIAL_MARTYR,
+	            name: 'Saint Clement I, Pope & Martyr or Saint Columban, Religious'
 	        },
 	        saintAndrewDungLacAndCo: {
 	        	moment: moment.utc({ year: year, month: 10, day: 24 }),
-	            type: types.MEMORIAL,
-	            name: 'Saint Andrew Dung Lac and his companions, martyrs'
+	            type: types.MEMORIAL_MARTYR,
+	            name: 'Saint Andrew Dung Lac & his Companions, Martyrs'
 	        },
 	        saintCatherineOfAlexandria: {
 	        	moment: moment.utc({ year: year, month: 10, day: 25 }),
@@ -855,22 +855,22 @@ module.exports = {
 	        saintFrancisXavier: {
 	        	moment: moment.utc({ year: year, month: 11, day: 3 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint Francis Xavier, priest'
+	            name: 'Saint Francis Xavier, Priest'
 	        },
 	        saintJohnDamascene: {
 	        	moment: moment.utc({ year: year, month: 11, day: 4 }),
 	            type: types.OPT_MEMORIAL,
-	            name: 'Saint John Damascene, priest and doctor'
+	            name: 'Saint John Damascene, Priest & Doctor'
 	        },
 	        saintNicholas: {
 	        	moment: moment.utc({ year: year, month: 11, day: 6 }),
 	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Nicholas, bishop'
+	            name: 'Saint Nicholas, Bishop'
 	        },
 	        saintAmbrose: {
 	        	moment: moment.utc({ year: year, month: 11, day: 7 }),
 	            type: types.MEMORIAL,
-	            name: 'Saint Ambrose, bishop & doctor'
+	            name: 'Saint Ambrose, Bishop & Doctor'
 	        },
 	        saintJuanDiego: {
 	        	moment: moment.utc({ year: year, month: 11, day: 9 }),
@@ -880,7 +880,7 @@ module.exports = {
 	        saintDamasusI: {
 	        	moment: moment.utc({ year: year, month: 11, day: 11 }),
 	            type: types.OPT_MEMORIAL,
-	            name: 'Saint Damasus I, pope'
+	            name: 'Saint Damasus I, Pope'
 	        },
 	        ourLadyOfGuadalupe: {
 	        	moment: moment.utc({ year: year, month: 11, day: 12 }),
@@ -889,8 +889,8 @@ module.exports = {
 	        },
 	        saintLucyOfSyracuse: {
 	        	moment: moment.utc({ year: year, month: 11, day: 13 }),
-	            type: types.MEMORIAL,
-	            name: 'Saint Lucy of Syracuse, virgin & martyr'
+	            type: types.MEMORIAL_MARTYR,
+	            name: 'Saint Lucy of Syracuse, Virgin & Martyr'
 	        },
 	        saintJohnOfTheCross: {
 	        	moment: moment.utc({ year: year, month: 11, day: 14 }),
@@ -909,7 +909,7 @@ module.exports = {
 	        },
 	        saintStephenTheFirstMartyr: {
 	        	moment: moment.utc({ year: year, month: 11, day: 26 }),
-	            type: types.FEAST,
+	            type: types.FEAST_MARTYR,
 	            name: 'Saint Stephen, The First Martyr'
 	        },
 	        saintJohnTheApostle: {
@@ -919,12 +919,12 @@ module.exports = {
 	        },
 	        holyInnocents: {
 				moment: moment.utc({ year: year, month: 11, day: 28 }),
-	            type: types.FEAST,
+	            type: types.FEAST_MARTYR,
 	            name: 'Holy Innocents, Martyrs'
 	        },
 	        saintThomasBecket: {
 	        	moment: moment.utc({ year: year, month: 11, day: 29 }),
-	            type: types.OPT_MEMORIAL,
+	            type: types.OPT_MEMORIAL_MARTYR,
 	            name: 'Saint Thomas Becket, Bishop & Martyr'
 	        },
 	        saintSylvesterI: {

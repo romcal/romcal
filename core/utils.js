@@ -55,20 +55,23 @@ module.exports = {
 	},
 	types: function() {
 		return types = {
-			"SOLEMNITY":{"key":"SOLEMNITY","name":"Solemnity","rank":10},
-			"FEAST_OF_THE_LORD":{"key":"FEAST_OF_THE_LORD","name":"Feast","rank":9},
-			"FEAST":{"key":"FEAST","name":"Feast","rank":9},
-			"TRIDUUM":{"key":"TRIDUUM","name":"Triduum","rank":8},
-			"HOLY_WEEK":{"key":"HOLY_WEEK","name":"Holy Week","rank":7},
-			"SUNDAY_OF_LENT":{"key":"SUNDAY_OF_LENT","name":"Sunday","rank":6},
-			"SUNDAY_OF_ADVENT":{"key":"SUNDAY_OF_ADVENT","name":"Sunday","rank":6},
-			"MEMORIAL":{"key":"MEMORIAL","name":"Memorial","rank":5},
-			"OPT_MEMORIAL":{"key":"OPT_MEMORIAL","name":"Optional Memorial","rank":4},
-			"COMMEM":{"key":"COMMEM","name":"Commemoration","rank":3},
-			"WEEKDAY_OF_LENT":{"key":"WEEKDAY_OF_LENT","name":"Weekday","rank":2},
-			"WEEKDAY_OF_ADVENT":{"key":"WEEKDAY_OF_ADVENT","name":"Weekday","rank":2},
-			"SUNDAY":{"key":"SUNDAY","name":"Sunday","rank":1},
-			"WEEKDAY":{"key":"WEEKDAY","name":"Weekday","rank":0}
+			"SOLEMNITY":{"id":"SOLEMNITY","name":"Solemnity","rank":10},
+			"FEAST_OF_THE_LORD":{"id":"FEAST_OF_THE_LORD","name":"Feast","rank":9},
+			"FEAST":{"id":"FEAST","name":"Feast","rank":9},
+			"FEAST_MARTYR":{"id":"FEAST_MARTYR","name":"Feast","rank":9},
+			"TRIDUUM":{"id":"TRIDUUM","name":"Triduum","rank":8},
+			"HOLY_WEEK":{"id":"HOLY_WEEK","name":"Holy Week","rank":7},
+			"SUNDAY_OF_LENT":{"id":"SUNDAY_OF_LENT","name":"Sunday","rank":6},
+			"SUNDAY_OF_ADVENT":{"id":"SUNDAY_OF_ADVENT","name":"Sunday","rank":6},
+			"MEMORIAL":{"id":"MEMORIAL","name":"Memorial","rank":5},
+			"MEMORIAL_MARTYR":{"id":"MEMORIAL_MARTYR","name":"Memorial","rank":5},
+			"OPT_MEMORIAL":{"id":"OPT_MEMORIAL","name":"Optional Memorial","rank":4},
+			"OPT_MEMORIAL_MARTYR":{"id":"OPT_MEMORIAL_MARTYR","name":"Optional Memorial","rank":4},
+			"COMMEM":{"id":"COMMEM","name":"Commemoration","rank":3},
+			"WEEKDAY_OF_LENT":{"id":"WEEKDAY_OF_LENT","name":"Weekday","rank":2},
+			"WEEKDAY_OF_ADVENT":{"id":"WEEKDAY_OF_ADVENT","name":"Weekday","rank":2},
+			"SUNDAY":{"id":"SUNDAY","name":"Sunday","rank":1},
+			"WEEKDAY":{"id":"WEEKDAY","name":"Weekday","rank":0}
 		};
 	},
 	
