@@ -42,7 +42,6 @@ module.exports = {
             else {
                 var existing = filtered[ k ], // The existing date
                 	candidate = value; // The date to test
-
                 // If the overlapping date ranks higher than the current date, it will replace that date
                 if ( candidate.type.rank > existing.type.rank ) {
 	            	// If a memorial/opt. memorial will replace a weekeday in lent,
@@ -55,8 +54,9 @@ module.exports = {
 					}
                     filtered[k] = candidate;
                 }
-                // else
+                else {
                     // console.log( candidate.name + ' does not replace ' + existing.name );
+                }
             }
         });
 		return lodash.values( filtered );
@@ -129,6 +129,10 @@ module.exports = {
 				return liturgicalColors.WHITE;
 		};
 
+		var fixedFeastHandler = function( d ) {
+			return liturgicalColors.WHITE;
+		};
+
 		var solemnityHandler = function( d ) {
 			// Pentecost, Palm Sunday, and Peter and Paul is red
 			if ( lodash.isEqual( d.literalKey, 'pentecostSunday') || lodash.isEqual( d.literalKey, 'peterAndPaulApostles' ) || lodash.isEqual( d.literalKey, 'palmSunday') || lodash.isEqual( d.literalKey, 'goodFriday') )
@@ -174,6 +178,9 @@ module.exports = {
 					case types.FEAST.id:
 						color = memorialFeastHandler( d );
 						break;
+					case types.FIXED_FEAST.id:
+						color = fixedFeastHandler( d );
+						break;
 					case types.FEAST_MARTYR.id:
 						color = martyrHandler( d );
 						break;
@@ -199,7 +206,7 @@ module.exports = {
 						color = optionalMemorialHandler( d );
 						break;
 					case types.OPT_MEMORIAL_MARTYR.id:
-						color = martyrHandler( d );
+						color = optionalMemorialHandler( d );
 						break;
 					case types.COMMEM.id:
 						color = commemorationHandler( d );
@@ -229,7 +236,7 @@ module.exports = {
 		
 
 		lodash.map( dates, function( d, k, c ) {
-			if ( d.moment.day() === 2 )
+			if ( d.moment.day() === 4 )
 				console.log( d.moment.toString(), ':', d.name, ':', ( lodash.isUndefined( d.color ) ? {} : d.color.name ) );
 		});
 

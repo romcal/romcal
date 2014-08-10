@@ -767,7 +767,7 @@ module.exports = {
 	        // November
 	        allSouls: {
 	        	moment: moment.utc({ year: year, month: 10, day: 2 }),
-	            type: types.FEAST,
+	            type: types.FIXED_FEAST,
 	            name: 'All Souls'
 	        },
 	        saintMartinDePorres: {
@@ -782,7 +782,7 @@ module.exports = {
 	        },
 	        dedicationOfTheLateranBasilica: {
 	        	moment: moment.utc({ year: year, month: 10, day: 9 }),
-	            type: types.FEAST,
+	            type: types.FIXED_FEAST,
 	            name: 'Dedication of the Lateran basilica'
 	        },
 	        saintLeoTheGreat: {

@@ -55,11 +55,12 @@ module.exports = {
 	},
 	types: function() {
 		return types = {
-			"SOLEMNITY":{"id":"SOLEMNITY","name":"Solemnity","rank":10},
-			"SUNDAY_OF_LENT":{"id":"SUNDAY_OF_LENT","name":"Sunday","rank":9},
-			"SUNDAY_OF_ADVENT":{"id":"SUNDAY_OF_ADVENT","name":"Sunday","rank":9},
+			"SOLEMNITY":{"id":"SOLEMNITY","name":"Solemnity","rank":11},
+			"SUNDAY_OF_LENT":{"id":"SUNDAY_OF_LENT","name":"Sunday","rank":10},
+			"SUNDAY_OF_ADVENT":{"id":"SUNDAY_OF_ADVENT","name":"Sunday","rank":10},
+			"FEAST_OF_THE_LORD":{"id":"FEAST_OF_THE_LORD","name":"Feast","rank":9},
+			"FIXED_FEAST":{"id":"FIXED_FEAST","name":"Feast","rank":9},
 			"SUNDAY":{"id":"SUNDAY","name":"Sunday","rank":8},
-			"FEAST_OF_THE_LORD":{"id":"FEAST_OF_THE_LORD","name":"Feast","rank":7},
 			"FEAST":{"id":"FEAST","name":"Feast","rank":7},
 			"FEAST_MARTYR":{"id":"FEAST_MARTYR","name":"Feast","rank":7},
 			"TRIDUUM":{"id":"TRIDUUM","name":"Triduum","rank":6},

@@ -77,7 +77,7 @@ module.exports = {
 				if ( date.day() === 0 ) {
 					movableSolemnities['secondSundayOfChristmas'] = {
 						moment: date,
-						types: types.SUNDAY,
+						type: types.SUNDAY,
 						name: ordinalNumbers[1] + ' Sunday of Christmas'
 					};
 				}
@@ -112,7 +112,7 @@ module.exports = {
 				if ( date.day() === 0 ) break; // Break when this loop reaches a sunday
 				movableSolemnities[ days[ date.day() ] + 'BeforeEpiphany' ] = {
 					moment: date,
-					types: types.WEEKDAY_OF_EPIPHANY,
+					type: types.WEEKDAY_OF_EPIPHANY,
 					name: ordinalNumbers[1] + ' before Epiphany'
 				};
 			}
@@ -266,6 +266,10 @@ module.exports = {
 			secondIterator = moment.twix( pentecostSunday, christTheKing ).iterateInner('days');
 
 	    var dates = {}, sundays = 0, ctr = 0; currentWeek = 0;
+
+	    if ( feastsOfTheLord.baptismOfTheLord.moment.day() === 1 )
+	    	sundays++;
+
 	    while( firstIterator.hasNext() ) {
 	        var date = firstIterator.next();
 	        switch( date.day() ) {

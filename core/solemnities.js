@@ -209,7 +209,7 @@ module.exports = {
 
 		var firstDayOfYear = moment.utc({ year: easter.year(), month: 0, day: 1 });
 
-		// If first day of the year is a Saturday, Mary Mother of God is on Saturday
+		// If first day of the year is a Saturday, Mary Mother of God is on that day
 		// and Epiphany is on the next day
 		if ( firstDayOfYear.day() === 6 ) 
 			dates.epiphanyOfOurLord.moment = moment.utc(firstDayOfYear).add( 1, 'days' );
