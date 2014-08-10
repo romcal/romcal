@@ -70,5 +70,11 @@ module.exports = {
 		// 	if ( value.type.color && value.type.color.name === 'GOLD' )
 		// 		console.log( value.moment.toString(), ':', value.literalKey, ':', value.type.color );
 		// });
+        
+        return {
+            liturgicalDates: liturgicalDates
+        };
 	}
+
+
 };
