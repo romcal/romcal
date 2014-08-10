@@ -71,10 +71,45 @@ module.exports = {
 				var literalKey = d.literalKey,
 					type = d.type.id,
 					color = {};
+
+				switch( type ) {
+					case types.SOLEMNITY.id:
+						break;
+					case types.FEAST_OF_THE_LORD.id:
+						break;
+					case types.FEAST:
+						break;
+					case types.FEAST_MARTYR:
+						break;
+					case types.TRIDUUM:
+						break;
+					case types.HOLY_WEEK:
+						break;
+					case types.SUNDAY_OF_LENT:
+						break;
+					case types.SUNDAY_OF_ADVENT:
+						break;
+					case types.MEMORIAL:
+						break;
+					case types.MEMORIAL_MARTYR:
+						break;
+					case types.COMMEM:
+						break;
+					case types.WEEKDAY_OF_LENT:
+						break;
+					case types.WEEKDAY_OF_ADVENT:
+						break;
+					case types.SUNDAY:
+						break;
+					case types.WEEKDAY:
+						break;
+					default:
+						break;
+				}
 				
 				// Holy Thursday = white, Good Friday = red, Easter Vigil = White 
 				if ( lodash.isEqual( type, types.TRIDUUM.id ) ) {
-					if ( lodash.isEqual( d.literalKey, 'goodFriday' ) )
+					if ( lodash.isEqual( literalKey, 'goodFriday' ) )
 						color = liturgicalColors.RED;
 					else
 						color = liturgicalColors.WHITE;
