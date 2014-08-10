@@ -47,8 +47,8 @@ module.exports = {
                 if ( candidate.type.rank > existing.type.rank ) {
 	            	// If a memorial/opt. memorial will replace a weekeday in lent,
 	            	// it will be reduced to the rank of commemoration
-	            	if ( lodash.isEqual( existing.type.key, types.WEEKDAY_OF_LENT.key ) ) {
-	            		if ( lodash.isEqual( candidate.type.key, types.MEMORIAL.key ) || lodash.isEqual( candidate.type.key, types.OPT_MEMORIAL.key ) || lodash.isEqual( candidate.type.key, types.MEMORIAL_MARTYR.key ) || lodash.isEqual( candidate.type.key, types.OPT_MEMORIAL_MARTYR.key ) ) {
+	            	if ( lodash.isEqual( existing.type.id, types.WEEKDAY_OF_LENT.id ) ) {
+	            		if ( lodash.isEqual( candidate.type.id, types.MEMORIAL.id ) || lodash.isEqual( candidate.type.id, types.OPT_MEMORIAL.id ) || lodash.isEqual( candidate.type.id, types.MEMORIAL_MARTYR.id ) || lodash.isEqual( candidate.type.id, types.OPT_MEMORIAL_MARTYR.id ) ) {
             				// console.log( candidate.name + ' will be reduced to a commemoration');
             				candidate.type = types.COMMEM;
 						}
@@ -64,129 +64,164 @@ module.exports = {
 
 	setLiturgicalColors: function( dates, seasonRanges ) {
 
+		// var it = seasonRanges.christmasOctaveRange.iterate('days');
+		// while ( it.hasNext() )
+		// 	console.log( it.next().toString() );
+
+		// The proper color of Ordinary Time is green.
+		// The proper color of the Easter and Christmas seasons is white.
+		var sundayWeekdayHandler = function( d ) {
+			if ( seasonRanges.earlierOrdinaryTime.contains( d.moment ) || seasonRanges.latterOrdinaryTime.contains( d.moment ) )
+				return liturgicalColors.GREEN;
+			else if ( seasonRanges.easterSeasonRange.contains( d.moment ) )
+				return liturgicalColors.WHITE;
+			else if ( seasonRanges.christmasOctaveRange.contains( d.moment ) )
+				return liturgicalColors.WHITE;
+			else
+				return liturgicalColors.GREEN;
+		};
+
+		var weekdayOfEpiphanyHandler = function( d ) {
+			return liturgicalColors.WHITE;
+		};
+
+		// The proper color of a Memorial or a Feast is white.		
+		var memorialFeastHandler = function( d ) {
+			return liturgicalColors.WHITE;
+		};
+
+		// The proper color of a Memorial or a Feast for martyrs is red. 
+		// The proper color for the Chair of Peter and the Conversion of St. Paul is white, although both St. Peter and St. Paul were martyrs.
+		var martyrHandler = function ( d ) {
+			return liturgicalColors.RED;
+		};
+
+		// Holy Thursday = white, Good Friday = red, Easter Vigil = White 
+		var triduumHandler = function( d ) {
+			if ( lodash.isEqual( d.literalKey, 'goodFriday' ) )
+				return liturgicalColors.RED;
+			else
+				return liturgicalColors.WHITE;
+		};
+
+		// Monday - Wednesday of Holy Week is purple
+		var holyWeekHandler = function ( d ) {
+			return liturgicalColors.PURPLE;
+		};
+
+		// 	The proper color of a Memorial/Optional Memorial is the color of the season.		
+		var optionalMemorialHandler = function ( d ) {
+			if ( seasonRanges.adventRange.contains( d.moment ) || seasonRanges.lenternRange.contains( d.moment ) )
+				return liturgicalColors.PURPLE;
+			else if ( seasonRanges.earlierOrdinaryTime.contains( d.moment ) || seasonRanges.latterOrdinaryTime.contains( d.moment ) )
+				return liturgicalColors.GREEN;
+			else if ( seasonRanges.easterSeasonRange.contains( d.moment ) || seasonRanges.christmasOctaveRange.contains( d.moment ) )
+				return liturgicalColors.WHITE;
+			else 
+				return liturgicalColors.WHITE
+		};
+
+		// The proper color for Feasts of the Lord is white except the Triumph of the Cross which is red.
+		var feastOfTheLordHandler = function( d ) {
+			if ( lodash.isEqual( d.literalKey, 'triumphOfTheCross' ) )
+				return liturgicalColors.RED;
+			else 
+				return liturgicalColors.WHITE;
+		};
+
+		var solemnityHandler = function( d ) {
+			// Pentecost, Palm Sunday, and Peter and Paul is red
+			if ( lodash.isEqual( d.literalKey, 'pentecostSunday') || lodash.isEqual( d.literalKey, 'peterAndPaulApostles' ) || lodash.isEqual( d.literalKey, 'palmSunday') || lodash.isEqual( d.literalKey, 'goodFriday') )
+				return liturgicalColors.RED;
+			
+			// Gold vestments may be used on very festive occasions, such as Easter and Christmas.
+			else if ( lodash.isEqual ( d.literalKey, 'easterSunday' ) || lodash.isEqual ( d.literalKey, 'christmas' ) )
+				return liturgicalColors.GOLD;
+			
+			// The proper color for Solemnities is white.
+			else
+				return liturgicalColors.WHITE;
+		};
+
+		// 3rd Sunday of Advent and the 4th Sunday of Lent is rose or purple.
+		// The proper color of the Advent and Lent seasons is purple
+		var sundaysAndWeekdaysOfLentAAndAdventHandler = function( d ) {
+			var key1 = 'the' + ordinalNumbers[2] + 'SundayOfAdvent',
+				key2 = 'the' + ordinalNumbers[3] + 'SundayOfLent'
+			if ( lodash.isEqual( d.literalKey, key1 )|| lodash.isEqual( d.literalKey, key2 ) ) 
+				return liturgicalColors.ROSE;
+			else 
+				return liturgicalColors.PURPLE;
+		};
+
+		var commemorationHandler = function( d ) {
+			return liturgicalColors.PURPLE;
+		};
+
 	 	lodash.map( dates, function( d, k, c ) {
 
 	 		if ( d.type ) {
 
-				var literalKey = d.literalKey,
-					type = d.type.id,
-					color = {};
+				var color = {};
 
-				switch( type ) {
+				switch( d.type.id ) {
 					case types.SOLEMNITY.id:
+						color = solemnityHandler( d );
 						break;
 					case types.FEAST_OF_THE_LORD.id:
+						color = feastOfTheLordHandler( d );
 						break;
-					case types.FEAST:
+					case types.FEAST.id:
+						color = memorialFeastHandler( d );
 						break;
-					case types.FEAST_MARTYR:
+					case types.FEAST_MARTYR.id:
+						color = martyrHandler( d );
 						break;
-					case types.TRIDUUM:
+					case types.TRIDUUM.id:
+						color = triduumHandler( d );
 						break;
-					case types.HOLY_WEEK:
+					case types.HOLY_WEEK.id:
+						color = holyWeekHandler( d );
 						break;
-					case types.SUNDAY_OF_LENT:
+					case types.SUNDAY_OF_LENT.id:
+						color = sundaysAndWeekdaysOfLentAAndAdventHandler( d );
 						break;
-					case types.SUNDAY_OF_ADVENT:
+					case types.SUNDAY_OF_ADVENT.id:
+						color = sundaysAndWeekdaysOfLentAAndAdventHandler( d );
 						break;
-					case types.MEMORIAL:
+					case types.MEMORIAL.id:
+						color = memorialFeastHandler( d );
 						break;
-					case types.MEMORIAL_MARTYR:
+					case types.MEMORIAL_MARTYR.id:
+						color = martyrHandler( d );
 						break;
-					case types.COMMEM:
+					case types.OPT_MEMORIAL.id:
+						color = optionalMemorialHandler( d );
 						break;
-					case types.WEEKDAY_OF_LENT:
+					case types.OPT_MEMORIAL_MARTYR.id:
+						color = martyrHandler( d );
 						break;
-					case types.WEEKDAY_OF_ADVENT:
+					case types.COMMEM.id:
+						color = commemorationHandler( d );
 						break;
-					case types.SUNDAY:
+					case types.WEEKDAY_OF_LENT.id:
+						color = sundaysAndWeekdaysOfLentAAndAdventHandler( d );
 						break;
-					case types.WEEKDAY:
+					case types.WEEKDAY_OF_ADVENT.id:
+						color = sundaysAndWeekdaysOfLentAAndAdventHandler( d );
+						break;
+					case types.SUNDAY.id:
+						color = sundayWeekdayHandler( d );
+						break;
+					case types.WEEKDAY.id:
+						color = sundayWeekdayHandler( d );
+						break;
+					case types.WEEKDAY_OF_EPIPHANY.id:
+						color = weekdayOfEpiphanyHandler( d );
 						break;
 					default:
 						break;
 				}
-				
-				// Holy Thursday = white, Good Friday = red, Easter Vigil = White 
-				if ( lodash.isEqual( type, types.TRIDUUM.id ) ) {
-					if ( lodash.isEqual( literalKey, 'goodFriday' ) )
-						color = liturgicalColors.RED;
-					else
-						color = liturgicalColors.WHITE;
-				}
-
-				// Monday - Wednesday of Holy Week is purple
-				else if ( lodash.isEqual(  type, types.HOLY_WEEK.id ) ) {
-					color = liturgicalColors.PURPLE;
-				}
-
-				// The proper color of Ordinary Time is green.
-				else if ( seasonRanges.earlierOrdinaryTime.contains( d ) || seasonRanges.latterOrdinaryTime.contains( d ) )
-					color = liturgicalColors.GREEN;
-
-				// The proper color of the Easter and Christmas seasons is white.
-				else if ( seasonRanges.easterSeasonRange.contains( d ) || seasonRanges.christmasOctaveRange.contains( d ) )
-					color = liturgicalColors.WHITE;
-
-				// The proper color of a Memorial or a Feast is white.
-				else if ( lodash.isEqual( type, types.MEMORIAL.id ) || lodash.isEqual( type, types.FEAST.id ) ) {
-					color = liturgicalColors.WHITE;
-				}
-
-				// The proper color of a Memorial or a Feast for martyrs is red. 
-				// The proper color for the Chair of Peter and the Conversion of St. Paul is white, although both St. Peter and St. Paul were martyrs.
-				else if ( lodash.isEqual( type, types.MEMORIAL_MARTYR.id ) || lodash.isEqual( type, types.FEAST_MARTYR.id ) || lodash.isEqual( type, types.OPT_MEMORIAL_MARTYR.id ) ) {
-					color = liturgicalColors.RED;
-				}
-
-				// 	The proper color of a Memorial/Optional Memorial is the color of the season.
-				else if ( lodash.isEqual( type, types.OPT_MEMORIAL.id ) ) {
-					if ( seasonRanges.adventRange.contains( d ) || seasonRanges.lenternRange.contains( d ) )
-						color = liturgicalColors.PURPLE;
-					else if ( seasonRanges.earlierOrdinaryTime.contains( d ) || seasonRanges.latterOrdinaryTime.contains( d ) )
-						color = liturgicalColors.GREEN;
-					else if ( seasonRanges.easterSeasonRange.contains( d ) || seasonRanges.christmasOctaveRange.contains( d ) )
-						color = liturgicalColors.WHITE;
-					else {
-						color = liturgicalColors.WHITE
-					}
-				}
-
-				// The proper color for Feasts of the Lord is white except the Triumph of the Cross which is red.
-				else if ( lodash.isEqual( type, types.FEAST_OF_THE_LORD.id ) ) {
-					if ( lodash.isEqual( d.literalKey, 'triumphOfTheCross' ) )
-						color = liturgicalColors.RED;
-					else 
-						color = liturgicalColors.WHITE;
-				}
-
-				else if ( lodash.isEqual( type, types.SOLEMNITY.id ) ) {
-					
-					// Pentecost, Palm Sunday, and Peter and Paul is red
-					if ( lodash.isEqual( literalKey, 'pentecostSunday') || lodash.isEqual( literalKey, 'peterAndPaulApostles' ) || lodash.isEqual( literalKey, 'palmSunday') || lodash.isEqual( literalKey, 'goodFriday') )
-						color = liturgicalColors.RED;
-					
-					// Gold vestments may be used on very festive occasions, such as Easter and Christmas.
-					else if ( lodash.isEqual ( literalKey, 'easterSunday' ) || lodash.isEqual ( literalKey, 'christmas' ) )
-						color = liturgicalColors.GOLD;
-					
-					// The proper color for Solemnities is white.
-					else
-						color = liturgicalColors.WHITE;
-				}
-
-				else if ( lodash.isEqual( type, types.SUNDAY_OF_LENT.id ) || lodash.isEqual( type, types.SUNDAY_OF_ADVENT.id ) || lodash.isEqual( type, types.WEEKDAY_OF_LENT.id ) || lodash.isEqual(  type, types.WEEKDAY_OF_ADVENT.id ) ) {
-					var key1 = 'the' + ordinalNumbers[2] + 'SundayOfAdvent',
-						key2 = 'the' + ordinalNumbers[3] + 'SundayOfLent'
-					
-					if ( lodash.isEqual( d.literalKey, key1 )|| lodash.isEqual( d.literalKey, key2 ) ) // 3rd Sunday of Advent and the 4th Sunday of Lent is rose or purple.
-						color = liturgicalColors.ROSE;
-					
-					else // The proper color of the Advent and Lent seasons is purple
-						color = liturgicalColors.PURPLE;
-				}
-
-				else {}
 
 				d.color = color;
 	 		}
@@ -194,7 +229,8 @@ module.exports = {
 		
 
 		lodash.map( dates, function( d, k, c ) {
-			console.log( d.moment.toString(), ':', d.literalKey, ':', d.color );
+			if ( d.moment.day() === 6 )
+			console.log( d.moment.toString(), ':', d.literalKey, ':', ( lodash.isUndefined( d.color ) ? {} : d.color.name ) );
 		});
 
 		return dates;

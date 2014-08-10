@@ -84,7 +84,7 @@ module.exports = {
 				else {			
 					movableSolemnities[ days[ date.day() ] + 'BeforeEpiphany' ] = {
 						moment: date,
-						type: types.WEEKDAY,
+						type: types.WEEKDAY_OF_EPIPHANY,
 						name: days[ date.day() ] + ' before Epiphany'
 					};
 				}
@@ -97,7 +97,7 @@ module.exports = {
 				if ( date.day() === 0 ) break; // Break when this loop reaches a sunday
 				movableSolemnities[ days[ date.day() ] + 'AfterEpiphany' ] = {
 					moment: date,
-					type: types.WEEKDAY,
+					type: types.WEEKDAY_OF_EPIPHANY,
 					name: days[ date.day() ] + ' after Epiphany'
 				};	
 			}
@@ -112,7 +112,7 @@ module.exports = {
 				if ( date.day() === 0 ) break; // Break when this loop reaches a sunday
 				movableSolemnities[ days[ date.day() ] + 'BeforeEpiphany' ] = {
 					moment: date,
-					types: types.WEEKDAY,
+					types: types.WEEKDAY_OF_EPIPHANY,
 					name: ordinalNumbers[1] + ' before Epiphany'
 				};
 			}
@@ -133,7 +133,7 @@ module.exports = {
 					if ( date.day() === 0 ) break; // Break when this loop reaches a sunday
 					movableSolemnities[ days[ date.day() ] + 'AfterEpiphany' ] = {
 						moment: date,
-						type: types.WEEKDAY,
+						type: types.WEEKDAY_OF_EPIPHANY,
 						name: days[ date.day() ] + ' after Epiphany'
 					};	
 				}
@@ -216,7 +216,7 @@ module.exports = {
 	    while( octaveIterator.hasNext() ) {
 	    	var date = octaveIterator.next();
 	    	if ( date.day() !== 0 && date.date() < 32 ) {
-	    		dates[ 'the' + ordinalNumbers[ counter ]  + 'OfTheOctaveOfChristmas' ] = {
+	    		dates[ 'the' + ordinalNumbers[ counter ]  + 'DayOfTheOctaveOfChristmas' ] = {
 	    			moment: date,
 	    			type: types.WEEKDAY,
 	    			name: ordinalNumbers[ counter ] + ' day of the Octave of Christmas'
@@ -262,7 +262,7 @@ module.exports = {
 		var firstIterator = moment.twix( baptismOfTheLord, ashWednesday ).iterateInner('days'),
 			secondIterator = moment.twix( pentecostSunday, christTheKing ).iterateInner('days');
 
-	    var dates = {}, sundays = 1, ctr = 0; currentWeek = 0;
+	    var dates = {}, sundays = 0, ctr = 0; currentWeek = 0;
 	    while( firstIterator.hasNext() ) {
 	        var date = firstIterator.next();
 	        switch( date.day() ) {

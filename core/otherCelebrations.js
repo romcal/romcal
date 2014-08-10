@@ -884,7 +884,7 @@ module.exports = {
 	        },
 	        ourLadyOfGuadalupe: {
 	        	moment: moment.utc({ year: year, month: 11, day: 12 }),
-	            type: types.OPT_MEMORIAL,
+	            type: types.FEAST,
 	            name: 'Our Lady of Guadalupe'
 	        },
 	        saintLucyOfSyracuse: {
