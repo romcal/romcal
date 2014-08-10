@@ -119,17 +119,17 @@ module.exports = {
 			holyThursday: {
 				moment: moment.utc(easter).subtract( 3, 'days' ),
 				type: types.TRIDUUM,
-				name: 'Holy Thursday'
+				name: 'Holy Thursday (Paschal Triduum)'
 			},
 			goodFriday: {
 				moment: moment.utc(easter).subtract( 2, 'days' ),
 				type: types.TRIDUUM,
-				name: 'Good Friday'
+				name: 'Good Friday (Paschal Triduum)'
 			},
 			holySaturday: {
 				moment: moment.utc(easter).subtract( 1, 'days' ),
 				type: types.TRIDUUM,
-				name: 'Holy Saturday/Easter Vigil'
+				name: 'Holy Saturday/Easter Vigil (Paschal Triduum)'
 			},
 			easterSunday: {
 				moment: easter,

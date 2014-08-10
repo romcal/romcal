@@ -187,14 +187,14 @@ module.exports = {
 
 	    	switch( date.day() ) {
 	    		case 0:
-	    			var info = {
+	    			var name =  ordinalNumbers[sundays] + ' Sunday of Advent';
+	    			if ( sundays === 2 )
+	    				name = 'Gaudate Sunday (3rd Sunday of Advent)';
+		    		dates[ 'the' + ordinalNumbers[sundays] + 'SundayOfAdvent' ] = {
 		    			moment: date,
 		    			type: types.SUNDAY_OF_ADVENT,
-		    			name: ordinalNumbers[sundays] + ' Sunday of Advent'
+		    			name: name
 		    		};
-		    		if ( sunday === 2)
-		    			info.name = info.name + ' / Gaudate Sunday';
-		    		dates[ 'the' + ordinalNumbers[sundays] + 'SundayOfAdvent' ] = info;
 		    		sundays++;
 	    			break;
 	    		default:
@@ -222,7 +222,7 @@ module.exports = {
 	    		dates[ 'the' + ordinalNumbers[ counter ]  + 'DayOfTheOctaveOfChristmas' ] = {
 	    			moment: date,
 	    			type: types.WEEKDAY,
-	    			name: ordinalNumbers[ counter ] + ' day of the Octave of Christmas'
+	    			name: ordinalNumbers[ counter ] + ' day of the Octave of Christmas (Christmastide)'
 	    		};
 	    	}
 	    	counter++;
@@ -281,7 +281,7 @@ module.exports = {
 	                dates[ days[ date.day() ] + 'OfThe' + ordinalNumbers[ currentWeek ] + 'WeekOfOrdinaryTime' ] = {
 	                    moment: date,
 	                    type: types.WEEKDAY,
-	                    name: days[ date.day() ] + ' of the ' + ordinalNumbers[ currentWeek ] + ' week of Ordinary Time'
+	                    name: days[ date.day() ] + ' of the ' + ordinalNumbers[ currentWeek ] + ' week of Ordinary Time (Feria)'
 	                };
 	                break;
 	        }
@@ -306,7 +306,7 @@ module.exports = {
 	    	dates[ days[ date.day() ] + 'OfThe' + ordinalNumbers[ 33 ] + 'WeekOfOrdinaryTime' ] = {
 	            moment: date,
 	            type: types.WEEKDAY,
-	            name: days[ date.day() ] + ' of the ' + ordinalNumbers[ 33 ] + ' week of Ordinary Time'
+	            name: days[ date.day() ] + ' of the ' + ordinalNumbers[ 33 ] + ' week of Ordinary Time (Feria)'
 	        };
 	    }
 
@@ -325,7 +325,7 @@ module.exports = {
 				dates[ days[ date.day() ] + 'OfThe' + ordinalNumbers[ weekOfOrdinaryTime ] + 'WeekOfOrdinaryTime' ] = {
 		            moment: date,
 		            type: types.WEEKDAY,
-		            name: days[ date.day() ] + ' of the ' + ordinalNumbers[ weekOfOrdinaryTime ] + ' week of Ordinary Time'
+		            name: days[ date.day() ] + ' of the ' + ordinalNumbers[ weekOfOrdinaryTime ] + ' week of Ordinary Time (Feria)'
 		        };
 	    	}
 
@@ -351,10 +351,13 @@ module.exports = {
 		while ( iterator.hasNext() ) {
 			var date = iterator.next();
 			if ( date.day() === 0 ) {
+    			var name =  ordinalNumbers[sundays] + ' Sunday of Lent';
+    			if ( sundays === 3 )
+    				name = 'Laetare Sunday (4th Sunday of Lent)';
 				dates[ 'the' + ordinalNumbers[sundays] + 'SundayOfLent' ] = {
 	    			moment: date,
 	    			type: types.SUNDAY_OF_LENT,
-	    			name: ordinalNumbers[sundays] + ' Sunday of Lent',
+	    			name: name,
 	                data: {
 	                    weekNumber: currentWeek + 1,
 	                }
