@@ -187,11 +187,14 @@ module.exports = {
 
 	    	switch( date.day() ) {
 	    		case 0:
-		    		dates[ 'the' + ordinalNumbers[sundays] + 'SundayOfAdvent' ] = {
+	    			var info = {
 		    			moment: date,
 		    			type: types.SUNDAY_OF_ADVENT,
 		    			name: ordinalNumbers[sundays] + ' Sunday of Advent'
 		    		};
+		    		if ( sunday === 2)
+		    			info.name = info.name + ' / Gaudate Sunday';
+		    		dates[ 'the' + ordinalNumbers[sundays] + 'SundayOfAdvent' ] = info;
 		    		sundays++;
 	    			break;
 	    		default:

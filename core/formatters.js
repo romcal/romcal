@@ -229,8 +229,8 @@ module.exports = {
 		
 
 		lodash.map( dates, function( d, k, c ) {
-			if ( d.moment.day() === 6 )
-			console.log( d.moment.toString(), ':', d.literalKey, ':', ( lodash.isUndefined( d.color ) ? {} : d.color.name ) );
+			if ( d.moment.day() === 7 )
+			console.log( d.moment.toString(), ':', d.name, ':', ( lodash.isUndefined( d.color ) ? {} : d.color.name ) );
 		});
 
 		return dates;
