@@ -108,7 +108,7 @@ module.exports = {
 			var afterIterator = moment.twix( epiphanyOfOurLord, dates.baptismOfTheLord.moment ).iterateInner('days');
 			while( afterIterator.hasNext() ) {
 				var date = afterIterator.next();
-				if ( date.day() === 0 ) break; // Break when this loop reaches a sunday
+				if ( date.date() === dates.baptismOfTheLord.moment.date() ) break; // Break when this loop reaches the next sunday
 				movableSolemnities[ days[ date.day() ] + 'AfterEpiphany' ] = {
 					moment: date,
 					type: types.WEEKDAY_OF_EPIPHANY,
@@ -130,7 +130,7 @@ module.exports = {
 				movableSolemnities[ days[ date.day() ] + 'BeforeEpiphany' ] = {
 					moment: date,
 					type: types.WEEKDAY_OF_EPIPHANY,
-					name: ordinalNumbers[1] + ' before Epiphany',
+					name: days[ date.day() ] + ' before Epiphany',
 					data: {
 						season: categories.EPIPHANY
 					}
@@ -147,10 +147,10 @@ module.exports = {
 
 				dates.baptismOfTheLord.moment = moment.utc( epiphanyOfOurLord ).add( 7, 'days' );
 
-				var afterIterator = moment.twix(epiphanyOfOurLord, dates.baptismOfTheLord.moment ).iterateInner('days');
+				var afterIterator = moment.twix( moment.utc( epiphanyOfOurLord ).add( 1, 'days' ), dates.baptismOfTheLord.moment ).iterateInner('days');
 				while( afterIterator.hasNext() ) {
 					var date = afterIterator.next();
-					if ( date.day() === 0 ) break; // Break when this loop reaches a sunday
+					if ( date.date() === dates.baptismOfTheLord.moment.date() ) break; // Break when this loop reaches the next sunday
 					movableSolemnities[ days[ date.day() ] + 'AfterEpiphany' ] = {
 						moment: date,
 						type: types.WEEKDAY_OF_EPIPHANY,
@@ -162,6 +162,10 @@ module.exports = {
 				}
 			}
 		}
+
+		// lodash.map( movableSolemnities, function( v, k ) {
+		// 	console.log( v.moment.toString(), ':', v.name );
+		// });
 
 		return {
 			feastsOfTheLord: dates,
