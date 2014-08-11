@@ -48,21 +48,16 @@ module.exports = {
 		// 		});
 		// });
 
-
-		lodash.map( liturgicalDates, function( d, k, c ) {
-			d.date = {
-				timearray: d.moment.toArray(),
-				isostring: d.moment.toISOString()
-			},
-			d.type = d.type.name;
-			delete d.moment;
-		});
-
 		// console.log( liturgicalDates );
 
         
         return {
             liturgicalDates: liturgicalDates
         };
+	},
+
+	queryBy: function( fn, dates ) {
+		fn = 'get' + ( fn.charAt(0).toUpperCase() + fn.slice(1) );
+		console.log( fn );
 	}
 };
