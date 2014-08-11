@@ -385,29 +385,34 @@ module.exports = {
 	        divineMercySunday = movableSolemnities.divineMercySunday.moment,
 	        ashWednesday = movableSolemnities.ashWednesday.moment;
 
-		var dates = {}, sundays = 0, ctr = 0, currentWeek = 0,
+		var dates = {}, sundays = 0,
 			iterator = moment.twix( moment( ashWednesday ).add( 1, 'days' ), palmSunday ).iterateInner('days');
 
+		var initialWeek = ashWednesday.week(),
+			initialDay = ashWednesday.dayOfYear();
+
 		while ( iterator.hasNext() ) {
-			var date = iterator.next();
+
+			var date = iterator.next(),
+				// 1st week of Lent starts on Sunday after Saturday After Ash Wednesday
+				weekDiff = date.week() - initialWeek,
+				dayDiff = date.dayOfYear() - initialDay;
+
 			if ( date.day() === 0 ) {
-    			var name =  ordinalNumbers[sundays] + ' Sunday of Lent';
-    			if ( sundays === 3 )
+    			var name =  ordinalNumbers[ weekDiff - 1 ] + ' Sunday of Lent';
+    			if ( weekDiff === 4 )
     				name = 'Laetare Sunday (4th Sunday of Lent)';
-				dates[ 'the' + ordinalNumbers[sundays] + 'SundayOfLent' ] = {
+				dates[ 'the' + ordinalNumbers[ weekDiff - 1 ] + 'SundayOfLent' ] = {
 	    			moment: date,
 	    			type: types.SUNDAY_OF_LENT,
 	    			name: name,
-	                data: {
-	                    weekNumber: currentWeek + 1,
-	                }
+	                data: {}
 	    		};
-	    		sundays++;
 			}
 			else {
 				// The days from after Ash Wednesday till before the first Sunday of Lent
 				// are known as "** after Ash Wednesday"
-				if ( ctr < 3 ) {
+				if ( dayDiff < 4 ) {
 					dates[ days[ date.day() ] +  'AfterAshWednesday' ] = {
 						moment: date,
 						type: types.WEEKDAY_OF_LENT,
@@ -416,20 +421,14 @@ module.exports = {
 					}
 				}
 				else {
-					dates[ days[ date.day() ] + 'OfThe' + ordinalNumbers[ currentWeek ] + 'WeekOfLent' ] = {
+					dates[ days[ date.day() ] + 'OfThe' + ordinalNumbers[ weekDiff - 1 ] + 'WeekOfLent' ] = {
 						moment: date,
 						type: types.WEEKDAY_OF_LENT,
-						name: days[ date.day() ] + ' of the ' + ordinalNumbers[ currentWeek ] + ' week of Lent',
-	                    data: {
-	                        weekNumber: currentWeek + 1
-	                    }
+						name: days[ date.day() ] + ' of the ' + ordinalNumbers[ weekDiff - 1 ] + ' week of Lent',
+	                    data: {}
 					}
 				}
 			}
-
-	    	ctr++; // Increment days
-			if ( ctr % 7 === 0 )
-	    		currentWeek++;
 		}
 
 	    // If the Annunciation (Mar 25) falls on Palm Sunday, it is celebrated on the Saturday preceding
@@ -449,19 +448,20 @@ module.exports = {
 	        // If Joseph, Husband of Mary (Mar 19) falls on Palm Sunday or during Holy Week, 
 	        // it is moved to the Saturday preceding Palm Sunday.
 	        if ( holyWeek.contains( josephHusbandOfMary ) )
-	        	fixedSolemnities.josephHusbandOfMary.moment = moment( palmSunday ).subtract( 8, 'days' );
+	        	fixedSolemnities.josephHusbandOfMary.moment = moment( palmSunday ).subtract( 1, 'days' );
 
 	    // It is not possible for a fixed date Solemnity to fall on a Sunday of Lent
 
 	        // If a fixed date Solemnity occurs on a Sunday of Lent, the Solemnity is transferred to the following Monday.  
 	        // This affects Joseph, Husband of Mary and Annunciation.
-	        for( var i = 0; i < sundays; i++ ) {
-	            var nthSundayOfLent = dates['the' + ordinalNumbers[i] + 'SundayOfLent' ];
-	            if ( josephHusbandOfMary.isSame( nthSundayOfLent ) )
-	                fixedSolemnities.josephHusbandOfMary.moment = moment.utc( nthSundayOfLent ).add( 1, 'days' );
-	            if ( annunciation.isSame( nthSundayOfLent ) )
-	                fixedSolemnities.annunciation.moment = moment.utc( nthSundayOfLent ).add( 1, 'days' );
-	        }
+	        lodash.map( dates, function( v, k ) {
+	        	if ( v.moment.day() === 0 ) {        		
+		            if ( josephHusbandOfMary.isSame( v.moment ) )
+		                fixedSolemnities.josephHusbandOfMary.moment.add( 1, 'days' );
+		            if ( annunciation.isSame( v.moment ) )
+		                fixedSolemnities.annunciation.moment.add( 1, 'days' );
+	        	}
+	        });
 
 	    // Generate the dates of easter tide after the octave of easter
 	    var easterTideIterator = eastertide.iterateInner('days'),

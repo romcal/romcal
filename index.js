@@ -27,9 +27,9 @@ module.exports = {
 		// 	console.log( d.moment.toString(), ':', d.data.season );
 		// });
 
-		var res = formatters.getThursdays( liturgicalDates );
+		var res = formatters.getFridays( liturgicalDates );
 		lodash.map( res, function( d, key ) {
-			console.log( d.moment.toString(), ':', d.name, ':', d.type );
+			console.log( d.moment.toString(), ':', d.literalKey, ':', d.type, ':', d.color.name );
 		});
 
 		// var res = formatters.getDatesByLiturgicalSeason( liturgicalDates );
@@ -50,8 +50,12 @@ module.exports = {
 
 
 		lodash.map( liturgicalDates, function( d, k, c ) {
-			d.moment = d.moment.toJSON();
+			d.date = {
+				timearray: d.moment.toArray(),
+				isostring: d.moment.toISOString()
+			},
 			d.type = d.type.name;
+			delete d.moment;
 		});
 
 		// console.log( liturgicalDates );

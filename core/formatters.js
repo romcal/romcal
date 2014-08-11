@@ -20,7 +20,12 @@ var getDatesByDay = function( dates, day ) {
 			result[ value.moment.day() ].push( value );
 		});
 		return result;
-	}
+	},
+	getDatesByMonth = function( dates, month ) {
+		return lodash.filter( dates, function( key, value ) {
+			return value.moment.month() === month;
+		});
+	};
 
 module.exports = {
 
@@ -424,9 +429,53 @@ module.exports = {
 
     getDaysGrouped: function( dates ) {
     	return getDaysGrouped( dates );
+    },
+
+    getJanuary: function( dates ) {
+    	return getDatesByMonth( dates, 1 );
+    },
+
+    getFebruary: function( dates ) {
+    	return getDatesByMonth( dates, 2 );
+    },
+
+    getMarch: function( dates ) {
+    	return getDatesByMonth( dates, 3 );
+    },
+
+    getApril: function( dates ) {
+    	return getDatesByMonth( dates, 4 );
+    },
+
+    getMay: function( dates ) {
+    	return getDatesByMonth( dates, 5 );
+    },
+
+    getJune: function( dates ) {
+    	return getDatesByMonth( dates, 6 );
+    },
+
+    getJuly: function( dates ) {
+    	return getDatesByMonth( dates, 7 );
+    },
+
+    getAugust: function( dates ) {
+    	return getDatesByMonth( dates, 8 );
+    },
+
+    getSeptember: function( dates ) {
+    	return getDatesByMonth( dates, 9 );
+    },
+
+    getOctober: function( dates ) {
+    	return getDatesByMonth( dates, 10 );
+    },
+
+    getNovember: function( dates ) {
+    	return getDatesByMonth( dates, 11 );
+    },
+
+    getDecember: function( dates ) {
+    	return getDatesByMonth( dates, 12 );
     }
 };
-
-
-
-
