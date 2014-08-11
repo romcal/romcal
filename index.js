@@ -27,7 +27,7 @@ module.exports = {
 		// 	console.log( d.moment.toString(), ':', d.data.season );
 		// });
 
-		var res = formatters.getMondays( liturgicalDates );
+		var res = formatters.getTuesdays( liturgicalDates );
 		lodash.map( res, function( d, key ) {
 			console.log( d.moment.toString(), ':', d.name, ':', d.type );
 		});
