@@ -22,7 +22,7 @@ var getDatesByDay = function( dates, day ) {
 		return result;
 	},
 	getDatesByMonth = function( dates, month ) {
-		return lodash.filter( dates, function( key, value ) {
+		return lodash.filter( dates, function( value, key ) {
 			return value.moment.month() === month;
 		});
 	};
@@ -122,8 +122,10 @@ module.exports = {
 	    		}
 
                 // If the overlapping date ranks higher than the current date, it will replace that date
-                if ( candidate.type.rank > existing.type.rank )
-                    filtered[k] = candidate;
+                if ( candidate.type.rank > existing.type.rank ) {
+                    filtered[ k ] = candidate;
+                    filtered[ k ].data.overridenItem = existing;
+                }
 
             }
         });
@@ -335,6 +337,9 @@ module.exports = {
 	 			else
 	 				marked = true;
 	 		}
+
+	 		d.data.weekOfYear = d.moment.week();
+	 		d.data.dayOfYear = d.moment.dayOfYear();
 		});
 
 		return dates;
@@ -432,50 +437,50 @@ module.exports = {
     },
 
     getJanuary: function( dates ) {
-    	return getDatesByMonth( dates, 1 );
+    	return getDatesByMonth( dates, 0 );
     },
 
     getFebruary: function( dates ) {
-    	return getDatesByMonth( dates, 2 );
+    	return getDatesByMonth( dates, 1 );
     },
 
     getMarch: function( dates ) {
-    	return getDatesByMonth( dates, 3 );
+    	return getDatesByMonth( dates, 2 );
     },
 
     getApril: function( dates ) {
-    	return getDatesByMonth( dates, 4 );
+    	return getDatesByMonth( dates, 3 );
     },
 
     getMay: function( dates ) {
-    	return getDatesByMonth( dates, 5 );
+    	return getDatesByMonth( dates, 4 );
     },
 
     getJune: function( dates ) {
-    	return getDatesByMonth( dates, 6 );
+    	return getDatesByMonth( dates, 5 );
     },
 
     getJuly: function( dates ) {
-    	return getDatesByMonth( dates, 7 );
+    	return getDatesByMonth( dates, 6 );
     },
 
     getAugust: function( dates ) {
-    	return getDatesByMonth( dates, 8 );
+    	return getDatesByMonth( dates, 7 );
     },
 
     getSeptember: function( dates ) {
-    	return getDatesByMonth( dates, 9 );
+    	return getDatesByMonth( dates, 8 );
     },
 
     getOctober: function( dates ) {
-    	return getDatesByMonth( dates, 10 );
+    	return getDatesByMonth( dates, 9 );
     },
 
     getNovember: function( dates ) {
-    	return getDatesByMonth( dates, 11 );
+    	return getDatesByMonth( dates, 10 );
     },
 
     getDecember: function( dates ) {
-    	return getDatesByMonth( dates, 12 );
+    	return getDatesByMonth( dates, 11 );
     }
 };
