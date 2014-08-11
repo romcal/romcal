@@ -55,39 +55,52 @@ module.exports = {
 	},
 	types: function() {
 		return types = {
-			"SOLEMNITY":{"id":"SOLEMNITY","name":"Solemnity","rank":11},
-			"SUNDAY_OF_LENT":{"id":"SUNDAY_OF_LENT","name":"Sunday","rank":10},
-			"SUNDAY_OF_ADVENT":{"id":"SUNDAY_OF_ADVENT","name":"Sunday","rank":10},
-			"FEAST_OF_THE_LORD":{"id":"FEAST_OF_THE_LORD","name":"Feast","rank":9},
-			"FIXED_FEAST":{"id":"FIXED_FEAST","name":"Feast","rank":9},
-			"SUNDAY":{"id":"SUNDAY","name":"Sunday","rank":8},
-			"FEAST":{"id":"FEAST","name":"Feast","rank":7},
+			"SOLEMNITY":{"id":"SOLEMNITY","name":"Solemnity","rank":12},
+			"SUNDAY_OF_EASTER":{"id":"SUNDAY_OF_EASTER","name":"Sunday","rank":11}, // Feasts and memorials cannot replace this
+			"SUNDAY_OF_LENT":{"id":"SUNDAY_OF_LENT","name":"Sunday","rank":11}, // Feasts and memorials cannot replace this
+			"SUNDAY_OF_ADVENT":{"id":"SUNDAY_OF_ADVENT","name":"Sunday","rank":11}, // Feasts and memorials cannot replace this
+			"FEAST_OF_THE_LORD":{"id":"FEAST_OF_THE_LORD","name":"Feast","rank":10},
+			"FIXED_FEAST":{"id":"FIXED_FEAST","name":"Feast","rank":10}, // A feast that can replace a Sunday
+			"SUNDAY":{"id":"SUNDAY","name":"Sunday","rank":9},
+			"HOLY_WEEK":{"id":"HOLY_WEEK","name":"Holy Week","rank":8}, // Monday, Tuesday and Wednesday of Holy Week (cannot be replaced by a feast or memorial)
+			"FEAST":{"id":"FEAST","name":"Feast","rank":7}, // Takes precendence over weekdays (and Saturdays) but not Sundays
+			"FEAST_APOSTLE":{"id":"FEAST_APOSTLE","name":"Feast","rank":7},// Color is red
+			"WEEKDAY_FEAST":{"id":"WEEKDAY_FEAST","name":"Weekday","rank":7}, // Special weekdays which take precedence over memorials/opt memorials
 			"FEAST_MARTYR":{"id":"FEAST_MARTYR","name":"Feast","rank":7},
-			"TRIDUUM":{"id":"TRIDUUM","name":"Triduum","rank":6},
-			"HOLY_WEEK":{"id":"HOLY_WEEK","name":"Holy Week","rank":5},
-			"MEMORIAL":{"id":"MEMORIAL","name":"Memorial","rank":4},
-			"MEMORIAL_MARTYR":{"id":"MEMORIAL_MARTYR","name":"Memorial","rank":4},
-			"OPT_MEMORIAL":{"id":"OPT_MEMORIAL","name":"Optional Memorial","rank":3},
-			"OPT_MEMORIAL_MARTYR":{"id":"OPT_MEMORIAL_MARTYR","name":"Optional Memorial","rank":3},
-			"COMMEM":{"id":"COMMEM","name":"Commemoration","rank":2},
+			"TRIDUUM":{"id":"TRIDUUM","name":"Triduum","rank":6}, // Thursday, Friday and Saturday of Holy Week
+			"MEMORIAL":{"id":"MEMORIAL","name":"Memorial","rank":5}, // Follows color of season
+			"MEMORIAL_MARTYR":{"id":"MEMORIAL_MARTYR","name":"Memorial","rank":5}, // Color Red
+			"OPT_MEMORIAL":{"id":"OPT_MEMORIAL","name":"Optional Memorial","rank":4}, // Follows color of season
+			"OPT_MEMORIAL_MARTYR":{"id":"OPT_MEMORIAL_MARTYR","name":"Optional Memorial","rank":4}, // Follows color of season
+			"COMMEM":{"id":"COMMEM","name":"Commemoration","rank":3}, // Represents a downgraded memorial during lent (can replace a weekday)
+			"WEEKDAY_OF_EASTER":{"id":"WEEKDAY_OF_EASTER","name":"Weekday","rank":2},
 			"WEEKDAY_OF_LENT":{"id":"WEEKDAY_OF_LENT","name":"Weekday","rank":1},
 			"WEEKDAY_OF_ADVENT":{"id":"WEEKDAY_OF_ADVENT","name":"Weekday","rank":1},
 			"WEEKDAY":{"id":"WEEKDAY","name":"Weekday","rank":0},
 			"WEEKDAY_OF_EPIPHANY":{"id":"WEEKDAY_OF_EPIPHANY","name":"Weekday","rank":0}
 		};
 	},
-	
-	liturgicalColors: function() {
+	categories: function() {
 		return {
-			"RED":{"name":"RED","hex":"#FF0000","rgb":[255,0,0]},
-			"ROSE":{"name":"ROSE","hex":"#FF007F","rgb":[255,0,127]},
-			"PURPLE":{"name":"PURPLE","hex":"#800080","rgb":[128,0,128]},
-			"GREEN":{"name":"GREEN","hex":"#008000","rgb":[0,128,0]},
-			"WHITE":{"name":"WHITE","hex":"#FFFFFF","rgb":[255,255,255]},
-			"GOLD":{"name":"GOLD","hex":"#FFD700","rgb":[255, 215, 0]}
+			LENT: 'Lent',
+			HOLY_WEEK: 'HolyWeek',
+			EASTER: 'Easter',
+			OT: 'OrdinaryTime',
+			ADVENT: 'Advent',
+			CHRISTMAS: 'Christmastide',
+			EPIPHANY: 'Epiphany',
 		};
 	},
-	
+	liturgicalColors: function() {
+		return {
+			"RED":{"name":"RED","hex":"#FF0000"},
+			"ROSE":{"name":"ROSE","hex":"#FF007F"},
+			"PURPLE":{"name":"PURPLE","hex":"#800080"},
+			"GREEN":{"name":"GREEN","hex":"#008000"},
+			"WHITE":{"name":"WHITE","hex":"#FFFFFF"},
+			"GOLD":{"name":"GOLD","hex":"#FFD700"}
+		};
+	},
 	dateOfEaster: function( Y ) {
 		/**
 		  * This algorithm is based on the algorithm of Oudin (1940) and quoted in

@@ -1,11 +1,13 @@
 var moment = require('moment'),
 	twix = require('twix'),
 	lodash = require('lodash'),
+	solemnities = require('./solemnities'),
 	utils = require('./utils');
 
 var types = utils.types(),
 	ordinalNumbers = utils.ordinalNumbers(),
-	days = utils.days();
+	days = utils.days(),
+	categories = utils.categories();
 
 module.exports = {
 	feastsOfTheLord: function( fixedSolemnities, movableSolemnities ) {
@@ -17,22 +19,26 @@ module.exports = {
 				baptismOfTheLord: {
 					moment: moment.utc({year: year, month: 0, day: 7 }),
 					type: types.FEAST_OF_THE_LORD,
-					name: 'Baptism of the Lord'
+					name: 'Baptism of the Lord',
+					data: {}
 				},
 				presentationOfTheLord: {
 					moment: moment.utc({year:year, month: 1, day: 2}),
 					type: types.FEAST_OF_THE_LORD,
-					name: 'Presentation of the Lord'
+					name: 'Presentation of the Lord',
+					data: {}
 				},
 				transfiguration: {
 					moment: moment.utc({year:year, month: 7, day: 6}),
 					type: types.FEAST_OF_THE_LORD,
-					name: 'Transfiguration'
+					name: 'Transfiguration',
+					data: {}
 				},
 				triumphOfTheCross: {
 					moment: moment.utc({year:year, month: 8, day: 14}),
 					type: types.FEAST_OF_THE_LORD,
-					name: 'Triumph of the Cross'
+					name: 'Triumph of the Cross',
+					data: {}
 				}
 			};
 
@@ -40,7 +46,8 @@ module.exports = {
 			dates.holyFamily = {
 				moment: moment.utc({year: year, month: 11, day: 30}),
 				type: types.FEAST_OF_THE_LORD,
-				name: 'Holy Family'
+				name: 'Holy Family',
+				data: {}
 			};
 		else {
 
@@ -48,7 +55,8 @@ module.exports = {
 			dates.holyFamily = {
 				moment: moment.utc( christmas ).endOf('week').add( 1, 'days'),
 				type: types.FEAST_OF_THE_LORD,
-				name: 'Holy Family'
+				name: 'Holy Family',
+				data: {}
 			};
 			dates.holyFamily.moment.hour(0).minute(0).seconds(0).millisecond(0);
 
@@ -78,14 +86,20 @@ module.exports = {
 					movableSolemnities['secondSundayOfChristmas'] = {
 						moment: date,
 						type: types.SUNDAY,
-						name: ordinalNumbers[1] + ' Sunday of Christmas'
+						name: ordinalNumbers[1] + ' Sunday of Christmas',
+						data: {
+							season: categories.CHRISTMAS
+						}
 					};
 				}
 				else {			
 					movableSolemnities[ days[ date.day() ] + 'BeforeEpiphany' ] = {
 						moment: date,
 						type: types.WEEKDAY_OF_EPIPHANY,
-						name: days[ date.day() ] + ' before Epiphany'
+						name: days[ date.day() ] + ' before Epiphany',
+						data: {
+							season: categories.EPIPHANY
+						}
 					};
 				}
 			}
@@ -98,7 +112,10 @@ module.exports = {
 				movableSolemnities[ days[ date.day() ] + 'AfterEpiphany' ] = {
 					moment: date,
 					type: types.WEEKDAY_OF_EPIPHANY,
-					name: days[ date.day() ] + ' after Epiphany'
+					name: days[ date.day() ] + ' after Epiphany',
+					data: {
+						season: categories.EPIPHANY
+					}
 				};	
 			}
 		}
@@ -113,7 +130,10 @@ module.exports = {
 				movableSolemnities[ days[ date.day() ] + 'BeforeEpiphany' ] = {
 					moment: date,
 					type: types.WEEKDAY_OF_EPIPHANY,
-					name: ordinalNumbers[1] + ' before Epiphany'
+					name: ordinalNumbers[1] + ' before Epiphany',
+					data: {
+						season: categories.EPIPHANY
+					}
 				};
 			}
 
@@ -134,7 +154,10 @@ module.exports = {
 					movableSolemnities[ days[ date.day() ] + 'AfterEpiphany' ] = {
 						moment: date,
 						type: types.WEEKDAY_OF_EPIPHANY,
-						name: days[ date.day() ] + ' after Epiphany'
+						name: days[ date.day() ] + ' after Epiphany',
+						data: {
+							season: categories.EPIPHANY
+						}
 					};	
 				}
 			}
@@ -193,7 +216,8 @@ module.exports = {
 		    		dates[ 'the' + ordinalNumbers[sundays] + 'SundayOfAdvent' ] = {
 		    			moment: date,
 		    			type: types.SUNDAY_OF_ADVENT,
-		    			name: name
+		    			name: name,
+		    			data: {}
 		    		};
 		    		sundays++;
 	    			break;
@@ -201,7 +225,8 @@ module.exports = {
 	    			dates[ days[ date.day() ] + 'OfThe' + ordinalNumbers[ currentWeek ] + 'WeekOfAdvent' ] = {
 	    				moment: date,
 	    				type: types.WEEKDAY_OF_ADVENT,
-	    				name: days[ date.day() ] + ' of the ' + ordinalNumbers[ currentWeek ] + ' week of Advent'
+	    				name: days[ date.day() ] + ' of the ' + ordinalNumbers[ currentWeek ] + ' week of Advent',
+	    				data: {}
 	    			}
 	    			break;
 	    	}
@@ -222,7 +247,8 @@ module.exports = {
 	    		dates[ 'the' + ordinalNumbers[ counter ]  + 'DayOfTheOctaveOfChristmas' ] = {
 	    			moment: date,
 	    			type: types.WEEKDAY,
-	    			name: ordinalNumbers[ counter ] + ' day of the Octave of Christmas (Christmastide)'
+	    			name: ordinalNumbers[ counter ] + ' day of the Octave of Christmas (Christmastide)',
+	    			data: {}
 	    		};
 	    	}
 	    	counter++;
@@ -277,7 +303,8 @@ module.exports = {
 	                dates[ 'the' + ordinalNumbers[sundays] + 'SundayOfOrdinaryTime' ] = {
 	                    moment: date,
 	                    type: types.SUNDAY,
-	                    name: ordinalNumbers[sundays] + ' Sunday of Ordinary Time'
+	                    name: ordinalNumbers[sundays] + ' Sunday of Ordinary Time',
+	                    data: {}
 	                };
 	                sundays++;
 	                break;
@@ -285,7 +312,8 @@ module.exports = {
 	                dates[ days[ date.day() ] + 'OfThe' + ordinalNumbers[ currentWeek ] + 'WeekOfOrdinaryTime' ] = {
 	                    moment: date,
 	                    type: types.WEEKDAY,
-	                    name: days[ date.day() ] + ' of the ' + ordinalNumbers[ currentWeek ] + ' week of Ordinary Time (Feria)'
+	                    name: days[ date.day() ] + ' of the ' + ordinalNumbers[ currentWeek ] + ' week of Ordinary Time (Feria)',
+	                    data: {}
 	                };
 	                break;
 	        }
@@ -310,7 +338,8 @@ module.exports = {
 	    	dates[ days[ date.day() ] + 'OfThe' + ordinalNumbers[ 33 ] + 'WeekOfOrdinaryTime' ] = {
 	            moment: date,
 	            type: types.WEEKDAY,
-	            name: days[ date.day() ] + ' of the ' + ordinalNumbers[ 33 ] + ' week of Ordinary Time (Feria)'
+	            name: days[ date.day() ] + ' of the ' + ordinalNumbers[ 33 ] + ' week of Ordinary Time (Feria)',
+	            data: {}
 	        };
 	    }
 
@@ -322,14 +351,16 @@ module.exports = {
 				dates[ 'the' + ordinalNumbers[weekOfOrdinaryTime] + 'SundayOfOrdinaryTime' ] = {
 	                moment: date,
 	                type: types.SUNDAY,
-	                name: ordinalNumbers[weekOfOrdinaryTime] + ' Sunday of Ordinary Time'
+	                name: ordinalNumbers[weekOfOrdinaryTime] + ' Sunday of Ordinary Time',
+	                data: {}
 	            };
 	    	}
 	    	else { // Monday - Saturday
 				dates[ days[ date.day() ] + 'OfThe' + ordinalNumbers[ weekOfOrdinaryTime ] + 'WeekOfOrdinaryTime' ] = {
 		            moment: date,
 		            type: types.WEEKDAY,
-		            name: days[ date.day() ] + ' of the ' + ordinalNumbers[ weekOfOrdinaryTime ] + ' week of Ordinary Time (Feria)'
+		            name: days[ date.day() ] + ' of the ' + ordinalNumbers[ weekOfOrdinaryTime ] + ' week of Ordinary Time (Feria)',
+		            data: {}
 		        };
 	    	}
 
@@ -345,6 +376,7 @@ module.exports = {
 	    var annunciation = fixedSolemnities.annunciation.moment,
 	        palmSunday = movableSolemnities.palmSunday.moment,
 	        easterSunday = movableSolemnities.easterSunday.moment,
+	        pentecostSunday = movableSolemnities.pentecostSunday.moment,
 	        josephHusbandOfMary = fixedSolemnities.josephHusbandOfMary.moment,
 	        divineMercySunday = movableSolemnities.divineMercySunday.moment,
 	        ashWednesday = movableSolemnities.ashWednesday.moment;
@@ -375,7 +407,8 @@ module.exports = {
 					dates[ days[ date.day() ] +  'AfterAshWednesday' ] = {
 						moment: date,
 						type: types.WEEKDAY_OF_LENT,
-						name: days[ date.day() ] + ' after Ash Wednesday'
+						name: days[ date.day() ] + ' after Ash Wednesday',
+						data: {}
 					}
 				}
 				else {
@@ -400,7 +433,8 @@ module.exports = {
 	        fixedSolemnities.annunciation.moment = moment.utc(palmSunday).startOf('week').subtract( 1, 'days' );
 
 	    var holyWeek = palmSunday.twix( easterSunday ),
-	    	octaveOfEaster = easterSunday.twix( divineMercySunday );
+	    	octaveOfEaster = easterSunday.twix( divineMercySunday ),
+	    	eastertide = moment.twix( moment.utc( divineMercySunday ).add( 1, 'days'), pentecostSunday );
 
 	    // It is not possible for a fixed date Solemnity to fall on a Sunday of Easter.
 
@@ -425,6 +459,26 @@ module.exports = {
 	                fixedSolemnities.annunciation.moment = moment.utc( nthSundayOfLent ).add( 1, 'days' );
 	        }
 
+	    // Generate the dates of easter tide after the octave of easter
+	    var easterTideIterator = eastertide.iterateInner('days'),
+	    	easterWeek = 1, easterDayCounter = 0;
+	    while( easterTideIterator.hasNext() ) {
+	    	var date = easterTideIterator.next();
+	    	if ( date.day() !== 0 ) {
+				dates[ days[ date.day() ] + 'OfThe' + ordinalNumbers[ easterWeek ] + 'WeekOfEaster' ] = {
+					moment: date,
+					type: types.WEEKDAY_OF_EASTER,
+					name: days[ date.day() ] + ' of the ' + ordinalNumbers[ easterWeek ] + ' week of Easter',
+                    data: {
+                        weekNumber: easterWeek + 1
+                    }
+				}
+	    	}
+	    	easterDayCounter++; // Increment days
+			if ( easterDayCounter % 7 === 0 )
+	    		easterWeek++;
+	    }
+
 	    return {
 	    	lentSeason: dates,
 	    	fixedSolemnities: fixedSolemnities,
@@ -435,10 +489,11 @@ module.exports = {
 		return {
 			earlierOrdinaryTime: moment.twix( moment( feastsOfTheLord.baptismOfTheLord.moment ).add( 1, 'days' ), moment( movableSolemnities.ashWednesday.moment ).subtract( 1, 'days' ) ), 
 			lenternRange: moment.twix( movableSolemnities.ashWednesday.moment, moment( movableSolemnities.palmSunday.moment ).subtract( 1, 'days' ) ),
-			easterSeasonRange: moment.twix( movableSolemnities.easterSunday.moment, moment( movableSolemnities.pentecostSunday.moment ).subtract( 1, 'days') ),
+			holyWeekRange: moment.twix( movableSolemnities.palmSunday.moment, moment.utc( movableSolemnities.easterSunday.moment ).subtract( 1, 'days') ),
+			easterSeasonRange: moment.twix( movableSolemnities.easterSunday.moment, movableSolemnities.pentecostSunday.moment ),
 			latterOrdinaryTime: moment.twix( moment( movableSolemnities.pentecostSunday.moment ).add( 1, 'days'), moment( adventSeason.the1stSundayOfAdvent.moment ).subtract( 1, 'days' ) ),
 			adventRange: moment.twix( adventSeason.the1stSundayOfAdvent.moment, moment ( fixedSolemnities.christmas.moment ).subtract( 1, 'days') ),
-			christmasOctaveRange: moment.twix( fixedSolemnities.christmas.moment, moment.utc( fixedSolemnities.christmas.moment ).add( 7, 'days') )
+			christmasOctaveRange: moment.twix( fixedSolemnities.christmas.moment, moment({ year:fixedSolemnities.christmas.moment.year(), month: 11, day: 31 }) )
 		};
 	}
 };
