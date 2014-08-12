@@ -1,6 +1,6 @@
 {
   "name": "romcal",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A Node implementation of the General Roman Calendar used in the Roman Catholic Rite",
   "main": "romcal.js",
   "scripts": {
