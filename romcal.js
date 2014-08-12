@@ -1,6 +1,5 @@
 
-var calendar = require('node-calendar'),
-	moment = require('moment'),
+var moment = require('moment'),
 	lodash = require('lodash'), 
 	utils = require('./lib/utils'),
 	formatters = require('./lib/formatters'),
@@ -27,12 +26,18 @@ module.exports = {
     		locale = null;
 
 		return process.nextTick( function() {
-			if ( lodash.isNull( locale ) )
+			if ( lodash.isNull( locale ) ) {
 				moment.locale('en-US');
-			else if ( lodash.isString( locale ) )
-				moment.locale( locale );
-			else
-				moment.locale('en_US');
+				locale = 'en-US';
+			}
+			else {
+				if ( lodash.isString( locale ) )
+					moment.locale( locale );
+				else {
+					moment.locale('en-US');
+					locale = 'en-US';
+				}
+			}
 
 			if ( lodash.isNull( year ) )
 				year = moment.utc().year();
@@ -48,7 +53,8 @@ module.exports = {
 	            resolvedEvents = formatters.resolveCoincidingEvents( sortedDates ),
 			    liturgicalDates = formatters.setLiturgicalColorsAndSeasons( resolvedEvents, result.seasonRanges );
 
-	        cb( liturgicalDates );
+			if ( !lodash.isUndefined( cb ) || !lodash.isNull( cb ) )
+	        	cb( liturgicalDates );
 		});
 	},
 

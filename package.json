@@ -25,7 +25,6 @@
   },
   "homepage": "https://github.com/pejulian/romcal",
   "dependencies": {
-    "node-calendar": "^0.1.4",
     "moment": "^2.7.0",
     "lodash": "^2.4.1",
     "twix": "^0.5.1"
