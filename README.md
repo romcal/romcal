@@ -6,7 +6,7 @@ A Node implementation of the [General Roman Calendar](http://en.wikipedia.org/wi
 ## Features
  * Able to query liturgical dates for any year in the gregorian calendar (1582 - now). Note that dates for years before 1969 will still be returned in a format conforming to [Mysterii Paschalis](http://www.romcal.net/mysterii.html) even though those years came before the calendar reforms in 1969.
  * Filter queries to allow more strealined date results to be obtained for the year
- * Localization of liturgical date names to cater for different countries/languages
+ * Localization of liturgical date names to cater for different countries/languages 
 
 NOTE:This module relies heavily on [Moment](http://momentjs.com/) and [Lo-Dash](http://lodash.com/) (which are dependencies of this module) for most of its calculations and operations.
 
@@ -25,13 +25,25 @@ var romcal = require('romcal');
 ```
 
 Get an array of liturgical dates for a year by calling the `calendarFor()` method.
-The method accepts 2 parameters:
+The method accepts 3 parameters:
  1. `year` *optional* The Gregorian year as a string. Defaults to current year if null
  2. `locale` *optional* The locale (e.g. en-US, en-GB, fr-FR). Defaults to en-US if null
+ 3. `cb` *mandatory* The callback function where the computed liturgical dates will be returned
  At the moment, romcal only supports en-US.
 
 ```
-var dates = romcal.calendarFor('2014');
+romcal.calendarFor( function( dates ) {
+    console.log( dates );
+});
+
+romcal.calendarFor('2014', function( dates ) {
+    console.log( dates );
+});
+
+romcal.calendarFor('2014', 'en-US', function( dates ) {
+    console.log( dates );
+});
+
 ```
 
 Each item in the array returned is an object literal that contains:
@@ -45,11 +57,15 @@ Each item in the array returned is an object literal that contains:
 romcal also provides additional queries that can be used to streamline the original date output via the `queryFor()` method.
 
 ```
-var dates = romcal.queryFor('mondays', dates );
+romcal.queryFor('mondays', dates, function( query ) {
+    console.log( query );
+});
+
 ```
 The method accepts 2 parameters:
  1. `query` *mandatory* The query type to perform (see below)
  2. `dates` *mandatory* An array of dates returned by `calendarFor()`
+ 3. `cb` *mandatory* The callback function where the filtered liturgical dates will be returned
 
 ### Queries for date ranges
  * `ordinaryTime` 
