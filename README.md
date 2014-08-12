@@ -42,17 +42,24 @@ Each item in the array returned is an object literal that contains:
 # Query API
 romcal also provides additional queries that can be used to streamline the original date output via the `queryFor()` method.
 
+```
+var dates = romcal.queryFor('mondays', dates );
+```
+The method accepts 2 parameters:
+ 1. `query` (mandatory) The query type to perform (see below)
+ 2. `dates` (mandatory) An array of dates returned by `calendarFor()`
+
 ## Queries for date ranges
  * `ordinaryTime` 
-    > Returns an array of dates in the season of Ordinary Time (Day after Baptism of the Lord till day before Ash Wednesday & dat after Pentecost to Christ the King)
+    * Returns an array of dates in the season of Ordinary Time (Day after Baptism of the Lord till day before Ash Wednesday & dat after Pentecost to Christ the King)
  * `lent` 
-    > Returns an array of dates corresponding to the season of Lent (Ash Wednesday up to the day beforee Palm Sunday)
+    * Returns an array of dates corresponding to the season of Lent (Ash Wednesday up to the day beforee Palm Sunday)
  * `easter` 
-    > Returns an array of dates corresponding to the season of Easter (Easter Sunday up to Pentecost)
+    * Returns an array of dates corresponding to the season of Easter (Easter Sunday up to Pentecost)
  * `advent` 
-    Returns an array of dates in the season of Advent ( 1st Sunday of Advent to Christmas Eve)
+    * Returns an array of dates in the season of Advent ( 1st Sunday of Advent to Christmas Eve)
  * `christmastide` 
-    > Returns an array of dates from Christmas day to Epiphany
+    * Returns an array of dates from Christmas day to Epiphany
 
 ## Queries for specific liturgical date types
  * `feastsOfTheLord`
