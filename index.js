@@ -8,7 +8,14 @@ var calendar = require('node-calendar'),
 	
 module.exports = {
 
-	calendarFor: function( year ) {
+	calendarFor: function( year, locale ) {
+
+		if ( lodash.isEmpty( locale ) )
+			moment.lang('en-US');
+		else if ( lodash.isString( year ) )
+			moment.lang( locale );
+		else
+			moment.lang('en_US');
 
 		if ( lodash.isEmpty( year ) )
 			year = moment.utc().year();
@@ -16,9 +23,11 @@ module.exports = {
 			year = parseInt( year );
 		else if ( lodash.isObject( year ) )
 			year = moment.utc().year();
+		else 
+			year = moment.utc().year();
 
-		var result = formatters.generateCalendarDates( year ),
-			sortedDates = formatters.mergeAndSort([ result.fixedSolemnities, result.movableSolemnities, result.feastsOfTheLord, result.adventSeason, result.ordinaryTime, result.otherCelebrations, result.lentSeason ]),
+		var result = formatters.generateCalendarDates( year, locale ),
+			sortedDates = formatters.mergeAndSort([ result.fixedSolemnities, result.movableSolemnities, result.feastsOfTheLord, result.adventSeason, result.ordinaryTime, result.otherCelebrations, result.lentSeason ] ),
             resolvedEvents = formatters.resolveCoincidingEvents( sortedDates ),
 		    liturgicalDates = formatters.setLiturgicalColorsAndSeasons( resolvedEvents, result.seasonRanges );
 

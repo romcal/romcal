@@ -2,7 +2,8 @@ var moment = require('moment'),
 	twix = require('twix'),
 	lodash = require('lodash'),
 	solemnities = require('./solemnities'),
-	utils = require('./utils');
+	utils = require('./utils'),
+	localization = require('./localization').text();
 
 var types = utils.types(),
 	ordinalNumbers = utils.ordinalNumbers(),
@@ -10,7 +11,7 @@ var types = utils.types(),
 	categories = utils.categories();
 
 module.exports = {
-	feastsOfTheLord: function( fixedSolemnities, movableSolemnities ) {
+	feastsOfTheLord: function( fixedSolemnities, movableSolemnities, locale ) {
 
 		var christmas = fixedSolemnities.christmas.moment,
 			year = christmas.year(), 
@@ -19,25 +20,25 @@ module.exports = {
 				baptismOfTheLord: {
 					moment: moment.utc({year: year, month: 0, day: 7 }),
 					type: types.FEAST_OF_THE_LORD,
-					name: 'Baptism of the Lord',
+					name: localization.baptismOfTheLord[locale],
 					data: {}
 				},
 				presentationOfTheLord: {
 					moment: moment.utc({year:year, month: 1, day: 2}),
 					type: types.FEAST_OF_THE_LORD,
-					name: 'Presentation of the Lord',
+					name: localization.presentationOfTheLord[locale],
 					data: {}
 				},
 				transfiguration: {
 					moment: moment.utc({year:year, month: 7, day: 6}),
 					type: types.FEAST_OF_THE_LORD,
-					name: 'Transfiguration',
+					name: localization.transfiguration[locale],
 					data: {}
 				},
 				triumphOfTheCross: {
 					moment: moment.utc({year:year, month: 8, day: 14}),
 					type: types.FEAST_OF_THE_LORD,
-					name: 'Triumph of the Cross',
+					name: localization.triumphOfTheCross[locale],
 					data: {}
 				}
 			};
@@ -46,7 +47,7 @@ module.exports = {
 			dates.holyFamily = {
 				moment: moment.utc({year: year, month: 11, day: 30}),
 				type: types.FEAST_OF_THE_LORD,
-				name: 'Holy Family',
+				name: localization.holyFamily[locale],
 				data: {}
 			};
 		else {
@@ -55,7 +56,7 @@ module.exports = {
 			dates.holyFamily = {
 				moment: moment.utc( christmas ).endOf('week').add( 1, 'days'),
 				type: types.FEAST_OF_THE_LORD,
-				name: 'Holy Family',
+				name: localization.holyFamily[locale],
 				data: {}
 			};
 			dates.holyFamily.moment.hour(0).minute(0).seconds(0).millisecond(0);
@@ -86,17 +87,18 @@ module.exports = {
 					movableSolemnities['secondSundayOfChristmas'] = {
 						moment: date,
 						type: types.SUNDAY,
-						name: ordinalNumbers[1] + ' Sunday of Christmas',
+						name: localization.secondSundayOfChristmas[locale],
 						data: {
 							season: categories.CHRISTMAS
 						}
 					};
 				}
-				else {			
-					movableSolemnities[ days[ date.day() ] + 'BeforeEpiphany' ] = {
+				else {
+					var key = days[ date.day() ] + 'BeforeEpiphany';	
+					movableSolemnities[ key ] = {
 						moment: date,
 						type: types.WEEKDAY_OF_EPIPHANY,
-						name: days[ date.day() ] + ' before Epiphany',
+						name: localization[key][locale],
 						data: {
 							season: categories.EPIPHANY
 						}
@@ -109,10 +111,11 @@ module.exports = {
 			while( afterIterator.hasNext() ) {
 				var date = afterIterator.next();
 				if ( date.date() === dates.baptismOfTheLord.moment.date() ) break; // Break when this loop reaches the next sunday
-				movableSolemnities[ days[ date.day() ] + 'AfterEpiphany' ] = {
+				var key = days[ date.day() ] + 'AfterEpiphany';
+				movableSolemnities[ key ] = {
 					moment: date,
 					type: types.WEEKDAY_OF_EPIPHANY,
-					name: days[ date.day() ] + ' after Epiphany',
+					name: localization[key][locale],
 					data: {
 						season: categories.EPIPHANY
 					}
@@ -127,10 +130,11 @@ module.exports = {
 			while( beforeIterator.hasNext() ) {
 				var date = beforeIterator.next();
 				if ( date.day() === 0 ) break; // Break when this loop reaches a sunday
-				movableSolemnities[ days[ date.day() ] + 'BeforeEpiphany' ] = {
+				var key =  days[ date.day() ] + 'BeforeEpiphany';
+				movableSolemnities[ key ] = {
 					moment: date,
 					type: types.WEEKDAY_OF_EPIPHANY,
-					name: days[ date.day() ] + ' before Epiphany',
+					name: localization[key][locale],
 					data: {
 						season: categories.EPIPHANY
 					}
@@ -151,10 +155,11 @@ module.exports = {
 				while( afterIterator.hasNext() ) {
 					var date = afterIterator.next();
 					if ( date.date() === dates.baptismOfTheLord.moment.date() ) break; // Break when this loop reaches the next sunday
-					movableSolemnities[ days[ date.day() ] + 'AfterEpiphany' ] = {
+					var key = days[ date.day() ] + 'AfterEpiphany';
+					movableSolemnities[ key ] = {
 						moment: date,
 						type: types.WEEKDAY_OF_EPIPHANY,
-						name: days[ date.day() ] + ' after Epiphany',
+						name: localization[key][locale],
 						data: {
 							season: categories.EPIPHANY
 						}
@@ -163,16 +168,12 @@ module.exports = {
 			}
 		}
 
-		// lodash.map( movableSolemnities, function( v, k ) {
-		// 	console.log( v.moment.toString(), ':', v.name );
-		// });
-
 		return {
 			feastsOfTheLord: dates,
 			movableSolemnities: movableSolemnities
 		};
 	},
-	adventSeason: function( fixedSolemnities ) {
+	adventSeason: function( fixedSolemnities, locale ) {
 
 		var christmas = fixedSolemnities.christmas.moment,
 	        dates = {};
@@ -210,26 +211,26 @@ module.exports = {
 
 	    while( iterator.hasNext() ) {
 
-	    	var date = iterator.next();
+	    	var date = iterator.next(),
+	    		day = date.day();
 
-	    	switch( date.day() ) {
+	    	switch( day ) {
 	    		case 0:
-	    			var name =  ordinalNumbers[sundays] + ' Sunday of Advent';
-	    			if ( sundays === 2 )
-	    				name = 'Gaudate Sunday (3rd Sunday of Advent)';
-		    		dates[ 'the' + ordinalNumbers[sundays] + 'SundayOfAdvent' ] = {
+	    			var key = 'the' + ordinalNumbers[sundays] + 'SundayOfAdvent';
+		    		dates[ key ] = {
 		    			moment: date,
 		    			type: types.SUNDAY_OF_ADVENT,
-		    			name: name,
+		    			name: localization[key][locale],
 		    			data: {}
 		    		};
 		    		sundays++;
 	    			break;
 	    		default:
-	    			dates[ days[ date.day() ] + 'OfThe' + ordinalNumbers[ currentWeek ] + 'WeekOfAdvent' ] = {
+	    			var key = days[ day ] + 'OfThe' + ordinalNumbers[ currentWeek ] + 'WeekOfAdvent';
+	    			dates[ key ] = {
 	    				moment: date,
 	    				type: types.WEEKDAY_OF_ADVENT,
-	    				name: days[ date.day() ] + ' of the ' + ordinalNumbers[ currentWeek ] + ' week of Advent',
+	    				name: localization[key][locale],
 	    				data: {}
 	    			}
 	    			break;
@@ -248,10 +249,11 @@ module.exports = {
 	    while( octaveIterator.hasNext() ) {
 	    	var date = octaveIterator.next();
 	    	if ( date.day() !== 0 && date.date() < 32 ) {
-	    		dates[ 'the' + ordinalNumbers[ counter ]  + 'DayOfTheOctaveOfChristmas' ] = {
+	    		var key = 'the' + ordinalNumbers[ counter ]  + 'DayOfTheOctaveOfChristmas';	    		
+	    		dates[ key ] = {
 	    			moment: date,
 	    			type: types.WEEKDAY,
-	    			name: ordinalNumbers[ counter ] + ' day of the Octave of Christmas (Christmastide)',
+	    			name: localization[key][locale],
 	    			data: {}
 	    		};
 	    	}
@@ -273,7 +275,7 @@ module.exports = {
 	        fixedSolemnities: fixedSolemnities
 	    };
 	},
-	ordinaryTime: function( movableSolemnities, feastsOfTheLord, fixedSolemnities ) {
+	ordinaryTime: function( movableSolemnities, feastsOfTheLord, fixedSolemnities, locale ) {
 		
 		/* Ordinary Time in the early part of the year begins the day after the Baptism of the Lord 
 		 * and concludes the day before Ash Wednesday.
@@ -304,19 +306,21 @@ module.exports = {
 	        var date = firstIterator.next();
 	        switch( date.day() ) {
 	            case 0:
-	                dates[ 'the' + ordinalNumbers[sundays] + 'SundayOfOrdinaryTime' ] = {
+	            	var key = 'the' + ordinalNumbers[sundays] + 'SundayOfOrdinaryTime';
+	                dates[ key ] = {
 	                    moment: date,
 	                    type: types.SUNDAY,
-	                    name: ordinalNumbers[sundays] + ' Sunday of Ordinary Time',
+	                    name: localization[key][locale],
 	                    data: {}
 	                };
 	                sundays++;
 	                break;
 	            default:
-	                dates[ days[ date.day() ] + 'OfThe' + ordinalNumbers[ currentWeek ] + 'WeekOfOrdinaryTime' ] = {
+	            	var key = days[ date.day() ] + 'OfThe' + ordinalNumbers[ currentWeek ] + 'WeekOfOrdinaryTime';
+	                dates[ key ] = {
 	                    moment: date,
 	                    type: types.WEEKDAY,
-	                    name: days[ date.day() ] + ' of the ' + ordinalNumbers[ currentWeek ] + ' week of Ordinary Time (Feria)',
+	                    name: localization[key][locale],
 	                    data: {}
 	                };
 	                break;
@@ -339,10 +343,11 @@ module.exports = {
 	    var lastWeekIterator = moment.twix( moment( christTheKing ).add( 1, 'days' ), moment( christTheKing ).endOf('week') ).iterateInner('days');
 	    while( lastWeekIterator.hasNext() ) {
 	    	var date = lastWeekIterator.next();
-	    	dates[ days[ date.day() ] + 'OfThe' + ordinalNumbers[ 33 ] + 'WeekOfOrdinaryTime' ] = {
+	    	var key = days[ date.day() ] + 'OfThe' + ordinalNumbers[ 33 ] + 'WeekOfOrdinaryTime';
+	    	dates[ key ] = {
 	            moment: date,
 	            type: types.WEEKDAY,
-	            name: days[ date.day() ] + ' of the ' + ordinalNumbers[ 33 ] + ' week of Ordinary Time (Feria)',
+	            name: localization[key][locale],
 	            data: {}
 	        };
 	    }
@@ -352,18 +357,20 @@ module.exports = {
 	    lodash.forOwnRight( latterOrdinaryTime, function( date ) {
 	    	
 	    	if ( date.day() === 0 ) { // Sunday
-				dates[ 'the' + ordinalNumbers[weekOfOrdinaryTime] + 'SundayOfOrdinaryTime' ] = {
+	    		var key = 'the' + ordinalNumbers[weekOfOrdinaryTime] + 'SundayOfOrdinaryTime';
+				dates[ key ] = {
 	                moment: date,
 	                type: types.SUNDAY,
-	                name: ordinalNumbers[weekOfOrdinaryTime] + ' Sunday of Ordinary Time',
+	                name: localization[key][locale],
 	                data: {}
 	            };
 	    	}
 	    	else { // Monday - Saturday
-				dates[ days[ date.day() ] + 'OfThe' + ordinalNumbers[ weekOfOrdinaryTime ] + 'WeekOfOrdinaryTime' ] = {
+	    		var key = days[ date.day() ] + 'OfThe' + ordinalNumbers[ weekOfOrdinaryTime ] + 'WeekOfOrdinaryTime';
+				dates[ key ] = {
 		            moment: date,
 		            type: types.WEEKDAY,
-		            name: days[ date.day() ] + ' of the ' + ordinalNumbers[ weekOfOrdinaryTime ] + ' week of Ordinary Time (Feria)',
+		            name: localization[key][locale],
 		            data: {}
 		        };
 	    	}
@@ -375,7 +382,7 @@ module.exports = {
 
 	    return dates;
 	},
-	seasonOfLent: function( easter, fixedSolemnities, movableSolemnities ) {
+	seasonOfLent: function( easter, fixedSolemnities, movableSolemnities, locale ) {
 
 	    var annunciation = fixedSolemnities.annunciation.moment,
 	        palmSunday = movableSolemnities.palmSunday.moment,
@@ -399,13 +406,11 @@ module.exports = {
 				dayDiff = date.dayOfYear() - initialDay;
 
 			if ( date.day() === 0 ) {
-    			var name =  ordinalNumbers[ weekDiff - 1 ] + ' Sunday of Lent';
-    			if ( weekDiff === 4 )
-    				name = 'Laetare Sunday (4th Sunday of Lent)';
-				dates[ 'the' + ordinalNumbers[ weekDiff - 1 ] + 'SundayOfLent' ] = {
+    			var key = 'the' + ordinalNumbers[ weekDiff - 1 ] + 'SundayOfLent';
+				dates[ key ] = {
 	    			moment: date,
 	    			type: types.SUNDAY_OF_LENT,
-	    			name: name,
+	    			name: localization[key][locale],
 	                data: {}
 	    		};
 			}
@@ -413,18 +418,20 @@ module.exports = {
 				// The days from after Ash Wednesday till before the first Sunday of Lent
 				// are known as "** after Ash Wednesday"
 				if ( dayDiff < 4 ) {
-					dates[ days[ date.day() ] +  'AfterAshWednesday' ] = {
+					var key = days[ date.day() ] +  'AfterAshWednesday';
+					dates[ key ] = {
 						moment: date,
 						type: types.WEEKDAY_OF_LENT,
-						name: days[ date.day() ] + ' after Ash Wednesday',
+						name: localization[key][locale],
 						data: {}
 					}
 				}
 				else {
-					dates[ days[ date.day() ] + 'OfThe' + ordinalNumbers[ weekDiff - 1 ] + 'WeekOfLent' ] = {
+					var key = days[ date.day() ] + 'OfThe' + ordinalNumbers[ weekDiff - 1 ] + 'WeekOfLent';
+					dates[ key ] = {
 						moment: date,
 						type: types.WEEKDAY_OF_LENT,
-						name: days[ date.day() ] + ' of the ' + ordinalNumbers[ weekDiff - 1 ] + ' week of Lent',
+						name: localization[key][locale],
 	                    data: {}
 					}
 				}

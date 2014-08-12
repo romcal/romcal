@@ -29,37 +29,37 @@ var getDatesByDay = function( dates, day ) {
 
 module.exports = {
 
-	generateCalendarDates: function( year ) {
+	generateCalendarDates: function( year, locale ) {
 		
 		var dateOfEaster = utils.dateOfEaster( year ),
-			fixedSolemnities = solemnities.fixedSolemnities( year );
+			fixedSolemnities = solemnities.fixedSolemnities( year, locale );
 		
         // Some adjustments for immaculate conception if it falls on a Sunday of Advent
-        var data = seasons.adventSeason( fixedSolemnities ),
+        var data = seasons.adventSeason( fixedSolemnities, locale ),
         	adventSeason = data.adventSeason,
         
         fixedSolemnities = data.fixedSolemnities;
         
         // The function _movableSolemnities calculates the date of epiphany based on the epiphany rubric
-        var	movableSolemnities = solemnities.movableSolemnities( dateOfEaster, adventSeason.the1stSundayOfAdvent.moment );
+        var	movableSolemnities = solemnities.movableSolemnities( dateOfEaster, adventSeason.the1stSundayOfAdvent.moment, locale );
 		
 		// The function _seasonOfLent does calculations for 2 feasts which may overlap holy week
-		var result = seasons.seasonOfLent( dateOfEaster, fixedSolemnities, movableSolemnities ),
+		var result = seasons.seasonOfLent( dateOfEaster, fixedSolemnities, movableSolemnities, locale ),
 			lentSeason = result.lentSeason;
 
 		fixedSolemnities = result.fixedSolemnities;
 		movableSolemnities = result.movableSolemnities;
 
 		// The function _feastsOfTheLord calculates much of the rules described in the epiphany rubric
-		var response = seasons.feastsOfTheLord( fixedSolemnities, movableSolemnities ),
+		var response = seasons.feastsOfTheLord( fixedSolemnities, movableSolemnities, locale ),
 			feastsOfTheLord = response.feastsOfTheLord;
 		
 		movableSolemnities = response.movableSolemnities;
 		
 			// Output of ordinary time is based on the output of _seasonOfLent and _feastsOfTheLord
-		var ordinaryTime = seasons.ordinaryTime( movableSolemnities, feastsOfTheLord, fixedSolemnities ),
+		var ordinaryTime = seasons.ordinaryTime( movableSolemnities, feastsOfTheLord, fixedSolemnities, locale ),
 			// Get all other feasts and memorials in the general roman calendar
-		 	otherCelebrations = require('./otherCelebrations').dates( year ),
+		 	otherCelebrations = require('./otherCelebrations').dates( year, locale ),
         	// Get season duration ranges
          	seasonRanges = seasons.seasonRanges( fixedSolemnities, movableSolemnities, adventSeason, feastsOfTheLord );
 
@@ -402,6 +402,10 @@ module.exports = {
     	return lodash.filter( dates, function( v, k ) {
     		return v.type.id === types.SOLEMNITY.id;
     	});
+    },
+
+    getOrdinaryTime: function( dates ) {
+
     },
 
     getSundays: function( dates ) {

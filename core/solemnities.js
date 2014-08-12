@@ -1,242 +1,243 @@
 var moment = require('moment'),
 	utils = require('./utils'),
 	types = utils.types(),
-	liturgicalColors = utils.liturgicalColors();
+	liturgicalColors = utils.liturgicalColors(),
+	localization = require('./localization').text();
 
 module.exports = {
-	fixedSolemnities: function( year ) {
+	fixedSolemnities: function( year, locale ) {
 		var dates = {
 			maryMotherOfGod: {
 				moment: moment.utc({year:year, month: 0, day: 1}),
 				type: types.SOLEMNITY,
-				name: 'Mary, Mother of God',
+				name: localization.maryMotherOfGod[locale],
 				data: {}
 			},
 			josephHusbandOfMary: {
 				moment: moment.utc({year:year, month: 2, day: 19}),
 				type: types.SOLEMNITY,
-				name: 'Joseph, Husband of Mary',
+				name: localization.josephHusbandOfMary[locale],
 				data: {}
 			},
 			annunciation: {
 				moment: moment.utc({year:year, month: 2, day: 25}),
 				type: types.SOLEMNITY,
-				name: 'Annunciation',
+				name: localization.annunciation[locale],
 				data: {}
 			},
 			birthOfJohnTheBaptist: {
 				moment: moment.utc({year:year, month: 5, day: 24}),
 				type: types.SOLEMNITY,
-				name: 'Birth of John the Baptist',
+				name: localization.birthOfJohnTheBaptist[locale],
 				data: {}
 			},
 			peterAndPaulApostles: {
 				moment: moment.utc({year:year, month: 5, day: 29}),
 				type: types.SOLEMNITY,
-				name: 'Peter & Paul, Apostles',
+				name: localization.peterAndPaulApostles[locale],
 				data: {}
 			},
 			assumption: {
 				moment: moment.utc({year:year, month: 7, day: 15}),
 				type: types.SOLEMNITY,
-				name: 'Assumption',
+				name: localization.assumption[locale],
 				data: {}
 			},
 			allSaints: {
 				moment: moment.utc({year:year, month: 10, day: 1}),
 				type: types.SOLEMNITY,
-				name: 'All Saints',
+				name: localization.allSaints[locale],
 				data: {}
 			},
 			immaculateConception: {
 				moment: moment.utc({year:year, month: 11, day: 8}),
 				type: types.SOLEMNITY,
-				name: 'Immaculate Conception',
+				name: localization.immaculateConception[locale],
 				data: {}
 			},
 			christmas: {
 				moment: moment.utc({year:year, month: 11, day: 25}),
 				type: types.SOLEMNITY,
-				name: 'Christmas',
+				name: localization.christmas[locale],
 				data: {}
 			}
 		};
 		return dates;
 	},
-	movableSolemnities: function( easter, firstSundayOfAdvent ) {
+	movableSolemnities: function( easter, firstSundayOfAdvent, locale ) {
 		var dates = {
 	        epiphanyOfOurLord: { // Date will be adjusted by the epiphany rubric
 	        	moment: moment.utc({ year: easter.year(), month: 0, day: 6 }),
 	        	type: types.SOLEMNITY,
-	        	name: 'Epiphany of the Lord',
+	        	name: localization.epiphanyOfOurLord[locale],
 				data: {}
 	        },
 			pentecostSunday: {
 				moment: moment.utc(easter).add( 49, 'days' ),
 				type: types.SOLEMNITY,
-	        	name: 'Pentecost',
+	        	name: localization.pentecostSunday[locale],
 				data: {}
 			},
 			trinitySunday: {
 				moment: moment.utc(easter).add( 56, 'days' ),
 				type: types.SOLEMNITY,
-	        	name: 'Trinity Sunday',
+	        	name: localization.trinitySunday[locale],
 				data: {}
 			},
 			corpusChristi: {
 				moment: moment.utc(easter).add( 63, 'days' ),
 				type: types.SOLEMNITY,
-	        	name: 'The Body and Blood of Christ',
+	        	name: localization.corpusChristi[locale],
 				data: {}
 			},
 			sacredHeart: {
 				moment: moment.utc(easter).add( 68, 'days' ),
 				type: types.SOLEMNITY,
-	        	name: 'Sacred Heart of Jesus',
+	        	name: localization.sacredHeart[locale],
 				data: {}
 			},
 			immaculateHeartOfMary: {
 				moment: moment.utc(easter).add( 69, 'days' ),
 				type: types.MEMORIAL,
-	        	name: 'Immaculate Heart of Mary',
+	        	name: localization.immaculateHeartOfMary[locale],
 				data: {}
 			},
 			christTheKing: {
 				moment: moment.utc(firstSundayOfAdvent).subtract( 7, 'days' ), 
 				type: types.SOLEMNITY,
-	        	name: 'Christ the King',
+	        	name: localization.christTheKing[locale],
 				data: {}
 			},
 			ashWednesday: {
 				moment: moment.utc(easter).subtract( 46, 'days' ),
 				type: types.WEEKDAY_FEAST,
-				name: 'Ash Wednesday',
+				name: localization.ashWednesday[locale],
 				data: {}
 			},
 			palmSunday: {
 				moment: moment.utc(easter).subtract( 7, 'days' ),
 				type: types.SOLEMNITY,
-				name: 'Palm Sunday',
+				name: localization.palmSunday[locale],
 				data: {}
 			},
 			mondayOfHolyWeek: {
 				moment: moment.utc(easter).subtract( 6, 'days' ),
 				type: types.HOLY_WEEK,
-				name: 'Monday of Holy Week',
+				name: localization.mondayOfHolyWeek[locale],
 				data: {}
 			},
 			tuesdayOfHolyWeek: {
 				moment: moment.utc(easter).subtract( 5, 'days' ),
 				type: types.HOLY_WEEK,
-				name: 'Tuesday of Holy Week',
+				name: localization.tuesdayOfHolyWeek[locale],
 				data: {}
 			},
 			wednesdayOfHolyWeek: {
 				moment: moment.utc(easter).subtract( 4, 'days' ),
 				type: types.HOLY_WEEK,
-				name: 'Wednesday of Holy Week',
+				name: localization.wednesdayOfHolyWeek[locale],
 				data: {}
 			},
 			holyThursday: {
 				moment: moment.utc(easter).subtract( 3, 'days' ),
 				type: types.TRIDUUM,
-				name: 'Holy Thursday (Paschal Triduum)',
+				name: localization.holyThursday[locale],
 				data: {}
 			},
 			goodFriday: {
 				moment: moment.utc(easter).subtract( 2, 'days' ),
 				type: types.TRIDUUM,
-				name: 'Good Friday (Paschal Triduum)',
+				name: localization.goodFriday[locale],
 				data: {}
 			},
 			holySaturday: {
 				moment: moment.utc(easter).subtract( 1, 'days' ),
 				type: types.TRIDUUM,
-				name: 'Holy Saturday/Easter Vigil (Paschal Triduum)',
+				name: localization.holySaturday[locale],
 				data: {}
 			},
 			easterSunday: {
 				moment: easter,
 				type: types.SOLEMNITY,
-				name: 'Easter Sunday',
+				name: localization.easterSunday[locale],
 				data: {}
 			},
 			mondayInTheOctaveOfEaster: {
 				moment: moment.utc(easter).add( 1, 'days'),
 				type: types.SOLEMNITY,
-				name: 'Monday in the Octave of Easter',
+				name: localization.mondayInTheOctaveOfEaster[locale],
 				data: {}
 			},
 			tuesdayInTheOctaveOfEaster: {
 				moment: moment.utc(easter).add( 2, 'days'),
 				type: types.SOLEMNITY,
-				name: 'Tuesday in the Octave of Easter',
+				name: localization.tuesdayInTheOctaveOfEaster[locale],
 				data: {}			
 			},
 			wednesdayInTheOctaveOfEaster: {
 				moment: moment.utc(easter).add( 3, 'days'),
 				type: types.SOLEMNITY,
-				name: 'Wednesday in the Octave of Easter',
+				name: localization.wednesdayInTheOctaveOfEaster[locale],
 				data: {}			
 			},
 			thursdayInTheOctaveOfEaster: {
 				moment: moment.utc(easter).add( 4, 'days'),
 				type: types.SOLEMNITY,
-				name: 'Thursday in the Octave of Easter',
+				name: localization.thursdayInTheOctaveOfEaster[locale],
 				data: {}			
 			},
 			fridayInTheOctaveOfEaster: {
 				moment: moment.utc(easter).add( 5, 'days'),
 				type: types.SOLEMNITY,
-				name: 'Friday in the Octave of Easter',
+				name: localization.fridayInTheOctaveOfEaster[locale],
 				data: {}			
 			},
 			saturdayInTheOctaveOfEaster: {
 				moment: moment.utc(easter).add( 6, 'days'),
 				type: types.SOLEMNITY,
-				name: 'Saturday in the Octave of Easter',
+				name: localization.saturdayInTheOctaveOfEaster[locale],
 				data: {}			
 			},
 		 	divineMercySunday: {
 	        	moment: moment.utc(easter).add( 7, 'days' ),
 	        	type: types.SOLEMNITY,
-	        	name: 'Divine Mercy Sunday (2nd Sunday of Easter)',
+	        	name: localization.divineMercySunday[locale],
 				data: {}
 	        },
 	        thirdSundayOfEaster: {
 	        	moment: moment.utc(easter).add( 14, 'days' ),
 	        	type: types.SUNDAY_OF_EASTER,
-	        	name: '3rd Sunday of Easter',
+	        	name: localization.thirdSundayOfEaster[locale],
 				data: {}
 	        },
 	        fourthSundayOfEaster: {
 	        	moment: moment.utc(easter).add( 21, 'days' ),
 	        	type: types.SUNDAY_OF_EASTER,
-	        	name: '4th Sunday of Easter',
+	        	name: localization.fourthSundayOfEaster[locale],
 				data: {}
 	        },
 	        fifthSundayOfEaster: {
 	        	moment: moment.utc(easter).add( 28, 'days' ),
 	        	type: types.SUNDAY_OF_EASTER,
-	        	name: '5th Sunday of Easter',
+	        	name: localization.fifthSundayOfEaster[locale],
 				data: {}
 	        },
 	        sixthSundayOfEaster: {
 	        	moment: moment.utc(easter).add( 35, 'days' ),
 	        	type: types.SUNDAY_OF_EASTER,
-	        	name: '6th Sunday of Easter',
+	        	name: localization.sixthSundayOfEaster[locale],
 				data: {}
 	        },
 			ascensionOfTheLord: {
 				moment: moment.utc(easter).add( 39, 'days' ),
 				type: types.SOLEMNITY,
-	        	name: 'Ascension of the Lord',
+	        	name: localization.ascensionOfTheLord[locale],
 				data: {}
 			},
 			seventhSundayOfEaster: {
 				moment: moment.utc(easter).add( 42, 'days' ),
 				type: types.SUNDAY_OF_EASTER,
-	        	name: '7th Sunday of Easter',
+	        	name: localization.seventhSundayOfEaster[locale],
 				data: {}
 			}
 		};
