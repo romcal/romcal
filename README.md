@@ -4,7 +4,7 @@ A Node implementation of the [General Roman Calendar](http://en.wikipedia.org/wi
 ## Features
  * Able to query liturgical dates for any year in the gregorian calendar (1582 - now). Note that dates for years before 1969 will still be returned in a format conforming to [Mysterii Paschalis](http://www.romcal.net/mysterii.html) even though those years came before the calendar reforms in 1969.
  * Filter queries to allow more strealined date results to be obtained for the year
- * Localization of liturgical date names to cater for different
+ * Localization of liturgical date names to cater for different countries/languages
 
 NOTE:This module relies heavily on [Moment](http://momentjs.com/) and [Lo-Dash](http://lodash.com/) (which are dependencies of this module) for most of its calculations and operations.
 
@@ -100,6 +100,12 @@ The method accepts 2 parameters:
  * Display names for liturgical dates in romcal are localizable. 
  * romcal can potentially support an unlimited number of language-locales via 'core/localization.js' which is used to localize liturgical date names.
  * As of this release, romcal only contains localizable values for en-US. 
+
+# Roadmap
+ * Readings for the day
+ * Psalter weeks
+ * More localization values
+ * National calendars (this is a big one!)
 
 ## License
 romcal is freely distributable under the terms of the [MIT license](LICENSE).
