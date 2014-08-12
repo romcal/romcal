@@ -73,7 +73,7 @@ The method accepts 2 parameters:
  * `solemnities`
     * Returns an array of the highest ranking feast days throughout the liturgical year
 
-### Other queries for to return days or months
+### Other queries to return days or months
  * `sundays`
  * `mondays`
  * `tuesdays`
@@ -82,6 +82,7 @@ The method accepts 2 parameters:
  * `fridays`
  * `saturdays`
  * `daysGrouped`
+    * Returns all dates in the year grouped by day
  * `january`
  * `february`
  * `march`
@@ -106,7 +107,10 @@ The method accepts 2 parameters:
  * Readings for the day
  * Psalter weeks
  * More localization values
+ * More queries
  * National calendars (this is a big one!)
+
+*If you have any suggestions for improvement? Feel free to contribute to this exciting project!*
 
 ## License
 romcal is freely distributable under the terms of the [MIT license](LICENSE).
