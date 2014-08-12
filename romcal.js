@@ -2,8 +2,8 @@
 var calendar = require('node-calendar'),
 	moment = require('moment'),
 	lodash = require('lodash'), 
-	utils = require('./core/utils'),
-	formatters = require('./core/formatters'),
+	utils = require('./lib/utils'),
+	formatters = require('./lib/formatters'),
 	types = utils.types();
 	
 module.exports = {
@@ -11,11 +11,11 @@ module.exports = {
 	calendarFor: function( year, locale ) {
 
 		if ( lodash.isEmpty( locale ) )
-			moment.lang('en-US');
+			moment.locale('en-US');
 		else if ( lodash.isString( year ) )
-			moment.lang( locale );
+			moment.locale( locale );
 		else
-			moment.lang('en_US');
+			moment.locale('en_US');
 
 		if ( lodash.isEmpty( year ) )
 			year = moment.utc().year();
@@ -30,14 +30,6 @@ module.exports = {
 			sortedDates = formatters.mergeAndSort([ result.fixedSolemnities, result.movableSolemnities, result.feastsOfTheLord, result.adventSeason, result.ordinaryTime, result.otherCelebrations, result.lentSeason ] ),
             resolvedEvents = formatters.resolveCoincidingEvents( sortedDates ),
 		    liturgicalDates = formatters.setLiturgicalColorsAndSeasons( resolvedEvents, result.seasonRanges );
-
-		// var res = formatters.getDatesByLiturgicalSeason( liturgicalDates );
-		// lodash.map( res, function( value, key ) {
-		// 	if ( key === 'christmastide' )
-		// 		lodash.map( value, function( v, k ) {
-		// 			console.log( v.moment.toString(), ':', v.type.id, ':', v.name, ':', v.data );
-		// 		});
-		// });
 
         return liturgicalDates;
 	},

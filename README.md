@@ -24,8 +24,8 @@ var romcal = require('romcal');
 
 Get an array of liturgical dates for a year by calling the `calendarFor()` method.
 The method accepts 2 parameters:
- 1. `year` *mandatory* The Gregorian year as a string
- 2. `locale` *optional* The locale (e.g. en-US, en-GB, fr-FR)
+ 1. `year` *optional* The Gregorian year as a string. Defaults to current year if null
+ 2. `locale` *optional* The locale (e.g. en-US, en-GB, fr-FR). Defaults to en-US if null
  At the moment, romcal only supports en-US.
 
 ```
