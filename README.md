@@ -101,7 +101,7 @@ The method accepts 2 parameters:
  * romcal can potentially support an unlimited number of language-locales via 'core/localization.js' which is used to localize liturgical date names.
  * As of this release, romcal only contains localizable values for en-US. 
 
-# Roadmap
+## Roadmap
  * Readings for the day
  * Psalter weeks
  * More localization values
