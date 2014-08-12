@@ -87,8 +87,7 @@ module.exports = {
 			EASTER: 'Easter',
 			OT: 'OrdinaryTime',
 			ADVENT: 'Advent',
-			CHRISTMAS: 'Christmastide',
-			EPIPHANY: 'Epiphany',
+			CHRISTMAS: 'Christmastide'
 		};
 	},
 	liturgicalColors: function() {

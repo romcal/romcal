@@ -363,9 +363,6 @@ module.exports = {
     			case categories.CHRISTMAS:
     				result.christmastide.push( value );
     				break;
-    			case categories.EPIPHANY:
-    				result.epiphany.push( value );
-    				break;
     			default:
     				break;
     		}
@@ -401,12 +398,6 @@ module.exports = {
 		return lodash.filter( dates, function( v, k ) {
     		return v.data.season === categories.CHRISTMAS;
     	});
-    },
-
-    getEpiphanytide: function( dates ) {
-		return lodash.filter( dates, function( v, k ) {
-    		return v.data.season === categories.EPIPHANY;
-    	});	
     },
 
     getFeastsOfTheLord: function( dates ) {

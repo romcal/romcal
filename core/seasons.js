@@ -88,9 +88,7 @@ module.exports = {
 						moment: date,
 						type: types.SUNDAY,
 						name: localization.secondSundayOfChristmas[locale],
-						data: {
-							season: categories.CHRISTMAS
-						}
+						data: {}
 					};
 				}
 				else {
@@ -99,9 +97,7 @@ module.exports = {
 						moment: date,
 						type: types.WEEKDAY_OF_EPIPHANY,
 						name: localization[key][locale],
-						data: {
-							season: categories.EPIPHANY
-						}
+						data: {}
 					};
 				}
 			}
@@ -116,9 +112,7 @@ module.exports = {
 					moment: date,
 					type: types.WEEKDAY_OF_EPIPHANY,
 					name: localization[key][locale],
-					data: {
-						season: categories.EPIPHANY
-					}
+					data: {}
 				};	
 			}
 		}
