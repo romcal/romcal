@@ -24,8 +24,8 @@ var romcal = require('romcal');
 
 Get an array of liturgical dates for a year by calling the `calendarFor()` method.
 The method accepts 2 parameters:
- 1. `year`: (mandatory) The Gregorian year as a string
- 2. `locale`: (optional) The locale (e.g. en-US, en-GB, fr-FR)
+ 1. `year` (mandatory) The Gregorian year as a string
+ 2. `locale` (optional) The locale (e.g. en-US, en-GB, fr-FR)
  At the moment, romcal only supports en-US.
 
 ```
@@ -40,7 +40,44 @@ Each item in the array returned is an object literal that contains:
 
 
 ## Query API
-romcal also provides additional queries that can be used to streamline the original date output.
+romcal also provides additional queries that can be used to streamline the original date output via the `queryFor()` method.
+
+# Queries for date ranges
+ * `ordinaryTime` Returns an array of dates in the season of Ordinary Time (Day after Baptism of the Lord till day before Ash Wednesday & dat after Pentecost to Christ the King)
+ * `lent` Returns an array of dates corresponding to the season of Lent (Ash Wednesday up to the day beforee Palm Sunday)
+ * `easter` Returns an array of dates corresponding to the season of Easter (Easter Sunday up to Pentecost)
+ * `advent` Returns an array of dates in the season of Advent ( 1st Sunday of Advent to Christmas Eve)
+ * `christmastide` Returns an array of dates from Christmas day to Epiphany
+
+# Queries for specific liturgical date types
+ * `feastsOfTheLord`
+ * `memorials`
+ * `optionalMemorials`
+ * `commemoration`
+ * `solemnities`
+
+# Queries by dats or months
+ * `sundays`
+ * `mondays`
+ * `tuesdays`
+ * `wednesdays`
+ * `thursdays`
+ * `fridays`
+ * `saturdays`
+ * `daysGrouped`
+ * `january`
+ * `february`
+ * `march`
+ * `april`
+ * `may`
+ * `june`
+ * `july`
+ * `august`
+ * `september`
+ * `october`
+ * `november`
+ * `december`
+
 
 ## Localization
  * Display names for liturgical dates in romcal are localizable. 
