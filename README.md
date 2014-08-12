@@ -12,31 +12,26 @@ NOTE:This module relies heavily on [Moment](http://momentjs.com/) and [Lo-Dash](
 
 Add romcal to your project via npm:
 
-'''
-
+```
 npm install -g romcal
-
-'''
+```
 
 Then require romcal in your node project:
 
-'''
-
+```
 var romcal = require('romcal');
+```
 
-'''
-
-Get an array of liturgical dates for a year by calling the 'calendarFor()' method.
+Get an array of liturgical dates for a year by calling the `calendarFor()` method.
 The method accepts 2 parameters:
- 1. 'year': (mandatory) The Gregorian year as a string
- 2. 'locale': (optional) The locale (e.g. en-US, en-GB, fr-FR)
+ 1. `year`: (mandatory) The Gregorian year as a string
+ 2. `locale`: (optional) The locale (e.g. en-US, en-GB, fr-FR)
  At the moment, romcal only supports en-US.
 
-'''
-
+```
 var dates = romcal.calendarFor('2014');
+```
 
-'''
 Each item in the array returned is an object literal that contains:
  1. A [moment](http://momentjs.com/) object definition for the liturgical date
  2. The type of liturgical date (e.g. Solemnity, Memorial, Sunday, Weekday .. ) 
