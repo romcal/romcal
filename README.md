@@ -110,7 +110,7 @@ The method accepts 2 parameters:
  * More queries
  * National calendars (this is a big one!)
 
-*If you have any suggestions for improvement? Feel free to contribute to this exciting project!*
+*If you have any suggestions for improvement, feel free to contribute to this exciting project!*
 
 ## License
 romcal is freely distributable under the terms of the [MIT license](LICENSE).
