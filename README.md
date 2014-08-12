@@ -24,8 +24,8 @@ var romcal = require('romcal');
 
 Get an array of liturgical dates for a year by calling the `calendarFor()` method.
 The method accepts 2 parameters:
- 1. `year` (mandatory) The Gregorian year as a string
- 2. `locale` (optional) The locale (e.g. en-US, en-GB, fr-FR)
+ 1. `year` *mandatory* The Gregorian year as a string
+ 2. `locale` *optional* The locale (e.g. en-US, en-GB, fr-FR)
  At the moment, romcal only supports en-US.
 
 ```
@@ -46,8 +46,8 @@ romcal also provides additional queries that can be used to streamline the origi
 var dates = romcal.queryFor('mondays', dates );
 ```
 The method accepts 2 parameters:
- 1. `query` (mandatory) The query type to perform (see below)
- 2. `dates` (mandatory) An array of dates returned by `calendarFor()`
+ 1. `query` *mandatory* The query type to perform (see below)
+ 2. `dates` *mandatory* An array of dates returned by `calendarFor()`
 
 ## Queries for date ranges
  * `ordinaryTime` 
@@ -63,10 +63,15 @@ The method accepts 2 parameters:
 
 ## Queries for specific liturgical date types
  * `feastsOfTheLord`
+    * An array of dates for Baptism of the Lord, Presentation of the Lord, Transfiguration, Triumph of the Cross and Holy Family
  * `memorials`
+    * An array of memorials throughout the liturgical year conforming to the General Roman Calendar. It does not include memorials from National, Diocesan or Parish level calendars.
  * `optionalMemorials`
+    * An array of optional memorials throughout the liturgical year conforming to the General Roman Calendar. It does not include memorials from National, Diocesan or Parish level calendars.
  * `commemoration`
+    * An array of downgraded memorials/optional memorials that occur only during the season of Lent
  * `solemnities`
+    * Returns an array of the highest ranking feast days throughout the liturgical year
 
 ## Queries by dats or months
  * `sundays`
