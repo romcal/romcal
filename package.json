@@ -21,7 +21,7 @@
     "url": "https://github.com/pejulian/romcal/issues"
   },
   "bin": {
-    "romcal": "romcal.js"
+    "romcal": "./bin/romcal"
   },
   "homepage": "https://github.com/pejulian/romcal",
   "dependencies": {

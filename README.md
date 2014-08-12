@@ -43,7 +43,6 @@ romcal.calendarFor('2014', function( dates ) {
 romcal.calendarFor('2014', 'en-US', function( dates ) {
     console.log( dates );
 });
-
 ```
 
 Each item in the array returned is an object literal that contains:
@@ -60,7 +59,6 @@ romcal also provides additional queries that can be used to streamline the origi
 romcal.queryFor('mondays', dates, function( query ) {
     console.log( query );
 });
-
 ```
 The method accepts 2 parameters:
  1. `query` *mandatory* The query type to perform (see below)
