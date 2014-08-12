@@ -1,7 +1,7 @@
 {
   "name": "romcal",
-  "version": "1.0.0",
-  "description": "A Node implementation of the General Roman Calendar used in the Roman Catholic Rite",
+  "version": "1.0.1",
+  "description": "Generates the General Roman Calendar used in the Catholic Rite (Western Church)",
   "main": "romcal.js",
   "scripts": {
     "test": "mocha test/*.js"

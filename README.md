@@ -1,7 +1,10 @@
-[![Build Status](https://travis-ci.org/pejulian/romcal.svg?branch=master)](https://travis-ci.org/pejulian/romcal)
+[![Build Status](https://travis-ci.org/pejulian/romcal.svg?branch=master)](https://travis-ci.org/pejulian/romcal) [![MIT License][license-image]][license-url] [![NPM version][npm-version-image]][npm-url] [![NPM downloads][npm-downloads-image]][npm-url]
 
 # Romcal
-A Node implementation of the [General Roman Calendar](http://en.wikipedia.org/wiki/General_Roman_Calendar) used in the Roman Catholic Rite. This module conforms to the revised liturgical calendar for the Western Church as approved by Paul VI in [Mysterii Paschalis](http://www.romcal.net/mysterii.html) dated 14 February 1969. This module will output dates based on the standard calendar year (Jan, 1st - Dec, 31st) even though the liturgical year begins with the First Sunday of Advent.
+Generates the General Roman Calendar used in the Catholic Rite.
+
+## Description
+Romcal is a module that generates the [General Roman Calendar](http://en.wikipedia.org/wiki/General_Roman_Calendar) used in the Roman Catholic Rite. This module conforms to the revised liturgical calendar for the Western Church as approved by Paul VI in [Mysterii Paschalis](http://www.romcal.net/mysterii.html) dated 14 February 1969. This module will output dates based on the standard calendar year (Jan, 1st - Dec, 31st) even though the liturgical year begins with the First Sunday of Advent.
 
 ## Features
  * Able to query liturgical dates for any year in the gregorian calendar (1582 - now). Note that dates for years before 1969 will still be returned in a format conforming to [Mysterii Paschalis](http://www.romcal.net/mysterii.html) even though those years came before the calendar reforms in 1969.
@@ -15,7 +18,7 @@ NOTE:This module relies heavily on [Moment](http://momentjs.com/) and [Lo-Dash](
 Add romcal to your project via npm:
 
 ```
-npm install -g romcal
+$ npm install -g romcal
 ```
 
 Then require romcal in your node project:
@@ -128,11 +131,18 @@ The method accepts 2 parameters:
 
 *If you have any suggestions for improvement, feel free to contribute to this exciting project!*
 
+## Acknowledgements
+The development of romcal is inspired by the work of Kenneth G, Bath who wrote a [General Roman Calendar](http://www.romcal.net) in the C language. However, this module *is not* a port of the C program and *does not use* any of the C code in that program.
+
 ## License
 romcal is freely distributable under the terms of the [MIT license](LICENSE).
 
+[npm-url]: https://www.npmjs.org/package/romcal
+[npm-version-image]: http://img.shields.io/npm/v/romcal.svg?style=flat
+[npm-downloads-image]: http://img.shields.io/npm/dm/romcal.svg?style=flat
+
 [license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
-[license-url]: LICENSE
+[license-url]: http://opensource.org/licenses/MIT
 
 
 
