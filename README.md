@@ -3,8 +3,8 @@ A Node implementation of the [General Roman Calendar](http://en.wikipedia.org/wi
 
 ## Features
  * Able to query liturgical dates for any year in the gregorian calendar (1582 - now). Note that dates for years before 1969 will still be returned in a format conforming to [Mysterii Paschalis](http://www.romcal.net/mysterii.html) even though those years came before the calendar reforms in 1969.
- * Returns an array of object literals representing a liturgical dates.
- * 
+ * Filter queries to allow more strealined date results to be obtained for the year
+ * Localization of liturgical date names to cater for different
 
 NOTE:This module relies heavily on [Moment](http://momentjs.com/) and [Lo-Dash](http://lodash.com/) (which are dependencies of this module) for most of its calculations and operations.
 
@@ -33,7 +33,7 @@ var dates = romcal.calendarFor('2014');
 ```
 
 Each item in the array returned is an object literal that contains:
- 1. A [moment](http://momentjs.com/) object definition for the liturgical date
+ 1. A [moment](http://momentjs.com/) object definition for the liturgical date (all dates returned in UTC)
  2. The type of liturgical date (e.g. Solemnity, Memorial, Sunday, Weekday .. ) 
  3. The name of the liturgical date (localizable)
  4. Additional data pertaining to the liturgical date (e.g. liturgical season )
