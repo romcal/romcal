@@ -102,6 +102,7 @@ The method accepts 2 parameters:
  * As of this release, romcal only contains localizable values for en-US. 
 
 ## Roadmap
+ * Better testing scripts (I am still quite new to Mocha, Chai etc)
  * Readings for the day
  * Psalter weeks
  * More localization values
