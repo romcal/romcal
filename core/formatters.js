@@ -129,8 +129,7 @@ module.exports = {
 
             }
         });
-		var filtered = lodash.values( filtered );
-		return filtered
+		return lodash.values( filtered );
 	},
 
 	setLiturgicalColorsAndSeasons: function( dates, seasonRanges ) {
@@ -345,7 +344,7 @@ module.exports = {
 		return dates;
 	},
 
-    getDatesByLiturgicalSeason: function( dates ) {
+    getLiturgicalSeasons: function( dates ) {
     	var result = { ordinaryTime: [], lent: [], easter: [], advent: [], christmastide: [], epiphany: [] };
     	lodash.map( dates, function( value, key ) {
     		switch( value.data.season ) {
@@ -372,6 +371,42 @@ module.exports = {
     		}
     	});
     	return result;
+    },
+
+    getOrdinaryTime: function( dates ) {
+    	return lodash.filter( dates, function( v, k ) {
+    		return v.data.season === categories.OT;
+    	});
+    },
+
+    getLent: function( dates ) {
+		return lodash.filter( dates, function( v, k ) {
+    		return v.data.season === categories.LENT;
+    	});	
+    },
+
+    getEaster: function( dates ) {
+		return lodash.filter( dates, function( v, k ) {
+    		return v.data.season === categories.EASTER;
+    	});	
+    },
+
+    getAdvent: function( dates ) {
+		return lodash.filter( dates, function( v, k ) {
+    		return v.data.season === categories.ADVENT;
+    	});	
+    },
+
+    getChristmastide: function( dates ) {
+		return lodash.filter( dates, function( v, k ) {
+    		return v.data.season === categories.CHRISTMAS;
+    	});
+    },
+
+    getEpiphanytide: function( dates ) {
+		return lodash.filter( dates, function( v, k ) {
+    		return v.data.season === categories.EPIPHANY;
+    	});	
     },
 
     getFeastsOfTheLord: function( dates ) {
@@ -402,10 +437,6 @@ module.exports = {
     	return lodash.filter( dates, function( v, k ) {
     		return v.type.id === types.SOLEMNITY.id;
     	});
-    },
-
-    getOrdinaryTime: function( dates ) {
-
     },
 
     getSundays: function( dates ) {
