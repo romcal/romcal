@@ -38,4 +38,13 @@ describe('romcal', function() {
             });
         });
     });
+    describe('queryFor("solemnities", dates ): query all dates that are Solemnities in 2014', function() {
+        it('returns an array of dates that are Solemnities in 2014', function() {
+            var dates = romcal.calendarFor('2014'),
+                dates = romcal.queryFor('solemnities', dates );
+            lodash.map( dates, function( v, k ) {
+                v.type.id.should.be.eql('SOLEMNITY');
+            });
+        });
+    });
 });
