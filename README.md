@@ -1,14 +1,14 @@
-# Romcal
+## Romcal
 A Node implementation of the [General Roman Calendar](http://en.wikipedia.org/wiki/General_Roman_Calendar) used in the Roman Catholic Rite. This module conforms to the revised liturgical calendar for the Western Church as approved by Paul VI in [Mysterii Paschalis](http://www.romcal.net/mysterii.html) dated 14 February 1969. This module will output dates based on the standard calendar year (Jan, 1st - Dec, 31st) even though the liturgical year begins with the First Sunday of Advent.
 
-# Features
+## Features
  * Able to query liturgical dates for any year in the gregorian calendar (1582 - now). Note that dates for years before 1969 will still be returned in a format conforming to [Mysterii Paschalis](http://www.romcal.net/mysterii.html) even though those years came before the calendar reforms in 1969.
  * Returns an array of object literals representing a liturgical dates.
  * 
 
 NOTE:This module relies heavily on [Moment](http://momentjs.com/) and [Lo-Dash](http://lodash.com/) (which are dependencies of this module) for most of its calculations and operations.
 
-# Usage
+## Usage
 
 Add romcal to your project via npm:
 
@@ -39,7 +39,7 @@ Each item in the array returned is an object literal that contains:
  4. Additional data pertaining to the liturgical date (e.g. liturgical season )
 
 
-# Query API
+## Query API
 romcal also provides additional queries that can be used to streamline the original date output via the `queryFor()` method.
 
 ```
@@ -49,7 +49,7 @@ The method accepts 2 parameters:
  1. `query` *mandatory* The query type to perform (see below)
  2. `dates` *mandatory* An array of dates returned by `calendarFor()`
 
-## Queries for date ranges
+### Queries for date ranges
  * `ordinaryTime` 
     * Returns an array of dates in the season of Ordinary Time (Day after Baptism of the Lord till day before Ash Wednesday & dat after Pentecost to Christ the King)
  * `lent` 
@@ -61,7 +61,7 @@ The method accepts 2 parameters:
  * `christmastide` 
     * Returns an array of dates from Christmas day to Epiphany
 
-## Queries for specific liturgical date types
+### Queries for specific liturgical date types
  * `feastsOfTheLord`
     * An array of dates for Baptism of the Lord, Presentation of the Lord, Transfiguration, Triumph of the Cross and Holy Family
  * `memorials`
@@ -73,7 +73,7 @@ The method accepts 2 parameters:
  * `solemnities`
     * Returns an array of the highest ranking feast days throughout the liturgical year
 
-## Queries by dats or months
+### Other queries for to return days or months
  * `sundays`
  * `mondays`
  * `tuesdays`
@@ -96,12 +96,12 @@ The method accepts 2 parameters:
  * `december`
 
 
-# Localization
+## Localization
  * Display names for liturgical dates in romcal are localizable. 
  * romcal can potentially support an unlimited number of language-locales via 'core/localization.js' which is used to localize liturgical date names.
  * As of this release, romcal only contains localizable values for en-US. 
 
-# License
+## License
 romcal is freely distributable under the terms of the [MIT license](LICENSE).
 
 [license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
