@@ -13,7 +13,10 @@
   "keywords": [
     "roman",
     "calendar",
-    "liturgical"
+    "liturgical",
+    "catholic",
+    "western",
+    "church"
   ],
   "author": "Julian Pereira <bleushade@gmail.com>",
   "license": "MIT",
@@ -25,7 +28,7 @@
   },
   "homepage": "https://github.com/pejulian/romcal",
   "dependencies": {
-    "moment": "^2.7.0",
+    "moment": "^2.8.1",
     "lodash": "^2.4.1",
     "twix": "^0.5.1"
   },

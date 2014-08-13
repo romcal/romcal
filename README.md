@@ -11,14 +11,14 @@ Romcal is a module that generates the [General Roman Calendar](http://en.wikiped
  * Filter queries to allow more strealined date results to be obtained for the year
  * Localization of liturgical date names to cater for different countries/languages 
 
-NOTE:This module relies heavily on [Moment](http://momentjs.com/) and [Lo-Dash](http://lodash.com/) (which are dependencies of this module) for most of its calculations and operations.
+NOTE:This module relies heavily on [Moment](http://momentjs.com/) and [Lo-Dash](http://lodash.com/) (which are dependencies of this module) for most of its calculations and operations. [Twix](http://isaaccambron.com/twix.js/index.html) is also extensively used for creating and manipulating date ranges.
 
 ## Usage
 
 Add romcal to your project via npm:
 
 ```
-$ npm install -g romcal
+$ npm install romcal
 ```
 
 Then require romcal in your node project:
@@ -73,6 +73,8 @@ The method accepts 2 parameters:
     * Returns an array of dates in the season of Ordinary Time (Day after Baptism of the Lord till day before Ash Wednesday & dat after Pentecost to Christ the King)
  * `lent` 
     * Returns an array of dates corresponding to the season of Lent (Ash Wednesday up to the day beforee Palm Sunday)
+ * `holyWeek`
+    * Returns an array of dates from Palm Sunday to Easter Vigil
  * `easter` 
     * Returns an array of dates corresponding to the season of Easter (Easter Sunday up to Pentecost)
  * `advent` 

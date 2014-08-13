@@ -85,7 +85,11 @@ module.exports = {
 		return process.nextTick( function() {
 			query = 'get' + ( query.charAt(0).toUpperCase() + query.slice(1) );
 			if ( !lodash.isUndefined( formatters[ query ] ) )
-				cb( formatters[ query ] ( dates ) );
+				cb( null, formatters[ query ] ( dates ) );
+			else {
+				var msg = query + ' is not a valid query';
+				cb( msg, null );
+			}
 		});
 	}
 };

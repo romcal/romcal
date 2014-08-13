@@ -50,7 +50,11 @@ describe('romcal', function() {
     describe('queryFor("january", dates ): query all dates in January 2012', function() {
         it('returns an array of dates in January 2012 with length 31', function( done ) {
             romcal.calendarFor('2012', function( dates ) {
-                romcal.queryFor('january', dates, function( query ) {
+                romcal.queryFor('january', dates, function( err, query ) {
+                    if ( err ) {
+                        throw new Error( err );
+                        return;
+                    }
                     lodash.map( query, function( v, k ) {
                         v.moment.month().should.be.eql(0);
                     });
@@ -63,7 +67,11 @@ describe('romcal', function() {
     describe('queryFor("mondays", dates ): query all dates that are Mondays in 2013', function() {
         it('returns an array of dates falling on Monday in 2013', function( done ) {
             romcal.calendarFor('2013', function( dates ) {
-                romcal.queryFor('mondays', dates, function( query ) {
+                romcal.queryFor('mondays', dates, function( err, query ) {
+                    if ( err ) {
+                        throw new Error( err );
+                        return;
+                    }
                     lodash.map( query, function( v, k ) {
                         v.moment.day().should.be.eql(1);
                     });
@@ -75,9 +83,29 @@ describe('romcal', function() {
     describe('queryFor("solemnities", dates ): query all dates that are Solemnities in 2009', function() {
         it('returns an array of dates that are Solemnities in 2009', function( done ) {
             var dates = romcal.calendarFor('2009', function( dates ) {
-                romcal.queryFor('solemnities', dates, function( query ) {
+                romcal.queryFor('solemnities', dates, function( err, query ) {
+                    if ( err ) {
+                        throw new Error( err );
+                        return;
+                    }
                     lodash.map( query, function( v, k ) {
                         v.type.id.should.be.eql('SOLEMNITY');
+                    });
+                    done();
+                });
+            });
+        });
+    });
+    describe('queryFor("holyweek", dates ): query all dates that are within Holy Week, 2011', function() {
+        it('returns an array of dates that are within Holy Week, 2011', function( done ) {
+            var dates = romcal.calendarFor('2011', function( dates ) {
+                romcal.queryFor('holyWeek', dates, function( err, query ) {
+                    if ( err ) {
+                        throw new Error( err );
+                        return;
+                    }
+                    lodash.map( query, function( v, k ) {
+                        v.data.season.should.be.eql('HolyWeek');
                     });
                     done();
                 });
