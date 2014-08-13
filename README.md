@@ -141,7 +141,7 @@ The method accepts 2 parameters:
 *If you have any suggestions for improvement, feel free to contribute to this exciting project!*
 
 ## Acknowledgements
-The development of romcal is inspired by the work of Kenneth G, Bath who wrote a [General Roman Calendar](http://www.romcal.net) in the C language. This module *is not* a port of the C program and *does not use* any of the C code in that program. This module is written from scratch with the aim of provide similar output as the original C program while providing queries to filter date results.
+The development of romcal is inspired by the work of Kenneth G, Bath who wrote a [General Roman Calendar](http://www.romcal.net) in the C language. This module *is not* a port of the C program and *does not use* any of the C code in that program. This module is written from scratch with the aim of provide similar output as the original C program while providing additional queries for convenient filtering/streamlining of date results.
 
 ## License
 romcal is freely distributable under the terms of the [MIT license](LICENSE).

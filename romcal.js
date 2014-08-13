@@ -91,5 +91,11 @@ module.exports = {
 				cb( msg, null );
 			}
 		});
+	},
+
+	queryNationalCalendar: function( country, cb ) {
+		return process.nextTick( function() {
+			cb( null, null );
+		});
 	}
 };
