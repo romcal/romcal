@@ -64,14 +64,16 @@ Each item in the array returned is an object literal that contains:
 romcal also provides additional queries that can be used to streamline the original date output via the `queryFor()` method.
 
 ```
-romcal.queryFor('mondays', dates, function( query ) {
+romcal.queryFor('mondays', dates, function( err, query ) {
     console.log( query );
 });
 ```
 The method accepts 2 parameters:
  1. `query` *mandatory* The query type to perform (see below)
  2. `dates` *mandatory* An array of dates returned by `calendarFor()`
- 3. `cb` *mandatory* The callback function where the filtered liturgical dates will be returned
+ 3. `callback` *mandatory* The callback function with 2 parameters:
+    * `err` *guaranteed* a JSON object describing the error (if any). null if there are no errors
+    * `query` *guaranteed* the filtered liturgical dates will be returned
 
 ### Queries for date ranges
  * `ordinaryTime` 
@@ -139,7 +141,7 @@ The method accepts 2 parameters:
 *If you have any suggestions for improvement, feel free to contribute to this exciting project!*
 
 ## Acknowledgements
-The development of romcal is inspired by the work of Kenneth G, Bath who wrote a [General Roman Calendar](http://www.romcal.net) in the C language. However, this module *is not* a port of the C program and *does not use* any of the C code in that program.
+The development of romcal is inspired by the work of Kenneth G, Bath who wrote a [General Roman Calendar](http://www.romcal.net) in the C language. This module *is not* a port of the C program and *does not use* any of the C code in that program. This module is written from scratch with the aim of provide similar output as the original C program while providing queries to filter date results.
 
 ## License
 romcal is freely distributable under the terms of the [MIT license](LICENSE).
