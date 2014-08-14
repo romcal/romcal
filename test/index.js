@@ -47,9 +47,11 @@ describe('romcal', function() {
             });
         });
     });
-    describe('queryNationalCalendar("2008", "en-AR", "argentina"): get the Argentinian National Calendar, locale es-AR for 2008', function() {
-        it('returns an array of 2008 dates', function( done ) {
-            romcal.queryNationalCalendar('2008', 'es-AR', 'argentina', function( dates ) {
+    describe('queryNationalCalendar("2008", "es-AR", "argentina"): get the Argentinian National Calendar, locale es-AR for 2008', function() {
+        it('returns an array of dates for the Argentinian National Calendar, 2008', function( done ) {
+            romcal.queryNationalCalendar('2008', 'es-AR', 'argentina', function ( err, dates ) {
+                dates.length.should.be.greaterThan(364);
+                dates.length.should.be.lessThan(367);
                 lodash.map( dates, function( v, k ) {
                     v.moment.year().should.be.eql(2008);
                 });

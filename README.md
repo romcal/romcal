@@ -10,7 +10,7 @@ Romcal is a module that generates the [General Roman Calendar](http://en.wikiped
  * Able to query liturgical dates for any year in the gregorian calendar (1582 - now). Note that dates for years before 1969 will still be returned in a format conforming to [Mysterii Paschalis](http://www.romcal.net/mysterii.html) even though those years came before the calendar reforms in 1969.
  * 30 filter queries to allow more strealined date results to be obtained for the year
  * Localization of liturgical date names to cater for different countries/languages
- * National liturgical calendars of 40 countries 
+ * National liturgical calendars of 41 countries 
 
 NOTE:This module relies heavily on [Moment](http://momentjs.com/) and [Lo-Dash](http://lodash.com/) (which are dependencies of this module) for most of its calculations and operations. [Twix](http://isaaccambron.com/twix.js/index.html) is also extensively used for creating and manipulating date ranges.
 
@@ -129,7 +129,7 @@ The method accepts 2 parameters:
  * `december`
 
 ## National Calendars [WIP]
-Romcal is able to display the national calendars (specific liturgical dates of a country) for [40 countries](http://en.wikipedia.org/wiki/General_Roman_Calendar#National_calendars). 
+Romcal is able to display the national calendars (specific liturgical dates of a country) for [41 countries](http://en.wikipedia.org/wiki/General_Roman_Calendar#National_calendars). 
 
 To query a national calendar, use the `queryNationalCalendar()` method.
 `queryNationalCalendar()` is much more rigid than the standard `calendarFor()` method. All parameters are mandatory and romcal will return null or throw an error if any of these parameters are not satisfied. The parameters in order are:
@@ -180,7 +180,6 @@ To query a national calendar, use the `queryNationalCalendar()` method.
 4. `callback` *mandatory* The callback function with 2 parameters:
     * `err` An error object if any errors occured. null if no errors
     * `result` An array of dates for the National Liturgical year of the country
-
 
 ## Localization
  * Display names for liturgical dates in romcal are localizable. 

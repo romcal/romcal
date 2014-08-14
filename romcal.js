@@ -82,7 +82,7 @@ module.exports = {
 	},
 
 	queryNationalCalendar: function( year, locale, country, cb ) {
-		if ( lodash.isUndefined( cb ) || lodash.isNull( year ) || lodash.isEmpty( cb ) )
+		if ( lodash.isUndefined( cb ) || lodash.isNull( cb ) )
 			throw new Error('callback is null or undefined');
 		if ( lodash.isUndefined( year ) || lodash.isNull( year ) || lodash.isEmpty( year ) )
 			cb( new Error('year is null or undefined'), null );
@@ -91,12 +91,14 @@ module.exports = {
 		if ( lodash.isUndefined( country ) || lodash.isNull( country ) || lodash.isEmpty( country ) )
 			cb( new Error('country is null or undefined'), null );
 
+		// Important, year must be a number
+		year = parseInt( year );
+
 		return process.nextTick( function() {
 			var result = formatters.generateCalendarDates( year, locale, country ),
 				sortedDates = formatters.mergeAndSort([ result.fixedSolemnities, result.movableSolemnities, result.feastsOfTheLord, result.adventSeason, result.ordinaryTime, result.otherCelebrations, result.lentSeason ] ),
 	            resolvedEvents = formatters.resolveCoincidingEvents( sortedDates ),
 			    liturgicalDates = formatters.setLiturgicalColorsAndSeasons( resolvedEvents, result.seasonRanges );
-
 			if ( !lodash.isUndefined( cb ) || !lodash.isNull( cb ) )
 	        	cb( null, liturgicalDates );
 		});
