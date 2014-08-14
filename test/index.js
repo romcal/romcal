@@ -30,7 +30,7 @@ var should = require('should'),
 describe('romcal', function() {
     describe('calendarFor(): no arguments', function() {
         it('returns an array of current year dates of either 365 or 366 days', function( done ) {
-            romcal.calendarFor( function( dates ) {            
+            romcal.calendarFor( function( dates ) {
                 dates.length.should.be.greaterThan(364);
                 dates.length.should.be.lessThan(367);
                 done();
@@ -55,6 +55,19 @@ describe('romcal', function() {
                 lodash.map( dates, function( v, k ) {
                     v.moment.year().should.be.eql(2008);
                 });
+                done();
+            });
+        });
+    });
+    describe('queryNationalCalendar("2008", "en-US", "unitedStates"): get the National Calendar of the US, locale en-US for 2008', function() {
+        it('returns an array of dates for the National Calendar for the US, 2008', function( done ) {
+            romcal.queryNationalCalendar('2008', 'en-US', 'unitedStates', function ( err, dates ) {
+                dates.length.should.be.greaterThan(364);
+                dates.length.should.be.lessThan(367);
+                // lodash.map( dates, function( v, k ) {
+                //     console.log( v.moment.toString(), ':', v.name );
+                //     v.moment.year().should.be.eql(2008);
+                // });
                 done();
             });
         });

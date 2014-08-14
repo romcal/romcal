@@ -15,7 +15,7 @@ Romcal is a module that generates the [General Roman Calendar](http://en.wikiped
 NOTE:This module relies heavily on [Moment](http://momentjs.com/) and [Lo-Dash](http://lodash.com/) (which are dependencies of this module) for most of its calculations and operations. [Twix](http://isaaccambron.com/twix.js/index.html) is also extensively used for creating and manipulating date ranges.
 
 ## Revisions
-* 1.0.3 *National calendars (beta) and a new localization mechanism*
+* 1.0.3 *National calendars [beta] and a new localization mechanism*
 * 1.0.2 *Fix incorrect moment dependency version and added holyWeek query*
 * 1.0.1 *Added more TDD tests*
 * 1.0.0 *Initial release*
@@ -128,7 +128,7 @@ The method accepts 2 parameters:
  * `november`
  * `december`
 
-## National Calendars [WIP]
+## National Calendars [Beta]
 Romcal is able to display the national calendars (specific liturgical dates of a country) for [41 countries](http://en.wikipedia.org/wiki/General_Roman_Calendar#National_calendars). 
 
 To query a national calendar, use the `queryNationalCalendar()` method.
@@ -181,6 +181,11 @@ To query a national calendar, use the `queryNationalCalendar()` method.
     * `err` An error object if any errors occured. null if no errors
     * `result` An array of dates for the National Liturgical year of the country
 
+## Adding National Calendars
+1. National Calendars can be added to romcal by editing the `calendars()` function in `lib/utils.js`. This function returns an object literal containing attributes of the General calendar as well as National Calendars. New countries can be added on by referring to the format of this object literal.
+2. The next file to edit is `lib/nationalCalendar.js`. The country and the specific celebrations as defined in its National Calendar (as determined by the council of Bishops and approved by the Holy See) is added to the `dates()` function. Ensure that the newly added country conforms to the defined object literal structure.
+3. Finally, create localizable entries for celebrations of the country's national calendar via `data/localization.json`
+
 ## Localization
  * Display names for liturgical dates in romcal are localizable. 
  * romcal can potentially support an unlimited number of language-locales
@@ -189,14 +194,13 @@ To query a national calendar, use the `queryNationalCalendar()` method.
  * Contributing localizations for romcal is easy:
     * Open up `data/localization.json` in your favourite JSON Editor (e.g [JSON Editor Online](http://www.jsoneditoronline.org/) )
     * Enter localized text for an item (e.g. `ourLadyMediatrix`) based on its locale code (e.g `en-GB`)
-    * Save and export the file!
+    * Save and submit the updated `data/localization.json` file
 
 ## Roadmap
  * Better testing scripts (I am still quite new to Mocha, Should etc)
  * Psalter weeks
  * More localization values for locales
  * More queries
- * National calendars [WIP]
 
 *If you have any suggestions for improvement, feel free to contribute to this exciting project!*
 

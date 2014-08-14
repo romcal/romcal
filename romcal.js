@@ -96,7 +96,7 @@ module.exports = {
 
 		return process.nextTick( function() {
 			var result = formatters.generateCalendarDates( year, locale, country ),
-				sortedDates = formatters.mergeAndSort([ result.fixedSolemnities, result.movableSolemnities, result.feastsOfTheLord, result.adventSeason, result.ordinaryTime, result.otherCelebrations, result.lentSeason ] ),
+				sortedDates = formatters.mergeAndSort([ result.fixedSolemnities, result.movableSolemnities, result.feastsOfTheLord, result.adventSeason, result.ordinaryTime, result.otherCelebrations, result.lentSeason, result.nationalCalendar ] ),
 	            resolvedEvents = formatters.resolveCoincidingEvents( sortedDates ),
 			    liturgicalDates = formatters.setLiturgicalColorsAndSeasons( resolvedEvents, result.seasonRanges );
 			if ( !lodash.isUndefined( cb ) || !lodash.isNull( cb ) )
