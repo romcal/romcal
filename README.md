@@ -124,6 +124,13 @@ The method accepts 2 parameters:
  * `november`
  * `december`
 
+## National Calendars [WIP]
+Romcal is able to display the national calendars (specific liturgical dates of a country) for [40 countries](http://en.wikipedia.org/wiki/General_Roman_Calendar#National_calendars). 
+
+
+* `argentina`
+* `australia`
+
 
 ## Localization
  * Display names for liturgical dates in romcal are localizable. 

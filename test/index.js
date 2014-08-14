@@ -112,12 +112,4 @@ describe('romcal', function() {
             });
         });
     });
-    describe('parseFile', function() {
-        it('returns file contents as string', function( done ) {
-            romcal.parseFile( function( data ) {
-                data.should.be.String;
-                done();
-            });
-        });
-    });
 });
