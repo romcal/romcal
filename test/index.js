@@ -47,6 +47,16 @@ describe('romcal', function() {
             });
         });
     });
+    describe('queryNationalCalendar("2008", "en-AR", "argentina"): get the Argentinian National Calendar, locale es-AR for 2008', function() {
+        it('returns an array of 2008 dates', function( done ) {
+            romcal.queryNationalCalendar('2008', 'es-AR', 'argentina', function( dates ) {
+                lodash.map( dates, function( v, k ) {
+                    v.moment.year().should.be.eql(2008);
+                });
+                done();
+            });
+        });
+    });
     describe('queryFor("january", dates ): query all dates in January 2012', function() {
         it('returns an array of dates in January 2012 with length 31', function( done ) {
             romcal.calendarFor('2012', function( dates ) {

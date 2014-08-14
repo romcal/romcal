@@ -8,8 +8,9 @@ Romcal is a module that generates the [General Roman Calendar](http://en.wikiped
 
 ## Features
  * Able to query liturgical dates for any year in the gregorian calendar (1582 - now). Note that dates for years before 1969 will still be returned in a format conforming to [Mysterii Paschalis](http://www.romcal.net/mysterii.html) even though those years came before the calendar reforms in 1969.
- * Filter queries to allow more strealined date results to be obtained for the year
- * Localization of liturgical date names to cater for different countries/languages 
+ * 30 filter queries to allow more strealined date results to be obtained for the year
+ * Localization of liturgical date names to cater for different countries/languages
+ * National liturgical calendars of 40 countries 
 
 NOTE:This module relies heavily on [Moment](http://momentjs.com/) and [Lo-Dash](http://lodash.com/) (which are dependencies of this module) for most of its calculations and operations. [Twix](http://isaaccambron.com/twix.js/index.html) is also extensively used for creating and manipulating date ranges.
 
@@ -33,7 +34,7 @@ var romcal = require('romcal');
 ```
 
 Get an array of liturgical dates for a year by calling the `calendarFor()` method.
-The method accepts 3 parameters:
+The method accepts 2 parameters:
  1. `year` *optional* The Gregorian year as a string. Defaults to current year if null
  2. `locale` *optional* The locale (e.g. en-US, en-GB, fr-FR). Defaults to en-US if null
  3. `cb` *mandatory* The callback function where the computed liturgical dates will be returned
@@ -127,15 +128,64 @@ The method accepts 2 parameters:
 ## National Calendars [WIP]
 Romcal is able to display the national calendars (specific liturgical dates of a country) for [40 countries](http://en.wikipedia.org/wiki/General_Roman_Calendar#National_calendars). 
 
+To query a national calendar, use the `queryNationalCalendar()` method.
+`queryNationalCalendar()` is much more rigid than the standard `calendarFor()` method. All parameters are mandatory and romcal will return null or throw an error if any of these parameters are not satisfied. The parameters in order are:
 
-* `argentina`
-* `australia`
+1. `year` *mandatory* The year of liturgical dates to be obtained
+2. `locale` *mandatory* The locale (e.g. en-US, en-GB, fr-FR)
+3. `country` *mandatory* The country of which the national calendar is to be obtained. Possible values for this parameter are:
+    * `argentina`
+    * `australia`
+    * `belgium`
+    * `bolivia`
+    * `bosniaHerzegovina`
+    * `brazil`
+    * `canada`
+    * `chile`
+    * `croatia`
+    * `czechRepublic`
+    * `england`
+    * `france`
+    * `finland`
+    * `germany`
+    * `greece`
+    * `hungary`
+    * `india`
+    * `ireland`
+    * `japan`
+    * `lebanon`
+    * `lithuania`
+    * `malta`
+    * `mexico`
+    * `newZealand`
+    * `norway`
+    * `peru`
+    * `philippines`
+    * `poland`
+    * `portugal`
+    * `puertoRico`
+    * `romania`
+    * `russia`
+    * `scotland`
+    * `slovakia`
+    * `spain`
+    * `sriLanka`
+    * `ukraine`
+    * `unitedStates`
+    * `vietnam`
+    * `wales`
+4. `callback` *mandatory* The callback function with 2 parameters:
 
 
 ## Localization
  * Display names for liturgical dates in romcal are localizable. 
- * romcal can potentially support an unlimited number of language-locales via 'core/localization.js' which is used to localize liturgical date names.
- * As of this release, romcal only contains localizable values for en-US. 
+ * romcal can potentially support an unlimited number of language-locales
+ * `data/localization.json` is a data file in JSON format that holds all localized liturgical date names.
+ * As of this release, romcal only contains valid localizable values for en-US. Eagerly looking forward to contributions to help localize the other languages!
+ * Contributing localizations for romcal is easy:
+    * Open up `data/localization.json` in your favourite JSON Editor (e.g [JSON Editor Online](http://www.jsoneditoronline.org/) )
+    * Enter localized text for an item (e.g. `ourLadyMediatrix`) based on its locale code (e.g `en-GB`)
+    * Save and export the file!
 
 ## Roadmap
  * Better testing scripts (I am still quite new to Mocha, Chai etc)
@@ -143,15 +193,17 @@ Romcal is able to display the national calendars (specific liturgical dates of a
  * Psalter weeks
  * More localization values
  * More queries
- * National calendars (this is a big one!)
+ * National calendars [WIP]
 
 *If you have any suggestions for improvement, feel free to contribute to this exciting project!*
 
 ## Acknowledgements
-The development of romcal is inspired by the work of Kenneth G, Bath who wrote a [General Roman Calendar](http://www.romcal.net) in the C language. This module *is not* a port of the C program and *does not use* any of the C code in that program. This module is written from scratch with the aim of provide similar output as the original C program while providing additional queries for convenient filtering/streamlining of date results.
+The development of romcal is inspired by the work of Kenneth G, Bath who wrote a [General Roman Calendar](http://www.romcal.net) in the C language. 
+This module *is not* a port of the C program and *does not use* any of the C code in that program. 
+This module is written from scratch with the aim of provide similar output as the original C program while providing additional queries for convenient filtering/streamlining of date results.
 
 ## License
-romcal is freely distributable under the terms of the [MIT license](LICENSE).
+romcal is freely distributable under the terms of the [MIT license](http://opensource.org/licenses/MIT).
 
 [npm-url]: https://www.npmjs.org/package/romcal
 [npm-version-image]: http://img.shields.io/npm/v/romcal.svg?style=flat

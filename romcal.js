@@ -71,13 +71,34 @@ module.exports = {
 			else 
 				year = moment.utc().year();
 
-			var result = formatters.generateCalendarDates( year, locale ),
+			var result = formatters.generateCalendarDates( year, locale, 'general' ),
 				sortedDates = formatters.mergeAndSort([ result.fixedSolemnities, result.movableSolemnities, result.feastsOfTheLord, result.adventSeason, result.ordinaryTime, result.otherCelebrations, result.lentSeason ] ),
 	            resolvedEvents = formatters.resolveCoincidingEvents( sortedDates ),
 			    liturgicalDates = formatters.setLiturgicalColorsAndSeasons( resolvedEvents, result.seasonRanges );
 
 			if ( !lodash.isUndefined( cb ) || !lodash.isNull( cb ) )
 	        	cb( liturgicalDates );
+		});
+	},
+
+	queryNationalCalendar: function( year, locale, country, cb ) {
+		if ( lodash.isUndefined( cb ) || lodash.isNull( year ) || lodash.isEmpty( cb ) )
+			throw new Error('callback is null or undefined');
+		if ( lodash.isUndefined( year ) || lodash.isNull( year ) || lodash.isEmpty( year ) )
+			cb( new Error('year is null or undefined'), null );
+		if ( lodash.isUndefined( locale ) || lodash.isNull( locale ) || lodash.isEmpty( locale ) )
+			cb( new Error('locale is null or undefined'), null );
+		if ( lodash.isUndefined( country ) || lodash.isNull( country ) || lodash.isEmpty( country ) )
+			cb( new Error('country is null or undefined'), null );
+
+		return process.nextTick( function() {
+			var result = formatters.generateCalendarDates( year, locale, country ),
+				sortedDates = formatters.mergeAndSort([ result.fixedSolemnities, result.movableSolemnities, result.feastsOfTheLord, result.adventSeason, result.ordinaryTime, result.otherCelebrations, result.lentSeason ] ),
+	            resolvedEvents = formatters.resolveCoincidingEvents( sortedDates ),
+			    liturgicalDates = formatters.setLiturgicalColorsAndSeasons( resolvedEvents, result.seasonRanges );
+
+			if ( !lodash.isUndefined( cb ) || !lodash.isNull( cb ) )
+	        	cb( null, liturgicalDates );
 		});
 	},
 
@@ -90,12 +111,6 @@ module.exports = {
 				var msg = query + ' is not a valid query';
 				cb( msg, null );
 			}
-		});
-	},
-
-	queryNationalCalendar: function( country, cb ) {
-		return process.nextTick( function() {
-			cb( null, null );
 		});
 	}
 };
