@@ -15,6 +15,7 @@ Romcal is a module that generates the [General Roman Calendar](http://en.wikiped
 NOTE:This module relies heavily on [Moment](http://momentjs.com/) and [Lo-Dash](http://lodash.com/) (which are dependencies of this module) for most of its calculations and operations. [Twix](http://isaaccambron.com/twix.js/index.html) is also extensively used for creating and manipulating date ranges.
 
 ## Revisions
+* 1.0.3 *National calendars (beta) and a new localization mechanism*
 * 1.0.2 *Fix incorrect moment dependency version and added holyWeek query*
 * 1.0.1 *Added more TDD tests*
 * 1.0.0 *Initial release*
@@ -34,11 +35,13 @@ var romcal = require('romcal');
 ```
 
 Get an array of liturgical dates for a year by calling the `calendarFor()` method.
-The method accepts 2 parameters:
+The method accepts 2 optional parameters and 1 mandatory parameter:
  1. `year` *optional* The Gregorian year as a string. Defaults to current year if null
  2. `locale` *optional* The locale (e.g. en-US, en-GB, fr-FR). Defaults to en-US if null
  3. `cb` *mandatory* The callback function where the computed liturgical dates will be returned
- At the moment, romcal only supports en-US.
+ 
+ Note: 
+ *At the moment, romcal only contains localized values for the en-US locale. Passing in any other locale will return en-US texts until those locales are localized.* 
 
 ```
 romcal.calendarFor( function( dates ) {
@@ -73,8 +76,8 @@ The method accepts 2 parameters:
  1. `query` *mandatory* The query type to perform (see below)
  2. `dates` *mandatory* An array of dates returned by `calendarFor()`
  3. `callback` *mandatory* The callback function with 2 parameters:
-    * `err` *guaranteed* a JSON object describing the error (if any). null if there are no errors
-    * `query` *guaranteed* the filtered liturgical dates will be returned
+    * `err` A JSON object describing the error (if any). null if there are no errors
+    * `query` The filtered liturgical dates will be returned
 
 ### Queries for date ranges
  * `ordinaryTime` 
@@ -175,6 +178,8 @@ To query a national calendar, use the `queryNationalCalendar()` method.
     * `vietnam`
     * `wales`
 4. `callback` *mandatory* The callback function with 2 parameters:
+    * `err` An error object if any errors occured. null if no errors
+    * `result` An array of dates for the National Liturgical year of the country
 
 
 ## Localization
@@ -188,10 +193,9 @@ To query a national calendar, use the `queryNationalCalendar()` method.
     * Save and export the file!
 
 ## Roadmap
- * Better testing scripts (I am still quite new to Mocha, Chai etc)
- * Readings for the day
+ * Better testing scripts (I am still quite new to Mocha, Should etc)
  * Psalter weeks
- * More localization values
+ * More localization values for locales
  * More queries
  * National calendars [WIP]
 
