@@ -65,7 +65,7 @@ describe('romcal', function() {
                 dates.length.should.be.greaterThan(364);
                 dates.length.should.be.lessThan(367);
                 lodash.map( dates, function( v, k ) {
-                    // console.log( v.moment.toString(), ':', v.name, '-', v.type.name );
+                    console.log( v.moment.toString(), ':', v.name, '-', v.type.name );
                     v.moment.year().should.be.eql(2008);
                 });
                 done();
