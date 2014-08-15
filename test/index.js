@@ -41,7 +41,7 @@ describe('romcal', function() {
         it('returns an array of 2007 dates', function( done ) {
             romcal.calendarFor('2007', function( dates ) {
                 lodash.map( dates, function( v, k ) {
-                    console.log( v.moment.toString(), ':', v.data.nationalCalendar );
+                    // console.log( v.moment.toString(), ':', v.data.nationalCalendar );
                     v.moment.year().should.be.eql(2007);
                 });
                 done();
@@ -80,7 +80,7 @@ describe('romcal', function() {
                 romcal.queryFor('thursdays', dates, function( errz, query ) {
                     lodash.map( query, function( v, k ) {
                         if ( errz ) throw new Error( errz );
-                        console.log( v.moment.toString(), ':', v.name, '-', v.type.name );
+                        // console.log( v.moment.toString(), ':', v.name, '-', v.type.name );
                         v.moment.day().should.be.eql(4);
                     });
                     done(); 
