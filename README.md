@@ -14,6 +14,10 @@ Romcal is a module that generates the [General Roman Calendar](http://en.wikiped
 
 NOTE:This module relies heavily on [Moment](http://momentjs.com/) and [Lo-Dash](http://lodash.com/) (which are dependencies of this module) for most of its calculations and operations. [Twix](http://isaaccambron.com/twix.js/index.html) is also extensively used for creating and manipulating date ranges.
 
+## Module Robustness & Data Integrity
+*Calendar entries for this module are pulled from various sources from the net. As such their accuracy cannot be ensured. If you find an incorrect calendar entry (e.g. wrong date, wrong feast type, spelling issue, typos), you are most welcome to contribute to the source code or inform me so that the necessary changes can be made to make this a more robust and reliable app*
+*Romcal's code logic is developed according to calendar requirements descibed in various church documents. If you notice discrepancies between romcal's output and actual dates, please do contribute your fixes or submit an issue on GitHub.*
+
 ## Revisions
 * 1.0.4 *Bug fixes for National Calendars*
 * 1.0.3 *National calendars [beta] and a new localization mechanism*
