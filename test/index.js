@@ -37,11 +37,12 @@ describe('romcal', function() {
     //         });
     //     });
     // });
-    // describe('calendarFor("2008"): get all dates in the Gregorian year 2008', function() {
-    //     it('returns an array of 2008 dates', function( done ) {
-    //         romcal.calendarFor('2008', function( dates ) {
+    // describe('calendarFor("2007"): get all dates in the Gregorian year 2008', function() {
+    //     it('returns an array of 2007 dates', function( done ) {
+    //         romcal.calendarFor('2007', function( dates ) {
     //             lodash.map( dates, function( v, k ) {
-    //                 v.moment.year().should.be.eql(2008);
+    //                 console.log( v.moment.toString(), ':', v.data.nationalCalendar );
+    //                 v.moment.year().should.be.eql(2007);
     //             });
     //             done();
     //         });
@@ -72,6 +73,21 @@ describe('romcal', function() {
             });
         });
     });
+    // describe('Query Thursdays in the US National Calendar, locale en-US for 2008', function() {
+    //     it('returns an array of Thursdays for the US National Calendar, locale en-US, 2008', function( done ) {
+    //         romcal.queryNationalCalendar('2008', 'en-US', 'unitedStates', function ( err, dates ) {
+    //             if ( err ) throw new Error( err );
+    //             romcal.queryFor('thursdays', dates, function( errz, query ) {
+    //                 lodash.map( query, function( v, k ) {
+    //                     if ( errz ) throw new Error( errz );
+    //                     console.log( v.moment.toString(), ':', v.name, '-', v.type.name );
+    //                     v.moment.day().should.be.eql(4);
+    //                 });
+    //                 done(); 
+    //             });              
+    //         });
+    //     });
+    // });
     // describe('queryFor("january", dates ): query all dates in January 2012', function() {
     //     it('returns an array of dates in January 2012 with length 31', function( done ) {
     //         romcal.calendarFor('2012', function( dates ) {
