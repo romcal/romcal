@@ -8,7 +8,7 @@ Romcal is a module that generates the [General Roman Calendar](http://en.wikiped
 
 ## Features
  * Able to query liturgical dates for any year in the gregorian calendar (1582 - now). Note that dates for years before 1969 will still be returned in a format conforming to [Mysterii Paschalis](http://www.romcal.net/mysterii.html) even though those years came before the calendar reforms in 1969.
- * 30 filter queries to allow more strealined date results to be obtained for the year
+ * 31 filter queries to allow more strealined date results to be obtained for the year
  * Localization of liturgical date names to cater for different countries/languages
  * National liturgical calendars of 41 countries 
 
@@ -20,6 +20,7 @@ NOTE:This module relies heavily on [Moment](http://momentjs.com/) and [Lo-Dash](
 *Romcal's code logic is developed according to calendar requirements descibed in various church documents. If you notice discrepancies between romcal's output and actual dates, please do contribute your fixes or submit an issue on GitHub.*
 
 ## Revisions
+* 1.0.5 *Liturgical Cycles + Bug Fixes*
 * 1.0.4 *Bug fixes for National Calendars*
 * 1.0.3 *National calendars [beta] and a new localization mechanism*
 * 1.0.2 *Fix incorrect moment dependency version and added holyWeek query*
@@ -121,6 +122,8 @@ The method accepts 2 parameters:
  * `saturdays`
  * `daysGrouped`
     * Returns all dates in the year grouped by day
+ * `liturgicalYear`
+    * Returns the current liturgical cycle for the date given (e.g Cycle A, B or C)
  * `january`
  * `february`
  * `march`
@@ -133,6 +136,10 @@ The method accepts 2 parameters:
  * `october`
  * `november`
  * `december`
+
+
+## Liturgical Calendars
+romcal is able to return the current liturgical cycle for a given date
 
 ## National Calendars [Beta]
 Romcal is able to display the national calendars (specific liturgical dates of a country) for [41 countries](http://en.wikipedia.org/wiki/General_Roman_Calendar#National_calendars). 

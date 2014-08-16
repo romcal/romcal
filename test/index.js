@@ -77,11 +77,11 @@ describe('romcal', function() {
         it('returns an array of Thursdays for the US National Calendar, locale en-US, 2008', function( done ) {
             romcal.queryNationalCalendar('2008', 'en-US', 'unitedStates', function ( err, dates ) {
                 if ( err ) throw new Error( err );
-                romcal.queryFor('thursdays', dates, function( errz, query ) {
+                romcal.queryFor('saturdays', dates, function( errz, query ) {
                     lodash.map( query, function( v, k ) {
                         if ( errz ) throw new Error( errz );
                         // console.log( v.moment.toString(), ':', v.name, '-', v.type.name );
-                        v.moment.day().should.be.eql(4);
+                        v.moment.day().should.be.eql(6);
                     });
                     done(); 
                 });              
@@ -148,6 +148,20 @@ describe('romcal', function() {
                     lodash.map( query, function( v, k ) {
                         v.data.season.should.be.eql('HolyWeek');
                     });
+                    done();
+                });
+            });
+        });
+    });
+    describe('Get the liturgical cycle for 2013', function() {
+        it('Returns the liturgical cycle for 2013', function( done ) {
+            var dates = romcal.calendarFor('2013', function( dates ) {
+                romcal.queryFor('liturgicalCycle', dates[0], function( err, query ) {
+                    if ( err ) {
+                        throw new Error( err );
+                        return;
+                    }
+                    query.id.should.be.equal('C');
                     done();
                 });
             });
