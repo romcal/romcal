@@ -74,10 +74,12 @@ module.exports = {
 			var result = formatters.generateCalendarDates( year, locale, 'general' ),
 				sortedDates = formatters.mergeAndSort([ result.fixedSolemnities, result.movableSolemnities, result.feastsOfTheLord, result.adventSeason, result.ordinaryTime, result.otherCelebrations, result.lentSeason ] ),
 	            resolvedEvents = formatters.resolveCoincidingEvents( sortedDates ),
-			    liturgicalDates = formatters.setLiturgicalColorsAndSeasons( resolvedEvents, result.seasonRanges );
+			    liturgicalDates = formatters.applyLiturgicalSettings( resolvedEvents, result.seasonRanges );
 
-			if ( !lodash.isUndefined( cb ) || !lodash.isNull( cb ) )
-	        	cb( liturgicalDates );
+			if ( lodash.isUndefined( cb ) || lodash.isNull( cb ) )
+                return new Error('callback not defined!'); 
+            else
+                cb( null, liturgicalDates );
 		});
 	},
 
@@ -98,18 +100,22 @@ module.exports = {
 			var result = formatters.generateCalendarDates( year, locale, country ),
 				sortedDates = formatters.mergeAndSort([ result.fixedSolemnities, result.movableSolemnities, result.feastsOfTheLord, result.adventSeason, result.ordinaryTime, result.otherCelebrations, result.lentSeason, result.nationalCalendar ] ),
 	            resolvedEvents = formatters.resolveCoincidingEvents( sortedDates ),
-			    liturgicalDates = formatters.setLiturgicalColorsAndSeasons( resolvedEvents, result.seasonRanges );
+			    liturgicalDates = formatters.applyLiturgicalSettings( resolvedEvents, result.seasonRanges );
 			
-            if ( !lodash.isUndefined( cb ) || !lodash.isNull( cb ) )
-	        	cb( null, liturgicalDates );
+            if ( lodash.isUndefined( cb ) || lodash.isNull( cb ) )
+                return new Error('callback not defined!');
+            else
+                cb( null, liturgicalDates );
 		});
 	},
 
 	queryFor: function( query, dates, cb ) {
 		return process.nextTick( function() {
 			query = 'get' + ( query.charAt(0).toUpperCase() + query.slice(1) );
-			if ( !lodash.isUndefined( formatters[ query ] ) )
-				cb( null, formatters[ query ] ( dates ) );
+			if ( !lodash.isUndefined( formatters[ query ] ) ) {
+                var result = formatters[ query ] ( dates );
+				cb( null,  result );
+            }
 			else {
 				var msg = query + ' is not a valid query';
 				cb( msg, null );

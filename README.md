@@ -17,10 +17,10 @@ NOTE:This module relies heavily on [Moment](http://momentjs.com/) and [Lo-Dash](
 ## Module Robustness & Data Integrity
 *Calendar entries for this module are pulled from various sources from the net. As such their accuracy cannot be ensured. If you find an incorrect calendar entry (e.g. wrong date, wrong feast type, spelling issue, typos), you are most welcome to contribute to the source code or inform me so that the necessary changes can be made to make this a more robust and reliable app*
 
-*Romcal's code logic is developed according to calendar requirements descibed in various church documents. If you notice discrepancies between romcal's output and actual dates, please do contribute your fixes or submit an issue on GitHub.*
+*Romcal's code logic is developed according to calendar requirements descibed in various church documents sourced from the internet (and even from Wikipedia). If you notice discrepancies between romcal's output and actual dates, please do contribute your fixes or submit an issue on GitHub.*
 
 ## Revisions
-* 1.0.5 *Liturgical Cycles + Bug Fixes*
+* 1.0.5 *Liturgical Cycles + Bug Fixes + Proper error handling conventions for `calendarFor()` method*
 * 1.0.4 *Bug fixes for National Calendars*
 * 1.0.3 *National calendars [beta] and a new localization mechanism*
 * 1.0.2 *Fix incorrect moment dependency version and added holyWeek query*
@@ -45,21 +45,23 @@ Get an array of liturgical dates for a year by calling the `calendarFor()` metho
 The method accepts 2 optional parameters and 1 mandatory parameter:
  1. `year` *optional* The Gregorian year as a string. Defaults to current year if null
  2. `locale` *optional* The locale (e.g. en-US, en-GB, fr-FR). Defaults to en-US if null
- 3. `cb` *mandatory* The callback function where the computed liturgical dates will be returned
+ 3. `cb` *mandatory* The callback function with the following parameters:
+    * `err` An error object if an error occured, null if there is no error
+    * `dates`  An array of liturgical dates
  
  Note: 
  *At the moment, romcal only contains localized values for the en-US locale. Passing in any other locale will return en-US texts until those locales are localized.* 
 
 ```
-romcal.calendarFor( function( dates ) {
+romcal.calendarFor( function( err, dates ) {
     console.log( dates );
 });
 
-romcal.calendarFor('2014', function( dates ) {
+romcal.calendarFor('2014', function( err, dates ) {
     console.log( dates );
 });
 
-romcal.calendarFor('2014', 'en-US', function( dates ) {
+romcal.calendarFor('2014', 'en-US', function( err, dates ) {
     console.log( dates );
 });
 ```
@@ -72,7 +74,7 @@ Each item in the array returned is an object literal that contains:
 
 
 ## Query API
-romcal also provides additional queries that can be used to streamline the original date output via the `queryFor()` method.
+romcal also provides additional queries that can be used to streamline the original date output via the `queryFor()` method. For examples on usage of this method, check out the TDD scripts in romcal's test folder.
 
 ```
 romcal.queryFor('mondays', dates, function( err, query ) {
@@ -81,10 +83,14 @@ romcal.queryFor('mondays', dates, function( err, query ) {
 ```
 The method accepts 2 parameters:
  1. `query` *mandatory* The query type to perform (see below)
- 2. `dates` *mandatory* An array of dates returned by `calendarFor()`
+ 2. `dates` *mandatory* An array of dates returned by `calendarFor()` or a single date item when the `liturgicalCycle` query is used
  3. `callback` *mandatory* The callback function with 2 parameters:
     * `err` A JSON object describing the error (if any). null if there are no errors
     * `query` The filtered liturgical dates will be returned
+
+### Query for liturgical cycle
+ *  `liturgicalCycle`
+    * Returns the liturgical cycle for the given date. A liturgical cycle starts on the first Sunday of Advent and ends on the Feast of Christ the King (last Sunday of Ordinary Time).
 
 ### Queries for date ranges
  * `ordinaryTime` 
@@ -137,9 +143,6 @@ The method accepts 2 parameters:
  * `november`
  * `december`
 
-
-## Liturgical Calendars
-romcal is able to return the current liturgical cycle for a given date
 
 ## National Calendars [Beta]
 Romcal is able to display the national calendars (specific liturgical dates of a country) for [41 countries](http://en.wikipedia.org/wiki/General_Roman_Calendar#National_calendars). 
