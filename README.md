@@ -20,6 +20,7 @@ NOTE:This module relies heavily on [Moment](http://momentjs.com/) and [Lo-Dash](
 *Romcal's code logic is developed according to calendar requirements descibed in various church documents sourced from the internet (and even from Wikipedia). If you notice discrepancies between romcal's output and actual dates, please do contribute your fixes or submit an issue on GitHub.*
 
 ## Revisions
+* 1.0.6 *Fix filesystem error when attempting to load localization.json*
 * 1.0.5 *Liturgical Cycles + Bug Fixes + Proper error handling conventions for `calendarFor()` method*
 * 1.0.4 *Bug fixes for National Calendars*
 * 1.0.3 *National calendars [beta] and a new localization mechanism*
