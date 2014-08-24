@@ -8,7 +8,7 @@ Romcal is a module that generates the [General Roman Calendar](http://en.wikiped
 
 ## Features
  * Able to query liturgical dates for any year in the gregorian calendar (1582 - now). Note that dates for years before 1969 will still be returned in a format conforming to [Mysterii Paschalis](http://www.romcal.net/mysterii.html) even though those years came before the calendar reforms in 1969.
- * 31 filter queries to allow more strealined date results to be obtained for the year
+ * 34 filter queries to allow more strealined date results to be obtained for the year
  * Localization of liturgical date names to cater for different countries/languages
  * National liturgical calendars of 41 countries 
 
@@ -85,66 +85,68 @@ romcal.queryFor('mondays', dates, function( err, query ) {
 });
 ```
 The method accepts 2 parameters:
- 1. `query` *mandatory* The query type to perform (see below)
- 2. `dates` *mandatory* An array of dates returned by `calendarFor()` or a single date item when the `liturgicalCycle` query is used
- 3. `callback` *mandatory* The callback function with 2 parameters:
+1. `query` *mandatory* The query type to perform (see below)
+2. `dates` *mandatory* An array of dates returned by `calendarFor()` or a single date item when the `liturgicalCycle` query is used
+3. `callback` *mandatory* The callback function with 2 parameters:
     * `err` A JSON object describing the error (if any). null if there are no errors
     * `query` The filtered liturgical dates will be returned
 
 ### Query for liturgical cycle
- *  `liturgicalCycle`
-    * Returns the liturgical cycle for the given date. A liturgical cycle starts on the first Sunday of Advent and ends on the Feast of Christ the King (last Sunday of Ordinary Time).
+*  `liturgicalCycle`
+    - Returns the liturgical cycle for the given date. A liturgical cycle starts on the first Sunday of Advent and ends on the Feast of Christ the King (last Sunday of Ordinary Time).
 
 ### Queries for date ranges
- * `ordinaryTime` 
-    * Returns an array of dates in the season of Ordinary Time (Day after Baptism of the Lord till day before Ash Wednesday & dat after Pentecost to Christ the King)
- * `lent` 
-    * Returns an array of dates corresponding to the season of Lent (Ash Wednesday up to the day beforee Palm Sunday)
- * `holyWeek`
-    * Returns an array of dates from Palm Sunday to Easter Vigil
- * `easter` 
-    * Returns an array of dates corresponding to the season of Easter (Easter Sunday up to Pentecost)
- * `advent` 
-    * Returns an array of dates in the season of Advent ( 1st Sunday of Advent to Christmas Eve)
- * `christmastide` 
-    * Returns an array of dates from Christmas day to Epiphany
+* `ordinaryTime` 
+    - Returns an array of dates in the season of Ordinary Time (Day after Baptism of the Lord till day before Ash Wednesday & dat after Pentecost to Christ the King)
+* `lent` 
+    - Returns an array of dates corresponding to the season of Lent (Ash Wednesday up to the day beforee Palm Sunday)
+* `holyWeek`
+    - Returns an array of dates from Palm Sunday to Easter Vigil
+* `easter` 
+    - Returns an array of dates corresponding to the season of Easter (Easter Sunday up to Pentecost)
+* `advent` 
+    - Returns an array of dates in the season of Advent ( 1st Sunday of Advent to Christmas Eve)
+* `christmastide` 
+    - Returns an array of dates from Christmas day to Epiphany
 
 ### Queries for specific liturgical date types
- * `feastsOfTheLord`
-    * An array of dates for Baptism of the Lord, Presentation of the Lord, Transfiguration, Triumph of the Cross and Holy Family
- * `memorials`
-    * An array of memorials throughout the liturgical year conforming to the General Roman Calendar. It does not include memorials from National, Diocesan or Parish level calendars.
- * `optionalMemorials`
-    * An array of optional memorials throughout the liturgical year conforming to the General Roman Calendar. It does not include memorials from National, Diocesan or Parish level calendars.
- * `commemoration`
-    * An array of downgraded memorials/optional memorials that occur only during the season of Lent
- * `solemnities`
-    * Returns an array of the highest ranking feast days throughout the liturgical year
+* `feastsOfTheLord`
+    - An array of dates for Baptism of the Lord, Presentation of the Lord, Transfiguration, Triumph of the Cross and Holy Family
+* `memorials`
+    - An array of memorials throughout the liturgical year conforming to the General Roman Calendar. It does not include memorials from National, Diocesan or Parish level calendars.
+* `optionalMemorials`
+    - An array of optional memorials throughout the liturgical year conforming to the General Roman Calendar. It does not include memorials from National, Diocesan or Parish level calendars.
+* `commemoration`
+    - An array of downgraded memorials/optional memorials that occur only during the season of Lent
+* `solemnities`
+    - Returns an array of the highest ranking feast days throughout the liturgical year
+*  `otherCelebrations`
+    -  Other feats, memorials and/or optional memorial dates from the General Roman Calendar (note: these dates are not specific to any country)
 
 ### Other queries to return days or months
- * `sundays`
- * `mondays`
- * `tuesdays`
- * `wednesdays`
- * `thursdays`
- * `fridays`
- * `saturdays`
- * `daysGrouped`
-    * Returns all dates in the year grouped by day
- * `liturgicalYear`
-    * Returns the current liturgical cycle for the date given (e.g Cycle A, B or C)
- * `january`
- * `february`
- * `march`
- * `april`
- * `may`
- * `june`
- * `july`
- * `august`
- * `september`
- * `october`
- * `november`
- * `december`
+* `sundays`
+* `mondays`
+* `tuesdays`
+* `wednesdays`
+* `thursdays`
+* `fridays`
+* `saturdays`
+* `daysGrouped`
+    - Returns all dates in the year grouped by day
+* `liturgicalYear`
+    - Returns the current liturgical cycle for the date given (e.g Cycle A, B or C)
+* `january`
+* `february`
+* `march`
+* `april`
+* `may`
+* `june`
+* `july`
+* `august`
+* `september`
+* `october`
+* `november`
+* `december`
 
 
 ## National Calendars [Beta]

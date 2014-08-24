@@ -35,9 +35,9 @@ describe('romcal', function() {
                     throw new Error( err );
                     done();
                 }
-                lodash.map( dates, function( v, k ) {
-                    console.log( v.moment.format('dddd, MMMM Do YYYY'), ':', v.type.name, ':', v.color.name, ':', v.name );
-                });
+                // lodash.map( dates, function( v, k ) {
+                //     console.log( v.moment.format('dddd, MMMM Do YYYY'), ':', v.type.name, ':', v.color.name, ':', v.name );
+                // });
                 dates.length.should.be.greaterThan(364);
                 dates.length.should.be.lessThan(367);
                 done();
@@ -53,6 +53,26 @@ describe('romcal', function() {
                         done();
                     }
                     v.moment.year().should.be.eql(2007);
+                });
+                done();
+            });
+        });
+    });
+    describe('Get all other celebrations in 2014', function() {
+        it('Returns an array of other celebrations in 2014', function( done ) {
+            romcal.calendarFor( function( err, dates ) {
+                if ( err ) {
+                    throw new Error( err );
+                    done();
+                }
+                romcal.queryFor('otherCelebrations', dates, function( errz, query ) {
+                    lodash.map( query, function( v, k ) {
+                        if ( err ) {
+                            throw new Error( err );
+                            done();
+                        };
+                        console.log( v.moment.format('dddd, MMMM Do YYYY'), ':', v.type.name, ':', v.color.name, ':', v.name );
+                    });
                 });
                 done();
             });
