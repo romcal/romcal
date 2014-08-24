@@ -20,6 +20,7 @@ NOTE:This module relies heavily on [Moment](http://momentjs.com/) and [Lo-Dash](
 *Romcal's code logic is developed according to calendar requirements descibed in various church documents sourced from the internet (and even from Wikipedia). If you notice discrepancies between romcal's output and actual dates, please do contribute your fixes or submit an issue on GitHub.*
 
 ## Revisions
+* 1.0.8 *Data integrity checks + queries for memorials/opt memorials/martyrs and feasts within the General Roman Calendar*
 * 1.0.7 *Fix type errors in other celebrations*
 * 1.0.6 *Fix filesystem error when attempting to load localization.json*
 * 1.0.5 *Liturgical Cycles + Bug Fixes + Proper error handling conventions for `calendarFor()` method*
@@ -210,9 +211,9 @@ To query a national calendar, use the `queryNationalCalendar()` method.
  * `data/localization.json` is a data file in JSON format that holds all localized liturgical date names.
  * As of this release, romcal only contains valid localizable values for en-US. Eagerly looking forward to contributions to help localize the other languages!
  * Contributing localizations for romcal is easy:
-    * Open up `data/localization.json` in your favourite JSON Editor (e.g [JSON Editor Online](http://www.jsoneditoronline.org/) )
+    * Open up `lib/data/localization.json` in your favourite JSON Editor (e.g [JSON Editor Online](http://www.jsoneditoronline.org/) )
     * Enter localized text for an item (e.g. `ourLadyMediatrix`) based on its locale code (e.g `en-GB`)
-    * Save and submit the updated `data/localization.json` file
+    * Save and submit the updated `lib/data/localization.json` file
 
 ## Roadmap
  * Better testing scripts (I am still quite new to Mocha, Should etc)

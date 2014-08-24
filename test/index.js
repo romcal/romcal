@@ -35,6 +35,9 @@ describe('romcal', function() {
                     throw new Error( err );
                     done();
                 }
+                lodash.map( dates, function( v, k ) {
+                    console.log( v.moment.format('dddd, MMMM Do YYYY'), ':', v.type.name, ':', v.color.name, ':', v.name );
+                });
                 dates.length.should.be.greaterThan(364);
                 dates.length.should.be.lessThan(367);
                 done();
@@ -49,7 +52,6 @@ describe('romcal', function() {
                         throw new Error( err );
                         done();
                     }
-                    // console.log( v.moment.toString(), ':', v.data.nationalCalendar );
                     v.moment.year().should.be.eql(2007);
                 });
                 done();
