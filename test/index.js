@@ -47,15 +47,39 @@ describe('romcal', function() {
     describe('calendarFor("2000"): get all dates in the Gregorian year 2000', function() {
         it('returns an array of 2000 dates', function( done ) {
             romcal.calendarFor('2000', function( err, dates ) {
+                if ( err ) {
+                    throw new Error( err );
+                    done();
+                }
                 lodash.map( dates, function( v, k ) {
-                    if ( err ) {
-                        throw new Error( err );
-                        done();
-                    }
                     // console.log( v.moment.format('ddd, MMM D YYYY'), ':', v.data.psalterWeek.name, ':', v.literalKey );
                     v.moment.year().should.be.eql(2000);
                 });
                 done();
+            });
+        });
+    });
+    describe('Dates grouped by psalter weeks in the Gregorian year 2000', function() {
+        it('returns an object literal of date arrays grouped by their psalter weeks', function( done ) {
+            romcal.calendarFor('2000', function( err, dates ) {
+                if ( err ) {
+                    throw new Error( err );
+                    done();
+                }
+                romcal.queryFor('psalterWeeks', dates, function( errz, query ) {
+                    lodash.map( query, function( value, key ) {
+                        if ( errz ) {
+                            throw new Error( errz );
+                            done();
+                        };
+                        // console.log( key );
+                        lodash.map( value, function( v, k ) {
+                            // console.log( v.moment.format('ddd, MMM Do YYYY'), ':', v.type.name, ':', v.color.name, ':', v.literalKey );
+                            v.moment.year().should.be.eql(2000);
+                        });
+                    });
+                    done();
+                });
             });
         });
     });
@@ -67,15 +91,15 @@ describe('romcal', function() {
                     done();
                 }
                 romcal.queryFor('otherCelebrations', dates, function( errz, query ) {
+                    if ( errz ) {
+                        throw new Error( errz );
+                        done();
+                    };
                     lodash.map( query, function( v, k ) {
-                        if ( err ) {
-                            throw new Error( err );
-                            done();
-                        };
                         // console.log( v.moment.format('dddd, MMMM Do YYYY'), ':', v.type.name, ':', v.color.name, ':', v.name );
                     });
+                    done();
                 });
-                done();
             });
         });
     });
