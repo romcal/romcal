@@ -26,8 +26,7 @@ var moment = require('moment'),
 	lodash = require('lodash'), 
 	utils = require('./lib/utils'),
 	formatters = require('./lib/formatters'),
-	types = utils.types(),
-	calendars = utils.calendars();
+	types = utils.types();
 	
 module.exports = {
 
@@ -131,8 +130,8 @@ module.exports = {
 
 	list: function( query, cb ) {
 		return process.nextTick( function() {
-			if ( lodash.isEqual( query, 'calendars' ) )
-				cb ( null, JSON.stringify( calendars ) );
+			if ( !lodash.isUndefined( utils[ query ] ) )
+				cb ( null, JSON.stringify( utils[ query ]() ) );
 			else
 				cb ( new Error('no such listing available'), null );
 		});
@@ -158,7 +157,7 @@ module.exports = {
 
                 var result = formatters[ query ] ( dates );
 
-				if ( lodash.isEqual( query, 'getPsalterWeeks' ) || lodash.isEqual( query, 'getLiturgicalSeasons' ) ) {
+				if ( lodash.isEqual( query, 'getPsalterWeeks' ) || lodash.isEqual( query, 'getLiturgicalSeasons' ) || lodash.isEqual( query, 'getDaysGrouped' ) || lodash.isEqual( query, 'getMonthsGrouped' ) ) {
 
 					lodash.map( result, function( value, key ) {
 						lodash.map( value, function( v, k ) {

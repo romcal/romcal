@@ -8,7 +8,7 @@ Romcal is a module that generates the [General Roman Calendar](http://en.wikiped
 
 ## Features
  * Able to query liturgical dates for any year in the gregorian calendar (1582 - now). Note that dates for years before 1969 will still be returned in a format conforming to [Mysterii Paschalis](http://www.romcal.net/mysterii.html) even though those years came before the calendar reforms in 1969.
- * 35 filter queries to allow more strealined date results to be obtained for the year
+ * 36 filter queries to allow more strealined date results to be obtained for the year
  * Localization of liturgical date names to cater for different countries/languages
  * National liturgical calendars of 41 countries 
 
@@ -20,6 +20,7 @@ NOTE:This module relies heavily on [Moment](http://momentjs.com/) and [Lo-Dash](
 *Romcal's code logic is developed according to calendar requirements descibed in various church documents sourced from the internet (and even from Wikipedia). If you notice discrepancies between romcal's output and actual dates, please do contribute your fixes or submit an issue on GitHub.*
 
 ## Revisions
+* 1.1.2 *Added query to fetch dates grouped by months + made list util method more flexible*
 * 1.1.1 *Util method to fetch list of calendar types (general + national) supported by romcal*
 * 1.1.0 *Removed liturgical cycle query + allow integers values for year in the `calendarFor()` and `queryNationalCalendar()` methods + format output returned by romcal: moment object is replaced by timestamp value instead*
 * 1.0.9 *TDD tests for Psalter Weeks + Fixed typos*
@@ -132,6 +133,8 @@ The method accepts 2 parameters:
 * `saturdays`
 * `daysGrouped`
     - Returns all dates in the year grouped by day
+* `monthsGrouped`
+    - Returns all dates in the year grouped by month
 * `liturgicalYear`
     - Returns the current liturgical cycle for the date given (e.g Cycle A, B or C)
 * `liturgicalSeasons`
@@ -222,7 +225,16 @@ To query a national calendar, use the `queryNationalCalendar()` method.
 
 ## Util Methods
 * `list()` returns a listing of constants in romcal. Takes 2 parameters:
-    * `query` *mandatory* The type of list to return (currently only supports the `calendars` list)
+    * `query` *mandatory* The type of list to return. Possible paramters:
+        * `calendars`
+        * `days`
+        * `months`
+        * `ordinalNumbers`
+        * `psalterWeeks`
+        * `liturgicalCycles`
+        * `types`
+        * `categories`
+        * `liturgicalColors`
     * `callback` *mandatory* The callback function with 2 parameters:
         * `err` An error object if any errors occured. null if no errors
         * `list` A list of constants according to the query

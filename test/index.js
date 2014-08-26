@@ -31,17 +31,13 @@ describe('romcal', function() {
 
     describe('List calendars in romcal', function() {
         it('returns a list of national calendars (including general calendar) in romcal', function( done ) {
-            romcal.list( 'calendars', function( err, result ) {
+            romcal.list( 'days', function( err, result ) {
 
                 if ( err ) {
                     throw new Error( err );
                     done();
                 }
-
-                // lodash.map( dates, function( v, k ) {
-                //     console.log( v.moment.format('ddd, MMMM Do YYYY'), ':', v.data.weekNumber, ':', v.literalKey );
-                // });
-
+                // console.log( result );
                 done();
             });
         });
@@ -56,10 +52,11 @@ describe('romcal', function() {
                     done();
                 }
 
-                dates = JSON.parse( dates );
                 // lodash.map( dates, function( v, k ) {
                 //     console.log( v.moment.format('ddd, MMMM Do YYYY'), ':', v.data.weekNumber, ':', v.literalKey );
                 // });
+                
+                dates = JSON.parse( dates );
 
                 dates.length.should.be.greaterThan(364);
                 dates.length.should.be.lessThan(367);
