@@ -26,7 +26,8 @@ var moment = require('moment'),
 	lodash = require('lodash'), 
 	utils = require('./lib/utils'),
 	formatters = require('./lib/formatters'),
-	types = utils.types();
+	types = utils.types(),
+	calendars = utils.calendars();
 	
 module.exports = {
 
@@ -125,6 +126,15 @@ module.exports = {
                 return new Error('callback not defined!');
             else
                 cb( null, JSON.stringify( liturgicalDates ) );
+		});
+	},
+
+	list: function( query, cb ) {
+		return process.nextTick( function() {
+			if ( lodash.isEqual( query, 'calendars' ) )
+				cb ( null, JSON.stringify( calendars ) );
+			else
+				cb ( new Error('no such listing available'), null );
 		});
 	},
 

@@ -29,6 +29,24 @@ var should = require('should'),
 
 describe('romcal', function() {
 
+    describe('List calendars in romcal', function() {
+        it('returns a list of national calendars (including general calendar) in romcal', function( done ) {
+            romcal.list( 'calendars', function( err, result ) {
+
+                if ( err ) {
+                    throw new Error( err );
+                    done();
+                }
+
+                // lodash.map( dates, function( v, k ) {
+                //     console.log( v.moment.format('ddd, MMMM Do YYYY'), ':', v.data.weekNumber, ':', v.literalKey );
+                // });
+
+                done();
+            });
+        });
+    });
+
     describe('calendarFor(): no arguments', function() {
         it('returns an array of current year dates of either 365 or 366 days', function( done ) {
             romcal.calendarFor( function( err, dates ) {

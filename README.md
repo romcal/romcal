@@ -20,6 +20,7 @@ NOTE:This module relies heavily on [Moment](http://momentjs.com/) and [Lo-Dash](
 *Romcal's code logic is developed according to calendar requirements descibed in various church documents sourced from the internet (and even from Wikipedia). If you notice discrepancies between romcal's output and actual dates, please do contribute your fixes or submit an issue on GitHub.*
 
 ## Revisions
+* 1.1.1 *Util method to fetch list of calendar types (general + national) supported by romcal*
 * 1.1.0 *Removed liturgical cycle query + allow integers values for year in the `calendarFor()` and `queryNationalCalendar()` methods + format output returned by romcal: moment object is replaced by timestamp value instead*
 * 1.0.9 *TDD tests for Psalter Weeks + Fixed typos*
 * 1.0.8 *Psalter Weeks [Beta] + Data integrity checks + queries for memorials/opt memorials/martyrs and feasts within the General Roman Calendar*
@@ -210,18 +211,25 @@ To query a national calendar, use the `queryNationalCalendar()` method.
 3. Finally, create localizable entries for celebrations of the country's national calendar via `data/localization.json`
 
 ## Localization
- * Display names for liturgical dates in romcal are localizable. 
- * romcal can potentially support an unlimited number of language-locales
- * `data/localization.json` is a data file in JSON format that holds all localized liturgical date names.
- * As of this release, romcal only contains valid localizable values for en-US. Eagerly looking forward to contributions to help localize the other languages!
- * Contributing localizations for romcal is easy:
+* Display names for liturgical dates in romcal are localizable. 
+* romcal can potentially support an unlimited number of language-locales
+* `data/localization.json` is a data file in JSON format that holds all localized liturgical date names.
+* As of this release, romcal only contains valid localizable values for en-US. Eagerly looking forward to contributions to help localize the other languages!
+* Contributing localizations for romcal is easy:
     * Open up `lib/data/localization.json` in your favourite JSON Editor (e.g [JSON Editor Online](http://www.jsoneditoronline.org/) )
     * Enter localized text for an item (e.g. `ourLadyMediatrix`) based on its locale code (e.g `en-GB`)
     * Save and submit the updated `lib/data/localization.json` file
 
+## Util Methods
+* `list()` returns a listing of constants in romcal. Takes 2 parameters:
+    * `query` *mandatory* The type of list to return (currently only supports the `calendars` list)
+    * `callback` *mandatory* The callback function with 2 parameters:
+        * `err` An error object if any errors occured. null if no errors
+        * `list` A list of constants according to the query
+
 ## Roadmap
- * More localization values for locales
- * More queries
+* More localization values for locales
+* More queries
 
 *If you have any suggestions for improvement, feel free to contribute to this exciting project!*
 
