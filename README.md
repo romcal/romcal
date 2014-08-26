@@ -20,6 +20,7 @@ NOTE:This module relies heavily on [Moment](http://momentjs.com/) and [Lo-Dash](
 *Romcal's code logic is developed according to calendar requirements descibed in various church documents sourced from the internet (and even from Wikipedia). If you notice discrepancies between romcal's output and actual dates, please do contribute your fixes or submit an issue on GitHub.*
 
 ## Revisions
+* 1.0.9 *TDD tests for Psalter Weeks + Fixed typos*
 * 1.0.8 *Psalter Weeks [Beta] + Data integrity checks + queries for memorials/opt memorials/martyrs and feasts within the General Roman Calendar*
 * 1.0.7 *Fix type errors in other celebrations*
 * 1.0.6 *Fix filesystem error when attempting to load localization.json*
@@ -222,8 +223,6 @@ To query a national calendar, use the `queryNationalCalendar()` method.
     * Save and submit the updated `lib/data/localization.json` file
 
 ## Roadmap
- * Better testing scripts (I am still quite new to Mocha, Should etc)
- * Psalter weeks
  * More localization values for locales
  * More queries
 
