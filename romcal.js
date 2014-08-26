@@ -182,7 +182,7 @@ module.exports = {
 					});
 				}
 
-				cb( null,  result );
+				cb( null,  JSON.stringify( result ) );
             }
 			else {
 				var msg = query + ' is not a valid query';

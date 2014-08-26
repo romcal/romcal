@@ -97,13 +97,14 @@ describe('romcal', function() {
 
                 romcal.queryFor('psalterWeeks', dates, function( errz, query ) {
 
+                    if ( errz ) {
+                        throw new Error( errz );
+                        done();
+                    };
+
+                    query = JSON.parse( query );
 
                     lodash.map( query, function( value, key ) {
-
-                        if ( errz ) {
-                            throw new Error( errz );
-                            done();
-                        };
 
                         // console.log( key );
                         lodash.map( value, function( v, k ) {
@@ -135,6 +136,8 @@ describe('romcal', function() {
                         throw new Error( errz );
                         done();
                     };
+                    
+                    query = JSON.parse( query );
 
                     lodash.map( query, function( v, k ) {
                         v.moment = moment.utc( v.timestamp );
@@ -217,6 +220,8 @@ describe('romcal', function() {
                         done();
                     }
 
+                    query = JSON.parse( query );
+
                     lodash.map( query, function( v, k ) {
                         v.moment = moment.utc( v.timestamp );
                         v.moment.day().should.be.eql(6);
@@ -245,6 +250,8 @@ describe('romcal', function() {
                         throw new Error( errz );
                         done();
                     }
+
+                    query = JSON.parse( query );
 
                     lodash.map( query, function( v, k ) {
                         v.moment = moment.utc( v.timestamp );
@@ -278,6 +285,8 @@ describe('romcal', function() {
                         done();
                     }
 
+                    query = JSON.parse( query );
+
                     lodash.map( query, function( v, k ) {
                         v.moment = moment.utc( v.timestamp );
                         v.moment.day().should.be.eql(1);
@@ -308,6 +317,8 @@ describe('romcal', function() {
                         done();
                     }
 
+                    query = JSON.parse( query );
+
                     lodash.map( query, function( v, k ) {
                         v.type.id.should.be.eql('SOLEMNITY');
                     });
@@ -336,6 +347,8 @@ describe('romcal', function() {
                         throw new Error( errz );
                         done();
                     }
+
+                    query = JSON.parse( query );
 
                     lodash.map( query, function( v, k ) {
                         v.data.season.should.be.eql('HolyWeek');

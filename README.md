@@ -12,7 +12,7 @@ Romcal is a module that generates the [General Roman Calendar](http://en.wikiped
  * Localization of liturgical date names to cater for different countries/languages
  * National liturgical calendars of 41 countries 
 
-NOTE:This module relies heavily on [Moment](http://momentjs.com/) and [Lo-Dash](http://lodash.com/) (which are dependencies of this module) for most of its calculations and operations. [Twix](http://isaaccambron.com/twix.js/index.html) is also extensively used for creating and manipulating date ranges.
+NOTE:This module relies heavily on [Moment](http://momentjs.com/) and [Lo-Dash](http://lodash.com/) for most of its calculations and operations. [Twix](http://isaaccambron.com/twix.js/index.html) is also extensively used for creating and manipulating date ranges.
 
 ## Module Robustness & Data Integrity
 *Calendar entries for this module are pulled from various sources from the net. As such their accuracy cannot be ensured. If you find an incorrect calendar entry (e.g. wrong date, wrong feast type, spelling issue, typos), you are most welcome to contribute to the source code or inform me so that the necessary changes can be made to make this a more robust and reliable app*
@@ -20,6 +20,7 @@ NOTE:This module relies heavily on [Moment](http://momentjs.com/) and [Lo-Dash](
 *Romcal's code logic is developed according to calendar requirements descibed in various church documents sourced from the internet (and even from Wikipedia). If you notice discrepancies between romcal's output and actual dates, please do contribute your fixes or submit an issue on GitHub.*
 
 ## Revisions
+* 1.1.3 *Parse query results as JSON string before returning*
 * 1.1.2 *Added query to fetch dates grouped by months + made list util method more flexible*
 * 1.1.1 *Util method to fetch list of calendar types (general + national) supported by romcal*
 * 1.1.0 *Removed liturgical cycle query + allow integers values for year in the `calendarFor()` and `queryNationalCalendar()` methods + format output returned by romcal: moment object is replaced by timestamp value instead*
