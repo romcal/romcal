@@ -8,7 +8,7 @@ Romcal is a module that generates the [General Roman Calendar](http://en.wikiped
 
 ## Features
  * Able to query liturgical dates for any year in the gregorian calendar (1582 - now). Note that dates for years before 1969 will still be returned in a format conforming to [Mysterii Paschalis](http://www.romcal.net/mysterii.html) even though those years came before the calendar reforms in 1969.
- * 36 filter queries to allow more strealined date results to be obtained for the year
+ * 35 filter queries to allow more strealined date results to be obtained for the year
  * Localization of liturgical date names to cater for different countries/languages
  * National liturgical calendars of 41 countries 
 
@@ -20,6 +20,7 @@ NOTE:This module relies heavily on [Moment](http://momentjs.com/) and [Lo-Dash](
 *Romcal's code logic is developed according to calendar requirements descibed in various church documents sourced from the internet (and even from Wikipedia). If you notice discrepancies between romcal's output and actual dates, please do contribute your fixes or submit an issue on GitHub.*
 
 ## Revisions
+* 1.1.0 *Removed liturgical cycle query + allow integers values for year in the `calendarFor()` and `queryNationalCalendar()` methods + format output returned by romcal: moment object is replaced by timestamp value instead*
 * 1.0.9 *TDD tests for Psalter Weeks + Fixed typos*
 * 1.0.8 *Psalter Weeks [Beta] + Data integrity checks + queries for memorials/opt memorials/martyrs and feasts within the General Roman Calendar*
 * 1.0.7 *Fix type errors in other celebrations*
@@ -47,7 +48,7 @@ var romcal = require('romcal');
 
 Get an array of liturgical dates for a year by calling the `calendarFor()` method.
 The method accepts 2 optional parameters and 1 mandatory parameter:
- 1. `year` *optional* The Gregorian year as a string. Defaults to current year if null
+ 1. `year` *optional* The Gregorian year as an integer. Defaults to current year if null
  2. `locale` *optional* The locale (e.g. en-US, en-GB, fr-FR). Defaults to en-US if null
  3. `cb` *mandatory* The callback function with the following parameters:
     * `err` An error object if an error occured, null if there is no error
@@ -61,11 +62,11 @@ romcal.calendarFor( function( err, dates ) {
     console.log( dates );
 });
 
-romcal.calendarFor('2014', function( err, dates ) {
+romcal.calendarFor(2014, function( err, dates ) {
     console.log( dates );
 });
 
-romcal.calendarFor('2014', 'en-US', function( err, dates ) {
+romcal.calendarFor(2014, 'en-US', function( err, dates ) {
     console.log( dates );
 });
 ```
@@ -87,14 +88,10 @@ romcal.queryFor('mondays', dates, function( err, query ) {
 ```
 The method accepts 2 parameters:
 1. `query` *mandatory* The query type to perform (see below)
-2. `dates` *mandatory* An array of dates returned by `calendarFor()` or a single date item when the `liturgicalCycle` query is used
+2. `dates` *mandatory* An array of dates returned by `calendarFor()`
 3. `callback` *mandatory* The callback function with 2 parameters:
     * `err` A JSON object describing the error (if any). null if there are no errors
     * `query` The filtered liturgical dates will be returned
-
-### Query for liturgical cycle
-* `liturgicalCycle`
-    - Returns the liturgical cycle for the given date. A liturgical cycle starts on the first Sunday of Advent and ends on the Feast of Christ the King (last Sunday of Ordinary Time).
 
 ### Queries for date ranges
 * `ordinaryTime` 
@@ -160,7 +157,7 @@ Romcal is able to display the national calendars (specific liturgical dates of a
 To query a national calendar, use the `queryNationalCalendar()` method.
 `queryNationalCalendar()` is much more rigid than the standard `calendarFor()` method. All parameters are mandatory and romcal will return null or throw an error if any of these parameters are not satisfied. The parameters in order are:
 
-1. `year` *mandatory* The year of liturgical dates to be obtained
+1. `year` *mandatory* The year (integer) of liturgical dates to be obtained
 2. `locale` *mandatory* The locale (e.g. en-US, en-GB, fr-FR)
 3. `country` *mandatory* The country of which the national calendar is to be obtained. Possible values for this parameter are:
     * `argentina`

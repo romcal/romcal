@@ -49,6 +49,7 @@ module.exports = {
     		locale = null;
 
 		return process.nextTick( function() {
+
 			if ( lodash.isNull( locale ) ) {
 				moment.locale('en-US');
 				locale = 'en-US';
@@ -62,31 +63,39 @@ module.exports = {
 				}
 			}
 
-			if ( lodash.isNull( year ) )
+			if ( lodash.isUndefined( year ) )
 				year = moment.utc().year();
 			else if ( lodash.isString( year ) )
 				year = parseInt( year );
-			else if ( lodash.isObject( year ) )
+			else if ( typeof year === 'object' )
 				year = moment.utc().year();
-			else 
-				year = moment.utc().year();
+			else {}
 
 			var result = formatters.generateCalendarDates( year, locale, 'general' ),
 				sortedDates = formatters.mergeAndSort([ result.fixedSolemnities, result.movableSolemnities, result.feastsOfTheLord, result.adventSeason, result.ordinaryTime, result.otherCelebrations, result.lentSeason ] ),
 	            resolvedEvents = formatters.resolveCoincidingEvents( sortedDates ),
 			    liturgicalDates = formatters.applyLiturgicalSettings( resolvedEvents, result.seasonRanges );
 
+			lodash.map( liturgicalDates, function( v, k ) {
+				v.timestamp = v.moment.toJSON();
+				delete v.moment;
+				if ( !lodash.isUndefined( v.data.overridenItem ) ) {
+					v.data.overridenItem.timestamp = v.data.overridenItem.moment.toJSON();
+					delete v.data.overridenItem.moment;
+				}
+			});
+
 			if ( lodash.isUndefined( cb ) || lodash.isNull( cb ) )
                 return new Error('callback not defined!'); 
             else
-                cb( null, liturgicalDates );
+                cb( null, JSON.stringify( liturgicalDates ) );
 		});
 	},
 
 	queryNationalCalendar: function( year, locale, country, cb ) {
 		if ( lodash.isUndefined( cb ) || lodash.isNull( cb ) )
 			throw new Error('callback is null or undefined');
-		if ( lodash.isUndefined( year ) || lodash.isNull( year ) || lodash.isEmpty( year ) )
+		if ( lodash.isUndefined( year ) || lodash.isNull( year ) )
 			cb( new Error('year is null or undefined'), null );
 		if ( lodash.isUndefined( locale ) || lodash.isNull( locale ) || lodash.isEmpty( locale ) )
 			cb( new Error('locale is null or undefined'), null );
@@ -94,7 +103,8 @@ module.exports = {
 			cb( new Error('country is null or undefined'), null );
 
 		// Important, year must be a number
-		year = parseInt( year );
+		if ( lodash.isString( year ) )
+			year = parseInt( year );
 
 		return process.nextTick( function() {
 			var result = formatters.generateCalendarDates( year, locale, country ),
@@ -102,10 +112,19 @@ module.exports = {
 	            resolvedEvents = formatters.resolveCoincidingEvents( sortedDates ),
 			    liturgicalDates = formatters.applyLiturgicalSettings( resolvedEvents, result.seasonRanges );
 			
+			lodash.map( liturgicalDates, function( v, k ) {
+				v.timestamp = v.moment.toJSON();
+				delete v.moment;
+				if ( !lodash.isUndefined( v.data.overridenItem ) ) {
+					v.data.overridenItem.timestamp = v.data.overridenItem.moment.toJSON();
+					delete v.data.overridenItem.moment;
+				}
+			});
+
             if ( lodash.isUndefined( cb ) || lodash.isNull( cb ) )
                 return new Error('callback not defined!');
             else
-                cb( null, liturgicalDates );
+                cb( null, JSON.stringify( liturgicalDates ) );
 		});
 	},
 
@@ -113,7 +132,47 @@ module.exports = {
 		return process.nextTick( function() {
 			query = 'get' + ( query.charAt(0).toUpperCase() + query.slice(1) );
 			if ( !lodash.isUndefined( formatters[ query ] ) ) {
+
+				dates = JSON.parse( dates );
+
+				if ( lodash.isArray( dates ) ) {
+					lodash.map( dates, function( v, k ) {
+						v.moment = moment.utc( v.timestamp );
+						delete v.timestamp;
+						if ( !lodash.isUndefined( v.data.overridenItem ) ) {
+							v.data.overridenItem.moment = moment.utc( v.data.overridenItem.timestamp );
+							delete v.data.overridenItem.timestamp;
+						}
+					});
+				}
+
                 var result = formatters[ query ] ( dates );
+
+				if ( lodash.isEqual( query, 'getPsalterWeeks' ) || lodash.isEqual( query, 'getLiturgicalSeasons' ) ) {
+
+					lodash.map( result, function( value, key ) {
+						lodash.map( value, function( v, k ) {
+							v.timestamp = v.moment.toJSON();
+							delete v.moment;
+							if ( !lodash.isUndefined( v.data.overridenItem ) ) {
+								v.data.overridenItem.timestamp = v.data.overridenItem.moment.toJSON();
+								delete v.data.overridenItem.moment;
+							}
+						});
+					});
+				}
+				else {
+
+					lodash.map( result, function( v, k ) {
+						v.timestamp = v.moment.toJSON();
+						delete v.moment;
+						if ( !lodash.isUndefined( v.data.overridenItem ) ) {
+							v.data.overridenItem.timestamp = v.data.overridenItem.moment.toJSON();
+							delete v.data.overridenItem.moment;
+						}
+					});
+				}
+
 				cb( null,  result );
             }
 			else {
