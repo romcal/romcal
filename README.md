@@ -20,7 +20,7 @@ NOTE:This module relies heavily on [Moment](http://momentjs.com/) and [Lo-Dash](
 *Romcal's code logic is developed according to calendar requirements descibed in various church documents sourced from the internet (and even from Wikipedia). If you notice discrepancies between romcal's output and actual dates, please do contribute your fixes or submit an issue on GitHub.*
 
 ## Revisions
-* 1.1.6 *Added query to get dates grouped by weeks within their respective months*
+* 1.1.7 *Added query to get dates grouped by weeks within their respective months*
 * 1.1.4 *Added query to get dates grouped by days within their respective months*
 * 1.1.3 *Parse query results as JSON string before returning*
 * 1.1.2 *Added query to fetch dates grouped by months + made list util method more flexible*
