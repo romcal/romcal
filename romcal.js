@@ -175,11 +175,13 @@ module.exports = {
 					lodash.map( result, function( value, key ) {
 						lodash.map( value, function( va, ke ) { // Each month
 							lodash.map( va, function( v, k ) {
-								v.timestamp = v.moment.toJSON();
-								delete v.moment;
-								if ( !lodash.isUndefined( v.data.overridenItem ) ) {
-									v.data.overridenItem.timestamp = v.data.overridenItem.moment.toJSON();
-									delete v.data.overridenItem.moment;
+								if ( !lodash.isEmpty( v ) ) {
+									v.timestamp = v.moment.toJSON();
+									delete v.moment;
+									if ( !lodash.isUndefined( v.data.overridenItem ) ) {
+										v.data.overridenItem.timestamp = v.data.overridenItem.moment.toJSON();
+										delete v.data.overridenItem.moment;
+									}
 								}
 							});
 						});

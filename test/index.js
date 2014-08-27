@@ -60,16 +60,16 @@ describe('romcal', function() {
                 //     };
                 //     query = JSON.parse( query );
                 //     lodash.map( query, function( v, k ) {
-                //         // console.log('month', k );
+                //         console.log('month', k );
                 //         lodash.map( v, function( va, ke ) {
                 //             lodash.map( va, function( value, key ) {
-                //                 //console.log( key );
+                //                 console.log( moment(value.timestamp).format('ddd, MMM D YYYY'), ':', value.name );
                 //             });
                 //         });
                 //     });
-                // // console.log( query );
+                //     // console.log( query );
                 // });
-            
+
                 dates = JSON.parse( dates );
                 dates.length.should.be.greaterThan(364);
                 dates.length.should.be.lessThan(367);
