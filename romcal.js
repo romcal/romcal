@@ -170,6 +170,21 @@ module.exports = {
 						});
 					});
 				}
+				else if ( lodash.isEqual( query, 'getDaysByMonthGrouped') ) {
+
+					lodash.map( result, function( value, key ) {
+						lodash.map( value, function( va, ke ) { // Each month
+							lodash.map( va, function( v, k ) {
+								v.timestamp = v.moment.toJSON();
+								delete v.moment;
+								if ( !lodash.isUndefined( v.data.overridenItem ) ) {
+									v.data.overridenItem.timestamp = v.data.overridenItem.moment.toJSON();
+									delete v.data.overridenItem.moment;
+								}
+							});
+						});
+					});
+				}
 				else {
 
 					lodash.map( result, function( v, k ) {

@@ -37,6 +37,7 @@ describe('romcal', function() {
                     throw new Error( err );
                     done();
                 }
+
                 // console.log( result );
                 done();
             });
@@ -51,9 +52,19 @@ describe('romcal', function() {
                     throw new Error( err );
                     done();
                 }
-
-                // lodash.map( dates, function( v, k ) {
-                //     console.log( v.moment.format('ddd, MMMM Do YYYY'), ':', v.data.weekNumber, ':', v.literalKey );
+                
+                // romcal.queryFor('daysByMonthGrouped', dates, function( errz, query ) {
+                //     if ( errz ) {
+                //         throw new Error( errz );
+                //         done();
+                //     };
+                //     query = JSON.parse( query );
+                //     lodash.map( query, function( v, k ) {
+                //         console.log('month', k );
+                //         lodash.map( v, function( va, ke ) {
+                //             console.log('day', ke, 'length', va.length );
+                //         });
+                //     });
                 // });
                 
                 dates = JSON.parse( dates );
