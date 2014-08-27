@@ -170,7 +170,7 @@ module.exports = {
 						});
 					});
 				}
-				else if ( lodash.isEqual( query, 'getDaysByMonthGrouped') ) {
+				else if ( lodash.isEqual( query, 'getDaysByMonthGrouped') || lodash.isEqual( query, 'getWeeksByMonthGrouped') ) {
 
 					lodash.map( result, function( value, key ) {
 						lodash.map( value, function( va, ke ) { // Each month
