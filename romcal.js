@@ -189,9 +189,9 @@ module.exports = {
 				}
 				else if ( lodash.isEqual( query, 'getWeeksByMonthGrouped') ) {
 
-					lodash.map( result, function( value, key ) {
-						lodash.map( value, function( va, ke ) { // Each month
-							lodash.map( va.weeks, function( v, k ) {
+					lodash.map( result, function( month, key ) { // Each month has a month and weeks property
+						lodash.map( month.weeks, function( weeks, ke ) { 
+							lodash.map( weeks, function( v, k ) {
 								if ( !lodash.isEmpty( v ) ) {
 									v.timestamp = v.moment.toJSON();
 									delete v.moment;
