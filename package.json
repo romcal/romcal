@@ -1,6 +1,6 @@
 {
   "name": "romcal",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "Generates the General Roman Calendar used in the Catholic Rite (Western Church)",
   "main": "romcal.js",
   "scripts": {
