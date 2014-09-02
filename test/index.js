@@ -53,22 +53,22 @@ describe('romcal', function() {
                     done();
                 }
                 
-                // romcal.queryFor('weeksByMonthGrouped', dates, function( errz, query ) {
-                //     if ( errz ) {
-                //         throw new Error( errz );
-                //         done();
-                //     };
-                //     query = JSON.parse( query );
-                //     lodash.map( query, function( v, k ) {
-                //         console.log('month', k );
-                //         lodash.map( v, function( va, ke ) {
-                //             lodash.map( va, function( value, key ) {
-                //                 console.log( moment(value.timestamp).format('ddd, MMM D YYYY'), ':', value.name );
-                //             });
-                //         });
-                //     });
-                //     // console.log( query );
-                // });
+                romcal.queryFor('weeksByMonthGrouped', dates, function( errz, query ) {
+                    if ( errz ) {
+                        throw new Error( errz );
+                        done();
+                    };
+                    // query = JSON.parse( query );
+                    // lodash.map( query, function( v, k ) {
+                    //     console.log('month', k );
+                    //     lodash.map( v, function( va, ke ) {
+                    //         lodash.map( va, function( value, key ) {
+                    //             console.log( moment(value.timestamp).format('ddd, MMM D YYYY'), ':', value.name );
+                    //         });
+                    //     });
+                    // });
+                    // console.log( query );
+                });
 
                 dates = JSON.parse( dates );
                 dates.length.should.be.greaterThan(364);

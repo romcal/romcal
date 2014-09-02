@@ -170,11 +170,28 @@ module.exports = {
 						});
 					});
 				}
-				else if ( lodash.isEqual( query, 'getDaysByMonthGrouped') || lodash.isEqual( query, 'getWeeksByMonthGrouped') ) {
+				else if ( lodash.isEqual( query, 'getDaysByMonthGrouped') ) {
 
 					lodash.map( result, function( value, key ) {
 						lodash.map( value, function( va, ke ) { // Each month
 							lodash.map( va, function( v, k ) {
+								if ( !lodash.isEmpty( v ) ) {
+									v.timestamp = v.moment.toJSON();
+									delete v.moment;
+									if ( !lodash.isUndefined( v.data.overridenItem ) ) {
+										v.data.overridenItem.timestamp = v.data.overridenItem.moment.toJSON();
+										delete v.data.overridenItem.moment;
+									}
+								}
+							});
+						});
+					});
+				}
+				else if ( lodash.isEqual( query, 'getWeeksByMonthGrouped') ) {
+
+					lodash.map( result, function( value, key ) {
+						lodash.map( value, function( va, ke ) { // Each month
+							lodash.map( va.weeks, function( v, k ) {
 								if ( !lodash.isEmpty( v ) ) {
 									v.timestamp = v.moment.toJSON();
 									delete v.moment;
