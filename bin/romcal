@@ -2,4 +2,6 @@
 var romcal = require('../romcal');
 
 var year = process.argv[2];
-romcal.calendarFor( year );
+romcal.calendarFor({
+  year: year
+});

@@ -1,42 +1,27 @@
 [![Build Status](https://travis-ci.org/pejulian/romcal.svg?branch=master)](https://travis-ci.org/pejulian/romcal) [![MIT License][license-image]][license-url] [![NPM version][npm-version-image]][npm-url] [![NPM downloads][npm-downloads-image]][npm-url]
 
 # Romcal
-Generates the General Roman Calendar used in the Catholic Rite.
+Utility library that outputs the Liturgical Calendar used by the Roman Rite (Western Church)
 
 ## Description
-Romcal is a module that generates the [General Roman Calendar](http://en.wikipedia.org/wiki/General_Roman_Calendar) used in the Roman Catholic Rite. This module conforms to the revised liturgical calendar for the Western Church as approved by Paul VI in [Mysterii Paschalis](http://www.romcal.net/mysterii.html) dated 14 February 1969. This module will output dates based on the standard calendar year (Jan, 1st - Dec, 31st) even though the liturgical year begins with the First Sunday of Advent.
+Romcal is a module that generates the [General Roman Calendar](http://en.wikipedia.org/wiki/General_Roman_Calendar) used in the Roman Catholic Rite. This module conforms to the revised liturgical calendar for the Western Church as approved by Paul VI in [Mysterii Paschalis](http://www.romcal.net/mysterii.html) dated 14 February 1969. This module can output dates based on the standard calendar year (Jan, 1st - Dec, 31st) or the liturgical year (First Sunday of Advent - Christ the King).
 
 ## Features
  * Able to query liturgical dates for any year in the gregorian calendar (1582 - now). Note that dates for years before 1969 will still be returned in a format conforming to [Mysterii Paschalis](http://www.romcal.net/mysterii.html) even though those years came before the calendar reforms in 1969.
- * 38 filter queries to allow more strealined date results to be obtained for the year
- * Localization of liturgical date names to cater for different countries/languages
- * National liturgical calendars of 41 countries 
+ * Filter queries to allow more strealined date results to be obtained for the year.
+ * Localization of liturgical date names to cater for different languages
+ * National liturgical calendars for country specific.
+ * Richly commented code to help developers and contributors understand how the module works.
 
-NOTE:This module relies heavily on [Moment](http://momentjs.com/) and [Lo-Dash](http://lodash.com/) for most of its calculations and operations. [Twix](http://isaaccambron.com/twix.js/index.html) is also extensively used for creating and manipulating date ranges.
+NOTE: This module depends on [Moment](http://momentjs.com/) and [lodash](http://lodash.com/) for most of its calculations and operations. Several [Moment](http://momentjs.com/) plugins such as [Range](https://github.com/gf3/moment-range) and [Recur](https://github.com/c-trimm/moment-recur) are used to extend date computation functionality. Familiarity with these libraries makes reading the code much easier.
 
 ## Module Robustness & Data Integrity
 *Calendar entries for this module are pulled from various sources from the net. As such their accuracy cannot be ensured. If you find an incorrect calendar entry (e.g. wrong date, wrong feast type, spelling issue, typos), you are most welcome to contribute to the source code or inform me so that the necessary changes can be made to make this a more robust and reliable app*
 
-*Romcal's code logic is developed according to calendar requirements descibed in various church documents sourced from the internet (and even from Wikipedia). If you notice discrepancies between romcal's output and actual dates, please do contribute your fixes or submit an issue on GitHub.*
+*Romcal's code logic is developed according to calendar requirements descibed in various church documents sourced from the internet (and even from Wikipedia). If you notice discrepancies between romcal's output and actual liturgical dates, please do contribute your fixes or submit an issue on GitHub.*
 
 ## Revisions
-* 1.1.9 *Modified dates by weeks query payload to be more informative*
-* 1.1.7 *Added query to get dates grouped by weeks within their respective months*
-* 1.1.4 *Added query to get dates grouped by days within their respective months*
-* 1.1.3 *Parse query results as JSON string before returning*
-* 1.1.2 *Added query to fetch dates grouped by months + made list util method more flexible*
-* 1.1.1 *Util method to fetch list of calendar types (general + national) supported by romcal*
-* 1.1.0 *Removed liturgical cycle query + allow integers values for year in the `calendarFor()` and `queryNationalCalendar()` methods + format output returned by romcal: moment object is replaced by timestamp value instead*
-* 1.0.9 *TDD tests for Psalter Weeks + Fixed typos*
-* 1.0.8 *Psalter Weeks [Beta] + Data integrity checks + queries for memorials/opt memorials/martyrs and feasts within the General Roman Calendar*
-* 1.0.7 *Fix type errors in other celebrations*
-* 1.0.6 *Fix filesystem error when attempting to load localization.json*
-* 1.0.5 *Liturgical Cycles + Bug Fixes + Proper error handling conventions for `calendarFor()` method*
-* 1.0.4 *Bug fixes for National Calendars*
-* 1.0.3 *National calendars [beta] and a new localization mechanism*
-* 1.0.2 *Fix incorrect moment dependency version and added holyWeek query*
-* 1.0.1 *Added more TDD tests*
-* 1.0.0 *Initial release*
+* 1.2.0 *Major rewrite for better extensibility and functionality. All previous revisions have been marked for deprecation in favor of this new rewrite.*
 
 ## Usage
 
@@ -52,221 +37,192 @@ Then require romcal in your node project:
 var romcal = require('romcal');
 ```
 
-Get an array of liturgical dates for a year by calling the `calendarFor()` method.
-The method accepts 2 optional parameters and 1 mandatory parameter:
- 1. `year` *optional* The Gregorian year as an integer. Defaults to current year if null
- 2. `locale` *optional* The locale (e.g. en-US, en-GB, fr-FR). Defaults to en-US if null
- 3. `cb` *mandatory* The callback function with the following parameters:
-    * `err` An error object if an error occured, null if there is no error
-    * `dates`  An array of liturgical dates
- 
- Note: 
- *At the moment, romcal only contains localized values for the en-US locale. Passing in any other locale will return en-US texts until those locales are localized.* 
+### JSON Structure
+romcal returns an array of liturgical date objects in the following structure
 
 ```
-romcal.calendarFor( function( err, dates ) {
-    console.log( dates );
-});
-
-romcal.calendarFor(2014, function( err, dates ) {
-    console.log( dates );
-});
-
-romcal.calendarFor(2014, 'en-US', function( err, dates ) {
-    console.log( dates );
-});
+[
+    {
+        "key": "theCamelCaseNameOfTheCelebration",
+        "name": "The name of the celebration",
+        "type": "A key representing the celebration type",
+        "moment": "ISO8601 string of the date of the celebration",
+        "data": {
+            "prioritized": true|false, // optional
+            "season": null,
+            "meta": {
+                "liturgicalColor": {}
+                "titles": []
+            }
+        }
+    }
+]
 ```
 
-Each item in the array returned is an object literal that contains:
- 1. A [moment](http://momentjs.com/) object definition for the liturgical date (all dates returned in UTC)
- 2. The type of liturgical date (e.g. Solemnity, Memorial, Sunday, Weekday .. ) 
- 3. The name of the liturgical date (localizable)
- 4. Additional data pertaining to the liturgical date (e.g. liturgical season )
+`moment`: ISO8601 string
 
+### Celebration Types
+Each date in the liturgical calendar is assigned one of the following types: 
+1. SOLEMNITY
+2. SUNDAY
+3. TRIDUUM
+4. HOLY_WEEK
+5. FEAST
+6. MEMORIAL
+7. OPT_MEMORIAL
+8. COMMEMORATION
+9. WEEKDAY
 
-## Query API
-romcal also provides additional queries that can be used to streamline the original date output via the `queryFor()` method. For examples on usage of this method, check out the TDD scripts in romcal's test folder.
+Where the importance or rank of the celebration is in descending order (Solemnity being of highest importance and weekday being the lowest).
+
+Types play an important role in determining which celebration should take precendence over another when two or more celebrations coincide on the same date.
+
+### Celebration Titles
+On top of having a celebration type, liturgical dates may also have one or more titles of significance assigned to it. For example, the feast of [Saint Catherine of Siena](https://en.wikipedia.org/wiki/Catherine_of_Siena) is assigned the titles PATRON_OF_EUROPE (for national calendars of countries in Europe only) and DOCTOR_OF_THE_CHURCH due to those titles being conferred on her by the Church.
+
+The titles available for 
++ FEAST_OF_THE_LORD
++ PATRON_OF_EUROPE
++ DOCTOR_OF_THE_CHURCH
+
+### Liturgical Seasons
+The liturgical calendar is divided into various seasons that occur throughout the liturgical year.
+
+romcal defines liturgical seasons in `data/seasons.json` which are:
++ ADVENT
++ CHRISTMASTIDE
++ EARLY_ORDINARY_TIME
++ LATER_ORDINARY_TIME
++ LENT
++ HOLY_WEEK
++ EASTER
+
+The methods in `lib/seasons.js` assigns seasons to the dates it generates to indicate the season to which the range of dates generated belong.
+
+### Liturgical Cycles
+A liturgical year consists of a cycles (either A, B, C) that determines which portions of scripture are to be read. romcal automatically calculates the correct cycle for the given liturgical year and includes it in the meta information of each liturgical date for that year. 
+
+This information can be extracted via the `dates[idx].data.meta.cycle` property.
+
+### Liturgical Colors
+[Liturgical colours are those specific colours used for vestments and hangings within the context of Christian liturgy. The symbolism of violet, white, green, red, gold, black, rose and other colours may serve to underline moods appropriate to a season of the liturgical year or may highlight a special occasion.](https://en.wikipedia.org/wiki/Liturgical_colours)
+
+romcal defines 6 colors in `data/liturgicalColors.json` which are:
++ WHITE
++ GOLD
++ RED
++ ROSE
++ PURPLE
++ GREEN
+
+More information on how these colors are used for celebration can be found [here](https://en.wikipedia.org/wiki/Liturgical_colours#Roman_Catholic_Church)
+
+This information can be extracted via the `dates[idx].data.meta.liturgicalColor` property.
+
+### Psalter Weeks
+With the exception of the Easter Octave, each week in the liturgical year is assigned readings from the [Psalter](https://en.wikipedia.org/wiki/Roman_Breviary#The_Psalter). There are also some rules that govern the set of Psalter readings used for particular occasions or seasons in the year.
+
+romcal defines the Psalter Weeks used in the liturgical year in `data/psalterWeeks.json` which are:
++ Week I
++ Week II
++ Week III
++ Week IV
++ Easter (sepeate set of readings only used during the Octave of Easter)
+
+This information can be extracted via the `dates[idx].data.meta.psalterWeek` property.
+
+### Calendar sources
+romcal generates dates that come from 4 different internal sources:
++ `l` : liturgical
++ `c` : celebrations
++ `g` : general
++ `n` : national
+
+#### liturgical 
+Represents a standard date in the liturgical year. Dates from this source build the basic structure of the liturgical calendar from the start of the liturgical year to its end. 
+
+The module responsible for generating the `liturgical` dates is `lib/seasons.js`.
+It is highly unlikely that this module will need customization or overriding of any kind.
+
+#### celebrations
+Represents central celebrations observed in the Roman Catholic rite. They take precendence and will replace coinciding dates from the `liturgical` calendar or `general` calendar. Date objects from this calendar will contain the source `c`.
+
+The module responsible for generating `celebrations` is `lib/celebrations.js`. It is highly unlikely that this module will need customization or overriding of any kind.
+
+A prioritized date defined in the `national` calendar can replace a date in the `celebrations` calendar when:
++ the key of the `national` date matches a key in `celebrations`
++ the `national` date is prioritized
+*However, this is not recommended because `celebration` dates are significant in the liturgical year and are usually never changed by the national calendars used in other countries. Be very sure if and when overriding a `celebrations` date from the `national` calendar.*
+
+The following are a list of dates defined in the `celebrations` calendar:
++ Immaculate Conception
++ Christmas
++ Mary Mother of God
++ Epiphany
++ Trinity Sunday
++ Corpus Christi
++ Sacred Heart of Jesus
++ Birth of John the Baptist
++ Peter and Paul, Apostles
++ Assumption
++ All Saints
++ Christ the King
++ Joseph, Husband of Mary
++ Annunciation
++ Easter
++ Divine Mercy Sunday
++ Ascension
++ Pentecost Sunday
++ Ash Wednesday
++ Palm Sunday
++ Holy Thursday
++ Good Friday
++ Holy Saturday
++ Holy Family
++ Baptism of the Lord
++ Presentation of the Lord
++ Transfiguration
++ Triumph of the Cross
++ Immaculate Heart of Mary
+
+#### general
+Represents general celebrations that are celebrated throughout the liturgical year. Dates from the `general` calendar will override dates from the `liturgical` calendar. 
+
+The module responsible for generating the `general` dates is `lib/calendars/general.js`.
+
+`general` calendar dates will always be overwritten by `celebration` or `national` calendar dates even if they are prioritized. Hence, it is  not recommended to edit or add new dates into this calendar.
+
+In situations where a given celebration must override one in the general calendar, define it in the `national` calendar instead.
+
+#### national
+Represents specific liturgical dates that have been approved for use by the Holy See for a particular country. It can be used to define unique celebrations celebrated by that particular country or existing celebrations that have been [transferred to another date](https://en.wikipedia.org/wiki/General_Roman_Calendar#Transfer_of_celebrations).
+
+A prioritized celebration in the `national` calendar takes precedence over celebrations in `general`, `celebrations` and `liturgical` calendars. As such, this marker should be used with caution lest it overrides an important celebration that should not be overriden leading to an erroneous calendar output. 
+
+In situations when there are 2 celebrations from `national` calendar that coincide on the same date, the one with the higher ranking celebration type will take precendence.
+
+A new `national` calendar for a country can be defined by creating a new `.js` file with the country name in upper case, lower case or camel case in the `lib/calendars` folder (i.e. southKorea.js). This new file will automatically be picked up by the module and will be used when the user supplies the matching key in the country argument in the `calendarFor` or `queryFor` methods.
+
+See [Overriding dates](#Overriding dates) for more examples.
+
+### Queries 
+The following are usage examples 
+#### Querying by month
+
+#### Querying by day of week
+
+#### Querying by celebration types
+
+romcal can query
 
 ```
-romcal.queryFor('mondays', dates, function( err, query ) {
-    console.log( query );
-});
+
 ```
-The method accepts 2 parameters:
-1. `query` *mandatory* The query type to perform (see below)
-2. `dates` *mandatory* An array of dates returned by `calendarFor()`
-3. `callback` *mandatory* The callback function with 2 parameters:
-    * `err` A JSON object describing the error (if any). null if there are no errors
-    * `query` The filtered liturgical dates will be returned
 
-### Queries for date ranges
-* `ordinaryTime` 
-    - Returns an array of dates in the season of Ordinary Time (Day after Baptism of the Lord till day before Ash Wednesday & dat after Pentecost to Christ the King)
-* `lent` 
-    - Returns an array of dates corresponding to the season of Lent (Ash Wednesday up to the day beforee Palm Sunday)
-* `holyWeek`
-    - Returns an array of dates from Palm Sunday to Easter Vigil
-* `easter` 
-    - Returns an array of dates corresponding to the season of Easter (Easter Sunday up to Pentecost)
-* `advent` 
-    - Returns an array of dates in the season of Advent ( 1st Sunday of Advent to Christmas Eve)
-* `christmastide` 
-    - Returns an array of dates from Christmas day to Epiphany
+#### Querying by celebration title
 
-### Queries for specific liturgical date types
-* `feastsOfTheLord`
-    - An array of dates for Baptism of the Lord, Presentation of the Lord, Transfiguration, Triumph of the Cross and Holy Family
-* `memorials`
-    - An array of memorials throughout the liturgical year conforming to the General Roman Calendar. It does not include memorials from National, Diocesan or Parish level calendars.
-* `optionalMemorials`
-    - An array of optional memorials throughout the liturgical year conforming to the General Roman Calendar. It does not include memorials from National, Diocesan or Parish level calendars.
-* `commemoration`
-    - An array of downgraded memorials/optional memorials that occur only during the season of Lent
-* `solemnities`
-    - Returns an array of the highest ranking feast days throughout the liturgical year
-*  `otherCelebrations`
-    -  Other feats, memorials and/or optional memorial dates from the General Roman Calendar (note: these dates are not specific to any country)
-
-### Other queries to return days or months
-* `sundays`
-* `mondays`
-* `tuesdays`
-* `wednesdays`
-* `thursdays`
-* `fridays`
-* `saturdays`
-* `daysGrouped`
-    - Returns all dates in the year grouped by day
-* `monthsGrouped`
-    - Returns all dates in the year grouped by month
-* `daysByMonthGrouped`
-    - Returns all dates in the year grouped by days within their respective months
-* `weeksByMonthGrouped`
-    - Returns all dates in the year grouped by weeks within their respective months. This is a 'padded' query which groups dates into an array representing a 7-day week. Some indices of the array may be empty if that week does not contain that particular date.
-* `liturgicalYear`
-    - Returns the current liturgical cycle for the date given (e.g Cycle A, B or C)
-* `liturgicalSeasons`
-    - Returns the liturgical dates in the year, grouped according to the respective liturgical seasons they fall into
-* `psalterWeeks`
-    - Returns the liturgical dates in a year, grouped according to the psalter week assigned (e.g. Psalter Week I, Psalter Week II, ..., Psalter Week IV )
-* `january`
-* `february`
-* `march`
-* `april`
-* `may`
-* `june`
-* `july`
-* `august`
-* `september`
-* `october`
-* `november`
-* `december`
-
-
-## National Calendars [Beta]
-Romcal is able to display the national calendars (specific liturgical dates of a country) for [41 countries](http://en.wikipedia.org/wiki/General_Roman_Calendar#National_calendars). 
-
-To query a national calendar, use the `queryNationalCalendar()` method.
-`queryNationalCalendar()` is much more rigid than the standard `calendarFor()` method. All parameters are mandatory and romcal will return null or throw an error if any of these parameters are not satisfied. The parameters in order are:
-
-1. `year` *mandatory* The year (integer) of liturgical dates to be obtained
-2. `locale` *mandatory* The locale (e.g. en-US, en-GB, fr-FR)
-3. `country` *mandatory* The country of which the national calendar is to be obtained. Possible values for this parameter are:
-    * `argentina`
-    * `australia`
-    * `belgium`
-    * `bolivia`
-    * `bosniaHerzegovina`
-    * `brazil`
-    * `canada`
-    * `chile`
-    * `croatia`
-    * `czechRepublic`
-    * `england`
-    * `france`
-    * `finland`
-    * `germany`
-    * `greece`
-    * `hungary`
-    * `india`
-    * `ireland`
-    * `japan`
-    * `lebanon`
-    * `lithuania`
-    * `malta`
-    * `mexico`
-    * `newZealand`
-    * `norway`
-    * `peru`
-    * `philippines`
-    * `poland`
-    * `portugal`
-    * `puertoRico`
-    * `romania`
-    * `russia`
-    * `scotland`
-    * `slovakia`
-    * `spain`
-    * `sriLanka`
-    * `ukraine`
-    * `unitedStates`
-    * `vietnam`
-    * `wales`
-4. `callback` *mandatory* The callback function with 2 parameters:
-    * `err` An error object if any errors occured. null if no errors
-    * `result` An array of dates for the National Liturgical year of the country
-
-## Adding National Calendars
-1. National Calendars can be added to romcal by editing the `calendars()` function in `lib/utils.js`. This function returns an object literal containing attributes of the General calendar as well as National Calendars. New countries can be added on by referring to the format of this object literal.
-2. The next file to edit is `lib/nationalCalendar.js`. The country and the specific celebrations as defined in its National Calendar (as determined by the council of Bishops and approved by the Holy See) is added to the `dates()` function. Ensure that the newly added country conforms to the defined object literal structure.
-3. Finally, create localizable entries for celebrations of the country's national calendar via `data/localization.json`
-
-## Localization
-* Display names for liturgical dates in romcal are localizable. 
-* romcal can potentially support an unlimited number of language-locales
-* `data/localization.json` is a data file in JSON format that holds all localized liturgical date names.
-* As of this release, romcal only contains valid localizable values for en-US. Eagerly looking forward to contributions to help localize the other languages!
-* Contributing localizations for romcal is easy:
-    * Open up `lib/data/localization.json` in your favourite JSON Editor (e.g [JSON Editor Online](http://www.jsoneditoronline.org/) )
-    * Enter localized text for an item (e.g. `ourLadyMediatrix`) based on its locale code (e.g `en-GB`)
-    * Save and submit the updated `lib/data/localization.json` file
-
-## Util Methods
-* `list()` returns a listing of constants in romcal. Takes 2 parameters:
-    * `query` *mandatory* The type of list to return. Possible paramters:
-        * `calendars`
-        * `days`
-        * `months`
-        * `ordinalNumbers`
-        * `psalterWeeks`
-        * `liturgicalCycles`
-        * `types`
-        * `categories`
-        * `liturgicalColors`
-    * `callback` *mandatory* The callback function with 2 parameters:
-        * `err` An error object if any errors occured. null if no errors
-        * `list` A list of constants according to the query
-
-## Roadmap
-* More localization values for locales
-* More queries
-
-*If you have any suggestions for improvement, feel free to contribute to this exciting project!*
-
-## Acknowledgements
-The development of romcal is inspired by the work of Kenneth G, Bath who wrote a [General Roman Calendar](http://www.romcal.net) in the C language. 
-This module *is not* a port of the C program and *does not use* any of the C code in that program. 
-This module is written from scratch with the aim of provide similar output as the original C program while providing additional queries for convenient filtering/streamlining of date results.
-
-## License
-romcal is freely distributable under the terms of the [MIT license](http://opensource.org/licenses/MIT).
-
-[npm-url]: https://www.npmjs.org/package/romcal
-[npm-version-image]: http://img.shields.io/npm/v/romcal.svg?style=flat
-[npm-downloads-image]: http://img.shields.io/npm/dm/romcal.svg?style=flat
-
-[license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
-[license-url]: http://opensource.org/licenses/MIT
+### Overriding dates
+Romcal has been redesigned with extensibility in mind to cater for specific scenarios that are commonplace in the liturgical calendar. For example, All Saints
 
 
 

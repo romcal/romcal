@@ -1,40 +1,40 @@
 {
   "name": "romcal",
-  "version": "1.1.9",
-  "description": "Generates the General Roman Calendar used in the Catholic Rite (Western Church)",
+  "version": "1.2.0",
+  "description": "Utility library that outputs the Liturgical Calendar used by the Roman Rite (Western Church)",
   "main": "romcal.js",
   "scripts": {
     "test": "mocha test/*.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pejulian/romcal.git"
+    "url": "git+https://github.com/pejulian/romcal.git"
   },
   "keywords": [
     "roman",
-    "calendar",
-    "liturgical",
     "catholic",
+    "calendar",
+    "latin",
     "western",
-    "church"
+    "church",
+    "christian",
+    "liturgical"
   ],
   "author": "Julian Pereira <bleushade@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/pejulian/romcal/issues"
   },
-  "bin": {
-    "romcal": "./bin/romcal"
-  },
-  "homepage": "https://github.com/pejulian/romcal",
+  "homepage": "https://github.com/pejulian/romcal#README",
   "dependencies": {
-    "moment": "^2.8.1",
-    "lodash": "^2.4.1",
-    "twix": "^0.5.1"
+    "lodash": "^3.10.1",
+    "moment": "^2.10.6",
+    "moment-range": "^2.0.3",
+    "moment-recur": "^1.0.5",
+    "require-all": "^2.0.0"
   },
   "devDependencies": {
-    "mocha": "^1.21.3",
-    "chai": "^1.9.1",
-    "should": "~4.0.4"
+    "mocha": "^2.3.3",
+    "should": "^7.1.1"
   }
 }
