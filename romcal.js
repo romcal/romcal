@@ -23,7 +23,25 @@
 */
 
 var moment = require('moment'),
-    lodash = require('lodash'),
-    romcal = require('./lib/calendar');
+    _ = require('lodash'),
+    Romcal = require('./lib/calendar');
 
-module.exports = romcal;
+var calendar = Romcal.calendarFor({
+  year: 2016,
+  country: 'poland'
+}, true );
+
+_.each( calendar, function( v ) {
+  console.log( 
+    v.moment.format('ddd, DD MMM YY'), 
+    '|', _.padRight( v.data.meta.liturgicalColor.key, 6 ),
+    '|', _.padRight( v.data.season.value, 13 ),
+    '|', _.padRight( v.data.meta.psalterWeek.value, 8 ),
+    '|', _.padRight( v.data.meta.cycle.value, 6 ),
+    '|', _.padRight( v.type, 13 ),
+    '|', _.padRight( v.source, 1 ),
+    '|', v.name
+  );
+});
+
+module.exports = Romcal;
