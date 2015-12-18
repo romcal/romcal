@@ -28,12 +28,13 @@ var moment = require('moment'),
 
 var calendar = Romcal.calendarFor({
   year: 2016,
-  country: 'poland'
+  country: 'poland',
+  locale: 'pl'
 }, true );
 
 _.each( calendar, function( v ) {
   console.log( 
-    v.moment.format('ddd, DD MMM YY'), 
+    _.padRight( v.moment.format('ddd, DD MMM YY'), 16 ), 
     '|', _.padRight( v.data.meta.liturgicalColor.key, 6 ),
     '|', _.padRight( v.data.season.value, 13 ),
     '|', _.padRight( v.data.meta.psalterWeek.value, 8 ),

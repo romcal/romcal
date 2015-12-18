@@ -168,7 +168,7 @@ module.exports = {
         "data": {}
       },
       {
-        "key": "saintAgathaVirginMartyr",
+        "key": "saintAgathaVirginAndMartyr",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 1, day: 5 }),
         "data": {
@@ -620,7 +620,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintBonifaceBishopMartyr",
+        "key": "saintBonifaceBishopAndMartyr",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 5, day: 5 }),
         "data": {
@@ -774,7 +774,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintBenedictAbbot",
+        "key": "saintBenedictOfNursiaAbbot",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 6, day: 11 }),
         "data": {
@@ -977,7 +977,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintLawrenceDeaconMartyr",
+        "key": "saintLawrenceOfRomeDeaconAndMartyr",
         "type": Types[4],
         "moment": moment.utc({ year: arguments[0], month: 7, day: 10 }),
         "data": {
@@ -1006,7 +1006,7 @@ module.exports = {
         "data": {}
       },
       {
-        "key": "saintsPontianPopeHippolytusPriestMartyrs",
+        "key": "saintsPontianPopeAndHippolytusPriestMartyrs",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 7, day: 13 }),
         "data": {
@@ -1018,7 +1018,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintMaximilianMaryKolbePriestMartyr",
+        "key": "saintMaximilianMaryKolbePriestAndMartyr",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 7, day: 14 }),
         "data": {
@@ -1043,7 +1043,7 @@ module.exports = {
         "data": {}
       },
       {
-        "key": "saintBernardOfClairvauxAbbotDoctorOfTheChurch",
+        "key": "saintBernardOfClairvauxAbbotAndDoctorOfTheChurch",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 7, day: 20 }),
         "data": {
@@ -1108,7 +1108,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintAugustineOfHippoBishopDoctorOfTheChurch",
+        "key": "saintAugustineOfHippoBishopAndDoctorOfTheChurch",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 7, day: 28 }),
         "data": {
@@ -1134,7 +1134,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintGregoryTheGreatPopeDoctor",
+        "key": "saintGregoryTheGreatPopeAndDoctor",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 8, day: 3 }),
         "data": {
@@ -1173,7 +1173,7 @@ module.exports = {
         "data": {}
       },
       {
-        "key": "saintJohnChrysostomBishopDoctor",
+        "key": "saintJohnChrysostomBishopAndDoctor",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 8, day: 13 }),
         "data": {
@@ -1196,7 +1196,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintsCorneliusPopeCyprianBishopMartyrs",
+        "key": "saintsCorneliusPopeAndCyprianBishopMartyrs",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 8, day: 16 }),
         "data": {
@@ -1209,7 +1209,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintRobertBellarmineBishopDoctor",
+        "key": "saintRobertBellarmineBishopAndDoctor",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 8, day: 17 }),
         "data": {
@@ -1221,7 +1221,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintJanuariusBishopMartyr",
+        "key": "saintJanuariusBishopAndMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 8, day: 19 }),
         "data": {
@@ -1233,7 +1233,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintAndrewKimTaegonPriestPaulChongHasangCompanionsMartyrs",
+        "key": "saintAndrewKimTaegonPriestAndPaulChongHasangAndCompanionsMartyrs",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 8, day: 20 }),
         "data": {
@@ -1246,7 +1246,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintMatthewApostleEvangelist",
+        "key": "saintMatthewApostleAndEvangelist",
         "type": Types[4],
         "moment": moment.utc({ year: arguments[0], month: 8, day: 21 }),
         "data": {
@@ -1266,7 +1266,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintsCosmasDamianMartyrs",
+        "key": "saintsCosmasAndDamianMartyrs",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 8, day: 26 }),
         "data": {
@@ -1300,7 +1300,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintsMichaelGabrielRaphaelArchangels",
+        "key": "saintsMichaelGabrielAndRaphaelArchangels",
         "type": Types[4],
         "moment": moment.utc({ year: arguments[0], month: 8, day: 29 }),
         "data": {
@@ -1310,7 +1310,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintJeromePriestDoctor",
+        "key": "saintJeromePriestAndDoctor",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 8, day: 30 }),
         "data": {
@@ -1323,7 +1323,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintThereseOfTheChildJesusVirginDoctor",
+        "key": "saintThereseOfTheChildJesusVirginAndDoctor",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 9, day: 1 }),
         "data": {
@@ -1378,7 +1378,7 @@ module.exports = {
         "data": {}
       },
       {
-        "key": "saintCallistusIPopeMartyr",
+        "key": "saintCallistusIPopeAndMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 9, day: 14 }),
         "data": {
@@ -1390,7 +1390,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintTeresaOfJesusVirginDoctor",
+        "key": "saintTeresaOfJesusVirginAndDoctor",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 9, day: 15 }),
         "data": {
@@ -1409,7 +1409,7 @@ module.exports = {
         "data": {}
       },
       {
-        "key": "saintIgnatiusOfAntiochBishopMartyr",
+        "key": "saintIgnatiusOfAntiochBishopAndMartyr",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 9, day: 17 }),
         "data": {
@@ -1432,7 +1432,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintsJeanDeBrebeufIsaacJoguesPriestsCompanionsMartyrsSaintPaulOfTheCrossPriest",
+        "key": "saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrsSaintPaulOfTheCrossPriest",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 9, day: 19 }),
         "data": {}
@@ -1450,7 +1450,7 @@ module.exports = {
         "data": {}
       },
       {
-        "key": "saintSimonSaintJudeApostles",
+        "key": "saintsSimonAndJudeApostles",
         "type": Types[4],
         "moment": moment.utc({ year: arguments[0], month: 9, day: 28 }),
         "data": {
@@ -1498,7 +1498,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintLeoTheGreatPopeDoctor",
+        "key": "saintLeoTheGreatPopeAndDoctor",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 10, day: 10 }),
         "data": {
@@ -1521,7 +1521,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintJosaphatBishopMartyr",
+        "key": "saintJosaphatBishopAndMartyr",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 10, day: 12 }),
         "data": {
@@ -1534,7 +1534,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintAlbertTheGreatBishopDoctor",
+        "key": "saintAlbertTheGreatBishopAndDoctor",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 10, day: 15 }),
         "data": {
@@ -1562,7 +1562,7 @@ module.exports = {
         }
       },
       {
-        "key": "dedicationOfTheBasilicasOfSaintsPeterPaulApostles",
+        "key": "dedicationOfTheBasilicasOfSaintsPeterAndPaulApostles",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 10, day: 18 }),
         "data": {}
@@ -1591,13 +1591,13 @@ module.exports = {
         }
       },
       {
-        "key": "saintClementIPopeMartyrSaintColumbanReligious",
+        "key": "saintClementIPopeAndMartyrSaintColumbanReligious",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 10, day: 23 }),
         "data": {}
       },
       {
-        "key": "saintAndrewDungLacCompanionsMartyrs",
+        "key": "saintAndrewDungLacAndCompanionsMartyrs",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 10, day: 24 }),
         "data": {
@@ -1610,7 +1610,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintCatherineOfAlexandriaVirginMartyr",
+        "key": "saintCatherineOfAlexandriaVirginAndMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 10, day: 25 }),
         "data": {
@@ -1642,7 +1642,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintJohnDamascenePriestDoctor",
+        "key": "saintJohnDamascenePriestAndDoctor",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 11, day: 4 }),
         "data": {
@@ -1660,7 +1660,7 @@ module.exports = {
         "data": {}
       },
       {
-        "key": "saintAmbroseBishopDoctor",
+        "key": "saintAmbroseBishopAndDoctor",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 11, day: 7 }),
         "data": {
@@ -1691,7 +1691,7 @@ module.exports = {
         "data": {}
       },
       {
-        "key": "saintLucyOfSyracuseVirginMartyr",
+        "key": "saintLucyOfSyracuseVirginAndMartyr",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 11, day: 13 }),
         "data": {
@@ -1704,17 +1704,20 @@ module.exports = {
         }
       },
       {
-        "key": "saintJohnOfTheCrossPriestDoctor",
+        "key": "saintJohnOfTheCrossPriestAndDoctor",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 11, day: 14 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE
+            "liturgicalColor": LiturgicalColors.WHITE,
+            "titles": [
+              Titles.DOCTOR_OF_THE_CHURCH
+            ]
           }
         }
       },
       {
-        "key": "saintPeterCanisiusPriestDoctor",
+        "key": "saintPeterCanisiusPriestAndDoctor",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 11, day: 21 }),
         "data": {
@@ -1745,7 +1748,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintJohnTheApostleEvangelist",
+        "key": "saintJohnTheApostleAndEvangelist",
         "type": Types[4],
         "moment": moment.utc({ year: arguments[0], month: 11, day: 27 }),
         "data": {
@@ -1768,7 +1771,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintThomasBecketBishopMartyr",
+        "key": "saintThomasBecketBishopAndMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 11, day: 29 }),
         "data": {

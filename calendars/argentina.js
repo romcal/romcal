@@ -143,12 +143,15 @@ module.exports = {
         "data": {}
       },
       {
-        "key": "saintsRoqueGonzalezAlfonsoRodriguezAndJuanDelCastilloPriestsMartyrs",
+        "key": "saintsRoqueGonzalezAlfonsoRodriguezAndJuanDelCastilloPriestsAndMartyrs",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 10, day: 17 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
           }
         }
       },

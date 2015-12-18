@@ -1,0 +1,410 @@
+
+saintAndrewDungLacAndCo : Świętych męczenników Andrzeja Dung-Lac, prezbitera, i Towarzyszy
+saintCatherineOfAlexandria : Św. Katarzyny Aleksandryjskiej, dziewicy i męczennicy
+saintAndrew : Św. Andrzeja, Apostoła
+saintFrancisXavier : Św. Franciszka Ksawerego, prezbitera
+saintJohnDamascene : Św. Jana Damasceńskiego, prezbitera i doktora Kościoła
+saintNicholas : Św. Mikołaja, biskupa
+saintAmbrose : Św. Ambrożego, biskupa i doktora Kościoła
+saintJuanDiego : Św. Jana Diego Cuahtlatoatzin
+saintDamasusI : Św. Damazego I, papieża
+ourLadyOfGuadalupe : Najświętszej Maryi Panny z Guadalupe
+saintLucyOfSyracuse : Św. Łucji, dziewicy i męczennicy
+saintJohnOfTheCross : Św. Jana od Krzyża, prezbitera i doktora Kościoła
+saintPeterCanisius : Św. Piotra Kanizjusza, prezbitera i doktora Kościoła
+saintJohnOfKanty : Św. Jana Kantego, prezbitera
+saintStephenTheFirstMartyr : Św. Szczepana, pierwszego męczennika
+saintJohnTheApostle : Św. Jana, Apostoła i Ewangelisty
+saintThomasBecket : Św. Tomasza Becketa, biskupa i męczennika
+saintSylvesterI : Św. Sylwestra I, papieża
+MondayBeforeEpiphany : Poniedziałek przed Objawieniem Pańskim
+TuesdayBeforeEpiphany : Wtorek przed Objawieniem Pańskim
+WednesdayBeforeEpiphany : Środa przed Objawieniem Pańskim
+ThursdayBeforeEpiphany : Czwartek przed Objawieniem Pańskim
+FridayBeforeEpiphany : Piątek przed Objawieniem Pańskim
+SaturdayBeforeEpiphany : Sobota przed Objawieniem Pańskim
+epiphanyOfOurLord : Objawienie Pańskie
+SundayAfterEpiphany : Niedziela po Objawieniu Pańskim
+MondayAfterEpiphany : Poniedziałek po Objawieniu Pańskim
+TuesdayAfterEpiphany : Wtorek po Objawieniu Pańskim
+WednesdayAfterEpiphany : Środa po Objawieniu Pańskim
+ThursdayAfterEpiphany : Czwartek po Objawieniu Pańskim
+FridayAfterEpiphany : Piątek po Objawieniu Pańskim
+SaturdayAfterEpiphany : Sobota po Objawieniu Pańskim
+the1stSundayOfOrdinaryTime : 1 Niedziela zwykła
+MondayOfThe1stWeekOfOrdinaryTime : Poniedziałek 1 tygodnia zwykłego
+TuesdayOfThe1stWeekOfOrdinaryTime : Wtorek 1 tygodnia zwykłego
+WednesdayOfThe1stWeekOfOrdinaryTime : Środa 1 tygodnia zwykłego
+ThursdayOfThe1stWeekOfOrdinaryTime : Czwartek 1 tygodnia zwykłego
+FridayOfThe1stWeekOfOrdinaryTime : Piątek 1 tygodnia zwykłego
+SaturdayOfThe1stWeekOfOrdinaryTime : Sobota 1 tygodnia zwykłego
+the2ndSundayOfOrdinaryTime : 2 Niedziela zwykła
+MondayOfThe2ndWeekOfOrdinaryTime : Poniedziałek 2 tygodnia zwykłego
+TuesdayOfThe2ndWeekOfOrdinaryTime : Wtorek 2 tygodnia zwykłego
+WednesdayOfThe2ndWeekOfOrdinaryTime : Środa 2 tygodnia zwykłego
+ThursdayOfThe2ndWeekOfOrdinaryTime : Czwartek 2 tygodnia zwykłego
+FridayOfThe2ndWeekOfOrdinaryTime : Piątek 2 tygodnia zwykłego
+SaturdayOfThe2ndWeekOfOrdinaryTime : Sobota 2 tygodnia zwykłego
+the3rdSundayOfOrdinaryTime : 3 Niedziela zwykła
+MondayOfThe3rdWeekOfOrdinaryTime : Poniedziałek 3 tygodnia zwykłego
+TuesdayOfThe3rdWeekOfOrdinaryTime : Wtorek 3 tygodnia zwykłego
+WednesdayOfThe3rdWeekOfOrdinaryTime : Środa 3 tygodnia zwykłego
+ThursdayOfThe3rdWeekOfOrdinaryTime : Czwartek 3 tygodnia zwykłego
+FridayOfThe3rdWeekOfOrdinaryTime : Piątek 3 tygodnia zwykłego
+presentationOfTheLord : Ofiarowanie Pańskie
+SaturdayOfThe3rdWeekOfOrdinaryTime : Sobota 3 tygodnia zwykłego
+the4thSundayOfOrdinaryTime : 4 Niedziela zwykła
+MondayOfThe4thWeekOfOrdinaryTime : Poniedziałek 4 tygodnia zwykłego
+TuesdayOfThe4thWeekOfOrdinaryTime : Wtorek 4 tygodnia zwykłego
+WednesdayOfThe4thWeekOfOrdinaryTime : Środa 4 tygodnia zwykłego
+ThursdayOfThe4thWeekOfOrdinaryTime : Czwartek 4 tygodnia zwykłego
+FridayOfThe4thWeekOfOrdinaryTime : Piątek 4 tygodnia zwykłego
+SaturdayOfThe4thWeekOfOrdinaryTime : Sobota 4 tygodnia zwykłego
+the5thSundayOfOrdinaryTime : 5 Niedziela zwykła
+MondayOfThe5thWeekOfOrdinaryTime : Poniedziałek 5 tygodnia zwykłego
+TuesdayOfThe5thWeekOfOrdinaryTime : Wtorek 5 tygodnia zwykłego
+WednesdayOfThe5thWeekOfOrdinaryTime : Środa 5 tygodnia zwykłego
+ThursdayOfThe5thWeekOfOrdinaryTime : Czwartek 5 tygodnia zwykłego
+FridayOfThe5thWeekOfOrdinaryTime : Piątek 5 tygodnia zwykłego
+SaturdayOfThe5thWeekOfOrdinaryTime : Sobota 5 tygodnia zwykłego
+ThursdayAfterAshWednesday : Czwartek po Popielcu
+FridayAfterAshWednesday : Piątek po Popielcu
+SaturdayAfterAshWednesday : Sobota po Popielcu
+the1stSundayOfLent : 1 Niedziela Wielkiego Postu
+MondayOfThe1stWeekOfLent : Poniedziałek 1 tygodnia Wielkiego Postu
+TuesdayOfThe1stWeekOfLent : Wtorek 1 tygodnia Wielkiego Postu
+WednesdayOfThe1stWeekOfLent : Środa 1 tygodnia Wielkiego Postu
+ThursdayOfThe1stWeekOfLent : Czwartek 1 tygodnia Wielkiego Postu
+FridayOfThe1stWeekOfLent : Piątek 1 tygodnia Wielkiego Postu
+SaturdayOfThe1stWeekOfLent : Sobota 1 tygodnia Wielkiego Postu
+the2ndSundayOfLent : 2 Niedziela Wielkiego Postu
+MondayOfThe2ndWeekOfLent : Poniedziałek 2 tygodnia Wielkiego Postu
+TuesdayOfThe2ndWeekOfLent : Wtorek 2 tygodnia Wielkiego Postu
+WednesdayOfThe2ndWeekOfLent : Środa 2 tygodnia Wielkiego Postu
+ThursdayOfThe2ndWeekOfLent : Czwartek 2 tygodnia Wielkiego Postu
+FridayOfThe2ndWeekOfLent : Piątek 2 tygodnia Wielkiego Postu
+SaturdayOfThe2ndWeekOfLent : Sobota 2 tygodnia Wielkiego Postu
+the3rdSundayOfLent : 3 Niedziela Wielkiego Postu
+MondayOfThe3rdWeekOfLent : Poniedziałek 3 tygodnia Wielkiego Postu
+TuesdayOfThe3rdWeekOfLent : Wtorek 3 tygodnia Wielkiego Postu
+WednesdayOfThe3rdWeekOfLent : Środa 3 tygodnia Wielkiego Postu
+ThursdayOfThe3rdWeekOfLent : Czwartek 3 tygodnia Wielkiego Postu
+FridayOfThe3rdWeekOfLent : Piątek 3 tygodnia Wielkiego Postu
+SaturdayOfThe3rdWeekOfLent : Sobota 3 tygodnia Wielkiego Postu
+the4thSundayOfLent : 4 Niedziela Wielkiego Postu
+MondayOfThe4thWeekOfLent : Poniedziałek 4 tygodnia Wielkiego Postu
+TuesdayOfThe4thWeekOfLent : Wtorek 4 tygodnia Wielkiego Postu
+WednesdayOfThe4thWeekOfLent : Środa 4 tygodnia Wielkiego Postu
+ThursdayOfThe4thWeekOfLent : Czwartek 4 tygodnia Wielkiego Postu
+FridayOfThe4thWeekOfLent : Piątek 4 tygodnia Wielkiego Postu
+SaturdayOfThe4thWeekOfLent : Sobota 4 tygodnia Wielkiego Postu
+the5thSundayOfLent : 5 Niedziela Wielkiego Postu
+MondayOfThe5thWeekOfLent : Poniedziałek 5 tygodnia Wielkiego Postu
+TuesdayOfThe5thWeekOfLent : Wtorek 5 tygodnia Wielkiego Postu
+WednesdayOfThe5thWeekOfLent : Środa 5 tygodnia Wielkiego Postu
+ThursdayOfThe5thWeekOfLent : Czwartek 5 tygodnia Wielkiego Postu
+FridayOfThe5thWeekOfLent : Piątek 5 tygodnia Wielkiego Postu
+SaturdayOfThe5thWeekOfLent : Sobota 5 tygodnia Wielkiego Postu
+mondayOfHolyWeek : Wielki Poniedziałek
+tuesdayOfHolyWeek : Wielki Wtorek
+wednesdayOfHolyWeek : Wielka Środa
+mondayInTheOctaveOfEaster : Poniedziałek w oktawie Wielkanocy
+tuesdayInTheOctaveOfEaster : Wtorek w oktawie Wielkanocy
+wednesdayInTheOctaveOfEaster : Środa w oktawie Wielkanocy
+thursdayInTheOctaveOfEaster : Czwartek w oktawie Wielkanocy
+fridayInTheOctaveOfEaster : Piątek w oktawie Wielkanocy
+saturdayInTheOctaveOfEaster : Sobota w oktawie Wielkanocy
+divineMercySunday : 2 Niedziela Wielkanocna czyli Miłosierdzia Bożego
+annunciation : Zwiastowanie Pańskie
+MondayOfThe2ndWeekOfEaster : Poniedziałek 2 tygodnia wielkanocnego
+TuesdayOfThe2ndWeekOfEaster : Wtorek 2 tygodnia wielkanocnego
+WednesdayOfThe2ndWeekOfEaster : Środa 2 tygodnia wielkanocnego
+ThursdayOfThe2ndWeekOfEaster : Czwartek 2 tygodnia wielkanocnego
+FridayOfThe2ndWeekOfEaster : Piątek 2 tygodnia wielkanocnego
+SaturdayOfThe2ndWeekOfEaster : Sobota 2 tygodnia wielkanocnego
+thirdSundayOfEaster : 3 Niedziela Wielkanocna
+MondayOfThe3rdWeekOfEaster : Poniedziałek 3 tygodnia wielkanocnego
+TuesdayOfThe3rdWeekOfEaster : Wtorek 3 tygodnia wielkanocnego
+WednesdayOfThe3rdWeekOfEaster : Środa 3 tygodnia wielkanocnego
+ThursdayOfThe3rdWeekOfEaster : Czwartek 3 tygodnia wielkanocnego
+FridayOfThe3rdWeekOfEaster : Piątek 3 tygodnia wielkanocnego
+SaturdayOfThe3rdWeekOfEaster : Sobota 3 tygodnia wielkanocnego
+fourthSundayOfEaster : 4 Niedziela Wielkanocna
+MondayOfThe4thWeekOfEaster : Poniedziałek 4 tygodnia wielkanocnego
+TuesdayOfThe4thWeekOfEaster : Wtorek 4 tygodnia wielkanocnego
+WednesdayOfThe4thWeekOfEaster : Środa 4 tygodnia wielkanocnego
+ThursdayOfThe4thWeekOfEaster : Czwartek 4 tygodnia wielkanocnego
+FridayOfThe4thWeekOfEaster : Piątek 4 tygodnia wielkanocnego
+SaturdayOfThe4thWeekOfEaster : Sobota 4 tygodnia wielkanocnego
+fifthSundayOfEaster : 5 Niedziela Wielkanocna
+MondayOfThe5thWeekOfEaster : Poniedziałek 5 tygodnia wielkanocnego
+TuesdayOfThe5thWeekOfEaster : Wtorek 5 tygodnia wielkanocnego
+WednesdayOfThe5thWeekOfEaster : Środa 5 tygodnia wielkanocnego
+ThursdayOfThe5thWeekOfEaster : Czwartek 5 tygodnia wielkanocnego
+FridayOfThe5thWeekOfEaster : Piątek 5 tygodnia wielkanocnego
+SaturdayOfThe5thWeekOfEaster : Sobota 5 tygodnia wielkanocnego
+sixthSundayOfEaster : 6 Niedziela Wielkanocna
+MondayOfThe6thWeekOfEaster : Poniedziałek 6 tygodnia wielkanocnego
+TuesdayOfThe6thWeekOfEaster : Wtorek 6 tygodnia wielkanocnego
+WednesdayOfThe6thWeekOfEaster : Środa 6 tygodnia wielkanocnego
+ascensionOfTheLord : Wniebowstąpienie Pańskie
+ThursdayOfThe6thWeekOfEaster : Czwartek 6 tygodnia wielkanocnego
+FridayOfThe6thWeekOfEaster : Piątek 6 tygodnia wielkanocnego
+SaturdayOfThe6thWeekOfEaster : Sobota 6 tygodnia wielkanocnego
+seventhSundayOfEaster : 7 Niedziela Wielkanocna
+MondayOfThe7thWeekOfEaster : Poniedziałek 7 tygodnia wielkanocnego
+TuesdayOfThe7thWeekOfEaster : Wtorek 7 tygodnia wielkanocnego
+WednesdayOfThe7thWeekOfEaster : Środa 7 tygodnia wielkanocnego
+ThursdayOfThe7thWeekOfEaster : Czwartek 7 tygodnia wielkanocnego
+FridayOfThe7thWeekOfEaster : Piątek 7 tygodnia wielkanocnego
+SaturdayOfThe7thWeekOfEaster : Sobota 7 tygodnia wielkanocnego
+pentecostSunday : Niedziela Zesłania Ducha Świętego
+the6thSundayOfOrdinaryTime : 6 Niedziela zwykła
+MondayOfThe6thWeekOfOrdinaryTime : Poniedziałek 6 tygodnia zwykłego
+TuesdayOfThe6thWeekOfOrdinaryTime : Wtorek 6 tygodnia zwykłego
+WednesdayOfThe6thWeekOfOrdinaryTime : Środa 6 tygodnia zwykłego
+ThursdayOfThe6thWeekOfOrdinaryTime : Czwartek 6 tygodnia zwykłego
+FridayOfThe6thWeekOfOrdinaryTime : Piątek 6 tygodnia zwykłego
+SaturdayOfThe6thWeekOfOrdinaryTime : Sobota 6 tygodnia zwykłego
+trinitySunday : Niedziela Najświętszej Trójcy
+the7thSundayOfOrdinaryTime : 7 Niedziela zwykła
+MondayOfThe7thWeekOfOrdinaryTime : Poniedziałek 7 tygodnia zwykłego
+TuesdayOfThe7thWeekOfOrdinaryTime : Wtorek 7 tygodnia zwykłego
+WednesdayOfThe7thWeekOfOrdinaryTime : Środa 7 tygodnia zwykłego
+ThursdayOfThe7thWeekOfOrdinaryTime : Czwartek 7 tygodnia zwykłego
+FridayOfThe7thWeekOfOrdinaryTime : Piątek 7 tygodnia zwykłego
+SaturdayOfThe7thWeekOfOrdinaryTime : Sobota 7 tygodnia zwykłego
+corpusChristi : Najświętszego Ciała i Krwi Chrystusa
+the8thSundayOfOrdinaryTime : 8 Niedziela zwykła
+MondayOfThe8thWeekOfOrdinaryTime : Poniedziałek 8 tygodnia zwykłego
+TuesdayOfThe8thWeekOfOrdinaryTime : Wtorek 8 tygodnia zwykłego
+WednesdayOfThe8thWeekOfOrdinaryTime : Środa 8 tygodnia zwykłego
+ThursdayOfThe8thWeekOfOrdinaryTime : Czwartek 8 tygodnia zwykłego
+sacredHeart : Najświętszego Serca Pana Jezusa
+FridayOfThe8thWeekOfOrdinaryTime : Piątek 8 tygodnia zwykłego
+immaculateHeartOfMary : Niepokalanego Serca Najświętszej Maryi Panny
+SaturdayOfThe8thWeekOfOrdinaryTime : Sobota 8 tygodnia zwykłego
+the9thSundayOfOrdinaryTime : 9 Niedziela zwykła
+MondayOfThe9thWeekOfOrdinaryTime : Poniedziałek 9 tygodnia zwykłego
+TuesdayOfThe9thWeekOfOrdinaryTime : Wtorek 9 tygodnia zwykłego
+WednesdayOfThe9thWeekOfOrdinaryTime : Środa 9 tygodnia zwykłego
+ThursdayOfThe9thWeekOfOrdinaryTime : Czwartek 9 tygodnia zwykłego
+FridayOfThe9thWeekOfOrdinaryTime : Piątek 9 tygodnia zwykłego
+SaturdayOfThe9thWeekOfOrdinaryTime : Sobota 9 tygodnia zwykłego
+the10thSundayOfOrdinaryTime : 10 Niedziela zwykła
+MondayOfThe10thWeekOfOrdinaryTime : Poniedziałek 10 tygodnia zwykłego
+TuesdayOfThe10thWeekOfOrdinaryTime : Wtorek 10 tygodnia zwykłego
+WednesdayOfThe10thWeekOfOrdinaryTime : Środa 10 tygodnia zwykłego
+ThursdayOfThe10thWeekOfOrdinaryTime : Czwartek 10 tygodnia zwykłego
+FridayOfThe10thWeekOfOrdinaryTime : Piątek 10 tygodnia zwykłego
+SaturdayOfThe10thWeekOfOrdinaryTime : Sobota 10 tygodnia zwykłego
+the11thSundayOfOrdinaryTime : 11 Niedziela zwykła
+MondayOfThe11thWeekOfOrdinaryTime : Poniedziałek 11 tygodnia zwykłego
+TuesdayOfThe11thWeekOfOrdinaryTime : Wtorek 11 tygodnia zwykłego
+WednesdayOfThe11thWeekOfOrdinaryTime : Środa 11 tygodnia zwykłego
+ThursdayOfThe11thWeekOfOrdinaryTime : Czwartek 11 tygodnia zwykłego
+FridayOfThe11thWeekOfOrdinaryTime : Piątek 11 tygodnia zwykłego
+SaturdayOfThe11thWeekOfOrdinaryTime : Sobota 11 tygodnia zwykłego
+the12thSundayOfOrdinaryTime : 12 Niedziela zwykła
+MondayOfThe12thWeekOfOrdinaryTime : Poniedziałek 12 tygodnia zwykłego
+birthOfJohnTheBaptist : Narodzenie św. Jana Chrzciciela
+TuesdayOfThe12thWeekOfOrdinaryTime : Wtorek 12 tygodnia zwykłego
+WednesdayOfThe12thWeekOfOrdinaryTime : Środa 12 tygodnia zwykłego
+ThursdayOfThe12thWeekOfOrdinaryTime : Czwartek 12 tygodnia zwykłego
+FridayOfThe12thWeekOfOrdinaryTime : Piątek 12 tygodnia zwykłego
+SaturdayOfThe12thWeekOfOrdinaryTime : Sobota 12 tygodnia zwykłego
+peterAndPaulApostles : Świętych Apostołów Piotra i Pawła
+the13thSundayOfOrdinaryTime : 13 Niedziela zwykła
+MondayOfThe13thWeekOfOrdinaryTime : Poniedziałek 13 tygodnia zwykłego
+TuesdayOfThe13thWeekOfOrdinaryTime : Wtorek 13 tygodnia zwykłego
+WednesdayOfThe13thWeekOfOrdinaryTime : Środa 13 tygodnia zwykłego
+ThursdayOfThe13thWeekOfOrdinaryTime : Czwartek 13 tygodnia zwykłego
+FridayOfThe13thWeekOfOrdinaryTime : Piątek 13 tygodnia zwykłego
+SaturdayOfThe13thWeekOfOrdinaryTime : Sobota 13 tygodnia zwykłego
+the14thSundayOfOrdinaryTime : 14 Niedziela zwykła
+MondayOfThe14thWeekOfOrdinaryTime : Poniedziałek 14 tygodnia zwykłego
+TuesdayOfThe14thWeekOfOrdinaryTime : Wtorek 14 tygodnia zwykłego
+WednesdayOfThe14thWeekOfOrdinaryTime : Środa 14 tygodnia zwykłego
+ThursdayOfThe14thWeekOfOrdinaryTime : Czwartek 14 tygodnia zwykłego
+FridayOfThe14thWeekOfOrdinaryTime : Piątek 14 tygodnia zwykłego
+SaturdayOfThe14thWeekOfOrdinaryTime : Sobota 14 tygodnia zwykłego
+the15thSundayOfOrdinaryTime : 15 Niedziela zwykła
+MondayOfThe15thWeekOfOrdinaryTime : Poniedziałek 15 tygodnia zwykłego
+TuesdayOfThe15thWeekOfOrdinaryTime : Wtorek 15 tygodnia zwykłego
+WednesdayOfThe15thWeekOfOrdinaryTime : Środa 15 tygodnia zwykłego
+ThursdayOfThe15thWeekOfOrdinaryTime : Czwartek 15 tygodnia zwykłego
+FridayOfThe15thWeekOfOrdinaryTime : Piątek 15 tygodnia zwykłego
+SaturdayOfThe15thWeekOfOrdinaryTime : Sobota 15 tygodnia zwykłego
+the16thSundayOfOrdinaryTime : 16 Niedziela zwykła
+MondayOfThe16thWeekOfOrdinaryTime : Poniedziałek 16 tygodnia zwykłego
+TuesdayOfThe16thWeekOfOrdinaryTime : Wtorek 16 tygodnia zwykłego
+WednesdayOfThe16thWeekOfOrdinaryTime : Środa 16 tygodnia zwykłego
+ThursdayOfThe16thWeekOfOrdinaryTime : Czwartek 16 tygodnia zwykłego
+FridayOfThe16thWeekOfOrdinaryTime : Piątek 16 tygodnia zwykłego
+SaturdayOfThe16thWeekOfOrdinaryTime : Sobota 16 tygodnia zwykłego
+the17thSundayOfOrdinaryTime : 17 Niedziela zwykła
+MondayOfThe17thWeekOfOrdinaryTime : Poniedziałek 17 tygodnia zwykłego
+TuesdayOfThe17thWeekOfOrdinaryTime : Wtorek 17 tygodnia zwykłego
+WednesdayOfThe17thWeekOfOrdinaryTime : Środa 17 tygodnia zwykłego
+ThursdayOfThe17thWeekOfOrdinaryTime : Czwartek 17 tygodnia zwykłego
+FridayOfThe17thWeekOfOrdinaryTime : Piątek 17 tygodnia zwykłego
+SaturdayOfThe17thWeekOfOrdinaryTime : Sobota 17 tygodnia zwykłego
+the18thSundayOfOrdinaryTime : 18 Niedziela zwykła
+MondayOfThe18thWeekOfOrdinaryTime : Poniedziałek 18 tygodnia zwykłego
+TuesdayOfThe18thWeekOfOrdinaryTime : Wtorek 18 tygodnia zwykłego
+transfiguration : Przemienienie Pańskie
+WednesdayOfThe18thWeekOfOrdinaryTime : Środa 18 tygodnia zwykłego
+ThursdayOfThe18thWeekOfOrdinaryTime : Czwartek 18 tygodnia zwykłego
+FridayOfThe18thWeekOfOrdinaryTime : Piątek 18 tygodnia zwykłego
+SaturdayOfThe18thWeekOfOrdinaryTime : Sobota 18 tygodnia zwykłego
+the19thSundayOfOrdinaryTime : 19 Niedziela zwykła
+MondayOfThe19thWeekOfOrdinaryTime : Poniedziałek 19 tygodnia zwykłego
+TuesdayOfThe19thWeekOfOrdinaryTime : Wtorek 19 tygodnia zwykłego
+WednesdayOfThe19thWeekOfOrdinaryTime : Środa 19 tygodnia zwykłego
+ThursdayOfThe19thWeekOfOrdinaryTime : Czwartek 19 tygodnia zwykłego
+assumption : Wniebowzięcie Najświętszej Maryi Panny
+FridayOfThe19thWeekOfOrdinaryTime : Piątek 19 tygodnia zwykłego
+SaturdayOfThe19thWeekOfOrdinaryTime : Sobota 19 tygodnia zwykłego
+the20thSundayOfOrdinaryTime : 20 Niedziela zwykła
+MondayOfThe20thWeekOfOrdinaryTime : Poniedziałek 20 tygodnia zwykłego
+TuesdayOfThe20thWeekOfOrdinaryTime : Wtorek 20 tygodnia zwykłego
+WednesdayOfThe20thWeekOfOrdinaryTime : Środa 20 tygodnia zwykłego
+ThursdayOfThe20thWeekOfOrdinaryTime : Czwartek 20 tygodnia zwykłego
+FridayOfThe20thWeekOfOrdinaryTime : Piątek 20 tygodnia zwykłego
+SaturdayOfThe20thWeekOfOrdinaryTime : Sobota 20 tygodnia zwykłego
+the21stSundayOfOrdinaryTime : 21 Niedziela zwykła
+MondayOfThe21stWeekOfOrdinaryTime : Poniedziałek 21 tygodnia zwykłego
+TuesdayOfThe21stWeekOfOrdinaryTime : Wtorek 21 tygodnia zwykłego
+WednesdayOfThe21stWeekOfOrdinaryTime : Środa 21 tygodnia zwykłego
+ThursdayOfThe21stWeekOfOrdinaryTime : Czwartek 21 tygodnia zwykłego
+FridayOfThe21stWeekOfOrdinaryTime : Piątek 21 tygodnia zwykłego
+SaturdayOfThe21stWeekOfOrdinaryTime : Sobota 21 tygodnia zwykłego
+the22ndSundayOfOrdinaryTime : 22 Niedziela zwykła
+MondayOfThe22ndWeekOfOrdinaryTime : Poniedziałek 22 tygodnia zwykłego
+TuesdayOfThe22ndWeekOfOrdinaryTime : Wtorek 22 tygodnia zwykłego
+WednesdayOfThe22ndWeekOfOrdinaryTime : Środa 22 tygodnia zwykłego
+ThursdayOfThe22ndWeekOfOrdinaryTime : Czwartek 22 tygodnia zwykłego
+FridayOfThe22ndWeekOfOrdinaryTime : Piątek 22 tygodnia zwykłego
+SaturdayOfThe22ndWeekOfOrdinaryTime : Sobota 22 tygodnia zwykłego
+the23rdSundayOfOrdinaryTime : 23 Niedziela zwykła
+MondayOfThe23rdWeekOfOrdinaryTime : Poniedziałek 23 tygodnia zwykłego
+TuesdayOfThe23rdWeekOfOrdinaryTime : Wtorek 23 tygodnia zwykłego
+WednesdayOfThe23rdWeekOfOrdinaryTime : Środa 23 tygodnia zwykłego
+ThursdayOfThe23rdWeekOfOrdinaryTime : Czwartek 23 tygodnia zwykłego
+FridayOfThe23rdWeekOfOrdinaryTime : Piątek 23 tygodnia zwykłego
+SaturdayOfThe23rdWeekOfOrdinaryTime : Sobota 23 tygodnia zwykłego
+triumphOfTheCross : Podwyższenie Krzyża Świętego
+the24thSundayOfOrdinaryTime : 24 Niedziela zwykła
+MondayOfThe24thWeekOfOrdinaryTime : Poniedziałek 24 tygodnia zwykłego
+TuesdayOfThe24thWeekOfOrdinaryTime : Wtorek 24 tygodnia zwykłego
+WednesdayOfThe24thWeekOfOrdinaryTime : Środa 24 tygodnia zwykłego
+ThursdayOfThe24thWeekOfOrdinaryTime : Czwartek 24 tygodnia zwykłego
+FridayOfThe24thWeekOfOrdinaryTime : Piątek 24 tygodnia zwykłego
+SaturdayOfThe24thWeekOfOrdinaryTime : Sobota 24 tygodnia zwykłego
+the25thSundayOfOrdinaryTime : 25 Niedziela zwykła
+MondayOfThe25thWeekOfOrdinaryTime : Poniedziałek 25 tygodnia zwykłego
+TuesdayOfThe25thWeekOfOrdinaryTime : Wtorek 25 tygodnia zwykłego
+WednesdayOfThe25thWeekOfOrdinaryTime : Środa 25 tygodnia zwykłego
+ThursdayOfThe25thWeekOfOrdinaryTime : Czwartek 25 tygodnia zwykłego
+FridayOfThe25thWeekOfOrdinaryTime : Piątek 25 tygodnia zwykłego
+SaturdayOfThe25thWeekOfOrdinaryTime : Sobota 25 tygodnia zwykłego
+the26thSundayOfOrdinaryTime : 26 Niedziela zwykła
+MondayOfThe26thWeekOfOrdinaryTime : Poniedziałek 26 tygodnia zwykłego
+TuesdayOfThe26thWeekOfOrdinaryTime : Wtorek 26 tygodnia zwykłego
+WednesdayOfThe26thWeekOfOrdinaryTime : Środa 26 tygodnia zwykłego
+ThursdayOfThe26thWeekOfOrdinaryTime : Czwartek 26 tygodnia zwykłego
+FridayOfThe26thWeekOfOrdinaryTime : Piątek 26 tygodnia zwykłego
+SaturdayOfThe26thWeekOfOrdinaryTime : Sobota 26 tygodnia zwykłego
+the27thSundayOfOrdinaryTime : 27 Niedziela zwykła
+MondayOfThe27thWeekOfOrdinaryTime : Poniedziałek 27 tygodnia zwykłego
+TuesdayOfThe27thWeekOfOrdinaryTime : Wtorek 27 tygodnia zwykłego
+WednesdayOfThe27thWeekOfOrdinaryTime : Środa 27 tygodnia zwykłego
+ThursdayOfThe27thWeekOfOrdinaryTime : Czwartek 27 tygodnia zwykłego
+FridayOfThe27thWeekOfOrdinaryTime : Piątek 27 tygodnia zwykłego
+SaturdayOfThe27thWeekOfOrdinaryTime : Sobota 27 tygodnia zwykłego
+the28thSundayOfOrdinaryTime : 28 Niedziela zwykła
+MondayOfThe28thWeekOfOrdinaryTime : Poniedziałek 28 tygodnia zwykłego
+TuesdayOfThe28thWeekOfOrdinaryTime : Wtorek 28 tygodnia zwykłego
+WednesdayOfThe28thWeekOfOrdinaryTime : Środa 28 tygodnia zwykłego
+ThursdayOfThe28thWeekOfOrdinaryTime : Czwartek 28 tygodnia zwykłego
+FridayOfThe28thWeekOfOrdinaryTime : Piątek 28 tygodnia zwykłego
+SaturdayOfThe28thWeekOfOrdinaryTime : Sobota 28 tygodnia zwykłego
+the29thSundayOfOrdinaryTime : 29 Niedziela zwykła
+MondayOfThe29thWeekOfOrdinaryTime : Poniedziałek 29 tygodnia zwykłego
+TuesdayOfThe29thWeekOfOrdinaryTime : Wtorek 29 tygodnia zwykłego
+WednesdayOfThe29thWeekOfOrdinaryTime : Środa 29 tygodnia zwykłego
+ThursdayOfThe29thWeekOfOrdinaryTime : Czwartek 29 tygodnia zwykłego
+FridayOfThe29thWeekOfOrdinaryTime : Piątek 29 tygodnia zwykłego
+SaturdayOfThe29thWeekOfOrdinaryTime : Sobota 29 tygodnia zwykłego
+the30thSundayOfOrdinaryTime : 30 Niedziela zwykła
+MondayOfThe30thWeekOfOrdinaryTime : Poniedziałek 30 tygodnia zwykłego
+TuesdayOfThe30thWeekOfOrdinaryTime : Wtorek 30 tygodnia zwykłego
+WednesdayOfThe30thWeekOfOrdinaryTime : Środa 30 tygodnia zwykłego
+ThursdayOfThe30thWeekOfOrdinaryTime : Czwartek 30 tygodnia zwykłego
+FridayOfThe30thWeekOfOrdinaryTime : Piątek 30 tygodnia zwykłego
+allSaints : Wszystkich Świętych
+SaturdayOfThe30thWeekOfOrdinaryTime : Sobota 30 tygodnia zwykłego
+the31stSundayOfOrdinaryTime : 31 Niedziela zwykła
+MondayOfThe31stWeekOfOrdinaryTime : Poniedziałek 31 tygodnia zwykłego
+TuesdayOfThe31stWeekOfOrdinaryTime : Wtorek 31 tygodnia zwykłego
+WednesdayOfThe31stWeekOfOrdinaryTime : Środa 31 tygodnia zwykłego
+ThursdayOfThe31stWeekOfOrdinaryTime : Czwartek 31 tygodnia zwykłego
+FridayOfThe31stWeekOfOrdinaryTime : Piątek 31 tygodnia zwykłego
+SaturdayOfThe31stWeekOfOrdinaryTime : Sobota 31 tygodnia zwykłego
+the32ndSundayOfOrdinaryTime : 32 Niedziela zwykła
+MondayOfThe32ndWeekOfOrdinaryTime : Poniedziałek 32 tygodnia zwykłego
+TuesdayOfThe32ndWeekOfOrdinaryTime : Wtorek 32 tygodnia zwykłego
+WednesdayOfThe32ndWeekOfOrdinaryTime : Środa 32 tygodnia zwykłego
+ThursdayOfThe32ndWeekOfOrdinaryTime : Czwartek 32 tygodnia zwykłego
+FridayOfThe32ndWeekOfOrdinaryTime : Piątek 32 tygodnia zwykłego
+SaturdayOfThe32ndWeekOfOrdinaryTime : Sobota 32 tygodnia zwykłego
+the33rdSundayOfOrdinaryTime : 33 Niedziela zwykła
+MondayOfThe33rdWeekOfOrdinaryTime : Poniedziałek 33 tygodnia zwykłego
+TuesdayOfThe33rdWeekOfOrdinaryTime : Wtorek 33 tygodnia zwykłego
+WednesdayOfThe33rdWeekOfOrdinaryTime : Środa 33 tygodnia zwykłego
+ThursdayOfThe33rdWeekOfOrdinaryTime : Czwartek 33 tygodnia zwykłego
+FridayOfThe33rdWeekOfOrdinaryTime : Piątek 33 tygodnia zwykłego
+SaturdayOfThe33rdWeekOfOrdinaryTime : Sobota 33 tygodnia zwykłego
+christTheKing : Jezusa Chrystusa Króla Wszechświata
+MondayOfThe34thWeekOfOrdinaryTime : Poniedziałek 34 tygodnia zwykłego
+TuesdayOfThe34thWeekOfOrdinaryTime : Wtorek 34 tygodnia zwykłego
+WednesdayOfThe34thWeekOfOrdinaryTime : Środa 34 tygodnia zwykłego
+ThursdayOfThe34thWeekOfOrdinaryTime : Czwartek 34 tygodnia zwykłego
+FridayOfThe34thWeekOfOrdinaryTime : Piątek 34 tygodnia zwykłego
+SaturdayOfThe34thWeekOfOrdinaryTime : Sobota 34 tygodnia zwykłego
+the1stSundayOfAdvent : 1 Niedziela Adwentu
+MondayOfThe1stWeekOfAdvent : Poniedziałek 1 tygodnia Adwentu
+TuesdayOfThe1stWeekOfAdvent : Wtorek 1 tygodnia Adwentu
+WednesdayOfThe1stWeekOfAdvent : Środa 1 tygodnia Adwentu
+ThursdayOfThe1stWeekOfAdvent : Czwartek 1 tygodnia Adwentu
+FridayOfThe1stWeekOfAdvent : Piątek 1 tygodnia Adwentu
+SaturdayOfThe1stWeekOfAdvent : Sobota 1 tygodnia Adwentu
+the2ndSundayOfAdvent : 2 Niedziela Adwentu
+immaculateConception : Niepokalane Poczęcie Najświętszej Maryi Panny
+MondayOfThe2ndWeekOfAdvent : Poniedziałek 2 tygodnia Adwentu
+TuesdayOfThe2ndWeekOfAdvent : Wtorek 2 tygodnia Adwentu
+WednesdayOfThe2ndWeekOfAdvent : Środa 2 tygodnia Adwentu
+ThursdayOfThe2ndWeekOfAdvent : Czwartek 2 tygodnia Adwentu
+FridayOfThe2ndWeekOfAdvent : Piątek 2 tygodnia Adwentu
+SaturdayOfThe2ndWeekOfAdvent : Sobota 2 tygodnia Adwentu
+the3rdSundayOfAdvent : 3 Niedziela Adwentu
+MondayOfThe3rdWeekOfAdvent : Poniedziałek 3 tygodnia Adwentu
+TuesdayOfThe3rdWeekOfAdvent : Wtorek 3 tygodnia Adwentu
+WednesdayOfThe3rdWeekOfAdvent : Środa 3 tygodnia Adwentu
+ThursdayOfThe3rdWeekOfAdvent : Czwartek 3 tygodnia Adwentu
+FridayOfThe3rdWeekOfAdvent : Piątek 3 tygodnia Adwentu
+SaturdayOfThe3rdWeekOfAdvent : Sobota 3 tygodnia Adwentu
+the4thSundayOfAdvent : 4 Niedziela Adwentu
+MondayOfThe4thWeekOfAdvent : Poniedziałek 4 tygodnia Adwentu
+TuesdayOfThe4thWeekOfAdvent : Wtorek 4 tygodnia Adwentu
+WednesdayOfThe4thWeekOfAdvent : Środa 4 tygodnia Adwentu
+ThursdayOfThe4thWeekOfAdvent : Czwartek 4 tygodnia Adwentu
+FridayOfThe4thWeekOfAdvent : Piątek 4 tygodnia Adwentu
+SaturdayOfThe4thWeekOfAdvent : Sobota 4 tygodnia Adwentu
+the2ndDayOfTheOctaveOfChristmas : 2 dzień w oktawie Narodzenia Pańskiego
+the3rdDayOfTheOctaveOfChristmas : 3 dzień w oktawie Narodzenia Pańskiego
+the4thDayOfTheOctaveOfChristmas : 4 dzień w oktawie Narodzenia Pańskiego
+the5thDayOfTheOctaveOfChristmas : 5 dzień w oktawie Narodzenia Pańskiego
+the6thDayOfTheOctaveOfChristmas : 6 dzień w oktawie Narodzenia Pańskiego
+the7thDayOfTheOctaveOfChristmas : 7 w dzień oktawie Narodzenia Pańskiego
+secondSundayOfChristmas : 2 Niedziela po Narodzeniu Pańskim

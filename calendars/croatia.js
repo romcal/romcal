@@ -80,7 +80,7 @@ module.exports = {
         "data": {}
       },
       {
-        "key": "saintBenedictAbbot",
+        "key": "saintBenedictOfNursiaAbbot",
         "type": Types[4],
         "moment": moment.utc({ year: arguments[0], month: 6, day: 11 }),
         "data": {

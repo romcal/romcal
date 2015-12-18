@@ -81,7 +81,7 @@ module.exports = {
         "data": {}
       },
       {
-        "key": "saintBenedictAbbot",
+        "key": "saintBenedictOfNursiaAbbot",
         "type": Types[4],
         "moment": moment.utc({ year: arguments[0], month: 6, day: 11 }),
         "data": {}
@@ -102,7 +102,14 @@ module.exports = {
         "key": "saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr",
         "type": Types[4],
         "moment": moment.utc({ year: arguments[0], month: 7, day: 9 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "birthOfTheBlessedVirginMary",
@@ -114,7 +121,14 @@ module.exports = {
         "key": "saintCatherineOfAlexandriaVirginAndMartyr",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 10, day: 25 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       }
     ];
 

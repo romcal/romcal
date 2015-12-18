@@ -170,7 +170,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintBonifaceBishopMartyr",
+        "key": "saintBonifaceBishopAndMartyr",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 5, day: 5 }),
         "data": {
@@ -226,7 +226,7 @@ module.exports = {
         "data": {}
       },
       {
-        "key": "saintBenedictAbbot",
+        "key": "saintBenedictOfNursiaAbbot",
         "type": Types[4],
         "moment": moment.utc({ year: arguments[0], month: 6, day: 11 }),
         "data": {
@@ -476,12 +476,15 @@ module.exports = {
         }
       },
       {
-        "key": "saintThomasBecketBishopMartyr",
+        "key": "saintThomasBecketBishopAndMartyr",
         "type": Types[4],
         "moment": moment.utc({ year: arguments[0], month: 11, day: 29 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
           }
         }
       }
