@@ -5,7 +5,7 @@
     "sunday":  "{{week}} Niedziela Adwentu"
   },
   "christmastide": {
-    "season": "Boże Narodzenie",
+    "season": "Narodzenia Pańskiego",
     "day": "{{day}} boże Narodzenie",
     "octave": "{{count}} dzień w oktawie Narodzenia Pańskiego"
   },
