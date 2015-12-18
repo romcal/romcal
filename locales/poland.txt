@@ -1,9 +1,5 @@
-saintVincentPallotti : Św. Wincentego Pallottiego, prezbitera
-blessedVincentLewoniukAndCompanions : Błogosławionych męczenników Wincentego Lewoniuka i Towarzyszy
-blessedJerzyMatulewicz : Bł. Jerzego Matulewicza, biskupa
 blessedBolestawaMariaLament : Bł. Bolesławy Marii Lament, dziewicy
 saintsCyril : Świętych Cyryla, mnicha i Metodego, biskupa, patronów Europy
-saintCasimir : Św. Kazimierza
 saintAdalbert : Św. Wojciecha, biskupa i męczennika, głównego patrona Polski
 saintCatherineOfSiena : Św. Katarzyny Sieneńskiej, dziewicy i doktora Kościoła
 ourLadyHelpOfChristians : Our Lady, Help Of Christians
@@ -29,10 +25,7 @@ saintsAndrzejSwieradAndBenedict : Świętych pustelników Andrzeja Świerada i B
 saintSimonOfLipnica : Św. Szymona z Lipnicy, prezbitera
 blessedCzeslaw : Bł. Czesława, prezbitera
 saintBridget : Św. Brygidy, zakonnicy, patronki Europy
-saintKinga : Św. Kingi, dziewicy
 blessedEdmundBojanowski : Bł. Edmunda Bojanowskiego
-saintTeresaBenedictaOfTheCross : Św. Teresy Benedykty od Krzyża, dziewicy i męczennicy, patronki Europy
-saintHyacinth : Św. Jacka, prezbitera
 ourLadyOfCzestochowa : Najświętszej Maryi Panny Częstochowskiej
 blessedBronistawa : Bł. Bronisławy, dziewicy
 blessedMariaStellaAndCompanions : Błogosławionych dziewic i męczennic Marii Stelli i Towarzyszek
@@ -46,7 +39,6 @@ blessedVincentKadtubek : Bł. Wincentego Kadłubka, biskupa
 blessedMaryAngelaTruszkowska : Bł. Marii Angeli Truszkowskiej, dziewicy
 blessedJohnBeyzym : Bł. Jana Beyzyma, prezbitera
 blessedHonOratKozminski : Bł. Honorata Koźmińskiego, prezbitera
-saintJohnOfKety : Św. Jana Kantego, prezbitera
 blessedJakubStrzemie : Bł. Jakuba Strzemię, biskupa
 saintJohnPaulII : Św. Jana Pawła II, papieża
 saintJosefBilczewski : Św. Józefa Bilczewskiego, biskupa
@@ -57,5 +49,3 @@ saintRafatKalinowski : Św. Rafała Kalinowskiego, prezbitera
 blessedMaryOfJesusTheGoodShepherd : Bł. Marii od Pana Jezusa Dobrego Pasterza (Franciszki Siedliskiej), zakonnicy
 blessedRafatChylinski : Bł. Rafała Chylińskiego, prezbitera
 saintBarbara : Św. Barbary, dziewicy i męczennicy
-maryMotherOfTheChurch : Najświętszej Maryi Panny, Matki Kościoła
-ourLordJesusChrist : Jezusa Chrystusa, Najwyższego i Wiecznego Kapłana

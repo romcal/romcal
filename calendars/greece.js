@@ -86,7 +86,7 @@ module.exports = {
         }
       },
       {
-        "key": "blessedVirginMaryMotherOfTheChurch",
+        "key": "maryMotherOfTheChurch",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 4, day: 13 }),
         "data": {
