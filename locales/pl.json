@@ -1,39 +1,39 @@
 {
   "advent": {
-    "season": "Advent",
-    "weekday": "{{day}} of the {{week}} week of Advent",
-    "sunday":  "{{week}} Sunday of Advent"
+    "season": "Adwentu",
+    "weekday": "{{day}} {{week}} tygodnia Adwentu",
+    "sunday":  "{{week}} Niedziela Adwentu"
   },
   "christmastide": {
-    "season": "Christmas",
-    "day": "{{day}} of Christmastide",
-    "octave": "{{count}} day in the Octave of Christmas"
+    "season": "Boże Narodzenie",
+    "day": "{{day}} boże Narodzenie",
+    "octave": "{{count}} dzień w oktawie Narodzenia Pańskiego"
   },
   "epiphany": {
-    "season": "Epiphany",
-    "before": "{{day}} before Epiphany",
-    "after": "{{day}} after Epiphany"
+    "season": "Objawienie Pańskie",
+    "before": "{{day}} przed Objawieniem Pańskim",
+    "after": "{{day}} po Objawieniu Pańskim"
   },
   "ordinaryTime": {
-    "season": "Ordinary Time",
-    "weekday": "{{day}} of the {{week}} week of Ordinary Time",
-    "sunday": "{{week}} Sunday of Ordinary Time"
+    "season": "Zwykła",
+    "weekday": "{{day}} {{week}} tygodnia zwykłego",
+    "sunday": "{{week}} Niedziela zwykła"
   },
   "lent": {
-    "season": "Lent",
-    "weekday": "{{day}} of the {{week}} week of Lent",
-    "sunday": "{{week}} Sunday of Lent",
-    "day_after_ash_wed": "{{day}} after Ash Wednesday"
+    "season": "Postu",
+    "weekday": "{{day}} {{week}} tygodnia Wielkiego Postu",
+    "sunday": "{{week}} Niedziela Wielkiego Postu",
+    "day_after_ash_wed": "{{day}} po Popielcu"
   },
   "holyWeek": {
-    "season": "Holy Week",
-    "weekday": "{{day}} of Holy Week"
+    "season": "Wielki Tydzień",
+    "weekday": "{{day}} wielkiego tygodnia"
   },
   "eastertide": {
-    "season": "Eastertide",
-    "weekday": "{{day}} of the {{week}} week of Easter",
-    "sunday":  "{{week}} Sunday of Easter",
-    "octave": "Easter {{day}}"
+    "season": "Wielkanoc",
+    "weekday": "{{day}} {{week}} tygodnia wielkanocnego",
+    "sunday":  "{{week}} Niedziela Wielkanocna",
+    "octave": "{{day}} w oktawie Wielkanocy"
   },
   "celebrations": {
     "ashWednesday": "Środa popielcowa",
@@ -41,30 +41,30 @@
     "holyThursday": "Wielki Czwartek",
     "goodFriday": "Wielki Piątek",
     "holySaturday": "Wielka Sobota",
-    "immaculateConception": "Immaculate Conception",
+    "immaculateConception": "Niepokalane Poczęcie Najświętszej Maryi Panny",
     "christmas": "Narodzenie Pańskie",
     "maryMotherOfGod": "Świętej Bożej Rodzicielki Maryi",
-    "epiphany": "Epiphany",
+    "epiphany": "Objawienie Pańskie",
     "josephHusbandOfMary": "Św. Józefa, Oblubieńca Najświętszej Maryi Panny",
     "easter": "Niedziela Wielkanocna Zmartwychwstania Pańskiego",
-    "divineMercySunday": "Divine Mercy Sunday",
-    "annunciation": "Annunciation",
-    "ascension": "Ascension of the Lord",
-    "pentecostSunday": "Pentecost Sunday",
-    "trinitySunday": "Trinity Sunday",
-    "corpusChristi": "Corpus Christi",
-    "sacredHeartOfJesus": "Sacred Heart of Jesus",
-    "birthOfJohnTheBaptist": "Birth of John the Baptist",
-    "peterAndPaulApostles": "Saints Peter and Paul, Apostles",
-    "assumption": "The Assumption of the Blessed Virgin Mary",
-    "allSaints": "All Saints",
-    "christTheKing": "Christ the King",
+    "divineMercySunday": "2 Niedziela Wielkanocna czyli Miłosierdzia Bożego",
+    "annunciation": "Zwiastowanie Pańskie",
+    "ascension": "Wniebowstąpienie Pańskie",
+    "pentecostSunday": "Niedziela Zesłania Ducha Świętego",
+    "trinitySunday": "Niedziela Najświętszej Trójcy",
+    "corpusChristi": "Najświętszego Ciała i Krwi Chrystusa",
+    "sacredHeartOfJesus": "Najświętszego Serca Pana Jezusa",
+    "birthOfJohnTheBaptist": "Narodzenie św. Jana Chrzciciela",
+    "peterAndPaulApostles": "Świętych Apostołów Piotra i Pawła",
+    "assumption": "Wniebowzięcie Najświętszej Maryi Panny",
+    "allSaints": "Wszystkich Świętych",
+    "christTheKing": "Jezusa Chrystusa Króla Wszechświata",
     "holyFamily": "Świętej Rodziny Jezusa, Maryi i Józefa",
     "baptismOfTheLord": "Chrzest Pański",
-    "presentationOfTheLord": "Presentation of the Lord",
-    "transfiguration": "Transfiguration",
-    "triumphOfTheCross": "Triumph of the Cross",
-    "immaculateHeartOfMary": "Immaculate Heart of Mary"
+    "presentationOfTheLord": "Ofiarowanie Pańskie",
+    "transfiguration": "Przemienienie Pańskie",
+    "triumphOfTheCross": "Podwyższenie Krzyża Świętego",
+    "immaculateHeartOfMary": "Niepokalanego Serca Najświętszej Maryi Panny"
   },
   "general": {
     "saintsBasilTheGreatAndGregoryNazianzenBishopsAndDoctors": "Świętych Bazylego Wielkiego i Grzegorza z Nazjanzu, biskupów i doktorów Kościoła",
@@ -230,25 +230,25 @@
     "saintCeciliaVirginAndMartyr": "Św. Cecylii, dziewicy i męczennicy",
     "saintClementIPopeAndMartyrSaintColumbanReligious": "Św. Klemensa I, papieża i męczennika/Św. Kolumbana, zakonnika",
     
-    "saintAndrewDungLacAndCompanionsMartyrs": "Saint Andrew Dung-Lac and Companions, Martyrs",
-    "saintCatherineOfAlexandriaVirginAndMartyr": "Saint Catherine of Alexandria, Virgin and Martyr",
-    "saintAndrewTheApostle": "Saint Andrew the Apostle",
-    "saintFrancisXavierPriest": "Saint Francis Xavier, Priest",
-    "saintJohnDamascenePriestAndDoctor": "Saint John Damascene, Priest and Doctor",
-    "saintNicholasBishop": "Saint Nicholas, Bishop",
-    "saintAmbroseBishopAndDoctor": "Saint Ambrose, Bishop and Doctor",
-    "saintJuanDiegoCuauhtlatoatzin": "Saint Juan Diego Cuauhtlatoatzin",
-    "saintDamasusIPope": "Saint Damasus I, Pope",
-    "ourLadyOfGuadalupe": "Our Lady of Guadalupe",
-    "saintLucyOfSyracuseVirginAndMartyr": "Saint Lucy of Syracuse, Virgin and Martyr",
-    "saintJohnOfTheCrossPriestAndDoctor": "Saint John of the Cross, Priest and Doctor",
-    "saintPeterCanisiusPriestAndDoctor": "Saint Peter Canisius, Priest and Doctor",
-    "saintJohnOfKantyPriest": "Saint John of Kanty, Priest",
-    "saintStephenTheFirstMartyr": "Saint Stephen, The First Martyr",
-    "saintJohnTheApostleAndEvangelist": "Saint John the Apostle and Evangelist",
+    "saintAndrewDungLacAndCompanionsMartyrs": "Świętych męczenników Andrzeja Dung-Lac, prezbitera, i Towarzyszy",
+    "saintCatherineOfAlexandriaVirginAndMartyr": "Św. Katarzyny Aleksandryjskiej, dziewicy i męczennicy",
+    "saintAndrewTheApostle": "Św. Andrzeja, Apostoła",
+    "saintFrancisXavierPriest": "Św. Franciszka Ksawerego, prezbitera",
+    "saintJohnDamascenePriestAndDoctor": "Św. Jana Damasceńskiego, prezbitera i doktora Kościoła",
+    "saintNicholasBishop": "Św. Mikołaja, biskupa",
+    "saintAmbroseBishopAndDoctor": "Św. Ambrożego, biskupa i doktora Kościoła",
+    "saintJuanDiegoCuauhtlatoatzin": "Św. Jana Diego Cuahtlatoatzin",
+    "saintDamasusIPope": "Św. Damazego I, papieża",
+    "ourLadyOfGuadalupe": "Najświętszej Maryi Panny z Guadalupe",
+    "saintLucyOfSyracuseVirginAndMartyr": "Św. Łucji, dziewicy i męczennicy",
+    "saintJohnOfTheCrossPriestAndDoctor": "Św. Jana od Krzyża, prezbitera i doktora Kościoła",
+    "saintPeterCanisiusPriestAndDoctor": "Św. Piotra Kanizjusza, prezbitera i doktora Kościoła",
+    "saintJohnOfKantyPriest": "Św. Jana Kantego, prezbitera",
+    "saintStephenTheFirstMartyr": "Św. Szczepana, pierwszego męczennika",
+    "saintJohnTheApostleAndEvangelist": "Św. Jana, Apostoła i Ewangelisty",
     "holyInnocentsMartyrs": "Św. Młodzianków, męczenników",
-    "saintThomasBecketBishopAndMartyr": "Saint Thomas Becket, Bishop and Martyr",
-    "saintSylvesterIPope": "Saint Sylvester I, Pope"
+    "saintThomasBecketBishopAndMartyr": "Św. Tomasza Becketa, biskupa i męczennika",
+    "saintSylvesterIPope": "Św. Sylwestra I, papieża"
   },
   "national": {
     "blessedLauraVicuna": "Blessed Laura Vicuna",

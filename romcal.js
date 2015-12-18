@@ -36,7 +36,7 @@ _.each( calendar, function( v ) {
   console.log( 
     _.padRight( v.moment.format('ddd, DD MMM YY'), 16 ), 
     '|', _.padRight( v.data.meta.liturgicalColor.key, 6 ),
-    '|', _.padRight( v.data.season.value, 13 ),
+    '|', _.padRight( v.data.season.value, 15 ),
     '|', _.padRight( v.data.meta.psalterWeek.value, 8 ),
     '|', _.padRight( v.data.meta.cycle.value, 6 ),
     '|', _.padRight( v.type, 13 ),

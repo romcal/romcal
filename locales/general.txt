@@ -1,36 +1,5 @@
 
-saintAndrewDungLacAndCo : Świętych męczenników Andrzeja Dung-Lac, prezbitera, i Towarzyszy
-saintCatherineOfAlexandria : Św. Katarzyny Aleksandryjskiej, dziewicy i męczennicy
-saintAndrew : Św. Andrzeja, Apostoła
-saintFrancisXavier : Św. Franciszka Ksawerego, prezbitera
-saintJohnDamascene : Św. Jana Damasceńskiego, prezbitera i doktora Kościoła
-saintNicholas : Św. Mikołaja, biskupa
-saintAmbrose : Św. Ambrożego, biskupa i doktora Kościoła
-saintJuanDiego : Św. Jana Diego Cuahtlatoatzin
-saintDamasusI : Św. Damazego I, papieża
-ourLadyOfGuadalupe : Najświętszej Maryi Panny z Guadalupe
-saintLucyOfSyracuse : Św. Łucji, dziewicy i męczennicy
-saintJohnOfTheCross : Św. Jana od Krzyża, prezbitera i doktora Kościoła
-saintPeterCanisius : Św. Piotra Kanizjusza, prezbitera i doktora Kościoła
-saintJohnOfKanty : Św. Jana Kantego, prezbitera
-saintStephenTheFirstMartyr : Św. Szczepana, pierwszego męczennika
-saintJohnTheApostle : Św. Jana, Apostoła i Ewangelisty
-saintThomasBecket : Św. Tomasza Becketa, biskupa i męczennika
-saintSylvesterI : Św. Sylwestra I, papieża
-MondayBeforeEpiphany : Poniedziałek przed Objawieniem Pańskim
-TuesdayBeforeEpiphany : Wtorek przed Objawieniem Pańskim
-WednesdayBeforeEpiphany : Środa przed Objawieniem Pańskim
-ThursdayBeforeEpiphany : Czwartek przed Objawieniem Pańskim
-FridayBeforeEpiphany : Piątek przed Objawieniem Pańskim
-SaturdayBeforeEpiphany : Sobota przed Objawieniem Pańskim
-epiphanyOfOurLord : Objawienie Pańskie
-SundayAfterEpiphany : Niedziela po Objawieniu Pańskim
-MondayAfterEpiphany : Poniedziałek po Objawieniu Pańskim
-TuesdayAfterEpiphany : Wtorek po Objawieniu Pańskim
-WednesdayAfterEpiphany : Środa po Objawieniu Pańskim
-ThursdayAfterEpiphany : Czwartek po Objawieniu Pańskim
-FridayAfterEpiphany : Piątek po Objawieniu Pańskim
-SaturdayAfterEpiphany : Sobota po Objawieniu Pańskim
+
 the1stSundayOfOrdinaryTime : 1 Niedziela zwykła
 MondayOfThe1stWeekOfOrdinaryTime : Poniedziałek 1 tygodnia zwykłego
 TuesdayOfThe1stWeekOfOrdinaryTime : Wtorek 1 tygodnia zwykłego
@@ -51,7 +20,6 @@ TuesdayOfThe3rdWeekOfOrdinaryTime : Wtorek 3 tygodnia zwykłego
 WednesdayOfThe3rdWeekOfOrdinaryTime : Środa 3 tygodnia zwykłego
 ThursdayOfThe3rdWeekOfOrdinaryTime : Czwartek 3 tygodnia zwykłego
 FridayOfThe3rdWeekOfOrdinaryTime : Piątek 3 tygodnia zwykłego
-presentationOfTheLord : Ofiarowanie Pańskie
 SaturdayOfThe3rdWeekOfOrdinaryTime : Sobota 3 tygodnia zwykłego
 the4thSundayOfOrdinaryTime : 4 Niedziela zwykła
 MondayOfThe4thWeekOfOrdinaryTime : Poniedziałek 4 tygodnia zwykłego
@@ -115,7 +83,6 @@ thursdayInTheOctaveOfEaster : Czwartek w oktawie Wielkanocy
 fridayInTheOctaveOfEaster : Piątek w oktawie Wielkanocy
 saturdayInTheOctaveOfEaster : Sobota w oktawie Wielkanocy
 divineMercySunday : 2 Niedziela Wielkanocna czyli Miłosierdzia Bożego
-annunciation : Zwiastowanie Pańskie
 MondayOfThe2ndWeekOfEaster : Poniedziałek 2 tygodnia wielkanocnego
 TuesdayOfThe2ndWeekOfEaster : Wtorek 2 tygodnia wielkanocnego
 WednesdayOfThe2ndWeekOfEaster : Środa 2 tygodnia wielkanocnego
@@ -158,7 +125,6 @@ WednesdayOfThe7thWeekOfEaster : Środa 7 tygodnia wielkanocnego
 ThursdayOfThe7thWeekOfEaster : Czwartek 7 tygodnia wielkanocnego
 FridayOfThe7thWeekOfEaster : Piątek 7 tygodnia wielkanocnego
 SaturdayOfThe7thWeekOfEaster : Sobota 7 tygodnia wielkanocnego
-pentecostSunday : Niedziela Zesłania Ducha Świętego
 the6thSundayOfOrdinaryTime : 6 Niedziela zwykła
 MondayOfThe6thWeekOfOrdinaryTime : Poniedziałek 6 tygodnia zwykłego
 TuesdayOfThe6thWeekOfOrdinaryTime : Wtorek 6 tygodnia zwykłego
@@ -166,7 +132,6 @@ WednesdayOfThe6thWeekOfOrdinaryTime : Środa 6 tygodnia zwykłego
 ThursdayOfThe6thWeekOfOrdinaryTime : Czwartek 6 tygodnia zwykłego
 FridayOfThe6thWeekOfOrdinaryTime : Piątek 6 tygodnia zwykłego
 SaturdayOfThe6thWeekOfOrdinaryTime : Sobota 6 tygodnia zwykłego
-trinitySunday : Niedziela Najświętszej Trójcy
 the7thSundayOfOrdinaryTime : 7 Niedziela zwykła
 MondayOfThe7thWeekOfOrdinaryTime : Poniedziałek 7 tygodnia zwykłego
 TuesdayOfThe7thWeekOfOrdinaryTime : Wtorek 7 tygodnia zwykłego
@@ -174,13 +139,11 @@ WednesdayOfThe7thWeekOfOrdinaryTime : Środa 7 tygodnia zwykłego
 ThursdayOfThe7thWeekOfOrdinaryTime : Czwartek 7 tygodnia zwykłego
 FridayOfThe7thWeekOfOrdinaryTime : Piątek 7 tygodnia zwykłego
 SaturdayOfThe7thWeekOfOrdinaryTime : Sobota 7 tygodnia zwykłego
-corpusChristi : Najświętszego Ciała i Krwi Chrystusa
 the8thSundayOfOrdinaryTime : 8 Niedziela zwykła
 MondayOfThe8thWeekOfOrdinaryTime : Poniedziałek 8 tygodnia zwykłego
 TuesdayOfThe8thWeekOfOrdinaryTime : Wtorek 8 tygodnia zwykłego
 WednesdayOfThe8thWeekOfOrdinaryTime : Środa 8 tygodnia zwykłego
 ThursdayOfThe8thWeekOfOrdinaryTime : Czwartek 8 tygodnia zwykłego
-sacredHeart : Najświętszego Serca Pana Jezusa
 FridayOfThe8thWeekOfOrdinaryTime : Piątek 8 tygodnia zwykłego
 immaculateHeartOfMary : Niepokalanego Serca Najświętszej Maryi Panny
 SaturdayOfThe8thWeekOfOrdinaryTime : Sobota 8 tygodnia zwykłego
@@ -207,7 +170,6 @@ FridayOfThe11thWeekOfOrdinaryTime : Piątek 11 tygodnia zwykłego
 SaturdayOfThe11thWeekOfOrdinaryTime : Sobota 11 tygodnia zwykłego
 the12thSundayOfOrdinaryTime : 12 Niedziela zwykła
 MondayOfThe12thWeekOfOrdinaryTime : Poniedziałek 12 tygodnia zwykłego
-birthOfJohnTheBaptist : Narodzenie św. Jana Chrzciciela
 TuesdayOfThe12thWeekOfOrdinaryTime : Wtorek 12 tygodnia zwykłego
 WednesdayOfThe12thWeekOfOrdinaryTime : Środa 12 tygodnia zwykłego
 ThursdayOfThe12thWeekOfOrdinaryTime : Czwartek 12 tygodnia zwykłego
@@ -252,7 +214,6 @@ SaturdayOfThe17thWeekOfOrdinaryTime : Sobota 17 tygodnia zwykłego
 the18thSundayOfOrdinaryTime : 18 Niedziela zwykła
 MondayOfThe18thWeekOfOrdinaryTime : Poniedziałek 18 tygodnia zwykłego
 TuesdayOfThe18thWeekOfOrdinaryTime : Wtorek 18 tygodnia zwykłego
-transfiguration : Przemienienie Pańskie
 WednesdayOfThe18thWeekOfOrdinaryTime : Środa 18 tygodnia zwykłego
 ThursdayOfThe18thWeekOfOrdinaryTime : Czwartek 18 tygodnia zwykłego
 FridayOfThe18thWeekOfOrdinaryTime : Piątek 18 tygodnia zwykłego
@@ -262,7 +223,6 @@ MondayOfThe19thWeekOfOrdinaryTime : Poniedziałek 19 tygodnia zwykłego
 TuesdayOfThe19thWeekOfOrdinaryTime : Wtorek 19 tygodnia zwykłego
 WednesdayOfThe19thWeekOfOrdinaryTime : Środa 19 tygodnia zwykłego
 ThursdayOfThe19thWeekOfOrdinaryTime : Czwartek 19 tygodnia zwykłego
-assumption : Wniebowzięcie Najświętszej Maryi Panny
 FridayOfThe19thWeekOfOrdinaryTime : Piątek 19 tygodnia zwykłego
 SaturdayOfThe19thWeekOfOrdinaryTime : Sobota 19 tygodnia zwykłego
 the20thSundayOfOrdinaryTime : 20 Niedziela zwykła
@@ -293,7 +253,6 @@ WednesdayOfThe23rdWeekOfOrdinaryTime : Środa 23 tygodnia zwykłego
 ThursdayOfThe23rdWeekOfOrdinaryTime : Czwartek 23 tygodnia zwykłego
 FridayOfThe23rdWeekOfOrdinaryTime : Piątek 23 tygodnia zwykłego
 SaturdayOfThe23rdWeekOfOrdinaryTime : Sobota 23 tygodnia zwykłego
-triumphOfTheCross : Podwyższenie Krzyża Świętego
 the24thSundayOfOrdinaryTime : 24 Niedziela zwykła
 MondayOfThe24thWeekOfOrdinaryTime : Poniedziałek 24 tygodnia zwykłego
 TuesdayOfThe24thWeekOfOrdinaryTime : Wtorek 24 tygodnia zwykłego
@@ -342,7 +301,6 @@ TuesdayOfThe30thWeekOfOrdinaryTime : Wtorek 30 tygodnia zwykłego
 WednesdayOfThe30thWeekOfOrdinaryTime : Środa 30 tygodnia zwykłego
 ThursdayOfThe30thWeekOfOrdinaryTime : Czwartek 30 tygodnia zwykłego
 FridayOfThe30thWeekOfOrdinaryTime : Piątek 30 tygodnia zwykłego
-allSaints : Wszystkich Świętych
 SaturdayOfThe30thWeekOfOrdinaryTime : Sobota 30 tygodnia zwykłego
 the31stSundayOfOrdinaryTime : 31 Niedziela zwykła
 MondayOfThe31stWeekOfOrdinaryTime : Poniedziałek 31 tygodnia zwykłego
@@ -365,42 +323,13 @@ WednesdayOfThe33rdWeekOfOrdinaryTime : Środa 33 tygodnia zwykłego
 ThursdayOfThe33rdWeekOfOrdinaryTime : Czwartek 33 tygodnia zwykłego
 FridayOfThe33rdWeekOfOrdinaryTime : Piątek 33 tygodnia zwykłego
 SaturdayOfThe33rdWeekOfOrdinaryTime : Sobota 33 tygodnia zwykłego
-christTheKing : Jezusa Chrystusa Króla Wszechświata
 MondayOfThe34thWeekOfOrdinaryTime : Poniedziałek 34 tygodnia zwykłego
 TuesdayOfThe34thWeekOfOrdinaryTime : Wtorek 34 tygodnia zwykłego
 WednesdayOfThe34thWeekOfOrdinaryTime : Środa 34 tygodnia zwykłego
 ThursdayOfThe34thWeekOfOrdinaryTime : Czwartek 34 tygodnia zwykłego
 FridayOfThe34thWeekOfOrdinaryTime : Piątek 34 tygodnia zwykłego
 SaturdayOfThe34thWeekOfOrdinaryTime : Sobota 34 tygodnia zwykłego
-the1stSundayOfAdvent : 1 Niedziela Adwentu
-MondayOfThe1stWeekOfAdvent : Poniedziałek 1 tygodnia Adwentu
-TuesdayOfThe1stWeekOfAdvent : Wtorek 1 tygodnia Adwentu
-WednesdayOfThe1stWeekOfAdvent : Środa 1 tygodnia Adwentu
-ThursdayOfThe1stWeekOfAdvent : Czwartek 1 tygodnia Adwentu
-FridayOfThe1stWeekOfAdvent : Piątek 1 tygodnia Adwentu
-SaturdayOfThe1stWeekOfAdvent : Sobota 1 tygodnia Adwentu
-the2ndSundayOfAdvent : 2 Niedziela Adwentu
-immaculateConception : Niepokalane Poczęcie Najświętszej Maryi Panny
-MondayOfThe2ndWeekOfAdvent : Poniedziałek 2 tygodnia Adwentu
-TuesdayOfThe2ndWeekOfAdvent : Wtorek 2 tygodnia Adwentu
-WednesdayOfThe2ndWeekOfAdvent : Środa 2 tygodnia Adwentu
-ThursdayOfThe2ndWeekOfAdvent : Czwartek 2 tygodnia Adwentu
-FridayOfThe2ndWeekOfAdvent : Piątek 2 tygodnia Adwentu
-SaturdayOfThe2ndWeekOfAdvent : Sobota 2 tygodnia Adwentu
-the3rdSundayOfAdvent : 3 Niedziela Adwentu
-MondayOfThe3rdWeekOfAdvent : Poniedziałek 3 tygodnia Adwentu
-TuesdayOfThe3rdWeekOfAdvent : Wtorek 3 tygodnia Adwentu
-WednesdayOfThe3rdWeekOfAdvent : Środa 3 tygodnia Adwentu
-ThursdayOfThe3rdWeekOfAdvent : Czwartek 3 tygodnia Adwentu
-FridayOfThe3rdWeekOfAdvent : Piątek 3 tygodnia Adwentu
-SaturdayOfThe3rdWeekOfAdvent : Sobota 3 tygodnia Adwentu
-the4thSundayOfAdvent : 4 Niedziela Adwentu
-MondayOfThe4thWeekOfAdvent : Poniedziałek 4 tygodnia Adwentu
-TuesdayOfThe4thWeekOfAdvent : Wtorek 4 tygodnia Adwentu
-WednesdayOfThe4thWeekOfAdvent : Środa 4 tygodnia Adwentu
-ThursdayOfThe4thWeekOfAdvent : Czwartek 4 tygodnia Adwentu
-FridayOfThe4thWeekOfAdvent : Piątek 4 tygodnia Adwentu
-SaturdayOfThe4thWeekOfAdvent : Sobota 4 tygodnia Adwentu
+
 the2ndDayOfTheOctaveOfChristmas : 2 dzień w oktawie Narodzenia Pańskiego
 the3rdDayOfTheOctaveOfChristmas : 3 dzień w oktawie Narodzenia Pańskiego
 the4thDayOfTheOctaveOfChristmas : 4 dzień w oktawie Narodzenia Pańskiego
