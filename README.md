@@ -224,6 +224,7 @@ romcal can query
 ### Overriding dates
 Romcal has been redesigned with extensibility in mind to cater for specific scenarios that are commonplace in the liturgical calendar. For example, All Saints
 
-
+### Localizing celebration names
+Celebration names in Romcal can be
 
 
