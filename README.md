@@ -131,24 +131,31 @@ Where the importance or rank of the celebration is in descending order (Solemnit
 Types play an important role in determining which celebration should take precendence over another when two or more celebrations coincide on the same date.
 
 ### Celebration Titles
-On top of having a celebration type, liturgical dates may also have one or more titles of significance assigned to it. For example, the feast of [Saint Catherine of Siena](https://en.wikipedia.org/wiki/Catherine_of_Siena) is assigned the titles PATRON_OF_EUROPE (for national calendars of countries in Europe only) and DOCTOR_OF_THE_CHURCH due to those titles being conferred on her by the Church.
+On top of having a celebration type, liturgical dates may also have one or more titles of significance assigned to it. 
 
-The titles available for 
-+ FEAST_OF_THE_LORD
-+ PATRON_OF_EUROPE
-+ DOCTOR_OF_THE_CHURCH
+For example, the feast of [Saint Catherine of Siena](https://en.wikipedia.org/wiki/Catherine_of_Siena) is assigned the titles `PATRON_OF_EUROPE` (for national calendars of countries in Europe only) and `DOCTOR_OF_THE_CHURCH` due to those titles being conferred on her by the Church.
+
+romcal defines liturgical seasons in `data/titles.json` which are:
+
+The titles available for:
+
++ `FEAST_OF_THE_LORD`
++ `PATRON_OF_EUROPE`
++ `DOCTOR_OF_THE_CHURCH`
++ `MARTYR`
 
 ### Liturgical Seasons
 The liturgical calendar is divided into various seasons that occur throughout the liturgical year.
 
 romcal defines liturgical seasons in `data/seasons.json` which are:
-+ ADVENT
-+ CHRISTMASTIDE
-+ EARLY_ORDINARY_TIME
-+ LATER_ORDINARY_TIME
-+ LENT
-+ HOLY_WEEK
-+ EASTER
+
++ `ADVENT`
++ `CHRISTMASTIDE`
++ `EARLY_ORDINARY_TIME`
++ `LATER_ORDINARY_TIME`
++ `LENT`
++ `HOLY_WEEK`
++ `EASTER`
 
 The methods in `lib/seasons.js` assigns seasons to the dates it generates to indicate the season to which the range of dates generated belong.
 
