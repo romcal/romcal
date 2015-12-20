@@ -37,6 +37,58 @@ Then require romcal in your node project:
 var romcal = require('romcal');
 ```
 
+Invoke the `calendarFor` method to retrieve an array of liturgical dates and celebrations in the Roman Calendar. This method accepts an object (optional) representing configuration properties to customize the output.
+
+```
+romcal.calendarFor(
+    {
+        // Retrieve dates for the given year
+        // Defaults to current year if not specified
+        year: 2015, 
+        // Include dates from the national calendar of the specified country
+        // If not specified, only general calendar dates will be returned 
+        country 'unitedStates',
+        // Apply the specified locale to the output
+        // This is useful to retrieve dates 
+        locale: 'pl',
+        // Specifies the end of the Christmas season. 
+        // Can be either 't' (traditional), 'o' (ordinary) and 'e' (extraordinary)
+        // Defaults to 'o' (ordinary) if not specified 
+        christmastideEnds: 't|o|e',
+        // If true, fixes Epiphany on January 6th always.
+        // By default, Epiphany will be set to Sunday based on an internal 
+        // calculation.
+        epiphanyOnJan6: true|false,
+        // Sets Corpus Christi on a Thursday (60 days after Easter) if true.
+        // By default, Corpus Christi will be on a Sunday, 63 days after Easter
+        corpusChristiOnThursday: true|false,
+        // Sets Ascension to Thursday, 39 days after Easter
+        // By default, Ascension occurs on the 7th Sunday of Easter (42 days after)
+        // after Easter.
+        ascensionOnSunday: true|false,
+        // Determines the type of calendar to return.
+        // 'calendar' year runs from Jan 1 - Dec 31.
+        // 'liturgical' year runs from 1st Sunday of Advent of the given year to
+        // Saturday of the 34th Week of Ordinary Time in the following year.
+        // Defaults to 'calendar' year when not specified.
+        type: 'calendar|liturgical',
+        // A nested query object which filters the dates according to
+        // the given criteria
+        // See Queries for more information
+        query: {
+            day: 0 - 6,
+            month: 0 - 11,
+            group: '', 
+            title: '',
+        }
+    },
+    // Optional parameter: If true, skip converting dates to ISO8601 strings 
+    // and return dates as moment objects. Defaults to false if not specified.
+    true|false 
+);
+
+```
+
 ### JSON Structure
 romcal returns an array of liturgical date objects in the following structure
 
@@ -46,7 +98,7 @@ romcal returns an array of liturgical date objects in the following structure
         "key": "theCamelCaseNameOfTheCelebration",
         "name": "The name of the celebration",
         "type": "A key representing the celebration type",
-        "moment": "ISO8601 string of the date of the celebration",
+        "moment": "Moment object or ISO8601 string of the date of the celebration",
         "data": {
             "prioritized": true|false, // optional
             "season": null,
