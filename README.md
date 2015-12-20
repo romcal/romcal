@@ -115,15 +115,16 @@ romcal returns an array of liturgical date objects in the following structure
 
 ### Celebration Types
 Each date in the liturgical calendar is assigned one of the following types: 
-1. SOLEMNITY
-2. SUNDAY
-3. TRIDUUM
-4. HOLY_WEEK
-5. FEAST
-6. MEMORIAL
-7. OPT_MEMORIAL
-8. COMMEMORATION
-9. WEEKDAY
+
+1. `SOLEMNITY`
+2. `SUNDAY`
+3. `TRIDUUM`
+4. `HOLY_WEEK`
+5. `FEAST`
+6. `MEMORIAL`
+7. `OPT_MEMORIAL`
+8. `COMMEMORATION`
+9. `WEEKDAY`
 
 Where the importance or rank of the celebration is in descending order (Solemnity being of highest importance and weekday being the lowest).
 
