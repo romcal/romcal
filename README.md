@@ -1,4 +1,12 @@
-[![Build Status](https://travis-ci.org/pejulian/romcal.svg?branch=master)](https://travis-ci.org/pejulian/romcal) [![MIT License][license-image]][license-url] [![NPM version][npm-version-image]][npm-url] [![NPM downloads][npm-downloads-image]][npm-url]
+[license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
+[license-url]: LICENSE
+[npm-url]: https://www.npmjs.com/package/romcal
+[npm-version-image]: https://img.shields.io/npm/v/romcal.svg?style=flat
+[npm-downloads-image]: https://img.shields.io/npm/dm/romcal.svg?style=flat
+[travis-url]: https://travis-ci.org/pejulian/romcal
+[travis-image]: https://travis-ci.org/pejulian/romcal.svg?branch=master
+
+[![MIT License][license-image]][license-url] [![NPM version][npm-version-image]][npm-url] [![NPM downloads][npm-downloads-image]][npm-url] [![MIT License][license-image]][license-url] [![Build Status][travis-image]][travis-url]
 
 # Romcal
 Utility library that outputs the Liturgical Calendar used by the Roman Rite (Western Church)
