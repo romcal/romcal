@@ -84,10 +84,10 @@ romcal.calendarFor(
         // the given criteria
         // See Queries for more information
         query: {
-            day: 0 - 6,
-            month: 0 - 11,
-            group: '', 
-            title: '',
+            day: 0 - 6, // 0 - Sunday, 6 - Saturday (week beginning with Sunday)
+            month: 0 - 11, // 0 - Jan, 11 - Dec (month begining with Jan)
+            group: '', // See [Queries](#queries)
+            title: '', // See [Queries](#queries)
         }
     },
     // Optional parameter: If true, skip converting dates to ISO8601 strings 
@@ -273,7 +273,7 @@ A new `national` calendar for a country can be defined by creating a new `.js` f
 
 See [Overriding dates](#Overriding dates) for more examples.
 
-### Queries 
+### Queries <a name="queries"></a>
 The following are usage examples 
 #### Querying by month
 
