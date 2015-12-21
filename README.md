@@ -80,7 +80,7 @@ true|false );
 + `query`: A nested query object which filters the dates according to the given criteria. For more details on how to use queries, see [this](#queries) section.
 
 ### Output formatter (second argument)
-Optional parameter: If true, skip converting dates to ISO8601 strings  and return dates as moment objects. Defaults to false if not specified.
+Optional parameter: If true, skip converting dates to ISO8601 strings and return dates as moment objects. Defaults to false if not specified.
 
 ### Output JSON Structure
 romcal returns an array of liturgical date objects in the following structure
@@ -105,8 +105,8 @@ romcal returns an array of liturgical date objects in the following structure
 ]
 ```
 
-+ `key`: A camel case string which serves as a unique identifier for the celebration
-+ `name`: The localizable name of the celebration
++ `key`: A camel case string which serves as a unique identifier for the celebration. This key is an essential element in [overriding dates](#overriding)
++ `name`: The [localizable name](#localizing) of the celebration 
 + `type`: A key representing the [celebration type](#types)
 + `moment`: Moment object or ISO8601 string of the date of the celebration
 + `source`: The internal calendar [source](#sources) of this celebration
@@ -172,12 +172,12 @@ This information can be extracted via the `dates[idx].data.meta.cycle` property.
 [Liturgical colours are those specific colours used for vestments and hangings within the context of Christian liturgy. The symbolism of violet, white, green, red, gold, black, rose and other colours may serve to underline moods appropriate to a season of the liturgical year or may highlight a special occasion.](https://en.wikipedia.org/wiki/Liturgical_colours)
 
 romcal defines 6 colors in `data/liturgicalColors.json` which are:
-+ WHITE
-+ GOLD
-+ RED
-+ ROSE
-+ PURPLE
-+ GREEN
++ `WHITE`
++ `GOLD`
++ `RED`
++ `ROSE`
++ `PURPLE`
++ `GREEN`
 
 More information on how these colors are used for celebration can be found [here](https://en.wikipedia.org/wiki/Liturgical_colours#Roman_Catholic_Church)
 
@@ -187,20 +187,32 @@ This information can be extracted via the `dates[idx].data.meta.liturgicalColor`
 With the exception of the Easter Octave, each week in the liturgical year is assigned readings from the [Psalter](https://en.wikipedia.org/wiki/Roman_Breviary#The_Psalter). There are also some rules that govern the set of Psalter readings used for particular occasions or seasons in the year.
 
 romcal defines the Psalter Weeks used in the liturgical year in `data/psalterWeeks.json` which are:
-+ Week I
-+ Week II
-+ Week III
-+ Week IV
-+ Easter (sepeate set of readings only used during the Octave of Easter)
+
++ `Week I`
++ `Week II`
++ `Week III`
++ `Week IV`
++ `Easter` (sepeate set of readings only used during the Octave of Easter)
 
 This information can be extracted via the `dates[idx].data.meta.psalterWeek` property.
 
 ### Calendar sources <a name="sources"></a>
+
 romcal generates dates that come from 4 different internal sources:
+
 + `l` : liturgical
 + `c` : celebrations
 + `g` : general
 + `n` : national
+
+Each date is assigned a source with one of the four calendar sources above.
+
++ Dates from `lib/seaons.js` will be assigned the source `l`
++ Dates from `lib/celebrations.js` will be assigned the source `c`.
++ Dates from `calendars/general.js` will be assigned the source `g`
++ Dates from `calendars/country.js` will be assigned the source `n`
+
+Calendar sources play an important role in how romcal manages coinciding dates (see [overriding dates](#overidding)).
 
 #### liturgical 
 Represents a standard date in the liturgical year. Dates from this source build the basic structure of the liturgical calendar from the start of the liturgical year to its end. 
@@ -285,10 +297,30 @@ romcal can query
 
 #### Querying by celebration title
 
-### Overriding dates
-Romcal has been redesigned with extensibility in mind to cater for specific scenarios that are commonplace in the liturgical calendar. For example, All Saints
+### Overriding dates <a name="overriding"></a>
 
-### Localizing celebration names
-Celebration names in Romcal can be
+Romcal has been designed with extensibility in mind to cater for specific scenarios that are commonplace in the liturgical calendar. The sections below describe the methods employed by romcal when overriding dates.
+
+#### Overriding a date by its calendar source
+
+
+
+#### Overdding a date by its priority 
+
+Prioritized dates may override dates of higher ranking celebration types and also prevent itself from being overriden by other coinciding dates. For example, dates in `lib/celebrations.js` (Christmas, Easter) are all prioritized as they can override any other date in the liturgical calendar and may not be overriden by any other coinciding date regardless of rank <b>unless</b> the coinciding date is itself prioritized (for example, `allSaints` in `'lib/celebrations.js' can be overriden by `allSaints` in `calendars/england.js`).
+
+#### Overriding a date by its key
+
+In most other countries, All Saints and All Souls are celebrated on the 1st and 2nd of November respectively. However, in England and Wales, when All Saints (1 November) falls on a Saturday, it is transferred to the Sunday and All Souls is transferred to Monday 3rd Novemeber. 
+
+Romcal achieves this difference by redefining the `allSouls` and `allSaints` celebrations in the national calendars of `calendars/england.js` and `calendars/wales.js` (the original definition was in `calendars/general.js`). Since national calendar dates have higher precendence than general calendar dates, the national date definitions for All Saints and All Souls will override the ones in the general calendar.
+
+Therefore, it is important that the key in the national calendar is <b>exactly</b> the same as the one in the general calendar so that romcal recognizes it for overriding.
+
+
+
+
+### Localizing celebration names <a name="localization"></a>
+Celebration names in Romcal can be localized 
 
 
