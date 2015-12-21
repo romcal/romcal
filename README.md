@@ -48,66 +48,41 @@ var romcal = require('romcal');
 Invoke the `calendarFor` method to retrieve an array of liturgical dates and celebrations in the Roman Calendar. This method accepts an object (optional) representing configuration properties to customize the output.
 
 ```
-romcal.calendarFor(
-    {
-        // Retrieve dates for the given year
-        // Defaults to current year if not specified
-        year: 2015, 
-        // Include dates from the national calendar of the specified country
-        // If not specified, only general calendar dates will be returned 
-        country 'unitedStates',
-        // Apply the specified locale to the output
-        // This is useful to retrieve dates 
-        locale: 'pl',
-        // Specifies the end of the Christmas season. 
-        // Can be either 't' (traditional), 'o' (ordinary) and 'e' (extraordinary)
-        // Defaults to 'o' (ordinary) if not specified 
-        christmastideEnds: 't|o|e',
-        // If true, fixes Epiphany on January 6th always.
-        // By default, Epiphany will be set to Sunday based on an internal 
-        // calculation.
-        epiphanyOnJan6: true|false,
-        // Sets Corpus Christi on a Thursday (60 days after Easter) if true.
-        // By default, Corpus Christi will be on a Sunday, 63 days after Easter
-        corpusChristiOnThursday: true|false,
-        // Sets Ascension to Thursday, 39 days after Easter
-        // By default, Ascension occurs on the 7th Sunday of Easter (42 days after)
-        // after Easter.
-        ascensionOnSunday: true|false,
-        // Determines the type of calendar to return.
-        // 'calendar' year runs from Jan 1 - Dec 31.
-        // 'liturgical' year runs from 1st Sunday of Advent of the given year to
-        // Saturday of the 34th Week of Ordinary Time in the following year.
-        // Defaults to 'calendar' year when not specified.
-        type: 'calendar|liturgical',
-        // A nested query object which filters the dates according to
-        // the given criteria
-        // See Queries for more information
-        query: {
-            day: 0 - 6, // 0 - Sunday, 6 - Saturday (week beginning with Sunday)
-            month: 0 - 11, // 0 - Jan, 11 - Dec (month begining with Jan)
-            group: '', 
-            title: '',
-        }
-    },
-    // Optional parameter: If true, skip converting dates to ISO8601 strings 
-    // and return dates as moment objects. Defaults to false if not specified.
-    true|false 
-);
+romcal.calendarFor({
+    year: 2015, 
+    country 'unitedStates',
+    locale: 'pl',
+    christmastideEnds: 't|o|e',
+    epiphanyOnJan6: true|false,
+    corpusChristiOnThursday: true|false,
+    ascensionOnSunday: true|false,
+    type: 'calendar|liturgical',
+    query: {
+        day: 0 - 6, // 0 - Sunday, 6 - Saturday (week beginning with Sunday)
+        month: 0 - 11, // 0 - Jan, 11 - Dec (month begining with Jan)
+        group: '', 
+        title: '',
+    }
+},
+true|false );
 
 ```
 
-### Configuration Options
-
-+ `country`: Include celebration dates requested by the Episcopal council(s) of the given country that have been approved by the Holy See. Defaults to 
+### Basic Configuration Options (first argument)
++ `year`: Retrieve calendar dates for the given year (year should be an integer). Defaults to the current system year if not specified
++ `country`: Include celebration dates requested by the Episcopal council(s) of the given country that have been approved by the Holy See. If not specified, no National dates are included in the calendar output
 + `locale`: Defaults to 'en' (english) if not set. Romcal celebration names can be localized to different languages. If a given locale does not have the localized name for a celebration in that language, romcal will fallback to use the celebration name in English.
-+ ``
++ `christmastideEnds`: Specifies the end of the Christmas season. Can be either 't' (traditional where Christmastide ends on Epiphany), 'o' (ordinary where Christmastide ends on the Baptism of the Lord) and 'e' (extraordinary where Christmastide ends on the Presentation of the Lord). Defaults to 'o' (ordinary) if not specified 
++ `epiphanyOnJan6`: If true, fixes Epiphany on January 6th always. By default, Epiphany will be set to a Sunday between 2 - 8 Jan based on an internal calculation.
++ `corpusChristiOnThursday`: Determines if Corpus Christi should be celebrated on Thursday on the 7th week of Easter (60 days after Easter) or Sunday (63 days after Easter).
++ `ascensionOnSunday`: Determines if Ascension should replace the 7th Sunday of Easter (42 days after Easter). Defaults to false where Ascension will be on Thursday, 39 days after Easter, if value not recognized or specified. 
++ `type`: Determines the type of calendar output. Can either be `liturgical` or `calendar`. Defaults to `calendar` if value not recognized or specified. The 'liturgical' year runs from 1st Sunday of Advent of the given year to Saturday of the 34th Week of Ordinary Time in the following year. The 'calendar' year on the other hand refers to the standard year from Jan 1 - Dec 31.
+`query`: A nested query object which filters the dates according to the given criteria. For more details on how to use queries, see [this](#queries) section.
 
-### Configuring Queries
-For more details on how to use queries, see [this](#queries) section.
+### Output formatter (second argument)
+Optional parameter: If true, skip converting dates to ISO8601 strings  and return dates as moment objects. Defaults to false if not specified.
 
-
-### JSON Structure
+### Output JSON Structure
 romcal returns an array of liturgical date objects in the following structure
 
 ```
