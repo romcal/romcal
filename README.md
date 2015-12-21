@@ -207,9 +207,6 @@ romcal generates dates that come from 4 different internal sources:
 
 Each date is assigned a source with one of the four calendar sources above.
 
-+ Dates from `lib/seaons.js` will be assigned the source `l`
-+ Dates from `lib/celebrations.js` will be assigned the source `c`.
-+ Dates from `calendars/general.js` will be assigned the source `g`
 + Dates from `calendars/country.js` will be assigned the source `n`
 
 Calendar sources play an important role in how romcal manages coinciding dates (see [overriding dates](#overidding)).
@@ -217,6 +214,7 @@ Calendar sources play an important role in how romcal manages coinciding dates (
 #### liturgical 
 Represents a standard date in the liturgical year. Dates from this source build the basic structure of the liturgical calendar from the start of the liturgical year to its end. 
 
+Dates from `lib/seasons.js` will be assigned the source `l`
 The module responsible for generating the `liturgical` dates is `lib/seasons.js`.
 It is highly unlikely that this module will need customization or overriding of any kind.
 
@@ -264,6 +262,7 @@ The following are a list of dates defined in the `celebrations` calendar:
 #### general
 Represents general celebrations that are celebrated throughout the liturgical year. Dates from the `general` calendar will override dates from the `liturgical` calendar. 
 
+Dates from `calendars/general.js` will be assigned the source `g`
 The module responsible for generating the `general` dates is `lib/calendars/general.js`.
 
 `general` calendar dates will always be overwritten by `celebration` or `national` calendar dates even if they are prioritized. Hence, it is  not recommended to edit or add new dates into this calendar.
@@ -277,12 +276,13 @@ A prioritized celebration in the `national` calendar takes precedence over celeb
 
 In situations when there are 2 celebrations from `national` calendar that coincide on the same date, the one with the higher ranking celebration type will take precendence.
 
-A new `national` calendar for a country can be defined by creating a new `.js` file with the country name in upper case, lower case or camel case in the `lib/calendars` folder (i.e. southKorea.js). This new file will automatically be picked up by the module and will be used when the user supplies the matching key in the country argument in the `calendarFor` or `queryFor` methods.
+A new `national` calendar for a country can be defined by creating a new `.js` file with the country name in upper case, lower case or camel case in the `lib/calendars` folder (i.e. malaysia.js). This new file will automatically be picked up by the module and will be used when the user supplies the matching key in the country argument in the `calendarFor` method.
 
 See [Overriding dates](#Overriding dates) for more examples.
 
 ### Queries <a name="queries"></a>
 The following are usage examples 
+
 #### Querying by month
 
 #### Querying by day of week
