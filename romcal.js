@@ -28,7 +28,6 @@ var moment = require('moment'),
 
 var calendar = Romcal.calendarFor({
   year: 2016,
-  country: 'poland',
   epiphanyOnJan6: true,
   christmastideEnds: 'o',
   locale: 'en'

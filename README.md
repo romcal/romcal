@@ -86,8 +86,8 @@ romcal.calendarFor(
         query: {
             day: 0 - 6, // 0 - Sunday, 6 - Saturday (week beginning with Sunday)
             month: 0 - 11, // 0 - Jan, 11 - Dec (month begining with Jan)
-            group: '', // See [Queries](#queries)
-            title: '', // See [Queries](#queries)
+            group: '', 
+            title: '',
         }
     },
     // Optional parameter: If true, skip converting dates to ISO8601 strings 
@@ -96,6 +96,16 @@ romcal.calendarFor(
 );
 
 ```
+
+### Configuration Options
+
++ `country`: Include celebration dates requested by the Episcopal council(s) of the given country that have been approved by the Holy See. Defaults to 
++ `locale`: Defaults to 'en' (english) if not set. Romcal celebration names can be localized to different languages. If a given locale does not have the localized name for a celebration in that language, romcal will fallback to use the celebration name in English.
++ ``
+
+### Configuring Queries
+For more details on how to use queries, see [this](#queries) section.
+
 
 ### JSON Structure
 romcal returns an array of liturgical date objects in the following structure
