@@ -207,8 +207,6 @@ romcal generates dates that come from 4 different internal sources:
 
 Each date is assigned a source with one of the four calendar sources above.
 
-+ Dates from `calendars/country.js` will be assigned the source `n`
-
 Calendar sources play an important role in how romcal manages coinciding dates (see [overriding dates](#overidding)).
 
 #### liturgical 
@@ -278,6 +276,8 @@ In situations when there are 2 celebrations from `national` calendar that coinci
 
 A new `national` calendar for a country can be defined by creating a new `.js` file with the country name in upper case, lower case or camel case in the `lib/calendars` folder (i.e. malaysia.js). This new file will automatically be picked up by the module and will be used when the user supplies the matching key in the country argument in the `calendarFor` method.
 
+Dates from `calendars/countryName.js` will be assigned the source `n`
+
 See [Overriding dates](#Overriding dates) for more examples.
 
 ### Queries <a name="queries"></a>
@@ -307,7 +307,10 @@ Romcal has been designed with extensibility in mind to cater for specific scenar
 
 #### Overdding a date by its priority 
 
-Prioritized dates may override dates of higher ranking celebration types and also prevent itself from being overriden by other coinciding dates. For example, dates in `lib/celebrations.js` (Christmas, Easter) are all prioritized as they can override any other date in the liturgical calendar and may not be overriden by any other coinciding date regardless of rank <b>unless</b> the coinciding date is itself prioritized (for example, `allSaints` in `'lib/celebrations.js' can be overriden by `allSaints` in `calendars/england.js`).
+Prioritized dates may override dates of higher ranking celebration types and also prevent itself from being overriden by other coinciding dates. For example, dates in `lib/celebrations.js` (Christmas, Easter) are all prioritized as they can override any other date in the liturgical calendar and may not be overriden by any other coinciding date regardless of rank <b>unless</b> the coinciding date is itself prioritized (for example, `allSaints` in `'lib/celebrations.js' can be overriden by `allSaints` in `calendars/england.js`). 
+
+Caveat:
+> If a coinciding date's source is from the `celebration` or `national` calendars, and the prioritized date is from the `general` calendar, it will still be overidden by the coinciding date as `celebration` and `national` calendar sources have higher precedence.
 
 #### Overriding a date by its key
 
