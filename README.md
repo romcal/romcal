@@ -77,7 +77,7 @@ true|false );
 + `corpusChristiOnThursday`: Determines if Corpus Christi should be celebrated on Thursday on the 7th week of Easter (60 days after Easter) or Sunday (63 days after Easter).
 + `ascensionOnSunday`: Determines if Ascension should replace the 7th Sunday of Easter (42 days after Easter). Defaults to false where Ascension will be on Thursday, 39 days after Easter, if value not recognized or specified. 
 + `type`: Determines the type of calendar output. Can either be `liturgical` or `calendar`. Defaults to `calendar` if value not recognized or specified. The 'liturgical' year runs from 1st Sunday of Advent of the given year to Saturday of the 34th Week of Ordinary Time in the following year. The 'calendar' year on the other hand refers to the standard year from Jan 1 - Dec 31.
-`query`: A nested query object which filters the dates according to the given criteria. For more details on how to use queries, see [this](#queries) section.
++ `query`: A nested query object which filters the dates according to the given criteria. For more details on how to use queries, see [this](#queries) section.
 
 ### Output formatter (second argument)
 Optional parameter: If true, skip converting dates to ISO8601 strings  and return dates as moment objects. Defaults to false if not specified.
@@ -88,13 +88,14 @@ romcal returns an array of liturgical date objects in the following structure
 ```
 [
     {
-        "key": "theCamelCaseNameOfTheCelebration",
-        "name": "The name of the celebration",
-        "type": "A key representing the celebration type",
-        "moment": "Moment object or ISO8601 string of the date of the celebration",
+        "key": "",
+        "name": "",
+        "type": "",
+        "moment": "",
+        "source": "",
         "data": {
-            "prioritized": true|false, // optional
-            "season": null,
+            "prioritized": boolean
+            "season": "",
             "meta": {
                 "liturgicalColor": {}
                 "titles": []
@@ -104,10 +105,20 @@ romcal returns an array of liturgical date objects in the following structure
 ]
 ```
 
-`moment`: ISO8601 string
++ `key`: A camel case string which serves as a unique identifier for the celebration
++ `name`: The localizable name of the celebration
++ `type`: A key representing the [celebration type](#types)
++ `moment`: Moment object or ISO8601 string of the date of the celebration
++ `source`: The internal calendar [source](#sources) of this celebration
++ `data`: An object that holds additional information about the celebration
+  + prioritized: A optional boolean that when true, gives the celebration higher priority over another coinciding celebration even thought that celebration has a higher ranking type. This flag should be used with caution.
+  + season: Required: A string that identifies the liturgical season this celebration belongs to
+  + meta:
+    + liturgicalColor: The [liturgical color](#colors) assigned for this celebration (usually follows the liturgical season but may defer if this celebration is a solemnity, feast or memorial)
+    + titles: An array of [titles](#titles) that may be assigned to this celebration
 
-### Celebration Types
-Each date in the liturgical calendar is assigned one of the following types: 
+### Celebration Types <a name="types"></a>
+Each date in the liturgical calendar is assigned a types. romcal defines these types in `data/types.json` which are:
 
 1. `SOLEMNITY`
 2. `SUNDAY`
@@ -121,9 +132,9 @@ Each date in the liturgical calendar is assigned one of the following types:
 
 Where the importance or rank of the celebration is in descending order (Solemnity being of highest importance and weekday being the lowest).
 
-Types play an important role in determining which celebration should take precendence over another when two or more celebrations coincide on the same date.
+Types play an important role in determining which celebration should take precendence over another when two or more celebrations coincide on the same date. Certain celebration types will also have different liturgical colors applied to them.
 
-### Celebration Titles
+### Celebration Titles <a name="titles"></a>
 On top of having a celebration type, liturgical dates may also have one or more titles of significance assigned to it. 
 
 For example, the feast of [Saint Catherine of Siena](https://en.wikipedia.org/wiki/Catherine_of_Siena) is assigned the titles `PATRON_OF_EUROPE` (for national calendars of countries in Europe only) and `DOCTOR_OF_THE_CHURCH` due to those titles being conferred on her by the Church.
@@ -137,7 +148,7 @@ The titles available for:
 + `DOCTOR_OF_THE_CHURCH`
 + `MARTYR`
 
-### Liturgical Seasons
+### Liturgical Seasons <a name="seasons"></a>
 The liturgical calendar is divided into various seasons that occur throughout the liturgical year.
 
 romcal defines liturgical seasons in `data/seasons.json` which are:
@@ -152,12 +163,12 @@ romcal defines liturgical seasons in `data/seasons.json` which are:
 
 The methods in `lib/seasons.js` assigns seasons to the dates it generates to indicate the season to which the range of dates generated belong.
 
-### Liturgical Cycles
+### Liturgical Cycles <a name="cycles"></a>
 A liturgical year consists of a cycles (either A, B, C) that determines which portions of scripture are to be read. romcal automatically calculates the correct cycle for the given liturgical year and includes it in the meta information of each liturgical date for that year. 
 
 This information can be extracted via the `dates[idx].data.meta.cycle` property.
 
-### Liturgical Colors
+### Liturgical Colors <a name="colors"></a>
 [Liturgical colours are those specific colours used for vestments and hangings within the context of Christian liturgy. The symbolism of violet, white, green, red, gold, black, rose and other colours may serve to underline moods appropriate to a season of the liturgical year or may highlight a special occasion.](https://en.wikipedia.org/wiki/Liturgical_colours)
 
 romcal defines 6 colors in `data/liturgicalColors.json` which are:
@@ -172,7 +183,7 @@ More information on how these colors are used for celebration can be found [here
 
 This information can be extracted via the `dates[idx].data.meta.liturgicalColor` property.
 
-### Psalter Weeks
+### Psalter Weeks <a name="psalterWeeks"></a>
 With the exception of the Easter Octave, each week in the liturgical year is assigned readings from the [Psalter](https://en.wikipedia.org/wiki/Roman_Breviary#The_Psalter). There are also some rules that govern the set of Psalter readings used for particular occasions or seasons in the year.
 
 romcal defines the Psalter Weeks used in the liturgical year in `data/psalterWeeks.json` which are:
@@ -184,7 +195,7 @@ romcal defines the Psalter Weeks used in the liturgical year in `data/psalterWee
 
 This information can be extracted via the `dates[idx].data.meta.psalterWeek` property.
 
-### Calendar sources
+### Calendar sources <a name="sources"></a>
 romcal generates dates that come from 4 different internal sources:
 + `l` : liturgical
 + `c` : celebrations
