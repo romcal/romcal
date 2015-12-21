@@ -19,7 +19,7 @@ module.exports = {
         "data": {}
       },
       {
-        "key": "blessedMariaDolOresRodriguezSopenaVirgin",
+        "key": "blessedMariaDoloresRodriguezSopenaVirgin",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 0, day: 10 }),
         "data": {}

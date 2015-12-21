@@ -150,7 +150,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintsAndrewZoerardusAndBenedictHermits",
+        "key": "saintsAndrewZorardAndBenedictHermits",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 6, day: 17 }),
         "data": {}

@@ -151,7 +151,7 @@ module.exports = {
         "data": {}
       },
       {
-        "key": "saintFaustinaKowalskaVirgin",
+        "key": "saintFaustinaKowalskaVirginAndReligious",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 9, day: 5 }),
         "data": {

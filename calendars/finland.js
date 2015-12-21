@@ -37,7 +37,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintCatherineOfSienaVirginAndDoctor",
+        "key": "saintCatherineOfSienaVirginAndDoctorOfTheChurch",
         "type": Types[4],
         "moment": moment.utc({ year: arguments[0], month: 3, day: 29 }),
         "data": {

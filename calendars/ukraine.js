@@ -163,7 +163,7 @@ module.exports = {
         "data": {}
       },
       {
-        "key": "blessedWtadystawBtDzinskiPriestAndCompanionsMartyrs",
+        "key": "blessedWladyslawBladzinskiPriestAndCompanionsMartyrs",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 8, day: 9 }),
         "data": {

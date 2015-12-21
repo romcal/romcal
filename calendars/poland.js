@@ -274,7 +274,7 @@ module.exports = {
         "data": {}
       },
       {
-        "key": "saintOttoBishop",
+        "key": "saintOttoOfBambergBishop",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 6, day: 1 }),
         "data": {}
@@ -334,7 +334,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintsAndrzejSwieradAndBenedictHermits",
+        "key": "saintsAndrewZorardAndBenedictHermits",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 6, day: 13 }),
         "data": {
@@ -392,7 +392,7 @@ module.exports = {
         "data": {}
       },
       {
-        "key": "saintBridgetReligiousPatronOfEurope",
+        "key": "saintBridgetOfSweedenReligious",
         "type": Types[4],
         "moment": moment.utc({ year: arguments[0], month: 6, day: 23 }),
         "data": {
@@ -536,7 +536,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintFaustinaKowalskaReligious",
+        "key": "saintFaustinaKowalskaVirginAndReligious",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 9, day: 5 }),
         "data": {
@@ -639,7 +639,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintsBenedyktJanMateuszIsaakAndKrystynTheFirstMartyrsOfPolAnd",
+        "key": "saintsBenedyktJanMateuszIsaakAndKrystynMartyrs",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 10, day: 13 }),
         "data": {

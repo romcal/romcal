@@ -25,7 +25,7 @@ module.exports = {
         "data": {}
       },
       {
-        "key": "saintSeverinusOfNOricumMonk",
+        "key": "saintSeverinusOfNoricumMonk",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 0, day: 8 }),
         "data": {}
@@ -82,7 +82,7 @@ module.exports = {
         "data": {}
       },
       {
-        "key": "saintBrunoOfQuerfurtBishop",
+        "key": "saintBrunoBonifaceOfQuerfurtBishopAndMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 2, day: 9 }),
         "data": {}
@@ -150,7 +150,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintFlOrianAndHisCompanionsMartyrs",
+        "key": "saintFlorianAndHisCompanionsMartyrs",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 4, day: 4 }),
         "data": {}
