@@ -37,6 +37,58 @@ Then require romcal in your node project:
 var romcal = require('romcal');
 ```
 
+Invoke the `calendarFor` method to retrieve an array of liturgical dates and celebrations in the Roman Calendar. This method accepts an object (optional) representing configuration properties to customize the output.
+
+```
+romcal.calendarFor(
+    {
+        // Retrieve dates for the given year
+        // Defaults to current year if not specified
+        year: 2015, 
+        // Include dates from the national calendar of the specified country
+        // If not specified, only general calendar dates will be returned 
+        country 'unitedStates',
+        // Apply the specified locale to the output
+        // This is useful to retrieve dates 
+        locale: 'pl',
+        // Specifies the end of the Christmas season. 
+        // Can be either 't' (traditional), 'o' (ordinary) and 'e' (extraordinary)
+        // Defaults to 'o' (ordinary) if not specified 
+        christmastideEnds: 't|o|e',
+        // If true, fixes Epiphany on January 6th always.
+        // By default, Epiphany will be set to Sunday based on an internal 
+        // calculation.
+        epiphanyOnJan6: true|false,
+        // Sets Corpus Christi on a Thursday (60 days after Easter) if true.
+        // By default, Corpus Christi will be on a Sunday, 63 days after Easter
+        corpusChristiOnThursday: true|false,
+        // Sets Ascension to Thursday, 39 days after Easter
+        // By default, Ascension occurs on the 7th Sunday of Easter (42 days after)
+        // after Easter.
+        ascensionOnSunday: true|false,
+        // Determines the type of calendar to return.
+        // 'calendar' year runs from Jan 1 - Dec 31.
+        // 'liturgical' year runs from 1st Sunday of Advent of the given year to
+        // Saturday of the 34th Week of Ordinary Time in the following year.
+        // Defaults to 'calendar' year when not specified.
+        type: 'calendar|liturgical',
+        // A nested query object which filters the dates according to
+        // the given criteria
+        // See Queries for more information
+        query: {
+            day: 0 - 6,
+            month: 0 - 11,
+            group: '', 
+            title: '',
+        }
+    },
+    // Optional parameter: If true, skip converting dates to ISO8601 strings 
+    // and return dates as moment objects. Defaults to false if not specified.
+    true|false 
+);
+
+```
+
 ### JSON Structure
 romcal returns an array of liturgical date objects in the following structure
 
@@ -46,7 +98,7 @@ romcal returns an array of liturgical date objects in the following structure
         "key": "theCamelCaseNameOfTheCelebration",
         "name": "The name of the celebration",
         "type": "A key representing the celebration type",
-        "moment": "ISO8601 string of the date of the celebration",
+        "moment": "Moment object or ISO8601 string of the date of the celebration",
         "data": {
             "prioritized": true|false, // optional
             "season": null,
@@ -63,39 +115,47 @@ romcal returns an array of liturgical date objects in the following structure
 
 ### Celebration Types
 Each date in the liturgical calendar is assigned one of the following types: 
-1. SOLEMNITY
-2. SUNDAY
-3. TRIDUUM
-4. HOLY_WEEK
-5. FEAST
-6. MEMORIAL
-7. OPT_MEMORIAL
-8. COMMEMORATION
-9. WEEKDAY
+
+1. `SOLEMNITY`
+2. `SUNDAY`
+3. `TRIDUUM`
+4. `HOLY_WEEK`
+5. `FEAST`
+6. `MEMORIAL`
+7. `OPT_MEMORIAL`
+8. `COMMEMORATION`
+9. `WEEKDAY`
 
 Where the importance or rank of the celebration is in descending order (Solemnity being of highest importance and weekday being the lowest).
 
 Types play an important role in determining which celebration should take precendence over another when two or more celebrations coincide on the same date.
 
 ### Celebration Titles
-On top of having a celebration type, liturgical dates may also have one or more titles of significance assigned to it. For example, the feast of [Saint Catherine of Siena](https://en.wikipedia.org/wiki/Catherine_of_Siena) is assigned the titles PATRON_OF_EUROPE (for national calendars of countries in Europe only) and DOCTOR_OF_THE_CHURCH due to those titles being conferred on her by the Church.
+On top of having a celebration type, liturgical dates may also have one or more titles of significance assigned to it. 
 
-The titles available for 
-+ FEAST_OF_THE_LORD
-+ PATRON_OF_EUROPE
-+ DOCTOR_OF_THE_CHURCH
+For example, the feast of [Saint Catherine of Siena](https://en.wikipedia.org/wiki/Catherine_of_Siena) is assigned the titles `PATRON_OF_EUROPE` (for national calendars of countries in Europe only) and `DOCTOR_OF_THE_CHURCH` due to those titles being conferred on her by the Church.
+
+romcal defines liturgical seasons in `data/titles.json` which are:
+
+The titles available for:
+
++ `FEAST_OF_THE_LORD`
++ `PATRON_OF_EUROPE`
++ `DOCTOR_OF_THE_CHURCH`
++ `MARTYR`
 
 ### Liturgical Seasons
 The liturgical calendar is divided into various seasons that occur throughout the liturgical year.
 
 romcal defines liturgical seasons in `data/seasons.json` which are:
-+ ADVENT
-+ CHRISTMASTIDE
-+ EARLY_ORDINARY_TIME
-+ LATER_ORDINARY_TIME
-+ LENT
-+ HOLY_WEEK
-+ EASTER
+
++ `ADVENT`
++ `CHRISTMASTIDE`
++ `EARLY_ORDINARY_TIME`
++ `LATER_ORDINARY_TIME`
++ `LENT`
++ `HOLY_WEEK`
++ `EASTER`
 
 The methods in `lib/seasons.js` assigns seasons to the dates it generates to indicate the season to which the range of dates generated belong.
 
