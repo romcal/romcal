@@ -91,18 +91,16 @@ describe('Testing calendar generation functions', function() {
 
     describe('For filtering by month of year', function() {
       it('Results should match the month of year requested', function() {
-        for( var i = 0, il = 12; i < il; i++ ) {
-          _.each( 
-            Calendar.calendarFor({
-              query: {
-                month: i
-              }
-            }, true ),
-            function( d ) {
-              d.moment.month().should.be.eql( i );
+        _.each( 
+          Calendar.calendarFor({
+            query: {
+              month: 6
             }
-          ); 
-        }
+          }, true ),
+          function( d ) {
+            d.moment.month().should.be.eql( 6 );
+          }
+        ); 
       });
     });
 
