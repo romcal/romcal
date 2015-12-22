@@ -304,38 +304,74 @@ Dates from `calendars/countryName.js` will be assigned the source `n`
 See [Overriding dates](#Overriding dates) for more examples.
 
 ## Queries <a name="queries"></a>
-The following are usage examples 
+Romcal can filter `calendarFor` results if a query object is passed along with the initial configuration object:
 
-### Querying by month
+### Filtering calendar output by month of year or day of week
 
-### Querying by day of week
-
-### Querying by celebration types
-
-romcal can query
+```
+romcal.calendarFor({
+    query: {
+        month: 0 // 0 - 11
+    } 
+});
 
 ```
 
+or
+
+```
+romcal.calendarFor({
+    query: {
+        day: 0, // 0 - 6
+    } 
+});
+
 ```
 
-#### Querying by celebration title
+### Grouping calendar output by critieria
 
-### Overriding dates <a name="overriding"></a>
+```
+romcal.calendarFor({
+    query: {
+        group: 'days|months|daysByMonth|weeksByMonth|cycles|types|liturgicalSeasons|liturgicalColors|psalterWeeks'
+    } 
+});
+
+```
+
+### Filtering calendar output by celebration title metadata
+
+```
+romcal.calendarFor({
+    query: {
+        title: 'PATRON_OF_EUROPE'
+    } 
+});
+
+```
+
+Possible values can be checked [here](#titles).
+
+
+Warning: Passing more than one criteria to the query object may cause errors or unpredictable results.
+
+
+## Overriding dates <a name="overriding"></a>
 
 Romcal has been designed with extensibility in mind to cater for specific scenarios that are commonplace in the liturgical calendar. The sections below describe the methods employed by romcal when overriding dates.
 
-#### Overriding a date by its calendar source
+### Overriding a date by its calendar source
 
 
 
-#### Overdding a date by its priority 
+### Overdding a date by its priority 
 
 Prioritized dates may override dates of higher ranking celebration types and also prevent itself from being overriden by other coinciding dates. For example, dates in `lib/celebrations.js` (Christmas, Easter) are all prioritized as they can override any other date in the liturgical calendar and may not be overriden by any other coinciding date regardless of rank <b>unless</b> the coinciding date is itself prioritized (for example, `allSaints` in `'lib/celebrations.js' can be overriden by `allSaints` in `calendars/england.js`). 
 
 Caveat:
 > If a coinciding date's source is from the `celebration` or `national` calendars, and the prioritized date is from the `general` calendar, it will still be overidden by the coinciding date as `celebration` and `national` calendar sources have higher precedence.
 
-#### Overriding a date by its key
+### Overriding a date by its key
 
 In most other countries, All Saints and All Souls are celebrated on the 1st and 2nd of November respectively. However, in England and Wales, when All Saints (1 November) falls on a Saturday, it is transferred to the Sunday and All Souls is transferred to Monday 3rd Novemeber. 
 
