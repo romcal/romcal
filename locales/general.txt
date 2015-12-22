@@ -1,9 +1,0 @@
-
-
-
-the2ndDayOfTheOctaveOfChristmas : 2 dzień w oktawie Narodzenia Pańskiego
-the3rdDayOfTheOctaveOfChristmas : 3 dzień w oktawie Narodzenia Pańskiego
-the4thDayOfTheOctaveOfChristmas : 4 dzień w oktawie Narodzenia Pańskiego
-the5thDayOfTheOctaveOfChristmas : 5 dzień w oktawie Narodzenia Pańskiego
-the6thDayOfTheOctaveOfChristmas : 6 dzień w oktawie Narodzenia Pańskiego
-the7thDayOfTheOctaveOfChristmas : 7 w dzień oktawie Narodzenia Pańskiego

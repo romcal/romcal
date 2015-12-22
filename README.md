@@ -370,7 +370,7 @@ Romcal has been designed with extensibility in mind to cater for specific scenar
 
 ### Overriding a date by its calendar source <a name="overridingBySource"></a>
 
-
+The order of importance of calendar sources are: celebrations > national > general > liturgical.
 
 ### Overriding a date by its priority <a name="overridingByPriority"></a>
 
@@ -388,9 +388,71 @@ Romcal achieves this difference by redefining the `allSouls` and `allSaints` cel
 Therefore, it is important that the key in the national calendar is <b>exactly</b> the same as the one in the general calendar so that romcal recognizes it for overriding.
 
 
-
-
 ### Localizing celebration names <a name="localization"></a>
-Celebration names in Romcal can be localized 
+
+Celebration names in Romcal can be localized to any language that is already supported by [Moment i18n](http://momentjs.com/docs/#/i18n/). Locales are stored as `.json` files in the `locales` directory where the name of the file corresponds to the locale name of a given language. 
+
+`en` is the default locale in romcal and serves as the fallback when the user specified locale has not been defined in the `locales` directory or the given key does not exist in the locale.
+
+The structure of the locale file is typically like so:
+
+```
+{
+  "advent": {
+
+  },
+  "christmastide": {
+
+  },
+  "epiphany": {
+
+  },
+  "ordinaryTime": {
+
+  },
+  "lent": {
+
+  },
+  "holyWeek": {
+
+  },
+  "eastertide": {
+
+  },
+  "celebrations": {
+
+  },
+  "general": {
+
+  },
+  "national": {
+
+  }
+
+}
+
+```
+The first 7 objects define locale keys used by `lib/seasons.js` when generating litugical dates.
+
+The `celebrations`, `general` and `national` objects will hold localizations for `lib/celebrations.js`, `calendars/general.js` and `calendars/country.js` respectively where the celebrations `key` is used as the identifier for localization purposes.
+
+See the end of these files to see the function that localizes the dates according to their keys.
 
 
+#### Utils.localize()
+
+romcal uses the utility function `Utils.localize()` to resolve the correct locale string based on the given key.
+The function accepts several parameters:
+
+```
+Utils.localize({
+  key: '',
+  week: 0,
+  count: 0
+});
+
+```
+
++ `key`: A dot deliminated string representing the locale key (`celebrations.christmas`)
++ `week`: A non zero integer for weeks which will be converted to its ordinal representation (1st Sunday of Advent)
++ `count`: A non zero integer for days which will be converted to its ordinal representation (2nd Sunday of Christmas)
