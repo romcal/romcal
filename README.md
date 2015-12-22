@@ -32,6 +32,14 @@ Utility library that outputs the Liturgical Calendar used by the Roman Rite (Wes
   - [General](#general)
   - [National](#national)
 - [Queries](#queries)
+  - [Filtering calendar output by month of year or day of week](#filterByMonthOrDay)
+  - [Grouping calendar output by critieria](#groupingByCriteria)
+  - [Filtering calendar output by celebration title metadata](#filteringByTitle)
+- [Overriding dates](#)
+  - [Overriding a date by its calendar source](#overridingBySource)
+  - [Overdding a date by its priority](#overridingByPriority)
+  - [Overriding a date by its key](#overridingByKey)
+- [Localizing celebration names](#localization)
 
 ## Description <a name="desc"></a>
 Romcal is a module that generates the [General Roman Calendar](http://en.wikipedia.org/wiki/General_Roman_Calendar) used in the Roman Catholic Rite. This module conforms to the revised liturgical calendar for the Western Church as approved by Paul VI in [Mysterii Paschalis](http://www.romcal.net/mysterii.html) dated 14 February 1969. This module can output dates based on the standard calendar year (Jan, 1st - Dec, 31st) or the liturgical year (First Sunday of Advent - Christ the King).
@@ -306,7 +314,7 @@ See [Overriding dates](#Overriding dates) for more examples.
 ## Queries <a name="queries"></a>
 Romcal can filter `calendarFor` results if a query object is passed along with the initial configuration object:
 
-### Filtering calendar output by month of year or day of week
+### Filtering calendar output by month of year or day of week <a name="filterByMonthOrDay"></a>
 
 ```
 romcal.calendarFor({
@@ -328,7 +336,7 @@ romcal.calendarFor({
 
 ```
 
-### Grouping calendar output by critieria
+### Grouping calendar output by critieria <a name="groupingByCriteria"></a>
 
 ```
 romcal.calendarFor({
@@ -339,7 +347,7 @@ romcal.calendarFor({
 
 ```
 
-### Filtering calendar output by celebration title metadata
+### Filtering calendar output by celebration title metadata <a name="filterByTitle"></a>
 
 ```
 romcal.calendarFor({
@@ -360,18 +368,18 @@ Warning: Passing more than one criteria to the query object may cause errors or 
 
 Romcal has been designed with extensibility in mind to cater for specific scenarios that are commonplace in the liturgical calendar. The sections below describe the methods employed by romcal when overriding dates.
 
-### Overriding a date by its calendar source
+### Overriding a date by its calendar source <a name="overridingBySource"></a>
 
 
 
-### Overdding a date by its priority 
+### Overriding a date by its priority <a name="overridingByPriority"></a>
 
 Prioritized dates may override dates of higher ranking celebration types and also prevent itself from being overriden by other coinciding dates. For example, dates in `lib/celebrations.js` (Christmas, Easter) are all prioritized as they can override any other date in the liturgical calendar and may not be overriden by any other coinciding date regardless of rank <b>unless</b> the coinciding date is itself prioritized (for example, `allSaints` in `'lib/celebrations.js' can be overriden by `allSaints` in `calendars/england.js`). 
 
 Caveat:
 > If a coinciding date's source is from the `celebration` or `national` calendars, and the prioritized date is from the `general` calendar, it will still be overidden by the coinciding date as `celebration` and `national` calendar sources have higher precedence.
 
-### Overriding a date by its key
+### Overriding a date by its key <a name="overridingByKey"></a>
 
 In most other countries, All Saints and All Souls are celebrated on the 1st and 2nd of November respectively. However, in England and Wales, when All Saints (1 November) falls on a Saturday, it is transferred to the Sunday and All Souls is transferred to Monday 3rd Novemeber. 
 
