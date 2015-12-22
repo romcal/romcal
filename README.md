@@ -11,10 +11,32 @@
 # Romcal
 Utility library that outputs the Liturgical Calendar used by the Roman Rite (Western Church)
 
-## Description
+## Table of Contents
+- [Description](#desc)
+- [Features](#features)
+- [Module Robustness & Data Integrity](#disclaimer)
+- [Revisions](#revisions)
+- [Usage](#usage)
+  - [Configuration Options](#configOpts)
+  - [Output Formatter](#outputFormatter)
+  - [JSON Structure](#jsonStructure)
+- [Celebration Types](#types)
+- [Celebration Titles](#titles)
+- [Liturgical Seasons](#seasons)
+- [Liturgical Cycles](#cycles)
+- [Liturgical Colors](#colors)
+- [Psalter Weeks](#psalterWeeks)
+- [Calendar Sources](#sources)
+  - [Liturgical](#liturgical)
+  - [Celebrations](#celebrations)
+  - [General](#general)
+  - [National](#national)
+- [Queries](#queries)
+
+## Description <a name="desc"></a>
 Romcal is a module that generates the [General Roman Calendar](http://en.wikipedia.org/wiki/General_Roman_Calendar) used in the Roman Catholic Rite. This module conforms to the revised liturgical calendar for the Western Church as approved by Paul VI in [Mysterii Paschalis](http://www.romcal.net/mysterii.html) dated 14 February 1969. This module can output dates based on the standard calendar year (Jan, 1st - Dec, 31st) or the liturgical year (First Sunday of Advent - Christ the King).
 
-## Features
+## Features <a name="features"></a>
  * Able to query liturgical dates for any year in the gregorian calendar (1582 - now). Note that dates for years before 1969 will still be returned in a format conforming to [Mysterii Paschalis](http://www.romcal.net/mysterii.html) even though those years came before the calendar reforms in 1969.
  * Filter queries to allow more strealined date results to be obtained for the year.
  * Localization of liturgical date names to cater for different languages
@@ -23,15 +45,15 @@ Romcal is a module that generates the [General Roman Calendar](http://en.wikiped
 
 NOTE: This module depends on [Moment](http://momentjs.com/) and [lodash](http://lodash.com/) for most of its calculations and operations. Several [Moment](http://momentjs.com/) plugins such as [Range](https://github.com/gf3/moment-range) and [Recur](https://github.com/c-trimm/moment-recur) are used to extend date computation functionality. Familiarity with these libraries makes reading the code much easier.
 
-## Module Robustness & Data Integrity
+## Module Robustness & Data Integrity <a name="disclaimer"></a>
 *Calendar entries for this module are pulled from various sources from the net. As such their accuracy cannot be ensured. If you find an incorrect calendar entry (e.g. wrong date, wrong feast type, spelling issue, typos), you are most welcome to contribute to the source code or inform me so that the necessary changes can be made to make this a more robust and reliable app*
 
 *Romcal's code logic is developed according to calendar requirements descibed in various church documents sourced from the internet (and even from Wikipedia). If you notice discrepancies between romcal's output and actual liturgical dates, please do contribute your fixes or submit an issue on GitHub.*
 
-## Revisions
+## Revisions <a name="revisions"></a>
 * 1.2.0 *Major rewrite for better extensibility and functionality. All previous revisions have been marked for deprecation in favor of this new rewrite.*
 
-## Usage
+## Usage <a name="usage"></a>
 
 Add romcal to your project via npm:
 
@@ -68,7 +90,7 @@ true|false );
 
 ```
 
-### Basic Configuration Options (first argument)
+### Configuration Options <a name="configOpts"></a>
 + `year`: Retrieve calendar dates for the given year (year should be an integer). Defaults to the current system year if not specified
 + `country`: Include celebration dates requested by the Episcopal council(s) of the given country that have been approved by the Holy See. If not specified, no National dates are included in the calendar output
 + `locale`: Defaults to 'en' (english) if not set. Romcal celebration names can be localized to different languages. If a given locale does not have the localized name for a celebration in that language, romcal will fallback to use the celebration name in English.
@@ -79,10 +101,11 @@ true|false );
 + `type`: Determines the type of calendar output. Can either be `liturgical` or `calendar`. Defaults to `calendar` if value not recognized or specified. The 'liturgical' year runs from 1st Sunday of Advent of the given year to Saturday of the 34th Week of Ordinary Time in the following year. The 'calendar' year on the other hand refers to the standard year from Jan 1 - Dec 31.
 + `query`: A nested query object which filters the dates according to the given criteria. For more details on how to use queries, see [this](#queries) section.
 
-### Output formatter (second argument)
-Optional parameter: If true, skip converting dates to ISO8601 strings and return dates as moment objects. Defaults to false if not specified.
+### Output formatter <a name="outputFormatter"></a>
+The second parameter that can be passed to the `romcal.calendarFor()` method.
+It is an optional parameter: If true, skip converting dates to ISO8601 strings and return dates as moment objects. Defaults to false if not specified.
 
-### Output JSON Structure
+### JSON Structure <a name="jsonStructure"></a>
 romcal returns an array of liturgical date objects in the following structure
 
 ```
@@ -117,7 +140,7 @@ romcal returns an array of liturgical date objects in the following structure
     + liturgicalColor: The [liturgical color](#colors) assigned for this celebration (usually follows the liturgical season but may defer if this celebration is a solemnity, feast or memorial)
     + titles: An array of [titles](#titles) that may be assigned to this celebration
 
-### Celebration Types <a name="types"></a>
+## Celebration Types <a name="types"></a>
 Each date in the liturgical calendar is assigned a types. romcal defines these types in `data/types.json` which are:
 
 1. `SOLEMNITY`
@@ -134,7 +157,7 @@ Where the importance or rank of the celebration is in descending order (Solemnit
 
 Types play an important role in determining which celebration should take precendence over another when two or more celebrations coincide on the same date. Certain celebration types will also have different liturgical colors applied to them.
 
-### Celebration Titles <a name="titles"></a>
+## Celebration Titles <a name="titles"></a>
 On top of having a celebration type, liturgical dates may also have one or more titles of significance assigned to it. 
 
 For example, the feast of [Saint Catherine of Siena](https://en.wikipedia.org/wiki/Catherine_of_Siena) is assigned the titles `PATRON_OF_EUROPE` (for national calendars of countries in Europe only) and `DOCTOR_OF_THE_CHURCH` due to those titles being conferred on her by the Church.
@@ -148,7 +171,7 @@ The titles available for:
 + `DOCTOR_OF_THE_CHURCH`
 + `MARTYR`
 
-### Liturgical Seasons <a name="seasons"></a>
+## Liturgical Seasons <a name="seasons"></a>
 The liturgical calendar is divided into various seasons that occur throughout the liturgical year.
 
 romcal defines liturgical seasons in `data/seasons.json` which are:
@@ -163,12 +186,12 @@ romcal defines liturgical seasons in `data/seasons.json` which are:
 
 The methods in `lib/seasons.js` assigns seasons to the dates it generates to indicate the season to which the range of dates generated belong.
 
-### Liturgical Cycles <a name="cycles"></a>
+## Liturgical Cycles <a name="cycles"></a>
 A liturgical year consists of a cycles (either A, B, C) that determines which portions of scripture are to be read. romcal automatically calculates the correct cycle for the given liturgical year and includes it in the meta information of each liturgical date for that year. 
 
 This information can be extracted via the `dates[idx].data.meta.cycle` property.
 
-### Liturgical Colors <a name="colors"></a>
+## Liturgical Colors <a name="colors"></a>
 [Liturgical colours are those specific colours used for vestments and hangings within the context of Christian liturgy. The symbolism of violet, white, green, red, gold, black, rose and other colours may serve to underline moods appropriate to a season of the liturgical year or may highlight a special occasion.](https://en.wikipedia.org/wiki/Liturgical_colours)
 
 romcal defines 6 colors in `data/liturgicalColors.json` which are:
@@ -183,7 +206,7 @@ More information on how these colors are used for celebration can be found [here
 
 This information can be extracted via the `dates[idx].data.meta.liturgicalColor` property.
 
-### Psalter Weeks <a name="psalterWeeks"></a>
+## Psalter Weeks <a name="psalterWeeks"></a>
 With the exception of the Easter Octave, each week in the liturgical year is assigned readings from the [Psalter](https://en.wikipedia.org/wiki/Roman_Breviary#The_Psalter). There are also some rules that govern the set of Psalter readings used for particular occasions or seasons in the year.
 
 romcal defines the Psalter Weeks used in the liturgical year in `data/psalterWeeks.json` which are:
@@ -196,7 +219,7 @@ romcal defines the Psalter Weeks used in the liturgical year in `data/psalterWee
 
 This information can be extracted via the `dates[idx].data.meta.psalterWeek` property.
 
-### Calendar sources <a name="sources"></a>
+## Calendar sources <a name="sources"></a>
 
 romcal generates dates that come from 4 different internal sources:
 
@@ -209,14 +232,14 @@ Each date is assigned a source with one of the four calendar sources above.
 
 Calendar sources play an important role in how romcal manages coinciding dates (see [overriding dates](#overidding)).
 
-#### liturgical 
+### liturgical <a name="liturgical"></a>
 Represents a standard date in the liturgical year. Dates from this source build the basic structure of the liturgical calendar from the start of the liturgical year to its end. 
 
 Dates from `lib/seasons.js` will be assigned the source `l`
 The module responsible for generating the `liturgical` dates is `lib/seasons.js`.
 It is highly unlikely that this module will need customization or overriding of any kind.
 
-#### celebrations
+### celebrations <a name="celebrations"></a>
 Represents central celebrations observed in the Roman Catholic rite. They take precendence and will replace coinciding dates from the `liturgical` calendar or `general` calendar. Date objects from this calendar will contain the source `c`.
 
 The module responsible for generating `celebrations` is `lib/celebrations.js`. It is highly unlikely that this module will need customization or overriding of any kind.
@@ -257,7 +280,7 @@ The following are a list of dates defined in the `celebrations` calendar:
 + Triumph of the Cross
 + Immaculate Heart of Mary
 
-#### general
+### general <a name="general"></a>
 Represents general celebrations that are celebrated throughout the liturgical year. Dates from the `general` calendar will override dates from the `liturgical` calendar. 
 
 Dates from `calendars/general.js` will be assigned the source `g`
@@ -267,7 +290,7 @@ The module responsible for generating the `general` dates is `lib/calendars/gene
 
 In situations where a given celebration must override one in the general calendar, define it in the `national` calendar instead.
 
-#### national
+### national <a name="national"></a>
 Represents specific liturgical dates that have been approved for use by the Holy See for a particular country. It can be used to define unique celebrations celebrated by that particular country or existing celebrations that have been [transferred to another date](https://en.wikipedia.org/wiki/General_Roman_Calendar#Transfer_of_celebrations).
 
 A prioritized celebration in the `national` calendar takes precedence over celebrations in `general`, `celebrations` and `liturgical` calendars. As such, this marker should be used with caution lest it overrides an important celebration that should not be overriden leading to an erroneous calendar output. 
@@ -280,14 +303,14 @@ Dates from `calendars/countryName.js` will be assigned the source `n`
 
 See [Overriding dates](#Overriding dates) for more examples.
 
-### Queries <a name="queries"></a>
+## Queries <a name="queries"></a>
 The following are usage examples 
 
-#### Querying by month
+### Querying by month
 
-#### Querying by day of week
+### Querying by day of week
 
-#### Querying by celebration types
+### Querying by celebration types
 
 romcal can query
 
