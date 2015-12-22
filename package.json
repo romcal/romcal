@@ -1,6 +1,6 @@
 {
   "name": "romcal",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Utility library that outputs the Liturgical Calendar used by the Roman Rite (Western Church)",
   "main": "romcal.js",
   "scripts": {
@@ -18,6 +18,7 @@
     "western",
     "church",
     "christian",
+    "seasons",
     "liturgical"
   ],
   "author": "Julian Pereira <bleushade@gmail.com>",

@@ -54,9 +54,14 @@ Romcal is a module that generates the [General Roman Calendar](http://en.wikiped
 NOTE: This module depends on [Moment](http://momentjs.com/) and [lodash](http://lodash.com/) for most of its calculations and operations. Several [Moment](http://momentjs.com/) plugins such as [Range](https://github.com/gf3/moment-range) and [Recur](https://github.com/c-trimm/moment-recur) are used to extend date computation functionality. Familiarity with these libraries makes reading the code much easier.
 
 ## Module Robustness & Data Integrity <a name="disclaimer"></a>
-*Calendar entries for this module are pulled from various sources from the net. As such their accuracy cannot be ensured. If you find an incorrect calendar entry (e.g. wrong date, wrong feast type, spelling issue, typos), you are most welcome to contribute to the source code or inform me so that the necessary changes can be made to make this a more robust and reliable app*
+*Calendar entries for this module are pulled from various sources from the net. As such their accuracy cannot be ensured. If you find an incorrect calendar entry (e.g. wrong date, wrong feast type, spelling issue, typos), you are most welcome to contribute to the source code or inform me so that the necessary changes can be made to make this a more robust and reliable module*
 
 *Romcal's code logic is developed according to calendar requirements descibed in various church documents sourced from the internet (and even from Wikipedia). If you notice discrepancies between romcal's output and actual liturgical dates, please do contribute your fixes or submit an issue on GitHub.*
+
+### Testing romcal
+romcal logic is tested using mocha and should.
+Run `npm test` in your console to view test output.
+Travis CI is used to validate romcal builds to ensure functionality is working as expected.
 
 ## Revisions <a name="revisions"></a>
 * 1.2.0 *Major rewrite for better extensibility and functionality. All previous revisions have been marked for deprecation in favor of this new rewrite.*
