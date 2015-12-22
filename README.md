@@ -8,9 +8,10 @@
 
 [![MIT License][license-image]][license-url] [![NPM version][npm-version-image]][npm-url] [![NPM downloads][npm-downloads-image]][npm-url] [![MIT License][license-image]][license-url] [![Build Status][travis-image]][travis-url]
 
+[![Join the chat at https://gitter.im/pejulian/romcal](https://badges.gitter.im/pejulian/romcal.svg)](https://gitter.im/pejulian/romcal?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 # Romcal
 
-[![Join the chat at https://gitter.im/pejulian/romcal](https://badges.gitter.im/pejulian/romcal.svg)](https://gitter.im/pejulian/romcal?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Utility library that outputs the Liturgical Calendar used by the Roman Rite (Western Church)
 
 ## Table of Contents
