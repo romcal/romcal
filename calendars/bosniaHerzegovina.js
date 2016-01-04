@@ -28,7 +28,10 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 1, day: 10 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
           }
         }
       },
@@ -39,7 +42,9 @@ module.exports = {
         "data": {
           "meta": {
             "liturgicalColor": LiturgicalColors.WHITE,
-            "titles": [ Titles.PATRON_OF_EUROPE ]
+            "titles": [ 
+              Titles.PATRON_OF_EUROPE 
+            ]
           }
         }
       },
@@ -96,7 +101,9 @@ module.exports = {
         "data": {
           "meta": {
             "liturgicalColor": LiturgicalColors.WHITE,
-            "titles": [ Titles.PATRON_OF_EUROPE ]
+            "titles": [ 
+              Titles.PATRON_OF_EUROPE 
+            ]
           }
         }
       },
@@ -133,10 +140,14 @@ module.exports = {
         "data": {}
       },
       {
-        "key": "blessedAugustinKazoticMartyrBishop",
+        "key": "blessedAugustinKazoticBishopAndMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 7, day: 3 }),
-        "data": {}
+        "data": {
+          "titles": [
+            Titles.MARTYR
+          ]
+        }
       },
       {
         "key": "saintRoch",
@@ -150,7 +161,10 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 8, day: 7 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
           }
         }
       },
@@ -166,7 +180,10 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 10, day: 14 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
           }
         }
       },

@@ -111,7 +111,7 @@ module.exports = {
         }
       },
       {
-        "key": "blessedAugustinKazoticMartyr",
+        "key": "blessedAugustinKazoticBishopAndMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 7, day: 3 }),
         "data": {}

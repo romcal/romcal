@@ -28,7 +28,10 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 3, day: 28 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
           }
         }
       },
@@ -42,7 +45,13 @@ module.exports = {
         "key": "blessedPeterToRotMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 6, day: 7 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintMaryOfTheCrossVirgin",

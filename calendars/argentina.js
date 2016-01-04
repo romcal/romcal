@@ -70,7 +70,13 @@ module.exports = {
         "key": "saintsAugustineZhaoRongPriestAndCompanionsMartyrs",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 6, day: 10 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "ourLadyOfMountCarmel",
@@ -134,7 +140,13 @@ module.exports = {
         "key": "saintHectorValdivielsoSaezMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 9, day: 9 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "ourLadyOfThePillar",

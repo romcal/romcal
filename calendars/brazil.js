@@ -28,7 +28,10 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 5, day: 15 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
           }
         }
       },
@@ -58,7 +61,10 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 6, day: 17 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
           }
         }
       },
@@ -78,7 +84,10 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 9, day: 3 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.RED
+            ]
           }
         }
       },
@@ -108,7 +117,10 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 10, day: 19 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.RED
+            ]
           }
         }
       },
