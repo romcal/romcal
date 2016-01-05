@@ -26,24 +26,57 @@ var moment = require('moment'),
     _ = require('lodash'),
     Romcal = require('./lib/calendar');
 
+// UNCOMMENT ONLY WHEN UPDATING PLUGIN
+//=======================================================
+
 // _.each( 
-//     Romcal.calendarFor({
-//       year: 2016,
-//       epiphanyOnJan6: false,
-//       christmastideEnds: 'o'
-//     }, true ), 
-//     function( v ) {
-//       console.log( 
-//         _.padRight( v.moment.format('ddd, DD MMM YY'), 16 ), 
-//         '|', _.padRight( v.data.meta.liturgicalColor.key, 6 ),
-//         '|', _.padRight( v.data.season.value, 15 ),
-//         '|', _.padRight( v.data.meta.psalterWeek.value, 8 ),
-//         '|', _.padRight( v.data.meta.cycle.value, 6 ),
-//         '|', _.padRight( v.type, 13 ),
-//         '|', _.padRight( v.source, 1 ),
-//         '|', v.name
-//       );
-//     }
-//   );
+//   Romcal.calendarFor({
+//     year: 2015,
+//     epiphanyOnJan6: false,
+//     christmastideEnds: 'o'
+//   }, true ), 
+//   function( v ) {
+//     console.log( 
+//       _.padRight( v.moment.format('ddd, DD MMM YY'), 16 ), 
+//       '|', _.padRight( v.data.meta.liturgicalColor.key, 6 ),
+//       '|', _.padRight( v.data.season.value, 15 ),
+//       '|', _.padRight( v.data.meta.psalterWeek.value, 8 ),
+//       '|', _.padRight( v.data.meta.cycle.value, 6 ),
+//       '|', _.padRight( v.type, 13 ),
+//       '|', _.padRight( v.source, 1 ),
+//       '|', v.name
+//     );
+//   }
+// );
+
+// for( var i = 1950, il = 2101; i < il; i++ ) {
+//   Romcal.calendarFor({
+//     year: i,
+//     epiphanyOnJan6: false,
+//     christmastideEnds: 'o',
+//     corpusChristiOnThursday: false,
+//     ascensionOnSunday: false
+//   });
+// }
+
+// for( var i = 1950, il = 2101; i < il; i++ ) {
+//   Romcal.calendarFor({
+//     year: i,
+//     epiphanyOnJan6: true,
+//     christmastideEnds: 't',
+//     corpusChristiOnThursday: true,
+//     ascensionOnSunday: true
+//   });
+// }
+
+// for( var i = 1950, il = 2101; i < il; i++ ) {
+//   Romcal.calendarFor({
+//     year: i,
+//     epiphanyOnJan6: true,
+//     christmastideEnds: 'e',
+//     corpusChristiOnThursday: true,
+//     ascensionOnSunday: true
+//   });
+// }
 
 module.exports = Romcal;
