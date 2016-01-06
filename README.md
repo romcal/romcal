@@ -14,6 +14,14 @@
 
 Utility library that outputs the Liturgical Calendar used by the Roman Rite (Western Church)
 
+## Contributing to romcal
+ 
+All contributions are most welcome! 
+
+Please fork/raise merge requests or issues to improve the quality of this module. 
+
+I especially reach out to you all for help with translations/localizations of celebration names so that this module can cater to a wider audience.
+
 ## Table of Contents
 - [Description](#desc)
 - [Features](#features)
@@ -109,7 +117,7 @@ true|false );
 
 ### Configuration Options <a name="configOpts"></a>
 + `year`: Retrieve calendar dates for the given year (year should be an integer). Defaults to the current system year if not specified
-+ `country`: Include celebration dates requested by the Episcopal council(s) of the given country that have been approved by the Holy See. If not specified, no National dates are included in the calendar output
++ `country`: Include celebration dates requested by the Episcopal council(s) of the given country that have been approved by the Holy See. If not specified, no National dates are included in the calendar output. If  an unrecognized country is specified, romcal will silently ignore the property and will not return any National dates in the calendar output.
 + `locale`: Defaults to 'en' (english) if not set. Romcal celebration names can be localized to different languages. If a given locale does not have the localized name for a celebration in that language, romcal will fallback to use the celebration name in English.
 + `christmastideEnds`: Specifies the end of the Christmas season. Can be either 't' (traditional where Christmastide ends on Epiphany), 'o' (ordinary where Christmastide ends on the Baptism of the Lord) and 'e' (extraordinary where Christmastide ends on the Presentation of the Lord). Defaults to 'o' (ordinary) if not specified 
 + `epiphanyOnJan6`: If true, fixes Epiphany on January 6th always. By default, Epiphany will be set to a Sunday between 2 - 8 Jan based on an internal calculation.
