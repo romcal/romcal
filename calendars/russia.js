@@ -59,7 +59,10 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 4, day: 6 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
           }
         }
       },
@@ -126,7 +129,13 @@ module.exports = {
         "key": "saintsBorisAndGlebMartyrs",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 7, day: 5 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr",
@@ -134,7 +143,11 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 7, day: 9 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR,
+              Titles.PATRON_OF_EUROPE
+            ]
           }
         }
       },
@@ -200,7 +213,13 @@ module.exports = {
         "key": "saintBarbaraVirginAndMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 11, day: 4 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintNicholasBishop",

@@ -22,7 +22,14 @@ module.exports = {
         "key": "saintPaulMikiAndCompanionsMartyrs",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 1, day: 7 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintPatrickBishop",
@@ -46,7 +53,14 @@ module.exports = {
         "key": "saintPeterChanelPriestAndMartyr",
         "type": Types[4],
         "moment": moment.utc({ year: arguments[0], month: 3, day: 28 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "ourLadyHelpOfChristians",

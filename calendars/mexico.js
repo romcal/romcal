@@ -16,7 +16,14 @@ module.exports = {
         "key": "saintFelipeDeJesusPriestAndMartyr",
         "type": Types[4],
         "moment": moment.utc({ year: arguments[0], month: 0, day: 22 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "blessedSebastianDeAparicioReligious",
@@ -28,7 +35,14 @@ module.exports = {
         "key": "saintCristobalMagallanesAndCompanionsMartyrs",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 4, day: 21 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintMariaDeJesusSacramentadoVenegasVirgin",
@@ -40,13 +54,25 @@ module.exports = {
         "key": "blessedBartolomeLaurelReligiousAndMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 7, day: 16 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "blessedsPedroZunigaAndLuisFloresPriestsAndMartyrs",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 7, day: 16 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "blessedJuniperoSerraPriest",
@@ -70,7 +96,13 @@ module.exports = {
         "key": "blessedMiguelAgustinProPriestAndMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 10, day: 23 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintJuanDiego",

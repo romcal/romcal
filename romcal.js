@@ -33,7 +33,8 @@ var moment = require('moment'),
 //   Romcal.calendarFor({
 //     year: 2015,
 //     epiphanyOnJan6: false,
-//     christmastideEnds: 'o'
+//     christmastideEnds: 'o',
+//     country: 'poland'
 //   }, true ), 
 //   function( v ) {
 //     console.log( 

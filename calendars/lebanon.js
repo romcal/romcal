@@ -16,7 +16,14 @@ module.exports = {
         "key": "saintBarbaraVirginAndMartyr",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 11, day: 4 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintNicholasBishop",
@@ -46,7 +53,14 @@ module.exports = {
         "key": "saintGeorgeMartyr",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 3, day: 23 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "ourLadyOfLebanon",

@@ -65,7 +65,6 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 4, day: 16 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.RED,
             "titles": [
               Titles.MARTYR
             ]
@@ -78,7 +77,6 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 4, day: 21 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.RED,
             "titles": [
               Titles.MARTYR
             ]
@@ -137,7 +135,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintBirgitta",
+        "key": "saintBirgittaReligious",
         "type": Types[4],
         "moment": moment.utc({ year: arguments[0], month: 6, day: 23 }),
         "data": {
@@ -152,7 +150,11 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 7, day: 9 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR,
+              Titles.PATRON_OF_EUROPE
+            ]
           }
         }
       },

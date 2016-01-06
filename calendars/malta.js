@@ -106,7 +106,8 @@ module.exports = {
           "meta": {
             "liturgicalColor": LiturgicalColors.RED,
             "titles": [
-              Titles.MARTYR
+              Titles.MARTYR,
+              Titles.PATRON_OF_EUROPE
             ]
           }
         }

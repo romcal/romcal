@@ -34,7 +34,13 @@ module.exports = {
         "key": "saintMeinradMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 0, day: 21 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "blessedHenrySusoPriest",
@@ -85,7 +91,13 @@ module.exports = {
         "key": "saintBrunoBonifaceOfQuerfurtBishopAndMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 2, day: 9 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintMatilda",
@@ -115,7 +127,13 @@ module.exports = {
         "key": "saintLeoIxPopeOrBlessedMarcelCalloMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 3, day: 19 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintConradOfParzhamReligious",
@@ -153,7 +171,13 @@ module.exports = {
         "key": "saintFlorianAndHisCompanionsMartyrs",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 4, day: 4 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintGotthardBishop",
@@ -165,7 +189,13 @@ module.exports = {
         "key": "saintJohnNepomucenePriestAndMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 4, day: 16 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintHermannJosephPriest",
@@ -177,7 +207,13 @@ module.exports = {
         "key": "saintVitusMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 5, day: 15 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintBennoOfMeissenBishop",
@@ -223,13 +259,25 @@ module.exports = {
         "key": "saintKilianBishopAndCompanionsMartyrs",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 6, day: 8 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintsCanuteEricAndOlafMartyrs",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 6, day: 10 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintBenedictOfNursiaAbbot",
@@ -252,7 +300,13 @@ module.exports = {
         "key": "saintMargaretOfAntiochVirginAndMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 6, day: 20 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintBrigittaReligious",
@@ -268,7 +322,13 @@ module.exports = {
         "key": "saintChristopherMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 6, day: 24 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr",
@@ -276,8 +336,11 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 7, day: 9 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE,
-            "titles": [ Titles.PATRON_OF_EUROPE ]
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR,
+              Titles.PATRON_OF_EUROPE
+            ]
           }
         }
       },
@@ -303,13 +366,25 @@ module.exports = {
         "key": "saintLambertOfMaastrichtBishopAndMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 8, day: 18 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintMauriceAndCompanionsMartyrs",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 8, day: 22 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintsRupertAndVirgiliusOfSalzburgBishops",
@@ -345,7 +420,13 @@ module.exports = {
         "key": "saintUrsulaAndCompanionsVirginsAndMartyrs",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 9, day: 21 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintWolfgangOfRegensburgBishop",
@@ -409,7 +490,13 @@ module.exports = {
         "key": "saintLuciusOfChurBishopAndMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 11, day: 2 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintBarbaraVirginAndMartyrOrBlessedAdolphKolpingPriest",

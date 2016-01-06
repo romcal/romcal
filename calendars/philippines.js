@@ -22,13 +22,27 @@ module.exports = {
         "key": "saintsPedroBautistaPaulMikiAndCompanionsMartyrs",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 1, day: 6 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintPedroCalungsodMartyr",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 3, day: 2 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintIsidoreTheFarmer",
@@ -52,7 +66,14 @@ module.exports = {
         "key": "saintLorenzoRuizAndCompanionsMartyrs",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 8, day: 28 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "immaculateConceptionOfTheBlessedVirginMaryPrincipalPatronessOfThePhilippines",

@@ -18,7 +18,10 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 1, day: 10 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
           }
         }
       },
@@ -114,7 +117,13 @@ module.exports = {
         "key": "blessedAugustinKazoticBishopAndMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 7, day: 3 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr",
@@ -122,7 +131,11 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 7, day: 9 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR,
+              Titles.PATRON_OF_EUROPE
+            ]
           }
         }
       },

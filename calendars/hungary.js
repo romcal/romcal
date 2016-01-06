@@ -74,7 +74,13 @@ module.exports = {
         "key": "saintFlorianMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 4, day: 4 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "blessedGisela",
@@ -86,19 +92,37 @@ module.exports = {
         "key": "blessedSaraSalkahaziVirginAndMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 4, day: 11 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintJohnNepomucenePriestAndMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 4, day: 16 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "blessedVilmosAporBishopAndMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 4, day: 23 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "ourLadyHelpOfChristians",
@@ -116,7 +140,13 @@ module.exports = {
         "key": "blessedIstvanSandorMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 5, day: 8 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintLadislaus",
@@ -177,8 +207,11 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 7, day: 9 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE,
-            "titles": [ Titles.PATRON_OF_EUROPE ]
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR,
+              Titles.PATRON_OF_EUROPE
+            ]
           }
         }
       },
@@ -252,7 +285,13 @@ module.exports = {
         "key": "blessedTheodoreRomzhaBishopAndMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 9, day: 31 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintEmeric",

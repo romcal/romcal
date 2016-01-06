@@ -53,7 +53,14 @@ module.exports = {
         "key": "saintMagnusMartyr",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 4, day: 16 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintCatherineOfSienaVirginAndDoctorOfTheChurch",
@@ -72,19 +79,40 @@ module.exports = {
         "key": "saintEricIxMartyr",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 4, day: 18 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintSunnivaVirginAndMartyr",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 6, day: 8 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintCanuteMartyr",
         "type": Types[5],
         "moment": moment.utc({ year: arguments[0], month: 6, day: 10 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintBenedictOfNursiaAbbot",
@@ -120,7 +148,14 @@ module.exports = {
         "key": "saintOlafIiMartyr",
         "type": Types[0],
         "moment": moment.utc({ year: arguments[0], month: 4, day: 29 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "liturgicalColor": LiturgicalColors.WHITE,
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr",
@@ -128,7 +163,9 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 7, day: 9 }),
         "data": {
           "meta": {
-            "titles": [ 
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR,
               Titles.PATRON_OF_EUROPE
             ]
           }

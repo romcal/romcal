@@ -51,7 +51,13 @@ module.exports = {
         "key": "blessedVladimirGhikaPriestAndMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 4, day: 16 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintBenedictOfNursiaAbbot",
@@ -80,7 +86,11 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 7, day: 9 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR,
+              Titles.PATRON_OF_EUROPE
+            ]
           }
         }
       }

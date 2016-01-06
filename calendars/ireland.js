@@ -231,7 +231,10 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 5, day: 20 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
           }
         }
       },
@@ -241,7 +244,10 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 6, day: 1 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
           }
         }
       },
@@ -261,7 +267,13 @@ module.exports = {
         "key": "saintKillianBishopAndMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 6, day: 8 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintBenedictOfNursiaAbbot",
@@ -296,7 +308,11 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 7, day: 9 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR,
+              Titles.PATRON_OF_EUROPE
+            ]
           }
         }
       },

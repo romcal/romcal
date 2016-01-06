@@ -22,7 +22,13 @@ module.exports = {
         "key": "saintsFructuosusBishopAndAuguriusAndEulogiusDeaconsMartyrs",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 0, day: 20 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintVincentDeaconAndMartyr",
@@ -30,7 +36,10 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 0, day: 22 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
           }
         }
       },
@@ -55,7 +64,11 @@ module.exports = {
         "key": "saintHermenegildMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 3, day: 13 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "liturgicalColor": LiturgicalColors.RED
+          }
+        }
       },
       {
         "key": "saintIsidoreOfSevilleBishopAndDoctorOfTheChurch",
@@ -132,7 +145,13 @@ module.exports = {
         "key": "saintPelagiusMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 5, day: 26 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintBenedictOfNursiaAbbot",
@@ -178,8 +197,11 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 7, day: 9 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE,
-            "titles": [ Titles.PATRON_OF_EUROPE ]
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR,
+              Titles.PATRON_OF_EUROPE
+            ]
           }
         }
       },

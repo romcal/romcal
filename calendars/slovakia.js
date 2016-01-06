@@ -40,7 +40,13 @@ module.exports = {
         "key": "saintGeorgeMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 3, day: 24 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintCatherineOfSienaVirginAndDoctorOfTheChurch",
@@ -60,7 +66,13 @@ module.exports = {
         "key": "blessedSaraSalkahaziVirginAndMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 4, day: 11 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintJohnNepomucenePriestAndMartyr",
@@ -68,7 +80,10 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 4, day: 16 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
           }
         }
       },
@@ -122,7 +137,7 @@ module.exports = {
         }
       },
       {
-        "key": "saintBirgitta",
+        "key": "saintBirgittaReligious",
         "type": Types[4],
         "moment": moment.utc({ year: arguments[0], month: 6, day: 23 }),
         "data": {
@@ -145,7 +160,13 @@ module.exports = {
         "key": "blessedZdenkaSchelingovaVirginAndMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 6, day: 30 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr",
@@ -153,7 +174,11 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 7, day: 9 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR,
+              Titles.PATRON_OF_EUROPE
+            ]
           }
         }
       },
@@ -163,15 +188,22 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 8, day: 7 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
           }
         }
       },
       {
-        "key": "ourLadyOfSOrrowsPatronessOfSlovakia",
+        "key": "ourLadyOfSorrowsPatronessOfSlovakia",
         "type": Types[0],
         "moment": moment.utc({ year: arguments[0], month: 8, day: 15 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "liturgicalColor": LiturgicalColors.WHITE
+          }
+        }
       },
       {
         "key": "saintEmeric",

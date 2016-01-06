@@ -106,7 +106,13 @@ module.exports = {
         "key": "blessedsNykytaBudkaAndVasylVelychkowskyBishopsAndMartyrs",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 5, day: 27 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintAnnePatronOfQuebecAndSaintJoachimParentsOfTheBlessedVirginMary",
@@ -128,7 +134,13 @@ module.exports = {
         "key": "blessedAndreGrassetPriestAndMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 8, day: 2 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "blessedDinaBelangerVirgin",
@@ -148,7 +160,7 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 8, day: 26 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE
+            "liturgicalColor": LiturgicalColors.RED
           }
         }
       },

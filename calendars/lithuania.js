@@ -40,7 +40,13 @@ module.exports = {
         "key": "saintBrunoBonifaceOfQuerfurtBishopAndMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 2, day: 9 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "saintAdalbertBishopAndMartyr",
@@ -72,7 +78,13 @@ module.exports = {
         "key": "saintAndrewBobolaPriestAndMartyr",
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 4, day: 16 }),
-        "data": {}
+        "data": {
+          "meta": {
+            "titles": [
+              Titles.MARTYR
+            ]
+          }
+        }
       },
       {
         "key": "ourLadyMotherOfMercy",
@@ -104,8 +116,10 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 7, day: 9 }),
         "data": {
           "meta": {
-            "titles": [ 
-              Titles.PATRON_OF_EUROPE 
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR,
+              Titles.PATRON_OF_EUROPE
             ]
           }
         }

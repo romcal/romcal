@@ -18,7 +18,10 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 1, day: 6 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
           }
         }
       },
@@ -34,7 +37,10 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 6, day: 1 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE
+            "liturgicalColor": LiturgicalColors.RED,
+            "titles": [
+              Titles.MARTYR
+            ]
           }
         }
       },
