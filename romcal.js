@@ -34,17 +34,19 @@ var moment = require('moment'),
 //     year: 2016,
 //     epiphanyOnJan6: false,
 //     christmastideEnds: 'o',
-//     country: 'poland'
+//     query: {
+//         month: 1
+//     }
 //   }, true ), 
 //   function( v ) {
 //     console.log( 
-//       _.padRight( v.moment.format('ddd, DD MMM YY'), 16 ), 
-//       '|', _.padRight( v.data.meta.liturgicalColor.key, 6 ),
-//       '|', _.padRight( v.data.season.value, 15 ),
-//       '|', _.padRight( v.data.meta.psalterWeek.value, 8 ),
-//       '|', _.padRight( v.data.meta.cycle.value, 6 ),
-//       '|', _.padRight( v.type, 13 ),
-//       '|', _.padRight( v.source, 1 ),
+//       _.padEnd( v.moment.format('ddd, DD MMM YY'), 16 ), 
+//       '|', _.padEnd( v.data.meta.liturgicalColor.key, 6 ),
+//       '|', _.padEnd( v.data.season.value, 15 ),
+//       '|', _.padEnd( v.data.meta.psalterWeek.value, 8 ),
+//       '|', _.padEnd( v.data.meta.cycle.value, 6 ),
+//       '|', _.padEnd( v.type, 13 ),
+//       '|', _.padEnd( v.source, 1 ),
 //       '|', v.name
 //     );
 //   }
