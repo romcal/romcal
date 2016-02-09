@@ -1789,6 +1789,19 @@ module.exports = {
         "type": Types[6],
         "moment": moment.utc({ year: arguments[0], month: 11, day: 31 }),
         "data": {}
+      },
+      // Special celebrations
+      {
+        "key": "shroveMonday",
+        "type": _.last( Types ),
+        "moment": Dates.ashWednesday( arguments[0], arguments[5] ).subtract( 2, 'days'),
+        "data": {}     
+      },
+      {
+        "key": "shroveTuesday",
+        "type": _.last( Types ),
+        "moment": Dates.ashWednesday( arguments[0], arguments[5] ).subtract( 1, 'days'),
+        "data": {}     
       }
     ];
 
