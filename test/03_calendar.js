@@ -50,7 +50,7 @@ describe('Testing calendar generation functions', function() {
                   }, true );
 
       it('Should start on the 1st Sunday of Advent and end on Christ the King', function() {
-        _.first( dates ).moment.isSame( start ).should.be.eql( true );
+        _.head( dates ).moment.isSame( start ).should.be.eql( true );
         _.last( dates ).moment.isSame( end ).should.be.eql( true );
       });      
 
@@ -61,8 +61,8 @@ describe('Testing calendar generation functions', function() {
       var dates = Calendar.calendarFor( true );
 
       it('Should start on Jan 1 and end on Dec 31', function() {
-        _.first( dates ).moment.month().should.be.eql( 0 );
-        _.first( dates ).moment.date().should.be.eql( 1 );
+        _.head( dates ).moment.month().should.be.eql( 0 );
+        _.head( dates ).moment.date().should.be.eql( 1 );
         _.last( dates ).moment.month().should.be.eql( 11 );
         _.last( dates ).moment.date().should.be.eql( 31 );
       });
@@ -196,7 +196,7 @@ describe('Testing calendar generation functions', function() {
           }
         }, true ), 
         function( d ) {
-          _.contains( d.data.meta.titles, Titles.FEAST_OF_THE_LORD ).should.be.ok;
+          _.includes( d.data.meta.titles, Titles.FEAST_OF_THE_LORD ).should.be.ok;
         }
       );
       _.each( 
@@ -206,7 +206,7 @@ describe('Testing calendar generation functions', function() {
           }
         }, true ), 
         function( d ) {
-          _.contains( d.data.meta.titles, Titles.PATRON_OF_EUROPE ).should.be.ok;
+          _.includes( d.data.meta.titles, Titles.PATRON_OF_EUROPE ).should.be.ok;
         }
       );
     });
@@ -222,7 +222,7 @@ describe('Testing calendar generation functions', function() {
         }
         else {
           if ( !_.isUndefined( d.data.meta.titles ) ) {
-            if ( _.contains( d.data.meta.titles, Titles.MARTYR ) ) {
+            if ( _.includes( d.data.meta.titles, Titles.MARTYR ) ) {
               d.data.meta.liturgicalColor.key.should.be.eql( Colors.RED.key );
             }
             else {
@@ -236,7 +236,7 @@ describe('Testing calendar generation functions', function() {
       });
       _.each( _.get( calendar, Types[5] ), function( d ) {
         if ( !_.isUndefined( d.data.meta.titles ) ) {
-          if ( _.contains( d.data.meta.titles, Titles.MARTYR ) ) {
+          if ( _.includes( d.data.meta.titles, Titles.MARTYR ) ) {
             d.data.meta.liturgicalColor.key.should.be.eql( Colors.RED.key );
           }
           else {

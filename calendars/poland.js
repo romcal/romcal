@@ -81,8 +81,8 @@ module.exports = {
           var holyWeek = Dates.holyWeek( y ),
               easterOctave = Dates.octaveOfEaster( y ),
               annunciation = Dates.annunciation( y ),
-              holyWeekRange = moment.range( _.first( holyWeek ), _.last( holyWeek ) ),
-              easterOctaveRange = moment.range( _.first( easterOctave ), _.last( easterOctave ) ),
+              holyWeekRange = moment.range( _.head( holyWeek ), _.last( holyWeek ) ),
+              easterOctaveRange = moment.range( _.head( easterOctave ), _.last( easterOctave ) ),
               date = moment.utc({ year: y, month: 3, day: 23 });
 
           // If the celebration lands anywhere between Holy Week to Divine Mercy Sunday (inclusive)

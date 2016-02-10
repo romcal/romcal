@@ -91,7 +91,7 @@ describe('Testing date range functions', function() {
 
     it('The first Sunday of Lent should be 4 days after Ash Wednesday', function() {
       for ( var i = 1900, il = 2200; i <= il; i++ ) {
-        _.first( Dates.sundaysOfLent( i ) ).subtract( 4, 'days').isSame( Dates.ashWednesday( i )).should.be.eql(true);
+        _.head( Dates.sundaysOfLent( i ) ).subtract( 4, 'days').isSame( Dates.ashWednesday( i )).should.be.eql(true);
       }
     });
 
@@ -112,7 +112,7 @@ describe('Testing date range functions', function() {
 
     it('The first day of the octave should be on Easter Sunday', function() {
       for ( var i = 1900, il = 2100; i <= il; i++ ) {
-        _.first( Dates.octaveOfEaster( i ) ).isSame( Dates.easter( i ) ).should.be.eql( true );
+        _.head( Dates.octaveOfEaster( i ) ).isSame( Dates.easter( i ) ).should.be.eql( true );
       }
     });
 
@@ -133,7 +133,7 @@ describe('Testing date range functions', function() {
 
     it('The first Sunday of Easter should start on Easter Sunday', function() {
       for ( var i = 1900, il = 2100; i <= il; i++ ) {
-        _.first( Dates.sundaysOfEaster( i ) ).isSame( Dates.easter( i ) ).should.be.eql( true );
+        _.head( Dates.sundaysOfEaster( i ) ).isSame( Dates.easter( i ) ).should.be.eql( true );
       }
     });
 
@@ -148,21 +148,21 @@ describe('Testing date range functions', function() {
 
     it('If the end of Christmastide is on Epiphany, Ordinary time starts the next day', function() {
       for ( var i = 1900, il = 2200; i <= il; i++ ) {
-        _.first( Dates.daysOfEarlyOrdinaryTime( i, 't' ) ).subtract( 1, 'days' ).isSame( Dates.epiphany( i ) ).should.be.eql(true);
+        _.head( Dates.daysOfEarlyOrdinaryTime( i, 't' ) ).subtract( 1, 'days' ).isSame( Dates.epiphany( i ) ).should.be.eql(true);
         _.last( Dates.daysOfEarlyOrdinaryTime( i, 't' ) ).add( 1, 'days' ).isSame( Dates.ashWednesday( i ) ).should.be.eql(true);
       }
     });
 
     it('If the end of Christmastide is on Baptism of the Lord, Ordinary time starts the next day', function() {
       for ( var i = 1900, il = 2200; i <= il; i++ ) {
-        _.first( Dates.daysOfEarlyOrdinaryTime( i, 'o' ) ).subtract( 1, 'days' ).isSame( Dates.baptismOfTheLord( i )).should.be.eql(true);
+        _.head( Dates.daysOfEarlyOrdinaryTime( i, 'o' ) ).subtract( 1, 'days' ).isSame( Dates.baptismOfTheLord( i )).should.be.eql(true);
         _.last( Dates.daysOfEarlyOrdinaryTime( i, 'o' ) ).add( 1, 'days' ).isSame( Dates.ashWednesday( i )).should.be.eql(true);
       }
     });
 
     it('If the end of Christmastide is on Presentation of the Lord, Ordinary time starts the next day', function() {
       for ( var i = 1900, il = 2100; i <= il; i++ ) {
-        _.first( Dates.daysOfEarlyOrdinaryTime( i, 'e' ) ).subtract( 1, 'days' ).isSame( Dates.presentationOfTheLord( i )).should.be.eql(true);
+        _.head( Dates.daysOfEarlyOrdinaryTime( i, 'e' ) ).subtract( 1, 'days' ).isSame( Dates.presentationOfTheLord( i )).should.be.eql(true);
         _.last( Dates.daysOfEarlyOrdinaryTime( i, 'e' ) ).add( 1, 'days' ).isSame( Dates.ashWednesday( i )).should.be.eql(true);
       }
     });
@@ -185,7 +185,7 @@ describe('Testing date range functions', function() {
               return _.eq( d.day(), 0 );
             });
         sundays.length.should.be.equalOneOf([23,24,25,26,27,28,29]);
-        _.first( dates ).subtract( 1, 'days' ).isSame( Dates.pentecostSunday( i ) ).should.be.eql(true);
+        _.head( dates ).subtract( 1, 'days' ).isSame( Dates.pentecostSunday( i ) ).should.be.eql(true);
         _.last( dates ).add( 1, 'days' ).isSame( Dates.sundaysOfAdvent( i )[0] ).should.be.eql(true);
       }
     });

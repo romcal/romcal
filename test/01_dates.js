@@ -156,7 +156,7 @@ describe('Testing specific liturgical date functions', function() {
 
     it('The first day of Holy Week should start on Palm Sunday', function() {
       for ( var i = 1900, il = 2050; i <= il; i++ ) {
-        _.first( rcal.holyWeek( i ) ).isSame( rcal.palmSunday( i ) ).should.be.eql( true );
+        _.head( rcal.holyWeek( i ) ).isSame( rcal.palmSunday( i ) ).should.be.eql( true );
       }
     });
 
@@ -665,7 +665,7 @@ describe('Testing specific liturgical date functions', function() {
         var date = moment.utc({ year: i, month: 2, day: 19 });
             sundays = rcal.sundaysOfLent( i ),
             holyWeek = rcal.holyWeek( i ),
-            range = moment.range( _.first( holyWeek ), _.last( holyWeek ) ),
+            range = moment.range( _.head( holyWeek ), _.last( holyWeek ) ),
             onSundayOfLent = false;
 
         _.each( sundays, function( sunday ) {
@@ -691,7 +691,7 @@ describe('Testing specific liturgical date functions', function() {
         var date = moment.utc({ year: i, month: 2, day: 19 });
             holyWeek = rcal.holyWeek( i ),
             sundays = rcal.sundaysOfLent( i ),
-            range = moment.range( _.first( holyWeek ), _.last( holyWeek ) ),
+            range = moment.range( _.head( holyWeek ), _.last( holyWeek ) ),
             onSundayOfLent = false;
 
         _.each( sundays, function( sunday ) {
@@ -714,7 +714,7 @@ describe('Testing specific liturgical date functions', function() {
         var date = moment.utc({ year: i, month: 2, day: 19 });
             holyWeek = rcal.holyWeek( i ),
             sundays = rcal.sundaysOfLent( i ),
-            range = moment.range( _.first( holyWeek ), _.last( holyWeek ) ),
+            range = moment.range( _.head( holyWeek ), _.last( holyWeek ) ),
             onSundayOfLent = false;
 
         _.each( sundays, function( sunday ) {
@@ -743,9 +743,9 @@ describe('Testing specific liturgical date functions', function() {
               return date.isSame( sunday );
             });
             holyWeek = rcal.holyWeek( i ),
-            holyWeekRange = moment.range( _.first( holyWeek ), _.last( holyWeek ) ),
+            holyWeekRange = moment.range( _.head( holyWeek ), _.last( holyWeek ) ),
             octave = rcal.octaveOfEaster( i ),
-            octaveRange = moment.range( _.first( octave ), _.last( octave ) );
+            octaveRange = moment.range( _.head( octave ), _.last( octave ) );
 
         if ( !holyWeekRange.contains( date ) && !octaveRange.contains( date ) && !match ) {
           rcal.annunciation( i ).date().should.be.eql( 25 );
@@ -760,9 +760,9 @@ describe('Testing specific liturgical date functions', function() {
 
         var date = moment.utc({ year: i, month: 2, day: 25 });
             holyWeek = rcal.holyWeek( i ),
-            holyWeekRange = moment.range( _.first( holyWeek ), _.last( holyWeek ) ),
+            holyWeekRange = moment.range( _.head( holyWeek ), _.last( holyWeek ) ),
             octave = rcal.octaveOfEaster( i ),
-            octaveRange = moment.range( _.first( octave ), _.last( octave ) );
+            octaveRange = moment.range( _.head( octave ), _.last( octave ) );
 
         if ( holyWeekRange.contains( date ) && !octaveRange.contains( date ) ) {
           rcal.annunciation( i ).isSame(rcal.divineMercySunday( i ).add( 1, 'days' )).should.be.eql(true);
@@ -777,9 +777,9 @@ describe('Testing specific liturgical date functions', function() {
 
         var date = moment.utc({ year: i, month: 2, day: 25 });
             holyWeek = rcal.holyWeek( i ),
-            holyWeekRange = moment.range( _.first( holyWeek ), _.last( holyWeek ) ),
+            holyWeekRange = moment.range( _.head( holyWeek ), _.last( holyWeek ) ),
             octave = rcal.octaveOfEaster( i ),
-            octaveRange = moment.range( _.first( octave ), _.last( octave ) );
+            octaveRange = moment.range( _.head( octave ), _.last( octave ) );
 
         if ( !holyWeekRange.contains( date ) && octaveRange.contains( date ) ) {
           rcal.annunciation( i ).isSame(rcal.divineMercySunday( i ).add( 1, 'days' )).should.be.eql(true);
