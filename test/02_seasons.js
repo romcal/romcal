@@ -278,7 +278,7 @@ describe('Testing seasons utility functions', function() {
 
     it('The liturgical color for Lent and Advent is purple, except for the 4th Sunday of Lent and 3rd Sunday of Advent, which is rose', function() {
       _.each( Seasons.lent( 2015 ), function( date ) {
-        if ( _.eq( date.key, '4ThSundayOfLent') ) {
+        if ( _.eq( date.key.toLowerCase(), '4thsundayoflent') ) {
           date.data.meta.liturgicalColor.should.be.eql( LiturgicalColors.ROSE );
         }
         else {
@@ -286,7 +286,7 @@ describe('Testing seasons utility functions', function() {
         }
       });
       _.each( Seasons.advent( 2015 ), function( date ) {
-        if ( _.eq( date.key, '3RdSundayOfAdvent') ) {
+        if ( _.eq( date.key.toLowerCase(), '3rdsundayofadvent') ) {
           date.data.meta.liturgicalColor.should.be.eql( LiturgicalColors.ROSE );
         }
         else {
