@@ -1,5 +1,5 @@
 var _ = require('lodash'),
-    moment = require('moment'), 
+    moment = require('moment'),
     range = require('moment-range'),
     Path = require('path'),
     Utils = require( Path.join( __dirname, '../lib/utils' )),
@@ -7,7 +7,7 @@ var _ = require('lodash'),
     LiturgicalColors = require( Path.join( __dirname, '../data/liturgicalColors' )),
     Titles = require( Path.join( __dirname, '../data/titles' )),
     Types = require( Path.join( __dirname, '../data/types' )).types;
-    
+
 module.exports = {
   dates: function() {
 
@@ -160,7 +160,7 @@ module.exports = {
         "data": {
           "meta": {
             "liturgicalColor": LiturgicalColors.WHITE,
-            "titles": [ 
+            "titles": [
               Titles.PATRON_OF_EUROPE,
               Titles.DOCTOR_OF_THE_CHURCH
             ]
@@ -521,7 +521,7 @@ module.exports = {
     // Get localized celebration names
     return _.map( dates, function( date ) {
       date.name = Utils.localize({
-        key: 'national.' + date.key 
+        key: 'national.' + date.key
       });
       return date;
     });

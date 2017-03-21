@@ -1,5 +1,5 @@
 var _ = require('lodash'),
-    moment = require('moment'), 
+    moment = require('moment'),
     range = require('moment-range'),
     Path = require('path'),
     Utils = require( Path.join( __dirname, '../lib/utils' )),
@@ -68,7 +68,7 @@ module.exports = {
             "titles": [
               Titles.MARTYR
             ]
-          }          
+          }
         }
       },
       {
@@ -109,8 +109,8 @@ module.exports = {
           }
         }
       },
-      // The proper color for the Chair of Peter (Feast, Feb 22) and the Conversion of 
-      //cSt. Paul (Feast, Jan 25) is white, although both St. Peter and St. Paul 
+      // The proper color for the Chair of Peter (Feast, Feb 22) and the Conversion of
+      //cSt. Paul (Feast, Jan 25) is white, although both St. Peter and St. Paul
       // were martyrs.
       {
         "key": "conversionOfSaintPaulApostle",
@@ -443,7 +443,7 @@ module.exports = {
         "data": {
           "meta": {
             "liturgicalColor": LiturgicalColors.WHITE,
-            "titles": [ 
+            "titles": [
               Titles.PATRON_OF_EUROPE,
               Titles.DOCTOR_OF_THE_CHURCH
             ]
@@ -755,8 +755,8 @@ module.exports = {
         "data": {
           "meta": {
             "liturgicalColor": LiturgicalColors.RED,
-            "titles": [ 
-              Titles.MARTYR 
+            "titles": [
+              Titles.MARTYR
             ]
           }
         }
@@ -767,8 +767,8 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 6, day: 9 }),
         "data": {
           "meta": {
-            "titles": [ 
-              Titles.MARTYR 
+            "titles": [
+              Titles.MARTYR
             ]
           }
         }
@@ -790,8 +790,8 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 6, day: 13 }),
         "data": {
           "meta": {
-            "titles": [ 
-              Titles.MARTYR 
+            "titles": [
+              Titles.MARTYR
             ]
           }
         }
@@ -1795,20 +1795,20 @@ module.exports = {
         "key": "shroveMonday",
         "type": _.last( Types ),
         "moment": Dates.ashWednesday( arguments[0], arguments[5] ).subtract( 2, 'days'),
-        "data": {}     
+        "data": {}
       },
       {
         "key": "shroveTuesday",
         "type": _.last( Types ),
         "moment": Dates.ashWednesday( arguments[0], arguments[5] ).subtract( 1, 'days'),
-        "data": {}     
+        "data": {}
       }
     ];
 
     // Get localized celebration names
     return _.map( dates, function( date ) {
       date.name = Utils.localize({
-        key: 'general.' + date.key 
+        key: 'general.' + date.key
       });
       return date;
     });

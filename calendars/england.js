@@ -1,5 +1,5 @@
 var _ = require('lodash'),
-    moment = require('moment'), 
+    moment = require('moment'),
     range = require('moment-range'),
     Path = require('path'),
     Utils = require( Path.join( __dirname, '../lib/utils' )),
@@ -68,8 +68,8 @@ module.exports = {
           }
         }
       },
-      // When the celebration falls in the Easter Triduum, on a Sunday of Easter, 
-      // or in the Easter Octave it is transferred to the next available day — 
+      // When the celebration falls in the Easter Triduum, on a Sunday of Easter,
+      // or in the Easter Octave it is transferred to the next available day —
       // generally the Monday of the Second Week of Easter.
       {
         "key": "saintGeorgeMartyr",
@@ -123,7 +123,7 @@ module.exports = {
         "data": {
           "meta": {
             "liturgicalColor": LiturgicalColors.WHITE,
-            "titles": [ 
+            "titles": [
               Titles.PATRON_OF_EUROPE,
               Titles.DOCTOR_OF_THE_CHURCH
             ]
@@ -326,7 +326,7 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 9, day: 10 }),
         "data": {}
       },
-      // In England and Wales when the celebration falls on either a 
+      // In England and Wales when the celebration falls on either a
       // Saturday or a Monday it is transferred to the Sunday.
       // Replaces 20th Sunday in Ordinary Time when it falls on a Sunday.
       {
@@ -351,7 +351,7 @@ module.exports = {
           }
         }
       },
-      // In England and Wales when the celebration falls on either a 
+      // In England and Wales when the celebration falls on either a
       // Saturday or a Monday it is transferred to the Sunday.
       // Replaces 20th Sunday in Ordinary Time when it falls on a Sunday.
       {
@@ -435,11 +435,11 @@ module.exports = {
         }
       },
 
-      // In England and Wales when All Saints (1 November) falls on a Saturday 
-      // and is transferred to the Sunday the Commemoration of all the Faithful Departed 
+      // In England and Wales when All Saints (1 November) falls on a Saturday
+      // and is transferred to the Sunday the Commemoration of all the Faithful Departed
       // is transferred to Monday 3 November.
-      // Like Ash Wednesday, All Souls is, technically, without rank. 
-      // However, in countries (not England & Wales) where it falls 
+      // Like Ash Wednesday, All Souls is, technically, without rank.
+      // However, in countries (not England & Wales) where it falls
       // on a Sunday it replaces the Sunday.
       {
         "key": "allSaints",
@@ -497,7 +497,7 @@ module.exports = {
     // Get localized celebration names
     return _.map( dates, function( date ) {
       date.name = Utils.localize({
-        key: 'national.' + date.key 
+        key: 'national.' + date.key
       });
       return date;
     });
