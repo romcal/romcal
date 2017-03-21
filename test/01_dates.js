@@ -191,7 +191,7 @@ describe('Testing specific liturgical date functions', function() {
     it('Its earliest occuring date is March 22 and latest occuring date is April 25', function() {
       for ( var i = 1900, il = 2100; i <= il; i++ ) {
         var recurrence = moment().recur({
-            start: moment.utc({ year: i, month: 2, day: 22 }), 
+            start: moment.utc({ year: i, month: 2, day: 22 }),
             end: moment.utc({ year: i, month: 3, day: 25 })
           }),
           dates = recurrence.all('L');
@@ -247,7 +247,7 @@ describe('Testing specific liturgical date functions', function() {
       it('It can occur anytime between April 30 and June 3 (inclusive)', function() {
         for ( var i = 1900, il = 2100; i <= il; i++ ) {
           var recurrence = moment().recur({
-              start: moment.utc({ year: i, month: 3, day: 30 }), 
+              start: moment.utc({ year: i, month: 3, day: 30 }),
               end: moment.utc({ year: i, month: 5, day: 3 })
             }),
             dates = recurrence.all('L');
@@ -316,7 +316,7 @@ describe('Testing specific liturgical date functions', function() {
       it('It can occur anytime between May 3 and June 6 (inclusive)', function() {
         for ( var i = 1900, il = 2100; i <= il; i++ ) {
           var recurrence = moment().recur({
-              start: moment.utc({ year: i, month: 4, day: 3 }), 
+              start: moment.utc({ year: i, month: 4, day: 3 }),
               end: moment.utc({ year: i, month: 5, day: 6 })
             }),
             dates = recurrence.all('L');
@@ -350,7 +350,7 @@ describe('Testing specific liturgical date functions', function() {
     it('It can occur anytime between May 10 and June 13 (inclusive)', function() {
       for ( var i = 1900, il = 2100; i <= il; i++ ) {
         var recurrence = moment().recur({
-            start: moment.utc({ year: i, month: 4, day: 10 }), 
+            start: moment.utc({ year: i, month: 4, day: 10 }),
             end: moment.utc({ year: i, month: 5, day: 13 })
           }),
           dates = recurrence.all('L');
@@ -382,7 +382,7 @@ describe('Testing specific liturgical date functions', function() {
     it('It can occur anytime between May 17 and June 20 (inclusive)', function() {
       for ( var i = 1900, il = 2100; i <= il; i++ ) {
         var recurrence = moment().recur({
-            start: moment.utc({ year: i, month: 4, day: 17 }), 
+            start: moment.utc({ year: i, month: 4, day: 17 }),
             end: moment.utc({ year: i, month: 5, day: 20 })
           }),
           dates = recurrence.all('L');
@@ -416,7 +416,7 @@ describe('Testing specific liturgical date functions', function() {
       it('It can occur anytime between May 24 and June 27 (inclusive)', function() {
         for ( var i = 1900, il = 2100; i <= il; i++ ) {
           var recurrence = moment().recur({
-              start: moment.utc({ year: i, month: 4, day: 24 }), 
+              start: moment.utc({ year: i, month: 4, day: 24 }),
               end: moment.utc({ year: i, month: 5, day: 27 })
             }),
             dates = recurrence.all('L');
@@ -449,7 +449,7 @@ describe('Testing specific liturgical date functions', function() {
       it('It can occur anytime between May 21 and June 24 (inclusive)', function() {
         for ( var i = 1900, il = 2100; i <= il; i++ ) {
           var recurrence = moment().recur({
-              start: moment.utc({ year: i, month: 4, day: 21 }), 
+              start: moment.utc({ year: i, month: 4, day: 21 }),
               end: moment.utc({ year: i, month: 5, day: 24 })
             }),
             dates = recurrence.all('L');
@@ -483,7 +483,7 @@ describe('Testing specific liturgical date functions', function() {
     it('It can occur anytime between May 29 and Jul 2 (inclusive)', function() {
       for ( var i = 1900, il = 2100; i <= il; i++ ) {
         var recurrence = moment().recur({
-            start: moment.utc({ year: i, month: 4, day: 29 }), 
+            start: moment.utc({ year: i, month: 4, day: 29 }),
             end: moment.utc({ year: i, month: 6, day: 2 })
           }),
           dates = recurrence.all('L');
@@ -515,7 +515,7 @@ describe('Testing specific liturgical date functions', function() {
     it('It can occur anytime between May 30 and Jul 3 (inclusive)', function() {
       for ( var i = 1900, il = 2100; i <= il; i++ ) {
         var recurrence = moment().recur({
-            start: moment.utc({ year: i, month: 4, day: 30 }), 
+            start: moment.utc({ year: i, month: 4, day: 30 }),
             end: moment.utc({ year: i, month: 6, day: 3 })
           }),
           dates = recurrence.all('L');
@@ -529,7 +529,7 @@ describe('Testing specific liturgical date functions', function() {
     it('It can occur anytime between Nov 20 and Nov 26 (inclusive)', function() {
       for ( var i = 1900, il = 2100; i <= il; i++ ) {
         var recurrence = moment().recur({
-            start: moment.utc({ year: i, month: 10, day: 20 }), 
+            start: moment.utc({ year: i, month: 10, day: 20 }),
             end: moment.utc({ year: i, month: 10, day: 26 })
           }),
           dates = recurrence.all('L');
@@ -546,12 +546,12 @@ describe('Testing specific liturgical date functions', function() {
       }
     });
   });
-  
+
   describe('Feast of the Holy Family', function() {
 
     // Christmas in 2011 was on Sunday
     it('occurs on December 30th if Christmas falls on a Sunday', function() {
-      var date = rcal.holyFamily( 2011 ); 
+      var date = rcal.holyFamily( 2011 );
       date.month().should.be.eql( 11 );
       date.date().should.be.eql( 30 );
     });
@@ -597,7 +597,7 @@ describe('Testing specific liturgical date functions', function() {
     });
 
     describe('If Epiphany is not celebrated on Jan 6, Epiphany is celebrated on the 1st Sunday after the 1st Saturday in January', function() {
-        
+
       it('If first day of the year 2011 is a Saturday, Mary Mother of God is on that day and Epiphany is on the next day', function() {
 
         // If first day of 2011, 2022 was/is a Saturday
@@ -614,7 +614,7 @@ describe('Testing specific liturgical date functions', function() {
       });
 
       it('If first day of the year 2012 is a Sunday, Mary Mother of God is on that Sunday and the Sunday proceeding will be Epiphany', function() {
-        
+
         // First day of 2012, 2017 was a Sunday
         var first = moment.utc({ year: 2012, month: 0, day: 1 }),
             target = moment.utc({ year: 2012, month: 0, day: 1 }).add( 7, 'days').startOf('day'),
@@ -630,7 +630,7 @@ describe('Testing specific liturgical date functions', function() {
       });
 
       it('If first day of the year 2011 is on a weekday (Sat) (i.e. Mon - Sat), Epiphany will be celebrated on the Sunday proceeding', function() {
-        
+
         // First day of 2014 was a Wed, First day of 2015 was a Thurs
         var first = moment.utc({ year: 2011, month: 0, day: 1 }),
             target = moment.utc({ year: 2011, month: 0, day: 1 }).add( 1, 'days').startOf('day'),
@@ -836,7 +836,7 @@ describe('Testing specific liturgical date functions', function() {
 
     });
   });
-  
+
   describe('The Presentation of the Lord', function() {
     it('Should always fall on the 2nd of February', function() {
       for ( var i = 1900, il = 2100; i <= il; i++ ) {
@@ -845,7 +845,7 @@ describe('Testing specific liturgical date functions', function() {
       }
     });
   });
-  
+
   describe('The Solemnity of the Immaculate Conception', function() {
 
     it('Should fall on the 8th of December every year if not on a Sunday of Advent', function() {
@@ -888,7 +888,6 @@ describe('Testing specific liturgical date functions', function() {
         }
       }
 
-    });        
+    });
   });
 });
-

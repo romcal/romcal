@@ -1,5 +1,5 @@
 var _ = require('lodash'),
-    moment = require('moment'), 
+    moment = require('moment'),
     range = require('moment-range'),
     Path = require('path'),
     Utils = require( Path.join( __dirname, '../lib/utils' )),
@@ -10,7 +10,7 @@ var _ = require('lodash'),
 
 module.exports = {
   dates: function() {
-    
+
     var dates = [
       {
         "key": "vietnameseMartyrs",
@@ -30,7 +30,7 @@ module.exports = {
     // Get localized celebration names
     return _.map( dates, function( date ) {
       date.name = Utils.localize({
-        key: 'national.' + date.key 
+        key: 'national.' + date.key
       });
       return date;
     });
