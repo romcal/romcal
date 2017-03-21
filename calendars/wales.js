@@ -1,5 +1,5 @@
 var _ = require('lodash'),
-    moment = require('moment'), 
+    moment = require('moment'),
     range = require('moment-range'),
     Path = require('path'),
     Utils = require( Path.join( __dirname, '../lib/utils' )),
@@ -10,7 +10,7 @@ var _ = require('lodash'),
 
 module.exports = {
   dates: function() {
-    
+
     var dates = [
       {
         "key": "saintTeiloBishop",
@@ -52,7 +52,7 @@ module.exports = {
         "data": {
           "meta": {
             "liturgicalColor": LiturgicalColors.WHITE,
-            "titles": [ 
+            "titles": [
               Titles.PATRON_OF_EUROPE,
               Titles.DOCTOR_OF_THE_CHURCH
             ]
@@ -237,7 +237,7 @@ module.exports = {
           }
         }
       },
-      // In England and Wales when the celebration falls on either a 
+      // In England and Wales when the celebration falls on either a
       // Saturday or a Monday it is transferred to the Sunday.
       // Replaces 20th Sunday in Ordinary Time when it falls on a Sunday.
       {
@@ -262,7 +262,7 @@ module.exports = {
           }
         }
       },
-      // In England and Wales when the celebration falls on either a 
+      // In England and Wales when the celebration falls on either a
       // Saturday or a Monday it is transferred to the Sunday.
       // Replaces 20th Sunday in Ordinary Time when it falls on a Sunday.
       {
@@ -292,7 +292,7 @@ module.exports = {
     // Get localized celebration names
     return _.map( dates, function( date ) {
       date.name = Utils.localize({
-        key: 'national.' + date.key 
+        key: 'national.' + date.key
       });
       return date;
     });

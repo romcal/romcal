@@ -15,10 +15,10 @@
 Utility library that outputs the Liturgical Calendar used by the Roman Rite (Western Church)
 
 ## Contributing to romcal
- 
-All contributions are most welcome! 
 
-Please fork/raise merge requests or issues to improve the quality of this module. 
+All contributions are most welcome!
+
+Please fork/raise merge requests or issues to improve the quality of this module.
 
 I especially reach out to you all for help with translations/localizations of celebration names so that this module can cater to a wider audience.
 
@@ -96,7 +96,7 @@ Invoke the `calendarFor` method to retrieve an array of liturgical dates and cel
 
 ```
 romcal.calendarFor({
-    year: 2015, 
+    year: 2015,
     country 'unitedStates',
     locale: 'pl',
     christmastideEnds: 't|o|e',
@@ -107,7 +107,7 @@ romcal.calendarFor({
     query: {
         day: 0 - 6, // 0 - Sunday, 6 - Saturday (week beginning with Sunday)
         month: 0 - 11, // 0 - Jan, 11 - Dec (month begining with Jan)
-        group: '', 
+        group: '',
         title: '',
     }
 },
@@ -119,10 +119,10 @@ true|false );
 + `year`: Retrieve calendar dates for the given year (year should be an integer). Defaults to the current system year if not specified
 + `country`: Include celebration dates requested by the Episcopal council(s) of the given country that have been approved by the Holy See. If not specified, no National dates are included in the calendar output. If  an unrecognized country is specified, romcal will silently ignore the property and will not return any National dates in the calendar output.
 + `locale`: Defaults to 'en' (english) if not set. Romcal celebration names can be localized to different languages. If a given locale does not have the localized name for a celebration in that language, romcal will fallback to use the celebration name in English.
-+ `christmastideEnds`: Specifies the end of the Christmas season. Can be either 't' (traditional where Christmastide ends on Epiphany), 'o' (ordinary where Christmastide ends on the Baptism of the Lord) and 'e' (extraordinary where Christmastide ends on the Presentation of the Lord). Defaults to 'o' (ordinary) if not specified 
++ `christmastideEnds`: Specifies the end of the Christmas season. Can be either 't' (traditional where Christmastide ends on Epiphany), 'o' (ordinary where Christmastide ends on the Baptism of the Lord) and 'e' (extraordinary where Christmastide ends on the Presentation of the Lord). Defaults to 'o' (ordinary) if not specified
 + `epiphanyOnJan6`: If true, fixes Epiphany on January 6th always. By default, Epiphany will be set to a Sunday between 2 - 8 Jan based on an internal calculation.
 + `corpusChristiOnThursday`: Determines if Corpus Christi should be celebrated on Thursday on the 7th week of Easter (60 days after Easter) or Sunday (63 days after Easter).
-+ `ascensionOnSunday`: Determines if Ascension should replace the 7th Sunday of Easter (42 days after Easter). Defaults to false where Ascension will be on Thursday, 39 days after Easter, if value not recognized or specified. 
++ `ascensionOnSunday`: Determines if Ascension should replace the 7th Sunday of Easter (42 days after Easter). Defaults to false where Ascension will be on Thursday, 39 days after Easter, if value not recognized or specified.
 + `type`: Determines the type of calendar output. Can either be `liturgical` or `calendar`. Defaults to `calendar` if value not recognized or specified. The 'liturgical' year runs from 1st Sunday of Advent of the given year to Saturday of the 34th Week of Ordinary Time in the following year. The 'calendar' year on the other hand refers to the standard year from Jan 1 - Dec 31.
 + `query`: A nested query object which filters the dates according to the given criteria. For more details on how to use queries, see [this](#queries) section.
 
@@ -154,7 +154,7 @@ romcal returns an array of liturgical date objects in the following structure
 ```
 
 + `key`: A camel case string which serves as a unique identifier for the celebration. This key is an essential element in [overriding dates](#overriding)
-+ `name`: The [localizable name](#localizing) of the celebration 
++ `name`: The [localizable name](#localizing) of the celebration
 + `type`: A key representing the [celebration type](#types)
 + `moment`: Moment object or ISO8601 string of the date of the celebration
 + `source`: The internal calendar [source](#sources) of this celebration
@@ -183,7 +183,7 @@ Where the importance or rank of the celebration is in descending order (Solemnit
 Types play an important role in determining which celebration should take precendence over another when two or more celebrations coincide on the same date. Certain celebration types will also have different liturgical colors applied to them.
 
 ## Celebration Titles <a name="titles"></a>
-On top of having a celebration type, liturgical dates may also have one or more titles of significance assigned to it. 
+On top of having a celebration type, liturgical dates may also have one or more titles of significance assigned to it.
 
 For example, the feast of [Saint Catherine of Siena](https://en.wikipedia.org/wiki/Catherine_of_Siena) is assigned the titles `PATRON_OF_EUROPE` (for national calendars of countries in Europe only) and `DOCTOR_OF_THE_CHURCH` due to those titles being conferred on her by the Church.
 
@@ -212,7 +212,7 @@ romcal defines liturgical seasons in `data/seasons.json` which are:
 The methods in `lib/seasons.js` assigns seasons to the dates it generates to indicate the season to which the range of dates generated belong.
 
 ## Liturgical Cycles <a name="cycles"></a>
-A liturgical year consists of a cycles (either A, B, C) that determines which portions of scripture are to be read. romcal automatically calculates the correct cycle for the given liturgical year and includes it in the meta information of each liturgical date for that year. 
+A liturgical year consists of a cycles (either A, B, C) that determines which portions of scripture are to be read. romcal automatically calculates the correct cycle for the given liturgical year and includes it in the meta information of each liturgical date for that year.
 
 This information can be extracted via the `dates[idx].data.meta.cycle` property.
 
@@ -258,7 +258,7 @@ Each date is assigned a source with one of the four calendar sources above.
 Calendar sources play an important role in how romcal manages coinciding dates (see [overriding dates](#overidding)).
 
 ### liturgical <a name="liturgical"></a>
-Represents a standard date in the liturgical year. Dates from this source build the basic structure of the liturgical calendar from the start of the liturgical year to its end. 
+Represents a standard date in the liturgical year. Dates from this source build the basic structure of the liturgical calendar from the start of the liturgical year to its end.
 
 Dates from `lib/seasons.js` will be assigned the source `l`
 The module responsible for generating the `liturgical` dates is `lib/seasons.js`.
@@ -306,7 +306,7 @@ The following are a list of dates defined in the `celebrations` calendar:
 + Immaculate Heart of Mary
 
 ### general <a name="general"></a>
-Represents general celebrations that are celebrated throughout the liturgical year. Dates from the `general` calendar will override dates from the `liturgical` calendar. 
+Represents general celebrations that are celebrated throughout the liturgical year. Dates from the `general` calendar will override dates from the `liturgical` calendar.
 
 Dates from `calendars/general.js` will be assigned the source `g`
 The module responsible for generating the `general` dates is `lib/calendars/general.js`.
@@ -318,7 +318,7 @@ In situations where a given celebration must override one in the general calenda
 ### national <a name="national"></a>
 Represents specific liturgical dates that have been approved for use by the Holy See for a particular country. It can be used to define unique celebrations celebrated by that particular country or existing celebrations that have been [transferred to another date](https://en.wikipedia.org/wiki/General_Roman_Calendar#Transfer_of_celebrations).
 
-A prioritized celebration in the `national` calendar takes precedence over celebrations in `general`, `celebrations` and `liturgical` calendars. As such, this marker should be used with caution lest it overrides an important celebration that should not be overriden leading to an erroneous calendar output. 
+A prioritized celebration in the `national` calendar takes precedence over celebrations in `general`, `celebrations` and `liturgical` calendars. As such, this marker should be used with caution lest it overrides an important celebration that should not be overriden leading to an erroneous calendar output.
 
 In situations when there are 2 celebrations from `national` calendar that coincide on the same date, the one with the higher ranking celebration type will take precendence.
 
@@ -337,7 +337,7 @@ Romcal can filter `calendarFor` results if a query object is passed along with t
 romcal.calendarFor({
     query: {
         month: 0 // 0 - 11
-    } 
+    }
 });
 
 ```
@@ -348,7 +348,7 @@ or
 romcal.calendarFor({
     query: {
         day: 0, // 0 - 6
-    } 
+    }
 });
 
 ```
@@ -359,7 +359,7 @@ romcal.calendarFor({
 romcal.calendarFor({
     query: {
         group: 'days|months|daysByMonth|weeksByMonth|cycles|types|liturgicalSeasons|liturgicalColors|psalterWeeks'
-    } 
+    }
 });
 
 ```
@@ -370,7 +370,7 @@ romcal.calendarFor({
 romcal.calendarFor({
     query: {
         title: 'PATRON_OF_EUROPE'
-    } 
+    }
 });
 
 ```
@@ -391,14 +391,14 @@ The order of importance of calendar sources are: celebrations > national > gener
 
 ### Overriding a date by its priority <a name="overridingByPriority"></a>
 
-Prioritized dates may override dates of higher ranking celebration types and also prevent itself from being overriden by other coinciding dates. For example, dates in `lib/celebrations.js` (Christmas, Easter) are all prioritized as they can override any other date in the liturgical calendar and may not be overriden by any other coinciding date regardless of rank <b>unless</b> the coinciding date is itself prioritized (for example, `allSaints` in `'lib/celebrations.js' can be overriden by `allSaints` in `calendars/england.js`). 
+Prioritized dates may override dates of higher ranking celebration types and also prevent itself from being overriden by other coinciding dates. For example, dates in `lib/celebrations.js` (Christmas, Easter) are all prioritized as they can override any other date in the liturgical calendar and may not be overriden by any other coinciding date regardless of rank <b>unless</b> the coinciding date is itself prioritized (for example, `allSaints` in `'lib/celebrations.js' can be overriden by `allSaints` in `calendars/england.js`).
 
 Caveat:
 > If a coinciding date's source is from the `celebration` or `national` calendars, and the prioritized date is from the `general` calendar, it will still be overidden by the coinciding date as `celebration` and `national` calendar sources have higher precedence.
 
 ### Overriding a date by its key <a name="overridingByKey"></a>
 
-In most other countries, All Saints and All Souls are celebrated on the 1st and 2nd of November respectively. However, in England and Wales, when All Saints (1 November) falls on a Saturday, it is transferred to the Sunday and All Souls is transferred to Monday 3rd Novemeber. 
+In most other countries, All Saints and All Souls are celebrated on the 1st and 2nd of November respectively. However, in England and Wales, when All Saints (1 November) falls on a Saturday, it is transferred to the Sunday and All Souls is transferred to Monday 3rd Novemeber.
 
 Romcal achieves this difference by redefining the `allSouls` and `allSaints` celebrations in the national calendars of `calendars/england.js` and `calendars/wales.js` (the original definition was in `calendars/general.js`). Since national calendar dates have higher precendence than general calendar dates, the national date definitions for All Saints and All Souls will override the ones in the general calendar.
 
@@ -407,7 +407,7 @@ Therefore, it is important that the key in the national calendar is <b>exactly</
 
 ### Localizing celebration names <a name="localization"></a>
 
-Celebration names in Romcal can be localized to any language that is already supported by [Moment i18n](http://momentjs.com/docs/#/i18n/). Locales are stored as `.json` files in the `locales` directory where the name of the file corresponds to the locale name of a given language. 
+Celebration names in Romcal can be localized to any language that is already supported by [Moment i18n](http://momentjs.com/docs/#/i18n/). Locales are stored as `.json` files in the `locales` directory where the name of the file corresponds to the locale name of a given language.
 
 `en` is the default locale in romcal and serves as the fallback when the user specified locale has not been defined in the `locales` directory or the given key does not exist in the locale.
 
