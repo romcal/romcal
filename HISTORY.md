@@ -4,7 +4,7 @@
 * Fix issue where national feasts appear more than once in the calendar output
 
 ## 1.2.2 / 2017-03-21
-* Merge PRs containing bug fixes and improvements (thanks [Etienne Magnier](https://github.com/emagnier) and [Damiaan Dufaux](https://github.com/Dev1an)
+* Merge PRs containing bug fixes and improvements, thanks [Etienne Magnier](https://github.com/emagnier) and [Damiaan Dufaux](https://github.com/Dev1an)
 
 ## 1.2.1
 * Added caching mechanism for common celebration dates in the liturgical calendar to improve calendar processing output performance. Added more titles metadata to national and general celebrations.
