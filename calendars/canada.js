@@ -155,7 +155,7 @@ module.exports = {
         "data": {}
       },
       {
-        "key": "saintsJohnDeBrebeufIsaacJoguesPriestsAndCompanionsMartyrsSecondaryPatronsOfCanada",
+        "key": "saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrsSaintPaulOfTheCrossPriest",
         "type": Types[4],
         "moment": moment.utc({ year: arguments[0], month: 8, day: 26 }),
         "data": {

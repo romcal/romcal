@@ -33,9 +33,11 @@ var moment = require('moment'),
 //   Romcal.calendarFor({
 //     year: 2016,
 //     epiphanyOnJan6: false,
+//     country: 'canada',
+//     locale: 'en-ca',
 //     christmastideEnds: 'o',
 //     query: {
-//         month: 1
+//         month: 8
 //     }
 //   }, true ),
 //   function( v ) {
