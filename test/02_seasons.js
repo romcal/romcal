@@ -195,7 +195,7 @@ describe('Testing date range functions', function() {
     it('Should be 8 days long from Christmas to the feast of the Holy Family', function() {
       for ( var i = 1900, il = 2100; i <= il; i++ ) {
         Dates.octaveOfChristmas( i ).length.should.be.eql( 8 );
-      }     
+      }
     });
   });
 
@@ -256,7 +256,7 @@ describe('Testing seasons utility functions', function() {
   this.timeout(0);
 
   describe('The liturgical year is divided to a number of seasons', function() {
-    
+
     var calendar = Calendar.calendarFor({ query: { group: 'liturgicalSeasons'}});
 
     it('Groups dates within seasons based on identifiers', function() {
@@ -303,7 +303,7 @@ describe('Testing seasons utility functions', function() {
         date.data.meta.liturgicalColor.should.be.eql( LiturgicalColors.WHITE );
       });
     });
-  
+
   });
 
 });

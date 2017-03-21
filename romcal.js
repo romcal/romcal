@@ -29,7 +29,7 @@ var moment = require('moment'),
 // UNCOMMENT ONLY WHEN UPDATING PLUGIN
 //=======================================================
 
-// _.each( 
+// _.each(
 //   Romcal.calendarFor({
 //     year: 2016,
 //     epiphanyOnJan6: false,
@@ -37,10 +37,10 @@ var moment = require('moment'),
 //     query: {
 //         month: 1
 //     }
-//   }, true ), 
+//   }, true ),
 //   function( v ) {
-//     console.log( 
-//       _.padEnd( v.moment.format('ddd, DD MMM YY'), 16 ), 
+//     console.log(
+//       _.padEnd( v.moment.format('ddd, DD MMM YY'), 16 ),
 //       '|', _.padEnd( v.data.meta.liturgicalColor.key, 6 ),
 //       '|', _.padEnd( v.data.season.value, 15 ),
 //       '|', _.padEnd( v.data.meta.psalterWeek.value, 8 ),

@@ -52,7 +52,7 @@ describe('Testing calendar generation functions', function() {
       it('Should start on the 1st Sunday of Advent and end on Christ the King', function() {
         _.head( dates ).moment.isSame( start ).should.be.eql( true );
         _.last( dates ).moment.isSame( end ).should.be.eql( true );
-      });      
+      });
 
     });
 
@@ -75,7 +75,7 @@ describe('Testing calendar generation functions', function() {
     describe('For filtering by day of week', function() {
       it('Results should match the day of week requested', function() {
         for( var i = 0, il = 7; i < il; i++ ) {
-          _.each( 
+          _.each(
             Calendar.calendarFor({
               query: {
                 day: i
@@ -84,14 +84,14 @@ describe('Testing calendar generation functions', function() {
             function( d ) {
               d.moment.day().should.be.eql( i );
             }
-          ); 
+          );
         }
       });
     });
 
     describe('For filtering by month of year', function() {
       it('Results should match the month of year requested', function() {
-        _.each( 
+        _.each(
           Calendar.calendarFor({
             query: {
               month: 6
@@ -100,7 +100,7 @@ describe('Testing calendar generation functions', function() {
           function( d ) {
             d.moment.month().should.be.eql( 6 );
           }
-        ); 
+        );
       });
     });
 
@@ -189,22 +189,22 @@ describe('Testing calendar generation functions', function() {
     });
 
     describe('For filtering by titles', function() {
-      _.each( 
+      _.each(
         Calendar.calendarFor({
           query: {
             title: Titles.FEAST_OF_THE_LORD
           }
-        }, true ), 
+        }, true ),
         function( d ) {
           _.includes( d.data.meta.titles, Titles.FEAST_OF_THE_LORD ).should.be.ok;
         }
       );
-      _.each( 
+      _.each(
         Calendar.calendarFor({
           query: {
             title: Titles.PATRON_OF_EUROPE
           }
-        }, true ), 
+        }, true ),
         function( d ) {
           _.includes( d.data.meta.titles, Titles.PATRON_OF_EUROPE ).should.be.ok;
         }
@@ -214,7 +214,7 @@ describe('Testing calendar generation functions', function() {
 
   describe('Testing advanced filters', function() {
 
-    it('The proper color of a Memorial or a Feast is white except for martyrs in which case it is red', function() { 
+    it('The proper color of a Memorial or a Feast is white except for martyrs in which case it is red', function() {
       var calendar = Calendar.calendarFor({ query: { group: 'types' }}, true );
       _.each( _.get( calendar, Types[4] ), function( d ) {
         if ( _.eq( d.key, 'triumphOfTheCross') ) {
