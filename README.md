@@ -57,7 +57,7 @@ Romcal is a module that generates the [General Roman Calendar](http://en.wikiped
 
 ## Features <a name="features"></a>
  * Able to query liturgical dates for any year in the gregorian calendar (1582 - now). Note that dates for years before 1969 will still be returned in a format conforming to [Mysterii Paschalis](http://www.romcal.net/mysterii.html) even though those years came before the calendar reforms in 1969.
- * Filter queries to allow more strealined date results to be obtained for the year.
+ * Filter queries to allow more streamlined date results to be obtained for the year.
  * Localization of liturgical date names to cater for different languages
  * National liturgical calendars for country specific.
  * Richly commented code to help developers and contributors understand how the module works.
