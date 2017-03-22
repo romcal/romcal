@@ -38,7 +38,7 @@ module.exports = {
       {
         "key": "saintBernadetteSoubirousVirgin",
         "type": Types[6],
-        "moment": moment.utc({ year: arguments[0], month: 1, day: 19 }),
+        "moment": moment.utc({ year: arguments[0], month: 1, day: 18 }),
         "data": {}
       },
       {
@@ -58,7 +58,7 @@ module.exports = {
       {
         "key": "saintIvoPriest",
         "type": Types[6],
-        "moment": moment.utc({ year: arguments[0], month: 4, day: 20 }),
+        "moment": moment.utc({ year: arguments[0], month: 4, day: 19 }),
         "data": {}
       },
       {
@@ -80,7 +80,7 @@ module.exports = {
       {
         "key": "saintClotilde",
         "type": Types[6],
-        "moment": moment.utc({ year: arguments[0], month: 5, day: 5 }),
+        "moment": moment.utc({ year: arguments[0], month: 5, day: 4 }),
         "data": {}
       },
       {
@@ -140,7 +140,10 @@ module.exports = {
         "moment": moment.utc({ year: arguments[0], month: 9, day: 1 }),
         "data": {
           "meta": {
-            "liturgicalColor": LiturgicalColors.WHITE
+            "liturgicalColor": LiturgicalColors.WHITE,
+            "titles": [
+              Titles.DOCTOR_OF_THE_CHURCH
+            ]
           }
         }
       },
