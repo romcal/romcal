@@ -24,6 +24,7 @@ I especially reach out to you all for help with translations/localizations of ce
 
 ## Table of Contents
 - [Description](#desc)
+- [Credits](#credits)
 - [Features](#features)
 - [Module Robustness & Data Integrity](#disclaimer)
 - [Revisions](#revisions)
@@ -53,7 +54,12 @@ I especially reach out to you all for help with translations/localizations of ce
 - [Localizing celebration names](#localization)
 
 ## Description <a name="desc"></a>
-Romcal is a module that generates the [General Roman Calendar](http://en.wikipedia.org/wiki/General_Roman_Calendar) used in the Roman Catholic Rite. This module conforms to the revised liturgical calendar for the Western Church as approved by Paul VI in [Mysterii Paschalis](http://www.romcal.net/mysterii.html) dated 14 February 1969. This module can output dates based on the standard calendar year (Jan, 1st - Dec, 31st) or the liturgical year (First Sunday of Advent - Christ the King).
+Romcal is a module that generates the [General Roman Calendar](http://en.wikipedia.org/wiki/General_Roman_Calendar) used in the Roman Catholic Rite. This module conforms to the revised liturgical calendar for the Western Church as approved by Paul VI in [Mysterii Paschalis](http://www.romcal.net/mysterii.html) dated 14 February 1969.
+
+This module can output dates based on the standard calendar year (Jan, 1st - Dec, 31st) or the liturgical year (First Sunday of Advent - Christ the King) alongside many other features for fine-tuning output as described below.
+
+## Credits <a name="credits"></a>
+This node module is inspired by the C program [romcal](http://www.romcal.net/) written by Kenneth G. Bath. This module, while exhibiting similar output, is written ground up using different tools and technologies and exposes many new functionalities.
 
 ## Features <a name="features"></a>
  * Able to query liturgical dates for any year in the gregorian calendar (1582 - now). Note that dates for years before 1969 will still be returned in a format conforming to [Mysterii Paschalis](http://www.romcal.net/mysterii.html) even though those years came before the calendar reforms in 1969.

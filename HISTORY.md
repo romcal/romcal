@@ -1,7 +1,8 @@
 # Version history
 
-* 1.2.4 /2017-03-22
-* Added French translations for France, Canada and Belgium. Updated French Calendar.*
+## 1.2.4 /2017-03-22
+* Added French translations for France, Canada and Belgium.
+* Updated French Calendar
 
 ## 1.2.3 / 2017-03-21
 * Fix issue where national feasts appear more than once in the calendar output
