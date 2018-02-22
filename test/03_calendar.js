@@ -27,13 +27,13 @@ var _ = require('lodash'),
     moment = require('moment'),
     range = require('moment-range');
 
-var Dates = require('../lib/dates'),
-    Types = require('../data/types.json').types,
-    Seasons = require('../data/seasons.json'),
-    Colors = require('../data/liturgicalColors.json'),
-    Psalter = require('../data/psalterWeeks.json'),
-    Titles = require('../data/titles.json'),
-    Calendar = require('../lib/calendar');
+var Dates = require('../src/lib/Dates'),
+    Types = require('../src/constants/Types'),
+    Seasons = require('../src/constants/Seasons'),
+    Colors = require('../src/constants/LiturgicalColors'),
+    Psalter = require('../src/constants/PsalterWeeks'),
+    Titles = require('../src/constants/Titles'),
+    Calendar = require('../src/lib/Calendar');
 
 describe('Testing calendar generation functions', function() {
 

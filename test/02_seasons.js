@@ -27,12 +27,12 @@ var _ = require('lodash'),
     moment = require('moment'),
     range = require('moment-range');
 
-var Dates = require('../lib/dates'),
-    Seasons = require('../lib/seasons'),
-    Calendar = require('../lib/calendar');
+var Dates = require('../src/lib/Dates'),
+    Seasons = require('../src/lib/Seasons'),
+    Calendar = require('../src/lib/Calendar');
 
-var LiturgicalSeasons = require('../data/seasons.json'),
-    LiturgicalColors = require('../data/liturgicalColors.json');
+var LiturgicalSeasons = require('../src/constants/Seasons'),
+    LiturgicalColors = require('../src/constants/liturgicalColors');
 
 describe('Testing date range functions', function() {
 

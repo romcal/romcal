@@ -67,7 +67,7 @@ let _dates = [
   {
     "key": "saintGeorgeMartyr",
     "type": Types[0],
-    "moment": (function( y ) {
+    "moment": (( y ) => {
       var holyWeek = Dates.holyWeek( y ),
           easterOctave = Dates.octaveOfEaster( y ),
           annunciation = Dates.annunciation( y ),
