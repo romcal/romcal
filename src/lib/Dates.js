@@ -5,7 +5,6 @@ import range from 'moment-range';
 import _ from 'lodash';
 
 // Working variables
-let _traditional;
 let _firstDay;
 let _date;
 let _start;
@@ -32,18 +31,18 @@ let _octaveRange;
 // Epiphany is always celebrated on Jan 6
 // arguments[0]: year
 // arguments[1]: true|false (activate traditional rule)
-const epiphany = () => {
+const epiphany = (y, traditional) => {
 
   // Check if the traditional method should be used for calculating the
   // date of Epiphany
-  _traditional = arguments[1] || false;
+  traditional = traditional || false;
 
   // Get the first day of the year
-  _firstDay = moment.utc({ year: arguments[0], month: 0, day: 1 });
-  _date = moment.utc({ year: arguments[0], month: 0, day: 6 });
+  _firstDay = moment.utc({ year: y, month: 0, day: 1 });
+  _date = moment.utc({ year: y, month: 0, day: 6 });
 
   // Always return Jan 6 as the date of Epiphany according to Traditional rule
-  if ( _traditional ) {
+  if ( traditional ) {
     return _date;
   }
   else {
@@ -70,14 +69,14 @@ const epiphany = () => {
 
 // Christmas falls on the 25th of December
 // arguments[0]: year
-const christmas = () => moment.utc({ year: arguments[0], month: 11, day: 25 });
+const christmas = y => moment.utc({ year: y, month: 11, day: 25 });
 
 // The 8 days from Christmas to Mary Mother of God (inclusive)
 // arguments[0]: year
-const octaveOfChristmas = () => {
+const octaveOfChristmas = y => {
 
-  _start = christmas.apply( this, arguments );
-  _end = maryMotherOfGod( arguments[0] + 1 );
+  _start = christmas(y);
+  _end = maryMotherOfGod( y + 1 );
   _recurrence = moment.utc().recur({
     start: _start,
     end: _end
@@ -95,7 +94,7 @@ const octaveOfChristmas = () => {
 // the Octave (8th) day of Christmas, and in some
 // countries is a Holy day of obligation..
 // arguments[0]: year
-const maryMotherOfGod = () => moment.utc({ year: arguments[0], month: 0, day: 1 });
+const maryMotherOfGod = y => moment.utc({ year: y, month: 0, day: 1 });
 
 // The Baptism of the Lord (or the Baptism of Christ) is the feast day
 // commemorating the baptism of Jesus in the Jordan River by John the
@@ -139,7 +138,7 @@ const baptismOfTheLord = () => {
 // 22 February. In some Western liturgical churches, Vespers (or Compline) on the
 // Feast of the Presentation marks the end of the Epiphany season.
 // arguments[0]: year
-const presentationOfTheLord = () => moment.utc({ year: arguments[0], month: 1, day: 2 });
+const presentationOfTheLord = y => moment.utc({ year: y, month: 1, day: 2 });
 
 // In different Churches, the Christmas Season might end on Jan. 6
 // (the traditional date of the Feast of the Epiphany), or might last
@@ -239,7 +238,7 @@ const daysOfLaterOrdinaryTime = () => {
 // and is the week before the First Sunday of Advent. The Sundays of Ordinary Time in the
 // latter part of the year are numbered backwards from Christ the King to Pentecost.
 // arguments[0]: year
-const christTheKing = () => firstSundayOfAdvent.apply( this, arguments ).subtract( 7, 'days').startOf('day');
+const christTheKing = y => firstSundayOfAdvent(y).subtract( 7, 'days').startOf('day');
 
 //==================================================================================
 // Lent & Holy Week
@@ -288,9 +287,9 @@ const ashWednesday = () => easter.apply( this, arguments ).subtract( 46, 'days' 
 // Good Friday (Holy Friday), and Holy Saturday.
 // It does not include Easter Sunday
 // arguments[0]: year
-const holyWeek = () => {
-  _start = palmSunday.apply( this, arguments );
-  _end = holySaturday.apply( this, arguments );
+const holyWeek = y => {
+  _start = palmSunday(y);
+  _end = holySaturday(y);
   _recurrence = moment.utc().recur({
     start: _start,
     end: _end
@@ -302,18 +301,18 @@ const holyWeek = () => {
 // Palm Sunday is a Christian moveable feast that
 // falls on the Sunday before Easter.
 // arguments[0]: year
-const palmSunday = () => easter.apply( this, arguments ).subtract( 7, 'days' ).startOf('day');
+const palmSunday = y => easter(y).subtract( 7, 'days' ).startOf('day');
 
 // Maundy Thursday (also known as Holy Thursday) is
 // the Christian holy day falling on the Thursday before Easter.
 // arguments[0]: year
-const holyThursday = () => easter.apply( this, arguments ).subtract( 3, 'days' ).startOf('day');
+const holyThursday = y => easter(y).subtract( 3, 'days' ).startOf('day');
 
 // Good Friday is a Christian religious holiday commemorating the crucifixion of Jesus Christ
 // and his death at Calvary. The holiday is observed during Holy Week as part of the
 // Paschal Triduum on the Friday preceding Easter Sunday
 // arguments[0]: year
-const goodFriday = () => easter.apply( this, arguments ).subtract( 2, 'days' ).startOf('day');
+const goodFriday = y => easter(y).subtract( 2, 'days' ).startOf('day');
 
 // Holy Saturday (Latin: Sabbatum Sanctum) i.e. the Saturday of Holy Week, also known as the
 // Great Sabbath, Black Saturday, or Easter Eve,[1] and called "Joyous Saturday" or "the
@@ -321,7 +320,7 @@ const goodFriday = () => easter.apply( this, arguments ).subtract( 2, 'days' ).s
 // before Easter and the last day of Holy Week in which Christians prepare for Easter.
 // It commemorates the day that Jesus Christ's body lay in the tomb and the Harrowing of Hell.
 // arguments[0]: year
-const holySaturday = () => easter.apply( this, arguments ).subtract( 1, 'days' ).startOf('day');
+const holySaturday = y => easter(y).subtract( 1, 'days' ).startOf('day');
 
 //==================================================================================
 // Eastertide
@@ -330,9 +329,9 @@ const holySaturday = () => easter.apply( this, arguments ).subtract( 1, 'days' )
 // The term Octave of Easter refers to the eight-day period (Octave)
 // from Easter Sunday until the Sunday following Easter, inclusive;
 // arguments[0]: year
-const octaveOfEaster = () => {
-  _start = easter.apply( this, arguments );
-  _end = divineMercySunday.apply( this, arguments );
+const octaveOfEaster = y => {
+  _start = easter(y);
+  _end = divineMercySunday(y);
   _recurrence = moment().recur({
     start: _start,
     end: _end
@@ -371,9 +370,9 @@ const daysOfEaster = () => {
 // "Explanatory Supplement to the Astronomical Almanac", P. Kenneth
 // Seidelmann, editor.
 // arguments[0]: year
-const easter = () => {
+const easter = year => {
 
-  let Y = arguments[0] || moment.utc().year();
+  let Y = year || moment.utc().year();
   let C = Math.floor(Y/100);
   let N = Y - 19*Math.floor(Y/19);
   let K = Math.floor((C - 17)/25);
@@ -397,7 +396,7 @@ const easter = () => {
 // Divine Mercy Sunday is celebrated on the Sunday after Easter, the Octave of Easter,
 // observed by Roman Catholic as well as some Anglicans
 // arguments[0]: year
-const divineMercySunday = () => easter.apply( this, arguments ).add( 7, 'days' ).startOf('day');
+const divineMercySunday = y => easter(y).add( 7, 'days' ).startOf('day');
 
 // The Solemnity of Pentecost occurs 49 days after Easter.
 // arguments[0]: year
@@ -410,32 +409,32 @@ const pentecostSunday = () => easter.apply( this, arguments ).add( 49, 'days' ).
 // The start of Advent depends upon the day of the
 // week on which Christmas occurs
 // arguments[0]: year
-const firstSundayOfAdvent = () => {
+const firstSundayOfAdvent = y => {
 
-  _christmas = christmas( arguments[0] ),
+  _christmas = christmas(y),
   _date = null;
 
   switch( _christmas.day() ) {
     case 0: // Sunday
-      _date = moment.utc({ year: arguments[0], month: 10, day: 27 });
+      _date = moment.utc({ year: y, month: 10, day: 27 });
       break;
     case 1: // Monday
-      _date = moment.utc({ year: arguments[0], month: 11, day: 3 });
+      _date = moment.utc({ year: y, month: 11, day: 3 });
       break;
     case 2: // Tuesday
-      _date = moment.utc({ year: arguments[0], month: 11, day: 2 });
+      _date = moment.utc({ year: y, month: 11, day: 2 });
       break;
     case 3: // Wednesday
-      _date = moment.utc({ year: arguments[0], month: 11, day: 1 });
+      _date = moment.utc({ year: y, month: 11, day: 1 });
       break;
     case 4: // Thursday
-      _date = moment.utc({ year: arguments[0], month: 10, day: 30 });
+      _date = moment.utc({ year: y, month: 10, day: 30 });
       break;
     case 5: // Friday
-      _date = moment.utc({ year: arguments[0], month: 10, day: 29 });
+      _date = moment.utc({ year: y, month: 10, day: 29 });
       break;
     case 6: // Saturday
-      _date = moment.utc({ year: arguments[0], month: 10, day: 28 });
+      _date = moment.utc({ year: y, month: 10, day: 28 });
       break;
     default:
       break;
@@ -559,7 +558,7 @@ const annunciation = () => {
   _holyWeek = holyWeek.apply( this, arguments );
   _holyWeekRange = moment.range( _.head( _holyWeek ), _.last( _holyWeek ) );
   if ( _holyWeekRange.contains( _date ) ) {
-    _date = _divineMercySunday( arguments[0] ).add( 1, 'days' );
+    _date = divineMercySunday( arguments[0] ).add( 1, 'days' );
   }
 
   // If it occurs during the Octave of Easter, it is transferred to the
@@ -567,7 +566,7 @@ const annunciation = () => {
   _octave = octaveOfEaster.apply( this, arguments );
   _octaveRange = moment.range( _.head( _octave ), _.last( _octave ) );
   if ( _octaveRange.contains( _date ) ) {
-    _date = _divineMercySunday( arguments[0] ).add( 1, 'days' );
+    _date = divineMercySunday( arguments[0] ).add( 1, 'days' );
   }
 
   return _date;
