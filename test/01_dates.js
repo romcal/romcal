@@ -23,7 +23,7 @@
 */
 
 var should = require('should'),
-    rcal = require('../lib/dates'),
+    rcal = require('../src/lib/Dates'),
     moment = require('moment'),
     range = require('moment-range'),
     _ = require('lodash');
