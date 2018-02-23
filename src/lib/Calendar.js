@@ -482,7 +482,16 @@ const _liturgicalYear = c => {
 // skipIsoConversion: undefined|true|false - skip converting moment objects to ISO8601 timestamp
 //                    default action converts moment objects to ISO Strings
 //
-const calendarFor = (config = false, skipIsoConversion = false ) => {
+const calendarFor = (config = {}, skipIsoConversion = false ) => {
+
+  // If config is passed as a boolean
+  // Then assume that we want the calendar for the current year
+  // and either want to skip moment date ISO conversion or keep it
+  // depending on the config value is true or false
+  if (_.isBoolean(config)) {
+    skipIsoConversion = config; 
+    config = {};
+  }
 
   // Sanitize incoming config
   config = _getConfig(config);

@@ -22,17 +22,13 @@
     THE SOFTWARE.
 */
 
-var _ = require('lodash'),
-    should = require('should'),
-    moment = require('moment'),
-    range = require('moment-range');
+import _ from 'lodash';
+import should from 'should';
+import moment from 'moment';
+import range from 'moment-range';
 
-var Dates = require('../src/lib/Dates'),
-    Seasons = require('../src/lib/Seasons'),
-    Calendar = require('../src/lib/Calendar');
-
-var LiturgicalSeasons = require('../src/constants/Seasons'),
-    LiturgicalColors = require('../src/constants/liturgicalColors');
+import { LiturgicalColors, Seasons as LiturgicalSeasons } from '../src/constants';
+import { Dates, Seasons, Calendar } from '../src/lib';
 
 describe('Testing date range functions', function() {
 
@@ -188,7 +184,7 @@ describe('Testing date range functions', function() {
 
     it('There are typically 24 to 29 Sundays in Ordinary Time between the Pentecost to the 1st Sunday of Advent', function() {
       for ( var i = 1900, il = 2100; i <= il; i++ ) {
-        var dates = Dates.daysOfLaterOrdinaryTime( i );
+        var dates = Dates.daysOfLaterOrdinaryTime( i ),
             sundays = _.filter( dates, function( d ) {
               return _.eq( d.day(), 0 );
             });
@@ -211,14 +207,14 @@ describe('Testing date range functions', function() {
 
     describe('If Epiphany is celebrated on Jan 6', function() {
 
-      it('If following the Traditional end of the Christmas season, the last day of Christmas is on 6th Jan', function() {
+      it('The last day of Christmas is on 6th Jan, if following the Traditional end of the Christmas season', function() {
           for ( var i = 1900, il = 2100; i <= il; i++ ) {
             var dates = Dates.christmastide( i, 't', true );
             _.last( dates ).isSame( moment.utc({ year: (i + 1), month: 0, day: 6 }) ).should.be.eql( true ) ;
           }
       });
 
-      it('If following the Ordinary Liturgical Calendar of the Western Roman Rite, the last day of Christmas is always on Sunday on the feast of the Baptism of the Lord', function() {
+      it('The last day of Christmas is always on Sunday on the feast of the Baptism of the Lord, if following the Ordinary Liturgical Calendar of the Western Roman Rite', function() {
         for ( var i = 1900, il = 2100; i <= il; i++ ) {
           var dates = Dates.christmastide( i, 'o', true );
           _.last( dates ).day().should.be.eql( 0 ) ;
