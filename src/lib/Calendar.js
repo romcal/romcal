@@ -10,7 +10,7 @@ import * as Seasons from './Seasons';
 import * as Celebrations from './Celebrations';
 
 import { 
-  Seasons as Season, 
+  LiturgicalSeasons, 
   Titles, 
   LiturgicalColors, 
   PsalterWeeks, 
@@ -257,7 +257,7 @@ const _applyDates = ( options, dates ) => {
         //------------------------------------------------------------------
         else if (
           _.eq( date.type, _.last( Types ) )
-          && _.eq( date.data.season.key, Season.LENT )
+          && _.eq( date.data.season.key, LiturgicalSeasons.LENT )
           && ( _.eq( candidate.type, Types[5] ) || _.eq( candidate.type, Types[6] ) )
         ) {
           replace = true;
@@ -270,7 +270,7 @@ const _applyDates = ( options, dates ) => {
         //------------------------------------------------------------------
         else if (
           _.eq( date.type, _.last( Types ) )
-          && !_.eq( date.data.season.key, Season.LENT )
+          && !_.eq( date.data.season.key, LiturgicalSeasons.LENT )
           && ( _.eq( candidate.type, Types[5] ) || _.eq( candidate.type, Types[6] ) )
         ) {
           replace = true;
@@ -283,7 +283,7 @@ const _applyDates = ( options, dates ) => {
         else if (
           _.eq( candidate.type, Types[4] )
           && _.eq( date.type, _.last( Types ) )
-          && !_.eq( date.data.season.key, Season.LENT )
+          && !_.eq( date.data.season.key, LiturgicalSeasons.LENT )
           && !candidate.data.prioritized
         ) {
           replace = true;
@@ -296,7 +296,7 @@ const _applyDates = ( options, dates ) => {
         else if (
           _.eq( candidate.type, Types[4] )
           && _.eq( date.type, _.last( Types ) )
-          && _.eq( date.data.season.key, Season.LENT )
+          && _.eq( date.data.season.key, LiturgicalSeasons.LENT )
         ) {
           replace = true;
           derank = true;
@@ -310,7 +310,7 @@ const _applyDates = ( options, dates ) => {
         else if (
           _.eq( candidate.type, Types[4] )
           && ( _.eq( date.type, _.last( Types ) ) || _.eq( date.type, Types[1] ) )
-          && !_.eq( date.data.season.key, Season.LENT )
+          && !_.eq( date.data.season.key, LiturgicalSeasons.LENT )
           && candidate.data.prioritized
         ) {
           replace = true;
@@ -598,10 +598,13 @@ const calendarFor = (config = {}, skipIsoConversion = false ) => {
   return dates;
 };
 
+const queryFor = (dates, query) => {
+
+};
+
 export {
   calendarFor,
+  queryFor,
   countries,
-  Titles,
-  Seasons,
   getNationalCalendar
 };

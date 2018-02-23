@@ -16,7 +16,7 @@ Utility library that outputs the Liturgical Calendar used by the Roman Rite (Wes
 
 ## Contributing to romcal
 
-All contributions are most welcome!
+Contributions are welcome!
 
 Please fork/raise merge requests or issues to improve the quality of this module.
 
@@ -54,9 +54,9 @@ I especially reach out to you all for help with translations/localizations of ce
 - [Localizing celebration names](#localization)
 
 ## Description <a name="desc"></a>
-Romcal is a module that generates the [General Roman Calendar](http://en.wikipedia.org/wiki/General_Roman_Calendar) used in the Roman Catholic Rite. This module conforms to the revised liturgical calendar for the Western Church as approved by Paul VI in [Mysterii Paschalis](http://www.romcal.net/mysterii.html) dated 14 February 1969.
+Romcal generates the [General Roman Calendar](http://en.wikipedia.org/wiki/General_Roman_Calendar) used in the Roman Catholic Rite. Output conforms to the revised liturgical calendar for the Western Church as approved by Paul VI in [Mysterii Paschalis](http://www.romcal.net/mysterii.html) dated 14 February 1969.
 
-This module can output dates based on the standard calendar year (Jan, 1st - Dec, 31st) or the liturgical year (First Sunday of Advent - Christ the King) alongside many other features for fine-tuning output as described below.
+Output can be configured for the standard calendar year (Jan, 1st - Dec, 31st) or the liturgical year (First Sunday of Advent - Christ the King). Additional filters for filtering output are also available (described below).
 
 ## Credits <a name="credits"></a>
 This node module is inspired by the C program [romcal](http://www.romcal.net/) written by Kenneth G. Bath. This module, while exhibiting similar output, is written ground up using different tools and technologies and exposes many new functionalities.
@@ -65,10 +65,10 @@ This node module is inspired by the C program [romcal](http://www.romcal.net/) w
  * Able to query liturgical dates for any year in the gregorian calendar (1582 - now). Note that dates for years before 1969 will still be returned in a format conforming to [Mysterii Paschalis](http://www.romcal.net/mysterii.html) even though those years came before the calendar reforms in 1969.
  * Filter queries to allow more streamlined date results to be obtained for the year.
  * Localization of liturgical date names to cater for different languages
- * National liturgical calendars for country specific.
+ * National liturgical calendars for country specific calendars.
  * Richly commented code to help developers and contributors understand how the module works.
 
-NOTE: This module depends on [Moment](http://momentjs.com/) and [lodash](http://lodash.com/) for most of its calculations and operations. Several [Moment](http://momentjs.com/) plugins such as [Range](https://github.com/gf3/moment-range) and [Recur](https://github.com/c-trimm/moment-recur) are used to extend date computation functionality. Familiarity with these libraries makes reading the code much easier.
+NOTE: This module depends on [Moment](http://momentjs.com/) and [lodash](http://lodash.com/) for most of its calculations and operations. Additional [Moment](http://momentjs.com/) plugins such as [Range](https://github.com/gf3/moment-range) and [Recur](https://github.com/c-trimm/moment-recur) are used to extend date computation functionality. Familiarity with these libraries makes reading the code much easier.
 
 ## Module Robustness & Data Integrity <a name="disclaimer"></a>
 *Calendar entries for this module are pulled from various sources from the net. As such their accuracy cannot be ensured. If you find an incorrect calendar entry (e.g. wrong date, wrong feast type, spelling issue, typos), you are most welcome to contribute to the source code or inform me so that the necessary changes can be made to make this a more robust and reliable module*
@@ -76,7 +76,7 @@ NOTE: This module depends on [Moment](http://momentjs.com/) and [lodash](http://
 *Romcal's code logic is developed according to calendar requirements descibed in various church documents sourced from the internet (and even from Wikipedia). If you notice discrepancies between romcal's output and actual liturgical dates, please do contribute your fixes or submit an issue on GitHub.*
 
 ### Testing romcal
-romcal logic is tested using mocha and should.
+romcal logic is tested using `mocha` and `should`.
 Run `npm test` in your console to view test output.
 Travis CI is used to validate romcal builds to ensure functionality is working as expected.
 
@@ -97,7 +97,13 @@ Then require romcal in your node project:
 var romcal = require('romcal');
 ```
 
-Invoke the `calendarFor` method to retrieve an array of liturgical dates and celebrations in the Roman Calendar. This method accepts an object (optional) representing configuration properties to customize the output.
+or as a CommonJS module
+
+```
+import romcal from 'romcal';
+```
+
+Invoke the `calendarFor` method to retrieve an array of liturgical dates and celebrations in the Roman Calendar. This method accepts an object (optional) of configuration properties to obtain customized output.
 
 ```
 romcal.calendarFor({

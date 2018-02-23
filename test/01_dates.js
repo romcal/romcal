@@ -27,8 +27,7 @@ import should from 'should';
 import moment from 'moment';
 import range from 'moment-range';
 
-import { LiturgicalColors, Seasons as LiturgicalSeasons } from '../src/constants';
-import { Dates } from '../src/lib';
+import { LiturgicalColors, LiturgicalSeasons, Dates } from '../src';
 
 describe('Testing specific liturgical date functions', function() {
 

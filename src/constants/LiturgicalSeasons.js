@@ -1,4 +1,4 @@
-const Seasons = {
+const LiturgicalSeasons = {
   "ADVENT": "Advent",
   "CHRISTMASTIDE": "Christmastide",
   "EARLY_ORDINARY_TIME": "Early Ordinary Time",
@@ -7,4 +7,4 @@ const Seasons = {
   "HOLY_WEEK": "Holy Week",
   "EASTER": "Easter"
 };
-export default Seasons;
+export default LiturgicalSeasons;
