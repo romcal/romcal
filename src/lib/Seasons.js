@@ -8,7 +8,7 @@ import * as Dates from './Dates';
 import * as Utils from './Utils';
 
 import {
-  Seasons,
+  LiturgicalSeasons,
   PsalterWeeks,
   LiturgicalColors,
   Types
@@ -50,7 +50,7 @@ const _epiphany = (y, epiphanyOnJan6) => {
       }),
       data: {
         season: {
-          key: Seasons.CHRISTMASTIDE,
+          key: LiturgicalSeasons.CHRISTMASTIDE,
           value: Utils.localize({
             key: 'christmastide.season'
           })
@@ -69,7 +69,7 @@ const _epiphany = (y, epiphanyOnJan6) => {
       }),
       data: {
         season: {
-          key: Seasons.CHRISTMASTIDE,
+          key: LiturgicalSeasons.CHRISTMASTIDE,
           value: Utils.localize({
             key: 'christmastide.season'
           })
@@ -97,7 +97,7 @@ const _holyWeek = y => {
       }),
       data: {
         season: {
-          key: Seasons.HOLY_WEEK,
+          key: LiturgicalSeasons.HOLY_WEEK,
           value: Utils.localize({
             key: 'holyWeek.season'
           })
@@ -130,7 +130,7 @@ const advent = y => {
       }),
       data: {
         season: {
-          key: Seasons.ADVENT,
+          key: LiturgicalSeasons.ADVENT,
           value: Utils.localize({
             key: 'advent.season'
           })
@@ -232,7 +232,7 @@ const christmastide = (y, christmastideEnds, epiphanyOnJan6) => {
       }),
       data: {
         season: {
-          key: Seasons.CHRISTMASTIDE,
+          key: LiturgicalSeasons.CHRISTMASTIDE,
           value: Utils.localize({
             key: 'christmastide.season'
           })
@@ -253,7 +253,7 @@ const christmastide = (y, christmastideEnds, epiphanyOnJan6) => {
       }),
       data: {
         season: {
-          key: Seasons.CHRISTMASTIDE,
+          key: LiturgicalSeasons.CHRISTMASTIDE,
           value: Utils.localize({
             key: 'christmastide.season'
           })
@@ -342,7 +342,7 @@ const earlyOrdinaryTime = (y, christmastideEnds, epiphanyOnJan6) => {
       }),
       data: {
         season: {
-          key: Seasons.EARLY_ORDINARY_TIME,
+          key: LiturgicalSeasons.EARLY_ORDINARY_TIME,
           value: Utils.localize({
             key: 'ordinaryTime.season'
           })
@@ -437,7 +437,7 @@ const laterOrdinaryTime = y => {
       }),
       data: {
         season: {
-          key: Seasons.LATER_ORDINARY_TIME,
+          key: LiturgicalSeasons.LATER_ORDINARY_TIME,
           value: Utils.localize({
             key: 'ordinaryTime.season'
           })
@@ -527,7 +527,7 @@ const lent = y => {
       }),
       data: {
         season: {
-          key: Seasons.LENT,
+          key: LiturgicalSeasons.LENT,
           value: Utils.localize({
             key: 'lent.season'
           })
@@ -548,7 +548,7 @@ const lent = y => {
       }),
       data: {
         season: {
-          key: Seasons.LENT,
+          key: LiturgicalSeasons.LENT,
           value: Utils.localize({
             key: 'lent.season'
           })
@@ -666,7 +666,7 @@ const eastertide = y => {
       data: {
         prioritized: true,
         season: {
-          key: Seasons.EASTER,
+          key: LiturgicalSeasons.EASTER,
           value: Utils.localize({
             key: 'eastertide.season'
           })
@@ -687,7 +687,7 @@ const eastertide = y => {
       }),
       data: {
         season: {
-          key: Seasons.EASTER,
+          key: LiturgicalSeasons.EASTER,
           value: Utils.localize({
             key: 'eastertide.season'
           })
