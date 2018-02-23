@@ -22,18 +22,14 @@
     THE SOFTWARE.
 */
 
-var _ = require('lodash'),
-    should = require('should'),
-    moment = require('moment'),
-    range = require('moment-range');
 
-var Dates = require('../src/lib/Dates'),
-    Types = require('../src/constants/Types'),
-    Seasons = require('../src/constants/Seasons'),
-    Colors = require('../src/constants/LiturgicalColors'),
-    Psalter = require('../src/constants/PsalterWeeks'),
-    Titles = require('../src/constants/Titles'),
-    Calendar = require('../src/lib/Calendar');
+import _ from 'lodash';
+import should from 'should';
+import moment from 'moment';
+import range from 'moment-range';
+
+import { Types, Seasons, LiturgicalColors as Colors, PsalterWeeks as Psalter, Titles } from '../src/constants';
+import { Dates, Calendar } from '../src/lib';
 
 describe('Testing calendar generation functions', function() {
 
@@ -45,9 +41,9 @@ describe('Testing calendar generation functions', function() {
           start = Dates.firstSundayOfAdvent( year ),
           end = Dates.firstSundayOfAdvent( year + 1 ).subtract( 1, 'days'),
           dates = Calendar.calendarFor({
-                    year: year,
-                    type: 'liturgical'
-                  }, true );
+            year: year,
+            type: 'liturgical'
+          }, true );
 
       it('Should start on the 1st Sunday of Advent and end on Christ the King', function() {
         _.head( dates ).moment.isSame( start ).should.be.eql( true );
