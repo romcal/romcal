@@ -4,8 +4,9 @@
   "description": "Utility library that outputs the Liturgical Calendar used by the Roman Rite (Western Church)",
   "main": "src/romcal.js",
   "scripts": {
-    "build": "webpack --config webpack.config.js",
-    "prepublish": "npm run build",
+    "build:web": "webpack --config webpack.web.js && webpack --config webpack.slim.js",
+    "prepublish": "npm run test",
+    "prepublishOnly": "npm run build:web",
     "test": "mocha --compilers js:babel-core/register test/*.js"
   },
   "repository": {
@@ -40,6 +41,7 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "mocha": "^6.2.2",
