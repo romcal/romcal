@@ -4,6 +4,9 @@ import Path from 'path';
 import { Types } from '../constants';
 import * as Locales from '../locales';
 
+// Remap Locale keys to match moment locales
+Locales = _.mapKeys(Locales, (v, k) => _.kebabCase(k));
+
 // Mustache style templating is easier on the eyes
 _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
 
@@ -11,7 +14,6 @@ _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
 // Locale lookup for date name strings are based on moment
 let _locale = {};
 let _fallbackLocale = _.get( Locales, 'en' );
-
 let setLocale = key => {
   moment.locale( key );
   if ( _.has( Locales, moment.locale() ) ) {
@@ -60,8 +62,8 @@ const localize = options => {
   return _.template( value )( options );
 };
 
-const getTypeByDayOfWeek = () => {
-  if ( _.eq( arguments[0], 0 ) ) {
+const getTypeByDayOfWeek = dayOfWeek => {
+  if ( _.eq( dayOfWeek, 0 ) ) {
     return Types[1]; // Sunday
   }
   else {
