@@ -8,19 +8,19 @@ import * as Utils from './Utils';
 import { Seasons, Titles, LiturgicalColors, Types } from '../constants';
 
 
-// arguments[0]: Takes the year (integer)
-// arguments[1]: t|o|e [The mode to calculate the end of Christmastide]
-// arguments[2]: true|false [If true, Epiphany will be fixed to Jan 6]
-// arguments[3]  true|false|undefined (If true, Corpus Christi is set to Thursday)
-// arguments[4]  true|false|undefined (If true, Ascension is moved to the 7th Sunday of Easter)
-let dates = () => {
+// year: Takes the year (integer)
+// christmastideEnds: t|o|e [The mode to calculate the end of Christmastide]
+// epiphanyOnJan6: true|false [If true, Epiphany will be fixed to Jan 6]
+// corpusChristiOnThursday: true|false|undefined (If true, Corpus Christi is set to Thursday)
+// ascensionOnSunday: true|false|undefined (If true, Ascension is moved to the 7th Sunday of Easter)
+let dates = (year, christmastideEnds, epiphanyOnJan6, corpusChristiOnThursday, ascensionOnSunday) => {
   
   let _dates = [
     // Solemnities
     {
       "key": "immaculateConception",
       "type": _.head( Types ),
-      "moment": Dates.immaculateConception( arguments[0], arguments[5] ),
+      "moment": Dates.immaculateConception( year ),
       "data": {
         "prioritized": true,
         "meta": {
@@ -31,7 +31,7 @@ let dates = () => {
     {
       "key": "christmas",
       "type": _.head( Types ),
-      "moment": Dates.christmas( arguments[0], arguments[5] ),
+      "moment": Dates.christmas( year ),
       "data": {
         "prioritized": true,
         "meta": {
@@ -42,7 +42,7 @@ let dates = () => {
     {
       "key": "maryMotherOfGod",
       "type": _.head( Types ),
-      "moment": Dates.maryMotherOfGod( arguments[0], arguments[5] ),
+      "moment": Dates.maryMotherOfGod( year ),
       "data": {
         "prioritized": true,
         "meta": {
@@ -53,7 +53,7 @@ let dates = () => {
     {
       "key": "epiphany",
       "type": _.head( Types ),
-      "moment": Dates.epiphany( arguments[0], arguments[2], arguments[5] ),
+      "moment": Dates.epiphany( year, epiphanyOnJan6 ),
       "data": {
         "prioritized": true,
         "meta": {
@@ -64,7 +64,7 @@ let dates = () => {
     {
       "key": "trinitySunday",
       "type": _.head( Types ),
-      "moment": Dates.trinitySunday( arguments[0], arguments[5] ),
+      "moment": Dates.trinitySunday( year ),
       "data": {
         "prioritized": true,
         "meta": {
@@ -75,7 +75,7 @@ let dates = () => {
     {
       "key": "corpusChristi",
       "type": _.head( Types ),
-      "moment": Dates.corpusChristi( arguments[0], arguments[3], arguments[5] ),
+      "moment": Dates.corpusChristi( year, corpusChristiOnThursday ),
       "data": {
         "prioritized": true,
         "meta": {
@@ -86,7 +86,7 @@ let dates = () => {
     {
       "key": "sacredHeartOfJesus",
       "type": _.head( Types ),
-      "moment": Dates.sacredHeartOfJesus( arguments[0], arguments[5] ),
+      "moment": Dates.sacredHeartOfJesus( year ),
       "data": {
         "prioritized": true,
         "meta": {
@@ -97,7 +97,7 @@ let dates = () => {
     {
       "key": "birthOfJohnTheBaptist",
       "type": _.head( Types ),
-      "moment": Dates.birthOfJohnTheBaptist( arguments[0], arguments[5] ),
+      "moment": Dates.birthOfJohnTheBaptist( year ),
       "data": {
         "prioritized": true,
         "meta": {
@@ -108,7 +108,7 @@ let dates = () => {
     {
       "key": "peterAndPaulApostles",
       "type": _.head( Types ),
-      "moment": Dates.peterAndPaulApostles( arguments[0], arguments[5] ),
+      "moment": Dates.peterAndPaulApostles( year ),
       "data": {
         "prioritized": true,
         "meta": {
@@ -119,7 +119,7 @@ let dates = () => {
     {
       "key": "assumption",
       "type": _.head( Types ),
-      "moment": Dates.assumption( arguments[0], arguments[5] ),
+      "moment": Dates.assumption( year ),
       "data": {
         "prioritized": true,
         "meta": {
@@ -130,7 +130,7 @@ let dates = () => {
     {
       "key": "allSaints",
       "type": _.head( Types ),
-      "moment": Dates.allSaints( arguments[0], arguments[5] ),
+      "moment": Dates.allSaints( year ),
       "data": {
         "prioritized": true,
         "meta": {
@@ -141,7 +141,7 @@ let dates = () => {
     {
       "key": "christTheKing",
       "type": _.head( Types ),
-      "moment": Dates.christTheKing( arguments[0], arguments[5] ),
+      "moment": Dates.christTheKing( year ),
       "data": {
         "prioritized": true,
         "meta": {
@@ -152,7 +152,7 @@ let dates = () => {
     {
       "key": "josephHusbandOfMary",
       "type": _.head( Types ),
-      "moment": Dates.josephHusbandOfMary( arguments[0], arguments[5] ),
+      "moment": Dates.josephHusbandOfMary( year ),
       "data": {
         "prioritized": true,
         "meta": {
@@ -163,7 +163,7 @@ let dates = () => {
     {
       "key": "annunciation",
       "type": _.head( Types ),
-      "moment": Dates.annunciation( arguments[0], arguments[5] ),
+      "moment": Dates.annunciation( year ),
       "data": {
         "prioritized": true,
         "meta": {
@@ -174,7 +174,7 @@ let dates = () => {
     {
       "key": "easter",
       "type": _.head( Types ),
-      "moment": Dates.easter( arguments[0], arguments[5] ),
+      "moment": Dates.easter( year ),
       "data": {
         "prioritized": true,
         "meta": {
@@ -185,7 +185,7 @@ let dates = () => {
     {
       "key": "divineMercySunday",
       "type": _.head( Types ),
-      "moment": Dates.divineMercySunday( arguments[0], arguments[5] ),
+      "moment": Dates.divineMercySunday( year ),
       "data": {
         "prioritized": true,
         "meta": {
@@ -196,7 +196,7 @@ let dates = () => {
     {
       "key": "ascension",
       "type": _.head( Types ),
-      "moment": Dates.ascension( arguments[0], arguments[4], arguments[5] ),
+      "moment": Dates.ascension( year, ascensionOnSunday ),
       "data": {
         "prioritized": true,
         "meta": {
@@ -207,7 +207,7 @@ let dates = () => {
     {
       "key": "pentecostSunday",
       "type": _.head( Types ),
-      "moment": Dates.pentecostSunday( arguments[0], arguments[5] ),
+      "moment": Dates.pentecostSunday( year ),
       "data": {
         "prioritized": true,
         "meta": {
@@ -219,7 +219,7 @@ let dates = () => {
     {
       "key": "ashWednesday",
       "type": _.last( Types ),
-      "moment": Dates.ashWednesday( arguments[0], arguments[5] ),
+      "moment": Dates.ashWednesday( year ),
       "data": {
         "prioritized": true,
         "season": {
@@ -236,7 +236,7 @@ let dates = () => {
     {
       "key": "palmSunday",
       "type": Types[1],
-      "moment": Dates.palmSunday( arguments[0], arguments[5] ),
+      "moment": Dates.palmSunday( year ),
       "data": {
         "prioritized": true,
         "season": {
@@ -253,7 +253,7 @@ let dates = () => {
     {
       "key": "holyThursday",
       "type": Types[2],
-      "moment": Dates.holyThursday( arguments[0], arguments[5] ),
+      "moment": Dates.holyThursday( year ),
       "data": {
         "prioritized": true,
         "season": {
@@ -273,7 +273,7 @@ let dates = () => {
     {
       "key": "goodFriday",
       "type": Types[2],
-      "moment": Dates.goodFriday( arguments[0], arguments[5] ),
+      "moment": Dates.goodFriday( year ),
       "data": {
         "prioritized": true,
         "season": {
@@ -293,7 +293,7 @@ let dates = () => {
     {
       "key": "holySaturday",
       "type": Types[2],
-      "moment": Dates.holySaturday( arguments[0], arguments[5] ),
+      "moment": Dates.holySaturday( year ),
       "data": {
         "prioritized": true,
         "season": {
@@ -314,7 +314,7 @@ let dates = () => {
     {
       "key": "holyFamily",
       "type": Types[4],
-      "moment": Dates.holyFamily( arguments[0], arguments[5] ),
+      "moment": Dates.holyFamily( year ),
       "data": {
         "prioritized": true,
         "meta": {
@@ -328,7 +328,7 @@ let dates = () => {
     {
       "key": "baptismOfTheLord",
       "type": Types[4],
-      "moment": Dates.baptismOfTheLord( arguments[0], arguments[2], arguments[5] ),
+      "moment": Dates.baptismOfTheLord( year, epiphanyOnJan6 ),
       "data": {
         "prioritized": true,
         "meta": {
@@ -342,7 +342,7 @@ let dates = () => {
     {
       "key": "presentationOfTheLord",
       "type": Types[4],
-      "moment": Dates.presentationOfTheLord( arguments[0], arguments[5] ),
+      "moment": Dates.presentationOfTheLord( year ),
       "data": {
         "prioritized": true,
         "meta": {
@@ -356,7 +356,7 @@ let dates = () => {
     {
       "key": "transfiguration",
       "type": Types[4],
-      "moment": Dates.transfiguration( arguments[0], arguments[5] ),
+      "moment": Dates.transfiguration( year ),
       "data": {
         "prioritized": true,
         "meta": {
@@ -370,7 +370,7 @@ let dates = () => {
     {
       "key": "triumphOfTheCross",
       "type": Types[4],
-      "moment": Dates.triumphOfTheCross( arguments[0], arguments[5] ),
+      "moment": Dates.triumphOfTheCross( year ),
       "data": {
         "prioritized": true,
         "meta": {
@@ -385,7 +385,7 @@ let dates = () => {
     {
       "key": "immaculateHeartOfMary",
       "type": Types[4],
-      "moment": Dates.immaculateHeartOfMary( arguments[0], arguments[5] ),
+      "moment": Dates.immaculateHeartOfMary( year ),
       "data": {
         "prioritized": true,
         "meta": {

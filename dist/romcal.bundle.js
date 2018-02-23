@@ -14323,31 +14323,31 @@ exports.Utils = exports.Seasons = exports.Dates = exports.Celebrations = exports
 
 var _Calendar = __webpack_require__(131);
 
-var _Calendar2 = _interopRequireDefault(_Calendar);
+var Calendar = _interopRequireWildcard(_Calendar);
 
 var _Celebrations = __webpack_require__(126);
 
-var _Celebrations2 = _interopRequireDefault(_Celebrations);
+var Celebrations = _interopRequireWildcard(_Celebrations);
 
 var _Dates = __webpack_require__(6);
 
-var _Dates2 = _interopRequireDefault(_Dates);
+var Dates = _interopRequireWildcard(_Dates);
 
 var _Seasons = __webpack_require__(125);
 
-var _Seasons2 = _interopRequireDefault(_Seasons);
+var Seasons = _interopRequireWildcard(_Seasons);
 
 var _Utils = __webpack_require__(7);
 
-var _Utils2 = _interopRequireDefault(_Utils);
+var Utils = _interopRequireWildcard(_Utils);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-exports.Calendar = _Calendar2.default;
-exports.Celebrations = _Celebrations2.default;
-exports.Dates = _Dates2.default;
-exports.Seasons = _Seasons2.default;
-exports.Utils = _Utils2.default;
+exports.Calendar = Calendar;
+exports.Celebrations = Celebrations;
+exports.Dates = Dates;
+exports.Seasons = Seasons;
+exports.Utils = Utils;
 
 /***/ }),
 /* 5 */
@@ -15143,7 +15143,6 @@ var _lodash2 = _interopRequireDefault(_lodash);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Working variables
-let _traditional;
 let _firstDay;
 let _date;
 let _start;
@@ -15170,18 +15169,18 @@ let _octaveRange;
 // Epiphany is always celebrated on Jan 6
 // arguments[0]: year
 // arguments[1]: true|false (activate traditional rule)
-const epiphany = () => {
+const epiphany = (y, traditional) => {
 
   // Check if the traditional method should be used for calculating the
   // date of Epiphany
-  _traditional = _arguments[1] || false;
+  traditional = traditional || false;
 
   // Get the first day of the year
-  _firstDay = _moment2.default.utc({ year: _arguments[0], month: 0, day: 1 });
-  _date = _moment2.default.utc({ year: _arguments[0], month: 0, day: 6 });
+  _firstDay = _moment2.default.utc({ year: y, month: 0, day: 1 });
+  _date = _moment2.default.utc({ year: y, month: 0, day: 6 });
 
   // Always return Jan 6 as the date of Epiphany according to Traditional rule
-  if (_traditional) {
+  if (traditional) {
     return _date;
   } else {
 
@@ -15207,14 +15206,14 @@ const epiphany = () => {
 
 // Christmas falls on the 25th of December
 // arguments[0]: year
-const christmas = () => _moment2.default.utc({ year: _arguments[0], month: 11, day: 25 });
+const christmas = y => _moment2.default.utc({ year: y, month: 11, day: 25 });
 
 // The 8 days from Christmas to Mary Mother of God (inclusive)
 // arguments[0]: year
-const octaveOfChristmas = () => {
+const octaveOfChristmas = y => {
 
-  _start = christmas.apply(undefined, _arguments);
-  _end = maryMotherOfGod(_arguments[0] + 1);
+  _start = christmas(y);
+  _end = maryMotherOfGod(y + 1);
   _recurrence = _moment2.default.utc().recur({
     start: _start,
     end: _end
@@ -15232,7 +15231,7 @@ const octaveOfChristmas = () => {
 // the Octave (8th) day of Christmas, and in some
 // countries is a Holy day of obligation..
 // arguments[0]: year
-const maryMotherOfGod = () => _moment2.default.utc({ year: _arguments[0], month: 0, day: 1 });
+const maryMotherOfGod = y => _moment2.default.utc({ year: y, month: 0, day: 1 });
 
 // The Baptism of the Lord (or the Baptism of Christ) is the feast day
 // commemorating the baptism of Jesus in the Jordan River by John the
@@ -15276,7 +15275,7 @@ const baptismOfTheLord = () => {
 // 22 February. In some Western liturgical churches, Vespers (or Compline) on the
 // Feast of the Presentation marks the end of the Epiphany season.
 // arguments[0]: year
-const presentationOfTheLord = () => _moment2.default.utc({ year: _arguments[0], month: 1, day: 2 });
+const presentationOfTheLord = y => _moment2.default.utc({ year: y, month: 1, day: 2 });
 
 // In different Churches, the Christmas Season might end on Jan. 6
 // (the traditional date of the Feast of the Epiphany), or might last
@@ -15375,7 +15374,7 @@ const daysOfLaterOrdinaryTime = () => {
 // and is the week before the First Sunday of Advent. The Sundays of Ordinary Time in the
 // latter part of the year are numbered backwards from Christ the King to Pentecost.
 // arguments[0]: year
-const christTheKing = () => firstSundayOfAdvent.apply(undefined, _arguments).subtract(7, 'days').startOf('day');
+const christTheKing = y => firstSundayOfAdvent(y).subtract(7, 'days').startOf('day');
 
 //==================================================================================
 // Lent & Holy Week
@@ -15424,9 +15423,9 @@ const ashWednesday = () => easter.apply(undefined, _arguments).subtract(46, 'day
 // Good Friday (Holy Friday), and Holy Saturday.
 // It does not include Easter Sunday
 // arguments[0]: year
-const holyWeek = () => {
-  _start = palmSunday.apply(undefined, _arguments);
-  _end = holySaturday.apply(undefined, _arguments);
+const holyWeek = y => {
+  _start = palmSunday(y);
+  _end = holySaturday(y);
   _recurrence = _moment2.default.utc().recur({
     start: _start,
     end: _end
@@ -15438,18 +15437,18 @@ const holyWeek = () => {
 // Palm Sunday is a Christian moveable feast that
 // falls on the Sunday before Easter.
 // arguments[0]: year
-const palmSunday = () => easter.apply(undefined, _arguments).subtract(7, 'days').startOf('day');
+const palmSunday = y => easter(y).subtract(7, 'days').startOf('day');
 
 // Maundy Thursday (also known as Holy Thursday) is
 // the Christian holy day falling on the Thursday before Easter.
 // arguments[0]: year
-const holyThursday = () => easter.apply(undefined, _arguments).subtract(3, 'days').startOf('day');
+const holyThursday = y => easter(y).subtract(3, 'days').startOf('day');
 
 // Good Friday is a Christian religious holiday commemorating the crucifixion of Jesus Christ
 // and his death at Calvary. The holiday is observed during Holy Week as part of the
 // Paschal Triduum on the Friday preceding Easter Sunday
 // arguments[0]: year
-const goodFriday = () => easter.apply(undefined, _arguments).subtract(2, 'days').startOf('day');
+const goodFriday = y => easter(y).subtract(2, 'days').startOf('day');
 
 // Holy Saturday (Latin: Sabbatum Sanctum) i.e. the Saturday of Holy Week, also known as the
 // Great Sabbath, Black Saturday, or Easter Eve,[1] and called "Joyous Saturday" or "the
@@ -15457,7 +15456,7 @@ const goodFriday = () => easter.apply(undefined, _arguments).subtract(2, 'days')
 // before Easter and the last day of Holy Week in which Christians prepare for Easter.
 // It commemorates the day that Jesus Christ's body lay in the tomb and the Harrowing of Hell.
 // arguments[0]: year
-const holySaturday = () => easter.apply(undefined, _arguments).subtract(1, 'days').startOf('day');
+const holySaturday = y => easter(y).subtract(1, 'days').startOf('day');
 
 //==================================================================================
 // Eastertide
@@ -15466,9 +15465,9 @@ const holySaturday = () => easter.apply(undefined, _arguments).subtract(1, 'days
 // The term Octave of Easter refers to the eight-day period (Octave)
 // from Easter Sunday until the Sunday following Easter, inclusive;
 // arguments[0]: year
-const octaveOfEaster = () => {
-  _start = easter.apply(undefined, _arguments);
-  _end = divineMercySunday.apply(undefined, _arguments);
+const octaveOfEaster = y => {
+  _start = easter(y);
+  _end = divineMercySunday(y);
   _recurrence = (0, _moment2.default)().recur({
     start: _start,
     end: _end
@@ -15507,9 +15506,9 @@ const daysOfEaster = () => {
 // "Explanatory Supplement to the Astronomical Almanac", P. Kenneth
 // Seidelmann, editor.
 // arguments[0]: year
-const easter = () => {
+const easter = year => {
 
-  let Y = _arguments[0] || _moment2.default.utc().year();
+  let Y = year || _moment2.default.utc().year();
   let C = Math.floor(Y / 100);
   let N = Y - 19 * Math.floor(Y / 19);
   let K = Math.floor((C - 17) / 25);
@@ -15533,7 +15532,7 @@ const easter = () => {
 // Divine Mercy Sunday is celebrated on the Sunday after Easter, the Octave of Easter,
 // observed by Roman Catholic as well as some Anglicans
 // arguments[0]: year
-const divineMercySunday = () => easter.apply(undefined, _arguments).add(7, 'days').startOf('day');
+const divineMercySunday = y => easter(y).add(7, 'days').startOf('day');
 
 // The Solemnity of Pentecost occurs 49 days after Easter.
 // arguments[0]: year
@@ -15546,38 +15545,38 @@ const pentecostSunday = () => easter.apply(undefined, _arguments).add(49, 'days'
 // The start of Advent depends upon the day of the
 // week on which Christmas occurs
 // arguments[0]: year
-const firstSundayOfAdvent = () => {
+const firstSundayOfAdvent = y => {
 
-  _christmas = christmas(_arguments[0]), _date = null;
+  _christmas = christmas(y), _date = null;
 
   switch (_christmas.day()) {
     case 0:
       // Sunday
-      _date = _moment2.default.utc({ year: _arguments[0], month: 10, day: 27 });
+      _date = _moment2.default.utc({ year: y, month: 10, day: 27 });
       break;
     case 1:
       // Monday
-      _date = _moment2.default.utc({ year: _arguments[0], month: 11, day: 3 });
+      _date = _moment2.default.utc({ year: y, month: 11, day: 3 });
       break;
     case 2:
       // Tuesday
-      _date = _moment2.default.utc({ year: _arguments[0], month: 11, day: 2 });
+      _date = _moment2.default.utc({ year: y, month: 11, day: 2 });
       break;
     case 3:
       // Wednesday
-      _date = _moment2.default.utc({ year: _arguments[0], month: 11, day: 1 });
+      _date = _moment2.default.utc({ year: y, month: 11, day: 1 });
       break;
     case 4:
       // Thursday
-      _date = _moment2.default.utc({ year: _arguments[0], month: 10, day: 30 });
+      _date = _moment2.default.utc({ year: y, month: 10, day: 30 });
       break;
     case 5:
       // Friday
-      _date = _moment2.default.utc({ year: _arguments[0], month: 10, day: 29 });
+      _date = _moment2.default.utc({ year: y, month: 10, day: 29 });
       break;
     case 6:
       // Saturday
-      _date = _moment2.default.utc({ year: _arguments[0], month: 10, day: 28 });
+      _date = _moment2.default.utc({ year: y, month: 10, day: 28 });
       break;
     default:
       break;
@@ -15701,7 +15700,7 @@ const annunciation = () => {
   _holyWeek = holyWeek.apply(undefined, _arguments);
   _holyWeekRange = _moment2.default.range(_lodash2.default.head(_holyWeek), _lodash2.default.last(_holyWeek));
   if (_holyWeekRange.contains(_date)) {
-    _date = _divineMercySunday(_arguments[0]).add(1, 'days');
+    _date = divineMercySunday(_arguments[0]).add(1, 'days');
   }
 
   // If it occurs during the Octave of Easter, it is transferred to the
@@ -15709,7 +15708,7 @@ const annunciation = () => {
   _octave = octaveOfEaster.apply(undefined, _arguments);
   _octaveRange = _moment2.default.range(_lodash2.default.head(_octave), _lodash2.default.last(_octave));
   if (_octaveRange.contains(_date)) {
-    _date = _divineMercySunday(_arguments[0]).add(1, 'days');
+    _date = divineMercySunday(_arguments[0]).add(1, 'days');
   }
 
   return _date;
@@ -27929,6 +27928,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.dates = undefined;
+var _arguments = arguments;
 
 var _moment = __webpack_require__(0);
 
@@ -27948,353 +27948,17 @@ var _lodash2 = _interopRequireDefault(_lodash);
 
 var _Dates = __webpack_require__(6);
 
-var _Dates2 = _interopRequireDefault(_Dates);
+var Dates = _interopRequireWildcard(_Dates);
 
 var _Utils = __webpack_require__(7);
 
-var _Utils2 = _interopRequireDefault(_Utils);
+var Utils = _interopRequireWildcard(_Utils);
 
 var _constants = __webpack_require__(3);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-let _dates = [
-// Solemnities
-{
-  "key": "immaculateConception",
-  "type": _lodash2.default.head(_constants.Types),
-  "moment": _Dates2.default.immaculateConception(arguments[0], arguments[5]),
-  "data": {
-    "prioritized": true,
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE
-    }
-  }
-}, {
-  "key": "christmas",
-  "type": _lodash2.default.head(_constants.Types),
-  "moment": _Dates2.default.christmas(arguments[0], arguments[5]),
-  "data": {
-    "prioritized": true,
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE
-    }
-  }
-}, {
-  "key": "maryMotherOfGod",
-  "type": _lodash2.default.head(_constants.Types),
-  "moment": _Dates2.default.maryMotherOfGod(arguments[0], arguments[5]),
-  "data": {
-    "prioritized": true,
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE
-    }
-  }
-}, {
-  "key": "epiphany",
-  "type": _lodash2.default.head(_constants.Types),
-  "moment": _Dates2.default.epiphany(arguments[0], arguments[2], arguments[5]),
-  "data": {
-    "prioritized": true,
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE
-    }
-  }
-}, {
-  "key": "trinitySunday",
-  "type": _lodash2.default.head(_constants.Types),
-  "moment": _Dates2.default.trinitySunday(arguments[0], arguments[5]),
-  "data": {
-    "prioritized": true,
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE
-    }
-  }
-}, {
-  "key": "corpusChristi",
-  "type": _lodash2.default.head(_constants.Types),
-  "moment": _Dates2.default.corpusChristi(arguments[0], arguments[3], arguments[5]),
-  "data": {
-    "prioritized": true,
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE
-    }
-  }
-}, {
-  "key": "sacredHeartOfJesus",
-  "type": _lodash2.default.head(_constants.Types),
-  "moment": _Dates2.default.sacredHeartOfJesus(arguments[0], arguments[5]),
-  "data": {
-    "prioritized": true,
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE
-    }
-  }
-}, {
-  "key": "birthOfJohnTheBaptist",
-  "type": _lodash2.default.head(_constants.Types),
-  "moment": _Dates2.default.birthOfJohnTheBaptist(arguments[0], arguments[5]),
-  "data": {
-    "prioritized": true,
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE
-    }
-  }
-}, {
-  "key": "peterAndPaulApostles",
-  "type": _lodash2.default.head(_constants.Types),
-  "moment": _Dates2.default.peterAndPaulApostles(arguments[0], arguments[5]),
-  "data": {
-    "prioritized": true,
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.RED
-    }
-  }
-}, {
-  "key": "assumption",
-  "type": _lodash2.default.head(_constants.Types),
-  "moment": _Dates2.default.assumption(arguments[0], arguments[5]),
-  "data": {
-    "prioritized": true,
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE
-    }
-  }
-}, {
-  "key": "allSaints",
-  "type": _lodash2.default.head(_constants.Types),
-  "moment": _Dates2.default.allSaints(arguments[0], arguments[5]),
-  "data": {
-    "prioritized": true,
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE
-    }
-  }
-}, {
-  "key": "christTheKing",
-  "type": _lodash2.default.head(_constants.Types),
-  "moment": _Dates2.default.christTheKing(arguments[0], arguments[5]),
-  "data": {
-    "prioritized": true,
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE
-    }
-  }
-}, {
-  "key": "josephHusbandOfMary",
-  "type": _lodash2.default.head(_constants.Types),
-  "moment": _Dates2.default.josephHusbandOfMary(arguments[0], arguments[5]),
-  "data": {
-    "prioritized": true,
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE
-    }
-  }
-}, {
-  "key": "annunciation",
-  "type": _lodash2.default.head(_constants.Types),
-  "moment": _Dates2.default.annunciation(arguments[0], arguments[5]),
-  "data": {
-    "prioritized": true,
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE
-    }
-  }
-}, {
-  "key": "easter",
-  "type": _lodash2.default.head(_constants.Types),
-  "moment": _Dates2.default.easter(arguments[0], arguments[5]),
-  "data": {
-    "prioritized": true,
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE
-    }
-  }
-}, {
-  "key": "divineMercySunday",
-  "type": _lodash2.default.head(_constants.Types),
-  "moment": _Dates2.default.divineMercySunday(arguments[0], arguments[5]),
-  "data": {
-    "prioritized": true,
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE
-    }
-  }
-}, {
-  "key": "ascension",
-  "type": _lodash2.default.head(_constants.Types),
-  "moment": _Dates2.default.ascension(arguments[0], arguments[4], arguments[5]),
-  "data": {
-    "prioritized": true,
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE
-    }
-  }
-}, {
-  "key": "pentecostSunday",
-  "type": _lodash2.default.head(_constants.Types),
-  "moment": _Dates2.default.pentecostSunday(arguments[0], arguments[5]),
-  "data": {
-    "prioritized": true,
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.RED
-    }
-  }
-},
-// Lent, Holy Week & Triduum
-{
-  "key": "ashWednesday",
-  "type": _lodash2.default.last(_constants.Types),
-  "moment": _Dates2.default.ashWednesday(arguments[0], arguments[5]),
-  "data": {
-    "prioritized": true,
-    "season": {
-      "key": _constants.Seasons.LENT,
-      "value": _Utils2.default.localize({
-        key: 'lent.season'
-      })
-    },
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.PURPLE
-    }
-  }
-}, {
-  "key": "palmSunday",
-  "type": _constants.Types[1],
-  "moment": _Dates2.default.palmSunday(arguments[0], arguments[5]),
-  "data": {
-    "prioritized": true,
-    "season": {
-      "key": _constants.Seasons.HOLY_WEEK,
-      "value": _Utils2.default.localize({
-        key: 'holyWeek.season'
-      })
-    },
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.RED
-    }
-  }
-}, {
-  "key": "holyThursday",
-  "type": _constants.Types[2],
-  "moment": _Dates2.default.holyThursday(arguments[0], arguments[5]),
-  "data": {
-    "prioritized": true,
-    "season": {
-      "key": _constants.Seasons.HOLY_WEEK,
-      "value": _Utils2.default.localize({
-        key: 'holyWeek.season'
-      })
-    },
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE,
-      "titles": [_constants.Titles.TRIDUUM]
-    }
-  }
-}, {
-  "key": "goodFriday",
-  "type": _constants.Types[2],
-  "moment": _Dates2.default.goodFriday(arguments[0], arguments[5]),
-  "data": {
-    "prioritized": true,
-    "season": {
-      "key": _constants.Seasons.HOLY_WEEK,
-      "value": _Utils2.default.localize({
-        key: 'holyWeek.season'
-      })
-    },
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.RED,
-      "titles": [_constants.Titles.TRIDUUM]
-    }
-  }
-}, {
-  "key": "holySaturday",
-  "type": _constants.Types[2],
-  "moment": _Dates2.default.holySaturday(arguments[0], arguments[5]),
-  "data": {
-    "prioritized": true,
-    "season": {
-      "key": _constants.Seasons.HOLY_WEEK,
-      "value": _Utils2.default.localize({
-        key: 'holyWeek.season'
-      })
-    },
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE,
-      "titles": [_constants.Titles.TRIDUUM]
-    }
-  }
-},
-// Feasts
-{
-  "key": "holyFamily",
-  "type": _constants.Types[4],
-  "moment": _Dates2.default.holyFamily(arguments[0], arguments[5]),
-  "data": {
-    "prioritized": true,
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE,
-      "titles": [_constants.Titles.FEAST_OF_THE_LORD]
-    }
-  }
-}, {
-  "key": "baptismOfTheLord",
-  "type": _constants.Types[4],
-  "moment": _Dates2.default.baptismOfTheLord(arguments[0], arguments[2], arguments[5]),
-  "data": {
-    "prioritized": true,
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE,
-      "titles": [_constants.Titles.FEAST_OF_THE_LORD]
-    }
-  }
-}, {
-  "key": "presentationOfTheLord",
-  "type": _constants.Types[4],
-  "moment": _Dates2.default.presentationOfTheLord(arguments[0], arguments[5]),
-  "data": {
-    "prioritized": true,
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE,
-      "titles": [_constants.Titles.FEAST_OF_THE_LORD]
-    }
-  }
-}, {
-  "key": "transfiguration",
-  "type": _constants.Types[4],
-  "moment": _Dates2.default.transfiguration(arguments[0], arguments[5]),
-  "data": {
-    "prioritized": true,
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE,
-      "titles": [_constants.Titles.FEAST_OF_THE_LORD]
-    }
-  }
-}, {
-  "key": "triumphOfTheCross",
-  "type": _constants.Types[4],
-  "moment": _Dates2.default.triumphOfTheCross(arguments[0], arguments[5]),
-  "data": {
-    "prioritized": true,
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.RED,
-      "titles": [_constants.Titles.FEAST_OF_THE_LORD]
-    }
-  }
-},
-// Memorials
-{
-  "key": "immaculateHeartOfMary",
-  "type": _constants.Types[4],
-  "moment": _Dates2.default.immaculateHeartOfMary(arguments[0], arguments[5]),
-  "data": {
-    "prioritized": true,
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE
-    }
-  }
-}];
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // arguments[0]: Takes the year (integer)
 // arguments[1]: t|o|e [The mode to calculate the end of Christmastide]
@@ -28302,9 +27966,348 @@ let _dates = [
 // arguments[3]  true|false|undefined (If true, Corpus Christi is set to Thursday)
 // arguments[4]  true|false|undefined (If true, Ascension is moved to the 7th Sunday of Easter)
 let dates = () => {
+
+  let _dates = [
+  // Solemnities
+  {
+    "key": "immaculateConception",
+    "type": _lodash2.default.head(_constants.Types),
+    "moment": Dates.immaculateConception(_arguments[0], _arguments[5]),
+    "data": {
+      "prioritized": true,
+      "meta": {
+        "liturgicalColor": _constants.LiturgicalColors.WHITE
+      }
+    }
+  }, {
+    "key": "christmas",
+    "type": _lodash2.default.head(_constants.Types),
+    "moment": Dates.christmas(_arguments[0], _arguments[5]),
+    "data": {
+      "prioritized": true,
+      "meta": {
+        "liturgicalColor": _constants.LiturgicalColors.WHITE
+      }
+    }
+  }, {
+    "key": "maryMotherOfGod",
+    "type": _lodash2.default.head(_constants.Types),
+    "moment": Dates.maryMotherOfGod(_arguments[0], _arguments[5]),
+    "data": {
+      "prioritized": true,
+      "meta": {
+        "liturgicalColor": _constants.LiturgicalColors.WHITE
+      }
+    }
+  }, {
+    "key": "epiphany",
+    "type": _lodash2.default.head(_constants.Types),
+    "moment": Dates.epiphany(_arguments[0], _arguments[2], _arguments[5]),
+    "data": {
+      "prioritized": true,
+      "meta": {
+        "liturgicalColor": _constants.LiturgicalColors.WHITE
+      }
+    }
+  }, {
+    "key": "trinitySunday",
+    "type": _lodash2.default.head(_constants.Types),
+    "moment": Dates.trinitySunday(_arguments[0], _arguments[5]),
+    "data": {
+      "prioritized": true,
+      "meta": {
+        "liturgicalColor": _constants.LiturgicalColors.WHITE
+      }
+    }
+  }, {
+    "key": "corpusChristi",
+    "type": _lodash2.default.head(_constants.Types),
+    "moment": Dates.corpusChristi(_arguments[0], _arguments[3], _arguments[5]),
+    "data": {
+      "prioritized": true,
+      "meta": {
+        "liturgicalColor": _constants.LiturgicalColors.WHITE
+      }
+    }
+  }, {
+    "key": "sacredHeartOfJesus",
+    "type": _lodash2.default.head(_constants.Types),
+    "moment": Dates.sacredHeartOfJesus(_arguments[0], _arguments[5]),
+    "data": {
+      "prioritized": true,
+      "meta": {
+        "liturgicalColor": _constants.LiturgicalColors.WHITE
+      }
+    }
+  }, {
+    "key": "birthOfJohnTheBaptist",
+    "type": _lodash2.default.head(_constants.Types),
+    "moment": Dates.birthOfJohnTheBaptist(_arguments[0], _arguments[5]),
+    "data": {
+      "prioritized": true,
+      "meta": {
+        "liturgicalColor": _constants.LiturgicalColors.WHITE
+      }
+    }
+  }, {
+    "key": "peterAndPaulApostles",
+    "type": _lodash2.default.head(_constants.Types),
+    "moment": Dates.peterAndPaulApostles(_arguments[0], _arguments[5]),
+    "data": {
+      "prioritized": true,
+      "meta": {
+        "liturgicalColor": _constants.LiturgicalColors.RED
+      }
+    }
+  }, {
+    "key": "assumption",
+    "type": _lodash2.default.head(_constants.Types),
+    "moment": Dates.assumption(_arguments[0], _arguments[5]),
+    "data": {
+      "prioritized": true,
+      "meta": {
+        "liturgicalColor": _constants.LiturgicalColors.WHITE
+      }
+    }
+  }, {
+    "key": "allSaints",
+    "type": _lodash2.default.head(_constants.Types),
+    "moment": Dates.allSaints(_arguments[0], _arguments[5]),
+    "data": {
+      "prioritized": true,
+      "meta": {
+        "liturgicalColor": _constants.LiturgicalColors.WHITE
+      }
+    }
+  }, {
+    "key": "christTheKing",
+    "type": _lodash2.default.head(_constants.Types),
+    "moment": Dates.christTheKing(_arguments[0], _arguments[5]),
+    "data": {
+      "prioritized": true,
+      "meta": {
+        "liturgicalColor": _constants.LiturgicalColors.WHITE
+      }
+    }
+  }, {
+    "key": "josephHusbandOfMary",
+    "type": _lodash2.default.head(_constants.Types),
+    "moment": Dates.josephHusbandOfMary(_arguments[0], _arguments[5]),
+    "data": {
+      "prioritized": true,
+      "meta": {
+        "liturgicalColor": _constants.LiturgicalColors.WHITE
+      }
+    }
+  }, {
+    "key": "annunciation",
+    "type": _lodash2.default.head(_constants.Types),
+    "moment": Dates.annunciation(_arguments[0], _arguments[5]),
+    "data": {
+      "prioritized": true,
+      "meta": {
+        "liturgicalColor": _constants.LiturgicalColors.WHITE
+      }
+    }
+  }, {
+    "key": "easter",
+    "type": _lodash2.default.head(_constants.Types),
+    "moment": Dates.easter(_arguments[0], _arguments[5]),
+    "data": {
+      "prioritized": true,
+      "meta": {
+        "liturgicalColor": _constants.LiturgicalColors.WHITE
+      }
+    }
+  }, {
+    "key": "divineMercySunday",
+    "type": _lodash2.default.head(_constants.Types),
+    "moment": Dates.divineMercySunday(_arguments[0], _arguments[5]),
+    "data": {
+      "prioritized": true,
+      "meta": {
+        "liturgicalColor": _constants.LiturgicalColors.WHITE
+      }
+    }
+  }, {
+    "key": "ascension",
+    "type": _lodash2.default.head(_constants.Types),
+    "moment": Dates.ascension(_arguments[0], _arguments[4], _arguments[5]),
+    "data": {
+      "prioritized": true,
+      "meta": {
+        "liturgicalColor": _constants.LiturgicalColors.WHITE
+      }
+    }
+  }, {
+    "key": "pentecostSunday",
+    "type": _lodash2.default.head(_constants.Types),
+    "moment": Dates.pentecostSunday(_arguments[0], _arguments[5]),
+    "data": {
+      "prioritized": true,
+      "meta": {
+        "liturgicalColor": _constants.LiturgicalColors.RED
+      }
+    }
+  },
+  // Lent, Holy Week & Triduum
+  {
+    "key": "ashWednesday",
+    "type": _lodash2.default.last(_constants.Types),
+    "moment": Dates.ashWednesday(_arguments[0], _arguments[5]),
+    "data": {
+      "prioritized": true,
+      "season": {
+        "key": _constants.Seasons.LENT,
+        "value": Utils.localize({
+          key: 'lent.season'
+        })
+      },
+      "meta": {
+        "liturgicalColor": _constants.LiturgicalColors.PURPLE
+      }
+    }
+  }, {
+    "key": "palmSunday",
+    "type": _constants.Types[1],
+    "moment": Dates.palmSunday(_arguments[0], _arguments[5]),
+    "data": {
+      "prioritized": true,
+      "season": {
+        "key": _constants.Seasons.HOLY_WEEK,
+        "value": Utils.localize({
+          key: 'holyWeek.season'
+        })
+      },
+      "meta": {
+        "liturgicalColor": _constants.LiturgicalColors.RED
+      }
+    }
+  }, {
+    "key": "holyThursday",
+    "type": _constants.Types[2],
+    "moment": Dates.holyThursday(_arguments[0], _arguments[5]),
+    "data": {
+      "prioritized": true,
+      "season": {
+        "key": _constants.Seasons.HOLY_WEEK,
+        "value": Utils.localize({
+          key: 'holyWeek.season'
+        })
+      },
+      "meta": {
+        "liturgicalColor": _constants.LiturgicalColors.WHITE,
+        "titles": [_constants.Titles.TRIDUUM]
+      }
+    }
+  }, {
+    "key": "goodFriday",
+    "type": _constants.Types[2],
+    "moment": Dates.goodFriday(_arguments[0], _arguments[5]),
+    "data": {
+      "prioritized": true,
+      "season": {
+        "key": _constants.Seasons.HOLY_WEEK,
+        "value": Utils.localize({
+          key: 'holyWeek.season'
+        })
+      },
+      "meta": {
+        "liturgicalColor": _constants.LiturgicalColors.RED,
+        "titles": [_constants.Titles.TRIDUUM]
+      }
+    }
+  }, {
+    "key": "holySaturday",
+    "type": _constants.Types[2],
+    "moment": Dates.holySaturday(_arguments[0], _arguments[5]),
+    "data": {
+      "prioritized": true,
+      "season": {
+        "key": _constants.Seasons.HOLY_WEEK,
+        "value": Utils.localize({
+          key: 'holyWeek.season'
+        })
+      },
+      "meta": {
+        "liturgicalColor": _constants.LiturgicalColors.WHITE,
+        "titles": [_constants.Titles.TRIDUUM]
+      }
+    }
+  },
+  // Feasts
+  {
+    "key": "holyFamily",
+    "type": _constants.Types[4],
+    "moment": Dates.holyFamily(_arguments[0], _arguments[5]),
+    "data": {
+      "prioritized": true,
+      "meta": {
+        "liturgicalColor": _constants.LiturgicalColors.WHITE,
+        "titles": [_constants.Titles.FEAST_OF_THE_LORD]
+      }
+    }
+  }, {
+    "key": "baptismOfTheLord",
+    "type": _constants.Types[4],
+    "moment": Dates.baptismOfTheLord(_arguments[0], _arguments[2], _arguments[5]),
+    "data": {
+      "prioritized": true,
+      "meta": {
+        "liturgicalColor": _constants.LiturgicalColors.WHITE,
+        "titles": [_constants.Titles.FEAST_OF_THE_LORD]
+      }
+    }
+  }, {
+    "key": "presentationOfTheLord",
+    "type": _constants.Types[4],
+    "moment": Dates.presentationOfTheLord(_arguments[0], _arguments[5]),
+    "data": {
+      "prioritized": true,
+      "meta": {
+        "liturgicalColor": _constants.LiturgicalColors.WHITE,
+        "titles": [_constants.Titles.FEAST_OF_THE_LORD]
+      }
+    }
+  }, {
+    "key": "transfiguration",
+    "type": _constants.Types[4],
+    "moment": Dates.transfiguration(_arguments[0], _arguments[5]),
+    "data": {
+      "prioritized": true,
+      "meta": {
+        "liturgicalColor": _constants.LiturgicalColors.WHITE,
+        "titles": [_constants.Titles.FEAST_OF_THE_LORD]
+      }
+    }
+  }, {
+    "key": "triumphOfTheCross",
+    "type": _constants.Types[4],
+    "moment": Dates.triumphOfTheCross(_arguments[0], _arguments[5]),
+    "data": {
+      "prioritized": true,
+      "meta": {
+        "liturgicalColor": _constants.LiturgicalColors.RED,
+        "titles": [_constants.Titles.FEAST_OF_THE_LORD]
+      }
+    }
+  },
+  // Memorials
+  {
+    "key": "immaculateHeartOfMary",
+    "type": _constants.Types[4],
+    "moment": Dates.immaculateHeartOfMary(_arguments[0], _arguments[5]),
+    "data": {
+      "prioritized": true,
+      "meta": {
+        "liturgicalColor": _constants.LiturgicalColors.WHITE
+      }
+    }
+  }];
+
   // Get localized celebration names
   return _lodash2.default.map(_dates, date => {
-    date.name = _Utils2.default.localize({
+    date.name = Utils.localize({
       key: 'celebrations.' + date.key
     });
     return date;
@@ -31303,458 +31306,9 @@ exports.dates = dates;
 
 /***/ }),
 /* 149 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.dates = undefined;
-
-var _moment = __webpack_require__(0);
-
-var _moment2 = _interopRequireDefault(_moment);
-
-var _momentRange = __webpack_require__(2);
-
-var _momentRange2 = _interopRequireDefault(_momentRange);
-
-var _lodash = __webpack_require__(1);
-
-var _lodash2 = _interopRequireDefault(_lodash);
-
-var _lib = __webpack_require__(4);
-
-var _constants = __webpack_require__(3);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-let _dates = [{
-  "key": "saintAelredOfRievaulx",
-  "type": _constants.Types[6],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 0, day: 12 }),
-  "data": {}
-}, {
-  "key": "saintWulstanBishop",
-  "type": _constants.Types[6],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 0, day: 19 }),
-  "data": {}
-}, {
-  "key": "saintsCyrilMonkAndMethodiusBishop",
-  "type": _constants.Types[4],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 1, day: 14 }),
-  "data": {
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE,
-      "titles": [_constants.Titles.PATRON_OF_EUROPE]
-    }
-  }
-}, {
-  "key": "saintDavidBishop",
-  "type": _constants.Types[4],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 2, day: 1 }),
-  "data": {
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE
-    }
-  }
-}, {
-  "key": "saintPatrickBishop",
-  "type": _constants.Types[4],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 2, day: 17 }),
-  "data": {
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE
-    }
-  }
-}, {
-  "key": "saintAnselmOfCanterburyBishopAndDoctorOfTheChurch",
-  "type": _constants.Types[6],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 3, day: 21 }),
-  "data": {
-    "meta": {
-      "titles": [_constants.Titles.DOCTOR_OF_THE_CHURCH]
-    }
-  }
-},
-// When the celebration falls in the Easter Triduum, on a Sunday of Easter,
-// or in the Easter Octave it is transferred to the next available day —
-// generally the Monday of the Second Week of Easter.
-{
-  "key": "saintGeorgeMartyr",
-  "type": _constants.Types[0],
-  "moment": function (y) {
-    var holyWeek = _lib.Dates.holyWeek(y),
-        easterOctave = _lib.Dates.octaveOfEaster(y),
-        annunciation = _lib.Dates.annunciation(y),
-        holyWeekRange = _moment2.default.range(_lodash2.default.head(holyWeek), _lodash2.default.last(holyWeek)),
-        easterOctaveRange = _moment2.default.range(_lodash2.default.head(easterOctave), _lodash2.default.last(easterOctave)),
-        date = _moment2.default.utc({ year: y, month: 3, day: 23 });
-
-    // If the celebration lands anywhere between Holy Week to Divine Mercy Sunday (inclusive)
-    // move it to the Monday after Divine Mercy Sunday
-    if (holyWeekRange.contains(date) || easterOctaveRange.contains(date)) {
-      // Ensure that the Monday after Divine Mercy Sunday is not Annunciation
-      // if it is, move this celebration to the next day (Tuesday)
-      var proposed = _lodash2.default.last(easterOctave).add(1, 'days');
-      if (proposed.isSame(annunciation)) {
-        return _lodash2.default.last(easterOctave).add(2, 'days');
-      } else {
-        return proposed;
-      }
-    } else {
-      return date;
-    }
-  }(arguments[0]),
-  "data": {
-    "prioritized": true
-  }
-}, {
-  "key": "saintAdalbertBishopAndMartyrSaintFidelisOfSigmaringenPriestAndMartyr",
-  "type": _constants.Types[6],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 4, day: 24 }),
-  "data": {
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.RED,
-      "titles": [_constants.Titles.MARTYR]
-    }
-  }
-}, {
-  "key": "saintCatherineOfSienaVirginAndDoctorOfTheChurch",
-  "type": _constants.Types[4],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 3, day: 29 }),
-  "data": {
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE,
-      "titles": [_constants.Titles.PATRON_OF_EUROPE, _constants.Titles.DOCTOR_OF_THE_CHURCH]
-    }
-  }
-}, {
-  "key": "theEnglishMartyrs",
-  "type": _constants.Types[4],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 4, day: 4 }),
-  "data": {
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE
-    }
-  }
-}, {
-  "key": "stDunstanArchbishopOfCanterbury",
-  "type": _constants.Types[6],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 4, day: 19 }),
-  "data": {}
-}, {
-  "key": "saintBedeTheVenerablePriestAndDoctor",
-  "type": _constants.Types[5],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 4, day: 25 }),
-  "data": {
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE,
-      "titles": [_constants.Titles.DOCTOR_OF_THE_CHURCH]
-    }
-  }
-}, {
-  "key": "saintAugustineOfCanterburyBishop",
-  "type": _constants.Types[4],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 4, day: 27 }),
-  "data": {
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE
-    }
-  }
-}, {
-  "key": "saintBonifaceBishopAndMartyr",
-  "type": _constants.Types[5],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 5, day: 5 }),
-  "data": {
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE
-    }
-  }
-}, {
-  "key": "saintEphraemDeaconDoctorOrSaintColumbaColumCilleAbbot",
-  "type": _constants.Types[6],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 5, day: 9 }),
-  "data": {
-    "meta": {
-      "titles": [_constants.Titles.DOCTOR_OF_THE_CHURCH]
-    }
-  }
-}, {
-  "key": "saintRichardOfChichesterBishop",
-  "type": _constants.Types[6],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 5, day: 16 }),
-  "data": {}
-}, {
-  "key": "saintAlbanMartyr",
-  "type": _constants.Types[6],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 5, day: 20 }),
-  "data": {}
-}, {
-  "key": "saintsJohnFisherBishopAndThomasMoreMartyrs",
-  "type": _constants.Types[4],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 5, day: 22 }),
-  "data": {
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE
-    }
-  }
-}, {
-  "key": "saintEtheldredaAudreyVirgin",
-  "type": _constants.Types[6],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 5, day: 23 }),
-  "data": {}
-}, {
-  "key": "saintOliverPlunketBishopAndMartyr",
-  "type": _constants.Types[6],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 6, day: 1 }),
-  "data": {}
-}, {
-  "key": "saintBenedictOfNursiaAbbot",
-  "type": _constants.Types[4],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 6, day: 11 }),
-  "data": {
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE,
-      "titles": [_constants.Titles.PATRON_OF_EUROPE]
-    }
-  }
-}, {
-  "key": "saintBridgetOfSweedenReligious",
-  "type": _constants.Types[4],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 6, day: 23 }),
-  "data": {
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE,
-      "titles": [_constants.Titles.PATRON_OF_EUROPE]
-    }
-  }
-}, {
-  "key": "saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr",
-  "type": _constants.Types[4],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 7, day: 9 }),
-  "data": {
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.RED,
-      "titles": [_constants.Titles.MARTYR, _constants.Titles.PATRON_OF_EUROPE]
-    }
-  }
-}, {
-  "key": "blessedDominicOfTheMotherOfGodDominicBarberiPriest",
-  "type": _constants.Types[6],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 7, day: 26 }),
-  "data": {}
-}, {
-  "key": "saintsMargaretClitherowAnneLineAndMargaretWardMartyrs",
-  "type": _constants.Types[6],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 7, day: 30 }),
-  "data": {}
-}, {
-  "key": "saintAidanBishopAndTheSaintsOfLindisfarne",
-  "type": _constants.Types[6],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 7, day: 31 }),
-  "data": {}
-}, {
-  "key": "saintGregoryTheGreatPopeAndDoctor",
-  "type": _constants.Types[4],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 8, day: 3 }),
-  "data": {
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE,
-      "titles": [_constants.Titles.DOCTOR_OF_THE_CHURCH]
-    }
-  }
-}, {
-  "key": "saintCuthbertBishop",
-  "type": _constants.Types[6],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 8, day: 4 }),
-  "data": {}
-}, {
-  "key": "saintTheodoreOfCanterburyBishop",
-  "type": _constants.Types[6],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 8, day: 19 }),
-  "data": {}
-}, {
-  "key": "ourLadyOfWalsingham",
-  "type": _constants.Types[5],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 8, day: 24 }),
-  "data": {
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE
-    }
-  }
-}, {
-  "key": "blessedJohnHenryNewmanPriest",
-  "type": _constants.Types[6],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 9, day: 9 }),
-  "data": {}
-}, {
-  "key": "saintPaulinusOfYorkBishop",
-  "type": _constants.Types[6],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 9, day: 10 }),
-  "data": {}
-},
-// In England and Wales when the celebration falls on either a
-// Saturday or a Monday it is transferred to the Sunday.
-// Replaces 20th Sunday in Ordinary Time when it falls on a Sunday.
-{
-  "key": "peterAndPaulApostles",
-  "type": _constants.Types[0],
-  "moment": function (y) {
-    var date = _moment2.default.utc({ year: y, month: 5, day: 29 });
-    if (_lodash2.default.eq(date.day(), 1)) {
-      return date.subtract(1, 'days');
-    } else if (_lodash2.default.eq(date.day(), 6)) {
-      return date.add(1, 'days').startOf('day');
-    } else {
-      return date;
-    }
-  }(arguments[0]),
-  "data": {
-    "prioritized": true,
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.RED
-    }
-  }
-},
-// In England and Wales when the celebration falls on either a
-// Saturday or a Monday it is transferred to the Sunday.
-// Replaces 20th Sunday in Ordinary Time when it falls on a Sunday.
-{
-  "key": "assumption",
-  "type": _constants.Types[0],
-  "moment": function (y) {
-    var date = _moment2.default.utc({ year: y, month: 7, day: 15 });
-    if (_lodash2.default.eq(date.day(), 1)) {
-      return date.subtract(1, 'days');
-    } else if (_lodash2.default.eq(date.day(), 6)) {
-      return date.add(1, 'days').startOf('day');
-    } else {
-      return date;
-    }
-  }(arguments[0]),
-  "data": {
-    "prioritized": true,
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE
-    }
-  }
-}, {
-  "key": "saintWilfridBishop",
-  "type": _constants.Types[6],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 9, day: 12 }),
-  "data": {}
-}, {
-  "key": "saintEdwardTheConfessor",
-  "type": _constants.Types[6],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 9, day: 13 }),
-  "data": {}
-}, {
-  "key": "saintJohnPaulIiPope",
-  "type": _constants.Types[6],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 9, day: 22 }),
-  "data": {}
-}, {
-  "key": "saintsChadAndCeddBishop",
-  "type": _constants.Types[6],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 9, day: 26 }),
-  "data": {}
-}, {
-  "key": "saintWinefrideVirgin",
-  "type": _constants.Types[6],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 10, day: 3 }),
-  "data": {}
-}, {
-  "key": "saintWillibrordBishop",
-  "type": _constants.Types[6],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 10, day: 7 }),
-  "data": {}
-}, {
-  "key": "saintEdmundOfAbingdonBishopOrSaintMargaretOfScotlAnd",
-  "type": _constants.Types[6],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 10, day: 16 }),
-  "data": {}
-}, {
-  "key": "saintHildaAbbessOrSaintHughOfLincolnBishopOrSaintElizabethOfHungary",
-  "type": _constants.Types[6],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 10, day: 17 }),
-  "data": {}
-}, {
-  "key": "saintAndrewApostle",
-  "type": _constants.Types[4],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 10, day: 30 }),
-  "data": {
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE
-    }
-  }
-},
-
-// In England and Wales when All Saints (1 November) falls on a Saturday
-// and is transferred to the Sunday the Commemoration of all the Faithful Departed
-// is transferred to Monday 3 November.
-// Like Ash Wednesday, All Souls is, technically, without rank.
-// However, in countries (not England & Wales) where it falls
-// on a Sunday it replaces the Sunday.
-{
-  "key": "allSaints",
-  "type": _lodash2.default.head(_constants.Types),
-  "moment": function (y) {
-    var m = _moment2.default.utc({ year: y, month: 10, day: 1 });
-    if (_lodash2.default.eq(m.day(), 6)) {
-      return _moment2.default.utc({ year: y, month: 10, day: 2 });
-    } else {
-      return m;
-    }
-  }(arguments[0]),
-  "data": {
-    "prioritized": true,
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE
-    }
-  }
-}, {
-  "key": "allSouls",
-  "type": _constants.Types[4],
-  "moment": function (y) {
-    var m = _moment2.default.utc({ year: y, month: 10, day: 1 });
-    if (_lodash2.default.eq(m.day(), 6)) {
-      return _moment2.default.utc({ year: y, month: 10, day: 3 });
-    } else {
-      return _moment2.default.utc({ year: y, month: 10, day: 2 });
-    }
-  }(arguments[0]),
-  "data": {
-    "prioritized": true,
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.WHITE
-    }
-  }
-}, {
-  "key": "saintThomasBecketBishopAndMartyr",
-  "type": _constants.Types[4],
-  "moment": _moment2.default.utc({ year: arguments[0], month: 11, day: 29 }),
-  "data": {
-    "meta": {
-      "liturgicalColor": _constants.LiturgicalColors.RED,
-      "titles": [_constants.Titles.MARTYR]
-    }
-  }
-}];
-
-let dates = () => {
-  // Get localized celebration names
-  return _lodash2.default.map(_dates, date => {
-    date.name = _lib.Utils.localize({
-      key: 'national.' + date.key
-    });
-    return date;
-  });
-};
-
-exports.dates = dates;
+throw new Error("Module build failed: SyntaxError: C:/dev/romcal/src/calendars/england.js: Unexpected token, expected , (94:5)\n\n\u001b[0m \u001b[90m 92 | \u001b[39m        \u001b[36mreturn\u001b[39m date\u001b[33m;\u001b[39m\n \u001b[90m 93 | \u001b[39m      }\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 94 | \u001b[39m    }( arguments[\u001b[35m0\u001b[39m] ))\u001b[33m,\u001b[39m\n \u001b[90m    | \u001b[39m     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 95 | \u001b[39m    \u001b[32m\"data\"\u001b[39m\u001b[33m:\u001b[39m {\n \u001b[90m 96 | \u001b[39m      \u001b[32m\"prioritized\"\u001b[39m\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m\n \u001b[90m 97 | \u001b[39m    }\u001b[0m\n");
 
 /***/ }),
 /* 150 */

@@ -4,25 +4,24 @@ import recur from 'moment-recur';
 import range from 'moment-range';
 import _ from 'lodash';
 
-import Dates from './Dates';
-import Utils from './Utils';
-import { Seasons, PsalterWeeks, LiturgicalColors, Types } from '../constants';
+import * as Dates from './Dates';
+import * as Utils from './Utils';
+
+import {
+  Seasons,
+  PsalterWeeks,
+  LiturgicalColors,
+  Types
+} from '../constants';
 
 //================================================================================================
 // METHODS TO GENERATE THE SEASONS
 // PRIVATE: Not exposed via module exports
 //================================================================================================
 
-let days;
-let d;
-let o;
-let s;
-let psalterWeek;
-let sundays;
-
-// arguments[0]: array of dates
-const _metadata = () => {
-  return _.map( arguments[0], date => {
+// dates: array of moment object dates
+const _metadata = dates => {
+  return _.map( dates, date => {
     date.source = 'l';
     date.data.calendar = {
       weeks: date.moment.weeksInYear(),
@@ -33,14 +32,13 @@ const _metadata = () => {
   });
 };
 
-// arguments[0]: Takes the year (integer)
-// arguments[1]: true|false [If true, Epiphany will be fixed to Jan 6]
-const _epiphany = () => {
+// y: The year (integer)
+// epiphanyOnJan6: true|false [If true, Epiphany will be fixed to Jan 6]
+const _epiphany = (y, epiphanyOnJan6) => {
 
-  let before = Dates.daysBeforeEpiphany.apply( this, arguments );
-  let after = Dates.daysAfterEpiphany.apply( this, arguments );
-
-  days = [];
+  let before = Dates.daysBeforeEpiphany(y, epiphanyOnJan6);
+  let after = Dates.daysAfterEpiphany(y, epiphanyOnJan6);
+  let days = [];
 
   _.each( before, day => {
     days.push({
@@ -83,11 +81,11 @@ const _epiphany = () => {
   return days;
 };
 
-// arguments[0]: Takes the year (integer)
-const _holyWeek = () => {
+// y: The year (integer)
+const _holyWeek = y => {
 
-  d = Dates.holyWeek.apply( this, arguments );
-  days = [];
+  let d = Dates.holyWeek(y);
+  let days = [];
 
   _.each( d, function( value, i ) {
     days.push({
@@ -116,12 +114,12 @@ const _holyWeek = () => {
 
 //================================================================================================
 
-// arguments[0]: Takes the year (integer)
-const advent = () => {
+// y: The year (integer)
+const advent = y => {
 
-  days = [];
+  let days = [];
 
-  _.each( Dates.daysOfAdvent.apply( this, arguments ), ( value, i  ) => {
+  _.each( Dates.daysOfAdvent(y), (value, i) => {
     days.push({
       moment: value,
       type: Utils.getTypeByDayOfWeek( value.day() ),
@@ -166,7 +164,7 @@ const advent = () => {
   //=====================================================================
 
   // Initialize the psalter week counter
-  psalterWeek = 0;
+  let psalterWeek = 0;
 
   _.map( days, ( v, k ) => {
 
@@ -208,17 +206,15 @@ const advent = () => {
   return days;
 };
 
-// arguments[0]: Takes the year (integer)
-// arguments[1]: t|o|e [The mode to calculate the end of Christmastide]
-// arguments[2]: true|false [If true, Epiphany will be fixed to Jan 6]
-const christmastide = () => {
+// y: Takes the year (integer)
+// christmastideEnds: t|o|e [The mode to calculate the end of Christmastide]
+// epiphanyOnJan6: true|false [If true, Epiphany will be fixed to Jan 6]
+const christmastide = (y, christmastideEnds, epiphanyOnJan6) => {
 
-  days = Dates.christmastide.apply( this, arguments );
-
-  let octave = Dates.octaveOfChristmas( arguments[0] );
-  let epiphany = _epiphany( ( arguments[0] + 1 ), arguments[2] );
-
-  d = [];
+  let days = Dates.christmastide(y, christmastideEnds, epiphanyOnJan6);
+  let octave = Dates.octaveOfChristmas(y);
+  let epiphany = _epiphany( ( y + 1 ), epiphanyOnJan6 );
+  let d = [];
   let count = 0;
 
   _.each( days, day => {
@@ -245,7 +241,7 @@ const christmastide = () => {
     });
   });
 
-  o = [];
+  let o = [];
 
   _.each( octave, ( day, idx ) => {
     o.push({
@@ -284,7 +280,7 @@ const christmastide = () => {
   // The proper color of Christmas is white
   //=====================================================================
 
-  psalterWeek = 4;
+  let psalterWeek = 4;
   if ( _.eq( _.head( days ).day(), 0 ) ) {
     psalterWeek = 0;
   }
@@ -328,14 +324,14 @@ const christmastide = () => {
   return d;
 };
 
-// arguments[0]: Takes the year (integer)
-// arguments[1]: t|o|e [The mode to calculate the end of Christmastide]
-// arguments[2]: true|false [If true, Epiphany will be fixed to Jan 6]
-const earlyOrdinaryTime = () => {
+// y: Takes the year (integer)
+// christmastideEnds: t|o|e [The mode to calculate the end of Christmastide]
+// epiphanyOnJan6: true|false [If true, Epiphany will be fixed to Jan 6]
+const earlyOrdinaryTime = (y, christmastideEnds, epiphanyOnJan6) => {
 
-  days = [];
+  let days = [];
 
-  _.each( Dates.daysOfEarlyOrdinaryTime.apply( this, arguments ), ( value, i ) => {
+  _.each( Dates.daysOfEarlyOrdinaryTime(y, christmastideEnds, epiphanyOnJan6), ( value, i ) => {
     days.push({
       moment: value,
       type: ( _.eq( value.day(), 0 ) ? Types[1] : _.last( Types ) ),
@@ -376,8 +372,7 @@ const earlyOrdinaryTime = () => {
   //
   // The proper color of ordinary time is green
   //=====================================================================
-  psalterWeek = 1;
-
+  let psalterWeek = 1;
   _.map( days, v => {
 
     v.key = _.camelCase( v.name );
@@ -417,16 +412,15 @@ const earlyOrdinaryTime = () => {
   return days;
 };
 
-// arguments[0]: year
-const laterOrdinaryTime = () => {
+// y: year
+const laterOrdinaryTime = y => {
 
   // Keep track of the first week in later ordinary time
   // for later use
   let firstWeekOfLaterOrdinaryTime = 0;
+  let days = [];
 
-  days = [];
-
-  _.each( Dates.daysOfLaterOrdinaryTime.apply( this, arguments ).reverse(), ( value, i ) => {
+  _.each( Dates.daysOfLaterOrdinaryTime(y).reverse(), ( value, i ) => {
 
     // Calculate the week of ordinary time
     // from the last sunday of the year (34th)
@@ -470,7 +464,7 @@ const laterOrdinaryTime = () => {
   // The proper color of Ordinary Time is green.
   //=====================================================================
 
-  psalterWeek = firstWeekOfLaterOrdinaryTime % 4;
+  let psalterWeek = firstWeekOfLaterOrdinaryTime % 4;
   if ( _.eq( psalterWeek, 0 ) ) {
     psalterWeek = 4;
   }
@@ -516,14 +510,12 @@ const laterOrdinaryTime = () => {
   return days;
 };
 
-// arguments[0]: Takes the year (integer)
-const lent = () => {
+// y: Takes the year (integer)
+const lent = y => {
 
-  d = Dates.daysOfLent.apply( this, arguments ),
-  s = Dates.sundaysOfLent.apply( this, arguments );
-
-  days = [];
-
+  let d = Dates.daysOfLent(y);
+  let s = Dates.sundaysOfLent(y);
+  let days = [];
   _.each( d, (value, i) => {
     days.push({
       moment: value,
@@ -544,8 +536,7 @@ const lent = () => {
     });
   });
 
-  sundays = [];
-
+  let sundays = [];
   _.each( s, ( value, i ) => {
     sundays.push({
       moment: value,
@@ -570,7 +561,7 @@ const lent = () => {
     });
   });
 
-  let holyWeek = _holyWeek.apply( this, arguments );
+  let holyWeek = _holyWeek(y);
 
   // Override in order: Solemnities, Holy Week and Sundays of Lent to days of Lent
   days = _.uniqBy( _.union( holyWeek, sundays, days ), v => v.moment.valueOf());
@@ -589,8 +580,7 @@ const lent = () => {
   //
   // The proper color of the Lent is purple.
   //=====================================================================
-  psalterWeek = 4;
-
+  let psalterWeek = 4;
   _.map( days, v => {
 
     v.key = _.camelCase( v.name );
@@ -632,24 +622,11 @@ const lent = () => {
   return days;
 };
 
-// arguments[0]: Takes the year (integer)
-const easterTriduum = () => {
+// y: Takes the year (integer)
+const easterTriduum = y => {
 
-  d = _holyWeek.apply( this, arguments );
-  days = _.takeRight( d, 3 );
-
-  // _.each( days, function( item ) {
-  //   console.log(  item.moment.format('ddd, DD/MM/YYYY'), item.data.season.key, item.type, item.name );
-  // });
-
-  return days;
-};
-
-// arguments[0]: Takes the year (integer)
-const easterOctave = () => {
-
-  d = eastertide.apply( this, arguments );
-  days = _.take( d, 8 );
+  let d = _holyWeek(y);
+  let days = _.takeRight( d, 3 );
 
   // _.each( days, function( item ) {
   //   console.log(  item.moment.format('ddd, DD/MM/YYYY'), item.data.season.key, item.type, item.name );
@@ -658,14 +635,25 @@ const easterOctave = () => {
   return days;
 };
 
-// arguments[0]: Takes the year (integer)
-const eastertide = () => {
+// y: Takes the year (integer)
+const easterOctave = y => {
 
-  d = Dates.daysOfEaster( arguments[0] );
-  s = Dates.sundaysOfEaster( arguments[0] );
+  let d = eastertide(y);
+  let days = _.take( d, 8 );
 
-  days = [];
+  // _.each( days, function( item ) {
+  //   console.log(  item.moment.format('ddd, DD/MM/YYYY'), item.data.season.key, item.type, item.name );
+  // });
 
+  return days;
+};
+
+// y: Takes the year (integer)
+const eastertide = y => {
+
+  let d = Dates.daysOfEaster(y);
+  let s = Dates.sundaysOfEaster(y);
+  let days = [];
   _.each( d, (value, i) => {
     days.push({
       moment: value,
@@ -687,8 +675,7 @@ const eastertide = () => {
     });
   });
 
-  sundays = [];
-
+  let sundays = [];
   _.each( s, ( value, i ) => {
     sundays.push({
       moment: value,
@@ -732,8 +719,7 @@ const eastertide = () => {
   // The proper color of Easter is white
   //=====================================================================
 
-  psalterWeek = 2;
-
+  let psalterWeek = 2;
   _.map( days, ( v, k ) => {
 
     v.key = _.camelCase( v.name );
