@@ -1,4 +1,4 @@
-const pl = {
+export default {
   "advent": {
     "season": "Adwentu",
     "weekday": "{{day}} {{week}} tygodnia Adwentu",
@@ -313,8 +313,4 @@ const pl = {
     "saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr": "Św. Teresy Benedykty od Krzyża, dziewicy i męczennicy, patronki Europy",
     "saintHyacinthPriest": "Św. Jacka, prezbitera"
   }
-};
-
-export {
-  pl  
 };

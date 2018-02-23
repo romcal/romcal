@@ -1,4 +1,4 @@
-const en = {
+export default {
   "advent": {
     "season": "Advent",
     "weekday": "{{day}} of the {{week}} week of Advent",
@@ -802,8 +802,4 @@ const en = {
     "saintDubriciusBishop": "Saint Dubricius, Bishop",
     "saintJohnRobertsPriestAndMartyr": "Saint John Roberts, Priest and Martyr"
   }
-};
-
-export {
-  en
 };

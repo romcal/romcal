@@ -4,10 +4,11 @@ import range from 'moment-range';
 import _ from 'lodash';
 
 import * as Calendars from '../calendars';
-import Dates from './Dates';
-import Utils from './Utils';
-import Seasons from './Seasons';
-import Celebrations from './Celebrations';
+import * as Dates from './Dates';
+import * as Utils from './Utils';
+import * as Seasons from './Seasons';
+import * as Celebrations from './Celebrations';
+
 import {
   Seasons as Season,
   Titles,
@@ -21,58 +22,41 @@ import {
 const countries = _.keys(Calendars);
 
 //================================================================================================
-// Processing method for arguments
+// Processing method for calendar config
 //================================================================================================
 
-const _getConfig = () => {
-  let o = _.isPlainObject( args[0] ) ? args[0] : {};
-  o.year = o.year || moment.utc().year();
-  o.christmastideEnds = o.christmastideEnds || 'o';
-  o.epiphanyOnJan6 = o.epiphanyOnJan6 || false;
-  o.corpusChristiOnThursday = o.corpusChristiOnThursday || false;
-  o.ascensionOnSunday = o.ascensionOnSunday || false;
-  o.country = o.country || false;
-  o.locale = o.locale || 'en';
-  o.type = o.type || 'calendar';
-  o.query = _.isPlainObject( o.query ) ? o.query : null;
-  return o;
+const _getConfig = config => {
+  config = _.isPlainObject(config) ? config : _.stubObject();
+  config.year = config.year || moment.utc().year();
+  config.christmastideEnds = config.christmastideEnds || 'o';
+  config.epiphanyOnJan6 = config.epiphanyOnJan6 || _.stubFalse();
+  config.corpusChristiOnThursday = config.corpusChristiOnThursday || _.stubFalse();
+  config.ascensionOnSunday = config.ascensionOnSunday || _.stubFalse();
+  config.country = config.country || _.stubFalse();
+  config.locale = config.locale || 'en';
+  config.type = config.type || 'calendar';
+  config.query = _.isPlainObject( config.query ) ? config.query : null;
+  return config;
 };
 
 // _.each( Calendars, function( Calendar ) {
 //   Calendar.dates( 2015 );
 // })
 
-// Working variables
-let national;
-let general;
-let celebrations;
-let date;
-let dates;
-let sources;
-let keep;
-let calendarDates;
-let liturgicalDates;
-let firstSundayOfAdvent;
-let thisCycle;
-let nextCycle;
-let thisYear;
-let nextYear;
-let start;
-let c;
-let end;
-let args;
-let config;
 
 // Return the appropriate national calendar based on the country given
 // Returns object with function returning empty array if nothing specified
-// arguments[0]: country
-const getNationalCalendar = () => {
-  if ( arguments[0] ) {
-    if ( _.has( Calendars, arguments[0] ) ) {
-      return Calendars[ arguments[0].toLowerCase() ];
+// country: the country to get the calendar for
+const getNationalCalendar = country => {
+  if ( country ) {
+    if ( _.has( Calendars, country ) ) {
+      return Calendars[ country.toLowerCase() ];
+    }
+    else {
+      return Calendars['general'];
     }
   }
-  return { dates: function() { return []; } };
+  return { dates: () => [] };
 };
 
 // Returns the merged national & general calendar dates
@@ -80,18 +64,19 @@ const getNationalCalendar = () => {
 // Merges the national calendar to the general calendar
 // where national calendar dates with the same key as a date
 // in the general calendar will take precedence
-// arguments[0]: options (see _calendarYear)
-const _getCalendar = o => {
+// options: (see _calendarYear)
+const _getCalendar = options => {
 
   // Get the relevant national calendar object based on the given country
-  national = _.reduce( getNationalCalendar( o.country ).dates( o.year ), ( r, v, k ) => {
+  let national = _.reduce( getNationalCalendar( options.country ).dates( options.year ), ( r, v, k ) => {
     v.source = 'n';
     r[ v.key ] = v;
     return r;
   }, {});
 
+
   // Get the general calendar based on the given year and format the result for better processing
-  general = _.reduce( Calendars['general'].dates( o.year ), ( r, v, k ) => {
+  let general = _.reduce( Calendars['general'].dates( options.year ), ( r, v, k ) => {
     v.source = 'g';
     r[ v.key ] = v;
     return r;
@@ -105,8 +90,8 @@ const _getCalendar = o => {
   _.each( national, ( v, k ) => _.set( general, k, v ));
 
   // Get the celebration dates based on the given year and options and format the result for better processing
-  celebrations = _.reduce(
-    Celebrations.dates( o.year, o.christmastideEnds, o.epiphanyOnJan6, o.corpusChristiOnThursday, o.ascensionOnSunday ),
+  let celebrations = _.reduce(
+    Celebrations.dates( options.year, options.christmastideEnds, options.epiphanyOnJan6, options.corpusChristiOnThursday, options.ascensionOnSunday ),
     ( r, v, k ) => {
       v.source = 'c';
       r[ v.key ] = v;
@@ -118,7 +103,7 @@ const _getCalendar = o => {
   // be overwritten by the incoming celebration date
   _.each( celebrations, ( v, k ) => {
     if ( _.has( general, k ) ) {
-      date = _.get( general, k );
+      let date = _.get( general, k );
       // if the general date is not prioritized, it will be overwritten
       // by the celebration date
       if ( !_.isUndefined( date.data ) && !date.data.prioritized ) {
@@ -148,17 +133,17 @@ const _getCalendar = o => {
   //
   let result = _.chain( general )
     // Group dates by their dates
-    .groupBy( v =>v.moment.valueOf() )
+    .groupBy( v => v.moment.valueOf() )
     .map( coincidences => {
 
       // Only run when there's more than 1 date in the group
       if ( coincidences.length > 1 ) {
 
         // Group coincidences by their source
-        sources = _.groupBy( coincidences, v => v.source );
+        let sources = _.groupBy( coincidences, v => v.source );
 
         // If the group has a celebration and no national date and no general date
-        keep = 'c';
+        let keep = 'c';
         if ( _.has( sources, 'c' ) && !_.has( sources, 'n') && !_.has( sources, 'g') ) {
           // Keep the celebration and discard other coincidences
           keep = 'c';
@@ -211,7 +196,7 @@ const _getCalendar = o => {
     .reduce(( r, v, k ) => {
       // If the response already has this timestamp
       if ( _.has( r, v.moment.valueOf() ) ) {
-        date = _.get( r, v.moment.valueOf() );
+        let date = _.get( r, v.moment.valueOf() );
         // If the incoming date has a higher rank than the current date
         if ( _.lt( _.indexOf( Types, v.type ), _.indexOf( Types, date.type ) ) ) {
           // Replace it with the incoming date
@@ -227,13 +212,13 @@ const _getCalendar = o => {
   return result;
 };
 
-// arguments[0]: options (configuration options)
-// arguments[1]: dates (liturgical dates array)
+// options: (configuration options)
+// dates: (liturgical dates array)
 const _applyDates = ( options, dates ) => {
 
   // Get the merged General and National Calendar dates
-  calendarDates = _getCalendar( arguments[0] );
-  liturgicalDates = _.reduce( arguments[1], ( r, v, k ) => {
+  let calendarDates = _getCalendar( options );
+  let liturgicalDates = _.reduce( dates, ( r, v, k ) => {
     r[ v.moment.valueOf() ] = v;
     return r;
   }, {});
@@ -379,16 +364,16 @@ const _applyDates = ( options, dates ) => {
 //================================================================================================
 // Include metadata about the dates in a season of the liturgical year
 //================================================================================================
-// arguments[0]: year
-// arguments[1]: dates
-const _metadata = () => {
+// year
+// dates
+const _metadata = (year, dates) => {
 
   // Formula to calculate lectionary cycle (Year A, B, C)
-  firstSundayOfAdvent = Dates.firstSundayOfAdvent( arguments[0] );
-  thisCycle = ( arguments[0] - 1963 ) % 3;
-  nextCycle = ( _.eq( thisCycle,  2 ) ? 0 : thisCycle + 1 );
+  let firstSundayOfAdvent = Dates.firstSundayOfAdvent(year);
+  let thisCycle = ( year - 1963 ) % 3;
+  let nextCycle = ( _.eq( thisCycle,  2 ) ? 0 : thisCycle + 1 );
 
-  _.map( arguments[1], v => {
+  _.map( dates, v => {
 
     //=====================================================================
     // LITURGICAL CYCLES
@@ -412,7 +397,7 @@ const _metadata = () => {
     return v;
   });
 
-  return arguments[1];
+  return dates;
 };
 
 //================================================================================================
@@ -422,20 +407,18 @@ const _metadata = () => {
 
 // Returns an object containing dates for the
 // days that occur during the calendar year
-// arguments[0]: config (an object literal with the following options)
+// c: (an object literal with the following options)
 //  [0] year: The year to calculate the liturgical date ranges
 //  [1] christmastideEnds: t|o|e (The mode to calculate the end of Christmastide. Defaukts to 'o')
 //  [2] epiphanyOnJan6: true|false|undefined (If true, Epiphany will be fixed to Jan 6)
 //  [3] corpusChristiOnThursday: true|false|undefined (If true, Corpus Christi is set to Thursday)
 //  [4] ascensionOnSunday: true|false|undefined (If true, Ascension is moved to the 7th Sunday of Easter)
-//  [6] country: Get national calendar dates for the given country (defaults to unitedStates)
-//  [7] type: calendar|liturgical (return dates in either standard calendar or liturgical calendar format)
-const _calendarYear = () => {
-
-  c = arguments[0];
+//  [5] country: Get national calendar dates for the given country (defaults to unitedStates)
+//  [6] type: calendar|liturgical (return dates in either standard calendar or liturgical calendar format)
+const _calendarYear = c => {
 
   // Get the liturgical seasons that run through the year
-  dates = _.union(
+  let dates = _.union(
     Seasons.christmastide( c.year - 1, c.christmastideEnds, c.epiphanyOnJan6 ),
     Seasons.earlyOrdinaryTime( c.year, c.christmastideEnds, c.epiphanyOnJan6 ),
     Seasons.lent( c.year ),
@@ -456,28 +439,26 @@ const _calendarYear = () => {
 
 // Returns an object containing dates for the
 // days that occur during the liturgical year
-// arguments[0]: config (an object literal with the following options)
+// c: (an object literal with the following options)
 // [0] year: The year to calculate the liturgical date ranges
 // [1] christmastideEnds: t|o|e (The mode to calculate the end of Christmastide. Defaukts to 'o')
 // [2] epiphanyOnJan6: true|false|undefined (If true, Epiphany will be fixed to Jan 6)
 // [3] corpusChristiOnThursday: true|false|undefined (If true, Corpus Christi is set to Thursday)
 // [4] ascensionOnSunday: true|false|undefined (If true, Ascension is moved to the 7th Sunday of Easter)
-// [6] country: Get national calendar dates for the given country (defaults to unitedStates)
-// [7] type: calendar|liturgical (return dates in either standard calendar or liturgical calendar format)
-const _liturgicalYear = () => {
-
-  c = arguments[0];
+// [5] country: Get national calendar dates for the given country (defaults to unitedStates)
+// [6] type: calendar|liturgical (return dates in either standard calendar or liturgical calendar format)
+const _liturgicalYear = c => {
 
   // Get dates for current year
-  thisYear = _calendarYear( c );
-  start = Dates.firstSundayOfAdvent( c.year );
+  let thisYear = _calendarYear( c );
+  let start = Dates.firstSundayOfAdvent( c.year );
 
   // Get dates for the following year
   c.year = c.year + 1;
-  nextYear = _calendarYear( c );
-  end = Dates.firstSundayOfAdvent( c.year ); // Last day of liturgical year must be before this date
+  let nextYear = _calendarYear( c );
+  let end = Dates.firstSundayOfAdvent( c.year ); // Last day of liturgical year must be before this date
 
-  dates = _.union(
+  let dates = _.union(
     _.filter( thisYear, v => v.moment.isSame( start ) || v.moment.isAfter( start )),
     _.filter( nextYear, v => v.moment.isBefore( end ))
   );
@@ -494,92 +475,60 @@ const _liturgicalYear = () => {
 // Return filtered liturgical calendar dates according to the given calendar options
 // and filtering options passed in by the user
 //
-// arguments[0]: config - calendar settings
-//               if the config object has a query, it will be used to filter the
-//               date results returned
+// config: calendar settings
+//         if the config object has a query, it will be used to filter the
+//         date results returned
 //
-// arguments[1]: undefined|true|false - skip converting moment objects to ISO8601 timestamp
-//               default action converts moment objects to ISO Strings
+// skipIsoConversion: undefined|true|false - skip converting moment objects to ISO8601 timestamp
+//                    default action converts moment objects to ISO Strings
 //
-const calendarFor = () => {
-
-  args = arguments;
-  if ( !args.length ) {
-    args = [];
-    args[0] = false;
-  }
-  // If args length is 1 and args[0] is boolean
-  else if ( args.length === 1  && _.isBoolean( args[0] ) ) {
-    args[1] = args[0];
-    args[0] = {};
-  }
-  else {}
+const calendarFor = (config = false, skipIsoConversion = false ) => {
 
   // Sanitize incoming config
-  config = _getConfig.apply( this, args );
+  config = _getConfig(config);
 
   // Set the locale information
   Utils.setLocale( config.locale );
 
   // Get dates based on options
-  dates = _.eq( config.type, 'liturgical') ? _liturgicalYear( config ) : _calendarYear( config );
+  let dates = _.eq( config.type, 'liturgical') ? _liturgicalYear(config) : _calendarYear(config);
 
   //==========================================================================
   // Check if there is a query defined, if none return the unfiltered
   // liturgical calendar dates array
   //==========================================================================
-  var query = config.query;
+  let query = config.query;
   if ( !_.isNull( query ) && !_.isEmpty( query ) ) {
     // Months are zero indexed, so January is month 0.
     if ( _.has( query, 'month' ) ) {
-      var month = _.get( query, 'month' );
-      dates = _.filter( dates, function( d ) {
-        return _.eq( d.moment.month(), month );
-      });
+      let month = _.get( query, 'month' );
+      dates = _.filter( dates, d => _.eq( d.moment.month(), month ));
     }
 
     if ( _.has( query, 'day' ) ) {
-      var day = _.get( query, 'day' );
-      dates = _.filter( dates, function( d ) {
-        return _.eq( d.moment.day(), day );
-      });
+      let day = _.get( query, 'day' );
+      dates = _.filter( dates, d => _.eq( d.moment.day(), day ));
     }
 
     if ( _.has( query, 'group' ) ) {
       switch( _.get( query, 'group' ) ) {
         case 'days':
-          dates = _.groupBy( dates, function( d ) {
-            return d.moment.day();
-          });
+          dates = _.groupBy( dates, d => d.moment.day());
           break;
         case 'months':
-          dates = _.groupBy( dates, function( d ) {
-            return d.moment.month();
-          });
+          dates = _.groupBy( dates, d => d.moment.month());
           break;
         case 'daysByMonth':
           dates = _.chain( dates )
-            .groupBy( function( d ) {
-              return d.moment.month();
-            })
-            .mapValues( function( v ) {
-              v = _.groupBy( v, function( d ) {
-                return d.moment.day();
-              });
-              return v;
-            }).value();
+            .groupBy( d => d.moment.month())
+            .mapValues( v => _.groupBy( v, d => d.moment.day()))
+            .value();
           break;
         case 'weeksByMonth':
           dates = _.chain( dates )
-            .groupBy(d => {
-              return d.moment.month();
-            })
-            .map(v => {
-              v = _.groupBy( v, function( d ) {
-                return d.data.calendar.week;
-              });
-              return v;
-            }).value();
+            .groupBy(d => d.moment.month())
+            .map(v => _.groupBy( v, d => d.data.calendar.week ))
+            .value();
           break;
         case 'cycles':
           dates = _.groupBy( dates, d => d.data.meta.cycle.value );
@@ -607,13 +556,13 @@ const calendarFor = () => {
   }
 
   // If undefined and not true, continue with conversion
-  if ( _.isUndefined( args[1] ) && !args[1] ) {
+  if ( !skipIsoConversion ) {
 
     if ( _.has( query, 'group') ) {
       if ( _.eq( _.get( query, 'group' ), 'daysByMonth' ) || _.eq( _.get( query, 'group' ), 'weeksByMonth' ) ) {
-        _.each( dates, function( months ) {
-          _.each( months, function( days ) {
-            _.map( days, function( date ) {
+        _.each( dates, months => {
+          _.each( months, days => {
+            _.map( days, date => {
               date.moment = date.moment.toISOString(); // 2013-02-04T22:44:30.652Z
               return date;
             });
@@ -621,8 +570,8 @@ const calendarFor = () => {
         });
       }
       else {
-        _.each( dates, function( group ) {
-          _.map( group, function( date ) {
+        _.each( dates, group => {
+          _.map( group, date => {
             date.moment = date.moment.toISOString(); // 2013-02-04T22:44:30.652Z
             return date;
           });
@@ -630,7 +579,7 @@ const calendarFor = () => {
       }
     }
     else {
-      _.map( dates, function( date ) {
+      _.map( dates, date => {
         date.moment = date.moment.toISOString(); // 2013-02-04T22:44:30.652Z
         return date;
       });

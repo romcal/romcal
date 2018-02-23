@@ -1,4 +1,4 @@
-const fr = {
+export default {
   "advent": {
     "season": "Temps de l'Avent",
     "weekday": "{{day}} de la {{week}} semaine de l'Avent",
@@ -305,8 +305,4 @@ const fr = {
     "saintCaesariusOfArlesBishop": "Saint Césaire d'Arles, Évêque, Père de l'Eglise (✝ 542)",
     "saintThereseOfTheChildJesusVirginSecondaryPatronessOfFrance": "Sainte Thérèse de l’Enfant-Jésus, Docteur de l'Église, Seconde Patronne de la France (✝ 1897)"
   }
-};
-
-export {
-  fr  
 };
