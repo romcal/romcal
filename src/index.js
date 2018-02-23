@@ -24,7 +24,43 @@
 
 import _ from 'lodash';
 import moment from 'moment';
-import { Calendar as Romcal } from './lib';
+
+import { 
+  Calendar as Romcal, 
+  Celebrations, 
+  Dates, 
+  Seasons, 
+  Utils 
+} from './lib';
+
+import {
+  Cycles,
+  LiturgicalColors,
+  PsalterWeeks,
+  Seasons as LiturgicalSeasons,
+  Titles,
+  Types
+} from './constants';
+
+// Export all lib functions
+export {
+  Romcal as Calendar, 
+  Celebrations, 
+  Dates, 
+  Seasons, 
+  Utils
+};
+
+// Export all constants
+export {
+  Cycles,
+  LiturgicalColors,
+  PsalterWeeks,
+  LiturgicalSeasons,
+  Titles,
+  Types
+};
+
 
 // UNCOMMENT ONLY WHEN UPDATING PLUGIN
 //=======================================================

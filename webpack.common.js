@@ -7,10 +7,7 @@ module.exports = {
       './src/index.js'
     ]
   },
-  output: {
-    filename: '[name].bundle.js',
-    path: path.join(__dirname, 'dist')
-  },
+
   resolve: {
     extensions: ['.js', '.json']
   },
@@ -21,7 +18,5 @@ module.exports = {
       // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
       { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
     ]
-  },
-  plugins: [],
-  externals: {}
+  }
 };
