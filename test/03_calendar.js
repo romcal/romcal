@@ -28,8 +28,7 @@ import should from 'should';
 import moment from 'moment';
 import range from 'moment-range';
 
-import { Types, Seasons, LiturgicalColors as Colors, PsalterWeeks as Psalter, Titles } from '../src/constants';
-import { Dates, Calendar } from '../src/lib';
+import { Types, LiturgicalSeasons, LiturgicalColors, PsalterWeeks, Titles, Dates, Calendar } from '../src';
 
 describe('Testing calendar generation functions', function() {
 
@@ -172,7 +171,7 @@ describe('Testing calendar generation functions', function() {
             query: {
               group: 'liturgicalSeasons'
             }
-          }, true )).keys().value().should.containDeep( _.values( Seasons ) );
+          }, true )).keys().value().should.containDeep( _.values( LiturgicalSeasons ) );
       });
 
       it('Should group dates by their psalter weeks', function() {
@@ -180,7 +179,7 @@ describe('Testing calendar generation functions', function() {
             query: {
               group: 'psalterWeek'
             }
-          }, true )).keys().value().should.containDeep( _.keys( Psalter ) );
+          }, true )).keys().value().should.containDeep( _.keys( PsalterWeeks ) );
       });
     });
 
@@ -214,33 +213,33 @@ describe('Testing calendar generation functions', function() {
       var calendar = Calendar.calendarFor({ query: { group: 'types' }}, true );
       _.each( _.get( calendar, Types[4] ), function( d ) {
         if ( _.eq( d.key, 'triumphOfTheCross') ) {
-          d.data.meta.liturgicalColor.key.should.be.eql( Colors.RED.key );
+          d.data.meta.liturgicalColor.key.should.be.eql( LiturgicalColors.RED.key );
         }
         else {
           if ( !_.isUndefined( d.data.meta.titles ) ) {
             if ( _.includes( d.data.meta.titles, Titles.MARTYR ) ) {
-              d.data.meta.liturgicalColor.key.should.be.eql( Colors.RED.key );
+              d.data.meta.liturgicalColor.key.should.be.eql( LiturgicalColors.RED.key );
             }
             else {
-              d.data.meta.liturgicalColor.key.should.be.eql( Colors.WHITE.key );
+              d.data.meta.liturgicalColor.key.should.be.eql( LiturgicalColors.WHITE.key );
             }
           }
           else {
-            d.data.meta.liturgicalColor.key.should.be.eql( Colors.WHITE.key );
+            d.data.meta.liturgicalColor.key.should.be.eql( LiturgicalColors.WHITE.key );
           }
         }
       });
       _.each( _.get( calendar, Types[5] ), function( d ) {
         if ( !_.isUndefined( d.data.meta.titles ) ) {
           if ( _.includes( d.data.meta.titles, Titles.MARTYR ) ) {
-            d.data.meta.liturgicalColor.key.should.be.eql( Colors.RED.key );
+            d.data.meta.liturgicalColor.key.should.be.eql( LiturgicalColors.RED.key );
           }
           else {
-            d.data.meta.liturgicalColor.key.should.be.eql( Colors.WHITE.key );
+            d.data.meta.liturgicalColor.key.should.be.eql( LiturgicalColors.WHITE.key );
           }
         }
         else {
-          d.data.meta.liturgicalColor.key.should.be.eql( Colors.WHITE.key );
+          d.data.meta.liturgicalColor.key.should.be.eql( LiturgicalColors.WHITE.key );
         }
       });
     });
@@ -249,7 +248,7 @@ describe('Testing calendar generation functions', function() {
       var calendar = Calendar.calendarFor({ query: { group: 'types' }}, true );
       _.each( _.get( calendar, Types[4] ), function( d ) {
         if ( _.eq( d.key, 'chairOfSaintPeter' ) || _.eq( d.key, 'conversionOfSaintPaulApostle' ) ) {
-          d.data.meta.liturgicalColor.should.be.eql( Colors.WHITE );
+          d.data.meta.liturgicalColor.should.be.eql( LiturgicalColors.WHITE );
         }
       });
     })

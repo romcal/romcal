@@ -1,5 +1,11 @@
 # Version history
 
+## 1.3.0 /2018-02-23
+* Rewrite module using ES6 syntax
+* Expose constants and calendar helper functions and via CommonJS module exports
+* Added webpack and babel for transpiling ES6 to browser ready ES5 bundle
+* Added slim browser bundle (read more in [readme](README.md))
+
 ## 1.2.4
 * Added credits in the description section in `README.md`.
 * Drop support of Node.js `v0.10.x`, `v0.11.x`, `v0.12.x`.

@@ -5,7 +5,7 @@ import _ from 'lodash';
 
 import * as Dates from './Dates';
 import * as Utils from './Utils';
-import { Seasons, Titles, LiturgicalColors, Types } from '../constants';
+import { LiturgicalSeasons, Titles, LiturgicalColors, Types } from '../constants';
 
 
 // year: Takes the year (integer)
@@ -223,7 +223,7 @@ let dates = (year, christmastideEnds, epiphanyOnJan6, corpusChristiOnThursday, a
       "data": {
         "prioritized": true,
         "season": {
-          "key": Seasons.LENT,
+          "key": LiturgicalSeasons.LENT,
           "value": Utils.localize({
             key: 'lent.season'
           })
@@ -240,7 +240,7 @@ let dates = (year, christmastideEnds, epiphanyOnJan6, corpusChristiOnThursday, a
       "data": {
         "prioritized": true,
         "season": {
-          "key": Seasons.HOLY_WEEK,
+          "key": LiturgicalSeasons.HOLY_WEEK,
           "value": Utils.localize({
             key: 'holyWeek.season'
           })
@@ -257,7 +257,7 @@ let dates = (year, christmastideEnds, epiphanyOnJan6, corpusChristiOnThursday, a
       "data": {
         "prioritized": true,
         "season": {
-          "key": Seasons.HOLY_WEEK,
+          "key": LiturgicalSeasons.HOLY_WEEK,
           "value": Utils.localize({
             key: 'holyWeek.season'
           })
@@ -277,7 +277,7 @@ let dates = (year, christmastideEnds, epiphanyOnJan6, corpusChristiOnThursday, a
       "data": {
         "prioritized": true,
         "season": {
-          "key": Seasons.HOLY_WEEK,
+          "key": LiturgicalSeasons.HOLY_WEEK,
           "value": Utils.localize({
             key: 'holyWeek.season'
           })
@@ -297,7 +297,7 @@ let dates = (year, christmastideEnds, epiphanyOnJan6, corpusChristiOnThursday, a
       "data": {
         "prioritized": true,
         "season": {
-          "key": Seasons.HOLY_WEEK,
+          "key": LiturgicalSeasons.HOLY_WEEK,
           "value": Utils.localize({
             key: 'holyWeek.season'
           })

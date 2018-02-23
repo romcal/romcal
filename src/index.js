@@ -26,7 +26,7 @@ import _ from 'lodash';
 import moment from 'moment';
 
 import { 
-  Calendar as Romcal, 
+  Calendar, 
   Celebrations, 
   Dates, 
   Seasons, 
@@ -37,14 +37,22 @@ import {
   Cycles,
   LiturgicalColors,
   PsalterWeeks,
-  Seasons as LiturgicalSeasons,
+  LiturgicalSeasons,
   Titles,
   Types
 } from './constants';
 
+import * as Calendars from './calendars';
+const countries = _.keys(Calendars);
+
+// Export an array of countries for external use
+export { 
+  countries
+};
+
 // Export all lib functions
 export {
-  Romcal as Calendar, 
+  Calendar, 
   Celebrations, 
   Dates, 
   Seasons, 
@@ -61,6 +69,8 @@ export {
   Types
 };
 
+// Default entry point is exported as Romcal
+export default Calendar;
 
 // UNCOMMENT ONLY WHEN UPDATING PLUGIN
 //=======================================================
@@ -119,5 +129,3 @@ export {
 //     ascensionOnSunday: true
 //   });
 // }
-
-export default Romcal;
