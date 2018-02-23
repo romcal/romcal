@@ -2,7 +2,7 @@ import _ from 'lodash';
 import moment from 'moment';
 import Path from 'path';
 import { Types } from '../constants';
-import Locales from '../locales';
+import * as Locales from '../locales';
 
 // Mustache style templating is easier on the eyes
 _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
