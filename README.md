@@ -177,7 +177,7 @@ romcal returns an array of liturgical date objects in the following structure
     + titles: An array of [titles](#titles) that may be assigned to this celebration
 
 ## Celebration Types <a name="types"></a>
-Each date in the liturgical calendar is assigned a types. romcal defines these types in `data/types.json` which are:
+Each date in the liturgical calendar is assigned a type. romcal defines these types in `src/constants/Types.js` which are:
 
 1. `SOLEMNITY`
 2. `SUNDAY`
@@ -193,24 +193,37 @@ Where the importance or rank of the celebration is in descending order (Solemnit
 
 Types play an important role in determining which celebration should take precendence over another when two or more celebrations coincide on the same date. Certain celebration types will also have different liturgical colors applied to them.
 
+The array of types can be imported into consumer apps via: 
+
+```
+import { Types } from 'romcal'; 
+```
+ 
 ## Celebration Titles <a name="titles"></a>
 On top of having a celebration type, liturgical dates may also have one or more titles of significance assigned to it.
 
 For example, the feast of [Saint Catherine of Siena](https://en.wikipedia.org/wiki/Catherine_of_Siena) is assigned the titles `PATRON_OF_EUROPE` (for national calendars of countries in Europe only) and `DOCTOR_OF_THE_CHURCH` due to those titles being conferred on her by the Church.
 
-romcal defines liturgical seasons in `data/titles.json` which are:
+romcal defines liturgical seasons in `src/constants/Titles.js` which are:
 
-The titles available for:
+Titles are currently available for:
 
-+ `FEAST_OF_THE_LORD`
 + `PATRON_OF_EUROPE`
++ `FEAST_OF_THE_LORD`
 + `DOCTOR_OF_THE_CHURCH`
++ `MARIAN_FEAST`
 + `MARTYR`
 
+The titles object can be imported into consumer apps via: 
+
+```
+import { Titles } from 'romcal'; 
+```
+ 
 ## Liturgical Seasons <a name="seasons"></a>
 The liturgical calendar is divided into various seasons that occur throughout the liturgical year.
 
-romcal defines liturgical seasons in `data/seasons.json` which are:
+romcal defines liturgical seasons in `src/constants/LiturgicalSeasons.js` which are:
 
 + `ADVENT`
 + `CHRISTMASTIDE`
@@ -220,40 +233,70 @@ romcal defines liturgical seasons in `data/seasons.json` which are:
 + `HOLY_WEEK`
 + `EASTER`
 
-The methods in `lib/seasons.js` assigns seasons to the dates it generates to indicate the season to which the range of dates generated belong.
+Methods in `src/lib/Seasons.js` assigns seasons to the dates it generates to indicate the season to which the range of dates generated belong.
+
+The LiturgicalSeasons object can be imported into consumer apps via: 
+
+```
+import { LiturgicalSeasons } from 'romcal'; 
+```
 
 ## Liturgical Cycles <a name="cycles"></a>
 A liturgical year consists of a cycles (either A, B, C) that determines which portions of scripture are to be read. romcal automatically calculates the correct cycle for the given liturgical year and includes it in the meta information of each liturgical date for that year.
 
-This information can be extracted via the `dates[idx].data.meta.cycle` property.
+romcal defines cycles in `src/constants/Cycles.js` which are:
+
++ `Year A` denoted by the key `0`
++ `Year B` denoted by the key `1`
++ `Year C` denoted by the key `2`
+
+Cycle information can be read via the `dates[idx].data.meta.cycle` property in each date element in the array that `calendarFor` returns. 
+
+The cycles object can be imported into consumer apps via: 
+
+```
+import { Cycles } from 'romcal'; 
+```
 
 ## Liturgical Colors <a name="colors"></a>
 [Liturgical colours are those specific colours used for vestments and hangings within the context of Christian liturgy. The symbolism of violet, white, green, red, gold, black, rose and other colours may serve to underline moods appropriate to a season of the liturgical year or may highlight a special occasion.](https://en.wikipedia.org/wiki/Liturgical_colours)
 
-romcal defines 6 colors in `data/liturgicalColors.json` which are:
-+ `WHITE`
-+ `GOLD`
+romcal defines 6 colors in `src/constants/LiturgicalColors.js` which are:
 + `RED`
 + `ROSE`
 + `PURPLE`
 + `GREEN`
++ `WHITE`
++ `GOLD`
 
 More information on how these colors are used for celebration can be found [here](https://en.wikipedia.org/wiki/Liturgical_colours#Roman_Catholic_Church)
 
-This information can be extracted via the `dates[idx].data.meta.liturgicalColor` property.
+Liturgical colors can be read via the `dates[idx].data.meta.liturgicalColor` property in each date element in the array that `calendarFor` returns. 
+
+The LiturgicalColors object can be imported into consumer apps via: 
+
+```
+import { LiturgicalColors } from 'romcal'; 
+```
 
 ## Psalter Weeks <a name="psalterWeeks"></a>
 With the exception of the Easter Octave, each week in the liturgical year is assigned readings from the [Psalter](https://en.wikipedia.org/wiki/Roman_Breviary#The_Psalter). There are also some rules that govern the set of Psalter readings used for particular occasions or seasons in the year.
 
-romcal defines the Psalter Weeks used in the liturgical year in `data/psalterWeeks.json` which are:
+romcal defines the Psalter Weeks used in the liturgical year in `src/constants/PsalterWeeks.js` which are:
 
 + `Week I`
 + `Week II`
 + `Week III`
 + `Week IV`
-+ `Easter` (sepeate set of readings only used during the Octave of Easter)
++ `Easter` (seperate set of readings only used during the Octave of Easter)
 
-This information can be extracted via the `dates[idx].data.meta.psalterWeek` property.
+Psalter weeks can be read via the `dates[idx].data.meta.psalterWeek` property in each date element in the array that `calendarFor` returns.
+
+The PsalterWeeks object can be imported into consumer apps via: 
+
+```
+import { PsalterWeeks } from 'romcal'; 
+```
 
 ## Calendar sources <a name="sources"></a>
 
@@ -271,19 +314,22 @@ Calendar sources play an important role in how romcal manages coinciding dates (
 ### liturgical <a name="liturgical"></a>
 Represents a standard date in the liturgical year. Dates from this source build the basic structure of the liturgical calendar from the start of the liturgical year to its end.
 
-Dates from `lib/seasons.js` will be assigned the source `l`
-The module responsible for generating the `liturgical` dates is `lib/seasons.js`.
-It is highly unlikely that this module will need customization or overriding of any kind.
+Dates from `src/lib/Seasons.js` will be assigned the source value `l`.
+
+The module responsible for generating the `liturgical` dates is `src/lib/Seasons.js`. _It is unlikely that this module will need customization or overriding of any kind._
 
 ### celebrations <a name="celebrations"></a>
-Represents central celebrations observed in the Roman Catholic rite. They take precendence and will replace coinciding dates from the `liturgical` calendar or `general` calendar. Date objects from this calendar will contain the source `c`.
+Represents central celebrations observed in the Roman Catholic rite. They take precendence and will replace coinciding dates from the `liturgical` calendar or `general` calendar. 
 
-The module responsible for generating `celebrations` is `lib/celebrations.js`. It is highly unlikely that this module will need customization or overriding of any kind.
+Dates from `src/lib/Celebrations.js` will be assigned the source value `c`.
+
+The module responsible for generating `celebrations` is `src/lib/Celebrations.js`. _It is highly unlikely that this module will need customization or overriding of any kind._
 
 A prioritized date defined in the `national` calendar can replace a date in the `celebrations` calendar when:
 + the key of the `national` date matches a key in `celebrations`
 + the `national` date is prioritized
-*However, this is not recommended because `celebration` dates are significant in the liturgical year and are usually never changed by the national calendars used in other countries. Be very sure if and when overriding a `celebrations` date from the `national` calendar.*
+
+*In most cases, it is unlikely that a national calendar event will replace a celeberation because of the significance of celebrations. If a national event must override a celebration date, it should be properly verified.*
 
 The following are a list of dates defined in the `celebrations` calendar:
 + Immaculate Conception
@@ -317,38 +363,47 @@ The following are a list of dates defined in the `celebrations` calendar:
 + Immaculate Heart of Mary
 
 ### general <a name="general"></a>
-Represents general celebrations that are celebrated throughout the liturgical year. Dates from the `general` calendar will override dates from the `liturgical` calendar.
+Represents general celebrations throughout the liturgical year. Dates from the `general` calendar will override those from the `liturgical` calendar.
 
-Dates from `calendars/general.js` will be assigned the source `g`
-The module responsible for generating the `general` dates is `lib/calendars/general.js`.
+Dates from `calendars/general.js` are assigned the source value `g`.
 
-`general` calendar dates will always be overwritten by `celebration` or `national` calendar dates even if they are prioritized. Hence, it is  not recommended to edit or add new dates into this calendar.
+The module responsible for generating the `general` dates is `src/lib/Calendars/general.js`.
+
+`general` calendar dates will always be overwritten by `celebration` or `national` calendar dates even if they are prioritized. It is  not recommended to directly edit or add new dates here.
 
 In situations where a given celebration must override one in the general calendar, define it in the `national` calendar instead.
 
 ### national <a name="national"></a>
 Represents specific liturgical dates that have been approved for use by the Holy See for a particular country. It can be used to define unique celebrations celebrated by that particular country or existing celebrations that have been [transferred to another date](https://en.wikipedia.org/wiki/General_Roman_Calendar#Transfer_of_celebrations).
 
-A prioritized celebration in the `national` calendar takes precedence over celebrations in `general`, `celebrations` and `liturgical` calendars. As such, this marker should be used with caution lest it overrides an important celebration that should not be overriden leading to an erroneous calendar output.
+A prioritized celebration in the `national` calendar takes precedence over celebrations in `general`, `celebrations` and `liturgical` calendars. As such, this marker should be used with caution as it may cause national events to override important celebrations that should not be overriden.
 
-In situations when there are 2 celebrations from `national` calendar that coincide on the same date, the one with the higher ranking celebration type will take precendence.
+In situations when there are 2 celebrations from a  `national` calendar that coincide on the same date, the one with the higher ranking celebration type will take precendence.
 
-A new `national` calendar for a country can be defined by creating a new `.js` file with the country name in upper case, lower case or camel case in the `lib/calendars` folder (i.e. malaysia.js). This new file will automatically be picked up by the module and will be used when the user supplies the matching key in the country argument in the `calendarFor` method.
+A new `national` calendar for a country can be defined by creating a new `.js` file with the country name in upper case, lower case or camel case in the `lib/calendars` folder (i.e. `malaysia.js`). This new file will automatically be picked up by the module and will be used when the user supplies the matching key in the country argument in the `calendarFor` method.
 
-Dates from `calendars/countryName.js` will be assigned the source `n`
+Dates from `calendars/<countryName>.js` will be assigned the source key `n`
 
 See [Overriding dates](#Overriding dates) for more examples.
 
 ## Queries <a name="queries"></a>
-Romcal can filter `calendarFor` results if a query object is passed along with the initial configuration object:
+Romcal can generate filtered liturgical or calendar year dates by:
++ passing an additional query object along with the initial configuration object to the `calendarFor` method, or
++ invoking the `queryFor` method and supplying an array of dates generated from `calendarFor` and a query object
 
 ### Filtering calendar output by month of year or day of week <a name="filterByMonthOrDay"></a>
 
 ```
 romcal.calendarFor({
-    query: {
-        month: 0 // 0 - 11
-    }
+  query: {
+    month: 0 // 0 - 11 (Jan = 0, Dec = 11)
+  }
+});
+
+romcal.calendarFor({
+  query: {
+    day: 0, // 0 - 6 (0 = Sunday, 6 = Saturday)
+  }
 });
 
 ```
@@ -356,10 +411,18 @@ romcal.calendarFor({
 or
 
 ```
-romcal.calendarFor({
-    query: {
-        day: 0, // 0 - 6
-    }
+let dates = romcal.calendarFor();
+
+let datesGroupedByDay = romcal.queryFor(dates, { 
+  query: { 
+    day: 0 
+  }
+});
+
+let datesGroupedByMonth = romcal.queryFor(dates, { 
+  query: { 
+    month: 0 
+  }
 });
 
 ```
@@ -389,7 +452,8 @@ romcal.calendarFor({
 Possible values can be checked [here](#titles).
 
 
-Warning: Passing more than one criteria to the query object may cause errors or unpredictable results.
+
+*Warning: Passing more than one criteria to the query object may cause errors or unpredictable results.*
 
 
 ## Overriding dates <a name="overriding"></a>
