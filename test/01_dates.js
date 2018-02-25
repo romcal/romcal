@@ -29,6 +29,9 @@ import range from 'moment-range';
 
 import { LiturgicalColors, LiturgicalSeasons, Dates } from '../src';
 
+// var romcal = require('../dist/romcal.bundle.min');
+// console.log(romcal.calendarFor());
+
 describe('Testing specific liturgical date functions', function() {
 
   this.timeout(0);

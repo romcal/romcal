@@ -1,11 +1,10 @@
 import _ from 'lodash';
 import moment from 'moment';
-import Path from 'path';
 import { Types } from '../constants';
 import * as Locales from '../locales';
 
 // Remap Locale keys to match moment locales
-Locales = _.mapKeys(Locales, (v, k) => _.kebabCase(k));
+const _locales = _.mapKeys(Locales, (v, k) => _.kebabCase(k));
 
 // Mustache style templating is easier on the eyes
 _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
@@ -13,11 +12,11 @@ _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
 // Set locale
 // Locale lookup for date name strings are based on moment
 let _locale = {};
-let _fallbackLocale = _.get( Locales, 'en' );
+let _fallbackLocale = _.get( _locales, 'en' );
 let setLocale = key => {
   moment.locale( key );
-  if ( _.has( Locales, moment.locale() ) ) {
-    _locale = _.get( Locales, moment.locale() );
+  if ( _.has( _locales, moment.locale() ) ) {
+    _locale = _.get( _locales, moment.locale() );
   }
   else {
     _locale = _fallbackLocale;
