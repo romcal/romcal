@@ -1,5 +1,4 @@
 import moment from 'moment';
-import range from 'moment-range';
 import _ from 'lodash';
 
 import { Dates, Utils } from '../lib';

@@ -31,16 +31,16 @@
   },
   "homepage": "https://github.com/pejulian/romcal#README",
   "dependencies": {
-    "lodash": "^4.17.15",
-    "moment": "^2.24.0",
-    "moment-range": "^2.2.0",
-    "moment-recur": "^1.0.7",
-    "require-all": "^2.2.0"
+    "lodash": "^4.3.0",
+    "moment": "^2.20.1",
+    "moment-range": "^3.1.1",
+    "moment-recur": "^1.0.7"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
