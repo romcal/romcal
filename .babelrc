@@ -2,11 +2,12 @@
   "presets":[
     ["env", {
       "targets": {
-        "node": "current"
+        "browsers": ["last 2 versions"]
       }
     }]
   ],
   "plugins": [
+    "add-module-exports",
     "transform-object-rest-spread",
     ["transform-class-properties", { 
       "spec": true 
