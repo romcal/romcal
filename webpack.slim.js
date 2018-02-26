@@ -12,7 +12,9 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 module.exports = merge(common, {
   output: {
     filename: '[name].bundle.slim.min.js',
-    path: path.join(__dirname, 'dist')
+    path: path.join(__dirname, 'dist'),
+    library: 'Romcal',
+    libraryTarget: 'umd'
   },
   plugins: [
     new UglifyJsPlugin(),

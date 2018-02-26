@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-var romcal = require('../romcal');
+var romcal = require('../dist/romcal.bundle.min.js');
 
 var year = process.argv[2];
 romcal.calendarFor({

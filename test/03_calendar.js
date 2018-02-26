@@ -61,12 +61,11 @@ describe('Testing calendar generation functions', function() {
         _.last( dates ).moment.month().should.be.eql( 11 );
         _.last( dates ).moment.date().should.be.eql( 31 );
       });
-
     });
-
   });
 
   describe('Testing query filters', function() {
+
     describe('For filtering by day of week', function() {
       it('Results should match the day of week requested', function() {
         for( var i = 0, il = 7; i < il; i++ ) {
@@ -102,19 +101,19 @@ describe('Testing calendar generation functions', function() {
     describe('For filtering by groups', function() {
 
       it('Should group dates by days in a week', function() {
-        _.chain( Calendar.calendarFor({
-            query: {
-              group: 'days'
-            }
-          }, true )).keys().value().should.be.eql(['0','1','2','3','4','5','6']);
+        _.keys(Calendar.calendarFor({
+          query: {
+            group: 'days'
+          }
+        }, true)).should.be.eql(['0','1','2','3','4','5','6']);
       });
 
       it('Should group dates by months in the year', function() {
-        _.chain( Calendar.calendarFor({
+        _.keys( Calendar.calendarFor({
             query: {
               group: 'months'
             }
-          }, true )).keys().value().should.be.eql(['0','1','2','3','4','5','6','7','8','9','10','11']);
+          }, true )).should.be.eql(['0','1','2','3','4','5','6','7','8','9','10','11']);
       });
 
       it('Should group days of week by the months they belong to', function() {
@@ -149,37 +148,37 @@ describe('Testing calendar generation functions', function() {
         });
       });
 
-      it('Should group dates by their respective liturgical cycles', function() {
-        _.chain( Calendar.calendarFor({
+      it('Should group dates by their respective liturgical cycles', () => {
+        _.keys( Calendar.calendarFor({
             year: 2015,
             query: {
               group: 'cycles'
             }
-          }, true )).keys().value().should.be.eql(['Year B', 'Year C']);
+          }, true )).should.be.eql(['Year B', 'Year C']);
       });
 
-      it('Should group dates by their celebration types', function() {
-        _.chain( Calendar.calendarFor({
+      it('Should group dates by their celebration types', () => {
+        _.keys( Calendar.calendarFor({
             query: {
               group: 'types'
             }
-          }, true )).keys().value().should.containDeep( Types );
+          }, true )).should.containDeep( Types );
       });
 
-      it('Should group dates by their liturgical seasons', function() {
-        _.chain( Calendar.calendarFor({
+      it('Should group dates by their liturgical seasons', () => {
+        _.keys( Calendar.calendarFor({
             query: {
               group: 'liturgicalSeasons'
             }
-          }, true )).keys().value().should.containDeep( _.values( LiturgicalSeasons ) );
+          }, true )).should.containDeep( _.values( LiturgicalSeasons ) );
       });
 
       it('Should group dates by their psalter weeks', function() {
-        _.chain( Calendar.calendarFor({
+        _.keys( Calendar.calendarFor({
             query: {
               group: 'psalterWeek'
             }
-          }, true )).keys().value().should.containDeep( _.keys( PsalterWeeks ) );
+          }, true )).should.containDeep( _.keys( PsalterWeeks ) );
       });
     });
 
@@ -252,7 +251,6 @@ describe('Testing calendar generation functions', function() {
         }
       });
     })
-
   });
 
 });
