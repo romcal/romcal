@@ -97,11 +97,11 @@ describe('Testing date range functions', function() {
     });
 
     it('The Saturday in the week after Ash Wednesday should be in the 1st week of Lent', function() {
-      Seasons.lent( 2017 ).filter(d => d.type === 'WEEKDAY')[10].key.toLowerCase().should.be.eql('saturdayofthe1stweekoflent');
+      Seasons.lent( 2017 )[10].key.toLowerCase().should.be.eql('saturdayofthe1stweekoflent');
     });
 
     it('The 2nd Sunday of Lent should be in the 2nd week of Lent', function() {
-      Seasons.lent( 2017 ).filter(d => d.type === 'WEEKDAY')[11].key.toLowerCase().should.be.eql('sundayofthe2ndweekoflent');
+      Seasons.lent( 2017 )[11].key.toLowerCase().should.be.eql('2ndsundayoflent');
     });
   });
 

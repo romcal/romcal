@@ -130,10 +130,11 @@ const _getCalendar = options => {
   // not prioritized
   // If both are prioritzed, the national date is kept
   //
-  let result = _.chain( general )
-    // Group dates by their dates
-    .groupBy( v => v.moment.valueOf() )
-    .map( coincidences => {
+    // Group dates by their moment values
+  let result = _.groupBy( general, v => v.moment.valueOf());
+
+  // Apply replacement logic for coinciding dates
+  result = _.map( result, coincidences => {
 
       // Only run when there's more than 1 date in the group
       if ( coincidences.length > 1 ) {
@@ -141,26 +142,31 @@ const _getCalendar = options => {
         // Group coincidences by their source
         let sources = _.groupBy( coincidences, v => v.source );
 
+        // Flag of the date to be retained
+        let keep;
+
         // If the group has a celebration and no national date and no general date
-        let keep = 'c';
+        // Keep the celebration and discard other coincidences
         if ( _.has( sources, 'c' ) && !_.has( sources, 'n') && !_.has( sources, 'g') ) {
-          // Keep the celebration and discard other coincidences
           keep = 'c';
         }
-        // If the group has a celebration and national date and no general date
+
+        // If the group has a celebration AND national date AND no general date ...
+        // Keep national date IF its prioritized
+        // else keep the celebration
         else if ( _.has( sources, 'c') && _.has( sources, 'n' ) ) {
-          // Keep national date if its prioritized
           if ( _.head( sources['n'] ).data.prioritized ) {
             keep = 'n';
           }
-          // else keep the celebration
           else {
             keep = 'c';
           }
         }
-        // If the group has a national and general date but no celebration
+
+        // If the group has a national AND general date but no celebration
+        // Keep the general date if its prioritized
+        // If not, keep the national date
         else if ( !_.has( sources, 'c') && _.has( sources, 'n' ) && _.has( sources, 'g') ) {
-          // Keep the general date if its prioritized
           if ( !_.head( sources['n'] ).data.prioritized && _.head( sources['g'] ).data.prioritized ) {
             keep = 'g';
           }
@@ -168,9 +174,10 @@ const _getCalendar = options => {
             keep = 'n';
           }
         }
+
         // If the group has multiple general dates only
+        // Keep the highest ranking general date
         else if ( !_.has( sources, 'c') && !_.has( sources, 'n' ) && _.has( sources, 'g') ) {
-          // Keep the highest ranking general date
           sources['g'] = _.map( sources, source => {
             return _.minBy( source, function( item ) {
               return _.indexOf( Types, item.type );
@@ -178,35 +185,40 @@ const _getCalendar = options => {
           });
           keep = 'g';
         }
+      
         // If the group has a celebration and general date but no national date
-        // and any other combination
+        // and any other combination, keep the celebration date
         else {
           keep = 'c';
         }
 
         // Keep only the relevant date
         coincidences = _.filter( coincidences, { source: keep } );
+
       }
 
       return coincidences;
-    })
-    .flatten()
-    // Remap the keys to be timestamps for better processing
-    .reduce(( r, v, k ) => {
-      // If the response already has this timestamp
-      if ( _.has( r, v.moment.valueOf() ) ) {
-        let date = _.get( r, v.moment.valueOf() );
-        // If the incoming date has a higher rank than the current date
-        if ( _.lt( _.indexOf( Types, v.type ), _.indexOf( Types, date.type ) ) ) {
-          // Replace it with the incoming date
-          r[ v.moment.valueOf() ] = v;
-        }
-      }
-      else { // Response does not have this timestamp
+  });
+
+  // Flatten the results
+  result = _.flatten(result);
+
+  // Remap the keys to be timestamps for better processing
+  result = _.reduce(result, ( r, v, k ) => {
+    // If the response already has this timestamp
+    if ( _.has( r, v.moment.valueOf() ) ) {
+      let date = _.get( r, v.moment.valueOf() );
+      // If the incoming date has a higher rank than the current date
+      if ( _.lt( _.indexOf( Types, v.type ), _.indexOf( Types, date.type ) ) ) {
+        // Replace it with the incoming date
         r[ v.moment.valueOf() ] = v;
       }
-      return r;
-    }, {}).value();
+    }
+    else { // Response does not have this timestamp
+      r[ v.moment.valueOf() ] = v;
+    }
+    return r;
+  }, {});
 
   return result;
 };
@@ -222,7 +234,7 @@ const _applyDates = ( options, dates ) => {
     return r;
   }, {});
 
-  _.map( liturgicalDates, (date, timestamp) => {
+  dates = _.map( liturgicalDates, (date, timestamp) => {
 
     if ( _.has( calendarDates, timestamp ) ) {
 
@@ -427,6 +439,8 @@ const _calendarYear = c => {
     Seasons.christmastide( c.year, c.christmastideEnds, c.epiphanyOnJan6 )
   );
 
+  // console.log(Seasons.lent(c.year));
+
   // Merge liturgical calendar dates with those from the general & national calendars
   dates = _applyDates( c, dates );
   // Filter dates within the given year only
@@ -496,52 +510,21 @@ const calendarFor = (config = {}, skipIsoConversion = false ) => {
   config = _getConfig(config);
 
   // Set the locale information
-  Utils.setLocale( config.locale );
+  Utils.setLocale(config.locale);
 
   // Get dates based on options
   let dates = _.eq( config.type, 'liturgical') ? _liturgicalYear(config) : _calendarYear(config);
 
-  //==========================================================================
-  // Check if there is a query defined, if none return the unfiltered
-  // liturgical calendar dates array
-  //==========================================================================
-  let query = config.query;
-  if ( !_.isNull( query ) && !_.isEmpty( query ) ) {
-    dates = queryFor(dates, query);
-  }
-
   // If undefined and not true, continue with conversion
   if ( !skipIsoConversion ) {
-
-    if ( _.has( query, 'group') ) {
-      if ( _.eq( _.get( query, 'group' ), 'daysByMonth' ) || _.eq( _.get( query, 'group' ), 'weeksByMonth' ) ) {
-        _.each( dates, months => {
-          _.each( months, days => {
-            _.map( days, date => {
-              date.moment = date.moment.toISOString(); // 2013-02-04T22:44:30.652Z
-              return date;
-            });
-          });
-        });
-      }
-      else {
-        _.each( dates, group => {
-          _.map( group, date => {
-            date.moment = date.moment.toISOString(); // 2013-02-04T22:44:30.652Z
-            return date;
-          });
-        });
-      }
-    }
-    else {
-      _.map( dates, date => {
-        date.moment = date.moment.toISOString(); // 2013-02-04T22:44:30.652Z
-        return date;
-      });
-    }
+    dates = _.mapValues( dates, date => {
+      date.moment = date.moment.toISOString(); // 2013-02-04T22:44:30.652Z
+      return date;
+    });
   }
 
-  return dates;
+  // Run queries, if any and return the results
+  return queryFor(dates, config.query);
 };
 
 
@@ -550,8 +533,16 @@ const calendarFor = (config = {}, skipIsoConversion = false ) => {
 // query: An object containing keys to filter the dates by
 const queryFor = (dates = [], query = {}) => {
 
+  //==========================================================================
+  // Check if there is a query defined, if none return the unfiltered
+  // calendar array
+  //==========================================================================
+  if (_.isNull(query) || _.isEmpty(query) ) {
+    return dates;
+  }
+
   // Reparse dates into moment objects if needed
-  dates = _.map(dates, date => {
+  dates = _.mapValues(dates, date => {
     if (!moment.isMoment(date.moment)) {
       date.moment = moment.utc(date.moment);
     }
@@ -578,16 +569,12 @@ const queryFor = (dates = [], query = {}) => {
         dates = _.groupBy( dates, d => d.moment.month());
         break;
       case 'daysByMonth':
-        dates = _.chain( dates )
-          .groupBy( d => d.moment.month())
-          .mapValues( v => _.groupBy( v, d => d.moment.day()))
-          .value();
+        dates = _.groupBy( dates, d => d.moment.month());
+        dates = _.mapValues( dates, v => _.groupBy( v, d => d.moment.day()));
         break;
       case 'weeksByMonth':
-        dates = _.chain( dates )
-          .groupBy(d => d.moment.month())
-          .map(v => _.groupBy( v, d => d.data.calendar.week ))
-          .value();
+        dates = _.groupBy( dates, d => d.moment.month());
+        dates = _.map(v => _.groupBy( v, d => d.data.calendar.week ));
         break;
       case 'cycles':
         dates = _.groupBy( dates, d => d.data.meta.cycle.value );

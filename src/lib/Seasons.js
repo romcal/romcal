@@ -82,16 +82,16 @@ const _epiphany = (y, epiphanyOnJan6) => {
 // y: The year (integer)
 const _holyWeek = y => {
 
-  let d = Dates.holyWeek(y);
+  let dates = Dates.holyWeek(y);
   let days = [];
 
-  _.each( d, function( value, i ) {
+  _.each( dates, (date, i) => {
     days.push({
-      moment: value,
+      moment: date,
       type: Types[3],
       name: Utils.localize({
         key: 'holyWeek.weekday',
-        day: value.format('dddd')
+        day: date.format('dddd')
       }),
       data: {
         season: {
@@ -262,7 +262,7 @@ const christmastide = (y, christmastideEnds, epiphanyOnJan6) => {
 
   // Override in order: solemnities, feasts, epiphany and octave of christmas
   // to days of christmas
-  d = _.uniq( _.union( epiphany, o, d ), item => item.moment.valueOf());
+  d = _.uniqBy( _.union( epiphany, o, d ), item => item.moment.valueOf());
 
   // Sort dates according to moment
   d = _.sortBy( d, item => item.moment.valueOf());
@@ -512,14 +512,16 @@ const laterOrdinaryTime = y => {
 // y: Takes the year (integer)
 const lent = y => {
 
-  let d = Dates.daysOfLent(y);
-  let s = Dates.sundaysOfLent(y);
+  let daysOfLent = Dates.daysOfLent(y);
+  let sundaysOfLent = Dates.sundaysOfLent(y);
+
   let days = [];
+  let sundays = [];
   
-  _.each( d, (value, i) => {
+  _.each( daysOfLent, (value, i) => {
     days.push({
       moment: value,
-      type: _.last( Types ),
+      type: _.last( Types ), // Weekday
       name: Utils.localize({
         key: ( _.gt( i, 0 ) && _.lt( i, 4 ) ) ?  'lent.day_after_ash_wed' : 'lent.weekday',
         day: value.format('dddd'),
@@ -535,10 +537,8 @@ const lent = y => {
       }
     });
   });
-
-  let sundays = [];
   
-  _.each( s, ( value, i ) => {
+  _.each( sundaysOfLent, ( value, i ) => {
     sundays.push({
       moment: value,
       type: Types[1],
@@ -565,7 +565,7 @@ const lent = y => {
   let holyWeek = _holyWeek(y);
 
   // Override in order: Solemnities, Holy Week and Sundays of Lent to days of Lent
-  days = _.uniq( _.union( holyWeek, sundays, days ), v => v.moment.valueOf());
+  days = _.uniqBy( _.union( holyWeek, sundays, days ), v => v.moment.valueOf());
 
   // Sort dates according to moment
   days = _.sortBy( days, v => v.moment.valueOf() );
@@ -701,14 +701,10 @@ const eastertide = y => {
   });
 
   // Insert Solemnities and Sundays of Lent to days of Easter
-  days = _.uniq( _.union( sundays, days ), function( v ) {
-    return v.moment.valueOf();
-  });
+  days = _.uniqBy( _.union( sundays, days ), v => v.moment.valueOf());
 
   // Sort dates according to moment
-  days = _.sortBy( days, function( v ) {
-    return v.moment.valueOf();
-  });
+  days = _.sortBy( days, v => v.moment.valueOf());
 
   //=====================================================================
   // PSALTER WEEKS & LITURGICAL COLOR - EASTER
