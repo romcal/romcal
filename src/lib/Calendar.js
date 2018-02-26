@@ -517,7 +517,7 @@ const calendarFor = (config = {}, skipIsoConversion = false ) => {
 
   // If undefined and not true, continue with conversion
   if ( !skipIsoConversion ) {
-    dates = _.mapValues( dates, date => {
+    dates = _.map( dates, date => {
       date.moment = date.moment.toISOString(); // 2013-02-04T22:44:30.652Z
       return date;
     });
@@ -542,7 +542,7 @@ const queryFor = (dates = [], query = {}) => {
   }
 
   // Reparse dates into moment objects if needed
-  dates = _.mapValues(dates, date => {
+  dates = _.map(dates, date => {
     if (!moment.isMoment(date.moment)) {
       date.moment = moment.utc(date.moment);
     }
@@ -570,7 +570,7 @@ const queryFor = (dates = [], query = {}) => {
         break;
       case 'daysByMonth':
         dates = _.groupBy( dates, d => d.moment.month());
-        dates = _.mapValues( dates, v => _.groupBy( v, d => d.moment.day()));
+        dates = _.map( dates, v => _.groupBy( v, d => d.moment.day()));
         break;
       case 'weeksByMonth':
         dates = _.groupBy( dates, d => d.moment.month());
