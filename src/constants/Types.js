@@ -1,12 +1,12 @@
 const Types = [
-  "SOLEMNITY",
-  "SUNDAY",
-  "TRIDUUM",
-  "HOLY_WEEK",
-  "FEAST",
-  "MEMORIAL",
-  "OPT_MEMORIAL",
-  "COMMEMORATION",
-  "WEEKDAY"
+  "SOLEMNITY",          // [0]
+  "SUNDAY",             // [1]
+  "TRIDUUM",            // [2]
+  "HOLY_WEEK",          // [3]
+  "FEAST",              // [4]
+  "MEMORIAL",           // [5]
+  "OPT_MEMORIAL",       // [6]
+  "COMMEMORATION",      // [7]
+  "WEEKDAY"             // [8]
 ];
 export default Types;

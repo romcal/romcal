@@ -45,11 +45,11 @@ import {
 } from './constants';
 
 import * as Calendars from './calendars';
-const countries = _.keys(Calendars);
+const Countries = _.keys(Calendars);
 
 // Export an array of countries for external use
 export { 
-  countries
+  Countries
 };
 
 // Export all lib functions
@@ -71,15 +71,25 @@ export {
   Types
 };
 
+const { calendarFor, queryFor } = Calendar;
+
+export {
+  calendarFor,
+  queryFor
+};
+
 // Default entry point is exported as Romcal
 export default Calendar;
 
-// UNCOMMENT ONLY WHEN UPDATING PLUGIN
+// UNCOMMENT FOR TESTING PLUGIN
 //=======================================================
 
+
+
+
 // _.each(
-//   Romcal.calendarFor({
-//     year: 2016,
+//   calendarFor({
+//     year: 2018,
 //     epiphanyOnJan6: false,
 //     country: 'canada',
 //     locale: 'en-ca',
@@ -103,7 +113,7 @@ export default Calendar;
 // );
 
 // for( var i = 1950, il = 2101; i < il; i++ ) {
-//   Romcal.calendarFor({
+//   calendarFor({
 //     year: i,
 //     epiphanyOnJan6: false,
 //     christmastideEnds: 'o',
@@ -113,7 +123,7 @@ export default Calendar;
 // }
 
 // for( var i = 1950, il = 2101; i < il; i++ ) {
-//   Romcal.calendarFor({
+//   calendarFor({
 //     year: i,
 //     epiphanyOnJan6: true,
 //     christmastideEnds: 't',
@@ -123,7 +133,7 @@ export default Calendar;
 // }
 
 // for( var i = 1950, il = 2101; i < il; i++ ) {
-//   Romcal.calendarFor({
+//   calendarFor({
 //     year: i,
 //     epiphanyOnJan6: true,
 //     christmastideEnds: 'e',
