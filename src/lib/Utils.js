@@ -70,9 +70,53 @@ const getTypeByDayOfWeek = dayOfWeek => {
   }
 };
 
+const convertMomentObjectToIsoDateString = (items = []) => {
+  return _.map(items, item => { // Loop through the date array
+    if (_.has(item, 'moment')) { // check if it has a moment property
+      item.moment = item.moment.toISOString(); // and convert it to an ISO string
+    }
+    else { // this is a grouped result
+      item = _.map(item, group => {
+        if (_.isArray(group)) {
+          group = _.map(group, arrayItem => {
+            if (_.has(arrayItem, 'moment')) { // check if it has a moment property
+              arrayItem.moment = arrayItem.moment.toISOString(); // and convert it to an ISO string
+            }
+            return arrayItem;
+          });
+        }
+      });
+    }
+    return item;
+  });
+};
+
+const convertIsoDateStringToMomentObject = (items = []) => {
+  return _.map(items, item => { // Loop through the date array
+    if (_.has(item, 'moment')) { // check if it has a moment property
+      item.moment = moment.utc(item.moment); // and convert it to a moment object
+    }
+    else { // this is a grouped result
+      item = _.map(item, group => {
+        if (_.isArray(group)) {
+          group = _.map(group, arrayItem => {
+            if (_.has(arrayItem, 'moment')) { // check if it has a moment property
+              arrayItem.moment = moment.utc(arrayItem.moment); // and convert it to a moment object
+            }
+            return arrayItem;
+          });
+        }
+      });
+    }
+    return item;
+  });
+};
+
 export {
   setLocale,
   getLocale,
   localize,
-  getTypeByDayOfWeek
+  getTypeByDayOfWeek,
+  convertIsoDateStringToMomentObject,
+  convertMomentObjectToIsoDateString
 };

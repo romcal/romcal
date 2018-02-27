@@ -23,10 +23,12 @@
     <script src="dist/romcal.bundle.min.js"></script>
 
     <script>
-
-      var romcal = Romcal.calendarFor();
-      console.log('romcal', romcal );
-
+      var romcal = Romcal.calendarFor({
+        year: 2018,
+        query: {
+          day: 0
+        }
+      });
     </script>
 
   </body>

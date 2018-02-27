@@ -452,11 +452,17 @@ romcal.calendarFor({
 
 ```
 
-Possible values can be checked [here](#titles).
+It is possible to query for dates against multiple criteria:
 
+```
+// Filter dates in January and group the results according to days
+romcal.queryFor(dates, {
+  month: 0,
+  group: 'days'
+});
+```
 
-
-*Warning: Passing more than one criteria to the query object may cause errors or unpredictable results.*
+Other possible values can be checked [here](#titles).
 
 
 ## Overriding dates <a name="overriding"></a>
@@ -476,16 +482,20 @@ Caveat:
 
 ### Overriding a date by its key <a name="overridingByKey"></a>
 
-In most other countries, All Saints and All Souls are celebrated on the 1st and 2nd of November respectively. However, in England and Wales, when All Saints (1 November) falls on a Saturday, it is transferred to the Sunday and All Souls is transferred to Monday 3rd Novemeber.
+In most countries, All Saints and All Souls are celebrated on the 1st and 2nd of November respectively. However, in England and Wales, if All Saints (1 November) falls on a Saturday, it is transferred to the Sunday and All Souls is transferred to Monday 3rd Novemeber.
 
-Romcal achieves this difference by redefining the `allSouls` and `allSaints` celebrations in the national calendars of `calendars/england.js` and `calendars/wales.js` (the original definition was in `calendars/general.js`). Since national calendar dates have higher precendence than general calendar dates, the national date definitions for All Saints and All Souls will override the ones in the general calendar.
+Romcal implements this unique difference by overriding the `allSouls` and `allSaints` celebrations in the national calendars of `calendars/england.js` and `calendars/wales.js` (the original definition was in `calendars/general.js`). The overriding dates in these calendars define a IIFE callback function for the moment property that holds logic for determining if 
+
+Since national calendar dates have higher precendence than general calendar dates, the national date definitions for All Saints and All Souls will override the ones in the general calendar.
 
 Therefore, it is important that the key in the national calendar is <b>exactly</b> the same as the one in the general calendar so that romcal recognizes it for overriding.
 
 
 ### Localizing celebration names <a name="localization"></a>
 
-Celebration names in Romcal can be localized to any language that is already supported by [Moment i18n](http://momentjs.com/docs/#/i18n/). Locales are stored as `.json` files in the `locales` directory where the name of the file corresponds to the locale name of a given language.
+Celebration names in Romcal can be localized to any language that is already supported by [Moment i18n](http://momentjs.com/docs/#/i18n/). 
+
+Locales are stored as `.js` files in the `locales` directory where the name of the file corresponds to the camel cased locale name of a given language. Internally, romcal will convert this camel cased locale name to kebab case when processing locale information. For example, the locale file `enCa.js` will be processed to be `en-ca` which corresponds to the moment locale for Canada (English).
 
 `en` is the default locale in romcal and serves as the fallback when the user specified locale has not been defined in the `locales` directory or the given key does not exist in the locale.
 
@@ -527,7 +537,8 @@ The structure of the locale file is typically like so:
 }
 
 ```
-The first 7 objects define locale keys used by `lib/seasons.js` when generating litugical dates.
+
+The first 7 objects define locale keys used by `src/lib/Seasons.js` when generating litugical dates.
 
 The `celebrations`, `general` and `national` objects will hold localizations for `lib/celebrations.js`, `calendars/general.js` and `calendars/country.js` respectively where the celebrations `key` is used as the identifier for localization purposes.
 
