@@ -414,15 +414,11 @@ or
 let dates = romcal.calendarFor();
 
 let datesGroupedByDay = romcal.queryFor(dates, { 
-  query: { 
-    day: 0 
-  }
+  day: 0 
 });
 
 let datesGroupedByMonth = romcal.queryFor(dates, { 
-  query: { 
-    month: 0 
-  }
+  month: 0 
 });
 
 ```
@@ -460,7 +456,6 @@ romcal.queryFor(dates, {
 ```
 
 Other possible values can be checked [here](#titles).
-
 
 ## Overriding dates <a name="overriding"></a>
 

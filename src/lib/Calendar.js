@@ -516,21 +516,15 @@ const calendarFor = (config = {}, skipIsoConversion = false ) => {
   let dates = _.eq( config.type, 'liturgical') ? _liturgicalYear(config) : _calendarYear(config);
 
   // Run queries, if any and return the results
-  dates = queryFor(dates, config.query);
-
-  // If undefined or false, continue with conversion
-  if ( !skipIsoConversion ) {
-    Utils.convertMomentObjectToIsoDateString(dates);
-  }
-
-  return dates;
-
+  return queryFor(dates, config.query, skipIsoConversion);
 };
 
 // Filters an array of dates generated from the calendarFor function based on a given query.
 // dates: An array of dates generated from the calendarFor function
 // query: An object containing keys to filter the dates by
-const queryFor = (dates = [], query = {}) => {
+// skipIsoConversion: undefined|true|false - skip converting moment objects to ISO8601 timestamp
+//                    default action converts moment objects to ISO Strings
+const queryFor = (dates = [], query = {}, skipIsoConversion = false ) => {
 
   if (!_.every(dates, _.isObject)) {
     throw 'romcal.queryFor can only accept a single dimenional array of objects';
@@ -584,6 +578,7 @@ const queryFor = (dates = [], query = {}) => {
         break;
       case 'liturgicalSeasons':
         dates = _.groupBy( dates, d => d.data.season.key );
+        // console.log('dates', dates );
         break;
       case 'liturgicalColors':
         dates = _.groupBy( dates, d => d.data.meta.liturgicalColor.key );
@@ -596,7 +591,10 @@ const queryFor = (dates = [], query = {}) => {
     }
   }
 
-
+  // If undefined or false, continue with conversion
+  if ( !skipIsoConversion ) {
+    dates = Utils.convertMomentObjectToIsoDateString(dates);
+  }
 
   return dates;
 };
