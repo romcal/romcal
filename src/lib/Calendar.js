@@ -14,7 +14,7 @@ import {
   LiturgicalColors, 
   PsalterWeeks, 
   Types,
-  Cycles 
+  Cycles
 } from '../constants';
 
 // Get an array of country names
@@ -515,23 +515,26 @@ const calendarFor = (config = {}, skipIsoConversion = false ) => {
   // Get dates based on options
   let dates = _.eq( config.type, 'liturgical') ? _liturgicalYear(config) : _calendarYear(config);
 
-  // If undefined and not true, continue with conversion
+  // Run queries, if any and return the results
+  dates = queryFor(dates, config.query);
+
+  // If undefined or false, continue with conversion
   if ( !skipIsoConversion ) {
-    dates = _.map( dates, date => {
-      date.moment = date.moment.toISOString(); // 2013-02-04T22:44:30.652Z
-      return date;
-    });
+    Utils.convertMomentObjectToIsoDateString(dates);
   }
 
-  // Run queries, if any and return the results
-  return queryFor(dates, config.query);
-};
+  return dates;
 
+};
 
 // Filters an array of dates generated from the calendarFor function based on a given query.
 // dates: An array of dates generated from the calendarFor function
 // query: An object containing keys to filter the dates by
 const queryFor = (dates = [], query = {}) => {
+
+  if (!_.every(dates, _.isObject)) {
+    throw 'romcal.queryFor can only accept a single dimenional array of objects';
+  }
 
   //==========================================================================
   // Check if there is a query defined, if none return the unfiltered
@@ -542,22 +545,19 @@ const queryFor = (dates = [], query = {}) => {
   }
 
   // Reparse dates into moment objects if needed
-  dates = _.map(dates, date => {
-    if (!moment.isMoment(date.moment)) {
-      date.moment = moment.utc(date.moment);
-    }
-    return date;
-  });
+  dates = Utils.convertIsoDateStringToMomentObject(dates);
 
   // Months are zero indexed, so January is month 0.
   if ( _.has( query, 'month' ) ) {
-    let month = _.get( query, 'month' );
-    dates = _.filter( dates, d => _.eq( d.moment.month(), month ));
+    dates = _.filter( dates, d => _.eq( d.moment.month(), _.get( query, 'month' )));
   }
 
   if ( _.has( query, 'day' ) ) {
-    let day = _.get( query, 'day' );
-    dates = _.filter( dates, d => _.eq( d.moment.day(), day ));
+    dates = _.filter( dates, d => _.eq( d.moment.day(), _.get( query, 'day' )));
+  }
+  
+  if (_.has( query, 'title' )) {
+    dates = _.filter( dates, d => _.includes( d.data.meta.titles, Titles[ _.get( query, 'title' ) ] ));
   }
 
   if ( _.has( query, 'group' ) ) {
@@ -596,9 +596,7 @@ const queryFor = (dates = [], query = {}) => {
     }
   }
 
-  if (_.has( query, 'title' )) {
-    dates = _.filter( dates, d => _.includes( d.data.meta.titles, Titles[ _.get( query, 'title' ) ] ));
-  }
+
 
   return dates;
 };

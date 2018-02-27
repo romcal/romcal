@@ -30,7 +30,18 @@ import range from 'moment-range';
 import { calendarFor } from '../src';
 
 // console.log(
-//  _.padEnd( 'Date', 16 ),
+//   calendarFor({ 
+//     year: 2018, 
+//     locale: 'en', 
+//     query: { 
+//       // day: 0
+//       group: 'daysByMonth' 
+//     }
+//   })
+// );
+
+// console.log(
+//  _.padEnd( 'Date', 25 ),
 //       '|', _.padEnd( 'Color', 7 ),
 //       '|', _.padEnd( 'Psalter', 10 ),
 //       '|', _.padEnd( 'Cycle', 8 ),
@@ -40,10 +51,17 @@ import { calendarFor } from '../src';
 //       '|', 'Name'
 // );
 // _.each(
-//   calendarFor({ year: 2017, locale: 'en'}, true),
+//   calendarFor({ 
+//     year: 2018, 
+//     locale: 'en', 
+//     query: { 
+//       group: 'days' 
+//     }
+//   }),
 //   v => {
 //     console.log(
-//       _.padEnd( v.moment.format('ddd, DD MMM YY'), 16 ),
+//       _.padEnd( v.moment, 25 ),
+//       // _.padEnd( v.moment.format('ddd, DD MMM YY'), 16 ),
 //       '|', _.padEnd( v.data.meta.liturgicalColor.key, 7 ),
 //       '|', _.padEnd( v.data.meta.psalterWeek.value, 10 ),
 //       '|', _.padEnd( v.data.meta.cycle.value, 8 ),
@@ -54,3 +72,33 @@ import { calendarFor } from '../src';
 //     );
 //   }
 // );
+
+// for( var i = 1950, il = 2101; i < il; i++ ) {
+//   calendarFor({
+//     year: i,
+//     epiphanyOnJan6: false,
+//     christmastideEnds: 'o',
+//     corpusChristiOnThursday: false,
+//     ascensionOnSunday: false
+//   });
+// }
+
+// for( var i = 1950, il = 2101; i < il; i++ ) {
+//   calendarFor({
+//     year: i,
+//     epiphanyOnJan6: true,
+//     christmastideEnds: 't',
+//     corpusChristiOnThursday: true,
+//     ascensionOnSunday: true
+//   });
+// }
+
+// for( var i = 1950, il = 2101; i < il; i++ ) {
+//   calendarFor({
+//     year: i,
+//     epiphanyOnJan6: true,
+//     christmastideEnds: 'e',
+//     corpusChristiOnThursday: true,
+//     ascensionOnSunday: true
+//   });
+// }
