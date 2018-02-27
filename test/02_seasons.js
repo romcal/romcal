@@ -27,13 +27,19 @@ import should from 'should';
 import moment from 'moment';
 import range from 'moment-range';
 
-import { LiturgicalColors, LiturgicalSeasons, Dates, Seasons, Calendar } from '../src';
+import { 
+  LiturgicalColors, 
+  LiturgicalSeasons, 
+  Dates,
+  Seasons, 
+  Calendar 
+} from '../src';
 
 describe('Testing date range functions', function() {
 
   this.timeout(0);
 
-  describe('The Season of Advent', function() {
+  describe('The Season of Advent', () => {
 
     it('There are always 4 Sundays in advent', function() {
       for ( var i = 1900, il = 2100; i <= il; i++ ) {
@@ -76,7 +82,7 @@ describe('Testing date range functions', function() {
     });
   });
 
-  describe('The Season of Lent in the Liturgical Calendar', function() {
+  describe('The Season of Lent in the Liturgical Calendar', () => {
 
     it('It is typically 6 weeks long', function() {
       for ( var i = 1900, il = 2200; i <= il; i++ ) {
@@ -105,7 +111,7 @@ describe('Testing date range functions', function() {
     });
   });
 
-  describe('The Octave of Easter', function() {
+  describe('The Octave of Easter', () => {
 
     it('Should be 8 days long', function() {
       for ( var i = 1900, il = 2100; i <= il; i++ ) {
@@ -126,7 +132,7 @@ describe('Testing date range functions', function() {
     });
   });
 
-  describe('Eastertide', function() {
+  describe('Eastertide', () => {
 
     it('Should be 50 days long', function() {
       for ( var i = 1900, il = 2100; i <= il; i++ ) {
@@ -147,7 +153,7 @@ describe('Testing date range functions', function() {
     });
   });
 
-  describe('Ordinary Time in the Liturgical Calendar', function() {
+  describe('Ordinary Time in the Liturgical Calendar', () => {
 
     it('If the end of Christmastide is on Epiphany, Ordinary time starts the next day', function() {
       for ( var i = 1900, il = 2200; i <= il; i++ ) {
@@ -194,7 +200,7 @@ describe('Testing date range functions', function() {
     });
   });
 
-  describe('The Octave of Christmas', function() {
+  describe('The Octave of Christmas', () => {
     it('Should be 8 days long from Christmas to the feast of the Holy Family', function() {
       for ( var i = 1900, il = 2100; i <= il; i++ ) {
         Dates.octaveOfChristmas( i ).length.should.be.eql( 8 );
@@ -202,9 +208,9 @@ describe('Testing date range functions', function() {
     });
   });
 
-  describe('Christmastide', function() {
+  describe('Christmastide', () => {
 
-    describe('If Epiphany is celebrated on Jan 6', function() {
+    describe('If Epiphany is celebrated on Jan 6', () => {
 
       it('The last day of Christmas is on 6th Jan, if following the Traditional end of the Christmas season', function() {
           for ( var i = 1900, il = 2100; i <= il; i++ ) {
@@ -258,29 +264,31 @@ describe('Testing seasons utility functions', function() {
 
   this.timeout(0);
 
-  describe('The liturgical year is divided to a number of seasons', function() {
+  describe('The liturgical year is divided to a number of seasons', () => {
 
-    var calendar = Calendar.calendarFor({ query: { group: 'liturgicalSeasons'}});
+    let calendar = Calendar.calendarFor({ 
+      query: { 
+        group: 'liturgicalSeasons'
+      }
+    });
 
-    it('Groups dates within seasons based on identifiers', function() {
-      _.each( calendar, function( dates, season ) {
-        _.each( dates, function( date ) {
-          date.data.season.key.should.be.eql( season );
-        });
+    it('Groups dates within seasons based on identifiers', () => {
+      _.each( calendar, ( dates, season ) => {
+        _.each( dates, date => date.data.season.key.should.be.eql(season));
       });
     });
 
-    it('The liturgical color for Ordinary Time is green', function() {
-      _.each( Seasons.earlyOrdinaryTime( 2015, 'o', false ), function( date ) {
-        date.data.meta.liturgicalColor.should.be.eql( LiturgicalColors.GREEN );
+    it('The liturgical color for Ordinary Time is green', () => {
+      _.each( Seasons.earlyOrdinaryTime( 2015, 'o', false ), date => {
+        date.data.meta.liturgicalColor.should.be.eql(LiturgicalColors.GREEN);
       });
-      _.each( Seasons.laterOrdinaryTime( 2015 ), function( date ) {
-        date.data.meta.liturgicalColor.should.be.eql( LiturgicalColors.GREEN );
+      _.each( Seasons.laterOrdinaryTime( 2015 ), date => {
+        date.data.meta.liturgicalColor.should.be.eql(LiturgicalColors.GREEN);
       });
     });
 
     it('The liturgical color for Lent and Advent is purple, except for the 4th Sunday of Lent and 3rd Sunday of Advent, which is rose', function() {
-      _.each( Seasons.lent( 2015 ), function( date ) {
+      _.each( Seasons.lent( 2015 ), date => {
         if ( _.eq( date.key.toLowerCase(), '4thsundayoflent') ) {
           date.data.meta.liturgicalColor.should.be.eql( LiturgicalColors.ROSE );
         }
@@ -288,7 +296,7 @@ describe('Testing seasons utility functions', function() {
           date.data.meta.liturgicalColor.should.be.eql( LiturgicalColors.PURPLE );
         }
       });
-      _.each( Seasons.advent( 2015 ), function( date ) {
+      _.each( Seasons.advent( 2015 ), date => {
         if ( _.eq( date.key.toLowerCase(), '3rdsundayofadvent') ) {
           date.data.meta.liturgicalColor.should.be.eql( LiturgicalColors.ROSE );
         }
@@ -299,10 +307,10 @@ describe('Testing seasons utility functions', function() {
     });
 
     it('The liturgical color for Christmastide and Eastertide is white', function() {
-      _.each( Seasons.christmastide( 2015, 'o', false ), function( date ) {
+      _.each( Seasons.christmastide( 2015, 'o', false ),  date => {
         date.data.meta.liturgicalColor.should.be.eql( LiturgicalColors.WHITE );
       });
-      _.each( Seasons.eastertide( 2015 ), function( date ) {
+      _.each( Seasons.eastertide( 2015 ), date => {
         date.data.meta.liturgicalColor.should.be.eql( LiturgicalColors.WHITE );
       });
     });

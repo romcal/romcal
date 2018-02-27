@@ -31,6 +31,8 @@ import range from 'moment-range';
 import { Types, LiturgicalSeasons, LiturgicalColors, PsalterWeeks, Titles, Dates, Calendar } from '../src';
 
 describe('Testing calendar generation functions', function() {
+  
+  this.timeout(0);
 
   describe('Testing calendar functions', function() {
 
@@ -155,6 +157,16 @@ describe('Testing calendar generation functions', function() {
               group: 'cycles'
             }
           }, true )).should.be.eql(['Year B', 'Year C']);
+
+        _.keys(Calendar.queryFor( 
+          Calendar.calendarFor({
+            year: 2015
+          }),
+          {
+            group: 'cycles'
+          } 
+        )).should.be.eql(['Year B', 'Year C']);
+
       });
 
       it('Should group dates by their celebration types', () => {

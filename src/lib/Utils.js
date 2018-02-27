@@ -61,52 +61,42 @@ const localize = options => {
   return _.template( value )( options );
 };
 
-const getTypeByDayOfWeek = dayOfWeek => {
-  if ( _.eq( dayOfWeek, 0 ) ) {
-    return Types[1]; // Sunday
-  }
-  else {
-    return _.last( Types ); // Weekday
-  }
-};
+// Types[1]: Sunday, _.last(Types) Weekday
+const getTypeByDayOfWeek = d => _.eq(d, 0) ? Types[1]: _.last(Types);
 
 const convertMomentObjectToIsoDateString = (items = []) => {
-  return _.map(items, item => { // Loop through the date array
+  return _.mapValues(items, (item, key) => { // Loop through the date array
     if (_.has(item, 'moment')) { // check if it has a moment property
       item.moment = item.moment.toISOString(); // and convert it to an ISO string
     }
     else { // this is a grouped result
-      item = _.map(item, group => {
-        if (_.isArray(group)) {
-          group = _.map(group, arrayItem => {
-            if (_.has(arrayItem, 'moment')) { // check if it has a moment property
-              arrayItem.moment = arrayItem.moment.toISOString(); // and convert it to an ISO string
-            }
-            return arrayItem;
-          });
-        }
-      });
+      if (_.isArray(item)) {
+        item = _.map(item, date => {
+          if (_.has(date, 'moment')) { // check if it has a moment property
+            date.moment = date.moment.toISOString(); // and convert it to an ISO string
+          }
+          return date;
+        });
+      }
     }
     return item;
   });
 };
 
 const convertIsoDateStringToMomentObject = (items = []) => {
-  return _.map(items, item => { // Loop through the date array
+  return _.mapValues(items, (item, key) => { // Loop through the date array
     if (_.has(item, 'moment')) { // check if it has a moment property
       item.moment = moment.utc(item.moment); // and convert it to a moment object
     }
     else { // this is a grouped result
-      item = _.map(item, group => {
-        if (_.isArray(group)) {
-          group = _.map(group, arrayItem => {
-            if (_.has(arrayItem, 'moment')) { // check if it has a moment property
-              arrayItem.moment = moment.utc(arrayItem.moment); // and convert it to a moment object
-            }
-            return arrayItem;
-          });
-        }
-      });
+      if (_.isArray(item)) {
+        item = _.map(item, date => {
+          if (_.has(date, 'moment')) { // check if it has a moment property
+            date.moment = moment.utc(date.moment); // and convert it to a moment object
+          }
+          return date;
+        });
+      }
     }
     return item;
   });
