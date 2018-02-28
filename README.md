@@ -73,7 +73,7 @@ This node module is inspired by the C program [romcal](http://www.romcal.net/) w
  * National liturgical calendars for country specific calendars.
  * Richly commented code to help developers and contributors understand how the module works.
 
-NOTE: This module depends on [Moment](http://momentjs.com/) and [lodash](http://lodash.com/) for most of its calculations and operations. Additional [Moment](http://momentjs.com/) plugins such as [Range](https://github.com/gf3/moment-range) and [Recur](https://github.com/c-trimm/moment-recur) are used to extend date computation functionality. Familiarity with these libraries makes reading the code much easier.
+NOTE: This module uses [Moment](http://momentjs.com/) and [lodash](http://lodash.com/) for calculations and operations. Additional plugins such as [Range](https://github.com/gf3/moment-range) and [Recur](https://github.com/c-trimm/moment-recur) are used to extend date computation functionality. 
 
 ## Module Robustness & Data Integrity <a name="disclaimer"></a>
 *Calendar entries for this module are pulled from various sources from the net. As such their accuracy cannot be ensured. If you find an incorrect calendar entry (e.g. wrong date, wrong feast type, spelling issue, typos), you are most welcome to contribute to the source code or inform me so that the necessary changes can be made to make this a more robust and reliable module*
@@ -92,8 +92,8 @@ See [history](HISTORY.md)
 
 Running `npm run build` in the romcal root directory will invoke webpack scripts to generate distribution version of romcal suitable for browsers and node environments.
 
-- `romcal.bundle.min.js` 
-- `romcal.server.js`
+- `romcal.bundle.min.js` A minified and obfruscated bundle of romcal + all its dependencies wrapped in a UMD module shell that is suitable for being included directly in browsers
+- `romcal.server.js` An ES5 bundle wrapped in the CommonJS module structure for inclusion in other node modules via `require('romcal')`.
 
 ## Usage <a name="usage"></a>
 
@@ -114,6 +114,14 @@ or as a CommonJS module
 ```
 import romcal from 'romcal';
 ```
+
+or in a webpage for direct usage on browsers
+
+```
+  <script type="text/javascript" src="romcal.bundle.min.js"></script>
+```
+
+Including romcal directly in the browser will result in an object called `Romcal` being attached to the DOM `window` object. All the functions below will exist as properties of the `Romcal` object. 
 
 Invoke the `calendarFor` method to retrieve an array of liturgical dates and celebrations in the Roman Calendar. This method accepts an object (optional) of configuration properties to obtain customized output.
 
