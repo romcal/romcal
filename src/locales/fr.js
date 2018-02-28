@@ -265,7 +265,6 @@ export default {
     "saintHubertBishop": "Saint Hubert, Évêque (✝ 727)",
     "saintJohnBerchmansReligious": "Saint Jean Berchmans, Jésuite Belge (✝ 1621)",
     "saintJohnPaulIiPope": "Saint Jean Paul II, Pape (✝ 2005)",
-    "saintsCyrilMonkAndMethodiusBishop": "Saints Cyrille, Moine, et Méthode, Évêque, Apôtres des Slaves au 9ème siècle, Copatrons de l'Europe",
     "saintCatherineOfSienaVirginAndDoctorOfTheChurch": "Sainte Catherine de Sienne, Vierge et Docteur de l'Eglise, Patronne de l'Europe (✝ 1380)",
     "saintBenedictOfNursiaAbbot": "Saint Benoît de Nursie, Patriarche des moines d'Occident, Fondateur de l'ordre des Bénédictins, Patron de l'Europe (✝ v. 547)",
     "saintAndreBessetteReligious": "Saint Frère André Bessette, Religieux (✝ 1937)",

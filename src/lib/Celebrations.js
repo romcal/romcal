@@ -393,12 +393,13 @@ let dates = (year, christmastideEnds, epiphanyOnJan6, corpusChristiOnThursday, a
     }
   ];
 
-  // Get localized celebration names
-  return _.map( _dates, date => {
-    date.name = Utils.localize({
-      key: 'celebrations.' + date.key
-    });
-    return date;
+  return _.map( _dates, ({ key, data, ...rest }) => {
+    let name = Utils.localize({ key: 'celebrations.' + key });
+    let { meta } = data;
+    if (_.isUndefined(meta)) {
+      data.meta = { titles: [] };
+    }
+    return { name, key, data, ...rest };
   });
 };
 
