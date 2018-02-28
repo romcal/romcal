@@ -107,7 +107,6 @@ describe('Testing specific liturgical date functions', function() {
       date.month().should.be.eql( 3 );
       date.date().should.be.eql( 7 );
     });
-
   });
 
   describe('Good Friday occurs on the Friday before Easter Sunday', function() {
@@ -132,7 +131,6 @@ describe('Testing specific liturgical date functions', function() {
   });
 
   describe('Holy Saturday is the day before Easter', function() {
-
     it('In 1969, Holy Saturday was on April 5', function() {
       var date = Dates.holySaturday( 1969 );
       date.month().should.be.eql( 3 );
@@ -150,11 +148,9 @@ describe('Testing specific liturgical date functions', function() {
       date.month().should.be.eql( 3 );
       date.date().should.be.eql( 9 );
     });
-
   });
 
   describe('Holy Week + Easter Triduum is from Palm Sunday to Holy Saturday', function() {
-
     it('The first day of Holy Week should start on Palm Sunday', function() {
       for ( var i = 1900, il = 2050; i <= il; i++ ) {
         _.head( Dates.holyWeek( i ) ).isSame( Dates.palmSunday( i ) ).should.be.eql( true );
@@ -166,7 +162,6 @@ describe('Testing specific liturgical date functions', function() {
         _.last( Dates.holyWeek( i ) ).isSame( Dates.holySaturday( i ) ).should.be.eql( true );
       }
     });
-
   });
 
   describe('Easter calculation based on an algorithm from The Explanatory Supplement to the Astronomical Almanac', function() {
@@ -202,7 +197,6 @@ describe('Testing specific liturgical date functions', function() {
   });
 
   describe('Divine Mercy Sunday (Low Sunday or the Sunday after Easter)', function() {
-
     it('In 1969, Divine Mercy Sunday was on April 13', function() {
       var date = Dates.divineMercySunday( 1969 );
       date.month().should.be.eql( 3 );
@@ -220,7 +214,6 @@ describe('Testing specific liturgical date functions', function() {
       date.month().should.be.eql( 3 );
       date.date().should.be.eql( 17 );
     });
-
   });
 
   describe('Ascension of our Lord', function() {
@@ -424,7 +417,6 @@ describe('Testing specific liturgical date functions', function() {
           Dates.corpusChristi( i ).format('L').should.be.equalOneOf( dates );
         }
       });
-
     });
 
     describe('If it is celebrated on Thursday (60 days after Easter)', function() {
@@ -458,7 +450,6 @@ describe('Testing specific liturgical date functions', function() {
         }
       });
     });
-
   });
 
   describe('Sacred Heart of Jesus occurs on 68 days after Easter', function() {
@@ -523,7 +514,6 @@ describe('Testing specific liturgical date functions', function() {
         Dates.immaculateHeartOfMary( i ).format('L').should.be.equalOneOf( dates );
       }
     });
-
   });
 
   describe('Christ the King is always the 34th (and last) Sunday of Ordinary Time and is the week before the First Sunday of Advent', function() {
