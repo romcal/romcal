@@ -12,6 +12,9 @@
 
 # Romcal
 
+<b>ANNOUNCEMENT</b>
+Version 1.3.0 of Romcal has been revamped to use ES6 syntax. 
+
 Utility library that outputs the Liturgical Calendar used by the Roman Rite (Western Church)
 
 ## Contributing to romcal
@@ -28,6 +31,7 @@ I especially reach out to you all for help with translations/localizations of ce
 - [Features](#features)
 - [Module Robustness & Data Integrity](#disclaimer)
 - [Revisions](#revisions)
+- [Builds](#builds)
 - [Usage](#usage)
   - [Configuration Options](#configOpts)
   - [Output Formatter](#outputFormatter)
@@ -83,6 +87,13 @@ Travis CI is used to validate romcal builds to ensure functionality is working a
 
 ## Revisions <a name="revisions"></a>
 See [history](HISTORY.md)
+
+## Builds <a name="builds"></a>
+
+Running `npm run build` in the romcal root directory will invoke webpack scripts to generate distribution version of romcal suitable for browsers and node environments.
+
+- `romcal.bundle.min.js` 
+- `romcal.server.js`
 
 ## Usage <a name="usage"></a>
 

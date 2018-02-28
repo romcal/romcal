@@ -14,40 +14,32 @@ import _ from 'lodash';
 // Epiphany is always celebrated on Jan 6
 // y: year
 // epiphanyOnJan6: true|false (activate traditional rule)
-const epiphany = (y, epiphanyOnJan6) => {
-
-  // Check if the traditional method should be used for calculating the
-  // date of Epiphany
-  epiphanyOnJan6 = epiphanyOnJan6 || false;
+const epiphany = (y, epiphanyOnJan6 = false) => {
 
   // Get the first day of the year
   let firstDay = moment.utc({ year: y, month: 0, day: 1 });
   let date = moment.utc({ year: y, month: 0, day: 6 });
 
-  // Always return Jan 6 as the date of Epiphany according to Traditional rule
-  if ( epiphanyOnJan6 ) {
-    return date;
+  if ( !epiphanyOnJan6 ) {
+    switch(firstDay.day()) {
+      // If first day of the year is a Saturday, Mary Mother of God is on that day
+      // and Epiphany is on the next day
+      case 6:
+        date = firstDay.add( 1, 'days' );
+        break;
+      // If first day of the year is a Sunday, Mary Mother of God is on that Sunday and
+      // the Sunday proceeding will be Epiphany
+      case 0:
+        date = firstDay.add( 7, 'days' );
+        break;
+      // If first day of the year is on a weekday (i.e. Monday - Friday),
+      // Epiphany will be celebrated on the Sunday proceeding
+      default:
+        date = firstDay.add( 1, 'weeks' ).startOf('week');
+        break;
+    }
   }
-  else {
-
-    // If first day of the year is a Saturday, Mary Mother of God is on that day
-    // and Epiphany is on the next day
-    if ( _.eq( firstDay.day(), 6 ) ) {
-      date = firstDay.add( 1, 'days' );
-    }
-    // If first day of the year is a Sunday, Mary Mother of God is on that Sunday and
-    // the Sunday proceeding will be Epiphany
-    else if ( _.eq( firstDay.day(), 0 ) ) {
-      date = firstDay.add( 7, 'days' );
-    }
-    // If first day of the year is on a weekday (i.e. Monday - Friday),
-    // Epiphany will be celebrated on the Sunday proceeding
-    else {
-      date = firstDay.add( 1, 'weeks' ).startOf('week');
-    }
-
-    return date;
-  }
+  return date;
 };
 
 // Christmas falls on the 25th of December
@@ -59,11 +51,10 @@ const christmas = y => moment.utc({ year: y, month: 11, day: 25 });
 const octaveOfChristmas = y => {
   let start = christmas(y);
   let end = maryMotherOfGod( y + 1 );
-  let recurrence = moment.utc().recur({
+  return moment.utc().recur({
     start,
     end
   }).every( 1 ).day();
-  return recurrence.all();
 };
 
 // The Solemnity of Mary, the Holy Mother of God is a
