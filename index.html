@@ -18,10 +18,17 @@
   <body>
     <h1>Romcal</h1>
     <code>Open your console to view calendar output</code>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!--
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.min.js" integrity="sha256-YFhaeQSVBgAFNN5z4I9YRB2jCuqc2nvypz0Q2eQzcx8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment-with-locales.min.js" integrity="sha256-XWrGUqSiENmD8bL+BVeLl7iCfhs+pkPyIqrZQcS2Te8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-range/3.1.1/moment-range.min.js" integrity="sha256-Rp0oEjRhmguoV+JTyGbNho9HkHbKmBfiBtCmj6KPpxc=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-recur/1.0.7/moment-recur.min.js" integrity="sha256-07vcphslAbnX38ZWHdVjIuhMpwrUAYIofqWU/wv/1NU=" crossorigin="anonymous"></script>
+    -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="dist/romcal.bundle.min.js"></script>
-
     <script>
       var dates = Romcal.calendarFor({
         year: 2018
@@ -34,7 +41,6 @@
       var sundays = Romcal.queryFor(dates, {
         day: 0
       });
-
 
       console.log('dates', dates );
       console.log('january', january );
