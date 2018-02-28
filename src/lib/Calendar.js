@@ -534,60 +534,59 @@ const queryFor = (dates = [], query = {}, skipIsoConversion = false ) => {
   // Check if there is a query defined, if none return the unfiltered
   // calendar array
   //==========================================================================
-  if (_.isNull(query) || _.isEmpty(query) ) {
-    return dates;
-  }
+  if (!_.isNull(query) && !_.isEmpty(query) ) {
 
-  // Reparse dates into moment objects if needed
-  dates = Utils.convertIsoDateStringToMomentObject(dates);
+    // Reparse dates into moment objects if needed
+    dates = Utils.convertIsoDateStringToMomentObject(dates);
 
-  // Months are zero indexed, so January is month 0.
-  if ( _.has( query, 'month' ) ) {
-    dates = _.filter( dates, d => _.eq( d.moment.month(), _.get( query, 'month' )));
-  }
+    // Months are zero indexed, so January is month 0.
+    if ( _.has( query, 'month' ) ) {
+      dates = _.filter( dates, d => _.eq( d.moment.month(), _.get( query, 'month' )));
+    }
 
-  if ( _.has( query, 'day' ) ) {
-    dates = _.filter( dates, d => _.eq( d.moment.day(), _.get( query, 'day' )));
-  }
-  
-  if (_.has( query, 'title' )) {
-    dates = _.filter( dates, d => _.includes( d.data.meta.titles, Titles[ _.get( query, 'title' ) ] ));
-  }
+    if ( _.has( query, 'day' ) ) {
+      dates = _.filter( dates, d => _.eq( d.moment.day(), _.get( query, 'day' )));
+    }
+    
+    if (_.has( query, 'title' )) {
+      dates = _.filter( dates, d => _.includes( d.data.meta.titles, Titles[ _.get( query, 'title' ) ] ));
+    }
 
-  if ( _.has( query, 'group' ) ) {
-    switch( _.get( query, 'group' ) ) {
-      case 'days':
-        dates = _.groupBy( dates, d => d.moment.day());
-        break;
-      case 'months':
-        dates = _.groupBy( dates, d => d.moment.month());
-        break;
-      case 'daysByMonth':
-        dates = _.groupBy( dates, d => d.moment.month());
-        dates = _.map( dates, v => _.groupBy( v, d => d.moment.day()));
-        break;
-      case 'weeksByMonth':
-        dates = _.groupBy( dates, d => d.moment.month());
-        dates = _.map(v => _.groupBy( v, d => d.data.calendar.week ));
-        break;
-      case 'cycles':
-        dates = _.groupBy( dates, d => d.data.meta.cycle.value );
-        break;
-      case 'types':
-        dates = _.groupBy( dates, d => d.type );
-        break;
-      case 'liturgicalSeasons':
-        dates = _.groupBy( dates, d => d.data.season.key );
-        // console.log('dates', dates );
-        break;
-      case 'liturgicalColors':
-        dates = _.groupBy( dates, d => d.data.meta.liturgicalColor.key );
-        break;
-      case 'psalterWeek':
-        dates = _.groupBy( dates, d => d.data.meta.psalterWeek.key );
-        break;
-      default:
-        break;
+    if ( _.has( query, 'group' ) ) {
+      switch( _.get( query, 'group' ) ) {
+        case 'days':
+          dates = _.groupBy(dates, d => d.moment.day());
+          break;
+        case 'months':
+          dates = _.groupBy(dates, d => d.moment.month());
+          break;
+        case 'daysByMonth':
+          dates = _.groupBy(dates, d => d.moment.month());
+          dates = _.map(dates, v => _.groupBy( v, d => d.moment.day()));
+          break;
+        case 'weeksByMonth':
+          dates = _.groupBy(dates, d => d.moment.month());
+          dates = _.map(dates, v => _.groupBy( v, d => d.data.calendar.week ));
+          break;
+        case 'cycles':
+          dates = _.groupBy(dates, d => d.data.meta.cycle.value );
+          break;
+        case 'types':
+          dates = _.groupBy(dates, d => d.type );
+          break;
+        case 'liturgicalSeasons':
+          dates = _.groupBy(dates, d => d.data.season.key );
+          // console.log('dates', dates );
+          break;
+        case 'liturgicalColors':
+          dates = _.groupBy(dates, d => d.data.meta.liturgicalColor.key );
+          break;
+        case 'psalterWeek':
+          dates = _.groupBy(dates, d => d.data.meta.psalterWeek.key );
+          break;
+        default:
+          break;
+      }
     }
   }
 

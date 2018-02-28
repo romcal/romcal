@@ -47,6 +47,7 @@ I especially reach out to you all for help with translations/localizations of ce
   - [Filtering calendar output by month of year or day of week](#filterByMonthOrDay)
   - [Grouping calendar output by critieria](#groupingByCriteria)
   - [Filtering calendar output by celebration title metadata](#filteringByTitle)
+  - [Multiple Queries](#multipleQueries)
 - [Overriding dates](#)
   - [Overriding a date by its calendar source](#overridingBySource)
   - [Overdding a date by its priority](#overridingByPriority)
@@ -394,13 +395,15 @@ Romcal can generate filtered liturgical or calendar year dates by:
 ### Filtering calendar output by month of year or day of week <a name="filterByMonthOrDay"></a>
 
 ```
-romcal.calendarFor({
+import { Calendar } from 'romcal';
+
+Calendar.calendarFor({
   query: {
     month: 0 // 0 - 11 (Jan = 0, Dec = 11)
   }
 });
 
-romcal.calendarFor({
+Calendar.calendarFor({
   query: {
     day: 0, // 0 - 6 (0 = Sunday, 6 = Saturday)
   }
@@ -411,25 +414,47 @@ romcal.calendarFor({
 or
 
 ```
-let dates = romcal.calendarFor();
+import { Calendar } from 'romcal';
 
-let datesGroupedByDay = romcal.queryFor(dates, { 
-  day: 0 
+let dates = Calendar.calendarFor();
+
+let datesGroupedByDay = Calendar.queryFor(dates, { 
+  day: 0 // 0 - 6
 });
 
-let datesGroupedByMonth = romcal.queryFor(dates, { 
-  month: 0 
+let datesGroupedByMonth = Calendar.queryFor(dates, { 
+  month: 0 // 0 - 11
 });
 
 ```
 
 ### Grouping calendar output by critieria <a name="groupingByCriteria"></a>
 
+Calendar dates can be grouped by various criteria upon invocation like so:
+
 ```
-romcal.calendarFor({
+import { Calendar } from 'romcal';
+
+Calendar.calendarFor({
     query: {
         group: 'days|months|daysByMonth|weeksByMonth|cycles|types|liturgicalSeasons|liturgicalColors|psalterWeeks'
     }
+});
+
+```
+
+Or invoking the query function at a later point
+
+```
+import { Calendar } from 'romcal';
+
+let dates = Calendar.calendarFor();
+
+// Some code,
+// then ...
+
+let groupedCalendar = Calendar.queryFor(dates, { 
+  group: 'days|months|daysByMonth|weeksByMonth|cycles|types|liturgicalSeasons|liturgicalColors|psalterWeeks' 
 });
 
 ```
@@ -445,6 +470,10 @@ romcal.calendarFor({
 
 ```
 
+Other possible values can be checked [here](#titles).
+
+## Multiple queries <a name="multipleQueries"></a>
+
 It is possible to query for dates against multiple criteria:
 
 ```
@@ -455,33 +484,40 @@ romcal.queryFor(dates, {
 });
 ```
 
-Other possible values can be checked [here](#titles).
-
 ## Overriding dates <a name="overriding"></a>
 
-Romcal has been designed with extensibility in mind to cater for specific scenarios that are commonplace in the liturgical calendar. The sections below describe the methods employed by romcal when overriding dates.
+Romcal has been designed with extensibility in mind to cater for unique scenarios that are common in the liturgical calendar.
 
 ### Overriding a date by its calendar source <a name="overridingBySource"></a>
 
-The order of importance of calendar sources are: celebrations > national > general > liturgical.
+The order of importance of calendar sources are: `celebrations` > `national` > `general` > `liturgical`.
 
 ### Overriding a date by its priority <a name="overridingByPriority"></a>
 
-Prioritized dates may override dates of higher ranking celebration types and also prevent itself from being overriden by other coinciding dates. For example, dates in `lib/celebrations.js` (Christmas, Easter) are all prioritized as they can override any other date in the liturgical calendar and may not be overriden by any other coinciding date regardless of rank <b>unless</b> the coinciding date is itself prioritized (for example, `allSaints` in `'lib/celebrations.js' can be overriden by `allSaints` in `calendars/england.js`).
+Prioritizing a date allows it to:
+- Override a higher ranking `type` date object with the same key 
+- Prevent it from being overriden by other coinciding dates
+
+A date can be prioritized by adding `prioritized`: `true` to the `data` object in the given date object. See `src/lib/Celebrations.js` for more examples.
+
+All dates in `src/lib/Celebrations.js` (Christmas, Easter) are prioritized as they must override any other date in the liturgical calendar and cannot be overriden by any other coinciding date regardless of rank <b>unless</b> the coinciding date is itself prioritized 
+
+For example, `allSaints` in `src/lib/Celebrations.js` can be overriden by `allSaints` in `src/calendars/england.js`) because the entry in that `national` calendar has been set with `prioritized`: `true`.
 
 Caveat:
-> If a coinciding date's source is from the `celebration` or `national` calendars, and the prioritized date is from the `general` calendar, it will still be overidden by the coinciding date as `celebration` and `national` calendar sources have higher precedence.
+>If a coinciding date's source is from the `celebration` or `national` calendars, *but* the prioritized date is defined in the `general` calendar, it *will still be* overidden by the coinciding date because `celebration` and `national` calendar sources have higher precedence (see [here](#overridingBySource))
 
 ### Overriding a date by its key <a name="overridingByKey"></a>
 
 In most countries, All Saints and All Souls are celebrated on the 1st and 2nd of November respectively. However, in England and Wales, if All Saints (1 November) falls on a Saturday, it is transferred to the Sunday and All Souls is transferred to Monday 3rd Novemeber.
 
-Romcal implements this unique difference by overriding the `allSouls` and `allSaints` celebrations in the national calendars of `calendars/england.js` and `calendars/wales.js` (the original definition was in `calendars/general.js`). The overriding dates in these calendars define a IIFE callback function for the moment property that holds logic for determining if 
+Romcal implements this unique difference by overriding the `allSouls` and `allSaints` celebrations in the national calendars of `calendars/england.js` and `calendars/wales.js` (the original definition was in `calendars/general.js`). The overriding dates in these calendars define a IIFE callback function for the moment property that holds logic for determining if the date should be moved.
 
 Since national calendar dates have higher precendence than general calendar dates, the national date definitions for All Saints and All Souls will override the ones in the general calendar.
 
-Therefore, it is important that the key in the national calendar is <b>exactly</b> the same as the one in the general calendar so that romcal recognizes it for overriding.
+Also, since prioritized dates in the national calendar sources can override dates in celebration calendar sources, the date definitions for All Saints and All Souls will now be taken from the national calendar.
 
+Therefore, it is important that the key in the national calendar is <b>exactly</b> the same as the one in the general calendar so that romcal recognizes it for overriding. Typos (even uppercase and lowercase), will cause unexpected results.
 
 ### Localizing celebration names <a name="localization"></a>
 
@@ -532,7 +568,7 @@ The structure of the locale file is typically like so:
 
 The first 7 objects define locale keys used by `src/lib/Seasons.js` when generating litugical dates.
 
-The `celebrations`, `general` and `national` objects will hold localizations for `lib/celebrations.js`, `calendars/general.js` and `calendars/country.js` respectively where the celebrations `key` is used as the identifier for localization purposes.
+The `celebrations`, `general` and `national` objects will hold localizations for `src/lib/Celebrations.js`, `src/calendars/general.js` and `src/calendars/<country>.js` respectively where the celebrations `key` is used as the identifier for localization purposes.
 
 See the end of these files to see the function that localizes the dates according to their keys.
 
