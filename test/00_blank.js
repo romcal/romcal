@@ -27,7 +27,13 @@ import should from 'should';
 import moment from 'moment';
 import range from 'moment-range';
 
-import { calendarFor } from '../src';
+import { calendarFor, queryFor } from '../src';
+
+// let dates = calendarFor();
+// let days = queryFor(dates, { day: 0 });
+// _.each(days, day => console.log('day', day.moment ));
+// let january = queryFor(dates, { month: 0 });
+// _.each(january, jan => console.log('jan', jan.moment ));
 
 // console.log(
 //   calendarFor({ 
