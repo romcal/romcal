@@ -235,6 +235,7 @@ Titles are currently available for:
 + `FEAST_OF_THE_LORD`
 + `DOCTOR_OF_THE_CHURCH`
 + `MARIAN_FEAST`
++ `TRIDUUM`
 + `MARTYR`
 
 The titles object can be imported into consumer apps via: 
