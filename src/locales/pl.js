@@ -299,7 +299,6 @@ export default {
     "blessedRafalChylinskiPriest": "Bł. Rafała Chylińskiego, prezbitera",
     "saintBarbaraVirginAndMartyr": "Św. Barbary, dziewicy i męczennicy",
     "saintAdalbertBishopAndMartyr": "Św. Wojciecha, biskupa i męczennika, głównego patrona Polski",
-    "saintsCyrilMonkAndMethodiusBishop": "Świętych Cyryla, mnicha i Metodego, biskupa, patronów Europy",
     "blessedBoleslawaMariaLamentVirgin": "Bł. Bolesławy Marii Lament, dziewicy",
     "saintCasimir": "Św. Kazimierza",
     "saintKingaVirgin": "Św. Kingi, dziewicy",
