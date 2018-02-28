@@ -48,14 +48,10 @@ const christmas = y => moment.utc({ year: y, month: 11, day: 25 });
 
 // The 8 days from Christmas to Mary Mother of God (inclusive)
 // y: year
-const octaveOfChristmas = y => {
-  let start = christmas(y);
-  let end = maryMotherOfGod( y + 1 );
-  return moment.utc().recur({
-    start,
-    end
-  }).every( 1 ).day();
-};
+const octaveOfChristmas = y => moment.utc().recur({ 
+  start: christmas(y), 
+  end: maryMotherOfGod( y + 1 ) 
+}).every( 1 ).day().all();
 
 // The Solemnity of Mary, the Holy Mother of God is a
 // feast day of the Blessed Virgin Mary under the aspect
@@ -143,12 +139,7 @@ const christmastide = (y, christmastideEnds, epiphanyOnJan6) => {
       break;
   }
 
-  let recurrence = moment.recur({
-    start,
-    end
-  }).every(1).day();
-
-  return recurrence.all();
+  return moment.recur({ start, end }).every(1).day().all();
 };
 
 //==================================================================================
@@ -176,13 +167,11 @@ const daysOfEarlyOrdinaryTime = (y, christmastideEnds, epiphanyOnJan6) => {
     start = baptismOfTheLord( y, epiphanyOnJan6 );
   }
 
-  let recurrence = moment.utc().recur({
+  return moment.utc().recur({
     start,
     end,
     exceptions: [ start, end ]
-  }).every(1).day();
-
-  return recurrence.all();
+  }).every(1).day().all();
 };
 
 // Ordinary Time in the later part of the year begins the
@@ -192,21 +181,19 @@ const daysOfEarlyOrdinaryTime = (y, christmastideEnds, epiphanyOnJan6) => {
 const daysOfLaterOrdinaryTime = y => {
   let start = pentecostSunday(y);
   let end = firstSundayOfAdvent(y);
-  let recurrence = moment.utc().recur({
+  return moment.utc().recur({
     start,
     end,
     exceptions: [ start, end ]
-  }).every(1).day();
-  return recurrence.all();
+  }).every(1).day().all();
 };
 
 // The Solemnity of Christ the King is always the 34th (and last) Sunday of Ordinary Time
 // and is the week before the First Sunday of Advent. The Sundays of Ordinary Time in the
 // latter part of the year are numbered backwards from Christ the King to Pentecost.
 // y: Year (integer)
-const christTheKing = y => {
-  return firstSundayOfAdvent(y).subtract( 7, 'days').startOf('day');
-}
+const christTheKing = y => firstSundayOfAdvent(y).subtract( 7, 'days').startOf('day');
+
 //==================================================================================
 // Lent & Holy Week
 //==================================================================================
@@ -217,12 +204,11 @@ const christTheKing = y => {
 const daysOfLent = y => {
   let start = ashWednesday(y);
   let end = holyThursday(y);
-  let recurrence = moment.utc().recur({
+  return moment.utc().recur({
     start,
     end,
     exceptions: [ end ]
-  }).every( 1 ).day();
-  return recurrence.all();
+  }).every( 1 ).day().all();
 };
 
 // Lent begins on Ash Wednesday and concludes
@@ -231,12 +217,11 @@ const daysOfLent = y => {
 const sundaysOfLent = y => {
   let start = ashWednesday(y);
   let end = holyThursday(y);
-  let recurrence = moment.utc().recur({
+  return moment.utc().recur({
     start,
     end,
     exceptions: [ end ]
-  }).every( 0 ).daysOfWeek();
-  return recurrence.all();
+  }).every( 0 ).daysOfWeek().all();
 };
 
 // Ash Wednesday, a day of fasting, is the first day of Lent in Western
@@ -255,11 +240,10 @@ const ashWednesday = y => easter(y).subtract( 46, 'days' ).startOf('day');
 const holyWeek = y => {
   let start = palmSunday(y);
   let end = holySaturday(y);
-  let recurrence = moment.utc().recur({
+  return moment.utc().recur({
     start,
     end
-  }).every( 1 ).day();
-  return recurrence.all();
+  }).every( 1 ).day().all();
 };
 
 // Palm Sunday is a Christian moveable feast that
@@ -296,11 +280,10 @@ const holySaturday = y => easter(y).subtract( 1, 'days' ).startOf('day');
 const octaveOfEaster = y => {
   let start = easter(y);
   let end = divineMercySunday(y);
-  let recurrence = moment().recur({
+  return moment.utc().recur({
     start,
     end
-  }).every( 1 ).day();
-  return recurrence.all();
+  }).every( 1 ).day().all();
 };
 
 // Eastertide is the period of fifty days from Easter Sunday to Pentecost Sunday.
@@ -308,11 +291,10 @@ const octaveOfEaster = y => {
 const sundaysOfEaster = y => {
   let start = easter(y);
   let end = pentecostSunday(y);
-  let recurrence = moment.utc().recur({
+  return moment.utc().recur({
     start,
     end
-  }).every( 0 ).daysOfWeek();
-  return recurrence.all();
+  }).every( 0 ).daysOfWeek().all();
 };
 
 // Eastertide is the period of fifty days from Easter Sunday to Pentecost Sunday.
@@ -320,20 +302,19 @@ const sundaysOfEaster = y => {
 const daysOfEaster = y => {
   let start = easter(y);
   let end = pentecostSunday(y);
-  let recurrence = moment.utc().recur({
+  return moment.utc().recur({
     start,
     end
-  }).every( 1 ).day();
-  return recurrence.all();
+  }).every( 1 ).day().all();
 };
 
 // This algorithm is based on the algorithm of Oudin (1940) and quoted in
 // "Explanatory Supplement to the Astronomical Almanac", P. Kenneth
 // Seidelmann, editor.
 // year: The year on which to check when Easter falls (integer)
-const easter = year => {
+const _easter = _.memoize(year => {
 
-  let Y = year || moment.utc().year();
+  let Y = year;
   let C = Math.floor(Y/100);
   let N = Y - 19*Math.floor(Y/19);
   let K = Math.floor((C - 17)/25);
@@ -350,7 +331,12 @@ const easter = year => {
   let M = 3 + Math.floor((L + 40)/44);
   let D = L + 28 - 31*Math.floor(M/4);
 
-  return moment.utc({ year: Y, month: ( M - 1 ), day: D });
+  return { year: Y, month: M, day: D };
+});
+
+const easter = y => {
+  let { month, day } = _easter(y);
+  return moment.utc({ year: y, month: month -1 , day });
 };
 
 // Divine Mercy Sunday is celebrated on the Sunday after Easter, the Octave of Easter,
@@ -397,12 +383,11 @@ const firstSundayOfAdvent = y => {
 const daysOfAdvent = y => {
   let start = firstSundayOfAdvent(y);
   let end = christmas(y);
-  let recurrence = moment.utc().recur({
+  return moment.utc().recur({
     start,
     end,
     exceptions: [ end ]
-  }).every( 1 ).day();
-  return recurrence.all();
+  }).every( 1 ).day().all();
 };
 
 // There are always 4 sundays in Advent
@@ -410,12 +395,11 @@ const daysOfAdvent = y => {
 const sundaysOfAdvent = y => {
   let start = firstSundayOfAdvent(y);
   let end = christmas(y);
-  let recurrence = moment.utc().recur({
+  return moment.utc().recur({
     start,
     end,
     exceptions: [ end ]
-  }).every( 0 ).daysOfWeek();
-  return recurrence.all();
+  }).every( 0 ).daysOfWeek().all();
 };
 
 // y: year (integer)
