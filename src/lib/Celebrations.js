@@ -1,5 +1,4 @@
 import moment from 'moment';
-import recur from 'moment-recur';
 import _ from 'lodash';
 
 import * as Dates from './Dates';
