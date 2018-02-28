@@ -217,7 +217,9 @@ let dates = year => {
       "data": {
         "meta": {
           "liturgicalColor": LiturgicalColors.WHITE,
-          "titles": [ Titles.PATRON_OF_EUROPE ]
+          "titles": [ 
+            Titles.PATRON_OF_EUROPE 
+          ]
         }
       }
     },
@@ -848,7 +850,13 @@ let dates = year => {
       "key": "saintBirgittaReligious",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 6, day: 23 }),
-      "data": {}
+      "data": {
+        "meta": {
+          "titles": [
+            Titles.PATRON_OF_EUROPE
+          ]
+        }
+      }
     },
     {
       "key": "saintSharbelMakhlufPriestAndHermit",
@@ -1800,12 +1808,14 @@ let dates = year => {
     }
   ];
 
-  // Get localized celebration names
-  return _.map( _dates, date => {
-    date.name = Utils.localize({
-      key: 'general.' + date.key
-    });
-    return date;
+
+  return _.map( _dates, ({ key, data, ...rest }) => {
+    let name = Utils.localize({ key: 'general.' + key });
+    let { meta } = data;
+    if (_.isUndefined(meta)) {
+      data.meta = { titles: [] };
+    }
+    return { name, key, data, ...rest };
   });
 };
 

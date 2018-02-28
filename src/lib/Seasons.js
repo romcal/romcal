@@ -51,6 +51,10 @@ const _epiphany = (y, epiphanyOnJan6) => {
           value: Utils.localize({
             key: 'christmastide.season'
           })
+        },
+        meta: {
+          liturgicalColor: '',
+          titles: []
         }
       }
     });
@@ -70,6 +74,10 @@ const _epiphany = (y, epiphanyOnJan6) => {
           value: Utils.localize({
             key: 'christmastide.season'
           })
+        },
+        meta: {
+          liturgicalColor: '',
+          titles: []
         }
       }
     });
@@ -100,7 +108,8 @@ const _holyWeek = y => {
           })
         },
         meta: {
-          liturgicalColor: LiturgicalColors.PURPLE
+          liturgicalColor: LiturgicalColors.PURPLE,
+          titles: []
         }
       }
     });
@@ -134,7 +143,8 @@ const advent = y => {
         },
         meta: {
           // The proper color of the Third Sunday of Advent is rose. Purple may also be used on these Sundays.
-          liturgicalColor: ( ( _.eq( Math.floor( i / 7 ), 2 ) && _.eq( value.day(), 0 ) ? LiturgicalColors.ROSE : LiturgicalColors.PURPLE ) )
+          liturgicalColor: ( ( _.eq( Math.floor( i / 7 ), 2 ) && _.eq( value.day(), 0 ) ? LiturgicalColors.ROSE : LiturgicalColors.PURPLE ) ),
+          titles: []
         }
       }
     });
@@ -285,7 +295,9 @@ const christmastide = (y, christmastideEnds, epiphanyOnJan6) => {
   _.map( d, v => {
 
     v.key = _.camelCase( v.name );
-    v.data.meta = v.data.meta || {};
+    v.data.meta = v.data.meta || {
+      titles: []
+    };
 
     if ( _.eq( v.moment.day() % 7, 0 ) ) {
       psalterWeek++;
@@ -374,7 +386,9 @@ const earlyOrdinaryTime = (y, christmastideEnds, epiphanyOnJan6) => {
   _.map( days, v => {
 
     v.key = _.camelCase( v.name );
-    v.data.meta = v.data.meta || {};
+    v.data.meta = v.data.meta || {
+      titles: []
+    };
 
     if ( _.eq( v.moment.day() % 7, 0 ) ) {
       psalterWeek++;
@@ -470,7 +484,9 @@ const laterOrdinaryTime = y => {
   _.map( days, function( v ) {
 
     v.key = _.camelCase( v.name );
-    v.data.meta = v.data.meta || {};
+    v.data.meta = v.data.meta || {
+      titles: []
+    };
 
     if ( _.eq( v.moment.day() % 7, 0 ) ) {
       psalterWeek++;
@@ -585,7 +601,9 @@ const lent = y => {
   _.map( days, v => {
 
     v.key = _.camelCase( v.name );
-    v.data.meta = v.data.meta || {};
+    v.data.meta = v.data.meta || {
+      titles: []
+    };
 
     if ( _.eq( v.moment.day() % 7, 0 ) ) {
       psalterWeek++;
@@ -723,7 +741,9 @@ const eastertide = y => {
   _.map( days, ( v, k ) => {
 
     v.key = _.camelCase( v.name );
-    v.data.meta = {};
+    v.data.meta = {
+      titles: []
+    };
 
     if ( _.lt( k, 8 ) ) {
       v.data.meta.psalterWeek = {

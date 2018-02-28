@@ -548,7 +548,7 @@ const queryFor = (dates = [], query = {}, skipIsoConversion = false ) => {
     }
     
     if (_.has( query, 'title' )) {
-      dates = _.filter( dates, d => _.includes( d.data.meta.titles, Titles[ _.get( query, 'title' ) ] ));
+      dates = _.filter( dates, d => _.includes( d.data.meta.titles, _.get( query, 'title' ) ));
     }
 
     if ( _.has( query, 'group' ) ) {
