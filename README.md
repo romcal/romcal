@@ -12,9 +12,6 @@
 
 # Romcal
 
-<b>ANNOUNCEMENT</b>
-Version 1.3.0 of Romcal has been revamped to use ES6 syntax. 
-
 Utility library that outputs the Liturgical Calendar used by the Roman Rite (Western Church)
 
 ## Contributing to romcal

@@ -2,9 +2,9 @@
 
 ## 1.3.0 /2018-02-25
 * Rewrite module using ES6 syntax
+* Integration with `std/esm` and `babel` to ensure backward compatibility
 * Expose constants and calendar helper functions and via CommonJS module exports
-* Added webpack@3 and babel for transpiling ES6 to browser ready ES5 bundle
-* Added slim browser bundle (read more in [readme](README.md))
+* Various bug fixes
 
 ## 1.2.4
 * Added credits in the description section in `README.md`.
