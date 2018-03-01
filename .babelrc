@@ -1,26 +1,5 @@
 {
-  "presets":[
-    ["env", {
-      "targets": {
-        "browsers": ["last 2 versions"]
-      }
-    }]
-  ],
-  "env": {
-    "server": {
-      "presets": [
-        ["env", {
-          "targets": {
-            "node": "current"
-          }  
-        }]
-      ]
-    }
-  },
   "plugins": [
-    "transform-object-rest-spread",
-    ["transform-class-properties", { 
-      "spec": true 
-    }]
+    "@babel/plugin-proposal-object-rest-spread"
   ]
 }
