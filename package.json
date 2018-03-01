@@ -6,7 +6,7 @@
   "module": "src/index.mjs",
   "scripts": {
     "prepack": "npm run test",
-    "test": "mocha --compilers js:babel-core/register test/*.js"
+    "test": "mocha -r @std/esm test/*.mjs"
   },
   "repository": {
     "type": "git",
