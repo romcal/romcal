@@ -65,7 +65,7 @@ const localize = options => {
 const getTypeByDayOfWeek = d => _.eq(d, 0) ? Types[1]: _.last(Types);
 
 const convertMomentObjectToIsoDateString = (items = []) => {
-  return _.mapValues(items, (item, key) => { // Loop through the date array
+  _.each(items, (item, key) => { // Loop through the date array
     if (_.has(item, 'moment')) { // check if it has a moment property
       item.moment = item.moment.toISOString(); // and convert it to an ISO string
     }
@@ -81,10 +81,11 @@ const convertMomentObjectToIsoDateString = (items = []) => {
     }
     return item;
   });
+  return items;
 };
 
 const convertIsoDateStringToMomentObject = (items = []) => {
-  return _.mapValues(items, (item, key) => { // Loop through the date array
+  _.each(items, (item, key) => { // Loop through the date array
     if (_.has(item, 'moment')) { // check if it has a moment property
       item.moment = moment.utc(item.moment); // and convert it to a moment object
     }
@@ -100,6 +101,7 @@ const convertIsoDateStringToMomentObject = (items = []) => {
     }
     return item;
   });
+  return items;
 };
 
 export {
