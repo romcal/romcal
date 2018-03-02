@@ -73,7 +73,7 @@ export {
 
 const { calendarFor, queryFor } = Calendar;
 
-// console.log(calendarFor());
+calendarFor();
 
 export {
   calendarFor,
