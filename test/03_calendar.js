@@ -27,6 +27,7 @@ var _ = require('lodash');
 var moment = require('moment');
 var range = require('moment-range');
 var should = require('should');
+
 var Romcal = require('../index');
 var LiturgicalColors = Romcal.LiturgicalColors;
 var LiturgicalSeasons = Romcal.LiturgicalSeasons;
@@ -59,7 +60,6 @@ describe('Testing calendar generation functions', function() {
         _.each(Calendar.calendarFor(true), d => moment.isMoment(d.moment).should.be.ok());
       });
     });
-
   });
 
   describe('Testing calendar functions', function() {
@@ -94,124 +94,124 @@ describe('Testing calendar generation functions', function() {
 
   describe('Testing query filters', function() {
 
-    describe('For filtering by day of week', function() {
-      it('Results should match the day of week requested', function() {
-        for( var i = 0, il = 7; i < il; i++ ) {
-          _.each(
-            Calendar.calendarFor({ query: { day: i } }, true),
-            d => d.moment.day().should.be.eql( i )
-          );
-        }
-      });
+  describe('For filtering by day of week', function() {
+    it('Results should match the day of week requested', function() {
+      for( var i = 0, il = 7; i < il; i++ ) {
+        _.each(
+          Calendar.calendarFor({ query: { day: i } }, true),
+          d => d.moment.day().should.be.eql( i )
+        );
+      }
+    });
+  });
+
+  describe('For filtering by month of year', function() {
+    it('Results should match the month of year requested', function() {
+      for( var i = 0, il = 12; i < il; i++ ) {
+        _.each(
+          Calendar.calendarFor({ query: { month: i } }, true),
+          d => d.moment.month().should.be.eql( i )
+        );
+      }
+    });
+  });
+
+  describe('For filtering by groups', function() {
+
+    it('Should group dates by days in a week', function() {
+      _.keys(Calendar.calendarFor({
+        query: { group: 'days' }
+      })).should.be.eql(['0','1','2','3','4','5','6']);
     });
 
-    describe('For filtering by month of year', function() {
-      it('Results should match the month of year requested', function() {
-        for( var i = 0, il = 12; i < il; i++ ) {
-          _.each(
-            Calendar.calendarFor({ query: { month: i } }, true),
-            d => d.moment.month().should.be.eql( i )
-          );
-        }
-      });
-    });
-
-    describe('For filtering by groups', function() {
-
-      it('Should group dates by days in a week', function() {
-        _.keys(Calendar.calendarFor({
-          query: { group: 'days' }
-        })).should.be.eql(['0','1','2','3','4','5','6']);
-      });
-
-      it('Should group dates by months in the year', function() {
-        _.keys( Calendar.calendarFor({
-            query: {
-              group: 'months'
-            }
-          }, true )).should.be.eql(['0','1','2','3','4','5','6','7','8','9','10','11']);
-      });
-
-      it('Should group days of week by the months they belong to', function() {
-        _.each( Calendar.calendarFor({
+    it('Should group dates by months in the year', function() {
+      _.keys( Calendar.calendarFor({
           query: {
-            group: 'daysByMonth'
+            group: 'months'
           }
-        }, true ), function( dates, k ) {
-          _.each( dates, function( day, key ) {
-            _.each( day, function( v ) {
-              v.moment.day().should.be.eql( Number( key ) );
-              v.moment.month().should.be.eql( Number( k ) );
-            });
+        }, true )).should.be.eql(['0','1','2','3','4','5','6','7','8','9','10','11']);
+    });
+
+    it('Should group days of week by the months they belong to', function() {
+      _.each( Calendar.calendarFor({
+        query: {
+          group: 'daysByMonth'
+        }
+      }, true ), function( dates, k ) {
+        _.each( dates, function( day, key ) {
+          _.each( day, function( v ) {
+            v.moment.day().should.be.eql( Number( key ) );
+            v.moment.month().should.be.eql( Number( k ) );
           });
         });
       });
+    });
 
-      it('Should group weeks of year by the months they belong to', function() {
-        var calendar = Calendar.calendarFor({
-          query: {
-            group: 'weeksByMonth'
-          }
-        }, true );
-        _.each( calendar, (dates, k) => {
-          _.each( dates, (group, key) => {
-            _.each( group, v => {
-              v.moment.month().should.be.eql( Number( k ) );
-              v.data.calendar.week.should.be.eql( Number( key ) );
-            });
+    it('Should group weeks of year by the months they belong to', function() {
+      var calendar = Calendar.calendarFor({
+        query: {
+          group: 'weeksByMonth'
+        }
+      }, true );
+      _.each( calendar, (dates, k) => {
+        _.each( dates, (group, key) => {
+          _.each( group, v => {
+            v.moment.month().should.be.eql( Number( k ) );
+            v.data.calendar.week.should.be.eql( Number( key ) );
           });
         });
       });
-
-      it('Should group dates by their respective liturgical cycles', function() {
-        _.keys( Calendar.calendarFor({
-            year: 2015,
-            query: { group: 'cycles' }
-          })).should.be.eql(['Year B', 'Year C']);
-
-        _.keys(Calendar.queryFor( 
-          Calendar.calendarFor({ year: 2015 }),
-          { group: 'cycles' } 
-        )).should.be.eql(['Year B', 'Year C']);
-
-      });
-
-      it('Should group dates by their celebration types', function() {
-        _.keys( Calendar.calendarFor({
-            query: { group: 'types' }
-          })).should.containDeep(Types);
-
-        _.keys(Calendar.queryFor( 
-          Calendar.calendarFor(),
-          { group: 'types' } 
-        )).should.containDeep(Types);
-      });
-
-      it('Should group dates by their liturgical seasons', function() {
-        _.keys( Calendar.calendarFor({
-            query: { group: 'liturgicalSeasons' }
-          })).should.containDeep(_.values( LiturgicalSeasons ));
-
-        _.keys(Calendar.queryFor( 
-          Calendar.calendarFor(),
-          { group: 'liturgicalSeasons' } 
-        )).should.containDeep(_.values( LiturgicalSeasons ));
-      });
-
-      it('Should group dates by their psalter weeks', function() {
-        _.keys(Calendar.calendarFor({
-          query: { group: 'psalterWeek' }
-        })).should.containDeep(_.keys(PsalterWeeks));
-
-        _.keys(Calendar.queryFor( 
-          Calendar.calendarFor(),
-          { group: 'psalterWeek' } 
-        )).should.containDeep(_.keys(PsalterWeeks));
-      });
     });
 
-    describe('For filtering by titles', function() {
-      _.each(
+    it('Should group dates by their respective liturgical cycles', function() {
+      _.keys( Calendar.calendarFor({
+          year: 2015,
+          query: { group: 'cycles' }
+        })).should.be.eql(['Year B', 'Year C']);
+
+      _.keys(Calendar.queryFor( 
+        Calendar.calendarFor({ year: 2015 }),
+        { group: 'cycles' } 
+      )).should.be.eql(['Year B', 'Year C']);
+
+    });
+
+    it('Should group dates by their celebration types', function() {
+      _.keys( Calendar.calendarFor({
+          query: { group: 'types' }
+        })).should.containDeep(Types);
+
+      _.keys(Calendar.queryFor( 
+        Calendar.calendarFor(),
+        { group: 'types' } 
+      )).should.containDeep(Types);
+    });
+
+    it('Should group dates by their liturgical seasons', function() {
+      _.keys( Calendar.calendarFor({
+          query: { group: 'liturgicalSeasons' }
+        })).should.containDeep(_.values( LiturgicalSeasons ));
+
+      _.keys(Calendar.queryFor( 
+        Calendar.calendarFor(),
+        { group: 'liturgicalSeasons' } 
+      )).should.containDeep(_.values( LiturgicalSeasons ));
+    });
+
+    it('Should group dates by their psalter weeks', function() {
+      _.keys(Calendar.calendarFor({
+        query: { group: 'psalterWeek' }
+      })).should.containDeep(_.keys(PsalterWeeks));
+
+      _.keys(Calendar.queryFor( 
+        Calendar.calendarFor(),
+        { group: 'psalterWeek' } 
+      )).should.containDeep(_.keys(PsalterWeeks));
+    });
+  });
+
+  describe('For filtering by titles', function() {
+    _.each(
         Calendar.calendarFor({ query: { title: Titles.FEAST_OF_THE_LORD }}),
         d => _.includes( d.data.meta.titles, Titles.FEAST_OF_THE_LORD ).should.be.ok
       );
