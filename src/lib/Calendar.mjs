@@ -505,6 +505,14 @@ const calendarFor = (config = {}, skipIsoConversion = false ) => {
     config = {};
   }
 
+  // If config is passed as an integer
+  // Then assume we want the calednar for the current year
+  // and want dates to be returned as ISO8601 strings
+  if (_.isNumber(config)) {
+    config = { year: config };
+    skipIsoConversion = false;
+  }
+
   // Sanitize incoming config
   config = _getConfig(config);
 

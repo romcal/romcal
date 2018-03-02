@@ -1,10 +1,11 @@
 # Version history
 
 ## 1.3.0 /2018-02-25
-* Rewrite module using ES6 syntax
-* Integration with `std/esm` and `babel` to ensure backward compatibility
-* Expose constants and calendar helper functions and via CommonJS module exports
+* Revamp code to use ES6 syntax
+* Integration with `std/esm` to read `.mjs` and `babel` to ensure compatibility and seamless usage with lower version of node and requiring via CommonJS
+* Expose constants and calendar helper functions and via module exports
 * Various bug fixes
+* Added more test cases for better test coverage
 
 ## 1.2.4 /2017-03-22
 * Added French translations for France, Canada and Belgium.
