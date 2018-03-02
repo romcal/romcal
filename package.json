@@ -6,7 +6,7 @@
   "module": "src/index.mjs",
   "scripts": {
     "prepack": "npm run test",
-    "test": "mocha -r @std/esm test/*.mjs"
+    "test": "mocha -r @std/esm test/*.js"
   },
   "repository": {
     "type": "git",
@@ -40,19 +40,14 @@
     "moment-recur": "^1.0.7"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.40",
     "@babel/core": "^7.0.0-beta.40",
     "@babel/plugin-proposal-class-properties": "^7.0.0-beta.40",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.40",
+    "@babel/preset-env": "^7.0.0-beta.40",
     "@babel/register": "^7.0.0-beta.40",
     "@std/esm": "^0.23.3",
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-plugin-lodash": "^3.3.2",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "mocha": "^6.2.2",
-    "should": "^13.2.3",
-    "source-map-loader": "^0.2.3"
+    "mocha": "^5.0.1",
+    "should": "^13.2.1"
   }
 }
