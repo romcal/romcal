@@ -22,12 +22,14 @@
     THE SOFTWARE.
 */
 
-import _ from 'lodash';
-import should from 'should';
-import moment from 'moment';
-import range from 'moment-range';
-
-import { LiturgicalColors, LiturgicalSeasons, Dates } from '../src';
+var _ = require('lodash');
+var moment = require('moment');
+var range = require('moment-range');
+var should = require('should');
+var Romcal = require('../index');
+var LiturgicalColors = Romcal.LiturgicalColors;
+var LiturgicalSeasons = Romcal.LiturgicalSeasons;
+var Dates = Romcal.Dates;
 
 describe('Testing specific liturgical date functions', function() {
 
