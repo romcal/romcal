@@ -41,6 +41,30 @@ describe('Testing calendar generation functions', function() {
   
   this.timeout(0);
 
+  describe('When calling the calendarFor() method without a query', function() {
+    
+    var nonLeapYearDates = Calendar.calendarFor(2018);
+    var leapYearDates = Calendar.calendarFor(2020);
+
+    it('Should return an array of objects', function() {
+      _.every(nonLeapYearDates, _.isObject).should.be.ok();
+      _.every(leapYearDates, _.isObject).should.be.ok();
+    });
+
+    it('Each object should contain the keys "type", "name", "moment", "source" and "data"', function() {
+      var requiredKeys = ['type', 'name', 'moment', 'source', 'data'];
+      _.every(nonLeapYearDates, d => _.has(d, requiredKeys));
+      _.every(leapYearDates, d => _.has(d, requiredKeys));
+    });
+     
+    it('Array should be 365 days long on non leap years', function() {
+      _.size(nonLeapYearDates).should.be.eql(365);
+    });
+    it('Array should be 366 days long on leap years', function() {
+      _.size(leapYearDates).should.be.eql(366);
+    });
+  });
+
   describe('Testing ISO8601/MomentJS conversion', function() {
     
     describe('When skipIsoConversion flag is not set', function() {
