@@ -246,6 +246,63 @@ describe('Testing calendar generation functions', function() {
     });
   });
 
+  describe('Testing the Feast of Saints Cyril and Methodius with locale specific settings', function() {
+    
+    it('Should fall on 14th Feb 2017 in the general calendar', function() {
+      var dates = Calendar.calendarFor(2017, true);
+      var date = _.find(dates, function(d) {
+        return _.eq(d.key, 'saintsCyrilMonkAndMethodiusBishop');
+      });
+      date.moment.isSame(moment.utc({ year: 2017, month: 1, day: 14 })).should.be.ok();
+    });
+
+    it('Should fall on 5th July 2017 in the national calendar of the Czech Republic', function() {
+      var dates = Calendar.calendarFor({
+        country: 'slovakia',
+        year: 2017
+      }, true);
+      var date = _.find(dates, function(d) {
+        return _.eq(d.key, 'saintsCyrilMonkAndMethodiusBishop');
+      });
+      date.moment.isSame(moment.utc({ year: 2017, month: 6, day: 5 })).should.be.ok();
+    });
+
+    it('Should fall on 5th July 2017 in the national calendar of Slovakia', function() {
+      var dates = Calendar.calendarFor({
+        country: 'czechRepublic',
+        year: 2017
+      }, true);
+      var date = _.find(dates, function(d) {
+        return _.eq(d.key, 'saintsCyrilMonkAndMethodiusBishop');
+      });
+      date.moment.isSame(moment.utc({ year: 2017, month: 6, day: 5 })).should.be.ok();
+    });
+
+    it('Should fall on 14th Feb 2017 in the national calendar of the Czech Republic if the "saintsCyrilMonkAndMethodiusBishopOnFeb14" flag is passed as "true"', function() {
+      var dates = Calendar.calendarFor({
+        country: 'slovakia',
+        year: 2017,
+        saintsCyrilMonkAndMethodiusBishopOnFeb14: true
+      }, true);
+      var date = _.find(dates, function(d) {
+        return _.eq(d.key, 'saintsCyrilMonkAndMethodiusBishop');
+      });
+      date.moment.isSame(moment.utc({ year: 2017, month: 1, day: 14 })).should.be.ok();
+    });
+
+    it('Should fall on 14th Feb 2017 in the national calendar of Slovakia if the "saintsCyrilMonkAndMethodiusBishopOnFeb14" flag is passed as "true"', function() {
+      var dates = Calendar.calendarFor({
+        country: 'czechRepublic',
+        year: 2017,
+        saintsCyrilMonkAndMethodiusBishopOnFeb14: true
+      }, true);
+      var date = _.find(dates, function(d) {
+        return _.eq(d.key, 'saintsCyrilMonkAndMethodiusBishop');
+      });
+      date.moment.isSame(moment.utc({ year: 2017, month: 1, day: 14 })).should.be.ok();
+    });
+  });
+
   describe('Testing advanced filters', function() {
 
     it('The proper color of a Memorial or a Feast is white except for martyrs in which case it is red', function() {

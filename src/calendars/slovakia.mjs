@@ -4,20 +4,10 @@ import _ from 'lodash';
 import { Dates, Utils } from '../lib';
 import { Titles, Types, LiturgicalColors } from '../constants';
 
-let dates = year => {
+// Allow an option to passed when generating this calendar for the Feast of Saints Cyril and Methodius to land on Feb 14
+let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
   
   let _dates = [
-    {
-      "key": "saintsCyrilMonkAndMethodiusBishop",
-      "type": Types[4],
-      "moment": moment.utc({ year: year, month: 1, day: 14 }),
-      "data": {
-        "meta": {
-          "liturgicalColor": LiturgicalColors.WHITE,
-          "titles": [ Titles.PATRON_OF_EUROPE ]
-        }
-      }
-    },
     {
       "key": "saintAdalbertBishopAndMartyr",
       "type": Types[5],
@@ -98,11 +88,21 @@ let dates = year => {
         }
       }
     },
+    // In Slovakia and Czech Republic, the two brothers were originally 
+    // commemorated on 9 March, but Pope Pius IX changed this date to 5 July
+    // https://en.wikipedia.org/wiki/Saints_Cyril_and_Methodius
     {
-      "key": "saintsCyrilAndMethodiusSlavicMissionaries",
-      "type": Types[0],
-      "moment": moment.utc({ year: year, month: 6, day: 5 }),
-      "data": {}
+      "key": "saintsCyrilMonkAndMethodiusBishop",
+      "type": Types[4],
+      "moment": ((y, flag) => {
+        return flag ? moment.utc({ year: year, month: 1, day: 14 }): moment.utc({ year: year, month: 6, day: 5 });
+      })(year, saintsCyrilMonkAndMethodiusBishopOnFeb14),
+      "data": {
+        "meta": {
+          "liturgicalColor": LiturgicalColors.WHITE,
+          "titles": [ Titles.PATRON_OF_EUROPE ]
+        }
+      }
     },
     {
       "key": "saintAnthonyZaccariaPriest",

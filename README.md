@@ -12,7 +12,7 @@
 
 # Romcal
 
-Utility library that outputs the Liturgical Calendar used by the Roman Rite (Western Church)
+Utility library that outputs the Liturgical Calendar used by the Roman Rite (Western Church) for Node JS v6 and above.
 
 ## Contributing to romcal
 
@@ -34,6 +34,7 @@ See [contributing](CONTRIBUTING.md) for more information.
 - [Builds](#builds)
 - [Usage](#usage)
   - [Configuration Options](#configOpts)
+    + [Locale specific configuration options](#localeSpecificConfOpts)
   - [Output Formatter](#outputFormatter)
   - [JSON Structure](#jsonStructure)
 - [Celebration Types](#types)
@@ -81,9 +82,10 @@ NOTE: This module uses [Moment](http://momentjs.com/) and [lodash](http://lodash
 *Romcal's code logic is developed according to calendar requirements descibed in various church documents sourced from the internet (and even from Wikipedia). If you notice discrepancies between romcal's output and actual liturgical dates, please do contribute your fixes or submit an issue on GitHub.*
 
 ### Testing romcal
-romcal logic is tested using `mocha` and `should`.
+romcal employs `TDD` using `mocha` and `should`.
 Run `npm test` in your console to view test output.
-Travis CI is used to validate romcal builds to ensure functionality is working as expected.
+
+`Travis CI` is used to validate romcal builds to ensure functionality is working as expected.
 
 ## Revisions <a name="revisions"></a>
 See [history](HISTORY.md)
@@ -149,7 +151,7 @@ true|false );
 
 ### Configuration Options <a name="configOpts"></a>
 + `year`: Retrieve calendar dates for the given year (year should be an integer). Defaults to the current system year if not specified
-+ `country`: Include celebration dates requested by the Episcopal council(s) of the given country that have been approved by the Holy See. If not specified, no National dates are included in the calendar output. If  an unrecognized country is specified, romcal will silently ignore the property and will not return any National dates in the calendar output.
++ `country`: Include celebration dates requested by the Episcopal council(s) of the given country that have been approved by the Holy See. If not specified, no National dates are included in the calendar output. If an unrecognized country is specified, romcal will silently ignore the property and will not return any National dates in the calendar output. Country names should be specified in camel case (i.e. `unitedStates`, `czechRepublic`).
 + `locale`: Defaults to 'en' (english) if not set. Romcal celebration names can be localized to different languages. If a given locale does not have the localized name for a celebration in that language, romcal will fallback to use the celebration name in English.
 + `christmastideEnds`: Specifies the end of the Christmas season. Can be either 't' (traditional where Christmastide ends on Epiphany), 'o' (ordinary where Christmastide ends on the Baptism of the Lord) and 'e' (extraordinary where Christmastide ends on the Presentation of the Lord). Defaults to 'o' (ordinary) if not specified
 + `epiphanyOnJan6`: If true, fixes Epiphany on January 6th always. By default, Epiphany will be set to a Sunday between 2 - 8 Jan based on an internal calculation.
@@ -157,6 +159,13 @@ true|false );
 + `ascensionOnSunday`: Determines if Ascension should replace the 7th Sunday of Easter (42 days after Easter). Defaults to false where Ascension will be on Thursday, 39 days after Easter, if value not recognized or specified.
 + `type`: Determines the type of calendar output. Can either be `liturgical` or `calendar`. Defaults to `calendar` if value not recognized or specified. The 'liturgical' year runs from 1st Sunday of Advent of the given year to Saturday of the 34th Week of Ordinary Time in the following year. The 'calendar' year on the other hand refers to the standard year from Jan 1 - Dec 31.
 + `query`: A nested query object which filters the dates according to the given criteria. For more details on how to use queries, see [this](#queries) section.
+
+
+#### Locale specific configuration options <a name="localeSpecificConfOpts"></a>
+
+For the national calendars of the Czech Republic and Slovakia (country: `czechRepublic` and `slovakia`), an additional flag can be passed:
+
++ `saintsCyrilMonkAndMethodiusBishopOnFeb14`: If `true`, changes the feast of Saints Cyril and Methodius to fall on 14th February instead of the 5th of July. Defaults to `false`.
 
 ### Output formatter <a name="outputFormatter"></a>
 The second parameter that can be passed to the `romcal.calendarFor()` method.
