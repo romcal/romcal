@@ -92,9 +92,9 @@ See [history](HISTORY.md)
 
 ## Builds <a name="builds"></a>
 
-Running `npm run build` in the romcal root directory will invoke webpack scripts to generate distribution version of romcal suitable for browsers and node environments.
+Running `npm run build` in the romcal root directory will generate a packaged version of romcal suitable for direct use in a browser.
 
-- `romcal.bundle.min.js` A minified and obfruscated bundle of romcal + all its dependencies wrapped in a UMD module shell that is suitable for being included directly in browsers
+- `dist/romcal.bundle.min.js` A minified and obfruscated bundle of romcal + all its dependencies wrapped in a UMD module shell that is suitable for being included directly in browsers
 
 ## Usage <a name="usage"></a>
 
