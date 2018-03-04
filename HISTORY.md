@@ -1,10 +1,16 @@
 # Version history
 
-## 1.3.0 /2018-02-25
+## 1.3.0 /2018-03-4
 * Revamp code to use ES6 syntax
+* Dropped support for Node v4, v5.
 * Integration with `std/esm` to read `.mjs` and `babel` to ensure compatibility and seamless usage with lower version of node and requiring via CommonJS
 * Expose constants and calendar helper functions and via module exports
-* Various bug fixes
+* Various unreported bug fixes
+* Added locale files for Czech Republic and Slovakia
+* Added national calendars for Czech Republick and Slovakia
+* Fixes
+    - [issue #9](https://github.com/pejulian/romcal/issues/9)
+    - [issue #10](https://github.com/pejulian/romcal/issues/10)
 * Added more test cases for better test coverage
 
 ## 1.2.4

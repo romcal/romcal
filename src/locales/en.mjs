@@ -744,7 +744,6 @@ export default {
     "saintNinian": "Saint Ninian",
     "saintMargaretOfScotland": "Saint Margaret of Scotland",
     "saintAndrewTheApostle": "Saint Andrew The Apostle",
-    "saintsCyrilAndMethodiusSlavicMissionaries": "Saints Cyril and Methodius, Slavic Missionaries",
     "saintAnthonyZaccariaPriest": "Saint Anthony Zaccaria, Priest",
     "saintsAndrewZoerardusAndBenedictEremites": "Saints Andrew Zoerardus and Benedict, eremites",
     "saintGorazdAndCompanions": "Saint Gorazd and Companions",
