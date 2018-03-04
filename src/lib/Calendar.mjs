@@ -31,6 +31,7 @@ const _getConfig = config => {
   config.corpusChristiOnThursday = config.corpusChristiOnThursday || _.stubFalse();
   config.ascensionOnSunday = config.ascensionOnSunday || _.stubFalse();
   config.country = config.country || _.stubFalse();
+  config.saintsCyrilMonkAndMethodiusBishopOnFeb14 = config.saintsCyrilMonkAndMethodiusBishopOnFeb14 || _.stubFalse();
   config.locale = config.locale || 'en';
   config.type = config.type || 'calendar';
   config.query = _.isPlainObject( config.query ) ? config.query : null;
@@ -44,11 +45,11 @@ const _getConfig = config => {
 
 // Return the appropriate national calendar based on the country given
 // Returns object with function returning empty array if nothing specified
-// country: the country to get the calendar for
+// country: the camel cased country name to get the calendar for (country name will be camel cased in this method)
 const getNationalCalendar = country => {
   if ( country ) {
-    if ( _.has( Calendars, country ) ) {
-      return Calendars[ country.toLowerCase() ];
+    if ( _.has( Calendars, _.camelCase(country))) {
+      return Calendars[_.camelCase(country)];
     }
     else {
       return Calendars['general'];
@@ -66,7 +67,8 @@ const getNationalCalendar = country => {
 const _getCalendar = options => {
 
   // Get the relevant national calendar object based on the given country
-  let national = _.reduce( getNationalCalendar( options.country ).dates( options.year ), ( r, v, k ) => {
+  // Pass in the optional `saintsCyrilMonkAndMethodiusBishopOnFeb14` flag which is used in the Czech Rep and Slovakia
+  let national = _.reduce( getNationalCalendar( options.country ).dates( options.year, options.saintsCyrilMonkAndMethodiusBishopOnFeb14 ), ( r, v, k ) => {
     v.source = 'n';
     r[ v.key ] = v;
     return r;
@@ -418,13 +420,16 @@ const _metadata = (year, dates) => {
 // Returns an object containing dates for the
 // days that occur during the calendar year
 // c: (an object literal with the following options)
-//  [0] year: The year to calculate the liturgical date ranges
-//  [1] christmastideEnds: t|o|e (The mode to calculate the end of Christmastide. Defaukts to 'o')
-//  [2] epiphanyOnJan6: true|false|undefined (If true, Epiphany will be fixed to Jan 6)
-//  [3] corpusChristiOnThursday: true|false|undefined (If true, Corpus Christi is set to Thursday)
-//  [4] ascensionOnSunday: true|false|undefined (If true, Ascension is moved to the 7th Sunday of Easter)
-//  [5] country: Get national calendar dates for the given country (defaults to unitedStates)
-//  [6] type: calendar|liturgical (return dates in either standard calendar or liturgical calendar format)
+// [-] year: The year to calculate the liturgical date ranges
+// [-] country: Get national calendar dates for the given country (defaults to 'general')
+// [-] locale: The language for the calendar names (defaults to 'en')
+// [-] christmastideEnds: t|o|e (The mode to calculate the end of Christmastide. Defaukts to 'o')
+// [-] epiphanyOnJan6: true|false|undefined (If true, Epiphany will be fixed to Jan 6)
+// [-] corpusChristiOnThursday: true|false|undefined (If true, Corpus Christi is set to Thursday)
+// [-] ascensionOnSunday: true|false|undefined (If true, Ascension is moved to the 7th Sunday of Easter)
+// [-] type: calendar|liturgical (return dates in either standard calendar or liturgical calendar format)
+// [-] query: Additional filters to be applied against calendar dates array (default: none)
+// [-] saintsCyrilMonkAndMethodiusBishopOnFeb14: Should this feast be on Feb 14 (only used for Czech Rep and Slovakia) (defaults to false)
 const _calendarYear = c => {
 
   // Get the liturgical seasons that run through the year
@@ -452,13 +457,16 @@ const _calendarYear = c => {
 // Returns an object containing dates for the
 // days that occur during the liturgical year
 // c: (an object literal with the following options)
-// [0] year: The year to calculate the liturgical date ranges
-// [1] christmastideEnds: t|o|e (The mode to calculate the end of Christmastide. Defaukts to 'o')
-// [2] epiphanyOnJan6: true|false|undefined (If true, Epiphany will be fixed to Jan 6)
-// [3] corpusChristiOnThursday: true|false|undefined (If true, Corpus Christi is set to Thursday)
-// [4] ascensionOnSunday: true|false|undefined (If true, Ascension is moved to the 7th Sunday of Easter)
-// [5] country: Get national calendar dates for the given country (defaults to unitedStates)
-// [6] type: calendar|liturgical (return dates in either standard calendar or liturgical calendar format)
+// [-] year: The year to calculate the liturgical date ranges
+// [-] country: Get national calendar dates for the given country (defaults to 'general')
+// [-] locale: The language for the calendar names (defaults to 'en')
+// [-] christmastideEnds: t|o|e (The mode to calculate the end of Christmastide. Defaukts to 'o')
+// [-] epiphanyOnJan6: true|false|undefined (If true, Epiphany will be fixed to Jan 6)
+// [-] corpusChristiOnThursday: true|false|undefined (If true, Corpus Christi is set to Thursday)
+// [-] ascensionOnSunday: true|false|undefined (If true, Ascension is moved to the 7th Sunday of Easter)
+// [-] type: calendar|liturgical (return dates in either standard calendar or liturgical calendar format)
+// [-] query: Additional filters to be applied against calendar dates array (default: none)
+// [-] saintsCyrilMonkAndMethodiusBishopOnFeb14: Should this feast be on Feb 14 (only used for Czech Rep and Slovakia) (defaults to false)
 const _liturgicalYear = c => {
 
   // Get dates for current year
@@ -506,11 +514,10 @@ const calendarFor = (config = {}, skipIsoConversion = false ) => {
   }
 
   // If config is passed as an integer
-  // Then assume we want the calednar for the current year
-  // and want dates to be returned as ISO8601 strings
+  // Then assume we want the calendar for the current year
   if (_.isNumber(config)) {
     config = { year: config };
-    skipIsoConversion = false;
+    skipIsoConversion = skipIsoConversion || false;
   }
 
   // Sanitize incoming config

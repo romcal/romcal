@@ -34,7 +34,7 @@ import * as russia from './russia';
 import * as scotland from './scotland';
 import * as slovakia from './slovakia';
 import * as spain from './spain';
-import * as sriLangka from './sriLangka';
+import * as sriLanka from './sriLanka';
 import * as ukraine from './ukraine';
 import * as unitedStates from './unitedStates';
 import * as vietnam from './vietnam';
@@ -77,7 +77,7 @@ export {
   scotland,
   slovakia,
   spain,
-  sriLangka,
+  sriLanka,
   ukraine,
   unitedStates,
   vietnam,
