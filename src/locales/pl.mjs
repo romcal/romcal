@@ -73,7 +73,7 @@ export default {
     "saintRaymondOfPenyafortPriest": "Św. Rajmunda z Penyafort, prezbitera",
     "saintHilaryOfPoitiersBishopAndDoctor": "Św. Hilarego, biskupa i doktora Kościoła",
     "saintAnthonyOfEgyptAbbot": "Św. Antoniego, opata",
-    "saintFabianPopeAndMartyrAndSaintSebastianMartyr": "Św. Fabiana, papieża i męczennika/Św. Sebastiana, męczennika",
+    "saintFabianPopeAndMartyrAndSaintSebastianPopeAndMartyr": "Św. Fabiana, papieża i męczennika/Św. Sebastiana, męczennika",
     "saintAgnesVirginAndMartyr": "Św. Agnieszki, dziewicy i męczennicy",
     "saintVincentDeaconAndMartyr": "Św. Wincentego, diakona i męczennika",
     "saintFrancisDeSalesBishopAndDoctor": "Św. Franciszka Salezego, biskupa i doktora Kościoła",

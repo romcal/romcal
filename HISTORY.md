@@ -17,7 +17,7 @@
             * `assumption` and `assumptionOfTheBlessedVirginMaryPrincipalPatronessOfFrance` (`assumptionOfTheBlessedVirginMaryPrincipalPatronessOfFrance` removed)
 * Changes
     - `triumphOfTheCross` renamed to `theExaltationOfTheHolyCross`
-    - `saintsFabianAndSebastianPopeAndMartyrs ` renamed to `saintFabianPopeAndMartyrAndSaintSebastianMartyr`
+    - `saintsFabianAndSebastianPopeAndMartyrs ` renamed to `saintFabianPopeAndMartyrAndSaintSebastianPopeAndMartyr`
 * Added more test cases for better test coverage 
 
 ## 1.2.4
