@@ -75,7 +75,7 @@ export default {
     "saintRaymondOfPenyafortPriest": "Saint Raymond of Penyafort, Priest",
     "saintHilaryOfPoitiersBishopAndDoctor": "Saint Hilary of Poitiers, Bishop and Doctor",
     "saintAnthonyOfEgyptAbbot": "Saint Anthony of Egypt, Abbot",
-    "saintFabianPopeAndMartyrAndSaintSebastianMartyr": "Saint Fabian, Pope and Martyr and Saint Sebastian, Martyr",
+    "saintFabianPopeAndMartyrAndSaintSebastianPopeAndMartyr": "Saint Fabian, Pope and Martyr and Saint Sebastian, Martyr",
     "saintAgnesVirginAndMartyr": "Saint Agnes, Virgin and Martyr",
     "saintVincentDeaconAndMartyr": "Saint Vincent, Deacon and Martyr",
     "saintFrancisDeSalesBishopAndDoctor": "Saint Francis de Sales, Bishop and Doctor",

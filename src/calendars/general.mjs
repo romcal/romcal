@@ -55,14 +55,10 @@ let dates = year => {
       }
     },
     {
-      "key": "saintsFabianAndSebastianPopeAndMartyrs",
+      "key": "saintFabianPopeAndMartyrAndSaintSebastianPopeAndMartyr",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 0, day: 20 }),
       "data": {
-        "composite": [
-          "saintFabianMartyr",
-          "saintSebastianMartyr"
-        ],
         "meta": {
           "titles": [
             Titles.MARTYR
@@ -165,10 +161,6 @@ let dates = year => {
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 1, day: 3 }),
       "data": {
-        "composite": [
-          "saintBlaseBishopAndMartyr",
-          "saintAnsgarBishop"
-        ]
       }
     },
     {
@@ -202,10 +194,6 @@ let dates = year => {
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 1, day: 8 }),
       "data": {
-        "composite": [
-          "saintJeromeEmiliani",
-          "saintJosephineBakhitaVirgin"
-        ]
       }
     },
     {
