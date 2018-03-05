@@ -740,7 +740,7 @@ export default {
     "saintMargaretOfScotland": "Saint Margaret of Scotland",
     "saintAndrewTheApostle": "Saint Andrew The Apostle",
     "saintAnthonyZaccariaPriest": "Saint Anthony Zaccaria, Priest",
-    "saintsAndrewZoerardusAndBenedictEremites": "Saints Andrew Zoerardus and Benedict, eremites",
+    "saintsAndrewZoerardusAndBenedictHermits": "Saints Andrew Zoerardus and Benedict, Hermits",
     "saintGorazdAndCompanions": "Saint Gorazd and Companions",
     "blessedZdenkaSchelingovaVirginAndMartyr": "Blessed Zdenka Schelingova, Virgin and Martyr",
     "ourLadyOfSorrowsPatronessOfSlovakia": "Our Lady of Sorrows, Patroness of Slovakia",
