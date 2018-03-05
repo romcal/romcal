@@ -64,7 +64,7 @@ export default {
     "baptismOfTheLord": "Chrzest Pański",
     "presentationOfTheLord": "Ofiarowanie Pańskie",
     "transfiguration": "Przemienienie Pańskie",
-    "triumphOfTheCross": "Podwyższenie Krzyża Świętego",
+    "theExaltationOfTheHolyCross": "Podwyższenie Krzyża Świętego",
     "immaculateHeartOfMary": "Niepokalanego Serca Najświętszej Maryi Panny"
   },
   "general": {
@@ -73,7 +73,7 @@ export default {
     "saintRaymondOfPenyafortPriest": "Św. Rajmunda z Penyafort, prezbitera",
     "saintHilaryOfPoitiersBishopAndDoctor": "Św. Hilarego, biskupa i doktora Kościoła",
     "saintAnthonyOfEgyptAbbot": "Św. Antoniego, opata",
-    "saintsFabianAndSebastianPopeAndMartyrs": "Św. Fabiana, papieża i męczennika/Św. Sebastiana, męczennika",
+    "saintFabianPopeAndMartyrAndSaintSebastianMartyr": "Św. Fabiana, papieża i męczennika/Św. Sebastiana, męczennika",
     "saintAgnesVirginAndMartyr": "Św. Agnieszki, dziewicy i męczennicy",
     "saintVincentDeaconAndMartyr": "Św. Wincentego, diakona i męczennika",
     "saintFrancisDeSalesBishopAndDoctor": "Św. Franciszka Salezego, biskupa i doktora Kościoła",
@@ -251,7 +251,6 @@ export default {
     "saintSylvesterIPope": "Św. Sylwestra I, papieża"
   },
   "national": {
-    "allSaints": "Wszystkich Świętych",
     "saintsAndrewZorardAndBenedictHermits": "Świętych pustelników Andrzeja Świerada i Benedykta",
     "saintBrunoBonifaceOfQuerfurtBishopAndMartyr": "Św. Brunona Bonifacego z Kwerfurtu, biskupa i męczennika",
     "saintZygmuntGorazdowskiPriest": "Św. Zygmunta Gorazdowskiego, prezbitera",

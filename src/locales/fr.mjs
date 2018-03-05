@@ -57,14 +57,14 @@ export default {
     "sacredHeartOfJesus": "Sacré-Cœur de Jésus",
     "birthOfJohnTheBaptist": "Naissance de Jean le Baptiste",
     "peterAndPaulApostles": "Saint Pierre et Saint Paul, Apôtres",
-    "assumption": "Assomption de la Bienheureuse Vierge Marie",
+    "assumption": "Assomption de la Bienheureuse Vierge Marie, Patronne de la France",
     "allSaints": "Toussaint",
     "christTheKing": "Christ Roi",
     "holyFamily": "Sainte Famille",
     "baptismOfTheLord": "Baptême du Seigneur",
     "presentationOfTheLord": "Présentation de Jésus au Temple",
     "transfiguration": "Transfiguration",
-    "triumphOfTheCross": "Triumph of the Cross",
+    "theExaltationOfTheHolyCross": "The Exaltation of the Holy Cross",
     "immaculateHeartOfMary": "Immaculée Conception"
   },
   "general": {
@@ -75,7 +75,7 @@ export default {
     "saintRaymondOfPenyafortPriest": "Saint Raymond de Peñafort, Prêtre (✝ 1275)",
     "saintHilaryOfPoitiersBishopAndDoctor": "Saint Hilaire de Poitiers, Évêque et Docteur de l'Église (✝ 367)",
     "saintAnthonyOfEgyptAbbot": "Saint Antoine le Grand, Ermite en Egypte (✝ 356)",
-    "saintsFabianAndSebastianPopeAndMartyrs": "Saint Fabien, Pape et Martyr (✝ 250), et Saint Sébastien, Martyr (✝ v. 284)",
+    "saintFabianPopeAndMartyrAndSaintSebastianMartyr": "Saint Fabien, Pape et Martyr (✝ 250), et Saint Sébastien, Martyr (✝ v. 284)",
     "saintAgnesVirginAndMartyr": "Sainte Agnès, Vierge et Martyre (✝ v. 304)",
     "saintVincentDeaconAndMartyr": "Saint Vincent, Diacre et Martyr (✝ 304)",
     "saintFrancisDeSalesBishopAndDoctor": "Saint François de Sales, Evêque de Genève et Docteur de l'Église (✝ 1622)",
@@ -300,7 +300,6 @@ export default {
     "saintJoanOfArcVirginSecondaryPatronessOfFrance": "Sainte Jeanne d'Arc, Vierge, Patronne Secondaires de la France (✝ 1431)",
     "saintPothinusBishopSaintBlAndinaVirginAndTheirCompanionsMartyrs": "Saint Pothin, Évêque, Sainte Blandine, Vierge, et leurs 46 compagnons, Martyrs à Lyon (✝ 177)",
     "saintClotilde": "Sainte Clotilde, Reine des Francs (✝ 545)",
-    "assumptionOfTheBlessedVirginMaryPrincipalPatronessOfFrance": "Assomption de la Bienheureuse Vierge Marie, Patronne de la France",
     "saintCaesariusOfArlesBishop": "Saint Césaire d'Arles, Évêque, Père de l'Eglise (✝ 542)",
     "saintThereseOfTheChildJesusVirginSecondaryPatronessOfFrance": "Sainte Thérèse de l’Enfant-Jésus, Docteur de l'Église, Seconde Patronne de la France (✝ 1897)"
   }

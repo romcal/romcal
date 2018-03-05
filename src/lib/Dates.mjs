@@ -619,7 +619,7 @@ const holyFamily = y => {
 const transfiguration = y => moment.utc({ year: y, month: 7, day: 6 });
 
 // y: year
-const triumphOfTheCross = y => moment.utc({ year: y, month: 8, day: 14 });
+const theExaltationOfTheHolyCross = y => moment.utc({ year: y, month: 8, day: 14 });
 
 export {
 
@@ -713,7 +713,7 @@ export {
   baptismOfTheLord,
   presentationOfTheLord,
   transfiguration,
-  triumphOfTheCross
+  theExaltationOfTheHolyCross
 
   //==================================================================================
 

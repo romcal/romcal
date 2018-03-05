@@ -440,6 +440,7 @@ let dates = year => {
       "type": Types[4],
       "moment": moment.utc({ year: year, month: 10, day: 6 }),
       "data": {
+        "prioritized": true,
         "meta": {
           "liturgicalColor": LiturgicalColors.WHITE
         }

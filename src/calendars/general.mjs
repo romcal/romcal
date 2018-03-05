@@ -59,6 +59,10 @@ let dates = year => {
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 0, day: 20 }),
       "data": {
+        "composite": [
+          "saintFabianMartyr",
+          "saintSebastianMartyr"
+        ],
         "meta": {
           "titles": [
             Titles.MARTYR
@@ -160,7 +164,12 @@ let dates = year => {
       "key": "saintBlaseBishopAndMartyrSaintAnsgarBishop",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 1, day: 3 }),
-      "data": {}
+      "data": {
+        "composite": [
+          "saintBlaseBishopAndMartyr",
+          "saintAnsgarBishop"
+        ]
+      }
     },
     {
       "key": "saintAgathaVirginAndMartyr",
@@ -192,7 +201,12 @@ let dates = year => {
       "key": "saintJeromeEmilianiSaintJosephineBakhitaVirgin",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 1, day: 8 }),
-      "data": {}
+      "data": {
+        "composite": [
+          "saintJeromeEmiliani",
+          "saintJosephineBakhitaVirgin"
+        ]
+      }
     },
     {
       "key": "saintScholasticaVirgin",
