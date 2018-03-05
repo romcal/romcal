@@ -8,7 +8,7 @@ let dates = year => {
 
   let _dates = [
     {
-      "key": "blessedLauraVicuna",
+      "key": "blessedLauraVicunaVirgin",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 0, day: 22 }),
       "data": {}

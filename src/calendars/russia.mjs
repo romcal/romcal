@@ -18,7 +18,7 @@ let dates = year => {
       }
     },
     {
-      "key": "blessedBoleslawaMariaLamentVirgin",
+      "key": "blessedBoleslawaMariaLamentVirginAndSaintAngelaMericiVirgin",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 0, day: 29 }),
       "data": {}

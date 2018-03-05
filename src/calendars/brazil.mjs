@@ -51,7 +51,7 @@ let dates = year => {
       }
     },
     {
-      "key": "blessedInacioDeAzevedoPriestAndMartyr",
+      "key": "blessedInacioDeAzevedoPriestAndCompanionsMartyrs",
       "type": Types[5],
       "moment": moment.utc({ year: year, month: 6, day: 17 }),
       "data": {

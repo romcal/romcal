@@ -27,7 +27,7 @@ let dates = year => {
       "data": {}
     },
     {
-      "key": "saintCristobalMagallanesAndCompanionsMartyrs",
+      "key": "saintChristopherMagallanesAndCompanionsMartyrs",
       "type": Types[5],
       "moment": moment.utc({ year: year, month: 4, day: 21 }),
       "data": {
