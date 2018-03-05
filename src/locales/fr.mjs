@@ -75,7 +75,7 @@ export default {
     "saintRaymondOfPenyafortPriest": "Saint Raymond de Peñafort, Prêtre (✝ 1275)",
     "saintHilaryOfPoitiersBishopAndDoctor": "Saint Hilaire de Poitiers, Évêque et Docteur de l'Église (✝ 367)",
     "saintAnthonyOfEgyptAbbot": "Saint Antoine le Grand, Ermite en Egypte (✝ 356)",
-    "saintFabianPopeAndMartyrAndSaintSebastianMartyr": "Saint Fabien, Pape et Martyr (✝ 250), et Saint Sébastien, Martyr (✝ v. 284)",
+    "saintFabianPopeAndMartyrAndSaintSebastianPopeAndMartyr": "Saint Fabien, Pape et Martyr (✝ 250), et Saint Sébastien, Martyr (✝ v. 284)",
     "saintAgnesVirginAndMartyr": "Sainte Agnès, Vierge et Martyre (✝ v. 304)",
     "saintVincentDeaconAndMartyr": "Saint Vincent, Diacre et Martyr (✝ 304)",
     "saintFrancisDeSalesBishopAndDoctor": "Saint François de Sales, Evêque de Genève et Docteur de l'Église (✝ 1622)",
