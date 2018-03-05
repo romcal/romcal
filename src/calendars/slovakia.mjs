@@ -122,7 +122,7 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
       }
     },
     {
-      "key": "saintsAndrewZoerardusAndBenedictEremites",
+      "key": "saintsAndrewZoerardusAndBenedictHermits",
       "type": Types[5],
       "moment": moment.utc({ year: year, month: 6, day: 17 }),
       "data": {
