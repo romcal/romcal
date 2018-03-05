@@ -338,7 +338,7 @@ export default {
     "saintMarieOfTheIncarnationReligious": "Saint Marie of The Incarnation, Religious",
     "blessedMarieLeonieParadisVirgin": "Blessed Marie Leonie Paradis, Virgin",
     "saintFrancoisDeLavalBishop": "Saint Francois de Laval, Bishop",
-    "blessedCaTherineOfSaintAugustineVirgin": "Blessed Catherine of Saint Augustine, Virgin",
+    "blessedCatherineOfSaintAugustineVirgin": "Blessed Catherine of Saint Augustine, Virgin",
     "saintEugeneDeMazenodBishop": "Saint Eugene de Mazenod, Bishop",
     "blessedLouisZephirinMoreauBishop": "Blessed Louis Zephirin Moreau, Bishop",
     "blessedsNykytaBudkaAndVasylVelychkowskyBishopsAndMartyrs": "Blesseds Nykyta Budka and Vasyl Velychkowsky, Bishops and Martyrs",
