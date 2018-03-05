@@ -20,14 +20,14 @@ Contributions are welcome!
 
 Please fork/raise merge requests or issues to improve the quality of this module.
 
-I especially reach out to you all for help with translations/localizations of celebration names so that this module can cater to a wider audience.
+I especially reach out to you all for help with translations/localisations of celebration names so that this module can cater to a wider audience.
 
 ## Table of Contents
 - [Description](#desc)
+- [Revisions](#revisions)
 - [Credits](#credits)
 - [Features](#features)
 - [Module Robustness & Data Integrity](#disclaimer)
-- [Revisions](#revisions)
 - [Builds](#builds)
 - [Usage](#usage)
   - [Configuration Options](#configOpts)
@@ -54,20 +54,27 @@ I especially reach out to you all for help with translations/localizations of ce
   - [Overriding a date by its calendar source](#overridingBySource)
   - [Overriding a date by its priority](#overridingByPriority)
   - [Overriding a date by its key](#overridingByKey)
-- [Localizing celebration names](#localization)
+- [Localising celebration names](#localisation)
 
 ## Description <a name="desc"></a>
 Romcal generates the [General Roman Calendar](http://en.wikipedia.org/wiki/General_Roman_Calendar) used in the Roman Catholic Rite. Output conforms to the revised liturgical calendar for the Western Church as approved by Paul VI in [Mysterii Paschalis](http://www.romcal.net/mysterii.html) dated 14 February 1969.
 
 Output can be configured for the standard calendar year (Jan, 1st - Dec, 31st) or the liturgical year (First Sunday of Advent - Christ the King). Additional filters for filtering output are also available (described below).
 
+## Revisions <a name="revisions"></a>
+See [history](HISTORY.md) for latest updates and important/breaking changes.
+
 ## Credits <a name="credits"></a>
 This node module is inspired by the C program [romcal](http://www.romcal.net/) written by Kenneth G. Bath. This module, while exhibiting similar output, is written ground up using different tools and technologies and exposes many new functionalities.
+
+Additional credits for bug fixes, localisations and suggestions go to:
+- [@jarosz](https://github.com/jarosz)
+- [@emagnier](https://github.com/emagnier)
 
 ## Features <a name="features"></a>
  * Able to query liturgical dates for any year in the gregorian calendar (1582 - now). Note that dates for years before 1969 will still be returned in a format conforming to [Mysterii Paschalis](http://www.romcal.net/mysterii.html) even though those years came before the calendar reforms in 1969.
  * Filter queries to allow more streamlined date results to be obtained for the year.
- * Localization of liturgical date names to cater for different languages
+ * Localisation of liturgical date names to cater for different languages
  * National liturgical calendars for country specific calendars.
  * Richly commented code to help developers and contributors understand how the module works.
 
@@ -83,9 +90,6 @@ romcal employs `TDD` using `mocha` and `should`.
 Run `npm test` in your console to view test output.
 
 `Travis CI` is used to validate romcal builds to ensure functionality is working as expected.
-
-## Revisions <a name="revisions"></a>
-See [history](HISTORY.md)
 
 ## Builds <a name="builds"></a>
 
@@ -590,15 +594,7 @@ Also, since prioritized dates in the national calendar sources can override date
 
 Therefore, it is important that the key in the national calendar is <b>exactly</b> the same as the one in the general calendar so that romcal recognizes it for overriding. Typos (even uppercase and lowercase), will cause unexpected results.
 
-## Composite dates <a name="compositeDates"></a>
-
-`romcal` `v1.3.0` introduces a new concept called "Composite dates" to deal with unique scenarios where a given celebration of 2 persons that is defined in `src/calendars/general.mjs` on the same date is s
-
-### Defining composite dates <a name="definingCompositeDates"></a>
-
-
-
-## Localizing celebration names <a name="localization"></a>
+## Localizing celebration names <a name="localisation"></a>
 
 Celebration names in Romcal can be localized to any language that is already supported by [Moment i18n](http://momentjs.com/docs/#/i18n/). 
 
@@ -647,7 +643,7 @@ The structure of the locale file is typically like so:
 
 The first 7 objects define locale keys used by `src/lib/Seasons.mjs` when generating litugical dates.
 
-The `celebrations`, `general` and `national` objects will hold localizations for `src/lib/Celebrations.mjs`, `src/calendars/general.mjs` and `src/calendars/<country>.mjs` respectively where the celebrations `key` is used as the identifier for localization purposes.
+The `celebrations`, `general` and `national` objects will hold localisations for `src/lib/Celebrations.mjs`, `src/calendars/general.mjs` and `src/calendars/<country>.mjs` respectively where the celebrations `key` is used as the identifier for localisation purposes.
 
 See the end of these files to see the function that localizes the dates according to their keys.
 

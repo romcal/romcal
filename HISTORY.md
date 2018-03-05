@@ -1,19 +1,23 @@
 # Version history
 
-## 1.3.0 /2018-03-4
+## 1.3.0 /2018-03-05
 * Revamp code to use ES6 syntax
 * Dropped support for Node v4, v5.
-* Integration with `std/esm` to read `.mjs` and `babel` to ensure compatibility and seamless usage with lower version of node and requiring via CommonJS
+* Integrated module with `std/esm` to read `.mjs` files and `babel` to ensure compatibility and seamless usage with lower version of node and requiring via CommonJS
 * Expose constants and calendar helper functions and via module exports
 * Various unreported bug fixes
 * Added locale files for Czech Republic and Slovakia
 * Added national calendars for Czech Republick and Slovakia
 * Fixes
     - [issue #9](https://github.com/pejulian/romcal/issues/9)
+        + typo fix for `src/calendars/*sriLanka*.mjs`
     - [issue #10](https://github.com/pejulian/romcal/issues/10)
         + removed duplicate celebration with different key names for 
             * `saintsCyrilMonkAndMethodiusBishop` and `saintsCyrilAndMethodiusSlavicMissionaries` (`saintsCyrilAndMethodiusSlavicMissionaries` removed)
             * `assumption` and `assumptionOfTheBlessedVirginMaryPrincipalPatronessOfFrance` (`assumptionOfTheBlessedVirginMaryPrincipalPatronessOfFrance` removed)
+* Changes
+    - `triumphOfTheCross` renamed to `theExaltationOfTheHolyCross`
+    - `saintsFabianAndSebastianPopeAndMartyrs ` renamed to `saintFabianPopeAndMartyrAndSaintSebastianMartyr`
 * Added more test cases for better test coverage 
 
 ## 1.2.4 /2017-03-22

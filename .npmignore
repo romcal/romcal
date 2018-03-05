@@ -1,8 +1,4 @@
 # .npmignore
-.gitignore
-/test
-/src
 /bin
-.babelrc
 .editorconfig
 .travis.yml
