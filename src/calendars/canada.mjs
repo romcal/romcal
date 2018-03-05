@@ -80,7 +80,7 @@ let dates = year => {
       "data": {}
     },
     {
-      "key": "blessedCaTherineOfSaintAugustineVirgin",
+      "key": "blessedCatherineOfSaintAugustineVirgin",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 4, day: 8 }),
       "data": {}

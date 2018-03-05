@@ -15,6 +15,7 @@
         + removed duplicate celebration with different key names for 
             * `saintsCyrilMonkAndMethodiusBishop` and `saintsCyrilAndMethodiusSlavicMissionaries` (`saintsCyrilAndMethodiusSlavicMissionaries` removed)
             * `assumption` and `assumptionOfTheBlessedVirginMaryPrincipalPatronessOfFrance` (`assumptionOfTheBlessedVirginMaryPrincipalPatronessOfFrance` removed)
+        + [issue #15](https://github.com/pejulian/romcal/issues/15), [issue #16](https://github.com/pejulian/romcal/issues/16)
 * Changes
     - `triumphOfTheCross` renamed to `theExaltationOfTheHolyCross`
     - `saintsFabianAndSebastianPopeAndMartyrs ` renamed to `saintFabianPopeAndMartyrAndSaintSebastianPopeAndMartyr`

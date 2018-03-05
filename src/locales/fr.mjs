@@ -277,7 +277,7 @@ export default {
     "saintMarieOfTheIncarnationReligious": "Sainte Marie de l'Incarnation, Ursuline au Canada (✝ 1672)",
     "blessedMarieLeonieParadisVirgin": "Bienheureuse Marie-Léonie Paradis, Religieuse, Fondatrice de la Congrégation des Petites Sœurs de la Sainte Famille (✝ 1912)",
     "saintFrancoisDeLavalBishop": "Saint François de Laval, Premier évêque de Québec (✝ 1708)",
-    "blessedCaTherineOfSaintAugustineVirgin": "Bienheureuse Catherine de Saint-Augustin, Religieuse hospitalière de la Miséricorde (✝ 1668)",
+    "blessedCatherineOfSaintAugustineVirgin": "Bienheureuse Catherine de Saint-Augustin, Religieuse hospitalière de la Miséricorde (✝ 1668)",
     "saintEugeneDeMazenodBishop": "Saint Eugène de Mazenod, Fondateur des Oblats de Marie-Immaculée, Évêque de Marseille (✝ 1861)",
     "blessedLouisZephirinMoreauBishop": "Bienheureux Louis Zéphyrin Moreau, Évêque (✝ 1901)",
     "blessedsNykytaBudkaAndVasylVelychkowskyBishopsAndMartyrs": "Bienheureux Nicétas Budka (✝ 1949) et Vasyl Velychkowsky (✝ 1973), Évêques et Martyrs",
