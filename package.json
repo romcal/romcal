@@ -6,7 +6,8 @@
   "module": "src/index.mjs",
   "scripts": {
     "prepack": "npm run test",
-    "test": "mocha -r @std/esm test/03*.js"
+    "build": "webpack --config webpack.config.js",
+    "test": "mocha -r @std/esm test/*.js"
   },
   "repository": {
     "type": "git",
@@ -47,7 +48,10 @@
     "@babel/preset-env": "^7.0.0-beta.40",
     "@babel/register": "^7.0.0-beta.40",
     "@std/esm": "^0.23.3",
+    "babel-loader": "^8.0.0-beta.0",
     "mocha": "^5.0.1",
-    "should": "^13.2.1"
+    "should": "^13.2.1",
+    "source-map-loader": "^0.2.3",
+    "webpack": "^4.1.0"
   }
 }
