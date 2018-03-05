@@ -266,7 +266,6 @@ export default {
     "saintJohnBerchmansReligious": "Saint Jean Berchmans, Jésuite Belge (✝ 1621)",
     "saintJohnPaulIiPope": "Saint Jean Paul II, Pape (✝ 2005)",
     "saintCatherineOfSienaVirginAndDoctorOfTheChurch": "Sainte Catherine de Sienne, Vierge et Docteur de l'Eglise, Patronne de l'Europe (✝ 1380)",
-    "saintBenedictOfNursiaAbbot": "Saint Benoît de Nursie, Patriarche des moines d'Occident, Fondateur de l'ordre des Bénédictins, Patron de l'Europe (✝ v. 547)",
     "saintAndreBessetteReligious": "Saint Frère André Bessette, Religieux (✝ 1937)",
     "saintRaymondOfPenyafortPriest": "Saint Raymond de Peñafort, Prêtre (✝ 1275)",
     "saintMargueriteBourgeoysVirgin": "Sainte Marguerite Bourgeoys, Religieuse, Fondatrice de la congrégation des Sœurs de Notre-Dame (✝ 1700)",

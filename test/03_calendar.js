@@ -443,6 +443,83 @@ describe('Testing calendar generation functions', function() {
       });
     });
 
+    describe('Saint Matthias the Apostle', function() {
+      it('Feast day falls on the 14th of May in the general liturgical calendar', function() {
+        var dates = Calendar.calendarFor(2018, true);
+        var saintMatthias = _.find(dates, function(d) {
+          return _.eq(d.key, 'saintMatthiasTheApostle');
+        });
+        saintMatthias.moment.isSame(moment.utc({ year: 2018, month: 4, day: 14 })).should.be.ok();
+      });
+      it('Feast day falls on the 24th of February in the national calendar of Germany and Hungary', function() {
+        var germanyDates = Calendar.calendarFor({
+          year: 2018,
+          country: 'germany'
+        }, true);
+        var hungaryDates = Calendar.calendarFor({
+          year: 2018,
+          country: 'hungary'
+        }, true);
+        var saintMatthiasGermany = _.find(germanyDates, function(d) {
+          return _.eq(d.key, 'saintMatthiasTheApostle');
+        });
+        var saintMatthiasHungary = _.find(germanyDates, function(d) {
+          return _.eq(d.key, 'saintMatthiasTheApostle');
+        });
+        saintMatthiasGermany.moment.isSame(moment.utc({ year: 2018, month: 1, day: 24 })).should.be.ok();
+        saintMatthiasHungary.moment.isSame(moment.utc({ year: 2018, month: 1, day: 24 })).should.be.ok();
+      });
+      it('Is a memorial in the German liturgical calendar on A.D 2014', function() {
+        var germanyDates = Calendar.calendarFor({
+          year: 2014,
+          country: 'germany'
+        });
+        var saintMatthiasGermany = _.find(germanyDates, function(d) {
+          return _.eq(d.key, 'saintMatthiasTheApostle');
+        });
+        saintMatthiasGermany.type.should.be.eql(Types[5]);
+      });
+    });
+
+    describe('Saint Christopher Magallanes and Companions, Martyrs', function() {
+      it('A memorial in Mexico but an optional memorial in the general calendar', function() {
+        var mexicoDates = Calendar.calendarFor({
+          year: 2018,
+          country: 'mexico'
+        }, true);
+        var dates = Calendar.calendarFor(2018, true);
+        var saintChristopherMagallanesAndCompanionsMartyrs = _.find(dates, function(d) {
+          return _.eq(d.key, 'saintChristopherMagallanesAndCompanionsMartyrs');
+        });
+        var saintChristopherMagallanesAndCompanionsMartyrsMexico = _.find(mexicoDates, function(d) {
+          return _.eq(d.key, 'saintChristopherMagallanesAndCompanionsMartyrs');
+        });
+        saintChristopherMagallanesAndCompanionsMartyrs.type.should.be.eql(Types[6]);
+        saintChristopherMagallanesAndCompanionsMartyrsMexico.type.should.be.eql(Types[5]);
+      });
+    });
+
+    describe('Saint Ladislaus', function() {
+      it('A feast in Hungary but an optional memorial in Slovakia', function() {
+        var hungaryDates = Calendar.calendarFor({
+          year: 2018,
+          country: 'hungary'
+        });
+        var slovakiaDates = Calendar.calendarFor({
+          year: 2018,
+          country: 'slovakia'
+        });
+        var saintLadislausHungary = _.find(hungaryDates, function(d) {
+          return _.eq(d.key, 'saintLadislaus');
+        });
+        var saintLadislausSlovakia = _.find(slovakiaDates, function(d) {
+          return _.eq(d.key, 'saintLadislaus');
+        });
+        saintLadislausHungary.type.should.be.eql(Types[4]);
+        saintLadislausSlovakia.type.should.be.eql(Types[6]);
+      });
+    });
+
     describe('Testing advanced filters', function() {
 
       it('The proper color of a Memorial or a Feast is white except for martyrs in which case it is red', function() {
