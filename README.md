@@ -53,9 +53,9 @@ See [contributing](CONTRIBUTING.md) for more information.
   - [Grouping calendar output by critieria](#groupingByCriteria)
   - [Filtering calendar output by celebration title metadata](#filteringByTitle)
   - [Multiple Queries](#multipleQueries)
-- [Overriding dates](#)
+- [Overriding dates](#overridingDates)
   - [Overriding a date by its calendar source](#overridingBySource)
-  - [Overdding a date by its priority](#overridingByPriority)
+  - [Overriding a date by its priority](#overridingByPriority)
   - [Overriding a date by its key](#overridingByKey)
 - [Localizing celebration names](#localization)
 
@@ -261,7 +261,7 @@ Titles are currently available for:
 
 The titles object can be imported into consumer apps via: 
 
-*ES5*
+*ES6*
 ```
 import { Titles } from 'romcal'; 
 ```
@@ -288,7 +288,7 @@ Methods in `src/lib/Seasons.mjs` assigns seasons to the dates it generates to in
 
 The LiturgicalSeasons object can be imported into consumer apps via: 
 
-*ES5*
+*ES6*
 ```
 import { LiturgicalSeasons } from 'romcal'; 
 ```
@@ -311,7 +311,7 @@ Cycle information can be read via the `dates[idx].data.meta.cycle` property in e
 
 The cycles object can be imported into consumer apps via: 
 
-*ES5*
+*ES6*
 ```
 import { Cycles } from 'romcal'; 
 ```
@@ -338,7 +338,7 @@ Liturgical colors can be read via the `dates[idx].data.meta.liturgicalColor` pro
 
 The LiturgicalColors object can be imported into consumer apps via: 
 
-*ES5*
+*ES6*
 ```
 import { LiturgicalColors } from 'romcal'; 
 ```
@@ -363,7 +363,7 @@ Psalter weeks can be read via the `dates[idx].data.meta.psalterWeek` property in
 
 The PsalterWeeks object can be imported into consumer apps via: 
 
-*ES5*
+*ES6*
 ```
 import { PsalterWeeks } from 'romcal'; 
 ```
@@ -459,7 +459,7 @@ A new `national` calendar for a country can be defined by creating a new `.mjs` 
 
 Dates from `src/calendars/<countryName>.mjs` will be assigned the source key `n`
 
-See [Overriding dates](#Overriding dates) for more examples.
+See [Overriding dates](#overridingDates) for more examples.
 
 ## Queries <a name="queries"></a>
 Romcal can generate filtered liturgical or calendar year dates by:
@@ -558,7 +558,7 @@ romcal.queryFor(dates, {
 });
 ```
 
-## Overriding dates <a name="overriding"></a>
+## Overriding dates <a name="overridingDates"></a>
 
 Romcal has been designed with extensibility in mind to cater for unique scenarios that are common in the liturgical calendar.
 
@@ -593,7 +593,15 @@ Also, since prioritized dates in the national calendar sources can override date
 
 Therefore, it is important that the key in the national calendar is <b>exactly</b> the same as the one in the general calendar so that romcal recognizes it for overriding. Typos (even uppercase and lowercase), will cause unexpected results.
 
-### Localizing celebration names <a name="localization"></a>
+## Composite dates <a name="compositeDates"></a>
+
+`romcal` `v1.3.0` introduces a new concept called "Composite dates" to deal with unique scenarios where a given celebration of 2 persons that is defined in `src/calendars/general.mjs` on the same date is s
+
+### Defining composite dates <a name="definingCompositeDates"></a>
+
+
+
+## Localizing celebration names <a name="localization"></a>
 
 Celebration names in Romcal can be localized to any language that is already supported by [Moment i18n](http://momentjs.com/docs/#/i18n/). 
 

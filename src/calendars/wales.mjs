@@ -5,8 +5,6 @@ import _ from 'lodash';
 import { Dates, Utils } from '../lib';
 import { Titles, Types, LiturgicalColors } from '../constants';
 
-let _date;
-
 let dates = year => {
   
   let _dates = [
@@ -200,11 +198,56 @@ let dates = year => {
       "moment": moment.utc({ year: year, month: 10, day: 6 }),
       "data": {}
     },
+    // In England and Wales when All Saints (1 November) falls on a Saturday
+    // and is transferred to Sunday, All Souls is transferred to Monday 3 November.
+    // Like Ash Wednesday, All Souls is, technically, without rank.
+    // However, in countries (not England & Wales) where it falls
+    // on a Sunday it replaces the Sunday.
+    {
+      "key": "allSaints",
+      "type": _.head( Types ),
+      "moment": ( y => {
+        let date = moment.utc({ year: y, month: 10, day: 1 });
+        if ( _.eq(date.day(), 6 )) {
+          return moment.utc({ year: y, month: 10, day: 2 });
+        }
+        else {
+          return date;
+        }
+      })( year ),
+      "data": {
+        "prioritized": true,
+        "meta": {
+          "liturgicalColor": LiturgicalColors.WHITE
+        }
+      }
+    },
+    {
+      "key": "allSouls",
+      "type": Types[4],
+      "moment": ( y => {
+        let date = moment.utc({ year: y, month: 10, day: 1 });
+        if ( _.eq( date.day(), 6 ) ) { // If All Saints is on Saturday
+          // Then All Souls will be on Monday because All Saints will be moved to Sunday on the rule above
+          return moment.utc({ year: y, month: 10, day: 3 }); 
+        }
+        else { // Else, All Souls is the day after All Saints
+          return moment.utc({ year: y, month: 10, day: 2 });
+        }
+      })( year ),
+      "data": {
+        "prioritized": true,
+        "meta": {
+          "liturgicalColor": LiturgicalColors.WHITE
+        }
+      }
+    },
     {
       "key": "allSaintsOfWales",
       "type": Types[4],
-      "moment": moment.utc({ year: year, month: 10, day: 8 }),
+      "moment": moment.utc({ year: year, month: 10, day: 6 }),
       "data": {
+        "prioritized": true,
         "meta": {
           "liturgicalColor": LiturgicalColors.WHITE
         }
@@ -242,15 +285,15 @@ let dates = year => {
       "key": "peterAndPaulApostles",
       "type": Types[0],
       "moment": ( y => {
-        _date = moment.utc({ year: y, month: 5, day: 29 });
-        if ( _.eq( _date.day(), 1 ) ) {
-          return _date.subtract( 1, 'days');
+        let date = moment.utc({ year: y, month: 5, day: 29 });
+        if ( _.eq(date.day(), 1 )) {
+          return date.subtract( 1, 'days');
         }
-        else if ( _.eq( _date.day(), 6 ) ) {
-          return _date.add( 1, 'days' ).startOf('day');
+        else if ( _.eq(date.day(), 6 )) {
+          return date.add( 1, 'days' ).startOf('day');
         }
         else {
-          return _date;
+          return date;
         }
       })( year ),
       "data": {
@@ -267,15 +310,15 @@ let dates = year => {
       "key": "assumption",
       "type": Types[0],
       "moment": ( y => {
-        _date = moment.utc({ year: y, month: 7, day: 15 });
-        if ( _.eq( _date.day(), 1 ) ) {
-          return _date.subtract( 1, 'days');
+        let date = moment.utc({ year: y, month: 7, day: 15 });
+        if ( _.eq(date.day(), 1 )) {
+          return date.subtract( 1, 'days');
         }
-        else if ( _.eq( _date.day(), 6 ) ) {
-          return _date.add( 1, 'weeks' ).startOf('week');
+        else if ( _.eq(date.day(), 6 )) {
+          return date.add( 1, 'weeks' ).startOf('week');
         }
         else {
-          return _date;
+          return date;
         }
       })( year ),
       "data": {

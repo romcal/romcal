@@ -11,7 +11,10 @@
 * Fixes
     - [issue #9](https://github.com/pejulian/romcal/issues/9)
     - [issue #10](https://github.com/pejulian/romcal/issues/10)
-* Added more test cases for better test coverage
+        + removed duplicate celebration with different key names for 
+            * `saintsCyrilMonkAndMethodiusBishop` and `saintsCyrilAndMethodiusSlavicMissionaries` (`saintsCyrilAndMethodiusSlavicMissionaries` removed)
+            * `assumption` and `assumptionOfTheBlessedVirginMaryPrincipalPatronessOfFrance` (`assumptionOfTheBlessedVirginMaryPrincipalPatronessOfFrance` removed)
+* Added more test cases for better test coverage 
 
 ## 1.2.4
 * Added credits in the description section in `README.md`.
