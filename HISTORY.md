@@ -13,9 +13,20 @@
         + typo fix for `src/calendars/*sriLanka*.mjs`
     - [issue #10](https://github.com/pejulian/romcal/issues/10)
         + removed duplicate celebration with different key names for 
-            * `saintsCyrilMonkAndMethodiusBishop` and `saintsCyrilAndMethodiusSlavicMissionaries` (`saintsCyrilAndMethodiusSlavicMissionaries` removed)
-            * `assumption` and `assumptionOfTheBlessedVirginMaryPrincipalPatronessOfFrance` (`assumptionOfTheBlessedVirginMaryPrincipalPatronessOfFrance` removed)
-        + [issue #15](https://github.com/pejulian/romcal/issues/15), [issue #16](https://github.com/pejulian/romcal/issues/16)
+            * `saintsCyrilMonkAndMethodiusBishop` replaces `saintsCyrilAndMethodiusSlavicMissionaries`
+            * `assumption` replaces `assumptionOfTheBlessedVirginMaryPrincipalPatronessOfFrance`
+            * Removed duplicate key `saintAnselmOfCanterburyBishopAndDoctorOfTheChurch` defined in the national calendar in `src/locales/en.mjs`
+            * Removed duplicate `birthOfTheBlessedVirginMary` defined in the national calendar in `src/locales/en.mjs`
+            * `blessedBoleslawaMariaLamentVirginAndSaintAngelaMericiVirgin` replaces `blessedBoleslawaMariaLamentVirginsaintAngelaMericiVirgin` and `blessedBoleslawaMariaLamentVirgin` and duplicate removed
+            * `blessedInacioDeAzevedoPriestAndCompanionsMartyrs` replaces `blessedInacioDeAzevedoPriestAndMartyr` and duplicate removed
+            * `blessedLauraVicunaVirgin` replaces `blessedLauraVicuna` and duplicate removed
+            * `saintMatthiasApostle` renamed to `saintMatthiasTheApostle` and duplicate removed
+            * Removed duplicate keys for `saintCyrilOfAlexandriaBishopAndDoctor` and `saintCatherineOfAlexandriaVirginAndMartyr`
+            * Remove duplicate keys for `saintBenedictOfNursiaAbbot`
+            * Remove duplicate keys for `saintApollinaris`
+            * Rename `saintGallAbbot` to `saintGallAbbotAndMissionary`
+            * Rename `saintCristobalMagallanesAndCompanionsMartyrs` to `saintChristopherMagallanesAndCompanionsMartyrs`
+    - [issue #15](https://github.com/pejulian/romcal/issues/15), [issue #16](https://github.com/pejulian/romcal/issues/16)
 * Changes
     - `triumphOfTheCross` renamed to `theExaltationOfTheHolyCross`
     - `saintsFabianAndSebastianPopeAndMartyrs ` renamed to `saintFabianPopeAndMartyrAndSaintSebastianPopeAndMartyr`

@@ -50,18 +50,6 @@ let dates = year => {
         }
       }
     },
-    {
-      "key": "saintAnselmOfCanterburyBishopAndDoctorOfTheChurch",
-      "type": Types[6],
-      "moment": moment.utc({ year: year, month: 3, day: 21 }),
-      "data": {
-        "meta": {
-          "titles": [
-            Titles.DOCTOR_OF_THE_CHURCH
-          ]
-        }
-      }
-    },
     // When the celebration falls in the Easter Triduum, on a Sunday of Easter,
     // or in the Easter Octave it is transferred to the next available day —
     // generally the Monday of the Second Week of Easter.
