@@ -4,13 +4,6 @@ import _ from 'lodash';
 import { Dates, Utils } from '../lib';
 import { Titles, Types, LiturgicalColors } from '../constants';
 
-let _holyWeek;
-let _easterOctave;
-let _annunciation;
-let _holyWeekRange;
-let _easterOctaveRange;
-let _date;
-
 let dates = year => {
   
   let _dates = [
@@ -77,21 +70,21 @@ let dates = year => {
       "type": Types[0],
       "moment": ( y => {
 
-        _holyWeek = Dates.holyWeek( y );
-        _easterOctave = Dates.octaveOfEaster( y );
-        _annunciation = Dates.annunciation( y );
-        _holyWeekRange = moment.range( _.head( _holyWeek ), _.last( _holyWeek ) );
-        _easterOctaveRange = moment.range( _.head( _easterOctave ), _.last( _easterOctave ) );
-        _date = moment.utc({ year: y, month: 3, day: 23 });
+        let holyWeek = Dates.holyWeek( y );
+        let easterOctave = Dates.octaveOfEaster( y );
+        let annunciation = Dates.annunciation( y );
+        let holyWeekRange = moment.range( _.head(holyWeek), _.last(holyWeek));
+        let easterOctaveRange = moment.range( _.head(easterOctave), _.last(easterOctave));
+        let date = moment.utc({ year: y, month: 3, day: 23 });
 
         // If the celebration lands anywhere between Holy Week to Divine Mercy Sunday (inclusive)
         // move it to the Monday after Divine Mercy Sunday
-        if ( _holyWeekRange.contains( _date ) || _easterOctaveRange.contains( _date ) ) {
+        if (holyWeekRange.contains(date) || easterOctaveRange.contains(date) ) {
           // Ensure that the Monday after Divine Mercy Sunday is not Annunciation
           // if it is, move this celebration to the next day (Tuesday)
-          let proposed =  _.last( _easterOctave ).add( 1, 'days' );
-          if ( proposed.isSame( _annunciation ) ) {
-            return _.last( _easterOctave ).add( 2, 'days' );
+          let proposed =  _.last(easterOctave).add( 1, 'days' );
+          if ( proposed.isSame(annunciation) ) {
+            return _.last(easterOctave).add( 2, 'days' );
           }
           else {
             return proposed;
@@ -335,15 +328,15 @@ let dates = year => {
       "key": "peterAndPaulApostles",
       "type": Types[0],
       "moment": ( y => {
-        _date = moment.utc({ year: y, month: 5, day: 29 });
-        if ( _.eq( _date.day(), 1 ) ) {
-          return _date.subtract( 1, 'days');
+        let date = moment.utc({ year: y, month: 5, day: 29 });
+        if ( _.eq(date.day(), 1 )) {
+          return date.subtract( 1, 'days');
         }
-        else if ( _.eq( _date.day(), 6 ) ) {
-          return _date.add( 1, 'days' ).startOf('day');
+        else if ( _.eq(date.day(), 6 )) {
+          return date.add( 1, 'days' ).startOf('day');
         }
         else {
-          return _date;
+          return date;
         }
       })( year ),
       "data": {
@@ -360,15 +353,15 @@ let dates = year => {
       "key": "assumption",
       "type": Types[0],
       "moment": ( y => {
-        _date = moment.utc({ year: y, month: 7, day: 15 });
-        if ( _.eq( _date.day(), 1 ) ) {
-          return _date.subtract( 1, 'days');
+        let date = moment.utc({ year: y, month: 7, day: 15 });
+        if ( _.eq(date.day(), 1 )) {
+          return date.subtract( 1, 'days');
         }
-        else if ( _.eq( _date.day(), 6 ) ) {
-          return _date.add( 1, 'days' ).startOf('day');
+        else if ( _.eq(date.day(), 6 )) {
+          return date.add( 1, 'days' ).startOf('day');
         }
         else {
-          return _date;
+          return date;
         }
       })( year ),
       "data": {
@@ -436,10 +429,8 @@ let dates = year => {
         }
       }
     },
-
     // In England and Wales when All Saints (1 November) falls on a Saturday
-    // and is transferred to the Sunday the Commemoration of all the Faithful Departed
-    // is transferred to Monday 3 November.
+    // and is transferred to Sunday, All Souls is transferred to Monday 3 November.
     // Like Ash Wednesday, All Souls is, technically, without rank.
     // However, in countries (not England & Wales) where it falls
     // on a Sunday it replaces the Sunday.
@@ -447,12 +438,12 @@ let dates = year => {
       "key": "allSaints",
       "type": _.head( Types ),
       "moment": ( y => {
-        _date = moment.utc({ year: y, month: 10, day: 1 });
-        if ( _.eq( _date.day(), 6 ) ) {
+        let date = moment.utc({ year: y, month: 10, day: 1 });
+        if ( _.eq(date.day(), 6 )) {
           return moment.utc({ year: y, month: 10, day: 2 });
         }
         else {
-          return _date;
+          return date;
         }
       })( year ),
       "data": {
@@ -466,11 +457,12 @@ let dates = year => {
       "key": "allSouls",
       "type": Types[4],
       "moment": ( y => {
-        _date = moment.utc({ year: y, month: 10, day: 1 });
-        if ( _.eq( _date.day(), 6 ) ) {
-          return moment.utc({ year: y, month: 10, day: 3 });
+        let date = moment.utc({ year: y, month: 10, day: 1 });
+        if ( _.eq( date.day(), 6 ) ) { // If All Saints is on Saturday
+          // Then All Souls will be on Monday because All Saints will be moved to Sunday on the rule above
+          return moment.utc({ year: y, month: 10, day: 3 }); 
         }
-        else {
+        else { // Else, All Souls is the day after All Saints
           return moment.utc({ year: y, month: 10, day: 2 });
         }
       })( year ),

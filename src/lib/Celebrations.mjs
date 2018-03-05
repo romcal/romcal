@@ -366,9 +366,9 @@ let dates = (year, christmastideEnds, epiphanyOnJan6, corpusChristiOnThursday, a
       }
     },
     {
-      "key": "triumphOfTheCross",
+      "key": "theExaltationOfTheHolyCross",
       "type": Types[4],
-      "moment": Dates.triumphOfTheCross( year ),
+      "moment": Dates.theExaltationOfTheHolyCross( year ),
       "data": {
         "prioritized": true,
         "meta": {

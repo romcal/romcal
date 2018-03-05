@@ -114,16 +114,6 @@ let dates = year => {
       }
     },
     {
-      "key": "assumptionOfTheBlessedVirginMaryPrincipalPatronessOfFrance",
-      "type": Types[0],
-      "moment": moment.utc({ year: year, month: 7, day: 15 }),
-      "data": {
-        "meta": {
-          "liturgicalColor": LiturgicalColors.WHITE
-        }
-      }
-    },
-    {
       "key": "saintCaesariusOfArlesBishop",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 7, day: 26 }),
