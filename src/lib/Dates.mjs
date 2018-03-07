@@ -72,8 +72,8 @@ const maryMotherOfGod = y => moment.utc({ year: y, month: 0, day: 1 });
 // Epiphany. It is celebrated in Anglican and Lutheran Churches on the first
 // Sunday following The Epiphany of Our Lord (6 January).
 // y: year
-// epiphanyOnJan6: true|false|undefined [When true, makes Epiphany land on Jan 6 always]
-const baptismOfTheLord = (y, epiphanyOnJan6) => {
+// epiphanyOnJan6: true|false|undefined [When true, makes Epiphany land on Jan 6 always] (defaults to false)
+const baptismOfTheLord = (y, epiphanyOnJan6 = false) => {
 
   let date = epiphany(y, epiphanyOnJan6);
 
@@ -118,8 +118,8 @@ const presentationOfTheLord = y => moment.utc({ year: y, month: 1, day: 2 });
 //    o = Ordinary Liturgical Calendar of the Western Roman Rite [Baptism of the Lord]
 //    e = Extraordinary Liturgical Calendar of the Western Roman Rite [Presentation of the Lord (Candlemass)]
 //        defaults to 'o'
-// epiphanyOnJan6: true|false [If true, Epiphany will be fixed to Jan 6]
-const christmastide = (y, christmastideEnds, epiphanyOnJan6) => {
+// epiphanyOnJan6: true|false [If true, Epiphany will be fixed to Jan 6] (defaults to false)
+const christmastide = (y, christmastideEnds, epiphanyOnJan6 = false) => {
 
   let start = christmas(y);
   let end = null;
@@ -151,8 +151,8 @@ const christmastide = (y, christmastideEnds, epiphanyOnJan6) => {
 // the day before Ash Wednesday.
 // year: Year (integer)
 // christmastideEnds: t|o|e [The mode to calculate the end of Christmastide]
-// epiphanyOnJan6: true|false [If true, fixes Epiphany to Jan 6]
-const daysOfEarlyOrdinaryTime = (y, christmastideEnds, epiphanyOnJan6) => {
+// epiphanyOnJan6: true|false [If true, fixes Epiphany to Jan 6] (defaults to false)
+const daysOfEarlyOrdinaryTime = (y, christmastideEnds, epiphanyOnJan6 = false) => {
 
   let start = null;
   let end = ashWednesday(y);
@@ -404,7 +404,7 @@ const sundaysOfAdvent = y => {
 
 // y: year (integer)
 // epiphanyOnJan6: true|false [If true, Epiphany will be fixed to Jan 6]
-const daysBeforeEpiphany = (y , epiphanyOnJan6) => {
+const daysBeforeEpiphany = (y , epiphanyOnJan6 = false) => {
   let start = maryMotherOfGod(y);
   let end = epiphany(y, epiphanyOnJan6);
   let recurrence = moment.utc().recur({
@@ -417,7 +417,7 @@ const daysBeforeEpiphany = (y , epiphanyOnJan6) => {
 
 // y: year (integer)
 // epiphanyOnJan6: true|false [If true, Epiphany will be fixed to Jan 6]
-const daysAfterEpiphany = (y, epiphanyOnJan6) => {
+const daysAfterEpiphany = (y, epiphanyOnJan6 = false) => {
   let start = epiphany(y, epiphanyOnJan6);
   let end = baptismOfTheLord(y, epiphanyOnJan6);
   let recurrence = moment.utc().recur({
@@ -578,8 +578,8 @@ const trinitySunday = y => easter(y).add( 56, 'days' );
 // If second argument is true, move Corpus Christi to Thursday
 // By default it will be on Sunday
 // y: year
-// corpusChristiOnThursday: Optional boolean to set Corpus Christi to Thursday when true
-const corpusChristi = (y, corpusChristiOnThursday) => {
+// corpusChristiOnThursday: Optional boolean to set Corpus Christi to Thursday when true (defaults to false)
+const corpusChristi = (y, corpusChristiOnThursday = false) => {
   // If specified, move Corpus Christi to Thursday
   if ( !_.isUndefined( corpusChristiOnThursday ) && corpusChristiOnThursday ) {
     return easter(y).add( 60, 'days' );

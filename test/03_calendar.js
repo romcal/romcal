@@ -91,7 +91,6 @@ describe('Testing calendar generation functions', function() {
   describe('Testing calendar functions', function() {
 
     describe('When requesting the liturgical year', function() {
-
       var year = moment.utc().year(),
           start = Dates.firstSundayOfAdvent( year ),
           end = Dates.firstSundayOfAdvent( year + 1 ).subtract( 1, 'days'),
@@ -104,7 +103,6 @@ describe('Testing calendar generation functions', function() {
         _.head( dates ).moment.isSame( start ).should.be.eql( true );
         _.last( dates ).moment.isSame( end ).should.be.eql( true );
       });
-
     });
 
     describe('When requesting the calendar year', function() {
@@ -241,11 +239,10 @@ describe('Testing calendar generation functions', function() {
           Calendar.calendarFor({ query: { title: Titles.FEAST_OF_THE_LORD }}),
           d => _.includes( d.data.meta.titles, Titles.FEAST_OF_THE_LORD ).should.be.ok
         );
-        _.each(
-          Calendar.calendarFor({ query: { title: Titles.PATRON_OF_EUROPE }}),
-          d => _.includes( d.data.meta.titles, Titles.PATRON_OF_EUROPE ).should.be.ok
-        );
-      });
+      _.each(
+        Calendar.calendarFor({ query: { title: Titles.PATRON_OF_EUROPE }}),
+        d => _.includes( d.data.meta.titles, Titles.PATRON_OF_EUROPE ).should.be.ok
+      );
     });
 
     describe('Testing advanced filters', function() {
@@ -295,4 +292,35 @@ describe('Testing calendar generation functions', function() {
       })
     });
 
+    describe('Test calendarFor() options', function() {
+
+      describe('Test the "year" property', function() {
+
+      });
+
+      describe('Test the "christmastideEnds" property', function() {
+
+      });
+
+      describe('Test the "epiphanyOnJan6" property', function() {
+
+      });
+
+      describe('Test the "christmastideIncludesTheSeasonOfEpiphany" property', function() {
+
+      });
+
+      describe('Test the "corpusChristiOnThursday" property', function() {
+
+      });
+
+      describe('Test the "ascensionOnSunday" property', function() {
+
+      });
+
+      describe('Test the "type" property', function() {
+
+      });
+    });
+  });
 });
