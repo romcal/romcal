@@ -61,6 +61,19 @@ const localize = options => {
   return _.template( value )( options );
 };
 
+// Utility function that takes an array of national calendar dates
+// and adds a  localized name based on the key 
+const localizeDates = (dates, source = 'national') => {
+  return _.map( dates, d => {
+    if (!_.has(d, 'drop')) {
+      d.name = localize({
+        key: `${source}.${d.key}`
+      });
+    }
+    return d;
+  });
+};
+
 // Types[1]: Sunday, _.last(Types) Weekday
 const getTypeByDayOfWeek = d => _.eq(d, 0) ? Types[1]: _.last(Types);
 
@@ -108,6 +121,7 @@ export {
   setLocale,
   getLocale,
   localize,
+  localizeDates,
   getTypeByDayOfWeek,
   convertIsoDateStringToMomentObject,
   convertMomentObjectToIsoDateString
