@@ -36,10 +36,10 @@ describe('Testing "drop" functionality for national calendars', function() {
   this.timeout(0);
 
   it('Shrove Monday and Shrove Tuesday should be dropped from the national calendar of Slovakia', function() {
-    // In 2008, 1st of November was on a Saturday
     var dates = Calendar.calendarFor({
       country: 'slovakia', 
-      year: 2018
+      christmastideIncludesTheSeasonOfEpiphany: true,
+      year: 2015
     }, true);
     var shroveDays = _.filter(dates, function(d) {
       return (_.eq(d.key, 'shroveMonday') || _.eq(d.key, 'shroveTuesday'));

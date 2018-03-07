@@ -30,8 +30,8 @@ const _metadata = dates => {
 };
 
 // y: The year (integer)
-// epiphanyOnJan6: true|false [If true, Epiphany will be fixed to Jan 6]
-const _epiphany = (y, epiphanyOnJan6) => {
+// epiphanyOnJan6: true|false [If true, Epiphany will be fixed to Jan 6] (defaults to false)
+const _epiphany = (y, epiphanyOnJan6 = false) => {
 
   let before = Dates.daysBeforeEpiphany(y, epiphanyOnJan6);
   let after = Dates.daysAfterEpiphany(y, epiphanyOnJan6);
@@ -215,8 +215,9 @@ const advent = y => {
 
 // y: Takes the year (integer)
 // christmastideEnds: t|o|e [The mode to calculate the end of Christmastide]
-// epiphanyOnJan6: true|false [If true, Epiphany will be fixed to Jan 6]
-const christmastide = (y, christmastideEnds, epiphanyOnJan6) => {
+// epiphanyOnJan6: true|false [If true, Epiphany will be fixed to Jan 6] (defaults to false)
+// christmastideIncludesTheSeasonOfEpiphany: true|false [If false, excludes the season of epiphany from being included in the season of Christmas]
+const christmastide = (y, christmastideEnds, epiphanyOnJan6 = false, christmastideIncludesTheSeasonOfEpiphany = true) => {
 
   let days = Dates.christmastide(y, christmastideEnds, epiphanyOnJan6);
   let octave = Dates.octaveOfChristmas(y);
@@ -269,9 +270,18 @@ const christmastide = (y, christmastideEnds, epiphanyOnJan6) => {
     });
   });
 
+  //==============================================================================
   // Override in order: solemnities, feasts, epiphany and octave of christmas
   // to days of christmas
-  d = _.uniqBy( _.union( epiphany, o, d ), item => item.moment.valueOf());
+  //==============================================================================
+
+  // only merge the season of epiphany if the flag is true
+  if ( christmastideIncludesTheSeasonOfEpiphany === true ) { 
+    d = _.uniqBy(_.union(epiphany, o, d), item => item.moment.valueOf());
+  }
+  else {
+    d = _.uniqBy(_.union(o, d), item => item.moment.valueOf());
+  }
 
   // Sort dates according to moment
   d = _.sortBy( d, item => item.moment.valueOf());
@@ -335,8 +345,8 @@ const christmastide = (y, christmastideEnds, epiphanyOnJan6) => {
 
 // y: Takes the year (integer)
 // christmastideEnds: t|o|e [The mode to calculate the end of Christmastide]
-// epiphanyOnJan6: true|false [If true, Epiphany will be fixed to Jan 6]
-const earlyOrdinaryTime = (y, christmastideEnds, epiphanyOnJan6) => {
+// epiphanyOnJan6: true|false [If true, Epiphany will be fixed to Jan 6] (defaults to false)
+const earlyOrdinaryTime = (y, christmastideEnds, epiphanyOnJan6 = false) => {
 
   let days = [];
 

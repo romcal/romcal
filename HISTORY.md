@@ -33,6 +33,10 @@
         + Renamed `triumphOfTheCross` to `theExaltationOfTheHolyCross`
     - [issue #12](https://github.com/pejulian/romcal/issues/12)
         + `saintsFabianAndSebastianPopeAndMartyrs ` renamed to `saintFabianPopeAndMartyrAndSaintSebastianPopeAndMartyr`
+    - [issue #14](https://github.com/pejulian/romcal/issues/14)
+        + Introduce the new `drop` property that allows national calendars to omit unwanted celebrations from their output
+        + Introduce new `christmastideIncludesTheSeasonOfEpiphany` flag to allow output to exclude the "season" of Epiphany from being merged into Christmastide
+        + Fix issue where calendar options always end up using their defaults even though an option has been specified
     - [issue #15](https://github.com/pejulian/romcal/issues/15)
         + Renamed `blessedCaTherineOfSaintAugustineVirgin` to `blessedCatherineOfSaintAugustineVirgin` (fix typo with `T`)
     - [issue #16](https://github.com/pejulian/romcal/issues/16)
