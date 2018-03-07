@@ -8,10 +8,10 @@ import { LiturgicalSeasons, Titles, LiturgicalColors, Types } from '../constants
 
 // year: Takes the year (integer)
 // christmastideEnds: t|o|e [The mode to calculate the end of Christmastide]
-// epiphanyOnJan6: true|false [If true, Epiphany will be fixed to Jan 6]
-// corpusChristiOnThursday: true|false|undefined (If true, Corpus Christi is set to Thursday)
-// ascensionOnSunday: true|false|undefined (If true, Ascension is moved to the 7th Sunday of Easter)
-let dates = (year, christmastideEnds, epiphanyOnJan6, corpusChristiOnThursday, ascensionOnSunday) => {
+// epiphanyOnJan6: true|false [If true, Epiphany will be fixed to Jan 6] (defaults to false)
+// corpusChristiOnThursday: true|false|undefined (If true, Corpus Christi is set to Thursday) (defaults to false)
+// ascensionOnSunday: true|false|undefined (If true, Ascension is moved to the 7th Sunday of Easter) (defaults to false)
+let dates = (year, christmastideEnds, epiphanyOnJan6 = false, corpusChristiOnThursday = false, ascensionOnSunday = false) => {
   
   let _dates = [
     // Solemnities
