@@ -218,7 +218,7 @@ romcal returns an array of liturgical date objects in the following structure
 + `moment`: Moment object or ISO8601 string of the date of the celebration
 + `source`: The internal calendar [source](#sources) of this celebration
 + `data`: An object that holds additional information about the celebration
-  + prioritized: A optional boolean that when true, gives the celebration higher priority over another coinciding celebration even thought that celebration has a higher ranking type. This flag should be used with caution.
+  + prioritized: A optional boolean that when true, gives the celebration higher priority over another coinciding celebration even though that celebration has a higher ranking type. This flag should be used with caution.
   + season: Required: A string that identifies the liturgical season this celebration belongs to
   + meta:
     + liturgicalColor: The [liturgical color](#colors) assigned for this celebration (usually follows the liturgical season but may defer if this celebration is a solemnity, feast or memorial)

@@ -191,7 +191,7 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
       }
     },
     {
-      "key": "ourLadyOfSorrowsPatronessOfSlovakia",
+      "key": "ourLadyOfSorrows",
       "type": Types[0],
       "moment": moment.utc({ year: year, month: 8, day: 15 }),
       "data": {
