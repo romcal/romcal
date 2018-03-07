@@ -8,7 +8,10 @@
 * Various unreported bug fixes
 * Added locale files for Czech Republic and Slovakia
 * Added national calendars for Czech Republick and Slovakia
-* Fixes
+* Added more test cases for better test coverage 
+* Fixes:
+    - [issue #2](https://github.com/pejulian/romcal/issues/2)
+        + The command `npm run build` now generates an ES5 distribution bundle of `romcal` that is UMD compliant.
     - [issue #9](https://github.com/pejulian/romcal/issues/9)
         + typo fix for `src/calendars/*sriLanka*.mjs`
     - [issue #10](https://github.com/pejulian/romcal/issues/10)
@@ -26,11 +29,16 @@
             * Remove duplicate keys for `saintApollinaris`
             * Rename `saintGallAbbot` to `saintGallAbbotAndMissionary`
             * Rename `saintCristobalMagallanesAndCompanionsMartyrs` to `saintChristopherMagallanesAndCompanionsMartyrs`
-    - [issue #15](https://github.com/pejulian/romcal/issues/15), [issue #16](https://github.com/pejulian/romcal/issues/16)
-* Changes
-    - `triumphOfTheCross` renamed to `theExaltationOfTheHolyCross`
-    - `saintsFabianAndSebastianPopeAndMartyrs ` renamed to `saintFabianPopeAndMartyrAndSaintSebastianPopeAndMartyr`
-* Added more test cases for better test coverage 
+    - [issue #11](https://github.com/pejulian/romcal/issues/11)
+        + Renamed `triumphOfTheCross` to `theExaltationOfTheHolyCross`
+    - [issue #12](https://github.com/pejulian/romcal/issues/12)
+        + `saintsFabianAndSebastianPopeAndMartyrs ` renamed to `saintFabianPopeAndMartyrAndSaintSebastianPopeAndMartyr`
+    - [issue #15](https://github.com/pejulian/romcal/issues/15)
+        + Renamed `blessedCaTherineOfSaintAugustineVirgin` to `blessedCatherineOfSaintAugustineVirgin` (fix typo with `T`)
+    - [issue #16](https://github.com/pejulian/romcal/issues/16)
+        + Renamed `saintsAndrewZoerardusAndBenedictEremites` to `saintsAndrewZoerardusAndBenedictHermits` (fix typo)
+    - [issue #17](https://github.com/pejulian/romcal/issues/17)
+        + Remove duplicate keys for `ourLadyOfSorrows`
 
 ## 1.2.4
 * Added credits in the description section in `README.md`.
