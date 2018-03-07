@@ -82,6 +82,13 @@ const _getCalendar = options => {
     return r;
   }, {});
 
+  // Check if 'drop' has been defined for any celebrations in the national calendar
+  // and remove them from 
+  let dropKeys = _.map(_.filter(national, n => (_.has(n, 'drop') && n.drop )), 'key');
+  if (!_.isEmpty(dropKeys)) {
+    general = _.drop(general, g => _.includes(dropKeys, g.key));
+  }
+
   // If the national calendar has the same celebration defined
   // as in the general calendar, it replaces the one
   // in the general calendar

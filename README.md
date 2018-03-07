@@ -54,6 +54,8 @@ I especially reach out to you all for help with translations/localisations of ce
   - [Overriding a date by its calendar source](#overridingBySource)
   - [Overriding a date by its priority](#overridingByPriority)
   - [Overriding a date by its key](#overridingByKey)
+- [Removing general dates in national calendar output](#removingDates)
+  - [The `drop` keyword](#dropKeyword)
 - [Localising celebration names](#localisation)
 
 ## Description <a name="desc"></a>
@@ -593,6 +595,31 @@ Since national calendar dates have higher precendence than general calendar date
 Also, since prioritized dates in the national calendar sources can override dates in celebration calendar sources, the date definitions for All Saints and All Souls will now be taken from the national calendar.
 
 Therefore, it is important that the key in the national calendar is <b>exactly</b> the same as the one in the general calendar so that romcal recognizes it for overriding. Typos (even uppercase and lowercase), will cause unexpected results.
+
+## Removing general dates in national calendar output <a name="removingDates"></a>
+
+By default, `romcal` _does not_ remove any celebrations in its output. Instead, prioritization (see above) is the preferred way to go about overriding celebrations to exhibit different characteristics.
+
+However, in some cases, a national calendar may need to omit a celebration entirely from its output. This could be because the given celebration is entirely irrelevant to the observances of the nation. 
+
+`romcal` enables this flexibility via the `drop` key.
+
+### The `drop` keyword <a name="dropKeyword"></a>
+
+When defined, the `drop` key should contain a `boolean` value of `true` to indicate that the given celebration should be _removed_ from the calendar output. 
+
+Usually, this means excluding a celebration defined in `src/calendars/general.mjs`. The construct would be defined in the relevant `national` calendar and look like this:
+
+```
+{
+  "key": "",
+  "drop": true
+}
+```
+
+An example of this can be seen in the national calendar of Slovakia (`src/calendars/slovakia.mjs`) where the celebrations of Shrove Monday and Shrove Tuesday are not relevant in the calendar output. 
+
+Therefore, the `src/calendars/slovakia.mjs` redefines these 2 celebration keys with only one property, `drop` with the value of `true` so that they are excluded in the `calendarFor` output. Note: When defining `drop`, only the key of the celebration is mandatory. Other keys do not have to be defined.
 
 ## Localizing celebration names <a name="localisation"></a>
 
