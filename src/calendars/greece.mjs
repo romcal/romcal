@@ -218,7 +218,7 @@ let dates = year => {
       }
     },
     {
-      "key": "saintJohnDamasceneOrSaintBarbara",
+      "key": "saintBarbaraVirginAndMartyr",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 11, day: 4 }),
       "data": {}

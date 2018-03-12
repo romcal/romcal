@@ -448,7 +448,7 @@ let dates = year => {
       "data": {}
     },
     {
-      "key": "saintLeopoldIii",
+      "key": "saintLeopoldIII",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 10, day: 15 }),
       "data": {}
@@ -460,7 +460,7 @@ let dates = year => {
       "data": {}
     },
     {
-      "key": "saintElizabethOfHungaryReligious",
+      "key": "saintElizabethOfHungary",
       "type": Types[5],
       "moment": moment.utc({ year: year, month: 10, day: 19 }),
       "data": {
@@ -470,7 +470,7 @@ let dates = year => {
       }
     },
     {
-      "key": "saintCOrbinianBishop",
+      "key": "saintCorbinianBishop",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 10, day: 20 }),
       "data": {}

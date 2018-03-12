@@ -41,9 +41,32 @@ var Calendar = Romcal.Calendar;
 describe('Testing national calendar overrides', function() {
 
   this.timeout(0);
+
+  describe('A feast defined in a national calendar should replace the same feast defined in the general calendar', function() {
+    var year = 2008;
+    var generalDates = Calendar.calendarFor(year, true);  
+    var spainDates = Calendar.calendarFor({ year: year, country: 'spain' }, true);  
+    it('The feast of Saint Isidore of Seville is celebrated on the 4th of April every year', function() {
+      var date = _.find(generalDates, function(d) {
+        return d.moment.isSame(moment.utc({ year: year, month: 3, day: 4 }));
+      });
+      _.eq(date.key, 'saintIsidoreOfSevilleBishopAndDoctorOfTheChurch').should.be.ok();
+    });
+    it('However, in the national calendar of Spain, this same feast is celebrated on the 26th of April every year', function() {
+      var date = _.find(spainDates, function(d) {
+        return d.moment.isSame(moment.utc({ year: year, month: 3, day: 26 }));
+      });
+      _.eq(date.key, 'saintIsidoreOfSevilleBishopAndDoctorOfTheChurch').should.be.ok();
+    });
+    it('Therefore, national calendar of spain should only have one occurence of this feast on the 26th of April', function() {
+      var occurences = _.filter(spainDates, function(d) { 
+        return _.eq(d.key, 'saintIsidoreOfSevilleBishopAndDoctorOfTheChurch');
+      });
+      _.size(occurences).should.be.eql(1);
+    });
+  });
   
   describe('Testing the Feast of Saints Cyril and Methodius with locale specific settings', function() {
-    
     it('Should fall on 14th Feb 2017 in the general calendar', function() {
       var dates = Calendar.calendarFor(2017, true);
       var date = _.find(dates, function(d) {
@@ -51,19 +74,7 @@ describe('Testing national calendar overrides', function() {
       });
       date.moment.isSame(moment.utc({ year: 2017, month: 1, day: 14 })).should.be.ok();
     });
-
     it('Should fall on 5th July 2017 in the national calendar of the Czech Republic', function() {
-      var dates = Calendar.calendarFor({
-        country: 'slovakia',
-        year: 2017
-      }, true);
-      var date = _.find(dates, function(d) {
-        return _.eq(d.key, 'saintsCyrilMonkAndMethodiusBishop');
-      });
-      date.moment.isSame(moment.utc({ year: 2017, month: 6, day: 5 })).should.be.ok();
-    });
-
-    it('Should fall on 5th July 2017 in the national calendar of Slovakia', function() {
       var dates = Calendar.calendarFor({
         country: 'czechRepublic',
         year: 2017
@@ -73,7 +84,16 @@ describe('Testing national calendar overrides', function() {
       });
       date.moment.isSame(moment.utc({ year: 2017, month: 6, day: 5 })).should.be.ok();
     });
-
+    it('Should fall on 5th July 2017 in the national calendar of Slovakia', function() {
+      var dates = Calendar.calendarFor({
+        country: 'slovakia',
+        year: 2017
+      }, true);
+      var date = _.find(slovakiaDates, function(d) {
+        return _.eq(d.key, 'saintsCyrilMonkAndMethodiusBishop');
+      });
+      date.moment.isSame(moment.utc({ year: 2017, month: 6, day: 5 })).should.be.ok();
+    });
     it('Should fall on 14th Feb 2017 in the national calendar of the Czech Republic if the "saintsCyrilMonkAndMethodiusBishopOnFeb14" flag is passed as "true"', function() {
       var dates = Calendar.calendarFor({
         country: 'slovakia',
@@ -85,7 +105,6 @@ describe('Testing national calendar overrides', function() {
       });
       date.moment.isSame(moment.utc({ year: 2017, month: 1, day: 14 })).should.be.ok();
     });
-
     it('Should fall on 14th Feb 2017 in the national calendar of Slovakia if the "saintsCyrilMonkAndMethodiusBishopOnFeb14" flag is passed as "true"', function() {
       var dates = Calendar.calendarFor({
         country: 'czechRepublic',

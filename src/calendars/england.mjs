@@ -396,13 +396,13 @@ let dates = year => {
       "data": {}
     },
     {
-      "key": "saintEdmundOfAbingdonBishopOrSaintMargaretOfScotlAnd",
+      "key": "saintEdmundOfAbingdonBishopOrSaintMargaretOfScotland",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 10, day: 16 }),
       "data": {}
     },
     {
-      "key": "saintHildaAbbessOrSaintHughOfLincolnBishopOrSaintElizabethOfHungary",
+      "key": "saintElizabethOfHungary",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 10, day: 17 }),
       "data": {}

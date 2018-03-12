@@ -38,7 +38,7 @@ let dates = year => {
       "data": {}
     },
     {
-      "key": "saintRoseOfLimaVirgin",
+      "key": "saintRoseOfLima",
       "type": Types[0],
       "moment": moment.utc({ year: year, month: 7, day: 23 }),
       "data": {}

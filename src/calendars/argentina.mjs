@@ -84,7 +84,7 @@ let dates = year => {
       }
     },
     {
-      "key": "saintSharbelMakhlufPriestAndHermit",
+      "key": "saintCharbelMakhloufPriestAndHermit",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 6, day: 23 }),
       "data": {}
@@ -150,7 +150,7 @@ let dates = year => {
       "data": {}
     },
     {
-      "key": "saintsRoqueGonzalezAlfonsoRodriguezAndJuanDelCastilloPriestsAndMartyrs",
+      "key": "saintsRoqueGonzalezAlfonsoRodriguezOlmedoAndJuanDelCastilloPriestsAndMartyrs",
       "type": Types[5],
       "moment": moment.utc({ year: year, month: 10, day: 17 }),
       "data": {

@@ -7,7 +7,7 @@
   "scripts": {
     "prepack": "npm run test",
     "build": "webpack --config webpack.config.js",
-    "test": "mocha -r @std/esm test/*.js"
+    "test": "mocha -r @std/esm test/04*.js"
   },
   "repository": {
     "type": "git",
