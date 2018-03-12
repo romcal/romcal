@@ -67,7 +67,7 @@ let dates = year => {
     //   "data": {}
     // },
     {
-      "key": "ourLadyOfMountCarmelMotherAndQueenOfChile",
+      "key": "ourLadyOfMountCarmel",
       "type": Types[0],
       "moment": moment.utc({ year: year, month: 6, day: 16 }),
       "data": {
@@ -87,7 +87,7 @@ let dates = year => {
       }
     },
     {
-      "key": "saintRoseOfLimaVirgin",
+      "key": "saintRoseOfLima",
       "type": Types[4],
       "moment": moment.utc({ year: year, month: 7, day: 30 }),
       "data": {
