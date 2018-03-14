@@ -89,7 +89,7 @@ describe('Testing national calendar overrides', function() {
         country: 'slovakia',
         year: 2017
       }, true);
-      var date = _.find(slovakiaDates, function(d) {
+      var date = _.find(dates, function(d) {
         return _.eq(d.key, 'saintsCyrilMonkAndMethodiusBishop');
       });
       date.moment.isSame(moment.utc({ year: 2017, month: 6, day: 5 })).should.be.ok();

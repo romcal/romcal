@@ -4,7 +4,7 @@ import { Types } from '../constants';
 import * as Locales from '../locales';
 
 // Remap Locale keys to match moment locales
-const _locales = _.mapKeys(Locales, (v, k) => _.kebabCase(k));
+const _locales = _.mapKeys(Locales, (v, k) => _.toLower(k));
 
 // Mustache style templating is easier on the eyes
 _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
@@ -12,20 +12,29 @@ _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
 // Set locale
 // Locale lookup for date name strings are based on moment
 let _locale = {};
-let _fallbackLocale = _.get( _locales, 'en' );
+let _fallbackLocale = _.get(_locales, 'enus');
 let setLocale = key => {
-  moment.locale( key );
-  if ( _.has( _locales, moment.locale() ) ) {
-    _locale = _.get( _locales, moment.locale() );
+
+  key = _.toLower(key); // make key it lowercase
+  key =  key.replace(/[^A-Za-z]/gi, ''); // remove any digits or special chars from string
+  
+  // Set the moment locale (if unrecognized, will default to 'en')
+  moment.locale(key);
+
+  // Check if the given locale is defined in src/locales
+  if (_.has( _locales, key)) {
+    // Set the moment locale
+    // Retrieve the relevant locale object
+    _locale = _.get(_locales, key);
   }
   else {
-    _locale = _fallbackLocale;
+    _locale = _fallbackLocale; // Default to 'enus'
   }
 };
 
 // Nested property lookup logic
 let _getDescendantProp = ( obj, desc ) => {
-  let arr = desc.split(".");
+  let arr = desc.split('.');
   while( arr.length && (obj = obj[arr.shift()]));
   return obj;
 };
