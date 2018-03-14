@@ -197,20 +197,7 @@ const advent = y => {
     return v;
   });
 
-  days = _metadata( days );
-
-  // _.each( days, function( v ) {
-  //   console.log(
-  //     v.moment.format('ddd, DD MMM YY'),
-  //     '|', _.padRight( v.data.meta.liturgicalColor.key, 6 ),
-  //     '|', _.padRight( v.data.season.value, 9 ),
-  //     '|', _.padRight( v.data.meta.psalterWeek.value, 8 ),
-  //     '|', _.padRight( v.type, 13 ),
-  //     '|', v.name
-  //   );
-  // });
-
-  return days;
+  return _metadata( days );
 };
 
 // y: Takes the year (integer)
@@ -327,20 +314,7 @@ const christmastide = (y, christmastideEnds, epiphanyOnJan6 = false, christmasti
     return v;
   });
 
-  d = _metadata( d );
-
-  // _.each( days, function( v ) {
-  //   console.log(
-  //     v.moment.format('ddd, DD MMM YY'),
-  //     '|', _.padRight( v.data.meta.liturgicalColor.key, 6 ),
-  //     '|', _.padRight( v.data.season.value, 9 ),
-  //     '|', _.padRight( v.data.meta.psalterWeek.value, 8 ),
-  //     '|', _.padRight( v.type, 13 ),
-  //     '|', v.name
-  //   );
-  // });
-
-  return d;
+  return _metadata( d );
 };
 
 // y: Takes the year (integer)
@@ -417,20 +391,7 @@ const earlyOrdinaryTime = (y, christmastideEnds, epiphanyOnJan6 = false) => {
     return v;
   });
 
-  days = _metadata( days );
-
-  // _.each( days, function( v ) {
-  //   console.log(
-  //     v.moment.format('ddd, DD MMM YY'),
-  //     '|', _.padRight( v.data.meta.liturgicalColor.key, 6 ),
-  //     '|', _.padRight( v.data.season.value, 9 ),
-  //     '|', _.padRight( v.data.meta.psalterWeek.value, 8 ),
-  //     '|', _.padRight( v.type, 13 ),
-  //     '|', v.name
-  //   );
-  // });
-
-  return days;
+  return _metadata( days );
 };
 
 // y: year
@@ -490,7 +451,7 @@ const laterOrdinaryTime = y => {
     psalterWeek = 4;
   }
 
-  _.map( days, function( v ) {
+  _.map( days, v => {
 
     v.key = _.camelCase( v.name );
     v.data.meta = v.data.meta || {
@@ -517,20 +478,7 @@ const laterOrdinaryTime = y => {
     return v;
   });
 
-  days = _metadata( days );
-
-  // _.each( days, function( v ) {
-  //   console.log(
-  //     v.moment.format('ddd, DD MMM YY'),
-  //     '|', _.padRight( v.data.meta.liturgicalColor.key, 6 ),
-  //     '|', _.padRight( v.data.season.value, 9 ),
-  //     '|', _.padRight( v.data.meta.psalterWeek.value, 8 ),
-  //     '|', _.padRight( v.type, 13 ),
-  //     '|', v.name
-  //   );
-  // });
-
-  return days;
+  return _metadata( days );
 };
 
 // y: Takes the year (integer)
@@ -649,31 +597,13 @@ const lent = y => {
   return days;
 };
 
+// Takes the last 3 days of holy week which form the 3 days of Easter Triduum
 // y: Takes the year (integer)
-const easterTriduum = y => {
+const easterTriduum = y => _.takeRight(_holyWeek(y), 3 );
 
-  let d = _holyWeek(y);
-  let days = _.takeRight( d, 3 );
-
-  // _.each( days, function( item ) {
-  //   console.log(  item.moment.format('ddd, DD/MM/YYYY'), item.data.season.key, item.type, item.name );
-  // });
-
-  return days;
-};
-
+// Takes the days between Easter Sunday and Divine mercy sunday (inclusive) to form the easter octave
 // y: Takes the year (integer)
-const easterOctave = y => {
-
-  let d = eastertide(y);
-  let days = _.take( d, 8 );
-
-  // _.each( days, function( item ) {
-  //   console.log(  item.moment.format('ddd, DD/MM/YYYY'), item.data.season.key, item.type, item.name );
-  // });
-
-  return days;
-};
+const easterOctave = y => _.take(eastertide(y), 8 );
 
 // y: Takes the year (integer)
 const eastertide = y => {
