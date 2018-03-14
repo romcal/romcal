@@ -23,7 +23,7 @@ const countries = _.keys(Calendars);
 // Processing method for calendar config
 //================================================================================================
 
-const _getConfig = config => {
+const _sanitizeConfig = config => {
   config = _.isPlainObject(config) ? config : _.stubObject();
   config.year = config.year || moment.utc().year();
   config.christmastideEnds = config.christmastideEnds || 'o';
@@ -33,15 +33,11 @@ const _getConfig = config => {
   config.ascensionOnSunday = config.ascensionOnSunday;
   config.country = config.country || 'general';
   config.saintsCyrilMonkAndMethodiusBishopOnFeb14 = config.saintsCyrilMonkAndMethodiusBishopOnFeb14;
-  config.locale = config.locale || 'en';
+  config.locale = config.locale || 'en-Us';
   config.type = config.type || 'calendar';
   config.query = _.isPlainObject( config.query ) ? config.query : null;
   return config;
 };
-
-// _.each( Calendars, function( Calendar ) {
-//   Calendar.dates( 2015 );
-// })
 
 
 // Return the appropriate national calendar based on the country given
@@ -197,11 +193,7 @@ const _getCalendar = options => {
       // If the group has multiple general dates only
       // Keep the highest ranking general date
       else if ( !_.has( sources, 'c') && !_.has( sources, 'n' ) && _.has( sources, 'g') ) {
-        sources['g'] = _.map( sources, source => {
-          return _.minBy( source, function( item ) {
-            return _.indexOf( Types, item.type );
-          });
-        });
+        sources['g'] = _.map( sources, source => _.minBy( source, item => _.indexOf( Types, item.type )));
         keep = 'g';
       }
     
@@ -392,11 +384,11 @@ const _applyDates = ( options, dates ) => {
 };
 
 //================================================================================================
-// Include metadata about the dates in a season of the liturgical year
+// Include liturgical cycle metadata for the dates in the liturgical year
 //================================================================================================
 // year
 // dates
-const _metadata = (year, dates) => {
+const _liturgicalCycleMetadata = (year, dates) => {
 
   // Formula to calculate lectionary cycle (Year A, B, C)
   let firstSundayOfAdvent = Dates.firstSundayOfAdvent(year);
@@ -440,7 +432,7 @@ const _metadata = (year, dates) => {
 // c: (an object literal with the following options)
 // [-] year: The year to calculate the liturgical date ranges
 // [-] country: Get national calendar dates for the given country (defaults to 'general')
-// [-] locale: The language for the calendar names (defaults to 'en')
+// [-] locale: The language for the calendar names (defaults to 'en-Us')
 // [-] christmastideEnds: t|o|e (The mode to calculate the end of Christmastide. Defaukts to 'o')
 // [-] epiphanyOnJan6: true|false|undefined (If true, Epiphany will be fixed to Jan 6) (defaults to false)
 // [-] christmastideIncludesTheSeasonOfEpiphany: true|false|undefined (If false, the season of Epiphany will not be merged into Christmastide )
@@ -468,7 +460,7 @@ const _calendarYear = c => {
   dates = _applyDates( c, dates );
   // Filter dates within the given year only
   dates = _.filter( dates, d => _.eq( d.moment.year(), c.year ));
-  dates = _metadata( c.year, dates );
+  dates = _liturgicalCycleMetadata( c.year, dates );
 
   return dates;
 };
@@ -478,7 +470,7 @@ const _calendarYear = c => {
 // c: (an object literal with the following options)
 // [-] year: The year to calculate the liturgical date ranges
 // [-] country: Get national calendar dates for the given country (defaults to 'general')
-// [-] locale: The language for the calendar names (defaults to 'en')
+// [-] locale: The language for the calendar names (defaults to 'en-Us')
 // [-] christmastideEnds: t|o|e (The mode to calculate the end of Christmastide. Defaukts to 'o')
 // [-] epiphanyOnJan6: true|false|undefined (If true, Epiphany will be fixed to Jan 6) (defaults to false)
 // [-] christmastideIncludesTheSeasonOfEpiphany: true|false|undefined (If false, the season of Epiphany will not be merged into Christmastide )
@@ -541,7 +533,7 @@ const calendarFor = (config = {}, skipIsoConversion = false ) => {
   }
 
   // Sanitize incoming config
-  config = _getConfig(config);
+  config = _sanitizeConfig(config);
 
   // Set the locale information
   Utils.setLocale(config.locale);
