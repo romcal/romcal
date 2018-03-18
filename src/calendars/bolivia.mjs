@@ -5,7 +5,7 @@ import { Dates, Utils } from '../lib';
 import { Titles, Types, LiturgicalColors } from '../constants';
 
 let dates = year => {
-  
+
   let _dates = [
     {
       "key": "saintsFelipeDeJesusPaulMikiAndCompanionsMartyrs",
@@ -182,5 +182,5 @@ let dates = year => {
 };
 
 export {
-  dates 
+  dates
 };

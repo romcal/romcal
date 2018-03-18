@@ -5,7 +5,7 @@ import { Dates, Utils } from '../lib';
 import { Titles, Types, LiturgicalColors } from '../constants';
 
 let dates = year => {
-  
+
   let _dates = [
     {
       "key": "blessedLauraVicunaVirgin",
@@ -59,12 +59,13 @@ let dates = year => {
         }
       }
     },
-    {
-      "key": "saintCamillusDeLellisPriestOrSaintHenry",
-      "type": Types[6],
-      "moment": moment.utc({ year: year, month: 6, day: 14 }),
-      "data": {}
-    },
+    // Commented because the key and rank is the same as the definition in general.mjs
+    // {
+    //   "key": "saintCamillusDeLellisPriest",
+    //   "type": Types[6],
+    //   "moment": moment.utc({ year: year, month: 6, day: 14 }),
+    //   "data": {}
+    // },
     {
       "key": "ourLadyOfMountCarmelMotherAndQueenOfChile",
       "type": Types[0],
@@ -139,5 +140,5 @@ let dates = year => {
 };
 
 export {
-  dates 
+  dates
 };
