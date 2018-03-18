@@ -218,7 +218,7 @@ let dates = year => {
       }
     },
     {
-      "key": "saintJohnDamasceneOrSaintBarbara",
+      "key": "saintBarbaraVirginAndMartyr",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 11, day: 4 }),
       "data": {}
@@ -246,12 +246,7 @@ let dates = year => {
   ];
 
   // Get localized celebration names
-  return _.map( _dates, date => {
-    date.name = Utils.localize({
-      key: 'national.' + date.key
-    });
-    return date;
-  });
+  return Utils.localizeDates(_dates);
 };
 
 export {

@@ -414,9 +414,9 @@ let dates = year => {
         }
       }
     },
-    // jarosz: Moved saintSharbelMakhluf to 29 Jul
+    // jarosz: Moved saintCharbelMakhloufPriestAndHermit to 29 Jul
     {
-      "key": "saintSharbelMakhlufPriestAndHermit",
+      "key": "saintCharbelMakhloufPriestAndHermit",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 6, day: 28 }),
       "data": {}
@@ -724,12 +724,7 @@ let dates = year => {
   ];
 
   // Get localized celebration names
-  return _.map( _dates, date => {
-    date.name = Utils.localize({
-      key: 'national.' + date.key
-    });
-    return date;
-  });
+  return Utils.localizeDates(_dates);
 };
 
 export {

@@ -54,6 +54,8 @@ I especially reach out to you all for help with translations/localisations of ce
   - [Overriding a date by its calendar source](#overridingBySource)
   - [Overriding a date by its priority](#overridingByPriority)
   - [Overriding a date by its key](#overridingByKey)
+- [Removing general dates in national calendar output](#removingDates)
+  - [The `drop` keyword](#dropKeyword)
 - [Localising celebration names](#localisation)
 
 ## Description <a name="desc"></a>
@@ -136,6 +138,7 @@ romcal.calendarFor({
     locale: 'pl',
     christmastideEnds: 't|o|e',
     epiphanyOnJan6: true|false,
+    christmastideIncludesTheSeasonOfEpiphany: true | false,
     corpusChristiOnThursday: true|false,
     ascensionOnSunday: true|false,
     type: 'calendar|liturgical',
@@ -153,10 +156,11 @@ true|false );
 ### Configuration Options <a name="configOpts"></a>
 + `year`: Retrieve calendar dates for the given year (year should be an integer). Defaults to the current system year if not specified
 + `country`: Include celebration dates requested by the Episcopal council(s) of the given country that have been approved by the Holy See. If not specified, no National dates are included in the calendar output. If an unrecognized country is specified, romcal will silently ignore the property and will not return any National dates in the calendar output. Country names should be specified in camel case (i.e. `unitedStates`, `czechRepublic`).
-+ `locale`: Defaults to 'en' (english) if not set. Romcal celebration names can be localized to different languages. If a given locale does not have the localized name for a celebration in that language, romcal will fallback to use the celebration name in English.
++ `locale`: Defaults to 'en-US' (english) if not set. Romcal celebration names can be localized to different languages. If a given locale does not have the localized name for a celebration in that language, romcal will fallback to use the celebration name in English.
 + `christmastideEnds`: Specifies the end of the Christmas season. Can be either 't' (traditional where Christmastide ends on Epiphany), 'o' (ordinary where Christmastide ends on the Baptism of the Lord) and 'e' (extraordinary where Christmastide ends on the Presentation of the Lord). Defaults to 'o' (ordinary) if not specified
 + `epiphanyOnJan6`: If true, fixes Epiphany on January 6th always. By default, Epiphany will be set to a Sunday between 2 - 8 Jan based on an internal calculation.
-+ `corpusChristiOnThursday`: Determines if Corpus Christi should be celebrated on Thursday on the 7th week of Easter (60 days after Easter) or Sunday (63 days after Easter).
++ `christmastideIncludesTheSeasonOfEpiphany`: If false, the season of epiphany (i.e. days before Epiphany and days after Epiphany) will not appear within the Christmastide. By default, this value is true.
++ `corpusChristiOnThursday`: Determines if Corpus Christi should be celebrated on Thursday on the 7th week of Easter (60 days after Easter) or Sunday (63 days after Easter). Defaults to false.
 + `ascensionOnSunday`: Determines if Ascension should replace the 7th Sunday of Easter (42 days after Easter). Defaults to false where Ascension will be on Thursday, 39 days after Easter, if value not recognized or specified.
 + `type`: Determines the type of calendar output. Can either be `liturgical` or `calendar`. Defaults to `calendar` if value not recognized or specified. The 'liturgical' year runs from 1st Sunday of Advent of the given year to Saturday of the 34th Week of Ordinary Time in the following year. The 'calendar' year on the other hand refers to the standard year from Jan 1 - Dec 31.
 + `query`: A nested query object which filters the dates according to the given criteria. For more details on how to use queries, see [this](#queries) section.
@@ -215,7 +219,7 @@ romcal returns an array of liturgical date objects in the following structure
 + `moment`: Moment object or ISO8601 string of the date of the celebration
 + `source`: The internal calendar [source](#sources) of this celebration
 + `data`: An object that holds additional information about the celebration
-  + prioritized: A optional boolean that when true, gives the celebration higher priority over another coinciding celebration even thought that celebration has a higher ranking type. This flag should be used with caution.
+  + prioritized: A optional boolean that when true, gives the celebration higher priority over another coinciding celebration even though that celebration has a higher ranking type. This flag should be used with caution.
   + season: Required: A string that identifies the liturgical season this celebration belongs to
   + meta:
     + liturgicalColor: The [liturgical color](#colors) assigned for this celebration (usually follows the liturgical season but may defer if this celebration is a solemnity, feast or memorial)
@@ -594,11 +598,38 @@ Also, since prioritized dates in the national calendar sources can override date
 
 Therefore, it is important that the key in the national calendar is <b>exactly</b> the same as the one in the general calendar so that romcal recognizes it for overriding. Typos (even uppercase and lowercase), will cause unexpected results.
 
+## Removing general dates in national calendar output <a name="removingDates"></a>
+
+By default, `romcal` _does not_ remove any celebrations in its output. Instead, prioritization (see above) is the preferred way to go about overriding celebrations to exhibit different characteristics.
+
+However, in some cases, a national calendar may need to omit a celebration entirely from its output. This could be because the given celebration is entirely irrelevant to the observances of the nation. 
+
+`romcal` enables this flexibility via the `drop` key.
+
+### The `drop` keyword <a name="dropKeyword"></a>
+
+When defined, the `drop` key should contain a `boolean` value of `true` to indicate that the given celebration should be _removed_ from the calendar output. 
+
+Usually, this means excluding a celebration defined in `src/calendars/general.mjs`. The construct would be defined in the relevant `national` calendar and look like this:
+
+```
+{
+  "key": "",
+  "drop": true
+}
+```
+
+An example of this can be seen in the national calendar of Slovakia (`src/calendars/slovakia.mjs`) where the celebrations of Shrove Monday and Shrove Tuesday are not relevant in the calendar output. 
+
+Therefore, the `src/calendars/slovakia.mjs` redefines these 2 celebration keys with only one property, `drop` with the value of `true` so that they are excluded in the `calendarFor` output. 
+
+Note: When defining `drop`, only the key of the celebration is mandatory. Other keys do not have to be defined. `drop` operations also have higher precedence than overriding (meaning, they are run first before prioritization logic).
+
 ## Localizing celebration names <a name="localisation"></a>
 
 Celebration names in Romcal can be localized to any language that is already supported by [Moment i18n](http://momentjs.com/docs/#/i18n/). 
 
-Locales are stored as `.mjs` files in the `src/locales` directory where the name of the file corresponds to the camel cased locale name of a given language. Internally, romcal will convert this camel cased locale name to kebab case when processing locale information. For example, the locale file `enCa.js` will be processed to be `en-ca` which corresponds to the moment locale for Canada (English).
+Locales are stored as `.mjs` files in the `src/locales` directory where the name of the file corresponds to the camel cased locale name of a given language. Internally, romcal will convert this camel cased locale name to kebab case when processing locale information. For example, the locale file `enCa.js` will be processed to be `en-CA` which corresponds to the moment locale for Canada (English).
 
 `en` is the default locale in romcal and serves as the fallback when the user specified locale has not been defined in the `locales` directory or the given key does not exist in the locale.
 

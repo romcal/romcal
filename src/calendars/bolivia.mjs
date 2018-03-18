@@ -8,7 +8,7 @@ let dates = year => {
 
   let _dates = [
     {
-      "key": "saintsFelipeDeJesusPaulMikiAndCompanionsMartyrs",
+      "key": "saintPaulMikiAndCompanionsMartyrs",
       "type": Types[5],
       "moment": moment.utc({ year: year, month: 1, day: 6 }),
       "data": {
@@ -73,7 +73,7 @@ let dates = year => {
       }
     },
     {
-      "key": "saintRoseOfLimaVirgin",
+      "key": "saintRoseOfLima",
       "type": Types[4],
       "moment": moment.utc({ year: year, month: 7, day: 23 }),
       "data": {
@@ -173,12 +173,7 @@ let dates = year => {
   ];
 
   // Get localized celebration names
-  return _.map( _dates, date => {
-    date.name = Utils.localize({
-      key: 'national.' + date.key
-    });
-    return date;
-  });
+  return Utils.localizeDates(_dates);
 };
 
 export {

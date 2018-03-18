@@ -22,68 +22,17 @@
     THE SOFTWARE.
 */
 
-import _ from 'lodash';
-import Moment from 'moment';
-import { extendMoment } from 'moment-range';
-const moment = extendMoment(Moment);
 
-import {
-  Calendar,
-  Celebrations,
-  Dates,
-  Seasons,
-  Utils
-} from './lib';
+var _ = require('lodash');
+var moment = require('moment');
+var range = require('moment-range');
+var should = require('should');
 
-import {
-  Cycles,
-  LiturgicalColors,
-  PsalterWeeks,
-  LiturgicalSeasons,
-  Titles,
-  Types
-} from './constants';
+var Locales = require('../index');
 
-import * as Locales from './locales';
-const Localizations = _.keys(_.mapKeys(Locales, (v, k) => _.kebabCase(k)));
+describe('Testing localization functionality', function() {
 
-import * as Calendars from './calendars';
-const Countries = _.keys(Calendars);
+  this.timeout(0);
 
-// Export an array of countries for external use
-// Export an array of locales for external use
-export {
-  Countries,
-  Localizations
-};
 
-// Export all lib functions
-export {
-  Calendar,
-  Celebrations,
-  Dates,
-  Seasons,
-  Utils
-};
-
-// Export all constants
-export {
-  Cycles,
-  LiturgicalColors,
-  PsalterWeeks,
-  LiturgicalSeasons,
-  Titles,
-  Types
-};
-
-const { calendarFor, queryFor } = Calendar;
-
-calendarFor();
-
-export {
-  calendarFor,
-  queryFor
-};
-
-// Default entry point is exported as Romcal
-export default Calendar;
+});
