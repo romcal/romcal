@@ -258,7 +258,7 @@ export default {
     "saintAmandMissionary": "Saint Amand d'Elnone, Missionnaire, Evêque de Maastricht (✝ v. 676)",
     "saintGertrudeOfNivellesVirgin": "Sainte Gertrude de Nivelles, Abbesse (✝ 659)",
     "saintJulieBilliartVirgin": "Sainte Julie Billiart, Religieuse, Fondatrice de l'Institut des Sœurs de Notre-Dame (✝ 1816)",
-    "saintFatherDamienMissionary": "Saint Père Damien, Prêtre et Missionnaire Picpus (✝ 1889)",
+    "saintDamienDeVeusterPriest": "Saint Père Damien, Prêtre et Missionnaire Picpus (✝ 1889)",
     "saintJulianaOfLiegeVirgin": "Sainte Julienne de Cornillon, Religieuse Augustine (✝ 1258)",
     "ourLadyMediatrix": "Notre-Dame, Médiatrice",
     "saintLambertBishopAndMartyr": "Saint Lambert, Évêque et Martyr (✝ 705)",

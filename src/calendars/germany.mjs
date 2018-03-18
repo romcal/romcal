@@ -358,7 +358,7 @@ let dates = year => {
       }
     },
     {
-      "key": "saintLambertOfMaastrichtBishopAndMartyr",
+      "key": "saintLambertBishopAndMartyr",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 8, day: 18 }),
       "data": {
@@ -523,5 +523,5 @@ let dates = year => {
 };
 
 export {
-  dates 
+  dates
 };
