@@ -132,17 +132,28 @@ let dates = year => {
       "data": {}
     },
     {
-      "key": "blessedIstvanSandorMartyr",
-      "type": Types[6],
-      "moment": moment.utc({ year: year, month: 5, day: 8 }),
+      "key": "saintAgnesOfBohemiaVirgin",
+      "type": Types[5], // Memorial
+      "moment": moment.utc({ year: year, month: 5, day: 8 }), // 8th of June
       "data": {
         "meta": {
-          "titles": [
-            Titles.MARTYR
-          ]
+          "liturgicalColor": LiturgicalColors.WHITE // What is the Liturgical color for this?
         }
       }
     },
+    // Moved to the congregational calendar (Society of Saint Francis de Sales (Salesian Congregation)
+    // {
+    //   "key": "blessedIstvanSandorMartyr",
+    //   "type": Types[6],
+    //   "moment": moment.utc({ year: year, month: 5, day: 8 }),
+    //   "data": {
+    //     "meta": {
+    //       "titles": [
+    //         Titles.MARTYR
+    //       ]
+    //     }
+    //   }
+    // },
     {
       "key": "saintLadislaus",
       "type": Types[4],
