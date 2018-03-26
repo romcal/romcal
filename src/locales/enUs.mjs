@@ -355,7 +355,7 @@ export default {
     "blessedCeslausAndSaintHyacinthPriests": "Blessed Ceslaus and Saint Hyacinth, Priests",
     "saintBridgetOfSweedenReligious": "Saint Bridget of Sweeden, Religious, Patron of Europe",
     "saintsBenedyktJanMateuszIsaakAndKrystynMartyrs": "Saints Benedykt, Jan, Mateusz, Isaak and Krystyn, Martyrs",
-    "blessedTeresaOfCalcuttaReligious": "Blessed Teresa of Calcutta, Religious",
+    "saintTeresaOfCalcuttaReligious": "Saint Teresa of Calcutta, Religious",
     "saintMelchiorGrodzieckiPriestAndMartyr": "Saint Melchior Grodziecki, Priest and Martyr",
     "blessedCharlesSpinolaPriestAndMartyr": "Blessed Charles Spinola, Priest and Martyr",
     "saintLudmilaMartyr": "Saint Ludmila, Martyr",

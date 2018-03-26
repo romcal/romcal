@@ -105,7 +105,7 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
       "moment": moment.utc({ year: year, month: 6, day: 4 }),
       "data": {}
     },
-    // In Slovakia and Czech Republic, the two brothers were originally 
+    // In Slovakia and Czech Republic, the two brothers were originally
     // commemorated on 9 March, but Pope Pius IX changed this date to 5 July
     // https://en.wikipedia.org/wiki/Saints_Cyril_and_Methodius
     {
@@ -178,7 +178,7 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
       "data": {}
     },
     {
-      "key": "blessedTeresaOfCalcuttaReligious",
+      "key": "saintTeresaOfCalcuttaReligious",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 8, day: 5 }),
       "data": {}
@@ -252,5 +252,5 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
 };
 
 export {
-  dates 
+  dates
 };
