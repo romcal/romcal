@@ -5,7 +5,7 @@ import { Dates, Utils } from '../lib';
 import { Titles, Types, LiturgicalColors } from '../constants';
 
 let dates = year => {
-  
+
   let _dates = [
     {
       "key": "saintAelredOfRievaulx",
@@ -220,7 +220,7 @@ let dates = year => {
       }
     },
     {
-      "key": "saintBridgetOfSweedenReligious",
+      "key": "saintBridgetOfSwedenReligious",
       "type": Types[4],
       "moment": moment.utc({ year: year, month: 6, day: 23 }),
       "data": {
@@ -448,7 +448,7 @@ let dates = year => {
         let date = moment.utc({ year: y, month: 10, day: 1 });
         if ( _.eq( date.day(), 6 ) ) { // If All Saints is on Saturday
           // Then All Souls will be on Monday because All Saints will be moved to Sunday on the rule above
-          return moment.utc({ year: y, month: 10, day: 3 }); 
+          return moment.utc({ year: y, month: 10, day: 3 });
         }
         else { // Else, All Souls is the day after All Saints
           return moment.utc({ year: y, month: 10, day: 2 });
@@ -481,5 +481,5 @@ let dates = year => {
 };
 
 export {
-  dates 
+  dates
 };

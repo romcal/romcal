@@ -5,7 +5,7 @@ import { Dates, Utils } from '../lib';
 import { Titles, Types, LiturgicalColors } from '../constants';
 
 let dates = year => {
-  
+
   let _dates = [
     {
       "key": "blessedAloysiusStepinacBishopAndMartyr",
@@ -99,12 +99,13 @@ let dates = year => {
       }
     },
     {
-      "key": "saintBirgittaReligious",
+      "key": "saintBridgetOfSwedenReligious",
       "type": Types[4],
       "moment": moment.utc({ year: year, month: 6, day: 23 }),
       "data": {
         "meta": {
-          "liturgicalColor": LiturgicalColors.WHITE
+          "liturgicalColor": LiturgicalColors.WHITE,
+          "titles": [ Titles.PATRON_OF_EUROPE ]
         }
       }
     },
@@ -161,5 +162,5 @@ let dates = year => {
 };
 
 export {
-  dates 
+  dates
 };

@@ -304,7 +304,7 @@ let dates = year => {
       }
     },
     {
-      "key": "saintBrigittaReligious",
+      "key": "saintBridgetOfSwedenReligious",
       "type": Types[4],
       "moment": moment.utc({ year: year, month: 6, day: 23 }),
       "data": {

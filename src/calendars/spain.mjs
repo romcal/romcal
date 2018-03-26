@@ -1,4 +1,3 @@
-
 import moment from 'moment';
 import _ from 'lodash';
 
@@ -6,7 +5,7 @@ import { Dates, Utils } from '../lib';
 import { Titles, Types, LiturgicalColors } from '../constants';
 
 let dates = year => {
-  
+
   let _dates = [
     {
       "key": "saintEulogiusOfCordobaBishop",
@@ -171,7 +170,7 @@ let dates = year => {
       }
     },
     {
-      "key": "saintBridgetOfSweedenReligious",
+      "key": "saintBridgetOfSwedenReligious",
       "type": Types[4],
       "moment": moment.utc({ year: year, month: 6, day: 23 }),
       "data": {
@@ -306,5 +305,5 @@ let dates = year => {
 };
 
 export {
-  dates 
+  dates
 };
