@@ -6,7 +6,7 @@ import { Titles, Types, LiturgicalColors } from '../constants';
 
 // Allow an option to passed when generating this calendar for the Feast of Saints Cyril and Methodius to land on Feb 14
 let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
-  
+
   let _dates = [
     {
       "key": "saintAdalbertBishopAndMartyr",
@@ -88,7 +88,7 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
         }
       }
     },
-    // In Slovakia and Czech Republic, the two brothers were originally 
+    // In Slovakia and Czech Republic, the two brothers were originally
     // commemorated on 9 March, but Pope Pius IX changed this date to 5 July
     // https://en.wikipedia.org/wiki/Saints_Cyril_and_Methodius
     {
@@ -178,6 +178,16 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
       }
     },
     {
+      "key": "saintTeresaOfCalcuttaReligious",
+      "type": Types[6],
+      "moment": moment.utc({ year: year, month: 8, day: 5 }),
+      "data": {
+        "meta": {
+          "liturgicalColor": LiturgicalColors.WHITE
+        }
+      }
+    },
+    {
       "key": "saintsMarkoKrizinMelicharGrodeckiAndStephenPongracPriestsAndMartyrs",
       "type": Types[5],
       "moment": moment.utc({ year: year, month: 8, day: 7 }),
@@ -232,5 +242,5 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
 };
 
 export {
-  dates 
+  dates
 };
