@@ -849,14 +849,13 @@ let dates = year => {
       }
     },
     {
-      "key": "saintBirgittaReligious",
-      "type": Types[6],
+      "key": "saintBridgetOfSwedenReligious",
+      "type": Types[4],
       "moment": moment.utc({ year: year, month: 6, day: 23 }),
       "data": {
         "meta": {
-          "titles": [
-            Titles.PATRON_OF_EUROPE
-          ]
+          "liturgicalColor": LiturgicalColors.WHITE,
+          "titles": [ Titles.PATRON_OF_EUROPE ]
         }
       }
     },
