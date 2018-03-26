@@ -492,7 +492,6 @@ export default {
     "blessedSaraSalkahaziVirginAndMartyr": "Blessed Sara Salkahazi, Virgin and Martyr",
     "blessedVilmosAporBishopAndMartyr": "Blessed Vilmos Apor, Bishop and Martyr",
     "transferOfTheRelicsOfSaintStephen": "Transfer of The Relics of Saint Stephen",
-    "blessedIstvanSandorMartyr": "Blessed Istvan Sandor, Martyr",
     "saintLadislaus": "Saint Ladislaus",
     "saintsAndrewZorardAndBenedictHermits": "Saints Andrew Zorard and Benedict, Hermits",
     "saintKingaVirgin": "Saint Kinga, Virgin",
