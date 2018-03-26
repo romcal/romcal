@@ -1,7 +1,13 @@
 {
-    "plugins": ["node"],
-    "extends": ["eslint:recommended", "plugin:node/recommended"],
-    "rules": {
-        "node/exports-style": ["error", "module.exports"]
-    }
+  "plugins": ["node"],
+  "extends": ["eslint:recommended", "plugin:node/recommended"],
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "env": {
+    "es6": true
+  },
+  "rules": {
+    "node/exports-style": ["error", "module.exports"]
+  }
 }

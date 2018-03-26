@@ -80,7 +80,7 @@ let dates = year => {
       "key": "saintAdalbertBishopAndMartyr",
       "type": Types[0],
       "moment": ( y => {
-        
+
         _holyWeek = Dates.holyWeek( y );
         _easterOctave = Dates.octaveOfEaster( y );
         _annunciation = Dates.annunciation( y );
@@ -395,7 +395,7 @@ let dates = year => {
       "data": {}
     },
     {
-      "key": "saintBridgetOfSweedenReligious",
+      "key": "saintBridgetOfSwedenReligious",
       "type": Types[4],
       "moment": moment.utc({ year: year, month: 6, day: 23 }),
       "data": {
@@ -728,5 +728,5 @@ let dates = year => {
 };
 
 export {
-  dates 
+  dates
 };

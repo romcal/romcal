@@ -4,6 +4,9 @@
   "description": "Utility library that outputs the Liturgical Calendar used by the Roman Rite (Western Church)",
   "main": "index.js",
   "module": "src/index.mjs",
+  "engines": {
+    "node": ">=6.0.0"
+  },
   "scripts": {
     "prepack": "npm run test",
     "build": "webpack --config webpack.config.js",
