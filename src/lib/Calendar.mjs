@@ -27,10 +27,10 @@ const _sanitizeConfig = config => {
   config = _.isPlainObject(config) ? config : _.stubObject();
   config.year = config.year || moment.utc().year();
   config.christmastideEnds = config.christmastideEnds || 'o';
-  config.epiphanyOnJan6 = config.epiphanyOnJan6;
-  config.christmastideIncludesTheSeasonOfEpiphany = config.christmastideIncludesTheSeasonOfEpiphany;
-  config.corpusChristiOnThursday = config.corpusChristiOnThursday;
-  config.ascensionOnSunday = config.ascensionOnSunday;
+  config.epiphanyOnJan6 = config.epiphanyOnJan6 || false;
+  config.christmastideIncludesTheSeasonOfEpiphany = config.christmastideIncludesTheSeasonOfEpiphany || true;
+  config.corpusChristiOnThursday = config.corpusChristiOnThursday || false;
+  config.ascensionOnSunday = config.ascensionOnSunday || false;
   config.country = config.country || 'general';
   config.saintsCyrilMonkAndMethodiusBishopOnFeb14 = config.saintsCyrilMonkAndMethodiusBishopOnFeb14;
   config.locale = config.locale || 'en-Us';
