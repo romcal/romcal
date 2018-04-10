@@ -838,14 +838,29 @@ let dates = year => {
         }
       }
     },
+    // https://github.com/pejulian/romcal/issues/27
     {
       "key": "saintMaryMagdalene",
-      "type": Types[5],
+      "type": Types[4],
       "moment": moment.utc({ year: year, month: 6, day: 22 }),
       "data": {
         "meta": {
           "liturgicalColor": LiturgicalColors.WHITE
         }
+      }
+    },
+    // On 11 Feb 2018, Pope Francis inserted the Memorial of the
+    // Blessed Virgin Mary, Mother of the Church, into the General Roman Calendar.
+    // It will be celebrated on Monday after Pentecost.
+    {
+      "key": "maryMotherOfTheChurch",
+      "type": Types[5], // Memorial
+      "moment": ( y => Dates.pentecostSunday( y ).add( 1, 'days'))( year ),
+      "data": {
+        "prioritized": true,
+        "meta": {
+          "liturgicalColor": LiturgicalColors.WHITE
+        },
       }
     },
     {
@@ -1365,7 +1380,7 @@ let dates = year => {
       "key": "saintBrunoPriest",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 9, day: 6 }),
-      "data": {}
+      "data": {},
     },
     {
       "key": "ourLadyOfTheRosary",
@@ -1374,14 +1389,28 @@ let dates = year => {
       "data": {
         "meta": {
           "liturgicalColor": LiturgicalColors.WHITE
-        }
-      }
+        },
+      },
     },
     {
       "key": "saintDenisAndCompanionsMartyrsSaintJohnLeonardiPriest",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 9, day: 9 }),
-      "data": {}
+      "data": {},
+    },
+    // http://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20140529_decreto-calendario-generale-gxxiii-gpii_en.html
+    {
+      "key": "popeSaintJohnXXIII",
+      "type": Types[6],
+      "moment": moment.utc({ year: year, month: 9, day: 11 }),
+      "data": {},
+    },
+    // http://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20140529_decreto-calendario-generale-gxxiii-gpii_en.html
+    {
+      "key": "popeSaintJohnPaulII",
+      "type": Types[6],
+      "moment": moment.utc({ year: year, month: 9, day: 22 }),
+      "data": {},
     },
     {
       "key": "saintCallistusIPopeAndMartyr",
@@ -1391,9 +1420,9 @@ let dates = year => {
         "meta": {
           "titles": [
             Titles.MARTYR
-          ]
-        }
-      }
+          ],
+        },
+      },
     },
     {
       "key": "saintTeresaOfJesusVirginAndDoctorOfTheChurch",

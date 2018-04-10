@@ -5,7 +5,7 @@ import { Dates, Utils } from '../lib';
 import { Titles, Types, LiturgicalColors } from '../constants';
 
 let dates = year => {
-  
+
   let _dates = [
     {
       "key": "mostHolyNameOfJesusOrOurLadyOfBethlehem",
@@ -90,12 +90,6 @@ let dates = year => {
       }
     },
     {
-      "key": "maryMotherOfTheChurch",
-      "type": Types[6],
-      "moment": moment.utc({ year: year, month: 5, day: 13 }),
-      "data": {}
-    },
-    {
       "key": "ourLordJesusChristTheEternalHighPriest",
       "type": Types[4],
       "moment": moment.utc({ year: year, month: 5, day: 16 }),
@@ -112,5 +106,5 @@ let dates = year => {
 };
 
 export {
-  dates 
+  dates
 };

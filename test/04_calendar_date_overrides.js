@@ -44,8 +44,8 @@ describe('Testing national calendar overrides', function() {
 
   describe('A feast defined in a national calendar should replace the same feast defined in the general calendar', function() {
     var year = 2008;
-    var generalDates = Calendar.calendarFor(year, true);  
-    var spainDates = Calendar.calendarFor({ year: year, country: 'spain' }, true);  
+    var generalDates = Calendar.calendarFor(year, true);
+    var spainDates = Calendar.calendarFor({ year: year, country: 'spain' }, true);
     it('The feast of Saint Isidore of Seville is celebrated on the 4th of April every year', function() {
       var date = _.find(generalDates, function(d) {
         return d.moment.isSame(moment.utc({ year: year, month: 3, day: 4 }));
@@ -59,13 +59,13 @@ describe('Testing national calendar overrides', function() {
       _.eq(date.key, 'saintIsidoreOfSevilleBishopAndDoctorOfTheChurch').should.be.ok();
     });
     it('Therefore, national calendar of spain should only have one occurence of this feast on the 26th of April', function() {
-      var occurences = _.filter(spainDates, function(d) { 
+      var occurences = _.filter(spainDates, function(d) {
         return _.eq(d.key, 'saintIsidoreOfSevilleBishopAndDoctorOfTheChurch');
       });
       _.size(occurences).should.be.eql(1);
     });
   });
-  
+
   describe('Testing the Feast of Saints Cyril and Methodius with locale specific settings', function() {
     it('Should fall on 14th Feb 2017 in the general calendar', function() {
       var dates = Calendar.calendarFor(2017, true);
@@ -121,7 +121,7 @@ describe('Testing national calendar overrides', function() {
   describe('The feast of the Assumption in England and Wales', function() {
     describe('If the feast of the Assumption falls on Saturday on Monday', function() {
       it('It is transferred to Sunday', function() {
-        
+
         var wales2009Dates = Calendar.calendarFor({
           year: 2009,
           country: 'wales'
@@ -172,14 +172,14 @@ describe('Testing national calendar overrides', function() {
         walesAssumption2009.moment.isSame(twentiethSundayOfOrdinaryTime2009.moment).should.be.ok();
         englandAssumption2009.moment.isSame(twentiethSundayOfOrdinaryTime2009.moment).should.be.ok();
         walesAssumption2011.moment.isSame(twentiethSundayOfOrdinaryTime2011.moment).should.be.ok();
-        englandAssumption2011.moment.isSame(twentiethSundayOfOrdinaryTime2011.moment).should.be.ok();  
+        englandAssumption2011.moment.isSame(twentiethSundayOfOrdinaryTime2011.moment).should.be.ok();
 
       });
     });
 
     describe('If the feast of the Assumption falls on Sunday', function() {
       it('It replaces the 20th Sunday of OT', function() {
-        
+
         var walesDates = Calendar.calendarFor({
           year: 2010,
           country: 'wales'
@@ -213,11 +213,11 @@ describe('Testing national calendar overrides', function() {
     it('If All Saints is on Saturday, it will be moved to Sunday (the next day)', function() {
       // In 2008, 1st of November was on a Saturday
       var englandDates = Calendar.calendarFor({
-        country: 'england', 
+        country: 'england',
         year: 2008
       }, true);
       var walesDates = Calendar.calendarFor({
-        country: 'wales', 
+        country: 'wales',
         year: 2008
       }, true);
       // So All Saints should be on Sunday
@@ -236,11 +236,11 @@ describe('Testing national calendar overrides', function() {
     it('If All Saints is mpved to Sunday, All Souls must be on Monday (the next day)', function() {
       // In 2008, 1st of November was on a Saturday
       var englandDates = Calendar.calendarFor({
-        country: 'england', 
+        country: 'england',
         year: 2008
       }, true);
       var walesDates = Calendar.calendarFor({
-        country: 'wales', 
+        country: 'wales',
         year: 2008
       }, true);
       // So All Saints should be on Sunday
@@ -297,10 +297,10 @@ describe('Testing national calendar overrides', function() {
   describe('Saint Christopher Magallanes and Companions, Martyrs', function() {
     it('A memorial in Mexico but an optional memorial in the general calendar', function() {
       var mexicoDates = Calendar.calendarFor({
-        year: 2018,
+        year: 2019,
         country: 'mexico'
       }, true);
-      var dates = Calendar.calendarFor(2018, true);
+      var dates = Calendar.calendarFor(2019, true);
       var saintChristopherMagallanesAndCompanionsMartyrs = _.find(dates, function(d) {
         return _.eq(d.key, 'saintChristopherMagallanesAndCompanionsMartyrs');
       });
@@ -334,7 +334,7 @@ describe('Testing national calendar overrides', function() {
   });
 
   describe('Our Lady of Sorrows', function() {
-    
+
     it('Should be celebrated on the 15th of September 2018 as a memorial in the General Calendar', function() {
       var dates = Calendar.calendarFor(2018, true);
       var ourLadyOfSorrows = _.find(dates, function(d) {
@@ -355,7 +355,7 @@ describe('Testing national calendar overrides', function() {
       ourLadyOfSorrows.type.should.be.eql(Types[4]);
       ourLadyOfSorrows.moment.isSame(moment.utc({ year: 2015, month: 3, day: 15 })).should.be.ok();
     });
-    
+
     it('Should be replaced by the 3rd Sunday of Easter in 2018 in the national calendar of Malta due to rank', function() {
       var maltaDates = Calendar.calendarFor({
         year: 2018,

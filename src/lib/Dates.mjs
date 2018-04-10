@@ -48,9 +48,9 @@ const christmas = y => moment.utc({ year: y, month: 11, day: 25 });
 
 // The 8 days from Christmas to Mary Mother of God (inclusive)
 // y: year
-const octaveOfChristmas = y => moment.utc().recur({ 
-  start: christmas(y), 
-  end: maryMotherOfGod( y + 1 ) 
+const octaveOfChristmas = y => moment.utc().recur({
+  start: christmas(y),
+  end: maryMotherOfGod( y + 1 )
 }).every( 1 ).day().all();
 
 // The Solemnity of Mary, the Holy Mother of God is a
@@ -324,7 +324,7 @@ const _easter = _.memoize(year => {
   I = I - Math.floor(I/28)*(1 - Math.floor(I/28)*Math.floor(29/(I + 1))*Math.floor((21 - N)/11));
 
   let J = Y + Math.floor(Y/4) + I + 2 - C + Math.floor(C/4);
-  
+
   J = J - 7*Math.floor(J/7);
 
   let L = I - J;
@@ -618,6 +618,7 @@ const holyFamily = y => {
 // y: year
 const transfiguration = y => moment.utc({ year: y, month: 7, day: 6 });
 
+// https://en.wikipedia.org/wiki/Feast_of_the_Cross#History
 // y: year
 const theExaltationOfTheHolyCross = y => moment.utc({ year: y, month: 8, day: 14 });
 

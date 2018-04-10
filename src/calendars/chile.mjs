@@ -30,16 +30,6 @@ let dates = year => {
       }
     },
     {
-      "key": "exaltationOfTheHolyCross",
-      "type": Types[4],
-      "moment": moment.utc({ year: year, month: 4, day: 3 }),
-      "data": {
-        "meta": {
-          "liturgicalColor": LiturgicalColors.WHITE
-        }
-      }
-    },
-    {
       "key": "saintsPhilipAndJamesApostles",
       "type": Types[4],
       "moment": moment.utc({ year: year, month: 4, day: 4 }),
@@ -100,12 +90,6 @@ let dates = year => {
       "key": "ourLadyOfMercy",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 8, day: 24 }),
-      "data": {}
-    },
-    {
-      "key": "saintJohnXxiiiPope",
-      "type": Types[6],
-      "moment": moment.utc({ year: year, month: 9, day: 11 }),
       "data": {}
     },
     {

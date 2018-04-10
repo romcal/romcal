@@ -39,11 +39,11 @@ var PsalterWeeks = Romcal.PsalterWeeks;
 var Calendar = Romcal.Calendar;
 
 describe('Testing calendar generation functions', function() {
-  
+
   this.timeout(0);
 
   describe('When calling the calendarFor() method without a query', function() {
-    
+
     var nonLeapYearDates = Calendar.calendarFor(2018);
     var leapYearDates = Calendar.calendarFor(2020);
 
@@ -57,30 +57,30 @@ describe('Testing calendar generation functions', function() {
       _.every(nonLeapYearDates, d => _.has(d, requiredKeys));
       _.every(leapYearDates, d => _.has(d, requiredKeys));
     });
-     
+
     it('Array should be 365 days long on non leap years', function() {
       _.size(nonLeapYearDates).should.be.eql(365);
     });
-    
+
     it('Array should be 366 days long on leap years', function() {
       _.size(leapYearDates).should.be.eql(366);
     });
   });
 
   describe('Testing ISO8601/MomentJS conversion', function() {
-    
+
     describe('When skipIsoConversion flag is not set', function() {
       it('Dates should be returned as ISO8601 strings', function() {
         _.each(Calendar.calendarFor(), d => _.isString(d.moment).should.be.ok());
       });
     });
-    
+
     describe('When skipIsoConversion flag is set to false', function() {
       it('Dates should be returned as ISO8601 strings', function() {
         _.each(Calendar.calendarFor(false), d => _.isString(d.moment).should.be.ok());
       });
     });
-    
+
     describe('When skipIsoConversion flag is set to true', function() {
       it('Dates should be returned as MomentJS objects', function() {
         _.each(Calendar.calendarFor(true), d => moment.isMoment(d.moment).should.be.ok());
@@ -193,9 +193,9 @@ describe('Testing calendar generation functions', function() {
             query: { group: 'cycles' }
           })).should.be.eql(['Year B', 'Year C']);
 
-        _.keys(Calendar.queryFor( 
+        _.keys(Calendar.queryFor(
           Calendar.calendarFor({ year: 2015 }),
-          { group: 'cycles' } 
+          { group: 'cycles' }
         )).should.be.eql(['Year B', 'Year C']);
 
       });
@@ -205,9 +205,9 @@ describe('Testing calendar generation functions', function() {
             query: { group: 'types' }
           })).should.containDeep(Types);
 
-        _.keys(Calendar.queryFor( 
+        _.keys(Calendar.queryFor(
           Calendar.calendarFor(),
-          { group: 'types' } 
+          { group: 'types' }
         )).should.containDeep(Types);
       });
 
@@ -216,9 +216,9 @@ describe('Testing calendar generation functions', function() {
             query: { group: 'liturgicalSeasons' }
           })).should.containDeep(_.values( LiturgicalSeasons ));
 
-        _.keys(Calendar.queryFor( 
+        _.keys(Calendar.queryFor(
           Calendar.calendarFor(),
-          { group: 'liturgicalSeasons' } 
+          { group: 'liturgicalSeasons' }
         )).should.containDeep(_.values( LiturgicalSeasons ));
       });
 
@@ -227,9 +227,9 @@ describe('Testing calendar generation functions', function() {
           query: { group: 'psalterWeek' }
         })).should.containDeep(_.keys(PsalterWeeks));
 
-        _.keys(Calendar.queryFor( 
+        _.keys(Calendar.queryFor(
           Calendar.calendarFor(),
-          { group: 'psalterWeek' } 
+          { group: 'psalterWeek' }
         )).should.containDeep(_.keys(PsalterWeeks));
       });
     });
