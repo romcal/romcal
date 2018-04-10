@@ -27,12 +27,18 @@ const _sanitizeConfig = config => {
   config = _.isPlainObject(config) ? config : _.stubObject();
   config.year = config.year || moment.utc().year();
   config.christmastideEnds = config.christmastideEnds || 'o';
+  // If the national calendar of Slovakia is requested and the flag to make Epiphany fall on Jan 6
+  // is not specified, then default the flag to true because Slovakia always celebrates Epiphany of Jan 6.
+  if (_.eq(config.country, 'slovakia') && _.isUndefined(config.epiphanyOnJan6)) {
+    config.epiphanyOnJan6 = true;
+  }
   config.epiphanyOnJan6 = config.epiphanyOnJan6 || false;
   config.christmastideIncludesTheSeasonOfEpiphany = config.christmastideIncludesTheSeasonOfEpiphany || true;
   config.corpusChristiOnThursday = config.corpusChristiOnThursday || false;
   config.ascensionOnSunday = config.ascensionOnSunday || false;
   config.country = config.country || ''; // Must be defaulted to empty string if not specified
-  if (_.eq(config.country, 'general')) { // If country was passed as general, reset it to an empty string
+  // CRUCIAL!! If country was passed as "general", reset it to an empty string
+  if (_.eq(config.country, 'general')) {
     config.country = '';
   }
   config.saintsCyrilMonkAndMethodiusBishopOnFeb14 = config.saintsCyrilMonkAndMethodiusBishopOnFeb14;
