@@ -66,6 +66,27 @@ describe('Testing national calendar overrides', function() {
     });
   });
 
+  describe('The feast of Epiphany', function() {
+    it('Should always be celebrated on the 6th of January in Slovakia unless explicitly configured otherwise', function() {
+      var slovakiaDates = Calendar.calendarFor({
+        country: 'slovakia'
+      }, true);
+      var epiphanySlovakia = _.find(slovakiaDates, function(d) {
+        return _.eq(d.key, "epiphany");
+      });
+      epiphanySlovakia.moment.date().should.be.eql(6);
+      epiphanySlovakia.moment.month().should.be.eql(0);
+    });
+    it("Will fall on a Sunday as calculated by the Epiphnay rubric when epiphanyOnJan6 is explicitly configured as false", function() {
+      var slovakiaDates = Calendar.calendarFor({ country: "slovakia", epiphanyOnJan6: false, year: 2018 }, true);
+      var epiphanySlovakia = _.find(slovakiaDates, function(d) {
+        return _.eq(d.key, "epiphany");
+      });
+      epiphanySlovakia.moment.day().should.be.eql(0);
+      epiphanySlovakia.moment.month().should.be.eql(0);
+    });
+  })
+
   describe('Testing the Feast of Saints Cyril and Methodius with locale specific settings', function() {
     it('Should fall on 14th Feb 2017 in the general calendar', function() {
       var dates = Calendar.calendarFor(2017, true);
