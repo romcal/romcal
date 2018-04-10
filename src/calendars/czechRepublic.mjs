@@ -218,12 +218,6 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
       "data": {}
     },
     {
-      "key": "saintJohnPaulIiPope",
-      "type": Types[6],
-      "moment": moment.utc({ year: year, month: 9, day: 22 }),
-      "data": {}
-    },
-    {
       "key": "saintWolfgangBishop",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 9, day: 31 }),

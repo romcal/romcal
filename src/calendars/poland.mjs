@@ -616,7 +616,7 @@ let dates = year => {
       }
     },
     {
-      "key": "saintJohnPaulIiPope",
+      "key": "popeSaintJohnPaulII",
       "type": Types[5],
       "moment": moment.utc({ year: year, month: 9, day: 22 }),
       "data": {
@@ -701,11 +701,13 @@ let dates = year => {
       "moment": moment.utc({ year: year, month: 11, day: 4 }),
       "data": {}
     },
+    // [pejulian] Needs confirmation: In Poland this day is a feast
     {
       "key": "maryMotherOfTheChurch",
       "type": Types[4],
-      "moment": moment.utc({ year: year, month: 5, day: 13 }),
+      "moment": ( y => Dates.pentecostSunday( y ).add( 1, 'days'))( year ),
       "data": {
+        "prioritized": true,
         "meta": {
           "liturgicalColor": LiturgicalColors.WHITE
         }

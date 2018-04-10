@@ -31,7 +31,10 @@ const _sanitizeConfig = config => {
   config.christmastideIncludesTheSeasonOfEpiphany = config.christmastideIncludesTheSeasonOfEpiphany || true;
   config.corpusChristiOnThursday = config.corpusChristiOnThursday || false;
   config.ascensionOnSunday = config.ascensionOnSunday || false;
-  config.country = config.country || 'general';
+  config.country = config.country || ''; // Must be defaulted to empty string if not specified
+  if (_.eq(config.country, 'general')) { // If country was passed as general, reset it to an empty string
+    config.country = '';
+  }
   config.saintsCyrilMonkAndMethodiusBishopOnFeb14 = config.saintsCyrilMonkAndMethodiusBishopOnFeb14;
   config.locale = config.locale || 'en-Us';
   config.type = config.type || 'calendar';
@@ -67,7 +70,7 @@ const _getCalendar = options => {
   let general = getCalendar('general').dates(options.year);
 
   // Get the relevant national calendar object based on the given country
-  // Pass in the optional `saintsCyrilMonkAndMethodiusBishopOnFeb14` flag which is used in the Czech Rep and Slovakia
+  // Pass in the optional `saintsCyrilMonkAndMethodiusBishopOnFeb14` flag which is used in the Czech Rep and Slovakiac
   let national = getCalendar(options.country).dates(options.year, options.saintsCyrilMonkAndMethodiusBishopOnFeb14);
 
   // Check if 'drop' has been defined for any celebrations in the national calendar
@@ -102,7 +105,7 @@ const _getCalendar = options => {
   // calendar, it is added
   _.each( national, ( v, k ) => _.set( general, k, v ));
 
-  // Get the celebration dates based on the given year and options 
+  // Get the celebration dates based on the given year and options
   // and format the result for better processing
   let celebrations = _.reduce(
     Celebrations.dates( options.year, options.christmastideEnds, options.epiphanyOnJan6, options.corpusChristiOnThursday, options.ascensionOnSunday ),
@@ -145,7 +148,8 @@ const _getCalendar = options => {
   // not prioritized
   // If both are prioritzed, the national date is kept
   //
-    // Group dates by their moment values
+
+  // Group dates by their moment values
   let result = _.groupBy( general, v => v.moment.valueOf());
 
   // Apply replacement logic for coinciding dates
@@ -160,13 +164,19 @@ const _getCalendar = options => {
       // Flag of the date to be retained
       let keep;
 
-      // If the group has a celebration and no national date and no general date
+      // If the group has
+      // [1] a celebration
+      // [2] no national date
+      // [3] no general date
       // Keep the celebration and discard other coincidences
       if ( _.has( sources, 'c' ) && !_.has( sources, 'n') && !_.has( sources, 'g') ) {
         keep = 'c';
       }
 
-      // If the group has a celebration AND national date AND no general date ...
+      // If the group has
+      // [1] a celebration
+      // [2] a national date
+      // [3] no general date
       // Keep national date IF its prioritized
       // else keep the celebration
       else if ( _.has( sources, 'c') && _.has( sources, 'n' ) ) {
@@ -178,8 +188,11 @@ const _getCalendar = options => {
         }
       }
 
-      // If the group has a national AND general date but no celebration
-      // Keep the general date if its prioritized
+      // If the group has
+      // [1] a national
+      // [2] a general date
+      // [3] no celebration
+      // Keep the general date IF its prioritized
       // If not, keep the national date
       else if ( !_.has( sources, 'c') && _.has( sources, 'n' ) && _.has( sources, 'g') ) {
         if ( !_.head( sources['n'] ).data.prioritized && _.head( sources['g'] ).data.prioritized ) {
@@ -190,13 +203,20 @@ const _getCalendar = options => {
         }
       }
 
-      // If the group has multiple general dates only
-      // Keep the highest ranking general date
+      // If the group has multiple general dates ...
+      // Step 1: Keep the one's that are prioritzed
+      // Step 2: Keep the highest ranking general date
       else if ( !_.has( sources, 'c') && !_.has( sources, 'n' ) && _.has( sources, 'g') ) {
-        sources['g'] = _.map( sources, source => _.minBy( source, item => _.indexOf( Types, item.type )));
+        // Get prioritized dates, if any
+        let prioritizedDates = _.map( sources, source => _.filter( source, d => d.data.prioritized ));
+        if (!_.isEmpty(prioritizedDates)) { // Pick highest ranking prioritized date
+          coincidences = _.map(prioritizedDates, d => _.minBy(d, item => _.indexOf(Types, item.type)));
+        } else { // If no prioritized dates found, simply pick the highest ranking date
+          coincidences = _.map(sources, source => _.minBy(source, item => _.indexOf(Types, item.type)));
+        }
         keep = 'g';
       }
-    
+
       // If the group has a celebration and general date but no national date
       // and any other combination, keep the celebration date
       else {
@@ -205,7 +225,6 @@ const _getCalendar = options => {
 
       // Keep only the relevant date
       coincidences = _.filter( coincidences, { source: keep } );
-
     }
 
     return coincidences;
@@ -291,11 +310,11 @@ const _applyDates = ( options, dates ) => {
         // outside LENT or the Easter Octave will replace the general WEEKDAY
         //------------------------------------------------------------------
         else if (
-          _.eq( date.type, _.last( Types ) )
-          && !_.eq( date.data.season.key, LiturgicalSeasons.LENT )
-          && ( _.eq( candidate.type, Types[5] ) || _.eq( candidate.type, Types[6] ) )
+          _.eq( date.type, _.last( Types ) ) // If the current date is of type weekday
+          && !_.eq( date.data.season.key, LiturgicalSeasons.LENT ) // And this weekday is not in Lent
+          && ( _.eq( candidate.type, Types[5] ) || _.eq( candidate.type, Types[6] ) ) // And the candidate is either a memorial or optional memorial
         ) {
-          replace = true;
+          replace = true; // Then the candidate is fit to replace the weekday
         }
 
         //------------------------------------------------------------------
@@ -573,7 +592,7 @@ const queryFor = (dates = [], query = {}, skipIsoConversion = false ) => {
     if ( _.has( query, 'day' ) ) {
       dates = _.filter( dates, d => _.eq( d.moment.day(), _.get( query, 'day' )));
     }
-    
+
     if (_.has( query, 'title' )) {
       dates = _.filter( dates, d => _.includes( d.data.meta.titles, _.get( query, 'title' ) ));
     }

@@ -12,7 +12,7 @@ import { LiturgicalSeasons, Titles, LiturgicalColors, Types } from '../constants
 // corpusChristiOnThursday: true|false|undefined (If true, Corpus Christi is set to Thursday) (defaults to false)
 // ascensionOnSunday: true|false|undefined (If true, Ascension is moved to the 7th Sunday of Easter) (defaults to false)
 let dates = (year, christmastideEnds, epiphanyOnJan6 = false, corpusChristiOnThursday = false, ascensionOnSunday = false) => {
-  
+
   let _dates = [
     // Solemnities
     {
@@ -404,5 +404,5 @@ let dates = (year, christmastideEnds, epiphanyOnJan6 = false, corpusChristiOnThu
 };
 
 export {
-  dates 
+  dates
 };
