@@ -133,18 +133,6 @@ let dates = year => {
         }
       }
     },
-    {
-      "key": "saintJohnXxiiiPope",
-      "type": Types[6],
-      "moment": moment.utc({ year: year, month: 9, day: 11 }),
-      "data": {}
-    },
-    {
-      "key": "saintJohnPaulIiPope",
-      "type": Types[6],
-      "moment": moment.utc({ year: year, month: 9, day: 22 }),
-      "data": {}
-    }
   ];
 
   // Get localized celebration names

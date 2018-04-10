@@ -183,13 +183,6 @@ let dates = year => {
         }
       }
     },
-    // Monday after Pentecost
-    {
-      "key": "maryMotherOfTheChurch",
-      "type": Types[6],
-      "moment": ( y => Dates.pentecostSunday( y ).add( 1, 'days'))( year ),
-      "data": {}
-    }
   ];
 
   // Get localized celebration names

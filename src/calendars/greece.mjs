@@ -84,16 +84,6 @@ let dates = year => {
       }
     },
     {
-      "key": "maryMotherOfTheChurch",
-      "type": Types[5],
-      "moment": moment.utc({ year: year, month: 4, day: 13 }),
-      "data": {
-        "meta": {
-          "liturgicalColor": LiturgicalColors.WHITE
-        }
-      }
-    },
-    {
       "key": "ourLadyOfFatima",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 4, day: 15 }),

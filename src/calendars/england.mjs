@@ -372,12 +372,6 @@ let dates = year => {
       "data": {}
     },
     {
-      "key": "saintJohnPaulIiPope",
-      "type": Types[6],
-      "moment": moment.utc({ year: year, month: 9, day: 22 }),
-      "data": {}
-    },
-    {
       "key": "saintsChadAndCeddBishop",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 9, day: 26 }),

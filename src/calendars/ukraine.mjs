@@ -30,14 +30,16 @@ let dates = year => {
         }
       }
     },
+    // [pejulian] Needs confirmation: In Ukraine this day is a feast
     {
       "key": "maryMotherOfTheChurch",
       "type": Types[4],
-      "moment": moment.utc({ year: year, month: 5, day: 13 }),
+      "moment": ( y => Dates.pentecostSunday( y ).add( 1, 'days'))( year ),
       "data": {
+        "priorized": true,
         "meta": {
           "liturgicalColor": LiturgicalColors.WHITE
-        }
+        },
       }
     },
     {
@@ -189,12 +191,6 @@ let dates = year => {
       "moment": moment.utc({ year: year, month: 9, day: 23 }),
       "data": {}
     },
-    {
-      "key": "saintJohnPaulIiPope",
-      "type": Types[6],
-      "moment": moment.utc({ year: year, month: 9, day: 22 }),
-      "data": {}
-    }
   ];
 
   // Get localized celebration names

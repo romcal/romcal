@@ -128,12 +128,6 @@ let dates = year => {
       "data": {}
     },
     {
-      "key": "saintJohnPaulIiPope",
-      "type": Types[6],
-      "moment": moment.utc({ year: year, month: 9, day: 22 }),
-      "data": {}
-    },
-    {
       "key": "saintFrancesXavierCabriniVirgin",
       "type": Types[5],
       "moment": moment.utc({ year: year, month: 10, day: 13 }),
@@ -178,5 +172,5 @@ let dates = year => {
 };
 
 export {
-  dates 
+  dates
 };

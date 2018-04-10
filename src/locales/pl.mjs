@@ -207,6 +207,8 @@ export default {
     "saintBrunoPriest": "Św. Brunona, prezbitera",
     "ourLadyOfTheRosary": "Najświętszej Maryi Panny Różańcowej",
     "saintDenisAndCompanionsMartyrsSaintJohnLeonardiPriest": "Świętych męczenników Dionizego, biskupa, i Towarzyszy/Św. Jana Leonardiego, prezbitera",
+    "popeSaintJohnPaulII": "Św. Jana Pawła II, papieża",
+    "popeSaintJohnXXIII": "Św. Jana XXIII, papieża",
     "saintCallistusIPopeAndMartyr": "Św. Kaliksta I, papieża i męczennika",
     "saintTeresaOfJesusVirginAndDoctorOfTheChurch": "Św. Teresy od Jezusa, dziewicy i doktora Kościoła",
     "saintHedwigReligiousSaintMargaretMaryAlacoqueVirgin": "Św. Jadwigi Śląskiej/Św. Małgorzaty Marii Alacoque, dziewicy",
@@ -247,6 +249,7 @@ export default {
     "saintStephenTheFirstMartyr": "Św. Szczepana, pierwszego męczennika",
     "saintJohnTheApostleAndEvangelist": "Św. Jana, Apostoła i Ewangelisty",
     "holyInnocentsMartyrs": "Św. Młodzianków, męczenników",
+    "maryMotherOfTheChurch": "Najświętszej Maryi Panny, Matki Kościoła",
     "saintThomasBecketBishopAndMartyr": "Św. Tomasza Becketa, biskupa i męczennika",
     "saintSylvesterIPope": "Św. Sylwestra I, papieża"
   },
@@ -284,7 +287,6 @@ export default {
     "blessedHonoratKozminskiPriest": "Bł. Honorata Koźmińskiego, prezbitera",
     "saintJosefBilczewskiBishop": "Św. Józefa Bilczewskiego, biskupa",
     "blessedJakubStrzemieBishop": "Bł. Jakuba Strzemię, biskupa",
-    "saintJohnPaulIiPope": "Św. Jana Pawła II, papieża",
     "saintsBenedyktJanMateuszIsaakAndKrystynMartyrs": "Świętych Benedykta, Jana, Mateusza, Izaaka i Krystyna, pierwszych męczenników Polski",
     "blessedKarolinaKozkownaVirginAndMartyr": "Bł. Karoliny Kózkówny, dziewicy i męczennicy",
     "saintOttoOfBambergBishop": "Św. Ottona, biskupa",
@@ -304,7 +306,6 @@ export default {
     "blessedVincentLewoniukAndCompanionsMartyrsOfPratulin": "Błogosławionych męczenników Wincentego Lewoniuka i Towarzyszy",
     "blessedJerzyMatulewiczBishop": "Bł. Jerzego Matulewicza, biskupa",
     "ourLordJesusChristTheEternalHighPriest": "Jezusa Chrystusa, Najwyższego i Wiecznego Kapłana",
-    "maryMotherOfTheChurch": "Najświętszej Maryi Panny, Matki Kościoła",
     "saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr": "Św. Teresy Benedykty od Krzyża, dziewicy i męczennicy, patronki Europy",
     "saintHyacinthPriest": "Św. Jacka, prezbitera"
   }
