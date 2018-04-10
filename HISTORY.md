@@ -35,7 +35,7 @@
         + `saintsFabianAndSebastianPopeAndMartyrs ` renamed to `saintFabianPopeAndMartyrAndSaintSebastianPopeAndMartyr`
     - [issue #14](https://github.com/pejulian/romcal/issues/14)
         + Introduce the new `drop` property that allows national calendars to omit unwanted celebrations from their output
-        + Introduce new `christmastideIncludesTheSeasonOfEpiphany` flag to allow output to exclude the "season" of Epiphany from being merged into Christmastide
+        + Introduce new `christmastideIncludesTheSeasonOfEpiphany` flag to allow output to include or exclude the "season" of Epiphany from being merged into Christmastide
         + Fix issue where calendar options always end up using their defaults even though an option has been specified
     - [issue #15](https://github.com/pejulian/romcal/issues/15)
         + Renamed `blessedCaTherineOfSaintAugustineVirgin` to `blessedCatherineOfSaintAugustineVirgin` (fix typo with `T`)
@@ -45,6 +45,8 @@
         + Remove duplicate keys for `ourLadyOfSorrows`
     - [issue #27](https://github.com/pejulian/romcal/issues/27)
     - [issue #28](https://github.com/pejulian/romcal/issues/28)
+    - [issue #29](https://github.com/pejulian/romcal/issues/29)
+        + Epiphany is always celebrated on Jan 6 in Slovakia
 
 
 ## 1.2.4
