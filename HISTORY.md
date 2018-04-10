@@ -8,14 +8,14 @@
 * Various unreported bug fixes
 * Added locale files for Czech Republic and Slovakia
 * Added national calendars for Czech Republick and Slovakia
-* Added more test cases for better test coverage 
+* Added more test cases for better test coverage
 * Fixes:
     - [issue #2](https://github.com/pejulian/romcal/issues/2)
         + The command `npm run build` now generates an ES5 distribution bundle of `romcal` that is UMD compliant.
     - [issue #9](https://github.com/pejulian/romcal/issues/9)
         + typo fix for `src/calendars/*sriLanka*.mjs`
     - [issue #10](https://github.com/pejulian/romcal/issues/10)
-        + removed duplicate celebration with different key names for 
+        + removed duplicate celebration with different key names for
             * `saintsCyrilMonkAndMethodiusBishop` replaces `saintsCyrilAndMethodiusSlavicMissionaries`
             * `assumption` replaces `assumptionOfTheBlessedVirginMaryPrincipalPatronessOfFrance`
             * Removed duplicate key `saintAnselmOfCanterburyBishopAndDoctorOfTheChurch` defined in the national calendar in `src/locales/en.mjs`
@@ -43,6 +43,9 @@
         + Renamed `saintsAndrewZoerardusAndBenedictEremites` to `saintsAndrewZoerardusAndBenedictHermits` (fix typo)
     - [issue #17](https://github.com/pejulian/romcal/issues/17)
         + Remove duplicate keys for `ourLadyOfSorrows`
+    - [issue #27](https://github.com/pejulian/romcal/issues/27)
+    - [issue #28](https://github.com/pejulian/romcal/issues/28)
+
 
 ## 1.2.4
 * Added credits in the description section in `README.md`.

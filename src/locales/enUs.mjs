@@ -305,7 +305,7 @@ export default {
     "blessedAlbertinaBerkenbrockVirginAndMartyr": "Blessed Albertina Berkenbrock, Virgin and Martyr",
     "saintPaulinaOfTheAgonizingHeartOfJesusVirgin": "Saint Paulina of The Agonizing Heart of Jesus, Virgin",
     "blessedsAndreDeSoveralAndAmbrosioFranciscoFerroPriestsAndMartyrs": "Blesseds Andre de Soveral and Ambrosio Francisco Ferro, Priests and Martyrs",
-    "ourLadyOfAparecidaNossaSenhoraAparecidaPatronessOfBrazil": "Our Lady of Aparecida (Nossa Senhora Aparecida), Patroness of Brazil",
+    "ourLadyOfAparecidaPatronessOfBrazil": "Our Lady of Aparecida (Nossa Senhora Aparecida), Patroness of Brazil",
     "saintAnthonyOfSaintAnneGalvaoFreiGalvaoPriest": "Saint Anthony of Saint Anne Galvao (Frei Galvao), Priest",
     "saintAndreBessetteReligious": "Saint Andre Bessette, Religious",
     "saintRaymondOfPenyafortPriest": "Saint Raymond of Penyafort, Priest",

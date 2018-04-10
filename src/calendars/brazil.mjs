@@ -87,7 +87,7 @@ let dates = year => {
       }
     },
     {
-      "key": "ourLadyOfAparecidaNossaSenhoraAparecidaPatronessOfBrazil",
+      "key": "ourLadyOfAparecidaPatronessOfBrazil",
       "type": Types[0],
       "moment": moment.utc({ year: year, month: 9, day: 12 }),
       "data": {
