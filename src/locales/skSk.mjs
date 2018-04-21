@@ -85,14 +85,14 @@
     "saintThomasAquinasPriestAndDoctor": "Svätého Tomáša Akvinského, kňaza a učiteľa Cirkvi",
     "saintJohnBoscoPriest": "Svätého Jána Boska, kňaza",
     "saintBlaseBishopAndMartyrSaintAnsgarBishop": "Svätý Blažej, biskup a mučeník, a svätý Oskár, biskup",
-    "saintAgathaVirginAndMartyr": "Svätej Agaty, panny a mučenice",
+    "saintAgathaVirginAndMartyr": "Svätej Agáty, panny a mučenice",
     "saintPaulMikiAndCompanionsMartyrs": "Svätého Pavla Mikiho a spoločníkov, mučeníkov",
     "saintJeromeEmilianiSaintJosephineBakhitaVirgin": "Svätého Hieronyma Emilianiho/Svätej Jozefíny Bakhity, panny",
     "saintScholasticaVirgin": "Svätej Školastiky, panny",
     "ourLadyOfLourdes": "Preblahoslavenej Panny Márie Lurdskej",
     "saintsCyrilMonkAndMethodiusBishop": "Svätých Cyrila a Metoda, slovanských vierozvestov",
     "sevenHolyFoundersOfTheServiteOrder": "Siedmich svätých zakladateľov rehole Služobníkov Panny Márie",
-    "saintPeterDamianBishopAndDoctorOfTheChurch": "Svätého Petra Damianiho, biskupa a učiteľa Cirkvi",
+    "saintPeterDamianBishopAndDoctorOfTheChurch": "Svätého Petra Damianiho, biskupa a učiteľa Cirkvi",  // English: Damian or Damiani?
     "chairOfSaintPeterApostle": "Katedra svätého Petra, apoštola",
     "saintPolycarpBishopAndMartyr": "Svätého Polykarpa, biskupa a mučeníka",
     "saintCasimir": "Svätého Kazimíra",
@@ -283,7 +283,7 @@
     "saintJohnBerchmansReligious": "Svätého Jána Berchmansa, rehoľníka",  // belgium
     "saintsFelipeDeJesusPaulMikiAndCompanionsMartyrs": "Svätého Filipa od Ježiša, Pavla Mikiho a spoločníkov, mučeníkov",  // duplicate, rather a localised name; general; bolivia, japan, newZealand, philippines; pejulian simply removed it
     "saintMarianaDeJesusDeParedesVirgin": "Svätej Márie Anny od Ježiša (de Paredes), panny",  // bolivia, peru
-    "blessedNazariaIgnaciaMarchReligious": "Blahoslavenej Nazárie Ignácie March Mesa (Nazárie od Svätého Terézie od Ježiša), rehoľníčky",
+    "blessedNazariaIgnaciaMarchReligious": "Blahoslavenej Nazárie Ignácie March Mesa (Nazárie od Svätého Terézie od Ježiša), rehoľníčky",  // bolivia
     "saintJohnMaciasReligious": "Svätého Jána Macíasa, rehoľníka",  // bolivia, peru
     "saintLouisBertrandPriest": "Svätého Ľudovíta Bertranda, kňaza a rehoľníka",  // bolivia
     "saintMiguelFebresCorderoReligious": "Svätého Michala Febresa Cordera, rehoľníka",  // bolivia
@@ -363,7 +363,7 @@
     "saintAdalbertBishopAndMartyrSaintFidelisOfSigmaringenPriestAndMartyr": "Saint Wojciech (Adalbert of Prague), Bishop and Martyr/Saint Fidelis of Sigmaringen, Priest and Martyr",  // (possible) duplicate; england
     "theEnglishMartyrs": "Svätých anglických mučeníkov",  // possible duplicate with theSixWelshMartyrsAndCompanions; england
     "stDunstanArchbishopOfCanterbury": "Svätého Dunstana, Archbishop of Canterbury",  // change of the key name in process; england
-    "saintBedeTheVenerablePriestAndDoctor": "Saint Bede the Venerable, Priest and Doctor of the Church",  // duplicate; to be separated; england
+    "saintBedeTheVenerablePriestAndDoctor": "Svätého Bédu Ctihodného, kňaza a učiteľa Cirkvi",  // duplicate; to be separated; england
     "saintEphraemDeaconDoctorOrSaintColumbaColumCilleAbbot": "Svätého Efréma, diakona a učiteľa Cirkvi, alebo svätého Kolumbu, opáta",  // to be separated; england
     "saintRichardOfChichesterBishop": " Svätého Richarda z Chichesteru, biskupa",  // england
     "saintAlbanMartyr": "Svätého Albána, mučeníka",  // england
@@ -375,30 +375,30 @@
     "saintAidanBishopAndTheSaintsOfLindisfarne": "Svätého Aidana, biskupa, a lindisfarnských svätých",  // england
     "saintCuthbertBishop": "Svätého Cuthbert, biskupa",  // england
     "saintTheodoreOfCanterburyBishop": "Svätého Teodora z Canterbury, biskupa",  // england
-    "ourLadyOfWalsingham": "Our Lady of Walsingham",  // england
-    "blessedJohnHenryNewmanPriest": "Blessed John Henry Newman, Priest",  // england, ireland
-    "saintPaulinusOfYorkBishop": "Saint Paulinus of York, Bishop",  // england
-    "saintWilfridBishop": "Saint Wilfrid, Bishop",  // england
-    "saintEdwardTheConfessor": "Saint Edward The Confessor",  // england
-    "saintsChadAndCeddBishop": "Saints Chad and Cedd, Bishop",  // england
-    "saintWinefrideVirgin": "Saint Winefride, Virgin",  // england, wales
-    "saintWillibrordBishop": "Saint Willibrord, Bishop",  // england, germany, ireland
-    "saintEdmundOfAbingdonBishopOrSaintMargaretOfScotland": "Saint Edmund of Abingdon, Bishop Or Saint Margaret of Scotland",  // england
+    "ourLadyOfWalsingham": "Walsinghamskej Panny Márie",  // england
+    "blessedJohnHenryNewmanPriest": "Blahoslaveného Johna Henryho Newmana, kňaza",  // england, ireland
+    "saintPaulinusOfYorkBishop": "Svätého Paulína z Yorku, biskupa",  // england
+    "saintWilfridBishop": "Svätého Vilfrida, biskupa",  // england
+    "saintEdwardTheConfessor": "Svätého Eduarda Vyznávača",  // england
+    "saintsChadAndCeddBishop": "Svätých Chada a Cedda, biskupov",  // england; name change in process
+    "saintWinefrideVirgin": "Svätej Winefridy, panny",  // england, wales
+    "saintWillibrordBishop": "Svätého Willibrorda, biskupa",  // england, germany, ireland
+    "saintEdmundOfAbingdonBishopOrSaintMargaretOfScotland": "Svätého Edmundá z Abingdonu, biskupa, alebo svätej Margity Škótskej",  // england
     "saintAndrewApostle": "Saint Andrew, Apostle",  // duplicate
-    "saintEricIxMartyr": "Saint Eric IX, Martyr",  // finland, norway
-    "blessedHemmingBishop": "Blessed Hemming, Bishop",  // finland
-    "saintUrsulaLedochowskaVirgin": "Saint Ursula Ledochowska, Virgin",  // finland, poland
+    "saintEricIxMartyr": "Saint Eric IX., Martyr",  // finland, norway; name change proposal
+    "blessedHemmingBishop": "Blahoslaveného Hemminga, biskupa",  // finland
+    "saintUrsulaLedochowskaVirgin": "Svätej Uršule Ledochowskej, panny",  // finland, poland
     "blessedElisabethHesselbaldVirgin": "Blessed Elisabeth Hesselbald, Virgin",  // finland
-    "saintJosemariaEscrivaDeBalaguerPriest": "Saint Josemaria Escriva de Balaguer, Priest",  // finland
-    "saintCanuteMartyr": "Saint Canute, Martyr",  // finland, norway
-    "saintThorlacBishop": "Saint Thorlac, Bishop",  // finland, norway
-    "saintOlafIiMartyr": "Saint Olaf II, Martyr",  // finland, norway
-    "blessedNicolasStenoBishop": "Blessed Nicolas Steno, Bishop",  // finland, norway
-    "saintGenevieveVirgin": "Saint Genevieve, Virgin",  // france
-    "saintRemigiusBishop": "Saint Remigius, Bishop",  // france
-    "saintBernadetteSoubirousVirgin": "Saint Bernadette Soubirous, Virgin",  // france
-    "saintIvoPriest": "Saint Ivo, Priest",  // france
-    "saintJoanOfArcVirginSecondaryPatronessOfFrance": "Saint Joan of Arc, Virgin, Secondary Patroness of France",  // france
+    "saintJosemariaEscrivaDeBalaguerPriest": "Svätého Josemaríe Escrivá de Balaguer, kňaza",  // finland
+    "saintCanuteMartyr": "Svätého Kanuta, mučeníka",  // finland, norway
+    "saintThorlacBishop": "Svätého Torlaka, biskupa",  // finland, norway
+    "saintOlafIiMartyr": "Svätý Olaf II., mučeníka",  // finland, norway; name change proposal
+    "blessedNicolasStenoBishop": "Blahoslaveného Nicolasa Stena, biskupa",  // finland, norway
+    "saintGenevieveVirgin": "Svätej Genovévy, panny",  // france
+    "saintRemigiusBishop": "Svätého Remígia, biskupa",  // france
+    "saintBernadetteSoubirousVirgin": "Svätej Bernadety Soubirousovej, panny",  // france
+    "saintIvoPriest": "Svätého Ivo, kňaza",  // france; name change proposal
+    "saintJoanOfArcVirginSecondaryPatronessOfFrance": "Svätej Jany z Arku, panny, sekundárnej patrónky Francúzska",  // france; create {key}.france
     "saintPothinusBishopSaintBlAndinaVirginAndTheirCompanionsMartyrs": "Saint Pothinus, Bishop, Saint Blandina, Virgin, and Their Companions, Martyrs",  // france
     "saintClotilde": "Saint Clotilde",  // france
     "saintCaesariusOfArlesBishop": "Saint Caesarius of Arles, Bishop",  // france
