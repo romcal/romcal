@@ -203,7 +203,7 @@
     "saintWenceslausMartyrSaintsLawrenceRuizAndCompanionsMartyrs": "Svätého Václava, mučeníka/Svätého Vavrinca Ruiza a spoločníkov, mučeníkov",  // to be separated
     "saintsMichaelGabrielAndRaphaelArchangels": "Svätých Michala, Gabriela a Rafaela, archanjelov",
     "saintJeromePriestAndDoctor": "Svätého Hieronyma, kňaza a učiteľa Cirkvi",
-    "saintThereseOfTheChildJesusVirginAndDoctor": "Svätej Terézie z Lisieux, panny a učiteľky Cirkvi",
+    "saintThereseOfTheChildJesusVirginAndDoctor": "Svätej Terézie od Dieťaťa Ježiša (z Lisieux), panny a učiteľky Cirkvi",
     "saintTeresaOfJesusVirginAndDoctorOfTheChurch": "Svätej Terézie od Ježiša (z Avily), panny a učiteľky Cirkvi",
     "guardianAngels": "Svätých anjelov strážcov",
     "saintFrancisOfAssisi": "Svätého Františka Assiského",
@@ -399,16 +399,16 @@
     "saintBernadetteSoubirousVirgin": "Svätej Bernadety Soubirousovej, panny",  // france
     "saintIvoPriest": "Svätého Ivo, kňaza",  // france; name change proposal
     "saintJoanOfArcVirginSecondaryPatronessOfFrance": "Svätej Jany z Arku, panny, sekundárnej patrónky Francúzska",  // france; create {key}.france
-    "saintPothinusBishopSaintBlAndinaVirginAndTheirCompanionsMartyrs": "Saint Pothinus, Bishop, Saint Blandina, Virgin, and Their Companions, Martyrs",  // france
-    "saintClotilde": "Saint Clotilde",  // france
-    "saintCaesariusOfArlesBishop": "Saint Caesarius of Arles, Bishop",  // france
-    "saintThereseOfTheChildJesusVirginSecondaryPatronessOfFrance": "Saint Therese of The Child Jesus, Virgin, Secondary Patroness of France",  // france
-    "saintValentineOfRaetiaBishop": "Saint Valentine of Raetia, Bishop", // germany
-    "saintSeverinusOfNoricumMonk": "Saint Severinus of Noricum, Monk",  // germany
-    "saintMeinradMartyr": "Saint Meinrad, Martyr",  // germany
-    "blessedHenrySusoPriest": "Blessed Henry Suso, Priest",  // germany
-    "saintRabanusMaurusBishop": "Saint Rabanus Maurus, Bishop",  // germany
-    "saintWalburgaAbbess": "Saint Walburga, Abbess",  // germany
+    "saintPothinusBishopSaintBlAndinaVirginAndTheirCompanionsMartyrs": "Svätých Potína, biskupa, Blandíny, panny, a ich spoločníkov, mučeníkov",  // france
+    "saintClotilde": "Svätej Klotildy",  // france
+    "saintCaesariusOfArlesBishop": "Svätého Cézara z Arles, biskupa",  // france
+    "saintThereseOfTheChildJesusVirginSecondaryPatronessOfFrance": "Svätej Terézie od Dieťaťa Ježiša (z Lisieux), panny a učiteľky Cirkvi, sekundárnej patrónky Francúzska",  // france; create {key}.france; duplicate
+    "saintValentineOfRaetiaBishop": "Svätého Valentína z Raetie, biskupa", // germany
+    "saintSeverinusOfNoricumMonk": "Svätého Severína z Norika, kňaza",  // germany
+    "saintMeinradMartyr": "Svätého Meinrada, mučeníka",  // germany
+    "blessedHenrySusoPriest": "Blahoslaveného Henricha Susa, kňaza",  // germany
+    "saintRabanusMaurusBishop": "Svätého Rabana Maura, biskupa",  // germany
+    "saintWalburgaAbbess": "Svätej Valburgy, opátky",  // germany
     "saintFridolinOfSackingenMonk": "Saint Fridolin of Säckingen, Monk",  // germany
     "saintMatilda": "Saint Matilda",  // germany
     "saintGertrudeOfNivellesAbbess": "Saint Gertrude of Nivelles, Abbess",  // germany
@@ -625,7 +625,7 @@
     "saintJosefBilczewskiBishop": "Saint Josef Bilczewski, Bishop",  // poland
     "dedicationOfAParticularChurch": "Dedication of a particular Church",  // poland, slovakia
     "blessedKarolinaKozkownaVirginAndMartyr": "Blessed Karolina Kozkowna, Virgin and Martyr",  // poland
-	    "blessedSalomeVirgin": "Blessed Salome, Virgin",  // poland
+    "blessedSalomeVirgin": "Blessed Salome, Virgin",  // poland
     "saintRafalKalinowskiPriest": "Saint Rafal Kalinowski, Priest",  // poland, russia
     "blessedMaryOfJesusTheGoodShepherdVirgin": "Blessed Mary of Jesus The Good Shepherd, Virgin",  // poland
     "blessedRafalChylinskiPriest": "Blessed Rafal Chylinski, Priest",  // poland
