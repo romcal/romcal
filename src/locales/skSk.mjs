@@ -65,7 +65,7 @@
     "presentationOfTheLord": "Obetovanie Páta",
     "transfiguration": "Premenenie Pána",
     "theExaltationOfTheHolyCross": "Povýšenie sv. Kríža",
-    "immaculateHeartOfMary": "Nepoškvrnené počatie Panny Márie"
+    "immaculateHeartOfMary": "Nepoškvrnené Srdce Panny Márie"
   },
   "general": {
     "shroveMonday": "Fašiangový pondelok",
@@ -264,7 +264,7 @@
     "saintFrancisSolanusPriest": "Svätého Františka Solana, kňaza",  // argentina, bolivia, peru
     "saintRocco": "Svätého Rocha, pútnika",  // argentina, lithuania
     "blessedCeferinoNamuncura": "Blahoslaveného Zefirína Namuncurá",  // argentina
-    "ourLadyOfMercy": "Panny Márie, Matky milosrdenstva",  // argentina, chile, peru
+    "ourLadyOfMercy": "Panny Márie milosrdenstva",  // argentina, chile, peru
     "saintHectorValdivielsoSaezMartyr": "Svätého Héctora Valdivielsa Sáeza (Benedikta od Ježiša), mučeníka",  // argentina
     "ourLadyOfThePillar": "Panny Márie del Pilar",  // argentina, spain
     "ourLadyOfTheValley": "Our Lady of The Valley",  // argentina
@@ -372,7 +372,7 @@
     "saintOliverPlunketBishopAndMartyr": "Svätého Olivera Plunketa, biskupa a mučeníka",  // england
     "blessedDominicOfTheMotherOfGodDominicBarberiPriest": "Blahoslaveného Dominika od Matky Božej Barberi, kňaza",  // england
     "saintsMargaretClitherowAnneLineAndMargaretWardMartyrs": "Svätej Margity Clitherowová, Anny Linová a Margity Wardová, mučeníc",  // england
-    "saintAidanBishopAndTheSaintsOfLindisfarne": "Svätého Aidana, biskupa, a lindisfarnských svätých",  // england
+    "saintAidanBishopAndTheSaintsOfLindisfarne": "Svätého Aidana, biskupa, a lindisfarnských svätých",  // england, ireland
     "saintCuthbertBishop": "Svätého Cuthbert, biskupa",  // england
     "saintTheodoreOfCanterburyBishop": "Svätého Teodora z Canterbury, biskupa",  // england
     "ourLadyOfWalsingham": "Walsinghamskej Panny Márie",  // england
@@ -420,7 +420,7 @@
     "saintHermannJosephPriest": "Svätého Hermana Jozefa, kňaza",  // germany; change in name/value proposed
     "saintBennoOfMeissenBishop": "Svätého Benna z Meißenu, biskupa",  // germany
     "saintHemmaOfGurk": "Svätej Emy z Gurku",  // germany
-    "psaintUlrichOfAugsburg": "Svätého Ulricha, biskupa",  // germany
+    "saintUlrichOfAugsburg": "Svätého Ulricha, biskupa",  // germany
     "saintWillibaldBishop": "Svätého Willibalda, biskupa",  // germany
     "saintKilianBishopAndCompanionsMartyrs": "Svätého Kiliána, biskupa, a spoločníkov, mučeníkov",  // germany
     "saintsCanuteEricAndOlafMartyrs": "Svätých Kanuta, Erika a Olafa, mučeníkov",  // germany; duplicate; to be separated
@@ -454,7 +454,7 @@
     "saintDionysiusTheAreopagite": "Svätého Dionýza Areopagitu, biskupa a mučeníka",  // greece
     "saintDemetrius": "Svätého Demetra Solúnskeho, mučeníka",  // greece
     "saintJohnDamasceneOrSaintBarbara": "Svätého Jána Damascénskeho, kňaza a učiteľa Cirkvi Or Svätej Barbory, panny a mučenice",  // to be deleted (not used in any calendar)
-    "saintNicholas": "Saint Nicholas",  // duplicate
+    "saintNicholas": "Svätého Mikuláša, biskupa",  // duplicate
     "saintSpyridon": "Svätého Spyridóna Trimifuntského, biskupa",  // greece
     "saintMargaretOfHungary": "Svätej Margity Uhorskej, rehoľníčky",  // hungary, slovakia
     "saintFlorianMartyr": "Svätého Floriána, mučeníka",  // hungary, poland, slovakia
@@ -462,97 +462,96 @@
     "blessedSaraSalkahaziVirginAndMartyr": "Blahoslavenej Sáry Salkaházi, panny a mučenice",  // hungary, slovakia
     "blessedVilmosAporBishopAndMartyr": "Blahoslaveného Vilmosa Apora, biskupa a mučeníka",  // hungary
     "transferOfTheRelicsOfSaintStephen": "Presunu ostatkov svätého Štefana Uhorského",  // hungary
-    //"blessedSandorMartyr": "Blessed Istvan Sandor, Martyr",  // deleted from `enUs.mjs` and all calendars
     "saintLadislaus": "Svätého Ladislava, biskupa a učiteľa Cirkvi",  // hungary, slovakia
-    "saintsAndrewZorardAndBenedictHermits": "Saints Andrew Zorard and Benedict, Hermits",  // hungary, poland, slovakia
-    "saintKingaVirgin": "Saint Kinga, Virgin",  // hungary, poland
-    "blessedInnocentXiPope": "Blessed Innocent XI, Pope",  // hungary
+    "saintsAndrewZorardAndBenedictHermits": "Svätých Andreja-Svorada a Benedikta, pustovníkov",  // hungary, poland, slovakia; duplicate
+    "saintKingaVirgin": "Svätej Kingy, panny",  // hungary, poland
+    "blessedInnocentXiPope": "Blahoslaveného Inocenta XI., pápeža",  // hungary
     "saintsMarkoKrizinMelicharGrodeckiAndStephenPongracPriestsAndMartyrs": "Svätých troch košických mučeníkov – Marka Križina, Melichara Grodzieckého a Štefana Pongrácza, kňazov a mučeníkov",  // hungary, slovakia
-    "saintGerardBishop": "Saint Gerard, Bishop",  // hungary
+    "saintGerardBishop": "Svätého Gerarda, biskupa",  // hungary
     "ourLadyOfHungary": "Patrónka Maďarov",  // hungary
     "saintMaurusBishop": "Svätého Maura, biskupa",  // hungary, slovakia
     "blessedTheodoreRomzhaBishopAndMartyr": "Blahoslaveného Teodora Romžu, biskupa a mučeníka",  // hungary
     "saintEmeric": "Svätého Imricha",  // hungary, slovakia
     "hungarianSaintsAndBlesseds": "Maďarskí svätí a blahoslavení",  // hungary
-    "blessedKuriakoseEliasChavaraPriest": "Blessed Kuriakose Elias Chavara, Priest",  // india
-    "blessedJosephVazPriest": "Blessed Joseph Vaz, Priest",  // india, sriLanka
-    "saintJohnDeBritoPriestAndMartyr": "Saint John de Brito, Priest and Martyr",  // india, portugal
-    "saintGonsaloGarciaMartyr": "Saint Gonsalo Garcia, Martyr",  // india
-    "blessedMariaTheresaChiramelVirgin": "Blessed Maria Theresa Chiramel, Virgin",  // india
-    "saintAlphonsaOfTheImmaculateConceptionVirgin": "Saint Alphonsa of The Immaculate Conception, Virgin",  // india
-    "saintMunchinBishop": "Saint Munchin, Bishop",  // ireland
-    "saintItaVirgin": "Saint Ita, Virgin",  // ireland
-    "saintFursaAbbotAndMissionary": "Saint Fursa, Abbot and Missionary",  // ireland
-    "saintAidanBishop": "Saint Aidan, Bishop",  // england, ireland; to be seperated
-    "saintBrigidVirgin": "Saint Brigid, Virgin",  // ireland
-    "saintMelBishop": "Saint Mel, Bishop",  // ireland
-    "saintGobnaitVirgin": "Saint Gobnait, Virgin",  // ireland
-    "saintFintan": "Saint Fintan",  // ireland
-    "saintKieranBishop": "Saint Kieran, Bishop",  // ireland
-    "saintSenanBishop": "Saint Senan, Bishop",  // ireland
-    "saintAengusOengusBishopAndAbbot": "Saint Aengus (Oengus), Bishop and Abbot",  // ireland
-    "saintEndaAbbot": "Saint Enda, Abbot",  // ireland
-    "saintMacartanBishop": "Saint Macartan, Bishop",  // ireland
-    "saintCeallachCelsusBishop": "Saint Ceallach (Celsus), Bishop",  // ireland
-    "saintMolaiseLaisrenLaserianBishop": "Saint Molaise (Laisren, Laserian), Bishop",  // ireland
-    "saintAsicusBishop": "Saint Asicus, Bishop",  // ireland
-    "saintConlethBishop": "Saint Conleth, Bishop",  // ireland
-    "blessedEdmundIgnatiusRiceReligious": "Blessed Edmund Ignatius Rice, Religious",  // ireland
-    "saintComgallAbbot": "Saint Comgall, Abbot",  // ireland
-    "saintCarthageBishopMochuta": "Saint Carthage, Bishop (Mochuta)",  // ireland
-    "saintBrendanAbbot": "Saint Brendan, Abbot",  // ireland
-    "saintKevinAbbot": "Saint Kevin, Abbot",  // ireland
-    "saintJarlathBishop": "Saint Jarlath, Bishop",  // ireland
-    "saintColmanOfDromoreBishop": "Saint Colman of Dromore, Bishop",  // ireland
-    "saintColumbaAbbotAndMissionary": "Saint Columba, Abbot and Missionary",  // ireland
-    "saintDavnetVirgin": "Saint Davnet, Virgin",  // ireland
-    "blessedIrishMartyrs": "Blessed Irish Martyrs",  // ireland
-    "saintOliverPlunkettBishopAndMartyr": "Saint Oliver Plunkett, Bishop and Martyr",  // ireland
-    "saintMoninneVirgin": "Saint Moninne, Virgin",  // ireland
-    "saintMaelruainMaolruainVirgin": "Saint Maelruain (Maolruain), Virgin",  // ireland
-    "saintKillianBishopAndMartyr": "Saint Killian, Bishop and Martyr",  // ireland
-    "saintDeclanBishop": "Saint Declan, Bishop",  // ireland
-    "saintMuiredachBishopSaintAttractaVirginOrSaintLeliaVirgin": "Saint Muiredach, Bishop, Saint Attracta, Virgin, Or Saint Lelia, Virgin",  // ireland
-    "saintFachtnaBishop": "Saint Fachtna, Bishop",  // ireland
-    "ourLadyOfKnock": "Our Lady of Knock",  // ireland
-    "saintEugeneEoghanBishop": "Saint Eugene (Eoghan), Bishop",  // ireland
-    "saintFiacreMonk": "Saint Fiacre, Monk",  // ireland
-    "saintAidanOfLindisfarneBishopAndMissionary": "Saint Aidan of Lindisfarne, Bishop and Missionary",  // ireland
-    "saintMacNissiBishop": "Saint Mac Nissi, Bishop",  // ireland
-    "saintCiaranAbbot": "Saint Ciaran, Abbot",  // ireland
-    "saintAilbeBishop": "Saint Ailbe, Bishop",  // ireland
-    "saintPioOfPietralcina": "Saint Pio of Pietralcina",  // duplicate
-    "saintFinbarrBishop": "Saint Finbarr, Bishop",  // ireland
-    "blessedColumbaMarmionPriest": "Blessed Columba Marmion, Priest",  // ireland
-    "saintCaniceAbbot": "Saint Canice, Abbot",  // ireland
+    "blessedKuriakoseEliasChavaraPriest": "Blahoslaveného Kyriaka Eliáša Čavaru, kňaza",  // india
+    "blessedJosephVazPriest": "Blahoslaveného Jozefa Vaza, kňaza",  // india, sriLanka
+    "saintJohnDeBritoPriestAndMartyr": "Svätého Jána de Brito, kňaza a mučeníka",  // india, portugal
+    "saintGonsaloGarciaMartyr": "Svätého Gonsala Garciu, mučeníka",  // india
+    "blessedMariaTheresaChiramelVirgin": "Blahoslavenej Márie Terézie Chiramelovej, panny",  // india
+    "saintAlphonsaOfTheImmaculateConceptionVirgin": "Svätej Alfonzy od Nepoškvrneného počatia, panny",  // india
+    "saintMunchinBishop": "Svätého Munchina, biskupa",  // ireland
+    "saintItaVirgin": "Svätej Ity, panny",  // ireland
+    "saintFursaAbbotAndMissionary": "Svätého Fursu, opát a misionár",  // ireland
+    "saintAidanBishop": "Svätého Aidana, biskupa",  // england, ireland; to be seperated
+    "saintBrigidVirgin": "Svätá Brigita Irská, panna",  // ireland; name change suggested
+    "saintMelBishop": "Svätý Mel, biskup",  // ireland
+    "saintGobnaitVirgin": "Svätá Gobnaita, panna",  // ireland
+    "saintFintan": "Svätého Fintana",  // ireland
+    "saintKieranBishop": "Svätého Ciarána, biskup",  // ireland
+    "saintSenanBishop": "Svätého Senana, biskupa",  // ireland
+    "saintAengusOengusBishopAndAbbot": "Svätého Aengusa (Óengusa), biskupa a opáta",  // ireland
+    "saintEndaAbbot": "Svätého Endu, opáta",  // ireland
+    "saintMacartanBishop": "Svätého Makartána, biskupa",  // ireland
+    "saintCeallachCelsusBishop": "Svätého Ceallacha (Celza), biskupa",  // ireland
+    "saintMolaiseLaisrenLaserianBishop": "Svätého Molaise (Laisrena, Laseriana), biskupa",  // ireland
+    "saintAsicusBishop": "Svatého Azika, biskupa",  // ireland
+    "saintConlethBishop": "Svätého Konleta, biskupa",  // ireland
+    "blessedEdmundIgnatiusRiceReligious": "Blahoslaveného Edmunda Ignáca Rica, rehoľníka",  // ireland
+    "saintComgallAbbot": "Svätého Comgalla, opáta",  // ireland
+    "saintCarthageBishopMochuta": "Svätého Kartága (Mo Chutu), biskupa",  // ireland; aka Mo Chutu of Lismore or Carthage the Younger
+    "saintBrendanAbbot": "Svätého Brendana, opáta",  // ireland
+    "saintKevinAbbot": "Svätého Kevina, opáta",  // ireland
+    "saintJarlathBishop": "Svätého Jarláta, biskupa",  // ireland
+    "saintColmanOfDromoreBishop": "Svätého Kolomana z Dromore, biskupa",  // ireland
+    "saintColumbaAbbotAndMissionary": "Svätého Kolumbu, opáta a misionára",  // ireland
+    "saintDavnetVirgin": "Svätej Davnety, panny",  // ireland
+    "blessedIrishMartyrs": "Blahoslavených írskych mučeníkov",  // ireland
+    "saintOliverPlunkettBishopAndMartyr": "Svätého Olivera Plunketta, biskupa a mučeníka",  // ireland
+    "saintMoninneVirgin": "Svätej Moninny, panny",  // ireland
+    "saintMaelruainMaolruainVirgin": "Svätej Máel Ruainy (Maolruainy), biskupa a opáta",  // ireland; name change proposed
+    "saintKillianBishopAndMartyr": "Svätého Killiana, biskupa a mučeníka",  // ireland
+    "saintDeclanBishop": "Svätého Deklana, biskupa",  // ireland
+    "saintMuiredachBishopSaintAttractaVirginOrSaintLeliaVirgin": "Svätého Muredacha, biskupa, alebo svätej Atrakty, panny, alebo svätej Lelie, panny",  // ireland
+    "saintFachtnaBishop": "Svatého Fachtnu, biskupa",  // ireland
+    "ourLadyOfKnock": "Panny Márie z Knocku",  // ireland
+    "saintEugeneEoghanBishop": "Svätého Eugana (Eoghana), biskupa",  // ireland
+    "saintFiacreMonk": "Svätého Fiakra, mnícha",  // ireland; monk-issue
+    "saintAidanOfLindisfarneBishopAndMissionary": "Svätého Aidana Lindisfarnského, biskupa a misionára",  // ireland; duplicate
+    "saintMacNissiBishop": "Svätého Mac Nissiho, biskupa",  // ireland
+    "saintCiaranAbbot": "Svätého Kiarána, opáta",  // ireland
+    "saintAilbeBishop": "Svätého Ailba, biskupa",  // ireland
+    "saintPioOfPietralcina": "Svätého Pia z Pietrelčiny, kňaza",  // duplicate
+    "saintFinbarrBishop": "Svätého Finbarra, biskupa",  // ireland
+    "blessedColumbaMarmionPriest": "Blahoslaveného Columbu Marmiona, kňaza",  // ireland
+    "saintCaniceAbbot": "Svätého Canica, opáta",  // ireland
     "saintGallAbbotAndMissionary": "Svätého Gála, opáta a misionára",  // germany, ireland
-    "saintOtteranMonk": "Saint Otteran, Monk",  // ireland
-    "saintColmanOfKilmacduaghBishop": "Saint Colman of Kilmacduagh, Bishop",  // ireland
-    "saintMalachyBishop": "Saint Malachy, Bishop",  // ireland
-    "saintLaurenceOTooleBishop": "Saint Laurence O'Toole, Bishop",  // ireland
-    "saintColumbanAbbotAndMissionary": "Saint Columban, Abbot and Missionary",  // ireland
-    "saintColmanOfCloyneBishop": "Saint Colman of Cloyne, Bishop",  // ireland
-    "saintFergalBishopAndMissionary": "Saint Fergal, Bishop and Missionary",  // ireland
-    "saintFinnianOfClonardBishop": "Saint Finnian of Clonard, Bishop",  // ireland
-    "saintFlannanBishop": "Saint Flannan, Bishop",  // ireland
-    "saintFachananOfKilfenoraBishop": "Saint Fachanan of Kilfenora, Bishop",  // ireland
-    "discoveryOfTheHiddenChristians": "Discovery of The Hidden Christians",  // japan
-    "blessedPeterKibePriestAndCompanionsMartyrs": "Blessed Peter Kibe, Priest and Companions, Martyrs",  // japan
-    "205BlessedMartyrsOfJapan": "205 Blessed Martyrs of Japan",  // japan
-    "saintThomasRokuzayemonPriestAndCompanionsMartyrs": "Saint Thomas Rokuzayemon, Priest and Companions, Martyrs",  // japan
+    "saintOtteranMonk": "Svätého Otterána, mnícha",  // ireland
+    "saintColmanOfKilmacduaghBishop": "Svätého Kolomana z Kilmacduagh, biskupa",  // ireland
+    "saintMalachyBishop": "Svätého Malachiáša, biskupa",  // ireland
+    "saintLaurenceOTooleBishop": "Svätého Vavrinec O’Toole, biskupa",  // ireland
+    "saintColumbanAbbotAndMissionary": "Svätého Kolumbana, opáta a misionára",  // ireland
+    "saintColmanOfCloyneBishop": "Svätého Kolomana z Cloyne, biskupa",  // ireland
+    "saintFergalBishopAndMissionary": "Svätého Fergala (Virgila), biskupa a misionára",  // ireland
+    "saintFinnianOfClonardBishop": "Svätého Finniana z Clonardu, biskupa",  // ireland
+    "saintFlannanBishop": "Svätého Flannana, biskupa",  // ireland
+    "saintFachananOfKilfenoraBishop": "Svätého Fachanana z Kilfenora, biskupa",  // ireland
+    "discoveryOfTheHiddenChristians": "Objavenia skrytých kresťanov",  // japan
+    "blessedPeterKibePriestAndCompanionsMartyrs": "Blahoslaveného Petra Kibeho, kňaza, a spoločníkov, mučeníkov",  // japan
+    "205BlessedMartyrsOfJapan": "205 blahoslavených mučeníkov Japonska",  // japan
+    "saintThomasRokuzayemonPriestAndCompanionsMartyrs": "Svätého Tomáša Rokuzayemona, kňaza, a spoločníkov, mučeníkov",  // japan
     "saintBarbaraVirginAndMartyr": "Svätej Barbory, panny a mučenice",  // germany, greece, lebanon, poland, russia, slovakia
-    "saintNicholasBishop": "Saint Nicholas, Bishop",  // duplicate
-    "saintMaroun": "Saint Maroun",  // lebanon
-    "saintRafqaRebeccaVirgin": "Saint Rafqa (Rebecca), Virgin",  // lebanon
-    "ourLadyOfLebanon": "Our Lady of Lebanon",  // lebanon
-    "blessedJerzyMatulewiczBishop": "Blessed Jerzy Matulewicz, Bishop",  // lithuania, poland
-    "saintBrunoBonifaceOfQuerfurtBishopAndMartyr": "Saint Bruno Boniface Of Querfurt, Bishop And Martyr",  // germany, lithuania, poland
-    "saintAndrewBobolaPriestAndMartyr": "Saint Andrew Bobola, Priest and Martyr",  // lithuania, poland, ukraine
-    "ourLadyMotherOfMercy": "Our Lady, Mother of Mercy",  // lithuania
-    "saintHyacinthPriest": "Saint Hyacinth, Priest",  // to be separated; czechRepublic, lithuania, poland
-    "saintPubliusBishop": "Saint Publius, Bishop",  // malta
-    "shipwreckOfSaintPaulApostle": "Shipwreck of Saint Paul, Apostle",  // malta
-    "blessedMariaAdeodataPisaniVirgin": "Blessed Maria Adeodata Pisani, Virgin",  // malta
+    "saintNicholasBishop": "Svätého Mikuláša, biskupa",  // duplicate
+    "saintMaroun": "Svätého Maróna, pustovníka",  // lebanon
+    "saintRafqaRebeccaVirgin": "Svätej Rafky (Rebeky), panny",  // lebanon
+    "ourLadyOfLebanon": "Panny Márie z Lebanonu",  // lebanon
+    "blessedJerzyMatulewiczBishop": "Blahoslaveného Juraja Matulaitisa, biskupa",  // lithuania, poland
+    "saintBrunoBonifaceOfQuerfurtBishopAndMartyr": "Svätého Bruna Bonifáca z Querfurtu, biskupa a mučeníka",  // germany, lithuania, poland
+    "saintAndrewBobolaPriestAndMartyr": "Svätého Andreja Bobolu, kňaza a mučeníka",  // lithuania, poland, ukraine
+    "ourLadyMotherOfMercy": "Panny Márie Ostrobramskej",  // lithuania; name change proposed
+    "saintHyacinthPriest": "Svätého Hyacinta Poľského, kňaza",  // to be separated; czechRepublic, lithuania, poland
+    "saintPubliusBishop": "Svätého Publia, biskupa",  // malta
+    "shipwreckOfSaintPaulApostle": "Vraku lode svätého Pavla, apoštola",  // malta
+    "blessedMariaAdeodataPisaniVirgin": "Blahoslavenej Márie Adeodaty Pisaniovej, panny",  // malta
     "saintGeorgePrecaPriest": "Saint George Preca, Priest",  // malta
     "blessedNazjuFalzon": "Blessed Nazju Falzon",  // malta
     "saintFelipeDeJesusPriestAndMartyr": "Saint Felipe de Jesus, Priest And Martyr",  // mexico
@@ -672,7 +671,7 @@
     "saintColumba": "Saint Columba",  // duplicate; england, ireland, scotland
     "saintNinian": "Saint Ninian",  // scotland
     "saintMargaretOfScotland": "Saint Margaret of Scotland",  // to be separated; duplicate
-    "saintsAndrewZoerardusAndBenedictHermits": "Svätých Andreja-Svorada a Benedikta, pustovníkov",  // slovakia
+    "saintsAndrewZoerardusAndBenedictHermits": "Svätých Andreja-Svorada a Benedikta, pustovníkov",  //  hungary, poland, slovakia
     "saintGorazdAndCompanions": "Svätého Gorazda a spoločníkov",  // slovakia
     "blessedZdenkaSchelingovaVirginAndMartyr": "Blahoslavenej Zdenky Schelingovej, panny a mučenice",  // slovakia
     "saintEulogiusOfCordobaBishop": "Saint Eulogius of Cordoba, Bishop",  // spain
