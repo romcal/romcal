@@ -75,7 +75,7 @@
     "saintRaymondOfPenyafortPriest": " Svätého Rajmunda z Peňafortu, kňaza",
     "saintHilaryOfPoitiersBishopAndDoctor": "Svätého Hilára, biskupa, učiteľa Cirkvi",
     "saintAnthonyOfEgyptAbbot": "Svätého Antona, opáta",
-    "saintFabianPopeAndMartyrAndSaintSebastianMartyr": "Svätý Fabián, pápež a mučeník, a svätý Šebastián, mučeník",
+    "saintFabianPopeAndMartyrAndSaintSebastianMartyr": "Svätého Fabiána, pápeža a mučeníka, a svätého Šebastiána, mučeníka",
     "saintAgnesVirginAndMartyr": "Svätej Agnesy, panny a mučenice",
     "saintVincentDeaconAndMartyr": "Svätého Vincenta, diakona a mučeníka",
     "saintFrancisDeSalesBishopAndDoctor": "Svätého Františka Saleského, biskupa a učiteľa Cirkvi",
@@ -84,7 +84,7 @@
     "saintAngelaMericiVirgin": "Svätej Angely Merici, panny",
     "saintThomasAquinasPriestAndDoctor": "Svätého Tomáša Akvinského, kňaza a učiteľa Cirkvi",
     "saintJohnBoscoPriest": "Svätého Jána Boska, kňaza",
-    "saintBlaseBishopAndMartyrSaintAnsgarBishop": "Svätý Blažej, biskup a mučeník, a svätý Oskár, biskup",
+    "saintBlaseBishopAndMartyrSaintAnsgarBishop": "Svätého Blažeja, biskupa a mučeníka, a svätého Oskára, biskupa",
     "saintAgathaVirginAndMartyr": "Svätej Agáty, panny a mučenice",
     "saintPaulMikiAndCompanionsMartyrs": "Svätého Pavla Mikiho a spoločníkov, mučeníkov",
     "saintJeromeEmilianiSaintJosephineBakhitaVirgin": "Svätého Hieronyma Emilianiho/Svätej Jozefíny Bakhity, panny",
@@ -102,7 +102,7 @@
     "saintPatrickBishop": "Svätého Patrika, biskupa",
     "saintCyrilOfJerusalemBishopAndDoctor": "Svätého Cyrila Jeruzalemského, biskupa a učiteľa Cirkvi",
     "saintTuribiusOfMogrovejoBishop": "Svätého Turibia de Mongrovejo, biskupa",
-    "saintFrancisOfPaolaHermit": "Svätý František z Paoly, pustovník",
+    "saintFrancisOfPaolaHermit": "Svätého Františka z Paoly, pustovníka",
     "saintIsidoreOfSevilleBishopAndDoctorOfTheChurch": "Svätého Izidora, biskupa a učiteľa Cirkvi",
     "saintVincentFerrerPriest": "Svätého Vincenta Ferrera, kňaza",
     "saintJohnBaptistDeLaSallePriest": "Svätého Jána Krstiteľa de la Salle, kňaza",
@@ -273,7 +273,7 @@
     "blessedPeterToRotMartyr": "Blahoslaveného Petra To Rota, mučeníka",  // australia
     "saintMaryOfTheCrossVirgin": "Svätej Márie od Kríža, panny",  // australia
     "saintBrotherMutienMarieReligious": "Svätého brata Mutien-Marie, rehoľníka",  // belgium
-    "saintAmandMissionary": "Svätý Milan, biskup",  // belgium, ?add france, ?add slovakia (Milan or Amantius?)
+    "saintAmandMissionary": "Svätého Milana, biskupa",  // belgium, ?add france, ?add slovakia (Milan or Amantius?)
     "saintGertrudeOfNivellesVirgin": "Svätej Gertrúdy z Nivelles, panny",  // belgium, germany
     "saintJulieBilliartVirgin": "Svätej Júlie Billiart, panny",  // belgium
     "saintJulianaOfLiegeVirgin": "Svätej Juliány z Liége, panny",  // belgium
@@ -392,7 +392,7 @@
     "saintJosemariaEscrivaDeBalaguerPriest": "Svätého Josemaríe Escrivá de Balaguer, kňaza",  // finland
     "saintCanuteMartyr": "Svätého Kanuta, mučeníka",  // finland, norway
     "saintThorlacBishop": "Svätého Torlaka, biskupa",  // finland, norway
-    "saintOlafIiMartyr": "Svätý Olaf II., mučeníka",  // finland, norway; name change proposal
+    "saintOlafIiMartyr": "Svätého Olafa II., mučeníka",  // finland, norway; name change proposal
     "blessedNicolasStenoBishop": "Blahoslaveného Nicolasa Stena, biskupa",  // finland, norway
     "saintGenevieveVirgin": "Svätej Genovévy, panny",  // france
     "saintRemigiusBishop": "Svätého Remígia, biskupa",  // france
@@ -472,7 +472,7 @@
     "saintMaurusBishop": "Svätého Maura, biskupa",  // hungary, slovakia
     "blessedTheodoreRomzhaBishopAndMartyr": "Blahoslaveného Teodora Romžu, biskupa a mučeníka",  // hungary
     "saintEmeric": "Svätého Imricha",  // hungary, slovakia
-    "hungarianSaintsAndBlesseds": "Maďarskí svätí a blahoslavení",  // hungary
+    "hungarianSaintsAndBlesseds": "Maďarských svätých a blahoslavených",  // hungary
     "blessedKuriakoseEliasChavaraPriest": "Blahoslaveného Kyriaka Eliáša Čavaru, kňaza",  // india
     "blessedJosephVazPriest": "Blahoslaveného Jozefa Vaza, kňaza",  // india, sriLanka
     "saintJohnDeBritoPriestAndMartyr": "Svätého Jána de Brito, kňaza a mučeníka",  // india, portugal
@@ -483,9 +483,9 @@
     "saintItaVirgin": "Svätej Ity, panny",  // ireland
     "saintFursaAbbotAndMissionary": "Svätého Fursu, opát a misionár",  // ireland
     "saintAidanBishop": "Svätého Aidana, biskupa",  // england, ireland; to be seperated
-    "saintBrigidVirgin": "Svätá Brigita Irská, panna",  // ireland; name change suggested
-    "saintMelBishop": "Svätý Mel, biskup",  // ireland
-    "saintGobnaitVirgin": "Svätá Gobnaita, panna",  // ireland
+    "saintBrigidVirgin": "Svätej Brigity Írskej, panny",  // ireland; name change suggested
+    "saintMelBishop": "Svätého Mela, biskupa",  // ireland
+    "saintGobnaitVirgin": "Svätej Gobnaity, panny",  // ireland
     "saintFintan": "Svätého Fintana",  // ireland
     "saintKieranBishop": "Svätého Ciarána, biskup",  // ireland
     "saintSenanBishop": "Svätého Senana, biskupa",  // ireland
@@ -552,37 +552,37 @@
     "saintPubliusBishop": "Svätého Publia, biskupa",  // malta
     "shipwreckOfSaintPaulApostle": "Vraku lode svätého Pavla, apoštola",  // malta
     "blessedMariaAdeodataPisaniVirgin": "Blahoslavenej Márie Adeodaty Pisaniovej, panny",  // malta
-    "saintGeorgePrecaPriest": "Saint George Preca, Priest",  // malta
-    "blessedNazjuFalzon": "Blessed Nazju Falzon",  // malta
-    "saintFelipeDeJesusPriestAndMartyr": "Saint Felipe de Jesus, Priest And Martyr",  // mexico
-    "blessedSebastianDeAparicioReligious": "Blessed Sebastian de Aparicio, Religious",  // mexico
-    "saintMariaDeJesusSacramentadoVenegasVirgin": "Saint Maria de Jesus Sacramentado Venegas, Virgin",  // mexico
-    "blessedBartolomeLaurelReligiousAndMartyr": "Blessed Bartolome Laurel, Religious and Martyr",  // mexico
-    "blessedsPedroZunigaAndLuisFloresPriestsAndMartyrs": "Blesseds Pedro Zuniga And Luis Flores, Priests and Martyrs",  // mexico
-    "blessedJuniperoSerraPriest": "Blessed Junipero Serra, Priest",  // mexico, unitedStates
-    "saintJoseMariaDeYermoPriest": "Saint Jose Maria de Yermo, Priest",  // mexico
-    "saintRafaelGuizarYValenciaBishop": "Saint Rafael Guizar y Valencia, Bishop",  // mexico
-    "blessedMiguelAgustinProPriestAndMartyr": "Blessed Miguel Agustin Pro, Priest and Martyr",  // mexico, unitedStates
-    "saintJuanDiego": "Saint Juan Diego",  // mexico, unitedStates
-    "waitangiDay": "Waitangi Day",  // newZealand
-    "saintMarkApostle": "Saint Mark, Apostle",  // newZealand
-    "saintLouisGrignonDeMontfortPriest": "Saint Louis Grignon de Montfort, Priest",  // duplicate
-    "saintMarcellinChampagnatPriest": "Saint Marcellin Champagnat, Priest",  // newZealand
+    "saintGeorgePrecaPriest": "Svätého Juraja Precu, kňaza",  // malta
+    "blessedNazjuFalzon": "Blahoslaveného Ignáca Falzona",  // malta
+    "saintFelipeDeJesusPriestAndMartyr": "Svätého Filipa od Ježiša, kňaza a mučeníka",  // mexico; separated from saintPaulMikiAndCompanionsMartyrs; localised keys (from saintPaulMikiAndCompanionsMartyrs): saintsFelipeDeJesusPaulMikiAndCompanionsMartyrs and saintsPedroBautistaPaulMikiAndCompanionsMartyrs
+    "blessedSebastianDeAparicioReligious": "Blahoslaveného Šebastiána de Aparicio, Religious",  // mexico
+    "saintMariaDeJesusSacramentadoVenegasVirgin": "Svätej Márie od Ježiša v Najsvätejšej Sviatosti, Panny",  // mexico; name change suggested
+    "blessedBartolomeLaurelReligiousAndMartyr": "Blahoslaveného Bartolomeja Laurela, rehoľníka a mučeníka",  // mexico
+    "blessedsPedroZunigaAndLuisFloresPriestsAndMartyrs": "Blahoslavených Petra de Zúñigu a Ľudovíta Floresa, kňazov a mučeníkov",  // mexico
+    "blessedJuniperoSerraPriest": "Blahoslaveného Junipera Serru, kňaza",  // mexico, unitedStates
+    "saintJoseMariaDeYermoPriest": "Svätého Jozefa Márie de Yerma, kňaza",  // mexico
+    "saintRafaelGuizarYValenciaBishop": "Svätého Rafaela Guízara, biskupa",  // mexico
+    "blessedMiguelAgustinProPriestAndMartyr": "Blahoslaveného Michaela Pro, kňaza a mučeníka",  // mexico, unitedStates
+    "saintJuanDiego": "Svätého Jána Didaka (Juana Diega) Cuauhtlatoatzina",  // mexico, unitedStates
+    "waitangiDay": "Deň Waitangi",  // newZealand
+    "saintMarkApostle": "Svätého Marka, apoštola",  // newZealand
+    "saintLouisGrignonDeMontfortPriest": "Svätého Ľudovíta Márie Grignona de Montfort, kňaza",  // duplicate
+    "saintMarcellinChampagnatPriest": "Svätého Marcelína Champagnata, kňaza",  // newZealand
     "saintDominicPriest/SaintSixtusIiPopeAndCompanionsMartyrsSaintCajetanPriest": "Svätého Dominika, kňaza/Svätých Sixta II., pápeža, a jeho spoločníkov, mučeníkov/Svätého Kajetána, kňaza",  // to be separated
-    "saintMaryMacKillopVirgin": "Saint Mary MacKillop, Virgin",  // newZealand
-    "saintThorfinnBishop": "Saint Thorfinn, Bishop",  // norway
-    "saintEysteinnBishop": "Saint Eysteinn, Bishop",  // norway
-    "saintMagnusMartyr": "Saint Magnus, Martyr",  // norway
-    "saintSunnivaVirginAndMartyr": "Saint Sunniva, Virgin and Martyr",  // norway
-    "saintSwithunBishop": "Saint Swithun, Bishop",  // norway
-    "findingOfTheHolyCross": "Finding of The Holy Cross",  // peru
-    "ourLadyOfPeace": "Our Lady of Peace",  // peru
-    "ourLordOfMiracles": "Our Lord of Miracles",  // peru
-    "santoNinoInfantJesus": "Santo Nino (Infant Jesus)",  // philippines
-    "saintsPedroBautistaPaulMikiAndCompanionsMartyrs": "Saints Pedro Bautista, Paul Miki and Companions, Martyrs",  // pejulian simply removed it
-    "saintPedroCalungsodMartyr": "Saint Pedro Calungsod, Martyr",  // philippines
-    "saintEzekielMorenoBishop": "Saint Ezekiel Moreno, Bishop",  // philippines
-    "saintLorenzoRuizAndCompanionsMartyrs": "Saint Lorenzo Ruiz and Companions, Martyrs",  // philippines
+    "saintMaryMacKillopVirgin": "Svätej Márie MacKillopovej, Panny",  // newZealand
+    "saintThorfinnBishop": "Svätého Torfina Hamarského, biskupa",  // norway; name change suggested
+    "saintEysteinnBishop": "Svätého Eysteina Erlendssona, biskupa",  // norway; name change suggested
+    "saintMagnusMartyr": "Svätého Magnusa Erlendssona, mučeníka",  // norway
+    "saintSunnivaVirginAndMartyr": "Svätej Sunnivy, panny a mučenice",  // norway
+    "saintSwithunBishop": "Svätého Swithuna, biskupa",  // norway
+    "findingOfTheHolyCross": "Nájdenie svätého Kríža",  // peru
+    "ourLadyOfPeace": "Panny Márie pokoja",  // peru
+    "ourLordOfMiracles": "Panny Márie zázrakov",  // peru
+    "santoNinoInfantJesus": "Svätého Dieťaťa z Cebu",  // philippines
+    "saintsPedroBautistaPaulMikiAndCompanionsMartyrs": "Svätého Petra Bautistu, Pavla Mikiho a spoločníkov, mučeníkov",  // philippines; pejulian simply removed it
+    "saintPedroCalungsodMartyr": "Svätého Petra Calungsoda, mučeníka",  // philippines
+    "saintEzekielMorenoBishop": "Svätého Ezechiela Morena, biskupa",  // philippines
+    "saintLorenzoRuizAndCompanionsMartyrs": "Svätého Vavrinca Ruiza a spoločníkov, mučeníkov",  // philippines
     "immaculateConceptionOfTheBlessedVirginMaryPrincipalPatronessOfThePhilippines": "Immaculate Conception of The Blessed Virgin Mary, Principal Patroness Of The Philippines",  // philippines
     "saintJozefSebastianPelczar": "Saint Jozef Sebastian Pelczar",  // poland
     "saintVincentPallottiPriest": "Saint Vincent Pallotti, Priest",  // poland
