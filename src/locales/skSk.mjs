@@ -200,7 +200,7 @@
     "saintPioOfPietrelcinaPadrePioPriest": "Svätého Pia z Pietrelčiny, kňaza",
     "saintsCosmasAndDamianMartyrs": "Svätých Kozmu a Damiána, mučeníkov",
     "saintVincentDePaulPriest": "Svätého Vincenta de Paul, kňaza",
-    "saintWenceslausMartyrSaintsLawrenceRuizAndCompanionsMartyrs": "Svätého Václava, mučeníka/Svätého Vavrinca Ruiza a spoločníkov, mučeníkov",  // to be separated
+    "saintWenceslausMartyrSaintsLawrenceRuizAndCompanionsMartyrs": "Svätého Václava, mučeníka/Svätého Vavrinca Ruiza a spoločníkov, mučeníkov",  // to be separated; duplicate
     "saintsMichaelGabrielAndRaphaelArchangels": "Svätých Michala, Gabriela a Rafaela, archanjelov",
     "saintJeromePriestAndDoctor": "Svätého Hieronyma, kňaza a učiteľa Cirkvi",
     "saintThereseOfTheChildJesusVirginAndDoctor": "Svätej Terézie od Dieťaťa Ježiša (z Lisieux), panny a učiteľky Cirkvi",
@@ -213,7 +213,7 @@
     "popeSaintJohnXXIII": "Svätého Jána XXIII., pápeža",
     "popeSaintJohnPaulII": "Svätého Jána Pavla II., pápeža",
     "saintCallistusIPopeAndMartyr": "Svätého Kalixta I., pápeža a mučeníka",
-    "saintHedwigReligiousSaintMargaretMaryAlacoqueVirgin": "Svätej Hedvigy, rehoľníčky/Svätej Margity Márie Alacoque, panny",
+    "saintHedwigReligiousSaintMargaretMaryAlacoqueVirgin": "Svätej Hedvigy, rehoľníčky/Svätej Margity Márie Alacoque, panny",  // Hedwig of Silesia
     "saintIgnatiusOfAntiochBishopAndMartyr": "Svätého Ignáca Antiochijského, biskupa a mučeníka",
     "saintLukeTheEvangelist": "Svätého Lukáša, evanjelistu",
     "saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrsSaintPaulOfTheCrossPriest": "Svätých Jána de Brébeuf a Izáka Joguesa, kňazov, a ich spoločníkov, mučeníkov",
@@ -328,7 +328,7 @@
     "blessedEmilieTavernierGamelinReligious": "Blahoslavenej Márie Emílie Tavernier Gamelinovej, rehoľníčky",  // canada
     "blessedMarieRoseDurocherVirgin": "Blahoslavenej Márie Durocherovej, panny",  // canada, unitedStates
     "saintMargueriteDYouvilleReligious": "Svätej Margaréty d'Youville, rehoľníčky",  // canada
-    "saintHedwigReligiousOrSaintMargaretMaryAlacoqueVirgin": "Svätej Hedvigy, rehoľníčky, alebo svätej Margity Márie Alacoque, panny",  // duplicate; canada
+    "saintHedwigReligiousOrSaintMargaretMaryAlacoqueVirgin": "Svätej Hedvigy, rehoľníčky, alebo svätej Margity Márie Alacoque, panny",  // duplicate; canada; Hedwig of Silesia
     "blessedPiusIxPope": "Blahoslaveného Pia IX., pápeža",  // chile
     "saintTeresaOfLosAndesVirgin": "Svätej Terézie z Los Andes, panny",  // chile
     "ourLadyOfMountCarmelMotherAndQueenOfChile": "Panny Márie Karmelskej, Matky a Kráľovnej Chile",  // duplicate; TODO: localised key: "ourLadyOfMountCarmel".chille
@@ -582,64 +582,64 @@
     "saintsPedroBautistaPaulMikiAndCompanionsMartyrs": "Svätého Petra Bautistu, Pavla Mikiho a spoločníkov, mučeníkov",  // philippines; pejulian simply removed it
     "saintPedroCalungsodMartyr": "Svätého Petra Calungsoda, mučeníka",  // philippines
     "saintEzekielMorenoBishop": "Svätého Ezechiela Morena, biskupa",  // philippines
-    "saintLorenzoRuizAndCompanionsMartyrs": "Svätého Vavrinca Ruiza a spoločníkov, mučeníkov",  // philippines
-    "immaculateConceptionOfTheBlessedVirginMaryPrincipalPatronessOfThePhilippines": "Immaculate Conception of The Blessed Virgin Mary, Principal Patroness Of The Philippines",  // philippines
-    "saintJozefSebastianPelczar": "Saint Jozef Sebastian Pelczar",  // poland
-    "saintVincentPallottiPriest": "Saint Vincent Pallotti, Priest",  // poland
-    "blessedVincentLewoniukAndCompanionsMartyrsOfPratulin": "Blessed Vincent Lewoniuk and Companions, Martyrs Of Pratulin",  // poland
-    "blessedBoleslawaMariaLamentVirginAndSaintAngelaMericiVirgin": "Blessed Boleslawa Maria Lament, Virgin/Saint Angela Merici, Virgin",  // poland, russia
-    "ourLadyQueenOfPoland": "Our Lady, Queen of Poland",  // poland
-    "saintStanislausKazimierczykPriest": "Saint Stanislaus Kazimierczyk, Priest",  // poland
-    "saintJohnSarkanderPriestAndMartyrSaintZdzislawa": "Saint John Sarkander, Priest and Martyr/Saint Zdzislawa",  // poland
-    "saintHedwigOfPoland": "Saint Hedwig of Poland",  // poland, ukraine
-    "blessedBogumilBishop": "Blessed Bogumil, Bishop",  // poland
-    "blessedAntoniNowowiejskiBishopAndCompanionsMartyrs": "Blessed Antoni Nowowiejski, Bishop and Companions, Martyrs",  // poland
-    "blessedMichaelKozalBishopAndMartyr": "Blessed Michael Kozal, Bishop and Martyr",  // poland
-    "blessedJolantaReligious": "Blessed Jolanta, Religious",  // poland
-    "saintAlbertChmielowskiReligious": "Saint Albert Chmielowski, Religious",  // poland, ukraine
-    "saintZygmuntGorazdowskiPriest": "Saint Zygmunt Gorazdowski, Priest",  // poland, ukraine
-    "saintOttoOfBambergBishop": "Saint Otto of Bamberg, Bishop",  // germany, poland
-    "blessedMariaTeresaLedochowskaVirgin": "Blessed Maria Teresa Ledochowska, Virgin",  // poland
-    "saintJohnOfDuklaPriest": "Saint John of Dukla, Priest",  // poland, ukraine
-    "saintSimonOfLipnicaPriest": "Saint Simon of Lipnica, Priest",  // poland
-    "blessedCzeslawPriest": "Blessed Czeslaw, Priest",  // duplicate; poland
-    "blessedEdmundBojanowski": "Blessed Edmund Bojanowski",  // poland
-    "ourLadyOfCzestochowa": "Our Lady of Czestochowa",  // poland, russia, ukraine
-    "blessedBronislawaVirgin": "Blessed Bronislawa, Virgin",  // poland
-    "blessedMariaStellaAndCompanionsVirginsAndMartyrs": "Blessed Maria Stella and Companions, Virgins and Martyrs",  // poland
-    "blessedAnielaSalawaVirgin": "Blessed Aniela Salawa, Virgin",  // poland
+    "saintLorenzoRuizAndCompanionsMartyrs": "Svätého Vavrinca Ruiza a spoločníkov, mučeníkov",  // philippines; duplicate
+    "immaculateConceptionOfTheBlessedVirginMaryPrincipalPatronessOfThePhilippines": "Nepoškvrnené počatie Panny Márie, hlavná Patrónka Filipín",  // philippines; duplicate; localise ({key}.philippines)
+    "saintJozefSebastianPelczar": "Svätého Jozefa Sebastiána Pelczara, biskupa",  // poland
+    "saintVincentPallottiPriest": "Svätého Vincenta Pallottiho, kňaza",  // poland
+    "blessedVincentLewoniukAndCompanionsMartyrsOfPratulin": "Blahoslaveného Vincenta Lewoniuka a spoločníkov, mučeníkov",  // poland
+    "blessedBoleslawaMariaLamentVirginAndSaintAngelaMericiVirgin": "Blahoslavenej Boleslavy Márie Lamentovej, Panny/Svätej Angely Merici, panny",  // poland, russia; to be separated
+    "ourLadyQueenOfPoland": "Panny Márie, Kráľovnej Poľska",  // poland
+    "saintStanislausKazimierczykPriest": "Svätého Stanislava Kazimierczyka, kňaza",  // poland
+    "saintJohnSarkanderPriestAndMartyrSaintZdzislawa": "Svätého Jána Sarkandera, kňaza a mučeníka/Svätej Zdislavy",  // poland; to be separated; name change proposed
+    "saintHedwigOfPoland": "Svätej Hedvigy Poľskej",  // poland, ukraine; Jadwiga of Poland
+    "blessedBogumilBishop": "Blahoslaveného Bohumila, biskupa",  // poland
+    "blessedAntoniNowowiejskiBishopAndCompanionsMartyrs": "Blahoslaveného Antona Nowowiejskeho, biskupa, a spoločníkov, mučeníkovi",  // poland
+    "blessedMichaelKozalBishopAndMartyr": "Blahoslaveného Michaela Kozala, biskupa a mučeníka",  // poland
+    "blessedJolantaReligious": "Blahoslavenej Jolany, rehoľnice",  // poland
+    "saintAlbertChmielowskiReligious": "Svätého Alberta Chmielowského, rehoľníka",  // poland, ukraine
+    "saintZygmuntGorazdowskiPriest": "Svätého Žigmunda Gorazdowského, kňaza",  // poland, ukraine
+    "saintOttoOfBambergBishop": "Svätého Ota z Bambergu, biskupa",  // germany, poland
+    "blessedMariaTeresaLedochowskaVirgin": "Blahoslavenej Márie Terezy Ledochowskej, panny",  // poland
+    "saintJohnOfDuklaPriest": "Svätého Jána z Dukly, kňaza",  // poland, ukraine
+    "saintSimonOfLipnicaPriest": "Svätého Šimona z Lipnice, kňaza",  // poland
+    "blessedCzeslawPriest": "Blahoslaveného Česlava, kňaza",  // duplicate; poland
+    "blessedEdmundBojanowski": "Blahoslaveného Edmunda Bojanowského",  // poland
+    "ourLadyOfCzestochowa": "Panny Márie Čenstochovskej",  // poland, russia, ukraine
+    "blessedBronislawaVirgin": "Blahoslavenej Bronislavy, panny",  // poland
+    "blessedMariaStellaAndCompanionsVirginsAndMartyrs": "Blahoslavenej Márie Stelly a spoločníčok, pannien a mučeníc",  // poland
+    "blessedAnielaSalawaVirgin": "Blahoslavenej Angely Salawej, panny",  // poland
     "saintDenisAndCompanionsMartyrsSaintJohnLeonardiPriest": "Svätého Denisa a spoločníkov, mučeníkov/Svätého Jána Leonardiho, kňaza",  // duplicate
     "saintZygmuntSzczesnyFelinskiBishop": "Svätého Zygmunta Szczęsného Felińskiho, biskupa",  // poland
-    "saintStanislausKostkaReligious": "Saint Stanislaus Kostka, Religious",  // poland, ukraine
-    "blessedWladyslawOfGielniowPriest": "Blessed Wladyslaw Of Gielniow, Priest",  // poland
-    "saintsLawrenceRuizAndCompanionsMartyrs": "Saints Lawrence Ruiz and Companions, Martyrs",  // duplicate
-    "saintWenceslausMartyr": "Saint Wenceslaus, Martyr",  // duplicate; to be separated; poland
-    "blessedVincentKadlubekBishop": "Blessed Vincent Kadlubek, Bishop",  // poland
-    "blessedMaryAngelaTruszkowskaVirgin": "Blessed Mary Angela Truszkowska, Virgin",  // poland
-    "blessedJohnBeyzymPriest": "Blessed John Beyzym, Priest",  // poland
-    "blessedHonoratKozminskiPriest": "Blessed Honorat Kozminski, Priest",  // poland
-    "saintMargaretMaryAlacoque": "Saint Msrgaret Mary Alacoque",  // to be separated; poland
-    "saintHedwigOfSilesia": "Saint Hedwig of Silesia",  // poland
-    "blessedJakubStrzemieBishop": "Blessed Jakub Strzemie, Bishop",  // poland
-    "saintJosefBilczewskiBishop": "Saint Josef Bilczewski, Bishop",  // poland
-    "dedicationOfAParticularChurch": "Dedication of a particular Church",  // poland, slovakia
-    "blessedKarolinaKozkownaVirginAndMartyr": "Blessed Karolina Kozkowna, Virgin and Martyr",  // poland
-    "blessedSalomeVirgin": "Blessed Salome, Virgin",  // poland
-    "saintRafalKalinowskiPriest": "Saint Rafal Kalinowski, Priest",  // poland, russia
-    "blessedMaryOfJesusTheGoodShepherdVirgin": "Blessed Mary of Jesus The Good Shepherd, Virgin",  // poland
-    "blessedRafalChylinskiPriest": "Blessed Rafal Chylinski, Priest",  // poland
-    "blessedGoncaloDeAmarantePriest": "Blessed Goncalo de Amarante, Priest",  // poland
-    "theFiveWoundsOfTheLord": "The Five Wounds of The Lord",  // portugal
-    "saintTheotoniusPriest": "Saint Theotonius, Priest",  // portugal
-    "blessedJacintaAndFranciscoMarto": "Blessed Jacinta and Francisco Marto",  // portugal
-    "saintJohnOfGodPriest": "Saint John of God, Priest",  // duplicate
-    "blessedJoanOfPortugalVirgin": "Blessed Joan of Portugal, Virgin",  // portugal
-    "guardianAngelOfPortugal": "Guardian Angel of Portugal",  // portugal
-    "saintAnthonyOfLisbonPriestAndDoctorOfTheChurch": "Saint Anthony of Lisbon, Priest and Doctor of The Church",  // portugal
-    "blessedSanchaAndMafaldaVirginsOrBlessedTheresaOfPOrtugalReligious": "Blessed Sancha and Mafalda, Virgins, Or Blessed Theresa of POrtugal, Religious",  // portugal
-    "blessedInacioDeAzevedoPriestAndCompanionsMartyrs": "Blessed Inacio de Azevedo, Priest, and Companions, Martyrs",  // brazil, portugal
-    "blessedBartholomewOfTheMartyrsBishop": "Blessed Bartholomew of The Martyrs, Bishop",  // portugal
-    "saintBeatriceOfSilvaVirgin": "Saint Beatrice of Silva, Virgin",  // portugal
+    "saintStanislausKostkaReligious": "Svätého Stanislava Kostku, rehoľníka",  // poland, ukraine
+    "blessedWladyslawOfGielniowPriest": "Blahoslaveného Vladislava z Gielniowa, kňaza",  // poland
+    "saintsLawrenceRuizAndCompanionsMartyrs": "Svätého Vavrinca Ruiza a spoločníkov, mučeníkov",  // duplicate
+    "saintWenceslausMartyr": "Svätého Václava, mučeníka",  // duplicate; to be separated; poland
+    "blessedVincentKadlubekBishop": "Blahoslaveného Vincenta Kadlubka, biskupa",  // poland
+    "blessedMaryAngelaTruszkowskaVirgin": "Blahoslavenej Márie Angely Truszkowskej, panny",  // poland
+    "blessedJohnBeyzymPriest": "Blahoslaveného Jána Beyzyma, kňaza",  // poland
+    "blessedHonoratKozminskiPriest": "Blahoslaveného Honoráta Kożmińského, kňaza",  // poland
+    "saintMargaretMaryAlacoque": "Svätej Margity Márie Alacoque, panny",  // duplicate; poland
+    "saintHedwigOfSilesia": "Svätej Hedvigy, rehoľníčky",  // poland; key name change suggested
+    "blessedJakubStrzemieBishop": "Blahoslaveného Jakuba Strzemię, biskupa",  // poland
+    "saintJosefBilczewskiBishop": "Svätého Jozefa Bilczewského, biskupa",  // poland
+    "dedicationOfAParticularChurch": "Výročie posviacky chrámov, ktorých deň posviacky je neznámy",  // poland, slovakia
+    "blessedKarolinaKozkownaVirginAndMartyr": "Blahoslavenej Karolíny Kozkownej, panny a mučenice",  // poland
+    "blessedSalomeVirgin": "Blahoslavenej Salomey Poľskej, panny",  // poland; name change proposed
+    "saintRafalKalinowskiPriest": "Svätého Rafael Kalinowského, kňaza",  // poland, russia
+    "blessedMaryOfJesusTheGoodShepherdVirgin": "Blahoslavenej Márie od Ježiša Dobrého Pastiera, panny",  // poland
+    "blessedRafalChylinskiPriest": "Blahoslaveného Rafaela Chylinského, kňaza",  // poland
+    "blessedGoncaloDeAmarantePriest": "Blahoslaveného Gonçala de Amarante, kňaza",  // poland
+    "theFiveWoundsOfTheLord": "Piatich Rán Krista Pána",  // portugal
+    "saintTheotoniusPriest": "Svätého Teotónia, kňaza",  // portugal
+    "blessedJacintaAndFranciscoMarto": "Svätých Hyacinty a Františka Martovcov",  // portugal
+    "saintJohnOfGodPriest": "Svätého Jána z Boha, rehoľníka",  // duplicate
+    "blessedJoanOfPortugalVirgin": "Blahoslavenej Jany Portugalskej, panny",  // portugal
+    "guardianAngelOfPortugal": "Portugalského anjela strážcu",  // portugal
+    "saintAnthonyOfLisbonPriestAndDoctorOfTheChurch": "Svätého Antona Paduánskeho, kňaza a učiteľa Cirkvi",  // portugal; duplicate
+    "blessedSanchaAndMafaldaVirginsOrBlessedTheresaOfPOrtugalReligious": "Blahoslavených Sanche a Mafaldy, panny, alebo blahoslavenej Terezy Portugalskej, rehoľnice",  // portugal
+    "blessedInacioDeAzevedoPriestAndCompanionsMartyrs": "Blahoslaveného Ignáca de Azevedo, kňaza, a spoločníkov, mučeníkov",  // brazil, portugal
+    "blessedBartholomewOfTheMartyrsBishop": "Blahoslaveného Bartolomeja od mučeníkov, biskup",  // portugal
+    "saintBeatriceOfSilvaVirgin": "Svätej Beatrix da Silva, panny",  // portugal
     "saintDenisAndCompanionsMartyrsSaintJohnLeonardiPriestBlessedJohnNewmanBishop": "Saint Denis and Companions, Martyrs/Saint John Leonardi, Priest/Blessed John Newman, Bishop",  // to be separated; portugal
     "blessedGoncaloDeLagosPriest": "Blessed Goncalo de Lagos, Priest",  // portugal
     "saintNunoDeSantaMaria": "Saint Nuno de Santa Maria",  // portugal
