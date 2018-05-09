@@ -607,7 +607,6 @@
     "blessedBronislawaVirgin": "Blahoslavenej Bronislavy, panny",  // poland
     "blessedMariaStellaAndCompanionsVirginsAndMartyrs": "Blahoslavenej Márie Stelly a spoločníčok, pannien a mučeníc",  // poland
     "blessedAnielaSalawaVirgin": "Blahoslavenej Angely Salawej, panny",  // poland
-    "saintDenisAndCompanionsMartyrsSaintJohnLeonardiPriest": "Svätého Denisa a spoločníkov, mučeníkov/Svätého Jána Leonardiho, kňaza",  // duplicate
     "saintZygmuntSzczesnyFelinskiBishop": "Svätého Zygmunta Szczęsného Felińskiho, biskupa",  // poland
     "saintStanislausKostkaReligious": "Svätého Stanislava Kostku, rehoľníka",  // poland, ukraine
     "blessedWladyslawOfGielniowPriest": "Blahoslaveného Vladislava z Gielniowa, kňaza",  // poland
