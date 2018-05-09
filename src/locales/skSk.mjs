@@ -540,7 +540,6 @@
     "205BlessedMartyrsOfJapan": "205 blahoslavených mučeníkov Japonska",  // japan
     "saintThomasRokuzayemonPriestAndCompanionsMartyrs": "Svätého Tomáša Rokuzayemona, kňaza, a spoločníkov, mučeníkov",  // japan
     "saintBarbaraVirginAndMartyr": "Svätej Barbory, panny a mučenice",  // germany, greece, lebanon, poland, russia, slovakia
-    "saintNicholasBishop": "Svätého Mikuláša, biskupa",  // duplicate
     "saintMaroun": "Svätého Maróna, pustovníka",  // lebanon
     "saintRafqaRebeccaVirgin": "Svätej Rafky (Rebeky), panny",  // lebanon
     "ourLadyOfLebanon": "Panny Márie z Lebanonu",  // lebanon
