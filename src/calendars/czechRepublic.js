@@ -133,7 +133,7 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
       }
     },
     {
-      "key": "blessedHrzonataMartyr",
+      "key": "blessedHroznataMartyr",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 6, day: 14 }),
       "data": {}

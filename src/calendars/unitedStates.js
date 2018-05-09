@@ -71,12 +71,6 @@ let dates = year => {
       "data": {}
     },
     {
-      "key": "saintElizabethOfPortugal",
-      "type": Types[6],
-      "moment": moment.utc({ year: year, month: 6, day: 4 }),
-      "data": {}
-    },
-    {
       "key": "saintKateriTekakwithaVirgin",
       "type": Types[5],
       "moment": moment.utc({ year: year, month: 6, day: 14 }),
