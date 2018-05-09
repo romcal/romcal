@@ -1,4 +1,4 @@
-{
+export default {
   "advent": {
     "season": "Adventné obdobie",
     "weekday": "{{day}} po {{week}}. adventnej nedeli",
