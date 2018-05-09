@@ -14,7 +14,6 @@ let _date;
 let dates = year => {
 
   let _dates = [
-    // jarosz: Created saintJozefSebastianPelczar
     {
       "key": "saintJozefSebastianPelczar",
       "type": Types[5],
@@ -39,13 +38,6 @@ let dates = year => {
       "moment": moment.utc({ year: year, month: 0, day: 27 }),
       "data": {}
     },
-    // jarosz: Moved saintAngelaMerici to 29 Jan
-    // According to official liturgical calendar for polish dioceses
-    // http://www.kkbids.episkopat.pl/uploaded/KalendarzDiecezjiPolskich-2013-02-28_2.pdf
-    // saint Angela Merici and blessed Bolesława Maria Lament may be celebrated in
-    // Poland on Jan 29 as optional memorial, the date is different than in
-    // general calendar because on Jan 27 we celebrate memorial of
-    // blessed Jerzy Matulewicz, bishop.
     {
       "key": "blessedBoleslawaMariaLamentVirginAndSaintAngelaMericiVirgin",
       "type": Types[6],
@@ -87,7 +79,7 @@ let dates = year => {
         _holyWeekRange = moment.range( _.head( _holyWeek ), _.last( _holyWeek ) );
         _easterOctaveRange = moment.range( _.head( _easterOctave ), _.last( _easterOctave ) );
         _date = moment.utc({ year: y, month: 3, day: 23 });
-
+//
         // If the celebration lands anywhere between Holy Week to Divine Mercy Sunday (inclusive)
         // move it to the Monday after Divine Mercy Sunday
         if ( _holyWeekRange.contains( _date ) || _easterOctaveRange.contains( _date ) ) {
@@ -129,7 +121,6 @@ let dates = year => {
         }
       }
     },
-    // jarosz: Created ourLadyQueenOfPoland on 3 May
     {
       "key": "ourLadyQueenOfPoland",
       "type": Types[0],
@@ -176,7 +167,6 @@ let dates = year => {
         }
       }
     },
-    // jarosz: Set saintAdalbert and saintStanislaus color to red
     {
       "key": "saintStanislausBishopAndMartyr",
       "type": Types[0],
@@ -213,7 +203,6 @@ let dates = year => {
       "moment": moment.utc({ year: year, month: 4, day: 30 }),
       "data": {}
     },
-    // jarosz: Created saintHedwigOfPoland on 8 Jun
     {
       "key": "saintHedwigOfPoland",
       "type": Types[5],
@@ -282,7 +271,6 @@ let dates = year => {
       "moment": moment.utc({ year: year, month: 6, day: 1 }),
       "data": {}
     },
-    // jarosz: Moved saintMariaGoretti to 5 Jul
     {
       "key": "saintMariaGorettiVirginAndMartyr",
       "type": Types[6],
@@ -346,7 +334,6 @@ let dates = year => {
         }
       }
     },
-    // jarosz: Moved saintHenry to 14 Jul
     {
       "key": "saintHenryBishopAndMartyr",
       "type": Types[6],
@@ -360,7 +347,6 @@ let dates = year => {
         }
       }
     },
-    // jarosz: Changed ourLadyOfMountCarmel to MEMORIAL
     {
       "key": "ourLadyOfMountCarmel",
       "type": Types[5],
@@ -387,7 +373,6 @@ let dates = year => {
         }
       }
     },
-    // jarosz: Moved saintApollinaris to 21 Jul
     {
       "key": "saintApollinaris",
       "type": Types[6],
@@ -414,7 +399,6 @@ let dates = year => {
         }
       }
     },
-    // jarosz: Moved saintCharbelMakhloufPriestAndHermit to 29 Jul
     {
       "key": "saintCharbelMakhloufPriestAndHermit",
       "type": Types[6],
@@ -493,7 +477,6 @@ let dates = year => {
       "moment": moment.utc({ year: year, month: 8, day: 9 }),
       "data": {}
     },
-    // jarosz: Moved saintDenisAndCoOrSaintJohnLeonardi to 10 Sep
     {
       "key": "saintDenisAndCompanionsMartyrsSaintJohnLeonardiPriest",
       "type": Types[6],
@@ -581,7 +564,7 @@ let dates = year => {
       "moment": moment.utc({ year: year, month: 9, day: 13 }),
       "data": {}
     },
-    // jarosz: Split saintHedwig and saint MargaretMaryAlacoque and rename saintHedwig to saintHedwigOfSilesia, since it's less ambiguous
+    // jarosz: Split saintHedwig and saintMargaretMaryAlacoque and rename saintHedwig to saintHedwigOfSilesia, to make it less ambiguous
     {
       "key": "saintMargaretMaryAlacoque",
       "type": Types[5],
@@ -594,7 +577,6 @@ let dates = year => {
       "moment": moment.utc({ year: year, month: 9, day: 16 }),
       "data": {}
     },
-    // jarosz: Removed saintJohnOfKanty duplicate entry saintJohnOfKety and moved to 20 Oct
     {
       "key": "saintJohnOfKantyPriest",
       "type": Types[5],
@@ -688,7 +670,6 @@ let dates = year => {
       "moment": moment.utc({ year: year, month: 10, day: 25 }),
       "data": {}
     },
-    // jarosz: Moved blessedRafalChylinski to 2 Dec
     {
       "key": "blessedRafalChylinskiPriest",
       "type": Types[6],
