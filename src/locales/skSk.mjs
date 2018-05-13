@@ -43,9 +43,9 @@ export default {
     "goodFriday": "Veľký piatok",
     "holySaturday": "Biela sobota",
     "immaculateConception": "Nepoškvrneného počatia Panny Márie",
-    "christmas": "Narodenie Pána",
+    "christmas": "Narodenia Pána",
     "maryMotherOfGod": "Panny Márie Bohorodičky",
-    "epiphany": "Zjavenie Pána",
+    "epiphany": "Zjavenia Pána",
     "josephHusbandOfMary": "Svätého Jozefa, ženícha Panny Márie",
     "easter": "Nedeľa Pánovho zmŕtvychvstania",
     "divineMercySunday": "Nedeľa Božieho milosrdenstva",
@@ -61,7 +61,7 @@ export default {
     "allSaints": "Všetkých svätých",
     "christTheKing": "Krista Kráľa",
     "holyFamily": "Svätej rodiny Ježiša, Márie a Jozefa",
-    "baptismOfTheLord": "Krst Krista Pána",
+    "baptismOfTheLord": "Krstu Krista Pána",
     "presentationOfTheLord": "Obetovania Pána",
     "transfiguration": "Premenenia Pána",
     "theExaltationOfTheHolyCross": "Povýšenia svätého Kríža",
@@ -165,7 +165,7 @@ export default {
     "saintIgnatiusOfLoyolaPriest": "Svätého Ignáca z Loyoly, kňaza",
     "saintAlphonsusMariaDeLiguoriBishopAndDoctorOfTheChurch": "Svätého Alfonza Márie de’ Liguori, biskupa a učiteľa Cirkvi",
     "saintEusebiusOfVercelliBishopSaintPeterJulianEymardPriest": "Svätého Euzébia Vercellského, biskupa/Svätého Petra Juliána Eymarda, kňaza",
-    "saintJeanVianneyTheCureOfArsPriest": "SaintSvätého Jána Márie Vianneya, kňaza",
+    "saintJeanVianneyTheCureOfArsPriest": "Svätého Jána Márie Vianneya, kňaza",
     "dedicationOfTheBasilicaOfSaintMaryMajor": "Výročie posviacky Hlavnej mariánskej baziliky v Ríme",
     "saintSixtusIiPopeAndCompanionsMartyrsSaintCajetanPriest": "Svätých Sixta II., pápeža, a jeho spoločníkov, mučeníkov/Svätého Kajetána, kňaza",
     "saintDominicPriest": "Svätého Dominika, kňaza",
@@ -218,7 +218,7 @@ export default {
     "saintLukeTheEvangelist": "Svätého Lukáša, evanjelistu",
     "saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrsSaintPaulOfTheCrossPriest": "Svätých Jána de Brébeuf a Izáka Joguesa, kňazov, a ich spoločníkov, mučeníkov/Svätého Pavla z Kríža, kňaza",  // to be separated
     "saintJohnOfCapistranoPriest": "Svätého Jána Kapistránskeho, kňaza",
-    "saintAnthonyMaryClaretBishop": "Svätého Antona Máriu Clareta, biskupa",
+    "saintAnthonyMaryClaretBishop": "Svätého Antona Márie Clareta, biskupa",
     "saintsSimonAndJudeApostles": "Svätých Šimona a Júdu, apoštolov",
     "allSouls": "Všetkých verných zosnulých",
     "saintMartinDePorresReligious": "Svätého Martina de Porres, rehoľníka",
@@ -268,7 +268,7 @@ export default {
     "saintHectorValdivielsoSaezMartyr": "Svätého Héctora Valdivielsa Sáeza (Benedikta od Ježiša), mučeníka",  // argentina
     "ourLadyOfThePillar": "Panny Márie del Pilar",  // argentina, spain
     "ourLadyOfTheValley": "Our Lady of The Valley",  // argentina
-    "maryMotherOfTheChurch": "Panny Márie, Matky Cirkvi",  // agentina, bosniaHerzegovina, greece, poland, puertorico, ukraine
+    "maryMotherOfTheChurch": "Preblahoslavenej Panny Márie, Matky Cirkvi",  // agentina, bosniaHerzegovina, greece, poland, puertorico, ukraine
     "ourLadyHelpOfChristians": "Panny Márie, Pomocnice kresťanov",  // australia, hungary, newZealand, peru, poland, ?add optMem 24/5 slovakia
     "blessedPeterToRotMartyr": "Blahoslaveného Petra To Rota, mučeníka",  // australia
     "saintMaryOfTheCrossVirgin": "Svätej Márie od Kríža, panny",  // australia
@@ -319,7 +319,7 @@ export default {
     "saintFrancoisDeLavalBishop": "Svätého Františka de Montmorency-Laval, biskupa",  // canada
     "blessedCatherineOfSaintAugustineVirgin": "Blahoslavenej Kataríny od sv. Augustína, panny",  // canada
     "saintEugeneDeMazenodBishop": "Svätého Eugena de Mazenod, biskupa",  // canada
-    "blessedLouisZephirinMoreauBishop": "Blahoslaveného Ľudovíta Zefirína Moreau, Bishop",  // canada
+    "blessedLouisZephirinMoreauBishop": "Blahoslaveného Ľudovíta Zefirína Moreau, biskupa",  // canada
     "blessedsNykytaBudkaAndVasylVelychkowskyBishopsAndMartyrs": "Blahoslavených Nikity Budku a Vasiľa Velichkovského, biskupov a mučeníkov",  // canada
     "saintAnnePatronOfQuebecAndSaintJoachimParentsOfTheBlessedVirginMary": "Svätých Anny, patrónky Quebecu, a Joachima, rodičov Panny Márie",  // duplicate; canada
     "blessedFredericJanssoonePriest": "Blahoslaveného Frederika Janssoona, kňaza",  // canada
@@ -336,7 +336,7 @@ export default {
     "saintQuirinusOfSescia": "Svätého Kvirína zo Sisaku",  // croatia
     "ourLadyMotherOfChristianUnity": "Panny Márie, Matky jednoty kresťanov",  // czechRepublic
     "ourLadyMediatrixOfAllGrace": "Panny Márie, Prostrednice všetkých milostí",  // czechRepublic
-    "saintAdalbertBishopAndMartyr": "Svãtého Vojtecha, biskupa a mučeníka",  // duplicate
+    "saintAdalbertBishopAndMartyr": "Svätého Vojtecha, biskupa a mučeníka",  // duplicate
     "saintSigismundMartyr": "Svätého Žigmunda Burgundského, mučeníka",  // czechRepublic
     "saintJohnNepomucenePriestAndMartyr": "Svätého Jána Nepomuckého, kňaza a mučeníka",  // austria, czechRepublic, germany, hungary, mexico, slovakia, slovenia, switzerland, ukraine
     "saintClementMaryHofbauerPriest": "Svätého Klementa Márie Hofbauera, kňaza",  // austria, czechRepublic, germany, switzerland
@@ -360,9 +360,9 @@ export default {
     "saintWulstanBishop": "Svätého Vulstana, biskupa",  // england
     "saintDavidBishop": "Svätého Dávida z Menevie, biskupa",  // england, ireland, wales
     "saintGeorgeMartyr": "Svätého Juraja, mučeníka",  // duplicate; to be separated; england, greece, lebanon, russia, slovakia
-    "saintAdalbertBishopAndMartyrSaintFidelisOfSigmaringenPriestAndMartyr": "Svãtého Vojtecha, biskupa a mučeníka/Svätého Fidéla zo Sigmaringenu, kňaza a mučeníka",  // (possible) duplicate; england
+    "saintAdalbertBishopAndMartyrSaintFidelisOfSigmaringenPriestAndMartyr": "Svätého Vojtecha, biskupa a mučeníka/Svätého Fidéla zo Sigmaringenu, kňaza a mučeníka",  // (possible) duplicate; england
     "theEnglishMartyrs": "Svätých anglických mučeníkov",  // possible duplicate with theSixWelshMartyrsAndCompanions; england
-    "stDunstanArchbishopOfCanterbury": "Svätého Dunstana, Archbishop of Canterbury",  // change of the key name in process; england
+    "stDunstanArchbishopOfCanterbury": "Svätého Dunstana z Canterbury, biskupa",  // change of the key name in process; england
     "saintBedeTheVenerablePriestAndDoctor": "Svätého Bédu Ctihodného, kňaza a učiteľa Cirkvi",  // duplicate; to be separated; england
     "saintEphraemDeaconDoctorOrSaintColumbaColumCilleAbbot": "Svätého Efréma, diakona a učiteľa Cirkvi, alebo svätého Kolumbu, opáta",  // to be separated; england
     "saintRichardOfChichesterBishop": " Svätého Richarda z Chichesteru, biskupa",  // england
