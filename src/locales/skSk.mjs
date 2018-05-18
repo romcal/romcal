@@ -42,29 +42,29 @@ export default {
     "holyThursday": "Zelený štvrtok",
     "goodFriday": "Veľký piatok",
     "holySaturday": "Biela sobota",
-    "immaculateConception": "Nepoškvrneného počatia Panny Márie",
-    "christmas": "Narodenia Pána",
+    "immaculateConception": "Nepoškvrnené počatia Panny Márie",
+    "christmas": "Narodenie Pána",
     "maryMotherOfGod": "Panny Márie Bohorodičky",
-    "epiphany": "Zjavenia Pána",
+    "epiphany": "Zjavenie Pána",
     "josephHusbandOfMary": "Svätého Jozefa, ženícha Panny Márie",
     "easter": "Nedeľa Pánovho zmŕtvychvstania",
     "divineMercySunday": "Nedeľa Božieho milosrdenstva",
-    "annunciation": "Zvestovania Pána",
+    "annunciation": "Zvestovanie Pána",
     "ascension": "Nanebovstúpenie Pána",
     "pentecostSunday": "Zoslanie Ducha Svätého",
     "trinitySunday": "Najsvätejšej Trojice",
     "corpusChristi": "Najsvätejšieho Kristovho Tela a Krvi",
     "sacredHeartOfJesus": "Najsvätejšieho Srdca Ježišovho",
-    "birthOfJohnTheBaptist": "Narodenia svätého Jána Krstiteľa",
+    "birthOfJohnTheBaptist": "Narodenie svätého Jána Krstiteľa",
     "peterAndPaulApostles": "Svätých Petra a Pavla, apoštolov",
-    "assumption": "Nanebovzatia Panny Márie",
+    "assumption": "Nanebovzatie Panny Márie",
     "allSaints": "Všetkých svätých",
     "christTheKing": "Krista Kráľa",
     "holyFamily": "Svätej rodiny Ježiša, Márie a Jozefa",
-    "baptismOfTheLord": "Krstu Krista Pána",
-    "presentationOfTheLord": "Obetovania Pána",
-    "transfiguration": "Premenenia Pána",
-    "theExaltationOfTheHolyCross": "Povýšenia svätého Kríža",
+    "baptismOfTheLord": "Krst Krista Pána",
+    "presentationOfTheLord": "Obetovanie Pána",
+    "transfiguration": "Premenenie Pána",
+    "theExaltationOfTheHolyCross": "Povýšenie Svätého kríža",
     "immaculateHeartOfMary": "Nepoškvrneného Srdca Panny Márie"
   },
   "general": {
@@ -128,7 +128,7 @@ export default {
     "saintBedeTheVenerablePriestAndDoctorSaintGregoryViiPopeSaintMaryMagdaleneDePazziVirgin": "Svätého Bédu Ctihodného, kňaza a učiteľa Cirkvi/Svätého Gregora VII., pápeža/Svätej Márie Magdalény de’ Pazzi, panny",
     "saintPhilipNeriPriest": "Svätého Filipa Neriho, kňaza",
     "saintAugustineOfCanterburyBishop": "Svätého Augustína z Canterbury, biskupa",
-    "visitationOfTheBlessedVirginMary": "Návštevy Panny Márie",
+    "visitationOfTheBlessedVirginMary": "Návšteva Panny Márie",
     "saintJustinMartyr": "Svätého Justína, mučeníka",
     "saintsMarcellinusAndPeterMartyrs": "Svätých Marcelína a Petra, mučeníkov",
     "saintsCharlesLwangaAndCompanionsMartyrs": "Svätých Karola Lwangu a spoločníkov, mučeníkov",
@@ -163,7 +163,7 @@ export default {
     "saintMartha": "Svätej Marty",
     "saintPeterChrysologusBishopAndDoctor": "Svätého Petra Chryzológa, biskupa a učiteľa Cirkvi",
     "saintIgnatiusOfLoyolaPriest": "Svätého Ignáca z Loyoly, kňaza",
-    "saintAlphonsusMariaDeLiguoriBishopAndDoctorOfTheChurch": "Svätého Alfonza Márie de’ Liguori, biskupa a učiteľa Cirkvi",
+    "saintAlphonsusMariaDeLiguoriBishopAndDoctorOfTheChurch": "Svätého Alfonza Máriu de’ Liguori, biskupa a učiteľa Cirkvi",
     "saintEusebiusOfVercelliBishopSaintPeterJulianEymardPriest": "Svätého Euzébia Vercellského, biskupa/Svätého Petra Juliána Eymarda, kňaza",
     "saintJeanVianneyTheCureOfArsPriest": "Svätého Jána Márie Vianneya, kňaza",
     "dedicationOfTheBasilicaOfSaintMaryMajor": "Výročie posviacky Hlavnej mariánskej baziliky v Ríme",
@@ -174,7 +174,7 @@ export default {
     "saintClareVirgin": "Svätej Kláry, panny",
     "saintJaneFrancesDeChantalReligious": "Svätej Jany Františky de Chantal, rehoľnice",
     "saintsPontianPopeAndHippolytusPriestMartyrs": "Svätých Ponciána, pápeža, a Hipolyta, kňaza, mučeníkov",
-    "saintMaximilianMaryKolbePriestAndMartyr": "Svätého Maximiliána Márie Kolbeho, kňaza a mučeníka",
+    "saintMaximilianMaryKolbePriestAndMartyr": "Svätého Maximiliána Máriu Kolbeho, kňaza a mučeníka",
     "saintStephenOfHungary": "Svätého Štefana Uhorského",
     "saintJohnEudesPriest": "Svätého Jána Eudes, kňaza",
     "saintBernardOfClairvauxAbbotAndDoctorOfTheChurch": "Svätého Bernarda, opáta a učiteľa Cirkvi",
@@ -187,7 +187,7 @@ export default {
     "saintAugustineOfHippoBishopAndDoctorOfTheChurch": "Svätého Augustína, biskupa a učiteľa Cirkvi",
     "theBeheadingOfSaintJohnTheBaptistMartyr": "Mučenícka smrť svätého Jána Krstiteľa",
     "saintGregoryTheGreatPopeAndDoctor": "Svätého Gregora Veľkého, pápeža a učiteľa Cirkvi",
-    "birthOfTheBlessedVirginMary": "Narodenia Panny Márie",
+    "birthOfTheBlessedVirginMary": "Narodenie Panny Márie",
     "saintPeterClaverPriest": "Svätého Petra Clavera, kňaza",
     "holyNameOfTheBlessedVirginMary": "Najsvätejšieho mena Panny Márie",
     "saintJohnChrysostomBishopAndDoctor": "Svätého Jána Zlatoústeho, biskupa a učiteľa Cirkvi",
@@ -218,7 +218,7 @@ export default {
     "saintLukeTheEvangelist": "Svätého Lukáša, evanjelistu",
     "saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrsSaintPaulOfTheCrossPriest": "Svätých Jána de Brébeuf a Izáka Joguesa, kňazov, a ich spoločníkov, mučeníkov/Svätého Pavla z Kríža, kňaza",  // to be separated
     "saintJohnOfCapistranoPriest": "Svätého Jána Kapistránskeho, kňaza",
-    "saintAnthonyMaryClaretBishop": "Svätého Antona Márie Clareta, biskupa",
+    "saintAnthonyMaryClaretBishop": "Svätého Antona Máriu Clareta, biskupa",
     "saintsSimonAndJudeApostles": "Svätých Šimona a Júdu, apoštolov",
     "allSouls": "Všetkých verných zosnulých",
     "saintMartinDePorresReligious": "Svätého Martina de Porres, rehoľníka",
@@ -231,7 +231,7 @@ export default {
     "saintMargaretOfScotlandSaintGertrudeTheGreatVirgin": "Svätej Margity Škótskej/Svätej Gertrúdy, panny",  // to be separated; duplicate
     "saintElizabethOfHungary": "Svätej Alžbety Uhorskej, rehoľnice",
     "dedicationOfTheBasilicasOfSaintsPeterAndPaulApostles": "Výročie posviacky bazilík svätého Petra a svätého Pavla, apoštolov",
-    "presentationOfTheBlessedVirginMary": "Obetovania Panny Márie",
+    "presentationOfTheBlessedVirginMary": "Obetovanie Panny Márie",
     "saintCeciliaVirginAndMartyr": "Svätej Cecílie, panny a mučenice",
     "saintClementIPopeAndMartyrSaintColumbanReligious": "Svätého Klementa I., pápeža a mučeníka/Svätého Kolumbána, opáta",
     "saintAndrewDungLacAndCompanionsMartyrs": "Svätého Ondreja Dung-Laka, kňaza, a spoločníkov, mučeníkov",
@@ -524,7 +524,7 @@ export default {
     "saintFinbarrBishop": "Svätého Finbarra, biskupa",  // ireland
     "blessedColumbaMarmionPriest": "Blahoslaveného Columbu Marmiona, kňaza",  // ireland
     "saintCaniceAbbot": "Svätého Canica, opáta",  // ireland
-    "saintGallAbbotAndMissionary": "Svätého Gála, opáta a misionára",  // germany, ireland
+    "saintGallAbbotAndMissionary": "Svätého Gála, kňaza",  // germany, ireland, slovakia; he was never an abbot; he was a priest and hermit; in Slovakia, we celebrate him as a priest; change it in `enUs.mjs`, too
     "saintOtteranMonk": "Svätého Otterána, mnícha",  // ireland
     "saintColmanOfKilmacduaghBishop": "Svätého Kolomana z Kilmacduagh, biskupa",  // ireland
     "saintMalachyBishop": "Svätého Malachiáša, biskupa",  // ireland
