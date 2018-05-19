@@ -42,7 +42,7 @@ export default {
     "holyThursday": "Zelený štvrtok",
     "goodFriday": "Veľký piatok",
     "holySaturday": "Biela sobota",
-    "immaculateConception": "Nepoškvrnené počatia Panny Márie",
+    "immaculateConception": "Nepoškvrnené počatie Panny Márie",
     "christmas": "Narodenie Pána",
     "maryMotherOfGod": "Panny Márie Bohorodičky",
     "epiphany": "Zjavenie Pána",
@@ -327,7 +327,7 @@ export default {
     "blessedDinaBelangerVirgin": "Blahoslavenej Diny Belangerovej, panny",  // canada
     "blessedEmilieTavernierGamelinReligious": "Blahoslavenej Márie Emílie Tavernier Gamelinovej, rehoľnice",  // canada
     "blessedMarieRoseDurocherVirgin": "Blahoslavenej Márie Durocherovej, panny",  // canada, unitedStates
-    "saintMargueriteDYouvilleReligious": "Svätej Margaréty d'Youville, rehoľnice",  // canada
+    "saintMargueriteDYouvilleReligious": "Svätej Margaréty d’Youville, rehoľnice",  // canada
     "saintHedwigReligiousOrSaintMargaretMaryAlacoqueVirgin": "Svätej Hedvigy, rehoľnice, alebo svätej Margity Márie Alacoque, panny",  // duplicate; canada; Hedwig of Silesia
     "blessedPiusIxPope": "Blahoslaveného Pia IX., pápeža",  // chile
     "saintTeresaOfLosAndesVirgin": "Svätej Terézie z Los Andes, panny",  // chile
@@ -514,7 +514,7 @@ export default {
     "saintMuiredachBishopSaintAttractaVirginOrSaintLeliaVirgin": "Svätého Muredacha, biskupa, alebo svätej Atrakty, panny, alebo svätej Lelie, panny",  // ireland
     "saintFachtnaBishop": "Svatého Fachtnu, biskupa",  // ireland
     "ourLadyOfKnock": "Panny Márie z Knocku",  // ireland
-    "saintEugeneEoghanBishop": "Svätého Eugana (Eoghana), biskupa",  // ireland
+    "saintEugeneEoghanBishop": "Svätého Eugena (Eoghana), biskupa",  // ireland
     "saintFiacreMonk": "Svätého Fiakra, mnícha",  // ireland; monk-issue
     "saintAidanOfLindisfarneBishopAndMissionary": "Svätého Aidana Lindisfarnského, biskupa a misionára",  // ireland; duplicate
     "saintMacNissiBishop": "Svätého Mac Nissiho, biskupa",  // ireland
