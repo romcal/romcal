@@ -105,6 +105,16 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
       }
     },
     {
+      "key": "ourLordJesusChristTheEternalHighPriest",
+      "type": Types[4],
+      "moment": ( y => Dates.pentecostSunday( y ).add( 4, 'days' ))(year),
+      "data": {
+        "meta": {
+          "liturgicalColor": LiturgicalColors.WHITE
+        }
+      }
+    },
+    {
       "key": "saintAnthonyZaccariaPriest",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 6, day: 7 }),
@@ -212,20 +222,26 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
       }
     },
     {
-      "key": "saintEmeric",
+      "key": "saintGallAbbotAndMissionary",
       "type": Types[6],
-      "moment": moment.utc({ year: year, month: 10, day: 5 }),
+      "moment": moment.utc({ year: year, month: 9, day: 16 }),
       "data": {}
     },
     {
-      "key": "ourLordJesusChristTheEternalHighPriest",
-      "type": Types[4],
-      "moment": moment.utc({ year: year, month: 5, day: 16 }),
+      "key": "allSouls",
+      "type": Types[5],
+      "moment": moment.utc({ year: year, month: 10, day: 2 }),
       "data": {
         "meta": {
           "liturgicalColor": LiturgicalColors.WHITE
         }
       }
+    },
+    {
+      "key": "saintEmeric",
+      "type": Types[6],
+      "moment": moment.utc({ year: year, month: 10, day: 5 }),
+      "data": {}
     }
   ];
 
