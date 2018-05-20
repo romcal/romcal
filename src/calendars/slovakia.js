@@ -115,6 +115,16 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
       }
     },
     {
+      "key": "saintFlorianMartyr",
+      "type": Types[6],
+      "moment": moment.utc({ year: year, month: 4, day: 4 }),
+      "data": {
+        "meta": {
+          "liturgicalColor": LiturgicalColors.RED
+        }
+      }
+    },
+    {
       "key": "saintAnthonyZaccariaPriest",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 6, day: 7 }),
@@ -182,9 +192,19 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
         "meta": {
           "liturgicalColor": LiturgicalColors.RED,
           "titles": [
-            Titles.MARTYR,
-            Titles.PATRON_OF_EUROPE
+          Titles.MARTYR,
+          Titles.PATRON_OF_EUROPE
           ]
+        }
+      }
+    },
+    {
+      "key": "saintHelena",
+      "type": Types[6],
+      "moment": moment.utc({ year: year, month: 7, day: 18 }),
+      "data": {
+        "meta": {
+          "liturgicalColor": LiturgicalColors.WHITE,
         }
       }
     },
@@ -222,10 +242,40 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
       }
     },
     {
+      "key": "saintFaustinaKowalskaVirginAndReligious",
+      "type": Types[6],
+      "moment": moment.utc({ year: year, month: 9, day: 5 }),
+      "data": {
+        "meta": {
+          "liturgicalColor": LiturgicalColors.WHITE
+        }
+      }
+    },
+    {
       "key": "saintGallAbbotAndMissionary",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 9, day: 16 }),
       "data": {}
+    },
+    {
+      "key": "dedicationOfAParticularChurch",
+      "type": Types[0],
+      "moment": moment.utc({ year: year, month: 9, day: 26 }),
+      "data": {
+        "meta": {
+          "liturgicalColor": LiturgicalColors.WHITE
+        }
+      }
+    },
+    {
+      "key": "saintMaurusBishop",
+      "type": Types[6],
+      "moment": moment.utc({ year: year, month: 9, day: 25 }),
+      "data": {
+        "meta": {
+          "liturgicalColor": LiturgicalColors.WHITE
+        }
+      }
     },
     {
       "key": "allSouls",
@@ -241,7 +291,31 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
       "key": "saintEmeric",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 10, day: 5 }),
+      "data": {
+        "meta": {
+          "liturgicalColor": LiturgicalColors.WHITE
+        }
+      }
+    },
+    {
+      "key": "saintEmeric",
+      "type": Types[6],
+      "moment": moment.utc({ year: year, month: 10, day: 5 }),
       "data": {}
+    },
+    {  // This key is dropped only because of adding Optional Memorial of St Barbara to the same day
+      "key": "saintJohnDamascenePriestAndDoctor",
+      "drop": true
+    },
+    {
+      "key": "saintJohnDamascenePriestAndDoctorOrSaintBarbaraVirginAndMartyr",
+      "type": Types[6],
+      "moment": moment.utc({ year: year, month: 11, day: 4 }),
+      "data": {
+        "meta": {
+          "liturgicalColor": LiturgicalColors.RED
+        }
+      }
     }
   ];
 
