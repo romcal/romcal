@@ -451,6 +451,7 @@ export default {
     "saintsCosmasAndDamian": "Saints Cosmas and Damian",
     "saintDionysiusTheAreopagite": "Saint Dionysius The Areopagite",
     "saintDemetrius": "Saint Demetrius",
+    "presentationOfTheBlessedVirginMary": "Presentation of The Blessed Virgin Mary",
     "saintJohnDamascenePriestAndDoctorOrSaintBarbaraVirginAndMartyr": "Saint John Damascene, Priest and Doctor, or Saint Barbara, Virgin and Martyr",
     "saintNicholas": "Saint Nicholas",
     "saintSpyridon": "Saint Spyridon",
