@@ -453,7 +453,7 @@ export default {
     "saintsCosmasAndDamian": "Svätých Kozmu a Damiána, mučeníkov",  // duplicate
     "saintDionysiusTheAreopagite": "Svätého Dionýza Areopagitu, biskupa a mučeníka",  // greece
     "saintDemetrius": "Svätého Demetra Solúnskeho, mučeníka",  // greece
-    "saintJohnDamasceneOrSaintBarbara": "Svätého Jána Damascénskeho, kňaza a učiteľa Cirkvi Or Svätej Barbory, panny a mučenice",  // to be deleted (not used in any calendar)
+    "saintJohnDamascenePriestAndDoctorOrSaintBarbaraVirginAndMartyr": "Svätého Jána Damascénskeho, kňaza a učiteľa Cirkvi, alebo Svätej Barbory, panny a mučenice",    // duplicate; to be separated; slovakia
     "saintNicholas": "Svätého Mikuláša, biskupa",  // duplicate
     "saintSpyridon": "Svätého Spyridóna Trimifuntského, biskupa",  // greece
     "saintMargaretOfHungary": "Svätej Margity Uhorskej, rehoľnice",  // hungary, slovakia
@@ -720,6 +720,6 @@ export default {
     "allSaintsOfWales": "Všetkých svätých Walesu",  // wales
     "saintDubriciusBishop": "Svätého Dubrícia, biskupa",  // wales
     "saintJohnRobertsPriestAndMartyr": "Svätého Jána Robertsa, kňaza a mučeníka",  // wales
-    "saintHelena": "Svätej Heleny"  // slovakia; to be added yet
+    "saintHelena": "Svätej Heleny"  // slovakia
   }
 };
