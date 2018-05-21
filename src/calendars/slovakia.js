@@ -297,12 +297,6 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
         }
       }
     },
-    {
-      "key": "saintEmeric",
-      "type": Types[6],
-      "moment": moment.utc({ year: year, month: 10, day: 5 }),
-      "data": {}
-    },
     {  // This key is dropped only because of adding Optional Memorial of St Barbara to the same day
       "key": "saintJohnDamascenePriestAndDoctor",
       "drop": true
