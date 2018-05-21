@@ -192,8 +192,8 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
         "meta": {
           "liturgicalColor": LiturgicalColors.RED,
           "titles": [
-          Titles.MARTYR,
-          Titles.PATRON_OF_EUROPE
+            Titles.MARTYR,
+            Titles.PATRON_OF_EUROPE
           ]
         }
       }
