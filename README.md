@@ -137,7 +137,7 @@ Invoke the `calendarFor` method to retrieve an array of liturgical dates and cel
 ```
 romcal.calendarFor({
     year: 2015,
-    country 'unitedStates',
+    country: 'unitedStates',
     locale: 'pl',
     christmastideEnds: 't|o|e',
     epiphanyOnJan6: true|false,
