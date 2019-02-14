@@ -656,7 +656,7 @@ export default {
     "ourLadyOfPerpetualHelpOrBlessedLeonidFeodorovPriestAndMartyr": "Panny Márie ustavičnej pomoci alebo blahoslaveného Leonida Fjodorova, kňaza a mučeníka",  // russia
     "saintAnthonyOfTheCavesMonk": "Svätého Antona Pečerského, mnícha",  // russia
     "saintOlga": "Svätej Oľgy",  // russia, ukraine
-    "saintVladimirTheGreat": "Svätého Vladimíra Veľkého"  // russia, ukraine,
+    "saintVladimirTheGreat": "Svätého Vladimíra Veľkého",  // russia, ukraine,
     "saintsBorisAndGlebMartyrs": "Svätých Borisa a Gleba, mučeníkov",  // russia
     "ourLadyOfVladimir": "Vladimírskej Bohorodičky",  // russia
     "saintFaustinaKowalskaVirginAndReligious": "Svätej Faustíny Kowalskej, panny",  // lithuania, poland, russia, slovakia
