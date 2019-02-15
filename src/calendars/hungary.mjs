@@ -230,7 +230,7 @@ let dates = year => {
     },
     {
       "key": "saintStephenOfHungary",
-      "type": "SOLEMNITY",
+      "type": Types[0],
       "moment": moment.utc({ year: year, month: 7, day: 20 }),
       "data": {}
     },
