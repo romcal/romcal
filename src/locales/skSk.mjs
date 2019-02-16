@@ -75,7 +75,7 @@ export default {
     "saintRaymondOfPenyafortPriest": " Svätého Rajmunda z Peňafortu, kňaza",
     "saintHilaryOfPoitiersBishopAndDoctor": "Svätého Hilára, biskupa, učiteľa Cirkvi",
     "saintAnthonyOfEgyptAbbot": "Svätého Antona, opáta",
-    "saintFabianPopeAndMartyrAndSaintSebastianMartyr": "Svätého Fabiána, pápeža a mučeníka, a svätého Šebastiána, mučeníka",
+    "saintsFabianPopeAndSebastianMartyrs": "Svätých Fabiána, pápeža, a Šebastiána, mučeníkov",
     "saintAgnesVirginAndMartyr": "Svätej Agnesy, panny a mučenice",
     "saintVincentDeaconAndMartyr": "Svätého Vincenta, diakona a mučeníka",
     "saintFrancisDeSalesBishopAndDoctor": "Svätého Františka Saleského, biskupa a učiteľa Cirkvi",
@@ -247,7 +247,7 @@ export default {
     "saintLucyOfSyracuseVirginAndMartyr": "Svätej Lucie, panny a mučenice",
     "saintJohnOfTheCrossPriestAndDoctor": "Svätého Jána z Kríža, kňaza a učiteľa Cirkvi",
     "saintPeterCanisiusPriestAndDoctor": "Svätého Petra Kanízia, kňaza a učiteľa Cirkvi",
-    "saintJohnOfKantyPriest": "Svätého Jána Kentského, kňaza",
+    "saintJohnOfKentyPriest": "Svätého Jána Kentského, kňaza",
     "saintStephenTheFirstMartyr": "Svätého Štefana, prvého mučeníka",
     "saintJohnTheApostleAndEvangelist": "Svätého Jána, apoštola a evanjelistu",
     "holyInnocentsMartyrs": "Svätých Neviniatok, mučeníkov",
@@ -720,6 +720,7 @@ export default {
     "allSaintsOfWales": "Všetkých svätých Walesu",  // wales
     "saintDubriciusBishop": "Svätého Dubrícia, biskupa",  // wales
     "saintJohnRobertsPriestAndMartyr": "Svätého Jána Robertsa, kňaza a mučeníka",  // wales
-    "saintHelena": "Svätej Heleny"  // slovakia
+    "saintHelena": "Svätej Heleny",  // slovakia
+    "saintElizabethOfHungarySaintHildaAbbessSaintHughOfLincolnBishop": "Saint Elizabeth of Hungary, Religious/Saint Hilda, Abbess/Saint Hugh of Lincoln, Bishop"  // england
   }
 };
