@@ -57,6 +57,16 @@ let dates = year => {
           "liturgicalColor": LiturgicalColors.WHITE
         }
       }
+    },
+    {
+      "key": "ourLordJesusChristTheEternalHighPriest",
+      "type": Types[4],
+      "moment": ( y => Dates.pentecostSunday( y ).add( 4, 'days' ))(year),
+      "data": {
+        "meta": {
+          "liturgicalColor": LiturgicalColors.WHITE
+        }
+      }
     }
   ];
 
