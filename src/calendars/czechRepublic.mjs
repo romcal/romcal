@@ -238,6 +238,16 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 11, day: 1 }),
       "data": {}
+    },
+    {
+      "key": "ourLordJesusChristTheEternalHighPriest",
+      "type": Types[4],
+      "moment": ( y => Dates.pentecostSunday( y ).add( 4, 'days' ))(year),
+      "data": {
+        "meta": {
+          "liturgicalColor": LiturgicalColors.WHITE
+        }
+      }
     }
   ];
 
