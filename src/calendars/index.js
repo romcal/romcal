@@ -19,6 +19,7 @@ import * as greece from './greece';
 import * as hungary from './hungary';
 import * as india from './india';
 import * as ireland from './ireland';
+import * as italy from './italy';
 import * as japan from './japan';
 import * as lebanon from './lebanon';
 import * as lithuania from './lithuania';
@@ -68,6 +69,7 @@ export {
   hungary,
   india,
   ireland,
+  italy,
   japan,
   lebanon,
   lithuania,
