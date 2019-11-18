@@ -86,7 +86,7 @@ module.exports = {
           "meta": {
             "liturgicalColor": LiturgicalColors.RED,
             "titles": [
-              Titles.RED
+              Titles.MARTYR
             ]
           }
         }
@@ -119,7 +119,7 @@ module.exports = {
           "meta": {
             "liturgicalColor": LiturgicalColors.RED,
             "titles": [
-              Titles.RED
+              Titles.MARTYR
             ]
           }
         }
