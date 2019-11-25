@@ -49,7 +49,7 @@ let dates = year => {
         }
       }
     },
-    // Commented because the key and rank is the same as the definition in general.mjs
+    // Commented because the key and rank is the same as the definition in general.js
     // {
     //   "key": "saintCamillusDeLellisPriest",
     //   "type": Types[6],

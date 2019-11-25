@@ -344,7 +344,7 @@ export default {
     "saintVitusMartyr": "Svätého Víta, mučeníka",  // austria, czechRepublic, germany, switzerland
     "saintJohnNeumannBishop": "Svätého Jána Nepomuckého Neumanna, biskupa",  // austria, czechRepublic, germany, switzerland, unitedStates
     "saintProcopiusAbbot": "Svätého Prokopa, opáta",  // czechRepublic
-    "blessedHroznataMartyr": "Blahoslaveného Hroznatu, mučeníka",  // czechRepublic; to be renamed in `enUs.mjs`
+    "blessedHroznataMartyr": "Blahoslaveného Hroznatu, mučeníka",  // czechRepublic; to be renamed in `enUs.js`
     "blessedCeslausAndSaintHyacinthPriests": "Blahoslaveného Česlava a svätého Hyacinta, kňazov",  // czechRepublic
     "saintsBenedyktJanMateuszIsaakAndKrystynMartyrs": "Svätých Benedikta, Jána, Mateja, Izáka a Kristína (Piatich bratov pustovníkov), mučeníkov",  // czechRepublic, poland
     "saintTeresaOfCalcuttaReligious": "Svätej Terézie z Kalkaty (Matky Terezy), panny a rehoľnice",  // czechRepublic, hungary, india
@@ -524,7 +524,7 @@ export default {
     "saintFinbarrBishop": "Svätého Finbarra, biskupa",  // ireland
     "blessedColumbaMarmionPriest": "Blahoslaveného Columbu Marmiona, kňaza",  // ireland
     "saintCaniceAbbot": "Svätého Canica, opáta",  // ireland
-    "saintGallAbbotAndMissionary": "Svätého Gála, kňaza",  // germany, ireland, slovakia; he was never an abbot; he was a priest and hermit; in Slovakia, we celebrate him as a priest; change it in `enUs.mjs`, too
+    "saintGallAbbotAndMissionary": "Svätého Gála, kňaza",  // germany, ireland, slovakia; he was never an abbot; he was a priest and hermit; in Slovakia, we celebrate him as a priest; change it in `enUs.js`, too
     "saintOtteranMonk": "Svätého Otterána, mnícha",  // ireland
     "saintColmanOfKilmacduaghBishop": "Svätého Kolomana z Kilmacduagh, biskupa",  // ireland
     "saintMalachyBishop": "Svätého Malachiáša, biskupa",  // ireland
