@@ -101,7 +101,7 @@ Running `npm run build` in the romcal root directory will generate a packaged ve
 
 ## Usage <a name="usage"></a>
 
-> Romcal has been re-written using ES6. However, thanks to `@std/esm`, `babel` and Node's `.mjs` file extension, it can still be included by other non ES6 aware node modules via the normal CommonJs `require` call. All source files are in the `mjs` file format so that `@std/esm` knows that this file should contain ES6 syntax (import, export).
+> Romcal has been re-written using ES6, and use the new import/export syntax to manage node modules. However, thanks to `esm` and `babel`, it can still be included by other non ES6 aware node modules via the normal CommonJs `require` call.
 
 Add romcal to your project via npm:
 
@@ -226,7 +226,7 @@ romcal returns an array of liturgical date objects in the following structure
     + titles: An array of [titles](#titles) that may be assigned to this celebration
 
 ## Celebration Types <a name="types"></a>
-Each date in the liturgical calendar is assigned a type. romcal defines these types in `src/constants/Types.mjs` which are:
+Each date in the liturgical calendar is assigned a type. romcal defines these types in `src/constants/Types.js` which are:
 
 1. `SOLEMNITY`
 2. `SUNDAY`
@@ -253,7 +253,7 @@ On top of having a celebration type, liturgical dates may also have one or more 
 
 For example, the feast of [Saint Catherine of Siena](https://en.wikipedia.org/wiki/Catherine_of_Siena) is assigned the titles `PATRON_OF_EUROPE` (for national calendars of countries in Europe only) and `DOCTOR_OF_THE_CHURCH` due to those titles being conferred on her by the Church.
 
-romcal defines liturgical seasons in `src/constants/Titles.mjs` which are:
+romcal defines liturgical seasons in `src/constants/Titles.js` which are:
 
 Titles are currently available for:
 
@@ -279,7 +279,7 @@ var Titles = require('romcal').Titles;
 ## Liturgical Seasons <a name="seasons"></a>
 The liturgical calendar is divided into various seasons that occur throughout the liturgical year.
 
-romcal defines liturgical seasons in `src/constants/LiturgicalSeasons.mjs` which are:
+romcal defines liturgical seasons in `src/constants/LiturgicalSeasons.js` which are:
 
 + `ADVENT`
 + `CHRISTMASTIDE`
@@ -289,7 +289,7 @@ romcal defines liturgical seasons in `src/constants/LiturgicalSeasons.mjs` which
 + `HOLY_WEEK`
 + `EASTER`
 
-Methods in `src/lib/Seasons.mjs` assigns seasons to the dates it generates to indicate the season to which the range of dates generated belong.
+Methods in `src/lib/Seasons.js` assigns seasons to the dates it generates to indicate the season to which the range of dates generated belong.
 
 The LiturgicalSeasons object can be imported into consumer apps via: 
 
@@ -306,7 +306,7 @@ var LiturgicalSeasons = require('romcal').LiturgicalSeasons;
 ## Liturgical Cycles <a name="cycles"></a>
 A liturgical year consists of a cycles (either A, B, C) that determines which portions of scripture are to be read. romcal automatically calculates the correct cycle for the given liturgical year and includes it in the meta information of each liturgical date for that year.
 
-romcal defines cycles in `src/constants/Cycles.mjs` which are:
+romcal defines cycles in `src/constants/Cycles.js` which are:
 
 + `Year A` denoted by the key `0`
 + `Year B` denoted by the key `1`
@@ -329,7 +329,7 @@ var Cycles = require('romcal').Cycles;
 ## Liturgical Colors <a name="colors"></a>
 [Liturgical colours are those specific colours used for vestments and hangings within the context of Christian liturgy. The symbolism of violet, white, green, red, gold, black, rose and other colours may serve to underline moods appropriate to a season of the liturgical year or may highlight a special occasion.](https://en.wikipedia.org/wiki/Liturgical_colours)
 
-romcal defines 6 colors in `src/constants/LiturgicalColors.mjs` which are:
+romcal defines 6 colors in `src/constants/LiturgicalColors.js` which are:
 + `RED`
 + `ROSE`
 + `PURPLE`
@@ -356,7 +356,7 @@ var LiturgicalColors = require('romcal').LiturgicalColors;
 ## Psalter Weeks <a name="psalterWeeks"></a>
 With the exception of the Easter Octave, each week in the liturgical year is assigned readings from the [Psalter](https://en.wikipedia.org/wiki/Roman_Breviary#The_Psalter). There are also some rules that govern the set of Psalter readings used for particular occasions or seasons in the year.
 
-romcal defines the Psalter Weeks used in the liturgical year in `src/constants/PsalterWeeks.mjs` which are:
+romcal defines the Psalter Weeks used in the liturgical year in `src/constants/PsalterWeeks.js` which are:
 
 + `Week I`
 + `Week II`
@@ -394,16 +394,16 @@ Calendar sources play an important role in how romcal manages coinciding dates (
 ### liturgical <a name="liturgical"></a>
 Represents a standard date in the liturgical year. Dates from this source build the basic structure of the liturgical calendar from the start of the liturgical year to its end.
 
-Dates from `src/lib/Seasons.mjs` will be assigned the source value `l`.
+Dates from `src/lib/Seasons.js` will be assigned the source value `l`.
 
-The module responsible for generating the `liturgical` dates is `src/lib/Seasons.mjs`. _It is unlikely that this module will need customization or overriding of any kind._
+The module responsible for generating the `liturgical` dates is `src/lib/Seasons.js`. _It is unlikely that this module will need customization or overriding of any kind._
 
 ### celebrations <a name="celebrations"></a>
 Represents central celebrations observed in the Roman Catholic rite. They take precendence and will replace coinciding dates from the `liturgical` calendar or `general` calendar. 
 
-Dates from `src/lib/Celebrations.mjs` will be assigned the source value `c`.
+Dates from `src/lib/Celebrations.js` will be assigned the source value `c`.
 
-The module responsible for generating `celebrations` is `src/lib/Celebrations.mjs`. _It is highly unlikely that this module will need customization or overriding of any kind._
+The module responsible for generating `celebrations` is `src/lib/Celebrations.js`. _It is highly unlikely that this module will need customization or overriding of any kind._
 
 A prioritized date defined in the `national` calendar can replace a date in the `celebrations` calendar when:
 + the key of the `national` date matches a key in `celebrations`
@@ -445,9 +445,9 @@ The following are a list of dates defined in the `celebrations` calendar:
 ### general <a name="general"></a>
 Represents general celebrations throughout the liturgical year. Dates from the `general` calendar will override those from the `liturgical` calendar.
 
-Dates from `src/calendars/general.mjs` are assigned the source value `g`.
+Dates from `src/calendars/general.js` are assigned the source value `g`.
 
-The module responsible for generating the `general` dates is `src/lib/Calendars/general.mjs`.
+The module responsible for generating the `general` dates is `src/lib/Calendars/general.js`.
 
 `general` calendar dates will always be overwritten by `celebration` or `national` calendar dates even if they are prioritized. It is  not recommended to directly edit or add new dates here.
 
@@ -460,9 +460,9 @@ A prioritized celebration in the `national` calendar takes precedence over celeb
 
 In situations when there are 2 celebrations from a  `national` calendar that coincide on the same date, the one with the higher ranking celebration type will take precendence.
 
-A new `national` calendar for a country can be defined by creating a new `.mjs` file with the country name in upper case, lower case or camel case in the `src/lib/calendars` folder (i.e. `malaysia.mjs`). This new file will automatically be picked up by the module and will be used when the user supplies the matching key in the country argument in the `calendarFor` method.
+A new `national` calendar for a country can be defined by creating a new `.js` file with the country name in upper case, lower case or camel case in the `src/lib/calendars` folder (i.e. `malaysia.mjs`). This new file will automatically be picked up by the module and will be used when the user supplies the matching key in the country argument in the `calendarFor` method.
 
-Dates from `src/calendars/<countryName>.mjs` will be assigned the source key `n`
+Dates from `src/calendars/<countryName>.js` will be assigned the source key `n`
 
 See [Overriding dates](#overridingDates) for more examples.
 
@@ -577,11 +577,11 @@ Prioritizing a date allows it to:
 - Override a higher ranking `type` date object with the same key 
 - Prevent it from being overriden by other coinciding dates
 
-A date can be prioritized by adding `prioritized`: `true` to the `data` object in the given date object. See `src/lib/Celebrations.mjs` for more examples.
+A date can be prioritized by adding `prioritized`: `true` to the `data` object in the given date object. See `src/lib/Celebrations.js` for more examples.
 
-All dates in `src/lib/Celebrations.mjs` (Christmas, Easter) are prioritized as they must override any other date in the liturgical calendar and cannot be overriden by any other coinciding date regardless of rank <b>unless</b> the coinciding date is itself prioritized 
+All dates in `src/lib/Celebrations.js` (Christmas, Easter) are prioritized as they must override any other date in the liturgical calendar and cannot be overriden by any other coinciding date regardless of rank <b>unless</b> the coinciding date is itself prioritized 
 
-For example, `allSaints` in `src/lib/Celebrations.mjs` can be overriden by `allSaints` in `src/calendars/england.mjs`) because the entry in that `national` calendar has been set with `prioritized`: `true`.
+For example, `allSaints` in `src/lib/Celebrations.js` can be overriden by `allSaints` in `src/calendars/england.js`) because the entry in that `national` calendar has been set with `prioritized`: `true`.
 
 Caveat:
 >If a coinciding date's source is from the `celebration` or `national` calendars, *but* the prioritized date is defined in the `general` calendar, it *will still be* overidden by the coinciding date because `celebration` and `national` calendar sources have higher precedence (see [here](#overridingBySource))
@@ -590,7 +590,7 @@ Caveat:
 
 In most countries, All Saints and All Souls are celebrated on the 1st and 2nd of November respectively. However, in England and Wales, if All Saints (1 November) falls on a Saturday, it is transferred to the Sunday and All Souls is transferred to Monday 3rd Novemeber.
 
-Romcal implements this unique difference by overriding the `allSouls` and `allSaints` celebrations in the national calendars of `src/calendars/england.mjs` and `src/calendars/wales.mjs` (the original definition was in `src/calendars/general.mjs`). The overriding dates in these calendars define a IIFE callback function for the moment property that holds logic for determining if the date should be moved.
+Romcal implements this unique difference by overriding the `allSouls` and `allSaints` celebrations in the national calendars of `src/calendars/england.js` and `src/calendars/wales.js` (the original definition was in `src/calendars/general.js`). The overriding dates in these calendars define a IIFE callback function for the moment property that holds logic for determining if the date should be moved.
 
 Since national calendar dates have higher precendence than general calendar dates, the national date definitions for All Saints and All Souls will override the ones in the general calendar.
 
@@ -610,7 +610,7 @@ However, in some cases, a national calendar may need to omit a celebration entir
 
 When defined, the `drop` key should contain a `boolean` value of `true` to indicate that the given celebration should be _removed_ from the calendar output. 
 
-Usually, this means excluding a celebration defined in `src/calendars/general.mjs`. The construct would be defined in the relevant `national` calendar and look like this:
+Usually, this means excluding a celebration defined in `src/calendars/general.js`. The construct would be defined in the relevant `national` calendar and look like this:
 
 ```
 {
@@ -619,9 +619,9 @@ Usually, this means excluding a celebration defined in `src/calendars/general.mj
 }
 ```
 
-An example of this can be seen in the national calendar of Slovakia (`src/calendars/slovakia.mjs`) where the celebrations of Shrove Monday and Shrove Tuesday are not relevant in the calendar output. 
+An example of this can be seen in the national calendar of Slovakia (`src/calendars/slovakia.js`) where the celebrations of Shrove Monday and Shrove Tuesday are not relevant in the calendar output. 
 
-Therefore, the `src/calendars/slovakia.mjs` redefines these 2 celebration keys with only one property, `drop` with the value of `true` so that they are excluded in the `calendarFor` output. 
+Therefore, the `src/calendars/slovakia.js` redefines these 2 celebration keys with only one property, `drop` with the value of `true` so that they are excluded in the `calendarFor` output. 
 
 Note: When defining `drop`, only the key of the celebration is mandatory. Other keys do not have to be defined. `drop` operations also have higher precedence than overriding (meaning, they are run first before prioritization logic).
 
@@ -629,7 +629,7 @@ Note: When defining `drop`, only the key of the celebration is mandatory. Other 
 
 Celebration names in Romcal can be localized to any language that is already supported by [Moment i18n](http://momentjs.com/docs/#/i18n/). 
 
-Locales are stored as `.mjs` files in the `src/locales` directory where the name of the file corresponds to the camel cased locale name of a given language. Internally, romcal will convert this camel cased locale name to kebab case when processing locale information. For example, the locale file `enCa.js` will be processed to be `en-CA` which corresponds to the moment locale for Canada (English).
+Locales are stored as `.js` files in the `src/locales` directory where the name of the file corresponds to the camel cased locale name of a given language. Internally, romcal will convert this camel cased locale name to kebab case when processing locale information. For example, the locale file `enCa.js` will be processed to be `en-CA` which corresponds to the moment locale for Canada (English).
 
 `en` is the default locale in romcal and serves as the fallback when the user specified locale has not been defined in the `locales` directory or the given key does not exist in the locale.
 
@@ -672,9 +672,9 @@ The structure of the locale file is typically like so:
 
 ```
 
-The first 7 objects define locale keys used by `src/lib/Seasons.mjs` when generating litugical dates.
+The first 7 objects define locale keys used by `src/lib/Seasons.js` when generating litugical dates.
 
-The `celebrations`, `general` and `national` objects will hold localisations for `src/lib/Celebrations.mjs`, `src/calendars/general.mjs` and `src/calendars/<country>.mjs` respectively where the celebrations `key` is used as the identifier for localisation purposes.
+The `celebrations`, `general` and `national` objects will hold localisations for `src/lib/Celebrations.js`, `src/calendars/general.js` and `src/calendars/<country>.js` respectively where the celebrations `key` is used as the identifier for localisation purposes.
 
 See the end of these files to see the function that localizes the dates according to their keys.
 

@@ -1,5 +1,9 @@
 # Version history
 
+## 1.3.1 /2019-11-25
+* Update node dependencies.
+* The `@std/esm` package has been deprecated in favour of `esm`. Also `esm` have limited the `.mjs` files to basic functionality without support for esm options, to align with the current experimental support in Node. [More details here](https://github.com/standard-things/esm/issues/696). According to that all `.mjs` files in the `romcal` project have been renamed back to `.js`.
+
 ## 1.3.0 /2018-03-05
 * Revamp code to use ES6 syntax
 * Dropped support for Node v4, v5.
