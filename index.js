@@ -1,3 +1,3 @@
-require = require('@std/esm')(module);
+require = require('esm')(module);
 require("@babel/register");
-module.exports = require('./src/index.mjs');
+module.exports = require('./src/index.js');

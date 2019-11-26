@@ -1,16 +1,16 @@
 {
   "name": "romcal",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Utility library that outputs the Liturgical Calendar used by the Roman Rite (Western Church)",
   "main": "index.js",
-  "module": "src/index.mjs",
+  "module": "src/index.js",
   "engines": {
     "node": ">=6.0.0"
   },
   "scripts": {
     "prepack": "npm run test",
-    "build": "webpack --config webpack.config.js",
-    "test": "mocha -r @std/esm test/*.js"
+    "build": "webpack-cli --config webpack.config.js",
+    "test": "mocha -r esm test/*.js"
   },
   "repository": {
     "type": "git",
@@ -38,25 +38,26 @@
   },
   "homepage": "https://github.com/pejulian/romcal#README",
   "dependencies": {
-    "lodash": "^4.17.5",
-    "moment": "^2.20.1",
-    "moment-range": "^3.1.1",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "moment-range": "^4.0.2",
     "moment-recur": "^1.0.7"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.40",
-    "@babel/core": "^7.0.0-beta.40",
-    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.40",
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.40",
-    "@babel/preset-env": "^7.0.0-beta.40",
-    "@babel/register": "^7.0.0-beta.40",
-    "@std/esm": "^0.23.3",
-    "babel-loader": "^8.0.0-beta.0",
-    "eslint": "^4.19.0",
-    "eslint-plugin-node": "^6.0.1",
-    "mocha": "^5.0.1",
-    "should": "^13.2.1",
-    "source-map-loader": "^0.2.3",
-    "webpack": "^4.1.0"
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/register": "^7.7.4",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.7.1",
+    "eslint-plugin-node": "^10.0.0",
+    "esm": "^3.2.25",
+    "mocha": "^6.2.2",
+    "should": "^13.2.3",
+    "source-map-loader": "^0.2.4",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
   }
 }

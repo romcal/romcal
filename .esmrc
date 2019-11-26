@@ -1,4 +1,4 @@
 {
-  "esm": "all",
+  "mode": "all",
   "cjs": true
 }
