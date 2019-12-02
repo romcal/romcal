@@ -1,10 +1,22 @@
 # Version history
 
-## 1.2.4 /2017-03-22
-* Added French translations for France, Canada and Belgium.
-* Updated French Calendar
+## 1.2.4
+* Added credits in the description section in `README.md`.
+* Drop support of Node.js `v0.10.x`, `v0.11.x`, `v0.12.x`.
+* Updated French Calendar.
+* Fixes:
+    * [pull #8](https://github.com/romcal/romcal/pull/8)
+        * Compute correctly the week numbers in Lent.<br>
+          During lent, weeks was starting on Wednesday instead of Sunday. This fix remove the first 4 days of lent (Ash Wednesday to Saturday) when computing the week number.
+    * [issue #52](https://github.com/romcal/romcal/issues/52)
+        * Duplicate entries for the same date.
+    * [issue #63](https://github.com/romcal/romcal/issues/63)
+        * Updated romcal to use correct lodash method for finding uniques with a criterion.
+    * [pull #78](https://github.com/romcal/romcal/pull/78)
+        * Add missing type: `MARTYR` & fix wrong specified types in brazil calendar.
 
 ## 1.2.3 / 2017-03-21
+* Added French translations for France, Canada and Belgium.
 * Fix issue where national feasts appear more than once in the calendar output
 
 ## 1.2.2 / 2017-03-21
