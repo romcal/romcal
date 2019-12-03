@@ -1,15 +1,19 @@
 import cs from './cs';
-import enUs from './enUs';
-import enCa from './enCa';
+import enBO from './en-BO';
+import enCA from './en-CA';
+import enPH from './en-PH';
+import en from './en';
 import fr from './fr';
 import pl from './pl';
-import skSk from './skSk';
+import sk from './sk';
 
 export {
   cs,
-  enUs,
-  enCa,
+  enBO,
+  enCA,
+  enPH,
+  en,
   fr,
   pl,
-  skSk
+  sk,
 };

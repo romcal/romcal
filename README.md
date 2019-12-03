@@ -62,7 +62,7 @@ See [contributing](CONTRIBUTING.md) for more information.
 - [Localising celebration names](#localisation)
 
 ## Description <a name="desc"></a>
-Romcal generates the [General Roman Calendar](http://en.wikipedia.org/wiki/General_Roman_Calendar) used in the Roman Catholic Rite. Output conforms to the revised liturgical calendar for the Western Church as approved by Paul VI in [Mysterii Paschalis](http://www.romcal.net/mysterii.html) dated 14 February 1969.
+romcal generates the [General Roman Calendar](http://en.wikipedia.org/wiki/General_Roman_Calendar) used in the Roman Catholic Rite. Output conforms to the revised liturgical calendar for the Western Church as approved by Paul VI in [Mysterii Paschalis](http://www.romcal.net/mysterii.html) dated 14 February 1969.
 
 Output can be configured for the standard calendar year (Jan, 1st - Dec, 31st) or the liturgical year (First Sunday of Advent - Christ the King). Additional filters for filtering output are also available (described below).
 
@@ -75,6 +75,7 @@ This node module is inspired by the C program [romcal](http://www.romcal.net/) w
 Additional credits for bug fixes, localisations and suggestions go to:
 - [@jarosz](https://github.com/jarosz)
 - [@emagnier](https://github.com/emagnier)
+- [@tukusejssirs](https://github.com/tukusejssirs)
 
 ## Features <a name="features"></a>
  * Able to query liturgical dates for any year in the gregorian calendar (1582 - now). Note that dates for years before 1969 will still be returned in a format conforming to [Mysterii Paschalis](http://www.romcal.net/mysterii.html) even though those years came before the calendar reforms in 1969.
@@ -83,12 +84,12 @@ Additional credits for bug fixes, localisations and suggestions go to:
  * National liturgical calendars for country specific calendars.
  * Richly commented code to help developers and contributors understand how the module works.
 
-NOTE: This module uses [Moment](http://momentjs.com/) and [lodash](http://lodash.com/) for calculations and operations. Additional plugins such as [Range](https://github.com/gf3/moment-range) and [Recur](https://github.com/c-trimm/moment-recur) are used to extend date computation functionality. 
+NOTE: This module uses [Moment.js](http://momentjs.com/) and [Lodash](http://lodash.com/) for calculations and operations. Additional plugins such as [Range](https://github.com/gf3/moment-range) and [Recur](https://github.com/c-trimm/moment-recur) are used to extend date computation functionality.
 
 ## Module Robustness & Data Integrity <a name="disclaimer"></a>
 *Calendar entries for this module are pulled from various sources from the net. As such their accuracy cannot be ensured. If you find an incorrect calendar entry (e.g. wrong date, wrong feast type, spelling issue, typos), you are most welcome to contribute to the source code or inform me so that the necessary changes can be made to make this a more robust and reliable module*
 
-*Romcal's code logic is developed according to calendar requirements descibed in various church documents sourced from the internet (and even from Wikipedia). If you notice discrepancies between romcal's output and actual liturgical dates, please do contribute your fixes or submit an issue on GitHub.*
+*romcal's code logic is developed according to calendar requirements descibed in various church documents sourced from the internet (and even from Wikipedia). If you notice discrepancies between romcal's output and actual liturgical dates, please do contribute your fixes or submit an issue on GitHub.*
 
 ### Testing romcal
 romcal employs `TDD` using `mocha` and `should`.
@@ -104,7 +105,7 @@ Running `npm run build` in the romcal root directory will generate a packaged ve
 
 ## Usage <a name="usage"></a>
 
-> Romcal has been re-written using ES6, and use the new import/export syntax to manage node modules. However, thanks to `esm` and `babel`, it can still be included by other non ES6 aware node modules via the normal CommonJs `require` call.
+> romcal has been re-written using ES6, and use the new import/export syntax to manage node modules. However, thanks to `esm` and `babel`, it can still be included by other non ES6 aware node modules via the normal CommonJs `require` call.
 
 Add romcal to your project via npm:
 
@@ -130,13 +131,13 @@ or in a webpage for direct usage on browsers
   <script type="text/javascript" src="romcal.bundle.min.js"></script>
 ```
 
-Including romcal directly in the browser will result in an object called `Romcal` being attached to the DOM `window` object. All the functions below will exist as properties of the `Romcal` object. 
+Including romcal directly in the browser will result in an object called `Romcal` being attached to the DOM `window` object. All the functions below will exist as properties of the `Romcal` object.
 
 Invoke the `calendarFor` method to retrieve an array of liturgical dates and celebrations in the Roman Calendar. This method accepts an object (optional) of configuration properties to obtain customized output.
 
 ```
 romcal.calendarFor({
-    year: 2015,
+    year: 2020,
     country: 'unitedStates',
     locale: 'pl',
     christmastideEnds: 't|o|e',
@@ -159,7 +160,7 @@ true|false );
 ### Configuration Options <a name="configOpts"></a>
 + `year`: Retrieve calendar dates for the given year (year should be an integer). Defaults to the current system year if not specified
 + `country`: Include celebration dates requested by the Episcopal council(s) of the given country that have been approved by the Holy See. If not specified, no National dates are included in the calendar output. If an unrecognized country is specified, romcal will silently ignore the property and will not return any National dates in the calendar output. Country names should be specified in camel case (i.e. `unitedStates`, `czechRepublic`).
-+ `locale`: Defaults to `en-US` (english) if not set. Romcal celebration names can be localized to different languages. If a given locale does not have the localized name for a celebration in that language, romcal will fallback to use the celebration name in English.
++ `locale`: Defaults to `en` (English) if not set. romcal celebration names can be localized to different languages. If a given locale does not have the localized name for a celebration in that language, romcal will fall back to use the celebration name in the base language (if a region was specified in the locale), and finally in English. More details on locales management in the [localisation](#localisation).
 + `christmastideEnds`: Specifies the end of the Christmas season. Can be either `t` (traditional where Christmastide ends on Epiphany), `o` (ordinary where Christmastide ends on the Baptism of the Lord) and `e` (extraordinary where Christmastide ends on the Presentation of the Lord). Defaults to `o` if not specified
 + `epiphanyOnJan6`: If `true`, fixes Epiphany on January 6th always. Usually, Epiphany will be set to a Sunday between 2 - 8 Jan based on an internal calculation. Defaults to `false`.
 + `christmastideIncludesTheSeasonOfEpiphany`: If `false`, the season of epiphany (i.e. days before Epiphany and days after Epiphany) will not appear within the Christmastide. `true` by default.
@@ -177,9 +178,9 @@ For the national calendars of the Czech Republic and Slovakia (country: `czechRe
 
 ### Output formatter <a name="outputFormatter"></a>
 The second parameter that can be passed to the `romcal.calendarFor()` method.
-It is an optional parameter: If true, skip converting dates to ISO8601 strings and return dates as moment objects. Defaults to false if not specified.
+It is an optional parameter: If true, skip converting dates to ISO8601 strings and return dates as Moment objects. Defaults to false if not specified.
 
-Romcal can also be invoked without parameters or via shorthand properties like so:
+romcal can also be invoked without parameters or via shorthand properties like so:
 
 ```
 // Get calendar year dates (1st Jan - 31st Dec) for the current year
@@ -188,7 +189,7 @@ romcal.calendarFor();
 // Get calendar year dates for the specified year
 romcal.calendarFor(2020);
 
-// Get calendar year dates and do not convert moment date objects to ISO8601 strings
+// Get calendar year dates and do not convert Moment date objects to ISO8601 strings
 romcal.calendarFor(true);
 
 ```
@@ -219,7 +220,7 @@ romcal returns an array of liturgical date objects in the following structure
 + `key`: A camel case string which serves as a unique identifier for the celebration. This key is an essential element in [overriding dates](#overriding)
 + `name`: The [localizable name](#localizing) of the celebration
 + `type`: A key representing the [celebration type](#types)
-+ `moment`: Moment object or ISO8601 string of the date of the celebration
++ `moment`: Moment.js object or ISO8601 string of the date of the celebration
 + `source`: The internal calendar [source](#sources) of this celebration
 + `data`: An object that holds additional information about the celebration
   + prioritized: A optional boolean that when true, gives the celebration higher priority over another coinciding celebration even though that celebration has a higher ranking type. This flag should be used with caution.
@@ -245,12 +246,12 @@ Where the importance or rank of the celebration is in descending order (Solemnit
 
 Types play an important role in determining which celebration should take precendence over another when two or more celebrations coincide on the same date. Certain celebration types will also have different liturgical colors applied to them.
 
-The array of types can be imported into consumer apps via: 
+The array of types can be imported into consumer apps via:
 
 ```
-import { Types } from 'romcal'; 
+import { Types } from 'romcal';
 ```
- 
+
 ## Celebration Titles <a name="titles"></a>
 On top of having a celebration type, liturgical dates may also have one or more titles of significance assigned to it.
 
@@ -267,16 +268,16 @@ Titles are currently available for:
 + `TRIDUUM`
 + `MARTYR`
 
-The titles object can be imported into consumer apps via: 
+The titles object can be imported into consumer apps via:
 
 *ES6*
 ```
-import { Titles } from 'romcal'; 
+import { Titles } from 'romcal';
 ```
- 
+
 *CommonJS*
 ```
-var Titles = require('romcal').Titles; 
+var Titles = require('romcal').Titles;
 ```
 
 ## Liturgical Seasons <a name="seasons"></a>
@@ -294,16 +295,16 @@ romcal defines liturgical seasons in `src/constants/LiturgicalSeasons.js` which 
 
 Methods in `src/lib/Seasons.js` assigns seasons to the dates it generates to indicate the season to which the range of dates generated belong.
 
-The LiturgicalSeasons object can be imported into consumer apps via: 
+The LiturgicalSeasons object can be imported into consumer apps via:
 
 *ES6*
 ```
-import { LiturgicalSeasons } from 'romcal'; 
+import { LiturgicalSeasons } from 'romcal';
 ```
 
 *CommonJS*
 ```
-var LiturgicalSeasons = require('romcal').LiturgicalSeasons; 
+var LiturgicalSeasons = require('romcal').LiturgicalSeasons;
 ```
 
 ## Liturgical Cycles <a name="cycles"></a>
@@ -315,18 +316,18 @@ romcal defines cycles in `src/constants/Cycles.js` which are:
 + `Year B` denoted by the key `1`
 + `Year C` denoted by the key `2`
 
-Cycle information can be read via the `dates[idx].data.meta.cycle` property in each date element in the array that `calendarFor` returns. 
+Cycle information can be read via the `dates[idx].data.meta.cycle` property in each date element in the array that `calendarFor` returns.
 
-The cycles object can be imported into consumer apps via: 
+The cycles object can be imported into consumer apps via:
 
 *ES6*
 ```
-import { Cycles } from 'romcal'; 
+import { Cycles } from 'romcal';
 ```
 
 *CommonJS*
 ```
-var Cycles = require('romcal').Cycles; 
+var Cycles = require('romcal').Cycles;
 ```
 
 ## Liturgical Colors <a name="colors"></a>
@@ -342,18 +343,18 @@ romcal defines 6 colors in `src/constants/LiturgicalColors.js` which are:
 
 More information on how these colors are used for celebration can be found [here](https://en.wikipedia.org/wiki/Liturgical_colours#Roman_Catholic_Church)
 
-Liturgical colors can be read via the `dates[idx].data.meta.liturgicalColor` property in each date element in the array that `calendarFor` returns. 
+Liturgical colors can be read via the `dates[idx].data.meta.liturgicalColor` property in each date element in the array that `calendarFor` returns.
 
-The LiturgicalColors object can be imported into consumer apps via: 
+The LiturgicalColors object can be imported into consumer apps via:
 
 *ES6*
 ```
-import { LiturgicalColors } from 'romcal'; 
+import { LiturgicalColors } from 'romcal';
 ```
 
 *CommonJS*
 ```
-var LiturgicalColors = require('romcal').LiturgicalColors; 
+var LiturgicalColors = require('romcal').LiturgicalColors;
 ```
 
 ## Psalter Weeks <a name="psalterWeeks"></a>
@@ -369,16 +370,16 @@ romcal defines the Psalter Weeks used in the liturgical year in `src/constants/P
 
 Psalter weeks can be read via the `dates[idx].data.meta.psalterWeek` property in each date element in the array that `calendarFor` returns.
 
-The PsalterWeeks object can be imported into consumer apps via: 
+The PsalterWeeks object can be imported into consumer apps via:
 
 *ES6*
 ```
-import { PsalterWeeks } from 'romcal'; 
+import { PsalterWeeks } from 'romcal';
 ```
 
 *CommonJS*
 ```
-var PsalterWeeks = require('romcal').PsalterWeeks; 
+var PsalterWeeks = require('romcal').PsalterWeeks;
 ```
 
 ## Calendar sources <a name="sources"></a>
@@ -402,7 +403,7 @@ Dates from `src/lib/Seasons.js` will be assigned the source value `l`.
 The module responsible for generating the `liturgical` dates is `src/lib/Seasons.js`. _It is unlikely that this module will need customization or overriding of any kind._
 
 ### celebrations <a name="celebrations"></a>
-Represents central celebrations observed in the Roman Catholic rite. They take precendence and will replace coinciding dates from the `liturgical` calendar or `general` calendar. 
+Represents central celebrations observed in the Roman Catholic rite. They take precendence and will replace coinciding dates from the `liturgical` calendar or `general` calendar.
 
 Dates from `src/lib/Celebrations.js` will be assigned the source value `c`.
 
@@ -470,7 +471,7 @@ Dates from `src/calendars/<countryName>.js` will be assigned the source key `n`
 See [Overriding dates](#overridingDates) for more examples.
 
 ## Queries <a name="queries"></a>
-Romcal can generate filtered liturgical or calendar year dates by:
+romcal can generate filtered liturgical or calendar year dates by:
 + passing an additional query object along with the initial configuration object to the `calendarFor` method, or
 + invoking the `queryFor` method and supplying an array of dates generated from `calendarFor` and a query object
 
@@ -500,11 +501,11 @@ import { Calendar } from 'romcal';
 
 let dates = Calendar.calendarFor();
 
-let datesGroupedByDay = Calendar.queryFor(dates, { 
+let datesGroupedByDay = Calendar.queryFor(dates, {
   day: 0 // 0 - 6
 });
 
-let datesGroupedByMonth = Calendar.queryFor(dates, { 
+let datesGroupedByMonth = Calendar.queryFor(dates, {
   month: 0 // 0 - 11
 });
 
@@ -535,8 +536,8 @@ let dates = Calendar.calendarFor();
 // Some code,
 // then ...
 
-let groupedCalendar = Calendar.queryFor(dates, { 
-  group: 'days|months|daysByMonth|weeksByMonth|cycles|types|liturgicalSeasons|liturgicalColors|psalterWeeks' 
+let groupedCalendar = Calendar.queryFor(dates, {
+  group: 'days|months|daysByMonth|weeksByMonth|cycles|types|liturgicalSeasons|liturgicalColors|psalterWeeks'
 });
 
 ```
@@ -568,7 +569,7 @@ romcal.queryFor(dates, {
 
 ## Overriding dates <a name="overridingDates"></a>
 
-Romcal has been designed with extensibility in mind to cater for unique scenarios that are common in the liturgical calendar.
+romcal has been designed with extensibility in mind to cater for unique scenarios that are common in the liturgical calendar.
 
 ### Overriding a date by its calendar source <a name="overridingBySource"></a>
 
@@ -577,12 +578,12 @@ The order of importance of calendar sources are: `celebrations` > `national` > `
 ### Overriding a date by its priority <a name="overridingByPriority"></a>
 
 Prioritizing a date allows it to:
-- Override a higher ranking `type` date object with the same key 
+- Override a higher ranking `type` date object with the same key
 - Prevent it from being overriden by other coinciding dates
 
 A date can be prioritized by adding `prioritized`: `true` to the `data` object in the given date object. See `src/lib/Celebrations.js` for more examples.
 
-All dates in `src/lib/Celebrations.js` (Christmas, Easter) are prioritized as they must override any other date in the liturgical calendar and cannot be overriden by any other coinciding date regardless of rank <b>unless</b> the coinciding date is itself prioritized 
+All dates in `src/lib/Celebrations.js` (Christmas, Easter) are prioritized as they must override any other date in the liturgical calendar and cannot be overriden by any other coinciding date regardless of rank <b>unless</b> the coinciding date is itself prioritized
 
 For example, `allSaints` in `src/lib/Celebrations.js` can be overriden by `allSaints` in `src/calendars/england.js`) because the entry in that `national` calendar has been set with `prioritized`: `true`.
 
@@ -593,7 +594,7 @@ Caveat:
 
 In most countries, All Saints and All Souls are celebrated on the 1st and 2nd of November respectively. However, in England and Wales, if All Saints (1 November) falls on a Saturday, it is transferred to the Sunday and All Souls is transferred to Monday 3rd Novemeber.
 
-Romcal implements this unique difference by overriding the `allSouls` and `allSaints` celebrations in the national calendars of `src/calendars/england.js` and `src/calendars/wales.js` (the original definition was in `src/calendars/general.js`). The overriding dates in these calendars define a IIFE callback function for the moment property that holds logic for determining if the date should be moved.
+romcal implements this unique difference by overriding the `allSouls` and `allSaints` celebrations in the national calendars of `src/calendars/england.js` and `src/calendars/wales.js` (the original definition was in `src/calendars/general.js`). The overriding dates in these calendars define a IIFE callback function for the Moment property that holds logic for determining if the date should be moved.
 
 Since national calendar dates have higher precendence than general calendar dates, the national date definitions for All Saints and All Souls will override the ones in the general calendar.
 
@@ -605,13 +606,13 @@ Therefore, it is important that the key in the national calendar is <b>exactly</
 
 By default, `romcal` _does not_ remove any celebrations in its output. Instead, prioritization (see above) is the preferred way to go about overriding celebrations to exhibit different characteristics.
 
-However, in some cases, a national calendar may need to omit a celebration entirely from its output. This could be because the given celebration is entirely irrelevant to the observances of the nation. 
+However, in some cases, a national calendar may need to omit a celebration entirely from its output. This could be because the given celebration is entirely irrelevant to the observances of the nation.
 
 `romcal` enables this flexibility via the `drop` key.
 
 ### The `drop` keyword <a name="dropKeyword"></a>
 
-When defined, the `drop` key should contain a `boolean` value of `true` to indicate that the given celebration should be _removed_ from the calendar output. 
+When defined, the `drop` key should contain a `boolean` value of `true` to indicate that the given celebration should be _removed_ from the calendar output.
 
 Usually, this means excluding a celebration defined in `src/calendars/general.js`. The construct would be defined in the relevant `national` calendar and look like this:
 
@@ -622,19 +623,25 @@ Usually, this means excluding a celebration defined in `src/calendars/general.js
 }
 ```
 
-An example of this can be seen in the national calendar of Slovakia (`src/calendars/slovakia.js`) where the celebrations of Shrove Monday and Shrove Tuesday are not relevant in the calendar output. 
+An example of this can be seen in the national calendar of Slovakia (`src/calendars/slovakia.js`) where the celebrations of Shrove Monday and Shrove Tuesday are not relevant in the calendar output.
 
-Therefore, the `src/calendars/slovakia.js` redefines these 2 celebration keys with only one property, `drop` with the value of `true` so that they are excluded in the `calendarFor` output. 
+Therefore, the `src/calendars/slovakia.js` redefines these 2 celebration keys with only one property, `drop` with the value of `true` so that they are excluded in the `calendarFor` output.
 
 Note: When defining `drop`, only the key of the celebration is mandatory. Other keys do not have to be defined. `drop` operations also have higher precedence than overriding (meaning, they are run first before prioritization logic).
 
 ## Localizing celebration names <a name="localisation"></a>
 
-Celebration names in Romcal can be localized to any language that is already supported by [Moment i18n](http://momentjs.com/docs/#/i18n/). 
+Celebration names in romcal can be localized to any language that is already supported by [Moment i18n](http://momentjs.com/docs/#/i18n/).
 
-Locales are stored as `.js` files in the `src/locales` directory where the name of the file corresponds to the camel cased locale name of a given language. Internally, romcal will convert this camel cased locale name to kebab case when processing locale information. For example, the locale file `enCa.js` will be processed to be `en-CA` which corresponds to the moment locale for Canada (English).
+Locales are stored as `.js` files in the `src/locales` directory.
 
-`en` is the default locale in romcal and serves as the fallback when the user specified locale has not been defined in the `locales` directory or the given key does not exist in the locale.
+If the given locale contains a region (the second group of letters after a hyphen, e.g. for `fr-CA`, the `CA` represents the region), a base language will be set as a locale fallback (`fr` in our example).
+
+A locale can have one or two fallbacks. `en` is the default locale in romcal and always serves as the last fallback.
+
+Fallbacks are used when the specified locale has not been defined in the `src/locales` directory or the given key does not exist in any of previous the locale(s).
+
+For example, a given locale containing region (like `fr-CA`) will gracefully fall back to `fr` if a localisation key isn't in `fr-CA`, or if `fr-CA.js` doesn't exits in the `src/locales` directory. In the end, it always falls back to `en`, which is the default language in romcal.
 
 The structure of the locale file is typically like so:
 

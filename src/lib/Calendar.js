@@ -42,7 +42,7 @@ const _sanitizeConfig = config => {
     config.country = '';
   }
   config.saintsCyrilMonkAndMethodiusBishopOnFeb14 = config.saintsCyrilMonkAndMethodiusBishopOnFeb14;
-  config.locale = config.locale || 'en-Us';
+  config.locale = config.locale || 'en';
   config.type = config.type || 'calendar';
   config.query = _.isPlainObject( config.query ) ? config.query : null;
   return config;
@@ -457,7 +457,7 @@ const _liturgicalCycleMetadata = (year, dates) => {
 // c: (an object literal with the following options)
 // [-] year: The year to calculate the liturgical date ranges
 // [-] country: Get national calendar dates for the given country (defaults to 'general')
-// [-] locale: The language for the calendar names (defaults to 'en-Us')
+// [-] locale: The language for the calendar names (defaults to 'en')
 // [-] christmastideEnds: t|o|e (The mode to calculate the end of Christmastide. Defaukts to 'o')
 // [-] epiphanyOnJan6: true|false|undefined (If true, Epiphany will be fixed to Jan 6) (defaults to false)
 // [-] christmastideIncludesTheSeasonOfEpiphany: true|false|undefined (If false, the season of Epiphany will not be merged into Christmastide )
@@ -495,7 +495,7 @@ const _calendarYear = c => {
 // c: (an object literal with the following options)
 // [-] year: The year to calculate the liturgical date ranges
 // [-] country: Get national calendar dates for the given country (defaults to 'general')
-// [-] locale: The language for the calendar names (defaults to 'en-Us')
+// [-] locale: The language for the calendar names (defaults to 'en')
 // [-] christmastideEnds: t|o|e (The mode to calculate the end of Christmastide. Defaukts to 'o')
 // [-] epiphanyOnJan6: true|false|undefined (If true, Epiphany will be fixed to Jan 6) (defaults to false)
 // [-] christmastideIncludesTheSeasonOfEpiphany: true|false|undefined (If false, the season of Epiphany will not be merged into Christmastide )
