@@ -1,10 +1,15 @@
 # Version history
 
-## 1.3.1 /2019-11-25
+## 1.3.0-beta.2 /2019-11-29
 * Update node dependencies.
 * The `@std/esm` package has been deprecated in favour of `esm`. Also `esm` have limited the `.mjs` files to basic functionality without support for esm options, to align with the current experimental support in Node. [More details here](https://github.com/standard-things/esm/issues/696). According to that all `.mjs` files in the `romcal` project have been renamed back to `.js`.
+* Locales management and pickup in romcal have been refactored, and it now behaves like Moment.js (used by romcal) or the general approach for i18n in app development: locale containing region like `fr-CA` will gracefully fall back to `fr` if a localisation key isn't in `fr-CA` or if `fr-CA.js` doesn't exits in the `src/locales` directory. In the end, it always falls back to `en`, which is the default language in romcal. Full explanations have been added to the `README.md`.
+* Locale files have been renamed to kebab-case with capitalized regions to follow the IETF Language Codes standards and be close to the general conventions in software development for i18n.
+* Fixes:
+    - [issue #85](https://github.com/romcal/romcal/issues/85)
+        * Depending on how the language string is set in romcal, one could get bilingual results when part of a string being in the chosen language and the default English (locale lookup for date name strings are based on Moment.js, not romcal). Locale files are now managed the same way as Moment.js.
 
-## 1.3.0 /2018-03-05
+## 1.3.0-beta.1 /2018-03-05
 * Revamp code to use ES6 syntax
 * Dropped support for Node v4, v5.
 * Integrated module with `std/esm` to read `.mjs` files and `babel` to ensure compatibility and seamless usage with lower version of node and requiring via CommonJS

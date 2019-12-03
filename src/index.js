@@ -27,12 +27,12 @@ import Moment from 'moment';
 import { extendMoment } from 'moment-range';
 const moment = extendMoment(Moment);
 
-import { 
-  Calendar, 
-  Celebrations, 
-  Dates, 
-  Seasons, 
-  Utils 
+import {
+  Calendar,
+  Celebrations,
+  Dates,
+  Seasons,
+  Utils
 } from './lib';
 
 import {
@@ -44,20 +44,26 @@ import {
   Types
 } from './constants';
 
+import * as Locales from './locales';
+const Localizations = _.keys(_.mapKeys(Locales, (v, k) => _.kebabCase(k)));
+
 import * as Calendars from './calendars';
 const Countries = _.keys(Calendars);
 
 // Export an array of countries for external use
-export { 
-  Countries
+// Export an array of locales for external use
+export {
+  Countries,
+  Locales,
+  Localizations
 };
 
 // Export all lib functions
 export {
-  Calendar, 
-  Celebrations, 
-  Dates, 
-  Seasons, 
+  Calendar,
+  Celebrations,
+  Dates,
+  Seasons,
   Utils
 };
 
