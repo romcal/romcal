@@ -54,6 +54,7 @@ const Countries = _.keys(Calendars);
 // Export an array of locales for external use
 export {
   Countries,
+  Locales,
   Localizations
 };
 

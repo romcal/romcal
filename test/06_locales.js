@@ -28,11 +28,53 @@ var moment = require('moment');
 var range = require('moment-range');
 var should = require('should');
 
-var Locales = require('../index');
+var Romcal = require('../index');
+var Utils = Romcal.Utils;
 
 describe('Testing localization functionality', function() {
 
   this.timeout(0);
 
+  // Locales extended with sample data
+  Romcal.Locales.frCA = Romcal.Locales.frCA || {};
+  Romcal.Locales.frCA.test = { hello: 'Allo', foo: 'foo' };
+  Romcal.Locales.en.test = { hello: 'Hello', foo: 'bar' };
+  Romcal.Locales.fr.test = { hello: 'Salut', lorem: 'ipsum' };
+
+  it('If the locale is set to "fr", romcal should output text in French', function() {
+    Utils.setLocale('fr');
+    Utils.localize({key: 'test.hello'}).should.equal('Salut');
+  });
+
+  it('If the locale is set to "fr-CA", romcal should output text in Canadian French', function() {
+    Utils.setLocale('fr-CA');
+    Utils.localize({key: 'test.hello'}).should.equal('Allo');
+  });
+
+  it('If the locale is set with an unknown region, romcal should fallback to its base language when exists in src/locales', function() {
+    Utils.setLocale('fr-XX');
+    Utils.localize({key: 'test.hello'}).should.equal('Salut');
+  });
+
+  it('If a string is missing in the "fr-CA" locale, romcal should fall back to base French', function() {
+    Utils.setLocale('fr-CA');
+    Utils.localize({key: 'test.lorem'}).should.equal('ipsum');
+  });
+
+  it('If a string is missing in the "fr" locale, romcal should fallback to English ', function() {
+    Utils.setLocale('fr');
+    Utils.localize({key: 'test.foo'}).should.equal('bar');
+  });
+
+  it('If an unknown locale is set, romcal should fallback to English', function() {
+    Utils.setLocale('xx-XX');
+    Utils.localize({key: 'test.hello'}).should.equal('Hello');
+  });
+
+  it('When the last locale set is "en", romcal should output English locale', function() {
+    Utils.setLocale('fr-CA');
+    Utils.setLocale('en');
+    Utils.localize({key: 'test.foo'}).should.equal('bar')
+  });
 
 });
