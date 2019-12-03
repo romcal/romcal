@@ -30,9 +30,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="dist/romcal.bundle.min.js"></script>
     <script>
+      // If your locale is supported by romcal, it will use it, otherwise it will default to 'en'.
+      var currentLocale = navigator.language || navigator.userLanguage;
       var currentYear = new Date().getFullYear();
 
       var dates = Romcal.calendarFor({
+        locale: currentLocale,
         year: currentYear
       });
 
