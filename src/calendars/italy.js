@@ -70,7 +70,7 @@ let _dates = [
       }
     },
     {
-      "key": "saintBirgittaReligious",
+      "key": "saintBridgetOfSwedenReligious",
       "type": Types[4],
       "moment": moment.utc({ year: year, month: 6, day: 23 }),
       "data": {}
@@ -100,19 +100,19 @@ let _dates = [
       }
     },
     {
-      "key": "saintJohnXXIIIPope",
+      "key": "popeSaintJohnXXIII",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 9, day: 11 }),
       "data": {}
     },
     {
-      "key": "saintJohnPaulIIPope",
+      "key": "popeSaintJohnPaulII",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 9, day: 22 }),
       "data": {}
     },
     {
-      "key": "holyVirginMaryMotherOfChurch",
+      "key": "maryMotherOfTheChurch",
       "type": Types[5],
       "moment": Dates.pentecostSunday( year ).add( 1, 'days'),
       "data": {}

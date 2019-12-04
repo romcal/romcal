@@ -249,11 +249,11 @@ export default {
     "saintBarnabasTheApostle": "San Barnaba, apostolo",
     "saintBenedictOfNursiaAbbot": "San Benedetto, abate, patrono d'Europa",
     "saintMaryMagdalene": "Santa Maria Maddalena",
-    "saintBirgittaReligious": "Santa Brigida, religiosa, patrona d'Europa",
+    "saintBridgetOfSwedenReligious": "Santa Brigida, religiosa, patrona d'Europa",
     "saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr": "Santa Teresa Benedetta della Croce, vergine e martire, patrona d'Europa",
     "saintFrancisOfAssisi": "San Francesco d'Assisi, patrono d'Italia",
-    "saintJohnXXIIIPope": "San Giovanni XXIII, papa",
-    "saintJohnPaulIIPope": "San Giovanni Paolo II, papa",
-    "holyVirginMaryMotherOfChurch": "Beata Vergine Maria Madre della Chiesa"
+    "popeSaintJohnXXIII": "San Giovanni XXIII, papa",
+    "popeSaintJohnPaulII": "San Giovanni Paolo II, papa",
+    "maryMotherOfTheChurch": "Beata Vergine Maria Madre della Chiesa"
   }
 };
