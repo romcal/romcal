@@ -67,7 +67,7 @@ export default {
     "theExaltationOfTheHolyCross": "The Exaltation of the Holy Cross",
     "immaculateHeartOfMary": "Immaculée Conception"
   },
-  "general": {
+  "sanctoral": {
     "shroveMonday": "Lundi gras",
     "shroveTuesday": "Mardi gras",
     "saintsBasilTheGreatAndGregoryNazianzenBishopsAndDoctors": "Saints Basile le Grand (✝ 379) et Grégoire de Naziance (✝ 390), Évêques et Docteurs de l'Église",
@@ -252,10 +252,7 @@ export default {
     "saintJohnTheApostleAndEvangelist": "Saint Jean, Apôtre et Évangéliste",
     "holyInnocentsMartyrs": "Saints Innocents, Martyrs (1er s.)",
     "saintThomasBecketBishopAndMartyr": "Saint Thomas Becket, Évêque et Martyr (✝ 1170)",
-    "saintSylvesterIPope": "Saint Sylvestre Ier, Pape (✝ 335)"
-  },
-  "national": {
-    "ourLadyOfGuadalupe": "Notre-Dame de Guadalupe",
+    "saintSylvesterIPope": "Saint Sylvestre Ier, Pape (✝ 335)",
     "saintBrotherMutienMarieReligious": "Saint Mutien Marie Wiaux, Frère des Ecoles Chrétiennes (✝ 1917)",
     "saintAmandMissionary": "Saint Amand d'Elnone, Missionnaire, Evêque de Maastricht (✝ v. 676)",
     "saintGertrudeOfNivellesVirgin": "Sainte Gertrude de Nivelles, Abbesse (✝ 659)",

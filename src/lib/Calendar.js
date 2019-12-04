@@ -103,7 +103,6 @@ const _getCalendar = options => {
     return r;
   }, {});
 
-
   // If the national calendar has the same celebration defined
   // as in the general calendar, it replaces the one
   // in the general calendar
