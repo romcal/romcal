@@ -55,7 +55,7 @@ let dates = year => {
       }
     },
     {
-      "key": "saintFabianPopeAndMartyrAndSaintSebastianPopeAndMartyr",
+      "key": "saintsFabianPopeAndSebastianMartyrs",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 0, day: 20 }),
       "data": {

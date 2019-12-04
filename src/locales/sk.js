@@ -247,7 +247,7 @@ export default {
     "saintLucyOfSyracuseVirginAndMartyr": "Svätej Lucie, panny a mučenice",
     "saintJohnOfTheCrossPriestAndDoctor": "Svätého Jána z Kríža, kňaza a učiteľa Cirkvi",
     "saintPeterCanisiusPriestAndDoctor": "Svätého Petra Kanízia, kňaza a učiteľa Cirkvi",
-    "saintJohnOfKentyPriest": "Svätého Jána Kentského, kňaza",
+    "saintJohnOfKantyPriest": "Svätého Jána Kentského, kňaza",
     "saintStephenTheFirstMartyr": "Svätého Štefana, prvého mučeníka",
     "saintJohnTheApostleAndEvangelist": "Svätého Jána, apoštola a evanjelistu",
     "holyInnocentsMartyrs": "Svätých Neviniatok, mučeníkov",
