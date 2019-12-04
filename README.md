@@ -22,7 +22,7 @@ Please fork/raise merge requests or issues to improve the quality of this module
 
 I especially reach out to you all for help with translations/localizations of celebration names so that this module can cater to a wider audience.
 
-For more information please check [CONTRIBUTING](CONTRIBUTING.md)
+See [contributing](CONTRIBUTING.md) for more information.
 
 
 ## Table of Contents
