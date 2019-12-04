@@ -67,7 +67,7 @@ export default {
     "theExaltationOfTheHolyCross": "Podwyższenie Krzyża Świętego",
     "immaculateHeartOfMary": "Niepokalanego Serca Najświętszej Maryi Panny"
   },
-  "general": {
+  "sanctoral": {
     "saintsBasilTheGreatAndGregoryNazianzenBishopsAndDoctors": "Świętych Bazylego Wielkiego i Grzegorza z Nazjanzu, biskupów i doktorów Kościoła",
     "theMostHolyNameOfJesus": "Najświętszego Imienia Jezus",
     "saintRaymondOfPenyafortPriest": "Św. Rajmunda z Penyafort, prezbitera",
@@ -251,9 +251,7 @@ export default {
     "holyInnocentsMartyrs": "Św. Młodzianków, męczenników",
     "maryMotherOfTheChurch": "Najświętszej Maryi Panny, Matki Kościoła",
     "saintThomasBecketBishopAndMartyr": "Św. Tomasza Becketa, biskupa i męczennika",
-    "saintSylvesterIPope": "Św. Sylwestra I, papieża"
-  },
-  "national": {
+    "saintSylvesterIPope": "Św. Sylwestra I, papieża",
     "saintsAndrewZorardAndBenedictHermits": "Świętych pustelników Andrzeja Świerada i Benedykta",
     "saintBrunoBonifaceOfQuerfurtBishopAndMartyr": "Św. Brunona Bonifacego z Kwerfurtu, biskupa i męczennika",
     "saintZygmuntGorazdowskiPriest": "Św. Zygmunta Gorazdowskiego, prezbitera",

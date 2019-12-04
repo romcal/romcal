@@ -1840,7 +1840,7 @@ let dates = year => {
 
 
   return _.map( _dates, ({ key, data, ...rest }) => {
-    let name = Utils.localize({ key: 'general.' + key });
+    let name = Utils.localize({ key: 'sanctoral.' + key });
     let { meta } = data;
     if (_.isUndefined(meta)) {
       data.meta = { titles: [] };

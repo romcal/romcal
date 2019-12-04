@@ -67,7 +67,7 @@ export default {
     "triumphOfTheCross": "Esaltazione della Santa Croce",
     "immaculateHeartOfMary": "Cuore Immacolato della Beata Vergine Maria"
   },
-  "general": {
+  "sanctoral": {
     "saintsBasilTheGreatAndGregoryNazianzenBishopsAndDoctors": "Santi Basilio Magno e Gregorio Nazianzeno, vescovi e dottori della Chiesa",
     "theMostHolyNameOfJesus": "Santissimo Nome di Gesú",
     "saintRaymondOfPenyafortPriest": "San Raimondo di Peñafort, sacerdote",
@@ -240,10 +240,7 @@ export default {
     "saintJohnTheApostleAndEvangelist": "San Giovanni, apostolo ed evangelista",
     "holyInnocentsMartyrs": "Santi Innocenti, martiri",
     "saintThomasBecketBishopAndMartyr": "San Tommaso Becket, vescovo e martire",
-    "saintSylvesterIPope": "San Silvestro I, papa"
-  },
-  "national": {
-    "saintsCyrilMonkAndMethodiusBishop": "Santi Cirillo, monaco e Metodio, vescovo, patroni d'Europa",
+    "saintSylvesterIPope": "San Silvestro I, papa",
     "saintCatherineOfSienaVirginAndDoctorOfTheChurch": "Santa Caterina da Siena, vergine e dottore della Chiesa, patrona d'Italia e d'Europa",
     "saintNorbertBishop": "San Norberto, vescovo",
     "saintBarnabasTheApostle": "San Barnaba, apostolo",

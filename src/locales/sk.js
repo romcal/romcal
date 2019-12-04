@@ -67,7 +67,7 @@ export default {
     "theExaltationOfTheHolyCross": "Povýšenie Svätého kríža",
     "immaculateHeartOfMary": "Nepoškvrneného Srdca Panny Márie"
   },
-  "general": {
+  "sanctoral": {
     "shroveMonday": "Fašiangový pondelok",
     "shroveTuesday": "Fašiangový utorok",
     "saintsBasilTheGreatAndGregoryNazianzenBishopsAndDoctors": "Svätých Bazila Veľkého a Gregora Nazianzského, biskupov a učiteľov Cirkvi",
@@ -252,9 +252,7 @@ export default {
     "saintJohnTheApostleAndEvangelist": "Svätého Jána, apoštola a evanjelistu",
     "holyInnocentsMartyrs": "Svätých Neviniatok, mučeníkov",
     "saintThomasBecketBishopAndMartyr": "Svätého Tomáša Becketa, biskupa a mučeníka",
-    "saintSylvesterIPope": "Svätého Silvestra I., pápeža"
-  },
-  "national": {
+    "saintSylvesterIPope": "Svätého Silvestra I., pápeža",
     "blessedLauraVicunaVirgin": "Blahoslavenej Laury Vicuñe, panny",
     "ourLadyQueenOfPeace": "Panny Márie Kráľovnej pokoja",
     "ourLadyOfLujanPatronessOfArgentina": "Panny Marie Lujánska",
