@@ -95,7 +95,7 @@ const localize = options => {
 
 // Utility function that takes an array of national calendar dates
 // and adds a localized name based on the key
-const localizeDates = (dates, source = 'national') => {
+const localizeDates = (dates, source = 'sanctoral') => {
   return _.map( dates, d => {
     if (!_.has(d, 'drop')) {
       d.name = localize({

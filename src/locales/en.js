@@ -67,7 +67,7 @@ export default {
     "theExaltationOfTheHolyCross": "The Exaltation of the Holy Cross",
     "immaculateHeartOfMary": "Immaculate Heart of Mary"
   },
-  "general": {
+  "sanctoral": {
     "shroveMonday": "Shrove Monday",
     "shroveTuesday": "Shrove Tuesday",
     "saintsBasilTheGreatAndGregoryNazianzenBishopsAndDoctors": "Saints Basil the Great and Gregory Nazianzen, Bishops and Doctors",
@@ -249,9 +249,7 @@ export default {
     "saintJohnTheApostleAndEvangelist": "Saint John the Apostle and Evangelist",
     "holyInnocentsMartyrs": "Holy Innocents, Martyrs",
     "saintThomasBecketBishopAndMartyr": "Saint Thomas Becket, Bishop and Martyr",
-    "saintSylvesterIPope": "Saint Sylvester I, Pope"
-  },
-  "national": {
+    "saintSylvesterIPope": "Saint Sylvester I, Pope",
     "ourLadyQueenOfPeace": "Our Lady, Queen of Peace",
     "ourLadyOfLujanPatronessOfArgentina": "Our Lady of Luján, Patroness of Argentina",
     "saintIsidoreTheFarmer": "Saint Isidore the Farmer",
