@@ -1,7 +1,7 @@
 export default {
   "advent": {
     "season": "Adventné obdobie",
-    "weekday": "{{day}} po {{week}}. adventnej nedeli",
+    "feria": "{{day}} po {{week}}. adventnej nedeli",
     "sunday": "{{week}}. adventná nedeľa"
   },
   "christmastide": {
@@ -17,22 +17,22 @@ export default {
   },
   "ordinaryTime": {
     "season": "Cezročné obdobie",
-    "weekday": "{{day}} {{week}}. týždňa v Cezročnom období",
+    "feria": "{{day}} {{week}}. týždňa v Cezročnom období",
     "sunday": "{{week}}. nedeľa v Cezročnom období"
   },
   "lent": {
     "season": "Pôstne obdobie",
-    "weekday": "{{day}} po {{week}}. pôstnej nedeli",
+    "feria": "{{day}} po {{week}}. pôstnej nedeli",
     "sunday": "{{week}}. pôstna nedeľa",
     "day_after_ash_wed": "{{day}} po Popolcovej strede"
   },
   "holyWeek": {
     "season": "Veľký týždeň",
-    "weekday": "{{day}} vo Veľkom týždni"
+    "feria": "{{day}} vo Veľkom týždni"
   },
   "eastertide": {
     "season": "Veľkonočné obdobie",
-    "weekday": "{{day}} po {{week}.} veľkonočnej nedeli",
+    "feria": "{{day}} po {{week}.} veľkonočnej nedeli",
     "sunday":  "{{week}} veľkonočná nedeľa",
     "octave": "Veľkonočný {{day}}"
   },

@@ -1,14 +1,14 @@
 import moment from 'moment';
 import _ from 'lodash';
 
-import * as Dates from './Dates'; 
+import * as Dates from './Dates';
 import * as Utils from './Utils';
 
-import { 
-  LiturgicalSeasons, 
+import {
+  LiturgicalSeasons,
   PsalterWeeks,
-  LiturgicalColors, 
-  Types 
+  LiturgicalColors,
+  Types
 } from '../constants';
 
 //================================================================================================
@@ -97,7 +97,7 @@ const _holyWeek = y => {
       moment: date,
       type: Types[3],
       name: Utils.localize({
-        key: 'holyWeek.weekday',
+        key: 'holyWeek.feria',
         day: date.format('dddd')
       }),
       data: {
@@ -130,7 +130,7 @@ const advent = y => {
       moment: value,
       type: Utils.getTypeByDayOfWeek( value.day() ),
       name: Utils.localize({
-        key: ( _.eq( value.day(), 0 ) ? 'advent.sunday' : 'advent.weekday' ),
+        key: ( _.eq( value.day(), 0 ) ? 'advent.sunday' : 'advent.feria' ),
         day: value.format('dddd'),
         week: Math.floor( i / 7 ) + 1
       }),
@@ -263,7 +263,7 @@ const christmastide = (y, christmastideEnds, epiphanyOnJan6 = false, christmasti
   //==============================================================================
 
   // only merge the season of epiphany if the flag is true
-  if ( christmastideIncludesTheSeasonOfEpiphany === true ) { 
+  if ( christmastideIncludesTheSeasonOfEpiphany === true ) {
     d = _.uniqBy(_.union(epiphany, o, d), item => item.moment.valueOf());
   }
   else {
@@ -276,7 +276,7 @@ const christmastide = (y, christmastideEnds, epiphanyOnJan6 = false, christmasti
   //=====================================================================
   // PSALTER WEEKS & LITURGICAL COLORS - CHRISTMAS SEASON
   //---------------------------------------------------------------------
-  // If Christmas is on a weekday (Monday - Saturday), then the first
+  // If Christmas is on a feria (Monday - Saturday), then the first
   // week of Christmastide will follow the Psalter week of the 4th week
   // of Advent (which is always Psalter Week 4)
   // If Christmas is on a Sunday, the Psalter week will be Week 1
@@ -329,7 +329,7 @@ const earlyOrdinaryTime = (y, christmastideEnds, epiphanyOnJan6 = false) => {
       moment: value,
       type: ( _.eq( value.day(), 0 ) ? Types[1] : _.last( Types ) ),
       name: Utils.localize({
-        key: ( _.eq( value.day(), 0 ) ? 'ordinaryTime.sunday' : 'ordinaryTime.weekday' ),
+        key: ( _.eq( value.day(), 0 ) ? 'ordinaryTime.sunday' : 'ordinaryTime.feria' ),
         day: value.format('dddd'),
         week: ( _.eq( value.day(), 0 ) ?  Math.floor( i / 7 ) + 2 :  Math.floor( i / 7 ) + 1 )
       }),
@@ -366,7 +366,7 @@ const earlyOrdinaryTime = (y, christmastideEnds, epiphanyOnJan6 = false) => {
   // The proper color of ordinary time is green
   //=====================================================================
   let psalterWeek = 1;
-  
+
   _.map( days, v => {
 
     v.key = _.camelCase( v.name );
@@ -402,7 +402,7 @@ const laterOrdinaryTime = y => {
   // for later use
   let firstWeekOfLaterOrdinaryTime = 0;
   let days = [];
-  
+
   _.each( Dates.daysOfLaterOrdinaryTime(y).reverse(), ( value, i ) => {
 
     // Calculate the week of ordinary time
@@ -414,7 +414,7 @@ const laterOrdinaryTime = y => {
       moment: value,
       type: ( _.eq( value.day(), 0 ) ? Types[1] : _.last( Types ) ),
       name: Utils.localize({
-        key: ( _.eq( value.day(), 0 ) ? 'ordinaryTime.sunday' : 'ordinaryTime.weekday' ),
+        key: ( _.eq( value.day(), 0 ) ? 'ordinaryTime.sunday' : 'ordinaryTime.feria' ),
         day: value.format('dddd'),
         week: week
       }),
@@ -490,13 +490,13 @@ const lent = y => {
 
   let days = [];
   let sundays = [];
-  
+
   _.each( daysOfLent, (value, i) => {
     days.push({
       moment: value,
-      type: _.last( Types ), // Weekday
+      type: _.last( Types ), // Feria
       name: Utils.localize({
-        key: ( _.gt( i, 0 ) && _.lt( i, 4 ) ) ?  'lent.day_after_ash_wed' : 'lent.weekday',
+        key: ( _.gt( i, 0 ) && _.lt( i, 4 ) ) ?  'lent.day_after_ash_wed' : 'lent.feria',
         day: value.format('dddd'),
         week: Math.floor( (i - 4) / 7 ) + 1
       }),
@@ -510,7 +510,7 @@ const lent = y => {
       }
     });
   });
-  
+
   _.each( sundaysOfLent, ( value, i ) => {
     sundays.push({
       moment: value,
@@ -555,7 +555,7 @@ const lent = y => {
   // The proper color of the Lent is purple.
   //=====================================================================
   let psalterWeek = 4;
-  
+
   _.map( days, v => {
 
     v.key = _.camelCase( v.name );
@@ -613,13 +613,13 @@ const eastertide = y => {
   let d = Dates.daysOfEaster(y);
   let s = Dates.sundaysOfEaster(y);
   let days = [];
-  
+
   _.each( d, (value, i) => {
     days.push({
       moment: value,
       type: ( _.gt( i, 0 ) && _.lt( i, 7 ) ) ? _.head( Types ): _.last( Types ),
       name: Utils.localize({
-        key: ( _.gt( i, 0 ) && _.lt( i, 7 ) ) ?  'eastertide.octave' : 'eastertide.weekday',
+        key: ( _.gt( i, 0 ) && _.lt( i, 7 ) ) ?  'eastertide.octave' : 'eastertide.feria',
         day: value.format('dddd'),
         week: Math.floor( i / 7 ) + 1
       }),
@@ -636,7 +636,7 @@ const eastertide = y => {
   });
 
   let sundays = [];
-  
+
   _.each( s, ( value, i ) => {
     sundays.push({
       moment: value,
@@ -675,9 +675,9 @@ const eastertide = y => {
   //
   // The proper color of Easter is white
   //=====================================================================
-  
+
   let psalterWeek = 2;
-  
+
   _.map( days, ( v, k ) => {
 
     v.key = _.camelCase( v.name );

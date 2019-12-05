@@ -1,7 +1,7 @@
 export default {
   "advent": {
     "season": "Avvento",
-    "weekday": "{{day}} della {{week}} settimana di Avvento",
+    "feria": "{{day}} della {{week}} settimana di Avvento",
     "sunday":  "{{week}} Domenica di Avvento"
   },
   "christmastide": {
@@ -17,22 +17,22 @@ export default {
   },
   "ordinaryTime": {
     "season": "Tempo Ordinario",
-    "weekday": "{{day}} della {{week}} settimana del Tempo Ordinario",
+    "feria": "{{day}} della {{week}} settimana del Tempo Ordinario",
     "sunday": "{{week}} Domenica del Tempo Ordinario"
   },
   "lent": {
     "season": "Quaresima",
-    "weekday": "{{day}} della {{week}} settimana di Quaresima",
+    "feria": "{{day}} della {{week}} settimana di Quaresima",
     "sunday": "{{week}} Domenica di Quaresima",
     "day_after_ash_wed": "{{day}} dopo Mercoledí delle Ceneri"
   },
   "holyWeek": {
     "season": "Settimana Santa",
-    "weekday": "{{day}} della Settimana Santa"
+    "feria": "{{day}} della Settimana Santa"
   },
   "eastertide": {
     "season": "Pasqua",
-    "weekday": "{{day}} della {{week}} settimana di Pasqua",
+    "feria": "{{day}} della {{week}} settimana di Pasqua",
     "sunday":  "{{week}} Domenica di Pasqua",
     "octave": "{{day}} di Pasqua"
   },

@@ -1,7 +1,7 @@
 export default {
   "advent": {
     "season": "Temps de l'Avent",
-    "weekday": "{{day}} de la {{week}} semaine de l'Avent",
+    "feria": "{{day}} de la {{week}} semaine de l'Avent",
     "sunday":  "{{week}} Dimanche de l'Avant"
   },
   "christmastide": {
@@ -17,22 +17,22 @@ export default {
   },
   "ordinaryTime": {
     "season": "Temps Ordinaire",
-    "weekday": "{{day}} de la {{week}} semaine du Temps Ordinaire",
+    "feria": "{{day}} de la {{week}} semaine du Temps Ordinaire",
     "sunday": "{{week}} Dimanche du Temps Ordinaire"
   },
   "lent": {
     "season": "Carême",
-    "weekday": "{{day}} de la {{week}} semaine du Carême",
+    "feria": "{{day}} de la {{week}} semaine du Carême",
     "sunday": "{{week}} Dimanche du Carême",
     "day_after_ash_wed": "{{day}} des Cendres"
   },
   "holyWeek": {
     "season": "Semaine Sainte",
-    "weekday": "{{day}} Saint"
+    "feria": "{{day}} Saint"
   },
   "eastertide": {
     "season": "Pâques",
-    "weekday": "{{day}} de la {{week}} semaine de Pâques",
+    "feria": "{{day}} de la {{week}} semaine de Pâques",
     "sunday":  "{{week}} Dimanche de Pâques",
     "octave": "{{day}} de Pâques"
   },

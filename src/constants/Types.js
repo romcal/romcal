@@ -7,6 +7,6 @@ const Types = [
   "MEMORIAL",           // [5]
   "OPT_MEMORIAL",       // [6]
   "COMMEMORATION",      // [7]
-  "WEEKDAY"             // [8]
+  "FERIA"               // [8]
 ];
 export default Types;

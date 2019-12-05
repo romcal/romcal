@@ -106,7 +106,7 @@ const localizeDates = (dates, source = 'national') => {
   });
 };
 
-// Types[1]: Sunday, _.last(Types) Weekday
+// Types[1]: Sunday, _.last(Types) Feria
 const getTypeByDayOfWeek = d => _.eq(d, 0) ? Types[1]: _.last(Types);
 
 const convertMomentObjectToIsoDateString = (items = []) => {
