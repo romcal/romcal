@@ -237,9 +237,9 @@ Each date in the liturgical calendar is assigned a type. romcal defines these ty
 6. `MEMORIAL`
 7. `OPT_MEMORIAL`
 8. `COMMEMORATION`
-9. `WEEKDAY`
+9. `FERIA`
 
-Where the importance or rank of the celebration is in descending order (Solemnity being of highest importance and weekday being the lowest).
+Where the importance or rank of the celebration is in descending order (Solemnity being of highest importance and feria being the lowest).
 
 Types play an important role in determining which celebration should take precendence over another when two or more celebrations coincide on the same date. Certain celebration types will also have different liturgical colors applied to them.
 

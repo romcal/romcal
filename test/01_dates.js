@@ -623,14 +623,14 @@ describe('Testing specific liturgical date functions', function() {
 
       });
 
-      it('If first day of the year 2011 is on a weekday (Sat) (i.e. Mon - Sat), Epiphany will be celebrated on the Sunday proceeding', function() {
+      it('If first day of the year 2011 is on a feria (Sat) (i.e. Mon - Sat), Epiphany will be celebrated on the Sunday proceeding', function() {
 
         // First day of 2014 was a Wed, First day of 2015 was a Thurs
         var first = moment.utc({ year: 2011, month: 0, day: 1 }),
             target = moment.utc({ year: 2011, month: 0, day: 1 }).add( 1, 'days').startOf('day'),
             date = Dates.epiphany( 2011 );
 
-        first.day().should.be.equalOneOf([1, 2, 3, 4, 5, 6]); // First day of the year should be a weekday
+        first.day().should.be.equalOneOf([1, 2, 3, 4, 5, 6]); // First day of the year should be a feria
         target.dayOfYear().should.be.eql(2); // Epiphany should be the 4th day of the year
         target.day().should.be.eql( 0 ); // Epiphany should be a Sunday
         date.isSame(target).should.be.eql( true );
