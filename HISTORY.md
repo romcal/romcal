@@ -6,7 +6,7 @@
 * Locales management and pickup in romcal have been refactored, and it now behaves like Moment.js (used by romcal) or the general approach for i18n in app development: locale containing region like `fr-CA` will gracefully fall back to `fr` if a localisation key isn't in `fr-CA` or if `fr-CA.js` doesn't exits in the `src/locales` directory. In the end, it always falls back to `en`, which is the default language in romcal. Full explanations have been added to the `README.md`.
 * Locale files have been renamed to kebab-case with capitalized regions to follow the IETF Language Codes standards and be close to the general conventions in software development for i18n.
 * In locale files, the `general` and `national` parts are now merged in a new `sanctoral` part. This will avoid potential duplicated or missing keys between these 2 parts, particularly when a celebration is move from the general to the national calendar. Also, keys in celebrations and the new sanctoral have been sorted alphabetically. ([#97](https://github.com/romcal/romcal/pull/97))
-* Itallian translation has been added in romcal ([#94](https://github.com/romcal/romcal/issues/94)).
+* Italian translation has been added in romcal ([#94](https://github.com/romcal/romcal/issues/94)).
 * Potential breaking changes:
     - The `WEEKDAY` type is renamed to `FERIA` ([#88](https://github.com/romcal/romcal/issues/88))
 * Fixes:
