@@ -1822,19 +1822,6 @@ let dates = year => {
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 11, day: 31 }),
       "data": {}
-    },
-    // Special celebrations
-    {
-      "key": "shroveMonday",
-      "type": _.last( Types ),
-      "moment": Dates.ashWednesday( year ).subtract( 2, 'days'),
-      "data": {}
-    },
-    {
-      "key": "shroveTuesday",
-      "type": _.last( Types ),
-      "moment": Dates.ashWednesday( year ).subtract( 1, 'days'),
-      "data": {}
     }
   ];
 
