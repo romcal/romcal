@@ -36,6 +36,18 @@ describe('Testing specific liturgical date functions', function() {
 
   this.timeout(0);
 
+  describe('In Christian calendars, Sunday is the first day of the week', function() {
+
+    it('The Solemnity of Epiphany is a Sunday', function() {
+      Romcal.Utils.setLocale('fr');
+      var date1 = Dates.epiphany( 1969 );
+      date1.isoWeekday().should.be.eql( 7 );
+      Romcal.Utils.setLocale('en');
+      var date2 = Dates.epiphany( 1969 );
+      date2.isoWeekday().should.be.eql( 7 );
+    });
+  });
+
   describe('Ash Wednesday occurs on 46 days before Easter Sunday', function() {
 
     it('In 1969, Ash Wednesday was on February 19', function() {
