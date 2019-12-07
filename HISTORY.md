@@ -7,6 +7,7 @@
 * Locale files have been renamed to kebab-case with capitalized regions to follow the IETF Language Codes standards and be close to the general conventions in software development for i18n.
 * In locale files, the `general` and `national` parts are now merged in a new `sanctoral` part. This will avoid potential duplicated or missing keys between these 2 parts, particularly when a celebration is move from the general to the national calendar. Also, keys in celebrations and the new sanctoral have been sorted alphabetically. ([#97](https://github.com/romcal/romcal/pull/97))
 * Italian translation has been added in romcal ([#94](https://github.com/romcal/romcal/issues/94)).
+* Drop Shrove Monday and Tuesday from the general calendar ([#90](https://github.com/romcal/romcal/issues/90)).
 * Potential breaking changes:
     - The `WEEKDAY` type is renamed to `FERIA` ([#88](https://github.com/romcal/romcal/issues/88))
 * Fixes:
