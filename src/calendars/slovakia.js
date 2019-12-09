@@ -226,15 +226,6 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
           "liturgicalColor": LiturgicalColors.WHITE
         }
       }
-    },
-    // Dropped celebrations
-    {
-      "key": "shroveMonday",
-      "drop": true
-    },
-    {
-      "key": "shroveTuesday",
-      "drop": true
     }
   ];
 
