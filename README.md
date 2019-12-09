@@ -620,10 +620,6 @@ Usually, this means excluding a celebration defined in `src/calendars/general.js
 }
 ```
 
-An example of this can be seen in the national calendar of Slovakia (`src/calendars/slovakia.js`) where the celebrations of Shrove Monday and Shrove Tuesday are not relevant in the calendar output.
-
-Therefore, the `src/calendars/slovakia.js` redefines these 2 celebration keys with only one property, `drop` with the value of `true` so that they are excluded in the `calendarFor` output.
-
 Note: When defining `drop`, only the key of the celebration is mandatory. Other keys do not have to be defined. `drop` operations also have higher precedence than overriding (meaning, they are run first before prioritization logic).
 
 ## Localizing celebration names <a name="localisation"></a>

@@ -116,15 +116,6 @@ let _dates = [
       "type": Types[5],
       "moment": Dates.pentecostSunday( year ).add( 1, 'days'),
       "data": {}
-    },
-    // Dropped celebrations
-    {
-      "key": "shroveMonday",
-      "drop": true
-    },
-    {
-      "key": "shroveTuesday",
-      "drop": true
     }
   ];
 
