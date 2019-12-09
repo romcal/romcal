@@ -9,8 +9,8 @@
   },
   "scripts": {
     "prepack": "npm run test",
-    "build": "webpack-cli --config webpack.config.js",
-    "test": "mocha -r esm test/*.js"
+    "build": "node_modules/.bin/webpack-cli --config webpack.config.js",
+    "test": "node_modules/.bin/mocha -r esm test/*.js"
   },
   "repository": {
     "type": "git",
