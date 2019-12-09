@@ -33,6 +33,12 @@ let setLocale = key => {
   // Set the Moment locale (if unrecognized, will default to 'en')
   moment.locale(localeName);
 
+  // Ensures that the first day is always a Sunday in romcal & Moment.js
+  // - Monday is the first day of the week according to the international standard ISO 8601,
+  //   but in the US, Canada, and Japan, it's counted as the second day of the week.
+  // - In Christian calendars, Sunday is always the first day of the week.
+  moment.updateLocale(localeName, {week: {dow: 0}});
+
   // If a region is specified: append the base language as fallback.
   // Also check if the base language isn't already the default 'en',
   // and if this base language exists in 'src/locales'
