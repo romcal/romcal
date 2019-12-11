@@ -1,5 +1,11 @@
 # Version history
 
+## 1.3.0-beta.3 /2019-12-10
+* Update and simplify the build process.
+* Add automated build process to transpile the code after installing and before publishing.
+* Distribution files are now not included anymore in the codebase.
+* In addition to the `romcal.bundle.min.js` file (for browsers), source code is also transpiled by Babel in the `dist/` directory. This makes it easier to include romcal in any node.js package.
+
 ## 1.3.0-beta.2 /2019-12-06
 * Update node dependencies.
 * The `@std/esm` package has been deprecated in favour of `esm`. Also `esm` have limited the `.mjs` files to basic functionality without support for esm options, to align with the current experimental support in Node. [More details here](https://github.com/standard-things/esm/issues/696). According to that all `.mjs` files in the `romcal` project have been renamed back to `.js`.
