@@ -10,8 +10,15 @@ let dates = year => {
     {
       "key": "santoNinoInfantJesus",
       "type": Types[4],
-      "moment": moment.utc({ year: year, month: 0, day: 9 }),
-      "data": {}
+      "moment": function() {
+        // Third Sunday of January: Santo Niño (Holy Child Jesus)
+        let firstDay = moment.utc({ year: year, month: 0, day: 1 });
+        let feastDay = 22 - ((firstDay.day() == 0) ? 7 : firstDay.day());
+        return moment.utc({ year: year, month: 0, day: feastDay });
+      }(),
+      "data": {
+        "prioritized": true
+      }
     },
     {
       "key": "saintsPedroBautistaPaulMikiAndCompanionsMartyrs",
