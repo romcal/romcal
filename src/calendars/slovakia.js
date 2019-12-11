@@ -48,6 +48,16 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
       }
     },
     {
+      "key": "saintFlorianMartyr",
+      "type": Types[6],
+      "moment": moment.utc({ year: year, month: 4, day: 4 }),
+      "data": {
+        "meta": {
+          "liturgicalColor": LiturgicalColors.RED
+        }
+      }
+    },
+    {
       "key": "blessedSaraSalkahaziVirginAndMartyr",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 4, day: 11 }),
@@ -101,6 +111,16 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
         "meta": {
           "liturgicalColor": LiturgicalColors.WHITE,
           "titles": [ Titles.PATRON_OF_EUROPE ]
+        }
+      }
+    },
+    {
+      "key": "ourLordJesusChristTheEternalHighPriest",
+      "type": Types[4],
+      "moment": ( y => Dates.pentecostSunday( y ).add( 4, 'days' ))(year),
+      "data": {
+        "meta": {
+          "liturgicalColor": LiturgicalColors.WHITE
         }
       }
     },
@@ -179,6 +199,16 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
       }
     },
     {
+      "key": "saintHelena",
+      "type": Types[6],
+      "moment": moment.utc({ year: year, month: 7, day: 18 }),
+      "data": {
+        "meta": {
+          "liturgicalColor": LiturgicalColors.WHITE,
+        }
+      }
+    },
+    {
       "key": "saintTeresaOfCalcuttaReligious",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 8, day: 5 }),
@@ -212,18 +242,72 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
       }
     },
     {
-      "key": "saintEmeric",
+      "key": "saintFaustinaKowalskaVirginAndReligious",
       "type": Types[6],
-      "moment": moment.utc({ year: year, month: 10, day: 5 }),
-      "data": {}
-    },
-    {
-      "key": "ourLordJesusChristTheEternalHighPriest",
-      "type": Types[4],
-      "moment": moment.utc({ year: year, month: 5, day: 16 }),
+      "moment": moment.utc({ year: year, month: 9, day: 5 }),
       "data": {
         "meta": {
           "liturgicalColor": LiturgicalColors.WHITE
+        }
+      }
+    },
+    {
+      "key": "saintGallAbbotAndMissionary",
+      "type": Types[6],
+      "moment": moment.utc({ year: year, month: 9, day: 16 }),
+      "data": {}
+    },
+    {
+      "key": "saintMaurusBishop",
+      "type": Types[6],
+      "moment": moment.utc({ year: year, month: 9, day: 25 }),
+      "data": {
+        "meta": {
+          "liturgicalColor": LiturgicalColors.WHITE
+        }
+      }
+    },
+    {
+      "key": "dedicationOfAParticularChurch",
+      "type": Types[0],
+      "moment": moment.utc({ year: year, month: 9, day: 26 }),
+      "data": {
+        "meta": {
+          "liturgicalColor": LiturgicalColors.WHITE
+        }
+      }
+    },
+    {
+      "key": "allSouls",
+      "type": Types[5],
+      "moment": moment.utc({ year: year, month: 10, day: 2 }),
+      "data": {
+        "meta": {
+          "liturgicalColor": LiturgicalColors.WHITE
+        }
+      }
+    },
+    {
+      "key": "saintEmeric",
+      "type": Types[6],
+      "moment": moment.utc({ year: year, month: 10, day: 5 }),
+      "data": {
+        "meta": {
+          "liturgicalColor": LiturgicalColors.WHITE
+        }
+      }
+    },
+    {  // This key is dropped only because of adding Optional Memorial of St Barbara to the same day
+      "key": "saintJohnDamascenePriestAndDoctor",
+      "drop": true
+    },
+    {
+      "key": "saintJohnDamascenePriestAndDoctorOrSaintBarbaraVirginAndMartyr",
+      "type": Types[6],
+      "moment": moment.utc({ year: year, month: 11, day: 4 }),
+      "data": {
+        "meta": {
+          "liturgicalColor": LiturgicalColors.RED
         }
       }
     }
