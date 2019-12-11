@@ -1211,6 +1211,16 @@ let dates = year => {
       }
     },
     {
+      "key": "theExaltationOfTheHolyCross",
+      "type": Types[4],
+      "moment": moment.utc({ year: year, month: 8, day: 14 }),
+      "data": {
+        "meta": {
+          "liturgicalColor": LiturgicalColors.RED
+        }
+      }
+    },
+    {
       "key": "ourLadyOfSorrows",
       "type": Types[5],
       "moment": moment.utc({ year: year, month: 8, day: 15 }),
