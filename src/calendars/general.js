@@ -633,7 +633,7 @@ let dates = year => {
     },
     {
       "key": "saintNorbertBishop",
-      "type": Types[5],
+      "type": Types[6],
       "moment": moment.utc({ year: year, month: 5, day: 6 }),
       "data": {
         "meta": {
@@ -655,7 +655,7 @@ let dates = year => {
     },
     {
       "key": "saintBarnabasTheApostle",
-      "type": Types[6],
+      "type": Types[5],
       "moment": moment.utc({ year: year, month: 5, day: 11 }),
       "data": {}
     },
