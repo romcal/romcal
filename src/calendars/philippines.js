@@ -17,7 +17,10 @@ let dates = year => {
         return moment.utc({ year: year, month: 0, day: feastDay });
       }(),
       "data": {
-        "prioritized": true
+        "prioritized": true,
+        "meta": {
+          "liturgicalColor": LiturgicalColors.WHITE
+        }
       }
     },
     {
