@@ -48,6 +48,16 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
       }
     },
     {
+      "key": "saintFlorianMartyr",
+      "type": Types[6],
+      "moment": moment.utc({ year: year, month: 4, day: 4 }),
+      "data": {
+        "meta": {
+          "liturgicalColor": LiturgicalColors.RED
+        }
+      }
+    },
+    {
       "key": "blessedSaraSalkahaziVirginAndMartyr",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 4, day: 11 }),
@@ -111,16 +121,6 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
       "data": {
         "meta": {
           "liturgicalColor": LiturgicalColors.WHITE
-        }
-      }
-    },
-    {
-      "key": "saintFlorianMartyr",
-      "type": Types[6],
-      "moment": moment.utc({ year: year, month: 4, day: 4 }),
-      "data": {
-        "meta": {
-          "liturgicalColor": LiturgicalColors.RED
         }
       }
     },
@@ -258,9 +258,9 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
       "data": {}
     },
     {
-      "key": "dedicationOfAParticularChurch",
-      "type": Types[0],
-      "moment": moment.utc({ year: year, month: 9, day: 26 }),
+      "key": "saintMaurusBishop",
+      "type": Types[6],
+      "moment": moment.utc({ year: year, month: 9, day: 25 }),
       "data": {
         "meta": {
           "liturgicalColor": LiturgicalColors.WHITE
@@ -268,9 +268,9 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
       }
     },
     {
-      "key": "saintMaurusBishop",
-      "type": Types[6],
-      "moment": moment.utc({ year: year, month: 9, day: 25 }),
+      "key": "dedicationOfAParticularChurch",
+      "type": Types[0],
+      "moment": moment.utc({ year: year, month: 9, day: 26 }),
       "data": {
         "meta": {
           "liturgicalColor": LiturgicalColors.WHITE
