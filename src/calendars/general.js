@@ -1714,6 +1714,12 @@ let dates = year => {
       "data": {}
     },
     {
+      "key": "ourLadyOfLoreto",
+      "type": Types[6],
+      "moment": moment.utc({ year: year, month: 11, day: 10 }),
+      "data": {}
+    },
+    {
       "key": "saintDamasusIPope",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 11, day: 11 }),
@@ -1796,7 +1802,7 @@ let dates = year => {
       "key": "holyInnocentsMartyrs",
       "type": Types[4],
       "moment": moment.utc({ year: year, month: 11, day: 28 }),
-      "data": {
+      "data": { 
         "meta": {
           "liturgicalColor": LiturgicalColors.RED,
           "titles": [
