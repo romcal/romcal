@@ -633,7 +633,7 @@ let dates = year => {
     },
     {
       "key": "saintNorbertBishop",
-      "type": Types[5],
+      "type": Types[6],
       "moment": moment.utc({ year: year, month: 5, day: 6 }),
       "data": {
         "meta": {
@@ -655,9 +655,13 @@ let dates = year => {
     },
     {
       "key": "saintBarnabasTheApostle",
-      "type": Types[6],
+      "type": Types[5],
       "moment": moment.utc({ year: year, month: 5, day: 11 }),
-      "data": {}
+      "data": {
+        "meta": {
+          "liturgicalColor": LiturgicalColors.WHITE
+        }
+      }
     },
     {
       "key": "saintAnthonyOfPaduaPriestAndDoctor",
@@ -1714,6 +1718,12 @@ let dates = year => {
       "data": {}
     },
     {
+      "key": "ourLadyOfLoreto",
+      "type": Types[6],
+      "moment": moment.utc({ year: year, month: 11, day: 10 }),
+      "data": {}
+    },
+    {
       "key": "saintDamasusIPope",
       "type": Types[6],
       "moment": moment.utc({ year: year, month: 11, day: 11 }),
@@ -1796,7 +1806,7 @@ let dates = year => {
       "key": "holyInnocentsMartyrs",
       "type": Types[4],
       "moment": moment.utc({ year: year, month: 11, day: 28 }),
-      "data": {
+      "data": { 
         "meta": {
           "liturgicalColor": LiturgicalColors.RED,
           "titles": [

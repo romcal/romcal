@@ -106,6 +106,7 @@ export default {
     "ourLadyOfCzestochowa": "Najświętszej Maryi Panny Częstochowskiej",
     "ourLadyOfFatima": "Najświętszej Maryi Panny z Fatimy",
     "ourLadyOfGuadalupe": "Najświętszej Maryi Panny z Guadalupe",
+    "ourLadyOfLoreto": "Najświętszej Maryi Panny Loretańskiej",
     "ourLadyOfLourdes": "Najświętszej Maryi Panny z Lourdes",
     "ourLadyOfMountCarmel": "Najświętszej Maryi Panny z Góry Karmel",
     "ourLadyOfSorrows": "Najświętszej Maryi Panny Bolesnej",
