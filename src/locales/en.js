@@ -550,7 +550,7 @@ export default {
     "saintMoninneVirgin": "Saint Moninne, Virgin",
     "saintMuiredachBishopSaintAttractaVirginOrSaintLeliaVirgin": "Saint Muiredach, Bishop, Saint Attracta, Virgin, Or Saint Lelia, Virgin",
     "saintMunchinBishop": "Saint Munchin, Bishop",
-    "saintNicholas": "Saint Nicholas",
+    "saintNicholasBishop": "Saint Nicholas, Bishop",
     "saintNicholasOfFlueHermit": "Saint Nicholas of Flüe, Hermit",
     "saintNikolaTavelicPriestAndMartyr": "Saint Nikola Tavelic, Priest and Martyr",
     "saintNinian": "Saint Ninian",
