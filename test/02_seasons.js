@@ -22,17 +22,17 @@
     THE SOFTWARE.
 */
 
-var _ = require('lodash'),
-    should = require('should'),
-    moment = require('moment'),
-    range = require('moment-range');
+var _ = require('lodash');
+var moment = require('moment');
+var range = require('moment-range');
+var should = require('should');
 
-var Dates = require('../lib/dates'),
-    Seasons = require('../lib/seasons'),
-    Calendar = require('../lib/calendar');
-
-var LiturgicalSeasons = require('../data/seasons.json'),
-    LiturgicalColors = require('../data/liturgicalColors.json');
+var Romcal = require('../index');
+var LiturgicalColors = Romcal.LiturgicalColors;
+var LiturgicalSeasons = Romcal.LiturgicalSeasons;
+var Seasons = Romcal.Seasons;
+var Calendar = Romcal.Calendar;
+var Dates = Romcal.Dates;
 
 describe('Testing date range functions', function() {
 
@@ -42,18 +42,18 @@ describe('Testing date range functions', function() {
 
     it('There are always 4 Sundays in advent', function() {
       for ( var i = 1900, il = 2100; i <= il; i++ ) {
-        Dates.sundaysOfAdvent( i ).length.should.be.eql(4);
+        Dates.sundaysOfAdvent(i).length.should.be.eql(4);
       }
     });
 
     it('Depending on the day of Christmas, the 1st Sunday of Advent will be between Nov 27 - Dec 3', function() {
-      Dates.sundaysOfAdvent( 2005 )[0].date().should.be.eql( 27 );
-      Dates.sundaysOfAdvent( 2000 )[0].date().should.be.eql( 3 );
-      Dates.sundaysOfAdvent( 2001 )[0].date().should.be.eql( 2 );
-      Dates.sundaysOfAdvent( 2002 )[0].date().should.be.eql( 1 );
-      Dates.sundaysOfAdvent( 2003 )[0].date().should.be.eql( 30 );
-      Dates.sundaysOfAdvent( 1998 )[0].date().should.be.eql( 29 );
-      Dates.sundaysOfAdvent( 1999 )[0].date().should.be.eql( 28 );
+      Dates.sundaysOfAdvent(2005)[0].date().should.be.eql( 27 );
+      Dates.sundaysOfAdvent(2000)[0].date().should.be.eql( 3 );
+      Dates.sundaysOfAdvent(2001)[0].date().should.be.eql( 2 );
+      Dates.sundaysOfAdvent(2002)[0].date().should.be.eql( 1 );
+      Dates.sundaysOfAdvent(2003)[0].date().should.be.eql( 30 );
+      Dates.sundaysOfAdvent(1998)[0].date().should.be.eql( 29 );
+      Dates.sundaysOfAdvent(1999)[0].date().should.be.eql( 28 );
     });
 
     it('Depending on the day of Christmas, the number of days in Advent varies', function() {
@@ -102,11 +102,11 @@ describe('Testing date range functions', function() {
     });
 
     it('The Saturday in the week after Ash Wednesday should be in the 1st week of Lent', function() {
-      Seasons.lent( 2017 ).filter(d => d.type === 'WEEKDAY')[9].key.toLowerCase().should.be.eql('saturdayofthe1stweekoflent');
+      Seasons.lent( 2017 )[10].key.toLowerCase().should.be.eql('saturdayofthe1stweekoflent');
     });
 
     it('The 2nd Sunday of Lent should be in the 2nd week of Lent', function() {
-      Seasons.lent( 2017 ).filter(d => d.type === 'SUNDAY')[1].key.toLowerCase().should.be.eql('2ndsundayoflent');
+      Seasons.lent( 2017 )[11].key.toLowerCase().should.be.eql('2ndsundayoflent');
     });
   });
 
@@ -188,13 +188,13 @@ describe('Testing date range functions', function() {
 
     it('There are typically 24 to 29 Sundays in Ordinary Time between the Pentecost to the 1st Sunday of Advent', function() {
       for ( var i = 1900, il = 2100; i <= il; i++ ) {
-        var dates = Dates.daysOfLaterOrdinaryTime( i );
+        var dates = Dates.daysOfLaterOrdinaryTime( i ),
             sundays = _.filter( dates, function( d ) {
               return _.eq( d.day(), 0 );
             });
         sundays.length.should.be.equalOneOf([23,24,25,26,27,28,29]);
         _.head( dates ).subtract( 1, 'days' ).isSame( Dates.pentecostSunday( i ) ).should.be.eql(true);
-        _.last( dates ).add( 1, 'days' ).isSame( Dates.sundaysOfAdvent( i )[0] ).should.be.eql(true);
+        _.last( dates ).add( 1, 'days' ).isSame( Dates.sundaysOfAdvent(i)[0] ).should.be.eql(true);
       }
     });
   });
@@ -211,14 +211,14 @@ describe('Testing date range functions', function() {
 
     describe('If Epiphany is celebrated on Jan 6', function() {
 
-      it('If following the Traditional end of the Christmas season, the last day of Christmas is on 6th Jan', function() {
+      it('The last day of Christmas is on 6th Jan, if following the Traditional end of the Christmas season', function() {
           for ( var i = 1900, il = 2100; i <= il; i++ ) {
             var dates = Dates.christmastide( i, 't', true );
             _.last( dates ).isSame( moment.utc({ year: (i + 1), month: 0, day: 6 }) ).should.be.eql( true ) ;
           }
       });
 
-      it('If following the Ordinary Liturgical Calendar of the Western Roman Rite, the last day of Christmas is always on Sunday on the feast of the Baptism of the Lord', function() {
+      it('The last day of Christmas is always on Sunday on the feast of the Baptism of the Lord, if following the Ordinary Liturgical Calendar of the Western Roman Rite', function() {
         for ( var i = 1900, il = 2100; i <= il; i++ ) {
           var dates = Dates.christmastide( i, 'o', true );
           _.last( dates ).day().should.be.eql( 0 ) ;
@@ -265,27 +265,29 @@ describe('Testing seasons utility functions', function() {
 
   describe('The liturgical year is divided to a number of seasons', function() {
 
-    var calendar = Calendar.calendarFor({ query: { group: 'liturgicalSeasons'}});
+    let calendar = Calendar.calendarFor({ 
+      query: { 
+        group: 'liturgicalSeasons'
+      }
+    });
 
     it('Groups dates within seasons based on identifiers', function() {
-      _.each( calendar, function( dates, season ) {
-        _.each( dates, function( date ) {
-          date.data.season.key.should.be.eql( season );
-        });
+      _.each( calendar, ( dates, season ) => {
+        _.each( dates, date => date.data.season.key.should.be.eql(season));
       });
     });
 
     it('The liturgical color for Ordinary Time is green', function() {
-      _.each( Seasons.earlyOrdinaryTime( 2015, 'o', false ), function( date ) {
-        date.data.meta.liturgicalColor.should.be.eql( LiturgicalColors.GREEN );
+      _.each( Seasons.earlyOrdinaryTime( 2015, 'o', false ), date => {
+        date.data.meta.liturgicalColor.should.be.eql(LiturgicalColors.GREEN);
       });
-      _.each( Seasons.laterOrdinaryTime( 2015 ), function( date ) {
-        date.data.meta.liturgicalColor.should.be.eql( LiturgicalColors.GREEN );
+      _.each( Seasons.laterOrdinaryTime( 2015 ), date => {
+        date.data.meta.liturgicalColor.should.be.eql(LiturgicalColors.GREEN);
       });
     });
 
     it('The liturgical color for Lent and Advent is purple, except for the 4th Sunday of Lent and 3rd Sunday of Advent, which is rose', function() {
-      _.each( Seasons.lent( 2015 ), function( date ) {
+      _.each( Seasons.lent( 2015 ), date => {
         if ( _.eq( date.key.toLowerCase(), '4thsundayoflent') ) {
           date.data.meta.liturgicalColor.should.be.eql( LiturgicalColors.ROSE );
         }
@@ -293,7 +295,7 @@ describe('Testing seasons utility functions', function() {
           date.data.meta.liturgicalColor.should.be.eql( LiturgicalColors.PURPLE );
         }
       });
-      _.each( Seasons.advent( 2015 ), function( date ) {
+      _.each( Seasons.advent( 2015 ), date => {
         if ( _.eq( date.key.toLowerCase(), '3rdsundayofadvent') ) {
           date.data.meta.liturgicalColor.should.be.eql( LiturgicalColors.ROSE );
         }
@@ -304,10 +306,10 @@ describe('Testing seasons utility functions', function() {
     });
 
     it('The liturgical color for Christmastide and Eastertide is white', function() {
-      _.each( Seasons.christmastide( 2015, 'o', false ), function( date ) {
+      _.each( Seasons.christmastide( 2015, 'o', false ),  date => {
         date.data.meta.liturgicalColor.should.be.eql( LiturgicalColors.WHITE );
       });
-      _.each( Seasons.eastertide( 2015 ), function( date ) {
+      _.each( Seasons.eastertide( 2015 ), date => {
         date.data.meta.liturgicalColor.should.be.eql( LiturgicalColors.WHITE );
       });
     });
