@@ -1,12 +1,9 @@
 const path = require('path');
-const webpack = require('webpack');
 
 module.exports = {
 
   entry: {
-    romcal: [
-      './src/index.js'
-    ]
+    romcal: './src/index.js'
   },
 
   output: {
@@ -20,20 +17,26 @@ module.exports = {
     extensions: [".js", ".mjs", ".json"]
   },
 
-  mode: 'development',
+  mode: 'production',
+
+  devtool: 'source-map',
 
   module: {
     rules: [
       // All files with '.js' extension will be handled by 'babel-loader'.
-      { test: /\.js?$/, loader: "babel-loader", exclude: /(node_modules|bower_components)/ },
+      {
+        test: /\.js?$/,
+        loader: "babel-loader",
+        exclude: /(node_modules|bower_components)/
+      },
       // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
-      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
+      {
+        enforce: "pre",
+        test: /\.js$/,
+        loader: "source-map-loader"
+      },
     ]
   },
-
-  plugins: [
-    new webpack.optimize.ModuleConcatenationPlugin()
-  ],
 
   // When importing a module whose path matches one of the following, just
   // assume a corresponding global variable exists and use that instead.
