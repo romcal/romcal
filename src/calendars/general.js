@@ -657,7 +657,11 @@ let dates = year => {
       "key": "saintBarnabasTheApostle",
       "type": Types[5],
       "moment": moment.utc({ year: year, month: 5, day: 11 }),
-      "data": {}
+      "data": {
+        "meta": {
+          "liturgicalColor": LiturgicalColors.WHITE
+        }
+      }
     },
     {
       "key": "saintAnthonyOfPaduaPriestAndDoctor",
