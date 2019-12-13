@@ -9,7 +9,7 @@ let dates = year => {
   let _dates = [
     {
       "key": "saintMargaretOfHungary",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 0, day: 18 }),
       "data": {
         "meta": {
@@ -19,7 +19,7 @@ let dates = year => {
     },
     {
       "key": "saintsCyrilMonkAndMethodiusBishop",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 1, day: 14 }),
       "data": {
         "meta": {
@@ -30,7 +30,7 @@ let dates = year => {
     },
     {
       "key": "saintMatthiasTheApostle",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 1, day: 24 }),
       "data": {
         "meta": {
@@ -40,7 +40,7 @@ let dates = year => {
     },
     {
       "key": "saintAdalbertBishopAndMartyr",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 3, day: 23 }),
       "data": {
         "meta": {
@@ -53,7 +53,7 @@ let dates = year => {
     },
     {
       "key": "saintCatherineOfSienaVirginAndDoctorOfTheChurch",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 3, day: 29 }),
       "data": {
         "meta": {
@@ -67,7 +67,7 @@ let dates = year => {
     },
     {
       "key": "saintFlorianMartyr",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 4, day: 4 }),
       "data": {
         "meta": {
@@ -79,13 +79,13 @@ let dates = year => {
     },
     {
       "key": "blessedGisela",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 4, day: 7 }),
       "data": {}
     },
     {
       "key": "blessedSaraSalkahaziVirginAndMartyr",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 4, day: 11 }),
       "data": {
         "meta": {
@@ -97,7 +97,7 @@ let dates = year => {
     },
     {
       "key": "saintJohnNepomucenePriestAndMartyr",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 4, day: 16 }),
       "data": {
         "meta": {
@@ -109,7 +109,7 @@ let dates = year => {
     },
     {
       "key": "blessedVilmosAporBishopAndMartyr",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 4, day: 23 }),
       "data": {
         "meta": {
@@ -121,19 +121,19 @@ let dates = year => {
     },
     {
       "key": "ourLadyHelpOfChristians",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 4, day: 24 }),
       "data": {}
     },
     {
       "key": "transferOfTheRelicsOfSaintStephen",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 4, day: 30 }),
       "data": {}
     },
     {
       "key": "saintAgnesOfBohemiaVirgin",
-      "type": Types[5], // Memorial
+      "type": Types.MEMORIAL, // Memorial
       "moment": moment.utc({ year: year, month: 5, day: 8 }), // 8th of June
       "data": {
         "meta": {
@@ -144,7 +144,7 @@ let dates = year => {
     // Moved to the congregational calendar (Society of Saint Francis de Sales (Salesian Congregation)
     // {
     //   "key": "blessedIstvanSandorMartyr",
-    //   "type": Types[6],
+    //   "type": Types.OPT_MEMORIAL,
     //   "moment": moment.utc({ year: year, month: 5, day: 8 }),
     //   "data": {
     //     "meta": {
@@ -156,7 +156,7 @@ let dates = year => {
     // },
     {
       "key": "saintLadislaus",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 5, day: 27 }),
       "data": {
         "meta": {
@@ -166,7 +166,7 @@ let dates = year => {
     },
     {
       "key": "visitationOfTheBlessedVirginMary",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 6, day: 2 }),
       "data": {
         "meta": {
@@ -176,7 +176,7 @@ let dates = year => {
     },
     {
       "key": "saintBenedictOfNursiaAbbot",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 6, day: 11 }),
       "data": {
         "meta": {
@@ -187,13 +187,13 @@ let dates = year => {
     },
     {
       "key": "saintsAndrewZorardAndBenedictHermits",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 6, day: 17 }),
       "data": {}
     },
     {
       "key": "saintBridgetOfSwedenReligious",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 6, day: 23 }),
       "data": {
         "meta": {
@@ -204,13 +204,13 @@ let dates = year => {
     },
     {
       "key": "saintKingaVirgin",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 6, day: 24 }),
       "data": {}
     },
     {
       "key": "saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 7, day: 9 }),
       "data": {
         "meta": {
@@ -224,25 +224,25 @@ let dates = year => {
     },
     {
       "key": "blessedInnocentXiPope",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 7, day: 13 }),
       "data": {}
     },
     {
       "key": "saintStephenOfHungary",
-      "type": Types[0],
+      "type": Types.SOLEMNITY,
       "moment": moment.utc({ year: year, month: 7, day: 20 }),
       "data": {}
     },
     {
       "key": "saintTeresaOfCalcuttaReligious",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 8, day: 5 }),
       "data": {}
     },
     {
       "key": "saintsMarkoKrizinMelicharGrodeckiAndStephenPongracPriestsAndMartyrs",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 8, day: 7 }),
       "data": {
         "meta": {
@@ -252,7 +252,7 @@ let dates = year => {
     },
     {
       "key": "saintGerardBishop",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 8, day: 24 }),
       "data": {
         "meta": {
@@ -262,7 +262,7 @@ let dates = year => {
     },
     {
       "key": "ourLadyOfHungary",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 9, day: 8 }),
       "data": {
         "meta": {
@@ -272,13 +272,13 @@ let dates = year => {
     },
     {
       "key": "saintMaurusBishop",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 9, day: 25 }),
       "data": {}
     },
     {
       "key": "blessedTheodoreRomzhaBishopAndMartyr",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 9, day: 31 }),
       "data": {
         "meta": {
@@ -290,7 +290,7 @@ let dates = year => {
     },
     {
       "key": "saintEmeric",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 10, day: 4 }),
       "data": {
         "meta": {
@@ -300,7 +300,7 @@ let dates = year => {
     },
     {
       "key": "hungarianSaintsAndBlesseds",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 10, day: 13 }),
       "data": {}
     }

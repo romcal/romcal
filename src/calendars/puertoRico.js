@@ -9,25 +9,25 @@ let dates = year => {
   let _dates = [
     {
       "key": "mostHolyNameOfJesusOrOurLadyOfBethlehem",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 0, day: 3 }),
       "data": {}
     },
     {
       "key": "blessedMariaDoloresRodriguezSopenaVirgin",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 0, day: 10 }),
       "data": {}
     },
     {
       "key": "blessedCarlosManuelRodriguez",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 4, day: 4 }),
       "data": {}
     },
     {
       "key": "ourLadyOfMountCarmel",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 6, day: 16 }),
       "data": {
         "meta": {
@@ -37,13 +37,13 @@ let dates = year => {
     },
     {
       "key": "saintTeresaOfJesusJornetEIbarsVirgin",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 7, day: 26 }),
       "data": {}
     },
     {
       "key": "saintRoseOfLima",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 7, day: 30 }),
       "data": {
         "meta": {
@@ -53,7 +53,7 @@ let dates = year => {
     },
     {
       "key": "blessedsCarlosSpinolaAndJeronimoDeAngelisPriestsAndMartyrs",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 8, day: 10 }),
       "data": {
         "meta": {
@@ -65,13 +65,13 @@ let dates = year => {
     },
     {
       "key": "saintSoledadTorresAcostaVirgin",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 9, day: 11 }),
       "data": {}
     },
     {
       "key": "ourLadyMotherOfDivineProvidencePatronessOfPuertoRico",
-      "type": Types[0],
+      "type": Types.SOLEMNITY,
       "moment": moment.utc({ year: year, month: 10, day: 19 }),
       "data": {
         "meta": {
@@ -81,7 +81,7 @@ let dates = year => {
     },
     {
       "key": "ourLadyOfGuadalupe",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 11, day: 12 }),
       "data": {
         "meta": {
@@ -91,7 +91,7 @@ let dates = year => {
     },
     {
       "key": "ourLordJesusChristTheEternalHighPriest",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": ( y => Dates.pentecostSunday( y ).add( 4, 'days' ))(year),
       "data": {
         "meta": {

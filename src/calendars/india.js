@@ -9,19 +9,19 @@ let dates = year => {
   let _dates = [
     {
       "key": "blessedKuriakoseEliasChavaraPriest",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 0, day: 3 }),
       "data": {}
     },
     {
       "key": "blessedJosephVazPriest",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 0, day: 16 }),
       "data": {}
     },
     {
       "key": "saintJohnDeBritoPriestAndMartyr",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 1, day: 4 }),
       "data": {
         "meta": {
@@ -34,7 +34,7 @@ let dates = year => {
     },
     {
       "key": "saintGonsaloGarciaMartyr",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 1, day: 6 }),
       "data": {
         "meta": {
@@ -47,13 +47,13 @@ let dates = year => {
     },
     {
       "key": "blessedMariaTheresaChiramelVirgin",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 5, day: 8 }),
       "data": {}
     },
     {
       "key": "saintThomasTheApostle",
-      "type": Types[0],
+      "type": Types.SOLEMNITY,
       "moment": moment.utc({ year: year, month: 6, day: 3 }),
       "data": {
         "meta": {
@@ -63,7 +63,7 @@ let dates = year => {
     },
     {
       "key": "saintAlphonsaOfTheImmaculateConceptionVirgin",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 6, day: 28 }),
       "data": {
         "meta": {
@@ -73,7 +73,7 @@ let dates = year => {
     },
     {
       "key": "saintTeresaOfCalcuttaReligious",
-      "type": Types[0],
+      "type": Types.SOLEMNITY,
       "moment": moment.utc({ year: year, month: 8, day: 5 }),
       "data": {
         "meta": {
@@ -83,7 +83,7 @@ let dates = year => {
     },
     {
       "key": "saintFrancisXavierPriest",
-      "type": Types[0],
+      "type": Types.SOLEMNITY,
       "moment": moment.utc({ year: year, month: 11, day: 3 }),
       "data": {
         "meta": {

@@ -5,11 +5,11 @@ import { Dates, Utils } from '../lib';
 import { Titles, Types, LiturgicalColors } from '../constants';
 
 let dates = year => {
-  
+
   let _dates = [
     {
       "key": "saintJoseDeAnchietaPriest",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 5, day: 9 }),
       "data": {
         "meta": {
@@ -19,7 +19,7 @@ let dates = year => {
     },
     {
       "key": "blessedAlbertinaBerkenbrockVirginAndMartyr",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 5, day: 15 }),
       "data": {
         "meta": {
@@ -32,7 +32,7 @@ let dates = year => {
     },
     {
       "key": "saintPaulinaOfTheAgonizingHeartOfJesusVirgin",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 6, day: 9 }),
       "data": {
         "meta": {
@@ -42,7 +42,7 @@ let dates = year => {
     },
     {
       "key": "ourLadyOfMountCarmel",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 6, day: 16 }),
       "data": {
         "meta": {
@@ -52,7 +52,7 @@ let dates = year => {
     },
     {
       "key": "blessedInacioDeAzevedoPriestAndCompanionsMartyrs",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 6, day: 17 }),
       "data": {
         "meta": {
@@ -65,7 +65,7 @@ let dates = year => {
     },
     {
       "key": "saintRoseOfLima",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 7, day: 23 }),
       "data": {
         "meta": {
@@ -75,7 +75,7 @@ let dates = year => {
     },
     {
       "key": "blessedsAndreDeSoveralAndAmbrosioFranciscoFerroPriestsAndMartyrs",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 9, day: 3 }),
       "data": {
         "meta": {
@@ -88,7 +88,7 @@ let dates = year => {
     },
     {
       "key": "ourLadyOfAparecidaPatronessOfBrazil",
-      "type": Types[0],
+      "type": Types.SOLEMNITY,
       "moment": moment.utc({ year: year, month: 9, day: 12 }),
       "data": {
         "meta": {
@@ -98,7 +98,7 @@ let dates = year => {
     },
     {
       "key": "saintAnthonyOfSaintAnneGalvaoFreiGalvaoPriest",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 9, day: 25 }),
       "data": {
         "meta": {
@@ -108,7 +108,7 @@ let dates = year => {
     },
     {
       "key": "saintsRoqueGonzalezAlfonsoRodriguezOlmedoAndJuanDelCastilloPriestsAndMartyrs",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 10, day: 19 }),
       "data": {
         "meta": {
@@ -121,7 +121,7 @@ let dates = year => {
     },
     {
       "key": "ourLadyOfGuadalupe",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 11, day: 12 }),
       "data": {
         "meta": {
@@ -136,5 +136,5 @@ let dates = year => {
 };
 
 export {
-  dates 
+  dates
 };

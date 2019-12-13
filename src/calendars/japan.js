@@ -5,11 +5,11 @@ import { Dates, Utils } from '../lib';
 import { Titles, Types, LiturgicalColors } from '../constants';
 
 let dates = year => {
-  
+
   let _dates = [
     {
       "key": "saintPaulMikiAndCompanionsMartyrs",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 1, day: 6 }),
       "data": {
         "meta": {
@@ -22,13 +22,13 @@ let dates = year => {
     },
     {
       "key": "discoveryOfTheHiddenChristians",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 2, day: 17 }),
       "data": {}
     },
     {
       "key": "blessedPeterKibePriestAndCompanionsMartyrs",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 6, day: 1 }),
       "data": {
         "meta": {
@@ -41,7 +41,7 @@ let dates = year => {
     },
     {
       "key": "205BlessedMartyrsOfJapan",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 8, day: 10 }),
       "data": {
         "meta": {
@@ -51,7 +51,7 @@ let dates = year => {
     },
     {
       "key": "saintThomasRokuzayemonPriestAndCompanionsMartyrs",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 8, day: 28 }),
       "data": {
         "meta": {
@@ -61,7 +61,7 @@ let dates = year => {
     },
     {
       "key": "saintFrancisXavierPriest",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 11, day: 3 }),
       "data": {
         "meta": {
@@ -76,5 +76,5 @@ let dates = year => {
 };
 
 export {
-  dates 
+  dates
 };
