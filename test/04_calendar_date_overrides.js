@@ -311,7 +311,7 @@ describe('Testing national calendar overrides', function() {
       var saintMatthiasGermany = _.find(germanyDates, function(d) {
         return _.eq(d.key, 'saintMatthiasTheApostle');
       });
-      saintMatthiasGermany.type.should.be.eql(Types[5]);
+      saintMatthiasGermany.type.should.be.eql(Types.MEMORIAL);
     });
   });
 
@@ -328,8 +328,8 @@ describe('Testing national calendar overrides', function() {
       var saintChristopherMagallanesAndCompanionsMartyrsMexico = _.find(mexicoDates, function(d) {
         return _.eq(d.key, 'saintChristopherMagallanesAndCompanionsMartyrs');
       });
-      saintChristopherMagallanesAndCompanionsMartyrs.type.should.be.eql(Types[6]);
-      saintChristopherMagallanesAndCompanionsMartyrsMexico.type.should.be.eql(Types[5]);
+      saintChristopherMagallanesAndCompanionsMartyrs.type.should.be.eql(Types.OPT_MEMORIAL);
+      saintChristopherMagallanesAndCompanionsMartyrsMexico.type.should.be.eql(Types.MEMORIAL);
     });
   });
 
@@ -349,8 +349,8 @@ describe('Testing national calendar overrides', function() {
       var saintLadislausSlovakia = _.find(slovakiaDates, function(d) {
         return _.eq(d.key, 'saintLadislaus');
       });
-      saintLadislausHungary.type.should.be.eql(Types[4]);
-      saintLadislausSlovakia.type.should.be.eql(Types[6]);
+      saintLadislausHungary.type.should.be.eql(Types.FEAST);
+      saintLadislausSlovakia.type.should.be.eql(Types.OPT_MEMORIAL);
     });
   });
 
@@ -361,7 +361,7 @@ describe('Testing national calendar overrides', function() {
       var ourLadyOfSorrows = _.find(dates, function(d) {
         return _.eq(d.key, 'ourLadyOfSorrows');
       });
-      ourLadyOfSorrows.type.should.be.eql(Types[5]);
+      ourLadyOfSorrows.type.should.be.eql(Types.MEMORIAL);
       ourLadyOfSorrows.moment.isSame(moment.utc({ year: 2018, month: 8, day: 15 })).should.be.ok();
     });
 
@@ -373,7 +373,7 @@ describe('Testing national calendar overrides', function() {
       var ourLadyOfSorrows = _.find(maltaDates, function(d) {
         return _.eq(d.key, 'ourLadyOfSorrows');
       });
-      ourLadyOfSorrows.type.should.be.eql(Types[4]);
+      ourLadyOfSorrows.type.should.be.eql(Types.FEAST);
       ourLadyOfSorrows.moment.isSame(moment.utc({ year: 2015, month: 3, day: 15 })).should.be.ok();
     });
 
@@ -397,7 +397,7 @@ describe('Testing national calendar overrides', function() {
       var ourLadyOfSorrows = _.find(slovakiaDates, function(d) {
         return _.eq(d.key, 'ourLadyOfSorrows');
       });
-      ourLadyOfSorrows.type.should.be.eql(Types[0]);
+      ourLadyOfSorrows.type.should.be.eql(Types.SOLEMNITY);
       ourLadyOfSorrows.moment.isSame(moment.utc({ year: 2018, month: 8, day: 15 })).should.be.ok();
     });
 

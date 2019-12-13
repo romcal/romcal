@@ -9,7 +9,7 @@ let dates = year => {
   let _dates = [
     {
       "key": "santoNinoInfantJesus",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": function() {
         // Third Sunday of January: Santo Niño (Holy Child Jesus)
         let firstDay = moment.utc({ year: year, month: 0, day: 1 });
@@ -25,7 +25,7 @@ let dates = year => {
     },
     {
       "key": "saintPaulMikiAndCompanionsMartyrs",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 1, day: 6 }),
       "data": {
         "meta": {
@@ -38,7 +38,7 @@ let dates = year => {
     },
     {
       "key": "saintPedroCalungsodMartyr",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 3, day: 2 }),
       "data": {
         "meta": {
@@ -51,25 +51,25 @@ let dates = year => {
     },
     {
       "key": "saintIsidoreTheFarmer",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 4, day: 15 }),
       "data": {}
     },
     {
       "key": "saintRoch",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 7, day: 16 }),
       "data": {}
     },
     {
       "key": "saintEzekielMorenoBishop",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 7, day: 19 }),
       "data": {}
     },
     {
       "key": "saintLorenzoRuizAndCompanionsMartyrs",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 8, day: 28 }),
       "data": {
         "meta": {
@@ -82,7 +82,7 @@ let dates = year => {
     },
     {
       "key": "immaculateConceptionOfTheBlessedVirginMaryPrincipalPatronessOfThePhilippines",
-      "type": Types[0],
+      "type": Types.SOLEMNITY,
       "moment": moment.utc({ year: year, month: 11, day: 8 }),
       "data": {}
     }

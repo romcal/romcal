@@ -9,7 +9,7 @@ let dates = year => {
   let _dates = [
     {
       "key": "saintPatrickBishop",
-      "type": Types[0],
+      "type": Types.SOLEMNITY,
       "moment": moment.utc({ year: year, month: 2, day: 17 }),
       "data": {
         "meta": {
@@ -19,7 +19,7 @@ let dates = year => {
     },
     {
       "key": "saintPeterChanelPriestAndMartyrSaintLouisGrignonDeMontfortPriest",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 3, day: 28 }),
       "data": {
         "meta": {
@@ -32,13 +32,13 @@ let dates = year => {
     },
     {
       "key": "ourLadyHelpOfChristians",
-      "type": Types[0],
+      "type": Types.SOLEMNITY,
       "moment": moment.utc({ year: year, month: 4, day: 24 }),
       "data": {}
     },
     {
       "key": "blessedPeterToRotMartyr",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 6, day: 7 }),
       "data": {
         "meta": {
@@ -50,7 +50,7 @@ let dates = year => {
     },
     {
       "key": "saintMaryOfTheCrossVirgin",
-      "type": Types[0],
+      "type": Types.SOLEMNITY,
       "moment": moment.utc({ year: year, month: 7, day: 8 }),
       "data": {
         "meta": {
@@ -60,7 +60,7 @@ let dates = year => {
     },
     {
       "key": "ourLordJesusChristTheEternalHighPriest",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": ( y => Dates.pentecostSunday( y ).add( 4, 'days' ))(year),
       "data": {
         "meta": {

@@ -5,17 +5,17 @@ import { Dates, Utils } from '../lib';
 import { Titles, Types, LiturgicalColors } from '../constants';
 
 let dates = year => {
-  
+
   let _dates = [
     {
       "key": "blessedJosephVazPriest",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 0, day: 16 }),
       "data": {}
     },
     {
       "key": "ourLadyOfLanka",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 1, day: 4 }),
       "data": {
         "meta": {
@@ -25,7 +25,7 @@ let dates = year => {
     },
     {
       "key": "ourLadyOfMadhu",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 6, day: 2 }),
       "data": {
         "meta": {
@@ -40,5 +40,5 @@ let dates = year => {
 };
 
 export {
-  dates 
+  dates
 };
