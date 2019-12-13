@@ -9,7 +9,7 @@ let dates = year => {
   let _dates = [
     {
       "key": "blessedGeorgeMatulewiczBishop",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 0, day: 27 }),
       "data": {
         "meta": {
@@ -19,13 +19,13 @@ let dates = year => {
     },
     {
       "key": "blessedBoleslawaMariaLamentVirginAndSaintAngelaMericiVirgin",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 0, day: 29 }),
       "data": {}
     },
     {
       "key": "saintsCyrilMonkAndMethodiusBishop",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 1, day: 14 }),
       "data": {
         "meta": {
@@ -36,7 +36,7 @@ let dates = year => {
     },
     {
       "key": "saintCatherineOfSienaVirginAndDoctorOfTheChurch",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 3, day: 29 }),
       "data": {
         "meta": {
@@ -50,7 +50,7 @@ let dates = year => {
     },
     {
       "key": "saintGeorgeMartyr",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 4, day: 6 }),
       "data": {
         "meta": {
@@ -63,7 +63,7 @@ let dates = year => {
     },
     {
       "key": "saintTheodosiusOfTheCavesAbbot",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 4, day: 16 }),
       "data": {
         "meta": {
@@ -73,13 +73,13 @@ let dates = year => {
     },
     {
       "key": "ourLadyOfPerpetualHelpOrBlessedLeonidFeodorovPriestAndMartyr",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 5, day: 27 }),
       "data": {}
     },
     {
       "key": "saintBenedictOfNursiaAbbot",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 6, day: 11 }),
       "data": {
         "meta": {
@@ -90,7 +90,7 @@ let dates = year => {
     },
     {
       "key": "saintBridgetOfSwedenReligious",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 6, day: 23 }),
       "data": {
         "meta": {
@@ -101,19 +101,19 @@ let dates = year => {
     },
     {
       "key": "saintAnthonyOfTheCavesMonk",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 6, day: 24 }),
       "data": {}
     },
     {
       "key": "saintOlga",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 6, day: 24 }),
       "data": {}
     },
     {
       "key": "saintVladimirTheGreat",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 6, day: 28 }),
       "data": {
         "meta": {
@@ -123,7 +123,7 @@ let dates = year => {
     },
     {
       "key": "saintsBorisAndGlebMartyrs",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 7, day: 5 }),
       "data": {
         "meta": {
@@ -135,7 +135,7 @@ let dates = year => {
     },
     {
       "key": "saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 7, day: 9 }),
       "data": {
         "meta": {
@@ -149,19 +149,19 @@ let dates = year => {
     },
     {
       "key": "ourLadyOfCzestochowa",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 7, day: 26 }),
       "data": {}
     },
     {
       "key": "ourLadyOfVladimir",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 8, day: 7 }),
       "data": {}
     },
     {
       "key": "saintFaustinaKowalskaVirginAndReligious",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 9, day: 5 }),
       "data": {
         "meta": {
@@ -171,7 +171,7 @@ let dates = year => {
     },
     {
       "key": "blessedOleksiyZarytskyiPriestAndMartyr",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 9, day: 30 }),
       "data": {
         "meta": {
@@ -181,13 +181,13 @@ let dates = year => {
     },
     {
       "key": "ourLadyOfTheGateOfDawn",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 10, day: 16 }),
       "data": {}
     },
     {
       "key": "saintRafalKalinowskiPriest",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 10, day: 20 }),
       "data": {
         "meta": {
@@ -197,7 +197,7 @@ let dates = year => {
     },
     {
       "key": "saintAndrewTheApostlePatronOfRussia",
-      "type": Types[0],
+      "type": Types.SOLEMNITY,
       "moment": moment.utc({ year: year, month: 10, day: 30 }),
       "data": {
         "meta": {
@@ -207,7 +207,7 @@ let dates = year => {
     },
     {
       "key": "saintBarbaraVirginAndMartyr",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 11, day: 4 }),
       "data": {
         "meta": {
@@ -219,7 +219,7 @@ let dates = year => {
     },
     {
       "key": "saintNicholasBishop",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 11, day: 6 }),
       "data": {
         "meta": {
