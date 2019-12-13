@@ -63,7 +63,7 @@ export default {
     "peterAndPaulApostles": "Saint Pierre et Saint Paul, Apôtres",
     "presentationOfTheLord": "Présentation de Jésus au Temple",
     "sacredHeartOfJesus": "Sacré-Cœur de Jésus",
-    "theExaltationOfTheHolyCross": "Exaltation de la Sainte-Croix",
+    "theExaltationOfTheHolyCross": "La Croix Glorieuse",
     "transfiguration": "Transfiguration",
     "trinitySunday": "Sainte Trinité"
   },
