@@ -115,16 +115,6 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
       }
     },
     {
-      "key": "ourLordJesusChristTheEternalHighPriest",
-      "type": Types.FEAST,
-      "moment": ( y => Dates.pentecostSunday( y ).add( 4, 'days' ))(year),
-      "data": {
-        "meta": {
-          "liturgicalColor": LiturgicalColors.WHITE
-        }
-      }
-    },
-    {
       "key": "saintAnthonyZaccariaPriest",
       "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 6, day: 7 }),
@@ -293,16 +283,6 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
       "moment": moment.utc({ year: year, month: 10, day: 5 }),
       "data": {}
     },
-    {
-      "key": "ourLordJesusChristTheEternalHighPriest",
-      "type": Types.FEAST,
-      "moment": moment.utc({ year: year, month: 5, day: 16 }),
-      "data": {
-        "meta": {
-          "liturgicalColor": LiturgicalColors.WHITE
-        }
-      }
-    },
     {  // This key is dropped only because of adding Optional Memorial of St Barbara to the same day
       "key": "saintJohnDamascenePriestAndDoctor",
       "drop": true
@@ -314,6 +294,16 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
       "data": {
         "meta": {
           "liturgicalColor": LiturgicalColors.RED
+        }
+      }
+    },
+    {
+      "key": "ourLordJesusChristTheEternalHighPriest",
+      "type": Types.FEAST,
+      "moment": ( y => Dates.pentecostSunday( y ).add( 4, 'days' ))(year),
+      "data": {
+        "meta": {
+          "liturgicalColor": LiturgicalColors.WHITE
         }
       }
     }

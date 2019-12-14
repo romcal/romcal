@@ -103,9 +103,9 @@ let dates = year => {
       }
     },
     {
-      "key": "jesusChristTheEternalHighPriest",
+      "key": "ourLordJesusChristTheEternalHighPriest",
       "type": Types.FEAST,
-      "moment": moment.utc({ year: year, month: 5, day: 16 }),
+      "moment": ( y => Dates.pentecostSunday( y ).add( 4, 'days' ))(year),
       "data": {
         "meta": {
           "liturgicalColor": LiturgicalColors.WHITE
