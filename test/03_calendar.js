@@ -249,7 +249,7 @@ describe('Testing calendar generation functions', function() {
 
       it('The proper color of a Memorial or a Feast is white except for martyrs in which case it is red', function() {
         var calendar = Calendar.calendarFor({ query: { group: 'types' }}, true );
-        _.each( _.get( calendar, Types[4] ), function( d ) {
+        _.each( _.get( calendar, Types.FEAST ), function( d ) {
           if ( _.eq( d.key, 'theExaltationOfTheHolyCross') ) {
             d.data.meta.liturgicalColor.key.should.be.eql( LiturgicalColors.RED.key );
           }
@@ -267,7 +267,7 @@ describe('Testing calendar generation functions', function() {
             }
           }
         });
-        _.each( _.get( calendar, Types[5] ), function( d ) {
+        _.each( _.get( calendar, Types.MEMORIAL ), function( d ) {
           if ( !_.isUndefined( d.data.meta.titles ) ) {
             if ( _.includes( d.data.meta.titles, Titles.MARTYR ) ) {
               d.data.meta.liturgicalColor.key.should.be.eql( LiturgicalColors.RED.key );
@@ -284,7 +284,7 @@ describe('Testing calendar generation functions', function() {
 
       it('The proper color for the Chair of Peter and the Conversion of St. Paul is white, although both St. Peter and St. Paul were martyrs.', function() {
         var calendar = Calendar.calendarFor({ query: { group: 'types' }}, true );
-        _.each( _.get( calendar, Types[4] ), function( d ) {
+        _.each( _.get( calendar, Types.FEAST ), function( d ) {
           if ( _.eq( d.key, 'chairOfSaintPeter' ) || _.eq( d.key, 'conversionOfSaintPaulApostle' ) ) {
             d.data.meta.liturgicalColor.should.be.eql( LiturgicalColors.WHITE );
           }

@@ -9,7 +9,7 @@ let dates = year => {
   let _dates = [
     {
       "key": "saintPaulMikiAndCompanionsMartyrs",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 1, day: 6 }),
       "data": {
         "meta": {
@@ -22,7 +22,7 @@ let dates = year => {
     },
     {
       "key": "saintTuribiusOfMogrovejoBishop",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 2, day: 23 }),
       "data": {
         "meta": {
@@ -32,13 +32,13 @@ let dates = year => {
     },
     {
       "key": "saintMarianaDeJesusDeParedesVirgin",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 4, day: 25 }),
       "data": {}
     },
     {
       "key": "blessedNazariaIgnaciaMarchReligious",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 2, day: 23 }),
       "data": {
         "meta": {
@@ -48,13 +48,13 @@ let dates = year => {
     },
     {
       "key": "saintCamillusDeLellisPriest",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 6, day: 12 }),
       "data": {}
     },
     {
       "key": "saintFrancisSolanusPriest",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 6, day: 14 }),
       "data": {
         "meta": {
@@ -64,7 +64,7 @@ let dates = year => {
     },
     {
       "key": "ourLadyOfMountCarmel",
-      "type": Types[0],
+      "type": Types.SOLEMNITY,
       "moment": moment.utc({ year: year, month: 6, day: 16 }),
       "data": {
         "meta": {
@@ -74,7 +74,7 @@ let dates = year => {
     },
     {
       "key": "saintRoseOfLima",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 7, day: 23 }),
       "data": {
         "meta": {
@@ -84,13 +84,13 @@ let dates = year => {
     },
     {
       "key": "saintPeterClaverPriest",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 8, day: 9 }),
       "data": {}
     },
     {
       "key": "saintJohnMaciasReligious",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 8, day: 18 }),
       "data": {
         "meta": {
@@ -100,19 +100,19 @@ let dates = year => {
     },
     {
       "key": "saintLouisBertrandPriest",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 9, day: 9 }),
       "data": {}
     },
     {
       "key": "saintMiguelFebresCorderoReligious",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 9, day: 21 }),
       "data": {}
     },
     {
       "key": "saintAnthonyMaryClaretBishop",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 9, day: 24 }),
       "data": {
         "meta": {
@@ -122,7 +122,7 @@ let dates = year => {
     },
     {
       "key": "saintMartinDePorresReligious",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 10, day: 3 }),
       "data": {
         "meta": {
@@ -132,7 +132,7 @@ let dates = year => {
     },
     {
       "key": "saintsRoqueGonzalezAlfonsoRodriguezOlmedoAndJuanDelCastilloPriestsAndMartyrs",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 10, day: 19 }),
       "data": {
         "meta": {
@@ -145,7 +145,7 @@ let dates = year => {
     },
     {
       "key": "ourLadyOfGuadalupe",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 11, day: 12 }),
       "data": {
         "meta": {
@@ -156,7 +156,7 @@ let dates = year => {
     // Thursday after Pentecost
     {
       "key": "ourLordJesusChristTheEternalHighPriest",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": ( y => Dates.pentecostSunday( y ).add( 4, 'days' ))(year),
       "data": {
         "meta": {

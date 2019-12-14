@@ -9,7 +9,7 @@ let dates = year => {
   let _dates = [
   {
     "key": "ourLordJesusChristTheEternalHighPriest",
-    "type": Types[4],
+    "type": Types.FEAST,
     "moment": ( y => Dates.pentecostSunday( y ).add( 4, 'days' ))(year),
     "data": {
       "meta": {

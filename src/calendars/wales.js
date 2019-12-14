@@ -10,13 +10,13 @@ let dates = year => {
   let _dates = [
     {
       "key": "saintTeiloBishop",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 1, day: 9 }),
       "data": {}
     },
     {
       "key": "saintsCyrilMonkAndMethodiusBishop",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 1, day: 14 }),
       "data": {
         "meta": {
@@ -27,7 +27,7 @@ let dates = year => {
     },
     {
       "key": "saintDavidBishop",
-      "type": Types[0],
+      "type": Types.SOLEMNITY,
       "moment": moment.utc({ year: year, month: 2, day: 1 }),
       "data": {
         "meta": {
@@ -37,13 +37,13 @@ let dates = year => {
     },
     {
       "key": "saintBeunoAbbot",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 3, day: 20 }),
       "data": {}
     },
     {
       "key": "saintCatherineOfSienaVirginAndDoctorOfTheChurch",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 3, day: 29 }),
       "data": {
         "meta": {
@@ -57,13 +57,13 @@ let dates = year => {
     },
     {
       "key": "saintAsaphBishop",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 4, day: 5 }),
       "data": {}
     },
     {
       "key": "saintsAlbanJuliusAndAaronMartyrs",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 5, day: 20 }),
       "data": {
         "meta": {
@@ -76,7 +76,7 @@ let dates = year => {
     },
     {
       "key": "saintBenedictOfNursiaAbbot",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 6, day: 11 }),
       "data": {
         "meta": {
@@ -87,7 +87,7 @@ let dates = year => {
     },
     {
       "key": "saintJohnJonesPriestAndMartyr",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 6, day: 12 }),
       "data": {
         "meta": {
@@ -100,7 +100,7 @@ let dates = year => {
     },
     {
       "key": "saintBridgetOfSwedenReligious",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 6, day: 23 }),
       "data": {
         "meta": {
@@ -111,7 +111,7 @@ let dates = year => {
     },
     {
       "key": "saintsPhilipEvansAndJohnLloydPriestsAndMartyrs",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 6, day: 25 }),
       "data": {
         "meta": {
@@ -124,13 +124,13 @@ let dates = year => {
     },
     {
       "key": "saintGermanusOfAuxerreBishop",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 7, day: 3 }),
       "data": {}
     },
     {
       "key": "saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 7, day: 9 }),
       "data": {
         "meta": {
@@ -144,7 +144,7 @@ let dates = year => {
     },
     {
       "key": "saintDavidLewisPriestAndMartyr",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 7, day: 26 }),
       "data": {
         "meta": {
@@ -157,13 +157,13 @@ let dates = year => {
     },
     {
       "key": "saintDeiniolBishop",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 8, day: 11 }),
       "data": {}
     },
     {
       "key": "saintRichardGwynMartyr",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 9, day: 16 }),
       "data": {
         "meta": {
@@ -176,7 +176,7 @@ let dates = year => {
     },
     {
       "key": "theSixWelshMartyrsAndCompanions",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 9, day: 25 }),
       "data": {
         "meta": {
@@ -189,13 +189,13 @@ let dates = year => {
     },
     {
       "key": "saintWinefrideVirgin",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 10, day: 3 }),
       "data": {}
     },
     {
       "key": "saintIlltudAbbot",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 10, day: 6 }),
       "data": {}
     },
@@ -206,7 +206,7 @@ let dates = year => {
     // on a Sunday it replaces the Sunday.
     {
       "key": "allSaints",
-      "type": _.head( Types ),
+      "type": Types.SOLEMNITY,
       "moment": ( y => {
         let date = moment.utc({ year: y, month: 10, day: 1 });
         if ( _.eq(date.day(), 6 )) {
@@ -225,7 +225,7 @@ let dates = year => {
     },
     {
       "key": "allSouls",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": ( y => {
         let date = moment.utc({ year: y, month: 10, day: 1 });
         if ( _.eq( date.day(), 6 ) ) { // If All Saints is on Saturday
@@ -245,7 +245,7 @@ let dates = year => {
     },
     {
       "key": "allSaintsOfWales",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 10, day: 6 }),
       "data": {
         "prioritized": true,
@@ -256,7 +256,7 @@ let dates = year => {
     },
     {
       "key": "saintDubriciusBishop",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 10, day: 14 }),
       "data": {
         "meta": {
@@ -268,7 +268,7 @@ let dates = year => {
     },
     {
       "key": "saintJohnRobertsPriestAndMartyr",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 11, day: 10 }),
       "data": {
         "meta": {
@@ -284,7 +284,7 @@ let dates = year => {
     // Replaces 20th Sunday in Ordinary Time when it falls on a Sunday.
     {
       "key": "peterAndPaulApostles",
-      "type": Types[0],
+      "type": Types.SOLEMNITY,
       "moment": ( y => {
         let date = moment.utc({ year: y, month: 5, day: 29 });
         if ( _.eq(date.day(), 1 )) {
@@ -309,7 +309,7 @@ let dates = year => {
     // Replaces 20th Sunday in Ordinary Time when it falls on a Sunday.
     {
       "key": "assumption",
-      "type": Types[0],
+      "type": Types.SOLEMNITY,
       "moment": ( y => {
         let date = moment.utc({ year: y, month: 7, day: 15 });
         if ( _.eq(date.day(), 1 )) {

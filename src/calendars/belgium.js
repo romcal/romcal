@@ -9,7 +9,7 @@ let dates = year => {
   let _dates = [
     {
       "key": "saintBrotherMutienMarieReligious",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 0, day: 30 }),
       "data": {
         "meta": {
@@ -19,7 +19,7 @@ let dates = year => {
     },
     {
       "key": "saintAmandMissionary",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 1, day: 6 }),
       "data": {
         "meta": {
@@ -29,13 +29,13 @@ let dates = year => {
     },
     {
       "key": "saintGertrudeOfNivellesVirgin",
-      "type": Types[6],
+      "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 2, day: 17 }),
       "data": {}
     },
     {
       "key": "saintJulieBilliartVirgin",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 3, day: 8 }),
       "data": {
         "meta": {
@@ -45,7 +45,7 @@ let dates = year => {
     },
     {
       "key": "saintDamienDeVeusterPriest",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 4, day: 10 }),
       "data": {
         "meta": {
@@ -55,7 +55,7 @@ let dates = year => {
     },
     {
       "key": "saintJulianaOfLiegeVirgin",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 7, day: 7 }),
       "data": {
         "meta": {
@@ -65,7 +65,7 @@ let dates = year => {
     },
     {
       "key": "ourLadyMediatrix",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 7, day: 31 }),
       "data": {
         "meta": {
@@ -75,7 +75,7 @@ let dates = year => {
     },
     {
       "key": "saintLambertBishopAndMartyr",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 8, day: 17 }),
       "data": {
         "meta": {
@@ -88,7 +88,7 @@ let dates = year => {
     },
     {
       "key": "saintHubertBishop",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 10, day: 3 }),
       "data": {
         "meta": {
@@ -98,7 +98,7 @@ let dates = year => {
     },
     {
       "key": "saintJohnBerchmansReligious",
-      "type": Types[5],
+      "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 10, day: 26 }),
       "data": {
         "meta": {
