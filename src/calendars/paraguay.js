@@ -7,16 +7,16 @@ import { Titles, Types, LiturgicalColors } from '../constants';
 let dates = year => {
 
   let _dates = [
-  {
-    "key": "ourLordJesusChristTheEternalHighPriest",
-    "type": Types.FEAST,
-    "moment": ( y => Dates.pentecostSunday( y ).add( 4, 'days' ))(year),
-    "data": {
-      "meta": {
-        "liturgicalColor": LiturgicalColors.WHITE
+    {
+      "key": "ourLordJesusChristTheEternalHighPriest",
+      "type": Types.FEAST,
+      "moment": ( y => Dates.pentecostSunday( y ).add( 4, 'days' ))(year),
+      "data": {
+        "meta": {
+          "liturgicalColor": LiturgicalColors.WHITE
+        }
       }
     }
-  }
   ];
 
   // Get localized celebration names
