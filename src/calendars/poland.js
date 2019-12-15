@@ -617,7 +617,7 @@ let dates = year => {
     {
       "key": "dedicationOfAParticularChurch",
       "type": Types.SOLEMNITY,
-      "moment": moment({ year: 2015, month: 9 }).endOf('month').startOf('week'),
+      "moment": moment({ year: year, month: 9 }).endOf('month').startOf('week'),
       "data": {
         "meta": {
           "liturgicalColor": LiturgicalColors.WHITE
