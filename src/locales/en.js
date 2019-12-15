@@ -130,7 +130,7 @@ export default {
     "blessedLouisZephirinMoreauBishop": "Blessed Louis Zephirin Moreau, Bishop",
     "blessedMarcelinaDarowskaReligious": "Blessed Marcelina Darowska, Religious",
     "blessedMariaAdeodataPisaniVirgin": "Blessed Maria Adeodata Pisani, Virgin",
-    "blessedMariaAssuntaPallottaVirgin": "Blessed Maria Assunta Pallotta, virgin",
+    "blessedMariaAssuntaPallottaVirgin": "Blessed Maria Assunta Pallotta, Virgin",
     "blessedMariaDoloresRodriguezSopenaVirgin": "Blessed Maria Dolores Rodriguez Sopena, Virgin",
     "blessedMariaStellaAndCompanionsVirginsAndMartyrs": "Blessed Maria Stella and Companions, Virgins and Martyrs",
     "blessedMariaTeresaLedochowskaVirgin": "Blessed Maria Teresa Ledochowska, Virgin",
