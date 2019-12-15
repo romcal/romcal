@@ -2,7 +2,7 @@ export default {
   "advent": {
     "season": "Advent",
     "feria": "{{day}} of the {{week}} week of Advent",
-    "sunday":  "{{week}} Sunday of Advent"
+    "sunday": "{{week}} Sunday of Advent"
   },
   "christmastide": {
     "season": "Christmas",
@@ -33,7 +33,7 @@ export default {
   "eastertide": {
     "season": "Eastertide",
     "feria": "{{day}} of the {{week}} week of Easter",
-    "sunday":  "{{week}} Sunday of Easter",
+    "sunday": "{{week}} Sunday of Easter",
     "octave": "Easter {{day}}"
   },
   "celebrations": {
