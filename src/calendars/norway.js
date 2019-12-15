@@ -47,7 +47,7 @@ let dates = year => {
     {
       "key": "saintMagnusMartyr",
       "type": Types.MEMORIAL,
-      "moment": moment.utc({ year: year, month: 4, day: 16 }),
+      "moment": moment.utc({ year: year, month: 3, day: 16 }),
       "data": {
         "meta": {
           "liturgicalColor": LiturgicalColors.RED,
