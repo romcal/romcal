@@ -335,17 +335,10 @@ let dates = year => {
       }
     },
     {
-      "key": "saintHenryBishopAndMartyr",
+      "key": "saintCamillusDeLellisPriestOrSaintHenryBishopAndMartyr",
       "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 6, day: 14 }),
-      "data": {
-        "meta": {
-          "liturgicalColor": LiturgicalColors.RED,
-          "titles": [
-            Titles.MARTYR
-          ]
-        }
-      }
+      "data": {}
     },
     {
       "key": "ourLadyOfMountCarmel",

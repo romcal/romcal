@@ -162,6 +162,7 @@ export default {
     "saintBrunoPriest": "Św. Brunona, prezbitera",
     "saintCallistusIPopeAndMartyr": "Św. Kaliksta I, papieża i męczennika",
     "saintCamillusDeLellisPriest": "Św. Kamila de Lellis, prezbitera",
+    "saintCamillusDeLellisPriestOrSaintHenryBishopAndMartyr": "Św. Kamila de Lellis, prezbitera/Św. Henryka",
     "saintCasimir": "Św. Kazimierza",
     "saintCatherineOfAlexandriaVirginAndMartyr": "Św. Katarzyny Aleksandryjskiej, dziewicy i męczennicy",
     "saintCatherineOfSienaVirginAndDoctorOfTheChurch": "Św. Katarzyny Sieneńskiej, dziewicy i doktora Kościoła, patronki Europye",

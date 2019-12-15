@@ -139,6 +139,7 @@ export default {
     "saintCaesariusOfArlesBishop": "Saint Césaire d’Arles, Évêque, Père de l’Eglise (✝ 542)",
     "saintCallistusIPopeAndMartyr": "Saint Calixte Ier, Pape et Martyr (✝ 222)",
     "saintCamillusDeLellisPriest": "Saint Camille de Lellis, Prêtre (✝ 1614)",
+    "saintCamillusDeLellisPriestOrSaintHenryBishopAndMartyr": "Saint Camille de Lellis, Prêtre, ou Saint Henri, Évêque et Martyrertyr",
     "saintCasimir": "Saint Casimir (✝ 1484)",
     "saintCatherineOfAlexandriaVirginAndMartyr": "Sainte Catherine d’Alexandrie, Vierge et Martyre (4ème s.)",
     "saintCatherineOfSienaVirginAndDoctorOfTheChurch": "Sainte Catherine de Sienne, Vierge et Docteur de l’Eglise, Patronne de l’Europe (✝ 1380)",

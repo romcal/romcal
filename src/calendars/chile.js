@@ -49,13 +49,12 @@ let dates = year => {
         }
       }
     },
-    // Commented because the key and rank is the same as the definition in general.js
-    // {
-    //   "key": "saintCamillusDeLellisPriest",
-    //   "type": Types.OPT_MEMORIAL,
-    //   "moment": moment.utc({ year: year, month: 6, day: 14 }),
-    //   "data": {}
-    // },
+    {
+      "key": "saintCamillusDeLellisPriestOrSaintHenryBishopAndMartyr ",
+      "type": Types.OPT_MEMORIAL,
+      "moment": moment.utc({ year: year, month: 6, day: 14 }),
+      "data": {}
+    },
     {
       "key": "ourLadyOfMountCarmel",
       "type": Types.SOLEMNITY,
