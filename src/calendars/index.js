@@ -7,6 +7,7 @@ import * as bosniaHerzegovina from './bosniaHerzegovina';
 import * as brazil from './brazil';
 import * as canada from './canada';
 import * as chile from './chile';
+import * as china from './china';
 import * as croatia from './croatia';
 import * as czechRepublic from './czechRepublic';
 import * as denmark from './denmark';
@@ -57,6 +58,7 @@ export {
   brazil,
   canada,
   chile,
+  china,
   croatia,
   czechRepublic,
   denmark,
