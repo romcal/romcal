@@ -51,6 +51,19 @@ describe("Testing specific feasts and memorials", function() {
       maryMotherOfTheChurch.moment.day().should.be.eql(1);
       maryMotherOfTheChurch.moment.subtract(1, 'days').should.be.eql(pentecostSunday);
     });
+
+    it('Should take precedence in the event of coincidence with another memorial of a saint or blessed', function() {
+      // In 2020, monday after Pentecost is June 1
+      var juneDates = Calendar.calendarFor({
+        year: 2020,
+        query: {
+          month: 5
+        }
+      }, true);
+      // according to the general calendar, June 1 is the memorial of saint Justin, Martyr
+      var maybeSaintJustinMartyr = juneDates[0];
+      maybeSaintJustinMartyr.key.should.be.eql('maryMotherOfTheChurch');
+    });
   });
 
   describe('The celebration of Saint Mary Magdalene', function() {
