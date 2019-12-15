@@ -30,7 +30,6 @@ let dates = year => {
         }
       }
     },
-    // [pejulian] Needs confirmation: In Ukraine this day is a feast
     {
       "key": "maryMotherOfTheChurch",
       "type": Types.FEAST,
