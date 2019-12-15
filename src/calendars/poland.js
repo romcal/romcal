@@ -682,7 +682,6 @@ let dates = year => {
       "moment": moment.utc({ year: year, month: 11, day: 4 }),
       "data": {}
     },
-    // [pejulian] Needs confirmation: In Poland this day is a feast
     {
       "key": "maryMotherOfTheChurch",
       "type": Types.FEAST,
