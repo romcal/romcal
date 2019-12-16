@@ -293,6 +293,7 @@ export default {
     "saintCaesariusOfArlesBishop": "Svätého Cézara z Arles, biskupa",
     "saintCallistusIPopeAndMartyr": "Svätého Kalixta I., pápeža a mučeníka",
     "saintCamillusDeLellisPriest": "Svätého Kamila de Lellis, kňaza",
+    "saintCamillusDeLellisPriestOrSaintHenryBishopAndMartyr": "Svätého Kamila de Lellis, kňaza, alebo svätého Henricha",
     "saintCaniceAbbot": "Svätého Canica, opáta",
     "saintCanuteMartyr": "Svätého Kanuta, mučeníka",
     "saintCarthageBishopMochuta": "Svätého Kartága (Mo Chutu), biskupa",

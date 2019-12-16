@@ -302,6 +302,7 @@ export default {
     "saintCaesariusOfArlesBishop": "Saint Caesarius of Arles, Bishop",
     "saintCallistusIPopeAndMartyr": "Saint Callistus I, Pope and Martyr",
     "saintCamillusDeLellisPriest": "Saint Camillus de Lellis, Priest",
+    "saintCamillusDeLellisPriestOrSaintHenryBishopAndMartyr": "Saint Camillus de Lellis, Priest or Saint Henry, Bishop and Martyr",
     "saintCaniceAbbot": "Saint Canice, Abbot",
     "saintCanuteMartyr": "Saint Canute, Martyr",
     "saintCarthageBishopMochuta": "Saint Carthage, Bishop (Mochuta)",
