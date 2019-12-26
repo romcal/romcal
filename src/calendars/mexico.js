@@ -21,6 +21,19 @@ let dates = year => {
       }
     },
     {
+      "key": "saintJohnNepomucenePriestAndMartyr",
+      "type": Types.OPT_MEMORIAL,
+      "moment": moment.utc({ year: year, month: 4, day: 16 }),
+      "data": {
+        "meta": {
+          "liturgicalColor": LiturgicalColors.RED,
+          "titles": [
+            Titles.MARTYR
+          ]
+        }
+      }
+    },
+    {
       "key": "blessedSebastianDeAparicioReligious",
       "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 1, day: 25 }),
