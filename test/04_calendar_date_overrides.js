@@ -115,28 +115,6 @@ describe('Testing national calendar overrides', function() {
       });
       date.moment.isSame(moment.utc({ year: 2017, month: 6, day: 5 })).should.be.ok();
     });
-    it('Should fall on 14th Feb 2017 in the national calendar of the Czech Republic if the "saintsCyrilMonkAndMethodiusBishopOnFeb14" flag is passed as "true"', function() {
-      var dates = Calendar.calendarFor({
-        country: 'slovakia',
-        year: 2017,
-        saintsCyrilMonkAndMethodiusBishopOnFeb14: true
-      }, true);
-      var date = _.find(dates, function(d) {
-        return _.eq(d.key, 'saintsCyrilMonkAndMethodiusBishop');
-      });
-      date.moment.isSame(moment.utc({ year: 2017, month: 1, day: 14 })).should.be.ok();
-    });
-    it('Should fall on 14th Feb 2017 in the national calendar of Slovakia if the "saintsCyrilMonkAndMethodiusBishopOnFeb14" flag is passed as "true"', function() {
-      var dates = Calendar.calendarFor({
-        country: 'czechRepublic',
-        year: 2017,
-        saintsCyrilMonkAndMethodiusBishopOnFeb14: true
-      }, true);
-      var date = _.find(dates, function(d) {
-        return _.eq(d.key, 'saintsCyrilMonkAndMethodiusBishop');
-      });
-      date.moment.isSame(moment.utc({ year: 2017, month: 1, day: 14 })).should.be.ok();
-    });
   });
 
   describe('The feast of the Assumption in England and Wales', function() {

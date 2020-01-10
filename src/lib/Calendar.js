@@ -41,7 +41,6 @@ const _sanitizeConfig = config => {
   if (_.eq(config.country, 'general')) {
     config.country = '';
   }
-  config.saintsCyrilMonkAndMethodiusBishopOnFeb14 = config.saintsCyrilMonkAndMethodiusBishopOnFeb14;
   config.locale = config.locale || 'en';
   config.type = config.type || 'calendar';
   config.query = _.isPlainObject( config.query ) ? config.query : null;
@@ -76,8 +75,7 @@ const _getCalendar = options => {
   let general = getCalendar('general').dates(options.year);
 
   // Get the relevant national calendar object based on the given country
-  // Pass in the optional `saintsCyrilMonkAndMethodiusBishopOnFeb14` flag which is used in the Czech Rep and Slovakiac
-  let national = getCalendar(options.country).dates(options.year, options.saintsCyrilMonkAndMethodiusBishopOnFeb14);
+  let national = getCalendar(options.country).dates(options.year);
 
   // Check if 'drop' has been defined for any celebrations in the national calendar
   // and remove them from both national and general calendar sources
@@ -464,7 +462,6 @@ const _liturgicalCycleMetadata = (year, dates) => {
 // [-] ascensionOnSunday: true|false|undefined (If true, Ascension is moved to the 7th Sunday of Easter) (defaults to false)
 // [-] type: calendar|liturgical (return dates in either standard calendar or liturgical calendar format)
 // [-] query: Additional filters to be applied against calendar dates array (default: none)
-// [-] saintsCyrilMonkAndMethodiusBishopOnFeb14: Should this feast be on Feb 14 (only used for Czech Rep and Slovakia) (defaults to false)
 const _calendarYear = c => {
 
   // Get the liturgical seasons that run through the year
@@ -502,7 +499,6 @@ const _calendarYear = c => {
 // [-] ascensionOnSunday: true|false|undefined (If true, Ascension is moved to the 7th Sunday of Easter) (defaults to false)
 // [-] type: calendar|liturgical (return dates in either standard calendar or liturgical calendar format)
 // [-] query: Additional filters to be applied against calendar dates array (default: none)
-// [-] saintsCyrilMonkAndMethodiusBishopOnFeb14: Should this feast be on Feb 14 (only used for Czech Rep and Slovakia) (defaults to false)
 const _liturgicalYear = c => {
 
   // Get dates for current year
