@@ -31,7 +31,6 @@ I especially reach out to you all for help with translations/localisations of ce
 - [Builds](#builds)
 - [Usage](#usage)
   - [Configuration Options](#configOpts)
-    + [Locale specific configuration options](#localeSpecificConfOpts)
   - [Output Formatter](#outputFormatter)
   - [JSON Structure](#jsonStructure)
 - [Celebration Types](#types)
@@ -165,13 +164,6 @@ true|false );
 + `ascensionOnSunday`: Determines if Ascension should replace the 7th Sunday of Easter (42 days after Easter). Defaults to `false` where Ascension will be on Thursday, 39 days after Easter, if value not recognized or specified.
 + `type`: Determines the type of calendar output. Can either be `liturgical` or `calendar`. Defaults to `calendar` if value not recognized or specified. The `liturgical` year runs from 1st Sunday of Advent of the given year to Saturday of the 34th Week of Ordinary Time in the following year. The 'calendar' year on the other hand refers to the standard year from Jan 1 - Dec 31.
 + `query`: A nested query object which filters the dates according to the given criteria. For more details on how to use queries, see [this](#queries) section.
-
-
-#### Locale specific configuration options <a name="localeSpecificConfOpts"></a>
-
-For the national calendars of the Czech Republic and Slovakia (country: `czechRepublic` and `slovakia`), an additional flag can be passed:
-
-+ `saintsCyrilMonkAndMethodiusBishopOnFeb14`: If `true`, changes the feast of Saints Cyril and Methodius to fall on 14th February instead of the 5th of July. Defaults to `false`.
 
 ### Output formatter <a name="outputFormatter"></a>
 The second parameter that can be passed to the `romcal.calendarFor()` method.

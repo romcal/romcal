@@ -4,8 +4,7 @@ import _ from 'lodash';
 import { Dates, Utils } from '../lib';
 import { Titles, Types, LiturgicalColors } from '../constants';
 
-// Allow an option to passed when generating this calendar for the Feast of Saints Cyril and Methodius to land on Feb 14
-let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
+let dates = year => {
 
   let _dates = [
     {
@@ -110,10 +109,8 @@ let dates = (year, saintsCyrilMonkAndMethodiusBishopOnFeb14 = false ) => {
     // https://en.wikipedia.org/wiki/Saints_Cyril_and_Methodius
     {
       "key": "saintsCyrilMonkAndMethodiusBishop",
-      "type": Types.FEAST,
-      "moment": ((y, flag) => {
-        return flag ? moment.utc({ year: year, month: 1, day: 14 }): moment.utc({ year: year, month: 6, day: 5 });
-      })(year, saintsCyrilMonkAndMethodiusBishopOnFeb14),
+      "type": Types.SOLEMNITY,
+      "moment": moment.utc({ year: year, month: 6, day: 5 }),
       "data": {
         "meta": {
           "liturgicalColor": LiturgicalColors.WHITE,
