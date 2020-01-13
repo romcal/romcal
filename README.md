@@ -6,9 +6,7 @@
 [travis-url]: https://travis-ci.org/pejulian/romcal
 [travis-image]: https://travis-ci.org/pejulian/romcal.svg?branch=master
 
-[![MIT License][license-image]][license-url] [![NPM version][npm-version-image]][npm-url] [![NPM downloads][npm-downloads-image]][npm-url] [![MIT License][license-image]][license-url] [![Build Status][travis-image]][travis-url]
-
-[![Join the chat at https://gitter.im/pejulian/romcal](https://badges.gitter.im/pejulian/romcal.svg)](https://gitter.im/pejulian/romcal?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![MIT License][license-image]][license-url] [![NPM version][npm-version-image]][npm-url][![NPM downloads][npm-downloads-image]][npm-url][![Build Status][travis-image]][travis-url][![Join the chat at https://gitter.im/pejulian/romcal](https://badges.gitter.im/pejulian/romcal.svg)](https://gitter.im/pejulian/romcal?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 # Romcal
 
