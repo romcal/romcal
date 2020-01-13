@@ -104,7 +104,7 @@ Travis CI is used to validate romcal builds to ensure functionality is working a
 
 ## Builds <a name="builds"></a>
 
-Running `npm run build` in the romcal root directory will generate a packaged version of romcal suitable for direct use in a browser.
+Running `npm install && npm run build` in the romcal root directory will generate a packaged version of romcal suitable for direct use in a browser.
 
 - `dist/romcal.bundle.min.js` A minified and obfruscated bundle of romcal + all its dependencies wrapped in a UMD module shell that is suitable for being included directly in browsers
 
