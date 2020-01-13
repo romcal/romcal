@@ -104,13 +104,19 @@ Travis CI is used to validate romcal builds to ensure functionality is working a
 
 ## Builds <a name="builds"></a>
 
-Running `npm install` in the romcal root directory will generate a packaged version of romcal suitable for direct use in a browser.
+The romcal source code is actually the same for backend and frontend usage. To make it working on the frontend side, the frontend library is wrapped and built thanks to `webpack`. This build step is done automatically when you perform a `npm install` on the romcal directory.
 
-- `dist/romcal.bundle.min.js` A minified and obfruscated bundle of romcal + all its dependencies wrapped in a UMD module shell that is suitable for being included directly in browsers
+But if you have edited the codebase, you can update manually the frontend library with this command:
+
+```
+npm run build
+```
+
+The frontend library is generated in the `dist` folder, not included in the romcal codebase. When built, it contains `romcal.bundle.min.js`, a minified and obfruscated bundle of romcal + all its dependencies wrapped in a UMD module shell that is suitable for being included directly in browsers.
 
 ## Usage <a name="usage"></a>
 
-> :information_source: romcal is written using ES6, and use the new import/export syntax to manage node modules. However, thanks to `esm` and `babel`, it can still be included by other non ES6 aware node modules via the normal CommonJs `require` call.
+> :information_source: romcal was re-written using ES6, and use the new import/export syntax to manage node modules. However, thanks to `esm` and `babel`, it can still be included by other non ES6 aware node modules via the normal CommonJs `require` call.
 
 Add romcal to your project via npm:
 
