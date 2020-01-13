@@ -1,5 +1,11 @@
 # Version history
 
+## 1.3.0-rc.1 /2020-12-01
+* Drop Shrove Monday and Tuesday from the general calendar (#90).
+* Refactor rank types of celebrations (#109).
+* Various bug fixes and improvements (#105 #133 #129 #44).
+* A lot of localization and calendar improvements (#11 #25 #30 #35 #38 #39 #42 #46 #111 #115 #116 #118 #123 #127 #139 #143).
+
 ## 1.3.0-beta.3 /2019-12-10
 * Update and simplify the build process.
 * Add automated build process to transpile the code after installing and before publishing.
@@ -68,7 +74,6 @@
     - [issue #28](https://github.com/pejulian/romcal/issues/28)
     - [issue #29](https://github.com/pejulian/romcal/issues/29)
         + Epiphany is always celebrated on Jan 6 in Slovakia
-
 
 ## 1.2.4
 * Added credits in the description section in `README.md`.
