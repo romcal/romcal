@@ -110,7 +110,7 @@ Running `npm install && npm run build` in the romcal root directory will generat
 
 ## Usage <a name="usage"></a>
 
-> :information_source: romcal was re-written using ES6, and use the new import/export syntax to manage node modules. However, thanks to `esm` and `babel`, it can still be included by other non ES6 aware node modules via the normal CommonJs `require` call.
+> :information_source: romcal is written using ES6, and use the new import/export syntax to manage node modules. However, thanks to `esm` and `babel`, it can still be included by other non ES6 aware node modules via the normal CommonJs `require` call.
 
 Add romcal to your project via npm:
 
@@ -574,7 +574,7 @@ romcal.queryFor(dates, {
 
 ## Overriding dates <a name="overridingDates"></a>
 
-romcal was designed with extensibility in mind to cater for unique scenarios that are common in the liturgical calendar.
+romcal is designed with extensibility in mind to cater for unique scenarios that are common in the liturgical calendar.
 
 ### Overriding a date by its calendar source <a name="overridingBySource"></a>
 
