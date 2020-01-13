@@ -1,6 +1,9 @@
 # Version history
 
-## 1.3.0-rc.1 /2020-12-01
+## 1.3.0-rc.2 /2020-01-13
+* Fix installation script when romcal is installed as a node dependency
+
+## 1.3.0-rc.1 /2020-01-12
 * Drop Shrove Monday and Tuesday from the general calendar (#90).
 * Refactor rank types of celebrations (#109).
 * Various bug fixes and improvements (#105 #133 #129 #44).
