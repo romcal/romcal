@@ -1,10 +1,19 @@
 {
   "name": "romcal",
-  "version": "1.2.4",
+  "version": "1.3.0-rc1",
   "description": "Utility library that outputs the Liturgical Calendar used by the Roman Rite (Western Church)",
-  "main": "romcal.js",
+  "main": "dist/index.js",
+  "module": "src/index.js",
+  "engines": {
+    "node": ">=6.0.0"
+  },
   "scripts": {
-    "test": "mocha test/*.js"
+    "prepack": "npm run build && npm test",
+    "install": "npm run build",
+    "build": "npm run build:babel && npm run build:webpack",
+    "build:babel": "babel src --out-dir dist",
+    "build:webpack": "webpack-cli --config webpack.config.js",
+    "test": "mocha 'test/*.js'"
   },
   "repository": {
     "type": "git",
@@ -21,7 +30,11 @@
     "seasons",
     "liturgical"
   ],
-  "author": "Julian Pereira <bleushade@gmail.com>",
+  "author": {
+    "name": "Julian Pereira",
+    "email": "bleushade@gmail.com",
+    "url": "https://github.com/pejulian"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/pejulian/romcal/issues"
@@ -30,12 +43,23 @@
   "dependencies": {
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
-    "moment-range": "^2.2.0",
-    "moment-recur": "^1.0.7",
-    "require-all": "^2.2.0"
+    "moment-range": "^4.0.2",
+    "moment-recur": "^1.0.7"
   },
   "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/node": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/register": "^7.7.7",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.8.0",
+    "eslint-plugin-node": "^11.0.0",
     "mocha": "^6.2.2",
-    "should": "^13.2.3"
+    "should": "^13.2.3",
+    "source-map-loader": "^0.2.4",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
   }
 }
