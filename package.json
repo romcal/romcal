@@ -35,6 +35,22 @@
     "email": "bleushade@gmail.com",
     "url": "https://github.com/pejulian"
   },
+  "contributors": [
+    {
+      "name": "Etienne Magnier",
+      "email": "etienne.magnier@gmail.com",
+      "url": "https://github.com/emagnier"
+    },
+    {
+      "name": "Jacek Roszkowski",
+      "url": "https://github.com/jarosz"
+    },
+    {
+      "name": "Tukusej’s Sirs",
+      "email": "tukusejssirs@protonmail.com",
+      "url": "https://github.com/tukusejssirs"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/romcal/romcal/issues"
