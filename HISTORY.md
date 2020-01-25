@@ -1,6 +1,6 @@
 # Version history
 
-## 1.3.0 /2020-01-25 <a name="1.3.0"></a>
+## 1.3.0 /2020-01-26 <a name="1.3.0"></a>
 
 romcal changed a lot since [1.2.4](#1.2.4), therefore we list here only the main changes and small changes were combined. For more thorough list of changes, check the release notes for [1.3.0-beta.1](#1.3.0-beta.1), [1.3.0-beta.2](#1.3.0-beta.2), [1.3.0-beta.3](#1.3.0-beta.3), [1.3.0-rc.1](#1.3.0-rc.1) and [1.3.0-rc.2](#1.3.0-rc.2).
 
