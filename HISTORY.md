@@ -19,14 +19,14 @@ romcal changed a lot since [1.2.4](#1.2.4), therefore we list here only the main
 
 ### Calendar and celebrations
 
-- Added national calendars for Czech Republic and Slovakia.
+- Added national calendars for Czech Republic, Italy and Slovakia.
 - Drop Shrove Monday and Tuesday from the General Roman Calendar ([issue #90](https://github.com/pejulian/romcal/issues/90)).
 - Epiphany is always celebrated on Jan 6 in Slovakia ([issue #29](https://github.com/pejulian/romcal/issues/29)).
 - Apply changes in the General Roman Calendar made by the Holy See.
 
 ### Localization
 
-- Add Slovak locale files.
+- Add Italian and Slovak locale files.
 - Some localization keys where renamed in order to confirm with official English names of the celebrations.
 
 ### Build process
@@ -34,7 +34,7 @@ romcal changed a lot since [1.2.4](#1.2.4), therefore we list here only the main
 - Update and simplify the build process.
 - Add automated build process to transpile the code after installing and before publishing.
 - Distribution files are now not included anymore in the codebase.
-- In addition to the `romcal.bundle.min.js` file (for browsers), source code is also transpiled by Babel in the `dist/` directory. This makes it easier to include romcal in any node.js package.
+- In addition to the `romcal.bundle.min.js` file (for browsers), source code is also transpiled by Babel and Webpack in the `dist/` directory. This feature makes it possible to use romcal directly in the browser, so not only in a node.js package or environment (babel and webpack allow to have the same codebase for backend/node.js and frontend/browser).
 - Added more test cases for better test coverage.
 
 ### Other changes and fixes
