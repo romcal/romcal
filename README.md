@@ -56,7 +56,7 @@ See [contributing](CONTRIBUTING.md) for more information.
   - [Overriding a date by its key](#overridingByKey)
 - [Removing general dates in national calendar output](#removingDates)
   - [The `drop` keyword](#dropKeyword)
-- [localizing celebration names](#localization)
+- [Localizing celebration names](#localization)
 
 ## Description <a name="desc"></a>
 
