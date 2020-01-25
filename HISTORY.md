@@ -1,5 +1,8 @@
 # Version history
 
+## 1.3.0 /2020-01-25
+
+
 ## 1.3.0-rc.2 /2020-01-13
 * Fix installation script when romcal is installed as a node dependency
 
