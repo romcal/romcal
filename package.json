@@ -13,6 +13,7 @@
     "build": "npm run build:babel && npm run build:webpack",
     "build:babel": "babel src --out-dir dist",
     "build:webpack": "webpack-cli --config webpack.config.js",
+    "flow": "flow",
     "test": "mocha 'test/*.js'"
   },
   "repository": {
@@ -63,15 +64,19 @@
     "moment-recur": "^1.0.7"
   },
   "devDependencies": {
-    "@babel/cli": "^7.7.7",
-    "@babel/core": "^7.7.7",
-    "@babel/node": "^7.7.7",
-    "@babel/preset-env": "^7.7.7",
-    "@babel/register": "^7.7.7",
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/node": "^7.8.3",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-private-methods": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-flow": "^7.8.3",
+    "@babel/register": "^7.8.3",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "eslint": "^6.8.0",
     "eslint-plugin-node": "^11.0.0",
+    "flow-bin": "^0.116.1",
     "mocha": "^6.2.2",
     "should": "^13.2.3",
     "source-map-loader": "^0.2.4",

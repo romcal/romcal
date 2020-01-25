@@ -47,22 +47,22 @@ describe('Testing national calendar overrides', function() {
     var generalDates = Calendar.calendarFor(year, true);
     var spainDates = Calendar.calendarFor({ year: year, country: 'spain' }, true);
     it('The feast of Saint Isidore of Seville is celebrated on the 4th of April every year', function() {
-      var date = _.find(generalDates, function(d) {
-        return d.moment.isSame(moment.utc({ year: year, month: 3, day: 4 }));
+      var date = _.filter(generalDates, function(d) {
+        return d.moment.isSame(moment.utc({ year: year, month: 3, day: 4 })) && d.key === 'saintIsidoreOfSevilleBishopAndDoctorOfTheChurch';
       });
-      _.eq(date.key, 'saintIsidoreOfSevilleBishopAndDoctorOfTheChurch').should.be.ok();
+      _.size(date).should.be.eql(1);
     });
     it('However, in the national calendar of Spain, this same feast is celebrated on the 26th of April every year', function() {
-      var date = _.find(spainDates, function(d) {
-        return d.moment.isSame(moment.utc({ year: year, month: 3, day: 26 }));
+      var date = _.filter(spainDates, function(d) {
+        return d.moment.isSame(moment.utc({ year: year, month: 3, day: 26 })) && d.key === 'saintIsidoreOfSevilleBishopAndDoctorOfTheChurch';
       });
-      _.eq(date.key, 'saintIsidoreOfSevilleBishopAndDoctorOfTheChurch').should.be.ok();
+      _.size(date).should.be.eql(1);
     });
-    it('Therefore, national calendar of spain should only have one occurence of this feast on the 26th of April', function() {
-      var occurences = _.filter(spainDates, function(d) {
+    it('Therefore, national calendar of spain should only have one occurrence of this feast on the 26th of April', function() {
+      var occurrences = _.filter(spainDates, function(d) {
         return _.eq(d.key, 'saintIsidoreOfSevilleBishopAndDoctorOfTheChurch');
       });
-      _.size(occurences).should.be.eql(1);
+      _.size(occurrences).should.be.eql(1);
     });
   });
 
