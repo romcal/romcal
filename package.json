@@ -1,6 +1,6 @@
 {
   "name": "romcal",
-  "version": "1.3.0-rc2",
+  "version": "1.3.0",
   "description": "Utility library that outputs the Liturgical Calendar used by the Roman Rite (Western Church)",
   "main": "dist/index.js",
   "module": "src/index.js",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pejulian/romcal.git"
+    "url": "git+https://github.com/romcal/romcal.git"
   },
   "keywords": [
     "roman",
@@ -35,11 +35,27 @@
     "email": "bleushade@gmail.com",
     "url": "https://github.com/pejulian"
   },
+  "contributors": [
+    {
+      "name": "Etienne Magnier",
+      "email": "etienne.magnier@gmail.com",
+      "url": "https://github.com/emagnier"
+    },
+    {
+      "name": "Jacek Roszkowski",
+      "url": "https://github.com/jarosz"
+    },
+    {
+      "name": "Tukusej’s Sirs",
+      "email": "tukusejssirs@protonmail.com",
+      "url": "https://github.com/tukusejssirs"
+    }
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pejulian/romcal/issues"
+    "url": "https://github.com/romcal/romcal/issues"
   },
-  "homepage": "https://github.com/pejulian/romcal#README",
+  "homepage": "https://github.com/romcal/romcal/blob/master/README.md",
   "dependencies": {
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
