@@ -1,9 +1,10 @@
 // @flow
 
-import moment, {Moment} from 'moment';
 import _ from 'lodash';
 
 import * as Calendars from '../calendars';
+import Config from './Config';
+import DateItem from './DateItem';
 import * as Dates from './Dates';
 import * as Utils from './Utils';
 import * as Seasons from './Seasons';
@@ -15,138 +16,6 @@ import {
   LiturgicalSeasons
 } from '../constants';
 
-// Get an array of country names
-const countries = _.keys(Calendars);
-
-class Config {
-  year: number;
-  country: string = '';
-  locale: string;
-  christmastideEnds: 't' | 'o' | 'e';
-  epiphanyOnJan6: boolean;
-  christmastideIncludesTheSeasonOfEpiphany: boolean;
-  corpusChristiOnThursday: boolean;
-  ascensionOnSunday: boolean;
-  type: 'calendar' | 'liturgical';
-  query: {
-    day: number,
-    month: number,
-    group: string,
-    title: string
-  };
-
-  static getConfig(country: ?string):Calendars<Array<{}>> {
-    if (!country) return {};
-    return Calendars[country].defaultConfig || {};
-  }
-
-  static sanitize(value, acceptable):any {
-    if (acceptable === 'string' || acceptable === 'number') {
-      return typeof value === acceptable ? {default: () => value} : {default: (d) => d};
-    }
-    if (acceptable === 'boolean') acceptable = [true, false];
-    if (acceptable.indexOf(value) > -1) return {default: () => value};
-    return {default: (d) => d};
-  }
-
-  constructor(customConfig) {
-    customConfig = _.isPlainObject(customConfig) ? customConfig : {};
-
-    // If a country is specified, check if exists in the romcal codebase
-    customConfig.country = typeof customConfig.country === 'string' ? customConfig.country : '';
-    if (customConfig.country.toLowerCase() !== 'general' && Object.prototype.hasOwnProperty.call(Calendars, _.camelCase(customConfig.country))) {
-      this.country = _.camelCase(customConfig.country);
-    }
-
-    // Load default config for general and selected country,
-    // and combine them with the specified custom config
-    let generalConfig = Config.getConfig('general');
-    let countryConfig = Config.getConfig(this.country);
-    let c = {
-      ...generalConfig,
-      ...countryConfig,
-      ...customConfig
-    };
-
-    // Map configuration
-    this.christmastideEnds = Config
-      .sanitize(c.christmastideEnds, ['t', 'o', 'e'])
-      .default(generalConfig.christmastideEnds);
-    this.epiphanyOnJan6 = Config
-      .sanitize(c.epiphanyOnJan6, 'boolean')
-      .default(generalConfig.epiphanyOnJan6);
-    this.christmastideIncludesTheSeasonOfEpiphany = Config
-      .sanitize(c.christmastideIncludesTheSeasonOfEpiphany, 'boolean')
-      .default(generalConfig.christmastideIncludesTheSeasonOfEpiphany);
-    this.corpusChristiOnThursday = Config
-      .sanitize(c.corpusChristiOnThursday, 'boolean')
-      .default(generalConfig.corpusChristiOnThursday);
-    this.ascensionOnSunday = Config
-      .sanitize(c.ascensionOnSunday, 'boolean')
-      .default(generalConfig.ascensionOnSunday);
-    this.locale = Config
-      .sanitize(c.locale, 'string')
-      .default(generalConfig.locale);
-    this.year = Config
-      .sanitize(parseInt(c.year), 'number')
-      .default(moment.utc().year());
-    this.type = Config
-      .sanitize(c.type, ['calendar', 'liturgical'])
-      .default('calendar');
-
-    // Sanitize optional query section
-    let query = _.isPlainObject( c.query ) ? c.query : {};
-    this.query = {};
-    if (query.day !== undefined) this.query.day = query.day;
-    if (query.month !== undefined) this.query.month = query.month;
-    if (query.group !== undefined) this.query.group = query.group;
-    if (query.title !== undefined) this.query.title = query.title;
-
-    return this;
-  }
-}
-
-class DateItem {
-  static latestId: number;
-  id: number;
-  key: string;
-  date: string;
-  stack: number;
-  type: string;
-  name: string;
-  data: Object;
-  moment: Moment;
-  base: DateItem;
-
-  static incrementId(): number {
-    if (isNaN(this.latestId)) this.latestId = 0;
-    else this.latestId++;
-    return this.latestId;
-  }
-
-  constructor(item: Object, baseItem: DateItem) {
-    this.id = DateItem.incrementId();
-    this.key = item.key;
-    this.date = item.moment.toISOString();
-    this.stack = item.stack;
-    this.type = item.type;
-    this.name = item.name;
-    this.data = item.data || {};
-    this.data.meta = this.data.meta || {};
-    this.moment = item.moment;
-
-    // The original default item is added to the current item as a `base ` property
-    if (baseItem && this.id !== baseItem.id) {
-      this.base = baseItem;
-      this.data = {...{
-          season: baseItem.data.season,
-          calendar: baseItem.data.calendar
-        }, ...this.data};
-      this.data.meta.psalterWeek = this.data.meta.psalterWeek || baseItem.data.meta.psalterWeek;
-    }
-  }
-}
-
 class Calendar {
   itemValues = [];
   year;
@@ -157,36 +26,36 @@ class Calendar {
     Calendar.dropItems(baseCalendar, ...calendars)
       .forEach((cal, i) => cal
         .forEach((item) => {
+          if (item.moment.year() === this.year) {
 
-          // If a previous date item already exists (have a same key name), it will be removed in favour of
-          // the new one, except if the previous item is prioritized but not the new one.
-          let previousItems = this.filter({key: item.key});
-          if (previousItems.length) {
-            previousItems.forEach((previousItem) => {
-              if ((!previousItem.data.prioritized) ||
-                (previousItem.data.prioritized && item.data.prioritized)) {
-                this.removeWhere({id: previousItem.id});
-              }
-            });
+            // If a previous date item already exists (have a same key name), it will be removed in favour of
+            // the new one, except if the previous item is prioritized but not the new one.
+            let previousItems = this.filter({key: item.key});
+            if (previousItems.length) {
+              previousItems.forEach((previousItem) => {
+                if ((!previousItem.data.prioritized) ||
+                  (previousItem.data.prioritized && item.data.prioritized)) {
+                  this.removeWhere({id: previousItem.id});
+                }
+              });
+            }
+
+            item.stack = i;
+            let baseItem = this.find({date: item.moment.toISOString(), stack: 0});
+            this.push(item, baseItem);
           }
-
-          item.stack = i;
-          let baseItem = this.find({date: item.moment.toISOString(), stack: 0});
-          this.push(item, baseItem);
         }));
-
-    return this.values();
   }
 
-  filter(predicate: Object) {
+  filter(predicate: Object): Array<DateItem> {
     return _.filter(this.itemValues, predicate);
   }
 
-  find(predicate: Object) {
+  find(predicate: Object): DateItem {
     return _.find(this.itemValues, predicate);
   }
 
-  valuesByDates() {
+  valuesByDates(): Object {
     return this.itemValues.reduce((result: Object, value: DateItem) => {
       (result[value.date] = result[value.date] || []).push(value);
       return result;
@@ -204,7 +73,7 @@ class Calendar {
 
   // Check if 'drop' has been defined for any celebrations in the national calendar
   // and remove them from both national and general calendar sources
-  static dropItems(...calendars) {
+  static dropItems(...calendars): Array<[]> {
     calendars.forEach((calendar, i) => {
       let dropKeys = _.map(_.filter(calendar, n => (_.has(n, 'drop') && n.drop)), 'key');
       dropKeys.forEach(dropKey => {
@@ -216,7 +85,16 @@ class Calendar {
     return calendars;
   }
 
-  adjustTypesInSeasons() {
+  // Return the appropriate national calendar based on the country given
+  // Returns object with function returning empty array if nothing specified
+  // country: the camel cased country name to get the calendar for (country name will be camel cased in this method)
+  static getCalendar(country: ?string): Calendars<Array<{}>> {
+    if (!country) return { dates: () => [] };
+    const key = Object.prototype.hasOwnProperty.call(Calendars, _.camelCase(country)) ? _.camelCase(country) : 'general';
+    return Calendars[key];
+  }
+
+  adjustTypesInSeasons(): Calendar {
     // Special type management in the season of LENT
     this.itemValues.forEach(item => {
       if (item.stack > 0 && item.base.data.season.key === LiturgicalSeasons.LENT) {
@@ -243,7 +121,7 @@ class Calendar {
     return this;
   }
 
-  sortAndKeepRelevant() {
+  sortAndKeepRelevant(): Calendar {
 
     // Reorder the type ranking, so when there is only optional items (in addition to the FERIA),
     // the FERIA item is moved first before the optional items,
@@ -312,68 +190,45 @@ class Calendar {
     return this;
   }
 
-  values() {
+  // Include liturgical cycle metadata for the dates in the liturgical year
+  addLiturgicalCycleMetadata(): Calendar {
+
+    // Formula to calculate lectionary cycle (Year A, B, C)
+    let firstSundayOfAdvent = Dates.firstSundayOfAdvent(this.year);
+    let thisCycle = (this.year - 1963) % 3;
+    let nextCycle = thisCycle === 2 ? 0 : thisCycle + 1;
+
+    this.itemValues.map(item => {
+
+      // If the date is on or after the first sunday of advent
+      // it is the next liturgical cycle
+      if (item.moment.isSame(firstSundayOfAdvent) || item.moment.isAfter(firstSundayOfAdvent)) {
+        item.data.meta.cycle = {
+          key: nextCycle,
+          value: Cycles[nextCycle]
+        };
+      } else {
+        item.data.meta.cycle = {
+          key: thisCycle,
+          value: Cycles[thisCycle]
+        };
+      }
+
+      return item;
+    });
+
+    return this;
+  }
+
+  values(): Array<DateItem> {
     this
       .adjustTypesInSeasons()
-      .sortAndKeepRelevant();
+      .sortAndKeepRelevant()
+      .addLiturgicalCycleMetadata();
 
-    let finalCalendar = this.itemValues;
-    finalCalendar = _.filter( finalCalendar, d => d.moment.year() === this.year );
-    finalCalendar = _liturgicalCycleMetadata(this.year, finalCalendar);
-    return finalCalendar;
+    return this.itemValues;
   }
 }
-
-// Return the appropriate national calendar based on the country given
-// Returns object with function returning empty array if nothing specified
-// country: the camel cased country name to get the calendar for (country name will be camel cased in this method)
-const getCalendar: Calendars<Array<{}>> = (country: ?string) => {
-  if (!country) return { dates: () => [] };
-  const key = Object.prototype.hasOwnProperty.call(Calendars, _.camelCase(country)) ? _.camelCase(country) : 'general';
-  return Calendars[key];
-};
-
-
-//================================================================================================
-// Include liturgical cycle metadata for the dates in the liturgical year
-//================================================================================================
-// year
-// dates
-const _liturgicalCycleMetadata = (year, dates) => {
-
-  // Formula to calculate lectionary cycle (Year A, B, C)
-  let firstSundayOfAdvent = Dates.firstSundayOfAdvent(year);
-  let thisCycle = ( year - 1963 ) % 3;
-  let nextCycle = thisCycle ===  2 ? 0 : thisCycle + 1;
-
-  dates.map(v => {
-
-    //=====================================================================
-    // LITURGICAL CYCLES
-    //---------------------------------------------------------------------
-    // If the date is on or after the first sunday of advent
-    // it is the next liturgical cycle
-    //=====================================================================
-    v.data = v.data || {};
-    v.data.meta = v.data.meta || {};
-    if ( v.moment.isSame( firstSundayOfAdvent ) || v.moment.isAfter( firstSundayOfAdvent ) ) {
-      v.data.meta.cycle = {
-        key: nextCycle,
-        value: Cycles[ nextCycle ]
-      };
-    }
-    else {
-      v.data.meta.cycle = {
-        key: thisCycle,
-        value: Cycles[ thisCycle ]
-      };
-    }
-
-    return v;
-  });
-
-  return dates;
-};
 
 //================================================================================================
 // METHODS GENERATE THE ROMAN CALENDAR ACCORDING TO CALENDAR
@@ -411,12 +266,12 @@ const _calendarYear = c => {
   let celebrationsDates = Celebrations.dates( c.year, c.christmastideEnds, c.epiphanyOnJan6, c.corpusChristiOnThursday, c.ascensionOnSunday );
 
   // Get the general calendar based on the given year and format the result for better processing
-  let generalDates = getCalendar('general').dates(c.year);
+  let generalDates = Calendar.getCalendar('general').dates(c.year);
 
   // Get the relevant national calendar object based on the given country
-  let nationalDates = getCalendar(c.country).dates(c.year);
+  let nationalDates = Calendar.getCalendar(c.country).dates(c.year);
 
-  return new Calendar(c.year, weekdayDates, celebrationsDates, generalDates, nationalDates);
+  return new Calendar(c.year, weekdayDates, celebrationsDates, generalDates, nationalDates).values();
 };
 
 // Returns an object containing dates for the
@@ -448,7 +303,6 @@ const _liturgicalYear = c => {
     _.filter( nextYear, v => v.moment.isBefore( end ))
   );
 };
-
 
 // Returns an array of liturgical dates based on the supplied calendar options
 // The array may return dates according to the given calendar year or liturgical
@@ -553,7 +407,5 @@ const queryFor = (dates: Array<DateItem> = [], query: Object = {}) => {
 
 export {
   calendarFor,
-  queryFor,
-  countries,
-  getCalendar
+  queryFor
 };
