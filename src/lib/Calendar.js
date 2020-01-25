@@ -1,4 +1,6 @@
-import moment from 'moment';
+// @flow
+
+import moment, {Moment} from 'moment';
 import _ from 'lodash';
 
 import * as Calendars from '../calendars';
@@ -9,11 +11,232 @@ import * as Celebrations from './Celebrations';
 
 import {
   Types,
-  Cycles
+  Cycles,
+  LiturgicalSeasons
 } from '../constants';
 
 // Get an array of country names
 const countries = _.keys(Calendars);
+
+class DateItem {
+  static latestId: number;
+  id: number;
+  key: string;
+  date: string;
+  stack: number;
+  type: string;
+  name: string;
+  data: Object;
+  moment: Moment;
+  base: DateItem;
+
+  static incrementId() {
+    if (isNaN(this.latestId)) this.latestId = 0;
+    else this.latestId++;
+    return this.latestId;
+  }
+
+  constructor(item: Object, baseItem: DateItem) {
+    this.id = DateItem.incrementId();
+    this.key = item.key;
+    this.date = item.moment.toISOString();
+    this.stack = item.stack;
+    this.type = item.type;
+    this.name = item.name;
+    this.data = item.data || {};
+    this.data.meta = this.data.meta || {};
+    this.moment = item.moment;
+
+    // The original default item is added to the current item as a `base ` property
+    if (baseItem && this.id !== baseItem.id) {
+      this.base = baseItem;
+      this.data = {...{
+          season: baseItem.data.season,
+          calendar: baseItem.data.calendar
+        }, ...this.data};
+      this.data.meta.psalterWeek = this.data.meta.psalterWeek || baseItem.data.meta.psalterWeek;
+    }
+  }
+}
+
+class Calendar {
+  itemValues = [];
+  year;
+
+  constructor(year: number, baseCalendar, ...calendars) {
+    this.year = year;
+
+    Calendar.dropItems(baseCalendar, ...calendars)
+      .forEach((cal, i) => cal
+        .forEach((item) => {
+
+          // If a previous date item already exists (have a same key name), it will be removed in favour of
+          // the new one, except if the previous item is prioritized but not the new one.
+          let previousItems = this.filter({key: item.key});
+          if (previousItems.length) {
+            previousItems.forEach((previousItem) => {
+              if ((!previousItem.data.prioritized) ||
+                (previousItem.data.prioritized && item.data.prioritized)) {
+                this.removeWhere({id: previousItem.id});
+              }
+            });
+          }
+
+          item.stack = i;
+          let baseItem = this.find({date: item.moment.toISOString(), stack: 0});
+          this.push(item, baseItem);
+        }));
+
+    return this.values();
+  }
+
+  filter(predicate) {
+    return _.filter(this.itemValues, predicate);
+  }
+
+  find(predicate) {
+    return _.find(this.itemValues, predicate);
+  }
+
+  valuesByDates() {
+    return this.itemValues.reduce((result, value) => {
+      (result[value['date']] = result[value['date']] || []).push(value);
+      return result;
+    }, {});
+  }
+
+  push(itemObj, baseItem) {
+    let item = new DateItem(itemObj, baseItem);
+    this.itemValues.push(item);
+  }
+
+  removeWhere(predicate) {
+    _.remove(this.itemValues, predicate);
+  }
+
+  // Check if 'drop' has been defined for any celebrations in the national calendar
+  // and remove them from both national and general calendar sources
+  static dropItems(...calendars) {
+    calendars.forEach((calendar, i) => {
+      let dropKeys = _.map(_.filter(calendar, n => (_.has(n, 'drop') && n.drop)), 'key');
+      dropKeys.forEach(dropKey => {
+        for (let j = 0; j <= i; j++) {
+          _.remove(calendars[j], ({key}) => key === dropKey);
+        }
+      });
+    });
+    return calendars;
+  }
+
+  adjustTypesInSeasons() {
+    // Special type management in the season of LENT
+    this.itemValues.forEach(item => {
+      if (item.stack > 0 && item.base.data.season.key === LiturgicalSeasons.LENT) {
+
+        // MEMORIAL or OPT_MEMORIAL that fall on a FERIA
+        // in the SEASON OF LENT are reduced to a COMMEMORATION
+        if (
+          (item.type === Types.MEMORIAL || item.type === Types.OPT_MEMORIAL) &&
+          item.base.type === Types.FERIA
+        ) {
+          item.type = Types.COMMEMORATION
+        }
+
+        // A FEAST occurring in the season of LENT is reduced
+        // to a COMMEMORATION
+        if (
+          item.type === Types.FEAST
+        ) {
+          item.type = Types.COMMEMORATION
+        }
+      }
+    });
+
+    return this;
+  }
+
+  sortAndKeepRelevant() {
+
+    // Reorder the type ranking, so when there is only optional items (in addition to the FERIA),
+    // the FERIA item is moved first before the optional items,
+    // since it's the default item if none of the optional items are used.
+    const lowerNonOptionalType = Types.MEMORIAL;
+    const types = Types.slice(0, Types.length - 1);
+    types.splice(types.indexOf(lowerNonOptionalType) + 1, 0, Types[Types.length - 1]);
+    // const types = Types;
+
+    // Sort all date items by relevance (more relevant first):
+    // first by date, then per priority, then by type, and finally by stack.
+    this.itemValues.sort((a, b) => {
+
+      // 1. Sort by date
+      let moment1 = a.moment;
+      let moment2 = b.moment;
+      if (moment1.isBefore(moment2)) return -1;
+      if (moment1.isAfter(moment2)) return 1;
+      if (moment1.isSame(moment2)) {
+
+        // 2. Sort by priority (prioritized first)
+        let prioritized1 = a.data && a.data.prioritized;
+        let prioritized2 = b.data && b.data.prioritized;
+        if (prioritized1 && !prioritized2) return -1;
+        if (!prioritized1 && prioritized2) return 1;
+        if (prioritized1 === prioritized2) {
+
+          // 3. Sort by type (higher type first)
+          let type1 = types.indexOf(a.type);
+          let type2 = types.indexOf(b.type);
+          if (type1 < type2) return -1;
+          if (type1 > type2) return 1;
+          if (type1 === type2) {
+
+            // 4. Sort by stack (higher stack first)
+            let stack1 = a.stack;
+            let stack2 = b.stack;
+            if (stack1 > stack2) return -1;
+            if (stack1 < stack2) return 1;
+            return 0;
+          }
+        }
+      }
+    });
+
+    // Now that items are sorted, let's drop other non relevant date items.
+    // if at least one of the date items isn't optional
+    let calendarByDates = this.valuesByDates();
+    for (let key in calendarByDates) {
+      if (Object.prototype.hasOwnProperty.call(calendarByDates, key)) {
+        let itemsLength = calendarByDates[key].length;
+        if (itemsLength > 1) {
+
+          // The first date item have a type equal or higher than a MEMORIAL, or is prioritized:
+          // keep only the first item and remove the others
+          if (calendarByDates[key][0].data.prioritized ||
+            (types.indexOf(calendarByDates[key][0].type) <= types.indexOf(lowerNonOptionalType))) {
+            Object
+              .values(calendarByDates[key])
+              .slice(1, itemsLength)
+              .forEach(item => this.removeWhere({id: item.id}));
+          }
+        }
+      }
+    }
+
+    return this;
+  }
+
+  values() {
+    this
+      .adjustTypesInSeasons()
+      .sortAndKeepRelevant();
+
+    let finalCalendar = this.itemValues;
+    finalCalendar = _.filter( finalCalendar, d => d.moment.year() === this.year );
+    finalCalendar = _liturgicalCycleMetadata(this.year, finalCalendar);
+    return finalCalendar;
+  }
+}
+
 
 //================================================================================================
 // Processing method for calendar config
@@ -25,7 +248,7 @@ const _sanitizeConfig = config => {
   config.christmastideEnds = config.christmastideEnds || 'o';
   // If the national calendar of Slovakia is requested and the flag to make Epiphany fall on Jan 6
   // is not specified, then default the flag to true because Slovakia always celebrates Epiphany of Jan 6.
-  if (_.eq(config.country, 'slovakia') && _.isUndefined(config.epiphanyOnJan6)) {
+  if (config.country === 'slovakia' && _.isUndefined(config.epiphanyOnJan6)) {
     config.epiphanyOnJan6 = true;
   }
   config.epiphanyOnJan6 = config.epiphanyOnJan6 || false;
@@ -34,12 +257,12 @@ const _sanitizeConfig = config => {
   config.ascensionOnSunday = config.ascensionOnSunday || false;
   config.country = config.country || ''; // Must be defaulted to empty string if not specified
   // CRUCIAL!! If country was passed as "general", reset it to an empty string
-  if (_.eq(config.country, 'general')) {
+  if (config.country === 'general') {
     config.country = '';
   }
   config.locale = config.locale || 'en';
   config.type = config.type || 'calendar';
-  config.query = _.isPlainObject( config.query ) ? config.query : null;
+  config.query = _.isPlainObject( config.query ) ? config.query : undefined;
   return config;
 };
 
@@ -47,33 +270,10 @@ const _sanitizeConfig = config => {
 // Return the appropriate national calendar based on the country given
 // Returns object with function returning empty array if nothing specified
 // country: the camel cased country name to get the calendar for (country name will be camel cased in this method)
-const getCalendar = country => {
-  if ( country ) {
-    if ( _.has( Calendars, _.camelCase(country))) {
-      return Calendars[_.camelCase(country)];
-    }
-    else {
-      return Calendars['general'];
-    }
-  }
-  return { dates: () => [] };
-};
-
-
-// Check if 'drop' has been defined for any celebrations in the national calendar
-// and remove them from both national and general calendar sources
-const dropItems = (calendars) => {
-  calendars.forEach((calendar, i) => {
-    let dropKeys = _.map(_.filter(calendar, n => (_.has(n, 'drop') && n.drop )), 'key');
-    if (!_.isEmpty(dropKeys)) {
-      _.each(dropKeys, dropKey => {
-        for (let j = 0; j <= i; j++) {
-          _.remove(calendars[j], ({key}) => _.eq(key, dropKey));
-        }
-      });
-    }
-  });
-  return calendars;
+const getCalendar: Calendars<Array<{}>> = (country: ?string) => {
+  if (!country) return { dates: () => [] };
+  const key = Object.prototype.hasOwnProperty.call(Calendars, _.camelCase(country)) ? _.camelCase(country) : 'general';
+  return Calendars[key];
 };
 
 
@@ -87,9 +287,9 @@ const _liturgicalCycleMetadata = (year, dates) => {
   // Formula to calculate lectionary cycle (Year A, B, C)
   let firstSundayOfAdvent = Dates.firstSundayOfAdvent(year);
   let thisCycle = ( year - 1963 ) % 3;
-  let nextCycle = ( _.eq( thisCycle,  2 ) ? 0 : thisCycle + 1 );
+  let nextCycle = thisCycle ===  2 ? 0 : thisCycle + 1;
 
-  _.map( dates, v => {
+  dates.map(v => {
 
     //=====================================================================
     // LITURGICAL CYCLES
@@ -148,7 +348,7 @@ const _calendarYear = c => {
     Seasons.advent( c.year ),
     Seasons.christmastide( c.year, c.christmastideEnds, c.epiphanyOnJan6, c.christmastideIncludesTheSeasonOfEpiphany )
   );
-  weekdayDates = _.filter( weekdayDates, d => _.eq( d.moment.year(), c.year ));
+  weekdayDates = _.filter( weekdayDates, d => d.moment.year() === c.year );
 
   // Get the celebration dates based on the given year and options
   let celebrationsDates = Celebrations.dates( c.year, c.christmastideEnds, c.epiphanyOnJan6, c.corpusChristiOnThursday, c.ascensionOnSunday );
@@ -159,91 +359,7 @@ const _calendarYear = c => {
   // Get the relevant national calendar object based on the given country
   let nationalDates = getCalendar(c.country).dates(c.year);
 
-  // Combine calendars together in a new rawCalendar object.
-  // And map the keys to timestamps for better processing.
-  let rawCalendar = {};
-  dropItems([ weekdayDates, celebrationsDates, generalDates, nationalDates ])
-    .forEach((calendar, i) => calendar
-      .forEach((item) => {
-        if (item.moment) { // TODO: manage errors when moment is undefined
-          let timestamp = item.moment.valueOf();
-
-          if (!rawCalendar[timestamp]) {
-            rawCalendar[timestamp] = [];
-          }
-
-          // If a date item already exists (have the same key name), it will be removed in favour of
-          // the new one, except if the previous item is prioritized but not the new one.
-          let previousItems = _.filter(rawCalendar[timestamp], {key: item.key});
-          if (previousItems.length) {
-            previousItems.forEach((previousItem) => {
-              if ((previousItem && previousItem.data && !previousItem.data.prioritized) ||
-                (previousItem && previousItem.data && previousItem.data.prioritized && item.data && item.data.prioritized)) {
-                _.remove(rawCalendar[timestamp], {key: item.key})
-              }
-            });
-          }
-
-          item.stack = i;
-          rawCalendar[timestamp].push(item);
-        }
-  }));
-
-  for (let key in rawCalendar) {
-    if (Object.prototype.hasOwnProperty.call(rawCalendar, key)) {
-
-      // Sort all date items by relevance:
-      // first per priority, then by stack, and finally by type.
-      rawCalendar[key].sort((a, b) => {
-
-        // 1. Sort by priority
-        let prioritized1 = a.data && a.data.prioritized;
-        let prioritized2 = b.data && b.data.prioritized;
-        if (prioritized1 && !prioritized2) return -1;
-        if (!prioritized1 && prioritized2) return 1;
-        if (prioritized1 === prioritized2) {
-
-          // 2. Sort by stack
-          let stack1 = a.stack;
-          let stack2 = b.stack;
-          if (stack1 > stack2) return -1;
-          if (stack1 < stack2) return 1;
-          if (stack1 === stack2) {
-
-            // 3. Sort by type
-            let type1 = Types.indexOf(a.type);
-            let type2 = Types.indexOf(b.type);
-            if (type1 < type2) return -1;
-            if (type1 > type2) return 1;
-            return 0;
-          }
-        }
-      });
-
-      // Now that items are sorted, let's drop other non relevant date items.
-      // Note: when the date object contain only optional items (in addition to the feria),
-      // like OPT_MEMORIAL or COMMEMORATIONS, they are all kept with the feria,
-      // and the feria is moved first since it's the default item if of the
-      // optional items are used.
-      let firstItemType = rawCalendar[key][0];
-      let itemsLength = rawCalendar[key].length;
-      if (rawCalendar[key][0].data.prioritized ||
-        (Types.indexOf(firstItemType) > Types.indexOf(Types.MEMORIAL))) {
-        // Keep only the first date item
-        rawCalendar[key] = [rawCalendar[key][0]];
-      } else if (itemsLength > 1 || rawCalendar[key][itemsLength - 1].type === Types.FERIA) {
-        // Move the feria in first position, if all other items are optionals
-        rawCalendar[key].sort((a, b) => {
-          return a.type === Types.FERIA ? -1 : b.type === Types.FERIA ? 1 : 0;
-        });
-      }
-    }
-  }
-
-  let finalCalendar = _.flatten(Object.values(rawCalendar));
-  finalCalendar = _.filter( finalCalendar, d => _.eq( d.moment.year(), c.year ));
-  finalCalendar = _liturgicalCycleMetadata(c.year, finalCalendar);
-  return finalCalendar;
+  return new Calendar(c.year, weekdayDates, celebrationsDates, generalDates, nationalDates);
 };
 
 // Returns an object containing dates for the
@@ -289,50 +405,49 @@ const _liturgicalYear = c => {
 //         if the config object has a query, it will be used to filter the
 //         date results returned
 //
-// skipIsoConversion: undefined|true|false - skip converting moment objects to ISO8601 timestamp
-//                    default action converts moment objects to ISO Strings
-//
-const calendarFor = (config = {}, skipIsoConversion = false ) => {
-
-  config.country = 'france';
-  config.locale = 'fr';
-  config.type = 'liturgical';
-
-  // If config is passed as a boolean
-  // Then assume that we want the calendar for the current year
-  // and either want to skip moment date ISO conversion or keep it
-  // depending on the config value is true or false
-  if (_.isBoolean(config)) {
-    skipIsoConversion = config;
-    config = {};
+type Config = {|
+  year?: number,
+  country?: string,
+  locale?: string,
+  christmastideEnds?: 't' | 'o' | 'e',
+  epiphanyOnJan6?: boolean,
+  christmastideIncludesTheSeasonOfEpiphany?: boolean,
+  corpusChristiOnThursday?: boolean,
+  ascensionOnSunday?: boolean,
+  type?: 'calendar' | 'liturgical',
+  query?: {
+    day?: number,
+    month?: number,
+    group?: string,
+    title?: string
   }
+|}
+
+const calendarFor = (options = {}) => {
 
   // If config is passed as an integer
   // Then assume we want the calendar for the current year
-  if (_.isNumber(config)) {
-    config = { year: config };
-    skipIsoConversion = skipIsoConversion || false;
+  if (Number.isInteger(options)) {
+    options = { year: options };
   }
 
   // Sanitize incoming config
-  config = _sanitizeConfig(config);
+  const config: Config = _sanitizeConfig(options);
 
   // Set the locale information
   Utils.setLocale(config.locale);
 
   // Get dates based on options
-  let dates = _.eq( config.type, 'liturgical') ? _liturgicalYear(config) : _calendarYear(config);
+  let dates = config.type === 'liturgical' ? _liturgicalYear(config) : _calendarYear(config);
 
   // Run queries, if any and return the results
-  return queryFor(dates, config.query, skipIsoConversion);
+  return queryFor(dates, config.query);
 };
 
 // Filters an array of dates generated from the calendarFor function based on a given query.
 // dates: An array of dates generated from the calendarFor function
 // query: An object containing keys to filter the dates by
-// skipIsoConversion: undefined|true|false - skip converting moment objects to ISO8601 timestamp
-//                    default action converts moment objects to ISO Strings
-const queryFor = (dates = [], query = {}, skipIsoConversion = false ) => {
+const queryFor = (dates: Array<DateItem> = [], query: Object = {}) => {
 
   if (!_.every(dates, _.isObject)) {
     throw 'romcal.queryFor can only accept a single dimenional array of objects';
@@ -343,9 +458,6 @@ const queryFor = (dates = [], query = {}, skipIsoConversion = false ) => {
   // calendar array
   //==========================================================================
   if (!_.isNull(query) && !_.isEmpty(query) ) {
-
-    // Reparse dates into moment objects if needed
-    dates = Utils.convertIsoDateStringToMomentObject(dates);
 
     // Months are zero indexed, so January is month 0.
     if ( _.has( query, 'month' ) ) {
@@ -384,7 +496,6 @@ const queryFor = (dates = [], query = {}, skipIsoConversion = false ) => {
           break;
         case 'liturgicalSeasons':
           dates = _.groupBy(dates, d => d.data.season.key );
-          // console.log('dates', dates );
           break;
         case 'liturgicalColors':
           dates = _.groupBy(dates, d => d.data.meta.liturgicalColor.key );
@@ -396,11 +507,6 @@ const queryFor = (dates = [], query = {}, skipIsoConversion = false ) => {
           break;
       }
     }
-  }
-
-  // If undefined or false, continue with conversion
-  if ( !skipIsoConversion ) {
-    dates = Utils.convertMomentObjectToIsoDateString(dates);
   }
 
   return dates;

@@ -79,8 +79,6 @@ export {
 
 const { calendarFor, queryFor } = Calendar;
 
-calendarFor();
-
 export {
   calendarFor,
   queryFor

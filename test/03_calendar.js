@@ -59,32 +59,11 @@ describe('Testing calendar generation functions', function() {
     });
 
     it('Array should be 365 days long on non leap years', function() {
-      _.size(nonLeapYearDates).should.be.eql(365);
+      _.size(_.groupBy(nonLeapYearDates, item => item.moment.valueOf())).should.be.eql(365);
     });
 
     it('Array should be 366 days long on leap years', function() {
-      _.size(leapYearDates).should.be.eql(366);
-    });
-  });
-
-  describe('Testing ISO8601/MomentJS conversion', function() {
-
-    describe('When skipIsoConversion flag is not set', function() {
-      it('Dates should be returned as ISO8601 strings', function() {
-        _.each(Calendar.calendarFor(), d => _.isString(d.moment).should.be.ok());
-      });
-    });
-
-    describe('When skipIsoConversion flag is set to false', function() {
-      it('Dates should be returned as ISO8601 strings', function() {
-        _.each(Calendar.calendarFor(false), d => _.isString(d.moment).should.be.ok());
-      });
-    });
-
-    describe('When skipIsoConversion flag is set to true', function() {
-      it('Dates should be returned as MomentJS objects', function() {
-        _.each(Calendar.calendarFor(true), d => moment.isMoment(d.moment).should.be.ok());
-      });
+      _.size(_.groupBy(leapYearDates, item => item.moment.valueOf())).should.be.eql(366);
     });
   });
 
