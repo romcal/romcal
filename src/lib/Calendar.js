@@ -18,6 +18,94 @@ import {
 // Get an array of country names
 const countries = _.keys(Calendars);
 
+class Config {
+  year: number;
+  country: string = '';
+  locale: string;
+  christmastideEnds: 't' | 'o' | 'e';
+  epiphanyOnJan6: boolean;
+  christmastideIncludesTheSeasonOfEpiphany: boolean;
+  corpusChristiOnThursday: boolean;
+  ascensionOnSunday: boolean;
+  type: 'calendar' | 'liturgical';
+  query: {
+    day: number,
+    month: number,
+    group: string,
+    title: string
+  };
+
+  static getConfig(country: ?string):Calendars<Array<{}>> {
+    if (!country) return {};
+    return Calendars[country].defaultConfig || {};
+  }
+
+  static sanitize(value, acceptable):any {
+    if (acceptable === 'string' || acceptable === 'number') {
+      return typeof value === acceptable ? {default: () => value} : {default: (d) => d};
+    }
+    if (acceptable === 'boolean') acceptable = [true, false];
+    if (acceptable.indexOf(value) > -1) return {default: () => value};
+    return {default: (d) => d};
+  }
+
+  constructor(customConfig) {
+    customConfig = _.isPlainObject(customConfig) ? customConfig : {};
+
+    // If a country is specified, check if exists in the romcal codebase
+    customConfig.country = typeof customConfig.country === 'string' ? customConfig.country : '';
+    if (customConfig.country.toLowerCase() !== 'general' && Object.prototype.hasOwnProperty.call(Calendars, _.camelCase(customConfig.country))) {
+      this.country = _.camelCase(customConfig.country);
+    }
+
+    // Load default config for general and selected country,
+    // and combine them with the specified custom config
+    let generalConfig = Config.getConfig('general');
+    let countryConfig = Config.getConfig(this.country);
+    let c = {
+      ...generalConfig,
+      ...countryConfig,
+      ...customConfig
+    };
+
+    // Map configuration
+    this.christmastideEnds = Config
+      .sanitize(c.christmastideEnds, ['t', 'o', 'e'])
+      .default(generalConfig.christmastideEnds);
+    this.epiphanyOnJan6 = Config
+      .sanitize(c.epiphanyOnJan6, 'boolean')
+      .default(generalConfig.epiphanyOnJan6);
+    this.christmastideIncludesTheSeasonOfEpiphany = Config
+      .sanitize(c.christmastideIncludesTheSeasonOfEpiphany, 'boolean')
+      .default(generalConfig.christmastideIncludesTheSeasonOfEpiphany);
+    this.corpusChristiOnThursday = Config
+      .sanitize(c.corpusChristiOnThursday, 'boolean')
+      .default(generalConfig.corpusChristiOnThursday);
+    this.ascensionOnSunday = Config
+      .sanitize(c.ascensionOnSunday, 'boolean')
+      .default(generalConfig.ascensionOnSunday);
+    this.locale = Config
+      .sanitize(c.locale, 'string')
+      .default(generalConfig.locale);
+    this.year = Config
+      .sanitize(parseInt(c.year), 'number')
+      .default(moment.utc().year());
+    this.type = Config
+      .sanitize(c.type, ['calendar', 'liturgical'])
+      .default('calendar');
+
+    // Sanitize optional query section
+    let query = _.isPlainObject( c.query ) ? c.query : {};
+    this.query = {};
+    if (query.day !== undefined) this.query.day = query.day;
+    if (query.month !== undefined) this.query.month = query.month;
+    if (query.group !== undefined) this.query.group = query.group;
+    if (query.title !== undefined) this.query.title = query.title;
+
+    return this;
+  }
+}
+
 class DateItem {
   static latestId: number;
   id: number;
@@ -30,7 +118,7 @@ class DateItem {
   moment: Moment;
   base: DateItem;
 
-  static incrementId() {
+  static incrementId(): number {
     if (isNaN(this.latestId)) this.latestId = 0;
     else this.latestId++;
     return this.latestId;
@@ -90,27 +178,27 @@ class Calendar {
     return this.values();
   }
 
-  filter(predicate) {
+  filter(predicate: Object) {
     return _.filter(this.itemValues, predicate);
   }
 
-  find(predicate) {
+  find(predicate: Object) {
     return _.find(this.itemValues, predicate);
   }
 
   valuesByDates() {
-    return this.itemValues.reduce((result, value) => {
-      (result[value['date']] = result[value['date']] || []).push(value);
+    return this.itemValues.reduce((result: Object, value: DateItem) => {
+      (result[value.date] = result[value.date] || []).push(value);
       return result;
     }, {});
   }
 
-  push(itemObj, baseItem) {
+  push(itemObj: Object, baseItem: DateItem) {
     let item = new DateItem(itemObj, baseItem);
     this.itemValues.push(item);
   }
 
-  removeWhere(predicate) {
+  removeWhere(predicate: Object) {
     _.remove(this.itemValues, predicate);
   }
 
@@ -167,7 +255,7 @@ class Calendar {
 
     // Sort all date items by relevance (more relevant first):
     // first by date, then per priority, then by type, and finally by stack.
-    this.itemValues.sort((a, b) => {
+    this.itemValues.sort((a: DateItem, b: DateItem):any => {
 
       // 1. Sort by date
       let moment1 = a.moment;
@@ -206,16 +294,15 @@ class Calendar {
     let calendarByDates = this.valuesByDates();
     for (let key in calendarByDates) {
       if (Object.prototype.hasOwnProperty.call(calendarByDates, key)) {
-        let itemsLength = calendarByDates[key].length;
-        if (itemsLength > 1) {
+        let dateItems = calendarByDates[key];
+        if (dateItems.length > 1) {
 
           // The first date item have a type equal or higher than a MEMORIAL, or is prioritized:
           // keep only the first item and remove the others
-          if (calendarByDates[key][0].data.prioritized ||
-            (types.indexOf(calendarByDates[key][0].type) <= types.indexOf(lowerNonOptionalType))) {
-            Object
-              .values(calendarByDates[key])
-              .slice(1, itemsLength)
+          if (dateItems[0].data.prioritized ||
+            (types.indexOf(dateItems[0].type) <= types.indexOf(lowerNonOptionalType))) {
+            dateItems
+              .slice(1, dateItems.length)
               .forEach(item => this.removeWhere({id: item.id}));
           }
         }
@@ -236,36 +323,6 @@ class Calendar {
     return finalCalendar;
   }
 }
-
-
-//================================================================================================
-// Processing method for calendar config
-//================================================================================================
-
-const _sanitizeConfig = config => {
-  config = _.isPlainObject(config) ? config : _.stubObject();
-  config.year = config.year || moment.utc().year();
-  config.christmastideEnds = config.christmastideEnds || 'o';
-  // If the national calendar of Slovakia is requested and the flag to make Epiphany fall on Jan 6
-  // is not specified, then default the flag to true because Slovakia always celebrates Epiphany of Jan 6.
-  if (config.country === 'slovakia' && _.isUndefined(config.epiphanyOnJan6)) {
-    config.epiphanyOnJan6 = true;
-  }
-  config.epiphanyOnJan6 = config.epiphanyOnJan6 || false;
-  config.christmastideIncludesTheSeasonOfEpiphany = config.christmastideIncludesTheSeasonOfEpiphany || true;
-  config.corpusChristiOnThursday = config.corpusChristiOnThursday || false;
-  config.ascensionOnSunday = config.ascensionOnSunday || false;
-  config.country = config.country || ''; // Must be defaulted to empty string if not specified
-  // CRUCIAL!! If country was passed as "general", reset it to an empty string
-  if (config.country === 'general') {
-    config.country = '';
-  }
-  config.locale = config.locale || 'en';
-  config.type = config.type || 'calendar';
-  config.query = _.isPlainObject( config.query ) ? config.query : undefined;
-  return config;
-};
-
 
 // Return the appropriate national calendar based on the country given
 // Returns object with function returning empty array if nothing specified
@@ -405,34 +462,16 @@ const _liturgicalYear = c => {
 //         if the config object has a query, it will be used to filter the
 //         date results returned
 //
-type Config = {|
-  year?: number,
-  country?: string,
-  locale?: string,
-  christmastideEnds?: 't' | 'o' | 'e',
-  epiphanyOnJan6?: boolean,
-  christmastideIncludesTheSeasonOfEpiphany?: boolean,
-  corpusChristiOnThursday?: boolean,
-  ascensionOnSunday?: boolean,
-  type?: 'calendar' | 'liturgical',
-  query?: {
-    day?: number,
-    month?: number,
-    group?: string,
-    title?: string
-  }
-|}
-
-const calendarFor = (options = {}) => {
+const calendarFor = (customConfig:any = {}) => {
 
   // If config is passed as an integer
   // Then assume we want the calendar for the current year
-  if (Number.isInteger(options)) {
-    options = { year: options };
+  if (Number.isInteger(customConfig)) {
+    customConfig = { year: customConfig };
   }
 
-  // Sanitize incoming config
-  const config: Config = _sanitizeConfig(options);
+  // Sanitize incoming config into a complete configuration set
+  const config = new Config(customConfig);
 
   // Set the locale information
   Utils.setLocale(config.locale);

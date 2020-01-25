@@ -11,6 +11,10 @@ let _holyWeekRange;
 let _easterOctaveRange;
 let _date;
 
+const defaultConfig = {
+  locale: 'pl'
+};
+
 let dates = year => {
 
   let _dates = [
@@ -703,5 +707,6 @@ let dates = year => {
 };
 
 export {
+  defaultConfig,
   dates
 };
