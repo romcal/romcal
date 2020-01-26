@@ -4,13 +4,6 @@ import _ from 'lodash';
 import { Dates, Utils } from '../lib';
 import { Titles, Types, LiturgicalColors } from '../constants';
 
-let _holyWeek;
-let _easterOctave;
-let _annunciation;
-let _holyWeekRange;
-let _easterOctaveRange;
-let _date;
-
 const defaultConfig = {
   locale: 'pl'
 };
@@ -76,14 +69,13 @@ let dates = year => {
       "key": "saintAdalbertBishopAndMartyr",
       "type": Types.SOLEMNITY,
       "moment": ( y => {
+        let _holyWeek = Dates.holyWeek( y );
+        let _easterOctave = Dates.octaveOfEaster( y );
+        let _annunciation = Dates.annunciation( y );
+        let _holyWeekRange = moment.range( _.head( _holyWeek ), _.last( _holyWeek ) );
+        let _easterOctaveRange = moment.range( _.head( _easterOctave ), _.last( _easterOctave ) );
+        let _date = moment.utc({ year: y, month: 3, day: 23 });
 
-        _holyWeek = Dates.holyWeek( y );
-        _easterOctave = Dates.octaveOfEaster( y );
-        _annunciation = Dates.annunciation( y );
-        _holyWeekRange = moment.range( _.head( _holyWeek ), _.last( _holyWeek ) );
-        _easterOctaveRange = moment.range( _.head( _easterOctave ), _.last( _easterOctave ) );
-        _date = moment.utc({ year: y, month: 3, day: 23 });
-//
         // If the celebration lands anywhere between Holy Week to Divine Mercy Sunday (inclusive)
         // move it to the Monday after Divine Mercy Sunday
         if ( _holyWeekRange.contains( _date ) || _easterOctaveRange.contains( _date ) ) {
