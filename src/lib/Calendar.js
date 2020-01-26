@@ -44,7 +44,7 @@ class Calendar {
               previousItems.forEach((previousItem) => {
                 if ((!previousItem.data.prioritized) ||
                   (previousItem.data.prioritized && item.data.prioritized)) {
-                  this.removeWhere({id: previousItem._id});
+                  this.removeWhere({_id: previousItem._id});
                 }
               });
             }
@@ -165,7 +165,7 @@ class Calendar {
 
     // Sort all date items by relevance (more relevant first):
     // first by date, then per priority, then by type, and finally by stack.
-    this.itemValues.sort((a: DateItem, b: DateItem):any => {
+    this.itemValues.sort((a: DateItem, b: DateItem): any => {
 
       // 1. Sort by date
       let moment1 = a.moment;
@@ -353,7 +353,7 @@ const _liturgicalYear = c => {
 //         if the config object has a query, it will be used to filter the
 //         date results returned
 //
-const calendarFor = (customConfig:any = {}) => {
+const calendarFor = (customConfig: any = {}) => {
 
   // If config is passed as an integer
   // Then assume we want the calendar for the current year
