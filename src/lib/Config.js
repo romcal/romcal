@@ -28,8 +28,9 @@ export default class Config {
   }
 
   static sanitize(value: any, acceptable: string | Array<any>):any {
-    if (acceptable === 'string' || acceptable === 'number') {
-      return typeof value === acceptable ? {default: () => value} : {default: (d) => d};
+    if (typeof value === acceptable &&
+      acceptable === 'string' || (acceptable === 'number' && !isNaN(value))) {
+      return {default: () => value};
     }
     if (acceptable === 'boolean') acceptable = [true, false];
     if (acceptable.indexOf(value) > -1) return {default: () => value};
