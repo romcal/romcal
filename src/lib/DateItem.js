@@ -1,12 +1,17 @@
 // @flow
 
-import {Moment} from "moment";
+import Moment from "moment";
 
+export opaque type ISOString: string = string;
+
+/**
+ * DateItem Class
+ */
 export default class DateItem {
   static latestId: number;
-  id: number;
+  _id: number;
   key: string;
-  date: string;
+  date: ISOString;
   stack: number;
   type: string;
   name: string;
@@ -14,14 +19,20 @@ export default class DateItem {
   moment: Moment;
   base: DateItem;
 
+  /**
+   * Get a new incremented ID that can can be assigned to a new DateItem
+   */
   static incrementId(): number {
     if (isNaN(this.latestId)) this.latestId = 0;
     else this.latestId++;
     return this.latestId;
   }
 
+  /**
+   * Create a new DateItem
+   */
   constructor(item: Object, baseItem: DateItem) {
-    this.id = DateItem.incrementId();
+    this._id = DateItem.incrementId();
     this.key = item.key;
     this.date = item.moment.toISOString();
     this.stack = item.stack;
@@ -31,8 +42,8 @@ export default class DateItem {
     this.data.meta = this.data.meta || {};
     this.moment = item.moment;
 
-    // The original default item is added to the current item as a `base ` property
-    if (baseItem && this.id !== baseItem.id) {
+    // The original default item is added to the current item as a `base` property
+    if (baseItem && this._id !== baseItem._id) {
       this.base = baseItem;
       this.data = {...{
           season: baseItem.data.season,
