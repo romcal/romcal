@@ -1,8 +1,9 @@
 // @flow
 
 import _ from 'lodash';
+import Moment from "moment";
 
-import * as Calendars from '../calendars';
+import * as CalendarsDef from '../calendars';
 import Config from './Config';
 import DateItem from './DateItem';
 import * as Dates from './Dates';
@@ -16,11 +17,19 @@ import {
   LiturgicalSeasons
 } from '../constants';
 
+/**
+ * Calendar Class:
+ * Combine all together different collection of date item objects,
+ * according to the liturgical calendar for a specific year.
+ */
 class Calendar {
-  itemValues = [];
-  year;
+  itemValues: DateItem[] = [];
+  year: number;
 
-  constructor(year: number, baseCalendar, ...calendars) {
+  /**
+   * Create a new Calendar
+   */
+  constructor(year: number, baseCalendar: Object[], ...calendars: (Object[])[]) {
     this.year = year;
 
     Calendar.dropItems(baseCalendar, ...calendars)
@@ -35,7 +44,7 @@ class Calendar {
               previousItems.forEach((previousItem) => {
                 if ((!previousItem.data.prioritized) ||
                   (previousItem.data.prioritized && item.data.prioritized)) {
-                  this.removeWhere({id: previousItem.id});
+                  this.removeWhere({id: previousItem._id});
                 }
               });
             }
@@ -47,35 +56,52 @@ class Calendar {
         }));
   }
 
-  filter(predicate: Object): Array<DateItem> {
+  /**
+   * Return an array of DateItems that returns truthy for the predicate object.
+   */
+  filter(predicate: Object): DateItem[] {
     return _.filter(this.itemValues, predicate);
   }
 
+  /**
+   * Return the first DateItems that returns truthy for the predicate object.
+   */
   find(predicate: Object): DateItem {
     return _.find(this.itemValues, predicate);
   }
 
-  valuesByDates(): Object {
+  /**
+   * Group DateItems by date
+   */
+  valuesByDates(): {[string]: DateItem[]} {
     return this.itemValues.reduce((result: Object, value: DateItem) => {
       (result[value.date] = result[value.date] || []).push(value);
       return result;
     }, {});
   }
 
+  /**
+   * Push a new DateItem object in the Calendar object
+   */
   push(itemObj: Object, baseItem: DateItem) {
     let item = new DateItem(itemObj, baseItem);
     this.itemValues.push(item);
   }
 
+  /**
+   * Remove existing DateItems that returns truthy for the predicate object.
+   */
   removeWhere(predicate: Object) {
     _.remove(this.itemValues, predicate);
   }
 
-  // Check if 'drop' has been defined for any celebrations in the national calendar
-  // and remove them from both national and general calendar sources
-  static dropItems(...calendars): Array<[]> {
+  /**
+   * Check if 'drop' has been defined for any celebrations in the national calendar
+   * and remove them from both national and general calendar sources
+   */
+  static dropItems(...calendars: (Object[])[]): (Object[])[] {
     calendars.forEach((calendar, i) => {
-      let dropKeys = _.map(_.filter(calendar, n => (_.has(n, 'drop') && n.drop)), 'key');
+      const dropKeys: string[] = _.map(_.filter(calendar, n => (_.has(n, 'drop') && n.drop)), 'key');
       dropKeys.forEach(dropKey => {
         for (let j = 0; j <= i; j++) {
           _.remove(calendars[j], ({key}) => key === dropKey);
@@ -85,18 +111,21 @@ class Calendar {
     return calendars;
   }
 
-  // Return the appropriate national calendar based on the country given
-  // Returns object with function returning empty array if nothing specified
-  // country: the camel cased country name to get the calendar for (country name will be camel cased in this method)
-  static getCalendar(country: ?string): Calendars<Array<{}>> {
-    if (!country) return { dates: () => [] };
-    const key = Object.prototype.hasOwnProperty.call(Calendars, _.camelCase(country)) ? _.camelCase(country) : 'general';
-    return Calendars[key];
+  /**
+   * Get the appropriate calendar definition object, based on the given country
+   */
+  static getCalendar(countryName: string): ({dates: (number) => {}[]}) {
+    const key: string = Object.prototype.hasOwnProperty.call(CalendarsDef, _.camelCase(countryName)) ? _.camelCase(countryName) : '';
+    if (!key) return { dates: () => [] };
+    return CalendarsDef[key];
   }
 
+  /**
+   * Special type management in particular seasons
+   */
   adjustTypesInSeasons(): Calendar {
-    // Special type management in the season of LENT
     this.itemValues.forEach(item => {
+      // Special type management in the season of LENT
       if (item.stack > 0 && item.base.data.season.key === LiturgicalSeasons.LENT) {
 
         // MEMORIAL or OPT_MEMORIAL that fall on a FERIA
@@ -121,6 +150,10 @@ class Calendar {
     return this;
   }
 
+  /**
+   * Sort all DateItems by relevance (more relevant first)
+   * and drop non relevant DateItems
+   */
   sortAndKeepRelevant(): Calendar {
 
     // Reorder the type ranking, so when there is only optional items (in addition to the FERIA),
@@ -129,7 +162,6 @@ class Calendar {
     const lowerNonOptionalType = Types.MEMORIAL;
     const types = Types.slice(0, Types.length - 1);
     types.splice(types.indexOf(lowerNonOptionalType) + 1, 0, Types[Types.length - 1]);
-    // const types = Types;
 
     // Sort all date items by relevance (more relevant first):
     // first by date, then per priority, then by type, and finally by stack.
@@ -181,7 +213,7 @@ class Calendar {
             (types.indexOf(dateItems[0].type) <= types.indexOf(lowerNonOptionalType))) {
             dateItems
               .slice(1, dateItems.length)
-              .forEach(item => this.removeWhere({id: item.id}));
+              .forEach(item => this.removeWhere({id: item._id}));
           }
         }
       }
@@ -190,13 +222,15 @@ class Calendar {
     return this;
   }
 
-  // Include liturgical cycle metadata for the dates in the liturgical year
+  /**
+   * Include liturgical cycle metadata for the DateItems in the liturgical year
+   */
   addLiturgicalCycleMetadata(): Calendar {
 
     // Formula to calculate lectionary cycle (Year A, B, C)
-    let firstSundayOfAdvent = Dates.firstSundayOfAdvent(this.year);
-    let thisCycle = (this.year - 1963) % 3;
-    let nextCycle = thisCycle === 2 ? 0 : thisCycle + 1;
+    const firstSundayOfAdvent: Moment = Dates.firstSundayOfAdvent(this.year);
+    const thisCycle: number = (this.year - 1963) % 3;
+    const nextCycle: number = thisCycle === 2 ? 0 : thisCycle + 1;
 
     this.itemValues.map(item => {
 
@@ -220,7 +254,10 @@ class Calendar {
     return this;
   }
 
-  values(): Array<DateItem> {
+  /**
+   * Get all DateItems for a specific calendar
+   */
+  values(): DateItem[] {
     this
       .adjustTypesInSeasons()
       .sortAndKeepRelevant()
@@ -340,7 +377,7 @@ const calendarFor = (customConfig:any = {}) => {
 // Filters an array of dates generated from the calendarFor function based on a given query.
 // dates: An array of dates generated from the calendarFor function
 // query: An object containing keys to filter the dates by
-const queryFor = (dates: Array<DateItem> = [], query: Object = {}) => {
+const queryFor = (dates: DateItem[] = [], query: Object = {}) => {
 
   if (!_.every(dates, _.isObject)) {
     throw 'romcal.queryFor can only accept a single dimenional array of objects';

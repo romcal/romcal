@@ -1,10 +1,13 @@
 // @flow
 
 import _ from 'lodash';
-import moment from 'moment';
+import Moment from "moment";
 
 import * as Calendars from '../calendars';
 
+/**
+ * Config Class
+ */
 export default class Config {
   year: number;
   country: string = '';
@@ -22,7 +25,10 @@ export default class Config {
     title: string
   };
 
-  static getConfig(country: ?string):Calendars<Array<{}>> {
+  /**
+   * Get the configuration defined in a calendar file, if defined
+   */
+  static getConfig(country: ?string):Calendars<{}[]> {
     if (!country) return {};
     return Calendars[country].defaultConfig || {};
   }
@@ -48,9 +54,9 @@ export default class Config {
 
     // Load default config for general and selected country,
     // and combine them with the specified custom config
-    let generalConfig = Config.getConfig('general');
-    let countryConfig = Config.getConfig(this.country);
-    let c = {
+    const generalConfig = Config.getConfig('general');
+    const countryConfig = Config.getConfig(this.country);
+    const c = {
       ...generalConfig,
       ...countryConfig,
       ...customConfig
@@ -77,13 +83,13 @@ export default class Config {
       .default(generalConfig.locale);
     this.year = Config
       .sanitize(parseInt(c.year), 'number')
-      .default(moment.utc().year());
+      .default(Moment.utc().year());
     this.type = Config
       .sanitize(c.type, ['calendar', 'liturgical'])
       .default('calendar');
 
     // Sanitize optional query section
-    let query = _.isPlainObject( c.query ) ? c.query : {};
+    const query = _.isPlainObject( c.query ) ? c.query : {};
     this.query = {};
     if (query.day !== undefined) this.query.day = query.day;
     if (query.month !== undefined) this.query.month = query.month;
