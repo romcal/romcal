@@ -76,7 +76,7 @@ export default class DateItem {
   }
 
   /**
-   * Include liturgical cycle metadata for the DateItems in the liturgical year
+   * Include liturgical cycle metadata corresponding to the liturgical year
    */
   _addLiturgicalCycleMetadata() {
     const year = this._getLiturgicalStartYear();
