@@ -76,7 +76,7 @@ describe('Testing calendar generation functions', function() {
           dates = Calendar.calendarFor({
             year: year,
             type: 'liturgical'
-          }, true );
+          });
 
       it('Should start on the 1st Sunday of Advent and end on Christ the King', function() {
         _.head( dates ).moment.isSame( start ).should.be.eql( true );

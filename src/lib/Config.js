@@ -2,7 +2,6 @@
 
 import _ from 'lodash';
 import Moment from "moment";
-
 import * as Calendars from '../calendars';
 
 /**
@@ -24,24 +23,6 @@ export default class Config {
     group: string,
     title: string
   };
-
-  /**
-   * Get the configuration defined in a calendar file, if defined
-   */
-  static getConfig(country: ?string):Calendars<{}[]> {
-    if (!country) return {};
-    return Calendars[country].defaultConfig || {};
-  }
-
-  static sanitize(value: any, acceptable: string | Array<any>):any {
-    if (typeof value === acceptable &&
-      acceptable === 'string' || (acceptable === 'number' && !isNaN(value))) {
-      return {default: () => value};
-    }
-    if (acceptable === 'boolean') acceptable = [true, false];
-    if (acceptable.indexOf(value) > -1) return {default: () => value};
-    return {default: (d) => d};
-  }
 
   constructor(customConfig: Object) {
     customConfig = _.isPlainObject(customConfig) ? customConfig : {};
@@ -97,5 +78,26 @@ export default class Config {
     if (query.title !== undefined) this.query.title = query.title;
 
     return this;
+  }
+
+  /**
+   * Get the configuration from a calendar file, if defined
+   */
+  static getConfig(country: ?string):Calendars<{}[]> {
+    if (!country) return {};
+    return Calendars[country].defaultConfig || {};
+  }
+
+  /**
+   * Ensure that a value correspond to a specific type or is one of the accepted options
+   */
+  static sanitize(value: any, acceptable: string | Array<any>):any {
+    if (typeof value === acceptable &&
+      acceptable === 'string' || (acceptable === 'number' && !isNaN(value))) {
+      return {default: () => value};
+    }
+    if (acceptable === 'boolean') acceptable = [true, false];
+    if (acceptable.indexOf(value) > -1) return {default: () => value};
+    return {default: (d) => d};
   }
 }
