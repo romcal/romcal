@@ -37,10 +37,42 @@ var Titles = Romcal.Titles;
 var Types = Romcal.Types;
 var PsalterWeeks = Romcal.PsalterWeeks;
 var Calendar = Romcal.Calendar;
+var CalendarsDef = require('../src/calendars');
 
 describe('Testing national calendar overrides', function() {
 
   this.timeout(0);
+
+  describe('An optional celebration is available to be celebrated, in addition to the feria', function() {
+    var generalDates2020 = Calendar.calendarFor(2020, true);
+    var generalDates2021 = Calendar.calendarFor(2021, true);
+    var spainDates2020 = Calendar.calendarFor({ year: 2020, country: 'spain' }, true);
+    it('The optional memory of the Most Holy Name of Jesus is available on the 3th of January, in addition to the feria', function() {
+      var dates = _.filter(generalDates2020, function(d) {
+        return d.moment.isSame(moment.utc({ year: 2020, month: 0, day: 3 }));
+      });
+      _.size(dates).should.be.eql(2);
+    });
+    it('However, if the 3th of January is a Sunday, the Solemnity of Epiphany takes the precedence.', function() {
+      var dates = _.filter(generalDates2021, function(d) {
+        return d.moment.isSame(moment.utc({ year: 2021, month: 0, day: 3 }));
+      });
+      _.size(dates).should.be.eql(1);
+      _.head(dates).key.should.be.eql('epiphany');
+    });
+    it('The optional memory of Saint Fructuosus is celebrated on the 20th of January in Spain, in addition of Saints Fabian from the general calendar', function() {
+      var dates = _.filter(spainDates2020, function(d) {
+        return d.moment.isSame(moment.utc({ year: 2020, month: 0, day: 20 }));
+      });
+      _.size(dates).should.be.eql(3);
+    });
+    it('When optional celebrations are available, the feria is the first celebration available', function() {
+      var dates = _.filter(spainDates2020, function(d) {
+        return d.moment.isSame(moment.utc({ year: 2020, month: 0, day: 20 }));
+      });
+      _.head(dates).type.should.be.eql(Types.FERIA);
+    });
+  });
 
   describe('A feast defined in a national calendar should replace the same feast defined in the general calendar', function() {
     var year = 2008;
@@ -63,6 +95,96 @@ describe('Testing national calendar overrides', function() {
         return _.eq(d.key, 'saintIsidoreOfSevilleBishopAndDoctorOfTheChurch');
       });
       _.size(occurrences).should.be.eql(1);
+    });
+  });
+
+  describe('Testing the priority option for celebrations', function() {
+    CalendarsDef.test = {};
+    CalendarsDef.test.dates = (year) => {
+      return [
+        {
+          "key": "maryMotherOfTheChurch",
+          "type": Types.OPT_MEMORIAL,
+          "moment": ( y => Dates.pentecostSunday( y ).add( 1, 'days'))( year ),
+          "data": {
+            "prioritized": true
+          }
+        },
+        {
+          "key": "ashWednesday",
+          "type": Types.SUNDAY,
+          "moment": Dates.ashWednesday(year)
+        },
+        {
+          "key": "saintLukeTheEvangelist",
+          "type": Types.COMMEMORATION,
+          "moment": moment.utc({year: year, month: 9, day: 18}),
+          "data": {
+            "prioritized": true
+          },
+        },
+        {
+          "key": "aSampleCelebration1",
+          "type": Types.MEMORIAL,
+          "moment": moment.utc({year: year, month: 10, day: 9}),
+          "data": {
+            "prioritized": true
+          }
+        },
+        {
+          "key": "aSampleCelebration2",
+          "type": Types.SOLEMNITY,
+          "moment": moment.utc({ year: year, month: 11, day: 25 }),
+          "data": {
+            "prioritized": true
+          }
+        }
+      ];
+    };
+
+    var year = 2020;
+    var testDates = Calendar.calendarFor({
+      country: 'test',
+      year: year
+    });
+
+    it('A celebration with a higher type and the same key cannot replace an existing prioritized celebration', function() {
+      var dates = _.filter(testDates, function(d) {
+        return _.eq(d.key, 'ashWednesday');
+      });
+      _.size(dates).should.be.eql(1);
+      _.head(dates).type.should.be.eql(Types.FERIA);
+    });
+    it('A new prioritized celebration will replace any existing non-prioritized celebration', function() {
+      var dates = _.filter(testDates, function(d) {
+        return _.eq(d.key, 'saintLukeTheEvangelist');
+      });
+      _.size(dates).should.be.eql(1);
+      _.head(dates).type.should.be.eql(Types.COMMEMORATION);
+    });
+    it('An existing and prioritized celebration can be replaced by a new prioritized celebration having the same key (whatever its type rank)', function() {
+      var dates = _.filter(testDates, function(d) {
+        return d.moment.isSame(Dates.pentecostSunday(year).add( 1, 'days'));
+      });
+      _.size(dates).should.be.eql(1);
+      _.head(dates).key.should.be.eql('maryMotherOfTheChurch');
+      _.head(dates).type.should.be.eql(Types.OPT_MEMORIAL);
+    });
+    it('If multiple prioritized celebration falls the same day, the higher type rank will be taken', function() {
+      var dates = _.filter(testDates, function(d) {
+        return d.moment.isSame(moment.utc({ year: 2020, month: 10, day: 9 }));
+      });
+      _.size(dates).should.be.eql(1);
+      _.head(dates).key.should.be.eql('dedicationOfTheLateranBasilica');
+      _.head(dates).type.should.be.eql(Types.FEAST);
+    });
+    it('If multiple prioritized celebration with the same type falls the same day, the last defined celebration will be taken', function() {
+      var dates = _.filter(testDates, function(d) {
+        return d.moment.isSame(moment.utc({ year: 2020, month: 11, day: 25 }));
+      });
+      _.size(dates).should.be.eql(1);
+      _.head(dates).key.should.be.eql('aSampleCelebration2');
+      _.head(dates).type.should.be.eql(Types.SOLEMNITY);
     });
   });
 
