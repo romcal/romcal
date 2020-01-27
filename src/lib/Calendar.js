@@ -13,7 +13,7 @@ import * as Celebrations from './Celebrations';
 
 /**
  * Calendar Class:
- * Combine all together different collection of date item objects,
+ * Combine all together different collections of date item objects,
  * according to the liturgical calendar for a specific year.
  */
 class Calendar {
@@ -109,14 +109,14 @@ class Calendar {
   }
 
   /**
-   * Return an array of DateItems that returns truthy for the predicate object.
+   * Get an array of DateItems that returns truthy for the predicate object.
    */
   _filter(predicate: Object): DateItem[] {
     return _.filter(this.dateItems, predicate);
   }
 
   /**
-   * Return the first DateItems that returns truthy for the predicate object.
+   * Get the first DateItem that returns truthy for the predicate object.
    */
   _find(predicate: Object): DateItem {
     return _.find(this.dateItems, predicate);
