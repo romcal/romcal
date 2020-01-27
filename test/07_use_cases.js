@@ -43,7 +43,7 @@ describe("Testing specific feasts and memorials", function() {
 
   describe("The memorial of the Blessed Virgin Mary, Mother of the Church", function() {
     it('Should be celebrated on the Monday after Pentecost', function() {
-      let dates = Calendar.calendarFor(true);
+      let dates = Calendar.calendarFor();
       let pentecostSunday = Dates.pentecostSunday(moment.utc().year());
       let maryMotherOfTheChurch = _.find(dates, function(d) {
         return _.eq(d.key, "maryMotherOfTheChurch");
@@ -59,7 +59,7 @@ describe("Testing specific feasts and memorials", function() {
         query: {
           month: 5
         }
-      }, true);
+      });
       // according to the general calendar, June 1 is the memorial of saint Justin, Martyr
       var maybeSaintJustinMartyr = juneDates[0];
       maybeSaintJustinMartyr.key.should.be.eql('maryMotherOfTheChurch');
@@ -68,7 +68,7 @@ describe("Testing specific feasts and memorials", function() {
 
   describe('The celebration of Saint Mary Magdalene', function() {
     it('Should be ranked as a feast and should be celebrated on the 22nd of July', function() {
-      let dates = Calendar.calendarFor(2017, true);
+      let dates = Calendar.calendarFor(2017);
       let saintMaryMagdalene = _.find(dates, function(d) {
         return _.eq(d.key, "saintMaryMagdalene");
       });
@@ -80,7 +80,7 @@ describe("Testing specific feasts and memorials", function() {
 
   describe('The celebrations of Pope Saint John XXIII and Pope Saint John Paul II', function() {
     it('Should be celebrated as optional memorials', function() {
-      let dates = Calendar.calendarFor(2016, true);
+      let dates = Calendar.calendarFor(2016);
       let popeSaintJohnXXIII = _.find(dates, function(d) {
         return _.eq(d.key, "popeSaintJohnXXIII");
       });
@@ -94,7 +94,7 @@ describe("Testing specific feasts and memorials", function() {
 
   describe('The Feast of the Exultation of the Cross', function() {
     it('Is celebrated on the 14th of September', function() {
-      let dates = Calendar.calendarFor(2018, true);
+      let dates = Calendar.calendarFor(2018);
       let theExaltationOfTheHolyCross = _.find(dates, function(d) {
         return _.eq(d.key, "theExaltationOfTheHolyCross");
       });
