@@ -30,9 +30,32 @@ var should = require('should');
 
 var Romcal = require('../index');
 var Calendar = Romcal.Calendar;
+var CalendarsDef = require('../src/calendars');
 
 describe('Testing "drop" functionality for national calendars', function() {
 
   this.timeout(0);
+
+  CalendarsDef.test = {};
+  CalendarsDef.test.dates = () => {
+    return [
+      {
+        "key": "christmas",
+        'drop': true
+      }
+    ];
+  };
+
+  var testDates = Calendar.calendarFor({
+    country: 'test',
+    year: 2020
+  });
+
+  it('A dropped celebration should not be appended in the final calendar', function() {
+    var date = _.find(testDates, function(d) {
+      return d.moment.isSame(moment.utc({ year: 2020, month: 11, day: 25 }));
+    });
+    date.key.should.not.be.eql('christmas');
+  });
 
 });

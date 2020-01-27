@@ -43,7 +43,7 @@ class Calendar {
             if (previousItems.length) {
               previousItems.forEach((previousItem) => {
                 if ((!previousItem.data.prioritized) ||
-                  (previousItem.data.prioritized && item.data.prioritized)) {
+                  (previousItem.data.prioritized && item.data && item.data.prioritized)) {
                   this.removeWhere({_id: previousItem._id});
                 }
               });
@@ -213,7 +213,7 @@ class Calendar {
             (types.indexOf(dateItems[0].type) <= types.indexOf(lowerNonOptionalType))) {
             dateItems
               .slice(1, dateItems.length)
-              .forEach(item => this.removeWhere({id: item._id}));
+              .forEach(item => this.removeWhere({_id: item._id}));
           }
         }
       }
