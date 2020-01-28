@@ -67,7 +67,7 @@ describe("Testing specific feasts and memorials", function() {
   });
 
   describe('The celebration of Saint Mary Magdalene', function() {
-    it('Should be ranked as a feast and should be celebrated on the 22nd of July', function() {
+    it('Should be ranked as a feast and should be celebrated on the July 22', function() {
       let dates = Calendar.calendarFor(2017);
       let saintMaryMagdalene = _.find(dates, function(d) {
         return _.eq(d.key, "saintMaryMagdalene");

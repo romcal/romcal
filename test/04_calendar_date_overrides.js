@@ -60,7 +60,7 @@ describe('Testing national calendar overrides', function() {
       _.size(dates).should.be.eql(1);
       _.head(dates).key.should.be.eql('epiphany');
     });
-    it('The optional memory of Saint Fructuosus is celebrated on the 20th of January in Spain, in addition of Saints Fabian from the general calendar', function() {
+    it('The optional memory of Saint Fructuosus is celebrated on the January 20 in Spain, in addition of Saint Fabian from the general calendar', function() {
       var dates = _.filter(spainDates2020, function(d) {
         return d.moment.isSame(moment.utc({ year: 2020, month: 0, day: 20 }));
       });
@@ -78,7 +78,7 @@ describe('Testing national calendar overrides', function() {
     var year = 2008;
     var generalDates = Calendar.calendarFor(year);
     var spainDates = Calendar.calendarFor({ year: year, country: 'spain' });
-    it('The feast of Saint Isidore of Seville is celebrated on the 4th of April every year', function() {
+    it('The feast of Saint Isidore of Seville is celebrated on April 4 every year', function() {
       var date = _.filter(generalDates, function(d) {
         return d.moment.isSame(moment.utc({ year: year, month: 3, day: 4 })) && d.key === 'saintIsidoreOfSevilleBishopAndDoctorOfTheChurch';
       });
@@ -148,14 +148,14 @@ describe('Testing national calendar overrides', function() {
       year: year
     });
 
-    it('A celebration with a higher type and the same key cannot replace an existing prioritized celebration', function() {
+    it('A celebration with a higher type rank and the same key cannot replace an existing prioritized celebration', function() {
       var dates = _.filter(testDates, function(d) {
         return _.eq(d.key, 'ashWednesday');
       });
       _.size(dates).should.be.eql(1);
       _.head(dates).type.should.be.eql(Types.FERIA);
     });
-    it('A new prioritized celebration will replace any existing non-prioritized celebration', function() {
+    it('A new prioritized celebration will replace any existing non-prioritized celebrations', function() {
       var dates = _.filter(testDates, function(d) {
         return _.eq(d.key, 'saintLukeTheEvangelist');
       });
@@ -170,7 +170,7 @@ describe('Testing national calendar overrides', function() {
       _.head(dates).key.should.be.eql('maryMotherOfTheChurch');
       _.head(dates).type.should.be.eql(Types.OPT_MEMORIAL);
     });
-    it('If multiple prioritized celebration falls the same day, the higher type rank will be taken', function() {
+    it('If multiple prioritized celebrations falls the same day, the one with the highest type rank will be used', function() {
       var dates = _.filter(testDates, function(d) {
         return d.moment.isSame(moment.utc({ year: 2020, month: 10, day: 9 }));
       });
@@ -178,7 +178,7 @@ describe('Testing national calendar overrides', function() {
       _.head(dates).key.should.be.eql('dedicationOfTheLateranBasilica');
       _.head(dates).type.should.be.eql(Types.FEAST);
     });
-    it('If multiple prioritized celebration with the same type falls the same day, the last defined celebration will be taken', function() {
+    it('If multiple prioritized celebrations with the same rank fall on the same day, the last defined celebration will be used', function() {
       var dates = _.filter(testDates, function(d) {
         return d.moment.isSame(moment.utc({ year: 2020, month: 11, day: 25 }));
       });
@@ -189,7 +189,7 @@ describe('Testing national calendar overrides', function() {
   });
 
   describe('The feast of Epiphany', function() {
-    it('Should always be celebrated on the 6th of January in Slovakia unless explicitly configured otherwise', function() {
+    it('Should always be celebrated on January 6 in Slovakia unless explicitly configured otherwise', function() {
       var slovakiaDates = Calendar.calendarFor({
         country: 'slovakia'
       });
@@ -199,7 +199,7 @@ describe('Testing national calendar overrides', function() {
       epiphanySlovakia.moment.date().should.be.eql(6);
       epiphanySlovakia.moment.month().should.be.eql(0);
     });
-    it("Will fall on a Sunday as calculated by the Epiphnay rubric when epiphanyOnJan6 is explicitly configured as false", function() {
+    it("Will fall on Sunday as calculated by the Epiphany rubric, when `epiphanyOnJan6` is explicitly configured as `false`", function() {
       var slovakiaDates = Calendar.calendarFor({ country: "slovakia", epiphanyOnJan6: false, year: 2018 });
       var epiphanySlovakia = _.find(slovakiaDates, function(d) {
         return _.eq(d.key, "epiphany");
@@ -210,7 +210,7 @@ describe('Testing national calendar overrides', function() {
   })
 
   describe('Testing the Feast of Saints Cyril and Methodius with locale specific settings', function() {
-    it('Should fall on 14th Feb 2017 in the general calendar', function() {
+    it('Should fall on February 14, 2017 in the general calendar', function() {
       var dates = Calendar.calendarFor(2017);
       var date = _.find(dates, function(d) {
         return _.eq(d.key, 'saintsCyrilMonkAndMethodiusBishop');
@@ -341,7 +341,7 @@ describe('Testing national calendar overrides', function() {
         country: 'wales',
         year: 2008
       });
-      // So All Saints should be on Sunday
+      // So All Saints should be celebrated on Sunday
       var allSaintsEngland = _.find(englandDates, function(d) {
         return _.eq(d.key, 'allSaints');
       });
@@ -364,8 +364,8 @@ describe('Testing national calendar overrides', function() {
         country: 'wales',
         year: 2008
       });
-      // So All Saints should be on Sunday
-      // And All Souls will be on Monday, the next day
+      // So All Saints should be celebrated on Sunday
+      // and All Souls will be celebrated on Monday
       var allSaintsEngland = _.find(englandDates, function(d) {
         return _.eq(d.key, 'allSouls');
       });
@@ -378,7 +378,7 @@ describe('Testing national calendar overrides', function() {
   });
 
   describe('Saint Matthias the Apostle', function() {
-    it('Feast day falls on the 14th of May in the general liturgical calendar', function() {
+    it('Feast day falls on the May 14 in the general liturgical calendar', function() {
       var dates = Calendar.calendarFor(2018);
       var saintMatthias = _.find(dates, function(d) {
         return _.eq(d.key, 'saintMatthiasTheApostle');
@@ -456,7 +456,7 @@ describe('Testing national calendar overrides', function() {
 
   describe('Our Lady of Sorrows', function() {
 
-    it('Should be celebrated on the 15th of September 2018 as a memorial in the General Calendar', function() {
+    it('Should be celebrated on the September 15 2018 as a memorial in the General Calendar', function() {
       var dates = Calendar.calendarFor(2018);
       var ourLadyOfSorrows = _.find(dates, function(d) {
         return _.eq(d.key, 'ourLadyOfSorrows');

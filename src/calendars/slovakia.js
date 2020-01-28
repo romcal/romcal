@@ -5,7 +5,6 @@ import { Dates, Utils } from '../lib';
 import { Titles, Types, LiturgicalColors } from '../constants';
 
 const defaultConfig = {
-  locale: 'sk',
   epiphanyOnJan6: true
 };
 

@@ -32,7 +32,7 @@ var Romcal = require('../index');
 var Calendar = Romcal.Calendar;
 var CalendarsDef = require('../src/calendars');
 
-describe('Testing "drop" functionality for national calendars', function() {
+describe('Testing the "drop" functionality for national calendars', function() {
 
   this.timeout(0);
 
