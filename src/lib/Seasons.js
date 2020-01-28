@@ -624,7 +624,6 @@ const eastertide = y => {
         week: Math.floor( i / 7 ) + 1
       }),
       data: {
-        //prioritized: true, // TODO: check rule in easter time with ferials and (opt) memories
         season: {
           key: LiturgicalSeasons.EASTER,
           value: Utils.localize({

@@ -4,9 +4,7 @@ import _ from 'lodash';
 import { Dates, Utils } from '../lib';
 import { Titles, Types, LiturgicalColors } from '../constants';
 
-const defaultConfig = {
-  locale: 'it'
-};
+const defaultConfig = {};
 
 let dates = year => {
 

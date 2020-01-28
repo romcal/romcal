@@ -2,7 +2,7 @@
 
 import _ from 'lodash';
 import Moment from "moment";
-import * as Calendars from '../calendars';
+import * as CalendarsDef from '../calendars';
 
 /**
  * Config Class
@@ -27,9 +27,9 @@ export default class Config {
   constructor(customConfig: Object) {
     customConfig = _.isPlainObject(customConfig) ? customConfig : {};
 
-    // If a country is specified, check if exists in the romcal codebase
+    // If a country is specified, check if it exist in the romcal codebase
     customConfig.country = typeof customConfig.country === 'string' ? customConfig.country : '';
-    if (customConfig.country.toLowerCase() !== 'general' && Object.prototype.hasOwnProperty.call(Calendars, _.camelCase(customConfig.country))) {
+    if (customConfig.country.toLowerCase() !== 'general' && Object.prototype.hasOwnProperty.call(CalendarsDef, _.camelCase(customConfig.country))) {
       this.country = _.camelCase(customConfig.country);
     }
 
@@ -61,7 +61,7 @@ export default class Config {
       .default(generalConfig.ascensionOnSunday);
     this.locale = Config
       .sanitize(c.locale, 'string')
-      .default(generalConfig.locale);
+      .default('en');
     this.year = Config
       .sanitize(parseInt(c.year), 'number')
       .default(Moment.utc().year());
@@ -81,17 +81,17 @@ export default class Config {
   }
 
   /**
-   * Get the configuration from a calendar file, if defined
+   * Get the configuration from the calendar file if defined
    */
-  static getConfig(country: ?string):Calendars<{}[]> {
+  static getConfig(country: ?string): CalendarsDef<{}[]> {
     if (!country) return {};
-    return Calendars[country].defaultConfig || {};
+    return CalendarsDef[country].defaultConfig || {};
   }
 
   /**
    * Ensure that a value correspond to a specific type or is one of the accepted options
    */
-  static sanitize(value: any, acceptable: string | Array<any>):any {
+  static sanitize(value: any, acceptable: string | Array<any>): any {
     if (typeof value === acceptable &&
       acceptable === 'string' || (acceptable === 'number' && !isNaN(value))) {
       return {default: () => value};

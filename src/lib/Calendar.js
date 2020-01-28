@@ -13,8 +13,8 @@ import * as Celebrations from './Celebrations';
 
 /**
  * Calendar Class:
- * Combine all together different collections of date item objects,
- * according to the liturgical calendar for a specific year.
+ * Combine together all the different collections of date item objects,
+ * according to the liturgical calendar for the specific year.
  */
 class Calendar {
   dateItems: DateItem[] = [];
@@ -28,6 +28,9 @@ class Calendar {
   constructor(config: Config) {
     this.config = config;
 
+    // The year can be specified either as:
+    // - civil year (January 1 to December 31); or
+    // - liturgical year (1st Sunday of Advent to the Saturday after the Christ the King Sunday).
     if (this.config.type === 'liturgical') {
       this.startDate = Dates.firstSundayOfAdvent(this.config.year);
       this.endDate = Dates.firstSundayOfAdvent(this.config.year + 1).subtract( 1, 'days');
@@ -38,9 +41,7 @@ class Calendar {
   }
 
   /**
-   * Fetch calendars and date items that occur during a specific year.
-   * The year can be gregorian (January 1 to December 31)
-   * or liturgical (1st day of Advent to last day of ordinary time)
+   * Fetch calendars and date items that occur during a specific year (civil or liturgical).
    */
   fetch(): Calendar {
     const c = this.config;
@@ -52,7 +53,7 @@ class Calendar {
     let generalDates = [];
     let nationalDates = [];
 
-    // Get the liturgical seasons that run through the gregorian/liturgical year
+    // Get a collection of date items from all liturgical seasons of the given year
     years.forEach(year => {
       weekdayDates = [
         ...weekdayDates,
@@ -86,16 +87,16 @@ class Calendar {
 
     let sources = [weekdayDates, celebrationsDates, generalDates, nationalDates];
 
-    // Remove all date items not in the wanted date range
+    // Remove all date items not in the given date range
     sources = Calendar._filterItemRange(this.startDate, this.endDate, ...sources);
 
     // Remove all date items marked as 'drop' from any other date items
     sources = Calendar._dropItems(...sources);
 
-    // Push new items object as new DateItem
+    // Push new item object as a new DateItem
     this._push(sources);
 
-    // Finally, sort all DateItems by their date and ranking, and keep only the relevant.
+    // Finally, sort the DateItems by date and rank and keep only the relevant
     this._sortAndKeepRelevant()
 
     return this;
@@ -109,14 +110,14 @@ class Calendar {
   }
 
   /**
-   * Get an array of DateItems that returns truthy for the predicate object.
+   * Get an array of DateItems that returns truthy for the predicate object
    */
   _filter(predicate: Object): DateItem[] {
     return _.filter(this.dateItems, predicate);
   }
 
   /**
-   * Get the first DateItem that returns truthy for the predicate object.
+   * Get the first DateItem that returns truthy for the predicate object
    */
   _find(predicate: Object): DateItem {
     return _.find(this.dateItems, predicate);
@@ -133,7 +134,7 @@ class Calendar {
   }
 
   /**
-   * Remove existing DateItems that returns truthy for the predicate object.
+   * Remove DateItems that return truthy for the predicate object
    */
   _removeWhere(predicate: Object) {
     _.remove(this.dateItems, predicate);
@@ -161,12 +162,11 @@ class Calendar {
   }
 
   /**
-   * If a previous date item already exists (have a same key name), it will be removed in favour of
-   * the new given one, except if the previous item is prioritized but not the new one.
+   * If a previous date item already exists (have the same key name as the new one),
+   * the previous date item will be removed in favour of the new given one,
+   * except if the previous item is prioritized but not the new one
    */
   _checkAndRemoveExistingItem(item) {
-    // If a previous date item already exists (have a same key name), it will be removed in favour of
-    // the new one, except if the previous item is prioritized but not the new one.
     let previousItems = this._filter({key: item.key});
     if (previousItems.length) {
       previousItems.forEach((previousItem) => {
@@ -179,20 +179,22 @@ class Calendar {
   }
 
   /**
-   * Sort all DateItems by relevance (more relevant first)
-   * and drop non relevant DateItems
+   * Sort all DateItems by relevance (the most relevant first)
+   * and drop the non-relevant DateItems
    */
   _sortAndKeepRelevant() {
 
-    // Reorder the type ranking, so when there is only optional items (in addition to the FERIA),
-    // the FERIA item is moved first before the optional items,
-    // since it's the default item if none of the optional items are used.
+    // Reorder the DateItems of a particular day, so that
+    // when there are optional memorials or commemoration only (in addition to the feria),
+    // the feria item is moved to the top before the optional items,
+    // since it's the default item if none of the optional items
+    // are celebrated.
     const lowerNonOptionalType = Types.MEMORIAL;
     const types = Types.slice(0, Types.length - 1);
     types.splice(types.indexOf(lowerNonOptionalType) + 1, 0, Types[Types.length - 1]);
 
-    // Sort all date items by relevance (more relevant first):
-    // first by date, then per priority, then by type, and finally by stack.
+    // Sort all date items by relevance (the most relevant first),
+    // in this order: by date, by priority, by type, by stack.
     this.dateItems.sort((a: DateItem, b: DateItem): any => {
 
       // 1. Sort by date
@@ -227,7 +229,7 @@ class Calendar {
       }
     });
 
-    // Now that items are sorted, let's drop other non relevant date items.
+    // Now that the items are sorted, let's drop other non-relevant date items
     // if at least one of the date items isn't optional
     let calendarByDates = this._valuesByDates();
     for (let key in calendarByDates) {
@@ -235,7 +237,7 @@ class Calendar {
         let dateItems = calendarByDates[key];
         if (dateItems.length > 1) {
 
-          // The first date item have a type equal or higher than a MEMORIAL, or is prioritized:
+          // If the first date item has a type equal or higher than a MEMORIAL, or is prioritized:
           // keep only the first item and remove the others
           if (dateItems[0].data.prioritized ||
             (types.indexOf(dateItems[0].type) <= types.indexOf(lowerNonOptionalType))) {
@@ -265,7 +267,7 @@ class Calendar {
   }
 
   /**
-   * Keep only items within a date range
+   * Keep only items within a given date range
    */
   static _filterItemRange(startDate: Moment, endDate: Moment, ...sources: (Object[])[]): (Object[])[] {
     return sources.map(cal => cal
@@ -300,8 +302,8 @@ class Calendar {
 //
 const calendarFor = (customConfig: any = {}) => {
 
-  // If config is passed as an integer
-  // Then assume we want the calendar for the current year
+  // If config is passed as an integer,
+  // assume we want the calendar for the current year
   if (Number.isInteger(customConfig)) {
     customConfig = { year: customConfig };
   }

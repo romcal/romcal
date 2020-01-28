@@ -5,10 +5,9 @@ import { Dates, Utils } from '../lib';
 import { Titles, Types, LiturgicalColors } from '../constants';
 
 const defaultConfig = {
-  locale: 'fr',
   epiphanyOnJan6: false,
-  corpusChristiOnThursday: false,
-  ascensionOnSunday: true
+  ascensionOnSunday: true,
+  corpusChristiOnThursday: false
 };
 
 let dates = year => {

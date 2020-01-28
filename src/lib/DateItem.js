@@ -35,7 +35,7 @@ export default class DateItem {
     this._id = DateItem._incrementId();
     this._stack = item._stack;
 
-    // The original default item is added to the current item as a `base` property
+    // The original default item is added to the current item as the `base` property
     if (baseItem && this._id !== baseItem._id) {
       this.base = baseItem;
       this.data = {...{
@@ -81,12 +81,12 @@ export default class DateItem {
   _addLiturgicalCycleMetadata() {
     const year = this._getLiturgicalStartYear();
 
-    // Formula to calculate lectionary cycle (Year A, B, C)
+    // Formula to calculate Sunday cycle (Year A, B, C)
     const firstSundayOfAdvent = Dates.firstSundayOfAdvent(year);
     const thisCycle: number = (year - 1963) % 3;
     const nextCycle: number = thisCycle === 2 ? 0 : thisCycle + 1;
 
-    // If the date is on or after the first sunday of advent
+    // If the date is on or after the First Sunday of Advent,
     // it is the next liturgical cycle
     if (this.moment.isSameOrAfter(firstSundayOfAdvent)) {
       this.data.meta.cycle = {

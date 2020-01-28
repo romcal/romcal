@@ -58,7 +58,7 @@ describe('Testing calendar generation functions', function() {
       _.every(leapYearDates, d => _.has(d, requiredKeys));
     });
 
-    it('Array should be 365 days long on non leap years', function() {
+    it('Array should be 365 days long on non-leap years', function() {
       _.size(_.groupBy(nonLeapYearDates, item => item.moment.valueOf())).should.be.eql(365);
     });
 
