@@ -27,7 +27,7 @@ export default class Config {
   constructor(customConfig: Object) {
     customConfig = _.isPlainObject(customConfig) ? customConfig : {};
 
-    // If a country is specified, check if it exist in the romcal codebase
+    // If a country is specified, check if it exists in the romcal codebase
     customConfig.country = typeof customConfig.country === 'string' ? customConfig.country : '';
     if (customConfig.country.toLowerCase() !== 'general' && Object.prototype.hasOwnProperty.call(CalendarsDef, _.camelCase(customConfig.country))) {
       this.country = _.camelCase(customConfig.country);
