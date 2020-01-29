@@ -1,0 +1,157 @@
+#  Sanctoral - R
+
+rabanusMaurus:
+  canonisationLevel: Saint
+  firstName: Rabanus
+  surname: Maurus
+  sex: male
+  titles:
+    - Bishop
+
+radim:
+  canonisationLevel: Saint
+  firstName: Radim
+  sex: male
+  titles:
+    - Bishop
+
+rafaelGuizorYValencia:
+  canonisationLevel: Saint
+  firstName: Rafael
+  surname: Guizor y Valencia
+  sex: male
+  titles:
+    - Bishop
+
+rafalChylinski:
+  canonisationLevel: Blessed
+  firstName: Rafal
+  surname: Chylinski
+  sex: male
+  titles:
+    - Priest
+
+rafalKalinowski:
+  canonisationLevel: Saint
+  firstName: Rafal
+  surname: Kalinowski
+  sex: male
+  titles:
+    - Priest
+
+rafqa:
+  canonisationLevel: Saint
+  firstName: Rafqa
+  sex: female
+  titles:
+    - Virgin
+  notes: Rebecca
+
+raphael:
+  canonisationLevel: Saint
+  firstName: Raphael
+  sex: male
+  titles:
+    - Archangel
+
+raymondOfPenyafort:
+  canonisationLevel: Saint
+  firstName: Raymond
+  surname: of Penyafort
+  sex: male
+  titles:
+    - Priest
+  celebrationDate1969: 07/01
+  birthDate: c. 1175
+  deathDate: 06/01/1275
+
+remigius:
+  canonisationLevel: Saint
+  firstName: Remigius
+  sex: male
+  titles:
+    - Bishop
+
+richardGwyn:
+  canonisationLevel: Saint
+  firstName: Richard
+  surname: Gwyn
+  sex: male
+  titles:
+    - Martyr
+
+richardOfChichester:
+  canonisationLevel: Saint
+  firstName: Richard
+  surname: of Chichester
+  sex: male
+  titles:
+    - Bishop
+
+ritaOfCascia:
+  canonisationLevel: Saint
+  firstName: Rita
+  surname: of Cascia
+  sex: female
+
+robertBellarmine:
+  canonisationLevel: Saint
+  firstName: Robert
+  surname: Bellarmine
+  sex: male
+  titles:
+    - Bishop
+    - Doctor
+
+rocco:
+  canonisationLevel: Saint
+  firstName: Rocco
+  sex: male
+  titles:
+    - Abbot
+
+roch:
+  canonisationLevel: Saint
+  firstName: Roch
+  sex: male
+
+romuald:
+  canonisationLevel: Saint
+  firstName: Romuald
+  sex: male
+  titles:
+    - Abbot
+
+roqieGonzalez:
+  canonisationLevel: Saint
+  firstName: Roqie
+  surname: Gonzalez
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+roseOfLima:
+  canonisationLevel: Saint
+  firstName: Rose
+  surname: of Lima
+  sex: female
+  titles:
+    - Virgin
+
+rosePhilippineDuchesne:
+  canonisationLevel: Saint
+  firstName: Rose
+  additionalFirstName: Philippine
+  surname: Duchesne
+  sex: female
+  titles:
+    - Virgin
+
+rupertOfSalzburg:
+  canonisationLevel: Saint
+  firstName: Rupert
+  surname: of Salzburg
+  sex: male
+  titles:
+    - Bishop

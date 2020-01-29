@@ -1,0 +1,267 @@
+# Particular Calendar for England
+
+name: England
+
+defaultConfig:
+  - epiphanyOnJan6: true
+  - ascensionOnSunday: true
+  - corpusChristiOnThursday: false
+
+dates:
+
+  saintAelredOfRievaulx:
+    date: 1/12
+    type: OPT_MEMORIAL
+
+  saintWulstanBishop:
+    date: 1/19
+    type: OPT_MEMORIAL
+
+  saintsCyrilMonkAndMethodiusBishop:
+    date: 2/14
+    type: FEAST
+    liturgicalColor: WHITE
+    titles:
+      - PATRON_OF_EUROPE
+
+  saintDavidBishop:
+    date: 3/1
+    type: FEAST
+    liturgicalColor: WHITE
+
+  saintPatrickBishop:
+    date: 3/17
+    type: FEAST
+    liturgicalColor: WHITE
+
+  saintGeorgeMartyr:
+    # When the celebration falls between Palm Sunday and the Divine Mercy Sunday
+    # (the second Sunday of Easter): it is transferred to the Monday after Divine Mercy.
+    # But if the Monday after the Divine Mercy Sunday is the feast of Annunciation,
+    # it is moved to the Tuesday after the Divine Mercy Sunday
+    date: |-
+      var date = day('4/23');
+      if (date >= $palmSunday && date <= $divineMercySunday) date = $divineMercySunday + 1;
+      if ($divineMercySunday + 1 === $annunciation && date === $annunciation) return $divineMercySunday + 2;
+      return date;
+    type: SOLEMNITY
+
+  saintAdalbertBishopAndMartyrSaintFidelisOfSigmaringenPriestAndMartyr:
+    date: 5/24
+    type: OPT_MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintCatherineOfSienaVirginAndDoctorOfTheChurch:
+    date: 4/29
+    type: FEAST
+    liturgicalColor: WHITE
+    titles:
+      - PATRON_OF_EUROPE
+      - DOCTOR_OF_THE_CHURCH
+
+  theEnglishMartyrs:
+    date: 5/4
+    type: FEAST
+    liturgicalColor: WHITE
+
+  stDunstanArchbishopOfCanterbury:
+    date: 5/19
+    type: OPT_MEMORIAL
+
+  saintBedeTheVenerablePriestAndDoctor:
+    date: 5/25
+    type: MEMORIAL
+    liturgicalColor: WHITE
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  saintAugustineOfCanterburyBishop:
+    date: 5/27
+    type: FEAST
+    liturgicalColor: WHITE
+
+  saintBonifaceBishopAndMartyr:
+    date: 6/5
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  saintEphraemDeaconDoctorOrSaintColumbaColumCilleAbbot:
+    date: 6/9
+    type: OPT_MEMORIAL
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  saintRichardOfChichesterBishop:
+    date: 6/16
+    type: OPT_MEMORIAL
+
+  saintAlbanMartyr:
+    date: 6/20
+    type: OPT_MEMORIAL
+
+  saintsJohnFisherBishopAndThomasMoreMartyrs:
+    date: 6/22
+    type: FEAST
+    liturgicalColor: WHITE
+
+  saintEtheldredaAudreyVirgin:
+    date: 6/23
+    type: OPT_MEMORIAL
+
+  saintOliverPlunketBishopAndMartyr:
+    date: 7/1
+    type: OPT_MEMORIAL
+
+  saintBenedictOfNursiaAbbot:
+    date: 7/11
+    type: FEAST
+    liturgicalColor: WHITE
+    titles:
+      - PATRON_OF_EUROPE
+
+  saintBridgetOfSwedenReligious:
+    date: 7/23
+    type: FEAST
+    liturgicalColor: WHITE
+    titles:
+      - PATRON_OF_EUROPE
+
+  saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr:
+    date: 8/9
+    type: FEAST
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+      - PATRON_OF_EUROPE
+
+  blessedDominicOfTheMotherOfGodDominicBarberiPriest:
+    date: 8/26
+    type: OPT_MEMORIAL
+
+  saintsMargaretClitherowAnneLineAndMargaretWardMartyrs:
+    date: 8/30
+    type: OPT_MEMORIAL
+
+  saintAidanBishopAndTheSaintsOfLindisfarne:
+    date: 8/31
+    type: OPT_MEMORIAL
+
+  saintGregoryTheGreatPopeAndDoctor:
+    date: 9/3
+    type: FEAST
+    liturgicalColor: WHITE
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  saintCuthbertBishop:
+    date: 9/4
+    type: OPT_MEMORIAL
+
+  saintTheodoreOfCanterburyBishop:
+    date: 9/19
+    type: OPT_MEMORIAL
+
+  ourLadyOfWalsingham:
+    date: 9/24
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  blessedJohnHenryNewmanPriest:
+    date: 10/9
+    type: OPT_MEMORIAL
+
+  saintPaulinusOfYorkBishop:
+    date: 10/10
+    type: OPT_MEMORIAL
+
+  peterAndPaulApostles:
+    # In England and Wales when the celebration falls on either a
+    # Saturday or a Monday it is transferred to the Sunday.
+    # Replaces 20th Sunday in Ordinary Time when it falls on a Sunday.
+    date: |-
+      let date = day('6/29');
+      if (date.is.monday()) return date - 1;
+      if (date.is.saturday()) return date + 1;
+      return date;
+    type: SOLEMNITY
+    prioritized: true
+    liturgicalColor: RED
+
+  assumption:
+    # In England and Wales when the celebration falls on either a
+    # Saturday or a Monday it is transferred to the Sunday.
+    # Replaces 20th Sunday in Ordinary Time when it falls on a Sunday.
+    date: |-
+      var date = day('8/15');
+      if (date.is.monday()) return date - 1;
+      if (date.is.saturday()) return date + 1;
+      return date;
+    type: SOLEMNITY
+    prioritized: true
+    liturgicalColor: WHITE
+
+  saintWilfridBishop:
+    date: 10/12
+    type: OPT_MEMORIAL
+
+  saintEdwardTheConfessor:
+    date: 10/13
+    type: OPT_MEMORIAL
+
+  saintsChadAndCeddBishop:
+    date: 10/26
+    type: OPT_MEMORIAL
+
+  saintWinefrideVirgin:
+    date: 11/3
+    type: OPT_MEMORIAL
+
+  saintWillibrordBishop:
+    date: 11/7
+    type: OPT_MEMORIAL
+
+  saintEdmundOfAbingdonBishopOrSaintMargaretOfScotland:
+    date: 11/16
+    type: OPT_MEMORIAL
+
+  saintElizabethOfHungary:
+    date: 11/17
+    type: OPT_MEMORIAL
+
+  saintAndrewApostle:
+    date: 11/30
+    type: FEAST
+    liturgicalColor: WHITE
+
+  allSaints:
+    # In England and Wales when All Saints (November 1) falls on a Saturday
+    # it is transferred to Sunday.
+    date: |-
+      var date = day('11/1');
+      if (date.is.saturday()) return date + 1;
+      return date;
+    type: SOLEMNITY
+    prioritized: true
+    liturgicalColor: WHITE
+
+  allSouls:
+    # If All Saints is on Saturday, move it to Monday
+    # since All Saints is moved to Sunday when it falls on a Saturday (see the rule above).
+    date: |-
+      var date = day('11/2');
+      if (date.is.sunday()) return date + 1;
+      return date;
+    type: FEAST
+    # Like Ash Wednesday, All Souls is, technically, without rank
+    # but must replace any existing celebrations that falls the same day.
+    prioritized: true
+    liturgicalColor: WHITE
+
+  saintThomasBecketBishopAndMartyr:
+    date: 12/29
+    type: FEAST
+    liturgicalColor: RED
+    titles:
+      - MARTYR

@@ -1,0 +1,258 @@
+#  Sanctoral - B
+
+barbara:
+  canonisationLevel: Saint
+  firstName: Barbara
+  sex: female
+  titles:
+    - Virgin
+    - Martyr
+
+barnabas:
+  canonisationLevel: Saint
+  firstName: Barnabas
+  sex: male
+  titles:
+    - Apostle
+
+bartholomew:
+  canonisationLevel: Saint
+  firstName: Bartholomew
+  sex: male
+  titles:
+    - Apostle
+
+bartholomewOfTheMartyrs:
+  canonisationLevel: Blessed
+  firstName: Bartholomew
+  surname: of the Martyrs
+  sex: male
+  titles:
+    - Bishop
+
+bartolomewLaurel:
+  canonisationLevel: Blessed
+  firstName: Bartolomew
+  surname: Laurel
+  sex: male
+  titles:
+    - Religious
+    - Martyr
+
+basilTheGreat:
+  canonisationLevel: Saint
+  firstName: Basil
+  surname: the Great
+  sex: male
+  titles:
+    - Bishop
+    - Doctor
+
+beatriceOfSilva:
+  canonisationLevel: Saint
+  firstName: Beatrice
+  surname: of Silva
+  sex: female
+  titles:
+    - Virgin
+
+bedeTheVenerable:
+  canonisationLevel: Saint
+  firstName: Bede
+  surname: the Venerable
+  sex: male
+  titles:
+    - Priest
+    - Doctor
+
+benedictOfSkalka:
+  canonisationLevel: Saint
+  firstName: Benedict
+  surname: of Skalka
+  sex: male
+  titles:
+    - Hermit
+  notes: >-
+    In Slovakia, he is celebrated together with Andrew Zorard (Andrej Svorad),
+    but then the celebration name does not contain the ‘surname’ of Skalka
+    (skalka literally means a small stone, but here it denotes that he was
+    hermit at Skalka nad Váhom village in Slovakia, then part of the Kingdom of
+    Hungary).
+
+benedict:
+  canonisationLevel: Saint
+  firstName: Benedict
+  sex: male
+  titles:
+    - Martyr
+
+benedictOfNursia:
+  canonisationLevel: Saint
+  firstName: Benedict
+  surname: of Nursia
+  sex: male
+  titles:
+    - Abbot
+
+bennoOfMeissen:
+  canonisationLevel: Saint
+  firstName: Benno
+  surname: of Meissen
+  sex: male
+  titles:
+    - Bishop
+
+bernadetteSoubirous:
+  canonisationLevel: Saint
+  firstName: Bernadette
+  surname: Soubirous
+  sex: female
+  titles:
+    - Virgin
+
+bernardineOfSiena:
+  canonisationLevel: Saint
+  firstName: Bernardine
+  surname: of Siena
+  sex: male
+  titles:
+    - Priest
+
+bernardOfClairvaux:
+  canonisationLevel: Saint
+  firstName: Bernard
+  surname: of Clairvaux
+  sex: male
+  titles:
+    - Abbot
+    - Doctor
+
+beuno:
+  canonisationLevel: Saint
+  firstName: Beuno
+  sex: male
+  titles:
+    - Abbot
+
+blaise:
+  canonisationLevel: Saint
+  firstName: Blaise
+  sex: male
+  titles:
+    - Bishop
+    - Martyr
+
+blandina:
+  canonisationLevel: Saint
+  firstName: Blandina
+  sex: female
+  titles:
+    - Virgin
+    - Martyr
+
+blessedIrishMartyrs:
+  canonisationLevel: Blessed
+  firstName: Blessed Irish Martyrs
+  number: 1000
+
+bogumil:
+  canonisationLevel: Blessed
+  firstName: Bogumil
+  sex: male
+  titles:
+    - Bishop
+
+boleslawaMariaLament:
+  canonisationLevel: Blessed
+  firstName: Boleslawa
+  additionalFirstName: Maria
+  surname: Lament
+  sex: female
+  titles:
+    - Virgin
+
+bonaventure:
+  canonisationLevel: Saint
+  firstName: Bonaventure
+  sex: male
+  titles:
+    - Bishop
+    - Doctor
+
+boniface:
+  canonisationLevel: Saint
+  firstName: Boniface
+  sex: male
+  titles:
+    - Bishop
+    - Martyr
+
+boris:
+  canonisationLevel: Saint
+  firstName: Boris
+  sex: male
+  titles:
+    - Martyr
+
+brendan:
+  canonisationLevel: Saint
+  firstName: Brendan
+  sex: male
+  titles:
+    - Abbot
+
+bridgetOfSweden:
+  canonisationLevel: Saint
+  firstName: Bridget
+  surname: of Sweden
+  sex: female
+  titles:
+    - Religious
+
+brigid:
+  canonisationLevel: Saint
+  firstName: Brigid
+  sex: female
+  titles:
+    - Virgin
+  notes: Brigid of Ireland
+
+bronislawa:
+  canonisationLevel: Blessed
+  firstName: Bronislawa
+  sex: female
+  titles:
+    - Virgin
+
+bronislawMarkiewicz:
+  canonisationLevel: Blessed
+  firstName: Bronislaw
+  surname: Markiewicz
+  sex: male
+  titles:
+    - Priest
+
+brotherMutienMarie:
+  canonisationLevel: Saint
+  namePrefix: Brother
+  firstName: Mutien Marie
+  sex: male
+  titles:
+    - Religious
+
+bruno:
+  canonisationLevel: Saint
+  firstName: Bruno
+  sex: male
+  titles:
+    - Priest
+
+brunoBonifaceOfQuerfurt:
+  canonisationLevel: Saint
+  firstName: Bruno
+  additionalFirstName: Boniface
+  surname: of Querfurt
+  sex: male
+  titles:
+    - Bishop
+    - Martyr

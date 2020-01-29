@@ -1,0 +1,98 @@
+#  Sanctoral - V
+
+valentineOfRaetia:
+  canonisationLevel: Saint
+  firstName: Valentine
+  surname: of Raetia
+  sex: male
+  titles:
+    - Bishop
+
+vasylVelychkowsky:
+  canonisationLevel: Blessed
+  firstName: Vasyl
+  surname: Velychkowsky
+  sex: male
+  titles:
+    - Bishop
+    - Martyr
+
+vilmosApor:
+  canonisationLevel: Blessed
+  firstName: Vilmos
+  surname: Apor
+  sex: male
+  titles:
+    - Bishop
+    - Martyr
+
+vincent:
+  canonisationLevel: Saint
+  firstName: Vincent
+  sex: male
+  titles:
+    - Deacon
+    - Martyr
+
+vincentDePaul:
+  canonisationLevel: Saint
+  firstName: Vincent
+  surname: de Paul
+  sex: male
+  titles:
+    - Priest
+
+vincentFerrer:
+  canonisationLevel: Saint
+  firstName: Vincent
+  surname: Ferrer
+  sex: male
+  titles:
+    - Priest
+
+vincentKadlubek:
+  canonisationLevel: Blessed
+  firstName: Vincent
+  surname: Kadlubek
+  sex: male
+  titles:
+    - Bishop
+
+vincentLewoniuk:
+  canonisationLevel: Blessed
+  firstName: Vincent
+  surname: Lewoniuk
+  sex: male
+  titles:
+    - Martyr
+  notes: 'Blessed Vincent Lewoniuk and Companions, Martyrs Of Pratulin'
+
+vincentPallotti:
+  canonisationLevel: Saint
+  firstName: Vincent
+  surname: Pallotti
+  sex: male
+  titles:
+    - Priest
+
+vitus:
+  canonisationLevel: Saint
+  firstName: Vitus
+  sex: male
+  titles:
+    - Martyr
+
+vladimirGhika:
+  canonisationLevel: Blessed
+  firstName: Vladimir
+  surname: Ghika
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+vladimirTheGreat:
+  canonisationLevel: Saint
+  firstName: Vladimir
+  surname: the Great
+  sex: male

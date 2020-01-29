@@ -1,0 +1,193 @@
+#  Sanctoral - S
+
+saintsOfLindisfarne:
+  canonisationLevel: Saint
+  firstName: Saints
+  surname: of Lindisfarne
+  number: 1000
+  requireDefiniteArticle: true
+
+salome:
+  canonisationLevel: Blessed
+  firstName: Salome
+  sex: female
+  titles:
+    - Virgin
+
+sancha:
+  canonisationLevel: Blessed
+  firstName: Sancha
+  sex: female
+  titles:
+    - Virgin
+
+saraSalkahazi:
+  canonisationLevel: Blessed
+  firstName: Sára
+  surname: Salkaházi
+  sex: female
+  titles:
+    - Virgin
+    - Martyr
+
+scholastica:
+  canonisationLevel: Saint
+  firstName: Scholastica
+  sex: female
+  titles:
+    - Virgin
+
+sebastian:
+  canonisationLevel: Saint
+  firstName: Sebastian
+  sex: male
+  titles:
+    - Martyr
+
+sebastianDeAparicio:
+  canonisationLevel: Blessed
+  firstName: Sebastian
+  surname: de Aparicio
+  sex: male
+  titles:
+    - Religious
+    - Abbot
+
+senan:
+  canonisationLevel: Saint
+  firstName: Senan
+  sex: male
+  titles:
+    - Bishop
+
+sevenHolyFoundersOfTheServiteOrder:
+  canonisationLevel: Saint
+  firstName: Seven Holy Founders
+  surname: of the Servite Order
+  number: 7
+
+severinusOfNoricum:
+  canonisationLevel: Saint
+  firstName: Severinus
+  surname: of Noricum
+  sex: male
+  titles:
+    - Monk
+
+sigismund:
+  canonisationLevel: Saint
+  firstName: Sigismund
+  sex: male
+  titles:
+    - Martyr
+
+simon:
+  canonisationLevel: Saint
+  firstName: Simon
+  sex: male
+  titles:
+    - Apostle
+
+simonOfLipnica:
+  canonisationLevel: Saint
+  firstName: Simon
+  surname: of Lipnica
+  sex: male
+  titles:
+    - Priest
+
+sixtusIi:
+  canonisationLevel: Saint
+  firstName: Sixtus II
+  sex: male
+  titles:
+    - Pope
+    - Martyr
+
+sixWelshMartyrs:
+  firstName: Six Welsh Martyrs
+  number: 6
+  titles:
+    - Martyr
+  requireDefiniteArticle: true
+
+soledadTorresAcosta:
+  canonisationLevel: Saint
+  firstName: Soledad
+  surname: Torres Acosta
+  sex: female
+  titles:
+    - Virgin
+
+spyridon:
+  canonisationLevel: Saint
+  firstName: Spyridon
+  sex: male
+
+stanislaus:
+  canonisationLevel: Saint
+  firstName: Stanislaus
+  sex: male
+  titles:
+    - Bishop
+    - Martyr
+
+stanislausKazimierczyk:
+  canonisationLevel: Saint
+  firstName: Stanislaus
+  surname: Kazimierczyk
+  sex: male
+  titles:
+    - Priest
+
+stanislausKostka:
+  canonisationLevel: Saint
+  firstName: Stanislaus
+  surname: Kostka
+  sex: male
+  titles:
+    - Religious
+
+stephen:
+  canonisationLevel: Saint
+  firstName: Stephen
+  sex: male
+  titles:
+    - the First Martyr
+
+stephenOfHungary:
+  canonisationLevel: Saint
+  firstName: Stephen
+  surname: of Hungary
+  sex: male
+
+stephenPongrac:
+  canonisationLevel: Saint
+  firstName: Stephen
+  surname: Pongrác
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+sunniva:
+  canonisationLevel: Saint
+  firstName: Sunniva
+  sex: female
+  titles:
+    - Virgin
+    - Martyr
+
+swithun:
+  canonisationLevel: Saint
+  firstName: Swithun
+  sex: male
+  titles:
+    - Bishop
+
+sylvesterI:
+  canonisationLevel: Saint
+  firstName: Sylvester I
+  sex: male
+  titles:
+    - Pope

@@ -1,0 +1,599 @@
+#  Sanctoral - M
+
+macartan:
+  canonisationLevel: Saint
+  firstName: Macartan
+  sex: male
+  titles:
+    - Bishop
+
+macNissi:
+  canonisationLevel: Saint
+  firstName: Mac
+  surname: Nissi
+  sex: male
+  titles:
+    - Bishop
+
+maelruain:
+  canonisationLevel: Saint
+  firstName: Maelruain
+  sex: female
+  titles:
+    - Virgin
+  notes: Maolruain
+
+mafalda:
+  canonisationLevel: Blessed
+  firstName: Mafalda
+  sex: female
+  titles:
+    - Virgin
+
+magnus:
+  canonisationLevel: Saint
+  firstName: Magnus
+  sex: male
+  titles:
+    - Martyr
+
+malachy:
+  canonisationLevel: Saint
+  firstName: Malachy
+  sex: male
+  titles:
+    - Bishop
+
+marcelCallo:
+  canonisationLevel: Blessed
+  firstName: Marcel
+  surname: Callo
+  sex: male
+  titles:
+    - Martyr
+
+marcelinaDarowska:
+  canonisationLevel: Blessed
+  firstName: Marcelina
+  surname: Darowska
+  sex: female
+  titles:
+    - Religious
+
+marcellinChampagnat:
+  canonisationLevel: Saint
+  firstName: Marcellin
+  surname: Champagnat
+  sex: male
+  titles:
+    - Priest
+
+marcellinus:
+  canonisationLevel: Saint
+  firstName: Marcellinus
+  sex: male
+  titles:
+    - Martyr
+
+marcellusI:
+  canonisationLevel: Saint
+  firstName: Marcellus I
+  sex: male
+  titles:
+    - Pope
+  celebrationDate1969: 16/01
+  birthDate: 06/01/0255
+  deathDate: 16/01/0309
+
+margaretClitherow:
+  canonisationLevel: Saint
+  firstName: Margaret
+  surname: Clitherow
+  sex: female
+  titles:
+    - Martyr
+
+margaretMaryAlacoque:
+  canonisationLevel: Saint
+  firstName: Margaret
+  additionalFirstName: Mary
+  surname: Alacoque
+  sex: female
+  titles:
+    - Virgin
+
+margaretOfAntioch:
+  canonisationLevel: Saint
+  firstName: Margaret
+  surname: of Antioch
+  sex: female
+  titles:
+    - Virgin
+    - Martyr
+
+margaretOfHungary:
+  canonisationLevel: Saint
+  firstName: Margaret
+  surname: of Hungary
+  sex: female
+
+margaretOfScotland:
+  canonisationLevel: Saint
+  firstName: Margaret
+  surname: of Scotland
+  sex: female
+
+margaretWard:
+  canonisationLevel: Saint
+  firstName: Margaret
+  surname: Ward
+  sex: female
+  titles:
+    - Martyr
+
+margueriteBourgeoys:
+  canonisationLevel: Saint
+  firstName: Marguerite
+  surname: Bourgeoys
+  sex: female
+  titles:
+    - Virgin
+
+margueriteDYouville:
+  canonisationLevel: Saint
+  firstName: Marguerite
+  surname: d’Youville
+  sex: female
+  titles:
+    - Religious
+
+mariaAdeodataPisani:
+  canonisationLevel: Blessed
+  firstName: Maria
+  additionalFirstName: Adeodata
+  surname: Pisani
+  sex: female
+  titles:
+    - Virgin
+
+mariaDeJesusSacramentadoVenegas:
+  canonisationLevel: Saint
+  firstName: Maria
+  surname: de Jesus Sacramentado Venegas
+  sex: female
+  titles:
+    - Virgin
+
+mariaDoloresRodriguesSopena:
+  canonisationLevel: Blessed
+  firstName: Maria
+  additionalFirstName: Dolores
+  surname: Rodrigues Sopena
+  sex: female
+  titles:
+    - Virgin
+
+mariaElisabethHesselblad:
+  canonisationLevel: Blessed
+  firstName: Maria
+  additionalFirstName: Elisabeth
+  surname: Hesselblad
+  sex: female
+  titles:
+    - Religious
+
+mariaGoretti:
+  canonisationLevel: Saint
+  firstName: Maria
+  surname: Goretti
+  sex: female
+  titles:
+    - Virgin
+    - Martyr
+
+mariaMicaelaOfTheBlessedSacrament:
+  canonisationLevel: Saint
+  firstName: Maria
+  additionalFirstName: Micaela
+  surname: of the Blessed Sacrament
+  sex: female
+  titles:
+    - Virgin
+
+marianaDeJesusDeParedes:
+  canonisationLevel: Saint
+  firstName: Mariana
+  surname: de Jesus de Paredes
+  sex: female
+  titles:
+    - Virgin
+
+marianneCope:
+  canonisationLevel: Saint
+  firstName: Marianne
+  surname: Cope
+  sex: female
+  titles:
+    - Virgin
+
+mariaStella:
+  canonisationLevel: Blessed
+  firstName: Maria
+  additionalFirstName: Stella
+  sex: female
+  titles:
+    - Virgin
+    - Martyr
+
+mariaTeresaLedochowska:
+  canonisationLevel: Blessed
+  firstName: Maria
+  additionalFirstName: Teresa
+  surname: Ledochowska
+  sex: female
+  titles:
+    - Virgin
+
+mariaTheresaChiramel:
+  canonisationLevel: Blessed
+  firstName: Maria
+  additionalFirstName: Theresa
+  surname: Chiramel
+  sex: female
+  titles:
+    - Virgin
+
+marieAnneBlondin:
+  canonisationLevel: Blessed
+  firstName: Marie
+  additionalFirstName: Anne
+  surname: Blondin
+  sex: female
+  titles:
+    - Virgin
+
+marieLeonieParadis:
+  canonisationLevel: Blessed
+  firstName: Marie
+  additionalFirstName: Leonie
+  surname: Paradis
+  sex: female
+  titles:
+    - Virgin
+
+marieOfTheIncarnation:
+  canonisationLevel: Saint
+  firstName: Marie
+  surname: of the Incarnation
+  sex: female
+  titles:
+    - Religious
+
+marieRoseDurocher:
+  canonisationLevel: Blessed
+  firstName: Marie
+  additionalFirstName: Rose
+  surname: Durocher
+  sex: female
+  titles:
+    - Virgin
+
+marina:
+  canonisationLevel: Saint
+  firstName: Marina
+  sex: female
+  titles:
+    - Abbot
+
+marius:
+  canonisationLevel: Saint
+  firstName: Marius
+  sex: male
+  titles:
+    - Martyr
+  celebrationDate1969: 19/01
+  deathDate: 270
+
+markApostle:
+  canonisationLevel: Saint
+  firstName: Mark
+  sex: male
+  titles:
+    - Apostle
+
+markEvangelist:
+  canonisationLevel: Saint
+  firstName: Mark
+  sex: male
+  titles:
+    - Evangelist
+
+markoKrizin:
+  canonisationLevel: Saint
+  firstName: Marko
+  surname: Križin
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+maron:
+  canonisationLevel: Saint
+  firstName: Maron
+  sex: male
+  notes: 'Maroun, Maro'
+
+martha:
+  canonisationLevel: Saint
+  firstName: Martha
+  sex: female
+
+marthaMartyr:
+  canonisationLevel: Saint
+  firstName: Martha
+  sex: female
+  titles:
+    - Martyr
+  celebrationDate1969: 19/01
+  deathDate: 270
+
+martina:
+  canonisationLevel: Saint
+  firstName: Martina
+  sex: female
+  titles:
+    - Martyr
+  celebrationDate1969: 30/01
+  birthDate: 228
+
+martinDePorres:
+  canonisationLevel: Saint
+  firstName: Martin
+  surname: de Porres
+  sex: male
+  titles:
+    - Religious
+
+martinI:
+  canonisationLevel: Saint
+  firstName: Martin I
+  sex: male
+  titles:
+    - Pope
+    - Martyr
+
+martinOfDume:
+  canonisationLevel: Saint
+  firstName: Martin
+  surname: of Dume
+  sex: male
+  titles:
+    - Bishop
+
+martinOfTours:
+  canonisationLevel: Saint
+  firstName: Martin
+  surname: of Tours
+  sex: male
+  titles:
+    - Bishop
+
+mary:
+  canonisationLevel: Saint
+  firstName: Mary
+  sex: female
+  titles:
+    - Mother of The Church
+
+maryAngelaTruszkowska:
+  canonisationLevel: Blessed
+  firstName: Mary
+  additionalFirstName: Angela
+  surname: Truszkowska
+  sex: female
+  titles:
+    - Virgin
+
+maryMackillop:
+  canonisationLevel: Saint
+  firstName: Mary
+  surname: MacKillop
+  sex: female
+  titles:
+    - Virgin
+
+maryMagdalene:
+  canonisationLevel: Saint
+  firstName: Mary
+  additionalFirstName: Magdalene
+  sex: female
+
+maryMagdaleneDePazzi:
+  canonisationLevel: Saint
+  firstName: Mary
+  additionalFirstName: Magdalene
+  surname: de’ Pazzi
+  sex: female
+  titles:
+    - Virgin
+
+maryOfJesusCrucifiedPetkovic:
+  canonisationLevel: Blessed
+  firstName: Mary
+  surname: of Jesus Crucified Petkovic
+  sex: female
+  titles:
+    - Virgin
+
+maryOfJesusTheGoodShepherd:
+  canonisationLevel: Blessed
+  firstName: Mary
+  surname: of Jesus the Good Shepherd
+  sex: female
+  titles:
+    - Virgin
+
+maryOfTheCross:
+  canonisationLevel: Saint
+  firstName: Mary
+  surname: of the Cross
+  sex: female
+  titles:
+    - Virgin
+
+mateusz:
+  canonisationLevel: Saint
+  firstName: Mateusz
+  sex: male
+  titles:
+    - Martyr
+
+matilda:
+  canonisationLevel: Saint
+  firstName: Matilda
+  sex: female
+
+matthew:
+  canonisationLevel: Saint
+  firstName: Matthew
+  sex: male
+  titles:
+    - Apostle
+    - Evangelist
+
+matthias:
+  canonisationLevel: Saint
+  firstName: Matthias
+  sex: male
+  titles:
+    - Apostle
+
+maur:
+  canonisationLevel: Saint
+  firstName: Maur
+  sex: male
+  titles:
+    - Abbot
+  celebrationDate1969: 15/01
+
+maurice:
+  canonisationLevel: Saint
+  firstName: Maurice
+  sex: male
+  titles:
+    - Martyr
+
+maurus:
+  canonisationLevel: Saint
+  firstName: Maurus
+  sex: male
+  titles:
+    - Bishop
+
+maximilianKolbe:
+  canonisationLevel: Saint
+  firstName: Maximilian
+  surname: Kolbe
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+meinrad:
+  canonisationLevel: Saint
+  firstName: Meinrad
+  sex: male
+  titles:
+    - Martyr
+
+mel:
+  canonisationLevel: Saint
+  firstName: Mel
+  sex: male
+  titles:
+    - Bishop
+    - Abbot
+
+melicharGrodecki:
+  canonisationLevel: Saint
+  firstName: Melichar
+  surname: Grodecki
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+methodius:
+  canonisationLevel: Saint
+  firstName: Methodius
+  sex: male
+  titles:
+    - Bishop
+
+michael:
+  canonisationLevel: Saint
+  firstName: Michael
+  sex: male
+  titles:
+    - Archangel
+
+michaelKozal:
+  canonisationLevel: Blessed
+  firstName: Michael
+  surname: Kozal
+  sex: male
+  titles:
+    - Bishop
+    - Martyr
+
+miguelAgustinPro:
+  canonisationLevel: Blessed
+  firstName: Miguel
+  additionalFirstName: Agustin
+  surname: Pro
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+miguelFebresCordero:
+  canonisationLevel: Saint
+  firstName: Miguel
+  surname: Febres Cordero
+  sex: male
+  titles:
+    - Religious
+
+molaise:
+  canonisationLevel: Saint
+  firstName: Molaise
+  sex: male
+  titles:
+    - Bishop
+  notes: 'laisren, Laserian'
+
+monica:
+  canonisationLevel: Saint
+  firstName: Monica
+  sex: female
+
+moninne:
+  canonisationLevel: Saint
+  firstName: Moninne
+  sex: female
+  titles:
+    - Virgin
+
+munchin:
+  canonisationLevel: Saint
+  firstName: Munchin
+  sex: male
+  titles:
+    - Bishop
+
+muredach:
+  canonisationLevel: Saint
+  firstName: Muredach
+  sex: male
+  titles:
+    - Bishop

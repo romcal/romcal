@@ -1,0 +1,123 @@
+#  Sanctoral - I
+
+ignatiusOfAntioch:
+  canonisationLevel: Saint
+  firstName: Ignatius
+  surname: of Antioch
+  sex: male
+  titles:
+    - Bishop
+    - Martyr
+  celebrationDate1969: 17/10
+  birthDate: 15/05/1935
+  deathDate: 06/07/0108
+
+ignatiusOfLoyola:
+  canonisationLevel: Saint
+  firstName: Ignatius
+  surname: of Loyola
+  sex: male
+  titles:
+    - Priest
+
+ildephonsusOfToledo:
+  canonisationLevel: Saint
+  firstName: Ildephonsus
+  surname: of Toledo
+  sex: male
+  titles:
+    - Bishop
+
+illtud:
+  canonisationLevel: Saint
+  firstName: Illtud
+  sex: male
+  titles:
+    - Abbot
+
+inacioDeAzevedo:
+  canonisationLevel: Blessed
+  firstName: Inacio
+  surname: de Azevedo
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+infantJesus:
+  canonisationLevel: Saint
+  firstName: Infant Jesus
+  sex: male
+
+innocentXi:
+  canonisationLevel: Saint
+  firstName: Innocent XI
+  sex: male
+  titles:
+    - Pope
+
+irenaeus:
+  canonisationLevel: Saint
+  firstName: Irenaeus
+  sex: male
+  titles:
+    - Bishop
+    - Martyr
+
+irene:
+  canonisationLevel: Saint
+  firstName: Irene
+  sex: female
+  titles:
+    - Abbot
+
+isaacJogues:
+  canonisationLevel: Saint
+  firstName: Isaac
+  surname: Jogues
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+isaak:
+  canonisationLevel: Saint
+  firstName: Isaak
+  sex: male
+  titles:
+    - Martyr
+
+isidoreOfSeville:
+  canonisationLevel: Saint
+  firstName: Isidore
+  surname: of Seville
+  sex: male
+  titles:
+    - Bishop
+    - Doctor
+
+isidoreTheFarmer:
+  canonisationLevel: Saint
+  firstName: Isidore
+  surname: the Farmer
+  sex: male
+
+ita:
+  canonisationLevel: Saint
+  firstName: Ita
+  sex: female
+  titles:
+    - Virgin
+
+ivanMerz:
+  canonisationLevel: Blessed
+  firstName: Ivan
+  surname: Merz
+  sex: male
+
+ivo:
+  canonisationLevel: Saint
+  firstName: Ivo
+  sex: male
+  titles:
+    - Priest

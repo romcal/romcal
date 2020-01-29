@@ -1,0 +1,223 @@
+#  Sanctoral - T
+
+teilo:
+  canonisationLevel: Saint
+  firstName: Teilo
+  sex: male
+  titles:
+    - Bishop
+
+teophorus:
+  canonisationLevel: Saint
+  firstName: Teophorus
+  sex: male
+  titles:
+    - Pope
+  celebrationDate1969: 05/01
+  deathDate: c. 137
+
+teresaBenedictaOfTheCross:
+  canonisationLevel: Saint
+  firstName: Teresa
+  additionalFirstName: Benedicta
+  surname: of the Cross
+  sex: female
+  titles:
+    - Virgin
+    - Martyr
+  notes: Edith Stein
+
+teresaOfAvila:
+  canonisationLevel: Saint
+  firstName: Teresa
+  surname: of Ávila
+  sex: male
+  titles:
+    - Virgin
+    - Doctor
+
+teresaOfCalcutta:
+  canonisationLevel: Saint
+  firstName: Teresa
+  surname: of Calcutta
+  sex: female
+  titles:
+    - Religious
+
+teresaOfJesus:
+  canonisationLevel: Saint
+  firstName: Teresa
+  surname: of Jesus
+  sex: female
+  titles:
+    - Virgin
+    - Doctor
+
+teresaOfJesusJornetEIbars:
+  canonisationLevel: Saint
+  firstName: Teresa
+  surname: of Jesus Jornet e Ibars
+  sex: female
+  titles:
+    - Virgin
+
+teresaOfLosAndes:
+  canonisationLevel: Saint
+  firstName: Teresa
+  surname: of Los Andes
+  sex: female
+  titles:
+    - Virgin
+
+teresaOfPortugal:
+  canonisationLevel: Blessed
+  firstName: Teresa
+  surname: of Portugal
+  sex: female
+  titles:
+    - Religious
+
+teresaOfTheChildJesus:
+  canonisationLevel: Saint
+  firstName: Teresa
+  surname: of the Child Jesus
+  sex: female
+  titles:
+    - Virgin
+    - Doctor
+
+theodoreOfCanterbury:
+  canonisationLevel: Saint
+  firstName: Theodore
+  surname: of Canterbury
+  sex: male
+  titles:
+    - Bishop
+
+theodoreRomzha:
+  canonisationLevel: Blessed
+  firstName: Theodore
+  surname: Romzha
+  sex: male
+  titles:
+    - Bishop
+    - Martyr
+
+theodosiusOfTheCaves:
+  canonisationLevel: Saint
+  firstName: Theodosius
+  surname: of the Caves
+  sex: male
+  titles:
+    - Abbot
+
+theotonius:
+  canonisationLevel: Saint
+  firstName: Theotonius
+  sex: male
+  titles:
+    - Priest
+
+thomas:
+  canonisationLevel: Saint
+  firstName: Thomas
+  sex: male
+  titles:
+    - Apostle
+
+thomasAquinas:
+  canonisationLevel: Saint
+  firstName: Thomas
+  surname: Aquinas
+  sex: male
+  titles:
+    - Priest
+    - Doctor
+
+thomasBecket:
+  canonisationLevel: Saint
+  firstName: Thomas
+  surname: Becket
+  sex: male
+  titles:
+    - Bishop
+    - Martyr
+
+thomasMore:
+  canonisationLevel: Saint
+  firstName: Thomas
+  surname: More
+  sex: male
+  titles:
+    - Martyr
+
+thomasOfVillanova:
+  canonisationLevel: Saint
+  firstName: Thomas
+  surname: of Villanova
+  sex: male
+  titles:
+    - Bishop
+
+thomasRokuzayemon:
+  canonisationLevel: Saint
+  firstName: Thomas
+  surname: Rokuzayemon
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+thorfinn:
+  canonisationLevel: Saint
+  firstName: Thorfinn
+  sex: male
+  titles:
+    - Bishop
+
+thorlac:
+  canonisationLevel: Saint
+  firstName: Thorlac
+  sex: male
+  titles:
+    - Bishop
+
+timothy:
+  canonisationLevel: Saint
+  firstName: Timothy
+  sex: male
+  titles:
+    - Bishop
+  celebrationDate1969: 26/01
+  birthDate: c. 17
+  deathDate: c. 97
+
+titus:
+  canonisationLevel: Saint
+  firstName: Titus
+  sex: male
+  titles:
+    - Bishop
+  celebrationDate1969: 26/01
+  birthDate: 1st century
+  deathDate: 96 or 107
+
+titusZeman:
+  canonisationLevel: Blessed
+  firstName: Titus
+  surname: Zeman
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+  celebrationDate1969: 08/01
+  birthDate: 04/01/1915
+  deathDate: 08/01/1969
+
+turibiusOfMogrovejo:
+  canonisationLevel: Saint
+  firstName: Turibius
+  surname: of Mogrovejo
+  sex: male
+  titles:
+    - Bishop

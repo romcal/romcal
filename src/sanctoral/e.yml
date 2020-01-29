@@ -1,0 +1,194 @@
+#  Sanctoral - E
+
+edmundBojanowski:
+  canonisationLevel: Blessed
+  firstName: Edmund
+  surname: Bojanowski
+  sex: male
+
+edmundCampion:
+  canonisationLevel: Saint
+  firstName: Edmund
+  surname: Campion
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+edmundIgnatiusRice:
+  canonisationLevel: Blessed
+  firstName: Edmund
+  additionalFirstName: Ignatius
+  surname: Rice
+  sex: male
+  titles:
+    - Religious
+
+edmundOfAbingdon:
+  canonisationLevel: Saint
+  firstName: Edmund
+  surname: of Abingdon
+  sex: male
+  titles:
+    - Bishop
+    - Abbot
+
+edwardTheConfessor:
+  canonisationLevel: Saint
+  firstName: Edward
+  surname: the Confessor
+  sex: male
+
+elijah:
+  canonisationLevel: Saint
+  firstName: Elijah
+  sex: male
+  titles:
+    - Prophet
+
+elizabethAnnSeton:
+  canonisationLevel: Saint
+  firstName: Elizabeth
+  additionalFirstName: Ann
+  surname: Seton
+  sex: female
+  titles:
+    - Religious
+
+elizabethOfHungary:
+  canonisationLevel: Saint
+  firstName: Elizabeth
+  surname: of Hungary
+  sex: female
+
+elizabethOfPortugal:
+  canonisationLevel: Saint
+  firstName: Elizabeth
+  surname: of Portugal
+  sex: female
+
+emerentiana:
+  canonisationLevel: Saint
+  firstName: Emerentiana
+  sex: female
+  titles:
+    - Martyr
+  celebrationDate1969: 23/01
+  deathDate: c. 304
+
+emeric:
+  canonisationLevel: Saint
+  firstName: Emeric
+  sex: male
+  titles:
+    - Abbot
+
+emilieTavernierGamelin:
+  canonisationLevel: Blessed
+  firstName: Emilie
+  surname: Tavernier Gamelin
+  sex: female
+  titles:
+    - Religious
+
+enda:
+  canonisationLevel: Saint
+  firstName: Enda
+  sex: male
+  titles:
+    - Abbot
+
+ephrem:
+  canonisationLevel: Saint
+  firstName: Ephrem
+  sex: male
+  titles:
+    - Deacon
+    - Doctor
+  notes: Ephraem
+
+eric:
+  canonisationLevel: Saint
+  firstName: Eric
+  sex: male
+  titles:
+    - Martyr
+
+ericIx:
+  canonisationLevel: Saint
+  firstName: Eric IX
+  sex: male
+  titles:
+    - Martyr
+
+etheldreda:
+  canonisationLevel: Saint
+  firstName: Etheldreda
+  sex: female
+  titles:
+    - Virgin
+  notes: Audrey
+
+eugene:
+  canonisationLevel: Saint
+  firstName: Eugene
+  sex: male
+  titles:
+    - Bishop
+  notes: Eoghan
+
+eugeneDeMazenod:
+  canonisationLevel: Saint
+  firstName: Eugene
+  surname: de Mazenod
+  sex: male
+  titles:
+    - Bishop
+
+eulaliaOfMerida:
+  canonisationLevel: Saint
+  firstName: Eulalia
+  surname: of Merida
+  sex: female
+  titles:
+    - Virgin
+    - Martyr
+
+eulogius:
+  canonisationLevel: Saint
+  firstName: Eulogius
+  sex: male
+  titles:
+    - Deacon
+    - Martyr
+
+eulogiusOfCordoba:
+  canonisationLevel: Saint
+  firstName: Eulogius
+  surname: of Cordoba
+  sex: male
+  titles:
+    - Bishop
+
+eusebiusOfVercelli:
+  canonisationLevel: Saint
+  firstName: Eusebius
+  surname: of Vercelli
+  sex: male
+  titles:
+    - Bishop
+
+eysteinn:
+  canonisationLevel: Saint
+  firstName: Eysteinn
+  sex: male
+  titles:
+    - Bishop
+
+ezekielMoreno:
+  canonisationLevel: Saint
+  firstName: Ezekiel
+  surname: Moreno
+  sex: male
+  titles:
+    - Bishop

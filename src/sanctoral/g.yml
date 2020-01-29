@@ -1,0 +1,174 @@
+#  Sanctoral - G
+
+gabriel:
+  canonisationLevel: Saint
+  firstName: Gabriel
+  sex: male
+  titles:
+    - Archangel
+
+gall:
+  canonisationLevel: Saint
+  firstName: Gall
+  sex: male
+  titles:
+    - Abbot
+    - Missionary
+
+gebhardOfConstance:
+  canonisationLevel: Saint
+  firstName: Gebhard
+  surname: of Constance
+  sex: male
+  titles:
+    - Bishop
+
+genevieve:
+  canonisationLevel: Saint
+  firstName: Genevieve
+  sex: female
+  titles:
+    - Virgin
+
+george:
+  canonisationLevel: Saint
+  firstName: George
+  sex: male
+  titles:
+    - Martyr
+
+georgeMatulewicz:
+  canonisationLevel: Blessed
+  firstName: George
+  surname: Matulewicz
+  sex: male
+  titles:
+    - Bishop
+
+georgePreca:
+  canonisationLevel: Saint
+  firstName: George
+  surname: Preca
+  sex: male
+  titles:
+    - Priest
+
+gerard:
+  canonisationLevel: Saint
+  firstName: Gerard
+  sex: male
+  titles:
+    - Bishop
+
+gertrudeOfNivelles:
+  canonisationLevel: Saint
+  firstName: Gertrude
+  surname: of Nivelles
+  sex: female
+  titles:
+    - Virgin
+  notes: Virgin or Abesse
+
+gertrudeTheGreat:
+  canonisationLevel: Saint
+  firstName: Gertrude
+  surname: the Great
+  sex: female
+  titles:
+    - Virgin
+
+gisela:
+  canonisationLevel: Blessed
+  firstName: Gisela
+  sex: female
+
+gleb:
+  canonisationLevel: Saint
+  firstName: Gleb
+  sex: male
+  titles:
+    - Martyr
+
+gobnait:
+  canonisationLevel: Saint
+  firstName: Gobnait
+  sex: female
+  titles:
+    - Virgin
+
+goncaloDeAmarante:
+  canonisationLevel: Blessed
+  firstName: Goncalo
+  surname: de Amarante
+  sex: male
+  titles:
+    - Priest
+
+goncaloDeLagos:
+  canonisationLevel: Blessed
+  firstName: Goncalo
+  surname: de Lagos
+  sex: male
+  titles:
+    - Priest
+
+gonsaloGarcia:
+  canonisationLevel: Saint
+  firstName: Gonsalo
+  surname: Garcia
+  sex: male
+  titles:
+    - Martyr
+
+gorazd:
+  canonisationLevel: Saint
+  firstName: Gorazd
+  sex: male
+  titles:
+    - Bishop
+
+gotthard:
+  canonisationLevel: Saint
+  firstName: Gotthard
+  sex: male
+  titles:
+    - Bishop
+
+graziaOfCattaro:
+  canonisationLevel: Blessed
+  firstName: Grazia
+  surname: of Cattaro
+  sex: female
+
+gregoryNazianzen:
+  canonisationLevel: Saint
+  firstName: Gregory
+  surname: Nazianzen
+  sex: male
+  titles:
+    - Bishop
+    - Doctor
+
+gregoryTheGreat:
+  canonisationLevel: Saint
+  firstName: Gregory
+  surname: the Great
+  sex: male
+  titles:
+    - Pope
+    - Doctor
+
+gregoryVii:
+  canonisationLevel: Saint
+  firstName: Gregory VII
+  sex: male
+  titles:
+    - Pope
+
+guardianAngelOfPortugal:
+  firstName: Guardian Angel
+  surname: of Portugal
+
+guardianAngels:
+  firstName: Guardian Angels
+  number: 1000

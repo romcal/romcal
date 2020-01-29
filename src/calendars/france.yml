@@ -1,0 +1,87 @@
+# Particular Calendar for France
+
+name: France
+
+defaultConfig:
+  - epiphanyOnJan6: false
+  - ascensionOnSunday: true
+  - corpusChristiOnThursday: false
+
+dates:
+
+  saintGenevieveVirgin:
+    date: 1/3
+    type: OPT_MEMORIAL
+
+  saintRemigiusBishop:
+    date: 1/15
+    type: OPT_MEMORIAL
+
+  saintsCyrilMonkAndMethodiusBishop:
+    date: 2/14
+    type: FEAST
+    liturgicalColor: WHITE
+    titles:
+      - PATRON_OF_EUROPE
+
+  saintBernadetteSoubirousVirgin:
+    date: 2/18
+    type: OPT_MEMORIAL
+
+  saintCatherineOfSienaVirginAndDoctorOfTheChurch:
+    date: 4/29
+    type: FEAST
+    liturgicalColor: WHITE
+    titles:
+      - PATRON_OF_EUROPE
+      - DOCTOR_OF_THE_CHURCH
+
+  saintIvoPriest:
+    date: 5/19
+    type: OPT_MEMORIAL
+
+  saintJoanOfArcVirginSecondaryPatronessOfFrance:
+    date: 5/30
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  saintPothinusBishopSaintBlAndinaVirginAndTheirCompanionsMartyrs:
+    date: 6/2
+    type: OPT_MEMORIAL
+
+  saintClotilde:
+    date: 6/4
+    type: OPT_MEMORIAL
+
+  saintBenedictOfNursiaAbbot:
+    date: 7/11
+    type: FEAST
+    liturgicalColor: WHITE
+    titles:
+      - PATRON_OF_EUROPE
+
+  saintBridgetOfSwedenReligious:
+    date: 7/23
+    type: FEAST
+    liturgicalColor: WHITE
+    titles:
+      - PATRON_OF_EUROPE
+
+  saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr:
+    date: 8/9
+    type: FEAST
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+      - PATRON_OF_EUROPE
+
+  saintCaesariusOfArlesBishop:
+    date: 8/26
+    type: OPT_MEMORIAL
+
+  saintThereseOfTheChildJesusVirginSecondaryPatronessOfFrance:
+    date: 10/1
+    type: MEMORIAL
+    liturgicalColor: WHITE
+    titles:
+      - DOCTOR_OF_THE_CHURCH

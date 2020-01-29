@@ -1,0 +1,522 @@
+#  Sanctoral - A
+
+aaron:
+  canonisationLevel: Saint
+  firstName: Aaron
+  sex: male
+  titles:
+    - Martyr
+
+abachum:
+  canonisationLevel: Saint
+  firstName: Abachum
+  sex: male
+  titles:
+    - Martyr
+  celebrationDate1969: 19/01
+  deathDate: 270
+
+achilleus:
+  canonisationLevel: Saint
+  firstName: Achilleus
+  sex: male
+  titles:
+    - Martyr
+
+adalbert:
+  canonisationLevel: Saint
+  firstName: Adalbert
+  sex: male
+  titles:
+    - Bishop
+    - Martyr
+
+adalbertOfPrague:
+  canonisationLevel: Saint
+  firstName: Adalbert
+  surname: of Prague
+  sex: male
+  titles:
+    - Bishop
+    - Martyr
+
+adolphKolping:
+  canonisationLevel: Blessed
+  firstName: Adolph
+  surname: Kolping
+  sex: male
+  titles:
+    - Priest
+
+aelredOfRievaulx:
+  canonisationLevel: Saint
+  firstName: Aelred
+  surname: of Rievaulx
+  sex: male
+
+aengus:
+  canonisationLevel: Saint
+  firstName: Aengus
+  sex: male
+  titles:
+    - Bishop
+    - Abbot
+  notes: Oengus
+
+agatha:
+  canonisationLevel: Saint
+  firstName: Agatha
+  sex: female
+  titles:
+    - Virgin
+    - Martyr
+
+agnes:
+  canonisationLevel: Saint
+  firstName: Agnes
+  sex: female
+  titles:
+    - Virgin
+    - Martyr
+
+agnesOfBohemia:
+  canonisationLevel: Saint
+  firstName: Agnes
+  surname: of Bohemia
+  sex: female
+  titles:
+    - Virgin
+
+aidan:
+  canonisationLevel: Saint
+  firstName: Aidan
+  sex: male
+  titles:
+    - Bishop
+
+aidanOfLindisfarne:
+  canonisationLevel: Saint
+  firstName: Aidan
+  surname: of Lindisfarne
+  sex: male
+  titles:
+    - Bishop
+    - Missionary
+
+ailbe:
+  canonisationLevel: Saint
+  firstName: Ailbe
+  sex: male
+  titles:
+    - Bishop
+
+alban:
+  canonisationLevel: Saint
+  firstName: Alban
+  sex: male
+  titles:
+    - Martyr
+
+albertChmielowski:
+  canonisationLevel: Saint
+  firstName: Albert
+  surname: Chmielowski
+  sex: male
+  titles:
+    - Religious
+
+albertinaBerkenbrock:
+  canonisationLevel: Blessed
+  firstName: Albertina
+  surname: Berkenbrock
+  sex: female
+  titles:
+    - Virgin
+    - Martyr
+
+albertoHurtado:
+  canonisationLevel: Saint
+  firstName: Alberto
+  surname: Hurtado
+  sex: male
+  titles:
+    - Priest
+
+albertTheGreat:
+  canonisationLevel: Saint
+  firstName: Albert
+  surname: the Great
+  sex: male
+  titles:
+    - Bishop
+    - Doctor
+    - Abbot
+
+alfonsoRodriguezOlmedo:
+  canonisationLevel: Saint
+  firstName: Alfonso
+  surname: Rodriguez Olmedo
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+allSaints:
+  canonisationLevel: Saint
+  firstName: All Saints
+  number: 1000
+
+allSaintsOfIreland:
+  canonisationLevel: Saint
+  firstName: All Saints
+  surname: of Ireland
+  number: 1000
+
+allSaintsOfWales:
+  canonisationLevel: Saint
+  firstName: All Saints
+  surname: of Wales
+  number: 1000
+
+allSouls:
+  canonisationLevel: Both
+  firstName: All Souls
+  number: 1000
+
+aloysiusGonzaga:
+  canonisationLevel: Saint
+  firstName: Aloysius
+  surname: Gonzaga
+  sex: male
+  titles:
+    - Religious
+
+aloysiusStepinac:
+  canonisationLevel: Saint
+  firstName: Aloysius
+  surname: Stepinac
+  sex: male
+  titles:
+    - Bishop
+    - Martyr
+
+alphonsaOfTheImmaculateConception:
+  canonisationLevel: Saint
+  firstName: Alphonsa
+  surname: of the Immaculate Conception
+  sex: female
+  titles:
+    - Virgin
+
+alponsusMariaDeLiguori:
+  canonisationLevel: Saint
+  firstName: Alponsus
+  additionalFirstName: Maria
+  surname: de’ Liguori
+  sex: male
+  titles:
+    - Bishop
+    - Doctor
+
+amand:
+  canonisationLevel: Saint
+  firstName: Amand
+  sex: male
+  titles:
+    - Missionary
+
+ambrose:
+  canonisationLevel: Saint
+  firstName: Ambrose
+  sex: male
+  titles:
+    - Bishop
+    - Doctor
+
+ambroseFrancisFerro:
+  canonisationLevel: Blessed
+  firstName: Ambrose
+  additionalFirstName: Francis
+  surname: Ferro
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+  notes: Ambrosio Francisco Ferro
+
+anastasius:
+  canonisationLevel: Saint
+  firstName: Anastasius
+  sex: male
+  titles:
+    - Martyr
+  celebrationDate1969: 22/01
+  birthDate: 6th century
+  deathDate: 22/628
+
+andreBessette:
+  canonisationLevel: Saint
+  firstName: André
+  surname: Bessette
+  sex: male
+  titles:
+    - Religious
+
+andreDeSoveral:
+  canonisationLevel: Blessed
+  firstName: Andre
+  surname: de Soveral
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+andreGrasset:
+  canonisationLevel: Blessed
+  firstName: André
+  surname: Grasset
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+andrew:
+  canonisationLevel: Saint
+  firstName: Andrew
+  sex: male
+  titles:
+    - Apostle
+
+andrewBobola:
+  canonisationLevel: Saint
+  firstName: Andrew
+  surname: Bobola
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+andrewDungLac:
+  canonisationLevel: Saint
+  firstName: Andrew
+  surname: Dung-Lac
+  sex: male
+  titles:
+    - Martyr
+  notes: Vietnamese Martyrs
+
+andrewKimTaegon:
+  canonisationLevel: Saint
+  firstName: Andrew
+  surname: Kim Taegon
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+andrewZorard:
+  canonisationLevel: Saint
+  firstName: Andrew
+  additionalFirstName: Zorard
+  sex: male
+  titles:
+    - Hermit
+  notes: Andrew Zoerardus
+
+angelaMerici:
+  canonisationLevel: Saint
+  firstName: Angela
+  surname: Merici
+  sex: female
+  titles:
+    - Virgin
+
+anielaSalawa:
+  canonisationLevel: Blessed
+  firstName: Aniela
+  surname: Salawa
+  sex: female
+  titles:
+    - Virgin
+
+anne:
+  canonisationLevel: Saint
+  firstName: Anne
+  sex: female
+
+anneLine:
+  canonisationLevel: Saint
+  firstName: Anne
+  surname: Line
+  sex: female
+  titles:
+    - Martyr
+
+annoIi:
+  canonisationLevel: Saint
+  firstName: Anno II
+  sex: male
+  titles:
+    - Bishop
+
+anselmOfCanterbury:
+  canonisationLevel: Saint
+  firstName: Anselm
+  surname: of Canterbury
+  sex: male
+  titles:
+    - Bishop
+    - Doctor
+
+ansgar:
+  canonisationLevel: Saint
+  firstName: Ansgar
+  sex: male
+  titles:
+    - Bishop
+
+anthonyMaryClaret:
+  canonisationLevel: Saint
+  firstName: Anthony
+  additionalFirstName: Mary
+  surname: Claret
+  sex: male
+  titles:
+    - Priest
+
+anthonyOfEgypt:
+  canonisationLevel: Saint
+  firstName: Anthony
+  surname: of Egypt
+  sex: male
+  titles:
+    - Abbot
+
+anthonyOfLisbon:
+  canonisationLevel: Saint
+  firstName: Anthony
+  surname: of Lisbon
+  sex: male
+  titles:
+    - Priest
+    - Doctor
+
+anthonyOfPadua:
+  canonisationLevel: Saint
+  firstName: Anthony
+  surname: of Padua
+  sex: male
+  titles:
+    - Priest
+    - Doctor
+
+anthonyOfTheCaves:
+  canonisationLevel: Saint
+  firstName: Anthony
+  surname: of the Caves
+  sex: male
+  titles:
+    - Monk
+
+anthonyZaccaria:
+  canonisationLevel: Saint
+  firstName: Anthony
+  surname: Zaccaria
+  sex: male
+  titles:
+    - Priest
+
+antoniNowowiejski:
+  canonisationLevel: Blessed
+  firstName: Antoni
+  surname: Nowowiejski
+  sex: male
+  titles:
+    - Bishop
+    - Martyr
+
+apollinaris:
+  canonisationLevel: Saint
+  firstName: Apollinaris
+  sex: male
+
+asaph:
+  canonisationLevel: Saint
+  firstName: Asaph
+  sex: male
+  titles:
+    - Bishop
+
+asicus:
+  canonisationLevel: Saint
+  firstName: Asicus
+  sex: male
+  titles:
+    - Bishop
+
+athanasius:
+  canonisationLevel: Saint
+  firstName: Athanasius
+  sex: male
+  titles:
+    - Bishop
+    - Doctor
+
+attracta:
+  canonisationLevel: Saint
+  firstName: Attracta
+  sex: female
+  titles:
+    - Virgin
+
+audifax:
+  canonisationLevel: Saint
+  firstName: Audifax
+  sex: male
+  titles:
+    - Martyr
+  celebrationDate1969: 19/01
+  deathDate: 270
+
+augurius:
+  canonisationLevel: Saint
+  firstName: Augurius
+  sex: male
+  titles:
+    - Deacon
+    - Martyr
+
+augustineOfCanterbury:
+  canonisationLevel: Saint
+  firstName: Augustine
+  surname: of Canterbury
+  sex: male
+  titles:
+    - Bishop
+
+augustineOfHippo:
+  canonisationLevel: Saint
+  firstName: Augustine
+  surname: of Hippo
+  sex: male
+  titles:
+    - Bishop
+    - Doctor
+
+augustineZhaoRong:
+  canonisationLevel: Saint
+  firstName: Augustine
+  surname: Zhao Rong
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+augustinKazotic:
+  canonisationLevel: Blessed
+  firstName: Augustin
+  surname: Kazotic
+  sex: male
+  titles:
+    - Bishop
+    - Martyr

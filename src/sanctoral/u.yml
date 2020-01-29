@@ -1,0 +1,23 @@
+#  Sanctoral - U
+
+ulrichOfAugsburg:
+  canonisationLevel: Saint
+  firstName: Ulrich
+  surname: of Augsburg
+  sex: male
+
+ursula:
+  canonisationLevel: Saint
+  firstName: Ursula
+  sex: female
+  titles:
+    - Virgin
+    - Martyr
+
+ursulaLedochowska:
+  canonisationLevel: Saint
+  firstName: Ursula
+  surname: Ledochowska
+  sex: female
+  titles:
+    - Virgin

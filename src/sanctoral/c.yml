@@ -1,0 +1,414 @@
+#  Sanctoral - C
+
+caesariusOfArles:
+  canonisationLevel: Saint
+  firstName: Caesarius
+  surname: of Arles
+  sex: male
+  titles:
+    - Bishop
+
+cajetan:
+  canonisationLevel: Saint
+  firstName: Cajetan
+  sex: male
+  titles:
+    - Priest
+
+callistusI:
+  canonisationLevel: Saint
+  firstName: Callistus I
+  sex: male
+  titles:
+    - Pope
+    - Martyr
+
+camillusDeLellis:
+  canonisationLevel: Saint
+  firstName: Camillus
+  surname: de Lellis
+  sex: male
+  titles:
+    - Priest
+
+canice:
+  canonisationLevel: Saint
+  firstName: Canice
+  sex: male
+  titles:
+    - Abbot
+
+canute:
+  canonisationLevel: Saint
+  firstName: Canute
+  sex: male
+  titles:
+    - Martyr
+  celebrationDate1969: 19/01
+
+carlosManuelRodrigues:
+  canonisationLevel: Blessed
+  firstName: Carlos
+  additionalFirstName: Manuel
+  surname: Rodrigues
+  sex: male
+
+carlosSpinola:
+  canonisationLevel: Blessed
+  firstName: Carlos
+  surname: Spinola
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+carthage:
+  canonisationLevel: Saint
+  firstName: Carthage
+  sex: male
+  titles:
+    - Bishop
+  notes: Mochuta
+
+casimir:
+  canonisationLevel: Saint
+  firstName: Casimir
+  sex: male
+
+catherineOfAlexandria:
+  canonisationLevel: Saint
+  firstName: Catherine
+  surname: of Alexandria
+  sex: female
+  titles:
+    - Virgin
+    - Martyr
+
+catherineOfSaintAugustine:
+  canonisationLevel: Blessed
+  firstName: Catherine
+  surname: of Saint Augustine
+  sex: female
+  titles:
+    - Virgin
+
+catherineOfSiena:
+  canonisationLevel: Saint
+  firstName: Catherine
+  surname: of Siena
+  sex: female
+  titles:
+    - Virgin
+    - Doctor
+
+ceallach:
+  canonisationLevel: Saint
+  firstName: Ceallach
+  sex: male
+  titles:
+    - Bishop
+  notes: Celsus
+
+cecilia:
+  canonisationLevel: Saint
+  firstName: Cecilia
+  sex: female
+  titles:
+    - Virgin
+    - Martyr
+
+cedd:
+  canonisationLevel: Saint
+  firstName: Cedd
+  sex: male
+  titles:
+    - Bishop
+    - Missionary
+
+ceferinoNamuncura:
+  canonisationLevel: Blessed
+  firstName: Ceferino
+  surname: Namuncura
+  sex: male
+
+ceslaus:
+  canonisationLevel: Blessed
+  firstName: Ceslaus
+  sex: male
+  titles:
+    - Priest
+  notes: 'Czeslaw, Priest and Abbot'
+
+chad:
+  canonisationLevel: Saint
+  firstName: Chad
+  sex: male
+  titles:
+    - Bishop
+    - Missionary
+
+charbelMakhlouf:
+  canonisationLevel: Saint
+  firstName: Charbel
+  surname: Makhlouf
+  sex: male
+  titles:
+    - Priest
+    - Hermit
+
+charlesBorromeo:
+  canonisationLevel: Saint
+  firstName: Charles
+  surname: Borromeo
+  sex: male
+  titles:
+    - Bishop
+
+charlesLwanga:
+  canonisationLevel: Saint
+  firstName: Charles
+  surname: Lwanga
+  sex: male
+  titles:
+    - Martyr
+
+charlesSpinola:
+  canonisationLevel: Blessed
+  firstName: Charles
+  surname: Spinola
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+christopher:
+  canonisationLevel: Saint
+  firstName: Christopher
+  sex: male
+  titles:
+    - Martyr
+
+christopherMagallanes:
+  canonisationLevel: Saint
+  firstName: Christopher
+  surname: Magallanes
+  sex: male
+  titles:
+    - Martyr
+
+christTheKing:
+  canonisationLevel: Saint
+  firstName: Christ
+  surname: the King
+  sex: male
+
+claran:
+  canonisationLevel: Saint
+  firstName: Claran
+  sex: male
+  titles:
+    - Abbot
+
+clare:
+  canonisationLevel: Saint
+  firstName: Clare
+  sex: female
+  titles:
+    - Virgin
+
+clementI:
+  canonisationLevel: Saint
+  firstName: Clement I
+  sex: male
+  titles:
+    - Pope
+    - Martyr
+
+clementMaryHofbauer:
+  canonisationLevel: Saint
+  firstName: Clement
+  additionalFirstName: Mary
+  surname: Hofbauer
+  sex: male
+  titles:
+    - Priest
+
+clementOfOhrid:
+  canonisationLevel: Saint
+  firstName: Clement
+  surname: of Ohrid
+  sex: male
+  titles:
+    - Bishop
+
+clotilde:
+  canonisationLevel: Saint
+  firstName: Clotilde
+  sex: female
+
+colmanOfCloyne:
+  canonisationLevel: Saint
+  firstName: Colman
+  surname: of Cloyne
+  sex: male
+  titles:
+    - Bishop
+
+colmanOfDromore:
+  canonisationLevel: Saint
+  firstName: Colman
+  surname: of Dromore
+  sex: male
+  titles:
+    - Bishop
+
+colmanOfKilmacduagh:
+  canonisationLevel: Saint
+  firstName: Colman
+  surname: of Kilmacduagh
+  sex: male
+  titles:
+    - Bishop
+    - Abbot
+
+columbaAbbotAndMissionary:
+  canonisationLevel: Saint
+  firstName: Columba
+  sex: male
+  titles:
+    - Abbot
+    - Missionary
+
+columba:
+  canonisationLevel: Saint
+  firstName: Columba
+  sex: male
+
+columbaAbbot:
+  canonisationLevel: Saint
+  firstName: Columba
+  sex: male
+  titles:
+    - Abbot
+  notes: Colum Cille
+
+columbaMarmion:
+  canonisationLevel: Blessed
+  firstName: Columba
+  surname: Marmion
+  sex: male
+  titles:
+    - Priest
+
+columbanReligious:
+  canonisationLevel: Saint
+  firstName: Columban
+  sex: male
+  titles:
+    - Religious
+
+columbanMissionaryAndAbbot:
+  canonisationLevel: Saint
+  firstName: Columban
+  sex: male
+  titles:
+    - Missionary
+    - Abbot
+
+comgall:
+  canonisationLevel: Saint
+  firstName: Comgall
+  sex: male
+  titles:
+    - Abbot
+
+conleth:
+  canonisationLevel: Saint
+  firstName: Conleth
+  sex: male
+  titles:
+    - Bishop
+
+conradOfConstance:
+  canonisationLevel: Saint
+  firstName: Conrad
+  surname: of Constance
+  sex: male
+  titles:
+    - Bishop
+
+conradOfParzham:
+  canonisationLevel: Saint
+  firstName: Conrad
+  surname: of Parzham
+  sex: male
+  titles:
+    - Religious
+
+corbinian:
+  canonisationLevel: Saint
+  firstName: Corbinian
+  sex: male
+  titles:
+    - Bishop
+
+cornelius:
+  canonisationLevel: Saint
+  firstName: Cornelius
+  sex: male
+  titles:
+    - Pope
+    - Martyr
+
+cosmas:
+  canonisationLevel: Saint
+  firstName: Cosmas
+  sex: male
+  titles:
+    - Martyr
+
+cunigunde:
+  canonisationLevel: Saint
+  firstName: Cunigunde
+  sex: female
+
+cuthbert:
+  canonisationLevel: Saint
+  firstName: Cuthbert
+  sex: male
+  titles:
+    - Bishop
+
+cyprian:
+  canonisationLevel: Saint
+  firstName: Cyprian
+  sex: male
+  titles:
+    - Bishop
+    - Martyr
+
+cyril:
+  canonisationLevel: Saint
+  firstName: Cyril
+  sex: male
+  titles:
+    - Monk
+  notes: Slavic Missionary
+
+cyrilOfAlexandria:
+  canonisationLevel: Saint
+  firstName: Cyril
+  surname: of Alexandria
+  sex: male
+  titles:
+    - Bishop
+    - Doctor
+
+cyrilOfJerusalem:
+  canonisationLevel: Saint
+  firstName: Cyril
+  surname: of Jerusalem
+  sex: male
+  titles:
+    - Bishop
+    - Doctor

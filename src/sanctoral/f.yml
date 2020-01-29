@@ -1,0 +1,281 @@
+#  Sanctoral - F
+
+fabian:
+  canonisationLevel: Saint
+  firstName: Fabian
+  sex: male
+  titles:
+    - Pope
+    - Martyr
+
+fachananOfKilfenora:
+  canonisationLevel: Saint
+  firstName: Fachanan
+  surname: of Kilfenora
+  sex: male
+  titles:
+    - Bishop
+
+fachtna:
+  canonisationLevel: Saint
+  firstName: Fachtna
+  sex: male
+  titles:
+    - Bishop
+
+faustinaKowalska:
+  canonisationLevel: Saint
+  firstName: Faustina
+  surname: Kowalska
+  sex: female
+  titles:
+    - Virgin
+    - Religious
+
+felicity:
+  canonisationLevel: Saint
+  firstName: Felicity
+  sex: female
+  titles:
+    - Martyr
+
+felipeDeJesus:
+  canonisationLevel: Saint
+  firstName: Felipe
+  surname: de Jesus
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+felix:
+  canonisationLevel: Saint
+  firstName: Felix
+  sex: male
+  titles:
+    - Priest
+  celebrationDate1969: 14/01
+  deathDate: c. 250
+
+ferdinand:
+  canonisationLevel: Saint
+  firstName: Ferdinand
+  sex: male
+
+fergal:
+  canonisationLevel: Saint
+  firstName: Fergal
+  sex: male
+  titles:
+    - Bishop
+    - Missionary
+
+fergaOfSalzburg:
+  canonisationLevel: Saint
+  firstName: Ferga
+  surname: of Salzburg
+  sex: male
+  titles:
+    - Bishop
+  notes: 'Virgilius, Vergirlius'
+
+fiacre:
+  canonisationLevel: Saint
+  firstName: Fiacre
+  sex: male
+  titles:
+    - Monk
+
+fidelisOfSigmaringen:
+  canonisationLevel: Saint
+  firstName: Fidelis
+  surname: of Sigmaringen
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+finbarr:
+  canonisationLevel: Saint
+  firstName: Finbarr
+  sex: male
+  titles:
+    - Bishop
+
+finnianOfClonard:
+  canonisationLevel: Saint
+  firstName: Finnian
+  surname: of Clonard
+  sex: male
+  titles:
+    - Bishop
+
+fintan:
+  canonisationLevel: Saint
+  firstName: Fintan
+  sex: male
+
+firstMartyrsOfTheChurchOfRome:
+  canonisationLevel: Saint
+  firstName: First Martyrs
+  surname: of the Church of Rome
+  notes: >-
+    The First Martyrs of the See of Rome; The First Martyrs of the Church of
+    Rome
+
+flannan:
+  canonisationLevel: Saint
+  firstName: Flannan
+  sex: male
+  titles:
+    - Bishop
+
+florian:
+  canonisationLevel: Saint
+  firstName: Florian
+  sex: male
+
+florianMartyr:
+  canonisationLevel: Saint
+  firstName: Florian
+  sex: male
+  titles:
+    - Martyr
+
+fortyMartyrsOfEnglandAndWales:
+  canonisationLevel: Saint
+  firstName: Forty Martyrs
+  surname: of England and Wales
+  number: 40
+  titles:
+    - Martyr
+  requireDefiniteArticle: true
+  birthDate: multiple
+  deathDate: multiple
+  notes: >-
+    John Almond, Edmund Arrowsmith, Ambrose Barlow, John Boste, Alexander
+    Briant, Edmund Campion, Margaret Clitherow, Philip Evans, Thomas Garnet,
+    Edmund Gennings, Richard Gwyn, John Houghton, Philip Howard, John Jones,
+    John Kemble, Luke Kirby, Robert Lawrence, David Lewis, Anne Line, John
+    Lloyd, Cuthbert Mayne, Henry Morse, Nicholas Owen, John Payne, Polydore
+    Plasden, John Plessington, Richard Reynolds, John Rigby, John Roberts, Alban
+    Roe, Ralph Sherwin, Robert Southwell, John Southworth, John Stone, John
+    Wall, Henry Walpole, Margaret Ward, Augustine Webster, Swithun Wells,
+    Eustace White
+
+francesOfRome:
+  canonisationLevel: Saint
+  firstName: Frances
+  surname: of Rome
+  sex: female
+  titles:
+    - Religious
+
+francesXavierCabrini:
+  canonisationLevel: Saint
+  firstName: Frances
+  surname: Xavier Cabrini
+  sex: female
+  titles:
+    - Virgin
+
+francisBorgia:
+  canonisationLevel: Saint
+  firstName: Francis
+  surname: Borgia
+  sex: male
+  titles:
+    - Priest
+
+franciscoDeJesusMarto:
+  canonisationLevel: Blessed
+  firstName: Francisco
+  surname: de Jesus Marto
+  sex: male
+
+francisDeSales:
+  canonisationLevel: Saint
+  firstName: Francis
+  surname: de Sales
+  sex: male
+  titles:
+    - Bishop
+    - Doctor
+  celebrationDate1969: 24/01
+  birthDate: 21/08/1567
+  deathDate: 28/12/1622
+
+francisOfAssisi:
+  canonisationLevel: Saint
+  firstName: Francis
+  surname: of Assisi
+  sex: male
+
+francisOfPaola:
+  canonisationLevel: Saint
+  firstName: Francis
+  surname: of Paola
+  sex: male
+  titles:
+    - Hermit
+
+francisSolanus:
+  canonisationLevel: Saint
+  firstName: Francis
+  surname: Solanus
+  sex: male
+  titles:
+    - Priest
+
+francisXavier:
+  canonisationLevel: Saint
+  firstName: Francis
+  surname: Xavier
+  sex: male
+  titles:
+    - Priest
+
+francoisDeLaval:
+  canonisationLevel: Saint
+  firstName: Francois
+  surname: de Laval
+  sex: male
+  titles:
+    - Bishop
+
+fredericJanssoone:
+  canonisationLevel: Blessed
+  firstName: Frédéric
+  surname: Janssoone
+  sex: male
+  titles:
+    - Priest
+
+freiGalvao:
+  canonisationLevel: Saint
+  namePrefix: Frei
+  firstName: Galvão
+  sex: male
+
+fridolinSackingen:
+  canonisationLevel: Saint
+  firstName: Fridolin
+  surname: Säckingen
+  sex: male
+  titles:
+    - Monk
+
+fructuosus:
+  canonisationLevel: Saint
+  firstName: Fructuosus
+  sex: male
+  titles:
+    - Bishop
+
+fursa:
+  canonisationLevel: Saint
+  firstName: Fursa
+  sex: male
+  titles:
+    - Abbot
+    - Missionary

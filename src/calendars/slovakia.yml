@@ -1,0 +1,168 @@
+# Particular Calendar for Slovakia
+
+name: Slovakia
+
+defaultConfig:
+  - epiphanyOnJan6: true
+
+dates:
+
+  saintAdalbertBishopAndMartyr:
+    date: 4/23
+    type: MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintGeorgeMartyr:
+    date: 4/24
+    type: OPT_MEMORIAL
+    titles:
+      - MARTYR
+
+  saintCatherineOfSienaVirginAndDoctorOfTheChurch:
+    date: 4/29
+    type: FEAST
+    liturgicalColor: WHITE
+    titles:
+      - PATRON_OF_EUROPE
+      - DOCTOR_OF_THE_CHURCH
+
+  saintFlorianMartyr:
+    date: 5/4
+    type: OPT_MEMORIAL
+    liturgicalColor: RED
+
+  blessedSaraSalkahaziVirginAndMartyr:
+    date: 5/11
+    type: OPT_MEMORIAL
+    titles:
+      - MARTYR
+
+  saintJohnNepomucenePriestAndMartyr:
+    date: 5/16
+    type: MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintLadislaus:
+    date: 6/27
+    type: OPT_MEMORIAL
+
+  visitationOfTheBlessedVirginMary:
+    date: 7/2
+    type: FEAST
+    liturgicalColor: WHITE
+
+  saintsCyrilMonkAndMethodiusBishop:
+    date: 7/5
+    type: SOLEMNITY
+    liturgicalColor: WHITE
+    titles:
+      - PATRON_OF_EUROPE
+
+  saintAnthonyZaccariaPriest:
+    date: 7/7
+    type: OPT_MEMORIAL
+
+  saintBenedictOfNursiaAbbot:
+    date: 7/11
+    type: FEAST
+    liturgicalColor: WHITE
+    titles:
+      - PATRON_OF_EUROPE
+
+  saintsAndrewZoerardusAndBenedictHermits:
+    date: 7/17
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  saintBridgetOfSwedenReligious:
+    date: 7/23
+    type: FEAST
+    liturgicalColor: WHITE
+    titles:
+      - PATRON_OF_EUROPE
+
+  saintGorazdAndCompanions:
+    date: 7/27
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  blessedZdenkaSchelingovaVirginAndMartyr:
+    date: 7/30
+    type: OPT_MEMORIAL
+    titles:
+      - MARTYR
+
+  saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr:
+    date: 8/9
+    type: FEAST
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+      - PATRON_OF_EUROPE
+
+  saintHelena:
+    date: 8/18
+    type: OPT_MEMORIAL
+    liturgicalColor: WHITE
+
+  saintTeresaOfCalcuttaReligious:
+    date: 9/5
+    type: OPT_MEMORIAL
+    liturgicalColor: WHITE
+
+  saintsMarkoKrizinMelicharGrodeckiAndStephenPongracPriestsAndMartyrs:
+    date: 9/7
+    type: MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  ourLadyOfSorrows:
+    date: 9/15
+    type: SOLEMNITY
+    liturgicalColor: WHITE
+
+  saintFaustinaKowalskaVirginAndReligious:
+    date: 10/5
+    type: OPT_MEMORIAL
+    liturgicalColor: WHITE
+
+  saintGallAbbotAndMissionary:
+    date: 10/16
+    type: OPT_MEMORIAL
+
+  saintMaurusBishop:
+    date: 10/25
+    type: OPT_MEMORIAL
+    liturgicalColor: WHITE
+
+  dedicationOfAParticularChurch:
+    date: 10/26
+    type: SOLEMNITY
+    liturgicalColor: WHITE
+
+  allSouls:
+    date: 11/2
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  saintEmeric:
+    date: 11/5
+    type: OPT_MEMORIAL
+
+  saintJohnDamascenePriestAndDoctor:
+    drop: true
+
+  saintJohnDamascenePriestAndDoctorOrSaintBarbaraVirginAndMartyr:
+    date: 12/4
+    type: OPT_MEMORIAL
+    liturgicalColor: RED
+
+  ourLordJesusChristTheEternalHighPriest:
+    date: $pentecostSunday + 4
+    type: FEAST
+    liturgicalColor: WHITE

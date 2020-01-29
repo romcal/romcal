@@ -1,0 +1,1020 @@
+# General Calendar
+
+name: General
+
+defaultConfig:
+  - christmastideEnds: ordinary
+  - christmastideIncludesTheSeasonOfEpiphany: true
+  - epiphanyOnJan6: false
+  - ascensionOnSunday: true
+  - corpusChristiOnThursday: false
+
+dates:
+
+  saintsBasilTheGreatAndGregoryNazianzenBishopsAndDoctors:
+    date: 1/2
+    type: MEMORIAL
+    liturgicalColor: WHITE
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  theMostHolyNameOfJesus:
+    date: 1/3
+    type: OPT_MEMORIAL
+
+  saintRaymondOfPenyafortPriest:
+    date: 1/7
+    type: OPT_MEMORIAL
+
+  saintHilaryOfPoitiersBishopAndDoctor:
+    date: 1/13
+    type: OPT_MEMORIAL
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  saintAnthonyOfEgyptAbbot:
+    date: 1/17
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  saintsFabianPopeAndSebastianMartyrs:
+    date: 1/20
+    type: OPT_MEMORIAL
+    titles:
+      - MARTYR
+
+  saintAgnesVirginAndMartyr:
+    date: 1/21
+    type: MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintVincentDeaconAndMartyr:
+    date: 1/22
+    type: OPT_MEMORIAL
+    titles:
+      - MARTYR
+
+  saintFrancisDeSalesBishopAndDoctor:
+    date: 1/24
+    type: MEMORIAL
+    liturgicalColor: WHITE
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  conversionOfSaintPaulApostle:
+    date: 1/25
+    type: FEAST
+    # The proper color for the Conversion of St. Paul is white, although St. Paul was martyr.
+    liturgicalColor: WHITE
+
+  saintsTimothyAndTitusBishops:
+    date: 1/26
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  saintAngelaMericiVirgin:
+    date: 1/27
+    type: OPT_MEMORIAL
+
+  saintThomasAquinasPriestAndDoctor:
+    date: 1/28
+    type: MEMORIAL
+    liturgicalColor: WHITE
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  saintJohnBoscoPriest:
+    date: 1/31
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  saintBlaseBishopAndMartyrSaintAnsgarBishop:
+    date: 2/3
+    type: OPT_MEMORIAL
+
+  saintAgathaVirginAndMartyr:
+    date: 2/5
+    type: MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintPaulMikiAndCompanionsMartyrs:
+    date: 2/6
+    type: MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintJeromeEmilianiSaintJosephineBakhitaVirgin:
+    date: 2/8
+    type: OPT_MEMORIAL
+
+  saintScholasticaVirgin:
+    date: 2/10
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  ourLadyOfLourdes:
+    date: 2/11
+    type: OPT_MEMORIAL
+
+  saintsCyrilMonkAndMethodiusBishop:
+    date: 2/14
+    type: MEMORIAL
+    liturgicalColor: WHITE
+    titles:
+      - PATRON_OF_EUROPE
+
+  sevenHolyFoundersOfTheServiteOrder:
+    date: 2/17
+    type: OPT_MEMORIAL
+
+  saintPeterDamianBishopAndDoctorOfTheChurch:
+    date: 2/21
+    type: OPT_MEMORIAL
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  chairOfSaintPeterApostle:
+    date: 2/22
+    type: FEAST
+    # The proper color for the Chair of Peter is white, although St. Peter was martyr.
+    liturgicalColor: WHITE
+
+  saintPolycarpBishopAndMartyr:
+    date: 2/23
+    type: MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintCasimir:
+    date: 3/4
+    type: OPT_MEMORIAL
+
+  saintsPerpetuaAndFelicityMartyrs:
+    date: 3/7
+    type: MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintJohnOfGodReligious:
+    date: 3/8
+    type: OPT_MEMORIAL
+
+  saintFrancesOfRomeReligious:
+    date: 3/9
+    type: OPT_MEMORIAL
+
+  saintPatrickBishop:
+    date: 3/17
+    type: OPT_MEMORIAL
+
+  saintCyrilOfJerusalemBishopAndDoctor:
+    date: 3/18
+    type: OPT_MEMORIAL
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  saintTuribiusOfMogrovejoBishop:
+    date: 3/23
+    type: OPT_MEMORIAL
+
+  saintFrancisOfPaolaHermit:
+    date: 4/2
+    type: OPT_MEMORIAL
+
+  saintIsidoreOfSevilleBishopAndDoctorOfTheChurch:
+    date: 4/4
+    type: OPT_MEMORIAL
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  saintVincentFerrerPriest:
+    date: 4/5
+    type: OPT_MEMORIAL
+
+  saintJohnBaptistDeLaSallePriest:
+    date: 4/7
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  saintStanislausBishopAndMartyr:
+    date: 4/11
+    type: MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintMartinIPopeAndMartyr:
+    date: 4/13
+    type: OPT_MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintAnselmOfCanterburyBishopAndDoctorOfTheChurch:
+    date: 4/21
+    type: OPT_MEMORIAL
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  saintGeorgeMartyrSaintAdalbertBishopAndMartyr:
+    date: 4/23
+    type: OPT_MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintFidelisOfSigmaringenPriestAndMartyr:
+    date: 4/24
+    type: OPT_MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintMarkTheEvangelist:
+    date: 4/25
+    type: FEAST
+    liturgicalColor: WHITE
+
+  saintPeterChanelPriestAndMartyrSaintLouisGrignonDeMontfortPriest:
+    date: 4/28
+    type: OPT_MEMORIAL
+
+  saintCatherineOfSienaVirginAndDoctorOfTheChurch:
+    date: 4/29
+    type: MEMORIAL
+    liturgicalColor: WHITE
+    titles:
+      - PATRON_OF_EUROPE
+      - DOCTOR_OF_THE_CHURCH
+
+  saintPiusVPope:
+    date: 4/30
+    type: OPT_MEMORIAL
+
+  saintJosephTheWorker:
+    date: 5/1
+    type: OPT_MEMORIAL
+
+  saintAthanasiusBishopAndDoctor:
+    date: 5/2
+    type: MEMORIAL
+    liturgicalColor: WHITE
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  saintsPhilipAndJamesApostles:
+    date: 5/3
+    type: FEAST
+    liturgicalColor: WHITE
+
+  saintsNereusAndAchilleusMartyrsSaintPancrasMartyr:
+    date: 5/12
+    type: OPT_MEMORIAL
+    titles:
+      - MARTYR
+
+  ourLadyOfFatima:
+    date: 5/13
+    type: OPT_MEMORIAL
+
+  saintMatthiasTheApostle:
+    date: 5/14
+    type: FEAST
+    liturgicalColor: WHITE
+
+  saintJohnIPopeAndMartyr:
+    date: 5/18
+    type: OPT_MEMORIAL
+    titles:
+      - MARTYR
+
+  saintBernardineOfSienaPriest:
+    date: 5/20
+    type: OPT_MEMORIAL
+
+  saintChristopherMagallanesAndCompanionsMartyrs:
+    date: 5/21
+    type: OPT_MEMORIAL
+    titles:
+      - MARTYR
+
+  saintRitaOfCascia:
+    date: 5/22
+    type: OPT_MEMORIAL
+
+  saintBedeTheVenerablePriestAndDoctorSaintGregoryViiPopeSaintMaryMagdaleneDePazziVirgin:
+    date: 5/25
+    type: OPT_MEMORIAL
+
+  saintPhilipNeriPriest:
+    date: 5/26
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  saintAugustineOfCanterburyBishop:
+    date: 5/27
+    type: OPT_MEMORIAL
+
+  visitationOfTheBlessedVirginMary:
+    date: 5/31
+    type: FEAST
+    liturgicalColor: WHITE
+
+  saintJustinMartyr:
+    date: 6/1
+    type: MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintsMarcellinusAndPeterMartyrs:
+    date: 6/2
+    type: OPT_MEMORIAL
+    titles:
+      - MARTYR
+
+  saintsCharlesLwangaAndCompanionsMartyrs:
+    date: 6/3
+    type: MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintBonifaceBishopAndMartyr:
+    date: 6/5
+    type: MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintNorbertBishop:
+    date: 6/6
+    type: OPT_MEMORIAL
+    liturgicalColor: WHITE
+
+  saintEphremDeaconAndDoctor:
+    date: 6/9
+    type: OPT_MEMORIAL
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  saintBarnabasTheApostle:
+    date: 6/11
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  saintAnthonyOfPaduaPriestAndDoctor:
+    date: 6/13
+    type: MEMORIAL
+    liturgicalColor: WHITE
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  saintRomualdAbbot:
+    date: 6/19
+    type: OPT_MEMORIAL
+
+  saintAloysiusGonzagaReligious:
+    date: 6/21
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  saintPaulinusOfNolaBishopSaintsJohnFisherBishopAndThomasMoreMartyrs:
+    date: 6/22
+    type: OPT_MEMORIAL
+
+  saintCyrilOfAlexandriaBishopAndDoctor:
+    date: 6/27
+    type: OPT_MEMORIAL
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  saintIrenaeusBishopAndMartyr:
+    date: 6/28
+    type: MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  firstMartyrsOfTheChurchOfRome:
+    date: 6/30
+    type: OPT_MEMORIAL
+
+  saintThomasTheApostle:
+    date: 7/3
+    type: FEAST
+    liturgicalColor: WHITE
+
+  saintElizabethOfPortugal:
+    date: 7/4
+    type: OPT_MEMORIAL
+
+  saintAnthonyZaccariaPriest:
+    date: 7/5
+    type: OPT_MEMORIAL
+
+  saintMariaGorettiVirginAndMartyr:
+    date: 7/6
+    type: OPT_MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintsAugustineZhaoRongPriestAndCompanionsMartyrs:
+    date: 7/9
+    type: OPT_MEMORIAL
+    titles:
+      - MARTYR
+
+  saintBenedictOfNursiaAbbot:
+    date: 7/11
+    type: MEMORIAL
+    liturgicalColor: WHITE
+    titles:
+      - PATRON_OF_EUROPE
+
+  saintHenryBishopAndMartyr:
+    date: 7/13
+    type: OPT_MEMORIAL
+    titles:
+      - MARTYR
+
+  saintCamillusDeLellisPriest:
+    date: 7/14
+    type: OPT_MEMORIAL
+
+  saintBonaventureBishopAndDoctor:
+    date: 7/15
+    type: MEMORIAL
+    liturgicalColor: WHITE
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  ourLadyOfMountCarmel:
+    date: 7/16
+    type: OPT_MEMORIAL
+
+  saintApollinaris:
+    date: 7/20
+    type: OPT_MEMORIAL
+
+  saintLawrenceOfBrindisiPriestAndDoctor:
+    date: 7/21
+    type: OPT_MEMORIAL
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  saintMaryMagdalene:
+    # https://github.com/pejulian/romcal/issues/27
+    date: 7/22
+    type: FEAST
+    liturgicalColor: WHITE
+
+  maryMotherOfTheChurch:
+    # On 11 Feb 2018, Pope Francis inserted the Memorial of the
+    # Blessed Virgin Mary, Mother of the Church, into the General Roman Calendar.
+    # It will be celebrated on Monday after Pentecost.
+    date: $pentecostSunday + 1
+    type: MEMORIAL
+    prioritized: true
+    liturgicalColor: WHITE
+
+  saintBridgetOfSwedenReligious:
+    date: 7/23
+    type: FEAST
+    liturgicalColor: WHITE
+    titles:
+      - PATRON_OF_EUROPE
+
+  saintCharbelMakhloufPriestAndHermit:
+    date: 7/24
+    type: OPT_MEMORIAL
+
+  saintJamesApostle:
+    date: 7/25
+    type: FEAST
+    liturgicalColor: WHITE
+
+  saintsJoachimAndAnne:
+    date: 7/26
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  saintMartha:
+    date: 7/29
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  saintPeterChrysologusBishopAndDoctor:
+    date: 7/30
+    type: OPT_MEMORIAL
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  saintIgnatiusOfLoyolaPriest:
+    date: 7/31
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  saintAlphonsusMariaDeLiguoriBishopAndDoctorOfTheChurch:
+    date: 8/1
+    type: MEMORIAL
+    liturgicalColor: WHITE
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  saintEusebiusOfVercelliBishopSaintPeterJulianEymardPriest:
+    date: 8/2
+    type: OPT_MEMORIAL
+
+  saintJeanVianneyTheCureOfArsPriest:
+    date: 8/4
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  dedicationOfTheBasilicaOfSaintMaryMajor:
+    date: 8/5
+    type: OPT_MEMORIAL
+
+  saintSixtusIiPopeAndCompanionsMartyrsSaintCajetanPriest:
+    date: 8/7
+    type: OPT_MEMORIAL
+
+  saintDominicPriest:
+    date: 8/8
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr:
+    date: 8/9
+    type: OPT_MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+      - PATRON_OF_EUROPE
+
+  saintLawrenceOfRomeDeaconAndMartyr:
+    date: 8/10
+    type: FEAST
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintClareVirgin:
+    date: 8/11
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  saintJaneFrancesDeChantalReligious:
+    date: 8/12
+    type: OPT_MEMORIAL
+
+  saintsPontianPopeAndHippolytusPriestMartyrs:
+    date: 8/13
+    type: OPT_MEMORIAL
+    titles:
+      - MARTYR
+
+  saintMaximilianMaryKolbePriestAndMartyr:
+    date: 8/14
+    type: MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintStephenOfHungary:
+    date: 8/16
+    type: OPT_MEMORIAL
+
+  saintJohnEudesPriest:
+    date: 8/19
+    type: OPT_MEMORIAL
+
+  saintBernardOfClairvauxAbbotAndDoctorOfTheChurch:
+    date: 8/20
+    type: MEMORIAL
+    liturgicalColor: WHITE
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  saintPiusXPope:
+    date: 8/21
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  queenshipOfBlessedVirginMary:
+    date: 8/22
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  saintRoseOfLima:
+    date: 8/23
+    type: OPT_MEMORIAL
+
+  saintBartholomewTheApostle:
+    date: 8/24
+    type: FEAST
+    liturgicalColor: WHITE
+
+  saintLouisSaintJosephOfCalasanzPriest:
+    date: 8/25
+    type: OPT_MEMORIAL
+
+  saintMonica:
+    date: 8/27
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  saintAugustineOfHippoBishopAndDoctorOfTheChurch:
+    date: 8/28
+    type: MEMORIAL
+    liturgicalColor: WHITE
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  theBeheadingOfSaintJohnTheBaptistMartyr:
+    date: 8/29
+    type: MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintGregoryTheGreatPopeAndDoctor:
+    date: 9/3
+    type: MEMORIAL
+    liturgicalColor: WHITE
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  birthOfTheBlessedVirginMary:
+    date: 9/8
+    type: FEAST
+    liturgicalColor: WHITE
+
+  saintPeterClaverPriest:
+    date: 9/9
+    type: OPT_MEMORIAL
+    liturgicalColor: WHITE
+
+  holyNameOfTheBlessedVirginMary:
+    date: 9/12
+    type: OPT_MEMORIAL
+
+  saintJohnChrysostomBishopAndDoctor:
+    date: 9/13
+    type: MEMORIAL
+    liturgicalColor: WHITE
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  theExaltationOfTheHolyCross:
+    date: 9/14
+    type: FEAST
+    liturgicalColor: RED
+
+  ourLadyOfSorrows:
+    date: 9/15
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  saintsCorneliusPopeAndCyprianBishopMartyrs:
+    date: 9/16
+    type: MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintRobertBellarmineBishopAndDoctor:
+    date: 9/17
+    type: OPT_MEMORIAL
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  saintJanuariusBishopAndMartyr:
+    date: 9/19
+    type: OPT_MEMORIAL
+    titles:
+      - MARTYR
+
+  saintAndrewKimTaegonPriestAndPaulChongHasangAndCompanionsMartyrs:
+    date: 9/20
+    type: MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintMatthewApostleAndEvangelist:
+    date: 9/21
+    type: FEAST
+    liturgicalColor: WHITE
+
+  saintPioOfPietrelcinaPadrePioPriest:
+    date: 9/23
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  saintsCosmasAndDamianMartyrs:
+    date: 9/26
+    type: OPT_MEMORIAL
+    titles:
+      - MARTYR
+
+  saintVincentDePaulPriest:
+    date: 9/27
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  saintWenceslausMartyrSaintsLawrenceRuizAndCompanionsMartyrs:
+    date: 9/28
+    type: OPT_MEMORIAL
+    titles:
+      - MARTYR
+
+  saintsMichaelGabrielAndRaphaelArchangels:
+    date: 9/29
+    type: FEAST
+    liturgicalColor: WHITE
+
+  saintJeromePriestAndDoctor:
+    date: 9/30
+    type: MEMORIAL
+    liturgicalColor: WHITE
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  saintThereseOfTheChildJesusVirginAndDoctor:
+    date: 10/1
+    type: MEMORIAL
+    liturgicalColor: WHITE
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  guardianAngels:
+    date: 10/2
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  saintFrancisOfAssisi:
+    date: 10/4
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  saintBrunoPriest:
+    date: 10/6
+    type: OPT_MEMORIAL
+
+  ourLadyOfTheRosary:
+    date: 10/7
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  saintDenisAndCompanionsMartyrsSaintJohnLeonardiPriest:
+    date: 10/9
+    type: OPT_MEMORIAL
+
+  popeSaintJohnXXIII:
+    # http://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20140529_decreto-calendario-generale-gxxiii-gpii_en.html
+    date: 10/11
+    type: OPT_MEMORIAL
+
+  popeSaintJohnPaulII:
+    # http://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20140529_decreto-calendario-generale-gxxiii-gpii_en.html
+    date: 10/22
+    type: OPT_MEMORIAL
+
+  saintCallistusIPopeAndMartyr:
+    date: 10/14
+    type: OPT_MEMORIAL
+    titles:
+      - MARTYR
+
+  saintTeresaOfJesusVirginAndDoctorOfTheChurch:
+    date: 10/15
+    type: MEMORIAL
+    liturgicalColor: WHITE
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  saintHedwigReligiousSaintMargaretMaryAlacoqueVirgin:
+    date: 10/16
+    type: OPT_MEMORIAL
+
+  saintIgnatiusOfAntiochBishopAndMartyr:
+    date: 10/17
+    type: MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintLukeTheEvangelist:
+    date: 10/18
+    type: FEAST
+    liturgicalColor: WHITE
+
+  saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrsSaintPaulOfTheCrossPriest:
+    date: 10/19
+    type: OPT_MEMORIAL
+
+  saintJohnOfCapistranoPriest:
+    date: 10/23
+    type: OPT_MEMORIAL
+
+  saintAnthonyMaryClaretBishop:
+    date: 10/24
+    type: OPT_MEMORIAL
+
+  saintsSimonAndJudeApostles:
+    date: 10/28
+    type: FEAST
+    liturgicalColor: WHITE
+
+  allSouls:
+    date: 11/2
+    type: FEAST
+    liturgicalColor: WHITE
+
+  saintMartinDePorresReligious:
+    date: 11/3
+    type: OPT_MEMORIAL
+
+  saintCharlesBorromeoBishop:
+    date: 11/4
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  dedicationOfTheLateranBasilica:
+    # Replaces 32nd Sunday in Ordinary Time when it falls on a Sunday
+    date: 11/9
+    type: FEAST
+    prioritized: true
+    liturgicalColor: WHITE
+
+  saintLeoTheGreatPopeAndDoctor:
+    date: 11/10
+    type: MEMORIAL
+    liturgicalColor: WHITE
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  saintMartinOfToursBishop:
+    date: 11/11
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  saintJosaphatBishopAndMartyr:
+    date: 11/12
+    type: MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintAlbertTheGreatBishopAndDoctor:
+    date: 11/15
+    type: OPT_MEMORIAL
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  saintMargaretOfScotlandSaintGertrudeTheGreatVirgin:
+    date: 11/16
+    type: OPT_MEMORIAL
+
+  saintElizabethOfHungary:
+    date: 11/17
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  dedicationOfTheBasilicasOfSaintsPeterAndPaulApostles:
+    date: 11/18
+    type: OPT_MEMORIAL
+
+  presentationOfTheBlessedVirginMary:
+    date: 11/21
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  saintCeciliaVirginAndMartyr:
+    date: 11/22
+    type: MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintClementIPopeAndMartyrSaintColumbanReligious:
+    date: 11/23
+    type: OPT_MEMORIAL
+
+  saintAndrewDungLacAndCompanionsMartyrs:
+    date: 11/24
+    type: MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintCatherineOfAlexandriaVirginAndMartyr:
+    date: 11/25
+    type: OPT_MEMORIAL
+    titles:
+      - MARTYR
+
+  saintAndrewTheApostle:
+    date: 11/30
+    type: FEAST
+    liturgicalColor: WHITE
+
+  saintFrancisXavierPriest:
+    date: 12/3
+    type: MEMORIAL
+    liturgicalColor: WHITE
+
+  saintJohnDamascenePriestAndDoctor:
+    date: 12/4
+    type: OPT_MEMORIAL
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  saintNicholasBishop:
+    date: 12/6
+    type: OPT_MEMORIAL
+
+  saintAmbroseBishopAndDoctor:
+    date: 12/7
+    type: MEMORIAL
+    liturgicalColor: WHITE
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  saintJuanDiegoCuauhtlatoatzin:
+    date: 12/9
+    type: OPT_MEMORIAL
+
+  ourLadyOfLoreto:
+    date: 12/10
+    type: OPT_MEMORIAL
+
+  saintDamasusIPope:
+    date: 12/11
+    type: OPT_MEMORIAL
+
+  ourLadyOfGuadalupe:
+    date: 12/12
+    type: OPT_MEMORIAL
+
+  saintLucyOfSyracuseVirginAndMartyr:
+    date: 12/13
+    type: MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintJohnOfTheCrossPriestAndDoctor:
+    date: 12/14
+    type: MEMORIAL
+    liturgicalColor: WHITE
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  saintPeterCanisiusPriestAndDoctor:
+    date: 12/21
+    type: OPT_MEMORIAL
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+
+  saintJohnOfKantyPriest:
+    date: 12/23
+    type: OPT_MEMORIAL
+
+  saintStephenTheFirstMartyr:
+    date: 12/26
+    type: FEAST
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintJohnTheApostleAndEvangelist:
+    date: 12/27
+    type: FEAST
+    liturgicalColor: WHITE
+
+  holyInnocentsMartyrs:
+    date: 12/28
+    type: FEAST
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintThomasBecketBishopAndMartyr:
+    date: 12/29
+    type: OPT_MEMORIAL
+    titles:
+      - MARTYR
+
+  saintSylvesterIPope:
+    date: 12/31
+    type: OPT_MEMORIAL

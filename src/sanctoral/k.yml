@@ -1,0 +1,96 @@
+#  Sanctoral - K
+
+karlOfAustria:
+  canonisationLevel: Blessed
+  firstName: Karl
+  surname: of Austria
+  sex: male
+  titles:
+    - Abbot
+
+karolinaKozkowna:
+  canonisationLevel: Blessed
+  firstName: Karolina
+  surname: Kozkowna
+  sex: female
+  titles:
+    - Virgin
+    - Martyr
+
+kateriTekakwitha:
+  canonisationLevel: Saint
+  firstName: Kateri
+  surname: Tekakwitha
+  sex: female
+  titles:
+    - Virgin
+
+katharineDrexel:
+  canonisationLevel: Saint
+  firstName: Katharine
+  surname: Drexel
+  sex: female
+  titles:
+    - Virgin
+
+kentigern:
+  canonisationLevel: Saint
+  firstName: Kentigern
+  sex: male
+  notes: >-
+    ?Mungo (Kentigern […] known as Mungo […] … src:
+    en.wikipedia.org/wiki/Saint_Mungo)
+
+kevin:
+  canonisationLevel: Saint
+  firstName: Kevin
+  sex: male
+  titles:
+    - Abbot
+
+kieran:
+  canonisationLevel: Saint
+  firstName: Kieran
+  sex: male
+  titles:
+    - Bishop
+
+kilian:
+  canonisationLevel: Saint
+  firstName: Kilian
+  sex: male
+  titles:
+    - Bishop
+    - Martyr
+
+killian:
+  canonisationLevel: Saint
+  firstName: Killian
+  sex: male
+  titles:
+    - Bishop
+    - Martyr
+
+kinga:
+  canonisationLevel: Saint
+  firstName: Kinga
+  sex: female
+  titles:
+    - Virgin
+
+krystyn:
+  canonisationLevel: Saint
+  firstName: Krystyn
+  sex: male
+  titles:
+    - Martyr
+
+kurlakoseEliasChavara:
+  canonisationLevel: Blessed
+  firstName: Kurlakose
+  additionalFirstName: Elias
+  surname: Chavara
+  sex: male
+  titles:
+    - Priest
+    - Abbot

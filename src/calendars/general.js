@@ -1220,7 +1220,7 @@ let dates = year => {
     },
     {
       "key": "theExaltationOfTheHolyCross",
-      "type": Types[4],
+      "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 8, day: 14 }),
       "data": {
         "meta": {

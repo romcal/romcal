@@ -2,7 +2,8 @@
 
 import _ from 'lodash';
 import Moment from "moment";
-import * as CalendarsDef from '../calendars';
+// import * as CalendarsDef from '../calendars';
+import * as CalendarsDef from '../calendars/indexYaml';
 import {Types} from '../constants';
 import Config from './Config';
 import DateItem from './DateItem';

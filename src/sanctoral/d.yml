@@ -1,0 +1,119 @@
+#  Sanctoral - D
+
+damasusI:
+  canonisationLevel: Saint
+  firstName: Damasus I
+  sex: male
+  titles:
+    - Pope
+
+damian:
+  canonisationLevel: Saint
+  firstName: Damian
+  sex: male
+  titles:
+    - Martyr
+
+damienDeVeuster:
+  canonisationLevel: Saint
+  firstName: Damien
+  surname: de Veuster
+  sex: male
+  titles:
+    - Priest
+
+david:
+  canonisationLevel: Saint
+  firstName: David
+  sex: male
+  titles:
+    - Bishop
+
+davidLewis:
+  canonisationLevel: Saint
+  firstName: David
+  surname: Lewis
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+davnet:
+  canonisationLevel: Saint
+  firstName: Davnet
+  sex: female
+  titles:
+    - Virgin
+
+declan:
+  canonisationLevel: Saint
+  firstName: Declan
+  sex: male
+  titles:
+    - Bishop
+
+deiniol:
+  canonisationLevel: Saint
+  firstName: Deiniol
+  sex: male
+  titles:
+    - Bishop
+
+demetrius:
+  canonisationLevel: Saint
+  firstName: Demetrius
+  sex: male
+  titles:
+    - Abbot
+
+denis:
+  canonisationLevel: Saint
+  firstName: Denis
+  sex: male
+  titles:
+    - Martyr
+
+dinaBelanger:
+  canonisationLevel: Blessed
+  firstName: Dina
+  surname: Belanger
+  sex: female
+  titles:
+    - Virgin
+
+dionysiusTheAreopagite:
+  canonisationLevel: Saint
+  firstName: Dionysius
+  surname: the Areopagite
+  sex: male
+
+dominic:
+  canonisationLevel: Saint
+  firstName: Dominic
+  sex: male
+  titles:
+    - Priest
+
+dominicOfTheMotherOfGod:
+  canonisationLevel: Blessed
+  firstName: Dominic
+  surname: of the Mother of God
+  sex: male
+  titles:
+    - Priest
+    - Abbot
+  notes: Dominic Barberi
+
+dubricius:
+  canonisationLevel: Saint
+  firstName: Dubricius
+  sex: male
+  titles:
+    - Bishop
+
+dunstan:
+  canonisationLevel: Saint
+  firstName: Dunstan
+  sex: male
+  titles:
+    - Archbishop of Canterbury

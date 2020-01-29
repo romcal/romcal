@@ -1,0 +1,34 @@
+#  Sanctoral - Z
+
+zdenkaSchelingova:
+  canonisationLevel: Blessed
+  firstName: Zdenka
+  surname: Schelingová
+  sex: female
+  titles:
+    - Virgin
+    - Martyr
+
+zdislava:
+  canonisationLevel: Saint
+  firstName: Zdislava
+  sex: female
+  titles:
+    - Abbot
+  notes: Zdislawa
+
+zygmuntGorazdowski:
+  canonisationLevel: Saint
+  firstName: Zygmunt
+  surname: Gorazdowski
+  sex: male
+  titles:
+    - Priest
+
+zygmuntSzczesnyFelinski:
+  canonisationLevel: Saint
+  firstName: Zygmunt
+  surname: Szczesny Felinski
+  sex: male
+  titles:
+    - Bishop

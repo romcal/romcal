@@ -1,0 +1,87 @@
+#  Sanctoral - N
+
+nazariaIgnaciaMarch:
+  canonisationLevel: Blessed
+  firstName: Nazaria
+  additionalFirstName: Ignacia
+  surname: March
+  sex: female
+  titles:
+    - Religious
+
+nazjuFalzon:
+  canonisationLevel: Blessed
+  firstName: Nazju
+  surname: Falzon
+  sex: male
+
+nereus:
+  canonisationLevel: Saint
+  firstName: Nereus
+  sex: male
+  titles:
+    - Martyr
+
+nicholasBishop:
+  canonisationLevel: Saint
+  firstName: Nicholas
+  sex: male
+  titles:
+    - Bishop
+
+nicholas:
+  canonisationLevel: Saint
+  firstName: Nicholas
+  sex: male
+
+nicholasOfFlue:
+  canonisationLevel: Saint
+  firstName: Nicholas
+  surname: of Flüe
+  sex: male
+  titles:
+    - Hermit
+
+nicolasSteno:
+  canonisationLevel: Blessed
+  firstName: Nicolas
+  surname: Steno
+  sex: male
+  titles:
+    - Bishop
+
+nikolaTavelic:
+  canonisationLevel: Saint
+  firstName: Nikola
+  surname: Tavelic
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+ninian:
+  canonisationLevel: Saint
+  firstName: Ninian
+  sex: male
+
+norbert:
+  canonisationLevel: Saint
+  firstName: Norbert
+  sex: male
+  titles:
+    - Bishop
+
+nunoOfSaintMary:
+  canonisationLevel: Saint
+  firstName: Nuno
+  surname: of Saint Mary
+  sex: male
+
+nykytaBudka:
+  canonisationLevel: Blessed
+  firstName: Nykyta
+  surname: Budka
+  sex: male
+  titles:
+    - Bishop
+    - Martyr

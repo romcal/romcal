@@ -1,0 +1,192 @@
+#  Sanctoral - H
+
+hectorValdivielsoSaez:
+  canonisationLevel: Saint
+  firstName: Héctor
+  surname: Valdivielso Sáez
+  sex: male
+  titles:
+    - Martyr
+
+hedwig:
+  canonisationLevel: Saint
+  firstName: Hedwig
+  sex: female
+  titles:
+    - Religious
+
+hedwigOfPoland:
+  canonisationLevel: Saint
+  firstName: Hedwig
+  surname: of Poland
+  sex: female
+
+hedwigOfSilesia:
+  canonisationLevel: Saint
+  firstName: Hedwig
+  surname: of Silesia
+  sex: female
+  titles:
+    - Abbot
+
+helena:
+  canonisationLevel: Saint
+  firstName: Helena
+  sex: female
+  titles:
+    - Abbot
+
+hemmaOfGurk:
+  canonisationLevel: Saint
+  firstName: Hemma
+  surname: of Gurk
+  sex: female
+
+hemming:
+  canonisationLevel: Blessed
+  firstName: Hemming
+  sex: male
+  titles:
+    - Bishop
+
+henryBishopAndMartyr:
+  canonisationLevel: Saint
+  firstName: Henry
+  sex: male
+  titles:
+    - Bishop
+    - Martyr
+
+henry:
+  canonisationLevel: Saint
+  firstName: Henry
+  sex: male
+  notes: Cunigunde’s husband
+
+henrySuso:
+  canonisationLevel: Blessed
+  firstName: Henry
+  surname: Suso
+  sex: male
+  titles:
+    - Priest
+
+hermannJoseph:
+  canonisationLevel: Saint
+  firstName: Hermann
+  additionalFirstName: Joseph
+  sex: male
+  titles:
+    - Priest
+
+hermenegild:
+  canonisationLevel: Saint
+  firstName: Hermenegild
+  sex: male
+  titles:
+    - Martyr
+
+hilaryOfPoitiers:
+  canonisationLevel: Saint
+  firstName: Hilary
+  surname: of Poitiers
+  sex: male
+  titles:
+    - Bishop
+    - Doctor
+
+hilda:
+  canonisationLevel: Saint
+  firstName: Hilda
+  sex: female
+  titles:
+    - Abbess
+    - Abbess
+
+hildegardOfBingen:
+  canonisationLevel: Saint
+  firstName: Hildegard
+  surname: of Bingen
+  sex: female
+  titles:
+    - Abbess
+    - Doctor
+
+hippolytus:
+  canonisationLevel: Saint
+  firstName: Hippolytus
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+holyFamily:
+  canonisationLevel: Saint
+  firstName: Holy Family
+  number: 3
+
+holyInnocents:
+  canonisationLevel: Saint
+  firstName: Holy Innocents
+  number: 1000
+  titles:
+    - Martyr
+
+honoratKozminski:
+  canonisationLevel: Blessed
+  firstName: Honorat
+  surname: Kozminski
+  sex: male
+  titles:
+    - Priest
+
+hroznata:
+  canonisationLevel: Blessed
+  firstName: Hroznata
+  sex: female
+  titles:
+    - Martyr
+
+hubert:
+  canonisationLevel: Saint
+  firstName: Hubert
+  sex: male
+  titles:
+    - Bishop
+
+hubertOfLiege:
+  canonisationLevel: Saint
+  firstName: Hubert
+  surname: of Liege
+  sex: male
+  titles:
+    - Bishop
+
+hughOfLincoln:
+  canonisationLevel: Saint
+  firstName: Hugh
+  surname: of Lincoln
+  sex: male
+  titles:
+    - Bishop
+
+hungarianSaintsAndBlesseds:
+  canonisationLevel: Both
+  firstName: Hungarian Saints and Blesseds
+  number: 1000
+
+hyacinth:
+  canonisationLevel: Saint
+  firstName: Hyacinth
+  sex: male
+  titles:
+    - Priest
+
+hyginus:
+  canonisationLevel: Saint
+  firstName: Hyginus
+  sex: male
+  titles:
+    - Pope
+  celebrationDate1969: 11/01
+  deathDate: 21/05/1900

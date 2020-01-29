@@ -1,0 +1,559 @@
+#  Sanctoral - J
+
+205BlessedMartyrsOfJapan:
+  canonisationLevel: Blessed
+  firstName: 205 Blessed Martyrs
+  surname: of Japan
+  number: 205
+
+jacintaDeJesusMarto:
+  canonisationLevel: Blessed
+  firstName: Jacinta
+  surname: de Jesus Marto
+  sex: female
+
+jakubStrzemie:
+  canonisationLevel: Blessed
+  firstName: Jakub
+  surname: Strzemie
+  sex: female
+  titles:
+    - Bishop
+
+james:
+  canonisationLevel: Saint
+  firstName: James
+  sex: male
+  titles:
+    - Apostle
+
+jan:
+  canonisationLevel: Saint
+  firstName: Jan
+  sex: male
+  titles:
+    - Martyr
+
+janeFrancesDeChantal:
+  canonisationLevel: Saint
+  firstName: Jane
+  additionalFirstName: Frances
+  surname: de Chantal
+  sex: female
+  titles:
+    - Religious
+
+januarius:
+  canonisationLevel: Saint
+  firstName: Januarius
+  sex: male
+  titles:
+    - Bishop
+    - Martyr
+
+jarlath:
+  canonisationLevel: Saint
+  firstName: Jarlath
+  sex: male
+  titles:
+    - Bishop
+
+jeanDeBrebeuf:
+  canonisationLevel: Saint
+  firstName: Jean
+  surname: de Brebeuf
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+jerome:
+  canonisationLevel: Saint
+  firstName: Jerome
+  sex: male
+  titles:
+    - Priest
+    - Doctor
+
+jeromeEmiliani:
+  canonisationLevel: Saint
+  firstName: Jerome
+  surname: Emiliani
+  sex: male
+
+jeronimoDeAngelis:
+  canonisationLevel: Blessed
+  firstName: Jeronimo
+  surname: de Angelis
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+jerzyMatulewicz:
+  canonisationLevel: Saint
+  firstName: Jerzy
+  surname: Matulewicz
+  sex: male
+  titles:
+    - Bishop
+
+joachim:
+  canonisationLevel: Saint
+  firstName: Joachim
+  sex: male
+
+joanOfArc:
+  canonisationLevel: Saint
+  firstName: Joan
+  surname: of Arc
+  sex: female
+  titles:
+    - Virgin
+
+joanOfPortugal:
+  canonisationLevel: Blessed
+  firstName: Joan
+  surname: of Portugal
+  sex: female
+  titles:
+    - Virgin
+
+joaquinaVedruna:
+  canonisationLevel: Saint
+  firstName: Joaquina
+  surname: Vedruna
+  sex: female
+
+john:
+  canonisationLevel: Saint
+  firstName: John
+  sex: male
+  titles:
+    - Apostle
+    - Evangelist
+
+johnBaptistDeLaSalle:
+  canonisationLevel: Saint
+  firstName: John
+  surname: Baptist de la salle
+  sex: male
+  titles:
+    - Priest
+
+johnBerchmans:
+  canonisationLevel: Saint
+  firstName: John
+  surname: Berchmans
+  sex: male
+  titles:
+    - Religious
+
+johnBeyzym:
+  canonisationLevel: Blessed
+  firstName: John
+  surname: Beyzym
+  sex: male
+  titles:
+    - Priest
+
+johnBosco:
+  canonisationLevel: Saint
+  firstName: John
+  surname: Bosco
+  sex: male
+  titles:
+    - Priest
+
+johnCassian:
+  canonisationLevel: Saint
+  firstName: John
+  surname: Cassian
+  sex: male
+  titles:
+    - Priest
+
+johnChrysostom:
+  canonisationLevel: Saint
+  firstName: John
+  surname: Chrysostom
+  sex: male
+  titles:
+    - Bishop
+    - Doctor
+  celebrationDate1969: 13/09
+  birthDate: c. 349
+  deathDate: 14/09/0409
+
+johnDamascene:
+  canonisationLevel: Saint
+  firstName: John
+  surname: Damascene
+  sex: male
+  titles:
+    - Priest
+    - Doctor
+
+johnDeBrito:
+  canonisationLevel: Saint
+  firstName: John
+  surname: de Brito
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+johnEudes:
+  canonisationLevel: Saint
+  firstName: John
+  surname: Eudes
+  sex: male
+  titles:
+    - Priest
+
+johnFisher:
+  canonisationLevel: Saint
+  firstName: John
+  surname: Fisher
+  sex: male
+  titles:
+    - Bishop
+    - Martyr
+
+johnHenryNewman:
+  canonisationLevel: Blessed
+  firstName: John
+  additionalFirstName: Henry
+  surname: Newman
+  sex: male
+  titles:
+    - Priest
+
+johnI:
+  canonisationLevel: Saint
+  firstName: John I
+  sex: male
+  titles:
+    - Pope
+    - Martyr
+
+johnJones:
+  canonisationLevel: Saint
+  firstName: John
+  surname: Jones
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+johnLeonardi:
+  canonisationLevel: Saint
+  firstName: John
+  surname: Leonardi
+  sex: male
+  titles:
+    - Priest
+
+johnLloyd:
+  canonisationLevel: Saint
+  firstName: John
+  surname: Lloyd
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+johnMacias:
+  canonisationLevel: Saint
+  firstName: John
+  surname: Macias
+  sex: female
+  titles:
+    - Religious
+
+johnMaryVianney:
+  canonisationLevel: Saint
+  firstName: John
+  additionalFirstName: Mary
+  surname: Vianney
+  sex: male
+  titles:
+    - Priest
+
+johnNepomucene:
+  canonisationLevel: Saint
+  firstName: John
+  surname: Nepomucene
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+johnNeumann:
+  canonisationLevel: Saint
+  firstName: John
+  surname: Neumann
+  sex: male
+  titles:
+    - Bishop
+
+johnOfAvila:
+  canonisationLevel: Saint
+  firstName: John
+  surname: of Ávila
+  sex: male
+  titles:
+    - Priest
+
+johnOfCapistrano:
+  canonisationLevel: Saint
+  firstName: John
+  surname: of Capistrano
+  sex: male
+  titles:
+    - Priest
+
+johnOfDukla:
+  canonisationLevel: Saint
+  firstName: John
+  surname: of Dukla
+  sex: male
+  titles:
+    - Priest
+
+johnOfGod:
+  canonisationLevel: Saint
+  firstName: John
+  surname: of God
+  sex: male
+  titles:
+    - Religious
+
+johnOfKenty:
+  canonisationLevel: Saint
+  firstName: John
+  surname: of Kenty
+  sex: male
+  titles:
+    - Priest
+
+johnOfTheCross:
+  canonisationLevel: Saint
+  firstName: John
+  surname: of the Cross
+  sex: male
+  titles:
+    - Priest
+    - Doctor
+
+johnOgilvie:
+  canonisationLevel: Saint
+  firstName: John
+  surname: Ogilvie
+  sex: male
+
+johnPaulIi:
+  canonisationLevel: Saint
+  firstName: John Paul II
+  sex: male
+  titles:
+    - Pope
+
+johnRoberts:
+  canonisationLevel: Saint
+  firstName: John
+  surname: Roberts
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+johnSarkander:
+  canonisationLevel: Saint
+  firstName: John
+  surname: Sarkander
+  sex: male
+  titles:
+    - Priest
+
+johnXxiii:
+  canonisationLevel: Saint
+  firstName: John XXIII
+  sex: male
+  titles:
+    - Pope
+
+jolanta:
+  canonisationLevel: Blessed
+  firstName: Jolanta
+  sex: female
+  titles:
+    - Religious
+
+josaphat:
+  canonisationLevel: Saint
+  firstName: Josaphat
+  sex: male
+  titles:
+    - Bishop
+    - Martyr
+
+joseDeAnchieta:
+  canonisationLevel: Saint
+  firstName: Jose
+  surname: de Anchieta
+  sex: male
+  titles:
+    - Priest
+
+josefBiczewski:
+  canonisationLevel: Saint
+  firstName: Josef
+  surname: Biczewski
+  sex: male
+  titles:
+    - Bishop
+
+joseMariaDeYermo:
+  canonisationLevel: Saint
+  firstName: Jose
+  additionalFirstName: Maria
+  surname: de Yermo
+  sex: male
+  titles:
+    - Priest
+
+josemariaEscrivaDeBalaguer:
+  canonisationLevel: Saint
+  firstName: Josemaria
+  surname: Escriva de Balaguer
+  sex: male
+  titles:
+    - Priest
+
+joseph:
+  canonisationLevel: Saint
+  firstName: Joseph
+  sex: male
+  titles:
+    - Husband of Mary
+
+josephineBakhita:
+  canonisationLevel: Saint
+  firstName: Josephine
+  surname: Bakhita
+  sex: female
+  titles:
+    - Virgin
+
+josephOfCalasanz:
+  canonisationLevel: Saint
+  firstName: Joseph
+  surname: of Calasanz
+  sex: male
+  titles:
+    - Priest
+
+josephSpouseOfBlessedVirginMary:
+  canonisationLevel: Saint
+  firstName: Joseph
+  surname: Spouse of Blessed Virgin Mary
+  sex: male
+  notes: 'Saint Joseph, husband of the Blessed Virgin Mary'
+
+josephTheWorker:
+  canonisationLevel: Saint
+  firstName: Joseph
+  surname: the Worker
+  sex: male
+
+josephVaz:
+  canonisationLevel: Blessed
+  firstName: Joseph
+  surname: Vaz
+  sex: male
+  titles:
+    - Priest
+
+jozefBilczewski:
+  canonisationLevel: Saint
+  firstName: Jozef
+  surname: Bilczewski
+  sex: male
+  titles:
+    - Bishop
+
+jozefSebastianPelczar:
+  canonisationLevel: Saint
+  firstName: Jozef
+  additionalFirstName: Sebastian
+  surname: Pelczar
+  sex: male
+
+juanDelCastillo:
+  canonisationLevel: Saint
+  firstName: Juan
+  surname: del Castillo
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+juanDiego:
+  canonisationLevel: Saint
+  firstName: Juan
+  additionalFirstName: Diego
+  sex: male
+
+juanDiegoCuauhtlatoatzin:
+  canonisationLevel: Saint
+  firstName: Juan
+  additionalFirstName: Diego
+  surname: Cuauhtlatoatzin
+  sex: male
+
+jude:
+  canonisationLevel: Saint
+  firstName: Jude
+  sex: male
+  titles:
+    - Apostle
+
+julianaOfLiege:
+  canonisationLevel: Saint
+  firstName: Juliana
+  surname: of Liege
+  sex: female
+  titles:
+    - Virgin
+
+julieBilliart:
+  canonisationLevel: Saint
+  firstName: Julie
+  surname: Billiart
+  sex: female
+  titles:
+    - Virgin
+
+julius:
+  canonisationLevel: Saint
+  firstName: Julius
+  sex: male
+  titles:
+    - Martyr
+
+juniperoSerra:
+  canonisationLevel: Blessed
+  firstName: Junipero
+  surname: Serra
+  sex: male
+  titles:
+    - Priest
+    - Abbot
+
+justin:
+  canonisationLevel: Saint
+  firstName: Justin
+  sex: male
+  titles:
+    - Martyr

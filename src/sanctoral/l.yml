@@ -1,0 +1,217 @@
+#  Sanctoral - L
+
+ladislaus:
+  canonisationLevel: Saint
+  firstName: Ladislaus
+  sex: male
+
+lambertOfMaastricht:
+  canonisationLevel: Saint
+  firstName: Lambert
+  surname: of Maastricht
+  sex: male
+  titles:
+    - Bishop
+    - Martyr
+
+lauraVicuna:
+  canonisationLevel: Blessed
+  firstName: Laura
+  surname: Vicuña
+  sex: female
+  titles:
+    - Virgin
+
+laurenceOToole:
+  canonisationLevel: Saint
+  firstName: Laurence
+  surname: O’Toole
+  sex: male
+  titles:
+    - Bishop
+
+lawrenceOfBrindisi:
+  canonisationLevel: Saint
+  firstName: Lawrence
+  surname: of Brindisi
+  sex: male
+  titles:
+    - Priest
+    - Doctor
+
+lawrenceOfRome:
+  canonisationLevel: Saint
+  firstName: Lawrence
+  surname: of Rome
+  sex: male
+  titles:
+    - Deacon
+    - Martyr
+
+lawrenceRuiz:
+  canonisationLevel: Saint
+  firstName: Lawrence
+  surname: Ruiz
+  sex: male
+  titles:
+    - Martyr
+
+leander:
+  canonisationLevel: Saint
+  firstName: Leander
+  sex: male
+  titles:
+    - Bishop
+
+lelia:
+  canonisationLevel: Saint
+  firstName: Lelia
+  sex: female
+  titles:
+    - Virgin
+
+leoba:
+  canonisationLevel: Saint
+  firstName: Leoba
+  sex: female
+  titles:
+    - Abbess
+
+leoIx:
+  canonisationLevel: Saint
+  firstName: Leo IX
+  sex: male
+  titles:
+    - Pope
+
+leonardOfNoblac:
+  canonisationLevel: Saint
+  firstName: Leonard
+  surname: of Noblac
+  sex: male
+  titles:
+    - Hermit
+
+leonidFeodorov:
+  canonisationLevel: Blessed
+  firstName: Leonid
+  surname: Feodorov
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+leopoldIii:
+  canonisationLevel: Saint
+  firstName: Leopold III
+  sex: male
+
+leopoldMandic:
+  canonisationLevel: Saint
+  firstName: Leopold
+  surname: Mandic
+  sex: male
+  titles:
+    - Priest
+
+leoTheGreat:
+  canonisationLevel: Saint
+  firstName: Leo
+  surname: the Great
+  sex: male
+  titles:
+    - Pope
+    - Doctor
+
+louis:
+  canonisationLevel: Saint
+  firstName: Louis
+  sex: male
+
+louisBertrand:
+  canonisationLevel: Saint
+  firstName: Louis
+  surname: Bertrand
+  sex: male
+  titles:
+    - Priest
+
+louisGrignion:
+  canonisationLevel: Saint
+  firstName: Louis
+  surname: Grignion
+  sex: male
+  titles:
+    - Priest
+  notes: Louis-Marie Grignion de Montfort
+
+louisZephirinMoreau:
+  canonisationLevel: Blessed
+  firstName: Louis
+  additionalFirstName: Zephirin
+  surname: Moreau
+  sex: male
+  titles:
+    - Bishop
+
+luciusOfChur:
+  canonisationLevel: Saint
+  firstName: Lucius
+  surname: of Chur
+  sex: male
+  titles:
+    - Bishop
+    - Martyr
+
+lucy:
+  canonisationLevel: Saint
+  firstName: Lucy
+  sex: female
+  titles:
+    - Virgin
+    - Martyr
+  notes: 'St Lucy of Syracuse, Virgin and Martyr'
+
+ludger:
+  canonisationLevel: Saint
+  firstName: Ludger
+  sex: male
+  titles:
+    - Bishop
+
+ludmila:
+  canonisationLevel: Saint
+  firstName: Ludmila
+  sex: female
+  titles:
+    - Martyr
+
+luigiOrione:
+  canonisationLevel: Saint
+  firstName: Luigi
+  surname: Orione
+  sex: male
+  titles:
+    - Priest
+
+luisFlores:
+  canonisationLevel: Blessed
+  firstName: Luis
+  surname: Flores
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+luke:
+  canonisationLevel: Saint
+  firstName: Luke
+  sex: male
+  titles:
+    - Evangelist
+
+lydiaOfPhilippi:
+  canonisationLevel: Saint
+  firstName: Lydia
+  surname: of Philippi
+  sex: female

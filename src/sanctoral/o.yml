@@ -1,0 +1,299 @@
+#  Sanctoral - O
+
+odileOfAlsace:
+  canonisationLevel: Saint
+  firstName: Odile
+  surname: of Alsace
+  sex: female
+  titles:
+    - Abbess
+
+olaf:
+  canonisationLevel: Saint
+  firstName: Olaf
+  sex: male
+  titles:
+    - Martyr
+
+olafIi:
+  canonisationLevel: Saint
+  firstName: Olaf II
+  sex: male
+  titles:
+    - Martyr
+
+oleksiyZarytskyi:
+  canonisationLevel: Blessed
+  firstName: Oleksiy
+  surname: Zarytskyi
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+olga:
+  canonisationLevel: Saint
+  firstName: Olga
+  sex: female
+
+oliverPlunket:
+  canonisationLevel: Saint
+  firstName: Oliver
+  surname: Plunket
+  sex: male
+  titles:
+    - Bishop
+    - Martyr
+
+oliverPlunkett:
+  canonisationLevel: Saint
+  firstName: Oliver
+  surname: Plunkett
+  sex: male
+  titles:
+    - Bishop
+    - Martyr
+
+ossannaOfCattaro:
+  canonisationLevel: Blessed
+  firstName: Ossanna
+  surname: of Cattaro
+  sex: female
+  titles:
+    - Virgin
+
+otteran:
+  canonisationLevel: Saint
+  firstName: Otteran
+  sex: male
+  titles:
+    - Monk
+
+ottoOfBamberg:
+  canonisationLevel: Saint
+  firstName: Otto
+  surname: of Bamberg
+  sex: male
+  titles:
+    - Bishop
+
+ourLadyHelpOfChristians:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  sex: female
+  titles:
+    - Help of Christians
+
+ourLadyMediatrix:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  sex: female
+  titles:
+    - Mediatrix
+
+ourLadyMotherOfChristianUnity:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  sex: female
+  titles:
+    - Mother of Christian Unity
+
+ourLadyMediatrixOfAllGrace:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  sex: female
+  titles:
+    - Mediatrix of All Grace
+
+ourLadyMotherOfMercy:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  sex: female
+  titles:
+    - Mother of Mercy
+
+ourLadyQueenOfPoland:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  sex: female
+  titles:
+    - Queen of Poland
+
+ourLadyMotherOfDivineProvidenceAndPatronessOfPuertoRico:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  sex: female
+  titles:
+    - Mother of Divine Providence
+    - Patroness of Puerto Rico
+
+ourLadyOfAparecida:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  surname: of Aparecida
+  sex: female
+  titles:
+    - Patroness of Brazil
+
+ourLadyOfBethlehem:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  surname: of Bethlehem
+  sex: female
+
+ourLadyOfBistrica:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  surname: of Bistrica
+  sex: female
+
+ourLadyOfCzestochowa:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  surname: of Czestochowa
+  sex: female
+
+ourLadyOfFatima:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  surname: of Fatima
+  sex: female
+
+ourLadyOfGoodCounsel:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  surname: of Good Counsel
+  sex: female
+
+ourLadyOfGuadaloupe:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  surname: of Guadaloupe
+  sex: female
+
+ourLadyOfHungary:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  surname: of Hungary
+  sex: female
+
+ourLadyOfItati:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  surname: of Itati
+  sex: female
+
+ourLadyOfKnock:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  surname: of Knock
+  sex: female
+
+ourLadyOfLanka:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  surname: of Lanka
+  sex: female
+
+ourLadyOfLebanon:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  surname: of Lebanon
+  sex: female
+
+ourLadyOfLourdes:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  surname: of Lourdes
+  sex: female
+
+ourLadyOfLujan:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  surname: of Luján
+  sex: female
+
+ourLadyOfMadhu:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  surname: of Madhu
+  sex: female
+
+ourLadyOfMercy:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  surname: of Mercy
+  sex: female
+
+ourLadyOfMountCarmel:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  surname: of Mount Carmel
+  sex: female
+
+ourLadyOfPeace:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  surname: of Peace
+  sex: female
+
+ourLadyOfPerpetualHelp:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  surname: of Perpetual Help
+  sex: female
+
+ourLadyOfSorrows:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  surname: of Sorrows
+  sex: female
+
+ourLadyOfTheGateOfDawn:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  surname: of the Gate of Dawn
+  sex: female
+
+ourLadyOfThePillar:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  surname: of the Pillar
+  sex: female
+
+ourLadyOfTheRosary:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  surname: of the Rosary
+  sex: female
+
+ourLadyOfTheValley:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  surname: of the Valley
+  sex: female
+
+ourLadyOfVladimir:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  surname: of Vladimir
+  sex: female
+
+ourLadyOfWalsingham:
+  canonisationLevel: Saint
+  firstName: Our Lady
+  surname: of Walsingham
+  sex: female
+
+ourLordJesusChrist:
+  canonisationLevel: Saint
+  firstName: Our Lord Jesus Christ
+  sex: male
+  titles:
+    - the Eternal High Priest
+
+ourLordOfMiracles:
+  canonisationLevel: Saint
+  firstName: Our Lord
+  surname: of Miracles
+  sex: male

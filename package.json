@@ -15,7 +15,7 @@
   },
   "scripts": {
     "prepublishOnly": "npm run build",
-    "build": "npm run flow && npm run build:babel && npm run build:webpack",
+    "build": "npm run flow && npm run build:babel",
     "build:babel": "babel src --out-dir dist",
     "build:webpack": "webpack-cli --config webpack.config.js",
     "flow": "flow",
@@ -83,6 +83,7 @@
     "eslint-plugin-flowtype": "^4.6.0",
     "eslint-plugin-node": "^11.0.0",
     "flow-bin": "^0.117.0",
+    "js-yaml": "^3.13.1",
     "mocha": "^6.2.2",
     "semver": "^7.1.1",
     "should": "^13.2.3",

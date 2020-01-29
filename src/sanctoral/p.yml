@@ -1,0 +1,364 @@
+#  Sanctoral - P
+
+pancras:
+  canonisationLevel: Saint
+  firstName: Pancras
+  sex: male
+  titles:
+    - Martyr
+
+pantaleon:
+  canonisationLevel: Saint
+  firstName: Pantaleon
+  sex: male
+  titles:
+    - Abbot
+
+paschalBaylon:
+  canonisationLevel: Saint
+  firstName: Paschal
+  surname: Baylon
+  sex: male
+
+patrickBishop:
+  canonisationLevel: Saint
+  firstName: Patrick
+  sex: male
+  titles:
+    - Bishop
+
+patrick:
+  canonisationLevel: Saint
+  firstName: Patrick
+  sex: male
+
+paulApostle:
+  canonisationLevel: Saint
+  firstName: Paul
+  sex: male
+  titles:
+    - Apostle
+
+paulTheFirstHermit:
+  canonisationLevel: Saint
+  firstName: Paul
+  sex: male
+  titles:
+    - the First Hermit
+  celebrationDate1969: 15/01
+  birthDate: c. 227
+  deathDate: c. 342
+
+paulChongHasang:
+  canonisationLevel: Saint
+  firstName: Paul
+  surname: Chong Hasang
+  sex: male
+  titles:
+    - Martyr
+
+paulinaOfTheAgonizingHeartOfJesus:
+  canonisationLevel: Saint
+  firstName: Paulina
+  surname: of the Agonizing Heart of Jesus
+  sex: female
+  titles:
+    - Virgin
+
+paulinusOfNola:
+  canonisationLevel: Saint
+  firstName: Paulinus
+  surname: of Nola
+  sex: male
+  titles:
+    - Bishop
+
+paulinusOfTrier:
+  canonisationLevel: Saint
+  firstName: Paulinus
+  surname: of Trier
+  sex: male
+  titles:
+    - Bishop
+
+paulinusOfYork:
+  canonisationLevel: Saint
+  firstName: Paulinus
+  surname: of York
+  sex: male
+  titles:
+    - Bishop
+
+paulMiki:
+  canonisationLevel: Saint
+  firstName: Paul
+  surname: Miki
+  sex: male
+  titles:
+    - Martyr
+
+paulOfTheCross:
+  canonisationLevel: Saint
+  firstName: Paul
+  surname: of the Cross
+  sex: male
+  titles:
+    - Priest
+
+paulVi:
+  canonisationLevel: Saint
+  firstName: Paul VI
+  sex: male
+  titles:
+    - Pope
+
+pedroCalungsod:
+  canonisationLevel: Saint
+  firstName: Pedro
+  surname: Calungsod
+  sex: male
+  titles:
+    - Martyr
+
+pedroZuniga:
+  canonisationLevel: Blessed
+  firstName: Pedro
+  surname: Zuniga
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+pelagius:
+  canonisationLevel: Saint
+  firstName: Pelagius
+  sex: male
+  titles:
+    - Martyr
+
+perpetua:
+  canonisationLevel: Saint
+  firstName: Perpetua
+  sex: female
+  titles:
+    - Martyr
+
+peterMartyr:
+  canonisationLevel: Saint
+  firstName: Peter
+  sex: male
+  titles:
+    - Martyr
+  notes: martyr
+
+peterApostle:
+  canonisationLevel: Saint
+  firstName: Peter
+  sex: male
+  titles:
+    - Apostle
+  notes: apostle
+
+peterCanisius:
+  canonisationLevel: Saint
+  firstName: Peter
+  surname: Canisius
+  sex: male
+  titles:
+    - Priest
+    - Doctor
+
+peterChanel:
+  canonisationLevel: Saint
+  firstName: Peter
+  surname: Chanel
+  sex: male
+  titles:
+    - Priest
+
+peterChrysologus:
+  canonisationLevel: Saint
+  firstName: Peter
+  surname: Chrysologus
+  sex: male
+  titles:
+    - Bishop
+    - Doctor
+
+peterClaver:
+  canonisationLevel: Saint
+  firstName: Peter
+  surname: Claver
+  sex: male
+  titles:
+    - Priest
+
+peterDamian:
+  canonisationLevel: Saint
+  firstName: Peter
+  surname: Damian
+  sex: male
+  titles:
+    - Bishop
+    - Doctor
+
+peterJulianEymard:
+  canonisationLevel: Saint
+  firstName: Peter
+  additionalFirstName: Julian
+  surname: Eymard
+  sex: male
+  titles:
+    - Priest
+
+peterKibe:
+  canonisationLevel: Blessed
+  firstName: Peter
+  surname: Kibe
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+peterNolasco:
+  canonisationLevel: Saint
+  firstName: Peter
+  surname: Nolasco
+  sex: male
+  titles:
+    - Confessor
+  celebrationDate1969: 28/01
+  birthDate: 1189
+  deathDate: 06/05/1256
+
+peterOfAlcantara:
+  canonisationLevel: Saint
+  firstName: Peter
+  surname: of Alcantara
+  sex: male
+  titles:
+    - Priest
+
+peterToRot:
+  canonisationLevel: Blessed
+  firstName: Peter
+  surname: To Rot
+  sex: male
+  titles:
+    - Martyr
+
+philip:
+  canonisationLevel: Saint
+  firstName: Philip
+  sex: male
+  titles:
+    - Apostle
+
+philipEvans:
+  canonisationLevel: Saint
+  firstName: Philip
+  surname: Evans
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+philipNeri:
+  canonisationLevel: Saint
+  firstName: Philip
+  surname: Neri
+  sex: male
+  titles:
+    - Priest
+
+pioPietralcina:
+  canonisationLevel: Saint
+  firstName: Pio
+  surname: Pietralcina
+  sex: male
+  titles:
+    - Abbot
+
+pirmin:
+  canonisationLevel: Saint
+  firstName: Pirmin
+  sex: male
+  titles:
+    - Abbot
+    - Bishop
+
+piusIx:
+  canonisationLevel: Blessed
+  firstName: Pius IX
+  sex: male
+
+piusOfPietrelcina:
+  canonisationLevel: Saint
+  firstName: Pius
+  surname: of Pietrelcina
+  sex: male
+  titles:
+    - Priest
+
+piusV:
+  canonisationLevel: Saint
+  firstName: Pius V
+  sex: male
+  titles:
+    - Pope
+
+piusX:
+  canonisationLevel: Saint
+  firstName: Pius X
+  sex: male
+  titles:
+    - Pope
+
+polycarp:
+  canonisationLevel: Saint
+  firstName: Polycarp
+  sex: male
+  titles:
+    - Bishop
+    - Martyr
+  celebrationDate1969: 23/02
+
+pontian:
+  canonisationLevel: Saint
+  firstName: Pontian
+  sex: male
+  titles:
+    - Pope
+    - Martyr
+
+pothinus:
+  canonisationLevel: Saint
+  firstName: Pothinus
+  sex: male
+  titles:
+    - Bishop
+    - Martyr
+
+prisca:
+  canonisationLevel: Saint
+  firstName: Prisca
+  sex: female
+  titles:
+    - Martyr
+  celebrationDate1969: 18/01
+  deathDate: late 1st century
+
+procopius:
+  canonisationLevel: Saint
+  firstName: Procopius
+  sex: male
+  titles:
+    - Abbot
+    - Abbot
+
+publius:
+  canonisationLevel: Saint
+  firstName: Publius
+  sex: male
+  titles:
+    - Bishop

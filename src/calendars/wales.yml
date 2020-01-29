@@ -1,0 +1,191 @@
+# Particular Calendar for Wales
+
+name: Wales
+
+defaultConfig:
+  - epiphanyOnJan6: true
+  - ascensionOnSunday: true
+  - corpusChristiOnThursday: false
+
+dates:
+
+  saintTeiloBishop:
+    date: 1/9
+    type: OPT_MEMORIAL
+
+  saintsCyrilMonkAndMethodiusBishop:
+    date: 1/14
+    type: FEAST
+    liturgicalColor: WHITE
+    titles:
+      - PATRON_OF_EUROPE
+
+  saintDavidBishop:
+    date: 2/1
+    type: SOLEMNITY
+    liturgicalColor: WHITE
+
+  saintBeunoAbbot:
+    date: 3/20
+    type: OPT_MEMORIAL
+
+  saintCatherineOfSienaVirginAndDoctorOfTheChurch:
+    date: 3/29
+    type: FEAST
+    liturgicalColor: WHITE
+    titles:
+      - PATRON_OF_EUROPE
+      - DOCTOR_OF_THE_CHURCH
+
+  saintAsaphBishop:
+    date: 4/5
+    type: OPT_MEMORIAL
+
+  saintsAlbanJuliusAndAaronMartyrs:
+    date: 5/20
+    type: OPT_MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintBenedictOfNursiaAbbot:
+    date: 6/11
+    type: FEAST
+    liturgicalColor: WHITE
+    titles:
+      - PATRON_OF_EUROPE
+
+  saintJohnJonesPriestAndMartyr:
+    date: 6/12
+    type: OPT_MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintBridgetOfSwedenReligious:
+    date: 6/23
+    type: FEAST
+    liturgicalColor: WHITE
+    titles:
+      - PATRON_OF_EUROPE
+
+  saintsPhilipEvansAndJohnLloydPriestsAndMartyrs:
+    date: 6/25
+    type: OPT_MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintGermanusOfAuxerreBishop:
+    date: 7/3
+    type: OPT_MEMORIAL
+
+  saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr:
+    date: 7/9
+    type: FEAST
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+      - PATRON_OF_EUROPE
+
+  saintDavidLewisPriestAndMartyr:
+    date: 7/26
+    type: OPT_MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintDeiniolBishop:
+    date: 8/11
+    type: OPT_MEMORIAL
+
+  saintRichardGwynMartyr:
+    date: 9/16
+    type: OPT_MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  theSixWelshMartyrsAndCompanions:
+    date: 9/25
+    type: FEAST
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  saintWinefrideVirgin:
+    date: 10/03
+    type: OPT_MEMORIAL
+
+  saintIlltudAbbot:
+    date: 10/06
+    type: OPT_MEMORIAL
+
+  allSaints:
+    # In England and Wales when All Saints (November 1) falls on a Saturday
+    # it is transferred to Sunday.
+    date: |-
+      var date = day('11/1');
+      if (date.is.saturday()) return date + 1;
+      return date;
+    type: SOLEMNITY
+    prioritized: true
+    liturgicalColor: WHITE
+
+  allSouls:
+    # If All Saints is on Saturday, move it to Monday
+    # since All Saints is moved to Sunday when it falls on a Saturday (see the rule above).
+    date: |-
+      var date = day('11/2');
+      if (date.is.sunday()) return date + 1;
+      return date;
+    type: FEAST
+    # Like Ash Wednesday, All Souls is, technically, without rank
+    # but must replace any existing celebrations that falls the same day.
+    prioritized: true
+    liturgicalColor: WHITE
+
+  allSaintsOfWales:
+    date: 1/17
+    type: MEMORIAL
+    prioritized: true
+    liturgicalColor: WHITE
+
+  saintDubriciusBishop:
+    date: 10/14
+    type: OPT_MEMORIAL
+    titles:
+      - MARTYR
+
+  saintJohnRobertsPriestAndMartyr:
+    date: 11/10
+    type: OPT_MEMORIAL
+    liturgicalColor: RED
+    titles:
+      - MARTYR
+
+  peterAndPaulApostles:
+    # In England and Wales when the celebration falls on either a
+    # Saturday or a Monday it is transferred to the Sunday.
+    # Replaces 20th Sunday in Ordinary Time when it falls on a Sunday.
+    date: |-
+      let date = day('6/29');
+      if (date.is.monday()) return date - 1;
+      if (date.is.saturday()) return date + 1;
+      return date;
+    type: SOLEMNITY
+    prioritized: true
+    liturgicalColor: RED
+
+  assumption:
+    # In England and Wales when the celebration falls on either a
+    # Saturday or a Monday it is transferred to the Sunday.
+    # Replaces 20th Sunday in Ordinary Time when it falls on a Sunday.
+    date: |-
+      var date = day('8/15');
+      if (date.is.monday()) return date - 1;
+      if (date.is.saturday()) return date + 1;
+      return date;
+    type: SOLEMNITY
+    prioritized: true
+    liturgicalColor: WHITE

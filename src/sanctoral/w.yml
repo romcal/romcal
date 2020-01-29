@@ -1,0 +1,89 @@
+#  Sanctoral - W
+
+walburga:
+  canonisationLevel: Saint
+  firstName: Walburga
+  sex: male
+  titles:
+    - Abbess
+
+wenceslaus:
+  canonisationLevel: Saint
+  firstName: Wenceslaus
+  sex: male
+  titles:
+    - Martyr
+
+wendelin:
+  canonisationLevel: Saint
+  firstName: Wendelin
+  sex: male
+  titles:
+    - Abbot
+
+wilfrid:
+  canonisationLevel: Saint
+  firstName: Wilfrid
+  sex: male
+  titles:
+    - Bishop
+
+willibald:
+  canonisationLevel: Saint
+  firstName: Willibald
+  sex: male
+  titles:
+    - Bishop
+
+willibrord:
+  canonisationLevel: Saint
+  firstName: Willibrord
+  sex: male
+  titles:
+    - Bishop
+
+winefride:
+  canonisationLevel: Saint
+  firstName: Winefride
+  sex: female
+  titles:
+    - Virgin
+
+wladyslawBladzinski:
+  canonisationLevel: Blessed
+  firstName: Wladyslaw
+  surname: Bladzinski
+  sex: male
+  titles:
+    - Priest
+    - Martyr
+
+wladyslawOfGielniow:
+  canonisationLevel: Blessed
+  firstName: Wladyslaw
+  surname: of Gielniow
+  sex: male
+  titles:
+    - Priest
+
+wolfgang:
+  canonisationLevel: Saint
+  firstName: Wolfgang
+  sex: male
+  titles:
+    - Bishop
+
+wolfgangOfRegensburg:
+  canonisationLevel: Saint
+  firstName: Wolfgang
+  surname: of Regensburg
+  sex: male
+  titles:
+    - Bishop
+
+wulstan:
+  canonisationLevel: Saint
+  firstName: Wulstan
+  sex: male
+  titles:
+    - Bishop
