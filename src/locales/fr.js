@@ -253,6 +253,7 @@ export default {
     "saintRobertBellarmineBishopAndDoctor": "Saint Robert Bellarmin, Jésuite, Évêque et Docteur de l’Eglise (✝ 1621)",
     "saintRomualdAbbot": "Saint Romuald, Anachorète et Père des moines Camaldules (✝ 1027)",
     "saintRoseOfLima": "Sainte Rose de Lima, Vierge (✝ 1617)",
+    "saintsAndrewZorardAndBenedictHermits": "Saints André Svorad († 1009) et Benoît Stojislav († 1012), Ermites",
     "saintsAugustineZhaoRongPriestAndCompanionsMartyrs": "Saints Augustin Zhao Rong et ses compagnons, Martyrs en Chine (entre 1648 et 1930)",
     "saintsBasilTheGreatAndGregoryNazianzenBishopsAndDoctors": "Saints Basile le Grand (✝ 379) et Grégoire de Naziance (✝ 390), Évêques et Docteurs de l’Église",
     "saintsCharlesLwangaAndCompanionsMartyrs": "Saints Charles Lwanga et ses douze compagnons, Martyrs (✝ 618)",
