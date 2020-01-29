@@ -456,7 +456,7 @@ describe('Testing national calendar overrides', function() {
 
   describe('Our Lady of Sorrows', function() {
 
-    it('Should be celebrated on the September 15 2018 as a memorial in the General Calendar', function() {
+    it('Should be celebrated on the September 15, 2018 as a memorial in the General Calendar', function() {
       var dates = Calendar.calendarFor(2018);
       var ourLadyOfSorrows = _.find(dates, function(d) {
         return _.eq(d.key, 'ourLadyOfSorrows');
