@@ -637,7 +637,6 @@ export default {
     "saintRoseOfLima": "Saint Rose of Lima, Virgin",
     "saintRosePhilippineDuchesneVirgin": "Saint Rose Philippine Duchesne, Virgin",
     "saintsAlbanJuliusAndAaronMartyrs": "Saints Alban, Julius and Aaron, Martyrs",
-    "saintsAndrewZoerardusAndBenedictHermits": "Saints Andrew Zoerardus and Benedict, Hermits",
     "saintsAndrewZorardAndBenedictHermits": "Saints Andrew Zorard and Benedict, Hermits",
     "saintsAugustineZhaoRongPriestAndCompanionsMartyrs": "Saints Augustine Zhao Rong, Priest, and Companions, Martyrs",
     "saintsBasilTheGreatAndGregoryNazianzenBishopsAndDoctors": "Saints Basil the Great and Gregory Nazianzen, Bishops and Doctors",
