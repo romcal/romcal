@@ -1,10 +1,38 @@
 language: node_js
 node_js:
-  - 6
-  - 7
-  - 8
-  - 9
-  - 10
-  - 11
-  - 12
-  - 13
+  - "6"
+  - "7"
+  - "8"
+  - "9"
+  - "10"
+  - "11"
+  - "12"
+  - "13"
+
+cache:
+  directories:
+    - "node_modules"
+
+# Custom build phase
+script:
+  - npm run test
+
+before_deploy:
+  - npm run-script build
+
+# Custom deployment script
+deploy:
+  - provider: script
+    script: bash ./scripts/bump-version.sh $RAVIS_BRANCH $TRAVIS_EVENT_TYPE $NPM_EMAIL $NPM_API_TOKEN
+    on:
+      all_branches: true
+      tags: false
+
+# notify owners
+notifications:
+  email:
+    recipients:
+      - bleushade@gmail.com
+    on_success: change
+    on_failure: always
+
