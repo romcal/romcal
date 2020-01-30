@@ -147,6 +147,11 @@ chad:
     - Bishop
     - Missionary
 
+chadAndCedd:
+  join:
+    - chad
+    - cedd
+
 charbelMakhlouf:
   canonisationLevel: Saint
   firstName: Charbel
@@ -223,6 +228,11 @@ clementI:
   titles:
     - Pope
     - Martyr
+
+clementIAndColumbanReligious:
+  join:
+    - clementI
+    - columbanReligious
 
 clementMaryHofbauer:
   canonisationLevel: Saint
@@ -360,12 +370,22 @@ cornelius:
     - Pope
     - Martyr
 
+corneliusAndCyprian:
+  join:
+    - cornelius
+    - cyprian
+
 cosmas:
   canonisationLevel: Saint
   firstName: Cosmas
   sex: male
   titles:
     - Martyr
+
+cosmasAndDamian:
+  join:
+    - cosmas
+    - damian
 
 cunigunde:
   canonisationLevel: Saint
@@ -394,6 +414,11 @@ cyril:
   titles:
     - Monk
   notes: Slavic Missionary
+
+cyrilAndMethodius:
+  join:
+    - cyril
+    - methodius
 
 cyrilOfAlexandria:
   canonisationLevel: Saint

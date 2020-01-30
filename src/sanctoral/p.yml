@@ -73,6 +73,12 @@ paulinusOfNola:
   titles:
     - Bishop
 
+paulinusOfNolaAndJohnFisherThomasMore:
+  join:
+    - paulinusOfNola
+    - johnFisher
+    - thomasMore
+
 paulinusOfTrier:
   canonisationLevel: Saint
   firstName: Paulinus
@@ -143,6 +149,11 @@ perpetua:
   titles:
     - Martyr
 
+perpetuaAndFelicity:
+  join:
+    - perpetua
+    - felicity
+
 peterMartyr:
   canonisationLevel: Saint
   firstName: Peter
@@ -158,6 +169,11 @@ peterApostle:
   titles:
     - Apostle
   notes: apostle
+
+peterAndPaulApostles:
+  join:
+    - peterApostle
+    - paulApostle
 
 peterCanisius:
   canonisationLevel: Saint
@@ -175,6 +191,11 @@ peterChanel:
   sex: male
   titles:
     - Priest
+
+peterChanelAndLouisMarieGrignonDeMontfort:
+  join:
+    - peterChanel
+    - louisGrignion
 
 peterChrysologus:
   canonisationLevel: Saint
@@ -254,6 +275,11 @@ philip:
   titles:
     - Apostle
 
+philipAndJames:
+  join:
+    - philip
+    - james
+
 philipEvans:
   canonisationLevel: Saint
   firstName: Philip
@@ -262,6 +288,11 @@ philipEvans:
   titles:
     - Priest
     - Martyr
+
+philipEvansAndJohnLloyd:
+  join:
+    - philipEvans
+    - johnLloyd
 
 philipNeri:
   canonisationLevel: Saint
@@ -276,8 +307,6 @@ pioPietralcina:
   firstName: Pio
   surname: Pietralcina
   sex: male
-  titles:
-    - Abbot
 
 pirmin:
   canonisationLevel: Saint
@@ -331,6 +360,11 @@ pontian:
     - Pope
     - Martyr
 
+pontianAndHippolytus:
+  join:
+    - pontian
+    - hippolytus
+
 pothinus:
   canonisationLevel: Saint
   firstName: Pothinus
@@ -338,6 +372,11 @@ pothinus:
   titles:
     - Bishop
     - Martyr
+
+pothinusAndBlandina:
+  join:
+    - pothinus
+    - blandina
 
 prisca:
   canonisationLevel: Saint

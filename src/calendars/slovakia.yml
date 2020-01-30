@@ -7,162 +7,187 @@ defaultConfig:
 
 dates:
 
-  saintAdalbertBishopAndMartyr:
+  adalbert:
     date: 4/23
     type: MEMORIAL
     liturgicalColor: RED
     titles:
       - MARTYR
+    locale: saintAdalbertBishopAndMartyr
 
-  saintGeorgeMartyr:
+  george:
     date: 4/24
     type: OPT_MEMORIAL
     titles:
       - MARTYR
+    locale: saintGeorgeMartyr
 
-  saintCatherineOfSienaVirginAndDoctorOfTheChurch:
+  catherineOfSiena:
     date: 4/29
     type: FEAST
     liturgicalColor: WHITE
     titles:
       - PATRON_OF_EUROPE
       - DOCTOR_OF_THE_CHURCH
+    locale: saintCatherineOfSienaVirginAndDoctorOfTheChurch
 
-  saintFlorianMartyr:
+  florian:
     date: 5/4
     type: OPT_MEMORIAL
     liturgicalColor: RED
+    locale: saintFlorianMartyr
 
-  blessedSaraSalkahaziVirginAndMartyr:
+  saraSalkahazi:
     date: 5/11
     type: OPT_MEMORIAL
     titles:
       - MARTYR
+    locale: blessedSaraSalkahaziVirginAndMartyr
 
-  saintJohnNepomucenePriestAndMartyr:
+  johnNepomucene:
     date: 5/16
     type: MEMORIAL
     liturgicalColor: RED
     titles:
       - MARTYR
+    locale: saintJohnNepomucenePriestAndMartyr
 
-  saintLadislaus:
+  ladislaus:
     date: 6/27
     type: OPT_MEMORIAL
+    locale: saintLadislaus
 
   visitationOfTheBlessedVirginMary:
     date: 7/2
     type: FEAST
     liturgicalColor: WHITE
+    locale: visitationOfTheBlessedVirginMary
 
-  saintsCyrilMonkAndMethodiusBishop:
+  cyrilAndMethodius:
     date: 7/5
     type: SOLEMNITY
     liturgicalColor: WHITE
     titles:
       - PATRON_OF_EUROPE
+    locale: saintsCyrilMonkAndMethodiusBishop
 
-  saintAnthonyZaccariaPriest:
+  anthonyZaccaria:
     date: 7/7
     type: OPT_MEMORIAL
+    locale: saintAnthonyZaccariaPriest
 
-  saintBenedictOfNursiaAbbot:
+  benedictOfNursia:
     date: 7/11
     type: FEAST
     liturgicalColor: WHITE
     titles:
       - PATRON_OF_EUROPE
+    locale: saintBenedictOfNursiaAbbot
 
-  saintsAndrewZoerardusAndBenedictHermits:
+  andrewZorardAndBenedictOfSkalka:
     date: 7/17
     type: MEMORIAL
     liturgicalColor: WHITE
+    locale: saintsAndrewZoerardusAndBenedictHermits
 
-  saintBridgetOfSwedenReligious:
+  bridgetOfSweden:
     date: 7/23
     type: FEAST
     liturgicalColor: WHITE
     titles:
       - PATRON_OF_EUROPE
+    locale: saintBridgetOfSwedenReligious
 
-  saintGorazdAndCompanions:
+  gorazd:
     date: 7/27
     type: MEMORIAL
     liturgicalColor: WHITE
+    locale: saintGorazdAndCompanions
 
-  blessedZdenkaSchelingovaVirginAndMartyr:
+  zdenkaSchelingova:
     date: 7/30
     type: OPT_MEMORIAL
     titles:
       - MARTYR
+    locale: blessedZdenkaSchelingovaVirginAndMartyr
 
-  saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr:
+  teresaBenedictaOfTheCross:
     date: 8/9
     type: FEAST
     liturgicalColor: RED
     titles:
       - MARTYR
       - PATRON_OF_EUROPE
+    locale: saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr
 
-  saintHelena:
+  helena:
     date: 8/18
     type: OPT_MEMORIAL
     liturgicalColor: WHITE
+    locale: saintHelena
 
-  saintTeresaOfCalcuttaReligious:
+  teresaOfCalcutta:
     date: 9/5
     type: OPT_MEMORIAL
     liturgicalColor: WHITE
+    locale: saintTeresaOfCalcuttaReligious
 
-  saintsMarkoKrizinMelicharGrodeckiAndStephenPongracPriestsAndMartyrs:
+  markoKrizinAndStephenPongrac:
     date: 9/7
     type: MEMORIAL
     liturgicalColor: RED
     titles:
       - MARTYR
+    locale: saintsMarkoKrizinMelicharGrodeckiAndStephenPongracPriestsAndMartyrs
 
   ourLadyOfSorrows:
     date: 9/15
     type: SOLEMNITY
     liturgicalColor: WHITE
+    locale: ourLadyOfSorrows
 
-  saintFaustinaKowalskaVirginAndReligious:
+  faustinaKowalska:
     date: 10/5
     type: OPT_MEMORIAL
     liturgicalColor: WHITE
+    locale: saintFaustinaKowalskaVirginAndReligious
 
-  saintGallAbbotAndMissionary:
+  gall:
     date: 10/16
     type: OPT_MEMORIAL
+    locale: saintGallAbbotAndMissionary
 
-  saintMaurusBishop:
+  maurus:
     date: 10/25
     type: OPT_MEMORIAL
     liturgicalColor: WHITE
+    locale: saintMaurusBishop
 
   dedicationOfAParticularChurch:
     date: 10/26
     type: SOLEMNITY
     liturgicalColor: WHITE
+    locale: dedicationOfAParticularChurch
 
   allSouls:
     date: 11/2
     type: MEMORIAL
     liturgicalColor: WHITE
+    locale: allSouls
 
-  saintEmeric:
+  emeric:
     date: 11/5
     type: OPT_MEMORIAL
+    locale: saintEmeric
 
-  saintJohnDamascenePriestAndDoctor:
-    drop: true
-
-  saintJohnDamascenePriestAndDoctorOrSaintBarbaraVirginAndMartyr:
+  barbara:
     date: 12/4
     type: OPT_MEMORIAL
     liturgicalColor: RED
+    locale: saintJohnDamascenePriestAndDoctorOrSaintBarbaraVirginAndMartyr
 
   ourLordJesusChristTheEternalHighPriest:
     date: $pentecostSunday + 4
     type: FEAST
     liturgicalColor: WHITE
+    locale: ourLordJesusChristTheEternalHighPriest

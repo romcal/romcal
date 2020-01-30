@@ -9,117 +9,136 @@ defaultConfig:
 
 dates:
 
-  saintTeiloBishop:
+  teilo:
     date: 1/9
     type: OPT_MEMORIAL
+    locale: saintTeiloBishop
 
-  saintsCyrilMonkAndMethodiusBishop:
+  cyrilAndMethodius:
     date: 1/14
     type: FEAST
     liturgicalColor: WHITE
     titles:
       - PATRON_OF_EUROPE
+    locale: saintsCyrilMonkAndMethodiusBishop
 
-  saintDavidBishop:
+  david:
     date: 2/1
     type: SOLEMNITY
     liturgicalColor: WHITE
+    locale: saintDavidBishop
 
-  saintBeunoAbbot:
+  beuno:
     date: 3/20
     type: OPT_MEMORIAL
+    locale: saintBeunoAbbot
 
-  saintCatherineOfSienaVirginAndDoctorOfTheChurch:
+  catherineOfSiena:
     date: 3/29
     type: FEAST
     liturgicalColor: WHITE
     titles:
       - PATRON_OF_EUROPE
       - DOCTOR_OF_THE_CHURCH
+    locale: saintCatherineOfSienaVirginAndDoctorOfTheChurch
 
-  saintAsaphBishop:
+  asaph:
     date: 4/5
     type: OPT_MEMORIAL
+    locale: saintAsaphBishop
 
-  saintsAlbanJuliusAndAaronMartyrs:
+  albanAndJuliusAndAaron:
     date: 5/20
     type: OPT_MEMORIAL
     liturgicalColor: RED
     titles:
       - MARTYR
+    locale: saintsAlbanJuliusAndAaronMartyrs
 
-  saintBenedictOfNursiaAbbot:
+  benedictOfNursia:
     date: 6/11
     type: FEAST
     liturgicalColor: WHITE
     titles:
       - PATRON_OF_EUROPE
+    locale: saintBenedictOfNursiaAbbot
 
-  saintJohnJonesPriestAndMartyr:
+  johnJones:
     date: 6/12
     type: OPT_MEMORIAL
     liturgicalColor: RED
     titles:
       - MARTYR
+    locale: saintJohnJonesPriestAndMartyr
 
-  saintBridgetOfSwedenReligious:
+  bridgetOfSweden:
     date: 6/23
     type: FEAST
     liturgicalColor: WHITE
     titles:
       - PATRON_OF_EUROPE
+    locale: saintBridgetOfSwedenReligious
 
-  saintsPhilipEvansAndJohnLloydPriestsAndMartyrs:
+  philipEvansAndJohnLloyd:
     date: 6/25
     type: OPT_MEMORIAL
     liturgicalColor: RED
     titles:
       - MARTYR
+    locale: saintsPhilipEvansAndJohnLloydPriestsAndMartyrs
 
-  saintGermanusOfAuxerreBishop:
+  germanusOfAuxerre:
     date: 7/3
     type: OPT_MEMORIAL
+    locale: saintGermanusOfAuxerreBishop
 
-  saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr:
+  teresaBenedictaOfTheCross:
     date: 7/9
     type: FEAST
     liturgicalColor: RED
     titles:
       - MARTYR
       - PATRON_OF_EUROPE
+    locale: saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr
 
-  saintDavidLewisPriestAndMartyr:
+  davidLewis:
     date: 7/26
     type: OPT_MEMORIAL
     liturgicalColor: RED
     titles:
       - MARTYR
+    locale: saintDavidLewisPriestAndMartyr
 
-  saintDeiniolBishop:
+  deiniol:
     date: 8/11
     type: OPT_MEMORIAL
+    locale: saintDeiniolBishop
 
-  saintRichardGwynMartyr:
+  richardGwyn:
     date: 9/16
     type: OPT_MEMORIAL
     liturgicalColor: RED
     titles:
       - MARTYR
+    locale: saintRichardGwynMartyr
 
-  theSixWelshMartyrsAndCompanions:
+  sixWelshMartyrs:
     date: 9/25
     type: FEAST
     liturgicalColor: RED
     titles:
       - MARTYR
+    locale: theSixWelshMartyrsAndCompanions
 
-  saintWinefrideVirgin:
+  winefride:
     date: 10/03
     type: OPT_MEMORIAL
+    locale: saintWinefrideVirgin
 
-  saintIlltudAbbot:
+  illtud:
     date: 10/06
     type: OPT_MEMORIAL
+    locale: saintIlltudAbbot
 
   allSaints:
     # In England and Wales when All Saints (November 1) falls on a Saturday
@@ -131,6 +150,7 @@ dates:
     type: SOLEMNITY
     prioritized: true
     liturgicalColor: WHITE
+    locale: allSaints
 
   allSouls:
     # If All Saints is on Saturday, move it to Monday
@@ -144,25 +164,29 @@ dates:
     # but must replace any existing celebrations that falls the same day.
     prioritized: true
     liturgicalColor: WHITE
+    locale: allSouls
 
   allSaintsOfWales:
     date: 1/17
     type: MEMORIAL
     prioritized: true
     liturgicalColor: WHITE
+    locale: allSaintsOfWales
 
-  saintDubriciusBishop:
+  dubricius:
     date: 10/14
     type: OPT_MEMORIAL
     titles:
       - MARTYR
+    locale: saintDubriciusBishop
 
-  saintJohnRobertsPriestAndMartyr:
+  johnRoberts:
     date: 11/10
     type: OPT_MEMORIAL
     liturgicalColor: RED
     titles:
       - MARTYR
+    locale: saintJohnRobertsPriestAndMartyr
 
   peterAndPaulApostles:
     # In England and Wales when the celebration falls on either a
@@ -176,6 +200,7 @@ dates:
     type: SOLEMNITY
     prioritized: true
     liturgicalColor: RED
+    locale: peterAndPaulApostles
 
   assumption:
     # In England and Wales when the celebration falls on either a
@@ -189,3 +214,4 @@ dates:
     type: SOLEMNITY
     prioritized: true
     liturgicalColor: WHITE
+    locale: assumption

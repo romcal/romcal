@@ -22,6 +22,12 @@ nereus:
   titles:
     - Martyr
 
+nereusAndAchilleusAndPancras:
+  join:
+    - nereus
+    - achilleus
+    - pancras
+
 nicholasBishop:
   canonisationLevel: Saint
   firstName: Nicholas

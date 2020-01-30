@@ -73,6 +73,11 @@ denis:
   titles:
     - Martyr
 
+denisAndJohnLeonardi:
+  join:
+    - denis
+    - johnLeonardi
+
 dinaBelanger:
   canonisationLevel: Blessed
   firstName: Dina

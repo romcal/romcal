@@ -75,6 +75,11 @@ marcellinus:
   titles:
     - Martyr
 
+marcellinusAndPeter:
+  join:
+    - marcellinus
+    - peterMartyr
+
 marcellusI:
   canonisationLevel: Saint
   firstName: Marcellus I
@@ -92,6 +97,11 @@ margaretClitherow:
   sex: female
   titles:
     - Martyr
+
+margaretClitherowAndMargaretWard:
+  join:
+    - margaretClitherow
+    - margaretWard
 
 margaretMaryAlacoque:
   canonisationLevel: Saint
@@ -122,6 +132,11 @@ margaretOfScotland:
   firstName: Margaret
   surname: of Scotland
   sex: female
+
+margaretOfScotlandAndGertrudeTheGreat:
+  join:
+    - margaretOfScotland
+    - gertrudeTheGreat
 
 margaretWard:
   canonisationLevel: Saint
@@ -316,6 +331,11 @@ markoKrizin:
   titles:
     - Priest
     - Martyr
+
+markoKrizinAndStephenPongrac:
+  join:
+    - markoKrizin
+    - stephenPongrac
 
 maron:
   canonisationLevel: Saint
@@ -536,6 +556,12 @@ michael:
   sex: male
   titles:
     - Archangel
+
+michaelAndGabrielAndRaphael:
+  join:
+    - michael
+    - gabriel
+    - raphael
 
 michaelKozal:
   canonisationLevel: Blessed

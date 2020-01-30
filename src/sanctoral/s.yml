@@ -88,6 +88,11 @@ simon:
   titles:
     - Apostle
 
+simonAndJude:
+  join:
+    - simon
+    - jude
+
 simonOfLipnica:
   canonisationLevel: Saint
   firstName: Simon
@@ -103,6 +108,11 @@ sixtusIi:
   titles:
     - Pope
     - Martyr
+
+sixtusIiAndCajetan:
+  join:
+    - sixtusIi
+    - cajetan
 
 sixWelshMartyrs:
   firstName: Six Welsh Martyrs

@@ -9,79 +9,94 @@ defaultConfig:
 
 dates:
 
-  saintGenevieveVirgin:
+  genevieve:
     date: 1/3
     type: OPT_MEMORIAL
+    locale: saintGenevieveVirgin
 
-  saintRemigiusBishop:
+  remigius:
     date: 1/15
     type: OPT_MEMORIAL
+    locale: saintRemigiusBishop
 
-  saintsCyrilMonkAndMethodiusBishop:
+  cyrilAndMethodius:
     date: 2/14
     type: FEAST
     liturgicalColor: WHITE
     titles:
       - PATRON_OF_EUROPE
+    locale: saintsCyrilMonkAndMethodiusBishop
 
-  saintBernadetteSoubirousVirgin:
+  bernadetteSoubirous:
     date: 2/18
     type: OPT_MEMORIAL
+    locale: saintBernadetteSoubirousVirgin
 
-  saintCatherineOfSienaVirginAndDoctorOfTheChurch:
+  catherineOfSiena:
     date: 4/29
     type: FEAST
     liturgicalColor: WHITE
     titles:
       - PATRON_OF_EUROPE
       - DOCTOR_OF_THE_CHURCH
+    locale: saintCatherineOfSienaVirginAndDoctorOfTheChurch
 
-  saintIvoPriest:
+  ivo:
     date: 5/19
     type: OPT_MEMORIAL
+    locale: saintIvoPriest
 
-  saintJoanOfArcVirginSecondaryPatronessOfFrance:
+  joanOfArc:
     date: 5/30
     type: MEMORIAL
     liturgicalColor: WHITE
+    locale: saintJoanOfArcVirginSecondaryPatronessOfFrance
 
-  saintPothinusBishopSaintBlAndinaVirginAndTheirCompanionsMartyrs:
+  pothinusAndBlandina:
     date: 6/2
     type: OPT_MEMORIAL
+    locale: saintPothinusBishopSaintBlAndinaVirginAndTheirCompanionsMartyrs
 
-  saintClotilde:
+  clotilde:
     date: 6/4
     type: OPT_MEMORIAL
+    locale: saintClotilde
 
-  saintBenedictOfNursiaAbbot:
+  benedictOfNursia:
     date: 7/11
     type: FEAST
     liturgicalColor: WHITE
     titles:
       - PATRON_OF_EUROPE
+    locale: saintBenedictOfNursiaAbbot
 
-  saintBridgetOfSwedenReligious:
+  bridgetOfSweden:
     date: 7/23
     type: FEAST
     liturgicalColor: WHITE
     titles:
       - PATRON_OF_EUROPE
+    locale: saintBridgetOfSwedenReligious
 
-  saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr:
+  teresaBenedictaOfTheCross:
     date: 8/9
     type: FEAST
     liturgicalColor: RED
     titles:
       - MARTYR
       - PATRON_OF_EUROPE
+    locale: saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr
 
-  saintCaesariusOfArlesBishop:
+  caesariusOfArles:
     date: 8/26
     type: OPT_MEMORIAL
+    locale: saintCaesariusOfArlesBishop
 
-  saintThereseOfTheChildJesusVirginSecondaryPatronessOfFrance:
+  thereseOfTheChildJesus:
     date: 10/1
     type: MEMORIAL
     liturgicalColor: WHITE
     titles:
       - DOCTOR_OF_THE_CHURCH
+      # - Secondary Patroness of France
+    locale: saintThereseOfTheChildJesusVirginSecondaryPatronessOfFrance

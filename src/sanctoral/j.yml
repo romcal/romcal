@@ -67,6 +67,12 @@ jeanDeBrebeuf:
     - Priest
     - Martyr
 
+jeanDeBrebeufAndIsaacJoguesAndPaulOfTheCross:
+  join:
+    - jeanDeBrebeuf
+    - isaacJogues
+    - paulOfTheCross
+
 jerome:
   canonisationLevel: Saint
   firstName: Jerome
@@ -80,6 +86,11 @@ jeromeEmiliani:
   firstName: Jerome
   surname: Emiliani
   sex: male
+
+jeromeEmilianiAndjosephineBakhita:
+  join:
+    - jeromeEmiliani
+    - josephineBakhita
 
 jeronimoDeAngelis:
   canonisationLevel: Blessed
@@ -219,6 +230,11 @@ johnFisher:
   titles:
     - Bishop
     - Martyr
+
+johnFisherAndThomasMore:
+  join:
+    - johnFisher
+    - thomasMore
 
 johnHenryNewman:
   canonisationLevel: Blessed

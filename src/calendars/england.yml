@@ -9,32 +9,37 @@ defaultConfig:
 
 dates:
 
-  saintAelredOfRievaulx:
+  aelredOfRievaulx:
     date: 1/12
     type: OPT_MEMORIAL
+    locale: saintAelredOfRievaulx
 
-  saintWulstanBishop:
+  wulstan:
     date: 1/19
     type: OPT_MEMORIAL
+    locale: saintWulstanBishop
 
-  saintsCyrilMonkAndMethodiusBishop:
+  cyrilAndMethodius:
     date: 2/14
     type: FEAST
     liturgicalColor: WHITE
     titles:
       - PATRON_OF_EUROPE
+    locale: saintsCyrilMonkAndMethodiusBishop
 
-  saintDavidBishop:
+  david:
     date: 3/1
     type: FEAST
     liturgicalColor: WHITE
+    locale: saintDavidBishop
 
-  saintPatrickBishop:
+  patrickBishop:
     date: 3/17
     type: FEAST
     liturgicalColor: WHITE
+    locale: saintPatrickBishop
 
-  saintGeorgeMartyr:
+  george:
     # When the celebration falls between Palm Sunday and the Divine Mercy Sunday
     # (the second Sunday of Easter): it is transferred to the Monday after Divine Mercy.
     # But if the Monday after the Divine Mercy Sunday is the feast of Annunciation,
@@ -45,136 +50,169 @@ dates:
       if ($divineMercySunday + 1 === $annunciation && date === $annunciation) return $divineMercySunday + 2;
       return date;
     type: SOLEMNITY
+    locale: saintGeorgeMartyr
 
-  saintAdalbertBishopAndMartyrSaintFidelisOfSigmaringenPriestAndMartyr:
+  adalbertAndfidelisOfSigmaringen:
     date: 5/24
     type: OPT_MEMORIAL
     liturgicalColor: RED
     titles:
       - MARTYR
+    locale: saintAdalbertBishopAndMartyrSaintFidelisOfSigmaringenPriestAndMartyr
 
-  saintCatherineOfSienaVirginAndDoctorOfTheChurch:
+  catherineOfSiena:
     date: 4/29
     type: FEAST
     liturgicalColor: WHITE
     titles:
       - PATRON_OF_EUROPE
       - DOCTOR_OF_THE_CHURCH
+    locale: saintCatherineOfSienaVirginAndDoctorOfTheChurch
 
   theEnglishMartyrs:
     date: 5/4
     type: FEAST
     liturgicalColor: WHITE
+    locale: theEnglishMartyrs
 
-  stDunstanArchbishopOfCanterbury:
+  dunstan:
     date: 5/19
     type: OPT_MEMORIAL
+    locale: stDunstanArchbishopOfCanterbury
 
-  saintBedeTheVenerablePriestAndDoctor:
+  bedeTheVenerable:
     date: 5/25
     type: MEMORIAL
     liturgicalColor: WHITE
     titles:
       - DOCTOR_OF_THE_CHURCH
+    locale: saintBedeTheVenerablePriestAndDoctor
 
-  saintAugustineOfCanterburyBishop:
+  augustineOfCanterbury:
     date: 5/27
     type: FEAST
     liturgicalColor: WHITE
+    locale: saintAugustineOfCanterburyBishop
 
-  saintBonifaceBishopAndMartyr:
+  boniface:
     date: 6/5
     type: MEMORIAL
     liturgicalColor: WHITE
+    locale: saintBonifaceBishopAndMartyr
 
-  saintEphraemDeaconDoctorOrSaintColumbaColumCilleAbbot:
+  ephrem:
     date: 6/9
     type: OPT_MEMORIAL
     titles:
       - DOCTOR_OF_THE_CHURCH
+    locale: saintEphraemDeaconDoctorOrSaintColumbaColumCilleAbbot
 
-  saintRichardOfChichesterBishop:
+  columbaAbbot:
+    date: 6/9
+    type: OPT_MEMORIAL
+    titles:
+      - DOCTOR_OF_THE_CHURCH
+    locale: saintEphraemDeaconDoctorOrSaintColumbaColumCilleAbbots
+
+  richardOfChichester:
     date: 6/16
     type: OPT_MEMORIAL
+    locale: saintRichardOfChichesterBishop
 
-  saintAlbanMartyr:
+  alban:
     date: 6/20
     type: OPT_MEMORIAL
+    locale: saintAlbanMartyr
 
-  saintsJohnFisherBishopAndThomasMoreMartyrs:
+  johnFisherAndThomasMore:
     date: 6/22
     type: FEAST
     liturgicalColor: WHITE
+    locale: saintsJohnFisherBishopAndThomasMoreMartyrs
 
-  saintEtheldredaAudreyVirgin:
+  etheldreda:
     date: 6/23
     type: OPT_MEMORIAL
+    locale: saintEtheldredaAudreyVirgin
 
-  saintOliverPlunketBishopAndMartyr:
+  oliverPlunket:
     date: 7/1
     type: OPT_MEMORIAL
+    locale: saintOliverPlunketBishopAndMartyr
 
-  saintBenedictOfNursiaAbbot:
+  benedictOfNursia:
     date: 7/11
     type: FEAST
     liturgicalColor: WHITE
     titles:
       - PATRON_OF_EUROPE
+    locale: saintBenedictOfNursiaAbbot
 
-  saintBridgetOfSwedenReligious:
+  bridgetOfSweden:
     date: 7/23
     type: FEAST
     liturgicalColor: WHITE
     titles:
       - PATRON_OF_EUROPE
+    locale: saintBridgetOfSwedenReligious
 
-  saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr:
+  teresaBenedictaOfTheCross:
     date: 8/9
     type: FEAST
     liturgicalColor: RED
     titles:
       - MARTYR
       - PATRON_OF_EUROPE
+    locale: saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr
 
-  blessedDominicOfTheMotherOfGodDominicBarberiPriest:
+  dominicOfTheMotherOfGod:
     date: 8/26
     type: OPT_MEMORIAL
+    locale: blessedDominicOfTheMotherOfGodDominicBarberiPriest
 
-  saintsMargaretClitherowAnneLineAndMargaretWardMartyrs:
+  margaretClitherowAndMargaretWard:
     date: 8/30
     type: OPT_MEMORIAL
+    locale: saintsMargaretClitherowAnneLineAndMargaretWardMartyrs
 
-  saintAidanBishopAndTheSaintsOfLindisfarne:
+  aidanAndTheSaintsOfLindisfarne:
     date: 8/31
     type: OPT_MEMORIAL
+    locale: saintAidanBishopAndTheSaintsOfLindisfarne
 
-  saintGregoryTheGreatPopeAndDoctor:
+  gregoryTheGreat:
     date: 9/3
     type: FEAST
     liturgicalColor: WHITE
     titles:
       - DOCTOR_OF_THE_CHURCH
+    locale: saintGregoryTheGreatPopeAndDoctor
 
-  saintCuthbertBishop:
+  cuthbert:
     date: 9/4
     type: OPT_MEMORIAL
+    locale: saintCuthbertBishop
 
-  saintTheodoreOfCanterburyBishop:
+  theodoreOfCanterbury:
     date: 9/19
     type: OPT_MEMORIAL
+    locale: saintTheodoreOfCanterburyBishop
 
   ourLadyOfWalsingham:
     date: 9/24
     type: MEMORIAL
     liturgicalColor: WHITE
+    locale: ourLadyOfWalsingham
 
-  blessedJohnHenryNewmanPriest:
+  johnHenryNewman:
     date: 10/9
     type: OPT_MEMORIAL
+    locale: blessedJohnHenryNewmanPriest
 
-  saintPaulinusOfYorkBishop:
+  paulinusOfYork:
     date: 10/10
     type: OPT_MEMORIAL
+    locale: saintPaulinusOfYorkBishop
 
   peterAndPaulApostles:
     # In England and Wales when the celebration falls on either a
@@ -188,6 +226,7 @@ dates:
     type: SOLEMNITY
     prioritized: true
     liturgicalColor: RED
+    locale: peterAndPaulApostles
 
   assumption:
     # In England and Wales when the celebration falls on either a
@@ -201,39 +240,53 @@ dates:
     type: SOLEMNITY
     prioritized: true
     liturgicalColor: WHITE
+    locale: assumption
 
-  saintWilfridBishop:
+  wilfrid:
     date: 10/12
     type: OPT_MEMORIAL
+    locale: saintWilfridBishop
 
-  saintEdwardTheConfessor:
+  edwardTheConfessor:
     date: 10/13
     type: OPT_MEMORIAL
+    locale: saintEdwardTheConfessor
 
-  saintsChadAndCeddBishop:
+  chadAndCedd:
     date: 10/26
     type: OPT_MEMORIAL
+    locale: saintsChadAndCeddBishop
 
-  saintWinefrideVirgin:
+  winefride:
     date: 11/3
     type: OPT_MEMORIAL
+    locale: saintWinefrideVirgin
 
-  saintWillibrordBishop:
+  willibrord:
     date: 11/7
     type: OPT_MEMORIAL
+    locale: saintWillibrordBishop
 
-  saintEdmundOfAbingdonBishopOrSaintMargaretOfScotland:
+  edmundOfAbingdon:
     date: 11/16
     type: OPT_MEMORIAL
+    locale: saintEdmundOfAbingdonBishopOrSaintMargaretOfScotland
 
-  saintElizabethOfHungary:
+  margaretOfScotland:
+    date: 11/16
+    type: OPT_MEMORIAL
+    locale: saintEdmundOfAbingdonBishopOrSaintMargaretOfScotland
+
+  elizabethOfHungary:
     date: 11/17
     type: OPT_MEMORIAL
+    locale: saintElizabethOfHungary
 
-  saintAndrewApostle:
+  andrew:
     date: 11/30
     type: FEAST
     liturgicalColor: WHITE
+    locale: saintAndrewApostle
 
   allSaints:
     # In England and Wales when All Saints (November 1) falls on a Saturday
@@ -245,6 +298,7 @@ dates:
     type: SOLEMNITY
     prioritized: true
     liturgicalColor: WHITE
+    locale: allSaints
 
   allSouls:
     # If All Saints is on Saturday, move it to Monday
@@ -258,10 +312,12 @@ dates:
     # but must replace any existing celebrations that falls the same day.
     prioritized: true
     liturgicalColor: WHITE
+    locale: allSouls
 
-  saintThomasBecketBishopAndMartyr:
+  thomasBecket:
     date: 12/29
     type: FEAST
     liturgicalColor: RED
     titles:
       - MARTYR
+    locale: saintThomasBecketBishopAndMartyr

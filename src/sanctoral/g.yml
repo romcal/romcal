@@ -37,6 +37,11 @@ george:
   titles:
     - Martyr
 
+georgeAndAdalbert:
+  join:
+    - george
+    - adalbert
+
 georgeMatulewicz:
   canonisationLevel: Blessed
   firstName: George

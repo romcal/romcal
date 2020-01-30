@@ -83,6 +83,7 @@
     "eslint-plugin-flowtype": "^4.6.0",
     "eslint-plugin-node": "^11.0.0",
     "flow-bin": "^0.117.0",
+    "glob": "^7.1.6",
     "js-yaml": "^3.13.1",
     "mocha": "^6.2.2",
     "semver": "^7.1.1",

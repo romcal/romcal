@@ -178,6 +178,11 @@ eusebiusOfVercelli:
   titles:
     - Bishop
 
+eusebiusOfVercelliAndpeterJulianEymard:
+  join:
+    - eusebiusOfVercelli
+    - peterJulianEymard
+
 eysteinn:
   canonisationLevel: Saint
   firstName: Eysteinn

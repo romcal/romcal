@@ -15,6 +15,11 @@ hedwig:
   titles:
     - Religious
 
+hedwigAndMargaretMaryAlacoque:
+  join:
+    - hedwig
+    - margaretMaryAlacoque
+
 hedwigOfPoland:
   canonisationLevel: Saint
   firstName: Hedwig

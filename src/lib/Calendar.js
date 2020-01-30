@@ -7,6 +7,7 @@ import * as CalendarsDef from '../calendars/indexYaml';
 import {Types} from '../constants';
 import Config from './Config';
 import DateItem from './DateItem';
+import Sanctoral from './Sanctoral';
 import * as Dates from './Dates';
 import * as Utils from './Utils';
 import * as Seasons from './Seasons';
@@ -19,6 +20,7 @@ import * as Celebrations from './Celebrations';
  */
 class Calendar {
   dateItems: DateItem[] = [];
+  sanctoral: Sanctoral;
   config: Config;
   startDate: Moment;
   endDate: Moment;
@@ -28,6 +30,7 @@ class Calendar {
    */
   constructor(config: Config) {
     this.config = config;
+    this.sanctoral = new Sanctoral();
 
     // The year can be specified either as:
     // - civil year (January 1 to December 31); or

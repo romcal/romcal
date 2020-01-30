@@ -31,6 +31,11 @@ adalbert:
     - Bishop
     - Martyr
 
+adalbertAndfidelisOfSigmaringen:
+  join:
+    - adalbert
+    - fidelisOfSigmaringen
+
 adalbertOfPrague:
   canonisationLevel: Saint
   firstName: Adalbert
@@ -94,6 +99,11 @@ aidan:
   titles:
     - Bishop
 
+aidanAndTheSaintsOfLindisfarne:
+  join:
+    - aidan
+    - saintsOfLindisfarne
+
 aidanOfLindisfarne:
   canonisationLevel: Saint
   firstName: Aidan
@@ -116,6 +126,12 @@ alban:
   sex: male
   titles:
     - Martyr
+
+albanAndJuliusAndAaron:
+  join:
+    - alban
+    - julius
+    - aaron
 
 albertChmielowski:
   canonisationLevel: Saint
@@ -314,6 +330,11 @@ andrewKimTaegon:
     - Priest
     - Martyr
 
+andrewKimTaegonAndPaulChongHasangAndCompanions:
+  join:
+    - andrewKimTaegon
+    - paulChongHasang
+
 andrewZorard:
   canonisationLevel: Saint
   firstName: Andrew
@@ -322,6 +343,11 @@ andrewZorard:
   titles:
     - Hermit
   notes: Andrew Zoerardus
+
+andrewZorardAndBenedictOfSkalka:
+  join:
+    - andrewZorard
+    - benedictOfSkalka
 
 angelaMerici:
   canonisationLevel: Saint
@@ -343,6 +369,11 @@ anne:
   canonisationLevel: Saint
   firstName: Anne
   sex: female
+
+anneAndJoachim:
+  join:
+    - anne
+    - joachim
 
 anneLine:
   canonisationLevel: Saint

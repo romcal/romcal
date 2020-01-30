@@ -192,6 +192,11 @@ timothy:
   birthDate: c. 17
   deathDate: c. 97
 
+timothyAndTitus:
+  join:
+    - timothy
+    - titus
+
 titus:
   canonisationLevel: Saint
   firstName: Titus
