@@ -69,4 +69,16 @@ then
 
     git push origin --tags
     git push origin ${TRAVIS_BRANCH}
+
+    # Publish npm module
+    if [ "$TRAVIS_BRANCH" = 'master' ]; then
+        npm publish --tag latest --access public
+    elif [ "$TRAVIS_BRANCH" = 'test' ]; then
+        npm publish --tag beta --access public
+    elif [ "$TRAVIS_BRANCH" = 'dev' ]; then
+        npm publish --tag alpha --access public
+    else
+        npm publish --tag unstable --access public
+    fi
+
 fi
