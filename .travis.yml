@@ -19,6 +19,8 @@ script: 'true'
 
 before_deploy:
   - npm run-script build
+  - chmod +x scripts/bump-version.sh
+  - git update-index --assume-unchanged scripts/bump-version.sh
 
 # Custom deployment script
 deploy:
@@ -32,6 +34,9 @@ deploy:
     api_key: $NPM_TOKEN
     on:
       tags: true
+
+after_deploy:
+  - git update-index --no-assume-unchanged scripts/bump-version.sh
 
 # notify owners
 notifications:
