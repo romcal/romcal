@@ -5,10 +5,6 @@ TRAVIS_EVENT_TYPE=$2
 GH_USER=$3
 GH_TOKEN=$4
 
-setup_git() {
-
-}
-
 # Bump version only if TRAVIS_EVENT_TYPE is push
 if [ "$TRAVIS_EVENT_TYPE" = 'push' ]
 then
