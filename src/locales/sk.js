@@ -610,7 +610,6 @@ export default {
     "saintRoseOfLima": "Svätej Ruženy Limskej, panny",
     "saintRosePhilippineDuchesneVirgin": "Svätej Ruženy Filipíny Duchesne, panny",
     "saintsAlbanJuliusAndAaronMartyrs": "Svätého Albána, Júlia and Árona, mučeníkov",
-    "saintsAndrewZoerardusAndBenedictHermits": "Svätých Andreja-Svorada a Benedikta, pustovníkov",
     "saintsAndrewZorardAndBenedictHermits": "Svätých Andreja-Svorada a Benedikta, pustovníkov",
     "saintsAugustineZhaoRongPriestAndCompanionsMartyrs": "Svätých Augustína Zhao Rong, kňaza, a spoločníkov, mučeníkov",
     "saintsBasilTheGreatAndGregoryNazianzenBishopsAndDoctors": "Svätých Bazila Veľkého a Gregora Nazianzského, biskupov a učiteľov Cirkvi",

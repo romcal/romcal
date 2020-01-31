@@ -129,7 +129,7 @@ let dates = year => {
       }
     },
     {
-      "key": "saintsAndrewZoerardusAndBenedictHermits",
+      "key": "saintsAndrewZorardAndBenedictHermits",
       "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 6, day: 17 }),
       "data": {
