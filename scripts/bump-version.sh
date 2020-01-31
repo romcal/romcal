@@ -1,10 +1,7 @@
 #!/bin/bash
-set -ex
 
 TRAVIS_BRANCH=$1
 TRAVIS_EVENT_TYPE=$2
-NPM_EMAIL=$3
-NPM_API_TOKEN=$4
 
 # Bump version only if TRAVIS_EVENT_TYPE is push
 if [ $TRAVIS_EVENT_TYPE == 'push' ]

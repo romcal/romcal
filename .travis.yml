@@ -19,16 +19,14 @@ script: 'true'
 
 before_deploy:
   - npm run-script build
-  - chmod +x scripts/bump-version.sh
-  - git update-index --assume-unchanged scripts/bump-version.sh
 
 # Custom deployment script
 deploy:
   - provider: script
-    script: scripts/bump-version.sh $RAVIS_BRANCH $TRAVIS_EVENT_TYPE
+    script:  chmod +x scripts/bump-version.sh && git update-index --assume-unchanged scripts/bump-version.sh && scripts/bump-version.sh $RAVIS_BRANCH $TRAVIS_EVENT_TYPE
+    skip_cleanup: true
     on:
       all_branches: true
-
   - provider: npm
     email: $NPM_EMAIL
     api_key: $NPM_TOKEN
