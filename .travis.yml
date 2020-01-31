@@ -29,15 +29,45 @@ before_deploy:
 # Custom deployment script
 deploy:
   - provider: script
-    script:  scripts/bump-version.sh $RAVIS_BRANCH $TRAVIS_EVENT_TYPE
+    script:  scripts/bump-version.sh $TRAVIS_BRANCH $TRAVIS_EVENT_TYPE
     skip_cleanup: true
     on:
       all_branches: true
   - provider: npm
     email: $NPM_EMAIL
     api_key: $NPM_TOKEN
+    skip_cleanup: true
+    tag: latest
     on:
       tags: true
+      branch: master
+      condition: $TRAVIS_EVENT_TYPE = push
+  - provider: npm
+    email: $NPM_EMAIL
+    api_key: $NPM_TOKEN
+    skip_cleanup: true
+    tag: beta
+    on:
+      tags: true
+      branch: test
+      condition: $TRAVIS_EVENT_TYPE = push
+  - provider: npm
+    email: $NPM_EMAIL
+    api_key: $NPM_TOKEN
+    skip_cleanup: true
+    tag: alpha
+    on:
+      tags: true
+      branch: dev
+      condition: $TRAVIS_EVENT_TYPE = push
+  - provider: npm
+    email: $NPM_EMAIL
+    api_key: $NPM_TOKEN
+    skip_cleanup: true
+    tag: unstable
+    on:
+      tags: true
+      condition: $TRAVIS_EVENT_TYPE = push
 
 after_deploy:
   - git update-index --no-assume-unchanged scripts/bump-version.sh
