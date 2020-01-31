@@ -1,45 +1,38 @@
 language: node_js
 node_js:
-  - "13"
-
+- '13'
 cache:
   directories:
-    - "node_modules"
-
-# Custom build phase
-# script:
-#  - npm run test
-
-# Custom deployment script
+  - node_modules
 jobs:
   include:
-    - stage: build
-      node_js:
-        - "13"
-      script:  true
-      # Create a temporary .npmrc file to be used for deployments
-      # Adjust permissions of all needed scripts
-      # Ensure git does not track these changes
-      before_install:
-        - npm i -g makeshift && makeshift -r registry.npmjs.org
-        - chmod +x scripts/semver.sh
-        - chmod +x scripts/bump-version.sh
-        - git update-index --assume-unchanged scripts/bump-version.sh
-        - git update-index --assume-unchanged scripts/semver.sh
-      deploy:
-        - provider: script
-          script:  scripts/bump-version.sh $TRAVIS_BRANCH $TRAVIS_EVENT_TYPE $GH_USER $GH_TOKEN $GH_EMAIL
-          skip_cleanup: true
-          on:
-            all_branches: true
-      after_deploy:
-        - git update-index --no-assume-unchanged scripts/bump-version.sh
-        - git update-index --no-assume-unchanged scripts/semver.sh
-
-# notify owners
+  - stage: build
+    node_js:
+    - '13'
+    script: true
+    before_install:
+    - npm i -g makeshift && makeshift -r registry.npmjs.org
+    - chmod +x scripts/semver.sh
+    - chmod +x scripts/bump-version.sh
+    - git update-index --assume-unchanged scripts/bump-version.sh
+    - git update-index --assume-unchanged scripts/semver.sh
+    deploy:
+    - provider: script
+      script: scripts/bump-version.sh $TRAVIS_BRANCH $TRAVIS_EVENT_TYPE $GH_USER $GH_TOKEN
+        $GH_EMAIL
+      skip_cleanup: true
+      on:
+        all_branches: true
+    after_deploy:
+    - git update-index --no-assume-unchanged scripts/bump-version.sh
+    - git update-index --no-assume-unchanged scripts/semver.sh
 notifications:
   email:
     recipients:
-      - bleushade@gmail.com
+    - bleushade@gmail.com
     on_success: change
     on_failure: always
+env:
+  global:
+  - secure: Mw1p8/sB+qna4OxO6u5jjLCgVadmGm+ZS4GF5AGJb1ftx++SxjiUofaq1gw8M/KlegyqUefMlK8zowl9KLooXN2uWLZ4KHrPhHXHpwYu8JWavWx9mzMMyX3Ubg4tOepug4y+B6FlJofcajtrKHVa1mwz7n6WuJREX5tgeAxpk3E=
+  - secure: h6zZPsXStXQ33fmhVplcxgxwlliSeZqW5rhkVKfAhULUaWsuekr3WVaWpS1eXuxVZso+o0ocXG0wglKJ3W0It+786efym/zcUTO6q+FjCQBnNTBOwOkRdodJD7WnjYL8j29itWNdVtj2eN0qIj8jazhSR2pnhRNzFMpiOr2wK74=
