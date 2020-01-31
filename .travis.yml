@@ -7,8 +7,14 @@ cache:
     - "node_modules"
 
 # Create a temporary .npmrc file to be used for deployments
+# Adjust permissions of all needed scripts
+# Ensure git does not track these changes
 before_install:
   - npm i -g makeshift && makeshift -r registry.npmjs.org
+  - chmod +x scripts/semver.sh
+  - chmod +x scripts/bump-version.sh
+  - git update-index --assume-unchanged scripts/bump-version.sh
+  - git update-index --assume-unchanged scripts/semver.sh
 
 # Custom build phase
 # script:
@@ -23,7 +29,7 @@ before_deploy:
 # Custom deployment script
 deploy:
   - provider: script
-    script:  chmod +x scripts/bump-version.sh && git update-index --assume-unchanged scripts/bump-version.sh && scripts/bump-version.sh $RAVIS_BRANCH $TRAVIS_EVENT_TYPE
+    script:  scripts/bump-version.sh $RAVIS_BRANCH $TRAVIS_EVENT_TYPE
     skip_cleanup: true
     on:
       all_branches: true
@@ -35,6 +41,7 @@ deploy:
 
 after_deploy:
   - git update-index --no-assume-unchanged scripts/bump-version.sh
+  - git update-index --no-assume-unchanged scripts/semver.sh
 
 # notify owners
 notifications:

@@ -4,7 +4,7 @@ TRAVIS_BRANCH=$1
 TRAVIS_EVENT_TYPE=$2
 
 # Bump version only if TRAVIS_EVENT_TYPE is push
-if [ $TRAVIS_EVENT_TYPE == 'push' ]
+if [ $TRAVIS_EVENT_TYPE = 'push' ]
 then
 
     PACKAGE_NAME="$(node -pe "require('./package.json')['name']")"
@@ -14,38 +14,37 @@ then
     echo "CURRENT_VERSION is $CURRENT_VERSION"
 
     # If not on master branch ...
-    if [ $TRAVIS_BRANCH != 'master' ]; then
+    if [ "$TRAVIS_BRANCH" != 'master' ]; then
 
         # ... obtain and tokenize the latest version according to tag
-        if [ $TRAVIS_BRANCH == 'test' ]; then
+        if [ "$TRAVIS_BRANCH" = 'test' ]; then
             LATEST_TAG_VERSION="$(npm view ${PACKAGE_NAME}@beta version)"
-        elif [ $TRAVIS_BRANCH == 'dev' ]; then
+        elif [ "$TRAVIS_BRANCH" = 'dev' ]; then
             LATEST_TAG_VERSION="$(npm view ${PACKAGE_NAME}@alpha version)"
         else
             LATEST_TAG_VERSION="$(npm view ${PACKAGE_NAME}@unstable version)"
         fi
-
-        IFS='-' tokens=( $LATEST_TAG_VERSION )
-        SEMVER=$tokens[0];
-        PREID=$tokens[1];
-        echo "the latest tag SEMVER is ${SEMVER} with a PREID of ${PREID}"
+        
+        tokens=($(echo $LATEST_TAG_VERSION | tr "-" "\n"))
+        SEMVER=${tokens[0]};
+        # SEMVER="1.4.0"
+        PREID=${tokens[1]};
 
         # If tag version is higher than the 'latest' version in npm
         # then it means that no new version has been published to master yet and
         # we shuld continue incrementing the preid based on the tag version
-        if [ $SEMVER -gt $CURRENT_VERSION ]
-        then
-            CURRENT_VERSION = LATEST_TAG_VERSION
+        COMPARISON_RESULT="$(./scripts/semver.sh $SEMVER $CURRENT_VERSION)"
+        if [ COMPARISON_RESULT = 1 ]; then
+            CURRENT_VERSION=$LATEST_TAG_VERSION
         fi
-
     fi
 
     # Bump version accordingly
-    if [ $TRAVIS_BRANCH == 'master' ]; then
+    if [ "$TRAVIS_BRANCH" = 'master' ]; then
         NEW_VERSION="$(./node_modules/.bin/semver -i patch ${CURRENT_VERSION} )"
-    elif [ $TRAVIS_BRANCH == 'test' ]; then
+    elif [ "$TRAVIS_BRANCH" = 'test' ]; then
         NEW_VERSION="$(./node_modules/.bin/semver -i prerelease --preid beta $CURRENT_VERSION)"
-    elif [ $TRAVIS_BRANCH == 'dev' ]; then
+    elif [ "$TRAVIS_BRANCH" = 'dev' ]; then
         NEW_VERSION="$(./node_modules/.bin/semver -i prerelease --preid alpha $CURRENT_VERSION )"
     else
         NEW_VERSION="$(./node_modules/.bin/semver -i prerelease --preid unstable $CURRENT_VERSION )"
