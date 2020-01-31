@@ -56,10 +56,7 @@ then
 
     echo "NEW_VERSION is ${NEW_VERSION}"
 
-    OUTPUT="$(npm version $NEW_VERSION -m \"[skip travis-ci] Release version %s\")"
-    echo "OUTPUT is ${OUTPUT}"
-    
-    # sh("git push origin ${TRAVIS_BRANCH}")
-
+    npm version "${NEW_VERSION}" -m "[skip travis-ci] Release version %s"
+    # git push origin ${TRAVIS_BRANCH}
 
 fi

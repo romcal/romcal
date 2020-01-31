@@ -6,6 +6,10 @@ cache:
   directories:
     - "node_modules"
 
+# Create a temporary .npmrc file to be used for deployments
+before_install:
+  - npm i -g makeshift && makeshift -r registry.npmjs.org
+
 # Custom build phase
 script:
   - npm run test
@@ -16,10 +20,15 @@ before_deploy:
 # Custom deployment script
 deploy:
   - provider: script
-    script: bash ./scripts/bump-version.sh $RAVIS_BRANCH $TRAVIS_EVENT_TYPE $NPM_EMAIL $NPM_API_TOKEN
+    script: ./scripts/bump-version.sh $RAVIS_BRANCH $TRAVIS_EVENT_TYPE
     on:
       all_branches: true
-      tags: false
+
+  - provider: npm
+    email: $NPM_EMAIL
+    api_key: $NPM_TOKEN
+    on:
+      tags: true
 
 # notify owners
 notifications:
@@ -28,4 +37,3 @@ notifications:
       - bleushade@gmail.com
     on_success: change
     on_failure: always
-
