@@ -10,6 +10,8 @@ GH_EMAIL=$5
 if [ "$TRAVIS_EVENT_TYPE" = 'push' ]
 then
 
+    echo "TRAVIS_BRANCH IS ${TRAVIS_BRANCH}"
+
     PACKAGE_NAME="$(node -pe "require('./package.json')['name']")"
     echo "PACKAGE_NAME is ${PACKAGE_NAME}"
 
@@ -60,7 +62,6 @@ then
     npm version "${NEW_VERSION}" -m "[skip travis-ci] Release version %s"
 
     # Configure origin with personal access token
-    git remote rm origin
     git remote add origin https://${GH_USER}:${GH_TOKEN}@github.com/romcal/${PACKAGE_NAME}.git > /dev/null 2>&1
 
     # Setup the user
@@ -68,12 +69,22 @@ then
     git config --global user.name "${GH_USER}"
 
     # Make a new tag
-    git tag "${NEW_VERSION}"
+    if [ "$TRAVIS_BRANCH" = 'master' ]; then
+        TAG_MESSAGE="production release"
+    elif [ "$TRAVIS_BRANCH" = 'test' ]; then
+        TAG_MESSAGE="beta release"
+    elif [ "$TRAVIS_BRANCH" = 'dev' ]; then
+        TAG_MESSAGE="alpha release"
+    else
+        TAG_MESSAGE="canary (unstable) release"
+    fi
+    
+    git tag -a "v${NEW_VERSION}" -m "${TAG_MESSAGE}"
     git push origin --tags
     
-    git push origin "${TRAVIS_BRANCH}"
+    git push origin --set-upstream origin "${TRAVIS_BRANCH}"
 
-    # # Publish npm module
+    # Publish npm module
     if [ "$TRAVIS_BRANCH" = 'master' ]; then
         npm publish --tag latest --access public
     elif [ "$TRAVIS_BRANCH" = 'test' ]; then
