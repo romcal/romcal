@@ -29,6 +29,7 @@ jobs:
         - git update-index --assume-unchanged scripts/semver.sh
       deploy:
         - provider: script
+          script:  scripts/bump-version.sh $TRAVIS_BRANCH $TRAVIS_EVENT_TYPE $GH_USER $GH_TOKEN $GH_EMAIL
           skip_cleanup: true
           on:
             all_branches: true
