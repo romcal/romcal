@@ -65,10 +65,10 @@ then
     git config --global user.name "${GH_USER}"
 
     # Make a new tag
-    git tag ${NEW_VERSION}
+    git tag "${NEW_VERSION}"
     git push origin --tags
     
-    git push origin ${TRAVIS_BRANCH}
+    git push origin "${TRAVIS_BRANCH}"
 
     # # Publish npm module
     if [ "$TRAVIS_BRANCH" = 'master' ]; then
