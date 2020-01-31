@@ -1,43 +1,40 @@
 language: node_js
 node_js:
+  - "12"
   - "13"
 
 cache:
   directories:
     - "node_modules"
 
-# Create a temporary .npmrc file to be used for deployments
-# Adjust permissions of all needed scripts
-# Ensure git does not track these changes
-before_install:
-  - npm i -g makeshift && makeshift -r registry.npmjs.org
-  - chmod +x scripts/semver.sh
-  - chmod +x scripts/bump-version.sh
-  - git update-index --assume-unchanged scripts/bump-version.sh
-  - git update-index --assume-unchanged scripts/semver.sh
-
 # Custom build phase
 # script:
 #  - npm run test
 
-# Temporarily skip tests
-script: 'true'
-
-before_deploy:
-  - npm run-script build
-
 # Custom deployment script
-deploy:
-  - provider: script
-    script:  scripts/bump-version.sh $TRAVIS_BRANCH $TRAVIS_EVENT_TYPE $GH_USER $GH_TOKEN
-    skip_cleanup: true
-    on:
-      all_branches: true
-
-
-after_deploy:
-  - git update-index --no-assume-unchanged scripts/bump-version.sh
-  - git update-index --no-assume-unchanged scripts/semver.sh
+jobs:
+  include:
+    - stage: build
+      node_js:
+        - "13"
+      script:  true
+      # Create a temporary .npmrc file to be used for deployments
+      # Adjust permissions of all needed scripts
+      # Ensure git does not track these changes
+      before_install:
+        - npm i -g makeshift && makeshift -r registry.npmjs.org
+        - chmod +x scripts/semver.sh
+        - chmod +x scripts/bump-version.sh
+        - git update-index --assume-unchanged scripts/bump-version.sh
+        - git update-index --assume-unchanged scripts/semver.sh
+      deploy:
+        - provider: script
+          skip_cleanup: true
+          on:
+            all_branches: true
+      after_deploy:
+        - git update-index --no-assume-unchanged scripts/bump-version.sh
+        - git update-index --no-assume-unchanged scripts/semver.sh
 
 # notify owners
 notifications:

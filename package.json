@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "module": "src/index.js",
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=8.0.0"
   },
   "files": [
     "./dist/*"
@@ -14,8 +14,7 @@
     "registry": "https://registry.npmjs.org"
   },
   "scripts": {
-    "prepack": "npm run build && npm test",
-    "prepare": "npm run build",
+    "prepare": "npm run build && npm test",
     "build": "npm run build:babel && npm run build:webpack",
     "build:babel": "babel src --out-dir dist",
     "build:webpack": "webpack-cli --config webpack.config.js",

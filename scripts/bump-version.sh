@@ -53,32 +53,31 @@ then
     fi
 
     echo "NEW_VERSION is ${NEW_VERSION}"
-
     npm version "${NEW_VERSION}" -m "[skip travis-ci] Release version %s"
 
+    # Configure origin with personal access token
+    # git remote rm origin
+    # git remote add origin https://${GH_USER}:${GH_TOKEN}@github.com/romcal/${PACKAGE_NAME}.git > /dev/null 2>&1
+
     # Setup a travis ci user
-    git config --global user.email "travis@travis-ci.org"
-    git config --global user.name "Travis CI"
+    # git config --global user.email "travis@travis-ci.org"
+    # git config --global user.name "Travis CI"
 
     # Make a new tag
-    git tag ${NEW_VERSION}
+    # git tag ${NEW_VERSION}
+    # git push origin --tags
+    
+    # git push origin ${TRAVIS_BRANCH}
 
-    # Configure origin with personal access token
-    git remote rm origin
-    git remote add origin https://${GH_USER}:${GH_TOKEN}@github.com/romcal/${PACKAGE_NAME}.git > /dev/null 2>&1
-
-    git push origin --tags
-    git push origin ${TRAVIS_BRANCH}
-
-    # Publish npm module
-    if [ "$TRAVIS_BRANCH" = 'master' ]; then
-        npm publish --tag latest --access public
-    elif [ "$TRAVIS_BRANCH" = 'test' ]; then
-        npm publish --tag beta --access public
-    elif [ "$TRAVIS_BRANCH" = 'dev' ]; then
-        npm publish --tag alpha --access public
-    else
-        npm publish --tag unstable --access public
-    fi
+    # # Publish npm module
+    # if [ "$TRAVIS_BRANCH" = 'master' ]; then
+    #     npm publish --tag latest --access public
+    # elif [ "$TRAVIS_BRANCH" = 'test' ]; then
+    #     npm publish --tag beta --access public
+    # elif [ "$TRAVIS_BRANCH" = 'dev' ]; then
+    #     npm publish --tag alpha --access public
+    # else
+    #     npm publish --tag unstable --access public
+    # fi
 
 fi
