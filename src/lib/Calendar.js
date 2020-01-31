@@ -160,7 +160,7 @@ class Calendar {
           let baseItem = this._find({date: itemObj.moment.toISOString(), _stack: 0});
 
           // Create a new DateItem and add it to the collection
-          let item = new DateItem(itemObj, baseItem);
+          let item = new DateItem(itemObj, baseItem, this.sanctoral);
           this.dateItems.push(item);
         }));
   }

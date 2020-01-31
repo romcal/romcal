@@ -3,6 +3,8 @@
 import Moment from "moment";
 import {Cycles, LiturgicalSeasons, Types} from "../constants";
 import * as Dates from "./Dates";
+import Sanctoral from "./Sanctoral";
+import * as CalendarsDef from "../calendars/indexYaml";
 
 export opaque type ISOString: string = string;
 
@@ -13,6 +15,7 @@ export default class DateItem {
   key: string;
   date: ISOString;
   type: string;
+  sanctoral: Sanctoral;
   name: string;
   data: Object;
   moment: Moment;
@@ -24,7 +27,7 @@ export default class DateItem {
   /**
    * Create a new DateItem
    */
-  constructor(item: Object, baseItem: DateItem) {
+  constructor(item: Object, baseItem: DateItem, sanctoral: Sanctoral) {
     this.key = item.key;
     this.date = item.moment.toISOString();
     this.type = item.type;
@@ -34,6 +37,10 @@ export default class DateItem {
     this.moment = item.moment;
     this._id = DateItem._incrementId();
     this._stack = item._stack;
+
+    if (Object.prototype.hasOwnProperty.call(sanctoral, this.key)) {
+      this.sanctoral = sanctoral[this.key];
+    }
 
     // The original default item is added to the current item as the `base` property
     if (baseItem && this._id !== baseItem._id) {
