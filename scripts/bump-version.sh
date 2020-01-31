@@ -57,6 +57,6 @@ then
     echo "NEW_VERSION is ${NEW_VERSION}"
 
     npm version "${NEW_VERSION}" -m "[skip travis-ci] Release version %s"
-    # git push origin ${TRAVIS_BRANCH}
+    git push origin ${TRAVIS_BRANCH}
 
 fi
