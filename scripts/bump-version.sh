@@ -80,8 +80,8 @@ then
         TAG_MESSAGE="canary (unstable) release"
     fi
     
-    git tag -a "v${NEW_VERSION}" -m "${TAG_MESSAGE}"
-    git push origin --tags
+    # git tag -a "v${NEW_VERSION}" -m "${TAG_MESSAGE}"
+    # git push origin --tags
     
     git push origin --set-upstream origin "${TRAVIS_BRANCH}"
 
