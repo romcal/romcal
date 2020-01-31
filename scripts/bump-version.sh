@@ -60,7 +60,13 @@ then
     git config --global user.email "travis@travis-ci.org"
     git config --global user.name "Travis CI"
 
+    # Make a new tag
+    git tag ${NEW_VERSION}
+
+    # Configure origin with personal access token
     git remote rm origin
     git remote add origin https://${GH_USER}:${GH_TOKEN}@github.com/romcal/${PACKAGE_NAME}.git > /dev/null 2>&1
+
+    git push origin --tags
     git push origin ${TRAVIS_BRANCH}
 fi
