@@ -4,7 +4,7 @@ TRAVIS_BRANCH=$1
 TRAVIS_EVENT_TYPE=$2
 
 # Bump version only if TRAVIS_EVENT_TYPE is push
-if [ $TRAVIS_EVENT_TYPE = 'push' ]
+if [ "$TRAVIS_EVENT_TYPE" = 'push' ]
 then
 
     PACKAGE_NAME="$(node -pe "require('./package.json')['name']")"
