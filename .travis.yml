@@ -29,7 +29,7 @@ before_deploy:
 # Custom deployment script
 deploy:
   - provider: script
-    script:  scripts/bump-version.sh $TRAVIS_BRANCH $TRAVIS_EVENT_TYPE
+    script:  scripts/bump-version.sh $TRAVIS_BRANCH $TRAVIS_EVENT_TYPE $GH_USER $GH_TOKEN
     skip_cleanup: true
     on:
       all_branches: true

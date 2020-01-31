@@ -2,6 +2,12 @@
 
 TRAVIS_BRANCH=$1
 TRAVIS_EVENT_TYPE=$2
+GH_USER=$3
+GH_TOKEN=$4
+
+setup_git() {
+
+}
 
 # Bump version only if TRAVIS_EVENT_TYPE is push
 if [ "$TRAVIS_EVENT_TYPE" = 'push' ]
@@ -53,6 +59,12 @@ then
     echo "NEW_VERSION is ${NEW_VERSION}"
 
     npm version "${NEW_VERSION}" -m "[skip travis-ci] Release version %s"
-    git push origin ${TRAVIS_BRANCH}
 
+    # Setup a travis ci user
+    git config --global user.email "travis@travis-ci.org"
+    git config --global user.name "Travis CI"
+
+    git remote rm origin
+    git remote add origin https://${GH_USER}:${GH_TOKEN}@github.com/romcal/${PACKAGE_NAME}.git > /dev/null 2>&1
+    git push origin ${TRAVIS_BRANCH}
 fi
