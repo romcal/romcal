@@ -23,7 +23,7 @@ before_deploy:
 # Custom deployment script
 deploy:
   - provider: script
-    script: chmod +x scripts/bump-version.sh && scripts/bump-version.sh $RAVIS_BRANCH $TRAVIS_EVENT_TYPE
+    script: scripts/bump-version.sh $RAVIS_BRANCH $TRAVIS_EVENT_TYPE
     on:
       all_branches: true
 
