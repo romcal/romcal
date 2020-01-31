@@ -25,7 +25,7 @@ then
         elif [ "$TRAVIS_BRANCH" = 'dev' ]; then
             LATEST_TAG_VERSION="$(npm view ${PACKAGE_NAME}@alpha version)"
         else
-            LATEST_TAG_VERSION="$(npm view ${PACKAGE_NAME}@unstable version)"
+            LATEST_TAG_VERSION="$(npm view ${PACKAGE_NAME}@canary version)"
         fi
         
         tokens=($(echo $LATEST_TAG_VERSION | tr "-" "\n"))
@@ -50,7 +50,7 @@ then
     elif [ "$TRAVIS_BRANCH" = 'dev' ]; then
         NEW_VERSION="$(./node_modules/.bin/semver -i prerelease --preid alpha $CURRENT_VERSION )"
     else
-        NEW_VERSION="$(./node_modules/.bin/semver -i prerelease --preid unstable $CURRENT_VERSION )"
+        NEW_VERSION="$(./node_modules/.bin/semver -i prerelease --preid canary $CURRENT_VERSION )"
     fi
 
     echo "NEW_VERSION is ${NEW_VERSION}"
@@ -78,7 +78,7 @@ then
     elif [ "$TRAVIS_BRANCH" = 'dev' ]; then
         npm publish --tag alpha --access public
     else
-        npm publish --tag unstable --access public
+        npm publish --tag canary --access public
     fi
 
 fi
