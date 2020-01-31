@@ -69,20 +69,6 @@ then
     git config --global user.email "${GH_EMAIL}"
     git config --global user.name "${GH_USER}"
 
-    # Make a new tag
-    if [ "$TRAVIS_BRANCH" = 'master' ]; then
-        TAG_MESSAGE="production release"
-    elif [ "$TRAVIS_BRANCH" = 'test' ]; then
-        TAG_MESSAGE="beta release"
-    elif [ "$TRAVIS_BRANCH" = 'dev' ]; then
-        TAG_MESSAGE="alpha release"
-    else
-        TAG_MESSAGE="canary (unstable) release"
-    fi
-    
-    # git tag -a "v${NEW_VERSION}" -m "${TAG_MESSAGE}"
-    # git push origin --tags
-    
     git push origin --set-upstream origin "${TRAVIS_BRANCH}"
 
     # Publish npm module
