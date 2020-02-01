@@ -14,6 +14,9 @@ before_install:
   - git config --global user.email "$GH_EMAIL"
   - git config --global user.name "$GH_USER"
   - echo -e "machine github.com\n  login $CI_USER_TOKEN" > ~/.netrc
+  - git clone "https://${GH_USER}:${GH_TOKEN}github.com/${TRAVIS_REPO_SLUG}.git" $TRAVIS_REPO_SLUG
+  - cd $TRAVIS_REPO_SLUG
+  - git checkout -qf $TRAVIS_COMMIT
   - npm i -g makeshift && makeshift -r registry.npmjs.org
 
 script: true
