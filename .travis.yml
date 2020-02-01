@@ -24,16 +24,16 @@ before_deploy:
   - git update-index --assume-unchanged scripts/bump-version.sh
   - git update-index --assume-unchanged scripts/semver.sh
 
-# Deployment stage that only runs for the latest 
+# Deployment stage that only runs on a stable version of node
 jobs:
   include:
     - stage: deploy
       name: "Publish a new distribution to NPM"
-      node_js: 'stable'
-      if: fork = false AND type = push
+      node_js: '13'
+      if: fork = false AND type = push AND sender = "$GH_USER"
       deploy:
         provider: script
-        script: scripts/bump-version.sh $TRAVIS_BRANCH $TRAVIS_EVENT_TYPE
+        script: scripts/bump-version.sh $TRAVIS_BRANCH
         skip_cleanup: true
         on:
           all_branches: true
