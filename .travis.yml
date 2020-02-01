@@ -4,8 +4,6 @@ node_js:
 cache:
   directories:
   - node_modules
-before_install:
-  - echo -e "machine github.com\n  login $CI_USER_TOKEN" > ~/.netrc
 jobs:
   include:
   - stage: build
@@ -13,6 +11,7 @@ jobs:
     - '13'
     script: true
     before_install:
+    - echo -e "machine github.com\n  login $CI_USER_TOKEN" > ~/.netrc
     - npm i -g makeshift && makeshift -r registry.npmjs.org
     - chmod +x scripts/semver.sh
     - chmod +x scripts/bump-version.sh
