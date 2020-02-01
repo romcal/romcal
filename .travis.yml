@@ -30,7 +30,7 @@ jobs:
     - stage: deploy
       name: "Publish a new distribution to NPM"
       node_js: '13'
-      if: fork = false AND type = push AND sender = "$GH_USER"
+      if: fork = false AND type = push AND sender = env(GH_USER)
       deploy:
         provider: script
         script: scripts/bump-version.sh $TRAVIS_BRANCH
