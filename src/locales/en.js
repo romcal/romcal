@@ -155,7 +155,7 @@ export default {
     "blessedPiusIxPope": "Blessed Pius IX, Pope",
     "blessedRafalChylinskiPriest": "Blessed Rafal Chylinski, Priest",
     "blessedSalomeVirgin": "Blessed Salome, Virgin",
-    "blessedSanchaAndMafaldaVirginsOrBlessedTheresaOfPOrtugalReligious": "Blessed Sancha and Mafalda, Virgins, Or Blessed Theresa of POrtugal, Religious",
+    "blessedSanchaAndMafaldaVirginsOrBlessedTheresaOfPortugalReligious": "Blessed Sancha and Mafalda, Virgins, Or Blessed Theresa of Portugal, Religious",
     "blessedsAndreDeSoveralAndAmbrosioFranciscoFerroPriestsAndMartyrs": "Blesseds Andre de Soveral and Ambrosio Francisco Ferro, Priests and Martyrs",
     "blessedSaraSalkahaziVirginAndMartyr": "Blessed Sara Salkahazi, Virgin and Martyr",
     "blessedsCarlosSpinolaAndJeronimoDeAngelisPriestsAndMartyrs": "Blesseds Carlos Spinola and Jeronimo de Angelis, Priests and Martyrs",

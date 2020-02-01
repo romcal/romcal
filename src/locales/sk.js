@@ -152,7 +152,7 @@ export default {
     "blessedPiusIxPope": "Blahoslaveného Pia IX., pápeža",
     "blessedRafalChylinskiPriest": "Blahoslaveného Rafaela Chylinského, kňaza",
     "blessedSalomeVirgin": "Blahoslavenej Salomey Poľskej, panny",
-    "blessedSanchaAndMafaldaVirginsOrBlessedTheresaOfPOrtugalReligious": "Blahoslavených Sanche a Mafaldy, panny, alebo blahoslavenej Terezy Portugalskej, rehoľnice",
+    "blessedSanchaAndMafaldaVirginsOrBlessedTheresaOfPortugalReligious": "Blahoslavených Sanche a Mafaldy, panny, alebo blahoslavenej Terezy Portugalskej, rehoľnice",
     "blessedsAndreDeSoveralAndAmbrosioFranciscoFerroPriestsAndMartyrs": "Blahoslavených Andreja de Soverala a Ambróza Františka Ferra, mučeníka",
     "blessedSaraSalkahaziVirginAndMartyr": "Blahoslavenej Sáry Salkaháziovej, panny a mučenice",
     "blessedsCarlosSpinolaAndJeronimoDeAngelisPriestsAndMartyrs": "blahoslavených Karla Spinolu a Hieronyma de Angelis, kňazov a mučeníkov",
