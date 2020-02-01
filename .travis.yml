@@ -30,7 +30,7 @@ jobs:
     - stage: deploy
       name: "Publish a new distribution to NPM"
       node_js: 'stable'
-      if: fork = false AND type = push AND repo = romcal/romcal
+      if: fork = false AND type = push
       deploy:
         provider: script
         script: scripts/bump-version.sh $TRAVIS_BRANCH $TRAVIS_EVENT_TYPE
