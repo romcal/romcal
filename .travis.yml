@@ -1,11 +1,10 @@
 language: node_js
 
 node_js:
+- 'lts/*'
 - 'stable'
 
-cache:
-  directories:
-  - node_modules
+cache: npm
 
 before_install:
   - git config --global user.email "$GH_EMAIL"
@@ -16,7 +15,7 @@ before_install:
   - git checkout -qf $TRAVIS_BRANCH
   - npm i -g makeshift && makeshift -r registry.npmjs.org
 
-script: true
+script: echo "Running tests against $(node -v) ..."
 
 before_deploy:
   - chmod +x scripts/semver.sh
@@ -24,12 +23,15 @@ before_deploy:
   - git update-index --assume-unchanged scripts/bump-version.sh
   - git update-index --assume-unchanged scripts/semver.sh
 
-deploy:
-  - provider: script
-    script: scripts/bump-version.sh $TRAVIS_BRANCH $TRAVIS_EVENT_TYPE
-    skip_cleanup: true
-    on:
-      all_branches: true
+# Deployment stage that only runs for the latest 
+jobs:
+  include:
+    - stage: deploy
+      name: "Publish a new distribution to NPM"
+      node_js: 'stable'
+      script: scripts/bump-version.sh $TRAVIS_BRANCH $TRAVIS_EVENT_TYPE
+      skip_cleanup: true
+      if: fork = false AND type = push AND repo = romcal/romcal 
 
 after_deploy:
   - git update-index --no-assume-unchanged scripts/bump-version.sh
@@ -38,7 +40,7 @@ after_deploy:
 notifications:
   email:
     recipients:
-    - bleushade@gmail.com
+    - $GH_EMAIL
     on_success: change
     on_failure: always
 

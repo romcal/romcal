@@ -14,7 +14,7 @@
     "registry": "https://registry.npmjs.org"
   },
   "scripts": {
-    "prepare": "npm run build && npm test",
+    "prepublishOnly": "npm run build",
     "build": "npm run build:babel && npm run build:webpack",
     "build:babel": "babel src --out-dir dist",
     "build:webpack": "webpack-cli --config webpack.config.js",
