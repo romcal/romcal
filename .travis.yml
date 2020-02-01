@@ -1,39 +1,47 @@
 language: node_js
+
 node_js:
-- '12'
-- '13'
+- 'stable'
+
+git:
+  depth: false
+
 cache:
   directories:
   - node_modules
-jobs:
-  include:
-  - stage: build
-    node_js:
-    - '13'
-    script: true
-    before_install:
-    - echo -e "machine github.com\n  login $CI_USER_TOKEN" > ~/.netrc
-    - npm i -g makeshift && makeshift -r registry.npmjs.org
-    - chmod +x scripts/semver.sh
-    - chmod +x scripts/bump-version.sh
-    - git update-index --assume-unchanged scripts/bump-version.sh
-    - git update-index --assume-unchanged scripts/semver.sh
-    deploy:
-    - provider: script
-      script: scripts/bump-version.sh $TRAVIS_BRANCH $TRAVIS_EVENT_TYPE $GH_USER $GH_TOKEN
-        $GH_EMAIL
-      skip_cleanup: true
-      on:
-        all_branches: true
-    after_deploy:
-    - git update-index --no-assume-unchanged scripts/bump-version.sh
-    - git update-index --no-assume-unchanged scripts/semver.sh
+
+before_install:
+  - git config --global user.email "$GH_EMAIL"
+  - git config --global user.name "$GH_USER"
+  - echo -e "machine github.com\n  login $CI_USER_TOKEN" > ~/.netrc
+  - npm i -g makeshift && makeshift -r registry.npmjs.org
+
+script: true
+
+before_deploy:
+  - chmod +x scripts/semver.sh
+  - chmod +x scripts/bump-version.sh
+  - git update-index --assume-unchanged scripts/bump-version.sh
+  - git update-index --assume-unchanged scripts/semver.sh
+
+deploy:
+  - provider: script
+    script: scripts/bump-version.sh $TRAVIS_BRANCH $TRAVIS_EVENT_TYPE $GH_USER $GH_TOKEN $GH_EMAIL
+    skip_cleanup: true
+    on:
+      all_branches: true
+
+after_deploy:
+  - git update-index --no-assume-unchanged scripts/bump-version.sh
+  - git update-index --no-assume-unchanged scripts/semver.sh
+
 notifications:
   email:
     recipients:
     - bleushade@gmail.com
     on_success: change
     on_failure: always
+
 env:
   global:
   - secure: AiE2x1JZkOF7Y6fS8Up4HGP8/bRpLxBe/lRgLBJAVbYYatJgNrUHZtMjTG+7kg3IhZ5GqBLwBrxBr+m4kSiIMwusnb7JEBq+w/eR+URx7Ts54cTeLGouyzmr4eSBcsOlHilf2R9z14zhSPjn/eRMyYFBkMTUvr7qSXfVzKrIre0=
