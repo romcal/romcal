@@ -7,10 +7,10 @@ node_js:
 cache: npm
 
 before_install:
-  - git config --global user.email "$GH_EMAIL"
-  - git config --global user.name "$GH_USER"
+  - git config --global user.email "$CI_USER_EMAIL"
+  - git config --global user.name "$CI_USER_NAME"
   - echo -e "machine github.com\n  login $CI_USER_TOKEN" > ~/.netrc
-  - git clone "https://$GH_USER:$GH_TOKEN@github.com/$TRAVIS_REPO_SLUG.git" $TRAVIS_REPO_SLUG
+  - git clone "https://$CI_USER_NAME:$CI_USER_TOKEN@github.com/$TRAVIS_REPO_SLUG.git" $TRAVIS_REPO_SLUG
   - cd $TRAVIS_REPO_SLUG
   - git checkout -qf $TRAVIS_BRANCH
   - npm i -g makeshift && makeshift -r registry.npmjs.org
@@ -30,7 +30,7 @@ jobs:
     - stage: deploy
       name: "Publish a new distribution to NPM"
       node_js: '13'
-      if: fork = false AND type = push AND sender = env(GH_USER)
+      if: fork = false AND type = push # Publish only on push events on branches in the org
       deploy:
         provider: script
         script: scripts/bump-version.sh $TRAVIS_BRANCH
@@ -46,13 +46,6 @@ after_deploy:
 notifications:
   email:
     recipients:
-    - $GH_EMAIL
+    - $CI_USER_EMAIL
     on_success: change
     on_failure: always
-
-env:
-  global:
-  - secure: AiE2x1JZkOF7Y6fS8Up4HGP8/bRpLxBe/lRgLBJAVbYYatJgNrUHZtMjTG+7kg3IhZ5GqBLwBrxBr+m4kSiIMwusnb7JEBq+w/eR+URx7Ts54cTeLGouyzmr4eSBcsOlHilf2R9z14zhSPjn/eRMyYFBkMTUvr7qSXfVzKrIre0=
-  - secure: VFUnEUOK+B3DQqIkR2Uinmm5j5QO6iSI8FPhKGgb1t3jR0KUDfkl/ZIilQ79nroLIo6pQYIldw1en7mhYHDkm0V+d/10fifqW2/7b0tmqMO30xkpFOabasX2p741kpoHfqPDAqR+XhwFhFVSI0uSuyVEtyrYGHDceQOiV9aDp9k=
-  - secure: A8RCEeCTUoinBOhbjGKMjWlGVyQL3/6jfEjS8PUcorE+bL8//upg+mM1X1O0l23D/PiralARpsbAsfYDf3Z0CBBWe9AnM/4/lUZO7xav5Y8IxnMgRsJ402ATHRMXpupf3pxNFpzH7hdkjFta6nZTh8zb9aQfpxSLlAdHPqD8aFc=
-  - secure: X/5sWzfiUJu/629Aeuasl7Ip7sH+eD+3d2gizfDO/EtHnjGxLMT3LcIqMNCSV7mvLPbFMxLwFMTz27JNFJCCCZHVCgtr0RFxw76GAn4LeLygGH9R+GyR8iC1NST5Qa9COkgIZUeFHUhfqkyiklzF+GD1DSn51mJZ1TR3iloaEss=
