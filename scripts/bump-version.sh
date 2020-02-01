@@ -61,14 +61,6 @@ then
     echo "NEW_VERSION is ${NEW_VERSION}"
     npm version "${NEW_VERSION}" -m "[skip travis-ci] Release version %s"
 
-    # Configure origin with personal access token
-    git remote rm origin
-    git remote add origin https://${GH_USER}:${GH_TOKEN}@github.com/romcal/${PACKAGE_NAME}.git > /dev/null 2>&1
-
-    # Setup the user
-    git config --global user.email "${GH_EMAIL}"
-    git config --global user.name "${GH_USER}"
-
     git push origin --set-upstream origin "${TRAVIS_BRANCH}"
 
     # Publish npm module

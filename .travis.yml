@@ -4,6 +4,8 @@ node_js:
 cache:
   directories:
   - node_modules
+before_install:
+  - echo -e "machine github.com\n  login $CI_USER_TOKEN" > ~/.netrc
 jobs:
   include:
   - stage: build
@@ -34,5 +36,7 @@ notifications:
     on_failure: always
 env:
   global:
-  - secure: Mw1p8/sB+qna4OxO6u5jjLCgVadmGm+ZS4GF5AGJb1ftx++SxjiUofaq1gw8M/KlegyqUefMlK8zowl9KLooXN2uWLZ4KHrPhHXHpwYu8JWavWx9mzMMyX3Ubg4tOepug4y+B6FlJofcajtrKHVa1mwz7n6WuJREX5tgeAxpk3E=
-  - secure: h6zZPsXStXQ33fmhVplcxgxwlliSeZqW5rhkVKfAhULUaWsuekr3WVaWpS1eXuxVZso+o0ocXG0wglKJ3W0It+786efym/zcUTO6q+FjCQBnNTBOwOkRdodJD7WnjYL8j29itWNdVtj2eN0qIj8jazhSR2pnhRNzFMpiOr2wK74=
+  - secure: AiE2x1JZkOF7Y6fS8Up4HGP8/bRpLxBe/lRgLBJAVbYYatJgNrUHZtMjTG+7kg3IhZ5GqBLwBrxBr+m4kSiIMwusnb7JEBq+w/eR+URx7Ts54cTeLGouyzmr4eSBcsOlHilf2R9z14zhSPjn/eRMyYFBkMTUvr7qSXfVzKrIre0=
+  - secure: VFUnEUOK+B3DQqIkR2Uinmm5j5QO6iSI8FPhKGgb1t3jR0KUDfkl/ZIilQ79nroLIo6pQYIldw1en7mhYHDkm0V+d/10fifqW2/7b0tmqMO30xkpFOabasX2p741kpoHfqPDAqR+XhwFhFVSI0uSuyVEtyrYGHDceQOiV9aDp9k=
+  - secure: A8RCEeCTUoinBOhbjGKMjWlGVyQL3/6jfEjS8PUcorE+bL8//upg+mM1X1O0l23D/PiralARpsbAsfYDf3Z0CBBWe9AnM/4/lUZO7xav5Y8IxnMgRsJ402ATHRMXpupf3pxNFpzH7hdkjFta6nZTh8zb9aQfpxSLlAdHPqD8aFc=
+  - secure: X/5sWzfiUJu/629Aeuasl7Ip7sH+eD+3d2gizfDO/EtHnjGxLMT3LcIqMNCSV7mvLPbFMxLwFMTz27JNFJCCCZHVCgtr0RFxw76GAn4LeLygGH9R+GyR8iC1NST5Qa9COkgIZUeFHUhfqkyiklzF+GD1DSn51mJZ1TR3iloaEss=
