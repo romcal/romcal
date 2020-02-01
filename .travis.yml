@@ -30,11 +30,11 @@ jobs:
     - stage: deploy
       name: "Publish a new distribution to NPM"
       node_js: 'stable'
+      if: fork = false AND type = push AND repo = romcal/romcal
       deploy:
         provider: script
         script: scripts/bump-version.sh $TRAVIS_BRANCH $TRAVIS_EVENT_TYPE
         skip_cleanup: true
-        if: fork = false AND type = push AND repo = romcal/romcal 
 
 after_deploy:
   - git update-index --no-assume-unchanged scripts/bump-version.sh
