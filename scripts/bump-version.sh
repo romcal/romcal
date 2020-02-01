@@ -2,9 +2,6 @@
 
 TRAVIS_BRANCH=$1
 TRAVIS_EVENT_TYPE=$2
-GH_USER=$3
-GH_TOKEN=$4
-GH_EMAIL=$5
 
 # Bump version only if TRAVIS_EVENT_TYPE is push
 if [ "$TRAVIS_EVENT_TYPE" = 'push' ]
@@ -61,7 +58,7 @@ then
     echo "NEW_VERSION is ${NEW_VERSION}"
     npm version "${NEW_VERSION}" -m "[skip travis-ci] Release version %s"
 
-    git push origin --set-upstream origin "${TRAVIS_BRANCH}"
+    git push origin "${TRAVIS_BRANCH}"
 
     # Publish npm module
     if [ "$TRAVIS_BRANCH" = 'master' ]; then

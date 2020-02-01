@@ -3,9 +3,6 @@ language: node_js
 node_js:
 - 'stable'
 
-git:
-  depth: false
-
 cache:
   directories:
   - node_modules
@@ -16,7 +13,7 @@ before_install:
   - echo -e "machine github.com\n  login $CI_USER_TOKEN" > ~/.netrc
   - git clone "https://$GH_USER:$GH_TOKEN@github.com/$TRAVIS_REPO_SLUG.git" $TRAVIS_REPO_SLUG
   - cd $TRAVIS_REPO_SLUG
-  - git checkout -qf $TRAVIS_COMMIT
+  - git checkout -qf $TRAVIS_BRANCH
   - npm i -g makeshift && makeshift -r registry.npmjs.org
 
 script: true
@@ -29,7 +26,7 @@ before_deploy:
 
 deploy:
   - provider: script
-    script: scripts/bump-version.sh $TRAVIS_BRANCH $TRAVIS_EVENT_TYPE $GH_USER $GH_TOKEN $GH_EMAIL
+    script: scripts/bump-version.sh $TRAVIS_BRANCH $TRAVIS_EVENT_TYPE
     skip_cleanup: true
     on:
       all_branches: true
