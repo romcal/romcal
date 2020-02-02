@@ -6,6 +6,9 @@ echo "TRAVIS_BRANCH IS ${TRAVIS_BRANCH}"
 PACKAGE_NAME="$(node -pe "require('./package.json')['name']")"
 echo "PACKAGE_NAME is ${PACKAGE_NAME}"
 
+# Flag to indicate if we are using a custom version
+WILL_USE_CUSTOM_VERSION=false
+
 # Get the last commit message
 LAST_COMMIT_MESSAGE="$(git log --pretty='format:%Creset%s' --no-merges -1)"
 # Check if the commit message has the unique identifer [USE_CUSTOM_SEMVER]
@@ -14,6 +17,7 @@ LAST_COMMIT_MESSAGE="$(git log --pretty='format:%Creset%s' --no-merges -1)"
 if [[ $LAST_COMMIT_MESSAGE == *"[USE_CUSTOM_SEMVER]"* ]]; then
     echo "Found [USE_CUSTOM_SEMVER] identifier in latest commit, will use version specified in package.json"
     NEW_VERSION="$(node -pe "require('./package.json')['version']")"
+    WILL_USE_CUSTOM_VERSION=true
 else
     CURRENT_VERSION="$(npm view ${PACKAGE_NAME}@latest version)"
     echo "CURRENT_VERSION is $CURRENT_VERSION"
@@ -35,9 +39,9 @@ else
         SEMVER=${tokens[0]};
         PREID=${tokens[1]};
 
-        # If tag version is higher than the 'latest' version in npm
-        # then it means that no new version has been published to master yet and
-        # we shuld continue incrementing the preid based on the tag version
+        # If the tag version is higher than the "latest" version in npm,
+        # then no new stable version has been published from master yet
+        # and we should continue incrementing the "preid" based on the tag version 
         COMPARISON_RESULT="$(./scripts/semver.sh compare $SEMVER $CURRENT_VERSION)"
         if [ "$COMPARISON_RESULT" = 1 ]; then
             echo "USING LATEST TAG VERSION BECAUSE IT IS HIGHER THAN THE CURRENT_VERSION";
@@ -59,7 +63,15 @@ else
 fi
 
 echo "NEW_VERSION is ${NEW_VERSION}"
-npm version "${NEW_VERSION}" -m "[skip travis-ci] Release version %s"
+
+if [ "$WILL_USE_CUSTOM_VERSION" = true ];then
+    # Also allow same versions because the defaut behavior of npm-version 
+    # checks and throws and error if the version being supplied is the 
+    # same in package.json
+    npm version "${NEW_VERSION}" --allow-same-version -m "[skip travis-ci] Release version %s"
+else
+    npm version "${NEW_VERSION}" -m "[skip travis-ci] Release version %s"
+fi
 
 git push origin "${TRAVIS_BRANCH}"
 
