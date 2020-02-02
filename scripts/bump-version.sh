@@ -11,7 +11,7 @@ LAST_COMMIT_MESSAGE="$(git log --pretty='format:%Creset%s' --no-merges -1)"
 # Check if the commit message has the unique identifer [USE_CUSTOM_SEMVER]
 # If it does, then do not automatically increment builds in this script
 # and simply use the semver version set in package.json
-if [[ $string == *"[USE_CUSTOM_SEMVER]"* ]]; then
+if [[ $LAST_COMMIT_MESSAGE == *"[USE_CUSTOM_SEMVER]"* ]]; then
     echo "Found [USE_CUSTOM_SEMVER] identifier in latest commit, will use version specified in package.json"
     NEW_VERSION="$(node -pe "require('./package.json')['version']")"
 else
