@@ -4,6 +4,12 @@ import _ from 'lodash';
 import { Dates, Utils } from '../lib';
 import { Titles, Types, LiturgicalColors } from '../constants';
 
+const defaultConfig = {
+  epiphanyOnJan6: false,
+  ascensionOnSunday: true,
+  corpusChristiOnThursday: false
+};
+
 let dates = year => {
 
   let _dates = [
@@ -140,5 +146,6 @@ let dates = year => {
 };
 
 export {
+  defaultConfig,
   dates
 };

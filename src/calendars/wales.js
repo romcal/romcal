@@ -5,6 +5,8 @@ import _ from 'lodash';
 import { Dates, Utils } from '../lib';
 import { Titles, Types, LiturgicalColors } from '../constants';
 
+const defaultConfig = {};
+
 let dates = year => {
 
   let _dates = [
@@ -336,5 +338,6 @@ let dates = year => {
 };
 
 export {
+  defaultConfig,
   dates
 };

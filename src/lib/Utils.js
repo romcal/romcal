@@ -114,52 +114,10 @@ const localizeDates = (dates, source = 'sanctoral') => {
 
 const getTypeByDayOfWeek = d => _.eq(d, 0) ? Types.SUNDAY : Types.FERIA;
 
-const convertMomentObjectToIsoDateString = (items = []) => {
-  _.each(items, (item, key) => { // Loop through the date array
-    if (_.has(item, 'moment')) { // check if it has a Moment property
-      item.moment = item.moment.toISOString(); // and convert it to an ISO string
-    }
-    else { // this is a grouped result
-      if (_.isArray(item)) {
-        item = _.map(item, date => {
-          if (_.has(date, 'moment')) { // check if it has a Moment property
-            date.moment = date.moment.toISOString(); // and convert it to an ISO string
-          }
-          return date;
-        });
-      }
-    }
-    return item;
-  });
-  return items;
-};
-
-const convertIsoDateStringToMomentObject = (items = []) => {
-  _.each(items, (item, key) => { // Loop through the date array
-    if (_.has(item, 'moment')) { // check if it has a Moment property
-      item.moment = moment.utc(item.moment); // and convert it to a Moment object
-    }
-    else { // this is a grouped result
-      if (_.isArray(item)) {
-        item = _.map(item, date => {
-          if (_.has(date, 'moment')) { // check if it has a Moment property
-            date.moment = moment.utc(date.moment); // and convert it to a Moment object
-          }
-          return date;
-        });
-      }
-    }
-    return item;
-  });
-  return items;
-};
-
 export {
   setLocale,
   getLocale,
   localize,
   localizeDates,
-  getTypeByDayOfWeek,
-  convertIsoDateStringToMomentObject,
-  convertMomentObjectToIsoDateString
+  getTypeByDayOfWeek
 };
