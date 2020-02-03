@@ -624,7 +624,6 @@ const eastertide = y => {
         week: Math.floor( i / 7 ) + 1
       }),
       data: {
-        prioritized: true,
         season: {
           key: LiturgicalSeasons.EASTER,
           value: Utils.localize({

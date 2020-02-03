@@ -58,33 +58,12 @@ describe('Testing calendar generation functions', function() {
       _.every(leapYearDates, d => _.has(d, requiredKeys));
     });
 
-    it('Array should be 365 days long on non leap years', function() {
-      _.size(nonLeapYearDates).should.be.eql(365);
+    it('Array should be 365 days long on non-leap years', function() {
+      _.size(_.groupBy(nonLeapYearDates, item => item.moment.valueOf())).should.be.eql(365);
     });
 
     it('Array should be 366 days long on leap years', function() {
-      _.size(leapYearDates).should.be.eql(366);
-    });
-  });
-
-  describe('Testing ISO8601/MomentJS conversion', function() {
-
-    describe('When skipIsoConversion flag is not set', function() {
-      it('Dates should be returned as ISO8601 strings', function() {
-        _.each(Calendar.calendarFor(), d => _.isString(d.moment).should.be.ok());
-      });
-    });
-
-    describe('When skipIsoConversion flag is set to false', function() {
-      it('Dates should be returned as ISO8601 strings', function() {
-        _.each(Calendar.calendarFor(false), d => _.isString(d.moment).should.be.ok());
-      });
-    });
-
-    describe('When skipIsoConversion flag is set to true', function() {
-      it('Dates should be returned as MomentJS objects', function() {
-        _.each(Calendar.calendarFor(true), d => moment.isMoment(d.moment).should.be.ok());
-      });
+      _.size(_.groupBy(leapYearDates, item => item.moment.valueOf())).should.be.eql(366);
     });
   });
 
@@ -97,7 +76,7 @@ describe('Testing calendar generation functions', function() {
           dates = Calendar.calendarFor({
             year: year,
             type: 'liturgical'
-          }, true );
+          });
 
       it('Should start on the 1st Sunday of Advent and end on Christ the King', function() {
         _.head( dates ).moment.isSame( start ).should.be.eql( true );
@@ -106,7 +85,7 @@ describe('Testing calendar generation functions', function() {
     });
 
     describe('When requesting the calendar year', function() {
-      let dates = Calendar.calendarFor(true);
+      let dates = Calendar.calendarFor();
       it('Should start on Jan 1 and end on Dec 31', function() {
         _.head( dates ).moment.month().should.be.eql( 0 );
         _.head( dates ).moment.date().should.be.eql( 1 );
@@ -122,7 +101,7 @@ describe('Testing calendar generation functions', function() {
       it('Results should match the day of week requested', function() {
         for( var i = 0, il = 7; i < il; i++ ) {
           _.each(
-            Calendar.calendarFor({ query: { day: i } }, true),
+            Calendar.calendarFor({ query: { day: i } }),
             d => d.moment.day().should.be.eql( i )
           );
         }
@@ -133,7 +112,7 @@ describe('Testing calendar generation functions', function() {
       it('Results should match the month of year requested', function() {
         for( var i = 0, il = 12; i < il; i++ ) {
           _.each(
-            Calendar.calendarFor({ query: { month: i } }, true),
+            Calendar.calendarFor({ query: { month: i } }),
             d => d.moment.month().should.be.eql( i )
           );
         }
@@ -153,7 +132,7 @@ describe('Testing calendar generation functions', function() {
             query: {
               group: 'months'
             }
-          }, true )).should.be.eql(['0','1','2','3','4','5','6','7','8','9','10','11']);
+          })).should.be.eql(['0','1','2','3','4','5','6','7','8','9','10','11']);
       });
 
       it('Should group days of week by the months they belong to', function() {
@@ -161,7 +140,7 @@ describe('Testing calendar generation functions', function() {
           query: {
             group: 'daysByMonth'
           }
-        }, true ), function( dates, k ) {
+        }), function( dates, k ) {
           _.each( dates, function( day, key ) {
             _.each( day, function( v ) {
               v.moment.day().should.be.eql( Number( key ) );
@@ -176,7 +155,7 @@ describe('Testing calendar generation functions', function() {
           query: {
             group: 'weeksByMonth'
           }
-        }, true );
+        });
         _.each( calendar, (dates, k) => {
           _.each( dates, (group, key) => {
             _.each( group, v => {
@@ -248,7 +227,7 @@ describe('Testing calendar generation functions', function() {
     describe('Testing advanced filters', function() {
 
       it('The proper color of a Memorial or a Feast is white except for martyrs in which case it is red', function() {
-        var calendar = Calendar.calendarFor({ query: { group: 'types' }}, true );
+        var calendar = Calendar.calendarFor({ query: { group: 'types' }});
         _.each( _.get( calendar, Types.FEAST ), function( d ) {
           if ( _.eq( d.key, 'theExaltationOfTheHolyCross') ) {
             d.data.meta.liturgicalColor.key.should.be.eql( LiturgicalColors.RED.key );
@@ -283,7 +262,7 @@ describe('Testing calendar generation functions', function() {
       });
 
       it('The proper color for the Chair of Peter and the Conversion of St. Paul is white, although both St. Peter and St. Paul were martyrs.', function() {
-        var calendar = Calendar.calendarFor({ query: { group: 'types' }}, true );
+        var calendar = Calendar.calendarFor({ query: { group: 'types' }});
         _.each( _.get( calendar, Types.FEAST ), function( d ) {
           if ( _.eq( d.key, 'chairOfSaintPeter' ) || _.eq( d.key, 'conversionOfSaintPaulApostle' ) ) {
             d.data.meta.liturgicalColor.should.be.eql( LiturgicalColors.WHITE );

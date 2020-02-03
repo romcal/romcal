@@ -1,522 +1,291 @@
-import moment from 'moment';
-import _ from 'lodash';
+// @flow
 
-import * as Calendars from '../calendars';
+import _ from 'lodash';
+import Moment from "moment";
+import * as CalendarsDef from '../calendars';
+import {Types} from '../constants';
+import Config from './Config';
+import DateItem from './DateItem';
 import * as Dates from './Dates';
 import * as Utils from './Utils';
 import * as Seasons from './Seasons';
 import * as Celebrations from './Celebrations';
 
-import {
-  LiturgicalSeasons,
-  Titles,
-  LiturgicalColors,
-  PsalterWeeks,
-  Types,
-  Cycles
-} from '../constants';
+/**
+ * Calendar Class:
+ * Combine together all the different collections of date item objects,
+ * according to the liturgical calendar for the specific year.
+ */
+class Calendar {
+  dateItems: DateItem[] = [];
+  config: Config;
+  startDate: Moment;
+  endDate: Moment;
 
-// Get an array of country names
-const countries = _.keys(Calendars);
+  /**
+   * Create a new Calendar
+   */
+  constructor(config: Config) {
+    this.config = config;
 
-//================================================================================================
-// Processing method for calendar config
-//================================================================================================
-
-const _sanitizeConfig = config => {
-  config = _.isPlainObject(config) ? config : _.stubObject();
-  config.year = config.year || moment.utc().year();
-  config.christmastideEnds = config.christmastideEnds || 'o';
-  // If the national calendar of Slovakia is requested and the flag to make Epiphany fall on Jan 6
-  // is not specified, then default the flag to true because Slovakia always celebrates Epiphany of Jan 6.
-  if (_.eq(config.country, 'slovakia') && _.isUndefined(config.epiphanyOnJan6)) {
-    config.epiphanyOnJan6 = true;
-  }
-  config.epiphanyOnJan6 = config.epiphanyOnJan6 || false;
-  config.christmastideIncludesTheSeasonOfEpiphany = config.christmastideIncludesTheSeasonOfEpiphany || true;
-  config.corpusChristiOnThursday = config.corpusChristiOnThursday || false;
-  config.ascensionOnSunday = config.ascensionOnSunday || false;
-  config.country = config.country || ''; // Must be defaulted to empty string if not specified
-  // CRUCIAL!! If country was passed as "general", reset it to an empty string
-  if (_.eq(config.country, 'general')) {
-    config.country = '';
-  }
-  config.locale = config.locale || 'en';
-  config.type = config.type || 'calendar';
-  config.query = _.isPlainObject( config.query ) ? config.query : null;
-  return config;
-};
-
-
-// Return the appropriate national calendar based on the country given
-// Returns object with function returning empty array if nothing specified
-// country: the camel cased country name to get the calendar for (country name will be camel cased in this method)
-const getCalendar = country => {
-  if ( country ) {
-    if ( _.has( Calendars, _.camelCase(country))) {
-      return Calendars[_.camelCase(country)];
-    }
-    else {
-      return Calendars['general'];
+    // The year can be specified either as:
+    // - civil year (January 1 to December 31); or
+    // - liturgical year (1st Sunday of Advent to the Saturday after the Christ the King Sunday).
+    if (this.config.type === 'liturgical') {
+      this.startDate = Dates.firstSundayOfAdvent(this.config.year);
+      this.endDate = Dates.firstSundayOfAdvent(this.config.year + 1).subtract( 1, 'days');
+    } else {
+      this.startDate = Moment.utc({ year: this.config.year, month: 0, day: 1 });
+      this.endDate = Moment.utc({ year: this.config.year, month: 11, day: 31 });
     }
   }
-  return { dates: () => [] };
-};
 
-// Returns the merged national & general calendar dates
-// along with key celebrations in the Roman Catholic rite
-// Merges the national calendar to the general calendar
-// where national calendar dates with the same key as a date
-// in the general calendar will take precedence
-// options: (see _calendarYear)
-const _getCalendar = options => {
+  /**
+   * Fetch calendars and date items that occur during a specific year (civil or liturgical).
+   */
+  fetch(): Calendar {
+    const c = this.config;
+    const years = c.type === 'liturgical' ? [c.year, c.year + 1] : [c.year];
 
-  // Get the general calendar based on the given year and format the result for better processing
-  let general = getCalendar('general').dates(options.year);
+    // Define all calendars
+    let weekdayDates = [];
+    let celebrationsDates = [];
+    let generalDates = [];
+    let nationalDates = [];
 
-  // Get the relevant national calendar object based on the given country
-  let national = getCalendar(options.country).dates(options.year);
+    // Get a collection of date items from all liturgical seasons of the given year
+    years.forEach(year => {
+      weekdayDates = [
+        ...weekdayDates,
+        ...Seasons.christmastide(year - 1, c.christmastideEnds, c.epiphanyOnJan6, c.christmastideIncludesTheSeasonOfEpiphany),
+        ...Seasons.earlyOrdinaryTime(year, c.christmastideEnds, c.epiphanyOnJan6),
+        ...Seasons.lent(year),
+        ...Seasons.eastertide(year),
+        ...Seasons.laterOrdinaryTime(year),
+        ...Seasons.advent(year),
+        ...Seasons.christmastide(year, c.christmastideEnds, c.epiphanyOnJan6, c.christmastideIncludesTheSeasonOfEpiphany)
+      ];
 
-  // Check if 'drop' has been defined for any celebrations in the national calendar
-  // and remove them from both national and general calendar sources
-  let dropKeys = _.map(_.filter(national, n => (_.has(n, 'drop') && n.drop )), 'key');
-  if (!_.isEmpty(dropKeys)) {
-    _.each(dropKeys, dropKey => { // _,remove() mutates the array
-      _.remove(general, ({key}) => _.eq(key, dropKey));
-      _.remove(national, ({key}) => _.eq(key, dropKey));
+      // Get the celebration dates based on the given year and options
+      celebrationsDates = [
+        ...celebrationsDates,
+        ...Celebrations.dates(year, c.christmastideEnds, c.epiphanyOnJan6, c.corpusChristiOnThursday, c.ascensionOnSunday)
+      ];
+
+      // Get the general calendar based on the given year
+      generalDates = [
+        ...generalDates,
+        ...Calendar._fetchRegionCalendar('general').dates(year)
+      ];
+
+      // Get the relevant national calendar object based on the given year and country
+      nationalDates = [
+        ...nationalDates,
+        ...Calendar._fetchRegionCalendar(c.country).dates(year)
+      ];
     });
+
+    let sources = [weekdayDates, celebrationsDates, generalDates, nationalDates];
+
+    // Remove all date items not in the given date range
+    sources = Calendar._filterItemRange(this.startDate, this.endDate, ...sources);
+
+    // Remove all date items marked as 'drop' from any other date items
+    sources = Calendar._dropItems(...sources);
+
+    // Push new item object as a new DateItem
+    this._push(sources);
+
+    // Finally, sort the DateItems by date and rank and keep only the relevant
+    this._sortAndKeepRelevant()
+
+    return this;
   }
 
-  // format the general calendar for better processing and add the calendar source "g"
-  general = _.reduce(general, ( r, v, k ) => {
-    v.source = 'g';
-    r[ v.key ] = v;
-    return r;
-  }, {});
+  /**
+   * Get all DateItems for a specific calendar
+   */
+  values(): DateItem[] {
+    return this.dateItems;
+  }
 
-  // format the national calendar for better processing and add the calendar source "n"
-  national = _.reduce(national, ( r, v, k ) => {
-    v.source = 'n';
-    r[ v.key ] = v;
-    return r;
-  }, {});
+  /**
+   * Get an array of DateItems that returns truthy for the predicate object
+   */
+  _filter(predicate: Object): DateItem[] {
+    return _.filter(this.dateItems, predicate);
+  }
 
-  // If the national calendar has the same celebration defined
-  // as in the general calendar, it replaces the one
-  // in the general calendar
-  // If the national calendar date is not in the general
-  // calendar, it is added
-  _.each( national, ( v, k ) => _.set( general, k, v ));
+  /**
+   * Get the first DateItem that returns truthy for the predicate object
+   */
+  _find(predicate: Object): DateItem {
+    return _.find(this.dateItems, predicate);
+  }
 
-  // Get the celebration dates based on the given year and options
-  // and format the result for better processing
-  let celebrations = _.reduce(
-    Celebrations.dates( options.year, options.christmastideEnds, options.epiphanyOnJan6, options.corpusChristiOnThursday, options.ascensionOnSunday ),
-    ( r, v, k ) => {
-      v.source = 'c';
-      r[ v.key ] = v;
-      return r;
+  /**
+   * Group DateItems by date
+   */
+  _valuesByDates(): {[string]: DateItem[]} {
+    return this.dateItems.reduce((result: Object, value: DateItem) => {
+      (result[value.date] = result[value.date] || []).push(value);
+      return result;
     }, {});
+  }
 
-  // If the general calendar has the same celebration defined
-  // check if it is prioritized, if not prioritized, it will
-  // be overwritten by the incoming celebration date
-  _.each( celebrations, ( v, k ) => {
-    if ( _.has( general, k ) ) {
-      let date = _.get( general, k );
-      // if the general date is not prioritized, it will be overwritten
-      // by the celebration date
-      if ( !_.isUndefined( date.data ) && !date.data.prioritized ) {
-        _.set( general, k, v );
+  /**
+   * Remove DateItems that return truthy for the predicate object
+   */
+  _removeWhere(predicate: Object) {
+    _.remove(this.dateItems, predicate);
+  }
+
+  /**
+   * Push new DateItem objects in the Calendar object
+   */
+  _push(sources: (Object[])[]) {
+    sources
+      .forEach((cal, i) => cal
+        .forEach((itemObj) => {
+          this._checkAndRemoveExistingItem(itemObj);
+
+          // Specify the stack index of the source calendar
+          itemObj._stack = i;
+
+          // Get the base DateItem to attach on the new DateItem
+          let baseItem = this._find({date: itemObj.moment.toISOString(), _stack: 0});
+
+          // Create a new DateItem and add it to the collection
+          let item = new DateItem(itemObj, baseItem);
+          this.dateItems.push(item);
+        }));
+  }
+
+  /**
+   * If a previous date item already exists (have the same key name as the new one),
+   * the previous date item will be removed in favour of the new given one,
+   * except if the previous item is prioritized but not the new one
+   */
+  _checkAndRemoveExistingItem(item) {
+    let previousItems = this._filter({key: item.key});
+    if (previousItems.length) {
+      previousItems.forEach((previousItem) => {
+        if ((!previousItem.data.prioritized) ||
+          (previousItem.data.prioritized && item.data && item.data.prioritized)) {
+          this._removeWhere({_id: previousItem._id});
+        }
+      });
+    }
+  }
+
+  /**
+   * Sort all DateItems by relevance (the most relevant first)
+   * and drop the non-relevant DateItems
+   */
+  _sortAndKeepRelevant() {
+
+    // Reorder the DateItems of a particular day, so that
+    // when there are optional memorials or commemoration only (in addition to the feria),
+    // the feria item is moved to the top before the optional items,
+    // since it's the default item if none of the optional items
+    // are celebrated.
+    const lowerNonOptionalType = Types.MEMORIAL;
+    const types = Types.slice(0, Types.length - 1);
+    types.splice(types.indexOf(lowerNonOptionalType) + 1, 0, Types[Types.length - 1]);
+
+    // Sort all date items by relevance (the most relevant first),
+    // in this order: by date, by priority, by type, by stack.
+    this.dateItems.sort((a: DateItem, b: DateItem): any => {
+
+      // 1. Sort by date
+      let moment1 = a.moment;
+      let moment2 = b.moment;
+      if (moment1.isBefore(moment2)) return -1;
+      if (moment1.isAfter(moment2)) return 1;
+      if (moment1.isSame(moment2)) {
+
+        // 2. Sort by priority (prioritized first)
+        let prioritized1 = a.data && a.data.prioritized;
+        let prioritized2 = b.data && b.data.prioritized;
+        if (prioritized1 && !prioritized2) return -1;
+        if (!prioritized1 && prioritized2) return 1;
+        if (prioritized1 === prioritized2) {
+
+          // 3. Sort by type (higher type first)
+          let type1 = types.indexOf(a.type);
+          let type2 = types.indexOf(b.type);
+          if (type1 < type2) return -1;
+          if (type1 > type2) return 1;
+          if (type1 === type2) {
+
+            // 4. Sort by stack (higher stack first)
+            let stack1 = a._stack;
+            let stack2 = b._stack;
+            if (stack1 > stack2) return -1;
+            if (stack1 < stack2) return 1;
+            return 0;
+          }
+        }
+      }
+    });
+
+    // Now that the items are sorted, let's drop other non-relevant date items
+    // if at least one of the date items isn't optional
+    let calendarByDates = this._valuesByDates();
+    for (let key in calendarByDates) {
+      if (Object.prototype.hasOwnProperty.call(calendarByDates, key)) {
+        let dateItems = calendarByDates[key];
+        if (dateItems.length > 1) {
+
+          // If the first date item has a type equal or higher than a MEMORIAL, or is prioritized:
+          // keep only the first item and remove the others
+          if (dateItems[0].data.prioritized ||
+            (types.indexOf(dateItems[0].type) <= types.indexOf(lowerNonOptionalType))) {
+            dateItems
+              .slice(1, dateItems.length)
+              .forEach(item => this._removeWhere({_id: item._id}));
+          }
+        }
       }
     }
-    else {
-      _.set( general, k, v );
-    }
-  });
+  }
 
-  // Merge coinciding dates based on this logic:
-  //
-  // Rule 1:
-  // celebration dates have the highest priority
-  // but if the national calendar has the same date
-  // and is prioritized, it can replace the celebration date
-  // celebration dates will always override general dates
-  // only a national date may override a celebration
-  //
-  // Rule 2:
-  // A national date can override a general date if the general
-  // date is not prioritized. However if the general date is
-  // prioritized, it will NOT be replaced by a national date that is
-  // not prioritized
-  // If both are prioritzed, the national date is kept
-  //
-
-  // Group dates by their moment values
-  let result = _.groupBy( general, v => v.moment.valueOf());
-
-  // Apply replacement logic for coinciding dates
-  result = _.map( result, coincidences => {
-
-    // Only run when there's more than 1 date in the group
-    if ( coincidences.length > 1 ) {
-
-      // Group coincidences by their source
-      let sources = _.groupBy( coincidences, v => v.source );
-
-      // Flag of the date to be retained
-      let keep;
-
-      // If the group has
-      // [1] a celebration
-      // [2] no national date
-      // [3] no general date
-      // Keep the celebration and discard other coincidences
-      if ( _.has( sources, 'c' ) && !_.has( sources, 'n') && !_.has( sources, 'g') ) {
-        keep = 'c';
-      }
-
-      // If the group has
-      // [1] a celebration
-      // [2] a national date
-      // [3] no general date
-      // Keep national date IF its prioritized
-      // else keep the celebration
-      else if ( _.has( sources, 'c') && _.has( sources, 'n' ) ) {
-        if ( _.head( sources['n'] ).data.prioritized ) {
-          keep = 'n';
+  /**
+   * Check if 'drop' has been defined for any celebrations in the national calendar
+   * and remove them from both national and general calendar sources
+   */
+  static _dropItems(...calendars: (Object[])[]): (Object[])[] {
+    calendars.forEach((calendar, i) => {
+      const dropKeys: string[] = _.map(_.filter(calendar, n => (_.has(n, 'drop') && n.drop)), 'key');
+      dropKeys.forEach(dropKey => {
+        for (let j = 0; j <= i; j++) {
+          _.remove(calendars[j], ({key}) => key === dropKey);
         }
-        else {
-          keep = 'c';
-        }
-      }
+      });
+    });
+    return calendars;
+  }
 
-      // If the group has
-      // [1] a national
-      // [2] a general date
-      // [3] no celebration
-      // Keep the general date IF its prioritized
-      // If not, keep the national date
-      else if ( !_.has( sources, 'c') && _.has( sources, 'n' ) && _.has( sources, 'g') ) {
-        if ( !_.head( sources['n'] ).data.prioritized && _.head( sources['g'] ).data.prioritized ) {
-          keep = 'g';
-        }
-        else {
-          keep = 'n';
-        }
-      }
+  /**
+   * Keep only items within a given date range
+   */
+  static _filterItemRange(startDate: Moment, endDate: Moment, ...sources: (Object[])[]): (Object[])[] {
+    return sources.map(cal => cal
+      .filter(item => {
+        if (item.drop) return true;
+        return item.moment && item.moment.isSameOrAfter(startDate) && item.moment.isSameOrBefore(endDate);
+      }));
+  }
 
-      // If the group has multiple general dates ...
-      // Step 1: Keep the one's that are prioritzed
-      // Step 2: Keep the highest ranking general date
-      else if ( !_.has( sources, 'c') && !_.has( sources, 'n' ) && _.has( sources, 'g') ) {
-        // Get prioritized dates, if any
-        let prioritizedDates = _.map( sources, source => _.filter( source, d => d.data.prioritized ));
-        if (!_.isEmpty(prioritizedDates)) { // Pick highest ranking prioritized date
-          coincidences = _.map(prioritizedDates, d => _.minBy(d, item => _.indexOf(Types, item.type)));
-        } else { // If no prioritized dates found, simply pick the highest ranking date
-          coincidences = _.map(sources, source => _.minBy(source, item => _.indexOf(Types, item.type)));
-        }
-        keep = 'g';
-      }
-
-      // If the group has a celebration and general date but no national date
-      // and any other combination, keep the celebration date
-      else {
-        keep = 'c';
-      }
-
-      // Keep only the relevant date
-      coincidences = _.filter( coincidences, { source: keep } );
-    }
-
-    return coincidences;
-  });
-
-  // Flatten the results
-  result = _.flatten(result);
-
-  // Remap the keys to be timestamps for better processing
-  result = _.reduce(result, ( r, v, k ) => {
-    // If the response already has this timestamp
-    if ( _.has( r, v.moment.valueOf() ) ) {
-      let date = _.get( r, v.moment.valueOf() );
-      // If the incoming date has a higher rank than the current date
-      if ( _.lt( _.indexOf( Types, v.type ), _.indexOf( Types, date.type ) ) ) {
-        // Replace it with the incoming date
-        r[ v.moment.valueOf() ] = v;
-      }
-    }
-    else { // Response does not have this timestamp
-      r[ v.moment.valueOf() ] = v;
-    }
-    return r;
-  }, {});
-
-  return result;
-};
-
-// options: (configuration options)
-// dates: (liturgical dates array)
-const _applyDates = ( options, dates ) => {
-
-  // Get the merged General and National Calendar dates
-  let calendarDates = _getCalendar( options );
-  let liturgicalDates = _.reduce( dates, ( r, v, k ) => {
-    r[ v.moment.valueOf() ] = v;
-    return r;
-  }, {});
-
-  dates = _.map( liturgicalDates, (date, timestamp) => {
-
-    if ( _.has( calendarDates, timestamp ) ) {
-
-      let candidate = _.get( calendarDates, timestamp );
-      let replace = false;
-      let derank = false;
-
-      //------------------------------------------------------------------
-      // A celebration date will replace anything
-      //------------------------------------------------------------------
-      if ( _.eq( candidate.source, 'c' )) {
-        replace = true;
-      }
-      //------------------------------------------------------------------
-      // A general or national date needs further processing
-      // before replacing something in the liturgical calendar
-      //------------------------------------------------------------------
-      else {
-
-        //------------------------------------------------------------------
-        // A SOLEMNITY will replace any date in the liturgical calendar
-        // - solemnity must not override a solemnity in octave of EASTER
-        //------------------------------------------------------------------
-        if (_.eq( candidate.type, Types.SOLEMNITY ) && _.gt( _.indexOf( Types, date.type ), 0 )) {
-          replace = true;
-        }
-
-        //------------------------------------------------------------------
-        // MEMORIAL or OPT_MEMORIAL that fall on a FERIA
-        // in the SEASON OF LENT are reduced to a COMMEMORATION
-        //------------------------------------------------------------------
-        else if (
-          _.eq( date.type, Types.FERIA )
-          && _.eq( date.data.season.key, LiturgicalSeasons.LENT )
-          && ( _.eq( candidate.type, Types.MEMORIAL ) || _.eq( candidate.type, Types.OPT_MEMORIAL ) )
-        ) {
-          replace = true;
-          derank = true;
-        }
-
-        //------------------------------------------------------------------
-        // MEMORIAL or OPT_MEMORIAL that fall on a FERIA
-        // outside LENT or the Easter Octave will replace the general FERIA
-        //------------------------------------------------------------------
-        else if (
-          _.eq( date.type, Types.FERIA ) // If the current date is of type feria
-          && !_.eq( date.data.season.key, LiturgicalSeasons.LENT ) // And this feria is not in Lent
-          && ( _.eq( candidate.type, Types.MEMORIAL ) || _.eq( candidate.type, Types.OPT_MEMORIAL ) ) // And the candidate is either a memorial or optional memorial
-        ) {
-          replace = true; // Then the candidate is fit to replace the feria
-        }
-
-        //------------------------------------------------------------------
-        // A non prioritized FEAST can only replace FERIA \
-        // - feria must not be in the octave of EASTER
-        //------------------------------------------------------------------
-        else if (
-          _.eq( candidate.type, Types.FEAST )
-          && _.eq( date.type, Types.FERIA )
-          && !_.eq( date.data.season.key, LiturgicalSeasons.LENT )
-          && !candidate.data.prioritized
-        ) {
-          replace = true;
-        }
-
-        //------------------------------------------------------------------
-        // A FEAST occuring in the season of LENT is deranked
-        // to a COMMEMORATION
-        //------------------------------------------------------------------
-        else if (
-          _.eq( candidate.type, Types.FEAST )
-          && _.eq( date.type, Types.FERIA )
-          && _.eq( date.data.season.key, LiturgicalSeasons.LENT )
-        ) {
-          replace = true;
-          derank = true;
-        }
-
-        //------------------------------------------------------------------
-        // A prioritized FEAST can replace a SUNDAY or FERIA
-        // When a Feast of the Lord falls on a SUNDAY it replaces the SUNDAY in Ordinary Time.
-        // - feria must not be in the octave of EASTER
-        //------------------------------------------------------------------
-        else if (
-          _.eq( candidate.type, Types.FEAST )
-          && ( _.eq( date.type, Types.FERIA ) || _.eq( date.type, Types.SUNDAY ) )
-          && !_.eq( date.data.season.key, LiturgicalSeasons.LENT )
-          && candidate.data.prioritized
-        ) {
-          replace = true;
-        }
-
-        //------------------------------------------------------------------
-        // A Sunday can only replace a Sunday
-        //------------------------------------------------------------------
-        else if (
-          _.eq( date.type, Types.SUNDAY )
-          && _.eq( candidate.type, Types.SUNDAY )
-        ) {
-          replace = true;
-        }
-
-        //------------------------------------------------------------------
-        // A feria can only replace a feria
-        // Sundays in Ordinary Time and Chrismastide take precedence over all other celebrations
-        // except for SOLEMNITIES and certain FEASTS
-        //------------------------------------------------------------------
-        else if (
-          _.eq( date.type, Types.FERIA )
-          && _.eq( candidate.type, Types.FERIA )
-        ) {
-          replace = true;
-        }
-
-        // Uncomment to see the dates that from the calendar that were not replaced
-        // else {
-        //   console.log('not replaced:', candidate.type, candidate.moment.format('L'), candidate.name );
-        // }
-
-      }
-
-      if ( replace ) {
-        date.key = candidate.key;
-        date.name = candidate.name;
-        date.source = candidate.source;
-        date.type = ( derank ? Types.COMMEMORATION : candidate.type );
-        date.data = _.merge({}, date.data, candidate.data );
-      }
-    }
-
-    return date;
-
-  });
-
-  return dates;
-};
-
-//================================================================================================
-// Include liturgical cycle metadata for the dates in the liturgical year
-//================================================================================================
-// year
-// dates
-const _liturgicalCycleMetadata = (year, dates) => {
-
-  // Formula to calculate lectionary cycle (Year A, B, C)
-  let firstSundayOfAdvent = Dates.firstSundayOfAdvent(year);
-  let thisCycle = ( year - 1963 ) % 3;
-  let nextCycle = ( _.eq( thisCycle,  2 ) ? 0 : thisCycle + 1 );
-
-  _.map( dates, v => {
-
-    //=====================================================================
-    // LITURGICAL CYCLES
-    //---------------------------------------------------------------------
-    // If the date is on or after the first sunday of advent
-    // it is the next liturgical cycle
-    //=====================================================================
-    if ( v.moment.isSame( firstSundayOfAdvent ) || v.moment.isAfter( firstSundayOfAdvent ) ) {
-      v.data.meta.cycle = {
-        key: nextCycle,
-        value: Cycles[ nextCycle ]
-      };
-    }
-    else {
-      v.data.meta.cycle = {
-        key: thisCycle,
-        value: Cycles[ thisCycle ]
-      };
-    }
-
-    return v;
-  });
-
-  return dates;
-};
-
-//================================================================================================
-// METHODS GENERATE THE ROMAN CALENDAR ACCORDING TO CALENDAR
-// YEAR OR LITURGICAL YEAR
-//================================================================================================
-
-// Returns an object containing dates for the
-// days that occur during the calendar year
-// c: (an object literal with the following options)
-// [-] year: The year to calculate the liturgical date ranges
-// [-] country: Get national calendar dates for the given country (defaults to 'general')
-// [-] locale: The language for the calendar names (defaults to 'en')
-// [-] christmastideEnds: t|o|e (The mode to calculate the end of Christmastide. Defaukts to 'o')
-// [-] epiphanyOnJan6: true|false|undefined (If true, Epiphany will be fixed to Jan 6) (defaults to false)
-// [-] christmastideIncludesTheSeasonOfEpiphany: true|false|undefined (If false, the season of Epiphany will not be merged into Christmastide )
-// [-] corpusChristiOnThursday: true|false|undefined (If true, Corpus Christi is set to Thursday) (defaults to false)
-// [-] ascensionOnSunday: true|false|undefined (If true, Ascension is moved to the 7th Sunday of Easter) (defaults to false)
-// [-] type: calendar|liturgical (return dates in either standard calendar or liturgical calendar format)
-// [-] query: Additional filters to be applied against calendar dates array (default: none)
-const _calendarYear = c => {
-
-  // Get the liturgical seasons that run through the year
-  let dates = _.union(
-    Seasons.christmastide( c.year - 1, c.christmastideEnds, c.epiphanyOnJan6, c.christmastideIncludesTheSeasonOfEpiphany ),
-    Seasons.earlyOrdinaryTime( c.year, c.christmastideEnds, c.epiphanyOnJan6 ),
-    Seasons.lent( c.year ),
-    Seasons.eastertide( c.year ),
-    Seasons.laterOrdinaryTime( c.year ),
-    Seasons.advent( c.year ),
-    Seasons.christmastide( c.year, c.christmastideEnds, c.epiphanyOnJan6, c.christmastideIncludesTheSeasonOfEpiphany )
-  );
-
-  // console.log(Seasons.lent(c.year));
-
-  // Merge liturgical calendar dates with those from the general & national calendars
-  dates = _applyDates( c, dates );
-  // Filter dates within the given year only
-  dates = _.filter( dates, d => _.eq( d.moment.year(), c.year ));
-  dates = _liturgicalCycleMetadata( c.year, dates );
-
-  return dates;
-};
-
-// Returns an object containing dates for the
-// days that occur during the liturgical year
-// c: (an object literal with the following options)
-// [-] year: The year to calculate the liturgical date ranges
-// [-] country: Get national calendar dates for the given country (defaults to 'general')
-// [-] locale: The language for the calendar names (defaults to 'en')
-// [-] christmastideEnds: t|o|e (The mode to calculate the end of Christmastide. Defaukts to 'o')
-// [-] epiphanyOnJan6: true|false|undefined (If true, Epiphany will be fixed to Jan 6) (defaults to false)
-// [-] christmastideIncludesTheSeasonOfEpiphany: true|false|undefined (If false, the season of Epiphany will not be merged into Christmastide )
-// [-] corpusChristiOnThursday: true|false|undefined (If true, Corpus Christi is set to Thursday) (defaults to false)
-// [-] ascensionOnSunday: true|false|undefined (If true, Ascension is moved to the 7th Sunday of Easter) (defaults to false)
-// [-] type: calendar|liturgical (return dates in either standard calendar or liturgical calendar format)
-// [-] query: Additional filters to be applied against calendar dates array (default: none)
-const _liturgicalYear = c => {
-
-  // Get dates for current year
-  let thisYear = _calendarYear( c );
-  let start = Dates.firstSundayOfAdvent( c.year );
-
-  // Get dates for the following year
-  c.year = c.year + 1;
-  let nextYear = _calendarYear( c );
-  let end = Dates.firstSundayOfAdvent( c.year ); // Last day of liturgical year must be before this date
-
-  let dates = _.union(
-    _.filter( thisYear, v => v.moment.isSame( start ) || v.moment.isAfter( start )),
-    _.filter( nextYear, v => v.moment.isBefore( end ))
-  );
-
-  return dates;
-};
+  /**
+   * Get the appropriate calendar definition object, based on the given region name
+   */
+  static _fetchRegionCalendar(regionName: string): ({dates: (number) => {}[]}) {
+    const key: string = Object.prototype.hasOwnProperty.call(CalendarsDef, _.camelCase(regionName)) ? _.camelCase(regionName) : '';
+    if (!key) return { dates: () => [] };
+    return CalendarsDef[key];
+  }
+}
 
 
 // Returns an array of liturgical dates based on the supplied calendar options
@@ -531,49 +300,34 @@ const _liturgicalYear = c => {
 //         if the config object has a query, it will be used to filter the
 //         date results returned
 //
-// skipIsoConversion: undefined|true|false - skip converting moment objects to ISO8601 timestamp
-//                    default action converts moment objects to ISO Strings
-//
-const calendarFor = (config = {}, skipIsoConversion = false ) => {
+const calendarFor = (customConfig: any = {}) => {
 
-  // If config is passed as a boolean
-  // Then assume that we want the calendar for the current year
-  // and either want to skip moment date ISO conversion or keep it
-  // depending on the config value is true or false
-  if (_.isBoolean(config)) {
-    skipIsoConversion = config;
-    config = {};
+  // If config is passed as an integer,
+  // assume we want the calendar for the current year
+  if (Number.isInteger(customConfig)) {
+    customConfig = { year: customConfig };
   }
 
-  // If config is passed as an integer
-  // Then assume we want the calendar for the current year
-  if (_.isNumber(config)) {
-    config = { year: config };
-    skipIsoConversion = skipIsoConversion || false;
-  }
-
-  // Sanitize incoming config
-  config = _sanitizeConfig(config);
+  // Sanitize incoming config into a complete configuration set
+  const config = new Config(customConfig);
 
   // Set the locale information
   Utils.setLocale(config.locale);
 
-  // Get dates based on options
-  let dates = _.eq( config.type, 'liturgical') ? _liturgicalYear(config) : _calendarYear(config);
+  // Get a new collection of dates
+  let dates = new Calendar(config).fetch().values();
 
   // Run queries, if any and return the results
-  return queryFor(dates, config.query, skipIsoConversion);
+  return queryFor(dates, config.query);
 };
 
 // Filters an array of dates generated from the calendarFor function based on a given query.
 // dates: An array of dates generated from the calendarFor function
 // query: An object containing keys to filter the dates by
-// skipIsoConversion: undefined|true|false - skip converting moment objects to ISO8601 timestamp
-//                    default action converts moment objects to ISO Strings
-const queryFor = (dates = [], query = {}, skipIsoConversion = false ) => {
+const queryFor = (dates: DateItem[] = [], query: Object = {}) => {
 
   if (!_.every(dates, _.isObject)) {
-    throw 'romcal.queryFor can only accept a single dimenional array of objects';
+    throw 'romcal.queryFor can only accept a single dimensional array of objects';
   }
 
   //==========================================================================
@@ -581,9 +335,6 @@ const queryFor = (dates = [], query = {}, skipIsoConversion = false ) => {
   // calendar array
   //==========================================================================
   if (!_.isNull(query) && !_.isEmpty(query) ) {
-
-    // Reparse dates into moment objects if needed
-    dates = Utils.convertIsoDateStringToMomentObject(dates);
 
     // Months are zero indexed, so January is month 0.
     if ( _.has( query, 'month' ) ) {
@@ -622,7 +373,6 @@ const queryFor = (dates = [], query = {}, skipIsoConversion = false ) => {
           break;
         case 'liturgicalSeasons':
           dates = _.groupBy(dates, d => d.data.season.key );
-          // console.log('dates', dates );
           break;
         case 'liturgicalColors':
           dates = _.groupBy(dates, d => d.data.meta.liturgicalColor.key );
@@ -636,17 +386,10 @@ const queryFor = (dates = [], query = {}, skipIsoConversion = false ) => {
     }
   }
 
-  // If undefined or false, continue with conversion
-  if ( !skipIsoConversion ) {
-    dates = Utils.convertMomentObjectToIsoDateString(dates);
-  }
-
   return dates;
 };
 
 export {
   calendarFor,
-  queryFor,
-  countries,
-  getCalendar
+  queryFor
 };

@@ -180,10 +180,7 @@ true|false );
 
 ### Output formatter <a name="outputFormatter"></a>
 
-The second parameter that can be passed to the `romcal.calendarFor()` method.
-It is an optional parameter: If true, skip converting dates to ISO8601 strings and return dates as Moment objects. Defaults to false if not specified.
-
-romcal can also be invoked without parameters or via shorthand properties like so:
+romcal can be invoked without parameters or via shorthand properties like so:
 
 ```javascript
 // Get calendar year dates (1st Jan - 31st Dec) for the current year
@@ -192,8 +189,6 @@ romcal.calendarFor();
 // Get calendar year dates for the specified year
 romcal.calendarFor(2020);
 
-// Get calendar year dates and do not convert Moment date objects to ISO8601 strings
-romcal.calendarFor(true);
 ```
 
 ### JSON Structure <a name="jsonStructure"></a>
@@ -207,12 +202,13 @@ romcal returns an array of liturgical date objects in the following structure
     "name": "",
     "type": "",
     "moment": "",
+    "date": "",
     "source": "",
     "data": {
-      "prioritized": boolean
+      "prioritized": boolean,
       "season": "",
       "meta": {
-        "liturgicalColor": {}
+        "liturgicalColor": {},
         "titles": []
       }
     }
@@ -223,7 +219,8 @@ romcal returns an array of liturgical date objects in the following structure
 - `key`: A camel case string which serves as a unique identifier for the celebration. This key is an essential element in [overriding dates](#overriding)
 - `name`: The [localizable name](#localizing) of the celebration
 - `type`: A key representing the [celebration type](#types)
-- `moment`: Moment.js object or ISO8601 string of the date of the celebration
+- `moment`: Moment.js object of the date of the celebration
+- `date`: Date of the celebration, converted to ISO8601 string
 - `source`: The internal calendar [source](#sources) of this celebration
 - `data`: An object that holds additional information about the celebration
   - prioritized: A optional boolean that when true, gives the celebration higher priority over another coinciding celebration even though that celebration has a higher ranking type. This flag should be used with caution.
