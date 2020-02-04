@@ -20,4 +20,4 @@ fi
 
 echo "LATEST_TAG_VERSION is $LATEST_TAG_VERSION"
 
-npm deprecate "${PACKAGE_NAME}@ < ${LATEST_TAG_VERSION}" "latest release is ${LATEST_TAG_VERSION}"
+npm deprecate "${PACKAGE_NAME}@\"< ${LATEST_TAG_VERSION}\"" "latest release is ${LATEST_TAG_VERSION}"

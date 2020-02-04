@@ -18,14 +18,6 @@ before_install:
 script:
   - npm run test
 
-before_deploy:
-  - chmod +x scripts/semver.sh
-  - chmod +x scripts/bump-version.sh
-  - chmod +x scripts/version-deprecator.sh
-  - git update-index --assume-unchanged scripts/bump-version.sh
-  - git update-index --assume-unchanged scripts/semver.sh
-  - git update-index --assume-unchanged scripts/version-deprecator.sh
-
 # Deployment stage that only runs on a stable version of node
 jobs:
   include:
@@ -33,6 +25,14 @@ jobs:
       name: "Publish a new distribution to NPM"
       node_js: "stable"
       if: fork = false AND type = push # Publish only on push events on branches in the org
+      script: skip # test would have already been run before this
+      before_deploy:
+        - chmod +x scripts/semver.sh
+        - chmod +x scripts/bump-version.sh
+        - chmod +x scripts/version-deprecator.sh
+        - git update-index --assume-unchanged scripts/bump-version.sh
+        - git update-index --assume-unchanged scripts/semver.sh
+        - git update-index --assume-unchanged scripts/version-deprecator.sh
       deploy:
         - provider: script
           script: scripts/bump-version.sh $TRAVIS_BRANCH
@@ -46,11 +46,10 @@ jobs:
           on:
             all_branches: true
             repo: romcal/romcal
-
-after_deploy:
-  - git update-index --no-assume-unchanged scripts/bump-version.sh
-  - git update-index --no-assume-unchanged scripts/semver.sh
-  - git update-index --no-assume-unchanged scripts/version-deprecator.sh
+      after_deploy:
+        - git update-index --no-assume-unchanged scripts/bump-version.sh
+        - git update-index --no-assume-unchanged scripts/semver.sh
+        - git update-index --no-assume-unchanged scripts/version-deprecator.sh
 
 notifications:
   email:
