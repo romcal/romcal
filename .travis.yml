@@ -44,7 +44,7 @@ jobs:
           script: scripts/version-deprecator.sh $TRAVIS_BRANCH
           skip_cleanup: true
           on:
-            all_branches: true
+            branch: master
             repo: romcal/romcal
       after_deploy:
         - git update-index --no-assume-unchanged scripts/bump-version.sh
