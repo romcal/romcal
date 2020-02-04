@@ -21,8 +21,10 @@ script:
 before_deploy:
   - chmod +x scripts/semver.sh
   - chmod +x scripts/bump-version.sh
+  - chmod +x scripts/version-deprecator.sh
   - git update-index --assume-unchanged scripts/bump-version.sh
   - git update-index --assume-unchanged scripts/semver.sh
+  - git update-index --assume-unchanged scripts/version-deprecator.sh
 
 # Deployment stage that only runs on a stable version of node
 jobs:
@@ -32,16 +34,23 @@ jobs:
       node_js: "stable"
       if: fork = false AND type = push # Publish only on push events on branches in the org
       deploy:
-        provider: script
-        script: scripts/bump-version.sh $TRAVIS_BRANCH
-        skip_cleanup: true
-        on:
-          all_branches: true
-          repo: romcal/romcal
+        - provider: script
+          script: scripts/bump-version.sh $TRAVIS_BRANCH
+          skip_cleanup: true
+          on:
+            all_branches: true
+            repo: romcal/romcal
+        - provider: script
+          script: scripts/version-deprecator.sh $TRAVIS_BRANCH
+          skip_cleanup: true
+          on:
+            all_branches: true
+            repo: romcal/romcal
 
 after_deploy:
   - git update-index --no-assume-unchanged scripts/bump-version.sh
   - git update-index --no-assume-unchanged scripts/semver.sh
+  - git update-index --no-assume-unchanged scripts/version-deprecator.sh
 
 notifications:
   email:
