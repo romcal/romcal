@@ -1,3 +1,0 @@
-#!/usr/bin/env node
-var romcal = require('index.js');
-romcal.calendarFor(process.argv[2]);
