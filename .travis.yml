@@ -18,9 +18,23 @@ before_install:
 script:
   - npm run test
 
-# Deployment stage that only runs on a stable version of node
+# Nightly merge from master to dev
+
 jobs:
   include:
+    - stage: nightly-merge-master-to-dev
+      name: "Merge code from master to dev on a nightly bases if there are no conflicts"
+      node_js: "stable"
+      if: type = cron AND branch = master
+      before_script:
+        - chmod +x scripts/daily-branch-merge.sh
+        - git update-index --assume-unchanged scripts/daily-branch-merge.sh
+      script:
+        - npm run test # Runs test first before attempting merge
+        - scripts/daily-branch-merge.sh $TRAVIS_BRANCH
+      after_script:
+        - git update-index --no-assume-unchanged scripts/daily-branch-merge.sh
+    # Deployment stage that only runs on a stable version of node
     - stage: deploy
       name: "Publish a new distribution to NPM"
       node_js: "stable"
