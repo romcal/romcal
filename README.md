@@ -3,14 +3,24 @@
 [npm-url]: https://www.npmjs.com/package/romcal
 [npm-version-image]: https://img.shields.io/npm/v/romcal.svg?style=flat
 [npm-downloads-image]: https://img.shields.io/npm/dm/romcal.svg?style=flat
-[travis-url]: https://travis-ci.org/pejulian/romcal
-[travis-image]: https://travis-ci.org/pejulian/romcal.svg?branch=master
+[travis-prod-image]: https://travis-ci.org/romcal/romcal.svg?branch=master
+[travis-test-image]: https://travis-ci.org/romcal/romcal.svg?branch=test
+[travis-dev-image]: https://travis-ci.org/romcal/romcal.svg?branch=dev
 
-[![MIT License][license-image]][license-url] [![NPM version][npm-version-image]][npm-url] [![NPM downloads][npm-downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Join the chat at https://gitter.im/pejulian/romcal](https://badges.gitter.im/pejulian/romcal.svg)](https://gitter.im/pejulian/romcal?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![MIT License][license-image]][license-url] [![NPM version][npm-version-image]][npm-url] [![NPM downloads][npm-downloads-image]][npm-url]
 
 # Romcal
 
 Utility library that outputs the Liturgical Calendar used by the Roman Rite (Western Church) for Node JS v6 and above.
+
+Production build status
+[![Production Build Status][travis-prod-image]][travis-prod-image]
+
+Test build status
+[![Test Build Status][travis-test-image]][travis-test-image]
+
+Development build status
+[![Development Build Status][travis-dev-image]][travis-dev-image]
 
 ## Contributing to romcal
 
@@ -24,39 +34,46 @@ See [contributing](CONTRIBUTING.md) for more information.
 
 ## Table of Contents
 
-- [Description](#desc)
-- [Revisions](#revisions)
-- [Credits](#credits)
-- [Features](#features)
-- [Module Robustness & Data Integrity](#disclaimer)
-- [Builds](#builds)
-- [Usage](#usage)
-  - [Configuration Options](#configOpts)
-  - [Output Formatter](#outputFormatter)
-  - [JSON Structure](#jsonStructure)
-- [Celebration Types](#types)
-- [Celebration Titles](#titles)
-- [Liturgical Seasons](#seasons)
-- [Liturgical Cycles](#cycles)
-- [Liturgical Colors](#colors)
-- [Psalter Weeks](#psalterWeeks)
-- [Calendar Sources](#sources)
-  - [Liturgical](#liturgical)
-  - [Celebrations](#celebrations)
-  - [General](#general)
-  - [National](#national)
-- [Queries](#queries)
-  - [Filtering calendar output by month of year or day of week](#filterByMonthOrDay)
-  - [Grouping calendar output by critieria](#groupingByCriteria)
-  - [Filtering calendar output by celebration title metadata](#filteringByTitle)
-  - [Multiple Queries](#multipleQueries)
-- [Overriding dates](#overridingDates)
-  - [Overriding a date by its calendar source](#overridingBySource)
-  - [Overriding a date by its priority](#overridingByPriority)
-  - [Overriding a date by its key](#overridingByKey)
-- [Removing general dates in national calendar output](#removingDates)
-  - [The `drop` keyword](#dropKeyword)
-- [Localizing celebration names](#localization)
+- [Romcal](#romcal)
+  - [Contributing to romcal](#contributing-to-romcal)
+  - [Table of Contents](#table-of-contents)
+  - [Description <a name="desc"></a>](#description)
+  - [Revisions <a name="revisions"></a>](#revisions)
+  - [Credits <a name="credits"></a>](#credits)
+  - [Features <a name="features"></a>](#features)
+  - [Module Robustness & Data Integrity <a name="disclaimer"></a>](#module-robustness--data-integrity)
+    - [Testing romcal](#testing-romcal)
+  - [Builds <a name="builds"></a>](#builds)
+  - [Usage <a name="usage"></a>](#usage)
+    - [Installation as a node module](#installation-as-a-node-module)
+    - [Using the module](#using-the-module)
+    - [Configuration Options <a name="configOpts"></a>](#configuration-options)
+    - [Output formatter <a name="outputFormatter"></a>](#output-formatter)
+    - [JSON Structure <a name="jsonStructure"></a>](#json-structure)
+  - [Celebration Types <a name="types"></a>](#celebration-types)
+  - [Celebration Titles <a name="titles"></a>](#celebration-titles)
+  - [Liturgical Seasons <a name="seasons"></a>](#liturgical-seasons)
+  - [Liturgical Cycles <a name="cycles"></a>](#liturgical-cycles)
+  - [Liturgical Colors <a name="colors"></a>](#liturgical-colors)
+  - [Psalter Weeks <a name="psalterWeeks"></a>](#psalter-weeks)
+  - [Calendar sources <a name="sources"></a>](#calendar-sources)
+    - [liturgical <a name="liturgical"></a>](#liturgical)
+    - [celebrations <a name="celebrations"></a>](#celebrations)
+    - [general <a name="general"></a>](#general)
+    - [national <a name="national"></a>](#national)
+  - [Queries <a name="queries"></a>](#queries)
+    - [Filtering calendar output by month of year or day of week <a name="filterByMonthOrDay"></a>](#filtering-calendar-output-by-month-of-year-or-day-of-week)
+    - [Grouping calendar output by critieria <a name="groupingByCriteria"></a>](#grouping-calendar-output-by-critieria)
+    - [Filtering calendar output by celebration title metadata <a name="filterByTitle"></a>](#filtering-calendar-output-by-celebration-title-metadata)
+  - [Multiple queries <a name="multipleQueries"></a>](#multiple-queries)
+  - [Overriding dates <a name="overridingDates"></a>](#overriding-dates)
+    - [Overriding a date by its calendar source <a name="overridingBySource"></a>](#overriding-a-date-by-its-calendar-source)
+    - [Overriding a date by its priority <a name="overridingByPriority"></a>](#overriding-a-date-by-its-priority)
+    - [Overriding a date by its key <a name="overridingByKey"></a>](#overriding-a-date-by-its-key)
+  - [Removing general dates in national calendar output <a name="removingDates"></a>](#removing-general-dates-in-national-calendar-output)
+    - [The `drop` keyword <a name="dropKeyword"></a>](#the-drop-keyword)
+  - [Localizing celebration names <a name="localization"></a>](#localizing-celebration-names)
+      - [Utils.localize()](#utilslocalize)
 
 ## Description <a name="desc"></a>
 
@@ -73,9 +90,10 @@ See [history](HISTORY.md) for latest updates and important/breaking changes.
 This node module is inspired by the C program [romcal](http://www.romcal.net/) written by Kenneth G. Bath. This module, while exhibiting similar output, is written ground up using different tools and technologies and exposes many new functionalities.
 
 Additional credits for bug fixes, localizations and suggestions go to:
-- [@jarosz](https://github.com/jarosz)
+
 - [@emagnier](https://github.com/emagnier)
 - [@tukusejssirs](https://github.com/tukusejssirs)
+- [@jarosz](https://github.com/jarosz)
 
 ## Features <a name="features"></a>
 
@@ -114,30 +132,48 @@ The frontend library is generated in the `dist` folder, not included in the romc
 
 ## Usage <a name="usage"></a>
 
-> :information_source: romcal was re-written using ES6, and use the new import/export syntax to manage node modules. However, thanks to `esm` and `babel`, it can still be included by other non ES6 aware node modules via the normal CommonJs `require` call.
+### Installation as a node module
 
 Add romcal to your project via npm:
 
 ```bash
-$ npm install romcal
+$ npm install romcal --save
 ```
 
-Then require romcal in your node project:
+Additionally, `romcal` is also available for installtion via various "release tags" that represent different stages of development for a given version of the code.
+
+- `latest`
+  The latest, stable and production ready version of `romcal` is always released on the `master` branch. Releases on this branch are tagged in `npm` using the `latest` tag and can be installed via `npm install romcal@latest` or simply `npm install romcal` which defualts to the `latest` tag.
+
+- `beta`
+  The release candidate for production. Install via `npm install romcal@beta`.
+
+- `alpha`
+  The unstable development release tag. Code here might be unstable and untested. Use at your own risk! Normally, only developers of `romcal` would use this release for testing purposes.
+
+- `canary`
+  Bleeding edge features; high level of code instability. Consumers should almost always never need to install these releases as they containing ongoing work that is not complete for general use.
+
+### Using the module
+
+> :information_source: romcal was re-written using ES6, and use the new import/export syntax to manage node modules. However, thanks to `esm` and `babel`, it can still be included by other non ES6 aware node modules via the normal CommonJs `require` call.
+
+Require romcal in your node project:
 
 ```javascript
-var romcal = require('romcal');
+var romcal = require("romcal");
 ```
 
 or as a CommonJS module
 
 ```javascript
-import romcal from 'romcal';
+import romcal from "romcal";
 ```
 
 or in a webpage for direct usage on browsers
 
-```javascript
-  <script type="text/javascript" src="romcal.bundle.min.js"></script>
+```html
+<script type="text/javascript" src="romcal.bundle.min.js"></script>
 ```
 
 Including romcal directly in the browser will result in an object called `Romcal` being attached to the DOM `window` object. All the functions below will exist as properties of the `Romcal` object.
@@ -145,24 +181,26 @@ Including romcal directly in the browser will result in an object called `Romcal
 Invoke the `calendarFor` method to retrieve an array of liturgical dates and celebrations in the Roman Calendar. This method accepts an object (optional) of configuration properties to obtain customized output.
 
 ```javascript
-romcal.calendarFor({
-  year: 2020,
-  country: 'unitedStates',
-  locale: 'pl',
-  christmastideEnds: 't|o|e',
-  epiphanyOnJan6: true|false,
-  christmastideIncludesTheSeasonOfEpiphany: true | false,
-  corpusChristiOnThursday: true|false,
-  ascensionOnSunday: true|false,
-  type: 'calendar|liturgical',
-  query: {
-    day: 0 - 6, // 0 - Sunday, 6 - Saturday (week beginning with Sunday)
-    month: 0 - 11, // 0 - Jan, 11 - Dec (month begining with Jan)
-    group: '',
-    title: '',
-  }
-},
-true|false );
+romcal.calendarFor(
+  {
+    year: 2020,
+    country: "unitedStates",
+    locale: "pl",
+    christmastideEnds: "t|o|e",
+    epiphanyOnJan6: true | false,
+    christmastideIncludesTheSeasonOfEpiphany: true | false,
+    corpusChristiOnThursday: true | false,
+    ascensionOnSunday: true | false,
+    type: "calendar|liturgical",
+    query: {
+      day: 0 - 6, // 0 - Sunday, 6 - Saturday (week beginning with Sunday)
+      month: 0 - 11, // 0 - Jan, 11 - Dec (month begining with Jan)
+      group: "",
+      title: ""
+    }
+  },
+  true | false
+);
 ```
 
 ### Configuration Options <a name="configOpts"></a>
@@ -188,7 +226,6 @@ romcal.calendarFor();
 
 // Get calendar year dates for the specified year
 romcal.calendarFor(2020);
-
 ```
 
 ### JSON Structure <a name="jsonStructure"></a>
@@ -198,22 +235,22 @@ romcal returns an array of liturgical date objects in the following structure
 ```javascript
 [
   {
-    "key": "",
-    "name": "",
-    "type": "",
-    "moment": "",
-    "date": "",
-    "source": "",
-    "data": {
-      "prioritized": boolean,
-      "season": "",
-      "meta": {
-        "liturgicalColor": {},
-        "titles": []
+    key: "",
+    name: "",
+    type: "",
+    moment: "",
+    date: "",
+    source: "",
+    data: {
+      prioritized: boolean,
+      season: "",
+      meta: {
+        liturgicalColor: {},
+        titles: []
       }
     }
   }
-]
+];
 ```
 
 - `key`: A camel case string which serves as a unique identifier for the celebration. This key is an essential element in [overriding dates](#overriding)
@@ -250,7 +287,7 @@ Types play an important role in determining which celebration should take precen
 The array of types can be imported into consumer apps via:
 
 ```javascript
-import { Types } from 'romcal';
+import { Types } from "romcal";
 ```
 
 ## Celebration Titles <a name="titles"></a>
@@ -273,13 +310,15 @@ Titles are currently available for:
 The titles object can be imported into consumer apps via:
 
 _ES6_
+
 ```javascript
-import { Titles } from 'romcal';
+import { Titles } from "romcal";
 ```
 
 _CommonJS_
+
 ```javascript
-var Titles = require('romcal').Titles;
+var Titles = require("romcal").Titles;
 ```
 
 ## Liturgical Seasons <a name="seasons"></a>
@@ -301,13 +340,15 @@ Methods in `src/lib/Seasons.js` assigns seasons to the dates it generates to ind
 The LiturgicalSeasons object can be imported into consumer apps via:
 
 _ES6_
+
 ```javascript
-import { LiturgicalSeasons } from 'romcal';
+import { LiturgicalSeasons } from "romcal";
 ```
 
 _CommonJS_
+
 ```javascript
-var LiturgicalSeasons = require('romcal').LiturgicalSeasons;
+var LiturgicalSeasons = require("romcal").LiturgicalSeasons;
 ```
 
 ## Liturgical Cycles <a name="cycles"></a>
@@ -325,13 +366,15 @@ Cycle information can be read via the `dates[idx].data.meta.cycle` property in e
 The cycles object can be imported into consumer apps via:
 
 _ES6_
+
 ```javascript
-import { Cycles } from 'romcal';
+import { Cycles } from "romcal";
 ```
 
 _CommonJS_
+
 ```javascript
-var Cycles = require('romcal').Cycles;
+var Cycles = require("romcal").Cycles;
 ```
 
 ## Liturgical Colors <a name="colors"></a>
@@ -339,6 +382,7 @@ var Cycles = require('romcal').Cycles;
 [Liturgical colours are those specific colours used for vestments and hangings within the context of Christian liturgy. The symbolism of violet, white, green, red, gold, black, rose and other colours may serve to underline moods appropriate to a season of the liturgical year or may highlight a special occasion.](https://en.wikipedia.org/wiki/Liturgical_colours)
 
 romcal defines 6 colors in `src/constants/LiturgicalColors.js` which are:
+
 - `RED`
 - `ROSE`
 - `PURPLE`
@@ -353,13 +397,15 @@ Liturgical colors can be read via the `dates[idx].data.meta.liturgicalColor` pro
 The LiturgicalColors object can be imported into consumer apps via:
 
 _ES6_
+
 ```javascript
-import { LiturgicalColors } from 'romcal';
+import { LiturgicalColors } from "romcal";
 ```
 
 _CommonJS_
+
 ```javascript
-var LiturgicalColors = require('romcal').LiturgicalColors;
+var LiturgicalColors = require("romcal").LiturgicalColors;
 ```
 
 ## Psalter Weeks <a name="psalterWeeks"></a>
@@ -379,13 +425,15 @@ Psalter weeks can be read via the `dates[idx].data.meta.psalterWeek` property in
 The PsalterWeeks object can be imported into consumer apps via:
 
 _ES6_
+
 ```javascript
-import { PsalterWeeks } from 'romcal';
+import { PsalterWeeks } from "romcal";
 ```
 
 _CommonJS_
+
 ```javascript
-var PsalterWeeks = require('romcal').PsalterWeeks;
+var PsalterWeeks = require("romcal").PsalterWeeks;
 ```
 
 ## Calendar sources <a name="sources"></a>
@@ -418,12 +466,14 @@ Dates from `src/lib/Celebrations.js` will be assigned the source value `c`.
 The module responsible for generating `celebrations` is `src/lib/Celebrations.js`. _It is highly unlikely that this module will need customization or overriding of any kind._
 
 A prioritized date defined in the `national` calendar can replace a date in the `celebrations` calendar when:
+
 - the key of the `national` date matches a key in `celebrations`
 - the `national` date is prioritized
 
 _In most cases, it is unlikely that a national calendar event will replace a celebration because of the significance of celebrations. If a national event must override a celebration date, it should be properly verified._
 
 The following are a list of dates defined in the `celebrations` calendar:
+
 - Immaculate Conception
 - Christmas
 - Mary Mother of God
@@ -483,13 +533,14 @@ See [Overriding dates](#overridingDates) for more examples.
 ## Queries <a name="queries"></a>
 
 romcal can generate filtered liturgical or calendar year dates by:
+
 - passing an additional query object along with the initial configuration object to the `calendarFor` method, or
 - invoking the `queryFor` method and supplying an array of dates generated from `calendarFor` and a query object
 
 ### Filtering calendar output by month of year or day of week <a name="filterByMonthOrDay"></a>
 
 ```javascript
-import { Calendar } from 'romcal';
+import { Calendar } from "romcal";
 
 Calendar.calendarFor({
   query: {
@@ -499,7 +550,7 @@ Calendar.calendarFor({
 
 Calendar.calendarFor({
   query: {
-    day: 0, // 0 - 6 (0 = Sunday, 6 = Saturday)
+    day: 0 // 0 - 6 (0 = Sunday, 6 = Saturday)
   }
 });
 ```
@@ -507,7 +558,7 @@ Calendar.calendarFor({
 or
 
 ```javascript
-import { Calendar } from 'romcal';
+import { Calendar } from "romcal";
 
 let dates = Calendar.calendarFor();
 
@@ -525,11 +576,12 @@ let datesGroupedByMonth = Calendar.queryFor(dates, {
 Calendar dates can be grouped by various criteria upon invocation like so:
 
 ```javascript
-import { Calendar } from 'romcal';
+import { Calendar } from "romcal";
 
 Calendar.calendarFor({
   query: {
-    group: 'days|months|daysByMonth|weeksByMonth|cycles|types|liturgicalSeasons|liturgicalColors|psalterWeeks'
+    group:
+      "days|months|daysByMonth|weeksByMonth|cycles|types|liturgicalSeasons|liturgicalColors|psalterWeeks"
   }
 });
 ```
@@ -537,7 +589,7 @@ Calendar.calendarFor({
 Or invoking the query function at a later point
 
 ```javascript
-import { Calendar } from 'romcal';
+import { Calendar } from "romcal";
 
 let dates = Calendar.calendarFor();
 
@@ -545,7 +597,8 @@ let dates = Calendar.calendarFor();
 // then ...
 
 let groupedCalendar = Calendar.queryFor(dates, {
-  group: 'days|months|daysByMonth|weeksByMonth|cycles|types|liturgicalSeasons|liturgicalColors|psalterWeeks'
+  group:
+    "days|months|daysByMonth|weeksByMonth|cycles|types|liturgicalSeasons|liturgicalColors|psalterWeeks"
 });
 ```
 
@@ -554,7 +607,7 @@ let groupedCalendar = Calendar.queryFor(dates, {
 ```javascript
 romcal.calendarFor({
   query: {
-    title: 'PATRON_OF_EUROPE'
+    title: "PATRON_OF_EUROPE"
   }
 });
 ```
@@ -569,7 +622,7 @@ It is possible to query for dates against multiple criteria:
 // Filter dates in January and group the results according to days
 romcal.queryFor(dates, {
   month: 0,
-  group: 'days'
+  group: "days"
 });
 ```
 
@@ -584,6 +637,7 @@ The order of importance of calendar sources are: `celebrations` > `national` > `
 ### Overriding a date by its priority <a name="overridingByPriority"></a>
 
 Prioritizing a date allows it to:
+
 - Override a higher ranking `type` date object with the same key
 - Prevent it from being overriden by other coinciding dates
 
@@ -612,6 +666,7 @@ Therefore, it is important that the key in the national calendar is **exactly** 
 By default, `romcal` _does not_ remove any celebrations in its output. Instead, prioritization (see above) is the preferred way to go about overriding celebrations to exhibit different characteristics.
 
 However, in some cases, a national calendar may need to omit a celebration entirely from its output. For example, the possible reasons could be:
+
 - that the given celebration is entirely irrelevant to the observances of the nation;
 - when a celebration of two or more saints are celebrated jointly in the `general` calendar, but separately in the national calendar;
 - when a celebration of two or more saints are celebrated separately in the `general` calendar, but jointly in the national calendar.
@@ -697,7 +752,7 @@ The function accepts several parameters:
 
 ```javascript
 Utils.localize({
-  key: '',
+  key: "",
   week: 0,
   count: 0
 });

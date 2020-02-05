@@ -16,7 +16,3 @@ as of February 2020
 - **Ahmet Cetin**
 - **Gennaro Tortone**
 - **Damiaan Dufaux**
-
-#### Thanks
-
-`romcal` was inspired
