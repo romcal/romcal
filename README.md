@@ -146,13 +146,13 @@ Additionally, `romcal` is also available for installtion via various "release ta
   The latest, stable and production ready version of `romcal` is always released on the `master` branch. Releases on this branch are tagged in `npm` using the `latest` tag and can be installed via `npm install romcal@latest` or simply `npm install romcal` which defualts to the `latest` tag.
 
 - `beta`
-  The release candidate for production. Install via `npm install romcal@beta`.
+  The release candidate for production. Code here is mostly stable but may still lack some tests and so may be subject to some unepected behavior. Install via `npm install romcal@beta`.
 
 - `alpha`
-  The unstable development release tag. Code here might be unstable and untested. Use at your own risk! Normally, only developers of `romcal` would use this release for testing purposes.
+  The unstable development release tag. Code here might be unstable and untested. Use at your own risk! Normally, only developers of `romcal` would use this release for testing purposes. Install via `npm install romcal@alpha`.
 
 - `canary`
-  Bleeding edge features; high level of code instability. Consumers should almost always never need to install these releases as they containing ongoing work that is not complete for general use.
+  Bleeding edge features; high level of code instability. Consumers should almost always never need to install these releases as they containing ongoing work that is not complete for general use. Install via `npm install romcal@canary`.
 
 ### Using the module
 

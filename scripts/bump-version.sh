@@ -21,27 +21,27 @@ if [[ $LAST_COMMIT_MESSAGE == *"[USE_CUSTOM_SEMVER]"* ]]; then
 else
     CURRENT_VERSION="$(npm view ${PACKAGE_NAME}@latest version)"
     echo "CURRENT_VERSION is $CURRENT_VERSION"
-
+    
     # If not on master branch ...
     if [ "$TRAVIS_BRANCH" != 'master' ]; then
         # ... obtain and tokenize the latest version according to tag
         if [ "$TRAVIS_BRANCH" = 'test' ]; then
             LATEST_TAG_VERSION="$(npm view ${PACKAGE_NAME}@beta version)"
-        elif [ "$TRAVIS_BRANCH" = 'dev' ]; then
+            elif [ "$TRAVIS_BRANCH" = 'dev' ]; then
             LATEST_TAG_VERSION="$(npm view ${PACKAGE_NAME}@alpha version)"
         else
             LATEST_TAG_VERSION="$(npm view ${PACKAGE_NAME}@canary version)"
         fi
-
+        
         echo "LATEST_TAG_VERSION is $LATEST_TAG_VERSION"
-
+        
         tokens=($(echo $LATEST_TAG_VERSION | tr "-" "\n"))
         SEMVER=${tokens[0]};
         PREID=${tokens[1]};
-
+        
         # If the tag version is higher than the "latest" version in npm,
         # then no new stable version has been published from master yet
-        # and we should continue incrementing the "preid" based on the tag version 
+        # and we should continue incrementing the "preid" based on the tag version
         COMPARISON_RESULT="$(./scripts/semver.sh compare $SEMVER $CURRENT_VERSION)"
         if [ "$COMPARISON_RESULT" = 1 ]; then
             echo "USING LATEST TAG VERSION BECAUSE IT IS HIGHER THAN THE CURRENT_VERSION";
@@ -49,13 +49,13 @@ else
             echo "CURRENT_VERSION will now be ${CURRENT_VERSION}";
         fi
     fi
-
+    
     # Bump version accordingly
     if [ "$TRAVIS_BRANCH" = 'master' ]; then
         NEW_VERSION="$(./node_modules/.bin/semver -i patch ${CURRENT_VERSION} )"
-    elif [ "$TRAVIS_BRANCH" = 'test' ]; then
+        elif [ "$TRAVIS_BRANCH" = 'test' ]; then
         NEW_VERSION="$(./node_modules/.bin/semver -i prerelease --preid beta $CURRENT_VERSION)"
-    elif [ "$TRAVIS_BRANCH" = 'dev' ]; then
+        elif [ "$TRAVIS_BRANCH" = 'dev' ]; then
         NEW_VERSION="$(./node_modules/.bin/semver -i prerelease --preid alpha $CURRENT_VERSION )"
     else
         NEW_VERSION="$(./node_modules/.bin/semver -i prerelease --preid canary $CURRENT_VERSION )"
@@ -65,8 +65,8 @@ fi
 echo "NEW_VERSION is ${NEW_VERSION}"
 
 if [ "$WILL_USE_CUSTOM_VERSION" = true ];then
-    # Also allow same versions because the defaut behavior of npm-version 
-    # checks and throws and error if the version being supplied is the 
+    # Also allow same versions because the defaut behavior of npm-version
+    # checks and throws and error if the version being supplied is the
     # same in package.json
     npm version "${NEW_VERSION}" --allow-same-version -m "[skip travis-ci] Release version %s"
 else
@@ -75,16 +75,22 @@ fi
 
 git push origin "${TRAVIS_BRANCH}"
 
-# TODO: Publish tag for test and master branch releases
+# Publish tag for test and master branch releases
+# if [ "$TRAVIS_BRANCH" = 'master' ]; then
+#     git push --tags origin master
+#     elif [ "$TRAVIS_BRANCH" = 'test' ]; then
+#     git push --tags origin test
+# else
+# fi
 
 # TODO: auto changelog
 
 # Publish npm module
 if [ "$TRAVIS_BRANCH" = 'master' ]; then
     npm publish --tag latest --access public
-elif [ "$TRAVIS_BRANCH" = 'test' ]; then
+    elif [ "$TRAVIS_BRANCH" = 'test' ]; then
     npm publish --tag beta --access public
-elif [ "$TRAVIS_BRANCH" = 'dev' ]; then
+    elif [ "$TRAVIS_BRANCH" = 'dev' ]; then
     npm publish --tag alpha --access public
 else
     npm publish --tag canary --access public
