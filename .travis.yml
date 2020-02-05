@@ -12,8 +12,6 @@ cache: npm
 before_install:
   - git config --global user.email "$CI_USER_EMAIL"
   - git config --global user.name "$CI_USER_NAME"
-  - git config --global git-tag-version true
-  - git config --global sign-git-tag false
   - echo -e "machine github.com\n  login $CI_USER_TOKEN" > ~/.netrc
   - git clone "https://$CI_USER_NAME:$CI_USER_TOKEN@github.com/$TRAVIS_REPO_SLUG.git" $TRAVIS_REPO_SLUG
   - cd $TRAVIS_REPO_SLUG
