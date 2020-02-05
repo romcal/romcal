@@ -18,12 +18,11 @@ before_install:
 script:
   - npm run test
 
-# Nightly merge from master to dev
-
 jobs:
   include:
+    # Nightly merge from master to dev
     - stage: nightly-merge-master-to-dev
-      name: "Merge code from master to dev on a nightly bases if there are no conflicts"
+      name: "Merge code from master to dev on a nightly basis if there are no conflicts"
       node_js: "stable"
       if: type = cron AND branch = master
       before_script:
