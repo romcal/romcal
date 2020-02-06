@@ -9,8 +9,6 @@ echo "PACKAGE_NAME is ${PACKAGE_NAME}"
 # Flag to indicate if we are using a custom version
 WILL_USE_CUSTOM_VERSION=false
 
-# Run auto changelog
-npm run updateChangelog
 
 # Get the last commit message
 LAST_COMMIT_MESSAGE="$(git log --pretty='format:%Creset%s' --no-merges -1)"
@@ -66,6 +64,10 @@ else
 fi
 
 echo "NEW_VERSION is ${NEW_VERSION}"
+
+# Run auto changelog
+npm run updateChangelog
+git commit -m "[skip travis-ci] Update HISTORY.md" 
 
 if [ "$WILL_USE_CUSTOM_VERSION" = true ];then
     # Also allow same versions because the defaut behavior of npm-version
