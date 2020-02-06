@@ -11,8 +11,8 @@ cache: npm
 
 before_install:
   - npm i -g makeshift && makeshift -r registry.npmjs.org
-  - git clone "https://$CI_USER_NAME:$CI_USER_TOKEN@github.com/$TRAVIS_REPO_SLUG.git" $TRAVIS_REPO_SLUG
-  - cd $TRAVIS_REPO_SLUG
+  - git clone "https://$CI_USER_NAME:$CI_USER_TOKEN@github.com/$TRAVIS_REPO_SLUG.git" romcal
+  - cd romcal
   - git config user.email "$CI_USER_EMAIL"
   - git config user.name "$CI_USER_NAME"
   - echo -e "machine github.com\n  login $CI_USER_TOKEN" > ~/.netrc
