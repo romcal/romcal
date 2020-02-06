@@ -64,6 +64,9 @@ fi
 
 echo "NEW_VERSION is ${NEW_VERSION}"
 
+# Run auto changelog
+npm run updateChangelog
+
 if [ "$WILL_USE_CUSTOM_VERSION" = true ];then
     # Also allow same versions because the defaut behavior of npm-version
     # checks and throws and error if the version being supplied is the
@@ -76,13 +79,11 @@ fi
 git push origin "${TRAVIS_BRANCH}"
 
 # Publish tags for dev, test and master branch releases only
-if [[ "$TRAVIS_BRANCH" = 'master' || "$TRAVIS_BRANCH" = 'test' || "$TRAVIS_BRANCH" == 'dev' ]]; then
+if [[ "$TRAVIS_BRANCH" == 'master' || "$TRAVIS_BRANCH" == 'test' || "$TRAVIS_BRANCH" == 'dev' ]]; then
     git push origin --tags 
 else 
     echo "Will not create new tags for feature branch builds"
 fi
-
-# TODO: auto changelog
 
 # Publish npm module
 if [ "$TRAVIS_BRANCH" = 'master' ]; then
