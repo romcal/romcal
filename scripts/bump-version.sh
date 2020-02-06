@@ -91,7 +91,7 @@ if [ "$TRAVIS_BRANCH" = 'master' ]; then
     elif [ "$TRAVIS_BRANCH" = 'test' ]; then
     npm publish --tag beta --access public
     elif [ "$TRAVIS_BRANCH" = 'dev' ]; then
-    npm publish --tag alpha --access public
+    ar    npm publish --tag alpha --access public
 else
     npm publish --tag canary --access public
 fi
