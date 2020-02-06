@@ -75,12 +75,11 @@ fi
 
 git push origin "${TRAVIS_BRANCH}"
 
-# Publish tag for test and master branch releases
-# if [[ "$TRAVIS_BRANCH" = 'master' || "$TRAVIS_BRANCH" = 'test' ]]; then
-    git tag ${NEW_VERSION}
+# Publish tags for dev, test and master branch releases only
+# if [[ "$TRAVIS_BRANCH" = 'master' || "$TRAVIS_BRANCH" = 'test' || "$TRAVIS_BRANCH" == 'dev' ]]; then
     git push origin --tags 
 # else 
-#     echo "Will not create new tag for non production or beta builds"
+#     echo "Will not create new tags for feature branch builds"
 # fi
 
 # TODO: auto changelog
