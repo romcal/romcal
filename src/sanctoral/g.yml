@@ -131,6 +131,7 @@ gorazd:
   sex: male
   titles:
     - Bishop
+  hasCompanions: true
 
 gotthard:
   canonisationLevel: Saint

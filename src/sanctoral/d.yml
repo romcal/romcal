@@ -72,6 +72,7 @@ denis:
   sex: male
   titles:
     - Martyr
+  hasCompanions: true
 
 denisAndJohnLeonardi:
   join:

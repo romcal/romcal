@@ -55,6 +55,7 @@ lawrenceRuiz:
   sex: male
   titles:
     - Martyr
+  hasCompanions: true
 
 leander:
   canonisationLevel: Saint

@@ -176,6 +176,7 @@ charlesLwanga:
   sex: male
   titles:
     - Martyr
+  hasCompanions: true
 
 charlesSpinola:
   canonisationLevel: Blessed
@@ -200,6 +201,7 @@ christopherMagallanes:
   sex: male
   titles:
     - Martyr
+  hasCompanions: true
 
 christTheKing:
   canonisationLevel: Saint

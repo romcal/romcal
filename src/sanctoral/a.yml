@@ -319,6 +319,7 @@ andrewDungLac:
   sex: male
   titles:
     - Martyr
+  hasCompanions: true
   notes: Vietnamese Martyrs
 
 andrewKimTaegon:
@@ -542,6 +543,7 @@ augustineZhaoRong:
   titles:
     - Priest
     - Martyr
+  hasCompanions: true
 
 augustinKazotic:
   canonisationLevel: Blessed

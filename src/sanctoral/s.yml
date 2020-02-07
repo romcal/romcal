@@ -108,6 +108,7 @@ sixtusIi:
   titles:
     - Pope
     - Martyr
+  hasCompanions: true
 
 sixtusIiAndCajetan:
   join:
@@ -120,6 +121,7 @@ sixWelshMartyrs:
   titles:
     - Martyr
   requireDefiniteArticle: true
+  hasCompanions: true
 
 soledadTorresAcosta:
   canonisationLevel: Saint
