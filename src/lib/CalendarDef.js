@@ -3,8 +3,8 @@ import fs from 'fs';
 import path from 'path'
 import _ from 'lodash';
 import Moment from "moment";
-import * as Dates from '../lib/Dates';
-import {Utils} from "../lib";
+import * as Dates from './Dates';
+import {Utils} from "./index";
 import {LiturgicalColors} from '../constants';
 
 class Day extends Number {
@@ -42,12 +42,7 @@ class YAMLCalendar {
 
   // Get YAML document, or throw exception on error
   static fetchYaml(filePath) {
-    let yamlDoc;
-    try {
-      yamlDoc = YAML.safeLoad(fs.readFileSync(path.join(__dirname, filePath), 'utf8'));
-    } catch (e) {
-      throw new Error(e);
-    }
+    let yamlDoc = YAML.safeLoad(fs.readFileSync(path.join(__dirname, filePath), 'utf8'));
     if (!_.isPlainObject(yamlDoc)) {
       throw new Error(`Invalid YAML syntax in calendar: ${filePath}`);
     }
@@ -134,10 +129,10 @@ class YAMLCalendar {
   }
 }
 
-const general = YAMLCalendar.import('./general.yml');
-const france = YAMLCalendar.import('./france.yml');
-const slovakia = YAMLCalendar.import('./slovakia.yml');
-const wales = YAMLCalendar.import('./wales.yml');
+const general = YAMLCalendar.import('../calendars/general.yml');
+const france = YAMLCalendar.import('../calendars/france.yml');
+const slovakia = YAMLCalendar.import('../calendars/slovakia.yml');
+const wales = YAMLCalendar.import('../calendars/wales.yml');
 
 export {
   france,
