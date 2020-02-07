@@ -129,12 +129,14 @@ class YAMLCalendar {
   }
 }
 
-const general = YAMLCalendar.import('../calendars/general.yml');
+const england = YAMLCalendar.import('../calendars/england.yml');
 const france = YAMLCalendar.import('../calendars/france.yml');
+const general = YAMLCalendar.import('../calendars/general.yml');
 const slovakia = YAMLCalendar.import('../calendars/slovakia.yml');
 const wales = YAMLCalendar.import('../calendars/wales.yml');
 
 export {
+  england,
   france,
   general,
   slovakia,
