@@ -1,4 +1,8 @@
-`romcal` was orginally developed by **Julian Pereira** in Malaysia.
+`romcal` was orginally developed by **Julian Pereira** from Malaysia in July 2014.
+
+Since then, many significant contributions have been made towards the progress of this library.
+
+This list recognizes contributors to `romcal` past and present.
 
 #### Active Contributors
 

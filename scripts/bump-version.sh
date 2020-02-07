@@ -67,7 +67,8 @@ echo "NEW_VERSION is ${NEW_VERSION}"
 
 # Run auto changelog
 npm run updateChangelog
-git commit -m "[skip travis-ci] Update HISTORY.md" 
+git add CHANGELOG.md
+git commit -m "[skip travis-ci] Update changelog"
 
 if [ "$WILL_USE_CUSTOM_VERSION" = true ];then
     # Also allow same versions because the defaut behavior of npm-version
@@ -82,8 +83,8 @@ git push origin "${TRAVIS_BRANCH}"
 
 # Publish tags for dev, test and master branch releases only
 if [[ "$TRAVIS_BRANCH" == 'master' || "$TRAVIS_BRANCH" == 'test' || "$TRAVIS_BRANCH" == 'dev' ]]; then
-    git push origin --tags 
-else 
+    git push origin --tags
+else
     echo "Will not create new tags for feature branch builds"
 fi
 

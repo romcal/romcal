@@ -20,7 +20,7 @@
     "build:webpack": "webpack-cli --config webpack.config.js",
     "flow": "flow",
     "test": "mocha 'test/*.js'",
-    "updateChangelog": "auto-changelog -p && git add HISTORY.md"
+    "updateChangelog": "auto-changelog -p"
   },
   "repository": {
     "type": "git",

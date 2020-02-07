@@ -1,4 +1,4 @@
 {
-    "output": "HISTORY.md",
+    "output": "CHANGELOG.md",
     "template": "keepachangelog"
 }
