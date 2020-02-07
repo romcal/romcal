@@ -129,7 +129,7 @@ let dates = year => {
       }
     },
     {
-      "key": "blessedSanchaAndMafaldaVirginsOrBlessedTheresaOfPOrtugalReligious",
+      "key": "blessedSanchaAndMafaldaVirginsOrBlessedTheresaOfPortugalReligious",
       "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 5, day: 20 }),
       "data": {}
