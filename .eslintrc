@@ -17,7 +17,8 @@
     "browser": true
   },
   "rules": {
-    "quotes": ["warn", "double"]
+    "quotes": ["error", "double"],
+    "no-unused-vars": "error"
   },
   "settings": {
     "flowtype": {

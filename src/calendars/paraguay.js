@@ -1,5 +1,3 @@
-import moment from "moment";
-
 import { Dates, Utils } from "../lib";
 import { Types, LiturgicalColors } from "../constants";
 

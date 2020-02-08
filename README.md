@@ -1,26 +1,41 @@
-[license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
+[license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge
 [license-url]: LICENSE
 [npm-url]: https://www.npmjs.com/package/romcal
-[npm-version-image]: https://img.shields.io/npm/v/romcal.svg?style=flat
-[npm-downloads-image]: https://img.shields.io/npm/dm/romcal.svg?style=flat
-[travis-prod-image]: https://travis-ci.org/romcal/romcal.svg?branch=master
-[travis-test-image]: https://travis-ci.org/romcal/romcal.svg?branch=test
-[travis-dev-image]: https://travis-ci.org/romcal/romcal.svg?branch=dev
+[npm-downloads-image]: https://img.shields.io/npm/dm/romcal.svg?style=for-the-badge&logo=npm
 
-[![MIT License][license-image]][license-url] [![NPM version][npm-version-image]][npm-url] [![NPM downloads][npm-downloads-image]][npm-url]
+[travis-prod-image]: https://img.shields.io/travis/romcal/romcal.svg?label=master&style=for-the-badge&logo=travis
+[travis-test-image]: https://img.shields.io/travis/romcal/romcal.svg?label=test&style=for-the-badge&logo=travis
+[travis-dev-image]: https://img.shields.io/travis/romcal/romcal.svg?label=dev&style=for-the-badge&logo=travis
+[travis-canary-image]: https://img.shields.io/travis/romcal/romcal.svg?label=canary&style=for-the-badge&logo=travis
+
+[travis-url]: https://travis-ci.org/romcal/romcal/branches
+
+[npm-latest-version]: https://img.shields.io/npm/v/romcal/latest?style=for-the-badge&logo=npm
+[npm-beta-version]: https://img.shields.io/npm/v/romcal/beta?style=for-the-badge&logo=npm
+[npm-alpha-version]: https://img.shields.io/npm/v/romcal/alpha?style=for-the-badge&logo=npm
+[npm-canary-version]: https://img.shields.io/npm/v/romcal/canary?style=for-the-badge&logo=npm
+
+[npm-canary-url]: https://www.npmjs.com/package/romcal/v/canary
+[npm-alpha-url]: https://www.npmjs.com/package/romcal/v/alpha
+[npm-beta-url]: https://www.npmjs.com/package/romcal/v/beta
+[npm-latest-url]: https://www.npmjs.com/package/romcal/v/latest
+
+[![License][license-image]][license-url]
+[![NPM Downloads][npm-downloads-image]][npm-url]
+
+[![Master branch build status][travis-prod-image]][travis-url]
+[![Test branch build status][travis-test-image]][travis-url]
+[![Development branch build status][travis-dev-image]][travis-url]
+[![Canary branch build status][travis-canary-image]][travis-url]
+
+[![Latest version][npm-latest-version]][npm-latest-url]
+[![Test version][npm-beta-version]][npm-beta-url]
+[![Development version][npm-alpha-version]][npm-alpha-url]
+[![Unstable version][npm-canary-version]][npm-canary-url]
 
 # Romcal
 
 Utility library that outputs the Liturgical Calendar used by the Roman Rite (Western Church) for Node JS v6 and above.
-
-Production build status
-[![Production Build Status][travis-prod-image]][travis-prod-image]
-
-Test build status
-[![Test Build Status][travis-test-image]][travis-test-image]
-
-Development build status
-[![Development Build Status][travis-dev-image]][travis-dev-image]
 
 ## Contributing to romcal
 
@@ -89,7 +104,7 @@ See [history](HISTORY.md) for latest updates and important/breaking changes.
 
 This node module is inspired by the C program [romcal](http://www.romcal.net/) written by Kenneth G. Bath. This module, while exhibiting similar output, is written ground up using different tools and technologies and exposes many new functionalities.
 
-Additional credits for bug fixes, localizations and suggestionsc can be seen at [here](./AUTHORS.md)
+Additional credits for bug fixes, localizations and suggestions can be seen at [here](./AUTHORS.md).
 
 ## Features <a name="features"></a>
 

@@ -18,9 +18,21 @@
     "build": "npm run flow && npm run build:babel && npm run build:webpack",
     "build:babel": "babel src --out-dir dist",
     "build:webpack": "webpack-cli --config webpack.config.js",
+    "pretest": "./node_modules/.bin/eslint --ignore-path .gitignore ./src --fix",
     "flow": "flow",
     "test": "mocha 'test/*.js'",
     "updateChangelog": "auto-changelog -p"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "./node_modules/.bin/eslint — fix",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
@@ -85,6 +97,7 @@
     "eslint-plugin-flowtype": "^4.6.0",
     "eslint-plugin-node": "^11.0.0",
     "flow-bin": "^0.117.0",
+    "lint-staged": "^10.0.7",
     "mocha": "^6.2.2",
     "semver": "^7.1.1",
     "should": "^13.2.3",

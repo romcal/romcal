@@ -2,7 +2,7 @@
 import moment from "moment";
 import _ from "lodash";
 
-import { Dates, Utils } from "../lib";
+import { Utils } from "../lib";
 import { Titles, Types, LiturgicalColors } from "../constants";
 
 const defaultConfig = {};
