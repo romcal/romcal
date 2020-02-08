@@ -1,5 +1,5 @@
 import moment from "moment";
-import recur from "moment-recur";
+import "moment-recur";
 import _ from "lodash";
 
 //==================================================================================
