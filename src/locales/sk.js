@@ -245,7 +245,6 @@ export default {
     "saintAmandMissionary": "Svätého Milana, biskupa",
     "saintAmbroseBishopAndDoctor": "Svätého Ambróza, biskupa a učiteľa Cirkvi",
     "saintAndreBessetteReligious": "Svätého Andreja Alfréda Bessetta, rehoľníka",
-    "saintAndrewApostle": "Saint Andrew, Apostle",
     "saintAndrewBobolaPriestAndMartyr": "Svätého Andreja Bobolu, kňaza a mučeníka",
     "saintAndrewDungLacAndCompanionsMartyrs": "Svätého Ondreja Dung-Laka, kňaza, a spoločníkov, mučeníkov",
     "saintAndrewKimTaegonPriestAndPaulChongHasangAndCompanionsMartyrs": "Svätých Ondreja Kima Taegona, kňaza, Pavla Chonga Hasanga a spoločníkov, mučeníkov",

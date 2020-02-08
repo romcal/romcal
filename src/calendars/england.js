@@ -404,7 +404,7 @@ let dates = year => {
       "data": {}
     },
     {
-      "key": "saintAndrewApostle",
+      "key": "saintAndrewTheApostle",
       "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 10, day: 30 }),
       "data": {
