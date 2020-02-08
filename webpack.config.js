@@ -1,25 +1,25 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
 
   entry: {
-    romcal: './src/index.js'
+    romcal: "./src/index.js"
   },
 
   output: {
-    filename: '[name].bundle.min.js',
-    path: path.join(__dirname, 'dist'),
-    library: 'Romcal',
-    libraryTarget: 'umd'
+    filename: "[name].bundle.min.js",
+    path: path.join(__dirname, "dist"),
+    library: "Romcal",
+    libraryTarget: "umd"
   },
 
   resolve: {
     extensions: [".js", ".mjs", ".json"]
   },
 
-  mode: 'production',
+  mode: "production",
 
-  devtool: 'source-map',
+  devtool: "source-map",
 
   module: {
     rules: [

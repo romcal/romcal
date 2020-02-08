@@ -1,15 +1,15 @@
 // @flow
 
-import _ from 'lodash';
+import _ from "lodash";
 import Moment from "moment";
-import * as CalendarsDef from '../calendars';
+import * as CalendarsDef from "../calendars";
 
 /**
  * Config Class
  */
 export default class Config {
   year: number;
-  country: string = '';
+  country: string = "";
   locale: string;
   christmastideEnds: 't' | 'o' | 'e';
   epiphanyOnJan6: boolean;
@@ -28,14 +28,14 @@ export default class Config {
     customConfig = _.isPlainObject(customConfig) ? customConfig : {};
 
     // If a country is specified, check if it exists in the romcal codebase
-    customConfig.country = typeof customConfig.country === 'string' ? customConfig.country : '';
-    if (customConfig.country.toLowerCase() !== 'general' && Object.prototype.hasOwnProperty.call(CalendarsDef, _.camelCase(customConfig.country))) {
+    customConfig.country = typeof customConfig.country === "string" ? customConfig.country : "";
+    if (customConfig.country.toLowerCase() !== "general" && Object.prototype.hasOwnProperty.call(CalendarsDef, _.camelCase(customConfig.country))) {
       this.country = _.camelCase(customConfig.country);
     }
 
     // Load default config for general and selected country,
     // and combine them with the specified custom config
-    const generalConfig = Config.getConfig('general');
+    const generalConfig = Config.getConfig("general");
     const countryConfig = Config.getConfig(this.country);
     const c = {
       ...generalConfig,
@@ -45,29 +45,29 @@ export default class Config {
 
     // Map configuration
     this.christmastideEnds = Config
-      .sanitize(c.christmastideEnds, ['t', 'o', 'e'])
+      .sanitize(c.christmastideEnds, ["t", "o", "e"])
       .default(generalConfig.christmastideEnds);
     this.epiphanyOnJan6 = Config
-      .sanitize(c.epiphanyOnJan6, 'boolean')
+      .sanitize(c.epiphanyOnJan6, "boolean")
       .default(generalConfig.epiphanyOnJan6);
     this.christmastideIncludesTheSeasonOfEpiphany = Config
-      .sanitize(c.christmastideIncludesTheSeasonOfEpiphany, 'boolean')
+      .sanitize(c.christmastideIncludesTheSeasonOfEpiphany, "boolean")
       .default(generalConfig.christmastideIncludesTheSeasonOfEpiphany);
     this.corpusChristiOnThursday = Config
-      .sanitize(c.corpusChristiOnThursday, 'boolean')
+      .sanitize(c.corpusChristiOnThursday, "boolean")
       .default(generalConfig.corpusChristiOnThursday);
     this.ascensionOnSunday = Config
-      .sanitize(c.ascensionOnSunday, 'boolean')
+      .sanitize(c.ascensionOnSunday, "boolean")
       .default(generalConfig.ascensionOnSunday);
     this.locale = Config
-      .sanitize(c.locale, 'string')
-      .default('en');
+      .sanitize(c.locale, "string")
+      .default("en");
     this.year = Config
-      .sanitize(parseInt(c.year), 'number')
+      .sanitize(parseInt(c.year), "number")
       .default(Moment.utc().year());
     this.type = Config
-      .sanitize(c.type, ['calendar', 'liturgical'])
-      .default('calendar');
+      .sanitize(c.type, ["calendar", "liturgical"])
+      .default("calendar");
 
     // Sanitize optional query section
     const query = _.isPlainObject( c.query ) ? c.query : {};
@@ -93,10 +93,10 @@ export default class Config {
    */
   static sanitize(value: any, acceptable: string | Array<any>): any {
     if (typeof value === acceptable &&
-      acceptable === 'string' || (acceptable === 'number' && !isNaN(value))) {
+      acceptable === "string" || (acceptable === "number" && !isNaN(value))) {
       return {default: () => value};
     }
-    if (acceptable === 'boolean') acceptable = [true, false];
+    if (acceptable === "boolean") acceptable = [true, false];
     if (acceptable.indexOf(value) > -1) return {default: () => value};
     return {default: (d) => d};
   }

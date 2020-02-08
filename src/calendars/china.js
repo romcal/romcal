@@ -1,8 +1,7 @@
-import moment from 'moment';
-import _ from 'lodash';
+import moment from "moment";
 
-import { Dates, Utils } from '../lib';
-import { Titles, Types, LiturgicalColors } from '../constants';
+import { Dates, Utils } from "../lib";
+import { Titles, Types, LiturgicalColors } from "../constants";
 
 const defaultConfig = {};
 
@@ -100,9 +99,9 @@ let dates = year => {
         let firstMay = moment.utc({ year: y, month: 4, day: 1 });
         let memorialDay = firstMay;
         // determine first saturday
-        memorialDay.add(6 - firstMay.day(), 'days');
+        memorialDay.add(6 - firstMay.day(), "days");
         // Second saturday
-        memorialDay.add(7, 'days');
+        memorialDay.add(7, "days");
         return memorialDay;
       }(year),
       "data": {
@@ -218,7 +217,7 @@ let dates = year => {
     {
       "key": "ourLordJesusChristTheEternalHighPriest",
       "type": Types.FEAST,
-      "moment": ( y => Dates.pentecostSunday( y ).add( 4, 'days' ))(year),
+      "moment": ( y => Dates.pentecostSunday( y ).add( 4, "days" ))(year),
       "data": {
         "meta": {
           "liturgicalColor": LiturgicalColors.WHITE

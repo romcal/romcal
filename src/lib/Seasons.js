@@ -1,15 +1,15 @@
-import moment from 'moment';
-import _ from 'lodash';
+import moment from "moment";
+import _ from "lodash";
 
-import * as Dates from './Dates';
-import * as Utils from './Utils';
+import * as Dates from "./Dates";
+import * as Utils from "./Utils";
 
 import {
   LiturgicalSeasons,
   PsalterWeeks,
   LiturgicalColors,
   Types
-} from '../constants';
+} from "../constants";
 
 //================================================================================================
 // METHODS TO GENERATE THE SEASONS
@@ -19,7 +19,7 @@ import {
 // dates: array of moment object dates
 const _metadata = dates => {
   return _.map( dates, date => {
-    date.source = 'l';
+    date.source = "l";
     date.data.calendar = {
       weeks: date.moment.weeksInYear(),
       week: date.moment.week(),
@@ -42,18 +42,18 @@ const _epiphany = (y, epiphanyOnJan6 = false) => {
       moment: day,
       type: Types.FERIA,
       name: Utils.localize({
-        key: 'epiphany.before',
-        day: day.format('dddd')
+        key: "epiphany.before",
+        day: day.format("dddd")
       }),
       data: {
         season: {
           key: LiturgicalSeasons.CHRISTMASTIDE,
           value: Utils.localize({
-            key: 'christmastide.season'
+            key: "christmastide.season"
           })
         },
         meta: {
-          liturgicalColor: '',
+          liturgicalColor: "",
           titles: []
         }
       }
@@ -65,18 +65,18 @@ const _epiphany = (y, epiphanyOnJan6 = false) => {
       moment: day,
       type: Types.FERIA,
       name: Utils.localize({
-        key: 'epiphany.after',
-        day: day.format('dddd')
+        key: "epiphany.after",
+        day: day.format("dddd")
       }),
       data: {
         season: {
           key: LiturgicalSeasons.CHRISTMASTIDE,
           value: Utils.localize({
-            key: 'christmastide.season'
+            key: "christmastide.season"
           })
         },
         meta: {
-          liturgicalColor: '',
+          liturgicalColor: "",
           titles: []
         }
       }
@@ -92,19 +92,19 @@ const _holyWeek = y => {
   let dates = Dates.holyWeek(y);
   let days = [];
 
-  _.each( dates, (date, i) => {
+  _.each( dates, (date) => {
     days.push({
       moment: date,
       type: Types.HOLY_WEEK,
       name: Utils.localize({
-        key: 'holyWeek.feria',
-        day: date.format('dddd')
+        key: "holyWeek.feria",
+        day: date.format("dddd")
       }),
       data: {
         season: {
           key: LiturgicalSeasons.HOLY_WEEK,
           value: Utils.localize({
-            key: 'holyWeek.season'
+            key: "holyWeek.season"
           })
         },
         meta: {
@@ -130,15 +130,15 @@ const advent = y => {
       moment: value,
       type: Utils.getTypeByDayOfWeek( value.day() ),
       name: Utils.localize({
-        key: ( _.eq( value.day(), 0 ) ? 'advent.sunday' : 'advent.feria' ),
-        day: value.format('dddd'),
+        key: ( _.eq( value.day(), 0 ) ? "advent.sunday" : "advent.feria" ),
+        day: value.format("dddd"),
         week: Math.floor( i / 7 ) + 1
       }),
       data: {
         season: {
           key: LiturgicalSeasons.ADVENT,
           value: Utils.localize({
-            key: 'advent.season'
+            key: "advent.season"
           })
         },
         meta: {
@@ -221,15 +221,15 @@ const christmastide = (y, christmastideEnds, epiphanyOnJan6 = false, christmasti
       moment: day,
       type: Utils.getTypeByDayOfWeek( dayOfWeek ),
       name: Utils.localize({
-        key: ( _.eq( dayOfWeek, 0 ) ? 'christmastide.sunday' : 'christmastide.day' ),
-        day: day.format('dddd'),
+        key: ( _.eq( dayOfWeek, 0 ) ? "christmastide.sunday" : "christmastide.day" ),
+        day: day.format("dddd"),
         count: count
       }),
       data: {
         season: {
           key: LiturgicalSeasons.CHRISTMASTIDE,
           value: Utils.localize({
-            key: 'christmastide.season'
+            key: "christmastide.season"
           })
         }
       }
@@ -243,14 +243,14 @@ const christmastide = (y, christmastideEnds, epiphanyOnJan6 = false, christmasti
       moment: day,
       type: Utils.getTypeByDayOfWeek( day.day() ),
       name: Utils.localize({
-        key: 'christmastide.octave',
+        key: "christmastide.octave",
         count: idx + 1
       }),
       data: {
         season: {
           key: LiturgicalSeasons.CHRISTMASTIDE,
           value: Utils.localize({
-            key: 'christmastide.season'
+            key: "christmastide.season"
           })
         }
       }
@@ -329,15 +329,15 @@ const earlyOrdinaryTime = (y, christmastideEnds, epiphanyOnJan6 = false) => {
       moment: value,
       type: ( _.eq( value.day(), 0 ) ? Types.SUNDAY : Types.FERIA ),
       name: Utils.localize({
-        key: ( _.eq( value.day(), 0 ) ? 'ordinaryTime.sunday' : 'ordinaryTime.feria' ),
-        day: value.format('dddd'),
+        key: ( _.eq( value.day(), 0 ) ? "ordinaryTime.sunday" : "ordinaryTime.feria" ),
+        day: value.format("dddd"),
         week: ( _.eq( value.day(), 0 ) ?  Math.floor( i / 7 ) + 2 :  Math.floor( i / 7 ) + 1 )
       }),
       data: {
         season: {
           key: LiturgicalSeasons.EARLY_ORDINARY_TIME,
           value: Utils.localize({
-            key: 'ordinaryTime.season'
+            key: "ordinaryTime.season"
           })
         }
       }
@@ -414,15 +414,15 @@ const laterOrdinaryTime = y => {
       moment: value,
       type: ( _.eq( value.day(), 0 ) ? Types.SUNDAY : Types.FERIA ),
       name: Utils.localize({
-        key: ( _.eq( value.day(), 0 ) ? 'ordinaryTime.sunday' : 'ordinaryTime.feria' ),
-        day: value.format('dddd'),
+        key: ( _.eq( value.day(), 0 ) ? "ordinaryTime.sunday" : "ordinaryTime.feria" ),
+        day: value.format("dddd"),
         week: week
       }),
       data: {
         season: {
           key: LiturgicalSeasons.LATER_ORDINARY_TIME,
           value: Utils.localize({
-            key: 'ordinaryTime.season'
+            key: "ordinaryTime.season"
           })
         }
       }
@@ -496,15 +496,15 @@ const lent = y => {
       moment: value,
       type: Types.FERIA,
       name: Utils.localize({
-        key: ( _.gt( i, 0 ) && _.lt( i, 4 ) ) ?  'lent.day_after_ash_wed' : 'lent.feria',
-        day: value.format('dddd'),
+        key: ( _.gt( i, 0 ) && _.lt( i, 4 ) ) ?  "lent.day_after_ash_wed" : "lent.feria",
+        day: value.format("dddd"),
         week: Math.floor( (i - 4) / 7 ) + 1
       }),
       data: {
         season: {
           key: LiturgicalSeasons.LENT,
           value: Utils.localize({
-            key: 'lent.season'
+            key: "lent.season"
           })
         }
       }
@@ -516,15 +516,15 @@ const lent = y => {
       moment: value,
       type: Types.SUNDAY,
       name: Utils.localize({
-        key: 'lent.sunday',
-        day: value.format('dddd'),
+        key: "lent.sunday",
+        day: value.format("dddd"),
         week: ( i + 1 )
       }),
       data: {
         season: {
           key: LiturgicalSeasons.LENT,
           value: Utils.localize({
-            key: 'lent.season'
+            key: "lent.season"
           })
         },
         meta: {
@@ -619,15 +619,15 @@ const eastertide = y => {
       moment: value,
       type: ( _.gt( i, 0 ) && _.lt( i, 7 ) ) ? Types.SOLEMNITY : Types.FERIA,
       name: Utils.localize({
-        key: ( _.gt( i, 0 ) && _.lt( i, 7 ) ) ?  'eastertide.octave' : 'eastertide.feria',
-        day: value.format('dddd'),
+        key: ( _.gt( i, 0 ) && _.lt( i, 7 ) ) ?  "eastertide.octave" : "eastertide.feria",
+        day: value.format("dddd"),
         week: Math.floor( i / 7 ) + 1
       }),
       data: {
         season: {
           key: LiturgicalSeasons.EASTER,
           value: Utils.localize({
-            key: 'eastertide.season'
+            key: "eastertide.season"
           })
         }
       }
@@ -641,15 +641,15 @@ const eastertide = y => {
       moment: value,
       type: Types.SUNDAY,
       name: Utils.localize({
-        key: 'eastertide.sunday',
-        day: value.format('dddd'),
+        key: "eastertide.sunday",
+        day: value.format("dddd"),
         week: ( i + 1 )
       }),
       data: {
         season: {
           key: LiturgicalSeasons.EASTER,
           value: Utils.localize({
-            key: 'eastertide.season'
+            key: "eastertide.season"
           })
         }
       }

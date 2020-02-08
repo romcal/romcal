@@ -42,17 +42,17 @@ describe("Testing specific feasts and memorials", function() {
   this.timeout(0);
 
   describe("The memorial of the Blessed Virgin Mary, Mother of the Church", function() {
-    it('Should be celebrated on the Monday after Pentecost', function() {
+    it("Should be celebrated on the Monday after Pentecost", function() {
       let dates = Calendar.calendarFor();
       let pentecostSunday = Dates.pentecostSunday(moment.utc().year());
       let maryMotherOfTheChurch = _.find(dates, function(d) {
         return _.eq(d.key, "maryMotherOfTheChurch");
       });
       maryMotherOfTheChurch.moment.day().should.be.eql(1);
-      maryMotherOfTheChurch.moment.subtract(1, 'days').should.be.eql(pentecostSunday);
+      maryMotherOfTheChurch.moment.subtract(1, "days").should.be.eql(pentecostSunday);
     });
 
-    it('Should take precedence in the event of coincidence with another memorial of a saint or blessed', function() {
+    it("Should take precedence in the event of coincidence with another memorial of a saint or blessed", function() {
       // In 2020, monday after Pentecost is June 1
       var juneDates = Calendar.calendarFor({
         year: 2020,
@@ -62,12 +62,12 @@ describe("Testing specific feasts and memorials", function() {
       });
       // according to the general calendar, June 1 is the memorial of saint Justin, Martyr
       var maybeSaintJustinMartyr = juneDates[0];
-      maybeSaintJustinMartyr.key.should.be.eql('maryMotherOfTheChurch');
+      maybeSaintJustinMartyr.key.should.be.eql("maryMotherOfTheChurch");
     });
   });
 
-  describe('The celebration of Saint Mary Magdalene', function() {
-    it('Should be ranked as a feast and should be celebrated on the July 22', function() {
+  describe("The celebration of Saint Mary Magdalene", function() {
+    it("Should be ranked as a feast and should be celebrated on the July 22", function() {
       let dates = Calendar.calendarFor(2017);
       let saintMaryMagdalene = _.find(dates, function(d) {
         return _.eq(d.key, "saintMaryMagdalene");
@@ -78,8 +78,8 @@ describe("Testing specific feasts and memorials", function() {
     });
   });
 
-  describe('The celebrations of Pope Saint John XXIII and Pope Saint John Paul II', function() {
-    it('Should be celebrated as optional memorials', function() {
+  describe("The celebrations of Pope Saint John XXIII and Pope Saint John Paul II", function() {
+    it("Should be celebrated as optional memorials", function() {
       let dates = Calendar.calendarFor(2016);
       let popeSaintJohnXXIII = _.find(dates, function(d) {
         return _.eq(d.key, "popeSaintJohnXXIII");
@@ -92,8 +92,8 @@ describe("Testing specific feasts and memorials", function() {
     });
   });
 
-  describe('The Feast of the Exultation of the Cross', function() {
-    it('Is celebrated on the 14th of September', function() {
+  describe("The Feast of the Exultation of the Cross", function() {
+    it("Is celebrated on the 14th of September", function() {
       let dates = Calendar.calendarFor(2018);
       let theExaltationOfTheHolyCross = _.find(dates, function(d) {
         return _.eq(d.key, "theExaltationOfTheHolyCross");

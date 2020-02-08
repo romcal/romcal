@@ -1,9 +1,9 @@
 
-import moment from 'moment';
-import _ from 'lodash';
+import moment from "moment";
+import _ from "lodash";
 
-import { Dates, Utils } from '../lib';
-import { Titles, Types, LiturgicalColors } from '../constants';
+import { Utils } from "../lib";
+import { Titles, Types, LiturgicalColors } from "../constants";
 
 const defaultConfig = {};
 
@@ -290,10 +290,10 @@ let dates = year => {
       "moment": ( y => {
         let date = moment.utc({ year: y, month: 5, day: 29 });
         if ( _.eq(date.day(), 1 )) {
-          return date.subtract( 1, 'days');
+          return date.subtract( 1, "days");
         }
         else if ( _.eq(date.day(), 6 )) {
-          return date.add( 1, 'days' ).startOf('day');
+          return date.add( 1, "days" ).startOf("day");
         }
         else {
           return date;
@@ -315,10 +315,10 @@ let dates = year => {
       "moment": ( y => {
         let date = moment.utc({ year: y, month: 7, day: 15 });
         if ( _.eq(date.day(), 1 )) {
-          return date.subtract( 1, 'days');
+          return date.subtract( 1, "days");
         }
         else if ( _.eq(date.day(), 6 )) {
-          return date.add( 1, 'weeks' ).startOf('week');
+          return date.add( 1, "weeks" ).startOf("week");
         }
         else {
           return date;

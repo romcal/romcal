@@ -22,9 +22,9 @@
     THE SOFTWARE.
 */
 
-import _ from 'lodash';
-import Moment from 'moment';
-import { extendMoment } from 'moment-range';
+import _ from "lodash";
+import Moment from "moment";
+import { extendMoment } from "moment-range";
 const moment = extendMoment(Moment);
 
 import {
@@ -33,7 +33,7 @@ import {
   Dates,
   Seasons,
   Utils
-} from './lib';
+} from "./lib";
 
 import {
   Cycles,
@@ -42,12 +42,12 @@ import {
   LiturgicalSeasons,
   Titles,
   Types
-} from './constants';
+} from "./constants";
 
-import * as Locales from './locales';
+import * as Locales from "./locales";
 const Localizations = _.keys(_.mapKeys(Locales, (v, k) => _.kebabCase(k)));
 
-import * as Calendars from './calendars';
+import * as Calendars from "./calendars";
 const Countries = _.keys(Calendars);
 
 // Export an array of countries for external use
