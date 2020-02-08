@@ -1,15 +1,15 @@
 // @flow
 
-import _ from 'lodash';
+import _ from "lodash";
 import Moment from "moment";
-import * as CalendarsDef from '../calendars';
-import {Types} from '../constants';
-import Config from './Config';
-import DateItem from './DateItem';
-import * as Dates from './Dates';
-import * as Utils from './Utils';
-import * as Seasons from './Seasons';
-import * as Celebrations from './Celebrations';
+import * as CalendarsDef from "../calendars";
+import {Types} from "../constants";
+import Config from "./Config";
+import DateItem from "./DateItem";
+import * as Dates from "./Dates";
+import * as Utils from "./Utils";
+import * as Seasons from "./Seasons";
+import * as Celebrations from "./Celebrations";
 
 /**
  * Calendar Class:
@@ -31,9 +31,9 @@ class Calendar {
     // The year can be specified either as:
     // - civil year (January 1 to December 31); or
     // - liturgical year (1st Sunday of Advent to the Saturday after the Christ the King Sunday).
-    if (this.config.type === 'liturgical') {
+    if (this.config.type === "liturgical") {
       this.startDate = Dates.firstSundayOfAdvent(this.config.year);
-      this.endDate = Dates.firstSundayOfAdvent(this.config.year + 1).subtract( 1, 'days');
+      this.endDate = Dates.firstSundayOfAdvent(this.config.year + 1).subtract( 1, "days");
     } else {
       this.startDate = Moment.utc({ year: this.config.year, month: 0, day: 1 });
       this.endDate = Moment.utc({ year: this.config.year, month: 11, day: 31 });
@@ -45,7 +45,7 @@ class Calendar {
    */
   fetch(): Calendar {
     const c = this.config;
-    const years = c.type === 'liturgical' ? [c.year, c.year + 1] : [c.year];
+    const years = c.type === "liturgical" ? [c.year, c.year + 1] : [c.year];
 
     // Define all calendars
     let weekdayDates = [];
@@ -75,7 +75,7 @@ class Calendar {
       // Get the general calendar based on the given year
       generalDates = [
         ...generalDates,
-        ...Calendar._fetchRegionCalendar('general').dates(year)
+        ...Calendar._fetchRegionCalendar("general").dates(year)
       ];
 
       // Get the relevant national calendar object based on the given year and country
@@ -256,7 +256,7 @@ class Calendar {
    */
   static _dropItems(...calendars: (Object[])[]): (Object[])[] {
     calendars.forEach((calendar, i) => {
-      const dropKeys: string[] = _.map(_.filter(calendar, n => (_.has(n, 'drop') && n.drop)), 'key');
+      const dropKeys: string[] = _.map(_.filter(calendar, n => (_.has(n, "drop") && n.drop)), "key");
       dropKeys.forEach(dropKey => {
         for (let j = 0; j <= i; j++) {
           _.remove(calendars[j], ({key}) => key === dropKey);
@@ -281,7 +281,7 @@ class Calendar {
    * Get the appropriate calendar definition object, based on the given region name
    */
   static _fetchRegionCalendar(regionName: string): ({dates: (number) => {}[]}) {
-    const key: string = Object.prototype.hasOwnProperty.call(CalendarsDef, _.camelCase(regionName)) ? _.camelCase(regionName) : '';
+    const key: string = Object.prototype.hasOwnProperty.call(CalendarsDef, _.camelCase(regionName)) ? _.camelCase(regionName) : "";
     if (!key) return { dates: () => [] };
     return CalendarsDef[key];
   }
@@ -327,7 +327,7 @@ const calendarFor = (customConfig: any = {}) => {
 const queryFor = (dates: DateItem[] = [], query: Object = {}) => {
 
   if (!_.every(dates, _.isObject)) {
-    throw 'romcal.queryFor can only accept a single dimensional array of objects';
+    throw "romcal.queryFor can only accept a single dimensional array of objects";
   }
 
   //==========================================================================
@@ -337,47 +337,47 @@ const queryFor = (dates: DateItem[] = [], query: Object = {}) => {
   if (!_.isNull(query) && !_.isEmpty(query) ) {
 
     // Months are zero indexed, so January is month 0.
-    if ( _.has( query, 'month' ) ) {
-      dates = _.filter( dates, d => _.eq( d.moment.month(), _.get( query, 'month' )));
+    if ( _.has( query, "month" ) ) {
+      dates = _.filter( dates, d => _.eq( d.moment.month(), _.get( query, "month" )));
     }
 
-    if ( _.has( query, 'day' ) ) {
-      dates = _.filter( dates, d => _.eq( d.moment.day(), _.get( query, 'day' )));
+    if ( _.has( query, "day" ) ) {
+      dates = _.filter( dates, d => _.eq( d.moment.day(), _.get( query, "day" )));
     }
 
-    if (_.has( query, 'title' )) {
-      dates = _.filter( dates, d => _.includes( d.data.meta.titles, _.get( query, 'title' ) ));
+    if (_.has( query, "title" )) {
+      dates = _.filter( dates, d => _.includes( d.data.meta.titles, _.get( query, "title" ) ));
     }
 
-    if ( _.has( query, 'group' ) ) {
-      switch( _.get( query, 'group' ) ) {
-        case 'days':
+    if ( _.has( query, "group" ) ) {
+      switch( _.get( query, "group" ) ) {
+        case "days":
           dates = _.groupBy(dates, d => d.moment.day());
           break;
-        case 'months':
+        case "months":
           dates = _.groupBy(dates, d => d.moment.month());
           break;
-        case 'daysByMonth':
+        case "daysByMonth":
           dates = _.groupBy(dates, d => d.moment.month());
           dates = _.map(dates, v => _.groupBy( v, d => d.moment.day()));
           break;
-        case 'weeksByMonth':
+        case "weeksByMonth":
           dates = _.groupBy(dates, d => d.moment.month());
           dates = _.map(dates, v => _.groupBy( v, d => d.data.calendar.week ));
           break;
-        case 'cycles':
+        case "cycles":
           dates = _.groupBy(dates, d => d.data.meta.cycle.value );
           break;
-        case 'types':
+        case "types":
           dates = _.groupBy(dates, d => d.type );
           break;
-        case 'liturgicalSeasons':
+        case "liturgicalSeasons":
           dates = _.groupBy(dates, d => d.data.season.key );
           break;
-        case 'liturgicalColors':
+        case "liturgicalColors":
           dates = _.groupBy(dates, d => d.data.meta.liturgicalColor.key );
           break;
-        case 'psalterWeek':
+        case "psalterWeek":
           dates = _.groupBy(dates, d => d.data.meta.psalterWeek.key );
           break;
         default:

@@ -1,9 +1,9 @@
-import moment from 'moment';
-import _ from 'lodash';
+import moment from "moment";
+import _ from "lodash";
 
-import * as Dates from './Dates';
-import * as Utils from './Utils';
-import { LiturgicalSeasons, Titles, LiturgicalColors, Types } from '../constants';
+import * as Dates from "./Dates";
+import * as Utils from "./Utils";
+import { LiturgicalSeasons, Titles, LiturgicalColors, Types } from "../constants";
 
 
 // year: Takes the year (integer)
@@ -223,7 +223,7 @@ let dates = (year, christmastideEnds, epiphanyOnJan6 = false, corpusChristiOnThu
         "season": {
           "key": LiturgicalSeasons.LENT,
           "value": Utils.localize({
-            key: 'lent.season'
+            key: "lent.season"
           })
         },
         "meta": {
@@ -240,7 +240,7 @@ let dates = (year, christmastideEnds, epiphanyOnJan6 = false, corpusChristiOnThu
         "season": {
           "key": LiturgicalSeasons.HOLY_WEEK,
           "value": Utils.localize({
-            key: 'holyWeek.season'
+            key: "holyWeek.season"
           })
         },
         "meta": {
@@ -257,7 +257,7 @@ let dates = (year, christmastideEnds, epiphanyOnJan6 = false, corpusChristiOnThu
         "season": {
           "key": LiturgicalSeasons.HOLY_WEEK,
           "value": Utils.localize({
-            key: 'holyWeek.season'
+            key: "holyWeek.season"
           })
         },
         "meta": {
@@ -277,7 +277,7 @@ let dates = (year, christmastideEnds, epiphanyOnJan6 = false, corpusChristiOnThu
         "season": {
           "key": LiturgicalSeasons.HOLY_WEEK,
           "value": Utils.localize({
-            key: 'holyWeek.season'
+            key: "holyWeek.season"
           })
         },
         "meta": {
@@ -297,7 +297,7 @@ let dates = (year, christmastideEnds, epiphanyOnJan6 = false, corpusChristiOnThu
         "season": {
           "key": LiturgicalSeasons.HOLY_WEEK,
           "value": Utils.localize({
-            key: 'holyWeek.season'
+            key: "holyWeek.season"
           })
         },
         "meta": {
@@ -394,7 +394,7 @@ let dates = (year, christmastideEnds, epiphanyOnJan6 = false, corpusChristiOnThu
   ];
 
   return _.map( _dates, ({ key, data, ...rest }) => {
-    let name = Utils.localize({ key: 'celebrations.' + key });
+    let name = Utils.localize({ key: "celebrations." + key });
     let { meta } = data;
     if (_.isUndefined(meta)) {
       data.meta = { titles: [] };

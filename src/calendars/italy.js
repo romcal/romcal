@@ -1,8 +1,7 @@
-import moment from 'moment';
-import _ from 'lodash';
+import moment from "moment";
 
-import { Dates, Utils } from '../lib';
-import { Titles, Types, LiturgicalColors } from '../constants';
+import { Dates, Utils } from "../lib";
+import { Titles, Types, LiturgicalColors } from "../constants";
 
 const defaultConfig = {};
 
@@ -116,7 +115,7 @@ let _dates = [
     {
       "key": "maryMotherOfTheChurch",
       "type": Types.MEMORIAL,
-      "moment": Dates.pentecostSunday( year ).add( 1, 'days'),
+      "moment": Dates.pentecostSunday( year ).add( 1, "days"),
       "data": {}
     }
   ];

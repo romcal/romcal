@@ -1,8 +1,7 @@
-import moment from 'moment';
-import _ from 'lodash';
+import moment from "moment";
 
-import { Dates, Utils } from '../lib';
-import { Titles, Types, LiturgicalColors } from '../constants';
+import { Dates, Utils } from "../lib";
+import { Titles, Types, LiturgicalColors } from "../constants";
 
 const defaultConfig = {};
 
@@ -188,7 +187,7 @@ let dates = year => {
     {
       "key": "ourLadyOfTheValley",
       "type": Types.MEMORIAL,
-      "moment": ( y => Dates.divineMercySunday( y ).add( 6, 'days'))( year ),
+      "moment": ( y => Dates.divineMercySunday( y ).add( 6, "days"))( year ),
       "data": {
         "meta": {
           "liturgicalColor": LiturgicalColors.WHITE

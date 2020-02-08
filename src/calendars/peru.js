@@ -1,8 +1,7 @@
-import moment from 'moment';
-import _ from 'lodash';
+import moment from "moment";
 
-import { Dates, Utils } from '../lib';
-import { Titles, Types, LiturgicalColors } from '../constants';
+import { Dates, Utils } from "../lib";
+import { Types, LiturgicalColors } from "../constants";
 
 const defaultConfig = {};
 
@@ -78,7 +77,7 @@ let dates = year => {
     {
       "key": "ourLordJesusChristTheEternalHighPriest",
       "type": Types.FEAST,
-      "moment": ( y => Dates.pentecostSunday( y ).add( 4, 'days' ))(year),
+      "moment": ( y => Dates.pentecostSunday( y ).add( 4, "days" ))(year),
       "data": {
         "meta": {
           "liturgicalColor": LiturgicalColors.WHITE
