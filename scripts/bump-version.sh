@@ -22,7 +22,7 @@ if [[ $LAST_COMMIT_MESSAGE == *"[USE_CUSTOM_SEMVER]"* ]]; then
 else
     CURRENT_VERSION="$(npm view ${PACKAGE_NAME}@latest version)"
     echo "CURRENT_VERSION is $CURRENT_VERSION"
-    
+
     # If not on master branch ...
     if [ "$TRAVIS_BRANCH" != 'master' ]; then
         # ... obtain and tokenize the latest version according to tag
@@ -33,13 +33,13 @@ else
         else
             LATEST_TAG_VERSION="$(npm view ${PACKAGE_NAME}@canary version)"
         fi
-        
+
         echo "LATEST_TAG_VERSION is $LATEST_TAG_VERSION"
-        
+
         tokens=($(echo $LATEST_TAG_VERSION | tr "-" "\n"))
         SEMVER=${tokens[0]};
         PREID=${tokens[1]};
-        
+
         # If the tag version is higher than the "latest" version in npm,
         # then no new stable version has been published from master yet
         # and we should continue incrementing the "preid" based on the tag version
@@ -50,7 +50,7 @@ else
             echo "CURRENT_VERSION will now be ${CURRENT_VERSION}";
         fi
     fi
-    
+
     # Bump version accordingly
     if [ "$TRAVIS_BRANCH" = 'master' ]; then
         NEW_VERSION="$(./node_modules/.bin/semver -i patch ${CURRENT_VERSION} )"
@@ -94,7 +94,7 @@ if [ "$TRAVIS_BRANCH" = 'master' ]; then
     elif [ "$TRAVIS_BRANCH" = 'test' ]; then
     npm publish --tag beta --access public
     elif [ "$TRAVIS_BRANCH" = 'dev' ]; then
-    ar    npm publish --tag alpha --access public
+    npm publish --tag alpha --access public
 else
     npm publish --tag canary --access public
 fi
