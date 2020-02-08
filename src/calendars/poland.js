@@ -1,8 +1,8 @@
-import moment from 'moment';
-import _ from 'lodash';
+import moment from "moment";
+import _ from "lodash";
 
-import { Dates, Utils } from '../lib';
-import { Titles, Types, LiturgicalColors } from '../constants';
+import { Dates, Utils } from "../lib";
+import { Titles, Types, LiturgicalColors } from "../constants";
 
 const defaultConfig = {};
 
@@ -80,9 +80,9 @@ let dates = year => {
           // Ensure that the Monday after Divine Mercy Sunday is not Annunciation
           // if it is, move this celebration to the next day (Tuesday)
           // However, this condition will probably never happen
-          var proposed =  _.last( _easterOctave ).add( 1, 'days' );
+          var proposed =  _.last( _easterOctave ).add( 1, "days" );
           if ( proposed.isSame( _annunciation ) ) {
-            return _annunciation.add( 1, 'days' );
+            return _annunciation.add( 1, "days" );
           }
           else {
             return proposed;
@@ -604,7 +604,7 @@ let dates = year => {
     {
       "key": "dedicationOfAParticularChurch",
       "type": Types.SOLEMNITY,
-      "moment": moment({ year: year, month: 9 }).endOf('month').startOf('week'),
+      "moment": moment({ year: year, month: 9 }).endOf("month").startOf("week"),
       "data": {
         "meta": {
           "liturgicalColor": LiturgicalColors.WHITE
@@ -672,7 +672,7 @@ let dates = year => {
     {
       "key": "maryMotherOfTheChurch",
       "type": Types.FEAST,
-      "moment": ( y => Dates.pentecostSunday( y ).add( 1, 'days'))( year ),
+      "moment": ( y => Dates.pentecostSunday( y ).add( 1, "days"))( year ),
       "data": {
         "prioritized": true,
         "meta": {
@@ -683,7 +683,7 @@ let dates = year => {
     {
       "key": "ourLordJesusChristTheEternalHighPriest",
       "type": Types.FEAST,
-      "moment": ( y => Dates.pentecostSunday( y ).add( 4, 'days' ))(year),
+      "moment": ( y => Dates.pentecostSunday( y ).add( 4, "days" ))(year),
       "data": {
         "meta": {
           "liturgicalColor": LiturgicalColors.WHITE

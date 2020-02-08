@@ -17,6 +17,7 @@
     "browser": true
   },
   "rules": {
+    "quotes": ["warn", "double"]
   },
   "settings": {
     "flowtype": {

@@ -1,11 +1,11 @@
-import moment from 'moment';
-import _ from 'lodash';
+import moment from "moment";
+import _ from "lodash";
 
-import { Dates, Utils } from '../lib';
-import { Titles, Types, LiturgicalColors } from '../constants';
+import { Dates, Utils } from "../lib";
+import { Titles, Types, LiturgicalColors } from "../constants";
 
 const defaultConfig = {
-  christmastideEnds: 'o',
+  christmastideEnds: "o",
   epiphanyOnJan6: false,
   christmastideIncludesTheSeasonOfEpiphany: true,
   corpusChristiOnThursday: false,
@@ -867,7 +867,7 @@ let dates = year => {
     {
       "key": "maryMotherOfTheChurch",
       "type": Types.MEMORIAL, // Memorial
-      "moment": ( y => Dates.pentecostSunday( y ).add( 1, 'days'))( year ),
+      "moment": ( y => Dates.pentecostSunday( y ).add( 1, "days"))( year ),
       "data": {
         "prioritized": true,
         "meta": {
@@ -1855,7 +1855,7 @@ let dates = year => {
 
 
   return _.map( _dates, ({ key, data, ...rest }) => {
-    let name = Utils.localize({ key: 'sanctoral.' + key });
+    let name = Utils.localize({ key: "sanctoral." + key });
     let { meta } = data;
     if (_.isUndefined(meta)) {
       data.meta = { titles: [] };

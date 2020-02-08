@@ -1,8 +1,7 @@
-import moment from 'moment';
-import _ from 'lodash';
+import moment from "moment";
 
-import { Dates, Utils } from '../lib';
-import { Titles, Types, LiturgicalColors } from '../constants';
+import { Utils } from "../lib";
+import { Titles, Types, LiturgicalColors } from "../constants";
 
 const defaultConfig = {
   epiphanyOnJan6: false,
