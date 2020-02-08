@@ -91,7 +91,7 @@ let dates = year => {
     {
       "key": "saintAdalbertBishopAndMartyrSaintFidelisOfSigmaringenPriestAndMartyr",
       "type": Types.OPT_MEMORIAL,
-      "moment": moment.utc({ year: year, month: 4, day: 24 }),
+      "moment": moment.utc({ year: year, month: 3, day: 24 }),
       "data": {
         "meta": {
           "liturgicalColor": LiturgicalColors.RED,
