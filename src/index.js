@@ -25,7 +25,8 @@
 import _ from "lodash";
 import Moment from "moment";
 import { extendMoment } from "moment-range";
-const moment = extendMoment(Moment);
+
+extendMoment(Moment);
 
 import {
   Calendar,
