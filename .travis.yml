@@ -5,7 +5,7 @@ node_js:
   - "stable"
 
 git:
-  clone: false # If you use this option, the TRAVIS_COMMIT_MESSAGE environment variable will not be defined.
+  clone: false # If you use this option, the TRAVIS_COMMIT_MESSAGE environment variable will not be defined
 
 cache: npm
 
@@ -45,7 +45,7 @@ jobs:
       name: "Publish a new distribution to NPM"
       node_js: "stable"
       if: fork = false AND type = push # Publish only on push events on branches in the org
-      script: skip # test would have already been run before this
+      script: skip # Tests would have already been run before this
       before_deploy:
         - chmod +x scripts/semver.sh
         - chmod +x scripts/bump-version.sh

@@ -89,11 +89,7 @@ See [history](HISTORY.md) for latest updates and important/breaking changes.
 
 This node module is inspired by the C program [romcal](http://www.romcal.net/) written by Kenneth G. Bath. This module, while exhibiting similar output, is written ground up using different tools and technologies and exposes many new functionalities.
 
-Additional credits for bug fixes, localizations and suggestions go to:
-
-- [@emagnier](https://github.com/emagnier)
-- [@tukusejssirs](https://github.com/tukusejssirs)
-- [@jarosz](https://github.com/jarosz)
+Additional credits for bug fixes, localizations and suggestionsc can be seen at [here](./AUTHORS.md)
 
 ## Features <a name="features"></a>
 
