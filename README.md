@@ -136,16 +136,16 @@ Add romcal to your project via npm:
 $ npm install romcal --save
 ```
 
-Additionally, `romcal` is also available for installtion via various "release tags" that represent different stages of development for a given version of the code.
+Additionally, romcal is also available for installtion via various "release tags" that represent different stages of development for a given version of the code.
 
 - `latest`
-  The latest, stable and production ready version of `romcal` is always released on the `master` branch. Releases on this branch are tagged in `npm` using the `latest` tag and can be installed via `npm install romcal@latest` or simply `npm install romcal` which defualts to the `latest` tag.
+  The latest, stable and production ready version of romcal is always released on the `master` branch. Releases on this branch are tagged in `npm` using the `latest` tag and can be installed via `npm install romcal@latest` or simply `npm install romcal` which defualts to the `latest` tag.
 
 - `beta`
   The release candidate for production. Code here is mostly stable but may still lack some tests and so may be subject to some unepected behavior. Install via `npm install romcal@beta`.
 
 - `alpha`
-  The unstable development release tag. Code here might be unstable and untested. Use at your own risk! Normally, only developers of `romcal` would use this release for testing purposes. Install via `npm install romcal@alpha`.
+  The unstable development release tag. Code here might be unstable and untested. Use at your own risk! Normally, only developers of  would use this release for testing purposes. Install via `npm install romcal@alpha`.
 
 - `canary`
   Bleeding edge features; high level of code instability. Consumers should almost always never need to install these releases as they containing ongoing work that is not complete for general use. Install via `npm install romcal@canary`.
@@ -659,7 +659,7 @@ Therefore, it is important that the key in the national calendar is **exactly** 
 
 ## Removing general dates in national calendar output <a name="removingDates"></a>
 
-By default, `romcal` _does not_ remove any celebrations in its output. Instead, prioritization (see above) is the preferred way to go about overriding celebrations to exhibit different characteristics.
+By default, romcal _does not_ remove any celebrations in its output. Instead, prioritization (see above) is the preferred way to go about overriding celebrations to exhibit different characteristics.
 
 However, in some cases, a national calendar may need to omit a celebration entirely from its output. For example, the possible reasons could be:
 
@@ -667,7 +667,7 @@ However, in some cases, a national calendar may need to omit a celebration entir
 - when a celebration of two or more saints are celebrated jointly in the `general` calendar, but separately in the national calendar;
 - when a celebration of two or more saints are celebrated separately in the `general` calendar, but jointly in the national calendar.
 
-`romcal` enables this flexibility via the `drop` key.
+romcal enables this flexibility via the `drop` key.
 
 ### The `drop` keyword <a name="dropKeyword"></a>
 
