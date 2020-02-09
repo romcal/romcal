@@ -23,10 +23,6 @@
 */
 
 import _ from "lodash";
-import Moment from "moment";
-import { extendMoment } from "moment-range";
-
-extendMoment(Moment);
 
 import {
   Calendar,
