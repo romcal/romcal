@@ -9,6 +9,8 @@ import {
   LiturgicalColors,
   Types
 } from "../constants";
+import { RomcalDateItem, RomcalDateItemData } from "../models/romcal-date-item";
+import { ChristmastideEndings } from "../utils/custom-types";
 
 //================================================================================================
 // METHODS TO GENERATE THE SEASONS
@@ -16,8 +18,8 @@ import {
 //================================================================================================
 
 // dates: array of moment object dates
-const _metadata = dates => {
-  return _.map( dates, date => {
+const _metadata = (dates: Array<RomcalDateItem>) => {
+  return _.map( dates, (date: RomcalDateItem) => {
     date.source = "l";
     date.data.calendar = {
       weeks: date.moment.weeksInYear(),
@@ -30,11 +32,12 @@ const _metadata = dates => {
 
 // y: The year (integer)
 // epiphanyOnJan6: true|false [If true, Epiphany will be fixed to Jan 6] (defaults to false)
-const _epiphany = (y, epiphanyOnJan6 = false) => {
+const _epiphany = (year: number, epiphanyOnJan6: boolean = false) => {
 
-  let before = Dates.daysBeforeEpiphany(y, epiphanyOnJan6);
-  let after = Dates.daysAfterEpiphany(y, epiphanyOnJan6);
-  let days = [];
+  let before = Dates.daysBeforeEpiphany(year, epiphanyOnJan6);
+  let after = Dates.daysAfterEpiphany(year, epiphanyOnJan6);
+  let days: Array<RomcalDateItem> = [];
+
 
   _.each( before, day => {
     days.push({
@@ -86,10 +89,10 @@ const _epiphany = (y, epiphanyOnJan6 = false) => {
 };
 
 // y: The year (integer)
-const _holyWeek = y => {
+const _holyWeek = (year: number) => {
 
-  let dates = Dates.holyWeek(y);
-  let days = [];
+  let dates = Dates.holyWeek(year);
+  let days: Array<RomcalDateItem> = [];
 
   _.each( dates, (date) => {
     days.push({
@@ -120,11 +123,11 @@ const _holyWeek = y => {
 //================================================================================================
 
 // y: The year (integer)
-const advent = y => {
+const advent = (year: number) => {
 
-  let days = [];
+  let days: Array<RomcalDateItem> = [];
 
-  _.each( Dates.daysOfAdvent(y), (value, i) => {
+  _.each( Dates.daysOfAdvent(year), (value, i) => {
     days.push({
       moment: value,
       type: Utils.getTypeByDayOfWeek( value.day() ),
@@ -203,11 +206,11 @@ const advent = y => {
 // christmastideEnds: t|o|e [The mode to calculate the end of Christmastide]
 // epiphanyOnJan6: true|false [If true, Epiphany will be fixed to Jan 6] (defaults to false)
 // christmastideIncludesTheSeasonOfEpiphany: true|false [If false, excludes the season of epiphany from being included in the season of Christmas]
-const christmastide = (y, christmastideEnds, epiphanyOnJan6 = false, christmastideIncludesTheSeasonOfEpiphany = true) => {
+const christmastide = (year: number, christmastideEnds: ChristmastideEndings, epiphanyOnJan6 = false, christmastideIncludesTheSeasonOfEpiphany = true) => {
 
-  let days = Dates.christmastide(y, christmastideEnds, epiphanyOnJan6);
-  let octave = Dates.octaveOfChristmas(y);
-  let epiphany = _epiphany( ( y + 1 ), epiphanyOnJan6 );
+  let days = Dates.christmastide(year, christmastideEnds, epiphanyOnJan6);
+  let octave = Dates.octaveOfChristmas(year);
+  let epiphany = _epiphany( ( year + 1 ), epiphanyOnJan6 );
   let d = [];
   let count = 0;
 
@@ -235,7 +238,7 @@ const christmastide = (y, christmastideEnds, epiphanyOnJan6 = false, christmasti
     });
   });
 
-  let o = [];
+  let o = any[];
 
   _.each( octave, ( day, idx ) => {
     o.push({
@@ -395,14 +398,14 @@ const earlyOrdinaryTime = (y, christmastideEnds, epiphanyOnJan6 = false) => {
 };
 
 // y: year
-const laterOrdinaryTime = y => {
+const laterOrdinaryTime = (year: number) => {
 
   // Keep track of the first week in later ordinary time
   // for later use
   let firstWeekOfLaterOrdinaryTime = 0;
-  let days = [];
+  let days: Array<RomcalDateItem> = [];
 
-  _.each( Dates.daysOfLaterOrdinaryTime(y).reverse(), ( value, i ) => {
+  _.each( Dates.daysOfLaterOrdinaryTime(year).reverse(), ( value, i ) => {
 
     // Calculate the week of ordinary time
     // from the last sunday of the year (34th)
@@ -482,13 +485,13 @@ const laterOrdinaryTime = y => {
 };
 
 // y: Takes the year (integer)
-const lent = y => {
+const lent = (year: number) => {
 
-  let daysOfLent = Dates.daysOfLent(y);
-  let sundaysOfLent = Dates.sundaysOfLent(y);
+  let daysOfLent = Dates.daysOfLent(year);
+  let sundaysOfLent = Dates.sundaysOfLent(year);
 
-  let days = [];
-  let sundays = [];
+  let days: Array<RomcalDateItem> = [];
+  let sundays: Array<RomcalDateItem> = [];
 
   _.each( daysOfLent, (value, i) => {
     days.push({
@@ -534,7 +537,7 @@ const lent = y => {
     });
   });
 
-  let holyWeek = _holyWeek(y);
+  let holyWeek = _holyWeek(year);
 
   // Override in order: Solemnities, Holy Week and Sundays of Lent to days of Lent
   days = _.uniqBy( _.union( holyWeek, sundays, days ), v => v.moment.valueOf());
@@ -600,18 +603,18 @@ const lent = y => {
 
 // Takes the last 3 days of holy week which form the 3 days of Easter Triduum
 // y: Takes the year (integer)
-const easterTriduum = y => _.takeRight(_holyWeek(y), 3 );
+const easterTriduum = (year: number) => _.takeRight(_holyWeek(year), 3 );
 
 // Takes the days between Easter Sunday and Divine mercy sunday (inclusive) to form the easter octave
 // y: Takes the year (integer)
-const easterOctave = y => _.take(eastertide(y), 8 );
+const easterOctave = (year: number) => _.take(eastertide(year), 8 );
 
 // y: Takes the year (integer)
-const eastertide = y => {
+const eastertide = (year: number) => {
 
-  let d = Dates.daysOfEaster(y);
-  let s = Dates.sundaysOfEaster(y);
-  let days = [];
+  let d = Dates.daysOfEaster(year);
+  let s = Dates.sundaysOfEaster(year);
+  let days: Array<RomcalDateItem> = [];
 
   _.each( d, (value, i) => {
     days.push({
@@ -633,7 +636,7 @@ const eastertide = y => {
     });
   });
 
-  let sundays = [];
+  let sundays: Array<RomcalDateItem> = [];
 
   _.each( s, ( value, i ) => {
     sundays.push({
