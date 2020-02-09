@@ -2,6 +2,7 @@ import _ from "lodash";
 import moment from "moment";
 import { Types } from "../constants";
 import * as Locales from "../locales";
+import { RawDateItem, RawDateItemWithName, LocalizedRawDateItem } from "../models/romcal-date-item";
 
 // Mustache style templating is easier on the eyes
 _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
@@ -99,20 +100,26 @@ const localize = options => {
   return _.template( value )( options );
 };
 
+declare function hasLocalizedName(x: T): "name" extends LocalizedRawDateItem ? LocalizedRawDateItem : RawDateItem;
+
+
 // Utility function that takes an array of national calendar dates
 // and adds a localized name based on the key
-const localizeDates = (dates, source = "sanctoral") => {
-  return _.map( dates, d => {
-    if (!_.has(d, "drop")) {
-      d.name = localize({
-        key: `${source}.${d.key}`
+const localizeDates = (
+  dates: Array<RawDateItem>,
+  source = "sanctoral"
+): Array<RawDateItem | LocalizedRawDateItem> => {
+  return dates.map(date => {
+    if (!_.has(date, "drop")) {
+      date.name = localize({
+        key: `${source}.${date.key}`
       });
     }
-    return d;
+    return date;
   });
 };
 
-const getTypeByDayOfWeek = d => _.eq(d, 0) ? Types.SUNDAY : Types.FERIA;
+const getTypeByDayOfWeek = (day: number) => _.eq(day, 0) ? Types.SUNDAY : Types.FERIA;
 
 export {
   setLocale,
