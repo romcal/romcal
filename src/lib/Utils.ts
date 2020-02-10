@@ -2,7 +2,11 @@ import _ from "lodash";
 import moment from "moment";
 import { Types } from "../constants";
 import * as Locales from "../locales";
-import { RawDateItem, RawDateItemWithName, LocalizedRawDateItem } from "../models/romcal-date-item";
+import {
+  RawDateItem,
+  RawDateItemWithName,
+  UnlocalizedRawDateItem
+} from "../models/romcal-date-item";
 
 // Mustache style templating is easier on the eyes
 _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
@@ -18,7 +22,6 @@ const _fallbackLocaleKey = "en";
 let _combinedLocale;
 let _locales;
 let setLocale = key => {
-
   // When setLocale() is called, it redefines this vars to defaults
   _combinedLocale = undefined;
   _locales = [_.get(Locales, _fallbackLocaleKey)];
@@ -38,32 +41,32 @@ let setLocale = key => {
   // - Monday is the first day of the week according to the international standard ISO 8601,
   //   but in the US, Canada, and Japan, it's counted as the second day of the week.
   // - In Christian calendars, Sunday is always the first day of the week.
-  moment.updateLocale(localeName, {week: {dow: 0}});
+  moment.updateLocale(localeName, { week: { dow: 0 } });
 
   // If a region is specified: append the base language as fallback.
   // Also check if the base language isn't already the default 'en',
   // and if this base language exists in 'src/locales'
-  if (!!region && lang !== _fallbackLocaleKey && _.has( Locales, lang )) {
+  if (!!region && lang !== _fallbackLocaleKey && _.has(Locales, lang)) {
     // Retrieve the relevant base locale object
     // and set it as a fallback (before 'en')
-    _locales.unshift(_.get( Locales, lang ));
+    _locales.unshift(_.get(Locales, lang));
   }
 
   // Set the given locale into romcal.
   // Also check if it's not the same as the fallback 'en'
   // (to avoid its duplicate definition)
   // and if exists in 'src/locales'
-  if (key !== _fallbackLocaleKey && _.has( Locales, key )) {
+  if (key !== _fallbackLocaleKey && _.has(Locales, key)) {
     // Retrieve the relevant locale object
     // and set it as the first & default locale
-    _locales.unshift(_.get( Locales, key ));
+    _locales.unshift(_.get(Locales, key));
   }
 };
 
 // Nested property lookup logic
-let _getDescendantProp = ( obj, desc ) => {
+let _getDescendantProp = (obj, desc) => {
   let arr = desc.split(".");
-  while( arr.length && (obj = obj[arr.shift()]));
+  while (arr.length && (obj = obj[arr.shift()]));
   return obj;
 };
 
@@ -82,49 +85,53 @@ const getLocale = () => {
 // text for standard dates. Also make numbers ordinal by
 // leveraging Moment's ordinal number function.
 const localize = options => {
-
   let localeDate = moment.localeData();
-  let value = _getDescendantProp( getLocale(), options.key );
+  let value = _getDescendantProp(getLocale(), options.key);
 
   // If defined, pluralize a value and add it to the given template
-  if ( !_.isUndefined( options.week ) ) {
-    options.week = localeDate.ordinal( options.week );
+  if (!_.isUndefined(options.week)) {
+    options.week = localeDate.ordinal(options.week);
   }
 
   // If defined, count the nth day of the given series
-  if ( !_.isUndefined( options.count ) ) {
-    options.count = localeDate.ordinal( options.count );
+  if (!_.isUndefined(options.count)) {
+    options.count = localeDate.ordinal(options.count);
   }
 
   // Run the template against the options provided
-  return _.template( value )( options );
+  return _.template(value)(options);
 };
 
-declare function hasLocalizedName(x: T): "name" extends LocalizedRawDateItem ? LocalizedRawDateItem : RawDateItem;
+// declare function hasLocalizedName<"name" extends Local(x:  ): "name" extends LocalizedRawDateItem ? LocalizedRawDateItem : RawDateItem;
 
-
-// Utility function that takes an array of national calendar dates
-// and adds a localized name based on the key
+/**
+ * Utility function that takes an array of national calendar dates
+ * and adds a localized name based on the key
+ * @param dates A list of [[RawDateItem]]s to process
+ * @param source
+ */
 const localizeDates = (
   dates: Array<RawDateItem>,
   source = "sanctoral"
-): Array<RawDateItem | LocalizedRawDateItem> => {
-  return dates.map(date => {
-    if (!_.has(date, "drop")) {
-      date.name = localize({
-        key: `${source}.${date.key}`
-      });
+): Array<RawDateItem | UnlocalizedRawDateItem> => {
+  let localizedDates: Array<RawDateItem | UnlocalizedRawDateItem> = [];
+  return dates.reduce((accumulator, currentValue: RawDateItem) => {
+    if (!_.has(currentValue, "drop")) {
+      return [
+        ...accumulator,
+        {
+          ...currentValue,
+          name: localize({
+            key: `${source}.${currentValue.key}`
+          })
+        } as RawDateItem;
+      ];
     }
-    return date;
-  });
+    return currentValue as UnlocalizedRawDateItem;
+  }, localizeDates);
 };
 
-const getTypeByDayOfWeek = (day: number) => _.eq(day, 0) ? Types.SUNDAY : Types.FERIA;
+const getTypeByDayOfWeek = (day: number) =>
+  _.eq(day, 0) ? Types.SUNDAY : Types.FERIA;
 
-export {
-  setLocale,
-  getLocale,
-  localize,
-  localizeDates,
-  getTypeByDayOfWeek
-};
+export { setLocale, getLocale, localize, localizeDates, getTypeByDayOfWeek };
