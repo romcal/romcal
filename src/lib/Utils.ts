@@ -3,9 +3,7 @@ import moment from "moment";
 import { Types } from "../constants";
 import * as Locales from "../locales";
 import {
-  RawDateItem,
-  RawDateItemWithName,
-  UnlocalizedRawDateItem
+  RawDateItem, LocalizedRawDateItem,
 } from "../models/romcal-date-item";
 
 // Mustache style templating is easier on the eyes
@@ -19,9 +17,11 @@ _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
 // We get then a cascade fallbacks: region ('xx-XX') -> base language ('xx') -> default 'en'
 // For example: if a string is missing in 'fr-CA', it will try to pick it in 'fr', and then in 'en'.
 const _fallbackLocaleKey = "en";
+
 let _combinedLocale;
 let _locales;
-let setLocale = key => {
+
+let setLocale = (key: string) => {
   // When setLocale() is called, it redefines this vars to defaults
   _combinedLocale = undefined;
   _locales = [_.get(Locales, _fallbackLocaleKey)];
@@ -84,22 +84,23 @@ const getLocale = () => {
 // Using the set Moment locale, get the relevant localized
 // text for standard dates. Also make numbers ordinal by
 // leveraging Moment's ordinal number function.
-const localize = options => {
-  let localeDate = moment.localeData();
-  let value = _getDescendantProp(getLocale(), options.key);
-
-  // If defined, pluralize a value and add it to the given template
-  if (!_.isUndefined(options.week)) {
-    options.week = localeDate.ordinal(options.week);
-  }
-
-  // If defined, count the nth day of the given series
-  if (!_.isUndefined(options.count)) {
-    options.count = localeDate.ordinal(options.count);
-  }
+const localize = ({ key, count, week }: {
+  key: string;
+  week?: number;
+  count?: number;
+}) => {
+  // Get locale data
+  const localeDate = moment.localeData();
+  let value = _getDescendantProp(getLocale(), key);
 
   // Run the template against the options provided
-  return _.template(value)(options);
+  return _.template(value)({
+    key,
+    // If defined, pluralize a week and add it to the given template
+    ...week && { week: localeDate.ordinal(week) },
+    // If defined, count the nth day of the given series
+    ...count && { count: localeDate.ordinal(count) },
+  });
 };
 
 // declare function hasLocalizedName<"name" extends Local(x:  ): "name" extends LocalizedRawDateItem ? LocalizedRawDateItem : RawDateItem;
@@ -113,22 +114,18 @@ const localize = options => {
 const localizeDates = (
   dates: Array<RawDateItem>,
   source = "sanctoral"
-): Array<RawDateItem | UnlocalizedRawDateItem> => {
-  let localizedDates: Array<RawDateItem | UnlocalizedRawDateItem> = [];
-  return dates.reduce((accumulator, currentValue: RawDateItem) => {
-    if (!_.has(currentValue, "drop")) {
-      return [
-        ...accumulator,
-        {
-          ...currentValue,
-          name: localize({
-            key: `${source}.${currentValue.key}`
-          })
-        } as RawDateItem;
-      ];
+): Array<RawDateItem | LocalizedRawDateItem> => {
+  return dates.map((date: RawDateItem) => {
+    if (!_.has(date, "drop")) {
+      return {
+        ...date,
+        name: localize({
+          key: `${source}.${date.key}`
+        })
+      } as LocalizedRawDateItem;
     }
-    return currentValue as UnlocalizedRawDateItem;
-  }, localizeDates);
+    return date;
+  });
 };
 
 const getTypeByDayOfWeek = (day: number) =>
