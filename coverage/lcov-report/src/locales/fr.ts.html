@@ -1,0 +1,980 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for src/locales/fr.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/locales</a> fr.ts</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>0/1</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>0/0</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>0/0</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>0/1</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+    </div>
+    <div class='status-line low'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a>
+<a name='L7'></a><a href='#L7'>7</a>
+<a name='L8'></a><a href='#L8'>8</a>
+<a name='L9'></a><a href='#L9'>9</a>
+<a name='L10'></a><a href='#L10'>10</a>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a>
+<a name='L100'></a><a href='#L100'>100</a>
+<a name='L101'></a><a href='#L101'>101</a>
+<a name='L102'></a><a href='#L102'>102</a>
+<a name='L103'></a><a href='#L103'>103</a>
+<a name='L104'></a><a href='#L104'>104</a>
+<a name='L105'></a><a href='#L105'>105</a>
+<a name='L106'></a><a href='#L106'>106</a>
+<a name='L107'></a><a href='#L107'>107</a>
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a>
+<a name='L111'></a><a href='#L111'>111</a>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a>
+<a name='L118'></a><a href='#L118'>118</a>
+<a name='L119'></a><a href='#L119'>119</a>
+<a name='L120'></a><a href='#L120'>120</a>
+<a name='L121'></a><a href='#L121'>121</a>
+<a name='L122'></a><a href='#L122'>122</a>
+<a name='L123'></a><a href='#L123'>123</a>
+<a name='L124'></a><a href='#L124'>124</a>
+<a name='L125'></a><a href='#L125'>125</a>
+<a name='L126'></a><a href='#L126'>126</a>
+<a name='L127'></a><a href='#L127'>127</a>
+<a name='L128'></a><a href='#L128'>128</a>
+<a name='L129'></a><a href='#L129'>129</a>
+<a name='L130'></a><a href='#L130'>130</a>
+<a name='L131'></a><a href='#L131'>131</a>
+<a name='L132'></a><a href='#L132'>132</a>
+<a name='L133'></a><a href='#L133'>133</a>
+<a name='L134'></a><a href='#L134'>134</a>
+<a name='L135'></a><a href='#L135'>135</a>
+<a name='L136'></a><a href='#L136'>136</a>
+<a name='L137'></a><a href='#L137'>137</a>
+<a name='L138'></a><a href='#L138'>138</a>
+<a name='L139'></a><a href='#L139'>139</a>
+<a name='L140'></a><a href='#L140'>140</a>
+<a name='L141'></a><a href='#L141'>141</a>
+<a name='L142'></a><a href='#L142'>142</a>
+<a name='L143'></a><a href='#L143'>143</a>
+<a name='L144'></a><a href='#L144'>144</a>
+<a name='L145'></a><a href='#L145'>145</a>
+<a name='L146'></a><a href='#L146'>146</a>
+<a name='L147'></a><a href='#L147'>147</a>
+<a name='L148'></a><a href='#L148'>148</a>
+<a name='L149'></a><a href='#L149'>149</a>
+<a name='L150'></a><a href='#L150'>150</a>
+<a name='L151'></a><a href='#L151'>151</a>
+<a name='L152'></a><a href='#L152'>152</a>
+<a name='L153'></a><a href='#L153'>153</a>
+<a name='L154'></a><a href='#L154'>154</a>
+<a name='L155'></a><a href='#L155'>155</a>
+<a name='L156'></a><a href='#L156'>156</a>
+<a name='L157'></a><a href='#L157'>157</a>
+<a name='L158'></a><a href='#L158'>158</a>
+<a name='L159'></a><a href='#L159'>159</a>
+<a name='L160'></a><a href='#L160'>160</a>
+<a name='L161'></a><a href='#L161'>161</a>
+<a name='L162'></a><a href='#L162'>162</a>
+<a name='L163'></a><a href='#L163'>163</a>
+<a name='L164'></a><a href='#L164'>164</a>
+<a name='L165'></a><a href='#L165'>165</a>
+<a name='L166'></a><a href='#L166'>166</a>
+<a name='L167'></a><a href='#L167'>167</a>
+<a name='L168'></a><a href='#L168'>168</a>
+<a name='L169'></a><a href='#L169'>169</a>
+<a name='L170'></a><a href='#L170'>170</a>
+<a name='L171'></a><a href='#L171'>171</a>
+<a name='L172'></a><a href='#L172'>172</a>
+<a name='L173'></a><a href='#L173'>173</a>
+<a name='L174'></a><a href='#L174'>174</a>
+<a name='L175'></a><a href='#L175'>175</a>
+<a name='L176'></a><a href='#L176'>176</a>
+<a name='L177'></a><a href='#L177'>177</a>
+<a name='L178'></a><a href='#L178'>178</a>
+<a name='L179'></a><a href='#L179'>179</a>
+<a name='L180'></a><a href='#L180'>180</a>
+<a name='L181'></a><a href='#L181'>181</a>
+<a name='L182'></a><a href='#L182'>182</a>
+<a name='L183'></a><a href='#L183'>183</a>
+<a name='L184'></a><a href='#L184'>184</a>
+<a name='L185'></a><a href='#L185'>185</a>
+<a name='L186'></a><a href='#L186'>186</a>
+<a name='L187'></a><a href='#L187'>187</a>
+<a name='L188'></a><a href='#L188'>188</a>
+<a name='L189'></a><a href='#L189'>189</a>
+<a name='L190'></a><a href='#L190'>190</a>
+<a name='L191'></a><a href='#L191'>191</a>
+<a name='L192'></a><a href='#L192'>192</a>
+<a name='L193'></a><a href='#L193'>193</a>
+<a name='L194'></a><a href='#L194'>194</a>
+<a name='L195'></a><a href='#L195'>195</a>
+<a name='L196'></a><a href='#L196'>196</a>
+<a name='L197'></a><a href='#L197'>197</a>
+<a name='L198'></a><a href='#L198'>198</a>
+<a name='L199'></a><a href='#L199'>199</a>
+<a name='L200'></a><a href='#L200'>200</a>
+<a name='L201'></a><a href='#L201'>201</a>
+<a name='L202'></a><a href='#L202'>202</a>
+<a name='L203'></a><a href='#L203'>203</a>
+<a name='L204'></a><a href='#L204'>204</a>
+<a name='L205'></a><a href='#L205'>205</a>
+<a name='L206'></a><a href='#L206'>206</a>
+<a name='L207'></a><a href='#L207'>207</a>
+<a name='L208'></a><a href='#L208'>208</a>
+<a name='L209'></a><a href='#L209'>209</a>
+<a name='L210'></a><a href='#L210'>210</a>
+<a name='L211'></a><a href='#L211'>211</a>
+<a name='L212'></a><a href='#L212'>212</a>
+<a name='L213'></a><a href='#L213'>213</a>
+<a name='L214'></a><a href='#L214'>214</a>
+<a name='L215'></a><a href='#L215'>215</a>
+<a name='L216'></a><a href='#L216'>216</a>
+<a name='L217'></a><a href='#L217'>217</a>
+<a name='L218'></a><a href='#L218'>218</a>
+<a name='L219'></a><a href='#L219'>219</a>
+<a name='L220'></a><a href='#L220'>220</a>
+<a name='L221'></a><a href='#L221'>221</a>
+<a name='L222'></a><a href='#L222'>222</a>
+<a name='L223'></a><a href='#L223'>223</a>
+<a name='L224'></a><a href='#L224'>224</a>
+<a name='L225'></a><a href='#L225'>225</a>
+<a name='L226'></a><a href='#L226'>226</a>
+<a name='L227'></a><a href='#L227'>227</a>
+<a name='L228'></a><a href='#L228'>228</a>
+<a name='L229'></a><a href='#L229'>229</a>
+<a name='L230'></a><a href='#L230'>230</a>
+<a name='L231'></a><a href='#L231'>231</a>
+<a name='L232'></a><a href='#L232'>232</a>
+<a name='L233'></a><a href='#L233'>233</a>
+<a name='L234'></a><a href='#L234'>234</a>
+<a name='L235'></a><a href='#L235'>235</a>
+<a name='L236'></a><a href='#L236'>236</a>
+<a name='L237'></a><a href='#L237'>237</a>
+<a name='L238'></a><a href='#L238'>238</a>
+<a name='L239'></a><a href='#L239'>239</a>
+<a name='L240'></a><a href='#L240'>240</a>
+<a name='L241'></a><a href='#L241'>241</a>
+<a name='L242'></a><a href='#L242'>242</a>
+<a name='L243'></a><a href='#L243'>243</a>
+<a name='L244'></a><a href='#L244'>244</a>
+<a name='L245'></a><a href='#L245'>245</a>
+<a name='L246'></a><a href='#L246'>246</a>
+<a name='L247'></a><a href='#L247'>247</a>
+<a name='L248'></a><a href='#L248'>248</a>
+<a name='L249'></a><a href='#L249'>249</a>
+<a name='L250'></a><a href='#L250'>250</a>
+<a name='L251'></a><a href='#L251'>251</a>
+<a name='L252'></a><a href='#L252'>252</a>
+<a name='L253'></a><a href='#L253'>253</a>
+<a name='L254'></a><a href='#L254'>254</a>
+<a name='L255'></a><a href='#L255'>255</a>
+<a name='L256'></a><a href='#L256'>256</a>
+<a name='L257'></a><a href='#L257'>257</a>
+<a name='L258'></a><a href='#L258'>258</a>
+<a name='L259'></a><a href='#L259'>259</a>
+<a name='L260'></a><a href='#L260'>260</a>
+<a name='L261'></a><a href='#L261'>261</a>
+<a name='L262'></a><a href='#L262'>262</a>
+<a name='L263'></a><a href='#L263'>263</a>
+<a name='L264'></a><a href='#L264'>264</a>
+<a name='L265'></a><a href='#L265'>265</a>
+<a name='L266'></a><a href='#L266'>266</a>
+<a name='L267'></a><a href='#L267'>267</a>
+<a name='L268'></a><a href='#L268'>268</a>
+<a name='L269'></a><a href='#L269'>269</a>
+<a name='L270'></a><a href='#L270'>270</a>
+<a name='L271'></a><a href='#L271'>271</a>
+<a name='L272'></a><a href='#L272'>272</a>
+<a name='L273'></a><a href='#L273'>273</a>
+<a name='L274'></a><a href='#L274'>274</a>
+<a name='L275'></a><a href='#L275'>275</a>
+<a name='L276'></a><a href='#L276'>276</a>
+<a name='L277'></a><a href='#L277'>277</a>
+<a name='L278'></a><a href='#L278'>278</a>
+<a name='L279'></a><a href='#L279'>279</a>
+<a name='L280'></a><a href='#L280'>280</a>
+<a name='L281'></a><a href='#L281'>281</a>
+<a name='L282'></a><a href='#L282'>282</a>
+<a name='L283'></a><a href='#L283'>283</a>
+<a name='L284'></a><a href='#L284'>284</a>
+<a name='L285'></a><a href='#L285'>285</a>
+<a name='L286'></a><a href='#L286'>286</a>
+<a name='L287'></a><a href='#L287'>287</a>
+<a name='L288'></a><a href='#L288'>288</a>
+<a name='L289'></a><a href='#L289'>289</a>
+<a name='L290'></a><a href='#L290'>290</a>
+<a name='L291'></a><a href='#L291'>291</a>
+<a name='L292'></a><a href='#L292'>292</a>
+<a name='L293'></a><a href='#L293'>293</a>
+<a name='L294'></a><a href='#L294'>294</a>
+<a name='L295'></a><a href='#L295'>295</a>
+<a name='L296'></a><a href='#L296'>296</a>
+<a name='L297'></a><a href='#L297'>297</a>
+<a name='L298'></a><a href='#L298'>298</a>
+<a name='L299'></a><a href='#L299'>299</a>
+<a name='L300'></a><a href='#L300'>300</a>
+<a name='L301'></a><a href='#L301'>301</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >export default {</span>
+  "advent": {
+    "season": "Temps de l’Avent",
+    "feria": "{{day}} de la {{week}} semaine de l’Avent",
+    "sunday":  "{{week}} Dimanche de l’Avent"
+  },
+  "christmastide": {
+    "season": "Temps de Noël",
+    "day": "{{day}} dans le Temps de Noël",
+    "octave": "{{count}} jour dans l’Octave de Noël",
+    "sunday": "{{count}} Dimanche de Noël"
+  },
+  "epiphany": {
+    "season": "Epiphanie",
+    "before": "{{day}} avant l’Epiphanie",
+    "after": "{{day}} après l’Epiphanie"
+  },
+  "ordinaryTime": {
+    "season": "Temps Ordinaire",
+    "feria": "{{day}} de la {{week}} semaine du Temps Ordinaire",
+    "sunday": "{{week}} Dimanche du Temps Ordinaire"
+  },
+  "lent": {
+    "season": "Carême",
+    "feria": "{{day}} de la {{week}} semaine du Carême",
+    "sunday": "{{week}} Dimanche du Carême",
+    "day_after_ash_wed": "{{day}} des Cendres"
+  },
+  "holyWeek": {
+    "season": "Semaine Sainte",
+    "feria": "{{day}} Saint"
+  },
+  "eastertide": {
+    "season": "Temps de Pâques",
+    "feria": "{{day}} de la {{week}} semaine de Pâques",
+    "sunday":  "{{week}} Dimanche de Pâques",
+    "octave": "{{day}} de Pâques"
+  },
+  "celebrations": {
+    "allSaints": "Tous les Saints",
+    "annunciation": "Annonciation du Seigneur",
+    "ascension": "Ascension du Seigneur",
+    "ashWednesday": "Mercredi des Cendres",
+    "assumption": "Assomption de la Vierge Marie",
+    "baptismOfTheLord": "Baptême du Seigneur",
+    "birthOfJohnTheBaptist": "Nativité de Saint Jean le Baptiste",
+    "christmas": "Nativité du Seigneur",
+    "christTheKing": "Christ, Roi de l'Univers",
+    "corpusChristi": "Saint-Sacrement",
+    "divineMercySunday": "Dimanche de la Divine Miséricorde",
+    "easter": "Dimanche de Pâques",
+    "epiphany": "L’Épiphanie du Seigneur",
+    "goodFriday": "Vendredi Saint",
+    "holyFamily": "La Sainte Famille",
+    "holySaturday": "Samedi Saint",
+    "holyThursday": "Jeudi Saint",
+    "immaculateConception": "Immaculée Conception de la Vierge Marie",
+    "immaculateHeartOfMary": "Cœur immaculé de Marie",
+    "josephHusbandOfMary": "Saint Joseph, Époux de la Vierge Marie",
+    "maryMotherOfGod": "Marie, Mère de Dieu",
+    "palmSunday": "Dimanche des Rameaux et de la Passion",
+    "pentecostSunday": "Pentecôte",
+    "peterAndPaulApostles": "Saint Pierre et Saint Paul, Apôtres",
+    "presentationOfTheLord": "Présentation du Seigneur au Temple",
+    "sacredHeartOfJesus": "Sacré-Cœur de Jésus",
+    "theExaltationOfTheHolyCross": "La Croix Glorieuse",
+    "transfiguration": "Transfiguration du Seigneur",
+    "trinitySunday": "Très Sainte Trinité"
+  },
+  "sanctoral": {
+    "allSouls": "Commémoration de tous les fidèles défunts",
+    "birthOfTheBlessedVirginMary": "Nativité de la Vierge Marie",
+    "blessedAndreGrassetPriestAndMartyr": "Bienheureux André Grasset, Prêtre, Canadien martyr de la Révolution française (✝ 1792)",
+    "blessedCatherineOfSaintAugustineVirgin": "Bienheureuse Catherine de Saint-Augustin, Religieuse hospitalière de la Miséricorde (✝ 1668)",
+    "blessedDinaBelangerVirgin": "Bienheureuse Dina Bélanger, Religieuse de la congrégation des Sœurs de Jésus-Marie (✝ 1929)",
+    "blessedEmilieTavernierGamelinReligious": "Bienheureuse Émilie Tavernier-Gamelin, Religieuse, Fondatrice des Sœurs de la Providence de Montréal (✝ 1851)",
+    "blessedFredericJanssoonePriest": "Bienheureux Frédéric Janssoone, Prêtre franciscain (✝ 1916)",
+    "blessedLouisZephirinMoreauBishop": "Bienheureux Louis Zéphyrin Moreau, Évêque (✝ 1901)",
+    "blessedMarieAnneBlondinVirgin": "Bienheureuse Marie-Anne Blondin, Religieuse, Fondatrice des Sœurs de Sainte-Anne (✝ 1890)",
+    "blessedMarieLeonieParadisVirgin": "Bienheureuse Marie-Léonie Paradis, Religieuse, Fondatrice de la Congrégation des Petites Sœurs de la Sainte Famille (✝ 1912)",
+    "blessedMarieRoseDurocherVirgin": "Bienheureuse Marie-Rose Durocher, Religieuse, Fondatrice des Sœurs des Saints Noms de Jésus et de Marie (✝ 1849)",
+    "blessedsNykytaBudkaAndVasylVelychkowskyBishopsAndMartyrs": "Bienheureux Nicétas Budka (✝ 1949) et Vasyl Velychkowsky (✝ 1973), Évêques et Martyrs",
+    "chairOfSaintPeterApostle": "Chaire de Saint Pierre, Apôtre",
+    "conversionOfSaintPaulApostle": "Conversion de Saint Paul, Apôtre",
+    "dedicationOfTheBasilicaOfSaintMaryMajor": "Dédicace de la basilique Sainte-Marie Majeure",
+    "dedicationOfTheBasilicasOfSaintsPeterAndPaulApostles": "Dédicace des basiliques de Saint Pierre et Saint Paul, Apôtres, à Rome",
+    "dedicationOfTheLateranBasilica": "Dédicace de la Basilique du Latran",
+    "firstMartyrsOfTheChurchOfRome": "Premiers Saints martyrs de la Sainte Église romaine (✝ 64)",
+    "guardianAngels": "Saints Anges gardiens",
+    "holyInnocentsMartyrs": "Saints Innocents, Martyrs (1er s.)",
+    "holyNameOfTheBlessedVirginMary": "Le Saint Nom de Marie",
+    "ourLadyMediatrix": "Notre-Dame, Médiatrice",
+    "ourLadyOfFatima": "Notre-Dame de Fatima",
+    "ourLadyOfGoodCounsel": "Notre-Dame du Bon Conseil",
+    "ourLadyOfGuadalupe": "Notre-Dame de Guadalupe",
+    "ourLadyOfLourdes": "Notre-Dame de Lourdes",
+    "ourLadyOfMountCarmel": "Notre-Dame du Mont-Carmel",
+    "ourLadyOfSorrows": "Notre-Dame des Douleurs",
+    "ourLadyOfTheRosary": "Notre-Dame du Rosaire",
+    "popeSaintJohnPaulII": "Saint Jean Paul II, Pape (✝ 2005)",
+    "popeSaintJohnXXIII": "Saint Jean XXIII, Pape (✝ 1963)",
+    "presentationOfTheBlessedVirginMary": "Présentation de la Vierge Marie",
+    "queenshipOfBlessedVirginMary": "Vierge Marie Reine",
+    "saintAgathaVirginAndMartyr": "Sainte Agathe, Vierge et Martyre en Sicile (✝ 251)",
+    "saintAgnesVirginAndMartyr": "Sainte Agnès, Vierge et Martyre (✝ v. 304)",
+    "saintAlbertTheGreatBishopAndDoctor": "Saint Albert le Grand, Frère prêcheur, Évêque de Ratisbonne, Docteur de l’Eglise (✝ 1280)",
+    "saintAloysiusGonzagaReligious": "Saint Louis de Gonzague, Religieux Jésuite (✝ 1591)",
+    "saintAlphonsusMariaDeLiguoriBishopAndDoctorOfTheChurch": "Saint Alphonse-Marie de Liguori, Bishop and Doctor of the Church",
+    "saintAmandMissionary": "Saint Amand d’Elnone, Missionnaire, Evêque de Maastricht (✝ v. 676)",
+    "saintAmbroseBishopAndDoctor": "Saint Ambroise, Évêque de Milan et Docteur de l’Église (✝ 397)",
+    "saintAndreBessetteReligious": "Saint Frère André Bessette, Religieux (✝ 1937)",
+    "saintAndrewDungLacAndCompanionsMartyrs": "Saint André Dung Lac, Prêtre, et ses compagnons, Martyrs (✝ entre 1745 et 1862)",
+    "saintAndrewKimTaegonPriestAndPaulChongHasangAndCompanionsMartyrs": "Saint André Kim Taegon, Prêtre, et Paul Chong Ha-sang et ses compagnons, Martyrs en Corée (19ème s.)",
+    "saintAndrewTheApostle": "Saint André, Apôtre",
+    "saintAngelaMericiVirgin": "Sainte Angèle Mérici, Religieuse, Fondatrice de la Compagnie de Sainte Ursule de Brescia (✝ 1540)",
+    "saintAnnePatronOfQuebecAndSaintJoachimParentsOfTheBlessedVirginMary": "Saints Anne, Patronne du Québec, et Joachim, Parents de la Vierge Marie (1er siècle)",
+    "saintAnselmOfCanterburyBishopAndDoctorOfTheChurch": "Saint Anselme de Cantorbéry, Évêque, docteur de l’Eglise (✝ 1109)",
+    "saintAnthonyMaryClaretBishop": "Saint Antoine-Marie Claret, Évêque (✝ 1870)",
+    "saintAnthonyOfEgyptAbbot": "Saint Antoine le Grand, Ermite en Egypte (✝ 356)",
+    "saintAnthonyOfPaduaPriestAndDoctor": "Saint Antoine, Prêtre et Docteur de l’Église (✝ 1231)",
+    "saintAnthonyZaccariaPriest": "Saint Antoine-Marie Zaccaria, Prêtre (✝ 1539)",
+    "saintApollinaris": "Saint Apollinaire, Évêque (2ème s.)",
+    "saintAthanasiusBishopAndDoctor": "Saint Athanase, Évêque, Docteur et Père de l’Église (✝ 373)",
+    "saintAugustineOfCanterburyBishop": "Saint Augustin, Évêque de Cantorbéry en Angleterre (✝ 604)",
+    "saintAugustineOfHippoBishopAndDoctorOfTheChurch": "Saint Augustin, Evêque d’Hippone, Docteur de l’Église (✝ 430)",
+    "saintBarnabasTheApostle": "Saint Barnabé, Apôtre",
+    "saintBartholomewTheApostle": "Saint Barthélemy, Apôtre",
+    "saintBedeTheVenerablePriestAndDoctorSaintGregoryViiPopeSaintMaryMagdaleneDePazziVirgin": "Saint Bède le Vénérable, Prêtre et docteur de l’Église (✝ 735), ou Saint Grégoire VII, Pape (✝ 1085), ou Sainte Marie-Madeleine de Pazzi, Vierge de l’Ordre du Carmel (✝ 1607)",
+    "saintBenedictOfNursiaAbbot": "Saint Benoît de Nursie, Patriarche des moines d’Occident, Fondateur de l’ordre des Bénédictins, Patron de l’Europe (✝ v. 547)",
+    "saintBernadetteSoubirousVirgin": "Sainte Bernadette Soubirous, Vierge (✝ 1879)",
+    "saintBernardineOfSienaPriest": "Saint Bernardin de Sienne, Prêtre (✝ 1444)",
+    "saintBernardOfClairvauxAbbotAndDoctorOfTheChurch": "Saint Bernard de Clairvaux, Abbé, Docteur de l’Église (✝ 1153)",
+    "saintBlaseBishopAndMartyrSaintAnsgarBishop": "Saint Blaise de Sébaste, Évêque et Martyr (✝ 316), ou Saint Anschaire de Brême, Évêque (✝ 865)",
+    "saintBonaventureBishopAndDoctor": "Saint Bonaventure, Évêque d’Albano et Docteur de l’Église (✝ 1274)",
+    "saintBonifaceBishopAndMartyr": "Saint Boniface, Évêque et Martyr (✝ 754)",
+    "saintBridgetOfSwedenReligious": "Sainte Brigitte de Suède, Veuve puis Religieuse, Fondatrice de l’ordre du Saint-Sauveur, Copatronne de l’Europe (✝ 1373)",
+    "saintBrotherMutienMarieReligious": "Saint Mutien Marie Wiaux, Frère des Ecoles Chrétiennes (✝ 1917)",
+    "saintBrunoPriest": "Saint Bruno, Prêtre, Fondateur des Chartreux (✝ 1101)",
+    "saintCaesariusOfArlesBishop": "Saint Césaire d’Arles, Évêque, Père de l’Eglise (✝ 542)",
+    "saintCallistusIPopeAndMartyr": "Saint Calixte Ier, Pape et Martyr (✝ 222)",
+    "saintCamillusDeLellisPriest": "Saint Camille de Lellis, Prêtre (✝ 1614)",
+    "saintCamillusDeLellisPriestOrSaintHenryBishopAndMartyr": "Saint Camille de Lellis, Prêtre, ou Saint Henri, Évêque et Martyr",
+    "saintCasimir": "Saint Casimir (✝ 1484)",
+    "saintCatherineOfAlexandriaVirginAndMartyr": "Sainte Catherine d’Alexandrie, Vierge et Martyre (4ème s.)",
+    "saintCatherineOfSienaVirginAndDoctorOfTheChurch": "Sainte Catherine de Sienne, Vierge et Docteur de l’Eglise, Patronne de l’Europe (✝ 1380)",
+    "saintCeciliaVirginAndMartyr": "Sainte Cécile, Vierge et Martyre à Rome (✝ 230)",
+    "saintCharbelMakhloufPriestAndHermit": "Saint Charbel Makhlouf, Moine Prêtre Maronite (✝ 1898)",
+    "saintCharlesBorromeoBishop": "Saint Charles Borromée, Archevêque de Milan (✝ 1584)",
+    "saintChristopherMagallanesAndCompanionsMartyrs": "Saints Cristóbal Magallanes, Prêtre, et ses 24 compagnons, Martyrs Mexicains (✝ 1927)",
+    "saintClareVirgin": "Sainte Claire, Vierge",
+    "saintClementIPopeAndMartyrSaintColumbanReligious": "Saint Clément Ier, Pape et Martyr (✝ 97), ou Saint Colomban, Religieux (✝ 615)",
+    "saintClotilde": "Sainte Clotilde, Reine des Francs (✝ 545)",
+    "saintCyrilOfAlexandriaBishopAndDoctor": "Saint Cyrille, Évêque d’Alexandrie et Docteur de l’Église (✝ 444)",
+    "saintCyrilOfJerusalemBishopAndDoctor": "Saint Cyrille de Jérusalem, Évêque de Jérusalem, Docteur de l’Église (✝ 387)",
+    "saintDamasusIPope": "Saint Damase Ier, Pape (✝ 384)",
+    "saintDamienDeVeusterPriest": "Saint Père Damien, Prêtre et Missionnaire Picpus (✝ 1889)",
+    "saintDenisAndCompanionsMartyrsSaintJohnLeonardiPriest": "Saint Denis, Évêque, et ses compagnons, martyrs à Paris (3ème s.), ou Saint Jean Léonardi, Prêtre (✝ 1609))",
+    "saintDominicPriest": "Saint Dominique de Guzman, Prêtre, Fondateur de l’Ordre des Frères prêcheurs (✝ 1221)",
+    "saintElizabethOfHungary": "Sainte Élisabeth de Hongrie (✝ 1231)",
+    "saintElizabethOfPortugal": "Sainte Elisabeth du Portugal, Reine (✝ 1336)",
+    "saintEphremDeaconAndDoctor": "Saint Ephrem, Diacre et Docteur de l’Église, (✝ 373)",
+    "saintEugeneDeMazenodBishop": "Saint Eugène de Mazenod, Fondateur des Oblats de Marie-Immaculée, Évêque de Marseille (✝ 1861)",
+    "saintEusebiusOfVercelliBishopSaintPeterJulianEymardPriest": "Saint Eusèbe de Verceil, Evêque (✝ 371), ou Saint Pierre-Julien Eymard, Prêtre, Fondateur des Pères du Saint-Sacrement (✝ 1868)",
+    "saintFidelisOfSigmaringenPriestAndMartyr": "Saint Fidèle de Sigmaringen, Prêtre et Martyr (✝ 1622)",
+    "saintFrancesOfRomeReligious": "Sainte Françoise Romaine, Religieuse (✝ 1440)",
+    "saintFrancisDeSalesBishopAndDoctor": "Saint François de Sales, Evêque de Genève et Docteur de l’Église (✝ 1622)",
+    "saintFrancisOfAssisi": "Saint François d’Assise, Fondateur de l’ordre des Frères mineurs (✝ 1226)",
+    "saintFrancisOfPaolaHermit": "Saint François de Paule, Ermite, Fondateur de l’ordre des Minimes (✝ 1507)",
+    "saintFrancisXavierPriest": "Saint François-Xavier, Prêtre, Jésuite Missionnaire (✝ 1552)",
+    "saintFrancoisDeLavalBishop": "Saint François de Laval, Premier évêque de Québec (✝ 1708)",
+    "saintGenevieveVirgin": "Sainte Geneviève, Vierge à Paris (✝ 500)",
+    "saintGeorgeMartyrSaintAdalbertBishopAndMartyr": "Saint Georges, Martyr (✝ 303) ou Saint Adalbert, Évêque de Prague et Martyr (✝ 997)",
+    "saintGertrudeOfNivellesVirgin": "Sainte Gertrude de Nivelles, Abbesse (✝ 659)",
+    "saintGregoryTheGreatPopeAndDoctor": "Saint Grégoire le Grand, Pape et Docteur de l’Église (✝ 604)",
+    "saintHedwigReligiousOrSaintMargaretMaryAlacoqueVirgin": "Sainte Edwige de Silésie, Veuve puis Religieuse (✝ 1243), ou Sainte Marguerite-Marie Alacoque, Visitandine à Paray-le-Monial (✝ 1690)",
+    "saintHedwigReligiousSaintMargaretMaryAlacoqueVirgin": "Sainte Edwige de Silésie, Veuve puis Religieuse (✝ 1243), ou Sainte Marguerite-Marie Alacoque, Visitandine à Paray-le-Monial (✝ 1690)",
+    "saintHenryBishopAndMartyr": "Saint Henri, Empereur Germanique (✝ 1024)",
+    "saintHilaryOfPoitiersBishopAndDoctor": "Saint Hilaire de Poitiers, Évêque et Docteur de l’Église (✝ 367)",
+    "saintHubertBishop": "Saint Hubert, Évêque (✝ 727)",
+    "saintIgnatiusOfAntiochBishopAndMartyr": "Saint Ignace d’Antioche, Évêque et Martyr, Père et Docteur de l’Eglise (✝ 115)",
+    "saintIgnatiusOfLoyolaPriest": "Saint Ignace de Loyola, Prêtre, Fondateur de la Compagnie de Jésus (✝ 1556)",
+    "saintIrenaeusBishopAndMartyr": "Saint Irénée, Évêque et Martyr (✝ v. 201)",
+    "saintIsidoreOfSevilleBishopAndDoctorOfTheChurch": "Saint Isidore de Séville, Docteur de l’Eglise, Évêque et Confesseur (✝ 636)",
+    "saintIvoPriest": "Saint Yves Hélory, Prêtre et Juge en Bretagne (✝ 1303)",
+    "saintJamesApostle": "Saint Jacques le Majeur, Apôtre (✝ 44)",
+    "saintJaneFrancesDeChantalReligious": "Sainte Jeanne-Françoise de Chantal, Religieuse (✝ 1641)",
+    "saintJanuariusBishopAndMartyr": "Saint Janvier, Évêque de Bénévent et Martyr (✝ 305)",
+    "saintJeanVianneyTheCureOfArsPriest": "Saint Jean-Marie Vianney (Curé d’Ars), Prêtre (✝ 1859)",
+    "saintJeromeEmilianiSaintJosephineBakhitaVirgin": "Saint Jérôme Émilien, Fondateur (✝ 1537), ou Sainte Joséphine Bakhita, Vierge et Religieuse (✝ 1947)",
+    "saintJeromePriestAndDoctor": "Saint Jérôme, Père et Docteur de l’Église (✝ 420)",
+    "saintJoanOfArcVirginSecondaryPatronessOfFrance": "Sainte Jeanne d’Arc, Vierge, Patronne Secondaires de la France (✝ 1431)",
+    "saintJohnBaptistDeLaSallePriest": "Saint Jean-Baptiste de La Salle, Prêtre et Fondateur des Frères des Ecoles Chrétiennes (✝ 1719)",
+    "saintJohnBerchmansReligious": "Saint Jean Berchmans, Jésuite Belge (✝ 1621)",
+    "saintJohnBoscoPriest": "Saint Jean Bosco, Prêtre, Fondateur et Éducateur (✝ 1888)",
+    "saintJohnChrysostomBishopAndDoctor": "Saint Jean Chrysostome, Évêque de Constantinople et Docteur de l’Église (✝ 407)",
+    "saintJohnDamascenePriestAndDoctor": "Saint Jean Damascène, Prêtre et Docteur de l’Église (✝ 749)",
+    "saintJohnEudesPriest": "Saint Jean Eudes, Prêtre (✝ 1680)",
+    "saintJohnIPopeAndMartyr": "Saint Jean Ier, Pape et Martyr (✝ 526)",
+    "saintJohnOfCapistranoPriest": "Saint Jean de Capistran, Prêtre de l’Ordre des Mineurs (✝ 1456)",
+    "saintJohnOfGodReligious": "Saint Jean de Dieu, Religieux, Fondateur des Frères de la Charité (✝ 1550)",
+    "saintJohnOfKantyPriest": "Saint Jean de Kenty, Prêtre (✝ 1473)",
+    "saintJohnOfTheCrossPriestAndDoctor": "Saint Jean de la Croix, Prêtre et Docteur de l’Église (✝ 1591)",
+    "saintJohnTheApostleAndEvangelist": "Saint Jean, Apôtre et Évangéliste",
+    "saintJosaphatBishopAndMartyr": "Saint Josaphat Kuntsevych, Évêque Basilien et Martyr (✝ 1623)",
+    "saintJosephSpouseOfTheBlessedVirginMaryPrincipalPatronOfCanada": "Saint Joseph, Époux de la Bienheureuse Vierge Marie, Principal Patron du Canada",
+    "saintJosephTheWorker": "Saint Joseph, Artisan (1er s.)",
+    "saintJuanDiegoCuauhtlatoatzin": "Saint Juan Diego Cuauhtlatoatzin (✝ 1548)",
+    "saintJulianaOfLiegeVirgin": "Sainte Julienne de Cornillon, Religieuse Augustine (✝ 1258)",
+    "saintJulieBilliartVirgin": "Sainte Julie Billiart, Religieuse, Fondatrice de l’Institut des Sœurs de Notre-Dame (✝ 1816)",
+    "saintJustinMartyr": "Saint Justin, Martyr (✝ 165)",
+    "saintKateriTekakwithaVirgin": "Sainte Kateri Tekakwitha, Vierge Amérindienne (✝ 1680)",
+    "saintLambertBishopAndMartyr": "Saint Lambert, Évêque et Martyr (✝ 705)",
+    "saintLawrenceOfBrindisiPriestAndDoctor": "Saint Laurent de Brindisi, Prêtre et Docteur de l’Église (✝ 1619)",
+    "saintLawrenceOfRomeDeaconAndMartyr": "Saint Laurent de Rome, Diacre et Martyr (✝ 258)",
+    "saintLeoTheGreatPopeAndDoctor": "Saint Léon le Grand, Pape et Docteur de l’Église",
+    "saintLouisSaintJosephOfCalasanzPriest": "Saint Louis, Roi de France (✝ 1270), ou Saint Joseph de Calasanz, Prêtre (✝ 1648)",
+    "saintLucyOfSyracuseVirginAndMartyr": "Sainte Lucie de Syracuse, Vierge et Martyre en Sicile (✝ v. 305)",
+    "saintLukeTheEvangelist": "Saint Luc, Évangéliste",
+    "saintMargaretOfScotlandSaintGertrudeTheGreatVirgin": "Sainte Marguerite d’Ecosse (✝ 1093), ou Sainte Gertrude, Vierge Moniale (✝ 1301)",
+    "saintMargueriteBourgeoysVirgin": "Sainte Marguerite Bourgeoys, Religieuse, Fondatrice de la congrégation des Sœurs de Notre-Dame (✝ 1700)",
+    "saintMargueriteDYouvilleReligious": "Sainte Marguerite d’Youville, Religieuse, Fondatrice des Sœurs de la Charité de Montréal (✝ 1771)",
+    "saintMariaGorettiVirginAndMartyr": "Sainte Maria Goretti, Vierge et Martyre (✝ 1902)",
+    "saintMarieOfTheIncarnationReligious": "Sainte Marie de l’Incarnation, Ursuline au Canada (✝ 1672)",
+    "saintMarkTheEvangelist": "Saint Marc, Évangéliste",
+    "saintMartha": "Sainte Marthe, Disciple du Christ (1er s.)",
+    "saintMartinDePorresReligious": "Saint Martin de Porrès, Religieux Dominicain à Lima (✝ 1639)",
+    "saintMartinIPopeAndMartyr": "Saint Martin Ier, Pape et Martyr (✝ 656)",
+    "saintMartinOfToursBishop": "Saint Martin de Tours, Evêque (✝ 397)",
+    "saintMaryMagdalene": "Sainte Marie-Madeleine, Disciple du Christ (1er s.)",
+    "saintMatthewApostleAndEvangelist": "Saint Matthieu, Apôtre et Évangéliste",
+    "saintMatthiasTheApostle": "Saint Matthias, Apôtre",
+    "saintMaximilianMaryKolbePriestAndMartyr": "Saint Maximilien-Marie Kolbe, Prêtre et Martyr (✝ 1941)",
+    "saintMonica": "Sainte Monique, Mère de Saint Augustin d’Hippone (✝ 387)",
+    "saintNicholasBishop": "Saint Nicolas, Évêque de Myre (✝ v. 350)",
+    "saintNorbertBishop": "Saint Norbert, Évêque (✝ 1134)",
+    "saintPatrickBishop": "Saint Patrick, Évêque (✝ 461)",
+    "saintPaulinusOfNolaBishopSaintsJohnFisherBishopAndThomasMoreMartyrs": "Saint Paulin, Évêque (✝ 431), ou Saints Jean Fisher, Évêque, et Thomas More, Martyrs (✝ 1535)",
+    "saintPaulMikiAndCompanionsMartyrs": "Saints Paul Miki et ses compagnons, Martyrs au Japon (✝ 1597)",
+    "saintPeterCanisiusPriestAndDoctor": "Saint Pierre Canisius, Prêtre et Docteur de l’Église (✝ 1597)",
+    "saintPeterChanelPriestAndMartyrSaintLouisGrignonDeMontfortPriest": "Saint Pierre Chanel, Prêtre et Martyr (✝ 1841), ou Saint Louis-Marie Grignion de Montfort, Prêtre (✝ 1716)",
+    "saintPeterChrysologusBishopAndDoctor": "Saint Pierre Chrysologue, Évêque de Ravenne et Docteur de l’Église (✝ 451)",
+    "saintPeterClaverPriest": "Saint Pierre Claver, Prêtre Jésuite (✝ 1654)",
+    "saintPeterDamianBishopAndDoctorOfTheChurch": "Saint Pierre Damien, Évêque d’Ostie, Docteur de l’Église (✝ 1072)",
+    "saintPhilipNeriPriest": "Saint Philippe Néri, Prêtre (✝ 1595)",
+    "saintPioOfPietrelcinaPadrePioPriest": "Saint Pio de Pietrelcina (Padre Pio), Prêtre Capucin (✝ 1968)",
+    "saintPiusVPope": "Saint Pie V, Pape (✝ 1572)",
+    "saintPiusXPope": "Saint Pie X, Pape (✝ 1914)",
+    "saintPolycarpBishopAndMartyr": "Saint Polycarpe, Évêque et Martyre (✝ 167)",
+    "saintPothinusBishopSaintBlAndinaVirginAndTheirCompanionsMartyrs": "Saint Pothin, Évêque, Sainte Blandine, Vierge, et leurs 46 compagnons, Martyrs à Lyon (✝ 177)",
+    "saintRaymondOfPenyafortPriest": "Saint Raymond de Peñafort, Prêtre (✝ 1275)",
+    "saintRemigiusBishop": "Saint Remi, Evêque de Reims (✝ 530)",
+    "saintRitaOfCascia": "Sainte Rita da Cascia, Veuve puis Religieuse (✝ 1456)",
+    "saintRobertBellarmineBishopAndDoctor": "Saint Robert Bellarmin, Jésuite, Évêque et Docteur de l’Eglise (✝ 1621)",
+    "saintRomualdAbbot": "Saint Romuald, Anachorète et Père des moines Camaldules (✝ 1027)",
+    "saintRoseOfLima": "Sainte Rose de Lima, Vierge (✝ 1617)",
+    "saintsAndrewZorardAndBenedictHermits": "Saints André Svorad († 1009) et Benoît Stojislav († 1012), Ermites",
+    "saintsAugustineZhaoRongPriestAndCompanionsMartyrs": "Saints Augustin Zhao Rong et ses compagnons, Martyrs en Chine (entre 1648 et 1930)",
+    "saintsBasilTheGreatAndGregoryNazianzenBishopsAndDoctors": "Saints Basile le Grand (✝ 379) et Grégoire de Naziance (✝ 390), Évêques et Docteurs de l’Église",
+    "saintsCharlesLwangaAndCompanionsMartyrs": "Saints Charles Lwanga et ses douze compagnons, Martyrs (✝ 618)",
+    "saintScholasticaVirgin": "Sainte Scolastique, Moniale, Sœur de Saint Benoît (✝ 543)",
+    "saintsCorneliusPopeAndCyprianBishopMartyrs": "Saints Martyrs Corneille, Pape, et Cyprien, Évêque (3ème s.)",
+    "saintsCosmasAndDamianMartyrs": "Saints Côme et Damien, Martyrs (3ème s.)",
+    "saintsCyrilMonkAndMethodiusBishop": "Saints Cyrille, Moine, et Méthode, Évêque, Apôtres des Slaves au 9ème siècle, Copatrons de l’Europe",
+    "saintsFabianPopeAndSebastianMartyrs": "Saint Fabien, Pape et Martyr (✝ 250), et Saint Sébastien, Martyr (✝ v. 284)",
+    "saintSixtusIiPopeAndCompanionsMartyrsSaintCajetanPriest": "Saint Sixte II, Pape, et ses Diacres, Martyrs (✝ 258), ou Saint Gaétan de Thienne, Prêtre (✝ 1547)",
+    "saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrsSaintPaulOfTheCrossPriest": "Saints Jean de Brébeuf, Isaac Jogues, Prêtres Jésuites, et leurs compagnons, Martyrs (17ème siècle), ou Saint Paul de la Croix, Prêtre (✝ 1776)",
+    "saintsJoachimAndAnne": "Saints Anne et Joachim, Mère et Père de la Vierge Marie (1er siècle)",
+    "saintsJohnDeBrebeufIsaacJoguesPriestsAndCompanionsMartyrsSecondaryPatronsOfCanada": "Saints Jean de Brébeuf, Isaac Jogues, Prêtres Jésuites, et leurs compagnons, Martyrs, Seconds Patrons du Canada (17ème siècle)",
+    "saintsMarcellinusAndPeterMartyrs": "Saints Martyrs Marcellin, Prêtre, et Pierre, Exorciste (✝ 304)",
+    "saintsMichaelGabrielAndRaphaelArchangels": "Saints Michel, Gabriel and Raphaël, Archanges",
+    "saintsNereusAndAchilleusMartyrsSaintPancrasMartyr": "Saints Nérée et Achillée, Martyrs à Rome (✝ v. 304), ou Saint Pancrace, Martyr à Rome (✝ v. 304)",
+    "saintsPerpetuaAndFelicityMartyrs": "Saintes Perpétue et Félicité, Martyres à Carthage (✝ 203)",
+    "saintsPhilipAndJamesApostles": "Saint Philippe et Saint Jacques le Mineur, Apôtres",
+    "saintsPontianPopeAndHippolytusPriestMartyrs": "Saints Pontien, Pape, et Hippolyte, Prêtre de Rome, Martyrs (✝ 235)",
+    "saintsSimonAndJudeApostles": "Saint Simon (le Zélote) et Saint Jude (Thaddée), Apôtres",
+    "saintStanislausBishopAndMartyr": "Saint Stanislas, Evêque de Cracovie, Martyr (✝ 1079)",
+    "saintStephenOfHungary": "Saint Etienne, Roi de Hongrie (✝ 1038)",
+    "saintStephenTheFirstMartyr": "Saint Étienne, Diacre et Premier Martyr (✝ 35)",
+    "saintsTimothyAndTitusBishops": "Saints Timothée et Tite, Évêques, Disciples et compagnons de Saint Paul (1er s.)",
+    "saintSylvesterIPope": "Saint Sylvestre Ier, Pape (✝ 335)",
+    "saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr": "Sainte Thérèse-Bénédicte de la Croix (Edith Stein), Carmélite, Martyr en Pologne, Copatronne de l’Europe (✝ 1942)",
+    "saintTeresaOfJesusVirginAndDoctorOfTheChurch": "Sainte Thérèse de Jésus (d’Avila), Vierge et Docteur de l’Église (✝ 1582)",
+    "saintThereseOfTheChildJesusVirginAndDoctor": "Sainte Thérèse de l’Enfant-Jésus, Vierge et Docteur de l’Église (✝ 1897)",
+    "saintThereseOfTheChildJesusVirginSecondaryPatronessOfFrance": "Sainte Thérèse de l’Enfant-Jésus, Docteur de l’Église, Seconde Patronne de la France (✝ 1897)",
+    "saintThomasAquinasPriestAndDoctor": "Saint Thomas d’Aquin, Frère prêcheur, Docteur de l’Eglise (✝ 1274)",
+    "saintThomasBecketBishopAndMartyr": "Saint Thomas Becket, Évêque et Martyr (✝ 1170)",
+    "saintThomasTheApostle": "Saint Thomas, Apôtre",
+    "saintTuribiusOfMogrovejoBishop": "Saint Alphonse Turibe de Mogrovejo, Évêque de Lima (✝ 1606)",
+    "saintVincentDeaconAndMartyr": "Saint Vincent, Diacre et Martyr (✝ 304)",
+    "saintVincentDePaulPriest": "Saint Vincent de Paul, Prêtre, Fondateur de la congrégation de la Mission et des Filles de la Charité (✝ 1660)",
+    "saintVincentFerrerPriest": "Saint Vincent Ferrier, Prêtre de l’Ordre des Prêcheurs (✝ 1419)",
+    "saintWenceslausMartyrSaintsLawrenceRuizAndCompanionsMartyrs": "Saint Venceslas, Martyr (✝ 929), ou Saints Laurent Ruiz et 15 compagnons, Martyrs à Nagasaki au Japon (✝ v. 1635)",
+    "sevenHolyFoundersOfTheServiteOrder": "Saint Alexis Falconieri et les fondateurs des Servites (✝ 1310)",
+    "shroveMonday": "Lundi gras",
+    "shroveTuesday": "Mardi gras",
+    "theBeheadingOfSaintJohnTheBaptistMartyr": "Martyre de Saint Jean-Baptiste",
+    "theMostHolyNameOfJesus": "Saint Nom de Jésus",
+    "visitationOfTheBlessedVirginMary": "Visitation de la Vierge Marie"
+  }
+};
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
+                at Tue Feb 11 2020 13:54:39 GMT+0800 (Malaysia Time)
+            </div>
+        </div>
+        <script src="../../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../../sorter.js"></script>
+        <script src="../../block-navigation.js"></script>
+    </body>
+</html>
+    
