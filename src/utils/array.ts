@@ -63,7 +63,11 @@ export const asyncForEach = <Item, CallbackReturn>(
   array: Item[] | ReadonlyArray<Item>,
   callback: (
     item: Item,
-    data: { index: number; items: Item[] | ReadonlyArray<Item>; breakOut: () => void }
+    data: {
+      index: number;
+      items: Item[] | ReadonlyArray<Item>;
+      breakOut: () => void;
+    }
   ) => CallbackReturn | Promise<CallbackReturn>
 ): Promise<CallbackReturn[]> => {
   let hasBreak = false;
@@ -71,12 +75,19 @@ export const asyncForEach = <Item, CallbackReturn>(
     hasBreak = true;
   };
 
-  const invokeCallback = (index: number, results: CallbackReturn[]): Promise<CallbackReturn[]> => {
+  const invokeCallback = (
+    index: number,
+    results: CallbackReturn[]
+  ): Promise<CallbackReturn[]> => {
     if (index === array.length) {
       return Promise.resolve(results);
     }
-    return Promise.resolve(callback(array[index], { index, items: array, breakOut })).then(result =>
-      hasBreak ? Promise.resolve(results) : invokeCallback(index + 1, results.concat(result))
+    return Promise.resolve(
+      callback(array[index], { index, items: array, breakOut })
+    ).then(result =>
+      hasBreak
+        ? Promise.resolve(results)
+        : invokeCallback(index + 1, results.concat(result))
     );
   };
   return invokeCallback(0, []);

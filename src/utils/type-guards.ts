@@ -1,5 +1,4 @@
-import moment from 'moment';
-import { ISO8601DateString } from './custom-types';
+import moment from "moment";
 
 /**
  * Primitive types
@@ -21,46 +20,46 @@ export type ChristmastideEndings = "t" | "o" | "e";
  * @param input
  */
 export const isISODateString = (value: string): value is ISO8601DateString =>
-  moment(value, moment.ISO_8601, true).isValid();
+    moment(value, moment.ISO_8601, true).isValid();
 
 /**
  * Check if a value is *NOT* `undefined`. This is useful to check if optional props is specified.
  * @param value the value that could be `undefined`
  */
-export const isDefined = <T>(value: T | undefined): value is T => typeof value !== 'undefined';
+export const isDefined = <T>(value: T | undefined): value is T => typeof value !== "undefined";
 
 /**
  * Check if a value is `undefined` or `null`.
  * @param value The value that could be `null` or `undefined`
  */
-export const isNil = (value: any): value is undefined | null => typeof value === 'undefined' || value === null;
+export const isNil = (value: any): value is undefined | null => typeof value === "undefined" || value === null;
 
 /**
  * Check if a value is boolean (`true` / `false`).
  * @param value The value that could be a boolean
  */
-export const isBool = (value: any): value is boolean => typeof value === 'boolean';
+export const isBool = (value: any): value is boolean => typeof value === "boolean";
 
 /**
  * Check if the value is a string.
  * @param value The value that could be a string
  */
-export const isString = (value: any): value is string => typeof value === 'string';
+export const isString = (value: any): value is string => typeof value === "string";
 
 /**
  * Check if a value is primitive (`undefined`, `null`, `boolean`, `number`, or `string`).
  * @param value The value that could be a primitive type
  */
 export const isPrimitive = (value: any): value is Primitive =>
-  value === null || ['string', 'undefined', 'boolean', 'number'].indexOf(typeof value) !== -1;
+    value === null || ["string", "undefined", "boolean", "number"].indexOf(typeof value) !== -1;
 
-export const isFunction = (value: any): value is Function => typeof value === 'function';
+export const isFunction = (value: any): value is Function => typeof value === "function";
 
 /**
  * Checks if a value is an object.
  * @param value The value that could be an object
  */
 export const isObject = (value: any): value is object => {
-  const valType = typeof value;
-  return !!value && valType === 'object';
+    const valType = typeof value;
+    return !!value && valType === "object";
 };
