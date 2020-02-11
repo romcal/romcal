@@ -1,46 +1,38 @@
-const path = require("path");
+import { join } from "path";
 
-module.exports = {
+export default (env, { mode }) => [
+  {
+    target: "node",
+    devtool: mode === "production" ? "source-map" : "inline-source-map",
+    entry: {
+      romcal: join(__dirname, "./src/index.ts")
+    },
 
-  entry: {
-    romcal: "./src/index.js"
-  },
+    output: {
+      filename: "[name].bundle.min.js",
+      path: join(__dirname, "dist"),
+      library: "Romcal",
+      libraryTarget: "umd"
+    },
 
-  output: {
-    filename: "[name].bundle.min.js",
-    path: path.join(__dirname, "dist"),
-    library: "Romcal",
-    libraryTarget: "umd"
-  },
+    resolve: {
+      extensions: [".ts", ".js", ".json"]
+    },
 
-  resolve: {
-    extensions: [".js", ".mjs", ".json"]
-  },
+    module: {
+      rules: [
+        {
+          test: /\.tsx?$/,
+          use: "ts-loader?configFile=tsconfig.json",
+          exclude: /node_modules/
+        }
+      ]
+    },
 
-  mode: "production",
-
-  devtool: "source-map",
-
-  module: {
-    rules: [
-      // All files with '.js' extension will be handled by 'babel-loader'.
-      {
-        test: /\.js?$/,
-        loader: "babel-loader",
-        exclude: /(node_modules|bower_components)/
-      },
-      // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
-      {
-        enforce: "pre",
-        test: /\.js$/,
-        loader: "source-map-loader"
-      },
-    ]
-  },
-
-  // When importing a module whose path matches one of the following, just
-  // assume a corresponding global variable exists and use that instead.
-  // This is important because it allows us to avoid bundling all of our
-  // dependencies, which allows browsers to cache those libraries between builds.
-  externals: {}
-};
+    // When importing a module whose path matches one of the following, just
+    // assume a corresponding global variable exists and use that instead.
+    // This is important because it allows us to avoid bundling all of our
+    // dependencies, which allows browsers to cache those libraries between builds.
+    externals: {}
+  }
+];
