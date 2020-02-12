@@ -8,9 +8,9 @@ export type Filter<T, U> = T extends U ? T : never;
 
 /** Get the keys of T if the value is assignable to U */
 export type FilterdKeys<T, U> = {
-  [P in keyof T]: T[P] extends U ? P : never;
+    [P in keyof T]: T[P] extends U ? P : never;
 }[keyof T];
 
 export type DiffedKeys<T, U> = {
-  [P in keyof T]: T[P] extends U ? never : P;
+    [P in keyof T]: T[P] extends U ? never : P;
 }[keyof T];

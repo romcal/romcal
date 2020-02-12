@@ -3,6 +3,7 @@
     "version": "1.3.1-canary.39",
     "description": "Utility library that outputs the Liturgical Calendar used by the Roman Rite (Western Church)",
     "main": "dist/index.js",
+    "types": "dist/index.d.js",
     "module": "src/index.js",
     "engines": {
         "node": ">=8"
@@ -15,8 +16,8 @@
     },
     "scripts": {
         "prepublishOnly": "npm run build",
-        "build": "webpack --colors --mode production",
-        "build:dev": "webpack --colors --mode development",
+        "build": "webpack --mode production",
+        "build:dev": "webpack --mode development",
         "lint": "tsc --noEmit && eslint './src/**/*.{js,ts,tsx}' --quiet --fix",
         "test": "jest",
         "test:watch": "jest --watch",
@@ -84,6 +85,7 @@
         "@types/jest": "^25.1.2",
         "@types/lodash": "^4.14.149",
         "@types/node": "^13.7.0",
+        "@types/rewire": "^2.5.28",
         "@typescript-eslint/eslint-plugin": "^2.19.2",
         "@typescript-eslint/parser": "^2.19.2",
         "auto-changelog": "^1.16.2",
@@ -91,8 +93,10 @@
         "eslint-config-prettier": "^6.10.0",
         "eslint-plugin-prettier": "^3.1.2",
         "jest": "^25.1.0",
+        "jest-transform-stub": "^2.0.0",
         "lint-staged": "^10.0.7",
         "prettier": "^1.19.1",
+        "rewire": "^4.0.1",
         "semver": "^7.1.1",
         "ts-jest": "^25.2.0",
         "ts-loader": "^6.2.1",

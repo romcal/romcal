@@ -1,3 +1,5 @@
+import { RomcalLocale } from "../models/romcal-locale";
+
 export default {
   "advent": {
     "season": "Advent",
@@ -751,4 +753,4 @@ export default {
     "visitationOfTheBlessedVirginMary": "Visitation of the Blessed Virgin Mary",
     "waitangiDay": "Waitangi Day"
   }
-};
+} as RomcalLocale;
