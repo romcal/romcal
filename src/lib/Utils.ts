@@ -21,12 +21,12 @@ _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
  * We get then a cascade fallbacks: region ('xx-XX') -> base language ('xx') -> default 'en'
  * For example: if a string is missing in 'fr-CA', it will try to pick it in 'fr', and then in 'en'.
  */
-export const _fallbackLocaleKey: string = "en";
+export const _fallbackLocaleKey = "en";
 
 let _combinedLocale: RomcalLocale | undefined;
 let _locales: Array<RomcalLocale>;
 
-let setLocale = (key: string) => {
+const setLocale = (key: string): void => {
     const availableLocales: {
         [key: string]: RomcalLocale;
     } = Locales;
@@ -52,7 +52,7 @@ let setLocale = (key: string) => {
     if (keyValues !== null) {
         const [lang, region] = keyValues;
         // Use kebab-case in localName to follow IETF Language Codes standards
-        localeName = `${lang}${region ? `-${region.toUpperCase()}` : ``}`;
+        localeName = `${lang}${region ? `-${region.toUpperCase()}` : ""}`;
         // Set the locale
         moment.locale(localeName);
         /**
@@ -90,7 +90,7 @@ let setLocale = (key: string) => {
 // Return an object that combines the main locale with its fallback.
 // And use cache in case this function is called multiple times
 // without the locale being modified.
-const getLocale = () => {
+const getLocale = (): RomcalLocale => {
     if (isNil(_combinedLocale)) {
         if (_locales.length > 1) {
             const [regionLocale, fallbackLocale] = _locales;
@@ -108,7 +108,7 @@ const getLocale = () => {
 const localize = ({ key, count, week, day }: { key: string; day?: string; week?: number; count?: number }): string => {
     // Get locale data
     const localeDate = moment.localeData();
-    let value = findDescendantValueByKeys(getLocale(), key.split("."));
+    const value = findDescendantValueByKeys(getLocale(), key.split("."));
 
     // Run the template against the options provided
     return _.template(value)({
@@ -142,6 +142,6 @@ const localizeDates = (dates: Array<RawDateItem>, source = "sanctoral"): Array<R
     });
 };
 
-const getTypeByDayOfWeek = (day: number) => (_.eq(day, 0) ? Types.SUNDAY : Types.FERIA);
+const getTypeByDayOfWeek = (day: number): Types => (_.eq(day, 0) ? Types.SUNDAY : Types.FERIA);
 
 export { setLocale, getLocale, localize, localizeDates, getTypeByDayOfWeek };
