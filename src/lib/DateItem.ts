@@ -1,10 +1,9 @@
 // @flow
 
 import Moment from "moment";
-import {Cycles, LiturgicalSeasons, Types} from "../constants";
+import { Cycles, LiturgicalSeasons, Types } from "../constants";
 import * as Dates from "./Dates";
 
-export opaque type ISOString: string = string;
 
 /**
  * DateItem Class
