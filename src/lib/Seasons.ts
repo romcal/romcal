@@ -10,7 +10,7 @@ import {
   Types
 } from "../constants";
 import { RomcalDateItem, RomcalDateItemData } from "../models/romcal-date-item";
-import { ChristmastideEndings } from "../utils/custom-types";
+import { ChristmastideEndings } from "../utils/type-guards";
 
 //================================================================================================
 // METHODS TO GENERATE THE SEASONS
@@ -18,15 +18,24 @@ import { ChristmastideEndings } from "../utils/custom-types";
 //================================================================================================
 
 // dates: array of moment object dates
-const _metadata = (dates: Array<RomcalDateItem>) => {
-  return _.map( dates, (date: RomcalDateItem) => {
-    date.source = "l";
-    date.data.calendar = {
-      weeks: date.moment.weeksInYear(),
-      week: date.moment.week(),
-      day: date.moment.dayOfYear()
-    };
-    return date;
+/**
+ * 
+ * @param items An array of [[RomcalDateItem]]'s
+ */
+const _metadata = (items: Array<RomcalDateItem>) => {
+  return _.map( items, ({ moment, ...rest }: RomcalDateItem) => {
+    return {
+      moment,
+      ...rest,
+      source: "l",
+      data: {
+        calendar: {
+          weeks: moment.weeksInYear(),
+          week: moment.week(),
+          day: moment.dayOfYear()
+        }
+      }
+    }
   });
 };
 
@@ -182,8 +191,8 @@ const advent = (year: number) => {
 
     if ( _.eq( k % 7, 0 ) ) {
       psalterWeek++;
-      if ( _.gt( psalterWeek, 4 ) ) {
-        psalterWeek = 1;
+      if ( _.gt( psalterWeek, 3 ) ) {
+        psalterWeek = 0;
       }
     }
 
@@ -286,7 +295,7 @@ const christmastide = (year: number, christmastideEnds: ChristmastideEndings, ep
   // The proper color of Christmas is white
   //=====================================================================
 
-  let psalterWeek = 4;
+  let psalterWeek = 3;
   if ( _.eq( _.head( days ).day(), 0 ) ) {
     psalterWeek = 0;
   }
@@ -300,8 +309,8 @@ const christmastide = (year: number, christmastideEnds: ChristmastideEndings, ep
 
     if ( _.eq( v.moment.day() % 7, 0 ) ) {
       psalterWeek++;
-      if ( _.gt( psalterWeek, 4 ) ) {
-        psalterWeek = 1;
+      if ( _.gt( psalterWeek, 3 ) ) {
+        psalterWeek = 0;
       }
     }
 
@@ -351,7 +360,7 @@ const earlyOrdinaryTime = (y, christmastideEnds, epiphanyOnJan6 = false) => {
 
   //=====================================================================
   // PSALTER WEEKS & LITURGICAL COLORS - EARLY ORDINARY TIME
-  //---------------------------------------------------------------------
+  //=====================================================================
   // The first week of Ordinary Time begins with the Monday following
   // the Feast of the Baptism of the Lord (which is the last Sunday of
   // the Christmas Season). Consequently, one starts using Week-1 of the
@@ -367,7 +376,7 @@ const earlyOrdinaryTime = (y, christmastideEnds, epiphanyOnJan6 = false) => {
   //
   // The proper color of ordinary time is green
   //=====================================================================
-  let psalterWeek = 1;
+  let psalterWeek = 0;
 
   _.map( days, v => {
 
@@ -378,8 +387,8 @@ const earlyOrdinaryTime = (y, christmastideEnds, epiphanyOnJan6 = false) => {
 
     if ( _.eq( v.moment.day() % 7, 0 ) ) {
       psalterWeek++;
-      if ( _.gt( psalterWeek, 4 ) ) {
-        psalterWeek = 1;
+      if ( _.gt( psalterWeek, 3 ) ) {
+        psalterWeek = 0;
       }
     }
 
@@ -451,7 +460,7 @@ const laterOrdinaryTime = (year: number) => {
 
   let psalterWeek = firstWeekOfLaterOrdinaryTime % 4;
   if ( _.eq( psalterWeek, 0 ) ) {
-    psalterWeek = 4;
+    psalterWeek = 3;
   }
 
   _.map( days, v => {
@@ -463,8 +472,8 @@ const laterOrdinaryTime = (year: number) => {
 
     if ( _.eq( v.moment.day() % 7, 0 ) ) {
       psalterWeek++;
-      if ( _.gt( psalterWeek, 4 ) ) {
-        psalterWeek = 1;
+      if ( _.gt( psalterWeek, 3 ) ) {
+        psalterWeek = 0;
       }
     }
 
@@ -567,8 +576,8 @@ const lent = (year: number) => {
 
     if ( _.eq( v.moment.day() % 7, 0 ) ) {
       psalterWeek++;
-      if ( _.gt( psalterWeek, 4 ) ) {
-        psalterWeek = 1;
+      if ( _.gt( psalterWeek, 3 ) ) {
+        psalterWeek = 0;
       }
     }
 
@@ -677,7 +686,7 @@ const eastertide = (year: number) => {
   // The proper color of Easter is white
   //=====================================================================
 
-  let psalterWeek = 2;
+  let psalterWeek = 1;
 
   _.map( days, ( v, k ) => {
 
@@ -689,14 +698,14 @@ const eastertide = (year: number) => {
     if ( _.lt( k, 8 ) ) {
       v.data.meta.psalterWeek = {
         key: 5,
-        value: PsalterWeeks[ 5 ]
+        value: PsalterWeeks[ 4 ]
       };
     }
     else {
       if ( _.eq( v.moment.day() % 7, 0 ) ) {
         psalterWeek++;
-        if ( _.gt( psalterWeek, 4 ) ) {
-          psalterWeek = 1;
+        if ( _.gt( psalterWeek, 3 ) ) {
+          psalterWeek = 0;
         }
       }
       v.data.meta.psalterWeek = {

@@ -11,7 +11,7 @@
  * ```
  */
 export const includes = <T>(array: T[] | ReadonlyArray<T>, item: T) => {
-  return array.includes ? array.includes(item) : array.indexOf(item) !== -1;
+    return array.includes ? array.includes(item) : array.indexOf(item) !== -1;
 };
 
 /**
@@ -26,7 +26,7 @@ export const includes = <T>(array: T[] | ReadonlyArray<T>, item: T) => {
  * ```
  */
 export const concatAll = <T>(array: Array<T | T[]>) => {
-  return array.reduce<T[]>((result, item) => result.concat(item), []);
+    return array.reduce<T[]>((result, item) => result.concat(item), []);
 };
 
 /**
@@ -60,35 +60,28 @@ export const concatAll = <T>(array: Array<T | T[]>) => {
  *
  */
 export const asyncForEach = <Item, CallbackReturn>(
-  array: Item[] | ReadonlyArray<Item>,
-  callback: (
-    item: Item,
-    data: {
-      index: number;
-      items: Item[] | ReadonlyArray<Item>;
-      breakOut: () => void;
-    }
-  ) => CallbackReturn | Promise<CallbackReturn>
+    array: Item[] | ReadonlyArray<Item>,
+    callback: (
+        item: Item,
+        data: {
+            index: number;
+            items: Item[] | ReadonlyArray<Item>;
+            breakOut: () => void;
+        },
+    ) => CallbackReturn | Promise<CallbackReturn>,
 ): Promise<CallbackReturn[]> => {
-  let hasBreak = false;
-  const breakOut = () => {
-    hasBreak = true;
-  };
+    let hasBreak = false;
+    const breakOut = () => {
+        hasBreak = true;
+    };
 
-  const invokeCallback = (
-    index: number,
-    results: CallbackReturn[]
-  ): Promise<CallbackReturn[]> => {
-    if (index === array.length) {
-      return Promise.resolve(results);
-    }
-    return Promise.resolve(
-      callback(array[index], { index, items: array, breakOut })
-    ).then(result =>
-      hasBreak
-        ? Promise.resolve(results)
-        : invokeCallback(index + 1, results.concat(result))
-    );
-  };
-  return invokeCallback(0, []);
+    const invokeCallback = (index: number, results: CallbackReturn[]): Promise<CallbackReturn[]> => {
+        if (index === array.length) {
+            return Promise.resolve(results);
+        }
+        return Promise.resolve(callback(array[index], { index, items: array, breakOut })).then(result =>
+            hasBreak ? Promise.resolve(results) : invokeCallback(index + 1, results.concat(result)),
+        );
+    };
+    return invokeCallback(0, []);
 };

@@ -3,7 +3,9 @@ import moment from "moment";
 import { Types } from "../constants";
 import * as Locales from "../locales";
 import { RawDateItem, LocalizedRawDateItem } from "../models/romcal-date-item";
-import { findDescendantValueByKeys } from "../utils/object";
+import { findDescendantValueByKeys, hasKey, getValueByKey, mergeObjectsUniquely } from "../utils/object";
+import { RomcalLocale } from "../models/romcal-locale";
+import { isNil } from "../utils/type-guards";
 
 /**
  *  Mustache style templating is easier on the eyes
@@ -19,28 +21,38 @@ _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
  * We get then a cascade fallbacks: region ('xx-XX') -> base language ('xx') -> default 'en'
  * For example: if a string is missing in 'fr-CA', it will try to pick it in 'fr', and then in 'en'.
  */
-const _fallbackLocaleKey: string = "en";
+export const _fallbackLocaleKey: string = "en";
 
-let _combinedLocale;
-let _locales;
+let _combinedLocale: RomcalLocale | undefined;
+let _locales: Array<RomcalLocale>;
 
 let setLocale = (key: string) => {
-    // When setLocale() is called, it redefines this vars to defaults
+    const availableLocales: {
+        [key: string]: RomcalLocale;
+    } = Locales;
+
+    // When setLocale() is called, it resets the combined locale cache
     _combinedLocale = undefined;
-    _locales = [_.get(Locales, _fallbackLocaleKey)];
 
-    // Sanitize incoming key
-    const sanitizedKey = _.toLower(key); // make key it lowercase
+    // First of all, fetch the fallback locale object ("en") and store the en object in an array
+    // This will serve as the default locale object if the given key cannot be resolved below
+    _locales = [getValueByKey(availableLocales, _fallbackLocaleKey)];
 
-    // Extract lang and region from string
-    const keyValues: RegExpExecArray | null = /^([a-z]+)-?([a-z]*)/.exec(key);
+    // =================================================================================
+    // Make key lowercase
+    // Extract lang and region from key
+    // =================================================================================
+    const lowerCasedKey = key.toLowerCase(); // make key it lowercase
+    const keyValues: RegExpExecArray | null = /^([a-z]+)-?([a-z]*)/.exec(lowerCasedKey);
 
+    // =================================================================================
     // Set the Moment locale (if unrecognized, will default to 'en')
+    // =================================================================================
     let localeName;
     if (keyValues !== null) {
         const [lang, region] = keyValues;
         // Use kebab-case in localName to follow IETF Language Codes standards
-        localeName = `${lang}${region ? `-${_.toUpper(region)}` : ``}`;
+        localeName = `${lang}${region ? `-${region.toUpperCase()}` : ``}`;
         // Set the locale
         moment.locale(localeName);
         /**
@@ -48,10 +60,10 @@ let setLocale = (key: string) => {
          * Also check if the base language isn't already the default 'en',
          * and if this base language exists in 'src/locales'
          */
-        if (!!region && lang !== _fallbackLocaleKey && _.has(Locales, lang)) {
+        if (!!region && lang !== _fallbackLocaleKey && hasKey(availableLocales, lang)) {
             // Retrieve the relevant base locale object
             // and set it as a fallback (before 'en')
-            _locales.unshift(_.get(Locales, lang));
+            _locales = [getValueByKey(availableLocales, lang), ..._locales];
         }
     } else {
         localeName = _fallbackLocaleKey;
@@ -72,16 +84,6 @@ let setLocale = (key: string) => {
             doy: 6, // US, Canada: 1st week of the year is the one that contains the 1st of January (7 + 0 - 1)
         },
     });
-
-    // Set the given locale into romcal.
-    // Also check if it's not the same as the fallback 'en'
-    // (to avoid its duplicate definition)
-    // and if exists in 'src/locales'
-    if (key !== _fallbackLocaleKey && _.has(Locales, key)) {
-        // Retrieve the relevant locale object
-        // and set it as the first & default locale
-        _locales.unshift(_.get(Locales, key));
-    }
 };
 
 // Get the current locale object.
@@ -89,8 +91,13 @@ let setLocale = (key: string) => {
 // And use cache in case this function is called multiple times
 // without the locale being modified.
 const getLocale = () => {
-    if (_.isUndefined(_combinedLocale)) {
-        _combinedLocale = _.mergeWith.apply(null, [{}].concat(_.reverse(_locales)));
+    if (isNil(_combinedLocale)) {
+        if (_locales.length > 1) {
+            const [regionLocale, fallbackLocale] = _locales;
+            _combinedLocale = mergeObjectsUniquely(regionLocale, fallbackLocale);
+        } else {
+            _combinedLocale = _locales[0];
+        }
     }
     return _combinedLocale;
 };
@@ -112,8 +119,6 @@ const localize = ({ key, count, week }: { key: string; week?: number; count?: nu
         ...(count && { count: localeDate.ordinal(count) }),
     });
 };
-
-// declare function hasLocalizedName<"name" extends Local(x:  ): "name" extends LocalizedRawDateItem ? LocalizedRawDateItem : RawDateItem;
 
 /**
  * Utility function that takes an array of national calendar dates
