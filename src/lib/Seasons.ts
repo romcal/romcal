@@ -9,8 +9,10 @@ import {
   LiturgicalColors,
   Types
 } from "../constants";
-import { RomcalDateItem, RomcalDateItemData } from "../models/romcal-date-item";
+import { RomcalDateItem, RomcalDateItemData, RomcalDateItemDataCalendar, RomcalDateItemWithoutKeyAndSource } from "../models/romcal-date-item";
 import { ChristmastideEndings } from "../utils/type-guards";
+import moment from "moment";
+import { ReadStream } from "fs";
 
 //================================================================================================
 // METHODS TO GENERATE THE SEASONS
@@ -19,7 +21,7 @@ import { ChristmastideEndings } from "../utils/type-guards";
 
 // dates: array of moment object dates
 /**
- * 
+ *
  * @param items An array of [[RomcalDateItem]]'s
  */
 const _metadata = (items: Array<RomcalDateItem>) => {
@@ -29,6 +31,7 @@ const _metadata = (items: Array<RomcalDateItem>) => {
       ...rest,
       source: "l",
       data: {
+        ...rest.data,
         calendar: {
           weeks: moment.weeksInYear(),
           week: moment.week(),
@@ -43,10 +46,9 @@ const _metadata = (items: Array<RomcalDateItem>) => {
 // epiphanyOnJan6: true|false [If true, Epiphany will be fixed to Jan 6] (defaults to false)
 const _epiphany = (year: number, epiphanyOnJan6: boolean = false) => {
 
-  let before = Dates.daysBeforeEpiphany(year, epiphanyOnJan6);
-  let after = Dates.daysAfterEpiphany(year, epiphanyOnJan6);
-  let days: Array<RomcalDateItem> = [];
-
+  let before: Array<moment.Moment> = Dates.daysBeforeEpiphany(year, epiphanyOnJan6);
+  let after: Array<moment.Moment> = Dates.daysAfterEpiphany(year, epiphanyOnJan6);
+  let days: Array<RomcalDateItemWithoutKeyAndSource> = [];
 
   _.each( before, day => {
     days.push({
@@ -62,10 +64,6 @@ const _epiphany = (year: number, epiphanyOnJan6: boolean = false) => {
           value: Utils.localize({
             key: "christmastide.season"
           })
-        },
-        meta: {
-          liturgicalColor: "",
-          titles: []
         }
       }
     });
@@ -85,10 +83,6 @@ const _epiphany = (year: number, epiphanyOnJan6: boolean = false) => {
           value: Utils.localize({
             key: "christmastide.season"
           })
-        },
-        meta: {
-          liturgicalColor: "",
-          titles: []
         }
       }
     });
@@ -101,7 +95,7 @@ const _epiphany = (year: number, epiphanyOnJan6: boolean = false) => {
 const _holyWeek = (year: number) => {
 
   let dates = Dates.holyWeek(year);
-  let days: Array<RomcalDateItem> = [];
+  let days: Array<RomcalDateItemWithoutKeyAndSource> = [];
 
   _.each( dates, (date) => {
     days.push({
@@ -120,7 +114,6 @@ const _holyWeek = (year: number) => {
         },
         meta: {
           liturgicalColor: LiturgicalColors.PURPLE,
-          titles: []
         }
       }
     });
@@ -134,7 +127,7 @@ const _holyWeek = (year: number) => {
 // y: The year (integer)
 const advent = (year: number) => {
 
-  let days: Array<RomcalDateItem> = [];
+  let days: Array<RomcalDateItemWithoutKeyAndSource> = [];
 
   _.each( Dates.daysOfAdvent(year), (value, i) => {
     days.push({
@@ -155,7 +148,6 @@ const advent = (year: number) => {
         meta: {
           // The proper color of the Third Sunday of Advent is rose. Purple may also be used on these Sundays.
           liturgicalColor: ( ( _.eq( Math.floor( i / 7 ), 2 ) && _.eq( value.day(), 0 ) ? LiturgicalColors.ROSE : LiturgicalColors.PURPLE ) ),
-          titles: []
         }
       }
     });
@@ -220,7 +212,8 @@ const christmastide = (year: number, christmastideEnds: ChristmastideEndings, ep
   let days = Dates.christmastide(year, christmastideEnds, epiphanyOnJan6);
   let octave = Dates.octaveOfChristmas(year);
   let epiphany = _epiphany( ( year + 1 ), epiphanyOnJan6 );
-  let d = [];
+  let d: Array<RomcalDateItemWithoutKeyAndSource> = [];
+
   let count = 0;
 
   _.each( days, day => {
@@ -333,7 +326,7 @@ const christmastide = (year: number, christmastideEnds: ChristmastideEndings, ep
 // epiphanyOnJan6: true|false [If true, Epiphany will be fixed to Jan 6] (defaults to false)
 const earlyOrdinaryTime = (y, christmastideEnds, epiphanyOnJan6 = false) => {
 
-  let days = [];
+  let days: Array<RomcalDateItemWithoutKeyAndSource> = [];
 
   _.each( Dates.daysOfEarlyOrdinaryTime(y, christmastideEnds, epiphanyOnJan6), ( value, i ) => {
     days.push({

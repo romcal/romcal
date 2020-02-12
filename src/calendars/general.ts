@@ -3,6 +3,7 @@ import _ from "lodash";
 
 import { Dates, Utils } from "../lib";
 import { Titles, Types, LiturgicalColors } from "../constants";
+import { RawDateItem } from "../models/romcal-date-item";
 
 const defaultConfig = {
   christmastideEnds: "o",
@@ -12,8 +13,7 @@ const defaultConfig = {
   ascensionOnSunday: false
 };
 
-let dates = year => {
-
+let dates = (year: number): Array<RawDateItem> => {
   let _dates = [
     {
       "key": "saintsBasilTheGreatAndGregoryNazianzenBishopsAndDoctors",
@@ -1852,7 +1852,6 @@ let dates = year => {
       "data": {}
     }
   ];
-
 
   return _.map( _dates, ({ key, data, ...rest }) => {
     let name = Utils.localize({ key: "sanctoral." + key });

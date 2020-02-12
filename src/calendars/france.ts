@@ -2,6 +2,7 @@ import moment from "moment";
 
 import { Utils } from "../lib";
 import { Titles, Types, LiturgicalColors } from "../constants";
+import { RawDateItem } from "../models/romcal-date-item";
 
 const defaultConfig = {
   epiphanyOnJan6: false,
@@ -9,8 +10,7 @@ const defaultConfig = {
   corpusChristiOnThursday: false
 };
 
-let dates = year => {
-
+let dates = (year: number): Array<RawDateItem> => {
   let _dates = [
     {
       "key": "saintGenevieveVirgin",
