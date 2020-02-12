@@ -1,4 +1,4 @@
-import { findDescendantValueByKeys, omit, omitFalsyProps } from "./object";
+import { findDescendantValueByKeys, omit, omitFalsyProps, mergeObjectsUniquely } from "./object";
 
 describe("omit", () => {
     let testObject: any;
@@ -104,5 +104,107 @@ describe("findDescendantValueByKeys()", () => {
         testNestedString = null;
         testNestedArray = null;
         testNestedObject = null;
+    });
+});
+
+describe("mergeObjects", () => {
+    test("should correctly merge objects with only native types", () => {
+        const target = {
+            foo: 1,
+            bar: 2,
+        };
+
+        const source = {
+            foo: 2,
+            bar: 3,
+            baz: 10,
+        };
+
+        const result = mergeObjectsUniquely(target, source);
+
+        expect(result).toStrictEqual({
+            foo: 1,
+            bar: 2,
+            baz: 10,
+        });
+    });
+
+    test("should correctly merge objects and ignore null values", () => {
+        const target = {
+            foo: 1,
+            bar: 2,
+        };
+
+        const source = {
+            foo: 2,
+            bar: 3,
+            baz: null,
+        };
+
+        const result = mergeObjectsUniquely(target, source);
+
+        expect(result).toStrictEqual({
+            foo: 1,
+            bar: 2,
+        });
+    });
+
+    test("should correctly merge objects with array values", () => {
+        const target = {
+            foo: 1,
+            bar: 2,
+        };
+
+        const source = {
+            foo: 2,
+            bar: 3,
+            baz: ["1", null, "2"],
+        };
+
+        const result = mergeObjectsUniquely(target, source);
+
+        expect(result).toStrictEqual({
+            foo: 1,
+            bar: 2,
+            baz: ["1", null, "2"],
+        });
+    });
+
+    test("should correctly merge objects with object values", () => {
+        const target = {
+            foo: {
+                a: 1,
+                b: 2,
+            },
+            bar: 2,
+        };
+
+        const source = {
+            foo: {
+                a: 100,
+                b: 222,
+                c: 3,
+            },
+            bar: 3,
+            baz: {
+                a: 1,
+                b: 2,
+            },
+        };
+
+        const result = mergeObjectsUniquely(target, source);
+
+        expect(result).toStrictEqual({
+            foo: {
+                a: 1,
+                b: 2,
+                c: 3,
+            },
+            bar: 2,
+            baz: {
+                a: 1,
+                b: 2,
+            },
+        });
     });
 });
