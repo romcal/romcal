@@ -105,7 +105,7 @@ const getLocale = () => {
 // Using the set Moment locale, get the relevant localized
 // text for standard dates. Also make numbers ordinal by
 // leveraging Moment's ordinal number function.
-const localize = ({ key, count, week }: { key: string; week?: number; count?: number }) => {
+const localize = ({ key, count, week, day }: { key: string; day?: string; week?: number; count?: number }): string => {
     // Get locale data
     const localeDate = moment.localeData();
     let value = findDescendantValueByKeys(getLocale(), key.split("."));
@@ -117,6 +117,8 @@ const localize = ({ key, count, week }: { key: string; week?: number; count?: nu
         ...(week && { week: localeDate.ordinal(week) }),
         // If defined, count the nth day of the given series
         ...(count && { count: localeDate.ordinal(count) }),
+        // If defined, add the day to be included in the translation
+        ...(day && { day }),
     });
 };
 
