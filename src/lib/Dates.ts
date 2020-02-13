@@ -7,17 +7,136 @@ import { ChristmastideEndings, isNil } from "../utils/type-guards";
 const { range } = extendMoment(moment);
 
 //==================================================================================
+// Base functions (all types of seasons and celebrations)
+//==================================================================================
+
+// This algorithm is based on the algorithm of Oudin (1940) and quoted in
+// "Explanatory Supplement to the Astronomical Almanac", P. Kenneth
+// Seidelmann, editor.
+// year: The year on which to check when Easter falls (integer)
+const _easter = _.memoize((year: number) => {
+    const Y = year;
+    const C = Math.floor(Y / 100);
+    const N = Y - 19 * Math.floor(Y / 19);
+    const K = Math.floor((C - 17) / 25);
+    let I = C - Math.floor(C / 4) - Math.floor((C - K) / 3) + 19 * N + 15;
+
+    I = I - 30 * Math.floor(I / 30);
+    I = I - Math.floor(I / 28) * (1 - Math.floor(I / 28) * Math.floor(29 / (I + 1)) * Math.floor((21 - N) / 11));
+
+    let J = Y + Math.floor(Y / 4) + I + 2 - C + Math.floor(C / 4);
+    J = J - 7 * Math.floor(J / 7);
+
+    const L = I - J;
+    const M = 3 + Math.floor((L + 40) / 44);
+    const D = L + 28 - 31 * Math.floor(M / 4);
+
+    return { year: Y, month: M, day: D };
+});
+
+const easter = (year: number): moment.Moment => {
+    const { month, day } = _easter(year);
+    return moment.utc({ year, month: month - 1, day });
+};
+
+/**
+ * The Solemnity of Pentecost occurs 49 days after Easter.
+ *
+ * @param year The year to use for the calculation
+ */
+const pentecostSunday = (year: number): moment.Moment =>
+    easter(year)
+        .add(49, "days")
+        .startOf("day");
+
+/**
+ * Divine Mercy Sunday is celebrated on the Sunday after Easter, the Octave of Easter,
+ * observed by Roman Catholic as well as some Anglicans
+ *
+ * @param year The year to use for the calculation
+ */
+const divineMercySunday = (year: number): moment.Moment =>
+    easter(year)
+        .add(7, "days")
+        .startOf("day");
+
+/**
+ * In the Western Rite, Christmas falls on the 25th of December.
+ *
+ * @param year The year to use for the calculation
+ */
+const christmas = (year: number): moment.Moment => moment.utc({ year, month: 11, day: 25 });
+
+// The start of Advent depends upon the day of the
+// week on which Christmas occurs
+// y: year
+const firstSundayOfAdvent = (year: number): moment.Moment => {
+    switch (christmas(year).day()) {
+        case 0: // Sunday
+            return moment.utc({ year, month: 10, day: 27 });
+        case 1: // Monday
+            return moment.utc({ year, month: 11, day: 3 });
+        case 2: // Tuesday
+            return moment.utc({ year, month: 11, day: 2 });
+        case 3: // Wednesday
+            return moment.utc({ year, month: 11, day: 1 });
+        case 4: // Thursday
+            return moment.utc({ year, month: 10, day: 30 });
+        case 5: // Friday
+            return moment.utc({ year, month: 10, day: 29 });
+        default:
+            // Saturday
+            return moment.utc({ year, month: 10, day: 28 });
+    }
+};
+
+//==================================================================================
 // Lent & Holy Week
 //==================================================================================
 
-// Ash Wednesday, a day of fasting, is the first day of Lent in Western
-// Christianity. It occurs 46 days (40 fasting days, if the 6 Sundays,
-// which are not days of fast, are excluded) before Easter and can fall
-// as early as 4 February or as late as 10 March.
-// y: year
+/**
+ * Ash Wednesday, a day of fasting, is the first day of Lent in Western
+ * Christianity. It occurs 46 days (40 fasting days, if the 6 Sundays,
+ * which are not days of fast, are excluded) before Easter and can fall
+ * as early as 4 February or as late as 10 March.
+ *
+ * @param year The year to use for the calculation
+ */
 const ashWednesday = (year: number): moment.Moment =>
     easter(year)
         .subtract(46, "days")
+        .startOf("day");
+
+// Maundy Thursday (also known as Holy Thursday) is
+// the Christian holy day falling on the Thursday before Easter.
+// y: year
+const holyThursday = (year: number): moment.Moment =>
+    easter(year)
+        .subtract(3, "days")
+        .startOf("day");
+
+// Palm Sunday is a Christian moveable feast that
+// falls on the Sunday before Easter.
+// y: year
+const palmSunday = (year: number): moment.Moment =>
+    easter(year)
+        .subtract(7, "days")
+        .startOf("day");
+
+/**
+ * Resolves the date of Holy Saturday.
+ *
+ *  Holy Saturday (Latin: Sabbatum Sanctum) i.e. the Saturday of Holy Week, also known as the
+ * Great Sabbath, Black Saturday, or Easter Eve,[1] and called "Joyous Saturday" or "the
+ * Saturday of Light" among Coptic Christians, is the day after Good Friday. It is the day
+ * before Easter and the last day of Holy Week in which Christians prepare for Easter.
+ * It commemorates the day that Jesus Christ's body lay in the tomb and the Harrowing of Hell.
+ *
+ * @param year The year to use for the calculation
+ */
+const holySaturday = (year: number): moment.Moment =>
+    easter(year)
+        .subtract(1, "days")
         .startOf("day");
 
 // Lent starts on Ash Wednesday and runs until the
@@ -76,22 +195,6 @@ const holyWeek = (year: number): Array<moment.Moment> => {
         .all();
 };
 
-// Palm Sunday is a Christian moveable feast that
-// falls on the Sunday before Easter.
-// y: year
-const palmSunday = (year: number): moment.Moment =>
-    easter(year)
-        .subtract(7, "days")
-        .startOf("day");
-
-// Maundy Thursday (also known as Holy Thursday) is
-// the Christian holy day falling on the Thursday before Easter.
-// y: year
-const holyThursday = (year: number): moment.Moment =>
-    easter(year)
-        .subtract(3, "days")
-        .startOf("day");
-
 // Good Friday is a Christian religious holiday commemorating the crucifixion of Jesus Christ
 // and his death at Calvary. The holiday is observed during Holy Week as part of the
 // Paschal Triduum on the Friday preceding Easter Sunday
@@ -99,17 +202,6 @@ const holyThursday = (year: number): moment.Moment =>
 const goodFriday = (year: number): moment.Moment =>
     easter(year)
         .subtract(2, "days")
-        .startOf("day");
-
-// Holy Saturday (Latin: Sabbatum Sanctum) i.e. the Saturday of Holy Week, also known as the
-// Great Sabbath, Black Saturday, or Easter Eve,[1] and called "Joyous Saturday" or "the
-// Saturday of Light" among Coptic Christians, is the day after Good Friday. It is the day
-// before Easter and the last day of Holy Week in which Christians prepare for Easter.
-// It commemorates the day that Jesus Christ's body lay in the tomb and the Harrowing of Hell.
-// y: year
-const holySaturday = (year: number): moment.Moment =>
-    easter(year)
-        .subtract(1, "days")
         .startOf("day");
 
 //==================================================================================
@@ -150,10 +242,6 @@ const epiphany = (year: number, epiphanyOnJan6 = false): moment.Moment => {
     }
     return date;
 };
-
-// Christmas falls on the 25th of December
-// y: year
-const christmas = (year: number): moment.Moment => moment.utc({ year, month: 11, day: 25 });
 
 // The Solemnity of Mary, the Holy Mother of God is a
 // feast day of the Blessed Virgin Mary under the aspect
@@ -325,36 +413,6 @@ const christTheKing = (year: number): moment.Moment =>
 // Eastertide
 //==================================================================================
 
-// This algorithm is based on the algorithm of Oudin (1940) and quoted in
-// "Explanatory Supplement to the Astronomical Almanac", P. Kenneth
-// Seidelmann, editor.
-// year: The year on which to check when Easter falls (integer)
-const _easter = _.memoize((year: number) => {
-    const Y = year;
-    const C = Math.floor(Y / 100);
-    const N = Y - 19 * Math.floor(Y / 19);
-    const K = Math.floor((C - 17) / 25);
-    let I = C - Math.floor(C / 4) - Math.floor((C - K) / 3) + 19 * N + 15;
-
-    I = I - 30 * Math.floor(I / 30);
-    I = I - Math.floor(I / 28) * (1 - Math.floor(I / 28) * Math.floor(29 / (I + 1)) * Math.floor((21 - N) / 11));
-
-    let J = Y + Math.floor(Y / 4) + I + 2 - C + Math.floor(C / 4);
-
-    J = J - 7 * Math.floor(J / 7);
-
-    const L = I - J;
-    const M = 3 + Math.floor((L + 40) / 44);
-    const D = L + 28 - 31 * Math.floor(M / 4);
-
-    return { year: Y, month: M, day: D };
-});
-
-const easter = (year: number): moment.Moment => {
-    const { month, day } = _easter(year);
-    return moment.utc({ year, month: month - 1, day });
-};
-
 // The term Octave of Easter refers to the eight-day period (Octave)
 // from Easter Sunday until the Sunday following Easter, inclusive;
 // y: year
@@ -404,47 +462,9 @@ const daysOfEaster = (year: number): Array<moment.Moment> => {
         .all();
 };
 
-// Divine Mercy Sunday is celebrated on the Sunday after Easter, the Octave of Easter,
-// observed by Roman Catholic as well as some Anglicans
-// y: year
-const divineMercySunday = (year: number): moment.Moment =>
-    easter(year)
-        .add(7, "days")
-        .startOf("day");
-
-// The Solemnity of Pentecost occurs 49 days after Easter.
-// y: year
-const pentecostSunday = (year: number): moment.Moment =>
-    easter(year)
-        .add(49, "days")
-        .startOf("day");
-
 //==================================================================================
 // Advent
 //==================================================================================
-
-// The start of Advent depends upon the day of the
-// week on which Christmas occurs
-// y: year
-const firstSundayOfAdvent = (year: number): moment.Moment => {
-    switch (christmas(year).day()) {
-        case 0: // Sunday
-            return moment.utc({ year, month: 10, day: 27 });
-        case 1: // Monday
-            return moment.utc({ year, month: 11, day: 3 });
-        case 2: // Tuesday
-            return moment.utc({ year, month: 11, day: 2 });
-        case 3: // Wednesday
-            return moment.utc({ year, month: 11, day: 1 });
-        case 4: // Thursday
-            return moment.utc({ year, month: 10, day: 30 });
-        case 5: // Friday
-            return moment.utc({ year, month: 10, day: 29 });
-        default:
-            // Saturday
-            return moment.utc({ year, month: 10, day: 28 });
-    }
-};
 
 // The length of Advent depends upon the day
 // of the week on which Christmas occurs
