@@ -12,15 +12,17 @@ export type ISO8601DateString = string;
 
 /**
  * Custom type to indicate Christmastide endings
+ * t =
+ * o =
+ * e =
  */
 export type ChristmastideEndings = "t" | "o" | "e";
 
 /**
  * Check if a value is a valid ISO8601 Date string.
- * @param input
+ * @param value The value to test
  */
-export const isISODateString = (value: string): value is ISO8601DateString =>
-    moment(value, moment.ISO_8601, true).isValid();
+export const isISODateString = (value: string): value is ISO8601DateString => moment(value, moment.ISO_8601, true).isValid();
 
 /**
  * Check if a value is *NOT* `undefined`. This is useful to check if optional props is specified.
@@ -50,8 +52,7 @@ export const isString = (value: any): value is string => typeof value === "strin
  * Check if a value is primitive (`undefined`, `null`, `boolean`, `number`, or `string`).
  * @param value The value that could be a primitive type
  */
-export const isPrimitive = (value: any): value is Primitive =>
-    value === null || ["string", "undefined", "boolean", "number"].indexOf(typeof value) !== -1;
+export const isPrimitive = (value: any): value is Primitive => value === null || ["string", "undefined", "boolean", "number"].indexOf(typeof value) !== -1;
 
 export const isFunction = (value: any): value is Function => typeof value === "function";
 

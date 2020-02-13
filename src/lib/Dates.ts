@@ -2,7 +2,7 @@ import * as moment from "moment";
 import { extendMoment } from "moment-range";
 import "moment-recur-ts";
 import _ from "lodash";
-import { ChristmastideEndings } from "../utils/custom-types";
+import { ChristmastideEndings } from "../utils/type-guards";
 
 const { range } = extendMoment(moment);
 
@@ -523,13 +523,13 @@ const daysAfterEpiphany = (year: number, epiphanyOnJan6 = false) => {
 // is transferred to another date if impeded (i.e., 19 March falling
 // on Sunday or in Holy Week).
 // y: year
-const josephHusbandOfMary = (year: number) => {
+const josephHusbandOfMary = (year: number): moment.Moment => {
     let date = moment.utc({ year, month: 2, day: 19 });
 
     // Check to see if this solemnity falls on a Sunday of Lent
     // If it occurs on a Sunday of Lent is transferred to the
     // following Monday.
-    if (_.eq(date.day(), 0)) {
+    if (date.day() === 0) {
         _.each(sundaysOfLent(year), sunday => {
             if (date.isSame(sunday)) {
                 date = sunday.add(1, "days");

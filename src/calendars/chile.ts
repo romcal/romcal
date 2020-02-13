@@ -2,9 +2,9 @@ import moment from "moment";
 
 import { Dates, Utils } from "../lib";
 import { Types, LiturgicalColors } from "../constants";
-import { RawDateItem } from "../models/romcal-date-item";
+import { IRomcalDateItem } from "../models/romcal-date-item";
 
-let dates = (year: number): Array<RawDateItem> => {
+let dates = (year: number): Array<IRomcalDateItem> => {
   let _dates = [
     {
       "key": "blessedLauraVicunaVirgin",
