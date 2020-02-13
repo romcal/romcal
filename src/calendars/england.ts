@@ -87,7 +87,7 @@ let dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "saintAdalbertBishopAndMartyrSaintFidelisOfSigmaringenPriestAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 4, day: 24 }),
+            moment: moment.utc({ year, month: 3, day: 24 }),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -363,7 +363,7 @@ let dates = (year: number): Array<IRomcalDateItem> => {
             moment: moment.utc({ year, month: 10, day: 17 }),
         },
         {
-            key: "saintAndrewApostle",
+            key: "saintAndrewTheApostle",
             type: Types.FEAST,
             moment: moment.utc({ year, month: 10, day: 30 }),
             data: {
