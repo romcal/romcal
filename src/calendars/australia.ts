@@ -7,11 +7,11 @@ import { IRomcalDateItem } from "../models/romcal-date-item";
 const defaultConfig = {};
 
 let dates = (year: number): Array<IRomcalDateItem> => {
-    let _dates = [
+    let _dates: Array<IRomcalDateItem> = [
         {
             key: "saintPatrickBishop",
             type: Types.SOLEMNITY,
-            moment: moment.utc({ year: year, month: 2, day: 17 }),
+            moment: moment.utc({ year, month: 2, day: 17 }),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -21,7 +21,7 @@ let dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "saintPeterChanelPriestAndMartyrSaintLouisGrignonDeMontfortPriest",
             type: Types.MEMORIAL,
-            moment: moment.utc({ year: year, month: 3, day: 28 }),
+            moment: moment.utc({ year, month: 3, day: 28 }),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -32,13 +32,13 @@ let dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "ourLadyHelpOfChristians",
             type: Types.SOLEMNITY,
-            moment: moment.utc({ year: year, month: 4, day: 24 }),
-            data: {},
+            moment: moment.utc({ year, month: 4, day: 24 }),
+            
         },
         {
             key: "blessedPeterToRotMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year: year, month: 6, day: 7 }),
+            moment: moment.utc({ year, month: 6, day: 7 }),
             data: {
                 meta: {
                     titles: [Titles.MARTYR],
@@ -48,7 +48,7 @@ let dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "saintMaryOfTheCrossVirgin",
             type: Types.SOLEMNITY,
-            moment: moment.utc({ year: year, month: 7, day: 8 }),
+            moment: moment.utc({ year, month: 7, day: 8 }),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
