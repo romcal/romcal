@@ -6,8 +6,8 @@ import { IRomcalDateItem } from "../models/romcal-date-item";
 
 const defaultConfig = {};
 
-let dates = (year: number): Array<IRomcalDateItem> => {
-    let _dates: Array<IRomcalDateItem> = [
+const dates = (year: number): Array<IRomcalDateItem> => {
+    const _dates: Array<IRomcalDateItem> = [
         {
             key: "blessedLauraVicunaVirgin",
             type: Types.OPT_MEMORIAL,
@@ -173,7 +173,7 @@ let dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "ourLadyOfTheValley",
             type: Types.MEMORIAL,
-            moment: (y => Dates.divineMercySunday(y).add(6, "days"))(year),
+            moment: ((y: number): moment.Moment => Dates.divineMercySunday(y).add(6, "days"))(year),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,

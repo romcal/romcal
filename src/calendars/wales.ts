@@ -6,8 +6,8 @@ import { IRomcalDateItem } from "../models/romcal-date-item";
 
 const defaultConfig = {};
 
-let dates = (year: number): Array<IRomcalDateItem> => {
-    let _dates: Array<IRomcalDateItem> = [
+const dates = (year: number): Array<IRomcalDateItem> => {
+    const _dates: Array<IRomcalDateItem> = [
         {
             key: "saintTeiloBishop",
             type: Types.OPT_MEMORIAL,
@@ -189,8 +189,8 @@ let dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "allSaints",
             type: Types.SOLEMNITY,
-            moment: (y => {
-                let date = moment.utc({ year: y, month: 10, day: 1 });
+            moment: ((y: number): moment.Moment => {
+                const date = moment.utc({ year: y, month: 10, day: 1 });
                 if (date.day() === 6) {
                     return moment.utc({ year: y, month: 10, day: 2 });
                 } else {
@@ -207,8 +207,8 @@ let dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "allSouls",
             type: Types.FEAST,
-            moment: (y => {
-                let date = moment.utc({ year: y, month: 10, day: 1 });
+            moment: ((y: number): moment.Moment => {
+                const date = moment.utc({ year: y, month: 10, day: 1 });
                 if (date.day() === 6) {
                     // If All Saints is on Saturday
                     // Then All Souls will be on Monday because All Saints will be moved to Sunday on the rule above
@@ -263,8 +263,8 @@ let dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "peterAndPaulApostles",
             type: Types.SOLEMNITY,
-            moment: (y => {
-                let date = moment.utc({ year: y, month: 5, day: 29 });
+            moment: ((y: number): moment.Moment => {
+                const date = moment.utc({ year: y, month: 5, day: 29 });
                 if (date.day() === 1) {
                     return date.subtract(1, "days");
                 } else if (date.day() === 6) {
@@ -286,8 +286,8 @@ let dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "assumption",
             type: Types.SOLEMNITY,
-            moment: (y => {
-                let date = moment.utc({ year: y, month: 7, day: 15 });
+            moment: ((y: number): moment.Moment => {
+                const date = moment.utc({ year: y, month: 7, day: 15 });
                 if (date.day() === 1) {
                     return date.subtract(1, "days");
                 } else if (date.day() === 6) {

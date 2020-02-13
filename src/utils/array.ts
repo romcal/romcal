@@ -10,7 +10,7 @@
  * includes([1,2,3,4,5], 9); // false
  * ```
  */
-export const includes = <T>(array: T[] | ReadonlyArray<T>, item: T) => {
+export const includes = <T>(array: T[] | ReadonlyArray<T>, item: T): boolean => {
     return array.includes ? array.includes(item) : array.indexOf(item) !== -1;
 };
 
@@ -25,7 +25,7 @@ export const includes = <T>(array: T[] | ReadonlyArray<T>, item: T) => {
  * concatAll([1,2,[3,4], [5,6,7]]); // [1,2,3,4,5,6,7]
  * ```
  */
-export const concatAll = <T>(array: Array<T | T[]>) => {
+export const concatAll = <T>(array: Array<T | T[]>): T[] => {
     return array.reduce<T[]>((result, item) => result.concat(item), []);
 };
 
@@ -71,7 +71,7 @@ export const asyncForEach = <Item, CallbackReturn>(
     ) => CallbackReturn | Promise<CallbackReturn>,
 ): Promise<CallbackReturn[]> => {
     let hasBreak = false;
-    const breakOut = () => {
+    const breakOut = (): void => {
         hasBreak = true;
     };
 
