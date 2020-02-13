@@ -12,6 +12,15 @@ type RecursivePartial<T> = {
 };
 
 /**
+ * Checks if the given object contains a key
+ * @param obj The object to test
+ * @param key The key to look for
+ */
+export const hasKey = <T extends Record<string, any>>(obj: T, key: any): key is keyof T => {
+    return obj.hasOwnProperty(key);
+};
+
+/**
  * Given a set of keys, attempt to traverse a JSON object to retrieve the value of the last key in the set.
  * @param obj The object to traverse
  * @param keys An array of keys that will be the sequence of the search
@@ -121,15 +130,6 @@ export const omit = <Original, Key extends keyof Original>(obj: Original, keysTo
     });
 
     return result;
-};
-
-/**
- * Checks if the given object contains a key
- * @param obj The object to test
- * @param key The key to look for
- */
-export const hasKey = <T extends Record<string, any>>(obj: T, key: any): key is keyof T => {
-    return obj.hasOwnProperty(key);
 };
 
 /**
