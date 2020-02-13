@@ -9,7 +9,7 @@ const { range } = extendMoment(moment);
 const defaultConfig = {};
 
 let dates = (year: number): Array<IRomcalDateItem> => {
-    let _dates = [
+    let _dates: Array<IRomcalDateItem> = [
         {
             key: "saintAelredOfRievaulx",
             type: Types.OPT_MEMORIAL,

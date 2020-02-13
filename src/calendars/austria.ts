@@ -4,12 +4,14 @@ import { Utils } from "../lib";
 import { Titles, Types, LiturgicalColors } from "../constants";
 import { IRomcalDateItem } from "../models/romcal-date-item";
 
+const defaultConfig = {};
+
 let dates = (year: number): Array<IRomcalDateItem> => {
-    let _dates = [
+    let _dates: Array<IRomcalDateItem> = [
         {
             key: "saintJohnNepomucenePriestAndMartyr",
             type: Types.MEMORIAL,
-            moment: moment.utc({ year: year, month: 4, day: 16 }),
+            moment: moment.utc({ year, month: 4, day: 16 }),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -20,7 +22,7 @@ let dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "saintBridgetOfSwedenReligious",
             type: Types.FEAST,
-            moment: moment.utc({ year: year, month: 6, day: 23 }),
+            moment: moment.utc({ year, month: 6, day: 23 }),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -33,4 +35,4 @@ let dates = (year: number): Array<IRomcalDateItem> => {
     return Utils.localizeDates(_dates);
 };
 
-export { dates };
+export { dates, defaultConfig };
