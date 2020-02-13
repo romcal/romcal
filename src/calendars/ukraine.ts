@@ -6,8 +6,8 @@ import { IRomcalDateItem } from "../models/romcal-date-item";
 
 const defaultConfig = {};
 
-let dates = (year: number): Array<IRomcalDateItem> => {
-    let _dates: Array<IRomcalDateItem> = [
+const dates = (year: number): Array<IRomcalDateItem> => {
+    const _dates: Array<IRomcalDateItem> = [
         {
             key: "blessedMarcelinaDarowskaReligious",
             type: Types.OPT_MEMORIAL,
@@ -32,7 +32,7 @@ let dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "maryMotherOfTheChurch",
             type: Types.FEAST,
-            moment: (y => Dates.pentecostSunday(y).add(1, "days"))(year),
+            moment: ((y: number): moment.Moment => Dates.pentecostSunday(y).add(1, "days"))(year),
             data: {
                 prioritized: true,
                 meta: {

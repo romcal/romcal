@@ -14,6 +14,9 @@ module.exports = {
         // e.g. "@typescript-eslint/explicit-function-return-type": "off",
         quotes: ["error", "double"],
         "no-unused-vars": "error",
+        "@typescript-eslint/interface-name-prefix": ["error", {
+          "prefixWithI": "always"
+        }]
     },
 };
 

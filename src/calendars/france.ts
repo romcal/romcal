@@ -10,8 +10,8 @@ const defaultConfig = {
     corpusChristiOnThursday: false,
 };
 
-let dates = (year: number): Array<IRomcalDateItem> => {
-    let _dates: Array<IRomcalDateItem> = [
+const dates = (year: number): Array<IRomcalDateItem> => {
+    const _dates: Array<IRomcalDateItem> = [
         {
             key: "saintGenevieveVirgin",
             type: Types.OPT_MEMORIAL,

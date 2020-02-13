@@ -7,7 +7,6 @@ import { LiturgicalSeasons, PsalterWeeks, LiturgicalColors, Types } from "../con
 import { IRomcalDateItem } from "../models/romcal-date-item";
 import { ChristmastideEndings } from "../utils/type-guards";
 import moment from "moment";
-import { hasKey } from "../utils/object";
 import { TPsalterWeek } from "../constants/PsalterWeeks";
 
 /**
@@ -54,11 +53,11 @@ const _metadata = (items: Array<IRomcalDateItem>): Array<IRomcalDateItem> => {
  * @param year The year to use for the calculation
  * @param epiphanyOnJan6 true|false [If true, Epiphany will be fixed to Jan 6] (defaults to false)
  */
-const _epiphany = (year: number, epiphanyOnJan6: boolean = false) => {
-    let before: Array<moment.Moment> = Dates.daysBeforeEpiphany(year, epiphanyOnJan6);
-    let after: Array<moment.Moment> = Dates.daysAfterEpiphany(year, epiphanyOnJan6);
+const _epiphany = (year: number, epiphanyOnJan6 = false): Array<IRomcalDateItem> => {
+    const before: Array<moment.Moment> = Dates.daysBeforeEpiphany(year, epiphanyOnJan6);
+    const after: Array<moment.Moment> = Dates.daysAfterEpiphany(year, epiphanyOnJan6);
 
-    let days: Array<IRomcalDateItem> = [];
+    const days: Array<IRomcalDateItem> = [];
     before.forEach(day => {
         days.push({
             moment: day,
@@ -104,9 +103,9 @@ const _epiphany = (year: number, epiphanyOnJan6: boolean = false) => {
  * Returns the days constituting holy week
  * @param year The year to use for the calculation
  */
-const _holyWeek = (year: number) => {
-    let dates: moment.Moment[] = Dates.holyWeek(year);
-    let days: Array<IRomcalDateItem> = [];
+const _holyWeek = (year: number): Array<IRomcalDateItem> => {
+    const dates: moment.Moment[] = Dates.holyWeek(year);
+    const days: Array<IRomcalDateItem> = [];
 
     dates.forEach((date: moment.Moment) => {
         days.push({
@@ -153,9 +152,9 @@ const _holyWeek = (year: number) => {
  *
  * @param year The year to use for the calculation
  */
-const advent = (year: number) => {
+const advent = (year: number): Array<IRomcalDateItem> => {
     let dateItemsWithoutKeyAndSource: Array<IRomcalDateItem> = [];
-    let daysOfAdvent: moment.Moment[] = Dates.daysOfAdvent(year);
+    const daysOfAdvent: moment.Moment[] = Dates.daysOfAdvent(year);
 
     daysOfAdvent.forEach((value, i) => {
         dateItemsWithoutKeyAndSource.push({
@@ -227,16 +226,21 @@ const advent = (year: number) => {
  * @param epiphanyOnJan6 If true, Epiphany will be fixed to Jan 6 (defaults to false)
  * @param christmastideIncludesTheSeasonOfEpiphany If false, excludes the season of epiphany from being included in the season of Christmas
  */
-const christmastide = (year: number, christmastideEnds: ChristmastideEndings, epiphanyOnJan6 = false, christmastideIncludesTheSeasonOfEpiphany = true) => {
-    let datesOfChristmastide: moment.Moment[] = Dates.christmastide(year, christmastideEnds, epiphanyOnJan6);
-    let datesInTheOctaveOfChristmas: moment.Moment[] = Dates.octaveOfChristmas(year);
-    let epiphany: Array<IRomcalDateItem> = _epiphany(year + 1, epiphanyOnJan6);
+const christmastide = (
+    year: number,
+    christmastideEnds: ChristmastideEndings,
+    epiphanyOnJan6 = false,
+    christmastideIncludesTheSeasonOfEpiphany = true,
+): Array<IRomcalDateItem> => {
+    const datesOfChristmastide: moment.Moment[] = Dates.christmastide(year, christmastideEnds, epiphanyOnJan6);
+    const datesInTheOctaveOfChristmas: moment.Moment[] = Dates.octaveOfChristmas(year);
+    const epiphany: Array<IRomcalDateItem> = _epiphany(year + 1, epiphanyOnJan6);
 
     let count = 0;
 
-    let daysOfChristmasTide: Array<IRomcalDateItem> = [];
+    const daysOfChristmasTide: Array<IRomcalDateItem> = [];
     datesOfChristmastide.forEach(day => {
-        let dayOfWeek = day.day();
+        const dayOfWeek = day.day();
         count = dayOfWeek === 0 ? count + 1 : count;
         daysOfChristmasTide.push({
             moment: day,
@@ -257,7 +261,7 @@ const christmastide = (year: number, christmastideEnds: ChristmastideEndings, ep
         });
     });
 
-    let daysInTheOctaveOfChristmas: Array<IRomcalDateItem> = [];
+    const daysInTheOctaveOfChristmas: Array<IRomcalDateItem> = [];
     datesInTheOctaveOfChristmas.forEach((day, idx) => {
         daysInTheOctaveOfChristmas.push({
             moment: day,
@@ -375,7 +379,7 @@ const earlyOrdinaryTime = (year: number, christmastideEnds: ChristmastideEndings
     // Sort dates according to moment
     days = _.sortBy(days, v => v.moment.valueOf());
 
-    let psalterWeekStart = 0;
+    const psalterWeekStart = 0;
 
     days = days.map(({ data, name, ...rest }: IRomcalDateItem, index: number) => {
         const resolvedPsalterWeek = getPsalterWeek(index, psalterWeekStart);
@@ -420,7 +424,7 @@ const earlyOrdinaryTime = (year: number, christmastideEnds: ChristmastideEndings
  *
  * @param year
  */
-const laterOrdinaryTime = (year: number) => {
+const laterOrdinaryTime = (year: number): Array<IRomcalDateItem> => {
     // Keep track of the first week in later ordinary time
     // for later use
     let firstWeekOfLaterOrdinaryTime = 0;
@@ -431,7 +435,7 @@ const laterOrdinaryTime = (year: number) => {
         .forEach((value, i) => {
             // Calculate the week of ordinary time
             // from the last sunday of the year (34th)
-            let week = 34 - Math.floor(i / 7);
+            const week = 34 - Math.floor(i / 7);
             firstWeekOfLaterOrdinaryTime = week;
 
             days.push({
@@ -501,12 +505,12 @@ const laterOrdinaryTime = (year: number) => {
  *
  * @param year The year to use for calculation
  */
-const lent = (year: number) => {
-    let daysOfLent: Array<moment.Moment> = Dates.daysOfLent(year);
-    let sundaysOfLent: Array<moment.Moment> = Dates.sundaysOfLent(year);
+const lent = (year: number): Array<IRomcalDateItem> => {
+    const daysOfLent: Array<moment.Moment> = Dates.daysOfLent(year);
+    const sundaysOfLent: Array<moment.Moment> = Dates.sundaysOfLent(year);
 
-    let ferialDays: Array<IRomcalDateItem> = [];
-    let sundays: Array<IRomcalDateItem> = [];
+    const ferialDays: Array<IRomcalDateItem> = [];
+    const sundays: Array<IRomcalDateItem> = [];
 
     daysOfLent.forEach((value, i) => {
         ferialDays.push({
@@ -552,7 +556,7 @@ const lent = (year: number) => {
         });
     });
 
-    let holyWeek: Array<IRomcalDateItem> = _holyWeek(year);
+    const holyWeek: Array<IRomcalDateItem> = _holyWeek(year);
 
     let combinedDaysOfLent: Array<IRomcalDateItem> = [];
 
@@ -562,7 +566,7 @@ const lent = (year: number) => {
     // Sort dates according to moment
     combinedDaysOfLent = _.sortBy(combinedDaysOfLent, v => v.moment.valueOf());
 
-    let psalterWeekStart = 4;
+    const psalterWeekStart = 4;
 
     combinedDaysOfLent = combinedDaysOfLent.map(({ name, data, ...rest }: IRomcalDateItem, index: number) => {
         const resolvedPsalterWeek = getPsalterWeek(index, psalterWeekStart);
@@ -608,14 +612,7 @@ const lent = (year: number) => {
  *
  * @param year The year to use for the calculation
  */
-const easterTriduum = (year: number) => _.takeRight(_holyWeek(year), 3);
-
-/**
- * Takes the days between Easter Sunday and Divine mercy sunday (inclusive) to form the easter octave
- *
- * @param year The year to use for the calculation
- */
-const easterOctave = (year: number) => _.take(eastertide(year), 8);
+const easterTriduum = (year: number): Array<IRomcalDateItem> => _.takeRight(_holyWeek(year), 3);
 
 /**
  * Calculates the season of Easter.
@@ -633,11 +630,11 @@ const easterOctave = (year: number) => _.take(eastertide(year), 8);
  *
  * @param year The year to use for the calculation
  */
-const eastertide = (year: number) => {
-    let weekdaysOfEaster = Dates.daysOfEaster(year);
-    let sundaysOfEaster = Dates.sundaysOfEaster(year);
+const eastertide = (year: number): Array<IRomcalDateItem> => {
+    const weekdaysOfEaster = Dates.daysOfEaster(year);
+    const sundaysOfEaster = Dates.sundaysOfEaster(year);
 
-    let days: Array<IRomcalDateItem> = [];
+    const days: Array<IRomcalDateItem> = [];
     weekdaysOfEaster.forEach((value, i) => {
         days.push({
             moment: value,
@@ -658,7 +655,7 @@ const eastertide = (year: number) => {
         });
     });
 
-    let sundays: Array<IRomcalDateItem> = [];
+    const sundays: Array<IRomcalDateItem> = [];
     sundaysOfEaster.forEach((value, i) => {
         sundays.push({
             moment: value,
@@ -687,7 +684,7 @@ const eastertide = (year: number) => {
     // Sort dates according to moment
     combinedDaysOfEaster = _.sortBy(days, v => v.moment.valueOf());
 
-    let psalterWeekStart = 1;
+    const psalterWeekStart = 1;
 
     combinedDaysOfEaster = combinedDaysOfEaster.map(({ name, data, ...rest }: IRomcalDateItem, index: number) => {
         let resolvedPsalterWeek: number;
@@ -736,5 +733,12 @@ const eastertide = (year: number) => {
 
     return combinedDaysOfEaster;
 };
+
+/**
+ * Takes the days between Easter Sunday and Divine mercy sunday (inclusive) to form the easter octave
+ *
+ * @param year The year to use for the calculation
+ */
+const easterOctave = (year: number): Array<IRomcalDateItem> => _.take(eastertide(year), 8);
 
 export { advent, christmastide, earlyOrdinaryTime, lent, easterTriduum, easterOctave, eastertide, laterOrdinaryTime };

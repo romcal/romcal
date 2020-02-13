@@ -8,8 +8,8 @@ const { range } = extendMoment(moment);
 
 const defaultConfig = {};
 
-let dates = (year: number): Array<IRomcalDateItem> => {
-    let _dates: Array<IRomcalDateItem> = [
+const dates = (year: number): Array<IRomcalDateItem> => {
+    const _dates: Array<IRomcalDateItem> = [
         {
             key: "saintAelredOfRievaulx",
             type: Types.OPT_MEMORIAL,
@@ -57,20 +57,20 @@ let dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "saintGeorgeMartyr",
             type: Types.SOLEMNITY,
-            moment: (y => {
-                let [firstDateInHolyWeek, , lastDateInHolyWeek] = Dates.holyWeek(y);
-                let [firstDateInTheEasterOctave, , lastDateInTheEasterOctave] = Dates.octaveOfEaster(y);
-                let annunciation = Dates.annunciation(y);
-                let holyWeekRange: DateRange = range(firstDateInHolyWeek, lastDateInHolyWeek);
-                let easterOctaveRange: DateRange = range(firstDateInTheEasterOctave, lastDateInTheEasterOctave);
-                let date = moment.utc({ year: y, month: 3, day: 23 });
+            moment: ((y: number): moment.Moment => {
+                const [firstDateInHolyWeek, , lastDateInHolyWeek] = Dates.holyWeek(y);
+                const [firstDateInTheEasterOctave, , lastDateInTheEasterOctave] = Dates.octaveOfEaster(y);
+                const annunciation = Dates.annunciation(y);
+                const holyWeekRange: DateRange = range(firstDateInHolyWeek, lastDateInHolyWeek);
+                const easterOctaveRange: DateRange = range(firstDateInTheEasterOctave, lastDateInTheEasterOctave);
+                const date = moment.utc({ year: y, month: 3, day: 23 });
 
                 // If the celebration lands anywhere between Holy Week to Divine Mercy Sunday (inclusive)
                 // move it to the Monday after Divine Mercy Sunday
                 if (holyWeekRange.contains(date) || easterOctaveRange.contains(date)) {
                     // Ensure that the Monday after Divine Mercy Sunday is not Annunciation
                     // if it is, move this celebration to the next day (Tuesday)
-                    let proposed = lastDateInTheEasterOctave.add(1, "days");
+                    const proposed = lastDateInTheEasterOctave.add(1, "days");
                     if (proposed.isSame(annunciation)) {
                         return lastDateInTheEasterOctave.add(2, "days");
                     } else {
@@ -287,8 +287,8 @@ let dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "peterAndPaulApostles",
             type: Types.SOLEMNITY,
-            moment: (y => {
-                let date = moment.utc({ year: y, month: 5, day: 29 });
+            moment: ((y: number): moment.Moment => {
+                const date = moment.utc({ year: y, month: 5, day: 29 });
                 if (date.day() === 1) {
                     return date.subtract(1, "days");
                 } else if (date.day() === 6) {
@@ -310,8 +310,8 @@ let dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "assumption",
             type: Types.SOLEMNITY,
-            moment: (y => {
-                let date = moment.utc({ year: y, month: 7, day: 15 });
+            moment: ((y: number): moment.Moment => {
+                const date = moment.utc({ year: y, month: 7, day: 15 });
                 if (date.day() === 1) {
                     return date.subtract(1, "days");
                 } else if (date.day() === 6) {
@@ -380,8 +380,8 @@ let dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "allSaints",
             type: Types.SOLEMNITY,
-            moment: (y => {
-                let date = moment.utc({ year: y, month: 10, day: 1 });
+            moment: ((y: number): moment.Moment => {
+                const date = moment.utc({ year: y, month: 10, day: 1 });
                 if (date.day() === 6) {
                     return moment.utc({ year: y, month: 10, day: 2 });
                 } else {
@@ -398,8 +398,8 @@ let dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "allSouls",
             type: Types.FEAST,
-            moment: (y => {
-                let date = moment.utc({ year: y, month: 10, day: 1 });
+            moment: ((y: number): moment.Moment => {
+                const date = moment.utc({ year: y, month: 10, day: 1 });
                 if (date.day() === 6) {
                     // If All Saints is on Saturday
                     // Then All Souls will be on Monday because All Saints will be moved to Sunday on the rule above

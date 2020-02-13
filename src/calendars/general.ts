@@ -12,8 +12,8 @@ const defaultConfig = {
     ascensionOnSunday: false,
 };
 
-let dates = (year: number): Array<IRomcalDateItem> => {
-    let _dates: Array<IRomcalDateItem> = [
+const dates = (year: number): Array<IRomcalDateItem> => {
+    const _dates: Array<IRomcalDateItem> = [
         {
             key: "saintsBasilTheGreatAndGregoryNazianzenBishopsAndDoctors",
             type: Types.MEMORIAL,
@@ -757,7 +757,7 @@ let dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "maryMotherOfTheChurch",
             type: Types.MEMORIAL, // Memorial
-            moment: (y => Dates.pentecostSunday(y).add(1, "days"))(year),
+            moment: ((y: number): moment.Moment => Dates.pentecostSunday(y).add(1, "days"))(year),
             data: {
                 prioritized: true,
                 meta: {
