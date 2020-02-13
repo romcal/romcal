@@ -254,7 +254,6 @@ export default {
     "saintAmandMissionary": "Saint Amand, Missionary",
     "saintAmbroseBishopAndDoctor": "Saint Ambrose, Bishop and Doctor",
     "saintAndreBessetteReligious": "Saint Andre Bessette, Religious",
-    "saintAndrewApostle": "Saint Andrew, Apostle",
     "saintAndrewBobolaPriestAndMartyr": "Saint Andrew Bobola, Priest and Martyr",
     "saintAndrewDungLacAndCompanionsMartyrs": "Saint Andrew Dung-Lac and Companions, Martyrs",
     "saintAndrewKimTaegonPriestAndPaulChongHasangAndCompanionsMartyrs": "Saint Andrew Kim Taegon, Priest, and Paul Chong Hasang and Companions, Martyrs",
