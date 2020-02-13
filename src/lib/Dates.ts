@@ -687,10 +687,14 @@ const sacredHeartOfJesus = (year: number) => easter(year).add(68, "days");
 // y: year
 const immaculateHeartOfMary = (year: number) => easter(year).add(69, "days");
 
-// Feast of the Holy Family
-// If Christmas falls on a Sunday, then Holy Family is celebrated on Dec. 30.
-// Otherwise, Holy Family is the Sunday after Christmas.
-// y: year
+/**
+ * Feast of the Holy Family
+ *
+ * *If Christmas falls on a Sunday, then Holy Family is celebrated on Dec. 30.
+ * Otherwise, Holy Family is the Sunday after Christmas.*
+ *
+ * @param year The year for the calculation
+ */
 const holyFamily = (year: number) => {
     let _christmas = christmas(year);
     // If Christmas is on Sunday, then Holy Family is on the 30th Dec
@@ -703,11 +707,20 @@ const holyFamily = (year: number) => {
     }
 };
 
-// y: year
+/**
+ * Obtains the date for the Transfiguration of our Lord.
+ *
+ * @param year The year for the calculation
+ */
 const transfiguration = (year: number) => moment.utc({ year, month: 7, day: 6 });
 
-// https://en.wikipedia.org/wiki/Feast_of_the_Cross#History
-// y: year
+/**
+ * Obtains the date for The Exultation of The Holy Cross.
+ *
+ * https://en.wikipedia.org/wiki/Feast_of_the_Cross#History
+ *
+ * @param year The year for the calculation
+ */
 const theExaltationOfTheHolyCross = (year: number) => moment.utc({ year, month: 8, day: 14 });
 
 export {
