@@ -1,4 +1,4 @@
-import { RomcalLocale } from "../models/romcal-locale";
+import { TRomcalLocale } from "../models/romcal-locale";
 
 export default {
     advent: {
@@ -784,4 +784,4 @@ export default {
         visitationOfTheBlessedVirginMary: "Návšteva Panny Márie",
         waitangiDay: "Deň Waitangi",
     },
-} as RomcalLocale;
+} as TRomcalLocale;

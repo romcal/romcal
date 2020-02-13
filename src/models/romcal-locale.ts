@@ -9,7 +9,7 @@ export type RomcalLocaleKeys = {
     sunday: string;
 };
 
-export type RomcalLocale = Readonly<{
+export type TRomcalLocale = Readonly<{
     advent?: Pick<RomcalLocaleKeys, "feria" | "season" | "sunday">;
     christmastide?: Pick<RomcalLocaleKeys, "day" | "octave" | "season" | "sunday">;
     epiphany?: Pick<RomcalLocaleKeys, "after" | "before" | "season">;

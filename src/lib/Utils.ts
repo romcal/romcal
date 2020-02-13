@@ -2,10 +2,10 @@ import _ from "lodash";
 import moment from "moment";
 import { Types } from "../constants";
 import * as Locales from "../locales";
-import { RawDateItem, LocalizedRawDateItem } from "../models/romcal-date-item";
 import { findDescendantValueByKeys, hasKey, getValueByKey, mergeObjectsUniquely } from "../utils/object";
-import { RomcalLocale } from "../models/romcal-locale";
+import { TRomcalLocale } from "../models/romcal-locale";
 import { isNil } from "../utils/type-guards";
+import { IRomcalDateItem } from "../models/romcal-date-item";
 
 /**
  *  Mustache style templating is easier on the eyes
@@ -23,12 +23,12 @@ _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
  */
 export const _fallbackLocaleKey = "en";
 
-let _combinedLocale: RomcalLocale | undefined;
-let _locales: Array<RomcalLocale>;
+let _combinedLocale: TRomcalLocale | undefined;
+let _locales: Array<TRomcalLocale>;
 
 const setLocale = (key: string): void => {
     const availableLocales: {
-        [key: string]: RomcalLocale;
+        [key: string]: TRomcalLocale;
     } = Locales;
 
     // When setLocale() is called, it resets the combined locale cache
@@ -90,7 +90,7 @@ const setLocale = (key: string): void => {
 // Return an object that combines the main locale with its fallback.
 // And use cache in case this function is called multiple times
 // without the locale being modified.
-const getLocale = (): RomcalLocale => {
+const getLocale = (): TRomcalLocale => {
     if (isNil(_combinedLocale)) {
         if (_locales.length > 1) {
             const [regionLocale, fallbackLocale] = _locales;
@@ -125,23 +125,28 @@ const localize = ({ key, count, week, day }: { key: string; day?: string; week?:
 /**
  * Utility function that takes an array of national calendar dates
  * and adds a localized name based on the key
- * @param dates A list of [[RawDateItem]]s to process
+ * @param dates A list of [[IRomcalDateItem]]s to process
  * @param source
  */
-const localizeDates = (dates: Array<RawDateItem>, source = "sanctoral"): Array<RawDateItem | LocalizedRawDateItem> => {
-    return dates.map((date: RawDateItem) => {
+const localizeDates = (dates: Array<IRomcalDateItem>, source = "sanctoral"): Array<IRomcalDateItem | IRomcalDateItem> => {
+    return dates.map((date: IRomcalDateItem) => {
         if (!_.has(date, "drop")) {
             return {
                 ...date,
                 name: localize({
                     key: `${source}.${date.key}`,
                 }),
-            } as LocalizedRawDateItem;
+            } as IRomcalDateItem;
         }
         return date;
     });
 };
 
+/**
+ * Given a "day" integer from moment that represents the day of week, determine
+ * the type of day from the [[Types]] enum
+ * @param day A "day" integer that should come from the moment library
+ */
 const getTypeByDayOfWeek = (day: number): Types => (_.eq(day, 0) ? Types.SUNDAY : Types.FERIA);
 
 export { setLocale, getLocale, localize, localizeDates, getTypeByDayOfWeek };
