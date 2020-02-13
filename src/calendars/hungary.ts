@@ -6,8 +6,8 @@ import { IRomcalDateItem } from "../models/romcal-date-item";
 
 const defaultConfig = {};
 
-let dates = (year: number): Array<IRomcalDateItem> => {
-    let _dates: Array<IRomcalDateItem> = [
+const dates = (year: number): Array<IRomcalDateItem> => {
+    const _dates: Array<IRomcalDateItem> = [
         {
             key: "saintMargaretOfHungary",
             type: Types.FEAST,
@@ -75,7 +75,6 @@ let dates = (year: number): Array<IRomcalDateItem> => {
             key: "blessedGisela",
             type: Types.OPT_MEMORIAL,
             moment: moment.utc({ year, month: 4, day: 7 }),
-            
         },
         {
             key: "blessedSaraSalkahaziVirginAndMartyr",
@@ -111,13 +110,11 @@ let dates = (year: number): Array<IRomcalDateItem> => {
             key: "ourLadyHelpOfChristians",
             type: Types.MEMORIAL,
             moment: moment.utc({ year, month: 4, day: 24 }),
-            
         },
         {
             key: "transferOfTheRelicsOfSaintStephen",
             type: Types.OPT_MEMORIAL,
             moment: moment.utc({ year, month: 4, day: 30 }),
-            
         },
         {
             key: "saintAgnesOfBohemiaVirgin",
@@ -177,7 +174,6 @@ let dates = (year: number): Array<IRomcalDateItem> => {
             key: "saintsAndrewZorardAndBenedictHermits",
             type: Types.MEMORIAL,
             moment: moment.utc({ year, month: 6, day: 17 }),
-            
         },
         {
             key: "saintBridgetOfSwedenReligious",
@@ -194,7 +190,6 @@ let dates = (year: number): Array<IRomcalDateItem> => {
             key: "saintKingaVirgin",
             type: Types.MEMORIAL,
             moment: moment.utc({ year, month: 6, day: 24 }),
-            
         },
         {
             key: "saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr",
@@ -211,19 +206,16 @@ let dates = (year: number): Array<IRomcalDateItem> => {
             key: "blessedInnocentXiPope",
             type: Types.MEMORIAL,
             moment: moment.utc({ year, month: 7, day: 13 }),
-            
         },
         {
             key: "saintStephenOfHungary",
             type: Types.SOLEMNITY,
             moment: moment.utc({ year, month: 7, day: 20 }),
-            
         },
         {
             key: "saintTeresaOfCalcuttaReligious",
             type: Types.OPT_MEMORIAL,
             moment: moment.utc({ year, month: 8, day: 5 }),
-            
         },
         {
             key: "saintsMarkoKrizinMelicharGrodeckiAndStephenPongracPriestsAndMartyrs",
@@ -259,7 +251,6 @@ let dates = (year: number): Array<IRomcalDateItem> => {
             key: "saintMaurusBishop",
             type: Types.MEMORIAL,
             moment: moment.utc({ year, month: 9, day: 25 }),
-            
         },
         {
             key: "blessedTheodoreRomzhaBishopAndMartyr",
@@ -285,7 +276,6 @@ let dates = (year: number): Array<IRomcalDateItem> => {
             key: "hungarianSaintsAndBlesseds",
             type: Types.OPT_MEMORIAL,
             moment: moment.utc({ year, month: 10, day: 13 }),
-            
         },
     ];
 

@@ -6,8 +6,8 @@ import { IRomcalDateItem } from "../models/romcal-date-item";
 
 const defaultConfig = {};
 
-let dates = (year: number): Array<IRomcalDateItem> => {
-    let _dates: Array<IRomcalDateItem> = [
+const dates = (year: number): Array<IRomcalDateItem> => {
+    const _dates: Array<IRomcalDateItem> = [
         {
             key: "ourLadyMotherOfChristianUnity",
             type: Types.MEMORIAL,
@@ -215,7 +215,7 @@ let dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "ourLordJesusChristTheEternalHighPriest",
             type: Types.FEAST,
-            moment: (y => Dates.pentecostSunday(y).add(4, "days"))(year),
+            moment: ((y: number): moment.Moment => Dates.pentecostSunday(y).add(4, "days"))(year),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,

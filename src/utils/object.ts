@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { includes } from "./array";
 import { isNil, isObject } from "./type-guards";
 
@@ -7,11 +8,7 @@ import { isNil, isObject } from "./type-guards";
  * T[P] extends Array<infer U>: Get the specified element from the array where the type of the element is inferred "U"
  */
 type RecursivePartial<T> = {
-    [P in keyof T]?: T[P] extends Array<infer U>
-        ? Array<RecursivePartial<U>>
-        : T[P] extends object
-        ? RecursivePartial<T[P]>
-        : T[P];
+    [P in keyof T]?: T[P] extends Array<infer U> ? Array<RecursivePartial<U>> : T[P] extends object ? RecursivePartial<T[P]> : T[P];
 };
 
 /**
@@ -39,10 +36,7 @@ export const findDescendantValueByKeys = <T extends { [key: string]: any }>(obj:
  * @param target The object to be merged with
  * @param source The object to merge from
  */
-export const mergeObjectsUniquely = <T extends { [key: string]: any }, U extends { [key: string]: any }>(
-    target: T,
-    source: U,
-) => {
+export const mergeObjectsUniquely = <T extends { [key: string]: any }, U extends { [key: string]: any }>(target: T, source: U): T | RecursivePartial<T> => {
     // Return the target object if there's nothing to merge
     if (typeof source === "undefined") return target;
     // Return target if it is undefined
@@ -57,13 +51,7 @@ export const mergeObjectsUniquely = <T extends { [key: string]: any }, U extends
             result[key] = !hasKey(target, key)
                 ? source[key]
                 : Array.isArray(source[key])
-                ? source[key].map((record: any, index: number) =>
-                      isObject(record)
-                          ? mergeObjectsUniquely(target[key], record)
-                          : !hasKey(target, key)
-                          ? record
-                          : target[key],
-                  )
+                ? source[key].map((record: any) => (isObject(record) ? mergeObjectsUniquely(target[key], record) : !hasKey(target, key) ? record : target[key]))
                 : isObject(source[key])
                 ? mergeObjectsUniquely(target[key], source[key])
                 : !hasKey(target, key)
@@ -81,8 +69,8 @@ export const mergeObjectsUniquely = <T extends { [key: string]: any }, U extends
  */
 export const omitFalsyProps = <Original extends { [key: string]: any }>(
     obj: Original,
-    isFalsy = (val: any) => isNil(val) || val === "",
-) => {
+    isFalsy = (val: any): boolean => isNil(val) || val === "",
+): RecursivePartial<Original> => {
     if (!obj) {
         return obj;
     }
@@ -119,10 +107,7 @@ export const omitFalsyProps = <Original extends { [key: string]: any }>(
  * @param keysToOmit keys to omit
  * @returns The new object sans the keys that were removed
  */
-export const omit = <Original, Key extends keyof Original>(
-    obj: Original,
-    keysToOmit: Key[] | ReadonlyArray<Key>,
-): Omit<Original, Key> => {
+export const omit = <Original, Key extends keyof Original>(obj: Original, keysToOmit: Key[] | ReadonlyArray<Key>): Omit<Original, Key> => {
     if (keysToOmit.length === 0) {
         return obj;
     }
@@ -143,7 +128,7 @@ export const omit = <Original, Key extends keyof Original>(
  * @param obj The object to test
  * @param key The key to look for
  */
-export const hasKey = <T extends Object>(obj: T, key: any): key is keyof T => {
+export const hasKey = <T extends Record<string, any>>(obj: T, key: any): key is keyof T => {
     return obj.hasOwnProperty(key);
 };
 
@@ -152,6 +137,6 @@ export const hasKey = <T extends Object>(obj: T, key: any): key is keyof T => {
  * @param obj The object to test
  * @param key The key to look for
  */
-export const getValueByKey = <T extends Object, Key extends keyof T>(obj: T, key: Key) => {
+export const getValueByKey = <T extends Record<string, any>, Key extends keyof T>(obj: T, key: Key): T[Key] => {
     return obj[key];
 };

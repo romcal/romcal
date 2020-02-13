@@ -6,8 +6,8 @@ import { IRomcalDateItem } from "../models/romcal-date-item";
 
 const defaultConfig = {};
 
-let dates = (year: number): Array<IRomcalDateItem> => {
-    let _dates: Array<IRomcalDateItem> = [
+const dates = (year: number): Array<IRomcalDateItem> => {
+    const _dates: Array<IRomcalDateItem> = [
         {
             key: "blessedOdoricOfPordenonePriest",
             type: Types.OPT_MEMORIAL,
@@ -81,9 +81,9 @@ let dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "ourLadyOfChina",
             type: Types.MEMORIAL,
-            moment: (function(y) {
-                let firstMay = moment.utc({ year: y, month: 4, day: 1 });
-                let memorialDay = firstMay;
+            moment: ((y: number): moment.Moment => {
+                const firstMay = moment.utc({ year: y, month: 4, day: 1 });
+                const memorialDay = firstMay;
                 // determine first saturday
                 memorialDay.add(6 - firstMay.day(), "days");
                 // Second saturday
@@ -186,7 +186,7 @@ let dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "ourLordJesusChristTheEternalHighPriest",
             type: Types.FEAST,
-            moment: (y => Dates.pentecostSunday(y).add(4, "days"))(year),
+            moment: ((y: number): moment.Moment => Dates.pentecostSunday(y).add(4, "days"))(year),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,

@@ -6,15 +6,15 @@ import { IRomcalDateItem } from "../models/romcal-date-item";
 
 const defaultConfig = {};
 
-let dates = (year: number): Array<IRomcalDateItem> => {
-    let _dates: Array<IRomcalDateItem> = [
+const dates = (year: number): Array<IRomcalDateItem> => {
+    const _dates: Array<IRomcalDateItem> = [
         {
             key: "santoNinoInfantJesus",
             type: Types.FEAST,
-            moment: (function() {
+            moment: ((): moment.Moment => {
                 // Third Sunday of January: Santo Niño (Holy Child Jesus)
-                let firstDay = moment.utc({ year, month: 0, day: 1 });
-                let feastDay = 22 - (firstDay.day() == 0 ? 7 : firstDay.day());
+                const firstDay = moment.utc({ year, month: 0, day: 1 });
+                const feastDay = 22 - (firstDay.day() == 0 ? 7 : firstDay.day());
                 return moment.utc({ year, month: 0, day: feastDay });
             })(),
             data: {

@@ -6,8 +6,8 @@ import { IRomcalDateItem } from "../models/romcal-date-item";
 
 const defaultConfig = {};
 
-let dates = (year: number): Array<IRomcalDateItem> => {
-    let _dates: Array<IRomcalDateItem> = [
+const dates = (year: number): Array<IRomcalDateItem> => {
+    const _dates: Array<IRomcalDateItem> = [
         {
             key: "saintsCyrilMonkAndMethodiusBishop",
             type: Types.FEAST,
@@ -77,7 +77,6 @@ let dates = (year: number): Array<IRomcalDateItem> => {
             key: "ourLadyOfFatima",
             type: Types.OPT_MEMORIAL,
             moment: moment.utc({ year, month: 4, day: 15 }),
-            
         },
         {
             key: "saintCyrilOfAlexandriaBishopAndDoctor",
@@ -197,7 +196,6 @@ let dates = (year: number): Array<IRomcalDateItem> => {
             key: "saintBarbaraVirginAndMartyr",
             type: Types.OPT_MEMORIAL,
             moment: moment.utc({ year, month: 11, day: 4 }),
-            
         },
         {
             key: "saintNicholasBishop",

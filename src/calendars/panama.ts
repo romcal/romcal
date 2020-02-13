@@ -1,15 +1,16 @@
 import { Dates, Utils } from "../lib";
 import { Types, LiturgicalColors } from "../constants";
 import { IRomcalDateItem } from "../models/romcal-date-item";
+import moment from "moment";
 
 const defaultConfig = {};
 
-let dates = (year: number): Array<IRomcalDateItem> => {
-    let _dates: Array<IRomcalDateItem> = [
+const dates = (year: number): Array<IRomcalDateItem> => {
+    const _dates: Array<IRomcalDateItem> = [
         {
             key: "ourLordJesusChristTheEternalHighPriest",
             type: Types.FEAST,
-            moment: (y => Dates.pentecostSunday(y).add(4, "days"))(year),
+            moment: ((y: number): moment.Moment => Dates.pentecostSunday(y).add(4, "days"))(year),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
