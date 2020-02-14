@@ -8,6 +8,7 @@ import * as brazil from "./brazil";
 import * as canada from "./canada";
 import * as chile from "./chile";
 import * as china from "./china";
+import * as costaRica from "./costaRica";
 import * as croatia from "./croatia";
 import * as czechRepublic from "./czechRepublic";
 import * as denmark from "./denmark";
@@ -17,6 +18,7 @@ import * as france from "./france";
 import * as general from "./general";
 import * as germany from "./germany";
 import * as greece from "./greece";
+import * as guatemala from "./guatemala";
 import * as hungary from "./hungary";
 import * as india from "./india";
 import * as ireland from "./ireland";
@@ -29,6 +31,8 @@ import * as mexico from "./mexico";
 import * as netherlands from "./netherlands";
 import * as newZealand from "./newZealand";
 import * as norway from "./norway";
+import * as panama from "./panama";
+import * as paraguay from "./paraguay";
 import * as peru from "./peru";
 import * as philippines from "./philippines";
 import * as poland from "./poland";
@@ -45,6 +49,8 @@ import * as sweden from "./sweden";
 import * as switzerland from "./switzerland";
 import * as ukraine from "./ukraine";
 import * as unitedStates from "./unitedStates";
+import * as uruguay from "./uruguay";
+import * as venezuela from "./venezuela";
 import * as vietnam from "./vietnam";
 import * as wales from "./wales";
 
@@ -59,6 +65,7 @@ export {
     canada,
     chile,
     china,
+    costaRica,
     croatia,
     czechRepublic,
     denmark,
@@ -68,6 +75,7 @@ export {
     general,
     germany,
     greece,
+    guatemala,
     hungary,
     india,
     ireland,
@@ -80,6 +88,8 @@ export {
     netherlands,
     newZealand,
     norway,
+    panama,
+    paraguay,
     peru,
     philippines,
     poland,
@@ -96,6 +106,8 @@ export {
     switzerland,
     ukraine,
     unitedStates,
+    uruguay,
+    venezuela,
     vietnam,
     wales,
 };

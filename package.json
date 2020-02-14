@@ -76,6 +76,7 @@
     },
     "homepage": "https://github.com/romcal/romcal/blob/master/README.md",
     "dependencies": {
+        "jsonschema": "^1.2.5",
         "lodash": "^4.17.15",
         "moment": "^2.24.0",
         "moment-range": "^4.0.2",

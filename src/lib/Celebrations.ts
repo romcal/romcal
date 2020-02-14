@@ -1,7 +1,7 @@
 import * as Dates from "./Dates";
 import * as Utils from "./Utils";
 import { LiturgicalSeasons, Titles, LiturgicalColors, Types } from "../constants";
-import { ChristmastideEndings } from "../utils/type-guards";
+import { TChristmastideEndings } from "../utils/type-guards";
 import { IRomcalDateItem } from "../models/romcal-date-item";
 
 // year: Takes the year (integer)
@@ -11,7 +11,7 @@ import { IRomcalDateItem } from "../models/romcal-date-item";
 // ascensionOnSunday: true|false|undefined (If true, Ascension is moved to the 7th Sunday of Easter) (defaults to false)
 const dates = (
     year: number,
-    christmastideEnds: ChristmastideEndings,
+    christmastideEnds: TChristmastideEndings,
     epiphanyOnJan6 = false,
     corpusChristiOnThursday = false,
     ascensionOnSunday = false,

@@ -1,9 +1,11 @@
 import moment from "moment";
-import { Types } from "../constants";
+import { Types, LiturgicalCycles } from "../constants";
 import { TLiturgicalColor } from "../constants/LiturgicalColors";
 import LiturgicalSeasons from "../constants/LiturgicalSeasons";
 import { TPsalterWeek } from "../constants/PsalterWeeks";
 import { ISO8601DateString, isNil } from "../utils/type-guards";
+import { Dates } from "../lib";
+import { TLiturgicalCycle } from "../constants/LiturgicalCycles";
 
 type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 
@@ -61,6 +63,7 @@ export interface IDateItemMetadata {
     psalterWeek?: TPsalterWeek;
     liturgicalColor?: TLiturgicalColor;
     titles?: Array<string>;
+    cycle: TLiturgicalCycle;
 }
 
 export interface IDateItemData {
@@ -87,15 +90,33 @@ export interface IDateItemInput extends IDateItem {
 }
 
 export class DateItem implements IDateItem {
-    private key: string;
-    private name: string;
-    private date: ISO8601DateString;
-    private type: Types;
-    private data: IDateItemData;
-    private moment: moment.Moment;
-    private base: DateItem | undefined;
-    private _id: number;
-    private _stack: number;
+    /**
+     * The unique key of the celebration.
+     */
+    public key: string;
+    /**
+     * The localized name of the celebration.
+     */
+    public name: string;
+    /**
+     * The ISO8601 formatted date and time string of the celebration.
+     */
+    public date: ISO8601DateString;
+    /**
+     * The type of the celebration.
+     */
+    public type: Types;
+    /**
+     * The data associated to this celebration.
+     */
+    public data: IDateItemData;
+    /**
+     * The moment object representing the date and time of the celebration.
+     */
+    public moment: moment.Moment;
+    public base: DateItem | undefined;
+    public _id: number;
+    public _stack: number;
 
     static latestId: number;
 
@@ -110,15 +131,83 @@ export class DateItem implements IDateItem {
         this._id = DateItem._incrementId();
         this._stack = _stack;
 
+        // The original default item is added to the current item as the `base` property
         if (this._id !== baseItem?._id) {
             this.base = baseItem;
+            this.data = {
+                ...this.data,
+                ...(baseItem?.data.season && { season: baseItem?.data.season }),
+                ...(baseItem?.data.calendar && { calendar: baseItem?.data.calendar }),
+                meta: {
+                    ...this.data.meta,
+                    psalterWeek: this.data.meta.psalterWeek ?? baseItem?.data.meta.psalterWeek,
+                },
+            };
+        }
+
+        this.adjustTypeInSeason();
+        this.addLiturgicalCycleMetadata();
+    }
+
+    /**
+     * Runs type management on celebrations given their specific types.
+     *
+     * **Special type management in the season of LENT.**
+     *
+     * Memorials or Optional Memorials that fall on a feria
+     * in the season of Lent are reduced to Commemorations.
+     *
+     * Feasts occuring in the season of Lent are also reduced to
+     * Commemorations.
+     */
+    private adjustTypeInSeason(): void {
+        if (this.base?.data.season.key === LiturgicalSeasons.LENT) {
+            if ((this.type === Types.MEMORIAL || this.type === Types.OPT_MEMORIAL) && this.base.type === Types.FERIA) {
+                this.type = Types.COMMEMORATION;
+            }
+            if (this.type === Types.FEAST) {
+                this.type = Types.COMMEMORATION;
+            }
         }
     }
 
-    private adjustTypeInSeason() {}
+    /**
+     * Include liturgical cycle metadata corresponding to the liturgical year.
+     */
+    private addLiturgicalCycleMetadata(): void {
+        const year = this.getLiturgicalStartYear();
 
-    private addLiturgicalCycleMetadata() {}
+        // Formula to calculate Sunday cycle (Year A, B, C)
+        const firstSundayOfAdvent: moment.Moment = Dates.firstSundayOfAdvent(year);
+        const thisCycle: number = (year - 1963) % 3;
+        const nextCycle: number = thisCycle === 2 ? 0 : thisCycle + 1;
 
+        // If the date is on or after the First Sunday of Advent,
+        // it is the next liturgical cycle
+        this.data = {
+            ...this.data,
+            meta: {
+                ...this.data.meta,
+                cycle: {
+                    key: this.moment.isSameOrAfter(firstSundayOfAdvent) ? nextCycle : thisCycle,
+                    value: this.moment.isSameOrAfter(firstSundayOfAdvent) ? LiturgicalCycles[nextCycle] : LiturgicalCycles[thisCycle],
+                },
+            },
+        };
+    }
+
+    /**
+     * Get the liturgical starting year from a DateItem
+     */
+    private getLiturgicalStartYear(): number {
+        const currentYear = this.moment.utc().year();
+        const firstSundayOfAdvent = Dates.firstSundayOfAdvent(currentYear);
+        return this.moment.isBefore(firstSundayOfAdvent) ? currentYear - 1 : currentYear;
+    }
+
+    /**
+     * Increment the ID based of the [[DateItem]] instance
+     */
     static _incrementId(): number {
         return isNil(this.latestId) ? (this.latestId = 0) : this.latestId++;
     }

@@ -3,8 +3,6 @@ import { Types, LiturgicalColors } from "../constants";
 import { IRomcalDateItem } from "../models/romcal-date-item";
 import moment from "moment";
 
-const defaultConfig = {};
-
 const dates = (year: number): Array<IRomcalDateItem> => {
     const _dates: Array<IRomcalDateItem> = [
         {
@@ -23,4 +21,4 @@ const dates = (year: number): Array<IRomcalDateItem> => {
     return Utils.localizeDates(_dates);
 };
 
-export { defaultConfig, dates };
+export { dates };
