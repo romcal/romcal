@@ -5,7 +5,7 @@ import * as Utils from "./Utils";
 
 import { LiturgicalSeasons, PsalterWeeks, LiturgicalColors, Types } from "../constants";
 import { IRomcalDateItem } from "../models/romcal-date-item";
-import { ChristmastideEndings } from "../utils/type-guards";
+import { TChristmastideEndings } from "../utils/type-guards";
 import moment from "moment";
 import { TPsalterWeek } from "../constants/PsalterWeeks";
 
@@ -222,13 +222,13 @@ const advent = (year: number): Array<IRomcalDateItem> => {
  * *The proper color of Christmas is white.
  *
  * @param year The year to use for the calculation
- * @param christmastideEnds The mode to calculate the end of Christmastide. See [[ChristmastideEndings]] for more information
+ * @param christmastideEnds The mode to calculate the end of Christmastide. See [[TChristmastideEndings]] for more information
  * @param epiphanyOnJan6 If true, Epiphany will be fixed to Jan 6 (defaults to false)
  * @param christmastideIncludesTheSeasonOfEpiphany If false, excludes the season of epiphany from being included in the season of Christmas
  */
 const christmastide = (
     year: number,
-    christmastideEnds: ChristmastideEndings,
+    christmastideEnds: TChristmastideEndings,
     epiphanyOnJan6 = false,
     christmastideIncludesTheSeasonOfEpiphany = true,
 ): Array<IRomcalDateItem> => {
@@ -349,11 +349,11 @@ const christmastide = (
  * *The proper color of ordinary time is green.*
  *
  * @param year The year to use
- * @param christmastideEnds When does Christmas end. See [[ChristmastideEndings]] for more information
+ * @param christmastideEnds When does Christmas end. See [[TChristmastideEndings]] for more information
  * @param epiphanyOnJan6 Will Epiphany end on January the 6th (true | false)
  * @returns
  */
-const earlyOrdinaryTime = (year: number, christmastideEnds: ChristmastideEndings, epiphanyOnJan6 = false): Array<IRomcalDateItem> => {
+const earlyOrdinaryTime = (year: number, christmastideEnds: TChristmastideEndings, epiphanyOnJan6 = false): Array<IRomcalDateItem> => {
     let days: Array<IRomcalDateItem> = [];
 
     Dates.daysOfEarlyOrdinaryTime(year, christmastideEnds, epiphanyOnJan6).forEach((value, i) => {
@@ -517,7 +517,7 @@ const lent = (year: number): Array<IRomcalDateItem> => {
             moment: value,
             type: Types.FERIA,
             name: Utils.localize({
-                key: _.gt(i, 0) && _.lt(i, 4) ? "lent.day_after_ash_wed" : "lent.feria",
+                key: _.gt(i, 0) && _.lt(i, 4) ? "lent.dayAfterAshWed" : "lent.feria",
                 day: value.format("dddd"),
                 week: Math.floor((i - 4) / 7) + 1,
             }),

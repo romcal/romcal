@@ -2,7 +2,7 @@ import * as moment from "moment";
 import { extendMoment } from "moment-range";
 import "moment-recur-ts";
 import _ from "lodash";
-import { ChristmastideEndings, isNil } from "../utils/type-guards";
+import { TChristmastideEndings, isNil } from "../utils/type-guards";
 
 const { range } = extendMoment(moment);
 
@@ -321,7 +321,7 @@ const presentationOfTheLord = (year: number): moment.Moment => moment.utc({ year
 //    e = Extraordinary Liturgical Calendar of the Western Roman Rite [Presentation of the Lord (Candlemass)]
 //        defaults to 'o'
 // epiphanyOnJan6: true|false [If true, Epiphany will be fixed to Jan 6] (defaults to false)
-const christmastide = (year: number, christmastideEnds: ChristmastideEndings, epiphanyOnJan6 = false): Array<moment.Moment> => {
+const christmastide = (year: number, christmastideEnds: TChristmastideEndings, epiphanyOnJan6 = false): Array<moment.Moment> => {
     const start = christmas(year);
     let end = null;
 
@@ -357,7 +357,7 @@ const christmastide = (year: number, christmastideEnds: ChristmastideEndings, ep
 // year: Year (integer)
 // christmastideEnds: t|o|e [The mode to calculate the end of Christmastide]
 // epiphanyOnJan6: true|false [If true, fixes Epiphany to Jan 6] (defaults to false)
-const daysOfEarlyOrdinaryTime = (year: number, christmastideEnds: ChristmastideEndings, epiphanyOnJan6 = false): Array<moment.Moment> => {
+const daysOfEarlyOrdinaryTime = (year: number, christmastideEnds: TChristmastideEndings, epiphanyOnJan6 = false): Array<moment.Moment> => {
     let start = null;
     const end = ashWednesday(year);
 

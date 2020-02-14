@@ -14,3 +14,5 @@ export type FilterdKeys<T, U> = {
 export type DiffedKeys<T, U> = {
     [P in keyof T]: T[P] extends U ? never : P;
 }[keyof T];
+
+export type ElementType<T extends ReadonlyArray<unknown>> = T extends ReadonlyArray<infer ElementType> ? ElementType : never;

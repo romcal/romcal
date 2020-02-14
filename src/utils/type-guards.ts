@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import moment from "moment";
+import { utc, ISO_8601 } from "moment";
+import * as CountryCalendars from "../calendars";
+import { ElementType } from "./helpers";
 
 /**
  * Primitive types
@@ -12,18 +14,31 @@ export type Primitive = string | boolean | number | null | undefined;
 export type ISO8601DateString = string;
 
 /**
- * Custom type to indicate Christmastide endings
- * t =
- * o =
- * e =
+ * The calendar types that can be resolved by this library.
  */
-export type ChristmastideEndings = "t" | "o" | "e";
+export type TCalendarTypes = "calendar" | "liturgical";
+
+/**
+ * Custom type to indicate Christmastide endings.
+ *
+ * The rule determining when the season of Christmas ends is as follows:
+ *
+ * |   Key   | Description                                                   |
+ * | ------- | ------------------------------------------------------------- |
+ * |   `t`   | Traditional [Jan 6th, Epiphany]                               |
+ * |   `o`   | Ordinary Liturgical Calendar of the Western Roman Rite [Baptism of the Lord] |
+ * |   `e`   | Extraordinary Liturgical Calendar of the Western Roman Rite [Presentation of the Lord (Candlemass)] |
+ */
+export type TChristmastideEndings = "t" | "o" | "e";
+
+const countryKeys = Object.keys(CountryCalendars) as Array<keyof typeof CountryCalendars>;
+export type TCountryTypes = ElementType<typeof countryKeys>;
 
 /**
  * Check if a value is a valid ISO8601 Date string.
  * @param value The value to test
  */
-export const isISODateString = (value: string): value is ISO8601DateString => moment(value, moment.ISO_8601, true).isValid();
+export const isISODateString = (value: string): value is ISO8601DateString => utc(value, ISO_8601, true).isValid();
 
 /**
  * Check if a value is *NOT* `undefined`. This is useful to check if optional props is specified.

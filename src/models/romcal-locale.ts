@@ -2,7 +2,7 @@ export type RomcalLocaleKeys = {
     after: string;
     before: string;
     day: string;
-    day_after_ash_wed: string;
+    dayAfterAshWed: string;
     feria: string;
     octave: string;
     season: string;
@@ -14,7 +14,7 @@ export type TRomcalLocale = Readonly<{
     christmastide?: Pick<RomcalLocaleKeys, "day" | "octave" | "season" | "sunday">;
     epiphany?: Pick<RomcalLocaleKeys, "after" | "before" | "season">;
     ordinaryTime?: Pick<RomcalLocaleKeys, "feria" | "season" | "sunday">;
-    lent?: Pick<RomcalLocaleKeys, "feria" | "season" | "sunday" | "day_after_ash_wed">;
+    lent?: Pick<RomcalLocaleKeys, "feria" | "season" | "sunday" | "dayAfterAshWed">;
     holyWeek?: Pick<RomcalLocaleKeys, "feria" | "season">;
     eastertide?: Pick<RomcalLocaleKeys, "feria" | "octave" | "season" | "sunday">;
     celebrations?: {

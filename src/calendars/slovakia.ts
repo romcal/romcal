@@ -3,8 +3,13 @@ import moment from "moment";
 import { Dates, Utils } from "../lib";
 import { Titles, Types, LiturgicalColors } from "../constants";
 import { IRomcalDateItem } from "../models/romcal-date-item";
+import { IRomcalDefaultConfig } from "../models/romcal-config";
 
-const defaultConfig = {
+const defaultConfig: IRomcalDefaultConfig = {
+    ascensionOnSunday: false,
+    christmastideEnds: "o",
+    christmastideIncludesTheSeasonOfEpiphany: true,
+    corpusChristiOnThursday: false,
     epiphanyOnJan6: true,
 };
 

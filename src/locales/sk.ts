@@ -26,7 +26,7 @@ export default {
         season: "Pôstne obdobie",
         feria: "{{day}} po {{week}}. pôstnej nedeli",
         sunday: "{{week}} pôstna nedeľa",
-        day_after_ash_wed: "{{day}} po Popolcovej strede",
+        dayAfterAshWed: "{{day}} po Popolcovej strede",
     },
     holyWeek: {
         season: "Veľký týždeň",
