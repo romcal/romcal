@@ -26,7 +26,7 @@ export default {
         season: "Quaresima",
         feria: "{{day}} della {{week}} settimana di Quaresima",
         sunday: "{{week}} Domenica di Quaresima",
-        day_after_ash_wed: "{{day}} dopo Mercoledí delle Ceneri",
+        dayAfterAshWed: "{{day}} dopo Mercoledí delle Ceneri",
     },
     holyWeek: {
         season: "Settimana Santa",
@@ -75,8 +75,7 @@ export default {
         chairOfSaintPeterApostle: "Cattedra di San Pietro apostolo",
         conversionOfSaintPaulApostle: "Conversione di San Paolo apostolo",
         dedicationOfTheBasilicaOfSaintMaryMajor: "Dedicazione della Basilica di Santa Maria Maggiore",
-        dedicationOfTheBasilicasOfSaintsPeterAndPaulApostles:
-            "Dedicazione delle Basiliche dei Santi Pietro e Paolo apostoli",
+        dedicationOfTheBasilicasOfSaintsPeterAndPaulApostles: "Dedicazione delle Basiliche dei Santi Pietro e Paolo apostoli",
         dedicationOfTheLateranBasilica: "Dedicazione della basilica Lateranense",
         firstMartyrsOfTheChurchOfRome: "Santi Primi Martiri della Chiesa Romana",
         guardianAngels: "Santi Angeli Custodi",
@@ -97,12 +96,10 @@ export default {
         saintAgnesVirginAndMartyr: "Sant'Agnese, vergine e martire",
         saintAlbertTheGreatBishopAndDoctor: "Sant'Alberto Magno, vescovo e dottore della Chiesa",
         saintAloysiusGonzagaReligious: "San Luigi Gonzaga, religioso",
-        saintAlphonsusMariaDeLiguoriBishopAndDoctorOfTheChurch:
-            "Sant'Alfonso Maria de Liguori, vescovo e dottore della Chiesa",
+        saintAlphonsusMariaDeLiguoriBishopAndDoctorOfTheChurch: "Sant'Alfonso Maria de Liguori, vescovo e dottore della Chiesa",
         saintAmbroseBishopAndDoctor: "Sant'Ambrogio, vescovo e dottore della Chiesa",
         saintAndrewDungLacAndCompanionsMartyrs: "Santi Andrea Dung-Lac, sacerdote e compagni, martiri",
-        saintAndrewKimTaegonPriestAndPaulChongHasangAndCompanionsMartyrs:
-            "Sant Andrea Kim Taegon, Paolo Chong Hasang e compagni, martiri",
+        saintAndrewKimTaegonPriestAndPaulChongHasangAndCompanionsMartyrs: "Sant Andrea Kim Taegon, Paolo Chong Hasang e compagni, martiri",
         saintAndrewTheApostle: "Sant'Andrea, apostolo",
         saintAngelaMericiVirgin: "Sant'Angela Merici, vergine",
         saintAnselmOfCanterburyBishopAndDoctorOfTheChurch: "Sant'Anselmo, vescovo e dottore della Chiesa",
@@ -130,8 +127,7 @@ export default {
         saintCamillusDeLellisPriest: "San Camillo de Lellis, sacerdote",
         saintCasimir: "San Casimiro",
         saintCatherineOfAlexandriaVirginAndMartyr: "Santa Caterina di Alessandria, vergine e martire",
-        saintCatherineOfSienaVirginAndDoctorOfTheChurch:
-            "Santa Caterina da Siena, vergine e dottore della Chiesa, patrona d'Italia e d'Europa",
+        saintCatherineOfSienaVirginAndDoctorOfTheChurch: "Santa Caterina da Siena, vergine e dottore della Chiesa, patrona d'Italia e d'Europa",
         saintCeciliaVirginAndMartyr: "Santa Cecilia, vergine e martire",
         saintCharlesBorromeoBishop: "San Carlo Borromeo, vescovo",
         saintChristopherMagallanesAndCompanionsMartyrs: "Santi Cristoforo Magallanes, sacerdote, e compagni, martiri",
@@ -140,14 +136,12 @@ export default {
         saintCyrilOfAlexandriaBishopAndDoctor: "San Cirillo di Alessandria, vescovo e dottore della Chiesa",
         saintCyrilOfJerusalemBishopAndDoctor: "San Cirillo di Gerusalemme, vescovo e dottore della Chiesa",
         saintDamasusIPope: "San Damaso I, papa",
-        saintDenisAndCompanionsMartyrsSaintJohnLeonardiPriest:
-            "San Dionigi, vescovo e compagni, martiri / San Giovanni Leonardi, sacerdote",
+        saintDenisAndCompanionsMartyrsSaintJohnLeonardiPriest: "San Dionigi, vescovo e compagni, martiri / San Giovanni Leonardi, sacerdote",
         saintDominicPriest: "San Domenico, sacerdote",
         saintElizabethOfHungary: "Sant'Elisabetta di Ungheria, religiosa",
         saintElizabethOfPortugal: "Santa Elisabetta di Portogallo",
         saintEphremDeaconAndDoctor: "Sant’Efrem, diacono e dottore della Chiesa",
-        saintEusebiusOfVercelliBishopSaintPeterJulianEymardPriest:
-            "Sant'Eusebio di Vercelli, vescovo / San Pietro Giuliano Eymard, sacerdote",
+        saintEusebiusOfVercelliBishopSaintPeterJulianEymardPriest: "Sant'Eusebio di Vercelli, vescovo / San Pietro Giuliano Eymard, sacerdote",
         saintFidelisOfSigmaringenPriestAndMartyr: "San Fedele da Sigmaringen, sacerdote e martire ",
         saintFrancesOfRomeReligious: "Santa Francesca Romana, religiosa",
         saintFrancisDeSalesBishopAndDoctor: "San Francesco di Sales, vescovo e dottore della Chiesa",
@@ -156,8 +150,7 @@ export default {
         saintFrancisXavierPriest: "San Francesco Saverio, sacerdote",
         saintGeorgeMartyrSaintAdalbertBishopAndMartyr: "San Giorgio, martire / Sant'Adalberto, vescovo e martire",
         saintGregoryTheGreatPopeAndDoctor: "San Gregorio Magno, papa e dottore della Chiesa",
-        saintHedwigReligiousSaintMargaretMaryAlacoqueVirgin:
-            "Santa Edvige, religiosa / Santa Margherita Maria Alacoque, vergine",
+        saintHedwigReligiousSaintMargaretMaryAlacoqueVirgin: "Santa Edvige, religiosa / Santa Margherita Maria Alacoque, vergine",
         saintHenryBishopAndMartyr: "Sant'Enrico",
         saintHilaryOfPoitiersBishopAndDoctor: "Sant’Ilario, vescovo e dottore della Chiesa",
         saintIgnatiusOfAntiochBishopAndMartyr: "Sant'Ignazio di Antiochia, vescovo e martire",
@@ -226,8 +219,7 @@ export default {
         saintRomualdAbbot: "San Romualdo, abate",
         saintRoseOfLima: "Santa Rosa da Lima, vergine",
         saintsAugustineZhaoRongPriestAndCompanionsMartyrs: "Santi Agostino Zhao Rong, sacerdote, e compagni, martiri",
-        saintsBasilTheGreatAndGregoryNazianzenBishopsAndDoctors:
-            "Santi Basilio Magno e Gregorio Nazianzeno, vescovi e dottori della Chiesa",
+        saintsBasilTheGreatAndGregoryNazianzenBishopsAndDoctors: "Santi Basilio Magno e Gregorio Nazianzeno, vescovi e dottori della Chiesa",
         saintsCharlesLwangaAndCompanionsMartyrs: "San Carlo Lwanga e compagni, martiri",
         saintScholasticaVirgin: "Santa Scolastica, vergine",
         saintsCorneliusPopeAndCyprianBishopMartyrs: "Santi Cornelio, papa e Cipriano, vescovo, martiri",
@@ -235,8 +227,7 @@ export default {
         saintsCyrilMonkAndMethodiusBishop: "Santi Cirillo, monaco e Metodio, vescovo, patroni d'Europa",
         saintsFabianPopeAndSebastianMartyrs: "San Fabiano, papa, e San Sebastiano, martire",
         saintCharbelMakhloufPriestAndHermit: "San Charbel Makhluf, sacerdote",
-        saintSixtusIiPopeAndCompanionsMartyrsSaintCajetanPriest:
-            "San Sisto II, papa e compagni, martiri / San Gaetano, sacerdote",
+        saintSixtusIiPopeAndCompanionsMartyrsSaintCajetanPriest: "San Sisto II, papa e compagni, martiri / San Gaetano, sacerdote",
         saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrsSaintPaulOfTheCrossPriest:
             "Santi Giovanni de Brébeuf e Isacco Jogues, sacerdoti e compagni, martiri / San Paolo della Croce, sacerdote",
         saintsJoachimAndAnne: "Santi Gioacchino e Anna, genitori della Beata Vergine Maria",
@@ -252,8 +243,7 @@ export default {
         saintStephenTheFirstMartyr: "Santo Stefano, primo martire",
         saintsTimothyAndTitusBishops: "Santi Timoteo e Tito, vescovi",
         saintSylvesterIPope: "San Silvestro I, papa",
-        saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr:
-            "Santa Teresa Benedetta della Croce, vergine e martire, patrona d'Europa",
+        saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr: "Santa Teresa Benedetta della Croce, vergine e martire, patrona d'Europa",
         saintTeresaOfJesusVirginAndDoctorOfTheChurch: "Santa Teresa d'Avila, vergine e dottore della Chiesa",
         saintThereseOfTheChildJesusVirginAndDoctor: "Santa Teresa di Gesu' Bambino, vergine e dottore della Chiesa",
         saintThomasAquinasPriestAndDoctor: "San Tommaso d'Aquino, sacerdote e dottore della Chiesa",
@@ -263,8 +253,7 @@ export default {
         saintVincentDeaconAndMartyr: "San Vincenzo, diacono e martire",
         saintVincentDePaulPriest: "San Vincenzo de' Paoli, sacerdote",
         saintVincentFerrerPriest: "San Vincenzo Ferrer, sacerdote",
-        saintWenceslausMartyrSaintsLawrenceRuizAndCompanionsMartyrs:
-            "San Venceslao, martire / Santi Lorenzo Ruiz e compagni, martiri",
+        saintWenceslausMartyrSaintsLawrenceRuizAndCompanionsMartyrs: "San Venceslao, martire / Santi Lorenzo Ruiz e compagni, martiri",
         sevenHolyFoundersOfTheServiteOrder: "Santi Sette Fondatori dei Servi della Beata Vergine Maria",
         theBeheadingOfSaintJohnTheBaptistMartyr: "Martirio di San Giovanni Battista",
         theMostHolyNameOfJesus: "Santissimo Nome di Gesú",

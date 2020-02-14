@@ -24,22 +24,9 @@
 
 import _ from "lodash";
 
-import {
-  Calendar,
-  Celebrations,
-  Dates,
-  Seasons,
-  Utils
-} from "./lib";
+import { Calendar, Celebrations, Dates, Seasons, Utils } from "./lib";
 
-import {
-  Cycles,
-  LiturgicalColors,
-  PsalterWeeks,
-  LiturgicalSeasons,
-  Titles,
-  Types
-} from "./constants";
+import { LiturgicalCycles, LiturgicalColors, PsalterWeeks, LiturgicalSeasons, Titles, Types } from "./constants";
 
 import * as Locales from "./locales";
 const Localizations = _.keys(_.mapKeys(Locales, (v, k) => _.kebabCase(k)));
@@ -49,37 +36,17 @@ const Countries = _.keys(Calendars);
 
 // Export an array of countries for external use
 // Export an array of locales for external use
-export {
-  Countries,
-  Locales,
-  Localizations
-};
+export { Countries, Locales, Localizations };
 
 // Export all lib functions
-export {
-  Calendar,
-  Celebrations,
-  Dates,
-  Seasons,
-  Utils
-};
+export { Calendar, Celebrations, Dates, Seasons, Utils };
 
 // Export all constants
-export {
-  Cycles,
-  LiturgicalColors,
-  PsalterWeeks,
-  LiturgicalSeasons,
-  Titles,
-  Types
-};
+export { LiturgicalCycles, LiturgicalColors, PsalterWeeks, LiturgicalSeasons, Titles, Types };
 
 const { calendarFor, queryFor } = Calendar;
 
-export {
-  calendarFor,
-  queryFor
-};
+export { calendarFor, queryFor };
 
 // Default entry point is exported as Romcal
 export default Calendar;

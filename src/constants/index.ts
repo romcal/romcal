@@ -1,8 +1,8 @@
-import Cycles from "./Cycles";
+import LiturgicalCycles from "./LiturgicalCycles";
 import LiturgicalColors from "./LiturgicalColors";
 import PsalterWeeks from "./PsalterWeeks";
 import LiturgicalSeasons from "./LiturgicalSeasons";
 import Titles from "./Titles";
 import Types from "./Types";
 
-export { Cycles, LiturgicalColors, PsalterWeeks, LiturgicalSeasons, Titles, Types };
+export { LiturgicalCycles, LiturgicalColors, PsalterWeeks, LiturgicalSeasons, Titles, Types };

@@ -711,12 +711,13 @@ Usually, this means excluding a celebration defined in `src/calendars/general.js
 
 ```javascript
 {
-  "key": "",
-  "drop": true
+  key: "",
+  moment: moment.utc(),
+  drop: true
 }
 ```
 
-Note: When defining `drop`, only the key of the celebration is mandatory. Other keys do not have to be defined. `drop` operations also have higher precedence than overriding (meaning, they are run first before prioritization logic).
+> When defining `drop`, only the `key` and `moment` properties of the celebration are mandatory. Other keys do not have to be defined. `drop` operations also have higher precedence than overriding (meaning, they are run first before prioritization logic).
 
 ## Localizing celebration names <a name="localization"></a>
 

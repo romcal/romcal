@@ -4,8 +4,6 @@ import { Dates, Utils } from "../lib";
 import { Titles, Types, LiturgicalColors } from "../constants";
 import { IRomcalDateItem } from "../models/romcal-date-item";
 
-const defaultConfig = {};
-
 const dates = (year: number): Array<IRomcalDateItem> => {
     const _dates: Array<IRomcalDateItem> = [
         {
@@ -198,4 +196,4 @@ const dates = (year: number): Array<IRomcalDateItem> => {
     return Utils.localizeDates(_dates);
 };
 
-export { dates, defaultConfig };
+export { dates };
