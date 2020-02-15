@@ -1,6 +1,7 @@
 import { Schema, Validator } from "jsonschema";
 import { Titles } from "../constants";
 import * as CountryCalendars from "../calendars";
+import { countryKeys, localeKeys } from "../utils/type-guards";
 
 export const getRomcalConfigJsonSchema = (): Schema => {
     const romcalConfigJsonSchema: Schema = {
@@ -13,10 +14,14 @@ export const getRomcalConfigJsonSchema = (): Schema => {
             // Will only accept values that match existing countries in the romcal library
             country: {
                 type: "string",
-                enum: [Object.keys(CountryCalendars)],
-                description: `Acceptable values are ${Object.keys(CountryCalendars).join(", ")}`,
+                enum: countryKeys,
+                description: `Acceptable values are ${countryKeys.join(", ")}`,
             },
-            locale: { type: "string" },
+            locale: {
+                type: "string",
+                enum: localeKeys,
+                description: `Acceptable values are ${localeKeys.join(", ")}`,
+            },
             christmastideEnds: { type: "string", enum: ["t", "o", "e"] },
             epiphanyOnJan6: { type: "boolean" },
             christmastideIncludesTheSeasonOfEpiphany: { type: "boolean" },

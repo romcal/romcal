@@ -130,7 +130,7 @@ const localize = ({ key, count, week, day }: { key: string; day?: string; week?:
  */
 const localizeDates = (dates: Array<IRomcalDateItem>, source = "sanctoral"): Array<IRomcalDateItem | IRomcalDateItem> => {
     return dates.map((date: IRomcalDateItem) => {
-        if (!_.has(date, "drop")) {
+        if (!hasKey(date, "drop")) {
             return {
                 ...date,
                 name: localize({
@@ -147,6 +147,6 @@ const localizeDates = (dates: Array<IRomcalDateItem>, source = "sanctoral"): Arr
  * the type of day from the [[Types]] enum
  * @param day A "day" integer that should come from the moment library
  */
-const getTypeByDayOfWeek = (day: number): Types => (_.eq(day, 0) ? Types.SUNDAY : Types.FERIA);
+const getTypeByDayOfWeek = (day: number): Types => (day === 0 ? Types.SUNDAY : Types.FERIA);
 
 export { setLocale, getLocale, localize, localizeDates, getTypeByDayOfWeek };

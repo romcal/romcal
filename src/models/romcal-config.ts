@@ -1,15 +1,8 @@
-import { TChristmastideEndings, TCountryTypes, TCalendarTypes, isNil, isObject } from "../utils/type-guards";
+import { TChristmastideEndings, TCountryTypes, TCalendarTypes, isNil, isObject, TRomcalQuery } from "../utils/type-guards";
 import { getRomcalConfigSchemaValidator, getRomcalConfigJsonSchema } from "../validators/romcal-config.validator";
 import { ValidationError } from "jsonschema";
 import * as CountryCalendars from "../calendars";
 import moment from "moment";
-
-export type TRomcalQuery = Readonly<{
-    day?: number;
-    month?: number;
-    group?: string;
-    title?: string;
-}>;
 
 /**
  * The configuration object that is passed either to the [[Calendar.calendarFor]]

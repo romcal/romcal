@@ -281,14 +281,14 @@ const baptismOfTheLord = (year: number, epiphanyOnJan6 = false): moment.Moment =
 
     // If Epiphany is celebrated on Jan. 6
     // the Baptism of the Lord occurs on the Sunday following Jan. 6.
-    if (_.eq(date.dayOfYear(), 6)) {
+    if (date.dayOfYear() === 6) {
         date = date.add(1, "weeks").startOf("week");
     }
     // If Epiphany is not celebrated on Jan. 6
     else {
         // If Epiphany occurs on Sunday Jan. 7 or Sunday Jan. 8,
         //  then the Baptism of the Lord is the next day (Monday)
-        if (_.eq(date.day(), 0) && (_.eq(date.dayOfYear(), 7) || _.eq(date.dayOfYear(), 8))) {
+        if ((date.day() === 0 && date.dayOfYear() === 7) || date.dayOfYear() === 8) {
             date = date.add(1, "days");
         }
         // If Epiphany occurs before Jan. 6, the Sunday
@@ -550,7 +550,7 @@ const josephHusbandOfMary = (year: number): moment.Moment => {
     // If it occurs on a Sunday of Lent is transferred to the
     // following Monday.
     if (date.day() === 0) {
-        _.each(sundaysOfLent(year), sunday => {
+        sundaysOfLent(year).forEach(sunday => {
             if (date.isSame(sunday)) {
                 date = sunday.add(1, "days");
             }
@@ -578,7 +578,7 @@ const annunciation = (year: number): moment.Moment => {
     let date = moment.utc({ year, month: 2, day: 25 });
 
     // If it occurs on a Sunday of Lent, it is trasferred to the next day (Monday)
-    const match = _.find(sundaysOfLent(year), sunday => date.isSame(sunday));
+    const match = sundaysOfLent(year).find(sunday => date.isSame(sunday));
 
     // Since its a Sunday, add one day to make it a Monday
     if (!isNil(match)) {
@@ -647,7 +647,7 @@ const immaculateConception = (year: number): moment.Moment => {
     // If it occurs on a Sunday of Advent is transferred to the
     // following Monday.
     if (_date.day() === 0) {
-        _.each(sundaysOfAdvent(year), s => {
+        sundaysOfAdvent(year).forEach(s => {
             if (_date.isSame(s)) {
                 _date = s.add(1, "days");
             }
