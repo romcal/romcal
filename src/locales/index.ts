@@ -5,11 +5,4 @@ import it from "./it";
 import pl from "./pl";
 import sk from "./sk";
 
-export {
-  enCA,
-  en,
-  fr,
-  it,
-  pl,
-  sk,
-};
+export { enCA, en, fr, it, pl, sk };
