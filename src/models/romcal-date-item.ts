@@ -7,8 +7,6 @@ import { ISO8601DateString, isNil } from "../utils/type-guards";
 import { Dates } from "../lib";
 import { TLiturgicalCycle } from "../constants/LiturgicalCycles";
 
-type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
-
 export interface IRomcalDateItemDataCalendar {
     weeks: number;
     week: number;
@@ -24,6 +22,7 @@ export interface IRomcalDateItemMetadata {
     psalterWeek?: TPsalterWeek;
     liturgicalColor?: TLiturgicalColor;
     titles?: Array<string>;
+    cycle?: TLiturgicalCycle;
 }
 
 export interface IRomcalDateItemData {
@@ -63,13 +62,14 @@ export interface IDateItemMetadata {
     psalterWeek?: TPsalterWeek;
     liturgicalColor?: TLiturgicalColor;
     titles?: Array<string>;
-    cycle: TLiturgicalCycle;
+    cycle?: TLiturgicalCycle;
 }
 
 export interface IDateItemData {
     season: IRomcalSeason;
     meta: IDateItemMetadata;
     calendar: IRomcalDateItemDataCalendar;
+    prioritized?: boolean;
 }
 
 export interface IDateItem {
@@ -84,10 +84,10 @@ export interface IDateItem {
     readonly _stack: number;
 }
 
-export interface IDateItemInput extends IDateItem {
-    readonly _stack: number;
-    readonly baseItem?: DateItem;
-}
+export type TDateItemInput = Omit<IDateItem, "_id" | "base" | "date"> &
+    Readonly<{
+        baseItem?: DateItem;
+    }>;
 
 export class DateItem implements IDateItem {
     /**
@@ -120,7 +120,7 @@ export class DateItem implements IDateItem {
 
     static latestId: number;
 
-    constructor({ key, name, type, moment, data, _stack, baseItem }: IDateItemInput) {
+    constructor({ key, name, type, moment, data, _stack, baseItem }: TDateItemInput) {
         this.key = key;
         this.name = name;
         this.date = moment.toISOString();
@@ -212,3 +212,13 @@ export class DateItem implements IDateItem {
         return isNil(this.latestId) ? (this.latestId = 0) : this.latestId++;
     }
 }
+
+/**
+ * Checks if a value is a [[DateItem]]
+ * @param value The value that could be an instance of [[IDateItem]]
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const isDateItem = (value: Record<string, any>): value is IDateItem => {
+    const { key, name, date, type, data, moment } = value;
+    return key && name && date && type && data && moment;
+};

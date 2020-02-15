@@ -22,21 +22,15 @@
     THE SOFTWARE.
 */
 
-import _ from "lodash";
-
 import { Calendar, Celebrations, Dates, Seasons, Utils } from "./lib";
 
 import { LiturgicalCycles, LiturgicalColors, PsalterWeeks, LiturgicalSeasons, Titles, Types } from "./constants";
 
-import * as Locales from "./locales";
-const Localizations = _.keys(_.mapKeys(Locales, (v, k) => _.kebabCase(k)));
-
-import * as Calendars from "./calendars";
-const Countries = _.keys(Calendars);
+import { countryKeys, localeKeys } from "./utils/type-guards";
 
 // Export an array of countries for external use
 // Export an array of locales for external use
-export { Countries, Locales, Localizations };
+export { countryKeys as Countries, localeKeys as Localizations };
 
 // Export all lib functions
 export { Calendar, Celebrations, Dates, Seasons, Utils };

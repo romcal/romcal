@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { utc, ISO_8601 } from "moment";
 import * as CountryCalendars from "../calendars";
+import * as Locales from "../locales";
 import { ElementType } from "./helpers";
 
 /**
@@ -18,6 +19,19 @@ export type ISO8601DateString = string;
  */
 export type TCalendarTypes = "calendar" | "liturgical";
 
+export type TRomcalQuery = Readonly<{
+    day?: number;
+    month?: number;
+    group?: string;
+    title?: string;
+}>;
+
+type NumericDictionary<T> = {
+    [index: number]: T;
+};
+
+export type TRomcalQueryResult<T> = Array<T> | NumericDictionary<Array<T>> | Array<NumericDictionary<Array<T>>>;
+
 /**
  * Custom type to indicate Christmastide endings.
  *
@@ -31,8 +45,11 @@ export type TCalendarTypes = "calendar" | "liturgical";
  */
 export type TChristmastideEndings = "t" | "o" | "e";
 
-const countryKeys = Object.keys(CountryCalendars) as Array<keyof typeof CountryCalendars>;
+export const countryKeys = Object.keys(CountryCalendars) as Array<keyof typeof CountryCalendars>;
 export type TCountryTypes = ElementType<typeof countryKeys>;
+
+export const localeKeys = Object.keys(Locales) as Array<keyof typeof Locales>;
+export type TLocaleTypes = ElementType<typeof localeKeys>;
 
 /**
  * Check if a value is a valid ISO8601 Date string.
@@ -57,6 +74,12 @@ export const isNil = (value: any): value is undefined | null => typeof value ===
  * @param value The value that could be a boolean
  */
 export const isBool = (value: any): value is boolean => typeof value === "boolean";
+
+/**
+ * Check if a value is a number.
+ * @param value The value that could be a number
+ */
+export const isInteger = (value: any): value is number => typeof value === "number";
 
 /**
  * Check if the value is a string.

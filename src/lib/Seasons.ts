@@ -31,7 +31,7 @@ const getPsalterWeek = (index: number, psalterWeek = 0): number => {
  * @returns An array of [[IRomcalDateItem]] items.
  */
 const _metadata = (items: Array<IRomcalDateItem>): Array<IRomcalDateItem> => {
-    return _.map(items, ({ moment, ...rest }: IRomcalDateItem) => {
+    return items.map(({ moment, ...rest }: IRomcalDateItem) => {
         return {
             ...rest,
             moment,
@@ -161,7 +161,7 @@ const advent = (year: number): Array<IRomcalDateItem> => {
             moment: value,
             type: Utils.getTypeByDayOfWeek(value.day()),
             name: Utils.localize({
-                key: _.eq(value.day(), 0) ? "advent.sunday" : "advent.feria",
+                key: value.day() === 0 ? "advent.sunday" : "advent.feria",
                 day: value.format("dddd"),
                 week: Math.floor(i / 7) + 1,
             }),
@@ -174,7 +174,7 @@ const advent = (year: number): Array<IRomcalDateItem> => {
                 },
                 meta: {
                     // The proper color of the Third Sunday of Advent is rose. Purple may also be used on these Sundays.
-                    liturgicalColor: _.eq(Math.floor(i / 7), 2) && _.eq(value.day(), 0) ? LiturgicalColors.ROSE : LiturgicalColors.PURPLE,
+                    liturgicalColor: Math.floor(i / 7) === 2 && value.day() === 0 ? LiturgicalColors.ROSE : LiturgicalColors.PURPLE,
                 },
             },
         });
@@ -303,7 +303,7 @@ const christmastide = (
         psalterWeekStart = 0;
     }
 
-    combinedDaysOfChristmas = _.map(combinedDaysOfChristmas, ({ name, data, ...rest }, index: number) => {
+    combinedDaysOfChristmas = combinedDaysOfChristmas.map(({ name, data, ...rest }, index: number) => {
         const resolvedPsalterWeek = getPsalterWeek(index, psalterWeekStart);
         return {
             ...rest,
@@ -440,9 +440,9 @@ const laterOrdinaryTime = (year: number): Array<IRomcalDateItem> => {
 
             days.push({
                 moment: value,
-                type: _.eq(value.day(), 0) ? Types.SUNDAY : Types.FERIA,
+                type: value.day() === 0 ? Types.SUNDAY : Types.FERIA,
                 name: Utils.localize({
-                    key: _.eq(value.day(), 0) ? "ordinaryTime.sunday" : "ordinaryTime.feria",
+                    key: value.day() === 0 ? "ordinaryTime.sunday" : "ordinaryTime.feria",
                     day: value.format("dddd"),
                     week: week,
                 }),
@@ -461,7 +461,7 @@ const laterOrdinaryTime = (year: number): Array<IRomcalDateItem> => {
     days = _.sortBy(days, v => v.moment.valueOf());
 
     let psalterWeekStart = firstWeekOfLaterOrdinaryTime % 4;
-    if (_.eq(psalterWeekStart, 0)) {
+    if (psalterWeekStart === 0) {
         psalterWeekStart = 3;
     }
 
@@ -517,7 +517,7 @@ const lent = (year: number): Array<IRomcalDateItem> => {
             moment: value,
             type: Types.FERIA,
             name: Utils.localize({
-                key: _.gt(i, 0) && _.lt(i, 4) ? "lent.dayAfterAshWed" : "lent.feria",
+                key: i > 0 && i < 4 ? "lent.dayAfterAshWed" : "lent.feria",
                 day: value.format("dddd"),
                 week: Math.floor((i - 4) / 7) + 1,
             }),
@@ -550,7 +550,7 @@ const lent = (year: number): Array<IRomcalDateItem> => {
                 },
                 meta: {
                     // The proper color of the the Fourth Sunday of Lent is rose. Purple may also be used on these Sundays.
-                    liturgicalColor: _.eq(i, 3) ? LiturgicalColors.ROSE : LiturgicalColors.PURPLE,
+                    liturgicalColor: i === 3 ? LiturgicalColors.ROSE : LiturgicalColors.PURPLE,
                 },
             },
         });
@@ -591,19 +591,6 @@ const lent = (year: number): Array<IRomcalDateItem> => {
 
     combinedDaysOfLent = _metadata(combinedDaysOfLent);
 
-    // _.each( days, function( v ) {
-    //   console.log(
-    //     v.moment.format('ddd, DD MMM YY'),
-    //     '|', _.padRight( v.data.meta.liturgicalColor.key, 6 ),
-    //     '|', _.padRight( v.data.season.value, 9 ),
-    //     '|', _.padRight( v.data.meta.psalterWeek.value, 8 ),
-    //     '|', _.padRight( v.type, 13 ),
-    //     '|', _.padRight( v.data.calendar.week, 2 ),
-    //     '|', _.padRight( v.data.calendar.day, 3 ),
-    //     '|', v.name
-    //   );
-    // });
-
     return combinedDaysOfLent;
 };
 
@@ -612,7 +599,7 @@ const lent = (year: number): Array<IRomcalDateItem> => {
  *
  * @param year The year to use for the calculation
  */
-const easterTriduum = (year: number): Array<IRomcalDateItem> => _.takeRight(_holyWeek(year), 3);
+const easterTriduum = (year: number): Array<IRomcalDateItem> => _holyWeek(year).slice(-3);
 
 /**
  * Calculates the season of Easter.
@@ -638,9 +625,9 @@ const eastertide = (year: number): Array<IRomcalDateItem> => {
     weekdaysOfEaster.forEach((value, i) => {
         days.push({
             moment: value,
-            type: _.gt(i, 0) && _.lt(i, 7) ? Types.SOLEMNITY : Types.FERIA,
+            type: i > 0 && i < 7 ? Types.SOLEMNITY : Types.FERIA,
             name: Utils.localize({
-                key: _.gt(i, 0) && _.lt(i, 7) ? "eastertide.octave" : "eastertide.feria",
+                key: i > 0 && i < 7 ? "eastertide.octave" : "eastertide.feria",
                 day: value.format("dddd"),
                 week: Math.floor(i / 7) + 1,
             }),
@@ -719,17 +706,6 @@ const eastertide = (year: number): Array<IRomcalDateItem> => {
     });
 
     combinedDaysOfEaster = _metadata(combinedDaysOfEaster);
-
-    // _.each( days, function( v ) {
-    //   console.log(
-    //     v.moment.format('ddd, DD MMM YY'),
-    //     '|', _.padRight( v.data.meta.liturgicalColor.key, 6 ),
-    //     '|', _.padRight( v.data.season.value, 9 ),
-    //     '|', _.padRight( v.data.meta.psalterWeek.value, 8 ),
-    //     '|', _.padRight( v.type, 13 ),
-    //     '|', v.name
-    //   );
-    // });
 
     return combinedDaysOfEaster;
 };

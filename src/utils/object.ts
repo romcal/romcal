@@ -140,3 +140,23 @@ export const omit = <Original, Key extends keyof Original>(obj: Original, keysTo
 export const getValueByKey = <T extends Record<string, any>, Key extends keyof T>(obj: T, key: Key): T[Key] => {
     return obj[key];
 };
+
+/**
+ * Sort values in an object in ascending order
+ * @param key The key to sort by
+ */
+export const sortBy = <Original, K extends keyof Original>(key: K) => {
+    return (a: Original, b: Original): number => (a[key] > b[key] ? 1 : b[key] > a[key] ? -1 : 0);
+};
+
+/**
+ * Filters a given array of objects based on the given key and value
+ * @param array The original array to perform the filter
+ * @param key The key to filter on
+ * @param value The value to filter by
+ */
+export const filter = <Original, K extends keyof Original>(array: Original[], key: K, value: Original[K] | undefined): Original[] => {
+    return array.filter((item: Original) => {
+        item[key] === value;
+    });
+};

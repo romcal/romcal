@@ -1,7 +1,8 @@
-import { findDescendantValueByKeys, omit, omitFalsyProps, mergeObjectsUniquely } from "./object";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { findDescendantValueByKeys, omit, omitFalsyProps, mergeObjectsUniquely, sortBy } from "./object";
 
 describe("omit", () => {
-    let testObject: any;
+    let testObject: Record<string, any>;
 
     beforeAll(() => {
         testObject = {
@@ -17,12 +18,12 @@ describe("omit", () => {
     });
 
     afterAll(() => {
-        testObject = null;
+        testObject = [];
     });
 });
 
 describe("omitFalsyProps()", () => {
-    let testObject: any;
+    let testObject: Record<string, any>;
 
     beforeAll(() => {
         testObject = {
@@ -43,14 +44,14 @@ describe("omitFalsyProps()", () => {
     });
 
     afterAll(() => {
-        testObject = null;
+        testObject = [];
     });
 });
 
 describe("findDescendantValueByKeys()", () => {
-    let testNestedString: any;
-    let testNestedArray: any;
-    let testNestedObject: any;
+    let testNestedString: Record<string, any>;
+    let testNestedArray: Record<string, any>;
+    let testNestedObject: Record<string, any>;
 
     beforeAll(() => {
         testNestedString = {
@@ -101,20 +102,20 @@ describe("findDescendantValueByKeys()", () => {
     });
 
     afterAll(() => {
-        testNestedString = null;
-        testNestedArray = null;
-        testNestedObject = null;
+        testNestedString = [];
+        testNestedArray = [];
+        testNestedObject = [];
     });
 });
 
 describe("mergeObjects", () => {
     test("should correctly merge objects with only native types", () => {
-        const target = {
+        const target: Record<string, any> = {
             foo: 1,
             bar: 2,
         };
 
-        const source = {
+        const source: Record<string, any> = {
             foo: 2,
             bar: 3,
             baz: 10,
@@ -130,12 +131,12 @@ describe("mergeObjects", () => {
     });
 
     test("should correctly merge objects and ignore null values", () => {
-        const target = {
+        const target: Record<string, any> = {
             foo: 1,
             bar: 2,
         };
 
-        const source = {
+        const source: Record<string, any> = {
             foo: 2,
             bar: 3,
             baz: null,
@@ -206,5 +207,24 @@ describe("mergeObjects", () => {
                 b: 2,
             },
         });
+    });
+});
+
+describe("sortBy", () => {
+    const fruits: Array<Record<string, any>> = [
+        { name: "banana", amount: 2 },
+        { name: "apple", amount: 4 },
+        { name: "pineapple", amount: 2 },
+        { name: "mango", amount: 1 },
+    ];
+
+    test("should be able to sort an array of objects in ascending order", () => {
+        const result = fruits.concat().sort(sortBy("name"));
+        expect(result).toStrictEqual([
+            { name: "apple", amount: 4 },
+            { name: "banana", amount: 2 },
+            { name: "mango", amount: 1 },
+            { name: "pineapple", amount: 2 },
+        ]);
     });
 });
