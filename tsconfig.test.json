@@ -67,6 +67,6 @@
         /* Advanced Options */
         "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */
     },
-    "include": ["typings/*", "./src/**/*.test.ts"],
+    "include": ["types/globals.test.d.ts", "typings/*", "./src/**/*.test.ts"],
     "exclude": ["node_modules", "dist/**/*"]
 }
