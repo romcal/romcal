@@ -411,7 +411,7 @@ const queryFor = (dates: Array<DateItem>, query: TRomcalQuery = {}): TRomcalQuer
                 case "liturgicalColors":
                     filteredResult = _.groupBy(dates, d => d.data.meta.liturgicalColor?.key);
                     break;
-                case "psalterWeek":
+                case "psalterWeeks":
                     filteredResult = _.groupBy(dates, d => d.data.meta.psalterWeek?.key);
                     break;
                 default:
