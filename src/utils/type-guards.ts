@@ -26,7 +26,7 @@ export type TRomcalQuery = Readonly<{
     title?: string;
 }>;
 
-type NumericDictionary<T> = {
+export type Dictionary<T> = {
     [index: number]: T;
 };
 
@@ -46,7 +46,7 @@ export const romcalQueryGroups = [
 ] as const;
 export type TRomcalQueryGroup = ElementType<typeof romcalQueryGroups>;
 
-export type TRomcalQueryResult<T> = Array<T> | NumericDictionary<Array<T>> | Array<NumericDictionary<Array<T>>>;
+export type TRomcalQueryResult<T> = T[] | Dictionary<T[]> | Dictionary<T[]>[];
 
 /**
  * Custom type to indicate Christmastide endings.
@@ -56,8 +56,8 @@ export type TRomcalQueryResult<T> = Array<T> | NumericDictionary<Array<T>> | Arr
  * |   Key   | Description                                                   |
  * | ------- | ------------------------------------------------------------- |
  * |   `t`   | Traditional [Jan 6th, Epiphany]                               |
- * |   `o`   | Ordinary Liturgical Calendar of the Western Roman Rite [Baptism of the Lord] |
- * |   `e`   | Extraordinary Liturgical Calendar of the Western Roman Rite [Presentation of the Lord (Candlemass)] |
+ * |   `o`   | Ordinary Liturgical Calendar of the Western Roman Rite (Baptism of the Lord) |
+ * |   `e`   | Extraordinary Liturgical Calendar of the Western Roman Rite (Presentation of the Lord/Candlemass) |
  */
 export type TChristmastideEndings = "t" | "o" | "e";
 
