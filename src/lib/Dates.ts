@@ -266,16 +266,19 @@ const octaveOfChristmas = (year: number): Array<moment.Moment> =>
         .day()
         .all();
 
-// The Baptism of the Lord (or the Baptism of Christ) is the feast day
-// commemorating the baptism of Jesus in the Jordan River by John the
-// Baptist. Originally the baptism of Christ was celebrated on Epiphany,
-// which commemorates the coming of the Magi, the baptism of Christ, and
-// the wedding at Cana. Over time in the West, however, the celebration of
-// the baptism of the Lord came to be commemorated as a distinct feast from
-// Epiphany. It is celebrated in Anglican and Lutheran Churches on the first
-// Sunday following The Epiphany of Our Lord (6 January).
-// y: year
-// epiphanyOnJan6: true|false|undefined [When true, makes Epiphany land on Jan 6 always] (defaults to false)
+/**
+ * *The Baptism of the Lord (or the Baptism of Christ) is the feast day
+ * commemorating the baptism of Jesus in the Jordan River by John the
+ * Baptist. Originally the baptism of Christ was celebrated on Epiphany,
+ * which commemorates the coming of the Magi, the baptism of Christ, and
+ * the wedding at Cana. Over time in the West, however, the celebration of
+ * the baptism of the Lord came to be commemorated as a distinct feast from
+ * Epiphany. It is celebrated in Anglican and Lutheran Churches on the first
+ * Sunday following The Epiphany of Our Lord (6 January).*
+ *
+ * @param year The year to use for the calculation
+ * @param epiphanyOnJan6 If true, Epiphany will be fixed to Jan 6] (defaults to false)
+ */
 const baptismOfTheLord = (year: number, epiphanyOnJan6 = false): moment.Moment => {
     let date = epiphany(year, epiphanyOnJan6);
 
@@ -301,30 +304,33 @@ const baptismOfTheLord = (year: number, epiphanyOnJan6 = false): moment.Moment =
     return date;
 };
 
-// In the Roman Catholic Church, the Feast of the Presentation of the Lord is
-// a Feast Day occurring between the Feast of the Conversion of St. Paul the
-// Apostle on 25 January and the Feast of the Chair of St. Peter the Apostle on
-// 22 February. In some Western liturgical churches, Vespers (or Compline) on the
-// Feast of the Presentation marks the end of the Epiphany season.
-// y: year
+/**
+ * In the Roman Catholic Church, the Feast of the Presentation of the Lord is
+ * a Feast Day occurring between the Feast of the Conversion of St. Paul the
+ * Apostle on 25 January and the Feast of the Chair of St. Peter the Apostle on
+ * 22 February. In some Western liturgical churches, Vespers (or Compline) on the
+ * Feast of the Presentation marks the end of the Epiphany season.
+ *
+ * @param year The year to use for the calculation
+ */
 const presentationOfTheLord = (year: number): moment.Moment => moment.utc({ year, month: 1, day: 2 });
 
-// In different Churches, the Christmas Season might end on Jan. 6
-// (the traditional date of the Feast of the Epiphany), or might last
-// until the Feast of the Baptism of the Lord (usually the Sunday after
-// Epiphany), or might even last all the way to Feb. 2 (the Feast of the
-// Presentation of the Lord, 40 days after Dec. 25) (Candlemass)
-// y: year (integer)
-// christmastideEnds: the rule determining when the season of Christmas ends
-//    t = Traditional [Jan 6th, Epiphany]
-//    o = Ordinary Liturgical Calendar of the Western Roman Rite [Baptism of the Lord]
-//    e = Extraordinary Liturgical Calendar of the Western Roman Rite [Presentation of the Lord (Candlemass)]
-//        defaults to 'o'
-// epiphanyOnJan6: true|false [If true, Epiphany will be fixed to Jan 6] (defaults to false)
-const christmastide = (year: number, christmastideEnds: TChristmastideEndings, epiphanyOnJan6 = false): Array<moment.Moment> => {
+/**
+ * Calculate the days in the season of Christmastide.
+ *
+ * *In different Churches, the Christmas Season might end on Jan. 6
+ * (the traditional date of the Feast of the Epiphany), or might last
+ * until the Feast of the Baptism of the Lord (usually the Sunday after
+ * Epiphany), or might even last all the way to Feb. 2 (the Feast of the
+ * Presentation of the Lord, 40 days after Dec. 25) (Candlemass).*
+ *
+ * @param year The year to use for the calculation
+ * @param christmastideEnds The rule determining when the season of Christmas ends
+ * @param epiphanyOnJan6 If true, Epiphany will be fixed to Jan 6] (defaults to false)
+ */
+const christmastide = (year: number, christmastideEnds: TChristmastideEndings = "o", epiphanyOnJan6 = false): Array<moment.Moment> => {
     const start = christmas(year);
     let end = null;
-
     switch (christmastideEnds) {
         case "t":
             end = epiphany(year + 1, epiphanyOnJan6);
@@ -351,13 +357,19 @@ const christmastide = (year: number, christmastideEnds: TChristmastideEndings, e
 // Ordinary Time
 //==================================================================================
 
-// Ordinary Time in the early part of the year begins
-// the day after the Baptism of the Lord and concludes
-// the day before Ash Wednesday.
-// year: Year (integer)
-// christmastideEnds: t|o|e [The mode to calculate the end of Christmastide]
-// epiphanyOnJan6: true|false [If true, fixes Epiphany to Jan 6] (defaults to false)
-const daysOfEarlyOrdinaryTime = (year: number, christmastideEnds: TChristmastideEndings, epiphanyOnJan6 = false): Array<moment.Moment> => {
+/**
+ * Calculates the days of ordinary time from the day after Christmastide
+ * till the day before Ash Wednesday.
+ *
+ * *Ordinary Time in the early part of the year begins
+ * the day after the Baptism of the Lord and concludes
+ * the day before Ash Wednesday.*
+ *
+ * @param year The year for the calculation
+ * @param christmastideEnds The mode to calculate the end of Christmastide
+ * @param epiphanyOnJan6 If true, fixes Epiphany to Jan 6] (defaults to false
+ */
+const daysOfEarlyOrdinaryTime = (year: number, christmastideEnds: TChristmastideEndings = "o", epiphanyOnJan6 = false): Array<moment.Moment> => {
     let start = null;
     const end = ashWednesday(year);
 
