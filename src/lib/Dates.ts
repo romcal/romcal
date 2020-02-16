@@ -656,16 +656,19 @@ const immaculateConception = (year: number): moment.Moment => {
     return _date;
 };
 
-// In 1999, an Indult for the Transfer of the Solemnity of the Ascension was issued by the
-// United States Conference of Catholic Bishops allowing each ecclesiastical province to
-// determine if the Ascension should be celebrated on its proper Thursday (39 days after
-// Easter) or on the Seventh Sunday of Easter (42 days after Easter). The following
-// provinces of the United States have retained the celebration of Ascension on its proper
-// Thursday. All other provinces of the United States have transferred the celebration of
-// the Ascension to the Seventh Sunday of Easter.
-// y: Takes the year (integer)
-// ascensionOn7thSundayOfEaster: Optional boolean to set Ascension to the 7th Sunday of Easter when true
-const ascension = (year: number, ascensionOn7thSundayOfEaster: boolean): moment.Moment => {
+/**
+ * In 1999, an Indult for the Transfer of the Solemnity of the Ascension was issued by the
+ * United States Conference of Catholic Bishops allowing each ecclesiastical province to
+ * determine if the Ascension should be celebrated on its proper Thursday (39 days after
+ * Easter) or on the Seventh Sunday of Easter (42 days after Easter). The following
+ * provinces of the United States have retained the celebration of Ascension on its proper
+ * Thursday. All other provinces of the United States have transferred the celebration of
+ * the Ascension to the Seventh Sunday of Easter.
+ *
+ * @param year The year to base the calculation upon
+ * @param ascensionOn7thSundayOfEaster Sets Ascension to the 7th Sunday of Easter when true. Defaults to false.
+ */
+const ascension = (year: number, ascensionOn7thSundayOfEaster = false): moment.Moment => {
     // If specified, move Ascension to Sunday
     if (!isNil(ascensionOn7thSundayOfEaster) && ascensionOn7thSundayOfEaster) {
         return easter(year).add(42, "days");

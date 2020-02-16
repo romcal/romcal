@@ -25,5 +25,6 @@ module.exports = {
             diagnostics: true,
         },
     },
+    setupFilesAfterEnv: ["jest-extended"],
     verbose: true,
 };

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import _ from "lodash";
 import { utc, Moment } from "moment";
 import * as CountryCalendars from "../calendars";
@@ -296,25 +297,31 @@ class Calendar {
     }
 }
 
-// Returns an array of liturgical dates based on the supplied calendar options
-// The array may return dates according to the given calendar year or liturgical
-// year depending on the options supplied
-//
-// If query object is passed:
-// Return filtered liturgical calendar dates according to the given calendar options
-// and filtering options passed in by the user
-//
-// config: calendar settings
-//         if the config object has a query, it will be used to filter the
-//         date results returned
-//
-const calendarFor = (options: IRomcalConfig | number): TRomcalQueryResult<DateItem> | Error => {
+function calendarFor<T extends undefined>(): Array<DateItem>;
+function calendarFor<T extends IRomcalConfig | number>(
+    options?: T,
+): T extends number ? Array<DateItem> : "query" extends keyof T ? TRomcalQueryResult<DateItem> | Error : Array<DateItem>;
+/**
+ * Returns an array of liturgical dates based on the supplied options.
+ *
+ * The array may return dates according to the given calendar year or liturgical
+ * year depending on the options supplied.
+ *
+ * If a query object is passed, a filtered array of liturgical calendar dates is returned
+ * according to the given calendar options and filtering options passed in by the user.
+ *
+ * If the config object has a query, it will be used to filter the
+ * date results returned by an internal call to the `queryFor` method.
+ *
+ * @param options A configuration object or a year (integer)
+ */
+function calendarFor(options?: IRomcalConfig | number): Array<DateItem> | TRomcalQueryResult<DateItem> | Error {
     let userConfig: IRomcalConfig = {};
 
     // If options is passed as an integer,
     // assume we want the calendar for the current year
     // with default options
-    if (isInteger(options)) {
+    if (!isNil(options) && isInteger(options)) {
         userConfig = { year: options };
     }
 
@@ -327,14 +334,23 @@ const calendarFor = (options: IRomcalConfig | number): TRomcalQueryResult<DateIt
     // Get a new collection of dates
     const dates = new Calendar(config).fetch().values();
 
-    // Run queries, if any and return the results
-    // eslint-disable-next-line @typescript-eslint/no-use-before-define
-    return queryFor(dates, config.query);
-};
+    // Determine if there's a query to execute. If none,
+    // just return the array if DateItems to the caller
+    if (isNil(config.query) || !isObject(config.query) || isNil(options)) {
+        return dates as Array<DateItem>;
+    } else {
+        // Run queries and return the results
+        // eslint-disable-next-line @typescript-eslint/no-use-before-define
+        return queryFor(dates, config.query) as TRomcalQueryResult<DateItem> | Error;
+    }
+}
 
-// Filters an array of dates generated from the calendarFor function based on a given query.
-// dates: An array of dates generated from the calendarFor function
-// query: An object containing keys to filter the dates by
+/**
+ * Filters an array of dates generated from the calendarFor function based on a given query.
+ *
+ * @param dates An array of dates generated from the `calendarFor` function
+ * @param query A query object containing criteria to filter the dates by
+ */
 const queryFor = (dates: Array<DateItem>, query: TRomcalQuery = {}): TRomcalQueryResult<DateItem> | Error => {
     if (!dates.every(value => isDateItem(value))) {
         throw new Error("romcal.queryFor can only accept a single dimensional array of DateItem objects");
