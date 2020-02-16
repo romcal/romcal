@@ -10,7 +10,7 @@ enum Titles {
 }
 
 // Convert the keys of this enum into a type
-const extractedTitleKeys = Object.keys(Titles) as Array<keyof typeof Titles>;
+export const extractedTitleKeys = Object.keys(Titles) as Array<keyof typeof Titles>;
 export type TTitles = ElementType<typeof extractedTitleKeys>;
 
 export default Titles;

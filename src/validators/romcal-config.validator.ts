@@ -1,7 +1,6 @@
 import { Schema, Validator } from "jsonschema";
-import { Titles } from "../constants";
-import * as CountryCalendars from "../calendars";
-import { countryKeys, localeKeys } from "../utils/type-guards";
+import { countryKeys, localeKeys, romcalQueryGroups } from "../utils/type-guards";
+import { extractedTitleKeys } from "../constants/Titles";
 
 export const getRomcalConfigJsonSchema = (): Schema => {
     const romcalConfigJsonSchema: Schema = {
@@ -52,12 +51,13 @@ export const getRomcalQueryJsonSchema = (): Schema => {
             },
             group: {
                 type: "string",
-                enum: ["days", "months", "daysByMonth", "weeksByMonth", "cycles", "types", "liturgicalSeasons", "liturgicalColors", "psalterWeeks"],
+                enum: [...romcalQueryGroups],
+                description: `Acceptable values are ${romcalQueryGroups.join(", ")}`,
             },
             title: {
                 type: "string",
-                enum: Object.keys(Titles),
-                description: `Acceptable values are ${Object.keys(Titles).join(", ")}`,
+                enum: extractedTitleKeys,
+                description: `Acceptable values are ${extractedTitleKeys.join(", ")}`,
             },
         },
     };
