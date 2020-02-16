@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import _ from "lodash";
 import { utc, Moment } from "moment";
@@ -7,9 +8,9 @@ import * as Dates from "./Dates";
 import * as Utils from "./Utils";
 import * as Seasons from "./Seasons";
 import * as Celebrations from "./Celebrations";
-import { TCountryTypes, isNil, Primitive, isInteger, isObject, TRomcalQueryResult, TRomcalQuery } from "../utils/type-guards";
+import { TCountryTypes, isNil, Primitive, isInteger, isObject, TRomcalQuery, Dictionary } from "../utils/type-guards";
 import { filter, hasKey, getValueByKey } from "../utils/object";
-import { DateItem, IRomcalDateItem, IRomcalDateItemData, isDateItem } from "../models/romcal-date-item";
+import { DateItem, IRomcalDateItem, IRomcalDateItemData } from "../models/romcal-date-item";
 import { Types } from "../constants";
 
 /**
@@ -297,10 +298,75 @@ class Calendar {
     }
 }
 
-function calendarFor<T extends undefined>(): Array<DateItem>;
+/**
+ * Filters an array of dates generated from the calendarFor function based on a given query.
+ *
+ * @param dates An array of dates generated from the `calendarFor` function
+ * @param query A query object containing criteria to filter the dates by
+ */
+const queryFor = <K extends DateItem, U extends TRomcalQuery>(
+    dates: K[],
+    query?: U,
+): U extends undefined ? K[] : "group" extends keyof U ? ("daysByMonth" | "weeksByMonth" extends U["group"] ? Dictionary<K[]>[] : Dictionary<K[]>) : K[] => {
+    //==========================================================================
+    // Check if there is a query defined, if none return the unfiltered
+    // calendar array
+    //==========================================================================
+    if (!isNil(query?.group) && isObject(query) && Object.keys(query).length > 0) {
+        if (hasKey(query, "group")) {
+            switch (query.group) {
+                case "days":
+                    return _.groupBy<K>(dates, d => d.moment.day());
+                case "months":
+                    return _.groupBy(dates, d => d.moment.month());
+                case "daysByMonth":
+                    // eslint-disable-next-line you-dont-need-lodash-underscore/map
+                    return _.map(
+                        _.groupBy(dates, d => d.moment.month()),
+                        monthGroup => _.groupBy(monthGroup, d => d.moment.day()),
+                    );
+                case "weeksByMonth":
+                    // eslint-disable-next-line you-dont-need-lodash-underscore/map
+                    return _.map(
+                        _.groupBy(dates, d => d.moment.month()),
+                        v => _.groupBy(v, d => d.data.calendar?.week),
+                    );
+                case "cycles":
+                    return _.groupBy(dates, d => d.data.meta.cycle?.value);
+                case "types":
+                    return _.groupBy(dates, d => d.type);
+                case "liturgicalSeasons":
+                    return _.groupBy(dates, d => d.data.season.key);
+                case "liturgicalColors":
+                    return _.groupBy(dates, d => d.data.meta.liturgicalColor?.key);
+                case "psalterWeeks":
+                    return _.groupBy(dates, d => d.data.meta.psalterWeek?.key);
+                default:
+                    break;
+            }
+        } else {
+            // Months are zero indexed, so January is month 0.
+            if (hasKey(query, "month")) {
+                return dates.filter(dateItem => dateItem.moment.month() === getValueByKey(query, "month"));
+            }
+            // Days are zero index, so Sunday is 0.
+            if (hasKey(query, "day")) {
+                return dates.filter(dateItem => dateItem.moment.day() === getValueByKey(query, "day"));
+            }
+            if (hasKey(query, "title") && !isNil(query.title)) {
+                const { title } = query;
+                return dates.filter(dateItem => dateItem.data.meta.titles?.includes(title));
+            }
+        }
+    }
+
+    return dates;
+}
+
+function calendarFor<T extends undefined>(): DateItem[];
 function calendarFor<T extends IRomcalConfig | number>(
     options?: T,
-): T extends number ? Array<DateItem> : "query" extends keyof T ? TRomcalQueryResult<DateItem> | Error : Array<DateItem>;
+): T extends number ? DateItem[] : "query" extends keyof T ? ReturnType<typeof queryFor> : DateItem[];
 /**
  * Returns an array of liturgical dates based on the supplied options.
  *
@@ -315,7 +381,7 @@ function calendarFor<T extends IRomcalConfig | number>(
  *
  * @param options A configuration object or a year (integer)
  */
-function calendarFor(options?: IRomcalConfig | number): Array<DateItem> | TRomcalQueryResult<DateItem> | Error {
+function calendarFor(options?: IRomcalConfig | number): ReturnType<typeof queryFor> | DateItem[] {
     let userConfig: IRomcalConfig = {};
 
     // If options is passed as an integer,
@@ -341,88 +407,8 @@ function calendarFor(options?: IRomcalConfig | number): Array<DateItem> | TRomca
     } else {
         // Run queries and return the results
         // eslint-disable-next-line @typescript-eslint/no-use-before-define
-        return queryFor(dates, config.query) as TRomcalQueryResult<DateItem> | Error;
+        return queryFor(dates, config.query);
     }
 }
-
-/**
- * Filters an array of dates generated from the calendarFor function based on a given query.
- *
- * @param dates An array of dates generated from the `calendarFor` function
- * @param query A query object containing criteria to filter the dates by
- */
-const queryFor = (dates: Array<DateItem>, query: TRomcalQuery = {}): TRomcalQueryResult<DateItem> | Error => {
-    if (!dates.every(value => isDateItem(value))) {
-        throw new Error("romcal.queryFor can only accept a single dimensional array of DateItem objects");
-    }
-
-    //==========================================================================
-    // Check if there is a query defined, if none return the unfiltered
-    // calendar array
-    //==========================================================================
-    if (!isNil(query) && isObject(query) && Object.keys(query).length > 0) {
-        let filteredResult: TRomcalQueryResult<DateItem> = dates;
-
-        // Months are zero indexed, so January is month 0.
-        if (hasKey(query, "month")) {
-            filteredResult = dates.filter(dateItem => dateItem.moment.month() === getValueByKey(query, "month"));
-        }
-
-        if (hasKey(query, "day")) {
-            filteredResult = dates.filter(dateItem => dateItem.moment.day() === getValueByKey(query, "day"));
-        }
-
-        if (hasKey(query, "title") && !isNil(query.title)) {
-            const { title } = query;
-            filteredResult = dates.filter(dateItem => dateItem.data.meta.titles?.includes(title));
-        }
-
-        if (hasKey(query, "group")) {
-            switch (getValueByKey(query, "group")) {
-                case "days":
-                    filteredResult = _.groupBy(dates, d => d.moment.day());
-                    break;
-                case "months":
-                    filteredResult = _.groupBy(dates, d => d.moment.month());
-                    break;
-                case "daysByMonth":
-                    // eslint-disable-next-line you-dont-need-lodash-underscore/map
-                    filteredResult = _.map(
-                        _.groupBy(dates, d => d.moment.month()),
-                        monthGroup => _.groupBy(monthGroup, d => d.moment.day()),
-                    );
-                    break;
-                case "weeksByMonth":
-                    // eslint-disable-next-line you-dont-need-lodash-underscore/map
-                    filteredResult = _.map(
-                        _.groupBy(dates, d => d.moment.month()),
-                        v => _.groupBy(v, d => d.data.calendar?.week),
-                    );
-                    break;
-                case "cycles":
-                    filteredResult = _.groupBy(dates, d => d.data.meta.cycle?.value);
-                    break;
-                case "types":
-                    filteredResult = _.groupBy(dates, d => d.type);
-                    break;
-                case "liturgicalSeasons":
-                    filteredResult = _.groupBy(dates, d => d.data.season.key);
-                    break;
-                case "liturgicalColors":
-                    filteredResult = _.groupBy(dates, d => d.data.meta.liturgicalColor?.key);
-                    break;
-                case "psalterWeeks":
-                    filteredResult = _.groupBy(dates, d => d.data.meta.psalterWeek?.key);
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        return filteredResult;
-    }
-
-    return dates;
-};
 
 export { calendarFor, queryFor };
