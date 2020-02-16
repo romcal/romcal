@@ -22,13 +22,29 @@ export type TCalendarTypes = "calendar" | "liturgical";
 export type TRomcalQuery = Readonly<{
     day?: number;
     month?: number;
-    group?: string;
+    group?: TRomcalQueryGroup;
     title?: string;
 }>;
 
 type NumericDictionary<T> = {
     [index: number]: T;
 };
+
+/**
+ * All the possible grouping variants that can be supported by romcal.
+ */
+export const romcalQueryGroups = [
+    "days",
+    "months",
+    "daysByMonth",
+    "weeksByMonth",
+    "cycles",
+    "types",
+    "liturgicalSeasons",
+    "liturgicalColors",
+    "psalterWeeks",
+] as const;
+export type TRomcalQueryGroup = ElementType<typeof romcalQueryGroups>;
 
 export type TRomcalQueryResult<T> = Array<T> | NumericDictionary<Array<T>> | Array<NumericDictionary<Array<T>>>;
 
