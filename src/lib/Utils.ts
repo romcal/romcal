@@ -6,6 +6,7 @@ import { findDescendantValueByKeys, hasKey, getValueByKey, mergeObjectsUniquely 
 import { TRomcalLocale } from "../models/romcal-locale";
 import { isNil } from "../utils/type-guards";
 import { IRomcalDateItem } from "../models/romcal-date-item";
+import { isString } from "util";
 
 /**
  *  Mustache style templating is easier on the eyes
@@ -50,9 +51,9 @@ const setLocale = (key: string): void => {
     // =================================================================================
     let localeName;
     if (keyValues !== null) {
-        const [lang, region] = keyValues;
+        const [phrase, lang, region] = keyValues; // For example: ["fr-ca", "fr", "ca"]
         // Use kebab-case in localName to follow IETF Language Codes standards
-        localeName = `${lang}${region ? `-${region.toUpperCase()}` : ""}`;
+        localeName = `${lang}${!isNil(region) && isString(region) && region.length > 0 ? `-${region.toUpperCase()}` : ""}`;
         // Set the locale
         moment.locale(localeName);
         /**
@@ -60,10 +61,14 @@ const setLocale = (key: string): void => {
          * Also check if the base language isn't already the default 'en',
          * and if this base language exists in 'src/locales'
          */
-        if (!!region && lang !== _fallbackLocaleKey && hasKey(availableLocales, lang)) {
+        if (region?.length > 0 && lang !== _fallbackLocaleKey && hasKey(availableLocales, lang)) {
             // Retrieve the relevant base locale object
             // and set it as a fallback (before 'en')
-            _locales = [getValueByKey(availableLocales, lang), ..._locales];
+            _locales = [getValueByKey(availableLocales, lang), ..._locales]; // For example: append the 'fr' locale
+        }
+        // Finally, append the region specific locale if any to the list of locales
+        if (hasKey(availableLocales, phrase)) {
+            _locales = [getValueByKey(availableLocales, localeName), ..._locales]; // For example: append the 'fr-CA' locale
         }
     } else {
         localeName = _fallbackLocaleKey;
@@ -114,11 +119,11 @@ const localize = ({ key, count, week, day }: { key: string; day?: string; week?:
     return _.template(value)({
         key,
         // If defined, pluralize a week and add it to the given template
-        ...(week && { week: localeDate.ordinal(week) }),
+        ...(typeof week === "number" && { week: localeDate.ordinal(week) }),
         // If defined, count the nth day of the given series
-        ...(count && { count: localeDate.ordinal(count) }),
+        ...(typeof count === "number" && { count: localeDate.ordinal(count) }),
         // If defined, add the day to be included in the translation
-        ...(day && { day }),
+        ...(isString(day) && { day }),
     });
 };
 
