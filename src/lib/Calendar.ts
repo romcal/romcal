@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import _ from "lodash";
 import { utc, Moment } from "moment";
@@ -12,6 +11,128 @@ import { TCountryTypes, isNil, Primitive, isInteger, isObject, TRomcalQuery, Dic
 import { filter, hasKey, getValueByKey } from "../utils/object";
 import { DateItem, IRomcalDateItem, IRomcalDateItemData } from "../models/romcal-date-item";
 import { Types } from "../constants";
+
+/**
+ * Filters an array of dates generated from the calendarFor function based on a given query.
+ *
+ * @param dates An array of dates generated from the `calendarFor` function
+ * @param query A query object containing criteria to filter the dates by
+ */
+const queryFor = <U extends TRomcalQuery>(
+    dates: DateItem[],
+    query?: U,
+): U extends undefined ? DateItem[] : "group" extends keyof U ? Dictionary<DateItem[]> | Dictionary<DateItem[]>[] : DateItem[] => {
+    if (!isNil(query)) {
+        if (hasKey(query, "group")) {
+            let groupedResult: Dictionary<DateItem[]> | Dictionary<DateItem[]>[];
+            switch (query.group) {
+                case "months":
+                    groupedResult = _.groupBy(dates, d => d.moment.month());
+                    break;
+                case "daysByMonth":
+                    // eslint-disable-next-line you-dont-need-lodash-underscore/map
+                    groupedResult = _.map(
+                        _.groupBy(dates, d => d.moment.month()),
+                        monthGroup => _.groupBy(monthGroup, d => d.moment.day()),
+                    );
+                    break;
+                case "weeksByMonth":
+                    // eslint-disable-next-line you-dont-need-lodash-underscore/map
+                    groupedResult = _.map(
+                        _.groupBy(dates, d => d.moment.month()),
+                        v => _.groupBy(v, d => d.data.calendar?.week),
+                    );
+                    break;
+                case "cycles":
+                    groupedResult = _.groupBy(dates, d => d.data.meta.cycle?.value);
+                    break;
+                case "types":
+                    groupedResult = _.groupBy(dates, d => d.type);
+                    break;
+                case "liturgicalSeasons":
+                    groupedResult = _.groupBy(dates, d => d.data.season.key);
+                    break;
+                case "liturgicalColors":
+                    groupedResult = _.groupBy(dates, d => d.data.meta.liturgicalColor?.key);
+                    break;
+                case "psalterWeeks":
+                    groupedResult = _.groupBy(dates, d => d.data.meta.psalterWeek?.key);
+                    break;
+                case "days":
+                default:
+                    groupedResult = _.groupBy(dates, d => d.moment.day());
+                    break;
+            }
+            return groupedResult as any;
+        } else {
+            let filteredResult: DateItem[] = dates;
+            // Months are zero indexed, so January is month 0.
+            if (hasKey(query, "month")) {
+                filteredResult = dates.filter(dateItem => dateItem.moment.month() === getValueByKey(query, "month"));
+            }
+            // Days are zero index, so Sunday is 0.
+            if (hasKey(query, "day")) {
+                filteredResult = dates.filter(dateItem => dateItem.moment.day() === getValueByKey(query, "day"));
+            }
+            if (hasKey(query, "title") && !isNil(query.title)) {
+                const { title } = query;
+                filteredResult = dates.filter(date => date.data.meta.titles?.includes(title));
+            }
+            return filteredResult as any;
+        }
+    } else {
+        return dates as any;
+    }
+};
+
+function calendarFor<T extends undefined>(): DateItem[];
+function calendarFor<T extends IRomcalConfig | number>(
+    options?: T,
+): T extends number ? DateItem[] : "query" extends keyof T ? Dictionary<DateItem[]> | Dictionary<DateItem[]>[] | DateItem[] : DateItem[];
+/**
+ * Returns an array of liturgical dates based on the supplied options.
+ *
+ * The array may return dates according to the given calendar year or liturgical
+ * year depending on the options supplied.
+ *
+ * If a query object is passed, a filtered array of liturgical calendar dates is returned
+ * according to the given calendar options and filtering options passed in by the user.
+ *
+ * If the config object has a query, it will be used to filter the
+ * date results returned by an internal call to the `queryFor` method.
+ *
+ * @param options A configuration object or a year (integer)
+ */
+function calendarFor(options?: IRomcalConfig | number): Dictionary<DateItem[]> | Dictionary<DateItem[]>[] | DateItem[] {
+    let userConfig: IRomcalConfig = {};
+
+    // If options is passed as an integer,
+    // assume we want the calendar for the current year
+    // with default options
+    if (!isNil(options) && isInteger(options)) {
+        userConfig = { year: options };
+    }
+
+    // Sanitize incoming config into a complete configuration set
+    const config = new Config(userConfig);
+
+    // Set the locale information
+    Utils.setLocale(config.locale);
+
+    // Get a new collection of dates
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
+    const dates = new Calendar(config).fetch().values();
+
+    // Determine if there's a query to execute. If none,
+    // just return the array if DateItems to the caller
+    if (isNil(config.query) || !isObject(config.query) || isNil(options)) {
+        return dates as Array<DateItem>;
+    } else {
+        // Run queries and return the results
+        const queryResult = queryFor(dates, config.query);
+        return queryResult;
+    }
+}
 
 /**
  * Calendar Class:
@@ -257,9 +378,9 @@ class Calendar {
 
     /**
      * Check if 'drop' has been defined for any celebrations in the national calendar
-     * and remove them from both national and general calendar sources
+     * and remove them from both national and general calendar sources.
      *
-     * @param sources
+     * @param sources A list of [[IRomcalDateItem]] arrays for the operation
      */
     static _dropItems(sources: Array<Array<IRomcalDateItem>>): Array<Array<IRomcalDateItem>> {
         // Get an array of keys to be dropped from all sources
@@ -295,119 +416,6 @@ class Calendar {
      */
     static _fetchCalendar(country: TCountryTypes, year: number): Array<IRomcalDateItem> {
         return CountryCalendars[country].dates(year);
-    }
-}
-
-/**
- * Filters an array of dates generated from the calendarFor function based on a given query.
- *
- * @param dates An array of dates generated from the `calendarFor` function
- * @param query A query object containing criteria to filter the dates by
- */
-const queryFor = <K extends DateItem, U extends TRomcalQuery>(
-    dates: K[],
-    query?: U,
-): U extends undefined ? K[] : "group" extends keyof U ? ("daysByMonth" | "weeksByMonth" extends U["group"] ? Dictionary<K[]>[] : Dictionary<K[]>) : K[] => {
-    //==========================================================================
-    // Check if there is a query defined, if none return the unfiltered
-    // calendar array
-    //==========================================================================
-    if (!isNil(query?.group) && isObject(query) && Object.keys(query).length > 0) {
-        if (hasKey(query, "group")) {
-            switch (query.group) {
-                case "days":
-                    return _.groupBy<K>(dates, d => d.moment.day());
-                case "months":
-                    return _.groupBy(dates, d => d.moment.month());
-                case "daysByMonth":
-                    // eslint-disable-next-line you-dont-need-lodash-underscore/map
-                    return _.map(
-                        _.groupBy(dates, d => d.moment.month()),
-                        monthGroup => _.groupBy(monthGroup, d => d.moment.day()),
-                    );
-                case "weeksByMonth":
-                    // eslint-disable-next-line you-dont-need-lodash-underscore/map
-                    return _.map(
-                        _.groupBy(dates, d => d.moment.month()),
-                        v => _.groupBy(v, d => d.data.calendar?.week),
-                    );
-                case "cycles":
-                    return _.groupBy(dates, d => d.data.meta.cycle?.value);
-                case "types":
-                    return _.groupBy(dates, d => d.type);
-                case "liturgicalSeasons":
-                    return _.groupBy(dates, d => d.data.season.key);
-                case "liturgicalColors":
-                    return _.groupBy(dates, d => d.data.meta.liturgicalColor?.key);
-                case "psalterWeeks":
-                    return _.groupBy(dates, d => d.data.meta.psalterWeek?.key);
-                default:
-                    break;
-            }
-        } else {
-            // Months are zero indexed, so January is month 0.
-            if (hasKey(query, "month")) {
-                return dates.filter(dateItem => dateItem.moment.month() === getValueByKey(query, "month"));
-            }
-            // Days are zero index, so Sunday is 0.
-            if (hasKey(query, "day")) {
-                return dates.filter(dateItem => dateItem.moment.day() === getValueByKey(query, "day"));
-            }
-            if (hasKey(query, "title") && !isNil(query.title)) {
-                const { title } = query;
-                return dates.filter(dateItem => dateItem.data.meta.titles?.includes(title));
-            }
-        }
-    }
-
-    return dates;
-}
-
-function calendarFor<T extends undefined>(): DateItem[];
-function calendarFor<T extends IRomcalConfig | number>(
-    options?: T,
-): T extends number ? DateItem[] : "query" extends keyof T ? ReturnType<typeof queryFor> : DateItem[];
-/**
- * Returns an array of liturgical dates based on the supplied options.
- *
- * The array may return dates according to the given calendar year or liturgical
- * year depending on the options supplied.
- *
- * If a query object is passed, a filtered array of liturgical calendar dates is returned
- * according to the given calendar options and filtering options passed in by the user.
- *
- * If the config object has a query, it will be used to filter the
- * date results returned by an internal call to the `queryFor` method.
- *
- * @param options A configuration object or a year (integer)
- */
-function calendarFor(options?: IRomcalConfig | number): ReturnType<typeof queryFor> | DateItem[] {
-    let userConfig: IRomcalConfig = {};
-
-    // If options is passed as an integer,
-    // assume we want the calendar for the current year
-    // with default options
-    if (!isNil(options) && isInteger(options)) {
-        userConfig = { year: options };
-    }
-
-    // Sanitize incoming config into a complete configuration set
-    const config = new Config(userConfig);
-
-    // Set the locale information
-    Utils.setLocale(config.locale);
-
-    // Get a new collection of dates
-    const dates = new Calendar(config).fetch().values();
-
-    // Determine if there's a query to execute. If none,
-    // just return the array if DateItems to the caller
-    if (isNil(config.query) || !isObject(config.query) || isNil(options)) {
-        return dates as Array<DateItem>;
-    } else {
-        // Run queries and return the results
-        // eslint-disable-next-line @typescript-eslint/no-use-before-define
-        return queryFor(dates, config.query);
     }
 }
 

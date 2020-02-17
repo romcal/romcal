@@ -1,10 +1,7 @@
-import * as moment from "moment";
-import { extendMoment } from "moment-range";
-import "moment-recur-ts";
+import moment from "moment";
 import _ from "lodash";
 import { TChristmastideEndings, isNil } from "../utils/type-guards";
-
-const { range } = extendMoment(moment);
+import { eachDayOfInterval, subDays, eachWeekOfInterval, addDays } from "date-fns";
 
 //==================================================================================
 // Base functions (all types of seasons and celebrations)
@@ -145,16 +142,11 @@ const holySaturday = (year: number): moment.Moment =>
 const daysOfLent = (year: number): Array<moment.Moment> => {
     const start = ashWednesday(year);
     const end = holyThursday(year);
-    return moment
-        .utc()
-        .recur({
-            start,
-            end,
-            exceptions: [end],
-        })
-        .every(1)
-        .day()
-        .all();
+    const dates: Date[] = eachDayOfInterval({
+        start: start.toDate(),
+        end: subDays(end.toDate(), 1),
+    });
+    return dates.map(date => moment.utc(date));
 };
 
 // Lent begins on Ash Wednesday and concludes
@@ -163,16 +155,16 @@ const daysOfLent = (year: number): Array<moment.Moment> => {
 const sundaysOfLent = (year: number): Array<moment.Moment> => {
     const start = ashWednesday(year);
     const end = holyThursday(year);
-    return moment
-        .utc()
-        .recur({
-            start,
-            end,
-            exceptions: [end],
-        })
-        .every(0)
-        .daysOfWeek()
-        .all();
+    const sundays: Date[] = eachWeekOfInterval(
+        {
+            start: start.toDate(),
+            end: subDays(end.toDate(), 1),
+        },
+        {
+            weekStartsOn: 0,
+        },
+    );
+    return sundays.map(sunday => moment.utc(sunday));
 };
 
 // Holy Week is the week just before Easter.
@@ -184,15 +176,16 @@ const sundaysOfLent = (year: number): Array<moment.Moment> => {
 const holyWeek = (year: number): Array<moment.Moment> => {
     const start = palmSunday(year);
     const end = holySaturday(year);
-    return moment
-        .utc()
-        .recur({
-            start,
-            end,
-        })
-        .every(1)
-        .day()
-        .all();
+    const dates: Date[] = eachDayOfInterval(
+        {
+            start: start.toDate(),
+            end: end.toDate(),
+        },
+        {
+            step: 1,
+        },
+    );
+    return dates.map(date => moment.utc(date));
 };
 
 // Good Friday is a Christian religious holiday commemorating the crucifixion of Jesus Christ
@@ -255,16 +248,18 @@ const maryMotherOfGod = (year: number): moment.Moment => moment.utc({ year, mont
 
 // The 8 days from Christmas to Mary Mother of God (inclusive)
 // y: year
-const octaveOfChristmas = (year: number): Array<moment.Moment> =>
-    moment
-        .utc()
-        .recur({
-            start: christmas(year),
-            end: maryMotherOfGod(year + 1),
-        })
-        .every(1)
-        .day()
-        .all();
+const octaveOfChristmas = (year: number): Array<moment.Moment> => {
+    const dates: Date[] = eachDayOfInterval(
+        {
+            start: christmas(year).toDate(),
+            end: maryMotherOfGod(year + 1).toDate(),
+        },
+        {
+            step: 1,
+        },
+    );
+    return dates.map(date => moment.utc(date));
+};
 
 /**
  * *The Baptism of the Lord (or the Baptism of Christ) is the feast day
@@ -345,12 +340,16 @@ const christmastide = (year: number, christmastideEnds: TChristmastideEndings = 
             end = baptismOfTheLord(year + 1, epiphanyOnJan6);
             break;
     }
-
-    return moment
-        .recur({ start, end })
-        .every(1)
-        .day()
-        .all();
+    const dates: Date[] = eachDayOfInterval(
+        {
+            start: start.toDate(),
+            end: end.toDate(),
+        },
+        {
+            step: 1,
+        },
+    );
+    return dates.map(date => moment.utc(date));
 };
 
 //==================================================================================
@@ -381,16 +380,16 @@ const daysOfEarlyOrdinaryTime = (year: number, christmastideEnds: TChristmastide
         start = baptismOfTheLord(year, epiphanyOnJan6);
     }
 
-    return moment
-        .utc()
-        .recur({
-            start,
-            end,
-            exceptions: [start, end],
-        })
-        .every(1)
-        .day()
-        .all();
+    const dates: Date[] = eachDayOfInterval(
+        {
+            start: addDays(start.toDate(), 1),
+            end: subDays(end.toDate(), 1),
+        },
+        {
+            step: 1,
+        },
+    );
+    return dates.map(date => moment.utc(date));
 };
 
 // Ordinary Time in the later part of the year begins the
@@ -400,16 +399,16 @@ const daysOfEarlyOrdinaryTime = (year: number, christmastideEnds: TChristmastide
 const daysOfLaterOrdinaryTime = (year: number): Array<moment.Moment> => {
     const start = pentecostSunday(year);
     const end = firstSundayOfAdvent(year);
-    return moment
-        .utc()
-        .recur({
-            start,
-            end,
-            exceptions: [start, end],
-        })
-        .every(1)
-        .day()
-        .all();
+    const dates: Date[] = eachDayOfInterval(
+        {
+            start: addDays(start.toDate(), 1),
+            end: subDays(end.toDate(), 1),
+        },
+        {
+            step: 1,
+        },
+    );
+    return dates.map(date => moment.utc(date));
 };
 
 // The Solemnity of Christ the King is always the 34th (and last) Sunday of Ordinary Time
@@ -431,15 +430,16 @@ const christTheKing = (year: number): moment.Moment =>
 const octaveOfEaster = (year: number): Array<moment.Moment> => {
     const start = easter(year);
     const end = divineMercySunday(year);
-    return moment
-        .utc()
-        .recur({
-            start,
-            end,
-        })
-        .every(1)
-        .day()
-        .all();
+    const dates: Date[] = eachDayOfInterval(
+        {
+            start: start.toDate(),
+            end: end.toDate(),
+        },
+        {
+            step: 1,
+        },
+    );
+    return dates.map(date => moment.utc(date));
 };
 
 // Eastertide is the period of fifty days from Easter Sunday to Pentecost Sunday.
@@ -447,15 +447,16 @@ const octaveOfEaster = (year: number): Array<moment.Moment> => {
 const sundaysOfEaster = (year: number): Array<moment.Moment> => {
     const start = easter(year);
     const end = pentecostSunday(year);
-    return moment
-        .utc()
-        .recur({
-            start,
-            end,
-        })
-        .every(0)
-        .daysOfWeek()
-        .all();
+    const sundays: Date[] = eachWeekOfInterval(
+        {
+            start: start.toDate(),
+            end: end.toDate(),
+        },
+        {
+            weekStartsOn: 0,
+        },
+    );
+    return sundays.map(sunday => moment.utc(sunday));
 };
 
 // Eastertide is the period of fifty days from Easter Sunday to Pentecost Sunday.
@@ -463,15 +464,16 @@ const sundaysOfEaster = (year: number): Array<moment.Moment> => {
 const daysOfEaster = (year: number): Array<moment.Moment> => {
     const start = easter(year);
     const end = pentecostSunday(year);
-    return moment
-        .utc()
-        .recur({
-            start,
-            end,
-        })
-        .every(1)
-        .day()
-        .all();
+    const dates: Date[] = eachDayOfInterval(
+        {
+            start: start.toDate(),
+            end: end.toDate(),
+        },
+        {
+            step: 1,
+        },
+    );
+    return dates.map(date => moment.utc(date));
 };
 
 //==================================================================================
@@ -484,16 +486,16 @@ const daysOfEaster = (year: number): Array<moment.Moment> => {
 const daysOfAdvent = (year: number): Array<moment.Moment> => {
     const start = firstSundayOfAdvent(year);
     const end = christmas(year);
-    return moment
-        .utc()
-        .recur({
-            start,
-            end,
-            exceptions: [end],
-        })
-        .every(1)
-        .day()
-        .all();
+    const dates: Date[] = eachDayOfInterval(
+        {
+            start: start.toDate(),
+            end: subDays(end.toDate(), 1),
+        },
+        {
+            step: 1,
+        },
+    );
+    return dates.map(date => moment.utc(date));
 };
 
 // There are always 4 sundays in Advent
@@ -501,16 +503,16 @@ const daysOfAdvent = (year: number): Array<moment.Moment> => {
 const sundaysOfAdvent = (year: number): Array<moment.Moment> => {
     const start = firstSundayOfAdvent(year);
     const end = christmas(year);
-    return moment
-        .utc()
-        .recur({
-            start,
-            end,
-            exceptions: [end],
-        })
-        .every(0)
-        .daysOfWeek()
-        .all();
+    const sundays: Date[] = eachWeekOfInterval(
+        {
+            start: start.toDate(),
+            end: subDays(end.toDate(), 1),
+        },
+        {
+            weekStartsOn: 0,
+        },
+    );
+    return sundays.map(sunday => moment.utc(sunday));
 };
 
 /**
@@ -521,16 +523,16 @@ const sundaysOfAdvent = (year: number): Array<moment.Moment> => {
 const daysBeforeEpiphany = (year: number, epiphanyOnJan6 = false): Array<moment.Moment> => {
     const start = maryMotherOfGod(year);
     const end = epiphany(year, epiphanyOnJan6);
-    const recurrence = moment
-        .utc()
-        .recur({
-            start,
-            end,
-            exceptions: [start, end],
-        })
-        .every(1)
-        .day();
-    return recurrence.all();
+    const dates: Date[] = eachDayOfInterval(
+        {
+            start: addDays(start.toDate(), 1),
+            end: subDays(end.toDate(), 1),
+        },
+        {
+            step: 1,
+        },
+    );
+    return dates.map(date => moment.utc(date));
 };
 
 // y: year (integer)
@@ -538,16 +540,16 @@ const daysBeforeEpiphany = (year: number, epiphanyOnJan6 = false): Array<moment.
 const daysAfterEpiphany = (year: number, epiphanyOnJan6 = false): Array<moment.Moment> => {
     const start = epiphany(year, epiphanyOnJan6);
     const end = baptismOfTheLord(year, epiphanyOnJan6);
-    const recurrence = moment
-        .utc()
-        .recur({
-            start,
-            end,
-            exceptions: [start, end],
-        })
-        .every(1)
-        .day();
-    return recurrence.all();
+    const dates: Date[] = eachDayOfInterval(
+        {
+            start: addDays(start.toDate(), 1),
+            end: subDays(end.toDate(), 1),
+        },
+        {
+            step: 1,
+        },
+    );
+    return dates.map(date => moment.utc(date));
 };
 
 // In the Roman Catholic church, the Feast of St. Joseph (19 March)
@@ -574,8 +576,8 @@ const josephHusbandOfMary = (year: number): moment.Moment => {
     // Palm Sunday or during Holy Week, it is moved to
     // the Saturday preceding Palm Sunday.
     const [first, , last] = holyWeek(year);
-    const holyWeekRange = range(first, last);
-    if (holyWeekRange.contains(date)) {
+    const holyWeekRange = eachDayOfInterval({ start: first.toDate(), end: last.toDate() });
+    if (holyWeekRange.includes(date.toDate())) {
         date = palmSunday(year)
             .subtract(1, "days")
             .startOf("day");
@@ -600,16 +602,16 @@ const annunciation = (year: number): moment.Moment => {
     // If it occurs during Holy Week, it is transferred to the
     // Monday of the Second Week of Easter.
     const [firstDateOfHolyWeek, , lastDateOfHolyWeek] = holyWeek(year);
-    const holyWeekRange = range(firstDateOfHolyWeek, lastDateOfHolyWeek);
-    if (holyWeekRange.contains(date)) {
+    const holyWeekRange = eachDayOfInterval({ start: firstDateOfHolyWeek.toDate(), end: lastDateOfHolyWeek.toDate() });
+    if (holyWeekRange.includes(date.toDate())) {
         date = divineMercySunday(year).add(1, "days");
     }
 
     // If it occurs during the Octave of Easter, it is transferred to the
     // Monday of the Second Week of Easter.
     const [firstDateInOctaveOfEaster, , lastDateInOctaveOfEaster] = octaveOfEaster(year);
-    const octaveRange = range(firstDateInOctaveOfEaster, lastDateInOctaveOfEaster);
-    if (octaveRange.contains(date)) {
+    const octaveRange = eachDayOfInterval({ start: firstDateInOctaveOfEaster.toDate(), end: lastDateInOctaveOfEaster.toDate() });
+    if (octaveRange.includes(date.toDate())) {
         date = divineMercySunday(year).add(1, "days");
     }
 

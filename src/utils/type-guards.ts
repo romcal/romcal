@@ -46,8 +46,6 @@ export const romcalQueryGroups = [
 ] as const;
 export type TRomcalQueryGroup = ElementType<typeof romcalQueryGroups>;
 
-export type TRomcalQueryResult<T> = T[] | Dictionary<T[]> | Dictionary<T[]>[];
-
 /**
  * Custom type to indicate Christmastide endings.
  *

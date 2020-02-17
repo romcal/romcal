@@ -269,7 +269,7 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             // This key is dropped only because of adding Optional Memorial of St Barbara to the same day
             key: "saintJohnDamascenePriestAndDoctor",
-            moment: moment.utc(),
+            moment: moment.utc({ year, month: 11, day: 4 }),
             drop: true,
         },
         {

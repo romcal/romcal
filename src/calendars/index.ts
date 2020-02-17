@@ -47,6 +47,7 @@ import * as spain from "./spain";
 import * as sriLanka from "./sriLanka";
 import * as sweden from "./sweden";
 import * as switzerland from "./switzerland";
+import * as test from "./test";
 import * as ukraine from "./ukraine";
 import * as unitedStates from "./unitedStates";
 import * as uruguay from "./uruguay";
@@ -104,6 +105,7 @@ export {
     sriLanka,
     sweden,
     switzerland,
+    test,
     ukraine,
     unitedStates,
     uruguay,
