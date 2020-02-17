@@ -24,10 +24,9 @@
 
 import _ from "lodash";
 import moment from "moment";
-import { extendMoment } from "moment-range";
 import { Utils, Dates } from "../src";
-
-const { range } = extendMoment(moment);
+import "moment-recur-ts";
+import eachDayOfInterval from "date-fns/eachDayOfInterval";
 
 describe("Testing specific liturgical date functions", () => {
     describe("In Christian calendars, Sunday is the first day of the week", () => {
@@ -157,7 +156,7 @@ describe("Testing specific liturgical date functions", () => {
     describe("Holy Week + Easter Triduum is from Palm Sunday to Holy Saturday", () => {
         test("The first day of Holy Week should start on Palm Sunday", () => {
             for (let i = 1900, il = 2050; i <= il; i++) {
-                expect(_.head(Dates.holyWeek(i)).isSame(Dates.palmSunday(i))).toEqual(true);
+                expect(Dates.holyWeek(i)[0].isSame(Dates.palmSunday(i))).toEqual(true);
             }
         });
 
@@ -642,7 +641,7 @@ describe("Testing specific liturgical date functions", () => {
                 const date = moment.utc({ year: i, month: 2, day: 19 });
                 const sundays = Dates.sundaysOfLent(i);
                 const [firstDayOfHolyWeek, , lastDayOfHolyWeek] = Dates.holyWeek(i);
-                const theRange = range(firstDayOfHolyWeek, lastDayOfHolyWeek);
+                const theRange = eachDayOfInterval({ start: firstDayOfHolyWeek.toDate(), end: lastDayOfHolyWeek.toDate() });
 
                 let onSundayOfLent = false;
                 sundays.forEach(sunday => {
@@ -651,7 +650,7 @@ describe("Testing specific liturgical date functions", () => {
                     }
                 });
 
-                if (onSundayOfLent || theRange.contains(date)) {
+                if (onSundayOfLent || theRange.includes(date.toDate())) {
                     continue;
                 } else {
                     expect(date.date()).toEqual(Dates.josephHusbandOfMary(i).date());
@@ -663,8 +662,8 @@ describe("Testing specific liturgical date functions", () => {
             for (let i = 1950, il = 2050; i <= il; i++) {
                 const date = moment.utc({ year: i, month: 2, day: 19 });
                 const [firstDayOfHolyWeek, , lastDayOfHolyWeek] = Dates.holyWeek(i);
+                const theRange = eachDayOfInterval({ start: firstDayOfHolyWeek.toDate(), end: lastDayOfHolyWeek.toDate() });
                 const sundays = Dates.sundaysOfLent(i);
-                const theRange = range(firstDayOfHolyWeek, lastDayOfHolyWeek);
 
                 let onSundayOfLent = false;
                 sundays.forEach(sunday => {
@@ -673,7 +672,7 @@ describe("Testing specific liturgical date functions", () => {
                     }
                 });
 
-                if (onSundayOfLent && !theRange.contains(date)) {
+                if (onSundayOfLent && !theRange.includes(date.toDate())) {
                     expect(Dates.josephHusbandOfMary(i).day()).toEqual(1);
                 }
             }
@@ -684,7 +683,7 @@ describe("Testing specific liturgical date functions", () => {
                 const date = moment.utc({ year: i, month: 2, day: 19 });
                 const [firstDayOfHolyWeek, , lastDayOfHolyWeek] = Dates.holyWeek(i);
                 const sundays = Dates.sundaysOfLent(i);
-                const theRange = range(firstDayOfHolyWeek, lastDayOfHolyWeek);
+                const theRange = eachDayOfInterval({ start: firstDayOfHolyWeek.toDate(), end: lastDayOfHolyWeek.toDate() });
 
                 let onSundayOfLent = false;
                 sundays.forEach(sunday => {
@@ -693,7 +692,7 @@ describe("Testing specific liturgical date functions", () => {
                     }
                 });
 
-                if (!onSundayOfLent && theRange.contains(date)) {
+                if (!onSundayOfLent && theRange.includes(date.toDate())) {
                     expect(Dates.josephHusbandOfMary(i).isSame(Dates.palmSunday(i).subtract(1, "days"))).toEqual(true);
                 }
             }
@@ -707,11 +706,11 @@ describe("Testing specific liturgical date functions", () => {
                 const sundaysOfLent = Dates.sundaysOfLent(i);
                 const match = sundaysOfLent.find(sunday => date.isSame(sunday));
                 const [firstDayOfHolyWeek, , lastDayOfHolyWeek] = Dates.holyWeek(i);
-                const holyWeekRange = range(firstDayOfHolyWeek, lastDayOfHolyWeek);
+                const holyWeekRange = eachDayOfInterval({ start: firstDayOfHolyWeek.toDate(), end: lastDayOfHolyWeek.toDate() });
                 const [firstDayInOctaveOfEaster, , lastDayInOctaveOfEaster] = Dates.octaveOfEaster(i);
-                const octaveRange = range(firstDayInOctaveOfEaster, lastDayInOctaveOfEaster);
+                const octaveRange = eachDayOfInterval({ start: firstDayInOctaveOfEaster.toDate(), end: lastDayInOctaveOfEaster.toDate() });
 
-                if (!holyWeekRange.contains(date) && !octaveRange.contains(date) && !match) {
+                if (!holyWeekRange.includes(date.toDate()) && !octaveRange.includes(date.toDate()) && !match) {
                     expect(Dates.annunciation(i).date()).toEqual(25);
                 }
             }
@@ -721,11 +720,11 @@ describe("Testing specific liturgical date functions", () => {
             for (let i = 1950, il = 2050; i <= il; i++) {
                 const date = moment.utc({ year: i, month: 2, day: 25 });
                 const [firstDayOfHolyWeek, , lastDayOfHolyWeek] = Dates.holyWeek(i);
-                const holyWeekRange = range(firstDayOfHolyWeek, lastDayOfHolyWeek);
+                const holyWeekRange = eachDayOfInterval({ start: firstDayOfHolyWeek.toDate(), end: lastDayOfHolyWeek.toDate() });
                 const [firstDayInOctaveOfEaster, , lastDayInOctaveOfEaster] = Dates.octaveOfEaster(i);
-                const octaveRange = range(firstDayInOctaveOfEaster, lastDayInOctaveOfEaster);
+                const octaveRange = eachDayOfInterval({ start: firstDayInOctaveOfEaster.toDate(), end: lastDayInOctaveOfEaster.toDate() });
 
-                if (holyWeekRange.contains(date) && !octaveRange.contains(date)) {
+                if (holyWeekRange.includes(date.toDate()) && !octaveRange.includes(date.toDate())) {
                     expect(Dates.annunciation(i).isSame(Dates.divineMercySunday(i).add(1, "days"))).toEqual(true);
                 }
             }
@@ -735,11 +734,11 @@ describe("Testing specific liturgical date functions", () => {
             for (let i = 1950, il = 2050; i <= il; i++) {
                 const date = moment.utc({ year: i, month: 2, day: 25 });
                 const [firstDayOfHolyWeek, , lastDayOfHolyWeek] = Dates.holyWeek(i);
-                const holyWeekRange = range(firstDayOfHolyWeek, lastDayOfHolyWeek);
+                const holyWeekRange = eachDayOfInterval({ start: firstDayOfHolyWeek.toDate(), end: lastDayOfHolyWeek.toDate() });
                 const [firstDayInOctaveOfEaster, , lastDayInOctaveOfEaster] = Dates.octaveOfEaster(i);
-                const octaveRange = range(firstDayInOctaveOfEaster, lastDayInOctaveOfEaster);
+                const octaveRange = eachDayOfInterval({ start: firstDayInOctaveOfEaster.toDate(), end: lastDayInOctaveOfEaster.toDate() });
 
-                if (!holyWeekRange.contains(date) && octaveRange.contains(date)) {
+                if (!holyWeekRange.includes(date.toDate()) && octaveRange.includes(date.toDate())) {
                     expect(Dates.annunciation(i).isSame(Dates.divineMercySunday(i).add(1, "days"))).toEqual(true);
                 }
             }

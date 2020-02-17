@@ -22,48 +22,44 @@
     THE SOFTWARE.
 */
 
-import { Utils, Localizations } from "../src";
+import { Utils } from "../src";
 
 describe("Testing localization functionality", () => {
-    // Locales extended with sample data
-    Localizations.frCA = Locales.frCA || {};
-    Localizations.frCA.test = { hello: "Allo", foo: "foo" };
-    Localizations.en.test = { hello: "Hello", foo: "bar" };
-    Localizations.fr.test = { hello: "Salut", lorem: "ipsum" };
-
-    it('If the locale is set to "fr", romcal should output text in French', () => {
+    it("If the locale is set to 'fr', romcal should output text in French", () => {
         Utils.setLocale("fr");
-        expect(Utils.localize({ key: "test.hello" })).toBe("Salut");
+        expect(Utils.localize({ key: "celebrations.allSaints" })).toBe("Tous les Saints");
     });
 
-    it('If the locale is set to "fr-CA", romcal should output text in Canadian French', () => {
-        Utils.setLocale("fr-CA");
-        expect(Utils.localize({ key: "test.hello" })).toBe("Allo");
+    it("If the locale is set to 'en-CA', romcal should output text in Canadian French", () => {
+        Utils.setLocale("en-CA");
+        expect(Utils.localize({ key: "sanctoral.saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrsSaintPaulOfTheCrossPriest" })).toBe(
+            "Saints John de Brébeuf, Isaac Jogues, Priests, and Companions, Martyrs, Secondary Patrons of Canada",
+        );
     });
 
     it("If the locale is set with an unknown region, romcal should fallback to its base language when exists in src/locales", () => {
         Utils.setLocale("fr-XX");
-        expect(Utils.localize({ key: "test.hello" })).toBe("Salut");
+        expect(Utils.localize({ key: "celebrations.allSaints" })).toBe("Tous les Saints");
     });
 
-    it('If a string is missing in the "fr-CA" locale, romcal should fall back to base French', () => {
+    it("If a string is missing in the 'en-CA' locale, romcal should fall back to base English", () => {
         Utils.setLocale("fr-CA");
-        expect(Utils.localize({ key: "test.lorem" })).toBe("ipsum");
+        expect(Utils.localize({ key: "celebrations.allSaints" })).toBe("All Saints");
     });
 
-    it('If a string is missing in the "fr" locale, romcal should fallback to English ', () => {
-        Utils.setLocale("fr");
-        expect(Utils.localize({ key: "test.foo" })).toBe("bar");
+    it("If a string is missing in the 'zz' locale, romcal should fallback to English ", () => {
+        Utils.setLocale("zz");
+        expect(Utils.localize({ key: "celebrations.allSaints" })).toBe("All Saints");
     });
 
     it("If an unknown locale is set, romcal should fallback to English", () => {
         Utils.setLocale("xx-XX");
-        expect(Utils.localize({ key: "test.hello" })).toBe("Hello");
+        expect(Utils.localize({ key: "celebrations.allSaints" })).toBe("All Saints");
     });
 
-    it('When the last locale set is "en", romcal should output English locale', () => {
-        Utils.setLocale("fr-CA");
+    it("When the last locale set is 'en', romcal should output English locale", () => {
+        Utils.setLocale("it");
         Utils.setLocale("en");
-        expect(Utils.localize({ key: "test.foo" })).toBe("bar");
+        expect(Utils.localize({ key: "celebrations.allSaints" })).toBe("All Saints");
     });
 });

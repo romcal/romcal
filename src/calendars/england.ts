@@ -1,10 +1,11 @@
-import * as moment from "moment";
+import moment from "moment";
 import { extendMoment, DateRange } from "moment-range";
 import { Dates, Utils } from "../lib";
 import { Titles, Types, LiturgicalColors } from "../constants";
 import { IRomcalDateItem } from "../models/romcal-date-item";
 
-const { range } = extendMoment(moment);
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const { range } = extendMoment(moment as any);
 
 const dates = (year: number): Array<IRomcalDateItem> => {
     const _dates: Array<IRomcalDateItem> = [

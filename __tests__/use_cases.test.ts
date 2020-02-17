@@ -23,8 +23,10 @@
 */
 
 import moment from "moment";
+import "moment-recur-ts";
 
 import { Dates, Types, Calendar } from "../src";
+import { DateItem } from "../src/models/romcal-date-item";
 
 describe("Testing specific feasts and memorials", () => {
     describe("The memorial of the Blessed Virgin Mary, Mother of the Church", () => {
@@ -34,8 +36,8 @@ describe("Testing specific feasts and memorials", () => {
             const maryMotherOfTheChurch = dates.find(d => {
                 return d.key === "maryMotherOfTheChurch";
             });
-            expect(maryMotherOfTheChurch.moment.day()).toEqual(1);
-            expect(maryMotherOfTheChurch.moment.subtract(1, "days")).toEqual(pentecostSunday);
+            expect(maryMotherOfTheChurch?.moment.day()).toEqual(1);
+            expect(maryMotherOfTheChurch?.moment.subtract(1, "days")).toEqual(pentecostSunday);
         });
 
         it("Should take precedence in the event of coincidence with another memorial of a saint or blessed", () => {
@@ -45,7 +47,7 @@ describe("Testing specific feasts and memorials", () => {
                 query: {
                     month: 5,
                 },
-            });
+            }) as DateItem[];
             // according to the general calendar, June 1 is the memorial of saint Justin, Martyr
             const maybeSaintJustinMartyr = juneDates[0];
             expect(maybeSaintJustinMartyr.key).toEqual("maryMotherOfTheChurch");
@@ -58,9 +60,9 @@ describe("Testing specific feasts and memorials", () => {
             const saintMaryMagdalene = dates.find(d => {
                 return d.key === "saintMaryMagdalene";
             });
-            expect(saintMaryMagdalene.moment.date()).toEqual(22);
-            expect(saintMaryMagdalene.moment.month()).toEqual(6);
-            expect(saintMaryMagdalene.type).toEqual(Types.FEAST);
+            expect(saintMaryMagdalene?.moment.date()).toEqual(22);
+            expect(saintMaryMagdalene?.moment.month()).toEqual(6);
+            expect(saintMaryMagdalene?.type).toEqual(Types.FEAST);
         });
     });
 
@@ -73,8 +75,8 @@ describe("Testing specific feasts and memorials", () => {
             const popeSaintJohnPaulII = dates.find(d => {
                 return d.key === "popeSaintJohnPaulII";
             });
-            expect(popeSaintJohnXXIII.type).toEqual(Types.OPT_MEMORIAL);
-            expect(popeSaintJohnPaulII.type).toEqual(Types.OPT_MEMORIAL);
+            expect(popeSaintJohnXXIII?.type).toEqual(Types.OPT_MEMORIAL);
+            expect(popeSaintJohnPaulII?.type).toEqual(Types.OPT_MEMORIAL);
         });
     });
 
@@ -84,8 +86,8 @@ describe("Testing specific feasts and memorials", () => {
             const theExaltationOfTheHolyCross = dates.find(d => {
                 return d.key === "theExaltationOfTheHolyCross";
             });
-            expect(theExaltationOfTheHolyCross.moment.date()).toEqual(14);
-            expect(theExaltationOfTheHolyCross.moment.month()).toEqual(8);
+            expect(theExaltationOfTheHolyCross?.moment.date()).toEqual(14);
+            expect(theExaltationOfTheHolyCross?.moment.month()).toEqual(8);
         });
     });
 });

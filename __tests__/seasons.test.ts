@@ -22,10 +22,12 @@
     THE SOFTWARE.
 */
 
-import _ from "lodash";
 import moment from "moment";
+import "moment-recur-ts";
 
 import { LiturgicalColors, Seasons, Calendar, Dates } from "../src";
+import { Dictionary } from "../src/utils/type-guards";
+import { DateItem } from "../src/models/romcal-date-item";
 
 describe("Testing date range functions", () => {
     describe("The Season of Advent", () => {
@@ -46,25 +48,25 @@ describe("Testing date range functions", () => {
         });
 
         it("Depending on the day of Christmas, the number of days in Advent varies", () => {
-            if (_.isEqual(Dates.christmas(2005).day(), 0)) {
+            if (Dates.christmas(2005).day() === 0) {
                 expect(Dates.daysOfAdvent(2005).length).toEqual(28);
             }
-            if (_.isEqual(Dates.christmas(2000).day(), 1)) {
+            if (Dates.christmas(2000).day() === 1) {
                 expect(Dates.daysOfAdvent(2000).length).toEqual(22);
             }
-            if (_.isEqual(Dates.christmas(2001).day(), 2)) {
+            if (Dates.christmas(2001).day() === 2) {
                 expect(Dates.daysOfAdvent(2001).length).toEqual(23);
             }
-            if (_.isEqual(Dates.christmas(2002).day(), 3)) {
+            if (Dates.christmas(2002).day() === 3) {
                 expect(Dates.daysOfAdvent(2002).length).toEqual(24);
             }
-            if (_.isEqual(Dates.christmas(2003).day(), 4)) {
+            if (Dates.christmas(2003).day() === 4) {
                 expect(Dates.daysOfAdvent(2003).length).toEqual(25);
             }
-            if (_.isEqual(Dates.christmas(1998).day(), 5)) {
+            if (Dates.christmas(1998).day() === 5) {
                 expect(Dates.daysOfAdvent(1998).length).toEqual(26);
             }
-            if (_.isEqual(Dates.christmas(1999).day(), 6)) {
+            if (Dates.christmas(1999).day() === 6) {
                 expect(Dates.daysOfAdvent(1999).length).toEqual(27);
             }
         });
@@ -80,7 +82,7 @@ describe("Testing date range functions", () => {
         it("The first Sunday of Lent should be 4 days after Ash Wednesday", () => {
             for (let i = 1900, il = 2200; i <= il; i++) {
                 expect(
-                    _.head(Dates.sundaysOfLent(i))
+                    Dates.sundaysOfLent(i)[0]
                         .subtract(4, "days")
                         .isSame(Dates.ashWednesday(i)),
                 ).toEqual(true);
@@ -95,11 +97,11 @@ describe("Testing date range functions", () => {
         });
 
         it("The Saturday in the week after Ash Wednesday should be in the 1st week of Lent", () => {
-            expect(Seasons.lent(2017)[10].key.toLowerCase()).toEqual("saturdayofthe1stweekoflent");
+            expect(Seasons.lent(2017)[10].key?.toLowerCase()).toEqual("saturdayofthe1stweekoflent");
         });
 
         it("The 2nd Sunday of Lent should be in the 2nd week of Lent", () => {
-            expect(Seasons.lent(2017)[11].key.toLowerCase()).toEqual("2ndsundayoflent");
+            expect(Seasons.lent(2017)[11].key?.toLowerCase()).toEqual("2ndsundayoflent");
         });
     });
 
@@ -112,7 +114,7 @@ describe("Testing date range functions", () => {
 
         it("The first day of the octave should be on Easter Sunday", () => {
             for (let i = 1900, il = 2100; i <= il; i++) {
-                expect(_.head(Dates.octaveOfEaster(i)).isSame(Dates.easter(i))).toEqual(true);
+                expect(Dates.octaveOfEaster(i)[0].isSame(Dates.easter(i))).toEqual(true);
             }
         });
 
@@ -253,53 +255,51 @@ describe("Testing date range functions", () => {
 });
 
 describe("Testing seasons utility functions", () => {
-    this.timeout(0);
-
     describe("The liturgical year is divided to a number of seasons", () => {
         const calendar = Calendar.calendarFor({
             query: {
                 group: "liturgicalSeasons",
             },
-        });
+        }) as Dictionary<DateItem[]>;
 
         it("Groups dates within seasons based on identifiers", () => {
-            calendar.forEach((dates, season) => {
-                dates.each(date => expect(date.data.season.key).toEqual(season));
+            Object.values(calendar).forEach((dates, season) => {
+                dates.forEach(date => expect(date.data.season.key).toEqual(season));
             });
         });
 
         it("The liturgical color for Ordinary Time is green", () => {
             Seasons.earlyOrdinaryTime(2015, "o", false).forEach(date => {
-                expect(date.data.meta.liturgicalColor).toEqual(LiturgicalColors.GREEN);
+                expect(date.data?.meta?.liturgicalColor).toEqual(LiturgicalColors.GREEN);
             });
             Seasons.laterOrdinaryTime(2015).forEach(date => {
-                expect(date.data.meta.liturgicalColor).toEqual(LiturgicalColors.GREEN);
+                expect(date.data?.meta?.liturgicalColor).toEqual(LiturgicalColors.GREEN);
             });
         });
 
         it("The liturgical color for Lent and Advent is purple, except for the 4th Sunday of Lent and 3rd Sunday of Advent, which is rose", () => {
             Seasons.lent(2015).forEach(date => {
-                if (_.eq(date.key.toLowerCase(), "4thsundayoflent")) {
-                    expect(date.data.meta.liturgicalColor).toEqual(LiturgicalColors.ROSE);
+                if (date.key?.toLowerCase() === "4thsundayoflent") {
+                    expect(date.data?.meta?.liturgicalColor).toEqual(LiturgicalColors.ROSE);
                 } else {
-                    expect(date.data.meta.liturgicalColor).toEqual(LiturgicalColors.PURPLE);
+                    expect(date.data?.meta?.liturgicalColor).toEqual(LiturgicalColors.PURPLE);
                 }
             });
             Seasons.advent(2015).forEach(date => {
-                if (_.eq(date.key.toLowerCase(), "3rdsundayofadvent")) {
-                    expect(date.data.meta.liturgicalColor).toEqual(LiturgicalColors.ROSE);
+                if (date.key?.toLowerCase() === "3rdsundayofadvent") {
+                    expect(date.data?.meta?.liturgicalColor).toEqual(LiturgicalColors.ROSE);
                 } else {
-                    expect(date.data.meta.liturgicalColor).toEqual(LiturgicalColors.PURPLE);
+                    expect(date.data?.meta?.liturgicalColor).toEqual(LiturgicalColors.PURPLE);
                 }
             });
         });
 
         it("The liturgical color for Christmastide and Eastertide is white", () => {
             Seasons.christmastide(2015, "o", false).forEach(date => {
-                expect(date.data.meta.liturgicalColor).toEqual(LiturgicalColors.WHITE);
+                expect(date.data?.meta?.liturgicalColor).toEqual(LiturgicalColors.WHITE);
             });
             Seasons.eastertide(2015).forEach(date => {
-                expect(date.data.meta.liturgicalColor).toEqual(LiturgicalColors.WHITE);
+                expect(date.data?.meta?.liturgicalColor).toEqual(LiturgicalColors.WHITE);
             });
         });
     });
