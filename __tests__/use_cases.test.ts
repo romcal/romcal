@@ -23,7 +23,6 @@
 */
 
 import moment from "moment";
-import "moment-recur-ts";
 
 import { Dates, Types, Calendar } from "../src";
 import { DateItem } from "../src/models/romcal-date-item";

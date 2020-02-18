@@ -54,8 +54,8 @@ const _metadata = (items: Array<IRomcalDateItem>): Array<IRomcalDateItem> => {
  * @param epiphanyOnJan6 true|false [If true, Epiphany will be fixed to Jan 6] (defaults to false)
  */
 const _epiphany = (year: number, epiphanyOnJan6 = false): Array<IRomcalDateItem> => {
-    const before: Array<moment.Moment> = Dates.daysBeforeEpiphany(year, epiphanyOnJan6);
-    const after: Array<moment.Moment> = Dates.daysAfterEpiphany(year, epiphanyOnJan6);
+    const before: Array<moment.Moment> = Dates.daysBeforeEpiphany(year, epiphanyOnJan6).map(date => moment.utc(date.toISOString()));
+    const after: Array<moment.Moment> = Dates.daysAfterEpiphany(year, epiphanyOnJan6).map(date => moment.utc(date.toISOString()));
 
     const days: Array<IRomcalDateItem> = [];
     before.forEach(day => {
@@ -104,7 +104,7 @@ const _epiphany = (year: number, epiphanyOnJan6 = false): Array<IRomcalDateItem>
  * @param year The year to use for the calculation
  */
 const _holyWeek = (year: number): Array<IRomcalDateItem> => {
-    const dates: moment.Moment[] = Dates.holyWeek(year);
+    const dates: moment.Moment[] = Dates.holyWeek(year).map(date => moment.utc(date.toISOString()));
     const days: Array<IRomcalDateItem> = [];
 
     dates.forEach((date: moment.Moment) => {
@@ -154,7 +154,7 @@ const _holyWeek = (year: number): Array<IRomcalDateItem> => {
  */
 const advent = (year: number): Array<IRomcalDateItem> => {
     let dateItemsWithoutKeyAndSource: Array<IRomcalDateItem> = [];
-    const daysOfAdvent: moment.Moment[] = Dates.daysOfAdvent(year);
+    const daysOfAdvent: moment.Moment[] = Dates.daysOfAdvent(year).map(date => moment.utc(date.toISOString()));
 
     daysOfAdvent.forEach((value, i) => {
         dateItemsWithoutKeyAndSource.push({
@@ -232,8 +232,8 @@ const christmastide = (
     epiphanyOnJan6 = false,
     christmastideIncludesTheSeasonOfEpiphany = true,
 ): Array<IRomcalDateItem> => {
-    const datesOfChristmastide: moment.Moment[] = Dates.christmastide(year, christmastideEnds, epiphanyOnJan6);
-    const datesInTheOctaveOfChristmas: moment.Moment[] = Dates.octaveOfChristmas(year);
+    const datesOfChristmastide: moment.Moment[] = Dates.christmastide(year, christmastideEnds, epiphanyOnJan6).map(date => moment.utc(date.toISOString()));
+    const datesInTheOctaveOfChristmas: moment.Moment[] = Dates.octaveOfChristmas(year).map(date => moment.utc(date.toISOString()));
     const epiphany: Array<IRomcalDateItem> = _epiphany(year + 1, epiphanyOnJan6);
 
     let count = 0;
@@ -356,25 +356,27 @@ const christmastide = (
 const earlyOrdinaryTime = (year: number, christmastideEnds: TChristmastideEndings, epiphanyOnJan6 = false): Array<IRomcalDateItem> => {
     let days: Array<IRomcalDateItem> = [];
 
-    Dates.daysOfEarlyOrdinaryTime(year, christmastideEnds, epiphanyOnJan6).forEach((value, i) => {
-        days.push({
-            moment: value,
-            type: value.day() === 0 ? Types.SUNDAY : Types.FERIA,
-            name: Utils.localize({
-                key: value.day() === 0 ? "ordinaryTime.sunday" : "ordinaryTime.feria",
-                day: value.format("dddd"),
-                week: value.day() === 0 ? Math.floor(i / 7) + 2 : Math.floor(i / 7) + 1,
-            }),
-            data: {
-                season: {
-                    key: LiturgicalSeasons.EARLY_ORDINARY_TIME,
-                    value: Utils.localize({
-                        key: "ordinaryTime.season",
-                    }),
+    Dates.daysOfEarlyOrdinaryTime(year, christmastideEnds, epiphanyOnJan6)
+        .map(date => moment.utc(date.toISOString()))
+        .forEach((value, i) => {
+            days.push({
+                moment: value,
+                type: value.day() === 0 ? Types.SUNDAY : Types.FERIA,
+                name: Utils.localize({
+                    key: value.day() === 0 ? "ordinaryTime.sunday" : "ordinaryTime.feria",
+                    day: value.format("dddd"),
+                    week: value.day() === 0 ? Math.floor(i / 7) + 2 : Math.floor(i / 7) + 1,
+                }),
+                data: {
+                    season: {
+                        key: LiturgicalSeasons.EARLY_ORDINARY_TIME,
+                        value: Utils.localize({
+                            key: "ordinaryTime.season",
+                        }),
+                    },
                 },
-            },
+            });
         });
-    });
 
     // Sort dates according to moment
     days = _.sortBy(days, v => v.moment.valueOf());
@@ -431,6 +433,7 @@ const laterOrdinaryTime = (year: number): Array<IRomcalDateItem> => {
     let days: Array<IRomcalDateItem> = [];
 
     Dates.daysOfLaterOrdinaryTime(year)
+        .map(date => moment.utc(date.toISOString()))
         .reverse()
         .forEach((value, i) => {
             // Calculate the week of ordinary time
@@ -506,8 +509,8 @@ const laterOrdinaryTime = (year: number): Array<IRomcalDateItem> => {
  * @param year The year to use for calculation
  */
 const lent = (year: number): Array<IRomcalDateItem> => {
-    const daysOfLent: Array<moment.Moment> = Dates.daysOfLent(year);
-    const sundaysOfLent: Array<moment.Moment> = Dates.sundaysOfLent(year);
+    const daysOfLent: Array<moment.Moment> = Dates.daysOfLent(year).map(date => moment.utc(date.toISOString()));
+    const sundaysOfLent: Array<moment.Moment> = Dates.sundaysOfLent(year).map(date => moment.utc(date.toISOString()));
 
     const ferialDays: Array<IRomcalDateItem> = [];
     const sundays: Array<IRomcalDateItem> = [];
@@ -618,8 +621,8 @@ const easterTriduum = (year: number): Array<IRomcalDateItem> => _holyWeek(year).
  * @param year The year to use for the calculation
  */
 const eastertide = (year: number): Array<IRomcalDateItem> => {
-    const weekdaysOfEaster = Dates.daysOfEaster(year);
-    const sundaysOfEaster = Dates.sundaysOfEaster(year);
+    const weekdaysOfEaster = Dates.daysOfEaster(year).map(date => moment.utc(date.toISOString()));
+    const sundaysOfEaster = Dates.sundaysOfEaster(year).map(date => moment.utc(date.toISOString()));
 
     const days: Array<IRomcalDateItem> = [];
     weekdaysOfEaster.forEach((value, i) => {

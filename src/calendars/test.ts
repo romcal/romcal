@@ -9,7 +9,12 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "maryMotherOfTheChurch",
             type: Types.OPT_MEMORIAL,
-            moment: ((year: number): moment.Moment => Dates.pentecostSunday(year).add(1, "days"))(year),
+            moment: ((year: number): moment.Moment =>
+                moment.utc(
+                    Dates.pentecostSunday(year)
+                        .add(1, "day")
+                        .toISOString(),
+                ))(year),
             data: {
                 prioritized: true,
             },
@@ -17,7 +22,7 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "ashWednesday",
             type: Types.SUNDAY,
-            moment: Dates.ashWednesday(year),
+            moment: moment.utc(Dates.ashWednesday(year).toISOString()),
         },
         {
             key: "saintLukeTheEvangelist",

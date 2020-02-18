@@ -24,9 +24,9 @@
 */
 
 import moment from "moment";
-import "moment-recur-ts";
 import { Calendar, Seasons, Dates, Types } from "../src";
 import { DateItem } from "../src/models/romcal-date-item";
+import { dayJsToMomentJs } from "../src/utils/dates";
 
 describe("Testing national calendar overrides", () => {
     describe("An optional celebration is available to be celebrated, in addition to the feria", () => {
@@ -107,7 +107,7 @@ describe("Testing national calendar overrides", () => {
         });
         it("An existing and prioritized celebration can be replaced by a new prioritized celebration having the same key (whatever its type rank)", () => {
             const dates = testDates.filter(d => {
-                return d.moment.isSame(Dates.pentecostSunday(year).add(1, "days"));
+                return d.moment.isSame(dayJsToMomentJs(Dates.pentecostSunday(year).add(1, "day")));
             });
             expect(dates.length).toEqual(1);
             expect(dates[0].key).toEqual("maryMotherOfTheChurch");
