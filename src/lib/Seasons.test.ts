@@ -173,7 +173,9 @@ describe("Testing date range functions", () => {
                 const dates = Dates.daysOfEarlyOrdinaryTime(i, "e");
                 const [firstDayInEarlyOrdinaryTime] = dates;
                 const [lastDayInEarlyOrdinaryTime] = dates.reverse();
-                expect(firstDayInEarlyOrdinaryTime.subtract(1, "day").isSame(Dates.presentationOfTheLord(i))).toEqual(true);
+                expect(firstDayInEarlyOrdinaryTime.subtract(1, "day").isSame(Dates.presentationOfTheLord(i))).toEqual(
+                    true,
+                );
                 expect(lastDayInEarlyOrdinaryTime.add(1, "day").isSame(Dates.ashWednesday(i))).toEqual(true);
             }
         });

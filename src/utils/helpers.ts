@@ -15,4 +15,38 @@ export type DiffedKeys<T, U> = {
     [P in keyof T]: T[P] extends U ? never : P;
 }[keyof T];
 
-export type ElementType<T extends ReadonlyArray<unknown>> = T extends ReadonlyArray<infer ElementType> ? ElementType : never;
+export type ElementType<T extends ReadonlyArray<unknown>> = T extends ReadonlyArray<infer ElementType>
+    ? ElementType
+    : never;
+
+export type OverloadedReturnType<T> = T extends {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (...args: any[]): infer R;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (...args: any[]): infer R;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (...args: any[]): infer R;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (...args: any[]): infer R;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (...args: any[]): infer R;
+}
+    ? R
+    : T extends {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (...args: any[]): infer R;
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (...args: any[]): infer R;
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (...args: any[]): infer R;
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (...args: any[]): infer R;
+      }
+    ? R // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    : T extends { (...args: any[]): infer R; (...args: any[]): infer R; (...args: any[]): infer R }
+    ? R // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    : T extends { (...args: any[]): infer R; (...args: any[]): infer R }
+    ? R // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    : T extends (...args: any[]) => infer R
+    ? R // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    : any;
