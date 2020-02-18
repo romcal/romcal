@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import _ from "lodash";
-import { utc, Moment } from "moment";
+import moment from "moment";
 import * as CountryCalendars from "../calendars";
 import Config, { IRomcalConfig } from "../models/romcal-config";
 import * as Dates from "./Dates";
@@ -142,8 +142,8 @@ function calendarFor(options?: IRomcalConfig | number): Dictionary<DateItem[]> |
 class Calendar {
     private dateItems: Array<DateItem> = [];
     private config: Config;
-    private startDate: Moment;
-    private endDate: Moment;
+    private startDate: moment.Moment;
+    private endDate: moment.Moment;
 
     /**
      * Create a new Calendar
@@ -155,11 +155,15 @@ class Calendar {
         // - civil year (January 1 to December 31); or
         // - liturgical year (1st Sunday of Advent to the Saturday after the Christ the King Sunday).
         if (type === "liturgical") {
-            this.startDate = Dates.firstSundayOfAdvent(year);
-            this.endDate = Dates.firstSundayOfAdvent(year + 1).subtract(1, "days");
+            this.startDate = moment.utc(Dates.firstSundayOfAdvent(year).toISOString());
+            this.endDate = moment.utc(
+                Dates.firstSundayOfAdvent(year + 1)
+                    .subtract(1, "day")
+                    .toISOString(),
+            );
         } else {
-            this.startDate = utc({ year, month: 0, day: 1 });
-            this.endDate = utc({ year, month: 11, day: 31 });
+            this.startDate = moment.utc({ year, month: 0, day: 1 });
+            this.endDate = moment.utc({ year, month: 11, day: 31 });
         }
     }
 
@@ -400,7 +404,7 @@ class Calendar {
      * @param endDate The upper range date to abide by
      * @param sources The 2 dimensional array containing various date sources to be filtered
      */
-    static _filterItemRange(startDate: Moment, endDate: Moment, sources: Array<Array<IRomcalDateItem>>): Array<Array<IRomcalDateItem>> {
+    static _filterItemRange(startDate: moment.Moment, endDate: moment.Moment, sources: Array<Array<IRomcalDateItem>>): Array<Array<IRomcalDateItem>> {
         return sources.map((source: Array<IRomcalDateItem>) =>
             source.filter((item: IRomcalDateItem) => {
                 return item.moment.isSameOrAfter(startDate) && item.moment.isSameOrBefore(endDate);

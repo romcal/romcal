@@ -1,11 +1,9 @@
 import moment from "moment";
-import { extendMoment } from "moment-range";
+import dayjs from "dayjs";
 import { Dates, Utils } from "../lib";
 import { Titles, Types, LiturgicalColors } from "../constants";
 import { IRomcalDateItem } from "../models/romcal-date-item";
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const { range } = extendMoment(moment as any);
+import { rangeOfDays, rangeContainsDate } from "../utils/dates";
 
 const dates = (year: number): Array<IRomcalDateItem> => {
     const _dates: Array<IRomcalDateItem> = [
@@ -60,27 +58,33 @@ const dates = (year: number): Array<IRomcalDateItem> => {
             key: "saintAdalbertBishopAndMartyr",
             type: Types.SOLEMNITY,
             moment: ((y: number): moment.Moment => {
-                const [firsrDateInHolyWeek, , lastDateInHolyWeek] = Dates.holyWeek(y);
-                const [firstDateInTheOctaveOfEaster, , lastDateInTheOctaveOfEaster] = Dates.octaveOfEaster(y);
-                const _annunciation = Dates.annunciation(y);
-                const _holyWeekRange = range(firsrDateInHolyWeek, lastDateInHolyWeek);
-                const _easterOctaveRange = range(firstDateInTheOctaveOfEaster, lastDateInTheOctaveOfEaster);
-                const _date = moment.utc({ year: y, month: 3, day: 23 });
+                const holyWeekDates = Dates.holyWeek(y);
+                const [firstDateInHolyWeek] = holyWeekDates;
+                const [lastDateInHolyWeek] = holyWeekDates.reverse();
+
+                const octaveOfEasterDates = Dates.octaveOfEaster(y);
+                const [firstDateInTheEasterOctave] = octaveOfEasterDates;
+                const [lastDateInTheEasterOctave] = octaveOfEasterDates.reverse();
+
+                const annunciation = Dates.annunciation(y);
+                const holyWeekRange = rangeOfDays(firstDateInHolyWeek, lastDateInHolyWeek);
+                const easterOctaveRange = rangeOfDays(firstDateInTheEasterOctave, lastDateInTheEasterOctave);
+                const date = dayjs.utc(`${y}-4-23`);
 
                 // If the celebration lands anywhere between Holy Week to Divine Mercy Sunday (inclusive)
                 // move it to the Monday after Divine Mercy Sunday
-                if (_holyWeekRange.contains(_date) || _easterOctaveRange.contains(_date)) {
+                if (rangeContainsDate(holyWeekRange, date) || rangeContainsDate(easterOctaveRange, date)) {
                     // Ensure that the Monday after Divine Mercy Sunday is not Annunciation
                     // if it is, move this celebration to the next day (Tuesday)
                     // However, this condition will probably never happen
-                    const proposed = lastDateInTheOctaveOfEaster.add(1, "days");
-                    if (proposed.isSame(_annunciation)) {
-                        return _annunciation.add(1, "days");
+                    const proposed = lastDateInTheEasterOctave.add(1, "day");
+                    if (proposed.isSame(annunciation)) {
+                        return moment.utc(annunciation.add(1, "day").toISOString());
                     } else {
-                        return proposed;
+                        return moment.utc(proposed.toISOString());
                     }
                 } else {
-                    return _date;
+                    return moment.utc(date.toISOString());
                 }
             })(year),
             data: {
@@ -632,7 +636,12 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "maryMotherOfTheChurch",
             type: Types.FEAST,
-            moment: ((y: number): moment.Moment => Dates.pentecostSunday(y).add(1, "days"))(year),
+            moment: ((y: number): moment.Moment =>
+                moment.utc(
+                    Dates.pentecostSunday(y)
+                        .add(1, "day")
+                        .toISOString(),
+                ))(year),
             data: {
                 prioritized: true,
                 meta: {
@@ -643,7 +652,12 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "ourLordJesusChristTheEternalHighPriest",
             type: Types.FEAST,
-            moment: ((y: number): moment.Moment => Dates.pentecostSunday(y).add(4, "days"))(year),
+            moment: ((y: number): moment.Moment =>
+                moment.utc(
+                    Dates.pentecostSunday(y)
+                        .add(4, "day")
+                        .toISOString(),
+                ))(year),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,

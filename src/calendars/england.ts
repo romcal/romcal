@@ -1,11 +1,9 @@
 import moment from "moment";
-import { extendMoment, DateRange } from "moment-range";
+import dayjs from "dayjs";
 import { Dates, Utils } from "../lib";
 import { Titles, Types, LiturgicalColors } from "../constants";
 import { IRomcalDateItem } from "../models/romcal-date-item";
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const { range } = extendMoment(moment as any);
+import { rangeOfDays, rangeContainsDate } from "../utils/dates";
 
 const dates = (year: number): Array<IRomcalDateItem> => {
     const _dates: Array<IRomcalDateItem> = [
@@ -57,26 +55,32 @@ const dates = (year: number): Array<IRomcalDateItem> => {
             key: "saintGeorgeMartyr",
             type: Types.SOLEMNITY,
             moment: ((y: number): moment.Moment => {
-                const [firstDateInHolyWeek, , lastDateInHolyWeek] = Dates.holyWeek(y);
-                const [firstDateInTheEasterOctave, , lastDateInTheEasterOctave] = Dates.octaveOfEaster(y);
+                const holyWeekDates = Dates.holyWeek(y);
+                const [firstDateInHolyWeek] = holyWeekDates;
+                const [lastDateInHolyWeek] = holyWeekDates.reverse();
+
+                const octaveOfEasterDates = Dates.octaveOfEaster(y);
+                const [firstDateInTheEasterOctave] = octaveOfEasterDates;
+                const [lastDateInTheEasterOctave] = octaveOfEasterDates.reverse();
+
                 const annunciation = Dates.annunciation(y);
-                const holyWeekRange: DateRange = range(firstDateInHolyWeek, lastDateInHolyWeek);
-                const easterOctaveRange: DateRange = range(firstDateInTheEasterOctave, lastDateInTheEasterOctave);
-                const date = moment.utc({ year: y, month: 3, day: 23 });
+                const holyWeekRange = rangeOfDays(firstDateInHolyWeek, lastDateInHolyWeek);
+                const easterOctaveRange = rangeOfDays(firstDateInTheEasterOctave, lastDateInTheEasterOctave);
+                const date = dayjs.utc(`${y}-4-23`);
 
                 // If the celebration lands anywhere between Holy Week to Divine Mercy Sunday (inclusive)
                 // move it to the Monday after Divine Mercy Sunday
-                if (holyWeekRange.contains(date) || easterOctaveRange.contains(date)) {
+                if (rangeContainsDate(holyWeekRange, date) || rangeContainsDate(easterOctaveRange, date)) {
                     // Ensure that the Monday after Divine Mercy Sunday is not Annunciation
                     // if it is, move this celebration to the next day (Tuesday)
-                    const proposed = lastDateInTheEasterOctave.add(1, "days");
+                    const proposed = lastDateInTheEasterOctave.add(1, "day");
                     if (proposed.isSame(annunciation)) {
-                        return lastDateInTheEasterOctave.add(2, "days");
+                        return moment.utc(lastDateInTheEasterOctave.add(2, "day").toISOString());
                     } else {
-                        return proposed;
+                        return moment.utc(proposed.toISOString());
                     }
                 } else {
-                    return date;
+                    return moment.utc(date.toISOString());
                 }
             })(year),
             data: {

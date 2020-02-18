@@ -758,7 +758,12 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "maryMotherOfTheChurch",
             type: Types.MEMORIAL, // Memorial
-            moment: ((y: number): moment.Moment => Dates.pentecostSunday(y).add(1, "days"))(year),
+            moment: ((y: number): moment.Moment =>
+                moment.utc(
+                    Dates.pentecostSunday(y)
+                        .add(1, "day")
+                        .toISOString(),
+                ))(year),
             data: {
                 prioritized: true,
                 meta: {

@@ -3,6 +3,7 @@ import * as Utils from "./Utils";
 import { LiturgicalSeasons, Titles, LiturgicalColors, Types } from "../constants";
 import { TChristmastideEndings } from "../utils/type-guards";
 import { IRomcalDateItem } from "../models/romcal-date-item";
+import { dayJsToMomentJs } from "../utils/dates";
 
 // year: Takes the year (integer)
 // christmastideEnds: t|o|e [The mode to calculate the end of Christmastide]
@@ -21,7 +22,7 @@ const dates = (
         {
             key: "immaculateConception",
             type: Types.SOLEMNITY,
-            moment: Dates.immaculateConception(year),
+            moment: dayJsToMomentJs(Dates.immaculateConception(year)),
             data: {
                 prioritized: true,
                 meta: {
@@ -32,7 +33,7 @@ const dates = (
         {
             key: "christmas",
             type: Types.SOLEMNITY,
-            moment: Dates.christmas(year),
+            moment: dayJsToMomentJs(Dates.christmas(year)),
             data: {
                 prioritized: true,
                 meta: {
@@ -43,7 +44,7 @@ const dates = (
         {
             key: "maryMotherOfGod",
             type: Types.SOLEMNITY,
-            moment: Dates.maryMotherOfGod(year),
+            moment: dayJsToMomentJs(Dates.maryMotherOfGod(year)),
             data: {
                 prioritized: true,
                 meta: {
@@ -54,7 +55,7 @@ const dates = (
         {
             key: "epiphany",
             type: Types.SOLEMNITY,
-            moment: Dates.epiphany(year, epiphanyOnJan6),
+            moment: dayJsToMomentJs(Dates.epiphany(year, epiphanyOnJan6)),
             data: {
                 prioritized: true,
                 meta: {
@@ -65,7 +66,7 @@ const dates = (
         {
             key: "trinitySunday",
             type: Types.SOLEMNITY,
-            moment: Dates.trinitySunday(year),
+            moment: dayJsToMomentJs(Dates.trinitySunday(year)),
             data: {
                 prioritized: true,
                 meta: {
@@ -76,7 +77,7 @@ const dates = (
         {
             key: "corpusChristi",
             type: Types.SOLEMNITY,
-            moment: Dates.corpusChristi(year, corpusChristiOnThursday),
+            moment: dayJsToMomentJs(Dates.corpusChristi(year, corpusChristiOnThursday)),
             data: {
                 prioritized: true,
                 meta: {
@@ -87,7 +88,7 @@ const dates = (
         {
             key: "sacredHeartOfJesus",
             type: Types.SOLEMNITY,
-            moment: Dates.sacredHeartOfJesus(year),
+            moment: dayJsToMomentJs(Dates.sacredHeartOfJesus(year)),
             data: {
                 prioritized: true,
                 meta: {
@@ -98,7 +99,7 @@ const dates = (
         {
             key: "birthOfJohnTheBaptist",
             type: Types.SOLEMNITY,
-            moment: Dates.birthOfJohnTheBaptist(year),
+            moment: dayJsToMomentJs(Dates.birthOfJohnTheBaptist(year)),
             data: {
                 prioritized: true,
                 meta: {
@@ -109,7 +110,7 @@ const dates = (
         {
             key: "peterAndPaulApostles",
             type: Types.SOLEMNITY,
-            moment: Dates.peterAndPaulApostles(year),
+            moment: dayJsToMomentJs(Dates.peterAndPaulApostles(year)),
             data: {
                 prioritized: true,
                 meta: {
@@ -120,7 +121,7 @@ const dates = (
         {
             key: "assumption",
             type: Types.SOLEMNITY,
-            moment: Dates.assumption(year),
+            moment: dayJsToMomentJs(Dates.assumption(year)),
             data: {
                 prioritized: true,
                 meta: {
@@ -131,7 +132,7 @@ const dates = (
         {
             key: "allSaints",
             type: Types.SOLEMNITY,
-            moment: Dates.allSaints(year),
+            moment: dayJsToMomentJs(Dates.allSaints(year)),
             data: {
                 prioritized: true,
                 meta: {
@@ -142,7 +143,7 @@ const dates = (
         {
             key: "christTheKing",
             type: Types.SOLEMNITY,
-            moment: Dates.christTheKing(year),
+            moment: dayJsToMomentJs(Dates.christTheKing(year)),
             data: {
                 prioritized: true,
                 meta: {
@@ -153,7 +154,7 @@ const dates = (
         {
             key: "josephHusbandOfMary",
             type: Types.SOLEMNITY,
-            moment: Dates.josephHusbandOfMary(year),
+            moment: dayJsToMomentJs(Dates.josephHusbandOfMary(year)),
             data: {
                 prioritized: true,
                 meta: {
@@ -164,7 +165,7 @@ const dates = (
         {
             key: "annunciation",
             type: Types.SOLEMNITY,
-            moment: Dates.annunciation(year),
+            moment: dayJsToMomentJs(Dates.annunciation(year)),
             data: {
                 prioritized: true,
                 meta: {
@@ -175,7 +176,7 @@ const dates = (
         {
             key: "easter",
             type: Types.SOLEMNITY,
-            moment: Dates.easter(year),
+            moment: dayJsToMomentJs(Dates.easter(year)),
             data: {
                 prioritized: true,
                 meta: {
@@ -186,7 +187,7 @@ const dates = (
         {
             key: "divineMercySunday",
             type: Types.SOLEMNITY,
-            moment: Dates.divineMercySunday(year),
+            moment: dayJsToMomentJs(Dates.divineMercySunday(year)),
             data: {
                 prioritized: true,
                 meta: {
@@ -197,7 +198,7 @@ const dates = (
         {
             key: "ascension",
             type: Types.SOLEMNITY,
-            moment: Dates.ascension(year, ascensionOnSunday),
+            moment: dayJsToMomentJs(Dates.ascension(year, ascensionOnSunday)),
             data: {
                 prioritized: true,
                 meta: {
@@ -208,7 +209,7 @@ const dates = (
         {
             key: "pentecostSunday",
             type: Types.SOLEMNITY,
-            moment: Dates.pentecostSunday(year),
+            moment: dayJsToMomentJs(Dates.pentecostSunday(year)),
             data: {
                 prioritized: true,
                 meta: {
@@ -220,7 +221,7 @@ const dates = (
         {
             key: "ashWednesday",
             type: Types.FERIA,
-            moment: Dates.ashWednesday(year),
+            moment: dayJsToMomentJs(Dates.ashWednesday(year)),
             data: {
                 prioritized: true,
                 season: {
@@ -237,7 +238,7 @@ const dates = (
         {
             key: "palmSunday",
             type: Types.SUNDAY,
-            moment: Dates.palmSunday(year),
+            moment: dayJsToMomentJs(Dates.palmSunday(year)),
             data: {
                 prioritized: true,
                 season: {
@@ -254,7 +255,7 @@ const dates = (
         {
             key: "holyThursday",
             type: Types.TRIDUUM,
-            moment: Dates.holyThursday(year),
+            moment: dayJsToMomentJs(Dates.holyThursday(year)),
             data: {
                 prioritized: true,
                 season: {
@@ -272,7 +273,7 @@ const dates = (
         {
             key: "goodFriday",
             type: Types.TRIDUUM,
-            moment: Dates.goodFriday(year),
+            moment: dayJsToMomentJs(Dates.goodFriday(year)),
             data: {
                 prioritized: true,
                 season: {
@@ -290,7 +291,7 @@ const dates = (
         {
             key: "holySaturday",
             type: Types.TRIDUUM,
-            moment: Dates.holySaturday(year),
+            moment: dayJsToMomentJs(Dates.holySaturday(year)),
             data: {
                 prioritized: true,
                 season: {
@@ -309,7 +310,7 @@ const dates = (
         {
             key: "holyFamily",
             type: Types.FEAST,
-            moment: Dates.holyFamily(year),
+            moment: dayJsToMomentJs(Dates.holyFamily(year)),
             data: {
                 prioritized: true,
                 meta: {
@@ -321,7 +322,7 @@ const dates = (
         {
             key: "baptismOfTheLord",
             type: Types.FEAST,
-            moment: Dates.baptismOfTheLord(year, epiphanyOnJan6),
+            moment: dayJsToMomentJs(Dates.baptismOfTheLord(year, epiphanyOnJan6)),
             data: {
                 prioritized: true,
                 meta: {
@@ -333,7 +334,7 @@ const dates = (
         {
             key: "presentationOfTheLord",
             type: Types.FEAST,
-            moment: Dates.presentationOfTheLord(year),
+            moment: dayJsToMomentJs(Dates.presentationOfTheLord(year)),
             data: {
                 prioritized: true,
                 meta: {
@@ -345,7 +346,7 @@ const dates = (
         {
             key: "transfiguration",
             type: Types.FEAST,
-            moment: Dates.transfiguration(year),
+            moment: dayJsToMomentJs(Dates.transfiguration(year)),
             data: {
                 prioritized: true,
                 meta: {
@@ -357,7 +358,7 @@ const dates = (
         {
             key: "theExaltationOfTheHolyCross",
             type: Types.FEAST,
-            moment: Dates.theExaltationOfTheHolyCross(year),
+            moment: dayJsToMomentJs(Dates.theExaltationOfTheHolyCross(year)),
             data: {
                 prioritized: true,
                 meta: {
@@ -370,7 +371,7 @@ const dates = (
         {
             key: "immaculateHeartOfMary",
             type: Types.FEAST,
-            moment: Dates.immaculateHeartOfMary(year),
+            moment: dayJsToMomentJs(Dates.immaculateHeartOfMary(year)),
             data: {
                 prioritized: true,
                 meta: {

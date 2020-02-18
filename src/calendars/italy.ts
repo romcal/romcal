@@ -103,7 +103,11 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "maryMotherOfTheChurch",
             type: Types.MEMORIAL,
-            moment: Dates.pentecostSunday(year).add(1, "days"),
+            moment: moment.utc(
+                Dates.pentecostSunday(year)
+                    .add(1, "day")
+                    .toISOString(),
+            ),
         },
     ];
 

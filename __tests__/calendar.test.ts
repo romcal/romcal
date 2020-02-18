@@ -24,16 +24,13 @@
 
 import _ from "lodash";
 import moment from "moment";
-import "moment-recur-ts";
-import { extendMoment } from "moment-range";
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-extendMoment(moment as any);
 
 import { Calendar, Dates, Types, LiturgicalSeasons, PsalterWeeks, Titles, LiturgicalColors } from "../src";
 import { isObject, Dictionary, isNil } from "../src/utils/type-guards";
 import { DateItem } from "../src/models/romcal-date-item";
 import { extractedTypeKeys } from "../src/constants/Types";
+import { hasKey } from "../src/utils/object";
+import { dayJsToMomentJs } from "../src/utils/dates";
 
 describe("Testing calendar generation functions", () => {
     describe("When calling the calendarFor() method without a query", () => {
@@ -47,8 +44,8 @@ describe("Testing calendar generation functions", () => {
 
         it("Each object should contain the keys type, name, moment, source and data", () => {
             const requiredKeys = ["type", "name", "moment", "source", "data"];
-            nonLeapYearDates.every(d => _.has(d, requiredKeys));
-            leapYearDates.every(d => _.has(d, requiredKeys));
+            nonLeapYearDates.every(d => hasKey(d, requiredKeys));
+            leapYearDates.every(d => hasKey(d, requiredKeys));
         });
 
         it("Array should be 365 days long on non-leap years", () => {
@@ -66,15 +63,15 @@ describe("Testing calendar generation functions", () => {
         describe("When requesting the liturgical year", () => {
             const year = moment.utc().year();
             const start = Dates.firstSundayOfAdvent(year);
-            const end = Dates.firstSundayOfAdvent(year + 1).subtract(1, "days");
-            const [firstDate, , lastDate] = Calendar.calendarFor({
+            const end = Dates.firstSundayOfAdvent(year + 1).subtract(1, "day");
+            const calendar = Calendar.calendarFor({
                 year: year,
                 type: "liturgical",
             });
 
             it("Should start on the 1st Sunday of Advent and end on Christ the King", () => {
-                expect(firstDate.moment.isSame(start)).toEqual(true);
-                expect(lastDate.moment.isSame(end)).toEqual(true);
+                expect(calendar[0].moment.isSame(dayJsToMomentJs(start))).toEqual(true);
+                expect(calendar[calendar.length - 1].moment.isSame(dayJsToMomentJs(end))).toEqual(true);
             });
         });
 

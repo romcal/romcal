@@ -6,6 +6,7 @@ import { TPsalterWeek } from "../constants/PsalterWeeks";
 import { ISO8601DateString, isNil } from "../utils/type-guards";
 import { Dates } from "../lib";
 import { TLiturgicalCycle } from "../constants/LiturgicalCycles";
+import { dayJsToMomentJs } from "../utils/dates";
 
 export interface IRomcalDateItemDataCalendar {
     weeks: number;
@@ -178,7 +179,7 @@ export class DateItem implements IDateItem {
         const year = this.getLiturgicalStartYear();
 
         // Formula to calculate Sunday cycle (Year A, B, C)
-        const firstSundayOfAdvent: moment.Moment = Dates.firstSundayOfAdvent(year);
+        const firstSundayOfAdvent: moment.Moment = dayJsToMomentJs(Dates.firstSundayOfAdvent(year));
         const thisCycle: number = (year - 1963) % 3;
         const nextCycle: number = thisCycle === 2 ? 0 : thisCycle + 1;
 
@@ -202,7 +203,7 @@ export class DateItem implements IDateItem {
     private getLiturgicalStartYear(): number {
         const currentYear = this.moment.utc().year();
         const firstSundayOfAdvent = Dates.firstSundayOfAdvent(currentYear);
-        return this.moment.isBefore(firstSundayOfAdvent) ? currentYear - 1 : currentYear;
+        return this.moment.isBefore(dayJsToMomentJs(firstSundayOfAdvent)) ? currentYear - 1 : currentYear;
     }
 
     /**
