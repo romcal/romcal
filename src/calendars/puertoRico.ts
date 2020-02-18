@@ -84,7 +84,12 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "ourLordJesusChristTheEternalHighPriest",
             type: Types.FEAST,
-            moment: ((y: number): moment.Moment => Dates.pentecostSunday(y).add(4, "days"))(year),
+            moment: ((y: number): moment.Moment =>
+                moment.utc(
+                    Dates.pentecostSunday(y)
+                        .add(4, "day")
+                        .toISOString(),
+                ))(year),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,

@@ -171,7 +171,12 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "ourLadyOfTheValley",
             type: Types.MEMORIAL,
-            moment: ((y: number): moment.Moment => Dates.divineMercySunday(y).add(6, "days"))(year),
+            moment: ((y: number): moment.Moment =>
+                moment.utc(
+                    Dates.divineMercySunday(y)
+                        .add(6, "day")
+                        .toISOString(),
+                ))(year),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
