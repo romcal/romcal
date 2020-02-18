@@ -691,7 +691,11 @@ describe("Testing specific liturgical date functions", () => {
                 const [lastDayInOctaveOfEaster] = octaveOfEasterDates.reverse();
                 const octaveRange = rangeOfDays(firstDayInOctaveOfEaster, lastDayInOctaveOfEaster);
 
-                if (!rangeContainsDate(holyWeekRange, date) && !rangeContainsDate(octaveRange, date) && !isOnASundayOfLent) {
+                if (
+                    !rangeContainsDate(holyWeekRange, date) &&
+                    !rangeContainsDate(octaveRange, date) &&
+                    !isOnASundayOfLent
+                ) {
                     expect(Dates.annunciation(i).day()).toEqual(25);
                 } else {
                     // This test case specifically doesnt care about what happens if one or

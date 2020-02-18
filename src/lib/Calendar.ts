@@ -11,6 +11,7 @@ import { TCountryTypes, isNil, Primitive, isInteger, isObject, TRomcalQuery, Dic
 import { filter, hasKey, getValueByKey } from "../utils/object";
 import { DateItem, IRomcalDateItem, IRomcalDateItemData } from "../models/romcal-date-item";
 import { Types } from "../constants";
+import { OverloadedReturnType } from "../utils/helpers";
 
 /**
  * Filters an array of dates generated from the calendarFor function based on a given query.
@@ -18,77 +19,74 @@ import { Types } from "../constants";
  * @param dates An array of dates generated from the `calendarFor` function
  * @param query A query object containing criteria to filter the dates by
  */
-const queryFor = <U extends TRomcalQuery>(
-    dates: DateItem[],
-    query?: U,
-): U extends undefined ? DateItem[] : "group" extends keyof U ? Dictionary<DateItem[]> | Dictionary<DateItem[]>[] : DateItem[] => {
-    if (!isNil(query)) {
-        if (hasKey(query, "group")) {
-            let groupedResult: Dictionary<DateItem[]> | Dictionary<DateItem[]>[];
-            switch (query.group) {
-                case "months":
-                    groupedResult = _.groupBy(dates, d => d.moment.month());
-                    break;
-                case "daysByMonth":
-                    // eslint-disable-next-line you-dont-need-lodash-underscore/map
-                    groupedResult = _.map(
-                        _.groupBy(dates, d => d.moment.month()),
-                        monthGroup => _.groupBy(monthGroup, d => d.moment.day()),
-                    );
-                    break;
-                case "weeksByMonth":
-                    // eslint-disable-next-line you-dont-need-lodash-underscore/map
-                    groupedResult = _.map(
-                        _.groupBy(dates, d => d.moment.month()),
-                        v => _.groupBy(v, d => d.data.calendar?.week),
-                    );
-                    break;
-                case "cycles":
-                    groupedResult = _.groupBy(dates, d => d.data.meta.cycle?.value);
-                    break;
-                case "types":
-                    groupedResult = _.groupBy(dates, d => d.type);
-                    break;
-                case "liturgicalSeasons":
-                    groupedResult = _.groupBy(dates, d => d.data.season.key);
-                    break;
-                case "liturgicalColors":
-                    groupedResult = _.groupBy(dates, d => d.data.meta.liturgicalColor?.key);
-                    break;
-                case "psalterWeeks":
-                    groupedResult = _.groupBy(dates, d => d.data.meta.psalterWeek?.key);
-                    break;
-                case "days":
-                default:
-                    groupedResult = _.groupBy(dates, d => d.moment.day());
-                    break;
-            }
-            return groupedResult as any;
-        } else {
-            let filteredResult: DateItem[] = dates;
-            // Months are zero indexed, so January is month 0.
-            if (hasKey(query, "month")) {
-                filteredResult = dates.filter(dateItem => dateItem.moment.month() === getValueByKey(query, "month"));
-            }
-            // Days are zero index, so Sunday is 0.
-            if (hasKey(query, "day")) {
-                filteredResult = dates.filter(dateItem => dateItem.moment.day() === getValueByKey(query, "day"));
-            }
-            if (hasKey(query, "title") && !isNil(query.title)) {
-                const { title } = query;
-                filteredResult = dates.filter(date => date.data.meta.titles?.includes(title));
-            }
-            return filteredResult as any;
+
+function queryFor<U extends undefined>(dates: Array<DateItem>): DateItem[];
+function queryFor<U extends TRomcalQuery>(
+    dates: Array<DateItem>,
+    query: U,
+): "group" extends keyof U
+    ? U["group"] extends "daysByMonth" | "weeksByMonth"
+        ? Dictionary<Array<DateItem>>[]
+        : Dictionary<Array<DateItem>>
+    : Array<DateItem>;
+function queryFor(
+    dates: Array<DateItem>,
+    query?: TRomcalQuery,
+): Dictionary<Array<DateItem>>[] | Dictionary<Array<DateItem>> | Array<DateItem> {
+    if (isNil(query)) {
+        return dates;
+    }
+    if (hasKey(query, "group")) {
+        switch (query.group) {
+            case "months":
+                return _.groupBy(dates, d => d.moment.month());
+            case "daysByMonth":
+                // eslint-disable-next-line you-dont-need-lodash-underscore/map
+                return _.map(
+                    _.groupBy(dates, d => d.moment.month()),
+                    monthGroup => _.groupBy(monthGroup, d => d.moment.day()),
+                );
+            case "weeksByMonth":
+                // eslint-disable-next-line you-dont-need-lodash-underscore/map
+                return _.map(
+                    _.groupBy(dates, d => d.moment.month()),
+                    v => _.groupBy(v, d => d.data.calendar?.week),
+                );
+            case "cycles":
+                return _.groupBy(dates, d => d.data.meta.cycle?.value);
+            case "types":
+                return _.groupBy(dates, d => d.type);
+            case "liturgicalSeasons":
+                return _.groupBy(dates, d => d.data.season.key);
+            case "liturgicalColors":
+                return _.groupBy(dates, d => d.data.meta.liturgicalColor?.key);
+            case "psalterWeeks":
+                return _.groupBy(dates, d => d.data.meta.psalterWeek?.key);
+            case "days":
+            default:
+                return _.groupBy(dates, d => d.moment.day());
         }
     } else {
-        return dates as any;
+        // Months are zero indexed, so January is month 0.
+        if (hasKey(query, "month")) {
+            return dates.filter(dateItem => dateItem.moment.month() === getValueByKey(query, "month"));
+        }
+        // Days are zero index, so Sunday is 0.
+        if (hasKey(query, "day")) {
+            return dates.filter(dateItem => dateItem.moment.day() === getValueByKey(query, "day"));
+        }
+        if (hasKey(query, "title") && !isNil(query.title)) {
+            const { title } = query;
+            return dates.filter(date => date.data.meta.titles?.includes(title));
+        }
+        return dates;
     }
-};
+}
 
 function calendarFor<T extends undefined>(): DateItem[];
 function calendarFor<T extends IRomcalConfig | number>(
     options?: T,
-): T extends number ? DateItem[] : "query" extends keyof T ? Dictionary<DateItem[]> | Dictionary<DateItem[]>[] | DateItem[] : DateItem[];
+): T extends number ? DateItem[] : "query" extends keyof T ? OverloadedReturnType<typeof queryFor> : DateItem[];
 /**
  * Returns an array of liturgical dates based on the supplied options.
  *
@@ -103,7 +101,7 @@ function calendarFor<T extends IRomcalConfig | number>(
  *
  * @param options A configuration object or a year (integer)
  */
-function calendarFor(options?: IRomcalConfig | number): Dictionary<DateItem[]> | Dictionary<DateItem[]>[] | DateItem[] {
+function calendarFor(options?: IRomcalConfig | number): OverloadedReturnType<typeof queryFor> {
     let userConfig: IRomcalConfig = {};
 
     // If options is passed as an integer,
@@ -193,19 +191,35 @@ class Calendar {
         years.forEach(year => {
             weekdayDates = [
                 ...weekdayDates,
-                ...Seasons.christmastide(year - 1, christmastideEnds, epiphanyOnJan6, christmastideIncludesTheSeasonOfEpiphany),
+                ...Seasons.christmastide(
+                    year - 1,
+                    christmastideEnds,
+                    epiphanyOnJan6,
+                    christmastideIncludesTheSeasonOfEpiphany,
+                ),
                 ...Seasons.earlyOrdinaryTime(year, christmastideEnds, epiphanyOnJan6),
                 ...Seasons.lent(year),
                 ...Seasons.eastertide(year),
                 ...Seasons.laterOrdinaryTime(year),
                 ...Seasons.advent(year),
-                ...Seasons.christmastide(year, christmastideEnds, epiphanyOnJan6, christmastideIncludesTheSeasonOfEpiphany),
+                ...Seasons.christmastide(
+                    year,
+                    christmastideEnds,
+                    epiphanyOnJan6,
+                    christmastideIncludesTheSeasonOfEpiphany,
+                ),
             ];
 
             // Get the celebration dates based on the given year and options
             celebrationsDates = [
                 ...celebrationsDates,
-                ...Celebrations.dates(year, christmastideEnds, epiphanyOnJan6, corpusChristiOnThursday, ascensionOnSunday),
+                ...Celebrations.dates(
+                    year,
+                    christmastideEnds,
+                    epiphanyOnJan6,
+                    corpusChristiOnThursday,
+                    ascensionOnSunday,
+                ),
             ];
 
             // Get the general calendar based on the given year
@@ -302,7 +316,10 @@ class Calendar {
         const previousItems = filter(this.dateItems, "key", item.key);
         if (previousItems.length) {
             previousItems.forEach(previousItem => {
-                if (!previousItem.data.prioritized || (previousItem.data.prioritized && item.data && item.data.prioritized)) {
+                if (
+                    !previousItem.data.prioritized ||
+                    (previousItem.data.prioritized && item.data && item.data.prioritized)
+                ) {
                     this._removeWhere({ _id: previousItem._id });
                 }
             });
@@ -404,7 +421,11 @@ class Calendar {
      * @param endDate The upper range date to abide by
      * @param sources The 2 dimensional array containing various date sources to be filtered
      */
-    static _filterItemRange(startDate: moment.Moment, endDate: moment.Moment, sources: Array<Array<IRomcalDateItem>>): Array<Array<IRomcalDateItem>> {
+    static _filterItemRange(
+        startDate: moment.Moment,
+        endDate: moment.Moment,
+        sources: Array<Array<IRomcalDateItem>>,
+    ): Array<Array<IRomcalDateItem>> {
         return sources.map((source: Array<IRomcalDateItem>) =>
             source.filter((item: IRomcalDateItem) => {
                 return item.moment.isSameOrAfter(startDate) && item.moment.isSameOrBefore(endDate);
