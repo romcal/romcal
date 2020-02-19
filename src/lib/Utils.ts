@@ -53,7 +53,9 @@ const setLocale = (key: string): void => {
     if (keyValues !== null) {
         const [phrase, lang, region] = keyValues; // For example: ["fr-ca", "fr", "ca"]
         // Use kebab-case in localName to follow IETF Language Codes standards
-        localeName = `${lang}${!isNil(region) && isString(region) && region.length > 0 ? `-${region.toUpperCase()}` : ""}`;
+        localeName = `${lang}${
+            !isNil(region) && isString(region) && region.length > 0 ? `-${region.toUpperCase()}` : ""
+        }`;
         // Set the locale
         moment.locale(localeName);
         /**
@@ -133,7 +135,7 @@ const localize = ({ key, count, week, day }: { key: string; day?: string; week?:
  * @param dates A list of [[IRomcalDateItem]]s to process
  * @param source
  */
-const localizeDates = (dates: Array<IRomcalDateItem>, source = "sanctoral"): Array<IRomcalDateItem | IRomcalDateItem> => {
+const localizeDates = (dates: Array<IRomcalDateItem>, source = "sanctoral"): Array<IRomcalDateItem> => {
     return dates.map((date: IRomcalDateItem) => {
         if (!hasKey(date, "drop")) {
             return {

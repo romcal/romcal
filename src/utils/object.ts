@@ -8,7 +8,11 @@ import { isNil, isObject } from "./type-guards";
  * T[P] extends Array<infer U>: Get the specified element from the array where the type of the element is inferred "U"
  */
 type RecursivePartial<T> = {
-    [P in keyof T]?: T[P] extends Array<infer U> ? Array<RecursivePartial<U>> : T[P] extends object ? RecursivePartial<T[P]> : T[P];
+    [P in keyof T]?: T[P] extends Array<infer U>
+        ? Array<RecursivePartial<U>>
+        : T[P] extends object
+        ? RecursivePartial<T[P]>
+        : T[P];
 };
 
 /**
@@ -45,7 +49,10 @@ export const findDescendantValueByKeys = <T extends { [key: string]: any }>(obj:
  * @param target The object to be merged with
  * @param source The object to merge from
  */
-export const mergeObjectsUniquely = <T extends { [key: string]: any }, U extends { [key: string]: any }>(target: T, source: U): T | RecursivePartial<T> => {
+export const mergeObjectsUniquely = <T extends { [key: string]: any }, U extends { [key: string]: any }>(
+    target: T,
+    source: U,
+): T | RecursivePartial<T> => {
     // Return the target object if there's nothing to merge
     if (typeof source === "undefined") return target;
     // Return target if it is undefined
@@ -60,7 +67,13 @@ export const mergeObjectsUniquely = <T extends { [key: string]: any }, U extends
             result[key] = !hasKey(target, key)
                 ? source[key]
                 : Array.isArray(source[key])
-                ? source[key].map((record: any) => (isObject(record) ? mergeObjectsUniquely(target[key], record) : !hasKey(target, key) ? record : target[key]))
+                ? source[key].map((record: any) =>
+                      isObject(record)
+                          ? mergeObjectsUniquely(target[key], record)
+                          : !hasKey(target, key)
+                          ? record
+                          : target[key],
+                  )
                 : isObject(source[key])
                 ? mergeObjectsUniquely(target[key], source[key])
                 : !hasKey(target, key)
@@ -116,7 +129,10 @@ export const omitFalsyProps = <Original extends { [key: string]: any }>(
  * @param keysToOmit keys to omit
  * @returns The new object sans the keys that were removed
  */
-export const omit = <Original, Key extends keyof Original>(obj: Original, keysToOmit: Key[] | ReadonlyArray<Key>): Omit<Original, Key> => {
+export const omit = <Original, Key extends keyof Original>(
+    obj: Original,
+    keysToOmit: Key[] | ReadonlyArray<Key>,
+): Omit<Original, Key> => {
     if (keysToOmit.length === 0) {
         return obj;
     }
@@ -155,7 +171,11 @@ export const sortBy = <Original, K extends keyof Original>(key: K) => {
  * @param key The key to filter on
  * @param value The value to filter by
  */
-export const filter = <Original, K extends keyof Original>(array: Original[], key: K, value: Original[K] | undefined): Original[] => {
+export const filter = <Original, K extends keyof Original>(
+    array: Original[],
+    key: K,
+    value: Original[K] | undefined,
+): Original[] => {
     return array.filter((item: Original) => {
         item[key] === value;
     });

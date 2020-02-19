@@ -19,6 +19,10 @@ export type ElementType<T extends ReadonlyArray<unknown>> = T extends ReadonlyAr
     ? ElementType
     : never;
 
+/**
+ * A generic helper to infer the return type(s) of overloaded functions.
+ * Supports up to 7 overloaded function signatures
+ */
 export type OverloadedReturnType<T> = T extends {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (...args: any[]): infer R;
@@ -30,8 +34,40 @@ export type OverloadedReturnType<T> = T extends {
     (...args: any[]): infer R;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (...args: any[]): infer R;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (...args: any[]): infer R;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (...args: any[]): infer R;
 }
-    ? R
+    ? R // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    : T extends {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (...args: any[]): infer R;
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (...args: any[]): infer R;
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (...args: any[]): infer R;
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (...args: any[]): infer R;
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (...args: any[]): infer R;
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (...args: any[]): infer R;
+      }
+    ? R // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    : T extends {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (...args: any[]): infer R;
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (...args: any[]): infer R;
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (...args: any[]): infer R;
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (...args: any[]): infer R;
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (...args: any[]): infer R;
+      }
+    ? R // eslint-disable-next-line @typescript-eslint/no-explicit-any
     : T extends {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           (...args: any[]): infer R;
