@@ -70,9 +70,12 @@ export type TCountryTypes = ElementType<typeof countryKeys>;
 export const localeKeys = Object.keys(Locales) as Array<keyof typeof Locales>;
 export type TLocaleTypes = ElementType<typeof localeKeys>;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const isRomcalConfig = (value: Record<string, any>): value is IRomcalConfig => {
-    const { errors, valid } = getRomcalConfigSchemaValidator().validate(value, getRomcalConfigJsonSchema());
+/**
+ * Check if the arbitary value given is an instance of [[IRomcalConfig]].
+ * @param maybeRomcalConfig The value that could be an instance of [[IRomcalConfig]]
+ */
+export const isRomcalConfig = (maybeRomcalConfig: unknown): maybeRomcalConfig is IRomcalConfig => {
+    const { errors, valid } = getRomcalConfigSchemaValidator().validate(maybeRomcalConfig, getRomcalConfigJsonSchema());
     if (!valid) {
         errors.forEach((error: ValidationError) => {
             console.error(error.name, error.property, error.message, error.stack);
@@ -81,9 +84,12 @@ export const isRomcalConfig = (value: Record<string, any>): value is IRomcalConf
     return valid;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const isRomcalDateItems = (value: Array<Record<string, any>>): value is Array<DateItem> => {
-    const { errors, valid } = getDateItemSchemaValidator().validate(value, getDateItemDataJsonSchema());
+/**
+ * Check if the arbitary value given is an array of [[DateItems]].
+ * @param maybeRomcalDateItems A value that could be an array of [[DateItem]]s
+ */
+export const isRomcalDateItems = (maybeRomcalDateItems: unknown): maybeRomcalDateItems is Array<DateItem> => {
+    const { errors, valid } = getDateItemSchemaValidator().validate(maybeRomcalDateItems, getDateItemDataJsonSchema());
     if (!valid) {
         errors.forEach((error: ValidationError) => {
             console.error(error.name, error.property, error.message, error.stack);
@@ -100,55 +106,56 @@ export const isISODateString = (value: string): value is ISO8601DateString => ut
 
 /**
  * Check if a value is *NOT* `undefined`. This is useful to check if optional props is specified.
- * @param value the value that could be `undefined`
+ * @param maybeUndefined the value that could be `undefined`
  */
-export const isDefined = <T>(value: T | undefined): value is T => typeof value !== "undefined";
+export const isDefined = <T>(maybeUndefined: T | undefined): maybeUndefined is T =>
+    typeof maybeUndefined !== "undefined";
 
 /**
  * Check if a value is `undefined` or `null`.
- * @param value The value that could be `null` or `undefined`
+ * @param maybeNil The value that could be `null` or `undefined`
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const isNil = (value: any): value is undefined | null => typeof value === "undefined" || value === null;
+export const isNil = (maybeNil: unknown): maybeNil is undefined | null =>
+    typeof maybeNil === "undefined" || maybeNil === null;
 
 /**
  * Check if a value is boolean (`true` / `false`).
- * @param value The value that could be a boolean
+ * @param maybeBoolean The value that could be a boolean
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const isBool = (value: any): value is boolean => typeof value === "boolean";
+export const isBool = (maybeBoolean: unknown): maybeBoolean is boolean => typeof maybeBoolean === "boolean";
 
 /**
  * Check if a value is a number.
- * @param value The value that could be a number
+ * @param maybeInteger The value that could be a number
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const isInteger = (value: any): value is number => typeof value === "number" && !isNull(value);
+export const isInteger = (maybeInteger: unknown): maybeInteger is number =>
+    typeof maybeInteger === "number" && !isNull(maybeInteger);
 
 /**
  * Check if the value is a string.
- * @param value The value that could be a string
+ * @param maybeString The value that could be a string
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const isString = (value: any): value is string => typeof value === "string" && !isNil(value);
+export const isString = (maybeString: unknown): maybeString is string =>
+    typeof maybeString === "string" && !isNil(maybeString);
 
 /**
  * Check if a value is primitive (`undefined`, `null`, `boolean`, `number`, or `string`).
- * @param value The value that could be a primitive type
+ * @param maybePrimitive The value that could be a primitive type
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const isPrimitive = (value: any): value is Primitive =>
-    value === null || ["string", "undefined", "boolean", "number"].indexOf(typeof value) !== -1;
+export const isPrimitive = (maybePrimitive: unknown): maybePrimitive is Primitive =>
+    maybePrimitive === null || ["string", "undefined", "boolean", "number"].indexOf(typeof maybePrimitive) !== -1;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const isFunction = (value: any): value is Function => typeof value === "function";
+/**
+ * Check if given value is a function
+ * @param maybeFunction The value that could be a function
+ */
+export const isFunction = (maybeFunction: unknown): maybeFunction is Function => typeof maybeFunction === "function";
 
 /**
  * Checks if a value is an object.
  * @param value The value that could be an object
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const isObject = (value: any): value is object => {
-    const valType = typeof value;
-    return !!value && valType === "object";
+export const isObject = (maybeObject: unknown): maybeObject is object => {
+    const valType = typeof maybeObject;
+    return !!maybeObject && valType === "object";
 };
