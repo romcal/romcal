@@ -8,7 +8,7 @@ import * as Utils from "./Utils";
 import * as Seasons from "./Seasons";
 import * as Celebrations from "./Celebrations";
 import { TCountryTypes, isNil, Primitive, isInteger, isObject, TRomcalQuery, Dictionary } from "../utils/type-guards";
-import { filter, hasKey } from "../utils/object";
+import { hasKey } from "../utils/object";
 import { DateItem, IRomcalDateItem, IRomcalDateItemData } from "../models/romcal-date-item";
 import { Types } from "../constants";
 import { OverloadedReturnType } from "../utils/helpers";
@@ -33,11 +33,11 @@ function queryFor<U extends TRomcalQuery>(
     ? DateItem[]
     : "title" extends keyof U // else, is a title key defined in the query?
     ? DateItem[]
-    : DateItem[]; // If none of the above, then return the original array
+    : DateItem[]; // If none of the above, then return the original array;
 function queryFor(
     dates: DateItem[],
-    query?: TRomcalQuery,
-): Dictionary<DateItem[]>[] | Dictionary<DateItem[]> | DateItem[] {
+    query: TRomcalQuery,
+): DateItem[] | Dictionary<DateItem[]> | Dictionary<DateItem[]>[] {
     if (isNil(query)) {
         return dates;
     }
@@ -86,6 +86,7 @@ function queryFor(
 }
 
 // const d1: DateItem[] = [];
+// const t0 = queryFor(d1);
 // const t1 = queryFor(d1, { day: 1 });
 // const t2 = queryFor(d1, { month: 1 });
 // const t3 = queryFor(d1, { title: "" });
@@ -334,17 +335,12 @@ class Calendar {
      * except if the previous item is prioritized but not the new one
      */
     _checkAndRemoveExistingItem(item: IRomcalDateItem): void {
-        const previousItems = filter(this.dateItems, "key", item.key);
-        if (previousItems.length) {
-            previousItems.forEach(previousItem => {
-                if (
-                    !previousItem.data.prioritized ||
-                    (previousItem.data.prioritized && item.data && item.data.prioritized)
-                ) {
-                    this._removeWhere({ _id: previousItem._id });
-                }
-            });
-        }
+        const previousItems = this.dateItems.filter(dateItem => dateItem.key === item.key);
+        previousItems.forEach(previousItem => {
+            if (!previousItem.data.prioritized || (previousItem.data.prioritized && item.data?.prioritized)) {
+                this._removeWhere({ _id: previousItem._id });
+            }
+        });
     }
 
     /**

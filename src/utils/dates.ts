@@ -39,7 +39,11 @@ export const rangeContainsDate = (range: Array<dayjs.Dayjs>, date: dayjs.Dayjs):
  * @param exclude Dates that should be excluded
  * @returns An array of dates representing the range
  */
-export const rangeOfDays = (start: dayjs.Dayjs, end: dayjs.Dayjs, options: TRangeOfDaysOptions = rangeOfDayDefaultOptions): Array<dayjs.Dayjs> => {
+export const rangeOfDays = (
+    start: dayjs.Dayjs,
+    end: dayjs.Dayjs,
+    options: TRangeOfDaysOptions = rangeOfDayDefaultOptions,
+): Array<dayjs.Dayjs> => {
     const days = end.diff(start, "day");
     const range: Array<dayjs.Dayjs> = [];
     Array.from(new Array(days + 1), (x, i) => {

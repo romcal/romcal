@@ -122,18 +122,15 @@ describe("Testing calendar generation functions", () => {
             test("Should group dates by months in the year", () => {
                 expect(
                     Object.keys(
-                        Calendar.calendarFor({
-                            query: {
-                                group: "months",
-                            },
+                        Calendar.queryFor(Calendar.calendarFor(), {
+                            group: "months",
                         }),
                     ),
                 ).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
             });
 
             test("Should group days of week by the months they belong to", () => {
-                const calendar = Calendar.calendarFor();
-                const dates = Calendar.queryFor(calendar, {
+                const dates = Calendar.queryFor(Calendar.calendarFor(), {
                     group: "daysByMonth",
                 });
                 Object.values(dates).forEach((monthGroup: Dictionary<DateItem[]>, monthIndex: number) => {
@@ -201,12 +198,10 @@ describe("Testing calendar generation functions", () => {
         });
 
         describe("For filtering by titles", () => {
-            (Calendar.calendarFor({
-                query: { title: Titles.FEAST_OF_THE_LORD },
-            }) as DateItem[]).forEach((d: DateItem) =>
-                expect(d.data.meta.titles?.includes(Titles.FEAST_OF_THE_LORD)).toBeTruthy(),
-            );
-            (Calendar.calendarFor({ query: { title: Titles.PATRON_OF_EUROPE } }) as DateItem[]).forEach((d: DateItem) =>
+            Calendar.queryFor(Calendar.calendarFor(), {
+                title: Titles.FEAST_OF_THE_LORD,
+            }).forEach((d: DateItem) => expect(d.data.meta.titles?.includes(Titles.FEAST_OF_THE_LORD)).toBeTruthy());
+            Calendar.queryFor(Calendar.calendarFor(), { title: Titles.PATRON_OF_EUROPE }).forEach((d: DateItem) =>
                 expect(d.data.meta.titles?.includes(Titles.PATRON_OF_EUROPE)).toBeTruthy(),
             );
         });
