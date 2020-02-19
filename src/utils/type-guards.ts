@@ -1,8 +1,13 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { utc, ISO_8601 } from "moment";
 import * as CountryCalendars from "../calendars";
 import * as Locales from "../locales";
 import { ElementType } from "./helpers";
+import { IRomcalConfig } from "../models/romcal-config";
+import { getRomcalConfigJsonSchema, getRomcalConfigSchemaValidator } from "../validators/romcal-config.validator";
+import { ValidationError } from "jsonschema";
+import { DateItem } from "../models/romcal-date-item";
+import { getDateItemSchemaValidator, getDateItemDataJsonSchema } from "../validators/date-item.validator";
+import { isNull } from "util";
 
 /**
  * Primitive types
@@ -65,6 +70,28 @@ export type TCountryTypes = ElementType<typeof countryKeys>;
 export const localeKeys = Object.keys(Locales) as Array<keyof typeof Locales>;
 export type TLocaleTypes = ElementType<typeof localeKeys>;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const isRomcalConfig = (value: Record<string, any>): value is IRomcalConfig => {
+    const { errors, valid } = getRomcalConfigSchemaValidator().validate(value, getRomcalConfigJsonSchema());
+    if (!valid) {
+        errors.forEach((error: ValidationError) => {
+            console.error(error.name, error.property, error.message, error.stack);
+        });
+    }
+    return valid;
+};
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const isRomcalDateItems = (value: Array<Record<string, any>>): value is Array<DateItem> => {
+    const { errors, valid } = getDateItemSchemaValidator().validate(value, getDateItemDataJsonSchema());
+    if (!valid) {
+        errors.forEach((error: ValidationError) => {
+            console.error(error.name, error.property, error.message, error.stack);
+        });
+    }
+    return valid;
+};
+
 /**
  * Check if a value is a valid ISO8601 Date string.
  * @param value The value to test
@@ -81,38 +108,46 @@ export const isDefined = <T>(value: T | undefined): value is T => typeof value !
  * Check if a value is `undefined` or `null`.
  * @param value The value that could be `null` or `undefined`
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const isNil = (value: any): value is undefined | null => typeof value === "undefined" || value === null;
 
 /**
  * Check if a value is boolean (`true` / `false`).
  * @param value The value that could be a boolean
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const isBool = (value: any): value is boolean => typeof value === "boolean";
 
 /**
  * Check if a value is a number.
  * @param value The value that could be a number
  */
-export const isInteger = (value: any): value is number => typeof value === "number";
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const isInteger = (value: any): value is number => typeof value === "number" && !isNull(value);
 
 /**
  * Check if the value is a string.
  * @param value The value that could be a string
  */
-export const isString = (value: any): value is string => typeof value === "string";
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const isString = (value: any): value is string => typeof value === "string" && !isNil(value);
 
 /**
  * Check if a value is primitive (`undefined`, `null`, `boolean`, `number`, or `string`).
  * @param value The value that could be a primitive type
  */
-export const isPrimitive = (value: any): value is Primitive => value === null || ["string", "undefined", "boolean", "number"].indexOf(typeof value) !== -1;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const isPrimitive = (value: any): value is Primitive =>
+    value === null || ["string", "undefined", "boolean", "number"].indexOf(typeof value) !== -1;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const isFunction = (value: any): value is Function => typeof value === "function";
 
 /**
  * Checks if a value is an object.
  * @param value The value that could be an object
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const isObject = (value: any): value is object => {
     const valType = typeof value;
     return !!value && valType === "object";

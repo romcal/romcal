@@ -1647,19 +1647,8 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         },
     ];
 
-    return _dates.map(({ key, data, ...rest }: IRomcalDateItem) => {
-        return {
-            ...rest,
-            name: Utils.localize({ key: `sanctoral.${key}` }),
-            data: {
-                ...data,
-                meta: {
-                    ...data?.meta,
-                    titles: [],
-                },
-            },
-        };
-    });
+    // Get localized celebration names
+    return Utils.localizeDates(_dates);
 };
 
 export { defaultConfig, dates };

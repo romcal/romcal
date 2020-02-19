@@ -307,7 +307,11 @@ const presentationOfTheLord = (year: number): dayjs.Dayjs => dayjs.utc(`${year}-
  * @param christmastideEnds The rule determining when the season of Christmas ends
  * @param epiphanyOnJan6 If true, Epiphany will be fixed to Jan 6] (defaults to false)
  */
-const christmastide = (year: number, christmastideEnds: TChristmastideEndings = "o", epiphanyOnJan6 = false): Array<dayjs.Dayjs> => {
+const christmastide = (
+    year: number,
+    christmastideEnds: TChristmastideEndings = "o",
+    epiphanyOnJan6 = false,
+): Array<dayjs.Dayjs> => {
     const start = christmas(year);
     let end = null;
     switch (christmastideEnds) {
@@ -343,7 +347,11 @@ const christmastide = (year: number, christmastideEnds: TChristmastideEndings = 
  * @param christmastideEnds The mode to calculate the end of Christmastide
  * @param epiphanyOnJan6 If true, fixes Epiphany to Jan 6] (defaults to false
  */
-const daysOfEarlyOrdinaryTime = (year: number, christmastideEnds: TChristmastideEndings = "o", epiphanyOnJan6 = false): Array<dayjs.Dayjs> => {
+const daysOfEarlyOrdinaryTime = (
+    year: number,
+    christmastideEnds: TChristmastideEndings = "o",
+    epiphanyOnJan6 = false,
+): Array<dayjs.Dayjs> => {
     let start = null;
     const end = ashWednesday(year);
 

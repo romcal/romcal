@@ -8,7 +8,7 @@ import * as Utils from "./Utils";
 import * as Seasons from "./Seasons";
 import * as Celebrations from "./Celebrations";
 import { TCountryTypes, isNil, Primitive, isInteger, isObject, TRomcalQuery, Dictionary } from "../utils/type-guards";
-import { filter, hasKey, getValueByKey } from "../utils/object";
+import { filter, hasKey } from "../utils/object";
 import { DateItem, IRomcalDateItem, IRomcalDateItemData } from "../models/romcal-date-item";
 import { Types } from "../constants";
 import { OverloadedReturnType } from "../utils/helpers";
@@ -19,20 +19,25 @@ import { OverloadedReturnType } from "../utils/helpers";
  * @param dates An array of dates generated from the `calendarFor` function
  * @param query A query object containing criteria to filter the dates by
  */
-
-function queryFor<U extends undefined>(dates: Array<DateItem>): DateItem[];
+function queryFor<U extends undefined | null>(dates: Array<DateItem>, query: U): DateItem[];
 function queryFor<U extends TRomcalQuery>(
-    dates: Array<DateItem>,
+    dates: DateItem[],
     query: U,
-): "group" extends keyof U
-    ? U["group"] extends "daysByMonth" | "weeksByMonth"
-        ? Dictionary<Array<DateItem>>[]
-        : Dictionary<Array<DateItem>>
-    : Array<DateItem>;
+): "group" extends keyof U // is a group key defined in the query?
+    ? U["group"] extends "daysByMonth" | "weeksByMonth" // does the group key have one of these values?
+        ? Dictionary<DateItem[]>[]
+        : Dictionary<DateItem[]>
+    : "month" extends keyof U // is a month key defined in the query?
+    ? DateItem[]
+    : "day" extends keyof U // else is a day key defined in the query?
+    ? DateItem[]
+    : "title" extends keyof U // else, is a title key defined in the query?
+    ? DateItem[]
+    : DateItem[]; // If none of the above, then return the original array
 function queryFor(
-    dates: Array<DateItem>,
+    dates: DateItem[],
     query?: TRomcalQuery,
-): Dictionary<Array<DateItem>>[] | Dictionary<Array<DateItem>> | Array<DateItem> {
+): Dictionary<DateItem[]>[] | Dictionary<DateItem[]> | DateItem[] {
     if (isNil(query)) {
         return dates;
     }
@@ -66,24 +71,35 @@ function queryFor(
             default:
                 return _.groupBy(dates, d => d.moment.day());
         }
-    } else {
+    } else if (!isNil(query.month)) {
         // Months are zero indexed, so January is month 0.
-        if (hasKey(query, "month")) {
-            return dates.filter(dateItem => dateItem.moment.month() === getValueByKey(query, "month"));
-        }
+        return dates.filter(dateItem => dateItem.moment.month() === query.month);
+    } else if (!isNil(query.day)) {
         // Days are zero index, so Sunday is 0.
-        if (hasKey(query, "day")) {
-            return dates.filter(dateItem => dateItem.moment.day() === getValueByKey(query, "day"));
-        }
-        if (hasKey(query, "title") && !isNil(query.title)) {
-            const { title } = query;
-            return dates.filter(date => date.data.meta.titles?.includes(title));
-        }
+        return dates.filter(dateItem => dateItem.moment.day() === query.day);
+    } else if (!isNil(query.title)) {
+        const { title } = query;
+        return dates.filter(date => date.data.meta.titles?.includes(title));
+    } else {
         return dates;
     }
 }
 
-function calendarFor<T extends undefined>(): DateItem[];
+// const d1: DateItem[] = [];
+// const t1 = queryFor(d1, { day: 1 });
+// const t2 = queryFor(d1, { month: 1 });
+// const t3 = queryFor(d1, { title: "" });
+// const t4 = queryFor(d1, { group: "daysByMonth" });
+// const t5 = queryFor(d1, { group: "weeksByMonth" });
+// const t6 = queryFor(d1, { group: "months" });
+// const t7 = queryFor(d1, { group: "cycles" });
+// const t8 = queryFor(d1, { group: "types" });
+// const t9 = queryFor(d1, { group: "liturgicalSeasons" });
+// const t10 = queryFor(d1, { group: "liturgicalColors" });
+// const t11 = queryFor(d1, { group: "psalterWeeks" });
+// const t12 = queryFor(d1, { group: "days" });
+
+function calendarFor<T extends undefined | null>(options?: T): DateItem[];
 function calendarFor<T extends IRomcalConfig | number>(
     options?: T,
 ): T extends number ? DateItem[] : "query" extends keyof T ? OverloadedReturnType<typeof queryFor> : DateItem[];
@@ -124,13 +140,18 @@ function calendarFor(options?: IRomcalConfig | number): OverloadedReturnType<typ
     // Determine if there's a query to execute. If none,
     // just return the array if DateItems to the caller
     if (isNil(config.query) || !isObject(config.query) || isNil(options)) {
-        return dates as Array<DateItem>;
+        return dates;
     } else {
         // Run queries and return the results
-        const queryResult = queryFor(dates, config.query);
-        return queryResult;
+        return queryFor(dates, config.query);
     }
 }
+
+// const d2: DateItem[] = [];
+// const tt1 = calendarFor();
+// const tt2 = calendarFor(2020);
+// const tt3 = calendarFor({ year: 2020 });
+// const tt3 = calendarFor({ query: { day: 1 } });
 
 /**
  * Calendar Class:
@@ -404,15 +425,11 @@ class Calendar {
      * @param sources A list of [[IRomcalDateItem]] arrays for the operation
      */
     static _dropItems(sources: Array<Array<IRomcalDateItem>>): Array<Array<IRomcalDateItem>> {
-        // Get an array of keys to be dropped from all sources
-        const filteredSources: Array<Array<IRomcalDateItem>> = [
-            ...sources.map((source: Array<IRomcalDateItem>) => {
-                return source.filter(({ drop }: IRomcalDateItem) => {
-                    return isNil(drop) && drop === true;
-                });
-            }),
-        ];
-        return filteredSources;
+        return sources.map((source: IRomcalDateItem[]) => {
+            return source.filter((dateItem: IRomcalDateItem) => {
+                return dateItem.drop ?? true;
+            });
+        });
     }
 
     /**

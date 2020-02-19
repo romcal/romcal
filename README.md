@@ -110,7 +110,7 @@ Additional credits for bug fixes, localizations and suggestions can be seen at [
 -   National liturgical calendars for country specific calendars.
 -   Richly commented code to help developers and contributors understand how the module works.
 
-NOTE: This module uses [Moment.js](http://momentjs.com/) and [Lodash](http://lodash.com/) for calculations and operations. Additional plugins such as [Range](https://github.com/gf3/moment-range) and [Recur](https://github.com/c-trimm/moment-recur) are used to extend date computation functionality.
+NOTE: This module uses [Moment.js](http://momentjs.com/) and [Lodash](http://lodash.com/) for calculations and operations.
 
 ## Module Robustness & Data Integrity <a name="disclaimer"></a>
 

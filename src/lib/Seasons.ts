@@ -54,8 +54,12 @@ const _metadata = (items: Array<IRomcalDateItem>): Array<IRomcalDateItem> => {
  * @param epiphanyOnJan6 true|false [If true, Epiphany will be fixed to Jan 6] (defaults to false)
  */
 const _epiphany = (year: number, epiphanyOnJan6 = false): Array<IRomcalDateItem> => {
-    const before: Array<moment.Moment> = Dates.daysBeforeEpiphany(year, epiphanyOnJan6).map(date => moment.utc(date.toISOString()));
-    const after: Array<moment.Moment> = Dates.daysAfterEpiphany(year, epiphanyOnJan6).map(date => moment.utc(date.toISOString()));
+    const before: Array<moment.Moment> = Dates.daysBeforeEpiphany(year, epiphanyOnJan6).map(date =>
+        moment.utc(date.toISOString()),
+    );
+    const after: Array<moment.Moment> = Dates.daysAfterEpiphany(year, epiphanyOnJan6).map(date =>
+        moment.utc(date.toISOString()),
+    );
 
     const days: Array<IRomcalDateItem> = [];
     before.forEach(day => {
@@ -174,7 +178,8 @@ const advent = (year: number): Array<IRomcalDateItem> => {
                 },
                 meta: {
                     // The proper color of the Third Sunday of Advent is rose. Purple may also be used on these Sundays.
-                    liturgicalColor: Math.floor(i / 7) === 2 && value.day() === 0 ? LiturgicalColors.ROSE : LiturgicalColors.PURPLE,
+                    liturgicalColor:
+                        Math.floor(i / 7) === 2 && value.day() === 0 ? LiturgicalColors.ROSE : LiturgicalColors.PURPLE,
                 },
             },
         });
@@ -232,8 +237,14 @@ const christmastide = (
     epiphanyOnJan6 = false,
     christmastideIncludesTheSeasonOfEpiphany = true,
 ): Array<IRomcalDateItem> => {
-    const datesOfChristmastide: moment.Moment[] = Dates.christmastide(year, christmastideEnds, epiphanyOnJan6).map(date => moment.utc(date.toISOString()));
-    const datesInTheOctaveOfChristmas: moment.Moment[] = Dates.octaveOfChristmas(year).map(date => moment.utc(date.toISOString()));
+    const datesOfChristmastide: moment.Moment[] = Dates.christmastide(
+        year,
+        christmastideEnds,
+        epiphanyOnJan6,
+    ).map(date => moment.utc(date.toISOString()));
+    const datesInTheOctaveOfChristmas: moment.Moment[] = Dates.octaveOfChristmas(year).map(date =>
+        moment.utc(date.toISOString()),
+    );
     const epiphany: Array<IRomcalDateItem> = _epiphany(year + 1, epiphanyOnJan6);
 
     let count = 0;
@@ -289,9 +300,13 @@ const christmastide = (
     // only merge the season of epiphany if the flag is true
     let combinedDaysOfChristmas: Array<IRomcalDateItem> = [];
     if (christmastideIncludesTheSeasonOfEpiphany === true) {
-        combinedDaysOfChristmas = _.uniqBy(_.union(epiphany, daysInTheOctaveOfChristmas, daysOfChristmasTide), item => item.moment.valueOf());
+        combinedDaysOfChristmas = _.uniqBy(_.union(epiphany, daysInTheOctaveOfChristmas, daysOfChristmasTide), item =>
+            item.moment.valueOf(),
+        );
     } else {
-        combinedDaysOfChristmas = _.uniqBy(_.union(daysInTheOctaveOfChristmas, daysOfChristmasTide), item => item.moment.valueOf());
+        combinedDaysOfChristmas = _.uniqBy(_.union(daysInTheOctaveOfChristmas, daysOfChristmasTide), item =>
+            item.moment.valueOf(),
+        );
     }
 
     // Sort dates according to moment
@@ -353,7 +368,11 @@ const christmastide = (
  * @param epiphanyOnJan6 Will Epiphany end on January the 6th (true | false)
  * @returns
  */
-const earlyOrdinaryTime = (year: number, christmastideEnds: TChristmastideEndings, epiphanyOnJan6 = false): Array<IRomcalDateItem> => {
+const earlyOrdinaryTime = (
+    year: number,
+    christmastideEnds: TChristmastideEndings,
+    epiphanyOnJan6 = false,
+): Array<IRomcalDateItem> => {
     let days: Array<IRomcalDateItem> = [];
 
     Dates.daysOfEarlyOrdinaryTime(year, christmastideEnds, epiphanyOnJan6)
