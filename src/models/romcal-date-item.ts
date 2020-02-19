@@ -191,7 +191,9 @@ export class DateItem implements IDateItem {
                 ...this.data.meta,
                 cycle: {
                     key: this.moment.isSameOrAfter(firstSundayOfAdvent) ? nextCycle : thisCycle,
-                    value: this.moment.isSameOrAfter(firstSundayOfAdvent) ? LiturgicalCycles[nextCycle] : LiturgicalCycles[thisCycle],
+                    value: this.moment.isSameOrAfter(firstSundayOfAdvent)
+                        ? LiturgicalCycles[nextCycle]
+                        : LiturgicalCycles[thisCycle],
                 },
             },
         };

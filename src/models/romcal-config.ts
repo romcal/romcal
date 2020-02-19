@@ -1,6 +1,12 @@
-import { TChristmastideEndings, TCountryTypes, TCalendarTypes, isNil, isObject, TRomcalQuery } from "../utils/type-guards";
-import { getRomcalConfigSchemaValidator, getRomcalConfigJsonSchema } from "../validators/romcal-config.validator";
-import { ValidationError } from "jsonschema";
+import {
+    TChristmastideEndings,
+    TCountryTypes,
+    TCalendarTypes,
+    isNil,
+    isObject,
+    TRomcalQuery,
+    isRomcalConfig,
+} from "../utils/type-guards";
 import * as CountryCalendars from "../calendars";
 import moment from "moment";
 
@@ -69,12 +75,7 @@ export default class Config {
     constructor(userConfig?: IRomcalConfig) {
         let config: IRomcalConfig = Config.getConfig(); // Get the default config
         if (!isNil(userConfig)) {
-            const { errors, valid } = getRomcalConfigSchemaValidator().validate(userConfig, getRomcalConfigJsonSchema());
-            if (!valid) {
-                console.error("Received a malformed configuration object with the following problems");
-                errors.forEach((error: ValidationError) => {
-                    console.error(error.name, error.property, error.message, error.stack);
-                });
+            if (!isRomcalConfig(userConfig)) {
                 console.warn("Will discard entire user supplied config object and use default configuration");
             } else {
                 // A two step override where the base object of default configurations
