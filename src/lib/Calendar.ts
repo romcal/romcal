@@ -372,6 +372,12 @@ class Calendar {
             },
         );
 
+        this.dateItems.forEach(dateItem => {
+            console.log(dateItem.key, dateItem._id);
+        });
+
+        console.log("dateItems before remove", this.dateItems.length);
+
         // Now that the items are sorted, let's drop other non-relevant date items
         // if at least one of the date items isn't optional...
         // Create a dictionary where celebrations on the same date are grouped under
@@ -404,9 +410,17 @@ class Calendar {
      * @param sources A list of [[IRomcalDateItem]] arrays for the operation
      */
     static _dropItems(sources: Array<Array<IRomcalDateItem>>): Array<Array<IRomcalDateItem>> {
+        const dropKeys: string[] = [];
+        sources.forEach((source: IRomcalDateItem[]) => {
+            source.forEach((dateItem: IRomcalDateItem) => {
+                if (dateItem.drop && dateItem.key) {
+                    dropKeys.push(dateItem.key);
+                }
+            });
+        });
         return sources.map((source: IRomcalDateItem[]) => {
             return source.filter((dateItem: IRomcalDateItem) => {
-                return dateItem.drop ?? true;
+                return dateItem.key ? !dropKeys.includes(dateItem.key) : true;
             });
         });
     }
