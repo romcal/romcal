@@ -304,23 +304,14 @@ class Calendar {
      * the previous date item will be removed in favour of the new given one,
      * except if the previous item is prioritized but not the new one
      */
-    _keepPrioritizedOnly(item: IRomcalDateItem): DateItem[] {
-        let dateItems: DateItem[] = [];
+    _keepPrioritizedOnly(item: IRomcalDateItem): void {
         const previousItems = this.dateItems.filter(dateItem => dateItem.key === item.key);
         previousItems.forEach(previousItem => {
-            // Determine if the previous item is a prioritized date (defaults to false if the prioritized field is not defined)
-            const isPreviousDateItemPrioritized = previousItem.data.prioritized ?? false;
-            // Determine if the current item is a prioritized date (defaults to false if the prioritized is not found)
-            const isCurrentDateItemPrioritized = item.data?.prioritized ?? false;
             // Remove previous item if it isn't priortized
-            if (isPreviousDateItemPrioritized === false) {
-                dateItems = removeWhere(this.dateItems, { _id: previousItem._id });
-            } else if (isPreviousDateItemPrioritized && isCurrentDateItemPrioritized) {
-                // Also remove previous item if both are prioritized
-                dateItems = removeWhere(this.dateItems, { _id: previousItem._id });
+            if (!previousItem.data.prioritized || (previousItem.data.prioritized && item.data?.prioritized)) {
+                removeWhere(this.dateItems, { _id: previousItem._id });
             }
         });
-        return dateItems;
     }
 
     /**
@@ -337,7 +328,6 @@ class Calendar {
     _sortAndKeepRelevant(): void {
         const types = extractedTypeKeys.slice(0, extractedTypeKeys.length - 1);
         types.splice(types.indexOf("MEMORIAL") + 1, 0, extractedTypeKeys[extractedTypeKeys.length - 1]);
-
         this.dateItems.sort(
             (
                 { moment: firstMoment, data: firstData, type: firstType, _stack: firstStack }: DateItem,
@@ -374,7 +364,7 @@ class Calendar {
                             } else if (firstStack < nextStack) {
                                 return 1;
                             } else {
-                                return 0;
+                                return 0; // No idea how to sort this...
                             }
                         }
                     }
@@ -382,37 +372,26 @@ class Calendar {
             },
         );
 
-        console.log("dateItems after sort", this.dateItems);
-
         // Now that the items are sorted, let's drop other non-relevant date items
-        // if at least one of the date items isn't optional
-
-        // Create a dictionary where celebrations on the same date are grouped under it's ISO string date string as the key
-        const calendarByDates = groupBy(this.dateItems, "date");
-        // Loop through each group to see if there's more than one celebration in each group
-        const idsToRemove: number[] = [];
-        Object.keys(calendarByDates).forEach(key => {
-            const dateItems = calendarByDates[key];
+        // if at least one of the date items isn't optional...
+        // Create a dictionary where celebrations on the same date are grouped under
+        // it's ISO string date string as the key and loop through each group to see
+        // if there's more than one celebration in each group.
+        Object.entries(groupBy(this.dateItems, "date")).forEach(([, dateItems]) => {
             if (dateItems.length > 1) {
-                // Get the first date item
-                const [dateItem] = dateItems;
+                // Validate the first date item
+                const [dateItem, ...otherDateItems] = dateItems;
                 // If the first date item has a type equal or higher than a MEMORIAL, or is prioritized:
                 // keep only the first item and discard all others celebration in the array
                 if (
-                    (dateItem.data.prioritized ?? false) ||
+                    dateItem.data.prioritized ||
                     types.indexOf(Types[dateItem.type] as any) <= types.indexOf(Types[Types.MEMORIAL] as any)
                 ) {
-                    dateItems.slice(1, dateItems.length).forEach(({ _id }) => {
-                        idsToRemove.push(_id);
+                    otherDateItems.forEach(({ _id }) => {
+                        removeWhere(this.dateItems, { _id });
                     });
                 }
             }
-        });
-
-        console.log("idsToRemove", idsToRemove);
-
-        idsToRemove.forEach(idToRemove => {
-            this.dateItems = removeWhere(this.dateItems, { _id: idToRemove });
         });
 
         console.log("dateItems after remove", this.dateItems.length);
