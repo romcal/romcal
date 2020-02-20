@@ -45,19 +45,19 @@ export const find = <O, K extends keyof O>(items: O[], predicate: Record<K, Prim
 
 /**
  * Remove items from the array that return truthy for the predicate object.
+ *
+ * **This method mutates the input array.**
+ *
  * @param items The array to remove items from
  * @param predicate The criteria of objects to remove from the array
  */
 export const removeWhere = <O, K extends keyof O>(items: O[], predicate: Record<K, Primitive>): O[] => {
     const criteria = Object.entries(predicate);
-    const index = items.findIndex(item => {
-        return criteria.every(pair => item[pair[0] as keyof O] === pair[1]);
-    });
+    const index = items.findIndex(item => criteria.every(pair => item[pair[0] as keyof O] === pair[1]));
     if (index > -1) {
-        return [...items].splice(index, 1);
-    } else {
-        return items;
+        items.splice(index, 1);
     }
+    return items;
 };
 
 /**
