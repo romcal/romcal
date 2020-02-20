@@ -303,4 +303,4 @@ const dates = (year: number): Array<IRomcalDateItem> => {
     return Utils.localizeDates(_dates);
 };
 
-export { defaultConfig, dates };
+export { dates, defaultConfig };
