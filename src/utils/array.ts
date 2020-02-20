@@ -1,3 +1,5 @@
+import { Primitive } from "./type-guards";
+
 /**
  * Check if an array contains an item.
  *
@@ -27,6 +29,52 @@ export const includes = <T>(array: T[] | ReadonlyArray<T>, item: T): boolean => 
  */
 export const concatAll = <T>(array: Array<T | T[]>): T[] => {
     return array.reduce<T[]>((result, item) => result.concat(item), []);
+};
+
+/**
+ * Get the first item in the array that returns truthy for the predicate object.
+ * @param items The array to search for items
+ * @param predicate The criteria of objects to find in the array
+ */
+export const find = <O, K extends keyof O>(items: O[], predicate: Record<K, Primitive>): O | undefined => {
+    const criteria = Object.entries(predicate);
+    return items.find(item => {
+        return criteria.every(pair => item[pair[0] as keyof O] === pair[1]);
+    });
+};
+
+/**
+ * Remove items from the array that return truthy for the predicate object.
+ * @param items The array to remove items from
+ * @param predicate The criteria of objects to remove from the array
+ */
+export const removeWhere = <O, K extends keyof O>(items: O[], predicate: Record<K, Primitive>): O[] => {
+    const criteria = Object.entries(predicate);
+    const index = items.findIndex(item => {
+        return criteria.every(pair => item[pair[0] as keyof O] === pair[1]);
+    });
+    if (index > -1) {
+        return [...items].splice(index, 1);
+    } else {
+        return items;
+    }
+};
+
+/**
+ * Group an array of objects by one of its keys.
+ *
+ * https://gist.github.com/JamieMason/0566f8412af9fe6a1d470aa1e089a752
+ *
+ * @param array The array to use for the grouping
+ * @param key The key to group by
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const groupBy = <O extends any, K extends keyof O>(array: O[], key: K): Record<O[K], O[]> => {
+    return array.reduce((objectsByKeyValue, obj) => {
+        const value = obj[key];
+        objectsByKeyValue[value] = (objectsByKeyValue[value] || []).concat(obj);
+        return objectsByKeyValue;
+    }, {} as Record<O[K], O[]>);
 };
 
 /**

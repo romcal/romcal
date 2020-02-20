@@ -8,7 +8,7 @@ import {
     isRomcalConfig,
 } from "../utils/type-guards";
 import * as CountryCalendars from "../calendars";
-import moment from "moment";
+import dayjs from "dayjs";
 
 /**
  * The configuration object that is passed either to the [[Calendar.calendarFor]]
@@ -49,6 +49,10 @@ export interface IRomcalConfig {
     readonly ascensionOnSunday?: boolean;
     /**
      * The calendar type to query for.
+     *
+     * The type can be specified either as:
+     * 1. `calendar`: Civil year (January 1 to December 31); or
+     * 2. `liturgical`: Religious calendar year (1st Sunday of Advent of the preceeding year to the Saturday before the 1st Sunday of Advent in the current year).
      */
     readonly type?: TCalendarTypes;
     /**
@@ -92,7 +96,7 @@ export default class Config {
         }
 
         // Sanitize and set defaults for missing configurations
-        this._year = config.year ?? moment.utc().year(); // Use current year if not supplied by user
+        this._year = config.year ?? dayjs.utc().year(); // Use current year if not supplied by user
         this._country = config.country ?? "general"; // Use general as country if none supplied by user
         this._locale = config.locale ?? "en"; // Use english for localization if no lanaguage supplied]
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -159,7 +163,11 @@ export default class Config {
      * @param country The country to obtain default configurations from
      */
     static getConfig(country: TCountryTypes = "general"): IRomcalDefaultConfig {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        return (CountryCalendars[country] as any).defaultConfig ?? CountryCalendars["general"].defaultConfig;
+        const { defaultConfig } = CountryCalendars[country];
+        if (!isNil(defaultConfig) && Object.keys(defaultConfig).length > 0) {
+            return defaultConfig;
+        } else {
+            return CountryCalendars["general"].defaultConfig;
+        }
     }
 }
