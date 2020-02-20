@@ -33,15 +33,20 @@ import { hasKey, getValueByKey } from "../src/utils/object";
 import { dayJsToMomentJs } from "../src/utils/dates";
 
 describe("Testing calendar generation functions", () => {
-    test("Each item should have a key", () => {
-        const calendar = Calendar.calendarFor();
-        const result = calendar.every(value => hasKey(value, "key"));
-        expect(result).toBeTruthy();
-    });
+    // test("Each item should have a key", () => {
+    //     const calendar = Calendar.calendarFor();
+    //     const result = calendar.every(value => hasKey(value, "key"));
+    //     expect(result).toBeTruthy();
+    // });
 
-    describe.only("When calling the calendarFor() method without a query", () => {
-        const nonLeapYearDates = Calendar.calendarFor(2018);
-        const leapYearDates = Calendar.calendarFor(2020);
+    describe("When calling the calendarFor() method without a query", () => {
+        let nonLeapYearDates: DateItem[] = [];
+        let leapYearDates: DateItem[] = [];
+
+        beforeEach(() => {
+            // nonLeapYearDates = Calendar.calendarFor(2018);
+            leapYearDates = Calendar.calendarFor(2020);
+        });
 
         test("Should return an array of DateItem objects", () => {
             expect(nonLeapYearDates.every(d => isDateItem(d))).toBeTruthy();
@@ -54,7 +59,7 @@ describe("Testing calendar generation functions", () => {
             leapYearDates.every(d => hasKey(d, requiredKeys));
         });
 
-        test("Array should be 365 days long on non-leap years", () => {
+        test.only("Array should be 365 days long on non-leap years", () => {
             const grouped: Dictionary<DateItem[]> = _.groupBy(nonLeapYearDates, item => item.moment.valueOf());
             expect(Object.keys(grouped)).toHaveLength(365);
         });
@@ -63,189 +68,194 @@ describe("Testing calendar generation functions", () => {
             const grouped: Dictionary<DateItem[]> = _.groupBy(leapYearDates, item => item.moment.valueOf());
             expect(Object.keys(grouped)).toHaveLength(366);
         });
-    });
 
-    describe("Testing calendar functions", () => {
-        describe("When requesting the liturgical year", () => {
-            const year = moment.utc().year();
-            const start = Dates.firstSundayOfAdvent(year);
-            const end = Dates.firstSundayOfAdvent(year + 1).subtract(1, "day");
-            const calendar = Calendar.calendarFor({
-                year: year,
-                type: "liturgical",
-            });
-
-            test("Should start on the 1st Sunday of Advent and end on Christ the King", () => {
-                expect(calendar[0].moment.isSame(dayJsToMomentJs(start))).toEqual(true);
-                expect(calendar[calendar.length - 1].moment.isSame(dayJsToMomentJs(end))).toEqual(true);
-            });
-        });
-
-        describe("When requesting the calendar year", () => {
-            const calendar = Calendar.calendarFor();
-            const [firstDate] = calendar;
-            const [lastDate] = calendar.reverse();
-            test("Should start on Jan 1 and end on Dec 31", () => {
-                expect(firstDate.moment.month()).toEqual(0);
-                expect(firstDate.moment.date()).toEqual(1);
-                expect(lastDate.moment.month()).toEqual(11);
-                expect(lastDate.moment.date()).toEqual(31);
-            });
+        afterEach(() => {
+            leapYearDates = [];
+            nonLeapYearDates = [];
         });
     });
 
-    describe("Testing query filters", () => {
-        describe("For filtering by day of week", () => {
-            test("Results should match the day of week requested", () => {
-                for (let i = 0, il = 7; i < il; i++) {
-                    const dates = Calendar.queryFor(Calendar.calendarFor(), { day: i });
-                    dates.forEach(d => expect(d.moment.day()).toEqual(i));
-                }
-            });
-        });
+    // describe.skip("Testing calendar functions", () => {
+    //     describe("When requesting the liturgical year", () => {
+    //         const year = moment.utc().year();
+    //         const start = Dates.firstSundayOfAdvent(year);
+    //         const end = Dates.firstSundayOfAdvent(year + 1).subtract(1, "day");
+    //         const calendar = Calendar.calendarFor({
+    //             year: year,
+    //             type: "liturgical",
+    //         });
 
-        describe("For filtering by month of year", () => {
-            test("Results should match the month of year requested", () => {
-                for (let i = 0, il = 12; i < il; i++) {
-                    const dates = Calendar.queryFor(Calendar.calendarFor(), { month: i });
-                    dates.forEach(d => expect(d.moment.month()).toEqual(i));
-                }
-            });
-        });
+    //         test("Should start on the 1st Sunday of Advent and end on Christ the King", () => {
+    //             expect(calendar[0].moment.isSame(dayJsToMomentJs(start))).toEqual(true);
+    //             expect(calendar[calendar.length - 1].moment.isSame(dayJsToMomentJs(end))).toEqual(true);
+    //         });
+    //     });
 
-        describe("For filtering by groups", () => {
-            test("Should group dates by days in a week", () => {
-                const calendar = Calendar.queryFor(Calendar.calendarFor(), { group: "days" });
-                expect(Object.keys(calendar)).toEqual([0, 1, 2, 3, 4, 5, 6]);
-            });
+    //     describe("When requesting the calendar year", () => {
+    //         const calendar = Calendar.calendarFor();
+    //         const [firstDate] = calendar;
+    //         const [lastDate] = calendar.reverse();
+    //         test("Should start on Jan 1 and end on Dec 31", () => {
+    //             expect(firstDate.moment.month()).toEqual(0);
+    //             expect(firstDate.moment.date()).toEqual(1);
+    //             expect(lastDate.moment.month()).toEqual(11);
+    //             expect(lastDate.moment.date()).toEqual(31);
+    //         });
+    //     });
+    // });
 
-            test("Should group dates by months in the year", () => {
-                expect(
-                    Object.keys(
-                        Calendar.queryFor(Calendar.calendarFor(), {
-                            group: "months",
-                        }),
-                    ),
-                ).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
-            });
+    // describe.skip("Testing query filters", () => {
+    //     describe("For filtering by day of week", () => {
+    //         test("Results should match the day of week requested", () => {
+    //             for (let i = 0, il = 7; i < il; i++) {
+    //                 const dates = Calendar.queryFor(Calendar.calendarFor(), { day: i });
+    //                 dates.forEach(d => expect(d.moment.day()).toEqual(i));
+    //             }
+    //         });
+    //     });
 
-            test("Should group days of week by the months they belong to", () => {
-                const dates = Calendar.queryFor(Calendar.calendarFor(), {
-                    group: "daysByMonth",
-                });
-                Object.values(dates).forEach((monthGroup: Dictionary<DateItem[]>, monthIndex: number) => {
-                    Object.values(monthGroup).forEach((dateItems: DateItem[], dayIndex: number) => {
-                        dateItems.forEach(dateItem => {
-                            expect(dateItem.moment.day()).toEqual(dayIndex);
-                            expect(dateItem.moment.month()).toEqual(monthIndex);
-                        });
-                    });
-                });
-            });
+    //     describe("For filtering by month of year", () => {
+    //         test("Results should match the month of year requested", () => {
+    //             for (let i = 0, il = 12; i < il; i++) {
+    //                 const dates = Calendar.queryFor(Calendar.calendarFor(), { month: i });
+    //                 dates.forEach(d => expect(d.moment.month()).toEqual(i));
+    //             }
+    //         });
+    //     });
 
-            test("Should group weeks of year by the months they belong to", () => {
-                const calendar = Calendar.calendarFor({
-                    query: {
-                        group: "weeksByMonth",
-                    },
-                });
+    //     describe("For filtering by groups", () => {
+    //         test("Should group dates by days in a week", () => {
+    //             const calendar = Calendar.queryFor(Calendar.calendarFor(), { group: "days" });
+    //             expect(Object.keys(calendar)).toEqual([0, 1, 2, 3, 4, 5, 6]);
+    //         });
 
-                Object.values(calendar).forEach((monthGroup: Dictionary<DateItem[]>, monthIndex: number) => {
-                    Object.values(monthGroup).forEach((dateItems: DateItem[], weekIndex: number) => {
-                        dateItems.forEach(dateItem => {
-                            expect(dateItem.moment.month()).toEqual(monthIndex);
-                            expect(dateItem.data.calendar.week).toEqual(weekIndex);
-                        });
-                    });
-                });
-            });
+    //         test("Should group dates by months in the year", () => {
+    //             expect(
+    //                 Object.keys(
+    //                     Calendar.queryFor(Calendar.calendarFor(), {
+    //                         group: "months",
+    //                     }),
+    //                 ),
+    //             ).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
+    //         });
 
-            test("Should group dates by their respective liturgical cycles", () => {
-                const calendar = Calendar.calendarFor({ year: 2015 });
-                const dates = Calendar.queryFor(calendar, { group: "cycles" });
-                expect(Object.keys(dates)).toEqual(["Year B", "Year C"]);
-            });
+    //         test("Should group days of week by the months they belong to", () => {
+    //             const dates = Calendar.queryFor(Calendar.calendarFor(), {
+    //                 group: "daysByMonth",
+    //             });
+    //             Object.values(dates).forEach((monthGroup: Dictionary<DateItem[]>, monthIndex: number) => {
+    //                 Object.values(monthGroup).forEach((dateItems: DateItem[], dayIndex: number) => {
+    //                     dateItems.forEach(dateItem => {
+    //                         expect(dateItem.moment.day()).toEqual(dayIndex);
+    //                         expect(dateItem.moment.month()).toEqual(monthIndex);
+    //                     });
+    //                 });
+    //             });
+    //         });
 
-            test("Should group dates by their celebration types", () => {
-                const dates = Calendar.queryFor(Calendar.calendarFor(), { group: "types" });
-                expect(Object.keys(dates)).toContain(extractedTypeKeys);
-            });
+    //         test("Should group weeks of year by the months they belong to", () => {
+    //             const calendar = Calendar.calendarFor({
+    //                 query: {
+    //                     group: "weeksByMonth",
+    //                 },
+    //             });
 
-            test("Should group dates by their liturgical seasons", () => {
-                const calendar = Calendar.calendarFor({
-                    query: { group: "liturgicalSeasons" },
-                });
-                expect(Object.keys(calendar)).toContain(Object.values(LiturgicalSeasons));
+    //             Object.values(calendar).forEach((monthGroup: Dictionary<DateItem[]>, monthIndex: number) => {
+    //                 Object.values(monthGroup).forEach((dateItems: DateItem[], weekIndex: number) => {
+    //                     dateItems.forEach(dateItem => {
+    //                         expect(dateItem.moment.month()).toEqual(monthIndex);
+    //                         expect(dateItem.data.calendar.week).toEqual(weekIndex);
+    //                     });
+    //                 });
+    //             });
+    //         });
 
-                expect(
-                    Object.keys(Calendar.queryFor(Calendar.calendarFor(), { group: "liturgicalSeasons" })),
-                ).toContain(Object.values(LiturgicalSeasons));
-            });
+    //         test("Should group dates by their respective liturgical cycles", () => {
+    //             const calendar = Calendar.calendarFor({ year: 2015 });
+    //             const dates = Calendar.queryFor(calendar, { group: "cycles" });
+    //             expect(Object.keys(dates)).toEqual(["Year B", "Year C"]);
+    //         });
 
-            test("Should group dates by their psalter weeks", () => {
-                expect(
-                    Object.keys(
-                        Calendar.calendarFor({
-                            query: { group: "psalterWeeks" },
-                        }),
-                    ),
-                ).toContain(PsalterWeeks);
+    //         test("Should group dates by their celebration types", () => {
+    //             const dates = Calendar.queryFor(Calendar.calendarFor(), { group: "types" });
+    //             expect(Object.keys(dates)).toContain(extractedTypeKeys);
+    //         });
 
-                expect(Object.keys(Calendar.queryFor(Calendar.calendarFor(), { group: "psalterWeeks" }))).toContain(
-                    PsalterWeeks,
-                );
-            });
-        });
+    //         test("Should group dates by their liturgical seasons", () => {
+    //             const calendar = Calendar.calendarFor({
+    //                 query: { group: "liturgicalSeasons" },
+    //             });
+    //             expect(Object.keys(calendar)).toContain(Object.values(LiturgicalSeasons));
 
-        describe("For filtering by titles", () => {
-            Calendar.queryFor(Calendar.calendarFor(), {
-                title: Titles.FEAST_OF_THE_LORD,
-            }).forEach((d: DateItem) => expect(d.data.meta.titles?.includes(Titles.FEAST_OF_THE_LORD)).toBeTruthy());
-            Calendar.queryFor(Calendar.calendarFor(), { title: Titles.PATRON_OF_EUROPE }).forEach((d: DateItem) =>
-                expect(d.data.meta.titles?.includes(Titles.PATRON_OF_EUROPE)).toBeTruthy(),
-            );
-        });
+    //             expect(
+    //                 Object.keys(Calendar.queryFor(Calendar.calendarFor(), { group: "liturgicalSeasons" })),
+    //             ).toContain(Object.values(LiturgicalSeasons));
+    //         });
 
-        describe("Testing advanced filters", () => {
-            test("The proper color of a Memorial or a Feast is white except for martyrs in which case it is red", () => {
-                const calendar = Calendar.calendarFor({ query: { group: "types" } }) as Dictionary<DateItem[]>;
-                _.get(calendar, Types.FEAST).forEach(d => {
-                    if (d.key === "theExaltationOfTheHolyCross") {
-                        expect(d.data.meta.liturgicalColor?.key).toEqual(LiturgicalColors.RED.key);
-                    } else {
-                        if (!isNil(d.data.meta.titles)) {
-                            if (d.data.meta.titles?.includes(Titles.MARTYR)) {
-                                expect(d.data.meta.liturgicalColor?.key).toEqual(LiturgicalColors.RED.key);
-                            } else {
-                                expect(d.data.meta.liturgicalColor?.key).toEqual(LiturgicalColors.WHITE.key);
-                            }
-                        } else {
-                            expect(d.data.meta.liturgicalColor?.key).toEqual(LiturgicalColors.WHITE.key);
-                        }
-                    }
-                });
-                _.get(calendar, Types.MEMORIAL).forEach(d => {
-                    if (!isNil(d.data.meta.titles)) {
-                        if (d.data.meta.titles.includes(Titles.MARTYR)) {
-                            expect(d.data.meta.liturgicalColor?.key).toEqual(LiturgicalColors.RED.key);
-                        } else {
-                            expect(d.data.meta.liturgicalColor?.key).toEqual(LiturgicalColors.WHITE.key);
-                        }
-                    } else {
-                        expect(d.data.meta.liturgicalColor?.key).toEqual(LiturgicalColors.WHITE.key);
-                    }
-                });
-            });
+    //         test("Should group dates by their psalter weeks", () => {
+    //             expect(
+    //                 Object.keys(
+    //                     Calendar.calendarFor({
+    //                         query: { group: "psalterWeeks" },
+    //                     }),
+    //                 ),
+    //             ).toContain(PsalterWeeks);
 
-            test("The proper color for the Chair of Peter and the Conversion of St. Paul is white, although both St. Peter and St. Paul were martyrs.", () => {
-                const dates = Calendar.calendarFor();
-                const calendar = Calendar.queryFor(dates, { group: "types" });
-                getValueByKey(calendar, Types.FEAST).forEach(d => {
-                    if (d.key === "chairOfSaintPeter" || d.key === "conversionOfSaintPaulApostle") {
-                        expect(d.data.meta.liturgicalColor).toEqual(LiturgicalColors.WHITE);
-                    }
-                });
-            });
-        });
-    });
+    //             expect(Object.keys(Calendar.queryFor(Calendar.calendarFor(), { group: "psalterWeeks" }))).toContain(
+    //                 PsalterWeeks,
+    //             );
+    //         });
+    //     });
+
+    //     describe("For filtering by titles", () => {
+    //         Calendar.queryFor(Calendar.calendarFor(), {
+    //             title: Titles.FEAST_OF_THE_LORD,
+    //         }).forEach((d: DateItem) => expect(d.data.meta.titles?.includes(Titles.FEAST_OF_THE_LORD)).toBeTruthy());
+    //         Calendar.queryFor(Calendar.calendarFor(), { title: Titles.PATRON_OF_EUROPE }).forEach((d: DateItem) =>
+    //             expect(d.data.meta.titles?.includes(Titles.PATRON_OF_EUROPE)).toBeTruthy(),
+    //         );
+    //     });
+
+    //     describe("Testing advanced filters", () => {
+    //         test("The proper color of a Memorial or a Feast is white except for martyrs in which case it is red", () => {
+    //             const calendar = Calendar.calendarFor({ query: { group: "types" } }) as Dictionary<DateItem[]>;
+    //             _.get(calendar, Types.FEAST).forEach(d => {
+    //                 if (d.key === "theExaltationOfTheHolyCross") {
+    //                     expect(d.data.meta.liturgicalColor?.key).toEqual(LiturgicalColors.RED.key);
+    //                 } else {
+    //                     if (!isNil(d.data.meta.titles)) {
+    //                         if (d.data.meta.titles?.includes(Titles.MARTYR)) {
+    //                             expect(d.data.meta.liturgicalColor?.key).toEqual(LiturgicalColors.RED.key);
+    //                         } else {
+    //                             expect(d.data.meta.liturgicalColor?.key).toEqual(LiturgicalColors.WHITE.key);
+    //                         }
+    //                     } else {
+    //                         expect(d.data.meta.liturgicalColor?.key).toEqual(LiturgicalColors.WHITE.key);
+    //                     }
+    //                 }
+    //             });
+    //             _.get(calendar, Types.MEMORIAL).forEach(d => {
+    //                 if (!isNil(d.data.meta.titles)) {
+    //                     if (d.data.meta.titles.includes(Titles.MARTYR)) {
+    //                         expect(d.data.meta.liturgicalColor?.key).toEqual(LiturgicalColors.RED.key);
+    //                     } else {
+    //                         expect(d.data.meta.liturgicalColor?.key).toEqual(LiturgicalColors.WHITE.key);
+    //                     }
+    //                 } else {
+    //                     expect(d.data.meta.liturgicalColor?.key).toEqual(LiturgicalColors.WHITE.key);
+    //                 }
+    //             });
+    //         });
+
+    //         test("The proper color for the Chair of Peter and the Conversion of St. Paul is white, although both St. Peter and St. Paul were martyrs.", () => {
+    //             const dates = Calendar.calendarFor();
+    //             const calendar = Calendar.queryFor(dates, { group: "types" });
+    //             getValueByKey(calendar, Types.FEAST).forEach(d => {
+    //                 if (d.key === "chairOfSaintPeter" || d.key === "conversionOfSaintPaulApostle") {
+    //                     expect(d.data.meta.liturgicalColor).toEqual(LiturgicalColors.WHITE);
+    //                 }
+    //             });
+    //         });
+    //     });
+    // });
 });

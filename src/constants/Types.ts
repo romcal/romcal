@@ -16,7 +16,9 @@ export enum Types {
 }
 
 // Convert the keys of this enum into a type
-export const extractedTypeKeys = Object.keys(Types).filter(key => typeof Types[key as keyof typeof Types] === "number") as Array<keyof typeof Types>;
+export const extractedTypeKeys = Object.keys(Types).filter(
+    key => typeof Types[key as keyof typeof Types] === "number",
+) as Array<keyof typeof Types>;
 export type TTypes = ElementType<typeof extractedTypeKeys>;
 
 export default Types;

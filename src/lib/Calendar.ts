@@ -1,17 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import _ from "lodash";
-import moment from "moment";
+import dayjs from "dayjs";
 import * as CountryCalendars from "../calendars";
 import Config, { IRomcalConfig } from "../models/romcal-config";
 import * as Dates from "./Dates";
 import * as Utils from "./Utils";
 import * as Seasons from "./Seasons";
 import * as Celebrations from "./Celebrations";
-import { TCountryTypes, isNil, Primitive, isInteger, isObject, TRomcalQuery, Dictionary } from "../utils/type-guards";
+import { TCountryTypes, isNil, isInteger, isObject, TRomcalQuery, Dictionary } from "../utils/type-guards";
 import { hasKey } from "../utils/object";
 import { DateItem, IRomcalDateItem, IRomcalDateItemData } from "../models/romcal-date-item";
 import { Types } from "../constants";
 import { OverloadedReturnType } from "../utils/helpers";
+import { find, removeWhere, groupBy } from "../utils/array";
+import { dayJsToMomentJs } from "../utils/dates";
+import { extractedTypeKeys } from "../constants/Types";
 
 /**
  * Filters an array of dates generated from the calendarFor function based on a given query.
@@ -134,9 +137,10 @@ function calendarFor(options?: IRomcalConfig | number): OverloadedReturnType<typ
     // Set the locale information
     Utils.setLocale(config.locale);
 
-    // Get a new collection of dates
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
-    const dates = new Calendar(config).fetch().values();
+    const calendar = new Calendar(config);
+    // Get a new collection of dates
+    const dates = calendar.fetch().values();
 
     // Determine if there's a query to execute. If none,
     // just return the array if DateItems to the caller
@@ -162,8 +166,8 @@ function calendarFor(options?: IRomcalConfig | number): OverloadedReturnType<typ
 class Calendar {
     private dateItems: Array<DateItem> = [];
     private config: Config;
-    private startDate: moment.Moment;
-    private endDate: moment.Moment;
+    private startDate: dayjs.Dayjs;
+    private endDate: dayjs.Dayjs;
 
     /**
      * Create a new Calendar
@@ -171,19 +175,12 @@ class Calendar {
     constructor(config: Config) {
         this.config = config;
         const { type, year } = config;
-        // The year can be specified either as:
-        // - civil year (January 1 to December 31); or
-        // - liturgical year (1st Sunday of Advent to the Saturday after the Christ the King Sunday).
         if (type === "liturgical") {
-            this.startDate = moment.utc(Dates.firstSundayOfAdvent(year).toISOString());
-            this.endDate = moment.utc(
-                Dates.firstSundayOfAdvent(year + 1)
-                    .subtract(1, "day")
-                    .toISOString(),
-            );
+            this.startDate = Dates.firstSundayOfAdvent(year);
+            this.endDate = Dates.firstSundayOfAdvent(year + 1).subtract(1, "day");
         } else {
-            this.startDate = moment.utc({ year, month: 0, day: 1 });
-            this.endDate = moment.utc({ year, month: 11, day: 31 });
+            this.startDate = dayjs.utc(`${year}-1-1`);
+            this.endDate = dayjs.utc(`${year}-12-31`);
         }
     }
 
@@ -204,28 +201,28 @@ class Calendar {
         const years = type === "liturgical" ? [year, year + 1] : [year];
 
         // Define all calendars
-        let weekdayDates: Array<IRomcalDateItem> = [];
+        let seasonDates: Array<IRomcalDateItem> = [];
         let celebrationsDates: Array<IRomcalDateItem> = [];
         let generalDates: Array<IRomcalDateItem> = [];
         let nationalDates: Array<IRomcalDateItem> = [];
 
         // Get a collection of date items from all liturgical seasons of the given year
-        years.forEach(year => {
-            weekdayDates = [
-                ...weekdayDates,
+        years.forEach(y => {
+            seasonDates = [
+                ...seasonDates,
                 ...Seasons.christmastide(
-                    year - 1,
+                    y - 1,
                     christmastideEnds,
                     epiphanyOnJan6,
                     christmastideIncludesTheSeasonOfEpiphany,
                 ),
-                ...Seasons.earlyOrdinaryTime(year, christmastideEnds, epiphanyOnJan6),
-                ...Seasons.lent(year),
-                ...Seasons.eastertide(year),
-                ...Seasons.laterOrdinaryTime(year),
-                ...Seasons.advent(year),
+                ...Seasons.earlyOrdinaryTime(y, christmastideEnds, epiphanyOnJan6),
+                ...Seasons.lent(y),
+                ...Seasons.eastertide(y),
+                ...Seasons.laterOrdinaryTime(y),
+                ...Seasons.advent(y),
                 ...Seasons.christmastide(
-                    year,
+                    y,
                     christmastideEnds,
                     epiphanyOnJan6,
                     christmastideIncludesTheSeasonOfEpiphany,
@@ -235,23 +232,17 @@ class Calendar {
             // Get the celebration dates based on the given year and options
             celebrationsDates = [
                 ...celebrationsDates,
-                ...Celebrations.dates(
-                    year,
-                    christmastideEnds,
-                    epiphanyOnJan6,
-                    corpusChristiOnThursday,
-                    ascensionOnSunday,
-                ),
+                ...Celebrations.dates(y, christmastideEnds, epiphanyOnJan6, corpusChristiOnThursday, ascensionOnSunday),
             ];
 
             // Get the general calendar based on the given year
-            generalDates = [...generalDates, ...Calendar._fetchCalendar("general", year)];
+            generalDates = [...generalDates, ...Calendar._fetchCalendar("general", y)];
 
             // Get the relevant national calendar object based on the given year and country
-            nationalDates = [...nationalDates, ...Calendar._fetchCalendar(country, year)];
+            nationalDates = [...nationalDates, ...Calendar._fetchCalendar(country, y)];
         });
 
-        let sources: Array<Array<IRomcalDateItem>> = [weekdayDates, celebrationsDates, generalDates, nationalDates];
+        let sources: Array<Array<IRomcalDateItem>> = [seasonDates, celebrationsDates, generalDates, nationalDates];
 
         // Remove all date items not in the given date range
         sources = Calendar._filterItemRange(this.startDate, this.endDate, sources);
@@ -276,54 +267,33 @@ class Calendar {
     }
 
     /**
-     * Get the first DateItem that returns truthy for the predicate object
-     */
-    _find(predicate: Record<string, Primitive>): DateItem | undefined {
-        // eslint-disable-next-line you-dont-need-lodash-underscore/find
-        return _.find<DateItem>(this.dateItems, predicate, 0);
-    }
-
-    /**
-     * Group DateItems by date
-     */
-    _valuesByDates(): { [key: string]: DateItem[] } {
-        return this.dateItems.reduce((result: Record<string, DateItem[]>, value: DateItem) => {
-            (result[value.date] = result[value.date] || []).push(value);
-            return result;
-        }, {});
-    }
-
-    /**
-     * Remove DateItems that return truthy for the predicate object
-     */
-    _removeWhere(predicate: Record<string, Primitive>): void {
-        _.remove(this.dateItems, predicate);
-    }
-
-    /**
      * Push new DateItem objects in the Calendar object
      */
     _push(sources: Array<Array<IRomcalDateItem>>): void {
+        // Loop through each date source group
         sources.forEach((source: Array<IRomcalDateItem>, index: number) =>
+            // Loop through the dates in each source group
             source.forEach((item: IRomcalDateItem) => {
-                this._checkAndRemoveExistingItem(item);
+                // Remove non prioritized date items in the Calendar class instance
+                this._keepPrioritizedOnly(item);
 
                 // Get the base DateItem to attach on the new DateItem
-                const baseItem = this._find({ date: item.moment.toISOString(), _stack: 0 });
+                const baseItem = find(this.dateItems, { date: item.moment.toISOString(), _stack: 0 });
 
-                const { key, name, type, data, ...rest } = item;
-                if (key && name && type && data) {
+                const { key, name, type, data, moment } = item;
+                if (key && name && type && data && moment) {
                     // Create a new DateItem and add it to the collection
-                    const dateItem = new DateItem({
-                        key,
-                        name,
-                        type,
-                        moment: rest.moment,
-                        data: data as Required<IRomcalDateItemData>,
-                        _stack: index, // Specify the stack index of the source calendar
-                        baseItem,
-                    });
-                    this.dateItems.push(dateItem);
+                    this.dateItems.push(
+                        new DateItem({
+                            key,
+                            name,
+                            type,
+                            data: data as Required<IRomcalDateItemData>,
+                            moment,
+                            _stack: index, // Specify the stack index of the source calendar
+                            baseItem, // Attach the base item if any
+                        }),
+                    );
                 }
             }),
         );
@@ -334,27 +304,40 @@ class Calendar {
      * the previous date item will be removed in favour of the new given one,
      * except if the previous item is prioritized but not the new one
      */
-    _checkAndRemoveExistingItem(item: IRomcalDateItem): void {
+    _keepPrioritizedOnly(item: IRomcalDateItem): DateItem[] {
+        let dateItems: DateItem[] = [];
         const previousItems = this.dateItems.filter(dateItem => dateItem.key === item.key);
         previousItems.forEach(previousItem => {
-            if (!previousItem.data.prioritized || (previousItem.data.prioritized && item.data?.prioritized)) {
-                this._removeWhere({ _id: previousItem._id });
+            // Determine if the previous item is a prioritized date (defaults to false if the prioritized field is not defined)
+            const isPreviousDateItemPrioritized = previousItem.data.prioritized ?? false;
+            // Determine if the current item is a prioritized date (defaults to false if the prioritized is not found)
+            const isCurrentDateItemPrioritized = item.data?.prioritized ?? false;
+            // Remove previous item if it isn't priortized
+            if (isPreviousDateItemPrioritized === false) {
+                dateItems = removeWhere(this.dateItems, { _id: previousItem._id });
+            } else if (isPreviousDateItemPrioritized && isCurrentDateItemPrioritized) {
+                // Also remove previous item if both are prioritized
+                dateItems = removeWhere(this.dateItems, { _id: previousItem._id });
             }
         });
+        return dateItems;
     }
 
     /**
      * Sort all DateItems by relevance (the most relevant first)
-     * and drop the non-relevant DateItems
+     * and drop the non-relevant DateItems.
+     *
+     * Reorder the DateItems of a particular day, so that
+     * when there are optional memorials or commemoration only (in addition to the feria),
+     * the feria item is moved to the top before the optional items,
+     * since it's the default item if none of the optional items are celebrated.
+     * Sort all date items by relevance (the most relevant first),
+     * in this order: by date, by priority, by type, by stack.
      */
     _sortAndKeepRelevant(): void {
-        // Reorder the DateItems of a particular day, so that
-        // when there are optional memorials or commemoration only (in addition to the feria),
-        // the feria item is moved to the top before the optional items,
-        // since it's the default item if none of the optional items
-        // are celebrated.
-        // Sort all date items by relevance (the most relevant first),
-        // in this order: by date, by priority, by type, by stack.
+        const types = extractedTypeKeys.slice(0, extractedTypeKeys.length - 1);
+        types.splice(types.indexOf("MEMORIAL") + 1, 0, extractedTypeKeys[extractedTypeKeys.length - 1]);
+
         this.dateItems.sort(
             (
                 { moment: firstMoment, data: firstData, type: firstType, _stack: firstStack }: DateItem,
@@ -377,9 +360,11 @@ class Calendar {
                     } else {
                         // If neither date is prioritized
                         // 3. Sort by type (higher type first)
-                        if (firstType < nextType) {
+                        const type1 = types.indexOf(Types[firstType] as any);
+                        const type2 = types.indexOf(Types[nextType] as any);
+                        if (type1 < type2) {
                             return -1;
-                        } else if (firstType > nextType) {
+                        } else if (type1 > type2) {
                             return 1;
                         } else {
                             // If the types are the same
@@ -397,21 +382,40 @@ class Calendar {
             },
         );
 
+        console.log("dateItems after sort", this.dateItems);
+
         // Now that the items are sorted, let's drop other non-relevant date items
         // if at least one of the date items isn't optional
-        const calendarByDates = this._valuesByDates();
-        for (const key in calendarByDates) {
-            if (Object.prototype.hasOwnProperty.call(calendarByDates, key)) {
-                const dateItems = calendarByDates[key];
-                if (dateItems.length > 1) {
-                    // If the first date item has a type equal or higher than a MEMORIAL, or is prioritized:
-                    // keep only the first item and remove the others
-                    if (dateItems[0].data.prioritized || dateItems[0].type <= Types.MEMORIAL) {
-                        dateItems.slice(1, dateItems.length).forEach(item => this._removeWhere({ _id: item._id }));
-                    }
+
+        // Create a dictionary where celebrations on the same date are grouped under it's ISO string date string as the key
+        const calendarByDates = groupBy(this.dateItems, "date");
+        // Loop through each group to see if there's more than one celebration in each group
+        const idsToRemove: number[] = [];
+        Object.keys(calendarByDates).forEach(key => {
+            const dateItems = calendarByDates[key];
+            if (dateItems.length > 1) {
+                // Get the first date item
+                const [dateItem] = dateItems;
+                // If the first date item has a type equal or higher than a MEMORIAL, or is prioritized:
+                // keep only the first item and discard all others celebration in the array
+                if (
+                    (dateItem.data.prioritized ?? false) ||
+                    types.indexOf(Types[dateItem.type] as any) <= types.indexOf(Types[Types.MEMORIAL] as any)
+                ) {
+                    dateItems.slice(1, dateItems.length).forEach(({ _id }) => {
+                        idsToRemove.push(_id);
+                    });
                 }
             }
-        }
+        });
+
+        console.log("idsToRemove", idsToRemove);
+
+        idsToRemove.forEach(idToRemove => {
+            this.dateItems = removeWhere(this.dateItems, { _id: idToRemove });
+        });
+
+        console.log("dateItems after remove", this.dateItems.length);
     }
 
     /**
@@ -435,13 +439,15 @@ class Calendar {
      * @param sources The 2 dimensional array containing various date sources to be filtered
      */
     static _filterItemRange(
-        startDate: moment.Moment,
-        endDate: moment.Moment,
+        startDate: dayjs.Dayjs,
+        endDate: dayjs.Dayjs,
         sources: Array<Array<IRomcalDateItem>>,
     ): Array<Array<IRomcalDateItem>> {
+        const start = dayJsToMomentJs(startDate);
+        const end = dayJsToMomentJs(endDate);
         return sources.map((source: Array<IRomcalDateItem>) =>
             source.filter((item: IRomcalDateItem) => {
-                return item.moment.isSameOrAfter(startDate) && item.moment.isSameOrBefore(endDate);
+                return item.moment.isSameOrAfter(start) && item.moment.isSameOrBefore(end);
             }),
         );
     }
@@ -453,7 +459,8 @@ class Calendar {
      * @param year the year to resolve
      */
     static _fetchCalendar(country: TCountryTypes, year: number): Array<IRomcalDateItem> {
-        return CountryCalendars[country].dates(year);
+        const countryCalendar = CountryCalendars[country];
+        return countryCalendar.dates(year);
     }
 }
 
