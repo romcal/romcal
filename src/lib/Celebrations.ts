@@ -1,18 +1,15 @@
 import * as Dates from "./Dates";
 import * as Utils from "./Utils";
-import { LiturgicalSeasons, Titles, LiturgicalColors, Types } from "../constants";
-import { TChristmastideEndings } from "../utils/type-guards";
+import { Titles, LiturgicalColors, Types } from "../constants";
 import { IRomcalDateItem } from "../models/romcal-date-item";
 import { dayJsToMomentJs } from "../utils/dates";
 
 // year: Takes the year (integer)
-// christmastideEnds: t|o|e [The mode to calculate the end of Christmastide]
 // epiphanyOnJan6: true|false [If true, Epiphany will be fixed to Jan 6] (defaults to false)
 // corpusChristiOnThursday: true|false|undefined (If true, Corpus Christi is set to Thursday) (defaults to false)
 // ascensionOnSunday: true|false|undefined (If true, Ascension is moved to the 7th Sunday of Easter) (defaults to false)
 const dates = (
     year: number,
-    christmastideEnds: TChristmastideEndings,
     epiphanyOnJan6 = false,
     corpusChristiOnThursday = false,
     ascensionOnSunday = false,
@@ -225,7 +222,7 @@ const dates = (
             data: {
                 prioritized: true,
                 season: {
-                    key: LiturgicalSeasons.LENT,
+                    key: "LENT",
                     value: Utils.localize({
                         key: "lent.season",
                     }),
@@ -242,7 +239,7 @@ const dates = (
             data: {
                 prioritized: true,
                 season: {
-                    key: LiturgicalSeasons.HOLY_WEEK,
+                    key: "HOLY_WEEK",
                     value: Utils.localize({
                         key: "holyWeek.season",
                     }),
@@ -259,7 +256,7 @@ const dates = (
             data: {
                 prioritized: true,
                 season: {
-                    key: LiturgicalSeasons.HOLY_WEEK,
+                    key: "HOLY_WEEK",
                     value: Utils.localize({
                         key: "holyWeek.season",
                     }),
@@ -277,7 +274,7 @@ const dates = (
             data: {
                 prioritized: true,
                 season: {
-                    key: LiturgicalSeasons.HOLY_WEEK,
+                    key: "HOLY_WEEK",
                     value: Utils.localize({
                         key: "holyWeek.season",
                     }),
@@ -295,7 +292,7 @@ const dates = (
             data: {
                 prioritized: true,
                 season: {
-                    key: LiturgicalSeasons.HOLY_WEEK,
+                    key: "HOLY_WEEK",
                     value: Utils.localize({
                         key: "holyWeek.season",
                     }),

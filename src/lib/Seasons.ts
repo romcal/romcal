@@ -3,9 +3,9 @@ import _ from "lodash";
 import * as Dates from "./Dates";
 import * as Utils from "./Utils";
 
-import { LiturgicalSeasons, PsalterWeeks, LiturgicalColors, Types } from "../constants";
+import { PsalterWeeks, LiturgicalColors, Types } from "../constants";
 import { IRomcalDateItem } from "../models/romcal-date-item";
-import { TChristmastideEndings } from "../utils/type-guards";
+import { TChristmastideEndings, isNil } from "../utils/type-guards";
 import moment from "moment";
 import { TPsalterWeek } from "../constants/PsalterWeeks";
 
@@ -72,7 +72,7 @@ const _epiphany = (year: number, epiphanyOnJan6 = false): Array<IRomcalDateItem>
             }),
             data: {
                 season: {
-                    key: LiturgicalSeasons.CHRISTMASTIDE,
+                    key: "CHRISTMASTIDE",
                     value: Utils.localize({
                         key: "christmastide.season",
                     }),
@@ -91,7 +91,7 @@ const _epiphany = (year: number, epiphanyOnJan6 = false): Array<IRomcalDateItem>
             }),
             data: {
                 season: {
-                    key: LiturgicalSeasons.CHRISTMASTIDE,
+                    key: "CHRISTMASTIDE",
                     value: Utils.localize({
                         key: "christmastide.season",
                     }),
@@ -121,7 +121,7 @@ const _holyWeek = (year: number): Array<IRomcalDateItem> => {
             }),
             data: {
                 season: {
-                    key: LiturgicalSeasons.HOLY_WEEK,
+                    key: "HOLY_WEEK",
                     value: Utils.localize({
                         key: "holyWeek.season",
                     }),
@@ -171,7 +171,7 @@ const advent = (year: number): Array<IRomcalDateItem> => {
             }),
             data: {
                 season: {
-                    key: LiturgicalSeasons.ADVENT,
+                    key: "ADVENT",
                     value: Utils.localize({
                         key: "advent.season",
                     }),
@@ -263,7 +263,7 @@ const christmastide = (
             }),
             data: {
                 season: {
-                    key: LiturgicalSeasons.CHRISTMASTIDE,
+                    key: "CHRISTMASTIDE",
                     value: Utils.localize({
                         key: "christmastide.season",
                     }),
@@ -283,7 +283,7 @@ const christmastide = (
             }),
             data: {
                 season: {
-                    key: LiturgicalSeasons.CHRISTMASTIDE,
+                    key: "CHRISTMASTIDE",
                     value: Utils.localize({
                         key: "christmastide.season",
                     }),
@@ -388,7 +388,7 @@ const earlyOrdinaryTime = (
                 }),
                 data: {
                     season: {
-                        key: LiturgicalSeasons.EARLY_ORDINARY_TIME,
+                        key: "EARLY_ORDINARY_TIME",
                         value: Utils.localize({
                             key: "ordinaryTime.season",
                         }),
@@ -470,7 +470,7 @@ const laterOrdinaryTime = (year: number): Array<IRomcalDateItem> => {
                 }),
                 data: {
                     season: {
-                        key: LiturgicalSeasons.LATER_ORDINARY_TIME,
+                        key: "LATER_ORDINARY_TIME",
                         value: Utils.localize({
                             key: "ordinaryTime.season",
                         }),
@@ -545,7 +545,7 @@ const lent = (year: number): Array<IRomcalDateItem> => {
             }),
             data: {
                 season: {
-                    key: LiturgicalSeasons.LENT,
+                    key: "LENT",
                     value: Utils.localize({
                         key: "lent.season",
                     }),
@@ -565,7 +565,7 @@ const lent = (year: number): Array<IRomcalDateItem> => {
             }),
             data: {
                 season: {
-                    key: LiturgicalSeasons.LENT,
+                    key: "LENT",
                     value: Utils.localize({
                         key: "lent.season",
                     }),
@@ -594,6 +594,7 @@ const lent = (year: number): Array<IRomcalDateItem> => {
         const resolvedPsalterWeek = getPsalterWeek(index, psalterWeekStart);
         return {
             ...rest,
+            name,
             key: _.camelCase(name),
             data: {
                 ...data,
@@ -655,7 +656,7 @@ const eastertide = (year: number): Array<IRomcalDateItem> => {
             }),
             data: {
                 season: {
-                    key: LiturgicalSeasons.EASTER,
+                    key: "EASTER",
                     value: Utils.localize({
                         key: "eastertide.season",
                     }),
@@ -676,7 +677,7 @@ const eastertide = (year: number): Array<IRomcalDateItem> => {
             }),
             data: {
                 season: {
-                    key: LiturgicalSeasons.EASTER,
+                    key: "EASTER",
                     value: Utils.localize({
                         key: "eastertide.season",
                     }),
@@ -687,13 +688,17 @@ const eastertide = (year: number): Array<IRomcalDateItem> => {
 
     let combinedDaysOfEaster: Array<IRomcalDateItem> = [];
 
-    // Insert Solemnities and Sundays of Lent to days of Easter
-    combinedDaysOfEaster = _.uniqBy(_.union(sundays, days), v => v.moment.valueOf());
+    // Insert Solemnities and Sundays of Easter to days of Easter
+    // combinedDaysOfEaster = _.uniqBy(_.union(sundays, days), v => v.moment.valueOf());
+    combinedDaysOfEaster = days.map(day => {
+        const match = sundays.find(sunday => sunday.moment.valueOf() === day.moment.valueOf());
+        return !isNil(match) ? match : day;
+    });
 
     // Sort dates according to moment
     combinedDaysOfEaster = _.sortBy(days, v => v.moment.valueOf());
 
-    const psalterWeekStart = 1;
+    const psalterWeekStart = 2;
 
     combinedDaysOfEaster = combinedDaysOfEaster.map(({ name, data, ...rest }: IRomcalDateItem, index: number) => {
         let resolvedPsalterWeek: number;
@@ -711,8 +716,9 @@ const eastertide = (year: number): Array<IRomcalDateItem> => {
             };
         }
 
-        return {
+        const dateItem: IRomcalDateItem = {
             ...rest,
+            name,
             key: _.camelCase(name),
             data: {
                 ...data,
@@ -725,6 +731,10 @@ const eastertide = (year: number): Array<IRomcalDateItem> => {
                 },
             },
         };
+
+        console.log(_.camelCase(name), name, data);
+
+        return dateItem;
     });
 
     combinedDaysOfEaster = _metadata(combinedDaysOfEaster);

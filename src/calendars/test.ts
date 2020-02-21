@@ -1,6 +1,6 @@
 import moment from "moment";
 
-import { Dates } from "../lib";
+import { Dates, Utils } from "../lib";
 import { Types } from "../constants";
 import { IRomcalDateItem } from "../models/romcal-date-item";
 import { IRomcalDefaultConfig } from "../models/romcal-config";
@@ -27,10 +27,13 @@ const dates = (year: number): Array<IRomcalDateItem> => {
             type: Types.SUNDAY,
             moment: moment.utc(Dates.ashWednesday(year).toISOString()),
         },
+        // Test priority where saintLukeTheEvangelist is defined
+        // in the "test" country as a commemoration instead of its
+        // default type, feast...
         {
             key: "saintLukeTheEvangelist",
             type: Types.COMMEMORATION,
-            moment: moment.utc({ year: year, month: 9, day: 18 }),
+            moment: moment.utc({ year, month: 9, day: 18 }),
             data: {
                 prioritized: true,
             },
@@ -38,7 +41,7 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "aSampleCelebration1",
             type: Types.MEMORIAL,
-            moment: moment.utc({ year: year, month: 10, day: 9 }),
+            moment: moment.utc({ year, month: 10, day: 9 }),
             data: {
                 prioritized: true,
             },
@@ -46,14 +49,15 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "aSampleCelebration2",
             type: Types.SOLEMNITY,
-            moment: moment.utc({ year: year, month: 11, day: 25 }),
+            moment: moment.utc({ year, month: 11, day: 25 }),
             data: {
                 prioritized: true,
             },
         },
     ];
 
-    return _dates;
+    // Get localized celebration names
+    return Utils.localizeDates(_dates);
 };
 
 export { dates, defaultConfig };
