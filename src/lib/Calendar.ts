@@ -268,12 +268,13 @@ class Calendar {
 
     /**
      * Push new DateItem objects in the Calendar object
+     * @param calendars An array of calendar sources to process.
      */
-    _push(sources: Array<Array<IRomcalDateItem>>): void {
+    _push(calendars: Array<Array<IRomcalDateItem>>): void {
         // Loop through each date source group
-        sources.forEach((source: Array<IRomcalDateItem>, index: number) =>
+        calendars.forEach((calendar: Array<IRomcalDateItem>, index: number) =>
             // Loop through the dates in each source group
-            source.forEach((item: IRomcalDateItem) => {
+            calendar.forEach((item: IRomcalDateItem) => {
                 // Remove non prioritized date items in the Calendar class instance
                 this._keepPrioritizedOnly(item);
 
