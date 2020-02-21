@@ -63,6 +63,9 @@ export interface IRomcalConfig {
 
 export type IRomcalDefaultConfig = Required<Omit<IRomcalConfig, "country" | "locale" | "query" | "year" | "type">>;
 
+/**
+ * The [[Config]] class encapsulates all options that can be sent to this library to adjust date output.
+ */
 export default class Config {
     private _year: number;
     private _country: TCountryTypes;
@@ -109,7 +112,7 @@ export default class Config {
         this._corpusChristiOnThursday = config.corpusChristiOnThursday!; // Will use default if not defined
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         this._ascensionOnSunday = config.ascensionOnSunday!; // Will use default if not defineds
-        this._type = config.type ?? "liturgical"; // Use liturgical calendar if type not specified by user
+        this._type = config.type ?? "calendar"; // Use value "calendar" if type not specified by user
         // The only optional field is this
         if (isObject(config.query)) {
             this._query = config.query;

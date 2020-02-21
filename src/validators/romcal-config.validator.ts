@@ -1,6 +1,6 @@
 import { Schema, Validator } from "jsonschema";
 import { countryKeys, localeKeys, romcalQueryGroups } from "../utils/type-guards";
-import { extractedTitleKeys } from "../constants/Titles";
+import { Titles } from "../constants";
 
 export const getRomcalConfigJsonSchema = (): Schema => {
     const romcalConfigJsonSchema: Schema = {
@@ -56,8 +56,8 @@ export const getRomcalQueryJsonSchema = (): Schema => {
             },
             title: {
                 type: "string",
-                enum: extractedTitleKeys,
-                description: `Acceptable values are ${extractedTitleKeys.join(", ")}`,
+                enum: Object.keys(Titles),
+                description: `Acceptable values are ${Object.keys(Titles).join(", ")}`,
             },
         },
     };

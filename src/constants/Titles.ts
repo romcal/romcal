@@ -1,16 +1,22 @@
-import { ElementType } from "../utils/helpers";
+export type TTitleKeys =
+    | "PATRON_OF_EUROPE"
+    | "FEAST_OF_THE_LORD"
+    | "DOCTOR_OF_THE_CHURCH"
+    | "MARIAN_FEAST"
+    | "TRIDUUM"
+    | "MARTYR";
 
-enum Titles {
-    PATRON_OF_EUROPE = "PATRON_OF_EUROPE",
-    FEAST_OF_THE_LORD = "FEAST_OF_THE_LORD",
-    DOCTOR_OF_THE_CHURCH = "DOCTOR_OF_THE_CHURCH",
-    MARIAN_FEAST = "MARIAN_FEAST",
-    TRIDUUM = "TRIDUUM",
-    MARTYR = "MARTYR",
-}
+export type TTitles = {
+    [key in TTitleKeys]: string;
+};
 
-// Convert the keys of this enum into a type
-export const extractedTitleKeys = Object.keys(Titles) as Array<keyof typeof Titles>;
-export type TTitles = ElementType<typeof extractedTitleKeys>;
+const Titles: TTitles = {
+    PATRON_OF_EUROPE: "PATRON_OF_EUROPE",
+    FEAST_OF_THE_LORD: "FEAST_OF_THE_LORD",
+    DOCTOR_OF_THE_CHURCH: "DOCTOR_OF_THE_CHURCH",
+    MARIAN_FEAST: "MARIAN_FEAST",
+    TRIDUUM: "TRIDUUM",
+    MARTYR: "MARTYR",
+};
 
 export default Titles;
