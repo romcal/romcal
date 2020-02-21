@@ -31,8 +31,9 @@ export type TRomcalQuery = Readonly<{
     title?: string;
 }>;
 
+type AllowedDictonaryKeyTypes = string | number;
 export type Dictionary<T> = {
-    [index: number]: T;
+    [index in AllowedDictonaryKeyTypes]: T;
 };
 
 /**

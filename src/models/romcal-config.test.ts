@@ -1,5 +1,5 @@
 import Config from "./romcal-config";
-import moment = require("moment");
+import dayjs from "dayjs";
 
 describe("getConfig()", () => {
     test("should get general config if country doesn't have default configurations", () => {
@@ -14,8 +14,8 @@ describe("getConfig()", () => {
             christmastideIncludesTheSeasonOfEpiphany,
             christmastideEnds,
         } = new Config();
-        expect(year).toBe(moment.utc().year());
-        expect(type).toBe("liturgical");
+        expect(year).toBe(dayjs.utc().year());
+        expect(type).toBe("calendar");
         expect(query).toBeUndefined();
         expect(locale).toBe("en");
         expect(epiphanyOnJan6).toBeFalsy();

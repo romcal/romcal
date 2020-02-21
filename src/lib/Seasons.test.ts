@@ -274,8 +274,9 @@ describe("Testing seasons utility functions", () => {
         }) as Dictionary<DateItem[]>;
 
         test("Groups dates within seasons based on identifiers", () => {
-            Object.values(calendar).forEach((dates, season) => {
-                dates.forEach(date => expect(date.data.season.key).toEqual(season));
+            Object.keys(calendar).forEach(liturgicalSeason => {
+                const dates = calendar[liturgicalSeason];
+                dates.forEach(date => expect(date.data.season.key).toEqual(liturgicalSeason));
             });
         });
 

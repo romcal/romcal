@@ -1,7 +1,7 @@
 import moment from "moment";
 import { Types, LiturgicalCycles } from "../constants";
 import { TLiturgicalColor } from "../constants/LiturgicalColors";
-import LiturgicalSeasons from "../constants/LiturgicalSeasons";
+import { TLiturgicalSeasonKeys } from "../constants/LiturgicalSeasons";
 import { TPsalterWeek } from "../constants/PsalterWeeks";
 import { ISO8601DateString, isNil } from "../utils/type-guards";
 import { Dates } from "../lib";
@@ -15,7 +15,7 @@ export interface IRomcalDateItemDataCalendar {
 }
 
 export interface IRomcalSeason {
-    key: LiturgicalSeasons;
+    key: TLiturgicalSeasonKeys;
     value: string;
 }
 
@@ -133,7 +133,7 @@ export class DateItem implements IDateItem {
         this._stack = _stack;
 
         // The original default item is added to the current item as the `base` property
-        if (this._id !== baseItem?._id) {
+        if (!isNil(baseItem) && this._id !== baseItem?._id) {
             this.base = baseItem;
             this.data = {
                 ...this.data,
@@ -141,7 +141,7 @@ export class DateItem implements IDateItem {
                 ...(baseItem?.data.calendar && { calendar: baseItem?.data.calendar }),
                 meta: {
                     ...this.data.meta,
-                    psalterWeek: this.data.meta.psalterWeek ?? baseItem?.data.meta.psalterWeek,
+                    psalterWeek: this.data.meta?.psalterWeek ?? baseItem?.data.meta.psalterWeek,
                 },
             };
         }
@@ -162,7 +162,7 @@ export class DateItem implements IDateItem {
      * Commemorations.
      */
     private adjustTypeInSeason(): void {
-        if (this.base?.data.season.key === LiturgicalSeasons.LENT) {
+        if (this.base?.data.season?.key === "LENT") {
             if ((this.type === Types.MEMORIAL || this.type === Types.OPT_MEMORIAL) && this.base.type === Types.FERIA) {
                 this.type = Types.COMMEMORATION;
             }
@@ -222,6 +222,6 @@ export class DateItem implements IDateItem {
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const isDateItem = (value: Record<string, any>): value is IDateItem => {
-    const { key, name, date, type, data, moment } = value;
-    return key && name && date && type && data && moment;
+    const { key, name, date, type, moment } = value;
+    return !isNil(key) && !isNil(name) && !isNil(date) && !isNil(type) && !isNil(moment);
 };
