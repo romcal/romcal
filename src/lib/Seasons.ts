@@ -1,11 +1,11 @@
 import _ from "lodash";
 
 import * as Dates from "./Dates";
-import * as Utils from "./Utils";
+import * as Locales from "./Locales";
 
 import { PsalterWeeks, LiturgicalColors, Types } from "../constants";
 import { IRomcalDateItem } from "../models/romcal-date-item";
-import { TChristmastideEndings, isNil } from "../utils/type-guards";
+import { TChristmastideEndings } from "../utils/type-guards";
 import moment from "moment";
 import { TPsalterWeek } from "../constants/PsalterWeeks";
 
@@ -66,14 +66,14 @@ const _epiphany = (year: number, epiphanyOnJan6 = false): Array<IRomcalDateItem>
         days.push({
             moment: day,
             type: Types.FERIA,
-            name: Utils.localize({
+            name: Locales.localize({
                 key: "epiphany.before",
                 day: day.format("dddd"),
             }),
             data: {
                 season: {
                     key: "CHRISTMASTIDE",
-                    value: Utils.localize({
+                    value: Locales.localize({
                         key: "christmastide.season",
                     }),
                 },
@@ -85,14 +85,14 @@ const _epiphany = (year: number, epiphanyOnJan6 = false): Array<IRomcalDateItem>
         days.push({
             moment: day,
             type: Types.FERIA,
-            name: Utils.localize({
+            name: Locales.localize({
                 key: "epiphany.after",
                 day: day.format("dddd"),
             }),
             data: {
                 season: {
                     key: "CHRISTMASTIDE",
-                    value: Utils.localize({
+                    value: Locales.localize({
                         key: "christmastide.season",
                     }),
                 },
@@ -115,14 +115,14 @@ const _holyWeek = (year: number): Array<IRomcalDateItem> => {
         days.push({
             moment: date,
             type: Types.HOLY_WEEK,
-            name: Utils.localize({
+            name: Locales.localize({
                 key: "holyWeek.feria",
                 day: date.format("dddd"),
             }),
             data: {
                 season: {
                     key: "HOLY_WEEK",
-                    value: Utils.localize({
+                    value: Locales.localize({
                         key: "holyWeek.season",
                     }),
                 },
@@ -163,8 +163,8 @@ const advent = (year: number): Array<IRomcalDateItem> => {
     daysOfAdvent.forEach((value, i) => {
         dateItemsWithoutKeyAndSource.push({
             moment: value,
-            type: Utils.getTypeByDayOfWeek(value.day()),
-            name: Utils.localize({
+            type: Locales.getTypeByDayOfWeek(value.day()),
+            name: Locales.localize({
                 key: value.day() === 0 ? "advent.sunday" : "advent.feria",
                 day: value.format("dddd"),
                 week: Math.floor(i / 7) + 1,
@@ -172,7 +172,7 @@ const advent = (year: number): Array<IRomcalDateItem> => {
             data: {
                 season: {
                     key: "ADVENT",
-                    value: Utils.localize({
+                    value: Locales.localize({
                         key: "advent.season",
                     }),
                 },
@@ -255,8 +255,8 @@ const christmastide = (
         count = dayOfWeek === 0 ? count + 1 : count;
         daysOfChristmasTide.push({
             moment: day,
-            type: Utils.getTypeByDayOfWeek(dayOfWeek),
-            name: Utils.localize({
+            type: Locales.getTypeByDayOfWeek(dayOfWeek),
+            name: Locales.localize({
                 key: dayOfWeek === 0 ? "christmastide.sunday" : "christmastide.day",
                 day: day.format("dddd"),
                 count: count,
@@ -264,7 +264,7 @@ const christmastide = (
             data: {
                 season: {
                     key: "CHRISTMASTIDE",
-                    value: Utils.localize({
+                    value: Locales.localize({
                         key: "christmastide.season",
                     }),
                 },
@@ -276,15 +276,15 @@ const christmastide = (
     datesInTheOctaveOfChristmas.forEach((day, idx) => {
         daysInTheOctaveOfChristmas.push({
             moment: day,
-            type: Utils.getTypeByDayOfWeek(day.day()),
-            name: Utils.localize({
+            type: Locales.getTypeByDayOfWeek(day.day()),
+            name: Locales.localize({
                 key: "christmastide.octave",
                 count: idx + 1,
             }),
             data: {
                 season: {
                     key: "CHRISTMASTIDE",
-                    value: Utils.localize({
+                    value: Locales.localize({
                         key: "christmastide.season",
                     }),
                 },
@@ -381,7 +381,7 @@ const earlyOrdinaryTime = (
             days.push({
                 moment: value,
                 type: value.day() === 0 ? Types.SUNDAY : Types.FERIA,
-                name: Utils.localize({
+                name: Locales.localize({
                     key: value.day() === 0 ? "ordinaryTime.sunday" : "ordinaryTime.feria",
                     day: value.format("dddd"),
                     week: value.day() === 0 ? Math.floor(i / 7) + 2 : Math.floor(i / 7) + 1,
@@ -389,7 +389,7 @@ const earlyOrdinaryTime = (
                 data: {
                     season: {
                         key: "EARLY_ORDINARY_TIME",
-                        value: Utils.localize({
+                        value: Locales.localize({
                             key: "ordinaryTime.season",
                         }),
                     },
@@ -463,7 +463,7 @@ const laterOrdinaryTime = (year: number): Array<IRomcalDateItem> => {
             days.push({
                 moment: value,
                 type: value.day() === 0 ? Types.SUNDAY : Types.FERIA,
-                name: Utils.localize({
+                name: Locales.localize({
                     key: value.day() === 0 ? "ordinaryTime.sunday" : "ordinaryTime.feria",
                     day: value.format("dddd"),
                     week: week,
@@ -471,7 +471,7 @@ const laterOrdinaryTime = (year: number): Array<IRomcalDateItem> => {
                 data: {
                     season: {
                         key: "LATER_ORDINARY_TIME",
-                        value: Utils.localize({
+                        value: Locales.localize({
                             key: "ordinaryTime.season",
                         }),
                     },
@@ -538,7 +538,7 @@ const lent = (year: number): Array<IRomcalDateItem> => {
         ferialDays.push({
             moment: value,
             type: Types.FERIA,
-            name: Utils.localize({
+            name: Locales.localize({
                 key: i > 0 && i < 4 ? "lent.dayAfterAshWed" : "lent.feria",
                 day: value.format("dddd"),
                 week: Math.floor((i - 4) / 7) + 1,
@@ -546,7 +546,7 @@ const lent = (year: number): Array<IRomcalDateItem> => {
             data: {
                 season: {
                     key: "LENT",
-                    value: Utils.localize({
+                    value: Locales.localize({
                         key: "lent.season",
                     }),
                 },
@@ -558,7 +558,7 @@ const lent = (year: number): Array<IRomcalDateItem> => {
         sundays.push({
             moment: value,
             type: Types.SUNDAY,
-            name: Utils.localize({
+            name: Locales.localize({
                 key: "lent.sunday",
                 day: value.format("dddd"),
                 week: i + 1,
@@ -566,7 +566,7 @@ const lent = (year: number): Array<IRomcalDateItem> => {
             data: {
                 season: {
                     key: "LENT",
-                    value: Utils.localize({
+                    value: Locales.localize({
                         key: "lent.season",
                     }),
                 },
@@ -649,7 +649,7 @@ const eastertide = (year: number): Array<IRomcalDateItem> => {
         days.push({
             moment: value,
             type: i > 0 && i < 7 ? Types.SOLEMNITY : Types.FERIA,
-            name: Utils.localize({
+            name: Locales.localize({
                 key: i > 0 && i < 7 ? "eastertide.octave" : "eastertide.feria",
                 day: value.format("dddd"),
                 week: Math.floor(i / 7) + 1,
@@ -657,7 +657,7 @@ const eastertide = (year: number): Array<IRomcalDateItem> => {
             data: {
                 season: {
                     key: "EASTER",
-                    value: Utils.localize({
+                    value: Locales.localize({
                         key: "eastertide.season",
                     }),
                 },
@@ -670,7 +670,7 @@ const eastertide = (year: number): Array<IRomcalDateItem> => {
         sundays.push({
             moment: value,
             type: Types.SUNDAY,
-            name: Utils.localize({
+            name: Locales.localize({
                 key: "eastertide.sunday",
                 day: value.format("dddd"),
                 week: i + 1,
@@ -678,7 +678,7 @@ const eastertide = (year: number): Array<IRomcalDateItem> => {
             data: {
                 season: {
                     key: "EASTER",
-                    value: Utils.localize({
+                    value: Locales.localize({
                         key: "eastertide.season",
                     }),
                 },
@@ -689,14 +689,10 @@ const eastertide = (year: number): Array<IRomcalDateItem> => {
     let combinedDaysOfEaster: Array<IRomcalDateItem> = [];
 
     // Insert Solemnities and Sundays of Easter to days of Easter
-    // combinedDaysOfEaster = _.uniqBy(_.union(sundays, days), v => v.moment.valueOf());
-    combinedDaysOfEaster = days.map(day => {
-        const match = sundays.find(sunday => sunday.moment.valueOf() === day.moment.valueOf());
-        return !isNil(match) ? match : day;
-    });
+    combinedDaysOfEaster = _.uniqBy(_.union(sundays, days), v => v.moment.valueOf());
 
     // Sort dates according to moment
-    combinedDaysOfEaster = _.sortBy(days, v => v.moment.valueOf());
+    combinedDaysOfEaster = _.sortBy(combinedDaysOfEaster, v => v.moment.valueOf());
 
     const psalterWeekStart = 2;
 
@@ -731,8 +727,6 @@ const eastertide = (year: number): Array<IRomcalDateItem> => {
                 },
             },
         };
-
-        console.log(_.camelCase(name), name, data);
 
         return dateItem;
     });

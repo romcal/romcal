@@ -6,6 +6,7 @@ import {
     isObject,
     TRomcalQuery,
     isRomcalConfig,
+    TLocaleTypes,
 } from "../utils/type-guards";
 import * as CountryCalendars from "../calendars";
 import dayjs from "dayjs";
@@ -26,7 +27,7 @@ export interface IRomcalConfig {
     /**
      * The locale to be used for localizing
      */
-    readonly locale?: string;
+    readonly locale?: TLocaleTypes;
     /**
      * The mode to calculate the end of Christmastide
      */
@@ -69,7 +70,7 @@ export type IRomcalDefaultConfig = Required<Omit<IRomcalConfig, "country" | "loc
 export default class Config {
     private _year: number;
     private _country: TCountryTypes;
-    private _locale: string;
+    private _locale: TLocaleTypes;
     private _christmastideEnds: TChristmastideEndings;
     private _epiphanyOnJan6: boolean;
     private _christmastideIncludesTheSeasonOfEpiphany: boolean;
@@ -127,7 +128,7 @@ export default class Config {
         return this._country;
     }
 
-    get locale(): string {
+    get locale(): TLocaleTypes {
         return this._locale;
     }
 

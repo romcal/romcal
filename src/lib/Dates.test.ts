@@ -22,7 +22,7 @@
     THE SOFTWARE.
 */
 
-import { Utils, Dates } from "..";
+import { Dates, Locales } from "..";
 import { rangeOfDays, rangeContainsDate } from "../utils/dates";
 import dayjs from "dayjs";
 
@@ -37,10 +37,10 @@ dayjs.extend(weekday);
 describe("Testing specific liturgical date functions", () => {
     describe("In Christian calendars, Sunday is the first day of the week", () => {
         test("The Solemnity of Epiphany is a Sunday", () => {
-            Utils.setLocale("fr");
+            Locales.setLocale("fr");
             const date1 = Dates.epiphany(1969);
             expect(date1.weekday()).toEqual(0);
-            Utils.setLocale("en");
+            Locales.setLocale("en");
             const date2 = Dates.epiphany(1969);
             expect(date2.weekday()).toEqual(0);
         });

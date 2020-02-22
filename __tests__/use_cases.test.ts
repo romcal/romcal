@@ -22,24 +22,25 @@
     THE SOFTWARE.
 */
 
-import moment from "moment";
+import dayjs from "dayjs";
 
 import { Dates, Types, Calendar } from "../src";
 import { DateItem } from "../src/models/romcal-date-item";
+import { dayJsToMomentJs } from "../src/utils/dates";
 
 describe("Testing specific feasts and memorials", () => {
     describe("The memorial of the Blessed Virgin Mary, Mother of the Church", () => {
-        it("Should be celebrated on the Monday after Pentecost", () => {
-            const dates = Calendar.calendarFor();
-            const pentecostSunday = Dates.pentecostSunday(moment.utc().year());
-            const maryMotherOfTheChurch = dates.find(d => {
-                return d.key === "maryMotherOfTheChurch";
-            });
-            expect(maryMotherOfTheChurch?.moment.day()).toEqual(1);
-            expect(maryMotherOfTheChurch?.moment.subtract(1, "days")).toEqual(pentecostSunday);
+        test("Should be celebrated on the Monday after Pentecost", () => {
+            const dates = Calendar.calendarFor(); // Get the calendar for the current year
+            const pentecostSunday = Dates.pentecostSunday(dayjs.utc().year());
+            const maryMotherOfTheChurch = dates.find(d => d.key === "maryMotherOfTheChurch");
+            const dayBeforeMaryMotherOfTheChurch = maryMotherOfTheChurch?.moment.subtract(1, "days");
+            expect(maryMotherOfTheChurch?.moment.day()).toEqual(0);
+            expect(dayBeforeMaryMotherOfTheChurch?.day()).toEqual(0);
+            expect(dayBeforeMaryMotherOfTheChurch?.isSame(dayJsToMomentJs(pentecostSunday))).toBeTruthy();
         });
 
-        it("Should take precedence in the event of coincidence with another memorial of a saint or blessed", () => {
+        test("Should take precedence in the event of coincidence with another memorial of a saint or blessed", () => {
             // In 2020, monday after Pentecost is June 1
             const juneDates = Calendar.calendarFor({
                 year: 2020,
@@ -54,7 +55,7 @@ describe("Testing specific feasts and memorials", () => {
     });
 
     describe("The celebration of Saint Mary Magdalene", () => {
-        it("Should be ranked as a feast and should be celebrated on the July 22", () => {
+        test("Should be ranked as a feast and should be celebrated on the July 22", () => {
             const dates = Calendar.calendarFor(2017);
             const saintMaryMagdalene = dates.find(d => {
                 return d.key === "saintMaryMagdalene";
@@ -66,7 +67,7 @@ describe("Testing specific feasts and memorials", () => {
     });
 
     describe("The celebrations of Pope Saint John XXIII and Pope Saint John Paul II", () => {
-        it("Should be celebrated as optional memorials", () => {
+        test("Should be celebrated as optional memorials", () => {
             const dates = Calendar.calendarFor(2016);
             const popeSaintJohnXXIII = dates.find(d => {
                 return d.key === "popeSaintJohnXXIII";
@@ -80,7 +81,7 @@ describe("Testing specific feasts and memorials", () => {
     });
 
     describe("The Feast of the Exultation of the Cross", () => {
-        it("Is celebrated on the 14th of September", () => {
+        test("Is celebrated on the 14th of September", () => {
             const dates = Calendar.calendarFor(2018);
             const theExaltationOfTheHolyCross = dates.find(d => {
                 return d.key === "theExaltationOfTheHolyCross";

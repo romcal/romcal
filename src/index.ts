@@ -22,7 +22,7 @@
     THE SOFTWARE.
 */
 
-import { Calendar, Celebrations, Dates, Seasons, Utils } from "./lib";
+import { Calendar, Celebrations, Dates, Seasons, Locales } from "./lib";
 
 import { LiturgicalCycles, LiturgicalColors, PsalterWeeks, LiturgicalSeasons, Titles, Types } from "./constants";
 
@@ -33,7 +33,7 @@ import { countryKeys, localeKeys } from "./utils/type-guards";
 export { countryKeys as Countries, localeKeys as Localizations };
 
 // Export all lib functions
-export { Calendar, Celebrations, Dates, Seasons, Utils };
+export { Calendar, Celebrations, Dates, Seasons, Locales };
 
 // Export all constants
 export { LiturgicalCycles, LiturgicalColors, PsalterWeeks, LiturgicalSeasons, Titles, Types };
