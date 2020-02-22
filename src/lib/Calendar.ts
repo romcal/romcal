@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import _ from "lodash";
+import { groupBy, map } from "lodash";
 import dayjs from "dayjs";
 import * as CountryCalendars from "../calendars";
 import Config, { IRomcalConfig } from "../models/romcal-config";
@@ -11,7 +11,7 @@ import { TCountryTypes, isNil, isInteger, isObject, TRomcalQuery, Dictionary } f
 import { hasKey } from "../utils/object";
 import { DateItem, IRomcalDateItem, IRomcalDateItemData } from "../models/romcal-date-item";
 import { Types } from "../constants";
-import { find, removeWhere, groupBy } from "../utils/array";
+import { find, removeWhere, groupByKey } from "../utils/array";
 import { dayJsToMomentJs } from "../utils/dates";
 import { extractedTypeKeys } from "../constants/Types";
 
@@ -46,32 +46,32 @@ function queryFor(
     if (hasKey(query, "group")) {
         switch (query.group) {
             case "months":
-                return _.groupBy(dates, d => d.moment.month());
+                return groupBy(dates, d => d.moment.month());
             case "daysByMonth":
                 // eslint-disable-next-line you-dont-need-lodash-underscore/map
-                return _.map(
-                    _.groupBy(dates, d => d.moment.month()),
-                    monthGroup => _.groupBy(monthGroup, d => d.moment.day()),
+                return map(
+                    groupBy(dates, d => d.moment.month()),
+                    monthGroup => groupBy(monthGroup, d => d.moment.day()),
                 );
             case "weeksByMonth":
                 // eslint-disable-next-line you-dont-need-lodash-underscore/map
-                return _.map(
-                    _.groupBy(dates, d => d.moment.month()),
-                    v => _.groupBy(v, d => d.data.calendar?.week),
+                return map(
+                    groupBy(dates, d => d.moment.month()),
+                    v => groupBy(v, d => d.data.calendar?.week),
                 );
             case "cycles":
-                return _.groupBy(dates, d => d.data.meta.cycle?.value);
+                return groupBy(dates, d => d.data.meta.cycle?.value);
             case "types":
-                return _.groupBy(dates, d => d.type);
+                return groupBy(dates, d => d.type);
             case "liturgicalSeasons":
-                return _.groupBy(dates, d => d.data.season.key);
+                return groupBy(dates, d => d.data.season.key);
             case "liturgicalColors":
-                return _.groupBy(dates, d => d.data.meta.liturgicalColor?.key);
+                return groupBy(dates, d => d.data.meta.liturgicalColor?.key);
             case "psalterWeeks":
-                return _.groupBy(dates, d => d.data.meta.psalterWeek?.key);
+                return groupBy(dates, d => d.data.meta.psalterWeek?.key);
             case "days":
             default:
-                return _.groupBy(dates, d => d.moment.day());
+                return groupBy(dates, d => d.moment.day());
         }
     } else if (!isNil(query.month)) {
         // Months are zero indexed, so January is month 0.
@@ -394,7 +394,7 @@ class Calendar {
         // Create a dictionary where celebrations on the same date are grouped under
         // it's ISO string date string as the key and loop through each group to see
         // if there's more than one celebration in each group.
-        Object.entries(groupBy(this.dateItems, "date")).forEach(([, dateItems]) => {
+        Object.entries(groupByKey(this.dateItems, "date")).forEach(([, dateItems]) => {
             if (dateItems.length > 1) {
                 // Validate the first date item
                 const [dateItem, ...otherDateItems] = dateItems;

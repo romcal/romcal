@@ -22,7 +22,7 @@
     THE SOFTWARE.
 */
 
-import _ from "lodash";
+import { groupBy, get } from "lodash";
 import moment from "moment";
 
 import { Calendar, Dates, Types, LiturgicalSeasons, PsalterWeeks, Titles, LiturgicalColors } from "..";
@@ -60,12 +60,12 @@ describe("Testing calendar generation functions", () => {
         });
 
         test("Array should be 365 days long on non-leap years", () => {
-            const grouped: Dictionary<DateItem[]> = _.groupBy(nonLeapYearDates, item => item.moment.valueOf());
+            const grouped: Dictionary<DateItem[]> = groupBy(nonLeapYearDates, item => item.moment.valueOf());
             expect(Object.keys(grouped)).toHaveLength(365);
         });
 
         test("Array should be 366 days long on leap years", () => {
-            const grouped: Dictionary<DateItem[]> = _.groupBy(leapYearDates, item => item.moment.valueOf());
+            const grouped: Dictionary<DateItem[]> = groupBy(leapYearDates, item => item.moment.valueOf());
             expect(Object.keys(grouped)).toHaveLength(366);
         });
 
@@ -215,7 +215,7 @@ describe("Testing calendar generation functions", () => {
         describe("Testing advanced filters", () => {
             test("The proper color of a Memorial or a Feast is white except for martyrs in which case it is red", () => {
                 const calendar = Calendar.calendarFor({ query: { group: "types" } }) as Dictionary<DateItem[]>;
-                _.get(calendar, Types.FEAST).forEach(d => {
+                get(calendar, Types.FEAST).forEach(d => {
                     if (d.key === "theExaltationOfTheHolyCross") {
                         expect(d.data.meta.liturgicalColor?.key).toEqual(LiturgicalColors.RED.key);
                     } else {
@@ -230,7 +230,7 @@ describe("Testing calendar generation functions", () => {
                         }
                     }
                 });
-                _.get(calendar, Types.MEMORIAL).forEach(d => {
+                get(calendar, Types.MEMORIAL).forEach(d => {
                     if (!isNil(d.data.meta.titles)) {
                         if (d.data.meta.titles.includes(Titles.MARTYR)) {
                             expect(d.data.meta.liturgicalColor?.key).toEqual(LiturgicalColors.RED.key);

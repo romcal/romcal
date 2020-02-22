@@ -15,7 +15,7 @@
         "registry": "https://registry.npmjs.org"
     },
     "scripts": {
-        "prepublishOnly": "npm run build",
+        "prepublishOnly": "npm run build && npm run typedoc",
         "build": "webpack --mode production",
         "build:dev": "webpack --mode development",
         "lint": "pretty-quick --staged && lint-staged",
