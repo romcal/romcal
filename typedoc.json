@@ -1,0 +1,9 @@
+{
+    "mode": "file",
+    "inputFiles": ["./src"],
+    "includeVersion": true,
+    "out": "docs",
+    "exclude": "**/*.test{ts,tsx}",
+    "includeDeclarations": true,
+    "excludeExternals": true
+}
