@@ -1,4 +1,4 @@
-import _ from "lodash";
+import { sortBy, camelCase, uniqBy, union, take } from "lodash";
 
 import * as Dates from "./Dates";
 import * as Locales from "./Locales";
@@ -186,14 +186,14 @@ const advent = (year: number): Array<IRomcalDateItem> => {
     });
 
     // Sort dates according to their moment objects in ascending order
-    dateItemsWithoutKeyAndSource = _.sortBy(dateItemsWithoutKeyAndSource, item => item.moment.valueOf());
+    dateItemsWithoutKeyAndSource = sortBy(dateItemsWithoutKeyAndSource, item => item.moment.valueOf());
 
     const romcalDateItems: Array<IRomcalDateItem> = [];
     dateItemsWithoutKeyAndSource.forEach(({ name, data, ...rest }: IRomcalDateItem, index: number) => {
         const psalterWeek = getPsalterWeek(index);
         romcalDateItems.push({
             ...rest,
-            key: _.camelCase(name),
+            key: camelCase(name),
             name,
             data: {
                 ...data,
@@ -300,17 +300,17 @@ const christmastide = (
     // only merge the season of epiphany if the flag is true
     let combinedDaysOfChristmas: Array<IRomcalDateItem> = [];
     if (christmastideIncludesTheSeasonOfEpiphany === true) {
-        combinedDaysOfChristmas = _.uniqBy(_.union(epiphany, daysInTheOctaveOfChristmas, daysOfChristmasTide), item =>
+        combinedDaysOfChristmas = uniqBy(union(epiphany, daysInTheOctaveOfChristmas, daysOfChristmasTide), item =>
             item.moment.valueOf(),
         );
     } else {
-        combinedDaysOfChristmas = _.uniqBy(_.union(daysInTheOctaveOfChristmas, daysOfChristmasTide), item =>
+        combinedDaysOfChristmas = uniqBy(union(daysInTheOctaveOfChristmas, daysOfChristmasTide), item =>
             item.moment.valueOf(),
         );
     }
 
     // Sort dates according to moment
-    combinedDaysOfChristmas = _.sortBy(combinedDaysOfChristmas, item => item.moment.valueOf());
+    combinedDaysOfChristmas = sortBy(combinedDaysOfChristmas, item => item.moment.valueOf());
 
     let psalterWeekStart = 3;
     const [firstDateOfChristmasTide] = datesOfChristmastide;
@@ -322,7 +322,7 @@ const christmastide = (
         const resolvedPsalterWeek = getPsalterWeek(index, psalterWeekStart);
         return {
             ...rest,
-            key: _.camelCase(name),
+            key: camelCase(name),
             name,
             data: {
                 ...data,
@@ -398,7 +398,7 @@ const earlyOrdinaryTime = (
         });
 
     // Sort dates according to moment
-    days = _.sortBy(days, v => v.moment.valueOf());
+    days = sortBy(days, v => v.moment.valueOf());
 
     const psalterWeekStart = 0;
 
@@ -406,7 +406,7 @@ const earlyOrdinaryTime = (
         const resolvedPsalterWeek = getPsalterWeek(index, psalterWeekStart);
         return {
             ...rest,
-            key: _.camelCase(name),
+            key: camelCase(name),
             name,
             data: {
                 ...data,
@@ -480,7 +480,7 @@ const laterOrdinaryTime = (year: number): Array<IRomcalDateItem> => {
         });
 
     // Sort dates according to moment
-    days = _.sortBy(days, v => v.moment.valueOf());
+    days = sortBy(days, v => v.moment.valueOf());
 
     let psalterWeekStart = firstWeekOfLaterOrdinaryTime % 4;
     if (psalterWeekStart === 0) {
@@ -491,7 +491,7 @@ const laterOrdinaryTime = (year: number): Array<IRomcalDateItem> => {
         const resolvedPsalterWeek = getPsalterWeek(index, psalterWeekStart);
         return {
             ...rest,
-            key: _.camelCase(name),
+            key: camelCase(name),
             name,
             data: {
                 ...data,
@@ -583,10 +583,10 @@ const lent = (year: number): Array<IRomcalDateItem> => {
     let combinedDaysOfLent: Array<IRomcalDateItem> = [];
 
     // Override in order: Solemnities, Holy Week and Sundays of Lent to days of Lent
-    combinedDaysOfLent = _.uniqBy(_.union(holyWeek, sundays, ferialDays), v => v.moment.valueOf());
+    combinedDaysOfLent = uniqBy(union(holyWeek, sundays, ferialDays), v => v.moment.valueOf());
 
     // Sort dates according to moment
-    combinedDaysOfLent = _.sortBy(combinedDaysOfLent, v => v.moment.valueOf());
+    combinedDaysOfLent = sortBy(combinedDaysOfLent, v => v.moment.valueOf());
 
     const psalterWeekStart = 4;
 
@@ -595,7 +595,7 @@ const lent = (year: number): Array<IRomcalDateItem> => {
         return {
             ...rest,
             name,
-            key: _.camelCase(name),
+            key: camelCase(name),
             data: {
                 ...data,
                 meta: {
@@ -689,10 +689,10 @@ const eastertide = (year: number): Array<IRomcalDateItem> => {
     let combinedDaysOfEaster: Array<IRomcalDateItem> = [];
 
     // Insert Solemnities and Sundays of Easter to days of Easter
-    combinedDaysOfEaster = _.uniqBy(_.union(sundays, days), v => v.moment.valueOf());
+    combinedDaysOfEaster = uniqBy(union(sundays, days), v => v.moment.valueOf());
 
     // Sort dates according to moment
-    combinedDaysOfEaster = _.sortBy(combinedDaysOfEaster, v => v.moment.valueOf());
+    combinedDaysOfEaster = sortBy(combinedDaysOfEaster, v => v.moment.valueOf());
 
     const psalterWeekStart = 2;
 
@@ -715,7 +715,7 @@ const eastertide = (year: number): Array<IRomcalDateItem> => {
         const dateItem: IRomcalDateItem = {
             ...rest,
             name,
-            key: _.camelCase(name),
+            key: camelCase(name),
             data: {
                 ...data,
                 meta: {
@@ -741,6 +741,6 @@ const eastertide = (year: number): Array<IRomcalDateItem> => {
  *
  * @param year The year to use for the calculation
  */
-const easterOctave = (year: number): Array<IRomcalDateItem> => _.take(eastertide(year), 8);
+const easterOctave = (year: number): Array<IRomcalDateItem> => take(eastertide(year), 8);
 
 export { advent, christmastide, earlyOrdinaryTime, lent, easterTriduum, easterOctave, eastertide, laterOrdinaryTime };
