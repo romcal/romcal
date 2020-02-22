@@ -55,9 +55,11 @@ jobs:
         - chmod +x scripts/semver.sh
         - chmod +x scripts/bump-version.sh
         - chmod +x scripts/version-deprecator.sh
+        - chmod +x scripts/publish-typedoc.sh
         - git update-index --assume-unchanged scripts/bump-version.sh
         - git update-index --assume-unchanged scripts/semver.sh
         - git update-index --assume-unchanged scripts/version-deprecator.sh
+        - git update-index --assume-unchanged scripts/publish-typedoc.sh
       deploy:
         - provider: script
           script: scripts/bump-version.sh $TRAVIS_BRANCH
@@ -71,11 +73,16 @@ jobs:
           on:
             branch: master
             repo: romcal/romcal
+        - provider: script
+          script: scripts/publish-typedoc.sh $TRAVIS_BRANCH
+          skip_cleanup: true
+          on:
+            all_branches: true
+            repo: romcal/romcal
       after_deploy:
         - git update-index --no-assume-unchanged scripts/bump-version.sh
         - git update-index --no-assume-unchanged scripts/semver.sh
         - git update-index --no-assume-unchanged scripts/version-deprecator.sh
-
 notifications:
   email:
     recipients:
