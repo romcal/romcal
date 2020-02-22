@@ -1,4 +1,4 @@
-import _ from "lodash";
+import { templateSettings, template } from "lodash";
 import moment from "moment";
 import { Types } from "../constants";
 import * as Locales from "../locales";
@@ -17,7 +17,7 @@ import { parse, Schema } from "bcp-47";
 /**
  *  Mustache style templating is easier on the eyes
  */
-_.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
+templateSettings.interpolate = /{{([\s\S]+?)}}/g;
 
 /**
  * Set locale
@@ -127,7 +127,7 @@ const localize = ({ key, count, week, day }: { key: string; day?: string; week?:
     const value = findDescendantValueByKeys(getLocale(), key.split("."));
 
     // Run the template against the options provided
-    return _.template(value)({
+    return template(value)({
         key,
         // If defined, pluralize a week and add it to the given template
         ...(typeof week === "number" && { week: localeDate.ordinal(week) }),
