@@ -4,9 +4,15 @@ import { Types } from "../constants";
 import * as Locales from "../locales";
 import { findDescendantValueByKeys, hasKey, getValueByKey, mergeObjectsUniquely } from "../utils/object";
 import { TRomcalLocale } from "../models/romcal-locale";
-import { isNil } from "../utils/type-guards";
+import { isNil, TLocaleTypes } from "../utils/type-guards";
 import { IRomcalDateItem } from "../models/romcal-date-item";
 import { isString } from "util";
+import { parse, Schema } from "bcp-47";
+
+// DayJS global configuration
+// import dayjs from "dayjs";
+// import updateLocale from "dayjs/plugin/updateLocale";
+// dayjs.extend(updateLocale);
 
 /**
  *  Mustache style templating is easier on the eyes
@@ -22,14 +28,14 @@ _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
  * We get then a cascade fallbacks: region ('xx-XX') -> base language ('xx') -> default 'en'
  * For example: if a string is missing in 'fr-CA', it will try to pick it in 'fr', and then in 'en'.
  */
-export const _fallbackLocaleKey = "en";
+export const _fallbackLocaleKey: TLocaleTypes = "en";
 
 let _combinedLocale: TRomcalLocale | undefined;
 let _locales: Array<TRomcalLocale>;
 
-const setLocale = (key: string): void => {
+const setLocale = (key: TLocaleTypes): void => {
     const availableLocales: {
-        [key: string]: TRomcalLocale;
+        [key in TLocaleTypes]: TRomcalLocale;
     } = Locales;
 
     // When setLocale() is called, it resets the combined locale cache
@@ -39,40 +45,43 @@ const setLocale = (key: string): void => {
     // This will serve as the default locale object if the given key cannot be resolved below
     _locales = [getValueByKey(availableLocales, _fallbackLocaleKey)];
 
-    // =================================================================================
-    // Make key lowercase
-    // Extract lang and region from key
-    // =================================================================================
-    const lowerCasedKey = key.toLowerCase(); // make key it lowercase
-    const keyValues: RegExpExecArray | null = /^([a-z]+)-?([a-z]*)/.exec(lowerCasedKey);
-
-    // =================================================================================
-    // Set the Moment locale (if unrecognized, will default to 'en')
-    // =================================================================================
     let localeName;
-    if (keyValues !== null) {
-        const [phrase, lang, region] = keyValues; // For example: ["fr-ca", "fr", "ca"]
+    try {
+        const localeSchema: Schema = parse(key, {
+            forgiving: true, // https://www.npmjs.com/package/bcp-47#optionsforgiving
+        });
+
+        const { region, language } = localeSchema; // For example: ["fr-ca", "fr", "ca"]
         // Use kebab-case in localName to follow IETF Language Codes standards
-        localeName = `${lang}${
-            !isNil(region) && isString(region) && region.length > 0 ? `-${region.toUpperCase()}` : ""
-        }`;
+        localeName = `${language}${isString(region) && region.length > 0 ? `-${region.toUpperCase()}` : ""}`;
         // Set the locale
         moment.locale(localeName);
+        // Romcal locale
+        const romcalLocale = `${language}${
+            isString(region) && region.length > 0 ? `${region.toUpperCase()}` : ""
+        }` as TLocaleTypes;
+
         /**
          * If a region is specified: append the base language as fallback.
          * Also check if the base language isn't already the default 'en',
          * and if this base language exists in 'src/locales'
          */
-        if (region?.length > 0 && lang !== _fallbackLocaleKey && hasKey(availableLocales, lang)) {
+        if (
+            !isNil(region) &&
+            region?.length > 0 &&
+            language !== _fallbackLocaleKey &&
+            hasKey(availableLocales, language)
+        ) {
             // Retrieve the relevant base locale object
             // and set it as a fallback (before 'en')
-            _locales = [getValueByKey(availableLocales, lang), ..._locales]; // For example: append the 'fr' locale
+            _locales = [getValueByKey(availableLocales, language), ..._locales]; // For example: append the 'fr' locale
         }
         // Finally, append the region specific locale if any to the list of locales
-        if (hasKey(availableLocales, phrase)) {
-            _locales = [getValueByKey(availableLocales, localeName), ..._locales]; // For example: append the 'fr-CA' locale
+        if (hasKey(availableLocales, romcalLocale)) {
+            _locales = [getValueByKey(availableLocales, romcalLocale), ..._locales]; // For example: append the 'fr-CA' locale
         }
-    } else {
+    } catch (e) {
+        console.warn(`The locale "${key} is not a valid IETF BCP-47 format. romcal will default to the "en" locale`);
         localeName = _fallbackLocaleKey;
         moment.locale(_fallbackLocaleKey);
     }

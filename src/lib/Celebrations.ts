@@ -1,5 +1,5 @@
 import * as Dates from "./Dates";
-import * as Utils from "./Utils";
+import * as Locales from "./Locales";
 import { Titles, LiturgicalColors, Types } from "../constants";
 import { IRomcalDateItem } from "../models/romcal-date-item";
 import { dayJsToMomentJs } from "../utils/dates";
@@ -223,7 +223,7 @@ const dates = (
                 prioritized: true,
                 season: {
                     key: "LENT",
-                    value: Utils.localize({
+                    value: Locales.localize({
                         key: "lent.season",
                     }),
                 },
@@ -240,7 +240,7 @@ const dates = (
                 prioritized: true,
                 season: {
                     key: "HOLY_WEEK",
-                    value: Utils.localize({
+                    value: Locales.localize({
                         key: "holyWeek.season",
                     }),
                 },
@@ -257,7 +257,7 @@ const dates = (
                 prioritized: true,
                 season: {
                     key: "HOLY_WEEK",
-                    value: Utils.localize({
+                    value: Locales.localize({
                         key: "holyWeek.season",
                     }),
                 },
@@ -275,7 +275,7 @@ const dates = (
                 prioritized: true,
                 season: {
                     key: "HOLY_WEEK",
-                    value: Utils.localize({
+                    value: Locales.localize({
                         key: "holyWeek.season",
                     }),
                 },
@@ -293,7 +293,7 @@ const dates = (
                 prioritized: true,
                 season: {
                     key: "HOLY_WEEK",
-                    value: Utils.localize({
+                    value: Locales.localize({
                         key: "holyWeek.season",
                     }),
                 },
@@ -381,7 +381,7 @@ const dates = (
     return _dates.map(({ key, data, ...rest }) => {
         return {
             ...rest,
-            name: Utils.localize({ key: "celebrations." + key }),
+            name: Locales.localize({ key: "celebrations." + key }),
             key,
             data: {
                 ...data,

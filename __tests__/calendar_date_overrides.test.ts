@@ -422,7 +422,7 @@ describe("Testing national calendar overrides", () => {
             expect(ourLadyOfSorrows?.moment.isSame(moment.utc({ year: 2015, month: 3, day: 15 }))).toBeTruthy();
         });
 
-        test.only("Should be replaced by the 3rd Sunday of Easter in 2018 in the national calendar of Malta due to rank", () => {
+        test("Should be replaced by the 3rd Sunday of Easter in 2018 in the national calendar of Malta due to rank", () => {
             const maltaDates = Calendar.calendarFor({
                 year: 2018,
                 country: "malta",
@@ -431,7 +431,6 @@ describe("Testing national calendar overrides", () => {
             const thirdSundayOfEaster = maltaDates.find(d => {
                 return d.key === "3rdSundayOfEaster";
             });
-            console.log(thirdSundayOfEaster);
             expect(dayJsToMomentJs(ourLadyOfSorrows).isSame(thirdSundayOfEaster?.moment)).toBeTruthy();
         });
 
