@@ -9,7 +9,6 @@ echo "PACKAGE_NAME is ${PACKAGE_NAME}"
 # Flag to indicate if we are using a custom version
 WILL_USE_CUSTOM_VERSION=false
 
-
 # Get the last commit message
 LAST_COMMIT_MESSAGE="$(git log --pretty='format:%Creset%s' --no-merges -1)"
 # Check if the commit message has the unique identifer [USE_CUSTOM_SEMVER]
