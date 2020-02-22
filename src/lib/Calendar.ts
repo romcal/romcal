@@ -4,7 +4,7 @@ import dayjs from "dayjs";
 import * as CountryCalendars from "../calendars";
 import Config, { IRomcalConfig } from "../models/romcal-config";
 import * as Dates from "./Dates";
-import * as Utils from "./Utils";
+import * as Locales from "./Locales";
 import * as Seasons from "./Seasons";
 import * as Celebrations from "./Celebrations";
 import { TCountryTypes, isNil, isInteger, isObject, TRomcalQuery, Dictionary } from "../utils/type-guards";
@@ -142,7 +142,7 @@ function calendarFor(options?: IRomcalConfig | number): DateItem[] | Dictionary<
     const config = new Config(userConfig);
 
     // Set the locale information
-    Utils.setLocale(config.locale);
+    Locales.setLocale(config.locale);
 
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
     const calendar = new Calendar(config);

@@ -1,6 +1,6 @@
 import moment from "moment";
 
-import { Dates, Utils } from "../lib";
+import { Dates, Locales } from "../lib";
 import { Types, LiturgicalColors } from "../constants";
 import { IRomcalDateItem } from "../models/romcal-date-item";
 import { IRomcalDefaultConfig } from "../models/romcal-config";
@@ -37,7 +37,7 @@ const dates = (year: number): Array<IRomcalDateItem> => {
     ];
 
     // Get localized celebration names
-    return Utils.localizeDates(_dates);
+    return Locales.localizeDates(_dates);
 };
 
 export { dates, defaultConfig };

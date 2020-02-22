@@ -1,9 +1,10 @@
 import moment from "moment";
 
-import { Dates, Utils } from "../lib";
+import { Dates, Locales } from "../lib";
 import { Types } from "../constants";
 import { IRomcalDateItem } from "../models/romcal-date-item";
 import { IRomcalDefaultConfig } from "../models/romcal-config";
+import { dayJsToMomentJs } from "../utils/dates";
 
 const defaultConfig: IRomcalDefaultConfig | undefined = undefined;
 
@@ -12,12 +13,7 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "maryMotherOfTheChurch",
             type: Types.OPT_MEMORIAL,
-            moment: ((year: number): moment.Moment =>
-                moment.utc(
-                    Dates.pentecostSunday(year)
-                        .add(1, "day")
-                        .toISOString(),
-                ))(year),
+            moment: ((y: number): moment.Moment => dayJsToMomentJs(Dates.pentecostSunday(y).add(1, "day")))(year),
             data: {
                 prioritized: true,
             },
@@ -57,7 +53,7 @@ const dates = (year: number): Array<IRomcalDateItem> => {
     ];
 
     // Get localized celebration names
-    return Utils.localizeDates(_dates);
+    return Locales.localizeDates(_dates);
 };
 
 export { dates, defaultConfig };
