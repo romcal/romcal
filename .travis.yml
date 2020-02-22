@@ -1,9 +1,9 @@
 language: node_js
 
 # blocklist
-branches:
-  except:
-    - "_F-TypeScript"
+# branches:
+# except:
+#   - "_F-TypeScript"
 
 node_js:
   - "lts/*"
