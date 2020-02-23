@@ -1,4 +1,4 @@
-import moment from "moment";
+import dayjs from "dayjs";
 
 import { Dates, Locales } from "../lib";
 import { Types, LiturgicalColors } from "../constants";
@@ -12,7 +12,7 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "saintBridgetOfSwedenReligious",
             type: Types.FEAST,
-            moment: moment.utc({ year, month: 6, day: 23 }),
+            moment: dayjs.utc(`${year}-7-23`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -22,8 +22,8 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "ourLordJesusChristTheEternalHighPriest",
             type: Types.FEAST,
-            moment: ((y: number): moment.Moment =>
-                moment.utc(
+            moment: ((y: number): dayjs.Dayjs =>
+                dayjs.utc(
                     Dates.pentecostSunday(y)
                         .add(4, "day")
                         .toISOString(),
@@ -37,7 +37,7 @@ const dates = (year: number): Array<IRomcalDateItem> => {
     ];
 
     // Get localized celebration names
-    return Locales.localizeDates(_dates);
+    return await Locales.localizeDates(_dates);
 };
 
 export { dates, defaultConfig };

@@ -26,7 +26,6 @@ import dayjs from "dayjs";
 
 import { Dates, Types, Calendar } from "../src";
 import { DateItem } from "../src/models/romcal-date-item";
-import { dayJsToMomentJs } from "../src/utils/dates";
 
 describe("Testing specific feasts and memorials", () => {
     describe("The memorial of the Blessed Virgin Mary, Mother of the Church", () => {
@@ -34,10 +33,10 @@ describe("Testing specific feasts and memorials", () => {
             const dates = Calendar.calendarFor(); // Get the calendar for the current year
             const pentecostSunday = Dates.pentecostSunday(dayjs.utc().year());
             const maryMotherOfTheChurch = dates.find(d => d.key === "maryMotherOfTheChurch");
-            const dayBeforeMaryMotherOfTheChurch = maryMotherOfTheChurch?.moment.subtract(1, "days");
+            const dayBeforeMaryMotherOfTheChurch = maryMotherOfTheChurch?.moment.subtract(1, "day");
             expect(maryMotherOfTheChurch?.moment.day()).toEqual(0);
             expect(dayBeforeMaryMotherOfTheChurch?.day()).toEqual(0);
-            expect(dayBeforeMaryMotherOfTheChurch?.isSame(dayJsToMomentJs(pentecostSunday))).toBeTruthy();
+            expect(dayBeforeMaryMotherOfTheChurch?.isSame(pentecostSunday)).toBeTruthy();
         });
 
         test("Should take precedence in the event of coincidence with another memorial of a saint or blessed", () => {

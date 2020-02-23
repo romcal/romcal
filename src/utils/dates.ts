@@ -1,5 +1,4 @@
 import dayjs from "dayjs";
-import moment from "moment";
 
 export enum DayOfWeek {
     SUNDAY = 0,
@@ -72,8 +71,4 @@ export const eachDayOfWeekInRange = (range: Array<dayjs.Dayjs>, dayOfWeek: DayOf
         }
     });
     return daysInInterval;
-};
-
-export const dayJsToMomentJs = (date: dayjs.Dayjs): moment.Moment => {
-    return moment.utc(date.toISOString());
 };

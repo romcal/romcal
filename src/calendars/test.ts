@@ -1,19 +1,18 @@
-import moment from "moment";
+import dayjs from "dayjs";
 
 import { Dates, Locales } from "../lib";
 import { Types } from "../constants";
 import { IRomcalDateItem } from "../models/romcal-date-item";
 import { IRomcalDefaultConfig } from "../models/romcal-config";
-import { dayJsToMomentJs } from "../utils/dates";
 
 const defaultConfig: IRomcalDefaultConfig | undefined = undefined;
 
-const dates = (year: number): Array<IRomcalDateItem> => {
+const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
     const _dates: Array<IRomcalDateItem> = [
         {
             key: "maryMotherOfTheChurch",
             type: Types.OPT_MEMORIAL,
-            moment: ((y: number): moment.Moment => dayJsToMomentJs(Dates.pentecostSunday(y).add(1, "day")))(year),
+            moment: ((y: number): dayjs.Dayjs => Dates.pentecostSunday(y).add(1, "day"))(year),
             data: {
                 prioritized: true,
             },
@@ -21,7 +20,7 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "ashWednesday",
             type: Types.SUNDAY,
-            moment: moment.utc(Dates.ashWednesday(year).toISOString()),
+            moment: dayjs.utc(Dates.ashWednesday(year).toISOString()),
         },
         // Test priority where saintLukeTheEvangelist is defined
         // in the "test" country as a commemoration instead of its
@@ -29,7 +28,7 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "saintLukeTheEvangelist",
             type: Types.COMMEMORATION,
-            moment: moment.utc({ year, month: 9, day: 18 }),
+            moment: dayjs.utc(`${year}-10-18`),
             data: {
                 prioritized: true,
             },
@@ -37,7 +36,7 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "aSampleCelebration1",
             type: Types.MEMORIAL,
-            moment: moment.utc({ year, month: 10, day: 9 }),
+            moment: dayjs.utc(`${year}-11-9`),
             data: {
                 prioritized: true,
             },
@@ -45,7 +44,7 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "aSampleCelebration2",
             type: Types.SOLEMNITY,
-            moment: moment.utc({ year, month: 11, day: 25 }),
+            moment: dayjs.utc(`${year}-12-25`),
             data: {
                 prioritized: true,
             },
@@ -53,7 +52,7 @@ const dates = (year: number): Array<IRomcalDateItem> => {
     ];
 
     // Get localized celebration names
-    return Locales.localizeDates(_dates);
+    return await Locales.localizeDates(_dates);
 };
 
 export { dates, defaultConfig };

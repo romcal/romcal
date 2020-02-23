@@ -1,4 +1,4 @@
-import moment from "moment";
+import dayjs from "dayjs";
 
 import { Locales } from "../lib";
 import { Titles, Types, LiturgicalColors } from "../constants";
@@ -7,17 +7,17 @@ import { IRomcalDefaultConfig } from "../models/romcal-config";
 
 const defaultConfig: IRomcalDefaultConfig | undefined = undefined;
 
-const dates = (year: number): Array<IRomcalDateItem> => {
+const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
     const _dates: Array<IRomcalDateItem> = [
         {
             key: "blessedJerzyMatulewiczBishop",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 0, day: 27 }),
+            moment: dayjs.utc(`${year}-1-27`),
         },
         {
             key: "saintsCyrilMonkAndMethodiusBishop",
             type: Types.FEAST,
-            moment: moment.utc({ year, month: 1, day: 14 }),
+            moment: dayjs.utc(`${year}-2-14`),
             data: {
                 meta: {
                     titles: [Titles.PATRON_OF_EUROPE],
@@ -27,12 +27,12 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "saintCasimir",
             type: Types.FEAST,
-            moment: moment.utc({ year, month: 2, day: 4 }),
+            moment: dayjs.utc(`${year}-3-4`),
         },
         {
             key: "saintBrunoBonifaceOfQuerfurtBishopAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 2, day: 9 }),
+            moment: dayjs.utc(`${year}-3-9`),
             data: {
                 meta: {
                     titles: [Titles.MARTYR],
@@ -42,7 +42,7 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "saintAdalbertBishopAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 3, day: 23 }),
+            moment: dayjs.utc(`${year}-4-23`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -53,7 +53,7 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "saintCatherineOfSienaVirginAndDoctorOfTheChurch",
             type: Types.FEAST,
-            moment: moment.utc({ year, month: 3, day: 29 }),
+            moment: dayjs.utc(`${year}-4-29`),
             data: {
                 meta: {
                     titles: [Titles.PATRON_OF_EUROPE, Titles.DOCTOR_OF_THE_CHURCH],
@@ -63,7 +63,7 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "saintAndrewBobolaPriestAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 4, day: 16 }),
+            moment: dayjs.utc(`${year}-5-16`),
             data: {
                 meta: {
                     titles: [Titles.MARTYR],
@@ -73,12 +73,12 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "ourLadyMotherOfMercy",
             type: Types.SOLEMNITY,
-            moment: moment.utc({ year, month: 10, day: 16 }),
+            moment: dayjs.utc(`${year}-11-16`),
         },
         {
             key: "saintBenedictOfNursiaAbbot",
             type: Types.FEAST,
-            moment: moment.utc({ year, month: 6, day: 11 }),
+            moment: dayjs.utc(`${year}-7-11`),
             data: {
                 meta: {
                     titles: [Titles.PATRON_OF_EUROPE],
@@ -88,7 +88,7 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "saintBridgetOfSwedenReligious",
             type: Types.FEAST,
-            moment: moment.utc({ year, month: 6, day: 23 }),
+            moment: dayjs.utc(`${year}-7-23`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -99,7 +99,7 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr",
             type: Types.FEAST,
-            moment: moment.utc({ year, month: 7, day: 9 }),
+            moment: dayjs.utc(`${year}-8-9`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -110,27 +110,27 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "saintRocco",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 7, day: 16 }),
+            moment: dayjs.utc(`${year}-8-16`),
         },
         {
             key: "saintHyacinthPriest",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 7, day: 17 }),
+            moment: dayjs.utc(`${year}-8-17`),
         },
         {
             key: "birthOfTheBlessedVirginMary",
             type: Types.SOLEMNITY,
-            moment: moment.utc({ year, month: 8, day: 8 }),
+            moment: dayjs.utc(`${year}-9-8`),
         },
         {
             key: "saintFaustinaKowalskaVirginAndReligious",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 9, day: 5 }),
+            moment: dayjs.utc(`${year}-10-5`),
         },
     ];
 
     // Get localized celebration names
-    return Locales.localizeDates(_dates);
+    return await Locales.localizeDates(_dates);
 };
 
 export { dates, defaultConfig };

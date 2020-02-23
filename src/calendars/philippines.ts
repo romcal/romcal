@@ -1,4 +1,4 @@
-import moment from "moment";
+import dayjs from "dayjs";
 
 import { Locales } from "../lib";
 import { Titles, Types, LiturgicalColors } from "../constants";
@@ -7,16 +7,16 @@ import { IRomcalDefaultConfig } from "../models/romcal-config";
 
 const defaultConfig: IRomcalDefaultConfig | undefined = undefined;
 
-const dates = (year: number): Array<IRomcalDateItem> => {
+const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
     const _dates: Array<IRomcalDateItem> = [
         {
             key: "santoNinoInfantJesus",
             type: Types.FEAST,
-            moment: ((): moment.Moment => {
+            moment: ((): dayjs.Dayjs => {
                 // Third Sunday of January: Santo Niño (Holy Child Jesus)
-                const firstDay = moment.utc({ year, month: 0, day: 1 });
+                const firstDay = dayjs.utc(`${year}-1-1`);
                 const feastDay = 22 - (firstDay.day() == 0 ? 7 : firstDay.day());
-                return moment.utc({ year, month: 0, day: feastDay });
+                return dayjs.utc(`${year}-1-${feastDay}`);
             })(),
             data: {
                 prioritized: true,
@@ -28,7 +28,7 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "saintPaulMikiAndCompanionsMartyrs",
             type: Types.MEMORIAL,
-            moment: moment.utc({ year, month: 1, day: 6 }),
+            moment: dayjs.utc(`${year}-2-6`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -39,7 +39,7 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "saintPedroCalungsodMartyr",
             type: Types.MEMORIAL,
-            moment: moment.utc({ year, month: 3, day: 2 }),
+            moment: dayjs.utc(`${year}-4-2`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -50,22 +50,22 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "saintIsidoreTheFarmer",
             type: Types.MEMORIAL,
-            moment: moment.utc({ year, month: 4, day: 15 }),
+            moment: dayjs.utc(`${year}-5-15`),
         },
         {
             key: "saintRoch",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 7, day: 16 }),
+            moment: dayjs.utc(`${year}-8-16`),
         },
         {
             key: "saintEzekielMorenoBishop",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 7, day: 19 }),
+            moment: dayjs.utc(`${year}-8-19`),
         },
         {
             key: "saintLorenzoRuizAndCompanionsMartyrs",
             type: Types.MEMORIAL,
-            moment: moment.utc({ year, month: 8, day: 28 }),
+            moment: dayjs.utc(`${year}-9-28`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -76,12 +76,12 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "immaculateConceptionOfTheBlessedVirginMaryPrincipalPatronessOfThePhilippines",
             type: Types.SOLEMNITY,
-            moment: moment.utc({ year, month: 11, day: 8 }),
+            moment: dayjs.utc(`${year}-12-8`),
         },
     ];
 
     // Get localized celebration names
-    return Locales.localizeDates(_dates);
+    return await Locales.localizeDates(_dates);
 };
 
 export { dates, defaultConfig };
