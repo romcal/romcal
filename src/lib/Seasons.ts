@@ -6,8 +6,16 @@ import * as Locales from "./Locales";
 import { PsalterWeeks, LiturgicalColors, Types } from "../constants";
 import { IRomcalDateItem } from "../models/romcal-date-item";
 import { TChristmastideEndings } from "../utils/type-guards";
-import moment from "moment";
 import { TPsalterWeek } from "../constants/PsalterWeeks";
+
+import dayjs from "dayjs";
+import weekOfYear from "dayjs/plugin/weekOfYear";
+import isoWeeksInYear from "dayjs/plugin/isoWeeksInYear";
+import isLeapYear from "dayjs/plugin/isLeapYear"; // dependent on isLeapYear plugin
+
+dayjs.extend(isoWeeksInYear);
+dayjs.extend(isLeapYear);
+dayjs.extend(weekOfYear);
 
 /**
  * Given an array index of a *sorted* array of moment objects, determine the psalter week
@@ -39,7 +47,7 @@ const _metadata = (items: Array<IRomcalDateItem>): Array<IRomcalDateItem> => {
             data: {
                 ...rest.data,
                 calendar: {
-                    weeks: moment.weeksInYear(),
+                    weeks: moment.isoWeeksInYear(),
                     week: moment.week(),
                     day: moment.dayOfYear(),
                 },
@@ -54,12 +62,8 @@ const _metadata = (items: Array<IRomcalDateItem>): Array<IRomcalDateItem> => {
  * @param epiphanyOnJan6 true|false [If true, Epiphany will be fixed to Jan 6] (defaults to false)
  */
 const _epiphany = (year: number, epiphanyOnJan6 = false): Array<IRomcalDateItem> => {
-    const before: Array<moment.Moment> = Dates.daysBeforeEpiphany(year, epiphanyOnJan6).map(date =>
-        moment.utc(date.toISOString()),
-    );
-    const after: Array<moment.Moment> = Dates.daysAfterEpiphany(year, epiphanyOnJan6).map(date =>
-        moment.utc(date.toISOString()),
-    );
+    const before: Array<dayjs.Dayjs> = Dates.daysBeforeEpiphany(year, epiphanyOnJan6);
+    const after: Array<dayjs.Dayjs> = Dates.daysAfterEpiphany(year, epiphanyOnJan6);
 
     const days: Array<IRomcalDateItem> = [];
     before.forEach(day => {
@@ -108,10 +112,10 @@ const _epiphany = (year: number, epiphanyOnJan6 = false): Array<IRomcalDateItem>
  * @param year The year to use for the calculation
  */
 const _holyWeek = (year: number): Array<IRomcalDateItem> => {
-    const dates: moment.Moment[] = Dates.holyWeek(year).map(date => moment.utc(date.toISOString()));
+    const dates: dayjs.Dayjs[] = Dates.holyWeek(year);
     const days: Array<IRomcalDateItem> = [];
 
-    dates.forEach((date: moment.Moment) => {
+    dates.forEach((date: dayjs.Dayjs) => {
         days.push({
             moment: date,
             type: Types.HOLY_WEEK,
@@ -158,7 +162,7 @@ const _holyWeek = (year: number): Array<IRomcalDateItem> => {
  */
 const advent = (year: number): Array<IRomcalDateItem> => {
     let dateItemsWithoutKeyAndSource: Array<IRomcalDateItem> = [];
-    const daysOfAdvent: moment.Moment[] = Dates.daysOfAdvent(year).map(date => moment.utc(date.toISOString()));
+    const daysOfAdvent: dayjs.Dayjs[] = Dates.daysOfAdvent(year);
 
     daysOfAdvent.forEach((value, i) => {
         dateItemsWithoutKeyAndSource.push({
@@ -237,14 +241,8 @@ const christmastide = (
     epiphanyOnJan6 = false,
     christmastideIncludesTheSeasonOfEpiphany = true,
 ): Array<IRomcalDateItem> => {
-    const datesOfChristmastide: moment.Moment[] = Dates.christmastide(
-        year,
-        christmastideEnds,
-        epiphanyOnJan6,
-    ).map(date => moment.utc(date.toISOString()));
-    const datesInTheOctaveOfChristmas: moment.Moment[] = Dates.octaveOfChristmas(year).map(date =>
-        moment.utc(date.toISOString()),
-    );
+    const datesOfChristmastide: dayjs.Dayjs[] = Dates.christmastide(year, christmastideEnds, epiphanyOnJan6);
+    const datesInTheOctaveOfChristmas: dayjs.Dayjs[] = Dates.octaveOfChristmas(year);
     const epiphany: Array<IRomcalDateItem> = _epiphany(year + 1, epiphanyOnJan6);
 
     let count = 0;
@@ -375,27 +373,25 @@ const earlyOrdinaryTime = (
 ): Array<IRomcalDateItem> => {
     let days: Array<IRomcalDateItem> = [];
 
-    Dates.daysOfEarlyOrdinaryTime(year, christmastideEnds, epiphanyOnJan6)
-        .map(date => moment.utc(date.toISOString()))
-        .forEach((value, i) => {
-            days.push({
-                moment: value,
-                type: value.day() === 0 ? Types.SUNDAY : Types.FERIA,
-                name: Locales.localize({
-                    key: value.day() === 0 ? "ordinaryTime.sunday" : "ordinaryTime.feria",
-                    day: value.format("dddd"),
-                    week: value.day() === 0 ? Math.floor(i / 7) + 2 : Math.floor(i / 7) + 1,
-                }),
-                data: {
-                    season: {
-                        key: "EARLY_ORDINARY_TIME",
-                        value: Locales.localize({
-                            key: "ordinaryTime.season",
-                        }),
-                    },
+    Dates.daysOfEarlyOrdinaryTime(year, christmastideEnds, epiphanyOnJan6).forEach((value, i) => {
+        days.push({
+            moment: value,
+            type: value.day() === 0 ? Types.SUNDAY : Types.FERIA,
+            name: Locales.localize({
+                key: value.day() === 0 ? "ordinaryTime.sunday" : "ordinaryTime.feria",
+                day: value.format("dddd"),
+                week: value.day() === 0 ? Math.floor(i / 7) + 2 : Math.floor(i / 7) + 1,
+            }),
+            data: {
+                season: {
+                    key: "EARLY_ORDINARY_TIME",
+                    value: Locales.localize({
+                        key: "ordinaryTime.season",
+                    }),
                 },
-            });
+            },
         });
+    });
 
     // Sort dates according to moment
     days = sortBy(days, v => v.moment.valueOf());
@@ -452,7 +448,6 @@ const laterOrdinaryTime = (year: number): Array<IRomcalDateItem> => {
     let days: Array<IRomcalDateItem> = [];
 
     Dates.daysOfLaterOrdinaryTime(year)
-        .map(date => moment.utc(date.toISOString()))
         .reverse()
         .forEach((value, i) => {
             // Calculate the week of ordinary time
@@ -528,8 +523,8 @@ const laterOrdinaryTime = (year: number): Array<IRomcalDateItem> => {
  * @param year The year to use for calculation
  */
 const lent = (year: number): Array<IRomcalDateItem> => {
-    const daysOfLent: Array<moment.Moment> = Dates.daysOfLent(year).map(date => moment.utc(date.toISOString()));
-    const sundaysOfLent: Array<moment.Moment> = Dates.sundaysOfLent(year).map(date => moment.utc(date.toISOString()));
+    const daysOfLent: Array<dayjs.Dayjs> = Dates.daysOfLent(year);
+    const sundaysOfLent: Array<dayjs.Dayjs> = Dates.sundaysOfLent(year);
 
     const ferialDays: Array<IRomcalDateItem> = [];
     const sundays: Array<IRomcalDateItem> = [];
@@ -641,8 +636,8 @@ const easterTriduum = (year: number): Array<IRomcalDateItem> => _holyWeek(year).
  * @param year The year to use for the calculation
  */
 const eastertide = (year: number): Array<IRomcalDateItem> => {
-    const weekdaysOfEaster = Dates.daysOfEaster(year).map(date => moment.utc(date.toISOString()));
-    const sundaysOfEaster = Dates.sundaysOfEaster(year).map(date => moment.utc(date.toISOString()));
+    const weekdaysOfEaster = Dates.daysOfEaster(year);
+    const sundaysOfEaster = Dates.sundaysOfEaster(year);
 
     const days: Array<IRomcalDateItem> = [];
     weekdaysOfEaster.forEach((value, i) => {

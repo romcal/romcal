@@ -1,4 +1,4 @@
-import moment from "moment";
+import dayjs from "dayjs";
 import { Types, LiturgicalCycles } from "../constants";
 import { TLiturgicalColor } from "../constants/LiturgicalColors";
 import { TLiturgicalSeasonKeys } from "../constants/LiturgicalSeasons";
@@ -6,7 +6,6 @@ import { TPsalterWeek } from "../constants/PsalterWeeks";
 import { ISO8601DateString, isNil } from "../utils/type-guards";
 import { Dates } from "../lib";
 import { TLiturgicalCycle } from "../constants/LiturgicalCycles";
-import { dayJsToMomentJs } from "../utils/dates";
 
 export interface IRomcalDateItemDataCalendar {
     weeks: number;
@@ -53,7 +52,7 @@ export interface IRomcalDateItem {
      * The type of celebration
      */
     type?: Types;
-    moment: moment.Moment;
+    moment: dayjs.Dayjs;
     data?: IRomcalDateItemData;
     source?: string;
     drop?: boolean;
@@ -79,7 +78,7 @@ export interface IDateItem {
     readonly date: ISO8601DateString;
     readonly type: Types;
     readonly data: IDateItemData;
-    readonly moment: moment.Moment;
+    readonly moment: dayjs.Dayjs;
     readonly base?: DateItem;
     readonly _id: number;
     readonly _stack: number;
@@ -112,9 +111,9 @@ export class DateItem implements IDateItem {
      */
     public data: IDateItemData;
     /**
-     * The moment object representing the date and time of the celebration.
+     * The DayJS object representing the date and time of the celebration.
      */
-    public moment: moment.Moment;
+    public moment: dayjs.Dayjs;
     public base: DateItem | undefined;
     public _id: number;
     public _stack: number;
@@ -179,7 +178,7 @@ export class DateItem implements IDateItem {
         const year = this.getLiturgicalStartYear();
 
         // Formula to calculate Sunday cycle (Year A, B, C)
-        const firstSundayOfAdvent: moment.Moment = dayJsToMomentJs(Dates.firstSundayOfAdvent(year));
+        const firstSundayOfAdvent = Dates.firstSundayOfAdvent(year);
         const thisCycle: number = (year - 1963) % 3;
         const nextCycle: number = thisCycle === 2 ? 0 : thisCycle + 1;
 
@@ -205,7 +204,7 @@ export class DateItem implements IDateItem {
     private getLiturgicalStartYear(): number {
         const currentYear = this.moment.utc().year();
         const firstSundayOfAdvent = Dates.firstSundayOfAdvent(currentYear);
-        return this.moment.isBefore(dayJsToMomentJs(firstSundayOfAdvent)) ? currentYear - 1 : currentYear;
+        return this.moment.isBefore(firstSundayOfAdvent) ? currentYear - 1 : currentYear;
     }
 
     /**
