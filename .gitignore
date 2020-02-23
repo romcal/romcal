@@ -9,4 +9,3 @@ dist/
 .npmrc
 romcal-*.tgz
 coverage/
-docs/
