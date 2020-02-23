@@ -45,8 +45,10 @@
             var currentLocale = navigator.language || navigator.userLanguage;
             var currentYear = new Date().getFullYear();
 
+            console.log("currentLocale", currentLocale);
+
             var dates = Romcal.calendarFor({
-                locale: currentLocale,
+                locale: currentLocale.split("-").join(""),
                 year: currentYear,
             });
 
