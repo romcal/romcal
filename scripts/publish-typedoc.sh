@@ -17,5 +17,6 @@ fi
 npm run typedoc
 
 # gh-pages
+git pull # Get latest
 git add docs && git commit -am "[skip travis-ci] Publish latest typedoc for ${LATEST_TAG_VERSION}"
 git subtree push --prefix docs origin gh-pages
