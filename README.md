@@ -92,6 +92,12 @@ romcal generates the [General Roman Calendar](http://en.wikipedia.org/wiki/Gener
 
 Output can be configured for the standard calendar year (Jan, 1st - Dec, 31st) or the liturgical year (First Sunday of Advent - Christ the King). Additional filters for filtering output are also available (described below).
 
+## API Documentation
+
+`TL;DR`?
+
+Go [here](https://romcal.github.io/romcal/) to see the API documentation of this module.
+
 ## Revisions <a name="revisions"></a>
 
 See [history](HISTORY.md) for latest updates and important/breaking changes.
@@ -188,7 +194,6 @@ Additionally, romcal is also available for installtion via various "release tags
 
 ### Using the module
 
-> :information_source: romcal was re-written using ES6, and use the new import/export syntax to manage node modules. However, thanks to `esm` and `babel`, it can still be included by other non ES6 aware node modules via the normal CommonJs `require` call.
 
 Require romcal in your node project:
 

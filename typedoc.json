@@ -3,6 +3,7 @@
     "inputFiles": ["./src"],
     "includeVersion": true,
     "out": "docs",
+    "readme": "none",
     "exclude": "**/*.test{ts,tsx}",
     "includeDeclarations": true,
     "excludeExternals": true
