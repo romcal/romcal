@@ -1,18 +1,24 @@
 import { templateSettings, template } from "lodash";
-import moment from "moment";
 import { Types } from "../constants";
 import * as Locales from "../locales";
 import { findDescendantValueByKeys, hasKey, getValueByKey, mergeObjectsUniquely } from "../utils/object";
 import { TRomcalLocale } from "../models/romcal-locale";
-import { isNil, TLocaleTypes } from "../utils/type-guards";
+import { isNil, TLocaleTypes, TLocalizeParams } from "../utils/type-guards";
 import { IRomcalDateItem } from "../models/romcal-date-item";
 import { isString } from "util";
 import { parse, Schema } from "bcp-47";
 
+// DayJS
+import dayjs from "dayjs";
+
 // DayJS global configuration
-// import dayjs from "dayjs";
-// import updateLocale from "dayjs/plugin/updateLocale";
-// dayjs.extend(updateLocale);
+import updateLocale from "dayjs/plugin/updateLocale";
+import localeData from "dayjs/plugin/localeData";
+import advancedFormat from "dayjs/plugin/advancedFormat";
+
+dayjs.extend(updateLocale);
+dayjs.extend(localeData);
+dayjs.extend(advancedFormat);
 
 /**
  *  Mustache style templating is easier on the eyes
@@ -32,6 +38,7 @@ export const _fallbackLocaleKey: TLocaleTypes = "en";
 
 let _combinedLocale: TRomcalLocale | undefined;
 let _locales: Array<TRomcalLocale>;
+let _currentLocale = "en";
 
 const setLocale = (key: TLocaleTypes): void => {
     const availableLocales: {
@@ -45,17 +52,16 @@ const setLocale = (key: TLocaleTypes): void => {
     // This will serve as the default locale object if the given key cannot be resolved below
     _locales = [getValueByKey(availableLocales, _fallbackLocaleKey)];
 
-    let localeName;
     try {
         const localeSchema: Schema = parse(key, {
             forgiving: true, // https://www.npmjs.com/package/bcp-47#optionsforgiving
         });
 
-        const { region, language } = localeSchema; // For example: ["fr-ca", "fr", "ca"]
+        const { region, language } = localeSchema;
         // Use kebab-case in localName to follow IETF Language Codes standards
-        localeName = `${language}${isString(region) && region.length > 0 ? `-${region.toUpperCase()}` : ""}`;
+        _currentLocale = `${language}${isString(region) && region.length > 0 ? `-${region.toUpperCase()}` : ""}`;
         // Set the locale
-        moment.locale(localeName);
+        dayjs.locale(_currentLocale);
         // Romcal locale
         const romcalLocale = `${language}${
             isString(region) && region.length > 0 ? `${region.toUpperCase()}` : ""
@@ -82,8 +88,8 @@ const setLocale = (key: TLocaleTypes): void => {
         }
     } catch (e) {
         console.warn(`The locale "${key} is not a valid IETF BCP-47 format. romcal will default to the "en" locale`);
-        localeName = _fallbackLocaleKey;
-        moment.locale(_fallbackLocaleKey);
+        _currentLocale = _fallbackLocaleKey;
+        dayjs.locale(_fallbackLocaleKey);
     }
 
     /**
@@ -94,7 +100,7 @@ const setLocale = (key: TLocaleTypes): void => {
      * In other words, the romcal will use US, Canada definitions for the start of the week.
      * https://github.com/moment/momentjs.com/issues/279#issuecomment-375611003
      */
-    moment.updateLocale(localeName, {
+    dayjs.updateLocale(_currentLocale, {
         week: {
             dow: 0, // US, Canada: 1st day of week is Sunday
             doy: 6, // US, Canada: 1st week of the year is the one that contains the 1st of January (7 + 0 - 1)
@@ -118,21 +124,25 @@ const getLocale = (): TRomcalLocale => {
     return _combinedLocale;
 };
 
-// Using the set Moment locale, get the relevant localized
-// text for standard dates. Also make numbers ordinal by
-// leveraging Moment's ordinal number function.
-const localize = ({ key, count, week, day }: { key: string; day?: string; week?: number; count?: number }): string => {
+/**
+ * Resolves a localized value for the given key and supporting parameters.
+ *
+ * Also resolves locale specific ordinal numbers where required.
+ *
+ * @param localizeParams Options for retrieving the localized key
+ */
+const localize = async ({ key, count, week, day }: TLocalizeParams): Promise<string> => {
     // Get locale data
-    const localeDate = moment.localeData();
+    const currentLocaleData = await import(`dayjs/locale/${_currentLocale}`);
     const value = findDescendantValueByKeys(getLocale(), key.split("."));
 
     // Run the template against the options provided
     return template(value)({
         key,
         // If defined, pluralize a week and add it to the given template
-        ...(typeof week === "number" && { week: localeDate.ordinal(week) }),
+        ...(typeof week === "number" && { week: currentLocaleData.ordinal(week) }),
         // If defined, count the nth day of the given series
-        ...(typeof count === "number" && { count: localeDate.ordinal(count) }),
+        ...(typeof count === "number" && { count: currentLocaleData.ordinal(count) }),
         // If defined, add the day to be included in the translation
         ...(isString(day) && { day }),
     });
@@ -144,18 +154,21 @@ const localize = ({ key, count, week, day }: { key: string; day?: string; week?:
  * @param dates A list of [[IRomcalDateItem]]s to process
  * @param source
  */
-const localizeDates = (dates: Array<IRomcalDateItem>, source = "sanctoral"): Array<IRomcalDateItem> => {
-    return dates.map((date: IRomcalDateItem) => {
-        if (!hasKey(date, "drop")) {
-            return {
-                ...date,
-                name: localize({
+const localizeDates = (dates: Array<IRomcalDateItem>, source = "sanctoral"): Promise<IRomcalDateItem[]> => {
+    return Promise.all(
+        dates.map(async (date: IRomcalDateItem) => {
+            if (!hasKey(date, "drop")) {
+                const name = await localize({
                     key: `${source}.${date.key}`,
-                }),
-            } as IRomcalDateItem;
-        }
-        return date;
-    });
+                });
+                return {
+                    ...date,
+                    name,
+                } as IRomcalDateItem;
+            }
+            return date;
+        }),
+    );
 };
 
 /**

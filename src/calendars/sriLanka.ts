@@ -1,4 +1,4 @@
-import moment from "moment";
+import dayjs from "dayjs";
 
 import { Locales } from "../lib";
 import { Types, LiturgicalColors } from "../constants";
@@ -12,12 +12,12 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "blessedJosephVazPriest",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 0, day: 16 }),
+            moment: dayjs.utc(`${year}-1-16`),
         },
         {
             key: "ourLadyOfLanka",
             type: Types.FEAST,
-            moment: moment.utc({ year, month: 1, day: 4 }),
+            moment: dayjs.utc(`${year}-2-4`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -27,7 +27,7 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "ourLadyOfMadhu",
             type: Types.FEAST,
-            moment: moment.utc({ year, month: 6, day: 2 }),
+            moment: dayjs.utc(`${year}-7-2`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -37,7 +37,7 @@ const dates = (year: number): Array<IRomcalDateItem> => {
     ];
 
     // Get localized celebration names
-    return Locales.localizeDates(_dates);
+    return await Locales.localizeDates(_dates);
 };
 
 export { dates, defaultConfig };

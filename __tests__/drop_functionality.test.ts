@@ -24,7 +24,7 @@ import { DateItem } from "../src/models/romcal-date-item";
     THE SOFTWARE.
 */
 
-import moment from "moment";
+import dayjs from "dayjs";
 import { Calendar } from "../src";
 
 // eslint-disable-next-line quotes
@@ -36,7 +36,7 @@ describe('Testing the "drop" functionality for national calendars', () => {
 
     it("A dropped celebration should not be appended in the final calendar", () => {
         const date = testDates.find(d => {
-            return d.moment.isSame(moment.utc({ year: 2020, month: 11, day: 4 }));
+            return d.moment.isSame(dayjs.utc("2020-12-4"));
         });
         expect(date?.key).not.toEqual("saintJohnDamascenePriestAndDoctor");
     });

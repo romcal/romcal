@@ -1,6 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+// eslint-disable-next-line you-dont-need-lodash-underscore/map
 import { groupBy, map } from "lodash";
 import dayjs from "dayjs";
+import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
+import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
 import * as CountryCalendars from "../calendars";
 import Config, { IRomcalConfig } from "../models/romcal-config";
 import * as Dates from "./Dates";
@@ -12,8 +15,10 @@ import { hasKey } from "../utils/object";
 import { DateItem, IRomcalDateItem, IRomcalDateItemData } from "../models/romcal-date-item";
 import { Types } from "../constants";
 import { find, removeWhere, groupByKey } from "../utils/array";
-import { dayJsToMomentJs } from "../utils/dates";
 import { extractedTypeKeys } from "../constants/Types";
+
+dayjs.extend(isSameOrAfter);
+dayjs.extend(isSameOrBefore);
 
 /**
  * Filters an array of dates generated from the calendarFor function based on a given query.
@@ -445,8 +450,8 @@ class Calendar {
         endDate: dayjs.Dayjs,
         ...calendarSources: Array<Array<IRomcalDateItem>>
     ): Array<Array<IRomcalDateItem>> {
-        const start = dayJsToMomentJs(startDate);
-        const end = dayJsToMomentJs(endDate);
+        const start = startDate;
+        const end = endDate;
         return calendarSources.map((calendarSource: Array<IRomcalDateItem>) => {
             return calendarSource.filter((item: IRomcalDateItem) => {
                 return item.moment.isSameOrAfter(start) && item.moment.isSameOrBefore(end);

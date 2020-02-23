@@ -23,13 +23,11 @@
 */
 
 import { groupBy, get } from "lodash";
-import moment from "moment";
-
+import dayjs from "dayjs";
 import { Calendar, Dates, Types, LiturgicalSeasons, PsalterWeeks, Titles, LiturgicalColors } from "..";
 import { Dictionary, isNil } from "../utils/type-guards";
 import { DateItem, isDateItem } from "../models/romcal-date-item";
 import { hasKey, getValueByKey } from "../utils/object";
-import { dayJsToMomentJs } from "../utils/dates";
 import { TTypes } from "../constants/Types";
 
 describe("Testing calendar generation functions", () => {
@@ -77,7 +75,7 @@ describe("Testing calendar generation functions", () => {
 
     describe("Testing calendar functions", () => {
         describe("When requesting the liturgical year", () => {
-            const year = moment.utc().year();
+            const year = dayjs.utc().year();
             const start = Dates.firstSundayOfAdvent(year - 1);
             const end = Dates.firstSundayOfAdvent(year).subtract(1, "day");
             const calendar = Calendar.calendarFor({
@@ -85,8 +83,8 @@ describe("Testing calendar generation functions", () => {
                 type: "liturgical",
             });
             test("Should start on the 1st Sunday of Advent and end on Christ the King", () => {
-                expect(calendar[0].moment.isSame(dayJsToMomentJs(start))).toBeTrue();
-                expect(calendar[calendar.length - 1].moment.isSame(dayJsToMomentJs(end))).toBeTrue();
+                expect(calendar[0].moment.isSame(start)).toBeTrue();
+                expect(calendar[calendar.length - 1].moment.isSame(end)).toBeTrue();
             });
         });
 

@@ -1,4 +1,4 @@
-import moment from "moment";
+import dayjs from "dayjs";
 
 import { Dates, Locales } from "../lib";
 import { Titles, Types, LiturgicalColors } from "../constants";
@@ -7,88 +7,88 @@ import { IRomcalDefaultConfig } from "../models/romcal-config";
 
 const defaultConfig: IRomcalDefaultConfig | undefined = undefined;
 
-const dates = (year: number): Array<IRomcalDateItem> => {
+const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
     const _dates: Array<IRomcalDateItem> = [
         {
             key: "blessedOdoricOfPordenonePriest",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 0, day: 14 }),
+            moment: dayjs.utc(`${year}-1-14`),
         },
         {
             key: "saintFrancisFernandezDeCapillasPriestAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 0, day: 15 }),
+            moment: dayjs.utc(`${year}-1-15`),
         },
         {
             key: "saintLawrenceBaiXiaomanMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 0, day: 23 }),
+            moment: dayjs.utc(`${year}-1-23`),
         },
         {
             key: "saintAugustineZhaoRongPriestAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 0, day: 27 }),
+            moment: dayjs.utc(`${year}-1-27`),
         },
         {
             key: "saintLaurenceWangBingAndCompanionsMartyrSaintJosephFreinademetzPriest",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 0, day: 29 }),
+            moment: dayjs.utc(`${year}-1-29`),
         },
         {
             key: "saintJohnOfTrioraPriestAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 1, day: 13 }),
+            moment: dayjs.utc(`${year}-2-13`),
         },
         {
             key: "saintMartinWuXueshengAndCompanionsMartyrs",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 1, day: 17 }),
+            moment: dayjs.utc(`${year}-2-17`),
         },
         {
             key: "saintLucyYiZhenmeiVirginAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 1, day: 19 }),
+            moment: dayjs.utc(`${year}-2-19`),
         },
         {
             key: "saintPaulLiuHanzouPriestAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 1, day: 21 }),
+            moment: dayjs.utc(`${year}-2-21`),
         },
         {
             key: "saintsLouisVersigliaBishopAndCallistusCaravarioPriestMartyrs",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 1, day: 25 }),
+            moment: dayjs.utc(`${year}-2-25`),
         },
         {
             key: "saintAgnesCaoGuiyingMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 2, day: 1 }),
+            moment: dayjs.utc(`${year}-3-1`),
         },
         {
             key: "saintJosephZhangDapengMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 2, day: 12 }),
+            moment: dayjs.utc(`${year}-3-12`),
         },
         {
             key: "blessedMariaAssuntaPallottaVirgin",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 3, day: 8 }),
+            moment: dayjs.utc(`${year}-4-8`),
         },
         {
             key: "blessedJohnMartinMoyePriest",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 4, day: 4 }),
+            moment: dayjs.utc(`${year}-5-4`),
         },
         {
             key: "ourLadyOfChina",
             type: Types.MEMORIAL,
-            moment: ((y: number): moment.Moment => {
-                const firstMay = moment.utc({ year: y, month: 4, day: 1 });
+            moment: ((y: number): dayjs.Dayjs => {
+                const firstMay = dayjs.utc(`${y}-5-1`);
                 const memorialDay = firstMay;
                 // determine first saturday
-                memorialDay.add(6 - firstMay.day(), "days");
+                memorialDay.add(6 - firstMay.day(), "day");
                 // Second saturday
-                memorialDay.add(7, "days");
+                memorialDay.add(7, "day");
                 return memorialDay;
             })(year),
             data: {
@@ -100,37 +100,37 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "saintPeterLiuMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 4, day: 14 }),
+            moment: dayjs.utc(`${year}-5-14`),
         },
         {
             key: "saintPeterSanzBishopAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 4, day: 27 }),
+            moment: dayjs.utc(`${year}-5-27`),
         },
         {
             key: "saintJoachimHoMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 4, day: 29 }),
+            moment: dayjs.utc(`${year}-5-29`),
         },
         {
             key: "saintsGregoryGrassiFrancisFogollaAndAnthonyFantosatiBishopsAndCompanionsMartyrs",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 5, day: 20 }),
+            moment: dayjs.utc(`${year}-6-20`),
         },
         {
             key: "saintJosephYuanPriestAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 5, day: 23 }),
+            moment: dayjs.utc(`${year}-6-23`),
         },
         {
             key: "sevenMartyredNunsFromTheFranciscanMissionariesOfMary",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 6, day: 8 }),
+            moment: dayjs.utc(`${year}-7-8`),
         },
         {
             key: "saintAugustineZhaoRongPriestAndCompanionsMartyrs",
             type: Types.SOLEMNITY,
-            moment: moment.utc({ year, month: 6, day: 9 }),
+            moment: dayjs.utc(`${year}-7-9`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -141,32 +141,32 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "saintLeoManginPriestAndCompanionsMartyrs",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 6, day: 20 }),
+            moment: dayjs.utc(`${year}-7-20`),
         },
         {
             key: "saintAlbericCrescitelliPriestAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 6, day: 21 }),
+            moment: dayjs.utc(`${year}-7-21`),
         },
         {
             key: "saintPaulChenChangpinAndCompanionsMartyrs",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 6, day: 28 }),
+            moment: dayjs.utc(`${year}-7-28`),
         },
         {
             key: "blessedMauriceTornayPriestAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 7, day: 11 }),
+            moment: dayjs.utc(`${year}-8-11`),
         },
         {
             key: "saintJohnGabrielPerboyrePriestAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 8, day: 11 }),
+            moment: dayjs.utc(`${year}-9-11`),
         },
         {
             key: "saintFrancisDiazPriestAndCompanionsMartyrs",
             type: Types.MEMORIAL,
-            moment: moment.utc({ year, month: 9, day: 27 }),
+            moment: dayjs.utc(`${year}-10-27`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -177,18 +177,18 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         {
             key: "saintPeterWuMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 10, day: 7 }),
+            moment: dayjs.utc(`${year}-11-7`),
         },
         {
             key: "saintGabrieltaurinDufresseBishopAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: moment.utc({ year, month: 10, day: 27 }),
+            moment: dayjs.utc(`${year}-11-27`),
         },
         {
             key: "ourLordJesusChristTheEternalHighPriest",
             type: Types.FEAST,
-            moment: ((y: number): moment.Moment =>
-                moment.utc(
+            moment: ((y: number): dayjs.Dayjs =>
+                dayjs.utc(
                     Dates.pentecostSunday(y)
                         .add(4, "day")
                         .toISOString(),
@@ -201,7 +201,7 @@ const dates = (year: number): Array<IRomcalDateItem> => {
         },
     ];
     // Get localized celebration names
-    return Locales.localizeDates(_dates);
+    return await Locales.localizeDates(_dates);
 };
 
 export { dates, defaultConfig };
