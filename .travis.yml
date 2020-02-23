@@ -83,6 +83,7 @@ jobs:
         - git update-index --no-assume-unchanged scripts/bump-version.sh
         - git update-index --no-assume-unchanged scripts/semver.sh
         - git update-index --no-assume-unchanged scripts/version-deprecator.sh
+        - git update-index --no-assume-unchanged scripts/publish-typedoc.sh
 notifications:
   email:
     recipients:
