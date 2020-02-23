@@ -7,6 +7,6 @@ echo "TRAVIS_BRANCH IS ${TRAVIS_BRANCH}"
 npm run typedoc
 
 # gh-pages
-git add dist && git commit -am "[skip travis-ci] Generate latest typedoc"
+git add docs && git commit -am "[skip travis-ci] Generate latest typedoc"
 git subtree push --prefix docs origin gh-pages
 
