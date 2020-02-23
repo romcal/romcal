@@ -20,31 +20,3 @@ module.exports = {
         }]
     },
 };
-
-// {
-//   "parser": "babel-eslint",
-//   "plugins": [
-//     "node",
-//     "flowtype"
-//   ],
-//   "extends": [
-//     "eslint:recommended",
-//     "plugin:flowtype/recommended"
-//   ],
-//   "parserOptions": {
-//     "sourceType": "module"
-//   },
-//   "env": {
-//     "node": true,
-//     "es6": true,
-//     "browser": true
-//   },
-//   "rules": {
-
-//   },
-//   "settings": {
-//     "flowtype": {
-//       "onlyFilesWithFlowAnnotation": true
-//     }
-//   }
-// }
