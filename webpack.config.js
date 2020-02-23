@@ -2,7 +2,7 @@ const { join } = require("path");
 
 module.exports = (env, { mode }) => [
     {
-        target: "node",
+        node: { global: true, fs: 'empty' }, // Fix: "Uncaught ReferenceError: global is not defined", and "Can't resolve 'fs'".
         devtool: mode === "production" ? "source-map" : "inline-source-map",
         entry: {
             romcal: join(__dirname, "./src/index.ts"),
