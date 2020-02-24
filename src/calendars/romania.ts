@@ -7,7 +7,7 @@ import { IRomcalDefaultConfig } from "../models/romcal-config";
 
 const defaultConfig: IRomcalDefaultConfig | undefined = undefined;
 
-const dates = (year: number): Array<IRomcalDateItem> => {
+const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
     const _dates: Array<IRomcalDateItem> = [
         {
             key: "saintsCyrilMonkAndMethodiusBishop",

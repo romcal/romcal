@@ -28,11 +28,11 @@ import dayjs from "dayjs";
 import { Calendar } from "../src";
 
 // eslint-disable-next-line quotes
-describe('Testing the "drop" functionality for national calendars', () => {
-    const testDates = Calendar.calendarFor({
+describe('Testing the "drop" functionality for national calendars', async () => {
+    const testDates = (await Calendar.calendarFor({
         country: "slovakia",
         year: 2020,
-    }) as Array<DateItem>;
+    })) as Array<DateItem>;
 
     it("A dropped celebration should not be appended in the final calendar", () => {
         const date = testDates.find(d => {

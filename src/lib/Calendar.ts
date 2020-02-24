@@ -107,14 +107,14 @@ function queryFor(
 // const t11 = queryFor(d1, { group: "psalterWeeks" });
 // const t12 = queryFor(d1, { group: "days" });
 
-function calendarFor<T extends undefined | null>(options?: T): DateItem[];
+function calendarFor<T extends undefined | null>(options?: T): Promise<DateItem[]>;
 function calendarFor<T extends IRomcalConfig | number>(
     options?: T,
 ): T extends number
-    ? DateItem[]
+    ? Promise<DateItem[]>
     : "query" extends keyof T
-    ? DateItem[] | Dictionary<DateItem[]> | Dictionary<DateItem[]>[]
-    : DateItem[];
+    ? Promise<DateItem[] | Dictionary<DateItem[]> | Dictionary<DateItem[]>[]>
+    : Promise<DateItem[]>;
 /**
  * Returns an array of liturgical dates based on the supplied options.
  *
@@ -129,7 +129,9 @@ function calendarFor<T extends IRomcalConfig | number>(
  *
  * @param options A configuration object or a year (integer)
  */
-function calendarFor(options?: IRomcalConfig | number): DateItem[] | Dictionary<DateItem[]> | Dictionary<DateItem[]>[] {
+async function calendarFor(
+    options?: IRomcalConfig | number,
+): Promise<DateItem[] | Dictionary<DateItem[]> | Dictionary<DateItem[]>[]> {
     let userConfig: IRomcalConfig = {};
 
     // If options is passed as an integer,
@@ -147,7 +149,7 @@ function calendarFor(options?: IRomcalConfig | number): DateItem[] | Dictionary<
     const config = new Config(userConfig);
 
     // Set the locale information
-    Locales.setLocale(config.locale);
+    await Locales.setLocale(config.locale);
 
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
     const calendar = new Calendar(config);
@@ -221,39 +223,39 @@ class Calendar {
         let nationalDates: Array<IRomcalDateItem> = [];
 
         // Get a collection of date items from all liturgical seasons of the given year
-        years.forEach(year => {
+        years.forEach(async year => {
             seasonDates = [
                 ...seasonDates,
-                ...Seasons.christmastide(
+                ...(await Seasons.christmastide(
                     year - 1,
                     christmastideEnds,
                     epiphanyOnJan6,
                     christmastideIncludesTheSeasonOfEpiphany,
-                ),
-                ...Seasons.earlyOrdinaryTime(year, christmastideEnds, epiphanyOnJan6),
-                ...Seasons.lent(year),
-                ...Seasons.eastertide(year),
-                ...Seasons.laterOrdinaryTime(year),
-                ...Seasons.advent(year),
-                ...Seasons.christmastide(
+                )),
+                ...(await Seasons.earlyOrdinaryTime(year, christmastideEnds, epiphanyOnJan6)),
+                ...(await Seasons.lent(year)),
+                ...(await Seasons.eastertide(year)),
+                ...(await Seasons.laterOrdinaryTime(year)),
+                ...(await Seasons.advent(year)),
+                ...(await Seasons.christmastide(
                     year,
                     christmastideEnds,
                     epiphanyOnJan6,
                     christmastideIncludesTheSeasonOfEpiphany,
-                ),
+                )),
             ];
 
             // Get the celebration dates based on the given year and options
             celebrationsDates = [
                 ...celebrationsDates,
-                ...Celebrations.dates(year, epiphanyOnJan6, corpusChristiOnThursday, ascensionOnSunday),
+                ...(await Celebrations.dates(year, epiphanyOnJan6, corpusChristiOnThursday, ascensionOnSunday)),
             ];
 
             // Get the general calendar based on the given year
-            generalDates = [...generalDates, ...Calendar._fetchCalendar("general", year)];
+            generalDates = [...generalDates, ...(await Calendar._fetchCalendar("general", year))];
 
             // Get the relevant national calendar object based on the given year and country
-            nationalDates = [...nationalDates, ...Calendar._fetchCalendar(country, year)];
+            nationalDates = [...nationalDates, ...(await Calendar._fetchCalendar(country, year))];
         });
 
         let calendarSources: Array<Array<IRomcalDateItem>> = [
@@ -465,9 +467,9 @@ class Calendar {
      * @param country The country to get
      * @param year the year to resolve
      */
-    static _fetchCalendar(country: TCountryTypes, year: number): Array<IRomcalDateItem> {
+    static async _fetchCalendar(country: TCountryTypes, year: number): Promise<Array<IRomcalDateItem>> {
         const countryCalendar = CountryCalendars[country];
-        return countryCalendar.dates(year);
+        return await countryCalendar.dates(year);
     }
 }
 
