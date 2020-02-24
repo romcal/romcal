@@ -37,11 +37,11 @@ describe("Testing calendar generation functions", () => {
         expect(result).toBeTruthy();
     });
 
-    describe("When calling the calendarFor() method without a query", async () => {
-        let nonLeapYearDates: DateItem[] = [];
-        let leapYearDates: DateItem[] = [];
+    describe("When calling the calendarFor() method without a query", () => {
+        let nonLeapYearDates: DateItem[];
+        let leapYearDates: DateItem[];
 
-        beforeAll(async () => {
+        beforeEach(async () => {
             nonLeapYearDates = await Calendar.calendarFor(2018);
             leapYearDates = await Calendar.calendarFor(2020);
         });
@@ -66,33 +66,36 @@ describe("Testing calendar generation functions", () => {
             const grouped: Dictionary<DateItem[]> = groupBy(leapYearDates, item => item.moment.valueOf());
             expect(Object.keys(grouped)).toHaveLength(366);
         });
-
-        afterEach(() => {
-            leapYearDates = [];
-            nonLeapYearDates = [];
-        });
     });
 
     describe("Testing calendar functions", () => {
-        describe("When requesting the liturgical year", async () => {
-            const year = dayjs.utc().year();
-            const start = Dates.firstSundayOfAdvent(year - 1);
-            const end = Dates.firstSundayOfAdvent(year).subtract(1, "day");
-            const calendar = await Calendar.calendarFor({
-                year: year,
-                type: "liturgical",
+        describe("When requesting the liturgical year", () => {
+            let year: number;
+            let start: dayjs.Dayjs;
+            let end: dayjs.Dayjs;
+            let calendar: DateItem[];
+
+            beforeEach(async () => {
+                year = dayjs.utc().year();
+                start = Dates.firstSundayOfAdvent(year - 1);
+                end = Dates.firstSundayOfAdvent(year).subtract(1, "day");
+                calendar = await Calendar.calendarFor({
+                    year: year,
+                    type: "liturgical",
+                });
             });
+
             test("Should start on the 1st Sunday of Advent and end on Christ the King", () => {
                 expect(calendar[0].moment.isSame(start)).toBeTrue();
                 expect(calendar[calendar.length - 1].moment.isSame(end)).toBeTrue();
             });
         });
 
-        describe("When requesting the calendar year", async () => {
-            const calendar = await Calendar.calendarFor();
-            const [firstDate] = calendar;
-            const [lastDate] = calendar.reverse();
-            test("Should start on Jan 1 and end on Dec 31", () => {
+        describe("When requesting the calendar year", () => {
+            test("Should start on Jan 1 and end on Dec 31", async () => {
+                const calendar = await Calendar.calendarFor();
+                const [firstDate] = calendar;
+                const [lastDate] = calendar.reverse();
                 expect(firstDate.moment.month()).toEqual(0);
                 expect(firstDate.moment.date()).toEqual(1);
                 expect(lastDate.moment.month()).toEqual(11);
@@ -201,13 +204,19 @@ describe("Testing calendar generation functions", () => {
             });
         });
 
-        describe("For filtering by titles", async () => {
-            Calendar.queryFor(await Calendar.calendarFor(), {
-                title: Titles.FEAST_OF_THE_LORD,
-            }).forEach((d: DateItem) => expect(d.data.meta.titles?.includes(Titles.FEAST_OF_THE_LORD)).toBeTruthy());
-            Calendar.queryFor(await Calendar.calendarFor(), { title: Titles.PATRON_OF_EUROPE }).forEach((d: DateItem) =>
-                expect(d.data.meta.titles?.includes(Titles.PATRON_OF_EUROPE)).toBeTruthy(),
-            );
+        describe("For filtering by titles", () => {
+            test("Should filter by title as expected when using queryFor()", async () => {
+                Calendar.queryFor(await Calendar.calendarFor(), {
+                    title: Titles.FEAST_OF_THE_LORD,
+                }).forEach((d: DateItem) =>
+                    expect(d.data.meta.titles?.includes(Titles.FEAST_OF_THE_LORD)).toBeTruthy(),
+                );
+            });
+            test("Should filter by title as expected when using calendarFor()", async () => {
+                Calendar.queryFor(await Calendar.calendarFor(), {
+                    title: Titles.PATRON_OF_EUROPE,
+                }).forEach((d: DateItem) => expect(d.data.meta.titles?.includes(Titles.PATRON_OF_EUROPE)).toBeTruthy());
+            });
         });
 
         describe("Testing advanced filters", () => {
