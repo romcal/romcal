@@ -14,7 +14,7 @@ import { TCountryTypes, isNil, isInteger, isObject, TRomcalQuery, Dictionary } f
 import { hasKey } from "../utils/object";
 import { DateItem, IRomcalDateItem, IRomcalDateItemData } from "../models/romcal-date-item";
 import { Types } from "../constants";
-import { find, removeWhere, groupByKey } from "../utils/array";
+import { find, removeWhere, groupByKey, concatAll } from "../utils/array";
 import { extractedTypeKeys } from "../constants/Types";
 
 dayjs.extend(isSameOrAfter);
@@ -154,7 +154,7 @@ async function calendarFor(
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
     const calendar = new Calendar(config);
     // Get a new collection of dates
-    const dates = calendar.fetch().values();
+    const dates = (await calendar.fetch()).values();
 
     // Determine if there's a query to execute. If none,
     // just return the array if DateItems to the caller
@@ -201,7 +201,7 @@ class Calendar {
     /**
      * Fetch calendars and date items that occur during a specific year (civil or liturgical).
      */
-    fetch(): Calendar {
+    async fetch(): Promise<Calendar> {
         const {
             ascensionOnSunday,
             christmastideEnds,
@@ -216,16 +216,9 @@ class Calendar {
         // Set the year range depending on the calendar type
         const years = type === "liturgical" ? [theYear - 1, theYear] : [theYear];
 
-        // Define all calendars
-        let seasonDates: Array<IRomcalDateItem> = [];
-        let celebrationsDates: Array<IRomcalDateItem> = [];
-        let generalDates: Array<IRomcalDateItem> = [];
-        let nationalDates: Array<IRomcalDateItem> = [];
-
         // Get a collection of date items from all liturgical seasons of the given year
-        years.forEach(async year => {
-            seasonDates = [
-                ...seasonDates,
+        const seasonDatesPromise = years.map(async year => {
+            return [
                 ...(await Seasons.christmastide(
                     year - 1,
                     christmastideEnds,
@@ -244,19 +237,26 @@ class Calendar {
                     christmastideIncludesTheSeasonOfEpiphany,
                 )),
             ];
-
-            // Get the celebration dates based on the given year and options
-            celebrationsDates = [
-                ...celebrationsDates,
-                ...(await Celebrations.dates(year, epiphanyOnJan6, corpusChristiOnThursday, ascensionOnSunday)),
-            ];
-
-            // Get the general calendar based on the given year
-            generalDates = [...generalDates, ...(await Calendar._fetchCalendar("general", year))];
-
-            // Get the relevant national calendar object based on the given year and country
-            nationalDates = [...nationalDates, ...(await Calendar._fetchCalendar(country, year))];
         });
+        const seasonDates = concatAll(await Promise.all(seasonDatesPromise));
+
+        // Get the celebration dates based on the given year and options
+        const celebrationsDatesPromise = years.map(async year => {
+            return [...(await Celebrations.dates(year, epiphanyOnJan6, corpusChristiOnThursday, ascensionOnSunday))];
+        });
+        const celebrationsDates = concatAll(await Promise.all(celebrationsDatesPromise));
+
+        // Get the general calendar based on the given year
+        const generalDatesPromise = years.map(async year => {
+            return [...(await Calendar._fetchCalendar("general", year))];
+        });
+        const generalDates: Array<IRomcalDateItem> = concatAll(await Promise.all(generalDatesPromise));
+
+        // Get the relevant national calendar object based on the given year and country
+        const nationalDatesPromise = years.map(async year => {
+            return [...(await Calendar._fetchCalendar(country, year))];
+        });
+        const nationalDates: Array<IRomcalDateItem> = concatAll(await Promise.all(nationalDatesPromise));
 
         let calendarSources: Array<Array<IRomcalDateItem>> = [
             seasonDates,
