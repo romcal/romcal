@@ -183,7 +183,7 @@ const getLocale = (): TRomcalLocale => {
  *
  * @param localizeParams Options for retrieving the localized key
  */
-const localize = async ({ key, count, week, day, useEnglishOrdinal }: TLocalizeParams): Promise<string> => {
+const localize = async ({ key, count, week, day, useDefaultOrdinalFn }: TLocalizeParams): Promise<string> => {
     // Get the IETF locale set in dayjs and obtain its corresponding locale data object
     const value = findDescendantValueByKeys(getLocale(), key.split("."));
 
@@ -192,10 +192,10 @@ const localize = async ({ key, count, week, day, useEnglishOrdinal }: TLocalizeP
         key,
         // If defined, pluralize a week and add it to the given template
         ...(typeof week === "number" && {
-            week: useEnglishOrdinal ? ordinal(week) : _currentLocaleData.ordinal?.(week),
+            week: useDefaultOrdinalFn ? ordinal(week) : _currentLocaleData.ordinal?.(week),
         }),
         ...(typeof count === "number" && {
-            count: useEnglishOrdinal ? ordinal(count) : _currentLocaleData.ordinal?.(count),
+            count: useDefaultOrdinalFn ? ordinal(count) : _currentLocaleData.ordinal?.(count),
         }),
         // If defined, add the day to be included in the translation
         ...(isString(day) && { day }),

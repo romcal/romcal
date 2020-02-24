@@ -65,50 +65,52 @@ const _epiphany = async (year: number, epiphanyOnJan6 = false): Promise<Array<IR
     const before: Array<dayjs.Dayjs> = Dates.daysBeforeEpiphany(year, epiphanyOnJan6);
     const after: Array<dayjs.Dayjs> = Dates.daysAfterEpiphany(year, epiphanyOnJan6);
 
-    const days: Array<IRomcalDateItem> = [];
-    before.forEach(async day => {
-        days.push({
+    const datesBeforePromise = before.map(async day => {
+        return {
             moment: day,
             type: Types.FERIA,
             name: await Locales.localize({
                 key: "epiphany.before",
                 day: day.format("dddd"),
-                useEnglishOrdinal: true,
+                useDefaultOrdinalFn: true,
             }),
             data: {
                 season: {
                     key: "CHRISTMASTIDE",
                     value: await Locales.localize({
                         key: "christmastide.season",
-                        useEnglishOrdinal: true,
+                        useDefaultOrdinalFn: true,
                     }),
                 },
             },
-        });
+        } as IRomcalDateItem;
     });
 
-    after.forEach(async day => {
-        days.push({
+    const datesAfterPromise = after.map(async day => {
+        return {
             moment: day,
             type: Types.FERIA,
             name: await Locales.localize({
                 key: "epiphany.after",
                 day: day.format("dddd"),
-                useEnglishOrdinal: true,
+                useDefaultOrdinalFn: true,
             }),
             data: {
                 season: {
                     key: "CHRISTMASTIDE",
                     value: await Locales.localize({
                         key: "christmastide.season",
-                        useEnglishOrdinal: true,
+                        useDefaultOrdinalFn: true,
                     }),
                 },
             },
-        });
+        } as IRomcalDateItem;
     });
 
-    return days;
+    const daysBefore = await Promise.all(datesBeforePromise);
+    const daysAfter = await Promise.all(datesAfterPromise);
+
+    return [...daysBefore, ...daysAfter];
 };
 
 /**
@@ -117,7 +119,6 @@ const _epiphany = async (year: number, epiphanyOnJan6 = false): Promise<Array<IR
  */
 const _holyWeek = async (year: number): Promise<Array<IRomcalDateItem>> => {
     const dates: dayjs.Dayjs[] = Dates.holyWeek(year);
-
     const datesPromise = dates.map(async date => {
         return {
             moment: date,
@@ -125,14 +126,14 @@ const _holyWeek = async (year: number): Promise<Array<IRomcalDateItem>> => {
             name: await Locales.localize({
                 key: "holyWeek.feria",
                 day: date.format("dddd"),
-                useEnglishOrdinal: true,
+                useDefaultOrdinalFn: true,
             }),
             data: {
                 season: {
                     key: "HOLY_WEEK",
                     value: await Locales.localize({
                         key: "holyWeek.season",
-                        useEnglishOrdinal: true,
+                        useDefaultOrdinalFn: true,
                     }),
                 },
                 meta: {
@@ -166,25 +167,22 @@ const _holyWeek = async (year: number): Promise<Array<IRomcalDateItem>> => {
  * @param year The year to use for the calculation
  */
 const advent = async (year: number): Promise<Array<IRomcalDateItem>> => {
-    let dateItemsWithoutKeyAndSource: Array<IRomcalDateItem> = [];
-    const daysOfAdvent: dayjs.Dayjs[] = Dates.daysOfAdvent(year);
-
-    daysOfAdvent.forEach(async (value, i) => {
-        dateItemsWithoutKeyAndSource.push({
+    const daysOfAdventPromise = Dates.daysOfAdvent(year).map(async (value, i) => {
+        return {
             moment: value,
             type: Locales.getTypeByDayOfWeek(value.day()),
             name: await Locales.localize({
                 key: value.day() === 0 ? "advent.sunday" : "advent.feria",
                 day: value.format("dddd"),
                 week: Math.floor(i / 7) + 1,
-                useEnglishOrdinal: true,
+                useDefaultOrdinalFn: true,
             }),
             data: {
                 season: {
                     key: "ADVENT",
                     value: await Locales.localize({
                         key: "advent.season",
-                        useEnglishOrdinal: true,
+                        useDefaultOrdinalFn: true,
                     }),
                 },
                 meta: {
@@ -193,8 +191,9 @@ const advent = async (year: number): Promise<Array<IRomcalDateItem>> => {
                         Math.floor(i / 7) === 2 && value.day() === 0 ? LiturgicalColors.ROSE : LiturgicalColors.PURPLE,
                 },
             },
-        });
+        } as IRomcalDateItem;
     });
+    let dateItemsWithoutKeyAndSource: Array<IRomcalDateItem> = await Promise.all(daysOfAdventPromise);
 
     // Sort dates according to their moment objects in ascending order
     dateItemsWithoutKeyAndSource = sortBy(dateItemsWithoutKeyAndSource, item => item.moment.valueOf());
@@ -254,52 +253,52 @@ const christmastide = async (
 
     let count = 0;
 
-    const daysOfChristmasTide: Array<IRomcalDateItem> = [];
-    datesOfChristmastide.forEach(async day => {
+    const datesOfChristmastidePromise = datesOfChristmastide.map(async day => {
         const dayOfWeek = day.day();
         count = dayOfWeek === 0 ? count + 1 : count;
-        daysOfChristmasTide.push({
+        return {
             moment: day,
             type: Locales.getTypeByDayOfWeek(dayOfWeek),
             name: await Locales.localize({
                 key: dayOfWeek === 0 ? "christmastide.sunday" : "christmastide.day",
                 day: day.format("dddd"),
                 count: count,
-                useEnglishOrdinal: true,
+                useDefaultOrdinalFn: true,
             }),
             data: {
                 season: {
                     key: "CHRISTMASTIDE",
                     value: await Locales.localize({
                         key: "christmastide.season",
-                        useEnglishOrdinal: true,
+                        useDefaultOrdinalFn: true,
                     }),
                 },
             },
-        });
+        } as IRomcalDateItem;
     });
+    const daysOfChristmasTide: Array<IRomcalDateItem> = await Promise.all(datesOfChristmastidePromise);
 
-    const daysInTheOctaveOfChristmas: Array<IRomcalDateItem> = [];
-    datesInTheOctaveOfChristmas.forEach(async (day, idx) => {
-        daysInTheOctaveOfChristmas.push({
+    const datesInTheOctaveOfChristmasPromise = datesInTheOctaveOfChristmas.map(async (day, idx) => {
+        return {
             moment: day,
             type: Locales.getTypeByDayOfWeek(day.day()),
             name: await Locales.localize({
                 key: "christmastide.octave",
                 count: idx + 1,
-                useEnglishOrdinal: true,
+                useDefaultOrdinalFn: true,
             }),
             data: {
                 season: {
                     key: "CHRISTMASTIDE",
                     value: await Locales.localize({
                         key: "christmastide.season",
-                        useEnglishOrdinal: true,
+                        useDefaultOrdinalFn: true,
                     }),
                 },
             },
-        });
+        } as IRomcalDateItem;
     });
+    const daysInTheOctaveOfChristmas: Array<IRomcalDateItem> = await Promise.all(datesInTheOctaveOfChristmasPromise);
 
     //==============================================================================
     // Override in order: solemnities, feasts, epiphany and octave of christmas
@@ -382,29 +381,30 @@ const earlyOrdinaryTime = async (
     christmastideEnds: TChristmastideEndings,
     epiphanyOnJan6 = false,
 ): Promise<Array<IRomcalDateItem>> => {
-    let days: Array<IRomcalDateItem> = [];
-
-    Dates.daysOfEarlyOrdinaryTime(year, christmastideEnds, epiphanyOnJan6).forEach(async (value, i) => {
-        days.push({
-            moment: value,
-            type: value.day() === 0 ? Types.SUNDAY : Types.FERIA,
-            name: await Locales.localize({
-                key: value.day() === 0 ? "ordinaryTime.sunday" : "ordinaryTime.feria",
-                day: value.format("dddd"),
-                week: value.day() === 0 ? Math.floor(i / 7) + 2 : Math.floor(i / 7) + 1,
-                useEnglishOrdinal: true,
-            }),
-            data: {
-                season: {
-                    key: "EARLY_ORDINARY_TIME",
-                    value: await Locales.localize({
-                        key: "ordinaryTime.season",
-                        useEnglishOrdinal: true,
-                    }),
+    const daysOfEarlyOrdinaryTimePromise = Dates.daysOfEarlyOrdinaryTime(year, christmastideEnds, epiphanyOnJan6).map(
+        async (value, i) => {
+            return {
+                moment: value,
+                type: value.day() === 0 ? Types.SUNDAY : Types.FERIA,
+                name: await Locales.localize({
+                    key: value.day() === 0 ? "ordinaryTime.sunday" : "ordinaryTime.feria",
+                    day: value.format("dddd"),
+                    week: value.day() === 0 ? Math.floor(i / 7) + 2 : Math.floor(i / 7) + 1,
+                    useDefaultOrdinalFn: true,
+                }),
+                data: {
+                    season: {
+                        key: "EARLY_ORDINARY_TIME",
+                        value: await Locales.localize({
+                            key: "ordinaryTime.season",
+                            useDefaultOrdinalFn: true,
+                        }),
+                    },
                 },
-            },
-        });
-    });
+            } as IRomcalDateItem;
+        },
+    );
+    let days: Array<IRomcalDateItem> = await Promise.all(daysOfEarlyOrdinaryTimePromise);
 
     // Sort dates according to moment
     days = sortBy(days, v => v.moment.valueOf());
@@ -458,36 +458,36 @@ const laterOrdinaryTime = async (year: number): Promise<Array<IRomcalDateItem>> 
     // Keep track of the first week in later ordinary time
     // for later use
     let firstWeekOfLaterOrdinaryTime = 0;
-    let days: Array<IRomcalDateItem> = [];
 
-    Dates.daysOfLaterOrdinaryTime(year)
+    const daysOfLaterOrdinaryTimePromise = Dates.daysOfLaterOrdinaryTime(year)
         .reverse()
-        .forEach(async (value, i) => {
+        .map(async (value, i) => {
             // Calculate the week of ordinary time
             // from the last sunday of the year (34th)
             const week = 34 - Math.floor(i / 7);
             firstWeekOfLaterOrdinaryTime = week;
 
-            days.push({
+            return {
                 moment: value,
                 type: value.day() === 0 ? Types.SUNDAY : Types.FERIA,
                 name: await Locales.localize({
                     key: value.day() === 0 ? "ordinaryTime.sunday" : "ordinaryTime.feria",
                     day: value.format("dddd"),
                     week: week,
-                    useEnglishOrdinal: true,
+                    useDefaultOrdinalFn: true,
                 }),
                 data: {
                     season: {
                         key: "LATER_ORDINARY_TIME",
                         value: await Locales.localize({
                             key: "ordinaryTime.season",
-                            useEnglishOrdinal: true,
+                            useDefaultOrdinalFn: true,
                         }),
                     },
                 },
-            });
+            } as IRomcalDateItem;
         });
+    let days: Array<IRomcalDateItem> = await Promise.all(daysOfLaterOrdinaryTimePromise);
 
     // Sort dates according to moment
     days = sortBy(days, v => v.moment.valueOf());
@@ -549,14 +549,14 @@ const lent = async (year: number): Promise<Array<IRomcalDateItem>> => {
                 key: i > 0 && i < 4 ? "lent.dayAfterAshWed" : "lent.feria",
                 day: value.format("dddd"),
                 week: Math.floor((i - 4) / 7) + 1,
-                useEnglishOrdinal: true,
+                useDefaultOrdinalFn: true,
             }),
             data: {
                 season: {
                     key: "LENT",
                     value: await Locales.localize({
                         key: "lent.season",
-                        useEnglishOrdinal: true,
+                        useDefaultOrdinalFn: true,
                     }),
                 },
             },
@@ -572,14 +572,14 @@ const lent = async (year: number): Promise<Array<IRomcalDateItem>> => {
                 key: "lent.sunday",
                 day: value.format("dddd"),
                 week: i + 1,
-                useEnglishOrdinal: true,
+                useDefaultOrdinalFn: true,
             }),
             data: {
                 season: {
                     key: "LENT",
                     value: await Locales.localize({
                         key: "lent.season",
-                        useEnglishOrdinal: true,
+                        useDefaultOrdinalFn: true,
                     }),
                 },
                 meta: {
@@ -657,51 +657,51 @@ const eastertide = async (year: number): Promise<Array<IRomcalDateItem>> => {
     const weekdaysOfEaster = Dates.daysOfEaster(year);
     const sundaysOfEaster = Dates.sundaysOfEaster(year);
 
-    const days: Array<IRomcalDateItem> = [];
-    weekdaysOfEaster.forEach(async (value, i) => {
-        days.push({
+    const weekdaysOfEasterPromise = weekdaysOfEaster.map(async (value, i) => {
+        return {
             moment: value,
             type: i > 0 && i < 7 ? Types.SOLEMNITY : Types.FERIA,
             name: await Locales.localize({
                 key: i > 0 && i < 7 ? "eastertide.octave" : "eastertide.feria",
                 day: value.format("dddd"),
                 week: Math.floor(i / 7) + 1,
-                useEnglishOrdinal: true,
+                useDefaultOrdinalFn: true,
             }),
             data: {
                 season: {
                     key: "EASTER",
                     value: await Locales.localize({
                         key: "eastertide.season",
-                        useEnglishOrdinal: true,
+                        useDefaultOrdinalFn: true,
                     }),
                 },
             },
-        });
+        } as IRomcalDateItem;
     });
+    const days: Array<IRomcalDateItem> = await Promise.all(weekdaysOfEasterPromise);
 
-    const sundays: Array<IRomcalDateItem> = [];
-    sundaysOfEaster.forEach(async (value, i) => {
-        sundays.push({
+    const sundaysOfEasterPromise = sundaysOfEaster.map(async (value, i) => {
+        return {
             moment: value,
             type: Types.SUNDAY,
             name: await Locales.localize({
                 key: "eastertide.sunday",
                 day: value.format("dddd"),
                 week: i + 1,
-                useEnglishOrdinal: true,
+                useDefaultOrdinalFn: true,
             }),
             data: {
                 season: {
                     key: "EASTER",
                     value: await Locales.localize({
                         key: "eastertide.season",
-                        useEnglishOrdinal: true,
+                        useDefaultOrdinalFn: true,
                     }),
                 },
             },
-        });
+        } as IRomcalDateItem;
     });
+    const sundays: Array<IRomcalDateItem> = await Promise.all(sundaysOfEasterPromise);
 
     let combinedDaysOfEaster: Array<IRomcalDateItem> = [];
 

@@ -157,10 +157,6 @@ export const getValueByKey = <T extends Record<string, any>, Key extends keyof T
     return obj[key];
 };
 
-export const getAll = <T, K extends keyof T>(ary: T[], key: K) => {
-
-};
-
 /**
  * Sort values in an object in ascending order
  * @param key The key to sort by
