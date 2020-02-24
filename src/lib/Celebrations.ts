@@ -7,12 +7,12 @@ import { IRomcalDateItem } from "../models/romcal-date-item";
 // epiphanyOnJan6: true|false [If true, Epiphany will be fixed to Jan 6] (defaults to false)
 // corpusChristiOnThursday: true|false|undefined (If true, Corpus Christi is set to Thursday) (defaults to false)
 // ascensionOnSunday: true|false|undefined (If true, Ascension is moved to the 7th Sunday of Easter) (defaults to false)
-const dates = (
+const dates = async (
     year: number,
     epiphanyOnJan6 = false,
     corpusChristiOnThursday = false,
     ascensionOnSunday = false,
-): Array<IRomcalDateItem> => {
+): Promise<Array<IRomcalDateItem>> => {
     const _dates: Array<IRomcalDateItem> = [
         // Solemnities
         {
@@ -222,7 +222,7 @@ const dates = (
                 prioritized: true,
                 season: {
                     key: "LENT",
-                    value: Locales.localize({
+                    value: await Locales.localize({
                         key: "lent.season",
                     }),
                 },
@@ -239,7 +239,7 @@ const dates = (
                 prioritized: true,
                 season: {
                     key: "HOLY_WEEK",
-                    value: Locales.localize({
+                    value: await Locales.localize({
                         key: "holyWeek.season",
                     }),
                 },
@@ -256,7 +256,7 @@ const dates = (
                 prioritized: true,
                 season: {
                     key: "HOLY_WEEK",
-                    value: Locales.localize({
+                    value: await Locales.localize({
                         key: "holyWeek.season",
                     }),
                 },
@@ -274,7 +274,7 @@ const dates = (
                 prioritized: true,
                 season: {
                     key: "HOLY_WEEK",
-                    value: Locales.localize({
+                    value: await Locales.localize({
                         key: "holyWeek.season",
                     }),
                 },
@@ -292,7 +292,7 @@ const dates = (
                 prioritized: true,
                 season: {
                     key: "HOLY_WEEK",
-                    value: Locales.localize({
+                    value: await Locales.localize({
                         key: "holyWeek.season",
                     }),
                 },
@@ -377,20 +377,22 @@ const dates = (
         },
     ];
 
-    return _dates.map(({ key, data, ...rest }) => {
-        return {
-            ...rest,
-            name: Locales.localize({ key: "celebrations." + key }),
-            key,
-            data: {
-                ...data,
-                meta: {
-                    ...data?.meta,
-                    titles: data?.meta?.titles ?? [],
+    return Promise.all(
+        _dates.map(async ({ key, data, ...rest }) => {
+            return {
+                ...rest,
+                name: await Locales.localize({ key: "celebrations." + key }),
+                key,
+                data: {
+                    ...data,
+                    meta: {
+                        ...data?.meta,
+                        titles: data?.meta?.titles ?? [],
+                    },
                 },
-            },
-        };
-    });
+            };
+        }),
+    );
 };
 
 export { dates };

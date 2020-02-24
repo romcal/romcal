@@ -5,7 +5,7 @@ module.exports = {
     },
     testRegex: "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
     moduleFileExtensions: ["ts", "tsx", "js", "json", "node"],
-    collectCoverage: true,
+    // collectCoverage: true,
     collectCoverageFrom: ["src/**/*.{ts,tsx}", "!src/**/*.test{ts,tsx}"],
     coveragePathIgnorePatterns: ["/node_modules/"],
     coverageThreshold: {

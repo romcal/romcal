@@ -1,4 +1,3 @@
-import { utc, ISO_8601 } from "moment";
 import * as CountryCalendars from "../calendars";
 import * as Locales from "../locales";
 import { ElementType } from "./helpers";
@@ -8,6 +7,10 @@ import { ValidationError } from "jsonschema";
 import { DateItem } from "../models/romcal-date-item";
 import { getDateItemSchemaValidator, getDateItemDataJsonSchema } from "../validators/date-item.validator";
 import { isNull } from "util";
+
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+dayjs.extend(utc);
 
 /**
  * Primitive types
@@ -71,7 +74,7 @@ export type TCountryTypes = ElementType<typeof countryKeys>;
 export const localeKeys = Object.keys(Locales) as Array<keyof typeof Locales>;
 export type TLocaleTypes = ElementType<typeof localeKeys>;
 
-export type TLocalizeParams = { key: string; day?: string; week?: number; count?: number };
+export type TLocalizeParams = { key: string; day?: string; week?: number; count?: number; useEnglishOrdinal?: boolean };
 
 /**
  * Check if the arbitary value given is an instance of [[IRomcalConfig]].
@@ -105,7 +108,7 @@ export const isRomcalDateItems = (maybeRomcalDateItems: unknown): maybeRomcalDat
  * Check if a value is a valid ISO8601 Date string.
  * @param value The value to test
  */
-export const isISODateString = (value: string): value is ISO8601DateString => utc(value, ISO_8601, true).isValid();
+export const isISODateString = (value: string): value is ISO8601DateString => dayjs.utc(value).isValid();
 
 /**
  * Check if a value is *NOT* `undefined`. This is useful to check if optional props is specified.

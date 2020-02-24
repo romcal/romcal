@@ -8,16 +8,18 @@ import { IRomcalDateItem } from "../models/romcal-date-item";
 import { isString } from "util";
 import { parse, Schema } from "bcp-47";
 
-// DayJS
+/**
+ * Load DayJS and relevant plugins
+ */
 import dayjs from "dayjs";
-
-// DayJS global configuration
 import updateLocale from "dayjs/plugin/updateLocale";
-import localeData from "dayjs/plugin/localeData";
 import advancedFormat from "dayjs/plugin/advancedFormat";
+import en from "dayjs/locale/en";
 
+/**
+ * Extend dayjs instance with plugins
+ */
 dayjs.extend(updateLocale);
-dayjs.extend(localeData);
 dayjs.extend(advancedFormat);
 
 /**
@@ -36,32 +38,60 @@ templateSettings.interpolate = /{{([\s\S]+?)}}/g;
  */
 export const _fallbackLocaleKey: TLocaleTypes = "en";
 
+const availableLocales: {
+    [key in TLocaleTypes]: TRomcalLocale;
+} = Locales;
+
 let _combinedLocale: TRomcalLocale | undefined;
-let _locales: Array<TRomcalLocale>;
-let _currentLocale = "en";
 
-const setLocale = (key: TLocaleTypes): void => {
-    const availableLocales: {
-        [key in TLocaleTypes]: TRomcalLocale;
-    } = Locales;
+/**
+ * Fetch the fallback locale object ("en") and store the en object in an array.
+ * This will serve as the default locale object if the given key cannot be resolved in [[Locales.setLocale]].
+ */
+let _locales: Array<TRomcalLocale> = [getValueByKey(availableLocales, _fallbackLocaleKey)];
 
+/**
+ * Set the default current locale data to "en".
+ * It can be changed later when the calendar is invoked via other methods.
+ */
+let _currentLocaleData: ILocale = en;
+
+/**
+ * Returns an ordinal number representation of the integer provided.
+ * @param value The number to process
+ */
+const ordinal = (value: number): string => {
+    const s = ["th", "st", "nd", "rd"];
+    const v = value % 100;
+    return `[${value}${s[(v - 20) % 10] || s[v] || s[0]}]`;
+};
+
+const setLocale = async (key: TLocaleTypes): Promise<void> => {
     // When setLocale() is called, it resets the combined locale cache
     _combinedLocale = undefined;
 
-    // First of all, fetch the fallback locale object ("en") and store the en object in an array
-    // This will serve as the default locale object if the given key cannot be resolved below
-    _locales = [getValueByKey(availableLocales, _fallbackLocaleKey)];
-
+    let currentLocale;
     try {
         const localeSchema: Schema = parse(key, {
             forgiving: true, // https://www.npmjs.com/package/bcp-47#optionsforgiving
         });
 
         const { region, language } = localeSchema;
-        // Use kebab-case in localName to follow IETF Language Codes standards
-        _currentLocale = `${language}${isString(region) && region.length > 0 ? `-${region.toUpperCase()}` : ""}`;
+
+        // Handle locales where language and region are not separated by a hyphen
+        if (!isNil(language) && language.length > 2 && isNil(region)) {
+            const parsedLanguage = language?.substr(0, 2);
+            const parsedRegion = language?.substr(2, 4);
+            currentLocale = `${parsedLanguage}${
+                isString(parsedRegion) && parsedRegion.length > 0 ? `-${parsedRegion}` : ""
+            }`;
+            console.debug(`normalized the locale ${currentLocale} from ${language}`);
+        } else {
+            currentLocale = `${language}${isString(region) && region.length > 0 ? `-${region}` : ""}`;
+        }
+
         // Set the locale
-        dayjs.locale(_currentLocale);
+        dayjs.locale(currentLocale);
         // Romcal locale
         const romcalLocale = `${language}${
             isString(region) && region.length > 0 ? `${region.toUpperCase()}` : ""
@@ -88,8 +118,21 @@ const setLocale = (key: TLocaleTypes): void => {
         }
     } catch (e) {
         console.warn(`The locale "${key} is not a valid IETF BCP-47 format. romcal will default to the "en" locale`);
-        _currentLocale = _fallbackLocaleKey;
-        dayjs.locale(_fallbackLocaleKey);
+        currentLocale = _fallbackLocaleKey;
+        dayjs.locale(currentLocale);
+    }
+
+    // Attempt to load the relevant dayjs locale configuration object
+    try {
+        _currentLocaleData = (await import(`dayjs/locale/${currentLocale}`)) as ILocale;
+    } catch (e) {
+        try {
+            const languageOnly = currentLocale.split("-")[0];
+            console.warn(`${currentLocale} is not a valid locale, trying to use ${languageOnly} instead`);
+            _currentLocaleData = (await import(`dayjs/locale/${languageOnly}`)) as ILocale;
+        } catch (e) {
+            console.warn(`Failed to load locale data for ${currentLocale}. romcal will default to "en" locale data`);
+        }
     }
 
     /**
@@ -98,20 +141,29 @@ const setLocale = (key: TLocaleTypes): void => {
      * In the US, Canada, and Japan, it's counted as the second day of the week (Sunday is the first day).
      * In Christian calendars, Sunday is always the first day of the week.
      * In other words, the romcal will use US, Canada definitions for the start of the week.
-     * https://github.com/moment/momentjs.com/issues/279#issuecomment-375611003
      */
-    dayjs.updateLocale(_currentLocale, {
+    dayjs.updateLocale(currentLocale, {
+        ..._currentLocaleData,
         week: {
             dow: 0, // US, Canada: 1st day of week is Sunday
             doy: 6, // US, Canada: 1st week of the year is the one that contains the 1st of January (7 + 0 - 1)
         },
+        ...(isNil(_currentLocaleData.ordinal) && {
+            // If the current locale's data doesn't have its own ordinal function, use this default ordinal function
+            ordinal,
+        }),
     });
+
+    console.debug(`romcal is now configured to use ${_currentLocaleData.name}`);
 };
 
-// Get the current locale object.
-// Return an object that combines the main locale with its fallback.
-// And use cache in case this function is called multiple times
-// without the locale being modified.
+/**
+ * Get the current locale object.
+ *
+ * Return an object that combines the main locale with its fallback.
+ * And use cache in case this function is called multiple times
+ * without the locale being modified.
+ */
 const getLocale = (): TRomcalLocale => {
     if (isNil(_combinedLocale)) {
         if (_locales.length > 1) {
@@ -131,18 +183,20 @@ const getLocale = (): TRomcalLocale => {
  *
  * @param localizeParams Options for retrieving the localized key
  */
-const localize = async ({ key, count, week, day }: TLocalizeParams): Promise<string> => {
-    // Get locale data
-    const currentLocaleData = await import(`dayjs/locale/${_currentLocale}`);
+const localize = async ({ key, count, week, day, useEnglishOrdinal }: TLocalizeParams): Promise<string> => {
+    // Get the IETF locale set in dayjs and obtain its corresponding locale data object
     const value = findDescendantValueByKeys(getLocale(), key.split("."));
 
     // Run the template against the options provided
     return template(value)({
         key,
         // If defined, pluralize a week and add it to the given template
-        ...(typeof week === "number" && { week: currentLocaleData.ordinal(week) }),
-        // If defined, count the nth day of the given series
-        ...(typeof count === "number" && { count: currentLocaleData.ordinal(count) }),
+        ...(typeof week === "number" && {
+            week: useEnglishOrdinal ? ordinal(week) : _currentLocaleData.ordinal?.(week),
+        }),
+        ...(typeof count === "number" && {
+            count: useEnglishOrdinal ? ordinal(count) : _currentLocaleData.ordinal?.(count),
+        }),
         // If defined, add the day to be included in the translation
         ...(isString(day) && { day }),
     });
