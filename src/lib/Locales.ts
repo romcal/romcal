@@ -1,4 +1,5 @@
-import { templateSettings, template } from "lodash";
+import template from "lodash-es/template";
+import templateSettings from "lodash-es/templateSettings";
 import { Types } from "../constants";
 import * as Locales from "../locales";
 import { findDescendantValueByKeys, hasKey, getValueByKey, mergeObjectsUniquely } from "../utils/object";
@@ -135,7 +136,12 @@ const setLocale = async (key: TLocaleTypes, customOrdinalFn: (v: number) => stri
         try {
             const languageOnly = currentLocale.split("-")[0];
             console.warn(`${currentLocale} is not a valid locale, trying to use ${languageOnly} instead`);
-            _currentLocaleData = (await import(`dayjs/locale/${languageOnly}`)) as ILocale;
+            _currentLocaleData = (await import(
+                /* webpackChunkName: "i18n/[request]" */
+                /* webpackMode: "lazy" */
+                /* webpackPreload: true */
+                `dayjs/locale/${languageOnly}`)
+            ) as ILocale;
             currentLocale = languageOnly;
         } catch (e) {
             console.warn(`Failed to load locale data for ${currentLocale}. romcal will default to "en" locale data`);

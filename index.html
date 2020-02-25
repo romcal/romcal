@@ -39,30 +39,34 @@
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"
         ></script>
+        <script src="dist/vendors~romcal.bundle.min.js"></script>
         <script src="dist/romcal.bundle.min.js"></script>
         <script>
             // If your locale is supported by romcal, it will use it, otherwise it will default to 'en'.
-            var currentLocale = navigator.language || navigator.userLanguage;
+            // var currentLocale = navigator.language || navigator.userLanguage;
+            var currentLocale = "fr";
             var currentYear = new Date().getFullYear();
 
             console.log("currentLocale", currentLocale);
 
-            var dates = Romcal.calendarFor({
+            Romcal.calendarFor({
                 locale: currentLocale.split("-").join(""),
                 year: currentYear,
+            }).then((dates) => {
+                var january = Romcal.queryFor(dates, {
+                    month: 0,
+                });
+
+                var sundays = Romcal.queryFor(dates, {
+                    day: 0,
+                });
+
+                console.log("dates", dates);
+                console.log("january", january);
+                console.log("sundays", sundays);
             });
 
-            var january = Romcal.queryFor(dates, {
-                month: 0,
-            });
 
-            var sundays = Romcal.queryFor(dates, {
-                day: 0,
-            });
-
-            console.log("dates", dates);
-            console.log("january", january);
-            console.log("sundays", sundays);
         </script>
     </body>
 </html>

@@ -22,7 +22,8 @@
     THE SOFTWARE.
 */
 
-import { groupBy, get } from "lodash";
+import groupBy from "lodash-es/groupBy";
+import get from "lodash-es/get";
 import dayjs from "dayjs";
 import { Calendar, Dates, Types, LiturgicalSeasons, PsalterWeeks, Titles, LiturgicalColors } from "..";
 import { Dictionary, isNil } from "../utils/type-guards";
