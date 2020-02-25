@@ -36,11 +36,11 @@ dayjs.extend(weekday);
 
 describe("Testing specific liturgical date functions", () => {
     describe("In Christian calendars, Sunday is the first day of the week", () => {
-        test("The Solemnity of Epiphany is a Sunday", () => {
-            Locales.setLocale("fr");
+        test("The Solemnity of Epiphany is a Sunday", async () => {
+            await Locales.setLocale("fr");
             const date1 = Dates.epiphany(1969);
             expect(date1.weekday()).toEqual(0);
-            Locales.setLocale("en");
+            await Locales.setLocale("en");
             const date2 = Dates.epiphany(1969);
             expect(date2.weekday()).toEqual(0);
         });

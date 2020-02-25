@@ -34,7 +34,7 @@ describe("Testing specific feasts and memorials", () => {
             const pentecostSunday = Dates.pentecostSunday(dayjs.utc().year());
             const maryMotherOfTheChurch = dates.find(d => d.key === "maryMotherOfTheChurch");
             const dayBeforeMaryMotherOfTheChurch = maryMotherOfTheChurch?.moment.subtract(1, "day");
-            expect(maryMotherOfTheChurch?.moment.day()).toEqual(0);
+            expect(maryMotherOfTheChurch?.moment.day()).toEqual(1);
             expect(dayBeforeMaryMotherOfTheChurch?.day()).toEqual(0);
             expect(dayBeforeMaryMotherOfTheChurch?.isSame(pentecostSunday)).toBeTruthy();
         });

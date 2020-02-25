@@ -3,7 +3,7 @@ import { Types, LiturgicalCycles } from "../constants";
 import { TLiturgicalColor } from "../constants/LiturgicalColors";
 import { TLiturgicalSeasonKeys } from "../constants/LiturgicalSeasons";
 import { TPsalterWeek } from "../constants/PsalterWeeks";
-import { ISO8601DateString, isNil } from "../utils/type-guards";
+import { ISO8601DateString, isNil, TDateItemSource } from "../utils/type-guards";
 import { Dates } from "../lib";
 import { TLiturgicalCycle } from "../constants/LiturgicalCycles";
 
@@ -54,7 +54,7 @@ export interface IRomcalDateItem {
     type?: Types;
     moment: dayjs.Dayjs;
     data?: IRomcalDateItemData;
-    source?: string;
+    source?: TDateItemSource;
     drop?: boolean;
 }
 
