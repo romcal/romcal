@@ -80,8 +80,7 @@
         "bcp-47": "^1.0.7",
         "dayjs": "^1.8.20",
         "jsonschema": "^1.2.5",
-        "lodash": "^4.17.15",
-        "moment": "^2.24.0"
+        "lodash": "^4.17.15"
     },
     "devDependencies": {
         "@types/bcp-47": "^1.0.0",
