@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // eslint-disable-next-line you-dont-need-lodash-underscore/map
-import { groupBy, map } from "lodash";
+import groupBy from "lodash-es/groupBy";
+import map from "lodash-es/map";
 import dayjs from "dayjs";
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
 import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
