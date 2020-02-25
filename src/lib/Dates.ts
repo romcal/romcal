@@ -191,14 +191,19 @@ const goodFriday = (year: number): dayjs.Dayjs =>
 // Epiphany & Christmastide
 //==================================================================================
 
-// EPIPHANY RUBRIC
-// Standard rule:
-// Epiphany is celebrated on the first Sunday after the first Saturday in January,
-// which means it could fall on any day from January 2 to January 8.
-// Traditional rule:
-// Epiphany is always celebrated on Jan 6
-// y: year
-// epiphanyOnJan6: true|false (activate traditional rule)
+/**
+ * EPIPHANY RUBRIC
+ *
+ * Standard rule:
+ * Epiphany is celebrated on the first Sunday after the first Saturday in January,
+ * which means it could fall on any day from January 2 to January 8.
+ *
+ * Traditional rule:
+ * Epiphany is always celebrated on Jan 6
+ *
+ * @param year The year to base the calculation upon
+ * @param epiphanyOnJan6 Activates the traditional rule when true (defaults to false)
+ */
 const epiphany = (year: number, epiphanyOnJan6 = false): dayjs.Dayjs => {
     // Get the first day of the year
     const firstDay = dayjs.utc(`${year}-1-1`);

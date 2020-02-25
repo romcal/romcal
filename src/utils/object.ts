@@ -3,6 +3,15 @@ import { includes } from "./array";
 import { isNil, isObject } from "./type-guards";
 
 /**
+ * Retrieves the value of the key in the given object
+ * @param obj The object to test
+ * @param key The key to look for
+ */
+export const getValueByKey = <T extends Record<string, any>, Key extends keyof T>(obj: T, key: Key): T[Key] => {
+    return obj[key];
+};
+
+/**
  * http://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html
  * [P in keyof T]:The key "P" is a property of the object "T"
  * T[P] extends Array<infer U>: Get the specified element from the array where the type of the element is inferred "U"
@@ -146,15 +155,6 @@ export const omit = <Original, Key extends keyof Original>(
     });
 
     return result;
-};
-
-/**
- * Retrieves the value of the key in the given object
- * @param obj The object to test
- * @param key The key to look for
- */
-export const getValueByKey = <T extends Record<string, any>, Key extends keyof T>(obj: T, key: Key): T[Key] => {
-    return obj[key];
 };
 
 /**

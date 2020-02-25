@@ -19,6 +19,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         },
         {
             key: "ashWednesday",
+            source: "celebrations", // Override the default lookup source
             type: Types.SUNDAY,
             moment: dayjs.utc(Dates.ashWednesday(year).toISOString()),
         },

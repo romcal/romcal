@@ -28,13 +28,17 @@ import dayjs from "dayjs";
 import { Calendar } from "../src";
 
 // eslint-disable-next-line quotes
-describe('Testing the "drop" functionality for national calendars', async () => {
-    const testDates = (await Calendar.calendarFor({
-        country: "slovakia",
-        year: 2020,
-    })) as Array<DateItem>;
+describe('Testing the "drop" functionality for national calendars', () => {
+    let testDates: DateItem[];
 
-    it("A dropped celebration should not be appended in the final calendar", () => {
+    beforeAll(async () => {
+        testDates = await Calendar.calendarFor({
+            country: "slovakia",
+            year: 2020,
+        });
+    });
+
+    test("A dropped celebration should not be appended in the final calendar", () => {
         const date = testDates.find(d => {
             return d.moment.isSame(dayjs.utc("2020-12-4"));
         });

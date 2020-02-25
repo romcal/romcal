@@ -97,11 +97,11 @@ describe("Testing date range functions", () => {
 
         test("The Saturday in the week after Ash Wednesday should be in the 1st week of Lent", async () => {
             const dates = await Seasons.lent(2017);
-            expect(dates[10].key?.toLowerCase()).toEqual("saturdayofthe1stweekoflent");
+            expect(dates[10].key).toEqual("saturdayOfThe1stWeekOfLent");
         });
 
         test("The 2nd Sunday of Lent should be in the 2nd week of Lent", async () => {
-            expect((await Seasons.lent(2017))[11].key?.toLowerCase()).toEqual("2ndsundayoflent");
+            expect((await Seasons.lent(2017))[11].key).toEqual("2ndSundayOfLent");
         });
     });
 
@@ -290,15 +290,18 @@ describe("Testing seasons utility functions", () => {
         });
 
         test("The liturgical color for Lent and Advent is purple, except for the 4th Sunday of Lent and 3rd Sunday of Advent, which is rose", async () => {
-            (await Seasons.lent(2015)).forEach(date => {
-                if (date.key?.toLowerCase() === "4thsundayoflent") {
+            const lentDates = await Seasons.lent(2015);
+            lentDates.forEach(date => {
+                if (date.key === "4thSundayOfLent") {
                     expect(date.data?.meta?.liturgicalColor).toEqual(LiturgicalColors.ROSE);
                 } else {
                     expect(date.data?.meta?.liturgicalColor).toEqual(LiturgicalColors.PURPLE);
                 }
             });
-            (await Seasons.advent(2015)).forEach(date => {
-                if (date.key?.toLowerCase() === "3rdsundayofadvent") {
+
+            const adventDates = await Seasons.advent(2015);
+            adventDates.forEach(date => {
+                if (date.key === "3rdSundayOfAdvent") {
                     expect(date.data?.meta?.liturgicalColor).toEqual(LiturgicalColors.ROSE);
                 } else {
                     expect(date.data?.meta?.liturgicalColor).toEqual(LiturgicalColors.PURPLE);
@@ -308,10 +311,10 @@ describe("Testing seasons utility functions", () => {
 
         test("The liturgical color for Christmastide and Eastertide is white", async () => {
             (await Seasons.christmastide(2015, "o", false)).forEach(date => {
-                expect(date.data?.meta?.liturgicalColor).toEqual(LiturgicalColors.WHITE);
+                expect(date.data?.meta?.liturgicalColor).toStrictEqual(LiturgicalColors.WHITE);
             });
             (await Seasons.eastertide(2015)).forEach(date => {
-                expect(date.data?.meta?.liturgicalColor).toEqual(LiturgicalColors.WHITE);
+                expect(date.data?.meta?.liturgicalColor).toStrictEqual(LiturgicalColors.WHITE);
             });
         });
     });
