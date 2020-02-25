@@ -377,22 +377,17 @@ const dates = async (
         },
     ];
 
-    return Promise.all(
-        _dates.map(async ({ key, data, ...rest }) => {
-            return {
-                ...rest,
-                name: await Locales.localize({ key: "celebrations." + key }),
-                key,
-                data: {
-                    ...data,
-                    meta: {
-                        ...data?.meta,
-                        titles: data?.meta?.titles ?? [],
-                    },
-                },
-            };
-        }),
-    );
+    const localizedCelebrationDates = await Locales.localizeDates(_dates, "celebrations");
+    return localizedCelebrationDates.map(date => ({
+        ...date,
+        data: {
+            ...date.data,
+            meta: {
+                ...date.data?.meta,
+                titles: date.data?.meta?.titles ?? [],
+            },
+        },
+    }));
 };
 
 export { dates };

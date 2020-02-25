@@ -3,7 +3,7 @@ import { Types } from "../constants";
 import * as Locales from "../locales";
 import { findDescendantValueByKeys, hasKey, getValueByKey, mergeObjectsUniquely } from "../utils/object";
 import { TRomcalLocale } from "../models/romcal-locale";
-import { isNil, TLocaleTypes, TLocalizeParams } from "../utils/type-guards";
+import { isNil, TLocaleTypes, TLocalizeParams, TDateItemSource } from "../utils/type-guards";
 import { IRomcalDateItem } from "../models/romcal-date-item";
 import { isString } from "util";
 import { parse, Schema } from "bcp-47";
@@ -48,7 +48,7 @@ let _combinedLocale: TRomcalLocale | undefined;
  * Fetch the fallback locale object ("en") and store the en object in an array.
  * This will serve as the default locale object if the given key cannot be resolved in [[Locales.setLocale]].
  */
-let _locales: Array<TRomcalLocale> = [getValueByKey(availableLocales, _fallbackLocaleKey)];
+let _locales: Array<TRomcalLocale> = [availableLocales["en"]];
 
 /**
  * Set the default current locale data to "en".
@@ -58,17 +58,26 @@ let _currentLocaleData: ILocale = en;
 
 /**
  * Returns an ordinal number representation of the integer provided.
+ *
+ * Ordinal numbers look like this: 1st, 2nd, 3rd, 4th, ..., 10th and so on.
+ *
  * @param value The number to process
  */
-const ordinal = (value: number): string => {
+export const ordinal = (value: number): string => {
     const s = ["th", "st", "nd", "rd"];
     const v = value % 100;
-    return `[${value}${s[(v - 20) % 10] || s[v] || s[0]}]`;
+    return `${value}${s[(v - 20) % 10] || s[v] || s[0]}`;
 };
 
-const setLocale = async (key: TLocaleTypes): Promise<void> => {
-    // When setLocale() is called, it resets the combined locale cache
+/**
+ * Sets the global locale for DayJS to be used for date operations throughout the library.
+ * @param key The language key to use
+ * @param customOrdinalFn An optional custom function to use for generating ordinal number values (defaults [[Locales.ordinal]] if not set)
+ */
+const setLocale = async (key: TLocaleTypes, customOrdinalFn: (v: number) => string = ordinal): Promise<void> => {
+    // When setLocale() is called, all cache values are purged
     _combinedLocale = undefined;
+    _locales = [getValueByKey(availableLocales, _fallbackLocaleKey)];
 
     let currentLocale;
     try {
@@ -90,9 +99,7 @@ const setLocale = async (key: TLocaleTypes): Promise<void> => {
             currentLocale = `${language}${isString(region) && region.length > 0 ? `-${region}` : ""}`;
         }
 
-        // Set the locale
-        dayjs.locale(currentLocale);
-        // Romcal locale
+        // Romcal friendly locale string
         const romcalLocale = `${language}${
             isString(region) && region.length > 0 ? `${region.toUpperCase()}` : ""
         }` as TLocaleTypes;
@@ -119,7 +126,6 @@ const setLocale = async (key: TLocaleTypes): Promise<void> => {
     } catch (e) {
         console.warn(`The locale "${key} is not a valid IETF BCP-47 format. romcal will default to the "en" locale`);
         currentLocale = _fallbackLocaleKey;
-        dayjs.locale(currentLocale);
     }
 
     // Attempt to load the relevant dayjs locale configuration object
@@ -130,9 +136,14 @@ const setLocale = async (key: TLocaleTypes): Promise<void> => {
             const languageOnly = currentLocale.split("-")[0];
             console.warn(`${currentLocale} is not a valid locale, trying to use ${languageOnly} instead`);
             _currentLocaleData = (await import(`dayjs/locale/${languageOnly}`)) as ILocale;
+            currentLocale = languageOnly;
         } catch (e) {
             console.warn(`Failed to load locale data for ${currentLocale}. romcal will default to "en" locale data`);
+            currentLocale = "en";
         }
+    } finally {
+        // Set the locale
+        dayjs.locale(currentLocale);
     }
 
     /**
@@ -143,18 +154,17 @@ const setLocale = async (key: TLocaleTypes): Promise<void> => {
      * In other words, the romcal will use US, Canada definitions for the start of the week.
      */
     dayjs.updateLocale(currentLocale, {
-        ..._currentLocaleData,
         week: {
             dow: 0, // US, Canada: 1st day of week is Sunday
             doy: 6, // US, Canada: 1st week of the year is the one that contains the 1st of January (7 + 0 - 1)
         },
         ...(isNil(_currentLocaleData.ordinal) && {
             // If the current locale's data doesn't have its own ordinal function, use this default ordinal function
-            ordinal,
+            customOrdinalFn,
         }),
     });
 
-    console.debug(`romcal is now configured to use ${_currentLocaleData.name}`);
+    console.debug(`romcal is now configured to use ${currentLocale}`);
 };
 
 /**
@@ -192,10 +202,11 @@ const localize = async ({ key, count, week, day, useDefaultOrdinalFn }: TLocaliz
         key,
         // If defined, pluralize a week and add it to the given template
         ...(typeof week === "number" && {
-            week: useDefaultOrdinalFn ? ordinal(week) : _currentLocaleData.ordinal?.(week),
+            week: useDefaultOrdinalFn === true ? ordinal(week) : _currentLocaleData.ordinal?.(week) ?? ordinal(week),
         }),
         ...(typeof count === "number" && {
-            count: useDefaultOrdinalFn ? ordinal(count) : _currentLocaleData.ordinal?.(count),
+            count:
+                useDefaultOrdinalFn === true ? ordinal(count) : _currentLocaleData.ordinal?.(count) ?? ordinal(count),
         }),
         // If defined, add the day to be included in the translation
         ...(isString(day) && { day }),
@@ -204,25 +215,32 @@ const localize = async ({ key, count, week, day, useDefaultOrdinalFn }: TLocaliz
 
 /**
  * Utility function that takes an array of national calendar dates
- * and adds a localized name based on the key
+ * and adds a localized name based on the key.
+ *
+ * Allows the specification of a source where when defined, points the localization logic
+ * to a specific sub-tree within the locale file to obtain localized values from.
+ *
+ * If the source is `custom`, the logic will only use the key for the lookup.
+ *
  * @param dates A list of [[IRomcalDateItem]]s to process
- * @param source
+ * @param source The source of the date to localize. This value is used to lookup a specific sub tree in the locale file for the localized value.
  */
-const localizeDates = (dates: Array<IRomcalDateItem>, source = "sanctoral"): Promise<IRomcalDateItem[]> => {
-    return Promise.all(
-        dates.map(async (date: IRomcalDateItem) => {
-            if (!hasKey(date, "drop")) {
-                const name = await localize({
-                    key: `${source}.${date.key}`,
-                });
-                return {
-                    ...date,
-                    name,
-                } as IRomcalDateItem;
-            }
-            return date;
-        }),
-    );
+const localizeDates = async (
+    dates: Array<IRomcalDateItem>,
+    source: TDateItemSource = "sanctoral",
+): Promise<IRomcalDateItem[]> => {
+    const promiseDates: Promise<IRomcalDateItem>[] = dates.map(async (date: IRomcalDateItem) => {
+        const dateWithLocalizedName = {
+            ...date,
+            name: await localize({
+                // If the source is custom, do not append anything before the date key
+                // If the
+                key: `${source === "custom" ? date.key : !isNil(date.source) ? date.source : source}.${date.key}`,
+            }),
+        } as IRomcalDateItem;
+        return dateWithLocalizedName;
+    });
+    return await Promise.all(promiseDates);
 };
 
 /**

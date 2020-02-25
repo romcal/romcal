@@ -291,6 +291,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         // Replaces 20th Sunday in Ordinary Time when it falls on a Sunday.
         {
             key: "peterAndPaulApostles",
+            source: "celebrations", // Override the default lookup source
             type: Types.SOLEMNITY,
             moment: ((y: number): dayjs.Dayjs => {
                 const date = dayjs.utc(`${y}-6-29`);
@@ -314,6 +315,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         // Replaces 20th Sunday in Ordinary Time when it falls on a Sunday.
         {
             key: "assumption",
+            source: "celebrations",
             type: Types.SOLEMNITY,
             moment: ((y: number): dayjs.Dayjs => {
                 const date = dayjs.utc(`${y}-8-15`);
@@ -384,6 +386,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         // on a Sunday it replaces the Sunday.
         {
             key: "allSaints",
+            source: "celebrations", // Override the default locale lookup
             type: Types.SOLEMNITY,
             moment: ((y: number): dayjs.Dayjs => {
                 const date = dayjs.utc(`${y}-11-1`);

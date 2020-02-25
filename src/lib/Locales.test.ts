@@ -39,10 +39,12 @@ describe("Testing localization functionality", () => {
         ).toBe("Saints John de Brébeuf, Isaac Jogues, Priests, and Companions, Martyrs, Secondary Patrons of Canada");
     });
 
-    test("If the locale is set with an unknown region, romcal should fallback to its base language when exists in src/locales", async () => {
+    test("If the locale is set with an unknown region, romcal should fallback to the base language if it exists in src/locales", async () => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         await Locales.setLocale("fr-XX" as any);
-        expect(await Locales.localize({ key: "celebrations.allSaints" })).toBe("Tous les Saints");
+        const localizedText = await Locales.localize({ key: "celebrations.allSaints" });
+        console.log("localizedText", localizedText);
+        expect(localizedText).toBe("Tous les Saints");
     });
 
     test("If a string is missing in the 'fr-CA' locale, romcal should fall back to base French", async () => {

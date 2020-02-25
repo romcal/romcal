@@ -124,8 +124,8 @@ describe("Testing calendar generation functions", () => {
         });
 
         describe("For filtering by groups", () => {
-            test("Should group dates by days in a week", () => {
-                const calendar = Calendar.calendarFor({
+            test("Should group dates by days in a week", async () => {
+                const calendar = await Calendar.calendarFor({
                     query: { group: "days" },
                 });
                 expect(Object.keys(calendar)).toEqual(["0", "1", "2", "3", "4", "5", "6"]);

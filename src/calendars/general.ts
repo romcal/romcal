@@ -1078,6 +1078,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         },
         {
             key: "theExaltationOfTheHolyCross",
+            source: "celebrations", // Override the default lookup source
             type: Types.FEAST,
             moment: dayjs.utc(`${year}-9-14`),
             data: {
