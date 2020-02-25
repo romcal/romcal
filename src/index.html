@@ -3,10 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <title>Romcal - Test</title>
-
+        <title><%= htmlWebpackPlugin.options.title %></title>
         <link
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
             rel="stylesheet"
@@ -23,12 +20,6 @@
     <body>
         <h1>Romcal</h1>
         <code>Open your console to view calendar output</code>
-
-        <!--
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.min.js" integrity="sha256-YFhaeQSVBgAFNN5z4I9YRB2jCuqc2nvypz0Q2eQzcx8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment-with-locales.min.js" integrity="sha256-XWrGUqSiENmD8bL+BVeLl7iCfhs+pkPyIqrZQcS2Te8=" crossorigin="anonymous"></script>
-    -->
-
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -39,8 +30,6 @@
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"
         ></script>
-        <script src="dist/vendors~romcal.bundle.min.js"></script>
-        <script src="dist/romcal.bundle.min.js"></script>
         <script>
             // If your locale is supported by romcal, it will use it, otherwise it will default to 'en'.
             // var currentLocale = navigator.language || navigator.userLanguage;
@@ -65,8 +54,6 @@
                 console.log("january", january);
                 console.log("sundays", sundays);
             });
-
-
         </script>
     </body>
 </html>

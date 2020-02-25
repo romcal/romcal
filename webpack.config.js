@@ -1,6 +1,7 @@
 const { join } = require("path");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = (env, { mode }) => [
     {
@@ -15,7 +16,7 @@ module.exports = (env, { mode }) => [
             chunkFilename: "[name].bundle.min.js",
             path: join(__dirname, "dist"),
             library: "Romcal",
-            libraryTarget: "umd"
+            libraryTarget: "umd",
         },
 
         resolve: {
@@ -35,6 +36,10 @@ module.exports = (env, { mode }) => [
                     },
                     exclude: [/node_modules/, "/src/**/*.test.ts"],
                 },
+                {
+                    test: /\.html$/,
+                    loader: 'html-loader'
+                }
             ],
         },
 
@@ -48,6 +53,15 @@ module.exports = (env, { mode }) => [
         plugins: [
             // Clean the dist folder
             new CleanWebpackPlugin(),
+            // Generate test HTML page
+            new HtmlWebpackPlugin({
+                title: 'romcal - Test Page',
+                template: 'src/index.html',
+                meta: {
+                    'viewport': 'width=device-width, initial-scale=1, shrink-to-fit=no',
+
+                }
+            }),
             // Find out where the bloat is
             new BundleAnalyzerPlugin({
                 analyzerMode: "disabled",
