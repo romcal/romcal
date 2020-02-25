@@ -1,4 +1,8 @@
-import { sortBy, camelCase, uniqBy, union, take } from "lodash";
+import sortBy from "lodash-es/sortBy";
+import camelCase from "lodash-es/camelCase";
+import uniqBy from "lodash-es/uniqBy";
+import union from "lodash-es/union";
+import take from "lodash-es/take";
 
 import * as Dates from "./Dates";
 import * as Locales from "./Locales";

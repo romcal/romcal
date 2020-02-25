@@ -1,8 +1,11 @@
 module.exports = {
     transform: {
-        ".(ts|tsx)": "ts-jest",
+        "^.+\\.(j|t)sx?$": "ts-jest",
         ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub",
     },
+    transformIgnorePatterns: [
+        "<rootDir>/node_modules/(?!lodash-es/.*)"
+    ],
     testRegex: "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
     moduleFileExtensions: ["ts", "tsx", "js", "json", "node"],
     // collectCoverage: true,

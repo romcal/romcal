@@ -1,4 +1,6 @@
 const { join } = require("path");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = (env, { mode }) => [
     {
@@ -10,9 +12,10 @@ module.exports = (env, { mode }) => [
 
         output: {
             filename: "[name].bundle.min.js",
+            chunkFilename: "[name].bundle.min.js",
             path: join(__dirname, "dist"),
             library: "Romcal",
-            libraryTarget: "umd",
+            libraryTarget: "umd"
         },
 
         resolve: {
@@ -34,6 +37,24 @@ module.exports = (env, { mode }) => [
                 },
             ],
         },
+
+        optimization: {
+            splitChunks: {
+                chunks: "all",
+                name: true,
+            }
+        },
+
+        plugins: [
+            // Clean the dist folder
+            new CleanWebpackPlugin(),
+            // Find out where the bloat is
+            new BundleAnalyzerPlugin({
+                analyzerMode: "disabled",
+                generateStatsFile: true,
+                source: false,
+            })
+        ],
 
         // When importing a module whose path matches one of the following, just
         // assume a corresponding global variable exists and use that instead.
