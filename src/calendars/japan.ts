@@ -12,7 +12,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintPaulMikiAndCompanionsMartyrs",
             type: Types.FEAST,
-            moment: dayjs.utc(`${year}-2-6`),
+            date: dayjs.utc(`${year}-2-6`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -23,12 +23,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "discoveryOfTheHiddenChristians",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-3-17`),
+            date: dayjs.utc(`${year}-3-17`),
         },
         {
             key: "blessedPeterKibePriestAndCompanionsMartyrs",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-7-1`),
+            date: dayjs.utc(`${year}-7-1`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -39,7 +39,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "205BlessedMartyrsOfJapan",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-9-10`),
+            date: dayjs.utc(`${year}-9-10`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -49,7 +49,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintThomasRokuzayemonPriestAndCompanionsMartyrs",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-9-28`),
+            date: dayjs.utc(`${year}-9-28`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -59,7 +59,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintFrancisXavierPriest",
             type: Types.FEAST,
-            moment: dayjs.utc(`${year}-12-3`),
+            date: dayjs.utc(`${year}-12-3`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,

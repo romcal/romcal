@@ -12,7 +12,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "maryMotherOfTheChurch",
             type: Types.OPT_MEMORIAL,
-            moment: ((y: number): dayjs.Dayjs => Dates.pentecostSunday(y).add(1, "day"))(year),
+            date: ((y: number): dayjs.Dayjs => Dates.pentecostSunday(y).add(1, "day"))(year),
             data: {
                 prioritized: true,
             },
@@ -21,7 +21,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
             key: "ashWednesday",
             source: "celebrations", // Override the default lookup source
             type: Types.SUNDAY,
-            moment: dayjs.utc(Dates.ashWednesday(year).toISOString()),
+            date: dayjs.utc(Dates.ashWednesday(year).toISOString()),
         },
         // Test priority where saintLukeTheEvangelist is defined
         // in the "test" country as a commemoration instead of its
@@ -29,7 +29,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintLukeTheEvangelist",
             type: Types.COMMEMORATION,
-            moment: dayjs.utc(`${year}-10-18`),
+            date: dayjs.utc(`${year}-10-18`),
             data: {
                 prioritized: true,
             },
@@ -37,7 +37,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "aSampleCelebration1",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-11-9`),
+            date: dayjs.utc(`${year}-11-9`),
             data: {
                 prioritized: true,
             },
@@ -45,7 +45,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "aSampleCelebration2",
             type: Types.SOLEMNITY,
-            moment: dayjs.utc(`${year}-12-25`),
+            date: dayjs.utc(`${year}-12-25`),
             data: {
                 prioritized: true,
             },

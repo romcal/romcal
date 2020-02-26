@@ -12,7 +12,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintBridgetOfSwedenReligious",
             type: Types.FEAST,
-            moment: dayjs.utc(`${year}-7-23`),
+            date: dayjs.utc(`${year}-7-23`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -22,7 +22,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "ourLordJesusChristTheEternalHighPriest",
             type: Types.FEAST,
-            moment: ((y: number): dayjs.Dayjs =>
+            date: ((y: number): dayjs.Dayjs =>
                 dayjs.utc(
                     Dates.pentecostSunday(y)
                         .add(4, "day")

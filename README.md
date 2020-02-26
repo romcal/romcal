@@ -116,7 +116,7 @@ Additional credits for bug fixes, localizations and suggestions can be seen at [
 -   National liturgical calendars for country specific calendars.
 -   Richly commented code to help developers and contributors understand how the module works.
 
-NOTE: This module uses [Moment.js](http://momentjs.com/) and [Lodash](http://lodash.com/) for calculations and operations.
+NOTE: This module uses [Lodash](http://lodash.com/) for calculations and operations.
 
 ## Module Robustness & Data Integrity <a name="disclaimer"></a>
 
@@ -275,7 +275,6 @@ romcal returns an array of liturgical date objects in the following structure
         key: "",
         name: "",
         type: "",
-        moment: "",
         date: "",
         source: "",
         data: {
@@ -293,8 +292,7 @@ romcal returns an array of liturgical date objects in the following structure
 -   `key`: A camel case string which serves as a unique identifier for the celebration. This key is an essential element in [overriding dates](#overriding)
 -   `name`: The [localizable name](#localizing) of the celebration
 -   `type`: A key representing the [celebration type](#types)
--   `moment`: Moment.js object of the date of the celebration
--   `date`: Date of the celebration, converted to ISO8601 string
+-   `date`: Date of the celebration as a ISO8601 string
 -   `source`: The internal calendar [source](#sources) of this celebration
 -   `data`: An object that holds additional information about the celebration
     -   prioritized: A optional boolean that when true, gives the celebration higher priority over another coinciding celebration even though that celebration has a higher ranking type. This flag should be used with caution.
@@ -688,7 +686,7 @@ For example, `allSaints` in `src/lib/Celebrations.js` can be overriden by `allSa
 
 In most countries, All Saints and All Souls are always celebrated on the 1st and 2nd of November respectively. However, in England and Wales, if All Saints (1 November) falls on a Saturday, it is transferred to the Sunday and All Souls is transferred to Monday 3rd Novemeber.
 
-romcal implements this unique difference by overriding the `allSouls` and `allSaints` celebrations in the national calendars of `src/calendars/england.js` and `src/calendars/wales.js` (the original definition was in `src/calendars/general.js`). The overriding dates in these calendars define a IIFE callback function for the Moment property that holds logic for determining if the date should be moved.
+romcal implements this unique difference by overriding the `allSouls` and `allSaints` celebrations in the national calendars of `src/calendars/england.js` and `src/calendars/wales.js` (the original definition was in `src/calendars/general.js`). The overriding dates in these calendars define a IIFE callback function for the `date` property that holds logic for determining if the date should be moved.
 
 Since national calendar dates have higher precendence than general calendar dates, the national date definitions for All Saints and All Souls will override the ones in the general calendar.
 
@@ -717,16 +715,16 @@ Usually, this means excluding a celebration defined in `src/calendars/general.js
 ```javascript
 {
   key: "",
-  moment: moment.utc(),
+  date: dayjs.utc(),
   drop: true
 }
 ```
 
-> When defining `drop`, only the `key` and `moment` properties of the celebration are mandatory. Other keys do not have to be defined. `drop` operations also have higher precedence than overriding (meaning, they are run first before prioritization logic).
+> When defining `drop`, only the `key` and `date` properties of the celebration are mandatory. Other keys do not have to be defined. `drop` operations also have higher precedence than overriding (meaning, they are run first before prioritization logic).
 
 ## Localizing celebration names <a name="localization"></a>
 
-Celebration names in romcal can be localized to any language that is already supported by [Moment i18n](http://momentjs.com/docs/#/i18n/).
+Celebration names in romcal can be localized to any language that is already supported by [DayJS i18n](https://day.js.org/docs/en/i18n/i18n).
 
 Locales are stored as `.js` files in the `src/locales` directory.
 

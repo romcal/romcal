@@ -23,9 +23,12 @@
 */
 
 import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
 
 import { Dates, Types, Calendar } from "../src";
 import { DateItem } from "../src/models/romcal-date-item";
+
+dayjs.extend(utc);
 
 describe("Testing specific feasts and memorials", () => {
     describe("The memorial of the Blessed Virgin Mary, Mother of the Church", () => {
@@ -33,8 +36,8 @@ describe("Testing specific feasts and memorials", () => {
             const dates = await Calendar.calendarFor(); // Get the calendar for the current year
             const pentecostSunday = Dates.pentecostSunday(dayjs.utc().year());
             const maryMotherOfTheChurch = dates.find(d => d.key === "maryMotherOfTheChurch");
-            const dayBeforeMaryMotherOfTheChurch = maryMotherOfTheChurch?.moment.subtract(1, "day");
-            expect(maryMotherOfTheChurch?.moment.day()).toEqual(1);
+            const dayBeforeMaryMotherOfTheChurch = dayjs.utc(maryMotherOfTheChurch?.date).subtract(1, "day");
+            expect(dayjs.utc(maryMotherOfTheChurch?.date).day()).toEqual(1);
             expect(dayBeforeMaryMotherOfTheChurch?.day()).toEqual(0);
             expect(dayBeforeMaryMotherOfTheChurch?.isSame(pentecostSunday)).toBeTruthy();
         });
@@ -59,8 +62,8 @@ describe("Testing specific feasts and memorials", () => {
             const saintMaryMagdalene = dates.find(d => {
                 return d.key === "saintMaryMagdalene";
             });
-            expect(saintMaryMagdalene?.moment.date()).toEqual(22);
-            expect(saintMaryMagdalene?.moment.month()).toEqual(6);
+            expect(dayjs.utc(saintMaryMagdalene?.date).date()).toEqual(22);
+            expect(dayjs.utc(saintMaryMagdalene?.date).month()).toEqual(6);
             expect(saintMaryMagdalene?.type).toEqual(Types.FEAST);
         });
     });
@@ -85,8 +88,8 @@ describe("Testing specific feasts and memorials", () => {
             const theExaltationOfTheHolyCross = dates.find(d => {
                 return d.key === "theExaltationOfTheHolyCross";
             });
-            expect(theExaltationOfTheHolyCross?.moment.date()).toEqual(14);
-            expect(theExaltationOfTheHolyCross?.moment.month()).toEqual(8);
+            expect(dayjs.utc(theExaltationOfTheHolyCross?.date).date()).toEqual(14);
+            expect(dayjs.utc(theExaltationOfTheHolyCross?.date).month()).toEqual(8);
         });
     });
 });
