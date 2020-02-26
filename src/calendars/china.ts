@@ -12,77 +12,77 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "blessedOdoricOfPordenonePriest",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-1-14`),
+            date: dayjs.utc(`${year}-1-14`),
         },
         {
             key: "saintFrancisFernandezDeCapillasPriestAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-1-15`),
+            date: dayjs.utc(`${year}-1-15`),
         },
         {
             key: "saintLawrenceBaiXiaomanMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-1-23`),
+            date: dayjs.utc(`${year}-1-23`),
         },
         {
             key: "saintAugustineZhaoRongPriestAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-1-27`),
+            date: dayjs.utc(`${year}-1-27`),
         },
         {
             key: "saintLaurenceWangBingAndCompanionsMartyrSaintJosephFreinademetzPriest",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-1-29`),
+            date: dayjs.utc(`${year}-1-29`),
         },
         {
             key: "saintJohnOfTrioraPriestAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-2-13`),
+            date: dayjs.utc(`${year}-2-13`),
         },
         {
             key: "saintMartinWuXueshengAndCompanionsMartyrs",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-2-17`),
+            date: dayjs.utc(`${year}-2-17`),
         },
         {
             key: "saintLucyYiZhenmeiVirginAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-2-19`),
+            date: dayjs.utc(`${year}-2-19`),
         },
         {
             key: "saintPaulLiuHanzouPriestAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-2-21`),
+            date: dayjs.utc(`${year}-2-21`),
         },
         {
             key: "saintsLouisVersigliaBishopAndCallistusCaravarioPriestMartyrs",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-2-25`),
+            date: dayjs.utc(`${year}-2-25`),
         },
         {
             key: "saintAgnesCaoGuiyingMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-3-1`),
+            date: dayjs.utc(`${year}-3-1`),
         },
         {
             key: "saintJosephZhangDapengMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-3-12`),
+            date: dayjs.utc(`${year}-3-12`),
         },
         {
             key: "blessedMariaAssuntaPallottaVirgin",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-4-8`),
+            date: dayjs.utc(`${year}-4-8`),
         },
         {
             key: "blessedJohnMartinMoyePriest",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-5-4`),
+            date: dayjs.utc(`${year}-5-4`),
         },
         {
             key: "ourLadyOfChina",
             type: Types.MEMORIAL,
-            moment: ((y: number): dayjs.Dayjs => {
+            date: ((y: number): dayjs.Dayjs => {
                 const firstMay = dayjs.utc(`${y}-5-1`);
                 const memorialDay = firstMay;
                 // determine first saturday
@@ -100,37 +100,37 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintPeterLiuMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-5-14`),
+            date: dayjs.utc(`${year}-5-14`),
         },
         {
             key: "saintPeterSanzBishopAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-5-27`),
+            date: dayjs.utc(`${year}-5-27`),
         },
         {
             key: "saintJoachimHoMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-5-29`),
+            date: dayjs.utc(`${year}-5-29`),
         },
         {
             key: "saintsGregoryGrassiFrancisFogollaAndAnthonyFantosatiBishopsAndCompanionsMartyrs",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-6-20`),
+            date: dayjs.utc(`${year}-6-20`),
         },
         {
             key: "saintJosephYuanPriestAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-6-23`),
+            date: dayjs.utc(`${year}-6-23`),
         },
         {
             key: "sevenMartyredNunsFromTheFranciscanMissionariesOfMary",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-7-8`),
+            date: dayjs.utc(`${year}-7-8`),
         },
         {
             key: "saintAugustineZhaoRongPriestAndCompanionsMartyrs",
             type: Types.SOLEMNITY,
-            moment: dayjs.utc(`${year}-7-9`),
+            date: dayjs.utc(`${year}-7-9`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -141,32 +141,32 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintLeoManginPriestAndCompanionsMartyrs",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-7-20`),
+            date: dayjs.utc(`${year}-7-20`),
         },
         {
             key: "saintAlbericCrescitelliPriestAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-7-21`),
+            date: dayjs.utc(`${year}-7-21`),
         },
         {
             key: "saintPaulChenChangpinAndCompanionsMartyrs",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-7-28`),
+            date: dayjs.utc(`${year}-7-28`),
         },
         {
             key: "blessedMauriceTornayPriestAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-8-11`),
+            date: dayjs.utc(`${year}-8-11`),
         },
         {
             key: "saintJohnGabrielPerboyrePriestAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-9-11`),
+            date: dayjs.utc(`${year}-9-11`),
         },
         {
             key: "saintFrancisDiazPriestAndCompanionsMartyrs",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-10-27`),
+            date: dayjs.utc(`${year}-10-27`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -177,17 +177,17 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintPeterWuMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-11-7`),
+            date: dayjs.utc(`${year}-11-7`),
         },
         {
             key: "saintGabrieltaurinDufresseBishopAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-11-27`),
+            date: dayjs.utc(`${year}-11-27`),
         },
         {
             key: "ourLordJesusChristTheEternalHighPriest",
             type: Types.FEAST,
-            moment: ((y: number): dayjs.Dayjs =>
+            date: ((y: number): dayjs.Dayjs =>
                 dayjs.utc(
                     Dates.pentecostSunday(y)
                         .add(4, "day")

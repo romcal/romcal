@@ -35,7 +35,7 @@ export interface IRomcalDateItemData {
 /**
  * This interface is used internally by romcal
  * during the construction of the liturgical calendar.
- * All properties except `moment` is marked optional as
+ * All properties except `date` is marked optional as
  * the the object is constructed in stages. This interface
  * should not be used in consumer applications.
  */
@@ -52,7 +52,7 @@ export interface IRomcalDateItem {
      * The type of celebration
      */
     type?: Types;
-    moment: dayjs.Dayjs;
+    date: dayjs.Dayjs;
     data?: IRomcalDateItemData;
     source?: TDateItemSource;
     drop?: boolean;
@@ -78,7 +78,6 @@ export interface IDateItem {
     readonly date: ISO8601DateString;
     readonly type: Types;
     readonly data: IDateItemData;
-    readonly moment: dayjs.Dayjs;
     readonly base?: DateItem;
     readonly _id: number;
     readonly _stack: number;
@@ -87,6 +86,7 @@ export interface IDateItem {
 export type TDateItemInput = Omit<IDateItem, "_id" | "base" | "date"> &
     Readonly<{
         baseItem?: DateItem;
+        date: dayjs.Dayjs;
     }>;
 
 export class DateItem implements IDateItem {
@@ -111,22 +111,26 @@ export class DateItem implements IDateItem {
      */
     public data: IDateItemData;
     /**
-     * The DayJS object representing the date and time of the celebration.
+     * A previous celebration on the same day that was overriden by the current one.
      */
-    public moment: dayjs.Dayjs;
     public base: DateItem | undefined;
+    /**
+     * Internal index used by romcal for calendar generation.
+     */
     public _id: number;
+    /**
+     * Internal index used by romcal for calendar generation.
+     */
     public _stack: number;
 
     static latestId: number;
 
-    constructor({ key, name, type, moment, data, _stack, baseItem }: TDateItemInput) {
+    constructor({ key, name, type, date, data, _stack, baseItem }: TDateItemInput) {
         this.key = key;
         this.name = name;
-        this.date = moment.toISOString();
+        this.date = date.toISOString();
         this.type = type;
         this.data = data;
-        this.moment = moment;
 
         this._id = DateItem._incrementId();
         this._stack = _stack;
@@ -189,8 +193,8 @@ export class DateItem implements IDateItem {
             meta: {
                 ...this.data.meta,
                 cycle: {
-                    key: this.moment.isSameOrAfter(firstSundayOfAdvent) ? nextCycle : thisCycle,
-                    value: this.moment.isSameOrAfter(firstSundayOfAdvent)
+                    key: dayjs.utc(this.date).isSameOrAfter(firstSundayOfAdvent) ? nextCycle : thisCycle,
+                    value: dayjs.utc(this.date).isSameOrAfter(firstSundayOfAdvent)
                         ? LiturgicalCycles[nextCycle]
                         : LiturgicalCycles[thisCycle],
                 },
@@ -202,9 +206,9 @@ export class DateItem implements IDateItem {
      * Get the liturgical starting year from a DateItem
      */
     private getLiturgicalStartYear(): number {
-        const currentYear = this.moment.utc().year();
+        const currentYear = dayjs.utc(this.date).year();
         const firstSundayOfAdvent = Dates.firstSundayOfAdvent(currentYear);
-        return this.moment.isBefore(firstSundayOfAdvent) ? currentYear - 1 : currentYear;
+        return dayjs.utc(this.date).isBefore(firstSundayOfAdvent) ? currentYear - 1 : currentYear;
     }
 
     /**
@@ -221,6 +225,6 @@ export class DateItem implements IDateItem {
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const isDateItem = (value: Record<string, any>): value is IDateItem => {
-    const { key, name, date, type, moment } = value;
-    return !isNil(key) && !isNil(name) && !isNil(date) && !isNil(type) && !isNil(moment);
+    const { key, name, date, type } = value;
+    return !isNil(key) && !isNil(name) && !isNil(date) && !isNil(type);
 };

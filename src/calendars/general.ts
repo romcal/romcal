@@ -18,7 +18,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintsBasilTheGreatAndGregoryNazianzenBishopsAndDoctors",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-1-2`),
+            date: dayjs.utc(`${year}-1-2`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -29,17 +29,17 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "theMostHolyNameOfJesus",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-1-3`),
+            date: dayjs.utc(`${year}-1-3`),
         },
         {
             key: "saintRaymondOfPenyafortPriest",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-1-7`),
+            date: dayjs.utc(`${year}-1-7`),
         },
         {
             key: "saintHilaryOfPoitiersBishopAndDoctor",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-1-13`),
+            date: dayjs.utc(`${year}-1-13`),
             data: {
                 meta: {
                     titles: [Titles.DOCTOR_OF_THE_CHURCH],
@@ -49,7 +49,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintAnthonyOfEgyptAbbot",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-1-17`),
+            date: dayjs.utc(`${year}-1-17`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -59,7 +59,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintsFabianPopeAndSebastianMartyrs",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-1-20`),
+            date: dayjs.utc(`${year}-1-20`),
             data: {
                 meta: {
                     titles: [Titles.MARTYR],
@@ -69,7 +69,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintAgnesVirginAndMartyr",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-1-21`),
+            date: dayjs.utc(`${year}-1-21`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -80,7 +80,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintVincentDeaconAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-1-22`),
+            date: dayjs.utc(`${year}-1-22`),
             data: {
                 meta: {
                     titles: [Titles.MARTYR],
@@ -90,7 +90,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintFrancisDeSalesBishopAndDoctor",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-1-24`),
+            date: dayjs.utc(`${year}-1-24`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -104,7 +104,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "conversionOfSaintPaulApostle",
             type: Types.FEAST,
-            moment: dayjs.utc(`${year}-1-25`),
+            date: dayjs.utc(`${year}-1-25`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -114,7 +114,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintsTimothyAndTitusBishops",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-1-26`),
+            date: dayjs.utc(`${year}-1-26`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -124,12 +124,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintAngelaMericiVirgin",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-1-27`),
+            date: dayjs.utc(`${year}-1-27`),
         },
         {
             key: "saintThomasAquinasPriestAndDoctor",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-1-28`),
+            date: dayjs.utc(`${year}-1-28`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -140,7 +140,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintJohnBoscoPriest",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-1-31`),
+            date: dayjs.utc(`${year}-1-31`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -150,12 +150,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintBlaseBishopAndMartyrSaintAnsgarBishop",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-2-3`),
+            date: dayjs.utc(`${year}-2-3`),
         },
         {
             key: "saintAgathaVirginAndMartyr",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-2-5`),
+            date: dayjs.utc(`${year}-2-5`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -166,7 +166,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintPaulMikiAndCompanionsMartyrs",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-2-6`),
+            date: dayjs.utc(`${year}-2-6`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -177,12 +177,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintJeromeEmilianiSaintJosephineBakhitaVirgin",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-2-8`),
+            date: dayjs.utc(`${year}-2-8`),
         },
         {
             key: "saintScholasticaVirgin",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-2-10`),
+            date: dayjs.utc(`${year}-2-10`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -192,12 +192,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "ourLadyOfLourdes",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-2-11`),
+            date: dayjs.utc(`${year}-2-11`),
         },
         {
             key: "saintsCyrilMonkAndMethodiusBishop",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-2-14`),
+            date: dayjs.utc(`${year}-2-14`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -208,12 +208,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "sevenHolyFoundersOfTheServiteOrder",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-2-17`),
+            date: dayjs.utc(`${year}-2-17`),
         },
         {
             key: "saintPeterDamianBishopAndDoctorOfTheChurch",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-2-21`),
+            date: dayjs.utc(`${year}-2-21`),
             data: {
                 meta: {
                     titles: [Titles.DOCTOR_OF_THE_CHURCH],
@@ -223,7 +223,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "chairOfSaintPeterApostle",
             type: Types.FEAST,
-            moment: dayjs.utc(`${year}-2-22`),
+            date: dayjs.utc(`${year}-2-22`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -233,7 +233,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintPolycarpBishopAndMartyr",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-2-23`),
+            date: dayjs.utc(`${year}-2-23`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -244,12 +244,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintCasimir",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-3-4`),
+            date: dayjs.utc(`${year}-3-4`),
         },
         {
             key: "saintsPerpetuaAndFelicityMartyrs",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-3-7`),
+            date: dayjs.utc(`${year}-3-7`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -260,22 +260,22 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintJohnOfGodReligious",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-3-8`),
+            date: dayjs.utc(`${year}-3-8`),
         },
         {
             key: "saintFrancesOfRomeReligious",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-3-9`),
+            date: dayjs.utc(`${year}-3-9`),
         },
         {
             key: "saintPatrickBishop",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-3-17`),
+            date: dayjs.utc(`${year}-3-17`),
         },
         {
             key: "saintCyrilOfJerusalemBishopAndDoctor",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-3-18`),
+            date: dayjs.utc(`${year}-3-18`),
             data: {
                 meta: {
                     titles: [Titles.DOCTOR_OF_THE_CHURCH],
@@ -285,17 +285,17 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintTuribiusOfMogrovejoBishop",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-3-23`),
+            date: dayjs.utc(`${year}-3-23`),
         },
         {
             key: "saintFrancisOfPaolaHermit",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-4-2`),
+            date: dayjs.utc(`${year}-4-2`),
         },
         {
             key: "saintIsidoreOfSevilleBishopAndDoctorOfTheChurch",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-4-4`),
+            date: dayjs.utc(`${year}-4-4`),
             data: {
                 meta: {
                     titles: [Titles.DOCTOR_OF_THE_CHURCH],
@@ -305,12 +305,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintVincentFerrerPriest",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-4-5`),
+            date: dayjs.utc(`${year}-4-5`),
         },
         {
             key: "saintJohnBaptistDeLaSallePriest",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-4-7`),
+            date: dayjs.utc(`${year}-4-7`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -320,7 +320,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintStanislausBishopAndMartyr",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-4-11`),
+            date: dayjs.utc(`${year}-4-11`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -331,7 +331,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintMartinIPopeAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-4-13`),
+            date: dayjs.utc(`${year}-4-13`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -342,7 +342,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintAnselmOfCanterburyBishopAndDoctorOfTheChurch",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-4-21`),
+            date: dayjs.utc(`${year}-4-21`),
             data: {
                 meta: {
                     titles: [Titles.DOCTOR_OF_THE_CHURCH],
@@ -352,7 +352,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintGeorgeMartyrSaintAdalbertBishopAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-4-23`),
+            date: dayjs.utc(`${year}-4-23`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -363,7 +363,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintFidelisOfSigmaringenPriestAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-4-24`),
+            date: dayjs.utc(`${year}-4-24`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -374,7 +374,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintMarkTheEvangelist",
             type: Types.FEAST,
-            moment: dayjs.utc(`${year}-4-25`),
+            date: dayjs.utc(`${year}-4-25`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -384,12 +384,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintPeterChanelPriestAndMartyrSaintLouisGrignonDeMontfortPriest",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-4-28`),
+            date: dayjs.utc(`${year}-4-28`),
         },
         {
             key: "saintCatherineOfSienaVirginAndDoctorOfTheChurch",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-4-29`),
+            date: dayjs.utc(`${year}-4-29`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -400,17 +400,17 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintPiusVPope",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-4-30`),
+            date: dayjs.utc(`${year}-4-30`),
         },
         {
             key: "saintJosephTheWorker",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-5-1`),
+            date: dayjs.utc(`${year}-5-1`),
         },
         {
             key: "saintAthanasiusBishopAndDoctor",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-5-2`),
+            date: dayjs.utc(`${year}-5-2`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -421,7 +421,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintsPhilipAndJamesApostles",
             type: Types.FEAST,
-            moment: dayjs.utc(`${year}-5-3`),
+            date: dayjs.utc(`${year}-5-3`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -431,7 +431,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintsNereusAndAchilleusMartyrsSaintPancrasMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-5-12`),
+            date: dayjs.utc(`${year}-5-12`),
             data: {
                 meta: {
                     titles: [Titles.MARTYR],
@@ -441,12 +441,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "ourLadyOfFatima",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-5-13`),
+            date: dayjs.utc(`${year}-5-13`),
         },
         {
             key: "saintMatthiasTheApostle",
             type: Types.FEAST,
-            moment: dayjs.utc(`${year}-5-14`),
+            date: dayjs.utc(`${year}-5-14`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -456,7 +456,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintJohnIPopeAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-5-18`),
+            date: dayjs.utc(`${year}-5-18`),
             data: {
                 meta: {
                     titles: [Titles.MARTYR],
@@ -466,12 +466,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintBernardineOfSienaPriest",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-5-20`),
+            date: dayjs.utc(`${year}-5-20`),
         },
         {
             key: "saintChristopherMagallanesAndCompanionsMartyrs",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-5-21`),
+            date: dayjs.utc(`${year}-5-21`),
             data: {
                 meta: {
                     titles: [Titles.MARTYR],
@@ -481,17 +481,17 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintRitaOfCascia",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-5-22`),
+            date: dayjs.utc(`${year}-5-22`),
         },
         {
             key: "saintBedeTheVenerablePriestAndDoctorSaintGregoryViiPopeSaintMaryMagdaleneDePazziVirgin",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-5-25`),
+            date: dayjs.utc(`${year}-5-25`),
         },
         {
             key: "saintPhilipNeriPriest",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-5-26`),
+            date: dayjs.utc(`${year}-5-26`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -501,12 +501,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintAugustineOfCanterburyBishop",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-5-27`),
+            date: dayjs.utc(`${year}-5-27`),
         },
         {
             key: "visitationOfTheBlessedVirginMary",
             type: Types.FEAST,
-            moment: dayjs.utc(`${year}-5-31`),
+            date: dayjs.utc(`${year}-5-31`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -516,7 +516,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintJustinMartyr",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-6-1`),
+            date: dayjs.utc(`${year}-6-1`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -527,7 +527,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintsMarcellinusAndPeterMartyrs",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-6-2`),
+            date: dayjs.utc(`${year}-6-2`),
             data: {
                 meta: {
                     titles: [Titles.MARTYR],
@@ -537,7 +537,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintsCharlesLwangaAndCompanionsMartyrs",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-6-3`),
+            date: dayjs.utc(`${year}-6-3`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -548,7 +548,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintBonifaceBishopAndMartyr",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-6-5`),
+            date: dayjs.utc(`${year}-6-5`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -559,7 +559,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintNorbertBishop",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-6-6`),
+            date: dayjs.utc(`${year}-6-6`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -569,7 +569,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintEphremDeaconAndDoctor",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-6-9`),
+            date: dayjs.utc(`${year}-6-9`),
             data: {
                 meta: {
                     titles: [Titles.DOCTOR_OF_THE_CHURCH],
@@ -579,7 +579,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintBarnabasTheApostle",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-6-11`),
+            date: dayjs.utc(`${year}-6-11`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -589,7 +589,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintAnthonyOfPaduaPriestAndDoctor",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-6-13`),
+            date: dayjs.utc(`${year}-6-13`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -600,12 +600,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintRomualdAbbot",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-6-19`),
+            date: dayjs.utc(`${year}-6-19`),
         },
         {
             key: "saintAloysiusGonzagaReligious",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-6-21`),
+            date: dayjs.utc(`${year}-6-21`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -615,12 +615,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintPaulinusOfNolaBishopSaintsJohnFisherBishopAndThomasMoreMartyrs",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-6-22`),
+            date: dayjs.utc(`${year}-6-22`),
         },
         {
             key: "saintCyrilOfAlexandriaBishopAndDoctor",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-6-27`),
+            date: dayjs.utc(`${year}-6-27`),
             data: {
                 meta: {
                     titles: [Titles.DOCTOR_OF_THE_CHURCH],
@@ -630,7 +630,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintIrenaeusBishopAndMartyr",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-6-28`),
+            date: dayjs.utc(`${year}-6-28`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -641,12 +641,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "firstMartyrsOfTheChurchOfRome",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-6-30`),
+            date: dayjs.utc(`${year}-6-30`),
         },
         {
             key: "saintThomasTheApostle",
             type: Types.FEAST,
-            moment: dayjs.utc(`${year}-7-3`),
+            date: dayjs.utc(`${year}-7-3`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -656,17 +656,17 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintElizabethOfPortugal",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-7-4`),
+            date: dayjs.utc(`${year}-7-4`),
         },
         {
             key: "saintAnthonyZaccariaPriest",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-7-5`),
+            date: dayjs.utc(`${year}-7-5`),
         },
         {
             key: "saintMariaGorettiVirginAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-7-6`),
+            date: dayjs.utc(`${year}-7-6`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -677,7 +677,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintsAugustineZhaoRongPriestAndCompanionsMartyrs",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-7-9`),
+            date: dayjs.utc(`${year}-7-9`),
             data: {
                 meta: {
                     titles: [Titles.MARTYR],
@@ -687,7 +687,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintBenedictOfNursiaAbbot",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-7-11`),
+            date: dayjs.utc(`${year}-7-11`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -698,7 +698,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintHenryBishopAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-7-13`),
+            date: dayjs.utc(`${year}-7-13`),
             data: {
                 meta: {
                     titles: [Titles.MARTYR],
@@ -708,12 +708,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintCamillusDeLellisPriest",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-7-14`),
+            date: dayjs.utc(`${year}-7-14`),
         },
         {
             key: "saintBonaventureBishopAndDoctor",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-7-15`),
+            date: dayjs.utc(`${year}-7-15`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -724,17 +724,17 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "ourLadyOfMountCarmel",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-7-16`),
+            date: dayjs.utc(`${year}-7-16`),
         },
         {
             key: "saintApollinaris",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-7-20`),
+            date: dayjs.utc(`${year}-7-20`),
         },
         {
             key: "saintLawrenceOfBrindisiPriestAndDoctor",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-7-21`),
+            date: dayjs.utc(`${year}-7-21`),
             data: {
                 meta: {
                     titles: [Titles.DOCTOR_OF_THE_CHURCH],
@@ -745,7 +745,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintMaryMagdalene",
             type: Types.FEAST,
-            moment: dayjs.utc(`${year}-7-22`),
+            date: dayjs.utc(`${year}-7-22`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -758,7 +758,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "maryMotherOfTheChurch",
             type: Types.MEMORIAL, // Memorial
-            moment: ((y: number): dayjs.Dayjs => Dates.pentecostSunday(y).add(1, "day"))(year),
+            date: ((y: number): dayjs.Dayjs => Dates.pentecostSunday(y).add(1, "day"))(year),
             data: {
                 prioritized: true,
                 meta: {
@@ -769,7 +769,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintBridgetOfSwedenReligious",
             type: Types.FEAST,
-            moment: dayjs.utc(`${year}-7-23`),
+            date: dayjs.utc(`${year}-7-23`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -780,12 +780,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintCharbelMakhloufPriestAndHermit",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-7-24`),
+            date: dayjs.utc(`${year}-7-24`),
         },
         {
             key: "saintJamesApostle",
             type: Types.FEAST,
-            moment: dayjs.utc(`${year}-7-25`),
+            date: dayjs.utc(`${year}-7-25`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -795,7 +795,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintsJoachimAndAnne",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-7-26`),
+            date: dayjs.utc(`${year}-7-26`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -805,7 +805,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintMartha",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-7-29`),
+            date: dayjs.utc(`${year}-7-29`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -815,7 +815,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintPeterChrysologusBishopAndDoctor",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-7-30`),
+            date: dayjs.utc(`${year}-7-30`),
             data: {
                 meta: {
                     titles: [Titles.DOCTOR_OF_THE_CHURCH],
@@ -825,7 +825,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintIgnatiusOfLoyolaPriest",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-7-31`),
+            date: dayjs.utc(`${year}-7-31`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -835,7 +835,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintAlphonsusMariaDeLiguoriBishopAndDoctorOfTheChurch",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-8-1`),
+            date: dayjs.utc(`${year}-8-1`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -846,12 +846,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintEusebiusOfVercelliBishopSaintPeterJulianEymardPriest",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-8-2`),
+            date: dayjs.utc(`${year}-8-2`),
         },
         {
             key: "saintJeanVianneyTheCureOfArsPriest",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-8-4`),
+            date: dayjs.utc(`${year}-8-4`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -861,17 +861,17 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "dedicationOfTheBasilicaOfSaintMaryMajor",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-8-5`),
+            date: dayjs.utc(`${year}-8-5`),
         },
         {
             key: "saintSixtusIiPopeAndCompanionsMartyrsSaintCajetanPriest",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-8-7`),
+            date: dayjs.utc(`${year}-8-7`),
         },
         {
             key: "saintDominicPriest",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-8-8`),
+            date: dayjs.utc(`${year}-8-8`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -881,7 +881,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-8-9`),
+            date: dayjs.utc(`${year}-8-9`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -892,7 +892,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintLawrenceOfRomeDeaconAndMartyr",
             type: Types.FEAST,
-            moment: dayjs.utc(`${year}-8-10`),
+            date: dayjs.utc(`${year}-8-10`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -903,7 +903,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintClareVirgin",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-8-11`),
+            date: dayjs.utc(`${year}-8-11`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -913,12 +913,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintJaneFrancesDeChantalReligious",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-8-12`),
+            date: dayjs.utc(`${year}-8-12`),
         },
         {
             key: "saintsPontianPopeAndHippolytusPriestMartyrs",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-8-13`),
+            date: dayjs.utc(`${year}-8-13`),
             data: {
                 meta: {
                     titles: [Titles.MARTYR],
@@ -928,7 +928,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintMaximilianMaryKolbePriestAndMartyr",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-8-14`),
+            date: dayjs.utc(`${year}-8-14`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -939,17 +939,17 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintStephenOfHungary",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-8-16`),
+            date: dayjs.utc(`${year}-8-16`),
         },
         {
             key: "saintJohnEudesPriest",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-8-19`),
+            date: dayjs.utc(`${year}-8-19`),
         },
         {
             key: "saintBernardOfClairvauxAbbotAndDoctorOfTheChurch",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-8-20`),
+            date: dayjs.utc(`${year}-8-20`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -960,7 +960,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintPiusXPope",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-8-21`),
+            date: dayjs.utc(`${year}-8-21`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -970,7 +970,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "queenshipOfBlessedVirginMary",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-8-22`),
+            date: dayjs.utc(`${year}-8-22`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -980,12 +980,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintRoseOfLima",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-8-23`),
+            date: dayjs.utc(`${year}-8-23`),
         },
         {
             key: "saintBartholomewTheApostle",
             type: Types.FEAST,
-            moment: dayjs.utc(`${year}-8-24`),
+            date: dayjs.utc(`${year}-8-24`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -995,12 +995,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintLouisSaintJosephOfCalasanzPriest",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-8-25`),
+            date: dayjs.utc(`${year}-8-25`),
         },
         {
             key: "saintMonica",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-8-27`),
+            date: dayjs.utc(`${year}-8-27`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -1010,7 +1010,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintAugustineOfHippoBishopAndDoctorOfTheChurch",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-8-28`),
+            date: dayjs.utc(`${year}-8-28`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -1021,7 +1021,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "theBeheadingOfSaintJohnTheBaptistMartyr",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-8-29`),
+            date: dayjs.utc(`${year}-8-29`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -1032,7 +1032,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintGregoryTheGreatPopeAndDoctor",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-9-3`),
+            date: dayjs.utc(`${year}-9-3`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -1043,7 +1043,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "birthOfTheBlessedVirginMary",
             type: Types.FEAST,
-            moment: dayjs.utc(`${year}-9-8`),
+            date: dayjs.utc(`${year}-9-8`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -1053,7 +1053,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintPeterClaverPriest",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-9-9`),
+            date: dayjs.utc(`${year}-9-9`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -1063,12 +1063,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "holyNameOfTheBlessedVirginMary",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-9-12`),
+            date: dayjs.utc(`${year}-9-12`),
         },
         {
             key: "saintJohnChrysostomBishopAndDoctor",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-9-13`),
+            date: dayjs.utc(`${year}-9-13`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -1080,7 +1080,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
             key: "theExaltationOfTheHolyCross",
             source: "celebrations", // Override the default lookup source
             type: Types.FEAST,
-            moment: dayjs.utc(`${year}-9-14`),
+            date: dayjs.utc(`${year}-9-14`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -1090,7 +1090,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "ourLadyOfSorrows",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-9-15`),
+            date: dayjs.utc(`${year}-9-15`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -1100,7 +1100,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintsCorneliusPopeAndCyprianBishopMartyrs",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-9-16`),
+            date: dayjs.utc(`${year}-9-16`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -1111,7 +1111,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintRobertBellarmineBishopAndDoctor",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-9-17`),
+            date: dayjs.utc(`${year}-9-17`),
             data: {
                 meta: {
                     titles: [Titles.DOCTOR_OF_THE_CHURCH],
@@ -1121,7 +1121,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintJanuariusBishopAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-9-19`),
+            date: dayjs.utc(`${year}-9-19`),
             data: {
                 meta: {
                     titles: [Titles.MARTYR],
@@ -1131,7 +1131,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintAndrewKimTaegonPriestAndPaulChongHasangAndCompanionsMartyrs",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-9-20`),
+            date: dayjs.utc(`${year}-9-20`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -1142,7 +1142,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintMatthewApostleAndEvangelist",
             type: Types.FEAST,
-            moment: dayjs.utc(`${year}-9-21`),
+            date: dayjs.utc(`${year}-9-21`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -1152,7 +1152,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintPioOfPietrelcinaPadrePioPriest",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-9-23`),
+            date: dayjs.utc(`${year}-9-23`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -1162,7 +1162,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintsCosmasAndDamianMartyrs",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-9-26`),
+            date: dayjs.utc(`${year}-9-26`),
             data: {
                 meta: {
                     titles: [Titles.MARTYR],
@@ -1172,7 +1172,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintVincentDePaulPriest",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-9-27`),
+            date: dayjs.utc(`${year}-9-27`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -1182,7 +1182,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintWenceslausMartyrSaintsLawrenceRuizAndCompanionsMartyrs",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-9-28`),
+            date: dayjs.utc(`${year}-9-28`),
             data: {
                 meta: {
                     titles: [Titles.MARTYR],
@@ -1192,7 +1192,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintsMichaelGabrielAndRaphaelArchangels",
             type: Types.FEAST,
-            moment: dayjs.utc(`${year}-9-29`),
+            date: dayjs.utc(`${year}-9-29`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -1202,7 +1202,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintJeromePriestAndDoctor",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-9-30`),
+            date: dayjs.utc(`${year}-9-30`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -1213,7 +1213,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintThereseOfTheChildJesusVirginAndDoctor",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-10-1`),
+            date: dayjs.utc(`${year}-10-1`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -1224,7 +1224,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "guardianAngels",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-10-2`),
+            date: dayjs.utc(`${year}-10-2`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -1234,7 +1234,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintFrancisOfAssisi",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-10-4`),
+            date: dayjs.utc(`${year}-10-4`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -1244,12 +1244,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintBrunoPriest",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-10-6`),
+            date: dayjs.utc(`${year}-10-6`),
         },
         {
             key: "ourLadyOfTheRosary",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-10-7`),
+            date: dayjs.utc(`${year}-10-7`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -1259,24 +1259,24 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintDenisAndCompanionsMartyrsSaintJohnLeonardiPriest",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-10-9`),
+            date: dayjs.utc(`${year}-10-9`),
         },
         // http://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20140529_decreto-calendario-generale-gxxiii-gpii_en.html
         {
             key: "popeSaintJohnXXIII",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-10-11`),
+            date: dayjs.utc(`${year}-10-11`),
         },
         // http://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20140529_decreto-calendario-generale-gxxiii-gpii_en.html
         {
             key: "popeSaintJohnPaulII",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-10-22`),
+            date: dayjs.utc(`${year}-10-22`),
         },
         {
             key: "saintCallistusIPopeAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-10-14`),
+            date: dayjs.utc(`${year}-10-14`),
             data: {
                 meta: {
                     titles: [Titles.MARTYR],
@@ -1286,7 +1286,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintTeresaOfJesusVirginAndDoctorOfTheChurch",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-10-15`),
+            date: dayjs.utc(`${year}-10-15`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -1297,12 +1297,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintHedwigReligiousSaintMargaretMaryAlacoqueVirgin",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-10-16`),
+            date: dayjs.utc(`${year}-10-16`),
         },
         {
             key: "saintIgnatiusOfAntiochBishopAndMartyr",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-10-17`),
+            date: dayjs.utc(`${year}-10-17`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -1313,7 +1313,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintLukeTheEvangelist",
             type: Types.FEAST,
-            moment: dayjs.utc(`${year}-10-18`),
+            date: dayjs.utc(`${year}-10-18`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -1323,22 +1323,22 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrsSaintPaulOfTheCrossPriest",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-10-19`),
+            date: dayjs.utc(`${year}-10-19`),
         },
         {
             key: "saintJohnOfCapistranoPriest",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-10-23`),
+            date: dayjs.utc(`${year}-10-23`),
         },
         {
             key: "saintAnthonyMaryClaretBishop",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-10-24`),
+            date: dayjs.utc(`${year}-10-24`),
         },
         {
             key: "saintsSimonAndJudeApostles",
             type: Types.FEAST,
-            moment: dayjs.utc(`${year}-10-28`),
+            date: dayjs.utc(`${year}-10-28`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -1348,7 +1348,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "allSouls",
             type: Types.FEAST,
-            moment: dayjs.utc(`${year}-11-2`),
+            date: dayjs.utc(`${year}-11-2`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -1358,12 +1358,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintMartinDePorresReligious",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-11-3`),
+            date: dayjs.utc(`${year}-11-3`),
         },
         {
             key: "saintCharlesBorromeoBishop",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-11-4`),
+            date: dayjs.utc(`${year}-11-4`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -1374,7 +1374,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "dedicationOfTheLateranBasilica",
             type: Types.FEAST,
-            moment: dayjs.utc(`${year}-11-9`),
+            date: dayjs.utc(`${year}-11-9`),
             data: {
                 prioritized: true,
                 meta: {
@@ -1385,7 +1385,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintLeoTheGreatPopeAndDoctor",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-11-10`),
+            date: dayjs.utc(`${year}-11-10`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -1396,7 +1396,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintMartinOfToursBishop",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-11-11`),
+            date: dayjs.utc(`${year}-11-11`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -1406,7 +1406,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintJosaphatBishopAndMartyr",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-11-12`),
+            date: dayjs.utc(`${year}-11-12`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -1417,7 +1417,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintAlbertTheGreatBishopAndDoctor",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-11-15`),
+            date: dayjs.utc(`${year}-11-15`),
             data: {
                 meta: {
                     titles: [Titles.DOCTOR_OF_THE_CHURCH],
@@ -1427,12 +1427,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintMargaretOfScotlandSaintGertrudeTheGreatVirgin",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-11-16`),
+            date: dayjs.utc(`${year}-11-16`),
         },
         {
             key: "saintElizabethOfHungary",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-11-17`),
+            date: dayjs.utc(`${year}-11-17`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -1442,12 +1442,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "dedicationOfTheBasilicasOfSaintsPeterAndPaulApostles",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-11-18`),
+            date: dayjs.utc(`${year}-11-18`),
         },
         {
             key: "presentationOfTheBlessedVirginMary",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-11-21`),
+            date: dayjs.utc(`${year}-11-21`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -1457,7 +1457,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintCeciliaVirginAndMartyr",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-11-22`),
+            date: dayjs.utc(`${year}-11-22`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -1468,12 +1468,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintClementIPopeAndMartyrSaintColumbanReligious",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-11-23`),
+            date: dayjs.utc(`${year}-11-23`),
         },
         {
             key: "saintAndrewDungLacAndCompanionsMartyrs",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-11-24`),
+            date: dayjs.utc(`${year}-11-24`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -1484,7 +1484,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintCatherineOfAlexandriaVirginAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-11-25`),
+            date: dayjs.utc(`${year}-11-25`),
             data: {
                 meta: {
                     titles: [Titles.MARTYR],
@@ -1494,7 +1494,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintAndrewTheApostle",
             type: Types.FEAST,
-            moment: dayjs.utc(`${year}-11-30`),
+            date: dayjs.utc(`${year}-11-30`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -1504,7 +1504,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintFrancisXavierPriest",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-12-3`),
+            date: dayjs.utc(`${year}-12-3`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -1514,7 +1514,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintJohnDamascenePriestAndDoctor",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-12-4`),
+            date: dayjs.utc(`${year}-12-4`),
             data: {
                 meta: {
                     titles: [Titles.DOCTOR_OF_THE_CHURCH],
@@ -1524,12 +1524,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintNicholasBishop",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-12-6`),
+            date: dayjs.utc(`${year}-12-6`),
         },
         {
             key: "saintAmbroseBishopAndDoctor",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-12-7`),
+            date: dayjs.utc(`${year}-12-7`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -1540,27 +1540,27 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintJuanDiegoCuauhtlatoatzin",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-12-9`),
+            date: dayjs.utc(`${year}-12-9`),
         },
         {
             key: "ourLadyOfLoreto",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-12-10`),
+            date: dayjs.utc(`${year}-12-10`),
         },
         {
             key: "saintDamasusIPope",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-12-11`),
+            date: dayjs.utc(`${year}-12-11`),
         },
         {
             key: "ourLadyOfGuadalupe",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-12-12`),
+            date: dayjs.utc(`${year}-12-12`),
         },
         {
             key: "saintLucyOfSyracuseVirginAndMartyr",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-12-13`),
+            date: dayjs.utc(`${year}-12-13`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -1571,7 +1571,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintJohnOfTheCrossPriestAndDoctor",
             type: Types.MEMORIAL,
-            moment: dayjs.utc(`${year}-12-14`),
+            date: dayjs.utc(`${year}-12-14`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -1582,7 +1582,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintPeterCanisiusPriestAndDoctor",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-12-21`),
+            date: dayjs.utc(`${year}-12-21`),
             data: {
                 meta: {
                     titles: [Titles.DOCTOR_OF_THE_CHURCH],
@@ -1592,12 +1592,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintJohnOfKantyPriest",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-12-23`),
+            date: dayjs.utc(`${year}-12-23`),
         },
         {
             key: "saintStephenTheFirstMartyr",
             type: Types.FEAST,
-            moment: dayjs.utc(`${year}-12-26`),
+            date: dayjs.utc(`${year}-12-26`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -1608,7 +1608,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintJohnTheApostleAndEvangelist",
             type: Types.FEAST,
-            moment: dayjs.utc(`${year}-12-27`),
+            date: dayjs.utc(`${year}-12-27`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -1618,7 +1618,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "holyInnocentsMartyrs",
             type: Types.FEAST,
-            moment: dayjs.utc(`${year}-12-28`),
+            date: dayjs.utc(`${year}-12-28`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.RED,
@@ -1629,7 +1629,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintThomasBecketBishopAndMartyr",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-12-29`),
+            date: dayjs.utc(`${year}-12-29`),
             data: {
                 meta: {
                     titles: [Titles.MARTYR],
@@ -1639,7 +1639,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "saintSylvesterIPope",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-12-31`),
+            date: dayjs.utc(`${year}-12-31`),
         },
     ];
 

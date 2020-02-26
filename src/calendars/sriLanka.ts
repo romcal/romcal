@@ -12,12 +12,12 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "blessedJosephVazPriest",
             type: Types.OPT_MEMORIAL,
-            moment: dayjs.utc(`${year}-1-16`),
+            date: dayjs.utc(`${year}-1-16`),
         },
         {
             key: "ourLadyOfLanka",
             type: Types.FEAST,
-            moment: dayjs.utc(`${year}-2-4`),
+            date: dayjs.utc(`${year}-2-4`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
@@ -27,7 +27,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
         {
             key: "ourLadyOfMadhu",
             type: Types.FEAST,
-            moment: dayjs.utc(`${year}-7-2`),
+            date: dayjs.utc(`${year}-7-2`),
             data: {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,

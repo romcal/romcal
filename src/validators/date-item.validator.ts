@@ -13,12 +13,11 @@ export const getDateItemJsonSchema = (): Schema => {
             date: { type: "string" },
             type: { type: "string", enum: extractedTypeKeys },
             data: { $ref: "/dateItemDataJsonSchema" },
-            moment: { type: "object" },
             base: { $ref: "/dateItem" },
             _id: { type: "number" },
             _stack: { type: "number" },
         },
-        required: ["key", "name", "date", "type", "data", "moment", "_id", "_stack"],
+        required: ["key", "name", "date", "type", "data", "_id", "_stack"],
     };
     return dateItemJsonSchema;
 };
