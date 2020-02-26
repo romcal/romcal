@@ -55,10 +55,18 @@ module.exports = (env, { mode }) => [
             new CleanWebpackPlugin(),
             // Generate test HTML page
             new HtmlWebpackPlugin({
+                hash: true,
                 title: "romcal - Test Page",
                 template: "src/index.html",
+                base: "./dist",
                 meta: {
-                    viewport: "width=device-width, initial-scale=1, shrink-to-fit=no",
+                    charset: {
+                        charset: "utf-8",
+                    },
+                    "X-UA-Compatible": {
+                        "http-equiv": "X-UA-Compatible",
+                        content: "IE=edge",
+                    },
                 },
             }),
             // Find out where the bloat is
