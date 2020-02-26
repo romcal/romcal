@@ -1,59 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title><%= htmlWebpackPlugin.options.title %></title>
-        <link
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-            crossorigin="anonymous"
-        />
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
-    </head>
-    <body>
-        <h1>Romcal</h1>
-        <code>Open your console to view calendar output</code>
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-            crossorigin="anonymous"
-        ></script>
-        <script
-            src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-            crossorigin="anonymous"
-        ></script>
-        <script>
-            // If your locale is supported by romcal, it will use it, otherwise it will default to 'en'.
-            // var currentLocale = navigator.language || navigator.userLanguage;
-            var currentLocale = "fr";
-            var currentYear = new Date().getFullYear();
+<html>
+  <head>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
 
-            console.log("currentLocale", currentLocale);
+  <body>
+    <h3>romcal - Simple Test Page</h3>
+    <p>Gets the current locale from the browser and uses it to generate a liturgical calendar.</p>
+    <code id="current-locale"></code>
+    <br/>
+    <code id="romcal-output"></code>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+            var userLang = navigator.language || navigator.userLanguage;
 
-            Romcal.calendarFor({
-                locale: currentLocale.split("-").join(""),
-                year: currentYear,
-            }).then((dates) => {
-                var january = Romcal.queryFor(dates, {
-                    month: 0,
-                });
+            var code1 = document.getElementById("current-locale");
+            var node1 = document.createTextNode(userLang);
+            code1.appendChild(node1);
 
-                var sundays = Romcal.queryFor(dates, {
-                    day: 0,
-                });
-
-                console.log("dates", dates);
-                console.log("january", january);
-                console.log("sundays", sundays);
+            window.Romcal.calendarFor().then((dates) => {
+                var code2 = document.getElementById("romcal-output");
+                var node2 = document.createTextNode(JSON.stringify(dates));
+                code2.appendChild(node2);
             });
-        </script>
-    </body>
+        });
+    </script>
+  </body>
 </html>
