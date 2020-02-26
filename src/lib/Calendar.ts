@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable-next-line you-dont-need-lodash-underscore/map
 import groupBy from "lodash-es/groupBy";
+// eslint-disable-next-line you-dont-need-lodash-underscore/map
 import map from "lodash-es/map";
 import dayjs from "dayjs";
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
@@ -52,17 +52,17 @@ function queryFor(
     if (hasKey(query, "group")) {
         switch (query.group) {
             case "months":
-                return groupBy(dates, d => d.moment.month());
+                return groupBy(dates, d => dayjs.utc(d.date).month());
             case "daysByMonth":
                 // eslint-disable-next-line you-dont-need-lodash-underscore/map
                 return map(
-                    groupBy(dates, d => d.moment.month()),
-                    monthGroup => groupBy(monthGroup, d => d.moment.day()),
+                    groupBy(dates, d => dayjs.utc(d.date).month()),
+                    monthGroup => groupBy(monthGroup, d => dayjs.utc(d.date).day()),
                 );
             case "weeksByMonth":
                 // eslint-disable-next-line you-dont-need-lodash-underscore/map
                 return map(
-                    groupBy(dates, d => d.moment.month()),
+                    groupBy(dates, d => dayjs.utc(d.date).month()),
                     v => groupBy(v, d => d.data.calendar?.week),
                 );
             case "cycles":
@@ -77,14 +77,14 @@ function queryFor(
                 return groupBy(dates, d => d.data.meta.psalterWeek?.key);
             case "days":
             default:
-                return groupBy(dates, d => d.moment.day());
+                return groupBy(dates, d => dayjs.utc(d.date).day());
         }
     } else if (!isNil(query.month)) {
         // Months are zero indexed, so January is month 0.
-        return dates.filter(dateItem => dateItem.moment.month() === query.month);
+        return dates.filter(dateItem => dayjs.utc(dateItem.date).month() === query.month);
     } else if (!isNil(query.day)) {
         // Days are zero index, so Sunday is 0.
-        return dates.filter(dateItem => dateItem.moment.day() === query.day);
+        return dates.filter(dateItem => dayjs.utc(dateItem.date).day() === query.day);
     } else if (!isNil(query.title)) {
         const { title } = query;
         return dates.filter(date => date.data.meta.titles?.includes(title));
@@ -301,18 +301,18 @@ class Calendar {
                 this._keepPrioritizedOnly(item);
 
                 // Find the season date that has the same date as the incoming item and make it the base item.
-                const baseItem = find(this.dateItems, { date: item.moment.toISOString(), _stack: 0 });
+                const baseItem = find(this.dateItems, { date: item.date.toISOString(), _stack: 0 });
 
-                const { key, name, type, data, moment } = item;
-                if (!isNil(key) && !isNil(name) && !isNil(type) && !isNil(moment)) {
+                const { key, name, type, data, date } = item;
+                if (!isNil(key) && !isNil(name) && !isNil(type) && !isNil(date)) {
                     // Create a new DateItem and add it to the collection
                     this.dateItems.push(
                         new DateItem({
                             key,
                             name,
                             type,
+                            date,
                             data: (data as Required<IRomcalDateItemData>) ?? {},
-                            moment,
                             _stack: index, // The stack number refers to the index in the calendars array in which this celebration's array is placed at
                             baseItem, // Attach the base item if any
                         }),
@@ -355,13 +355,13 @@ class Calendar {
         types.splice(types.indexOf("MEMORIAL") + 1, 0, extractedTypeKeys[extractedTypeKeys.length - 1]);
         this.dateItems.sort(
             (
-                { moment: firstMoment, data: firstData, type: firstType, _stack: firstStack }: DateItem,
-                { moment: nextMoment, data: nextData, type: nextType, _stack: nextStack }: DateItem,
+                { date: firstDate, data: firstData, type: firstType, _stack: firstStack }: DateItem,
+                { date: nextDate, data: nextData, type: nextType, _stack: nextStack }: DateItem,
             ): number => {
                 // 1. Sort by date
-                if (firstMoment.isBefore(nextMoment)) {
+                if (dayjs.utc(firstDate).isBefore(dayjs.utc(nextDate))) {
                     return -1;
-                } else if (firstMoment.isAfter(nextMoment)) {
+                } else if (dayjs.utc(firstDate).isAfter(dayjs.utc(nextDate))) {
                     return 1;
                 } else {
                     // If the date is the same...
@@ -457,7 +457,7 @@ class Calendar {
         const end = endDate;
         return calendarSources.map((calendarSource: Array<IRomcalDateItem>) => {
             return calendarSource.filter((item: IRomcalDateItem) => {
-                return item.moment.isSameOrAfter(start) && item.moment.isSameOrBefore(end);
+                return item.date.isSameOrAfter(start) && item.date.isSameOrBefore(end);
             });
         });
     }

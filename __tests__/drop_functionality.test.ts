@@ -25,7 +25,10 @@ import { DateItem } from "../src/models/romcal-date-item";
 */
 
 import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
 import { Calendar } from "../src";
+
+dayjs.extend(utc);
 
 // eslint-disable-next-line quotes
 describe('Testing the "drop" functionality for national calendars', () => {
@@ -40,7 +43,7 @@ describe('Testing the "drop" functionality for national calendars', () => {
 
     test("A dropped celebration should not be appended in the final calendar", () => {
         const date = testDates.find(d => {
-            return d.moment.isSame(dayjs.utc("2020-12-4"));
+            return dayjs.utc(d.date).isSame(dayjs.utc("2020-12-4"));
         });
         expect(date?.key).not.toEqual("saintJohnDamascenePriestAndDoctor");
     });

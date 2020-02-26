@@ -30,7 +30,7 @@ templateSettings.interpolate = /{{([\s\S]+?)}}/g;
 
 /**
  * Set locale
- * Locale lookup for date name strings are based on Moment.
+ * Locale lookup for celebration names are based on [i18n conventions as used by DayJS](https://github.com/iamkun/dayjs/tree/dev/src/locale).
  * romcal defines at least the default 'en' language as a fallback.
  * If a region is specified in the locale ('xx-XX'), romcal will
  * automatically manage a graceful fallback to its base language ('xx'), if it exists in 'src/locales'.
@@ -131,17 +131,24 @@ const setLocale = async (key: TLocaleTypes, customOrdinalFn: (v: number) => stri
 
     // Attempt to load the relevant dayjs locale configuration object
     try {
-        _currentLocaleData = (await import(`dayjs/locale/${currentLocale}`)) as ILocale;
+        const { default: langLocale } = await import(
+            /* webpackExclude: /(index|types)\.d\.ts/ */
+            /* webpackChunkName: "i18n/[request]" */
+            /* webpackMode: "lazy" */
+            `dayjs/locale/${currentLocale}`
+        );
+        _currentLocaleData = langLocale as ILocale;
     } catch (e) {
         try {
             const languageOnly = currentLocale.split("-")[0];
             console.warn(`${currentLocale} is not a valid locale, trying to use ${languageOnly} instead`);
-            _currentLocaleData = (await import(
+            const { default: langLocale } = await import(
+                /* webpackExclude: /(index|types)\.d\.ts/ */
                 /* webpackChunkName: "i18n/[request]" */
                 /* webpackMode: "lazy" */
-                /* webpackPreload: true */
-                `dayjs/locale/${languageOnly}`)
-            ) as ILocale;
+                `dayjs/locale/${languageOnly}`
+            );
+            _currentLocaleData = langLocale as ILocale;
             currentLocale = languageOnly;
         } catch (e) {
             console.warn(`Failed to load locale data for ${currentLocale}. romcal will default to "en" locale data`);
@@ -153,7 +160,7 @@ const setLocale = async (key: TLocaleTypes, customOrdinalFn: (v: number) => stri
     }
 
     /**
-     * Ensure that the first day is always a Sunday in romcal & Moment.js
+     * Ensure that the first day is always a Sunday in romcal & DayJS
      * Monday is the first day of the week according to the international standard ISO 8601,
      * In the US, Canada, and Japan, it's counted as the second day of the week (Sunday is the first day).
      * In Christian calendars, Sunday is always the first day of the week.
@@ -250,9 +257,9 @@ const localizeDates = async (
 };
 
 /**
- * Given a "day" integer from moment that represents the day of week, determine
+ * Given a "day" integer from DayJS that represents the day of week, determine
  * the type of day from the [[Types]] enum
- * @param day A "day" integer that should come from the moment library
+ * @param day A "day" integer that should come from the DayJS library
  */
 const getTypeByDayOfWeek = (day: number): Types => (day === 0 ? Types.SUNDAY : Types.FERIA);
 

@@ -1,11 +1,11 @@
 const { join } = require("path");
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = (env, { mode }) => [
     {
-        node: { global: true, fs: 'empty' }, // Fix: "Uncaught ReferenceError: global is not defined", and "Can't resolve 'fs'".
+        node: { global: true, fs: "empty" }, // Fix: "Uncaught ReferenceError: global is not defined", and "Can't resolve 'fs'".
         devtool: mode === "production" ? "source-map" : "inline-source-map",
         entry: {
             romcal: join(__dirname, "./src/index.ts"),
@@ -38,8 +38,8 @@ module.exports = (env, { mode }) => [
                 },
                 {
                     test: /\.html$/,
-                    loader: 'html-loader'
-                }
+                    loader: "html-loader",
+                },
             ],
         },
 
@@ -47,7 +47,7 @@ module.exports = (env, { mode }) => [
             splitChunks: {
                 chunks: "all",
                 name: true,
-            }
+            },
         },
 
         plugins: [
@@ -55,19 +55,18 @@ module.exports = (env, { mode }) => [
             new CleanWebpackPlugin(),
             // Generate test HTML page
             new HtmlWebpackPlugin({
-                title: 'romcal - Test Page',
-                template: 'src/index.html',
+                title: "romcal - Test Page",
+                template: "src/index.html",
                 meta: {
-                    'viewport': 'width=device-width, initial-scale=1, shrink-to-fit=no',
-
-                }
+                    viewport: "width=device-width, initial-scale=1, shrink-to-fit=no",
+                },
             }),
             // Find out where the bloat is
             new BundleAnalyzerPlugin({
                 analyzerMode: "disabled",
                 generateStatsFile: true,
                 source: false,
-            })
+            }),
         ],
 
         // When importing a module whose path matches one of the following, just

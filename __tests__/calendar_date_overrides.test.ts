@@ -24,8 +24,11 @@
 */
 
 import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
 import { Calendar, Seasons, Dates, Types } from "../src";
 import { DateItem, IRomcalDateItem } from "../src/models/romcal-date-item";
+
+dayjs.extend(utc);
 
 describe("Testing national calendar overrides", () => {
     describe("An optional celebration is available to be celebrated, in addition to the feria", () => {
@@ -41,26 +44,26 @@ describe("Testing national calendar overrides", () => {
 
         test("The optional memory of the Most Holy Name of Jesus is available on the 3th of January, in addition to the feria", () => {
             const dates = generalDates2020.filter(d => {
-                return d.moment.isSame(dayjs.utc("2020-1-3"));
+                return dayjs.utc(d.date).isSame(dayjs.utc("2020-1-3"));
             });
             expect(dates.length).toEqual(2);
         });
         test("However, if the 3th of January is a Sunday, the Solemnity of Epiphany takes the precedence.", () => {
             const dates = generalDates2021.filter(d => {
-                return d.moment.isSame(dayjs.utc("2021-1-3"));
+                return dayjs.utc(d.date).isSame(dayjs.utc("2021-1-3"));
             });
             expect(dates.length).toEqual(1);
             expect(dates[0].key).toEqual("epiphany");
         });
         test("The optional memory of Saint Fructuosus is celebrated on the January 20 in Spain, in addition of Saint Fabian from the general calendar", () => {
             const dates = spainDates2020.filter(d => {
-                return d.moment.isSame(dayjs.utc("2020-1-20"));
+                return dayjs.utc(d.date).isSame(dayjs.utc("2020-1-20"));
             });
             expect(dates.length).toEqual(3);
         });
         test("When optional celebrations are available, the feria is the first celebration available", () => {
             const [firstDate] = spainDates2020.filter(d => {
-                return d.moment.isSame(dayjs.utc("2020-1-20"));
+                return dayjs.utc(d.date).isSame(dayjs.utc("2020-1-20"));
             });
             expect(firstDate.type).toEqual(Types.FERIA);
         });
@@ -80,7 +83,7 @@ describe("Testing national calendar overrides", () => {
         test("The feast of Saint Isidore of Seville is celebrated on April 4 every year", () => {
             const date = generalDates.filter(d => {
                 return (
-                    d.moment.isSame(dayjs.utc(`${year}-4-4`)) &&
+                    dayjs.utc(d.date).isSame(dayjs.utc(`${year}-4-4`)) &&
                     d.key === "saintIsidoreOfSevilleBishopAndDoctorOfTheChurch"
                 );
             });
@@ -89,7 +92,7 @@ describe("Testing national calendar overrides", () => {
         test("However, in the national calendar of Spain, this same feast is celebrated on the 26th of April every year", () => {
             const date = spainDates.filter(d => {
                 return (
-                    d.moment.isSame(dayjs.utc(`${year}-4-26`)) &&
+                    dayjs.utc(d.date).isSame(dayjs.utc(`${year}-4-26`)) &&
                     d.key === "saintIsidoreOfSevilleBishopAndDoctorOfTheChurch"
                 );
             });
@@ -133,7 +136,7 @@ describe("Testing national calendar overrides", () => {
 
         test("An existing and prioritized celebration can be replaced by a new prioritized celebration having the same key (whatever its type rank)", () => {
             const dates = testDates.filter(d => {
-                return d.moment.isSame(Dates.pentecostSunday(year).add(1, "day"));
+                return dayjs.utc(d.date).isSame(Dates.pentecostSunday(year).add(1, "day"));
             });
             expect(dates.length).toEqual(1);
             expect(dates[0].key).toEqual("maryMotherOfTheChurch");
@@ -142,7 +145,7 @@ describe("Testing national calendar overrides", () => {
 
         test("If multiple prioritized celebrations falls the same day, the one with the highest type rank will be used", () => {
             const dates = testDates.filter(d => {
-                return d.moment.isSame(dayjs.utc("2020-11-9"));
+                return dayjs.utc(d.date).isSame(dayjs.utc("2020-11-9"));
             });
             expect(dates.length).toEqual(1);
             expect(dates[0].key).toEqual("dedicationOfTheLateranBasilica");
@@ -151,7 +154,7 @@ describe("Testing national calendar overrides", () => {
 
         test("If multiple prioritized celebrations with the same rank fall on the same day, the last defined celebration will be used", () => {
             const dates = testDates.filter(d => {
-                return d.moment.isSame(dayjs.utc("2020-12-25"));
+                return dayjs.utc(d.date).isSame(dayjs.utc("2020-12-25"));
             });
             expect(dates.length).toEqual(1);
             expect(dates[0].key).toEqual("aSampleCelebration2");
@@ -167,8 +170,8 @@ describe("Testing national calendar overrides", () => {
             const epiphanySlovakia = slovakiaDates.find(d => {
                 return d.key === "epiphany";
             });
-            expect(epiphanySlovakia?.moment.date()).toEqual(6);
-            expect(epiphanySlovakia?.moment.month()).toEqual(0);
+            expect(dayjs.utc(epiphanySlovakia?.date).date()).toEqual(6);
+            expect(dayjs.utc(epiphanySlovakia?.date).month()).toEqual(0);
         });
         test("Will fall on Sunday as calculated by the Epiphany rubric, when `epiphanyOnJan6` is explicitly configured as `false`", async () => {
             const slovakiaDates = await Calendar.calendarFor({
@@ -179,8 +182,8 @@ describe("Testing national calendar overrides", () => {
             const epiphanySlovakia = slovakiaDates.find(d => {
                 return d.key === "epiphany";
             });
-            expect(epiphanySlovakia?.moment.day()).toEqual(0);
-            expect(epiphanySlovakia?.moment.month()).toEqual(0);
+            expect(dayjs.utc(epiphanySlovakia?.date).day()).toEqual(0);
+            expect(dayjs.utc(epiphanySlovakia?.date).month()).toEqual(0);
         });
     });
 
@@ -190,7 +193,7 @@ describe("Testing national calendar overrides", () => {
             const date = dates.find(d => {
                 return d.key === "saintsCyrilMonkAndMethodiusBishop";
             });
-            expect(date?.moment.isSame(dayjs.utc("2017-2-14"))).toBeTruthy();
+            expect(dayjs.utc(date?.date).isSame(dayjs.utc("2017-2-14"))).toBeTruthy();
         });
         test("Should fall on 5th July 2017 in the national calendar of the Czech Republic", async () => {
             const dates = await Calendar.calendarFor({
@@ -200,7 +203,7 @@ describe("Testing national calendar overrides", () => {
             const date = dates.find(d => {
                 return d.key === "saintsCyrilMonkAndMethodiusBishop";
             });
-            expect(date?.moment.isSame(dayjs.utc("2017-7-5"))).toBeTruthy();
+            expect(dayjs.utc(date?.date).isSame(dayjs.utc("2017-7-5"))).toBeTruthy();
         });
         test("Should fall on 5th July 2017 in the national calendar of Slovakia", async () => {
             const dates = await Calendar.calendarFor({
@@ -210,7 +213,7 @@ describe("Testing national calendar overrides", () => {
             const date = dates.find(d => {
                 return d.key === "saintsCyrilMonkAndMethodiusBishop";
             });
-            expect(date?.moment.isSame(dayjs.utc("2017-7-5"))).toBeTruthy();
+            expect(dayjs.utc(date?.date).isSame(dayjs.utc("2017-7-5"))).toBeTruthy();
         });
     });
 
@@ -268,14 +271,22 @@ describe("Testing national calendar overrides", () => {
                     return d.key === "assumption";
                 });
 
-                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                expect(walesAssumption2009?.moment.isSame(twentiethSundayOfOrdinaryTime2009!.moment)).toBeTruthy();
-                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                expect(englandAssumption2009?.moment.isSame(twentiethSundayOfOrdinaryTime2009!.moment)).toBeTruthy();
-                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                expect(walesAssumption2011?.moment.isSame(twentiethSundayOfOrdinaryTime2011!.moment)).toBeTruthy();
-                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                expect(englandAssumption2011?.moment.isSame(twentiethSundayOfOrdinaryTime2011!.moment)).toBeTruthy();
+                expect(
+                    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                    walesAssumption2009?.date === twentiethSundayOfOrdinaryTime2009!.date.toISOString(),
+                ).toBeTruthy();
+                expect(
+                    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                    englandAssumption2009?.date === twentiethSundayOfOrdinaryTime2009!.date.toISOString(),
+                ).toBeTruthy();
+                expect(
+                    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                    walesAssumption2011?.date === twentiethSundayOfOrdinaryTime2011!.date.toISOString(),
+                ).toBeTruthy();
+                expect(
+                    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                    englandAssumption2011?.date === twentiethSundayOfOrdinaryTime2011!.date.toISOString(),
+                ).toBeTruthy();
             });
         });
 
@@ -300,9 +311,9 @@ describe("Testing national calendar overrides", () => {
                 const englandAssumption: DateItem | undefined = englandDates.find(d => d.key === "assumption");
 
                 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                expect(walesAssumption?.moment.isSame(twentiethSundayOfOrdinaryTime!.moment)).toBeTruthy();
+                expect(walesAssumption?.date === twentiethSundayOfOrdinaryTime!.date.toISOString()).toBeTruthy();
                 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                expect(englandAssumption?.moment.isSame(twentiethSundayOfOrdinaryTime!.moment)).toBeTruthy();
+                expect(englandAssumption?.date === twentiethSundayOfOrdinaryTime!.date.toISOString()).toBeTruthy();
             });
         });
     });
@@ -325,8 +336,8 @@ describe("Testing national calendar overrides", () => {
             const allSaintsWales = walesDates.find(d => {
                 return d.key === "allSaints";
             });
-            expect(allSaintsEngland?.moment.day()).toEqual(0);
-            expect(allSaintsWales?.moment.day()).toEqual(0);
+            expect(dayjs.utc(allSaintsEngland?.date).day()).toEqual(0);
+            expect(dayjs.utc(allSaintsWales?.date).day()).toEqual(0);
         });
     });
 
@@ -349,8 +360,8 @@ describe("Testing national calendar overrides", () => {
             const allSaintsWales = walesDates.find(d => {
                 return d.key === "allSouls";
             });
-            expect(allSaintsEngland?.moment.day()).toEqual(1);
-            expect(allSaintsWales?.moment.day()).toEqual(1);
+            expect(dayjs.utc(allSaintsEngland?.date).day()).toEqual(1);
+            expect(dayjs.utc(allSaintsWales?.date).day()).toEqual(1);
         });
     });
 
@@ -360,7 +371,7 @@ describe("Testing national calendar overrides", () => {
             const saintMatthias = dates.find(d => {
                 return d.key === "saintMatthiasTheApostle";
             });
-            expect(saintMatthias?.moment.isSame(dayjs.utc("2018-5-14"))).toBeTruthy();
+            expect(dayjs.utc(saintMatthias?.date).isSame(dayjs.utc("2018-5-14"))).toBeTruthy();
         });
         test("Feast day falls on the 24th of February in the national calendar of Germany and Hungary", async () => {
             const germanyDates = await Calendar.calendarFor({
@@ -377,8 +388,8 @@ describe("Testing national calendar overrides", () => {
             const saintMatthiasHungary = hungaryDates.find(d => {
                 return d.key === "saintMatthiasTheApostle";
             });
-            expect(saintMatthiasGermany?.moment.isSame(dayjs.utc("2018-2-24"))).toBeTruthy();
-            expect(saintMatthiasHungary?.moment.isSame(dayjs.utc("2018-2-24"))).toBeTruthy();
+            expect(dayjs.utc(saintMatthiasGermany?.date).isSame(dayjs.utc("2018-2-24"))).toBeTruthy();
+            expect(dayjs.utc(saintMatthiasHungary?.date).isSame(dayjs.utc("2018-2-24"))).toBeTruthy();
         });
         test("Is a memorial in the German liturgical calendar on A.D 2014", async () => {
             const germanyDates = await Calendar.calendarFor({
@@ -438,7 +449,7 @@ describe("Testing national calendar overrides", () => {
                 return d.key === "ourLadyOfSorrows";
             });
             expect(ourLadyOfSorrows?.type).toEqual(Types.MEMORIAL);
-            expect(ourLadyOfSorrows?.moment.isSame(dayjs.utc("2018-9-15"))).toBeTruthy();
+            expect(dayjs.utc(ourLadyOfSorrows?.date).isSame(dayjs.utc("2018-9-15"))).toBeTruthy();
         });
 
         test("Should be celebrated on the 15th of April 2015 as a feast in the national calendar of Malta", async () => {
@@ -450,7 +461,7 @@ describe("Testing national calendar overrides", () => {
                 return d.key === "ourLadyOfSorrows";
             });
             expect(ourLadyOfSorrows?.type).toEqual(Types.FEAST);
-            expect(ourLadyOfSorrows?.moment.isSame(dayjs.utc("2015-4-15"))).toBeTruthy();
+            expect(dayjs.utc(ourLadyOfSorrows?.date).isSame(dayjs.utc("2015-4-15"))).toBeTruthy();
         });
 
         test("Should be replaced by the 3rd Sunday of Easter in 2018 in the national calendar of Malta due to rank", async () => {
@@ -461,7 +472,7 @@ describe("Testing national calendar overrides", () => {
             const ourLadyOfSorrows: dayjs.Dayjs = dayjs.utc("2018-4-15");
             const thirdSundayOfEaster: DateItem | undefined = maltaDates.find(d => d.key === "3rdSundayOfEaster");
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            expect(ourLadyOfSorrows.isSame(thirdSundayOfEaster!.moment)).toBeTruthy();
+            expect(ourLadyOfSorrows.isSame(thirdSundayOfEaster!.date)).toBeTruthy();
         });
 
         test("Should be celebrated on the 15th of April 2018 as a solemnity in the national calendar of Slovakia", async () => {
@@ -473,7 +484,7 @@ describe("Testing national calendar overrides", () => {
                 return d.key === "ourLadyOfSorrows";
             });
             expect(ourLadyOfSorrows?.type).toEqual(Types.SOLEMNITY);
-            expect(ourLadyOfSorrows?.moment.isSame(dayjs.utc("2018-9-15"))).toBeTruthy();
+            expect(dayjs.utc(ourLadyOfSorrows?.date).isSame(dayjs.utc("2018-9-15"))).toBeTruthy();
         });
     });
 });
