@@ -1,5 +1,5 @@
 import * as CountryCalendars from "../calendars";
-import * as Locales from "../locales";
+import { default as Locales } from "../locales";
 import { ElementType } from "./helpers";
 import { IRomcalConfig } from "../models/romcal-config";
 import { getRomcalConfigJsonSchema, getRomcalConfigSchemaValidator } from "../validators/romcal-config.validator";
