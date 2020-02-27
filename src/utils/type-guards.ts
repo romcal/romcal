@@ -91,10 +91,15 @@ export type TRomcalQueryGroup = ElementType<typeof romcalQueryGroups>;
 export type TChristmastideEndings = "t" | "o" | "e";
 
 export const countryKeys = Object.keys(CountryCalendars) as Array<keyof typeof CountryCalendars>;
+/**
+ * A dynamic type indexing all supported countries for calendar generation.
+ */
 export type TCountryTypes = ElementType<typeof countryKeys>;
 
-export const localeKeys = Object.keys(Locales) as Array<keyof typeof Locales>;
-export type TLocaleTypes = ElementType<typeof localeKeys>;
+/**
+ * A dynamic type generated using the keys defined in [[Locales]]
+ */
+export type TLocaleTypes = keyof typeof Locales;
 
 export type TLocalizeParams = {
     key: string;
