@@ -30,8 +30,8 @@ describe("Testing localization functionality", () => {
         expect(await Locales.localize({ key: "celebrations.allSaints" })).toBe("Tous les Saints");
     });
 
-    test("If the locale is set to 'enCA', romcal should output text in Canadian French", async () => {
-        await Locales.setLocale("enCA");
+    test("If the locale is set to 'en-CA', romcal should output text in Canadian French", async () => {
+        await Locales.setLocale("en-CA");
         expect(
             await Locales.localize({
                 key: "sanctoral.saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrsSaintPaulOfTheCrossPriest",
@@ -43,7 +43,6 @@ describe("Testing localization functionality", () => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         await Locales.setLocale("fr-XX" as any);
         const localizedText = await Locales.localize({ key: "celebrations.allSaints" });
-        console.log("localizedText", localizedText);
         expect(localizedText).toBe("Tous les Saints");
     });
 
