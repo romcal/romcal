@@ -26,11 +26,11 @@ import { Calendar, Celebrations, Dates, Seasons, Locales } from "./lib";
 
 import { LiturgicalCycles, LiturgicalColors, PsalterWeeks, LiturgicalSeasons, Titles, Types } from "./constants";
 
-import { countryKeys, localeKeys } from "./utils/type-guards";
+import { countryKeys } from "./utils/type-guards";
 
 // Export an array of countries for external use
 // Export an array of locales for external use
-export { countryKeys as Countries, localeKeys as Localizations };
+export { countryKeys as Countries };
 
 // Export all lib functions
 export { Calendar, Celebrations, Dates, Seasons, Locales };

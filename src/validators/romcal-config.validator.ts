@@ -1,6 +1,7 @@
 import { Schema, Validator } from "jsonschema";
-import { countryKeys, localeKeys, romcalQueryGroups } from "../utils/type-guards";
+import { countryKeys, romcalQueryGroups } from "../utils/type-guards";
 import { Titles } from "../constants";
+import { default as Locales } from "../locales";
 
 export const getRomcalConfigJsonSchema = (): Schema => {
     const romcalConfigJsonSchema: Schema = {
@@ -18,8 +19,8 @@ export const getRomcalConfigJsonSchema = (): Schema => {
             },
             locale: {
                 type: "string",
-                enum: localeKeys,
-                description: `Acceptable values are ${localeKeys.join(", ")}`,
+                enum: Object.keys(Locales),
+                description: `Acceptable values are ${Object.keys(Locales).join(", ")}`,
             },
             christmastideEnds: { type: "string", enum: ["t", "o", "e"] },
             epiphanyOnJan6: { type: "boolean" },
