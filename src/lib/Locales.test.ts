@@ -30,7 +30,7 @@ describe("Testing localization functionality", () => {
         expect(await Locales.localize({ key: "celebrations.allSaints" })).toBe("Tous les Saints");
     });
 
-    test("If the locale is set to 'en-CA', romcal should output text in Canadian French", async () => {
+    test("If the locale is set to 'enCA', romcal should output text in Canadian French", async () => {
         await Locales.setLocale("enCA");
         expect(
             await Locales.localize({

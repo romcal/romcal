@@ -1,8 +1,7 @@
 import template from "lodash-es/template";
 import templateSettings from "lodash-es/templateSettings";
 import { Types } from "../constants";
-import * as Locales from "../locales";
-import { findDescendantValueByKeys, hasKey, getValueByKey, mergeObjectsUniquely } from "../utils/object";
+import { findDescendantValueByKeys, mergeObjectsUniquely } from "../utils/object";
 import { TRomcalLocale } from "../models/romcal-locale";
 import { isNil, TLocaleTypes, TLocalizeParams, TDateItemSource } from "../utils/type-guards";
 import { IRomcalDateItem } from "../models/romcal-date-item";
@@ -15,7 +14,6 @@ import { parse, Schema } from "bcp-47";
 import dayjs from "dayjs";
 import updateLocale from "dayjs/plugin/updateLocale";
 import advancedFormat from "dayjs/plugin/advancedFormat";
-import en from "dayjs/locale/en";
 
 /**
  * Extend dayjs instance with plugins
@@ -39,23 +37,20 @@ templateSettings.interpolate = /{{([\s\S]+?)}}/g;
  */
 export const _fallbackLocaleKey: TLocaleTypes = "en";
 
-const availableLocales: {
-    [key in TLocaleTypes]: TRomcalLocale;
-} = Locales;
+/**
+ * Cache value for the array of locales to be used for calendar output.
+ */
+let _locales: TRomcalLocale[];
 
+/**
+ * The cache key that holds the flattened _locales array.
+ */
 let _combinedLocale: TRomcalLocale | undefined;
 
 /**
- * Fetch the fallback locale object ("en") and store the en object in an array.
- * This will serve as the default locale object if the given key cannot be resolved in [[Locales.setLocale]].
+ * Cache value to hold the current locale's data.
  */
-let _locales: Array<TRomcalLocale> = [availableLocales["en"]];
-
-/**
- * Set the default current locale data to "en".
- * It can be changed later when the calendar is invoked via other methods.
- */
-let _currentLocaleData: ILocale = en;
+let _currentLocaleData: ILocale;
 
 /**
  * Returns an ordinal number representation of the integer provided.
@@ -71,6 +66,48 @@ export const ordinal = (value: number): string => {
 };
 
 /**
+ * Attempts to sanitize the incoming value into a valid BCP-47 IETF locale string.
+ * @param value The locale value to sanitize
+ * @returns a BCP-47 IETF locale string along the [[Schema]] object with additional locale properties or throws an Error if the value could not be parsed
+ */
+export const sanitizePossibleLocaleValue = (
+    value: string,
+): {
+    localeSchema: Schema;
+    resolvedBcp47Locale: string;
+} => {
+    try {
+        let localeSchema: Schema = parse(value, {
+            forgiving: true, // https://www.npmjs.com/package/bcp-47#optionsforgiving
+        });
+        // Get schema parts
+        let { region, language } = localeSchema;
+        // Will hold the parsed locale
+        let resolvedBcp47Locale: string;
+        // Handle locales where language and region are not separated by a hyphen
+        if (!isNil(language) && language.length > 2 && isNil(region)) {
+            const parsedLanguage = language?.substr(0, 2);
+            const parsedRegion = language?.substr(2, 4);
+            resolvedBcp47Locale = `${parsedLanguage}${
+                isString(parsedRegion) && parsedRegion.length > 0 ? `-${parsedRegion}` : ""
+            }`;
+            console.debug(`sanitized the ${language} locale to ${resolvedBcp47Locale}`);
+            localeSchema = parse(resolvedBcp47Locale, {
+                forgiving: true,
+            });
+            region = localeSchema.region;
+            language = localeSchema.language;
+        } else {
+            resolvedBcp47Locale = `${language}${isString(region) && region.length > 0 ? `-${region}` : ""}`;
+        }
+        return { localeSchema, resolvedBcp47Locale };
+    } catch (e) {
+        console.warn(`${value} is not a parse-able BCP-47 IETF locale string`);
+        throw e;
+    }
+};
+
+/**
  * Sets the global locale for DayJS to be used for date operations throughout the library.
  * @param key The language key to use
  * @param customOrdinalFn An optional custom function to use for generating ordinal number values (defaults [[Locales.ordinal]] if not set)
@@ -78,51 +115,60 @@ export const ordinal = (value: number): string => {
 const setLocale = async (key: TLocaleTypes, customOrdinalFn: (v: number) => string = ordinal): Promise<void> => {
     // When setLocale() is called, all cache values are purged
     _combinedLocale = undefined;
-    _locales = [getValueByKey(availableLocales, _fallbackLocaleKey)];
+    // When setLocale() is called, the cache language files are reset
+    try {
+        const { default: fallbackLocale } = await import(
+            /* webpackExclude: /index\.ts/ */
+            /* webpackChunkName: "locales/[request]" */
+            /* webpackMode: "lazy" */
+            `../locales/${_fallbackLocaleKey}`
+        );
+        _locales = [fallbackLocale as TRomcalLocale];
+    } catch (e) {
+        console.error(`Failed to load the ${_fallbackLocaleKey} language file`);
+    }
 
     let currentLocale;
     try {
-        const localeSchema: Schema = parse(key, {
-            forgiving: true, // https://www.npmjs.com/package/bcp-47#optionsforgiving
-        });
-
+        const { localeSchema, resolvedBcp47Locale } = sanitizePossibleLocaleValue(key);
         const { region, language } = localeSchema;
-
-        // Handle locales where language and region are not separated by a hyphen
-        if (!isNil(language) && language.length > 2 && isNil(region)) {
-            const parsedLanguage = language?.substr(0, 2);
-            const parsedRegion = language?.substr(2, 4);
-            currentLocale = `${parsedLanguage}${
-                isString(parsedRegion) && parsedRegion.length > 0 ? `-${parsedRegion}` : ""
-            }`;
-            console.debug(`normalized the locale ${currentLocale} from ${language}`);
-        } else {
-            currentLocale = `${language}${isString(region) && region.length > 0 ? `-${region}` : ""}`;
-        }
-
-        // Romcal friendly locale string
-        const romcalLocale = `${language}${
-            isString(region) && region.length > 0 ? `${region.toUpperCase()}` : ""
-        }` as TLocaleTypes;
+        currentLocale = resolvedBcp47Locale;
 
         /**
-         * If a region is specified: append the base language as fallback.
+         * If a region is specified: append the base language for that region as fallback if it exists.
          * Also check if the base language isn't already the default 'en',
-         * and if this base language exists in 'src/locales'
          */
-        if (
-            !isNil(region) &&
-            region?.length > 0 &&
-            language !== _fallbackLocaleKey &&
-            hasKey(availableLocales, language)
-        ) {
+        if (!isNil(region) && region?.length > 0 && language !== _fallbackLocaleKey) {
             // Retrieve the relevant base locale object
             // and set it as a fallback (before 'en')
-            _locales = [getValueByKey(availableLocales, language), ..._locales]; // For example: append the 'fr' locale
+            try {
+                const { default: baseLocale } = await import(
+                    /* webpackExclude: /index\.ts/ */
+                    /* webpackChunkName: "locales/[request]" */
+                    /* webpackMode: "lazy" */
+                    `../locales/${language}`
+                );
+                _locales = [baseLocale as TRomcalLocale, ..._locales]; // For example: append the 'fr' locale
+            } catch (e) {
+                console.warn(
+                    `A base language file for "${language}" to support the ${currentLocale} locale is not available`,
+                );
+            }
         }
-        // Finally, append the region specific locale if any to the list of locales
-        if (hasKey(availableLocales, romcalLocale)) {
-            _locales = [getValueByKey(availableLocales, romcalLocale), ..._locales]; // For example: append the 'fr-CA' locale
+
+        /**
+         * Finally, append the region specific locale if any to the list of locales
+         */
+        try {
+            const { default: regionSpecificLocale } = await import(
+                /* webpackExclude: /index\.ts/ */
+                /* webpackChunkName: "locales/[request]" */
+                /* webpackMode: "lazy" */
+                `../locales/${currentLocale}`
+            );
+            _locales = [regionSpecificLocale as TRomcalLocale, ..._locales]; // For example: append the 'fr-CA' locale
+        } catch (e) {
+            console.warn(`A language file for the region locale "${currentLocale}" is not available`);
         }
     } catch (e) {
         console.warn(`The locale "${key} is not a valid IETF BCP-47 format. romcal will default to the "en" locale`);
@@ -141,7 +187,7 @@ const setLocale = async (key: TLocaleTypes, customOrdinalFn: (v: number) => stri
     } catch (e) {
         try {
             const languageOnly = currentLocale.split("-")[0];
-            console.warn(`${currentLocale} is not a valid locale, trying to use ${languageOnly} instead`);
+            console.warn(`${currentLocale} is not supported by dayJS, trying to use ${languageOnly} instead`);
             const { default: langLocale } = await import(
                 /* webpackExclude: /(index|types)\.d\.ts/ */
                 /* webpackChunkName: "i18n/[request]" */

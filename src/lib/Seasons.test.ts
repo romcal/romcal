@@ -27,8 +27,14 @@ import dayjs from "dayjs";
 import { LiturgicalColors, Seasons, Calendar, Dates } from "..";
 import { Dictionary } from "../utils/type-guards";
 import { DateItem } from "../models/romcal-date-item";
+import { setLocale } from "./Locales";
 
 describe("Testing date range functions", () => {
+    // The locale needs to be set before any tests below can run properly
+    beforeAll(async () => {
+        await setLocale("en");
+    });
+
     describe("The Season of Advent", () => {
         test("There are always 4 Sundays in advent", () => {
             for (let i = 1900, il = 2100; i <= il; i++) {
@@ -267,6 +273,11 @@ describe("Testing date range functions", () => {
 });
 
 describe("Testing seasons utility functions", () => {
+    // The locale needs to be set before any tests below can run properly
+    beforeAll(async () => {
+        await setLocale("en");
+    });
+
     describe("The liturgical year is divided to a number of seasons", () => {
         let calendar: Dictionary<DateItem[]>;
         beforeAll(async () => {
