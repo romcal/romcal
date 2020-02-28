@@ -198,3 +198,15 @@ export const isObject = (maybeObject: unknown): maybeObject is object => {
     const valType = typeof maybeObject;
     return !!maybeObject && valType === "object";
 };
+
+/**
+ * Check if a value is empty.
+ * @param maybeEmpty The value that could be empty
+ */
+export const isEmpty = (maybeEmpty: unknown): boolean => {
+    if (isObject(maybeEmpty)) {
+        return Object.keys(maybeEmpty).length > 0 ? false : true;
+    } else {
+        return true;
+    }
+};
