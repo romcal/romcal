@@ -13,8 +13,8 @@ const config: ConfigurationFactory = (env, { mode }) => ({
     },
 
     output: {
-        filename: "[name].[chunkhash].bundle.js",
-        chunkFilename: "[name].bundle.js",
+        filename: "[name].bundle.js",
+        chunkFilename: "[name].[chunkhash].bundle.js",
         path: join(__dirname, "dist"),
         library: "Romcal",
         libraryTarget: "umd",
