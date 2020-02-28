@@ -14,10 +14,11 @@ const config: ConfigurationFactory = (env, { mode }) => ({
 
     output: {
         filename: "[name].[chunkhash].bundle.js",
-        chunkFilename: "[name].[chunkhash].bundle.js",
+        chunkFilename: "[name].bundle.js",
         path: join(__dirname, "dist"),
         library: "Romcal",
         libraryTarget: "umd",
+        auxiliaryComment: "romcal - The Liturgical Calendar generator",
     },
 
     resolve: {
