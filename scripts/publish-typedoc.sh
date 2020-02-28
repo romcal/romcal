@@ -5,9 +5,9 @@ echo "TRAVIS_BRANCH IS ${TRAVIS_BRANCH}"
 
 if [ "$TRAVIS_BRANCH" != 'master' ]; then
     LATEST_TAG_VERSION="$(npm view ${PACKAGE_NAME}@latest version)"
-elif [ "$TRAVIS_BRANCH" = 'test' ]; then
+    elif [ "$TRAVIS_BRANCH" = 'test' ]; then
     LATEST_TAG_VERSION="$(npm view ${PACKAGE_NAME}@beta version)"
-elif [ "$TRAVIS_BRANCH" = 'dev' ]; then
+    elif [ "$TRAVIS_BRANCH" = 'dev' ]; then
     LATEST_TAG_VERSION="$(npm view ${PACKAGE_NAME}@alpha version)"
 else
     LATEST_TAG_VERSION="$(npm view ${PACKAGE_NAME}@canary version)"
@@ -19,4 +19,4 @@ npm run typedoc
 # gh-pages
 git pull # Get latest
 git add docs && git commit -am "[skip travis-ci] Publish latest typedoc for ${LATEST_TAG_VERSION}"
-git subtree push --prefix docs origin gh-pages
+git push origin :gh-pages && git subtree push --prefix docs origin gh-pages
