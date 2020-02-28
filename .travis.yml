@@ -1,10 +1,5 @@
 language: node_js
 
-# blocklist
-# branches:
-# except:
-#   - "_F-TypeScript"
-
 node_js:
   - "lts/*"
   - "stable"
@@ -78,6 +73,7 @@ jobs:
           skip_cleanup: true
           on:
             all_branches: true
+            condition: $TRAVIS_BRANCH =~ ^(master|dev|test)$
             repo: romcal/romcal
       after_deploy:
         - git update-index --no-assume-unchanged scripts/bump-version.sh
