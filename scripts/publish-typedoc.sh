@@ -3,6 +3,9 @@
 TRAVIS_BRANCH=$1
 echo "TRAVIS_BRANCH IS ${TRAVIS_BRANCH}"
 
+PACKAGE_NAME="$(node -pe "require('./package.json')['name']")"
+echo "PACKAGE_NAME is ${PACKAGE_NAME}"
+
 if [ "$TRAVIS_BRANCH" != 'master' ]; then
     LATEST_TAG_VERSION="$(npm view ${PACKAGE_NAME}@latest version)"
     elif [ "$TRAVIS_BRANCH" = 'test' ]; then
