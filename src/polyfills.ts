@@ -22,27 +22,12 @@
     THE SOFTWARE.
 */
 
-import "./polyfills";
-
-import { Calendar, Celebrations, Dates, Seasons, Locales } from "./lib";
-
-import { LiturgicalCycles, LiturgicalColors, PsalterWeeks, LiturgicalSeasons, Titles, Types } from "./constants";
-
-import { countryKeys } from "./utils/type-guards";
-
-// Export an array of countries for external use
-// Export an array of locales for external use
-export { countryKeys as Countries };
-
-// Export all lib functions
-export { Calendar, Celebrations, Dates, Seasons, Locales };
-
-// Export all constants
-export { LiturgicalCycles, LiturgicalColors, PsalterWeeks, LiturgicalSeasons, Titles, Types };
-
-const { calendarFor, queryFor } = Calendar;
-
-export { calendarFor, queryFor };
-
-// Default entry point is exported as Romcal
-export default Calendar;
+/**
+ * Here, we load all needed polyfills to ensure that romcal works on anceint browsers (IE11)
+ */
+import "core-js/features/promise";
+import "core-js/features/object/entries";
+import "core-js/features/array/from";
+import "core-js/features/array/includes";
+import "core-js/features/array/find";
+import "core-js/features/array/find-index";

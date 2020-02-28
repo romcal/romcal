@@ -471,8 +471,9 @@ class Calendar {
     static async _fetchCalendar(country: TCountryTypes, year: number): Promise<Array<IRomcalDateItem>> {
         const { dates } = await import(
             /* webpackExclude: /index\.ts/ */
-            /* webpackChunkName: "calendars-sources/[request]" */
+            /* webpackChunkName: "calendars/[request]" */
             /* webpackMode: "lazy" */
+            /* webpackPrefetch: true */
             `../calendars/${country}`
         );
         return await dates(year);

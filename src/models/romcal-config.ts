@@ -161,8 +161,9 @@ export default class Config {
     static async getConfig(country: TCountryTypes = "general"): Promise<IRomcalDefaultConfig> {
         const { defaultConfig: countrySpecificDefaultConfig } = await import(
             /* webpackExclude: /index\.ts/ */
-            /* webpackChunkName: "calendars-sources/[request]" */
+            /* webpackChunkName: "calendars/[request]" */
             /* webpackMode: "lazy" */
+            /* webpackPrefetch: true */
             `../calendars/${country}`
         );
         if (!isNil(countrySpecificDefaultConfig) && Object.keys(countrySpecificDefaultConfig).length > 0) {
@@ -170,8 +171,9 @@ export default class Config {
         } else {
             const { defaultConfig: generalCalendarConfig } = await import(
                 /* webpackExclude: /index\.ts/ */
-                /* webpackChunkName: "calendars-sources/[request]" */
+                /* webpackChunkName: "calendars/[request]" */
                 /* webpackMode: "lazy" */
+                /* webpackPrefetch: true */
                 "../calendars/general"
             );
             return generalCalendarConfig;
@@ -189,7 +191,10 @@ export default class Config {
         if (!isNil(maybeConfig)) {
             // Check if the user configuration is valid
             if (!isRomcalConfig(maybeConfig)) {
-                console.warn("Will discard entire user supplied config object and use default configuration");
+                console.warn(
+                    `Will discard the entire user supplied config object and use default configuration.
+                    To avoid this, ensure that all properties and values of the config object are valid.`,
+                );
             } else {
                 // A two step override where the base object of default configurations
                 // will first be overriden by country specific if it isn't empty
