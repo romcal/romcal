@@ -79,12 +79,14 @@
     "homepage": "https://github.com/romcal/romcal/blob/master/README.md",
     "dependencies": {
         "bcp-47": "^1.0.7",
+        "core-js": "^3.6.4",
         "dayjs": "^1.8.20",
         "jsonschema": "^1.2.5",
         "lodash-es": "^4.17.15"
     },
     "devDependencies": {
         "@types/bcp-47": "^1.0.0",
+        "@types/core-js": "^2.5.3",
         "@types/html-webpack-plugin": "^3.2.2",
         "@types/jest": "^25.1.2",
         "@types/lodash": "^4.14.149",

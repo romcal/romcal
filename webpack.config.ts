@@ -13,8 +13,8 @@ const config: ConfigurationFactory = (env, { mode }) => ({
     },
 
     output: {
-        filename: "[name].bundle.min.js",
-        chunkFilename: "[name].[contenthash].js",
+        filename: "[name].[chunkhash].bundle.js",
+        chunkFilename: "[name].[chunkhash].bundle.js",
         path: join(__dirname, "dist"),
         library: "Romcal",
         libraryTarget: "umd",
@@ -50,9 +50,20 @@ const config: ConfigurationFactory = (env, { mode }) => ({
             maxInitialRequests: Infinity,
             minSize: 0,
             cacheGroups: {
-                // Externalize all includes from node_modules
+                // Externalize all includes from node_modules except core-js
                 vendor: {
+                    chunks: "all",
                     test: /[\\/]node_modules[\\/]/,
+                    priority: 20,
+                },
+                // Create a common chunk for reusable code
+                common: {
+                    name: "common",
+                    minChunks: 2,
+                    chunks: "async",
+                    priority: 10,
+                    reuseExistingChunk: true,
+                    enforce: true,
                 },
             },
         },
@@ -76,6 +87,7 @@ const config: ConfigurationFactory = (env, { mode }) => ({
                     content: "IE=edge",
                 },
             },
+            minify: false,
         }),
         // Find out where the bloat is
         new BundleAnalyzerPlugin({
