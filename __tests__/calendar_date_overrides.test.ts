@@ -170,6 +170,7 @@ describe("Testing national calendar overrides", () => {
             const epiphanySlovakia = slovakiaDates.find(d => {
                 return d.key === "epiphany";
             });
+            // Should always be Jan 6th in Slovakia
             expect(dayjs.utc(epiphanySlovakia?.date).date()).toEqual(6);
             expect(dayjs.utc(epiphanySlovakia?.date).month()).toEqual(0);
         });

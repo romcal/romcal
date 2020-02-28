@@ -5,7 +5,6 @@ import map from "lodash-es/map";
 import dayjs from "dayjs";
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
 import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
-import * as CountryCalendars from "../calendars";
 import Config, { IRomcalConfig } from "../models/romcal-config";
 import * as Dates from "./Dates";
 import * as Locales from "./Locales";
@@ -147,7 +146,8 @@ async function calendarFor(
     }
 
     // Sanitize incoming config into a complete configuration set
-    const config = new Config(userConfig);
+    const resolvedConfig = await Config.resolveConfig(userConfig);
+    const config = new Config(resolvedConfig);
 
     // Set the locale information
     await Locales.setLocale(config.locale);
@@ -469,8 +469,13 @@ class Calendar {
      * @param year the year to resolve
      */
     static async _fetchCalendar(country: TCountryTypes, year: number): Promise<Array<IRomcalDateItem>> {
-        const countryCalendar = CountryCalendars[country];
-        return await countryCalendar.dates(year);
+        const { dates } = await import(
+            /* webpackExclude: /index\.ts/ */
+            /* webpackChunkName: "calendars-sources/[request]" */
+            /* webpackMode: "lazy" */
+            `../calendars/${country}`
+        );
+        return await dates(year);
     }
 }
 

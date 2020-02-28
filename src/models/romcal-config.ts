@@ -8,7 +8,6 @@ import {
     isRomcalConfig,
     TLocaleTypes,
 } from "../utils/type-guards";
-import * as CountryCalendars from "../calendars";
 import dayjs from "dayjs";
 
 /**
@@ -65,6 +64,12 @@ export interface IRomcalConfig {
 export type IRomcalDefaultConfig = Required<Omit<IRomcalConfig, "country" | "locale" | "query" | "year" | "type">>;
 
 /**
+ * A modified variant of IRomcalConfig specifically for the [[Config]] class constructor
+ * where all properties except query are **required**.
+ */
+export type TConfigConstructorType = { query?: TRomcalQuery } & Required<Omit<IRomcalConfig, "query">>;
+
+/**
  * The [[Config]] class encapsulates all options that can be sent to this library to adjust date output.
  */
 export default class Config {
@@ -79,45 +84,32 @@ export default class Config {
     private _type: TCalendarTypes;
     private _query?: TRomcalQuery;
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    constructor(userConfig?: IRomcalConfig) {
-        let config: IRomcalConfig = Config.getConfig(); // Get the default config
-        if (!isNil(userConfig)) {
-            if (!isRomcalConfig(userConfig)) {
-                console.warn("Will discard entire user supplied config object and use default configuration");
-            } else {
-                // A two step override where the base object of default configurations
-                // will first be overriden by country specific if it isn't empty
-                // and finally by a valid user defined configuration object
-                config = {
-                    ...config, // Base default config
-                    ...(userConfig.country !== "general" && Config.getConfig(userConfig.country)), // Specific country configuration
-                    ...userConfig, // User supplied config (will overwrite same keys before it)
-                };
-            }
-        } else {
-            console.debug("Will use default configuration to generate the calendar.");
-        }
-
-        // Sanitize and set defaults for missing configurations
-        this._year = config.year ?? dayjs.utc().year(); // Use current year if not supplied by user
-        this._country = config.country ?? "general"; // Use general as country if none supplied by user
-        this._locale = config.locale ?? "en"; // Use english for localization if no lanaguage supplied]
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        this._christmastideEnds = config.christmastideEnds!; // Will use default if not defined
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        this._epiphanyOnJan6 = config.epiphanyOnJan6!; // Will use default if not defined
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        this._christmastideIncludesTheSeasonOfEpiphany = config.christmastideIncludesTheSeasonOfEpiphany!; // Will use default if not defined
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        this._corpusChristiOnThursday = config.corpusChristiOnThursday!; // Will use default if not defined
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        this._ascensionOnSunday = config.ascensionOnSunday!; // Will use default if not defineds
-        this._type = config.type ?? "calendar"; // Use value "calendar" if type not specified by user
-        // The only optional field is this
-        if (isObject(config.query)) {
-            this._query = config.query;
-        }
+    /**
+     * Constructs a new [[Config]] object
+     * @param config [[IRomcalConfig]] object representing all settings
+     */
+    constructor({
+        year,
+        country,
+        locale,
+        christmastideEnds,
+        epiphanyOnJan6,
+        christmastideIncludesTheSeasonOfEpiphany,
+        corpusChristiOnThursday,
+        ascensionOnSunday,
+        type,
+        query,
+    }: TConfigConstructorType) {
+        this._year = year;
+        this._country = country;
+        this._locale = locale;
+        this._christmastideEnds = christmastideEnds;
+        this._epiphanyOnJan6 = epiphanyOnJan6;
+        this._christmastideIncludesTheSeasonOfEpiphany = christmastideIncludesTheSeasonOfEpiphany;
+        this._corpusChristiOnThursday = corpusChristiOnThursday;
+        this._ascensionOnSunday = ascensionOnSunday;
+        this._type = type;
+        this._query = query;
     }
 
     get year(): number {
@@ -166,12 +158,72 @@ export default class Config {
      * If the country is not specified, return the configuration for the general calendar.
      * @param country The country to obtain default configurations from
      */
-    static getConfig(country: TCountryTypes = "general"): IRomcalDefaultConfig {
-        const { defaultConfig } = CountryCalendars[country];
-        if (!isNil(defaultConfig) && Object.keys(defaultConfig).length > 0) {
-            return defaultConfig;
+    static async getConfig(country: TCountryTypes = "general"): Promise<IRomcalDefaultConfig> {
+        const { defaultConfig: countrySpecificDefaultConfig } = await import(
+            /* webpackExclude: /index\.ts/ */
+            /* webpackChunkName: "calendars-sources/[request]" */
+            /* webpackMode: "lazy" */
+            `../calendars/${country}`
+        );
+        if (!isNil(countrySpecificDefaultConfig) && Object.keys(countrySpecificDefaultConfig).length > 0) {
+            return countrySpecificDefaultConfig;
         } else {
-            return CountryCalendars["general"].defaultConfig;
+            const { defaultConfig: generalCalendarConfig } = await import(
+                /* webpackExclude: /index\.ts/ */
+                /* webpackChunkName: "calendars-sources/[request]" */
+                /* webpackMode: "lazy" */
+                "../calendars/general"
+            );
+            return generalCalendarConfig;
         }
+    }
+
+    /**
+     * Resolves the full configuration
+     * @param maybeConfig An optional object that may be a usable instance of [[IRomcalConfig]]
+     */
+    static async resolveConfig(maybeConfig?: unknown): Promise<TConfigConstructorType> {
+        // Get the default config
+        let config: IRomcalConfig = await Config.getConfig("general");
+        // Check if the user supplied their own configuration
+        if (!isNil(maybeConfig)) {
+            // Check if the user configuration is valid
+            if (!isRomcalConfig(maybeConfig)) {
+                console.warn("Will discard entire user supplied config object and use default configuration");
+            } else {
+                // A two step override where the base object of default configurations
+                // will first be overriden by country specific if it isn't empty
+                // and finally by a valid user defined configuration object
+                config = {
+                    // Base default config (general)
+                    ...config,
+                    // Specific country config (if the user supplied a country other than "general")
+                    ...(maybeConfig.country !== "general" && (await Config.getConfig(maybeConfig.country))),
+                    // User supplied config (will overwrite same keys before it)
+                    ...maybeConfig,
+                };
+            }
+        } else {
+            console.debug("Will use default configuration to generate the calendar.");
+        }
+
+        // Sanitize and set defaults for missing configurations
+        return {
+            year: config.year ?? dayjs.utc().year(), // Use current year if not supplied by user
+            country: config.country ?? "general", // Use general as country if none supplied by user
+            locale: config.locale ?? "en", // Use english for localization if no lanaguage supplied]
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            christmastideEnds: config.christmastideEnds!, // Will use default if not defined
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            epiphanyOnJan6: config.epiphanyOnJan6!, // Will use default if not defined
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            christmastideIncludesTheSeasonOfEpiphany: config.christmastideIncludesTheSeasonOfEpiphany!, // Will use default if not defined
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            corpusChristiOnThursday: config.corpusChristiOnThursday!, // Will use default if not defined
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            ascensionOnSunday: config.ascensionOnSunday!, // Will use default if not defineds
+            type: config.type ?? "calendar", // Use value "calendar" if type not specified by user
+            ...(isObject(config.query) && { query: config.query }), // Attach query if there's one
+        } as TConfigConstructorType;
     }
 }
