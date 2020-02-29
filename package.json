@@ -117,6 +117,7 @@
         "ts-loader": "^6.2.1",
         "ts-node": "^8.6.2",
         "tsconfig-paths": "^3.9.0",
+        "tslib": "^1.11.1",
         "typedoc": "^0.16.10",
         "typescript": "^3.7.5",
         "webpack": "^4.41.6",
