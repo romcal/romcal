@@ -174,8 +174,10 @@ const advent = async (year: number): Promise<Array<IRomcalDateItem>> => {
             date: value,
             key:
                 value.day() === 0
-                    ? `${ordinal(Math.floor(i / 7) + 1)}SundayOfAdvent`
-                    : `${value.locale("en").format("dddd")}OfThe${ordinal(Math.floor(i / 7) + 1)}WeekOfAdvent`,
+                    ? `${ordinal(Math.floor(i / 7) + 1, true)}SundayOfAdvent`
+                    : `${value.locale("en").format("dddd")}OfThe${ordinal(
+                          Math.floor(i / 7) + 1,
+                      ).toUpperCase()}WeekOfAdvent`,
             type: Locales.getTypeByDayOfWeek(value.day()),
             name: await Locales.localize({
                 key: value.day() === 0 ? "advent.sunday" : "advent.feria",
@@ -264,7 +266,7 @@ const christmastide = async (
             date: day,
             key:
                 dayOfWeek === 0
-                    ? `${ordinal(count)}SundayOfChristmas`
+                    ? `${ordinal(count, true)}SundayOfChristmas`
                     : `${day.locale("en").format("dddd")}OfChristmastide`,
             type: Locales.getTypeByDayOfWeek(dayOfWeek),
             name: await Locales.localize({
@@ -392,9 +394,10 @@ const earlyOrdinaryTime = async (
                 date: value,
                 key:
                     value.day() === 0
-                        ? `${ordinal(Math.floor(i / 7) + 2)}SundayOfOrdinaryTime`
+                        ? `${ordinal(Math.floor(i / 7) + 2, true)}SundayOfOrdinaryTime`
                         : `${value.locale("en").format("dddd")}OfThe${ordinal(
                               Math.floor(i / 7) + 1,
+                              true,
                           )}WeekOfOrdinaryTime`,
                 type: value.day() === 0 ? Types.SUNDAY : Types.FERIA,
                 name: await Locales.localize({
@@ -480,8 +483,11 @@ const laterOrdinaryTime = async (year: number): Promise<Array<IRomcalDateItem>> 
                 date: value,
                 key:
                     value.day() === 0
-                        ? `${ordinal(week)}SundayOfOrdinaryTime`
-                        : `${value.locale("en").format("dddd")}OfThe${ordinal(week)}WeekOfOrdinaryTime`,
+                        ? `${ordinal(week, true)}SundayOfOrdinaryTime`
+                        : `${value.locale("en").format("dddd")}OfThe${ordinal(
+                              week,
+                              true,
+                          ).toUpperCase()}WeekOfOrdinaryTime`,
                 type: value.day() === 0 ? Types.SUNDAY : Types.FERIA,
                 name: await Locales.localize({
                     key: value.day() === 0 ? "ordinaryTime.sunday" : "ordinaryTime.feria",
@@ -558,7 +564,10 @@ const lent = async (year: number): Promise<Array<IRomcalDateItem>> => {
             key:
                 i > 0 && i < 4
                     ? `${value.locale("en").format("dddd")}AfterAshWednesday`
-                    : `${value.locale("en").format("dddd")}OfThe${ordinal(Math.floor((i - 4) / 7) + 1)}WeekOfLent`,
+                    : `${value.locale("en").format("dddd")}OfThe${ordinal(
+                          Math.floor((i - 4) / 7) + 1,
+                          true,
+                      ).toUpperCase()}WeekOfLent`,
             type: Types.FERIA,
             name: await Locales.localize({
                 key: i > 0 && i < 4 ? "lent.dayAfterAshWed" : "lent.feria",
@@ -580,7 +589,7 @@ const lent = async (year: number): Promise<Array<IRomcalDateItem>> => {
     const sundaysOfLentPromise = sundaysOfLent.map(async (value, i) => {
         return {
             date: value,
-            key: `${ordinal(i + 1)}SundayOfLent`,
+            key: `${ordinal(i + 1, true)}SundayOfLent`,
             type: Types.SUNDAY,
             name: await Locales.localize({
                 key: "lent.sunday",
@@ -674,7 +683,10 @@ const eastertide = async (year: number): Promise<Array<IRomcalDateItem>> => {
             key:
                 i > 0 && i < 7
                     ? `Easter${value.locale("en").format("dddd")}`
-                    : `${value.locale("en").format("dddd")}OfThe${ordinal(Math.floor(i / 7) + 1)}WeekOfEaster`,
+                    : `${value.locale("en").format("dddd")}OfThe${ordinal(
+                          Math.floor(i / 7) + 1,
+                          true,
+                      ).toUpperCase()}WeekOfEaster`,
             type: i > 0 && i < 7 ? Types.SOLEMNITY : Types.FERIA,
             name: await Locales.localize({
                 key: i > 0 && i < 7 ? "eastertide.octave" : "eastertide.feria",
@@ -696,7 +708,7 @@ const eastertide = async (year: number): Promise<Array<IRomcalDateItem>> => {
     const sundaysOfEasterPromise = sundaysOfEaster.map(async (value, i) => {
         return {
             date: value,
-            key: `${ordinal(i + 1)}SundayOfEaster`,
+            key: `${ordinal(i + 1, true)}SundayOfEaster`,
             type: Types.SUNDAY,
             name: await Locales.localize({
                 key: "eastertide.sunday",
