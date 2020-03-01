@@ -204,7 +204,7 @@ describe("Testing date range functions", () => {
         test("There are typically 24 to 29 Sundays in Ordinary Time between the Pentecost to the 1st Sunday of Advent", () => {
             for (let i = 1900, il = 2100; i <= il; i++) {
                 const dates = Dates.daysOfLaterOrdinaryTime(i);
-                const sundays = dates.filter(d => d.day() === 0);
+                const sundays = Dates.sundaysOfLaterOrdinaryTime(i);
                 const [firstDayInLaterOrdinaryTime] = dates;
                 const [lastDayInLaterOrdinaryTime] = dates.reverse();
                 expect(sundays.length).toBeOneOf([23, 24, 25, 26, 27, 28, 29]);
