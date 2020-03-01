@@ -246,13 +246,13 @@ describe("Testing national calendar overrides", () => {
 
                 const twentiethSundayOfOrdinaryTime2009: IRomcalDateItem | undefined = laterOrdinaryTimeDates2009.find(
                     d => {
-                        return d.key === "20thSundayOfOrdinaryTime";
+                        return d.key === "twentiethSundayOfOrdinaryTime";
                     },
                 );
 
                 const twentiethSundayOfOrdinaryTime2011: IRomcalDateItem | undefined = laterOrdinaryTimeDates2011.find(
                     d => {
-                        return d.key === "20thSundayOfOrdinaryTime";
+                        return d.key === "twentiethSundayOfOrdinaryTime";
                     },
                 );
 
@@ -305,7 +305,7 @@ describe("Testing national calendar overrides", () => {
 
                 const laterOrdinaryTimeDates: IRomcalDateItem[] = await Seasons.laterOrdinaryTime(2010);
                 const twentiethSundayOfOrdinaryTime: IRomcalDateItem | undefined = laterOrdinaryTimeDates.find(d => {
-                    return d.key === "20thSundayOfOrdinaryTime";
+                    return d.key === "twentiethSundayOfOrdinaryTime";
                 });
 
                 const walesAssumption: DateItem | undefined = walesDates.find(d => d.key === "assumption");
@@ -471,7 +471,7 @@ describe("Testing national calendar overrides", () => {
                 country: "malta",
             });
             const ourLadyOfSorrows: dayjs.Dayjs = dayjs.utc("2018-4-15");
-            const thirdSundayOfEaster: DateItem | undefined = maltaDates.find(d => d.key === "3rdSundayOfEaster");
+            const thirdSundayOfEaster: DateItem | undefined = maltaDates.find(d => d.key === "thirdSundayOfEaster");
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             expect(ourLadyOfSorrows.isSame(thirdSundayOfEaster!.date)).toBeTruthy();
         });
