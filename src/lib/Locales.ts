@@ -7,6 +7,7 @@ import { isNil, TLocaleTypes, TLocalizeParams, TDateItemSource } from "../utils/
 import { IRomcalDateItem } from "../models/romcal-date-item";
 import { isString } from "util";
 import { parse, Schema } from "bcp-47";
+import { toOrdinal, toWordsOrdinal } from "number-to-words";
 
 /**
  * Load DayJS and relevant plugins
@@ -58,11 +59,10 @@ let _currentLocaleData: ILocale;
  * Ordinal numbers look like this: 1st, 2nd, 3rd, 4th, ..., 10th and so on.
  *
  * @param value The number to process
+ * @param asWord Returns the ordinal representation of the number in words only (defaults to `false`)
  */
-export const ordinal = (value: number): string => {
-    const s = ["th", "st", "nd", "rd"];
-    const v = value % 100;
-    return `${value}${s[(v - 20) % 10] || s[v] || s[0]}`;
+export const ordinal = (value: number, asWord = false): string => {
+    return asWord ? toWordsOrdinal(value) : toOrdinal(value);
 };
 
 /**
