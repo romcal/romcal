@@ -84,7 +84,10 @@ describe("Testing specific feasts and memorials", () => {
 
     describe("The Feast of the Exultation of the Cross", () => {
         test("Is celebrated on the 14th of September", async () => {
-            const dates = await Calendar.calendarFor(2018);
+            const dates = await Calendar.calendarFor({
+                year: 2018,
+                locale: "sk",
+            });
             const theExaltationOfTheHolyCross = dates.find(d => {
                 return d.key === "theExaltationOfTheHolyCross";
             });
