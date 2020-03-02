@@ -354,7 +354,8 @@ const christmastide = async (
         } as IRomcalDateItem;
     });
 
-    return _metadata(combinedDaysOfChristmas);
+    const withMetadata = _metadata(combinedDaysOfChristmas);
+    return withMetadata;
 };
 
 /**

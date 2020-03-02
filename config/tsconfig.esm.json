@@ -1,0 +1,7 @@
+{
+    "extends": "../tsconfig.json",
+    "files": [
+      "main.ts",
+      "supplemental.ts"
+    ]
+  }
