@@ -15,8 +15,9 @@
     },
     "scripts": {
         "prepublishOnly": "npm run build && npm run typedoc",
-        "build": "cross-env TS_NODE_PROJECT=\"tsconfig.webpack-config.json\" webpack --mode production && npm run tsc:defs",
-        "build:es5": " ",
+        "build": "npm run clean:dist && npm run build:es5 && npm run build:esm && npm run tsc:defs",
+        "clean:dist": "rimraf dist/**",
+        "build:es5": "cross-env TS_NODE_PROJECT=\"./config/tsconfig.webpack.json\" webpack --mode production ",
         "build:esm": "",
         "tsc:defs": "tsc --declaration --outDir ./dist --noEmit false --emitDeclarationOnly",
         "lint": "pretty-quick --staged && lint-staged",
