@@ -21,7 +21,8 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 */
-import "./polyfills";
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 
 import { Calendar, Celebrations, Dates, Seasons, Locales } from "./lib";
 

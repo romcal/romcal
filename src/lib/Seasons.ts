@@ -256,7 +256,6 @@ const christmastide = async (
     const datesOfChristmastide: dayjs.Dayjs[] = Dates.christmastide(year, christmastideEnds, epiphanyOnJan6);
     const datesInTheOctaveOfChristmas: dayjs.Dayjs[] = Dates.octaveOfChristmas(year);
     const epiphany: Array<IRomcalDateItem> = await _epiphany(year + 1, epiphanyOnJan6);
-
     let count = 0;
 
     const datesOfChristmastidePromise = datesOfChristmastide.map(async day => {
@@ -272,7 +271,7 @@ const christmastide = async (
             name: await Locales.localize({
                 key: dayOfWeek === 0 ? "christmastide.sunday" : "christmastide.day",
                 day: day.format("dddd"),
-                count: count,
+                count,
             }),
             data: {
                 season: {
@@ -289,7 +288,7 @@ const christmastide = async (
     const datesInTheOctaveOfChristmasPromise = datesInTheOctaveOfChristmas.map(async (day, idx) => {
         return {
             date: day,
-            key: `${idx + 1}DayInTheOctaveOfChristmas`,
+            key: `${ordinal(idx + 1, true)}DayInTheOctaveOfChristmas`,
             type: Locales.getTypeByDayOfWeek(day.day()),
             name: await Locales.localize({
                 key: "christmastide.octave",

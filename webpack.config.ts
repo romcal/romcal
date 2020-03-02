@@ -18,7 +18,6 @@ const config: ConfigurationFactory = (env, { mode }) => ({
         path: join(__dirname, "dist"),
         library: "romcal",
         libraryTarget: "umd",
-        umdNamedDefine: true,
         auxiliaryComment: "romcal - The Liturgical Calendar generator",
     },
 
@@ -29,14 +28,8 @@ const config: ConfigurationFactory = (env, { mode }) => ({
     module: {
         rules: [
             {
-                test: /\.tsx?$/,
-                use: {
-                    loader: "ts-loader",
-                    options: {
-                        configFile: "tsconfig.json",
-                        colors: true,
-                    },
-                },
+                test: /\.(ts|js)x?$/,
+                loader: "babel-loader",
                 exclude: [/node_modules/, "/src/**/*.test.ts"],
             },
             {
