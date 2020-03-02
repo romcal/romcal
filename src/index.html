@@ -22,14 +22,16 @@
                 var node1 = document.createTextNode(userLang);
                 code1.appendChild(node1);
 
-                window.Romcal.calendarFor({
-                    locale: userLang,
-                }).then(function(dates) {
-                    var code1 = document.getElementById("romcal-output");
-                    console.log("dates for the locale", userLang, "are", dates);
-                    var node1 = document.createTextNode(JSON.stringify(dates));
-                    code1.appendChild(node1);
-                });
+                window.romcal
+                    .calendarFor({
+                        locale: userLang,
+                    })
+                    .then(function(dates) {
+                        var code1 = document.getElementById("romcal-output");
+                        console.log("dates for the locale", userLang, "are", dates);
+                        var node1 = document.createTextNode(JSON.stringify(dates));
+                        code1.appendChild(node1);
+                    });
             });
         </script>
 
@@ -47,14 +49,16 @@
                 var node2 = document.createTextNode("sk");
                 code2.appendChild(node2);
 
-                window.Romcal.calendarFor({
-                    locale: "sk",
-                }).then(function(dates) {
-                    var code2 = document.getElementById("romcal-output-1");
-                    console.log("dates for the locale sk are", dates);
-                    var node2 = document.createTextNode(JSON.stringify(dates));
-                    code2.appendChild(node2);
-                });
+                window.romcal
+                    .calendarFor({
+                        locale: "sk",
+                    })
+                    .then(function(dates) {
+                        var code2 = document.getElementById("romcal-output-1");
+                        console.log("dates for the locale sk are", dates);
+                        var node2 = document.createTextNode(JSON.stringify(dates));
+                        code2.appendChild(node2);
+                    });
             });
         </script>
     </body>
