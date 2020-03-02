@@ -1,65 +1,64 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title><%= htmlWebpackPlugin.options.title %></title>
-    </head>
 
-    <body>
-        <h3>romcal - With browser locale</h3>
-        <p>Gets the current locale from the browser and uses it to generate a liturgical calendar.</p>
-        <p>View the output below or open developer tools to see more</p>
-        <p>The current locale is: <code id="current-locale"></code></p>
-        <br />
-        <p>
-            Calendar output is:<br />
-            <code id="romcal-output"></code>
-        </p>
-        <script>
-            document.addEventListener("DOMContentLoaded", function(event) {
-                var userLang = navigator.language || navigator.userLanguage;
+<head>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+</head>
 
-                var code1 = document.getElementById("current-locale");
-                var node1 = document.createTextNode(userLang);
-                code1.appendChild(node1);
+<body>
+    <h3>romcal - With browser locale</h3>
+    <p>Gets the current locale from the browser and uses it to generate a liturgical calendar.</p>
+    <p>View the output below or open developer tools to see more</p>
+    <p>The current locale is: <code id="current-locale"></code></p>
+    <br />
+    <p>
+        Calendar output is:<br />
+        <code id="romcal-output"></code>
+    </p>
+    <h3>romcal - With fixed locale</h3>
+    <p>Uses a fixed locale provided by the user (you)</p>
+    <p>The current locale is: <code id="current-locale-1"></code></p>
+    <br />
+    <p>
+        Calendar output is:<br />
+        <code id="romcal-output-1"></code>
+    </p>
 
-                window.romcal
-                    .calendarFor({
-                        locale: userLang,
-                    })
-                    .then(function(dates) {
-                        var code1 = document.getElementById("romcal-output");
-                        console.log("dates for the locale", userLang, "are", dates);
-                        var node1 = document.createTextNode(JSON.stringify(dates));
-                        code1.appendChild(node1);
-                    });
-            });
-        </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            var userLang = navigator.language || navigator.userLanguage;
 
-        <h3>romcal - With fixed locale</h3>
-        <p>Uses a fixed locale provided by the user (you)</p>
-        <p>The current locale is: <code id="current-locale-1"></code></p>
-        <br />
-        <p>
-            Calendar output is:<br />
-            <code id="romcal-output-1"></code>
-        </p>
-        <script>
-            document.addEventListener("DOMContentLoaded", function(event) {
-                var code2 = document.getElementById("current-locale-1");
-                var node2 = document.createTextNode("sk");
-                code2.appendChild(node2);
+            var code1 = document.getElementById("current-locale");
+            var node1 = document.createTextNode(userLang);
+            code1.appendChild(node1);
 
-                window.romcal
-                    .calendarFor({
-                        locale: "sk",
-                    })
-                    .then(function(dates) {
-                        var code2 = document.getElementById("romcal-output-1");
-                        console.log("dates for the locale sk are", dates);
-                        var node2 = document.createTextNode(JSON.stringify(dates));
-                        code2.appendChild(node2);
-                    });
-            });
-        </script>
-    </body>
+            window.romcal
+                .calendarFor({
+                    locale: userLang,
+                })
+                .then(function (dates) {
+                    var code1 = document.getElementById("romcal-output");
+                    console.log("dates for the locale", userLang, "are", dates);
+                    var node1 = document.createTextNode(JSON.stringify(dates));
+                    code1.appendChild(node1);
+
+                    var code2 = document.getElementById("current-locale-1");
+                    var node2 = document.createTextNode("sk");
+                    code2.appendChild(node2);
+
+                    window.romcal
+                        .calendarFor({
+                            locale: "sk",
+                        })
+                        .then(function (dates) {
+                            var code2 = document.getElementById("romcal-output-1");
+                            console.log("dates for the locale sk are", dates);
+                            var node2 = document.createTextNode(JSON.stringify(dates));
+                            code2.appendChild(node2);
+                        });
+                });
+        });
+    </script>
+</body>
+
 </html>
