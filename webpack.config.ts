@@ -16,7 +16,7 @@ const config: ConfigurationFactory = (env, { mode }) => ({
         filename: "[name].bundle.js",
         chunkFilename: "[name].bundle.js",
         path: join(__dirname, "dist"),
-        library: "Romcal",
+        library: "romcal",
         libraryTarget: "umd",
         umdNamedDefine: true,
         auxiliaryComment: "romcal - The Liturgical Calendar generator",
