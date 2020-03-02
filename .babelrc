@@ -1,0 +1,14 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "useBuiltIns": "usage",
+                "corejs": "3.6.4",
+                "debug": true
+            }
+        ],
+        "@babel/preset-typescript"
+    ],
+    "plugins": ["const-enum", "@babel/proposal-class-properties", "@babel/proposal-object-rest-spread"]
+}
