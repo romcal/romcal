@@ -365,7 +365,7 @@ let dates = year => {
       "data": {}
     },
     {
-      "key": "saintPioOfPietralcina",
+      "key": "saintPioOfPietrelcinaPriest",
       "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 8, day: 23 }),
       "data": {

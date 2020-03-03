@@ -169,7 +169,7 @@ let dates = year => {
       }
     },
     {
-      "key": "saintsCosmasAndDamian",
+      "key": "saintsCosmasAndDamianMartyrs",
       "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 8, day: 26 }),
       "data": {

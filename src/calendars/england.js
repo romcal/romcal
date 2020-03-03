@@ -203,7 +203,7 @@ let dates = year => {
       "data": {}
     },
     {
-      "key": "saintOliverPlunketBishopAndMartyr",
+      "key": "saintOliverPlunkettBishopAndMartyr",
       "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 6, day: 1 }),
       "data": {}

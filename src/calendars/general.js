@@ -571,6 +571,16 @@ let dates = year => {
       "data": {}
     },
     {
+      "key": "saintPaulIvPope",
+      "type": Types.OPT_MEMORIAL,
+      "moment": moment.utc({ year: year, month: 4, day: 29 }),
+      "data": {
+        "meta": {
+          "liturgicalColor": LiturgicalColors.WHITE
+        }
+      }
+    },
+    {
       "key": "visitationOfTheBlessedVirginMary",
       "type": Types.FEAST,
       "moment": moment.utc({ year: year, month: 4, day: 31 }),
@@ -1291,7 +1301,7 @@ let dates = year => {
       }
     },
     {
-      "key": "saintPioOfPietrelcinaPadrePioPriest",
+      "key": "saintPioOfPietrelcinaPriest",
       "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 8, day: 23 }),
       "data": {
@@ -1323,7 +1333,7 @@ let dates = year => {
       }
     },
     {
-      "key": "saintWenceslausMartyrSaintsLawrenceRuizAndCompanionsMartyrs",
+      "key": "saintWenceslausMartyrSaintLawrenceRuizAndCompanionsMartyrs",
       "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 8, day: 28 }),
       "data": {
@@ -1452,7 +1462,7 @@ let dates = year => {
       }
     },
     {
-      "key": "saintHedwigReligiousSaintMargaretMaryAlacoqueVirgin",
+      "key": "saintHedwigReligiousOrSaintMargaretMaryAlacoqueVirgin",
       "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 9, day: 16 }),
       "data": {}

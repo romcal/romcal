@@ -113,7 +113,7 @@ let dates = year => {
       }
     },
     {
-      "key": "saintJuanDiego",
+      "key": "saintJuanDiegoCuauhtlatoatzin",
       "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 11, day: 9 }),
       "data": {}

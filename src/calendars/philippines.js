@@ -62,13 +62,13 @@ let dates = year => {
       "data": {}
     },
     {
-      "key": "saintEzekielMorenoBishop",
+      "key": "saintEzequielMorenoBishop",
       "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 7, day: 19 }),
       "data": {}
     },
     {
-      "key": "saintLorenzoRuizAndCompanionsMartyrs",
+      "key": "saintLawrenceRuizAndCompanionsMartyrs",
       "type": Types.MEMORIAL,
       "moment": moment.utc({ year: year, month: 8, day: 28 }),
       "data": {

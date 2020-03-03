@@ -130,7 +130,7 @@ let dates = year => {
       }
     },
     {
-      "key": "saintClementOfOhridAndGorazdBishopsAndCompanions",
+      "key": "saintsClementOfOhridAndGorazdBishopsAndCompanions",
       "type": Types.OPT_MEMORIAL,
       "moment": moment.utc({ year: year, month: 6, day: 27 }),
       "data": {}
