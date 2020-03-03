@@ -2,8 +2,8 @@
     "name": "romcal",
     "version": "1.3.1-canary.71",
     "description": "Utility library that outputs the Liturgical Calendar used by the Roman Rite (Western Church)",
-    "types": "dist/index.d.js",
-    "main": "dist/romcal.bundle.js",
+    "types": "dist/esm/index.d.js",
+    "main": "dist/esm/romcal.js",
     "engines": {
         "node": ">=12"
     },
@@ -17,15 +17,15 @@
         "prepublishOnly": "npm run build && npm run typedoc",
         "build": "npm run clean:dist && npm run build:es5 && npm run build:esm && npm run tsc:defs",
         "clean:dist": "rimraf dist/**",
-        "build:es5": "cross-env TS_NODE_PROJECT=\"./config/tsconfig.webpack.json\" webpack --mode production ",
-        "build:esm": "",
-        "tsc:defs": "tsc --declaration --outDir ./dist --noEmit false --emitDeclarationOnly",
+        "build:es5": "cross-env TS_NODE_PROJECT=\"./config/tsconfig.webpack.json\" webpack --config \"./config/webpack.config.es5.ts\" --mode production ",
+        "build:esm": "cross-env TS_NODE_PROJECT=\"./config/tsconfig.webpack.json\" webpack --config \"./config/webpack.config.esm.ts\" --mode production ",
         "lint": "pretty-quick --staged && lint-staged",
         "test": "jest --colors",
         "test:watch": "jest --colors --watch",
         "updateChangelog": "auto-changelog -p",
         "typedoc": "typedoc --options typedoc.json",
-        "bundle-report": "webpack-bundle-analyzer --port 4200 dist/stats.json"
+        "esm-bundle-report": "webpack-bundle-analyzer --port 4200 dist/esm/stats.json",
+        "es5-bundle-report": "webpack-bundle-analyzer --port 4200 dist/es5/stats.json"
     },
     "husky": {
         "hooks": {
@@ -128,6 +128,7 @@
         "rimraf": "^3.0.2",
         "semver": "^7.1.1",
         "ts-jest": "^25.2.0",
+        "ts-loader": "^6.2.1",
         "ts-node": "^8.6.2",
         "tsconfig-paths": "^3.9.0",
         "tslib": "^1.11.1",
