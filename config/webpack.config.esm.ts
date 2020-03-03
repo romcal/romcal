@@ -19,11 +19,13 @@ const esmConfig: ConfigurationFactory = async (env, { mode, ...rest }) => {
         module: {
             rules: [
                 {
-                    test: /\.(ts|js)x?$/,
-                    loader: "ts-loader",
-                    options: {
-                        colors: true,
-                        configFile: "../tsconfig.json",
+                    test: /\.tsx?$/,
+                    use: {
+                        loader: "ts-loader",
+                        options: {
+                            configFile: "tsconfig.json",
+                            colors: true,
+                        },
                     },
                     exclude: [/node_modules/, "/src/**/*.test.ts"],
                 },
