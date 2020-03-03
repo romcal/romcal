@@ -1,10 +1,12 @@
 {
     "extends": "../tsconfig.json",
     "compilerOptions": {
-        "target": "ES6",
-        "module": "ESNext",
+        "target": "es6",
+        "module": "esnext",
         "outDir": "../dist/esm",
         "declaration": true,
-        "declarationMap": true
+        "declarationMap": true,
+        "removeComments": false,
+        "traceResolution": true
     }
 }
