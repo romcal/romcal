@@ -24,7 +24,7 @@
 
 import dayjs from "dayjs";
 
-import { LiturgicalColors, Seasons, Calendar, Dates } from "..";
+import { LiturgicalColors, Seasons, Calendar, Dates } from "../index";
 import { Dictionary } from "../utils/type-guards";
 import { DateItem } from "../models/romcal-date-item";
 import { setLocale } from "./Locales";

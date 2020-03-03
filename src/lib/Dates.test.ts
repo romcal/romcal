@@ -22,7 +22,7 @@
     THE SOFTWARE.
 */
 
-import { Dates, Locales } from "..";
+import { Dates, Locales } from "../index";
 import { rangeOfDays, rangeContainsDate } from "../utils/dates";
 import dayjs from "dayjs";
 

@@ -26,7 +26,7 @@ import groupBy from "lodash-es/groupBy";
 import get from "lodash-es/get";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
-import { Calendar, Dates, Types, LiturgicalSeasons, PsalterWeeks, Titles, LiturgicalColors } from "..";
+import { Calendar, Dates, Types, LiturgicalSeasons, PsalterWeeks, Titles, LiturgicalColors } from "../index";
 import { Dictionary, isNil } from "../utils/type-guards";
 import { DateItem, isDateItem } from "../models/romcal-date-item";
 import { hasKey, getValueByKey } from "../utils/object";
