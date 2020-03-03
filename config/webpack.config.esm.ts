@@ -10,10 +10,8 @@ const esmConfig: ConfigurationFactory = async (env, { mode, ...rest }) => {
 
         output: {
             filename: "index.js",
-            chunkFilename: "index.[chunkhash].js",
+            chunkFilename: "[name].[chunkhash].js",
             path: join(__dirname, "/../dist/esm"),
-            library: "romcal",
-            libraryTarget: "commonjs",
         },
 
         module: {
