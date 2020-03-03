@@ -26,14 +26,14 @@
         "declarationMap": true /* Generates a sourcemap for each corresponding '.d.ts' file. */,
         "sourceMap": true /* Generates corresponding '.map' file. */,
         // "outFile": "./",                       /* Concatenate and emit output to single file. */
-        "outDir": "./dist/cjs" /* Redirect output structure to the directory. */,
+        "outDir": "./dist/esm" /* Redirect output structure to the directory. */,
         /* sSpecify the root directory of input files. Use to control the output directory structure with --outDir. */
         "rootDir": "./src",
         // "composite": true,                     /* Enable project compilation */
         // "tsBuildInfoFile": "./",               /* Specify file to store incremental compilation information */
         // "removeComments": true,                /* Do not emit comments to output. */
         "noEmit": false /* Do not emit outputs. */,
-        "emitDeclarationOnly": true,
+        "emitDeclarationOnly": false,
         "importHelpers": true /* Import emit helpers from 'tslib'. */,
         // "downlevelIteration": true,            /* Provide full support for iterables in 'for-of', spread, and destructuring when targeting 'ES5' or 'ES3'. */
         // "isolatedModules": true,               /* Transpile each file as a separate module (similar to 'ts.transpileModule'). */
