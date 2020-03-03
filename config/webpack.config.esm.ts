@@ -6,14 +6,14 @@ import { join } from "path";
 const esmConfig: ConfigurationFactory = async (env, { mode, ...rest }) => {
     const resolvedBaseConfig = await baseConfig(env, { mode, ...rest });
     return webpackMerge(resolvedBaseConfig, {
-        entry: {
-            romcal: join(__dirname, "../src/index.ts"),
-        },
+        entry: join(__dirname, "../src/index.ts"),
 
         output: {
-            filename: "[name].js",
-            chunkFilename: "[name].js",
-            path: join(__dirname, "../dist/esm"),
+            filename: "index.js",
+            chunkFilename: "index.[chunkhash].js",
+            path: join(__dirname, "/../dist/esm"),
+            library: "romcal",
+            libraryTarget: "commonjs",
         },
 
         module: {
@@ -23,7 +23,7 @@ const esmConfig: ConfigurationFactory = async (env, { mode, ...rest }) => {
                     use: {
                         loader: "ts-loader",
                         options: {
-                            configFile: "tsconfig.json",
+                            configFile: join(__dirname, "tsconfig.esm.json"),
                             colors: true,
                         },
                     },

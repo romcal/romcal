@@ -2,8 +2,9 @@
     "name": "romcal",
     "version": "1.3.1-canary.71",
     "description": "Utility library that outputs the Liturgical Calendar used by the Roman Rite (Western Church)",
-    "types": "dist/esm/index.d.js",
-    "main": "dist/esm/romcal.js",
+    "types": "dist/esm/index.d.ts",
+    "main": "dist/esm/index.js",
+    "module": "dist/esm/index.js",
     "engines": {
         "node": ">=12"
     },
@@ -15,10 +16,11 @@
     },
     "scripts": {
         "prepublishOnly": "npm run build && npm run typedoc",
-        "build": "npm run clean:dist && npm run build:es5 && npm run build:esm",
-        "clean:dist": "rimraf dist/**",
-        "build:es5": "cross-env TS_NODE_PROJECT=\"./config/tsconfig.webpack.json\" webpack --config \"./config/webpack.config.es5.ts\" --mode production ",
-        "build:esm": "cross-env TS_NODE_PROJECT=\"./config/tsconfig.webpack.json\" webpack --config \"./config/webpack.config.esm.ts\" --mode production ",
+        "build": "npm run build:es5 && npm run build:esm",
+        "build:es5": "npm run build:es5:compat && npm run build:es5:modern",
+        "build:es5:modern": "rimraf dist/es5/modern/** && cross-env TS_NODE_PROJECT=\"./config/tsconfig.webpack.json\" webpack --config \"./config/webpack.config.es5.modern.ts\" --mode production ",
+        "build:es5:compat": "rimraf dist/es5/compat/** && cross-env TS_NODE_PROJECT=\"./config/tsconfig.webpack.json\" webpack --config \"./config/webpack.config.es5.compat.ts\" --mode production ",
+        "build:esm": "rimraf dist/esm/** && cross-env TS_NODE_PROJECT=\"./config/tsconfig.webpack.json\" webpack --config \"./config/webpack.config.esm.ts\" --mode production ",
         "lint": "pretty-quick --staged && lint-staged",
         "test": "jest --colors",
         "test:watch": "jest --colors --watch",
@@ -89,12 +91,8 @@
         "regenerator-runtime": "^0.13.3"
     },
     "devDependencies": {
-        "@babel/cli": "^7.8.4",
         "@babel/core": "^7.8.6",
-        "@babel/plugin-proposal-class-properties": "^7.8.3",
-        "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
         "@babel/preset-env": "^7.8.6",
-        "@babel/preset-typescript": "^7.8.3",
         "@types/bcp-47": "^1.0.0",
         "@types/core-js": "^2.5.3",
         "@types/html-webpack-plugin": "^3.2.2",
@@ -110,7 +108,6 @@
         "@typescript-eslint/parser": "^2.19.2",
         "auto-changelog": "^1.16.2",
         "babel-loader": "^8.0.6",
-        "babel-plugin-const-enum": "0.0.5",
         "cross-env": "^7.0.0",
         "eslint": "^6.8.0",
         "eslint-config-prettier": "^6.10.0",
