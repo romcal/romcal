@@ -22,7 +22,7 @@
         // "jsx": "preserve",                     /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
         "sourceMap": true /* Generates corresponding '.map' file. */,
         // "outFile": "./",                       /* Concatenate and emit output to single file. */
-        /* sSpecify the root directory of input files. Use to control the output directory structure with --outDir. */
+        /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
         "rootDir": "./src",
         // "composite": true,                     /* Enable project compilation */
         // "tsBuildInfoFile": "./",               /* Specify file to store incremental compilation information */
@@ -47,7 +47,7 @@
         // "noImplicitReturns": true,             /* Report error when not all code paths in function return a value. */
         // "noFallthroughCasesInSwitch": true,    /* Report errors for fallthrough cases in switch statement. */
         /* Module Resolution Options */
-        "baseUrl": "./" /* Base directory to resolve non-absolute module names. */,
+        "baseUrl": "." /* Base directory to resolve non-absolute module names. */,
         /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
         // "paths": {},
         /* List of root folders whose combined content represents the structure of the project at runtime. */

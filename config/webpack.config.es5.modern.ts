@@ -41,10 +41,13 @@ const es5Config: ConfigurationFactory = async (env, { mode, ...rest }) => {
                                             useBuiltIns: "usage",
                                             corejs: "3",
                                             debug: false,
-                                            modules: "umd",
                                             ignoreBrowserslistConfig: true,
                                             targets: {
-                                                browsers: "defaults",
+                                                browsers: [
+                                                    "defaults",
+                                                    "not IE 11",
+                                                    "not IE_Mob 11",
+                                                ],
                                             },
                                         },
                                     ],
