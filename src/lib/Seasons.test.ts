@@ -24,10 +24,12 @@
 
 import dayjs from "dayjs";
 
-import { LiturgicalColors, Seasons, Calendar, Dates } from "../index";
+import { Seasons, Dates } from ".";
 import { Dictionary } from "../utils/type-guards";
 import { DateItem } from "../models/romcal-date-item";
 import { setLocale } from "./Locales";
+import Romcal from "../index";
+import { LiturgicalColors } from "../constants";
 
 describe("Testing date range functions", () => {
     // The locale needs to be set before any tests below can run properly
@@ -281,7 +283,7 @@ describe("Testing seasons utility functions", () => {
     describe("The liturgical year is divided to a number of seasons", () => {
         let calendar: Dictionary<DateItem[]>;
         beforeAll(async () => {
-            calendar = Calendar.queryFor(await Calendar.calendarFor(), { group: "liturgicalSeasons" });
+            calendar = Romcal.queryFor(await Romcal.calendarFor(), { group: "liturgicalSeasons" });
         });
 
         test("Groups dates within seasons based on identifiers", () => {

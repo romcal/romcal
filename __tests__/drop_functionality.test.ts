@@ -26,7 +26,7 @@ import { DateItem } from "../src/models/romcal-date-item";
 
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
-import { Calendar } from "../src";
+import Romcal from "../src/index";
 
 dayjs.extend(utc);
 
@@ -35,7 +35,7 @@ describe('Testing the "drop" functionality for national calendars', () => {
     let testDates: DateItem[];
 
     beforeAll(async () => {
-        testDates = await Calendar.calendarFor({
+        testDates = await Romcal.calendarFor({
             country: "slovakia",
             year: 2020,
         });

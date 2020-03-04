@@ -22,10 +22,10 @@
     THE SOFTWARE.
 */
 
-import { Dates, Locales } from "../index";
 import { rangeOfDays, rangeContainsDate } from "../utils/dates";
-import dayjs from "dayjs";
+import { Locales, Dates } from ".";
 
+import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import weekOfYear from "dayjs/plugin/weekOfYear";
 import weekday from "dayjs/plugin/weekday";
