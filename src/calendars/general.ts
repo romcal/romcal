@@ -504,6 +504,16 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
             date: dayjs.utc(`${year}-5-27`),
         },
         {
+            key: "saintPaulIvPope",
+            type: Types.OPT_MEMORIAL,
+            date: dayjs.utc(`${year}-5-29`),
+            data: {
+                meta: {
+                    liturgicalColor: LiturgicalColors.WHITE,
+                },
+            },
+        },
+        {
             key: "visitationOfTheBlessedVirginMary",
             type: Types.FEAST,
             date: dayjs.utc(`${year}-5-31`),
@@ -1150,7 +1160,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
             },
         },
         {
-            key: "saintPioOfPietrelcinaPadrePioPriest",
+            key: "saintPioOfPietrelcinaPriest",
             type: Types.MEMORIAL,
             date: dayjs.utc(`${year}-9-23`),
             data: {
@@ -1180,7 +1190,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
             },
         },
         {
-            key: "saintWenceslausMartyrSaintsLawrenceRuizAndCompanionsMartyrs",
+            key: "saintWenceslausMartyrSaintLawrenceRuizAndCompanionsMartyrs",
             type: Types.OPT_MEMORIAL,
             date: dayjs.utc(`${year}-9-28`),
             data: {
@@ -1295,7 +1305,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
             },
         },
         {
-            key: "saintHedwigReligiousSaintMargaretMaryAlacoqueVirgin",
+            key: "saintHedwigReligiousOrSaintMargaretMaryAlacoqueVirgin",
             type: Types.OPT_MEMORIAL,
             date: dayjs.utc(`${year}-10-16`),
         },

@@ -98,7 +98,7 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
             },
         },
         {
-            key: "saintJuanDiego",
+            key: "saintJuanDiegoCuauhtlatoatzin",
             type: Types.MEMORIAL,
             date: dayjs.utc(`${year}-12-9`),
         },
