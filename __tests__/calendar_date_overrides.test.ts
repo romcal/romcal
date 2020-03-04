@@ -25,8 +25,10 @@
 
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
-import { Calendar, Seasons, Dates, Types } from "../src";
 import { DateItem, IRomcalDateItem } from "../src/models/romcal-date-item";
+import Romcal from "../src/index";
+import { Types } from "../src/constants";
+import { Dates, Seasons } from "../src/lib";
 
 dayjs.extend(utc);
 
@@ -37,9 +39,9 @@ describe("Testing national calendar overrides", () => {
         let spainDates2020: DateItem[];
 
         beforeAll(async () => {
-            generalDates2020 = await Calendar.calendarFor(2020);
-            generalDates2021 = await Calendar.calendarFor(2021);
-            spainDates2020 = await Calendar.calendarFor({ year: 2020, country: "spain" });
+            generalDates2020 = await Romcal.calendarFor(2020);
+            generalDates2021 = await Romcal.calendarFor(2021);
+            spainDates2020 = await Romcal.calendarFor({ year: 2020, country: "spain" });
         });
 
         test("The optional memory of the Most Holy Name of Jesus is available on the 3th of January, in addition to the feria", () => {
@@ -76,8 +78,8 @@ describe("Testing national calendar overrides", () => {
 
         beforeAll(async () => {
             year = 2008;
-            generalDates = await Calendar.calendarFor(year);
-            spainDates = await Calendar.calendarFor({ year: year, country: "spain" });
+            generalDates = await Romcal.calendarFor(year);
+            spainDates = await Romcal.calendarFor({ year: year, country: "spain" });
         });
 
         test("The feast of Saint Isidore of Seville is celebrated on April 4 every year", () => {
@@ -112,7 +114,7 @@ describe("Testing national calendar overrides", () => {
 
         beforeAll(async () => {
             year = 2020;
-            testDates = await Calendar.calendarFor({
+            testDates = await Romcal.calendarFor({
                 country: "test",
                 year,
             });
@@ -164,7 +166,7 @@ describe("Testing national calendar overrides", () => {
 
     describe("The feast of Epiphany", () => {
         test("Should always be celebrated on January 6 in Slovakia unless explicitly configured otherwise", async () => {
-            const slovakiaDates: DateItem[] = await Calendar.calendarFor({
+            const slovakiaDates: DateItem[] = await Romcal.calendarFor({
                 country: "slovakia",
             });
             const epiphanySlovakia = slovakiaDates.find(d => {
@@ -175,7 +177,7 @@ describe("Testing national calendar overrides", () => {
             expect(dayjs.utc(epiphanySlovakia?.date).month()).toEqual(0);
         });
         test("Will fall on Sunday as calculated by the Epiphany rubric, when `epiphanyOnJan6` is explicitly configured as `false`", async () => {
-            const slovakiaDates = await Calendar.calendarFor({
+            const slovakiaDates = await Romcal.calendarFor({
                 country: "slovakia",
                 epiphanyOnJan6: false,
                 year: 2018,
@@ -190,14 +192,14 @@ describe("Testing national calendar overrides", () => {
 
     describe("Testing the Feast of Saints Cyril and Methodius with locale specific settings", () => {
         test("Should fall on February 14, 2017 in the general calendar", async () => {
-            const dates = await Calendar.calendarFor(2017);
+            const dates = await Romcal.calendarFor(2017);
             const date = dates.find(d => {
                 return d.key === "saintsCyrilMonkAndMethodiusBishop";
             });
             expect(dayjs.utc(date?.date).isSame(dayjs.utc("2017-2-14"))).toBeTruthy();
         });
         test("Should fall on 5th July 2017 in the national calendar of the Czech Republic", async () => {
-            const dates = await Calendar.calendarFor({
+            const dates = await Romcal.calendarFor({
                 country: "czechRepublic",
                 year: 2017,
             });
@@ -207,7 +209,7 @@ describe("Testing national calendar overrides", () => {
             expect(dayjs.utc(date?.date).isSame(dayjs.utc("2017-7-5"))).toBeTruthy();
         });
         test("Should fall on 5th July 2017 in the national calendar of Slovakia", async () => {
-            const dates = await Calendar.calendarFor({
+            const dates = await Romcal.calendarFor({
                 country: "slovakia",
                 year: 2017,
             });
@@ -221,22 +223,22 @@ describe("Testing national calendar overrides", () => {
     describe("The feast of the Assumption in England and Wales", () => {
         describe("If the feast of the Assumption falls on Saturday on Monday", () => {
             test("It is transferred to Sunday", async () => {
-                const wales2009Dates = await Calendar.calendarFor({
+                const wales2009Dates = await Romcal.calendarFor({
                     year: 2009,
                     country: "wales",
                 });
 
-                const england2009Dates = await Calendar.calendarFor({
+                const england2009Dates = await Romcal.calendarFor({
                     year: 2009,
                     country: "england",
                 });
 
-                const wales2011Dates = await Calendar.calendarFor({
+                const wales2011Dates = await Romcal.calendarFor({
                     year: 2011,
                     country: "wales",
                 });
 
-                const england2011Dates = await Calendar.calendarFor({
+                const england2011Dates = await Romcal.calendarFor({
                     year: 2011,
                     country: "england",
                 });
@@ -293,12 +295,12 @@ describe("Testing national calendar overrides", () => {
 
         describe("If the feast of the Assumption falls on Sunday", () => {
             test("It replaces the 20th Sunday of OT", async () => {
-                const walesDates = await Calendar.calendarFor({
+                const walesDates = await Romcal.calendarFor({
                     year: 2010,
                     country: "wales",
                 });
 
-                const englandDates = await Calendar.calendarFor({
+                const englandDates = await Romcal.calendarFor({
                     year: 2010,
                     country: "england",
                 });
@@ -322,11 +324,11 @@ describe("Testing national calendar overrides", () => {
     describe("The feast of All Saints in England and Wales", () => {
         test("If All Saints is on Saturday, it will be moved to Sunday (the next day)", async () => {
             // In 2008, 1st of November was on a Saturday
-            const englandDates = await Calendar.calendarFor({
+            const englandDates = await Romcal.calendarFor({
                 country: "england",
                 year: 2008,
             });
-            const walesDates = await Calendar.calendarFor({
+            const walesDates = await Romcal.calendarFor({
                 country: "wales",
                 year: 2008,
             });
@@ -345,11 +347,11 @@ describe("Testing national calendar overrides", () => {
     describe("The feast of All Souls in England and Wales", () => {
         test("If All Saints is mpved to Sunday, All Souls must be on Monday (the next day)", async () => {
             // In 2008, 1st of November was on a Saturday
-            const englandDates = await Calendar.calendarFor({
+            const englandDates = await Romcal.calendarFor({
                 country: "england",
                 year: 2008,
             });
-            const walesDates = await Calendar.calendarFor({
+            const walesDates = await Romcal.calendarFor({
                 country: "wales",
                 year: 2008,
             });
@@ -368,18 +370,18 @@ describe("Testing national calendar overrides", () => {
 
     describe("Saint Matthias the Apostle", () => {
         test("Feast day falls on the May 14 in the general liturgical calendar", async () => {
-            const dates = await Calendar.calendarFor(2018);
+            const dates = await Romcal.calendarFor(2018);
             const saintMatthias = dates.find(d => {
                 return d.key === "saintMatthiasTheApostle";
             });
             expect(dayjs.utc(saintMatthias?.date).isSame(dayjs.utc("2018-5-14"))).toBeTruthy();
         });
         test("Feast day falls on the 24th of February in the national calendar of Germany and Hungary", async () => {
-            const germanyDates = await Calendar.calendarFor({
+            const germanyDates = await Romcal.calendarFor({
                 year: 2018,
                 country: "germany",
             });
-            const hungaryDates = await Calendar.calendarFor({
+            const hungaryDates = await Romcal.calendarFor({
                 year: 2018,
                 country: "hungary",
             });
@@ -393,7 +395,7 @@ describe("Testing national calendar overrides", () => {
             expect(dayjs.utc(saintMatthiasHungary?.date).isSame(dayjs.utc("2018-2-24"))).toBeTruthy();
         });
         test("Is a memorial in the German liturgical calendar on A.D 2014", async () => {
-            const germanyDates = await Calendar.calendarFor({
+            const germanyDates = await Romcal.calendarFor({
                 year: 2014,
                 country: "germany",
             });
@@ -406,11 +408,11 @@ describe("Testing national calendar overrides", () => {
 
     describe("Saint Christopher Magallanes and Companions, Martyrs", () => {
         test("A memorial in Mexico but an optional memorial in the general calendar", async () => {
-            const mexicoDates = await Calendar.calendarFor({
+            const mexicoDates = await Romcal.calendarFor({
                 year: 2019,
                 country: "mexico",
             });
-            const dates = await Calendar.calendarFor(2019);
+            const dates = await Romcal.calendarFor(2019);
             const saintChristopherMagallanesAndCompanionsMartyrs = dates.find(d => {
                 return d.key === "saintChristopherMagallanesAndCompanionsMartyrs";
             });
@@ -424,11 +426,11 @@ describe("Testing national calendar overrides", () => {
 
     describe("Saint Ladislaus", () => {
         test("A feast in Hungary but an optional memorial in Slovakia", async () => {
-            const hungaryDates = await Calendar.calendarFor({
+            const hungaryDates = await Romcal.calendarFor({
                 year: 2018,
                 country: "hungary",
             });
-            const slovakiaDates = await Calendar.calendarFor({
+            const slovakiaDates = await Romcal.calendarFor({
                 year: 2018,
                 country: "slovakia",
             });
@@ -445,7 +447,7 @@ describe("Testing national calendar overrides", () => {
 
     describe("Our Lady of Sorrows", () => {
         test("Should be celebrated on the September 15, 2018 as a memorial in the General Calendar", async () => {
-            const dates = await Calendar.calendarFor(2018);
+            const dates = await Romcal.calendarFor(2018);
             const ourLadyOfSorrows = dates.find(d => {
                 return d.key === "ourLadyOfSorrows";
             });
@@ -454,7 +456,7 @@ describe("Testing national calendar overrides", () => {
         });
 
         test("Should be celebrated on the 15th of April 2015 as a feast in the national calendar of Malta", async () => {
-            const maltaDates = await Calendar.calendarFor({
+            const maltaDates = await Romcal.calendarFor({
                 year: 2015,
                 country: "malta",
             });
@@ -466,7 +468,7 @@ describe("Testing national calendar overrides", () => {
         });
 
         test("Should be replaced by the 3rd Sunday of Easter in 2018 in the national calendar of Malta due to rank", async () => {
-            const maltaDates = await Calendar.calendarFor({
+            const maltaDates = await Romcal.calendarFor({
                 year: 2018,
                 country: "malta",
             });
@@ -477,7 +479,7 @@ describe("Testing national calendar overrides", () => {
         });
 
         test("Should be celebrated on the 15th of April 2018 as a solemnity in the national calendar of Slovakia", async () => {
-            const slovakiaDates = await Calendar.calendarFor({
+            const slovakiaDates = await Romcal.calendarFor({
                 year: 2018,
                 country: "slovakia",
             });

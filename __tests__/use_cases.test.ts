@@ -25,15 +25,17 @@
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 
-import { Dates, Types, Calendar } from "../src";
 import { DateItem } from "../src/models/romcal-date-item";
+import Romcal from "../src";
+import { Dates } from "../src/lib";
+import { Types } from "../src/constants";
 
 dayjs.extend(utc);
 
 describe("Testing specific feasts and memorials", () => {
     describe("The memorial of the Blessed Virgin Mary, Mother of the Church", () => {
         test("Should be celebrated on the Monday after Pentecost", async () => {
-            const dates = await Calendar.calendarFor(); // Get the calendar for the current year
+            const dates = await Romcal.calendarFor(); // Get the calendar for the current year
             const pentecostSunday = Dates.pentecostSunday(dayjs.utc().year());
             const maryMotherOfTheChurch = dates.find(d => d.key === "maryMotherOfTheChurch");
             const dayBeforeMaryMotherOfTheChurch = dayjs.utc(maryMotherOfTheChurch?.date).subtract(1, "day");
@@ -44,7 +46,7 @@ describe("Testing specific feasts and memorials", () => {
 
         test("Should take precedence in the event of coincidence with another memorial of a saint or blessed", async () => {
             // In 2020, monday after Pentecost is June 1
-            const juneDates = (await Calendar.calendarFor({
+            const juneDates = (await Romcal.calendarFor({
                 year: 2020,
                 query: {
                     month: 5,
@@ -58,7 +60,7 @@ describe("Testing specific feasts and memorials", () => {
 
     describe("The celebration of Saint Mary Magdalene", () => {
         test("Should be ranked as a feast and should be celebrated on the July 22", async () => {
-            const dates = await Calendar.calendarFor(2017);
+            const dates = await Romcal.calendarFor(2017);
             const saintMaryMagdalene = dates.find(d => {
                 return d.key === "saintMaryMagdalene";
             });
@@ -70,7 +72,7 @@ describe("Testing specific feasts and memorials", () => {
 
     describe("The celebrations of Pope Saint John XXIII and Pope Saint John Paul II", () => {
         test("Should be celebrated as optional memorials", async () => {
-            const dates = await Calendar.calendarFor(2016);
+            const dates = await Romcal.calendarFor(2016);
             const popeSaintJohnXXIII = dates.find(d => {
                 return d.key === "popeSaintJohnXXIII";
             });
@@ -84,7 +86,7 @@ describe("Testing specific feasts and memorials", () => {
 
     describe("The Feast of the Exultation of the Cross", () => {
         test("Is celebrated on the 14th of September", async () => {
-            const dates = await Calendar.calendarFor({
+            const dates = await Romcal.calendarFor({
                 year: 2018,
                 locale: "sk",
             });
