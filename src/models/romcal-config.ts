@@ -165,7 +165,7 @@ export default class Config {
     static async getConfig(country: TCountryTypes = "general"): Promise<IRomcalDefaultConfig> {
         const { defaultConfig: countrySpecificDefaultConfig } = await import(
             /* webpackExclude: /index\.ts/ */
-            /* webpackChunkName: "calendars/[request]" */
+            /* webpackChunkName: "romcal-calendars/[request]" */
             /* webpackMode: "lazy" */
             /* webpackPrefetch: true */
             `../calendars/${country}`
@@ -175,7 +175,7 @@ export default class Config {
         } else {
             const { defaultConfig: generalCalendarConfig } = await import(
                 /* webpackExclude: /index\.ts/ */
-                /* webpackChunkName: "calendars/[request]" */
+                /* webpackChunkName: "romcal-calendars/[request]" */
                 /* webpackMode: "lazy" */
                 /* webpackPrefetch: true */
                 "../calendars/general"
