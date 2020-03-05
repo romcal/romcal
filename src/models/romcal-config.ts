@@ -116,6 +116,10 @@ export default class Config {
         return this._year;
     }
 
+    set year(theYear: number) {
+        this._year = theYear;
+    }
+
     get country(): TCountryTypes {
         return this._country;
     }
