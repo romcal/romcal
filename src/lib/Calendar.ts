@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
 import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
-import Config, { IRomcalConfig } from "../models/romcal-config";
+import Config from "../models/romcal-config";
 import * as Dates from "./Dates";
 import * as Seasons from "./Seasons";
 import * as Celebrations from "./Celebrations";
@@ -59,6 +59,8 @@ export class Calendar {
             epiphanyOnJan6,
             type,
             year: theYear,
+            locale,
+            query,
         } = this.config;
 
         // Set the year range depending on the calendar type
@@ -95,14 +97,38 @@ export class Calendar {
         const celebrationsDates = concatAll(await Promise.all(celebrationsDatesPromise));
 
         // Get the general calendar based on the given year
-        const generalDatesPromise = years.map(async year => {
-            return [...(await Calendar._fetchCalendar("general", this.config))];
+        const generalDatesPromise = years.map(async thisYear => {
+            const yearSpecificConfig = new Config({
+                year: thisYear,
+                country,
+                locale,
+                christmastideEnds,
+                epiphanyOnJan6,
+                christmastideIncludesTheSeasonOfEpiphany,
+                corpusChristiOnThursday,
+                ascensionOnSunday,
+                type,
+                query,
+            });
+            return [...(await Calendar._fetchCalendar("general", yearSpecificConfig))];
         });
         const generalDates: Array<IRomcalDateItem> = concatAll(await Promise.all(generalDatesPromise));
 
         // Get the relevant national calendar object based on the given year and country
-        const nationalDatesPromise = years.map(async year => {
-            return [...(await Calendar._fetchCalendar(country, this.config))];
+        const nationalDatesPromise = years.map(async thisYear => {
+            const yearSpecificConfig = new Config({
+                year: thisYear,
+                country,
+                locale,
+                christmastideEnds,
+                epiphanyOnJan6,
+                christmastideIncludesTheSeasonOfEpiphany,
+                corpusChristiOnThursday,
+                ascensionOnSunday,
+                type,
+                query,
+            });
+            return [...(await Calendar._fetchCalendar(country, yearSpecificConfig))];
         });
         const nationalDates: Array<IRomcalDateItem> = concatAll(await Promise.all(nationalDatesPromise));
 
