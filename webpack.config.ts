@@ -151,7 +151,7 @@ const configurations: MultiConfigurationFactory = (env, { mode }) => [
     {
         devtool: getDevTool(mode),
         resolve: getResolveExtensions(),
-        target: "node",
+        target: "async-node",
 
         entry: {
             romcal: [...getEntryPoints()],
@@ -170,7 +170,7 @@ const configurations: MultiConfigurationFactory = (env, { mode }) => [
                 {
                     test: /\.ts(x?)$/,
                     exclude: [/node_modules/, "/src/**/*.test.ts"],
-                    use: [getTsLoaderRuleSet("tsconfig.json")],
+                    use: [getTsLoaderRuleSet("tsconfig.esm.json")],
                 },
             ],
         },
