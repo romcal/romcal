@@ -27,7 +27,7 @@ import utc from "dayjs/plugin/utc";
 
 import { DateItem } from "../src/models/romcal-date-item";
 import Romcal from "../src";
-import { Dates } from "../src/lib";
+import { Dates, Seasons } from "../src/lib";
 import { Types } from "../src/constants";
 
 dayjs.extend(utc);
@@ -95,6 +95,18 @@ describe("Testing specific feasts and memorials", () => {
             });
             expect(dayjs.utc(theExaltationOfTheHolyCross?.date).date()).toEqual(14);
             expect(dayjs.utc(theExaltationOfTheHolyCross?.date).month()).toEqual(8);
+        });
+    });
+
+    describe("The Sunday of the Word of God", () => {
+        test("Should be celebrated on the 3rd Sunday of Ordinary Time as decreed by Pope Francis", async () => {
+            const dates = await Romcal.calendarFor(2020);
+            const sundayOfTheWordOfGod = dates.find(d => {
+                return d.key === "sundayOfTheWordOfGod";
+            });
+            const sundays = await Seasons.earlyOrdinaryTime(2020, "o", false);
+            const thirdSundayOfOrdinaryTime = sundays.find(sunday => sunday.key === "thirdSundayOfOrdinaryTime");
+            expect(thirdSundayOfOrdinaryTime!.date.isSame(sundayOfTheWordOfGod!.date)).toBeTruthy();
         });
     });
 });

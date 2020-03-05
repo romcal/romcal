@@ -3,11 +3,12 @@ import dayjs from "dayjs";
 import { Locales } from "../lib";
 import { Titles, Types, LiturgicalColors } from "../constants";
 import { IRomcalDateItem } from "../models/romcal-date-item";
-import { IRomcalDefaultConfig } from "../models/romcal-config";
+import Config, { IRomcalDefaultConfig } from "../models/romcal-config";
 
 const defaultConfig: IRomcalDefaultConfig | undefined = undefined;
 
-const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
+const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
+    const year = config.year;
     const _dates: Array<IRomcalDateItem> = [
         {
             key: "saintMargaretOfHungary",
