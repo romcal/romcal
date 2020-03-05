@@ -27,7 +27,7 @@ const getTsLoaderRuleSet = (tsConfigFilePath: string): webpack.RuleSetUseItem =>
     },
 });
 
-const getBabelRuleSet = (): webpack.RuleSetUseItem => ({
+const getBabelRuleSetForEs5 = (): webpack.RuleSetUseItem => ({
     loader: "babel-loader",
     options: {
         presets: [
@@ -64,25 +64,13 @@ const getHtmlLoader = (): webpack.RuleSetRule => ({
     loader: "html-loader",
 });
 
-const getOptimization = (): webpack.Options.Optimization => ({
+const getOptimizationEs5 = (): webpack.Options.Optimization => ({
     splitChunks: {
         chunks: "all",
-        maxInitialRequests: Infinity,
-        minSize: 0,
         cacheGroups: {
-            // Externalize all includes from node_modules except core-js
+            // Externalize all includes from node_modules
             vendor: {
-                chunks: "all",
                 test: /[\\/]node_modules[\\/]/,
-                priority: 20,
-            },
-            // Create a common chunk for reusable code
-            common: {
-                name: "common",
-                minChunks: 2,
-                chunks: "async",
-                priority: 10,
-                reuseExistingChunk: true,
                 enforce: true,
             },
         },
@@ -121,37 +109,6 @@ const getHtmlWebpackPlugin = (): HtmlWebpackPlugin => {
 };
 
 const configurations: MultiConfigurationFactory = (env, { mode }) => [
-    // ESM
-    {
-        devtool: getDevTool(mode),
-        resolve: getResolveExtensions(),
-        target: "web",
-
-        entry: {
-            romcal: [...getEntryPoints()],
-        },
-
-        output: {
-            ...getWebpackOutput("esm"),
-            filename: "index.js",
-            chunkFilename: "[name].[chunkhash].js",
-            libraryTarget: "commonjs2",
-            libraryExport: "default",
-            library: "Romcal",
-        },
-
-        module: {
-            rules: [
-                {
-                    test: /\.ts(x?)$/,
-                    exclude: [/node_modules/, "/src/**/*.test.ts"],
-                    use: [getTsLoaderRuleSet("tsconfig.json")],
-                },
-            ],
-        },
-
-        optimization: getOptimization(),
-    },
     // ES5
     {
         devtool: getDevTool(mode),
@@ -181,14 +138,42 @@ const configurations: MultiConfigurationFactory = (env, { mode }) => [
                 {
                     test: /\.ts(x?)$/,
                     exclude: [/node_modules/, "/src/**/*.test.ts"],
-                    use: [getBabelRuleSet(), getTsLoaderRuleSet("tsconfig.json")],
+                    use: [getBabelRuleSetForEs5(), getTsLoaderRuleSet("tsconfig.json")],
                 },
             ],
         },
 
-        optimization: getOptimization(),
+        optimization: getOptimizationEs5(),
 
         plugins: [getBundleAnalyzerPlugin(), getHtmlWebpackPlugin()],
+    },
+    // ESM
+    {
+        devtool: getDevTool(mode),
+        resolve: getResolveExtensions(),
+        target: "node",
+
+        entry: {
+            romcal: [...getEntryPoints()],
+        },
+
+        output: {
+            ...getWebpackOutput("esm"),
+            filename: "index.js",
+            chunkFilename: "[name].js",
+            libraryTarget: "commonjs2",
+            globalObject: "this",
+        },
+
+        module: {
+            rules: [
+                {
+                    test: /\.ts(x?)$/,
+                    exclude: [/node_modules/, "/src/**/*.test.ts"],
+                    use: [getTsLoaderRuleSet("tsconfig.json")],
+                },
+            ],
+        },
     },
 ];
 
