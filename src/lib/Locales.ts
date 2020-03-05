@@ -119,7 +119,7 @@ const setLocale = async (key: TLocaleTypes, customOrdinalFn: (v: number) => stri
     try {
         const { default: fallbackLocale } = await import(
             /* webpackExclude: /index\.ts/ */
-            /* webpackChunkName: "locales/[request]" */
+            /* webpackChunkName: "romcal-locales/[request]" */
             /* webpackMode: "lazy" */
             `../locales/${_fallbackLocaleKey}`
         );
@@ -144,7 +144,7 @@ const setLocale = async (key: TLocaleTypes, customOrdinalFn: (v: number) => stri
             try {
                 const { default: baseLocale } = await import(
                     /* webpackExclude: /index\.ts/ */
-                    /* webpackChunkName: "locales/[request]" */
+                    /* webpackChunkName: "romcal-locales/[request]" */
                     /* webpackMode: "lazy" */
                     `../locales/${language}`
                 );
@@ -162,7 +162,7 @@ const setLocale = async (key: TLocaleTypes, customOrdinalFn: (v: number) => stri
         try {
             const { default: regionSpecificLocale } = await import(
                 /* webpackExclude: /index\.ts/ */
-                /* webpackChunkName: "locales/[request]" */
+                /* webpackChunkName: "romcal-locales/[request]" */
                 /* webpackMode: "lazy" */
                 `../locales/${currentLocale}`
             );
@@ -187,7 +187,9 @@ const setLocale = async (key: TLocaleTypes, customOrdinalFn: (v: number) => stri
     } catch (e) {
         try {
             const languageOnly = currentLocale.split("-")[0];
-            console.warn(`${currentLocale} is not supported by dayJS, trying to use ${languageOnly} instead`);
+            console.warn(
+                `${currentLocale} is not supported in romcal's date management library, trying to use ${languageOnly} instead`,
+            );
             const { default: langLocale } = await import(
                 /* webpackExclude: /(index|types)\.d\.ts/ */
                 /* webpackChunkName: "i18n/[request]" */
