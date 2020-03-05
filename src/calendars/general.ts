@@ -1,9 +1,9 @@
 import dayjs from "dayjs";
 
-import { Dates, Locales } from "../lib";
+import { Dates, Locales, Seasons } from "../lib";
 import { Titles, Types, LiturgicalColors } from "../constants";
 import { IRomcalDateItem } from "../models/romcal-date-item";
-import { IRomcalDefaultConfig } from "../models/romcal-config";
+import Config, { IRomcalDefaultConfig } from "../models/romcal-config";
 
 const defaultConfig: IRomcalDefaultConfig = {
     ascensionOnSunday: false,
@@ -13,7 +13,8 @@ const defaultConfig: IRomcalDefaultConfig = {
     epiphanyOnJan6: false,
 };
 
-const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
+const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
+    const year = config.year;
     const _dates: Array<IRomcalDateItem> = [
         {
             key: "saintsBasilTheGreatAndGregoryNazianzenBishopsAndDoctors",
@@ -95,6 +96,21 @@ const dates = async (year: number): Promise<Array<IRomcalDateItem>> => {
                 meta: {
                     liturgicalColor: LiturgicalColors.WHITE,
                     titles: [Titles.DOCTOR_OF_THE_CHURCH],
+                },
+            },
+        },
+        // http://www.vatican.va/content/francesco/en/motu_proprio/documents/papa-francesco-motu-proprio-20190930_aperuit-illis.html
+        {
+            key: "sundayOfTheWordOfGod",
+            type: Types.SUNDAY,
+            date: await (async (y: number): Promise<dayjs.Dayjs> => {
+                const sundays = await Seasons.earlyOrdinaryTime(year, config.christmastideEnds, config.epiphanyOnJan6);
+                const thirdSundayOfOrdinaryTime = sundays.find(sunday => sunday.key === "thirdSundayOfOrdinaryTime");
+                return thirdSundayOfOrdinaryTime!.date;
+            })(year),
+            data: {
+                meta: {
+                    liturgicalColor: LiturgicalColors.GREEN,
                 },
             },
         },

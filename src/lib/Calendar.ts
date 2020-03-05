@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
 import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
-import Config from "../models/romcal-config";
+import Config, { IRomcalConfig } from "../models/romcal-config";
 import * as Dates from "./Dates";
 import * as Seasons from "./Seasons";
 import * as Celebrations from "./Celebrations";
@@ -96,13 +96,13 @@ export class Calendar {
 
         // Get the general calendar based on the given year
         const generalDatesPromise = years.map(async year => {
-            return [...(await Calendar._fetchCalendar("general", year))];
+            return [...(await Calendar._fetchCalendar("general", this.config))];
         });
         const generalDates: Array<IRomcalDateItem> = concatAll(await Promise.all(generalDatesPromise));
 
         // Get the relevant national calendar object based on the given year and country
         const nationalDatesPromise = years.map(async year => {
-            return [...(await Calendar._fetchCalendar(country, year))];
+            return [...(await Calendar._fetchCalendar(country, this.config))];
         });
         const nationalDates: Array<IRomcalDateItem> = concatAll(await Promise.all(nationalDatesPromise));
 
@@ -316,9 +316,9 @@ export class Calendar {
      * Get the appropriate calendar definition object, based on the given region name and year.
      *
      * @param country The country to get
-     * @param year the year to resolve
+     * @param config The configuration instance to be send down to the calendar (includes the year to use for date resolutions)
      */
-    static async _fetchCalendar(country: TCountryTypes, year: number): Promise<Array<IRomcalDateItem>> {
+    static async _fetchCalendar(country: TCountryTypes, config: Config): Promise<Array<IRomcalDateItem>> {
         const { dates } = await import(
             /* webpackExclude: /index\.ts/ */
             /* webpackChunkName: "calendars/[request]" */
@@ -326,6 +326,6 @@ export class Calendar {
             /* webpackPrefetch: true */
             `../calendars/${country}`
         );
-        return await dates(year);
+        return await dates(config);
     }
 }
