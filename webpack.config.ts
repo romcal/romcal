@@ -135,8 +135,8 @@ const configurations: MultiConfigurationFactory = (env, { mode }) => [
             ...getWebpackOutput("esm"),
             filename: "index.js",
             chunkFilename: "[name].[chunkhash].js",
-            libraryTarget: "umd",
-            libraryExport: "this",
+            libraryTarget: "commonjs2",
+            libraryExport: "default",
             library: "Romcal",
         },
 
