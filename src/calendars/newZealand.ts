@@ -32,7 +32,7 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
             date: dayjs.utc(`${year}-3-17`),
         },
         {
-            key: "saintMarkApostle",
+            key: "saintMarkTheEvangelist",
             type: Types.FEAST,
             date: dayjs.utc(`${year}-4-26`),
         },

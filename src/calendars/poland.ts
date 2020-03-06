@@ -467,7 +467,7 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
         },
         // jarosz: Split saintRuizAndCo and saintWenceslaus (they are a single celebration in general.js)
         {
-            key: "saintsLawrenceRuizAndCompanionsMartyrs",
+            key: "saintLawrenceRuizAndCompanionsMartyrs",
             type: Types.OPT_MEMORIAL,
             date: dayjs.utc(`${year}-9-26`),
         },

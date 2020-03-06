@@ -61,7 +61,7 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
             date: dayjs.utc(`${year}-2-25`),
         },
         {
-            key: "saintAgnesCaoGuiyingMartyr",
+            key: "saintAgnesTsaoKouYingMartyr",
             type: Types.OPT_MEMORIAL,
             date: dayjs.utc(`${year}-3-1`),
         },
