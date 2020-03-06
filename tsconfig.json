@@ -22,8 +22,8 @@
             "DOM.Iterable",
             "ScriptHost"
         ],
-        "allowJs": true /* Allow javascript files to be compiled. */,
-        "sourceMap": true /* Generates corresponding '.map' file. */,
+        "allowJs": true,
+        "sourceMap": true,
         "rootDir": "./src",
         "noEmit": false /* Do not emit outputs. */,
         "emitDeclarationOnly": false,
@@ -39,10 +39,14 @@
         "inlineSourceMap": false,
         "inlineSources": false,
         /* Experimental Options */
-        "experimentalDecorators": true /* Enables experimental support for ES7 decorators. */,
-        "emitDecoratorMetadata": true /* Enables experimental support for emitting type metadata for decorators. */,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
         /* Advanced Options */
-        "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */
+        "forceConsistentCasingInFileNames": true,
+        "baseUrl": "./",
+        "paths": {
+            "dayjs/*": ["node_modules/dayjs/*"]
+        }
     },
     "include": ["typings/*", "src/**/*.ts"],
     "exclude": ["dist/**/*", "coverage/**/*"]
