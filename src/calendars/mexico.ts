@@ -123,6 +123,56 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
         },
       },
     },
+    {
+      key: 'blessedJuniperoSerraPriest',
+      type: Types.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-8-26`),
+    },
+    {
+      key: 'saintJoseMariaDeYermoPriest',
+      type: Types.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-9-19`),
+    },
+    {
+      key: 'saintRafaelGuizarYValenciaBishop',
+      type: Types.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-10-24`),
+    },
+    {
+      key: 'blessedMiguelAgustinProPriestAndMartyr',
+      type: Types.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-11-23`),
+      data: {
+        meta: {
+          titles: [Titles.MARTYR],
+        },
+      },
+    },
+    {
+      key: 'saintJuanDiegoCuauhtlatoatzin',
+      type: Types.MEMORIAL,
+      date: dayjs.utc(`${year}-12-9`),
+    },
+    {
+      key: 'ourLadyOfGuadalupe',
+      type: Types.SOLEMNITY,
+      date: dayjs.utc(`${year}-12-12`),
+    },
+    {
+      key: 'ourLordJesusChristTheEternalHighPriest',
+      type: Types.FEAST,
+      date: ((y: number): dayjs.Dayjs =>
+        dayjs.utc(
+          Dates.pentecostSunday(y)
+            .add(4, 'day')
+            .toISOString(),
+        ))(year),
+      data: {
+        meta: {
+          liturgicalColor: LiturgicalColors.WHITE,
+        },
+      },
+    },
   ];
 
   // Get localized celebration names

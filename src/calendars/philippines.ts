@@ -75,6 +75,27 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
       },
     },
     {
+      key: 'saintRoch',
+      type: Types.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-8-16`),
+    },
+    {
+      key: 'saintEzequielMorenoBishop',
+      type: Types.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-8-19`),
+    },
+    {
+      key: 'saintLawrenceRuizAndCompanionsMartyrs',
+      type: Types.MEMORIAL,
+      date: dayjs.utc(`${year}-9-28`),
+      data: {
+        meta: {
+          liturgicalColor: LiturgicalColors.RED,
+          titles: [Titles.MARTYR],
+        },
+      },
+    },
+    {
       key: 'immaculateConceptionOfTheBlessedVirginMaryPrincipalPatronessOfThePhilippines',
       type: Types.SOLEMNITY,
       date: dayjs.utc(`${year}-12-8`),

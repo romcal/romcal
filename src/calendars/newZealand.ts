@@ -53,6 +53,32 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
       },
     },
     {
+      key: 'saintPatrickBishop',
+      type: Types.FEAST,
+      date: dayjs.utc(`${year}-3-17`),
+    },
+    {
+      key: 'saintMarkTheEvangelist',
+      type: Types.FEAST,
+      date: dayjs.utc(`${year}-4-26`),
+    },
+    {
+      key: 'saintLouisGrignonDeMontfortPriest',
+      type: Types.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-4-27`),
+    },
+    {
+      key: 'saintPeterChanelPriestAndMartyrSaintLouisGrignonDeMontfortPriest',
+      type: Types.FEAST,
+      date: dayjs.utc(`${year}-4-28`),
+      data: {
+        meta: {
+          liturgicalColor: LiturgicalColors.RED,
+          titles: [Titles.MARTYR],
+        },
+      },
+    },
+    {
       key: 'ourLadyHelpOfChristians',
       type: Types.MEMORIAL,
       date: dayjs.utc(`${year}-5-24`),

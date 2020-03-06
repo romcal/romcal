@@ -47,7 +47,7 @@ export default {
     baptismOfTheLord: 'Baptême du Seigneur',
     birthOfJohnTheBaptist: 'Nativité de Saint Jean le Baptiste',
     christmas: 'Nativité du Seigneur',
-    christTheKing: "Christ, Roi de l'Univers",
+    christTheKing: 'Christ, Roi de l’Univers',
     corpusChristi: 'Saint-Sacrement',
     divineMercySunday: 'Dimanche de la Divine Miséricorde',
     easter: 'Dimanche de Pâques',
@@ -205,8 +205,6 @@ export default {
     saintGregoryTheGreatPopeAndDoctor: 'Saint Grégoire le Grand, Pape et Docteur de l’Église (✝ 604)',
     saintHedwigReligiousOrSaintMargaretMaryAlacoqueVirgin:
       'Sainte Edwige de Silésie, Veuve puis Religieuse (✝ 1243), ou Sainte Marguerite-Marie Alacoque, Visitandine à Paray-le-Monial (✝ 1690)',
-    saintHedwigReligiousSaintMargaretMaryAlacoqueVirgin:
-      'Sainte Edwige de Silésie, Veuve puis Religieuse (✝ 1243), ou Sainte Marguerite-Marie Alacoque, Visitandine à Paray-le-Monial (✝ 1690)',
     saintHenryBishopAndMartyr: 'Saint Henri, Empereur Germanique (✝ 1024)',
     saintHilaryOfPoitiersBishopAndDoctor: 'Saint Hilaire de Poitiers, Évêque et Docteur de l’Église (✝ 367)',
     saintHubertBishop: 'Saint Hubert, Évêque (✝ 727)',
@@ -289,7 +287,7 @@ export default {
     saintPeterClaverPriest: 'Saint Pierre Claver, Prêtre Jésuite (✝ 1654)',
     saintPeterDamianBishopAndDoctorOfTheChurch: 'Saint Pierre Damien, Évêque d’Ostie, Docteur de l’Église (✝ 1072)',
     saintPhilipNeriPriest: 'Saint Philippe Néri, Prêtre (✝ 1595)',
-    saintPioOfPietrelcinaPadrePioPriest: 'Saint Pio de Pietrelcina (Padre Pio), Prêtre Capucin (✝ 1968)',
+    saintPioOfPietrelcinaPriest: 'Saint Pio de Pietrelcina (Padre Pio), Prêtre Capucin (✝ 1968)',
     saintPiusVPope: 'Saint Pie V, Pape (✝ 1572)',
     saintPiusXPope: 'Saint Pie X, Pape (✝ 1914)',
     saintPolycarpBishopAndMartyr: 'Saint Polycarpe, Évêque et Martyre (✝ 167)',
@@ -349,7 +347,7 @@ export default {
     saintVincentDePaulPriest:
       'Saint Vincent de Paul, Prêtre, Fondateur de la congrégation de la Mission et des Filles de la Charité (✝ 1660)',
     saintVincentFerrerPriest: 'Saint Vincent Ferrier, Prêtre de l’Ordre des Prêcheurs (✝ 1419)',
-    saintWenceslausMartyrSaintsLawrenceRuizAndCompanionsMartyrs:
+    saintWenceslausMartyrSaintLawrenceRuizAndCompanionsMartyrs:
       'Saint Venceslas, Martyr (✝ 929), ou Saints Laurent Ruiz et 15 compagnons, Martyrs à Nagasaki au Japon (✝ v. 1635)',
     sevenHolyFoundersOfTheServiteOrder: 'Saint Alexis Falconieri et les fondateurs des Servites (✝ 1310)',
     shroveMonday: 'Lundi gras',
