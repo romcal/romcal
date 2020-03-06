@@ -1,5 +1,5 @@
-import { DateItem } from "./romcal-date-item";
+import { DateItem } from './romcal-date-item';
 
 export interface ICalendar {
-    readonly dateItems: Array<DateItem>;
+  readonly dateItems: Array<DateItem>;
 }
