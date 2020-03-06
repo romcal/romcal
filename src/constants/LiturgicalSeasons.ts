@@ -1,14 +1,14 @@
 export type TLiturgicalSeasonKeys =
-    | "ADVENT"
-    | "CHRISTMASTIDE"
-    | "EARLY_ORDINARY_TIME"
-    | "LATER_ORDINARY_TIME"
-    | "LENT"
-    | "HOLY_WEEK"
-    | "EASTER";
+  | 'ADVENT'
+  | 'CHRISTMASTIDE'
+  | 'EARLY_ORDINARY_TIME'
+  | 'LATER_ORDINARY_TIME'
+  | 'LENT'
+  | 'HOLY_WEEK'
+  | 'EASTER';
 
 export type TLiturgicalSeasons = {
-    [key in TLiturgicalSeasonKeys]: string;
+  [key in TLiturgicalSeasonKeys]: string;
 };
 
 /**
@@ -17,13 +17,13 @@ export type TLiturgicalSeasons = {
  * of the season.
  */
 export const LiturgicalSeasons: TLiturgicalSeasons = {
-    ADVENT: "Advent",
-    CHRISTMASTIDE: "Christmastide",
-    EARLY_ORDINARY_TIME: "Early Ordinary Time",
-    LATER_ORDINARY_TIME: "Later Ordinary Time",
-    LENT: "Lent",
-    HOLY_WEEK: "Holy Week",
-    EASTER: "Easter",
+  ADVENT: 'Advent',
+  CHRISTMASTIDE: 'Christmastide',
+  EARLY_ORDINARY_TIME: 'Early Ordinary Time',
+  LATER_ORDINARY_TIME: 'Later Ordinary Time',
+  LENT: 'Lent',
+  HOLY_WEEK: 'Holy Week',
+  EASTER: 'Easter',
 };
 
 export default LiturgicalSeasons;

@@ -1,4 +1,4 @@
-import { Primitive } from "./type-guards";
+import { Primitive } from './type-guards';
 
 /**
  * Check if an array contains an item.
@@ -13,7 +13,7 @@ import { Primitive } from "./type-guards";
  * ```
  */
 export const includes = <T>(array: T[] | ReadonlyArray<T>, item: T): boolean => {
-    return array.includes ? array.includes(item) : array.indexOf(item) !== -1;
+  return array.includes ? array.includes(item) : array.indexOf(item) !== -1;
 };
 
 /**
@@ -28,7 +28,7 @@ export const includes = <T>(array: T[] | ReadonlyArray<T>, item: T): boolean => 
  * ```
  */
 export const concatAll = <T>(array: Array<T | T[]>): T[] => {
-    return array.reduce<T[]>((result, item) => result.concat(item), []);
+  return array.reduce<T[]>((result, item) => result.concat(item), []);
 };
 
 /**
@@ -37,10 +37,10 @@ export const concatAll = <T>(array: Array<T | T[]>): T[] => {
  * @param predicate The criteria of objects to find in the array
  */
 export const find = <O, K extends keyof O>(items: O[], predicate: Record<K, Primitive>): O | undefined => {
-    const criteria = Object.entries(predicate);
-    return items.find(item => {
-        return criteria.every(pair => item[pair[0] as keyof O] === pair[1]);
-    });
+  const criteria = Object.entries(predicate);
+  return items.find(item => {
+    return criteria.every(pair => item[pair[0] as keyof O] === pair[1]);
+  });
 };
 
 /**
@@ -52,12 +52,12 @@ export const find = <O, K extends keyof O>(items: O[], predicate: Record<K, Prim
  * @param predicate The criteria of objects to remove from the array
  */
 export const removeWhere = <O, K extends keyof O>(items: O[], predicate: Record<K, Primitive>): O[] => {
-    const criteria = Object.entries(predicate);
-    const index = items.findIndex(item => criteria.every(pair => item[pair[0] as keyof O] === pair[1]));
-    if (index > -1) {
-        items.splice(index, 1);
-    }
-    return items;
+  const criteria = Object.entries(predicate);
+  const index = items.findIndex(item => criteria.every(pair => item[pair[0] as keyof O] === pair[1]));
+  if (index > -1) {
+    items.splice(index, 1);
+  }
+  return items;
 };
 
 /**
@@ -70,11 +70,11 @@ export const removeWhere = <O, K extends keyof O>(items: O[], predicate: Record<
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const groupByKey = <O extends any, K extends keyof O>(array: O[], key: K): Record<O[K], O[]> => {
-    return array.reduce((objectsByKeyValue, obj) => {
-        const value = obj[key];
-        objectsByKeyValue[value] = (objectsByKeyValue[value] || []).concat(obj);
-        return objectsByKeyValue;
-    }, {} as Record<O[K], O[]>);
+  return array.reduce((objectsByKeyValue, obj) => {
+    const value = obj[key];
+    objectsByKeyValue[value] = (objectsByKeyValue[value] || []).concat(obj);
+    return objectsByKeyValue;
+  }, {} as Record<O[K], O[]>);
 };
 
 /**
@@ -108,28 +108,28 @@ export const groupByKey = <O extends any, K extends keyof O>(array: O[], key: K)
  *
  */
 export const asyncForEach = <Item, CallbackReturn>(
-    array: Item[] | ReadonlyArray<Item>,
-    callback: (
-        item: Item,
-        data: {
-            index: number;
-            items: Item[] | ReadonlyArray<Item>;
-            breakOut: () => void;
-        },
-    ) => CallbackReturn | Promise<CallbackReturn>,
+  array: Item[] | ReadonlyArray<Item>,
+  callback: (
+    item: Item,
+    data: {
+      index: number;
+      items: Item[] | ReadonlyArray<Item>;
+      breakOut: () => void;
+    },
+  ) => CallbackReturn | Promise<CallbackReturn>,
 ): Promise<CallbackReturn[]> => {
-    let hasBreak = false;
-    const breakOut = (): void => {
-        hasBreak = true;
-    };
+  let hasBreak = false;
+  const breakOut = (): void => {
+    hasBreak = true;
+  };
 
-    const invokeCallback = (index: number, results: CallbackReturn[]): Promise<CallbackReturn[]> => {
-        if (index === array.length) {
-            return Promise.resolve(results);
-        }
-        return Promise.resolve(callback(array[index], { index, items: array, breakOut })).then(result =>
-            hasBreak ? Promise.resolve(results) : invokeCallback(index + 1, results.concat(result)),
-        );
-    };
-    return invokeCallback(0, []);
+  const invokeCallback = (index: number, results: CallbackReturn[]): Promise<CallbackReturn[]> => {
+    if (index === array.length) {
+      return Promise.resolve(results);
+    }
+    return Promise.resolve(callback(array[index], { index, items: array, breakOut })).then(result =>
+      hasBreak ? Promise.resolve(results) : invokeCallback(index + 1, results.concat(result)),
+    );
+  };
+  return invokeCallback(0, []);
 };

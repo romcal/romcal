@@ -8,81 +8,81 @@ export type Filter<T, U> = T extends U ? T : never;
 
 /** Get the keys of T if the value is assignable to U */
 export type FilterdKeys<T, U> = {
-    [P in keyof T]: T[P] extends U ? P : never;
+  [P in keyof T]: T[P] extends U ? P : never;
 }[keyof T];
 
 export type DiffedKeys<T, U> = {
-    [P in keyof T]: T[P] extends U ? never : P;
+  [P in keyof T]: T[P] extends U ? never : P;
 }[keyof T];
 
 export type ElementType<T extends ReadonlyArray<unknown>> = T extends ReadonlyArray<infer ElementType>
-    ? ElementType
-    : never;
+  ? ElementType
+  : never;
 
 /**
  * A generic helper to infer the return type(s) of overloaded functions.
  * Supports up to 7 overloaded function signatures
  */
 export type OverloadedReturnType<T> = T extends {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (...args: any[]): infer R;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (...args: any[]): infer R;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (...args: any[]): infer R;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (...args: any[]): infer R;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (...args: any[]): infer R;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (...args: any[]): infer R;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (...args: any[]): infer R;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (...args: any[]): infer R;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (...args: any[]): infer R;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (...args: any[]): infer R;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (...args: any[]): infer R;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (...args: any[]): infer R;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (...args: any[]): infer R;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (...args: any[]): infer R;
 }
-    ? R // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    : T extends {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (...args: any[]): infer R;
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (...args: any[]): infer R;
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (...args: any[]): infer R;
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (...args: any[]): infer R;
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (...args: any[]): infer R;
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (...args: any[]): infer R;
-      }
-    ? R // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    : T extends {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (...args: any[]): infer R;
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (...args: any[]): infer R;
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (...args: any[]): infer R;
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (...args: any[]): infer R;
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (...args: any[]): infer R;
-      }
-    ? R // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    : T extends {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (...args: any[]): infer R;
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (...args: any[]): infer R;
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (...args: any[]): infer R;
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (...args: any[]): infer R;
-      }
-    ? R // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    : T extends { (...args: any[]): infer R; (...args: any[]): infer R; (...args: any[]): infer R }
-    ? R // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    : T extends { (...args: any[]): infer R; (...args: any[]): infer R }
-    ? R // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    : T extends (...args: any[]) => infer R
-    ? R // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    : any;
+  ? R // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  : T extends {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (...args: any[]): infer R;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (...args: any[]): infer R;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (...args: any[]): infer R;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (...args: any[]): infer R;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (...args: any[]): infer R;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (...args: any[]): infer R;
+    }
+  ? R // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  : T extends {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (...args: any[]): infer R;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (...args: any[]): infer R;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (...args: any[]): infer R;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (...args: any[]): infer R;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (...args: any[]): infer R;
+    }
+  ? R // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  : T extends {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (...args: any[]): infer R;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (...args: any[]): infer R;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (...args: any[]): infer R;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (...args: any[]): infer R;
+    }
+  ? R // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  : T extends { (...args: any[]): infer R; (...args: any[]): infer R; (...args: any[]): infer R }
+  ? R // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  : T extends { (...args: any[]): infer R; (...args: any[]): infer R }
+  ? R // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  : T extends (...args: any[]) => infer R
+  ? R // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  : any;

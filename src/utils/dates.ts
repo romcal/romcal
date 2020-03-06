@@ -1,23 +1,23 @@
-import dayjs from "dayjs";
+import dayjs from 'dayjs';
 
 export enum DayOfWeek {
-    SUNDAY = 0,
-    MONDAY,
-    TUESDAY,
-    WEDNESDAY,
-    THURSDAY,
-    FRIDAY,
-    SATURDAY,
+  SUNDAY = 0,
+  MONDAY,
+  TUESDAY,
+  WEDNESDAY,
+  THURSDAY,
+  FRIDAY,
+  SATURDAY,
 }
 
 export type TRangeOfDaysOptions = {
-    step?: number;
-    exclude?: Array<dayjs.Dayjs>;
+  step?: number;
+  exclude?: Array<dayjs.Dayjs>;
 };
 
 const rangeOfDayDefaultOptions: Required<TRangeOfDaysOptions> = {
-    step: 1,
-    exclude: [],
+  step: 1,
+  exclude: [],
 };
 
 /**
@@ -27,7 +27,7 @@ const rangeOfDayDefaultOptions: Required<TRangeOfDaysOptions> = {
  * @returns `true` if the date exists in tha range or false if otherwise
  */
 export const rangeContainsDate = (range: Array<dayjs.Dayjs>, date: dayjs.Dayjs): boolean => {
-    return range.map(date => date.toISOString()).includes(date.toISOString());
+  return range.map(date => date.toISOString()).includes(date.toISOString());
 };
 
 /**
@@ -39,22 +39,22 @@ export const rangeContainsDate = (range: Array<dayjs.Dayjs>, date: dayjs.Dayjs):
  * @returns An array of dates representing the range
  */
 export const rangeOfDays = (
-    start: dayjs.Dayjs,
-    end: dayjs.Dayjs,
-    options: TRangeOfDaysOptions = rangeOfDayDefaultOptions,
+  start: dayjs.Dayjs,
+  end: dayjs.Dayjs,
+  options: TRangeOfDaysOptions = rangeOfDayDefaultOptions,
 ): Array<dayjs.Dayjs> => {
-    const days = end.diff(start, "day");
-    const range: Array<dayjs.Dayjs> = [];
-    Array.from(new Array(days + 1), (x, i) => {
-        const rangeDate = start.add(i * (options.step ?? rangeOfDayDefaultOptions.step), "day");
-        if (rangeDate.isAfter(end)) {
-            return range;
-        }
-        if (!rangeContainsDate(options.exclude ?? rangeOfDayDefaultOptions.exclude, rangeDate)) {
-            range.push(rangeDate);
-        }
-    });
-    return range;
+  const days = end.diff(start, 'day');
+  const range: Array<dayjs.Dayjs> = [];
+  Array.from(new Array(days + 1), (x, i) => {
+    const rangeDate = start.add(i * (options.step ?? rangeOfDayDefaultOptions.step), 'day');
+    if (rangeDate.isAfter(end)) {
+      return range;
+    }
+    if (!rangeContainsDate(options.exclude ?? rangeOfDayDefaultOptions.exclude, rangeDate)) {
+      range.push(rangeDate);
+    }
+  });
+  return range;
 };
 
 /**
@@ -64,11 +64,11 @@ export const rangeOfDays = (
  * @param dayOfWeek The day of week to look for (Day of Week (Sunday as 0, Saturday as 6)
  */
 export const eachDayOfWeekInRange = (range: Array<dayjs.Dayjs>, dayOfWeek: DayOfWeek): Array<dayjs.Dayjs> => {
-    const daysInInterval: Array<dayjs.Dayjs> = [];
-    range.forEach(date => {
-        if (date.day() === dayOfWeek) {
-            daysInInterval.push(date);
-        }
-    });
-    return daysInInterval;
+  const daysInInterval: Array<dayjs.Dayjs> = [];
+  range.forEach(date => {
+    if (date.day() === dayOfWeek) {
+      daysInInterval.push(date);
+    }
+  });
+  return daysInInterval;
 };
