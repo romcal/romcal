@@ -1,136 +1,134 @@
 {
-  "name": "romcal",
-  "version": "1.3.1-canary.75",
-  "description": "Utility library that outputs the Liturgical Calendar used by the Roman Rite (Western Church)",
-  "types": "dist/esm/index.d.ts",
-  "main": "dist/esm/index.js",
-  "engines": {
-    "node": ">=12"
-  },
-  "files": [
-    "dist"
-  ],
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
-  },
-  "scripts": {
-    "prepublishOnly": "npm run build && npm run typedoc",
-    "build": "rimraf dist/** && cross-env TS_NODE_PROJECT=\"tsconfig.webpack.json\" webpack --mode production",
-    "build:dev": "rimraf dist/** && cross-env TS_NODE_PROJECT=\"tsconfig.webpack.json\" webpack --mode development",
-    "lint": "pretty-quick --staged && lint-staged",
-    "test": "jest --colors",
-    "test:watch": "jest --colors --watch",
-    "updateChangelog": "auto-changelog -p",
-    "typedoc": "typedoc --options typedoc.json",
-    "esm-bundle-report": "webpack-bundle-analyzer --port 4200 dist/es5/stats.json",
-    "prettier:check": "prettier --check \"src/**/*.ts\"",
-    "prettier:fix": "prettier --write \"src/**/*.ts\""
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint"
-    }
-  },
-  "lint-staged": {
-    "*.{js,ts,tsx}": [
-      "./node_modules/.bin/eslint --cache --fix",
-      "git add"
-    ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/romcal/romcal.git"
-  },
-  "keywords": [
-    "roman",
-    "catholic",
-    "calendar",
-    "latin",
-    "western",
-    "church",
-    "christian",
-    "seasons",
-    "liturgical"
-  ],
-  "author": {
-    "name": "Julian Pereira",
-    "email": "bleushade@gmail.com",
-    "url": "https://github.com/pejulian"
-  },
-  "contributors": [
-    {
-      "name": "Etienne Magnier",
-      "email": "etienne.magnier@gmail.com",
-      "url": "https://github.com/emagnier"
+    "name": "romcal",
+    "version": "1.3.1-canary.76",
+    "description": "Utility library that outputs the Liturgical Calendar used by the Roman Rite (Western Church)",
+    "types": "dist/esm/index.d.ts",
+    "main": "dist/esm/index.js",
+    "engines": {
+        "node": ">=12"
     },
-    {
-      "name": "Jacek Roszkowski",
-      "url": "https://github.com/jarosz"
+    "files": [
+        "dist"
+    ],
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org"
     },
-    {
-      "name": "Tukusej’s Sirs",
-      "email": "tukusejssirs@protonmail.com",
-      "url": "https://github.com/tukusejssirs"
+    "scripts": {
+        "prepublishOnly": "npm run build && npm run typedoc",
+        "build": "rimraf dist/** && cross-env TS_NODE_PROJECT=\"tsconfig.webpack.json\" webpack --mode production",
+        "build:dev": "rimraf dist/** && cross-env TS_NODE_PROJECT=\"tsconfig.webpack.json\" webpack --mode development",
+        "lint": "pretty-quick --staged && lint-staged",
+        "test": "jest --colors",
+        "test:watch": "jest --colors --watch",
+        "updateChangelog": "auto-changelog -p",
+        "typedoc": "typedoc --options typedoc.json",
+        "esm-bundle-report": "webpack-bundle-analyzer --port 4200 dist/es5/stats.json"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run lint"
+        }
+    },
+    "lint-staged": {
+        "*.{js,ts,tsx}": [
+            "./node_modules/.bin/eslint --cache --fix",
+            "git add"
+        ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/romcal/romcal.git"
+    },
+    "keywords": [
+        "roman",
+        "catholic",
+        "calendar",
+        "latin",
+        "western",
+        "church",
+        "christian",
+        "seasons",
+        "liturgical"
+    ],
+    "author": {
+        "name": "Julian Pereira",
+        "email": "bleushade@gmail.com",
+        "url": "https://github.com/pejulian"
+    },
+    "contributors": [
+        {
+            "name": "Etienne Magnier",
+            "email": "etienne.magnier@gmail.com",
+            "url": "https://github.com/emagnier"
+        },
+        {
+            "name": "Jacek Roszkowski",
+            "url": "https://github.com/jarosz"
+        },
+        {
+            "name": "Tukusej’s Sirs",
+            "email": "tukusejssirs@protonmail.com",
+            "url": "https://github.com/tukusejssirs"
+        }
+    ],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/romcal/romcal/issues"
+    },
+    "homepage": "https://github.com/romcal/romcal/blob/master/README.md",
+    "dependencies": {
+        "bcp-47": "^1.0.7",
+        "core-js": "^3.6.4",
+        "dayjs": "^1.8.20",
+        "jsonschema": "^1.2.5",
+        "lodash-es": "^4.17.15",
+        "number-to-words": "^1.2.4",
+        "regenerator-runtime": "^0.13.3",
+        "tslib": "^1.11.1"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.8.6",
+        "@babel/preset-env": "^7.8.6",
+        "@types/bcp-47": "^1.0.0",
+        "@types/core-js": "^2.5.3",
+        "@types/html-webpack-plugin": "^3.2.2",
+        "@types/jest": "^25.1.2",
+        "@types/lodash-es": "^4.17.3",
+        "@types/node": "^13.7.6",
+        "@types/number-to-words": "^1.2.0",
+        "@types/rewire": "^2.5.28",
+        "@types/webpack": "^4.41.6",
+        "@types/webpack-bundle-analyzer": "^2.13.3",
+        "@types/webpack-merge": "^4.1.5",
+        "@typescript-eslint/eslint-plugin": "^2.19.2",
+        "@typescript-eslint/parser": "^2.19.2",
+        "auto-changelog": "^1.16.2",
+        "babel-loader": "^8.0.6",
+        "clean-webpack-plugin": "^3.0.0",
+        "cross-env": "^7.0.0",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.10.0",
+        "eslint-plugin-prettier": "^3.1.2",
+        "eslint-plugin-you-dont-need-lodash-underscore": "^6.9.0",
+        "html-loader": "^0.5.5",
+        "html-webpack-plugin": "^3.2.0",
+        "jest": "^25.1.0",
+        "jest-extended": "^0.11.5",
+        "jest-transform-stub": "^2.0.0",
+        "lint-staged": "^10.0.7",
+        "prettier": "^1.19.1",
+        "pretty-quick": "^2.0.1",
+        "rewire": "^4.0.1",
+        "rimraf": "^3.0.2",
+        "semver": "^7.1.1",
+        "ts-jest": "^25.2.0",
+        "ts-loader": "^6.2.1",
+        "ts-node": "^8.6.2",
+        "tsconfig-paths": "^3.9.0",
+        "typedoc": "^0.16.10",
+        "typescript": "^3.8.3",
+        "webpack": "^4.41.6",
+        "webpack-bundle-analyzer": "^3.6.0",
+        "webpack-cli": "^3.3.11"
     }
-  ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/romcal/romcal/issues"
-  },
-  "homepage": "https://github.com/romcal/romcal/blob/master/README.md",
-  "dependencies": {
-    "bcp-47": "^1.0.7",
-    "core-js": "^3.6.4",
-    "dayjs": "^1.8.20",
-    "jsonschema": "^1.2.5",
-    "lodash-es": "^4.17.15",
-    "number-to-words": "^1.2.4",
-    "regenerator-runtime": "^0.13.3",
-    "tslib": "^1.11.1"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.8.6",
-    "@babel/preset-env": "^7.8.6",
-    "@types/bcp-47": "^1.0.0",
-    "@types/core-js": "^2.5.3",
-    "@types/html-webpack-plugin": "^3.2.2",
-    "@types/jest": "^25.1.2",
-    "@types/lodash-es": "^4.17.3",
-    "@types/node": "^13.7.6",
-    "@types/number-to-words": "^1.2.0",
-    "@types/rewire": "^2.5.28",
-    "@types/webpack": "^4.41.6",
-    "@types/webpack-bundle-analyzer": "^2.13.3",
-    "@types/webpack-merge": "^4.1.5",
-    "@typescript-eslint/eslint-plugin": "^2.19.2",
-    "@typescript-eslint/parser": "^2.19.2",
-    "auto-changelog": "^1.16.2",
-    "babel-loader": "^8.0.6",
-    "clean-webpack-plugin": "^3.0.0",
-    "cross-env": "^7.0.0",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-you-dont-need-lodash-underscore": "^6.9.0",
-    "html-loader": "^0.5.5",
-    "html-webpack-plugin": "^3.2.0",
-    "jest": "^25.1.0",
-    "jest-extended": "^0.11.5",
-    "jest-transform-stub": "^2.0.0",
-    "lint-staged": "^10.0.7",
-    "prettier": "^1.19.1",
-    "pretty-quick": "^2.0.1",
-    "rewire": "^4.0.1",
-    "rimraf": "^3.0.2",
-    "semver": "^7.1.1",
-    "ts-jest": "^25.2.0",
-    "ts-loader": "^6.2.1",
-    "ts-node": "^8.6.2",
-    "tsconfig-paths": "^3.9.0",
-    "typedoc": "^0.16.10",
-    "typescript": "^3.8.3",
-    "webpack": "^4.41.6",
-    "webpack-bundle-analyzer": "^3.6.0",
-    "webpack-cli": "^3.3.11"
-  }
 }
