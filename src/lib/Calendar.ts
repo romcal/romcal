@@ -347,7 +347,7 @@ export class Calendar {
     static async _fetchCalendar(country: TCountryTypes, config: Config): Promise<Array<IRomcalDateItem>> {
         const { dates } = await import(
             /* webpackExclude: /index\.ts/ */
-            /* webpackChunkName: "romcal-calendars/[request]" */
+            /* webpackChunkName: "calendars/[request]" */
             /* webpackMode: "lazy" */
             /* webpackPrefetch: true */
             `../calendars/${country}`
