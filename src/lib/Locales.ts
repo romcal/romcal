@@ -119,7 +119,7 @@ const setLocale = async (key: TLocaleTypes, customOrdinalFn: (v: number) => stri
     try {
         const { default: fallbackLocale } = await import(
             /* webpackExclude: /index\.ts/ */
-            /* webpackChunkName: "romcal-locales/[request]" */
+            /* webpackChunkName: "locales/[request]" */
             /* webpackMode: "lazy" */
             `../locales/${_fallbackLocaleKey}`
         );
@@ -144,7 +144,7 @@ const setLocale = async (key: TLocaleTypes, customOrdinalFn: (v: number) => stri
             try {
                 const { default: baseLocale } = await import(
                     /* webpackExclude: /index\.ts/ */
-                    /* webpackChunkName: "romcal-locales/[request]" */
+                    /* webpackChunkName: "locales/[request]" */
                     /* webpackMode: "lazy" */
                     `../locales/${language}`
                 );
@@ -162,7 +162,7 @@ const setLocale = async (key: TLocaleTypes, customOrdinalFn: (v: number) => stri
         try {
             const { default: regionSpecificLocale } = await import(
                 /* webpackExclude: /index\.ts/ */
-                /* webpackChunkName: "romcal-locales/[request]" */
+                /* webpackChunkName: "locales/[request]" */
                 /* webpackMode: "lazy" */
                 `../locales/${currentLocale}`
             );
@@ -179,8 +179,7 @@ const setLocale = async (key: TLocaleTypes, customOrdinalFn: (v: number) => stri
     try {
         const { default: langLocale } = await import(
             /* webpackExclude: /(index|types)\.d\.ts/ */
-            /* webpackChunkName: "i18n/[request]" */
-            /* webpackMode: "lazy" */
+            /* webpackMode: "eager" */
             `dayjs/locale/${currentLocale}`
         );
         _currentLocaleData = langLocale as ILocale;
@@ -189,17 +188,17 @@ const setLocale = async (key: TLocaleTypes, customOrdinalFn: (v: number) => stri
             const languageOnly = currentLocale.split("-")[0];
             console.warn(
                 `${currentLocale} is not supported in romcal's date management library, trying to use ${languageOnly} instead`,
+                e,
             );
             const { default: langLocale } = await import(
                 /* webpackExclude: /(index|types)\.d\.ts/ */
-                /* webpackChunkName: "i18n/[request]" */
-                /* webpackMode: "lazy" */
+                /* webpackMode: "eager" */
                 `dayjs/locale/${languageOnly}`
             );
             _currentLocaleData = langLocale as ILocale;
             currentLocale = languageOnly;
         } catch (e) {
-            console.warn(`Failed to load locale data for ${currentLocale}. romcal will default to "en" locale data`);
+            console.warn(`Failed to load locale data for ${currentLocale}. romcal will default to "en" locale data`, e);
             currentLocale = "en";
         }
     } finally {

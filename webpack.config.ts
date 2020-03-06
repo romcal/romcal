@@ -113,7 +113,6 @@ const configurations: MultiConfigurationFactory = (env, { mode }) => [
     {
         devtool: getDevTool(mode),
         resolve: getResolveExtensions(),
-        target: "web",
 
         entry: {
             romcal: [join(__dirname, "src/index.es5.ts"), ...getEntryPoints()],
@@ -145,13 +144,19 @@ const configurations: MultiConfigurationFactory = (env, { mode }) => [
 
         optimization: getOptimizationEs5(),
 
-        plugins: [getBundleAnalyzerPlugin(), getHtmlWebpackPlugin()],
+        plugins: [
+            new webpack.DefinePlugin({
+                "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
+                "process.env.BUILD_TYPE": JSON.stringify(`ES5`),
+            }),
+            getBundleAnalyzerPlugin(),
+            getHtmlWebpackPlugin(),
+        ],
     },
     // ESM
     {
         devtool: getDevTool(mode),
         resolve: getResolveExtensions(),
-        target: "async-node",
 
         entry: {
             romcal: [...getEntryPoints()],
@@ -161,16 +166,24 @@ const configurations: MultiConfigurationFactory = (env, { mode }) => [
             ...getWebpackOutput("esm"),
             filename: "index.js",
             chunkFilename: "[name].js",
-            libraryTarget: "commonjs2",
+            libraryTarget: "umd",
             globalObject: "this",
+            publicPath: "/dist/esm/",
         },
+
+        plugins: [
+            new webpack.DefinePlugin({
+                "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
+                "process.env.BUILD_TYPE": JSON.stringify(`ESM`),
+            }),
+        ],
 
         module: {
             rules: [
                 {
                     test: /\.ts(x?)$/,
                     exclude: [/node_modules/, "/src/**/*.test.ts"],
-                    use: [getTsLoaderRuleSet("tsconfig.esm.json")],
+                    use: [getTsLoaderRuleSet("tsconfig.json")],
                 },
             ],
         },
