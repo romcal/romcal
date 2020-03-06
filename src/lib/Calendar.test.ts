@@ -261,7 +261,7 @@ describe('Testing calendar generation functions', () => {
         const calendar = Romcal.queryFor(dates, { group: 'types' });
         getValueByKey(calendar, Types.FEAST).forEach(d => {
           if (d.key === 'chairOfSaintPeter' || d.key === 'conversionOfSaintPaulApostle') {
-            expect(d.data.meta.liturgicalColor).toEqual(LiturgicalColors.WHITE);
+            expect(d.data.meta.liturgicalColor?.key).toEqual(LiturgicalColors.WHITE.key);
           }
         });
       });

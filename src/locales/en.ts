@@ -1,4 +1,4 @@
-import { TRomcalLocale } from '../models/romcal-locale';
+import { IRomcalLocale } from '../models/romcal-locale';
 
 export default {
   advent: {
@@ -37,6 +37,14 @@ export default {
     feria: '{{day}} of the {{week}} week of Easter',
     sunday: '{{week}} Sunday of Easter',
     octave: 'Easter {{day}}',
+  },
+  liturgicalColors: {
+    GOLD: 'Gold',
+    GREEN: 'Green',
+    PURPLE: 'Purple',
+    RED: 'Red',
+    ROSE: 'Rose',
+    WHITE: 'White',
   },
   celebrations: {
     allSaints: 'All Saints',
@@ -794,4 +802,4 @@ export default {
     visitationOfTheBlessedVirginMary: 'Visitation of the Blessed Virgin Mary',
     waitangiDay: 'Waitangi Day',
   },
-} as TRomcalLocale;
+} as IRomcalLocale;

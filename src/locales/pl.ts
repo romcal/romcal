@@ -1,4 +1,4 @@
-import { TRomcalLocale } from '../models/romcal-locale';
+import { IRomcalLocale } from '../models/romcal-locale';
 
 export default {
   advent: {
@@ -361,4 +361,4 @@ export default {
     theMostHolyNameOfJesus: 'Najświętszego Imienia Jezus',
     visitationOfTheBlessedVirginMary: 'Nawiedzenie Najświętszej Maryi Panny',
   },
-} as TRomcalLocale;
+} as IRomcalLocale;

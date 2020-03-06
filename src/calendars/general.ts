@@ -104,8 +104,9 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
       key: 'sundayOfTheWordOfGod',
       type: Types.SUNDAY,
       date: await (async (y: number): Promise<dayjs.Dayjs> => {
-        const sundays = await Seasons.earlyOrdinaryTime(year, config.christmastideEnds, config.epiphanyOnJan6);
+        const sundays = await Seasons.earlyOrdinaryTime(y, config.christmastideEnds, config.epiphanyOnJan6);
         const thirdSundayOfOrdinaryTime = sundays.find(sunday => sunday.key === 'thirdSundayOfOrdinaryTime');
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         return thirdSundayOfOrdinaryTime!.date;
       })(year),
       data: {

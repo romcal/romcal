@@ -1,5 +1,6 @@
 import { Schema, Validator } from 'jsonschema';
 import { extractedTypeKeys } from '../constants/Types';
+import { liturgicalColorKeys } from '../utils/type-guards';
 
 export const getDateItemJsonSchema = (): Schema => {
   const dateItemJsonSchema: Schema = {
@@ -44,7 +45,15 @@ export const getRomcalDateItemMetadataJsonSchema = (): Schema => {
     maxProperties: 4,
     properties: {
       psalterWeek: { type: 'object' },
-      liturgicalColor: { type: 'object' },
+      liturgicalColor: {
+        type: 'object',
+        maxProperties: 2,
+        properties: {
+          key: { type: 'string', enum: [liturgicalColorKeys] },
+          value: { type: 'string' },
+        },
+        required: ['key'],
+      },
       titles: { type: 'array', items: { type: 'string' } }, // Must only be a string array
       cycle: { type: 'object' },
     },

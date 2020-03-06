@@ -10,6 +10,7 @@ import { DateItem, IRomcalDateItem, IRomcalDateItemData } from '../models/romcal
 import { Types } from '../constants';
 import { find, removeWhere, groupByKey, concatAll } from '../utils/array';
 import { extractedTypeKeys } from '../constants/Types';
+import { localizeLiturgicalColor } from './Locales';
 
 dayjs.extend(isSameOrAfter);
 dayjs.extend(isSameOrBefore);
@@ -92,7 +93,7 @@ export class Calendar {
 
     // Get the celebration dates based on the given year and options
     const celebrationsDatesPromise = years.map(async year => {
-      return [...(await Celebrations.dates(year, epiphanyOnJan6, corpusChristiOnThursday, ascensionOnSunday))];
+      return [...(await Celebrations.dates(year, this.config))];
     });
     const celebrationsDates = concatAll(await Promise.all(celebrationsDatesPromise));
 
@@ -347,6 +348,21 @@ export class Calendar {
       /* webpackPrefetch: true */
       `../calendars/${country}`
     );
-    return await dates(config);
+    const contextualizedDates: Array<IRomcalDateItem> = await dates(config);
+    const promises = contextualizedDates.map(async date => {
+      return {
+        ...date,
+        data: {
+          ...date.data,
+          meta: {
+            ...date.data?.meta,
+            ...(!isNil(date.data?.meta?.liturgicalColor) && {
+              liturgicalColor: await localizeLiturgicalColor(date.data?.meta?.liturgicalColor),
+            }),
+          },
+        },
+      } as IRomcalDateItem;
+    });
+    return await Promise.all(promises);
   }
 }

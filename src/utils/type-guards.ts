@@ -8,6 +8,9 @@ import { DateItem } from '../models/romcal-date-item';
 import { getDateItemSchemaValidator, getDateItemDataJsonSchema } from '../validators/date-item.validator';
 import { isNull } from 'util';
 
+import { LiturgicalColors } from '../constants';
+import { TLiturgicalColorKeys } from '../constants/LiturgicalColors';
+
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 dayjs.extend(utc);
@@ -95,6 +98,11 @@ export const countryKeys = Object.keys(CountryCalendars) as Array<keyof typeof C
  * A dynamic type indexing all supported countries for calendar generation.
  */
 export type TCountryTypes = ElementType<typeof countryKeys>;
+
+/**
+ * An array consisting of all possible Liturgical color keys
+ */
+export const liturgicalColorKeys = Object.keys(LiturgicalColors) as Array<TLiturgicalColorKeys>;
 
 /**
  * A dynamic type generated using the keys defined in [[Locales]]

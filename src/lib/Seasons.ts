@@ -43,22 +43,29 @@ const getPsalterWeek = (index: number, psalterWeek = 0): number => {
  * @param items An array of [[IRomcalDateItem]] values
  * @returns An array of [[IRomcalDateItem]] items.
  */
-const _metadata = (items: Array<IRomcalDateItem>): Array<IRomcalDateItem> => {
-  return items.map(({ date, ...rest }: IRomcalDateItem) => {
+const _metadata = async (items: Array<IRomcalDateItem>): Promise<Array<IRomcalDateItem>> => {
+  const metadataPromises = items.map(async ({ date, ...rest }: IRomcalDateItem) => {
     return {
       ...rest,
       date,
-      source: 'custom',
+      source: 'custom', // IMPORTANT! Refer to IRomcalDateItem.source for more information
       data: {
         ...rest.data,
+        meta: {
+          ...rest.data?.meta,
+          ...(!isNil(rest.data?.meta?.liturgicalColor) && {
+            liturgicalColor: await Locales.localizeLiturgicalColor(rest.data?.meta?.liturgicalColor),
+          }),
+        },
         calendar: {
           weeks: date.isoWeeksInYear(),
           week: date.week(),
           day: date.dayOfYear(),
         },
       },
-    };
+    } as IRomcalDateItem;
   });
+  return await Promise.all(metadataPromises);
 };
 
 /**
@@ -225,7 +232,7 @@ const advent = async (year: number): Promise<Array<IRomcalDateItem>> => {
     } as IRomcalDateItem);
   });
 
-  return _metadata(romcalDateItems);
+  return await _metadata(romcalDateItems);
 };
 
 /**
@@ -352,7 +359,7 @@ const christmastide = async (
     } as IRomcalDateItem;
   });
 
-  const withMetadata = _metadata(combinedDaysOfChristmas);
+  const withMetadata = await _metadata(combinedDaysOfChristmas);
   return withMetadata;
 };
 
@@ -440,7 +447,7 @@ const earlyOrdinaryTime = async (
     } as IRomcalDateItem;
   });
 
-  return _metadata(days);
+  return await _metadata(days);
 };
 
 /**
@@ -528,7 +535,7 @@ const laterOrdinaryTime = async (year: number): Promise<Array<IRomcalDateItem>> 
     };
   });
 
-  return _metadata(days);
+  return await _metadata(days);
 };
 
 /**
@@ -637,7 +644,7 @@ const lent = async (year: number): Promise<Array<IRomcalDateItem>> => {
     };
   });
 
-  combinedDaysOfLent = _metadata(combinedDaysOfLent);
+  combinedDaysOfLent = await _metadata(combinedDaysOfLent);
 
   return combinedDaysOfLent;
 };
@@ -763,7 +770,7 @@ const eastertide = async (year: number): Promise<Array<IRomcalDateItem>> => {
     return dateItem;
   });
 
-  combinedDaysOfEaster = _metadata(combinedDaysOfEaster);
+  combinedDaysOfEaster = await _metadata(combinedDaysOfEaster);
 
   return combinedDaysOfEaster;
 };

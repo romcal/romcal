@@ -2,7 +2,7 @@ export type TLiturgicalColorKeys = 'RED' | 'ROSE' | 'PURPLE' | 'GREEN' | 'WHITE'
 
 export type TLiturgicalColor = {
   key: TLiturgicalColorKeys;
-  value: string;
+  value?: string;
 };
 
 export type TLiturgicalColors = {
@@ -10,12 +10,12 @@ export type TLiturgicalColors = {
 };
 
 const LiturgicalColors: TLiturgicalColors = {
-  RED: { key: 'RED', value: '#FF0000' },
-  ROSE: { key: 'ROSE', value: '#FF007F' },
-  PURPLE: { key: 'PURPLE', value: '#800080' },
-  GREEN: { key: 'GREEN', value: '#008000' },
-  WHITE: { key: 'WHITE', value: '#FFFFFF' },
-  GOLD: { key: 'GOLD', value: '#FFD700' },
+  RED: { key: 'RED' },
+  ROSE: { key: 'ROSE' },
+  PURPLE: { key: 'PURPLE' },
+  GREEN: { key: 'GREEN' },
+  WHITE: { key: 'WHITE' },
+  GOLD: { key: 'GOLD' },
 };
 
 export default LiturgicalColors;
