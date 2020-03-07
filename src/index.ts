@@ -58,8 +58,11 @@ export default class Romcal {
           return groupBy(dates, d => d.data.meta.cycle?.value);
         case 'types':
           return groupBy(dates, d => d.type);
+        /**
+         * Groups by the first liturgical season in the array
+         */
         case 'liturgicalSeasons':
-          return groupBy(dates, d => d.data.season.key);
+          return groupBy(dates, d => d.data.season[0].key);
         case 'liturgicalColors':
           return groupBy(dates, d => d.data.meta.liturgicalColor?.key);
         case 'psalterWeeks':
