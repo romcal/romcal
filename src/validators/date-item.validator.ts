@@ -17,7 +17,7 @@ export const getDateItemJsonSchema = (): Schema => {
       _id: { type: 'number' },
       _stack: { type: 'number' },
     },
-    required: ['key', 'name', 'date', 'type', 'data', '_id', '_stack'],
+    required: ['key', 'name', 'date', 'type', 'data'],
   };
   return dateItemJsonSchema;
 };
@@ -32,6 +32,7 @@ export const getRomcalSeasonJsonSchema = (): Schema => {
       key: { type: 'string' },
       value: { type: 'string' },
     },
+    required: ['key', 'value'],
   };
   return romcalSeasonJsonSchema;
 };
@@ -74,7 +75,7 @@ export const getDateItemDataJsonSchema = (): Schema => {
     minProperties: 3,
     maxProperties: 4,
     properties: {
-      season: { $ref: '/romcalSeasonJsonSchema' },
+      season: { type: 'array', items: { $ref: '/romcalSeasonJsonSchema' } },
       meta: { $ref: '/romcalDateItemMetadata' },
       calendar: { $ref: '/dateItemDataJsonSchema' },
       prioritized: {

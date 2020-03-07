@@ -26,7 +26,7 @@ export interface IRomcalDateItemMetadata {
 }
 
 export interface IRomcalDateItemData {
-  season?: IRomcalSeason;
+  season?: Array<IRomcalSeason>;
   meta?: IRomcalDateItemMetadata;
   calendar?: IRomcalDateItemDataCalendar;
   prioritized?: boolean;
@@ -66,7 +66,7 @@ export interface IDateItemMetadata {
 }
 
 export interface IDateItemData {
-  season: IRomcalSeason;
+  season: Array<IRomcalSeason>;
   meta: IDateItemMetadata;
   calendar: IRomcalDateItemDataCalendar;
   prioritized?: boolean;
@@ -165,7 +165,7 @@ export class DateItem implements IDateItem {
    * Commemorations.
    */
   private adjustTypeInSeason(): void {
-    if (this.base?.data.season?.key === 'LENT') {
+    if (this.base?.data.season?.some(season => season.key === 'LENT')) {
       if ((this.type === Types.MEMORIAL || this.type === Types.OPT_MEMORIAL) && this.base.type === Types.FERIA) {
         this.type = Types.COMMEMORATION;
       }

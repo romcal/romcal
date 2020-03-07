@@ -1,18 +1,15 @@
 import * as Dates from './Dates';
-import * as Locales from './Locales';
+import { localizeDates, localizeLiturgicalColor, localize } from './Locales';
 import { Titles, LiturgicalColors, Types } from '../constants';
 import { IRomcalDateItem } from '../models/romcal-date-item';
+import Config from '../models/romcal-config';
+import { isNil } from '../utils/type-guards';
 
 // year: Takes the year (integer)
 // epiphanyOnJan6: true|false [If true, Epiphany will be fixed to Jan 6] (defaults to false)
 // corpusChristiOnThursday: true|false|undefined (If true, Corpus Christi is set to Thursday) (defaults to false)
 // ascensionOnSunday: true|false|undefined (If true, Ascension is moved to the 7th Sunday of Easter) (defaults to false)
-const dates = async (
-  year: number,
-  epiphanyOnJan6 = false,
-  corpusChristiOnThursday = false,
-  ascensionOnSunday = false,
-): Promise<Array<IRomcalDateItem>> => {
+const dates = async (year: number, config: Config): Promise<Array<IRomcalDateItem>> => {
   const _dates: Array<IRomcalDateItem> = [
     // Solemnities
     {
@@ -51,7 +48,7 @@ const dates = async (
     {
       key: 'epiphany',
       type: Types.SOLEMNITY,
-      date: Dates.epiphany(year, epiphanyOnJan6),
+      date: Dates.epiphany(year, config.epiphanyOnJan6),
       data: {
         prioritized: true,
         meta: {
@@ -73,7 +70,7 @@ const dates = async (
     {
       key: 'corpusChristi',
       type: Types.SOLEMNITY,
-      date: Dates.corpusChristi(year, corpusChristiOnThursday),
+      date: Dates.corpusChristi(year, config.corpusChristiOnThursday),
       data: {
         prioritized: true,
         meta: {
@@ -194,7 +191,7 @@ const dates = async (
     {
       key: 'ascension',
       type: Types.SOLEMNITY,
-      date: Dates.ascension(year, ascensionOnSunday),
+      date: Dates.ascension(year, config.ascensionOnSunday),
       data: {
         prioritized: true,
         meta: {
@@ -220,12 +217,14 @@ const dates = async (
       date: Dates.ashWednesday(year),
       data: {
         prioritized: true,
-        season: {
-          key: 'LENT',
-          value: await Locales.localize({
-            key: 'lent.season',
-          }),
-        },
+        season: [
+          {
+            key: 'LENT',
+            value: await localize({
+              key: 'lent.season',
+            }),
+          },
+        ],
         meta: {
           liturgicalColor: LiturgicalColors.PURPLE,
         },
@@ -237,12 +236,14 @@ const dates = async (
       date: Dates.palmSunday(year),
       data: {
         prioritized: true,
-        season: {
-          key: 'HOLY_WEEK',
-          value: await Locales.localize({
-            key: 'holyWeek.season',
-          }),
-        },
+        season: [
+          {
+            key: 'HOLY_WEEK',
+            value: await localize({
+              key: 'holyWeek.season',
+            }),
+          },
+        ],
         meta: {
           liturgicalColor: LiturgicalColors.RED,
         },
@@ -254,12 +255,14 @@ const dates = async (
       date: Dates.holyThursday(year),
       data: {
         prioritized: true,
-        season: {
-          key: 'HOLY_WEEK',
-          value: await Locales.localize({
-            key: 'holyWeek.season',
-          }),
-        },
+        season: [
+          {
+            key: 'HOLY_WEEK',
+            value: await localize({
+              key: 'holyWeek.season',
+            }),
+          },
+        ],
         meta: {
           liturgicalColor: LiturgicalColors.WHITE,
           titles: [Titles.TRIDUUM],
@@ -272,12 +275,14 @@ const dates = async (
       date: Dates.goodFriday(year),
       data: {
         prioritized: true,
-        season: {
-          key: 'HOLY_WEEK',
-          value: await Locales.localize({
-            key: 'holyWeek.season',
-          }),
-        },
+        season: [
+          {
+            key: 'HOLY_WEEK',
+            value: await localize({
+              key: 'holyWeek.season',
+            }),
+          },
+        ],
         meta: {
           liturgicalColor: LiturgicalColors.RED,
           titles: [Titles.TRIDUUM],
@@ -290,12 +295,14 @@ const dates = async (
       date: Dates.holySaturday(year),
       data: {
         prioritized: true,
-        season: {
-          key: 'HOLY_WEEK',
-          value: await Locales.localize({
-            key: 'holyWeek.season',
-          }),
-        },
+        season: [
+          {
+            key: 'HOLY_WEEK',
+            value: await localize({
+              key: 'holyWeek.season',
+            }),
+          },
+        ],
         meta: {
           liturgicalColor: LiturgicalColors.WHITE,
           titles: [Titles.TRIDUUM],
@@ -318,7 +325,7 @@ const dates = async (
     {
       key: 'baptismOfTheLord',
       type: Types.FEAST,
-      date: Dates.baptismOfTheLord(year, epiphanyOnJan6),
+      date: Dates.baptismOfTheLord(year, config.epiphanyOnJan6),
       data: {
         prioritized: true,
         meta: {
@@ -377,17 +384,21 @@ const dates = async (
     },
   ];
 
-  const localizedCelebrationDates = await Locales.localizeDates(_dates, 'celebrations');
-  return localizedCelebrationDates.map(date => ({
+  const localizedCelebrationDates = await localizeDates(_dates, 'celebrations');
+  const promises = localizedCelebrationDates.map(async date => ({
     ...date,
     data: {
       ...date.data,
       meta: {
         ...date.data?.meta,
         titles: date.data?.meta?.titles ?? [],
+        ...(!isNil(date.data?.meta?.liturgicalColor) && {
+          liturgicalColor: await localizeLiturgicalColor(date.data?.meta?.liturgicalColor),
+        }),
       },
     },
   }));
+  return await Promise.all(promises);
 };
 
 export { dates };
