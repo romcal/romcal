@@ -22,7 +22,8 @@
     "test:watch": "jest --colors --watch",
     "updateChangelog": "auto-changelog -p",
     "typedoc": "typedoc --options typedoc.json",
-    "bundle-report": "webpack-bundle-analyzer --port 4200 dist/es5/stats.json",
+    "bundle-report-es5": "webpack-bundle-analyzer --port 4200 dist/es5/stats.json",
+    "bundle-report-esm": "webpack-bundle-analyzer --port 4200 dist/esm/stats.json",
     "prettier:check": "prettier --check \"src/**/*.ts\"",
     "prettier:fix": "prettier --write \"src/**/*.ts\""
   },
@@ -80,7 +81,6 @@
   "homepage": "https://github.com/romcal/romcal/blob/master/README.md",
   "dependencies": {
     "bcp-47": "^1.0.7",
-    "core-js": "^3.6.4",
     "dayjs": "^1.8.20",
     "jsonschema": "^1.2.5",
     "lodash-es": "^4.17.15",
@@ -107,6 +107,7 @@
     "auto-changelog": "^1.16.2",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
+    "core-js": "^3.6.4",
     "cross-env": "^7.0.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
