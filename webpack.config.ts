@@ -36,7 +36,7 @@ const getBabelRuleSetForEs5 = (): webpack.RuleSetUseItem => ({
         {
           useBuiltIns: 'usage',
           corejs: '3',
-          debug: false,
+          debug: true,
           ignoreBrowserslistConfig: true,
           targets: {
             browsers: [
@@ -115,7 +115,7 @@ const configurations: MultiConfigurationFactory = (env, { mode }) => [
     resolve: getResolveExtensions(),
 
     entry: {
-      romcal: [join(__dirname, 'src/index.es5.ts'), ...getEntryPoints()],
+      romcal: [...getEntryPoints()],
     },
 
     output: {
@@ -172,6 +172,7 @@ const configurations: MultiConfigurationFactory = (env, { mode }) => [
     },
 
     plugins: [
+      getBundleAnalyzerPlugin(),
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
         'process.env.BUILD_TYPE': JSON.stringify('ESM'),
