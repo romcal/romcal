@@ -287,7 +287,7 @@ describe('Testing seasons utility functions', () => {
     test('Groups dates within seasons based on identifiers', () => {
       Object.keys(calendar).forEach(liturgicalSeason => {
         const dates = calendar[liturgicalSeason];
-        dates.forEach(date => expect(date.data.season.key).toEqual(liturgicalSeason));
+        dates.forEach(date => expect(date.data.season[0].key).toEqual(liturgicalSeason));
       });
     });
 

@@ -217,12 +217,14 @@ const dates = async (year: number, config: Config): Promise<Array<IRomcalDateIte
       date: Dates.ashWednesday(year),
       data: {
         prioritized: true,
-        season: {
-          key: 'LENT',
-          value: await localize({
-            key: 'lent.season',
-          }),
-        },
+        season: [
+          {
+            key: 'LENT',
+            value: await localize({
+              key: 'lent.season',
+            }),
+          },
+        ],
         meta: {
           liturgicalColor: LiturgicalColors.PURPLE,
         },
@@ -234,12 +236,14 @@ const dates = async (year: number, config: Config): Promise<Array<IRomcalDateIte
       date: Dates.palmSunday(year),
       data: {
         prioritized: true,
-        season: {
-          key: 'HOLY_WEEK',
-          value: await localize({
-            key: 'holyWeek.season',
-          }),
-        },
+        season: [
+          {
+            key: 'HOLY_WEEK',
+            value: await localize({
+              key: 'holyWeek.season',
+            }),
+          },
+        ],
         meta: {
           liturgicalColor: LiturgicalColors.RED,
         },
@@ -251,12 +255,14 @@ const dates = async (year: number, config: Config): Promise<Array<IRomcalDateIte
       date: Dates.holyThursday(year),
       data: {
         prioritized: true,
-        season: {
-          key: 'HOLY_WEEK',
-          value: await localize({
-            key: 'holyWeek.season',
-          }),
-        },
+        season: [
+          {
+            key: 'HOLY_WEEK',
+            value: await localize({
+              key: 'holyWeek.season',
+            }),
+          },
+        ],
         meta: {
           liturgicalColor: LiturgicalColors.WHITE,
           titles: [Titles.TRIDUUM],
@@ -269,12 +275,14 @@ const dates = async (year: number, config: Config): Promise<Array<IRomcalDateIte
       date: Dates.goodFriday(year),
       data: {
         prioritized: true,
-        season: {
-          key: 'HOLY_WEEK',
-          value: await localize({
-            key: 'holyWeek.season',
-          }),
-        },
+        season: [
+          {
+            key: 'HOLY_WEEK',
+            value: await localize({
+              key: 'holyWeek.season',
+            }),
+          },
+        ],
         meta: {
           liturgicalColor: LiturgicalColors.RED,
           titles: [Titles.TRIDUUM],
@@ -287,12 +295,14 @@ const dates = async (year: number, config: Config): Promise<Array<IRomcalDateIte
       date: Dates.holySaturday(year),
       data: {
         prioritized: true,
-        season: {
-          key: 'HOLY_WEEK',
-          value: await localize({
-            key: 'holyWeek.season',
-          }),
-        },
+        season: [
+          {
+            key: 'HOLY_WEEK',
+            value: await localize({
+              key: 'holyWeek.season',
+            }),
+          },
+        ],
         meta: {
           liturgicalColor: LiturgicalColors.WHITE,
           titles: [Titles.TRIDUUM],

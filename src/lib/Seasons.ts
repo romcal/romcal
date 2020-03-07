@@ -87,12 +87,14 @@ const _epiphany = async (year: number, epiphanyOnJan6 = false): Promise<Array<IR
         day: date.format('dddd'),
       }),
       data: {
-        season: {
-          key: 'CHRISTMASTIDE',
-          value: await Locales.localize({
-            key: 'christmastide.season',
-          }),
-        },
+        season: [
+          {
+            key: 'CHRISTMASTIDE',
+            value: await Locales.localize({
+              key: 'christmastide.season',
+            }),
+          },
+        ],
       },
     } as IRomcalDateItem;
   });
@@ -107,12 +109,14 @@ const _epiphany = async (year: number, epiphanyOnJan6 = false): Promise<Array<IR
         day: date.format('dddd'),
       }),
       data: {
-        season: {
-          key: 'CHRISTMASTIDE',
-          value: await Locales.localize({
-            key: 'christmastide.season',
-          }),
-        },
+        season: [
+          {
+            key: 'CHRISTMASTIDE',
+            value: await Locales.localize({
+              key: 'christmastide.season',
+            }),
+          },
+        ],
       },
     } as IRomcalDateItem;
   });
@@ -139,12 +143,14 @@ const _holyWeek = async (year: number): Promise<Array<IRomcalDateItem>> => {
         day: date.format('dddd'),
       }),
       data: {
-        season: {
-          key: 'HOLY_WEEK',
-          value: await Locales.localize({
-            key: 'holyWeek.season',
-          }),
-        },
+        season: [
+          {
+            key: 'HOLY_WEEK',
+            value: await Locales.localize({
+              key: 'holyWeek.season',
+            }),
+          },
+        ],
         meta: {
           liturgicalColor: LiturgicalColors.PURPLE,
         },
@@ -190,12 +196,14 @@ const advent = async (year: number): Promise<Array<IRomcalDateItem>> => {
         week: Math.floor(i / 7) + 1,
       }),
       data: {
-        season: {
-          key: 'ADVENT',
-          value: await Locales.localize({
-            key: 'advent.season',
-          }),
-        },
+        season: [
+          {
+            key: 'ADVENT',
+            value: await Locales.localize({
+              key: 'advent.season',
+            }),
+          },
+        ],
         meta: {
           // The proper color of the Third Sunday of Advent is rose. Purple may also be used on these Sundays.
           liturgicalColor:
@@ -279,12 +287,14 @@ const christmastide = async (
         count,
       }),
       data: {
-        season: {
-          key: 'CHRISTMASTIDE',
-          value: await Locales.localize({
-            key: 'christmastide.season',
-          }),
-        },
+        season: [
+          {
+            key: 'CHRISTMASTIDE',
+            value: await Locales.localize({
+              key: 'christmastide.season',
+            }),
+          },
+        ],
       },
     } as IRomcalDateItem;
   });
@@ -300,12 +310,14 @@ const christmastide = async (
         count: idx + 1,
       }),
       data: {
-        season: {
-          key: 'CHRISTMASTIDE',
-          value: await Locales.localize({
-            key: 'christmastide.season',
-          }),
-        },
+        season: [
+          {
+            key: 'CHRISTMASTIDE',
+            value: await Locales.localize({
+              key: 'christmastide.season',
+            }),
+          },
+        ],
       },
     } as IRomcalDateItem;
   });
@@ -408,12 +420,14 @@ const earlyOrdinaryTime = async (
           week: value.day() === 0 ? Math.floor(i / 7) + 2 : Math.floor(i / 7) + 1,
         }),
         data: {
-          season: {
-            key: 'EARLY_ORDINARY_TIME',
-            value: await Locales.localize({
-              key: 'ordinaryTime.season',
-            }),
-          },
+          season: [
+            {
+              key: 'EARLY_ORDINARY_TIME',
+              value: await Locales.localize({
+                key: 'ordinaryTime.season',
+              }),
+            },
+          ],
         },
       } as IRomcalDateItem;
     },
@@ -494,12 +508,14 @@ const laterOrdinaryTime = async (year: number): Promise<Array<IRomcalDateItem>> 
           week: week,
         }),
         data: {
-          season: {
-            key: 'LATER_ORDINARY_TIME',
-            value: await Locales.localize({
-              key: 'ordinaryTime.season',
-            }),
-          },
+          season: [
+            {
+              key: 'LATER_ORDINARY_TIME',
+              value: await Locales.localize({
+                key: 'ordinaryTime.season',
+              }),
+            },
+          ],
         },
       } as IRomcalDateItem;
     });
@@ -574,12 +590,14 @@ const lent = async (year: number): Promise<Array<IRomcalDateItem>> => {
         week: Math.floor((i - 4) / 7) + 1,
       }),
       data: {
-        season: {
-          key: 'LENT',
-          value: await Locales.localize({
-            key: 'lent.season',
-          }),
-        },
+        season: [
+          {
+            key: 'LENT',
+            value: await Locales.localize({
+              key: 'lent.season',
+            }),
+          },
+        ],
       },
     } as IRomcalDateItem;
   });
@@ -595,12 +613,14 @@ const lent = async (year: number): Promise<Array<IRomcalDateItem>> => {
         week: i + 1,
       }),
       data: {
-        season: {
-          key: 'LENT',
-          value: await Locales.localize({
-            key: 'lent.season',
-          }),
-        },
+        season: [
+          {
+            key: 'LENT',
+            value: await Locales.localize({
+              key: 'lent.season',
+            }),
+          },
+        ],
         meta: {
           // The proper color of the the Fourth Sunday of Lent is rose. Purple may also be used on these Sundays.
           liturgicalColor: i === 3 ? LiturgicalColors.ROSE : LiturgicalColors.PURPLE,
@@ -693,12 +713,14 @@ const eastertide = async (year: number): Promise<Array<IRomcalDateItem>> => {
         week: Math.floor(i / 7) + 1,
       }),
       data: {
-        season: {
-          key: 'EASTER',
-          value: await Locales.localize({
-            key: 'eastertide.season',
-          }),
-        },
+        season: [
+          {
+            key: 'EASTER',
+            value: await Locales.localize({
+              key: 'eastertide.season',
+            }),
+          },
+        ],
       },
     } as IRomcalDateItem;
   });
@@ -714,12 +736,14 @@ const eastertide = async (year: number): Promise<Array<IRomcalDateItem>> => {
         week: i + 1,
       }),
       data: {
-        season: {
-          key: 'EASTER',
-          value: await Locales.localize({
-            key: 'eastertide.season',
-          }),
-        },
+        season: [
+          {
+            key: 'EASTER',
+            value: await Locales.localize({
+              key: 'eastertide.season',
+            }),
+          },
+        ],
       },
     } as IRomcalDateItem;
   });
