@@ -2,7 +2,8 @@ import Config from './romcal-config';
 import dayjs from 'dayjs';
 
 describe('getConfig()', () => {
-  test("should get general config if country doesn't have default configurations", async () => {
+  // eslint-disable-next-line prettier/prettier
+  test('should get general config if country doesn\'t have default configurations', async () => {
     const resolvedConfig = await Config.resolveConfig();
     const {
       year,
@@ -11,7 +12,7 @@ describe('getConfig()', () => {
       locale,
       epiphanyOnJan6,
       country,
-      corpusChristiOnThursday,
+      corpusChristiOnSunday,
       christmastideIncludesTheSeasonOfEpiphany,
       christmastideEnds,
     } = new Config(resolvedConfig);
@@ -21,7 +22,7 @@ describe('getConfig()', () => {
     expect(locale).toBe('en');
     expect(epiphanyOnJan6).toBeFalsy();
     expect(country).toBe('general');
-    expect(corpusChristiOnThursday).toBeFalsy();
+    expect(corpusChristiOnSunday).toBeTrue();
     expect(christmastideIncludesTheSeasonOfEpiphany).toBeTruthy();
     expect(christmastideEnds).toBe('o');
   });

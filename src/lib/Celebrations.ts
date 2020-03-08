@@ -5,10 +5,11 @@ import { IRomcalDateItem } from '../models/romcal-date-item';
 import Config from '../models/romcal-config';
 import { isNil } from '../utils/type-guards';
 
-// year: Takes the year (integer)
-// epiphanyOnJan6: true|false [If true, Epiphany will be fixed to Jan 6] (defaults to false)
-// corpusChristiOnThursday: true|false|undefined (If true, Corpus Christi is set to Thursday) (defaults to false)
-// ascensionOnSunday: true|false|undefined (If true, Ascension is moved to the 7th Sunday of Easter) (defaults to false)
+/**
+ * Returns various fixed celebrations in the liturgical calendar.
+ * @param year The year to calculate celebrations
+ * @param config The configuration object to customize the date output
+ */
 const dates = async (year: number, config: Config): Promise<Array<IRomcalDateItem>> => {
   const _dates: Array<IRomcalDateItem> = [
     // Solemnities
@@ -70,7 +71,7 @@ const dates = async (year: number, config: Config): Promise<Array<IRomcalDateIte
     {
       key: 'corpusChristi',
       type: Types.SOLEMNITY,
-      date: Dates.corpusChristi(year, config.corpusChristiOnThursday),
+      date: Dates.corpusChristi(year, config.corpusChristiOnSunday),
       data: {
         prioritized: true,
         meta: {
