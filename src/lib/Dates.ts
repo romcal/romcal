@@ -642,21 +642,23 @@ const ascension = (year: number, ascensionOn7thSundayOfEaster = false): dayjs.Da
 // y: Takes the year (integer)
 const trinitySunday = (year: number): dayjs.Dayjs => easter(year).add(56, 'day');
 
-// The Solemnity of Corpus Christi occurs 60 days after Easter, if it is celebrated on Thursday
-// of the Seventh Week of Easter. In those places where Corpus Christi is not a holiday, it is
-// transferred to the following Sunday (63 days after Easter)
-// If second argument is true, move Corpus Christi to Thursday
-// By default it will be on Sunday
-// y: year
-// corpusChristiOnThursday: Optional boolean to set Corpus Christi to Thursday when true (defaults to false)
-const corpusChristi = (year: number, corpusChristiOnThursday = false): dayjs.Dayjs => {
-  // If specified, move Corpus Christi to Thursday
-  if (!isNil(corpusChristiOnThursday) && corpusChristiOnThursday) {
-    return easter(year).add(60, 'day');
-  }
+/**
+ * The Solemnity of Corpus Christi occurs 60 days after Easter, if it is celebrated on Thursday
+ * of the Seventh Week of Easter. In those places where Corpus Christi is not a holiday, it is
+ * transferred to the following Sunday (63 days after Easter).
+ *
+ * If second argument is false, Corpus Christi is moved to the Thursday of the 7th Week of Easter.
+ *
+ * @param year The year to use for the calculation
+ * @param corpusChristiOnSunday Optional boolean to determine if Corpus Christi should be on Sunday or Thursday (defaults to true, meaning that Corpus Christi will be on Sunday)
+ */
+const corpusChristi = (year: number, corpusChristiOnSunday = true): dayjs.Dayjs => {
   // By default Corpus Christi on Sunday
-  else {
+  if (!isNil(corpusChristiOnSunday) && corpusChristiOnSunday) {
     return easter(year).add(63, 'day');
+  } else {
+    // If specified, move Corpus Christi to Thursday
+    return easter(year).add(60, 'day');
   }
 };
 

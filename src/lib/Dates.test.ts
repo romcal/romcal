@@ -36,12 +36,14 @@ dayjs.extend(weekday);
 
 describe('Testing specific liturgical date functions', () => {
   describe('In Christian calendars, Sunday is the first day of the week', () => {
-    test("The Solemnity of Epiphany is a Sunday when using the 'fr' locale", async () => {
+    // eslint-disable-next-line prettier/prettier
+    test('The Solemnity of Epiphany is a Sunday when using the \'fr\' locale', async () => {
       await Locales.setLocale('fr');
       const date1 = Dates.epiphany(1969);
       expect(date1.weekday()).toEqual(0);
     });
-    test("The Solemnity of Epiphany is a Sunday when using the 'en' locale", async () => {
+    // eslint-disable-next-line prettier/prettier
+    test('The Solemnity of Epiphany is a Sunday when using the \'en\' locale', async () => {
       await Locales.setLocale('en');
       const date2 = Dates.epiphany(1969);
       expect(date2.weekday()).toEqual(0);
@@ -406,21 +408,21 @@ describe('Testing specific liturgical date functions', () => {
       });
     });
 
-    describe('If it is celebrated on Thursday (60 days after Easter)', () => {
+    describe('If it is celebrated on Thursday (60 days after Easter) [Second argument is false]', () => {
       test('In 1969, Corpus Christi was on June 5', () => {
-        const date = Dates.corpusChristi(1969, true);
+        const date = Dates.corpusChristi(1969, false);
         expect(date.month()).toEqual(5);
         expect(date.date()).toEqual(5);
       });
 
       test('In 2008, Corpus Christi was on May 22', () => {
-        const date = Dates.corpusChristi(2008, true);
+        const date = Dates.corpusChristi(2008, false);
         expect(date.month()).toEqual(4);
         expect(date.date()).toEqual(22);
       });
 
       test('In 2050, Corpus Christi will be on June 9', () => {
-        const date = Dates.corpusChristi(2050, true);
+        const date = Dates.corpusChristi(2050, false);
         expect(date.month()).toEqual(5);
         expect(date.date()).toEqual(9);
       });
@@ -428,7 +430,7 @@ describe('Testing specific liturgical date functions', () => {
       test('It can occur anytime between May 21 and June 24 (inclusive)', () => {
         for (let i = 1900, il = 2100; i <= il; i++) {
           const range = rangeOfDays(dayjs.utc(`${i}-5-21`), dayjs.utc(`${i}-6-24`));
-          const corpusChristi = Dates.corpusChristi(i, true);
+          const corpusChristi = Dates.corpusChristi(i, false);
           expect(rangeContainsDate(range, corpusChristi)).toBeTrue();
         }
       });
