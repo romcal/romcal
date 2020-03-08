@@ -40,9 +40,11 @@ export interface IRomcalConfig {
    */
   readonly christmastideIncludesTheSeasonOfEpiphany?: boolean;
   /**
-   *  If true, Corpus Christi is set to Thursday) (defaults to false)
+   * Determines if Corpus Christi should be celebrated on Sunday (63 days after Easter)
+   * or on Thursday of the 7th week of Easter (60 days after Easter). Defaults to `true`
+   * (Corpus Christi is celebrated on Sunday by default).
    */
-  readonly corpusChristiOnThursday?: boolean;
+  readonly corpusChristiOnSunday?: boolean;
   /**
    * If true, Ascension is moved to the 7th Sunday of Easter) (defaults to false)
    */
@@ -79,7 +81,7 @@ export default class Config {
   private _christmastideEnds: TChristmastideEndings;
   private _epiphanyOnJan6: boolean;
   private _christmastideIncludesTheSeasonOfEpiphany: boolean;
-  private _corpusChristiOnThursday: boolean;
+  private _corpusChristiOnSunday: boolean;
   private _ascensionOnSunday: boolean;
   private _type: TCalendarTypes;
   private _query?: TRomcalQuery;
@@ -95,7 +97,7 @@ export default class Config {
     christmastideEnds,
     epiphanyOnJan6,
     christmastideIncludesTheSeasonOfEpiphany,
-    corpusChristiOnThursday,
+    corpusChristiOnSunday,
     ascensionOnSunday,
     type,
     query,
@@ -106,7 +108,7 @@ export default class Config {
     this._christmastideEnds = christmastideEnds;
     this._epiphanyOnJan6 = epiphanyOnJan6;
     this._christmastideIncludesTheSeasonOfEpiphany = christmastideIncludesTheSeasonOfEpiphany;
-    this._corpusChristiOnThursday = corpusChristiOnThursday;
+    this._corpusChristiOnSunday = corpusChristiOnSunday;
     this._ascensionOnSunday = ascensionOnSunday;
     this._type = type;
     this._query = query;
@@ -140,8 +142,8 @@ export default class Config {
     return this._christmastideIncludesTheSeasonOfEpiphany;
   }
 
-  get corpusChristiOnThursday(): boolean {
-    return this._corpusChristiOnThursday;
+  get corpusChristiOnSunday(): boolean {
+    return this._corpusChristiOnSunday;
   }
 
   get ascensionOnSunday(): boolean {
@@ -228,7 +230,7 @@ export default class Config {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       christmastideIncludesTheSeasonOfEpiphany: config.christmastideIncludesTheSeasonOfEpiphany!, // Will use default if not defined
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      corpusChristiOnThursday: config.corpusChristiOnThursday!, // Will use default if not defined
+      corpusChristiOnSunday: config.corpusChristiOnSunday!, // Will use default if not defined
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       ascensionOnSunday: config.ascensionOnSunday!, // Will use default if not defineds
       type: config.type ?? 'calendar', // Use value "calendar" if type not specified by user

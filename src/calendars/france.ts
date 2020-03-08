@@ -9,7 +9,7 @@ const defaultConfig: IRomcalDefaultConfig = {
   ascensionOnSunday: true,
   christmastideEnds: 'o',
   christmastideIncludesTheSeasonOfEpiphany: true,
-  corpusChristiOnThursday: false,
+  corpusChristiOnSunday: true,
   epiphanyOnJan6: false,
 };
 
