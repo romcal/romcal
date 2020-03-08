@@ -176,10 +176,10 @@ describe('Testing national calendar overrides', () => {
       expect(dayjs.utc(epiphanySlovakia?.date).date()).toEqual(6);
       expect(dayjs.utc(epiphanySlovakia?.date).month()).toEqual(0);
     });
-    test('Will fall on Sunday as calculated by the Epiphany rubric, when `epiphanyOnJan6` is explicitly configured as `false`', async () => {
+    test('Will fall on Sunday as calculated by the Epiphany rubric, when `epiphanyOnSunday` is explicitly configured as `true`', async () => {
       const slovakiaDates = await Romcal.calendarFor({
         country: 'slovakia',
-        epiphanyOnJan6: false,
+        epiphanyOnSunday: true,
         year: 2018,
       });
       const epiphanySlovakia = slovakiaDates.find(d => {

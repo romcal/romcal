@@ -194,22 +194,22 @@ const goodFriday = (year: number): dayjs.Dayjs =>
 /**
  * EPIPHANY RUBRIC
  *
- * Standard rule:
+ * Standard rule (default):
  * Epiphany is celebrated on the first Sunday after the first Saturday in January,
- * which means it could fall on any day from January 2 to January 8.
+ * which means it can fall on any day from January 2 to January 8.
  *
  * Traditional rule:
- * Epiphany is always celebrated on Jan 6
+ * Epiphany is always celebrated on Jan 6.
  *
  * @param year The year to base the calculation upon
- * @param epiphanyOnJan6 Activates the traditional rule when true (defaults to false)
+ * @param epiphanyOnSunday Activates the traditional rule when false (defaults to true)
  */
-const epiphany = (year: number, epiphanyOnJan6 = false): dayjs.Dayjs => {
+const epiphany = (year: number, epiphanyOnSunday = true): dayjs.Dayjs => {
   // Get the first day of the year
   const firstDay = dayjs.utc(`${year}-1-1`);
   let date = dayjs.utc(`${year}-1-6`);
 
-  if (!epiphanyOnJan6) {
+  if (epiphanyOnSunday) {
     switch (firstDay.day()) {
       // If first day of the year is a Saturday, Mary Mother of God is on that day
       // and Epiphany is on the next day
@@ -261,10 +261,10 @@ const octaveOfChristmas = (year: number): Array<dayjs.Dayjs> => {
  * Sunday following The Epiphany of Our Lord (6 January).*
  *
  * @param year The year to use for the calculation
- * @param epiphanyOnJan6 If true, Epiphany will be fixed to Jan 6] (defaults to false)
+ * @param epiphanyOnSunday If false, Epiphany will be fixed to Jan 6] (defaults to true)
  */
-const baptismOfTheLord = (year: number, epiphanyOnJan6 = false): dayjs.Dayjs => {
-  let date = epiphany(year, epiphanyOnJan6);
+const baptismOfTheLord = (year: number, epiphanyOnSunday = true): dayjs.Dayjs => {
+  let date = epiphany(year, epiphanyOnSunday);
 
   // If Epiphany is celebrated on Jan. 6
   // the Baptism of the Lord occurs on the Sunday following Jan. 6.
@@ -310,27 +310,27 @@ const presentationOfTheLord = (year: number): dayjs.Dayjs => dayjs.utc(`${year}-
  *
  * @param year The year to use for the calculation
  * @param christmastideEnds The rule determining when the season of Christmas ends
- * @param epiphanyOnJan6 If true, Epiphany will be fixed to Jan 6] (defaults to false)
+ * @param epiphanyOnSunday If false, Epiphany will be fixed to Jan 6 (defaults to true)
  */
 const christmastide = (
   year: number,
   christmastideEnds: TChristmastideEndings = 'o',
-  epiphanyOnJan6 = false,
+  epiphanyOnSunday = true,
 ): Array<dayjs.Dayjs> => {
   const start = christmas(year);
   let end = null;
   switch (christmastideEnds) {
     case 't':
-      end = epiphany(year + 1, epiphanyOnJan6);
+      end = epiphany(year + 1, epiphanyOnSunday);
       break;
     case 'o':
-      end = baptismOfTheLord(year + 1, epiphanyOnJan6);
+      end = baptismOfTheLord(year + 1, epiphanyOnSunday);
       break;
     case 'e': // Candlemass (40 days)
       end = presentationOfTheLord(year + 1);
       break;
     default:
-      end = baptismOfTheLord(year + 1, epiphanyOnJan6);
+      end = baptismOfTheLord(year + 1, epiphanyOnSunday);
       break;
   }
   return rangeOfDays(start, end);
@@ -350,22 +350,22 @@ const christmastide = (
  *
  * @param year The year for the calculation
  * @param christmastideEnds The mode to calculate the end of Christmastide
- * @param epiphanyOnJan6 If true, fixes Epiphany to Jan 6] (defaults to false
+ * @param epiphanyOnSunday If false, fixes Epiphany to Jan 6 (defaults to true)
  */
 const daysOfEarlyOrdinaryTime = (
   year: number,
   christmastideEnds: TChristmastideEndings = 'o',
-  epiphanyOnJan6 = false,
+  epiphanyOnSunday = true,
 ): Array<dayjs.Dayjs> => {
   let start = null;
   const end = ashWednesday(year);
 
   if (christmastideEnds === 't') {
-    start = epiphany(year, epiphanyOnJan6);
+    start = epiphany(year, epiphanyOnSunday);
   } else if (christmastideEnds === 'e') {
     start = presentationOfTheLord(year);
   } else {
-    start = baptismOfTheLord(year, epiphanyOnJan6);
+    start = baptismOfTheLord(year, epiphanyOnSunday);
   }
   return rangeOfDays(start, end, { exclude: [start, end] });
 };
@@ -474,19 +474,23 @@ const sundaysOfAdvent = (year: number): Array<dayjs.Dayjs> => {
 /**
  * Calculates the number of days from the Mary, Mother of God to the last day of Epiphany (inclusive).
  * @param year The year to be used for the calculation
- * @param epiphanyOnJan6 true|false [If true, Epiphany will be fixed to Jan 6]
+ * @param epiphanyOnSunday If false, Epiphany will be fixed to Jan 6 (defaults to true)
  */
-const daysBeforeEpiphany = (year: number, epiphanyOnJan6 = false): Array<dayjs.Dayjs> => {
+const daysBeforeEpiphany = (year: number, epiphanyOnSunday = true): Array<dayjs.Dayjs> => {
   const start = maryMotherOfGod(year);
-  const end = epiphany(year, epiphanyOnJan6);
+  const end = epiphany(year, epiphanyOnSunday);
   return rangeOfDays(start, end, { exclude: [start, end] });
 };
 
-// y: year (integer)
-// epiphanyOnJan6: true|false [If true, Epiphany will be fixed to Jan 6]
-const daysAfterEpiphany = (year: number, epiphanyOnJan6 = false): Array<dayjs.Dayjs> => {
-  const start = epiphany(year, epiphanyOnJan6);
-  const end = baptismOfTheLord(year, epiphanyOnJan6);
+/**
+ * Calculates the days after Epiphany right up to the day before the Baptism of the Lord.
+ *
+ * @param year The year to be used for the calculation
+ * @param epiphanyOnSunday If false, Epiphany will be fixed to Jan 6 (defaults to true)
+ */
+const daysAfterEpiphany = (year: number, epiphanyOnSunday = true): Array<dayjs.Dayjs> => {
+  const start = epiphany(year, epiphanyOnSunday);
+  const end = baptismOfTheLord(year, epiphanyOnSunday);
   return rangeOfDays(start, end, { exclude: [start, end] });
 };
 

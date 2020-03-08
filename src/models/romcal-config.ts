@@ -32,9 +32,12 @@ export interface IRomcalConfig {
    */
   readonly christmastideEnds?: TChristmastideEndings;
   /**
-   * If true, Epiphany will be fixed to Jan 6 (defaults to false)
+   * If `false`, fixes Epiphany on January 6th. Usually, Epiphany will be set to a
+   * Sunday between the 2nd - 8th Jan based on an internal calculation.
+   *
+   * Defaults to `true`.
    */
-  readonly epiphanyOnJan6?: boolean;
+  readonly epiphanyOnSunday?: boolean;
   /**
    * If false, excludes the season of epiphany from being included in the season of Christmas
    */
@@ -79,7 +82,7 @@ export default class Config {
   private _country: TCountryTypes;
   private _locale: TLocaleTypes;
   private _christmastideEnds: TChristmastideEndings;
-  private _epiphanyOnJan6: boolean;
+  private _epiphanyOnSunday: boolean;
   private _christmastideIncludesTheSeasonOfEpiphany: boolean;
   private _corpusChristiOnSunday: boolean;
   private _ascensionOnSunday: boolean;
@@ -95,7 +98,7 @@ export default class Config {
     country,
     locale,
     christmastideEnds,
-    epiphanyOnJan6,
+    epiphanyOnSunday,
     christmastideIncludesTheSeasonOfEpiphany,
     corpusChristiOnSunday,
     ascensionOnSunday,
@@ -106,7 +109,7 @@ export default class Config {
     this._country = country;
     this._locale = locale;
     this._christmastideEnds = christmastideEnds;
-    this._epiphanyOnJan6 = epiphanyOnJan6;
+    this._epiphanyOnSunday = epiphanyOnSunday;
     this._christmastideIncludesTheSeasonOfEpiphany = christmastideIncludesTheSeasonOfEpiphany;
     this._corpusChristiOnSunday = corpusChristiOnSunday;
     this._ascensionOnSunday = ascensionOnSunday;
@@ -134,8 +137,8 @@ export default class Config {
     return this._christmastideEnds;
   }
 
-  get epiphanyOnJan6(): boolean {
-    return this._epiphanyOnJan6;
+  get epiphanyOnSunday(): boolean {
+    return this._epiphanyOnSunday;
   }
 
   get christmastideIncludesTheSeasonOfEpiphany(): boolean {
@@ -226,7 +229,7 @@ export default class Config {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       christmastideEnds: config.christmastideEnds!, // Will use default if not defined
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      epiphanyOnJan6: config.epiphanyOnJan6!, // Will use default if not defined
+      epiphanyOnSunday: config.epiphanyOnSunday!, // Will use default if not defined
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       christmastideIncludesTheSeasonOfEpiphany: config.christmastideIncludesTheSeasonOfEpiphany!, // Will use default if not defined
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion

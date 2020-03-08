@@ -226,7 +226,7 @@ describe('Testing date range functions', () => {
     describe('If Epiphany is celebrated on Jan 6', () => {
       test('The last day of Christmas is on 6th Jan, if following the Traditional end of the Christmas season', () => {
         for (let i = 1900, il = 2100; i <= il; i++) {
-          const [lastDayInChristmastide] = Dates.christmastide(i, 't', true).reverse();
+          const [lastDayInChristmastide] = Dates.christmastide(i, 't', false).reverse();
           const target = dayjs.utc(`${i + 1}-1-6`);
           expect(lastDayInChristmastide.isSame(target)).toEqual(true);
         }
@@ -234,7 +234,7 @@ describe('Testing date range functions', () => {
 
       test('The last day of Christmas is always on Sunday on the feast of the Baptism of the Lord, if following the Ordinary Liturgical Calendar of the Western Roman Rite', () => {
         for (let i = 1900, il = 2100; i <= il; i++) {
-          const [lastDayInChristmastide] = Dates.christmastide(i, 'o', true).reverse();
+          const [lastDayInChristmastide] = Dates.christmastide(i, 'o', false).reverse();
           expect(lastDayInChristmastide.day()).toEqual(0);
         }
       });
