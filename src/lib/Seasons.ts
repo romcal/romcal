@@ -64,11 +64,11 @@ const _metadata = (items: Array<IRomcalDateItem>): Array<IRomcalDateItem> => {
 /**
  * Calculates the days in the period of Epiphany.
  * @param year The year to use for the calculation
- * @param epiphanyOnJan6 true|false [If true, Epiphany will be fixed to Jan 6] (defaults to false)
+ * @param epiphanyOnSunday If false, Epiphany will be fixed to Jan 6 (defaults to true)
  */
-const _epiphany = async (year: number, epiphanyOnJan6 = false): Promise<Array<IRomcalDateItem>> => {
-  const before: Array<dayjs.Dayjs> = Dates.daysBeforeEpiphany(year, epiphanyOnJan6);
-  const after: Array<dayjs.Dayjs> = Dates.daysAfterEpiphany(year, epiphanyOnJan6);
+const _epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<IRomcalDateItem>> => {
+  const before: Array<dayjs.Dayjs> = Dates.daysBeforeEpiphany(year, epiphanyOnSunday);
+  const after: Array<dayjs.Dayjs> = Dates.daysAfterEpiphany(year, epiphanyOnSunday);
 
   const datesBeforePromise = before.map(async (date: dayjs.Dayjs) => {
     return {
@@ -250,18 +250,18 @@ const advent = async (year: number): Promise<Array<IRomcalDateItem>> => {
  *
  * @param year The year to use for the calculation
  * @param christmastideEnds The mode to calculate the end of Christmastide. See [[TChristmastideEndings]] for more information
- * @param epiphanyOnJan6 If true, Epiphany will be fixed to Jan 6 (defaults to false)
+ * @param epiphanyOnSunday If false, Epiphany will be fixed to Jan 6 (defaults to true)
  * @param christmastideIncludesTheSeasonOfEpiphany If false, excludes the season of epiphany from being included in the season of Christmas
  */
 const christmastide = async (
   year: number,
   christmastideEnds: TChristmastideEndings,
-  epiphanyOnJan6 = false,
+  epiphanyOnSunday = true,
   christmastideIncludesTheSeasonOfEpiphany = true,
 ): Promise<Array<IRomcalDateItem>> => {
-  const datesOfChristmastide: dayjs.Dayjs[] = Dates.christmastide(year, christmastideEnds, epiphanyOnJan6);
+  const datesOfChristmastide: dayjs.Dayjs[] = Dates.christmastide(year, christmastideEnds, epiphanyOnSunday);
   const datesInTheOctaveOfChristmas: dayjs.Dayjs[] = Dates.octaveOfChristmas(year);
-  const epiphany: Array<IRomcalDateItem> = await _epiphany(year + 1, epiphanyOnJan6);
+  const epiphany: Array<IRomcalDateItem> = await _epiphany(year + 1, epiphanyOnSunday);
   let count = 0;
 
   const datesOfChristmastidePromise = datesOfChristmastide.map(async day => {
@@ -390,15 +390,15 @@ const christmastide = async (
  *
  * @param year The year to use
  * @param christmastideEnds When does Christmas end. See [[TChristmastideEndings]] for more information
- * @param epiphanyOnJan6 Will Epiphany end on January the 6th (true | false)
+ * @param epiphanyOnSunday By default, Epiphany is celebrated on Sunday. If false, will cause Epiphany to land on January the 6th.
  * @returns
  */
 const earlyOrdinaryTime = async (
   year: number,
   christmastideEnds: TChristmastideEndings,
-  epiphanyOnJan6 = false,
+  epiphanyOnSunday = true,
 ): Promise<Array<IRomcalDateItem>> => {
-  const daysOfEarlyOrdinaryTimePromise = Dates.daysOfEarlyOrdinaryTime(year, christmastideEnds, epiphanyOnJan6).map(
+  const daysOfEarlyOrdinaryTimePromise = Dates.daysOfEarlyOrdinaryTime(year, christmastideEnds, epiphanyOnSunday).map(
     async (value, i) => {
       return {
         date: value,
