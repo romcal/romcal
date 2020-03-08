@@ -10,7 +10,7 @@ const defaultConfig: IRomcalDefaultConfig = {
   christmastideEnds: 'o',
   christmastideIncludesTheSeasonOfEpiphany: true,
   corpusChristiOnSunday: true,
-  epiphanyOnJan6: false,
+  epiphanyOnSunday: true,
 };
 
 const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {

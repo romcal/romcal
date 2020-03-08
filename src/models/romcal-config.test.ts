@@ -10,7 +10,7 @@ describe('getConfig()', () => {
       type,
       query,
       locale,
-      epiphanyOnJan6,
+      epiphanyOnSunday,
       country,
       corpusChristiOnSunday,
       christmastideIncludesTheSeasonOfEpiphany,
@@ -20,7 +20,7 @@ describe('getConfig()', () => {
     expect(type).toBe('calendar');
     expect(query).toBeUndefined();
     expect(locale).toBe('en');
-    expect(epiphanyOnJan6).toBeFalsy();
+    expect(epiphanyOnSunday).toBeTrue();
     expect(country).toBe('general');
     expect(corpusChristiOnSunday).toBeTrue();
     expect(christmastideIncludesTheSeasonOfEpiphany).toBeTruthy();

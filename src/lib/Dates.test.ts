@@ -545,15 +545,15 @@ describe('Testing specific liturgical date functions', () => {
   describe('Epiphany', () => {
     describe('If Epiphany is always celebrated on Jan 6', () => {
       test('Epiphany in 2001 will be on a Saturday', () => {
-        expect(Dates.epiphany(2001, true).day()).toEqual(6);
+        expect(Dates.epiphany(2001, false).day()).toEqual(6);
       });
 
       test('Epiphany in 2002 will be on a Sunday', () => {
-        expect(Dates.epiphany(2002, true).day()).toEqual(0);
+        expect(Dates.epiphany(2002, false).day()).toEqual(0);
       });
 
       test('Epiphany in 2003 will be on a Monday', () => {
-        expect(Dates.epiphany(2003, true).day()).toEqual(1);
+        expect(Dates.epiphany(2003, false).day()).toEqual(1);
       });
     });
 
@@ -761,12 +761,12 @@ describe('Testing specific liturgical date functions', () => {
     describe('When Epiphany is celebrated on the 6th of Jan', () => {
       test('The Sunday following Jan 6 is the Baptism of the Lord', () => {
         for (let i = 1900, il = 2100; i <= il; i++) {
-          const epiphany = Dates.epiphany(i, true);
+          const epiphany = Dates.epiphany(i, false);
           expect(
             epiphany
               .add(1, 'week')
               .startOf('week')
-              .isSame(Dates.baptismOfTheLord(i, true)),
+              .isSame(Dates.baptismOfTheLord(i, false)),
           ).toEqual(true);
         }
       });

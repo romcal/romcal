@@ -49,7 +49,7 @@ const dates = async (year: number, config: Config): Promise<Array<IRomcalDateIte
     {
       key: 'epiphany',
       type: Types.SOLEMNITY,
-      date: Dates.epiphany(year, config.epiphanyOnJan6),
+      date: Dates.epiphany(year, config.epiphanyOnSunday),
       data: {
         prioritized: true,
         meta: {
@@ -326,7 +326,7 @@ const dates = async (year: number, config: Config): Promise<Array<IRomcalDateIte
     {
       key: 'baptismOfTheLord',
       type: Types.FEAST,
-      date: Dates.baptismOfTheLord(year, config.epiphanyOnJan6),
+      date: Dates.baptismOfTheLord(year, config.epiphanyOnSunday),
       data: {
         prioritized: true,
         meta: {
