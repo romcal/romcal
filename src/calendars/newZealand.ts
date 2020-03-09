@@ -32,43 +32,17 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
       date: dayjs.utc(`${year}-3-17`),
     },
     {
-      key: 'saintMarkApostle',
-      type: Types.FEAST,
-      date: dayjs.utc(`${year}-4-26`),
-    },
-    {
-      key: 'saintLouisGrignonDeMontfortPriest',
-      type: Types.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-4-27`),
-    },
-    {
-      key: 'saintPeterChanelPriestAndMartyrSaintLouisGrignonDeMontfortPriest',
-      type: Types.FEAST,
-      date: dayjs.utc(`${year}-4-28`),
-      data: {
-        meta: {
-          liturgicalColor: LiturgicalColors.RED,
-          titles: [Titles.MARTYR],
-        },
-      },
-    },
-    {
-      key: 'saintPatrickBishop',
-      type: Types.FEAST,
-      date: dayjs.utc(`${year}-3-17`),
-    },
-    {
       key: 'saintMarkTheEvangelist',
       type: Types.FEAST,
       date: dayjs.utc(`${year}-4-26`),
     },
     {
-      key: 'saintLouisGrignonDeMontfortPriest',
+      key: 'saintLouisMarieGrignionDeMontfortPriest',
       type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-4-27`),
     },
     {
-      key: 'saintPeterChanelPriestAndMartyrSaintLouisGrignonDeMontfortPriest',
+      key: 'saintPeterChanelPriestAndMartyr',
       type: Types.FEAST,
       date: dayjs.utc(`${year}-4-28`),
       data: {
@@ -89,7 +63,17 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
       date: dayjs.utc(`${year}-6-6`),
     },
     {
-      key: 'saintDominicPriest/SaintSixtusIiPopeAndCompanionsMartyrsSaintCajetanPriest',
+      key: 'saintDominicPriest',
+      type: Types.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-8-7`),
+    },
+    {
+      key: 'saintSixtusIiPopeAndCompanionsMartyrs',
+      type: Types.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-8-7`),
+    },
+    {
+      key: 'saintCajetanPriest',
       type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-7`),
     },

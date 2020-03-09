@@ -91,7 +91,18 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
       },
     },
     {
-      key: 'saintAdalbertBishopAndMartyrSaintFidelisOfSigmaringenPriestAndMartyr',
+      key: 'saintAdalbertBishopAndMartyr',
+      type: Types.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-4-24`),
+      data: {
+        meta: {
+          liturgicalColor: LiturgicalColors.RED,
+          titles: [Titles.MARTYR],
+        },
+      },
+    },
+    {
+      key: 'saintFidelisOfSigmaringenPriestAndMartyr',
       type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-4-24`),
       data: {
@@ -159,7 +170,7 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
       },
     },
     {
-      key: 'saintEphraemDeaconDoctorOrSaintColumbaColumCilleAbbot',
+      key: 'saintEphremDeaconAndDoctor',
       type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-9`),
       data: {
@@ -167,6 +178,11 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
           titles: [Titles.DOCTOR_OF_THE_CHURCH],
         },
       },
+    },
+    {
+      key: 'saintColumbaColumCilleAbbot',
+      type: Types.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-6-9`),
     },
     {
       key: 'saintRichardOfChichesterBishop',
@@ -361,12 +377,27 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
       date: dayjs.utc(`${year}-11-7`),
     },
     {
-      key: 'saintEdmundOfAbingdonBishopOrSaintMargaretOfScotland',
+      key: 'saintEdmundOfAbingdonBishop',
       type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-16`),
     },
     {
-      key: 'saintElizabethOfHungary',
+      key: 'saintMargaretOfScotland',
+      type: Types.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-11-16`),
+    },
+    {
+      key: 'saintElizabethOfHungaryReligious',
+      type: Types.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-11-17`),
+    },
+    {
+      key: 'saintHildaAbbess',
+      type: Types.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-11-17`),
+    },
+    {
+      key: 'saintHughOfLincolnBishop',
       type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-17`),
     },

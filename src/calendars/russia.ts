@@ -21,7 +21,12 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
       },
     },
     {
-      key: 'blessedBoleslawaMariaLamentVirginAndSaintAngelaMericiVirgin',
+      key: 'blessedBoleslawaMariaLamentVirgin',
+      type: Types.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-1-29`),
+    },
+    {
+      key: 'saintAngelaMericiVirgin',
       type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-29`),
     },
@@ -69,7 +74,12 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
       },
     },
     {
-      key: 'ourLadyOfPerpetualHelpOrBlessedLeonidFeodorovPriestAndMartyr',
+      key: 'ourLadyOfPerpetualHelp',
+      type: Types.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-6-27`),
+    },
+    {
+      key: 'blessedLeonidFeodorovPriestAndMartyr',
       type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-27`),
     },
