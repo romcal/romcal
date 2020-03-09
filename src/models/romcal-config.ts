@@ -1,14 +1,11 @@
-import {
-  TChristmastideEndings,
-  TCountryTypes,
-  TCalendarTypes,
-  isNil,
-  isObject,
-  TRomcalQuery,
-  isRomcalConfig,
-  TLocaleTypes,
-} from '../utils/type-guards';
 import dayjs from 'dayjs';
+
+import { isNil, isObject, isRomcalConfig } from '@RomcalUtils/type-guards';
+import { CalendarTypes } from '@RomcalTypes/calendar-types.type';
+import { Countries } from '@RomcalTypes/countries,type';
+import { ChristmastideEndings } from '@RomcalTypes/christmastide-endings.type';
+import { LocaleTypes } from '@RomcalTypes/locale-types.type';
+import { Query } from '@RomcalTypes/query-type.type';
 
 /**
  * The configuration object that is passed either to the [[Calendar.calendarFor]]
@@ -22,15 +19,15 @@ export interface IRomcalConfig {
   /**
    * The country
    */
-  readonly country?: TCountryTypes;
+  readonly country?: Countries;
   /**
    * The locale to be used for localizing
    */
-  readonly locale?: TLocaleTypes;
+  readonly locale?: LocaleTypes;
   /**
    * The mode to calculate the end of Christmastide
    */
-  readonly christmastideEnds?: TChristmastideEndings;
+  readonly christmastideEnds?: ChristmastideEndings;
   /**
    * If `false`, fixes Epiphany on January 6th. Usually, Epiphany will be set to a
    * Sunday between the 2nd - 8th Jan based on an internal calculation.
@@ -59,11 +56,11 @@ export interface IRomcalConfig {
    * 1. `calendar`: Civil year (January 1 to December 31); or
    * 2. `liturgical`: Religious calendar year (1st Sunday of Advent of the preceeding year to the Saturday before the 1st Sunday of Advent in the current year).
    */
-  readonly type?: TCalendarTypes;
+  readonly type?: CalendarTypes;
   /**
    * A query object to get specific data from the calendar
    */
-  readonly query?: TRomcalQuery;
+  readonly query?: Query;
 }
 
 export type IRomcalDefaultConfig = Required<Omit<IRomcalConfig, 'country' | 'locale' | 'query' | 'year' | 'type'>>;
@@ -72,22 +69,22 @@ export type IRomcalDefaultConfig = Required<Omit<IRomcalConfig, 'country' | 'loc
  * A modified variant of IRomcalConfig specifically for the [[Config]] class constructor
  * where all properties except query are **required**.
  */
-export type TConfigConstructorType = { query?: TRomcalQuery } & Required<Omit<IRomcalConfig, 'query'>>;
+export type TConfigConstructorType = { query?: Query } & Required<Omit<IRomcalConfig, 'query'>>;
 
 /**
  * The [[Config]] class encapsulates all options that can be sent to this library to adjust date output.
  */
 export default class Config {
   private _year: number;
-  private _country: TCountryTypes;
-  private _locale: TLocaleTypes;
-  private _christmastideEnds: TChristmastideEndings;
+  private _country: Countries;
+  private _locale: LocaleTypes;
+  private _christmastideEnds: ChristmastideEndings;
   private _epiphanyOnSunday: boolean;
   private _christmastideIncludesTheSeasonOfEpiphany: boolean;
   private _corpusChristiOnSunday: boolean;
   private _ascensionOnSunday: boolean;
-  private _type: TCalendarTypes;
-  private _query?: TRomcalQuery;
+  private _type: CalendarTypes;
+  private _query?: Query;
 
   /**
    * Constructs a new [[Config]] object
@@ -125,15 +122,15 @@ export default class Config {
     this._year = theYear;
   }
 
-  get country(): TCountryTypes {
+  get country(): Countries {
     return this._country;
   }
 
-  get locale(): TLocaleTypes {
+  get locale(): LocaleTypes {
     return this._locale;
   }
 
-  get christmastideEnds(): TChristmastideEndings {
+  get christmastideEnds(): ChristmastideEndings {
     return this._christmastideEnds;
   }
 
@@ -153,11 +150,11 @@ export default class Config {
     return this._ascensionOnSunday;
   }
 
-  get type(): TCalendarTypes {
+  get type(): CalendarTypes {
     return this._type;
   }
 
-  get query(): TRomcalQuery | undefined {
+  get query(): Query | undefined {
     return this._query;
   }
 
@@ -167,7 +164,7 @@ export default class Config {
    * If the country is not specified, return the configuration for the general calendar.
    * @param country The country to obtain default configurations from
    */
-  static async getConfig(country: TCountryTypes = 'general'): Promise<IRomcalDefaultConfig> {
+  static async getConfig(country: Countries = 'general'): Promise<IRomcalDefaultConfig> {
     const { defaultConfig: countrySpecificDefaultConfig } = await import(
       /* webpackExclude: /index\.ts/ */
       /* webpackChunkName: "calendars/[request]" */

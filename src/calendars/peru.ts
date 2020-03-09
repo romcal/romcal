@@ -1,9 +1,10 @@
 import dayjs from 'dayjs';
 
 import { Dates, Locales } from '../lib';
-import { Types, LiturgicalColors } from '../constants';
-import { IRomcalDateItem } from '../models/romcal-date-item';
-import Config, { IRomcalDefaultConfig } from '../models/romcal-config';
+import { LITURGICAL_COLORS } from '@RomcalConstants/liturgical-colors.constant';
+import { IRomcalDateItem } from '@RomcalModels/romcal-date-item';
+import Config, { IRomcalDefaultConfig } from '@RomcalModels/romcal-config';
+import { TypesEnum } from '@RomcalEnums/types.enum';
 
 const defaultConfig: IRomcalDefaultConfig | undefined = undefined;
 
@@ -12,62 +13,62 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
   const _dates: Array<IRomcalDateItem> = [
     {
       key: 'findingOfTheHolyCross',
-      type: Types.FEAST,
+      type: TypesEnum.FEAST,
       date: dayjs.utc(`${year}-5-3`),
     },
     {
       key: 'ourLadyHelpOfChristians',
-      type: Types.OPT_MEMORIAL,
+      type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-24`),
     },
     {
       key: 'saintMarianaDeJesusDeParedesVirgin',
-      type: Types.FEAST,
+      type: TypesEnum.FEAST,
       date: dayjs.utc(`${year}-5-26`),
     },
     {
       key: 'saintFrancisSolanusPriest',
-      type: Types.FEAST,
+      type: TypesEnum.FEAST,
       date: dayjs.utc(`${year}-7-14`),
     },
     {
       key: 'ourLadyOfPeace',
-      type: Types.FEAST,
+      type: TypesEnum.FEAST,
       date: dayjs.utc(`${year}-7-28`),
     },
     {
       key: 'saintRoseOfLima',
-      type: Types.SOLEMNITY,
+      type: TypesEnum.SOLEMNITY,
       date: dayjs.utc(`${year}-8-23`),
     },
     {
       key: 'saintJohnMaciasReligious',
-      type: Types.FEAST,
+      type: TypesEnum.FEAST,
       date: dayjs.utc(`${year}-9-18`),
     },
     {
       key: 'ourLadyOfMercy',
-      type: Types.OPT_MEMORIAL,
+      type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-24`),
     },
     {
       key: 'ourLordOfMiracles',
-      type: Types.FEAST,
+      type: TypesEnum.FEAST,
       date: dayjs.utc(`${year}-10-28`),
     },
     {
       key: 'saintMartinDePorresReligious',
-      type: Types.SOLEMNITY,
+      type: TypesEnum.SOLEMNITY,
       date: dayjs.utc(`${year}-11-3`),
     },
     {
       key: 'ourLadyOfGuadalupe',
-      type: Types.FEAST,
+      type: TypesEnum.FEAST,
       date: dayjs.utc(`${year}-12-12`),
     },
     {
       key: 'ourLordJesusChristTheEternalHighPriest',
-      type: Types.FEAST,
+      type: TypesEnum.FEAST,
       date: ((y: number): dayjs.Dayjs =>
         dayjs.utc(
           Dates.pentecostSunday(y)
@@ -76,7 +77,7 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
         ))(year),
       data: {
         meta: {
-          liturgicalColor: LiturgicalColors.WHITE,
+          liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
     },

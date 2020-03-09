@@ -1,12 +1,8 @@
-import * as CountryCalendars from '../calendars';
-import { default as Locales } from '../locales';
-import { ElementType } from './helpers';
-import { IRomcalConfig } from '../models/romcal-config';
-import { getRomcalConfigJsonSchema, getRomcalConfigSchemaValidator } from '../validators/romcal-config.validator';
 import { ValidationError } from 'jsonschema';
-import { DateItem } from '../models/romcal-date-item';
-import { getDateItemSchemaValidator, getDateItemDataJsonSchema } from '../validators/date-item.validator';
-import { isNull } from 'util';
+import { getDateItemSchemaValidator, getDateItemDataJsonSchema } from '@RomcalValidators/date-item.validator';
+import { getRomcalConfigSchemaValidator, getRomcalConfigJsonSchema } from '@RomcalValidators/romcal-config.validator';
+import { IRomcalConfig } from '@RomcalModels/romcal-config';
+import { DateItem } from '@RomcalModels/romcal-date-item';
 
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
@@ -22,84 +18,10 @@ export type Primitive = string | boolean | number | null | undefined;
  */
 export type ISO8601DateString = string;
 
-/**
- * The calendar types that can be resolved by this library.
- */
-export type TCalendarTypes = 'calendar' | 'liturgical';
-
-/**
- * The source of the date item.
- *
- * This value is used when localizing dates so that the [[Locales.localizeDates]] function knows
- * which subtree in the locale file to look for.
- *
- * A special key, "custom", may be used when you do not wish to specify any subtree but rather
- * provide the entire path (as a period delimited string) to the [[Locales.localizeDates]] function
- * to lookup.
- */
-export type TDateItemSource =
-  | 'custom'
-  | 'advent'
-  | 'christmastide'
-  | 'epiphany'
-  | 'ordinaryTime'
-  | 'lent'
-  | 'holyWeek'
-  | 'eastertide'
-  | 'celebrations'
-  | 'sanctoral';
-
-export type TRomcalQuery = Readonly<{
-  day?: number;
-  month?: number;
-  group?: TRomcalQueryGroup;
-  title?: string;
-}>;
-
 type AllowedDictonaryKeyTypes = string | number;
 export type Dictionary<T> = {
   [index in AllowedDictonaryKeyTypes]: T;
 };
-
-/**
- * All the possible grouping variants that can be supported by romcal.
- */
-export const romcalQueryGroups = [
-  'days',
-  'months',
-  'daysByMonth',
-  'weeksByMonth',
-  'cycles',
-  'types',
-  'liturgicalSeasons',
-  'liturgicalColors',
-  'psalterWeeks',
-] as const;
-export type TRomcalQueryGroup = ElementType<typeof romcalQueryGroups>;
-
-/**
- * Custom type to indicate Christmastide endings.
- *
- * The rule determining when the season of Christmas ends is as follows:
- *
- * |   Key   | Description                                                   |
- * | ------- | ------------------------------------------------------------- |
- * |   `t`   | Traditional [Jan 6th, Epiphany]                               |
- * |   `o`   | Ordinary Liturgical Calendar of the Western Roman Rite (Baptism of the Lord) |
- * |   `e`   | Extraordinary Liturgical Calendar of the Western Roman Rite (Presentation of the Lord/Candlemass) |
- */
-export type TChristmastideEndings = 't' | 'o' | 'e';
-
-export const countryKeys = Object.keys(CountryCalendars) as Array<keyof typeof CountryCalendars>;
-/**
- * A dynamic type indexing all supported countries for calendar generation.
- */
-export type TCountryTypes = ElementType<typeof countryKeys>;
-
-/**
- * A dynamic type generated using the keys defined in [[Locales]]
- */
-export type TLocaleTypes = keyof typeof Locales;
 
 export type TLocalizeParams = {
   key: string;
@@ -127,7 +49,7 @@ export const isRomcalConfig = (maybeRomcalConfig: unknown): maybeRomcalConfig is
  * Check if the arbitary value given is an array of [[DateItems]].
  * @param maybeRomcalDateItems A value that could be an array of [[DateItem]]s
  */
-export const isRomcalDateItems = (maybeRomcalDateItems: unknown): maybeRomcalDateItems is Array<DateItem> => {
+export const areRomcalDateItems = (maybeRomcalDateItems: unknown): maybeRomcalDateItems is Array<DateItem> => {
   const { errors, valid } = getDateItemSchemaValidator().validate(maybeRomcalDateItems, getDateItemDataJsonSchema());
   if (!valid) {
     errors.forEach((error: ValidationError) => {
@@ -168,7 +90,7 @@ export const isBool = (maybeBoolean: unknown): maybeBoolean is boolean => typeof
  * @param maybeInteger The value that could be a number
  */
 export const isInteger = (maybeInteger: unknown): maybeInteger is number =>
-  typeof maybeInteger === 'number' && !isNull(maybeInteger);
+  typeof maybeInteger === 'number' && !isNil(maybeInteger);
 
 /**
  * Check if the value is a string.

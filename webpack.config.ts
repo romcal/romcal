@@ -1,13 +1,35 @@
 import { MultiConfigurationFactory } from 'webpack';
 import webpack = require('webpack');
-import { join } from 'path';
+import { join, resolve } from 'path';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+
+/**
+ * Resolve tsconfig.json paths to Webpack aliases
+ * @param  {string} tsconfigPath           - Path to tsconfig
+ * @param  {string} webpackConfigBasePath  - Path from tsconfig to Webpack config to create absolute aliases
+ * @return {object}                        - Webpack alias config
+ */
+const resolveTsconfigPathsToAlias = ({ tsconfigPath = './tsconfig.json', webpackConfigBasePath = __dirname } = {}): {
+  [key: string]: string;
+} => {
+  const { paths } = require(tsconfigPath).compilerOptions;
+  const aliases: {
+    [key: string]: string;
+  } = {};
+  Object.keys(paths).forEach(item => {
+    const key = item.replace('/*', '');
+    const value = resolve(webpackConfigBasePath, paths[item][0].replace('/*', '').replace('*', ''));
+    aliases[key] = value;
+  });
+  return aliases;
+};
 
 const getDevTool = (mode: string): webpack.Options.Devtool =>
   mode === 'production' ? 'source-map' : 'inline-source-map';
 
 const getResolveExtensions = (): webpack.Resolve => ({
+  alias: resolveTsconfigPathsToAlias(),
   extensions: ['.ts', '.js', '.json'],
 });
 

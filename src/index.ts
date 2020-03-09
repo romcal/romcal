@@ -1,14 +1,22 @@
-import { DateItem } from './models/romcal-date-item';
-import { TRomcalQuery, Dictionary, isNil, isInteger, isObject } from './utils/type-guards';
-import { hasKey } from './utils/object';
-import groupBy from 'lodash-es/groupBy';
+import dayjs from 'dayjs';
+import { Locales, Celebrations, Dates, Seasons, Calendar } from './lib';
+import { DateItem } from '@RomcalModels/romcal-date-item';
+import Config, { IRomcalConfig } from '@RomcalModels/romcal-config';
+import { Dictionary, isNil, isInteger, isObject } from '@RomcalUtils/type-guards';
+import { hasKey } from '@RomcalUtils/object';
+import { COUNTRIES as Countries } from '@RomcalConstants/county-list.constant';
+import { Query } from '@RomcalTypes/query-type.type';
 // eslint-disable-next-line you-dont-need-lodash-underscore/map
 import map from 'lodash-es/map';
-import dayjs from 'dayjs';
-import Config, { IRomcalConfig } from './models/romcal-config';
-import { Locales } from './lib';
-import { Calendar } from './lib/Calendar';
+import groupBy from 'lodash-es/groupBy';
 
+// Other exports to provide convenience functions to the user
+export { Calendar, Celebrations, Dates, Seasons, Locales };
+export { Countries };
+
+/**
+ * The default export of the `romcal` module.
+ */
 export default class Romcal {
   /**
    * Filters an array of dates generated from the calendarFor function based on a given query.
@@ -17,7 +25,7 @@ export default class Romcal {
    * @param query A query object containing criteria to filter the dates by
    */
   static queryFor<U extends undefined | null>(dates: Array<DateItem>, query: U): DateItem[];
-  static queryFor<U extends TRomcalQuery>(
+  static queryFor<U extends Query>(
     dates: DateItem[],
     query: U,
   ): 'group' extends keyof U // is a group key defined in the query?
@@ -31,10 +39,7 @@ export default class Romcal {
     : 'title' extends keyof U // else, is a title key defined in the query?
     ? DateItem[]
     : DateItem[]; // If none of the above, then return the original array;
-  static queryFor(
-    dates: DateItem[],
-    query: TRomcalQuery,
-  ): DateItem[] | Dictionary<DateItem[]> | Dictionary<DateItem[]>[] {
+  static queryFor(dates: DateItem[], query: Query): DateItem[] | Dictionary<DateItem[]> | Dictionary<DateItem[]>[] {
     if (isNil(query)) {
       return dates;
     }
