@@ -1,7 +1,7 @@
 import { ValidationError } from 'jsonschema';
 import { getDateItemSchemaValidator, getDateItemDataJsonSchema } from '@RomcalValidators/date-item.validator';
 import { getRomcalConfigSchemaValidator, getRomcalConfigJsonSchema } from '@RomcalValidators/romcal-config.validator';
-import { IRomcalConfig } from '@RomcalModels/romcal-config';
+import { RomcalConfig } from '@RomcalModels/romcal-config';
 import { DateItem } from '@RomcalModels/romcal-date-item';
 
 import dayjs from 'dayjs';
@@ -32,10 +32,10 @@ export type TLocalizeParams = {
 };
 
 /**
- * Check if the arbitary value given is an instance of [[IRomcalConfig]].
- * @param maybeRomcalConfig The value that could be an instance of [[IRomcalConfig]]
+ * Check if the arbitary value given is an instance of [[RomcalConfig]].
+ * @param maybeRomcalConfig The value that could be an instance of [[RomcalConfig]]
  */
-export const isRomcalConfig = (maybeRomcalConfig: unknown): maybeRomcalConfig is IRomcalConfig => {
+export const isRomcalConfig = (maybeRomcalConfig: unknown): maybeRomcalConfig is RomcalConfig => {
   const { errors, valid } = getRomcalConfigSchemaValidator().validate(maybeRomcalConfig, getRomcalConfigJsonSchema());
   if (!valid) {
     errors.forEach((error: ValidationError) => {

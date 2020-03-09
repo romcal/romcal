@@ -4,14 +4,15 @@ import templateSettings from 'lodash-es/templateSettings';
 import { parse, Schema } from 'bcp-47';
 import { toOrdinal, toWordsOrdinal } from 'number-to-words';
 
-import { findDescendantValueByKeys, mergeObjectsUniquely } from '../utils/object';
-import { isNil, TLocalizeParams, isString } from '../utils/type-guards';
-import { IRomcalLocale } from '../models/romcal-locale';
-import { IRomcalDateItem } from '@RomcalModels/romcal-date-item';
+import { findDescendantValueByKeys, mergeObjectsUniquely } from '@RomcalUtils/object';
+import { isNil, isString } from '@RomcalUtils/type-guards';
+import { RomcalLocale } from '@RomcalModels/romcal-locale';
+import { RomcalDateItem } from '@RomcalModels/romcal-date-item';
 import { TypesEnum } from '@RomcalEnums/types.enum';
 import { LiturgicalColor } from '@RomcalTypes/liturgical-colors.type';
 import { DateItemSources } from '@RomcalTypes/date-item-sources.type';
 import { LocaleTypes } from '@RomcalTypes/locale-types.type';
+import { LocalizeParams } from '@RomcalTypes/localize-params.type';
 
 /**
  * Load DayJS and relevant plugins
@@ -45,12 +46,12 @@ export const _fallbackLocaleKey: LocaleTypes = 'en';
 /**
  * Cache value for the array of locales to be used for calendar output.
  */
-let _locales: IRomcalLocale[];
+let _locales: RomcalLocale[];
 
 /**
  * The cache key that holds the flattened _locales array.
  */
-let _combinedLocale: IRomcalLocale | undefined;
+let _combinedLocale: RomcalLocale | undefined;
 
 /**
  * Cache value to hold the current locale's data.
@@ -127,7 +128,7 @@ const setLocale = async (key: LocaleTypes, customOrdinalFn: (v: number) => strin
       /* webpackMode: "lazy" */
       `../locales/${_fallbackLocaleKey}`
     );
-    _locales = [fallbackLocale as IRomcalLocale];
+    _locales = [fallbackLocale as RomcalLocale];
   } catch (e) {
     console.error(`Failed to load the ${_fallbackLocaleKey} language file`);
   }
@@ -152,7 +153,7 @@ const setLocale = async (key: LocaleTypes, customOrdinalFn: (v: number) => strin
           /* webpackMode: "lazy" */
           `../locales/${language}`
         );
-        _locales = [baseLocale as IRomcalLocale, ..._locales]; // For example: append the 'fr' locale
+        _locales = [baseLocale as RomcalLocale, ..._locales]; // For example: append the 'fr' locale
       } catch (e) {
         console.warn(`A base language file for "${language}" to support the ${currentLocale} locale is not available`);
       }
@@ -168,7 +169,7 @@ const setLocale = async (key: LocaleTypes, customOrdinalFn: (v: number) => strin
         /* webpackMode: "lazy" */
         `../locales/${currentLocale}`
       );
-      _locales = [regionSpecificLocale as IRomcalLocale, ..._locales]; // For example: append the 'fr-CA' locale
+      _locales = [regionSpecificLocale as RomcalLocale, ..._locales]; // For example: append the 'fr-CA' locale
     } catch (e) {
       console.warn(`A language file for the region locale "${currentLocale}" is not available`);
     }
@@ -235,7 +236,7 @@ const setLocale = async (key: LocaleTypes, customOrdinalFn: (v: number) => strin
  * And use cache in case this function is called multiple times
  * without the locale being modified.
  */
-const getLocale = (): IRomcalLocale => {
+const getLocale = (): RomcalLocale => {
   if (isNil(_combinedLocale)) {
     if (_locales.length > 1) {
       const [regionLocale, fallbackLocale] = _locales;
@@ -254,7 +255,7 @@ const getLocale = (): IRomcalLocale => {
  *
  * @param localizeParams Options for retrieving the localized key
  */
-const localize = async ({ key, count, week, day, useDefaultOrdinalFn }: TLocalizeParams): Promise<string> => {
+const localize = async ({ key, count, week, day, useDefaultOrdinalFn }: LocalizeParams): Promise<string> => {
   // Get the IETF locale set in dayjs and obtain its corresponding locale data object
   const value = findDescendantValueByKeys(getLocale(), key.split('.'));
 
@@ -282,21 +283,21 @@ const localize = async ({ key, count, week, day, useDefaultOrdinalFn }: TLocaliz
  *
  * If the source is `temporal`, the logic will only use the key for the lookup.
  *
- * @param dates A list of [[IRomcalDateItem]]s to process
+ * @param dates A list of [[RomcalDateItem]]s to process
  * @param source The source of the date to localize. This value is used to lookup a specific sub tree in the locale file for the localized value.
  */
 const localizeDates = async (
-  dates: Array<IRomcalDateItem>,
+  dates: Array<RomcalDateItem>,
   source: DateItemSources = 'sanctoral',
-): Promise<IRomcalDateItem[]> => {
-  const promiseDates: Promise<IRomcalDateItem>[] = dates.map(async (date: IRomcalDateItem) => {
+): Promise<RomcalDateItem[]> => {
+  const promiseDates: Promise<RomcalDateItem>[] = dates.map(async (date: RomcalDateItem) => {
     const dateWithLocalizedName = {
       ...date,
       name: await localize({
         // If the source is `temporal`, do not append anything before the date key
         key: `${source === 'temporal' ? date.key : !isNil(date.source) ? date.source : source}.${date.key}`,
       }),
-    } as IRomcalDateItem;
+    } as RomcalDateItem;
     return dateWithLocalizedName;
   });
   return await Promise.all(promiseDates);
@@ -304,7 +305,7 @@ const localizeDates = async (
 
 /**
  * Takes the key from an instance of the [[LiturgicalColor]] object and attempts to find its localized color name
- * from the active [[IRomcalLocale]] instance.
+ * from the active [[RomcalLocale]] instance.
  *
  * If they source object is undefined, no localization is done and undefined is returned.
  *

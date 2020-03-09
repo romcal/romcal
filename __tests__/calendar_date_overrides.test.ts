@@ -25,7 +25,7 @@
 
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
-import { DateItem, IRomcalDateItem } from '../src/models/romcal-date-item';
+import { DateItem, RomcalDateItem } from '../src/models/romcal-date-item';
 import Romcal from '../src/index';
 import { Dates, Seasons } from '../src/lib';
 import { TypesEnum } from '../src/enums/types.enum';
@@ -243,14 +243,14 @@ describe('Testing national calendar overrides', () => {
           country: 'england',
         });
 
-        const laterOrdinaryTimeDates2009: IRomcalDateItem[] = await Seasons.laterOrdinaryTime(2009);
-        const laterOrdinaryTimeDates2011: IRomcalDateItem[] = await Seasons.laterOrdinaryTime(2011);
+        const laterOrdinaryTimeDates2009: RomcalDateItem[] = await Seasons.laterOrdinaryTime(2009);
+        const laterOrdinaryTimeDates2011: RomcalDateItem[] = await Seasons.laterOrdinaryTime(2011);
 
-        const twentiethSundayOfOrdinaryTime2009: IRomcalDateItem | undefined = laterOrdinaryTimeDates2009.find(d => {
+        const twentiethSundayOfOrdinaryTime2009: RomcalDateItem | undefined = laterOrdinaryTimeDates2009.find(d => {
           return d.key === 'twentiethSundayOfOrdinaryTime';
         });
 
-        const twentiethSundayOfOrdinaryTime2011: IRomcalDateItem | undefined = laterOrdinaryTimeDates2011.find(d => {
+        const twentiethSundayOfOrdinaryTime2011: RomcalDateItem | undefined = laterOrdinaryTimeDates2011.find(d => {
           return d.key === 'twentiethSundayOfOrdinaryTime';
         });
 
@@ -301,8 +301,8 @@ describe('Testing national calendar overrides', () => {
           country: 'england',
         });
 
-        const laterOrdinaryTimeDates: IRomcalDateItem[] = await Seasons.laterOrdinaryTime(2010);
-        const twentiethSundayOfOrdinaryTime: IRomcalDateItem | undefined = laterOrdinaryTimeDates.find(d => {
+        const laterOrdinaryTimeDates: RomcalDateItem[] = await Seasons.laterOrdinaryTime(2010);
+        const twentiethSundayOfOrdinaryTime: RomcalDateItem | undefined = laterOrdinaryTimeDates.find(d => {
           return d.key === 'twentiethSundayOfOrdinaryTime';
         });
 

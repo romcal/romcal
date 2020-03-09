@@ -9,28 +9,28 @@ import { LiturgicalColor } from '@RomcalTypes/liturgical-colors.type';
 import { LiturgicalCycle } from '@RomcalTypes/liturgical-cycles.type';
 import { DateItemSources } from '@RomcalTypes/date-item-sources.type';
 
-export interface IRomcalDateItemDataCalendar {
+export interface RomcalDateItemDataCalendar {
   weeks: number;
   week: number;
   day: number;
 }
 
-export interface IRomcalSeason {
+export interface RomcalSeason {
   key: LiturgicalSeason;
   value: string;
 }
 
-export interface IRomcalDateItemMetadata {
+export interface RomcalDateItemMetadata {
   psalterWeek?: PsalterWeek;
   liturgicalColor?: LiturgicalColor;
   titles?: Array<string>;
   cycle?: LiturgicalCycle;
 }
 
-export interface IRomcalDateItemData {
-  season?: Array<IRomcalSeason>;
-  meta?: IRomcalDateItemMetadata;
-  calendar?: IRomcalDateItemDataCalendar;
+export interface RomcalDateItemData {
+  season?: Array<RomcalSeason>;
+  meta?: RomcalDateItemMetadata;
+  calendar?: RomcalDateItemDataCalendar;
   prioritized?: boolean;
 }
 
@@ -41,7 +41,7 @@ export interface IRomcalDateItemData {
  * the the object is constructed in stages. This interface
  * should not be used in consumer applications.
  */
-export interface IRomcalDateItem {
+export interface RomcalDateItem {
   /**
    * The human readable and localized name of this celebration
    */
@@ -55,7 +55,7 @@ export interface IRomcalDateItem {
    */
   type?: TypesEnum;
   date: dayjs.Dayjs;
-  data?: IRomcalDateItemData;
+  data?: RomcalDateItemData;
   /**
    * The source of the date item.
    *
@@ -70,26 +70,27 @@ export interface IRomcalDateItem {
   drop?: boolean;
 }
 
-export interface IDateItemMetadata {
+export interface DateItemMetadata {
   psalterWeek?: PsalterWeek;
   liturgicalColor?: LiturgicalColor;
   titles?: Array<string>;
   cycle?: LiturgicalCycle;
 }
 
-export interface IDateItemData {
-  season: Array<IRomcalSeason>;
-  meta: IDateItemMetadata;
-  calendar: IRomcalDateItemDataCalendar;
+export interface DateItemData {
+  season: Array<RomcalSeason>;
+  meta: DateItemMetadata;
+  calendar: RomcalDateItemDataCalendar;
   prioritized?: boolean;
 }
 
+// eslint-disable-next-line @typescript-eslint/interface-name-prefix
 export interface IDateItem {
   readonly key: string;
   readonly name: string;
   readonly date: ISO8601DateString;
   readonly type: TypesEnum;
-  readonly data: IDateItemData;
+  readonly data: DateItemData;
   readonly base?: DateItem;
   readonly _id: number;
   readonly _stack: number;
@@ -121,7 +122,7 @@ export class DateItem implements IDateItem {
   /**
    * The data associated to this celebration.
    */
-  public data: IDateItemData;
+  public data: DateItemData;
   /**
    * A previous celebration on the same day that was overriden by the current one.
    */
