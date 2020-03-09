@@ -1,11 +1,9 @@
 import dayjs from 'dayjs';
 
 import { Locales } from '../lib';
-import { LITURGICAL_COLORS } from '@RomcalConstants/liturgical-colors.constant';
-import { TITLES } from '@RomcalConstants/titles.constant';
-import { IRomcalDateItem } from '@RomcalModels/romcal-date-item';
-import Config, { IRomcalDefaultConfig } from '@RomcalModels/romcal-config';
-import { TypesEnum } from '@RomcalEnums/types.enum';
+import { Titles, Types, LiturgicalColors } from '../constants';
+import { IRomcalDateItem } from '../models/romcal-date-item';
+import Config, { IRomcalDefaultConfig } from '../models/romcal-config';
 
 const defaultConfig: IRomcalDefaultConfig | undefined = undefined;
 
@@ -14,166 +12,191 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
   const _dates: Array<IRomcalDateItem> = [
     {
       key: 'saintAndreBessetteReligious',
-      type: TypesEnum.MEMORIAL,
+      type: Types.MEMORIAL,
       date: dayjs.utc(`${year}-1-7`),
       data: {
         meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
+          liturgicalColor: LiturgicalColors.WHITE,
         },
       },
     },
     {
       key: 'saintRaymondOfPenyafortPriest',
-      type: TypesEnum.OPT_MEMORIAL,
+      type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-8`),
     },
     {
       key: 'saintMargueriteBourgeoysVirgin',
-      type: TypesEnum.MEMORIAL,
+      type: Types.MEMORIAL,
       date: dayjs.utc(`${year}-1-12`),
       data: {
         meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
+          liturgicalColor: LiturgicalColors.WHITE,
         },
       },
     },
     {
       key: 'saintJosephSpouseOfTheBlessedVirginMaryPrincipalPatronOfCanada',
-      type: TypesEnum.SOLEMNITY,
+      type: Types.SOLEMNITY,
       date: dayjs.utc(`${year}-3-19`),
       data: {
         meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
+          liturgicalColor: LiturgicalColors.WHITE,
         },
       },
     },
     {
       key: 'saintKateriTekakwithaVirgin',
-      type: TypesEnum.OPT_MEMORIAL,
+      type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-4-17`),
     },
     {
       key: 'blessedMarieAnneBlondinVirgin',
-      type: TypesEnum.OPT_MEMORIAL,
+      type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-4-18`),
     },
     {
       key: 'ourLadyOfGoodCounsel',
-      type: TypesEnum.OPT_MEMORIAL,
+      type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-4-26`),
     },
     {
       key: 'saintMarieOfTheIncarnationReligious',
-      type: TypesEnum.OPT_MEMORIAL,
+      type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-4-30`),
     },
     {
       key: 'blessedMarieLeonieParadisVirgin',
-      type: TypesEnum.OPT_MEMORIAL,
+      type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-4`),
     },
     {
       key: 'saintFrancoisDeLavalBishop',
-      type: TypesEnum.OPT_MEMORIAL,
+      type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-6`),
     },
     {
       key: 'blessedCatherineOfSaintAugustineVirgin',
-      type: TypesEnum.OPT_MEMORIAL,
+      type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-8`),
     },
     {
       key: 'saintEugeneDeMazenodBishop',
-      type: TypesEnum.OPT_MEMORIAL,
+      type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-21`),
     },
     {
       key: 'blessedLouisZephirinMoreauBishop',
-      type: TypesEnum.OPT_MEMORIAL,
+      type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-24`),
     },
     {
       key: 'blessedsNykytaBudkaAndVasylVelychkowskyBishopsAndMartyrs',
-      type: TypesEnum.OPT_MEMORIAL,
+      type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-27`),
       data: {
         meta: {
-          titles: [TITLES.MARTYR],
+          titles: [Titles.MARTYR],
         },
       },
     },
     {
       key: 'saintAnnePatronOfQuebecAndSaintJoachimParentsOfTheBlessedVirginMary',
-      type: TypesEnum.FEAST,
+      type: Types.FEAST,
       date: dayjs.utc(`${year}-7-26`),
       data: {
         meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
+          liturgicalColor: LiturgicalColors.WHITE,
         },
       },
     },
     {
       key: 'blessedFredericJanssoonePriest',
-      type: TypesEnum.OPT_MEMORIAL,
+      type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-5`),
     },
     {
       key: 'blessedAndreGrassetPriestAndMartyr',
-      type: TypesEnum.OPT_MEMORIAL,
+      type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-2`),
       data: {
         meta: {
-          titles: [TITLES.MARTYR],
+          titles: [Titles.MARTYR],
         },
       },
     },
     {
       key: 'blessedDinaBelangerVirgin',
-      type: TypesEnum.OPT_MEMORIAL,
+      type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-4`),
     },
     {
       key: 'blessedEmilieTavernierGamelinReligious',
-      type: TypesEnum.OPT_MEMORIAL,
+      type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-24`),
     },
     {
-      key: 'saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrsSaintPaulOfTheCrossPriest',
-      type: TypesEnum.FEAST,
+      key: 'saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrs',
+      type: Types.FEAST,
       date: dayjs.utc(`${year}-9-26`),
       data: {
         meta: {
-          liturgicalColor: LITURGICAL_COLORS.RED,
+          liturgicalColor: LiturgicalColors.RED,
+        },
+      },
+    },
+    {
+      key: 'saintsNereusAndAchilleusMartyrs',
+      type: Types.FEAST,
+      date: dayjs.utc(`${year}-9-26`),
+      data: {
+        meta: {
+          liturgicalColor: LiturgicalColors.RED,
+        },
+      },
+    },
+    {
+      key: 'saintPancrasMartyr',
+      type: Types.FEAST,
+      date: dayjs.utc(`${year}-9-26`),
+      data: {
+        meta: {
+          liturgicalColor: LiturgicalColors.RED,
         },
       },
     },
     {
       key: 'blessedMarieRoseDurocherVirgin',
-      type: TypesEnum.OPT_MEMORIAL,
+      type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-6`),
     },
     {
       key: 'saintMargueriteDYouvilleReligious',
-      type: TypesEnum.MEMORIAL,
+      type: Types.MEMORIAL,
       date: dayjs.utc(`${year}-10-16`),
       data: {
         meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
+          liturgicalColor: LiturgicalColors.WHITE,
         },
       },
     },
     {
-      key: 'saintHedwigReligiousOrSaintMargaretMaryAlacoqueVirgin',
-      type: TypesEnum.OPT_MEMORIAL,
+      key: 'saintHedwigReligious',
+      type: Types.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-10-20`),
+    },
+    {
+      key: 'saintMargaretMaryAlacoqueVirgin',
+      type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-20`),
     },
     {
       key: 'ourLadyOfGuadalupe',
-      type: TypesEnum.FEAST,
+      type: Types.FEAST,
       date: dayjs.utc(`${year}-12-12`),
       data: {
         meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
+          liturgicalColor: LiturgicalColors.WHITE,
         },
       },
     },
