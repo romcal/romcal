@@ -18,7 +18,7 @@ module.exports = {
     '@typescript-eslint/interface-name-prefix': [
       'error',
       {
-        prefixWithI: 'always',
+        prefixWithI: 'never',
       },
     ],
   },

@@ -9,3 +9,4 @@ dist/
 .npmrc
 romcal-*.tgz
 coverage/
+*code-workspace

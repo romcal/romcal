@@ -14,7 +14,7 @@ export type RomcalLocaleKeys = {
 /**
  * The contract that defines the properties of a Romcal compliant locale file.
  */
-export interface IRomcalLocale {
+export interface RomcalLocale {
   readonly advent?: Pick<RomcalLocaleKeys, 'feria' | 'season' | 'sunday'>;
   readonly christmastide?: Pick<RomcalLocaleKeys, 'day' | 'octave' | 'season' | 'sunday'>;
   readonly epiphany?: Pick<RomcalLocaleKeys, 'after' | 'before' | 'season'>;

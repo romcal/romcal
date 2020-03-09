@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import { Locales } from '../lib';
 import { LITURGICAL_COLORS } from '@RomcalConstants/liturgical-colors.constant';
 import { TITLES } from '@RomcalConstants/titles.constant';
-import { IRomcalDateItem } from '@RomcalModels/romcal-date-item';
+import { RomcalDateItem } from '@RomcalModels/romcal-date-item';
 import Config, { IRomcalDefaultConfig } from '@RomcalModels/romcal-config';
 import { TypesEnum } from '@RomcalEnums/types.enum';
 
@@ -15,9 +15,9 @@ const defaultConfig: IRomcalDefaultConfig = {
   epiphanyOnSunday: true,
 };
 
-const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
+const dates = async (config: Config): Promise<Array<RomcalDateItem>> => {
   const year = config.year;
-  const _dates: Array<IRomcalDateItem> = [
+  const _dates: Array<RomcalDateItem> = [
     {
       key: 'saintGenevieveVirgin',
       type: TypesEnum.OPT_MEMORIAL,

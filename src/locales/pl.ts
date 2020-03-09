@@ -1,42 +1,42 @@
-import { IRomcalLocale } from '../models/romcal-locale';
+import { RomcalLocale } from '../models/romcal-locale';
 
 export default {
   advent: {
     season: 'Adwentu',
     feria: '{{day}} {{week}} tygodnia Adwentu',
-    sunday: '{{week}} Niedziela Adwentu'
+    sunday: '{{week}} Niedziela Adwentu',
   },
   christmastide: {
     season: 'Narodzenia Pańskiego',
     day: '{{day}} boże Narodzenie',
     octave: '{{count}} dzień w oktawie Narodzenia Pańskiego',
-    sunday: '{{count}} Niedziela po Narodzeniu Pańskim'
+    sunday: '{{count}} Niedziela po Narodzeniu Pańskim',
   },
   epiphany: {
     season: 'Objawienie Pańskie',
     before: '{{day}} przed Objawieniem Pańskim',
-    after: '{{day}} po Objawieniu Pańskim'
+    after: '{{day}} po Objawieniu Pańskim',
   },
   ordinaryTime: {
     season: 'Zwykła',
     feria: '{{day}} {{week}} tygodnia zwykłego',
-    sunday: '{{week}} Niedziela zwykła'
+    sunday: '{{week}} Niedziela zwykła',
   },
   lent: {
     season: 'Postu',
     feria: '{{day}} {{week}} tygodnia Wielkiego Postu',
     sunday: '{{week}} Niedziela Wielkiego Postu',
-    dayAfterAshWed: '{{day}} po Popielcu'
+    dayAfterAshWed: '{{day}} po Popielcu',
   },
   holyWeek: {
     season: 'Wielki Tydzień',
-    feria: '{{day}} wielkiego tygodnia'
+    feria: '{{day}} wielkiego tygodnia',
   },
   eastertide: {
     season: 'Wielkanoc',
     feria: '{{day}} {{week}} tygodnia wielkanocnego',
     sunday: '{{week}} Niedziela Wielkanocna',
-    octave: '{{day}} w oktawie Wielkanocy'
+    octave: '{{day}} w oktawie Wielkanocy',
   },
   celebrations: {
     allSaints: 'Wszystkich Świętych',
@@ -67,13 +67,14 @@ export default {
     sacredHeartOfJesus: 'Najświętszego Serca Pana Jezusa',
     theExaltationOfTheHolyCross: 'Podwyższenie Krzyża Świętego',
     transfiguration: 'Przemienienie Pańskie',
-    trinitySunday: 'Niedziela Najświętszej Trójcy'
+    trinitySunday: 'Niedziela Najświętszej Trójcy',
   },
   sanctoral: {
     allSouls: 'Wspomnienie wszystkich wiernych zmarłych',
     birthOfTheBlessedVirginMary: 'Narodzenie Najświętszej Maryi Panny',
     blessedAnielaSalawaVirgin: 'Bł. Anieli Salawy, dziewicy',
-    blessedAntoniNowowiejskiBishopAndCompanionsMartyrs: 'Błogosławionych męczenników Antoniego Juliana Nowowiejskiego, biskupa, i Towarzyszy',
+    blessedAntoniNowowiejskiBishopAndCompanionsMartyrs:
+      'Błogosławionych męczenników Antoniego Juliana Nowowiejskiego, biskupa, i Towarzyszy',
     blessedBogumilBishop: 'Bł. Bogumiła, biskupa',
     blessedBoleslawaMariaLamentVirgin: 'Bł. Bolesławy Marii Lament, dziewicy',
     blessedBronislawaVirgin: 'Bł. Bronisławy, dziewicy',
@@ -90,19 +91,22 @@ export default {
     blessedMariaStellaAndCompanionsVirginsAndMartyrs: 'Błogosławionych dziewic i męczennic Marii Stelli i Towarzyszek',
     blessedMariaTeresaLedochowskaVirgin: 'Bł. Marii Teresy Ledóchowskiej, dziewicy',
     blessedMaryAngelaTruszkowskaVirgin: 'Bł. Marii Angeli Truszkowskiej, dziewicy',
-    blessedMaryOfJesusTheGoodShepherdVirgin: 'Bł. Marii od Pana Jezusa Dobrego Pasterza (Franciszki Siedliskiej), zakonnicy',
+    blessedMaryOfJesusTheGoodShepherdVirgin:
+      'Bł. Marii od Pana Jezusa Dobrego Pasterza (Franciszki Siedliskiej), zakonnicy',
     blessedMauriceTornayPriestAndMartyr: 'Bł. Maurycego Tornaya, Kapłana i Męczennika',
     blessedMichaelKozalBishopAndMartyr: 'Bł. Michała Kozala, biskupa i męczennika',
     blessedOdoricOfPordenonePriest: 'Bł. Odoryka z Pordenone, Kapłana',
     blessedRafalChylinskiPriest: 'Bł. Rafała Chylińskiego, prezbitera',
     blessedSalomeVirgin: 'Bł. Salomei, zakonnicy',
     blessedVincentKadlubekBishop: 'Bł. Wincentego Kadłubka, biskupa',
-    blessedVincentLewoniukAndCompanionsMartyrsOfPratulin: 'Błogosławionych męczenników Wincentego Lewoniuka i Towarzyszy',
+    blessedVincentLewoniukAndCompanionsMartyrsOfPratulin:
+      'Błogosławionych męczenników Wincentego Lewoniuka i Towarzyszy',
     blessedWladyslawOfGielniowPriest: 'Bł. Władysława z Gielniowa, prezbitera',
     chairOfSaintPeterApostle: 'Katedry św. Piotra, Apostoła',
     conversionOfSaintPaulApostle: 'Nawrócenie św. Pawła, Apostoła',
     dedicationOfTheBasilicaOfSaintMaryMajor: 'Rocznica poświęcenia rzymskiej Bazyliki Najświętszej Maryi Panny',
-    dedicationOfTheBasilicasOfSaintsPeterAndPaulApostles: 'Rocznica poświęcenia rzymskich bazylik świętych apostołów Piotra i Pawła',
+    dedicationOfTheBasilicasOfSaintsPeterAndPaulApostles:
+      'Rocznica poświęcenia rzymskich bazylik świętych apostołów Piotra i Pawła',
     dedicationOfTheLateranBasilica: 'Rocznica poświęcenia Bazyliki Laterańskiej',
     firstMartyrsOfTheChurchOfRome: 'Świętych Pierwszych Męczenników Św. Kościoła Rzymskiego',
     guardianAngels: 'Świętych Aniołów Stróżów',
@@ -135,7 +139,8 @@ export default {
     saintAmbroseBishopAndDoctor: 'Św. Ambrożego, biskupa i doktora Kościoła',
     saintAndrewBobolaPriestAndMartyr: 'Św. Andrzeja Boboli, prezbitera i męczennika',
     saintAndrewDungLacAndCompanionsMartyrs: 'Świętych męczenników Andrzeja Dung-Lac, prezbitera, i Towarzyszy',
-    saintAndrewKimTaegonPriestAndPaulChongHasangAndCompanionsMartyrs: 'Świętych męczenników Andrzeja Kim Taegon, prezbitera, Pawła Chong Hasang i Towarzyszy',
+    saintAndrewKimTaegonPriestAndPaulChongHasangAndCompanionsMartyrs:
+      'Świętych męczenników Andrzeja Kim Taegon, prezbitera, Pawła Chong Hasang i Towarzyszy',
     saintAndrewTheApostle: 'Św. Andrzeja, Apostoła',
     saintAngelaMericiVirgin: 'Św. Anieli Merici, dziewicy',
     saintAnselmOfCanterburyBishopAndDoctorOfTheChurch: 'Św. Anzelma, biskupa i doktora Kościoła',
@@ -168,11 +173,13 @@ export default {
     saintCamillusDeLellisPriest: 'Św. Kamila de Lellis, prezbitera',
     saintCasimir: 'Św. Kazimierza',
     saintCatherineOfAlexandriaVirginAndMartyr: 'Św. Katarzyny Aleksandryjskiej, dziewicy i męczennicy',
-    saintCatherineOfSienaVirginAndDoctorOfTheChurch: 'Św. Katarzyny Sieneńskiej, dziewicy i doktora Kościoła, patronki Europye',
+    saintCatherineOfSienaVirginAndDoctorOfTheChurch:
+      'Św. Katarzyny Sieneńskiej, dziewicy i doktora Kościoła, patronki Europye',
     saintCeciliaVirginAndMartyr: 'Św. Cecylii, dziewicy i męczennicy',
     saintCharbelMakhloufPriestAndHermit: 'Św. Sarbeliusza Makluf, prezbitera',
     saintCharlesBorromeoBishop: 'Św. Karola Boromeusza, biskupa',
-    saintChristopherMagallanesAndCompanionsMartyrs: 'Świętych męczenników Krzysztofa Magallanesa, prezbitera, i Towarzyszy',
+    saintChristopherMagallanesAndCompanionsMartyrs:
+      'Świętych męczenników Krzysztofa Magallanesa, prezbitera, i Towarzyszy',
     saintClareVirgin: 'Św. Klary, dziewicy',
     saintClementIPopeAndMartyr: 'Św. Klemensa I, papieża i męczennika',
     saintColumbanAbbotAndMissionary: 'Św. Kolumbana, zakonnika',
@@ -301,22 +308,28 @@ export default {
     saintRomualdAbbot: 'Św. Romualda, opata',
     saintRoseOfLima: 'Św. Róży z Limy, dziewicy',
     saintsAndrewZorardAndBenedictHermits: 'Świętych pustelników Andrzeja Świerada i Benedykta',
-    saintsAugustineZhaoRongPriestAndCompanionsMartyrs: 'Świętych męczenników Augustyna Zhao Rong, prezbitera, i Towarzyszy',
-    saintsBasilTheGreatAndGregoryNazianzenBishopsAndDoctors: 'Świętych Bazylego Wielkiego i Grzegorza z Nazjanzu, biskupów i doktorów Kościoła',
-    saintsBenedyktJanMateuszIsaakAndKrystynMartyrs: 'Świętych Benedykta, Jana, Mateusza, Izaaka i Krystyna, pierwszych męczenników Polski',
+    saintsAugustineZhaoRongPriestAndCompanionsMartyrs:
+      'Świętych męczenników Augustyna Zhao Rong, prezbitera, i Towarzyszy',
+    saintsBasilTheGreatAndGregoryNazianzenBishopsAndDoctors:
+      'Świętych Bazylego Wielkiego i Grzegorza z Nazjanzu, biskupów i doktorów Kościoła',
+    saintsBenedyktJanMateuszIsaakAndKrystynMartyrs:
+      'Świętych Benedykta, Jana, Mateusza, Izaaka i Krystyna, pierwszych męczenników Polski',
     saintsCharlesLwangaAndCompanionsMartyrs: 'Świętych męczenników Karola Lwangi i Towarzyszy',
     saintScholasticaVirgin: 'Św. Scholastyki, dziewicy',
     saintsCorneliusPopeAndCyprianBishopMartyrs: 'Świętych męczenników Korneliusza, papieża, i Cypriana, biskupa',
     saintsCosmasAndDamianMartyrs: 'Świętych męczenników Kosmy i Damiana',
     saintsCyrilMonkAndMethodiusBishop: 'Świętych Cyryla, mnicha i Metodego, biskupa, patronów Europy',
     saintsFabianPopeAndSebastianMartyrs: 'Św. Fabiana, papieża i męczennika/Św. Sebastiana, męczennika',
-    saintsGregoryGrassiFrancisFogollaAndAnthonyFantosatiBishopsAndCompanionsMartyrs: 'Świętych męczenników Grzegorza Grassiego, Franciszka Fogolli i Antoniego Fantosatiego, Biskupów i Towarzyszy',
+    saintsGregoryGrassiFrancisFogollaAndAnthonyFantosatiBishopsAndCompanionsMartyrs:
+      'Świętych męczenników Grzegorza Grassiego, Franciszka Fogolli i Antoniego Fantosatiego, Biskupów i Towarzyszy',
     saintSimonOfLipnicaPriest: 'Św. Szymona z Lipnicy, prezbitera',
     saintSixtusIiPopeAndCompanionsMartyrs: 'Świętych męczenników Sykstusa II, papieża, i Towarzyszy',
-    saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrs: 'Świętych męczenników Jana de Brebeuf, Izaaka Jogues’a, prezbiterów oraz Towarzyszy',
+    saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrs:
+      'Świętych męczenników Jana de Brebeuf, Izaaka Jogues’a, prezbiterów oraz Towarzyszy',
     saintsJoachimAndAnne: 'Świętych Rodziców NMP Joachima i Anny',
     saintsJohnFisherBishopAndThomasMoreMartyrs: 'Świętych męczenników Jana Fishera, biskupa i Tomasza More’a',
-    saintsLouisVersigliaBishopAndCallistusCaravarioPriestMartyrs: 'Świętych Alojzego Versiglii, Biskupa i Kaliksta Caravaria, Kapłana',
+    saintsLouisVersigliaBishopAndCallistusCaravarioPriestMartyrs:
+      'Świętych Alojzego Versiglii, Biskupa i Kaliksta Caravaria, Kapłana',
     saintsMarcellinusAndPeterMartyrs: 'Świętych męczenników Marcelina i Piotra',
     saintsMichaelGabrielAndRaphaelArchangels: 'Świętych Archaniołów Michała, Gabriela i Rafała',
     saintsNereusAndAchilleusMartyrs: 'Świętych męczenników Nereusza i Achillesa',
@@ -331,7 +344,8 @@ export default {
     saintStephenTheFirstMartyr: 'Św. Szczepana, pierwszego męczennika',
     saintsTimothyAndTitusBishops: 'Świętych biskupów Tymoteusza i Tytusa',
     saintSylvesterIPope: 'Św. Sylwestra I, papieża',
-    saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr: 'Św. Teresy Benedykty od Krzyża, dziewicy i męczennicy, patronki Europy',
+    saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr:
+      'Św. Teresy Benedykty od Krzyża, dziewicy i męczennicy, patronki Europy',
     saintTeresaOfJesusVirginAndDoctorOfTheChurch: 'Św. Teresy od Jezusa, dziewicy i doktora Kościoła',
     saintThereseOfTheChildJesusVirginAndDoctor: 'Św. Teresy od Dzieciątka Jezus, dziewicy i doktora Kościoła',
     saintThomasAquinasPriestAndDoctor: 'Św. Tomasza z Akwinu, prezbitera i doktora Kościoła',
@@ -348,9 +362,10 @@ export default {
     saintZygmuntGorazdowskiPriest: 'Św. Zygmunta Gorazdowskiego, prezbitera',
     saintZygmuntSzczesnyFelinskiBishop: 'Św. Zygmunta Szczęsnego Felińskiego, biskupa',
     sevenHolyFoundersOfTheServiteOrder: 'Świętych siedmiu założycieli Zakonu Serwitów Najświętszej Maryi Panny',
-    sevenMartyredNunsFromTheFranciscanMissionariesOfMary: 'Siedmiu męcznnic ze Zgromadzenia Franciszkanek Misjonarek Maryi',
+    sevenMartyredNunsFromTheFranciscanMissionariesOfMary:
+      'Siedmiu męcznnic ze Zgromadzenia Franciszkanek Misjonarek Maryi',
     theBeheadingOfSaintJohnTheBaptistMartyr: 'Męczeństwo św. Jana Chrzciciela',
     theMostHolyNameOfJesus: 'Najświętszego Imienia Jezus',
-    visitationOfTheBlessedVirginMary: 'Nawiedzenie Najświętszej Maryi Panny'
+    visitationOfTheBlessedVirginMary: 'Nawiedzenie Najświętszej Maryi Panny',
   },
-} as IRomcalLocale;
+} as RomcalLocale;

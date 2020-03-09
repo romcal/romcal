@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import { Locales, Celebrations, Dates, Seasons, Calendar } from './lib';
 import { DateItem } from '@RomcalModels/romcal-date-item';
-import Config, { IRomcalConfig } from '@RomcalModels/romcal-config';
+import Config, { RomcalConfig } from '@RomcalModels/romcal-config';
 import { Dictionary, isNil, isInteger, isObject } from '@RomcalUtils/type-guards';
 import { hasKey } from '@RomcalUtils/object';
 import { COUNTRIES as Countries } from '@RomcalConstants/county-list.constant';
@@ -106,7 +106,7 @@ export default class Romcal {
   // const t12 = queryFor(d1, { group: "days" });
 
   static calendarFor<T extends undefined | null>(options?: T): Promise<DateItem[]>;
-  static calendarFor<T extends IRomcalConfig | number>(
+  static calendarFor<T extends RomcalConfig | number>(
     options?: T,
   ): T extends number
     ? Promise<DateItem[]>
@@ -128,9 +128,9 @@ export default class Romcal {
    * @param options A configuration object or a year (integer)
    */
   static async calendarFor(
-    options?: IRomcalConfig | number,
+    options?: RomcalConfig | number,
   ): Promise<DateItem[] | Dictionary<DateItem[]> | Dictionary<DateItem[]>[]> {
-    let userConfig: IRomcalConfig = {};
+    let userConfig: RomcalConfig = {};
 
     // If options is passed as an integer,
     // assume we want the calendar for the current year
