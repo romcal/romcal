@@ -1,11 +1,9 @@
 import dayjs from 'dayjs';
 
 import { Locales } from '../lib';
-import { LITURGICAL_COLORS } from '@RomcalConstants/liturgical-colors.constant';
-import { TITLES } from '@RomcalConstants/titles.constant';
-import { IRomcalDateItem } from '@RomcalModels/romcal-date-item';
-import Config, { IRomcalDefaultConfig } from '@RomcalModels/romcal-config';
-import { TypesEnum } from '@RomcalEnums/types.enum';
+import { Titles, Types, LiturgicalColors } from '../constants';
+import { IRomcalDateItem } from '../models/romcal-date-item';
+import Config, { IRomcalDefaultConfig } from '../models/romcal-config';
 
 const defaultConfig: IRomcalDefaultConfig | undefined = undefined;
 
@@ -14,218 +12,233 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
   const _dates: Array<IRomcalDateItem> = [
     {
       key: 'blessedGoncaloDeAmarantePriest',
-      type: TypesEnum.OPT_MEMORIAL,
+      type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-11`),
     },
     {
       key: 'saintJohnDeBritoPriestAndMartyr',
-      type: TypesEnum.MEMORIAL,
+      type: Types.MEMORIAL,
       date: dayjs.utc(`${year}-2-4`),
       data: {
         meta: {
-          liturgicalColor: LITURGICAL_COLORS.RED,
-          titles: [TITLES.MARTYR],
+          liturgicalColor: LiturgicalColors.RED,
+          titles: [Titles.MARTYR],
         },
       },
     },
     {
       key: 'theFiveWoundsOfTheLord',
-      type: TypesEnum.FEAST,
+      type: Types.FEAST,
       date: dayjs.utc(`${year}-2-7`),
       data: {
         meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
+          liturgicalColor: LiturgicalColors.WHITE,
         },
       },
     },
     {
       key: 'saintsCyrilMonkAndMethodiusBishop',
-      type: TypesEnum.FEAST,
+      type: Types.FEAST,
       date: dayjs.utc(`${year}-2-14`),
       data: {
         meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-          titles: [TITLES.PATRON_OF_EUROPE],
+          liturgicalColor: LiturgicalColors.WHITE,
+          titles: [Titles.PATRON_OF_EUROPE],
         },
       },
     },
     {
       key: 'saintTheotoniusPriest',
-      type: TypesEnum.MEMORIAL,
+      type: Types.MEMORIAL,
       date: dayjs.utc(`${year}-2-18`),
       data: {
         meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
+          liturgicalColor: LiturgicalColors.WHITE,
         },
       },
     },
     {
       key: 'blessedJacintaAndFranciscoMarto',
-      type: TypesEnum.OPT_MEMORIAL,
+      type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-2-20`),
     },
     {
       key: 'saintJohnOfGodReligious',
-      type: TypesEnum.MEMORIAL,
+      type: Types.MEMORIAL,
       date: dayjs.utc(`${year}-3-8`),
       data: {
         meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
+          liturgicalColor: LiturgicalColors.WHITE,
         },
       },
     },
     {
       key: 'saintCatherineOfSienaVirginAndDoctorOfTheChurch',
-      type: TypesEnum.FEAST,
+      type: Types.FEAST,
       date: dayjs.utc(`${year}-4-29`),
       data: {
         meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-          titles: [TITLES.PATRON_OF_EUROPE, TITLES.DOCTOR_OF_THE_CHURCH],
+          liturgicalColor: LiturgicalColors.WHITE,
+          titles: [Titles.PATRON_OF_EUROPE, Titles.DOCTOR_OF_THE_CHURCH],
         },
       },
     },
     {
       key: 'blessedJoanOfPortugalVirgin',
-      type: TypesEnum.OPT_MEMORIAL,
+      type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-12`),
     },
     {
       key: 'ourLadyOfFatima',
-      type: TypesEnum.FEAST,
+      type: Types.FEAST,
       date: dayjs.utc(`${year}-5-13`),
       data: {
         meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
+          liturgicalColor: LiturgicalColors.WHITE,
         },
       },
     },
     {
       key: 'guardianAngelOfPortugal',
-      type: TypesEnum.MEMORIAL,
+      type: Types.MEMORIAL,
       date: dayjs.utc(`${year}-6-10`),
       data: {
         meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
+          liturgicalColor: LiturgicalColors.WHITE,
         },
       },
     },
     {
       key: 'saintAnthonyOfLisbonPriestAndDoctorOfTheChurch',
-      type: TypesEnum.FEAST,
+      type: Types.FEAST,
       date: dayjs.utc(`${year}-6-13`),
       data: {
         meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-          titles: [TITLES.DOCTOR_OF_THE_CHURCH],
+          liturgicalColor: LiturgicalColors.WHITE,
+          titles: [Titles.DOCTOR_OF_THE_CHURCH],
         },
       },
     },
     {
-      key: 'blessedSanchaAndMafaldaVirginsOrBlessedTheresaOfPortugalReligious',
-      type: TypesEnum.OPT_MEMORIAL,
+      key: 'blessedSanchaAndMafaldaVirgins',
+      type: Types.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-6-20`),
+    },
+    {
+      key: 'blessedTheresaOfPortugalReligious',
+      type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-20`),
     },
     {
       key: 'saintElizabethOfPortugal',
-      type: TypesEnum.MEMORIAL,
+      type: Types.MEMORIAL,
       date: dayjs.utc(`${year}-7-4`),
       data: {
         meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
+          liturgicalColor: LiturgicalColors.WHITE,
         },
       },
     },
     {
       key: 'saintBenedictOfNursiaAbbot',
-      type: TypesEnum.FEAST,
+      type: Types.FEAST,
       date: dayjs.utc(`${year}-7-11`),
       data: {
         meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-          titles: [TITLES.PATRON_OF_EUROPE],
+          liturgicalColor: LiturgicalColors.WHITE,
+          titles: [Titles.PATRON_OF_EUROPE],
         },
       },
     },
     {
       key: 'blessedInacioDeAzevedoPriestAndCompanionsMartyrs',
-      type: TypesEnum.MEMORIAL,
+      type: Types.MEMORIAL,
       date: dayjs.utc(`${year}-7-17`),
       data: {
         meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
+          liturgicalColor: LiturgicalColors.WHITE,
         },
       },
     },
     {
       key: 'blessedBartholomewOfTheMartyrsBishop',
-      type: TypesEnum.MEMORIAL,
+      type: Types.MEMORIAL,
       date: dayjs.utc(`${year}-7-18`),
       data: {
         meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
+          liturgicalColor: LiturgicalColors.WHITE,
         },
       },
     },
     {
       key: 'saintBridgetOfSwedenReligious',
-      type: TypesEnum.FEAST,
+      type: Types.FEAST,
       date: dayjs.utc(`${year}-7-23`),
       data: {
         meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-          titles: [TITLES.PATRON_OF_EUROPE],
+          liturgicalColor: LiturgicalColors.WHITE,
+          titles: [Titles.PATRON_OF_EUROPE],
         },
       },
     },
     {
       key: 'saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr',
-      type: TypesEnum.FEAST,
+      type: Types.FEAST,
       date: dayjs.utc(`${year}-8-9`),
       data: {
         meta: {
-          liturgicalColor: LITURGICAL_COLORS.RED,
-          titles: [TITLES.MARTYR, TITLES.PATRON_OF_EUROPE],
+          liturgicalColor: LiturgicalColors.RED,
+          titles: [Titles.MARTYR, Titles.PATRON_OF_EUROPE],
         },
       },
     },
     {
       key: 'saintBeatriceOfSilvaVirgin',
-      type: TypesEnum.MEMORIAL,
+      type: Types.MEMORIAL,
       date: dayjs.utc(`${year}-9-1`),
       data: {
         meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
+          liturgicalColor: LiturgicalColors.WHITE,
         },
       },
     },
     {
-      key: 'saintDenisAndCompanionsMartyrsSaintJohnLeonardiPriestBlessedJohnNewmanBishop',
-      type: TypesEnum.OPT_MEMORIAL,
+      key: 'saintDenisAndCompanionsMartyrs',
+      type: Types.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-10-9`),
+    },
+    {
+      key: 'saintJohnLeonardiPriest',
+      type: Types.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-10-9`),
+    },
+    {
+      key: 'blessedJohnNewmanBishop',
+      type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-9`),
     },
     {
       key: 'blessedGoncaloDeLagosPriest',
-      type: TypesEnum.OPT_MEMORIAL,
+      type: Types.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-27`),
     },
     {
       key: 'saintNunoDeSantaMaria',
-      type: TypesEnum.MEMORIAL,
+      type: Types.MEMORIAL,
       date: dayjs.utc(`${year}-11-6`),
       data: {
         meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
+          liturgicalColor: LiturgicalColors.WHITE,
         },
       },
     },
     {
       key: 'saintFructuosusSaintMartinOfDumeAndSaintGeraldBishops',
-      type: TypesEnum.MEMORIAL,
+      type: Types.MEMORIAL,
       date: dayjs.utc(`${year}-12-5`),
       data: {
         meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
+          liturgicalColor: LiturgicalColors.WHITE,
         },
       },
     },
