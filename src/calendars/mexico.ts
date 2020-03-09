@@ -1,9 +1,11 @@
 import dayjs from 'dayjs';
 
 import { Dates, Locales } from '../lib';
-import { Titles, Types, LiturgicalColors } from '../constants';
-import { IRomcalDateItem } from '../models/romcal-date-item';
-import Config, { IRomcalDefaultConfig } from '../models/romcal-config';
+import { LITURGICAL_COLORS } from '@RomcalConstants/liturgical-colors.constant';
+import { TITLES } from '@RomcalConstants/titles.constant';
+import { IRomcalDateItem } from '@RomcalModels/romcal-date-item';
+import Config, { IRomcalDefaultConfig } from '@RomcalModels/romcal-config';
+import { TypesEnum } from '@RomcalEnums/types.enum';
 
 const defaultConfig: IRomcalDefaultConfig | undefined = undefined;
 
@@ -12,105 +14,105 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
   const _dates: Array<IRomcalDateItem> = [
     {
       key: 'saintFelipeDeJesusPriestAndMartyr',
-      type: Types.FEAST,
+      type: TypesEnum.FEAST,
       date: dayjs.utc(`${year}-1-22`),
       data: {
         meta: {
-          liturgicalColor: LiturgicalColors.RED,
-          titles: [Titles.MARTYR],
+          liturgicalColor: LITURGICAL_COLORS.RED,
+          titles: [TITLES.MARTYR],
         },
       },
     },
     {
       key: 'saintJohnNepomucenePriestAndMartyr',
-      type: Types.OPT_MEMORIAL,
+      type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-16`),
       data: {
         meta: {
-          liturgicalColor: LiturgicalColors.RED,
-          titles: [Titles.MARTYR],
+          liturgicalColor: LITURGICAL_COLORS.RED,
+          titles: [TITLES.MARTYR],
         },
       },
     },
     {
       key: 'blessedSebastianDeAparicioReligious',
-      type: Types.OPT_MEMORIAL,
+      type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-2-25`),
     },
     {
       key: 'saintChristopherMagallanesAndCompanionsMartyrs',
-      type: Types.MEMORIAL,
+      type: TypesEnum.MEMORIAL,
       date: dayjs.utc(`${year}-5-21`),
       data: {
         meta: {
-          liturgicalColor: LiturgicalColors.RED,
-          titles: [Titles.MARTYR],
+          liturgicalColor: LITURGICAL_COLORS.RED,
+          titles: [TITLES.MARTYR],
         },
       },
     },
     {
       key: 'saintMariaDeJesusSacramentadoVenegasVirgin',
-      type: Types.OPT_MEMORIAL,
+      type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-30`),
     },
     {
       key: 'blessedBartolomeLaurelReligiousAndMartyr',
-      type: Types.OPT_MEMORIAL,
+      type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-16`),
       data: {
         meta: {
-          titles: [Titles.MARTYR],
+          titles: [TITLES.MARTYR],
         },
       },
     },
     {
       key: 'blessedsPedroZunigaAndLuisFloresPriestsAndMartyrs',
-      type: Types.OPT_MEMORIAL,
+      type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-16`),
       data: {
         meta: {
-          titles: [Titles.MARTYR],
+          titles: [TITLES.MARTYR],
         },
       },
     },
     {
       key: 'blessedJuniperoSerraPriest',
-      type: Types.OPT_MEMORIAL,
+      type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-26`),
     },
     {
       key: 'saintJoseMariaDeYermoPriest',
-      type: Types.OPT_MEMORIAL,
+      type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-19`),
     },
     {
       key: 'saintRafaelGuizarYValenciaBishop',
-      type: Types.OPT_MEMORIAL,
+      type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-24`),
     },
     {
       key: 'blessedMiguelAgustinProPriestAndMartyr',
-      type: Types.OPT_MEMORIAL,
+      type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-23`),
       data: {
         meta: {
-          titles: [Titles.MARTYR],
+          titles: [TITLES.MARTYR],
         },
       },
     },
     {
       key: 'saintJuanDiego',
-      type: Types.MEMORIAL,
+      type: TypesEnum.MEMORIAL,
       date: dayjs.utc(`${year}-12-9`),
     },
     {
       key: 'ourLadyOfGuadalupe',
-      type: Types.SOLEMNITY,
+      type: TypesEnum.SOLEMNITY,
       date: dayjs.utc(`${year}-12-12`),
     },
     {
       key: 'ourLordJesusChristTheEternalHighPriest',
-      type: Types.FEAST,
+      type: TypesEnum.FEAST,
       date: ((y: number): dayjs.Dayjs =>
         dayjs.utc(
           Dates.pentecostSunday(y)
@@ -119,48 +121,48 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
         ))(year),
       data: {
         meta: {
-          liturgicalColor: LiturgicalColors.WHITE,
+          liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
     },
     {
       key: 'blessedJuniperoSerraPriest',
-      type: Types.OPT_MEMORIAL,
+      type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-26`),
     },
     {
       key: 'saintJoseMariaDeYermoPriest',
-      type: Types.OPT_MEMORIAL,
+      type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-19`),
     },
     {
       key: 'saintRafaelGuizarYValenciaBishop',
-      type: Types.OPT_MEMORIAL,
+      type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-24`),
     },
     {
       key: 'blessedMiguelAgustinProPriestAndMartyr',
-      type: Types.OPT_MEMORIAL,
+      type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-23`),
       data: {
         meta: {
-          titles: [Titles.MARTYR],
+          titles: [TITLES.MARTYR],
         },
       },
     },
     {
       key: 'saintJuanDiegoCuauhtlatoatzin',
-      type: Types.MEMORIAL,
+      type: TypesEnum.MEMORIAL,
       date: dayjs.utc(`${year}-12-9`),
     },
     {
       key: 'ourLadyOfGuadalupe',
-      type: Types.SOLEMNITY,
+      type: TypesEnum.SOLEMNITY,
       date: dayjs.utc(`${year}-12-12`),
     },
     {
       key: 'ourLordJesusChristTheEternalHighPriest',
-      type: Types.FEAST,
+      type: TypesEnum.FEAST,
       date: ((y: number): dayjs.Dayjs =>
         dayjs.utc(
           Dates.pentecostSunday(y)
@@ -169,7 +171,7 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
         ))(year),
       data: {
         meta: {
-          liturgicalColor: LiturgicalColors.WHITE,
+          liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
     },

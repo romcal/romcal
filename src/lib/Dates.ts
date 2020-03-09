@@ -1,9 +1,10 @@
-import { TChristmastideEndings, isNil } from '../utils/type-guards';
-import dayjs from 'dayjs';
+import { rangeOfDays, eachDayOfWeekInRange, rangeContainsDate, DayOfWeek } from '@RomcalUtils/dates';
+import { isNil } from '@RomcalUtils/type-guards';
+import { ChristmastideEndings } from '@RomcalTypes/christmastide-endings.type';
 
-import utc from 'dayjs/plugin/utc';
+import dayjs from 'dayjs';
 import dayOfYear from 'dayjs/plugin/dayOfYear';
-import { rangeOfDays, eachDayOfWeekInRange, rangeContainsDate, DayOfWeek } from '../utils/dates';
+import utc from 'dayjs/plugin/utc';
 
 dayjs.extend(utc);
 dayjs.extend(dayOfYear);
@@ -314,7 +315,7 @@ const presentationOfTheLord = (year: number): dayjs.Dayjs => dayjs.utc(`${year}-
  */
 const christmastide = (
   year: number,
-  christmastideEnds: TChristmastideEndings = 'o',
+  christmastideEnds: ChristmastideEndings = 'o',
   epiphanyOnSunday = true,
 ): Array<dayjs.Dayjs> => {
   const start = christmas(year);
@@ -354,7 +355,7 @@ const christmastide = (
  */
 const daysOfEarlyOrdinaryTime = (
   year: number,
-  christmastideEnds: TChristmastideEndings = 'o',
+  christmastideEnds: ChristmastideEndings = 'o',
   epiphanyOnSunday = true,
 ): Array<dayjs.Dayjs> => {
   let start = null;

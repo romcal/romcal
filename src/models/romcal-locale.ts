@@ -1,4 +1,4 @@
-import { TLiturgicalColorKeys } from '../constants/LiturgicalColors';
+import { LiturgicalColorKeys } from '@RomcalTypes/liturgical-colors.type';
 
 export type RomcalLocaleKeys = {
   after: string;
@@ -29,6 +29,6 @@ export interface IRomcalLocale {
     readonly [key: string]: string;
   };
   readonly liturgicalColors?: {
-    readonly [key in TLiturgicalColorKeys]?: string;
+    readonly [key in LiturgicalColorKeys]?: string;
   };
 }

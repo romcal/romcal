@@ -1,14 +1,17 @@
 import template from 'lodash-es/template';
 import templateSettings from 'lodash-es/templateSettings';
-import { Types } from '../constants';
-import { findDescendantValueByKeys, mergeObjectsUniquely } from '../utils/object';
-import { IRomcalLocale } from '../models/romcal-locale';
-import { isNil, TLocaleTypes, TLocalizeParams, TDateItemSource } from '../utils/type-guards';
-import { IRomcalDateItem } from '../models/romcal-date-item';
-import { isString } from 'util';
+
 import { parse, Schema } from 'bcp-47';
 import { toOrdinal, toWordsOrdinal } from 'number-to-words';
-import { TLiturgicalColor } from '../constants/LiturgicalColors';
+
+import { findDescendantValueByKeys, mergeObjectsUniquely } from '../utils/object';
+import { isNil, TLocalizeParams, isString } from '../utils/type-guards';
+import { IRomcalLocale } from '../models/romcal-locale';
+import { IRomcalDateItem } from '@RomcalModels/romcal-date-item';
+import { TypesEnum } from '@RomcalEnums/types.enum';
+import { LiturgicalColor } from '@RomcalTypes/liturgical-colors.type';
+import { DateItemSources } from '@RomcalTypes/date-item-sources.type';
+import { LocaleTypes } from '@RomcalTypes/locale-types.type';
 
 /**
  * Load DayJS and relevant plugins
@@ -37,7 +40,7 @@ templateSettings.interpolate = /{{([\s\S]+?)}}/g;
  * We get then a cascade fallbacks: region ('xx-XX') -> base language ('xx') -> default 'en'
  * For example: if a string is missing in 'fr-CA', it will try to pick it in 'fr', and then in 'en'.
  */
-export const _fallbackLocaleKey: TLocaleTypes = 'en';
+export const _fallbackLocaleKey: LocaleTypes = 'en';
 
 /**
  * Cache value for the array of locales to be used for calendar output.
@@ -113,7 +116,7 @@ export const sanitizePossibleLocaleValue = (
  * @param key The language key to use
  * @param customOrdinalFn An optional custom function to use for generating ordinal number values (defaults [[Locales.ordinal]] if not set)
  */
-const setLocale = async (key: TLocaleTypes, customOrdinalFn: (v: number) => string = ordinal): Promise<void> => {
+const setLocale = async (key: LocaleTypes, customOrdinalFn: (v: number) => string = ordinal): Promise<void> => {
   // When setLocale() is called, all cache values are purged
   _combinedLocale = undefined;
   // When setLocale() is called, the cache language files are reset
@@ -277,21 +280,21 @@ const localize = async ({ key, count, week, day, useDefaultOrdinalFn }: TLocaliz
  * Allows the specification of a source where when defined, points the localization logic
  * to a specific sub-tree within the locale file to obtain localized values from.
  *
- * If the source is `custom`, the logic will only use the key for the lookup.
+ * If the source is `temporal`, the logic will only use the key for the lookup.
  *
  * @param dates A list of [[IRomcalDateItem]]s to process
  * @param source The source of the date to localize. This value is used to lookup a specific sub tree in the locale file for the localized value.
  */
 const localizeDates = async (
   dates: Array<IRomcalDateItem>,
-  source: TDateItemSource = 'sanctoral',
+  source: DateItemSources = 'sanctoral',
 ): Promise<IRomcalDateItem[]> => {
   const promiseDates: Promise<IRomcalDateItem>[] = dates.map(async (date: IRomcalDateItem) => {
     const dateWithLocalizedName = {
       ...date,
       name: await localize({
-        // If the source is custom, do not append anything before the date key
-        key: `${source === 'custom' ? date.key : !isNil(date.source) ? date.source : source}.${date.key}`,
+        // If the source is `temporal`, do not append anything before the date key
+        key: `${source === 'temporal' ? date.key : !isNil(date.source) ? date.source : source}.${date.key}`,
       }),
     } as IRomcalDateItem;
     return dateWithLocalizedName;
@@ -300,14 +303,14 @@ const localizeDates = async (
 };
 
 /**
- * Takes the key from an instance of the [[TLiturgicalColor]] object and attempts to find its localized color name
+ * Takes the key from an instance of the [[LiturgicalColor]] object and attempts to find its localized color name
  * from the active [[IRomcalLocale]] instance.
  *
  * If they source object is undefined, no localization is done and undefined is returned.
  *
- * @param liturgicalColor An instance of the [[TLiturgicalColor]] object from which the key will be used to find the localized color name.
+ * @param liturgicalColor An instance of the [[LiturgicalColor]] object from which the key will be used to find the localized color name.
  */
-const localizeLiturgicalColor = async (liturgicalColor?: TLiturgicalColor): Promise<TLiturgicalColor | undefined> => {
+const localizeLiturgicalColor = async (liturgicalColor?: LiturgicalColor): Promise<LiturgicalColor | undefined> => {
   if (!isNil(liturgicalColor)) {
     const value = await localize({
       key: `liturgicalColors.${liturgicalColor.key}`,
@@ -326,6 +329,6 @@ const localizeLiturgicalColor = async (liturgicalColor?: TLiturgicalColor): Prom
  * the type of day from the [[Types]] enum
  * @param day A "day" integer that should come from the DayJS library
  */
-const getTypeByDayOfWeek = (day: number): Types => (day === 0 ? Types.SUNDAY : Types.FERIA);
+const getTypeByDayOfWeek = (day: number): TypesEnum => (day === 0 ? TypesEnum.SUNDAY : TypesEnum.FERIA);
 
 export { setLocale, getLocale, localize, localizeDates, localizeLiturgicalColor, getTypeByDayOfWeek };

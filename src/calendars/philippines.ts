@@ -1,9 +1,11 @@
 import dayjs from 'dayjs';
 
 import { Locales } from '../lib';
-import { Titles, Types, LiturgicalColors } from '../constants';
-import { IRomcalDateItem } from '../models/romcal-date-item';
-import Config, { IRomcalDefaultConfig } from '../models/romcal-config';
+import { LITURGICAL_COLORS } from '@RomcalConstants/liturgical-colors.constant';
+import { TITLES } from '@RomcalConstants/titles.constant';
+import { IRomcalDateItem } from '@RomcalModels/romcal-date-item';
+import Config, { IRomcalDefaultConfig } from '@RomcalModels/romcal-config';
+import { TypesEnum } from '@RomcalEnums/types.enum';
 
 const defaultConfig: IRomcalDefaultConfig | undefined = undefined;
 
@@ -12,7 +14,7 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
   const _dates: Array<IRomcalDateItem> = [
     {
       key: 'santoNinoInfantJesus',
-      type: Types.FEAST,
+      type: TypesEnum.FEAST,
       date: ((): dayjs.Dayjs => {
         // Third Sunday of January: Santo Niño (Holy Child Jesus)
         const firstDay = dayjs.utc(`${year}-1-1`);
@@ -22,82 +24,82 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
       data: {
         prioritized: true,
         meta: {
-          liturgicalColor: LiturgicalColors.WHITE,
+          liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
     },
     {
       key: 'saintPaulMikiAndCompanionsMartyrs',
-      type: Types.MEMORIAL,
+      type: TypesEnum.MEMORIAL,
       date: dayjs.utc(`${year}-2-6`),
       data: {
         meta: {
-          liturgicalColor: LiturgicalColors.RED,
-          titles: [Titles.MARTYR],
+          liturgicalColor: LITURGICAL_COLORS.RED,
+          titles: [TITLES.MARTYR],
         },
       },
     },
     {
       key: 'saintPedroCalungsodMartyr',
-      type: Types.MEMORIAL,
+      type: TypesEnum.MEMORIAL,
       date: dayjs.utc(`${year}-4-2`),
       data: {
         meta: {
-          liturgicalColor: LiturgicalColors.RED,
-          titles: [Titles.MARTYR],
+          liturgicalColor: LITURGICAL_COLORS.RED,
+          titles: [TITLES.MARTYR],
         },
       },
     },
     {
       key: 'saintIsidoreTheFarmer',
-      type: Types.MEMORIAL,
+      type: TypesEnum.MEMORIAL,
       date: dayjs.utc(`${year}-5-15`),
     },
     {
       key: 'saintRoch',
-      type: Types.OPT_MEMORIAL,
+      type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-16`),
     },
     {
       key: 'saintEzekielMorenoBishop',
-      type: Types.OPT_MEMORIAL,
+      type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-19`),
     },
     {
       key: 'saintLorenzoRuizAndCompanionsMartyrs',
-      type: Types.MEMORIAL,
+      type: TypesEnum.MEMORIAL,
       date: dayjs.utc(`${year}-9-28`),
       data: {
         meta: {
-          liturgicalColor: LiturgicalColors.RED,
-          titles: [Titles.MARTYR],
+          liturgicalColor: LITURGICAL_COLORS.RED,
+          titles: [TITLES.MARTYR],
         },
       },
     },
     {
       key: 'saintRoch',
-      type: Types.OPT_MEMORIAL,
+      type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-16`),
     },
     {
       key: 'saintEzequielMorenoBishop',
-      type: Types.OPT_MEMORIAL,
+      type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-19`),
     },
     {
       key: 'saintLawrenceRuizAndCompanionsMartyrs',
-      type: Types.MEMORIAL,
+      type: TypesEnum.MEMORIAL,
       date: dayjs.utc(`${year}-9-28`),
       data: {
         meta: {
-          liturgicalColor: LiturgicalColors.RED,
-          titles: [Titles.MARTYR],
+          liturgicalColor: LITURGICAL_COLORS.RED,
+          titles: [TITLES.MARTYR],
         },
       },
     },
     {
       key: 'immaculateConceptionOfTheBlessedVirginMaryPrincipalPatronessOfThePhilippines',
-      type: Types.SOLEMNITY,
+      type: TypesEnum.SOLEMNITY,
       date: dayjs.utc(`${year}-12-8`),
     },
   ];

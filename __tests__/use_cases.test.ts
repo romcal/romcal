@@ -28,7 +28,7 @@ import utc from 'dayjs/plugin/utc';
 import { DateItem } from '../src/models/romcal-date-item';
 import Romcal from '../src';
 import { Dates, Seasons } from '../src/lib';
-import { Types } from '../src/constants';
+import { TypesEnum } from '../src/enums/types.enum';
 
 dayjs.extend(utc);
 
@@ -66,7 +66,7 @@ describe('Testing specific feasts and memorials', () => {
       });
       expect(dayjs.utc(saintMaryMagdalene?.date).date()).toEqual(22);
       expect(dayjs.utc(saintMaryMagdalene?.date).month()).toEqual(6);
-      expect(saintMaryMagdalene?.type).toEqual(Types.FEAST);
+      expect(saintMaryMagdalene?.type).toEqual(TypesEnum.FEAST);
     });
   });
 
@@ -79,8 +79,8 @@ describe('Testing specific feasts and memorials', () => {
       const popeSaintJohnPaulII = dates.find(d => {
         return d.key === 'popeSaintJohnPaulII';
       });
-      expect(popeSaintJohnXXIII?.type).toEqual(Types.OPT_MEMORIAL);
-      expect(popeSaintJohnPaulII?.type).toEqual(Types.OPT_MEMORIAL);
+      expect(popeSaintJohnXXIII?.type).toEqual(TypesEnum.OPT_MEMORIAL);
+      expect(popeSaintJohnPaulII?.type).toEqual(TypesEnum.OPT_MEMORIAL);
     });
   });
 

@@ -1,9 +1,11 @@
 import dayjs from 'dayjs';
 
 import { Dates, Locales } from '../lib';
-import { Titles, Types, LiturgicalColors } from '../constants';
-import { IRomcalDateItem } from '../models/romcal-date-item';
-import Config, { IRomcalDefaultConfig } from '../models/romcal-config';
+import { LITURGICAL_COLORS } from '@RomcalConstants/liturgical-colors.constant';
+import { TITLES } from '@RomcalConstants/titles.constant';
+import { IRomcalDateItem } from '@RomcalModels/romcal-date-item';
+import Config, { IRomcalDefaultConfig } from '@RomcalModels/romcal-config';
+import { TypesEnum } from '@RomcalEnums/types.enum';
 
 const defaultConfig: IRomcalDefaultConfig | undefined = undefined;
 
@@ -12,101 +14,101 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
   const _dates: Array<IRomcalDateItem> = [
     {
       key: 'saintsCyrilMonkAndMethodiusBishop',
-      type: Types.FEAST,
+      type: TypesEnum.FEAST,
       date: dayjs.utc(`${year}-2-14`),
       data: {
         meta: {
-          liturgicalColor: LiturgicalColors.WHITE,
-          titles: [Titles.PATRON_OF_EUROPE],
+          liturgicalColor: LITURGICAL_COLORS.WHITE,
+          titles: [TITLES.PATRON_OF_EUROPE],
         },
       },
     },
     {
       key: 'saintCatherineOfSienaVirginAndDoctorOfTheChurch',
-      type: Types.FEAST,
+      type: TypesEnum.FEAST,
       date: dayjs.utc(`${year}-4-29`),
       data: {
         meta: {
-          liturgicalColor: LiturgicalColors.WHITE,
-          titles: [Titles.PATRON_OF_EUROPE, Titles.DOCTOR_OF_THE_CHURCH],
+          liturgicalColor: LITURGICAL_COLORS.WHITE,
+          titles: [TITLES.PATRON_OF_EUROPE, TITLES.DOCTOR_OF_THE_CHURCH],
         },
       },
     },
     {
       key: 'saintNorbertBishop',
-      type: Types.OPT_MEMORIAL,
+      type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-6`),
       data: {
         meta: {
-          liturgicalColor: LiturgicalColors.WHITE,
+          liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
     },
     {
       key: 'saintBarnabasTheApostle',
-      type: Types.MEMORIAL,
+      type: TypesEnum.MEMORIAL,
       date: dayjs.utc(`${year}-6-11`),
     },
     {
       key: 'saintBenedictOfNursiaAbbot',
-      type: Types.FEAST,
+      type: TypesEnum.FEAST,
       date: dayjs.utc(`${year}-7-11`),
       data: {
         meta: {
-          liturgicalColor: LiturgicalColors.WHITE,
-          titles: [Titles.PATRON_OF_EUROPE],
+          liturgicalColor: LITURGICAL_COLORS.WHITE,
+          titles: [TITLES.PATRON_OF_EUROPE],
         },
       },
     },
     {
       key: 'saintMaryMagdalene',
-      type: Types.FEAST,
+      type: TypesEnum.FEAST,
       date: dayjs.utc(`${year}-7-22`),
       data: {
         meta: {
-          liturgicalColor: LiturgicalColors.WHITE,
+          liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
     },
     {
       key: 'saintBridgetOfSwedenReligious',
-      type: Types.FEAST,
+      type: TypesEnum.FEAST,
       date: dayjs.utc(`${year}-7-23`),
     },
     {
       key: 'saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr',
-      type: Types.FEAST,
+      type: TypesEnum.FEAST,
       date: dayjs.utc(`${year}-8-9`),
       data: {
         meta: {
-          liturgicalColor: LiturgicalColors.RED,
-          titles: [Titles.MARTYR, Titles.PATRON_OF_EUROPE],
+          liturgicalColor: LITURGICAL_COLORS.RED,
+          titles: [TITLES.MARTYR, TITLES.PATRON_OF_EUROPE],
         },
       },
     },
     {
       key: 'saintFrancisOfAssisi',
-      type: Types.FEAST,
+      type: TypesEnum.FEAST,
       date: dayjs.utc(`${year}-10-4`),
       data: {
         meta: {
-          liturgicalColor: LiturgicalColors.WHITE,
+          liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
     },
     {
       key: 'popeSaintJohnXXIII',
-      type: Types.OPT_MEMORIAL,
+      type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-11`),
     },
     {
       key: 'popeSaintJohnPaulII',
-      type: Types.OPT_MEMORIAL,
+      type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-22`),
     },
     {
       key: 'maryMotherOfTheChurch',
-      type: Types.MEMORIAL,
+      type: TypesEnum.MEMORIAL,
       date: ((y: number): dayjs.Dayjs => Dates.pentecostSunday(y).add(1, 'day'))(year),
     },
   ];

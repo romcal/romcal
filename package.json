@@ -2,8 +2,8 @@
   "name": "romcal",
   "version": "1.3.1-canary.81",
   "description": "Utility library that outputs the Liturgical Calendar used by the Roman Rite (Western Church)",
-  "types": "dist/esm/index.d.ts",
   "main": "dist/esm/index.js",
+  "module": "dist/esm/index.js",
   "engines": {
     "node": ">=12"
   },
@@ -82,6 +82,7 @@
   "dependencies": {
     "bcp-47": "^1.0.7",
     "dayjs": "^1.8.20",
+    "inversify": "^5.0.1",
     "jsonschema": "^1.2.5",
     "lodash-es": "^4.17.15",
     "number-to-words": "^1.2.4",

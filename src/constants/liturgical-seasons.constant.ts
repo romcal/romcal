@@ -1,22 +1,11 @@
-export type TLiturgicalSeasonKeys =
-  | 'ADVENT'
-  | 'CHRISTMASTIDE'
-  | 'EARLY_ORDINARY_TIME'
-  | 'LATER_ORDINARY_TIME'
-  | 'LENT'
-  | 'HOLY_WEEK'
-  | 'EASTER';
-
-export type TLiturgicalSeasons = {
-  [key in TLiturgicalSeasonKeys]: string;
-};
+import { LiturgicalSeasons } from 'src/types/liturgical-seasons.type';
 
 /**
  * Liturgical seasons are segments of time that when combined, form the liturgical year.
  * Liturgical seasons are distinguished by specific names that signify the character
  * of the season.
  */
-export const LiturgicalSeasons: TLiturgicalSeasons = {
+export const LITURGICAL_SEASONS: LiturgicalSeasons = {
   ADVENT: 'Advent',
   CHRISTMASTIDE: 'Christmastide',
   EARLY_ORDINARY_TIME: 'Early Ordinary Time',
@@ -25,5 +14,3 @@ export const LiturgicalSeasons: TLiturgicalSeasons = {
   HOLY_WEEK: 'Holy Week',
   EASTER: 'Easter',
 };
-
-export default LiturgicalSeasons;
