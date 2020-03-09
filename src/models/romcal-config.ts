@@ -11,7 +11,7 @@ import { Query } from '@RomcalTypes/query-type.type';
  * The configuration object that is passed either to the [[Calendar.calendarFor]]
  * or the [[Calendar.queryFor]] methods to retrieve an array of [[DateItems]].
  */
-export interface IRomcalConfig {
+export interface RomcalConfig {
   /**
    * The calendar year to obtain.
    */
@@ -63,13 +63,13 @@ export interface IRomcalConfig {
   readonly query?: Query;
 }
 
-export type IRomcalDefaultConfig = Required<Omit<IRomcalConfig, 'country' | 'locale' | 'query' | 'year' | 'type'>>;
+export type IRomcalDefaultConfig = Required<Omit<RomcalConfig, 'country' | 'locale' | 'query' | 'year' | 'type'>>;
 
 /**
- * A modified variant of IRomcalConfig specifically for the [[Config]] class constructor
+ * A modified variant of [[RomcalConfig]] specifically for the [[Config]] class constructor
  * where all properties except query are **required**.
  */
-export type TConfigConstructorType = { query?: Query } & Required<Omit<IRomcalConfig, 'query'>>;
+export type TConfigConstructorType = { query?: Query } & Required<Omit<RomcalConfig, 'query'>>;
 
 /**
  * The [[Config]] class encapsulates all options that can be sent to this library to adjust date output.
@@ -88,7 +88,7 @@ export default class Config {
 
   /**
    * Constructs a new [[Config]] object
-   * @param config [[IRomcalConfig]] object representing all settings
+   * @param config [[RomcalConfig]] object representing all settings
    */
   constructor({
     year,
@@ -188,11 +188,11 @@ export default class Config {
 
   /**
    * Resolves the full configuration
-   * @param maybeConfig An optional object that may be a usable instance of [[IRomcalConfig]]
+   * @param maybeConfig An optional object that may be a usable instance of [[RomcalConfig]]
    */
   static async resolveConfig(maybeConfig?: unknown): Promise<TConfigConstructorType> {
     // Get the default config
-    let config: IRomcalConfig = await Config.getConfig('general');
+    let config: RomcalConfig = await Config.getConfig('general');
     // Check if the user supplied their own configuration
     if (!isNil(maybeConfig)) {
       // Check if the user configuration is valid

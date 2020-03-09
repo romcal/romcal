@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 
 describe('getConfig()', () => {
   // eslint-disable-next-line prettier/prettier
-  test('should get general config if country doesn\'t have default configurations', async () => {
+  test('should get general config if country doesnt have default configurations', async () => {
     const resolvedConfig = await Config.resolveConfig();
     const {
       year,
