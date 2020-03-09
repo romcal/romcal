@@ -33,7 +33,12 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
       date: dayjs.utc(`${year}-1-27`),
     },
     {
-      key: 'saintLaurenceWangBingAndCompanionsMartyrSaintJosephFreinademetzPriest',
+      key: 'saintLaurenceWangBingAndCompanionsMartyrs',
+      type: TypesEnum.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-1-29`),
+    },
+    {
+      key: 'saintJosephFreinademetzPriest',
       type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-29`),
     },

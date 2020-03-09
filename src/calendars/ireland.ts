@@ -270,7 +270,17 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
       },
     },
     {
-      key: 'saintMuiredachBishopSaintAttractaVirginOrSaintLeliaVirgin',
+      key: 'saintMuredachBishop',
+      type: TypesEnum.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-8-12`),
+    },
+    {
+      key: 'saintAttractaVirgin',
+      type: TypesEnum.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-8-12`),
+    },
+    {
+      key: 'saintLeliaVirgin',
       type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-12`),
     },

@@ -4,14 +4,15 @@ import templateSettings from 'lodash-es/templateSettings';
 import { parse, Schema } from 'bcp-47';
 import { toOrdinal, toWordsOrdinal } from 'number-to-words';
 
-import { findDescendantValueByKeys, mergeObjectsUniquely } from '../utils/object';
-import { isNil, TLocalizeParams, isString } from '../utils/type-guards';
-import { IRomcalLocale } from '../models/romcal-locale';
+import { findDescendantValueByKeys, mergeObjectsUniquely } from '@RomcalUtils/object';
+import { isNil, isString } from '@RomcalUtils/type-guards';
+import { IRomcalLocale } from '@RomcalModels/romcal-locale';
 import { IRomcalDateItem } from '@RomcalModels/romcal-date-item';
 import { TypesEnum } from '@RomcalEnums/types.enum';
 import { LiturgicalColor } from '@RomcalTypes/liturgical-colors.type';
 import { DateItemSources } from '@RomcalTypes/date-item-sources.type';
 import { LocaleTypes } from '@RomcalTypes/locale-types.type';
+import { LocalizeParams } from '@RomcalTypes/localize-params.type';
 
 /**
  * Load DayJS and relevant plugins
@@ -254,7 +255,7 @@ const getLocale = (): IRomcalLocale => {
  *
  * @param localizeParams Options for retrieving the localized key
  */
-const localize = async ({ key, count, week, day, useDefaultOrdinalFn }: TLocalizeParams): Promise<string> => {
+const localize = async ({ key, count, week, day, useDefaultOrdinalFn }: LocalizeParams): Promise<string> => {
   // Get the IETF locale set in dayjs and obtain its corresponding locale data object
   const value = findDescendantValueByKeys(getLocale(), key.split('.'));
 

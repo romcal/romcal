@@ -71,7 +71,7 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
       },
     },
     {
-      key: 'saintPothinusBishopSaintBlAndinaVirginAndTheirCompanionsMartyrs',
+      key: 'saintPothinusBishopSaintBlandinaVirginAndTheirCompanionsMartyrs',
       type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-2`),
     },

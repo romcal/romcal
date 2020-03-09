@@ -23,14 +23,6 @@ export type Dictionary<T> = {
   [index in AllowedDictonaryKeyTypes]: T;
 };
 
-export type TLocalizeParams = {
-  key: string;
-  day?: string;
-  week?: number;
-  count?: number;
-  useDefaultOrdinalFn?: boolean;
-};
-
 /**
  * Check if the arbitary value given is an instance of [[IRomcalConfig]].
  * @param maybeRomcalConfig The value that could be an instance of [[IRomcalConfig]]

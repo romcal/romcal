@@ -25,18 +25,19 @@
 import { Locales } from '.';
 
 describe('Testing localization functionality', () => {
-  test("If the locale is set to 'fr', romcal should output text in French", async () => {
+  test('If the locale is set to "fr", romcal should output text in French', async () => {
     await Locales.setLocale('fr');
     expect(await Locales.localize({ key: 'celebrations.allSaints' })).toBe('Tous les Saints');
   });
 
-  test("If the locale is set to 'en-CA', romcal should output text in Canadian French", async () => {
+  test('If the locale is set to "en-CA", romcal should output text in Canadian French', async () => {
     await Locales.setLocale('en-CA');
-    expect(
-      await Locales.localize({
-        key: 'sanctoral.saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrsSaintPaulOfTheCrossPriest',
-      }),
-    ).toBe('Saints John de Brébeuf, Isaac Jogues, Priests, and Companions, Martyrs, Secondary Patrons of Canada');
+    const localizedName = await Locales.localize({
+      key: 'sanctoral.saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrs',
+    });
+    expect(localizedName).toBe(
+      'Saints John de Brébeuf, Isaac Jogues, Priests, and Companions, Martyrs, Secondary Patrons of Canada',
+    );
   });
 
   test('If the locale is set with an unknown region, romcal should fallback to the base language if it exists in src/locales', async () => {
@@ -46,13 +47,13 @@ describe('Testing localization functionality', () => {
     expect(localizedText).toBe('Tous les Saints');
   });
 
-  test("If a string is missing in the 'fr-CA' locale, romcal should fall back to base French", async () => {
+  test('If a string is missing in the "fr-CA" locale, romcal should fall back to base French', async () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     await Locales.setLocale('fr-CA' as any);
     expect(await Locales.localize({ key: 'celebrations.allSaints' })).toBe('Tous les Saints');
   });
 
-  test("If a string is missing in the 'zz' locale, romcal should fallback to English ", async () => {
+  test('If a string is missing in the "zz" locale, romcal should fallback to English ', async () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     await Locales.setLocale('zz' as any);
     expect(await Locales.localize({ key: 'celebrations.allSaints' })).toBe('All Saints');
@@ -64,7 +65,7 @@ describe('Testing localization functionality', () => {
     expect(await Locales.localize({ key: 'celebrations.allSaints' })).toBe('All Saints');
   });
 
-  test("When the last locale set is 'en', romcal should output English locale", async () => {
+  test('When the last locale set is "en", romcal should output English locale', async () => {
     await Locales.setLocale('it');
     await Locales.setLocale('en');
     expect(await Locales.localize({ key: 'celebrations.allSaints' })).toBe('All Saints');

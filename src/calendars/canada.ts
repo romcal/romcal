@@ -138,7 +138,27 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
       date: dayjs.utc(`${year}-9-24`),
     },
     {
-      key: 'saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrsSaintPaulOfTheCrossPriest',
+      key: 'saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrs',
+      type: TypesEnum.FEAST,
+      date: dayjs.utc(`${year}-9-26`),
+      data: {
+        meta: {
+          liturgicalColor: LITURGICAL_COLORS.RED,
+        },
+      },
+    },
+    {
+      key: 'saintsNereusAndAchilleusMartyrs',
+      type: TypesEnum.FEAST,
+      date: dayjs.utc(`${year}-9-26`),
+      data: {
+        meta: {
+          liturgicalColor: LITURGICAL_COLORS.RED,
+        },
+      },
+    },
+    {
+      key: 'saintPancrasMartyr',
       type: TypesEnum.FEAST,
       date: dayjs.utc(`${year}-9-26`),
       data: {
@@ -163,7 +183,12 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
       },
     },
     {
-      key: 'saintHedwigReligiousOrSaintMargaretMaryAlacoqueVirgin',
+      key: 'saintHedwigReligious',
+      type: TypesEnum.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-10-20`),
+    },
+    {
+      key: 'saintMargaretMaryAlacoqueVirgin',
       type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-20`),
     },

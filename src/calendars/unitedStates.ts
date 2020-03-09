@@ -39,7 +39,7 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
       data: {},
     },
     {
-      key: 'saintVincentDeaconAndMartyrOrSaintMarianneCopeVirgin',
+      key: 'saintVincentDeaconAndMartyr',
       type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-22`),
       data: {
@@ -47,6 +47,11 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
           titles: [TITLES.MARTYR],
         },
       },
+    },
+    {
+      key: 'saintMarianneCopeVirgin',
+      type: TypesEnum.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-1-22`),
     },
     {
       key: 'saintKatharineDrexelVirgin',
@@ -105,7 +110,18 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
       data: {},
     },
     {
-      key: 'saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrsSaintPaulOfTheCrossPriest',
+      key: 'saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrs',
+      type: TypesEnum.MEMORIAL,
+      date: dayjs.utc(`${year}-10-19`),
+      data: {
+        meta: {
+          liturgicalColor: LITURGICAL_COLORS.RED,
+          titles: [TITLES.MARTYR],
+        },
+      },
+    },
+    {
+      key: 'saintPaulOfTheCrossPriest',
       type: TypesEnum.MEMORIAL,
       date: dayjs.utc(`${year}-10-19`),
       data: {

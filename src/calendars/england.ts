@@ -93,7 +93,18 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
       },
     },
     {
-      key: 'saintAdalbertBishopAndMartyrSaintFidelisOfSigmaringenPriestAndMartyr',
+      key: 'saintAdalbertBishopAndMartyr',
+      type: TypesEnum.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-4-24`),
+      data: {
+        meta: {
+          liturgicalColor: LITURGICAL_COLORS.RED,
+          titles: [TITLES.MARTYR],
+        },
+      },
+    },
+    {
+      key: 'saintFidelisOfSigmaringenPriestAndMartyr',
       type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-4-24`),
       data: {
@@ -161,7 +172,7 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
       },
     },
     {
-      key: 'saintEphraemDeaconDoctorOrSaintColumbaColumCilleAbbot',
+      key: 'saintEphremDeaconAndDoctor',
       type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-9`),
       data: {
@@ -169,6 +180,11 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
           titles: [TITLES.DOCTOR_OF_THE_CHURCH],
         },
       },
+    },
+    {
+      key: 'saintColumbaColumCilleAbbot',
+      type: TypesEnum.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-6-9`),
     },
     {
       key: 'saintRichardOfChichesterBishop',
@@ -363,12 +379,27 @@ const dates = async (config: Config): Promise<Array<IRomcalDateItem>> => {
       date: dayjs.utc(`${year}-11-7`),
     },
     {
-      key: 'saintEdmundOfAbingdonBishopOrSaintMargaretOfScotland',
+      key: 'saintEdmundOfAbingdonBishop',
       type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-16`),
     },
     {
-      key: 'saintElizabethOfHungary',
+      key: 'saintMargaretOfScotland',
+      type: TypesEnum.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-11-16`),
+    },
+    {
+      key: 'saintElizabethOfHungaryReligious',
+      type: TypesEnum.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-11-17`),
+    },
+    {
+      key: 'saintHildaAbbess',
+      type: TypesEnum.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-11-17`),
+    },
+    {
+      key: 'saintHughOfLincolnBishop',
       type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-17`),
     },
