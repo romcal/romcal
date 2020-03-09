@@ -69,11 +69,13 @@ describe('removeWhere', () => {
       },
     ];
   });
+
   test('should remove objects from array with matching keys and values', () => {
     removeWhere(items, { id: 1 });
     expect(items).toStrictEqual([{ id: 2, name: 'bar' }]);
   });
-  test("should return the original array if asked to delete an item that doesn't exist", () => {
+
+  test('should return the original array if asked to delete an item that doesnt exist', () => {
     removeWhere(items, { id: 3 });
     expect(items).toStrictEqual([
       { id: 1, name: 'foo' },

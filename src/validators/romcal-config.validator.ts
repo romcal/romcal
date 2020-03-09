@@ -1,7 +1,8 @@
 import { Schema, Validator } from 'jsonschema';
-import { countryKeys, romcalQueryGroups } from '../utils/type-guards';
-import { Titles } from '../constants';
 import { default as Locales } from '../locales';
+import { TITLES } from '@RomcalConstants/titles.constant';
+import { QUERY_TYPES } from '@RomcalConstants/query-types.constant';
+import { COUNTRIES } from '@RomcalConstants/county-list.constant';
 
 export const getRomcalConfigJsonSchema = (): Schema => {
   const romcalConfigJsonSchema: Schema = {
@@ -14,8 +15,8 @@ export const getRomcalConfigJsonSchema = (): Schema => {
       // Will only accept values that match existing countries in the romcal library
       country: {
         type: 'string',
-        enum: countryKeys,
-        description: `Acceptable values are ${countryKeys.join(', ')}`,
+        enum: COUNTRIES,
+        description: `Acceptable values are ${COUNTRIES.join(', ')}`,
       },
       locale: {
         type: 'string',
@@ -52,13 +53,13 @@ export const getRomcalQueryJsonSchema = (): Schema => {
       },
       group: {
         type: 'string',
-        enum: [...romcalQueryGroups],
-        description: `Acceptable values are ${romcalQueryGroups.join(', ')}`,
+        enum: [...QUERY_TYPES],
+        description: `Acceptable values are ${QUERY_TYPES.join(', ')}`,
       },
       title: {
         type: 'string',
-        enum: Object.keys(Titles),
-        description: `Acceptable values are ${Object.keys(Titles).join(', ')}`,
+        enum: Object.keys(TITLES),
+        description: `Acceptable values are ${Object.keys(TITLES).join(', ')}`,
       },
     },
   };

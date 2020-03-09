@@ -1,15 +1,18 @@
-import dayjs from 'dayjs';
-import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
-import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
-import Config from '../models/romcal-config';
 import * as Dates from './Dates';
 import * as Seasons from './Seasons';
 import * as Celebrations from './Celebrations';
-import { TCountryTypes, isNil } from '../utils/type-guards';
-import { DateItem, IRomcalDateItem, IRomcalDateItemData } from '../models/romcal-date-item';
-import { Types } from '../constants';
-import { find, removeWhere, groupByKey, concatAll } from '../utils/array';
-import { extractedTypeKeys } from '../constants/Types';
+import { localizeLiturgicalColor } from './Locales';
+import { isNil } from '@RomcalUtils/type-guards';
+import Config from '@RomcalModels/romcal-config';
+import { DateItem, IRomcalDateItem, IRomcalDateItemData } from '@RomcalModels/romcal-date-item';
+import { find, removeWhere, groupByKey, concatAll } from '@RomcalUtils/array';
+import { TYPES } from '@RomcalConstants/types.constant';
+import { TypesEnum } from '@RomcalEnums/types.enum';
+
+import dayjs from 'dayjs';
+import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
+import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
+import { Countries } from '@RomcalTypes/countries,type';
 
 dayjs.extend(isSameOrAfter);
 dayjs.extend(isSameOrBefore);
@@ -92,7 +95,7 @@ export class Calendar {
 
     // Get the celebration dates based on the given year and options
     const celebrationsDatesPromise = years.map(async year => {
-      return [...(await Celebrations.dates(year, epiphanyOnJan6, corpusChristiOnThursday, ascensionOnSunday))];
+      return [...(await Celebrations.dates(year, this.config))];
     });
     const celebrationsDates = concatAll(await Promise.all(celebrationsDatesPromise));
 
@@ -219,8 +222,8 @@ export class Calendar {
    * in this order: by date, by priority, by type, by stack.
    */
   _sortAndKeepRelevant(): void {
-    const types = extractedTypeKeys.slice(0, extractedTypeKeys.length - 1);
-    types.splice(types.indexOf('MEMORIAL') + 1, 0, extractedTypeKeys[extractedTypeKeys.length - 1]);
+    const types = TYPES.slice(0, TYPES.length - 1);
+    types.splice(types.indexOf('MEMORIAL') + 1, 0, TYPES[TYPES.length - 1]);
     this.dateItems.sort(
       (
         { date: firstDate, data: firstData, type: firstType, _stack: firstStack }: DateItem,
@@ -244,9 +247,9 @@ export class Calendar {
             // If neither date is prioritized
             // 3. Sort by type (higher type first)
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const type1 = types.indexOf(Types[firstType] as any);
+            const type1 = types.indexOf(TYPES[firstType] as any);
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const type2 = types.indexOf(Types[nextType] as any);
+            const type2 = types.indexOf(TYPES[nextType] as any);
             if (type1 < type2) {
               return -1;
             } else if (type1 > type2) {
@@ -281,7 +284,7 @@ export class Calendar {
         if (
           dateItem.data.prioritized ||
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          types.indexOf(Types[dateItem.type] as any) <= types.indexOf(Types[Types.MEMORIAL] as any)
+          types.indexOf(TYPES[dateItem.type] as any) <= types.indexOf(TYPES[TypesEnum.MEMORIAL] as any)
         ) {
           otherDateItems.forEach(({ _id }) => {
             removeWhere(this.dateItems, { _id });
@@ -339,7 +342,7 @@ export class Calendar {
    * @param country The country to get
    * @param config The configuration instance to be send down to the calendar (includes the year to use for date resolutions)
    */
-  static async _fetchCalendar(country: TCountryTypes, config: Config): Promise<Array<IRomcalDateItem>> {
+  static async _fetchCalendar(country: Countries, config: Config): Promise<Array<IRomcalDateItem>> {
     const { dates } = await import(
       /* webpackExclude: /index\.ts/ */
       /* webpackChunkName: "calendars/[request]" */
@@ -347,6 +350,21 @@ export class Calendar {
       /* webpackPrefetch: true */
       `../calendars/${country}`
     );
-    return await dates(config);
+    const contextualizedDates: Array<IRomcalDateItem> = await dates(config);
+    const promises = contextualizedDates.map(async date => {
+      return {
+        ...date,
+        data: {
+          ...date.data,
+          meta: {
+            ...date.data?.meta,
+            ...(!isNil(date.data?.meta?.liturgicalColor) && {
+              liturgicalColor: await localizeLiturgicalColor(date.data?.meta?.liturgicalColor),
+            }),
+          },
+        },
+      } as IRomcalDateItem;
+    });
+    return await Promise.all(promises);
   }
 }

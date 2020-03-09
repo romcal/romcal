@@ -1,11 +1,13 @@
 import dayjs from 'dayjs';
-import { Types, LiturgicalCycles } from '../constants';
-import { TLiturgicalColor } from '../constants/LiturgicalColors';
-import { TLiturgicalSeasonKeys } from '../constants/LiturgicalSeasons';
-import { TPsalterWeek } from '../constants/PsalterWeeks';
-import { ISO8601DateString, isNil, TDateItemSource } from '../utils/type-guards';
 import { Dates } from '../lib';
-import { TLiturgicalCycle } from '../constants/LiturgicalCycles';
+import { ISO8601DateString, isNil } from '../utils/type-guards';
+import { LITURGICAL_CYCLES } from '@RomcalConstants/liturgical-cycles.constant';
+import { TypesEnum } from '@RomcalEnums/types.enum';
+import { LiturgicalSeason } from '@RomcalTypes/liturgical-seasons.type';
+import { PsalterWeek } from '@RomcalTypes/psalter-weeks.type';
+import { LiturgicalColor } from '@RomcalTypes/liturgical-colors.type';
+import { LiturgicalCycle } from '@RomcalTypes/liturgical-cycles.type';
+import { DateItemSources } from '@RomcalTypes/date-item-sources.type';
 
 export interface IRomcalDateItemDataCalendar {
   weeks: number;
@@ -14,15 +16,15 @@ export interface IRomcalDateItemDataCalendar {
 }
 
 export interface IRomcalSeason {
-  key: TLiturgicalSeasonKeys;
+  key: LiturgicalSeason;
   value: string;
 }
 
 export interface IRomcalDateItemMetadata {
-  psalterWeek?: TPsalterWeek;
-  liturgicalColor?: TLiturgicalColor;
+  psalterWeek?: PsalterWeek;
+  liturgicalColor?: LiturgicalColor;
   titles?: Array<string>;
-  cycle?: TLiturgicalCycle;
+  cycle?: LiturgicalCycle;
 }
 
 export interface IRomcalDateItemData {
@@ -51,18 +53,28 @@ export interface IRomcalDateItem {
   /**
    * The type of celebration
    */
-  type?: Types;
+  type?: TypesEnum;
   date: dayjs.Dayjs;
   data?: IRomcalDateItemData;
-  source?: TDateItemSource;
+  /**
+   * The source of the date item.
+   *
+   * This value is used when localizing dates so that the [[Locales.localizeDates]] function knows
+   * which subtree in the locale file to look for.
+   *
+   * A special key, "temporal", may be used when you do not wish to specify any subtree but rather
+   * provide the entire path (as a period delimited string) to the [[Locales.localizeDates]] function
+   * to lookup.
+   */
+  source?: DateItemSources;
   drop?: boolean;
 }
 
 export interface IDateItemMetadata {
-  psalterWeek?: TPsalterWeek;
-  liturgicalColor?: TLiturgicalColor;
+  psalterWeek?: PsalterWeek;
+  liturgicalColor?: LiturgicalColor;
   titles?: Array<string>;
-  cycle?: TLiturgicalCycle;
+  cycle?: LiturgicalCycle;
 }
 
 export interface IDateItemData {
@@ -76,7 +88,7 @@ export interface IDateItem {
   readonly key: string;
   readonly name: string;
   readonly date: ISO8601DateString;
-  readonly type: Types;
+  readonly type: TypesEnum;
   readonly data: IDateItemData;
   readonly base?: DateItem;
   readonly _id: number;
@@ -105,7 +117,7 @@ export class DateItem implements IDateItem {
   /**
    * The type of the celebration.
    */
-  public type: Types;
+  public type: TypesEnum;
   /**
    * The data associated to this celebration.
    */
@@ -166,11 +178,14 @@ export class DateItem implements IDateItem {
    */
   private adjustTypeInSeason(): void {
     if (this.base?.data.season?.some(season => season.key === 'LENT')) {
-      if ((this.type === Types.MEMORIAL || this.type === Types.OPT_MEMORIAL) && this.base.type === Types.FERIA) {
-        this.type = Types.COMMEMORATION;
+      if (
+        (this.type === TypesEnum.MEMORIAL || this.type === TypesEnum.OPT_MEMORIAL) &&
+        this.base.type === TypesEnum.FERIA
+      ) {
+        this.type = TypesEnum.COMMEMORATION;
       }
-      if (this.type === Types.FEAST) {
-        this.type = Types.COMMEMORATION;
+      if (this.type === TypesEnum.FEAST) {
+        this.type = TypesEnum.COMMEMORATION;
       }
     }
   }
@@ -195,8 +210,8 @@ export class DateItem implements IDateItem {
         cycle: {
           key: dayjs.utc(this.date).isSameOrAfter(firstSundayOfAdvent) ? nextCycle : thisCycle,
           value: dayjs.utc(this.date).isSameOrAfter(firstSundayOfAdvent)
-            ? LiturgicalCycles[nextCycle]
-            : LiturgicalCycles[thisCycle],
+            ? LITURGICAL_CYCLES[nextCycle]
+            : LITURGICAL_CYCLES[thisCycle],
         },
       },
     };

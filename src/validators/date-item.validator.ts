@@ -1,5 +1,6 @@
 import { Schema, Validator } from 'jsonschema';
-import { extractedTypeKeys } from '../constants/Types';
+import { TYPES } from '../constants/types.constant';
+import { LITURGICAL_COLOR_KEYS } from '@RomcalConstants/liturgical-colors.constant';
 
 export const getDateItemJsonSchema = (): Schema => {
   const dateItemJsonSchema: Schema = {
@@ -11,7 +12,7 @@ export const getDateItemJsonSchema = (): Schema => {
       key: { type: 'string' },
       name: { type: 'string' },
       date: { type: 'string' },
-      type: { type: 'string', enum: extractedTypeKeys },
+      type: { type: 'string', enum: TYPES },
       data: { $ref: '/dateItemDataJsonSchema' },
       base: { $ref: '/dateItem' },
       _id: { type: 'number' },
@@ -45,7 +46,15 @@ export const getRomcalDateItemMetadataJsonSchema = (): Schema => {
     maxProperties: 4,
     properties: {
       psalterWeek: { type: 'object' },
-      liturgicalColor: { type: 'object' },
+      liturgicalColor: {
+        type: 'object',
+        maxProperties: 2,
+        properties: {
+          key: { type: 'string', enum: [LITURGICAL_COLOR_KEYS] },
+          value: { type: 'string' },
+        },
+        required: ['key'],
+      },
       titles: { type: 'array', items: { type: 'string' } }, // Must only be a string array
       cycle: { type: 'object' },
     },

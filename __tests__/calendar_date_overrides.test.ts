@@ -27,8 +27,8 @@ import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import { DateItem, IRomcalDateItem } from '../src/models/romcal-date-item';
 import Romcal from '../src/index';
-import { Types } from '../src/constants';
 import { Dates, Seasons } from '../src/lib';
+import { TypesEnum } from '../src/enums/types.enum';
 
 dayjs.extend(utc);
 
@@ -67,7 +67,7 @@ describe('Testing national calendar overrides', () => {
       const [firstDate] = spainDates2020.filter(d => {
         return dayjs.utc(d.date).isSame(dayjs.utc('2020-1-20'));
       });
-      expect(firstDate.type).toEqual(Types.FERIA);
+      expect(firstDate.type).toEqual(TypesEnum.FERIA);
     });
   });
 
@@ -125,7 +125,7 @@ describe('Testing national calendar overrides', () => {
         return d.key === 'ashWednesday';
       });
       expect(dates.length).toEqual(1);
-      expect(dates[0].type).toEqual(Types.FERIA);
+      expect(dates[0].type).toEqual(TypesEnum.FERIA);
     });
 
     test('A new prioritized celebration will replace any existing non-prioritized celebrations', () => {
@@ -133,7 +133,7 @@ describe('Testing national calendar overrides', () => {
         return d.key === 'saintLukeTheEvangelist';
       });
       expect(dates.length).toEqual(1);
-      expect(dates[0].type).toEqual(Types.COMMEMORATION);
+      expect(dates[0].type).toEqual(TypesEnum.COMMEMORATION);
     });
 
     test('An existing and prioritized celebration can be replaced by a new prioritized celebration having the same key (whatever its type rank)', () => {
@@ -142,7 +142,7 @@ describe('Testing national calendar overrides', () => {
       });
       expect(dates.length).toEqual(1);
       expect(dates[0].key).toEqual('maryMotherOfTheChurch');
-      expect(dates[0].type).toEqual(Types.OPT_MEMORIAL);
+      expect(dates[0].type).toEqual(TypesEnum.OPT_MEMORIAL);
     });
 
     test('If multiple prioritized celebrations falls the same day, the one with the highest type rank will be used', () => {
@@ -151,7 +151,7 @@ describe('Testing national calendar overrides', () => {
       });
       expect(dates.length).toEqual(1);
       expect(dates[0].key).toEqual('dedicationOfTheLateranBasilica');
-      expect(dates[0].type).toEqual(Types.FEAST);
+      expect(dates[0].type).toEqual(TypesEnum.FEAST);
     });
 
     test('If multiple prioritized celebrations with the same rank fall on the same day, the last defined celebration will be used', () => {
@@ -160,7 +160,7 @@ describe('Testing national calendar overrides', () => {
       });
       expect(dates.length).toEqual(1);
       expect(dates[0].key).toEqual('aSampleCelebration2');
-      expect(dates[0].type).toEqual(Types.SOLEMNITY);
+      expect(dates[0].type).toEqual(TypesEnum.SOLEMNITY);
     });
   });
 
@@ -398,7 +398,7 @@ describe('Testing national calendar overrides', () => {
       const saintMatthiasGermany = germanyDates.find(d => {
         return d.key === 'saintMatthiasTheApostle';
       });
-      expect(saintMatthiasGermany?.type).toEqual(Types.MEMORIAL);
+      expect(saintMatthiasGermany?.type).toEqual(TypesEnum.MEMORIAL);
     });
   });
 
@@ -415,8 +415,8 @@ describe('Testing national calendar overrides', () => {
       const saintChristopherMagallanesAndCompanionsMartyrsMexico = mexicoDates.find(d => {
         return d.key === 'saintChristopherMagallanesAndCompanionsMartyrs';
       });
-      expect(saintChristopherMagallanesAndCompanionsMartyrs?.type).toEqual(Types.OPT_MEMORIAL);
-      expect(saintChristopherMagallanesAndCompanionsMartyrsMexico?.type).toEqual(Types.MEMORIAL);
+      expect(saintChristopherMagallanesAndCompanionsMartyrs?.type).toEqual(TypesEnum.OPT_MEMORIAL);
+      expect(saintChristopherMagallanesAndCompanionsMartyrsMexico?.type).toEqual(TypesEnum.MEMORIAL);
     });
   });
 
@@ -436,8 +436,8 @@ describe('Testing national calendar overrides', () => {
       const saintLadislausSlovakia = slovakiaDates.find(d => {
         return d.key === 'saintLadislaus';
       });
-      expect(saintLadislausHungary?.type).toEqual(Types.FEAST);
-      expect(saintLadislausSlovakia?.type).toEqual(Types.OPT_MEMORIAL);
+      expect(saintLadislausHungary?.type).toEqual(TypesEnum.FEAST);
+      expect(saintLadislausSlovakia?.type).toEqual(TypesEnum.OPT_MEMORIAL);
     });
   });
 
@@ -447,7 +447,7 @@ describe('Testing national calendar overrides', () => {
       const ourLadyOfSorrows = dates.find(d => {
         return d.key === 'ourLadyOfSorrows';
       });
-      expect(ourLadyOfSorrows?.type).toEqual(Types.MEMORIAL);
+      expect(ourLadyOfSorrows?.type).toEqual(TypesEnum.MEMORIAL);
       expect(dayjs.utc(ourLadyOfSorrows?.date).isSame(dayjs.utc('2018-9-15'))).toBeTruthy();
     });
 
@@ -459,7 +459,7 @@ describe('Testing national calendar overrides', () => {
       const ourLadyOfSorrows = maltaDates.find(d => {
         return d.key === 'ourLadyOfSorrows';
       });
-      expect(ourLadyOfSorrows?.type).toEqual(Types.FEAST);
+      expect(ourLadyOfSorrows?.type).toEqual(TypesEnum.FEAST);
       expect(dayjs.utc(ourLadyOfSorrows?.date).isSame(dayjs.utc('2015-4-15'))).toBeTruthy();
     });
 
@@ -482,7 +482,7 @@ describe('Testing national calendar overrides', () => {
       const ourLadyOfSorrows = slovakiaDates.find(d => {
         return d.key === 'ourLadyOfSorrows';
       });
-      expect(ourLadyOfSorrows?.type).toEqual(Types.SOLEMNITY);
+      expect(ourLadyOfSorrows?.type).toEqual(TypesEnum.SOLEMNITY);
       expect(dayjs.utc(ourLadyOfSorrows?.date).isSame(dayjs.utc('2018-9-15'))).toBeTruthy();
     });
   });
