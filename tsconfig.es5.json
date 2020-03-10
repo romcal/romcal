@@ -1,6 +1,10 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "./dist/es5"
+    "outDir": "./dist/es5",
+    "declaration": false,
+    "declarationMap": false,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": false
   }
 }

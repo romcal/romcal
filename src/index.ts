@@ -15,13 +15,10 @@ import { hasKey } from '@RomcalUtils/object';
 import { COUNTRIES as Countries } from '@RomcalConstants/county-list.constant';
 import { Query } from '@RomcalTypes/query-type.type';
 
-// Other exports to provide convenience functions to the user
-export { Locales, Celebrations, Dates, Seasons, Calendar, Countries };
-
 /**
- * The default export of the `romcal` module.
+ * The export of the `romcal` module.
  */
-export default class Romcal {
+class Romcal {
   /**
    * Filters an array of dates generated from the calendarFor function based on a given query.
    *
@@ -169,3 +166,6 @@ export default class Romcal {
     }
   }
 }
+
+// Other exports to provide convenience functions to the user
+export { Locales, Celebrations, Dates, Seasons, Calendar, Countries, Romcal };
