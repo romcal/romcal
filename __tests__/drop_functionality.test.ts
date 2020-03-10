@@ -1,5 +1,3 @@
-import { DateItem } from '../src/models/romcal-date-item';
-
 /*
     The MIT License (MIT)
 
@@ -26,7 +24,8 @@ import { DateItem } from '../src/models/romcal-date-item';
 
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
-import Romcal from '../src/index';
+import { Romcal } from '@RomcalRoot';
+import { DateItem } from '@RomcalModels/romcal-date-item';
 
 dayjs.extend(utc);
 

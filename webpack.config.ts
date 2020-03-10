@@ -188,9 +188,10 @@ const configurations: MultiConfigurationFactory = (env, { mode }) => [
       ...getWebpackOutput('esm'),
       filename: 'index.js',
       chunkFilename: '[name].js',
-      libraryTarget: 'umd',
-      globalObject: 'this',
       publicPath: '/dist/esm/',
+      library: 'romcal',
+      libraryTarget: 'umd',
+      libraryExport: 'Romcal'
     },
 
     plugins: [
