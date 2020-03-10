@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
-import { Dates } from '../lib';
-import { ISO8601DateString, isNil } from '../utils/type-guards';
+import * as Dates from '@RomcalLib/Dates';
+import { ISO8601DateString, isNil } from '@RomcalUtils/type-guards';
 import { LITURGICAL_CYCLES } from '@RomcalConstants/liturgical-cycles.constant';
 import { TypesEnum } from '@RomcalEnums/types.enum';
 import { LiturgicalSeason } from '@RomcalTypes/liturgical-seasons.type';

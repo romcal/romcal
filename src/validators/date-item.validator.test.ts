@@ -1,5 +1,5 @@
 import { Validator } from 'jsonschema';
-import { getRomcalSeasonJsonSchema } from './date-item.validator';
+import { getRomcalSeasonJsonSchema } from '@RomcalValidators/date-item.validator';
 
 describe('Tests for Date Item JSON Schema validation functions', () => {
   const validator = new Validator();

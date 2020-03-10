@@ -1,18 +1,22 @@
 import dayjs from 'dayjs';
-import { Locales, Celebrations, Dates, Seasons, Calendar } from './lib';
+// eslint-disable-next-line you-dont-need-lodash-underscore/map
+import map from 'lodash-es/map';
+import groupBy from 'lodash-es/groupBy';
+
+import * as Locales from '@RomcalLib/Locales';
+import * as Celebrations from '@RomcalLib/Celebrations';
+import * as Dates from '@RomcalLib/Dates';
+import * as Seasons from '@RomcalLib/Seasons';
+import { Calendar } from '@RomcalLib/Calendar';
 import { DateItem } from '@RomcalModels/romcal-date-item';
 import Config, { RomcalConfig } from '@RomcalModels/romcal-config';
 import { Dictionary, isNil, isInteger, isObject } from '@RomcalUtils/type-guards';
 import { hasKey } from '@RomcalUtils/object';
 import { COUNTRIES as Countries } from '@RomcalConstants/county-list.constant';
 import { Query } from '@RomcalTypes/query-type.type';
-// eslint-disable-next-line you-dont-need-lodash-underscore/map
-import map from 'lodash-es/map';
-import groupBy from 'lodash-es/groupBy';
 
 // Other exports to provide convenience functions to the user
-export { Calendar, Celebrations, Dates, Seasons, Locales };
-export { Countries };
+export { Locales, Celebrations, Dates, Seasons, Calendar, Countries };
 
 /**
  * The default export of the `romcal` module.

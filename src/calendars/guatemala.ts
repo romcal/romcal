@@ -1,4 +1,5 @@
-import { Dates, Locales } from '../lib';
+import * as Locales from '@RomcalLib/Locales';
+import * as Dates from '@RomcalLib/Dates';
 import { LITURGICAL_COLORS } from '@RomcalConstants/liturgical-colors.constant';
 import { RomcalDateItem } from '@RomcalModels/romcal-date-item';
 import dayjs from 'dayjs';

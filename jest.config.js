@@ -19,12 +19,15 @@ module.exports = {
   },
   moduleNameMapper: {
     '^.+.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
+    '@RomcalRoot': '<rootDir>/src/index.ts',
+    '@RomcalLib/(.*)': '<rootDir>/src/lib/$1',
     '@RomcalTypes/(.*)': '<rootDir>/src/types/$1',
     '@RomcalConstants/(.*)': '<rootDir>/src/constants/$1',
     '@RomcalEnums/(.*)': '<rootDir>/src/enums/$1',
     '@RomcalUtils/(.*)': '<rootDir>/src/utils/$1',
     '@RomcalValidators/(.*)': '<rootDir>/src/validators/$1',
     '@RomcalModels/(.*)': '<rootDir>/src/models/$1',
+    '@RomcalLocales/(.*)': '<rootDir>/src/locales/$1',
   },
   globals: {
     'ts-jest': {
