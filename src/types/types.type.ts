@@ -1,4 +1,4 @@
-import { ElementType } from '../utils/helpers';
+import { ElementType } from '@RomcalUtils/helpers';
 import { TYPES } from '@RomcalConstants/types.constant';
 
 /**

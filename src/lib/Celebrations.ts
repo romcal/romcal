@@ -1,10 +1,10 @@
-import * as Dates from './Dates';
-import { localizeDates, localizeLiturgicalColor, localize } from './Locales';
+import * as Dates from '@RomcalLib/Dates';
+import { localizeDates, localizeLiturgicalColor, localize } from '@RomcalLib/Locales';
 import { TITLES } from '@RomcalConstants/titles.constant';
 import { LITURGICAL_COLORS } from '@RomcalConstants/liturgical-colors.constant';
 import { RomcalDateItem } from '@RomcalModels/romcal-date-item';
-import Config from '../models/romcal-config';
-import { isNil } from '../utils/type-guards';
+import Config from '@RomcalModels/romcal-config';
+import { isNil } from '@RomcalUtils/type-guards';
 import { TypesEnum } from '@RomcalEnums/types.enum';
 
 /**

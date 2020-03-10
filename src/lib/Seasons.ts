@@ -4,7 +4,7 @@ import uniqBy from 'lodash-es/uniqBy';
 import union from 'lodash-es/union';
 import take from 'lodash-es/take';
 
-import * as Dates from './Dates';
+import * as Dates from '@RomcalLib/Dates';
 import { LITURGICAL_COLORS } from '@RomcalConstants/liturgical-colors.constant';
 import { PSALTER_WEEKS } from '@RomcalConstants/psalter-weeks.constant';
 import { PsalterWeek } from '@RomcalTypes/psalter-weeks.type';
@@ -12,7 +12,7 @@ import { RomcalDateItem } from '@RomcalModels/romcal-date-item';
 import { isNil } from '@RomcalUtils/type-guards';
 import { TypesEnum } from '@RomcalEnums/types.enum';
 import { ChristmastideEndings } from '@RomcalTypes/christmastide-endings.type';
-import { ordinal, localizeLiturgicalColor, localize, getTypeByDayOfWeek } from './Locales';
+import { ordinal, localizeLiturgicalColor, localize, getTypeByDayOfWeek } from '@RomcalLib/Locales';
 
 import dayjs from 'dayjs';
 import weekOfYear from 'dayjs/plugin/weekOfYear';

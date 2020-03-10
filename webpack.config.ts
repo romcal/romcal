@@ -159,7 +159,7 @@ const configurations: MultiConfigurationFactory = (env, { mode }) => [
         {
           test: /\.ts(x?)$/,
           exclude: [/node_modules/, '/src/**/*.test.ts'],
-          use: [getBabelRuleSetForEs5(), getTsLoaderRuleSet('tsconfig.json')],
+          use: [getBabelRuleSetForEs5(), getTsLoaderRuleSet('tsconfig.es5.json')],
         },
       ],
     },
@@ -206,7 +206,7 @@ const configurations: MultiConfigurationFactory = (env, { mode }) => [
         {
           test: /\.ts(x?)$/,
           exclude: [/node_modules/, '/src/**/*.test.ts'],
-          use: [getTsLoaderRuleSet('tsconfig.json')],
+          use: [getTsLoaderRuleSet('tsconfig.esm.json')],
         },
       ],
     },

@@ -24,12 +24,13 @@
 
 import dayjs from 'dayjs';
 
-import { Seasons, Dates } from '.';
-import { Dictionary } from '../utils/type-guards';
-import { DateItem } from '../models/romcal-date-item';
-import { setLocale } from './Locales';
-import Romcal from '../index';
+import * as Dates from '@RomcalLib/Dates';
+import * as Seasons from '@RomcalLib/Seasons';
+import { Dictionary } from '@RomcalUtils/type-guards';
+import { DateItem } from '@RomcalModels/romcal-date-item';
+import { setLocale } from '@RomcalLib/Locales';
 import { LITURGICAL_COLORS } from '@RomcalConstants/liturgical-colors.constant';
+import Romcal from '@RomcalRoot';
 
 describe('Testing date range functions', () => {
   // The locale needs to be set before any tests below can run properly

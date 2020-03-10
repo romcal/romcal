@@ -1,5 +1,5 @@
 import { Schema, Validator } from 'jsonschema';
-import { default as Locales } from '../locales';
+import { default as Locales } from '@RomcalLocales/index';
 import { TITLES } from '@RomcalConstants/titles.constant';
 import { QUERY_TYPES } from '@RomcalConstants/query-types.constant';
 import { COUNTRIES } from '@RomcalConstants/county-list.constant';
