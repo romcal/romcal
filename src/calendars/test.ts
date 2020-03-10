@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 
-import { Dates, Locales } from '../lib';
+import * as Locales from '@RomcalLib/Locales';
+import * as Dates from '@RomcalLib/Dates';
 import { RomcalDateItem } from '@RomcalModels/romcal-date-item';
 import Config, { IRomcalDefaultConfig } from '@RomcalModels/romcal-config';
 import { TypesEnum } from '@RomcalEnums/types.enum';

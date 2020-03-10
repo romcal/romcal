@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { findDescendantValueByKeys, omit, omitFalsyProps, mergeObjectsUniquely, sortBy } from './object';
+import { findDescendantValueByKeys, omit, omitFalsyProps, mergeObjectsUniquely, sortBy } from '@RomcalUtils/object';
 
 describe('omit', () => {
   let testObject: Record<string, any>;

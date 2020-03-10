@@ -22,8 +22,9 @@
     THE SOFTWARE.
 */
 
-import { rangeOfDays, rangeContainsDate } from '../utils/dates';
-import { Locales, Dates } from '.';
+import * as Locales from '@RomcalLib/Locales';
+import * as Dates from '@RomcalLib/Dates';
+import { rangeOfDays, rangeContainsDate } from '@RomcalUtils/dates';
 
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
@@ -37,13 +38,12 @@ dayjs.extend(weekday);
 describe('Testing specific liturgical date functions', () => {
   describe('In Christian calendars, Sunday is the first day of the week', () => {
     // eslint-disable-next-line prettier/prettier
-    test("The Solemnity of Epiphany is a Sunday when using the 'fr' locale", async () => {
+    test('The Solemnity of Epiphany is a Sunday when using the fr locale', async () => {
       await Locales.setLocale('fr');
       const date1 = Dates.epiphany(1969);
       expect(date1.weekday()).toEqual(0);
     });
-    // eslint-disable-next-line prettier/prettier
-    test("The Solemnity of Epiphany is a Sunday when using the 'en' locale", async () => {
+    test('The Solemnity of Epiphany is a Sunday when using the en locale', async () => {
       await Locales.setLocale('en');
       const date2 = Dates.epiphany(1969);
       expect(date2.weekday()).toEqual(0);

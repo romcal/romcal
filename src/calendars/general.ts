@@ -1,6 +1,8 @@
 import dayjs from 'dayjs';
 
-import { Dates, Locales, Seasons } from '../lib';
+import * as Dates from '@RomcalLib/Dates';
+import * as Locales from '@RomcalLib/Locales';
+import * as Seasons from '@RomcalLib/Seasons';
 import { LITURGICAL_COLORS } from '@RomcalConstants/liturgical-colors.constant';
 import { TITLES } from '@RomcalConstants/titles.constant';
 import { RomcalDateItem } from '@RomcalModels/romcal-date-item';

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { includes } from './array';
-import { isNil, isObject } from './type-guards';
+import { includes } from '@RomcalUtils/array';
+import { isNil, isObject } from '@RomcalUtils/type-guards';
 
 /**
  * Retrieves the value of the key in the given object
@@ -124,7 +124,7 @@ export const omitFalsyProps = <Original extends { [key: string]: any }>(
  * Example:
  *
  * ```js
- * import { omit } from './utils/object';
+ * import { omit } from '@RomcalUtils/object';
  *
  * const original = { a: 1, b: 2, c: 3 }
  * console.log(omit(original, ['b'])); // { a:1, c: 3 }

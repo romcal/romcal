@@ -1,7 +1,7 @@
-import * as Dates from './Dates';
-import * as Seasons from './Seasons';
-import * as Celebrations from './Celebrations';
-import { localizeLiturgicalColor } from './Locales';
+import * as Dates from '@RomcalLib/Dates';
+import * as Seasons from '@RomcalLib/Seasons';
+import * as Celebrations from '@RomcalLib/Celebrations';
+import { localizeLiturgicalColor } from '@RomcalLib/Locales';
 import { isNil } from '@RomcalUtils/type-guards';
 import Config from '@RomcalModels/romcal-config';
 import { DateItem, RomcalDateItem, RomcalDateItemData } from '@RomcalModels/romcal-date-item';

@@ -27,7 +27,8 @@ import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import { DateItem, RomcalDateItem } from '../src/models/romcal-date-item';
 import Romcal from '../src/index';
-import { Dates, Seasons } from '../src/lib';
+import * as Seasons from '@RomcalLib/Seasons';
+import * as Dates from '@RomcalLib/Dates';
 import { TypesEnum } from '../src/enums/types.enum';
 
 dayjs.extend(utc);

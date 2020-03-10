@@ -1,4 +1,4 @@
-import { Primitive } from './type-guards';
+import { Primitive } from '@RomcalUtils/type-guards';
 
 /**
  * Check if an array contains an item.
@@ -6,7 +6,7 @@ import { Primitive } from './type-guards';
  * Example:
  *
  * ```js
- * import { includes } from './utils/array';
+ * import { includes } from '@RomcalUtils/array';
  *
  * includes([1,2,3,4,5], 4); // true
  * includes([1,2,3,4,5], 9); // false
@@ -22,7 +22,7 @@ export const includes = <T>(array: T[] | ReadonlyArray<T>, item: T): boolean => 
  * Example:
  *
  * ```js
- * import { concatAll } from './utils/array';
+ * import { concatAll } from '@RomcalUtils/array';
  *
  * concatAll([1,2,[3,4], [5,6,7]]); // [1,2,3,4,5,6,7]
  * ```
@@ -91,7 +91,7 @@ export const groupByKey = <O extends any, K extends keyof O>(array: O[], key: K)
  * Example:
  *
  * ```js
- * import { asyncForEach, get } from './utils/array';
+ * import { asyncForEach, get } from '@RomcalUtils/array';
  *
  * async function doSomething() {
  *  await asyncForEach(
