@@ -1,5 +1,3 @@
-import { DateItem } from "../src/models/romcal-date-item";
-
 /*
     The MIT License (MIT)
 
@@ -24,27 +22,30 @@ import { DateItem } from "../src/models/romcal-date-item";
     THE SOFTWARE.
 */
 
-import dayjs from "dayjs";
-import utc from "dayjs/plugin/utc";
-import Romcal from "../src/index";
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+import { Romcal } from '@RomcalRoot';
+import { DateItem } from '@RomcalModels/romcal-date-item';
 
 dayjs.extend(utc);
 
 // eslint-disable-next-line quotes
 describe('Testing the "drop" functionality for national calendars', () => {
-    let testDates: DateItem[];
+  let testDates: DateItem[];
 
-    beforeAll(async () => {
-        testDates = await Romcal.calendarFor({
-            country: "slovakia",
-            year: 2020,
-        });
+  beforeAll(async () => {
+    testDates = await Romcal.calendarFor({
+      country: 'slovakia',
+      year: 2020,
     });
+    // const saintSylvesterIPope = testDates.find(testDate => testDate.key === 'saintSylvesterIPope');
+    // console.log(JSON.stringify(saintSylvesterIPope));
+  });
 
-    test("A dropped celebration should not be appended in the final calendar", () => {
-        const date = testDates.find(d => {
-            return dayjs.utc(d.date).isSame(dayjs.utc("2020-12-4"));
-        });
-        expect(date?.key).not.toEqual("saintJohnDamascenePriestAndDoctor");
+  test('A dropped celebration should not be appended in the final calendar', () => {
+    const date = testDates.find(d => {
+      return dayjs.utc(d.date).isSame(dayjs.utc('2020-12-4'));
     });
+    expect(date?.key).not.toEqual('saintJohnDamascenePriestAndDoctor');
+  });
 });
