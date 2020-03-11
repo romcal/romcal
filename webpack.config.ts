@@ -195,6 +195,7 @@ const configurations: MultiConfigurationFactory = (env, { mode }) => [
   {
     devtool: getDevTool(mode),
     resolve: getResolveExtensions(),
+    target: 'node',
 
     entry: {
       romcal: [...getEntryPoints()],
