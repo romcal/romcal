@@ -3,12 +3,12 @@
   "version": "1.3.1-canary.84",
   "description": "Utility library that outputs the Liturgical Calendar used by the Roman Rite (Western Church)",
   "main": "./dist/esm/index.js",
-  "types": "./dist/esm/index.d.ts",
   "module": "./dist/esm/index.js",
   "engines": {
     "node": ">=12"
   },
   "files": [
+    "dist/esm/index.d.ts",
     "dist/*/**"
   ],
   "publishConfig": {
@@ -131,6 +131,7 @@
     "ts-loader": "^6.2.1",
     "ts-node": "^8.6.2",
     "tsconfig-paths": "^3.9.0",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
     "typedoc": "^0.16.10",
     "typescript": "^3.8.3",
     "webpack": "^4.41.6",

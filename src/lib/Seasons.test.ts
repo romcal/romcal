@@ -30,7 +30,7 @@ import { Dictionary } from '@RomcalUtils/type-guards';
 import { DateItem } from '@RomcalModels/romcal-date-item';
 import { setLocale } from '@RomcalLib/Locales';
 import { LITURGICAL_COLORS } from '@RomcalConstants/liturgical-colors.constant';
-import { Romcal } from '@RomcalRoot';
+import Romcal from '@RomcalRoot';
 
 describe('Testing date range functions', () => {
   // The locale needs to be set before any tests below can run properly

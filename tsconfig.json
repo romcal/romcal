@@ -1,13 +1,8 @@
 {
   "compilerOptions": {
-    "moduleResolution": "node",
     "target": "es5",
     "module": "esnext",
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
-    "inlineSourceMap": false,
-    "inlineSources": false,
+    "moduleResolution": "node",
     "removeComments": false,
     "traceResolution": true,
     "resolveJsonModule": true,
@@ -25,7 +20,7 @@
       "DOM.Iterable",
       "ScriptHost"
     ],
-    "allowJs": true,
+    "allowJs": false,
     "rootDir": "./src",
     "emitDeclarationOnly": false,
     "importHelpers": true,
@@ -42,7 +37,6 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "dayjs/*": ["node_modules/dayjs/*"],
       "@RomcalRoot": ["src/index.ts"],
       "@RomcalLib/*": ["src/lib/*"],
       "@RomcalTypes/*": ["src/types/*"],
@@ -53,8 +47,8 @@
       "@RomcalModels/*": ["src/models/*"],
       "@RomcalLocales/*": ["src/locales/*"]
     },
-    "types": ["lodash-es", "bcp-47", "core-js", "number-to-words", "dayjs", "inversify", "jsonschema"]
+    "types": ["lodash-es", "bcp-47", "core-js", "number-to-words", "dayjs", "inversify", "jsonschema", "node"]
   },
-  "include": ["typings/*", "src/**/*.ts"],
+  "include": ["typings/*", "src/**/*"],
   "exclude": ["dist/**/*", "coverage/**/*"]
 }

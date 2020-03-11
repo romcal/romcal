@@ -3,34 +3,25 @@ import webpack = require('webpack');
 import { join, resolve } from 'path';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 
-/**
- * Resolve tsconfig.json paths to Webpack aliases
- * @param  {string} tsconfigPath           - Path to tsconfig
- * @param  {string} webpackConfigBasePath  - Path from tsconfig to Webpack config to create absolute aliases
- * @return {object}                        - Webpack alias config
- */
-const resolveTsconfigPathsToAlias = ({ tsconfigPath = './tsconfig.json', webpackConfigBasePath = __dirname } = {}): {
-  [key: string]: string;
-} => {
-  const { paths } = require(tsconfigPath).compilerOptions;
-  const aliases: {
-    [key: string]: string;
-  } = {};
-  Object.keys(paths).forEach(item => {
-    const key = item.replace('/*', '');
-    const value = resolve(webpackConfigBasePath, paths[item][0].replace('/*', '').replace('*', ''));
-    aliases[key] = value;
-  });
-  return aliases;
-};
+//github.com/dividab/tsconfig-paths-webpack-plugin/issues/32#issuecomment-478042178
+delete process.env.TS_NODE_PROJECT;
 
-const getDevTool = (mode: string): webpack.Options.Devtool =>
+const getDevTool = (mode: webpack.Configuration['mode']): webpack.Options.Devtool =>
   mode === 'production' ? 'source-map' : 'inline-source-map';
 
+const getTsConfigPathsPlugin = (): TsconfigPathsPlugin => {
+  const tsconfigPathsPlugin = new TsconfigPathsPlugin({
+    baseUrl: resolve(__dirname, '.'),
+    configFile: resolve(__dirname, './tsconfig.json'),
+  });
+  return tsconfigPathsPlugin;
+};
+
 const getResolveExtensions = (): webpack.Resolve => ({
-  alias: resolveTsconfigPathsToAlias(),
   extensions: ['.ts', '.js', '.json'],
+  plugins: [getTsConfigPathsPlugin()],
 });
 
 const getEntryPoints = (): string[] => {
@@ -41,13 +32,38 @@ const getWebpackOutput = (subpath: string): webpack.Output => ({
   path: join(__dirname, `/dist/${subpath}`),
 });
 
-const getTsLoaderRuleSet = (tsConfigFilePath: string): webpack.RuleSetUseItem => ({
-  loader: 'ts-loader',
-  options: {
-    configFile: join(__dirname, tsConfigFilePath),
+const getTsLoaderRuleSet = (
+  module = 'es5',
+  mode: webpack.Configuration['mode'] = 'production',
+): webpack.RuleSetUseItem => {
+  let options: webpack.RuleSetQuery = {
     colors: true,
-  },
-});
+    compilerOptions: {
+      outDir: './dist/es5',
+      declaration: false,
+      declarationMap: false,
+      ...(mode === 'production' && { sourceMap: true }),
+      ...(mode === 'development' && { inlineSourceMap: true }),
+      ...(mode === 'development' && { inlineSources: true }),
+    },
+  };
+  if (module === 'esm') {
+    options = {
+      ...options,
+      compilerOptions: {
+        ...options.compilerOptions,
+        outDir: './dist/esm',
+        declaration: true,
+        declarationMap: true,
+      },
+    };
+  }
+  const ruleSetItem: webpack.RuleSetUseItem = {
+    loader: 'ts-loader',
+    options,
+  };
+  return ruleSetItem;
+};
 
 const getBabelRuleSetForEs5 = (): webpack.RuleSetUseItem => ({
   loader: 'babel-loader',
@@ -58,7 +74,7 @@ const getBabelRuleSetForEs5 = (): webpack.RuleSetUseItem => ({
         {
           useBuiltIns: 'usage',
           corejs: '3',
-          debug: true,
+          debug: false,
           ignoreBrowserslistConfig: true,
           targets: {
             browsers: [
@@ -149,7 +165,7 @@ const configurations: MultiConfigurationFactory = (env, { mode }) => [
       libraryExport: 'default',
       library: 'romcal',
       jsonpFunction: 'romcalWebpackJsonpFunction',
-      globalObject: 'window',
+      globalObject: 'this',
       auxiliaryComment: 'romcal - The Liturgical Calendar generator',
     },
 
@@ -159,7 +175,7 @@ const configurations: MultiConfigurationFactory = (env, { mode }) => [
         {
           test: /\.ts(x?)$/,
           exclude: [/node_modules/, '/src/**/*.test.ts'],
-          use: [getBabelRuleSetForEs5(), getTsLoaderRuleSet('tsconfig.es5.json')],
+          use: [getBabelRuleSetForEs5(), getTsLoaderRuleSet('es5', mode)],
         },
       ],
     },
@@ -184,6 +200,7 @@ const configurations: MultiConfigurationFactory = (env, { mode }) => [
       romcal: [...getEntryPoints()],
     },
 
+    // https://stackoverflow.com/questions/33069325/export-class-in-es6-not-working
     output: {
       ...getWebpackOutput('esm'),
       filename: 'index.js',
@@ -191,7 +208,6 @@ const configurations: MultiConfigurationFactory = (env, { mode }) => [
       publicPath: '/dist/esm/',
       library: 'romcal',
       libraryTarget: 'umd',
-      libraryExport: 'Romcal'
     },
 
     plugins: [
@@ -207,7 +223,7 @@ const configurations: MultiConfigurationFactory = (env, { mode }) => [
         {
           test: /\.ts(x?)$/,
           exclude: [/node_modules/, '/src/**/*.test.ts'],
-          use: [getTsLoaderRuleSet('tsconfig.esm.json')],
+          use: [getTsLoaderRuleSet('esm', mode)],
         },
       ],
     },
