@@ -3,7 +3,16 @@ import dayjs from 'dayjs';
 import map from 'lodash-es/map';
 import groupBy from 'lodash-es/groupBy';
 
-import * as Locales from '@RomcalLib/Locales';
+import {
+  getLocale,
+  getTypeByDayOfWeek,
+  localize,
+  localizeDates,
+  localizeLiturgicalColor,
+  ordinal,
+  sanitizePossibleLocaleValue,
+  setLocale,
+} from '@RomcalLib/Locales';
 import * as Celebrations from '@RomcalLib/Celebrations';
 import * as Dates from '@RomcalLib/Dates';
 import * as Seasons from '@RomcalLib/Seasons';
@@ -18,7 +27,7 @@ import { Query } from '@RomcalTypes/query-type.type';
 /**
  * The export of the `romcal` module.
  */
-class Romcal {
+export default class Romcal {
   /**
    * Filters an array of dates generated from the calendarFor function based on a given query.
    *
@@ -149,7 +158,7 @@ class Romcal {
     const config = new Config(resolvedConfig);
 
     // Set the locale information
-    await Locales.setLocale(config.locale);
+    await setLocale(config.locale);
 
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
     const calendar = new Calendar(config);
@@ -167,5 +176,15 @@ class Romcal {
   }
 }
 
+export {
+  getLocale,
+  getTypeByDayOfWeek,
+  localize,
+  localizeDates,
+  localizeLiturgicalColor,
+  ordinal,
+  sanitizePossibleLocaleValue,
+  setLocale,
+};
 // Other exports to provide convenience functions to the user
-export { Locales, Celebrations, Dates, Seasons, Calendar, Countries, Romcal };
+export { Celebrations, Dates, Seasons, Calendar, Countries };
