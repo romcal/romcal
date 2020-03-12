@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "diagnostics": true,
     "module": "esnext",
     "moduleResolution": "node",
     "removeComments": false,
@@ -20,7 +21,7 @@
       "DOM.Iterable",
       "ScriptHost"
     ],
-    "allowJs": false,
+    "allowJs": true,
     "rootDir": "./src",
     "emitDeclarationOnly": false,
     "importHelpers": true,
@@ -37,7 +38,7 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "@RomcalRoot": ["src/index.ts"],
+      "@RomcalRoot/*": ["src/*"],
       "@RomcalLib/*": ["src/lib/*"],
       "@RomcalTypes/*": ["src/types/*"],
       "@RomcalConstants/*": ["src/constants/*"],
@@ -46,9 +47,10 @@
       "@RomcalValidators/*": ["src/validators/*"],
       "@RomcalModels/*": ["src/models/*"],
       "@RomcalLocales/*": ["src/locales/*"]
-    },
-    "types": ["lodash-es", "bcp-47", "core-js", "number-to-words", "dayjs", "inversify", "jsonschema", "node"]
+    }
   },
-  "include": ["typings/*", "src/**/*"],
-  "exclude": ["dist/**/*", "coverage/**/*"]
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": ["dist/**/*", "src/**/*.test.ts", "coverage/**/*"]
 }

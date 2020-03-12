@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "./global.d.ts",
+    "__tests__/*.test.ts",
+    "src/**/*.test.ts"
+  ],
+  "exclude": ["dist/**/*", "coverage/**/*"]
+}
