@@ -26,7 +26,7 @@ import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 
 import { DateItem } from '@RomcalModels/romcal-date-item';
-import Romcal from '@RomcalRoot';
+import Romcal from '@RomcalRoot/index';
 import * as Seasons from '@RomcalLib/Seasons';
 import * as Dates from '@RomcalLib/Dates';
 import { TypesEnum } from '@RomcalEnums/types.enum';

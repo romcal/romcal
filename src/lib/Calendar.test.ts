@@ -28,7 +28,7 @@ import get from 'lodash-es/get';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 
-import Romcal from '@RomcalRoot';
+import Romcal from '@RomcalRoot/index';
 import * as Dates from '@RomcalLib/Dates';
 import { Dictionary, isNil } from '@RomcalUtils/type-guards';
 import { DateItem, isDateItem } from '@RomcalModels/romcal-date-item';
