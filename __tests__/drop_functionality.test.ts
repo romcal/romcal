@@ -24,7 +24,7 @@
 
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
-import Romcal from '@RomcalRoot';
+import Romcal from '@RomcalRoot/index';
 import { DateItem } from '@RomcalModels/romcal-date-item';
 
 dayjs.extend(utc);
