@@ -690,7 +690,7 @@ describe('Testing specific liturgical date functions', () => {
         const holyWeekRange = rangeOfDays(firstDayOfHolyWeek, lastDayOfHolyWeek);
 
         // Shouldn't happen within the octave of easter
-        const octaveOfEasterDates = Dates.octaveOfEaster(i);
+        const octaveOfEasterDates = Dates.datesInOctaveOfEaster(i);
         const [firstDayInOctaveOfEaster] = octaveOfEasterDates;
         const [lastDayInOctaveOfEaster] = octaveOfEasterDates.reverse();
         const octaveRange = rangeOfDays(firstDayInOctaveOfEaster, lastDayInOctaveOfEaster);
@@ -716,7 +716,7 @@ describe('Testing specific liturgical date functions', () => {
         const holyWeekRange = rangeOfDays(firstDayOfHolyWeek, lastDayOfHolyWeek);
 
         // Shouldn't happen within the octave of easter
-        const octaveOfEasterDates = Dates.octaveOfEaster(i);
+        const octaveOfEasterDates = Dates.datesInOctaveOfEaster(i);
         const [firstDayInOctaveOfEaster] = octaveOfEasterDates;
         const [lastDayInOctaveOfEaster] = octaveOfEasterDates.reverse();
         const octaveRange = rangeOfDays(firstDayInOctaveOfEaster, lastDayInOctaveOfEaster);
@@ -740,7 +740,7 @@ describe('Testing specific liturgical date functions', () => {
         const [lastDayOfHolyWeek] = holyWeekDates.reverse();
         const holyWeekRange = rangeOfDays(firstDayOfHolyWeek, lastDayOfHolyWeek);
 
-        const octaveOfEasterDates = Dates.octaveOfEaster(i);
+        const octaveOfEasterDates = Dates.datesInOctaveOfEaster(i);
         const [firstDayInOctaveOfEaster] = octaveOfEasterDates;
         const [lastDayInOctaveOfEaster] = octaveOfEasterDates.reverse();
         const octaveRange = rangeOfDays(firstDayInOctaveOfEaster, lastDayInOctaveOfEaster);

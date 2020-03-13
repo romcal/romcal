@@ -12,7 +12,7 @@ import { TypesEnum } from '@RomcalEnums/types.enum';
 import dayjs from 'dayjs';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
-import { Countries } from '@RomcalTypes/countries,type';
+import { Countries } from '@RomcalTypes/countries.type';
 
 dayjs.extend(isSameOrAfter);
 dayjs.extend(isSameOrBefore);

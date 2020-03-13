@@ -145,7 +145,7 @@ const holySaturday = (year: number): dayjs.Dayjs =>
 // Lent starts on Ash Wednesday and runs until the
 // day before Holy Thursday
 // y: year (integer)
-const daysOfLent = (year: number): Array<dayjs.Dayjs> => {
+const datesOfLent = (year: number): Array<dayjs.Dayjs> => {
   const start = ashWednesday(year);
   const end = holyThursday(year);
   return rangeOfDays(start, end, { exclude: [end] });
@@ -310,17 +310,17 @@ const presentationOfTheLord = (year: number): dayjs.Dayjs => dayjs.utc(`${year}-
  * Presentation of the Lord, 40 days after Dec. 25) (Candlemass).*
  *
  * @param year The year to use for the calculation
- * @param christmastideEnds The rule determining when the season of Christmas ends
+ * @param datesOfChristmasEnds The rule determining when the season of Christmas ends
  * @param epiphanyOnSunday If false, Epiphany will be fixed to Jan 6 (defaults to true)
  */
-const christmastide = (
+const datesOfChristmas = (
   year: number,
-  christmastideEnds: ChristmastideEndings = 'o',
+  datesOfChristmasEnds: ChristmastideEndings = 'o',
   epiphanyOnSunday = true,
 ): Array<dayjs.Dayjs> => {
   const start = christmas(year);
   let end = null;
-  switch (christmastideEnds) {
+  switch (datesOfChristmasEnds) {
     case 't':
       end = epiphany(year + 1, epiphanyOnSunday);
       break;
@@ -350,20 +350,20 @@ const christmastide = (
  * the day before Ash Wednesday.*
  *
  * @param year The year for the calculation
- * @param christmastideEnds The mode to calculate the end of Christmastide
+ * @param datesOfChristmasEnds The mode to calculate the end of Christmastide
  * @param epiphanyOnSunday If false, fixes Epiphany to Jan 6 (defaults to true)
  */
-const daysOfEarlyOrdinaryTime = (
+const datesOfEarlyOrdinaryTime = (
   year: number,
-  christmastideEnds: ChristmastideEndings = 'o',
+  datesOfChristmasEnds: ChristmastideEndings = 'o',
   epiphanyOnSunday = true,
 ): Array<dayjs.Dayjs> => {
   let start = null;
   const end = ashWednesday(year);
 
-  if (christmastideEnds === 't') {
+  if (datesOfChristmasEnds === 't') {
     start = epiphany(year, epiphanyOnSunday);
-  } else if (christmastideEnds === 'e') {
+  } else if (datesOfChristmasEnds === 'e') {
     start = presentationOfTheLord(year);
   } else {
     start = baptismOfTheLord(year, epiphanyOnSunday);
@@ -377,7 +377,7 @@ const daysOfEarlyOrdinaryTime = (
  * @param year The year for the calculation
  */
 const sundaysOfEarlyOrdinaryTime = (year: number): Array<dayjs.Dayjs> => {
-  return eachDayOfWeekInRange(daysOfEarlyOrdinaryTime(year), DayOfWeek.SUNDAY);
+  return eachDayOfWeekInRange(datesOfEarlyOrdinaryTime(year), DayOfWeek.SUNDAY);
 };
 
 /**
@@ -386,7 +386,7 @@ const sundaysOfEarlyOrdinaryTime = (year: number): Array<dayjs.Dayjs> => {
  * First Sunday of Advent.
  * @param year The year for the calculation
  */
-const daysOfLaterOrdinaryTime = (year: number): Array<dayjs.Dayjs> => {
+const datesOfLaterOrdinaryTime = (year: number): Array<dayjs.Dayjs> => {
   const start = pentecostSunday(year);
   const end = firstSundayOfAdvent(year);
   return rangeOfDays(start, end, { exclude: [start, end] });
@@ -398,7 +398,7 @@ const daysOfLaterOrdinaryTime = (year: number): Array<dayjs.Dayjs> => {
  * @param year The year for the calculation
  */
 const sundaysOfLaterOrdinaryTime = (year: number): Array<dayjs.Dayjs> => {
-  return eachDayOfWeekInRange(daysOfLaterOrdinaryTime(year), DayOfWeek.SUNDAY);
+  return eachDayOfWeekInRange(datesOfLaterOrdinaryTime(year), DayOfWeek.SUNDAY);
 };
 
 // The Solemnity of Christ the King is always the 34th (and last) Sunday of Ordinary Time
@@ -420,7 +420,7 @@ const christTheKing = (year: number): dayjs.Dayjs =>
  *
  * @param year The year for the calculation
  */
-const octaveOfEaster = (year: number): Array<dayjs.Dayjs> => {
+const datesInOctaveOfEaster = (year: number): Array<dayjs.Dayjs> => {
   const start = easter(year);
   const end = divineMercySunday(year);
   return rangeOfDays(start, end);
@@ -443,7 +443,7 @@ const sundaysOfEaster = (year: number): Array<dayjs.Dayjs> => {
 
 // Eastertide is the period of fifty days from Easter Sunday to Pentecost Sunday.
 // y: year
-const daysOfEaster = (year: number): Array<dayjs.Dayjs> => {
+const datesOfEaster = (year: number): Array<dayjs.Dayjs> => {
   const start = easter(year);
   const end = pentecostSunday(year);
   return rangeOfDays(start, end);
@@ -456,7 +456,7 @@ const daysOfEaster = (year: number): Array<dayjs.Dayjs> => {
 // The length of Advent depends upon the day
 // of the week on which Christmas occurs
 // y: year
-const daysOfAdvent = (year: number): Array<dayjs.Dayjs> => {
+const datesOfAdvent = (year: number): Array<dayjs.Dayjs> => {
   const start = firstSundayOfAdvent(year);
   const end = christmas(year);
   return rangeOfDays(start, end, { exclude: [end] });
@@ -477,7 +477,7 @@ const sundaysOfAdvent = (year: number): Array<dayjs.Dayjs> => {
  * @param year The year to be used for the calculation
  * @param epiphanyOnSunday If false, Epiphany will be fixed to Jan 6 (defaults to true)
  */
-const daysBeforeEpiphany = (year: number, epiphanyOnSunday = true): Array<dayjs.Dayjs> => {
+const datesBeforeEpiphany = (year: number, epiphanyOnSunday = true): Array<dayjs.Dayjs> => {
   const start = maryMotherOfGod(year);
   const end = epiphany(year, epiphanyOnSunday);
   return rangeOfDays(start, end, { exclude: [start, end] });
@@ -489,7 +489,7 @@ const daysBeforeEpiphany = (year: number, epiphanyOnSunday = true): Array<dayjs.
  * @param year The year to be used for the calculation
  * @param epiphanyOnSunday If false, Epiphany will be fixed to Jan 6 (defaults to true)
  */
-const daysAfterEpiphany = (year: number, epiphanyOnSunday = true): Array<dayjs.Dayjs> => {
+const datesAfterEpiphany = (year: number, epiphanyOnSunday = true): Array<dayjs.Dayjs> => {
   const start = epiphany(year, epiphanyOnSunday);
   const end = baptismOfTheLord(year, epiphanyOnSunday);
   return rangeOfDays(start, end, { exclude: [start, end] });
@@ -557,7 +557,7 @@ const annunciation = (year: number): dayjs.Dayjs => {
 
   // If it occurs during the Octave of Easter, it is transferred to the
   // Monday of the Second Week of Easter.
-  const octaveOfEasterDates = octaveOfEaster(year);
+  const octaveOfEasterDates = datesInOctaveOfEaster(year);
   const [firstDateInOctaveOfEaster] = octaveOfEasterDates;
   const [lastDateInOctaveOfEaster] = octaveOfEasterDates.reverse();
   const octaveRange = rangeOfDays(firstDateInOctaveOfEaster, lastDateInOctaveOfEaster);
@@ -721,7 +721,7 @@ export {
 
   ashWednesday,
   sundaysOfLent,
-  daysOfLent,
+  datesOfLent,
   //==================================================================================
   // Holy Week
   //==================================================================================
@@ -737,17 +737,17 @@ export {
 
   easter,
   sundaysOfEaster,
-  daysOfEaster,
-  octaveOfEaster,
+  datesOfEaster,
+  datesInOctaveOfEaster,
   divineMercySunday,
   pentecostSunday,
   //==================================================================================
   // Ordinary Time
   //==================================================================================
 
-  daysOfEarlyOrdinaryTime,
+  datesOfEarlyOrdinaryTime,
   sundaysOfEarlyOrdinaryTime,
-  daysOfLaterOrdinaryTime,
+  datesOfLaterOrdinaryTime,
   sundaysOfLaterOrdinaryTime,
   christTheKing,
   //==================================================================================
@@ -756,21 +756,21 @@ export {
 
   firstSundayOfAdvent,
   sundaysOfAdvent,
-  daysOfAdvent,
+  datesOfAdvent,
   //==================================================================================
   // Christmastide
   //==================================================================================
 
   christmas,
   octaveOfChristmas,
-  christmastide,
+  datesOfChristmas,
   //==================================================================================
   // Epiphany
   //==================================================================================
 
   epiphany,
-  daysBeforeEpiphany,
-  daysAfterEpiphany,
+  datesBeforeEpiphany,
+  datesAfterEpiphany,
   //==================================================================================
   // Fixed and movable Solemnities
   //==================================================================================
