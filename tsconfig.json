@@ -1,11 +1,9 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "diagnostics": true,
     "module": "esnext",
     "moduleResolution": "node",
     "removeComments": false,
-    "traceResolution": true,
     "resolveJsonModule": true,
     "lib": [
       "ES5",
@@ -22,12 +20,10 @@
       "ScriptHost"
     ],
     "allowJs": true,
-    "rootDir": "./src",
-    "emitDeclarationOnly": false,
     "importHelpers": true,
     "downlevelIteration": true,
     "strict": true,
-    "noEmit": false,
+    "skipLibCheck": false,
     "noImplicitThis": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
@@ -52,5 +48,5 @@
   "include": [
     "src/**/*"
   ],
-  "exclude": ["dist/**/*", "src/**/*.test.ts", "coverage/**/*"]
+  "exclude": ["__tests__/**/*", "**/*.test.ts", "dist/**/*", "coverage/**/*"]
 }

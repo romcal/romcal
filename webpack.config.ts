@@ -41,10 +41,7 @@ const getTsLoaderRuleSet = (
     compilerOptions: {
       outDir: './dist/es5',
       declaration: false,
-      declarationMap: false,
       ...(mode === 'production' && { sourceMap: true }),
-      ...(mode === 'development' && { inlineSourceMap: true }),
-      ...(mode === 'development' && { inlineSources: true }),
     },
   };
   if (module === 'esm') {
@@ -54,7 +51,6 @@ const getTsLoaderRuleSet = (
         ...options.compilerOptions,
         outDir: './dist/esm',
         declaration: true,
-        declarationMap: true,
       },
     };
   }
@@ -195,24 +191,18 @@ const configurations: MultiConfigurationFactory = (env, { mode }) => [
   {
     devtool: getDevTool(mode),
     resolve: getResolveExtensions(),
-    target: 'node',
 
-    entry: {
-      romcal: [...getEntryPoints()],
-    },
+    entry: getEntryPoints(),
 
     // https://stackoverflow.com/questions/33069325/export-class-in-es6-not-working
     output: {
       ...getWebpackOutput('esm'),
       filename: 'index.js',
-      chunkFilename: '[name].js',
-      publicPath: '/dist/esm/',
       library: 'romcal',
       libraryTarget: 'umd',
     },
 
     plugins: [
-      getBundleAnalyzerPlugin(),
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
         'process.env.BUILD_TYPE': JSON.stringify('ESM'),
@@ -223,7 +213,7 @@ const configurations: MultiConfigurationFactory = (env, { mode }) => [
       rules: [
         {
           test: /\.ts(x?)$/,
-          exclude: [/node_modules/, '/src/**/*.test.ts'],
+          exclude: [/node_modules/],
           use: [getTsLoaderRuleSet('esm', mode)],
         },
       ],
