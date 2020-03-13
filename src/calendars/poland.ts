@@ -73,7 +73,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItem>> => {
         const [firstDateInHolyWeek] = holyWeekDates;
         const [lastDateInHolyWeek] = holyWeekDates.reverse();
 
-        const octaveOfEasterDates = Dates.octaveOfEaster(y);
+        const octaveOfEasterDates = Dates.datesInOctaveOfEaster(y);
         const [firstDateInTheEasterOctave] = octaveOfEasterDates;
         const [lastDateInTheEasterOctave] = octaveOfEasterDates.reverse();
 

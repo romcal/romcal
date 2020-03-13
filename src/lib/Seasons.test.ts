@@ -57,25 +57,25 @@ describe('Testing date range functions', () => {
 
     test('Depending on the day of Christmas, the number of days in Advent varies', () => {
       if (Dates.christmas(2005).day() === 0) {
-        expect(Dates.daysOfAdvent(2005).length).toEqual(28);
+        expect(Dates.datesOfAdvent(2005).length).toEqual(28);
       }
       if (Dates.christmas(2000).day() === 1) {
-        expect(Dates.daysOfAdvent(2000).length).toEqual(22);
+        expect(Dates.datesOfAdvent(2000).length).toEqual(22);
       }
       if (Dates.christmas(2001).day() === 2) {
-        expect(Dates.daysOfAdvent(2001).length).toEqual(23);
+        expect(Dates.datesOfAdvent(2001).length).toEqual(23);
       }
       if (Dates.christmas(2002).day() === 3) {
-        expect(Dates.daysOfAdvent(2002).length).toEqual(24);
+        expect(Dates.datesOfAdvent(2002).length).toEqual(24);
       }
       if (Dates.christmas(2003).day() === 4) {
-        expect(Dates.daysOfAdvent(2003).length).toEqual(25);
+        expect(Dates.datesOfAdvent(2003).length).toEqual(25);
       }
       if (Dates.christmas(1998).day() === 5) {
-        expect(Dates.daysOfAdvent(1998).length).toEqual(26);
+        expect(Dates.datesOfAdvent(1998).length).toEqual(26);
       }
       if (Dates.christmas(1999).day() === 6) {
-        expect(Dates.daysOfAdvent(1999).length).toEqual(27);
+        expect(Dates.datesOfAdvent(1999).length).toEqual(27);
       }
     });
   });
@@ -117,19 +117,19 @@ describe('Testing date range functions', () => {
   describe('The Octave of Easter', () => {
     test('Should be 8 days long', () => {
       for (let i = 1900, il = 2100; i <= il; i++) {
-        expect(Dates.octaveOfEaster(i).length).toEqual(8);
+        expect(Dates.datesInOctaveOfEaster(i).length).toEqual(8);
       }
     });
 
     test('The first day of the octave should be on Easter Sunday', () => {
       for (let i = 1900, il = 2100; i <= il; i++) {
-        expect(Dates.octaveOfEaster(i)[0].isSame(Dates.easter(i))).toEqual(true);
+        expect(Dates.datesInOctaveOfEaster(i)[0].isSame(Dates.easter(i))).toEqual(true);
       }
     });
 
     test('The last day of the octave should be on Divine Mercy Sunday', () => {
       for (let i = 1900, il = 2100; i <= il; i++) {
-        const [lastDayInTheOctaveOfEaster] = Dates.octaveOfEaster(i).reverse();
+        const [lastDayInTheOctaveOfEaster] = Dates.datesInOctaveOfEaster(i).reverse();
         expect(lastDayInTheOctaveOfEaster.isSame(Dates.divineMercySunday(i))).toEqual(true);
       }
     });
@@ -138,7 +138,7 @@ describe('Testing date range functions', () => {
   describe('Eastertide', () => {
     test('Should be 50 days long', () => {
       for (let i = 1900, il = 2100; i <= il; i++) {
-        expect(Dates.daysOfEaster(i).length).toEqual(50);
+        expect(Dates.datesOfEaster(i).length).toEqual(50);
       }
     });
 
@@ -160,7 +160,7 @@ describe('Testing date range functions', () => {
   describe('Ordinary Time in the Liturgical Calendar', () => {
     test('If the end of Christmastide is on Epiphany, Ordinary time starts the next day', () => {
       for (let i = 1900, il = 2200; i <= il; i++) {
-        const dates = Dates.daysOfEarlyOrdinaryTime(i, 't');
+        const dates = Dates.datesOfEarlyOrdinaryTime(i, 't');
         const [firstDayInEarlyOrdinaryTime] = dates;
         const [lastDayInEarlyOrdinaryTime] = dates.reverse();
         expect(firstDayInEarlyOrdinaryTime.subtract(1, 'day').isSame(Dates.epiphany(i))).toEqual(true);
@@ -170,7 +170,7 @@ describe('Testing date range functions', () => {
 
     test('If the end of Christmastide is on Baptism of the Lord, Ordinary time starts the next day', () => {
       for (let i = 1900, il = 2200; i <= il; i++) {
-        const dates = Dates.daysOfEarlyOrdinaryTime(i, 'o');
+        const dates = Dates.datesOfEarlyOrdinaryTime(i, 'o');
         const [firstDayInEarlyOrdinaryTime] = dates;
         const [lastDayInEarlyOrdinaryTime] = dates.reverse();
         expect(firstDayInEarlyOrdinaryTime.subtract(1, 'day').isSame(Dates.baptismOfTheLord(i))).toEqual(true);
@@ -180,7 +180,7 @@ describe('Testing date range functions', () => {
 
     test('If the end of Christmastide is on Presentation of the Lord, Ordinary time starts the next day', () => {
       for (let i = 1900, il = 2100; i <= il; i++) {
-        const dates = Dates.daysOfEarlyOrdinaryTime(i, 'e');
+        const dates = Dates.datesOfEarlyOrdinaryTime(i, 'e');
         const [firstDayInEarlyOrdinaryTime] = dates;
         const [lastDayInEarlyOrdinaryTime] = dates.reverse();
         expect(firstDayInEarlyOrdinaryTime.subtract(1, 'day').isSame(Dates.presentationOfTheLord(i))).toEqual(true);
@@ -190,7 +190,7 @@ describe('Testing date range functions', () => {
 
     test('There are typically 3 to 8 Sundays (and on rare occasions, 9 Sundays) in ordinary Time between the Baptism of the Lord to Ash Wednesday', () => {
       for (let i = 1900, il = 2200; i <= il; i++) {
-        const days = Dates.daysOfEarlyOrdinaryTime(i);
+        const days = Dates.datesOfEarlyOrdinaryTime(i);
         const sundays = Dates.sundaysOfEarlyOrdinaryTime(i);
         expect(sundays.length).toBeOneOf([3, 4, 5, 6, 7, 8, 9]);
         expect(
@@ -204,7 +204,7 @@ describe('Testing date range functions', () => {
 
     test('There are typically 24 to 29 Sundays in Ordinary Time between the Pentecost to the 1st Sunday of Advent', () => {
       for (let i = 1900, il = 2100; i <= il; i++) {
-        const dates = Dates.daysOfLaterOrdinaryTime(i);
+        const dates = Dates.datesOfLaterOrdinaryTime(i);
         const sundays = Dates.sundaysOfLaterOrdinaryTime(i);
         const [firstDayInLaterOrdinaryTime] = dates;
         const [lastDayInLaterOrdinaryTime] = dates.reverse();
@@ -227,7 +227,7 @@ describe('Testing date range functions', () => {
     describe('If Epiphany is celebrated on Jan 6', () => {
       test('The last day of Christmas is on 6th Jan, if following the Traditional end of the Christmas season', () => {
         for (let i = 1900, il = 2100; i <= il; i++) {
-          const [lastDayInChristmastide] = Dates.christmastide(i, 't', false).reverse();
+          const [lastDayInChristmastide] = Dates.datesOfChristmas(i, 't', false).reverse();
           const target = dayjs.utc(`${i + 1}-1-6`);
           expect(lastDayInChristmastide.isSame(target)).toEqual(true);
         }
@@ -235,7 +235,7 @@ describe('Testing date range functions', () => {
 
       test('The last day of Christmas is always on Sunday on the feast of the Baptism of the Lord, if following the Ordinary Liturgical Calendar of the Western Roman Rite', () => {
         for (let i = 1900, il = 2100; i <= il; i++) {
-          const [lastDayInChristmastide] = Dates.christmastide(i, 'o', false).reverse();
+          const [lastDayInChristmastide] = Dates.datesOfChristmas(i, 'o', false).reverse();
           expect(lastDayInChristmastide.day()).toEqual(0);
         }
       });
@@ -244,28 +244,28 @@ describe('Testing date range functions', () => {
     describe('If Epiphany is not celebrated on Jan 6 (i.e. on a Sunday)', () => {
       test('If following the Traditional end of the Christmas season, the last day of Christmas is on Epiphany', () => {
         for (let i = 1900, il = 2100; i <= il; i++) {
-          const [lastDayInChristmastide] = Dates.christmastide(i, 't').reverse();
+          const [lastDayInChristmastide] = Dates.datesOfChristmas(i, 't').reverse();
           expect(lastDayInChristmastide.isSame(Dates.epiphany(i + 1))).toEqual(true);
         }
       });
 
       test('If following the Ordinary Liturgical Calendar of the Western Roman Rite, the last day of Christmas is the feast of the Baptism of the Lord', () => {
         for (let i = 1900, il = 2100; i <= il; i++) {
-          const [lastDayInChristmastide] = Dates.christmastide(i, 'o').reverse();
+          const [lastDayInChristmastide] = Dates.datesOfChristmas(i, 'o').reverse();
           expect(lastDayInChristmastide.isSame(Dates.baptismOfTheLord(i + 1))).toEqual(true);
         }
       });
 
       test('If following the Extraordinary Liturgical Calendar of the Western Roman Rite, the last day of Christmas is on the Feast of the Presentation', () => {
         for (let i = 1900, il = 2100; i <= il; i++) {
-          const [lastDayInChristmastide] = Dates.christmastide(i, 'e').reverse();
+          const [lastDayInChristmastide] = Dates.datesOfChristmas(i, 'e').reverse();
           expect(lastDayInChristmastide.isSame(Dates.presentationOfTheLord(i + 1))).toEqual(true);
         }
       });
 
       test('If no rule is specified, the last day of Christmas will default to the Feast of the Baptism', () => {
         for (let i = 1900, il = 2100; i <= il; i++) {
-          const [lastDayInChristmastide] = Dates.christmastide(i).reverse();
+          const [lastDayInChristmastide] = Dates.datesOfChristmas(i).reverse();
           expect(lastDayInChristmastide.isSame(Dates.baptismOfTheLord(i + 1))).toEqual(true);
         }
       });

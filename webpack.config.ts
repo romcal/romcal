@@ -4,6 +4,7 @@ import { join, resolve } from 'path';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
+import tsTransformPaths from '@zerollup/ts-transform-paths';
 
 //github.com/dividab/tsconfig-paths-webpack-plugin/issues/32#issuecomment-478042178
 delete process.env.TS_NODE_PROJECT;
@@ -42,6 +43,17 @@ const getTsLoaderRuleSet = (
       outDir: './dist/es5',
       declaration: false,
       ...(mode === 'production' && { sourceMap: true }),
+    },
+    /**
+     * This is a very very important piece of code to make this library work properly
+     * https://stackoverflow.com/questions/51353762/compiling-typescript-path-aliases-to-relative-paths-for-npm-publishing
+     */
+    getCustomTransformers: program => {
+      const transformer = tsTransformPaths(program);
+      return {
+        before: [transformer.before], // for updating paths in generated code
+        afterDeclarations: [transformer.afterDeclarations], // for updating paths in declaration files
+      };
     },
   };
   if (module === 'esm') {
