@@ -1,4 +1,4 @@
-import { LiturgicalColors } from 'src/types/liturgical-colors.type';
+import { LiturgicalColors } from '@RomcalTypes/liturgical-colors.type';
 import { LiturgicalColorKeys } from '@RomcalTypes/liturgical-colors.type';
 
 /**
