@@ -75,8 +75,8 @@ const _metadata = async (items: Array<RomcalDateItem>): Promise<Array<RomcalDate
  * @param epiphanyOnSunday If false, Epiphany will be fixed to Jan 6 (defaults to true)
  */
 const _epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<RomcalDateItem>> => {
-  const before: Array<dayjs.Dayjs> = Dates.daysBeforeEpiphany(year, epiphanyOnSunday);
-  const after: Array<dayjs.Dayjs> = Dates.daysAfterEpiphany(year, epiphanyOnSunday);
+  const before: Array<dayjs.Dayjs> = Dates.datesBeforeEpiphany(year, epiphanyOnSunday);
+  const after: Array<dayjs.Dayjs> = Dates.datesAfterEpiphany(year, epiphanyOnSunday);
 
   const datesBeforePromise = before.map(async (date: dayjs.Dayjs) => {
     return {
@@ -183,7 +183,7 @@ const _holyWeek = async (year: number): Promise<Array<RomcalDateItem>> => {
  * @param year The year to use for the calculation
  */
 const advent = async (year: number): Promise<Array<RomcalDateItem>> => {
-  const daysOfAdventPromise = Dates.daysOfAdvent(year).map(async (value, i) => {
+  const daysOfAdventPromise = Dates.datesOfAdvent(year).map(async (value, i) => {
     return {
       date: value,
       key:
@@ -267,7 +267,7 @@ const christmastide = async (
   epiphanyOnSunday = true,
   christmastideIncludesTheSeasonOfEpiphany = true,
 ): Promise<Array<RomcalDateItem>> => {
-  const datesOfChristmastide: dayjs.Dayjs[] = Dates.christmastide(year, christmastideEnds, epiphanyOnSunday);
+  const datesOfChristmastide: dayjs.Dayjs[] = Dates.datesOfChristmas(year, christmastideEnds, epiphanyOnSunday);
   const datesInTheOctaveOfChristmas: dayjs.Dayjs[] = Dates.octaveOfChristmas(year);
   const epiphany: Array<RomcalDateItem> = await _epiphany(year + 1, epiphanyOnSunday);
   let count = 0;
@@ -406,7 +406,7 @@ const earlyOrdinaryTime = async (
   christmastideEnds: ChristmastideEndings,
   epiphanyOnSunday = true,
 ): Promise<Array<RomcalDateItem>> => {
-  const daysOfEarlyOrdinaryTimePromise = Dates.daysOfEarlyOrdinaryTime(year, christmastideEnds, epiphanyOnSunday).map(
+  const daysOfEarlyOrdinaryTimePromise = Dates.datesOfEarlyOrdinaryTime(year, christmastideEnds, epiphanyOnSunday).map(
     async (value, i) => {
       return {
         date: value,
@@ -488,7 +488,7 @@ const laterOrdinaryTime = async (year: number): Promise<Array<RomcalDateItem>> =
   // for later use
   let firstWeekOfLaterOrdinaryTime = 0;
 
-  const daysOfLaterOrdinaryTimePromise = Dates.daysOfLaterOrdinaryTime(year)
+  const daysOfLaterOrdinaryTimePromise = Dates.datesOfLaterOrdinaryTime(year)
     .reverse()
     .map(async (value, i) => {
       // Calculate the week of ordinary time
@@ -571,10 +571,10 @@ const laterOrdinaryTime = async (year: number): Promise<Array<RomcalDateItem>> =
  * @param year The year to use for calculation
  */
 const lent = async (year: number): Promise<Array<RomcalDateItem>> => {
-  const daysOfLent: Array<dayjs.Dayjs> = Dates.daysOfLent(year);
+  const datesOfLent: Array<dayjs.Dayjs> = Dates.datesOfLent(year);
   const sundaysOfLent: Array<dayjs.Dayjs> = Dates.sundaysOfLent(year);
 
-  const daysOfLentPromise: Promise<RomcalDateItem>[] = daysOfLent.map(async (value, i) => {
+  const daysOfLentPromise: Promise<RomcalDateItem>[] = datesOfLent.map(async (value, i) => {
     return {
       date: value,
       key:
@@ -694,7 +694,7 @@ const easterTriduum = async (year: number): Promise<Array<RomcalDateItem>> => (a
  * @param year The year to use for the calculation
  */
 const eastertide = async (year: number): Promise<Array<RomcalDateItem>> => {
-  const weekdaysOfEaster = Dates.daysOfEaster(year);
+  const weekdaysOfEaster = Dates.datesOfEaster(year);
   const sundaysOfEaster = Dates.sundaysOfEaster(year);
 
   const weekdaysOfEasterPromise = weekdaysOfEaster.map(async (value, i) => {

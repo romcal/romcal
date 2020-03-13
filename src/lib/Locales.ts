@@ -41,7 +41,7 @@ templateSettings.interpolate = /{{([\s\S]+?)}}/g;
  * We get then a cascade fallbacks: region ('xx-XX') -> base language ('xx') -> default 'en'
  * For example: if a string is missing in 'fr-CA', it will try to pick it in 'fr', and then in 'en'.
  */
-export const _fallbackLocaleKey: LocaleTypes = 'en';
+const _fallbackLocaleKey: LocaleTypes = 'en';
 
 /**
  * Cache value for the array of locales to be used for calendar output.

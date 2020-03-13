@@ -3,17 +3,120 @@ import dayjs from 'dayjs';
 import map from 'lodash-es/map';
 import groupBy from 'lodash-es/groupBy';
 
-import * as Locales from '@RomcalLib/Locales';
-import * as Celebrations from '@RomcalLib/Celebrations';
-import * as Dates from '@RomcalLib/Dates';
-import * as Seasons from '@RomcalLib/Seasons';
+import {
+  getLocale,
+  getTypeByDayOfWeek,
+  localize,
+  localizeDates,
+  localizeLiturgicalColor,
+  ordinal,
+  sanitizePossibleLocaleValue,
+  setLocale,
+} from '@RomcalLib/Locales';
+
+import { dates as temporalCelebrationDates } from '@RomcalLib/Celebrations';
+
+import {
+  allSaints,
+  annunciation,
+  ascension,
+  ashWednesday,
+  assumption,
+  baptismOfTheLord,
+  birthOfJohnTheBaptist,
+  christTheKing,
+  christmas,
+  corpusChristi,
+  datesAfterEpiphany,
+  datesBeforeEpiphany,
+  datesInOctaveOfEaster,
+  datesOfAdvent,
+  datesOfChristmas,
+  datesOfEarlyOrdinaryTime,
+  datesOfEaster,
+  datesOfLaterOrdinaryTime,
+  datesOfLent,
+  divineMercySunday,
+  easter,
+  epiphany,
+  firstSundayOfAdvent,
+  goodFriday,
+  holyFamily,
+  holySaturday,
+  holyThursday,
+  holyWeek,
+  immaculateConception,
+  immaculateHeartOfMary,
+  josephHusbandOfMary,
+  maryMotherOfGod,
+  octaveOfChristmas,
+  palmSunday,
+  pentecostSunday,
+  peterAndPaulApostles,
+  presentationOfTheLord,
+  sacredHeartOfJesus,
+  sundaysOfAdvent,
+  sundaysOfEarlyOrdinaryTime,
+  sundaysOfEaster,
+  sundaysOfLaterOrdinaryTime,
+  sundaysOfLent,
+  theExaltationOfTheHolyCross,
+  transfiguration,
+  trinitySunday,
+} from '@RomcalLib/Dates';
+
+import {
+  advent,
+  christmastide,
+  earlyOrdinaryTime,
+  easterOctave,
+  easterTriduum,
+  eastertide,
+  laterOrdinaryTime,
+  lent,
+} from '@RomcalLib/Seasons';
+
 import { Calendar } from '@RomcalLib/Calendar';
-import { DateItem } from '@RomcalModels/romcal-date-item';
-import Config, { RomcalConfig } from '@RomcalModels/romcal-config';
-import { Dictionary, isNil, isInteger, isObject } from '@RomcalUtils/type-guards';
+
+import { RomcalLocale, RomcalLocaleKeys } from '@RomcalModels/romcal-locale';
+import {
+  DateItem,
+  DateItemData,
+  DateItemMetadata,
+  IDateItem,
+  RomcalDateItem,
+  RomcalDateItemData,
+  RomcalDateItemDataCalendar,
+  RomcalDateItemMetadata,
+  RomcalSeason,
+  TDateItemInput,
+} from '@RomcalModels/romcal-date-item';
+import Config, { RomcalConfig, IRomcalDefaultConfig, TConfigConstructorType } from '@RomcalModels/romcal-config';
+
 import { hasKey } from '@RomcalUtils/object';
-import { COUNTRIES as Countries } from '@RomcalConstants/county-list.constant';
-import { Query } from '@RomcalTypes/query-type.type';
+
+import { COUNTRIES } from '@RomcalConstants/country-list.constant';
+import { LITURGICAL_COLORS, LITURGICAL_COLOR_KEYS } from '@RomcalConstants/liturgical-colors.constant';
+import { LITURGICAL_CYCLES } from '@RomcalConstants/liturgical-cycles.constant';
+import { LITURGICAL_SEASONS } from '@RomcalConstants/liturgical-seasons.constant';
+import { PSALTER_WEEKS } from '@RomcalConstants/psalter-weeks.constant';
+import { QUERY_TYPES } from '@RomcalConstants/query-types.constant';
+import { TITLES } from '@RomcalConstants/titles.constant';
+import { TYPES } from '@RomcalConstants/types.constant';
+
+import { Dictionary, isNil, isInteger, isObject } from '@RomcalUtils/type-guards';
+import { ChristmastideEndings } from '@RomcalTypes/christmastide-endings.type';
+import { Countries } from '@RomcalTypes/countries.type';
+import { DateItemSources } from '@RomcalTypes/date-item-sources.type';
+import { LiturgicalColor, LiturgicalColorKeys, LiturgicalColors } from '@RomcalTypes/liturgical-colors.type';
+import { LiturgicalCycle, LiturgicalCycles } from '@RomcalTypes/liturgical-cycles.type';
+import { LiturgicalSeason, LiturgicalSeasons } from '@RomcalTypes/liturgical-seasons.type';
+import { LocaleTypes } from '@RomcalTypes/locale-types.type';
+import { LocalizeParams } from '@RomcalTypes/localize-params.type';
+import { PsalterWeek, PsalterWeeks } from '@RomcalTypes/psalter-weeks.type';
+import { Query, QueryType } from '@RomcalTypes/query-type.type';
+import { Title, Titles } from '@RomcalTypes/titles.type';
+import { Types } from '@RomcalTypes/types.type';
 
 /**
  * The export of the `romcal` module.
@@ -149,7 +252,7 @@ export default class Romcal {
     const config = new Config(resolvedConfig);
 
     // Set the locale information
-    await Locales.setLocale(config.locale);
+    await setLocale(config.locale);
 
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
     const calendar = new Calendar(config);
@@ -167,7 +270,143 @@ export default class Romcal {
   }
 }
 
-export { DateItem, Dictionary, Config, Query };
+/**
+ * Export for models supporting romcal
+ */
+export {
+  RomcalLocale,
+  RomcalLocaleKeys,
+  DateItem,
+  DateItemData,
+  DateItemMetadata,
+  IDateItem,
+  RomcalDateItem,
+  RomcalDateItemData,
+  RomcalDateItemDataCalendar,
+  RomcalDateItemMetadata,
+  RomcalSeason,
+};
+
+/**
+ * Export for constants supporting romcal
+ */
+export {
+  COUNTRIES,
+  LITURGICAL_COLOR_KEYS,
+  LITURGICAL_COLORS,
+  LITURGICAL_CYCLES,
+  LITURGICAL_SEASONS,
+  PSALTER_WEEKS,
+  QUERY_TYPES,
+  TITLES,
+  TYPES,
+};
+
+/**
+ * Export for types supporting romcal
+ */
+export {
+  TDateItemInput,
+  Dictionary,
+  Config,
+  IRomcalDefaultConfig,
+  TConfigConstructorType,
+  ChristmastideEndings,
+  Countries,
+  DateItemSources,
+  LiturgicalColor,
+  LiturgicalColorKeys,
+  LiturgicalColors,
+  LiturgicalCycle,
+  LiturgicalCycles,
+  LiturgicalSeason,
+  LiturgicalSeasons,
+  LocaleTypes,
+  LocalizeParams,
+  PsalterWeek,
+  PsalterWeeks,
+  Query,
+  QueryType,
+  Title,
+  Titles,
+  Types,
+};
+
+/**
+ * Export for helper functions in the [[Locales]]
+ */
+export {
+  getLocale,
+  getTypeByDayOfWeek,
+  localize,
+  localizeDates,
+  localizeLiturgicalColor,
+  ordinal,
+  sanitizePossibleLocaleValue,
+  setLocale,
+};
+
+/**
+ * Export for helper functions in [[Dates]]
+ */
+export {
+  allSaints,
+  annunciation,
+  ascension,
+  ashWednesday,
+  assumption,
+  baptismOfTheLord,
+  birthOfJohnTheBaptist,
+  christTheKing,
+  christmas,
+  corpusChristi,
+  datesAfterEpiphany,
+  datesBeforeEpiphany,
+  datesInOctaveOfEaster,
+  datesOfAdvent,
+  datesOfChristmas,
+  datesOfEarlyOrdinaryTime,
+  datesOfEaster,
+  datesOfLaterOrdinaryTime,
+  datesOfLent,
+  divineMercySunday,
+  easter,
+  epiphany,
+  firstSundayOfAdvent,
+  goodFriday,
+  holyFamily,
+  holySaturday,
+  holyThursday,
+  holyWeek,
+  immaculateConception,
+  immaculateHeartOfMary,
+  josephHusbandOfMary,
+  maryMotherOfGod,
+  octaveOfChristmas,
+  palmSunday,
+  pentecostSunday,
+  peterAndPaulApostles,
+  presentationOfTheLord,
+  sacredHeartOfJesus,
+  sundaysOfAdvent,
+  sundaysOfEarlyOrdinaryTime,
+  sundaysOfEaster,
+  sundaysOfLaterOrdinaryTime,
+  sundaysOfLent,
+  theExaltationOfTheHolyCross,
+  transfiguration,
+  trinitySunday,
+};
+
+/**
+ * Export for helper function(s) in [[Celebrations]]
+ */
+export { temporalCelebrationDates };
+
+/**
+ * Export for helper functions in [[Seasons]]
+ */
+export { advent, christmastide, earlyOrdinaryTime, easterOctave, easterTriduum, eastertide, laterOrdinaryTime, lent };
 
 // Other exports to provide convenience functions to the user
-export { Seasons, Calendar, Countries, Celebrations, Locales, Dates };
+export { Calendar };
