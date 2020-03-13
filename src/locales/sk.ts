@@ -3,7 +3,7 @@ import { RomcalLocale } from '@RomcalModels/romcal-locale';
 export default {
   advent: {
     season: 'Adventné obdobie',
-    feria: '{{day}} po {{week}}. adventnej nedeli',
+    feria: '{{day}} po {{week}} adventnej nedeli',
     sunday: '{{week}} adventná nedeľa',
   },
   christmastide: {
@@ -24,7 +24,7 @@ export default {
   },
   lent: {
     season: 'Pôstne obdobie',
-    feria: '{{day}} po {{week}}. pôstnej nedeli',
+    feria: '{{day}} po {{week}} pôstnej nedeli',
     sunday: '{{week}} pôstna nedeľa',
     dayAfterAshWed: '{{day}} po Popolcovej strede',
   },
