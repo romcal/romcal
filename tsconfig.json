@@ -44,7 +44,7 @@
       "@RomcalModels/*": ["src/models/*"],
       "@RomcalLocales/*": ["src/locales/*"]
     },
-    "plugins": [{ "transform": "@zerollup/ts-transform-paths" }],
+    "plugins": [{ "transform": "@zerollup/ts-transform-paths" }]
   },
   "include": [
     "src/**/*"
