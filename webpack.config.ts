@@ -219,6 +219,7 @@ const configurations: MultiConfigurationFactory = (env, { mode }) => [
         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
         'process.env.BUILD_TYPE': JSON.stringify('ESM'),
       }),
+      getBundleAnalyzerPlugin(),
     ],
 
     module: {
