@@ -1,21 +1,8 @@
 import dayjs from 'dayjs';
+import { RangeOfDaysOptions } from '@RomcalTypes/range-of-day-options.type';
+import { DayOfWeek } from '@RomcalEnums/day-of-week.enum';
 
-export enum DayOfWeek {
-  SUNDAY = 0,
-  MONDAY,
-  TUESDAY,
-  WEDNESDAY,
-  THURSDAY,
-  FRIDAY,
-  SATURDAY,
-}
-
-export type TRangeOfDaysOptions = {
-  step?: number;
-  exclude?: Array<dayjs.Dayjs>;
-};
-
-const rangeOfDayDefaultOptions: Required<TRangeOfDaysOptions> = {
+const rangeOfDayDefaultOptions: Required<RangeOfDaysOptions> = {
   step: 1,
   exclude: [],
 };
@@ -41,7 +28,7 @@ export const rangeContainsDate = (range: Array<dayjs.Dayjs>, date: dayjs.Dayjs):
 export const rangeOfDays = (
   start: dayjs.Dayjs,
   end: dayjs.Dayjs,
-  options: TRangeOfDaysOptions = rangeOfDayDefaultOptions,
+  options: RangeOfDaysOptions = rangeOfDayDefaultOptions,
 ): Array<dayjs.Dayjs> => {
   const days = end.diff(start, 'day');
   const range: Array<dayjs.Dayjs> = [];
