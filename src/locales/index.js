@@ -4,6 +4,7 @@ import fr from './fr';
 import it from './it';
 import pl from './pl';
 import sk from './sk';
+import ptBR from './pt-BR';
 
 export {
   enCA,
@@ -12,4 +13,5 @@ export {
   it,
   pl,
   sk,
+  ptBR,
 };
