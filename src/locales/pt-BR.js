@@ -1,7 +1,7 @@
 export default {
   "advent": {
     "season": "Advento",
-    "feria": "{{day}} of the {{week}} week of Advento",
+    "feria": "{{day}} da {{week}} semana do Advento",
     "sunday": "{{week}} Domingo do Advento"
   },
   "christmastide": {
