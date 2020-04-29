@@ -25,7 +25,7 @@ export interface RomcalLocale {
   readonly celebrations?: {
     readonly [key: string]: string;
   };
-  readonly sactoral?: {
+  readonly sanctoral?: {
     readonly [key: string]: string;
   };
   readonly liturgicalColors?: {
