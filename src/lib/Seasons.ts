@@ -1,14 +1,14 @@
 import _ from 'lodash';
 
-import * as Dates from '@RomcalLib/Dates';
-import { LITURGICAL_COLORS } from '@RomcalConstants/liturgical-colors.constant';
-import { PSALTER_WEEKS } from '@RomcalConstants/psalter-weeks.constant';
-import { PsalterWeek } from '@RomcalTypes/psalter-weeks.type';
-import { RomcalDateItem } from '@RomcalModels/romcal-date-item';
-import { isNil } from '@RomcalUtils/type-guards';
-import { TypesEnum } from '@RomcalEnums/types.enum';
-import { ChristmastideEndings } from '@RomcalTypes/christmastide-endings.type';
-import { ordinal, localizeLiturgicalColor, localize, getTypeByDayOfWeek } from '@RomcalLib/Locales';
+import * as Dates from '@romcal/lib/Dates';
+import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant';
+import { PSALTER_WEEKS } from '@romcal/constants/psalter-weeks.constant';
+import { PsalterWeek } from '@romcal/types/psalter-weeks.type';
+import { RomcalDateItem } from '@romcal/models/romcal-date-item';
+import { isNil } from '@romcal/utils/type-guards';
+import { TypesEnum } from '@romcal/enums/types.enum';
+import { ChristmastideEndings } from '@romcal/types/christmastide-endings.type';
+import { ordinal, localizeLiturgicalColor, localize, getTypeByDayOfWeek } from '@romcal/lib/Locales';
 
 import dayjs from 'dayjs';
 import weekOfYear from 'dayjs/plugin/weekOfYear';

@@ -1,13 +1,13 @@
 import dayjs from 'dayjs';
 
-import * as Dates from '@RomcalLib/Dates';
-import * as Locales from '@RomcalLib/Locales';
-import * as Seasons from '@RomcalLib/Seasons';
-import { LITURGICAL_COLORS } from '@RomcalConstants/liturgical-colors.constant';
-import { TITLES } from '@RomcalConstants/titles.constant';
-import { RomcalDateItem } from '@RomcalModels/romcal-date-item';
-import Config, { IRomcalDefaultConfig } from '@RomcalModels/romcal-config';
-import { TypesEnum } from '@RomcalEnums/types.enum';
+import * as Dates from '@romcal/lib/Dates';
+import * as Locales from '@romcal/lib/Locales';
+import * as Seasons from '@romcal/lib/Seasons';
+import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant';
+import { TITLES } from '@romcal/constants/titles.constant';
+import { RomcalDateItem } from '@romcal/models/romcal-date-item';
+import Config, { IRomcalDefaultConfig } from '@romcal/models/romcal-config';
+import { TypesEnum } from '@romcal/enums/types.enum';
 
 const defaultConfig: IRomcalDefaultConfig = {
   ascensionOnSunday: false,

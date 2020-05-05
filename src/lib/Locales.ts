@@ -3,15 +3,15 @@ import _ from 'lodash';
 import { parse, Schema } from 'bcp-47';
 import { toOrdinal, toWordsOrdinal } from 'number-to-words';
 
-import { findDescendantValueByKeys, mergeObjectsUniquely } from '@RomcalUtils/object';
-import { isNil, isString } from '@RomcalUtils/type-guards';
-import { RomcalLocale } from '@RomcalModels/romcal-locale';
-import { RomcalDateItem } from '@RomcalModels/romcal-date-item';
-import { TypesEnum } from '@RomcalEnums/types.enum';
-import { LiturgicalColor } from '@RomcalTypes/liturgical-colors.type';
-import { DateItemSources } from '@RomcalTypes/date-item-sources.type';
-import { LocaleTypes } from '@RomcalTypes/locale-types.type';
-import { LocalizeParams } from '@RomcalTypes/localize-params.type';
+import { findDescendantValueByKeys, mergeObjectsUniquely } from '@romcal/utils/object';
+import { isNil, isString } from '@romcal/utils/type-guards';
+import { RomcalLocale } from '@romcal/models/romcal-locale';
+import { RomcalDateItem } from '@romcal/models/romcal-date-item';
+import { TypesEnum } from '@romcal/enums/types.enum';
+import { LiturgicalColor } from '@romcal/types/liturgical-colors.type';
+import { DateItemSources } from '@romcal/types/date-item-sources.type';
+import { LocaleTypes } from '@romcal/types/locale-types.type';
+import { LocalizeParams } from '@romcal/types/localize-params.type';
 
 /**
  * Load DayJS and relevant plugins

@@ -1,4 +1,4 @@
-import Config from '@RomcalModels/romcal-config';
+import Config from '@romcal/models/romcal-config';
 import dayjs from 'dayjs';
 
 describe('getConfig()', () => {

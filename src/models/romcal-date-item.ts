@@ -1,13 +1,13 @@
 import dayjs from 'dayjs';
-import * as Dates from '@RomcalLib/Dates';
-import { ISO8601DateString, isNil } from '@RomcalUtils/type-guards';
-import { LITURGICAL_CYCLES } from '@RomcalConstants/liturgical-cycles.constant';
-import { TypesEnum } from '@RomcalEnums/types.enum';
-import { LiturgicalSeason } from '@RomcalTypes/liturgical-seasons.type';
-import { PsalterWeek } from '@RomcalTypes/psalter-weeks.type';
-import { LiturgicalColor } from '@RomcalTypes/liturgical-colors.type';
-import { LiturgicalCycle } from '@RomcalTypes/liturgical-cycles.type';
-import { DateItemSources } from '@RomcalTypes/date-item-sources.type';
+import * as Dates from '@romcal/lib/Dates';
+import { ISO8601DateString, isNil } from '@romcal/utils/type-guards';
+import { LITURGICAL_CYCLES } from '@romcal/constants/liturgical-cycles.constant';
+import { TypesEnum } from '@romcal/enums/types.enum';
+import { LiturgicalSeason } from '@romcal/types/liturgical-seasons.type';
+import { PsalterWeek } from '@romcal/types/psalter-weeks.type';
+import { LiturgicalColor } from '@romcal/types/liturgical-colors.type';
+import { LiturgicalCycle } from '@romcal/types/liturgical-cycles.type';
+import { DateItemSources } from '@romcal/types/date-item-sources.type';
 
 export interface RomcalDateItemDataCalendar {
   weeks: number;

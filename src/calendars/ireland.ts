@@ -1,11 +1,11 @@
 import dayjs from 'dayjs';
 
-import * as Locales from '@RomcalLib/Locales';
-import { LITURGICAL_COLORS } from '@RomcalConstants/liturgical-colors.constant';
-import { TITLES } from '@RomcalConstants/titles.constant';
-import { RomcalDateItem } from '@RomcalModels/romcal-date-item';
-import Config, { IRomcalDefaultConfig } from '@RomcalModels/romcal-config';
-import { TypesEnum } from '@RomcalEnums/types.enum';
+import * as Locales from '@romcal/lib/Locales';
+import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant';
+import { TITLES } from '@romcal/constants/titles.constant';
+import { RomcalDateItem } from '@romcal/models/romcal-date-item';
+import Config, { IRomcalDefaultConfig } from '@romcal/models/romcal-config';
+import { TypesEnum } from '@romcal/enums/types.enum';
 
 const defaultConfig: IRomcalDefaultConfig | undefined = undefined;
 

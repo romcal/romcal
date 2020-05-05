@@ -1,4 +1,4 @@
-import { concatAll, removeWhere, find } from '@RomcalUtils/array';
+import { concatAll, removeWhere, find } from '@romcal/utils/array';
 
 describe('concatAll', () => {
   test('should flatten and merge array item', () => {

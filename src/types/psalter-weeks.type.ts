@@ -1,5 +1,5 @@
-import { ElementType } from '@RomcalUtils/helpers';
-import { PSALTER_WEEKS } from '@RomcalConstants/psalter-weeks.constant';
+import { ElementType } from '@romcal/utils/helpers';
+import { PSALTER_WEEKS } from '@romcal/constants/psalter-weeks.constant';
 
 export type PsalterWeeks = ElementType<typeof PSALTER_WEEKS>;
 

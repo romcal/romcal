@@ -1,18 +1,18 @@
-import * as Dates from '@RomcalLib/Dates';
-import * as Seasons from '@RomcalLib/Seasons';
-import * as Celebrations from '@RomcalLib/Celebrations';
-import { localizeLiturgicalColor } from '@RomcalLib/Locales';
-import { isNil } from '@RomcalUtils/type-guards';
-import Config from '@RomcalModels/romcal-config';
-import { DateItem, RomcalDateItem, RomcalDateItemData } from '@RomcalModels/romcal-date-item';
-import { find, removeWhere, groupByKey, concatAll } from '@RomcalUtils/array';
-import { TYPES } from '@RomcalConstants/types.constant';
-import { TypesEnum } from '@RomcalEnums/types.enum';
+import * as Dates from '@romcal/lib/Dates';
+import * as Seasons from '@romcal/lib/Seasons';
+import * as Celebrations from '@romcal/lib/Celebrations';
+import { localizeLiturgicalColor } from '@romcal/lib/Locales';
+import { isNil } from '@romcal/utils/type-guards';
+import Config from '@romcal/models/romcal-config';
+import { DateItem, RomcalDateItem, RomcalDateItemData } from '@romcal/models/romcal-date-item';
+import { find, removeWhere, groupByKey, concatAll } from '@romcal/utils/array';
+import { TYPES } from '@romcal/constants/types.constant';
+import { TypesEnum } from '@romcal/enums/types.enum';
 
 import dayjs from 'dayjs';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
-import { Countries } from '@RomcalTypes/countries.type';
+import { Countries } from '@romcal/types/countries.type';
 
 dayjs.extend(isSameOrAfter);
 dayjs.extend(isSameOrBefore);

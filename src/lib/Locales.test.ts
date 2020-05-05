@@ -22,7 +22,7 @@
     THE SOFTWARE.
 */
 
-import * as Locales from '@RomcalLib/Locales';
+import * as Locales from '@romcal/lib/Locales';
 
 describe('Testing localization functionality', () => {
   test("If the locale is set to 'fr', romcal should output text in French", async () => {

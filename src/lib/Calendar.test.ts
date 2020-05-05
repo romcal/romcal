@@ -27,18 +27,18 @@ import _ from 'lodash';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 
-import Romcal from '@RomcalRoot/index';
-import * as Dates from '@RomcalLib/Dates';
-import { Dictionary, isNil } from '@RomcalUtils/type-guards';
-import { DateItem, isDateItem } from '@RomcalModels/romcal-date-item';
-import { hasKey, getValueByKey } from '@RomcalUtils/object';
-import { PSALTER_WEEKS } from '@RomcalConstants/psalter-weeks.constant';
-import { LITURGICAL_SEASONS } from '@RomcalConstants/liturgical-seasons.constant';
-import { LITURGICAL_COLORS } from '@RomcalConstants/liturgical-colors.constant';
-import { TITLES } from '@RomcalConstants/titles.constant';
-import { TypesEnum } from '@RomcalEnums/types.enum';
-import { TYPES } from '@RomcalConstants/types.constant';
-import { Types } from '@RomcalTypes/types.type';
+import Romcal from '@romcal/index';
+import * as Dates from '@romcal/lib/Dates';
+import { Dictionary, isNil } from '@romcal/utils/type-guards';
+import { DateItem, isDateItem } from '@romcal/models/romcal-date-item';
+import { hasKey, getValueByKey } from '@romcal/utils/object';
+import { PSALTER_WEEKS } from '@romcal/constants/psalter-weeks.constant';
+import { LITURGICAL_SEASONS } from '@romcal/constants/liturgical-seasons.constant';
+import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant';
+import { TITLES } from '@romcal/constants/titles.constant';
+import { TypesEnum } from '@romcal/enums/types.enum';
+import { TYPES } from '@romcal/constants/types.constant';
+import { Types } from '@romcal/types/types.type';
 
 dayjs.extend(utc);
 

@@ -1,4 +1,4 @@
-import { TypesEnum } from '@RomcalEnums/types.enum';
+import { TypesEnum } from '@romcal/enums/types.enum';
 
 /**
  * A dynamically generated constant consisting of all the enum keys in [[TYPES]]
