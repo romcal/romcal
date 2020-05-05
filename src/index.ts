@@ -78,11 +78,11 @@ import { Calendar } from '@romcal/lib/Calendar';
 
 import { RomcalLocale, RomcalLocaleKeys } from '@romcal/models/romcal-locale';
 import {
-  DateItem,
+  RomcalDateItem,
   DateItemData,
   DateItemMetadata,
-  IDateItem,
-  RomcalDateItem,
+  IRomcalDateItem,
+  RomcalDateItemInput,
   RomcalDateItemData,
   RomcalDateItemDataCalendar,
   RomcalDateItemMetadata,
@@ -126,22 +126,25 @@ export default class Romcal {
    * @param dates An array of dates generated from the `calendarFor` function
    * @param query A query object containing criteria to filter the dates by
    */
-  static queryFor<U extends undefined | null>(dates: Array<DateItem>, query: U): DateItem[];
+  static queryFor<U extends undefined | null>(dates: Array<RomcalDateItem>, query: U): RomcalDateItem[];
   static queryFor<U extends Query>(
-    dates: DateItem[],
+    dates: RomcalDateItem[],
     query: U,
   ): 'group' extends keyof U // is a group key defined in the query?
     ? U['group'] extends 'daysByMonth' | 'weeksByMonth' // does the group key have one of these values?
-      ? Dictionary<DateItem[]>[]
-      : Dictionary<DateItem[]>
+      ? Dictionary<RomcalDateItem[]>[]
+      : Dictionary<RomcalDateItem[]>
     : 'month' extends keyof U // is a month key defined in the query?
-    ? DateItem[]
+    ? RomcalDateItem[]
     : 'day' extends keyof U // else is a day key defined in the query?
-    ? DateItem[]
+    ? RomcalDateItem[]
     : 'title' extends keyof U // else, is a title key defined in the query?
-    ? DateItem[]
-    : DateItem[]; // If none of the above, then return the original array;
-  static queryFor(dates: DateItem[], query: Query): DateItem[] | Dictionary<DateItem[]> | Dictionary<DateItem[]>[] {
+    ? RomcalDateItem[]
+    : RomcalDateItem[]; // If none of the above, then return the original array;
+  static queryFor(
+    dates: RomcalDateItem[],
+    query: Query,
+  ): RomcalDateItem[] | Dictionary<RomcalDateItem[]> | Dictionary<RomcalDateItem[]>[] {
     if (isNil(query)) {
       return dates;
     }
@@ -205,14 +208,14 @@ export default class Romcal {
   // const t11 = queryFor(d1, { group: "psalterWeeks" });
   // const t12 = queryFor(d1, { group: "days" });
 
-  static calendarFor<T extends undefined | null>(options?: T): Promise<DateItem[]>;
+  static calendarFor<T extends undefined | null>(options?: T): Promise<RomcalDateItem[]>;
   static calendarFor<T extends RomcalConfig | number>(
     options?: T,
   ): T extends number
-    ? Promise<DateItem[]>
+    ? Promise<RomcalDateItem[]>
     : 'query' extends keyof T
-    ? Promise<DateItem[] | Dictionary<DateItem[]> | Dictionary<DateItem[]>[]>
-    : Promise<DateItem[]>;
+    ? Promise<RomcalDateItem[] | Dictionary<RomcalDateItem[]> | Dictionary<RomcalDateItem[]>[]>
+    : Promise<RomcalDateItem[]>;
   /**
    * Returns an array of liturgical dates based on the supplied options.
    *
@@ -229,7 +232,7 @@ export default class Romcal {
    */
   static async calendarFor(
     options?: RomcalConfig | number,
-  ): Promise<DateItem[] | Dictionary<DateItem[]> | Dictionary<DateItem[]>[]> {
+  ): Promise<RomcalDateItem[] | Dictionary<RomcalDateItem[]> | Dictionary<RomcalDateItem[]>[]> {
     let userConfig: RomcalConfig = {};
 
     // If options is passed as an integer,
@@ -272,11 +275,11 @@ export default class Romcal {
 export {
   RomcalLocale,
   RomcalLocaleKeys,
-  DateItem,
+  RomcalDateItem,
   DateItemData,
   DateItemMetadata,
-  IDateItem,
-  RomcalDateItem,
+  IRomcalDateItem,
+  RomcalDateItemInput,
   RomcalDateItemData,
   RomcalDateItemDataCalendar,
   RomcalDateItemMetadata,

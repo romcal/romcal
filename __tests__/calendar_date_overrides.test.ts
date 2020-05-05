@@ -25,7 +25,7 @@
 
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
-import { DateItem, RomcalDateItem } from '@romcal/models/romcal-date-item';
+import { RomcalDateItem, RomcalDateItemInput } from '@romcal/models/romcal-date-item';
 import Romcal from '@romcal/index';
 import * as Seasons from '@romcal/lib/Seasons';
 import * as Dates from '@romcal/lib/Dates';
@@ -35,9 +35,9 @@ dayjs.extend(utc);
 
 describe('Testing national calendar overrides', () => {
   describe('An optional celebration is available to be celebrated, in addition to the feria', () => {
-    let generalDates2020: DateItem[];
-    let generalDates2021: DateItem[];
-    let spainDates2020: DateItem[];
+    let generalDates2020: RomcalDateItem[];
+    let generalDates2021: RomcalDateItem[];
+    let spainDates2020: RomcalDateItem[];
 
     beforeAll(async () => {
       generalDates2020 = await Romcal.calendarFor(2020);
@@ -74,8 +74,8 @@ describe('Testing national calendar overrides', () => {
 
   describe('A feast defined in a national calendar should replace the same feast defined in the general calendar', () => {
     let year: number;
-    let generalDates: DateItem[];
-    let spainDates: DateItem[];
+    let generalDates: RomcalDateItem[];
+    let spainDates: RomcalDateItem[];
 
     beforeAll(async () => {
       year = 2008;
@@ -111,7 +111,7 @@ describe('Testing national calendar overrides', () => {
 
   describe('Testing the priority option for celebrations', () => {
     let year: number;
-    let testDates: DateItem[];
+    let testDates: RomcalDateItem[];
 
     beforeAll(async () => {
       year = 2020;
@@ -167,7 +167,7 @@ describe('Testing national calendar overrides', () => {
 
   describe('The feast of Epiphany', () => {
     test('Should always be celebrated on January 6 in Slovakia unless explicitly configured otherwise', async () => {
-      const slovakiaDates: DateItem[] = await Romcal.calendarFor({
+      const slovakiaDates: RomcalDateItem[] = await Romcal.calendarFor({
         country: 'slovakia',
       });
       const epiphanySlovakia = slovakiaDates.find(d => {
@@ -244,30 +244,34 @@ describe('Testing national calendar overrides', () => {
           country: 'england',
         });
 
-        const laterOrdinaryTimeDates2009: RomcalDateItem[] = await Seasons.laterOrdinaryTime(2009);
-        const laterOrdinaryTimeDates2011: RomcalDateItem[] = await Seasons.laterOrdinaryTime(2011);
+        const laterOrdinaryTimeDates2009: RomcalDateItemInput[] = await Seasons.laterOrdinaryTime(2009);
+        const laterOrdinaryTimeDates2011: RomcalDateItemInput[] = await Seasons.laterOrdinaryTime(2011);
 
-        const twentiethSundayOfOrdinaryTime2009: RomcalDateItem | undefined = laterOrdinaryTimeDates2009.find(d => {
-          return d.key === 'twentiethSundayOfOrdinaryTime';
-        });
+        const twentiethSundayOfOrdinaryTime2009: RomcalDateItemInput | undefined = laterOrdinaryTimeDates2009.find(
+          d => {
+            return d.key === 'twentiethSundayOfOrdinaryTime';
+          },
+        );
 
-        const twentiethSundayOfOrdinaryTime2011: RomcalDateItem | undefined = laterOrdinaryTimeDates2011.find(d => {
-          return d.key === 'twentiethSundayOfOrdinaryTime';
-        });
+        const twentiethSundayOfOrdinaryTime2011: RomcalDateItemInput | undefined = laterOrdinaryTimeDates2011.find(
+          d => {
+            return d.key === 'twentiethSundayOfOrdinaryTime';
+          },
+        );
 
-        const walesAssumption2009: DateItem | undefined = wales2009Dates.find(d => {
+        const walesAssumption2009: RomcalDateItem | undefined = wales2009Dates.find(d => {
           return d.key === 'assumption';
         });
 
-        const englandAssumption2009: DateItem | undefined = england2009Dates.find(d => {
+        const englandAssumption2009: RomcalDateItem | undefined = england2009Dates.find(d => {
           return d.key === 'assumption';
         });
 
-        const walesAssumption2011: DateItem | undefined = wales2011Dates.find(d => {
+        const walesAssumption2011: RomcalDateItem | undefined = wales2011Dates.find(d => {
           return d.key === 'assumption';
         });
 
-        const englandAssumption2011: DateItem | undefined = england2011Dates.find(d => {
+        const englandAssumption2011: RomcalDateItem | undefined = england2011Dates.find(d => {
           return d.key === 'assumption';
         });
 
@@ -302,13 +306,13 @@ describe('Testing national calendar overrides', () => {
           country: 'england',
         });
 
-        const laterOrdinaryTimeDates: RomcalDateItem[] = await Seasons.laterOrdinaryTime(2010);
-        const twentiethSundayOfOrdinaryTime: RomcalDateItem | undefined = laterOrdinaryTimeDates.find(d => {
+        const laterOrdinaryTimeDates: RomcalDateItemInput[] = await Seasons.laterOrdinaryTime(2010);
+        const twentiethSundayOfOrdinaryTime: RomcalDateItemInput | undefined = laterOrdinaryTimeDates.find(d => {
           return d.key === 'twentiethSundayOfOrdinaryTime';
         });
 
-        const walesAssumption: DateItem | undefined = walesDates.find(d => d.key === 'assumption');
-        const englandAssumption: DateItem | undefined = englandDates.find(d => d.key === 'assumption');
+        const walesAssumption: RomcalDateItem | undefined = walesDates.find(d => d.key === 'assumption');
+        const englandAssumption: RomcalDateItem | undefined = englandDates.find(d => d.key === 'assumption');
 
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         expect(walesAssumption?.date === twentiethSundayOfOrdinaryTime!.date.toISOString()).toBeTruthy();
@@ -470,7 +474,7 @@ describe('Testing national calendar overrides', () => {
         country: 'malta',
       });
       const ourLadyOfSorrows: dayjs.Dayjs = dayjs.utc('2018-4-15');
-      const thirdSundayOfEaster: DateItem | undefined = maltaDates.find(d => d.key === 'thirdSundayOfEaster');
+      const thirdSundayOfEaster: RomcalDateItem | undefined = maltaDates.find(d => d.key === 'thirdSundayOfEaster');
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       expect(ourLadyOfSorrows.isSame(thirdSundayOfEaster!.date)).toBeTruthy();
     });

@@ -25,13 +25,13 @@
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import Romcal from '@romcal/index';
-import { DateItem } from '@romcal/models/romcal-date-item';
+import { RomcalDateItem } from '@romcal/models/romcal-date-item';
 
 dayjs.extend(utc);
 
 // eslint-disable-next-line quotes
 describe('Testing the "drop" functionality for national calendars', () => {
-  let testDates: DateItem[];
+  let testDates: RomcalDateItem[];
 
   beforeAll(async () => {
     testDates = await Romcal.calendarFor({

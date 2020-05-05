@@ -5,7 +5,7 @@ import * as Locales from '@romcal/lib/Locales';
 import * as Seasons from '@romcal/lib/Seasons';
 import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant';
 import { TITLES } from '@romcal/constants/titles.constant';
-import { RomcalDateItem } from '@romcal/models/romcal-date-item';
+import { RomcalDateItemInput } from '@romcal/models/romcal-date-item';
 import Config, { IRomcalDefaultConfig } from '@romcal/models/romcal-config';
 import { TypesEnum } from '@romcal/enums/types.enum';
 
@@ -17,9 +17,9 @@ const defaultConfig: IRomcalDefaultConfig = {
   epiphanyOnSunday: true,
 };
 
-const dates = async (config: Config): Promise<Array<RomcalDateItem>> => {
+const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
   const year = config.year;
-  const _dates: Array<RomcalDateItem> = [
+  const _dates: Array<RomcalDateItemInput> = [
     {
       key: 'saintsBasilTheGreatAndGregoryNazianzenBishopsAndDoctors',
       type: TypesEnum.MEMORIAL,

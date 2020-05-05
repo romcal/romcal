@@ -41,7 +41,7 @@ export interface RomcalDateItemData {
  * the the object is constructed in stages. This interface
  * should not be used in consumer applications.
  */
-export interface RomcalDateItem {
+export interface RomcalDateItemInput {
   /**
    * The human readable and localized name of this celebration
    */
@@ -85,24 +85,24 @@ export interface DateItemData {
 }
 
 // eslint-disable-next-line @typescript-eslint/interface-name-prefix
-export interface IDateItem {
+export interface IRomcalDateItem {
   readonly key: string;
   readonly name: string;
   readonly date: ISO8601DateString;
   readonly type: TypesEnum;
   readonly data: DateItemData;
-  readonly base?: DateItem;
+  readonly base?: RomcalDateItem;
   readonly _id: number;
   readonly _stack: number;
 }
 
-export type TDateItemInput = Omit<IDateItem, '_id' | 'base' | 'date'> &
+export type TDateItemInput = Omit<IRomcalDateItem, '_id' | 'base' | 'date'> &
   Readonly<{
-    baseItem?: DateItem;
+    baseItem?: RomcalDateItem;
     date: dayjs.Dayjs;
   }>;
 
-export class DateItem implements IDateItem {
+export class RomcalDateItem implements IRomcalDateItem {
   /**
    * The unique key of the celebration.
    */
@@ -126,7 +126,7 @@ export class DateItem implements IDateItem {
   /**
    * A previous celebration on the same day that was overriden by the current one.
    */
-  public base: DateItem | undefined;
+  public base: RomcalDateItem | undefined;
   /**
    * Internal index used by romcal for calendar generation.
    */
@@ -145,7 +145,7 @@ export class DateItem implements IDateItem {
     this.type = type;
     this.data = data;
 
-    this._id = DateItem._incrementId();
+    this._id = RomcalDateItem._incrementId();
     this._stack = _stack;
 
     // The original default item is added to the current item as the `base` property
@@ -240,7 +240,7 @@ export class DateItem implements IDateItem {
  * @param value The value that could be an instance of [[IDateItem]]
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const isDateItem = (value: Record<string, any>): value is IDateItem => {
+export const isDateItem = (value: Record<string, any>): value is IRomcalDateItem => {
   const { key, name, date, type } = value;
   return !isNil(key) && !isNil(name) && !isNil(date) && !isNil(type);
 };
