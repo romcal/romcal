@@ -4,7 +4,7 @@ import * as Dates from '@romcal/lib/Dates';
 import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant';
 import { PSALTER_WEEKS } from '@romcal/constants/psalter-weeks.constant';
 import { PsalterWeek } from '@romcal/types/psalter-weeks.type';
-import { RomcalDateItem } from '@romcal/models/romcal-date-item';
+import { RomcalDateItemInput } from '@romcal/models/romcal-date-item';
 import { isNil } from '@romcal/utils/type-guards';
 import { TypesEnum } from '@romcal/enums/types.enum';
 import { ChristmastideEndings } from '@romcal/types/christmastide-endings.type';
@@ -40,8 +40,8 @@ const getPsalterWeek = (index: number, psalterWeek = 0): number => {
  * @param items An array of [[RomcalDateItem]] values
  * @returns An array of [[RomcalDateItem]] items.
  */
-const _metadata = async (items: Array<RomcalDateItem>): Promise<Array<RomcalDateItem>> => {
-  const metadataPromises = items.map(async ({ date, ...rest }: RomcalDateItem) => {
+const _metadata = async (items: Array<RomcalDateItemInput>): Promise<Array<RomcalDateItemInput>> => {
+  const metadataPromises = items.map(async ({ date, ...rest }: RomcalDateItemInput) => {
     return {
       ...rest,
       date,
@@ -60,7 +60,7 @@ const _metadata = async (items: Array<RomcalDateItem>): Promise<Array<RomcalDate
           day: date.dayOfYear(),
         },
       },
-    } as RomcalDateItem;
+    } as RomcalDateItemInput;
   });
   return await Promise.all(metadataPromises);
 };
@@ -70,7 +70,7 @@ const _metadata = async (items: Array<RomcalDateItem>): Promise<Array<RomcalDate
  * @param year The year to use for the calculation
  * @param epiphanyOnSunday If false, Epiphany will be fixed to Jan 6 (defaults to true)
  */
-const _epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<RomcalDateItem>> => {
+const _epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<RomcalDateItemInput>> => {
   const before: Array<dayjs.Dayjs> = Dates.datesBeforeEpiphany(year, epiphanyOnSunday);
   const after: Array<dayjs.Dayjs> = Dates.datesAfterEpiphany(year, epiphanyOnSunday);
 
@@ -93,7 +93,7 @@ const _epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<R
           },
         ],
       },
-    } as RomcalDateItem;
+    } as RomcalDateItemInput;
   });
 
   const datesAfterPromise = after.map(async date => {
@@ -115,7 +115,7 @@ const _epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<R
           },
         ],
       },
-    } as RomcalDateItem;
+    } as RomcalDateItemInput;
   });
 
   const daysBefore = await Promise.all(datesBeforePromise);
@@ -128,7 +128,7 @@ const _epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<R
  * Returns the days constituting holy week
  * @param year The year to use for the calculation
  */
-const _holyWeek = async (year: number): Promise<Array<RomcalDateItem>> => {
+const _holyWeek = async (year: number): Promise<Array<RomcalDateItemInput>> => {
   const dates: dayjs.Dayjs[] = Dates.holyWeek(year);
   const datesPromise = dates.map(async date => {
     return {
@@ -152,7 +152,7 @@ const _holyWeek = async (year: number): Promise<Array<RomcalDateItem>> => {
           liturgicalColor: LITURGICAL_COLORS.PURPLE,
         },
       },
-    } as RomcalDateItem;
+    } as RomcalDateItemInput;
   });
   const days = await Promise.all(datesPromise);
   return days;
@@ -178,7 +178,7 @@ const _holyWeek = async (year: number): Promise<Array<RomcalDateItem>> => {
  *
  * @param year The year to use for the calculation
  */
-const advent = async (year: number): Promise<Array<RomcalDateItem>> => {
+const advent = async (year: number): Promise<Array<RomcalDateItemInput>> => {
   const daysOfAdventPromise = Dates.datesOfAdvent(year).map(async (value, i) => {
     return {
       date: value,
@@ -207,15 +207,15 @@ const advent = async (year: number): Promise<Array<RomcalDateItem>> => {
             Math.floor(i / 7) === 2 && value.day() === 0 ? LITURGICAL_COLORS.ROSE : LITURGICAL_COLORS.PURPLE,
         },
       },
-    } as RomcalDateItem;
+    } as RomcalDateItemInput;
   });
-  let dateItemsWithoutKeyAndSource: Array<RomcalDateItem> = await Promise.all(daysOfAdventPromise);
+  let dateItemsWithoutKeyAndSource: Array<RomcalDateItemInput> = await Promise.all(daysOfAdventPromise);
 
   // Sort dates according to their date.objects in ascending order
   dateItemsWithoutKeyAndSource = _.sortBy(dateItemsWithoutKeyAndSource, item => item.date.valueOf());
 
-  const romcalDateItems: Array<RomcalDateItem> = [];
-  dateItemsWithoutKeyAndSource.forEach(({ name, key, data, ...rest }: RomcalDateItem, index: number) => {
+  const romcalDateItems: Array<RomcalDateItemInput> = [];
+  dateItemsWithoutKeyAndSource.forEach(({ name, key, data, ...rest }: RomcalDateItemInput, index: number) => {
     const psalterWeek = getPsalterWeek(index);
     romcalDateItems.push({
       ...rest,
@@ -234,7 +234,7 @@ const advent = async (year: number): Promise<Array<RomcalDateItem>> => {
           ...(data?.meta?.liturgicalColor ?? { liturgicalColor: LITURGICAL_COLORS.PURPLE }),
         },
       },
-    } as RomcalDateItem);
+    } as RomcalDateItemInput);
   });
 
   return await _metadata(romcalDateItems);
@@ -262,10 +262,10 @@ const christmastide = async (
   christmastideEnds: ChristmastideEndings,
   epiphanyOnSunday = true,
   christmastideIncludesTheSeasonOfEpiphany = true,
-): Promise<Array<RomcalDateItem>> => {
+): Promise<Array<RomcalDateItemInput>> => {
   const datesOfChristmastide: dayjs.Dayjs[] = Dates.datesOfChristmas(year, christmastideEnds, epiphanyOnSunday);
   const datesInTheOctaveOfChristmas: dayjs.Dayjs[] = Dates.octaveOfChristmas(year);
-  const epiphany: Array<RomcalDateItem> = await _epiphany(year + 1, epiphanyOnSunday);
+  const epiphany: Array<RomcalDateItemInput> = await _epiphany(year + 1, epiphanyOnSunday);
   let count = 0;
 
   const datesOfChristmastidePromise = datesOfChristmastide.map(async day => {
@@ -293,9 +293,9 @@ const christmastide = async (
           },
         ],
       },
-    } as RomcalDateItem;
+    } as RomcalDateItemInput;
   });
-  const daysOfChristmasTide: Array<RomcalDateItem> = await Promise.all(datesOfChristmastidePromise);
+  const daysOfChristmasTide: Array<RomcalDateItemInput> = await Promise.all(datesOfChristmastidePromise);
 
   const datesInTheOctaveOfChristmasPromise = datesInTheOctaveOfChristmas.map(async (day, idx) => {
     return {
@@ -316,9 +316,9 @@ const christmastide = async (
           },
         ],
       },
-    } as RomcalDateItem;
+    } as RomcalDateItemInput;
   });
-  const daysInTheOctaveOfChristmas: Array<RomcalDateItem> = await Promise.all(datesInTheOctaveOfChristmasPromise);
+  const daysInTheOctaveOfChristmas: Array<RomcalDateItemInput> = await Promise.all(datesInTheOctaveOfChristmasPromise);
 
   //==============================================================================
   // Override in order: solemnities, feasts, epiphany and octave of christmas
@@ -326,7 +326,7 @@ const christmastide = async (
   //==============================================================================
 
   // only merge the season of epiphany if the flag is true
-  let combinedDaysOfChristmas: Array<RomcalDateItem> = [];
+  let combinedDaysOfChristmas: Array<RomcalDateItemInput> = [];
   if (christmastideIncludesTheSeasonOfEpiphany === true) {
     combinedDaysOfChristmas = _.uniqBy(_.union(epiphany, daysInTheOctaveOfChristmas, daysOfChristmasTide), item =>
       item.date.valueOf(),
@@ -365,7 +365,7 @@ const christmastide = async (
           ...(data?.meta?.liturgicalColor ?? { liturgicalColor: LITURGICAL_COLORS.WHITE }),
         },
       },
-    } as RomcalDateItem;
+    } as RomcalDateItemInput;
   });
 
   const withMetadata = await _metadata(combinedDaysOfChristmas);
@@ -401,7 +401,7 @@ const earlyOrdinaryTime = async (
   year: number,
   christmastideEnds: ChristmastideEndings,
   epiphanyOnSunday = true,
-): Promise<Array<RomcalDateItem>> => {
+): Promise<Array<RomcalDateItemInput>> => {
   const daysOfEarlyOrdinaryTimePromise = Dates.datesOfEarlyOrdinaryTime(year, christmastideEnds, epiphanyOnSunday).map(
     async (value, i) => {
       return {
@@ -426,17 +426,17 @@ const earlyOrdinaryTime = async (
             },
           ],
         },
-      } as RomcalDateItem;
+      } as RomcalDateItemInput;
     },
   );
-  let days: Array<RomcalDateItem> = await Promise.all(daysOfEarlyOrdinaryTimePromise);
+  let days: Array<RomcalDateItemInput> = await Promise.all(daysOfEarlyOrdinaryTimePromise);
 
   // Sort dates according to the value of the DayJS date object
   days = _.sortBy(days, v => v.date.valueOf());
 
   const psalterWeekStart = 0;
 
-  days = days.map(({ data, key, name, ...rest }: RomcalDateItem, index: number) => {
+  days = days.map(({ data, key, name, ...rest }: RomcalDateItemInput, index: number) => {
     const resolvedPsalterWeek = getPsalterWeek(index, psalterWeekStart);
     return {
       ...rest,
@@ -455,7 +455,7 @@ const earlyOrdinaryTime = async (
           ...(data?.meta?.liturgicalColor ?? { liturgicalColor: LITURGICAL_COLORS.GREEN }),
         },
       },
-    } as RomcalDateItem;
+    } as RomcalDateItemInput;
   });
 
   return await _metadata(days);
@@ -479,7 +479,7 @@ const earlyOrdinaryTime = async (
  *
  * @param year
  */
-const laterOrdinaryTime = async (year: number): Promise<Array<RomcalDateItem>> => {
+const laterOrdinaryTime = async (year: number): Promise<Array<RomcalDateItemInput>> => {
   // Keep track of the first week in later ordinary time
   // for later use
   let firstWeekOfLaterOrdinaryTime = 0;
@@ -514,9 +514,9 @@ const laterOrdinaryTime = async (year: number): Promise<Array<RomcalDateItem>> =
             },
           ],
         },
-      } as RomcalDateItem;
+      } as RomcalDateItemInput;
     });
-  let days: Array<RomcalDateItem> = await Promise.all(daysOfLaterOrdinaryTimePromise);
+  let days: Array<RomcalDateItemInput> = await Promise.all(daysOfLaterOrdinaryTimePromise);
 
   // Sort dates according to moment
   days = _.sortBy(days, v => v.date.valueOf());
@@ -526,7 +526,7 @@ const laterOrdinaryTime = async (year: number): Promise<Array<RomcalDateItem>> =
     psalterWeekStart = 3;
   }
 
-  days = days.map(({ data, key, name, ...rest }: RomcalDateItem, index: number) => {
+  days = days.map(({ data, key, name, ...rest }: RomcalDateItemInput, index: number) => {
     const resolvedPsalterWeek = getPsalterWeek(index, psalterWeekStart);
     return {
       ...rest,
@@ -566,11 +566,11 @@ const laterOrdinaryTime = async (year: number): Promise<Array<RomcalDateItem>> =
  *
  * @param year The year to use for calculation
  */
-const lent = async (year: number): Promise<Array<RomcalDateItem>> => {
+const lent = async (year: number): Promise<Array<RomcalDateItemInput>> => {
   const datesOfLent: Array<dayjs.Dayjs> = Dates.datesOfLent(year);
   const sundaysOfLent: Array<dayjs.Dayjs> = Dates.sundaysOfLent(year);
 
-  const daysOfLentPromise: Promise<RomcalDateItem>[] = datesOfLent.map(async (value, i) => {
+  const daysOfLentPromise: Promise<RomcalDateItemInput>[] = datesOfLent.map(async (value, i) => {
     return {
       date: value,
       key:
@@ -596,7 +596,7 @@ const lent = async (year: number): Promise<Array<RomcalDateItem>> => {
           },
         ],
       },
-    } as RomcalDateItem;
+    } as RomcalDateItemInput;
   });
   const ferialDays = await Promise.all(daysOfLentPromise);
 
@@ -623,13 +623,13 @@ const lent = async (year: number): Promise<Array<RomcalDateItem>> => {
           liturgicalColor: i === 3 ? LITURGICAL_COLORS.ROSE : LITURGICAL_COLORS.PURPLE,
         },
       },
-    } as RomcalDateItem;
+    } as RomcalDateItemInput;
   });
   const sundays = await Promise.all(sundaysOfLentPromise);
 
-  const holyWeek: Array<RomcalDateItem> = await _holyWeek(year);
+  const holyWeek: Array<RomcalDateItemInput> = await _holyWeek(year);
 
-  let combinedDaysOfLent: Array<RomcalDateItem> = [];
+  let combinedDaysOfLent: Array<RomcalDateItemInput> = [];
 
   // Override in order: Solemnities, Holy Week and Sundays of Lent to days of Lent
   combinedDaysOfLent = _.uniqBy(_.union(holyWeek, sundays, ferialDays), v => v.date.valueOf());
@@ -639,7 +639,7 @@ const lent = async (year: number): Promise<Array<RomcalDateItem>> => {
 
   const psalterWeekStart = 4;
 
-  combinedDaysOfLent = combinedDaysOfLent.map(({ name, key, data, ...rest }: RomcalDateItem, index: number) => {
+  combinedDaysOfLent = combinedDaysOfLent.map(({ name, key, data, ...rest }: RomcalDateItemInput, index: number) => {
     const resolvedPsalterWeek = getPsalterWeek(index, psalterWeekStart);
     return {
       ...rest,
@@ -671,7 +671,7 @@ const lent = async (year: number): Promise<Array<RomcalDateItem>> => {
  *
  * @param year The year to use for the calculation
  */
-const easterTriduum = async (year: number): Promise<Array<RomcalDateItem>> => (await _holyWeek(year)).slice(-3);
+const easterTriduum = async (year: number): Promise<Array<RomcalDateItemInput>> => (await _holyWeek(year)).slice(-3);
 
 /**
  * Calculates the season of Easter.
@@ -689,7 +689,7 @@ const easterTriduum = async (year: number): Promise<Array<RomcalDateItem>> => (a
  *
  * @param year The year to use for the calculation
  */
-const eastertide = async (year: number): Promise<Array<RomcalDateItem>> => {
+const eastertide = async (year: number): Promise<Array<RomcalDateItemInput>> => {
   const weekdaysOfEaster = Dates.datesOfEaster(year);
   const sundaysOfEaster = Dates.sundaysOfEaster(year);
 
@@ -719,9 +719,9 @@ const eastertide = async (year: number): Promise<Array<RomcalDateItem>> => {
           },
         ],
       },
-    } as RomcalDateItem;
+    } as RomcalDateItemInput;
   });
-  const days: Array<RomcalDateItem> = await Promise.all(weekdaysOfEasterPromise);
+  const days: Array<RomcalDateItemInput> = await Promise.all(weekdaysOfEasterPromise);
 
   const sundaysOfEasterPromise = sundaysOfEaster.map(async (value, i) => {
     return {
@@ -742,11 +742,11 @@ const eastertide = async (year: number): Promise<Array<RomcalDateItem>> => {
           },
         ],
       },
-    } as RomcalDateItem;
+    } as RomcalDateItemInput;
   });
-  const sundays: Array<RomcalDateItem> = await Promise.all(sundaysOfEasterPromise);
+  const sundays: Array<RomcalDateItemInput> = await Promise.all(sundaysOfEasterPromise);
 
-  let combinedDaysOfEaster: Array<RomcalDateItem> = [];
+  let combinedDaysOfEaster: Array<RomcalDateItemInput> = [];
 
   // Insert Solemnities and Sundays of Easter to days of Easter
   combinedDaysOfEaster = _.uniqBy(_.union(sundays, days), v => v.date.valueOf());
@@ -756,40 +756,42 @@ const eastertide = async (year: number): Promise<Array<RomcalDateItem>> => {
 
   const psalterWeekStart = 2;
 
-  combinedDaysOfEaster = combinedDaysOfEaster.map(({ name, key, data, ...rest }: RomcalDateItem, index: number) => {
-    let resolvedPsalterWeek: number;
-    let psalterWeek: PsalterWeek;
-    if (index < 8) {
-      psalterWeek = {
-        key: 4,
-        value: PSALTER_WEEKS[4],
-      };
-    } else {
-      resolvedPsalterWeek = getPsalterWeek(index, psalterWeekStart);
-      psalterWeek = {
-        key: resolvedPsalterWeek,
-        value: PSALTER_WEEKS[resolvedPsalterWeek],
-      };
-    }
+  combinedDaysOfEaster = combinedDaysOfEaster.map(
+    ({ name, key, data, ...rest }: RomcalDateItemInput, index: number) => {
+      let resolvedPsalterWeek: number;
+      let psalterWeek: PsalterWeek;
+      if (index < 8) {
+        psalterWeek = {
+          key: 4,
+          value: PSALTER_WEEKS[4],
+        };
+      } else {
+        resolvedPsalterWeek = getPsalterWeek(index, psalterWeekStart);
+        psalterWeek = {
+          key: resolvedPsalterWeek,
+          value: PSALTER_WEEKS[resolvedPsalterWeek],
+        };
+      }
 
-    const dateItem: RomcalDateItem = {
-      ...rest,
-      name,
-      ...(isNil(key) ? { key: _.camelCase(name) } : { key: _.camelCase(key) }), // Only add camel cased name as the key if it is not defined
-      data: {
-        ...data,
-        meta: {
-          ...data?.meta,
-          titles: data?.meta?.titles ?? [],
-          psalterWeek,
-          // Set default season color if there is no color already set
-          ...(data?.meta?.liturgicalColor ?? { liturgicalColor: LITURGICAL_COLORS.WHITE }),
+      const dateItem: RomcalDateItemInput = {
+        ...rest,
+        name,
+        ...(isNil(key) ? { key: _.camelCase(name) } : { key: _.camelCase(key) }), // Only add camel cased name as the key if it is not defined
+        data: {
+          ...data,
+          meta: {
+            ...data?.meta,
+            titles: data?.meta?.titles ?? [],
+            psalterWeek,
+            // Set default season color if there is no color already set
+            ...(data?.meta?.liturgicalColor ?? { liturgicalColor: LITURGICAL_COLORS.WHITE }),
+          },
         },
-      },
-    };
+      };
 
-    return dateItem;
-  });
+      return dateItem;
+    },
+  );
 
   combinedDaysOfEaster = await _metadata(combinedDaysOfEaster);
 
@@ -801,6 +803,6 @@ const eastertide = async (year: number): Promise<Array<RomcalDateItem>> => {
  *
  * @param year The year to use for the calculation
  */
-const easterOctave = async (year: number): Promise<Array<RomcalDateItem>> => _.take(await eastertide(year), 8);
+const easterOctave = async (year: number): Promise<Array<RomcalDateItemInput>> => _.take(await eastertide(year), 8);
 
 export { advent, christmastide, earlyOrdinaryTime, lent, easterTriduum, easterOctave, eastertide, laterOrdinaryTime };

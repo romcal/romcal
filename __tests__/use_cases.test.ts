@@ -25,7 +25,7 @@
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 
-import { DateItem } from '@romcal/models/romcal-date-item';
+import { RomcalDateItem } from '@romcal/models/romcal-date-item';
 import Romcal from '@romcal/index';
 import * as Seasons from '@romcal/lib/Seasons';
 import * as Dates from '@romcal/lib/Dates';
@@ -52,7 +52,7 @@ describe('Testing specific feasts and memorials', () => {
         query: {
           month: 5,
         },
-      })) as DateItem[];
+      })) as RomcalDateItem[];
       // according to the general calendar, June 1 is the memorial of saint Justin, Martyr
       const maybeSaintJustinMartyr = juneDates[0];
       expect(maybeSaintJustinMartyr.key).toEqual('maryMotherOfTheChurch');

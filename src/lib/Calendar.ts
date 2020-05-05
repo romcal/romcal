@@ -4,7 +4,7 @@ import * as Celebrations from '@romcal/lib/Celebrations';
 import { localizeLiturgicalColor } from '@romcal/lib/Locales';
 import { isNil } from '@romcal/utils/type-guards';
 import Config from '@romcal/models/romcal-config';
-import { DateItem, RomcalDateItem, RomcalDateItemData } from '@romcal/models/romcal-date-item';
+import { RomcalDateItem, RomcalDateItemInput, RomcalDateItemData } from '@romcal/models/romcal-date-item';
 import { find, removeWhere, groupByKey, concatAll } from '@romcal/utils/array';
 import { TYPES } from '@romcal/constants/types.constant';
 import { TypesEnum } from '@romcal/enums/types.enum';
@@ -29,7 +29,7 @@ dayjs.extend(isSameOrBefore);
  * according to the liturgical calendar for the specific year.
  */
 export class Calendar {
-  private dateItems: Array<DateItem> = [];
+  private dateItems: Array<RomcalDateItem> = [];
   private config: Config;
   private startDate: dayjs.Dayjs;
   private endDate: dayjs.Dayjs;
@@ -115,7 +115,7 @@ export class Calendar {
       });
       return [...(await Calendar._fetchCalendar('general', yearSpecificConfig))];
     });
-    const generalDates: Array<RomcalDateItem> = concatAll(await Promise.all(generalDatesPromise));
+    const generalDates: Array<RomcalDateItemInput> = concatAll(await Promise.all(generalDatesPromise));
 
     // Get the relevant national calendar object based on the given year and country
     const nationalDatesPromise = years.map(async thisYear => {
@@ -133,9 +133,14 @@ export class Calendar {
       });
       return [...(await Calendar._fetchCalendar(country, yearSpecificConfig))];
     });
-    const nationalDates: Array<RomcalDateItem> = concatAll(await Promise.all(nationalDatesPromise));
+    const nationalDates: Array<RomcalDateItemInput> = concatAll(await Promise.all(nationalDatesPromise));
 
-    let calendarSources: Array<Array<RomcalDateItem>> = [seasonDates, celebrationsDates, generalDates, nationalDates];
+    let calendarSources: Array<Array<RomcalDateItemInput>> = [
+      seasonDates,
+      celebrationsDates,
+      generalDates,
+      nationalDates,
+    ];
 
     // Remove all date items not in the given date range
     calendarSources = Calendar._filterItemRange(this.startDate, this.endDate, ...calendarSources);
@@ -155,7 +160,7 @@ export class Calendar {
   /**
    * Get all DateItems for a specific calendar
    */
-  values(): DateItem[] {
+  values(): RomcalDateItem[] {
     return this.dateItems;
   }
 
@@ -163,11 +168,11 @@ export class Calendar {
    * Push new DateItem objects in the Calendar object
    * @param calendars An array of calendar sources to process.
    */
-  _push(calendars: Array<Array<RomcalDateItem>>): void {
+  _push(calendars: Array<Array<RomcalDateItemInput>>): void {
     // Loop through each date source group
-    calendars.forEach((calendar: Array<RomcalDateItem>, index: number) =>
+    calendars.forEach((calendar: Array<RomcalDateItemInput>, index: number) =>
       // Loop through the dates in each source group
-      calendar.forEach((item: RomcalDateItem) => {
+      calendar.forEach((item: RomcalDateItemInput) => {
         // Remove non-prioritized celebrations in the date items array which share the same key as the current item
         this._keepPrioritizedOnly(item);
 
@@ -178,7 +183,7 @@ export class Calendar {
         if (!isNil(key) && !isNil(name) && !isNil(type) && !isNil(date)) {
           // Create a new DateItem and add it to the collection
           this.dateItems.push(
-            new DateItem({
+            new RomcalDateItem({
               key,
               name,
               type,
@@ -198,7 +203,7 @@ export class Calendar {
    * the previous date item will be removed in favour of the new given one,
    * except if the previous item is prioritized but not the new one
    */
-  _keepPrioritizedOnly({ key: currentKey, data: currentData }: RomcalDateItem): void {
+  _keepPrioritizedOnly({ key: currentKey, data: currentData }: RomcalDateItemInput): void {
     this.dateItems
       .filter(({ key }) => key === currentKey)
       .forEach(({ data: previousData, _id: previousId }) => {
@@ -226,8 +231,8 @@ export class Calendar {
     types.splice(types.indexOf('MEMORIAL') + 1, 0, TYPES[TYPES.length - 1]);
     this.dateItems.sort(
       (
-        { date: firstDate, data: firstData, type: firstType, _stack: firstStack }: DateItem,
-        { date: nextDate, data: nextData, type: nextType, _stack: nextStack }: DateItem,
+        { date: firstDate, data: firstData, type: firstType, _stack: firstStack }: RomcalDateItem,
+        { date: nextDate, data: nextData, type: nextType, _stack: nextStack }: RomcalDateItem,
       ): number => {
         // 1. Sort by date
         if (dayjs.utc(firstDate).isBefore(dayjs.utc(nextDate))) {
@@ -300,17 +305,17 @@ export class Calendar {
    *
    * @param sources A list of [[RomcalDateItem]] arrays for the operation
    */
-  static _dropItems(sources: Array<Array<RomcalDateItem>>): Array<Array<RomcalDateItem>> {
+  static _dropItems(sources: Array<Array<RomcalDateItemInput>>): Array<Array<RomcalDateItemInput>> {
     const dropKeys: string[] = [];
-    sources.forEach((source: RomcalDateItem[]) => {
-      source.forEach((dateItem: RomcalDateItem) => {
+    sources.forEach((source: RomcalDateItemInput[]) => {
+      source.forEach((dateItem: RomcalDateItemInput) => {
         if (dateItem.drop && dateItem.key) {
           dropKeys.push(dateItem.key);
         }
       });
     });
-    return sources.map((source: RomcalDateItem[]) => {
-      return source.filter((dateItem: RomcalDateItem) => {
+    return sources.map((source: RomcalDateItemInput[]) => {
+      return source.filter((dateItem: RomcalDateItemInput) => {
         return dateItem.key ? !dropKeys.includes(dateItem.key) : true;
       });
     });
@@ -325,12 +330,12 @@ export class Calendar {
   static _filterItemRange(
     startDate: dayjs.Dayjs,
     endDate: dayjs.Dayjs,
-    ...calendarSources: Array<Array<RomcalDateItem>>
-  ): Array<Array<RomcalDateItem>> {
+    ...calendarSources: Array<Array<RomcalDateItemInput>>
+  ): Array<Array<RomcalDateItemInput>> {
     const start = startDate;
     const end = endDate;
-    return calendarSources.map((calendarSource: Array<RomcalDateItem>) => {
-      return calendarSource.filter((item: RomcalDateItem) => {
+    return calendarSources.map((calendarSource: Array<RomcalDateItemInput>) => {
+      return calendarSource.filter((item: RomcalDateItemInput) => {
         return item.date.isSameOrAfter(start) && item.date.isSameOrBefore(end);
       });
     });
@@ -342,7 +347,7 @@ export class Calendar {
    * @param country The country to get
    * @param config The configuration instance to be send down to the calendar (includes the year to use for date resolutions)
    */
-  static async _fetchCalendar(country: Countries, config: Config): Promise<Array<RomcalDateItem>> {
+  static async _fetchCalendar(country: Countries, config: Config): Promise<Array<RomcalDateItemInput>> {
     const { dates } = await import(
       /* webpackExclude: /index\.ts/ */
       /* webpackChunkName: "calendars/[request]" */
@@ -350,7 +355,7 @@ export class Calendar {
       /* webpackPrefetch: true */
       `../calendars/${country}`
     );
-    const contextualizedDates: Array<RomcalDateItem> = await dates(config);
+    const contextualizedDates: Array<RomcalDateItemInput> = await dates(config);
     const promises = contextualizedDates.map(async date => {
       return {
         ...date,
@@ -363,7 +368,7 @@ export class Calendar {
             }),
           },
         },
-      } as RomcalDateItem;
+      } as RomcalDateItemInput;
     });
     return await Promise.all(promises);
   }

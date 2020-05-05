@@ -30,7 +30,7 @@ import utc from 'dayjs/plugin/utc';
 import Romcal from '@romcal/index';
 import * as Dates from '@romcal/lib/Dates';
 import { Dictionary, isNil } from '@romcal/utils/type-guards';
-import { DateItem, isDateItem } from '@romcal/models/romcal-date-item';
+import { RomcalDateItem, isDateItem } from '@romcal/models/romcal-date-item';
 import { hasKey, getValueByKey } from '@romcal/utils/object';
 import { PSALTER_WEEKS } from '@romcal/constants/psalter-weeks.constant';
 import { LITURGICAL_SEASONS } from '@romcal/constants/liturgical-seasons.constant';
@@ -50,8 +50,8 @@ describe('Testing calendar generation functions', () => {
   });
 
   describe('When calling the calendarFor() method without a query', () => {
-    let nonLeapYearDates: DateItem[];
-    let leapYearDates: DateItem[];
+    let nonLeapYearDates: RomcalDateItem[];
+    let leapYearDates: RomcalDateItem[];
 
     beforeEach(async () => {
       nonLeapYearDates = await Romcal.calendarFor(2018);
@@ -70,12 +70,12 @@ describe('Testing calendar generation functions', () => {
     });
 
     test('Array should be 365 days long on non-leap years', async () => {
-      const grouped: Dictionary<DateItem[]> = _.groupBy(nonLeapYearDates, item => dayjs.utc(item.date).valueOf());
+      const grouped: Dictionary<RomcalDateItem[]> = _.groupBy(nonLeapYearDates, item => dayjs.utc(item.date).valueOf());
       expect(Object.keys(grouped)).toHaveLength(365);
     });
 
     test('Array should be 366 days long on leap years', async () => {
-      const grouped: Dictionary<DateItem[]> = _.groupBy(leapYearDates, item => dayjs.utc(item.date).valueOf());
+      const grouped: Dictionary<RomcalDateItem[]> = _.groupBy(leapYearDates, item => dayjs.utc(item.date).valueOf());
       expect(Object.keys(grouped)).toHaveLength(366);
     });
   });
@@ -85,7 +85,7 @@ describe('Testing calendar generation functions', () => {
       let year: number;
       let start: dayjs.Dayjs;
       let end: dayjs.Dayjs;
-      let calendar: DateItem[];
+      let calendar: RomcalDateItem[];
 
       beforeEach(async () => {
         year = dayjs.utc().year();
@@ -157,8 +157,8 @@ describe('Testing calendar generation functions', () => {
         const dates = Romcal.queryFor(await Romcal.calendarFor(), {
           group: 'daysByMonth',
         });
-        Object.values(dates).forEach((monthGroup: Dictionary<DateItem[]>, monthIndex: number) => {
-          Object.values(monthGroup).forEach((dateItems: DateItem[], dayIndex: number) => {
+        Object.values(dates).forEach((monthGroup: Dictionary<RomcalDateItem[]>, monthIndex: number) => {
+          Object.values(monthGroup).forEach((dateItems: RomcalDateItem[], dayIndex: number) => {
             dateItems.forEach(dateItem => {
               expect(dayjs.utc(dateItem.date).day()).toEqual(dayIndex);
               expect(dayjs.utc(dateItem.date).month()).toEqual(monthIndex);
@@ -218,18 +218,18 @@ describe('Testing calendar generation functions', () => {
       test('Should filter by title as expected when using queryFor()', async () => {
         Romcal.queryFor(await Romcal.calendarFor(), {
           title: TITLES.FEAST_OF_THE_LORD,
-        }).forEach((d: DateItem) => expect(d.data.meta.titles?.includes(TITLES.FEAST_OF_THE_LORD)).toBeTruthy());
+        }).forEach((d: RomcalDateItem) => expect(d.data.meta.titles?.includes(TITLES.FEAST_OF_THE_LORD)).toBeTruthy());
       });
       test('Should filter by title as expected when using calendarFor()', async () => {
         Romcal.queryFor(await Romcal.calendarFor(), {
           title: TITLES.PATRON_OF_EUROPE,
-        }).forEach((d: DateItem) => expect(d.data.meta.titles?.includes(TITLES.PATRON_OF_EUROPE)).toBeTruthy());
+        }).forEach((d: RomcalDateItem) => expect(d.data.meta.titles?.includes(TITLES.PATRON_OF_EUROPE)).toBeTruthy());
       });
     });
 
     describe('Testing advanced filters', () => {
       test('The proper color of a Memorial or a Feast is white except for martyrs in which case it is red', async () => {
-        const calendar = (await Romcal.calendarFor({ query: { group: 'types' } })) as Dictionary<DateItem[]>;
+        const calendar = (await Romcal.calendarFor({ query: { group: 'types' } })) as Dictionary<RomcalDateItem[]>;
         _.get(calendar, TypesEnum.FEAST).forEach(d => {
           if (d.key === 'theExaltationOfTheHolyCross') {
             expect(d.data.meta.liturgicalColor?.key).toEqual(LITURGICAL_COLORS.RED.key);

@@ -27,7 +27,7 @@ import dayjs from 'dayjs';
 import * as Dates from '@romcal/lib/Dates';
 import * as Seasons from '@romcal/lib/Seasons';
 import { Dictionary } from '@romcal/utils/type-guards';
-import { DateItem } from '@romcal/models/romcal-date-item';
+import { RomcalDateItem } from '@romcal/models/romcal-date-item';
 import { setLocale } from '@romcal/lib/Locales';
 import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant';
 import Romcal from '@romcal/index';
@@ -280,7 +280,7 @@ describe('Testing seasons utility functions', () => {
   });
 
   describe('The liturgical year is divided to a number of seasons', () => {
-    let calendar: Dictionary<DateItem[]>;
+    let calendar: Dictionary<RomcalDateItem[]>;
     beforeAll(async () => {
       calendar = Romcal.queryFor(await Romcal.calendarFor(), { group: 'liturgicalSeasons' });
     });
