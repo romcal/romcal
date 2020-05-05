@@ -38,6 +38,7 @@ const getTsLoaderRuleSet = (
   mode: webpack.Configuration['mode'] = 'production',
 ): webpack.RuleSetUseItem => {
   let options: webpack.RuleSetQuery = {
+    configFile: 'tsconfig.build.json',
     colors: true,
     compilerOptions: {
       outDir: './dist/es5',

@@ -1,0 +1,25 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "es5",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "removeComments": false,
+    "incremental": false,
+    "lib": [
+      "ES5",
+      "ES6",
+      "ES7",
+      "ES2015",
+      "ES2016",
+      "ES2017",
+      "ES2018",
+      "ESNext",
+      "ESNext.Symbol",
+      "DOM",
+      "DOM.Iterable",
+      "ScriptHost"
+    ],
+    "plugins": [{ "transform": "@zerollup/ts-transform-paths" }]
+  }
+}
