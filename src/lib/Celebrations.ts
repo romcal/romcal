@@ -1,11 +1,11 @@
-import * as Dates from '@RomcalLib/Dates';
-import { localizeDates, localizeLiturgicalColor, localize } from '@RomcalLib/Locales';
-import { TITLES } from '@RomcalConstants/titles.constant';
-import { LITURGICAL_COLORS } from '@RomcalConstants/liturgical-colors.constant';
-import { RomcalDateItem } from '@RomcalModels/romcal-date-item';
-import Config from '@RomcalModels/romcal-config';
-import { isNil } from '@RomcalUtils/type-guards';
-import { TypesEnum } from '@RomcalEnums/types.enum';
+import * as Dates from '@romcal/lib/Dates';
+import { localizeDates, localizeLiturgicalColor, localize } from '@romcal/lib/Locales';
+import { TITLES } from '@romcal/constants/titles.constant';
+import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant';
+import { RomcalDateItem } from '@romcal/models/romcal-date-item';
+import Config from '@romcal/models/romcal-config';
+import { isNil } from '@romcal/utils/type-guards';
+import { TypesEnum } from '@romcal/enums/types.enum';
 
 /**
  * Returns various fixed celebrations in the liturgical calendar.

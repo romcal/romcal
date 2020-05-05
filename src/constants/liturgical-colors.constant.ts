@@ -1,5 +1,5 @@
-import { LiturgicalColors } from '@RomcalTypes/liturgical-colors.type';
-import { LiturgicalColorKeys } from '@RomcalTypes/liturgical-colors.type';
+import { LiturgicalColors } from '@romcal/types/liturgical-colors.type';
+import { LiturgicalColorKeys } from '@romcal/types/liturgical-colors.type';
 
 /**
  * An object literal representing a Liturgical Color construct that can be used

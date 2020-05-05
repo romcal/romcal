@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
-import { RangeOfDaysOptions } from '@RomcalTypes/range-of-day-options.type';
-import { DayOfWeek } from '@RomcalEnums/day-of-week.enum';
+import { RangeOfDaysOptions } from '@romcal/types/range-of-day-options.type';
+import { DayOfWeek } from '@romcal/enums/day-of-week.enum';
 
 const rangeOfDayDefaultOptions: Required<RangeOfDaysOptions> = {
   step: 1,

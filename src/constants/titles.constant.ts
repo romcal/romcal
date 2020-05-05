@@ -1,4 +1,4 @@
-import { Titles } from '@RomcalTypes/titles.type';
+import { Titles } from '@romcal/types/titles.type';
 
 export const TITLES: Titles = {
   PATRON_OF_EUROPE: 'PATRON_OF_EUROPE',

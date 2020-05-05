@@ -22,9 +22,9 @@
     THE SOFTWARE.
 */
 
-import * as Locales from '@RomcalLib/Locales';
-import * as Dates from '@RomcalLib/Dates';
-import { rangeOfDays, rangeContainsDate } from '@RomcalUtils/dates';
+import * as Locales from '@romcal/lib/Locales';
+import * as Dates from '@romcal/lib/Dates';
+import { rangeOfDays, rangeContainsDate } from '@romcal/utils/dates';
 
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';

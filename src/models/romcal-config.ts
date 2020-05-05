@@ -1,12 +1,12 @@
 import dayjs from 'dayjs';
 
-import { isNil, isObject, isRomcalConfig } from '@RomcalUtils/type-guards';
-import { CalendarTypes } from '@RomcalTypes/calendar-types.type';
-import { Countries } from '@RomcalTypes/countries.type';
+import { isNil, isObject, isRomcalConfig } from '@romcal/utils/type-guards';
+import { CalendarTypes } from '@romcal/types/calendar-types.type';
+import { Countries } from '@romcal/types/countries.type';
 
-import { ChristmastideEndings } from '@RomcalTypes/christmastide-endings.type';
-import { LocaleTypes } from '@RomcalTypes/locale-types.type';
-import { Query } from '@RomcalTypes/query-type.type';
+import { ChristmastideEndings } from '@romcal/types/christmastide-endings.type';
+import { LocaleTypes } from '@romcal/types/locale-types.type';
+import { Query } from '@romcal/types/query-type.type';
 
 /**
  * The configuration object that is passed either to the [[Calendar.calendarFor]]

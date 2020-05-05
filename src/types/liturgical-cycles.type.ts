@@ -1,5 +1,5 @@
-import { ElementType } from '@RomcalUtils/helpers';
-import { LITURGICAL_CYCLES } from '@RomcalConstants/liturgical-cycles.constant';
+import { ElementType } from '@romcal/utils/helpers';
+import { LITURGICAL_CYCLES } from '@romcal/constants/liturgical-cycles.constant';
 
 export type LiturgicalCycles = ElementType<typeof LITURGICAL_CYCLES>;
 
