@@ -1,11 +1,11 @@
-import { rangeOfDays, eachDayOfWeekInRange, rangeContainsDate } from '@RomcalUtils/dates';
-import { isNil } from '@RomcalUtils/type-guards';
-import { ChristmastideEndings } from '@RomcalTypes/christmastide-endings.type';
+import { rangeOfDays, eachDayOfWeekInRange, rangeContainsDate } from '@romcal/utils/dates';
+import { isNil } from '@romcal/utils/type-guards';
+import { ChristmastideEndings } from '@romcal/types/christmastide-endings.type';
 
 import dayjs from 'dayjs';
 import dayOfYear from 'dayjs/plugin/dayOfYear';
 import utc from 'dayjs/plugin/utc';
-import { DayOfWeek } from '@RomcalEnums/day-of-week.enum';
+import { DayOfWeek } from '@romcal/enums/day-of-week.enum';
 
 dayjs.extend(utc);
 dayjs.extend(dayOfYear);

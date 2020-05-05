@@ -16,15 +16,7 @@
     "importHelpers": true,
     "baseUrl": ".",
     "paths": {
-      "@RomcalRoot/*": ["src/*"],
-      "@RomcalLib/*": ["src/lib/*"],
-      "@RomcalTypes/*": ["src/types/*"],
-      "@RomcalConstants/*": ["src/constants/*"],
-      "@RomcalEnums/*": ["src/enums/*"],
-      "@RomcalUtils/*": ["src/utils/*"],
-      "@RomcalValidators/*": ["src/validators/*"],
-      "@RomcalModels/*": ["src/models/*"],
-      "@RomcalLocales/*": ["src/locales/*"]
+      "@romcal/*": ["src/*"]
     }
   },
   "include": [

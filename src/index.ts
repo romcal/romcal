@@ -10,9 +10,9 @@ import {
   ordinal,
   sanitizePossibleLocaleValue,
   setLocale,
-} from '@RomcalLib/Locales';
+} from '@romcal/lib/Locales';
 
-import { dates as temporalCelebrationDates } from '@RomcalLib/Celebrations';
+import { dates as temporalCelebrationDates } from '@romcal/lib/Celebrations';
 
 import {
   allSaints,
@@ -61,7 +61,7 @@ import {
   theExaltationOfTheHolyCross,
   transfiguration,
   trinitySunday,
-} from '@RomcalLib/Dates';
+} from '@romcal/lib/Dates';
 
 import {
   advent,
@@ -72,11 +72,11 @@ import {
   eastertide,
   laterOrdinaryTime,
   lent,
-} from '@RomcalLib/Seasons';
+} from '@romcal/lib/Seasons';
 
-import { Calendar } from '@RomcalLib/Calendar';
+import { Calendar } from '@romcal/lib/Calendar';
 
-import { RomcalLocale, RomcalLocaleKeys } from '@RomcalModels/romcal-locale';
+import { RomcalLocale, RomcalLocaleKeys } from '@romcal/models/romcal-locale';
 import {
   DateItem,
   DateItemData,
@@ -88,33 +88,33 @@ import {
   RomcalDateItemMetadata,
   RomcalSeason,
   TDateItemInput,
-} from '@RomcalModels/romcal-date-item';
-import Config, { RomcalConfig, IRomcalDefaultConfig, TConfigConstructorType } from '@RomcalModels/romcal-config';
+} from '@romcal/models/romcal-date-item';
+import Config, { RomcalConfig, IRomcalDefaultConfig, TConfigConstructorType } from '@romcal/models/romcal-config';
 
-import { hasKey } from '@RomcalUtils/object';
+import { hasKey } from '@romcal/utils/object';
 
-import { COUNTRIES } from '@RomcalConstants/country-list.constant';
-import { LITURGICAL_COLORS, LITURGICAL_COLOR_KEYS } from '@RomcalConstants/liturgical-colors.constant';
-import { LITURGICAL_CYCLES } from '@RomcalConstants/liturgical-cycles.constant';
-import { LITURGICAL_SEASONS } from '@RomcalConstants/liturgical-seasons.constant';
-import { PSALTER_WEEKS } from '@RomcalConstants/psalter-weeks.constant';
-import { QUERY_TYPES } from '@RomcalConstants/query-types.constant';
-import { TITLES } from '@RomcalConstants/titles.constant';
-import { TYPES } from '@RomcalConstants/types.constant';
+import { COUNTRIES } from '@romcal/constants/country-list.constant';
+import { LITURGICAL_COLORS, LITURGICAL_COLOR_KEYS } from '@romcal/constants/liturgical-colors.constant';
+import { LITURGICAL_CYCLES } from '@romcal/constants/liturgical-cycles.constant';
+import { LITURGICAL_SEASONS } from '@romcal/constants/liturgical-seasons.constant';
+import { PSALTER_WEEKS } from '@romcal/constants/psalter-weeks.constant';
+import { QUERY_TYPES } from '@romcal/constants/query-types.constant';
+import { TITLES } from '@romcal/constants/titles.constant';
+import { TYPES } from '@romcal/constants/types.constant';
 
-import { Dictionary, isNil, isInteger, isObject } from '@RomcalUtils/type-guards';
-import { ChristmastideEndings } from '@RomcalTypes/christmastide-endings.type';
-import { Countries } from '@RomcalTypes/countries.type';
-import { DateItemSources } from '@RomcalTypes/date-item-sources.type';
-import { LiturgicalColor, LiturgicalColorKeys, LiturgicalColors } from '@RomcalTypes/liturgical-colors.type';
-import { LiturgicalCycle, LiturgicalCycles } from '@RomcalTypes/liturgical-cycles.type';
-import { LiturgicalSeason, LiturgicalSeasons } from '@RomcalTypes/liturgical-seasons.type';
-import { LocaleTypes } from '@RomcalTypes/locale-types.type';
-import { LocalizeParams } from '@RomcalTypes/localize-params.type';
-import { PsalterWeek, PsalterWeeks } from '@RomcalTypes/psalter-weeks.type';
-import { Query, QueryType } from '@RomcalTypes/query-type.type';
-import { Title, Titles } from '@RomcalTypes/titles.type';
-import { Types } from '@RomcalTypes/types.type';
+import { Dictionary, isNil, isInteger, isObject } from '@romcal/utils/type-guards';
+import { ChristmastideEndings } from '@romcal/types/christmastide-endings.type';
+import { Countries } from '@romcal/types/countries.type';
+import { DateItemSources } from '@romcal/types/date-item-sources.type';
+import { LiturgicalColor, LiturgicalColorKeys, LiturgicalColors } from '@romcal/types/liturgical-colors.type';
+import { LiturgicalCycle, LiturgicalCycles } from '@romcal/types/liturgical-cycles.type';
+import { LiturgicalSeason, LiturgicalSeasons } from '@romcal/types/liturgical-seasons.type';
+import { LocaleTypes } from '@romcal/types/locale-types.type';
+import { LocalizeParams } from '@romcal/types/localize-params.type';
+import { PsalterWeek, PsalterWeeks } from '@romcal/types/psalter-weeks.type';
+import { Query, QueryType } from '@romcal/types/query-type.type';
+import { Title, Titles } from '@romcal/types/titles.type';
+import { Types } from '@romcal/types/types.type';
 
 /**
  * The export of the `romcal` module.

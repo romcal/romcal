@@ -1,6 +1,6 @@
 import { Schema, Validator } from 'jsonschema';
-import { TYPES } from '@RomcalConstants/types.constant';
-import { LITURGICAL_COLOR_KEYS } from '@RomcalConstants/liturgical-colors.constant';
+import { TYPES } from '@romcal/constants/types.constant';
+import { LITURGICAL_COLOR_KEYS } from '@romcal/constants/liturgical-colors.constant';
 
 export const getDateItemJsonSchema = (): Schema => {
   const dateItemJsonSchema: Schema = {

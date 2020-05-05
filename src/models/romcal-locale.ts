@@ -1,4 +1,4 @@
-import { LiturgicalColorKeys } from '@RomcalTypes/liturgical-colors.type';
+import { LiturgicalColorKeys } from '@romcal/types/liturgical-colors.type';
 
 export type RomcalLocaleKeys = {
   after: string;

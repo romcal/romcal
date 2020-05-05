@@ -1,5 +1,5 @@
-import { ElementType } from '@RomcalUtils/helpers';
-import { QUERY_TYPES } from '@RomcalConstants/query-types.constant';
+import { ElementType } from '@romcal/utils/helpers';
+import { QUERY_TYPES } from '@romcal/constants/query-types.constant';
 
 export type QueryType = ElementType<typeof QUERY_TYPES>;
 

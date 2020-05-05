@@ -1,8 +1,8 @@
 import { ValidationError } from 'jsonschema';
-import { getDateItemSchemaValidator, getDateItemDataJsonSchema } from '@RomcalValidators/date-item.validator';
-import { getRomcalConfigSchemaValidator, getRomcalConfigJsonSchema } from '@RomcalValidators/romcal-config.validator';
-import { RomcalConfig } from '@RomcalModels/romcal-config';
-import { DateItem } from '@RomcalModels/romcal-date-item';
+import { getDateItemSchemaValidator, getDateItemDataJsonSchema } from '@romcal/validators/date-item.validator';
+import { getRomcalConfigSchemaValidator, getRomcalConfigJsonSchema } from '@romcal/validators/romcal-config.validator';
+import { RomcalConfig } from '@romcal/models/romcal-config';
+import { DateItem } from '@romcal/models/romcal-date-item';
 
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';

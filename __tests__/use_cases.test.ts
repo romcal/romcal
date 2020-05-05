@@ -25,11 +25,11 @@
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 
-import { DateItem } from '@RomcalModels/romcal-date-item';
-import Romcal from '@RomcalRoot/index';
-import * as Seasons from '@RomcalLib/Seasons';
-import * as Dates from '@RomcalLib/Dates';
-import { TypesEnum } from '@RomcalEnums/types.enum';
+import { DateItem } from '@romcal/models/romcal-date-item';
+import Romcal from '@romcal/index';
+import * as Seasons from '@romcal/lib/Seasons';
+import * as Dates from '@romcal/lib/Dates';
+import { TypesEnum } from '@romcal/enums/types.enum';
 
 dayjs.extend(utc);
 

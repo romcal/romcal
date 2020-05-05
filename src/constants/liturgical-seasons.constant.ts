@@ -1,4 +1,4 @@
-import { LiturgicalSeasons } from '@RomcalTypes/liturgical-seasons.type';
+import { LiturgicalSeasons } from '@romcal/types/liturgical-seasons.type';
 
 /**
  * Liturgical seasons are segments of time that when combined, form the liturgical year.
