@@ -1,7 +1,5 @@
 import dayjs from 'dayjs';
-// eslint-disable-next-line you-dont-need-lodash-underscore/map
-import map from 'lodash-es/map';
-import groupBy from 'lodash-es/groupBy';
+import _ from 'lodash';
 
 import {
   getLocale,
@@ -150,35 +148,33 @@ export default class Romcal {
     if (hasKey(query, 'group')) {
       switch (query.group) {
         case 'months':
-          return groupBy(dates, d => dayjs.utc(d.date).month());
+          return _.groupBy(dates, d => dayjs.utc(d.date).month());
         case 'daysByMonth':
-          // eslint-disable-next-line you-dont-need-lodash-underscore/map
-          return map(
-            groupBy(dates, d => dayjs.utc(d.date).month()),
-            monthGroup => groupBy(monthGroup, d => dayjs.utc(d.date).day()),
+          return _.map(
+            _.groupBy(dates, d => dayjs.utc(d.date).month()),
+            monthGroup => _.groupBy(monthGroup, d => dayjs.utc(d.date).day()),
           );
         case 'weeksByMonth':
-          // eslint-disable-next-line you-dont-need-lodash-underscore/map
-          return map(
-            groupBy(dates, d => dayjs.utc(d.date).month()),
-            v => groupBy(v, d => d.data.calendar?.week),
+          return _.map(
+            _.groupBy(dates, d => dayjs.utc(d.date).month()),
+            v => _.groupBy(v, d => d.data.calendar?.week),
           );
         case 'cycles':
-          return groupBy(dates, d => d.data.meta.cycle?.value);
+          return _.groupBy(dates, d => d.data.meta.cycle?.value);
         case 'types':
-          return groupBy(dates, d => d.type);
+          return _.groupBy(dates, d => d.type);
         /**
          * Groups by the first liturgical season in the array
          */
         case 'liturgicalSeasons':
-          return groupBy(dates, d => d.data.season[0].key);
+          return _.groupBy(dates, d => d.data.season[0].key);
         case 'liturgicalColors':
-          return groupBy(dates, d => d.data.meta.liturgicalColor?.key);
+          return _.groupBy(dates, d => d.data.meta.liturgicalColor?.key);
         case 'psalterWeeks':
-          return groupBy(dates, d => d.data.meta.psalterWeek?.key);
+          return _.groupBy(dates, d => d.data.meta.psalterWeek?.key);
         case 'days':
         default:
-          return groupBy(dates, d => dayjs.utc(d.date).day());
+          return _.groupBy(dates, d => dayjs.utc(d.date).day());
       }
     } else if (!isNil(query.month)) {
       // Months are zero indexed, so January is month 0.

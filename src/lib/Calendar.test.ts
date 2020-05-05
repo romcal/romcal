@@ -22,8 +22,7 @@
     THE SOFTWARE.
 */
 
-import groupBy from 'lodash-es/groupBy';
-import get from 'lodash-es/get';
+import _ from 'lodash';
 
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
@@ -71,12 +70,12 @@ describe('Testing calendar generation functions', () => {
     });
 
     test('Array should be 365 days long on non-leap years', async () => {
-      const grouped: Dictionary<DateItem[]> = groupBy(nonLeapYearDates, item => dayjs.utc(item.date).valueOf());
+      const grouped: Dictionary<DateItem[]> = _.groupBy(nonLeapYearDates, item => dayjs.utc(item.date).valueOf());
       expect(Object.keys(grouped)).toHaveLength(365);
     });
 
     test('Array should be 366 days long on leap years', async () => {
-      const grouped: Dictionary<DateItem[]> = groupBy(leapYearDates, item => dayjs.utc(item.date).valueOf());
+      const grouped: Dictionary<DateItem[]> = _.groupBy(leapYearDates, item => dayjs.utc(item.date).valueOf());
       expect(Object.keys(grouped)).toHaveLength(366);
     });
   });
@@ -231,7 +230,7 @@ describe('Testing calendar generation functions', () => {
     describe('Testing advanced filters', () => {
       test('The proper color of a Memorial or a Feast is white except for martyrs in which case it is red', async () => {
         const calendar = (await Romcal.calendarFor({ query: { group: 'types' } })) as Dictionary<DateItem[]>;
-        get(calendar, TypesEnum.FEAST).forEach(d => {
+        _.get(calendar, TypesEnum.FEAST).forEach(d => {
           if (d.key === 'theExaltationOfTheHolyCross') {
             expect(d.data.meta.liturgicalColor?.key).toEqual(LITURGICAL_COLORS.RED.key);
           } else {
@@ -246,7 +245,7 @@ describe('Testing calendar generation functions', () => {
             }
           }
         });
-        get(calendar, TypesEnum.MEMORIAL).forEach(d => {
+        _.get(calendar, TypesEnum.MEMORIAL).forEach(d => {
           if (!isNil(d.data.meta.titles)) {
             if (d.data.meta.titles.includes(TITLES.MARTYR)) {
               expect(d.data.meta.liturgicalColor?.key).toEqual(LITURGICAL_COLORS.RED.key);
