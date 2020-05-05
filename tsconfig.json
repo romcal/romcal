@@ -1,37 +1,19 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "removeComments": false,
+    "module": "commonjs",
+    "target": "es2017",
+    "sourceMap": true,
     "resolveJsonModule": true,
-    "lib": [
-      "ES5",
-      "ES6",
-      "ES7",
-      "ES2015",
-      "ES2016",
-      "ES2017",
-      "ES2018",
-      "ESNext",
-      "ESNext.Symbol",
-      "DOM",
-      "DOM.Iterable",
-      "ScriptHost"
-    ],
-    "allowJs": true,
-    "importHelpers": true,
-    "downlevelIteration": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
     "strict": true,
-    "skipLibCheck": false,
     "noImplicitThis": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
     "forceConsistentCasingInFileNames": true,
+    "downlevelIteration": true,
+    "importHelpers": true,
     "baseUrl": ".",
     "paths": {
       "@RomcalRoot/*": ["src/*"],
@@ -43,11 +25,10 @@
       "@RomcalValidators/*": ["src/validators/*"],
       "@RomcalModels/*": ["src/models/*"],
       "@RomcalLocales/*": ["src/locales/*"]
-    },
-    "plugins": [{ "transform": "@zerollup/ts-transform-paths" }]
+    }
   },
   "include": [
     "src/**/*"
   ],
-  "exclude": ["__tests__/**/*", "**/*.test.ts", "dist/**/*", "coverage/**/*"]
+  "exclude": ["__tests__", "**/*.test.ts", "dist", "coverage", "node_modules"]
 }
