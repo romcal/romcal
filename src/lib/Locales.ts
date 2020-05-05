@@ -1,5 +1,4 @@
-import template from 'lodash-es/template';
-import templateSettings from 'lodash-es/templateSettings';
+import _ from 'lodash';
 
 import { parse, Schema } from 'bcp-47';
 import { toOrdinal, toWordsOrdinal } from 'number-to-words';
@@ -30,7 +29,7 @@ dayjs.extend(advancedFormat);
 /**
  *  Mustache style templating is easier on the eyes
  */
-templateSettings.interpolate = /{{([\s\S]+?)}}/g;
+_.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
 
 /**
  * Set locale
@@ -260,7 +259,7 @@ const localize = async ({ key, count, week, day, useDefaultOrdinalFn }: Localize
   const value = findDescendantValueByKeys(getLocale(), key.split('.'));
 
   // Run the template against the options provided
-  return template(value)({
+  return _.template(value)({
     key,
     // If defined, pluralize a week and add it to the given template
     ...(typeof week === 'number' && {
