@@ -1,8 +1,4 @@
-import sortBy from 'lodash-es/sortBy';
-import camelCase from 'lodash-es/camelCase';
-import uniqBy from 'lodash-es/uniqBy';
-import union from 'lodash-es/union';
-import take from 'lodash-es/take';
+import _ from 'lodash';
 
 import * as Dates from '@RomcalLib/Dates';
 import { LITURGICAL_COLORS } from '@RomcalConstants/liturgical-colors.constant';
@@ -39,7 +35,7 @@ const getPsalterWeek = (index: number, psalterWeek = 0): number => {
 };
 
 /**
- * Takes an array of [[RomcalDateItem]] items and adds the source key.
+ * _.takes an array of [[RomcalDateItem]] items and adds the source key.
  * Also updates the data object of the [[RomcalDateItem]] to include the calendar key.
  * @param items An array of [[RomcalDateItem]] values
  * @returns An array of [[RomcalDateItem]] items.
@@ -216,14 +212,14 @@ const advent = async (year: number): Promise<Array<RomcalDateItem>> => {
   let dateItemsWithoutKeyAndSource: Array<RomcalDateItem> = await Promise.all(daysOfAdventPromise);
 
   // Sort dates according to their date.objects in ascending order
-  dateItemsWithoutKeyAndSource = sortBy(dateItemsWithoutKeyAndSource, item => item.date.valueOf());
+  dateItemsWithoutKeyAndSource = _.sortBy(dateItemsWithoutKeyAndSource, item => item.date.valueOf());
 
   const romcalDateItems: Array<RomcalDateItem> = [];
   dateItemsWithoutKeyAndSource.forEach(({ name, key, data, ...rest }: RomcalDateItem, index: number) => {
     const psalterWeek = getPsalterWeek(index);
     romcalDateItems.push({
       ...rest,
-      ...(isNil(key) ? { key: camelCase(name) } : { key: camelCase(key) }), // Only add camel cased name as the key if it is not defined
+      ...(isNil(key) ? { key: _.camelCase(name) } : { key: _.camelCase(key) }), // Only add camel cased name as the key if it is not defined
       name,
       data: {
         ...data,
@@ -332,17 +328,17 @@ const christmastide = async (
   // only merge the season of epiphany if the flag is true
   let combinedDaysOfChristmas: Array<RomcalDateItem> = [];
   if (christmastideIncludesTheSeasonOfEpiphany === true) {
-    combinedDaysOfChristmas = uniqBy(union(epiphany, daysInTheOctaveOfChristmas, daysOfChristmasTide), item =>
+    combinedDaysOfChristmas = _.uniqBy(_.union(epiphany, daysInTheOctaveOfChristmas, daysOfChristmasTide), item =>
       item.date.valueOf(),
     );
   } else {
-    combinedDaysOfChristmas = uniqBy(union(daysInTheOctaveOfChristmas, daysOfChristmasTide), item =>
+    combinedDaysOfChristmas = _.uniqBy(_.union(daysInTheOctaveOfChristmas, daysOfChristmasTide), item =>
       item.date.valueOf(),
     );
   }
 
   // Sort dates according to their unix tims
-  combinedDaysOfChristmas = sortBy(combinedDaysOfChristmas, item => item.date.valueOf());
+  combinedDaysOfChristmas = _.sortBy(combinedDaysOfChristmas, item => item.date.valueOf());
 
   let psalterWeekStart = 3;
   const [firstDateOfChristmasTide] = datesOfChristmastide;
@@ -354,7 +350,7 @@ const christmastide = async (
     const resolvedPsalterWeek = getPsalterWeek(index, psalterWeekStart);
     return {
       ...rest,
-      ...(isNil(key) ? { key: camelCase(name) } : { key: camelCase(key) }), // Only add camel cased name as the key if it is not defined
+      ...(isNil(key) ? { key: _.camelCase(name) } : { key: _.camelCase(key) }), // Only add camel cased name as the key if it is not defined
       name,
       data: {
         ...data,
@@ -436,7 +432,7 @@ const earlyOrdinaryTime = async (
   let days: Array<RomcalDateItem> = await Promise.all(daysOfEarlyOrdinaryTimePromise);
 
   // Sort dates according to the value of the DayJS date object
-  days = sortBy(days, v => v.date.valueOf());
+  days = _.sortBy(days, v => v.date.valueOf());
 
   const psalterWeekStart = 0;
 
@@ -444,7 +440,7 @@ const earlyOrdinaryTime = async (
     const resolvedPsalterWeek = getPsalterWeek(index, psalterWeekStart);
     return {
       ...rest,
-      ...(isNil(key) ? { key: camelCase(name) } : { key: camelCase(key) }), // Only add camel cased name as the key if it is not defined
+      ...(isNil(key) ? { key: _.camelCase(name) } : { key: _.camelCase(key) }), // Only add camel cased name as the key if it is not defined
       name,
       data: {
         ...data,
@@ -523,7 +519,7 @@ const laterOrdinaryTime = async (year: number): Promise<Array<RomcalDateItem>> =
   let days: Array<RomcalDateItem> = await Promise.all(daysOfLaterOrdinaryTimePromise);
 
   // Sort dates according to moment
-  days = sortBy(days, v => v.date.valueOf());
+  days = _.sortBy(days, v => v.date.valueOf());
 
   let psalterWeekStart = firstWeekOfLaterOrdinaryTime % 4;
   if (psalterWeekStart === 0) {
@@ -534,7 +530,7 @@ const laterOrdinaryTime = async (year: number): Promise<Array<RomcalDateItem>> =
     const resolvedPsalterWeek = getPsalterWeek(index, psalterWeekStart);
     return {
       ...rest,
-      ...(isNil(key) ? { key: camelCase(name) } : { key: camelCase(key) }), // Only add camel cased name as the key if it is not defined
+      ...(isNil(key) ? { key: _.camelCase(name) } : { key: _.camelCase(key) }), // Only add camel cased name as the key if it is not defined
       name,
       data: {
         ...data,
@@ -636,10 +632,10 @@ const lent = async (year: number): Promise<Array<RomcalDateItem>> => {
   let combinedDaysOfLent: Array<RomcalDateItem> = [];
 
   // Override in order: Solemnities, Holy Week and Sundays of Lent to days of Lent
-  combinedDaysOfLent = uniqBy(union(holyWeek, sundays, ferialDays), v => v.date.valueOf());
+  combinedDaysOfLent = _.uniqBy(_.union(holyWeek, sundays, ferialDays), v => v.date.valueOf());
 
   // Sort dates according to DayJS
-  combinedDaysOfLent = sortBy(combinedDaysOfLent, v => v.date.valueOf());
+  combinedDaysOfLent = _.sortBy(combinedDaysOfLent, v => v.date.valueOf());
 
   const psalterWeekStart = 4;
 
@@ -648,7 +644,7 @@ const lent = async (year: number): Promise<Array<RomcalDateItem>> => {
     return {
       ...rest,
       name,
-      ...(isNil(key) ? { key: camelCase(name) } : { key: camelCase(key) }), // Only add camel cased name as the key if it is not defined
+      ...(isNil(key) ? { key: _.camelCase(name) } : { key: _.camelCase(key) }), // Only add camel cased name as the key if it is not defined
       data: {
         ...data,
         meta: {
@@ -671,7 +667,7 @@ const lent = async (year: number): Promise<Array<RomcalDateItem>> => {
 };
 
 /**
- * Takes the last 3 days of holy week which form the 3 days of Easter Triduum.
+ * _.takes the last 3 days of holy week which form the 3 days of Easter Triduum.
  *
  * @param year The year to use for the calculation
  */
@@ -753,10 +749,10 @@ const eastertide = async (year: number): Promise<Array<RomcalDateItem>> => {
   let combinedDaysOfEaster: Array<RomcalDateItem> = [];
 
   // Insert Solemnities and Sundays of Easter to days of Easter
-  combinedDaysOfEaster = uniqBy(union(sundays, days), v => v.date.valueOf());
+  combinedDaysOfEaster = _.uniqBy(_.union(sundays, days), v => v.date.valueOf());
 
   // Sort dates according to DayJS
-  combinedDaysOfEaster = sortBy(combinedDaysOfEaster, v => v.date.valueOf());
+  combinedDaysOfEaster = _.sortBy(combinedDaysOfEaster, v => v.date.valueOf());
 
   const psalterWeekStart = 2;
 
@@ -779,7 +775,7 @@ const eastertide = async (year: number): Promise<Array<RomcalDateItem>> => {
     const dateItem: RomcalDateItem = {
       ...rest,
       name,
-      ...(isNil(key) ? { key: camelCase(name) } : { key: camelCase(key) }), // Only add camel cased name as the key if it is not defined
+      ...(isNil(key) ? { key: _.camelCase(name) } : { key: _.camelCase(key) }), // Only add camel cased name as the key if it is not defined
       data: {
         ...data,
         meta: {
@@ -801,10 +797,10 @@ const eastertide = async (year: number): Promise<Array<RomcalDateItem>> => {
 };
 
 /**
- * Takes the days between Easter Sunday and Divine mercy sunday (inclusive) to form the easter octave
+ * _.takes the days between Easter Sunday and Divine mercy sunday (inclusive) to form the easter octave
  *
  * @param year The year to use for the calculation
  */
-const easterOctave = async (year: number): Promise<Array<RomcalDateItem>> => take(await eastertide(year), 8);
+const easterOctave = async (year: number): Promise<Array<RomcalDateItem>> => _.take(await eastertide(year), 8);
 
 export { advent, christmastide, earlyOrdinaryTime, lent, easterTriduum, easterOctave, eastertide, laterOrdinaryTime };
