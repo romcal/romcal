@@ -2,7 +2,7 @@ import { ValidationError } from 'jsonschema';
 import { getDateItemSchemaValidator, getDateItemDataJsonSchema } from '@romcal/validators/date-item.validator';
 import { getRomcalConfigSchemaValidator, getRomcalConfigJsonSchema } from '@romcal/validators/romcal-config.validator';
 import { RomcalConfig } from '@romcal/models/romcal-config';
-import { DateItem } from '@romcal/models/romcal-date-item';
+import { RomcalDateItem } from '@romcal/models/romcal-date-item';
 
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
@@ -49,7 +49,7 @@ export const isRomcalConfig = (maybeRomcalConfig: unknown): maybeRomcalConfig is
  * Check if the arbitary value given is an array of [[DateItems]].
  * @param maybeRomcalDateItems A value that could be an array of [[DateItem]]s
  */
-export const areRomcalDateItems = (maybeRomcalDateItems: unknown): maybeRomcalDateItems is Array<DateItem> => {
+export const areRomcalDateItems = (maybeRomcalDateItems: unknown): maybeRomcalDateItems is Array<RomcalDateItem> => {
   const { errors, valid } = getDateItemSchemaValidator().validate(maybeRomcalDateItems, getDateItemDataJsonSchema());
   if (!valid) {
     errors.forEach((error: ValidationError) => {

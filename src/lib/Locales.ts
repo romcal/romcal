@@ -6,7 +6,7 @@ import { toOrdinal, toWordsOrdinal } from 'number-to-words';
 import { findDescendantValueByKeys, mergeObjectsUniquely } from '@romcal/utils/object';
 import { isNil, isString } from '@romcal/utils/type-guards';
 import { RomcalLocale } from '@romcal/models/romcal-locale';
-import { RomcalDateItem } from '@romcal/models/romcal-date-item';
+import { RomcalDateItemInput } from '@romcal/models/romcal-date-item';
 import { TypesEnum } from '@romcal/enums/types.enum';
 import { LiturgicalColor } from '@romcal/types/liturgical-colors.type';
 import { DateItemSources } from '@romcal/types/date-item-sources.type';
@@ -286,17 +286,17 @@ const localize = async ({ key, count, week, day, useDefaultOrdinalFn }: Localize
  * @param source The source of the date to localize. This value is used to lookup a specific sub tree in the locale file for the localized value.
  */
 const localizeDates = async (
-  dates: Array<RomcalDateItem>,
+  dates: Array<RomcalDateItemInput>,
   source: DateItemSources = 'sanctoral',
-): Promise<RomcalDateItem[]> => {
-  const promiseDates: Promise<RomcalDateItem>[] = dates.map(async (date: RomcalDateItem) => {
+): Promise<RomcalDateItemInput[]> => {
+  const promiseDates: Promise<RomcalDateItemInput>[] = dates.map(async (date: RomcalDateItemInput) => {
     const dateWithLocalizedName = {
       ...date,
       name: await localize({
         // If the source is `temporal`, do not append anything before the date key
         key: `${source === 'temporal' ? date.key : !isNil(date.source) ? date.source : source}.${date.key}`,
       }),
-    } as RomcalDateItem;
+    } as RomcalDateItemInput;
     return dateWithLocalizedName;
   });
   return await Promise.all(promiseDates);
