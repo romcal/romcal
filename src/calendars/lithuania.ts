@@ -125,11 +125,6 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       type: TypesEnum.SOLEMNITY,
       date: dayjs.utc(`${year}-9-8`),
     },
-    {
-      key: 'saintFaustinaKowalskaVirginAndReligious',
-      type: TypesEnum.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-10-5`),
-    },
   ];
 
   // Get localized celebration names
