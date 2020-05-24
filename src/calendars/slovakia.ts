@@ -221,16 +221,6 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       },
     },
     {
-      key: 'saintFaustinaKowalskaVirginAndReligious',
-      type: TypesEnum.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-10-5`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
-    },
-    {
       key: 'saintGallAbbotAndMissionary',
       type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-16`),
