@@ -76,7 +76,6 @@ export default {
       "blessedCarlosManuelRodriguez": "Beato Carlos Manuel Rodriguez",
       "blessedCatherineOfSaintAugustineVirgin": "Beata María Catalina de San Agustín, Vírgen",
       "blessedInnocentXiPope": "Beato Inocencio XI, Papa",
-      "blessedIrishMartyrs": "Blessed  IrishMártires",
       "blessedJacintaAndFranciscoMarto": "Beatos Jacinta y Francisco Marto",
       "blessedLauraVicunaVirgin": "Beata Laura Vicuna, Vírgen",
       "blessedMariaDoloresRodriguezSopenaVirgin": "Beata Maria Dolores Rodriguez Sopena, Vírgen",
