@@ -5,6 +5,7 @@ import it from './it';
 import pl from './pl';
 import sk from './sk';
 import ptBR from './pt-BR';
+import es from './es';
 
 export {
   enCA,
@@ -14,4 +15,5 @@ export {
   pl,
   sk,
   ptBR,
+  es,
 };
