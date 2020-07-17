@@ -252,7 +252,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       date: dayjs.utc(`${year}-12-10`),
     },
     {
-      key: 'saintJohnOfTheCrossDoctorOfTheChurch',
+      key: 'saintJohnOfTheCrossPriestAndDoctor',
       type: TypesEnum.MEMORIAL,
       date: dayjs.utc(`${year}-12-14`),
       data: {

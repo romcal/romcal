@@ -202,7 +202,8 @@ export default {
     saintGregoryTheGreatPopeAndDoctor: 'Saint Grégoire le Grand, Pape et Docteur de l’Église (✝ 604)',
     saintGregoryViiPope: 'Saint Grégoire VII, Pape (✝ 1085)',
     saintHedwigReligious: 'Sainte Edwige de Silésie, Veuve puis Religieuse (✝ 1243)',
-    saintHenryBishopAndMartyr: 'Saint Henri, Empereur Germanique (✝ 1024)',
+    saintHenry: 'Saint Henri, Empereur Germanique (✝ 1024)',
+    saintHenryBishopAndMartyr: 'Saint Henri, Evêque et Martyr (✝ 1156)',
     saintHilaryOfPoitiersBishopAndDoctor: 'Saint Hilaire de Poitiers, Évêque et Docteur de l’Église (✝ 367)',
     saintHubertBishop: 'Saint Hubert, Évêque (✝ 727)',
     saintIgnatiusOfAntiochBishopAndMartyr:
@@ -313,7 +314,8 @@ export default {
     saintsCosmasAndDamianMartyrs: 'Saints Côme et Damien, Martyrs (3ème s.)',
     saintsCyrilMonkAndMethodiusBishop:
       'Saints Cyrille, Moine, et Méthode, Évêque, Apôtres des Slaves au 9ème siècle, Copatrons de l’Europe',
-    saintsFabianPopeAndSebastianMartyrs: 'Saint Fabien, Pape et Martyr (✝ 250), et Saint Sébastien, Martyr (✝ v. 284)',
+    saintFabianPopeAndMartyr: 'Saint Fabien, Pape et Martyr (✝ 250)',
+    saintSebastianMartyr: 'Saint Sébastien, Martyr (✝ v. 284)',
     saintSixtusIiPopeAndCompanionsMartyrs: 'Saint Sixte II, Pape, et ses Diacres, Martyrs (✝ 258)',
     saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrs:
       'Saints Jean de Brébeuf, Isaac Jogues, Prêtres Jésuites, et leurs compagnons, Martyrs (17ème siècle)',
