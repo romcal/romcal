@@ -188,6 +188,7 @@ export default {
     saintEugeneDeMazenodBishop:
       'Saint Eugène de Mazenod, Fondateur des Oblats de Marie-Immaculée, Évêque de Marseille (✝ 1861)',
     saintEusebiusOfVercelliBishop: 'Saint Eusèbe de Verceil, Evêque (✝ 371)',
+    saintFabianPopeAndMartyr: 'Saint Fabien, Pape et Martyr (✝ 250)',
     saintFidelisOfSigmaringenPriestAndMartyr: 'Saint Fidèle de Sigmaringen, Prêtre et Martyr (✝ 1622)',
     saintFrancesOfRomeReligious: 'Sainte Françoise Romaine, Religieuse (✝ 1440)',
     saintFrancisDeSalesBishopAndDoctor: 'Saint François de Sales, Evêque de Genève et Docteur de l’Église (✝ 1622)',
@@ -304,7 +305,7 @@ export default {
     saintRomualdAbbot: 'Saint Romuald, Anachorète et Père des moines Camaldules (✝ 1027)',
     saintRoseOfLima: 'Sainte Rose de Lima, Vierge (✝ 1617)',
     saintsAndrewZorardAndBenedictHermits: 'Saints André Svorad († 1009) et Benoît Stojislav († 1012), Ermites',
-    saintsAugustineZhaoRongPriestAndCompanionsMartyrs:
+    saintAugustineZhaoRongPriestAndCompanionsMartyrs:
       'Saints Augustin Zhao Rong et ses compagnons, Martyrs en Chine (entre 1648 et 1930)',
     saintsBasilTheGreatAndGregoryNazianzenBishopsAndDoctors:
       'Saints Basile le Grand (✝ 379) et Grégoire de Naziance (✝ 390), Évêques et Docteurs de l’Église',
@@ -314,7 +315,6 @@ export default {
     saintsCosmasAndDamianMartyrs: 'Saints Côme et Damien, Martyrs (3ème s.)',
     saintsCyrilMonkAndMethodiusBishop:
       'Saints Cyrille, Moine, et Méthode, Évêque, Apôtres des Slaves au 9ème siècle, Copatrons de l’Europe',
-    saintFabianPopeAndMartyr: 'Saint Fabien, Pape et Martyr (✝ 250)',
     saintSebastianMartyr: 'Saint Sébastien, Martyr (✝ v. 284)',
     saintSixtusIiPopeAndCompanionsMartyrs: 'Saint Sixte II, Pape, et ses Diacres, Martyrs (✝ 258)',
     saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrs:

@@ -150,6 +150,7 @@ export default {
     saintElizabethOfPortugal: 'Santa Elisabetta di Portogallo',
     saintEphremDeaconAndDoctor: 'Sant’Efrem, diacono e dottore della Chiesa',
     saintEusebiusOfVercelliBishop: 'Sant’Eusebio di Vercelli, vescovo',
+    saintFabianPopeAndMartyr: 'San Fabiano, papa e martire',
     saintFidelisOfSigmaringenPriestAndMartyr: 'San Fedele da Sigmaringen, sacerdote e martire ',
     saintFrancesOfRomeReligious: 'Santa Francesca Romana, religiosa',
     saintFrancisDeSalesBishopAndDoctor: 'San Francesco di Sales, vescovo e dottore della Chiesa',
@@ -237,7 +238,7 @@ export default {
     saintRobertBellarmineBishopAndDoctor: 'San Roberto Bellarmino, vescovo e dottore della Chiesa',
     saintRomualdAbbot: 'San Romualdo, abate',
     saintRoseOfLima: 'Santa Rosa da Lima, vergine',
-    saintsAugustineZhaoRongPriestAndCompanionsMartyrs: 'Santi Agostino Zhao Rong, sacerdote, e compagni, martiri',
+    saintAugustineZhaoRongPriestAndCompanionsMartyrs: 'Santi Agostino Zhao Rong, sacerdote, e compagni, martiri',
     saintsBasilTheGreatAndGregoryNazianzenBishopsAndDoctors:
       'Santi Basilio Magno e Gregorio Nazianzeno, vescovi e dottori della Chiesa',
     saintsCharlesLwangaAndCompanionsMartyrs: 'San Carlo Lwanga e compagni, martiri',
@@ -245,7 +246,6 @@ export default {
     saintsCorneliusPopeAndCyprianBishopMartyrs: 'Santi Cornelio, papa e Cipriano, vescovo, martiri',
     saintsCosmasAndDamianMartyrs: 'Santi Cosma e Damiano, martiri',
     saintsCyrilMonkAndMethodiusBishop: 'Santi Cirillo, monaco e Metodio, vescovo, patroni d’Europa',
-    saintFabianPopeAndMartyr: 'San Fabiano, papa e martire',
     saintSebastianMartyr: 'San Sebastiano, martire',
     saintSixtusIiPopeAndCompanionsMartyrs: 'San Sisto II, papa e compagni, martiri',
     saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrs:
