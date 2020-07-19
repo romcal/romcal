@@ -224,6 +224,8 @@ export default {
     ourLadyOfFatima: 'Our Lady of Fatima',
     ourLadyOfGoodCounsel: 'Our Lady of Good Counsel',
     ourLadyOfGuadalupe: 'Our Lady of Guadalupe',
+    ourLadyOfGuadalupeCelestialPatronessOfThePhilippines:
+      'Our Lady of Guadalupe, Celestial Patroness of the Philippines',
     ourLadyOfHungary: 'Our Lady of Hungary',
     ourLadyOfItati: 'Our Lady of Itati',
     ourLadyOfKnock: 'Our Lady of Knock',
@@ -238,6 +240,7 @@ export default {
     ourLadyOfMountCarmelMotherAndQueenOfChile: 'Our Lady of Mount Carmel, Mother and Queen of Chile',
     ourLadyOfPeace: 'Our Lady of Peace',
     ourLadyOfPerpetualHelp: 'Our Lady of Perpetual Help',
+    ourLadyOfRefuge: 'Our Lady of Refuge',
     ourLadyOfSorrows: 'Our Lady of Sorrows',
     ourLadyOfTheGateOfDawn: 'Our Lady of The Gate of Dawn',
     ourLadyOfThePillar: 'Our Lady of The Pillar',
@@ -568,6 +571,7 @@ export default {
     saintMargueriteDYouvilleReligious: 'Saint Marguerite d’Youville, Religious',
     saintMariaDeJesusSacramentadoVenegasVirgin: 'Saint Maria de Jesus Sacramentado Venegas, Virgin',
     saintMariaGorettiVirginAndMartyr: 'Saint Maria Goretti, Virgin and Martyr',
+    saintMariaGuadalupeGarciaZavalaVirgin: 'Saint María Guadalupe García Zavala, virgin',
     saintMariaMicaelaOfTheBlessedSacramentVirgin: 'Saint Maria Micaela of The Blessed Sacrament, Virgin',
     saintMarianaDeJesusDeParedesVirgin: 'Saint Mariana de Jesus de Paredes, Virgin',
     saintMarianneCopeVirgin: 'Saint Marianne Cope, Virgin',
@@ -663,6 +667,8 @@ export default {
     saintRoch: 'Saint Roch',
     saintRomualdAbbot: 'Saint Romuald, Abbot',
     saintRoseOfLima: 'Saint Rose of Lima, Virgin',
+    saintRoseOfLimaSecondaryPatronessOfThePhilippines:
+      'Saint Rose of Lima, Virgin and Secondary Patroness of the Philippines',
     saintRosePhilippineDuchesneVirgin: 'Saint Rose Philippine Duchesne, Virgin',
     saintsAlbanJuliusAndAaronMartyrs: 'Saints Alban, Julius and Aaron, Martyrs',
     saintsAndrewZorardAndBenedictHermits: 'Saints Andrew Zorard and Benedict, Hermits',
@@ -691,8 +697,10 @@ export default {
     saintSigismundMartyr: 'Saint Sigismund, Martyr',
     saintSimonOfLipnicaPriest: 'Saint Simon of Lipnica, Priest',
     saintSixtusIiPopeAndCompanionsMartyrs: 'Saint Sixtus II, Pope, and Companions, Martyrs',
-    saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrs:
+    saintsJohnDeBrebeufIsaacJoguesPriestsAndCompanionsMartyrs:
       'Saints Jean de Brebeuf and Isaac Jogues, Priests and Companions, Martyrs',
+    saintsJohnDeBrebeufIsaacJoguesPriestsAndCompanionsMartyrsSecondaryPatronsOfCanada:
+      'Saints John de Brébeuf, Isaac Jogues, Priests, and Companions, Martyrs, Secondary Patrons of Canada',
     saintsJoachimAndAnne: 'Saints Joachim and Anne',
     saintsJohnFisherBishopAndThomasMoreMartyrs: 'Saints John Fisher, Bishop and Thomas More, Martyrs',
     saintsLouisVersigliaBishopAndCallistusCaravarioPriestMartyrs:
@@ -777,6 +785,7 @@ export default {
     shroveMonday: 'Shrove Monday',
     shroveTuesday: 'Shrove Tuesday',
     stDunstanArchbishopOfCanterbury: 'St Dunstan, Archbishop of Canterbury',
+    sundayOfTheWordOfGod: 'Sunday of the Word of God',
     theBeheadingOfSaintJohnTheBaptistMartyr: 'The Beheading of Saint John the Baptist, Martyr',
     theEnglishMartyrs: 'The English Martyrs',
     theFiveWoundsOfTheLord: 'The Five Wounds of The Lord',

@@ -86,7 +86,7 @@ export default {
     ourLadyOfLujanPatronessOfArgentina: 'Nossa Senhora de Luján, padroeira da Argentina',
     ourLadyOfMountCarmel: 'Nossa Senhora do Monte Carmelo',
     ourLadyOfPeace: 'Nossa Senhora da Paz',
-    ourLadyOfPerpetualHelpOrBlessedLeonidFeodorovPriestAndMartyr: 'Nossa Senhora do Perpétuo Socorro',
+    ourLadyOfPerpetualHelp: 'Nossa Senhora do Perpétuo Socorro',
     ourLadyOfThePillar: 'Nossa Senhora do Pilar',
     ourLadyOfTheRosary: 'Nossa Senhora do Rosário',
     ourLadyQueenOfPeace: 'Nossa Senhora, Rainha da Paz',

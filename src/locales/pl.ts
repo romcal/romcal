@@ -182,7 +182,7 @@ export default {
       'Świętych męczenników Krzysztofa Magallanesa, prezbitera, i Towarzyszy',
     saintClareVirgin: 'Św. Klary, dziewicy',
     saintClementIPopeAndMartyr: 'Św. Klemensa I, papieża i męczennika',
-    saintColumbanAbbotAndMissionary: 'Św. Kolumbana, zakonnika',
+    saintColumbaAbbotAndMissionary: 'Św. Kolumbana, zakonnika',
     saintCyrilOfAlexandriaBishopAndDoctor: 'Św. Cyryla Aleksandryjskiego, biskupa i doktora Kościoła',
     saintCyrilOfJerusalemBishopAndDoctor: 'Św. Cyryla Jerozolimskiego, biskupa i doktora Kościoła',
     saintDamasusIPope: 'Św. Damazego I, papieża',
@@ -324,7 +324,7 @@ export default {
       'Świętych męczenników Grzegorza Grassiego, Franciszka Fogolli i Antoniego Fantosatiego, Biskupów i Towarzyszy',
     saintSimonOfLipnicaPriest: 'Św. Szymona z Lipnicy, prezbitera',
     saintSixtusIiPopeAndCompanionsMartyrs: 'Świętych męczenników Sykstusa II, papieża, i Towarzyszy',
-    saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrs:
+    saintsJohnDeBrebeufIsaacJoguesPriestsAndCompanionsMartyrs:
       'Świętych męczenników Jana de Brebeuf, Izaaka Jogues’a, prezbiterów oraz Towarzyszy',
     saintsJoachimAndAnne: 'Świętych Rodziców NMP Joachima i Anny',
     saintsJohnFisherBishopAndThomasMoreMartyrs: 'Świętych męczenników Jana Fishera, biskupa i Tomasza More’a',

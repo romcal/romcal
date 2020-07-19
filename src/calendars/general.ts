@@ -211,7 +211,12 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       },
     },
     {
-      key: 'saintJeromeEmilianiSaintJosephineBakhitaVirgin',
+      key: 'saintJeromeEmiliani',
+      type: TypesEnum.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-2-8`),
+    },
+    {
+      key: 'saintJosephineBakhitaVirgin',
       type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-2-8`),
     },
@@ -855,7 +860,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
     },
     {
       key: 'saintBridgetOfSwedenReligious',
-      type: TypesEnum.FEAST,
+      type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-23`),
       data: {
         meta: {
@@ -1453,7 +1458,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       },
     },
     {
-      key: 'saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrs',
+      key: 'saintsJohnDeBrebeufIsaacJoguesPriestsAndCompanionsMartyrs',
       type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-19`),
     },
@@ -1572,7 +1577,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       date: dayjs.utc(`${year}-11-16`),
     },
     {
-      key: 'saintElizabethOfHungary',
+      key: 'saintElizabethOfHungaryReligious',
       type: TypesEnum.MEMORIAL,
       date: dayjs.utc(`${year}-11-17`),
       data: {

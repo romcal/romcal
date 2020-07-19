@@ -140,7 +140,7 @@ export default {
     saintChristopherMagallanesAndCompanionsMartyrs: 'Santi Cristoforo Magallanes, sacerdote, e compagni, martiri',
     saintClareVirgin: 'Santa Chiara, vergine',
     saintClementIPopeAndMartyr: 'San Clemente I, papa e martire',
-    saintColumbanAbbotAndMissionary: 'San Colombano, abate',
+    saintColumbaAbbotAndMissionary: 'San Colombano, abate',
     saintCyrilOfAlexandriaBishopAndDoctor: 'San Cirillo di Alessandria, vescovo e dottore della Chiesa',
     saintCyrilOfJerusalemBishopAndDoctor: 'San Cirillo di Gerusalemme, vescovo e dottore della Chiesa',
     saintDamasusIPope: 'San Damaso I, papa',
@@ -248,7 +248,7 @@ export default {
     saintsCyrilMonkAndMethodiusBishop: 'Santi Cirillo, monaco e Metodio, vescovo, patroni d’Europa',
     saintSebastianMartyr: 'San Sebastiano, martire',
     saintSixtusIiPopeAndCompanionsMartyrs: 'San Sisto II, papa e compagni, martiri',
-    saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrs:
+    saintsJohnDeBrebeufIsaacJoguesPriestsAndCompanionsMartyrs:
       'Santi Giovanni de Brébeuf e Isacco Jogues, sacerdoti e compagni, martiri',
     saintsJoachimAndAnne: 'Santi Gioacchino e Anna, genitori della Beata Vergine Maria',
     saintsJohnFisherBishopAndThomasMoreMartyrs: 'Santi Giovanni Fisher, vescovo e Tommaso More, martiri',

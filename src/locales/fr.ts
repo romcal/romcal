@@ -174,7 +174,7 @@ export default {
     saintClareVirgin: 'Sainte Claire, Vierge',
     saintClementIPopeAndMartyr: 'Saint Clément Ier, Pape et Martyr (✝ 97)',
     saintClotilde: 'Sainte Clotilde, Reine des Francs (✝ 545)',
-    saintColumbanAbbotAndMissionary: 'Saint Colomban, Religieux (✝ 615)',
+    saintColumbaAbbotAndMissionary: 'Saint Colomban, Religieux (✝ 615)',
     saintCyrilOfAlexandriaBishopAndDoctor: 'Saint Cyrille, Évêque d’Alexandrie et Docteur de l’Église (✝ 444)',
     saintCyrilOfJerusalemBishopAndDoctor:
       'Saint Cyrille de Jérusalem, Évêque de Jérusalem, Docteur de l’Église (✝ 387)',
@@ -317,9 +317,9 @@ export default {
       'Saints Cyrille, Moine, et Méthode, Évêque, Apôtres des Slaves au 9ème siècle, Copatrons de l’Europe',
     saintSebastianMartyr: 'Saint Sébastien, Martyr (✝ v. 284)',
     saintSixtusIiPopeAndCompanionsMartyrs: 'Saint Sixte II, Pape, et ses Diacres, Martyrs (✝ 258)',
-    saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrs:
-      'Saints Jean de Brébeuf, Isaac Jogues, Prêtres Jésuites, et leurs compagnons, Martyrs (17ème siècle)',
     saintsJoachimAndAnne: 'Saints Anne et Joachim, Mère et Père de la Vierge Marie (1er siècle)',
+    saintsJohnDeBrebeufIsaacJoguesPriestsAndCompanionsMartyrs:
+      'Saints Jean de Brébeuf, Isaac Jogues, Prêtres Jésuites, et leurs compagnons, Martyrs (17ème siècle)',
     saintsJohnDeBrebeufIsaacJoguesPriestsAndCompanionsMartyrsSecondaryPatronsOfCanada:
       'Saints Jean de Brébeuf, Isaac Jogues, Prêtres Jésuites, et leurs compagnons, Martyrs, Seconds Patrons du Canada (17ème siècle)',
     saintsJohnFisherBishopAndThomasMoreMartyrs: 'Saints Jean Fisher, Évêque, et Thomas More, Martyrs (✝ 1535)',
