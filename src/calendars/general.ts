@@ -1395,13 +1395,13 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
     },
     // http://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20140529_decreto-calendario-generale-gxxiii-gpii_en.html
     {
-      key: 'popeSaintJohnXXIII',
+      key: 'saintJohnXxiiiPope',
       type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-11`),
     },
     // http://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20140529_decreto-calendario-generale-gxxiii-gpii_en.html
     {
-      key: 'popeSaintJohnPaulII',
+      key: 'saintJohnPaulIiPope',
       type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-22`),
     },

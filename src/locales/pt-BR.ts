@@ -90,8 +90,8 @@ export default {
     ourLadyOfThePillar: 'Nossa Senhora do Pilar',
     ourLadyOfTheRosary: 'Nossa Senhora do Rosário',
     ourLadyQueenOfPeace: 'Nossa Senhora, Rainha da Paz',
-    popeSaintJohnPaulII: 'Papa São João Paulo II',
-    popeSaintJohnXXIII: 'Papa São João XXIII',
     presentationOfTheBlessedVirginMary: 'Apresentação da Virgem Maria',
+    saintJohnPaulIiPope: 'Papa São João Paulo II',
+    saintJohnXxiiiPope: 'Papa São João XXIII',
   },
 } as RomcalLocale;
