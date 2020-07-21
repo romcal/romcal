@@ -79,37 +79,6 @@ export default {
     trinitySunday: 'Najsvätejšej Trojice',
   },
   sanctoral: {
-      'Blahoslavenej Nazárie Ignácie March Mesa (Nazárie od Svätého Terézie od Ježiša), rehoľnice',
-      'Blahoslaveného Antona Nowowiejskeho, biskupa a spoločníkov, mučeníkovi',
-      'Blahoslaveného Ignáca de Azevedo, kňaza a spoločníkov, mučeníkov',
-      'Blahoslaveného Vladislava Błądzińskiho, kňaza a spoločníkov, mučeníkov',
-      'Blahoslavených Andreja de Soverala a Ambróza Františka Ferra, mučeníka',
-      'blahoslavených Karla Spinolu a Hieronyma de Angelis, kňazov a mučeníkov',
-      'Blahoslavených Nikity Budku a Vasiľa Velichkovského, biskupov a mučeníkov',
-      'Blahoslavených Petra de Zúñigu a Ľudovíta Floresa, kňazov a mučeníkov',
-      'Nepoškvrneného počatia Panny Márie, hlavná Patrónka Filipín',
-      'Preblahoslavenej Panny Márie Guadalupskej, nebeskej patrónky Filipín',
-      'Sedem mučeníc z kongregácie Františkánskych misionárok Márie',
-      'Svätej Kataríny Sienskej, panny a učiteľky Cirkvi, patrónky Európy',
-      'Svätej Margity Clitherowová, Anny Linová a Margity Wardová, mučeníc',
-      'Svätej Terézie Benedikty z Kríža (Edity Steinovej), panny a mučenice, spolupatrónky Európy',
-      'Svätej Terézie od Dieťaťa Ježiša (z Lisieux), panny a učiteľky Cirkvi, sekundárnej patrónky Francúzska',
-      'Svätého Alfonza Máriu de’ Liguori, biskupa a učiteľa Cirkvi',
-      'Svätého Jozefa, ženícha Panny Márie, hlavný patrón Kanady',
-      'Svätého Rochusa Gonzáleza, Alfonza Rodrígueza Olmeda a Jána del Castilla, kňazov a mučeníkov',
-      'Svätých Alojza Versigliu, biskupa a Kalixta Caravaria, kňaza, mučeníkov',
-      'Svätých Anny, patrónky Quebecu a Joachima, rodičov Panny Márie',
-      'Svätých Bazila Veľkého a Gregora Nazianzského, biskupov a učiteľov Cirkvi',
-      'Svätých Benedikta, Jána, Mateja, Izáka a Kristína (Piatich bratov pustovníkov), mučeníkov',
-      'Svätých Fruktuóza z Bragy, biskupa a Augúria a Eulógia, diakonov, mučeníkov',
-      'Svätých Fruktuóza z Bragy, Martin z Dumia a Geralda z Bragy, biskupov',
-      'Svätých Gregora Grassiho, Františka Fogolly a Antona Fantosatiho, biskupov a spoločníkov, mučeníkov',
-      'Svätých Jána de Brébeuf a Izáka Joguesa, kňazov a ich spoločníkov, mučeníkov',
-      'Svätých Jána de Brébeuf a Izáka Joguesa, kňazov a ich spoločníkov, mučeníkov, sekundárnych patrónov Kanady',
-      'Svätých Ondreja Kima Taegona, kňaza, Pavla Chonga Hasanga a spoločníkov, mučeníkov',
-      'Svätých Potína, biskupa, Blandíny, panny a ich spoločníkov, mučeníkov',
-      'Svätých troch košických mučeníkov – Marka Križina, Melichara Grodzieckeho a Štefana Pongrácza, kňazov a mučeníkov',
-      'Výročie posviacky bazilík svätého Petra a svätého Pavla, apoštolov',
     '205BlessedMartyrsOfJapan': '205 blahoslavených mučeníkov Japonska',
     allSaintsOfIreland: 'Všetkých svätých Írska',
     allSaintsOfWales: 'Všetkých svätých Walesu',
@@ -121,6 +90,7 @@ export default {
     blessedAndreGrassetPriestAndMartyr: 'Blahoslaveného Andreja Grasseta, kňaza a mučeníka',
     blessedAnielaSalawaVirgin: 'Blahoslavenej Angely Salawej, panny',
     blessedAntoniNowowiejskiBishopAndCompanionsMartyrs:
+      'Blahoslaveného Antona Nowowiejskeho, biskupa a spoločníkov, mučeníkovi',
     blessedAugustinKazoticBishopAndMartyr: 'Blahoslaveného Augustína Kažotića, biskupa a mučeníka',
     blessedBartholomewOfTheMartyrsBishop: 'Blahoslaveného Bartolomeja od mučeníkov, biskup',
     blessedBartolomeLaurelReligiousAndMartyr: 'Blahoslaveného Bartolomeja Laurela, rehoľníka a mučeníka',
@@ -152,6 +122,7 @@ export default {
     blessedHonoratKozminskiPriest: 'Blahoslaveného Honoráta Kożmińského, kňaza',
     blessedHroznataMartyr: 'Blahoslaveného Hroznatu, mučeníka',
     blessedInacioDeAzevedoPriestAndCompanionsMartyrs:
+      'Blahoslaveného Ignáca de Azevedo, kňaza a spoločníkov, mučeníkov',
     blessedInnocentXiPope: 'Blahoslaveného Inocenta XI., pápeža',
     blessedIrishMartyrs: 'Blahoslavených írskych mučeníkov',
     blessedIstvanSandorMartyr: 'Blahoslaveného Štefana Šándora, mučeníka',
@@ -191,6 +162,7 @@ export default {
     blessedMichaelKozalBishopAndMartyr: 'Blahoslaveného Michaela Kozala, biskupa a mučeníka',
     blessedMiguelAgustinProPriestAndMartyr: 'Blahoslaveného Michaela Pro, kňaza a mučeníka',
     blessedNazariaIgnaciaMarchReligious:
+      'Blahoslavenej Nazárie Ignácie March Mesa (Nazárie od Svätého Terézie od Ježiša), rehoľnice',
     blessedNazjuFalzon: 'Blahoslaveného Ignáca Falzona',
     blessedNicolasStenoBishop: 'Blahoslaveného Nicolasa Stena, biskupa',
     blessedOdoricOfPordenonePriest: 'Blahoslaveného Odorika z Pordenone, kňaza',
@@ -203,11 +175,15 @@ export default {
     blessedSalomeVirgin: 'Blahoslavenej Salomey Poľskej, panny',
     blessedSanchaAndMafaldaVirgins: 'Blahoslavených Sanche a Mafaldy, panny',
     blessedsAndreDeSoveralAndAmbrosioFranciscoFerroPriestsAndMartyrs:
+      'Blahoslavených Andreja de Soverala a Ambróza Františka Ferra, mučeníka',
     blessedSaraSalkahaziVirginAndMartyr: 'Blahoslavenej Sáry Salkaháziovej, panny a mučenice',
     blessedsCarlosSpinolaAndJeronimoDeAngelisPriestsAndMartyrs:
+      'blahoslavených Karla Spinolu a Hieronyma de Angelis, kňazov a mučeníkov',
     blessedSebastianDeAparicioReligious: 'Blahoslaveného Šebastiána de Aparicio, Religious',
     blessedsNykytaBudkaAndVasylVelychkowskyBishopsAndMartyrs:
+      'Blahoslavených Nikity Budku a Vasiľa Velichkovského, biskupov a mučeníkov',
     blessedsPedroZunigaAndLuisFloresPriestsAndMartyrs:
+      'Blahoslavených Petra de Zúñigu a Ľudovíta Floresa, kňazov a mučeníkov',
     blessedTheodoreRomzhaBishopAndMartyr: 'Blahoslaveného Teodora Romžu, biskupa a mučeníka',
     blessedTheresaOfPortugalReligious: 'Blahoslavenej Terezy Portugalskej, rehoľnice',
     blessedVilmosAporBishopAndMartyr: 'Blahoslaveného Vilmosa Apora, biskupa a mučeníka',
@@ -215,6 +191,7 @@ export default {
     blessedVincentLewoniukAndCompanionsMartyrsOfPratulin: 'Blahoslaveného Vincenta Lewoniuka a spoločníkov, mučeníkov',
     blessedVladimirGhikaPriestAndMartyr: 'Blahoslaveného Vladimíra Ghiku, kňaza a mučeníka',
     blessedWladyslawBladzinskiPriestAndCompanionsMartyrs:
+      'Blahoslaveného Vladislava Błądzińskiho, kňaza a spoločníkov, mučeníkov',
     blessedWladyslawOfGielniowPriest: 'Blahoslaveného Vladislava z Gielniowa, kňaza',
     blessedZdenkaSchelingovaVirginAndMartyr: 'Blahoslavenej Zdenky Schelingovej, panny a mučenice',
     chairOfSaintPeterApostle: 'Katedra svätého Petra, apoštola',
@@ -222,6 +199,7 @@ export default {
     dedicationOfAParticularChurch: 'Výročie posviacky chrámov, ktorých deň posviacky je neznámy',
     dedicationOfTheBasilicaOfSaintMaryMajor: 'Výročie posviacky Hlavnej mariánskej baziliky v Ríme',
     dedicationOfTheBasilicasOfSaintsPeterAndPaulApostles:
+      'Výročie posviacky bazilík svätého Petra a svätého Pavla, apoštolov',
     dedicationOfTheLateranBasilica: 'Výročie posviacky Lateránskej baziliky',
     discoveryOfTheHiddenChristians: 'Objavenia skrytých kresťanov',
     findingOfTheHolyCross: 'Nájdenie Svätého kríža',
@@ -231,6 +209,7 @@ export default {
     holyNameOfTheBlessedVirginMary: 'Najsvätejšieho mena Panny Márie',
     hungarianSaintsAndBlesseds: 'Maďarských svätých a blahoslavených',
     immaculateConceptionOfTheBlessedVirginMaryPrincipalPatronessOfThePhilippines:
+      'Nepoškvrneného počatia Panny Márie, hlavná Patrónka Filipín',
     maryMotherOfTheChurch: 'Preblahoslavenej Panny Márie, Matky Cirkvi',
     ourLadyHelpOfChristians: 'Panny Márie, Pomocnice kresťanov',
     ourLadyMediatrix: 'Panny Márie, Prostrednice všetkých milostí',
@@ -247,6 +226,7 @@ export default {
     ourLadyOfGoodCounsel: 'Panny Márie Dobrej Rady',
     ourLadyOfGuadalupe: 'Preblahoslavenej Panny Márie Guadalupskej',
     ourLadyOfGuadalupeCelestialPatronessOfThePhilippines:
+      'Preblahoslavenej Panny Márie Guadalupskej, nebeskej patrónky Filipín',
     ourLadyOfHungary: 'Patrónka Maďarov',
     ourLadyOfItati: 'Panny Márie Itatskej',
     ourLadyOfKnock: 'Panny Márie z Knock',
@@ -294,16 +274,19 @@ export default {
     saintAloysiusGonzagaReligious: 'Svätého Alojza Gonzágu, rehoľníka',
     saintAlphonsaOfTheImmaculateConceptionVirgin: 'Svätej Alfonzy od Nepoškvrneného počatia, panny',
     saintAlphonsusMariaDeLiguoriBishopAndDoctorOfTheChurch:
+      'Svätého Alfonza Máriu de’ Liguori, biskupa a učiteľa Cirkvi',
     saintAmandMissionary: 'Svätého Milana, biskupa',
     saintAmbroseBishopAndDoctor: 'Svätého Ambróza, biskupa a učiteľa Cirkvi',
     saintAndreBessetteReligious: 'Svätého Andreja Alfréda Bessetta, rehoľníka',
     saintAndrewBobolaPriestAndMartyr: 'Svätého Andreja Bobolu, kňaza a mučeníka',
     saintAndrewDungLacAndCompanionsMartyrs: 'Svätého Ondreja Dung-Laka, kňaza a spoločníkov, mučeníkov',
     saintAndrewKimTaegonPriestAndPaulChongHasangAndCompanionsMartyrs:
+      'Svätých Ondreja Kima Taegona, kňaza, Pavla Chonga Hasanga a spoločníkov, mučeníkov',
     saintAndrewTheApostle: 'Svätého Ondreja, apoštola',
     saintAndrewTheApostlePatronOfRussia: 'Svätého Ondreja, apoštola, patrón Ruska',
     saintAngelaMericiVirgin: 'Svätej Angely Merici, panny',
     saintAnnePatronOfQuebecAndSaintJoachimParentsOfTheBlessedVirginMary:
+      'Svätých Anny, patrónky Quebecu a Joachima, rodičov Panny Márie',
     saintAnnoIiBishop: 'Svätého Anna II., biskupa',
     saintAnselmOfCanterburyBishopAndDoctorOfTheChurch: 'Svätého Anzelma, biskupa a učiteľa Cirkvi',
     saintAnsgarBishop: 'Svätého Oskára, biskupa',
@@ -353,6 +336,7 @@ export default {
     saintCasimir: 'Svätého Kazimíra',
     saintCatherineOfAlexandriaVirginAndMartyr: 'Svätej Kataríny Alexandrijskej, panny a mučenice',
     saintCatherineOfSienaVirginAndDoctorOfTheChurch:
+      'Svätej Kataríny Sienskej, panny a učiteľky Cirkvi, patrónky Európy',
     saintCeallachCelsusBishop: 'Svätého Ceallacha (Celza), biskupa',
     saintCeciliaVirginAndMartyr: 'Svätej Cecílie, panny a mučenice',
     saintCharbelMakhloufPriestAndHermit: 'Svätého Sarbela Makhlūfa, kňaza',
@@ -435,6 +419,7 @@ export default {
     saintFrancoisDeLavalBishop: 'Svätého Františka de Montmorency-Laval, biskupa',
     saintFridolinOfSackingenMonk: 'Svätého Fridolína, opáta',
     saintFructuosusSaintMartinOfDumeAndSaintGeraldBishops:
+      'Svätých Fruktuóza z Bragy, Martin z Dumia a Geralda z Bragy, biskupov',
     saintFursaAbbotAndMissionary: 'Svätého Fursu, opát a misionár',
     saintGabrieltaurinDufresseBishopAndMartyr: 'Svätého Gabriela Taurina Dufressa, biskupa a mučeníka',
     saintGallAbbotAndMissionary: 'Svätého Gála, kňaza',
@@ -526,6 +511,7 @@ export default {
     saintJosephineBakhitaVirgin: 'Svätej Jozefíny Bakhity, panny',
     saintJosephOfCalasanzPriest: 'Svätého Jozefa Kalazanského, kňaza',
     saintJosephSpouseOfTheBlessedVirginMaryPrincipalPatronOfCanada:
+      'Svätého Jozefa, ženícha Panny Márie, hlavný patrón Kanady',
     saintJosephTheWorker: 'Svätého Jozefa, robotníka',
     saintJosephYuanPriestAndMartyr: 'Svätého Jozefa Juana, kňaza a mučeníka',
     saintJosephZhangDapengMartyr: 'Svätého Jozefa Zhang Dapenga, mučeníka',
@@ -662,6 +648,7 @@ export default {
     saintPiusXPope: 'Svätého Pia X., pápeža',
     saintPolycarpBishopAndMartyr: 'Svätého Polykarpa, biskupa a mučeníka',
     saintPothinusBishopSaintBlandinaVirginAndTheirCompanionsMartyrs:
+      'Svätých Potína, biskupa, Blandíny, panny a ich spoločníkov, mučeníkov',
     saintProcopiusAbbot: 'Svätého Prokopa, opáta',
     saintPubliusBishop: 'Svätého Publia, biskupa',
     saintQuirinusOfSescia: 'Svätého Kvirína zo Sisaku',
@@ -685,7 +672,9 @@ export default {
     saintsAlbanJuliusAndAaronMartyrs: 'Svätého Albána, Júlia and Árona, mučeníkov',
     saintsAndrewZorardAndBenedictHermits: 'Svätých Andreja-Svorada a Benedikta, pustovníkov',
     saintsBasilTheGreatAndGregoryNazianzenBishopsAndDoctors:
+      'Svätých Bazila Veľkého a Gregora Nazianzského, biskupov a učiteľov Cirkvi',
     saintsBenedyktJanMateuszIsaakAndKrystynMartyrs:
+      'Svätých Benedikta, Jána, Mateja, Izáka a Kristína (Piatich bratov pustovníkov), mučeníkov',
     saintsBorisAndGlebMartyrs: 'Svätých Borisa a Gleba, mučeníkov',
     saintsCanuteEricAndOlafMartyrs: 'Svätých Kanuta, Erika a Olafa, mučeníkov',
     saintsChadAndCeddBishop: 'Svätých Chada a Cedda, biskupov',
@@ -701,19 +690,26 @@ export default {
     saintSeverinusOfNoricumMonk: 'Svätého Severína z Norika, kňaza',
     saintsFelipeDeJesusPaulMikiAndCompanionsMartyrs: 'Svätého Filipa od Ježiša, Pavla Mikiho a spoločníkov, mučeníkov',
     saintsFructuosusBishopAndAuguriusAndEulogiusDeaconsMartyrs:
+      'Svätých Fruktuóza z Bragy, biskupa a Augúria a Eulógia, diakonov, mučeníkov',
     saintsGregoryGrassiFrancisFogollaAndAnthonyFantosatiBishopsAndCompanionsMartyrs:
+      'Svätých Gregora Grassiho, Františka Fogolly a Antona Fantosatiho, biskupov a spoločníkov, mučeníkov',
     saintsHenryAndCunigunde: 'Svätého Henricha a Kunigundy',
     saintSigismundMartyr: 'Svätého Žigmunda Burgundského, mučeníka',
     saintSimonOfLipnicaPriest: 'Svätého Šimona z Lipnice, kňaza',
     saintSixtusIiPopeAndCompanionsMartyrs: 'Svätých Sixta II., pápeža a jeho spoločníkov, mučeníkov',
     saintsJoachimAndAnne: 'Svätých Joachima a Anny, rodičov Panny Márie',
     saintsJohnDeBrebeufIsaacJoguesPriestsAndCompanionsMartyrs:
+      'Svätých Jána de Brébeuf a Izáka Joguesa, kňazov a ich spoločníkov, mučeníkov',
     saintsJohnDeBrebeufIsaacJoguesPriestsAndCompanionsMartyrsSecondaryPatronsOfCanada:
+      'Svätých Jána de Brébeuf a Izáka Joguesa, kňazov a ich spoločníkov, mučeníkov, sekundárnych patrónov Kanady',
     saintsJohnFisherBishopAndThomasMoreMartyrs: 'Svätých Jána Fishera, biskupa a Tomáša Mórusa, mučeníkov',
     saintsLouisVersigliaBishopAndCallistusCaravarioPriestMartyrs:
+      'Svätých Alojza Versigliu, biskupa a Kalixta Caravaria, kňaza, mučeníkov',
     saintsMarcellinusAndPeterMartyrs: 'Svätých Marcelína a Petra, mučeníkov',
     saintsMargaretClitherowAnneLineAndMargaretWardMartyrs:
+      'Svätej Margity Clitherowová, Anny Linová a Margity Wardová, mučeníc',
     saintsMarkoKrizinMelicharGrodeckiAndStephenPongracPriestsAndMartyrs:
+      'Svätých troch košických mučeníkov – Marka Križina, Melichara Grodzieckeho a Štefana Pongrácza, kňazov a mučeníkov',
     saintsMichaelGabrielAndRaphaelArchangels: 'Svätých Michala, Gabriela a Rafaela, archanjelov',
     saintsNereusAndAchilleusMartyrs: 'Svätých Nerea a Achila, mučeníkov',
     saintSoledadTorresAcostaVirgin: 'Svätej Márie Soledad Torres y Acosty, panny',
@@ -724,6 +720,7 @@ export default {
     saintsPontianPopeAndHippolytusPriestMartyrs: 'Svätých Ponciána, pápeža a Hipolyta, kňaza, mučeníkov',
     saintSpyridon: 'Svätého Spyridóna Trimifuntského, biskupa',
     saintsRoqueGonzalezAlfonsoRodriguezOlmedoAndJuanDelCastilloPriestsAndMartyrs:
+      'Svätého Rochusa Gonzáleza, Alfonza Rodrígueza Olmeda a Jána del Castilla, kňazov a mučeníkov',
     saintsRupertAndVirgiliusOfSalzburgBishops: 'Svätých Ruperta a Virgila zo Salzburgu, biskupov',
     saintsSimonAndJudeApostles: 'Svätých Šimona a Júdu, apoštolov',
     saintStanislausBishopAndMartyr: 'Svätého Stanislava, biskupa a mučeníka',
@@ -737,6 +734,7 @@ export default {
     saintSylvesterIPope: 'Svätého Silvestra I., pápeža',
     saintTeiloBishop: 'Svätého Teila (Teliava), biskupa',
     saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr:
+      'Svätej Terézie Benedikty z Kríža (Edity Steinovej), panny a mučenice, spolupatrónky Európy',
     saintTeresaOfCalcuttaReligious: 'Svätej Terézie z Kalkaty (Matky Terezy), panny a rehoľnice',
     saintTeresaOfJesusJornetEIbarsVirgin: 'Svätej Terezy od Ježiša Jornet e Ibars, panny',
     saintTeresaOfJesusVirginAndDoctorOfTheChurch: 'Svätej Terézie od Ježiša (z Ávily), panny a učiteľky Cirkvi',
@@ -746,6 +744,7 @@ export default {
     saintTheotoniusPriest: 'Svätého Teotónia, kňaza',
     saintThereseOfTheChildJesusVirginAndDoctor: 'Svätej Terézie od Dieťaťa Ježiša (z Lisieux), panny a učiteľky Cirkvi',
     saintThereseOfTheChildJesusVirginSecondaryPatronessOfFrance:
+      'Svätej Terézie od Dieťaťa Ježiša (z Lisieux), panny a učiteľky Cirkvi, sekundárnej patrónky Francúzska',
     saintThomasAquinasPriestAndDoctor: 'Svätého Tomáša Akvinského, kňaza a učiteľa Cirkvi',
     saintThomasBecketBishopAndMartyr: 'Svätého Tomáša Becketa, biskupa a mučeníka',
     saintThomasOfVillanovaBishop: 'Svätého Tomáša z Villanovy, biskupa',
@@ -781,6 +780,7 @@ export default {
     santoNinoInfantJesus: 'Svätého Dieťaťa z Cebu',
     sevenHolyFoundersOfTheServiteOrder: 'Siedmich svätých zakladateľov rehole Služobníkov Panny Márie',
     sevenMartyredNunsFromTheFranciscanMissionariesOfMary:
+      'Sedem mučeníc z kongregácie Františkánskych misionárok Márie',
     shipwreckOfSaintPaulApostle: 'Vraku lode svätého Pavla, apoštola',
     shroveMonday: 'Fašiangový pondelok',
     shroveTuesday: 'Fašiangový utorok',
