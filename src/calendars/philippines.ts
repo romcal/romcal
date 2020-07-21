@@ -29,7 +29,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       },
     },
     {
-      key: 'saintPaulMikiAndCompanionsMartyrs',
+      key: 'saintsPedroBautistaPaulMikiAndCompanionsMartyrs',
       type: TypesEnum.MEMORIAL,
       date: dayjs.utc(`${year}-2-6`),
       data: {
@@ -57,34 +57,18 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
     },
     {
       key: 'saintRoch',
-      type: TypesEnum.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-8-16`),
-    },
-    {
-      key: 'saintEzekielMorenoBishop',
-      type: TypesEnum.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-8-19`),
-    },
-    {
-      key: 'saintLorenzoRuizAndCompanionsMartyrs',
       type: TypesEnum.MEMORIAL,
-      date: dayjs.utc(`${year}-9-28`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.RED,
-          titles: [TITLES.MARTYR],
-        },
-      },
-    },
-    {
-      key: 'saintRoch',
-      type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-16`),
     },
     {
       key: 'saintEzequielMorenoBishop',
       type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-19`),
+    },
+    {
+      key: 'saintRoseOfLimaSecondaryPatronessOfThePhilippines',
+      type: TypesEnum.MEMORIAL,
+      date: dayjs.utc(`${year}-8-23`),
     },
     {
       key: 'saintLawrenceRuizAndCompanionsMartyrs',
@@ -101,6 +85,11 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'immaculateConceptionOfTheBlessedVirginMaryPrincipalPatronessOfThePhilippines',
       type: TypesEnum.SOLEMNITY,
       date: dayjs.utc(`${year}-12-8`),
+    },
+    {
+      key: 'ourLadyOfGuadalupeCelestialPatronessOfThePhilippines',
+      type: TypesEnum.MEMORIAL,
+      date: dayjs.utc(`${year}-12-12`),
     },
   ];
 

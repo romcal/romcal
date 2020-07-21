@@ -64,7 +64,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       },
     },
     {
-      key: 'saintsAugustineZhaoRongPriestAndCompanionsMartyrs',
+      key: 'saintAugustineZhaoRongPriestAndCompanionsMartyrs',
       type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-10`),
       data: {
@@ -155,7 +155,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       },
     },
     {
-      key: 'saintElizabethOfHungary',
+      key: 'saintElizabethOfHungaryReligious',
       type: TypesEnum.MEMORIAL,
       date: dayjs.utc(`${year}-11-18`),
       data: {
