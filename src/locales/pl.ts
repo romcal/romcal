@@ -123,8 +123,6 @@ export default {
     ourLadyOfSorrows: 'Najświętszej Maryi Panny Bolesnej',
     ourLadyOfTheRosary: 'Najświętszej Maryi Panny Różańcowej',
     ourLordJesusChristTheEternalHighPriest: 'Jezusa Chrystusa, Najwyższego i Wiecznego Kapłana',
-    popeSaintJohnPaulII: 'Św. Jana Pawła II, papieża',
-    popeSaintJohnXXIII: 'Św. Jana XXIII, papieża',
     presentationOfTheBlessedVirginMary: 'Ofiarowanie Najświętszej Maryi Panny',
     queenshipOfBlessedVirginMary: 'Najświętszej Maryi Panny, Królowej',
     saintAdalbertBishopAndMartyr: 'Św. Wojciecha, biskupa i męczennika, głównego patrona Polski',
@@ -182,7 +180,7 @@ export default {
       'Świętych męczenników Krzysztofa Magallanesa, prezbitera, i Towarzyszy',
     saintClareVirgin: 'Św. Klary, dziewicy',
     saintClementIPopeAndMartyr: 'Św. Klemensa I, papieża i męczennika',
-    saintColumbanAbbotAndMissionary: 'Św. Kolumbana, zakonnika',
+    saintColumbaAbbotAndMissionary: 'Św. Kolumbana, zakonnika',
     saintCyrilOfAlexandriaBishopAndDoctor: 'Św. Cyryla Aleksandryjskiego, biskupa i doktora Kościoła',
     saintCyrilOfJerusalemBishopAndDoctor: 'Św. Cyryla Jerozolimskiego, biskupa i doktora Kościoła',
     saintDamasusIPope: 'Św. Damazego I, papieża',
@@ -192,6 +190,7 @@ export default {
     saintElizabethOfPortugal: 'Św. Elżbiety Portugalskiej',
     saintEphremDeaconAndDoctor: 'Św. Efrema, diakona i doktora Kościoła',
     saintEusebiusOfVercelliBishop: 'Św. Euzebiusza z Vercelii, biskupa',
+    saintFabianPopeAndMartyr: 'Św. Fabiana, papieża i męczennika',
     saintFaustinaKowalskaVirginAndReligious: 'Św. Faustyny Kowalskiej, dziewicy',
     saintFidelisOfSigmaringenPriestAndMartyr: 'Św. Fidelisa z Sigmaringen, prezbitera i męczennika',
     saintFlorianMartyr: 'Św. Floriana, męczennika',
@@ -208,7 +207,8 @@ export default {
     saintGregoryTheGreatPopeAndDoctor: 'Św. Grzegorza Wielkiego, papieża i doktora Kościoła',
     saintGregoryViiPope: 'Św. Grzegorza VII, papieża',
     saintHedwigReligious: 'Św. Jadwigi Śląskiej',
-    saintHenryBishopAndMartyr: 'Św. Henryka, cesarza',
+    saintHenry: 'Św. Henryka, cesarza',
+    saintHenryBishopAndMartyr: 'Św. Henryka, biskupa i męczennika',
     saintHilaryOfPoitiersBishopAndDoctor: 'Św. Hilarego, biskupa i doktora Kościoła',
     saintHyacinthPriest: 'Św. Jacka, prezbitera',
     saintIgnatiusOfAntiochBishopAndMartyr: 'Św. Ignacego Antiocheńskiego, biskupa i męczennika',
@@ -236,8 +236,10 @@ export default {
     saintJohnOfKantyPriest: 'Św. Jana Kantego, prezbitera',
     saintJohnOfTheCrossPriestAndDoctor: 'Św. Jana od Krzyża, prezbitera i doktora Kościoła',
     saintJohnOfTrioraPriestAndMartyr: 'Św. Jana z Triory, Kapłana i Męczennika',
+    saintJohnPaulIiPope: 'Św. Jana Pawła II, papieża',
     saintJohnSarkanderPriestAndMartyr: 'Św. Jana Sarkandra, prezbitera i męczennika',
     saintJohnTheApostleAndEvangelist: 'Św. Jana, Apostoła i Ewangelisty',
+    saintJohnXxiiiPope: 'Św. Jana XXIII, papieża',
     saintJosaphatBishopAndMartyr: 'Św. Jozafata, biskupa i męczennika',
     saintJosefBilczewskiBishop: 'Św. Józefa Bilczewskiego, biskupa',
     saintJosephFreinademetzPriest: 'Św. Józefa Freinademetza, Kapłana',
@@ -308,8 +310,6 @@ export default {
     saintRomualdAbbot: 'Św. Romualda, opata',
     saintRoseOfLima: 'Św. Róży z Limy, dziewicy',
     saintsAndrewZorardAndBenedictHermits: 'Świętych pustelników Andrzeja Świerada i Benedykta',
-    saintsAugustineZhaoRongPriestAndCompanionsMartyrs:
-      'Świętych męczenników Augustyna Zhao Rong, prezbitera, i Towarzyszy',
     saintsBasilTheGreatAndGregoryNazianzenBishopsAndDoctors:
       'Świętych Bazylego Wielkiego i Grzegorza z Nazjanzu, biskupów i doktorów Kościoła',
     saintsBenedyktJanMateuszIsaakAndKrystynMartyrs:
@@ -319,14 +319,14 @@ export default {
     saintsCorneliusPopeAndCyprianBishopMartyrs: 'Świętych męczenników Korneliusza, papieża, i Cypriana, biskupa',
     saintsCosmasAndDamianMartyrs: 'Świętych męczenników Kosmy i Damiana',
     saintsCyrilMonkAndMethodiusBishop: 'Świętych Cyryla, mnicha i Metodego, biskupa, patronów Europy',
-    saintsFabianPopeAndSebastianMartyrs: 'Św. Fabiana, papieża i męczennika/Św. Sebastiana, męczennika',
+    saintSebastianMartyr: 'Św. Sebastiana, męczennika',
     saintsGregoryGrassiFrancisFogollaAndAnthonyFantosatiBishopsAndCompanionsMartyrs:
       'Świętych męczenników Grzegorza Grassiego, Franciszka Fogolli i Antoniego Fantosatiego, Biskupów i Towarzyszy',
     saintSimonOfLipnicaPriest: 'Św. Szymona z Lipnicy, prezbitera',
     saintSixtusIiPopeAndCompanionsMartyrs: 'Świętych męczenników Sykstusa II, papieża, i Towarzyszy',
-    saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrs:
-      'Świętych męczenników Jana de Brebeuf, Izaaka Jogues’a, prezbiterów oraz Towarzyszy',
     saintsJoachimAndAnne: 'Świętych Rodziców NMP Joachima i Anny',
+    saintsJohnDeBrebeufIsaacJoguesPriestsAndCompanionsMartyrs:
+      'Świętych męczenników Jana de Brebeuf, Izaaka Jogues’a, prezbiterów oraz Towarzyszy',
     saintsJohnFisherBishopAndThomasMoreMartyrs: 'Świętych męczenników Jana Fishera, biskupa i Tomasza More’a',
     saintsLouisVersigliaBishopAndCallistusCaravarioPriestMartyrs:
       'Świętych Alojzego Versiglii, Biskupa i Kaliksta Caravaria, Kapłana',

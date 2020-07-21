@@ -1,5 +1,3 @@
-import enCA from './en-CA';
-import enUS from './en-US';
 import en from './en';
 import fr from './fr';
 import it from './it';
@@ -12,8 +10,6 @@ import sk from './sk';
  * in romcal.
  */
 const locales = {
-  'en-CA': enCA,
-  'en-US': enUS,
   en: en,
   fr: fr,
   it: it,

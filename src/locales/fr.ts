@@ -108,8 +108,6 @@ export default {
     ourLadyOfMountCarmel: 'Notre-Dame du Mont-Carmel',
     ourLadyOfSorrows: 'Notre-Dame des Douleurs',
     ourLadyOfTheRosary: 'Notre-Dame du Rosaire',
-    popeSaintJohnPaulII: 'Saint Jean Paul II, Pape (✝ 2005)',
-    popeSaintJohnXXIII: 'Saint Jean XXIII, Pape (✝ 1963)',
     presentationOfTheBlessedVirginMary: 'Présentation de la Vierge Marie',
     queenshipOfBlessedVirginMary: 'Vierge Marie Reine',
     saintAdalbertBishopAndMartyr: 'Saint Adalbert, Évêque de Prague et Martyr (✝ 997)',
@@ -143,6 +141,8 @@ export default {
     saintAthanasiusBishopAndDoctor: 'Saint Athanase, Évêque, Docteur et Père de l’Église (✝ 373)',
     saintAugustineOfCanterburyBishop: 'Saint Augustin, Évêque de Cantorbéry en Angleterre (✝ 604)',
     saintAugustineOfHippoBishopAndDoctorOfTheChurch: 'Saint Augustin, Evêque d’Hippone, Docteur de l’Église (✝ 430)',
+    saintAugustineZhaoRongPriestAndCompanionsMartyrs:
+      'Saints Augustin Zhao Rong et ses compagnons, Martyrs en Chine (entre 1648 et 1930)',
     saintBarnabasTheApostle: 'Saint Barnabé, Apôtre',
     saintBartholomewTheApostle: 'Saint Barthélemy, Apôtre',
     saintBedeTheVenerablePriestAndDoctor: 'Saint Bède le Vénérable, Prêtre et docteur de l’Église (✝ 735)',
@@ -174,7 +174,7 @@ export default {
     saintClareVirgin: 'Sainte Claire, Vierge',
     saintClementIPopeAndMartyr: 'Saint Clément Ier, Pape et Martyr (✝ 97)',
     saintClotilde: 'Sainte Clotilde, Reine des Francs (✝ 545)',
-    saintColumbanAbbotAndMissionary: 'Saint Colomban, Religieux (✝ 615)',
+    saintColumbaAbbotAndMissionary: 'Saint Colomban, Religieux (✝ 615)',
     saintCyrilOfAlexandriaBishopAndDoctor: 'Saint Cyrille, Évêque d’Alexandrie et Docteur de l’Église (✝ 444)',
     saintCyrilOfJerusalemBishopAndDoctor:
       'Saint Cyrille de Jérusalem, Évêque de Jérusalem, Docteur de l’Église (✝ 387)',
@@ -188,6 +188,7 @@ export default {
     saintEugeneDeMazenodBishop:
       'Saint Eugène de Mazenod, Fondateur des Oblats de Marie-Immaculée, Évêque de Marseille (✝ 1861)',
     saintEusebiusOfVercelliBishop: 'Saint Eusèbe de Verceil, Evêque (✝ 371)',
+    saintFabianPopeAndMartyr: 'Saint Fabien, Pape et Martyr (✝ 250)',
     saintFidelisOfSigmaringenPriestAndMartyr: 'Saint Fidèle de Sigmaringen, Prêtre et Martyr (✝ 1622)',
     saintFrancesOfRomeReligious: 'Sainte Françoise Romaine, Religieuse (✝ 1440)',
     saintFrancisDeSalesBishopAndDoctor: 'Saint François de Sales, Evêque de Genève et Docteur de l’Église (✝ 1622)',
@@ -202,7 +203,8 @@ export default {
     saintGregoryTheGreatPopeAndDoctor: 'Saint Grégoire le Grand, Pape et Docteur de l’Église (✝ 604)',
     saintGregoryViiPope: 'Saint Grégoire VII, Pape (✝ 1085)',
     saintHedwigReligious: 'Sainte Edwige de Silésie, Veuve puis Religieuse (✝ 1243)',
-    saintHenryBishopAndMartyr: 'Saint Henri, Empereur Germanique (✝ 1024)',
+    saintHenry: 'Saint Henri, Empereur Germanique (✝ 1024)',
+    saintHenryBishopAndMartyr: 'Saint Henri, Evêque et Martyr (✝ 1156)',
     saintHilaryOfPoitiersBishopAndDoctor: 'Saint Hilaire de Poitiers, Évêque et Docteur de l’Église (✝ 367)',
     saintHubertBishop: 'Saint Hubert, Évêque (✝ 727)',
     saintIgnatiusOfAntiochBishopAndMartyr:
@@ -234,7 +236,9 @@ export default {
     saintJohnOfGodReligious: 'Saint Jean de Dieu, Religieux, Fondateur des Frères de la Charité (✝ 1550)',
     saintJohnOfKantyPriest: 'Saint Jean de Kenty, Prêtre (✝ 1473)',
     saintJohnOfTheCrossPriestAndDoctor: 'Saint Jean de la Croix, Prêtre et Docteur de l’Église (✝ 1591)',
+    saintJohnPaulIiPope: 'Saint Jean Paul II, Pape (✝ 2005)',
     saintJohnTheApostleAndEvangelist: 'Saint Jean, Apôtre et Évangéliste',
+    saintJohnXxiiiPope: 'Saint Jean XXIII, Pape (✝ 1963)',
     saintJosaphatBishopAndMartyr: 'Saint Josaphat Kuntsevych, Évêque Basilien et Martyr (✝ 1623)',
     saintJosephineBakhitaVirgin: 'Sainte Joséphine Bakhita, Vierge et Religieuse (✝ 1947)',
     saintJosephOfCalasanzPriest: 'Saint Joseph de Calasanz, Prêtre (✝ 1648)',
@@ -303,8 +307,6 @@ export default {
     saintRomualdAbbot: 'Saint Romuald, Anachorète et Père des moines Camaldules (✝ 1027)',
     saintRoseOfLima: 'Sainte Rose de Lima, Vierge (✝ 1617)',
     saintsAndrewZorardAndBenedictHermits: 'Saints André Svorad († 1009) et Benoît Stojislav († 1012), Ermites',
-    saintsAugustineZhaoRongPriestAndCompanionsMartyrs:
-      'Saints Augustin Zhao Rong et ses compagnons, Martyrs en Chine (entre 1648 et 1930)',
     saintsBasilTheGreatAndGregoryNazianzenBishopsAndDoctors:
       'Saints Basile le Grand (✝ 379) et Grégoire de Naziance (✝ 390), Évêques et Docteurs de l’Église',
     saintsCharlesLwangaAndCompanionsMartyrs: 'Saints Charles Lwanga et ses douze compagnons, Martyrs (✝ 618)',
@@ -313,11 +315,11 @@ export default {
     saintsCosmasAndDamianMartyrs: 'Saints Côme et Damien, Martyrs (3ème s.)',
     saintsCyrilMonkAndMethodiusBishop:
       'Saints Cyrille, Moine, et Méthode, Évêque, Apôtres des Slaves au 9ème siècle, Copatrons de l’Europe',
-    saintsFabianPopeAndSebastianMartyrs: 'Saint Fabien, Pape et Martyr (✝ 250), et Saint Sébastien, Martyr (✝ v. 284)',
+    saintSebastianMartyr: 'Saint Sébastien, Martyr (✝ v. 284)',
     saintSixtusIiPopeAndCompanionsMartyrs: 'Saint Sixte II, Pape, et ses Diacres, Martyrs (✝ 258)',
-    saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrs:
-      'Saints Jean de Brébeuf, Isaac Jogues, Prêtres Jésuites, et leurs compagnons, Martyrs (17ème siècle)',
     saintsJoachimAndAnne: 'Saints Anne et Joachim, Mère et Père de la Vierge Marie (1er siècle)',
+    saintsJohnDeBrebeufIsaacJoguesPriestsAndCompanionsMartyrs:
+      'Saints Jean de Brébeuf, Isaac Jogues, Prêtres Jésuites, et leurs compagnons, Martyrs (17ème siècle)',
     saintsJohnDeBrebeufIsaacJoguesPriestsAndCompanionsMartyrsSecondaryPatronsOfCanada:
       'Saints Jean de Brébeuf, Isaac Jogues, Prêtres Jésuites, et leurs compagnons, Martyrs, Seconds Patrons du Canada (17ème siècle)',
     saintsJohnFisherBishopAndThomasMoreMartyrs: 'Saints Jean Fisher, Évêque, et Thomas More, Martyrs (✝ 1535)',
