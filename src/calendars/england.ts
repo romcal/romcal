@@ -183,7 +183,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       },
     },
     {
-      key: 'saintColumbaColumCilleAbbot',
+      key: 'saintColumbaAbbotAndMissionary',
       type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-9`),
     },

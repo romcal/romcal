@@ -13,16 +13,6 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
   const year = config.year;
   const _dates: Array<RomcalDateItemInput> = [
     {
-      key: 'saintBridgetOfSwedenReligious',
-      type: TypesEnum.FEAST,
-      date: dayjs.utc(`${year}-7-23`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
-    },
-    {
       key: 'ourLordJesusChristTheEternalHighPriest',
       type: TypesEnum.FEAST,
       date: ((y: number): dayjs.Dayjs =>

@@ -333,7 +333,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       date: dayjs.utc(`${year}-7-14`),
     },
     {
-      key: 'saintHenryBishopAndMartyr',
+      key: 'saintHenry',
       type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-14`),
     },
@@ -544,14 +544,13 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       type: TypesEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-13`),
     },
-    // jarosz: Split saintHedwig and saintMargaretMaryAlacoque and rename saintHedwig to saintHedwigOfSilesia, to make it less ambiguous
     {
-      key: 'saintMargaretMaryAlacoque',
+      key: 'saintMargaretMaryAlacoqueVirgin',
       type: TypesEnum.MEMORIAL,
       date: dayjs.utc(`${year}-10-14`),
     },
     {
-      key: 'saintHedwigOfSilesia',
+      key: 'saintHedwigReligious',
       type: TypesEnum.MEMORIAL,
       date: dayjs.utc(`${year}-10-16`),
     },
@@ -576,7 +575,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       },
     },
     {
-      key: 'popeSaintJohnPaulII',
+      key: 'saintJohnPaulIiPope',
       type: TypesEnum.MEMORIAL,
       date: dayjs.utc(`${year}-10-22`),
       data: {
