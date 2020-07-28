@@ -459,19 +459,19 @@ export default {
     saintHilaryOfPoitiersBishopAndDoctor: 'S. Hilarii, episcopi et Ecclesiæ doctoris',
     saintHildaAbbess: 'S. Hildæ, abatissæ',
     saintHildegardOfBingenAbbessAndDoctor: 'S. Hildegardis Bingensis, abatissæ et Ecclesiæ doctoris',
-    // saintHubertBishop: 'Saint Hubert, Bishop',
-    // saintHubertOfLiegeBishop: 'Saint Hubert of Liege, Bishop',
-    // saintHughOfLincolnBishop: 'Saint Hugh of Lincoln, Bishop',
-    // saintHyacinthPriest: 'Saint Hyacinth, Priest',
+    saintHubertBishop: 'S. Huberti, episcopi',
+    saintHubertOfLiegeBishop: 'S. Huberti, episcopi',  // dupe of saintHubertBishop
+    saintHughOfLincolnBishop: 'S. Hugonis Lincolnien, episcopi',
+    saintHyacinthPriest: 'S. Hyacinthi, presbyteri',
     saintIgnatiusOfAntiochBishopAndMartyr: 'S. Ignatii Antiocheni, episcopi et martyris',
     saintIgnatiusOfLoyolaPriest: 'S. Ignatii de Loyola, presbyteri',
-    // saintIldephonsusOfToledoBishop: 'Saint Ildephonsus of Toledo, Bishop',
-    // saintIlltudAbbot: 'Saint Illtud, Abbot',
+    saintIldephonsusOfToledoBishop: 'S. Ildephonsi Toletani, episcopi',
+    saintIlltudAbbot: 'S. Hilduti, abbatis',
     saintIrenaeusBishopAndMartyr: 'S. Irenæi, episcopi et martyris',
     saintIrene: 'S. Irenæ',
     saintIsidoreOfSevilleBishopAndDoctorOfTheChurch: 'S. Isidori, episcopi et Ecclesiæ doctoris',
-    // saintIsidoreTheFarmer: 'Saint Isidore the Farmer',
-    // saintItaVirgin: 'Saint Ita, Virgin', // Is she an Irish saint? If so, she might called Ita in Latin too, therefore the key value should be `S. Ite, virginis`
+    saintIsidoreTheFarmer: 'S. Isidori Agricolæ',
+    saintItaVirgin: 'S. Ite, virginis', // Why is the Genitive of Ita not Itæ?
     // saintIvoPriest: 'Saint Ivo, Priest',
     saintJamesApostle: 'S. Iacobi, apostoli',
     saintJamesApostlePatronOfSpain: 'S. Iacobi, apostoli, Patron of Spain',  // TODO: Translate `Patron of Spain`
