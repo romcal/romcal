@@ -271,7 +271,7 @@ export default {
     saintAgnesTsaoKouYingMartyr: 'S. Agnetis Cao Guiying, martyris',
     saintAgnesVirginAndMartyr: 'S. Agnetis, virginis et martyris',
     saintAidanBishop: 'S. Ædani Lindisfarnensis, episcopi',
-    saintAidanBishopAndTheSaintsOfLindisfarne: 'S. Ædani, episcopi et Sanctorum Lindisfarnensis',
+    saintAidanBishopAndTheSaintsOfLindisfarne: 'Ss. Ædani, episcopi et Sanctorum Lindisfarnensis',
     saintAidanOfLindisfarneBishopAndMissionary: 'S. Ædani Lindisfarnensis, episcopi',  // dupe of saintAidanBishop
     saintAilbeBishop: 'S. Albei, episcopi',
     saintAlbanMartyr: 'S. Albani, martyris',
@@ -307,7 +307,7 @@ export default {
     saintAsicusBishop: 'S. Assici, episcopi',
     saintAthanasiusBishopAndDoctor: 'S. Athanasii, episcopi et Ecclesiæ doctoris',
     saintAttractaVirgin: 'S. Attractæ, virginis',
-    saintAugustineOfCanterburyBishop: 'S. Augustini Cantuarensis, episcopi',
+    saintAugustineOfCanterburyBishop: 'S. Augustini Cantuariensis, episcopi',
     saintAugustineOfHippoBishopAndDoctorOfTheChurch: 'S. Augustini, episcopi et Ecclesiæ doctoris',
     saintAugustineZhaoRongPriestAndCompanionsMartyrs: 'Ss. Augustini Zhao Rong, presbyteri, et sociorum, martyrum',
     saintAugustineZhaoRongPriestAndMartyr: 'S. Augustini Zhao Rong, presbyteri et martyris',
@@ -336,7 +336,7 @@ export default {
     saintCallistusIPopeAndMartyr: 'S. Callisti I, papæ et martyris',
     saintCamillusDeLellisPriest: 'S. Camilli de Lellis, presbyteri',
     saintCaniceAbbot: 'S. Canici, abbatis',
-    saintCanuteMartyr: 'S. Canuti, martyris',
+    saintCanuteMartyr: 'S. Canuti, martyris',  // Don't confuse Canute (Canute IV of Denmark) with Canute Lavard
     saintCarthageBishopMochuta: 'S. Carthagi, episcopi',  // TODO: According to the Wiki [1], he was not a bishop (but an abbot), but the Irish lit_cal [2] states he was ... [1] https://en.wikipedia.org/wiki/Mo_Chutu_of_Lismore; [2] http://www.liturgy-ireland.ie/uploads/8/4/2/9/8429650/2020_daily_calendar.pdf
     saintCasimir: 'S. Casimiri',
     saintCatherineOfAlexandriaVirginAndMartyr: 'S. Catharinæ Alexandrinæ, virginis et martyris',
@@ -401,7 +401,7 @@ export default {
     saintFaustinaKowalskaVirginAndReligious: 'S. Faustinæ Kowalska, virginis et religiosæ',
     saintFelipeDeJesusPriestAndMartyr: 'S. Philippi a Iesu, presbyteri et martyris',
     saintFerdinand: 'S. Ferdinandi',
-    saintFergalBishopAndMissionary: 'S. Virgilii Salisburgensis, episcopi',
+    saintFergalBishopAndMissionary: 'S. Virgilii Salisburgensis, episcopi',  // Or Vergilius of Salzburg or Virgilius or Feirgil or Fergal
     saintFiacreMonk: 'S. Fiacrii, monachi',  // TODO: Was he a mere monk or an abbot?
     saintFidelisOfSigmaringenPriestAndMartyr: 'S. Fidelis a Sigmaringen, presbyteri et martyris',
     saintFinbarrBishop: 'S. Barri Corcagie, episcopi',  // TODO: Or rather Finbarrus?
@@ -473,7 +473,7 @@ export default {
     saintJarlathBishop: 'S. Iarlathi, episcopi',
     saintJeromeEmiliani: 'S. Hieronymi Emiliani',
     saintJeromePriestAndDoctor: 'S. Hieronymi, presbyteri et Ecclesiæ doctoris',
-    saintJoachimHoMartyr: 'S. Ioachim Ho, martyris',  // He is one of the Martyr Saints of China; He is one of the 119 companions of Augustine Zhao Rong
+    saintJoachimHoMartyr: 'S. Ioachim Ho, martyris',  // He is one of the Martyr Saints of China; He is one of the 118 companions of Augustine Zhao Rong
     saintJoanOfArcVirginSecondaryPatronessOfFrance: 'S. Ioannæ Arcensis, virginis, Secondary Patroness of France',  // ??? patronae secund. Galliae; TODO: Translate Secondary Patroness of France
     saintJoaquinaVedruna: 'S. Ioachimæ de Vedruna, religiosæ',
     saintJohnBaptistDeLaSallePriest: 'S. Ioannis Baptistæ de la Salle, presbyteri',
@@ -498,7 +498,7 @@ export default {
     saintJohnOfGodReligious: 'S. Ioannis a Deo, religiosi',
     saintJohnOfKantyPriest: 'S. Ioannis de Kęty, presbyteri',
     saintJohnOfTheCrossPriestAndDoctor: 'S. Ioannis a Cruce, presbyteri et Ecclesiæ doctoris',
-    saintJohnOfTrioraPriestAndMartyr: 'S. Ioannis de Triora, presbyteri et martyris',  // He is one of the Martyr Saints of China; He is one of the 119 companions of Augustine Zhao Rong
+    saintJohnOfTrioraPriestAndMartyr: 'S. Ioannis de Triora, presbyteri et martyris',  // He is one of the Martyr Saints of China; He is one of the 118 companions of Augustine Zhao Rong
     saintJohnOgilvie: 'S. Ioannis Ogilvie, presbyteri et martyris',
     saintJohnRobertsPriestAndMartyr: 'S. Ioannis Roberts, presbyteri et martyris',
     saintJohnSarkanderPriestAndMartyr: 'S. Ioannis Sarkander, presbyteri et martyris',
@@ -513,8 +513,8 @@ export default {
     saintJosephOfCalasanzPriest: 'S. Iosephi de Calasanz, presbyteri',
     saintJosephSpouseOfTheBlessedVirginMaryPrincipalPatronOfCanada: 'S. Iosephi, Sponsi B. M. V., Principal Patron of Canada',  // TODO: (1) Add `Principal Patron of Canada` separately to `josephHusbandOfMary`; (2) translate `Principal Patron of Canada` into Latin
     saintJosephTheWorker: 'S. Iosephi Opificis',
-    saintJosephYuanPriestAndMartyr: 'S. Iosephi Yuan, presbyteri et martyris',  // He is one of the Martyr Saints of China; He is one of the 119 companions of Augustine Zhao Rong
-    saintJosephZhangDapengMartyr: 'S. Iosephi Zhang Dapeng, martyris',  // He is one of the Martyr Saints of China; He is one of the 119 companions of Augustine Zhao Rong
+    saintJosephYuanPriestAndMartyr: 'S. Iosephi Yuan, presbyteri et martyris',  // He is one of the Martyr Saints of China; He is one of the 118 companions of Augustine Zhao Rong
+    saintJosephZhangDapengMartyr: 'S. Iosephi Zhang Dapeng, martyris',  // He is one of the Martyr Saints of China; He is one of the 118 companions of Augustine Zhao Rong
     saintJozefBilczewskiBishop: 'S. Iosephi Bilczewski, episcopi',  // dupe of saintJosephBilczewskiBishop
     saintJozefSebastianPelczar: 'S. Iosephi Sebastiani Pelczar, episcopi',
     saintJuanDiegoCuauhtlatoatzin: 'S. Ioannis Didaci Cuauhtlatoatzin',
@@ -528,15 +528,15 @@ export default {
     saintKieranBishop: 'S. Kyarani, episcopi',  // Or Ciarán of Saigir or Ciarán the Elder (in English)
     saintKilianBishopAndCompanionsMartyrs: 'Ss. Kiliani, episcopi, et sociorum, martyrum',
     saintKillianBishopAndMartyr: 'S. Kiliani, episcopi et martyris',
-    saintKingaVirgin: 'S. Kunegundæ, virginis',
+    saintKingaVirgin: 'S. Cunegundæ, virginis',  // English (alt): Kinga of Poland or Kunegunda
     saintLadislaus: 'S. Ladislai',
     saintLambertBishopAndMartyr: 'S. Lamberti, episcopi et martyris',
     saintLaurenceOTooleBishop: 'S. Laurentii O’Toole, episcopi',
-    saintLaurenceWangBingAndCompanionsMartyrs: 'Ss. Laurentii Wang Bing, et sociorum, martyrum',  // He is one of the Martyr Saints of China; He is one of the 119 companions of Augustine Zhao Rong
-    saintLawrenceBaiXiaomanMartyr: 'S. Laurentii Bai Xiaoman, martyris',  // He is one of the Martyr Saints of China; He is one of the 119 companions of Augustine Zhao Rong
+    saintLaurenceWangBingAndCompanionsMartyrs: 'Ss. Laurentii Wang Bing, et sociorum, martyrum',  // He is one of the Martyr Saints of China; He is one of the 118 companions of Augustine Zhao Rong
+    saintLawrenceBaiXiaomanMartyr: 'S. Laurentii Bai Xiaoman, martyris',  // He is one of the Martyr Saints of China; He is one of the 118 companions of Augustine Zhao Rong
     saintLawrenceOfBrindisiPriestAndDoctor: 'S. Laurentii de Brindisi, presbyteri et Ecclesiæ doctoris',
     saintLawrenceOfRomeDeaconAndMartyr: 'S. Laurentii, diaconi et martyris',
-    saintLawrenceRuizAndCompanionsMartyrs: 'Ss. Laurentii Ruiz et sociorum, martyrum',
+    saintLawrenceRuizAndCompanionsMartyrs: 'Ss. Laurentii Ruiz et sociorum, martyrum',  // He is one of the 16 Martyrs of Japan; TODO: Possible dupe with saintThomasRokuzayemonPriestAndCompanionsMartyrs
     saintLeanderBishop: 'S. Leandri, episcopi',  // He might called in Latin Hispalensis, in English of Seville
     saintLeliaVirgin: 'S. Leliæ, virginis',
     saintLeobaAbbess: 'S. Leobæ, abatissæ',
@@ -584,7 +584,7 @@ export default {
     saintMartinDePorresReligious: 'S. Martini de Porres, religiosi',
     saintMartinIPopeAndMartyr: 'S. Martini I, papæ et martyris',
     saintMartinOfToursBishop: 'S. Martini Turonensis, episcopi',
-    saintMartinWuXueshengAndCompanionsMartyrs: 'Ss. Martini Wu Xuesheng, et sociorum, martyrum',  // He is one of the Martyr Saints of China; He is one of the 119 companions of Augustine Zhao Rong
+    saintMartinWuXueshengAndCompanionsMartyrs: 'Ss. Martini Wu Xuesheng, et sociorum, martyrum',  // He is one of the Martyr Saints of China; He is one of the 118 companions of Augustine Zhao Rong
     saintMaryMacKillopVirgin: 'S. Mariæ a Cruce MacKillop, virginis',  // dupe
     saintMaryMagdalene: 'S. Mariæ Magdalenæ',
     saintMaryMagdaleneDePazziVirgin: 'S. Mariæ Magdalenæ de’ Pazzi, virginis',
@@ -620,13 +620,13 @@ export default {
     saintPantaleon: 'S. Pantaleonis',  // Pantaleon or Pantalaimon
     saintPaschalBaylon: 'S. Paschali Baylón',
     saintPatrickBishop: 'S. Patricii, episcopi',
-    saintPaulChenChangpinAndCompanionsMartyrs: 'Ss. Pauli Chen Changpin et sociorum, martyrum',  // He is one of the Martyr Saints of China; He is one of the 119 companions of Augustine Zhao Rong
+    saintPaulChenChangpinAndCompanionsMartyrs: 'Ss. Pauli Chen Changpin et sociorum, martyrum',  // He is one of the Martyr Saints of China; He is one of the 118 companions of Augustine Zhao Rong
     saintPaulinaOfTheAgonizingHeartOfJesusVirgin: 'S. Paulinæ a Corde Iesu Agonizanti, virginis',
     saintPaulinusOfNolaBishop: 'S. Paulini Nolani, episcopi',
     saintPaulinusOfTrierBishop: 'S. Paulini Trevirensis, episcopi',
     saintPaulinusOfYorkBishop: 'S. Paulini Eboracensis, episcopi',
     saintPaulIvPope: 'S. Pauli IV, papæ',
-    saintPaulLiuHanzouPriestAndMartyr: 'S. Pauli Liu Hanzuo, presbyteri et martyris',  // He is one of the Martyr Saints of China; He is one of the 119 companions of Augustine Zhao Rong
+    saintPaulLiuHanzouPriestAndMartyr: 'S. Pauli Liu Hanzuo, presbyteri et martyris',  // He is one of the Martyr Saints of China; He is one of the 118 companions of Augustine Zhao Rong
     saintPaulMikiAndCompanionsMartyrs: 'Ss. Pauli Miki et sociorum, martyrum',
     saintPaulOfTheCrossPriest: 'S. Pauli a Cruce, presbyteri',
     saintPedroCalungsodMartyr: 'S. Petri Calungsod, martyris',
@@ -637,10 +637,10 @@ export default {
     saintPeterClaverPriest: 'S. Petri Claver, presbyteri',
     saintPeterDamianBishopAndDoctorOfTheChurch: 'S. Petri Damiani, episcopi et Ecclesiæ doctoris',
     saintPeterJulianEymardPriest: 'S. Petri Iuliani Eymard, presbyteri',
-    saintPeterLiuMartyr: 'S. Petri Liu Wenyuan, martyris',  // He is one of the Martyr Saints of China; He is one of the 119 companions of Augustine Zhao Rong
+    saintPeterLiuMartyr: 'S. Petri Liu Wenyuan, martyris',  // He is one of the Martyr Saints of China; He is one of the 118 companions of Augustine Zhao Rong
     saintPeterOfAlcantaraPriest: 'S. Petri de Alcantara, presbyteri',
     saintPeterSanzBishopAndMartyr: 'S. Petri Sanz, episcopi et martyris',
-    saintPeterWuMartyr: 'S. Petri Wu, martyris',  // He is one of the Martyr Saints of China; He is one of the 119 companions of Augustine Zhao Rong
+    saintPeterWuMartyr: 'S. Petri Wu, martyris',  // He is one of the Martyr Saints of China; He is one of the 118 companions of Augustine Zhao Rong
     saintPhilipNeriPriest: 'S. Philippi Neri, presbyteri',
     saintPioOfPietrelcinaPriest: 'S. Pii de Pietrelcina, presbyteri',
     saintPirminAbbotAndBishop: 'S. Pirminii, abbatis et episcopi',
@@ -651,134 +651,135 @@ export default {
     saintProcopiusAbbot: 'S. Procopii, abbatis',
     saintPubliusBishop: 'S. Publii, episcopi',
     saintQuirinusOfSescia: 'S. Quirini Sisciensis, episcopi',
-    // saintRabanusMaurusBishop: 'Saint Rabanus Maurus, Bishop',
+    saintRabanusMaurusBishop: 'S. Rabani Mauri, episcopi',
     saintRadimBishop: 'S. Radim, episcopi',
-    // saintRafaelGuizarYValenciaBishop: 'Saint Rafael Guizar y Valencia, Bishop',
-    // saintRafalKalinowskiPriest: 'Saint Rafal Kalinowski, Priest',
-    // saintRafqaRebeccaVirgin: 'Saint Rafqa (Rebecca), Virgin',
+    saintRafaelGuizarYValenciaBishop: 'S. Raphaelis Guízar Valencia, episcopi',
+    saintRafalKalinowskiPriest: 'S. Raphaelis a sancto Ioseph Kalinowski, presbyteri',  // His religious name was Raphael of Saint Joseph
+    saintRafqaRebeccaVirgin: 'S. Rafqa Petræ Choboq Ar-Rayès, virginis',
     saintRaymondOfPenyafortPriest: 'S. Raimundi de Penyafort, presbyteri',
-    // saintRemigiusBishop: 'Saint Remigius, Bishop',
-    // saintRichardGwynMartyr: 'Saint Richard Gwyn, Martyr',
-    // saintRichardOfChichesterBishop: 'Saint Richard of Chichester, Bishop',
+    saintRemigiusBishop: 'S. Remigii, episcopi',
+    saintRichardGwynMartyr: 'S. Richardi Gwyn, martyris',  // Anglised name: Richard White3
+    saintRichardOfChichesterBishop: 'S. Richardi Cicestriæ, episcopi',  // Or Richard de Wych
     saintRitaOfCascia: 'S. Ritæ de Cascia, religiosæ',
     saintRobertBellarmineBishopAndDoctor: 'S. Roberti Bellarmini, episcopi et Ecclesiæ doctoris',
-    // saintRocco: 'Saint Rocco',
-    // saintRoch: 'Saint Roch',
+    saintRocco: 'S. Rochi',  // dupe of saintRoch
+    saintRoch: 'S. Rochi',  // Or in Latin: Rochus Monspessulanus
     saintRomualdAbbot: 'S. Romualdi, abbatis',
     saintRoseOfLima: 'S. Rosæ de Lima, virginis',
     saintRoseOfLimaSecondaryPatronessOfThePhilippines: 'S. Rosæ de Lima, virginis et Secondary Patroness of the Philippines',  // TODO: Translate the `Secondary Patroness of the Philippines`
-    // saintRosePhilippineDuchesneVirgin: 'Saint Rose Philippine Duchesne, Virgin',
-    // saintsAlbanJuliusAndAaronMartyrs: 'Saints Alban, Julius and Aaron, Martyrs',
-    // saintsAndrewZorardAndBenedictHermits: 'Saints Andrew Zorard and Benedict, Hermits',
+    saintRosePhilippineDuchesneVirgin: 'S. Rosæ Philippinæ Duchesne, virginis',
+    saintsAlbanJuliusAndAaronMartyrs: 'Ss. Albani, Iulii et Aaron, martyrum',
+    saintsAndrewZorardAndBenedictHermits: 'Ss. Andreæ Zœrardi et Benedicti, eremitarum',
     saintsBasilTheGreatAndGregoryNazianzenBishopsAndDoctors: 'Ss. Basilii Magni et Gregorii Nazianzeni, episcoporum et Ecclesiæ doctorum',
-    // saintsBenedyktJanMateuszIsaakAndKrystynMartyrs: 'Saints Benedykt, Jan, Mateusz, Isaak and Krystyn, Martyrs',
-    // saintsBorisAndGlebMartyrs: 'Saints Boris and Gleb, Martyrs',
-    // saintsCanuteEricAndOlafMartyrs: 'Saints Canute, Eric and Olaf, Martyrs',
-    // saintsChadAndCeddBishop: 'Saints Chad and Cedd, Bishop',
+    saintsBenedyktJanMateuszIsaakAndKrystynMartyrs: 'Ss. Benedicti, Ioannis, Matthæi, Isaac, Christiani, martyrum',  // Also known collectively as: English: the Five Holy Martyrs of Międzyrzecz; Polish: Pięciu Braci Męczenników; Międzyrzecz is in Latin called either Meserici or Messerici or Mezerici
+    saintsBorisAndGlebMartyrs: 'Ss. Borisi et Hlibi, martyrum',
+    saintsCanuteEricAndOlafMartyrs: 'Ss. Canuti, Erici et Olavi, martyrum',  // Don't confuse Canute (Canute IV of Denmark) with Canute Lavard
+    saintsChadAndCeddBishop: 'Ss. Ceddi et Ceaddæ, episcoporum',
     saintsCharlesLwangaAndCompanionsMartyrs: 'Ss. Caroli Lwanga et sociorum, martyrum',
     saintScholasticaVirgin: 'S. Scholasticæ, virginis',
-    // saintsClementOfOhridAndGorazdBishopsAndCompanions: 'Saints Clement of Ohrid and Gorazd, Bishops and Companions',
-    // saintsConradAndGebhardOfConstanceBishops: 'Saints Conrad and Gebhard of Constance, Bishops',
+    saintsClementOfOhridAndGorazdBishopsAndCompanions: 'Ss. Clementis Achridensis et Gorazdi, episcoporum, et sociorum',
+    saintsConradAndGebhardOfConstanceBishops: 'Ss. Conradi et Gebhardi Constantiensis, episcoporum',
     saintsCorneliusPopeAndCyprianBishopMartyrs: 'Ss. Cornelii, papæ, et Cypriani, episcopi, martyrum',
     saintsCosmasAndDamianMartyrs: 'Ss. Cosmæ et Damiani, martyrum',
     saintsCyrilMonkAndMethodiusBishop: 'Ss. Cyrilli, monachi, et Methodii, episcopi',
     saintSebastianMartyr: 'S. Sebastiani, martyris',
-    // saintSenanBishop: 'Saint Senan, Bishop',
-    // saintSeverinusOfNoricumMonk: 'Saint Severinus of Noricum, Monk',
-    // saintsFelipeDeJesusPaulMikiAndCompanionsMartyrs: 'Ss. Felipe de Jesus, Pauli Miki et sociorum, martyrum',  // TODO: Translate Felipe de Jesus' name
-    // saintsFructuosusBishopAndAuguriusAndEulogiusDeaconsMartyrs: 'Saints Fructuosus, Bishop, and Augurius and Eulogius, Deacons, Martyrs',
-    // saintsGregoryGrassiFrancisFogollaAndAnthonyFantosatiBishopsAndCompanionsMartyrs: 'Saints Gregory Grassi, Francis Fogolla and Anthony Fantosati, Bishops and Companions, Martyrs',
-    // saintsHenryAndCunigunde: 'Saints Henry and Cunigunde',
+    saintSenanBishop: 'S. Senani, episcopi',
+    saintSeverinusOfNoricumMonk: 'S. Severini de Noricum, monachi',  // TODO: Was he not rather an abbot? Note: I am not sure of the `de Noricum` part, as in Latin, he is usually called simply Severinus, however, there are 9 different people with that name in the MR2004, so I would like to keep it
+    saintsFelipeDeJesusPaulMikiAndCompanionsMartyrs: 'Ss. Philippi a Iesu de Las Casas, Pauli Miki et sociorum, martyrum',
+    saintsFructuosusBishopAndAuguriusAndEulogiusDeaconsMartyrs: 'Ss. Fructuosi, episcopi, Augurii et Eulogii, diaconorum, martyrum',
+    saintsGregoryGrassiFrancisFogollaAndAnthonyFantosatiBishopsAndCompanionsMartyrs: 'Ss. Gregorii Grassi, Francisci Fogolla et Antonini Fantosati, episcoporum, et sociorum, martyrum',  // They all were one of the Martyr Saints of China; They are some of the 118 companions of Augustine Zhao Rong
+    saintsHenryAndCunigunde: 'Ss. Henrici et Cunigundæ',  // English (alt): Cunigunde of Luxembourg or Cunegundes or Cunegunda or Cunegonda; Latin (alt): Cunegundis or Kinigundis
     saintSigismundMartyr: 'S. Sigismundi, martyris',
-    // saintSimonOfLipnicaPriest: 'Saint Simon of Lipnica, Priest',
+    saintSimonOfLipnicaPriest: 'S. Simonis de Lipnica, presbyteri',
     saintSixtusIiPopeAndCompanionsMartyrs: 'Ss. Xysti II, papæ, et sociorum, martyrum',
     saintsJohnDeBrebeufIsaacJoguesPriestsAndCompanionsMartyrs: 'Ss. Ioannis de Brébeuf, Isaac Jogues, presbyterorum, et sociorum, martyrum',
     saintsJohnDeBrebeufIsaacJoguesPriestsAndCompanionsMartyrsSecondaryPatronsOfCanada: 'Ss. Ioannis de Brébeuf, Isaac Jogues, presbyterorum, et sociorum, martyrum et Secondary Patrons of Canada',  // TODO: Translate `Secondary Patrons of Canada`
     saintsJoachimAndAnne: 'Ss. Ioachim et Annæ, parentum B. M. V.',
     saintsJohnFisherBishopAndThomasMoreMartyrs: 'Ss. Ioannis Fisher, episcopi, et Thomæ More, martyrum',
-    // saintsLouisVersigliaBishopAndCallistusCaravarioPriestMartyrs: 'Saints Louis Versiglia, Bishop and Callistus Caravario, Priest, Martyrs',
+    saintsLouisVersigliaBishopAndCallistusCaravarioPriestMartyrs: 'Ss. Aloisii Versiglia, episcopi, et Callisti Caravario, presbyteri, martyrum',  // They all were one of the Martyr Saints of China; They are some of the 118 companions of Augustine Zhao Rong
     saintsMarcellinusAndPeterMartyrs: 'Ss. Marcellini et Petri, martyrum',
-    // saintsMargaretClitherowAnneLineAndMargaretWardMartyrs: 'Saints Margaret Clitherow, Anne Line and Margaret Ward, Martyrs',
-    saintsMarkoKrizinMelicharGrodeckiAndStephenPongracPriestsAndMartyrs: 'Ss. Marci Križin, Melchioris Grodziecki et Stephani Pongrácz, presbyterum et martyrum',
+    saintsMargaretClitherowAnneLineAndMargaretWardMartyrs: 'Ss. Margaritæ Clitherow, Annæ Line et Margaritæ Ward, martyrum',
+    saintsMarkoKrizinMelicharGrodeckiAndStephenPongracPriestsAndMartyrs: 'Ss. Marci Križin, Melchioris Grodziecki et Stephani Pongrácz, presbyterorum et martyrum',
     saintsMichaelGabrielAndRaphaelArchangels: 'Ss. Michaelis, Gabrielis et Raphaelis, archangelorum',
     saintsNereusAndAchilleusMartyrs: 'Ss. Nerei et Achillei, martyrum',
-    // saintSoledadTorresAcostaVirgin: 'Saint Soledad Torres Acosta, Virgin',
-    // saintsPedroBautistaPaulMikiAndCompanionsMartyrs: 'Saints Pedro Bautista, Pauli Miki et sociorum, martyrum', // TODO: Translate Pedro Bautista's name
+    saintSoledadTorresAcostaVirgin: 'S. Mariæ a Solitudine Torres Acosta, virginis',
+    saintsPedroBautistaPaulMikiAndCompanionsMartyrs: 'Ss. Petri Baptistæ Blázquez, Pauli Miki et sociorum, martyrum',
     saintsPerpetuaAndFelicityMartyrs: 'Ss. Perpetuæ et Felicitatis, martyrum',
     saintsPhilipAndJamesApostles: 'Ss. Philippi et Iacobi, apostolorum',
-    // saintsPhilipEvansAndJohnLloydPriestsAndMartyrs: 'Saints Philip Evans and John Lloyd, Priests and Martyrs',
+    saintsPhilipEvansAndJohnLloydPriestsAndMartyrs: 'Ss. Philippi Evans et Ioannis Lloyd, presbyterorum et martyrum',  // They are among the Forty Martyrs of England and Wales
     saintsPontianPopeAndHippolytusPriestMartyrs: 'Ss. Pontiani, papæ, et Hippolyti, presbyteri, martyrum',
-    // saintSpyridon: 'Saint Spyridon',
-    // saintsRoqueGonzalezAlfonsoRodriguezOlmedoAndJuanDelCastilloPriestsAndMartyrs: 'Saints Roque Gonzalez, Alfonso Rodriguez Olmedo, and Juan del Castillo, Priests and Martyrs',  // Ss.Rochi  González,  AlphonsiRodríguezetIoannisdel  Castillo,  presbyterorumetmartyrum
-    // saintsRupertAndVirgiliusOfSalzburgBishops: 'Saints Rupert and Virgilius of Salzburg, Bishops',  // Ruperti
+    saintSpyridon: 'S. Spyridonis, episcopi',
+    saintsRoqueGonzalezAlfonsoRodriguezOlmedoAndJuanDelCastilloPriestsAndMartyrs: 'Ss. Rochi González, Alfonsi Rodríguez et Ioannis del Castillo, presbyterorum et martyrum',
+    saintsRupertAndVirgiliusOfSalzburgBishops: 'Ss. Ruperti et Virgilii Salisburgensis, episcoporum',  // Or Vergilius of Salzburg or Virgilius or Feirgil or Fergal
     saintsSimonAndJudeApostles: 'Ss. Simonis et Iudæ, apostolorum',
     saintStanislausBishopAndMartyr: 'S. Stanislai, episcopi et martyris',
-    // saintStanislausKazimierczykPriest: 'Saint Stanislaus Kazimierczyk, Priest',
-    // saintStanislausKostkaReligious: 'Saint Stanislaus Kostka, Religious',  // S. Stanislai Kostka, religiosi
+    saintStanislausKazimierczykPriest: 'S. Stanislai Kazimierczyk, presbyteri',
+    saintStanislausKostkaReligious: 'S. Stanislai Kostka, religiosi',  // S. Stanislai Kostka, religiosi
     saintStephenOfHungary: 'S. Stephani Hungariæ',
     saintStephenTheFirstMartyr: 'S. Stephani, protomartyris',
     saintsTimothyAndTitusBishops: 'Ss. Timothei et Titi, episcoporum',
-    // saintSunnivaVirginAndMartyr: 'Saint Sunniva, Virgin and Martyr',
-    // saintSwithunBishop: 'Saint Swithun, Bishop',
+    saintSunnivaVirginAndMartyr: 'S. Sunnivæ, virginis et martyris',
+    saintSwithunBishop: 'S. Swithuni, episcopi',
     saintSylvesterIPope: 'S. Silvestri I, papæ',
-    // saintTeiloBishop: 'Saint Teilo, Bishop',
+    saintTeiloBishop: 'S. Teliavi, episcopi',
     saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr: 'S. Teresiæ Benedictæ a Cruce, virginis et martyris',
-    // saintTeresaOfCalcuttaReligious: 'Saint Teresa of Calcutta, Religious',
-    // saintTeresaOfJesusJornetEIbarsVirgin: 'Saint Teresa of Jesus Jornet e Ibars, Virgin',
+    saintTeresaOfCalcuttaReligious: 'S. Teresiæ de Calcutta, religiosi',  // Or Mater Teresia Calcuttensis
+    saintTeresaOfJesusJornetEIbarsVirgin: 'S. Teresiæ a Iesu Jornet Ibars, virginis',
     saintTeresaOfJesusVirginAndDoctorOfTheChurch: 'S. Teresiæ a Iesu, virginis et Ecclesiæ doctoris',
-    // saintTeresaOfLosAndesVirgin: 'Saint Teresa of Los Andes, Virgin',
-    // saintTheodoreOfCanterburyBishop: 'Saint Theodore of Canterbury, Bishop',
-    // saintTheodosiusOfTheCavesAbbot: 'Saint Theodosius of The Caves, Abbot',
-    // saintTheotoniusPriest: 'Saint Theotonius, Priest',
+    saintTeresaOfLosAndesVirgin: 'S. Teresiæ a Iesu de Los Andes, virginis',  // Latin: usually the `de Los Andes` is quoted, but I (@tukusejssirs) somewhat dislike the quotes
+    saintTheodoreOfCanterburyBishop: 'S. Theodori Cantuariensis, episcopi',
+    saintTheodosiusOfTheCavesAbbot: 'S. Theodosii Kioviensis, abbatis',
+    saintTheotoniusPriest: 'S. Theotonii, presbyteri',  // Latin (alt): Theotonii Conimbricensis; TODO: He was a bishop, or not?
     saintThereseOfTheChildJesusVirginAndDoctor: 'S. Teresiæ a Iesu Infante, virginis et Ecclesiæ doctoris',
-    // saintThereseOfTheChildJesusVirginSecondaryPatronessOfFrance: 'Saint Therese of The Child Jesus, Virgin, Secondary Patroness of France',
+    saintThereseOfTheChildJesusVirginSecondaryPatronessOfFrance: 'S. Teresiæ a Iesu Infante, virginis, Ecclesiæ doctori et Secondary Patroness of France',  // TODO: Translate `Secondary Patroness of France`
     saintThomasAquinasPriestAndDoctor: 'S. Thomæ de Aquino, presbyteri et Ecclesiæ doctoris',
     saintThomasBecketBishopAndMartyr: 'S. Thomæ Becket, episcopi et martyris',
-    // saintThomasOfVillanovaBishop: 'Saint Thomas of Villanova, Bishop',
-    // saintThomasRokuzayemonPriestAndCompanionsMartyrs: 'Saint Thomas Rokuzayemon, Priest and Companions, Martyrs',
+    saintThomasOfVillanovaBishop: 'S. Thomæ a Villanova, episcopi',
+    saintThomasRokuzayemonPriestAndCompanionsMartyrs: 'S. Thomæ Hioji Rokuzayemon Nishi, presbyteri, et sociorum, martyrum',  // He is one of the 16 Martyrs of Japan; TODO: Possible dupe with saintLawrenceRuizAndCompanionsMartyrs
     saintThomasTheApostle: 'S. Thomæ, apostoli',
-    // saintThorfinnBishop: 'Saint Thorfinn, Bishop',
-    // saintThorlacBishop: 'Saint Thorlac, Bishop',
+    saintThorfinnBishop: 'S. Thorfinni, episcopi',
+    saintThorlacBishop: 'S. Thorlaci, episcopi',
     saintTuribiusOfMogrovejoBishop: 'S. Turibii de Mogrovejo, episcopi',
-    // saintUlrichOfAugsburg: 'Saint Ulrich of Augsburg',
-    // saintUrsulaAndCompanionsVirginsAndMartyrs: 'Saint Ursula and Companions, Virgins and Martyrs',
-    // saintUrsulaLedochowskaVirgin: 'Saint Ursula Ledochowska, Virgin',
-    // saintValentineOfRaetiaBishop: 'Saint Valentine of Raetia, Bishop',
+    saintUlrichOfAugsburg: 'S. Udalrici, episcopi',
+    saintUrsulaAndCompanionsVirginsAndMartyrs: 'S. Ursulæ Coloniensis et sociorum, virginum et martyrum',
+    saintUrsulaLedochowskaVirgin: 'S. Ursulæ Ledochowska, virginis',
+    saintValentineOfRaetiaBishop: 'S. Valentini Rhætiæ, episcopi',
     saintVincentDeaconAndMartyr: 'S. Vincentii, diaconi et martyris',
     saintVincentDePaulPriest: 'S. Vincentii de Paul, presbyteri',
     saintVincentFerrerPriest: 'S. Vincentii Ferrer, presbyteri',
-    // saintVincentPallottiPriest: 'Saint Vincent Pallotti, Priest',
+    saintVincentPallottiPriest: 'S. Vincentii Pallotti, presbyteri',
     saintVitusMartyr: 'S. Viti, martyris',
-    // saintVladimirTheGreat: 'Saint Vladimir The Great',
-    // saintWalburgaAbbess: 'Saint Walburga, Abbess',
-    saintWenceslausMartyr: 'S. Venceslai, martyris',
-    // saintWendelinAbbot: 'Saint Wendelin, Abbot',
-    // saintWilfridBishop: 'Saint Wilfrid, Bishop',
-    // saintWillibaldBishop: 'Saint Willibald, Bishop',
-    // saintWillibrordBishop: 'Saint Willibrord, Bishop',
-    // saintWinefrideVirgin: 'Saint Winefride, Virgin',
+    saintVladimirTheGreat: 'S. Vladimiri I Magni',  // AFAIK, the MR2004 lists him simply as Vladimirus
+    saintWalburgaAbbess: 'S. Walburgis, abatissæ',
+    saintWenceslausMartyr: 'S. Wenceslai, martyris',
+    saintWendelinAbbot: 'S. Wendelini, abbatis',
+    saintWilfridBishop: 'S. Wilfridi, episcopi',
+    saintWillibaldBishop: 'S. Willibaldi, episcopi',
+    saintWillibrordBishop: 'S. Willibrordi, episcopi',
+    saintWinefrideVirgin: 'S. Wenefredæ, virginis',  // TODO: Was she not an abbess and martyr?
     saintWolfgangBishop: 'S. Wolfgangi, episcopi',
-    // saintWolfgangOfRegensburgBishop: 'Saint Wolfgang of Regensburg, Bishop',
-    // saintWulstanBishop: 'Saint Wulstan, Bishop',
+    saintWolfgangOfRegensburgBishop: 'S. Wolfgangi Ratisbonensis, episcopi',
+    saintWulstanBishop: 'S. Wulstani, episcopi',
     saintZdislava: 'S. Zdislavæ',
     saintZdzislawa: 'S. Zdislavæ',  // dupe of saintZdislava
-    // saintZygmuntGorazdowskiPriest: 'Saint Zygmunt Gorazdowski, Priest',
-    // saintZygmuntSzczesnyFelinskiBishop: 'Saint Zygmunt Szczesny Felinski, Bishop',
-    // santoNinoInfantJesus: 'Santo Nino (Infant Jesus)',
-    sevenHolyFoundersOfTheServiteOrder: 'Ss. septem Fundatorum Ordinis Servorum B. M. V.',
-    // sevenMartyredNunsFromTheFranciscanMissionariesOfMary: 'Seven Martyred Nuns from the Franciscan Missionaries of Mary',
-    // shipwreckOfSaintPaulApostle: 'Shipwreck of Saint Paul, Apostle',
+    saintZygmuntGorazdowskiPriest: 'S. Sigismundi Gorazdowski, presbyteri',
+    saintZygmuntSzczesnyFelinskiBishop: 'S. Sigismundi Felicis Feliński, episcopi',
+    S. Sigismundi Szczęsny Feliński
+    santoNinoInfantJesus: 'S. Pueri Iesu de Cæbua',  // TODO: Or is it rather `Ss.mi Nominis Pueri Iesu de Cæbua`? (src: https://cappellagregoriana.files.wordpress.com/2018/01/gozos-del-sr-sto-nic3b1o-de-cebc3ba-alt.pdf); Or even `S. Pueri de Cæbua`? (src: https://www.scribd.com/document/253202783/Anamnesis-1-10-Extra-III)
+    sevenHolyFoundersOfTheServiteOrder: 'Ss. Septem Fundatorum Ordinis Servorum B. M. V.',
+    sevenMartyredNunsFromTheFranciscanMissionariesOfMary: 'Ss. septem sorores ex Instituto Franciscanum Missionariarum Mariæ, martyrum',  // They all were one of the Martyr Saints of China; They are some of the 118 companions of Augustine Zhao Rong
+    shipwreckOfSaintPaulApostle: 'Naufragii S. Pauli, apostoli',
     // shroveMonday: 'Shrove Monday',
     // shroveTuesday: 'Shrove Tuesday',
-    // stDunstanArchbishopOfCanterbury: 'St Dunstan, Archbishop of Canterbury',
+    stDunstanArchbishopOfCanterbury: 'S. Dunstani Cantuariensis, episcopi',
     sundayOfTheWordOfGod: 'Dominica Verbi Dei',
     theBeheadingOfSaintJohnTheBaptistMartyr: 'In Passione S. Ioannis Baptistæ, martyris',
-    // theEnglishMartyrs: 'The English Martyrs',
-    // theFiveWoundsOfTheLord: 'The Five Wounds of The Lord',
+    theEnglishMartyrs: 'Ss. Martyrum Angliæ',
+    theFiveWoundsOfTheLord: 'Ss.mi D. N. I. C. quinque vulneribus',
     theMostHolyNameOfJesus: 'Ss.mi Nominis Iesu',
-    // theSixWelshMartyrsAndCompanions: 'The Six Welsh Martyrs and Companions',
-    // transferOfTheRelicsOfSaintStephen: 'Transfer of The Relics of Saint Stephen',
-    // vietnameseMartyrs: 'Vietnamese Martyrs',
+    theSixWelshMartyrsAndCompanions: 'Ss. Sex Matyrum Cambriæ et sociorum',
+    // transferOfTheRelicsOfSaintStephen: 'Transfer of The Relics of Saint Stephen',  // TODO: In Translationis de reliquiis S. Stephani Hungariae
+    vietnameseMartyrs: 'S. Martyrum Vietnamicæ',
     visitationOfTheBlessedVirginMary: 'In Visitatione B. Mariæ Virginis',
     // waitangiDay: 'Waitangi Day',
   },
