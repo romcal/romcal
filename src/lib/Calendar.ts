@@ -5,9 +5,10 @@ import { localizeLiturgicalColor } from '@romcal/lib/Locales';
 import { isNil } from '@romcal/utils/type-guards';
 import Config from '@romcal/models/romcal-config';
 import { RomcalDateItem, RomcalDateItemInput, RomcalDateItemData } from '@romcal/models/romcal-date-item';
-import { find, removeWhere, groupByKey, concatAll } from '@romcal/utils/array';
+import { find, removeWhere, concatAll } from '@romcal/utils/array';
 import { TYPES } from '@romcal/constants/types.constant';
 import { TypesEnum } from '@romcal/enums/types.enum';
+import _ from 'lodash';
 
 import dayjs from 'dayjs';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
@@ -280,7 +281,7 @@ export class Calendar {
     // Create a dictionary where celebrations on the same date are grouped under
     // it's ISO string date string as the key and loop through each group to see
     // if there's more than one celebration in each group.
-    Object.entries(groupByKey(this.dateItems, 'date')).forEach(([, dateItems]) => {
+    Object.entries(_.groupBy(this.dateItems, 'date')).forEach(([, dateItems]) => {
       if (dateItems.length > 1) {
         // Validate the first date item
         const [dateItem, ...otherDateItems] = dateItems;
