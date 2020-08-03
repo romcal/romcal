@@ -69,13 +69,14 @@ export const removeWhere = <O, K extends keyof O>(items: O[], predicate: Record<
  * @param key The key to group by
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const groupByKey = <O extends any, K extends keyof O>(array: O[], key: K): Record<O[K], O[]> => {
-  return array.reduce((objectsByKeyValue, obj) => {
-    const value = obj[key];
-    objectsByKeyValue[value] = (objectsByKeyValue[value] || []).concat(obj);
-    return objectsByKeyValue;
-  }, {} as Record<O[K], O[]>);
-};
+// Todo: fix TS typing (use lodash _.groupBy in the meantime)
+// export const groupByKey = <O extends any, K extends keyof O>(array: O[], key: K): Record<O[K], O[]> => {
+//   return array.reduce((objectsByKeyValue, obj) => {
+//     const value = obj[key];
+//     objectsByKeyValue[value] = (objectsByKeyValue[value] || []).concat(obj);
+//     return objectsByKeyValue;
+//   }, {} as Record<O[K], O[]>);
+// };
 
 /**
  * Loop through an array asynchronously.
