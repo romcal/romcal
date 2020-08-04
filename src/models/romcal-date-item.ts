@@ -124,7 +124,7 @@ export class RomcalDateItem implements IRomcalDateItem {
    */
   public data: DateItemData;
   /**
-   * A previous celebration on the same day that was overriden by the current one.
+   * A previous celebration on the same day that was overridden by the current one.
    */
   public base: RomcalDateItem | undefined;
   /**
@@ -174,7 +174,7 @@ export class RomcalDateItem implements IRomcalDateItem {
    * Memorials or Optional Memorials that fall on a feria
    * in the season of Lent are reduced to Commemorations.
    *
-   * Feasts occuring in the season of Lent are also reduced to
+   * Feasts occurring in the season of Lent are also reduced to
    * Commemorations.
    */
   private adjustTypeInSeason(): void {

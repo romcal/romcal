@@ -1,4 +1,4 @@
-romcal was orginally developed by [Julian Pereira](https://github.com/pejulian) from Malaysia in July 2014.
+romcal was originally developed by [Julian Pereira](https://github.com/pejulian) from Malaysia in July 2014.
 
 Since then, many significant contributions have been made towards the progress of this library.
 

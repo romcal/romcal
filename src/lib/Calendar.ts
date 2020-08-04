@@ -209,7 +209,7 @@ export class Calendar {
       .filter(({ key }) => key === currentKey)
       .forEach(({ data: previousData, _id: previousId }) => {
         if (!previousData.prioritized || (previousData.prioritized && currentData?.prioritized)) {
-          // Remove previous item if it isn't priortized
+          // Remove previous item if it isn't prioritized
           // Remove previous item if both items are prioritized.
           removeWhere(this.dateItems, { _id: previousId });
         }

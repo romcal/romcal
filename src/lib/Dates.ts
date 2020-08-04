@@ -119,7 +119,7 @@ const holyThursday = (year: number): dayjs.Dayjs =>
     .subtract(3, 'day')
     .startOf('day');
 
-// Palm Sunday is a Christian moveable feast that
+// Palm Sunday is a Christian movable feast that
 // falls on the Sunday before Easter.
 // y: year
 const palmSunday = (year: number): dayjs.Dayjs =>
@@ -537,7 +537,7 @@ const josephHusbandOfMary = (year: number): dayjs.Dayjs => {
 const annunciation = (year: number): dayjs.Dayjs => {
   let date = dayjs.utc(`${year}-3-25`);
 
-  // If it occurs on a Sunday of Lent, it is trasferred to the next day (Monday)
+  // If it occurs on a Sunday of Lent, it is transferred to the next day (Monday)
   const sundays = sundaysOfLent(year);
   const match = rangeContainsDate(sundays, date);
 

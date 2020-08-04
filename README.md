@@ -74,7 +74,7 @@ See [contributing](CONTRIBUTING.md) for more information.
     - [national <a name="national"></a>](#national)
   - [Queries <a name="queries"></a>](#queries)
     - [Filtering calendar output by month of year or day of week <a name="filterByMonthOrDay"></a>](#filtering-calendar-output-by-month-of-year-or-day-of-week)
-    - [Grouping calendar output by critieria <a name="groupingByCriteria"></a>](#grouping-calendar-output-by-critieria)
+    - [Grouping calendar output by criteria <a name="groupingByCriteria"></a>](#grouping-calendar-output-by-critieria)
     - [Filtering calendar output by celebration title metadata <a name="filterByTitle"></a>](#filtering-calendar-output-by-celebration-title-metadata)
   - [Multiple queries <a name="multipleQueries"></a>](#multiple-queries)
   - [Overriding dates <a name="overridingDates"></a>](#overriding-dates)
@@ -166,7 +166,7 @@ But if you have edited the codebase, you can update manually the frontend librar
 npm run build
 ```
 
-The frontend library is generated in the `dist` folder, not included in the romcal codebase. When built, it contains `romcal.bundle.min.js`, a minified and obfruscated bundle of romcal + all its dependencies wrapped in a UMD module shell that is suitable for being included directly in browsers.
+The frontend library is generated in the `dist` folder, not included in the romcal codebase. When built, it contains `romcal.bundle.min.js`, a minified and obfuscated bundle of romcal + all its dependencies wrapped in a UMD module shell that is suitable for being included directly in browsers.
 
 ## Usage <a name="usage"></a>
 
@@ -178,13 +178,13 @@ Add romcal to your project via npm:
 $ npm install romcal --save
 ```
 
-Additionally, romcal is also available for installtion via various "release tags" that represent different stages of development for a given version of the code.
+Additionally, romcal is also available for installation via various "release tags" that represent different stages of development for a given version of the code.
 
 - `latest`
-  The latest, stable and production ready version of romcal is always released on the `master` branch. Releases on this branch are tagged in `npm` using the `latest` tag and can be installed via `npm install romcal@latest` or simply `npm install romcal` which defualts to the `latest` tag.
+  The latest, stable and production ready version of romcal is always released on the `master` branch. Releases on this branch are tagged in `npm` using the `latest` tag and can be installed via `npm install romcal@latest` or simply `npm install romcal` which defaults to the `latest` tag.
 
 - `beta`
-  The release candidate for production. Code here is mostly stable but may still lack some tests and so may be subject to some unepected behavior. Install via `npm install romcal@beta`.
+  The release candidate for production. Code here is mostly stable but may still lack some tests and so may be subject to some unexpected behavior. Install via `npm install romcal@beta`.
 
 - `alpha`
   The unstable development release tag. Code here might be unstable and untested. Use at your own risk! Normally, only developers of would use this release for testing purposes. Install via `npm install romcal@alpha`.
@@ -289,7 +289,7 @@ romcal returns an array of liturgical date objects in the following structure
 ```
 
 - `key`: A camel case string which serves as a unique identifier for the celebration. This key is an essential element in [overriding dates](#overriding)
-- `name`: The [localizable name](#localizing) of the celebration
+- `name`: The [localisable name](#localizing) of the celebration
 - `type`: A key representing the [celebration type](#types)
 - `date`: Date of the celebration as a ISO8601 string
 - `source`: The internal calendar [source](#sources) of this celebration
@@ -316,7 +316,7 @@ Each date in the liturgical calendar is assigned a type. romcal defines these ty
 
 Where the importance or rank of the celebration is in descending order (Solemnity being of highest importance and feria being the lowest).
 
-Types play an important role in determining which celebration should take precendence over another when two or more celebrations coincide on the same date. Certain celebration types will also have different liturgical colors applied to them.
+Types play an important role in determining which celebration should take precedence over another when two or more celebrations coincide on the same date. Certain celebration types will also have different liturgical colors applied to them.
 
 The array of types can be imported into consumer apps via:
 
@@ -452,7 +452,7 @@ romcal defines the Psalter Weeks used in the liturgical year in `src/constants/P
 - `Week II`
 - `Week III`
 - `Week IV`
-- `Easter` (seperate set of readings only used during the Octave of Easter)
+- `Easter` (separate set of readings only used during the Octave of Easter)
 
 Psalter weeks can be read via the `dates[idx].data.meta.psalterWeek` property in each date element in the array that `calendarFor` returns.
 
@@ -493,7 +493,7 @@ The module responsible for generating the `liturgical` dates is `src/lib/Seasons
 
 ### celebrations <a name="celebrations"></a>
 
-Represents central celebrations observed in the Roman Catholic rite. They take precendence and will replace coinciding dates from the `liturgical` calendar or `general` calendar.
+Represents central celebrations observed in the Roman Catholic rite. They take precedence and will replace coinciding dates from the `liturgical` calendar or `general` calendar.
 
 Dates from `src/lib/Celebrations.js` will be assigned the source value `c`.
 
@@ -554,9 +554,9 @@ In situations where a given celebration must override one in the general calenda
 
 Represents specific liturgical dates that were approved for use by the Holy See for a particular country. It can be used to define unique celebrations celebrated by that particular country or existing celebrations that were [transferred to another date](https://en.wikipedia.org/wiki/General_Roman_Calendar#Transfer_of_celebrations).
 
-A prioritized celebration in the `national` calendar takes precedence over celebrations in `general`, `celebrations` and `liturgical` calendars. As such, this marker should be used with caution as it may cause national events to override important celebrations that should not be overriden.
+A prioritized celebration in the `national` calendar takes precedence over celebrations in `general`, `celebrations` and `liturgical` calendars. As such, this marker should be used with caution as it may cause national events to override important celebrations that should not be overridden.
 
-In situations when there are 2 celebrations from a `national` calendar that coincide on the same date, the one with the higher ranking celebration type will take precendence.
+In situations when there are 2 celebrations from a `national` calendar that coincide on the same date, the one with the higher ranking celebration type will take precedence.
 
 A new `national` calendar for a country can be defined by creating a new `.js` file with the country name in upper case, lower case or camel case in the `src/lib/calendars` folder (i.e. `malaysia.mjs`). This new file will automatically be picked up by the module and will be used when the user supplies the matching key in the country argument in the `calendarFor` method.
 
@@ -605,7 +605,7 @@ let datesGroupedByMonth = Calendar.queryFor(dates, {
 });
 ```
 
-### Grouping calendar output by critieria <a name="groupingByCriteria"></a>
+### Grouping calendar output by criteria <a name="groupingByCriteria"></a>
 
 Calendar dates can be grouped by various criteria upon invocation like so:
 
@@ -671,23 +671,23 @@ The order of importance of calendar sources are: `celebrations` > `national` > `
 Prioritizing a date allows it to:
 
 - Override a higher ranking `type` date object with the same key
-- Prevent it from being overriden by other coinciding dates
+- Prevent it from being overridden by other coinciding dates
 
 A date can be prioritized by adding `prioritized`: `true` to the `data` object in the given date object. See `src/lib/Celebrations.js` for more examples.
 
-All dates in `src/lib/Celebrations.js` (Christmas, Easter) are prioritized as they must override any other date in the liturgical calendar and cannot be overriden by any other coinciding date regardless of rank **unless** the coinciding date is itself prioritized
+All dates in `src/lib/Celebrations.js` (Christmas, Easter) are prioritized as they must override any other date in the liturgical calendar and cannot be overridden by any other coinciding date regardless of rank **unless** the coinciding date is itself prioritized
 
-For example, `allSaints` in `src/lib/Celebrations.js` can be overriden by `allSaints` in `src/calendars/england.js`) because the entry in that `national` calendar was set with `prioritized`: `true`.
+For example, `allSaints` in `src/lib/Celebrations.js` can be overridden by `allSaints` in `src/calendars/england.js`) because the entry in that `national` calendar was set with `prioritized`: `true`.
 
-> :warning: If a coinciding date’s source is from the `celebration` or `national` calendars, _but_ the prioritized date is defined in the `general` calendar, it _will still be_ overidden by the coinciding date because `celebration` and `national` calendar sources have higher precedence (see [Overriding a date by its calendar source](#overridingBySource) section).
+> :warning: If a coinciding date’s source is from the `celebration` or `national` calendars, _but_ the prioritized date is defined in the `general` calendar, it _will still be_ overridden by the coinciding date because `celebration` and `national` calendar sources have higher precedence (see [Overriding a date by its calendar source](#overridingBySource) section).
 
 ### Overriding a date by its key <a name="overridingByKey"></a>
 
-In most countries, All Saints and All Souls are always celebrated on the 1st and 2nd of November respectively. However, in England and Wales, if All Saints (1 November) falls on a Saturday, it is transferred to the Sunday and All Souls is transferred to Monday 3rd Novemeber.
+In most countries, All Saints and All Souls are always celebrated on the 1st and 2nd of November respectively. However, in England and Wales, if All Saints (1 November) falls on a Saturday, it is transferred to the Sunday and All Souls is transferred to Monday 3rd November.
 
 romcal implements this unique difference by overriding the `allSouls` and `allSaints` celebrations in the national calendars of `src/calendars/england.js` and `src/calendars/wales.js` (the original definition was in `src/calendars/general.js`). The overriding dates in these calendars define a IIFE callback function for the `date` property that holds logic for determining if the date should be moved.
 
-Since national calendar dates have higher precendence than general calendar dates, the national date definitions for All Saints and All Souls will override the ones in the general calendar.
+Since national calendar dates have higher precedence than general calendar dates, the national date definitions for All Saints and All Souls will override the ones in the general calendar.
 
 Also, since prioritized dates in the national calendar sources can override dates in celebration calendar sources, the date definitions for All Saints and All Souls will now be taken from the national calendar.
 
@@ -772,7 +772,7 @@ The structure of the locale file is typically like so:
 }
 ```
 
-The first 7 objects define locale keys used by `src/lib/Seasons.js` when generating litugical dates.
+The first 7 objects define locale keys used by `src/lib/Seasons.js` when generating liturgical dates.
 
 The `celebrations`, `general` and `national` objects will hold localizations for `src/lib/Celebrations.js`, `src/calendars/general.js` and `src/calendars/<country>.js` respectively where the celebrations `key` is used as the identifier for localization purposes.
 
@@ -791,6 +791,6 @@ Utils.localize({
 });
 ```
 
-- `key`: A dot deliminated string representing the locale key (`celebrations.christmas`)
-- `week`: A non zero integer for weeks which will be converted to its ordinal representation (1st Sunday of Advent)
-- `count`: A non zero integer for days which will be converted to its ordinal representation (2nd Sunday of Christmas)
+- `key`: A dot delimited string representing the locale key (`celebrations.christmas`)
+- `week`: A non-zero integer for weeks which will be converted to its ordinal representation (1st Sunday of Advent)
+- `count`: A non-zero integer for days which will be converted to its ordinal representation (2nd Sunday of Christmas)
