@@ -36,8 +36,8 @@ import { PSALTER_WEEKS } from '@romcal/constants/psalter-weeks.constant';
 import { LITURGICAL_SEASONS } from '@romcal/constants/liturgical-seasons.constant';
 import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant';
 import { TITLES } from '@romcal/constants/titles.constant';
-import { TypesEnum } from '@romcal/enums/types.enum';
-import { TYPES } from '@romcal/constants/types.constant';
+import { RanksEnum } from '../enums/ranks.enum';
+import { RANKS } from '../constants/ranks.constant';
 import { Types } from '@romcal/types/types.type';
 
 dayjs.extend(utc);
@@ -192,9 +192,9 @@ describe('Testing calendar generation functions', () => {
         expect(Object.keys(dates)).toEqual(['Year B', 'Year C']);
       });
 
-      test('Should group dates by their celebration types', async () => {
+      test('Should group dates by their celebration ranks', async () => {
         const typeKeys = Object.keys(Romcal.queryFor(await Romcal.calendarFor(), { group: 'types' }));
-        expect(typeKeys.every(typeKey => Object.keys(TYPES).includes(typeKey as Types))).toBeTrue();
+        expect(typeKeys.every(typeKey => Object.keys(RANKS).includes(typeKey as Types))).toBeTrue();
       });
 
       test('Should group dates by their liturgical seasons', async () => {
@@ -230,7 +230,7 @@ describe('Testing calendar generation functions', () => {
     describe('Testing advanced filters', () => {
       test('The proper color of a Memorial or a Feast is white except for martyrs in which case it is red', async () => {
         const calendar = (await Romcal.calendarFor({ query: { group: 'types' } })) as Dictionary<RomcalDateItem[]>;
-        _.get(calendar, TypesEnum.FEAST).forEach(d => {
+        _.get(calendar, RanksEnum.FEAST).forEach(d => {
           if (d.key === 'theExaltationOfTheHolyCross') {
             expect(d.data.meta.liturgicalColor?.key).toEqual(LITURGICAL_COLORS.RED.key);
           } else {
@@ -245,7 +245,7 @@ describe('Testing calendar generation functions', () => {
             }
           }
         });
-        _.get(calendar, TypesEnum.MEMORIAL).forEach(d => {
+        _.get(calendar, RanksEnum.MEMORIAL).forEach(d => {
           if (!isNil(d.data.meta.titles)) {
             if (d.data.meta.titles.includes(TITLES.MARTYR)) {
               expect(d.data.meta.liturgicalColor?.key).toEqual(LITURGICAL_COLORS.RED.key);
@@ -261,7 +261,7 @@ describe('Testing calendar generation functions', () => {
       test('The proper color for the Chair of Peter and the Conversion of St. Paul is white, although both St. Peter and St. Paul were martyrs.', async () => {
         const dates = await Romcal.calendarFor();
         const calendar = Romcal.queryFor(dates, { group: 'types' });
-        getValueByKey(calendar, TypesEnum.FEAST).forEach(d => {
+        getValueByKey(calendar, RanksEnum.FEAST).forEach(d => {
           if (d.key === 'chairOfSaintPeter' || d.key === 'conversionOfSaintPaulApostle') {
             expect(d.data.meta.liturgicalColor?.key).toEqual(LITURGICAL_COLORS.WHITE.key);
           }

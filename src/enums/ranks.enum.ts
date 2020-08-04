@@ -1,10 +1,10 @@
 /**
- * Rank of celebration types.
+ * Rank of celebrations.
  * Order is important: higher rank first, lower rank at the end.
  */
-export enum TypesEnum {
+export enum RanksEnum {
   /**
-   * The highest ranking celebration type.
+   * The highest celebration rank.
    */
   SOLEMNITY = 0,
   SUNDAY,
