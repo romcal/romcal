@@ -217,17 +217,15 @@ export class Calendar {
   }
 
   /**
-   * Sort all DateItems by relevance (the most relevant first)
-   * and drop the non-relevant DateItems.
-   *
-   * Reorder the DateItems of a particular day, so that
-   * when there are optional memorials or commemoration only (in addition to the feria),
-   * the feria item is moved to the top before the optional items,
-   * since it's the default item if none of the optional items are celebrated.
-   * Sort all date items by relevance (the most relevant first),
+   * Sort all RomcalDateItems by relevance (the most relevant first)
    * in this order: by date, by priority, by rank, by stack.
+   * and drop the non-relevant DateItems.
    */
   _sortAndKeepRelevant(): void {
+    // Reorder the DateItems of a particular day, so that
+    // when there are optional memorials or commemoration only (in addition to the feria),
+    // the feria item is moved to the top before the optional items,
+    // since it's the default item if none of the optional items are celebrated.
     const ranks = RANKS.slice(0, RANKS.length - 1);
     ranks.splice(ranks.indexOf('MEMORIAL') + 1, 0, RANKS[RANKS.length - 1]);
 
@@ -253,10 +251,8 @@ export class Calendar {
           } else {
             // If neither date is prioritized
             // 3. Sort by type (higher type first)
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const type1 = ranks.indexOf(RANKS[firstRank] as any);
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const type2 = ranks.indexOf(RANKS[nextRank] as any);
+            const type1 = ranks.indexOf(firstRank);
+            const type2 = ranks.indexOf(nextRank);
             if (type1 < type2) {
               return -1;
             } else if (type1 > type2) {
@@ -288,11 +284,7 @@ export class Calendar {
         const [dateItem, ...otherDateItems] = dateItems;
         // If the first date item has a type equal or higher than a MEMORIAL, or is prioritized:
         // keep only the first item and discard all others celebration in the array
-        if (
-          dateItem.data.prioritized ||
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          ranks.indexOf(RANKS[dateItem.rank] as any) <= ranks.indexOf(RANKS[RanksEnum.MEMORIAL] as any)
-        ) {
+        if (dateItem.data.prioritized || ranks.indexOf(dateItem.rank) <= ranks.indexOf(RanksEnum.MEMORIAL)) {
           otherDateItems.forEach(({ _id }) => {
             removeWhere(this.dateItems, { _id });
           });

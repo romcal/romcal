@@ -6,13 +6,13 @@ export enum RanksEnum {
   /**
    * The highest celebration rank.
    */
-  SOLEMNITY = 0,
-  SUNDAY,
-  TRIDUUM,
-  HOLY_WEEK,
-  FEAST,
-  MEMORIAL,
-  OPT_MEMORIAL,
-  COMMEMORATION,
-  FERIA,
+  SOLEMNITY = 'SOLEMNITY',
+  SUNDAY = 'SUNDAY',
+  TRIDUUM = 'TRIDUUM',
+  HOLY_WEEK = 'HOLY_WEEK',
+  FEAST = 'FEAST',
+  MEMORIAL = 'MEMORIAL',
+  OPT_MEMORIAL = 'OPT_MEMORIAL',
+  COMMEMORATION = 'COMMEMORATION',
+  FERIA = 'FERIA',
 }
