@@ -1,7 +1,7 @@
 import { ElementType } from '@romcal/utils/helpers';
-import { TYPES } from '@romcal/constants/types.constant';
+import { RANKS } from '@romcal/constants/ranks.constant';
 
 /**
  * A dynamically generated type consisting of all extracted type keys.
  */
-export type Types = ElementType<typeof TYPES>;
+export type Types = ElementType<typeof RANKS>;

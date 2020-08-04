@@ -5,7 +5,7 @@ import * as Dates from '@romcal/lib/Dates';
 import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant';
 import { RomcalDateItemInput } from '@romcal/models/romcal-date-item';
 import Config, { IRomcalDefaultConfig } from '@romcal/models/romcal-config';
-import { TypesEnum } from '@romcal/enums/types.enum';
+import { RanksEnum } from '@romcal/enums/ranks.enum';
 
 const defaultConfig: IRomcalDefaultConfig | undefined = undefined;
 
@@ -14,17 +14,17 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
   const _dates: Array<RomcalDateItemInput> = [
     {
       key: 'blessedLauraVicunaVirgin',
-      type: TypesEnum.OPT_MEMORIAL,
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-22`),
     },
     {
       key: 'blessedPiusIxPope',
-      type: TypesEnum.OPT_MEMORIAL,
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-2-7`),
     },
     {
       key: 'ourLadyOfLourdes',
-      type: TypesEnum.MEMORIAL,
+      rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-2-11`),
       data: {
         meta: {
@@ -34,7 +34,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
     },
     {
       key: 'saintsPhilipAndJamesApostles',
-      type: TypesEnum.FEAST,
+      rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-5-4`),
       data: {
         meta: {
@@ -44,7 +44,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
     },
     {
       key: 'saintTeresaOfLosAndesVirgin',
-      type: TypesEnum.FEAST,
+      rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-7-13`),
       data: {
         meta: {
@@ -54,17 +54,17 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
     },
     {
       key: 'saintCamillusDeLellisPriest',
-      type: TypesEnum.OPT_MEMORIAL,
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-14`),
     },
     {
       key: 'saintHenry',
-      type: TypesEnum.OPT_MEMORIAL,
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-14`),
     },
     {
       key: 'ourLadyOfMountCarmelMotherAndQueenOfChile',
-      type: TypesEnum.SOLEMNITY,
+      rank: RanksEnum.SOLEMNITY,
       date: dayjs.utc(`${year}-7-16`),
       data: {
         meta: {
@@ -74,7 +74,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
     },
     {
       key: 'saintAlbertoHurtadoPriest',
-      type: TypesEnum.MEMORIAL,
+      rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-8-18`),
       data: {
         meta: {
@@ -84,7 +84,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
     },
     {
       key: 'saintRoseOfLima',
-      type: TypesEnum.FEAST,
+      rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-8-30`),
       data: {
         meta: {
@@ -94,12 +94,12 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
     },
     {
       key: 'ourLadyOfMercy',
-      type: TypesEnum.OPT_MEMORIAL,
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-24`),
     },
     {
       key: 'ourLadyOfGuadalupe',
-      type: TypesEnum.FEAST,
+      rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-12-12`),
       data: {
         meta: {
@@ -109,7 +109,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
     },
     {
       key: 'ourLordJesusChristTheEternalHighPriest',
-      type: TypesEnum.FEAST,
+      rank: RanksEnum.FEAST,
       date: ((y: number): dayjs.Dayjs =>
         dayjs.utc(
           Dates.pentecostSunday(y)

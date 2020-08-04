@@ -6,8 +6,8 @@ import { isNil } from '@romcal/utils/type-guards';
 import Config from '@romcal/models/romcal-config';
 import { RomcalDateItem, RomcalDateItemInput, RomcalDateItemData } from '@romcal/models/romcal-date-item';
 import { find, removeWhere, concatAll } from '@romcal/utils/array';
-import { TYPES } from '@romcal/constants/types.constant';
-import { TypesEnum } from '@romcal/enums/types.enum';
+import { RANKS } from '@romcal/constants/ranks.constant';
+import { RanksEnum } from '@romcal/enums/ranks.enum';
 import _ from 'lodash';
 
 import dayjs from 'dayjs';
@@ -180,14 +180,14 @@ export class Calendar {
         // Find the season date that has the same date as the incoming item and make it the base item.
         const baseItem = find(this.dateItems, { date: item.date.toISOString(), _stack: 0 });
 
-        const { key, name, type, data, date } = item;
-        if (!isNil(key) && !isNil(name) && !isNil(type) && !isNil(date)) {
+        const { key, name, rank, data, date } = item;
+        if (!isNil(key) && !isNil(name) && !isNil(rank) && !isNil(date)) {
           // Create a new DateItem and add it to the collection
           this.dateItems.push(
             new RomcalDateItem({
               key,
               name,
-              type,
+              rank,
               date,
               data: (data as Required<RomcalDateItemData>) ?? {},
               _stack: index, // The stack number refers to the index in the calendars array in which this celebration's array is placed at
@@ -225,15 +225,16 @@ export class Calendar {
    * the feria item is moved to the top before the optional items,
    * since it's the default item if none of the optional items are celebrated.
    * Sort all date items by relevance (the most relevant first),
-   * in this order: by date, by priority, by type, by stack.
+   * in this order: by date, by priority, by rank, by stack.
    */
   _sortAndKeepRelevant(): void {
-    const types = TYPES.slice(0, TYPES.length - 1);
-    types.splice(types.indexOf('MEMORIAL') + 1, 0, TYPES[TYPES.length - 1]);
+    const ranks = RANKS.slice(0, RANKS.length - 1);
+    ranks.splice(ranks.indexOf('MEMORIAL') + 1, 0, RANKS[RANKS.length - 1]);
+
     this.dateItems.sort(
       (
-        { date: firstDate, data: firstData, type: firstType, _stack: firstStack }: RomcalDateItem,
-        { date: nextDate, data: nextData, type: nextType, _stack: nextStack }: RomcalDateItem,
+        { date: firstDate, data: firstData, rank: firstRank, _stack: firstStack }: RomcalDateItem,
+        { date: nextDate, data: nextData, rank: nextRank, _stack: nextStack }: RomcalDateItem,
       ): number => {
         // 1. Sort by date
         if (dayjs.utc(firstDate).isBefore(dayjs.utc(nextDate))) {
@@ -253,22 +254,22 @@ export class Calendar {
             // If neither date is prioritized
             // 3. Sort by type (higher type first)
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const type1 = types.indexOf(TYPES[firstType] as any);
+            const type1 = ranks.indexOf(RANKS[firstRank] as any);
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const type2 = types.indexOf(TYPES[nextType] as any);
+            const type2 = ranks.indexOf(RANKS[nextRank] as any);
             if (type1 < type2) {
               return -1;
             } else if (type1 > type2) {
               return 1;
             } else {
-              // If the types are the same
+              // If the ranks are the same
               // 4. Sort by stack (higher stack first)
               if (firstStack > nextStack) {
                 return -1;
               } else if (firstStack < nextStack) {
                 return 1;
               } else {
-                return 0; // No idea how to sort this...
+                return 0;
               }
             }
           }
@@ -290,7 +291,7 @@ export class Calendar {
         if (
           dateItem.data.prioritized ||
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          types.indexOf(TYPES[dateItem.type] as any) <= types.indexOf(TYPES[TypesEnum.MEMORIAL] as any)
+          ranks.indexOf(RANKS[dateItem.rank] as any) <= ranks.indexOf(RANKS[RanksEnum.MEMORIAL] as any)
         ) {
           otherDateItems.forEach(({ _id }) => {
             removeWhere(this.dateItems, { _id });
