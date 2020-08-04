@@ -198,25 +198,25 @@ export default {
     blessedVilmosAporBishopAndMartyr: 'B. Gulielmi Apor, episcopi et martyris',
     blessedVincentKadlubekBishop: 'B. Vincentii Kadłubek, episcopi',  // Or Kadłubkonis
     blessedVincentLewoniukAndCompanionsMartyrsOfPratulin: 'Beatorum Martyrum de Pratulin',  // Or B. Vincentii Lewoniuk et sociorum, martyrum ... https://www.ojs.tnkul.pl/index.php/rnp/article/download/8181/8133
-    // blessedVladimirGhikaPriestAndMartyr: 'Blessed Vladimir Ghika, Priest and Martyr',
-    // blessedWladyslawBladzinskiPriestAndCompanionsMartyrs: 'Blessed Wladyslaw Bladzinski, Priest and Companions, Martyrs',
-    // blessedWladyslawOfGielniowPriest: 'Blessed Wladyslaw Of Gielniow, Priest',
-    // blessedZdenkaSchelingovaVirginAndMartyr: 'Blessed Zdenka Schelingova, Virgin and Martyr',
+    blessedVladimirGhikaPriestAndMartyr: 'B. Vladimiri Ghika, presbyteri et martyris',
+    blessedWladyslawBladzinskiPriestAndCompanionsMartyrs: 'B. Ladislai Błądziński, presbyteri, et sociorum, martyrum',  // Also known collectively as either 108 Martyrs of World War II or 108 Blessed Polish Martyrs ... http://www.vatican.va/content/john-paul-ii/la/apost_letters/1999/documents/hf_jp-ii_apl_19990613_supervincimus-per-eum.pdf ... https://en.wikipedia.org/wiki/108_Martyrs_of_World_War_II
+    blessedWladyslawOfGielniowPriest: 'B. Ladislai a Gielniów, presbyteri',  // Or de Gielniów or Gelniovii
+    blessedZdenkaSchelingovaVirginAndMartyr: 'B. Sidoniæ Cæciliæ Scheling, virginis et martyris',  // http://www.vatican.va/roman_curia/congregations/ccdds/notitiae/2015/notitiae2015-2.pdf
     chairOfSaintPeterApostle: 'Cathedræ S. Petri, apostoli',
     conversionOfSaintPaulApostle: 'In conversione S. Pauli, apostoli',
-    // dedicationOfAParticularChurch: 'Dedication of a particular Church',
+    dedicationOfAParticularChurch: 'In Dedicatione Ecclesiæ, quorum die consecratione ignotus est',  // TODO: This must proofread, as I could not find this one online
     dedicationOfTheBasilicaOfSaintMaryMajor: 'In Dedicatione basilicæ S. Mariæ',
     dedicationOfTheBasilicasOfSaintsPeterAndPaulApostles: 'In Dedicatione basilicarum Ss. Petri et Pauli, apostolorum',
     dedicationOfTheLateranBasilica: 'In Dedicatione basilicæ Lateranensis',
-    // discoveryOfTheHiddenChristians: 'Discovery of The Hidden Christians',
-    // findingOfTheHolyCross: 'Finding of The Holy Cross',
+    discoveryOfTheHiddenChristians: 'B. Mariæ Virginis a Inventio occulti Christiani',  // TODO: This must proofread, as I could not find this one online ... https://en.wikipedia.org/wiki/Kakure_Kirishitan
+    findingOfTheHolyCross: 'In Inventione Sanctae Crucis',
     firstMartyrsOfTheChurchOfRome: 'Ss. Protomartyrum S. Romanæ Ecclesiæ',
     guardianAngelOfPortugal: 'Ss. Angelorum Custodum Lusitaniæ',
     guardianAngels: 'Ss. Angelorum Custodum',
     holyInnocentsMartyrs: 'Ss. Innocentium, martyrum',
     holyNameOfTheBlessedVirginMary: 'Ss.mi Nominis Mariæ',
-    // hungarianSaintsAndBlesseds: 'Hungarian Saints and Blesseds',
-    // immaculateConceptionOfTheBlessedVirginMaryPrincipalPatronessOfThePhilippines: 'Immaculate Conception of The Blessed Virgin Mary, Principal Patroness Of The Philippines',
+    hungarianSaintsAndBlesseds: 'Omnium Sanctorum et Beatorum Hungariæ',
+    immaculateConceptionOfTheBlessedVirginMaryPrincipalPatronessOfThePhilippines: 'In Conceptione Immaculata Beatæ Mariæ Virginis, Principal Patroness Of The Philippines',  // TODO: Translate `Principal Patroness Of The Philippines`
     maryMotherOfTheChurch: 'B. Mariæ Virginis Ecclesiæ Matris',
     ourLadyHelpOfChristians: 'B. Mariæ Virginis Auxilium Christianorum',
     ourLadyMediatrix: 'B. Mariæ Virginis Mediatricis',
@@ -227,7 +227,7 @@ export default {
     ourLadyOfAparecidaPatronessOfBrazil: 'B. Mariæ Virginis de Aparecida, Patronæ Brasiliæ',
     ourLadyOfBethlehem: 'B. Mariæ Virginis de Bethlehem',
     ourLadyOfBistrica: 'B. Mariæ Virginis de Bistrica',
-    // ourLadyOfChina: 'Our Lady of China',  // 'de Sinæ' vel 'Sinæ'? https://la.wikipedia.org/wiki/Sinae_(regio)
+    ourLadyOfChina: 'B. Mariæ Virginis de Sinæ',  // TODO: 'de Sinæ' vel 'Sinæ' vel 'Sinarum'? https://la.wikipedia.org/wiki/Sinae_(regio)
     ourLadyOfCzestochowa: 'B. Mariæ Virginis de Czestochowa',
     ourLadyOfFatima: 'B. Mariæ Virginis de Fatima',
     ourLadyOfGoodCounsel: 'B. Mariæ Virginis boni Consilii Matris',
@@ -252,9 +252,9 @@ export default {
     ourLadyOfTheGateOfDawn: 'B. Mariæ Virginis Portæ Auroræ',
     ourLadyOfThePillar: 'B. Mariæ Virginis a Columna',
     ourLadyOfTheRosary: 'B. Mariæ Virginis a Rosario',
-    // ourLadyOfTheValley: 'Our Lady of The Valley',
-    // ourLadyOfVladimir: 'Our Lady of Vladimir',  // Dei Genetrix Volodimiriensis
-    // ourLadyOfWalsingham: 'Our Lady of Walsingham',
+    ourLadyOfTheValley: 'B. Mariæ Virginis de Valle',  // TODO: Should it be rather `Dominae Nostrae de Valle`? ... http://www.vatican.va/content/john-paul-ii/la/apost_letters/1981/documents/hf_jp-ii_apl_19810316_pluribus-iam.html
+    ourLadyOfVladimir: 'B. Mariæ Virginis Volodimiriensis',  // TODO: Should it be rather `Dei Genetrix Volodimiriensis`? ... https://la.wikipedia.org/wiki/Dei_genetrix_Volodimiriensis
+    ourLadyOfWalsingham: 'B. Mariæ Virginis de Walsingham',
     ourLadyQueenOfPeace: 'B. Mariæ Virginis Reginæ Pacis',
     ourLadyQueenOfPoland: 'B Mariæ Virginis Reginæ Poloniæ',
     ourLordJesusChristTheEternalHighPriest: 'Domini nostri Iesu Christi, Summi et Æterni Sacerdotis',
@@ -328,7 +328,7 @@ export default {
     saintBrendanAbbot: 'S. Brendani, abbatis',
     saintBridgetOfSwedenReligious: 'S. Birgittæ, religiosæ',  // TODO: (1) Add `patron of Europe` separately; (2) translate `patron of Europe` into Latin
     saintBrigidVirgin: 'S. Brigidæ, virginis',
-    // saintBrotherMutienMarieReligious: 'Saint Brother Mutien Marie, Religious',  // Mucinus or Mutinus or something else?
+    saintBrotherMutienMarieReligious: 'S. Muciani Mariæ Wiaux, religiosi',
     saintBrunoBonifaceOfQuerfurtBishopAndMartyr: 'S. Brunonis a Querfurt, episcopi et martyris',
     saintBrunoPriest: 'S. Brunonis, presbyteri',
     saintCaesariusOfArlesBishop: 'S. Cæsarii Arelatensis, episcopi',
@@ -341,7 +341,7 @@ export default {
     saintCasimir: 'S. Casimiri',
     saintCatherineOfAlexandriaVirginAndMartyr: 'S. Catharinæ Alexandrinæ, virginis et martyris',
     saintCatherineOfSienaVirginAndDoctorOfTheChurch: 'S. Catharinæ Senensis, virginis et Ecclesiæ doctoris',  // TODO: (1) Add `patron of Europe` separately; (2) translate `patron of Europe` into Latin
-    // saintCeallachCelsusBishop: 'Saint Ceallach (Celsus), Bishop',  // Celsi, ep
+    saintCeallachCelsusBishop: 'S. Celsi, episcopi',
     saintCeciliaVirginAndMartyr: 'S. Cæciliæ, virginis et martyris',
     saintCharbelMakhloufPriestAndHermit: 'S. Sarbelii Makhlūf, presbyteri',
     saintCharlesBorromeoBishop: 'S. Caroli Borromeo, episcopi',
@@ -368,7 +368,7 @@ export default {
     saintDamienDeVeusterPriest: 'S. Damiani de Veuster, presbyteri',
     saintDavidBishop: 'S. Davidis, episcopis',
     saintDavidLewisPriestAndMartyr: 'S. Davidi Lewis, presbyteri et martyris',  // He is one of the Forty Martyrs of England
-    // saintDavnetVirgin: 'Saint Davnet, Virgin',  // Alt: Damnat; Do not confuse her with St Dymphne!
+    saintDavnetVirgin: 'S. Dymphnæ, virginis',  // TODO: Add some differentiator, because in Latin, her name is same as St Dymphna, who was martyred at Geel ... https://en.wikipedia.org/wiki/Dymphna ... https://en.wikipedia.org/wiki/Damnat
     saintDeclanBishop: 'S. Declani, episcopi',
     saintDeiniolBishop: 'S. Dainioli, episcopi',
     saintDemetrius: 'S. Demetrii Thessalonicensis',
@@ -389,7 +389,7 @@ export default {
     saintEricIxMartyr: 'S. Erici regis Sueciæ, martyris',  // TODO: Should we omit `regis`?
     saintEtheldredaAudreyVirgin: 'S. Æthelthrythæ, virginis',
     saintEugeneDeMazenodBishop: 'S. Caroli Iosephi Eugenii de Mazenod, episcopi',
-    // saintEugeneEoghanBishop: 'Saint Eugene (Eoghan), Bishop',  // Eugenius
+    saintEugeneEoghanBishop: 'S. Eugenii, episcopi',
     saintEulaliaOfMeridaVirginAndMartyr: 'S. Eulaliæ Emeritensis, virginis et martyris',
     saintEulogiusOfCordobaBishop: 'S. Eulogii Cordubensis, episcopi',  // Or rather Toletanus?
     saintEusebiusOfVercelliBishop: 'S. Eusebii Vercellensis, episcopi',
@@ -397,7 +397,7 @@ export default {
     saintEzequielMorenoBishop: 'S. Ezechielis Moreno, episcopi',
     saintFabianPopeAndMartyr: 'S. Fabiani, papæ et martyris',
     saintFachananOfKilfenoraBishop: 'S. Fachanani Finaborensis, episcopi',
-    // saintFachtnaBishop: 'Saint Fachtna, Bishop',  // ??? Fachanani (different one from St Fachanan of Kilfenora)
+    saintFachtnaBishop: 'S. Fachanani, episcopi',  // TODO: We might want to add a differentiator, as we have two saints with Fachanunus name in Latin (the either one being St Fachanan of Kilfenora) ... We might want to name this one as `Fachtna Facundus` in Latin
     saintFaustinaKowalskaVirginAndReligious: 'S. Faustinæ Kowalska, virginis et religiosæ',
     saintFelipeDeJesusPriestAndMartyr: 'S. Philippi a Iesu, presbyteri et martyris',
     saintFerdinand: 'S. Ferdinandi',
@@ -434,8 +434,9 @@ export default {
     saintGertrudeOfNivellesAbbess: 'S. Gertrudis Nivellensis, abatissæ',
     saintGertrudeOfNivellesVirgin: 'S. Gertrudis Nivellensis, abatissæ',  // dupe of saintGertrudeOfNivellesAbbess
     saintGertrudeTheGreatVirgin: 'S. Gertrudis, virginis',
-    // saintGobnaitVirgin: 'Saint Gobnait, Virgin',  // TODO: [English] Gobnait, Gobnat, Mo Gobnat, Abigail, Deborah; What is the Latinised version of the saint's name?
-    // saintGonsaloGarciaMartyr: 'Saint Gonsalo Garcia, Martyr',  // TODO: ??? Gundisalvus
+    saintGobnaitVirgin: 'S. Gobnatæ, virginis',
+    Dedit hanc sedem S. Abbanus S. Gobnatae; cujus tempora hactenus non videntur fuisse definita.
+    saintGonsaloGarciaMartyr: 'S. Gundisalvi García, martyris',  // He is one of the companions of St Paul Miki
     saintGorazdAndCompanions: 'Ss. Gorazdi et sociorum',
     saintGotthardBishop: 'S. Gotthardi, episcopi',
     saintGregoryTheGreatPopeAndDoctor: 'S. Gregorii Magni, papæ et Ecclesiæ doctoris',
@@ -559,17 +560,17 @@ export default {
     saintLydiaOfPhilippi: 'S. Lydiæ',
     saintMacartanBishop: 'S. Macartini, episcopi',
     saintMacNissiBishop: 'S. Macnisi, episcopi',
-    // saintMaelruainMaolruainVirgin: 'Saint Maelruain (Maolruain), Bishop',  // Don't confuse him with the later namesake Máel Ruain, bishop of Lusca
+    saintMaelruainMaolruainVirgin: 'Saint Maelruain, episcopi',  // TODO: We might want to add a name distinguisher, because he has a namesake Máel Ruain, bishop of Lusca
     saintMagnusMartyr: 'S. Magni, martyris',
     saintMalachyBishop: 'S. Malachi, episcopi',
     saintMarcellinChampagnatPriest: 'S. Marcellini Iosephi Benedicti Champagnat, presbyteri',
-    saintretMaryAlacoqueVirgin: 'S. Margaritæ Mariæ Alacoque, virginis',
+    saintMargaretMaryAlacoqueVirgin: 'S. Margaritæ Mariæ Alacoque, virginis',
     saintMargaretOfAntiochVirginAndMartyr: 'S. Margaritæ, virginis et martyris',
     saintMargaretOfHungary: 'S. Margaritæ Hungariæ',
     saintMargaretOfScotland: 'S. Margaritæ Scotiæ',
     saintMargueriteBourgeoysVirgin: 'S. Margaritæ Bourgeoys, virginis',
     saintMargueriteDYouvilleReligious: 'S. Margaritæ d’Youville, religiosæ',
-    saintMariaDeJesusSacramentadoVenegasVirgin: 'S. Mariae a Iesu Sacramentato, virginis',
+    saintMariaDeJesusSacramentadoVenegasVirgin: 'S. Mariæ a Iesu Sacramentato, virginis',
     saintMariaGorettiVirginAndMartyr: 'S. Mariæ Goretti, virginis et martyris',
     saintMariaGuadalupeGarciaZavalaVirgin: 'S. Mariæ Guadalupe García Zavala, virginis',
     saintMariaMicaelaOfTheBlessedSacramentVirgin: 'S. Mariæ Michaelæ a Sanctissimo Sacramento, virginis',
@@ -769,8 +770,8 @@ export default {
     sevenHolyFoundersOfTheServiteOrder: 'Ss. Septem Fundatorum Ordinis Servorum B. M. V.',
     sevenMartyredNunsFromTheFranciscanMissionariesOfMary: 'Ss. septem sorores ex Instituto Franciscanum Missionariarum Mariæ, martyrum',  // They all were one of the Martyr Saints of China; They are some of the 118 companions of Augustine Zhao Rong
     shipwreckOfSaintPaulApostle: 'Naufragii S. Pauli, apostoli',
-    // shroveMonday: 'Shrove Monday',
-    // shroveTuesday: 'Shrove Tuesday',
+    // shroveMonday: 'Shrove Monday',  // AFAIK (@tukusejssirs), there is no Shrovetide in `cal1969` (and never was); actually, there is no Shrovetide (and never was); there was Pre-Lenten Time (Septuagesima in Latin, for it started 70 days before Easter) in calendars before `cal1969`
+    // shroveTuesday: 'Shrove Tuesday',  // AFAIK (@tukusejssirs), there is no Shrovetide in `cal1969` (and never was); actually, there is no Shrovetide (and never was); there was Pre-Lenten Time (Septuagesima in Latin, for it started 70 days before Easter) in calendars before `cal1969`
     stDunstanArchbishopOfCanterbury: 'S. Dunstani Cantuariensis, episcopi',
     sundayOfTheWordOfGod: 'Dominica Verbi Dei',
     theBeheadingOfSaintJohnTheBaptistMartyr: 'In Passione S. Ioannis Baptistæ, martyris',
@@ -778,9 +779,9 @@ export default {
     theFiveWoundsOfTheLord: 'Ss.mi D. N. I. C. quinque vulneribus',
     theMostHolyNameOfJesus: 'Ss.mi Nominis Iesu',
     theSixWelshMartyrsAndCompanions: 'Ss. Sex Matyrum Cambriæ et sociorum',
-    // transferOfTheRelicsOfSaintStephen: 'Transfer of The Relics of Saint Stephen',  // TODO: In Translationis de reliquiis S. Stephani Hungariae
+    transferOfTheRelicsOfSaintStephen: 'In Translationis de reliquiis S. Stephani Hungariæ',  // TODO: This must proofread, as I could not find this one online
     vietnameseMartyrs: 'Ss. Martyrum Vietnamicæ',
     visitationOfTheBlessedVirginMary: 'In Visitatione B. Mariæ Virginis',
-    // waitangiDay: 'Waitangi Day',
+    waitangiDay: 'Dies Nationalis Novæ Zelandiæ',  // TODO: This must proofread, as I could not find this one online ... https://la.wikipedia.org/wiki/6_Februarii#Festa_et_Feriae
   },
 } as RomcalLocale;
