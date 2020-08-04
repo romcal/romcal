@@ -22,6 +22,7 @@
     THE SOFTWARE.
 */
 
+import 'jest-extended';
 import _ from 'lodash';
 
 import dayjs from 'dayjs';
@@ -30,14 +31,14 @@ import utc from 'dayjs/plugin/utc';
 import Romcal from '@romcal/index';
 import * as Dates from '@romcal/lib/Dates';
 import { Dictionary, isNil } from '@romcal/utils/type-guards';
-import { RomcalDateItem, isDateItem } from '@romcal/models/romcal-date-item';
+import { RomcalDateItem, isRomcalDateItem } from '@romcal/models/romcal-date-item';
 import { hasKey, getValueByKey } from '@romcal/utils/object';
 import { PSALTER_WEEKS } from '@romcal/constants/psalter-weeks.constant';
 import { LITURGICAL_SEASONS } from '@romcal/constants/liturgical-seasons.constant';
 import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant';
 import { TITLES } from '@romcal/constants/titles.constant';
-import { RanksEnum } from '../enums/ranks.enum';
-import { RANKS } from '../constants/ranks.constant';
+import { RanksEnum } from '@romcal/enums/ranks.enum';
+import { RANKS } from '@romcal/constants/ranks.constant';
 import { Types } from '@romcal/types/types.type';
 
 dayjs.extend(utc);
@@ -59,8 +60,8 @@ describe('Testing calendar generation functions', () => {
     });
 
     test('Should return an array of DateItem objects', async () => {
-      expect(nonLeapYearDates.every(d => isDateItem(d))).toBeTruthy();
-      expect(leapYearDates.every(d => isDateItem(d))).toBeTruthy();
+      expect(nonLeapYearDates.every(d => isRomcalDateItem(d))).toBeTruthy();
+      expect(leapYearDates.every(d => isRomcalDateItem(d))).toBeTruthy();
     });
 
     test('Each object should contain the keys type, name, date, source and data', async () => {
@@ -193,8 +194,8 @@ describe('Testing calendar generation functions', () => {
       });
 
       test('Should group dates by their celebration ranks', async () => {
-        const typeKeys = Object.keys(Romcal.queryFor(await Romcal.calendarFor(), { group: 'types' }));
-        expect(typeKeys.every(typeKey => Object.keys(RANKS).includes(typeKey as Types))).toBeTrue();
+        const typeKeys = Object.keys(Romcal.queryFor(await Romcal.calendarFor(), { group: 'ranks' }));
+        expect(typeKeys.every(typeKey => Object.values(RANKS).includes(typeKey as Types))).toBeTrue();
       });
 
       test('Should group dates by their liturgical seasons', async () => {
@@ -229,7 +230,7 @@ describe('Testing calendar generation functions', () => {
 
     describe('Testing advanced filters', () => {
       test('The proper color of a Memorial or a Feast is white except for martyrs in which case it is red', async () => {
-        const calendar = (await Romcal.calendarFor({ query: { group: 'types' } })) as Dictionary<RomcalDateItem[]>;
+        const calendar = (await Romcal.calendarFor({ query: { group: 'ranks' } })) as Dictionary<RomcalDateItem[]>;
         _.get(calendar, RanksEnum.FEAST).forEach(d => {
           if (d.key === 'theExaltationOfTheHolyCross') {
             expect(d.data.meta.liturgicalColor?.key).toEqual(LITURGICAL_COLORS.RED.key);
@@ -260,7 +261,7 @@ describe('Testing calendar generation functions', () => {
 
       test('The proper color for the Chair of Peter and the Conversion of St. Paul is white, although both St. Peter and St. Paul were martyrs.', async () => {
         const dates = await Romcal.calendarFor();
-        const calendar = Romcal.queryFor(dates, { group: 'types' });
+        const calendar = Romcal.queryFor(dates, { group: 'ranks' });
         getValueByKey(calendar, RanksEnum.FEAST).forEach(d => {
           if (d.key === 'chairOfSaintPeter' || d.key === 'conversionOfSaintPaulApostle') {
             expect(d.data.meta.liturgicalColor?.key).toEqual(LITURGICAL_COLORS.WHITE.key);

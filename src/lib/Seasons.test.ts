@@ -22,6 +22,7 @@
     THE SOFTWARE.
 */
 
+import 'jest-extended';
 import dayjs from 'dayjs';
 
 import * as Dates from '@romcal/lib/Dates';

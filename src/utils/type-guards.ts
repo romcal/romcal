@@ -25,14 +25,6 @@ export type Dictionary<T> = {
   [index in AllowedDictionaryKeyTypes]: T;
 };
 
-export type TLocalizeParams = {
-  key: string;
-  day?: string;
-  week?: number;
-  count?: number;
-  useDefaultOrdinalFn?: boolean;
-};
-
 /**
  * Check if the arbitrary value given is an instance of [[RomcalConfig]].
  * @param maybeRomcalConfig The value that could be an instance of [[RomcalConfig]]
