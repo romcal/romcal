@@ -4,8 +4,8 @@ import * as Celebrations from '@romcal/lib/Celebrations';
 import { localizeLiturgicalColor } from '@romcal/lib/Locales';
 import { isNil } from '@romcal/utils/type-guards';
 import Config from '@romcal/models/romcal-config';
-import { RomcalDateItem, RomcalDateItemInput, RomcalDateItemData } from '@romcal/models/romcal-date-item';
-import { find, removeWhere, concatAll } from '@romcal/utils/array';
+import { RomcalDateItem, RomcalDateItemData, RomcalDateItemInput } from '@romcal/models/romcal-date-item';
+import { concatAll, find, removeWhere } from '@romcal/utils/array';
 import { RANKS } from '@romcal/constants/ranks.constant';
 import { RanksEnum } from '@romcal/enums/ranks.enum';
 import _ from 'lodash';
@@ -31,9 +31,9 @@ dayjs.extend(isSameOrBefore);
  */
 export class Calendar {
   private dateItems: Array<RomcalDateItem> = [];
-  private config: Config;
-  private startDate: dayjs.Dayjs;
-  private endDate: dayjs.Dayjs;
+  private readonly config: Config;
+  private readonly startDate: dayjs.Dayjs;
+  private readonly endDate: dayjs.Dayjs;
 
   /**
    * Create a new Calendar
@@ -61,6 +61,7 @@ export class Calendar {
       corpusChristiOnSunday,
       country,
       epiphanyOnSunday,
+      outputOptionalMemorials,
       type,
       year: theYear,
       locale,
@@ -111,6 +112,7 @@ export class Calendar {
         christmastideIncludesTheSeasonOfEpiphany,
         corpusChristiOnSunday,
         ascensionOnSunday,
+        outputOptionalMemorials,
         type,
         query,
       });
@@ -129,6 +131,7 @@ export class Calendar {
         christmastideIncludesTheSeasonOfEpiphany,
         corpusChristiOnSunday,
         ascensionOnSunday,
+        outputOptionalMemorials,
         type,
         query,
       });
@@ -228,6 +231,16 @@ export class Calendar {
     // since it's the default item if none of the optional items are celebrated.
     const ranks = RANKS.slice(0, RANKS.length - 1);
     ranks.splice(ranks.indexOf('MEMORIAL') + 1, 0, RANKS[RANKS.length - 1]);
+
+    // Remove optional memorials and commemorations by default, to keep only
+    // relevant celebrations that exactly match for every days.
+    // This can be disabled by specifying the `outputOptionalMemorials` flag
+    // to `true` in the romcal config.
+    if (!this.config.outputOptionalMemorials) {
+      this.dateItems = this.dateItems.filter(
+        item => ![RanksEnum.OPT_MEMORIAL, RanksEnum.COMMEMORATION].includes(item.rank),
+      );
+    }
 
     this.dateItems.sort(
       (

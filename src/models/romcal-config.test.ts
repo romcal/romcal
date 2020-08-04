@@ -16,6 +16,7 @@ describe('getConfig()', () => {
       corpusChristiOnSunday,
       christmastideIncludesTheSeasonOfEpiphany,
       christmastideEnds,
+      outputOptionalMemorials,
     } = new Config(resolvedConfig);
     expect(year).toBe(dayjs.utc().year());
     expect(type).toBe('calendar');
@@ -26,5 +27,6 @@ describe('getConfig()', () => {
     expect(corpusChristiOnSunday).toBeTrue();
     expect(christmastideIncludesTheSeasonOfEpiphany).toBeTruthy();
     expect(christmastideEnds).toBe('o');
+    expect(outputOptionalMemorials).toBe(false);
   });
 });
