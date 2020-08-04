@@ -104,7 +104,7 @@ export const omitFalsyProps = <Original extends { [key: string]: any }>(
 
   const result: RecursivePartial<Original> = {};
 
-  // Implemetation of the recursive partial
+  // Implementation of the recursive partial
   for (const key in obj) {
     if (!isFalsy(obj[key])) {
       result[key] = Array.isArray(obj[key])

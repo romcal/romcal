@@ -69,7 +69,7 @@ describe('Testing specific liturgical date functions', () => {
       expect(date.date()).toEqual(23);
     });
 
-    test('Its earliest occuring date is Feb 4 and latest occuring date is March 17 and its always on Wednesday', () => {
+    test('Its earliest occurring date is Feb 4 and latest occuring date is March 17 and its always on Wednesday', () => {
       for (let i = 1800, il = 2015; i <= il; i++) {
         expect(Dates.ashWednesday(i).month()).toBeOneOf([1, 2]);
         expect(Dates.ashWednesday(i).day()).toEqual(3);
@@ -96,7 +96,7 @@ describe('Testing specific liturgical date functions', () => {
       expect(date.date()).toEqual(3);
     });
 
-    test('Its earliest occuring date is March 15 and latest occuring date is April 18', () => {
+    test('Its earliest occurring date is March 15 and latest occuring date is April 18', () => {
       for (let i = 1850, il = 2015; i <= il; i++) {
         expect(Dates.palmSunday(i).month()).toBeOneOf([2, 3]);
       }
@@ -200,7 +200,7 @@ describe('Testing specific liturgical date functions', () => {
       expect(date.date()).toEqual(10);
     });
 
-    test('Its earliest occuring date is March 22 and latest occuring date is April 25', () => {
+    test('Its earliest occurring date is March 22 and latest occuring date is April 25', () => {
       for (let i = 1900, il = 2100; i <= il; i++) {
         const range = rangeOfDays(dayjs.utc(`${i}-3-22`), dayjs.utc(`${i}-4-25`));
         const easter = Dates.easter(i);
@@ -605,7 +605,7 @@ describe('Testing specific liturgical date functions', () => {
         expect(date.isSame(target)).toEqual(true);
       });
 
-      test('Its earliest occuring date is Jan 2 and latest occuring date is Jan 8', () => {
+      test('Its earliest occurring date is Jan 2 and latest occuring date is Jan 8', () => {
         expect(Dates.epiphany(1999).date()).toBeOneOf([2, 3, 4, 5, 6, 7, 8]);
         expect(Dates.epiphany(2000).date()).toBeOneOf([2, 3, 4, 5, 6, 7, 8]);
         expect(Dates.epiphany(2001).date()).toBeOneOf([2, 3, 4, 5, 6, 7, 8]);
@@ -656,7 +656,7 @@ describe('Testing specific liturgical date functions', () => {
       }
     });
 
-    test('If it falls during Holy Week, it should be moved to the Saturday preceeding Palm Sunday', () => {
+    test('If it falls during Holy Week, it should be moved to the Saturday preceding Palm Sunday', () => {
       // Year 2006 fulfils this condition
       for (let i = 2006, il = 2006; i <= il; i++) {
         const date = dayjs.utc(`${i}-3-19`);
@@ -683,7 +683,7 @@ describe('Testing specific liturgical date functions', () => {
         const sundaysOfLent = Dates.sundaysOfLent(i);
         const isOnASundayOfLent = rangeContainsDate(sundaysOfLent, date);
 
-        // Shouldnt happen within holy week
+        // Shouldn't happen within holy week
         const holyWeekDates = Dates.holyWeek(i);
         const [firstDayOfHolyWeek] = holyWeekDates;
         const [lastDayOfHolyWeek] = holyWeekDates.reverse();
@@ -709,7 +709,7 @@ describe('Testing specific liturgical date functions', () => {
       for (let i = 1950, il = 2050; i <= il; i++) {
         const date = dayjs.utc(`${i}-3-25`);
 
-        // Shouldnt happen within holy week
+        // Shouldn't happen within holy week
         const holyWeekDates = Dates.holyWeek(i);
         const [firstDayOfHolyWeek] = holyWeekDates;
         const [lastDayOfHolyWeek] = holyWeekDates.reverse();
@@ -731,7 +731,7 @@ describe('Testing specific liturgical date functions', () => {
       }
     });
 
-    test('If it occurs during the Octave of Easter, it should be moved to the Saturday preceeding Palm Sunday', () => {
+    test('If it occurs during the Octave of Easter, it should be moved to the Saturday preceding Palm Sunday', () => {
       for (let i = 1950, il = 2050; i <= il; i++) {
         const date = dayjs.utc(`${i}-3-25`);
 

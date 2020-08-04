@@ -3,6 +3,8 @@ import { getDateItemSchemaValidator, getDateItemDataJsonSchema } from '@romcal/v
 import { getRomcalConfigSchemaValidator, getRomcalConfigJsonSchema } from '@romcal/validators/romcal-config.validator';
 import { RomcalConfig } from '@romcal/models/romcal-config';
 import { RomcalDateItem } from '@romcal/models/romcal-date-item';
+import * as Calendars from '@romcal/calendars';
+import { default as Locales } from '@romcal/locales';
 
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
@@ -18,9 +20,9 @@ export type Primitive = string | boolean | number | null | undefined;
  */
 export type ISO8601DateString = string;
 
-type AllowedDictonaryKeyTypes = string | number;
+type AllowedDictionaryKeyTypes = string | number;
 export type Dictionary<T> = {
-  [index in AllowedDictonaryKeyTypes]: T;
+  [index in AllowedDictionaryKeyTypes]: T;
 };
 
 export type TLocalizeParams = {
@@ -32,7 +34,7 @@ export type TLocalizeParams = {
 };
 
 /**
- * Check if the arbitary value given is an instance of [[RomcalConfig]].
+ * Check if the arbitrary value given is an instance of [[RomcalConfig]].
  * @param maybeRomcalConfig The value that could be an instance of [[RomcalConfig]]
  */
 export const isRomcalConfig = (maybeRomcalConfig: unknown): maybeRomcalConfig is RomcalConfig => {
@@ -46,7 +48,7 @@ export const isRomcalConfig = (maybeRomcalConfig: unknown): maybeRomcalConfig is
 };
 
 /**
- * Check if the arbitary value given is an array of [[DateItems]].
+ * Check if the arbitrary value given is an array of [[DateItems]].
  * @param maybeRomcalDateItems A value that could be an array of [[DateItem]]s
  */
 export const areRomcalDateItems = (maybeRomcalDateItems: unknown): maybeRomcalDateItems is Array<RomcalDateItem> => {
@@ -114,7 +116,7 @@ export const isFunction = (maybeFunction: unknown): maybeFunction is Function =>
 
 /**
  * Checks if a value is an object.
- * @param value The value that could be an object
+ * @param maybeObject The value that could be an object
  */
 export const isObject = (maybeObject: unknown): maybeObject is object => {
   const valType = typeof maybeObject;
@@ -127,7 +129,7 @@ export const isObject = (maybeObject: unknown): maybeObject is object => {
  */
 export const isEmpty = (maybeEmpty: unknown): boolean => {
   if (isObject(maybeEmpty)) {
-    return Object.keys(maybeEmpty).length > 0 ? false : true;
+    return Object.keys(maybeEmpty).length === 0;
   } else {
     return true;
   }

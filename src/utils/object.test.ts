@@ -94,8 +94,8 @@ describe('findDescendantValueByKeys()', () => {
     expect(Object.keys(result3)).toStrictEqual(['foo']);
   });
 
-  test('should return the last valid value from an incorrect key sequene', () => {
-    const result = findDescendantValueByKeys(testNestedString, ['one', 'two', 't2hree']);
+  test('should return the last valid value from an incorrect key sequence', () => {
+    const result = findDescendantValueByKeys(testNestedString, ['one', 'two', 'three']);
 
     expect(result).toBe(testNestedString.one.two);
     expect(Object.keys(result)).toStrictEqual(['three']);

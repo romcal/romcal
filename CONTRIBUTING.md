@@ -31,6 +31,6 @@ Please do not be afraid of contributing code, make sure it follows these rules:
 - Your code compiles, does not break any of the existing code in the `master` branch and does not cause conflicts.
 - The code must pass all the Travis CI tests.
 - The code is readable and has comments, that aren’t superfluous or unnecessary.
-- An overview or context is provided as the description (intial message) of the pull request. It does not need to be too extensive.
+- An overview or context is provided as the description (initial message) of the pull request. It does not need to be too extensive.
 
 Extra points if your code comes with tests!

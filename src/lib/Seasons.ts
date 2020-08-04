@@ -451,7 +451,7 @@ const earlyOrdinaryTime = async (
             key: resolvedPsalterWeek,
             value: PSALTER_WEEKS[resolvedPsalterWeek],
           },
-          // Set default season color if there is no color alreayd set
+          // Set default season color if there is no color already set
           ...(data?.meta?.liturgicalColor ?? { liturgicalColor: LITURGICAL_COLORS.GREEN }),
         },
       },
@@ -541,7 +541,7 @@ const laterOrdinaryTime = async (year: number): Promise<Array<RomcalDateItemInpu
             key: resolvedPsalterWeek,
             value: PSALTER_WEEKS[resolvedPsalterWeek],
           },
-          // Set default season color if there is no color alreayd set
+          // Set default season color if there is no color already set
           ...(data?.meta?.liturgicalColor ?? { liturgicalColor: LITURGICAL_COLORS.GREEN }),
         },
       },

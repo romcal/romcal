@@ -55,7 +55,7 @@ export interface RomcalConfig {
    *
    * The type can be specified either as:
    * 1. `calendar`: Civil year (January 1 to December 31); or
-   * 2. `liturgical`: Religious calendar year (1st Sunday of Advent of the preceeding year to the Saturday before the 1st Sunday of Advent in the current year).
+   * 2. `liturgical`: Religious calendar year (1st Sunday of Advent of the preceding year to the Saturday before the 1st Sunday of Advent in the current year).
    */
   readonly type?: CalendarTypes;
   /**
@@ -204,7 +204,7 @@ export default class Config {
         );
       } else {
         // A two step override where the base object of default configurations
-        // will first be overriden by country specific if it isn't empty
+        // will first be overridden by country specific if it isn't empty
         // and finally by a valid user defined configuration object
         config = {
           // Base default config (general)
@@ -223,7 +223,7 @@ export default class Config {
     return {
       year: config.year ?? dayjs.utc().year(), // Use current year if not supplied by user
       country: config.country ?? 'general', // Use general as country if none supplied by user
-      locale: config.locale ?? 'en', // Use english for localization if no lanaguage supplied]
+      locale: config.locale ?? 'en', // Use english for localization if no language supplied]
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       christmastideEnds: config.christmastideEnds!, // Will use default if not defined
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -233,7 +233,7 @@ export default class Config {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       corpusChristiOnSunday: config.corpusChristiOnSunday!, // Will use default if not defined
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      ascensionOnSunday: config.ascensionOnSunday!, // Will use default if not defineds
+      ascensionOnSunday: config.ascensionOnSunday!, // Will use default if not defined
       type: config.type ?? 'calendar', // Use value "calendar" if type not specified by user
       ...(isObject(config.query) && { query: config.query }), // Attach query if there's one
     } as TConfigConstructorType;
