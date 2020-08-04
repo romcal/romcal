@@ -41,9 +41,9 @@ describe('Testing national calendar overrides', () => {
     let spainDates2020: RomcalDateItem[];
 
     beforeAll(async () => {
-      generalDates2020 = await Romcal.calendarFor(2020);
-      generalDates2021 = await Romcal.calendarFor(2021);
-      spainDates2020 = await Romcal.calendarFor({ year: 2020, country: 'spain' });
+      generalDates2020 = await Romcal.calendarFor({ year: 2020, outputOptionalMemorials: true });
+      generalDates2021 = await Romcal.calendarFor({ year: 2021, outputOptionalMemorials: true });
+      spainDates2020 = await Romcal.calendarFor({ year: 2020, outputOptionalMemorials: true, country: 'spain' });
     });
 
     test('The optional memory of the Most Holy Name of Jesus is available on the 3th of January, in addition to the feria', () => {
@@ -80,8 +80,8 @@ describe('Testing national calendar overrides', () => {
 
     beforeAll(async () => {
       year = 2008;
-      generalDates = await Romcal.calendarFor(year);
-      spainDates = await Romcal.calendarFor({ year: year, country: 'spain' });
+      generalDates = await Romcal.calendarFor({ year, outputOptionalMemorials: true });
+      spainDates = await Romcal.calendarFor({ year, outputOptionalMemorials: true, country: 'spain' });
     });
 
     test('The feast of Saint Isidore of Seville is celebrated on April 4 every year', () => {
@@ -119,6 +119,7 @@ describe('Testing national calendar overrides', () => {
       testDates = await Romcal.calendarFor({
         country: 'test',
         year,
+        outputOptionalMemorials: true,
       });
     });
 
@@ -373,37 +374,27 @@ describe('Testing national calendar overrides', () => {
   describe('Saint Matthias the Apostle', () => {
     test('Feast day falls on the May 14 in the general liturgical calendar', async () => {
       const dates = await Romcal.calendarFor(2018);
-      const saintMatthias = dates.find(d => {
-        return d.key === 'saintMatthiasTheApostle';
-      });
+      const saintMatthias = dates.find(d => d.key === 'saintMatthiasTheApostle');
       expect(dayjs.utc(saintMatthias?.date).isSame(dayjs.utc('2018-5-14'))).toBeTruthy();
     });
+
     test('Feast day falls on the 24th of February in the national calendar of Germany and Hungary', async () => {
-      const germanyDates = await Romcal.calendarFor({
-        year: 2018,
-        country: 'germany',
-      });
-      const hungaryDates = await Romcal.calendarFor({
-        year: 2018,
-        country: 'hungary',
-      });
-      const saintMatthiasGermany = germanyDates.find(d => {
-        return d.key === 'saintMatthiasTheApostle';
-      });
-      const saintMatthiasHungary = hungaryDates.find(d => {
-        return d.key === 'saintMatthiasTheApostle';
-      });
+      const germanyDates = await Romcal.calendarFor({ year: 2018, country: 'germany', outputOptionalMemorials: true });
+      const hungaryDates = await Romcal.calendarFor({ year: 2018, country: 'hungary', outputOptionalMemorials: true });
+
+      const saintMatthiasGermany = germanyDates.find(d => d.key === 'saintMatthiasTheApostle');
+      const saintMatthiasHungary = hungaryDates.find(d => d.key === 'saintMatthiasTheApostle');
+
       expect(dayjs.utc(saintMatthiasGermany?.date).isSame(dayjs.utc('2018-2-24'))).toBeTruthy();
       expect(dayjs.utc(saintMatthiasHungary?.date).isSame(dayjs.utc('2018-2-24'))).toBeTruthy();
     });
+
     test('Is a memorial in the German liturgical calendar on A.D 2014', async () => {
       const germanyDates = await Romcal.calendarFor({
         year: 2014,
         country: 'germany',
       });
-      const saintMatthiasGermany = germanyDates.find(d => {
-        return d.key === 'saintMatthiasTheApostle';
-      });
+      const saintMatthiasGermany = germanyDates.find(d => d.key === 'saintMatthiasTheApostle');
       expect(saintMatthiasGermany?.rank).toEqual(RanksEnum.MEMORIAL);
     });
   });
@@ -414,7 +405,10 @@ describe('Testing national calendar overrides', () => {
         year: 2019,
         country: 'mexico',
       });
-      const dates = await Romcal.calendarFor(2019);
+      const dates = await Romcal.calendarFor({
+        year: 2019,
+        outputOptionalMemorials: true,
+      });
       const saintChristopherMagallanesAndCompanionsMartyrs = dates.find(d => {
         return d.key === 'saintChristopherMagallanesAndCompanionsMartyrs';
       });
@@ -431,10 +425,12 @@ describe('Testing national calendar overrides', () => {
       const hungaryDates = await Romcal.calendarFor({
         year: 2018,
         country: 'hungary',
+        outputOptionalMemorials: true,
       });
       const slovakiaDates = await Romcal.calendarFor({
         year: 2018,
         country: 'slovakia',
+        outputOptionalMemorials: true,
       });
       const saintLadislausHungary = hungaryDates.find(d => {
         return d.key === 'saintLadislaus';

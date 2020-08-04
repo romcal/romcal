@@ -51,6 +51,11 @@ export interface RomcalConfig {
    */
   readonly ascensionOnSunday?: boolean;
   /**
+   * If true, available optional memorials or commemorations are also outputted,
+   * in addition to the feria.
+   */
+  readonly outputOptionalMemorials?: boolean;
+  /**
    * The calendar type to query for.
    *
    * The type can be specified either as:
@@ -64,7 +69,9 @@ export interface RomcalConfig {
   readonly query?: Query;
 }
 
-export type IRomcalDefaultConfig = Required<Omit<RomcalConfig, 'country' | 'locale' | 'query' | 'year' | 'type'>>;
+export type IRomcalDefaultConfig = Required<
+  Omit<RomcalConfig, 'country' | 'locale' | 'query' | 'year' | 'type' | 'outputOptionalMemorials'>
+>;
 
 /**
  * A modified variant of [[RomcalConfig]] specifically for the [[Config]] class constructor
@@ -77,15 +84,16 @@ export type TConfigConstructorType = { query?: Query } & Required<Omit<RomcalCon
  */
 export default class Config {
   private _year: number;
-  private _country: Countries;
-  private _locale: LocaleTypes;
-  private _christmastideEnds: ChristmastideEndings;
-  private _epiphanyOnSunday: boolean;
-  private _christmastideIncludesTheSeasonOfEpiphany: boolean;
-  private _corpusChristiOnSunday: boolean;
-  private _ascensionOnSunday: boolean;
-  private _type: CalendarTypes;
-  private _query?: Query;
+  private readonly _country: Countries;
+  private readonly _locale: LocaleTypes;
+  private readonly _christmastideEnds: ChristmastideEndings;
+  private readonly _epiphanyOnSunday: boolean;
+  private readonly _christmastideIncludesTheSeasonOfEpiphany: boolean;
+  private readonly _corpusChristiOnSunday: boolean;
+  private readonly _ascensionOnSunday: boolean;
+  private readonly _outputOptionalMemorials: boolean;
+  private readonly _type: CalendarTypes;
+  private readonly _query?: Query;
 
   /**
    * Constructs a new [[Config]] object
@@ -100,6 +108,7 @@ export default class Config {
     christmastideIncludesTheSeasonOfEpiphany,
     corpusChristiOnSunday,
     ascensionOnSunday,
+    outputOptionalMemorials,
     type,
     query,
   }: TConfigConstructorType) {
@@ -111,6 +120,7 @@ export default class Config {
     this._christmastideIncludesTheSeasonOfEpiphany = christmastideIncludesTheSeasonOfEpiphany;
     this._corpusChristiOnSunday = corpusChristiOnSunday;
     this._ascensionOnSunday = ascensionOnSunday;
+    this._outputOptionalMemorials = outputOptionalMemorials;
     this._type = type;
     this._query = query;
   }
@@ -149,6 +159,10 @@ export default class Config {
 
   get ascensionOnSunday(): boolean {
     return this._ascensionOnSunday;
+  }
+
+  get outputOptionalMemorials(): boolean {
+    return this._outputOptionalMemorials;
   }
 
   get type(): CalendarTypes {
@@ -234,6 +248,7 @@ export default class Config {
       corpusChristiOnSunday: config.corpusChristiOnSunday!, // Will use default if not defined
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       ascensionOnSunday: config.ascensionOnSunday!, // Will use default if not defined
+      outputOptionalMemorials: !!config.outputOptionalMemorials,
       type: config.type ?? 'calendar', // Use value "calendar" if type not specified by user
       ...(isObject(config.query) && { query: config.query }), // Attach query if there's one
     } as TConfigConstructorType;

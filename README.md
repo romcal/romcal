@@ -227,6 +227,7 @@ romcal.calendarFor(
     christmastideIncludesTheSeasonOfEpiphany: true | false,
     corpusChristiOnSunday: true | false,
     ascensionOnSunday: true | false,
+    outputOptionalMemorials: true | false,
     type: 'calendar|liturgical',
     query: {
       day: 0 - 6, // 0 - Sunday, 6 - Saturday (week beginning with Sunday)
@@ -249,6 +250,7 @@ romcal.calendarFor(
 - `christmastideIncludesTheSeasonOfEpiphany`: If `false`, the season of epiphany (i.e. days before Epiphany and days after Epiphany) will not appear within the Christmastide. `true` by default.
 - `corpusChristiOnSunday`: Determines if Corpus Christi should be celebrated on Sunday (63 days after Easter) or on Thursday of the 7th week of Easter (60 days after Easter). Defaults to `true` (Corpus Christi is celebrated on Sunday by default).
 - `ascensionOnSunday`: Determines if Ascension should replace the 7th Sunday of Easter (42 days after Easter). Defaults to `false` where Ascension will be on Thursday, 39 days after Easter, if value not recognized or specified.
+- `outputOptionalMemorials`: If `true`, also includes optional celebrations that could be celebrated on each day: optional memorials or commemorations. Defaults to `false`.
 - `type`: Determines the type of calendar output. Can either be `liturgical` or `calendar`. Defaults to `calendar` if value not recognized or specified. The `liturgical` year runs from 1st Sunday of Advent of the given year to Saturday of the 34th Week of Ordinary Time in the following year. The civil year on the other hand refers to the standard year from Jan 1 - Dec 31.
 - `query`: A nested query object which filters the dates according to the given criteria. For more details on how to use queries, see [Queries](#queries) section.
 
