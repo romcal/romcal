@@ -22,6 +22,7 @@
     THE SOFTWARE.
 */
 
+import 'jest-extended';
 import * as Locales from '@romcal/lib/Locales';
 import * as Dates from '@romcal/lib/Dates';
 import { rangeOfDays, rangeContainsDate } from '@romcal/utils/dates';

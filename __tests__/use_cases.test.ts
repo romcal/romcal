@@ -22,6 +22,7 @@
     THE SOFTWARE.
 */
 
+import 'jest-extended';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 
@@ -75,10 +76,10 @@ describe('Testing specific feasts and memorials', () => {
     test('Should be celebrated as optional memorials', async () => {
       const dates = await Romcal.calendarFor(2016);
       const popeSaintJohnXXIII = dates.find(d => {
-        return d.key === 'popeSaintJohnXXIII';
+        return d.key === 'saintJohnXxiiiPope';
       });
       const popeSaintJohnPaulII = dates.find(d => {
-        return d.key === 'popeSaintJohnPaulII';
+        return d.key === 'saintJohnPaulIiPope';
       });
       expect(popeSaintJohnXXIII?.rank).toEqual(RanksEnum.OPT_MEMORIAL);
       expect(popeSaintJohnPaulII?.rank).toEqual(RanksEnum.OPT_MEMORIAL);

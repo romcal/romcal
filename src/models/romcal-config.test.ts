@@ -1,3 +1,4 @@
+import 'jest-extended';
 import Config from '@romcal/models/romcal-config';
 import dayjs from 'dayjs';
 
