@@ -8,7 +8,7 @@ export default {
   },
   christmastide: {
     season: 'Nativitatis',
-//     day: '{{day}} of Christmastide',  // TODO: Where is this used?
+    // day: '{{day}} of Christmastide',  // TODO: Where is this used?
     octave: 'De die {{count}} infra octavam Nativitatis',
     sunday: 'Dominica {{count}} post Nativitatem',
   },
@@ -36,7 +36,7 @@ export default {
     season: 'Paschæ',
     feria: '{{day}}, hebdomada {{week}} temporis paschalis',
     sunday: 'Dominica {{week}} Paschæ',
-//     octave: 'Easter {{day}}',
+    // octave: 'Easter {{day}}',
   },
   liturgicalColors: {
     GOLD: 'auri',
@@ -88,7 +88,8 @@ export default {
     blessedAloysiusStepinacBishopAndMartyr: 'B. Aloisii Stepinac, episcopi et martyris',
     blessedAndreGrassetPriestAndMartyr: 'B. Andreæ Grasset, presbyteri et martyris',
     blessedAnielaSalawaVirgin: 'B. Angelæ Salawa, virginis',
-    blessedAntoniNowowiejskiBishopAndCompanionsMartyrs: 'Bb. Antonii Iuliani Nowowiejski, episcopi, et sociorum, martyrum',
+    blessedAntoniNowowiejskiBishopAndCompanionsMartyrs:
+      'Bb. Antonii Iuliani Nowowiejski, episcopi, et sociorum, martyrum',
     blessedAugustinKazoticBishopAndMartyr: 'B. Augustini Gazothus, episcopi et martyris',
     blessedBartholomewOfTheMartyrsBishop: 'B. Bartholomæi de Martyribus Fernandes, episcopi',
     blessedBartolomeLaurelReligiousAndMartyr: 'B. Bartholomæi Laurel, religiosi et martyris',
@@ -126,12 +127,12 @@ export default {
     blessedIvanMerz: 'B. Ivani Merz',
     blessedJacintaAndFranciscoMarto: 'Ss. Francisci et Hyacinthæ Marto',
     blessedJakubStrzemieBishop: 'B. Iacobi Strzemię, episcopi',
-    blessedJerzyMatulewiczBishop: 'B. Georgii Matulaitis, episcopi',  // dupe of blessedGeorgeMatulewiczBishop
+    blessedJerzyMatulewiczBishop: 'B. Georgii Matulaitis, episcopi', // dupe of blessedGeorgeMatulewiczBishop
     blessedJoanOfPortugalVirgin: 'B. Ioannæ Lusitaniæ, virginis',
     blessedJohnBeyzymPriest: 'B. Ioannis Beyzym, presbyteri',
     blessedJohnHenryNewmanPriest: 'B. Ioannis Henrici Newman, presbyteri',
     blessedJohnMartinMoyePriest: 'B. Ioannis Martini Moye, presbyteri',
-    blessedJohnNewmanBishop: 'B. Ioannis Henrici Newman, presbyteri',  // dupe of blessedJohnHenryNewmanPriest
+    blessedJohnNewmanBishop: 'B. Ioannis Henrici Newman, presbyteri', // dupe of blessedJohnHenryNewmanPriest
     blessedJolantaReligious: 'B. Iolentæ, religiosæ',
     blessedJosephVazPriest: 'S. Iosephi Vaz, presbyteri',
     blessedJuniperoSerraPriest: 'B. Iuniperi Serra, presbyteri',
@@ -146,7 +147,8 @@ export default {
     blessedMariaAdeodataPisaniVirgin: 'B. Mariæ Adeodatæ Pisani, virginis',
     blessedMariaAssuntaPallottaVirgin: 'B. Mariæ Assumptæ Pallotta, virginis',
     blessedMariaDoloresRodriguezSopenaVirgin: 'B. Mariæ Perdolentis Rodríguez Sopeña, virginis',
-    blessedMariaStellaAndCompanionsVirginsAndMartyrs: 'B. Mariæ Stellæ a SS.mo Sacramento et sociorum, virginum et martyrum',
+    blessedMariaStellaAndCompanionsVirginsAndMartyrs:
+      'B. Mariæ Stellæ a SS.mo Sacramento et sociorum, virginum et martyrum',
     blessedMariaTeresaLedochowskaVirgin: 'B. Mariæ Teresiæ Ledóchowska, virginis',
     blessedMariaTheresaChiramelVirgin: 'S. Mariæ Teresiæ Chiramel Mankidiyan, virginis',
     blessedMarieAnneBlondinVirgin: 'B. Mariæ Annæ Blondin, virginis',
@@ -170,12 +172,16 @@ export default {
     blessedRafalChylinskiPriest: 'B. Raphaelis Chyliński, presbyteri',
     blessedSalomeVirgin: 'B. Salomeæ, religiosæ',
     blessedSanchaAndMafaldaVirgins: 'B. Sanchæ et Maphaldæ, virginum',
-    blessedsAndreDeSoveralAndAmbrosioFranciscoFerroPriestsAndMartyrs: 'Ss. Andreæ de Soveral et Ambrosii Francisci Ferro, presbyterorum et martyrum',
+    blessedsAndreDeSoveralAndAmbrosioFranciscoFerroPriestsAndMartyrs:
+      'Ss. Andreæ de Soveral et Ambrosii Francisci Ferro, presbyterorum et martyrum',
     blessedSaraSalkahaziVirginAndMartyr: 'B. Saræ Salkaházi, virginis et martyris',
-    blessedsCarlosSpinolaAndJeronimoDeAngelisPriestsAndMartyrs: 'Bb. Caroli Spinola et Hieronymi de Angelis, presbyterorum et martyrum',
+    blessedsCarlosSpinolaAndJeronimoDeAngelisPriestsAndMartyrs:
+      'Bb. Caroli Spinola et Hieronymi de Angelis, presbyterorum et martyrum',
     blessedSebastianDeAparicioReligious: 'B. Sebastiani ab Apparitio, religiosi',
-    blessedsNykytaBudkaAndVasylVelychkowskyBishopsAndMartyrs: 'Bb. Niceti Budka et Basilii Velychkovskyi, episcoporum et martyrum',
-    blessedsPedroZunigaAndLuisFloresPriestsAndMartyrs: 'Bb. Petri de Zúñiga et Ludovici Flores, presbyterorum et martyrum',
+    blessedsNykytaBudkaAndVasylVelychkowskyBishopsAndMartyrs:
+      'Bb. Niceti Budka et Basilii Velychkovskyi, episcoporum et martyrum',
+    blessedsPedroZunigaAndLuisFloresPriestsAndMartyrs:
+      'Bb. Petri de Zúñiga et Ludovici Flores, presbyterorum et martyrum',
     blessedTheodoreRomzhaBishopAndMartyr: 'B. Theodori Romzsa, episcopi et martyris',
     blessedTheresaOfPortugalReligious: 'B. Teresiæ Lusitaniæ, religiosae',
     blessedVilmosAporBishopAndMartyr: 'B. Gulielmi Apor, episcopi et martyris',
@@ -199,13 +205,15 @@ export default {
     holyInnocentsMartyrs: 'Ss. Innocentium, martyrum',
     holyNameOfTheBlessedVirginMary: 'Ss.mi Nominis Mariæ',
     hungarianSaintsAndBlesseds: 'Omnium Sanctorum et Beatorum Hungariæ',
-    immaculateConceptionOfTheBlessedVirginMaryPrincipalPatronessOfThePhilippines: 'In Conceptione Immaculata Beatæ Mariæ Virginis, Patronæ principalis Insularum Philippinarum',
+    immaculateConceptionOfTheBlessedVirginMaryPrincipalPatronessOfThePhilippines:
+      'In Conceptione Immaculata Beatæ Mariæ Virginis, Patronæ principalis Insularum Philippinarum',
     maryMotherOfTheChurch: 'B. Mariæ Virginis Ecclesiæ Matris',
     ourLadyHelpOfChristians: 'B. Mariæ Virginis Auxilium Christianorum',
     ourLadyMediatrix: 'B. Mariæ Virginis Mediatricis',
     ourLadyMediatrixOfAllGrace: 'B. Mariæ Virginis Omnium Gratiarum Mediatricis',
     ourLadyMotherOfChristianUnity: 'B. Mariæ Virginis Unitatis Christianorum Matris',
-    ourLadyMotherOfDivineProvidencePatronessOfPuertoRico: 'B. Mariæ Virginis Divinæ Providentiæ Matris atque Patronæ Portus Dives',
+    ourLadyMotherOfDivineProvidencePatronessOfPuertoRico:
+      'B. Mariæ Virginis Divinæ Providentiæ Matris atque Patronæ Portus Dives',
     ourLadyMotherOfMercy: 'B. Mariæ Virginis Misericordiæ Matris',
     ourLadyOfAparecidaPatronessOfBrazil: 'B. Mariæ Virginis de Aparecida, Patronæ Brasiliæ',
     ourLadyOfBethlehem: 'B. Mariæ Virginis de Bethlehem',
@@ -215,7 +223,8 @@ export default {
     ourLadyOfFatima: 'B. Mariæ Virginis de Fatima',
     ourLadyOfGoodCounsel: 'B. Mariæ Virginis boni Consilii Matris',
     ourLadyOfGuadalupe: 'B. Mariæ Virginis de Guadalupe',
-    ourLadyOfGuadalupeCelestialPatronessOfThePhilippines: 'Beatæ Mariæ Virginis de Guadalupe, Patronæ cælestis Insularum Philippinarum',
+    ourLadyOfGuadalupeCelestialPatronessOfThePhilippines:
+      'Beatæ Mariæ Virginis de Guadalupe, Patronæ cælestis Insularum Philippinarum',
     ourLadyOfHungary: 'B. Mariæ Virginis, Patronæ principalis Hungariæ',
     ourLadyOfItati: 'B. Mariæ Virginis de Itati',
     ourLadyOfKnock: 'B. Mariæ Virginis de Knock',
@@ -255,7 +264,7 @@ export default {
     saintAgnesVirginAndMartyr: 'S. Agnetis, virginis et martyris',
     saintAidanBishop: 'S. Ædani Lindisfarnensis, episcopi',
     saintAidanBishopAndTheSaintsOfLindisfarne: 'Ss. Ædani, episcopi et Sanctorum Lindisfarnensis',
-    saintAidanOfLindisfarneBishopAndMissionary: 'S. Ædani Lindisfarnensis, episcopi',  // dupe of saintAidanBishop
+    saintAidanOfLindisfarneBishopAndMissionary: 'S. Ædani Lindisfarnensis, episcopi', // dupe of saintAidanBishop
     saintAilbeBishop: 'S. Albei, episcopi',
     saintAlbanMartyr: 'S. Albani, martyris',
     saintAlbericCrescitelliPriestAndMartyr: 'S. Alberici Crescitelli, presbyteri et martyris',
@@ -264,23 +273,26 @@ export default {
     saintAlbertTheGreatBishopAndDoctor: 'S. Alberti Magni, episcopi',
     saintAloysiusGonzagaReligious: 'S. Aloisii Gonzaga, religiosi',
     saintAlphonsaOfTheImmaculateConceptionVirgin: 'S. Alfonsæ ab Immaculata Conceptione, virginis',
-    saintAlphonsusMariaDeLiguoriBishopAndDoctorOfTheChurch: 'S. Alfonsi Mariæ de’ Liguori, episcopi et Ecclesiæ doctoris',
+    saintAlphonsusMariaDeLiguoriBishopAndDoctorOfTheChurch:
+      'S. Alfonsi Mariæ de’ Liguori, episcopi et Ecclesiæ doctoris',
     saintAmandMissionary: 'S. Amandi, episcopi',
     saintAmbroseBishopAndDoctor: 'S. Ambrosii, episcopi et Ecclesiæ doctoris',
     saintAndreBessetteReligious: 'S. Andreæ Bessette, religiosi',
     saintAndrewBobolaPriestAndMartyr: 'S. Andreæ Bobola, presbyteri et martyris',
     saintAndrewDungLacAndCompanionsMartyrs: 'Ss. Andreæ Dũng Lạc, presbyteri, et sociorum, martyrum',
-    saintAndrewKimTaegonPriestAndPaulChongHasangAndCompanionsMartyrs: 'Ss. Andreæ Kim Tae-gŏn, presbyteri, Pauli Chŏng Ha-sang et sociorum, martyrum',
+    saintAndrewKimTaegonPriestAndPaulChongHasangAndCompanionsMartyrs:
+      'Ss. Andreæ Kim Tae-gŏn, presbyteri, Pauli Chŏng Ha-sang et sociorum, martyrum',
     saintAndrewTheApostle: 'S. Andreæ, apostoli',
     saintAndrewTheApostlePatronOfRussia: 'S. Andreæ, apostoli et patroni Russiæ',
     saintAngelaMericiVirgin: 'S. Angelæ Merici, virginis',
-    saintAnnePatronOfQuebecAndSaintJoachimParentsOfTheBlessedVirginMary: 'S. Annæ, patronæ Quebeci, et S. Ioachim, parentum B. M. V.',
+    saintAnnePatronOfQuebecAndSaintJoachimParentsOfTheBlessedVirginMary:
+      'S. Annæ, patronæ Quebeci, et S. Ioachim, parentum B. M. V.',
     saintAnnoIiBishop: 'S. Annonis Coloniensis, episcopi',
     saintAnselmOfCanterburyBishopAndDoctorOfTheChurch: 'S. Anselmi, episcopi et Ecclesiæ doctoris',
     saintAnsgarBishop: 'S. Ansgarii, episcopi',
     saintAnthonyMaryClaretBishop: 'S. Antonii Mariæ Claret, episcopi',
     saintAnthonyOfEgyptAbbot: 'S. Antonii, abbatis',
-    saintAnthonyOfLisbonPriestAndDoctorOfTheChurch: 'S. Antonii de Padova, presbyteri et Ecclesiæ doctoris',  // dupe of saintAnthonyOfPaduaPriestAndDoctor
+    saintAnthonyOfLisbonPriestAndDoctorOfTheChurch: 'S. Antonii de Padova, presbyteri et Ecclesiæ doctoris', // dupe of saintAnthonyOfPaduaPriestAndDoctor
     saintAnthonyOfPaduaPriestAndDoctor: 'S. Antonii de Padova, presbyteri et Ecclesiæ doctoris',
     saintAnthonyOfSaintAnneGalvaoFreiGalvaoPriest: 'S. Antonii a Sancta Anna Galvão, presbyteri',
     saintAnthonyOfTheCavesMonk: 'S. Antonii Kioviensis, monachi',
@@ -405,7 +417,8 @@ export default {
     saintFrancisXavierPriest: 'S. Francisci Xavier, presbyteri',
     saintFrancoisDeLavalBishop: 'S. Francisci de Montmorency-Laval, episcopi',
     saintFridolinOfSackingenMonk: 'S. Fridolini, monachi',
-    saintFructuosusSaintMartinOfDumeAndSaintGeraldBishops: 'Ss. Fructuosi, Martini Bracarensis and Saint Geraldi, episcoporum',
+    saintFructuosusSaintMartinOfDumeAndSaintGeraldBishops:
+      'Ss. Fructuosi, Martini Bracarensis and Saint Geraldi, episcoporum',
     saintFursaAbbotAndMissionary: 'S. Fursei, abbatis',
     saintGabrieltaurinDufresseBishopAndMartyr: 'S. Ioannis Gabrielis Taurin Dufresse, episcopi et martyris',
     saintGallAbbotAndMissionary: 'S. Galli, abbatis',
@@ -415,10 +428,9 @@ export default {
     saintGerardBishop: 'S. Gerardi, episcopi',
     saintGermanusOfAuxerreBishop: 'S. Germani Autissiodorensis, episcopi',
     saintGertrudeOfNivellesAbbess: 'S. Gertrudis Nivellensis, abatissæ',
-    saintGertrudeOfNivellesVirgin: 'S. Gertrudis Nivellensis, abatissæ',  // dupe of saintGertrudeOfNivellesAbbess
+    saintGertrudeOfNivellesVirgin: 'S. Gertrudis Nivellensis, abatissæ', // dupe of saintGertrudeOfNivellesAbbess
     saintGertrudeTheGreatVirgin: 'S. Gertrudis, virginis',
     saintGobnaitVirgin: 'S. Gobnatæ, virginis',
-    Dedit hanc sedem S. Abbanus S. Gobnatae; cujus tempora hactenus non videntur fuisse definita.
     saintGonsaloGarciaMartyr: 'S. Gundisalvi García, martyris',
     saintGorazdAndCompanions: 'Ss. Gorazdi et sociorum',
     saintGotthardBishop: 'S. Gotthardi, episcopi',
@@ -437,7 +449,7 @@ export default {
     saintHildaAbbess: 'S. Hildæ, abatissæ',
     saintHildegardOfBingenAbbessAndDoctor: 'S. Hildegardis Bingensis, abatissæ et Ecclesiæ doctoris',
     saintHubertBishop: 'S. Huberti, episcopi',
-    saintHubertOfLiegeBishop: 'S. Huberti, episcopi',  // dupe of saintHubertBishop
+    saintHubertOfLiegeBishop: 'S. Huberti, episcopi', // dupe of saintHubertBishop
     saintHughOfLincolnBishop: 'S. Hugonis Lincolnien, episcopi',
     saintHyacinthPriest: 'S. Hyacinthi, presbyteri',
     saintIgnatiusOfAntiochBishopAndMartyr: 'S. Ignatii Antiocheni, episcopi et martyris',
@@ -495,11 +507,12 @@ export default {
     saintJosephFreinademetzPriest: 'S. Iosephi Freinademetz, presbyteri',
     saintJosephineBakhitaVirgin: 'S. Iosephinæ Bakhita, virginis',
     saintJosephOfCalasanzPriest: 'S. Iosephi de Calasanz, presbyteri',
-    saintJosephSpouseOfTheBlessedVirginMaryPrincipalPatronOfCanada: 'S. Iosephi, Sponsi B. M. V., patroni principalis Canadæ',
+    saintJosephSpouseOfTheBlessedVirginMaryPrincipalPatronOfCanada:
+      'S. Iosephi, Sponsi B. M. V., patroni principalis Canadæ',
     saintJosephTheWorker: 'S. Iosephi Opificis',
     saintJosephYuanPriestAndMartyr: 'S. Iosephi Yuan, presbyteri et martyris',
     saintJosephZhangDapengMartyr: 'S. Iosephi Zhang Dapeng, martyris',
-    saintJozefBilczewskiBishop: 'S. Iosephi Bilczewski, episcopi',  // dupe of saintJosephBilczewskiBishop
+    saintJozefBilczewskiBishop: 'S. Iosephi Bilczewski, episcopi', // dupe of saintJosephBilczewskiBishop
     saintJozefSebastianPelczar: 'S. Iosephi Sebastiani Pelczar, episcopi',
     saintJuanDiegoCuauhtlatoatzin: 'S. Ioannis Didaci Cuauhtlatoatzin',
     saintJulianaOfLiegeVirgin: 'S. Julianæ Leodiensis, virginis',
@@ -560,7 +573,7 @@ export default {
     saintMarianaDeJesusDeParedesVirgin: 'S. Mariæ Annæ a Iesu de Paredes, virginis',
     saintMarianneCopeVirgin: 'S. Mariæ Annæ Cope, virginis',
     saintMarieOfTheIncarnationReligious: 'S. Mariæ ab Incarnatione, religiosæ',
-    saintMarina: 'S. Margaritæ, virginis et martyris',  // dupe of saintMargaretOfAntiochVirginAndMartyr
+    saintMarina: 'S. Margaritæ, virginis et martyris', // dupe of saintMargaretOfAntiochVirginAndMartyr
     saintMarkoKrizinPriestAndMartyr: 'S. Marci Križin, presbyteri et martyris',
     saintMarkTheEvangelist: 'S. Marci, evangelistæ',
     saintMaroun: 'S. Maronis',
@@ -569,7 +582,7 @@ export default {
     saintMartinIPopeAndMartyr: 'S. Martini I, papæ et martyris',
     saintMartinOfToursBishop: 'S. Martini Turonensis, episcopi',
     saintMartinWuXueshengAndCompanionsMartyrs: 'Ss. Martini Wu Xuesheng, et sociorum, martyrum',
-    saintMaryMacKillopVirgin: 'S. Mariæ a Cruce MacKillop, virginis',  // dupe
+    saintMaryMacKillopVirgin: 'S. Mariæ a Cruce MacKillop, virginis', // dupe
     saintMaryMagdalene: 'S. Mariæ Magdalenæ',
     saintMaryMagdaleneDePazziVirgin: 'S. Mariæ Magdalenæ de’ Pazzi, virginis',
     saintMaryOfTheCrossVirgin: 'S. Mariæ a Cruce MacKillop, virginis',
@@ -631,7 +644,8 @@ export default {
     saintPiusVPope: 'S. Pii V, papæ',
     saintPiusXPope: 'S. Pii X, papæ',
     saintPolycarpBishopAndMartyr: 'S. Polycarpi, episcopi et martyris',
-    saintPothinusBishopSaintBlandinaVirginAndTheirCompanionsMartyrs: 'Ss. Pothini, episcopi, Blandinæ, virginis, et sociorum, martyrum',
+    saintPothinusBishopSaintBlandinaVirginAndTheirCompanionsMartyrs:
+      'Ss. Pothini, episcopi, Blandinæ, virginis, et sociorum, martyrum',
     saintProcopiusAbbot: 'S. Procopii, abbatis',
     saintPubliusBishop: 'S. Publii, episcopi',
     saintQuirinusOfSescia: 'S. Quirini Sisciensis, episcopi',
@@ -646,15 +660,17 @@ export default {
     saintRichardOfChichesterBishop: 'S. Richardi Cicestriæ, episcopi',
     saintRitaOfCascia: 'S. Ritæ de Cascia, religiosæ',
     saintRobertBellarmineBishopAndDoctor: 'S. Roberti Bellarmini, episcopi et Ecclesiæ doctoris',
-    saintRocco: 'S. Rochi',  // dupe of saintRoch
+    saintRocco: 'S. Rochi', // dupe of saintRoch
     saintRoch: 'S. Rochi',
     saintRomualdAbbot: 'S. Romualdi, abbatis',
     saintRoseOfLima: 'S. Rosæ de Lima, virginis',
-    saintRoseOfLimaSecondaryPatronessOfThePhilippines: 'S. Rosæ de Lima, virginis et patronæ secundariæ Insularum Philippinæ',
+    saintRoseOfLimaSecondaryPatronessOfThePhilippines:
+      'S. Rosæ de Lima, virginis et patronæ secundariæ Insularum Philippinæ',
     saintRosePhilippineDuchesneVirgin: 'S. Rosæ Philippinæ Duchesne, virginis',
     saintsAlbanJuliusAndAaronMartyrs: 'Ss. Albani, Iulii et Aaron, martyrum',
     saintsAndrewZorardAndBenedictHermits: 'Ss. Andreæ Zœrardi et Benedicti, eremitarum',
-    saintsBasilTheGreatAndGregoryNazianzenBishopsAndDoctors: 'Ss. Basilii Magni et Gregorii Nazianzeni, episcoporum et Ecclesiæ doctorum',
+    saintsBasilTheGreatAndGregoryNazianzenBishopsAndDoctors:
+      'Ss. Basilii Magni et Gregorii Nazianzeni, episcoporum et Ecclesiæ doctorum',
     saintsBenedyktJanMateuszIsaakAndKrystynMartyrs: 'Ss. Benedicti, Ioannis, Matthæi, Isaac, Christiani, martyrum',
     saintsBorisAndGlebMartyrs: 'Ss. Borisi et Hlibi, martyrum',
     saintsCanuteEricAndOlafMartyrs: 'Ss. Canuti, Erici et Olavi, martyrum',
@@ -669,21 +685,29 @@ export default {
     saintSebastianMartyr: 'S. Sebastiani, martyris',
     saintSenanBishop: 'S. Senani, episcopi',
     saintSeverinusOfNoricumMonk: 'S. Severini de Noricum, monachi',
-    saintsFelipeDeJesusPaulMikiAndCompanionsMartyrs: 'Ss. Philippi a Iesu de Las Casas, Pauli Miki et sociorum, martyrum',
-    saintsFructuosusBishopAndAuguriusAndEulogiusDeaconsMartyrs: 'Ss. Fructuosi, episcopi, Augurii et Eulogii, diaconorum, martyrum',
-    saintsGregoryGrassiFrancisFogollaAndAnthonyFantosatiBishopsAndCompanionsMartyrs: 'Ss. Gregorii Grassi, Francisci Fogolla et Antonini Fantosati, episcoporum, et sociorum, martyrum',
+    saintsFelipeDeJesusPaulMikiAndCompanionsMartyrs:
+      'Ss. Philippi a Iesu de Las Casas, Pauli Miki et sociorum, martyrum',
+    saintsFructuosusBishopAndAuguriusAndEulogiusDeaconsMartyrs:
+      'Ss. Fructuosi, episcopi, Augurii et Eulogii, diaconorum, martyrum',
+    saintsGregoryGrassiFrancisFogollaAndAnthonyFantosatiBishopsAndCompanionsMartyrs:
+      'Ss. Gregorii Grassi, Francisci Fogolla et Antonini Fantosati, episcoporum, et sociorum, martyrum',
     saintsHenryAndCunigunde: 'Ss. Henrici et Cunigundæ',
     saintSigismundMartyr: 'S. Sigismundi, martyris',
     saintSimonOfLipnicaPriest: 'S. Simonis de Lipnica, presbyteri',
     saintSixtusIiPopeAndCompanionsMartyrs: 'Ss. Xysti II, papæ, et sociorum, martyrum',
-    saintsJohnDeBrebeufIsaacJoguesPriestsAndCompanionsMartyrs: 'Ss. Ioannis de Brébeuf, Isaac Jogues, presbyterorum, et sociorum, martyrum',
-    saintsJohnDeBrebeufIsaacJoguesPriestsAndCompanionsMartyrsSecondaryPatronsOfCanada: 'Ss. Ioannis de Brébeuf, Isaac Jogues, presbyterorum, et sociorum, martyrum et patronorum secundariorum Canadæ',
+    saintsJohnDeBrebeufIsaacJoguesPriestsAndCompanionsMartyrs:
+      'Ss. Ioannis de Brébeuf, Isaac Jogues, presbyterorum, et sociorum, martyrum',
+    saintsJohnDeBrebeufIsaacJoguesPriestsAndCompanionsMartyrsSecondaryPatronsOfCanada:
+      'Ss. Ioannis de Brébeuf, Isaac Jogues, presbyterorum, et sociorum, martyrum et patronorum secundariorum Canadæ',
     saintsJoachimAndAnne: 'Ss. Ioachim et Annæ, parentum B. M. V.',
     saintsJohnFisherBishopAndThomasMoreMartyrs: 'Ss. Ioannis Fisher, episcopi, et Thomæ More, martyrum',
-    saintsLouisVersigliaBishopAndCallistusCaravarioPriestMartyrs: 'Ss. Aloisii Versiglia, episcopi, et Callisti Caravario, presbyteri, martyrum',
+    saintsLouisVersigliaBishopAndCallistusCaravarioPriestMartyrs:
+      'Ss. Aloisii Versiglia, episcopi, et Callisti Caravario, presbyteri, martyrum',
     saintsMarcellinusAndPeterMartyrs: 'Ss. Marcellini et Petri, martyrum',
-    saintsMargaretClitherowAnneLineAndMargaretWardMartyrs: 'Ss. Margaritæ Clitherow, Annæ Line et Margaritæ Ward, martyrum',
-    saintsMarkoKrizinMelicharGrodeckiAndStephenPongracPriestsAndMartyrs: 'Ss. Marci Križin, Melchioris Grodziecki et Stephani Pongrácz, presbyterorum et martyrum',
+    saintsMargaretClitherowAnneLineAndMargaretWardMartyrs:
+      'Ss. Margaritæ Clitherow, Annæ Line et Margaritæ Ward, martyrum',
+    saintsMarkoKrizinMelicharGrodeckiAndStephenPongracPriestsAndMartyrs:
+      'Ss. Marci Križin, Melchioris Grodziecki et Stephani Pongrácz, presbyterorum et martyrum',
     saintsMichaelGabrielAndRaphaelArchangels: 'Ss. Michaelis, Gabrielis et Raphaelis, archangelorum',
     saintsNereusAndAchilleusMartyrs: 'Ss. Nerei et Achillei, martyrum',
     saintSoledadTorresAcostaVirgin: 'S. Mariæ a Solitudine Torres Acosta, virginis',
@@ -693,7 +717,8 @@ export default {
     saintsPhilipEvansAndJohnLloydPriestsAndMartyrs: 'Ss. Philippi Evans et Ioannis Lloyd, presbyterorum et martyrum',
     saintsPontianPopeAndHippolytusPriestMartyrs: 'Ss. Pontiani, papæ, et Hippolyti, presbyteri, martyrum',
     saintSpyridon: 'S. Spyridonis, episcopi',
-    saintsRoqueGonzalezAlfonsoRodriguezOlmedoAndJuanDelCastilloPriestsAndMartyrs: 'Ss. Rochi González, Alfonsi Rodríguez et Ioannis del Castillo, presbyterorum et martyrum',
+    saintsRoqueGonzalezAlfonsoRodriguezOlmedoAndJuanDelCastilloPriestsAndMartyrs:
+      'Ss. Rochi González, Alfonsi Rodríguez et Ioannis del Castillo, presbyterorum et martyrum',
     saintsRupertAndVirgiliusOfSalzburgBishops: 'Ss. Ruperti et Virgilii Salisburgensis, episcoporum',
     saintsSimonAndJudeApostles: 'Ss. Simonis et Iudæ, apostolorum',
     saintStanislausBishopAndMartyr: 'S. Stanislai, episcopi et martyris',
@@ -715,11 +740,13 @@ export default {
     saintTheodosiusOfTheCavesAbbot: 'S. Theodosii Kioviensis, abbatis',
     saintTheotoniusPriest: 'S. Theotonii, presbyteri',
     saintThereseOfTheChildJesusVirginAndDoctor: 'S. Teresiæ a Iesu Infante, virginis et Ecclesiæ doctoris',
-    saintThereseOfTheChildJesusVirginSecondaryPatronessOfFrance: 'S. Teresiæ a Iesu Infante, virginis, Ecclesiæ doctori et patronæ secundariæ Galliæ',
+    saintThereseOfTheChildJesusVirginSecondaryPatronessOfFrance:
+      'S. Teresiæ a Iesu Infante, virginis, Ecclesiæ doctori et patronæ secundariæ Galliæ',
     saintThomasAquinasPriestAndDoctor: 'S. Thomæ de Aquino, presbyteri et Ecclesiæ doctoris',
     saintThomasBecketBishopAndMartyr: 'S. Thomæ Becket, episcopi et martyris',
     saintThomasOfVillanovaBishop: 'S. Thomæ a Villanova, episcopi',
-    saintThomasRokuzayemonPriestAndCompanionsMartyrs: 'Ss. Thomæ Hioji Rokuzayemon Nishi, presbyteri, et sociorum, martyrum',
+    saintThomasRokuzayemonPriestAndCompanionsMartyrs:
+      'Ss. Thomæ Hioji Rokuzayemon Nishi, presbyteri, et sociorum, martyrum',
     saintThomasTheApostle: 'S. Thomæ, apostoli',
     saintThorfinnBishop: 'S. Thorfinni, episcopi',
     saintThorlacBishop: 'S. Thorlaci, episcopi',
@@ -745,13 +772,13 @@ export default {
     saintWolfgangOfRegensburgBishop: 'S. Wolfgangi Ratisbonensis, episcopi',
     saintWulstanBishop: 'S. Wulstani, episcopi',
     saintZdislava: 'S. Zdislavæ',
-    saintZdzislawa: 'S. Zdislavæ',  // dupe of saintZdislava
+    saintZdzislawa: 'S. Zdislavæ', // dupe of saintZdislava
     saintZygmuntGorazdowskiPriest: 'S. Sigismundi Gorazdowski, presbyteri',
     saintZygmuntSzczesnyFelinskiBishop: 'S. Sigismundi Felicis Feliński, episcopi',
-    S. Sigismundi Szczęsny Feliński
     santoNinoInfantJesus: 'S. Pueri Iesu de Cæbua',
     sevenHolyFoundersOfTheServiteOrder: 'Ss. Septem Fundatorum Ordinis Servorum B. M. V.',
-    sevenMartyredNunsFromTheFranciscanMissionariesOfMary: 'Ss. septem sorores ex Instituto Franciscanum Missionariarum Mariæ, martyrum',
+    sevenMartyredNunsFromTheFranciscanMissionariesOfMary:
+      'Ss. septem sorores ex Instituto Franciscanum Missionariarum Mariæ, martyrum',
     shipwreckOfSaintPaulApostle: 'Naufragii S. Pauli, apostoli',
     // shroveMonday: 'Shrove Monday',  // AFAIK (@tukusejssirs), there is no Shrovetide in `cal1969` (and never was); actually, there is no Shrovetide (and never was); there was Pre-Lenten Time (Septuagesima in Latin, for it started 70 days before Easter) in calendars before `cal1969`
     // shroveTuesday: 'Shrove Tuesday',  // AFAIK (@tukusejssirs), there is no Shrovetide in `cal1969` (and never was); actually, there is no Shrovetide (and never was); there was Pre-Lenten Time (Septuagesima in Latin, for it started 70 days before Easter) in calendars before `cal1969`
