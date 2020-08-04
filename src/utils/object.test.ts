@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import 'jest-extended';
 import { findDescendantValueByKeys, omit, omitFalsyProps, mergeObjectsUniquely, sortBy } from '@romcal/utils/object';
 
 describe('omit', () => {
@@ -95,7 +96,7 @@ describe('findDescendantValueByKeys()', () => {
   });
 
   test('should return the last valid value from an incorrect key sequence', () => {
-    const result = findDescendantValueByKeys(testNestedString, ['one', 'two', 'three']);
+    const result = findDescendantValueByKeys(testNestedString, ['one', 'two', 't2hree']);
 
     expect(result).toBe(testNestedString.one.two);
     expect(Object.keys(result)).toStrictEqual(['three']);

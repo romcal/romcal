@@ -236,11 +236,11 @@ export class RomcalDateItem implements IRomcalDateItem {
 }
 
 /**
- * Checks if a value is a [[DateItem]]
+ * Checks if a value is a [[RomcalDateItem]]
  * @param value The value that could be an instance of [[IDateItem]]
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const isDateItem = (value: Record<string, any>): value is IRomcalDateItem => {
-  const { key, name, date, type } = value;
-  return !isNil(key) && !isNil(name) && !isNil(date) && !isNil(type);
+export const isRomcalDateItem = (value: Record<string, any>): value is IRomcalDateItem => {
+  const { key, name, date, rank } = value;
+  return !isNil(key) && !isNil(name) && !isNil(date) && !isNil(rank);
 };

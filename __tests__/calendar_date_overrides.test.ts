@@ -23,6 +23,7 @@
     THE SOFTWARE.
 */
 
+import 'jest-extended';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import { RomcalDateItem, RomcalDateItemInput } from '@romcal/models/romcal-date-item';
@@ -58,11 +59,11 @@ describe('Testing national calendar overrides', () => {
       expect(dates.length).toEqual(1);
       expect(dates[0].key).toEqual('epiphany');
     });
-    test('The optional memory of Saint Fructuosus is celebrated on the January 20 in Spain, in addition of Saint Fabian from the general calendar', () => {
+    test('The optional memory of Saint Fructuosus is celebrated on the January 20 in Spain, in addition of Saint Fabian & Saint Sebastian from the general calendar', () => {
       const dates = spainDates2020.filter(d => {
         return dayjs.utc(d.date).isSame(dayjs.utc('2020-1-20'));
       });
-      expect(dates.length).toEqual(3);
+      expect(dates.length).toEqual(4);
     });
     test('When optional celebrations are available, the feria is the first celebration available', () => {
       const [firstDate] = spainDates2020.filter(d => {

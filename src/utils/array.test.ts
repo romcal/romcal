@@ -1,3 +1,4 @@
+import 'jest-extended';
 import { concatAll, removeWhere, find } from '@romcal/utils/array';
 
 describe('concatAll', () => {

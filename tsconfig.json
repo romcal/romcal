@@ -20,7 +20,8 @@
     }
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "./global.d.ts"
   ],
   "exclude": ["__tests__", "**/*.test.ts", "dist", "coverage", "node_modules"]
 }

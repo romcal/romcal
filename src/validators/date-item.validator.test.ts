@@ -1,3 +1,4 @@
+import 'jest-extended';
 import { Validator } from 'jsonschema';
 import { getRomcalSeasonJsonSchema } from '@romcal/validators/date-item.validator';
 
