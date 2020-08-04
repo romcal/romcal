@@ -134,3 +134,19 @@ export const isEmpty = (maybeEmpty: unknown): boolean => {
     return true;
   }
 };
+
+/**
+ * Check if a value is a country.
+ * @param maybeCountry The value that could be a country
+ */
+export const isCountry = (maybeCountry: unknown): boolean => {
+  return typeof maybeCountry === 'string' && Object.keys(Calendars).includes(maybeCountry);
+};
+
+/**
+ * Check if a value is a locale.
+ * @param maybeLocale The value that could be a locale
+ */
+export const isLocale = (maybeLocale: unknown): boolean => {
+  return typeof maybeLocale === 'string' && Object.keys(Locales).includes(maybeLocale);
+};
