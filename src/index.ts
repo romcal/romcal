@@ -100,7 +100,7 @@ import { LITURGICAL_SEASONS } from '@romcal/constants/liturgical-seasons.constan
 import { PSALTER_WEEKS } from '@romcal/constants/psalter-weeks.constant';
 import { QUERY_TYPES } from '@romcal/constants/query-types.constant';
 import { TITLES } from '@romcal/constants/titles.constant';
-import { TYPES } from '@romcal/constants/types.constant';
+import { RANKS } from '@romcal/constants/ranks.constant';
 
 import { Dictionary, isNil, isInteger, isObject } from '@romcal/utils/type-guards';
 import { ChristmastideEndings } from '@romcal/types/christmastide-endings.type';
@@ -164,8 +164,8 @@ export default class Romcal {
           );
         case 'cycles':
           return _.groupBy(dates, d => d.data.meta.cycle?.value);
-        case 'types':
-          return _.groupBy(dates, d => d.type);
+        case 'ranks':
+          return _.groupBy(dates, d => d.rank);
         /**
          * Groups by the first liturgical season in the array
          */
@@ -298,7 +298,7 @@ export {
   PSALTER_WEEKS,
   QUERY_TYPES,
   TITLES,
-  TYPES,
+  RANKS,
 };
 
 /**

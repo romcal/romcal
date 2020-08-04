@@ -6,7 +6,7 @@ import { PSALTER_WEEKS } from '@romcal/constants/psalter-weeks.constant';
 import { PsalterWeek } from '@romcal/types/psalter-weeks.type';
 import { RomcalDateItemInput } from '@romcal/models/romcal-date-item';
 import { isNil } from '@romcal/utils/type-guards';
-import { TypesEnum } from '@romcal/enums/types.enum';
+import { RanksEnum } from '@romcal/enums/ranks.enum';
 import { ChristmastideEndings } from '@romcal/types/christmastide-endings.type';
 import { ordinal, localizeLiturgicalColor, localize, getTypeByDayOfWeek } from '@romcal/lib/Locales';
 
@@ -78,7 +78,7 @@ const _epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<R
     return {
       date,
       key: `${date.locale('en').format('dddd')}BeforeEpiphany`,
-      type: TypesEnum.FERIA,
+      rank: RanksEnum.FERIA,
       name: await localize({
         key: 'epiphany.before',
         day: date.format('dddd'),
@@ -100,7 +100,7 @@ const _epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<R
     return {
       date,
       key: `${date.locale('en').format('dddd')}AfterEpiphany`,
-      type: TypesEnum.FERIA,
+      rank: RanksEnum.FERIA,
       name: await localize({
         key: 'epiphany.after',
         day: date.format('dddd'),
@@ -134,7 +134,7 @@ const _holyWeek = async (year: number): Promise<Array<RomcalDateItemInput>> => {
     return {
       date,
       key: `${date.locale('en').format('dddd')}OfHolyWeek`,
-      type: TypesEnum.HOLY_WEEK,
+      rank: RanksEnum.HOLY_WEEK,
       name: await localize({
         key: 'holyWeek.feria',
         day: date.format('dddd'),
@@ -186,7 +186,7 @@ const advent = async (year: number): Promise<Array<RomcalDateItemInput>> => {
         value.day() === 0
           ? `${ordinal(Math.floor(i / 7) + 1, true)}SundayOfAdvent`
           : `${value.locale('en').format('dddd')}OfThe${ordinal(Math.floor(i / 7) + 1).toUpperCase()}WeekOfAdvent`,
-      type: getTypeByDayOfWeek(value.day()),
+      rank: getTypeByDayOfWeek(value.day()),
       name: await localize({
         key: value.day() === 0 ? 'advent.sunday' : 'advent.feria',
         day: value.format('dddd'),
@@ -277,7 +277,7 @@ const christmastide = async (
         dayOfWeek === 0
           ? `${ordinal(count, true)}SundayOfChristmas`
           : `${day.locale('en').format('dddd')}OfChristmastide`,
-      type: getTypeByDayOfWeek(dayOfWeek),
+      rank: getTypeByDayOfWeek(dayOfWeek),
       name: await localize({
         key: dayOfWeek === 0 ? 'christmastide.sunday' : 'christmastide.day',
         day: day.format('dddd'),
@@ -301,7 +301,7 @@ const christmastide = async (
     return {
       date: day,
       key: `${ordinal(idx + 1, true)}DayInTheOctaveOfChristmas`,
-      type: getTypeByDayOfWeek(day.day()),
+      rank: getTypeByDayOfWeek(day.day()),
       name: await localize({
         key: 'christmastide.octave',
         count: idx + 1,
@@ -410,7 +410,7 @@ const earlyOrdinaryTime = async (
           value.day() === 0
             ? `${ordinal(Math.floor(i / 7) + 2, true)}SundayOfOrdinaryTime`
             : `${value.locale('en').format('dddd')}OfThe${ordinal(Math.floor(i / 7) + 1, true)}WeekOfOrdinaryTime`,
-        type: value.day() === 0 ? TypesEnum.SUNDAY : TypesEnum.FERIA,
+        rank: value.day() === 0 ? RanksEnum.SUNDAY : RanksEnum.FERIA,
         name: await localize({
           key: value.day() === 0 ? 'ordinaryTime.sunday' : 'ordinaryTime.feria',
           day: value.format('dddd'),
@@ -498,7 +498,7 @@ const laterOrdinaryTime = async (year: number): Promise<Array<RomcalDateItemInpu
           value.day() === 0
             ? `${ordinal(week, true)}SundayOfOrdinaryTime`
             : `${value.locale('en').format('dddd')}OfThe${ordinal(week, true).toUpperCase()}WeekOfOrdinaryTime`,
-        type: value.day() === 0 ? TypesEnum.SUNDAY : TypesEnum.FERIA,
+        rank: value.day() === 0 ? RanksEnum.SUNDAY : RanksEnum.FERIA,
         name: await localize({
           key: value.day() === 0 ? 'ordinaryTime.sunday' : 'ordinaryTime.feria',
           day: value.format('dddd'),
@@ -580,7 +580,7 @@ const lent = async (year: number): Promise<Array<RomcalDateItemInput>> => {
               Math.floor((i - 4) / 7) + 1,
               true,
             ).toUpperCase()}WeekOfLent`,
-      type: TypesEnum.FERIA,
+      rank: RanksEnum.FERIA,
       name: await localize({
         key: i > 0 && i < 4 ? 'lent.dayAfterAshWed' : 'lent.feria',
         day: value.format('dddd'),
@@ -604,7 +604,7 @@ const lent = async (year: number): Promise<Array<RomcalDateItemInput>> => {
     return {
       date: value,
       key: `${ordinal(i + 1, true)}SundayOfLent`,
-      type: TypesEnum.SUNDAY,
+      rank: RanksEnum.SUNDAY,
       name: await localize({
         key: 'lent.sunday',
         week: i + 1,
@@ -703,7 +703,7 @@ const eastertide = async (year: number): Promise<Array<RomcalDateItemInput>> => 
               Math.floor(i / 7) + 1,
               true,
             ).toUpperCase()}WeekOfEaster`,
-      type: i > 0 && i < 7 ? TypesEnum.SOLEMNITY : TypesEnum.FERIA,
+      rank: i > 0 && i < 7 ? RanksEnum.SOLEMNITY : RanksEnum.FERIA,
       name: await localize({
         key: i > 0 && i < 7 ? 'eastertide.octave' : 'eastertide.feria',
         day: value.locale('en').format('dddd'),
@@ -727,7 +727,7 @@ const eastertide = async (year: number): Promise<Array<RomcalDateItemInput>> => 
     return {
       date: value,
       key: `${ordinal(i + 1, true)}SundayOfEaster`,
-      type: TypesEnum.SUNDAY,
+      rank: RanksEnum.SUNDAY,
       name: await localize({
         key: 'eastertide.sunday',
         week: i + 1,

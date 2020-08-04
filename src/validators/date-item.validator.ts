@@ -1,5 +1,5 @@
 import { Schema, Validator } from 'jsonschema';
-import { TYPES } from '@romcal/constants/types.constant';
+import { RANKS } from '@romcal/constants/ranks.constant';
 import { LITURGICAL_COLOR_KEYS } from '@romcal/constants/liturgical-colors.constant';
 
 export const getDateItemJsonSchema = (): Schema => {
@@ -12,7 +12,7 @@ export const getDateItemJsonSchema = (): Schema => {
       key: { type: 'string' },
       name: { type: 'string' },
       date: { type: 'string' },
-      type: { type: 'string', enum: TYPES },
+      type: { type: 'string', enum: RANKS },
       data: { $ref: '/dateItemDataJsonSchema' },
       base: { $ref: '/dateItem' },
       _id: { type: 'number' },

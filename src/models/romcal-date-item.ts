@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import * as Dates from '@romcal/lib/Dates';
 import { ISO8601DateString, isNil } from '@romcal/utils/type-guards';
 import { LITURGICAL_CYCLES } from '@romcal/constants/liturgical-cycles.constant';
-import { TypesEnum } from '@romcal/enums/types.enum';
+import { RanksEnum } from '@romcal/enums/ranks.enum';
 import { LiturgicalSeason } from '@romcal/types/liturgical-seasons.type';
 import { PsalterWeek } from '@romcal/types/psalter-weeks.type';
 import { LiturgicalColor } from '@romcal/types/liturgical-colors.type';
@@ -53,7 +53,7 @@ export interface RomcalDateItemInput {
   /**
    * The type of celebration
    */
-  type?: TypesEnum;
+  rank?: RanksEnum;
   date: dayjs.Dayjs;
   data?: RomcalDateItemData;
   /**
@@ -89,7 +89,7 @@ export interface IRomcalDateItem {
   readonly key: string;
   readonly name: string;
   readonly date: ISO8601DateString;
-  readonly type: TypesEnum;
+  readonly rank: RanksEnum;
   readonly data: DateItemData;
   readonly base?: RomcalDateItem;
   readonly _id: number;
@@ -116,9 +116,9 @@ export class RomcalDateItem implements IRomcalDateItem {
    */
   public date: ISO8601DateString;
   /**
-   * The type of the celebration.
+   * The rank of the celebration.
    */
-  public type: TypesEnum;
+  public rank: RanksEnum;
   /**
    * The data associated to this celebration.
    */
@@ -138,11 +138,11 @@ export class RomcalDateItem implements IRomcalDateItem {
 
   static latestId: number;
 
-  constructor({ key, name, type, date, data, _stack, baseItem }: TDateItemInput) {
+  constructor({ key, name, rank, date, data, _stack, baseItem }: TDateItemInput) {
     this.key = key;
     this.name = name;
     this.date = date.toISOString();
-    this.type = type;
+    this.rank = rank;
     this.data = data;
 
     this._id = RomcalDateItem._incrementId();
@@ -180,13 +180,13 @@ export class RomcalDateItem implements IRomcalDateItem {
   private adjustTypeInSeason(): void {
     if (this.base?.data.season?.some(season => season.key === 'LENT')) {
       if (
-        (this.type === TypesEnum.MEMORIAL || this.type === TypesEnum.OPT_MEMORIAL) &&
-        this.base.type === TypesEnum.FERIA
+        (this.rank === RanksEnum.MEMORIAL || this.rank === RanksEnum.OPT_MEMORIAL) &&
+        this.base.rank === RanksEnum.FERIA
       ) {
-        this.type = TypesEnum.COMMEMORATION;
+        this.rank = RanksEnum.COMMEMORATION;
       }
-      if (this.type === TypesEnum.FEAST) {
-        this.type = TypesEnum.COMMEMORATION;
+      if (this.rank === RanksEnum.FEAST) {
+        this.rank = RanksEnum.COMMEMORATION;
       }
     }
   }

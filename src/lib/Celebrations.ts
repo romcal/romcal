@@ -5,7 +5,7 @@ import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant'
 import { RomcalDateItemInput } from '@romcal/models/romcal-date-item';
 import Config from '@romcal/models/romcal-config';
 import { isNil } from '@romcal/utils/type-guards';
-import { TypesEnum } from '@romcal/enums/types.enum';
+import { RanksEnum } from '@romcal/enums/ranks.enum';
 
 /**
  * Returns various fixed celebrations in the liturgical calendar.
@@ -17,7 +17,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
     // Solemnities
     {
       key: 'immaculateConception',
-      type: TypesEnum.SOLEMNITY,
+      rank: RanksEnum.SOLEMNITY,
       date: Dates.immaculateConception(year),
       data: {
         prioritized: true,
@@ -28,7 +28,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
     },
     {
       key: 'christmas',
-      type: TypesEnum.SOLEMNITY,
+      rank: RanksEnum.SOLEMNITY,
       date: Dates.christmas(year),
       data: {
         prioritized: true,
@@ -39,7 +39,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
     },
     {
       key: 'maryMotherOfGod',
-      type: TypesEnum.SOLEMNITY,
+      rank: RanksEnum.SOLEMNITY,
       date: Dates.maryMotherOfGod(year),
       data: {
         prioritized: true,
@@ -50,7 +50,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
     },
     {
       key: 'epiphany',
-      type: TypesEnum.SOLEMNITY,
+      rank: RanksEnum.SOLEMNITY,
       date: Dates.epiphany(year, config.epiphanyOnSunday),
       data: {
         prioritized: true,
@@ -61,7 +61,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
     },
     {
       key: 'trinitySunday',
-      type: TypesEnum.SOLEMNITY,
+      rank: RanksEnum.SOLEMNITY,
       date: Dates.trinitySunday(year),
       data: {
         prioritized: true,
@@ -72,7 +72,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
     },
     {
       key: 'corpusChristi',
-      type: TypesEnum.SOLEMNITY,
+      rank: RanksEnum.SOLEMNITY,
       date: Dates.corpusChristi(year, config.corpusChristiOnSunday),
       data: {
         prioritized: true,
@@ -83,7 +83,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
     },
     {
       key: 'sacredHeartOfJesus',
-      type: TypesEnum.SOLEMNITY,
+      rank: RanksEnum.SOLEMNITY,
       date: Dates.sacredHeartOfJesus(year),
       data: {
         prioritized: true,
@@ -94,7 +94,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
     },
     {
       key: 'birthOfJohnTheBaptist',
-      type: TypesEnum.SOLEMNITY,
+      rank: RanksEnum.SOLEMNITY,
       date: Dates.birthOfJohnTheBaptist(year),
       data: {
         prioritized: true,
@@ -105,7 +105,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
     },
     {
       key: 'peterAndPaulApostles',
-      type: TypesEnum.SOLEMNITY,
+      rank: RanksEnum.SOLEMNITY,
       date: Dates.peterAndPaulApostles(year),
       data: {
         prioritized: true,
@@ -116,7 +116,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
     },
     {
       key: 'assumption',
-      type: TypesEnum.SOLEMNITY,
+      rank: RanksEnum.SOLEMNITY,
       date: Dates.assumption(year),
       data: {
         prioritized: true,
@@ -127,7 +127,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
     },
     {
       key: 'allSaints',
-      type: TypesEnum.SOLEMNITY,
+      rank: RanksEnum.SOLEMNITY,
       date: Dates.allSaints(year),
       data: {
         prioritized: true,
@@ -138,7 +138,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
     },
     {
       key: 'christTheKing',
-      type: TypesEnum.SOLEMNITY,
+      rank: RanksEnum.SOLEMNITY,
       date: Dates.christTheKing(year),
       data: {
         prioritized: true,
@@ -149,7 +149,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
     },
     {
       key: 'josephHusbandOfMary',
-      type: TypesEnum.SOLEMNITY,
+      rank: RanksEnum.SOLEMNITY,
       date: Dates.josephHusbandOfMary(year),
       data: {
         prioritized: true,
@@ -160,7 +160,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
     },
     {
       key: 'annunciation',
-      type: TypesEnum.SOLEMNITY,
+      rank: RanksEnum.SOLEMNITY,
       date: Dates.annunciation(year),
       data: {
         prioritized: true,
@@ -171,7 +171,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
     },
     {
       key: 'easter',
-      type: TypesEnum.SOLEMNITY,
+      rank: RanksEnum.SOLEMNITY,
       date: Dates.easter(year),
       data: {
         prioritized: true,
@@ -182,7 +182,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
     },
     {
       key: 'divineMercySunday',
-      type: TypesEnum.SOLEMNITY,
+      rank: RanksEnum.SOLEMNITY,
       date: Dates.divineMercySunday(year),
       data: {
         prioritized: true,
@@ -193,7 +193,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
     },
     {
       key: 'ascension',
-      type: TypesEnum.SOLEMNITY,
+      rank: RanksEnum.SOLEMNITY,
       date: Dates.ascension(year, config.ascensionOnSunday),
       data: {
         prioritized: true,
@@ -204,7 +204,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
     },
     {
       key: 'pentecostSunday',
-      type: TypesEnum.SOLEMNITY,
+      rank: RanksEnum.SOLEMNITY,
       date: Dates.pentecostSunday(year),
       data: {
         prioritized: true,
@@ -216,7 +216,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
     // Lent, Holy Week & Triduum
     {
       key: 'ashWednesday',
-      type: TypesEnum.FERIA,
+      rank: RanksEnum.FERIA,
       date: Dates.ashWednesday(year),
       data: {
         prioritized: true,
@@ -235,7 +235,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
     },
     {
       key: 'palmSunday',
-      type: TypesEnum.SUNDAY,
+      rank: RanksEnum.SUNDAY,
       date: Dates.palmSunday(year),
       data: {
         prioritized: true,
@@ -254,7 +254,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
     },
     {
       key: 'holyThursday',
-      type: TypesEnum.TRIDUUM,
+      rank: RanksEnum.TRIDUUM,
       date: Dates.holyThursday(year),
       data: {
         prioritized: true,
@@ -274,7 +274,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
     },
     {
       key: 'goodFriday',
-      type: TypesEnum.TRIDUUM,
+      rank: RanksEnum.TRIDUUM,
       date: Dates.goodFriday(year),
       data: {
         prioritized: true,
@@ -294,7 +294,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
     },
     {
       key: 'holySaturday',
-      type: TypesEnum.TRIDUUM,
+      rank: RanksEnum.TRIDUUM,
       date: Dates.holySaturday(year),
       data: {
         prioritized: true,
@@ -315,7 +315,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
     // Feasts
     {
       key: 'holyFamily',
-      type: TypesEnum.FEAST,
+      rank: RanksEnum.FEAST,
       date: Dates.holyFamily(year),
       data: {
         prioritized: true,
@@ -327,7 +327,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
     },
     {
       key: 'baptismOfTheLord',
-      type: TypesEnum.FEAST,
+      rank: RanksEnum.FEAST,
       date: Dates.baptismOfTheLord(year, config.epiphanyOnSunday),
       data: {
         prioritized: true,
@@ -339,7 +339,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
     },
     {
       key: 'presentationOfTheLord',
-      type: TypesEnum.FEAST,
+      rank: RanksEnum.FEAST,
       date: Dates.presentationOfTheLord(year),
       data: {
         prioritized: true,
@@ -351,7 +351,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
     },
     {
       key: 'transfiguration',
-      type: TypesEnum.FEAST,
+      rank: RanksEnum.FEAST,
       date: Dates.transfiguration(year),
       data: {
         prioritized: true,
@@ -363,7 +363,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
     },
     {
       key: 'theExaltationOfTheHolyCross',
-      type: TypesEnum.FEAST,
+      rank: RanksEnum.FEAST,
       date: Dates.theExaltationOfTheHolyCross(year),
       data: {
         prioritized: true,
@@ -376,7 +376,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
     // Memorials
     {
       key: 'immaculateHeartOfMary',
-      type: TypesEnum.FEAST,
+      rank: RanksEnum.FEAST,
       date: Dates.immaculateHeartOfMary(year),
       data: {
         prioritized: true,

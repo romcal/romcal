@@ -5,7 +5,7 @@ import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant'
 import { TITLES } from '@romcal/constants/titles.constant';
 import { RomcalDateItemInput } from '@romcal/models/romcal-date-item';
 import Config, { IRomcalDefaultConfig } from '@romcal/models/romcal-config';
-import { TypesEnum } from '@romcal/enums/types.enum';
+import { RanksEnum } from '@romcal/enums/ranks.enum';
 
 const defaultConfig: IRomcalDefaultConfig | undefined = undefined;
 
@@ -14,7 +14,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
   const _dates: Array<RomcalDateItemInput> = [
     {
       key: 'saintPaulMikiAndCompanionsMartyrs',
-      type: TypesEnum.FEAST,
+      rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-2-6`),
       data: {
         meta: {
@@ -25,12 +25,12 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
     },
     {
       key: 'discoveryOfTheHiddenChristians',
-      type: TypesEnum.OPT_MEMORIAL,
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-3-17`),
     },
     {
       key: 'blessedPeterKibePriestAndCompanionsMartyrs',
-      type: TypesEnum.MEMORIAL,
+      rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-7-1`),
       data: {
         meta: {
@@ -41,7 +41,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
     },
     {
       key: '205BlessedMartyrsOfJapan',
-      type: TypesEnum.MEMORIAL,
+      rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-9-10`),
       data: {
         meta: {
@@ -51,7 +51,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
     },
     {
       key: 'saintThomasRokuzayemonPriestAndCompanionsMartyrs',
-      type: TypesEnum.MEMORIAL,
+      rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-9-28`),
       data: {
         meta: {
@@ -61,7 +61,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
     },
     {
       key: 'saintFrancisXavierPriest',
-      type: TypesEnum.FEAST,
+      rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-12-3`),
       data: {
         meta: {

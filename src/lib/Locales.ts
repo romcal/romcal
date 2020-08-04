@@ -7,7 +7,7 @@ import { findDescendantValueByKeys, mergeObjectsUniquely } from '@romcal/utils/o
 import { isNil, isString } from '@romcal/utils/type-guards';
 import { RomcalLocale } from '@romcal/models/romcal-locale';
 import { RomcalDateItemInput } from '@romcal/models/romcal-date-item';
-import { TypesEnum } from '@romcal/enums/types.enum';
+import { RanksEnum } from '@romcal/enums/ranks.enum';
 import { LiturgicalColor } from '@romcal/types/liturgical-colors.type';
 import { DateItemSources } from '@romcal/types/date-item-sources.type';
 import { LocaleTypes } from '@romcal/types/locale-types.type';
@@ -329,6 +329,6 @@ const localizeLiturgicalColor = async (liturgicalColor?: LiturgicalColor): Promi
  * the type of day from the [[Types]] enum
  * @param day A "day" integer that should come from the DayJS library
  */
-const getTypeByDayOfWeek = (day: number): TypesEnum => (day === 0 ? TypesEnum.SUNDAY : TypesEnum.FERIA);
+const getTypeByDayOfWeek = (day: number): RanksEnum => (day === 0 ? RanksEnum.SUNDAY : RanksEnum.FERIA);
 
 export { setLocale, getLocale, localize, localizeDates, localizeLiturgicalColor, getTypeByDayOfWeek };
