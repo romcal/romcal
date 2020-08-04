@@ -34,7 +34,7 @@ hasTwoVersionKeys () {
     return 1
 }
 
-# Try to dermine if only package and package-lock is in conflict
+# Try to determine if only package and package-lock is in conflict
 # Then determine if only the version fields are in conflict
 # If the above are true, it is safe to discard changes from these 2 files and proceed with the merge
 isSafeToMergeDespiteConflicts () {

@@ -1,4 +1,4 @@
-import * as Calendars from '../calendars';
+import * as Calendars from '@romcal/calendars';
 
 /**
  * A dynamic array that contains a resolved list of country names from the ./calendars directory of the module.

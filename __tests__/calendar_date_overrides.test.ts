@@ -346,7 +346,7 @@ describe('Testing national calendar overrides', () => {
   });
 
   describe('The feast of All Souls in England and Wales', () => {
-    test('If All Saints is mpved to Sunday, All Souls must be on Monday (the next day)', async () => {
+    test('If All Saints is moved to Sunday, All Souls must be on Monday (the next day)', async () => {
       // In 2008, 1st of November was on a Saturday
       const englandDates = await Romcal.calendarFor({
         country: 'england',
