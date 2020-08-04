@@ -8,7 +8,7 @@ export default {
   },
   christmastide: {
     season: 'Nativitatis',
-    // day: '{{day}} of Christmastide',  // TODO: Where is this used?
+    day: '{{day}} of Christmastide', // TODO: Where is this used?
     octave: 'De die {{count}} infra octavam Nativitatis',
     sunday: 'Dominica {{count}} post Nativitatem',
   },
@@ -36,7 +36,7 @@ export default {
     season: 'Paschæ',
     feria: '{{day}}, hebdomada {{week}} temporis paschalis',
     sunday: 'Dominica {{week}} Paschæ',
-    // octave: 'Easter {{day}}',
+    octave: 'De die {{count}} infra octavam Paschæ',
   },
   liturgicalColors: {
     GOLD: 'auri',
