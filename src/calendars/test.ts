@@ -15,9 +15,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'maryMotherOfTheChurch',
       rank: RanksEnum.OPT_MEMORIAL,
       date: ((y: number): dayjs.Dayjs => Dates.pentecostSunday(y).add(1, 'day'))(year),
-      data: {
-        prioritized: true,
-      },
+      prioritized: true,
     },
     {
       key: 'ashWednesday',
@@ -32,25 +30,19 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'saintLukeTheEvangelist',
       rank: RanksEnum.COMMEMORATION,
       date: dayjs.utc(`${year}-10-18`),
-      data: {
-        prioritized: true,
-      },
+      prioritized: true,
     },
     {
       key: 'aSampleCelebration1',
       rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-11-9`),
-      data: {
-        prioritized: true,
-      },
+      prioritized: true,
     },
     {
       key: 'aSampleCelebration2',
       rank: RanksEnum.SOLEMNITY,
       date: dayjs.utc(`${year}-12-25`),
-      data: {
-        prioritized: true,
-      },
+      prioritized: true,
     },
   ];
 

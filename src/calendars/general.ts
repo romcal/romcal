@@ -852,11 +852,11 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       rank: RanksEnum.MEMORIAL, // Memorial
       date: ((y: number): dayjs.Dayjs => Dates.pentecostSunday(y).add(1, 'day'))(year),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
+      prioritized: true,
     },
     {
       key: 'saintBridgetOfSwedenReligious',
@@ -1518,11 +1518,11 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-11-9`),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
+      prioritized: true,
     },
     {
       key: 'saintLeoTheGreatPopeAndDoctor',

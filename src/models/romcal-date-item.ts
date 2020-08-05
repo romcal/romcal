@@ -31,7 +31,6 @@ export interface RomcalDateItemData {
   season?: Array<RomcalSeason>;
   meta?: RomcalDateItemMetadata;
   calendar?: RomcalDateItemDataCalendar;
-  prioritized?: boolean;
 }
 
 /**
@@ -51,9 +50,13 @@ export interface RomcalDateItemInput {
    */
   key?: string;
   /**
-   * The type of celebration
+   * The rank of celebration
    */
   rank?: RanksEnum;
+  /**
+   * If a celebration should have always precedence, without rank consideration.
+   */
+  prioritized?: boolean;
   date: dayjs.Dayjs;
   data?: RomcalDateItemData;
   /**
@@ -81,7 +84,6 @@ export interface DateItemData {
   season: Array<RomcalSeason>;
   meta: DateItemMetadata;
   calendar: RomcalDateItemDataCalendar;
-  prioritized?: boolean;
 }
 
 // eslint-disable-next-line @typescript-eslint/interface-name-prefix
@@ -91,6 +93,7 @@ export interface IRomcalDateItem {
   readonly date: ISO8601DateString;
   readonly rank: RanksEnum;
   readonly data: DateItemData;
+  readonly prioritized: boolean;
   readonly base?: RomcalDateItem;
   readonly _id: number;
   readonly _stack: number;
@@ -124,6 +127,10 @@ export class RomcalDateItem implements IRomcalDateItem {
    */
   public data: DateItemData;
   /**
+   * If this celebration should have always precedence, without rank consideration.
+   */
+  public prioritized: boolean;
+  /**
    * A previous celebration on the same day that was overridden by the current one.
    */
   public base: RomcalDateItem | undefined;
@@ -138,12 +145,13 @@ export class RomcalDateItem implements IRomcalDateItem {
 
   static latestId: number;
 
-  constructor({ key, name, rank, date, data, _stack, baseItem }: TDateItemInput) {
+  constructor({ key, name, rank, date, data, prioritized, _stack, baseItem }: TDateItemInput) {
     this.key = key;
     this.name = name;
     this.date = date.toISOString();
     this.rank = rank;
     this.data = data;
+    this.prioritized = prioritized;
 
     this._id = RomcalDateItem._incrementId();
     this._stack = _stack;

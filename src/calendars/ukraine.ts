@@ -39,11 +39,11 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       rank: RanksEnum.FEAST,
       date: ((y: number): dayjs.Dayjs => Dates.pentecostSunday(y).add(1, 'day'))(year),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
+      prioritized: true,
     },
     {
       key: 'saintCatherineOfSienaVirginAndDoctorOfTheChurch',

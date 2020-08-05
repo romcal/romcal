@@ -89,9 +89,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
           return dayjs.utc(date.toISOString());
         }
       })(year),
-      data: {
-        prioritized: true,
-      },
+      prioritized: true,
     },
     {
       key: 'saintAdalbertBishopAndMartyr',
@@ -324,11 +322,11 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
         }
       })(year),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.RED,
         },
       },
+      prioritized: true,
     },
     // In England and Wales when the celebration falls on either a
     // Saturday or a Monday it is transferred to the Sunday.
@@ -348,11 +346,11 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
         }
       })(year),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
+      prioritized: true,
     },
     {
       key: 'saintWilfridBishop',
@@ -432,11 +430,11 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
         }
       })(year),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
+      prioritized: true,
     },
     {
       key: 'allSouls',
@@ -453,11 +451,11 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
         }
       })(year),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
+      prioritized: true,
     },
     {
       key: 'saintThomasBecketBishopAndMartyr',
