@@ -72,7 +72,7 @@ export const mergeObjectsUniquely = <T extends { [key: string]: any }, U extends
   // Implement the recursive partial
   for (const key in source) {
     // Don't deal with undefined or nulls
-    if (!isNil(source[key])) {
+    if (source.hasOwnProperty(key) && !isNil(source[key])) {
       result[key] = !hasKey(target, key)
         ? source[key]
         : Array.isArray(source[key])
@@ -106,7 +106,7 @@ export const omitFalsyProps = <Original extends { [key: string]: any }>(
 
   // Implementation of the recursive partial
   for (const key in obj) {
-    if (!isFalsy(obj[key])) {
+    if (obj.hasOwnProperty(key) && !isFalsy(obj[key])) {
       result[key] = Array.isArray(obj[key])
         ? obj[key].map((record: any) => (isObject(record) ? omitFalsyProps(record, isFalsy) : record))
         : isObject(obj[key])
@@ -172,7 +172,5 @@ export const filter = <Original, K extends keyof Original>(
   key: K,
   value: Original[K] | undefined,
 ): Original[] => {
-  return array.filter((item: Original) => {
-    item[key] === value;
-  });
+  return array.filter((item: Original) => item[key] === value);
 };

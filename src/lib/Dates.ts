@@ -1,4 +1,4 @@
-import { rangeOfDays, eachDayOfWeekInRange, rangeContainsDate } from '@romcal/utils/dates';
+import { eachDayOfWeekInRange, rangeContainsDate, rangeOfDays } from '@romcal/utils/dates';
 import { isNil } from '@romcal/utils/type-guards';
 import { ChristmastideEndings } from '@romcal/types/christmastide-endings.type';
 
@@ -161,8 +161,7 @@ const sundaysOfLent = (year: number): Array<dayjs.Dayjs> => {
   const range = rangeOfDays(start, end, {
     exclude: [end],
   });
-  const sundays = eachDayOfWeekInRange(range, DayOfWeek.SUNDAY);
-  return sundays;
+  return eachDayOfWeekInRange(range, DayOfWeek.SUNDAY);
 };
 
 /**
@@ -359,7 +358,7 @@ const datesOfEarlyOrdinaryTime = (
   datesOfChristmasEnds: ChristmastideEndings = 'o',
   epiphanyOnSunday = true,
 ): Array<dayjs.Dayjs> => {
-  let start = null;
+  let start;
   const end = ashWednesday(year);
 
   if (datesOfChristmasEnds === 't') {
@@ -438,8 +437,7 @@ const sundaysOfEaster = (year: number): Array<dayjs.Dayjs> => {
   const start = easter(year);
   const end = pentecostSunday(year);
   const range = rangeOfDays(start, end);
-  const sundays = eachDayOfWeekInRange(range, DayOfWeek.SUNDAY);
-  return sundays;
+  return eachDayOfWeekInRange(range, DayOfWeek.SUNDAY);
 };
 
 // Eastertide is the period of fifty days from Easter Sunday to Pentecost Sunday.
@@ -469,8 +467,7 @@ const sundaysOfAdvent = (year: number): Array<dayjs.Dayjs> => {
   const start = firstSundayOfAdvent(year);
   const end = christmas(year);
   const range = rangeOfDays(start, end, { exclude: [end] });
-  const sundays = eachDayOfWeekInRange(range, DayOfWeek.SUNDAY);
-  return sundays;
+  return eachDayOfWeekInRange(range, DayOfWeek.SUNDAY);
 };
 
 /**
