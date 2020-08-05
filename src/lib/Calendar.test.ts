@@ -181,19 +181,19 @@ describe('Testing calendar generation functions', () => {
       });
 
       test('Should group weeks of year by the months they belong to', async () => {
-        const calendar = Romcal.queryFor(await Romcal.calendarFor(), {
+        const items = Romcal.queryFor(await Romcal.calendarFor(), {
           group: 'weeksByMonth',
         });
 
         // First level is months
-        Object.keys(calendar).forEach(monthKey => {
-          const monthGroup = calendar[Number(monthKey)];
+        Object.keys(items).forEach(monthKey => {
+          const monthGroup = items[Number(monthKey)];
           // Second level is weeks
           Object.keys(monthGroup).forEach(weekKey => {
             const weekGroup = monthGroup[Number(weekKey)];
             weekGroup.forEach(dateItem => {
               expect(dayjs.utc(dateItem.date).month()).toEqual(Number(monthKey));
-              expect(dateItem.data.calendar.week).toEqual(Number(weekKey));
+              expect(dateItem.calendar.weekOfGregorianYear).toEqual(Number(weekKey));
             });
           });
         });

@@ -84,7 +84,7 @@ import {
   IRomcalDateItem,
   RomcalDateItemInput,
   RomcalDateItemData,
-  RomcalDateItemDataCalendar,
+  RomcalDateItemCalendar,
   RomcalDateItemMetadata,
   RomcalSeason,
   TDateItemInput,
@@ -160,7 +160,7 @@ export default class Romcal {
         case 'weeksByMonth':
           return _.map(
             _.groupBy(dates, d => dayjs.utc(d.date).month()),
-            v => _.groupBy(v, d => d.data.calendar?.week),
+            v => _.groupBy(v, d => d.calendar.weekOfGregorianYear),
           );
         case 'cycles':
           return _.groupBy(dates, d => d.data.meta.cycle?.value);
@@ -281,7 +281,7 @@ export {
   IRomcalDateItem,
   RomcalDateItemInput,
   RomcalDateItemData,
-  RomcalDateItemDataCalendar,
+  RomcalDateItemCalendar,
   RomcalDateItemMetadata,
   RomcalSeason,
 };

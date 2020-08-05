@@ -4,7 +4,12 @@ import * as Celebrations from '@romcal/lib/Celebrations';
 import { localizeLiturgicalColor } from '@romcal/lib/Locales';
 import { isNil } from '@romcal/utils/type-guards';
 import Config from '@romcal/models/romcal-config';
-import { RomcalDateItem, RomcalDateItemData, RomcalDateItemInput } from '@romcal/models/romcal-date-item';
+import {
+  RomcalDateItem,
+  RomcalDateItemCalendar,
+  RomcalDateItemData,
+  RomcalDateItemInput,
+} from '@romcal/models/romcal-date-item';
 import { concatAll, find, removeWhere } from '@romcal/utils/array';
 import { RANKS } from '@romcal/constants/ranks.constant';
 import { RanksEnum } from '@romcal/enums/ranks.enum';
@@ -183,7 +188,7 @@ export class Calendar {
         // Find the season date that has the same date as the incoming item and make it the base item.
         const baseItem = find(this.dateItems, { date: item.date.toISOString(), _stack: 0 });
 
-        const { key, name, rank, data, prioritized, date } = item;
+        const { key, name, rank, data, prioritized, calendar, date } = item;
         if (!isNil(key) && !isNil(name) && !isNil(rank) && !isNil(date)) {
           // Create a new DateItem and add it to the collection
           this.dateItems.push(
@@ -193,6 +198,7 @@ export class Calendar {
               rank,
               date,
               prioritized: !!prioritized,
+              calendar: (calendar as Required<RomcalDateItemCalendar>) ?? {},
               data: (data as Required<RomcalDateItemData>) ?? {},
               _stack: index, // The stack number refers to the index in the calendars array in which this celebration's array is placed at
               baseItem, // Attach the base item if any
