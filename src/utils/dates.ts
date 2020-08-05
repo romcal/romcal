@@ -22,7 +22,7 @@ export const rangeContainsDate = (range: Array<dayjs.Dayjs>, date: dayjs.Dayjs):
  * dates from the range.
  * @param start The start date
  * @param end The end date
- * @param exclude Dates that should be excluded
+ * @param options Dates that should be excluded
  * @returns An array of dates representing the range
  */
 export const rangeOfDays = (

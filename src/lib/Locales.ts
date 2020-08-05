@@ -290,14 +290,13 @@ const localizeDates = async (
   source: DateItemSources = 'sanctoral',
 ): Promise<RomcalDateItemInput[]> => {
   const promiseDates: Promise<RomcalDateItemInput>[] = dates.map(async (date: RomcalDateItemInput) => {
-    const dateWithLocalizedName = {
+    return {
       ...date,
       name: await localize({
         // If the source is `temporal`, do not append anything before the date key
         key: `${source === 'temporal' ? date.key : !isNil(date.source) ? date.source : source}.${date.key}`,
       }),
     } as RomcalDateItemInput;
-    return dateWithLocalizedName;
   });
   return await Promise.all(promiseDates);
 };
