@@ -9,12 +9,6 @@ import { LiturgicalColor } from '@romcal/types/liturgical-colors.type';
 import { LiturgicalCycle } from '@romcal/types/liturgical-cycles.type';
 import { DateItemSources } from '@romcal/types/date-item-sources.type';
 
-export interface RomcalDateItemDataCalendar {
-  weeks: number;
-  week: number;
-  day: number;
-}
-
 export interface RomcalSeason {
   key: LiturgicalSeason;
   value: string;
@@ -30,7 +24,22 @@ export interface RomcalDateItemMetadata {
 export interface RomcalDateItemData {
   season?: Array<RomcalSeason>;
   meta?: RomcalDateItemMetadata;
-  calendar?: RomcalDateItemDataCalendar;
+}
+
+export interface RomcalDateItemCalendar {
+  totalWeeksInGregorianYear: number;
+  totalWeeksInLiturgicalYear: number;
+  weekOfGregorianYear: number;
+  weekOfLiturgicalYear: number;
+  weekOfSeason: number;
+  dayOfGregorianYear: number;
+  dayOfLiturgicalYear: number;
+  dayOfSeason: number;
+  dayOfWeek: number; // 0 | 1 | 2 | 3 | 4 | 5 | 6; // 0 is Sunday, 6 is Saturday
+  dayOfWeekCountInMonth: number;
+  startOfLiturgicalYear: Date | string;
+  endOfLiturgicalYear: Date | string;
+  easter: Date | string;
 }
 
 /**
@@ -57,6 +66,7 @@ export interface RomcalDateItemInput {
    * If a celebration should have always precedence, without rank consideration.
    */
   prioritized?: boolean;
+  calendar?: RomcalDateItemCalendar;
   date: dayjs.Dayjs;
   data?: RomcalDateItemData;
   /**
@@ -83,7 +93,6 @@ export interface DateItemMetadata {
 export interface DateItemData {
   season: Array<RomcalSeason>;
   meta: DateItemMetadata;
-  calendar: RomcalDateItemDataCalendar;
 }
 
 // eslint-disable-next-line @typescript-eslint/interface-name-prefix
@@ -94,6 +103,7 @@ export interface IRomcalDateItem {
   readonly rank: RanksEnum;
   readonly data: DateItemData;
   readonly prioritized: boolean;
+  readonly calendar: RomcalDateItemCalendar;
   readonly base?: RomcalDateItem;
   readonly _id: number;
   readonly _stack: number;
@@ -131,6 +141,10 @@ export class RomcalDateItem implements IRomcalDateItem {
    */
   public prioritized: boolean;
   /**
+   * Calendar metadata for the celebration.
+   */
+  public calendar: RomcalDateItemCalendar;
+  /**
    * A previous celebration on the same day that was overridden by the current one.
    */
   public base: RomcalDateItem | undefined;
@@ -145,13 +159,14 @@ export class RomcalDateItem implements IRomcalDateItem {
 
   static latestId: number;
 
-  constructor({ key, name, rank, date, data, prioritized, _stack, baseItem }: TDateItemInput) {
+  constructor({ key, name, rank, date, data, prioritized, calendar, _stack, baseItem }: TDateItemInput) {
     this.key = key;
     this.name = name;
     this.date = date.toISOString();
     this.rank = rank;
     this.data = data;
     this.prioritized = prioritized;
+    this.calendar = calendar;
 
     this._id = RomcalDateItem._incrementId();
     this._stack = _stack;
@@ -159,10 +174,10 @@ export class RomcalDateItem implements IRomcalDateItem {
     // The original default item is added to the current item as the `base` property
     if (!isNil(baseItem) && this._id !== baseItem?._id) {
       this.base = baseItem;
+      this.calendar = baseItem.calendar;
       this.data = {
         ...this.data,
         ...(baseItem?.data.season && { season: baseItem?.data.season }),
-        ...(baseItem?.data.calendar && { calendar: baseItem?.data.calendar }),
         meta: {
           ...this.data.meta,
           psalterWeek: this.data.meta?.psalterWeek ?? baseItem?.data.meta.psalterWeek,
