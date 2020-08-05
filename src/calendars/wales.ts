@@ -203,11 +203,11 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
         }
       })(year),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
+      prioritized: true,
     },
     {
       key: 'allSouls',
@@ -224,22 +224,22 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
         }
       })(year),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
+      prioritized: true,
     },
     {
       key: 'allSaintsOfWales',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-11-6`),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
+      prioritized: true,
     },
     {
       key: 'saintDubriciusBishop',
@@ -280,11 +280,11 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
         }
       })(year),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.RED,
         },
       },
+      prioritized: true,
     },
     // In England and Wales when the celebration falls on either a
     // Saturday or a Monday it is transferred to the Sunday.
@@ -304,17 +304,16 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
         }
       })(year),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
+      prioritized: true,
     },
   ];
 
   // Get localized celebration names
-  const localizedDates = await Locales.localizeDates(_dates);
-  return localizedDates;
+  return await Locales.localizeDates(_dates);
 };
 
 export { dates, defaultConfig };

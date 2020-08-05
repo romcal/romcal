@@ -183,7 +183,7 @@ export class Calendar {
         // Find the season date that has the same date as the incoming item and make it the base item.
         const baseItem = find(this.dateItems, { date: item.date.toISOString(), _stack: 0 });
 
-        const { key, name, rank, data, date } = item;
+        const { key, name, rank, data, prioritized, date } = item;
         if (!isNil(key) && !isNil(name) && !isNil(rank) && !isNil(date)) {
           // Create a new DateItem and add it to the collection
           this.dateItems.push(
@@ -192,6 +192,7 @@ export class Calendar {
               name,
               rank,
               date,
+              prioritized: !!prioritized,
               data: (data as Required<RomcalDateItemData>) ?? {},
               _stack: index, // The stack number refers to the index in the calendars array in which this celebration's array is placed at
               baseItem, // Attach the base item if any
@@ -207,11 +208,11 @@ export class Calendar {
    * the previous date item will be removed in favour of the new given one,
    * except if the previous item is prioritized but not the new one
    */
-  _keepPrioritizedOnly({ key: currentKey, data: currentData }: RomcalDateItemInput): void {
+  _keepPrioritizedOnly({ key: currentKey, prioritized: currentPrioritized }: RomcalDateItemInput): void {
     this.dateItems
       .filter(({ key }) => key === currentKey)
-      .forEach(({ data: previousData, _id: previousId }) => {
-        if (!previousData.prioritized || (previousData.prioritized && currentData?.prioritized)) {
+      .forEach(({ prioritized: previousPrioritized, _id: previousId }) => {
+        if (!previousPrioritized || (previousPrioritized && currentPrioritized)) {
           // Remove previous item if it isn't prioritized
           // Remove previous item if both items are prioritized.
           removeWhere(this.dateItems, { _id: previousId });
@@ -244,8 +245,8 @@ export class Calendar {
 
     this.dateItems.sort(
       (
-        { date: firstDate, data: firstData, rank: firstRank, _stack: firstStack }: RomcalDateItem,
-        { date: nextDate, data: nextData, rank: nextRank, _stack: nextStack }: RomcalDateItem,
+        { date: firstDate, prioritized: firstPrioritized, rank: firstRank, _stack: firstStack }: RomcalDateItem,
+        { date: nextDate, prioritized: nextPrioritized, rank: nextRank, _stack: nextStack }: RomcalDateItem,
       ): number => {
         // 1. Sort by date
         if (dayjs.utc(firstDate).isBefore(dayjs.utc(nextDate))) {
@@ -255,8 +256,6 @@ export class Calendar {
         } else {
           // If the date is the same...
           // 2. Sort by priority (prioritized first)
-          const { prioritized: firstPrioritized } = firstData;
-          const { prioritized: nextPrioritized } = nextData;
           if (firstPrioritized && !nextPrioritized) {
             return -1;
           } else if (!firstPrioritized && nextPrioritized) {
@@ -297,7 +296,7 @@ export class Calendar {
         const [dateItem, ...otherDateItems] = dateItems;
         // If the first date item has a type equal or higher than a MEMORIAL, or is prioritized:
         // keep only the first item and discard all others celebration in the array
-        if (dateItem.data.prioritized || ranks.indexOf(dateItem.rank) <= ranks.indexOf(RanksEnum.MEMORIAL)) {
+        if (dateItem.prioritized || ranks.indexOf(dateItem.rank) <= ranks.indexOf(RanksEnum.MEMORIAL)) {
           otherDateItems.forEach(({ _id }) => {
             removeWhere(this.dateItems, { _id });
           });
