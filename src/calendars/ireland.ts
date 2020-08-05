@@ -394,11 +394,11 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-11-6`),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
+      prioritized: true,
     },
     {
       key: 'saintWillibrordBishop',

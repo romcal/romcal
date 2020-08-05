@@ -20,198 +20,198 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
       rank: RanksEnum.SOLEMNITY,
       date: Dates.immaculateConception(year),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
+      prioritized: true,
     },
     {
       key: 'christmas',
       rank: RanksEnum.SOLEMNITY,
       date: Dates.christmas(year),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
+      prioritized: true,
     },
     {
       key: 'maryMotherOfGod',
       rank: RanksEnum.SOLEMNITY,
       date: Dates.maryMotherOfGod(year),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
+      prioritized: true,
     },
     {
       key: 'epiphany',
       rank: RanksEnum.SOLEMNITY,
       date: Dates.epiphany(year, config.epiphanyOnSunday),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
+      prioritized: true,
     },
     {
       key: 'trinitySunday',
       rank: RanksEnum.SOLEMNITY,
       date: Dates.trinitySunday(year),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
+      prioritized: true,
     },
     {
       key: 'corpusChristi',
       rank: RanksEnum.SOLEMNITY,
       date: Dates.corpusChristi(year, config.corpusChristiOnSunday),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
+      prioritized: true,
     },
     {
       key: 'sacredHeartOfJesus',
       rank: RanksEnum.SOLEMNITY,
       date: Dates.sacredHeartOfJesus(year),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
+      prioritized: true,
     },
     {
       key: 'birthOfJohnTheBaptist',
       rank: RanksEnum.SOLEMNITY,
       date: Dates.birthOfJohnTheBaptist(year),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
+      prioritized: true,
     },
     {
       key: 'peterAndPaulApostles',
       rank: RanksEnum.SOLEMNITY,
       date: Dates.peterAndPaulApostles(year),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.RED,
         },
       },
+      prioritized: true,
     },
     {
       key: 'assumption',
       rank: RanksEnum.SOLEMNITY,
       date: Dates.assumption(year),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
+      prioritized: true,
     },
     {
       key: 'allSaints',
       rank: RanksEnum.SOLEMNITY,
       date: Dates.allSaints(year),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
+      prioritized: true,
     },
     {
       key: 'christTheKing',
       rank: RanksEnum.SOLEMNITY,
       date: Dates.christTheKing(year),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
+      prioritized: true,
     },
     {
       key: 'josephHusbandOfMary',
       rank: RanksEnum.SOLEMNITY,
       date: Dates.josephHusbandOfMary(year),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
+      prioritized: true,
     },
     {
       key: 'annunciation',
       rank: RanksEnum.SOLEMNITY,
       date: Dates.annunciation(year),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
+      prioritized: true,
     },
     {
       key: 'easter',
       rank: RanksEnum.SOLEMNITY,
       date: Dates.easter(year),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
+      prioritized: true,
     },
     {
       key: 'divineMercySunday',
       rank: RanksEnum.SOLEMNITY,
       date: Dates.divineMercySunday(year),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
+      prioritized: true,
     },
     {
       key: 'ascension',
       rank: RanksEnum.SOLEMNITY,
       date: Dates.ascension(year, config.ascensionOnSunday),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
+      prioritized: true,
     },
     {
       key: 'pentecostSunday',
       rank: RanksEnum.SOLEMNITY,
       date: Dates.pentecostSunday(year),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.RED,
         },
       },
+      prioritized: true,
     },
     // Lent, Holy Week & Triduum
     {
@@ -219,7 +219,6 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
       rank: RanksEnum.FERIA,
       date: Dates.ashWednesday(year),
       data: {
-        prioritized: true,
         season: [
           {
             key: 'LENT',
@@ -232,13 +231,13 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
           liturgicalColor: LITURGICAL_COLORS.PURPLE,
         },
       },
+      prioritized: true,
     },
     {
       key: 'palmSunday',
       rank: RanksEnum.SUNDAY,
       date: Dates.palmSunday(year),
       data: {
-        prioritized: true,
         season: [
           {
             key: 'HOLY_WEEK',
@@ -251,13 +250,13 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
           liturgicalColor: LITURGICAL_COLORS.RED,
         },
       },
+      prioritized: true,
     },
     {
       key: 'holyThursday',
       rank: RanksEnum.TRIDUUM,
       date: Dates.holyThursday(year),
       data: {
-        prioritized: true,
         season: [
           {
             key: 'HOLY_WEEK',
@@ -271,13 +270,13 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
           titles: [TITLES.TRIDUUM],
         },
       },
+      prioritized: true,
     },
     {
       key: 'goodFriday',
       rank: RanksEnum.TRIDUUM,
       date: Dates.goodFriday(year),
       data: {
-        prioritized: true,
         season: [
           {
             key: 'HOLY_WEEK',
@@ -291,13 +290,13 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
           titles: [TITLES.TRIDUUM],
         },
       },
+      prioritized: true,
     },
     {
       key: 'holySaturday',
       rank: RanksEnum.TRIDUUM,
       date: Dates.holySaturday(year),
       data: {
-        prioritized: true,
         season: [
           {
             key: 'HOLY_WEEK',
@@ -311,6 +310,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
           titles: [TITLES.TRIDUUM],
         },
       },
+      prioritized: true,
     },
     // Feasts
     {
@@ -318,60 +318,60 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
       rank: RanksEnum.FEAST,
       date: Dates.holyFamily(year),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
           titles: [TITLES.FEAST_OF_THE_LORD],
         },
       },
+      prioritized: true,
     },
     {
       key: 'baptismOfTheLord',
       rank: RanksEnum.FEAST,
       date: Dates.baptismOfTheLord(year, config.epiphanyOnSunday),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
           titles: [TITLES.FEAST_OF_THE_LORD],
         },
       },
+      prioritized: true,
     },
     {
       key: 'presentationOfTheLord',
       rank: RanksEnum.FEAST,
       date: Dates.presentationOfTheLord(year),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
           titles: [TITLES.FEAST_OF_THE_LORD],
         },
       },
+      prioritized: true,
     },
     {
       key: 'transfiguration',
       rank: RanksEnum.FEAST,
       date: Dates.transfiguration(year),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
           titles: [TITLES.FEAST_OF_THE_LORD],
         },
       },
+      prioritized: true,
     },
     {
       key: 'theExaltationOfTheHolyCross',
       rank: RanksEnum.FEAST,
       date: Dates.theExaltationOfTheHolyCross(year),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.RED,
           titles: [TITLES.FEAST_OF_THE_LORD],
         },
       },
+      prioritized: true,
     },
     // Memorials
     {
@@ -379,11 +379,11 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
       rank: RanksEnum.FEAST,
       date: Dates.immaculateHeartOfMary(year),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
+      prioritized: true,
     },
   ];
 

@@ -22,11 +22,11 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
         return dayjs.utc(`${year}-1-${feastDay}`);
       })(),
       data: {
-        prioritized: true,
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
         },
       },
+      prioritized: true,
     },
     {
       key: 'saintsPedroBautistaPaulMikiAndCompanionsMartyrs',
