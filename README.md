@@ -64,9 +64,8 @@ See [contributing](CONTRIBUTING.md) for more information.
   - [Celebration Types <a name="types"></a>](#celebration-types)
   - [Celebration Titles <a name="titles"></a>](#celebration-titles)
   - [Liturgical Seasons <a name="seasons"></a>](#liturgical-seasons)
-  - [Liturgical Cycles <a name="cycles"></a>](#cycles)
+  - [Liturgical Cycles: Years and Weeks <a name="cycles"></a>](#cycles)
   - [Liturgical Colors <a name="colors"></a>](#liturgical-colors)
-  - [Psalter Weeks <a name="psalterWeeks"></a>](#psalter-weeks)
   - [Calendar sources <a name="sources"></a>](#calendar-sources)
     - [liturgical <a name="liturgical"></a>](#liturgical)
     - [celebrations <a name="celebrations"></a>](#celebrations)
@@ -387,12 +386,25 @@ _CommonJS_
 var LITURGICAL_SEASONS = require('romcal').LITURGICAL_SEASONS;
 ```
 
-## Liturgical Cycles <a name="cycles"></a> (`RomcalCycles`)
+## Liturgical Cycles: Years and Weeks <a name="cycles"></a> (`RomcalCycles`)
 
 A liturgical year consists of cycles that determines which portions of scripture are to be read.
-romcal automatically calculates the correct cycle for the given liturgical year and includes it in the meta information of each liturgical date for that year.
+And inside every liturgical year, another psalter week cycle will determine which psalms and prayer to follow for the liturgy of hours.
+
+Romcal automatically calculates the correct cycles for the given liturgical date.
+Cycle information can be read via the `dates[idx].cycles` property in each date element in the array that `calendarFor` returns:
+
+```typescript
+{
+  sundayCycle: 'A' | 'B' | 'C';
+  ferialCycle: 1 | 2;
+  psalterWeek: 'WEEK_1' | 'WEEK_2' | 'WEEK_3' | 'WEEK_4';
+}
+```
 
 ### Sunday cycle (`RomcalSundayCycle`)
+
+Used mainly for sunday readings, and some solemnity.
 
 - `Year A` denoted by the key `A`
 - `Year B` denoted by the key `B`
@@ -400,19 +412,32 @@ romcal automatically calculates the correct cycle for the given liturgical year 
 
 ### Ferial cycle (`RomcalFerialCycle`)
 
+Used mainly for weekdays readings.
+
 - `Year 1` or `Odd year` denoted by the key `1`
 - `Year 2` or `Even year` denoted by the key `2`
 
----
+### Psalter weeks (`PsalterWeek`)
 
-Cycle information can be read via the `dates[idx].cycles` property in each date element in the array that `calendarFor` returns.
+With the exception of the Easter Octave, each week in the liturgical year is assigned readings from the [Psalter](https://en.wikipedia.org/wiki/Roman_Breviary#The_Psalter).
+The psalter week cycle is composed of a repeated sequence of 4 four weeks. It restarts at the beginning of each season.
+There are also some rules that govern the set of Psalter readings used on particular occasions or seasons of the year.
+
+For convenient usage, romcal provides the psalter week number for all seasons:
+
+- `Week I` denoted by the key `WEEK_1`
+- `Week II` denoted by the key `WEEK_2`
+- `Week III` denoted by the key `WEEK_3`
+- `Week IV` denoted by the key `WEEK_4`
+
+---
 
 The cycle objects can be imported into consumer apps via:
 
 _ES6_
 
 ```javascript
-import { LITURGICAL_SUNDAY_CYCLES, LITURGICAL_FERIAL_CYCLES } from 'romcal';
+import { LITURGICAL_SUNDAY_CYCLES, LITURGICAL_FERIAL_CYCLES, PSALTER_WEEKS } from 'romcal';
 ```
 
 _CommonJS_
@@ -420,6 +445,7 @@ _CommonJS_
 ```javascript
 var LITURGICAL_SUNDAY_CYCLES = require('romcal').LITURGICAL_SUNDAY_CYCLES;
 var LITURGICAL_FERIAL_CYCLES = require('romcal').LITURGICAL_FERIAL_CYCLES;
+var PSALTER_WEEKS = require('romcal').PSALTER_WEEKS;
 ```
 
 ## Liturgical Colors <a name="colors"></a>
@@ -451,34 +477,6 @@ _CommonJS_
 
 ```javascript
 var LITURGICAL_COLORS = require('romcal').LITURGICAL_COLORS;
-```
-
-## Psalter Weeks <a name="psalterWeeks"></a>
-
-With the exception of the Easter Octave, each week in the liturgical year is assigned readings from the [Psalter](https://en.wikipedia.org/wiki/Roman_Breviary#The_Psalter). There are also some rules that govern the set of Psalter readings used for particular occasions or seasons in the year.
-
-romcal defines the Psalter Weeks used in the liturgical year in `src/constants/PSALTER_WEEKS.js` which are:
-
-- `Week I`
-- `Week II`
-- `Week III`
-- `Week IV`
-- `Easter` (separate set of readings only used during the Octave of Easter)
-
-Psalter weeks can be read via the `dates[idx].data.meta.psalterWeek` property in each date element in the array that `calendarFor` returns.
-
-The PSALTER_WEEKS object can be imported into consumer apps via:
-
-_ES6_
-
-```javascript
-import { PSALTER_WEEKS } from 'romcal';
-```
-
-_CommonJS_
-
-```javascript
-var PSALTER_WEEKS = require('romcal').PSALTER_WEEKS;
 ```
 
 ## Calendar sources <a name="sources"></a>

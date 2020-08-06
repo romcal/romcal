@@ -95,9 +95,12 @@ import { hasKey } from '@romcal/utils/object';
 
 import { COUNTRIES } from '@romcal/constants/country-list.constant';
 import { LITURGICAL_COLORS, LITURGICAL_COLOR_KEYS } from '@romcal/constants/liturgical-colors.constant';
-import { LITURGICAL_SUNDAY_CYCLES, LITURGICAL_FERIAL_CYCLES } from '@romcal/constants/liturgical-cycles.constant';
+import {
+  LITURGICAL_SUNDAY_CYCLES,
+  LITURGICAL_FERIAL_CYCLES,
+  PSALTER_WEEKS,
+} from '@romcal/constants/liturgical-cycles.constant';
 import { LITURGICAL_SEASONS } from '@romcal/constants/liturgical-seasons.constant';
-import { PSALTER_WEEKS } from '@romcal/constants/psalter-weeks.constant';
 import { QUERY_TYPES } from '@romcal/constants/query-types.constant';
 import { TITLES } from '@romcal/constants/titles.constant';
 import { RANKS } from '@romcal/constants/ranks.constant';
@@ -107,11 +110,10 @@ import { ChristmastideEndings } from '@romcal/types/christmastide-endings.type';
 import { Countries } from '@romcal/types/countries.type';
 import { DateItemSources } from '@romcal/types/date-item-sources.type';
 import { LiturgicalColor, LiturgicalColorKeys, LiturgicalColors } from '@romcal/types/liturgical-colors.type';
-import { RomcalCycles, RomcalSundayCycle, RomcalFerialCycle } from '@romcal/types/liturgical-cycles.type';
+import { RomcalCycles, RomcalSundayCycle, RomcalFerialCycle, PsalterWeek } from '@romcal/types/liturgical-cycles.type';
 import { LiturgicalSeason, LiturgicalSeasons } from '@romcal/types/liturgical-seasons.type';
 import { LocaleTypes } from '@romcal/types/locale-types.type';
 import { LocalizeParams } from '@romcal/types/localize-params.type';
-import { PsalterWeek, PsalterWeeks } from '@romcal/types/psalter-weeks.type';
 import { Query, QueryType } from '@romcal/types/query-type.type';
 import { Title, Titles } from '@romcal/types/titles.type';
 import { Types } from '@romcal/types/types.type';
@@ -176,7 +178,7 @@ export default class Romcal {
         case 'liturgicalColors':
           return _.groupBy(dates, d => d.data.meta.liturgicalColor?.key);
         case 'psalterWeeks':
-          return _.groupBy(dates, d => d.data.meta.psalterWeek?.key);
+          return _.groupBy(dates, d => d.cycles.psalterWeek);
         case 'days':
         default:
           return _.groupBy(dates, d => dayjs.utc(d.date).day());
@@ -297,8 +299,8 @@ export {
   LITURGICAL_COLORS,
   LITURGICAL_SUNDAY_CYCLES,
   LITURGICAL_FERIAL_CYCLES,
-  LITURGICAL_SEASONS,
   PSALTER_WEEKS,
+  LITURGICAL_SEASONS,
   QUERY_TYPES,
   TITLES,
   RANKS,
@@ -322,12 +324,11 @@ export {
   RomcalCycles,
   RomcalSundayCycle,
   RomcalFerialCycle,
+  PsalterWeek,
   LiturgicalSeason,
   LiturgicalSeasons,
   LocaleTypes,
   LocalizeParams,
-  PsalterWeek,
-  PsalterWeeks,
   Query,
   QueryType,
   Title,
