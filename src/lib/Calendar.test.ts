@@ -33,7 +33,7 @@ import * as Dates from '@romcal/lib/Dates';
 import { Dictionary, isNil } from '@romcal/utils/type-guards';
 import { RomcalDateItem, isRomcalDateItem } from '@romcal/models/romcal-date-item';
 import { hasKey, getValueByKey } from '@romcal/utils/object';
-import { PSALTER_WEEKS } from '@romcal/constants/psalter-weeks.constant';
+import { PSALTER_WEEKS } from '@romcal/constants/liturgical-cycles.constant';
 import { LITURGICAL_SEASONS } from '@romcal/constants/liturgical-seasons.constant';
 import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant';
 import { TITLES } from '@romcal/constants/titles.constant';
@@ -202,13 +202,13 @@ describe('Testing calendar generation functions', () => {
       test('Should group dates by their respective liturgical sunday cycles', async () => {
         const calendar = await Romcal.calendarFor({ year: 2015 });
         const items = Romcal.queryFor(calendar, { group: 'sundayCycles' });
-        expect(Object.keys(items)).toEqual(['B', 'C']);
+        expect(Object.keys(items)).toEqual(['YEAR_B', 'YEAR_C']);
       });
 
       test('Should group dates by their respective liturgical ferial cycles', async () => {
         const calendar = await Romcal.calendarFor({ year: 2015 });
         const items = Romcal.queryFor(calendar, { group: 'ferialCycles' });
-        expect(Object.keys(items)).toEqual(['1', '2']);
+        expect(Object.keys(items)).toEqual(['YEAR_1', 'YEAR_2']);
       });
 
       test('Should group dates by their celebration ranks', async () => {
@@ -228,8 +228,8 @@ describe('Testing calendar generation functions', () => {
       });
 
       test('Should group dates by their psalter weeks', async () => {
-        const psaltertWeekKeys = Object.keys(Romcal.queryFor(await Romcal.calendarFor(), { group: 'psalterWeeks' }));
-        expect(psaltertWeekKeys).toStrictEqual(Object.keys(PSALTER_WEEKS));
+        const psalterWeekKeys = Object.keys(Romcal.queryFor(await Romcal.calendarFor(), { group: 'psalterWeeks' }));
+        expect(psalterWeekKeys.sort()).toStrictEqual(PSALTER_WEEKS);
       });
     });
 
@@ -315,23 +315,23 @@ describe('Testing calendar generation functions', () => {
     });
 
     test('Should have the right sunday cycle', async () => {
-      expect(easter2020?.cycles.sundayCycle).toBe('A');
-      expect(easter2021?.cycles.sundayCycle).toBe('B');
-      expect(easter2022?.cycles.sundayCycle).toBe('C');
+      expect(easter2020?.cycles.sundayCycle).toBe('YEAR_A');
+      expect(easter2021?.cycles.sundayCycle).toBe('YEAR_B');
+      expect(easter2022?.cycles.sundayCycle).toBe('YEAR_C');
 
-      expect(christmas2020?.cycles.sundayCycle).toBe('B');
-      expect(christmas2021?.cycles.sundayCycle).toBe('C');
-      expect(christmas2022?.cycles.sundayCycle).toBe('A');
+      expect(christmas2020?.cycles.sundayCycle).toBe('YEAR_B');
+      expect(christmas2021?.cycles.sundayCycle).toBe('YEAR_C');
+      expect(christmas2022?.cycles.sundayCycle).toBe('YEAR_A');
     });
 
     test('Should have the right ferial cycle', async () => {
-      expect(easter2020?.cycles.ferialCycle).toBe(2);
-      expect(easter2021?.cycles.ferialCycle).toBe(1);
-      expect(easter2022?.cycles.ferialCycle).toBe(2);
+      expect(easter2020?.cycles.ferialCycle).toBe('YEAR_2');
+      expect(easter2021?.cycles.ferialCycle).toBe('YEAR_1');
+      expect(easter2022?.cycles.ferialCycle).toBe('YEAR_2');
 
-      expect(christmas2020?.cycles.ferialCycle).toBe(1);
-      expect(christmas2021?.cycles.ferialCycle).toBe(2);
-      expect(christmas2022?.cycles.ferialCycle).toBe(1);
+      expect(christmas2020?.cycles.ferialCycle).toBe('YEAR_1');
+      expect(christmas2021?.cycles.ferialCycle).toBe('YEAR_2');
+      expect(christmas2022?.cycles.ferialCycle).toBe('YEAR_1');
     });
   });
 });
