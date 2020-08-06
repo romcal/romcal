@@ -396,8 +396,8 @@ Cycle information can be read via the `dates[idx].cycles` property in each date 
 
 ```typescript
 {
-  sundayCycle: 'A' | 'B' | 'C';
-  ferialCycle: 1 | 2;
+  sundayCycle: 'YEAR_A' | 'YEAR_B' | 'YEAR_C';
+  ferialCycle: 'YEAR_1' | 'YEAR_2';
   psalterWeek: 'WEEK_1' | 'WEEK_2' | 'WEEK_3' | 'WEEK_4';
 }
 ```
@@ -406,16 +406,16 @@ Cycle information can be read via the `dates[idx].cycles` property in each date 
 
 Used mainly for sunday readings, and some solemnity.
 
-- `Year A` denoted by the key `A`
-- `Year B` denoted by the key `B`
-- `Year C` denoted by the key `C`
+- `Year A` denoted by the key `YEAR_A`
+- `Year B` denoted by the key `YEAR_B`
+- `Year C` denoted by the key `YEAR_C`
 
 ### Ferial cycle (`RomcalFerialCycle`)
 
 Used mainly for weekdays readings.
 
-- `Year 1` or `Odd year` denoted by the key `1`
-- `Year 2` or `Even year` denoted by the key `2`
+- `Year 1` or `Odd year` denoted by the key `YEAR_1`
+- `Year 2` or `Even year` denoted by the key `YEAR_2`
 
 ### Psalter weeks (`PsalterWeek`)
 
