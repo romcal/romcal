@@ -36,7 +36,7 @@ export default {
     season: 'Paschæ',
     feria: '{{day}}, hebdomada {{week}} temporis paschalis',
     sunday: 'Dominica {{week}} Paschæ',
-    octave: 'De die {{count}} infra octavam Paschæ',
+    octave: 'De die {{day}} infra octavam Paschæ',
   },
   liturgicalColors: {
     GOLD: 'auri',
