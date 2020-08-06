@@ -64,7 +64,7 @@ See [contributing](CONTRIBUTING.md) for more information.
   - [Celebration Types <a name="types"></a>](#celebration-types)
   - [Celebration Titles <a name="titles"></a>](#celebration-titles)
   - [Liturgical Seasons <a name="seasons"></a>](#liturgical-seasons)
-  - [Liturgical Cycles <a name="cycles"></a>](#liturgical-cycles)
+  - [Liturgical Cycles <a name="cycles"></a>](#cycles)
   - [Liturgical Colors <a name="colors"></a>](#liturgical-colors)
   - [Psalter Weeks <a name="psalterWeeks"></a>](#psalter-weeks)
   - [Calendar sources <a name="sources"></a>](#calendar-sources)
@@ -387,30 +387,39 @@ _CommonJS_
 var LITURGICAL_SEASONS = require('romcal').LITURGICAL_SEASONS;
 ```
 
-## Liturgical Cycles <a name="cycles"></a>
+## Liturgical Cycles <a name="cycles"></a> (`RomcalCycles`)
 
-A liturgical year consists of a cycles (either A, B, C) that determines which portions of scripture are to be read. romcal automatically calculates the correct cycle for the given liturgical year and includes it in the meta information of each liturgical date for that year.
+A liturgical year consists of cycles that determines which portions of scripture are to be read.
+romcal automatically calculates the correct cycle for the given liturgical year and includes it in the meta information of each liturgical date for that year.
 
-romcal defines cycles in `src/constants/Cycles.js` which are:
+### Sunday cycle (`RomcalSundayCycle`)
 
-- `Year A` denoted by the key `0`
-- `Year B` denoted by the key `1`
-- `Year C` denoted by the key `2`
+- `Year A` denoted by the key `A`
+- `Year B` denoted by the key `B`
+- `Year C` denoted by the key `C`
 
-Cycle information can be read via the `dates[idx].data.meta.cycle` property in each date element in the array that `calendarFor` returns.
+### Ferial cycle (`RomcalFerialCycle`)
 
-The cycles object can be imported into consumer apps via:
+- `Year 1` or `Odd year` denoted by the key `1`
+- `Year 2` or `Even year` denoted by the key `2`
+
+---
+
+Cycle information can be read via the `dates[idx].cycles` property in each date element in the array that `calendarFor` returns.
+
+The cycle objects can be imported into consumer apps via:
 
 _ES6_
 
 ```javascript
-import { Cycles } from 'romcal';
+import { LITURGICAL_SUNDAY_CYCLES, LITURGICAL_FERIAL_CYCLES } from 'romcal';
 ```
 
 _CommonJS_
 
 ```javascript
-var Cycles = require('romcal').Cycles;
+var LITURGICAL_SUNDAY_CYCLES = require('romcal').LITURGICAL_SUNDAY_CYCLES;
+var LITURGICAL_FERIAL_CYCLES = require('romcal').LITURGICAL_FERIAL_CYCLES;
 ```
 
 ## Liturgical Colors <a name="colors"></a>
@@ -616,7 +625,7 @@ import { Calendar } from 'romcal';
 
 Calendar.calendarFor({
   query: {
-    group: 'days|months|daysByMonth|weeksByMonth|cycles|types|liturgicalSeasons|liturgicalColors|psalterWeeks',
+    group: 'days|months|daysByMonth|weeksByMonth|sundayCycles|ferialCycles|ranks|liturgicalSeasons|liturgicalColors|psalterWeeks',
   },
 });
 ```
@@ -632,7 +641,7 @@ let dates = Calendar.calendarFor();
 // then ...
 
 let groupedCalendar = Calendar.queryFor(dates, {
-  group: 'days|months|daysByMonth|weeksByMonth|cycles|types|liturgicalSeasons|liturgicalColors|psalterWeeks',
+  group: 'days|months|daysByMonth|weeksByMonth|sundayCycles|ferialCycles|ranks|liturgicalSeasons|liturgicalColors|psalterWeeks',
 });
 ```
 

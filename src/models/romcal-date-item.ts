@@ -1,12 +1,12 @@
 import dayjs from 'dayjs';
 import * as Dates from '@romcal/lib/Dates';
 import { ISO8601DateString, isNil } from '@romcal/utils/type-guards';
-import { LITURGICAL_CYCLES } from '@romcal/constants/liturgical-cycles.constant';
+import { LITURGICAL_FERIAL_CYCLES, LITURGICAL_SUNDAY_CYCLES } from '@romcal/constants/liturgical-cycles.constant';
 import { RanksEnum } from '@romcal/enums/ranks.enum';
 import { LiturgicalSeason } from '@romcal/types/liturgical-seasons.type';
 import { PsalterWeek } from '@romcal/types/psalter-weeks.type';
 import { LiturgicalColor } from '@romcal/types/liturgical-colors.type';
-import { LiturgicalCycle } from '@romcal/types/liturgical-cycles.type';
+import { RomcalCycles, RomcalFerialCycle, RomcalSundayCycle } from '@romcal/types/liturgical-cycles.type';
 import { DateItemSources } from '@romcal/types/date-item-sources.type';
 
 export interface RomcalSeason {
@@ -18,7 +18,6 @@ export interface RomcalDateItemMetadata {
   psalterWeek?: PsalterWeek;
   liturgicalColor?: LiturgicalColor;
   titles?: Array<string>;
-  cycle?: LiturgicalCycle;
 }
 
 export interface RomcalDateItemData {
@@ -66,7 +65,17 @@ export interface RomcalDateItemInput {
    * If a celebration should have always precedence, without rank consideration.
    */
   prioritized?: boolean;
+  /**
+   * Cycle metadata of a celebration.
+   */
+  cycles?: RomcalCycles;
+  /**
+   * The calendar metadata of a celebration.
+   */
   calendar?: RomcalDateItemCalendar;
+  /**
+   * The ISO8601 formatted date and time string of the celebration.
+   */
   date: dayjs.Dayjs;
   data?: RomcalDateItemData;
   /**
@@ -87,7 +96,6 @@ export interface DateItemMetadata {
   psalterWeek?: PsalterWeek;
   liturgicalColor?: LiturgicalColor;
   titles?: Array<string>;
-  cycle?: LiturgicalCycle;
 }
 
 export interface DateItemData {
@@ -103,6 +111,7 @@ export interface IRomcalDateItem {
   readonly rank: RanksEnum;
   readonly data: DateItemData;
   readonly prioritized: boolean;
+  readonly cycles: RomcalCycles;
   readonly calendar: RomcalDateItemCalendar;
   readonly base?: RomcalDateItem;
   readonly _id: number;
@@ -141,6 +150,10 @@ export class RomcalDateItem implements IRomcalDateItem {
    */
   public prioritized: boolean;
   /**
+   * Cycle metadata of a celebration.
+   */
+  public cycles: RomcalCycles;
+  /**
    * Calendar metadata for the celebration.
    */
   public calendar: RomcalDateItemCalendar;
@@ -166,6 +179,7 @@ export class RomcalDateItem implements IRomcalDateItem {
     this.rank = rank;
     this.data = data;
     this.prioritized = prioritized;
+    this.cycles = this.addLiturgicalCycleMetadata();
     this.calendar = calendar;
 
     this._id = RomcalDateItem._incrementId();
@@ -186,7 +200,6 @@ export class RomcalDateItem implements IRomcalDateItem {
     }
 
     this.adjustTypeInSeason();
-    this.addLiturgicalCycleMetadata();
   }
 
   /**
@@ -217,28 +230,28 @@ export class RomcalDateItem implements IRomcalDateItem {
   /**
    * Include liturgical cycle metadata corresponding to the liturgical year.
    */
-  private addLiturgicalCycleMetadata(): void {
+  private addLiturgicalCycleMetadata(): RomcalCycles {
     const year = this.getLiturgicalStartYear();
+    const firstSundayOfAdvent = Dates.firstSundayOfAdvent(year);
+
+    let sundayCycle: RomcalSundayCycle;
+    let ferialCycle: RomcalFerialCycle;
 
     // Formula to calculate Sunday cycle (Year A, B, C)
-    const firstSundayOfAdvent = Dates.firstSundayOfAdvent(year);
-    const thisCycle: number = (year - 1963) % 3;
-    const nextCycle: number = thisCycle === 2 ? 0 : thisCycle + 1;
+    const thisSundayCycleIndex: number = (year - 1963) % 3;
+    const nextSundayCycleIndex: number = thisSundayCycleIndex === 2 ? 0 : thisSundayCycleIndex + 1;
 
     // If the date is on or after the First Sunday of Advent,
     // it is the next liturgical cycle
-    this.data = {
-      ...this.data,
-      meta: {
-        ...this.data.meta,
-        cycle: {
-          key: dayjs.utc(this.date).isSameOrAfter(firstSundayOfAdvent) ? nextCycle : thisCycle,
-          value: dayjs.utc(this.date).isSameOrAfter(firstSundayOfAdvent)
-            ? LITURGICAL_CYCLES[nextCycle]
-            : LITURGICAL_CYCLES[thisCycle],
-        },
-      },
-    };
+    if (dayjs.utc(this.date).isSameOrAfter(firstSundayOfAdvent)) {
+      sundayCycle = LITURGICAL_SUNDAY_CYCLES[nextSundayCycleIndex];
+      ferialCycle = LITURGICAL_FERIAL_CYCLES[year % 2];
+    } else {
+      sundayCycle = LITURGICAL_SUNDAY_CYCLES[thisSundayCycleIndex];
+      ferialCycle = LITURGICAL_FERIAL_CYCLES[(year + 1) % 2];
+    }
+
+    return { sundayCycle, ferialCycle };
   }
 
   /**

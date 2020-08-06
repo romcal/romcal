@@ -95,7 +95,7 @@ import { hasKey } from '@romcal/utils/object';
 
 import { COUNTRIES } from '@romcal/constants/country-list.constant';
 import { LITURGICAL_COLORS, LITURGICAL_COLOR_KEYS } from '@romcal/constants/liturgical-colors.constant';
-import { LITURGICAL_CYCLES } from '@romcal/constants/liturgical-cycles.constant';
+import { LITURGICAL_SUNDAY_CYCLES, LITURGICAL_FERIAL_CYCLES } from '@romcal/constants/liturgical-cycles.constant';
 import { LITURGICAL_SEASONS } from '@romcal/constants/liturgical-seasons.constant';
 import { PSALTER_WEEKS } from '@romcal/constants/psalter-weeks.constant';
 import { QUERY_TYPES } from '@romcal/constants/query-types.constant';
@@ -107,7 +107,7 @@ import { ChristmastideEndings } from '@romcal/types/christmastide-endings.type';
 import { Countries } from '@romcal/types/countries.type';
 import { DateItemSources } from '@romcal/types/date-item-sources.type';
 import { LiturgicalColor, LiturgicalColorKeys, LiturgicalColors } from '@romcal/types/liturgical-colors.type';
-import { LiturgicalCycle, LiturgicalCycles } from '@romcal/types/liturgical-cycles.type';
+import { RomcalCycles, RomcalSundayCycle, RomcalFerialCycle } from '@romcal/types/liturgical-cycles.type';
 import { LiturgicalSeason, LiturgicalSeasons } from '@romcal/types/liturgical-seasons.type';
 import { LocaleTypes } from '@romcal/types/locale-types.type';
 import { LocalizeParams } from '@romcal/types/localize-params.type';
@@ -162,8 +162,10 @@ export default class Romcal {
             _.groupBy(dates, d => dayjs.utc(d.date).month()),
             v => _.groupBy(v, d => d.calendar.weekOfGregorianYear),
           );
-        case 'cycles':
-          return _.groupBy(dates, d => d.data.meta.cycle?.value);
+        case 'sundayCycles':
+          return _.groupBy(dates, d => d.cycles.sundayCycle);
+        case 'ferialCycles':
+          return _.groupBy(dates, d => d.cycles.ferialCycle);
         case 'ranks':
           return _.groupBy(dates, d => d.rank);
         /**
@@ -293,7 +295,8 @@ export {
   COUNTRIES,
   LITURGICAL_COLOR_KEYS,
   LITURGICAL_COLORS,
-  LITURGICAL_CYCLES,
+  LITURGICAL_SUNDAY_CYCLES,
+  LITURGICAL_FERIAL_CYCLES,
   LITURGICAL_SEASONS,
   PSALTER_WEEKS,
   QUERY_TYPES,
@@ -316,8 +319,9 @@ export {
   LiturgicalColor,
   LiturgicalColorKeys,
   LiturgicalColors,
-  LiturgicalCycle,
-  LiturgicalCycles,
+  RomcalCycles,
+  RomcalSundayCycle,
+  RomcalFerialCycle,
   LiturgicalSeason,
   LiturgicalSeasons,
   LocaleTypes,

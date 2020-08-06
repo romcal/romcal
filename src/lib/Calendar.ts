@@ -19,6 +19,8 @@ import dayjs from 'dayjs';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
 import { Countries } from '@romcal/types/countries.type';
+import { RomcalCycles } from '@romcal/types/liturgical-cycles.type';
+import Require = NodeJS.Require;
 
 dayjs.extend(isSameOrAfter);
 dayjs.extend(isSameOrBefore);
@@ -188,7 +190,7 @@ export class Calendar {
         // Find the season date that has the same date as the incoming item and make it the base item.
         const baseItem = find(this.dateItems, { date: item.date.toISOString(), _stack: 0 });
 
-        const { key, name, rank, data, prioritized, calendar, date } = item;
+        const { key, name, rank, data, prioritized, cycles, calendar, date } = item;
         if (!isNil(key) && !isNil(name) && !isNil(rank) && !isNil(date)) {
           // Create a new DateItem and add it to the collection
           this.dateItems.push(
@@ -198,7 +200,8 @@ export class Calendar {
               rank,
               date,
               prioritized: !!prioritized,
-              calendar: (calendar as Required<RomcalDateItemCalendar>) ?? {},
+              cycles: cycles as Required<RomcalCycles>,
+              calendar: calendar as Required<RomcalDateItemCalendar>,
               data: (data as Required<RomcalDateItemData>) ?? {},
               _stack: index, // The stack number refers to the index in the calendars array in which this celebration's array is placed at
               baseItem, // Attach the base item if any
