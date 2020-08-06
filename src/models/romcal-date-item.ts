@@ -1,10 +1,13 @@
 import dayjs from 'dayjs';
 import * as Dates from '@romcal/lib/Dates';
 import { ISO8601DateString, isNil } from '@romcal/utils/type-guards';
-import { LITURGICAL_FERIAL_CYCLES, LITURGICAL_SUNDAY_CYCLES } from '@romcal/constants/liturgical-cycles.constant';
+import {
+  LITURGICAL_FERIAL_CYCLES,
+  LITURGICAL_SUNDAY_CYCLES,
+  PSALTER_WEEKS,
+} from '@romcal/constants/liturgical-cycles.constant';
 import { RanksEnum } from '@romcal/enums/ranks.enum';
 import { LiturgicalSeason } from '@romcal/types/liturgical-seasons.type';
-import { PsalterWeek } from '@romcal/types/psalter-weeks.type';
 import { LiturgicalColor } from '@romcal/types/liturgical-colors.type';
 import { RomcalCycles, RomcalFerialCycle, RomcalSundayCycle } from '@romcal/types/liturgical-cycles.type';
 import { DateItemSources } from '@romcal/types/date-item-sources.type';
@@ -15,7 +18,6 @@ export interface RomcalSeason {
 }
 
 export interface RomcalDateItemMetadata {
-  psalterWeek?: PsalterWeek;
   liturgicalColor?: LiturgicalColor;
   titles?: Array<string>;
 }
@@ -93,7 +95,6 @@ export interface RomcalDateItemInput {
 }
 
 export interface DateItemMetadata {
-  psalterWeek?: PsalterWeek;
   liturgicalColor?: LiturgicalColor;
   titles?: Array<string>;
 }
@@ -179,23 +180,18 @@ export class RomcalDateItem implements IRomcalDateItem {
     this.rank = rank;
     this.data = data;
     this.prioritized = prioritized;
-    this.cycles = this.addLiturgicalCycleMetadata();
-    this.calendar = calendar;
+    this.cycles = this.addLiturgicalCycleMetadata(calendar || baseItem?.calendar);
+    this.calendar = calendar || baseItem?.calendar;
 
     this._id = RomcalDateItem._incrementId();
     this._stack = _stack;
 
     // The original default item is added to the current item as the `base` property
-    if (!isNil(baseItem) && this._id !== baseItem?._id) {
+    if (!isNil(baseItem) && this._id !== baseItem?._id && baseItem.name !== this.name) {
       this.base = baseItem;
-      this.calendar = baseItem.calendar;
       this.data = {
         ...this.data,
         ...(baseItem?.data.season && { season: baseItem?.data.season }),
-        meta: {
-          ...this.data.meta,
-          psalterWeek: this.data.meta?.psalterWeek ?? baseItem?.data.meta.psalterWeek,
-        },
       };
     }
 
@@ -230,7 +226,7 @@ export class RomcalDateItem implements IRomcalDateItem {
   /**
    * Include liturgical cycle metadata corresponding to the liturgical year.
    */
-  private addLiturgicalCycleMetadata(): RomcalCycles {
+  private addLiturgicalCycleMetadata(calendar: RomcalDateItemCalendar): RomcalCycles {
     const year = this.getLiturgicalStartYear();
     const firstSundayOfAdvent = Dates.firstSundayOfAdvent(year);
 
@@ -251,7 +247,13 @@ export class RomcalDateItem implements IRomcalDateItem {
       ferialCycle = LITURGICAL_FERIAL_CYCLES[(year + 1) % 2];
     }
 
-    return { sundayCycle, ferialCycle };
+    // Psalter week cycle restart to 1 at the beginning of each season.
+    // Except during the four first days of lent (ash wednesday to the next saturday),
+    // which are in week 4, to start on week 1 after the first sunday of lent.
+    const weekIndex = (calendar.weekOfSeason % 4) - 1;
+    const psalterWeek = PSALTER_WEEKS[weekIndex > -1 ? weekIndex : 3];
+
+    return { sundayCycle, ferialCycle, psalterWeek };
   }
 
   /**

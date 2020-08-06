@@ -20,7 +20,6 @@ import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
 import { Countries } from '@romcal/types/countries.type';
 import { RomcalCycles } from '@romcal/types/liturgical-cycles.type';
-import Require = NodeJS.Require;
 
 dayjs.extend(isSameOrAfter);
 dayjs.extend(isSameOrBefore);
