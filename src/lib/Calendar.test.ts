@@ -199,10 +199,16 @@ describe('Testing calendar generation functions', () => {
         });
       });
 
-      test('Should group dates by their respective liturgical cycles', async () => {
+      test('Should group dates by their respective liturgical sunday cycles', async () => {
         const calendar = await Romcal.calendarFor({ year: 2015 });
-        const dates = Romcal.queryFor(calendar, { group: 'cycles' });
-        expect(Object.keys(dates)).toEqual(['Year B', 'Year C']);
+        const items = Romcal.queryFor(calendar, { group: 'sundayCycles' });
+        expect(Object.keys(items)).toEqual(['B', 'C']);
+      });
+
+      test('Should group dates by their respective liturgical ferial cycles', async () => {
+        const calendar = await Romcal.calendarFor({ year: 2015 });
+        const items = Romcal.queryFor(calendar, { group: 'ferialCycles' });
+        expect(Object.keys(items)).toEqual(['1', '2']);
       });
 
       test('Should group dates by their celebration ranks', async () => {
@@ -280,6 +286,52 @@ describe('Testing calendar generation functions', () => {
           }
         });
       });
+    });
+  });
+
+  describe('Testing calendar cycles', () => {
+    let calendar2020: RomcalDateItem[];
+    let calendar2021: RomcalDateItem[];
+    let calendar2022: RomcalDateItem[];
+    let easter2020: RomcalDateItem | undefined;
+    let easter2021: RomcalDateItem | undefined;
+    let easter2022: RomcalDateItem | undefined;
+    let christmas2020: RomcalDateItem | undefined;
+    let christmas2021: RomcalDateItem | undefined;
+    let christmas2022: RomcalDateItem | undefined;
+
+    beforeEach(async () => {
+      calendar2020 = await Romcal.calendarFor(2020);
+      calendar2021 = await Romcal.calendarFor(2021);
+      calendar2022 = await Romcal.calendarFor(2022);
+
+      easter2020 = calendar2020.find(item => item.key === 'easter');
+      easter2021 = calendar2021.find(item => item.key === 'easter');
+      easter2022 = calendar2022.find(item => item.key === 'easter');
+
+      christmas2020 = calendar2020.find(item => item.key === 'christmas');
+      christmas2021 = calendar2021.find(item => item.key === 'christmas');
+      christmas2022 = calendar2022.find(item => item.key === 'christmas');
+    });
+
+    test('Should have the right sunday cycle', async () => {
+      expect(easter2020?.cycles.sundayCycle).toBe('A');
+      expect(easter2021?.cycles.sundayCycle).toBe('B');
+      expect(easter2022?.cycles.sundayCycle).toBe('C');
+
+      expect(christmas2020?.cycles.sundayCycle).toBe('B');
+      expect(christmas2021?.cycles.sundayCycle).toBe('C');
+      expect(christmas2022?.cycles.sundayCycle).toBe('A');
+    });
+
+    test('Should have the right ferial cycle', async () => {
+      expect(easter2020?.cycles.ferialCycle).toBe(2);
+      expect(easter2021?.cycles.ferialCycle).toBe(1);
+      expect(easter2022?.cycles.ferialCycle).toBe(2);
+
+      expect(christmas2020?.cycles.ferialCycle).toBe(1);
+      expect(christmas2021?.cycles.ferialCycle).toBe(2);
+      expect(christmas2022?.cycles.ferialCycle).toBe(1);
     });
   });
 });
