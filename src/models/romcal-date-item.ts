@@ -7,7 +7,7 @@ import {
   PSALTER_WEEKS,
 } from '@romcal/constants/liturgical-cycles.constant';
 import { RanksEnum } from '@romcal/enums/ranks.enum';
-import { LiturgicalSeason } from '@romcal/types/liturgical-seasons.type';
+import { LiturgicalPeriod, LiturgicalSeason } from '@romcal/types/seasons-and-periods.type';
 import { LiturgicalColor } from '@romcal/types/liturgical-colors.type';
 import { RomcalCycles, RomcalFerialCycle, RomcalSundayCycle } from '@romcal/types/liturgical-cycles.type';
 import { DateItemSources } from '@romcal/types/date-item-sources.type';
@@ -68,6 +68,18 @@ export interface RomcalDateItemInput {
    */
   prioritized?: boolean;
   /**
+   * Season keys to which the celebration is a part.
+   */
+  seasons?: LiturgicalSeason | LiturgicalSeason[];
+  /**
+   * Season localized name to which the celebration is a part.
+   */
+  seasonNames?: string | string[];
+  /**
+   * Period keys to which the celebration is a part.
+   */
+  periods?: LiturgicalPeriod | LiturgicalPeriod[];
+  /**
    * Cycle metadata of a celebration.
    */
   cycles?: RomcalCycles;
@@ -112,6 +124,9 @@ export interface IRomcalDateItem {
   readonly rank: RanksEnum;
   readonly data: DateItemData;
   readonly prioritized: boolean;
+  readonly seasons: LiturgicalSeason[];
+  readonly seasonNames: string[];
+  readonly periods: LiturgicalPeriod[];
   readonly cycles: RomcalCycles;
   readonly calendar: RomcalDateItemCalendar;
   readonly base?: RomcalDateItem;
@@ -151,6 +166,18 @@ export class RomcalDateItem implements IRomcalDateItem {
    */
   public prioritized: boolean;
   /**
+   * Season keys to which the celebration is a part.
+   */
+  public seasons: LiturgicalSeason[];
+  /**
+   * Season localized name to which the celebration is a part.
+   */
+  public seasonNames: string[];
+  /**
+   * Period keys to which the celebration is a part.
+   */
+  public periods: LiturgicalPeriod[];
+  /**
    * Cycle metadata of a celebration.
    */
   public cycles: RomcalCycles;
@@ -173,13 +200,29 @@ export class RomcalDateItem implements IRomcalDateItem {
 
   static latestId: number;
 
-  constructor({ key, name, rank, date, data, prioritized, calendar, _stack, baseItem }: TDateItemInput) {
+  constructor({
+    key,
+    name,
+    rank,
+    date,
+    data,
+    prioritized,
+    seasons,
+    seasonNames,
+    periods,
+    calendar,
+    _stack,
+    baseItem,
+  }: TDateItemInput) {
     this.key = key;
     this.name = name;
     this.date = date.toISOString();
     this.rank = rank;
     this.data = data;
     this.prioritized = prioritized;
+    this.seasons = seasons || baseItem?.seasons;
+    this.seasonNames = seasonNames || baseItem?.seasonNames;
+    this.periods = periods || baseItem?.periods || [];
     this.cycles = this.addLiturgicalCycleMetadata(calendar || baseItem?.calendar);
     this.calendar = calendar || baseItem?.calendar;
 

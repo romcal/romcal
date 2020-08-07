@@ -32,6 +32,9 @@ export default {
     season: 'Veľký týždeň',
     feria: '{{day}} Veľkého týždňa',
   },
+  paschalTriduum: {
+    season: 'Veľkonočné Triduum',
+  },
   eastertide: {
     season: 'Veľkonočné obdobie',
     feria: '{{day}} po {{week}} veľkonočnej nedeli',
