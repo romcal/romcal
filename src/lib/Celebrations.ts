@@ -6,6 +6,7 @@ import { RomcalDateItemInput } from '@romcal/models/romcal-date-item';
 import Config from '@romcal/models/romcal-config';
 import { isNil } from '@romcal/utils/type-guards';
 import { RanksEnum } from '@romcal/enums/ranks.enum';
+import { PeriodsEnum, SeasonsEnum } from '@romcal/enums/seasons-and-periods.enum';
 
 /**
  * Returns various fixed celebrations in the liturgical calendar.
@@ -173,6 +174,8 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
       key: 'easter',
       rank: RanksEnum.SOLEMNITY,
       date: Dates.easter(year),
+      seasons: [SeasonsEnum.PASCHAL_TRIDUUM, SeasonsEnum.EASTERTIDE],
+      seasonNames: [await localize({ key: 'paschalTriduum.season' }), await localize({ key: 'eastertide.season' })],
       data: {
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
@@ -237,15 +240,8 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
       key: 'palmSunday',
       rank: RanksEnum.SUNDAY,
       date: Dates.palmSunday(year),
+      periods: [PeriodsEnum.HOLY_WEEK],
       data: {
-        season: [
-          {
-            key: 'HOLY_WEEK',
-            value: await localize({
-              key: 'holyWeek.season',
-            }),
-          },
-        ],
         meta: {
           liturgicalColor: LITURGICAL_COLORS.RED,
         },
@@ -256,15 +252,8 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
       key: 'holyThursday',
       rank: RanksEnum.TRIDUUM,
       date: Dates.holyThursday(year),
+      periods: [PeriodsEnum.HOLY_WEEK],
       data: {
-        season: [
-          {
-            key: 'HOLY_WEEK',
-            value: await localize({
-              key: 'holyWeek.season',
-            }),
-          },
-        ],
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
           titles: [TITLES.TRIDUUM],
@@ -276,15 +265,8 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
       key: 'goodFriday',
       rank: RanksEnum.TRIDUUM,
       date: Dates.goodFriday(year),
+      periods: [PeriodsEnum.HOLY_WEEK],
       data: {
-        season: [
-          {
-            key: 'HOLY_WEEK',
-            value: await localize({
-              key: 'holyWeek.season',
-            }),
-          },
-        ],
         meta: {
           liturgicalColor: LITURGICAL_COLORS.RED,
           titles: [TITLES.TRIDUUM],
@@ -296,15 +278,8 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
       key: 'holySaturday',
       rank: RanksEnum.TRIDUUM,
       date: Dates.holySaturday(year),
+      periods: [PeriodsEnum.HOLY_WEEK],
       data: {
-        season: [
-          {
-            key: 'HOLY_WEEK',
-            value: await localize({
-              key: 'holyWeek.season',
-            }),
-          },
-        ],
         meta: {
           liturgicalColor: LITURGICAL_COLORS.WHITE,
           titles: [TITLES.TRIDUUM],

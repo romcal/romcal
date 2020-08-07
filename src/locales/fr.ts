@@ -32,6 +32,9 @@ export default {
     season: 'Semaine Sainte',
     feria: '{{day}} Saint',
   },
+  paschalTriduum: {
+    season: 'Triduum Pascal',
+  },
   eastertide: {
     season: 'Temps de Pâques',
     feria: '{{day}} de la {{week}} semaine de Pâques',

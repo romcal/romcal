@@ -34,7 +34,7 @@ import { Dictionary, isNil } from '@romcal/utils/type-guards';
 import { RomcalDateItem, isRomcalDateItem } from '@romcal/models/romcal-date-item';
 import { hasKey, getValueByKey } from '@romcal/utils/object';
 import { PSALTER_WEEKS } from '@romcal/constants/liturgical-cycles.constant';
-import { LITURGICAL_SEASONS } from '@romcal/constants/liturgical-seasons.constant';
+import { LITURGICAL_SEASONS } from '@romcal/constants/seasons-and-periods.constant';
 import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant';
 import { TITLES } from '@romcal/constants/titles.constant';
 import { RanksEnum } from '@romcal/enums/ranks.enum';
@@ -222,7 +222,7 @@ describe('Testing calendar generation functions', () => {
         });
         expect(
           Object.keys(liturgicalSeasonGroupings).every(liturgicalSeasonKey =>
-            Object.keys(LITURGICAL_SEASONS).includes(liturgicalSeasonKey),
+            (LITURGICAL_SEASONS as string[]).includes(liturgicalSeasonKey),
           ),
         ).toBeTrue();
       });

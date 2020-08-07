@@ -325,9 +325,9 @@ const localizeLiturgicalColor = async (liturgicalColor?: LiturgicalColor): Promi
 
 /**
  * Given a "day" integer from DayJS that represents the day of week, determine
- * the type of day from the [[Types]] enum
+ * the rank of day from the [[Rank]] enum
  * @param day A "day" integer that should come from the DayJS library
  */
-const getTypeByDayOfWeek = (day: number): RanksEnum => (day === 0 ? RanksEnum.SUNDAY : RanksEnum.FERIA);
+const getRankByDayOfWeek = (day: number): RanksEnum => (day === 0 ? RanksEnum.SUNDAY : RanksEnum.FERIA);
 
-export { setLocale, getLocale, localize, localizeDates, localizeLiturgicalColor, getTypeByDayOfWeek };
+export { setLocale, getLocale, localize, localizeDates, localizeLiturgicalColor, getRankByDayOfWeek };
