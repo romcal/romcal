@@ -1,5 +1,9 @@
 import en from './en';
+<<<<<<< HEAD
 import es from './es';
+=======
+import enGB from './en-GB';
+>>>>>>> b5b8458... Localisation tidy-up
 import fr from './fr';
 import it from './it';
 import la from './la';
@@ -13,7 +17,11 @@ import sk from './sk';
  */
 const locales = {
   en: en,
+<<<<<<< HEAD
   es: es,
+=======
+  'en-GB': enGB,
+>>>>>>> b5b8458... Localisation tidy-up
   fr: fr,
   it: it,
   la: la,
