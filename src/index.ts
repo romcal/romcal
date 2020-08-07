@@ -86,7 +86,6 @@ import {
   RomcalDateItemData,
   RomcalDateItemCalendar,
   RomcalDateItemMetadata,
-  RomcalSeason,
   TDateItemInput,
 } from '@romcal/models/romcal-date-item';
 import Config, { RomcalConfig, IRomcalDefaultConfig, TConfigConstructorType } from '@romcal/models/romcal-config';
@@ -292,7 +291,6 @@ export {
   RomcalDateItemData,
   RomcalDateItemCalendar,
   RomcalDateItemMetadata,
-  RomcalSeason,
 };
 
 /**

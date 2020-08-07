@@ -222,14 +222,6 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
       rank: RanksEnum.FERIA,
       date: Dates.ashWednesday(year),
       data: {
-        season: [
-          {
-            key: 'LENT',
-            value: await localize({
-              key: 'lent.season',
-            }),
-          },
-        ],
         meta: {
           liturgicalColor: LITURGICAL_COLORS.PURPLE,
         },
