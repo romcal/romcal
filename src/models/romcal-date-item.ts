@@ -12,18 +12,12 @@ import { LiturgicalColor } from '@romcal/types/liturgical-colors.type';
 import { RomcalCycles, RomcalFerialCycle, RomcalSundayCycle } from '@romcal/types/liturgical-cycles.type';
 import { DateItemSources } from '@romcal/types/date-item-sources.type';
 
-export interface RomcalSeason {
-  key: LiturgicalSeason;
-  value: string;
-}
-
 export interface RomcalDateItemMetadata {
   liturgicalColor?: LiturgicalColor;
   titles?: Array<string>;
 }
 
 export interface RomcalDateItemData {
-  season?: Array<RomcalSeason>;
   meta?: RomcalDateItemMetadata;
 }
 
@@ -112,7 +106,6 @@ export interface DateItemMetadata {
 }
 
 export interface DateItemData {
-  season: Array<RomcalSeason>;
   meta: DateItemMetadata;
 }
 
@@ -232,10 +225,6 @@ export class RomcalDateItem implements IRomcalDateItem {
     // The original default item is added to the current item as the `base` property
     if (!isNil(baseItem) && this._id !== baseItem?._id && baseItem.name !== this.name) {
       this.base = baseItem;
-      this.data = {
-        ...this.data,
-        ...(baseItem?.data.season && { season: baseItem?.data.season }),
-      };
     }
 
     this.adjustTypeInSeason();
@@ -253,7 +242,7 @@ export class RomcalDateItem implements IRomcalDateItem {
    * Commemorations.
    */
   private adjustTypeInSeason(): void {
-    if (this.base?.data.season?.some(season => season.key === 'LENT')) {
+    if (this.base?.seasons?.some(key => key === 'LENT')) {
       if (
         (this.rank === RanksEnum.MEMORIAL || this.rank === RanksEnum.OPT_MEMORIAL) &&
         this.base.rank === RanksEnum.FERIA
