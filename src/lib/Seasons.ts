@@ -589,7 +589,7 @@ const lent = async (year: number): Promise<Array<RomcalDateItemInput>> => {
           : `${date.locale('en').format('dddd')}OfThe${ordinal(week, true).toUpperCase()}WeekOfLent`,
       rank: RanksEnum.FERIA,
       name: await localize({
-        key: i < 4 ? 'lent.dayAfterAshWed' : 'lent.feria',
+        key: i === 0 ? 'celebrations.ashWednesday' : i < 4 ? 'lent.dayAfterAshWed' : 'lent.feria',
         day: date.format('dddd'),
         week,
       }),
