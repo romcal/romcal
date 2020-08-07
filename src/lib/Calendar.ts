@@ -14,12 +14,13 @@ import { concatAll, find, removeWhere } from '@romcal/utils/array';
 import { RANKS } from '@romcal/constants/ranks.constant';
 import { RanksEnum } from '@romcal/enums/ranks.enum';
 import _ from 'lodash';
+import { Countries } from '@romcal/types/countries.type';
+import { RomcalCycles } from '@romcal/types/liturgical-cycles.type';
+import { LiturgicalPeriod, LiturgicalSeason } from '@romcal/types/seasons-and-periods.type';
 
 import dayjs from 'dayjs';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
-import { Countries } from '@romcal/types/countries.type';
-import { RomcalCycles } from '@romcal/types/liturgical-cycles.type';
 
 dayjs.extend(isSameOrAfter);
 dayjs.extend(isSameOrBefore);
@@ -189,7 +190,7 @@ export class Calendar {
         // Find the season date that has the same date as the incoming item and make it the base item.
         const baseItem = find(this.dateItems, { date: item.date.toISOString(), _stack: 0 });
 
-        const { key, name, rank, data, prioritized, cycles, calendar, date } = item;
+        const { key, name, rank, data, prioritized, seasons, seasonNames, periods, cycles, calendar, date } = item;
         if (!isNil(key) && !isNil(name) && !isNil(rank) && !isNil(date)) {
           // Create a new DateItem and add it to the collection
           this.dateItems.push(
@@ -199,6 +200,9 @@ export class Calendar {
               rank,
               date,
               prioritized: !!prioritized,
+              seasons: seasons as Required<LiturgicalSeason[]>,
+              seasonNames: seasonNames as Required<string[]>,
+              periods: periods as Required<LiturgicalPeriod[]>,
               cycles: cycles as Required<RomcalCycles>,
               calendar: calendar as Required<RomcalDateItemCalendar>,
               data: (data as Required<RomcalDateItemData>) ?? {},

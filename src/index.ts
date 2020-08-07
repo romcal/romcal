@@ -3,7 +3,7 @@ import _ from 'lodash';
 
 import {
   getLocale,
-  getTypeByDayOfWeek,
+  getRankByDayOfWeek,
   localize,
   localizeDates,
   localizeLiturgicalColor,
@@ -68,7 +68,7 @@ import {
   christmastide,
   earlyOrdinaryTime,
   easterOctave,
-  easterTriduum,
+  paschalTriduum,
   eastertide,
   laterOrdinaryTime,
   lent,
@@ -100,7 +100,7 @@ import {
   LITURGICAL_FERIAL_CYCLES,
   PSALTER_WEEKS,
 } from '@romcal/constants/liturgical-cycles.constant';
-import { LITURGICAL_SEASONS } from '@romcal/constants/liturgical-seasons.constant';
+import { LITURGICAL_SEASONS } from '@romcal/constants/seasons-and-periods.constant';
 import { QUERY_TYPES } from '@romcal/constants/query-types.constant';
 import { TITLES } from '@romcal/constants/titles.constant';
 import { RANKS } from '@romcal/constants/ranks.constant';
@@ -111,7 +111,12 @@ import { Countries } from '@romcal/types/countries.type';
 import { DateItemSources } from '@romcal/types/date-item-sources.type';
 import { LiturgicalColor, LiturgicalColorKeys, LiturgicalColors } from '@romcal/types/liturgical-colors.type';
 import { RomcalCycles, RomcalSundayCycle, RomcalFerialCycle, PsalterWeek } from '@romcal/types/liturgical-cycles.type';
-import { LiturgicalSeason, LiturgicalSeasons } from '@romcal/types/liturgical-seasons.type';
+import {
+  LiturgicalSeason,
+  LiturgicalSeasons,
+  LiturgicalPeriod,
+  LiturgicalPeriods,
+} from '@romcal/types/seasons-and-periods.type';
 import { LocaleTypes } from '@romcal/types/locale-types.type';
 import { LocalizeParams } from '@romcal/types/localize-params.type';
 import { Query, QueryType } from '@romcal/types/query-type.type';
@@ -174,7 +179,7 @@ export default class Romcal {
          * Groups by the first liturgical season in the array
          */
         case 'liturgicalSeasons':
-          return _.groupBy(dates, d => d.data.season[0].key);
+          return _.groupBy(dates, d => d.seasons[0]);
         case 'liturgicalColors':
           return _.groupBy(dates, d => d.data.meta.liturgicalColor?.key);
         case 'psalterWeeks':
@@ -327,6 +332,8 @@ export {
   PsalterWeek,
   LiturgicalSeason,
   LiturgicalSeasons,
+  LiturgicalPeriod,
+  LiturgicalPeriods,
   LocaleTypes,
   LocalizeParams,
   Query,
@@ -341,7 +348,7 @@ export {
  */
 export {
   getLocale,
-  getTypeByDayOfWeek,
+  getRankByDayOfWeek,
   localize,
   localizeDates,
   localizeLiturgicalColor,
@@ -410,7 +417,7 @@ export { temporalCelebrationDates };
 /**
  * Export for helper functions in [[Seasons]]
  */
-export { advent, christmastide, earlyOrdinaryTime, easterOctave, easterTriduum, eastertide, laterOrdinaryTime, lent };
+export { advent, christmastide, earlyOrdinaryTime, easterOctave, paschalTriduum, eastertide, laterOrdinaryTime, lent };
 
 // Other exports to provide convenience functions to the user
 export { Calendar };
