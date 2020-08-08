@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 
 import * as Locales from '@romcal/lib/Locales';
-import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant';
+import { LiturgicalColorsEnum } from '@romcal/enums/liturgical-colors.enum';
 import { TITLES } from '@romcal/constants/titles.constant';
 import { RomcalDateItemInput } from '@romcal/models/romcal-date-item';
 import Config, { IRomcalDefaultConfig } from '@romcal/models/romcal-config';
@@ -16,11 +16,9 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'saintPaulMikiAndCompanionsMartyrs',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-2-6`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.RED,
-          titles: [TITLES.MARTYR],
-        },
+      liturgicalColors: LiturgicalColorsEnum.RED,
+      metadata: {
+        titles: [TITLES.MARTYR],
       },
     },
     {
@@ -32,42 +30,28 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'blessedPeterKibePriestAndCompanionsMartyrs',
       rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-7-1`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.RED,
-          titles: [TITLES.MARTYR],
-        },
+      liturgicalColors: LiturgicalColorsEnum.RED,
+      metadata: {
+        titles: [TITLES.MARTYR],
       },
     },
     {
       key: '205BlessedMartyrsOfJapan',
       rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-9-10`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
       key: 'saintThomasRokuzayemonPriestAndCompanionsMartyrs',
       rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-9-28`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
       key: 'saintFrancisXavierPriest',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-12-3`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
   ];
 

@@ -1,6 +1,6 @@
 import { Schema, Validator } from 'jsonschema';
 import { RANKS } from '@romcal/constants/ranks.constant';
-import { LITURGICAL_COLOR_KEYS } from '@romcal/constants/liturgical-colors.constant';
+import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant';
 
 export const getDateItemJsonSchema = (): Schema => ({
   id: '/dateItem',
@@ -43,7 +43,7 @@ export const getRomcalDateItemMetadataJsonSchema = (): Schema => ({
       type: 'object',
       maxProperties: 2,
       properties: {
-        key: { type: 'string', enum: [LITURGICAL_COLOR_KEYS] },
+        key: { type: 'string', enum: [LITURGICAL_COLORS] },
         value: { type: 'string' },
       },
       required: ['key'],

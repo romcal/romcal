@@ -1,4 +1,4 @@
-import dayjs from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
 import * as Dates from '@romcal/lib/Dates';
 import { ISO8601DateString, isNil } from '@romcal/utils/type-guards';
 import {
@@ -8,216 +8,158 @@ import {
 } from '@romcal/constants/liturgical-cycles.constant';
 import { RanksEnum } from '@romcal/enums/ranks.enum';
 import { LiturgicalPeriod, LiturgicalSeason } from '@romcal/types/seasons-and-periods.type';
-import { LiturgicalColor } from '@romcal/types/liturgical-colors.type';
 import { RomcalCycles, RomcalFerialCycle, RomcalSundayCycle } from '@romcal/types/liturgical-cycles.type';
 import { DateItemSources } from '@romcal/types/date-item-sources.type';
+import { LiturgicalColorsEnum } from '@romcal/enums/liturgical-colors.enum';
+import { RomcalDateItemCalendar } from '@romcal/types/date-item-calendar.type';
+import { RomcalDateItemMetadata } from '@romcal/types/date-item-metadata.type';
+import { RomcalLiturgicalColor } from '@romcal/types/liturgical-colors.type';
 
-export interface RomcalDateItemMetadata {
-  liturgicalColor?: LiturgicalColor;
-  titles?: Array<string>;
-}
+type RomcalBaseDateItem = {
+  key: string;
+  name: string;
+  date: ISO8601DateString;
+  rank: RanksEnum;
+  prioritized: boolean;
+  liturgicalColors: RomcalLiturgicalColor[];
+  seasons: LiturgicalSeason[];
+  seasonNames: string[];
+  periods: LiturgicalPeriod[];
+  cycles: RomcalCycles;
+  calendar: RomcalDateItemCalendar;
+  metadata: RomcalDateItemMetadata;
+  base?: RomcalDateItem;
+};
 
-export interface RomcalDateItemData {
-  meta?: RomcalDateItemMetadata;
-}
-
-export interface RomcalDateItemCalendar {
-  totalWeeksInGregorianYear: number;
-  totalWeeksInLiturgicalYear: number;
-  weekOfGregorianYear: number;
-  weekOfLiturgicalYear: number;
-  weekOfSeason: number;
-  dayOfGregorianYear: number;
-  dayOfLiturgicalYear: number;
-  dayOfSeason: number;
-  dayOfWeek: number; // 0 | 1 | 2 | 3 | 4 | 5 | 6; // 0 is Sunday, 6 is Saturday
-  dayOfWeekCountInMonth: number;
-  startOfLiturgicalYear: Date | string;
-  endOfLiturgicalYear: Date | string;
-  easter: Date | string;
-}
+type RomcalDateItemArgs = Readonly<
+  Omit<RomcalBaseDateItem, 'date' | 'liturgicalColors'> & Partial<RomcalDateItemMetadata>
+> & {
+  readonly date: Dayjs;
+  readonly liturgicalColors?: RomcalLiturgicalColor | RomcalLiturgicalColor[];
+  readonly baseItem?: RomcalDateItem;
+  readonly _stack: number;
+};
 
 /**
- * This interface is used internally by romcal
+ * This type is used internally by romcal
  * during the construction of the liturgical calendar.
- * All properties except `date` is marked optional as
+ * All properties except `key` and `date` are marked optional as
  * the the object is constructed in stages. This interface
  * should not be used in consumer applications.
  */
-export interface RomcalDateItemInput {
-  /**
-   * The human readable and localized name of this celebration
-   */
-  name?: string;
-  /**
-   * The unique key that identifies this celebration
-   */
-  key?: string;
-  /**
-   * The rank of celebration
-   */
-  rank?: RanksEnum;
-  /**
-   * If a celebration should have always precedence, without rank consideration.
-   */
-  prioritized?: boolean;
-  /**
-   * Season keys to which the celebration is a part.
-   */
-  seasons?: LiturgicalSeason | LiturgicalSeason[];
-  /**
-   * Season localized name to which the celebration is a part.
-   */
-  seasonNames?: string | string[];
-  /**
-   * Period keys to which the celebration is a part.
-   */
-  periods?: LiturgicalPeriod | LiturgicalPeriod[];
-  /**
-   * Cycle metadata of a celebration.
-   */
-  cycles?: RomcalCycles;
-  /**
-   * The calendar metadata of a celebration.
-   */
-  calendar?: RomcalDateItemCalendar;
-  /**
-   * The ISO8601 formatted date and time string of the celebration.
-   */
-  date: dayjs.Dayjs;
-  data?: RomcalDateItemData;
-  /**
-   * The source of the date item.
-   *
-   * This value is used when localizing dates so that the [[Locales.localizeDates]] function knows
-   * which subtree in the locale file to look for.
-   *
-   * A special key, "temporal", may be used when you do not wish to specify any subtree but rather
-   * provide the entire path (as a period delimited string) to the [[Locales.localizeDates]] function
-   * to lookup.
-   */
-  source?: DateItemSources;
-  drop?: boolean;
-}
+export type RomcalDateItemInput = Pick<RomcalBaseDateItem, 'key'> &
+  Partial<Omit<RomcalBaseDateItem, 'key' | 'date' | 'liturgicalColors'>> & {
+    date: Dayjs;
+    liturgicalColors?: RomcalLiturgicalColor | RomcalLiturgicalColor[];
+    /**
+     * The source of the date item.
+     *
+     * This value is used when localizing dates so that the [[Locales.localizeDates]] function knows
+     * which subtree in the locale file to look for.
+     *
+     * A special key, "temporal", may be used when you do not wish to specify any subtree but rather
+     * provide the entire path (as a period delimited string) to the [[Locales.localizeDates]] function
+     * to lookup.
+     */
+    source?: DateItemSources;
+    drop?: boolean;
+  };
 
-export interface DateItemMetadata {
-  liturgicalColor?: LiturgicalColor;
-  titles?: Array<string>;
-}
-
-export interface DateItemData {
-  meta: DateItemMetadata;
-}
-
-// eslint-disable-next-line @typescript-eslint/interface-name-prefix
-export interface IRomcalDateItem {
-  readonly key: string;
-  readonly name: string;
-  readonly date: ISO8601DateString;
-  readonly rank: RanksEnum;
-  readonly data: DateItemData;
-  readonly prioritized: boolean;
-  readonly seasons: LiturgicalSeason[];
-  readonly seasonNames: string[];
-  readonly periods: LiturgicalPeriod[];
-  readonly cycles: RomcalCycles;
-  readonly calendar: RomcalDateItemCalendar;
-  readonly base?: RomcalDateItem;
-  readonly _id: number;
-  readonly _stack: number;
-}
-
-export type TDateItemInput = Omit<IRomcalDateItem, '_id' | 'base' | 'date'> &
-  Readonly<{
-    baseItem?: RomcalDateItem;
-    date: dayjs.Dayjs;
-  }>;
-
-export class RomcalDateItem implements IRomcalDateItem {
+export class RomcalDateItem implements RomcalBaseDateItem {
   /**
    * The unique key of the celebration.
    */
-  public key: string;
+  public readonly key: string;
   /**
    * The localized name of the celebration.
    */
-  public name: string;
+  public readonly name: string;
   /**
    * The ISO8601 formatted date and time string of the celebration.
    */
-  public date: ISO8601DateString;
+  public readonly date: ISO8601DateString;
   /**
    * The rank of the celebration.
    */
   public rank: RanksEnum;
   /**
-   * The data associated to this celebration.
-   */
-  public data: DateItemData;
-  /**
    * If this celebration should have always precedence, without rank consideration.
    */
-  public prioritized: boolean;
+  public readonly prioritized: boolean;
+  /**
+   * The liturgical color of a celebration
+   */
+  public readonly liturgicalColors: RomcalLiturgicalColor[];
   /**
    * Season keys to which the celebration is a part.
    */
-  public seasons: LiturgicalSeason[];
+  public readonly seasons: LiturgicalSeason[];
   /**
    * Season localized name to which the celebration is a part.
    */
-  public seasonNames: string[];
+  public readonly seasonNames: string[];
   /**
    * Period keys to which the celebration is a part.
    */
-  public periods: LiturgicalPeriod[];
+  public readonly periods: LiturgicalPeriod[];
   /**
    * Cycle metadata of a celebration.
    */
-  public cycles: RomcalCycles;
+  public readonly cycles: RomcalCycles;
   /**
    * Calendar metadata for the celebration.
    */
-  public calendar: RomcalDateItemCalendar;
+  public readonly calendar: RomcalDateItemCalendar;
+  /**
+   * The specific metadata of a celebration
+   */
+  public readonly metadata: RomcalDateItemMetadata;
   /**
    * A previous celebration on the same day that was overridden by the current one.
    */
-  public base: RomcalDateItem | undefined;
+  public readonly base: RomcalDateItem | undefined;
   /**
    * Internal index used by romcal for calendar generation.
    */
-  public _id: number;
+  public readonly _id: number;
   /**
    * Internal index used by romcal for calendar generation.
    */
-  public _stack: number;
+  public readonly _stack: number;
 
   static latestId: number;
 
   constructor({
     key,
     name,
-    rank,
     date,
-    data,
+    rank,
     prioritized,
+    liturgicalColors,
     seasons,
     seasonNames,
     periods,
     calendar,
-    _stack,
+    metadata,
     baseItem,
-  }: TDateItemInput) {
+    _stack,
+  }: RomcalDateItemArgs) {
     this.key = key;
     this.name = name;
     this.date = date.toISOString();
     this.rank = rank;
-    this.data = data;
     this.prioritized = prioritized;
+    this.liturgicalColors = Array.isArray(liturgicalColors)
+      ? liturgicalColors
+      : liturgicalColors
+      ? [liturgicalColors]
+      : [LiturgicalColorsEnum.WHITE]; // todo: ...or compute default color instead of LiturgicalColorsEnum.WHITE
     this.seasons = seasons || baseItem?.seasons;
     this.seasonNames = seasonNames || baseItem?.seasonNames;
     this.periods = periods || baseItem?.periods || [];
     this.cycles = this.addLiturgicalCycleMetadata(calendar || baseItem?.calendar);
     this.calendar = calendar || baseItem?.calendar;
+    this.metadata = typeof metadata === 'object' ? metadata : { titles: [] };
 
     this._id = RomcalDateItem._incrementId();
     this._stack = _stack;
@@ -298,9 +240,9 @@ export class RomcalDateItem implements IRomcalDateItem {
   }
 
   /**
-   * Increment the ID based of the [[DateItem]] instance
+   * Increment the ID based of the [[RomcalDateItem]] instance
    */
-  static _incrementId(): number {
+  private static _incrementId(): number {
     return isNil(this.latestId) ? (this.latestId = 0) : this.latestId++;
   }
 }
@@ -310,7 +252,7 @@ export class RomcalDateItem implements IRomcalDateItem {
  * @param value The value that could be an instance of [[IDateItem]]
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const isRomcalDateItem = (value: Record<string, any>): value is IRomcalDateItem => {
+export const isRomcalDateItem = (value: Record<string, any>): value is RomcalBaseDateItem => {
   const { key, name, date, rank } = value;
   return !isNil(key) && !isNil(name) && !isNil(date) && !isNil(rank);
 };

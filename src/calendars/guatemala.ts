@@ -1,6 +1,6 @@
 import * as Locales from '@romcal/lib/Locales';
 import * as Dates from '@romcal/lib/Dates';
-import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant';
+import { LiturgicalColorsEnum } from '@romcal/enums/liturgical-colors.enum';
 import { RomcalDateItemInput } from '@romcal/models/romcal-date-item';
 import dayjs from 'dayjs';
 import Config, { IRomcalDefaultConfig } from '@romcal/models/romcal-config';
@@ -20,11 +20,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
             .add(4, 'day')
             .toISOString(),
         ))(year),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
   ];
 

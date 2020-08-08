@@ -1,3 +1,4 @@
+import '@romcal/utils/string-extentions';
 import dayjs from 'dayjs';
 import _ from 'lodash';
 
@@ -6,7 +7,6 @@ import {
   getRankByDayOfWeek,
   localize,
   localizeDates,
-  localizeLiturgicalColor,
   ordinal,
   sanitizePossibleLocaleValue,
   setLocale,
@@ -77,23 +77,14 @@ import {
 import { Calendar } from '@romcal/lib/Calendar';
 
 import { RomcalLocale, RomcalLocaleKeys } from '@romcal/models/romcal-locale';
-import {
-  RomcalDateItem,
-  DateItemData,
-  DateItemMetadata,
-  IRomcalDateItem,
-  RomcalDateItemInput,
-  RomcalDateItemData,
-  RomcalDateItemCalendar,
-  RomcalDateItemMetadata,
-  TDateItemInput,
-} from '@romcal/models/romcal-date-item';
+import { RomcalDateItem, RomcalDateItemInput } from '@romcal/models/romcal-date-item';
 import Config, { RomcalConfig, IRomcalDefaultConfig, TConfigConstructorType } from '@romcal/models/romcal-config';
 
 import { hasKey } from '@romcal/utils/object';
 
 import { COUNTRIES } from '@romcal/constants/country-list.constant';
-import { LITURGICAL_COLORS, LITURGICAL_COLOR_KEYS } from '@romcal/constants/liturgical-colors.constant';
+import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant';
+import { LiturgicalColors } from '@romcal/types/liturgical-colors.type';
 import {
   LITURGICAL_SUNDAY_CYCLES,
   LITURGICAL_FERIAL_CYCLES,
@@ -108,7 +99,6 @@ import { Dictionary, isNil, isInteger, isObject } from '@romcal/utils/type-guard
 import { ChristmastideEndings } from '@romcal/types/christmastide-endings.type';
 import { Countries } from '@romcal/types/countries.type';
 import { DateItemSources } from '@romcal/types/date-item-sources.type';
-import { LiturgicalColor, LiturgicalColorKeys, LiturgicalColors } from '@romcal/types/liturgical-colors.type';
 import { RomcalCycles, RomcalSundayCycle, RomcalFerialCycle, PsalterWeek } from '@romcal/types/liturgical-cycles.type';
 import {
   LiturgicalSeason,
@@ -121,6 +111,8 @@ import { LocalizeParams } from '@romcal/types/localize-params.type';
 import { Query, QueryType } from '@romcal/types/query-type.type';
 import { Title, Titles } from '@romcal/types/titles.type';
 import { Types } from '@romcal/types/types.type';
+import { RomcalDateItemCalendar } from './types/date-item-calendar.type';
+import { RomcalDateItemMetadata } from './types/date-item-metadata.type';
 
 /**
  * The export of the `romcal` module.
@@ -180,7 +172,7 @@ export default class Romcal {
         case 'liturgicalSeasons':
           return _.groupBy(dates, d => d.seasons[0]);
         case 'liturgicalColors':
-          return _.groupBy(dates, d => d.data.meta.liturgicalColor?.key);
+          return _.groupBy(dates, d => d.liturgicalColors[0]);
         case 'psalterWeeks':
           return _.groupBy(dates, d => d.cycles.psalterWeek);
         case 'days':
@@ -195,7 +187,7 @@ export default class Romcal {
       return dates.filter(dateItem => dayjs.utc(dateItem.date).day() === query.day);
     } else if (!isNil(query.title)) {
       const { title } = query;
-      return dates.filter(date => date.data.meta.titles?.includes(title));
+      return dates.filter(date => date.metadata.titles?.includes(title));
     } else {
       return dates;
     }
@@ -284,11 +276,7 @@ export {
   RomcalLocale,
   RomcalLocaleKeys,
   RomcalDateItem,
-  DateItemData,
-  DateItemMetadata,
-  IRomcalDateItem,
   RomcalDateItemInput,
-  RomcalDateItemData,
   RomcalDateItemCalendar,
   RomcalDateItemMetadata,
 };
@@ -298,7 +286,6 @@ export {
  */
 export {
   COUNTRIES,
-  LITURGICAL_COLOR_KEYS,
   LITURGICAL_COLORS,
   LITURGICAL_SUNDAY_CYCLES,
   LITURGICAL_FERIAL_CYCLES,
@@ -313,17 +300,14 @@ export {
  * Export for types supporting romcal
  */
 export {
-  TDateItemInput,
   Dictionary,
   Config,
   IRomcalDefaultConfig,
   TConfigConstructorType,
   ChristmastideEndings,
   Countries,
-  DateItemSources,
-  LiturgicalColor,
-  LiturgicalColorKeys,
   LiturgicalColors,
+  DateItemSources,
   RomcalCycles,
   RomcalSundayCycle,
   RomcalFerialCycle,
@@ -344,16 +328,7 @@ export {
 /**
  * Export for helper functions in the [[Locales]]
  */
-export {
-  getLocale,
-  getRankByDayOfWeek,
-  localize,
-  localizeDates,
-  localizeLiturgicalColor,
-  ordinal,
-  sanitizePossibleLocaleValue,
-  setLocale,
-};
+export { getLocale, getRankByDayOfWeek, localize, localizeDates, ordinal, sanitizePossibleLocaleValue, setLocale };
 
 /**
  * Export for helper functions in [[Dates]]

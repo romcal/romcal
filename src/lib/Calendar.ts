@@ -1,15 +1,9 @@
 import * as Dates from '@romcal/lib/Dates';
 import * as Seasons from '@romcal/lib/Seasons';
 import * as Celebrations from '@romcal/lib/Celebrations';
-import { localizeLiturgicalColor } from '@romcal/lib/Locales';
 import { isNil } from '@romcal/utils/type-guards';
 import Config from '@romcal/models/romcal-config';
-import {
-  RomcalDateItem,
-  RomcalDateItemCalendar,
-  RomcalDateItemData,
-  RomcalDateItemInput,
-} from '@romcal/models/romcal-date-item';
+import { RomcalDateItem, RomcalDateItemInput } from '@romcal/models/romcal-date-item';
 import { concatAll, find, removeWhere } from '@romcal/utils/array';
 import { RANKS } from '@romcal/constants/ranks.constant';
 import { RanksEnum } from '@romcal/enums/ranks.enum';
@@ -21,6 +15,8 @@ import { LiturgicalPeriod, LiturgicalSeason } from '@romcal/types/seasons-and-pe
 import dayjs from 'dayjs';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
+import { RomcalDateItemCalendar } from '@romcal/types/date-item-calendar.type';
+import { RomcalDateItemMetadata } from '@romcal/types/date-item-metadata.type';
 
 dayjs.extend(isSameOrAfter);
 dayjs.extend(isSameOrBefore);
@@ -190,7 +186,20 @@ export class Calendar {
         // Find the season date that has the same date as the incoming item and make it the base item.
         const baseItem = find(this.dateItems, { date: item.date.toISOString(), _stack: 0 });
 
-        const { key, name, rank, data, prioritized, seasons, seasonNames, periods, cycles, calendar, date } = item;
+        const {
+          key,
+          name,
+          rank,
+          prioritized,
+          seasons,
+          seasonNames,
+          periods,
+          cycles,
+          calendar,
+          liturgicalColors,
+          metadata,
+          date,
+        } = item;
         if (!isNil(key) && !isNil(name) && !isNil(rank) && !isNil(date)) {
           // Create a new DateItem and add it to the collection
           this.dateItems.push(
@@ -205,9 +214,10 @@ export class Calendar {
               periods: periods as Required<LiturgicalPeriod[]>,
               cycles: cycles as Required<RomcalCycles>,
               calendar: calendar as Required<RomcalDateItemCalendar>,
-              data: (data as Required<RomcalDateItemData>) ?? {},
+              liturgicalColors,
+              metadata: (typeof metadata === 'object' ? metadata : { titles: [] }) as RomcalDateItemMetadata,
               _stack: index, // The stack number refers to the index in the calendars array in which this celebration's array is placed at
-              baseItem, // Attach the base item if any
+              baseItem: baseItem, // Attach the base item if any
             }),
           );
         }
@@ -374,20 +384,6 @@ export class Calendar {
       `../calendars/${country}`
     );
     const contextualizedDates: Array<RomcalDateItemInput> = await dates(config);
-    const promises = contextualizedDates.map(async date => {
-      return {
-        ...date,
-        data: {
-          ...date.data,
-          meta: {
-            ...date.data?.meta,
-            ...(!isNil(date.data?.meta?.liturgicalColor) && {
-              liturgicalColor: await localizeLiturgicalColor(date.data?.meta?.liturgicalColor),
-            }),
-          },
-        },
-      } as RomcalDateItemInput;
-    });
-    return await Promise.all(promises);
+    return await Promise.all(contextualizedDates);
   }
 }

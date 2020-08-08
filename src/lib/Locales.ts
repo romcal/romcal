@@ -8,7 +8,6 @@ import { isNil, isString } from '@romcal/utils/type-guards';
 import { RomcalLocale } from '@romcal/models/romcal-locale';
 import { RomcalDateItemInput } from '@romcal/models/romcal-date-item';
 import { RanksEnum } from '@romcal/enums/ranks.enum';
-import { LiturgicalColor } from '@romcal/types/liturgical-colors.type';
 import { DateItemSources } from '@romcal/types/date-item-sources.type';
 import { LocaleTypes } from '@romcal/types/locale-types.type';
 import { LocalizeParams } from '@romcal/types/localize-params.type';
@@ -215,6 +214,7 @@ const setLocale = async (key: LocaleTypes, customOrdinalFn: (v: number) => strin
    * In other words, the romcal will use US, Canada definitions for the start of the week.
    */
   dayjs.updateLocale(currentLocale, {
+    weekStart: 0,
     week: {
       dow: 0, // US, Canada: 1st day of week is Sunday
       doy: 6, // US, Canada: 1st week of the year is the one that contains the 1st of January (7 + 0 - 1)
@@ -302,32 +302,10 @@ const localizeDates = async (
 };
 
 /**
- * Takes the key from an instance of the [[LiturgicalColor]] object and attempts to find its localized color name
- * from the active [[RomcalLocale]] instance.
- *
- * If they source object is undefined, no localization is done and undefined is returned.
- *
- * @param liturgicalColor An instance of the [[LiturgicalColor]] object from which the key will be used to find the localized color name.
- */
-const localizeLiturgicalColor = async (liturgicalColor?: LiturgicalColor): Promise<LiturgicalColor | undefined> => {
-  if (!isNil(liturgicalColor)) {
-    const value = await localize({
-      key: `liturgicalColors.${liturgicalColor.key}`,
-    });
-    return {
-      ...liturgicalColor,
-      value,
-    };
-  } else {
-    return liturgicalColor;
-  }
-};
-
-/**
  * Given a "day" integer from DayJS that represents the day of week, determine
  * the rank of day from the [[Rank]] enum
  * @param day A "day" integer that should come from the DayJS library
  */
 const getRankByDayOfWeek = (day: number): RanksEnum => (day === 0 ? RanksEnum.SUNDAY : RanksEnum.FERIA);
 
-export { setLocale, getLocale, localize, localizeDates, localizeLiturgicalColor, getRankByDayOfWeek };
+export { setLocale, getLocale, localize, localizeDates, getRankByDayOfWeek };
