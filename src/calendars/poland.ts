@@ -447,10 +447,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
     {
       key: 'dedicationOfAParticularChurch',
       rank: RanksEnum.SOLEMNITY,
-      date: dayjs
-        .utc(`${year}-10-1`)
-        .endOf('month')
-        .startOf('week'),
+      date: dayjs.utc(`${year}-10-1`).endOf('month').startOf('week'),
       liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
@@ -502,12 +499,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
     {
       key: 'ourLordJesusChristTheEternalHighPriest',
       rank: RanksEnum.FEAST,
-      date: ((y: number): dayjs.Dayjs =>
-        dayjs.utc(
-          Dates.pentecostSunday(y)
-            .add(4, 'day')
-            .toISOString(),
-        ))(year),
+      date: ((y: number): dayjs.Dayjs => dayjs.utc(Dates.pentecostSunday(y).add(4, 'day').toISOString()))(year),
       liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
   ];

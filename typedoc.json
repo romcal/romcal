@@ -1,10 +1,10 @@
 {
-    "mode": "file",
-    "inputFiles": ["./src"],
-    "includeVersion": true,
-    "out": "docs",
-    "readme": "none",
-    "exclude": "**/*.test{ts,tsx}",
-    "includeDeclarations": true,
-    "excludeExternals": true
+  "mode": "file",
+  "inputFiles": ["./src"],
+  "includeVersion": true,
+  "out": "docs",
+  "readme": "none",
+  "exclude": "**/*.test{ts,tsx}",
+  "includeDeclarations": true,
+  "excludeExternals": true
 }

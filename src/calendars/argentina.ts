@@ -136,12 +136,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
     {
       key: 'ourLadyOfTheValley',
       rank: RanksEnum.MEMORIAL,
-      date: ((y: number): dayjs.Dayjs =>
-        dayjs.utc(
-          Dates.divineMercySunday(y)
-            .add(6, 'day')
-            .toISOString(),
-        ))(year),
+      date: ((y: number): dayjs.Dayjs => dayjs.utc(Dates.divineMercySunday(y).add(6, 'day').toISOString()))(year),
       liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
   ];
