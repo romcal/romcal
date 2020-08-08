@@ -144,7 +144,7 @@ export const omit = <Original, Key extends keyof Original>(
 
   const result: any = {};
 
-  Object.keys(obj).forEach(key => {
+  Object.keys(obj).forEach((key) => {
     if (!includes(keysToOmit, key as keyof Original)) {
       result[key] = obj[key as keyof Original];
     }

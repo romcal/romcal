@@ -184,7 +184,7 @@ export class RomcalDateItem implements RomcalBaseDateItem {
    * Commemorations.
    */
   private adjustTypeInSeason(): void {
-    if (this.base?.seasons?.some(key => key === 'LENT')) {
+    if (this.base?.seasons?.some((key) => key === 'LENT')) {
       if (
         (this.rank === RanksEnum.MEMORIAL || this.rank === RanksEnum.OPT_MEMORIAL) &&
         this.base.rank === RanksEnum.FERIA

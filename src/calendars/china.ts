@@ -188,12 +188,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
     {
       key: 'ourLordJesusChristTheEternalHighPriest',
       rank: RanksEnum.FEAST,
-      date: ((y: number): dayjs.Dayjs =>
-        dayjs.utc(
-          Dates.pentecostSunday(y)
-            .add(4, 'day')
-            .toISOString(),
-        ))(year),
+      date: ((y: number): dayjs.Dayjs => dayjs.utc(Dates.pentecostSunday(y).add(4, 'day').toISOString()))(year),
       liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
   ];

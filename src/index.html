@@ -24,7 +24,7 @@
     </p>
 
     <script>
-      document.addEventListener('DOMContentLoaded', function(event) {
+      document.addEventListener('DOMContentLoaded', function (event) {
         var userLang = navigator.language || navigator.userLanguage;
 
         var code1 = document.getElementById('current-locale');
@@ -35,7 +35,7 @@
           .calendarFor({
             locale: userLang,
           })
-          .then(function(dates) {
+          .then(function (dates) {
             var code1 = document.getElementById('romcal-output');
             console.log('dates for the locale', userLang, 'are', dates);
             var node1 = document.createTextNode(JSON.stringify(dates));
@@ -49,7 +49,7 @@
               .calendarFor({
                 locale: 'sk',
               })
-              .then(function(dates) {
+              .then(function (dates) {
                 var code2 = document.getElementById('romcal-output-1');
                 console.log('dates for the locale sk are', dates);
                 var node2 = document.createTextNode(JSON.stringify(dates));

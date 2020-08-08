@@ -75,7 +75,7 @@ export class Calendar {
     const years = type === 'liturgical' ? [theYear - 1, theYear] : [theYear];
 
     // Get a collection of date items from all liturgical seasons of the given year
-    const seasonDatesPromise = years.map(async year => {
+    const seasonDatesPromise = years.map(async (year) => {
       return [
         ...(await Seasons.christmastide(
           year - 1,
@@ -99,13 +99,13 @@ export class Calendar {
     const seasonDates = concatAll(await Promise.all(seasonDatesPromise));
 
     // Get the celebration dates based on the given year and options
-    const celebrationsDatesPromise = years.map(async year => {
+    const celebrationsDatesPromise = years.map(async (year) => {
       return [...(await Celebrations.dates(year, this.config))];
     });
     const celebrationsDates = concatAll(await Promise.all(celebrationsDatesPromise));
 
     // Get the general calendar based on the given year
-    const generalDatesPromise = years.map(async thisYear => {
+    const generalDatesPromise = years.map(async (thisYear) => {
       const yearSpecificConfig = new Config({
         year: thisYear,
         country,
@@ -124,7 +124,7 @@ export class Calendar {
     const generalDates: Array<RomcalDateItemInput> = concatAll(await Promise.all(generalDatesPromise));
 
     // Get the relevant national calendar object based on the given year and country
-    const nationalDatesPromise = years.map(async thisYear => {
+    const nationalDatesPromise = years.map(async (thisYear) => {
       const yearSpecificConfig = new Config({
         year: thisYear,
         country,
@@ -261,7 +261,7 @@ export class Calendar {
     // to `true` in the romcal config.
     if (!this.config.outputOptionalMemorials) {
       this.dateItems = this.dateItems.filter(
-        item => ![RanksEnum.OPT_MEMORIAL, RanksEnum.COMMEMORATION].includes(item.rank),
+        (item) => ![RanksEnum.OPT_MEMORIAL, RanksEnum.COMMEMORATION].includes(item.rank),
       );
     }
 

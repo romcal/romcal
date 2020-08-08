@@ -105,10 +105,7 @@ const _epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<R
       async (date: Dayjs, i: number) =>
         ({
           date,
-          key: `${date
-            .locale('en')
-            .format('dddd')
-            .toCamelCase()}BeforeEpiphany`,
+          key: `${date.locale('en').format('dddd').toCamelCase()}BeforeEpiphany`,
           rank: RanksEnum.FERIA,
           name: await localize({
             key: 'epiphany.before',
@@ -150,10 +147,7 @@ const _epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<R
       async (date: Dayjs) =>
         ({
           date,
-          key: `${date
-            .locale('en')
-            .format('dddd')
-            .toCamelCase()}AfterEpiphany`,
+          key: `${date.locale('en').format('dddd').toCamelCase()}AfterEpiphany`,
           rank: RanksEnum.FERIA,
           name: await localize({
             key: 'epiphany.after',
@@ -183,10 +177,7 @@ const _holyWeek = async (year: number): Promise<Array<RomcalDateItemInput>> => {
   const datesPromise = dates.map(async (date: Dayjs, i: number) => {
     return {
       date,
-      key: `${date
-        .locale('en')
-        .format('dddd')
-        .toCamelCase()}OfHolyWeek`,
+      key: `${date.locale('en').format('dddd').toCamelCase()}OfHolyWeek`,
       rank: RanksEnum.HOLY_WEEK,
       name: await localize({
         key: 'holyWeek.feria',
@@ -243,10 +234,9 @@ const advent = async (year: number): Promise<Array<RomcalDateItemInput>> => {
       key:
         date.day() === 0
           ? `${ordinal(Math.floor(i / 7) + 1, true).toCamelCase()}SundayOfAdvent`
-          : `${date
-              .locale('en')
-              .format('dddd')
-              .toCamelCase()}OfThe${ordinal(Math.floor(i / 7) + 1).toPascalCase()}WeekOfAdvent`,
+          : `${date.locale('en').format('dddd').toCamelCase()}OfThe${ordinal(
+              Math.floor(i / 7) + 1,
+            ).toPascalCase()}WeekOfAdvent`,
       rank: getRankByDayOfWeek(date.day()),
       name: await localize({
         key: date.day() === 0 ? 'advent.sunday' : 'advent.feria',
@@ -271,7 +261,7 @@ const advent = async (year: number): Promise<Array<RomcalDateItemInput>> => {
   let items: Array<RomcalDateItemInput> = await Promise.all(daysOfAdventPromise);
 
   // Sort dates according to their date.objects in ascending order
-  items = _.sortBy(items, item => item.date.valueOf());
+  items = _.sortBy(items, (item) => item.date.valueOf());
 
   return await _metadata(items);
 };
@@ -312,10 +302,7 @@ const christmastide = async (
       key:
         dayOfWeek === 0
           ? `${ordinal(count, true).toCamelCase()}SundayOfChristmas`
-          : `${date
-              .locale('en')
-              .format('dddd')
-              .toCamelCase()}OfChristmastide`,
+          : `${date.locale('en').format('dddd').toCamelCase()}OfChristmastide`,
       rank: getRankByDayOfWeek(dayOfWeek),
       name: await localize({
         key: dayOfWeek === 0 ? 'christmastide.sunday' : 'christmastide.date',
@@ -364,17 +351,17 @@ const christmastide = async (
   // only merge the season of epiphany if the flag is true
   let combinedDaysOfChristmas: Array<RomcalDateItemInput>;
   if (christmastideIncludesTheSeasonOfEpiphany) {
-    combinedDaysOfChristmas = _.uniqBy(_.union(epiphany, daysInTheOctaveOfChristmas, daysOfChristmastide), item =>
+    combinedDaysOfChristmas = _.uniqBy(_.union(epiphany, daysInTheOctaveOfChristmas, daysOfChristmastide), (item) =>
       item.date.valueOf(),
     );
   } else {
-    combinedDaysOfChristmas = _.uniqBy(_.union(daysInTheOctaveOfChristmas, daysOfChristmastide), item =>
+    combinedDaysOfChristmas = _.uniqBy(_.union(daysInTheOctaveOfChristmas, daysOfChristmastide), (item) =>
       item.date.valueOf(),
     );
   }
 
   // Sort dates according to their unix time
-  combinedDaysOfChristmas = _.sortBy(combinedDaysOfChristmas, item => item.date.valueOf());
+  combinedDaysOfChristmas = _.sortBy(combinedDaysOfChristmas, (item) => item.date.valueOf());
 
   return await _metadata(combinedDaysOfChristmas);
 };
@@ -416,10 +403,10 @@ const earlyOrdinaryTime = async (
         key:
           date.day() === 0
             ? `${ordinal(Math.floor(i / 7) + 2, true).toCamelCase()}SundayOfOrdinaryTime`
-            : `${date
-                .locale('en')
-                .format('dddd')
-                .toCamelCase()}OfThe${ordinal(Math.floor(i / 7) + 1, true).toPascalCase()}WeekOfOrdinaryTime`,
+            : `${date.locale('en').format('dddd').toCamelCase()}OfThe${ordinal(
+                Math.floor(i / 7) + 1,
+                true,
+              ).toPascalCase()}WeekOfOrdinaryTime`,
         rank: date.day() === 0 ? RanksEnum.SUNDAY : RanksEnum.FERIA,
         name: await localize({
           key: date.day() === 0 ? 'ordinaryTime.sunday' : 'ordinaryTime.feria',
@@ -442,7 +429,7 @@ const earlyOrdinaryTime = async (
   let days: Array<RomcalDateItemInput> = await Promise.all(daysOfEarlyOrdinaryTimePromise);
 
   // Sort dates according to the value of the DayJS date object
-  days = _.sortBy(days, v => v.date.valueOf());
+  days = _.sortBy(days, (v) => v.date.valueOf());
 
   return await _metadata(days);
 };
@@ -478,10 +465,10 @@ const laterOrdinaryTime = async (year: number): Promise<Array<RomcalDateItemInpu
         key:
           date.day() === 0
             ? `${ordinal(week, true).toCamelCase()}SundayOfOrdinaryTime`
-            : `${date
-                .locale('en')
-                .format('dddd')
-                .toCamelCase()}OfThe${ordinal(week, true).toPascalCase()}WeekOfOrdinaryTime`,
+            : `${date.locale('en').format('dddd').toCamelCase()}OfThe${ordinal(
+                week,
+                true,
+              ).toPascalCase()}WeekOfOrdinaryTime`,
         rank: date.day() === 0 ? RanksEnum.SUNDAY : RanksEnum.FERIA,
         name: await localize({
           key: date.day() === 0 ? 'ordinaryTime.sunday' : 'ordinaryTime.feria',
@@ -502,7 +489,7 @@ const laterOrdinaryTime = async (year: number): Promise<Array<RomcalDateItemInpu
   let days: Array<RomcalDateItemInput> = await Promise.all(daysOfLaterOrdinaryTimePromise);
 
   // Sort dates according to moment
-  days = _.sortBy(days, v => v.date.valueOf());
+  days = _.sortBy(days, (v) => v.date.valueOf());
 
   return await _metadata(days);
 };
@@ -533,14 +520,8 @@ const lent = async (year: number): Promise<Array<RomcalDateItemInput>> => {
       date,
       key:
         i < 4
-          ? `${date
-              .locale('en')
-              .format('dddd')
-              .toCamelCase()}AfterAshWednesday`
-          : `${date
-              .locale('en')
-              .format('dddd')
-              .toCamelCase()}OfThe${ordinal(week, true).toPascalCase()}WeekOfLent`,
+          ? `${date.locale('en').format('dddd').toCamelCase()}AfterAshWednesday`
+          : `${date.locale('en').format('dddd').toCamelCase()}OfThe${ordinal(week, true).toPascalCase()}WeekOfLent`,
       rank: RanksEnum.FERIA,
       name: await localize({
         key: i === 0 ? 'celebrations.ashWednesday' : i < 4 ? 'lent.dayAfterAshWed' : 'lent.feria',
@@ -590,10 +571,10 @@ const lent = async (year: number): Promise<Array<RomcalDateItemInput>> => {
   let combinedDaysOfLent: Array<RomcalDateItemInput>;
 
   // Override in order: Solemnities, Holy Week and Sundays of Lent to days of Lent
-  combinedDaysOfLent = _.uniqBy(_.union(holyWeek, sundays, ferialDays), v => v.date.valueOf());
+  combinedDaysOfLent = _.uniqBy(_.union(holyWeek, sundays, ferialDays), (v) => v.date.valueOf());
 
   // Sort dates according to DayJS
-  combinedDaysOfLent = _.sortBy(combinedDaysOfLent, v => v.date.valueOf());
+  combinedDaysOfLent = _.sortBy(combinedDaysOfLent, (v) => v.date.valueOf());
 
   combinedDaysOfLent = await _metadata(combinedDaysOfLent);
 
@@ -633,14 +614,8 @@ const eastertide = async (year: number): Promise<Array<RomcalDateItemInput>> => 
       date,
       key:
         i < 7
-          ? `easter${date
-              .locale('en')
-              .format('dddd')
-              .toPascalCase()}`
-          : `${date
-              .locale('en')
-              .format('dddd')
-              .toCamelCase()}OfThe${ordinal(week, true).toPascalCase()}WeekOfEaster`,
+          ? `easter${date.locale('en').format('dddd').toPascalCase()}`
+          : `${date.locale('en').format('dddd').toCamelCase()}OfThe${ordinal(week, true).toPascalCase()}WeekOfEaster`,
       rank: i < 7 ? RanksEnum.SOLEMNITY : RanksEnum.FERIA,
       name: await localize({
         key: i < 7 ? 'eastertide.octave' : 'eastertide.feria',
@@ -685,10 +660,10 @@ const eastertide = async (year: number): Promise<Array<RomcalDateItemInput>> => 
   let combinedDaysOfEaster: Array<RomcalDateItemInput>;
 
   // Insert Solemnities and Sundays of Easter to days of Easter
-  combinedDaysOfEaster = _.uniqBy(_.union(sundays, days), v => v.date.valueOf());
+  combinedDaysOfEaster = _.uniqBy(_.union(sundays, days), (v) => v.date.valueOf());
 
   // Sort dates according to DayJS
-  combinedDaysOfEaster = _.sortBy(combinedDaysOfEaster, v => v.date.valueOf());
+  combinedDaysOfEaster = _.sortBy(combinedDaysOfEaster, (v) => v.date.valueOf());
 
   combinedDaysOfEaster = await _metadata(combinedDaysOfEaster);
 

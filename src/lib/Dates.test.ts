@@ -562,10 +562,7 @@ describe('Testing specific liturgical date functions', () => {
       test('If first day of the year 2011 is a Saturday, Mary Mother of God is on that day and Epiphany is on the next day', () => {
         // If first day of 2011, 2022 was/is a Saturday
         const first = dayjs.utc('2011-1-1');
-        const target = dayjs
-          .utc('2011-1-1')
-          .add(1, 'week')
-          .startOf('week');
+        const target = dayjs.utc('2011-1-1').add(1, 'week').startOf('week');
         const date = Dates.epiphany(2011);
 
         expect(first.day()).toEqual(6); // First day of the year should be a Saturday
@@ -578,10 +575,7 @@ describe('Testing specific liturgical date functions', () => {
       test('If first day of the year 2012 is a Sunday, Mary Mother of God is on that Sunday and the Sunday proceeding will be Epiphany', () => {
         // First day of 2012, 2017 was a Sunday
         const first = dayjs.utc('2012-1-1');
-        const target = dayjs
-          .utc('2012-1-1')
-          .add(7, 'day')
-          .startOf('day');
+        const target = dayjs.utc('2012-1-1').add(7, 'day').startOf('day');
         const date = Dates.epiphany(2012);
 
         expect(first.day()).toEqual(0); // First day of the year should be a Sunday
@@ -595,10 +589,7 @@ describe('Testing specific liturgical date functions', () => {
       test('If first day of the year 2011 is on a feria (Sat) (i.e. Mon - Sat), Epiphany will be celebrated on the Sunday proceeding', () => {
         // First day of 2014 was a Wed, First day of 2015 was a Thurs
         const first = dayjs.utc('2011-1-1');
-        const target = dayjs
-          .utc('2011-1-1')
-          .add(1, 'day')
-          .startOf('day');
+        const target = dayjs.utc('2011-1-1').add(1, 'day').startOf('day');
         const date = Dates.epiphany(2011);
         expect(first.day()).toBeOneOf([1, 2, 3, 4, 5, 6]); // First day of the year should be a feria
         expect(target.dayOfYear()).toEqual(2); // Epiphany should be the 4th day of the year
@@ -645,7 +636,7 @@ describe('Testing specific liturgical date functions', () => {
         const sundays = Dates.sundaysOfLent(i);
 
         let onSundayOfLent = false;
-        sundays.forEach(sunday => {
+        sundays.forEach((sunday) => {
           if (date.isSame(sunday)) {
             onSundayOfLent = true;
           }
@@ -763,12 +754,7 @@ describe('Testing specific liturgical date functions', () => {
       test('The Sunday following Jan 6 is the Baptism of the Lord', () => {
         for (let i = 1900, il = 2100; i <= il; i++) {
           const epiphany = Dates.epiphany(i, false);
-          expect(
-            epiphany
-              .add(1, 'week')
-              .startOf('week')
-              .isSame(Dates.baptismOfTheLord(i, false)),
-          ).toEqual(true);
+          expect(epiphany.add(1, 'week').startOf('week').isSame(Dates.baptismOfTheLord(i, false))).toEqual(true);
         }
       });
     });
@@ -789,12 +775,7 @@ describe('Testing specific liturgical date functions', () => {
           const epiphany = Dates.epiphany(i);
           expect(epiphany.day()).toEqual(0);
           if (epiphany.date() < 6) {
-            expect(
-              epiphany
-                .add(1, 'week')
-                .startOf('week')
-                .isSame(Dates.baptismOfTheLord(i)),
-            ).toEqual(true);
+            expect(epiphany.add(1, 'week').startOf('week').isSame(Dates.baptismOfTheLord(i))).toEqual(true);
           }
         }
       });
@@ -804,12 +785,7 @@ describe('Testing specific liturgical date functions', () => {
           const epiphany = Dates.epiphany(i);
           expect(epiphany.day()).toEqual(0);
           if (epiphany.date() === 6) {
-            expect(
-              epiphany
-                .add(1, 'week')
-                .startOf('week')
-                .isSame(Dates.baptismOfTheLord(i)),
-            ).toEqual(true);
+            expect(epiphany.add(1, 'week').startOf('week').isSame(Dates.baptismOfTheLord(i))).toEqual(true);
           }
         }
       });
@@ -832,7 +808,7 @@ describe('Testing specific liturgical date functions', () => {
         const sundays = Dates.sundaysOfAdvent(i);
 
         let onSundayOfAdvent = false;
-        sundays.forEach(sunday => {
+        sundays.forEach((sunday) => {
           if (date.isSame(sunday)) {
             onSundayOfAdvent = true;
           }
@@ -850,7 +826,7 @@ describe('Testing specific liturgical date functions', () => {
         const sundays = Dates.sundaysOfAdvent(i);
 
         let onSundayOfAdvent = false;
-        sundays.forEach(sunday => {
+        sundays.forEach((sunday) => {
           if (date.isSame(sunday)) {
             onSundayOfAdvent = true;
           }

@@ -49,7 +49,7 @@ const getTsLoaderRuleSet = (
      * This is a very very important piece of code to make this library work properly
      * https://stackoverflow.com/questions/51353762/compiling-typescript-path-aliases-to-relative-paths-for-npm-publishing
      */
-    getCustomTransformers: program => {
+    getCustomTransformers: (program) => {
       const transformer = tsTransformPaths(program);
       return {
         before: [transformer.before], // for updating paths in generated code

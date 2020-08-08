@@ -38,8 +38,8 @@ export const concatAll = <T>(array: Array<T | T[]>): T[] => {
  */
 export const find = <O, K extends keyof O>(items: O[], predicate: Record<K, Primitive>): O | undefined => {
   const criteria = Object.entries(predicate);
-  return items.find(item => {
-    return criteria.every(pair => item[pair[0] as keyof O] === pair[1]);
+  return items.find((item) => {
+    return criteria.every((pair) => item[pair[0] as keyof O] === pair[1]);
   });
 };
 
@@ -53,7 +53,7 @@ export const find = <O, K extends keyof O>(items: O[], predicate: Record<K, Prim
  */
 export const removeWhere = <O, K extends keyof O>(items: O[], predicate: Record<K, Primitive>): O[] => {
   const criteria = Object.entries(predicate);
-  const index = items.findIndex(item => criteria.every(pair => item[pair[0] as keyof O] === pair[1]));
+  const index = items.findIndex((item) => criteria.every((pair) => item[pair[0] as keyof O] === pair[1]));
   if (index > -1) {
     items.splice(index, 1);
   }
@@ -128,7 +128,7 @@ export const asyncForEach = <Item, CallbackReturn>(
     if (index === array.length) {
       return Promise.resolve(results);
     }
-    return Promise.resolve(callback(array[index], { index, items: array, breakOut })).then(result =>
+    return Promise.resolve(callback(array[index], { index, items: array, breakOut })).then((result) =>
       hasBreak ? Promise.resolve(results) : invokeCallback(index + 1, results.concat(result)),
     );
   };
