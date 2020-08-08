@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 
 import * as Locales from '@romcal/lib/Locales';
-import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant';
+import { LiturgicalColorsEnum } from '@romcal/enums/liturgical-colors.enum';
 import { TITLES } from '@romcal/constants/titles.constant';
 import { RomcalDateItemInput } from '@romcal/models/romcal-date-item';
 import Config, { IRomcalDefaultConfig } from '@romcal/models/romcal-config';
@@ -26,11 +26,9 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'saintsCyrilMonkAndMethodiusBishop',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-2-14`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-          titles: [TITLES.PATRON_OF_EUROPE],
-        },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      metadata: {
+        titles: [TITLES.PATRON_OF_EUROPE],
       },
     },
     {
@@ -47,10 +45,8 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'saintCatherineOfSienaVirginAndDoctorOfTheChurch',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-4-29`),
-      data: {
-        meta: {
-          titles: [TITLES.DOCTOR_OF_THE_CHURCH, TITLES.PATRON_OF_EUROPE],
-        },
+      metadata: {
+        titles: [TITLES.DOCTOR_OF_THE_CHURCH, TITLES.PATRON_OF_EUROPE],
       },
     },
     {
@@ -82,33 +78,27 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'saintBridgetOfSwedenReligious',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-7-23`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-          titles: [TITLES.PATRON_OF_EUROPE],
-        },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      metadata: {
+        titles: [TITLES.PATRON_OF_EUROPE],
       },
     },
     {
       key: 'saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-8-9`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.RED,
-          titles: [TITLES.MARTYR, TITLES.PATRON_OF_EUROPE],
-        },
+      liturgicalColors: LiturgicalColorsEnum.RED,
+      metadata: {
+        titles: [TITLES.MARTYR, TITLES.PATRON_OF_EUROPE],
       },
     },
     {
       key: 'saintCatherineOfAlexandriaVirginAndMartyr',
       rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-11-25`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.RED,
-          titles: [TITLES.MARTYR],
-        },
+      liturgicalColors: LiturgicalColorsEnum.RED,
+      metadata: {
+        titles: [TITLES.MARTYR],
       },
     },
   ];

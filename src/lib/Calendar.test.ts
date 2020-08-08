@@ -35,7 +35,7 @@ import { RomcalDateItem, isRomcalDateItem } from '@romcal/models/romcal-date-ite
 import { hasKey, getValueByKey } from '@romcal/utils/object';
 import { PSALTER_WEEKS } from '@romcal/constants/liturgical-cycles.constant';
 import { LITURGICAL_SEASONS } from '@romcal/constants/seasons-and-periods.constant';
-import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant';
+import { LiturgicalColorsEnum } from '../enums/liturgical-colors.enum';
 import { TITLES } from '@romcal/constants/titles.constant';
 import { RanksEnum } from '@romcal/enums/ranks.enum';
 import { RANKS } from '@romcal/constants/ranks.constant';
@@ -237,42 +237,44 @@ describe('Testing calendar generation functions', () => {
       test('Should filter by title as expected when using queryFor()', async () => {
         Romcal.queryFor(await Romcal.calendarFor(), {
           title: TITLES.FEAST_OF_THE_LORD,
-        }).forEach((d: RomcalDateItem) => expect(d.data.meta.titles?.includes(TITLES.FEAST_OF_THE_LORD)).toBeTruthy());
+        }).forEach((d: RomcalDateItem) => expect(d.metadata.titles?.includes(TITLES.FEAST_OF_THE_LORD)).toBeTruthy());
       });
       test('Should filter by title as expected when using calendarFor()', async () => {
         Romcal.queryFor(await Romcal.calendarFor(), {
           title: TITLES.PATRON_OF_EUROPE,
-        }).forEach((d: RomcalDateItem) => expect(d.data.meta.titles?.includes(TITLES.PATRON_OF_EUROPE)).toBeTruthy());
+        }).forEach((d: RomcalDateItem) => expect(d.metadata.titles?.includes(TITLES.PATRON_OF_EUROPE)).toBeTruthy());
       });
     });
 
     describe('Testing advanced filters', () => {
-      test('The proper color of a Memorial or a Feast is white except for martyrs in which case it is red', async () => {
+      test('The proper color of a Memorial or a Feast is white except for martyrs in which case it is red, and All Souls which is purple', async () => {
         const calendar = (await Romcal.calendarFor({ query: { group: 'ranks' } })) as Dictionary<RomcalDateItem[]>;
         _.get(calendar, RanksEnum.FEAST).forEach(d => {
           if (d.key === 'theExaltationOfTheHolyCross') {
-            expect(d.data.meta.liturgicalColor?.key).toEqual(LITURGICAL_COLORS.RED.key);
+            expect(d.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.RED);
           } else {
-            if (!isNil(d.data.meta.titles)) {
-              if (d.data.meta.titles?.includes(TITLES.MARTYR)) {
-                expect(d.data.meta.liturgicalColor?.key).toEqual(LITURGICAL_COLORS.RED.key);
+            if (d.key === 'allSouls') {
+              expect(d.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.PURPLE);
+            } else if (!isNil(d.metadata.titles)) {
+              if (d.metadata.titles?.includes(TITLES.MARTYR)) {
+                expect(d.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.RED);
               } else {
-                expect(d.data.meta.liturgicalColor?.key).toEqual(LITURGICAL_COLORS.WHITE.key);
+                expect(d.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.WHITE);
               }
             } else {
-              expect(d.data.meta.liturgicalColor?.key).toEqual(LITURGICAL_COLORS.WHITE.key);
+              expect(d.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.WHITE);
             }
           }
         });
         _.get(calendar, RanksEnum.MEMORIAL).forEach(d => {
-          if (!isNil(d.data.meta.titles)) {
-            if (d.data.meta.titles.includes(TITLES.MARTYR)) {
-              expect(d.data.meta.liturgicalColor?.key).toEqual(LITURGICAL_COLORS.RED.key);
+          if (!isNil(d.metadata.titles)) {
+            if (d.metadata.titles.includes(TITLES.MARTYR)) {
+              expect(d.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.RED);
             } else {
-              expect(d.data.meta.liturgicalColor?.key).toEqual(LITURGICAL_COLORS.WHITE.key);
+              expect(d.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.WHITE);
             }
           } else {
-            expect(d.data.meta.liturgicalColor?.key).toEqual(LITURGICAL_COLORS.WHITE.key);
+            expect(d.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.WHITE);
           }
         });
       });
@@ -282,7 +284,7 @@ describe('Testing calendar generation functions', () => {
         const calendar = Romcal.queryFor(dates, { group: 'ranks' });
         getValueByKey(calendar, RanksEnum.FEAST).forEach(d => {
           if (d.key === 'chairOfSaintPeter' || d.key === 'conversionOfSaintPaulApostle') {
-            expect(d.data.meta.liturgicalColor?.key).toEqual(LITURGICAL_COLORS.WHITE.key);
+            expect(d.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.WHITE);
           }
         });
       });

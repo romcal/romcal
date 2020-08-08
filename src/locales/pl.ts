@@ -41,6 +41,15 @@ export default {
     sunday: '{{week}} Niedziela Wielkanocna',
     octave: '{{day}} w oktawie Wielkanocy',
   },
+  liturgicalColors: {
+    BLACK: 'czarny',
+    GOLD: 'złoty',
+    GREEN: 'zielony',
+    PURPLE: 'fioletowy',
+    RED: 'czerwony',
+    ROSE: 'różowy',
+    WHITE: 'biały',
+  },
   celebrations: {
     allSaints: 'Wszystkich Świętych',
     annunciation: 'Zwiastowanie Pańskie',

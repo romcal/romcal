@@ -30,7 +30,7 @@ import * as Seasons from '@romcal/lib/Seasons';
 import { Dictionary } from '@romcal/utils/type-guards';
 import { RomcalDateItem } from '@romcal/models/romcal-date-item';
 import { setLocale } from '@romcal/lib/Locales';
-import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant';
+import { LiturgicalColorsEnum } from '../enums/liturgical-colors.enum';
 import Romcal from '@romcal/index';
 
 describe('Testing date range functions', () => {
@@ -295,10 +295,10 @@ describe('Testing seasons utility functions', () => {
 
     test('The liturgical color for Ordinary Time is green', async () => {
       (await Seasons.earlyOrdinaryTime(2015, 'o', false)).forEach(date => {
-        expect(date.data?.meta?.liturgicalColor?.key).toEqual(LITURGICAL_COLORS.GREEN.key);
+        expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.GREEN);
       });
       (await Seasons.laterOrdinaryTime(2015)).forEach(date => {
-        expect(date.data?.meta?.liturgicalColor?.key).toEqual(LITURGICAL_COLORS.GREEN.key);
+        expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.GREEN);
       });
     });
 
@@ -306,28 +306,30 @@ describe('Testing seasons utility functions', () => {
       const lentDates = await Seasons.lent(2015);
       lentDates.forEach(date => {
         if (date.key === 'fourthSundayOfLent') {
-          expect(date.data?.meta?.liturgicalColor?.key).toStrictEqual(LITURGICAL_COLORS.ROSE.key);
+          expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.ROSE);
+          expect(date.liturgicalColors && date.liturgicalColors[1]).toEqual(LiturgicalColorsEnum.PURPLE);
         } else {
-          expect(date.data?.meta?.liturgicalColor?.key).toStrictEqual(LITURGICAL_COLORS.PURPLE.key);
+          expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.PURPLE);
         }
       });
 
       const adventDates = await Seasons.advent(2015);
       adventDates.forEach(date => {
         if (date.key === 'thirdSundayOfAdvent') {
-          expect(date.data?.meta?.liturgicalColor?.key).toEqual(LITURGICAL_COLORS.ROSE.key);
+          expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.ROSE);
+          expect(date.liturgicalColors && date.liturgicalColors[1]).toEqual(LiturgicalColorsEnum.PURPLE);
         } else {
-          expect(date.data?.meta?.liturgicalColor?.key).toEqual(LITURGICAL_COLORS.PURPLE.key);
+          expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.PURPLE);
         }
       });
     });
 
     test('The liturgical color for Christmastide and Eastertide is white', async () => {
       (await Seasons.christmastide(2015, 'o', false)).forEach(date => {
-        expect(date.data?.meta?.liturgicalColor?.key).toStrictEqual(LITURGICAL_COLORS.WHITE.key);
+        expect(date.liturgicalColors && date.liturgicalColors[0]).toStrictEqual(LiturgicalColorsEnum.WHITE);
       });
       (await Seasons.eastertide(2015)).forEach(date => {
-        expect(date.data?.meta?.liturgicalColor?.key).toStrictEqual(LITURGICAL_COLORS.WHITE.key);
+        expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.WHITE);
       });
     });
   });

@@ -42,6 +42,7 @@ export default {
     octave: 'Veľkonočný {{day}}',
   },
   liturgicalColors: {
+    BLACK: 'čierna',
     GOLD: 'zlatá',
     GREEN: 'zelená',
     PURPLE: 'fialová',
