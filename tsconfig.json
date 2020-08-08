@@ -19,9 +19,6 @@
       "@romcal/*": ["src/*"]
     }
   },
-  "include": [
-    "src/**/*",
-    "./global.d.ts"
-  ],
+  "include": ["src/**/*", "./global.d.ts"],
   "exclude": ["__tests__", "**/*.test.ts", "dist", "coverage", "node_modules"]
 }

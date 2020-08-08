@@ -48,10 +48,7 @@ const easter = (year: number): dayjs.Dayjs => {
  *
  * @param year The year to use for the calculation
  */
-const pentecostSunday = (year: number): dayjs.Dayjs =>
-  easter(year)
-    .add(49, 'day')
-    .startOf('day');
+const pentecostSunday = (year: number): dayjs.Dayjs => easter(year).add(49, 'day').startOf('day');
 
 /**
  * Divine Mercy Sunday is celebrated on the Sunday after Easter, the Octave of Easter,
@@ -59,10 +56,7 @@ const pentecostSunday = (year: number): dayjs.Dayjs =>
  *
  * @param year The year to use for the calculation
  */
-const divineMercySunday = (year: number): dayjs.Dayjs =>
-  easter(year)
-    .add(7, 'day')
-    .startOf('day');
+const divineMercySunday = (year: number): dayjs.Dayjs => easter(year).add(7, 'day').startOf('day');
 
 /**
  * In the Western Rite, Christmas falls on the 25th of December.
@@ -106,26 +100,17 @@ const firstSundayOfAdvent = (year: number): dayjs.Dayjs => {
  *
  * @param year The year to use for the calculation
  */
-const ashWednesday = (year: number): dayjs.Dayjs =>
-  easter(year)
-    .subtract(46, 'day')
-    .startOf('day');
+const ashWednesday = (year: number): dayjs.Dayjs => easter(year).subtract(46, 'day').startOf('day');
 
 // Maundy Thursday (also known as Holy Thursday) is
 // the Christian holy day falling on the Thursday before Easter.
 // y: year
-const holyThursday = (year: number): dayjs.Dayjs =>
-  easter(year)
-    .subtract(3, 'day')
-    .startOf('day');
+const holyThursday = (year: number): dayjs.Dayjs => easter(year).subtract(3, 'day').startOf('day');
 
 // Palm Sunday is a Christian movable feast that
 // falls on the Sunday before Easter.
 // y: year
-const palmSunday = (year: number): dayjs.Dayjs =>
-  easter(year)
-    .subtract(7, 'day')
-    .startOf('day');
+const palmSunday = (year: number): dayjs.Dayjs => easter(year).subtract(7, 'day').startOf('day');
 
 /**
  * Resolves the date of Holy Saturday.
@@ -138,10 +123,7 @@ const palmSunday = (year: number): dayjs.Dayjs =>
  *
  * @param year The year to use for the calculation
  */
-const holySaturday = (year: number): dayjs.Dayjs =>
-  easter(year)
-    .subtract(1, 'day')
-    .startOf('day');
+const holySaturday = (year: number): dayjs.Dayjs => easter(year).subtract(1, 'day').startOf('day');
 
 // Lent starts on Ash Wednesday and runs until the
 // day before Holy Thursday
@@ -183,10 +165,7 @@ const holyWeek = (year: number): Array<dayjs.Dayjs> => {
 // and his death at Calvary. The holiday is observed during Holy Week as part of the
 // Paschal Triduum on the Friday preceding Easter Sunday
 // y: year
-const goodFriday = (year: number): dayjs.Dayjs =>
-  easter(year)
-    .subtract(2, 'day')
-    .startOf('day');
+const goodFriday = (year: number): dayjs.Dayjs => easter(year).subtract(2, 'day').startOf('day');
 
 //==================================================================================
 // Epiphany & Christmastide
@@ -405,10 +384,7 @@ const sundaysOfLaterOrdinaryTime = (year: number): Array<dayjs.Dayjs> => {
 // and is the week before the First Sunday of Advent. The Sundays of Ordinary Time in the
 // latter part of the year are numbered backwards from Christ the King to Pentecost.
 // y: Year (integer)
-const christTheKing = (year: number): dayjs.Dayjs =>
-  firstSundayOfAdvent(year)
-    .subtract(7, 'day')
-    .startOf('day');
+const christTheKing = (year: number): dayjs.Dayjs => firstSundayOfAdvent(year).subtract(7, 'day').startOf('day');
 
 //==================================================================================
 // Eastertide
@@ -505,7 +481,7 @@ const josephHusbandOfMary = (year: number): dayjs.Dayjs => {
   // If it occurs on a Sunday of Lent is transferred to the
   // following Monday.
   if (date.day() === 0) {
-    sundaysOfLent(year).forEach(sunday => {
+    sundaysOfLent(year).forEach((sunday) => {
       if (date.isSame(sunday)) {
         date = sunday.add(1, 'day');
       }
@@ -521,9 +497,7 @@ const josephHusbandOfMary = (year: number): dayjs.Dayjs => {
   const [last] = holyWeekDates.reverse();
   const holyWeekRange = rangeOfDays(first, last);
   if (rangeContainsDate(holyWeekRange, date)) {
-    date = palmSunday(year)
-      .subtract(1, 'day')
-      .startOf('day');
+    date = palmSunday(year).subtract(1, 'day').startOf('day');
   }
   return date;
 };
@@ -609,7 +583,7 @@ const immaculateConception = (year: number): dayjs.Dayjs => {
   // If it occurs on a Sunday of Advent is transferred to the
   // following Monday.
   if (_date.day() === 0) {
-    sundaysOfAdvent(year).forEach(s => {
+    sundaysOfAdvent(year).forEach((s) => {
       if (_date.isSame(s)) {
         _date = s.add(1, 'day');
       }

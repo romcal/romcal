@@ -14,7 +14,7 @@ const rangeOfDayDefaultOptions: Required<RangeOfDaysOptions> = {
  * @returns `true` if the date exists in tha range or false if otherwise
  */
 export const rangeContainsDate = (range: Array<dayjs.Dayjs>, date: dayjs.Dayjs): boolean => {
-  return range.map(date => date.toISOString()).includes(date.toISOString());
+  return range.map((date) => date.toISOString()).includes(date.toISOString());
 };
 
 /**
@@ -52,7 +52,7 @@ export const rangeOfDays = (
  */
 export const eachDayOfWeekInRange = (range: Array<dayjs.Dayjs>, dayOfWeek: DayOfWeek): Array<dayjs.Dayjs> => {
   const daysInInterval: Array<dayjs.Dayjs> = [];
-  range.forEach(date => {
+  range.forEach((date) => {
     if (date.day() === dayOfWeek) {
       daysInInterval.push(date);
     }

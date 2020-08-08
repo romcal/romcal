@@ -149,45 +149,45 @@ export default class Romcal {
     if (hasKey(query, 'group')) {
       switch (query.group) {
         case 'months':
-          return _.groupBy(dates, d => dayjs.utc(d.date).month());
+          return _.groupBy(dates, (d) => dayjs.utc(d.date).month());
         case 'daysByMonth':
           return _.map(
-            _.groupBy(dates, d => dayjs.utc(d.date).month()),
-            monthGroup => _.groupBy(monthGroup, d => dayjs.utc(d.date).day()),
+            _.groupBy(dates, (d) => dayjs.utc(d.date).month()),
+            (monthGroup) => _.groupBy(monthGroup, (d) => dayjs.utc(d.date).day()),
           );
         case 'weeksByMonth':
           return _.map(
-            _.groupBy(dates, d => dayjs.utc(d.date).month()),
-            v => _.groupBy(v, d => d.calendar.weekOfGregorianYear),
+            _.groupBy(dates, (d) => dayjs.utc(d.date).month()),
+            (v) => _.groupBy(v, (d) => d.calendar.weekOfGregorianYear),
           );
         case 'sundayCycles':
-          return _.groupBy(dates, d => d.cycles.sundayCycle);
+          return _.groupBy(dates, (d) => d.cycles.sundayCycle);
         case 'ferialCycles':
-          return _.groupBy(dates, d => d.cycles.ferialCycle);
+          return _.groupBy(dates, (d) => d.cycles.ferialCycle);
         case 'ranks':
-          return _.groupBy(dates, d => d.rank);
+          return _.groupBy(dates, (d) => d.rank);
         /**
          * Groups by the first liturgical season in the array
          */
         case 'liturgicalSeasons':
-          return _.groupBy(dates, d => d.seasons[0]);
+          return _.groupBy(dates, (d) => d.seasons[0]);
         case 'liturgicalColors':
-          return _.groupBy(dates, d => d.liturgicalColors[0]);
+          return _.groupBy(dates, (d) => d.liturgicalColors[0]);
         case 'psalterWeeks':
-          return _.groupBy(dates, d => d.cycles.psalterWeek);
+          return _.groupBy(dates, (d) => d.cycles.psalterWeek);
         case 'days':
         default:
-          return _.groupBy(dates, d => dayjs.utc(d.date).day());
+          return _.groupBy(dates, (d) => dayjs.utc(d.date).day());
       }
     } else if (!isNil(query.month)) {
       // Months are zero indexed, so January is month 0.
-      return dates.filter(dateItem => dayjs.utc(dateItem.date).month() === query.month);
+      return dates.filter((dateItem) => dayjs.utc(dateItem.date).month() === query.month);
     } else if (!isNil(query.day)) {
       // Days are zero index, so Sunday is 0.
-      return dates.filter(dateItem => dayjs.utc(dateItem.date).day() === query.day);
+      return dates.filter((dateItem) => dayjs.utc(dateItem.date).day() === query.day);
     } else if (!isNil(query.title)) {
       const { title } = query;
-      return dates.filter(date => date.metadata.titles?.includes(title));
+      return dates.filter((date) => date.metadata.titles?.includes(title));
     } else {
       return dates;
     }

@@ -46,7 +46,7 @@ dayjs.extend(utc);
 describe('Testing calendar generation functions', () => {
   test('Each item should have a key', async () => {
     const calendar = await Romcal.calendarFor();
-    const result = calendar.every(value => hasKey(value, 'key'));
+    const result = calendar.every((value) => hasKey(value, 'key'));
     expect(result).toBeTruthy();
   });
 
@@ -60,23 +60,25 @@ describe('Testing calendar generation functions', () => {
     });
 
     test('Should return an array of DateItem objects', async () => {
-      expect(nonLeapYearDates.every(d => isRomcalDateItem(d))).toBeTruthy();
-      expect(leapYearDates.every(d => isRomcalDateItem(d))).toBeTruthy();
+      expect(nonLeapYearDates.every((d) => isRomcalDateItem(d))).toBeTruthy();
+      expect(leapYearDates.every((d) => isRomcalDateItem(d))).toBeTruthy();
     });
 
     test('Each object should contain the keys type, name, date, source and data', async () => {
       const requiredKeys = ['type', 'name', 'date', 'source', 'data'];
-      nonLeapYearDates.every(d => hasKey(d, requiredKeys));
-      leapYearDates.every(d => hasKey(d, requiredKeys));
+      nonLeapYearDates.every((d) => hasKey(d, requiredKeys));
+      leapYearDates.every((d) => hasKey(d, requiredKeys));
     });
 
     test('Array should be 365 days long on non-leap years', async () => {
-      const grouped: Dictionary<RomcalDateItem[]> = _.groupBy(nonLeapYearDates, item => dayjs.utc(item.date).valueOf());
+      const grouped: Dictionary<RomcalDateItem[]> = _.groupBy(nonLeapYearDates, (item) =>
+        dayjs.utc(item.date).valueOf(),
+      );
       expect(Object.keys(grouped)).toHaveLength(365);
     });
 
     test('Array should be 366 days long on leap years', async () => {
-      const grouped: Dictionary<RomcalDateItem[]> = _.groupBy(leapYearDates, item => dayjs.utc(item.date).valueOf());
+      const grouped: Dictionary<RomcalDateItem[]> = _.groupBy(leapYearDates, (item) => dayjs.utc(item.date).valueOf());
       expect(Object.keys(grouped)).toHaveLength(366);
     });
   });
@@ -134,7 +136,7 @@ describe('Testing calendar generation functions', () => {
       test('Results should match the day of week requested', async () => {
         for (let i = 0, il = 7; i < il; i++) {
           const dates = Romcal.queryFor(await Romcal.calendarFor(), { day: i });
-          dates.forEach(d => expect(dayjs.utc(d.date).day()).toEqual(i));
+          dates.forEach((d) => expect(dayjs.utc(d.date).day()).toEqual(i));
         }
       });
     });
@@ -143,7 +145,7 @@ describe('Testing calendar generation functions', () => {
       test('Results should match the month of year requested', async () => {
         for (let i = 0, il = 12; i < il; i++) {
           const dates = Romcal.queryFor(await Romcal.calendarFor(), { month: i });
-          dates.forEach(d => expect(dayjs.utc(d.date).month()).toEqual(i));
+          dates.forEach((d) => expect(dayjs.utc(d.date).month()).toEqual(i));
         }
       });
     });
@@ -172,7 +174,7 @@ describe('Testing calendar generation functions', () => {
         });
         Object.values(dates).forEach((monthGroup: Dictionary<RomcalDateItem[]>, monthIndex: number) => {
           Object.values(monthGroup).forEach((dateItems: RomcalDateItem[], dayIndex: number) => {
-            dateItems.forEach(dateItem => {
+            dateItems.forEach((dateItem) => {
               expect(dayjs.utc(dateItem.date).day()).toEqual(dayIndex);
               expect(dayjs.utc(dateItem.date).month()).toEqual(monthIndex);
             });
@@ -186,12 +188,12 @@ describe('Testing calendar generation functions', () => {
         });
 
         // First level is months
-        Object.keys(items).forEach(monthKey => {
+        Object.keys(items).forEach((monthKey) => {
           const monthGroup = items[Number(monthKey)];
           // Second level is weeks
-          Object.keys(monthGroup).forEach(weekKey => {
+          Object.keys(monthGroup).forEach((weekKey) => {
             const weekGroup = monthGroup[Number(weekKey)];
-            weekGroup.forEach(dateItem => {
+            weekGroup.forEach((dateItem) => {
               expect(dayjs.utc(dateItem.date).month()).toEqual(Number(monthKey));
               expect(dateItem.calendar.weekOfGregorianYear).toEqual(Number(weekKey));
             });
@@ -213,7 +215,7 @@ describe('Testing calendar generation functions', () => {
 
       test('Should group dates by their celebration ranks', async () => {
         const typeKeys = Object.keys(Romcal.queryFor(await Romcal.calendarFor(), { group: 'ranks' }));
-        expect(typeKeys.every(typeKey => Object.values(RANKS).includes(typeKey as Types))).toBeTrue();
+        expect(typeKeys.every((typeKey) => Object.values(RANKS).includes(typeKey as Types))).toBeTrue();
       });
 
       test('Should group dates by their liturgical seasons', async () => {
@@ -221,7 +223,7 @@ describe('Testing calendar generation functions', () => {
           group: 'liturgicalSeasons',
         });
         expect(
-          Object.keys(liturgicalSeasonGroupings).every(liturgicalSeasonKey =>
+          Object.keys(liturgicalSeasonGroupings).every((liturgicalSeasonKey) =>
             (LITURGICAL_SEASONS as string[]).includes(liturgicalSeasonKey),
           ),
         ).toBeTrue();
@@ -249,7 +251,7 @@ describe('Testing calendar generation functions', () => {
     describe('Testing advanced filters', () => {
       test('The proper color of a Memorial or a Feast is white except for martyrs in which case it is red, and All Souls which is purple', async () => {
         const calendar = (await Romcal.calendarFor({ query: { group: 'ranks' } })) as Dictionary<RomcalDateItem[]>;
-        _.get(calendar, RanksEnum.FEAST).forEach(d => {
+        _.get(calendar, RanksEnum.FEAST).forEach((d) => {
           if (d.key === 'theExaltationOfTheHolyCross') {
             expect(d.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.RED);
           } else {
@@ -266,7 +268,7 @@ describe('Testing calendar generation functions', () => {
             }
           }
         });
-        _.get(calendar, RanksEnum.MEMORIAL).forEach(d => {
+        _.get(calendar, RanksEnum.MEMORIAL).forEach((d) => {
           if (!isNil(d.metadata.titles)) {
             if (d.metadata.titles.includes(TITLES.MARTYR)) {
               expect(d.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.RED);
@@ -282,7 +284,7 @@ describe('Testing calendar generation functions', () => {
       test('The proper color for the Chair of Peter and the Conversion of St. Paul is white, although both St. Peter and St. Paul were martyrs.', async () => {
         const dates = await Romcal.calendarFor();
         const calendar = Romcal.queryFor(dates, { group: 'ranks' });
-        getValueByKey(calendar, RanksEnum.FEAST).forEach(d => {
+        getValueByKey(calendar, RanksEnum.FEAST).forEach((d) => {
           if (d.key === 'chairOfSaintPeter' || d.key === 'conversionOfSaintPaulApostle') {
             expect(d.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.WHITE);
           }
@@ -307,13 +309,13 @@ describe('Testing calendar generation functions', () => {
       calendar2021 = await Romcal.calendarFor(2021);
       calendar2022 = await Romcal.calendarFor(2022);
 
-      easter2020 = calendar2020.find(item => item.key === 'easter');
-      easter2021 = calendar2021.find(item => item.key === 'easter');
-      easter2022 = calendar2022.find(item => item.key === 'easter');
+      easter2020 = calendar2020.find((item) => item.key === 'easter');
+      easter2021 = calendar2021.find((item) => item.key === 'easter');
+      easter2022 = calendar2022.find((item) => item.key === 'easter');
 
-      christmas2020 = calendar2020.find(item => item.key === 'christmas');
-      christmas2021 = calendar2021.find(item => item.key === 'christmas');
-      christmas2022 = calendar2022.find(item => item.key === 'christmas');
+      christmas2020 = calendar2020.find((item) => item.key === 'christmas');
+      christmas2021 = calendar2021.find((item) => item.key === 'christmas');
+      christmas2022 = calendar2022.find((item) => item.key === 'christmas');
     });
 
     test('Should have the right sunday cycle', async () => {

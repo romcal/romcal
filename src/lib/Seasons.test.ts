@@ -90,11 +90,7 @@ describe('Testing date range functions', () => {
 
     test('The first Sunday of Lent should be 4 days after Ash Wednesday', () => {
       for (let i = 1900, il = 2200; i <= il; i++) {
-        expect(
-          Dates.sundaysOfLent(i)[0]
-            .subtract(4, 'day')
-            .isSame(Dates.ashWednesday(i)),
-        ).toEqual(true);
+        expect(Dates.sundaysOfLent(i)[0].subtract(4, 'day').isSame(Dates.ashWednesday(i))).toEqual(true);
       }
     });
 
@@ -194,12 +190,7 @@ describe('Testing date range functions', () => {
         const days = Dates.datesOfEarlyOrdinaryTime(i);
         const sundays = Dates.sundaysOfEarlyOrdinaryTime(i);
         expect(sundays.length).toBeOneOf([3, 4, 5, 6, 7, 8, 9]);
-        expect(
-          days
-            .reverse()[0]
-            .add(1, 'day')
-            .isSame(Dates.ashWednesday(i)),
-        ).toEqual(true);
+        expect(days.reverse()[0].add(1, 'day').isSame(Dates.ashWednesday(i))).toEqual(true);
       }
     });
 
@@ -287,24 +278,24 @@ describe('Testing seasons utility functions', () => {
     });
 
     test('Groups dates within seasons based on identifiers', () => {
-      Object.keys(calendar).forEach(liturgicalSeason => {
+      Object.keys(calendar).forEach((liturgicalSeason) => {
         const dates = calendar[liturgicalSeason];
-        dates.forEach(date => expect(date.seasons[0]).toEqual(liturgicalSeason));
+        dates.forEach((date) => expect(date.seasons[0]).toEqual(liturgicalSeason));
       });
     });
 
     test('The liturgical color for Ordinary Time is green', async () => {
-      (await Seasons.earlyOrdinaryTime(2015, 'o', false)).forEach(date => {
+      (await Seasons.earlyOrdinaryTime(2015, 'o', false)).forEach((date) => {
         expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.GREEN);
       });
-      (await Seasons.laterOrdinaryTime(2015)).forEach(date => {
+      (await Seasons.laterOrdinaryTime(2015)).forEach((date) => {
         expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.GREEN);
       });
     });
 
     test('The liturgical color for Lent and Advent is purple, except for the 4th Sunday of Lent and 3rd Sunday of Advent, which is rose', async () => {
       const lentDates = await Seasons.lent(2015);
-      lentDates.forEach(date => {
+      lentDates.forEach((date) => {
         if (date.key === 'fourthSundayOfLent') {
           expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.ROSE);
           expect(date.liturgicalColors && date.liturgicalColors[1]).toEqual(LiturgicalColorsEnum.PURPLE);
@@ -314,7 +305,7 @@ describe('Testing seasons utility functions', () => {
       });
 
       const adventDates = await Seasons.advent(2015);
-      adventDates.forEach(date => {
+      adventDates.forEach((date) => {
         if (date.key === 'thirdSundayOfAdvent') {
           expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.ROSE);
           expect(date.liturgicalColors && date.liturgicalColors[1]).toEqual(LiturgicalColorsEnum.PURPLE);
@@ -325,10 +316,10 @@ describe('Testing seasons utility functions', () => {
     });
 
     test('The liturgical color for Christmastide and Eastertide is white', async () => {
-      (await Seasons.christmastide(2015, 'o', false)).forEach(date => {
+      (await Seasons.christmastide(2015, 'o', false)).forEach((date) => {
         expect(date.liturgicalColors && date.liturgicalColors[0]).toStrictEqual(LiturgicalColorsEnum.WHITE);
       });
-      (await Seasons.eastertide(2015)).forEach(date => {
+      (await Seasons.eastertide(2015)).forEach((date) => {
         expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.WHITE);
       });
     });
