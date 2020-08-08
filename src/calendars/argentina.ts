@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 
 import * as Locales from '@romcal/lib/Locales';
 import * as Dates from '@romcal/lib/Dates';
-import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant';
+import { LiturgicalColorsEnum } from '@romcal/enums/liturgical-colors.enum';
 import { TITLES } from '@romcal/constants/titles.constant';
 import { RomcalDateItemInput } from '@romcal/models/romcal-date-item';
 import Config, { IRomcalDefaultConfig } from '@romcal/models/romcal-config';
@@ -27,21 +27,13 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'saintTuribiusOfMogrovejoBishop',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-4-27`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
       key: 'ourLadyOfLujanPatronessOfArgentina',
       rank: RanksEnum.SOLEMNITY,
       date: dayjs.utc(`${year}-5-8`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
       key: 'saintIsidoreTheFarmer',
@@ -57,31 +49,21 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'ourLadyOfItati',
       rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-7-9`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
       key: 'saintAugustineZhaoRongPriestAndCompanionsMartyrs',
       rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-10`),
-      data: {
-        meta: {
-          titles: [TITLES.MARTYR],
-        },
+      metadata: {
+        titles: [TITLES.MARTYR],
       },
     },
     {
       key: 'ourLadyOfMountCarmel',
       rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-7-16`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
       key: 'saintCharbelMakhloufPriestAndHermit',
@@ -92,11 +74,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'saintFrancisSolanusPriest',
       rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-7-24`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
       key: 'saintRocco',
@@ -112,30 +90,20 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'saintRoseOfLima',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-8-30`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
       key: 'ourLadyOfMercy',
       rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-9-24`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
       key: 'saintHectorValdivielsoSaezMartyr',
       rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-9`),
-      data: {
-        meta: {
-          titles: [TITLES.MARTYR],
-        },
+      metadata: {
+        titles: [TITLES.MARTYR],
       },
     },
     {
@@ -147,32 +115,22 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'saintsRoqueGonzalezAlfonsoRodriguezOlmedoAndJuanDelCastilloPriestsAndMartyrs',
       rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-11-17`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.RED,
-          titles: [TITLES.MARTYR],
-        },
+      liturgicalColors: LiturgicalColorsEnum.RED,
+      metadata: {
+        titles: [TITLES.MARTYR],
       },
     },
     {
       key: 'saintElizabethOfHungaryReligious',
       rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-11-18`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
       key: 'ourLadyOfGuadalupe',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-12-12`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     // Saturday of the 2nd Week of Easter
     {
@@ -184,11 +142,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
             .add(6, 'day')
             .toISOString(),
         ))(year),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
   ];
 

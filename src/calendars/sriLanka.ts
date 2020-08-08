@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 
 import * as Locales from '@romcal/lib/Locales';
-import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant';
+import { LiturgicalColorsEnum } from '@romcal/enums/liturgical-colors.enum';
 import { RomcalDateItemInput } from '@romcal/models/romcal-date-item';
 import Config, { IRomcalDefaultConfig } from '@romcal/models/romcal-config';
 import { RanksEnum } from '@romcal/enums/ranks.enum';
@@ -20,21 +20,13 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'ourLadyOfLanka',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-2-4`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
       key: 'ourLadyOfMadhu',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-7-2`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
   ];
 

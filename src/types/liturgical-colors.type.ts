@@ -1,10 +1,8 @@
-export type LiturgicalColorKeys = 'RED' | 'ROSE' | 'PURPLE' | 'GREEN' | 'WHITE' | 'GOLD';
+import { ElementType } from '@romcal/utils/helpers';
+import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant';
 
-export type LiturgicalColor = {
-  key: LiturgicalColorKeys;
-  value?: string;
-};
+export type RomcalLiturgicalColor = ElementType<typeof LITURGICAL_COLORS>;
 
 export type LiturgicalColors = {
-  [key in LiturgicalColorKeys]: LiturgicalColor;
+  [key in RomcalLiturgicalColor]: string;
 };

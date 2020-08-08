@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 
 import * as Locales from '@romcal/lib/Locales';
-import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant';
+import { LiturgicalColorsEnum } from '@romcal/enums/liturgical-colors.enum';
 import { TITLES } from '@romcal/constants/titles.constant';
 import { RomcalDateItemInput } from '@romcal/models/romcal-date-item';
 import Config, { IRomcalDefaultConfig } from '@romcal/models/romcal-config';
@@ -21,11 +21,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'saintItaVirgin',
       rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-1-15`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
       key: 'saintFursaAbbotAndMissionary',
@@ -41,11 +37,9 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'saintBrigidVirgin',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-2-1`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-          titles: [TITLES.PATRON_OF_EUROPE],
-        },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      metadata: {
+        titles: [TITLES.PATRON_OF_EUROPE],
       },
     },
     {
@@ -62,11 +56,9 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'saintsCyrilMonkAndMethodiusBishop',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-2-14`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-          titles: [TITLES.PATRON_OF_EUROPE],
-        },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      metadata: {
+        titles: [TITLES.PATRON_OF_EUROPE],
       },
     },
     {
@@ -98,11 +90,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'saintPatrickBishop',
       rank: RanksEnum.SOLEMNITY,
       date: dayjs.utc(`${year}-3-17`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
       key: 'saintEndaAbbot',
@@ -133,11 +121,9 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'saintCatherineOfSienaVirginAndDoctorOfTheChurch',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-4-29`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-          titles: [TITLES.PATRON_OF_EUROPE, TITLES.DOCTOR_OF_THE_CHURCH],
-        },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      metadata: {
+        titles: [TITLES.PATRON_OF_EUROPE, TITLES.DOCTOR_OF_THE_CHURCH],
       },
     },
     {
@@ -169,11 +155,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'saintKevinAbbot',
       rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-6-3`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
       key: 'saintJarlathBishop',
@@ -189,11 +171,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'saintColumbaAbbotAndMissionary',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-6-9`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
       key: 'saintDavnetVirgin',
@@ -204,22 +182,18 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'blessedIrishMartyrs',
       rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-6-20`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.RED,
-          titles: [TITLES.MARTYR],
-        },
+      liturgicalColors: LiturgicalColorsEnum.RED,
+      metadata: {
+        titles: [TITLES.MARTYR],
       },
     },
     {
       key: 'saintOliverPlunkettBishopAndMartyr',
       rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-7-1`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.RED,
-          titles: [TITLES.MARTYR],
-        },
+      liturgicalColors: LiturgicalColorsEnum.RED,
+      metadata: {
+        titles: [TITLES.MARTYR],
       },
     },
     {
@@ -236,21 +210,17 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'saintKillianBishopAndMartyr',
       rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-8`),
-      data: {
-        meta: {
-          titles: [TITLES.MARTYR],
-        },
+      metadata: {
+        titles: [TITLES.MARTYR],
       },
     },
     {
       key: 'saintBenedictOfNursiaAbbot',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-7-11`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-          titles: [TITLES.PATRON_OF_EUROPE],
-        },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      metadata: {
+        titles: [TITLES.PATRON_OF_EUROPE],
       },
     },
     {
@@ -262,11 +232,9 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-8-9`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.RED,
-          titles: [TITLES.MARTYR, TITLES.PATRON_OF_EUROPE],
-        },
+      liturgicalColors: LiturgicalColorsEnum.RED,
+      metadata: {
+        titles: [TITLES.MARTYR, TITLES.PATRON_OF_EUROPE],
       },
     },
     {
@@ -293,11 +261,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'ourLadyOfKnock',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-8-17`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
       key: 'saintEugeneEoghanBishop',
@@ -323,11 +287,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'saintCiaranAbbot',
       rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-9-9`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
       key: 'saintAilbeBishop',
@@ -338,11 +298,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'saintPioOfPietrelcinaPriest',
       rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-9-23`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
       key: 'saintFinbarrBishop',
@@ -383,21 +339,13 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'saintMalachyBishop',
       rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-11-3`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
       key: 'allSaintsOfIreland',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-11-6`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
       prioritized: true,
     },
     {
@@ -414,11 +362,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'saintColumbanAbbot',
       rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-11-23`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
       key: 'saintColmanOfCloyneBishop',

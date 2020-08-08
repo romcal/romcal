@@ -1,20 +1,8 @@
-import { LiturgicalColors } from '@romcal/types/liturgical-colors.type';
-import { LiturgicalColorKeys } from '@romcal/types/liturgical-colors.type';
+import { LiturgicalColorsEnum } from '@romcal/enums/liturgical-colors.enum';
 
 /**
- * An object literal representing a Liturgical Color construct that can be used
- * as metadata for celebrations.
+ * A dynamically generated constant consisting of all the enum keys in [[LITURGICAL_COLORS]]
  */
-export const LITURGICAL_COLORS: LiturgicalColors = {
-  RED: { key: 'RED' },
-  ROSE: { key: 'ROSE' },
-  PURPLE: { key: 'PURPLE' },
-  GREEN: { key: 'GREEN' },
-  WHITE: { key: 'WHITE' },
-  GOLD: { key: 'GOLD' },
-};
-
-/**
- * An array consisting of all possible Liturgical color keys
- */
-export const LITURGICAL_COLOR_KEYS = Object.keys(LITURGICAL_COLORS) as Array<LiturgicalColorKeys>;
+export const LITURGICAL_COLORS = Object.keys(LiturgicalColorsEnum).filter(
+  key => typeof LiturgicalColorsEnum[key as keyof typeof LiturgicalColorsEnum] === 'string',
+) as Array<keyof typeof LiturgicalColorsEnum>;

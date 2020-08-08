@@ -41,6 +41,15 @@ export default {
     sunday: '{{week}} Domingo do Tempo Pascal',
     octave: 'Tempo Pascal {{day}}',
   },
+  liturgicalColors: {
+    BLACK: 'preto',
+    GOLD: 'dourado',
+    GREEN: 'verde',
+    PURPLE: 'roxo',
+    RED: 'vermelho',
+    ROSE: 'rosa',
+    WHITE: 'branco',
+  },
   celebrations: {
     allSaints: 'Todos os Santos',
     annunciation: 'Anunciação do Senhor',

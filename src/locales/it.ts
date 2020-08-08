@@ -41,6 +41,15 @@ export default {
     sunday: '{{week}} Domenica di Pasqua',
     octave: '{{day}} di Pasqua',
   },
+  liturgicalColors: {
+    BLACK: 'nero',
+    GOLD: 'oro',
+    GREEN: 'verde',
+    PURPLE: 'viola',
+    RED: 'rosso',
+    ROSE: 'rosa',
+    WHITE: 'bianca',
+  },
   celebrations: {
     allSaints: 'Tutti i Santi',
     annunciation: 'Annunciazione del Signore',

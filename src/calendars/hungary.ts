@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 
 import * as Locales from '@romcal/lib/Locales';
-import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant';
+import { LiturgicalColorsEnum } from '@romcal/enums/liturgical-colors.enum';
 import { TITLES } from '@romcal/constants/titles.constant';
 import { RomcalDateItemInput } from '@romcal/models/romcal-date-item';
 import Config, { IRomcalDefaultConfig } from '@romcal/models/romcal-config';
@@ -16,63 +16,47 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'saintMargaretOfHungary',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-1-18`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
       key: 'saintsCyrilMonkAndMethodiusBishop',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-2-14`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-          titles: [TITLES.PATRON_OF_EUROPE],
-        },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      metadata: {
+        titles: [TITLES.PATRON_OF_EUROPE],
       },
     },
     {
       key: 'saintMatthiasTheApostle',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-2-24`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
       key: 'saintAdalbertBishopAndMartyr',
       rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-4-23`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.RED,
-          titles: [TITLES.MARTYR],
-        },
+      liturgicalColors: LiturgicalColorsEnum.RED,
+      metadata: {
+        titles: [TITLES.MARTYR],
       },
     },
     {
       key: 'saintCatherineOfSienaVirginAndDoctorOfTheChurch',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-4-29`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-          titles: [TITLES.PATRON_OF_EUROPE, TITLES.DOCTOR_OF_THE_CHURCH],
-        },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      metadata: {
+        titles: [TITLES.PATRON_OF_EUROPE, TITLES.DOCTOR_OF_THE_CHURCH],
       },
     },
     {
       key: 'saintFlorianMartyr',
       rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-4`),
-      data: {
-        meta: {
-          titles: [TITLES.MARTYR],
-        },
+      metadata: {
+        titles: [TITLES.MARTYR],
       },
     },
     {
@@ -84,30 +68,24 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'blessedSaraSalkahaziVirginAndMartyr',
       rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-11`),
-      data: {
-        meta: {
-          titles: [TITLES.MARTYR],
-        },
+      metadata: {
+        titles: [TITLES.MARTYR],
       },
     },
     {
       key: 'saintJohnNepomucenePriestAndMartyr',
       rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-16`),
-      data: {
-        meta: {
-          titles: [TITLES.MARTYR],
-        },
+      metadata: {
+        titles: [TITLES.MARTYR],
       },
     },
     {
       key: 'blessedVilmosAporBishopAndMartyr',
       rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-23`),
-      data: {
-        meta: {
-          titles: [TITLES.MARTYR],
-        },
+      metadata: {
+        titles: [TITLES.MARTYR],
       },
     },
     {
@@ -124,11 +102,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'saintAgnesOfBohemiaVirgin',
       rank: RanksEnum.MEMORIAL, // Memorial
       date: dayjs.utc(`${year}-6-8`), // 8th of June
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE, // What is the Liturgical color for this?
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE, // What is the Liturgical color for this?
     },
     // Moved to the congregational calendar (Society of Saint Francis de Sales (Salesian Congregation)
     // {
@@ -147,31 +121,21 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'saintLadislaus',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-6-27`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
       key: 'visitationOfTheBlessedVirginMary',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-7-2`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
       key: 'saintBenedictOfNursiaAbbot',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-7-11`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-          titles: [TITLES.PATRON_OF_EUROPE],
-        },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      metadata: {
+        titles: [TITLES.PATRON_OF_EUROPE],
       },
     },
     {
@@ -183,11 +147,9 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'saintBridgetOfSwedenReligious',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-7-23`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-          titles: [TITLES.PATRON_OF_EUROPE],
-        },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      metadata: {
+        titles: [TITLES.PATRON_OF_EUROPE],
       },
     },
     {
@@ -199,11 +161,9 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-8-9`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.RED,
-          titles: [TITLES.MARTYR, TITLES.PATRON_OF_EUROPE],
-        },
+      liturgicalColors: LiturgicalColorsEnum.RED,
+      metadata: {
+        titles: [TITLES.MARTYR, TITLES.PATRON_OF_EUROPE],
       },
     },
     {
@@ -225,31 +185,19 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'saintsMarkoKrizinMelicharGrodeckiAndStephenPongracPriestsAndMartyrs',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-9-7`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
       key: 'saintGerardBishop',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-9-24`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
       key: 'ourLadyOfHungary',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-10-8`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
       key: 'saintMaurusBishop',
@@ -260,21 +208,15 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'blessedTheodoreRomzhaBishopAndMartyr',
       rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-31`),
-      data: {
-        meta: {
-          titles: [TITLES.MARTYR],
-        },
+      metadata: {
+        titles: [TITLES.MARTYR],
       },
     },
     {
       key: 'saintEmeric',
       rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-11-4`),
-      data: {
-        meta: {
-          liturgicalColor: LITURGICAL_COLORS.WHITE,
-        },
-      },
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
       key: 'hungarianSaintsAndBlesseds',
