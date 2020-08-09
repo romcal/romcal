@@ -2,6 +2,7 @@ import _ from 'lodash';
 
 import { parse, Schema } from 'bcp-47';
 import { toOrdinal, toWordsOrdinal } from 'number-to-words';
+import logger from '@romcal/utils/logger';
 
 import { findDescendantValueByKeys, mergeObjectsUniquely } from '@romcal/utils/object';
 import { isNil, isString } from '@romcal/utils/type-guards';
@@ -94,7 +95,7 @@ export const sanitizePossibleLocaleValue = (
       resolvedBcp47Locale = `${parsedLanguage}${
         isString(parsedRegion) && parsedRegion.length > 0 ? `-${parsedRegion}` : ''
       }`;
-      console.debug(`sanitized the ${language} locale to ${resolvedBcp47Locale}`);
+      logger.debug(`sanitized the ${language} locale to ${resolvedBcp47Locale}`);
       localeSchema = parse(resolvedBcp47Locale, {
         forgiving: true,
       });
@@ -105,7 +106,7 @@ export const sanitizePossibleLocaleValue = (
     }
     return { localeSchema, resolvedBcp47Locale };
   } catch (e) {
-    console.warn(`${value} is not a parse-able BCP-47 IETF locale string`);
+    logger.warn(`${value} is not a parse-able BCP-47 IETF locale string`);
     throw e;
   }
 };
@@ -128,7 +129,7 @@ const setLocale = async (key: LocaleTypes, customOrdinalFn: (v: number) => strin
     );
     _locales = [fallbackLocale as RomcalLocale];
   } catch (e) {
-    console.error(`Failed to load the ${_fallbackLocaleKey} language file`);
+    logger.error(`Failed to load the ${_fallbackLocaleKey} language file`);
   }
 
   let currentLocale;
@@ -153,7 +154,7 @@ const setLocale = async (key: LocaleTypes, customOrdinalFn: (v: number) => strin
         );
         _locales = [baseLocale as RomcalLocale, ..._locales]; // For example: append the 'fr' locale
       } catch (e) {
-        console.warn(`A base language file for "${language}" to support the ${currentLocale} locale is not available`);
+        logger.warn(`A base language file for "${language}" to support the ${currentLocale} locale is not available`);
       }
     }
 
@@ -169,10 +170,10 @@ const setLocale = async (key: LocaleTypes, customOrdinalFn: (v: number) => strin
       );
       _locales = [regionSpecificLocale as RomcalLocale, ..._locales]; // For example: append the 'fr-CA' locale
     } catch (e) {
-      console.warn(`A language file for the region locale "${currentLocale}" is not available`);
+      logger.warn(`A language file for the region locale "${currentLocale}" is not available`);
     }
   } catch (e) {
-    console.warn(`The locale "${key} is not a valid IETF BCP-47 format. romcal will default to the "en" locale`);
+    logger.warn(`The locale "${key} is not a valid IETF BCP-47 format. romcal will default to the "en" locale`);
     currentLocale = _fallbackLocaleKey;
   }
 
@@ -187,7 +188,7 @@ const setLocale = async (key: LocaleTypes, customOrdinalFn: (v: number) => strin
   } catch (e) {
     try {
       const languageOnly = currentLocale.split('-')[0];
-      console.warn(
+      logger.warn(
         `${currentLocale} is not supported in romcal's date management library, trying to use ${languageOnly} instead`,
       );
       const { default: langLocale } = await import(
@@ -198,7 +199,7 @@ const setLocale = async (key: LocaleTypes, customOrdinalFn: (v: number) => strin
       _currentLocaleData = langLocale as ILocale;
       currentLocale = languageOnly;
     } catch (e) {
-      console.warn(`Failed to load locale data for ${currentLocale}. romcal will default to "en" locale data`);
+      logger.warn(`Failed to load locale data for ${currentLocale}. romcal will default to "en" locale data`);
       currentLocale = 'en';
     }
   } finally {
@@ -225,7 +226,7 @@ const setLocale = async (key: LocaleTypes, customOrdinalFn: (v: number) => strin
     }),
   });
 
-  console.debug(`romcal is now configured to use ${currentLocale}`);
+  logger.debug(`romcal is now configured to use ${currentLocale}`);
 };
 
 /**

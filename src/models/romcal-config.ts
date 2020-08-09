@@ -1,5 +1,6 @@
 import dayjs from 'dayjs';
 
+import logger from '@romcal/utils/logger';
 import { isNil, isObject, isRomcalConfig } from '@romcal/utils/type-guards';
 import { CalendarTypes } from '@romcal/types/calendar-types.type';
 import { Countries } from '@romcal/types/countries.type';
@@ -212,7 +213,7 @@ export default class Config {
     if (!isNil(maybeConfig)) {
       // Check if the user configuration is valid
       if (!isRomcalConfig(maybeConfig)) {
-        console.warn(
+        logger.warn(
           `Will discard the entire user supplied config object and use default configuration.
                     To avoid this, ensure that all properties and values of the config object are valid.`,
         );
@@ -230,7 +231,7 @@ export default class Config {
         };
       }
     } else {
-      console.debug('Will use default configuration to generate the calendar.');
+      logger.debug('Will use default configuration to generate the calendar.');
     }
 
     // Sanitize and set defaults for missing configurations
