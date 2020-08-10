@@ -24,7 +24,6 @@ export const getRomcalConfigJsonSchema = (): Schema => ({
     },
     christmastideEnds: { type: 'string', enum: ['t', 'o', 'e'] },
     epiphanyOnSunday: { type: 'boolean' },
-    christmastideIncludesTheSeasonOfEpiphany: { type: 'boolean' },
     corpusChristiOnSunday: { type: 'boolean' },
     ascensionOnSunday: { type: 'boolean' },
     outputOptionalMemorials: { type: 'boolean' },

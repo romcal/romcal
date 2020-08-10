@@ -10,7 +10,6 @@ import { RanksEnum } from '@romcal/enums/ranks.enum';
 const defaultConfig: IRomcalDefaultConfig = {
   ascensionOnSunday: true,
   christmastideEnds: 'o',
-  christmastideIncludesTheSeasonOfEpiphany: true,
   corpusChristiOnSunday: true,
   epiphanyOnSunday: true,
 };
