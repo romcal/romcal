@@ -133,11 +133,10 @@ romcal.calendarFor({
   locale: 'en',
   christmastideEnds: 't' | 'o' | 'e',
   epiphanyOnSunday: true | false,
-  christmastideIncludesTheSeasonOfEpiphany: true | false,
   corpusChristiOnSunday: true | false,
   ascensionOnSunday: true | false,
   outputOptionalMemorials: true | false,
-  type: 'calendar' | '|liturgical',
+  type: 'calendar' | 'liturgical',
 });
 ```
 

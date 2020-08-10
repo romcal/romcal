@@ -14,7 +14,6 @@ describe('getConfig()', () => {
       epiphanyOnSunday,
       country,
       corpusChristiOnSunday,
-      christmastideIncludesTheSeasonOfEpiphany,
       christmastideEnds,
       outputOptionalMemorials,
     } = new Config(resolvedConfig);
@@ -25,7 +24,6 @@ describe('getConfig()', () => {
     expect(epiphanyOnSunday).toBeTrue();
     expect(country).toBe('general');
     expect(corpusChristiOnSunday).toBeTrue();
-    expect(christmastideIncludesTheSeasonOfEpiphany).toBeTruthy();
     expect(christmastideEnds).toBe('o');
     expect(outputOptionalMemorials).toBe(false);
   });

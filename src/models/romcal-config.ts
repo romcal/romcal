@@ -38,10 +38,6 @@ export interface RomcalConfig {
    */
   readonly epiphanyOnSunday?: boolean;
   /**
-   * If false, excludes the season of epiphany from being included in the season of Christmas
-   */
-  readonly christmastideIncludesTheSeasonOfEpiphany?: boolean;
-  /**
    * Determines if Corpus Christi should be celebrated on Sunday (63 days after Easter)
    * or on Thursday of the 7th week of Easter (60 days after Easter). Defaults to `true`
    * (Corpus Christi is celebrated on Sunday by default).
@@ -89,7 +85,6 @@ export default class Config {
   private readonly _locale: LocaleTypes;
   private readonly _christmastideEnds: ChristmastideEndings;
   private readonly _epiphanyOnSunday: boolean;
-  private readonly _christmastideIncludesTheSeasonOfEpiphany: boolean;
   private readonly _corpusChristiOnSunday: boolean;
   private readonly _ascensionOnSunday: boolean;
   private readonly _outputOptionalMemorials: boolean;
@@ -106,7 +101,6 @@ export default class Config {
     locale,
     christmastideEnds,
     epiphanyOnSunday,
-    christmastideIncludesTheSeasonOfEpiphany,
     corpusChristiOnSunday,
     ascensionOnSunday,
     outputOptionalMemorials,
@@ -118,7 +112,6 @@ export default class Config {
     this._locale = locale;
     this._christmastideEnds = christmastideEnds;
     this._epiphanyOnSunday = epiphanyOnSunday;
-    this._christmastideIncludesTheSeasonOfEpiphany = christmastideIncludesTheSeasonOfEpiphany;
     this._corpusChristiOnSunday = corpusChristiOnSunday;
     this._ascensionOnSunday = ascensionOnSunday;
     this._outputOptionalMemorials = outputOptionalMemorials;
@@ -148,10 +141,6 @@ export default class Config {
 
   get epiphanyOnSunday(): boolean {
     return this._epiphanyOnSunday;
-  }
-
-  get christmastideIncludesTheSeasonOfEpiphany(): boolean {
-    return this._christmastideIncludesTheSeasonOfEpiphany;
   }
 
   get corpusChristiOnSunday(): boolean {
@@ -243,8 +232,6 @@ export default class Config {
       christmastideEnds: config.christmastideEnds!, // Will use default if not defined
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       epiphanyOnSunday: config.epiphanyOnSunday!, // Will use default if not defined
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      christmastideIncludesTheSeasonOfEpiphany: config.christmastideIncludesTheSeasonOfEpiphany!, // Will use default if not defined
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       corpusChristiOnSunday: config.corpusChristiOnSunday!, // Will use default if not defined
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
