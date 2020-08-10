@@ -1,6 +1,5 @@
 import { eachDayOfWeekInRange, rangeContainsDate, rangeOfDays } from '@romcal/utils/dates';
 import { isNil } from '@romcal/utils/type-guards';
-import { ChristmastideEndings } from '@romcal/types/christmastide-endings.type';
 
 import dayjs from 'dayjs';
 import dayOfYear from 'dayjs/plugin/dayOfYear';
@@ -289,30 +288,12 @@ const presentationOfTheLord = (year: number): dayjs.Dayjs => dayjs.utc(`${year}-
  * Presentation of the Lord, 40 days after Dec. 25) (Candlemass).*
  *
  * @param year The year to use for the calculation
- * @param datesOfChristmasEnds The rule determining when the season of Christmas ends
  * @param epiphanyOnSunday If false, Epiphany will be fixed to Jan 6 (defaults to true)
  */
-const datesOfChristmas = (
-  year: number,
-  datesOfChristmasEnds: ChristmastideEndings = 'o',
-  epiphanyOnSunday = true,
-): Array<dayjs.Dayjs> => {
+const datesOfChristmas = (year: number, epiphanyOnSunday = true): Array<dayjs.Dayjs> => {
   const start = christmas(year);
-  let end = null;
-  switch (datesOfChristmasEnds) {
-    case 't':
-      end = epiphany(year + 1, epiphanyOnSunday);
-      break;
-    case 'o':
-      end = baptismOfTheLord(year + 1, epiphanyOnSunday);
-      break;
-    case 'e': // Candlemass (40 days)
-      end = presentationOfTheLord(year + 1);
-      break;
-    default:
-      end = baptismOfTheLord(year + 1, epiphanyOnSunday);
-      break;
-  }
+  const end = baptismOfTheLord(year + 1, epiphanyOnSunday);
+
   return rangeOfDays(start, end);
 };
 
@@ -329,24 +310,12 @@ const datesOfChristmas = (
  * the day before Ash Wednesday.*
  *
  * @param year The year for the calculation
- * @param datesOfChristmasEnds The mode to calculate the end of Christmastide
  * @param epiphanyOnSunday If false, fixes Epiphany to Jan 6 (defaults to true)
  */
-const datesOfEarlyOrdinaryTime = (
-  year: number,
-  datesOfChristmasEnds: ChristmastideEndings = 'o',
-  epiphanyOnSunday = true,
-): Array<dayjs.Dayjs> => {
-  let start;
+const datesOfEarlyOrdinaryTime = (year: number, epiphanyOnSunday = true): Array<dayjs.Dayjs> => {
+  const start = baptismOfTheLord(year, epiphanyOnSunday);
   const end = ashWednesday(year);
 
-  if (datesOfChristmasEnds === 't') {
-    start = epiphany(year, epiphanyOnSunday);
-  } else if (datesOfChristmasEnds === 'e') {
-    start = presentationOfTheLord(year);
-  } else {
-    start = baptismOfTheLord(year, epiphanyOnSunday);
-  }
   return rangeOfDays(start, end, { exclude: [start, end] });
 };
 

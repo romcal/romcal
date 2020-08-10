@@ -4,8 +4,6 @@ import logger from '@romcal/utils/logger';
 import { isNil, isObject, isRomcalConfig } from '@romcal/utils/type-guards';
 import { CalendarTypes } from '@romcal/types/calendar-types.type';
 import { Countries } from '@romcal/types/countries.type';
-
-import { ChristmastideEndings } from '@romcal/types/christmastide-endings.type';
 import { LocaleTypes } from '@romcal/types/locale-types.type';
 import { Query } from '@romcal/types/query-type.type';
 
@@ -26,10 +24,6 @@ export interface RomcalConfig {
    * The locale to be used for localizing
    */
   readonly locale?: LocaleTypes;
-  /**
-   * The mode to calculate the end of Christmastide
-   */
-  readonly christmastideEnds?: ChristmastideEndings;
   /**
    * If `false`, fixes Epiphany on January 6th. Usually, Epiphany will be set to a
    * Sunday between the 2nd - 8th Jan based on an internal calculation.
@@ -83,7 +77,6 @@ export default class Config {
   private _year: number;
   private readonly _country: Countries;
   private readonly _locale: LocaleTypes;
-  private readonly _christmastideEnds: ChristmastideEndings;
   private readonly _epiphanyOnSunday: boolean;
   private readonly _corpusChristiOnSunday: boolean;
   private readonly _ascensionOnSunday: boolean;
@@ -99,7 +92,6 @@ export default class Config {
     year,
     country,
     locale,
-    christmastideEnds,
     epiphanyOnSunday,
     corpusChristiOnSunday,
     ascensionOnSunday,
@@ -110,7 +102,6 @@ export default class Config {
     this._year = year;
     this._country = country;
     this._locale = locale;
-    this._christmastideEnds = christmastideEnds;
     this._epiphanyOnSunday = epiphanyOnSunday;
     this._corpusChristiOnSunday = corpusChristiOnSunday;
     this._ascensionOnSunday = ascensionOnSunday;
@@ -133,10 +124,6 @@ export default class Config {
 
   get locale(): LocaleTypes {
     return this._locale;
-  }
-
-  get christmastideEnds(): ChristmastideEndings {
-    return this._christmastideEnds;
   }
 
   get epiphanyOnSunday(): boolean {
@@ -228,8 +215,6 @@ export default class Config {
       year: config.year ?? dayjs.utc().year(), // Use current year if not supplied by user
       country: config.country ?? 'general', // Use general as country if none supplied by user
       locale: config.locale ?? 'en', // Use english for localization if no language supplied]
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      christmastideEnds: config.christmastideEnds!, // Will use default if not defined
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       epiphanyOnSunday: config.epiphanyOnSunday!, // Will use default if not defined
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
