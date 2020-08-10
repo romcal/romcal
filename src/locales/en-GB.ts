@@ -1,4 +1,3 @@
-// TODO: Continue with May 2020: http://www.liturgyoffice.org.uk/Calendar/2020/May.shtml
 import { RomcalLocale } from '@romcal/models/romcal-locale';
 
 export default {
@@ -10,7 +9,7 @@ export default {
   christmastide: {
     season: 'Christmastide',
     // day: '{{day}} of Christmastide',
-    // octave: '{{count}} Day within the Octave of the Nativity of the Lord',  // us; Was `{{count}} day in the Octave of Christmas`
+    octave: '{{count}} Day of Christmas Octave',
     // sunday: '{{count}} Sunday of Christmas',
   },
   lent: {
@@ -33,7 +32,8 @@ export default {
     saintRaymondOfPenyafortPriest: 'Saint Raymond of Peñafort, Priest',
     sevenHolyFoundersOfTheServiteOrder: 'Seven Founders of the Order of Servants of the Blessed Virgin Mary',
     saintLouisMarieGrignionDeMontfortPriest: 'Saint Louis Marie Grignion de Montfort, Priest',
-    saintPiusVPope: 'Saint Pius V, Pope and Religious',
+    saintPiusVPope: 'Saint Pius V, Pope and Religious',  // This key should be removed after one can add titles within celebration definions
     saintPaulinaOfTheAgonizingHeartOfJesusVirgin: 'Saint Paulina of the Agonising Heart of Jesus, virgin',
+    saintBernardineOfSienaPriest: 'Saint Bernardine of Siena, Priest, Religious and Missionary',  // This key should be removed after one can add titles within celebration definions
   },
 } as RomcalLocale;

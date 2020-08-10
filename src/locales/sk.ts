@@ -603,7 +603,7 @@ export default {
     saintMelBishop: 'Svätého Mela, biskupa',
     saintMelchiorGrodzieckiPriestAndMartyr: 'Svätého Melichara Grodzieckého, kňaza a mučeníka',
     saintMiguelFebresCorderoReligious: 'Svätého Michala Febresa Cordera, rehoľníka',
-    saintMolaiseLaisrenLaserianBishop: 'Svätého Molaise (Laisrena, Laseriana), biskupa',
+    saintMolaiseLaisrenLaserianBishop: 'Svätého Laserián, biskupa',
     saintMonica: 'Svätej Moniky',
     saintMoninneVirgin: 'Svätej Moninny, panny',
     saintMunchinBishop: 'Svätého Munchina, biskupa',
