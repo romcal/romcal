@@ -31,7 +31,7 @@
 
 ## Documentation
 
-**Quick start** (above on this page)
+**Quick start** (below on this page)
 
 - [Description](#description)
 - [Install](#install)
