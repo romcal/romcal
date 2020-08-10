@@ -23,7 +23,6 @@
 */
 
 import 'jest-extended';
-import dayjs from 'dayjs';
 
 import * as Dates from '@romcal/lib/Dates';
 import * as Seasons from '@romcal/lib/Seasons';
@@ -155,32 +154,12 @@ describe('Testing date range functions', () => {
   });
 
   describe('Ordinary Time in the Liturgical Calendar', () => {
-    test('If the end of Christmastide is on Epiphany, Ordinary time starts the next day', () => {
+    test('The end of Christmastide is on Baptism of the Lord, so Ordinary time starts the next day', () => {
       for (let i = 1900, il = 2200; i <= il; i++) {
-        const dates = Dates.datesOfEarlyOrdinaryTime(i, 't');
-        const [firstDayInEarlyOrdinaryTime] = dates;
-        const [lastDayInEarlyOrdinaryTime] = dates.reverse();
-        expect(firstDayInEarlyOrdinaryTime.subtract(1, 'day').isSame(Dates.epiphany(i))).toEqual(true);
-        expect(lastDayInEarlyOrdinaryTime.add(1, 'day').isSame(Dates.ashWednesday(i))).toEqual(true);
-      }
-    });
-
-    test('If the end of Christmastide is on Baptism of the Lord, Ordinary time starts the next day', () => {
-      for (let i = 1900, il = 2200; i <= il; i++) {
-        const dates = Dates.datesOfEarlyOrdinaryTime(i, 'o');
+        const dates = Dates.datesOfEarlyOrdinaryTime(i);
         const [firstDayInEarlyOrdinaryTime] = dates;
         const [lastDayInEarlyOrdinaryTime] = dates.reverse();
         expect(firstDayInEarlyOrdinaryTime.subtract(1, 'day').isSame(Dates.baptismOfTheLord(i))).toEqual(true);
-        expect(lastDayInEarlyOrdinaryTime.add(1, 'day').isSame(Dates.ashWednesday(i))).toEqual(true);
-      }
-    });
-
-    test('If the end of Christmastide is on Presentation of the Lord, Ordinary time starts the next day', () => {
-      for (let i = 1900, il = 2100; i <= il; i++) {
-        const dates = Dates.datesOfEarlyOrdinaryTime(i, 'e');
-        const [firstDayInEarlyOrdinaryTime] = dates;
-        const [lastDayInEarlyOrdinaryTime] = dates.reverse();
-        expect(firstDayInEarlyOrdinaryTime.subtract(1, 'day').isSame(Dates.presentationOfTheLord(i))).toEqual(true);
         expect(lastDayInEarlyOrdinaryTime.add(1, 'day').isSame(Dates.ashWednesday(i))).toEqual(true);
       }
     });
@@ -217,45 +196,16 @@ describe('Testing date range functions', () => {
 
   describe('Christmastide', () => {
     describe('If Epiphany is celebrated on Jan 6', () => {
-      test('The last day of Christmas is on 6th Jan, if following the Traditional end of the Christmas season', () => {
-        for (let i = 1900, il = 2100; i <= il; i++) {
-          const [lastDayInChristmastide] = Dates.datesOfChristmas(i, 't', false).reverse();
-          const target = dayjs.utc(`${i + 1}-1-6`);
-          expect(lastDayInChristmastide.isSame(target)).toEqual(true);
-        }
-      });
-
       test('The last day of Christmas is always on Sunday on the feast of the Baptism of the Lord, if following the Ordinary Liturgical Calendar of the Western Roman Rite', () => {
         for (let i = 1900, il = 2100; i <= il; i++) {
-          const [lastDayInChristmastide] = Dates.datesOfChristmas(i, 'o', false).reverse();
+          const [lastDayInChristmastide] = Dates.datesOfChristmas(i, false).reverse();
           expect(lastDayInChristmastide.day()).toEqual(0);
         }
       });
     });
 
     describe('If Epiphany is not celebrated on Jan 6 (i.e. on a Sunday)', () => {
-      test('If following the Traditional end of the Christmas season, the last day of Christmas is on Epiphany', () => {
-        for (let i = 1900, il = 2100; i <= il; i++) {
-          const [lastDayInChristmastide] = Dates.datesOfChristmas(i, 't').reverse();
-          expect(lastDayInChristmastide.isSame(Dates.epiphany(i + 1))).toEqual(true);
-        }
-      });
-
-      test('If following the Ordinary Liturgical Calendar of the Western Roman Rite, the last day of Christmas is the feast of the Baptism of the Lord', () => {
-        for (let i = 1900, il = 2100; i <= il; i++) {
-          const [lastDayInChristmastide] = Dates.datesOfChristmas(i, 'o').reverse();
-          expect(lastDayInChristmastide.isSame(Dates.baptismOfTheLord(i + 1))).toEqual(true);
-        }
-      });
-
-      test('If following the Extraordinary Liturgical Calendar of the Western Roman Rite, the last day of Christmas is on the Feast of the Presentation', () => {
-        for (let i = 1900, il = 2100; i <= il; i++) {
-          const [lastDayInChristmastide] = Dates.datesOfChristmas(i, 'e').reverse();
-          expect(lastDayInChristmastide.isSame(Dates.presentationOfTheLord(i + 1))).toEqual(true);
-        }
-      });
-
-      test('If no rule is specified, the last day of Christmas will default to the Feast of the Baptism', () => {
+      test('The last day of Christmas is the feast of the Baptism of the Lord', () => {
         for (let i = 1900, il = 2100; i <= il; i++) {
           const [lastDayInChristmastide] = Dates.datesOfChristmas(i).reverse();
           expect(lastDayInChristmastide.isSame(Dates.baptismOfTheLord(i + 1))).toEqual(true);
@@ -285,7 +235,7 @@ describe('Testing seasons utility functions', () => {
     });
 
     test('The liturgical color for Ordinary Time is green', async () => {
-      (await Seasons.earlyOrdinaryTime(2015, 'o', false)).forEach((date) => {
+      (await Seasons.earlyOrdinaryTime(2015, false)).forEach((date) => {
         expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.GREEN);
       });
       (await Seasons.laterOrdinaryTime(2015)).forEach((date) => {
@@ -316,7 +266,7 @@ describe('Testing seasons utility functions', () => {
     });
 
     test('The liturgical color for Christmastide and Eastertide is white', async () => {
-      (await Seasons.christmastide(2015, 'o', false)).forEach((date) => {
+      (await Seasons.christmastide(2015, false)).forEach((date) => {
         expect(date.liturgicalColors && date.liturgicalColors[0]).toStrictEqual(LiturgicalColorsEnum.WHITE);
       });
       (await Seasons.eastertide(2015)).forEach((date) => {
