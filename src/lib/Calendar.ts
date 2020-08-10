@@ -60,7 +60,6 @@ export class Calendar {
     const {
       ascensionOnSunday,
       christmastideEnds,
-      christmastideIncludesTheSeasonOfEpiphany,
       corpusChristiOnSunday,
       country,
       epiphanyOnSunday,
@@ -77,23 +76,13 @@ export class Calendar {
     // Get a collection of date items from all liturgical seasons of the given year
     const seasonDatesPromise = years.map(async (year) => {
       return [
-        ...(await Seasons.christmastide(
-          year - 1,
-          christmastideEnds,
-          epiphanyOnSunday,
-          christmastideIncludesTheSeasonOfEpiphany,
-        )),
+        ...(await Seasons.christmastide(year - 1, christmastideEnds, epiphanyOnSunday)),
         ...(await Seasons.earlyOrdinaryTime(year, christmastideEnds, epiphanyOnSunday)),
         ...(await Seasons.lent(year)),
         ...(await Seasons.eastertide(year)),
         ...(await Seasons.laterOrdinaryTime(year)),
         ...(await Seasons.advent(year)),
-        ...(await Seasons.christmastide(
-          year,
-          christmastideEnds,
-          epiphanyOnSunday,
-          christmastideIncludesTheSeasonOfEpiphany,
-        )),
+        ...(await Seasons.christmastide(year, christmastideEnds, epiphanyOnSunday)),
       ];
     });
     const seasonDates = concatAll(await Promise.all(seasonDatesPromise));
@@ -112,7 +101,6 @@ export class Calendar {
         locale,
         christmastideEnds,
         epiphanyOnSunday,
-        christmastideIncludesTheSeasonOfEpiphany,
         corpusChristiOnSunday,
         ascensionOnSunday,
         outputOptionalMemorials,
@@ -131,7 +119,6 @@ export class Calendar {
         locale,
         christmastideEnds,
         epiphanyOnSunday,
-        christmastideIncludesTheSeasonOfEpiphany,
         corpusChristiOnSunday,
         ascensionOnSunday,
         outputOptionalMemorials,

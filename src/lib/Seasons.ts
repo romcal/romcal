@@ -281,13 +281,11 @@ const advent = async (year: number): Promise<Array<RomcalDateItemInput>> => {
  * @param year The year to use for the calculation
  * @param christmastideEnds The mode to calculate the end of Christmastide. See [[ChristmastideEndings]] for more information
  * @param epiphanyOnSunday If false, Epiphany will be fixed to Jan 6 (defaults to true)
- * @param christmastideIncludesTheSeasonOfEpiphany If false, excludes the season of epiphany from being included in the season of Christmas
  */
 const christmastide = async (
   year: number,
   christmastideEnds: ChristmastideEndings,
   epiphanyOnSunday = true,
-  christmastideIncludesTheSeasonOfEpiphany = true,
 ): Promise<Array<RomcalDateItemInput>> => {
   const datesOfChristmastide: Dayjs[] = Dates.datesOfChristmas(year, christmastideEnds, epiphanyOnSunday);
   const datesInTheOctaveOfChristmas: Dayjs[] = Dates.octaveOfChristmas(year);
@@ -348,17 +346,10 @@ const christmastide = async (
   // to days of christmas
   //==============================================================================
 
-  // only merge the season of epiphany if the flag is true
   let combinedDaysOfChristmas: Array<RomcalDateItemInput>;
-  if (christmastideIncludesTheSeasonOfEpiphany) {
-    combinedDaysOfChristmas = _.uniqBy(_.union(epiphany, daysInTheOctaveOfChristmas, daysOfChristmastide), (item) =>
-      item.date.valueOf(),
-    );
-  } else {
-    combinedDaysOfChristmas = _.uniqBy(_.union(daysInTheOctaveOfChristmas, daysOfChristmastide), (item) =>
-      item.date.valueOf(),
-    );
-  }
+  combinedDaysOfChristmas = _.uniqBy(_.union(epiphany, daysInTheOctaveOfChristmas, daysOfChristmastide), (item) =>
+    item.date.valueOf(),
+  );
 
   // Sort dates according to their unix time
   combinedDaysOfChristmas = _.sortBy(combinedDaysOfChristmas, (item) => item.date.valueOf());
