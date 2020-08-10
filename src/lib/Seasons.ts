@@ -4,9 +4,8 @@ import * as Dates from '@romcal/lib/Dates';
 import { RomcalDateItemInput } from '@romcal/models/romcal-date-item';
 import { RomcalDateItemCalendar } from '@romcal/types/date-item-calendar.type';
 import { RanksEnum } from '@romcal/enums/ranks.enum';
-import { ChristmastideEndings } from '@romcal/types/christmastide-endings.type';
 import { getRankByDayOfWeek, localize, ordinal } from '@romcal/lib/Locales';
-import { LiturgicalSeason } from '@romcal/types/seasons-and-periods.type';
+import { LiturgicalPeriod, LiturgicalSeason } from '@romcal/types/seasons-and-periods.type';
 import { PeriodsEnum, SeasonsEnum } from '@romcal/enums/seasons-and-periods.enum'; // dependent on isLeapYear plugin
 import { LiturgicalColorsEnum } from '@romcal/enums/liturgical-colors.enum';
 
@@ -113,6 +112,7 @@ const _epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<R
           }),
           seasons: [SeasonsEnum.CHRISTMASTIDE],
           seasonNames: [await localize({ key: 'christmastide.season' })],
+          periods: [PeriodsEnum.DAYS_BEFORE_EPIPHANY, PeriodsEnum.CHRISTMAS_TO_PRESENTATION_OF_THE_LORD],
           liturgicalColors: [LiturgicalColorsEnum.WHITE],
           ...calendar({
             date,
@@ -133,6 +133,7 @@ const _epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<R
       }),
       seasons: [SeasonsEnum.CHRISTMASTIDE],
       seasonNames: [await localize({ key: 'christmastide.season' })],
+      periods: [PeriodsEnum.CHRISTMAS_TO_PRESENTATION_OF_THE_LORD],
       liturgicalColors: [LiturgicalColorsEnum.WHITE],
       ...calendar({
         date: epiphany,
@@ -155,6 +156,7 @@ const _epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<R
           }),
           seasons: [SeasonsEnum.CHRISTMASTIDE],
           seasonNames: [await localize({ key: 'christmastide.season' })],
+          periods: [PeriodsEnum.DAYS_AFTER_EPIPHANY, PeriodsEnum.CHRISTMAS_TO_PRESENTATION_OF_THE_LORD],
           liturgicalColors: [LiturgicalColorsEnum.WHITE],
           ...calendar({
             date,
@@ -195,7 +197,11 @@ const _holyWeek = async (year: number): Promise<Array<RomcalDateItemInput>> => {
         if (date.day() >= 4) arr.push(await localize({ key: 'paschalTriduum.season' })); // From holy thursday
         return arr;
       })(),
-      periods: ['HOLY_WEEK'],
+      periods: [
+        PeriodsEnum.HOLY_WEEK,
+        ...((): LiturgicalPeriod[] =>
+          date.day() <= 4 ? [PeriodsEnum.PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY] : [])(), // Until holy thursday
+      ],
       liturgicalColors: [LiturgicalColorsEnum.PURPLE],
       ...calendar({
         date,
@@ -279,15 +285,10 @@ const advent = async (year: number): Promise<Array<RomcalDateItemInput>> => {
  * *The proper color of Christmas is white.
  *
  * @param year The year to use for the calculation
- * @param christmastideEnds The mode to calculate the end of Christmastide. See [[ChristmastideEndings]] for more information
  * @param epiphanyOnSunday If false, Epiphany will be fixed to Jan 6 (defaults to true)
  */
-const christmastide = async (
-  year: number,
-  christmastideEnds: ChristmastideEndings,
-  epiphanyOnSunday = true,
-): Promise<Array<RomcalDateItemInput>> => {
-  const datesOfChristmastide: Dayjs[] = Dates.datesOfChristmas(year, christmastideEnds, epiphanyOnSunday);
+const christmastide = async (year: number, epiphanyOnSunday = true): Promise<Array<RomcalDateItemInput>> => {
+  const datesOfChristmastide: Dayjs[] = Dates.datesOfChristmas(year, epiphanyOnSunday);
   const datesInTheOctaveOfChristmas: Dayjs[] = Dates.octaveOfChristmas(year);
   const epiphany: Array<RomcalDateItemInput> = await _epiphany(year + 1, epiphanyOnSunday);
   let count = 0;
@@ -310,6 +311,7 @@ const christmastide = async (
       liturgicalColors: [LiturgicalColorsEnum.WHITE],
       seasons: [SeasonsEnum.CHRISTMASTIDE],
       seasonNames: [await localize({ key: 'christmastide.season' })],
+      periods: [PeriodsEnum.CHRISTMAS_TO_PRESENTATION_OF_THE_LORD],
       ...calendar({
         date,
         weekOfSeason: getWeekOfChristmastide(date),
@@ -331,7 +333,7 @@ const christmastide = async (
       liturgicalColors: [LiturgicalColorsEnum.WHITE],
       seasons: [SeasonsEnum.CHRISTMASTIDE],
       seasonNames: [await localize({ key: 'christmastide.season' })],
-      periods: [PeriodsEnum.CHRISTMAS_OCTAVE],
+      periods: [PeriodsEnum.CHRISTMAS_OCTAVE, PeriodsEnum.CHRISTMAS_TO_PRESENTATION_OF_THE_LORD],
       ...calendar({
         date,
         weekOfSeason: getWeekOfChristmastide(date),
@@ -377,16 +379,12 @@ const christmastide = async (
  * *The proper color of ordinary time is green.*
  *
  * @param year The year to use
- * @param christmastideEnds When does Christmas end. See [[ChristmastideEndings]] for more information
  * @param epiphanyOnSunday By default, Epiphany is celebrated on Sunday. If false, will cause Epiphany to land on January the 6th.
  * @returns
  */
-const earlyOrdinaryTime = async (
-  year: number,
-  christmastideEnds: ChristmastideEndings,
-  epiphanyOnSunday = true,
-): Promise<Array<RomcalDateItemInput>> => {
-  const daysOfEarlyOrdinaryTimePromise = Dates.datesOfEarlyOrdinaryTime(year, christmastideEnds, epiphanyOnSunday).map(
+const earlyOrdinaryTime = async (year: number, epiphanyOnSunday = true): Promise<Array<RomcalDateItemInput>> => {
+  const presentationOfTheLord = Dates.presentationOfTheLord(year);
+  const daysOfEarlyOrdinaryTimePromise = Dates.datesOfEarlyOrdinaryTime(year, epiphanyOnSunday).map(
     async (date: Dayjs, i: number) => {
       const week = date.day() === 0 ? Math.floor(i / 7) + 2 : Math.floor(i / 7) + 1;
       return {
@@ -406,9 +404,14 @@ const earlyOrdinaryTime = async (
         }),
         seasons: [SeasonsEnum.ORDINARY_TIME],
         seasonNames: [await localize({ key: 'ordinaryTime.season' })],
-        // Set default season color if there is no color already set
         liturgicalColors: [LiturgicalColorsEnum.GREEN],
-        periods: [PeriodsEnum.EARLY_ORDINARY_TIME],
+        periods: [
+          PeriodsEnum.EARLY_ORDINARY_TIME,
+          ...((): LiturgicalPeriod[] =>
+            date.isSameOrBefore(presentationOfTheLord) ? [PeriodsEnum.CHRISTMAS_TO_PRESENTATION_OF_THE_LORD] : [])(),
+          ...((): LiturgicalPeriod[] =>
+            date.isSameOrAfter(presentationOfTheLord) ? [PeriodsEnum.PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY] : [])(),
+        ],
         ...calendar({
           date,
           weekOfSeason: week,
@@ -521,6 +524,7 @@ const lent = async (year: number): Promise<Array<RomcalDateItemInput>> => {
       }),
       seasons: [SeasonsEnum.LENT],
       seasonNames: [await localize({ key: 'lent.season' })],
+      periods: [PeriodsEnum.PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY],
       liturgicalColors: [LiturgicalColorsEnum.PURPLE],
       ...calendar({
         date,
@@ -542,6 +546,7 @@ const lent = async (year: number): Promise<Array<RomcalDateItemInput>> => {
       }),
       seasons: [SeasonsEnum.LENT],
       seasonNames: [await localize({ key: 'lent.season' })],
+      periods: [PeriodsEnum.PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY],
       liturgicalColors: ((): RomcalLiturgicalColor[] => {
         const arr = [LiturgicalColorsEnum.PURPLE];
         // The proper color of the the Fourth Sunday of Lent is rose. Purple may also be used on these Sundays.

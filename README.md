@@ -131,7 +131,6 @@ romcal.calendarFor({
   year: 2020,
   country: 'unitedStates',
   locale: 'en',
-  christmastideEnds: 't' | 'o' | 'e',
   epiphanyOnSunday: true | false,
   corpusChristiOnSunday: true | false,
   ascensionOnSunday: true | false,

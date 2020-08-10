@@ -96,7 +96,6 @@ import { TITLES } from '@romcal/constants/titles.constant';
 import { RANKS } from '@romcal/constants/ranks.constant';
 
 import { Dictionary, isNil, isInteger, isObject } from '@romcal/utils/type-guards';
-import { ChristmastideEndings } from '@romcal/types/christmastide-endings.type';
 import { Countries } from '@romcal/types/countries.type';
 import { DateItemSources } from '@romcal/types/date-item-sources.type';
 import { RomcalCycles, RomcalSundayCycle, RomcalFerialCycle, PsalterWeek } from '@romcal/types/liturgical-cycles.type';
@@ -304,7 +303,6 @@ export {
   Config,
   IRomcalDefaultConfig,
   TConfigConstructorType,
-  ChristmastideEndings,
   Countries,
   LiturgicalColors,
   DateItemSources,
