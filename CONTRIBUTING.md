@@ -18,7 +18,7 @@ If you found something broken or not working properly, feel free to create an is
 
 ##### Improving the Documentation
 
-Currently, the documentation resides in the [`README.md`](README.md) file, but we plan to move it the GitHub Wiki ([#57](https://github.com/romcal/romcal/issues/57)). Therefore currently, you can improve this documentation by forking the `romcal/romcal` repository, updating the content of [`README.md`](README.md) and creating a pull request.
+Currently, the documentation resides in the [`README.md`](docs/README.md) file, but we plan to move it the GitHub Wiki ([#57](https://github.com/romcal/romcal/issues/57)). Therefore currently, you can improve this documentation by forking the `romcal/romcal` repository, updating the content of [`README.md`](docs/README.md) and creating a pull request.
 
 If you are new to the Git workflow, do check out our simple [Contributor’s Guide](https://github.com/romcal/romcal/wiki/Contributor’s-guide).
 
