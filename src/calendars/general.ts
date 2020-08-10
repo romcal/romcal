@@ -11,7 +11,6 @@ import { RanksEnum } from '@romcal/enums/ranks.enum';
 
 const defaultConfig: IRomcalDefaultConfig = {
   ascensionOnSunday: false,
-  christmastideEnds: 'o',
   corpusChristiOnSunday: true,
   epiphanyOnSunday: true,
 };
@@ -99,7 +98,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       key: 'sundayOfTheWordOfGod',
       rank: RanksEnum.SUNDAY,
       date: await (async (y: number): Promise<dayjs.Dayjs> => {
-        const sundays = await Seasons.earlyOrdinaryTime(y, config.christmastideEnds, config.epiphanyOnSunday);
+        const sundays = await Seasons.earlyOrdinaryTime(y, config.epiphanyOnSunday);
         const thirdSundayOfOrdinaryTime = sundays.find((sunday) => sunday.key === 'thirdSundayOfOrdinaryTime');
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         return thirdSundayOfOrdinaryTime!.date;

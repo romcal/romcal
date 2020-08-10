@@ -22,7 +22,6 @@ export const getRomcalConfigJsonSchema = (): Schema => ({
       enum: Object.keys(Locales),
       description: `Acceptable values are ${Object.keys(Locales).join(', ')}`,
     },
-    christmastideEnds: { type: 'string', enum: ['t', 'o', 'e'] },
     epiphanyOnSunday: { type: 'boolean' },
     corpusChristiOnSunday: { type: 'boolean' },
     ascensionOnSunday: { type: 'boolean' },
