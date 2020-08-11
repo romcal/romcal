@@ -200,7 +200,7 @@ const epiphany = (year: number, epiphanyOnSunday = true): dayjs.Dayjs => {
       case 0:
         date = firstDay.add(7, 'day');
         break;
-      // If first day of the year is on a feria (i.e. Monday - Friday),
+      // If first day of the year is on a weekday (i.e. Monday - Friday),
       // Epiphany will be celebrated on the Sunday proceeding
       default:
         date = firstDay.add(1, 'week').startOf('week');
@@ -631,7 +631,7 @@ const holyFamily = (year: number): dayjs.Dayjs => {
   if (_christmas.day() === 0) {
     return dayjs.utc(`${year}-12-30`);
   }
-  // Holy Family is 1 week after Christmas when Christmas is on a Feria
+  // Holy Family is 1 week after Christmas when Christmas is on a weekday
   else {
     return _christmas.add(1, 'week').startOf('week');
   }

@@ -7,7 +7,7 @@ export const QUERY_TYPES = [
   'daysByMonth',
   'weeksByMonth',
   'sundayCycles',
-  'ferialCycles',
+  'weekdayCycles',
   'ranks',
   'liturgicalSeasons',
   'liturgicalColors',

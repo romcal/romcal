@@ -3,7 +3,7 @@ import { RomcalLocale } from '@romcal/models/romcal-locale';
 export default {
   advent: {
     season: 'Avvento',
-    feria: '{{day}} della {{week}} settimana di Avvento',
+    weekday: '{{day}} della {{week}} settimana di Avvento',
     sunday: '{{week}} Domenica di Avvento',
   },
   christmastide: {
@@ -19,25 +19,25 @@ export default {
   },
   ordinaryTime: {
     season: 'Tempo Ordinario',
-    feria: '{{day}} della {{week}} settimana del Tempo Ordinario',
+    weekday: '{{day}} della {{week}} settimana del Tempo Ordinario',
     sunday: '{{week}} Domenica del Tempo Ordinario',
   },
   lent: {
     season: 'Quaresima',
-    feria: '{{day}} della {{week}} settimana di Quaresima',
+    weekday: '{{day}} della {{week}} settimana di Quaresima',
     sunday: '{{week}} Domenica di Quaresima',
     dayAfterAshWed: '{{day}} dopo Mercoledí delle Ceneri',
   },
   holyWeek: {
     season: 'Settimana Santa',
-    feria: '{{day}} della Settimana Santa',
+    weekday: '{{day}} della Settimana Santa',
   },
   paschalTriduum: {
     season: 'Triduo Pasquale',
   },
   eastertide: {
     season: 'Pasqua',
-    feria: '{{day}} della {{week}} settimana di Pasqua',
+    weekday: '{{day}} della {{week}} settimana di Pasqua',
     sunday: '{{week}} Domenica di Pasqua',
     octave: '{{day}} di Pasqua',
   },

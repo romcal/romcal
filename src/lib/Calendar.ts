@@ -271,18 +271,18 @@ export class Calendar {
     // Now try to find the right default color...
 
     // If the celebration isn't a COMMEMORATION and is for a MARTYR, return RED
-    // Otherwise, if the celebration isn't a COMMEMORATION or a FERIA, return WHITE
-    if (rank && ![RanksEnum.COMMEMORATION, RanksEnum.FERIA].includes(rank)) {
+    // Otherwise, if the celebration isn't a COMMEMORATION or a WEEKDAY, return WHITE
+    if (rank && ![RanksEnum.COMMEMORATION, RanksEnum.WEEKDAY].includes(rank)) {
       if (titles.includes(TITLES.MARTYR)) return [LiturgicalColorsEnum.RED];
       return [LiturgicalColorsEnum.WHITE];
     }
 
-    // The FERIA or COMMEMORATION is celebrated during LENT, return PURPLE
+    // The WEEKDAY or COMMEMORATION is celebrated during LENT, return PURPLE
     if ([SeasonsEnum.LENT, SeasonsEnum.ADVENT].some((season) => seasons?.includes(season))) {
       return [LiturgicalColorsEnum.PURPLE];
     }
 
-    // The FERIA or COMMEMORATION is celebrated during ORDINARY_TIME, return PURPLE
+    // The WEEKDAY or COMMEMORATION is celebrated during ORDINARY_TIME, return PURPLE
     if (seasons?.includes(SeasonsEnum.ORDINARY_TIME)) {
       return [LiturgicalColorsEnum.GREEN];
     }
@@ -324,8 +324,8 @@ export class Calendar {
    */
   _sortAndKeepRelevant(): void {
     // Reorder the DateItems of a particular day, so that
-    // when there are optional memorials or commemoration only (in addition to the feria),
-    // the feria item is moved to the top before the optional items,
+    // when there are optional memorials or commemoration only (in addition to the weekday),
+    // the weekday item is moved to the top before the optional items,
     // since it's the default item if none of the optional items are celebrated.
     const ranks = RANKS.slice(0, RANKS.length - 1);
     ranks.splice(ranks.indexOf('MEMORIAL') + 1, 0, RANKS[RANKS.length - 1]);

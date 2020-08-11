@@ -87,7 +87,7 @@ import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant'
 import { LiturgicalColors } from '@romcal/types/liturgical-colors.type';
 import {
   LITURGICAL_SUNDAY_CYCLES,
-  LITURGICAL_FERIAL_CYCLES,
+  LITURGICAL_WEEKDAY_CYCLES,
   PSALTER_WEEKS,
 } from '@romcal/constants/liturgical-cycles.constant';
 import { LITURGICAL_SEASONS } from '@romcal/constants/seasons-and-periods.constant';
@@ -98,7 +98,7 @@ import { RANKS } from '@romcal/constants/ranks.constant';
 import { Dictionary, isNil, isInteger, isObject } from '@romcal/utils/type-guards';
 import { Country } from '@romcal/types/country.type';
 import { DateItemSources } from '@romcal/types/date-item-sources.type';
-import { RomcalCycles, RomcalSundayCycle, RomcalFerialCycle, PsalterWeek } from '@romcal/types/liturgical-cycles.type';
+import { RomcalCycles, RomcalSundayCycle, RomcalWeekdayCycle, PsalterWeek } from '@romcal/types/liturgical-cycles.type';
 import {
   LiturgicalSeason,
   LiturgicalSeasons,
@@ -161,8 +161,8 @@ export default class Romcal {
           );
         case 'sundayCycles':
           return _.groupBy(dates, (d) => d.cycles.sundayCycle);
-        case 'ferialCycles':
-          return _.groupBy(dates, (d) => d.cycles.ferialCycle);
+        case 'weekdayCycles':
+          return _.groupBy(dates, (d) => d.cycles.weekdayCycle);
         case 'ranks':
           return _.groupBy(dates, (d) => d.rank);
         /**
@@ -287,7 +287,7 @@ export {
   COUNTRIES,
   LITURGICAL_COLORS,
   LITURGICAL_SUNDAY_CYCLES,
-  LITURGICAL_FERIAL_CYCLES,
+  LITURGICAL_WEEKDAY_CYCLES,
   PSALTER_WEEKS,
   LITURGICAL_SEASONS,
   QUERY_TYPES,
@@ -308,7 +308,7 @@ export {
   DateItemSources,
   RomcalCycles,
   RomcalSundayCycle,
-  RomcalFerialCycle,
+  RomcalWeekdayCycle,
   PsalterWeek,
   LiturgicalSeason,
   LiturgicalSeasons,
