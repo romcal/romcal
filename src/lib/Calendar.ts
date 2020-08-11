@@ -17,6 +17,11 @@ import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
 import { RomcalDateItemCalendar } from '@romcal/types/date-item-calendar.type';
 import { RomcalDateItemMetadata } from '@romcal/types/date-item-metadata.type';
+import { isLiturgicalColor, RomcalLiturgicalColor } from '@romcal/types/liturgical-colors.type';
+import { localize } from '@romcal/lib/Locales';
+import { TITLES } from '@romcal/constants/titles.constant';
+import { LiturgicalColorsEnum } from '@romcal/enums/liturgical-colors.enum';
+import { SeasonsEnum } from '@romcal/enums/seasons-and-periods.enum';
 
 dayjs.extend(isSameOrAfter);
 dayjs.extend(isSameOrBefore);
@@ -140,7 +145,7 @@ export class Calendar {
     calendarSources = Calendar._dropItems(calendarSources);
 
     // Push new item object as a new DateItem
-    this._push(calendarSources);
+    await this._push(calendarSources);
 
     // Finally, sort the DateItems by date and rank and keep only the relevant
     this._sortAndKeepRelevant();
@@ -159,11 +164,11 @@ export class Calendar {
    * Push new DateItem objects in the Calendar object
    * @param calendars An array of calendar sources to process.
    */
-  _push(calendars: Array<Array<RomcalDateItemInput>>): void {
+  async _push(calendars: Array<Array<RomcalDateItemInput>>): Promise<void> {
     // Loop through each date source group
-    calendars.forEach((calendar: Array<RomcalDateItemInput>, index: number) =>
+    for (const [index, calendar] of calendars.entries()) {
       // Loop through the dates in each source group
-      calendar.forEach((item: RomcalDateItemInput) => {
+      for (const item of calendar) {
         // Remove non-prioritized celebrations in the date items array which share the same key as the current item
         this._keepPrioritizedOnly(item);
 
@@ -185,6 +190,16 @@ export class Calendar {
           date,
         } = item;
         if (!isNil(key) && !isNil(name) && !isNil(rank) && !isNil(date)) {
+          const validatedSeasons: Required<LiturgicalSeason[]> = seasons || baseItem?.seasons || [];
+          const validatedSeasonNames: Required<string[]> = seasonNames || baseItem?.seasonNames || [];
+          const validatedPeriods: Required<LiturgicalPeriod[]> = periods || baseItem?.periods || [];
+          const validatedLiturgicalColors = this.checkOrDetermineLiturgicalColors(
+            rank,
+            validatedSeasons,
+            liturgicalColors,
+            metadata?.titles || [],
+          );
+
           // Create a new DateItem and add it to the collection
           this.dateItems.push(
             new RomcalDateItem({
@@ -193,20 +208,84 @@ export class Calendar {
               rank,
               date,
               prioritized: !!prioritized,
-              seasons: seasons as Required<LiturgicalSeason[]>,
-              seasonNames: seasonNames as Required<string[]>,
-              periods: periods as Required<LiturgicalPeriod[]>,
+              seasons: validatedSeasons,
+              seasonNames: validatedSeasonNames,
+              periods: validatedPeriods,
               cycles: cycles as Required<RomcalCycles>,
               calendar: calendar as Required<RomcalDateItemCalendar>,
-              liturgicalColors,
+              liturgicalColors: validatedLiturgicalColors,
+              liturgicalColorNames: await this.localizeLiturgicalColors(validatedLiturgicalColors),
               metadata: (typeof metadata === 'object' ? metadata : { titles: [] }) as RomcalDateItemMetadata,
               _stack: index, // The stack number refers to the index in the calendars array in which this celebration's array is placed at
               baseItem: baseItem, // Attach the base item if any
             }),
           );
         }
-      }),
-    );
+      }
+    }
+  }
+
+  /**
+   * Check the provided liturgical color and return it in the good type,
+   * or if not provided, try to determine the right color for the celebration.
+   * @private
+   * @param rank The rank of the celebration
+   * @param seasons The season(s) of the celebration
+   * @param liturgicalColors The liturgical color(s) of the celebration, if defined
+   * @param titles The title(s) of the celebration, if defined
+   */
+  private checkOrDetermineLiturgicalColors(
+    rank: RanksEnum,
+    seasons: LiturgicalSeason[],
+    liturgicalColors: RomcalLiturgicalColor | RomcalLiturgicalColor[] | undefined,
+    titles: string[],
+  ): RomcalLiturgicalColor[] {
+    // A liturgical color(s) has already been defined, nothing more to do:
+    // returns the color(s) as it, if the color type(s) is/are valid.
+    if (Array.isArray(liturgicalColors)) {
+      const validated = liturgicalColors.filter((color) => isLiturgicalColor(color));
+      if (validated.length > 0) {
+        return validated;
+      }
+    }
+
+    // A liturgical color has already been defined, but not wrapped in an array:
+    // returns the color(s) as it in an array, if the color type is valid.
+    if (typeof liturgicalColors === 'string' && isLiturgicalColor(liturgicalColors)) {
+      return [liturgicalColors];
+    }
+
+    // No liturgical color has been defined
+    // Now try to find the right default color...
+
+    // If the celebration isn't a COMMEMORATION and is for a MARTYR, return RED
+    // Otherwise, if the celebration isn't a COMMEMORATION or a FERIA, return WHITE
+    if (rank && ![RanksEnum.COMMEMORATION, RanksEnum.FERIA].includes(rank)) {
+      if (titles.includes(TITLES.MARTYR)) return [LiturgicalColorsEnum.RED];
+      return [LiturgicalColorsEnum.WHITE];
+    }
+
+    // The FERIA or COMMEMORATION is celebrated during LENT, return PURPLE
+    if ([SeasonsEnum.LENT, SeasonsEnum.ADVENT].some((season) => seasons?.includes(season))) {
+      return [LiturgicalColorsEnum.PURPLE];
+    }
+
+    // The FERIA or COMMEMORATION is celebrated during ORDINARY_TIME, return PURPLE
+    if (seasons?.includes(SeasonsEnum.ORDINARY_TIME)) {
+      return [LiturgicalColorsEnum.GREEN];
+    }
+
+    // Otherwise, return WHITE that match all other seasons, or as a default color
+    return [LiturgicalColorsEnum.WHITE];
+  }
+
+  /**
+   * Returns the localized liturgical color(s) from the color key(s)
+   * @param colors The liturgical color keys
+   * @private
+   */
+  private localizeLiturgicalColors(colors: RomcalLiturgicalColor[]): Promise<string[]> {
+    return Promise.all(colors.map(async (key) => await localize({ key: `liturgicalColors.${key}` })));
   }
 
   /**
