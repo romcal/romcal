@@ -307,6 +307,6 @@ const localizeDates = async (
  * the rank of day from the [[Rank]] enum
  * @param day A "day" integer that should come from the DayJS library
  */
-const getRankByDayOfWeek = (day: number): RanksEnum => (day === 0 ? RanksEnum.SUNDAY : RanksEnum.FERIA);
+const getRankByDayOfWeek = (day: number): RanksEnum => (day === 0 ? RanksEnum.SUNDAY : RanksEnum.WEEKDAY);
 
 export { setLocale, getLocale, localize, localizeDates, getRankByDayOfWeek };

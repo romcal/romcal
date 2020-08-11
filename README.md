@@ -156,7 +156,7 @@ This produces an array of date item objects (one date item per each day of the y
     periods: ['CHRISTMAS_OCTAVE'],
     cycles: {
       sundayCycle: 'YEAR_A',
-      ferialCycle: 'YEAR_2',
+      weekdayCycle: 'YEAR_2',
       psalterWeek: 'WEEK_2',
     },
     calendar: {

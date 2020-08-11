@@ -5,7 +5,7 @@ export type RomcalLocaleKeys = {
   before: string;
   day: string;
   dayAfterAshWed: string;
-  feria: string;
+  weekday: string;
   octave: string;
   season: string;
   sunday: string;
@@ -15,13 +15,13 @@ export type RomcalLocaleKeys = {
  * The contract that defines the properties of a Romcal compliant locale file.
  */
 export interface RomcalLocale {
-  readonly advent?: Pick<RomcalLocaleKeys, 'feria' | 'season' | 'sunday'>;
+  readonly advent?: Pick<RomcalLocaleKeys, 'weekday' | 'season' | 'sunday'>;
   readonly christmastide?: Pick<RomcalLocaleKeys, 'day' | 'octave' | 'season' | 'sunday'>;
   readonly epiphany?: Pick<RomcalLocaleKeys, 'after' | 'before' | 'season'>;
-  readonly ordinaryTime?: Pick<RomcalLocaleKeys, 'feria' | 'season' | 'sunday'>;
-  readonly lent?: Pick<RomcalLocaleKeys, 'feria' | 'season' | 'sunday' | 'dayAfterAshWed'>;
-  readonly holyWeek?: Pick<RomcalLocaleKeys, 'feria' | 'season'>;
-  readonly eastertide?: Pick<RomcalLocaleKeys, 'feria' | 'octave' | 'season' | 'sunday'>;
+  readonly ordinaryTime?: Pick<RomcalLocaleKeys, 'weekday' | 'season' | 'sunday'>;
+  readonly lent?: Pick<RomcalLocaleKeys, 'weekday' | 'season' | 'sunday' | 'dayAfterAshWed'>;
+  readonly holyWeek?: Pick<RomcalLocaleKeys, 'weekday' | 'season'>;
+  readonly eastertide?: Pick<RomcalLocaleKeys, 'weekday' | 'octave' | 'season' | 'sunday'>;
   readonly celebrations?: {
     readonly [key: string]: string;
   };

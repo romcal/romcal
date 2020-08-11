@@ -2,13 +2,13 @@ import dayjs, { Dayjs } from 'dayjs';
 import * as Dates from '@romcal/lib/Dates';
 import { isNil, ISO8601DateString } from '@romcal/utils/type-guards';
 import {
-  LITURGICAL_FERIAL_CYCLES,
+  LITURGICAL_WEEKDAY_CYCLES,
   LITURGICAL_SUNDAY_CYCLES,
   PSALTER_WEEKS,
 } from '@romcal/constants/liturgical-cycles.constant';
 import { RanksEnum } from '@romcal/enums/ranks.enum';
 import { LiturgicalPeriod, LiturgicalSeason } from '@romcal/types/seasons-and-periods.type';
-import { RomcalCycles, RomcalFerialCycle, RomcalSundayCycle } from '@romcal/types/liturgical-cycles.type';
+import { RomcalCycles, RomcalWeekdayCycle, RomcalSundayCycle } from '@romcal/types/liturgical-cycles.type';
 import { DateItemSources } from '@romcal/types/date-item-sources.type';
 import { RomcalDateItemCalendar } from '@romcal/types/date-item-calendar.type';
 import { RomcalDateItemMetadata } from '@romcal/types/date-item-metadata.type';
@@ -184,7 +184,7 @@ export class RomcalDateItem implements RomcalBaseDateItem {
    *
    * **Special type management in the season of LENT.**
    *
-   * Memorials or Optional Memorials that fall on a feria
+   * Memorials or Optional Memorials that fall on a weekday
    * in the season of Lent are reduced to Commemorations.
    *
    * Feasts occurring in the season of Lent are also reduced to
@@ -194,7 +194,7 @@ export class RomcalDateItem implements RomcalBaseDateItem {
     if (this.base?.seasons?.some((key) => key === 'LENT')) {
       if (
         (this.rank === RanksEnum.MEMORIAL || this.rank === RanksEnum.OPT_MEMORIAL) &&
-        this.base.rank === RanksEnum.FERIA
+        this.base.rank === RanksEnum.WEEKDAY
       ) {
         this.rank = RanksEnum.COMMEMORATION;
       }
@@ -212,7 +212,7 @@ export class RomcalDateItem implements RomcalBaseDateItem {
     const firstSundayOfAdvent = Dates.firstSundayOfAdvent(year);
 
     let sundayCycle: RomcalSundayCycle;
-    let ferialCycle: RomcalFerialCycle;
+    let weekdayCycle: RomcalWeekdayCycle;
 
     // Formula to calculate Sunday cycle (Year A, B, C)
     const thisSundayCycleIndex: number = (year - 1963) % 3;
@@ -222,10 +222,10 @@ export class RomcalDateItem implements RomcalBaseDateItem {
     // it is the next liturgical cycle
     if (dayjs.utc(this.date).isSameOrAfter(firstSundayOfAdvent)) {
       sundayCycle = LITURGICAL_SUNDAY_CYCLES[nextSundayCycleIndex];
-      ferialCycle = LITURGICAL_FERIAL_CYCLES[year % 2];
+      weekdayCycle = LITURGICAL_WEEKDAY_CYCLES[year % 2];
     } else {
       sundayCycle = LITURGICAL_SUNDAY_CYCLES[thisSundayCycleIndex];
-      ferialCycle = LITURGICAL_FERIAL_CYCLES[(year + 1) % 2];
+      weekdayCycle = LITURGICAL_WEEKDAY_CYCLES[(year + 1) % 2];
     }
 
     // Psalter week cycle restart to 1 at the beginning of each season.
@@ -234,7 +234,7 @@ export class RomcalDateItem implements RomcalBaseDateItem {
     const weekIndex = (calendar.weekOfSeason % 4) - 1;
     const psalterWeek = PSALTER_WEEKS[weekIndex > -1 ? weekIndex : 3];
 
-    return { sundayCycle, ferialCycle, psalterWeek };
+    return { sundayCycle, weekdayCycle: weekdayCycle, psalterWeek };
   }
 
   /**

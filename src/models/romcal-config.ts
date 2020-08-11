@@ -43,7 +43,7 @@ export interface RomcalConfig {
   readonly ascensionOnSunday?: boolean;
   /**
    * If true, available optional memorials or commemorations are also outputted,
-   * in addition to the feria.
+   * in addition to the weekday.
    */
   readonly outputOptionalMemorials?: boolean;
   /**

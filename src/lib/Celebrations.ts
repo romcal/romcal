@@ -146,7 +146,7 @@ const dates = async (year: number, config: Config): Promise<Array<RomcalDateItem
     // Lent, Holy Week & Triduum
     {
       key: 'ashWednesday',
-      rank: RanksEnum.FERIA,
+      rank: RanksEnum.WEEKDAY,
       date: Dates.ashWednesday(year),
       liturgicalColors: LiturgicalColorsEnum.PURPLE,
       prioritized: true,

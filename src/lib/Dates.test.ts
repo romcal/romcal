@@ -586,12 +586,12 @@ describe('Testing specific liturgical date functions', () => {
         expect(date.isSame(target)).toEqual(true);
       });
 
-      test('If first day of the year 2011 is on a feria (Sat) (i.e. Mon - Sat), Epiphany will be celebrated on the Sunday proceeding', () => {
+      test('If first day of the year 2011 is on a weekday (Sat) (i.e. Mon - Sat), Epiphany will be celebrated on the Sunday proceeding', () => {
         // First day of 2014 was a Wed, First day of 2015 was a Thurs
         const first = dayjs.utc('2011-1-1');
         const target = dayjs.utc('2011-1-1').add(1, 'day').startOf('day');
         const date = Dates.epiphany(2011);
-        expect(first.day()).toBeOneOf([1, 2, 3, 4, 5, 6]); // First day of the year should be a feria
+        expect(first.day()).toBeOneOf([1, 2, 3, 4, 5, 6]); // First day of the year should be a weekday
         expect(target.dayOfYear()).toEqual(2); // Epiphany should be the 4th day of the year
         expect(target.day()).toEqual(0); // Epiphany should be a Sunday
         expect(date.isSame(target)).toEqual(true);
