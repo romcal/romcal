@@ -13,6 +13,7 @@ import { DateItemSources } from '@romcal/types/date-item-sources.type';
 import { RomcalDateItemCalendar } from '@romcal/types/date-item-calendar.type';
 import { RomcalDateItemMetadata } from '@romcal/types/date-item-metadata.type';
 import { RomcalLiturgicalColor } from '@romcal/types/liturgical-colors.type';
+import { Country } from '@romcal/types/country.type';
 
 type RomcalBaseDateItem = {
   key: string;
@@ -27,6 +28,7 @@ type RomcalBaseDateItem = {
   periods: LiturgicalPeriod[];
   cycles: RomcalCycles;
   calendar: RomcalDateItemCalendar;
+  fromCalendar: Country;
   metadata: RomcalDateItemMetadata;
   base?: RomcalDateItem;
 };
@@ -112,6 +114,10 @@ export class RomcalDateItem implements RomcalBaseDateItem {
    */
   public readonly calendar: RomcalDateItemCalendar;
   /**
+   * Name of the calendar from which the celebration is defined
+   */
+  public readonly fromCalendar: Country;
+  /**
    * The specific metadata of a celebration
    */
   public readonly metadata: RomcalDateItemMetadata;
@@ -142,6 +148,7 @@ export class RomcalDateItem implements RomcalBaseDateItem {
     seasonNames,
     periods,
     calendar,
+    fromCalendar,
     metadata,
     baseItem,
     _stack,
@@ -158,6 +165,7 @@ export class RomcalDateItem implements RomcalBaseDateItem {
     this.periods = periods;
     this.cycles = this.addLiturgicalCycleMetadata(calendar || baseItem?.calendar);
     this.calendar = calendar || baseItem?.calendar;
+    this.fromCalendar = fromCalendar;
     this.metadata = typeof metadata === 'object' ? metadata : { titles: [] };
 
     this._id = RomcalDateItem._incrementId();
