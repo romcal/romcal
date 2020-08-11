@@ -174,6 +174,7 @@ This produces an array of date item objects (one date item per each day of the y
       endOfLiturgicalYear: '2020-11-28T00:00:00.000Z',
       easter: '2020-04-12T00:00:00.000Z',
     },
+    fromCalendar: 'general',
     metadata: {
       titles: [],
     },

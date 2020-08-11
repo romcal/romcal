@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import logger from '@romcal/utils/logger';
 import { isNil, isObject, isRomcalConfig } from '@romcal/utils/type-guards';
 import { CalendarTypes } from '@romcal/types/calendar-types.type';
-import { Countries } from '@romcal/types/countries.type';
+import { Country } from '@romcal/types/country.type';
 import { LocaleTypes } from '@romcal/types/locale-types.type';
 import { Query } from '@romcal/types/query-type.type';
 
@@ -19,7 +19,7 @@ export interface RomcalConfig {
   /**
    * The country
    */
-  readonly country?: Countries;
+  readonly country?: Country;
   /**
    * The locale to be used for localizing
    */
@@ -75,7 +75,7 @@ export type TConfigConstructorType = { query?: Query } & Required<Omit<RomcalCon
  */
 export default class Config {
   private _year: number;
-  private readonly _country: Countries;
+  private readonly _country: Country;
   private readonly _locale: LocaleTypes;
   private readonly _epiphanyOnSunday: boolean;
   private readonly _corpusChristiOnSunday: boolean;
@@ -118,7 +118,7 @@ export default class Config {
     this._year = theYear;
   }
 
-  get country(): Countries {
+  get country(): Country {
     return this._country;
   }
 
@@ -156,7 +156,7 @@ export default class Config {
    * If the country is not specified, return the configuration for the general calendar.
    * @param country The country to obtain default configurations from
    */
-  static async getConfig(country: Countries = 'general'): Promise<IRomcalDefaultConfig> {
+  static async getConfig(country: Country = 'general'): Promise<IRomcalDefaultConfig> {
     const { defaultConfig: countrySpecificDefaultConfig } = await import(
       /* webpackExclude: /index\.ts/ */
       /* webpackChunkName: "calendars/[request]" */

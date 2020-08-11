@@ -96,7 +96,7 @@ import { TITLES } from '@romcal/constants/titles.constant';
 import { RANKS } from '@romcal/constants/ranks.constant';
 
 import { Dictionary, isNil, isInteger, isObject } from '@romcal/utils/type-guards';
-import { Countries } from '@romcal/types/countries.type';
+import { Country } from '@romcal/types/country.type';
 import { DateItemSources } from '@romcal/types/date-item-sources.type';
 import { RomcalCycles, RomcalSundayCycle, RomcalFerialCycle, PsalterWeek } from '@romcal/types/liturgical-cycles.type';
 import {
@@ -303,7 +303,7 @@ export {
   Config,
   IRomcalDefaultConfig,
   TConfigConstructorType,
-  Countries,
+  Country,
   LiturgicalColors,
   DateItemSources,
   RomcalCycles,
