@@ -207,9 +207,9 @@ describe('Testing calendar generation functions', () => {
         expect(Object.keys(items)).toEqual(['YEAR_B', 'YEAR_C']);
       });
 
-      test('Should group dates by their respective liturgical ferial cycles', async () => {
+      test('Should group dates by their respective liturgical weekday cycles', async () => {
         const calendar = await Romcal.calendarFor({ year: 2015 });
-        const items = Romcal.queryFor(calendar, { group: 'ferialCycles' });
+        const items = Romcal.queryFor(calendar, { group: 'weekdayCycles' });
         expect(Object.keys(items)).toEqual(['YEAR_1', 'YEAR_2']);
       });
 
@@ -328,14 +328,14 @@ describe('Testing calendar generation functions', () => {
       expect(christmas2022?.cycles.sundayCycle).toBe('YEAR_A');
     });
 
-    test('Should have the right ferial cycle', async () => {
-      expect(easter2020?.cycles.ferialCycle).toBe('YEAR_2');
-      expect(easter2021?.cycles.ferialCycle).toBe('YEAR_1');
-      expect(easter2022?.cycles.ferialCycle).toBe('YEAR_2');
+    test('Should have the right weekday cycle', async () => {
+      expect(easter2020?.cycles.weekdayCycle).toBe('YEAR_2');
+      expect(easter2021?.cycles.weekdayCycle).toBe('YEAR_1');
+      expect(easter2022?.cycles.weekdayCycle).toBe('YEAR_2');
 
-      expect(christmas2020?.cycles.ferialCycle).toBe('YEAR_1');
-      expect(christmas2021?.cycles.ferialCycle).toBe('YEAR_2');
-      expect(christmas2022?.cycles.ferialCycle).toBe('YEAR_1');
+      expect(christmas2020?.cycles.weekdayCycle).toBe('YEAR_1');
+      expect(christmas2021?.cycles.weekdayCycle).toBe('YEAR_2');
+      expect(christmas2022?.cycles.weekdayCycle).toBe('YEAR_1');
     });
   });
 });

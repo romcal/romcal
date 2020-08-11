@@ -105,7 +105,7 @@ const _epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<R
         ({
           date,
           key: `${date.locale('en').format('dddd').toCamelCase()}BeforeEpiphany`,
-          rank: RanksEnum.FERIA,
+          rank: RanksEnum.WEEKDAY,
           name: await localize({
             key: 'epiphany.before',
             day: date.format('dddd'),
@@ -149,7 +149,7 @@ const _epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<R
         ({
           date,
           key: `${date.locale('en').format('dddd').toCamelCase()}AfterEpiphany`,
-          rank: RanksEnum.FERIA,
+          rank: RanksEnum.WEEKDAY,
           name: await localize({
             key: 'epiphany.after',
             day: date.format('dddd'),
@@ -182,7 +182,7 @@ const _holyWeek = async (year: number): Promise<Array<RomcalDateItemInput>> => {
       key: `${date.locale('en').format('dddd').toCamelCase()}OfHolyWeek`,
       rank: RanksEnum.HOLY_WEEK,
       name: await localize({
-        key: 'holyWeek.feria',
+        key: 'holyWeek.weekday',
         day: date.format('dddd'),
       }),
       seasons: ((): LiturgicalSeason[] => {
@@ -245,7 +245,7 @@ const advent = async (year: number): Promise<Array<RomcalDateItemInput>> => {
             ).toPascalCase()}WeekOfAdvent`,
       rank: getRankByDayOfWeek(date.day()),
       name: await localize({
-        key: date.day() === 0 ? 'advent.sunday' : 'advent.feria',
+        key: date.day() === 0 ? 'advent.sunday' : 'advent.weekday',
         day: date.format('dddd'),
         week: Math.floor(i / 7) + 1,
       }),
@@ -277,7 +277,7 @@ const advent = async (year: number): Promise<Array<RomcalDateItemInput>> => {
  *
  * **PSALTER WEEKS & LITURGICAL COLORS - CHRISTMAS SEASON**
  *
- * If Christmas is on a feria (Monday - Saturday), then the first
+ * If Christmas is on a weekday (Monday - Saturday), then the first
  * week of Christmastide will follow the Psalter week of the 4th week
  * of Advent (which is always Psalter Week 4)
  * If Christmas is on a Sunday, the Psalter week will be Week 1
@@ -396,9 +396,9 @@ const earlyOrdinaryTime = async (year: number, epiphanyOnSunday = true): Promise
                 Math.floor(i / 7) + 1,
                 true,
               ).toPascalCase()}WeekOfOrdinaryTime`,
-        rank: date.day() === 0 ? RanksEnum.SUNDAY : RanksEnum.FERIA,
+        rank: date.day() === 0 ? RanksEnum.SUNDAY : RanksEnum.WEEKDAY,
         name: await localize({
-          key: date.day() === 0 ? 'ordinaryTime.sunday' : 'ordinaryTime.feria',
+          key: date.day() === 0 ? 'ordinaryTime.sunday' : 'ordinaryTime.weekday',
           day: date.format('dddd'),
           week,
         }),
@@ -463,9 +463,9 @@ const laterOrdinaryTime = async (year: number): Promise<Array<RomcalDateItemInpu
                 week,
                 true,
               ).toPascalCase()}WeekOfOrdinaryTime`,
-        rank: date.day() === 0 ? RanksEnum.SUNDAY : RanksEnum.FERIA,
+        rank: date.day() === 0 ? RanksEnum.SUNDAY : RanksEnum.WEEKDAY,
         name: await localize({
-          key: date.day() === 0 ? 'ordinaryTime.sunday' : 'ordinaryTime.feria',
+          key: date.day() === 0 ? 'ordinaryTime.sunday' : 'ordinaryTime.weekday',
           day: date.format('dddd'),
           week: week,
         }),
@@ -516,9 +516,9 @@ const lent = async (year: number): Promise<Array<RomcalDateItemInput>> => {
         i < 4
           ? `${date.locale('en').format('dddd').toCamelCase()}AfterAshWednesday`
           : `${date.locale('en').format('dddd').toCamelCase()}OfThe${ordinal(week, true).toPascalCase()}WeekOfLent`,
-      rank: RanksEnum.FERIA,
+      rank: RanksEnum.WEEKDAY,
       name: await localize({
-        key: i === 0 ? 'celebrations.ashWednesday' : i < 4 ? 'lent.dayAfterAshWed' : 'lent.feria',
+        key: i === 0 ? 'celebrations.ashWednesday' : i < 4 ? 'lent.dayAfterAshWed' : 'lent.weekday',
         day: date.format('dddd'),
         week,
       }),
@@ -533,7 +533,7 @@ const lent = async (year: number): Promise<Array<RomcalDateItemInput>> => {
       }),
     } as RomcalDateItemInput;
   });
-  const ferialDays = await Promise.all(daysOfLentPromise);
+  const weekdays = await Promise.all(daysOfLentPromise);
 
   const sundaysOfLentPromise = sundaysOfLent.map(async (date: Dayjs, i: number) => {
     return {
@@ -567,7 +567,7 @@ const lent = async (year: number): Promise<Array<RomcalDateItemInput>> => {
   let combinedDaysOfLent: Array<RomcalDateItemInput>;
 
   // Override in order: Solemnities, Holy Week and Sundays of Lent to days of Lent
-  combinedDaysOfLent = _.uniqBy(_.union(holyWeek, sundays, ferialDays), (v) => v.date.valueOf());
+  combinedDaysOfLent = _.uniqBy(_.union(holyWeek, sundays, weekdays), (v) => v.date.valueOf());
 
   // Sort dates according to DayJS
   combinedDaysOfLent = _.sortBy(combinedDaysOfLent, (v) => v.date.valueOf());
@@ -612,9 +612,9 @@ const eastertide = async (year: number): Promise<Array<RomcalDateItemInput>> => 
         i < 7
           ? `easter${date.locale('en').format('dddd').toPascalCase()}`
           : `${date.locale('en').format('dddd').toCamelCase()}OfThe${ordinal(week, true).toPascalCase()}WeekOfEaster`,
-      rank: i < 7 ? RanksEnum.SOLEMNITY : RanksEnum.FERIA,
+      rank: i < 7 ? RanksEnum.SOLEMNITY : RanksEnum.WEEKDAY,
       name: await localize({
-        key: i < 7 ? 'eastertide.octave' : 'eastertide.feria',
+        key: i < 7 ? 'eastertide.octave' : 'eastertide.weekday',
         day: date.locale('en').format('dddd'),
         week: week,
       }),

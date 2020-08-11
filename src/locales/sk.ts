@@ -3,7 +3,7 @@ import { RomcalLocale } from '@romcal/models/romcal-locale';
 export default {
   advent: {
     season: 'Adventné obdobie',
-    feria: '{{day}} po {{week}} adventnej nedeli',
+    weekday: '{{day}} po {{week}} adventnej nedeli',
     sunday: '{{week}} adventná nedeľa',
   },
   christmastide: {
@@ -19,25 +19,25 @@ export default {
   },
   ordinaryTime: {
     season: 'Cezročné obdobie',
-    feria: '{{day}} {{week}} týždňa v Cezročnom období',
+    weekday: '{{day}} {{week}} týždňa v Cezročnom období',
     sunday: '{{week}} nedeľa v Cezročnom období',
   },
   lent: {
     season: 'Pôstne obdobie',
-    feria: '{{day}} po {{week}} pôstnej nedeli',
+    weekday: '{{day}} po {{week}} pôstnej nedeli',
     sunday: '{{week}} pôstna nedeľa',
     dayAfterAshWed: '{{day}} po Popolcovej strede',
   },
   holyWeek: {
     season: 'Veľký týždeň',
-    feria: '{{day}} Veľkého týždňa',
+    weekday: '{{day}} Veľkého týždňa',
   },
   paschalTriduum: {
     season: 'Veľkonočné Triduum',
   },
   eastertide: {
     season: 'Veľkonočné obdobie',
-    feria: '{{day}} po {{week}} veľkonočnej nedeli',
+    weekday: '{{day}} po {{week}} veľkonočnej nedeli',
     sunday: '{{week}} veľkonočná nedeľa',
     octave: 'Veľkonočný {{day}}',
   },
