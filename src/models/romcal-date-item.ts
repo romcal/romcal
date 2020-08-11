@@ -1,6 +1,6 @@
 import dayjs, { Dayjs } from 'dayjs';
 import * as Dates from '@romcal/lib/Dates';
-import { ISO8601DateString, isNil } from '@romcal/utils/type-guards';
+import { isNil, ISO8601DateString } from '@romcal/utils/type-guards';
 import {
   LITURGICAL_FERIAL_CYCLES,
   LITURGICAL_SUNDAY_CYCLES,
@@ -10,7 +10,6 @@ import { RanksEnum } from '@romcal/enums/ranks.enum';
 import { LiturgicalPeriod, LiturgicalSeason } from '@romcal/types/seasons-and-periods.type';
 import { RomcalCycles, RomcalFerialCycle, RomcalSundayCycle } from '@romcal/types/liturgical-cycles.type';
 import { DateItemSources } from '@romcal/types/date-item-sources.type';
-import { LiturgicalColorsEnum } from '@romcal/enums/liturgical-colors.enum';
 import { RomcalDateItemCalendar } from '@romcal/types/date-item-calendar.type';
 import { RomcalDateItemMetadata } from '@romcal/types/date-item-metadata.type';
 import { RomcalLiturgicalColor } from '@romcal/types/liturgical-colors.type';
@@ -22,6 +21,7 @@ type RomcalBaseDateItem = {
   rank: RanksEnum;
   prioritized: boolean;
   liturgicalColors: RomcalLiturgicalColor[];
+  liturgicalColorNames: string[];
   seasons: LiturgicalSeason[];
   seasonNames: string[];
   periods: LiturgicalPeriod[];
@@ -31,11 +31,8 @@ type RomcalBaseDateItem = {
   base?: RomcalDateItem;
 };
 
-type RomcalDateItemArgs = Readonly<
-  Omit<RomcalBaseDateItem, 'date' | 'liturgicalColors'> & Partial<RomcalDateItemMetadata>
-> & {
+type RomcalDateItemArgs = Readonly<Omit<RomcalBaseDateItem, 'date'> & Partial<RomcalDateItemMetadata>> & {
   readonly date: Dayjs;
-  readonly liturgicalColors?: RomcalLiturgicalColor | RomcalLiturgicalColor[];
   readonly baseItem?: RomcalDateItem;
   readonly _stack: number;
 };
@@ -91,6 +88,10 @@ export class RomcalDateItem implements RomcalBaseDateItem {
    */
   public readonly liturgicalColors: RomcalLiturgicalColor[];
   /**
+   * The liturgical localized color of a celebration
+   */
+  public readonly liturgicalColorNames: string[];
+  /**
    * Season keys to which the celebration is a part.
    */
   public readonly seasons: LiturgicalSeason[];
@@ -136,6 +137,7 @@ export class RomcalDateItem implements RomcalBaseDateItem {
     rank,
     prioritized,
     liturgicalColors,
+    liturgicalColorNames,
     seasons,
     seasonNames,
     periods,
@@ -149,14 +151,11 @@ export class RomcalDateItem implements RomcalBaseDateItem {
     this.date = date.toISOString();
     this.rank = rank;
     this.prioritized = prioritized;
-    this.liturgicalColors = Array.isArray(liturgicalColors)
-      ? liturgicalColors
-      : liturgicalColors
-      ? [liturgicalColors]
-      : [LiturgicalColorsEnum.WHITE]; // todo: ...or compute default color instead of LiturgicalColorsEnum.WHITE
-    this.seasons = seasons || baseItem?.seasons;
-    this.seasonNames = seasonNames || baseItem?.seasonNames;
-    this.periods = periods || baseItem?.periods || [];
+    this.liturgicalColors = liturgicalColors;
+    this.liturgicalColorNames = liturgicalColorNames;
+    this.seasons = seasons;
+    this.seasonNames = seasonNames;
+    this.periods = periods;
     this.cycles = this.addLiturgicalCycleMetadata(calendar || baseItem?.calendar);
     this.calendar = calendar || baseItem?.calendar;
     this.metadata = typeof metadata === 'object' ? metadata : { titles: [] };
