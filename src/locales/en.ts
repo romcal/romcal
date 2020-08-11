@@ -205,7 +205,7 @@ export default {
     blessedOleksiyZarytskyiPriestAndMartyr: 'Blessed Oleksiy Zarytskyi, Priest and Martyr',
     blessedOsannaOfCattaroVirgin: 'Blessed Osanna of Cattaro, Virgin',
     blessedPeterKibePriestAndCompanionsMartyrs: 'Blessed Peter Kibe, Priest, and Companions, Martyrs',
-    blessedPeterToRotMartyr: 'Blessed Peter To Rot, Martyr',
+    blessedPeterToRotMartyr: 'Blessed Peter To Rot, Martyr',  // australia
     blessedPiusIxPope: 'Blessed Pius IX, Pope',
     blessedRafalChylinskiPriest: 'Blessed Rafal Chylinski, Priest',
     blessedSalomeVirgin: 'Blessed Salome, Virgin',
@@ -241,7 +241,7 @@ export default {
     hungarianSaintsAndBlesseds: 'Hungarian Saints and Blesseds',
     immaculateConceptionOfTheBlessedVirginMaryPrincipalPatronessOfThePhilippines: 'Immaculate Conception of the Blessed Virgin Mary, Principal Patroness of the Philippines',  // us
     maryMotherOfTheChurch: 'Blessed Virgin Mary, Mother of the Church',  // us, gb
-    ourLadyHelpOfChristians: 'Our Lady, Help of Christians',
+    ourLadyHelpOfChristians: 'Our Lady, Help of Christians',  // nz
     ourLadyMediatrix: 'Our Lady, Mediatrix',
     ourLadyMediatrixOfAllGrace: 'Our Lady, Mediatrix of All Grace',
     ourLadyMotherOfChristianUnity: 'Our Lady, Mother of Christian Unity',
@@ -395,7 +395,7 @@ export default {
     saintDemetrius: 'Saint Demetrius',
     saintDenisAndCompanionsMartyrs: 'Saint Denis, Bishop, and Companions, Martyrs',  // us
     saintDionysiusTheAreopagite: 'Saint Dionysius The Areopagite',
-    saintDominicPriest: 'Saint Dominic, Priest',  // us
+    saintDominicPriest: 'Saint Dominic, Priest',  // us, australia, nz
     saintDubriciusBishop: 'Saint Dyfrig, Bishop',  // gb (wales)
     saintEdmundCampionPriestAndMartyr: 'Saint Edmund Campion, Priest and Martyr',
     saintEdmundOfAbingdonBishop: 'Saint Edmund of Abingdon, Bishop',  // gb
@@ -571,7 +571,7 @@ export default {
     saintLeoTheGreatPopeAndDoctor: 'Saint Leo the Great, Pope and Doctor of the Church',  // us
     saintLouis: 'Saint Louis',  // us
     saintLouisBertrandPriest: 'Saint Louis Bertrand, Priest',
-    saintLouisMarieGrignionDeMontfortPriest: 'Saint Louis Grignion de Montfort, Priest',  // us; Was: `Saint Louis Marie Grignion de Montfort, Priest`, gb in en-GB
+    saintLouisMarieGrignionDeMontfortPriest: 'Saint Louis Grignion de Montfort, Priest',  // us; Was: `Saint Louis Marie Grignion de Montfort, Priest`, gb in en-GB, australia, nz
     saintLuciusOfChurBishopAndMartyr: 'Saint Lucius of Chur, Bishop and Martyr',
     saintLucyOfSyracuseVirginAndMartyr: 'Saint Lucy, Virgin and Martyr',  // us; Was: `Saint Lucy of Syracuse, Virgin and Martyr`
     saintLucyYiZhenmeiVirginAndMartyr: 'Saint Lucy Yi Zhenmei, Virgin and Martyr',
@@ -585,7 +585,7 @@ export default {
     saintMaelruainMaolruainVirgin: 'Saint Maelruain, Bishop and Abbot',  // ireland
     saintMagnusMartyr: 'Saint Magnus, Martyr',
     saintMalachyBishop: 'Saint Malachy, Bishop',  // ireland
-    saintMarcellinChampagnatPriest: 'Saint Marcellin Champagnat, Priest',
+    saintMarcellinChampagnatPriest: 'Saint Marcellin Champagnat, Priest',  // australia, nz
     saintMargaretMaryAlacoqueVirgin: 'Saint Margaret Mary Alacoque, Virgin',  // us
     saintMargaretOfAntiochVirginAndMartyr: 'Saint Margaret of Antioch, Virgin and Martyr',
     saintMargaretOfHungary: 'Saint Margaret of Hungary',
@@ -601,17 +601,17 @@ export default {
     saintMarieOfTheIncarnationReligious: 'Saint Marie of The Incarnation, Religious',
     saintMarina: 'Saint Marina',
     saintMarkoKrizinPriestAndMartyr: 'Saint Marko Krizin, Priest and Martyr',
-    saintMarkTheEvangelist: 'Saint Mark, Evangelist',  // us, gb
+    saintMarkTheEvangelist: 'Saint Mark, Evangelist',  // us, gb, australia, nz
     saintMaroun: 'Saint Maroun',
     saintMartha: 'Saint Martha',  // us, gb
     saintMartinDePorresReligious: 'Saint Martin de Porres, Religious',  // us
     saintMartinIPopeAndMartyr: 'Saint Martin I, Pope and Martyr',  // us
     saintMartinOfToursBishop: 'Saint Martin of Tours, Bishop',  // us
     saintMartinWuXueshengAndCompanionsMartyrs: 'Saint Martin Wu Xuesheng and Companions, Martyrs',
-    saintMaryMacKillopVirgin: 'Saint Mary MacKillop, Virgin',
+    saintMaryMacKillopVirgin: 'Saint Mary MacKillop, Virgin',  // australia
     saintMaryMagdalene: 'Saint Mary Magdalene',  // us, gb
     saintMaryMagdaleneDePazziVirgin: 'Saint Mary Magdalene de’ Pazzi, Virgin',  // us, gb (wales)
-    saintMaryOfTheCrossVirgin: 'Saint Mary of The Cross, Virgin',
+    saintMaryOfTheCrossVirgin: 'Saint Mary of the Cross MacKillop, Virgin',  // australia, nz
     saintMatilda: 'Saint Matilda',
     saintMatthewApostleAndEvangelist: 'Saint Matthew, Apostle and Evangelist',  // us
     saintMatthiasTheApostle: 'Saint Matthias, Apostle',  // us, gb
@@ -642,7 +642,7 @@ export default {
     saintPancrasMartyr: 'Saint Pancras, Martyr',  // us, gb
     saintPantaleon: 'Saint Pantaleon',
     saintPaschalBaylon: 'Saint Paschal Baylon',
-    saintPatrickBishop: 'Saint Patrick, Bishop',  // us, gb, scotland, ireland
+    saintPatrickBishop: 'Saint Patrick, Bishop',  // us, gb, scotland, ireland, australia
     saintPaulChenChangpinAndCompanionsMartyrs: 'Saint Paul Chen Changpin and Companions, Martyrs',
     saintPaulinaOfTheAgonizingHeartOfJesusVirgin: 'Saint Paulina of The Agonizing Heart of Jesus, Virgin',  // gb, but not in gb
     saintPaulinusOfNolaBishop: 'Saint Paulinus of Nola, Bishop',  // us, gb
@@ -650,7 +650,7 @@ export default {
     saintPaulinusOfYorkBishop: 'Saint Paulinus of York, Bishop',  // gb
     saintPaulIvPope: 'Saint Paul VI, Pope',  // us, gb
     saintPaulLiuHanzouPriestAndMartyr: 'Saint Paul Liu Hanzou, Priest and Martyr',
-    saintPaulMikiAndCompanionsMartyrs: 'Saint Paul Miki and Companions, Martyrs',  // us, gb
+    saintPaulMikiAndCompanionsMartyrs: 'Saint Paul Miki and Companions, Martyrs',  // us, gb, nz
     saintPaulOfTheCrossPriest: 'Saint Paul of the Cross, Priest',  // us
     saintPedroCalungsodMartyr: 'Saint Pedro Calungsod, Martyr',
     saintPelagiusMartyr: 'Saint Pelagius, Martyr',
@@ -718,7 +718,7 @@ export default {
     saintsJoachimAndAnne: 'Saints Joachim and Anne, Parents of the Blessed Virgin Mary',  // us; Was: `Saints Joachim and Anne`
     saintsJohnDeBrebeufIsaacJoguesPriestsAndCompanionsMartyrs: 'Saints John de Brébeuf and Isaac Jogues, Priests, and Companions, Martyrs',  // us
     saintsJohnDeBrebeufIsaacJoguesPriestsAndCompanionsMartyrsSecondaryPatronsOfCanada: 'Saints John de Brébeuf and Isaac Jogues, Priests, and Companions, Martyrs and Secondary Patrons of Canada',  // us, but not in us
-    saintsJohnFisherBishopAndThomasMoreMartyrs: 'Saints John Fisher, Bishop, and Thomas More, Martyrs',  // us
+    saintsJohnFisherBishopAndThomasMoreMartyrs: 'Saints John Fisher, Bishop, and Thomas More, Martyrs',  // us, australia
     saintsLouisVersigliaBishopAndCallistusCaravarioPriestMartyrs: 'Saints Louis Versiglia, Bishop and Callistus Caravario, Priest, Martyrs',
     saintsMarcellinusAndPeterMartyrs: 'Saints Marcellinus and Peter, Martyrs',  // us, gb
     saintsMargaretClitherowAnneLineAndMargaretWardMartyrs: 'Saints Margaret Clitherow, Anne Line and Margaret Ward, Virgin, Martyrs',  // gb
@@ -740,7 +740,7 @@ export default {
     saintStanislausKostkaReligious: 'Saint Stanislaus Kostka, Religious',
     saintStephenOfHungary: 'Saint Stephen of Hungary',  // us
     saintStephenTheFirstMartyr: 'Saint Stephen, the First Martyr',  // us
-    saintsTimothyAndTitusBishops: 'Saints Timothy and Titus, Bishops',  // us
+    saintsTimothyAndTitusBishops: 'Saints Timothy and Titus, Bishops',  // us, australia
     saintSunnivaVirginAndMartyr: 'Saint Sunniva, Virgin and Martyr',
     saintSwithunBishop: 'Saint Swithun, Bishop',
     saintSylvesterIPope: 'Saint Sylvester I, Pope',  // us
@@ -803,6 +803,6 @@ export default {
     transferOfTheRelicsOfSaintStephen: 'Transfer of The Relics of Saint Stephen',
     vietnameseMartyrs: 'Vietnamese Martyrs',
     visitationOfTheBlessedVirginMary: 'Visitation of the Blessed Virgin Mary',  // us
-    waitangiDay: 'Waitangi Day',
+    waitangiDay: 'Waitangi Day',  // nz
   },
 } as RomcalLocale;

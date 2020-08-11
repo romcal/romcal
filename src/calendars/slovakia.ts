@@ -198,12 +198,6 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-11-5`),
     },
     {
-      // This key is dropped only because of adding Optional Memorial of St Barbara to the same day
-      key: 'saintJohnDamascenePriestAndDoctor',
-      date: dayjs.utc(`${year}-12-4`),
-      drop: true,
-    },
-    {
       key: 'saintJohnDamascenePriestAndDoctor',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-12-4`),
