@@ -39,7 +39,7 @@ describe('Testing specific feasts and memorials', () => {
     test('Should be celebrated on the Monday after Pentecost', async () => {
       const dates = await Romcal.calendarFor(); // Get the calendar for the current year
       const pentecostSunday = Dates.pentecostSunday(dayjs.utc().year());
-      const maryMotherOfTheChurch = dates.find(d => d.key === 'maryMotherOfTheChurch');
+      const maryMotherOfTheChurch = dates.find((d) => d.key === 'maryMotherOfTheChurch');
       const dayBeforeMaryMotherOfTheChurch = dayjs.utc(maryMotherOfTheChurch?.date).subtract(1, 'day');
       expect(dayjs.utc(maryMotherOfTheChurch?.date).day()).toEqual(1);
       expect(dayBeforeMaryMotherOfTheChurch?.day()).toEqual(0);
@@ -63,7 +63,7 @@ describe('Testing specific feasts and memorials', () => {
   describe('The celebration of Saint Mary Magdalene', () => {
     test('Should be ranked as a feast and should be celebrated on the July 22', async () => {
       const dates = await Romcal.calendarFor(2017);
-      const saintMaryMagdalene = dates.find(d => {
+      const saintMaryMagdalene = dates.find((d) => {
         return d.key === 'saintMaryMagdalene';
       });
       expect(dayjs.utc(saintMaryMagdalene?.date).date()).toEqual(22);
@@ -76,8 +76,8 @@ describe('Testing specific feasts and memorials', () => {
     test('Should be celebrated as optional memorials', async () => {
       const dates = await Romcal.calendarFor({ year: 2016, outputOptionalMemorials: true });
 
-      const popeSaintJohnXXIII = dates.find(d => d.key === 'saintJohnXxiiiPope');
-      const popeSaintJohnPaulII = dates.find(d => d.key === 'saintJohnPaulIiPope');
+      const popeSaintJohnXXIII = dates.find((d) => d.key === 'saintJohnXxiiiPope');
+      const popeSaintJohnPaulII = dates.find((d) => d.key === 'saintJohnPaulIiPope');
 
       expect(popeSaintJohnXXIII?.rank).toEqual(RanksEnum.OPT_MEMORIAL);
       expect(popeSaintJohnPaulII?.rank).toEqual(RanksEnum.OPT_MEMORIAL);
@@ -90,7 +90,7 @@ describe('Testing specific feasts and memorials', () => {
         year: 2018,
         locale: 'sk',
       });
-      const theExaltationOfTheHolyCross = dates.find(d => {
+      const theExaltationOfTheHolyCross = dates.find((d) => {
         return d.key === 'theExaltationOfTheHolyCross';
       });
       expect(dayjs.utc(theExaltationOfTheHolyCross?.date).date()).toEqual(14);
@@ -99,13 +99,13 @@ describe('Testing specific feasts and memorials', () => {
   });
 
   describe('The Sunday of the Word of God', () => {
-    test('Should be celebrated on the 3rd Sunday of Ordinary Time as decreed by Pope Francis', async () => {
+    test('Should be celebrated on the 3rd Sunday of Ordinary Time', async () => {
       const dates = await Romcal.calendarFor(2020);
-      const sundayOfTheWordOfGod = dates.find(d => {
+      const sundayOfTheWordOfGod = dates.find((d) => {
         return d.key === 'sundayOfTheWordOfGod';
       });
-      const sundays = await Seasons.earlyOrdinaryTime(2020, 'o', false);
-      const thirdSundayOfOrdinaryTime = sundays.find(sunday => sunday.key === 'thirdSundayOfOrdinaryTime');
+      const sundays = await Seasons.earlyOrdinaryTime(2020, false);
+      const thirdSundayOfOrdinaryTime = sundays.find((sunday) => sunday.key === 'thirdSundayOfOrdinaryTime');
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       expect(thirdSundayOfOrdinaryTime!.date.isSame(sundayOfTheWordOfGod!.date)).toBeTruthy();
     });

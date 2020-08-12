@@ -367,6 +367,7 @@ export default {
     sevenHolyFoundersOfTheServiteOrder: 'Saint Alexis Falconieri et les fondateurs des Servites (✝ 1310)',
     shroveMonday: 'Lundi gras',
     shroveTuesday: 'Mardi gras',
+    sundayOfTheWordOfGod: 'Dimanche de la Parole de Dieu',
     theBeheadingOfSaintJohnTheBaptistMartyr: 'Martyre de Saint Jean-Baptiste',
     theMostHolyNameOfJesus: 'Saint Nom de Jésus',
     visitationOfTheBlessedVirginMary: 'Visitation de la Vierge Marie',
