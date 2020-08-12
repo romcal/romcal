@@ -9,10 +9,15 @@ import { RANKS } from '@romcal/constants/ranks.constant';
 import { RanksEnum } from '@romcal/enums/ranks.enum';
 import _ from 'lodash';
 import { Country } from '@romcal/types/country.type';
-import { RomcalCycles } from '@romcal/types/liturgical-cycles.type';
+import {
+  isCelebrationCycle,
+  RomcalCycles,
+  RomcalSundayCycle,
+  RomcalWeekdayCycle,
+} from '@romcal/types/liturgical-cycles.type';
 import { LiturgicalPeriod, LiturgicalSeason } from '@romcal/types/seasons-and-periods.type';
 
-import dayjs from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
 import { RomcalDateItemCalendar } from '@romcal/types/date-item-calendar.type';
@@ -22,6 +27,12 @@ import { localize } from '@romcal/lib/Locales';
 import { TITLES } from '@romcal/constants/titles.constant';
 import { LiturgicalColorsEnum } from '@romcal/enums/liturgical-colors.enum';
 import { SeasonsEnum } from '@romcal/enums/seasons-and-periods.enum';
+import {
+  CelebrationsCycle,
+  PSALTER_WEEKS,
+  SUNDAY_CYCLES,
+  WEEKDAY_CYCLES,
+} from '@romcal/constants/liturgical-cycles.constant';
 
 dayjs.extend(isSameOrAfter);
 dayjs.extend(isSameOrBefore);
@@ -210,6 +221,7 @@ export class Calendar {
             liturgicalColors,
             metadata?.titles || [],
           );
+          const validatedCalendar = (calendar || baseItem?.calendar) as Required<RomcalDateItemCalendar>;
 
           // Create a new DateItem and add it to the collection
           this.dateItems.push(
@@ -222,8 +234,8 @@ export class Calendar {
               seasons: validatedSeasons,
               seasonNames: validatedSeasonNames,
               periods: validatedPeriods,
-              cycles: cycles as Required<RomcalCycles>,
-              calendar: calendar as Required<RomcalDateItemCalendar>,
+              cycles: Calendar.addLiturgicalCycleMetadata(date, validatedCalendar, cycles),
+              calendar: validatedCalendar,
               fromCalendar,
               liturgicalColors: validatedLiturgicalColors,
               liturgicalColorNames: await this.localizeLiturgicalColors(validatedLiturgicalColors),
@@ -464,5 +476,49 @@ export class Calendar {
     );
     const contextualizedDates: Array<RomcalDateItemInput> = await dates(config);
     return await Promise.all(contextualizedDates);
+  }
+
+  /**
+   * Include liturgical cycle metadata corresponding to the liturgical year.
+   */
+  private static addLiturgicalCycleMetadata(
+    date: Dayjs,
+    calendar: RomcalDateItemCalendar,
+    cycle: Partial<RomcalCycles> = {},
+  ): RomcalCycles {
+    // Check existing celebration cycle,
+    // otherwise set the celebrationCycle to SANCTORALE as a default value
+    const celebrationCycle =
+      !isNil(cycle.celebrationCycle) && isCelebrationCycle(cycle.celebrationCycle)
+        ? cycle.celebrationCycle
+        : CelebrationsCycle.SANCTORALE;
+
+    const year = dayjs(calendar.startOfLiturgicalYear).year();
+    const firstSundayOfAdvent = Dates.firstSundayOfAdvent(year);
+
+    let sundayCycle: RomcalSundayCycle;
+    let weekdayCycle: RomcalWeekdayCycle;
+
+    // Formula to calculate Sunday cycle (Year A, B, C)
+    const thisSundayCycleIndex: number = (year - 1963) % 3;
+    const nextSundayCycleIndex: number = thisSundayCycleIndex === 2 ? 0 : thisSundayCycleIndex + 1;
+
+    // If the date is on or after the First Sunday of Advent,
+    // it is the next liturgical cycle
+    if (date.isSameOrAfter(firstSundayOfAdvent)) {
+      sundayCycle = SUNDAY_CYCLES[nextSundayCycleIndex];
+      weekdayCycle = WEEKDAY_CYCLES[year % 2];
+    } else {
+      sundayCycle = SUNDAY_CYCLES[thisSundayCycleIndex];
+      weekdayCycle = WEEKDAY_CYCLES[(year + 1) % 2];
+    }
+
+    // Psalter week cycle restart to 1 at the beginning of each season.
+    // Except during the four first days of lent (ash wednesday to the next saturday),
+    // which are in week 4, to start on week 1 after the first sunday of lent.
+    const weekIndex = (calendar.weekOfSeason % 4) - 1;
+    const psalterWeek = PSALTER_WEEKS[weekIndex > -1 ? weekIndex : 3];
+
+    return { celebrationCycle, sundayCycle, weekdayCycle: weekdayCycle, psalterWeek };
   }
 }

@@ -104,19 +104,6 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       date: dayjs.utc(`${year}-6-8`), // 8th of June
       liturgicalColors: LiturgicalColorsEnum.WHITE, // What is the Liturgical color for this?
     },
-    // Moved to the congregational calendar (Society of Saint Francis de Sales (Salesian Congregation)
-    // {
-    //   "key": "blessedIstvanSandorMartyr",
-    //   "rank": TypesEnum.OPT_MEMORIAL,
-    //   "date": dayjs.utc({ year, month: 5, day: 8 }),
-    //   "data": {
-    //     "meta": {
-    //       "titles": [
-    //         TITLES.MARTYR
-    //       ]
-    //     }
-    //   }
-    // },
     {
       key: 'saintLadislaus',
       rank: RanksEnum.FEAST,
