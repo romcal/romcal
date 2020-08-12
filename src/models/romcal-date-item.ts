@@ -1,14 +1,8 @@
-import dayjs, { Dayjs } from 'dayjs';
-import * as Dates from '@romcal/lib/Dates';
+import { Dayjs } from 'dayjs';
 import { isNil, ISO8601DateString } from '@romcal/utils/type-guards';
-import {
-  LITURGICAL_WEEKDAY_CYCLES,
-  LITURGICAL_SUNDAY_CYCLES,
-  PSALTER_WEEKS,
-} from '@romcal/constants/liturgical-cycles.constant';
 import { RanksEnum } from '@romcal/enums/ranks.enum';
 import { LiturgicalPeriod, LiturgicalSeason } from '@romcal/types/seasons-and-periods.type';
-import { RomcalCycles, RomcalWeekdayCycle, RomcalSundayCycle } from '@romcal/types/liturgical-cycles.type';
+import { RomcalCycles } from '@romcal/types/liturgical-cycles.type';
 import { DateItemSources } from '@romcal/types/date-item-sources.type';
 import { RomcalDateItemCalendar } from '@romcal/types/date-item-calendar.type';
 import { RomcalDateItemMetadata } from '@romcal/types/date-item-metadata.type';
@@ -47,9 +41,10 @@ type RomcalDateItemArgs = Readonly<Omit<RomcalBaseDateItem, 'date'> & Partial<Ro
  * should not be used in consumer applications.
  */
 export type RomcalDateItemInput = Pick<RomcalBaseDateItem, 'key'> &
-  Partial<Omit<RomcalBaseDateItem, 'key' | 'date' | 'liturgicalColors'>> & {
+  Partial<Omit<RomcalBaseDateItem, 'key' | 'date' | 'liturgicalColors' | 'cycles'>> & {
     date: Dayjs;
     liturgicalColors?: RomcalLiturgicalColor | RomcalLiturgicalColor[];
+    cycles?: Partial<RomcalCycles>;
     /**
      * The source of the date item.
      *
@@ -147,6 +142,7 @@ export class RomcalDateItem implements RomcalBaseDateItem {
     seasons,
     seasonNames,
     periods,
+    cycles,
     calendar,
     fromCalendar,
     metadata,
@@ -163,8 +159,8 @@ export class RomcalDateItem implements RomcalBaseDateItem {
     this.seasons = seasons;
     this.seasonNames = seasonNames;
     this.periods = periods;
-    this.cycles = this.addLiturgicalCycleMetadata(calendar || baseItem?.calendar);
-    this.calendar = calendar || baseItem?.calendar;
+    this.cycles = cycles;
+    this.calendar = calendar;
     this.fromCalendar = fromCalendar;
     this.metadata = typeof metadata === 'object' ? metadata : { titles: [] };
 
@@ -202,48 +198,6 @@ export class RomcalDateItem implements RomcalBaseDateItem {
         this.rank = RanksEnum.COMMEMORATION;
       }
     }
-  }
-
-  /**
-   * Include liturgical cycle metadata corresponding to the liturgical year.
-   */
-  private addLiturgicalCycleMetadata(calendar: RomcalDateItemCalendar): RomcalCycles {
-    const year = this.getLiturgicalStartYear();
-    const firstSundayOfAdvent = Dates.firstSundayOfAdvent(year);
-
-    let sundayCycle: RomcalSundayCycle;
-    let weekdayCycle: RomcalWeekdayCycle;
-
-    // Formula to calculate Sunday cycle (Year A, B, C)
-    const thisSundayCycleIndex: number = (year - 1963) % 3;
-    const nextSundayCycleIndex: number = thisSundayCycleIndex === 2 ? 0 : thisSundayCycleIndex + 1;
-
-    // If the date is on or after the First Sunday of Advent,
-    // it is the next liturgical cycle
-    if (dayjs.utc(this.date).isSameOrAfter(firstSundayOfAdvent)) {
-      sundayCycle = LITURGICAL_SUNDAY_CYCLES[nextSundayCycleIndex];
-      weekdayCycle = LITURGICAL_WEEKDAY_CYCLES[year % 2];
-    } else {
-      sundayCycle = LITURGICAL_SUNDAY_CYCLES[thisSundayCycleIndex];
-      weekdayCycle = LITURGICAL_WEEKDAY_CYCLES[(year + 1) % 2];
-    }
-
-    // Psalter week cycle restart to 1 at the beginning of each season.
-    // Except during the four first days of lent (ash wednesday to the next saturday),
-    // which are in week 4, to start on week 1 after the first sunday of lent.
-    const weekIndex = (calendar.weekOfSeason % 4) - 1;
-    const psalterWeek = PSALTER_WEEKS[weekIndex > -1 ? weekIndex : 3];
-
-    return { sundayCycle, weekdayCycle: weekdayCycle, psalterWeek };
-  }
-
-  /**
-   * Get the liturgical starting year from a DateItem
-   */
-  private getLiturgicalStartYear(): number {
-    const currentYear = dayjs.utc(this.date).year();
-    const firstSundayOfAdvent = Dates.firstSundayOfAdvent(currentYear);
-    return dayjs.utc(this.date).isBefore(firstSundayOfAdvent) ? currentYear - 1 : currentYear;
   }
 
   /**

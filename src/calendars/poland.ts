@@ -7,6 +7,7 @@ import { RomcalDateItemInput } from '@romcal/models/romcal-date-item';
 import { rangeOfDays, rangeContainsDate } from '@romcal/utils/dates';
 import Config, { IRomcalDefaultConfig } from '@romcal/models/romcal-config';
 import { RanksEnum } from '@romcal/enums/ranks.enum';
+import { CelebrationsCycle } from '@romcal/constants/liturgical-cycles.constant';
 
 const defaultConfig: IRomcalDefaultConfig | undefined = undefined;
 
@@ -495,12 +496,14 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       date: ((y: number): dayjs.Dayjs => Dates.pentecostSunday(y).add(1, 'day'))(year),
       liturgicalColors: LiturgicalColorsEnum.WHITE,
       prioritized: true,
+      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
     },
     {
       key: 'ourLordJesusChristTheEternalHighPriest',
       rank: RanksEnum.FEAST,
       date: ((y: number): dayjs.Dayjs => dayjs.utc(Dates.pentecostSunday(y).add(4, 'day').toISOString()))(year),
       liturgicalColors: LiturgicalColorsEnum.WHITE,
+      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
     },
   ];
 

@@ -14,6 +14,7 @@ import weekOfYear from 'dayjs/plugin/weekOfYear';
 import isoWeeksInYear from 'dayjs/plugin/isoWeeksInYear';
 import isLeapYear from 'dayjs/plugin/isLeapYear';
 import { RomcalLiturgicalColor } from '@romcal/types/liturgical-colors.type';
+import { CelebrationsCycle } from '@romcal/constants/liturgical-cycles.constant';
 
 dayjs.extend(isoWeeksInYear);
 dayjs.extend(isLeapYear);
@@ -119,6 +120,7 @@ const _epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<R
             weekOfSeason: getWeekOfChristmastide(date),
             dayOfSeason: 9 + i,
           }),
+          cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
         } as RomcalDateItemInput),
     ),
   );
@@ -163,6 +165,7 @@ const _epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<R
             weekOfSeason: getWeekOfChristmastide(date),
             dayOfSeason: date.date() + 7,
           }),
+          cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
         } as RomcalDateItemInput),
     ),
   );
@@ -208,6 +211,7 @@ const _holyWeek = async (year: number): Promise<Array<RomcalDateItemInput>> => {
         weekOfSeason: 6,
         dayOfSeason: 40 + i,
       }),
+      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
     } as RomcalDateItemInput;
   });
   return await Promise.all(datesPromise);
@@ -262,6 +266,7 @@ const advent = async (year: number): Promise<Array<RomcalDateItemInput>> => {
         weekOfSeason: Math.floor(i / 7) + 1,
         dayOfSeason: i + 1,
       }),
+      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
     } as RomcalDateItemInput;
   });
   let items: Array<RomcalDateItemInput> = await Promise.all(daysOfAdventPromise);
@@ -317,6 +322,7 @@ const christmastide = async (year: number, epiphanyOnSunday = true): Promise<Arr
         weekOfSeason: getWeekOfChristmastide(date),
         dayOfSeason: i + 1,
       }),
+      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
     } as RomcalDateItemInput;
   });
   const daysOfChristmastide: Array<RomcalDateItemInput> = await Promise.all(datesOfChristmastidePromise);
@@ -339,6 +345,7 @@ const christmastide = async (year: number, epiphanyOnSunday = true): Promise<Arr
         weekOfSeason: getWeekOfChristmastide(date),
         dayOfSeason: i + 1,
       }),
+      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
     } as RomcalDateItemInput;
   });
   const daysInTheOctaveOfChristmas: Array<RomcalDateItemInput> = await Promise.all(datesInTheOctaveOfChristmasPromise);
@@ -417,6 +424,7 @@ const earlyOrdinaryTime = async (year: number, epiphanyOnSunday = true): Promise
           weekOfSeason: week,
           dayOfSeason: (week - 1) * 7 + date.day(),
         }),
+        cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
       } as RomcalDateItemInput;
     },
   );
@@ -478,6 +486,7 @@ const laterOrdinaryTime = async (year: number): Promise<Array<RomcalDateItemInpu
           weekOfSeason: week,
           dayOfSeason: (week - 2) * 7 - 5 + date.day(),
         }),
+        cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
       } as RomcalDateItemInput;
     });
   let days: Array<RomcalDateItemInput> = await Promise.all(daysOfLaterOrdinaryTimePromise);
@@ -531,6 +540,7 @@ const lent = async (year: number): Promise<Array<RomcalDateItemInput>> => {
         weekOfSeason: week,
         dayOfSeason: i + 1,
       }),
+      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
     } as RomcalDateItemInput;
   });
   const weekdays = await Promise.all(daysOfLentPromise);
@@ -558,6 +568,7 @@ const lent = async (year: number): Promise<Array<RomcalDateItemInput>> => {
         weekOfSeason: i + 1,
         dayOfSeason: i * 7 + 5,
       }),
+      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
     } as RomcalDateItemInput;
   });
   const sundays = await Promise.all(sundaysOfLentPromise);
@@ -627,6 +638,7 @@ const eastertide = async (year: number): Promise<Array<RomcalDateItemInput>> => 
         weekOfSeason: week,
         dayOfSeason: (week - 1) * 7 + 1 + date.day(),
       }),
+      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
     } as RomcalDateItemInput;
   });
   const days: Array<RomcalDateItemInput> = await Promise.all(weekdaysOfEasterPromise);
@@ -649,6 +661,7 @@ const eastertide = async (year: number): Promise<Array<RomcalDateItemInput>> => 
         weekOfSeason: i + 1,
         dayOfSeason: i * 7 + 1 + date.day(),
       }),
+      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
     } as RomcalDateItemInput;
   });
   const sundays: Array<RomcalDateItemInput> = await Promise.all(sundaysOfEasterPromise);
