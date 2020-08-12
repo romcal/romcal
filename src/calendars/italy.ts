@@ -77,11 +77,6 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
       date: dayjs.utc(`${year}-10-4`),
       liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
-    {
-      key: 'maryMotherOfTheChurch',
-      rank: RanksEnum.MEMORIAL,
-      date: ((y: number): dayjs.Dayjs => Dates.pentecostSunday(y).add(1, 'day'))(year),
-    },
   ];
 
   // Get localized celebration names

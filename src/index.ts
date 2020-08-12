@@ -85,11 +85,7 @@ import { hasKey } from '@romcal/utils/object';
 import { COUNTRIES } from '@romcal/constants/country-list.constant';
 import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant';
 import { LiturgicalColors } from '@romcal/types/liturgical-colors.type';
-import {
-  LITURGICAL_SUNDAY_CYCLES,
-  LITURGICAL_WEEKDAY_CYCLES,
-  PSALTER_WEEKS,
-} from '@romcal/constants/liturgical-cycles.constant';
+import { SUNDAY_CYCLES, WEEKDAY_CYCLES, PSALTER_WEEKS } from '@romcal/constants/liturgical-cycles.constant';
 import { LITURGICAL_SEASONS } from '@romcal/constants/seasons-and-periods.constant';
 import { QUERY_TYPES } from '@romcal/constants/query-types.constant';
 import { TITLES } from '@romcal/constants/titles.constant';
@@ -286,8 +282,8 @@ export {
 export {
   COUNTRIES,
   LITURGICAL_COLORS,
-  LITURGICAL_SUNDAY_CYCLES,
-  LITURGICAL_WEEKDAY_CYCLES,
+  SUNDAY_CYCLES,
+  WEEKDAY_CYCLES,
   PSALTER_WEEKS,
   LITURGICAL_SEASONS,
   QUERY_TYPES,
