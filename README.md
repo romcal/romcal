@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href="https://github.com/romcal/romcal-api">
+  <a href="https://github.com/romcal/romcal">
     <img alt="romcal" src="https://user-images.githubusercontent.com/1045997/89793747-854ede00-db26-11ea-8e46-837ab4ca0a96.png">
   </a>
 </h1>
@@ -14,19 +14,19 @@
 
 <p align="center">
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/romcal/romcal?color=blue&style=flat-square"></a>
-  <a href="https://www.npmjs.com/package/romcal"><img alt="Downloads" src="https://img.shields.io/npm/dm/romcal?color=blue&style=flat-square"></a>
+  <a href="https://www.npmjs.com/package/romcal" target="_blank" rel="noopener noreferrer"><img alt="Downloads" src="https://img.shields.io/npm/dm/romcal?color=blue&style=flat-square"></a>
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/romcal/v/latest"><img alt="latest" src="https://img.shields.io/npm/v/romcal/latest?style=flat-square&logo=npm"></a>
-  <a href="https://www.npmjs.com/package/romcal/v/beta"><img alt="beta" src="https://img.shields.io/npm/v/romcal/beta?style=flat-square&logo=npm"></a>
-  <a href="https://www.npmjs.com/package/romcal/v/alpha"><img alt="alpha" src="https://img.shields.io/npm/v/romcal/alpha?style=flat-square&logo=npm"></a>
+  <a href="https://www.npmjs.com/package/romcal/v/latest" target="_blank" rel="noopener noreferrer"><img alt="latest" src="https://img.shields.io/npm/v/romcal/latest?style=flat-square&logo=npm"></a>
+  <a href="https://www.npmjs.com/package/romcal/v/beta" target="_blank" rel="noopener noreferrer"><img alt="beta" src="https://img.shields.io/npm/v/romcal/beta?style=flat-square&logo=npm"></a>
+  <a href="https://www.npmjs.com/package/romcal/v/alpha" target="_blank" rel="noopener noreferrer"><img alt="alpha" src="https://img.shields.io/npm/v/romcal/alpha?style=flat-square&logo=npm"></a>
 </p>
 
 <p align="center">
-  <a href="https://travis-ci.org/romcal/romcal/branches"><img alt="prod" src="https://img.shields.io/travis/romcal/romcal.svg?label=master&style=flat-square&logo=travis"></a>
-  <a href="https://travis-ci.org/romcal/romcal/branches"><img alt="test" src="https://img.shields.io/travis/romcal/romcal.svg?label=test&style=flat-square&logo=travis"></a>
-  <a href="https://travis-ci.org/romcal/romcal/branches"><img alt="dev" src="https://img.shields.io/travis/romcal/romcal.svg?label=dev&style=flat-square&logo=travis"></a>
+  <a href="https://travis-ci.org/romcal/romcal/branches" target="_blank" rel="noopener noreferrer"><img alt="master" src="https://img.shields.io/travis/romcal/romcal.svg?label=master&style=flat-square&logo=travis"></a>
+  <a href="https://travis-ci.org/romcal/romcal/branches" target="_blank" rel="noopener noreferrer"><img alt="test" src="https://img.shields.io/travis/romcal/romcal.svg?label=test&style=flat-square&logo=travis"></a>
+  <a href="https://travis-ci.org/romcal/romcal/branches" target="_blank" rel="noopener noreferrer"><img alt="dev" src="https://img.shields.io/travis/romcal/romcal.svg?label=dev&style=flat-square&logo=travis"></a>
 </p>
 
 ## Documentation
@@ -64,13 +64,13 @@ romcal generates the liturgical calendar of the Catholic Church used by the Roma
 Output conforms to the revised liturgical calendar as approved by Paul VI in [Mysterii Paschalis](http://www.romcal.net/mysterii.html) dated 14 February 1969.
 
 - :date: **Perpetual calendar:**<br> romcal allow querying liturgical dates for any year in the Gregorian calendar.
-Note that dates for years before 1969 will still be returned in a format conforming to the calendar reforms of 1969, even though those years came before this calendar reform.
+  Note that dates for years before 1969 will still be returned in a format conforming to the calendar reforms of 1969, even though those years came before this calendar reform.
 
-- :gear: **Configure and refine output:**<br> output can be configured for the standard calendar year (Jan 1st - Dec 31st) or the liturgical year (First Sunday of Advent - Christ the King).
-You can filter queries to allow more streamlined date results to be obtained for the year. Additional output options are described below in the usage section.
+- :gear: **Configure and refine output:**<br> output can be configured for the standard calendar year (`Jan 1` to `Dec 31`) or the liturgical year (`First Sunday of Advent` to `Christ the King`).
+  You can filter queries to allow more streamlined date results to be obtained for the year. Additional output options are described below in the usage section.
 
-- :globe_with_meridians: **i18n, localization and calendars:**<br> romcal aims to have liturgical date names in all your preferred languages, and for any liturgical calendars (national, diocesan...).
-You are more than welcome to contribute, add new localization, and improve the quality of this library!
+- :globe_with_meridians: **i18n, localization and calendars:**<br> romcal aims to have your liturgical calendars and contents in your native language, and support various liturgical calendars (national, diocesan...).
+  You are more than welcome to contribute, add new localization, and improve the quality of this library!
 
 ## Install
 
@@ -117,10 +117,10 @@ import romcal from 'romcal';
 or in a webpage for direct usage on browsers:
 
 ```html
-<script type="text/javascript" src="romcal.bundle.min.js"></script>
+<script type="text/javascript" src="node_modules/romcal/dist/es5/romcal.bundle.min.js"></script>
 ```
 
-Including romcal directly in the browser will result in an object called Romcal being attached to the DOM window object.
+Including romcal directly in the browser will result in an object called `romcal` being attached to the DOM `window` object.
 All the functions below will exist as properties of the Romcal object.
 
 Invoke the `calendarFor` method to retrieve an array of liturgical dates and celebrations in the Roman Calendar.
@@ -184,6 +184,7 @@ This produces an array of date item objects (one date item per each day of the y
 ```
 
 For further information:
+
 - :books: [Output data and JSON schema](docs/data-output.md).
 - :books: [Manipulate and refining data results](/docs/refining-data-results.md).
 
@@ -193,6 +194,7 @@ romcal is an open source project, this means you are more than welcome to contri
 Especially to find bugs or write new tests, verify or complete calendars, or pull new localization.
 
 To jump into romcal’s codebase more easily, you might be interested in reading:
+
 - :books: [Contributing Guide](CONTRIBUTING.md).
 - :books: [Install, Build, Run and Test romcal locally](docs/contribute-to-romcal.md).
 - :books: [Localization](/docs/localization.md).
