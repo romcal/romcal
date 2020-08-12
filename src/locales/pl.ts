@@ -376,6 +376,7 @@ export default {
     sevenHolyFoundersOfTheServiteOrder: 'Świętych siedmiu założycieli Zakonu Serwitów Najświętszej Maryi Panny',
     sevenMartyredNunsFromTheFranciscanMissionariesOfMary:
       'Siedmiu męcznnic ze Zgromadzenia Franciszkanek Misjonarek Maryi',
+    sundayOfTheWordOfGod: 'Niedzielę Słowa Bożego',
     theBeheadingOfSaintJohnTheBaptistMartyr: 'Męczeństwo św. Jana Chrzciciela',
     theMostHolyNameOfJesus: 'Najświętszego Imienia Jezus',
     visitationOfTheBlessedVirginMary: 'Nawiedzenie Najświętszej Maryi Panny',

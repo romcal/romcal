@@ -1,4 +1,4 @@
-import dayjs from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
 
 import * as Dates from '@romcal/lib/Dates';
 import * as Locales from '@romcal/lib/Locales';
@@ -98,17 +98,15 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
     {
       key: 'sundayOfTheWordOfGod',
       rank: RanksEnum.SUNDAY,
-      date: await (async (y: number): Promise<dayjs.Dayjs> => {
-        const sundays = await Seasons.earlyOrdinaryTime(y, config.epiphanyOnSunday);
-        const thirdSundayOfOrdinaryTime = sundays.find((sunday) => sunday.key === 'thirdSundayOfOrdinaryTime');
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        return thirdSundayOfOrdinaryTime!.date;
+      date: await (async (y: number): Promise<Dayjs> => {
+        const firstDayOfOT = dayjs((await Seasons.earlyOrdinaryTime(y, config.epiphanyOnSunday))[0].date);
+        return firstDayOfOT.add(2, 'week').startOf('week');
       })(year),
       liturgicalColors: LiturgicalColorsEnum.GREEN,
       cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
     },
     // The proper color for the Chair of Peter (Feast, Feb 22) and the Conversion of
-    //cSt. Paul (Feast, Jan 25) is white, although both St. Peter and St. Paul
+    // St. Paul (Feast, Jan 25) is white, although both St. Peter and St. Paul
     // were martyrs.
     {
       key: 'conversionOfSaintPaulApostle',
@@ -689,8 +687,8 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
     // It will be celebrated on Monday after Pentecost.
     {
       key: 'maryMotherOfTheChurch',
-      rank: RanksEnum.MEMORIAL, // Memorial
-      date: ((y: number): dayjs.Dayjs => Dates.pentecostSunday(y).add(1, 'day'))(year),
+      rank: RanksEnum.MEMORIAL,
+      date: ((y: number): Dayjs => Dates.pentecostSunday(y).add(1, 'day'))(year),
       liturgicalColors: LiturgicalColorsEnum.WHITE,
       prioritized: true,
       cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
