@@ -44,7 +44,7 @@ describe('Testing the "drop" functionality for national calendars', () => {
   });
 
   test('A dropped celebration should not be appended in the final calendar', () => {
-    const date = testDates.find(d => {
+    const date = testDates.find((d) => {
       return dayjs.utc(d.date).isSame(dayjs.utc('2020-12-4'));
     });
     expect(date?.key).not.toEqual('saintJohnDamascenePriestAndDoctor');

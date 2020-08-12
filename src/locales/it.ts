@@ -289,6 +289,7 @@ export default {
     saintVincentFerrerPriest: 'San Vincenzo Ferrer, sacerdote',
     saintWenceslausMartyr: 'San Venceslao, martire',
     sevenHolyFoundersOfTheServiteOrder: 'Santi Sette Fondatori dei Servi della Beata Vergine Maria',
+    sundayOfTheWordOfGod: 'Domenica della Parola di Dio',
     theBeheadingOfSaintJohnTheBaptistMartyr: 'Martirio di San Giovanni Battista',
     theMostHolyNameOfJesus: 'Santissimo Nome di Gesú',
     visitationOfTheBlessedVirginMary: 'Visitazione della Beata Vergine Maria',
