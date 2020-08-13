@@ -17,7 +17,7 @@ describe('getConfig()', () => {
       outputOptionalMemorials,
     } = new RomcalConfig(resolvedConfig);
     expect(year).toBe(dayjs.utc().year());
-    expect(scope).toBe('calendar');
+    expect(scope).toBe('gregorian');
     expect(query).toBeUndefined();
     expect(locale).toBe('en');
     expect(epiphanyOnSunday).toBeTrue();

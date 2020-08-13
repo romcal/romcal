@@ -26,7 +26,7 @@ export const getRomcalConfigJsonSchema = (): Schema => ({
     corpusChristiOnSunday: { type: 'boolean' },
     ascensionOnSunday: { type: 'boolean' },
     outputOptionalMemorials: { type: 'boolean' },
-    type: { type: 'string', enum: ['calendar', 'liturgical'] },
+    type: { type: 'string', enum: ['gregorian', 'liturgical'] },
     query: { $ref: '/romcalQueryJsonSchema' },
   },
 });
