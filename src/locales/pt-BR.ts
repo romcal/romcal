@@ -1,4 +1,4 @@
-import { RomcalLocale } from '@romcal/models/romcal-locale';
+import { RomcalLocale } from '@romcal/models/romcal-locale/romcal-locale';
 
 export default {
   advent: {

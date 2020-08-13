@@ -1,6 +1,6 @@
 import { Schema, Validator } from 'jsonschema';
-import { RANKS } from '@romcal/constants/ranks.constant';
-import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant';
+import { RANKS } from '@romcal/constants/ranks/ranks.constant';
+import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors/liturgical-colors.constant';
 
 export const getDateItemJsonSchema = (): Schema => ({
   id: '/dateItem',

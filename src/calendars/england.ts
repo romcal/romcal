@@ -1,55 +1,55 @@
 import dayjs from 'dayjs';
 import * as Locales from '@romcal/lib/Locales';
 import * as Dates from '@romcal/lib/Dates';
-import { LiturgicalColorsEnum } from '@romcal/enums/liturgical-colors.enum';
-import { TITLES } from '@romcal/constants/titles.constant';
-import { RomcalDateItemInput } from '@romcal/models/romcal-date-item';
-import { rangeOfDays, rangeContainsDate } from '@romcal/utils/dates';
-import Config, { IRomcalDefaultConfig } from '@romcal/models/romcal-config';
-import { RanksEnum } from '@romcal/enums/ranks.enum';
+import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
+import { RomcalDateItemInput } from '@romcal/models/romcal-date-item/romcal-date-item.model';
+import { rangeOfDays, rangeContainsDate } from '@romcal/utils/dates/dates';
+import RomcalConfig, { RomcalConfigInCalendarDef } from '@romcal/models/romcal-config/romcal-config.model';
+import { Ranks } from '@romcal/constants/ranks/ranks.enum';
+import { Titles } from '@romcal/constants/titles/titles.enum';
 
-const defaultConfig: IRomcalDefaultConfig | undefined = undefined;
+const defaultConfig: RomcalConfigInCalendarDef | undefined = undefined;
 
-const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
+const dates = async (config: RomcalConfig): Promise<Array<RomcalDateItemInput>> => {
   const year = config.year;
   const _dates: Array<RomcalDateItemInput> = [
     {
       key: 'saintAelredOfRievaulx',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-12`),
     },
     {
       key: 'saintWulstanBishop',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-19`),
     },
     {
       key: 'saintsCyrilMonkAndMethodiusBishop',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-2-14`),
-      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      liturgicalColors: LiturgicalColors.WHITE,
       metadata: {
-        titles: [TITLES.PATRON_OF_EUROPE],
+        titles: [Titles.PATRON_OF_EUROPE],
       },
     },
     {
       key: 'saintDavidBishop',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-3-1`),
-      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      liturgicalColors: LiturgicalColors.WHITE,
     },
     {
       key: 'saintPatrickBishop',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-3-17`),
-      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      liturgicalColors: LiturgicalColors.WHITE,
     },
     // When the celebration falls in the Easter Triduum, on a Sunday of Easter,
     // or in the Easter Octave it is transferred to the next available day —
     // generally the Monday of the Second Week of Easter.
     {
       key: 'saintGeorgeMartyr',
-      rank: RanksEnum.SOLEMNITY,
+      rank: Ranks.SOLEMNITY,
       date: ((y: number): dayjs.Dayjs => {
         const holyWeekDates = Dates.holyWeek(y);
         const [firstDateInHolyWeek] = holyWeekDates;
@@ -83,177 +83,177 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
     },
     {
       key: 'saintAdalbertBishopAndMartyr',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-4-24`),
-      liturgicalColors: LiturgicalColorsEnum.RED,
+      liturgicalColors: LiturgicalColors.RED,
       metadata: {
-        titles: [TITLES.MARTYR],
+        titles: [Titles.MARTYR],
       },
     },
     {
       key: 'saintFidelisOfSigmaringenPriestAndMartyr',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-4-24`),
-      liturgicalColors: LiturgicalColorsEnum.RED,
+      liturgicalColors: LiturgicalColors.RED,
       metadata: {
-        titles: [TITLES.MARTYR],
+        titles: [Titles.MARTYR],
       },
     },
     {
       key: 'saintCatherineOfSienaVirginAndDoctorOfTheChurch',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-4-29`),
-      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      liturgicalColors: LiturgicalColors.WHITE,
       metadata: {
-        titles: [TITLES.PATRON_OF_EUROPE, TITLES.DOCTOR_OF_THE_CHURCH],
+        titles: [Titles.PATRON_OF_EUROPE, Titles.DOCTOR_OF_THE_CHURCH],
       },
     },
     {
       key: 'theEnglishMartyrs',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-5-4`),
-      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      liturgicalColors: LiturgicalColors.WHITE,
     },
     {
       key: 'stDunstanArchbishopOfCanterbury',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-19`),
     },
     {
       key: 'saintBedeTheVenerablePriestAndDoctor',
-      rank: RanksEnum.MEMORIAL,
+      rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-5-25`),
-      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      liturgicalColors: LiturgicalColors.WHITE,
       metadata: {
-        titles: [TITLES.DOCTOR_OF_THE_CHURCH],
+        titles: [Titles.DOCTOR_OF_THE_CHURCH],
       },
     },
     {
       key: 'saintAugustineOfCanterburyBishop',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-5-27`),
-      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      liturgicalColors: LiturgicalColors.WHITE,
     },
     {
       key: 'saintBonifaceBishopAndMartyr',
-      rank: RanksEnum.MEMORIAL,
+      rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-6-5`),
-      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      liturgicalColors: LiturgicalColors.WHITE,
     },
     {
       key: 'saintEphremDeaconAndDoctor',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-9`),
       metadata: {
-        titles: [TITLES.DOCTOR_OF_THE_CHURCH],
+        titles: [Titles.DOCTOR_OF_THE_CHURCH],
       },
     },
     {
       key: 'saintColumbaAbbotAndMissionary',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-9`),
     },
     {
       key: 'saintRichardOfChichesterBishop',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-16`),
     },
     {
       key: 'saintAlbanMartyr',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-20`),
     },
     {
       key: 'saintsJohnFisherBishopAndThomasMoreMartyrs',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-6-22`),
-      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      liturgicalColors: LiturgicalColors.WHITE,
     },
     {
       key: 'saintEtheldredaAudreyVirgin',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-23`),
     },
     {
       key: 'saintOliverPlunkettBishopAndMartyr',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-1`),
     },
     {
       key: 'saintBenedictOfNursiaAbbot',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-7-11`),
-      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      liturgicalColors: LiturgicalColors.WHITE,
       metadata: {
-        titles: [TITLES.PATRON_OF_EUROPE],
+        titles: [Titles.PATRON_OF_EUROPE],
       },
     },
     {
       key: 'saintBridgetOfSwedenReligious',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-7-23`),
-      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      liturgicalColors: LiturgicalColors.WHITE,
       metadata: {
-        titles: [TITLES.PATRON_OF_EUROPE],
+        titles: [Titles.PATRON_OF_EUROPE],
       },
     },
     {
       key: 'saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-8-9`),
-      liturgicalColors: LiturgicalColorsEnum.RED,
+      liturgicalColors: LiturgicalColors.RED,
       metadata: {
-        titles: [TITLES.MARTYR, TITLES.PATRON_OF_EUROPE],
+        titles: [Titles.MARTYR, Titles.PATRON_OF_EUROPE],
       },
     },
     {
       key: 'blessedDominicOfTheMotherOfGodDominicBarberiPriest',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-26`),
     },
     {
       key: 'saintsMargaretClitherowAnneLineAndMargaretWardMartyrs',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-30`),
     },
     {
       key: 'saintAidanBishopAndTheSaintsOfLindisfarne',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-31`),
     },
     {
       key: 'saintGregoryTheGreatPopeAndDoctor',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-9-3`),
-      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      liturgicalColors: LiturgicalColors.WHITE,
       metadata: {
-        titles: [TITLES.DOCTOR_OF_THE_CHURCH],
+        titles: [Titles.DOCTOR_OF_THE_CHURCH],
       },
     },
     {
       key: 'saintCuthbertBishop',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-4`),
     },
     {
       key: 'saintTheodoreOfCanterburyBishop',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-19`),
     },
     {
       key: 'ourLadyOfWalsingham',
-      rank: RanksEnum.MEMORIAL,
+      rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-9-24`),
-      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      liturgicalColors: LiturgicalColors.WHITE,
     },
     {
       key: 'blessedJohnHenryNewmanPriest',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-9`),
     },
     {
       key: 'saintPaulinusOfYorkBishop',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-10`),
     },
     // In England and Wales when the celebration falls on either a
@@ -262,7 +262,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
     {
       key: 'peterAndPaulApostles',
       source: 'celebrations', // Override the default lookup source
-      rank: RanksEnum.SOLEMNITY,
+      rank: Ranks.SOLEMNITY,
       date: ((y: number): dayjs.Dayjs => {
         const date = dayjs.utc(`${y}-6-29`);
         if (date.day() === 1) {
@@ -273,7 +273,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
           return date;
         }
       })(year),
-      liturgicalColors: LiturgicalColorsEnum.RED,
+      liturgicalColors: LiturgicalColors.RED,
       prioritized: true,
     },
     // In England and Wales when the celebration falls on either a
@@ -282,7 +282,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
     {
       key: 'assumption',
       source: 'celebrations',
-      rank: RanksEnum.SOLEMNITY,
+      rank: Ranks.SOLEMNITY,
       date: ((y: number): dayjs.Dayjs => {
         const date = dayjs.utc(`${y}-8-15`);
         if (date.day() === 1) {
@@ -293,64 +293,64 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
           return date;
         }
       })(year),
-      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      liturgicalColors: LiturgicalColors.WHITE,
       prioritized: true,
     },
     {
       key: 'saintWilfridBishop',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-12`),
     },
     {
       key: 'saintEdwardTheConfessor',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-13`),
     },
     {
       key: 'saintsChadAndCeddBishop',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-26`),
     },
     {
       key: 'saintWinefrideVirgin',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-3`),
     },
     {
       key: 'saintWillibrordBishop',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-7`),
     },
     {
       key: 'saintEdmundOfAbingdonBishop',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-16`),
     },
     {
       key: 'saintMargaretOfScotland',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-16`),
     },
     {
       key: 'saintElizabethOfHungaryReligious',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-17`),
     },
     {
       key: 'saintHildaAbbess',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-17`),
     },
     {
       key: 'saintHughOfLincolnBishop',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-17`),
     },
     {
       key: 'saintAndrewTheApostle',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-11-30`),
-      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      liturgicalColors: LiturgicalColors.WHITE,
     },
     // In England and Wales when All Saints (1 November) falls on a Saturday
     // and is transferred to Sunday, All Souls is transferred to Monday 3 November.
@@ -360,7 +360,7 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
     {
       key: 'allSaints',
       source: 'celebrations', // Override the default locale lookup
-      rank: RanksEnum.SOLEMNITY,
+      rank: Ranks.SOLEMNITY,
       date: ((y: number): dayjs.Dayjs => {
         const date = dayjs.utc(`${y}-11-1`);
         if (date.day() === 6) {
@@ -369,12 +369,12 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
           return date;
         }
       })(year),
-      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      liturgicalColors: LiturgicalColors.WHITE,
       prioritized: true,
     },
     {
       key: 'allSouls',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: ((y: number): dayjs.Dayjs => {
         const date = dayjs.utc(`${y}-11-1`);
         if (date.day() === 6) {
@@ -386,16 +386,16 @@ const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
           return dayjs.utc(`${y}-11-2`);
         }
       })(year),
-      liturgicalColors: [LiturgicalColorsEnum.PURPLE, LiturgicalColorsEnum.BLACK],
+      liturgicalColors: [LiturgicalColors.PURPLE, LiturgicalColors.BLACK],
       prioritized: true,
     },
     {
       key: 'saintThomasBecketBishopAndMartyr',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-12-29`),
-      liturgicalColors: LiturgicalColorsEnum.RED,
+      liturgicalColors: LiturgicalColors.RED,
       metadata: {
-        titles: [TITLES.MARTYR],
+        titles: [Titles.MARTYR],
       },
     },
   ];

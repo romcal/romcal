@@ -1,0 +1,25 @@
+/**
+ * Liturgical seasons are segments of time that when combined, form the liturgical year.
+ * Liturgical seasons are distinguished by specific names that signify the character
+ * of the season.
+ */
+export enum LiturgicalSeasons {
+  ADVENT = 'ADVENT',
+  CHRISTMASTIDE = 'CHRISTMASTIDE',
+  ORDINARY_TIME = 'ORDINARY_TIME',
+  LENT = 'LENT',
+  PASCHAL_TRIDUUM = 'PASCHAL_TRIDUUM',
+  EASTERTIDE = 'EASTERTIDE',
+}
+
+export enum LiturgicalPeriods {
+  CHRISTMAS_OCTAVE = 'CHRISTMAS_OCTAVE',
+  DAYS_BEFORE_EPIPHANY = 'DAYS_BEFORE_EPIPHANY',
+  DAYS_AFTER_EPIPHANY = 'DAYS_AFTER_EPIPHANY',
+  CHRISTMAS_TO_PRESENTATION_OF_THE_LORD = 'CHRISTMAS_TO_PRESENTATION_OF_THE_LORD',
+  PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY = 'PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY',
+  HOLY_WEEK = 'HOLY_WEEK',
+  EASTER_OCTAVE = 'EASTER_OCTAVE',
+  EARLY_ORDINARY_TIME = 'EARLY_ORDINARY_TIME',
+  LATER_ORDINARY_TIME = 'LATER_ORDINARY_TIME',
+}

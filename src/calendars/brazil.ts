@@ -1,94 +1,94 @@
 import dayjs from 'dayjs';
 
 import * as Locales from '@romcal/lib/Locales';
-import { LiturgicalColorsEnum } from '@romcal/enums/liturgical-colors.enum';
-import { TITLES } from '@romcal/constants/titles.constant';
-import { RomcalDateItemInput } from '@romcal/models/romcal-date-item';
-import Config, { IRomcalDefaultConfig } from '@romcal/models/romcal-config';
-import { RanksEnum } from '@romcal/enums/ranks.enum';
+import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
+import { RomcalDateItemInput } from '@romcal/models/romcal-date-item/romcal-date-item.model';
+import RomcalConfig, { RomcalConfigInCalendarDef } from '@romcal/models/romcal-config/romcal-config.model';
+import { Ranks } from '@romcal/constants/ranks/ranks.enum';
+import { Titles } from '@romcal/constants/titles/titles.enum';
 
-const defaultConfig: IRomcalDefaultConfig | undefined = undefined;
+const defaultConfig: RomcalConfigInCalendarDef | undefined = undefined;
 
-const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
+const dates = async (config: RomcalConfig): Promise<Array<RomcalDateItemInput>> => {
   const year = config.year;
   const _dates: Array<RomcalDateItemInput> = [
     {
       key: 'saintJoseDeAnchietaPriest',
-      rank: RanksEnum.MEMORIAL,
+      rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-6-9`),
-      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      liturgicalColors: LiturgicalColors.WHITE,
     },
     {
       key: 'blessedAlbertinaBerkenbrockVirginAndMartyr',
-      rank: RanksEnum.MEMORIAL,
+      rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-6-15`),
-      liturgicalColors: LiturgicalColorsEnum.RED,
+      liturgicalColors: LiturgicalColors.RED,
       metadata: {
-        titles: [TITLES.MARTYR],
+        titles: [Titles.MARTYR],
       },
     },
     {
       key: 'saintPaulinaOfTheAgonizingHeartOfJesusVirgin',
-      rank: RanksEnum.MEMORIAL,
+      rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-7-9`),
-      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      liturgicalColors: LiturgicalColors.WHITE,
     },
     {
       key: 'ourLadyOfMountCarmel',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-7-16`),
-      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      liturgicalColors: LiturgicalColors.WHITE,
     },
     {
       key: 'blessedInacioDeAzevedoPriestAndCompanionsMartyrs',
-      rank: RanksEnum.MEMORIAL,
+      rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-7-17`),
-      liturgicalColors: LiturgicalColorsEnum.RED,
+      liturgicalColors: LiturgicalColors.RED,
       metadata: {
-        titles: [TITLES.MARTYR],
+        titles: [Titles.MARTYR],
       },
     },
     {
       key: 'saintRoseOfLima',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-8-23`),
-      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      liturgicalColors: LiturgicalColors.WHITE,
     },
     {
       key: 'blessedsAndreDeSoveralAndAmbrosioFranciscoFerroPriestsAndMartyrs',
-      rank: RanksEnum.MEMORIAL,
+      rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-10-3`),
-      liturgicalColors: LiturgicalColorsEnum.RED,
+      liturgicalColors: LiturgicalColors.RED,
       metadata: {
-        titles: [TITLES.MARTYR],
+        titles: [Titles.MARTYR],
       },
     },
     {
       key: 'ourLadyOfAparecidaPatronessOfBrazil',
-      rank: RanksEnum.SOLEMNITY,
+      rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-10-12`),
-      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      liturgicalColors: LiturgicalColors.WHITE,
     },
     {
       key: 'saintAnthonyOfSaintAnneGalvaoFreiGalvaoPriest',
-      rank: RanksEnum.MEMORIAL,
+      rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-10-25`),
-      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      liturgicalColors: LiturgicalColors.WHITE,
     },
     {
       key: 'saintsRoqueGonzalezAlfonsoRodriguezOlmedoAndJuanDelCastilloPriestsAndMartyrs',
-      rank: RanksEnum.MEMORIAL,
+      rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-11-19`),
-      liturgicalColors: LiturgicalColorsEnum.RED,
+      liturgicalColors: LiturgicalColors.RED,
       metadata: {
-        titles: [TITLES.MARTYR],
+        titles: [Titles.MARTYR],
       },
     },
     {
       key: 'ourLadyOfGuadalupe',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-12-12`),
-      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      liturgicalColors: LiturgicalColors.WHITE,
     },
   ];
 

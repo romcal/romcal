@@ -1,58 +1,58 @@
 import dayjs from 'dayjs';
 
 import * as Locales from '@romcal/lib/Locales';
-import { LiturgicalColorsEnum } from '@romcal/enums/liturgical-colors.enum';
-import { TITLES } from '@romcal/constants/titles.constant';
-import { RomcalDateItemInput } from '@romcal/models/romcal-date-item';
-import Config, { IRomcalDefaultConfig } from '@romcal/models/romcal-config';
-import { RanksEnum } from '@romcal/enums/ranks.enum';
+import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
+import { RomcalDateItemInput } from '@romcal/models/romcal-date-item/romcal-date-item.model';
+import RomcalConfig, { RomcalConfigInCalendarDef } from '@romcal/models/romcal-config/romcal-config.model';
+import { Ranks } from '@romcal/constants/ranks/ranks.enum';
+import { Titles } from '@romcal/constants/titles/titles.enum';
 
-const defaultConfig: IRomcalDefaultConfig | undefined = undefined;
+const defaultConfig: RomcalConfigInCalendarDef | undefined = undefined;
 
-const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
+const dates = async (config: RomcalConfig): Promise<Array<RomcalDateItemInput>> => {
   const year = config.year;
   const _dates: Array<RomcalDateItemInput> = [
     {
       key: 'saintBarbaraVirginAndMartyr',
-      rank: RanksEnum.MEMORIAL,
+      rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-12-4`),
-      liturgicalColors: LiturgicalColorsEnum.RED,
+      liturgicalColors: LiturgicalColors.RED,
       metadata: {
-        titles: [TITLES.MARTYR],
+        titles: [Titles.MARTYR],
       },
     },
     {
       key: 'saintNicholasBishop',
-      rank: RanksEnum.MEMORIAL,
+      rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-12-6`),
     },
     {
       key: 'saintCharbelMakhloufPriestAndHermit',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-12-24`),
     },
     {
       key: 'saintMaroun',
-      rank: RanksEnum.MEMORIAL,
+      rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-2-9`),
     },
     {
       key: 'saintRafqaRebeccaVirgin',
-      rank: RanksEnum.MEMORIAL,
+      rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-3-23`),
     },
     {
       key: 'saintGeorgeMartyr',
-      rank: RanksEnum.MEMORIAL,
+      rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-4-23`),
-      liturgicalColors: LiturgicalColorsEnum.RED,
+      liturgicalColors: LiturgicalColors.RED,
       metadata: {
-        titles: [TITLES.MARTYR],
+        titles: [Titles.MARTYR],
       },
     },
     {
       key: 'ourLadyOfLebanon',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-5-1`),
     },
   ];

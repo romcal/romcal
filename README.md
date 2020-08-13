@@ -135,7 +135,7 @@ romcal.calendarFor({
   corpusChristiOnSunday: true | false,
   ascensionOnSunday: true | false,
   outputOptionalMemorials: true | false,
-  type: 'calendar' | 'liturgical',
+  scope: 'calendar' | 'liturgical',
 });
 ```
 

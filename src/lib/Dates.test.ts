@@ -25,7 +25,7 @@
 import 'jest-extended';
 import * as Locales from '@romcal/lib/Locales';
 import * as Dates from '@romcal/lib/Dates';
-import { rangeOfDays, rangeContainsDate } from '@romcal/utils/dates';
+import { rangeOfDays, rangeContainsDate } from '@romcal/utils/dates/dates';
 
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';

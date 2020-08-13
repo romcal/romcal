@@ -26,10 +26,10 @@ import 'jest-extended';
 
 import * as Dates from '@romcal/lib/Dates';
 import * as Seasons from '@romcal/lib/Seasons';
-import { Dictionary } from '@romcal/utils/type-guards';
-import { RomcalDateItem } from '@romcal/models/romcal-date-item';
+import { Dictionary } from '@romcal/utils/type-guards/type-guards';
+import { RomcalDateItemModel } from '@romcal/models/romcal-date-item/romcal-date-item.model';
 import { setLocale } from '@romcal/lib/Locales';
-import { LiturgicalColorsEnum } from '../enums/liturgical-colors.enum';
+import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
 import Romcal from '@romcal/index';
 
 describe('Testing date range functions', () => {
@@ -222,7 +222,7 @@ describe('Testing seasons utility functions', () => {
   });
 
   describe('The liturgical year is divided to a number of seasons', () => {
-    let calendar: Dictionary<RomcalDateItem[]>;
+    let calendar: Dictionary<RomcalDateItemModel[]>;
     beforeAll(async () => {
       calendar = Romcal.queryFor(await Romcal.calendarFor(), { group: 'liturgicalSeasons' });
     });
@@ -236,10 +236,10 @@ describe('Testing seasons utility functions', () => {
 
     test('The liturgical color for Ordinary Time is green', async () => {
       (await Seasons.earlyOrdinaryTime(2015, false)).forEach((date) => {
-        expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.GREEN);
+        expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColors.GREEN);
       });
       (await Seasons.laterOrdinaryTime(2015)).forEach((date) => {
-        expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.GREEN);
+        expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColors.GREEN);
       });
     });
 
@@ -247,30 +247,30 @@ describe('Testing seasons utility functions', () => {
       const lentDates = await Seasons.lent(2015);
       lentDates.forEach((date) => {
         if (date.key === 'fourthSundayOfLent') {
-          expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.ROSE);
-          expect(date.liturgicalColors && date.liturgicalColors[1]).toEqual(LiturgicalColorsEnum.PURPLE);
+          expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColors.ROSE);
+          expect(date.liturgicalColors && date.liturgicalColors[1]).toEqual(LiturgicalColors.PURPLE);
         } else {
-          expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.PURPLE);
+          expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColors.PURPLE);
         }
       });
 
       const adventDates = await Seasons.advent(2015);
       adventDates.forEach((date) => {
         if (date.key === 'thirdSundayOfAdvent') {
-          expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.ROSE);
-          expect(date.liturgicalColors && date.liturgicalColors[1]).toEqual(LiturgicalColorsEnum.PURPLE);
+          expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColors.ROSE);
+          expect(date.liturgicalColors && date.liturgicalColors[1]).toEqual(LiturgicalColors.PURPLE);
         } else {
-          expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.PURPLE);
+          expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColors.PURPLE);
         }
       });
     });
 
     test('The liturgical color for Christmastide and Eastertide is white', async () => {
       (await Seasons.christmastide(2015, false)).forEach((date) => {
-        expect(date.liturgicalColors && date.liturgicalColors[0]).toStrictEqual(LiturgicalColorsEnum.WHITE);
+        expect(date.liturgicalColors && date.liturgicalColors[0]).toStrictEqual(LiturgicalColors.WHITE);
       });
       (await Seasons.eastertide(2015)).forEach((date) => {
-        expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.WHITE);
+        expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColors.WHITE);
       });
     });
   });

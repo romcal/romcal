@@ -1,83 +1,83 @@
 import dayjs from 'dayjs';
 
 import * as Locales from '@romcal/lib/Locales';
-import { LiturgicalColorsEnum } from '@romcal/enums/liturgical-colors.enum';
-import { TITLES } from '@romcal/constants/titles.constant';
-import { RomcalDateItemInput } from '@romcal/models/romcal-date-item';
-import Config, { IRomcalDefaultConfig } from '@romcal/models/romcal-config';
-import { RanksEnum } from '@romcal/enums/ranks.enum';
+import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
+import { RomcalDateItemInput } from '@romcal/models/romcal-date-item/romcal-date-item.model';
+import RomcalConfig, { RomcalConfigInCalendarDef } from '@romcal/models/romcal-config/romcal-config.model';
+import { Ranks } from '@romcal/constants/ranks/ranks.enum';
+import { Titles } from '@romcal/constants/titles/titles.enum';
 
-const defaultConfig: IRomcalDefaultConfig | undefined = undefined;
+const defaultConfig: RomcalConfigInCalendarDef | undefined = undefined;
 
-const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
+const dates = async (config: RomcalConfig): Promise<Array<RomcalDateItemInput>> => {
   const year = config.year;
   const _dates: Array<RomcalDateItemInput> = [
     {
       key: 'waitangiDay',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-2-6`),
     },
     {
       key: 'saintPaulMikiAndCompanionsMartyrs',
-      rank: RanksEnum.MEMORIAL,
+      rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-2-7`),
-      liturgicalColors: LiturgicalColorsEnum.RED,
+      liturgicalColors: LiturgicalColors.RED,
       metadata: {
-        titles: [TITLES.MARTYR],
+        titles: [Titles.MARTYR],
       },
     },
     {
       key: 'saintPatrickBishop',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-3-17`),
     },
     {
       key: 'saintMarkTheEvangelist',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-4-26`),
     },
     {
       key: 'saintLouisMarieGrignionDeMontfortPriest',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-4-27`),
     },
     {
       key: 'saintPeterChanelPriestAndMartyr',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-4-28`),
-      liturgicalColors: LiturgicalColorsEnum.RED,
+      liturgicalColors: LiturgicalColors.RED,
       metadata: {
-        titles: [TITLES.MARTYR],
+        titles: [Titles.MARTYR],
       },
     },
     {
       key: 'ourLadyHelpOfChristians',
-      rank: RanksEnum.MEMORIAL,
+      rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-5-24`),
     },
     {
       key: 'saintMarcellinChampagnatPriest',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-6`),
     },
     {
       key: 'saintDominicPriest',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-7`),
     },
     {
       key: 'saintSixtusIiPopeAndCompanionsMartyrs',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-7`),
     },
     {
       key: 'saintCajetanPriest',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-7`),
     },
     {
       key: 'saintMaryMacKillopVirgin',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-8-8`),
     },
   ];
