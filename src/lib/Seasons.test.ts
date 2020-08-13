@@ -24,7 +24,7 @@
 
 import 'jest-extended';
 
-import * as Dates from '@romcal/lib/Dates';
+import { Dates } from './Dates';
 import * as Seasons from '@romcal/lib/Seasons';
 import { Dictionary } from '@romcal/utils/type-guards/type-guards';
 import { RomcalDateItemModel } from '@romcal/models/romcal-date-item/romcal-date-item.model';
