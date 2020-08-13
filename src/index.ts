@@ -1,4 +1,4 @@
-import '@romcal/utils/string-extentions';
+import '@romcal/utils/string-extentions/string-extentions';
 import dayjs from 'dayjs';
 import _ from 'lodash';
 
@@ -76,38 +76,58 @@ import {
 
 import { Calendar } from '@romcal/lib/Calendar';
 
-import { RomcalLocale, RomcalLocaleKeys } from '@romcal/models/romcal-locale';
-import { RomcalDateItem, RomcalDateItemInput } from '@romcal/models/romcal-date-item';
-import Config, { RomcalConfig, IRomcalDefaultConfig, TConfigConstructorType } from '@romcal/models/romcal-config';
+import { RomcalLocale, RomcalLocaleKeys } from '@romcal/models/romcal-locale/romcal-locale';
+import { RomcalDateItemModel, RomcalDateItemInput } from '@romcal/models/romcal-date-item/romcal-date-item.model';
+import RomcalConfig, {
+  RomcalConfigModel,
+  RomcalConfigInCalendarDef,
+} from '@romcal/models/romcal-config/romcal-config.model';
 
-import { hasKey } from '@romcal/utils/object';
+import { hasKey } from '@romcal/utils/object/object';
 
-import { COUNTRIES } from '@romcal/constants/country-list.constant';
-import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant';
-import { LiturgicalColors } from '@romcal/types/liturgical-colors.type';
-import { SUNDAY_CYCLES, WEEKDAY_CYCLES, PSALTER_WEEKS } from '@romcal/constants/liturgical-cycles.constant';
-import { LITURGICAL_SEASONS } from '@romcal/constants/seasons-and-periods.constant';
-import { QUERY_TYPES } from '@romcal/constants/query-types.constant';
-import { TITLES } from '@romcal/constants/titles.constant';
-import { RANKS } from '@romcal/constants/ranks.constant';
-
-import { Dictionary, isNil, isInteger, isObject } from '@romcal/utils/type-guards';
-import { Country } from '@romcal/types/country.type';
-import { DateItemSources } from '@romcal/types/date-item-sources.type';
-import { RomcalCycles, RomcalSundayCycle, RomcalWeekdayCycle, PsalterWeek } from '@romcal/types/liturgical-cycles.type';
+import { COUNTRIES } from '@romcal/constants/countries/countries.constant';
+import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors/liturgical-colors.constant';
 import {
-  LiturgicalSeason,
-  LiturgicalSeasons,
-  LiturgicalPeriod,
-  LiturgicalPeriods,
-} from '@romcal/types/seasons-and-periods.type';
-import { LocaleTypes } from '@romcal/types/locale-types.type';
-import { LocalizeParams } from '@romcal/types/localize-params.type';
-import { Query, QueryType } from '@romcal/types/query-type.type';
-import { Title, Titles } from '@romcal/types/titles.type';
-import { Types } from '@romcal/types/types.type';
-import { RomcalDateItemCalendar } from './types/date-item-calendar.type';
-import { RomcalDateItemMetadata } from './types/date-item-metadata.type';
+  CELEBRATIONS_CYCLE,
+  SUNDAYS_CYCLE,
+  WEEKDAYS_CYCLE,
+  PSALTER_WEEKS,
+} from '@romcal/constants/cycles/cycles.constant';
+import {
+  LITURGICAL_PERIODS,
+  LITURGICAL_SEASONS,
+} from '@romcal/constants/seasons-and-periods/seasons-and-periods.constant';
+import { QUERY_TYPES } from '@romcal/constants/query-options/query-types.constant';
+import { TITLES } from '@romcal/constants/titles/titles.constant';
+import { RANKS } from '@romcal/constants/ranks/ranks.constant';
+
+import {
+  RomcalLiturgicalColor,
+  RomcalLiturgicalColors,
+} from '@romcal/constants/liturgical-colors/liturgical-colors.type';
+import { Dictionary, isNil, isInteger, isObject } from '@romcal/utils/type-guards/type-guards';
+import { RomcalCountry } from '@romcal/constants/countries/country.type';
+import { RomcalDateItemSources } from '@romcal/models/romcal-date-item/date-item-sources.type';
+import {
+  RomcalCycles,
+  RomcalCelebrationCycle,
+  RomcalSundayCycle,
+  RomcalWeekdayCycle,
+  RomcalPsalterWeek,
+} from '@romcal/constants/cycles/cycles.type';
+import {
+  RomcalLiturgicalSeason,
+  RomcalLiturgicalSeasons,
+  RomcalLiturgicalPeriod,
+  RomcalLiturgicalPeriods,
+} from '@romcal/constants/seasons-and-periods/seasons-and-periods.type';
+import { RomcalLocaleKey } from '@romcal/models/romcal-locale/locale-types.type';
+import { RomcalLocalizeParams } from '@romcal/models/romcal-locale/localize-params.type';
+import { RomcalQuery, RomcalQueryType } from '@romcal/constants/query-options/query-types.type';
+import { RomcalTitle, RomcalTitles } from '@romcal/constants/titles/titles.type';
+import { RomcalRank, RomcalRanks } from '@romcal/constants/ranks/ranks.type';
+import { RomcalDateItemCalendar } from './models/romcal-date-item/date-item-calendar.type';
+import { RomcalDateItemMetadata } from './models/romcal-date-item/date-item-metadata.type';
 
 /**
  * The export of the `romcal` module.
@@ -119,25 +139,25 @@ export default class Romcal {
    * @param dates An array of dates generated from the `calendarFor` function
    * @param query A query object containing criteria to filter the dates by
    */
-  static queryFor<U extends undefined | null>(dates: Array<RomcalDateItem>, query: U): RomcalDateItem[];
-  static queryFor<U extends Query>(
-    dates: RomcalDateItem[],
+  static queryFor<U extends undefined | null>(dates: Array<RomcalDateItemModel>, query: U): RomcalDateItemModel[];
+  static queryFor<U extends RomcalQuery>(
+    dates: RomcalDateItemModel[],
     query: U,
   ): 'group' extends keyof U // is a group key defined in the query?
     ? U['group'] extends 'daysByMonth' | 'weeksByMonth' // does the group key have one of these values?
-      ? Dictionary<RomcalDateItem[]>[]
-      : Dictionary<RomcalDateItem[]>
+      ? Dictionary<RomcalDateItemModel[]>[]
+      : Dictionary<RomcalDateItemModel[]>
     : 'month' extends keyof U // is a month key defined in the query?
-    ? RomcalDateItem[]
+    ? RomcalDateItemModel[]
     : 'day' extends keyof U // else is a day key defined in the query?
-    ? RomcalDateItem[]
+    ? RomcalDateItemModel[]
     : 'title' extends keyof U // else, is a title key defined in the query?
-    ? RomcalDateItem[]
-    : RomcalDateItem[]; // If none of the above, then return the original array;
+    ? RomcalDateItemModel[]
+    : RomcalDateItemModel[]; // If none of the above, then return the original array;
   static queryFor(
-    dates: RomcalDateItem[],
-    query: Query,
-  ): RomcalDateItem[] | Dictionary<RomcalDateItem[]> | Dictionary<RomcalDateItem[]>[] {
+    dates: RomcalDateItemModel[],
+    query: RomcalQuery,
+  ): RomcalDateItemModel[] | Dictionary<RomcalDateItemModel[]> | Dictionary<RomcalDateItemModel[]>[] {
     if (isNil(query)) {
       return dates;
     }
@@ -182,7 +202,7 @@ export default class Romcal {
       return dates.filter((dateItem) => dayjs.utc(dateItem.date).day() === query.day);
     } else if (!isNil(query.title)) {
       const { title } = query;
-      return dates.filter((date) => date.metadata.titles?.includes(title));
+      return dates.filter((date) => date.metadata.titles?.includes(title as RomcalTitle));
     } else {
       return dates;
     }
@@ -203,14 +223,14 @@ export default class Romcal {
   // const t11 = queryFor(d1, { group: "psalterWeeks" });
   // const t12 = queryFor(d1, { group: "days" });
 
-  static calendarFor<T extends undefined | null>(options?: T): Promise<RomcalDateItem[]>;
-  static calendarFor<T extends RomcalConfig | number>(
+  static calendarFor<T extends undefined | null>(options?: T): Promise<RomcalDateItemModel[]>;
+  static calendarFor<T extends RomcalConfigModel | number>(
     options?: T,
   ): T extends number
-    ? Promise<RomcalDateItem[]>
+    ? Promise<RomcalDateItemModel[]>
     : 'query' extends keyof T
-    ? Promise<RomcalDateItem[] | Dictionary<RomcalDateItem[]> | Dictionary<RomcalDateItem[]>[]>
-    : Promise<RomcalDateItem[]>;
+    ? Promise<RomcalDateItemModel[] | Dictionary<RomcalDateItemModel[]> | Dictionary<RomcalDateItemModel[]>[]>
+    : Promise<RomcalDateItemModel[]>;
   /**
    * Returns an array of liturgical dates based on the supplied options.
    *
@@ -226,9 +246,9 @@ export default class Romcal {
    * @param options A configuration object or a year (integer)
    */
   static async calendarFor(
-    options?: RomcalConfig | number,
-  ): Promise<RomcalDateItem[] | Dictionary<RomcalDateItem[]> | Dictionary<RomcalDateItem[]>[]> {
-    let userConfig: RomcalConfig = {};
+    options?: RomcalConfigModel | number,
+  ): Promise<RomcalDateItemModel[] | Dictionary<RomcalDateItemModel[]> | Dictionary<RomcalDateItemModel[]>[]> {
+    let userConfig: RomcalConfigModel = {};
 
     // If options is passed as an integer,
     // assume we want the calendar for the current year
@@ -242,8 +262,8 @@ export default class Romcal {
     }
 
     // Sanitize incoming config into a complete configuration set
-    const resolvedConfig = await Config.resolveConfig(userConfig);
-    const config = new Config(resolvedConfig);
+    const resolvedConfig = await RomcalConfig.resolveConfig(userConfig);
+    const config = new RomcalConfig(resolvedConfig);
 
     // Set the locale information
     await setLocale(config.locale);
@@ -270,7 +290,7 @@ export default class Romcal {
 export {
   RomcalLocale,
   RomcalLocaleKeys,
-  RomcalDateItem,
+  RomcalDateItemModel,
   RomcalDateItemInput,
   RomcalDateItemCalendar,
   RomcalDateItemMetadata,
@@ -281,42 +301,47 @@ export {
  */
 export {
   COUNTRIES,
-  LITURGICAL_COLORS,
-  SUNDAY_CYCLES,
-  WEEKDAY_CYCLES,
+  CELEBRATIONS_CYCLE,
+  SUNDAYS_CYCLE,
+  WEEKDAYS_CYCLE,
   PSALTER_WEEKS,
-  LITURGICAL_SEASONS,
+  LITURGICAL_COLORS,
   QUERY_TYPES,
-  TITLES,
   RANKS,
+  LITURGICAL_SEASONS,
+  LITURGICAL_PERIODS,
+  TITLES,
 };
 
 /**
  * Export for types supporting romcal
  */
+
 export {
-  Dictionary,
-  Config,
-  IRomcalDefaultConfig,
-  TConfigConstructorType,
-  Country,
-  LiturgicalColors,
-  DateItemSources,
+  RomcalCountry,
+  RomcalCelebrationCycle,
   RomcalCycles,
   RomcalSundayCycle,
   RomcalWeekdayCycle,
-  PsalterWeek,
-  LiturgicalSeason,
-  LiturgicalSeasons,
-  LiturgicalPeriod,
-  LiturgicalPeriods,
-  LocaleTypes,
-  LocalizeParams,
-  Query,
-  QueryType,
-  Title,
-  Titles,
-  Types,
+  RomcalPsalterWeek,
+  RomcalLiturgicalColor,
+  RomcalLiturgicalColors,
+  RomcalQuery,
+  RomcalQueryType,
+  RomcalRank,
+  RomcalRanks,
+  RomcalLiturgicalSeason,
+  RomcalLiturgicalSeasons,
+  RomcalLiturgicalPeriod,
+  RomcalLiturgicalPeriods,
+  RomcalTitle,
+  RomcalTitles,
+  RomcalConfig,
+  RomcalConfigModel,
+  RomcalConfigInCalendarDef,
+  RomcalDateItemSources,
+  RomcalLocaleKey,
+  RomcalLocalizeParams,
 };
 
 /**

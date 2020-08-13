@@ -26,11 +26,11 @@ import 'jest-extended';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 
-import { RomcalDateItem } from '@romcal/models/romcal-date-item';
+import { RomcalDateItemModel } from '@romcal/models/romcal-date-item/romcal-date-item.model';
 import Romcal from '@romcal/index';
 import * as Seasons from '@romcal/lib/Seasons';
 import * as Dates from '@romcal/lib/Dates';
-import { RanksEnum } from '../src/enums/ranks.enum';
+import { Ranks } from '@romcal/constants/ranks/ranks.enum';
 
 dayjs.extend(utc);
 
@@ -53,7 +53,7 @@ describe('Testing specific feasts and memorials', () => {
         query: {
           month: 5,
         },
-      })) as RomcalDateItem[];
+      })) as RomcalDateItemModel[];
       // according to the general calendar, June 1 is the memorial of saint Justin, Martyr
       const maybeSaintJustinMartyr = juneDates[0];
       expect(maybeSaintJustinMartyr.key).toEqual('maryMotherOfTheChurch');
@@ -68,7 +68,7 @@ describe('Testing specific feasts and memorials', () => {
       });
       expect(dayjs.utc(saintMaryMagdalene?.date).date()).toEqual(22);
       expect(dayjs.utc(saintMaryMagdalene?.date).month()).toEqual(6);
-      expect(saintMaryMagdalene?.rank).toEqual(RanksEnum.FEAST);
+      expect(saintMaryMagdalene?.rank).toEqual(Ranks.FEAST);
     });
   });
 
@@ -79,8 +79,8 @@ describe('Testing specific feasts and memorials', () => {
       const popeSaintJohnXXIII = dates.find((d) => d.key === 'saintJohnXxiiiPope');
       const popeSaintJohnPaulII = dates.find((d) => d.key === 'saintJohnPaulIiPope');
 
-      expect(popeSaintJohnXXIII?.rank).toEqual(RanksEnum.OPT_MEMORIAL);
-      expect(popeSaintJohnPaulII?.rank).toEqual(RanksEnum.OPT_MEMORIAL);
+      expect(popeSaintJohnXXIII?.rank).toEqual(Ranks.OPT_MEMORIAL);
+      expect(popeSaintJohnPaulII?.rank).toEqual(Ranks.OPT_MEMORIAL);
     });
   });
 

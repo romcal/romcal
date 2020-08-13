@@ -29,17 +29,17 @@ import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 
 import Romcal from '@romcal/index';
-import * as Dates from '@romcal/lib/Dates';
-import { Dictionary, isNil } from '@romcal/utils/type-guards';
-import { RomcalDateItem, isRomcalDateItem } from '@romcal/models/romcal-date-item';
-import { hasKey, getValueByKey } from '@romcal/utils/object';
-import { PSALTER_WEEKS } from '@romcal/constants/liturgical-cycles.constant';
-import { LITURGICAL_SEASONS } from '@romcal/constants/seasons-and-periods.constant';
-import { LiturgicalColorsEnum } from '../enums/liturgical-colors.enum';
-import { TITLES } from '@romcal/constants/titles.constant';
-import { RanksEnum } from '@romcal/enums/ranks.enum';
-import { RANKS } from '@romcal/constants/ranks.constant';
-import { Types } from '@romcal/types/types.type';
+import * as Dates from './Dates';
+import { Dictionary, isNil } from '@romcal/utils/type-guards/type-guards';
+import { RomcalDateItemModel, isRomcalDateItem } from '@romcal/models/romcal-date-item/romcal-date-item.model';
+import { hasKey, getValueByKey } from '@romcal/utils/object/object';
+import { PSALTER_WEEKS } from '@romcal/constants/cycles/cycles.constant';
+import { LITURGICAL_SEASONS } from '@romcal/constants/seasons-and-periods/seasons-and-periods.constant';
+import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
+import { Titles } from '@romcal/constants/titles/titles.enum';
+import { RANKS } from '@romcal/constants/ranks/ranks.constant';
+import { RomcalRank } from '@romcal/constants/ranks/ranks.type';
+import { Ranks } from '@romcal/constants/ranks/ranks.enum';
 
 dayjs.extend(utc);
 
@@ -51,8 +51,8 @@ describe('Testing calendar generation functions', () => {
   });
 
   describe('When calling the calendarFor() method without a query', () => {
-    let nonLeapYearDates: RomcalDateItem[];
-    let leapYearDates: RomcalDateItem[];
+    let nonLeapYearDates: RomcalDateItemModel[];
+    let leapYearDates: RomcalDateItemModel[];
 
     beforeEach(async () => {
       nonLeapYearDates = await Romcal.calendarFor(2018);
@@ -71,14 +71,16 @@ describe('Testing calendar generation functions', () => {
     });
 
     test('Array should be 365 days long on non-leap years', async () => {
-      const grouped: Dictionary<RomcalDateItem[]> = _.groupBy(nonLeapYearDates, (item) =>
+      const grouped: Dictionary<RomcalDateItemModel[]> = _.groupBy(nonLeapYearDates, (item) =>
         dayjs.utc(item.date).valueOf(),
       );
       expect(Object.keys(grouped)).toHaveLength(365);
     });
 
     test('Array should be 366 days long on leap years', async () => {
-      const grouped: Dictionary<RomcalDateItem[]> = _.groupBy(leapYearDates, (item) => dayjs.utc(item.date).valueOf());
+      const grouped: Dictionary<RomcalDateItemModel[]> = _.groupBy(leapYearDates, (item) =>
+        dayjs.utc(item.date).valueOf(),
+      );
       expect(Object.keys(grouped)).toHaveLength(366);
     });
   });
@@ -100,7 +102,7 @@ describe('Testing calendar generation functions', () => {
       let year: number;
       let start: dayjs.Dayjs;
       let end: dayjs.Dayjs;
-      let calendar: RomcalDateItem[];
+      let calendar: RomcalDateItemModel[];
 
       beforeEach(async () => {
         year = dayjs.utc().year();
@@ -108,7 +110,7 @@ describe('Testing calendar generation functions', () => {
         end = Dates.firstSundayOfAdvent(year).subtract(1, 'day');
         calendar = await Romcal.calendarFor({
           year: year,
-          type: 'liturgical',
+          scope: 'liturgical',
         });
       });
 
@@ -172,8 +174,8 @@ describe('Testing calendar generation functions', () => {
         const dates = Romcal.queryFor(await Romcal.calendarFor(), {
           group: 'daysByMonth',
         });
-        Object.values(dates).forEach((monthGroup: Dictionary<RomcalDateItem[]>, monthIndex: number) => {
-          Object.values(monthGroup).forEach((dateItems: RomcalDateItem[], dayIndex: number) => {
+        Object.values(dates).forEach((monthGroup: Dictionary<RomcalDateItemModel[]>, monthIndex: number) => {
+          Object.values(monthGroup).forEach((dateItems: RomcalDateItemModel[], dayIndex: number) => {
             dateItems.forEach((dateItem) => {
               expect(dayjs.utc(dateItem.date).day()).toEqual(dayIndex);
               expect(dayjs.utc(dateItem.date).month()).toEqual(monthIndex);
@@ -215,7 +217,7 @@ describe('Testing calendar generation functions', () => {
 
       test('Should group dates by their celebration ranks', async () => {
         const typeKeys = Object.keys(Romcal.queryFor(await Romcal.calendarFor(), { group: 'ranks' }));
-        expect(typeKeys.every((typeKey) => Object.values(RANKS).includes(typeKey as Types))).toBeTrue();
+        expect(typeKeys.every((typeKey) => Object.values(RANKS).includes(typeKey as RomcalRank))).toBeTrue();
       });
 
       test('Should group dates by their liturgical seasons', async () => {
@@ -238,45 +240,49 @@ describe('Testing calendar generation functions', () => {
     describe('For filtering by titles', () => {
       test('Should filter by title as expected when using queryFor()', async () => {
         Romcal.queryFor(await Romcal.calendarFor(), {
-          title: TITLES.FEAST_OF_THE_LORD,
-        }).forEach((d: RomcalDateItem) => expect(d.metadata.titles?.includes(TITLES.FEAST_OF_THE_LORD)).toBeTruthy());
+          title: Titles.FEAST_OF_THE_LORD,
+        }).forEach((d: RomcalDateItemModel) =>
+          expect(d.metadata.titles?.includes(Titles.FEAST_OF_THE_LORD)).toBeTruthy(),
+        );
       });
       test('Should filter by title as expected when using calendarFor()', async () => {
         Romcal.queryFor(await Romcal.calendarFor(), {
-          title: TITLES.PATRON_OF_EUROPE,
-        }).forEach((d: RomcalDateItem) => expect(d.metadata.titles?.includes(TITLES.PATRON_OF_EUROPE)).toBeTruthy());
+          title: Titles.PATRON_OF_EUROPE,
+        }).forEach((d: RomcalDateItemModel) =>
+          expect(d.metadata.titles?.includes(Titles.PATRON_OF_EUROPE)).toBeTruthy(),
+        );
       });
     });
 
     describe('Testing advanced filters', () => {
       test('The proper color of a Memorial or a Feast is white except for martyrs in which case it is red, and All Souls which is purple', async () => {
-        const calendar = (await Romcal.calendarFor({ query: { group: 'ranks' } })) as Dictionary<RomcalDateItem[]>;
-        _.get(calendar, RanksEnum.FEAST).forEach((d) => {
+        const calendar = (await Romcal.calendarFor({ query: { group: 'ranks' } })) as Dictionary<RomcalDateItemModel[]>;
+        _.get(calendar, Ranks.FEAST).forEach((d) => {
           if (d.key === 'theExaltationOfTheHolyCross') {
-            expect(d.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.RED);
+            expect(d.liturgicalColors[0]).toEqual(LiturgicalColors.RED);
           } else {
             if (d.key === 'allSouls') {
-              expect(d.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.PURPLE);
+              expect(d.liturgicalColors[0]).toEqual(LiturgicalColors.PURPLE);
             } else if (!isNil(d.metadata.titles)) {
-              if (d.metadata.titles?.includes(TITLES.MARTYR)) {
-                expect(d.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.RED);
+              if (d.metadata.titles?.includes(Titles.MARTYR)) {
+                expect(d.liturgicalColors[0]).toEqual(LiturgicalColors.RED);
               } else {
-                expect(d.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.WHITE);
+                expect(d.liturgicalColors[0]).toEqual(LiturgicalColors.WHITE);
               }
             } else {
-              expect(d.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.WHITE);
+              expect(d.liturgicalColors[0]).toEqual(LiturgicalColors.WHITE);
             }
           }
         });
-        _.get(calendar, RanksEnum.MEMORIAL).forEach((d) => {
+        _.get(calendar, Ranks.MEMORIAL).forEach((d) => {
           if (!isNil(d.metadata.titles)) {
-            if (d.metadata.titles.includes(TITLES.MARTYR)) {
-              expect(d.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.RED);
+            if (d.metadata.titles.includes(Titles.MARTYR)) {
+              expect(d.liturgicalColors[0]).toEqual(LiturgicalColors.RED);
             } else {
-              expect(d.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.WHITE);
+              expect(d.liturgicalColors[0]).toEqual(LiturgicalColors.WHITE);
             }
           } else {
-            expect(d.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.WHITE);
+            expect(d.liturgicalColors[0]).toEqual(LiturgicalColors.WHITE);
           }
         });
       });
@@ -284,9 +290,9 @@ describe('Testing calendar generation functions', () => {
       test('The proper color for the Chair of Peter and the Conversion of St. Paul is white, although both St. Peter and St. Paul were martyrs.', async () => {
         const dates = await Romcal.calendarFor();
         const calendar = Romcal.queryFor(dates, { group: 'ranks' });
-        getValueByKey(calendar, RanksEnum.FEAST).forEach((d) => {
+        getValueByKey(calendar, Ranks.FEAST).forEach((d) => {
           if (d.key === 'chairOfSaintPeter' || d.key === 'conversionOfSaintPaulApostle') {
-            expect(d.liturgicalColors[0]).toEqual(LiturgicalColorsEnum.WHITE);
+            expect(d.liturgicalColors[0]).toEqual(LiturgicalColors.WHITE);
           }
         });
       });
@@ -294,15 +300,15 @@ describe('Testing calendar generation functions', () => {
   });
 
   describe('Testing calendar cycles', () => {
-    let calendar2020: RomcalDateItem[];
-    let calendar2021: RomcalDateItem[];
-    let calendar2022: RomcalDateItem[];
-    let easter2020: RomcalDateItem | undefined;
-    let easter2021: RomcalDateItem | undefined;
-    let easter2022: RomcalDateItem | undefined;
-    let christmas2020: RomcalDateItem | undefined;
-    let christmas2021: RomcalDateItem | undefined;
-    let christmas2022: RomcalDateItem | undefined;
+    let calendar2020: RomcalDateItemModel[];
+    let calendar2021: RomcalDateItemModel[];
+    let calendar2022: RomcalDateItemModel[];
+    let easter2020: RomcalDateItemModel | undefined;
+    let easter2021: RomcalDateItemModel | undefined;
+    let easter2022: RomcalDateItemModel | undefined;
+    let christmas2020: RomcalDateItemModel | undefined;
+    let christmas2021: RomcalDateItemModel | undefined;
+    let christmas2022: RomcalDateItemModel | undefined;
 
     beforeEach(async () => {
       calendar2020 = await Romcal.calendarFor(2020);
@@ -336,6 +342,26 @@ describe('Testing calendar generation functions', () => {
       expect(christmas2020?.cycles.weekdayCycle).toBe('YEAR_1');
       expect(christmas2021?.cycles.weekdayCycle).toBe('YEAR_2');
       expect(christmas2022?.cycles.weekdayCycle).toBe('YEAR_1');
+    });
+  });
+
+  describe('Testing the "drop" functionality for national calendars', () => {
+    let testDates: RomcalDateItemModel[];
+
+    beforeAll(async () => {
+      testDates = await Romcal.calendarFor({
+        country: 'slovakia',
+        year: 2020,
+      });
+      // const saintSylvesterIPope = testDates.find(testDate => testDate.key === 'saintSylvesterIPope');
+      // console.log(JSON.stringify(saintSylvesterIPope));
+    });
+
+    test('A dropped celebration should not be appended in the final calendar', () => {
+      const date = testDates.find((d) => {
+        return dayjs.utc(d.date).isSame(dayjs.utc('2020-12-4'));
+      });
+      expect(date?.key).not.toEqual('saintJohnDamascenePriestAndDoctor');
     });
   });
 });

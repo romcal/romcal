@@ -1,38 +1,37 @@
 import * as Dates from '@romcal/lib/Dates';
 import * as Seasons from '@romcal/lib/Seasons';
 import * as Celebrations from '@romcal/lib/Celebrations';
-import { isNil } from '@romcal/utils/type-guards';
-import Config from '@romcal/models/romcal-config';
-import { RomcalDateItem, RomcalDateItemInput } from '@romcal/models/romcal-date-item';
-import { concatAll, find, removeWhere } from '@romcal/utils/array';
-import { RANKS } from '@romcal/constants/ranks.constant';
-import { RanksEnum } from '@romcal/enums/ranks.enum';
+import { isNil } from '@romcal/utils/type-guards/type-guards';
+import RomcalConfig from '@romcal/models/romcal-config/romcal-config.model';
+import { RomcalDateItemModel, RomcalDateItemInput } from '@romcal/models/romcal-date-item/romcal-date-item.model';
+import { concatAll, find, removeWhere } from '@romcal/utils/array/array';
+import { RANKS } from '@romcal/constants/ranks/ranks.constant';
+import { Ranks } from '@romcal/constants/ranks/ranks.enum';
 import _ from 'lodash';
-import { Country } from '@romcal/types/country.type';
+import { RomcalCountry } from '@romcal/constants/countries/country.type';
 import {
   isCelebrationCycle,
   RomcalCycles,
   RomcalSundayCycle,
   RomcalWeekdayCycle,
-} from '@romcal/types/liturgical-cycles.type';
-import { LiturgicalPeriod, LiturgicalSeason } from '@romcal/types/seasons-and-periods.type';
+} from '@romcal/constants/cycles/cycles.type';
+import {
+  RomcalLiturgicalPeriod,
+  RomcalLiturgicalSeason,
+} from '@romcal/constants/seasons-and-periods/seasons-and-periods.type';
 
 import dayjs, { Dayjs } from 'dayjs';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
-import { RomcalDateItemCalendar } from '@romcal/types/date-item-calendar.type';
-import { RomcalDateItemMetadata } from '@romcal/types/date-item-metadata.type';
-import { isLiturgicalColor, RomcalLiturgicalColor } from '@romcal/types/liturgical-colors.type';
+import { RomcalDateItemCalendar } from '@romcal/models/romcal-date-item/date-item-calendar.type';
+import { RomcalDateItemMetadata } from '@romcal/models/romcal-date-item/date-item-metadata.type';
+import { isLiturgicalColor, RomcalLiturgicalColor } from '@romcal/constants/liturgical-colors/liturgical-colors.type';
 import { localize } from '@romcal/lib/Locales';
-import { TITLES } from '@romcal/constants/titles.constant';
-import { LiturgicalColorsEnum } from '@romcal/enums/liturgical-colors.enum';
-import { SeasonsEnum } from '@romcal/enums/seasons-and-periods.enum';
-import {
-  CelebrationsCycle,
-  PSALTER_WEEKS,
-  SUNDAY_CYCLES,
-  WEEKDAY_CYCLES,
-} from '@romcal/constants/liturgical-cycles.constant';
+import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
+import { PSALTER_WEEKS, SUNDAYS_CYCLE, WEEKDAYS_CYCLE } from '@romcal/constants/cycles/cycles.constant';
+import { LiturgicalSeasons } from '@romcal/constants/seasons-and-periods/seasons-and-periods.enum';
+import { CelebrationsCycle } from '@romcal/constants/cycles/cycles.enum';
+import { Titles } from '@romcal/constants/titles/titles.enum';
 
 dayjs.extend(isSameOrAfter);
 dayjs.extend(isSameOrBefore);
@@ -43,7 +42,7 @@ dayjs.extend(isSameOrBefore);
 // const tt3 = calendarFor({ year: 2020 });
 // const tt3 = calendarFor({ query: { day: 1 } });
 
-type FromCalendarDateItems = { fromCalendar: Country; calendarItems: RomcalDateItemInput[] };
+type FromCalendarDateItems = { fromCalendar: RomcalCountry; calendarItems: RomcalDateItemInput[] };
 
 /**
  * Calendar Class:
@@ -51,18 +50,18 @@ type FromCalendarDateItems = { fromCalendar: Country; calendarItems: RomcalDateI
  * according to the liturgical calendar for the specific year.
  */
 export class Calendar {
-  private dateItems: Array<RomcalDateItem> = [];
-  private readonly config: Config;
+  private dateItems: Array<RomcalDateItemModel> = [];
+  private readonly config: RomcalConfig;
   private readonly startDate: dayjs.Dayjs;
   private readonly endDate: dayjs.Dayjs;
 
   /**
    * Create a new Calendar
    */
-  constructor(config: Config) {
+  constructor(config: RomcalConfig) {
     this.config = config;
-    const { type, year } = config;
-    if (type === 'liturgical') {
+    const { scope, year } = config;
+    if (scope === 'liturgical') {
       this.startDate = Dates.firstSundayOfAdvent(year - 1);
       this.endDate = Dates.firstSundayOfAdvent(year).subtract(1, 'day');
     } else {
@@ -81,14 +80,14 @@ export class Calendar {
       country,
       epiphanyOnSunday,
       outputOptionalMemorials,
-      type,
+      scope,
       year: theYear,
       locale,
       query,
     } = this.config;
 
     // Set the year range depending on the calendar type
-    const years = type === 'liturgical' ? [theYear - 1, theYear] : [theYear];
+    const years = scope === 'liturgical' ? [theYear - 1, theYear] : [theYear];
 
     // Get a collection of date items from all liturgical seasons of the given year
     const seasonDatesPromise = years.map(async (year) => {
@@ -118,7 +117,7 @@ export class Calendar {
 
     // Get the general calendar based on the given year
     const generalDatesPromise = years.map(async (thisYear) => {
-      const yearSpecificConfig = new Config({
+      const yearSpecificConfig = new RomcalConfig({
         year: thisYear,
         country,
         locale,
@@ -126,10 +125,10 @@ export class Calendar {
         corpusChristiOnSunday,
         ascensionOnSunday,
         outputOptionalMemorials,
-        type,
+        scope: scope,
         query,
       });
-      return [...(await Calendar._fetchCalendar('general', yearSpecificConfig))];
+      return [...(await Calendar.fetchCalendar('general', yearSpecificConfig))];
     });
     const generalDates: FromCalendarDateItems = {
       fromCalendar: 'general',
@@ -138,7 +137,7 @@ export class Calendar {
 
     // Get the relevant national calendar object based on the given year and country
     const nationalDatesPromise = years.map(async (thisYear) => {
-      const yearSpecificConfig = new Config({
+      const yearSpecificConfig = new RomcalConfig({
         year: thisYear,
         country,
         locale,
@@ -146,10 +145,10 @@ export class Calendar {
         corpusChristiOnSunday,
         ascensionOnSunday,
         outputOptionalMemorials,
-        type,
+        scope: scope,
         query,
       });
-      return [...(await Calendar._fetchCalendar(country, yearSpecificConfig))];
+      return [...(await Calendar.fetchCalendar(country, yearSpecificConfig))];
     });
     const nationalDates: FromCalendarDateItems = {
       fromCalendar: country,
@@ -159,16 +158,16 @@ export class Calendar {
     let calendarSources: FromCalendarDateItems[] = [seasonDates, celebrationsDates, generalDates, nationalDates];
 
     // Remove all date items not in the given date range
-    calendarSources = Calendar._filterItemRange(this.startDate, this.endDate, ...calendarSources);
+    calendarSources = Calendar.filterItemRange(this.startDate, this.endDate, ...calendarSources);
 
     // Remove all date items marked as 'drop' from any other date items
-    calendarSources = Calendar._dropItems(calendarSources);
+    calendarSources = Calendar.dropItems(calendarSources);
 
     // Push new item object as a new DateItem
-    await this._push(calendarSources);
+    await this.push(calendarSources);
 
     // Finally, sort the DateItems by date and rank and keep only the relevant
-    this._sortAndKeepRelevant();
+    this.sortAndKeepRelevant();
 
     return this;
   }
@@ -176,7 +175,7 @@ export class Calendar {
   /**
    * Get all DateItems for a specific calendar
    */
-  values(): RomcalDateItem[] {
+  values(): RomcalDateItemModel[] {
     return this.dateItems;
   }
 
@@ -184,7 +183,7 @@ export class Calendar {
    * Push new DateItem objects in the Calendar object
    * @param calendars An array of calendar sources to process.
    */
-  async _push(calendars: FromCalendarDateItems[]): Promise<void> {
+  private async push(calendars: FromCalendarDateItems[]): Promise<void> {
     // Loop through each date source group
     for (const [index, calendar] of calendars.entries()) {
       const { fromCalendar, calendarItems } = calendar;
@@ -192,7 +191,7 @@ export class Calendar {
       // Loop through the dates in each source group
       for (const item of calendarItems) {
         // Remove non-prioritized celebrations in the date items array which share the same key as the current item
-        this._keepPrioritizedOnly(item);
+        this.keepPrioritizedOnly(item);
 
         // Find the season date that has the same date as the incoming item and make it the base item.
         const baseItem = find(this.dateItems, { date: item.date.toISOString(), _stack: 0 });
@@ -212,9 +211,9 @@ export class Calendar {
           date,
         } = item;
         if (!isNil(key) && !isNil(name) && !isNil(rank) && !isNil(date)) {
-          const validatedSeasons: Required<LiturgicalSeason[]> = seasons || baseItem?.seasons || [];
+          const validatedSeasons: Required<RomcalLiturgicalSeason[]> = seasons || baseItem?.seasons || [];
           const validatedSeasonNames: Required<string[]> = seasonNames || baseItem?.seasonNames || [];
-          const validatedPeriods: Required<LiturgicalPeriod[]> = periods || baseItem?.periods || [];
+          const validatedPeriods: Required<RomcalLiturgicalPeriod[]> = periods || baseItem?.periods || [];
           const validatedLiturgicalColors = this.checkOrDetermineLiturgicalColors(
             rank,
             validatedSeasons,
@@ -225,7 +224,7 @@ export class Calendar {
 
           // Create a new DateItem and add it to the collection
           this.dateItems.push(
-            new RomcalDateItem({
+            new RomcalDateItemModel({
               key,
               name,
               rank,
@@ -259,8 +258,8 @@ export class Calendar {
    * @param titles The title(s) of the celebration, if defined
    */
   private checkOrDetermineLiturgicalColors(
-    rank: RanksEnum,
-    seasons: LiturgicalSeason[],
+    rank: Ranks,
+    seasons: RomcalLiturgicalSeason[],
     liturgicalColors: RomcalLiturgicalColor | RomcalLiturgicalColor[] | undefined,
     titles: string[],
   ): RomcalLiturgicalColor[] {
@@ -284,23 +283,23 @@ export class Calendar {
 
     // If the celebration isn't a COMMEMORATION and is for a MARTYR, return RED
     // Otherwise, if the celebration isn't a COMMEMORATION or a WEEKDAY, return WHITE
-    if (rank && ![RanksEnum.COMMEMORATION, RanksEnum.WEEKDAY].includes(rank)) {
-      if (titles.includes(TITLES.MARTYR)) return [LiturgicalColorsEnum.RED];
-      return [LiturgicalColorsEnum.WHITE];
+    if (rank && ![Ranks.COMMEMORATION, Ranks.WEEKDAY].includes(rank)) {
+      if (titles.includes(Titles.MARTYR)) return [LiturgicalColors.RED];
+      return [LiturgicalColors.WHITE];
     }
 
     // The WEEKDAY or COMMEMORATION is celebrated during LENT, return PURPLE
-    if ([SeasonsEnum.LENT, SeasonsEnum.ADVENT].some((season) => seasons?.includes(season))) {
-      return [LiturgicalColorsEnum.PURPLE];
+    if ([LiturgicalSeasons.LENT, LiturgicalSeasons.ADVENT].some((season) => seasons?.includes(season))) {
+      return [LiturgicalColors.PURPLE];
     }
 
     // The WEEKDAY or COMMEMORATION is celebrated during ORDINARY_TIME, return PURPLE
-    if (seasons?.includes(SeasonsEnum.ORDINARY_TIME)) {
-      return [LiturgicalColorsEnum.GREEN];
+    if (seasons?.includes(LiturgicalSeasons.ORDINARY_TIME)) {
+      return [LiturgicalColors.GREEN];
     }
 
     // Otherwise, return WHITE that match all other seasons, or as a default color
-    return [LiturgicalColorsEnum.WHITE];
+    return [LiturgicalColors.WHITE];
   }
 
   /**
@@ -317,7 +316,7 @@ export class Calendar {
    * the previous date item will be removed in favour of the new given one,
    * except if the previous item is prioritized but not the new one
    */
-  _keepPrioritizedOnly({ key: currentKey, prioritized: currentPrioritized }: RomcalDateItemInput): void {
+  private keepPrioritizedOnly({ key: currentKey, prioritized: currentPrioritized }: RomcalDateItemInput): void {
     this.dateItems
       .filter(({ key }) => key === currentKey)
       .forEach(({ prioritized: previousPrioritized, _id: previousId }) => {
@@ -334,7 +333,7 @@ export class Calendar {
    * in this order: by date, by priority, by rank, by stack.
    * and drop the non-relevant DateItems.
    */
-  _sortAndKeepRelevant(): void {
+  private sortAndKeepRelevant(): void {
     // Reorder the DateItems of a particular day, so that
     // when there are optional memorials or commemoration only (in addition to the weekday),
     // the weekday item is moved to the top before the optional items,
@@ -347,15 +346,13 @@ export class Calendar {
     // This can be disabled by specifying the `outputOptionalMemorials` flag
     // to `true` in the romcal config.
     if (!this.config.outputOptionalMemorials) {
-      this.dateItems = this.dateItems.filter(
-        (item) => ![RanksEnum.OPT_MEMORIAL, RanksEnum.COMMEMORATION].includes(item.rank),
-      );
+      this.dateItems = this.dateItems.filter((item) => ![Ranks.OPT_MEMORIAL, Ranks.COMMEMORATION].includes(item.rank));
     }
 
     this.dateItems.sort(
       (
-        { date: firstDate, prioritized: firstPrioritized, rank: firstRank, _stack: firstStack }: RomcalDateItem,
-        { date: nextDate, prioritized: nextPrioritized, rank: nextRank, _stack: nextStack }: RomcalDateItem,
+        { date: firstDate, prioritized: firstPrioritized, rank: firstRank, _stack: firstStack }: RomcalDateItemModel,
+        { date: nextDate, prioritized: nextPrioritized, rank: nextRank, _stack: nextStack }: RomcalDateItemModel,
       ): number => {
         // 1. Sort by date
         if (dayjs.utc(firstDate).isBefore(dayjs.utc(nextDate))) {
@@ -405,7 +402,7 @@ export class Calendar {
         const [dateItem, ...otherDateItems] = dateItems;
         // If the first date item has a type equal or higher than a MEMORIAL, or is prioritized:
         // keep only the first item and discard all others celebration in the array
-        if (dateItem.prioritized || ranks.indexOf(dateItem.rank) <= ranks.indexOf(RanksEnum.MEMORIAL)) {
+        if (dateItem.prioritized || ranks.indexOf(dateItem.rank) <= ranks.indexOf(Ranks.MEMORIAL)) {
           otherDateItems.forEach(({ _id }) => {
             removeWhere(this.dateItems, { _id });
           });
@@ -420,7 +417,7 @@ export class Calendar {
    *
    * @param sources A list of [[RomcalDateItem]] arrays for the operation
    */
-  static _dropItems(sources: FromCalendarDateItems[]): FromCalendarDateItems[] {
+  private static dropItems(sources: FromCalendarDateItems[]): FromCalendarDateItems[] {
     const dropKeys: string[] = [];
     sources.forEach((source: FromCalendarDateItems) => {
       source.calendarItems.forEach((dateItem: RomcalDateItemInput) => {
@@ -443,7 +440,7 @@ export class Calendar {
    * @param endDate The upper range date to abide by
    * @param calendarSources The 2 dimensional array containing various calendar sources to be filtered
    */
-  static _filterItemRange(
+  private static filterItemRange(
     startDate: dayjs.Dayjs,
     endDate: dayjs.Dayjs,
     ...calendarSources: FromCalendarDateItems[]
@@ -466,13 +463,16 @@ export class Calendar {
    * @param country The country to get
    * @param config The configuration instance to be send down to the calendar (includes the year to use for date resolutions)
    */
-  static async _fetchCalendar(country: Country, config: Config): Promise<Array<RomcalDateItemInput>> {
+  private static async fetchCalendar(
+    country: RomcalCountry,
+    config: RomcalConfig,
+  ): Promise<Array<RomcalDateItemInput>> {
     const { dates } = await import(
       /* webpackExclude: /index\.ts/ */
       /* webpackChunkName: "calendars/[request]" */
       /* webpackMode: "lazy" */
       /* webpackPrefetch: true */
-      `../calendars/${country}`
+      `@romcal/calendars/${country}`
     );
     const contextualizedDates: Array<RomcalDateItemInput> = await dates(config);
     return await Promise.all(contextualizedDates);
@@ -506,11 +506,11 @@ export class Calendar {
     // If the date is on or after the First Sunday of Advent,
     // it is the next liturgical cycle
     if (date.isSameOrAfter(firstSundayOfAdvent)) {
-      sundayCycle = SUNDAY_CYCLES[nextSundayCycleIndex];
-      weekdayCycle = WEEKDAY_CYCLES[year % 2];
+      sundayCycle = SUNDAYS_CYCLE[nextSundayCycleIndex];
+      weekdayCycle = WEEKDAYS_CYCLE[year % 2];
     } else {
-      sundayCycle = SUNDAY_CYCLES[thisSundayCycleIndex];
-      weekdayCycle = WEEKDAY_CYCLES[(year + 1) % 2];
+      sundayCycle = SUNDAYS_CYCLE[thisSundayCycleIndex];
+      weekdayCycle = WEEKDAYS_CYCLE[(year + 1) % 2];
     }
 
     // Psalter week cycle restart to 1 at the beginning of each season.
