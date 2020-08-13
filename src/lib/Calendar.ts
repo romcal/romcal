@@ -1,4 +1,4 @@
-import * as Dates from '@romcal/lib/Dates';
+import { Dates } from './Dates';
 import * as Seasons from '@romcal/lib/Seasons';
 import * as Celebrations from '@romcal/lib/Celebrations';
 import { isNil } from '@romcal/utils/type-guards/type-guards';

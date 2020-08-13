@@ -1,6 +1,6 @@
 import dayjs, { Dayjs } from 'dayjs';
 
-import * as Dates from '@romcal/lib/Dates';
+import { Dates } from '../lib/Dates';
 import * as Locales from '@romcal/lib/Locales';
 import * as Seasons from '@romcal/lib/Seasons';
 import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';

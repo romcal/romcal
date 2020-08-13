@@ -1,4 +1,4 @@
-import * as Dates from '@romcal/lib/Dates';
+import { Dates } from './Dates';
 import { localizeDates, localize } from '@romcal/lib/Locales';
 import { RomcalDateItemInput } from '@romcal/models/romcal-date-item/romcal-date-item.model';
 import RomcalConfig from '@romcal/models/romcal-config/romcal-config.model';

@@ -29,7 +29,7 @@ import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 
 import Romcal from '@romcal/index';
-import * as Dates from './Dates';
+import { Dates } from './Dates';
 import { Dictionary, isNil } from '@romcal/utils/type-guards/type-guards';
 import { RomcalDateItemModel, isRomcalDateItem } from '@romcal/models/romcal-date-item/romcal-date-item.model';
 import { hasKey, getValueByKey } from '@romcal/utils/object/object';

@@ -15,55 +15,6 @@ import {
 import { dates as temporalCelebrationDates } from '@romcal/lib/Celebrations';
 
 import {
-  allSaints,
-  annunciation,
-  ascension,
-  ashWednesday,
-  assumption,
-  baptismOfTheLord,
-  birthOfJohnTheBaptist,
-  christTheKing,
-  christmas,
-  corpusChristi,
-  datesAfterEpiphany,
-  datesBeforeEpiphany,
-  datesInOctaveOfEaster,
-  datesOfAdvent,
-  datesOfChristmas,
-  datesOfEarlyOrdinaryTime,
-  datesOfEaster,
-  datesOfLaterOrdinaryTime,
-  datesOfLent,
-  divineMercySunday,
-  easter,
-  epiphany,
-  firstSundayOfAdvent,
-  goodFriday,
-  holyFamily,
-  holySaturday,
-  holyThursday,
-  holyWeek,
-  immaculateConception,
-  immaculateHeartOfMary,
-  josephHusbandOfMary,
-  maryMotherOfGod,
-  octaveOfChristmas,
-  palmSunday,
-  pentecostSunday,
-  peterAndPaulApostles,
-  presentationOfTheLord,
-  sacredHeartOfJesus,
-  sundaysOfAdvent,
-  sundaysOfEarlyOrdinaryTime,
-  sundaysOfEaster,
-  sundaysOfLaterOrdinaryTime,
-  sundaysOfLent,
-  theExaltationOfTheHolyCross,
-  transfiguration,
-  trinitySunday,
-} from '@romcal/lib/Dates';
-
-import {
   advent,
   christmastide,
   earlyOrdinaryTime,
@@ -75,6 +26,7 @@ import {
 } from '@romcal/lib/Seasons';
 
 import { Calendar } from '@romcal/lib/Calendar';
+import { Dates } from './lib/Dates';
 
 import { RomcalLocale, RomcalLocaleKeys } from '@romcal/models/romcal-locale/romcal-locale';
 import { RomcalDateItemModel, RomcalDateItemInput } from '@romcal/models/romcal-date-item/romcal-date-item.model';
@@ -352,54 +304,7 @@ export { getLocale, getRankByDayOfWeek, localize, localizeDates, ordinal, saniti
 /**
  * Export for helper functions in [[Dates]]
  */
-export {
-  allSaints,
-  annunciation,
-  ascension,
-  ashWednesday,
-  assumption,
-  baptismOfTheLord,
-  birthOfJohnTheBaptist,
-  christTheKing,
-  christmas,
-  corpusChristi,
-  datesAfterEpiphany,
-  datesBeforeEpiphany,
-  datesInOctaveOfEaster,
-  datesOfAdvent,
-  datesOfChristmas,
-  datesOfEarlyOrdinaryTime,
-  datesOfEaster,
-  datesOfLaterOrdinaryTime,
-  datesOfLent,
-  divineMercySunday,
-  easter,
-  epiphany,
-  firstSundayOfAdvent,
-  goodFriday,
-  holyFamily,
-  holySaturday,
-  holyThursday,
-  holyWeek,
-  immaculateConception,
-  immaculateHeartOfMary,
-  josephHusbandOfMary,
-  maryMotherOfGod,
-  octaveOfChristmas,
-  palmSunday,
-  pentecostSunday,
-  peterAndPaulApostles,
-  presentationOfTheLord,
-  sacredHeartOfJesus,
-  sundaysOfAdvent,
-  sundaysOfEarlyOrdinaryTime,
-  sundaysOfEaster,
-  sundaysOfLaterOrdinaryTime,
-  sundaysOfLent,
-  theExaltationOfTheHolyCross,
-  transfiguration,
-  trinitySunday,
-};
+export { Dates };
 
 /**
  * Export for helper function(s) in [[Celebrations]]
