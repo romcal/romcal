@@ -49,8 +49,8 @@ export interface RomcalConfigModel {
   /**
    * The calendar scope to query for.
    *
-   * The type can be specified either as:
-   * 1. `calendar`: Civil year (January 1 to December 31); or
+   * The scope can be specified either as:
+   * 1. `gregorian`: Which is the civil year for the majority of countries (January 1 to December 31); or
    * 2. `liturgical`: Religious calendar year (1st Sunday of Advent of the preceding year to the Saturday before the 1st Sunday of Advent in the current year).
    */
   readonly scope?: RomcalCalendarScope;
@@ -222,7 +222,7 @@ export default class RomcalConfig {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       ascensionOnSunday: config.ascensionOnSunday!, // Will use default if not defined
       outputOptionalMemorials: !!config.outputOptionalMemorials,
-      scope: config.scope ?? 'calendar', // Use the default value "calendar" if scope not specified by user
+      scope: config.scope ?? 'gregorian', // Use the default value "gregorian" if scope not specified by user
       ...(isObject(config.query) && { query: config.query }), // Attach query if there's one
     } as ConfigConstructorType;
   }
