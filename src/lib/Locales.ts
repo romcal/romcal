@@ -2,16 +2,16 @@ import _ from 'lodash';
 
 import { parse, Schema } from 'bcp-47';
 import { toOrdinal, toWordsOrdinal } from 'number-to-words';
-import logger from '@romcal/utils/logger';
+import logger from '@romcal/utils/logger/logger';
 
-import { findDescendantValueByKeys, mergeObjectsUniquely } from '@romcal/utils/object';
-import { isNil, isString } from '@romcal/utils/type-guards';
-import { RomcalLocale } from '@romcal/models/romcal-locale';
-import { RomcalDateItemInput } from '@romcal/models/romcal-date-item';
-import { RanksEnum } from '@romcal/enums/ranks.enum';
-import { DateItemSources } from '@romcal/types/date-item-sources.type';
-import { LocaleTypes } from '@romcal/types/locale-types.type';
-import { LocalizeParams } from '@romcal/types/localize-params.type';
+import { findDescendantValueByKeys, mergeObjectsUniquely } from '@romcal/utils/object/object';
+import { isNil, isString } from '@romcal/utils/type-guards/type-guards';
+import { RomcalLocale } from '@romcal/models/romcal-locale/romcal-locale';
+import { RomcalDateItemInput } from '@romcal/models/romcal-date-item/romcal-date-item.model';
+import { Ranks } from '@romcal/constants/ranks/ranks.enum';
+import { RomcalDateItemSources } from '@romcal/models/romcal-date-item/date-item-sources.type';
+import { RomcalLocaleKey } from '@romcal/models/romcal-locale/locale-types.type';
+import { RomcalLocalizeParams } from '@romcal/models/romcal-locale/localize-params.type';
 
 /**
  * Load DayJS and relevant plugins
@@ -40,7 +40,7 @@ _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
  * We get then a cascade fallbacks: region ('xx-XX') -> base language ('xx') -> default 'en'
  * For example: if a string is missing in 'fr-CA', it will try to pick it in 'fr', and then in 'en'.
  */
-const _fallbackLocaleKey: LocaleTypes = 'en';
+const _fallbackLocaleKey: RomcalLocaleKey = 'en';
 
 /**
  * Cache value for the array of locales to be used for calendar output.
@@ -116,7 +116,7 @@ export const sanitizePossibleLocaleValue = (
  * @param key The language key to use
  * @param customOrdinalFn An optional custom function to use for generating ordinal number values (defaults [[Locales.ordinal]] if not set)
  */
-const setLocale = async (key: LocaleTypes, customOrdinalFn: (v: number) => string = ordinal): Promise<void> => {
+const setLocale = async (key: RomcalLocaleKey, customOrdinalFn: (v: number) => string = ordinal): Promise<void> => {
   // When setLocale() is called, all cache values are purged
   _combinedLocale = undefined;
   // When setLocale() is called, the cache language files are reset
@@ -125,7 +125,7 @@ const setLocale = async (key: LocaleTypes, customOrdinalFn: (v: number) => strin
       /* webpackExclude: /index\.ts/ */
       /* webpackChunkName: "locales/[request]" */
       /* webpackMode: "lazy" */
-      `../locales/${_fallbackLocaleKey}`
+      `@romcal/locales/${_fallbackLocaleKey}`
     );
     _locales = [fallbackLocale as RomcalLocale];
   } catch (e) {
@@ -150,7 +150,7 @@ const setLocale = async (key: LocaleTypes, customOrdinalFn: (v: number) => strin
           /* webpackExclude: /index\.ts/ */
           /* webpackChunkName: "locales/[request]" */
           /* webpackMode: "lazy" */
-          `../locales/${language}`
+          `@romcal/locales/${language}`
         );
         _locales = [baseLocale as RomcalLocale, ..._locales]; // For example: append the 'fr' locale
       } catch (e) {
@@ -166,7 +166,7 @@ const setLocale = async (key: LocaleTypes, customOrdinalFn: (v: number) => strin
         /* webpackExclude: /index\.ts/ */
         /* webpackChunkName: "locales/[request]" */
         /* webpackMode: "lazy" */
-        `../locales/${currentLocale}`
+        `@romcal/locales/${currentLocale}`
       );
       _locales = [regionSpecificLocale as RomcalLocale, ..._locales]; // For example: append the 'fr-CA' locale
     } catch (e) {
@@ -255,7 +255,7 @@ const getLocale = (): RomcalLocale => {
  *
  * @param localizeParams Options for retrieving the localized key
  */
-const localize = async ({ key, count, week, day, useDefaultOrdinalFn }: LocalizeParams): Promise<string> => {
+const localize = async ({ key, count, week, day, useDefaultOrdinalFn }: RomcalLocalizeParams): Promise<string> => {
   // Get the IETF locale set in dayjs and obtain its corresponding locale data object
   const value = findDescendantValueByKeys(getLocale(), key.split('.'));
 
@@ -288,7 +288,7 @@ const localize = async ({ key, count, week, day, useDefaultOrdinalFn }: Localize
  */
 const localizeDates = async (
   dates: Array<RomcalDateItemInput>,
-  source: DateItemSources = 'sanctoral',
+  source: RomcalDateItemSources = 'sanctoral',
 ): Promise<RomcalDateItemInput[]> => {
   const promiseDates: Promise<RomcalDateItemInput>[] = dates.map(async (date: RomcalDateItemInput) => {
     return {
@@ -307,6 +307,6 @@ const localizeDates = async (
  * the rank of day from the [[Rank]] enum
  * @param day A "day" integer that should come from the DayJS library
  */
-const getRankByDayOfWeek = (day: number): RanksEnum => (day === 0 ? RanksEnum.SUNDAY : RanksEnum.WEEKDAY);
+const getRankByDayOfWeek = (day: number): Ranks => (day === 0 ? Ranks.SUNDAY : Ranks.WEEKDAY);
 
 export { setLocale, getLocale, localize, localizeDates, getRankByDayOfWeek };

@@ -1,8 +1,8 @@
 import { Schema, Validator } from 'jsonschema';
 import { default as Locales } from '@romcal/locales/index';
-import { TITLES } from '@romcal/constants/titles.constant';
-import { QUERY_TYPES } from '@romcal/constants/query-types.constant';
-import { COUNTRIES } from '@romcal/constants/country-list.constant';
+import { TITLES } from '@romcal/constants/titles/titles.constant';
+import { QUERY_TYPES } from '@romcal/constants/query-options/query-types.constant';
+import { COUNTRIES } from '@romcal/constants/countries/countries.constant';
 
 export const getRomcalConfigJsonSchema = (): Schema => ({
   id: '/romcalConfig',

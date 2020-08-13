@@ -2,85 +2,85 @@ import dayjs from 'dayjs';
 
 import * as Locales from '@romcal/lib/Locales';
 import * as Dates from '@romcal/lib/Dates';
-import { LiturgicalColorsEnum } from '@romcal/enums/liturgical-colors.enum';
-import { TITLES } from '@romcal/constants/titles.constant';
-import { RomcalDateItemInput } from '@romcal/models/romcal-date-item';
-import Config, { IRomcalDefaultConfig } from '@romcal/models/romcal-config';
-import { RanksEnum } from '@romcal/enums/ranks.enum';
-import { CelebrationsCycle } from '@romcal/constants/liturgical-cycles.constant';
+import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
+import { RomcalDateItemInput } from '@romcal/models/romcal-date-item/romcal-date-item.model';
+import RomcalConfig, { RomcalConfigInCalendarDef } from '@romcal/models/romcal-config/romcal-config.model';
+import { Ranks } from '@romcal/constants/ranks/ranks.enum';
+import { CelebrationsCycle } from '@romcal/constants/cycles/cycles.enum';
+import { Titles } from '@romcal/constants/titles/titles.enum';
 
-const defaultConfig: IRomcalDefaultConfig | undefined = undefined;
+const defaultConfig: RomcalConfigInCalendarDef | undefined = undefined;
 
-const dates = async (config: Config): Promise<Array<RomcalDateItemInput>> => {
+const dates = async (config: RomcalConfig): Promise<Array<RomcalDateItemInput>> => {
   const year = config.year;
   const _dates: Array<RomcalDateItemInput> = [
     {
       key: 'theMostHolyNameOfJesus',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-3`),
     },
     {
       key: 'ourLadyOfBethlehem',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-3`),
     },
     {
       key: 'blessedMariaDoloresRodriguezSopenaVirgin',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-10`),
     },
     {
       key: 'blessedCarlosManuelRodriguez',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-4`),
     },
     {
       key: 'ourLadyOfMountCarmel',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-7-16`),
-      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      liturgicalColors: LiturgicalColors.WHITE,
     },
     {
       key: 'saintTeresaOfJesusJornetEIbarsVirgin',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-26`),
     },
     {
       key: 'saintRoseOfLima',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-8-30`),
-      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      liturgicalColors: LiturgicalColors.WHITE,
     },
     {
       key: 'blessedsCarlosSpinolaAndJeronimoDeAngelisPriestsAndMartyrs',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-10`),
       metadata: {
-        titles: [TITLES.MARTYR],
+        titles: [Titles.MARTYR],
       },
     },
     {
       key: 'saintSoledadTorresAcostaVirgin',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-11`),
     },
     {
       key: 'ourLadyMotherOfDivineProvidencePatronessOfPuertoRico',
-      rank: RanksEnum.SOLEMNITY,
+      rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-11-19`),
-      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      liturgicalColors: LiturgicalColors.WHITE,
     },
     {
       key: 'ourLadyOfGuadalupe',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-12-12`),
-      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      liturgicalColors: LiturgicalColors.WHITE,
     },
     {
       key: 'ourLordJesusChristTheEternalHighPriest',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: ((y: number): dayjs.Dayjs => dayjs.utc(Dates.pentecostSunday(y).add(4, 'day').toISOString()))(year),
-      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      liturgicalColors: LiturgicalColors.WHITE,
       cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
     },
   ];
