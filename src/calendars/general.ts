@@ -675,21 +675,17 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
         titles: [Titles.DOCTOR_OF_THE_CHURCH],
       },
     },
-    // https://github.com/pejulian/romcal/issues/27
     {
       key: 'saintMaryMagdalene',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-7-22`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
-    // On 11 Feb 2018, Pope Francis inserted the Memorial of the
-    // Blessed Virgin Mary, Mother of the Church, into the General Roman Calendar.
-    // It will be celebrated on Monday after Pentecost.
     {
       key: 'maryMotherOfTheChurch',
-      rank: Ranks.MEMORIAL,
-      date: ((y: number): Dayjs => Dates.pentecostSunday(y).add(1, 'day'))(year),
-      liturgicalColors: LiturgicalColors.WHITE,
+      rank: RanksEnum.MEMORIAL,
+      date: ((y: number): dayjs.Dayjs => Dates.pentecostSunday(y).add(1, 'day'))(year),
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
       prioritized: true,
       cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
     },
@@ -1094,13 +1090,11 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-9`),
     },
-    // http://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20140529_decreto-calendario-generale-gxxiii-gpii_en.html
     {
       key: 'saintJohnXxiiiPope',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-11`),
     },
-    // http://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20140529_decreto-calendario-generale-gxxiii-gpii_en.html
     {
       key: 'saintJohnPaulIiPope',
       rank: Ranks.OPT_MEMORIAL,
@@ -1191,12 +1185,12 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-11-4`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
-    // Replaces 32nd Sunday in Ordinary Time when it falls on a Sunday
     {
       key: 'dedicationOfTheLateranBasilica',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-11-9`),
-      liturgicalColors: LiturgicalColors.WHITE,
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      // Replaces 32nd Sunday in Ordinary Time when it falls on a Sunday
       prioritized: true,
     },
     {

@@ -221,7 +221,7 @@ export default {
     saintFrancoisDeLavalBishop: 'Saint François de Laval, Premier évêque de Québec (✝ 1708)',
     saintGenevieveVirgin: 'Sainte Geneviève, Vierge à Paris (✝ 500)',
     saintGeorgeMartyr: 'Saint Georges, Martyr (✝ 303)',
-    saintGertrudeOfNivellesVirgin: 'Sainte Gertrude de Nivelles, Abbesse (✝ 659)',
+    saintGertrudeOfNivellesAbbess: 'Sainte Gertrude de Nivelles, Abbesse (✝ 659)',
     saintGertrudeTheGreatVirgin: 'Sainte Gertrude, Vierge Moniale (✝ 1301)',
     saintGregoryTheGreatPopeAndDoctor: 'Saint Grégoire le Grand, Pape et Docteur de l’Église (✝ 604)',
     saintGregoryViiPope: 'Saint Grégoire VII, Pape (✝ 1085)',
@@ -229,7 +229,7 @@ export default {
     saintHenry: 'Saint Henri, Empereur Germanique (✝ 1024)',
     saintHenryBishopAndMartyr: 'Saint Henri, Evêque et Martyr (✝ 1156)',
     saintHilaryOfPoitiersBishopAndDoctor: 'Saint Hilaire de Poitiers, Évêque et Docteur de l’Église (✝ 367)',
-    saintHubertBishop: 'Saint Hubert, Évêque (✝ 727)',
+    saintHubertOfLiegeBishop: 'Saint Hubert, Évêque (✝ 727)',
     saintIgnatiusOfAntiochBishopAndMartyr:
       'Saint Ignace d’Antioche, Évêque et Martyr, Père et Docteur de l’Eglise (✝ 115)',
     saintIgnatiusOfLoyolaPriest: 'Saint Ignace de Loyola, Prêtre, Fondateur de la Compagnie de Jésus (✝ 1556)',

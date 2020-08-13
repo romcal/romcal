@@ -100,9 +100,31 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'saintAgnesOfBohemiaVirgin',
-      rank: Ranks.MEMORIAL, // Memorial
-      date: dayjs.utc(`${year}-6-8`), // 8th of June
-      liturgicalColors: LiturgicalColors.WHITE, // What is the Liturgical color for this?
+      rank: RanksEnum.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-6-8`),
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
+    },
+    {
+      key: 'blessedIstvanSandorMartyr',
+      rank: RanksEnum.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-6-8`),
+      liturgicalColors: LiturgicalColorsEnum.RED,
+      metadata: {
+        titles: [TITLES.MARTYR],
+      },
+    },
+    {
+      key: 'saintCyrilOfAlexandriaBishopAndDoctor',
+      rank: RanksEnum.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-6-26`),
+      metadata: {
+        titles: [TITLES.DOCTOR_OF_THE_CHURCH],
+      },
+    },
+    {
+      key: 'saintJosemariaEscrivaDeBalaguerPriest',
+      rank: RanksEnum.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-6-26`),
     },
     {
       key: 'saintLadislaus',
@@ -127,7 +149,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'saintsAndrewZorardAndBenedictHermits',
-      rank: Ranks.MEMORIAL,
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-17`),
     },
     {
@@ -145,6 +167,11 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-7-24`),
     },
     {
+      key: 'saintCharbelMakhloufPriestAndHermit',
+      rank: RanksEnum.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-7-27`),
+    },
+    {
       key: 'saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-8-9`),
@@ -157,6 +184,23 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       key: 'blessedInnocentXiPope',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-8-13`),
+    },
+    {
+      key: 'saintsPontianPopeAndHippolytusPriestMartyrs',
+      rank: RanksEnum.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-8-16`),
+      metadata: {
+        titles: [TITLES.MARTYR],
+      },
+    },
+    {
+      key: 'saintBernardOfClairvauxAbbotAndDoctorOfTheChurch',
+      rank: RanksEnum.MEMORIAL,
+      date: dayjs.utc(`${year}-8-19`),
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      metadata: {
+        titles: [TITLES.DOCTOR_OF_THE_CHURCH],
+      },
     },
     {
       key: 'saintStephenOfHungary',
@@ -175,6 +219,19 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
+      key: 'holyNameOfTheBlessedVirginMary',
+      rank: RanksEnum.MEMORIAL,
+      date: dayjs.utc(`${year}-9-12`),
+    },
+    {
+      key: 'saintHildegardOfBingenAbbessAndDoctor',
+      rank: RanksEnum.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-9-17`),
+      metadata: {
+        titles: [TITLES.DOCTOR_OF_THE_CHURCH],
+      },
+    },
+    {
       key: 'saintGerardBishop',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-9-24`),
@@ -182,9 +239,14 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'ourLadyOfHungary',
-      rank: Ranks.FEAST,
+      rank: RanksEnum.SOLEMNITY,
       date: dayjs.utc(`${year}-10-8`),
       liturgicalColors: LiturgicalColors.WHITE,
+    },
+    {
+      key: 'blessedKarlOfAustria',
+      rank: RanksEnum.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-10-21`),
     },
     {
       key: 'saintMaurusBishop',
@@ -200,15 +262,38 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
+      key: 'allSouls',
+      rank: RanksEnum.MEMORIAL,
+      date: dayjs.utc(`${year}-11-2`),
+      liturgicalColors: [LiturgicalColorsEnum.PURPLE, LiturgicalColorsEnum.BLACK],
+    },
+    {
       key: 'saintEmeric',
-      rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-11-4`),
-      liturgicalColors: LiturgicalColors.WHITE,
+      rank: RanksEnum.FEAST,
+      date: dayjs.utc(`${year}-11-5`),
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
       key: 'hungarianSaintsAndBlesseds',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-13`),
+    },
+    {
+      key: 'saintGertrudeTheGreatVirgin',
+      rank: RanksEnum.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-11-17`),
+    },
+    {
+      key: 'saintElizabethOfHungaryReligious',
+      rank: RanksEnum.FEAST,
+      date: dayjs.utc(`${year}-11-19`),
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
+    },
+    {
+      key: 'ourLordJesusChristTheEternalHighPriest',
+      rank: RanksEnum.FEAST,
+      date: ((y: number): dayjs.Dayjs => dayjs.utc(Dates.pentecostSunday(y).add(4, 'day').toISOString()))(year),
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
   ];
 

@@ -145,8 +145,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintJozefBilczewskiBishop',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'saintJosephBilczewskiBishop',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-23`),
     },
   ];

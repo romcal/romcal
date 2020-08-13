@@ -78,8 +78,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintRocco',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'saintRoch',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-16`),
     },
     {

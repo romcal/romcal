@@ -30,8 +30,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-1-23`),
     },
     {
-      key: 'blessedJerzyMatulewiczBishop',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'blessedGeorgeMatulewiczBishop',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-27`),
     },
     {
@@ -160,8 +160,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-5-30`),
     },
     {
-      key: 'saintZdzislawa',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'saintZdislava',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-30`),
     },
     {
@@ -440,8 +440,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintJosefBilczewskiBishop',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'saintJosephBilczewskiBishop',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-23`),
     },
     // jarosz: Created Dedication of a particular church: solemnity on last Sunday of October

@@ -2,20 +2,14 @@ import { RomcalLocale } from '@romcal/models/locale/romcal-locale.type';
 
 export default {
   advent: {
-<<<<<<< HEAD
-    season: 'Advent',
-    weekday: '{{day}} of the {{week}} week of Advent',
-    sunday: '{{week}} Sunday of Advent',
-=======
     season: 'Advent Season',  // us; Was: `Advent`; src (see the book spine): https://catholicbookpublishing.com/product/105
     feria: '{{day}} of the {{week}} week of Advent',
     sunday: '{{week}} Sunday of Advent',  // us, gb
->>>>>>> b5b8458... Localisation tidy-up
   },
   christmastide: {
     season: 'Christmas Season',  // us; Was: `Christmas`; src (see the book spine): https://catholicbookpublishing.com/product/105
     day: '{{day}} of Christmastide',
-    octave: '{{count}} Day within the Octave of the Nativity of the Lord',  // us; Was `{{count}} day in the Octave of Christmas`
+    octave: '{{count}} Day within the Octave of the Nativity of the Lord',  // us; Was: `{{count}} day in the Octave of Christmas`
     sunday: '{{count}} Sunday of Christmas',
   },
   epiphany: {
@@ -24,17 +18,6 @@ export default {
     after: '{{day}} after Epiphany',  // us; Was: `{{day}} after Epiphany`
   },
   ordinaryTime: {
-<<<<<<< HEAD
-    season: 'Ordinary Time',
-    weekday: '{{day}} of the {{week}} week of Ordinary Time',
-    sunday: '{{week}} Sunday of Ordinary Time',
-  },
-  lent: {
-    season: 'Lent',
-    weekday: '{{day}} of the {{week}} week of Lent',
-    sunday: '{{week}} Sunday of Lent',
-    dayAfterAshWed: '{{day}} after Ash Wednesday',
-=======
     season: 'Ordinary Time',  // us
     feria: '{{day}} of the {{week}} week of Ordinary Time',  // us: should it be `week in OT` or `week of OT`? I presume the former is used in the US
     sunday: '{{week}} Sunday in Ordinary Time',  // us; Was: `{{week}} Sunday of Ordinary Time`, gb
@@ -44,7 +27,6 @@ export default {
     feria: '{{day}} of the {{week}} week of Lent',
     sunday: '{{week}} Sunday of Lent',  // us, gb
     dayAfterAshWed: '{{day}} after Ash Wednesday',  // us
->>>>>>> b5b8458... Localisation tidy-up
   },
   holyWeek: {
     season: 'Holy Week',
@@ -54,17 +36,10 @@ export default {
     season: 'Paschal Triduum',
   },
   eastertide: {
-<<<<<<< HEAD
-    season: 'Eastertide',
-    weekday: '{{day}} of the {{week}} week of Easter',
-    sunday: '{{week}} Sunday of Easter',
-    octave: 'Easter {{day}}',
-=======
     season: 'Easter Season',  // us; Was: `Eastertide`; src (see the book spine): https://catholicbookpublishing.com/product/105
     feria: '{{day}} of the {{week}} week of Easter',
     sunday: '{{week}} Sunday of Easter',  // us
     octave: '{{day}} within the Octave of Easter',  // us; Was: `Easter {{day}}`
->>>>>>> b5b8458... Localisation tidy-up
   },
   liturgicalColors: {
     BLACK: 'black',
@@ -106,7 +81,7 @@ export default {
     holyThursday: 'Holy Thursday',  // us, gb in en-GB
     immaculateConception: 'Immaculate Conception of the Blessed Virgin Mary',  // us
     immaculateHeartOfMary: 'Immaculate Heart of the Blessed Virgin Mary',  // us, gb
-    josephHusbandOfMary: 'Saint Joseph, Spouse of the Blessed Virgin Mary',  // us, gb
+    josephHusbandOfMary: 'Saint Joseph, Spouse of the Blessed Virgin Mary',  // us, gb  /// josephSpouse
     maryMotherOfGod: 'Mary, the Holy Mother of God',  // us, gb
     palmSunday: 'Palm Sunday of the Passion of the Lord',  // us; Was: `Palm Sunday`, gb
     pentecostSunday: 'Pentecost Sunday',  // us, gb
@@ -142,64 +117,62 @@ export default {
     blessedCeslausAndSaintHyacinthPriests: 'Blessed Ceslaus and Saint Hyacinth, Priests',
     blessedCharlesSpinolaPriestAndMartyr: 'Blessed Charles Spinola, Priest and Martyr',
     blessedColumbaMarmionPriest: 'Blessed Columba Marmion, Priest',  // ireland
-    blessedCzeslawPriest: 'Blessed Czeslaw, Priest',
+    blessedCzeslawPriest: 'Blessed Ceslaus, Priest',
     blessedDinaBelangerVirgin: 'Blessed Dina Belanger, Virgin',
     blessedDominicOfTheMotherOfGodDominicBarberiPriest: 'Blessed Dominic of the Mother of God Barberi, Priest',  // gb
     blessedEdmundBojanowski: 'Blessed Edmund Bojanowski',
     blessedEdmundIgnatiusRiceReligious: 'Blessed Edmund Rice, Religious',  // ireland
-    blessedElisabethHesselbaldVirgin: 'Blessed Elisabeth Hesselbald, Virgin',
+    blessedElisabethHesselbaldVirgin: 'Saint Elisabeth Hesselbald, Virgin',
     blessedEmilieTavernierGamelinReligious: 'Blessed Emilie Tavernier Gamelin, Religious',
     blessedFredericJanssoonePriest: 'Blessed Frederic Janssoone, Priest',
     blessedGeorgeMatulewiczBishop: 'Blessed George Matulewicz, Bishop',
     blessedGisela: 'Blessed Gisela',
-    blessedGoncaloDeAmarantePriest: 'Blessed Goncalo de Amarante, Priest',
+    blessedGoncaloDeAmarantePriest: 'Blessed Gundisalvus of Amarante, Priest',
     blessedGoncaloDeLagosPriest: 'Blessed Goncalo de Lagos, Priest',
     blessedGraziaOfCattaro: 'Blessed Grazia of Cattaro',
-    blessedHemmingBishop: 'Blessed Hemming, Bishop',
+    blessedHemmingBishop: 'Blessed Hemming of Turku, Bishop',
     blessedHenrySusoPriest: 'Blessed Henry Suso, Priest',
     blessedHonoratKozminskiPriest: 'Blessed Honorat Kozminski, Priest',
     blessedHroznataMartyr: 'Blessed Hroznata, Martyr',
-    blessedInacioDeAzevedoPriestAndCompanionsMartyrs: 'Blessed Inacio de Azevedo, Priest, and Companions, Martyrs',
+    blessedInacioDeAzevedoPriestAndCompanionsMartyrs: 'Blessed Ignatius de Azevedo, Priest, and Companions, Martyrs',
     blessedInnocentXiPope: 'Blessed Innocent XI, Pope',
     blessedIrishMartyrs: 'Irish Martyrs',  // ireland
     blessedIstvanSandorMartyr: 'Blessed István Sándor, Martyr',
     blessedIvanMerz: 'Blessed Ivan Merz',
-    blessedJacintaAndFranciscoMarto: 'Blessed Jacinta and Francisco Marto',
+    blessedJacintaAndFranciscoMarto: 'Saints Jacinta and Francisco Marto',
     blessedJakubStrzemieBishop: 'Blessed Jakub Strzemie, Bishop',
-    blessedJerzyMatulewiczBishop: 'Blessed Jerzy Matulewicz, Bishop',
     blessedJoanOfPortugalVirgin: 'Blessed Joan of Portugal, Virgin',
     blessedJohnBeyzymPriest: 'Blessed John Beyzym, Priest',
     blessedJohnHenryNewmanPriest: 'Blessed John Henry Newman, Priest',  // gb, ireland
     blessedJohnMartinMoyePriest: 'Blessed John Martin Moye, Priest',
-    blessedJohnNewmanBishop: 'Blessed John Newman, Bishop',
-    blessedJolantaReligious: 'Blessed Jolanta, Religious',
-    blessedJosephVazPriest: 'Blessed Joseph Vaz, Priest',
+    blessedJolantaReligious: 'Blessed Yolanda, Religious',
+    blessedJosephVazPriest: 'Saint Joseph Vaz, Priest',
     blessedJuniperoSerraPriest: 'Saint Junípero Serra, Priest',  // us
-    blessedKarlOfAustria: 'Blessed Karl of Austria',
+    blessedKarlOfAustria: 'Blessed Charles of Austria',
     blessedKarolinaKozkownaVirginAndMartyr: 'Blessed Karolina Kozkowna, Virgin and Martyr',
-    blessedKuriakoseEliasChavaraPriest: 'Blessed Kuriakose Elias Chavara, Priest',
-    blessedLauraVicunaVirgin: 'Blessed Laura Vicuna, Virgin',
+    blessedKuriakoseEliasChavaraPriest: 'Saint Kuriakose Elias of the Holy Family Chavara, priest',
+    blessedLauraVicunaVirgin: 'Blessed Laura Vicuña, Virgin',
     blessedLeonidFeodorovPriestAndMartyr: 'Blessed Leonid Feodorov, Priest and Martyr',
     blessedLouisZephirinMoreauBishop: 'Blessed Louis Zephirin Moreau, Bishop',
     blessedMarcelCalloMartyr: 'Blessed Marcel Callo, Martyr',
     blessedMarcelinaDarowskaReligious: 'Blessed Marcelina Darowska, Religious',
     blessedMariaAdeodataPisaniVirgin: 'Blessed Maria Adeodata Pisani, Virgin',
     blessedMariaAssuntaPallottaVirgin: 'Blessed Maria Assunta Pallotta, Virgin',
-    blessedMariaDoloresRodriguezSopenaVirgin: 'Blessed Maria Dolores Rodriguez Sopena, Virgin',
+    blessedMariaDoloresRodriguezSopenaVirgin: 'Blessed Maria Dolores Rodríguez Sopeña, Virgin',
     blessedMariaStellaAndCompanionsVirginsAndMartyrs: 'Blessed Maria Stella and Companions, Virgins and Martyrs',
-    blessedMariaTeresaLedochowskaVirgin: 'Blessed Maria Teresa Ledochowska, Virgin',
-    blessedMariaTheresaChiramelVirgin: 'Blessed Maria Theresa Chiramel, Virgin',
+    blessedMariaTeresaLedochowskaVirgin: 'Blessed Maria Teresa Ledóchowska, Virgin',
+    blessedMariaTheresaChiramelVirgin: 'Saint Maria Theresa Chiramel, Virgin',
     blessedMarieAnneBlondinVirgin: 'Blessed Marie Anne Blondin, Virgin',
     blessedMarieLeonieParadisVirgin: 'Blessed Marie Leonie Paradis, Virgin',
     blessedMarieRoseDurocherVirgin: 'Blessed Marie Rose Durocher, Virgin',  // us
     blessedMaryAngelaTruszkowskaVirgin: 'Blessed Mary Angela Truszkowska, Virgin',
-    blessedMaryOfJesusCrucifiedPetkovicVirgin: 'Blessed Mary of Jesus Crucified Petkovic, Virgin',
-    blessedMaryOfJesusTheGoodShepherdVirgin: 'Blessed Mary of Jesus The Good Shepherd, Virgin',
+    blessedMaryOfJesusCrucifiedPetkovicVirgin: 'Blessed Mary of Jesus Crucified Petković, Virgin',
+    blessedMaryOfJesusTheGoodShepherdVirgin: 'Blessed Mary of Jesus the Good Shepherd, Virgin',
     blessedMauriceTornayPriestAndMartyr: 'Blessed Maurice Tornay, Priest and Martyr',
     blessedMichaelKozalBishopAndMartyr: 'Blessed Michael Kozal, Bishop and Martyr',
     blessedMiguelAgustinProPriestAndMartyr: 'Blessed Miguel Agustin Pro, Priest and Martyr',  // us
-    blessedNazariaIgnaciaMarchReligious: 'Blessed Nazaria Ignacia March, Religious',
-    blessedNazjuFalzon: 'Blessed Nazju Falzon',
+    blessedNazariaIgnaciaMarchReligious: 'Saint Nazaria Ignacia of Saint Teresa of Jesus March Mesa, Virgin',
+    blessedNazjuFalzon: 'Blessed Ignatius Falzon',
     blessedNicolasStenoBishop: 'Blessed Nicolas Steno, Bishop',
     blessedOdoricOfPordenonePriest: 'Blessed Odoric of Pordenone, Priest',
     blessedOleksiyZarytskyiPriestAndMartyr: 'Blessed Oleksiy Zarytskyi, Priest and Martyr',
@@ -208,37 +181,37 @@ export default {
     blessedPeterToRotMartyr: 'Blessed Peter To Rot, Martyr',  // australia
     blessedPiusIxPope: 'Blessed Pius IX, Pope',
     blessedRafalChylinskiPriest: 'Blessed Rafal Chylinski, Priest',
-    blessedSalomeVirgin: 'Blessed Salome, Virgin',
+    blessedSalomeVirgin: 'Blessed Salomea, Religious',
     blessedSanchaAndMafaldaVirgins: 'Blessed Sancha and Mafalda, Virgins',
-    blessedsAndreDeSoveralAndAmbrosioFranciscoFerroPriestsAndMartyrs: 'Blesseds Andre de Soveral and Ambrosio Francisco Ferro, Priests and Martyrs',
-    blessedSaraSalkahaziVirginAndMartyr: 'Blessed Sara Salkahazi, Virgin and Martyr',
-    blessedsCarlosSpinolaAndJeronimoDeAngelisPriestsAndMartyrs: 'Blesseds Carlos Spinola and Jeronimo de Angelis, Priests and Martyrs',
+    blessedsAndreDeSoveralAndAmbrosioFranciscoFerroPriestsAndMartyrs: 'Saints Andrew de Soveral and Ambrose Francis Ferro, Priests and Martyrs',
+    blessedSaraSalkahaziVirginAndMartyr: 'Blessed Sára Salkaházi, Virgin and Martyr',
+    blessedsCarlosSpinolaAndJeronimoDeAngelisPriestsAndMartyrs: 'Blesseds Charles Spinola and Jerome de Angelis, Priests and Martyrs',
     blessedSebastianDeAparicioReligious: 'Blessed Sebastian de Aparicio, Religious',
     blessedsNykytaBudkaAndVasylVelychkowskyBishopsAndMartyrs: 'Blesseds Nykyta Budka and Vasyl Velychkowsky, Bishops and Martyrs',
-    blessedsPedroZunigaAndLuisFloresPriestsAndMartyrs: 'Blesseds Pedro Zuniga And Luis Flores, Priests and Martyrs',
+    blessedsPedroZunigaAndLuisFloresPriestsAndMartyrs: 'Blesseds Pedro Zuniga and Luis Flores, Priests and Martyrs',
     blessedTheodoreRomzhaBishopAndMartyr: 'Blessed Theodore Romzha, Bishop and Martyr',
     blessedTheresaOfPortugalReligious: 'Blessed Theresa of Portugal, Religious',
     blessedVilmosAporBishopAndMartyr: 'Blessed Vilmos Apor, Bishop and Martyr',
-    blessedVincentKadlubekBishop: 'Blessed Vincent Kadlubek, Bishop',
-    blessedVincentLewoniukAndCompanionsMartyrsOfPratulin: 'Blessed Vincent Lewoniuk and Companions, Martyrs Of Pratulin',
+    blessedVincentKadlubekBishop: 'Blessed Vincent Kadłubek, Bishop',
+    blessedVincentLewoniukAndCompanionsMartyrsOfPratulin: 'Blessed Vincent Lewoniuk and Companions, Martyrs of Pratulin',
     blessedVladimirGhikaPriestAndMartyr: 'Blessed Vladimir Ghika, Priest and Martyr',
-    blessedWladyslawBladzinskiPriestAndCompanionsMartyrs: 'Blessed Wladyslaw Bladzinski, Priest, and Companions, Martyrs',
-    blessedWladyslawOfGielniowPriest: 'Blessed Wladyslaw Of Gielniow, Priest',
-    blessedZdenkaSchelingovaVirginAndMartyr: 'Blessed Zdenka Schelingova, Virgin and Martyr',
+    blessedWladyslawBladzinskiPriestAndCompanionsMartyrs: 'Blessed Wladyslaw Błądziński, Priest, and Companions, Martyrs',
+    blessedWladyslawOfGielniowPriest: 'Blessed Wladyslaw of Gielniow, Priest',
+    blessedZdenkaSchelingovaVirginAndMartyr: 'Blessed Zdenka Cecília Schelingová, Virgin and Martyr',
     chairOfSaintPeterApostle: 'Chair of Saint Peter the Apostle',  // us, gb
     conversionOfSaintPaulApostle: 'Conversion of Saint Paul the Apostle',  // us, gb
     dedicationOfAParticularChurch: 'Dedication of a particular Church',
     dedicationOfTheBasilicaOfSaintMaryMajor: 'Dedication of the Basilica of Saint Mary Major',  // us
     dedicationOfTheBasilicasOfSaintsPeterAndPaulApostles: 'Dedication of the Basilicas of Saints Peter and Paul, Apostles',  // us
     dedicationOfTheLateranBasilica: 'Dedication of the Lateran Basilica',  // us
-    discoveryOfTheHiddenChristians: 'Discovery of The Hidden Christians',
-    findingOfTheHolyCross: 'Finding of The Holy Cross',
+    discoveryOfTheHiddenChristians: 'Our Lady of the Discovery of the Hidden Christians',
+    findingOfTheHolyCross: 'Finding of the Holy Cross',
     firstMartyrsOfTheChurchOfRome: 'First Martyrs of the Holy Roman Church',  // us, gb
     guardianAngelOfPortugal: 'Guardian Angel of Portugal',
     guardianAngels: 'Holy Guardian Angels',  // us
     holyInnocentsMartyrs: 'Holy Innocents, Martyrs',  // us
     holyNameOfTheBlessedVirginMary: 'Most Holy Name of Mary',  // us
-    hungarianSaintsAndBlesseds: 'Hungarian Saints and Blesseds',
+    hungarianSaintsAndBlesseds: 'All Hungarian Saints and Blesseds',
     immaculateConceptionOfTheBlessedVirginMaryPrincipalPatronessOfThePhilippines: 'Immaculate Conception of the Blessed Virgin Mary, Principal Patroness of the Philippines',  // us
     maryMotherOfTheChurch: 'Blessed Virgin Mary, Mother of the Church',  // us, gb
     ourLadyHelpOfChristians: 'Our Lady, Help of Christians',  // nz
@@ -303,25 +276,24 @@ export default {
     saintAloysiusGonzagaReligious: 'Saint Aloysius Gonzaga, Religious',  // us
     saintAlphonsaOfTheImmaculateConceptionVirgin: 'Saint Alphonsa of The Immaculate Conception, Virgin',
     saintAlphonsusMariaDeLiguoriBishopAndDoctorOfTheChurch: 'Saint Alphonsus Liguori, Bishop and Doctor of the Church',  // us
-    saintAmandMissionary: 'Saint Amand, Missionary',
+    saintAmandMissionary: 'Saint Amand, Bishop',
     saintAmbroseBishopAndDoctor: 'Saint Ambrose, Bishop and Doctor of the Church',  // us
     saintAndreBessetteReligious: 'Saint André Bessette, Religious',  // us
     saintAndrewBobolaPriestAndMartyr: 'Saint Andrew Bobola, Priest and Martyr',
     saintAndrewDungLacAndCompanionsMartyrs: 'Saint Andrew Dũng-Lạc, Priest, and Companions, Martyrs',  // us
-    saintAndrewKimTaegonPriestAndPaulChongHasangAndCompanionsMartyrs: 'Saint Andrew Kim Tae-gŏn, Priest, and Paul Chŏng Ha-sang, and Companions, Martyrs',  // us
+    saintAndrewKimTaegonPriestAndPaulChongHasangAndCompanionsMartyrs: 'Saint Andrew Kim Tae-gŏn, Priest, and Paul Chŏng Ha-sang and Companions, Martyrs',  // us
     saintAndrewTheApostle: 'Saint Andrew, Apostle',  // us, gb, scotland
     saintAndrewTheApostlePatronOfRussia: 'Saint Andrew, Apostle and Patron of Russia',  // us, but not in us
     saintAngelaMericiVirgin: 'Saint Angela Merici, Virgin',  // us, gb
-    saintAnnePatronOfQuebecAndSaintJoachimParentsOfTheBlessedVirginMary: 'Saints Anne, Patron of Quebec, and Joachim, Parents of the Blessed Virgin Mary',  // us, but not in us
-    saintAnnoIiBishop: 'Saint Anno II, Bishop',
+    saintAnnePatronOfQuebecAndSaintJoachimParentsOfTheBlessedVirginMary: 'Saints Anne, Patron of the Province of Quebec, and Joachim, Parents of the Blessed Virgin Mary',  // us, but not in us
+    saintAnnoIiBishop: 'Saint Anno of Cologne, Bishop',
     saintAnselmOfCanterburyBishopAndDoctorOfTheChurch: 'Saint Anselm, Bishop and Doctor of the Church',  // us; Was: `Saint Anselm of Canterbury, Bishop and Doctor of the Church`, gb
     saintAnsgarBishop: 'Saint Ansgar, Bishop',  // us, gb
     saintAnthonyMaryClaretBishop: 'Saint Anthony Mary Claret, Bishop',  // us
     saintAnthonyOfEgyptAbbot: 'Saint Anthony, Abbot',  // us; Was: Saint Anthony of Egypt, Abbot, gb
-    saintAnthonyOfLisbonPriestAndDoctorOfTheChurch: 'Saint Anthony of Lisbon, Priest and Doctor of The Church',
     saintAnthonyOfPaduaPriestAndDoctor: 'Saint Anthony of Padua, Priest and Doctor of the Church',  // us, gb
     saintAnthonyOfSaintAnneGalvaoFreiGalvaoPriest: 'Saint Anthony of Saint Anne Galvao (Frei Galvao), Priest',
-    saintAnthonyOfTheCavesMonk: 'Saint Anthony of The Caves, Monk',
+    saintAnthonyOfTheCavesMonk: 'Saint Anthony of the Caves, Monk',
     saintAnthonyZaccariaPriest: 'Saint Anthony Zaccaria, Priest',  // us
     saintApollinaris: 'Saint Apollinaris, Bishop and Martyr',  // us, gb
     saintAsaphBishop: 'Saint Asaph, Bishop',  // gb (wales)
@@ -350,7 +322,7 @@ export default {
     saintBridgetOfSwedenReligious: 'Saint Bridget, Religious',  // us; Was: `Saint Bridget of Sweden, Religious, Patron of Europe`, gb, scotland
     saintBrigidVirgin: 'Saint Brigid, Virgin',  // ireland
     saintBrotherMutienMarieReligious: 'Saint Brother Mutien Marie, Religious',
-    saintBrunoBonifaceOfQuerfurtBishopAndMartyr: 'Saint Bruno Boniface Of Querfurt, Bishop And Martyr',
+    saintBrunoBonifaceOfQuerfurtBishopAndMartyr: 'Saint Bruno Boniface of Querfurt, Bishop And Martyr',
     saintBrunoPriest: 'Saint Bruno, Priest',  // us
     saintCaesariusOfArlesBishop: 'Saint Caesarius of Arles, Bishop',
     saintCajetanPriest: 'Saint Cajetan, Priest',  // us
@@ -394,7 +366,7 @@ export default {
     saintDeiniolBishop: 'Saint Deiniol, Bishop',  // gb (wales)
     saintDemetrius: 'Saint Demetrius',
     saintDenisAndCompanionsMartyrs: 'Saint Denis, Bishop, and Companions, Martyrs',  // us
-    saintDionysiusTheAreopagite: 'Saint Dionysius The Areopagite',
+    saintDionysiusTheAreopagite: 'Saint Dionysius the Areopagite',
     saintDominicPriest: 'Saint Dominic, Priest',  // us, australia, nz
     saintDubriciusBishop: 'Saint Dyfrig, Bishop',  // gb (wales)
     saintEdmundCampionPriestAndMartyr: 'Saint Edmund Campion, Priest and Martyr',
@@ -443,17 +415,16 @@ export default {
     saintFrancisXavierPriest: 'Saint Francis Xavier, Priest',  // us
     saintFrancoisDeLavalBishop: 'Saint Francois de Laval, Bishop',
     saintFridolinOfSackingenMonk: 'Saint Fridolin of Säckingen, Monk',
-    saintFructuosusSaintMartinOfDumeAndSaintGeraldBishops: 'Saint Fructuosus, Saint Martin of Dume and Saint Gerald, Bishops',
+    saintFructuosusSaintMartinOfDumeAndSaintGeraldBishops: 'Saints Fructuosus, Martin of Dume and Gerald, Bishops',
     saintFursaAbbotAndMissionary: 'Saint Fursa, Abbot and Missionary',  // ireland
     saintGabrieltaurinDufresseBishopAndMartyr: 'Saint Gabriel-Taurin Dufresse, Bishop and Martyr',
     saintGallAbbotAndMissionary: 'Saint Gall, Abbot and Missionary',  // ireland
     saintGenevieveVirgin: 'Saint Genevieve, Virgin',
     saintGeorgeMartyr: 'Saint George, Martyr',  // us, gb
     saintGeorgePrecaPriest: 'Saint George Preca, Priest',
-    saintGerardBishop: 'Saint Gerard, Bishop',
+    saintGerardBishop: 'Saint Gerard of Csanád, Bishop and Martyr',
     saintGermanusOfAuxerreBishop: 'Saint Germanus of Auxerre, Bishop',  // gb (wales)
     saintGertrudeOfNivellesAbbess: 'Saint Gertrude of Nivelles, Abbess',
-    saintGertrudeOfNivellesVirgin: 'Saint Gertrude of Nivelles, Virgin',
     saintGertrudeTheGreatVirgin: 'Saint Gertrude, Virgin',  // us; Was: `Saint Gertrude The Great, Virgin`
     saintGobnaitVirgin: 'Saint Gobnait, Virgin',  // ireland
     saintGonsaloGarciaMartyr: 'Saint Gonsalo Garcia, Martyr',
@@ -472,9 +443,8 @@ export default {
     saintHermenegildMartyr: 'Saint Hermenegild, Martyr',
     saintHilaryOfPoitiersBishopAndDoctor: 'Saint Hilary, Bishop and Doctor of the Church',  // us; Was: `Saint Hilary of Poitiers, Bishop and Doctor`, gb
     saintHildaAbbess: 'Saint Hilda, Abbess',  // gb
-    saintHildegardOfBingenAbbessAndDoctor: 'Saint Hildegard of Bingen, Abbess and Doctor',
-    saintHubertBishop: 'Saint Hubert, Bishop',
-    saintHubertOfLiegeBishop: 'Saint Hubert of Liege, Bishop',
+    saintHildegardOfBingenAbbessAndDoctor: 'Saint Hildegard of Bingen, Abbess and Doctor of the Church',
+    saintHubertOfLiegeBishop: 'Saint Hubert, Bishop',  // Note: key `OfLiege` in in the key name
     saintHughOfLincolnBishop: 'Saint Hugh of Lincoln, Bishop',  // gb
     saintHyacinthPriest: 'Saint Hyacinth, Priest',
     saintIgnatiusOfAntiochBishopAndMartyr: 'Saint Ignatius of Antioch, Bishop and Martyr',  // us
@@ -496,7 +466,7 @@ export default {
     saintJeromePriestAndDoctor: 'Saint Jerome, Priest and Doctor of the Church',  // us
     saintJoachimHoMartyr: 'Saint Joachim Ho, Martyr',
     saintJoanOfArcVirginSecondaryPatronessOfFrance: 'Saint Joan of Arc, Virgin, Secondary Patroness of France',
-    saintJoaquinaVedruna: 'Saint Joaquina Vedruna',
+    saintJoaquinaVedruna: 'Saint Joaquina of Saint Francis of Assisi Vedruna, Religious',
     saintJohnBaptistDeLaSallePriest: 'Saint John Baptist de la Salle, Priest',  // us
     saintJohnBerchmansReligious: 'Saint John Berchmans, Religious',
     saintJohnBoscoPriest: 'Saint John Bosco, Priest',  // us, gb
@@ -528,18 +498,17 @@ export default {
     saintJohnXxiiiPope: 'Saint John XXIII, Pope',  // us, ireland
     saintJosaphatBishopAndMartyr: 'Saint Josaphat, Bishop and Martyr',  // us
     saintJoseDeAnchietaPriest: 'Saint Jose de Anchieta, Priest',
-    saintJosefBilczewskiBishop: 'Saint Josef Bilczewski, Bishop',
+    saintJosephBilczewskiBishop: 'Saint Joseph Bilczewski, Bishop',
     saintJoseMariaDeYermoPriest: 'Saint Jose Maria de Yermo, Priest',
     saintJosemariaEscrivaDeBalaguerPriest: 'Saint Josemaria Escriva de Balaguer, Priest',
-    saintJosephFreinademetzPriest: 'Saint Laurence Wang Bing and Companions, Martyrs or Saint Joseph Freinademetz, Priest',
+    saintJosephFreinademetzPriest: 'Saint Joseph Freinademetz, Priest',
     saintJosephineBakhitaVirgin: 'Saint Josephine Bakhita, Virgin',  // us, gb
     saintJosephOfCalasanzPriest: 'Saint Joseph of Calasanz, Priest',  // us
     saintJosephSpouseOfTheBlessedVirginMaryPrincipalPatronOfCanada: 'Saint Joseph, Spouse of the Blessed Virgin Mary and Principal Patron of Canada',  // us, but not in the us, gb
     saintJosephTheWorker: 'Saint Joseph the Worker',  // us
     saintJosephYuanPriestAndMartyr: 'Saint Joseph Yuan, Priest and Martyr',
     saintJosephZhangDapengMartyr: 'Saint Joseph Zhang Dapeng, Martyr',
-    saintJozefBilczewskiBishop: 'Saint Jozef Bilczewski, Bishop',
-    saintJozefSebastianPelczar: 'Saint Jozef Sebastian Pelczar',
+    saintJozefSebastianPelczar: 'Saint Jozef Sebastian Pelczar, Bishop',
     saintJuanDiegoCuauhtlatoatzin: 'Saint Juan Diego Cuauhtlatoatzin',  // us
     saintJulianaOfLiegeVirgin: 'Saint Juliana of Liege, Virgin',
     saintJulieBilliartVirgin: 'Saint Julie Billiart, Virgin',
@@ -550,7 +519,7 @@ export default {
     saintKevinAbbot: 'Saint Kevin, Abbot',  // ireland
     saintKieranBishop: 'Saint Kieran, Bishop',  // ireland
     saintKilianBishopAndCompanionsMartyrs: 'Saint Kilian, Bishop, and Companions, Martyrs',
-    saintKillianBishopAndMartyr: 'Saint Kilian, Bishop and Martyr',  // ireland
+    saintKilianBishopAndMartyr: 'Saint Kilian, Bishop and Martyr',  // ireland
     saintKingaVirgin: 'Saint Kinga, Virgin',
     saintLadislaus: 'Saint Ladislaus',
     saintLambertBishopAndMartyr: 'Saint Lambert of Maastricht, Bishop and Martyr',
@@ -592,14 +561,13 @@ export default {
     saintMargaretOfScotland: 'Saint Margaret of Scotland',  // us, gb, scotland
     saintMargueriteBourgeoysVirgin: 'Saint Marguerite Bourgeoys, Virgin',
     saintMargueriteDYouvilleReligious: 'Saint Marguerite d’Youville, Religious',
-    saintMariaDeJesusSacramentadoVenegasVirgin: 'Saint Maria de Jesus Sacramentado Venegas, Virgin',
+    saintMariaDeJesusSacramentadoVenegasVirgin: 'Saint Mary of Jesus in the Blessed Sacrament Venegas, Virgin',
     saintMariaGorettiVirginAndMartyr: 'Saint Maria Goretti, Virgin and Martyr',  // us, gb
     saintMariaGuadalupeGarciaZavalaVirgin: 'Saint María Guadalupe García Zavala, Virgin',
-    saintMariaMicaelaOfTheBlessedSacramentVirgin: 'Saint Maria Micaela of The Blessed Sacrament, Virgin',
+    saintMariaMicaelaOfTheBlessedSacramentVirgin: 'Saint María Micaela of the Blessed Sacrament, Virgin',
     saintMarianaDeJesusDeParedesVirgin: 'Saint Mariana de Jesus de Paredes, Virgin',
     saintMarianneCopeVirgin: 'Saint Marianne Cope, Virgin',  // us
-    saintMarieOfTheIncarnationReligious: 'Saint Marie of The Incarnation, Religious',
-    saintMarina: 'Saint Marina',
+    saintMarieOfTheIncarnationReligious: 'Saint Marie of the Incarnation, Religious',
     saintMarkoKrizinPriestAndMartyr: 'Saint Marko Krizin, Priest and Martyr',
     saintMarkTheEvangelist: 'Saint Mark, Evangelist',  // us, gb, australia, nz
     saintMaroun: 'Saint Maroun',
@@ -608,7 +576,6 @@ export default {
     saintMartinIPopeAndMartyr: 'Saint Martin I, Pope and Martyr',  // us
     saintMartinOfToursBishop: 'Saint Martin of Tours, Bishop',  // us
     saintMartinWuXueshengAndCompanionsMartyrs: 'Saint Martin Wu Xuesheng and Companions, Martyrs',
-    saintMaryMacKillopVirgin: 'Saint Mary MacKillop, Virgin',  // australia
     saintMaryMagdalene: 'Saint Mary Magdalene',  // us, gb
     saintMaryMagdaleneDePazziVirgin: 'Saint Mary Magdalene de’ Pazzi, Virgin',  // us, gb (wales)
     saintMaryOfTheCrossVirgin: 'Saint Mary of the Cross MacKillop, Virgin',  // australia, nz
@@ -641,15 +608,15 @@ export default {
     saintOttoOfBambergBishop: 'Saint Otto of Bamberg, Bishop',
     saintPancrasMartyr: 'Saint Pancras, Martyr',  // us, gb
     saintPantaleon: 'Saint Pantaleon',
-    saintPaschalBaylon: 'Saint Paschal Baylon',
+    saintPaschalBaylon: 'Saint Paschal Baylón',
     saintPatrickBishop: 'Saint Patrick, Bishop',  // us, gb, scotland, ireland, australia
     saintPaulChenChangpinAndCompanionsMartyrs: 'Saint Paul Chen Changpin and Companions, Martyrs',
-    saintPaulinaOfTheAgonizingHeartOfJesusVirgin: 'Saint Paulina of The Agonizing Heart of Jesus, Virgin',  // gb, but not in gb
+    saintPaulinaOfTheAgonizingHeartOfJesusVirgin: 'Saint Paulina of the Agonizing Heart of Jesus, Virgin',  // gb, but not in gb
     saintPaulinusOfNolaBishop: 'Saint Paulinus of Nola, Bishop',  // us, gb
     saintPaulinusOfTrierBishop: 'Saint Paulinus of Trier, Bishop',
     saintPaulinusOfYorkBishop: 'Saint Paulinus of York, Bishop',  // gb
     saintPaulIvPope: 'Saint Paul VI, Pope',  // us, gb
-    saintPaulLiuHanzouPriestAndMartyr: 'Saint Paul Liu Hanzou, Priest and Martyr',
+    saintPaulLiuHanzouPriestAndMartyr: 'Saint Paul Liu Hanzuo, Priest and Martyr',
     saintPaulMikiAndCompanionsMartyrs: 'Saint Paul Miki and Companions, Martyrs',  // us, gb, nz
     saintPaulOfTheCrossPriest: 'Saint Paul of the Cross, Priest',  // us
     saintPedroCalungsodMartyr: 'Saint Pedro Calungsod, Martyr',
@@ -660,7 +627,7 @@ export default {
     saintPeterClaverPriest: 'Saint Peter Claver, Priest',  // us
     saintPeterDamianBishopAndDoctorOfTheChurch: 'Saint Peter Damian, Bishop and Doctor of the Church',  // us, gb
     saintPeterJulianEymardPriest: 'Saint Peter Julian Eymard, Priest',  // us
-    saintPeterLiuMartyr: 'Saint Peter Liu, Martyr',
+    saintPeterLiuMartyr: 'Saint Peter Liu Wenyuan, Martyr',
     saintPeterOfAlcantaraPriest: 'Saint Peter of Alcantara, Priest',
     saintPeterSanzBishopAndMartyr: 'Saint Peter Sanz, Bishop and Martyr',
     saintPeterWuMartyr: 'Saint Peter Wu, Martyr',
@@ -673,19 +640,18 @@ export default {
     saintPothinusBishopSaintBlandinaVirginAndTheirCompanionsMartyrs: 'Saints Pothinus, Bishop, Blandina, Virgin, and Companions, Martyrs',
     saintProcopiusAbbot: 'Saint Procopius, Abbot',
     saintPubliusBishop: 'Saint Publius, Bishop',
-    saintQuirinusOfSescia: 'Saint Quirinus of Sescia',
+    saintQuirinusOfSescia: 'Saint Quirinus of Sescia, Bishop',
     saintRabanusMaurusBishop: 'Saint Rabanus Maurus, Bishop',
     saintRadimBishop: 'Saint Radim, Bishop',
     saintRafaelGuizarYValenciaBishop: 'Saint Rafael Guizar y Valencia, Bishop',
     saintRafalKalinowskiPriest: 'Saint Rafal Kalinowski, Priest',
-    saintRafqaRebeccaVirgin: 'Saint Rafqa (Rebecca), Virgin',
+    saintRafqaRebeccaVirgin: 'Saint Rafqa Pietra Choboq Ar-Rayès, Virgin',
     saintRaymondOfPenyafortPriest: 'Saint Raymond of Penyafort, Priest',  // us, gb in en-GB
     saintRemigiusBishop: 'Saint Remigius, Bishop',
     saintRichardGwynMartyr: 'Saint Richard Gwyn, Martyr',  // gb (wales)
     saintRichardOfChichesterBishop: 'Saint Richard of Chichester, Bishop',  // gb
     saintRitaOfCascia: 'Saint Rita of Cascia, Religious',  // us
     saintRobertBellarmineBishopAndDoctor: 'Saint Robert Bellarmine, Bishop and Doctor of the Church',  // us
-    saintRocco: 'Saint Rocco',
     saintRoch: 'Saint Roch',
     saintRomualdAbbot: 'Saint Romuald, Abbot',  // us
     saintRoseOfLima: 'Saint Rose of Lima, Virgin',  // us
@@ -697,7 +663,7 @@ export default {
     saintsBenedyktJanMateuszIsaakAndKrystynMartyrs: 'Saints Benedykt, Jan, Mateusz, Isaak and Krystyn, Martyrs',
     saintsBorisAndGlebMartyrs: 'Saints Boris and Gleb, Martyrs',
     saintsCanuteEricAndOlafMartyrs: 'Saints Canute, Eric and Olaf, Martyrs',
-    saintsChadAndCeddBishop: 'Saints Chad and Cedd, Bishop',  // gb
+    saintsChadAndCeddBishop: 'Saints Chad and Cedd, Bishops',  // gb
     saintsCharlesLwangaAndCompanionsMartyrs: 'Saints Charles Lwanga and Companions, Martyrs',  // us, gb, ireland
     saintScholasticaVirgin: 'Saint Scholastica, Virgin',  // us, gb
     saintsClementOfOhridAndGorazdBishopsAndCompanions: 'Saints Clement of Ohrid and Gorazd, Bishops, and Companions',
@@ -709,7 +675,7 @@ export default {
     saintSenanBishop: 'Saint Senan, Bishop',  // ireland
     saintSeverinusOfNoricumMonk: 'Saint Severinus of Noricum, Monk',
     saintsFelipeDeJesusPaulMikiAndCompanionsMartyrs: 'Saints Felipe de Jesus, Paul Miki and Companions, Martyrs',  // us, but not in us (Felipe de Jesus need to be proofed)
-    saintsFructuosusBishopAndAuguriusAndEulogiusDeaconsMartyrs: 'Saints Fructuosus, Bishop, and Augurius and Eulogius, Deacons, Martyrs',
+    saintsFructuosusBishopAndAuguriusAndEulogiusDeaconsMartyrs: 'Saints Fructuosus, Bishop, Augurius and Eulogius, Deacons, Martyrs',
     saintsGregoryGrassiFrancisFogollaAndAnthonyFantosatiBishopsAndCompanionsMartyrs: 'Saints Gregory Grassi, Francis Fogolla and Anthony Fantosati, Bishops, and Companions, Martyrs',
     saintsHenryAndCunigunde: 'Saints Henry and Cunigunde',
     saintSigismundMartyr: 'Saint Sigismund, Martyr',
@@ -731,7 +697,7 @@ export default {
     saintsPhilipAndJamesApostles: 'Saints Philip and James, Apostles',  // us
     saintsPhilipEvansAndJohnLloydPriestsAndMartyrs: 'Saints Philip Evans and John Lloyd, Priests and Martyrs',  // gb (wales)
     saintsPontianPopeAndHippolytusPriestMartyrs: 'Saints Pontian, Pope, and Hippolytus, Priest, Martyrs',  // us
-    saintSpyridon: 'Saint Spyridon',
+    saintSpyridon: 'Saint Spyridon, Bishop',
     saintsRoqueGonzalezAlfonsoRodriguezOlmedoAndJuanDelCastilloPriestsAndMartyrs: 'Saints Roque Gonzalez, Alfonso Rodriguez Olmedo, and Juan del Castillo, Priests and Martyrs',
     saintsRupertAndVirgiliusOfSalzburgBishops: 'Saints Rupert and Virgilius of Salzburg, Bishops',
     saintsSimonAndJudeApostles: 'Saints Simon and Jude, Apostles',  // us
@@ -745,13 +711,13 @@ export default {
     saintSwithunBishop: 'Saint Swithun, Bishop',
     saintSylvesterIPope: 'Saint Sylvester I, Pope',  // us
     saintTeiloBishop: 'Saint Teilo, Bishop',  // gb (wales)
-    saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr: 'Saint Teresa Benedicta of the Cross, Virgin and Martyr',  // us, gb, scotland
+    saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr: 'Saint Teresa Benedicta of the Cross Stein, Virgin and Martyr',  // us, gb, scotland
     saintTeresaOfCalcuttaReligious: 'Saint Teresa of Calcutta, Religious',
     saintTeresaOfJesusJornetEIbarsVirgin: 'Saint Teresa of Jesus Jornet e Ibars, Virgin',
     saintTeresaOfJesusVirginAndDoctorOfTheChurch: 'Saint Teresa of Jesus, Virgin and Doctor of the Church',  // us
-    saintTeresaOfLosAndesVirgin: 'Saint Teresa of Los Andes, Virgin',
+    saintTeresaOfLosAndesVirgin: 'Saint Teresa of Jesus of Los Andes, Virgin',
     saintTheodoreOfCanterburyBishop: 'Saint Theodore of Canterbury, Bishop',  // gb
-    saintTheodosiusOfTheCavesAbbot: 'Saint Theodosius of The Caves, Abbot',
+    saintTheodosiusOfTheCavesAbbot: 'Saint Theodosius of the Caves, Abbot',
     saintTheotoniusPriest: 'Saint Theotonius, Priest',
     saintThereseOfTheChildJesusVirginAndDoctor: 'Saint Thérèse of the Child Jesus, Virgin and Doctor of the Church',  // us
     saintThereseOfTheChildJesusVirginSecondaryPatronessOfFrance: 'Saint Thérèse of the Child Jesus, Virgin, Doctor of the Church and Secondary Patroness of France',  // us, but not in us
@@ -763,7 +729,7 @@ export default {
     saintThorfinnBishop: 'Saint Thorfinn, Bishop',
     saintThorlacBishop: 'Saint Thorlac, Bishop',
     saintTuribiusOfMogrovejoBishop: 'Saint Turibius of Mogrovejo, Bishop',  // us, gb
-    saintUlrichOfAugsburg: 'Saint Ulrich of Augsburg',
+    saintUlrichOfAugsburg: 'Saint Ulrich of Augsburg, Bishop',
     saintUrsulaAndCompanionsVirginsAndMartyrs: 'Saint Ursula and Companions, Virgins and Martyrs',
     saintUrsulaLedochowskaVirgin: 'Saint Ursula Ledochowska, Virgin',
     saintValentineOfRaetiaBishop: 'Saint Valentine of Raetia, Bishop',
@@ -772,7 +738,7 @@ export default {
     saintVincentFerrerPriest: 'Saint Vincent Ferrer, Priest',  // us
     saintVincentPallottiPriest: 'Saint Vincent Pallotti, Priest',
     saintVitusMartyr: 'Saint Vitus, Martyr',
-    saintVladimirTheGreat: 'Saint Vladimir The Great',
+    saintVladimirTheGreat: 'Saint Vladimir the Great',
     saintWalburgaAbbess: 'Saint Walburga, Abbess',
     saintWenceslausMartyr: 'Saint Wenceslaus, Martyr',  // us
     saintWendelinAbbot: 'Saint Wendelin, Abbot',
@@ -784,9 +750,8 @@ export default {
     saintWolfgangOfRegensburgBishop: 'Saint Wolfgang of Regensburg, Bishop',
     saintWulstanBishop: 'Saint Wulstan, Bishop',  // gb
     saintZdislava: 'Saint Zdislava',
-    saintZdzislawa: 'Saint Zdzislawa',
     saintZygmuntGorazdowskiPriest: 'Saint Zygmunt Gorazdowski, Priest',
-    saintZygmuntSzczesnyFelinskiBishop: 'Saint Zygmunt Szczesny Felinski, Bishop',
+    saintZygmuntSzczesnyFelinskiBishop: 'Saint Sigmund Felix Feliński, Bishop',
     santoNinoInfantJesus: 'Santo Nino (Infant Jesus)',
     sevenHolyFoundersOfTheServiteOrder: 'Seven Holy Founders of the Servite Order',  // us, gb in en-GB
     sevenMartyredNunsFromTheFranciscanMissionariesOfMary: 'Seven Martyred Nuns from the Franciscan Missionaries of Mary',
@@ -797,10 +762,10 @@ export default {
     sundayOfTheWordOfGod: 'Sunday of the Word of God',  // us; this one was not found in the _Ordo 2017, 2018, 2020, 2021_
     theBeheadingOfSaintJohnTheBaptistMartyr: 'Passion of Saint John the Baptist',  // us
     theEnglishMartyrs: 'English Martyrs',  // gb
-    theFiveWoundsOfTheLord: 'Five Wounds of The Lord',
+    theFiveWoundsOfTheLord: 'Five Wounds of the Lord',
     theMostHolyNameOfJesus: 'Most Holy Name of Jesus',  // us, gb
     theSixWelshMartyrsAndCompanions: 'Six Welsh Martyrs and Companions',  // gb (wales)
-    transferOfTheRelicsOfSaintStephen: 'Transfer of The Relics of Saint Stephen',
+    transferOfTheRelicsOfSaintStephen: 'Transfer of the Relics of Saint Stephen',
     vietnameseMartyrs: 'Vietnamese Martyrs',
     visitationOfTheBlessedVirginMary: 'Visitation of the Blessed Virgin Mary',  // us
     waitangiDay: 'Waitangi Day',  // nz

@@ -85,8 +85,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintAnthonyOfLisbonPriestAndDoctorOfTheChurch',
-      rank: Ranks.FEAST,
+      key: 'saintAnthonyOfPaduaPriestAndDoctor',
+      rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-6-13`),
       liturgicalColors: LiturgicalColors.WHITE,
       metadata: {
@@ -161,11 +161,6 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'saintJohnLeonardiPriest',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-10-9`),
-    },
-    {
-      key: 'blessedJohnNewmanBishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-9`),
     },
