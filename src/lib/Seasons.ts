@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import * as Dates from '@romcal/lib/Dates';
+import { Dates } from './Dates';
 import { RomcalDateItemInput } from '@romcal/models/romcal-date-item/romcal-date-item.model';
 import { RomcalDateItemCalendar } from '@romcal/models/romcal-date-item/date-item-calendar.type';
 import { Ranks } from '@romcal/constants/ranks/ranks.enum';
