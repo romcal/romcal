@@ -1,8 +1,8 @@
 import dayjs, { Dayjs } from 'dayjs';
 
-import { Dates } from '../lib/Dates';
+import { Dates } from '@romcal/lib/Dates';
 import * as Locales from '@romcal/lib/Locales';
-import * as Seasons from '@romcal/lib/Seasons';
+import { Seasons } from '@romcal/lib/Seasons';
 import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
 import { RomcalDateItemInput } from '@romcal/models/romcal-date-item/romcal-date-item.model';
 import RomcalConfig, { RomcalConfigInCalendarDef } from '@romcal/models/romcal-config/romcal-config.model';

@@ -28,8 +28,8 @@ import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import { RomcalDateItemModel, RomcalDateItemInput } from '@romcal/models/romcal-date-item/romcal-date-item.model';
 import Romcal from '@romcal/index';
-import * as Seasons from '@romcal/lib/Seasons';
-import { Dates } from '../src/lib/Dates';
+import { Seasons } from '@romcal/lib/Seasons';
+import { Dates } from '@romcal/lib/Dates';
 import { Ranks } from '@romcal/constants/ranks/ranks.enum';
 
 dayjs.extend(utc);

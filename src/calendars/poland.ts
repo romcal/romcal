@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import * as Locales from '@romcal/lib/Locales';
-import { Dates } from '../lib/Dates';
+import { Dates } from '@romcal/lib/Dates';
 import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
 import { RomcalDateItemInput } from '@romcal/models/romcal-date-item/romcal-date-item.model';
 import { rangeOfDays, rangeContainsDate } from '@romcal/utils/dates/dates';
