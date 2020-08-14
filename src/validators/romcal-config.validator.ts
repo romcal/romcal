@@ -19,14 +19,13 @@ export const getRomcalConfigJsonSchema = (): Schema => ({
     },
     locale: {
       type: 'string',
-      enum: Object.keys(Locales),
       description: `Acceptable values are ${Object.keys(Locales).join(', ')}`,
     },
     epiphanyOnSunday: { type: 'boolean' },
     corpusChristiOnSunday: { type: 'boolean' },
     ascensionOnSunday: { type: 'boolean' },
     outputOptionalMemorials: { type: 'boolean' },
-    type: { type: 'string', enum: ['gregorian', 'liturgical'] },
+    scope: { type: 'string', enum: ['gregorian', 'liturgical'] },
     query: { $ref: '/romcalQueryJsonSchema' },
   },
 });

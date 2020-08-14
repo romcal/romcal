@@ -1,11 +1,12 @@
 import dayjs from 'dayjs';
 
 import logger from '@romcal/utils/logger/logger';
-import { isNil, isObject, isRomcalConfig } from '@romcal/utils/type-guards/type-guards';
+import { isNil, isObject, isRomcalConfig, isString } from '@romcal/utils/type-guards/type-guards';
 import { RomcalCalendarScope } from '@romcal/models/romcal-config/calendar-scope.type';
 import { RomcalCountry } from '@romcal/constants/countries/country.type';
 import { RomcalLocaleKey } from '@romcal/models/romcal-locale/locale-types.type';
 import { RomcalQuery } from '@romcal/constants/query-options/query-types.type';
+import { sanitizeLocale } from '@romcal/lib/Locales';
 
 /**
  * The configuration object that is passed either to the [[Calendar.calendarFor]]
@@ -183,17 +184,26 @@ export default class RomcalConfig {
    * @param maybeConfig An optional object that may be a usable instance of [[RomcalConfig]]
    */
   static async resolveConfig(maybeConfig?: unknown): Promise<ConfigConstructorType> {
-    // Get the default config
+    // Initialize config with the default config
     let config: RomcalConfigModel = await RomcalConfig.getConfig('general');
+    const defaultLocale = 'en';
+
     // Check if the user supplied their own configuration
     if (!isNil(maybeConfig)) {
-      // Check if the user configuration is valid
       if (!isRomcalConfig(maybeConfig)) {
+        // Check if the user configuration is valid
         logger.warn(
           `Will discard the entire user supplied config object and use default configuration.
-                    To avoid this, ensure that all properties and values of the config object are valid.`,
+          To avoid this, ensure that all properties and values of the config object are valid.`,
         );
       } else {
+        let locale = defaultLocale;
+
+        // Evaluate the specified locale config
+        if (!isNil(maybeConfig.locale) && isString(maybeConfig.locale)) {
+          locale = sanitizeLocale(maybeConfig.locale).locale;
+        }
+
         // A two step override where the base object of default configurations
         // will first be overridden by country specific if it isn't empty
         // and finally by a valid user defined configuration object
@@ -204,6 +214,8 @@ export default class RomcalConfig {
           ...(maybeConfig.country !== 'general' && (await RomcalConfig.getConfig(maybeConfig.country))),
           // User supplied config (will overwrite same keys before it)
           ...maybeConfig,
+          // If the locale has been evaluated, it will be updated
+          locale,
         };
       }
     } else {
@@ -214,13 +226,10 @@ export default class RomcalConfig {
     return {
       year: config.year ?? dayjs.utc().year(), // Use current year if not supplied by user
       country: config.country ?? 'general', // Use general as country if none supplied by user
-      locale: config.locale ?? 'en', // Use english for localization if no language supplied]
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      epiphanyOnSunday: config.epiphanyOnSunday!, // Will use default if not defined
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      corpusChristiOnSunday: config.corpusChristiOnSunday!, // Will use default if not defined
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      ascensionOnSunday: config.ascensionOnSunday!, // Will use default if not defined
+      locale: config.locale ?? defaultLocale, // Use english for localization if no language supplied]
+      epiphanyOnSunday: !!config.epiphanyOnSunday, // Will use default if not defined
+      corpusChristiOnSunday: !!config.corpusChristiOnSunday, // Will use default if not defined
+      ascensionOnSunday: !!config.ascensionOnSunday, // Will use default if not defined
       outputOptionalMemorials: !!config.outputOptionalMemorials,
       scope: config.scope ?? 'gregorian', // Use the default value "gregorian" if scope not specified by user
       ...(isObject(config.query) && { query: config.query }), // Attach query if there's one
