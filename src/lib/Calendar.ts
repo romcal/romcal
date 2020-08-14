@@ -211,6 +211,7 @@ export class Calendar {
           date,
         } = item;
         if (!isNil(key) && !isNil(name) && !isNil(rank) && !isNil(date)) {
+          const validatedRank = this.adjustTypeInSeason(rank, baseItem);
           const validatedSeasons: Required<RomcalLiturgicalSeason[]> = seasons || baseItem?.seasons || [];
           const validatedSeasonNames: Required<string[]> = seasonNames || baseItem?.seasonNames || [];
           const validatedPeriods: Required<RomcalLiturgicalPeriod[]> = periods || baseItem?.periods || [];
@@ -227,7 +228,8 @@ export class Calendar {
             new RomcalDateItemModel({
               key,
               name,
-              rank,
+              rank: validatedRank,
+              rankName: await localize({ key: `ranks.${validatedRank}` }),
               date,
               prioritized: !!prioritized,
               seasons: validatedSeasons,
@@ -240,12 +242,35 @@ export class Calendar {
               liturgicalColorNames: await this.localizeLiturgicalColors(validatedLiturgicalColors),
               metadata: (typeof metadata === 'object' ? metadata : { titles: [] }) as RomcalDateItemMetadata,
               _stack: index, // The stack number refers to the index in the calendars array in which this celebration's array is placed at
-              baseItem: baseItem, // Attach the base item if any
+              baseItem, // Attach the base item if any
             }),
           );
         }
       }
     }
+  }
+
+  /**
+   * Runs type management on celebrations given their specific types.
+   *
+   * **Special type management in the season of LENT.**
+   *
+   * Memorials or Optional Memorials that fall on a weekday
+   * in the season of Lent are reduced to Commemorations.
+   *
+   * Feasts occurring in the season of Lent are also reduced to
+   * Commemorations.
+   */
+  private adjustTypeInSeason(rank: Ranks, base: RomcalDateItemModel | undefined): Ranks {
+    if (base?.seasons?.some((key: string) => key === LiturgicalSeasons.LENT)) {
+      if ((rank === Ranks.MEMORIAL || rank === Ranks.OPT_MEMORIAL) && base.rank === Ranks.WEEKDAY) {
+        return Ranks.COMMEMORATION;
+      }
+      if (rank === Ranks.FEAST) {
+        return Ranks.COMMEMORATION;
+      }
+    }
+    return rank;
   }
 
   /**

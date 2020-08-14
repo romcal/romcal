@@ -17,6 +17,7 @@ type RomcalBaseDateItem = {
   name: string;
   date: ISO8601DateString;
   rank: Ranks;
+  rankName: string;
   prioritized: boolean;
   liturgicalColors: RomcalLiturgicalColor[];
   liturgicalColorNames: string[];
@@ -44,7 +45,7 @@ type RomcalDateItemArgs = Readonly<Omit<RomcalBaseDateItem, 'date'> & Partial<Ro
  * should not be used in consumer applications.
  */
 export type RomcalDateItemInput = Pick<RomcalBaseDateItem, 'key'> &
-  Partial<Omit<RomcalBaseDateItem, 'key' | 'date' | 'liturgicalColors' | 'cycles'>> & {
+  Partial<Omit<RomcalBaseDateItem, 'key' | 'date' | 'rankName' | 'liturgicalColors' | 'cycles'>> & {
     date: Dayjs;
     liturgicalColors?: RomcalLiturgicalColor | RomcalLiturgicalColor[];
     cycles?: Partial<RomcalCycles>;
@@ -78,7 +79,11 @@ export class RomcalDateItemModel implements RomcalBaseDateItem {
   /**
    * The rank of the celebration.
    */
-  public rank: Ranks;
+  public readonly rank: Ranks;
+  /**
+   * The localized rank of the celebration
+   */
+  public readonly rankName: string;
   /**
    * If this celebration should have always precedence, without rank consideration.
    */
@@ -139,6 +144,7 @@ export class RomcalDateItemModel implements RomcalBaseDateItem {
     name,
     date,
     rank,
+    rankName,
     prioritized,
     liturgicalColors,
     liturgicalColorNames,
@@ -156,6 +162,7 @@ export class RomcalDateItemModel implements RomcalBaseDateItem {
     this.name = name;
     this.date = date.toISOString();
     this.rank = rank;
+    this.rankName = rankName;
     this.prioritized = prioritized;
     this.liturgicalColors = liturgicalColors;
     this.liturgicalColorNames = liturgicalColorNames;
@@ -173,30 +180,6 @@ export class RomcalDateItemModel implements RomcalBaseDateItem {
     // The original default item is added to the current item as the `base` property
     if (!isNil(baseItem) && this._id !== baseItem?._id && baseItem.name !== this.name) {
       this.base = baseItem;
-    }
-
-    this.adjustTypeInSeason();
-  }
-
-  /**
-   * Runs type management on celebrations given their specific types.
-   *
-   * **Special type management in the season of LENT.**
-   *
-   * Memorials or Optional Memorials that fall on a weekday
-   * in the season of Lent are reduced to Commemorations.
-   *
-   * Feasts occurring in the season of Lent are also reduced to
-   * Commemorations.
-   */
-  private adjustTypeInSeason(): void {
-    if (this.base?.seasons?.some((key) => key === 'LENT')) {
-      if ((this.rank === Ranks.MEMORIAL || this.rank === Ranks.OPT_MEMORIAL) && this.base.rank === Ranks.WEEKDAY) {
-        this.rank = Ranks.COMMEMORATION;
-      }
-      if (this.rank === Ranks.FEAST) {
-        this.rank = Ranks.COMMEMORATION;
-      }
     }
   }
 
