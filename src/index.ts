@@ -8,7 +8,7 @@ import {
   localize,
   localizeDates,
   ordinal,
-  sanitizePossibleLocaleValue,
+  sanitizeLocale,
   setLocale,
 } from '@romcal/lib/Locales';
 
@@ -289,7 +289,7 @@ export {
 /**
  * Export for helper functions in the [[Locales]]
  */
-export { getLocale, getRankByDayOfWeek, localize, localizeDates, ordinal, sanitizePossibleLocaleValue, setLocale };
+export { getLocale, getRankByDayOfWeek, localize, localizeDates, ordinal, sanitizeLocale, setLocale };
 
 /**
  * Export for helper functions in [[Dates]]
