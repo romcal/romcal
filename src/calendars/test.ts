@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 
 import * as Locales from '@romcal/lib/Locales';
-import { Dates } from '../lib/Dates';
+import { Dates } from '@romcal/lib/Dates';
 import { RomcalDateItemInput } from '@romcal/models/romcal-date-item/romcal-date-item.model';
 import RomcalConfig, { RomcalConfigInCalendarDef } from '@romcal/models/romcal-config/romcal-config.model';
 import { Ranks } from '@romcal/constants/ranks/ranks.enum';
