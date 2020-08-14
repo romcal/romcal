@@ -14,17 +14,7 @@ import {
 
 import { dates as temporalCelebrationDates } from '@romcal/lib/Celebrations';
 
-import {
-  advent,
-  christmastide,
-  earlyOrdinaryTime,
-  easterOctave,
-  paschalTriduum,
-  eastertide,
-  laterOrdinaryTime,
-  lent,
-} from '@romcal/lib/Seasons';
-
+import { Seasons } from '@romcal/lib/Seasons';
 import { Calendar } from '@romcal/lib/Calendar';
 import { Dates } from './lib/Dates';
 
@@ -314,7 +304,7 @@ export { temporalCelebrationDates };
 /**
  * Export for helper functions in [[Seasons]]
  */
-export { advent, christmastide, earlyOrdinaryTime, easterOctave, paschalTriduum, eastertide, laterOrdinaryTime, lent };
+export { Seasons };
 
 // Other exports to provide convenience functions to the user
 export { Calendar };
