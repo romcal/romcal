@@ -19,6 +19,7 @@ import { RomcalLocalizeParams } from '@romcal/models/romcal-locale/localize-para
 import dayjs from 'dayjs';
 import updateLocale from 'dayjs/plugin/updateLocale';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
+import { default as Locales } from '@romcal/locales';
 
 /**
  * Extend dayjs instance with plugins
@@ -45,17 +46,17 @@ const _fallbackLocaleKey: RomcalLocaleKey = 'en';
 /**
  * Cache value for the array of locales to be used for calendar output.
  */
-let _locales: RomcalLocale[];
+let _localeContents: RomcalLocale[];
 
 /**
  * The cache key that holds the flattened _locales array.
  */
-let _combinedLocale: RomcalLocale | undefined;
+let _combinedLocaleContents: RomcalLocale | undefined;
 
 /**
  * Cache value to hold the current locale's data.
  */
-let _currentLocaleData: ILocale;
+let _dayjsLocale: ILocale;
 
 /**
  * Returns an ordinal number representation of the integer provided.
@@ -71,44 +72,64 @@ export const ordinal = (value: number, asWord = false): string => {
 
 /**
  * Attempts to sanitize the incoming value into a valid BCP-47 IETF locale string.
- * @param value The locale value to sanitize
- * @returns a BCP-47 IETF locale string along the [[Schema]] object with additional locale properties or throws an Error if the value could not be parsed
+ * @param locale The locale value to sanitize
  */
-export const sanitizePossibleLocaleValue = (
-  value: string,
+export const sanitizeLocale = (
+  locale: string,
 ): {
-  localeSchema: Schema;
-  resolvedBcp47Locale: string;
+  locale: string;
+  language: string;
+  region: string | undefined;
 } => {
-  try {
-    let localeSchema: Schema = parse(value, {
-      forgiving: true, // https://www.npmjs.com/package/bcp-47#optionsforgiving
-    });
-    // Get schema parts
-    let { region, language } = localeSchema;
-    // Will hold the parsed locale
-    let resolvedBcp47Locale: string;
-    // Handle locales where language and region are not separated by a hyphen
-    if (!isNil(language) && language.length > 2 && isNil(region)) {
-      const parsedLanguage = language?.substr(0, 2);
-      const parsedRegion = language?.substr(2, 4);
-      resolvedBcp47Locale = `${parsedLanguage}${
-        isString(parsedRegion) && parsedRegion.length > 0 ? `-${parsedRegion}` : ''
-      }`;
-      logger.debug(`sanitized the ${language} locale to ${resolvedBcp47Locale}`);
-      localeSchema = parse(resolvedBcp47Locale, {
-        forgiving: true,
-      });
-      region = localeSchema.region;
-      language = localeSchema.language;
-    } else {
-      resolvedBcp47Locale = `${language}${isString(region) && region.length > 0 ? `-${region}` : ''}`;
-    }
-    return { localeSchema, resolvedBcp47Locale };
-  } catch (e) {
-    logger.warn(`${value} is not a parse-able BCP-47 IETF locale string`);
-    throw e;
+  let sanitizedLocale: 'en' | string;
+
+  // Evaluate the specified locale config
+  const locales = Object.keys(Locales);
+  let localeSchema: Schema = parse(locale.toLowerCase(), {
+    forgiving: true, // https://www.npmjs.com/package/bcp-47#optionsforgiving
+  });
+  let { language, region } = localeSchema;
+
+  // Locale is not a valid format
+  if (!language) {
+    logger.warn(
+      `The locale '${locale}' is not a valid IETF BCP-47 format. romcal will defaults to the '${_fallbackLocaleKey}' locale.`,
+    );
+    language = _fallbackLocaleKey;
+    region = undefined;
   }
+
+  // Language only, and Language-Region not supported by romcal,
+  if (!(language && locales.includes(language)) && !(language && region && locales.includes(`${language}-${region}`))) {
+    logger.warn(
+      `The locale '${locale}' is currently not supported by romcal. romcal will defaults to the '${_fallbackLocaleKey}' locale.`,
+    );
+    language = _fallbackLocaleKey;
+    region = undefined;
+  }
+
+  // Rewrite the local from parsed data
+  sanitizedLocale = language;
+  if (region) sanitizedLocale += `-${region}`;
+
+  // Region not supported by romcal, but language is
+  if (region && !locales.includes(sanitizedLocale)) {
+    logger.warn(
+      `The locale '${locale}' is currently not supported by romcal. romcal will defaults to its base '${language}' locale.`,
+    );
+    sanitizedLocale = language;
+    region = undefined;
+  }
+
+  if (locale.toLowerCase() !== sanitizedLocale) {
+    logger.warn(`Using '${sanitizedLocale}' as locale for romcal (instead of '${locale}').`);
+  }
+
+  return {
+    locale: sanitizedLocale,
+    language: language,
+    region: region,
+  };
 };
 
 /**
@@ -118,93 +139,62 @@ export const sanitizePossibleLocaleValue = (
  */
 const setLocale = async (key: RomcalLocaleKey, customOrdinalFn: (v: number) => string = ordinal): Promise<void> => {
   // When setLocale() is called, all cache values are purged
-  _combinedLocale = undefined;
-  // When setLocale() is called, the cache language files are reset
-  try {
-    const { default: fallbackLocale } = await import(
-      /* webpackExclude: /index\.ts/ */
-      /* webpackChunkName: "locales/[request]" */
-      /* webpackMode: "lazy" */
-      `@romcal/locales/${_fallbackLocaleKey}`
-    );
-    _locales = [fallbackLocale as RomcalLocale];
-  } catch (e) {
-    logger.error(`Failed to load the ${_fallbackLocaleKey} language file`);
-  }
+  _localeContents = [];
+  _combinedLocaleContents = undefined;
 
-  let currentLocale;
-  try {
-    const { localeSchema, resolvedBcp47Locale } = sanitizePossibleLocaleValue(key);
-    const { region, language } = localeSchema;
-    currentLocale = resolvedBcp47Locale;
+  const { locale, language, region } = sanitizeLocale(key);
 
-    /**
-     * If a region is specified: append the base language for that region as fallback if it exists.
-     * Also check if the base language isn't already the default 'en',
-     */
-    if (!isNil(region) && region?.length > 0 && language !== _fallbackLocaleKey) {
-      // Retrieve the relevant base locale object
-      // and set it as a fallback (before 'en')
-      try {
-        const { default: baseLocale } = await import(
-          /* webpackExclude: /index\.ts/ */
-          /* webpackChunkName: "locales/[request]" */
-          /* webpackMode: "lazy" */
-          `@romcal/locales/${language}`
-        );
-        _locales = [baseLocale as RomcalLocale, ..._locales]; // For example: append the 'fr' locale
-      } catch (e) {
-        logger.warn(`A base language file for "${language}" to support the ${currentLocale} locale is not available`);
-      }
-    }
+  const locales = [
+    // Include the current locale, if different of the default 'en' locale
+    ...((): string[] => (locale !== _fallbackLocaleKey ? [locale] : []))(),
+    // Include the base language locale, if available, and if the current locale is a region locale
+    ...((): string[] =>
+      region && locale === `${language}-${region}` && Object.keys(Locales).includes(language) ? [language] : [])(),
+    // Finally, include the default 'en' locale
+    _fallbackLocaleKey,
+  ];
 
-    /**
-     * Finally, append the region specific locale if any to the list of locales
-     */
+  // Attempt to load the corresponding locale file
+  for (const localeKey of locales) {
     try {
-      const { default: regionSpecificLocale } = await import(
+      const { default: localeContent } = await import(
         /* webpackExclude: /index\.ts/ */
         /* webpackChunkName: "locales/[request]" */
         /* webpackMode: "lazy" */
-        `@romcal/locales/${currentLocale}`
+        `@romcal/locales/${localeKey}`
       );
-      _locales = [regionSpecificLocale as RomcalLocale, ..._locales]; // For example: append the 'fr-CA' locale
+      _localeContents = [..._localeContents, localeContent as RomcalLocale];
     } catch (e) {
-      logger.warn(`A language file for the region locale "${currentLocale}" is not available`);
+      logger.error(`Failed to load the '${localeKey}' language file for romcal.`);
     }
-  } catch (e) {
-    logger.warn(`The locale "${key} is not a valid IETF BCP-47 format. romcal will default to the "en" locale`);
-    currentLocale = _fallbackLocaleKey;
   }
 
-  // Attempt to load the relevant dayjs locale configuration object
-  try {
-    const { default: langLocale } = await import(
-      /* webpackExclude: /(index|types)\.d\.ts/ */
-      /* webpackMode: "eager" */
-      `dayjs/locale/${currentLocale}`
-    );
-    _currentLocaleData = langLocale as ILocale;
-  } catch (e) {
+  // Attempt to load the relevant DayJS locale configuration object
+  let currentDayjsLocale = locale;
+  for (const [index, localeKey] of locales.entries()) {
     try {
-      const languageOnly = currentLocale.split('-')[0];
-      logger.warn(
-        `${currentLocale} is not supported in romcal's date management library, trying to use ${languageOnly} instead`,
-      );
-      const { default: langLocale } = await import(
+      const { default: dayjsLocale } = await import(
         /* webpackExclude: /(index|types)\.d\.ts/ */
         /* webpackMode: "eager" */
-        `dayjs/locale/${languageOnly}`
+        `dayjs/locale/${localeKey}`
       );
-      _currentLocaleData = langLocale as ILocale;
-      currentLocale = languageOnly;
+      _dayjsLocale = dayjsLocale as ILocale;
+      currentDayjsLocale = localeKey;
+
+      // Set the locale
+      dayjs.locale(currentDayjsLocale);
+
+      // Logging when an alternative locale is used in DayJS
+      if (index > 0) {
+        logger.info(`Using the '${localeKey}' locale in Day.js, and '${locale}' in romcal.`);
+      }
+
+      break;
     } catch (e) {
-      logger.warn(`Failed to load locale data for ${currentLocale}. romcal will default to "en" locale data`);
-      currentLocale = 'en';
+      logger.warn(
+        `Failed to load the '${localeKey}' locale file for the romcal’s date management library. Maybe '${localeKey}' doesn't exists in Day.js.`,
+      );
     }
-  } finally {
-    // Set the locale
-    dayjs.locale(currentLocale);
   }
 
   /**
@@ -214,19 +204,19 @@ const setLocale = async (key: RomcalLocaleKey, customOrdinalFn: (v: number) => s
    * In Christian calendars, Sunday is always the first day of the week.
    * In other words, the romcal will use US, Canada definitions for the start of the week.
    */
-  dayjs.updateLocale(currentLocale, {
+  dayjs.updateLocale(currentDayjsLocale, {
     weekStart: 0,
     week: {
       dow: 0, // US, Canada: 1st day of week is Sunday
       doy: 6, // US, Canada: 1st week of the year is the one that contains the 1st of January (7 + 0 - 1)
     },
-    ...(isNil(_currentLocaleData.ordinal) && {
+    ...(isNil(_dayjsLocale.ordinal) && {
       // If the current locale's data doesn't have its own ordinal function, use this default ordinal function
       customOrdinalFn,
     }),
   });
 
-  logger.debug(`romcal is now configured to use ${currentLocale}`);
+  logger.debug(`romcal is now configured to use ${currentDayjsLocale}`);
 };
 
 /**
@@ -237,15 +227,15 @@ const setLocale = async (key: RomcalLocaleKey, customOrdinalFn: (v: number) => s
  * without the locale being modified.
  */
 const getLocale = (): RomcalLocale => {
-  if (isNil(_combinedLocale)) {
-    if (_locales.length > 1) {
-      const [regionLocale, fallbackLocale] = _locales;
-      _combinedLocale = mergeObjectsUniquely(regionLocale, fallbackLocale);
+  if (isNil(_combinedLocaleContents)) {
+    if (_localeContents.length > 1) {
+      const [regionLocale, fallbackLocale] = _localeContents;
+      _combinedLocaleContents = mergeObjectsUniquely(regionLocale, fallbackLocale);
     } else {
-      _combinedLocale = _locales[0];
+      _combinedLocaleContents = _localeContents[0];
     }
   }
-  return _combinedLocale;
+  return _combinedLocaleContents;
 };
 
 /**
@@ -256,7 +246,7 @@ const getLocale = (): RomcalLocale => {
  * @param localizeParams Options for retrieving the localized key
  */
 const localize = async ({ key, count, week, day, useDefaultOrdinalFn }: RomcalLocalizeParams): Promise<string> => {
-  // Get the IETF locale set in dayjs and obtain its corresponding locale data object
+  // Get the IETF locale set in DayJS and obtain its corresponding locale data object
   const value = findDescendantValueByKeys(getLocale(), key.split('.'));
 
   // Run the template against the options provided
@@ -264,10 +254,10 @@ const localize = async ({ key, count, week, day, useDefaultOrdinalFn }: RomcalLo
     key,
     // If defined, pluralize a week and add it to the given template
     ...(typeof week === 'number' && {
-      week: useDefaultOrdinalFn === true ? ordinal(week) : _currentLocaleData.ordinal?.(week) ?? ordinal(week),
+      week: useDefaultOrdinalFn === true ? ordinal(week) : _dayjsLocale.ordinal?.(week) ?? ordinal(week),
     }),
     ...(typeof count === 'number' && {
-      count: useDefaultOrdinalFn === true ? ordinal(count) : _currentLocaleData.ordinal?.(count) ?? ordinal(count),
+      count: useDefaultOrdinalFn === true ? ordinal(count) : _dayjsLocale.ordinal?.(count) ?? ordinal(count),
     }),
     // If defined, add the day to be included in the translation
     ...(isString(day) && { day }),
