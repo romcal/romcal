@@ -150,6 +150,7 @@ This produces an array of date item objects (one date item per each day of the y
     name: 'Mary, Mother of God',
     date: '2020-01-01T00:00:00.000Z',
     rank: 'SOLEMNITY',
+    rankName: 'Solemnity',
     liturgicalColors: ['WHITE'],
     seasons: ['CHRISTMASTIDE'],
     seasonNames: ['Christmas'],
