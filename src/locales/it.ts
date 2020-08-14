@@ -50,6 +50,17 @@ export default {
     ROSE: 'rosa',
     WHITE: 'bianca',
   },
+  ranks: {
+    SOLEMNITY: 'Solennità',
+    SUNDAY: 'Domenica',
+    TRIDUUM: 'Triduo',
+    HOLY_WEEK: 'Settimana santa',
+    FEAST: 'Festa',
+    MEMORIAL: 'Memoria',
+    OPT_MEMORIAL: 'Memoria facoltativa',
+    COMMEMORATION: 'Commemorazione',
+    WEEKDAY: 'Feria',
+  },
   celebrations: {
     allSaints: 'Tutti i Santi',
     annunciation: 'Annunciazione del Signore',
