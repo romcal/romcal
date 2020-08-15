@@ -353,8 +353,6 @@ describe('Testing calendar generation functions', () => {
         country: 'slovakia',
         year: 2020,
       });
-      // const saintSylvesterIPope = testDates.find(testDate => testDate.key === 'saintSylvesterIPope');
-      // console.log(JSON.stringify(saintSylvesterIPope));
     });
 
     test('A dropped celebration should not be appended in the final calendar', () => {
