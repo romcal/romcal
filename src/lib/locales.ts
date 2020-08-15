@@ -2,16 +2,18 @@ import _ from 'lodash';
 
 import { parse, Schema } from 'bcp-47';
 import { toOrdinal, toWordsOrdinal } from 'number-to-words';
-import logger from '@romcal/utils/logger/logger';
+import { logger } from '@romcal/utils/logger/logger';
 
 import { findDescendantValueByKeys, mergeObjectsUniquely } from '@romcal/utils/object/object';
 import { isNil, isString } from '@romcal/utils/type-guards/type-guards';
-import { RomcalLocale } from '@romcal/models/romcal-locale/romcal-locale';
-import { RomcalDateItemInput } from '@romcal/models/romcal-date-item/romcal-date-item.model';
+import { RomcalLocale } from '@romcal/models/locale/romcal-locale.type';
 import { Ranks } from '@romcal/constants/ranks/ranks.enum';
-import { RomcalDateItemSources } from '@romcal/models/romcal-date-item/date-item-sources.type';
-import { RomcalLocaleKey } from '@romcal/models/romcal-locale/locale-types.type';
-import { RomcalLocalizeParams } from '@romcal/models/romcal-locale/localize-params.type';
+import {
+  RomcalLiturgicalDayInput,
+  RomcalLiturgicalDaySources,
+} from '@romcal/models/liturgical-day/liturgical-day.types';
+import { RomcalLocaleKey } from '@romcal/models/locale/locale-types.type';
+import { RomcalLocalizeParams } from '@romcal/models/locale/localize-params.type';
 
 /**
  * Load DayJS and relevant plugins
@@ -277,17 +279,17 @@ const localize = async ({ key, count, week, day, useDefaultOrdinalFn }: RomcalLo
  * @param source The source of the date to localize. This value is used to lookup a specific sub tree in the locale file for the localized value.
  */
 const localizeDates = async (
-  dates: Array<RomcalDateItemInput>,
-  source: RomcalDateItemSources = 'sanctoral',
-): Promise<RomcalDateItemInput[]> => {
-  const promiseDates: Promise<RomcalDateItemInput>[] = dates.map(async (date: RomcalDateItemInput) => {
+  dates: Array<RomcalLiturgicalDayInput>,
+  source: RomcalLiturgicalDaySources = 'sanctoral',
+): Promise<RomcalLiturgicalDayInput[]> => {
+  const promiseDates: Promise<RomcalLiturgicalDayInput>[] = dates.map(async (date: RomcalLiturgicalDayInput) => {
     return {
       ...date,
       name: await localize({
         // If the source is `temporal`, do not append anything before the date key
         key: `${source === 'temporal' ? date.key : !isNil(date.source) ? date.source : source}.${date.key}`,
       }),
-    } as RomcalDateItemInput;
+    } as RomcalLiturgicalDayInput;
   });
   return await Promise.all(promiseDates);
 };

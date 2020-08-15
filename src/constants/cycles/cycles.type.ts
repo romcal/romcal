@@ -11,7 +11,7 @@ export type RomcalSundayCycle = ElementType<typeof SUNDAYS_CYCLE>;
 export type RomcalWeekdayCycle = ElementType<typeof WEEKDAYS_CYCLE>;
 export type RomcalPsalterWeek = ElementType<typeof PSALTER_WEEKS>;
 
-export type RomcalCycles = {
+export type RomcalCyclesMetadata = {
   celebrationCycle: RomcalCelebrationCycle;
   sundayCycle: RomcalSundayCycle;
   weekdayCycle: RomcalWeekdayCycle;

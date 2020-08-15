@@ -1,11 +1,11 @@
 import dayjs, { Dayjs } from 'dayjs';
 
-import { Dates } from '@romcal/lib/Dates';
-import * as Locales from '@romcal/lib/Locales';
-import { Seasons } from '@romcal/lib/Seasons';
+import { Dates } from '@romcal/lib/dates';
+import * as Locales from '@romcal/lib/locales';
+import { Seasons } from '@romcal/lib/seasons';
 import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
-import { RomcalDateItemInput } from '@romcal/models/romcal-date-item/romcal-date-item.model';
-import RomcalConfig, { RomcalConfigInCalendarDef } from '@romcal/models/romcal-config/romcal-config.model';
+import { RomcalLiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
+import { RomcalConfig, RomcalConfigInCalendarDef } from '@romcal/models/config/config.model';
 import { Ranks } from '@romcal/constants/ranks/ranks.enum';
 import { CelebrationsCycle } from '@romcal/constants/cycles/cycles.enum';
 import { Titles } from '@romcal/constants/titles/titles.enum';
@@ -16,9 +16,9 @@ const defaultConfig: RomcalConfigInCalendarDef = {
   epiphanyOnSunday: true,
 };
 
-const dates = async (config: RomcalConfig): Promise<Array<RomcalDateItemInput>> => {
+const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInput>> => {
   const year = config.year;
-  const _dates: Array<RomcalDateItemInput> = [
+  const _dates: Array<RomcalLiturgicalDayInput> = [
     {
       key: 'saintsBasilTheGreatAndGregoryNazianzenBishopsAndDoctors',
       rank: Ranks.MEMORIAL,

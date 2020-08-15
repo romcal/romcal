@@ -24,12 +24,13 @@
 
 import 'jest-extended';
 
-import { Dates } from './Dates';
-import { Seasons } from '@romcal/lib/Seasons';
+import { Dates } from './dates';
+import { Seasons } from './seasons';
 import { Dictionary } from '@romcal/utils/type-guards/type-guards';
-import { RomcalDateItemModel } from '@romcal/models/romcal-date-item/romcal-date-item.model';
-import { setLocale } from '@romcal/lib/Locales';
+import { RomcalLiturgicalDay } from '../models/liturgical-day/liturgical-day.model';
+import { setLocale } from './locales';
 import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
+import RomcalCalendar from '@romcal/index';
 import Romcal from '@romcal/index';
 
 describe('Testing date range functions', () => {
@@ -222,7 +223,7 @@ describe('Testing seasons utility functions', () => {
   });
 
   describe('The liturgical year is divided to a number of seasons', () => {
-    let calendar: Dictionary<RomcalDateItemModel[]>;
+    let calendar: Dictionary<RomcalLiturgicalDay[]>;
     beforeAll(async () => {
       calendar = Romcal.queryFor(await Romcal.calendarFor(), { group: 'liturgicalSeasons' });
     });

@@ -1,18 +1,21 @@
 import dayjs from 'dayjs';
-
-import logger from '@romcal/utils/logger/logger';
+import { logger } from '@romcal/utils/logger/logger';
 import { isNil, isObject, isRomcalConfig, isString } from '@romcal/utils/type-guards/type-guards';
-import { RomcalCalendarScope } from '@romcal/models/romcal-config/calendar-scope.type';
 import { RomcalCountry } from '@romcal/constants/countries/country.type';
-import { RomcalLocaleKey } from '@romcal/models/romcal-locale/locale-types.type';
+import { RomcalLocaleKey } from '@romcal/models/locale/locale-types.type';
 import { RomcalQuery } from '@romcal/constants/query-options/query-types.type';
-import { sanitizeLocale } from '@romcal/lib/Locales';
+import { sanitizeLocale } from '@romcal/lib/locales';
+
+/**
+ * The calendar scope that can be resolved by this library.
+ */
+export type RomcalCalendarScope = 'gregorian' | 'liturgical';
 
 /**
  * The configuration object that is passed either to the [[Calendar.calendarFor]]
  * or the [[Calendar.queryFor]] methods to retrieve an array of [[DateItems]].
  */
-export interface RomcalConfigModel {
+export interface BaseRomcalConfig {
   /**
    * The calendar year to obtain.
    */
@@ -62,19 +65,19 @@ export interface RomcalConfigModel {
 }
 
 export type RomcalConfigInCalendarDef = Required<
-  Omit<RomcalConfigModel, 'country' | 'locale' | 'query' | 'year' | 'scope' | 'outputOptionalMemorials'>
+  Omit<BaseRomcalConfig, 'country' | 'locale' | 'query' | 'year' | 'scope' | 'outputOptionalMemorials'>
 >;
 
 /**
  * A modified variant of [[RomcalConfig]] specifically for the [[Config]] class constructor
  * where all properties except query are **required**.
  */
-type ConfigConstructorType = { query?: RomcalQuery } & Required<Omit<RomcalConfigModel, 'query'>>;
+type ConfigConstructorType = { query?: RomcalQuery } & Required<Omit<BaseRomcalConfig, 'query'>>;
 
 /**
  * The [[Config]] class encapsulates all options that can be sent to this library to adjust date output.
  */
-export default class RomcalConfig {
+export class RomcalConfig implements BaseRomcalConfig {
   private _year: number;
   private readonly _country: RomcalCountry;
   private readonly _locale: RomcalLocaleKey;
@@ -185,7 +188,7 @@ export default class RomcalConfig {
    */
   static async resolveConfig(maybeConfig?: unknown): Promise<ConfigConstructorType> {
     // Initialize config with the default config
-    let config: RomcalConfigModel = await RomcalConfig.getConfig('general');
+    let config: BaseRomcalConfig = await RomcalConfig.getConfig('general');
     const defaultLocale = 'en';
 
     // Check if the user supplied their own configuration

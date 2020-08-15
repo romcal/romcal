@@ -2,7 +2,7 @@ import { Schema, Validator } from 'jsonschema';
 import { RANKS } from '@romcal/constants/ranks/ranks.constant';
 import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors/liturgical-colors.constant';
 
-export const getDateItemJsonSchema = (): Schema => ({
+export const getRomcalLiturgicalDayJsonSchema = (): Schema => ({
   id: '/dateItem',
   type: 'object',
   minProperties: 8,
@@ -32,7 +32,7 @@ export const getRomcalSeasonJsonSchema = (): Schema => ({
   required: ['key', 'value'],
 });
 
-export const getRomcalDateItemMetadataJsonSchema = (): Schema => ({
+export const getRomcalLiturgicalDayMetadataJsonSchema = (): Schema => ({
   id: '/romcalDateItemMetadata',
   type: 'object',
   minProperties: 0,
@@ -53,7 +53,7 @@ export const getRomcalDateItemMetadataJsonSchema = (): Schema => ({
   },
 });
 
-export const getRomcalDateItemDataCalendarJsonSchema = (): Schema => ({
+export const getRomcalLiturgicalDayDataCalendarJsonSchema = (): Schema => ({
   id: '/romcalDateItemDataCalendar',
   type: 'object',
   minProperties: 0,
@@ -65,7 +65,7 @@ export const getRomcalDateItemDataCalendarJsonSchema = (): Schema => ({
   },
 });
 
-export const getDateItemDataJsonSchema = (): Schema => ({
+export const getRomcalLiturgicalDayDataJsonSchema = (): Schema => ({
   id: '/dateItemDataJsonSchema',
   type: 'object',
   minProperties: 3,
@@ -80,12 +80,12 @@ export const getDateItemDataJsonSchema = (): Schema => ({
   },
 });
 
-export const getDateItemSchemaValidator = (): Validator => {
+export const getLiturgicalDaySchemaValidator = (): Validator => {
   const validator = new Validator();
   validator.addSchema(getRomcalSeasonJsonSchema());
-  validator.addSchema(getRomcalDateItemMetadataJsonSchema());
-  validator.addSchema(getRomcalDateItemDataCalendarJsonSchema());
-  validator.addSchema(getDateItemDataJsonSchema());
-  validator.addSchema(getDateItemJsonSchema());
+  validator.addSchema(getRomcalLiturgicalDayMetadataJsonSchema());
+  validator.addSchema(getRomcalLiturgicalDayDataCalendarJsonSchema());
+  validator.addSchema(getRomcalLiturgicalDayDataJsonSchema());
+  validator.addSchema(getRomcalLiturgicalDayJsonSchema());
   return validator;
 };
