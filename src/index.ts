@@ -150,21 +150,6 @@ export default class Romcal {
     }
   }
 
-  // const d1: DateItem[] = [];
-  // const t0 = queryFor(d1);
-  // const t1 = queryFor(d1, { day: 1 });
-  // const t2 = queryFor(d1, { month: 1 });
-  // const t3 = queryFor(d1, { title: "" });
-  // const t4 = queryFor(d1, { group: "daysByMonth" });
-  // const t5 = queryFor(d1, { group: "weeksByMonth" });
-  // const t6 = queryFor(d1, { group: "months" });
-  // const t7 = queryFor(d1, { group: "cycles" });
-  // const t8 = queryFor(d1, { group: "types" });
-  // const t9 = queryFor(d1, { group: "liturgicalSeasons" });
-  // const t10 = queryFor(d1, { group: "liturgicalColors" });
-  // const t11 = queryFor(d1, { group: "psalterWeeks" });
-  // const t12 = queryFor(d1, { group: "days" });
-
   static calendarFor<T extends undefined | null>(options?: T): Promise<RomcalDateItemModel[]>;
   static calendarFor<T extends RomcalConfigModel | number>(
     options?: T,
