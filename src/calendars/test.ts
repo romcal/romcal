@@ -1,16 +1,16 @@
 import dayjs from 'dayjs';
 
-import * as Locales from '@romcal/lib/Locales';
-import { Dates } from '@romcal/lib/Dates';
-import { RomcalDateItemInput } from '@romcal/models/romcal-date-item/romcal-date-item.model';
-import RomcalConfig, { RomcalConfigInCalendarDef } from '@romcal/models/romcal-config/romcal-config.model';
+import * as Locales from '@romcal/lib/locales';
+import { Dates } from '@romcal/lib/dates';
+import { RomcalLiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
+import { RomcalConfig, RomcalConfigInCalendarDef } from '@romcal/models/config/config.model';
 import { Ranks } from '@romcal/constants/ranks/ranks.enum';
 
 const defaultConfig: RomcalConfigInCalendarDef | undefined = undefined;
 
-const dates = async (config: RomcalConfig): Promise<Array<RomcalDateItemInput>> => {
+const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInput>> => {
   const year = config.year;
-  const _dates: Array<RomcalDateItemInput> = [
+  const _dates: Array<RomcalLiturgicalDayInput> = [
     {
       key: 'maryMotherOfTheChurch',
       rank: Ranks.OPT_MEMORIAL,

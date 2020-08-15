@@ -1,8 +1,11 @@
 import { ValidationError } from 'jsonschema';
-import { getDateItemSchemaValidator, getDateItemDataJsonSchema } from '@romcal/validators/date-item.validator';
-import { getRomcalConfigSchemaValidator, getRomcalConfigJsonSchema } from '@romcal/validators/romcal-config.validator';
-import { RomcalConfigModel } from '@romcal/models/romcal-config/romcal-config.model';
-import { RomcalDateItemModel } from '@romcal/models/romcal-date-item/romcal-date-item.model';
+import {
+  getLiturgicalDaySchemaValidator,
+  getRomcalLiturgicalDayDataJsonSchema,
+} from '@romcal/validators/liturgical-day.validator';
+import { getRomcalConfigSchemaValidator, getRomcalConfigJsonSchema } from '@romcal/validators/config.validator';
+import { BaseRomcalConfig } from '@romcal/models/config/config.model';
+import { RomcalLiturgicalDay } from '@romcal/models/liturgical-day/liturgical-day.model';
 import * as Calendars from '@romcal/calendars';
 import { default as Locales } from '@romcal/locales';
 
@@ -29,7 +32,7 @@ export type Dictionary<T> = {
  * Check if the arbitrary value given is an instance of [[RomcalConfig]].
  * @param maybeRomcalConfig The value that could be an instance of [[RomcalConfig]]
  */
-export const isRomcalConfig = (maybeRomcalConfig: unknown): maybeRomcalConfig is RomcalConfigModel => {
+export const isRomcalConfig = (maybeRomcalConfig: unknown): maybeRomcalConfig is BaseRomcalConfig => {
   const { errors, valid } = getRomcalConfigSchemaValidator().validate(maybeRomcalConfig, getRomcalConfigJsonSchema());
   if (!valid) {
     errors.forEach((error: ValidationError) => {
@@ -40,13 +43,16 @@ export const isRomcalConfig = (maybeRomcalConfig: unknown): maybeRomcalConfig is
 };
 
 /**
- * Check if the arbitrary value given is an array of [[DateItems]].
- * @param maybeRomcalDateItems A value that could be an array of [[DateItem]]s
+ * Check if the arbitrary value given is an array of [[RomcalLiturgicalDay]].
+ * @param maybeRomcalDateItems A value that could be an array of [[RomcalLiturgicalDay]]s
  */
-export const areRomcalDateItems = (
+export const areRomcalLiturgicalDays = (
   maybeRomcalDateItems: unknown,
-): maybeRomcalDateItems is Array<RomcalDateItemModel> => {
-  const { errors, valid } = getDateItemSchemaValidator().validate(maybeRomcalDateItems, getDateItemDataJsonSchema());
+): maybeRomcalDateItems is Array<RomcalLiturgicalDay> => {
+  const { errors, valid } = getLiturgicalDaySchemaValidator().validate(
+    maybeRomcalDateItems,
+    getRomcalLiturgicalDayDataJsonSchema(),
+  );
   if (!valid) {
     errors.forEach((error: ValidationError) => {
       console.error(error.name, error.property, error.message, error.stack);
@@ -133,7 +139,7 @@ export const isEmpty = (maybeEmpty: unknown): boolean => {
  * Check if a value is a country.
  * @param maybeCountry The value that could be a country
  */
-export const isCountry = (maybeCountry: unknown): boolean => {
+export const isRomcalCountry = (maybeCountry: unknown): boolean => {
   return typeof maybeCountry === 'string' && Object.keys(Calendars).includes(maybeCountry);
 };
 
@@ -141,6 +147,6 @@ export const isCountry = (maybeCountry: unknown): boolean => {
  * Check if a value is a locale.
  * @param maybeLocale The value that could be a locale
  */
-export const isLocale = (maybeLocale: unknown): boolean => {
+export const isRomcalLocale = (maybeLocale: unknown): boolean => {
   return typeof maybeLocale === 'string' && Object.keys(Locales).includes(maybeLocale);
 };

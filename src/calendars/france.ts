@@ -1,9 +1,9 @@
 import dayjs from 'dayjs';
 
-import * as Locales from '@romcal/lib/Locales';
+import * as Locales from '@romcal/lib/locales';
 import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
-import { RomcalDateItemInput } from '@romcal/models/romcal-date-item/romcal-date-item.model';
-import RomcalConfig, { RomcalConfigInCalendarDef } from '@romcal/models/romcal-config/romcal-config.model';
+import { RomcalLiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
+import { RomcalConfig, RomcalConfigInCalendarDef } from '@romcal/models/config/config.model';
 import { Ranks } from '@romcal/constants/ranks/ranks.enum';
 import { Titles } from '@romcal/constants/titles/titles.enum';
 
@@ -13,9 +13,9 @@ const defaultConfig: RomcalConfigInCalendarDef = {
   epiphanyOnSunday: true,
 };
 
-const dates = async (config: RomcalConfig): Promise<Array<RomcalDateItemInput>> => {
+const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInput>> => {
   const year = config.year;
-  const _dates: Array<RomcalDateItemInput> = [
+  const _dates: Array<RomcalLiturgicalDayInput> = [
     {
       key: 'saintGenevieveVirgin',
       rank: Ranks.OPT_MEMORIAL,
