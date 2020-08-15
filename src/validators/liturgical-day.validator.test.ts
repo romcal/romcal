@@ -1,8 +1,8 @@
 import 'jest-extended';
 import { Validator } from 'jsonschema';
-import { getRomcalSeasonJsonSchema } from '@romcal/validators/date-item.validator';
+import { getRomcalSeasonJsonSchema } from './liturgical-day.validator';
 
-describe('Tests for Date Item JSON Schema validation functions', () => {
+describe('Tests for LiturgicalDay JSON Schema validation functions', () => {
   const validator = new Validator();
 
   describe('getRomcalSeasonJsonSchema()', () => {

@@ -23,8 +23,8 @@
 */
 
 import 'jest-extended';
-import * as Locales from '@romcal/lib/Locales';
-import { Dates } from './Dates';
+import * as Locales from './locales';
+import { Dates } from './dates';
 import { rangeOfDays, rangeContainsDate } from '@romcal/utils/dates/dates';
 
 import dayjs from 'dayjs';

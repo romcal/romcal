@@ -1,7 +1,7 @@
-import { Dates } from './Dates';
-import { localizeDates, localize } from '@romcal/lib/Locales';
-import { RomcalDateItemInput } from '@romcal/models/romcal-date-item/romcal-date-item.model';
-import RomcalConfig from '@romcal/models/romcal-config/romcal-config.model';
+import { Dates } from './dates';
+import { localizeDates, localize } from '@romcal/lib/locales';
+import { RomcalLiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
+import { RomcalConfig } from '@romcal/models/config/config.model';
 import { Ranks } from '@romcal/constants/ranks/ranks.enum';
 import { LiturgicalPeriods, LiturgicalSeasons } from '@romcal/constants/seasons-and-periods/seasons-and-periods.enum';
 import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
@@ -13,8 +13,8 @@ import { Titles } from '@romcal/constants/titles/titles.enum';
  * @param year The year to calculate celebrations
  * @param config The configuration object to customize the date output
  */
-const dates = async (year: number, config: RomcalConfig): Promise<Array<RomcalDateItemInput>> => {
-  const _dates: Array<RomcalDateItemInput> = [
+const dates = async (year: number, config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInput>> => {
+  const _dates: Array<RomcalLiturgicalDayInput> = [
     // Solemnities
     {
       key: 'immaculateConception',

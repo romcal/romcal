@@ -105,13 +105,13 @@ Additionally, romcal is also available for installation via various "release tag
 Require romcal in your project:
 
 ```javascript
-var romcal = require('romcal');
+var Romcal = require('romcal');
 ```
 
 or as a CommonJS module:
 
 ```javascript
-import romcal from 'romcal';
+import Romcal from 'romcal';
 ```
 
 or in a webpage for direct usage on browsers:
@@ -127,7 +127,7 @@ Invoke the `calendarFor` method to retrieve an array of liturgical dates and cel
 This method accepts an object of configuration properties to obtain customized output.
 
 ```javascript
-romcal.calendarFor({
+Romcal.calendarFor({
   year: 2020,
   country: 'unitedStates',
   locale: 'en',
@@ -141,7 +141,7 @@ romcal.calendarFor({
 
 For further information on the configuration properties: :books: [Configure romcal](/docs/configure-romcal.md).
 
-This produces an array of date item objects (one date item per each day of the year):
+This produces an `Array` of `LiturgicalDay` objects (by default, one object per each day of the year):
 
 ```json5
 [

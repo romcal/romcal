@@ -1,5 +1,5 @@
 import 'jest-extended';
-import RomcalConfig from './romcal-config.model';
+import { RomcalConfig } from './config.model';
 import dayjs from 'dayjs';
 
 describe('getConfig()', () => {

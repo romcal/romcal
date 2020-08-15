@@ -23,7 +23,7 @@
 */
 
 import 'jest-extended';
-import * as Locales from '@romcal/lib/Locales';
+import * as Locales from './locales';
 
 describe('Testing localization functionality', () => {
   test('If the locale is set to "fr", romcal should output text in French', async () => {
