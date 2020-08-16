@@ -424,7 +424,7 @@ export class RomcalCalendar extends Array implements BaseRomcalCalendar {
       if (dateItems.length > 1) {
         // Validate the first liturgical day
         const [dateItem, ...otherDateItems] = dateItems;
-        // If the first liturgical day has a type equal or higher than a MEMORIAL, or is prioritized:
+        // If the first liturgical day has a rank equal or higher than a MEMORIAL, or is prioritized:
         // keep only the first item and discard all others celebration in the array
         if (dateItem.prioritized || ranks.indexOf(dateItem.rank) <= ranks.indexOf(Ranks.MEMORIAL)) {
           otherDateItems.forEach(({ _id }) => {
