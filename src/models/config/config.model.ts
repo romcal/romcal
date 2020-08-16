@@ -55,7 +55,7 @@ export interface BaseRomcalConfig {
    *
    * The scope can be specified either as:
    * 1. `gregorian`: Which is the civil year for the majority of countries (January 1 to December 31); or
-   * 2. `liturgical`: Religious calendar year (1st Sunday of Advent of the preceding year to the Saturday before the 1st Sunday of Advent in the current year).
+   * 2. `liturgical`: Religious calendar year (1st Sunday of Advent of the current year to the Saturday before the 1st Sunday of Advent in the next year).
    */
   readonly scope?: RomcalCalendarScope;
   /**

@@ -129,13 +129,13 @@ This method accepts an object of configuration properties to obtain customized o
 ```javascript
 Romcal.calendarFor({
   year: 2020,
+  scope: 'gregorian' | 'liturgical',
   country: 'unitedStates',
   locale: 'en',
   epiphanyOnSunday: true | false,
   corpusChristiOnSunday: true | false,
   ascensionOnSunday: true | false,
   outputOptionalMemorials: true | false,
-  scope: 'gregorian' | 'liturgical',
 });
 ```
 

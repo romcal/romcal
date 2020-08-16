@@ -106,15 +106,15 @@ describe('Testing calendar generation functions', () => {
 
       beforeEach(async () => {
         year = dayjs.utc().year();
-        start = Dates.firstSundayOfAdvent(year - 1);
-        end = Dates.firstSundayOfAdvent(year).subtract(1, 'day');
+        start = Dates.firstSundayOfAdvent(year);
+        end = Dates.firstSundayOfAdvent(year + 1).subtract(1, 'day');
         calendar = await Romcal.calendarFor({
           year: year,
           scope: 'liturgical',
         });
       });
 
-      test('Should start on the 1st Sunday of Advent and end on Christ the King', () => {
+      test('Should start on the 1st Sunday of Advent and end on the Saturday after Christ the King', () => {
         expect(dayjs.utc(calendar[0].date).isSame(start)).toBeTrue();
         expect(dayjs.utc(calendar[calendar.length - 1].date).isSame(end)).toBeTrue();
       });
