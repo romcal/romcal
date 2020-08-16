@@ -14,9 +14,8 @@ declare global {
  * Converts string to PascalCase.
  */
 String.prototype.toPascalCase = function (this: string): string {
-  const words = this.match(/[a-z]+/gi);
-  if (!words) return '';
-  return words.map((word) => word.charAt(0).toUpperCase() + word.substr(1).toLowerCase()).join('');
+  const toCamelCase = this.toCamelCase();
+  return toCamelCase.charAt(0).toUpperCase() + toCamelCase.slice(1);
 };
 
 /**
