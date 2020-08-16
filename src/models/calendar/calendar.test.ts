@@ -215,7 +215,7 @@ describe('Testing calendar generation functions', () => {
         expect(Object.keys(items)).toEqual(['YEAR_1', 'YEAR_2']);
       });
 
-      test('Should group dates by their celebration ranks', async () => {
+      test('Should group dates by their liturgical day ranks', async () => {
         const typeKeys = Object.keys(Romcal.queryFor(await Romcal.calendarFor(), { group: 'ranks' }));
         expect(typeKeys.every((typeKey) => Object.values(RANKS).includes(typeKey as RomcalRank))).toBeTrue();
       });
@@ -355,7 +355,7 @@ describe('Testing calendar generation functions', () => {
       });
     });
 
-    test('A dropped celebration should not be appended in the final calendar', () => {
+    test('A dropped liturgical day should not be appended in the final calendar', () => {
       const date = testDates.find((d) => {
         return dayjs.utc(d.date).isSame(dayjs.utc('2020-12-4'));
       });

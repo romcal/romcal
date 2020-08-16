@@ -1,5 +1,5 @@
 /**
- * Celebration cycle that can be used as metadata for celebrations.
+ * Celebration cycle that can be used as metadata for liturgical days.
  */
 export enum CelebrationsCycle {
   TEMPORALE = 'TEMPORALE',
@@ -7,7 +7,7 @@ export enum CelebrationsCycle {
 }
 
 /**
- * Sundays cycle that can be used as metadata for celebrations.
+ * Sundays cycle that can be used as metadata for liturgical days.
  */
 export enum SundaysCycle {
   YEAR_A = 'YEAR_A',
@@ -16,7 +16,7 @@ export enum SundaysCycle {
 }
 
 /**
- * Weekdays cycle that can be used as metadata for celebrations.
+ * Weekdays cycle that can be used as metadata for liturgical days.
  */
 export enum WeekdaysCycle {
   YEAR_1 = 'YEAR_1',
@@ -24,7 +24,7 @@ export enum WeekdaysCycle {
 }
 
 /**
- * Psalter weeks that can be used as metadata for celebrations.
+ * Psalter weeks that can be used as metadata for liturgical days.
  */
 export enum PsalterWeeksCycle {
   WEEK_1 = 'WEEK_1',
