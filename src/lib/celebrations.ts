@@ -9,8 +9,8 @@ import { CelebrationsCycle } from '@romcal/constants/cycles/cycles.enum';
 import { Titles } from '@romcal/constants/titles/titles.enum';
 
 /**
- * Returns various fixed celebrations in the liturgical calendar.
- * @param year The year to calculate celebrations
+ * Returns various fixed liturgical days in the liturgical calendar.
+ * @param year The year to calculate the liturgical days
  * @param config The configuration object to customize the date output
  */
 const dates = async (year: number, config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInput>> => {

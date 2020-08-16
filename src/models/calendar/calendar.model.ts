@@ -70,7 +70,7 @@ export class RomcalCalendar extends Array implements BaseRomcalCalendar {
   }
 
   /**
-   * Compute all the celebrations that occur during a specific year (gregorian or liturgical).
+   * Compute all the liturgical days that occur during a specific year (gregorian or liturgical).
    */
   public async compute(): Promise<RomcalCalendar> {
     const {
@@ -105,13 +105,13 @@ export class RomcalCalendar extends Array implements BaseRomcalCalendar {
       calendarItems: concatAll(await Promise.all(seasonDatesPromise)),
     };
 
-    // Get the celebration dates based on the given year and options
-    const celebrationsDatesPromise = years.map(async (year) => {
+    // Get the liturgical dates based on the given year and options
+    const liturgicalDatesPromise = years.map(async (year) => {
       return [...(await Celebrations.dates(year, this._config))];
     });
-    const celebrationsDates: FromCalendarDateItems = {
+    const liturgicalDates: FromCalendarDateItems = {
       fromCalendar: 'general',
-      calendarItems: concatAll(await Promise.all(celebrationsDatesPromise)),
+      calendarItems: concatAll(await Promise.all(liturgicalDatesPromise)),
     };
 
     // Get the general calendar based on the given year
@@ -154,7 +154,7 @@ export class RomcalCalendar extends Array implements BaseRomcalCalendar {
       calendarItems: concatAll(await Promise.all(nationalDatesPromise)),
     };
 
-    let calendarSources: FromCalendarDateItems[] = [seasonDates, celebrationsDates, generalDates, nationalDates];
+    let calendarSources: FromCalendarDateItems[] = [seasonDates, liturgicalDates, generalDates, nationalDates];
 
     // Remove all liturgical days not in the given date range
     calendarSources = this.filterItemRange(...calendarSources);
@@ -182,7 +182,7 @@ export class RomcalCalendar extends Array implements BaseRomcalCalendar {
 
       // Loop through the dates in each source group
       for (const item of calendarItems) {
-        // Remove non-prioritized celebrations in the liturgical days array which share the same key as the current item
+        // Remove non-prioritized liturgical days which share the same key as the current item
         this.keepPrioritizedOnly(item);
 
         // Find the season date that has the same date as the incoming item and make it the base item.
@@ -233,7 +233,7 @@ export class RomcalCalendar extends Array implements BaseRomcalCalendar {
               liturgicalColors: validatedLiturgicalColors,
               liturgicalColorNames: await this.localizeLiturgicalColors(validatedLiturgicalColors),
               metadata: (typeof metadata === 'object' ? metadata : { titles: [] }) as RomcalLiturgicalDayMetadata,
-              _stack: index, // The stack number refers to the index in the calendars array in which this celebration's array is placed at
+              _stack: index, // The stack number refers to the index in the calendars array in which this liturgical day's array is placed at
               baseItem, // Attach the base item if any
             }),
           );
@@ -243,7 +243,7 @@ export class RomcalCalendar extends Array implements BaseRomcalCalendar {
   }
 
   /**
-   * Runs type management on celebrations given their specific types.
+   * Runs type management on liturgical days given their specific types.
    *
    * **Special type management in the season of LENT.**
    *
@@ -267,12 +267,12 @@ export class RomcalCalendar extends Array implements BaseRomcalCalendar {
 
   /**
    * Check the provided liturgical color and return it in the good type,
-   * or if not provided, try to determine the right color for the celebration.
+   * or if not provided, try to determine the right color for the liturgical day.
    * @private
-   * @param rank The rank of the celebration
-   * @param seasons The season(s) of the celebration
-   * @param liturgicalColors The liturgical color(s) of the celebration, if defined
-   * @param titles The title(s) of the celebration, if defined
+   * @param rank The rank of the liturgical day
+   * @param seasons The season(s) of the liturgical day
+   * @param liturgicalColors The liturgical color(s) of the liturgical day, if defined
+   * @param titles The title(s) of the blessed/saint for the liturgical day, if defined
    */
   private checkOrDetermineLiturgicalColors(
     rank: Ranks,
@@ -298,8 +298,8 @@ export class RomcalCalendar extends Array implements BaseRomcalCalendar {
     // No liturgical color has been defined
     // Now try to find the right default color...
 
-    // If the celebration isn't a COMMEMORATION and is for a MARTYR, return RED
-    // Otherwise, if the celebration isn't a COMMEMORATION or a WEEKDAY, return WHITE
+    // If the liturgical day isn't a COMMEMORATION and is for a MARTYR, return RED
+    // Otherwise, if the liturgical day isn't a COMMEMORATION or a WEEKDAY, return WHITE
     if (rank && ![Ranks.COMMEMORATION, Ranks.WEEKDAY].includes(rank)) {
       if (titles.includes(Titles.MARTYR)) return [LiturgicalColors.RED];
       return [LiturgicalColors.WHITE];

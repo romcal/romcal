@@ -5,11 +5,11 @@
 </h1>
 
 <p align="center">
-  Generate the liturgical calendar of the Catholic Church used by the Roman Rite.
+  Generates the liturgical calendar of the Catholic Church used by the Roman Rite (post-Vatican II).
 </p>
 
 <p align="center">
-  Supports Node v10+, Browsers (IE10+).
+  Supports Node v10+, Browsers (IE11+).
 </p>
 
 <p align="center">
@@ -60,13 +60,14 @@
 
 ## Description
 
-romcal generates the liturgical calendar of the Catholic Church used by the Roman Rite.
-Output conforms to the revised liturgical calendar as approved by Paul VI in [Mysterii Paschalis](http://www.romcal.net/mysterii.html) dated 14 February 1969.
+romcal generates the liturgical calendar of the Catholic Church used by the Roman Rite (post-Vatican II).
+Output conforms to the revised liturgical calendar as approved by Paul VI in [Mysterii Paschalis](http://w2.vatican.va/content/paul-vi/en/motu_proprio/documents/hf_p-vi_motu-proprio_19690214_mysterii-paschalis.html) dated 14 February 1969.
+The rules are defined in the [_General Instruction on the Roman Missal_](https://www.catholicculture.org/culture/library/view.cfm?recnum=337) (GIRM) and the [_General Norms for the Liturgical Year and the Calendar_](https://www.catholicculture.org/culture/library/view.cfm?id=10842).
 
-- :date: **Perpetual calendar:**<br> romcal allow querying liturgical dates for any year in the Gregorian calendar.
+- :date: **Perpetual calendar:**<br> romcal allows querying liturgical dates for any year in the standard calendar.
   Note that dates for years before 1969 will still be returned in a format conforming to the calendar reforms of 1969, even though those years came before this calendar reform.
 
-- :gear: **Configure and refine output:**<br> output can be configured for the standard calendar year (`Jan 1` to `Dec 31`) or the liturgical year (`First Sunday of Advent` to `Christ the King`).
+- :gear: **Configure and refine output:**<br> output can be configured for the civil calendar year, i.e. the Gregorian year (`Jan 1` to `Dec 31`) or the liturgical year (`First Sunday of Advent` to `Christ the King`).
   You can filter queries to allow more streamlined date results to be obtained for the year. Additional output options are described below in the usage section.
 
 - :globe_with_meridians: **i18n, localization and calendars:**<br> romcal aims to have your liturgical calendars and contents in your native language, and support various liturgical calendars (national, diocesan...).
@@ -89,7 +90,7 @@ $ yarn add romcal
 Additionally, romcal is also available for installation via various "release tags" that represent different stages of development for a given version of the code.
 
 - [`latest`](href="https://www.npmjs.com/package/romcal/v/latest)
-  The latest, stable and production ready version of romcal is always released on the `master` branch. Releases on this branch are tagged in `npm` using the `latest` tag and can be installed via `npm install romcal@latest` or simply `npm install romcal` which defaults to the `latest` tag.
+  The latest, stable and production-ready version of romcal is always released on the `master` branch. Releases on this branch are tagged in `npm` using the `latest` tag and can be installed via `npm install romcal@latest` or simply `npm install romcal` which defaults to the `latest` tag.
 
 - [`beta`](href="https://www.npmjs.com/package/romcal/v/beta)
   The release candidate for production. Code here is mostly stable but may still lack some tests and so may be subject to some unexpected behavior. Install via `npm install romcal@beta`.
@@ -203,14 +204,14 @@ To jump into romcal’s codebase more easily, you might be interested in reading
 
 ## Revisions & Release History <a name="revisions"></a>
 
-See [history](HISTORY.md) for latest updates and important/breaking changes.
+See [history](HISTORY.md) for the latest updates and important/breaking changes.
 
 ## Module Robustness & Data Integrity <a name="disclaimer"></a>
 
-**Calendar entries** are pulled from various sources from the internet and various liturgical books. As such their accuracy might not be ensured.
-If you find an incorrect calendar entry (e.g. wrong date, wrong feast rank, spelling issue, typos), you are most welcome to contribute or inform the team on the GitHub issue tracker, so that the necessary changes can be made to make this a more robust and reliable module.
+**romcal’s code logic** aim to be fully compliant with the [_General Instruction on the Roman Missal_](https://www.catholicculture.org/culture/library/view.cfm?recnum=337) (GIRM) and the [_General Norms for the Liturgical Year and the Calendar_](https://www.catholicculture.org/culture/library/view.cfm?id=10842).
 
-**romcal’s code logic** aim to be fully compliant with the _General Instruction of the Roman Missal_ and the _Universal Norms on the Liturgical Year and the General Roman Calendar_.
+**Calendar entries** are pulled from the missal and official sources for the _General Roman Calendar_. Other calendar entries are pulled from various liturgical books and sources from the internet (when we don't have access to the missal or official proper books of the country / region). As such the accuracy for all calendars might not be ensured.
+If you find an incorrect calendar entry (e.g. wrong date, wrong feast rank, spelling issue, typos), you are most welcome to contribute or inform the team on the GitHub issue tracker, so that the necessary changes can be made to make this a more robust and reliable module.
 
 ## Credits
 
@@ -227,3 +228,4 @@ Additional credits for bug fixes, localization and suggestions can be seen at [h
     <img alt="romcal-icon" src="https://user-images.githubusercontent.com/1045997/89793396-1c676600-db26-11ea-9426-991ac1e32b82.png">
   </a>
 </p>
+

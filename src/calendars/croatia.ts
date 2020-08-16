@@ -116,7 +116,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
   ];
 
-  // Get localized celebration names
+  // Get localized liturgical day names
   return await Locales.localizeDates(_dates);
 };
 
