@@ -16,67 +16,67 @@ import { RomcalCountry } from '@romcal/constants/countries/country.type';
 
 export class RomcalLiturgicalDay implements BaseRomcalLiturgicalDay {
   /**
-   * The unique key of the celebration.
+   * The unique key of the liturgical day.
    */
   public readonly key: string;
   /**
-   * The localized name of the celebration.
+   * The localized name of the liturgical day.
    */
   public readonly name: string;
   /**
-   * The ISO8601 formatted date and time string of the celebration.
+   * The ISO8601 formatted date and time string of the liturgical day.
    */
   public readonly date: ISO8601DateString;
   /**
-   * The rank of the celebration.
+   * The rank of the liturgical day.
    */
   public readonly rank: Ranks;
   /**
-   * The localized rank of the celebration
+   * The localized rank of the liturgical day
    */
   public readonly rankName: string;
   /**
-   * If this celebration should have always precedence, without rank consideration.
+   * If this liturgical day should have always precedence, without rank consideration.
    */
   public readonly prioritized: boolean;
   /**
-   * The liturgical color of a celebration
+   * The liturgical color of a liturgical day
    */
   public readonly liturgicalColors: RomcalLiturgicalColor[];
   /**
-   * The liturgical localized color of a celebration
+   * The liturgical localized color of a liturgical day
    */
   public readonly liturgicalColorNames: string[];
   /**
-   * Season keys to which the celebration is a part.
+   * Season keys to which the liturgical day is a part.
    */
   public readonly seasons: RomcalLiturgicalSeason[];
   /**
-   * Season localized name to which the celebration is a part.
+   * Season localized name to which the liturgical day is a part.
    */
   public readonly seasonNames: string[];
   /**
-   * Period keys to which the celebration is a part.
+   * Period keys to which the liturgical day is a part.
    */
   public readonly periods: RomcalLiturgicalPeriod[];
   /**
-   * Cycle metadata of a celebration.
+   * Cycle metadata of a liturgical day.
    */
   public readonly cycles: RomcalCyclesMetadata;
   /**
-   * Calendar metadata for the celebration.
+   * Calendar metadata for the liturgical day.
    */
   public readonly calendar: RomcalCalendarMetadata;
   /**
-   * Name of the calendar from which the celebration is defined
+   * Name of the calendar from which the liturgical day is defined
    */
   public readonly fromCalendar: RomcalCountry;
   /**
-   * The specific metadata of a celebration
+   * The specific metadata of a liturgical day
    */
   public readonly metadata: RomcalLiturgicalDayMetadata;
   /**
-   * A previous celebration on the same day that was overridden by the current one.
+   * A previous liturgical day on the same day that was overridden by the current one.
    */
   public readonly base: RomcalLiturgicalDay | undefined;
   /**

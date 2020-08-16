@@ -213,7 +213,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
         titles: [Titles.MARTYR],
       },
     },
-    // In England and Wales when the celebration falls on either a
+    // In England and Wales when this liturgical day falls on either a
     // Saturday or a Monday it is transferred to the Sunday.
     // Replaces 20th Sunday in Ordinary Time when it falls on a Sunday.
     {
@@ -233,7 +233,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.RED,
       prioritized: true,
     },
-    // In England and Wales when the celebration falls on either a
+    // In England and Wales when this liturgical day falls on either a
     // Saturday or a Monday it is transferred to the Sunday.
     // Replaces 20th Sunday in Ordinary Time when it falls on a Sunday.
     {
@@ -255,7 +255,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
   ];
 
-  // Get localized celebration names
+  // Get localized liturgical day names
   return await Locales.localizeDates(_dates);
 };
 

@@ -1,12 +1,9 @@
 /**
- * Rank of celebrations.
+ * Rank of liturgical days.
  * Order is important: higher rank first, lower rank at the end.
  */
 export enum Ranks {
-  /**
-   * The highest celebration rank.
-   */
-  SOLEMNITY = 'SOLEMNITY',
+  SOLEMNITY = 'SOLEMNITY', // The highest liturgical day rank.
   SUNDAY = 'SUNDAY',
   TRIDUUM = 'TRIDUUM',
   HOLY_WEEK = 'HOLY_WEEK',

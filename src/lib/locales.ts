@@ -36,7 +36,7 @@ _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
 
 /**
  * Set locale
- * Locale lookup for celebration names are based on [i18n conventions as used by DayJS](https://github.com/iamkun/dayjs/tree/dev/src/locale).
+ * Locale lookup for liturgical day names are based on [i18n conventions as used by DayJS](https://github.com/iamkun/dayjs/tree/dev/src/locale).
  * romcal defines at least the default 'en' language as a fallback.
  * If a region is specified in the locale ('xx-XX'), romcal will
  * automatically manage a graceful fallback to its base language ('xx'), if it exists in 'src/locales'.
