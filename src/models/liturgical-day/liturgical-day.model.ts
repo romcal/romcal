@@ -138,7 +138,8 @@ export class RomcalLiturgicalDay implements BaseRomcalLiturgicalDay {
    * Increment the ID based of the [[RomcalDateItem]] instance
    */
   private static incrementId(): number {
-    return isNil(this.latestId) ? (this.latestId = 0) : this.latestId++;
+    isNil(this.latestId) ? (this.latestId = 0) : this.latestId++;
+    return this.latestId;
   }
 }
 
