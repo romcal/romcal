@@ -61,8 +61,8 @@ export class RomcalCalendar extends Array implements BaseRomcalCalendar {
     this._config = config;
     const { scope, year } = config;
     if (scope === 'liturgical') {
-      this._startDate = Dates.firstSundayOfAdvent(year - 1);
-      this._endDate = Dates.firstSundayOfAdvent(year).subtract(1, 'day');
+      this._startDate = Dates.firstSundayOfAdvent(year);
+      this._endDate = Dates.firstSundayOfAdvent(year + 1).subtract(1, 'day');
     } else {
       this._startDate = dayjs.utc(`${year}-1-1`);
       this._endDate = dayjs.utc(`${year}-12-31`);
@@ -86,7 +86,7 @@ export class RomcalCalendar extends Array implements BaseRomcalCalendar {
     } = this._config;
 
     // Set the year range depending on the calendar type
-    const years = scope === 'liturgical' ? [theYear - 1, theYear] : [theYear];
+    const years = scope === 'liturgical' ? [theYear, theYear + 1] : [theYear];
 
     // Get a collection of liturgical days from all liturgical seasons of the given year
     const seasonDatesPromise = years.map(async (year) => {
@@ -157,7 +157,7 @@ export class RomcalCalendar extends Array implements BaseRomcalCalendar {
     let calendarSources: FromCalendarDateItems[] = [seasonDates, celebrationsDates, generalDates, nationalDates];
 
     // Remove all liturgical days not in the given date range
-    calendarSources = RomcalCalendar.filterItemRange(this._startDate, this._endDate, ...calendarSources);
+    calendarSources = this.filterItemRange(...calendarSources);
 
     // Remove all liturgical days marked as 'drop' from any other liturgical days
     calendarSources = RomcalCalendar.dropItems(calendarSources);
@@ -460,17 +460,11 @@ export class RomcalCalendar extends Array implements BaseRomcalCalendar {
 
   /**
    * Only retain items within a given date range
-   * @param startDate The lower range date to abide by
-   * @param endDate The upper range date to abide by
    * @param calendarSources The 2 dimensional array containing various calendar sources to be filtered
    */
-  private static filterItemRange(
-    startDate: dayjs.Dayjs,
-    endDate: dayjs.Dayjs,
-    ...calendarSources: FromCalendarDateItems[]
-  ): FromCalendarDateItems[] {
-    const start = startDate;
-    const end = endDate;
+  private filterItemRange(...calendarSources: FromCalendarDateItems[]): FromCalendarDateItems[] {
+    const start = this._startDate;
+    const end = this._endDate;
     return calendarSources.map((calendarSource: FromCalendarDateItems) => {
       return {
         fromCalendar: calendarSource.fromCalendar,
