@@ -1,4 +1,5 @@
 import '@romcal/utils/string-extentions/string-extentions';
+import Romcal from '@romcal/lib/romcal';
 import {
   getLocale,
   getRankByDayOfWeek,
@@ -12,7 +13,7 @@ import { Seasons } from '@romcal/lib/seasons';
 import { RomcalCalendar, BaseRomcalCalendar } from '@romcal/models/calendar/calendar.model';
 import { Dates } from './lib/dates';
 import { RomcalLocale, RomcalLocaleKeys } from '@romcal/models/locale/romcal-locale.type';
-import { RomcalLiturgicalDay, isRomcalLiturgicalDay } from '@romcal/models/liturgical-day/liturgical-day.model';
+import { LiturgicalDay, isRomcalLiturgicalDay } from '@romcal/models/liturgical-day/liturgical-day.model';
 import {
   RomcalConfig,
   BaseRomcalConfig,
@@ -65,15 +66,15 @@ import {
   RomcalCalendarMetadata,
   RomcalLiturgicalDayMetadata,
 } from '@romcal/models/liturgical-day/liturgical-day.types';
-import Romcal from '@romcal/lib/romcal';
 import { logger } from './utils/logger/logger';
 import {
-  ISO8601DateString,
   areRomcalLiturgicalDays,
   isISODateString,
   isRomcalConfig,
   isRomcalCountry,
   isRomcalLocale,
+  ISO8601DateString,
+  Dictionary,
 } from '@romcal/utils/type-guards/type-guards';
 
 /**
@@ -84,7 +85,7 @@ export default Romcal;
 /**
  * Export for models supporting romcal
  */
-export { RomcalLiturgicalDay, RomcalCalendar, RomcalConfig };
+export { LiturgicalDay, RomcalCalendar, RomcalConfig };
 
 /**
  * Export for helper methods in [[Dates]]
@@ -161,6 +162,7 @@ export {
   RomcalCalendarScope,
   // Calendar
   BaseRomcalCalendar,
+  Dictionary,
 };
 
 /**

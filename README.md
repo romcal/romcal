@@ -44,19 +44,15 @@
 
 **Main usages**
 
-- [Configure romcal ⇗](/docs/configure-romcal.md)
+- [General use of romcal ⇗](/docs/general-usage.md)
 - [Output data and JSON schema ⇗](/docs/data-output.md)
-- [Manipulate and refining data results ⇗](/docs/refining-data-results.md)
 
 **Contribute**
 
 - [Install, Build, Run and Test romcal locally ⇗](/docs/contribute-to-romcal.md)
 - [Localization ⇗](/docs/localization.md)
-- [Codebase Documentation ⇗](https://romcal.github.io/romcal/)
-
-**Advanced usage**
-
 - [Advanced usage and contributions ⇗](/docs/advanced-usage.md)
+- [Codebase Documentation ⇗](https://romcal.github.io/romcal/)
 
 ## Description
 
@@ -128,7 +124,7 @@ Invoke the `calendarFor` method to retrieve an array of liturgical dates and cel
 This method accepts an object of configuration properties to obtain customized output.
 
 ```javascript
-Romcal.calendarFor({
+CalendarBuilder.calendarFor({
   year: 2020,
   scope: 'gregorian' | 'liturgical',
   country: 'unitedStates',
@@ -140,7 +136,7 @@ Romcal.calendarFor({
 });
 ```
 
-For further information on the configuration properties: :books: [Configure romcal](/docs/configure-romcal.md).
+For further information on the configuration properties: :books: [Configure romcal](/docs/general-usage.md).
 
 This produces an `Array` of `LiturgicalDay` objects (by default, one object per each day of the year):
 
@@ -185,10 +181,7 @@ This produces an `Array` of `LiturgicalDay` objects (by default, one object per 
 ]
 ```
 
-For further information:
-
-- :books: [Output data and JSON schema](docs/data-output.md).
-- :books: [Manipulate and refining data results](/docs/refining-data-results.md).
+For further information: :books: [Output data and JSON schema](docs/data-output.md).
 
 ## Contribute
 

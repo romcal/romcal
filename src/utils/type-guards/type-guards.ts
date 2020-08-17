@@ -5,7 +5,7 @@ import {
 } from '@romcal/validators/liturgical-day.validator';
 import { getRomcalConfigSchemaValidator, getRomcalConfigJsonSchema } from '@romcal/validators/config.validator';
 import { BaseRomcalConfig } from '@romcal/models/config/config.model';
-import { RomcalLiturgicalDay } from '@romcal/models/liturgical-day/liturgical-day.model';
+import { LiturgicalDay } from '@romcal/models/liturgical-day/liturgical-day.model';
 import * as Calendars from '@romcal/calendars';
 import { default as Locales } from '@romcal/locales';
 
@@ -48,7 +48,7 @@ export const isRomcalConfig = (maybeRomcalConfig: unknown): maybeRomcalConfig is
  */
 export const areRomcalLiturgicalDays = (
   maybeRomcalDateItems: unknown,
-): maybeRomcalDateItems is Array<RomcalLiturgicalDay> => {
+): maybeRomcalDateItems is Array<LiturgicalDay> => {
   const { errors, valid } = getLiturgicalDaySchemaValidator().validate(
     maybeRomcalDateItems,
     getRomcalLiturgicalDayDataJsonSchema(),
