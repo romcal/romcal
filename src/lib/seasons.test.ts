@@ -24,14 +24,11 @@
 
 import 'jest-extended';
 
-import { Dates } from './dates';
-import { Seasons } from './seasons';
-import { Dictionary } from '@romcal/utils/type-guards/type-guards';
-import { RomcalLiturgicalDay } from '../models/liturgical-day/liturgical-day.model';
-import { setLocale } from './locales';
+import { Dates } from '@romcal/lib/dates';
+import { Seasons } from '@romcal/lib/seasons';
+import { setLocale } from '@romcal/lib/locales';
 import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
-import RomcalCalendar from '@romcal/index';
-import Romcal from '@romcal/index';
+import Romcal, { LiturgicalDay } from '@romcal/index';
 
 describe('Testing date range functions', () => {
   // The locale needs to be set before any tests below can run properly
@@ -223,16 +220,14 @@ describe('Testing seasons utility functions', () => {
   });
 
   describe('The liturgical year is divided to a number of seasons', () => {
-    let calendar: Dictionary<RomcalLiturgicalDay[]>;
-    beforeAll(async () => {
-      calendar = Romcal.queryFor(await Romcal.calendarFor(), { group: 'liturgicalSeasons' });
-    });
-
-    test('Groups dates within seasons based on identifiers', () => {
-      Object.keys(calendar).forEach((liturgicalSeason) => {
-        const dates = calendar[liturgicalSeason];
-        dates.forEach((date) => expect(date.seasons[0]).toEqual(liturgicalSeason));
-      });
+    test('Groups dates within seasons based on identifiers', async () => {
+      const calendar = (await Romcal.calendarFor()).groupBy('liturgicalSeasons');
+      for (const liturgicalSeason in calendar) {
+        if (calendar.hasOwnProperty(liturgicalSeason)) {
+          const dates = calendar[liturgicalSeason];
+          dates.forEach((date: LiturgicalDay) => expect(date.seasons[0]).toEqual(liturgicalSeason));
+        }
+      }
     });
 
     test('The liturgical color for Ordinary Time is green', async () => {

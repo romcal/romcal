@@ -9,7 +9,7 @@ import {
 import { RomcalCyclesMetadata } from '@romcal/constants/cycles/cycles.type';
 import { RomcalCountry } from '@romcal/constants/countries/country.type';
 import { Dayjs } from 'dayjs';
-import { RomcalLiturgicalDay } from '@romcal/models/liturgical-day/liturgical-day.model';
+import { LiturgicalDay } from '@romcal/models/liturgical-day/liturgical-day.model';
 
 export type BaseRomcalLiturgicalDay = {
   key: string;
@@ -27,14 +27,14 @@ export type BaseRomcalLiturgicalDay = {
   calendar: RomcalCalendarMetadata;
   fromCalendar: RomcalCountry;
   metadata: RomcalLiturgicalDayMetadata;
-  base?: RomcalLiturgicalDay;
+  base?: LiturgicalDay;
 };
 
 export type RomcalLiturgicalDayArgs = Readonly<
   Omit<BaseRomcalLiturgicalDay, 'date'> & Partial<RomcalLiturgicalDayMetadata>
 > & {
   readonly date: Dayjs;
-  readonly baseItem?: RomcalLiturgicalDay;
+  readonly baseItem?: LiturgicalDay;
   readonly _stack: number;
 };
 

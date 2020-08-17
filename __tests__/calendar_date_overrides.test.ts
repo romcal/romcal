@@ -26,7 +26,7 @@
 import 'jest-extended';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
-import { RomcalLiturgicalDay } from '@romcal/models/liturgical-day/liturgical-day.model';
+import { LiturgicalDay } from '@romcal/models/liturgical-day/liturgical-day.model';
 import { RomcalLiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
 import { Seasons } from '../src/lib/seasons';
 import { Dates } from '../src/lib/dates';
@@ -37,9 +37,9 @@ dayjs.extend(utc);
 
 describe('Testing national calendar overrides', () => {
   describe('An optional celebration is available to be celebrated, in addition to the weekday', () => {
-    let generalDates2020: RomcalLiturgicalDay[];
-    let generalDates2021: RomcalLiturgicalDay[];
-    let spainDates2020: RomcalLiturgicalDay[];
+    let generalDates2020: LiturgicalDay[];
+    let generalDates2021: LiturgicalDay[];
+    let spainDates2020: LiturgicalDay[];
 
     beforeAll(async () => {
       generalDates2020 = await Romcal.calendarFor({ year: 2020, outputOptionalMemorials: true });
@@ -80,8 +80,8 @@ describe('Testing national calendar overrides', () => {
 
   describe('A feast defined in a national calendar should replace the same feast defined in the general calendar', () => {
     let year: number;
-    let generalDates: RomcalLiturgicalDay[];
-    let spainDates: RomcalLiturgicalDay[];
+    let generalDates: LiturgicalDay[];
+    let spainDates: LiturgicalDay[];
 
     beforeAll(async () => {
       year = 2008;
@@ -117,7 +117,7 @@ describe('Testing national calendar overrides', () => {
 
   describe('Testing the priority option for celebrations', () => {
     let year: number;
-    let testDates: RomcalLiturgicalDay[];
+    let testDates: LiturgicalDay[];
 
     beforeAll(async () => {
       year = 2020;
@@ -174,7 +174,7 @@ describe('Testing national calendar overrides', () => {
 
   describe('The feast of Epiphany', () => {
     test('Should always be celebrated on January 6 in Slovakia unless explicitly configured otherwise', async () => {
-      const slovakiaDates: RomcalLiturgicalDay[] = await Romcal.calendarFor({
+      const slovakiaDates: LiturgicalDay[] = await Romcal.calendarFor({
         country: 'slovakia',
       });
       const epiphanySlovakia = slovakiaDates.find((d) => {
@@ -266,19 +266,19 @@ describe('Testing national calendar overrides', () => {
           },
         );
 
-        const walesAssumption2009: RomcalLiturgicalDay | undefined = wales2009Dates.find((d) => {
+        const walesAssumption2009: LiturgicalDay | undefined = wales2009Dates.find((d) => {
           return d.key === 'assumption';
         });
 
-        const englandAssumption2009: RomcalLiturgicalDay | undefined = england2009Dates.find((d) => {
+        const englandAssumption2009: LiturgicalDay | undefined = england2009Dates.find((d) => {
           return d.key === 'assumption';
         });
 
-        const walesAssumption2011: RomcalLiturgicalDay | undefined = wales2011Dates.find((d) => {
+        const walesAssumption2011: LiturgicalDay | undefined = wales2011Dates.find((d) => {
           return d.key === 'assumption';
         });
 
-        const englandAssumption2011: RomcalLiturgicalDay | undefined = england2011Dates.find((d) => {
+        const englandAssumption2011: LiturgicalDay | undefined = england2011Dates.find((d) => {
           return d.key === 'assumption';
         });
 
@@ -318,8 +318,8 @@ describe('Testing national calendar overrides', () => {
           return d.key === 'twentiethSundayOfOrdinaryTime';
         });
 
-        const walesAssumption: RomcalLiturgicalDay | undefined = walesDates.find((d) => d.key === 'assumption');
-        const englandAssumption: RomcalLiturgicalDay | undefined = englandDates.find((d) => d.key === 'assumption');
+        const walesAssumption: LiturgicalDay | undefined = walesDates.find((d) => d.key === 'assumption');
+        const englandAssumption: LiturgicalDay | undefined = englandDates.find((d) => d.key === 'assumption');
 
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         expect(walesAssumption?.date === twentiethSundayOfOrdinaryTime!.date.toISOString()).toBeTruthy();
@@ -484,9 +484,7 @@ describe('Testing national calendar overrides', () => {
         country: 'malta',
       });
       const ourLadyOfSorrows: dayjs.Dayjs = dayjs.utc('2018-4-15');
-      const thirdSundayOfEaster: RomcalLiturgicalDay | undefined = maltaDates.find(
-        (d) => d.key === 'thirdSundayOfEaster',
-      );
+      const thirdSundayOfEaster: LiturgicalDay | undefined = maltaDates.find((d) => d.key === 'thirdSundayOfEaster');
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       expect(ourLadyOfSorrows.isSame(thirdSundayOfEaster!.date)).toBeTruthy();
     });

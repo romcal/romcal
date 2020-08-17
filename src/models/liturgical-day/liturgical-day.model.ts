@@ -14,7 +14,7 @@ import { RomcalCyclesMetadata } from '@romcal/constants/cycles/cycles.type';
 import { RomcalLiturgicalColor } from '@romcal/constants/liturgical-colors/liturgical-colors.type';
 import { RomcalCountry } from '@romcal/constants/countries/country.type';
 
-export class RomcalLiturgicalDay implements BaseRomcalLiturgicalDay {
+export class LiturgicalDay implements BaseRomcalLiturgicalDay {
   /**
    * The unique key of the liturgical day.
    */
@@ -78,7 +78,7 @@ export class RomcalLiturgicalDay implements BaseRomcalLiturgicalDay {
   /**
    * A previous liturgical day on the same day that was overridden by the current one.
    */
-  public readonly base: RomcalLiturgicalDay | undefined;
+  public readonly base: LiturgicalDay | undefined;
   /**
    * Internal index used by romcal for calendar generation.
    */
@@ -125,7 +125,7 @@ export class RomcalLiturgicalDay implements BaseRomcalLiturgicalDay {
     this.fromCalendar = fromCalendar;
     this.metadata = typeof metadata === 'object' ? metadata : { titles: [] };
 
-    this._id = RomcalLiturgicalDay.incrementId();
+    this._id = LiturgicalDay.incrementId();
     this._stack = _stack;
 
     // The original default item is added to the current item as the `base` property
