@@ -26,9 +26,8 @@ import 'jest-extended';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 
-import { RomcalLiturgicalDay } from '@romcal/models/liturgical-day/liturgical-day.model';
-import { Seasons } from '../src/lib/seasons';
-import { Dates } from '../src/lib/dates';
+import { Seasons } from '@romcal/lib/seasons';
+import { Dates } from '@romcal/lib/dates';
 import { Ranks } from '@romcal/constants/ranks/ranks.enum';
 import Romcal from '@romcal/index';
 
@@ -48,12 +47,7 @@ describe('Testing specific feasts and memorials', () => {
 
     test('Should take precedence in the event of coincidence with another memorial of a saint or blessed', async () => {
       // In 2020, monday after Pentecost is June 1
-      const juneDates = (await Romcal.calendarFor({
-        year: 2020,
-        query: {
-          month: 5,
-        },
-      })) as RomcalLiturgicalDay[];
+      const juneDates = (await Romcal.calendarFor({ year: 2020 })).filter((d) => new Date(d.date).getUTCMonth() === 5);
       // according to the general calendar, June 1 is the memorial of saint Justin, Martyr
       const maybeSaintJustinMartyr = juneDates[0];
       expect(maybeSaintJustinMartyr.key).toEqual('maryMotherOfTheChurch');

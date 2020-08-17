@@ -13,7 +13,7 @@ export type RomcalCalendarScope = 'gregorian' | 'liturgical';
 
 /**
  * The configuration object that is passed either to the [[Calendar.calendarFor]]
- * or the [[Calendar.queryFor]] methods to retrieve an array of [[DateItems]].
+ * methods to retrieve an array of [[DateItems]].
  */
 export interface BaseRomcalConfig {
   /**
