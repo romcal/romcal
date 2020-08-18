@@ -1,4 +1,4 @@
-import dayjs from 'dayjs';
+import dayjs, { ConfigType, Dayjs } from 'dayjs';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
 import { BaseRomcalLiturgicalDay } from '@romcal/models/liturgical-day/liturgical-day.types';
@@ -10,7 +10,14 @@ dayjs.extend(isSameOrAfter);
 dayjs.extend(isSameOrBefore);
 
 export interface BaseRomcalCalendar extends Array<BaseRomcalLiturgicalDay> {
-  groupBy(criteria: RomcalQueryType): RomcalCalendar | Dictionary<RomcalCalendar> | Dictionary<RomcalCalendar>[];
+  groupBy(criteria: RomcalQueryType): Dictionary<RomcalCalendar> | Dictionary<RomcalCalendar>[];
+  hasLiturgicalDay(dateOrKey: Date | string): boolean;
+  getDate(dateOrKey: Date | string): Date | undefined;
+  getDaysBefore(dateOrKey: Date | string): RomcalCalendar;
+  getDaysSameOrBefore(dateOrKey: Date | string): RomcalCalendar;
+  getLiturgicalDay(dateOrKey: Date | string): RomcalCalendar;
+  getDaysSameOrAfter(dateOrKey: Date | string): RomcalCalendar;
+  getDaysAfter(dateOrKey: Date | string): RomcalCalendar;
 }
 
 /**
@@ -25,7 +32,7 @@ export class RomcalCalendar extends Array implements BaseRomcalCalendar {
    */
   public groupBy<T extends RomcalQueryType>(
     criteria: T,
-  ): T extends 'daysByMonth' | 'weeksByMonth' // does the criteria have one of these values?
+  ): T extends 'daysByMonth' | 'weeksByMonth' // when the criteria have one of these values
     ? Dictionary<RomcalCalendar>[]
     : Dictionary<RomcalCalendar>;
   public groupBy(criteria: RomcalQueryType): Dictionary<RomcalCalendar> | Dictionary<RomcalCalendar>[] {
@@ -87,5 +94,99 @@ export class RomcalCalendar extends Array implements BaseRomcalCalendar {
       default:
         return { undefined: liturgicalDays };
     }
+  }
+
+  /**
+   * Validate if the date have a matching liturgical day within a romcal calendar
+   * @param dateOrKey A Date object, or the key of a liturgical day
+   */
+  public hasLiturgicalDay(dateOrKey: Date | string): boolean {
+    return !!this._getDate(dateOrKey);
+  }
+
+  /**
+   * Get a validated `Date` within a romcal calendar,
+   * or returns `undefined` if no matching day is found
+   * @param dateOrKey A Date object, or the key of a liturgical day
+   */
+  public getDate(dateOrKey: Date | string): Date | undefined {
+    const date = this._getDate(dateOrKey);
+    return dayjs.isDayjs(date) ? date.toDate() : undefined;
+  }
+
+  /**
+   * Get a validated date from a romcal calendar,
+   * or returns undefined if the date doesn't exists in the calendar
+   * @param dateOrKey A Date object, or the key of a liturgical day
+   * @private
+   */
+  private _getDate(dateOrKey: Date | string): Dayjs | undefined {
+    let matchItem: LiturgicalDay | undefined = undefined;
+    if (typeof dateOrKey === 'string') {
+      matchItem = this.find((item: LiturgicalDay) => item.key === dateOrKey || item.base?.key === dateOrKey);
+    }
+    if (typeof dateOrKey === 'object' && dayjs(dateOrKey).isValid()) {
+      matchItem = this.find((item) => dayjs(item.date).isSame(dateOrKey, 'date'));
+    }
+    return matchItem !== undefined ? dayjs.utc(matchItem.date) : undefined;
+  }
+
+  /**
+   * Get all liturgical days that are before the provided criteria
+   * @param dateOrKey A Date object, or the key of a liturgical day
+   */
+  public getDaysBefore(dateOrKey: Date | string): RomcalCalendar {
+    const date = this._getDate(dateOrKey);
+    return date !== undefined
+      ? (this.filter((item: LiturgicalDay) => dayjs(item.date).isBefore(date as ConfigType, 'date')) as RomcalCalendar)
+      : new RomcalCalendar();
+  }
+
+  /**
+   * Get all liturgical days that match or are before the provided criteria
+   * @param dateOrKey A Date object, or the key of a liturgical day
+   */
+  public getDaysSameOrBefore(dateOrKey: Date | string): RomcalCalendar {
+    const date = this._getDate(dateOrKey);
+    return date !== undefined
+      ? (this.filter((item: LiturgicalDay) =>
+          dayjs(item.date).isSameOrBefore(date as ConfigType, 'date'),
+        ) as RomcalCalendar)
+      : new RomcalCalendar();
+  }
+
+  /**
+   * Get the liturgical day(s) that match the provided criteria
+   * @param dateOrKey A Date object, or the key of a liturgical day
+   */
+  public getLiturgicalDay(dateOrKey: Date | string): RomcalCalendar {
+    const date = this._getDate(dateOrKey);
+    return date !== undefined
+      ? (this.filter((item: LiturgicalDay) => dayjs(item.date).isSame(date as ConfigType, 'date')) as RomcalCalendar)
+      : new RomcalCalendar();
+  }
+
+  /**
+   * Get all liturgical days that match or are after the provided criteria
+   * @param dateOrKey A Date object, or the key of a liturgical day
+   */
+  public getDaysSameOrAfter(dateOrKey: Date | string): RomcalCalendar {
+    const date = this._getDate(dateOrKey);
+    return date !== undefined
+      ? (this.filter((item: LiturgicalDay) =>
+          dayjs(item.date).isSameOrAfter(date as ConfigType, 'date'),
+        ) as RomcalCalendar)
+      : new RomcalCalendar();
+  }
+
+  /**
+   * Get all liturgical days that are after the provided criteria
+   * @param dateOrKey A Date object, or the key of a liturgical day
+   */
+  public getDaysAfter(dateOrKey: Date | string): RomcalCalendar {
+    const date = this._getDate(dateOrKey);
+    return date !== undefined
+      ? (this.filter((item: LiturgicalDay) => dayjs(item.date).isAfter(date as ConfigType, 'date')) as RomcalCalendar)
+      : new RomcalCalendar();
   }
 }
