@@ -120,11 +120,11 @@ or in a webpage for direct usage on browsers:
 Including romcal directly in the browser will result in an object called `romcal` being attached to the DOM `window` object.
 All the functions below will exist as properties of the Romcal object.
 
-Invoke the `calendarFor` method to retrieve an array of liturgical dates and celebrations in the Roman Calendar.
+Invoke the `.calendarFor` method to retrieve an array of liturgical dates and celebrations in the Roman Calendar.
 This method accepts an object of configuration properties to obtain customized output.
 
 ```javascript
-CalendarBuilder.calendarFor({
+Romcal.calendarFor({
   year: 2020,
   scope: 'gregorian' | 'liturgical',
   country: 'unitedStates',
@@ -133,12 +133,28 @@ CalendarBuilder.calendarFor({
   corpusChristiOnSunday: true | false,
   ascensionOnSunday: true | false,
   outputOptionalMemorials: true | false,
+}).then(function (calendar) {
+  console.log(calendar);
 });
 ```
 
-Please note that `.calendarFor` is **async**. For further information in general: :books: [General use of romcal](/docs/general-usage.md).
+A similar `.liturgicalDayFor` method is also available to retrieve data for a specific date only.
+The first parameter is a `Date` object, the second is the optional configuration properties (as for the `.calendarFor`).
 
-This produces an `Array` of `LiturgicalDay` objects (by default, one object per each day of the year):
+e.g. to obtain today's liturgical day:
+
+```javascript
+Romcal.liturgicalDayFor(new Date(), {
+  country: 'france',
+  locale: 'fr',
+}).then(function (today) {
+  console.log(today);
+});
+```
+
+Please note that `.calendarFor` and `.liturgicalDayFor` are **async**. For further information in general: :books: [General use of romcal](/docs/general-usage.md).
+
+This 2 methods produces an `Array` of `LiturgicalDay` objects (by default, one object per each day of the year):
 
 ```json5
 [
@@ -221,4 +237,3 @@ Additional credits for bug fixes, localization and suggestions can be seen at [h
     <img alt="romcal-icon" src="https://user-images.githubusercontent.com/1045997/89793396-1c676600-db26-11ea-9426-991ac1e32b82.png">
   </a>
 </p>
-

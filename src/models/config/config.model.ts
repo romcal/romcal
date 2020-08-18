@@ -11,6 +11,8 @@ import { sanitizeLocale } from '@romcal/lib/locales';
  */
 export type RomcalCalendarScope = 'gregorian' | 'liturgical';
 
+export type BaseRomcalConfigWithoutYear = Omit<BaseRomcalConfig, 'year' | 'scope'>;
+
 /**
  * The configuration object that is passed either to the [[Calendar.calendarFor]]
  * methods to retrieve an array of [[DateItems]].

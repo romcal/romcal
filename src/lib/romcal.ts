@@ -1,8 +1,10 @@
-import { BaseRomcalConfig, RomcalConfig } from '@romcal/models/config/config.model';
+import dayjs from 'dayjs';
+import { BaseRomcalConfig, BaseRomcalConfigWithoutYear, RomcalConfig } from '@romcal/models/config/config.model';
 import { RomcalCalendar } from '@romcal/models/calendar/calendar.model';
-import { isInteger, isNil } from '@romcal/utils/type-guards/type-guards';
+import { isInteger, isNil, isObject } from '@romcal/utils/type-guards/type-guards';
 import { setLocale } from '@romcal/lib/locales';
 import { CalendarBuilder } from '@romcal/lib/calendar-builder';
+import { LiturgicalDay } from '@romcal/models/liturgical-day/liturgical-day.model';
 
 export default class Romcal {
   /**
@@ -37,5 +39,17 @@ export default class Romcal {
     // Get a new collection of dates
     const calendar = new CalendarBuilder(config);
     return calendar.compute();
+  }
+
+  public static async liturgicalDayFor(date: Date, options?: BaseRomcalConfigWithoutYear): Promise<RomcalCalendar> {
+    const year = date.getUTCFullYear();
+
+    return Romcal.calendarFor({
+      ...(() => (isObject(options) ? options : {}))(),
+      year,
+      scope: 'gregorian',
+    }).then(
+      (calendar) => calendar.filter((day: LiturgicalDay) => dayjs.utc(date).isSame(day.date, 'date')) as RomcalCalendar,
+    );
   }
 }
