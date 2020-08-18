@@ -136,7 +136,7 @@ CalendarBuilder.calendarFor({
 });
 ```
 
-For further information on the configuration properties: :books: [Configure romcal](/docs/general-usage.md).
+Please note that `.calendarFor` is **async**. For further information in general: :books: [General use of romcal](/docs/general-usage.md).
 
 This produces an `Array` of `LiturgicalDay` objects (by default, one object per each day of the year):
 
