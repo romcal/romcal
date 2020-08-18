@@ -17,6 +17,7 @@ import { LiturgicalDay, isRomcalLiturgicalDay } from '@romcal/models/liturgical-
 import {
   RomcalConfig,
   BaseRomcalConfig,
+  BaseRomcalConfigWithoutYear,
   RomcalCalendarScope,
   RomcalConfigInCalendarDef,
 } from '@romcal/models/config/config.model';
@@ -158,6 +159,7 @@ export {
   RomcalCountry,
   // Config
   BaseRomcalConfig,
+  BaseRomcalConfigWithoutYear,
   RomcalConfigInCalendarDef,
   RomcalCalendarScope,
   // Calendar
