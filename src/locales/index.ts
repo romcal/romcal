@@ -1,4 +1,5 @@
 import en from './en';
+import es from './es';
 import fr from './fr';
 import it from './it';
 import la from './la';
@@ -12,6 +13,7 @@ import sk from './sk';
  */
 const locales = {
   en: en,
+  es: es,
   fr: fr,
   it: it,
   la: la,
