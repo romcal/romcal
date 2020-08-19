@@ -28,7 +28,16 @@ import _ from 'lodash';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 
-import Romcal from '@romcal/index';
+import Romcal, {
+  ISO8601DateString,
+  RomcalCalendarMetadata,
+  RomcalCountry,
+  RomcalCyclesMetadata,
+  RomcalLiturgicalColor,
+  RomcalLiturgicalDayMetadata,
+  RomcalLiturgicalPeriod,
+  RomcalLiturgicalSeason,
+} from '@romcal/index';
 import { Dates } from '@romcal/lib/dates';
 import { Dictionary, isNil } from '@romcal/utils/type-guards/type-guards';
 import { LiturgicalDay, isRomcalLiturgicalDay } from '@romcal/models/liturgical-day/liturgical-day.model';
@@ -64,10 +73,25 @@ describe('Testing calendar generation functions', () => {
       expect(leapYearDates.every((d) => isRomcalLiturgicalDay(d))).toBeTruthy();
     });
 
-    test('Each object should contain the keys type, name, date, source and data', async () => {
-      const requiredKeys = ['type', 'name', 'date', 'source', 'data'];
-      nonLeapYearDates.every((d) => hasKey(d, requiredKeys));
-      leapYearDates.every((d) => hasKey(d, requiredKeys));
+    test('Each object should contain the required properties', async () => {
+      const requiredKeys = [
+        'key',
+        'name',
+        'date',
+        'rank',
+        'rankName',
+        'prioritized',
+        'liturgicalColors',
+        'liturgicalColorNames',
+        'seasons',
+        'seasonNames',
+        'periods',
+        'cycles',
+        'calendar',
+        'fromCalendar',
+        'metadata',
+      ];
+      expect(nonLeapYearDates.every((d) => requiredKeys.every((k) => d.hasOwnProperty(k)))).toBeTrue();
     });
 
     test('Array should be 365 days long on non-leap years', async () => {
