@@ -60,13 +60,13 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'blessedGisela',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'gisela_of_hungary',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-7`),
     },
     {
-      key: 'blessedSaraSalkahaziVirginAndMartyr',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'sara_salkahazi_virgin',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-11`),
       metadata: {
         titles: [Titles.MARTYR],
@@ -81,16 +81,16 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'blessedVilmosAporBishopAndMartyr',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'william_apor_bishop',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-23`),
       metadata: {
         titles: [Titles.MARTYR],
       },
     },
     {
-      key: 'ourLadyHelpOfChristians',
-      rank: Ranks.MEMORIAL,
+      key: 'our_lady_help_of_christians',
+      rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-5-24`),
     },
     {
@@ -105,7 +105,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
-      key: 'blessedIstvanSandorMartyr',
+      key: 'istvan_sandor_religious',
       rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-8`),
       liturgicalColors: LiturgicalColorsEnum.RED,
@@ -181,8 +181,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'blessedInnocentXiPope',
-      rank: Ranks.MEMORIAL,
+      key: 'innocent_xi_pope',
+      rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-8-13`),
     },
     {
@@ -219,7 +219,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'holyNameOfTheBlessedVirginMary',
+      key: 'most_holy_name_of_mary',
       rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-9-12`),
     },
@@ -238,13 +238,13 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'ourLadyOfHungary',
+      key: 'our_lady_of_hungary_principal_patron_of_hungary',
       rank: RanksEnum.SOLEMNITY,
       date: dayjs.utc(`${year}-10-8`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'blessedKarlOfAustria',
+      key: 'charles_i_of_austria',
       rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-21`),
     },
@@ -254,15 +254,15 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-10-25`),
     },
     {
-      key: 'blessedTheodoreRomzhaBishopAndMartyr',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'theodore_romzha_bishop',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-31`),
       metadata: {
         titles: [Titles.MARTYR],
       },
     },
     {
-      key: 'allSouls',
+      key: 'all_souls',
       rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-11-2`),
       liturgicalColors: [LiturgicalColorsEnum.PURPLE, LiturgicalColorsEnum.BLACK],
@@ -274,8 +274,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColorsEnum.WHITE,
     },
     {
-      key: 'hungarianSaintsAndBlesseds',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'hungarian_saints_and_blesseds',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-13`),
     },
     {

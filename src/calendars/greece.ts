@@ -64,8 +64,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'ourLadyOfFatima',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'our_lady_of_fatima',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-15`),
     },
     {

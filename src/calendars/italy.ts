@@ -74,7 +74,12 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       key: 'saintFrancisOfAssisi',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-10-4`),
-      liturgicalColors: LiturgicalColors.WHITE,
+      liturgicalColors: LiturgicalColorsEnum.WHITE,
+    },
+    {
+      key: 'mary_mother_of_the_church',
+      rank: RanksEnum.MEMORIAL,
+      date: ((y: number): dayjs.Dayjs => Dates.pentecostSunday(y).add(1, 'day'))(year),
     },
   ];
 

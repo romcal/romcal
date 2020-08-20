@@ -20,18 +20,18 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-1-3`),
     },
     {
-      key: 'ourLadyOfBethlehem',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'our_lady_of_bethlehem',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-3`),
     },
     {
-      key: 'blessedMariaDoloresRodriguezSopenaVirgin',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'marydolores_rodriguez_sopena_virgin',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-10`),
     },
     {
-      key: 'blessedCarlosManuelRodriguez',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'carlos_manuel_rodriguez_santiago',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-4`),
     },
     {
@@ -52,8 +52,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'blessedsCarlosSpinolaAndJeronimoDeAngelisPriestsAndMartyrs',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'charles_spinola_and_jerome_de_angelis_priests',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-10`),
       metadata: {
         titles: [Titles.MARTYR],
@@ -65,14 +65,14 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-10-11`),
     },
     {
-      key: 'ourLadyMotherOfDivineProvidencePatronessOfPuertoRico',
-      rank: Ranks.SOLEMNITY,
+      key: 'our_lady_mother_of_divine_providence_patroness_of_puerto_rico',
+      rank: RanksEnum.SOLEMNITY,
       date: dayjs.utc(`${year}-11-19`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'ourLadyOfGuadalupe',
-      rank: Ranks.FEAST,
+      key: 'our_lady_of_guadalupe',
+      rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-12-12`),
       liturgicalColors: LiturgicalColors.WHITE,
     },

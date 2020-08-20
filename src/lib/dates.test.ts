@@ -184,19 +184,19 @@ describe('Testing specific liturgical date functions', () => {
 
   describe('Easter calculation based on an algorithm from The Explanatory Supplement to the Astronomical Almanac', () => {
     test('In 1969, Easter Sunday was on April 6', () => {
-      const date = Dates.easter(1969);
+      const date = Dates.easterSunday(1969);
       expect(date.month()).toEqual(3);
       expect(date.date()).toEqual(6);
     });
 
     test('In 2008, Easter Sunday was on March 23', () => {
-      const date = Dates.easter(2008);
+      const date = Dates.easterSunday(2008);
       expect(date.month()).toEqual(2);
       expect(date.date()).toEqual(23);
     });
 
     test('In 2050, Easter Sunday will be on April 10', () => {
-      const date = Dates.easter(2050);
+      const date = Dates.easterSunday(2050);
       expect(date.month()).toEqual(3);
       expect(date.date()).toEqual(10);
     });
@@ -204,8 +204,8 @@ describe('Testing specific liturgical date functions', () => {
     test('Its earliest occurring date is March 22 and latest occuring date is April 25', () => {
       for (let i = 1900, il = 2100; i <= il; i++) {
         const range = rangeOfDays(dayjs.utc(`${i}-3-22`), dayjs.utc(`${i}-4-25`));
-        const easter = Dates.easter(i);
-        expect(rangeContainsDate(range, easter)).toBeTrue();
+        const easterSunday = Dates.easterSunday(i);
+        expect(rangeContainsDate(range, easterSunday)).toBeTrue();
       }
     });
   });
@@ -262,8 +262,8 @@ describe('Testing specific liturgical date functions', () => {
     describe('The Nativity of John the Baptist', () => {
       test('Occurs every year on June 24', () => {
         for (let i = 1900, il = 2100; i <= il; i++) {
-          expect(Dates.birthOfJohnTheBaptist(i).date()).toEqual(24);
-          expect(Dates.birthOfJohnTheBaptist(i).month()).toEqual(5);
+          expect(Dates.nativityOfJohnTheBaptist(i).date()).toEqual(24);
+          expect(Dates.nativityOfJohnTheBaptist(i).month()).toEqual(5);
         }
       });
     });
@@ -623,7 +623,7 @@ describe('Testing specific liturgical date functions', () => {
         if (onSundayOfLent || rangeContainsDate(theRange, date)) {
           expect(true).toEqual(true);
         } else {
-          expect(date.isSame(Dates.josephHusbandOfMary(i))).toBeTrue();
+          expect(date.isSame(Dates.josephSpouseOfMary(i))).toBeTrue();
         }
       }
     });
@@ -643,7 +643,7 @@ describe('Testing specific liturgical date functions', () => {
         });
 
         if (onSundayOfLent && !rangeContainsDate(theRange, date)) {
-          expect(Dates.josephHusbandOfMary(i).day()).toEqual(1);
+          expect(Dates.josephSpouseOfMary(i).day()).toEqual(1);
         }
       }
     });
@@ -660,9 +660,9 @@ describe('Testing specific liturgical date functions', () => {
         const onSundayOfLent = rangeContainsDate(sundays, date);
 
         if (!onSundayOfLent && rangeContainsDate(theRange, date)) {
-          expect(Dates.josephHusbandOfMary(i).isSame(Dates.palmSunday(i).subtract(1, 'day'))).toEqual(true);
+          expect(Dates.josephSpouseOfMary(i).isSame(Dates.palmSunday(i).subtract(1, 'day'))).toEqual(true);
         } else {
-          expect(Dates.josephHusbandOfMary(i).isSame(date));
+          expect(Dates.josephSpouseOfMary(i).isSame(date));
         }
       }
     });

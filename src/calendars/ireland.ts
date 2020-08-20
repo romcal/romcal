@@ -132,8 +132,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-5-4`),
     },
     {
-      key: 'blessedEdmundIgnatiusRiceReligious',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'edmund_ignatius_rice_religious',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-5`),
     },
     {
@@ -179,8 +179,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-6-14`),
     },
     {
-      key: 'blessedIrishMartyrs',
-      rank: Ranks.MEMORIAL,
+      key: 'irish_martyrs',
+      rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-6-20`),
       liturgicalColors: LiturgicalColors.RED,
       metadata: {
@@ -306,13 +306,13 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-9-25`),
     },
     {
-      key: 'blessedColumbaMarmionPriest',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'columba_marmion_priest',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-3`),
     },
     {
-      key: 'blessedJohnHenryNewmanPriest',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'john_henry_newman_priest',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-9`),
     },
     {
@@ -342,8 +342,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'allSaintsOfIreland',
-      rank: Ranks.FEAST,
+      key: 'all_saints_of_ireland',
+      rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-11-6`),
       liturgicalColors: LiturgicalColors.WHITE,
       prioritized: true,

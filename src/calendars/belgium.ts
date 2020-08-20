@@ -48,8 +48,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'ourLadyMediatrix',
-      rank: Ranks.FEAST,
+      key: 'our_lady_mediatrix_of_all_grace',
+      rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-8-31`),
       liturgicalColors: LiturgicalColors.WHITE,
     },

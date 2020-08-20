@@ -13,8 +13,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
   const year = config.year;
   const _dates: Array<RomcalLiturgicalDayInput> = [
     {
-      key: 'blessedGoncaloDeAmarantePriest',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'gundisalvus_of_amarante_priest',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-11`),
     },
     {
@@ -48,8 +48,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'blessedJacintaAndFranciscoMarto',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'jacinta_marto_and_francisco_marto',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-2-20`),
     },
     {
@@ -68,19 +68,19 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'blessedJoanOfPortugalVirgin',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'joan_of_portugal_virgin',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-12`),
     },
     {
-      key: 'ourLadyOfFatima',
-      rank: Ranks.FEAST,
+      key: 'our_lady_of_fatima',
+      rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-5-13`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'guardianAngelOfPortugal',
-      rank: Ranks.MEMORIAL,
+      key: 'guardian_angel_of_portugal',
+      rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-6-10`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
@@ -94,13 +94,13 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'blessedSanchaAndMafaldaVirgins',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'sancha_of_portugal_and_mafalda_of_portugal_virgins',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-20`),
     },
     {
-      key: 'blessedTheresaOfPortugalReligious',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'teresa_of_portugal_religious',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-20`),
     },
     {
@@ -119,14 +119,14 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'blessedInacioDeAzevedoPriestAndCompanionsMartyrs',
-      rank: Ranks.MEMORIAL,
+      key: 'ignatius_de_azevedo_priest_and_companions_martyrs',
+      rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-7-17`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'blessedBartholomewOfTheMartyrsBishop',
-      rank: Ranks.MEMORIAL,
+      key: 'bartholomew_of_the_martyrs_fernandes_bishop',
+      rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-7-18`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
@@ -165,8 +165,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-10-9`),
     },
     {
-      key: 'blessedGoncaloDeLagosPriest',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'gundisalvus_of_lagos_priest',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-27`),
     },
     {

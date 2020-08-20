@@ -15,8 +15,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
   const year = config.year;
   const _dates: Array<RomcalLiturgicalDayInput> = [
     {
-      key: 'blessedLauraVicunaVirgin',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'laura_vicuna_virgin',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-22`),
     },
     {
@@ -83,8 +83,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-8-16`),
     },
     {
-      key: 'blessedCeferinoNamuncura',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'zepherin_namuncura',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-26`),
     },
     {
@@ -128,8 +128,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'ourLadyOfGuadalupe',
-      rank: Ranks.FEAST,
+      key: 'our_lady_of_guadalupe',
+      rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-12-12`),
       liturgicalColors: LiturgicalColors.WHITE,
     },

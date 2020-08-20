@@ -1,6 +1,5 @@
 import en from './en';
-import enGB from './en-GB';
-import enIE from './en-IE';
+import es from './es';
 import fr from './fr';
 import it from './it';
 import la from './la';
@@ -14,8 +13,7 @@ import sk from './sk';
  */
 const locales = {
   en: en,
-  'en-GB': enGB,
-  'en-IE': enIE,
+  es: es,
   fr: fr,
   it: it,
   la: la,

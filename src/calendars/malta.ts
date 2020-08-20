@@ -32,8 +32,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'blessedMariaAdeodataPisaniVirgin',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'mary_adeodata_pisani_virgin',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-2-25`),
     },
     {
@@ -60,8 +60,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-5-9`),
     },
     {
-      key: 'blessedNazjuFalzon',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'ignatius_falzon',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-1`),
     },
     {

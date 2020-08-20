@@ -35,8 +35,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-5-25`),
     },
     {
-      key: 'blessedNazariaIgnaciaMarchReligious',
-      rank: Ranks.MEMORIAL,
+      key: 'nazaria_ignacia_of_saint_teresa_of_jesus_march_mesa_virgin',
+      rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-3-23`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
@@ -106,8 +106,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'ourLadyOfGuadalupe',
-      rank: Ranks.FEAST,
+      key: 'our_lady_of_guadalupe',
+      rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-12-12`),
       liturgicalColors: LiturgicalColors.WHITE,
     },

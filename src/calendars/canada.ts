@@ -31,8 +31,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintJosephSpouseOfTheBlessedVirginMaryPrincipalPatronOfCanada',
-      rank: Ranks.SOLEMNITY,
+      key: 'josephSpouseOfMaryCanada',
+      rank: RanksEnum.SOLEMNITY,
       date: dayjs.utc(`${year}-3-19`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
@@ -42,13 +42,13 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-4-17`),
     },
     {
-      key: 'blessedMarieAnneBlondinVirgin',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'marie_anne_blondin_virgin',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-4-18`),
     },
     {
-      key: 'ourLadyOfGoodCounsel',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'our_lady_of_good_counsel',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-4-26`),
     },
     {
@@ -57,8 +57,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-4-30`),
     },
     {
-      key: 'blessedMarieLeonieParadisVirgin',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'marie_leonie_paradis_virgin',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-4`),
     },
     {
@@ -67,8 +67,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-5-6`),
     },
     {
-      key: 'blessedCatherineOfSaintAugustineVirgin',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'catherine_of_saint_augustine_virgin',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-8`),
     },
     {
@@ -77,13 +77,13 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-5-21`),
     },
     {
-      key: 'blessedLouisZephirinMoreauBishop',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'louis_zephirin_moreau_bishop',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-24`),
     },
     {
-      key: 'blessedsNykytaBudkaAndVasylVelychkowskyBishopsAndMartyrs',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'nykyta_budka_and_vasyl_velychkovsky_bishops',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-27`),
       metadata: {
         titles: [Titles.MARTYR],
@@ -96,26 +96,26 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'blessedFredericJanssoonePriest',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'frederic_janssoone_priest',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-5`),
     },
     {
-      key: 'blessedAndreGrassetPriestAndMartyr',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'andre_grasset_priest',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-2`),
       metadata: {
         titles: [Titles.MARTYR],
       },
     },
     {
-      key: 'blessedDinaBelangerVirgin',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'dina_belanger_virgin',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-4`),
     },
     {
-      key: 'blessedEmilieTavernierGamelinReligious',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'emilie_tavernier_gamelin_religious',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-24`),
     },
     {
@@ -137,8 +137,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.RED,
     },
     {
-      key: 'blessedMarieRoseDurocherVirgin',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'marie_rose_durocher_virgin',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-6`),
     },
     {
@@ -158,8 +158,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-10-20`),
     },
     {
-      key: 'ourLadyOfGuadalupe',
-      rank: Ranks.FEAST,
+      key: 'our_lady_of_guadalupe',
+      rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-12-12`),
       liturgicalColors: LiturgicalColors.WHITE,
     },

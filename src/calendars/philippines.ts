@@ -74,13 +74,13 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'immaculateConceptionOfTheBlessedVirginMaryPrincipalPatronessOfThePhilippines',
-      rank: Ranks.SOLEMNITY,
+      key: 'immaculate_conception_principal_patroness_of_the_philippines',
+      rank: RanksEnum.SOLEMNITY,
       date: dayjs.utc(`${year}-12-8`),
     },
     {
-      key: 'ourLadyOfGuadalupeCelestialPatronessOfThePhilippines',
-      rank: Ranks.MEMORIAL,
+      key: 'our_lady_of_guadalupe_patroness_of_the_philippines',
+      rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-12-12`),
     },
   ];

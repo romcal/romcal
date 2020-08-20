@@ -12,13 +12,13 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
   const year = config.year;
   const _dates: Array<RomcalLiturgicalDayInput> = [
     {
-      key: 'maryMotherOfTheChurch',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'mary_mother_of_the_church',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: ((y: number): dayjs.Dayjs => Dates.pentecostSunday(y).add(1, 'day'))(year),
       prioritized: true,
     },
     {
-      key: 'ashWednesday',
+      key: 'ash_wednesday',
       source: 'celebrations', // Override the default lookup source
       rank: Ranks.SUNDAY,
       date: dayjs.utc(Dates.ashWednesday(year).toISOString()),

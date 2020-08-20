@@ -28,7 +28,7 @@ import * as Locales from './locales';
 describe('Testing localization functionality', () => {
   test('If the locale is set to "fr", romcal should output text in French', async () => {
     await Locales.setLocale('fr');
-    expect(await Locales.localize({ key: 'celebrations.allSaints' })).toBe('Tous les Saints');
+    expect(await Locales.localize({ key: 'celebrations.all_saints' })).toBe('Tous les Saints');
   });
 
   // Todo: this test is not working anymore since en-CA has been removed.
@@ -45,31 +45,31 @@ describe('Testing localization functionality', () => {
   test('If the locale is set with an unknown region, romcal should fallback to the base language if it exists in src/locales', async () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     await Locales.setLocale('fr-XX' as any);
-    const localizedText = await Locales.localize({ key: 'celebrations.allSaints' });
+    const localizedText = await Locales.localize({ key: 'celebrations.all_saints' });
     expect(localizedText).toBe('Tous les Saints');
   });
 
   test('If a string is missing in the "fr-CA" locale, romcal should fall back to base French', async () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     await Locales.setLocale('fr-CA' as any);
-    expect(await Locales.localize({ key: 'celebrations.allSaints' })).toBe('Tous les Saints');
+    expect(await Locales.localize({ key: 'celebrations.all_saints' })).toBe('Tous les Saints');
   });
 
   test('If a string is missing in the "zz" locale, romcal should fallback to English ', async () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     await Locales.setLocale('zz' as any);
-    expect(await Locales.localize({ key: 'celebrations.allSaints' })).toBe('All Saints');
+    expect(await Locales.localize({ key: 'celebrations.all_saints' })).toBe('All Saints');
   });
 
   test('If an unknown locale is set, romcal should fallback to English', async () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     await Locales.setLocale('xx-XX' as any);
-    expect(await Locales.localize({ key: 'celebrations.allSaints' })).toBe('All Saints');
+    expect(await Locales.localize({ key: 'celebrations.all_saints' })).toBe('All Saints');
   });
 
   test('When the last locale set is "en", romcal should output English locale', async () => {
     await Locales.setLocale('it');
     await Locales.setLocale('en');
-    expect(await Locales.localize({ key: 'celebrations.allSaints' })).toBe('All Saints');
+    expect(await Locales.localize({ key: 'celebrations.all_saints' })).toBe('All Saints');
   });
 });

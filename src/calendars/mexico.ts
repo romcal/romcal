@@ -24,8 +24,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'blessedSebastianDeAparicioReligious',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'sebastian_de_aparicio_religious',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-2-25`),
     },
     {
@@ -34,8 +34,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-4-27`),
     },
     {
-      key: 'findingOfTheHolyCross',
-      rank: Ranks.FEAST,
+      key: 'finding_of_the_holy_cross',
+      rank: RanksEnum.FEAST,
       date: dayjs.utc(`${year}-5-3`),
     },
     {
@@ -83,24 +83,24 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-7-30`),
     },
     {
-      key: 'blessedBartolomeLaurelReligiousAndMartyr',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'bartholomew_dias_laurel_religious',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-16`),
       metadata: {
         titles: [Titles.MARTYR],
       },
     },
     {
-      key: 'blessedsPedroZunigaAndLuisFloresPriestsAndMartyrs',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'peter_de_zuniga_and_louis_flores_priests',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-16`),
       metadata: {
         titles: [Titles.MARTYR],
       },
     },
     {
-      key: 'blessedJuniperoSerraPriest',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'junipero_serra_priest',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-26`),
     },
     {
@@ -124,8 +124,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-10-24`),
     },
     {
-      key: 'blessedMiguelAgustinProPriestAndMartyr',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'miguel_agustin_pro_priest',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-23`),
       metadata: {
         titles: [Titles.MARTYR],
@@ -137,8 +137,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-12-9`),
     },
     {
-      key: 'ourLadyOfGuadalupe',
-      rank: Ranks.SOLEMNITY,
+      key: 'our_lady_of_guadalupe',
+      rank: RanksEnum.SOLEMNITY,
       date: dayjs.utc(`${year}-12-12`),
     },
     {

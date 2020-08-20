@@ -25,8 +25,8 @@ export default {
     // octave: '{{day}} within the Octave of Easter',  // us; Was: `Easter {{day}}`
   },
   celebrations: {
-    corpusChristi: 'Most Holy Body and Blood of the Lord',
-    holyThursday: 'Maundy Thursday',
+    corpus_christi: 'Most Holy Body and Blood of the Lord',
+    holy_thursday: 'Maundy Thursday',
   },
   sanctoral: {
     saintRaymondOfPenyafortPriest: 'Saint Raymond of Peñafort, Priest',

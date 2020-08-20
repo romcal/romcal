@@ -46,8 +46,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'blessedHemmingBishop',
-      rank: Ranks.MEMORIAL,
+      key: 'hemming_of_turku_bishop',
+      rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-5-22`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
@@ -57,8 +57,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-5-29`),
     },
     {
-      key: 'blessedElisabethHesselbaldVirgin',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'elizabeth_hesselblad_religious',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-4`),
     },
     {
@@ -115,8 +115,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'blessedNicolasStenoBishop',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'nicholas_steno_bishop',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-25`),
     },
   ];

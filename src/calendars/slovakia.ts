@@ -11,7 +11,7 @@ import { Titles } from '@romcal/constants/titles/titles.enum';
 
 const defaultConfig: RomcalConfigInCalendarDef = {
   ascensionOnSunday: false,
-  corpusChristiOnSunday: true,
+  corpusChristiOnSunday: false,
   epiphanyOnSunday: false,
 };
 
@@ -51,8 +51,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.RED,
     },
     {
-      key: 'blessedSaraSalkahaziVirginAndMartyr',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'sara_salkahazi_virgin',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-11`),
       metadata: {
         titles: [Titles.MARTYR],
@@ -126,8 +126,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'blessedZdenkaSchelingovaVirginAndMartyr',
-      rank: Ranks.OPT_MEMORIAL,
+      key: 'zdenka_cecilia_schelingova_virgin',
+      rank: RanksEnum.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-30`),
       metadata: {
         titles: [Titles.MARTYR],
@@ -181,14 +181,14 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'dedicationOfAParticularChurch',
-      rank: Ranks.SOLEMNITY,
+      key: 'dedication_of_consecrated_churches',
+      rank: RanksEnum.SOLEMNITY,
       date: dayjs.utc(`${year}-10-26`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'allSouls',
-      rank: Ranks.MEMORIAL,
+      key: 'all_souls',
+      rank: RanksEnum.MEMORIAL,
       date: dayjs.utc(`${year}-11-2`),
       liturgicalColors: [LiturgicalColors.PURPLE, LiturgicalColors.BLACK],
     },
