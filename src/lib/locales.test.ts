@@ -31,16 +31,15 @@ describe('Testing localization functionality', () => {
     expect(await Locales.localize({ key: 'celebrations.all_saints' })).toBe('Tous les Saints');
   });
 
-  // Todo: this test is not working anymore since en-CA has been removed.
-  // test('If the locale is set to "en-CA", romcal should output text in Canadian French', async () => {
-  //   await Locales.setLocale('en-CA');
-  //   const localizedName = await Locales.localize({
-  //     key: 'sanctoral.saintsJeanDeBrebeufAndIsaacJoguesPriestsAndCompanionsMartyrs',
-  //   });
-  //   expect(localizedName).toBe(
-  //     'Saints John de Brébeuf, Isaac Jogues, Priests, and Companions, Martyrs, Secondary Patrons of Canada',
-  //   );
-  // });
+  test('If the locale is set to "en-GB", romcal should output text in British English', async () => {
+    await Locales.setLocale('en-CA');
+    const localizedName = await Locales.localize({
+      key: 'sanctoral.saintPaulinaOfTheAgonizingHeartOfJesusVirgin',
+    });
+    expect(localizedName).toBe(
+      'Saint Paulina of the Agonising Heart of Jesus Visintainer, virgin',
+    );
+  });
 
   test('If the locale is set with an unknown region, romcal should fallback to the base language if it exists in src/locales', async () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

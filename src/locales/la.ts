@@ -606,7 +606,7 @@ export default {
     saintPaschalBaylon: 'S. Paschali Baylón',
     saintPatrickBishop: 'S. Patricii, episcopi',
     saintPaulChenChangpinAndCompanionsMartyrs: 'Ss. Pauli Chen Changpin et sociorum, martyrum',
-    saintPaulinaOfTheAgonizingHeartOfJesusVirgin: 'S. Paulinæ a Corde Iesu Agonizanti, virginis',
+    saintPaulinaOfTheAgonizingHeartOfJesusVirgin: 'S. Paulinæ a Corde Iesu Agonizanti Visintainer, virginis',
     saintPaulinusOfNolaBishop: 'S. Paulini Nolani, episcopi',
     saintPaulinusOfTrierBishop: 'S. Paulini Trevirensis, episcopi',
     saintPaulinusOfYorkBishop: 'S. Paulini Eboracensis, episcopi',

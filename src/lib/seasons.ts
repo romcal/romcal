@@ -549,7 +549,7 @@ export class Seasons {
             : `${date.locale('en').format('dddd').toCamelCase()}OfThe${ordinal(week, true).toPascalCase()}WeekOfLent`,
         rank: Ranks.WEEKDAY,
         name: await localize({
-          key: i === 0 ? 'celebrations.ashWednesday' : i < 4 ? 'lent.dayAfterAshWed' : 'lent.weekday',
+          key: i === 0 ? 'celebrations.ash_wednesday' : i < 4 ? 'lent.dayAfterAshWed' : 'lent.weekday',
           day: date.format('dddd'),
           week,
         }),

@@ -33,7 +33,7 @@ export default {
     sevenHolyFoundersOfTheServiteOrder: 'Seven Founders of the Order of Servants of the Blessed Virgin Mary',
     saintLouisMarieGrignionDeMontfortPriest: 'Saint Louis Marie Grignion de Montfort, Priest',
     saintPiusVPope: 'Saint Pius V, Pope and Religious',  // This key should be removed after one can add titles within celebration definions
-    saintPaulinaOfTheAgonizingHeartOfJesusVirgin: 'Saint Paulina of the Agonising Heart of Jesus, virgin',
+    saintPaulinaOfTheAgonizingHeartOfJesusVirgin: 'Saint Paulina of the Agonising Heart of Jesus Visintainer, virgin',
     saintBernardineOfSienaPriest: 'Saint Bernardine of Siena, Priest, Religious and Missionary',  // This key should be removed after one can add titles within celebration definions
   },
 } as RomcalLocale;

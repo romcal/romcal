@@ -114,7 +114,7 @@ export default {
     guardian_angels: 'Saints Anges gardiens',
     holy_innocents_martyrs: 'Saints Innocents, Martyrs (1er s.)',
     most_holy_name_of_mary: 'Le Saint Nom de Marie',
-    our_lady_mediatrix_of_all_grace: 'Notre-Dame, Médiatrice',
+    our_lady_mediatrix_of_all_grace: 'La Vierge Marie Médiatrice',
     our_lady_of_fatima: 'Notre-Dame de Fatima',
     our_lady_of_good_counsel: 'Notre-Dame du Bon Conseil',
     our_lady_of_guadalupe: 'Notre-Dame de Guadalupe',

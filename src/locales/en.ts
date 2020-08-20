@@ -70,7 +70,7 @@ export default {
     baptism_of_the_lord: 'Baptism of the Lord',  // us, gb
     nativity_of_john_the_baptist: 'Nativity of Saint John the Baptist',  // us, gb
     christmas: 'Nativity of the Lord',  // us; Was: `Christmas`
-    christ_the_king_sunday: 'Our Lord Jesus Christ, King of the Universe',  // us; Was: `Christ the King`
+    christ_the_king_sunday: 'Our Lord Jesus Christ, King of the Universe',  // us; TODO: Change the name in Dates too (*sunday)
     corpus_christi: 'Most Holy Body and Blood of Christ',  // us, gb in en-GB
     divine_mercy_sunday: 'Sunday of Divine Mercy',  // us; gb
     easter_sunday: 'Easter Sunday of the Resurrection of the Lord',  // us, gb
@@ -87,8 +87,8 @@ export default {
     pentecost_sunday: 'Pentecost Sunday',  // us, gb
     peter_and_paul_apostles: 'Saints Peter and Paul, Apostles',  // us, gb
     presentation_of_the_lord: 'Presentation of the Lord',  // us, gb
-    sacred_heart_of_jesus: 'Most Sacred Heart of Jesus',  // us, gb
-    exaltation_of_the_holy_cross: 'Exaltation of the Holy Cross',  // us
+    sacred_heart_of_jesus: 'Most Sacred Heart of Jesus',  // us, gb; TODO: Change the key to correspond with the value
+    exaltation_of_the_holy_cross: 'Exaltation of the Holy Cross',  // us; TODO: Change the name in Dates too
     transfiguration: 'Transfiguration of the Lord',  // us
     trinity_sunday: 'Most Holy Trinity',  // us, gb
   },
@@ -610,7 +610,7 @@ export default {
     // saintPaschalBaylon: 'Saint Paschal Baylón',
     // saintPatrickBishop: 'Saint Patrick, Bishop',  // us, gb, scotland, ireland, australia
     // saintPaulChenChangpinAndCompanionsMartyrs: 'Saint Paul Chen Changpin and Companions, Martyrs',
-    // saintPaulinaOfTheAgonizingHeartOfJesusVirgin: 'Saint Paulina of the Agonizing Heart of Jesus, Virgin',  // gb, but not in gb
+    // saintPaulinaOfTheAgonizingHeartOfJesusVirgin: 'Saint Paulina of the Agonizing Heart of Jesus Visintainer, Virgin',  // gb, but not in gb
     // saintPaulinusOfNolaBishop: 'Saint Paulinus of Nola, Bishop',  // us, gb
     // saintPaulinusOfTrierBishop: 'Saint Paulinus of Trier, Bishop',
     // saintPaulinusOfYorkBishop: 'Saint Paulinus of York, Bishop',  // gb
