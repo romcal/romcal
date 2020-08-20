@@ -15,76 +15,14 @@ import { Dates } from './lib/dates';
 import { RomcalLocale, RomcalLocaleKeys } from '@romcal/models/locale/romcal-locale.type';
 import { LiturgicalDay, isRomcalLiturgicalDay } from '@romcal/models/liturgical-day/liturgical-day.model';
 import {
-  allSaints,
-  annunciation,
-  ascension,
-  ashWednesday,
-  assumption,
-  baptismOfTheLord,
-  nativityOfJohnTheBaptist,
-  christTheKing,
-  christmas,
-  corpusChristi,
-  datesAfterEpiphany,
-  datesBeforeEpiphany,
-  datesInOctaveOfEaster,
-  datesOfAdvent,
-  datesOfChristmas,
-  datesOfEarlyOrdinaryTime,
-  datesOfEaster,
-  datesOfLaterOrdinaryTime,
-  datesOfLent,
-  divineMercySunday,
-  easter,
-  epiphany,
-  firstSundayOfAdvent,
-  goodFriday,
-  holyFamily,
-  holySaturday,
-  holyThursday,
-  holyWeek,
-  immaculateConception,
-  immaculateHeartOfMary,
-  josephSpouseOfMary,
-  maryMotherOfGod,
-  octaveOfChristmas,
-  palmSunday,
-  pentecostSunday,
-  peterAndPaulApostles,
-  presentationOfTheLord,
-  sacredHeartOfJesus,
-  sundaysOfAdvent,
-  sundaysOfEarlyOrdinaryTime,
-  sundaysOfEaster,
-  sundaysOfLaterOrdinaryTime,
-  sundaysOfLent,
-  exaltationOfTheHolyCross,
-  transfiguration,
-  trinitySunday,
-} from '@romcal/lib/Dates';
-
-import {
-  advent,
-  christmastide,
-  earlyOrdinaryTime,
-  easterOctave,
-  paschalTriduum,
-  eastertide,
-  laterOrdinaryTime,
-  lent,
-} from '@romcal/lib/Seasons';
-
-import { Calendar } from '@romcal/lib/Calendar';
-
-import { RomcalLocale, RomcalLocaleKeys } from '@romcal/models/romcal-locale';
-import { RomcalDateItem, RomcalDateItemInput } from '@romcal/models/romcal-date-item';
-import Config, { RomcalConfig, IRomcalDefaultConfig, TConfigConstructorType } from '@romcal/models/romcal-config';
-
-import { hasKey } from '@romcal/utils/object';
-
-import { COUNTRIES } from '@romcal/constants/country-list.constant';
-import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors.constant';
-import { LiturgicalColors } from '@romcal/types/liturgical-colors.type';
+  RomcalConfig,
+  BaseRomcalConfig,
+  BaseRomcalConfigWithoutYear,
+  RomcalCalendarScope,
+  RomcalConfigInCalendarDef,
+} from '@romcal/models/config/config.model';
+import { COUNTRIES } from '@romcal/constants/countries/countries.constant';
+import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors/liturgical-colors.constant';
 import {
   CELEBRATIONS_CYCLE,
   SUNDAYS_CYCLE,
@@ -233,52 +171,12 @@ export {
  * Type Guards
  */
 export {
-  allSaints,
-  annunciation,
-  ascension,
-  ashWednesday,
-  assumption,
-  baptismOfTheLord,
-  nativityOfJohnTheBaptist,
-  christTheKing,
-  christmas,
-  corpusChristi,
-  datesAfterEpiphany,
-  datesBeforeEpiphany,
-  datesInOctaveOfEaster,
-  datesOfAdvent,
-  datesOfChristmas,
-  datesOfEarlyOrdinaryTime,
-  datesOfEaster,
-  datesOfLaterOrdinaryTime,
-  datesOfLent,
-  divineMercySunday,
-  easter,
-  epiphany,
-  firstSundayOfAdvent,
-  goodFriday,
-  holyFamily,
-  holySaturday,
-  holyThursday,
-  holyWeek,
-  immaculateConception,
-  immaculateHeartOfMary,
-  josephSpouseOfMary,
-  maryMotherOfGod,
-  octaveOfChristmas,
-  palmSunday,
-  pentecostSunday,
-  peterAndPaulApostles,
-  presentationOfTheLord,
-  sacredHeartOfJesus,
-  sundaysOfAdvent,
-  sundaysOfEarlyOrdinaryTime,
-  sundaysOfEaster,
-  sundaysOfLaterOrdinaryTime,
-  sundaysOfLent,
-  exaltationOfTheHolyCross,
-  transfiguration,
-  trinitySunday,
+  isRomcalLiturgicalDay,
+  areRomcalLiturgicalDays,
+  isRomcalConfig,
+  isISODateString,
+  isRomcalCountry,
+  isRomcalLocale,
 };
 
 /**

@@ -130,7 +130,7 @@ describe('Testing national calendar overrides', () => {
 
     test('A celebration with a higher type rank and the same key cannot replace an existing prioritized celebration', () => {
       const dates = testDates.filter((d) => {
-        return d.key === 'ashWednesday';
+        return d.key === 'ash_wednesday';
       });
       expect(dates.length).toEqual(1);
       expect(dates[0].rank).toEqual(Ranks.WEEKDAY);
@@ -149,7 +149,7 @@ describe('Testing national calendar overrides', () => {
         return dayjs.utc(d.date).isSame(Dates.pentecostSunday(year).add(1, 'day'));
       });
       expect(dates.length).toEqual(1);
-      expect(dates[0].key).toEqual('maryMotherOfTheChurch');
+      expect(dates[0].key).toEqual('mary_mother_of_the_church');
       expect(dates[0].rank).toEqual(Ranks.OPT_MEMORIAL);
     });
 
@@ -158,7 +158,7 @@ describe('Testing national calendar overrides', () => {
         return dayjs.utc(d.date).isSame(dayjs.utc('2020-11-9'));
       });
       expect(dates.length).toEqual(1);
-      expect(dates[0].key).toEqual('dedicationOfTheLateranBasilica');
+      expect(dates[0].key).toEqual('dedication_of_the_lateran_basilica');
       expect(dates[0].rank).toEqual(Ranks.FEAST);
     });
 
@@ -342,10 +342,10 @@ describe('Testing national calendar overrides', () => {
       });
       // So All Saints should be celebrated on Sunday
       const allSaintsEngland = englandDates.find((d) => {
-        return d.key === 'allSaints';
+        return d.key === 'all_saints';
       });
       const allSaintsWales = walesDates.find((d) => {
-        return d.key === 'allSaints';
+        return d.key === 'all_saints';
       });
       expect(dayjs.utc(allSaintsEngland?.date).day()).toEqual(0);
       expect(dayjs.utc(allSaintsWales?.date).day()).toEqual(0);
@@ -366,10 +366,10 @@ describe('Testing national calendar overrides', () => {
       // So All Saints should be celebrated on Sunday
       // and All Souls will be celebrated on Monday
       const allSaintsEngland = englandDates.find((d) => {
-        return d.key === 'allSouls';
+        return d.key === 'all_souls';
       });
       const allSaintsWales = walesDates.find((d) => {
-        return d.key === 'allSouls';
+        return d.key === 'all_souls';
       });
       expect(dayjs.utc(allSaintsEngland?.date).day()).toEqual(1);
       expect(dayjs.utc(allSaintsWales?.date).day()).toEqual(1);

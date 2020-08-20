@@ -1,4 +1,4 @@
-import { RomcalLocale } from '@romcal/models/romcal-locale';
+import { RomcalLocale } from '@romcal/models/locale/romcal-locale.type';
 
 export default {
   sanctoral: {

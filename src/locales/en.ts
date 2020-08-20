@@ -610,7 +610,7 @@ export default {
     // saintPaschalBaylon: 'Saint Paschal Baylón',
     // saintPatrickBishop: 'Saint Patrick, Bishop',  // us, gb, scotland, ireland, australia
     // saintPaulChenChangpinAndCompanionsMartyrs: 'Saint Paul Chen Changpin and Companions, Martyrs',
-    // saintPaulinaOfTheAgonizingHeartOfJesusVirgin: 'Saint Paulina of the Agonizing Heart of Jesus Visintainer, Virgin',  // gb, but not in gb
+    saintPaulinaOfTheAgonizingHeartOfJesusVirgin: 'Saint Paulina of the Agonizing Heart of Jesus Visintainer, Virgin',  // gb, but not in gb
     // saintPaulinusOfNolaBishop: 'Saint Paulinus of Nola, Bishop',  // us, gb
     // saintPaulinusOfTrierBishop: 'Saint Paulinus of Trier, Bishop',
     // saintPaulinusOfYorkBishop: 'Saint Paulinus of York, Bishop',  // gb

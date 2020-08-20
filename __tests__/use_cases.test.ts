@@ -38,7 +38,7 @@ describe('Testing specific feasts and memorials', () => {
     test('Should be celebrated on the Monday after Pentecost', async () => {
       const dates = await Romcal.calendarFor(); // Get the calendar for the current year
       const pentecostSunday = Dates.pentecostSunday(dayjs.utc().year());
-      const maryMotherOfTheChurch = dates.find((d) => d.key === 'maryMotherOfTheChurch');
+      const maryMotherOfTheChurch = dates.find((d) => d.key === 'mary_mother_of_the_church');
       const dayBeforeMaryMotherOfTheChurch = dayjs.utc(maryMotherOfTheChurch?.date).subtract(1, 'day');
       expect(dayjs.utc(maryMotherOfTheChurch?.date).day()).toEqual(1);
       expect(dayBeforeMaryMotherOfTheChurch?.day()).toEqual(0);
@@ -50,7 +50,7 @@ describe('Testing specific feasts and memorials', () => {
       const juneDates = (await Romcal.calendarFor({ year: 2020 })).filter((d) => new Date(d.date).getUTCMonth() === 5);
       // according to the general calendar, June 1 is the memorial of saint Justin, Martyr
       const maybeSaintJustinMartyr = juneDates[0];
-      expect(maybeSaintJustinMartyr.key).toEqual('maryMotherOfTheChurch');
+      expect(maybeSaintJustinMartyr.key).toEqual('mary_mother_of_the_church');
     });
   });
 
@@ -85,7 +85,7 @@ describe('Testing specific feasts and memorials', () => {
         locale: 'sk',
       });
       const theExaltationOfTheHolyCross = dates.find((d) => {
-        return d.key === 'theExaltationOfTheHolyCross';
+        return d.key === 'exaltation_of_the_holy_cross';
       });
       expect(dayjs.utc(theExaltationOfTheHolyCross?.date).date()).toEqual(14);
       expect(dayjs.utc(theExaltationOfTheHolyCross?.date).month()).toEqual(8);

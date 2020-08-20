@@ -31,26 +31,26 @@ describe('Testing localization functionality', () => {
     expect(await Locales.localize({ key: 'celebrations.all_saints' })).toBe('Tous les Saints');
   });
 
-  test('If the locale is set to "en-GB", romcal should output text in British English', async () => {
-    await Locales.setLocale('en-CA');
+  test('If the locale is set to "en-gb", romcal should output text in British English', async () => {
+    await Locales.setLocale('en-gb');
     const localizedName = await Locales.localize({
       key: 'sanctoral.saintPaulinaOfTheAgonizingHeartOfJesusVirgin',
     });
     expect(localizedName).toBe(
-      'Saint Paulina of the Agonising Heart of Jesus Visintainer, virgin',
+      'Saint Paulina of the Agonising Heart of Jesus Visintainer, Virgin',
     );
   });
 
   test('If the locale is set with an unknown region, romcal should fallback to the base language if it exists in src/locales', async () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    await Locales.setLocale('fr-XX' as any);
+    await Locales.setLocale('fr-xx' as any);
     const localizedText = await Locales.localize({ key: 'celebrations.all_saints' });
     expect(localizedText).toBe('Tous les Saints');
   });
 
-  test('If a string is missing in the "fr-CA" locale, romcal should fall back to base French', async () => {
+  test('If a string is missing in the "fr-ca" locale, romcal should fall back to base French', async () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    await Locales.setLocale('fr-CA' as any);
+    await Locales.setLocale('fr-ca' as any);
     expect(await Locales.localize({ key: 'celebrations.all_saints' })).toBe('Tous les Saints');
   });
 
@@ -62,7 +62,7 @@ describe('Testing localization functionality', () => {
 
   test('If an unknown locale is set, romcal should fallback to English', async () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    await Locales.setLocale('xx-XX' as any);
+    await Locales.setLocale('xx-xx' as any);
     expect(await Locales.localize({ key: 'celebrations.all_saints' })).toBe('All Saints');
   });
 
