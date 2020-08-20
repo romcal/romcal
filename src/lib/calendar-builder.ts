@@ -35,11 +35,19 @@ import { Dates } from '@romcal/lib/dates';
 import { PSALTER_WEEKS, SUNDAYS_CYCLE, WEEKDAYS_CYCLE } from '@romcal/constants/cycles/cycles.constant';
 import { Seasons } from '@romcal/lib/seasons';
 import * as Celebrations from '@romcal/lib/celebrations';
+import { logger } from '@romcal/utils/logger/logger';
 
 dayjs.extend(isSameOrAfter);
 dayjs.extend(isSameOrBefore);
 
-type FromCalendarDateItems = { fromCalendar: RomcalCountry; calendarItems: RomcalLiturgicalDayInput[] };
+type RomcalLiturgicalDayInputWithStack = RomcalLiturgicalDayInput & {
+  _stack: number;
+};
+
+type FromCalendarDateItems = {
+  fromCalendar: RomcalCountry;
+  calendarItems: RomcalLiturgicalDayInputWithStack[];
+};
 
 /**
  * Compute calendar dates, and combine together all the different collections of
@@ -101,7 +109,7 @@ export class CalendarBuilder {
     });
     const seasonDates: FromCalendarDateItems = {
       fromCalendar: 'general',
-      calendarItems: concatAll(await Promise.all(seasonDatesPromise)),
+      calendarItems: concatAll(await Promise.all(seasonDatesPromise)).map((item) => ({ ...item, _stack: 0 })),
     };
 
     // Get the liturgical dates based on the given year and options
@@ -110,7 +118,7 @@ export class CalendarBuilder {
     });
     const liturgicalDates: FromCalendarDateItems = {
       fromCalendar: 'general',
-      calendarItems: concatAll(await Promise.all(liturgicalDatesPromise)),
+      calendarItems: concatAll(await Promise.all(liturgicalDatesPromise)).map((item) => ({ ...item, _stack: 1 })),
     };
 
     // Get the general calendar based on the given year
@@ -130,7 +138,7 @@ export class CalendarBuilder {
     });
     const generalDates: FromCalendarDateItems = {
       fromCalendar: 'general',
-      calendarItems: concatAll(await Promise.all(generalDatesPromise)),
+      calendarItems: concatAll(await Promise.all(generalDatesPromise)).map((item) => ({ ...item, _stack: 2 })),
     };
 
     // Get the relevant national calendar object based on the given year and country
@@ -150,10 +158,13 @@ export class CalendarBuilder {
     });
     const nationalDates: FromCalendarDateItems = {
       fromCalendar: country,
-      calendarItems: concatAll(await Promise.all(nationalDatesPromise)),
+      calendarItems: concatAll(await Promise.all(nationalDatesPromise)).map((item) => ({ ...item, _stack: 3 })),
     };
 
     let calendarSources: FromCalendarDateItems[] = [seasonDates, liturgicalDates, generalDates, nationalDates];
+
+    // Extend items that must be extended with previous defined one
+    calendarSources = this.extendLiturgicalDays(calendarSources);
 
     // Remove all liturgical days not in the given date range
     calendarSources = this.filterItemRange(...calendarSources);
@@ -185,7 +196,7 @@ export class CalendarBuilder {
         this.keepPrioritizedOnly(item);
 
         // Find the season date that has the same date as the incoming item and make it the base item.
-        const baseItem = find(this._liturgicalDays, { date: item.date.toISOString(), _stack: 0 });
+        const baseItem = find(this._liturgicalDays, { date: item.date && item.date.toISOString(), _stack: 0 });
 
         const {
           key,
@@ -328,6 +339,47 @@ export class CalendarBuilder {
   }
 
   /**
+   * Compute properties of a liturgical day that need to be extended from an already defined item (that have the same key).
+   * @param sources The 2 dimensional array containing various calendar sources
+   * @private
+   */
+  private extendLiturgicalDays(sources: FromCalendarDateItems[]): FromCalendarDateItems[] {
+    // Reverse the array of sources, so the first item found will be the last defined in the calendar stacks
+    const reversedFlatSources = sources.flatMap((source) => source.calendarItems).reverse();
+
+    return sources.map((source: FromCalendarDateItems) => ({
+      fromCalendar: source.fromCalendar,
+      calendarItems: source.calendarItems.map((currentItem: RomcalLiturgicalDayInputWithStack) => {
+        if (currentItem.extend) {
+          // Find the corresponding item to extend
+          const itemToExtend = reversedFlatSources.find(
+            ({ key, _stack }) => key === currentItem.key && _stack < currentItem._stack,
+          );
+
+          // Extends properties from the one found
+          if (itemToExtend) {
+            currentItem = {
+              ...itemToExtend,
+              ...currentItem,
+              metadata: {
+                titles: [],
+                ...(itemToExtend.metadata || {}),
+                ...(currentItem.metadata || {}),
+              },
+            };
+          } else {
+            logger.warn(
+              `Liturgical day for '${currentItem.key}' is defined to be extended, but no corresponding item to extend was found.`,
+            );
+          }
+        }
+
+        return currentItem;
+      }),
+    }));
+  }
+
+  /**
    * If a previous liturgical day already exists (has the same key name as the new one),
    * the previous liturgical day will be removed in favour of the new given one,
    * except if the previous item is prioritized but not the new one
@@ -447,7 +499,7 @@ export class CalendarBuilder {
       return {
         fromCalendar: calendarSource.fromCalendar,
         calendarItems: calendarSource.calendarItems.filter((item: RomcalLiturgicalDayInput) => {
-          return item.date.isSameOrAfter(start) && item.date.isSameOrBefore(end);
+          return item.date && item.date.isSameOrAfter(start) && item.date.isSameOrBefore(end);
         }),
       };
     });

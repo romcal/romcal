@@ -38,14 +38,7 @@ export type RomcalLiturgicalDayArgs = Readonly<
   readonly _stack: number;
 };
 
-/**
- * This type is used internally by romcal
- * during the construction of the liturgical calendar.
- * All properties except `key` and `date` are marked optional as
- * the the object is constructed in stages. This interface
- * should not be used in consumer applications.
- */
-export type RomcalLiturgicalDayInput = Pick<BaseRomcalLiturgicalDay, 'key'> &
+export type BaseRomcalLiturgicalDayInput = Pick<BaseRomcalLiturgicalDay, 'key'> &
   Partial<Omit<BaseRomcalLiturgicalDay, 'key' | 'date' | 'rankName' | 'liturgicalColors' | 'cycles'>> & {
     date: Dayjs;
     liturgicalColors?: RomcalLiturgicalColor | RomcalLiturgicalColor[];
@@ -62,7 +55,24 @@ export type RomcalLiturgicalDayInput = Pick<BaseRomcalLiturgicalDay, 'key'> &
      */
     source?: RomcalLiturgicalDaySources;
     drop?: boolean;
+    /**
+     * Allow to extend or replace properties of an already defined liturgical day (that have the same key).
+     */
+    extend?: boolean;
   };
+
+export type RomcalLiturgicalDayExtendedInput = Omit<BaseRomcalLiturgicalDayInput, 'date' | 'extend'> &
+  Partial<Pick<BaseRomcalLiturgicalDayInput, 'date'>> &
+  Required<Pick<BaseRomcalLiturgicalDayInput, 'extend'>>;
+
+/**
+ * This type is used internally by romcal
+ * during the construction of the liturgical calendar.
+ * All properties except `key` and `date` are marked optional as
+ * the the object is constructed in stages. This interface
+ * should not be used in consumer applications.
+ */
+export type RomcalLiturgicalDayInput = BaseRomcalLiturgicalDayInput | RomcalLiturgicalDayExtendedInput;
 
 export type RomcalCalendarMetadata = {
   totalWeeksInGregorianYear: number;

@@ -176,8 +176,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     // on a Sunday it replaces the Sunday.
     {
       key: 'all_saints',
-      source: 'celebrations', // Override the default locale lookup
-      rank: Ranks.SOLEMNITY,
+      extend: true,
+      source: 'celebrations', // Override the default lookup source
       date: ((y: number): dayjs.Dayjs => {
         const date = dayjs.utc(`${y}-11-1`);
         if (date.day() === 6) {
@@ -186,12 +186,10 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
           return date;
         }
       })(year),
-      liturgicalColors: LiturgicalColors.WHITE,
-      prioritized: true,
     },
     {
       key: 'all_souls',
-      rank: Ranks.FEAST,
+      extend: true,
       date: ((y: number): dayjs.Dayjs => {
         const date = dayjs.utc(`${y}-11-1`);
         if (date.day() === 6) {
@@ -203,8 +201,6 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
           return dayjs.utc(`${y}-11-2`);
         }
       })(year),
-      liturgicalColors: [LiturgicalColors.PURPLE, LiturgicalColors.BLACK],
-      prioritized: true,
     },
     {
       key: 'all_saints_of_wales',
@@ -235,8 +231,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     // Replaces 20th Sunday in Ordinary Time when it falls on a Sunday.
     {
       key: 'peter_and_paul_apostles',
+      extend: true,
       source: 'celebrations', // Override the default lookup source
-      rank: Ranks.SOLEMNITY,
       date: ((y: number): dayjs.Dayjs => {
         const date = dayjs.utc(`${y}-5-29`);
         if (date.day() === 1) {
@@ -247,16 +243,14 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
           return date;
         }
       })(year),
-      liturgicalColors: LiturgicalColors.RED,
-      prioritized: true,
     },
     // In England and Wales when this liturgical day falls on either a
     // Saturday or a Monday it is transferred to the Sunday.
     // Replaces 20th Sunday in Ordinary Time when it falls on a Sunday.
     {
       key: 'assumption',
+      extend: true,
       source: 'celebrations',
-      rank: Ranks.SOLEMNITY,
       date: ((y: number): dayjs.Dayjs => {
         const date = dayjs.utc(`${y}-8-15`);
         if (date.day() === 1) {
@@ -267,8 +261,6 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
           return date;
         }
       })(year),
-      liturgicalColors: LiturgicalColors.WHITE,
-      prioritized: true,
     },
     {
       key: 'our_lord_jesus_christ_the_eternal_high_priest',

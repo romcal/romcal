@@ -271,6 +271,7 @@ const localizeDates = async (
   source: RomcalLiturgicalDaySources = 'sanctoral',
 ): Promise<RomcalLiturgicalDayInput[]> => {
   const promiseDates: Promise<RomcalLiturgicalDayInput>[] = dates.map(async (date: RomcalLiturgicalDayInput) => {
+    if (date.name !== undefined) return Promise.resolve(date);
     return {
       ...date,
       name: await localize({
