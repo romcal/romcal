@@ -53,6 +53,8 @@ import { RomcalTitle, RomcalTitles } from '@romcal/constants/titles/titles.type'
 import { RomcalRank, RomcalRanks } from '@romcal/constants/ranks/ranks.type';
 import {
   BaseRomcalLiturgicalDay,
+  BaseRomcalLiturgicalDayInput,
+  RomcalLiturgicalDayExtendedInput,
   RomcalLiturgicalDayArgs,
   RomcalLiturgicalDayInput,
   RomcalLiturgicalDaySources,
@@ -123,6 +125,8 @@ export {
   RomcalLocalizeParams,
   // LiturgicalDay
   BaseRomcalLiturgicalDay,
+  BaseRomcalLiturgicalDayInput,
+  RomcalLiturgicalDayExtendedInput,
   RomcalLiturgicalDayInput,
   RomcalLiturgicalDayArgs,
   RomcalQuery,

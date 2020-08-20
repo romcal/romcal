@@ -274,7 +274,7 @@ export class Seasons {
     let items: Array<RomcalLiturgicalDayInput> = await Promise.all(daysOfAdventPromise);
 
     // Sort dates according to their date.objects in ascending order
-    items = _.sortBy(items, (item) => item.date.valueOf());
+    items = _.sortBy(items, (item) => item.date && item.date.valueOf());
 
     return await setMetadata(items);
   };
@@ -359,11 +359,11 @@ export class Seasons {
     let combinedDaysOfChristmas: Array<RomcalLiturgicalDayInput>;
     combinedDaysOfChristmas = _.uniqBy(
       _.union(daysInThePeriodOfEpiphany, daysInTheOctaveOfChristmas, daysOfChristmastide),
-      (item) => item.date.valueOf(),
+      (item) => item.date && item.date.valueOf(),
     );
 
     // Sort dates according to their unix time
-    combinedDaysOfChristmas = _.sortBy(combinedDaysOfChristmas, (item) => item.date.valueOf());
+    combinedDaysOfChristmas = _.sortBy(combinedDaysOfChristmas, (item) => item.date && item.date.valueOf());
 
     return await setMetadata(combinedDaysOfChristmas);
   };
@@ -434,7 +434,7 @@ export class Seasons {
     let days: RomcalLiturgicalDayInput[] = await Promise.all(daysOfEarlyOrdinaryTimePromise);
 
     // Sort dates according to the value of the DayJS date object
-    days = _.sortBy(days, (v) => v.date.valueOf());
+    days = _.sortBy(days, (v) => v.date && v.date.valueOf());
 
     return await setMetadata(days);
   };
@@ -489,7 +489,7 @@ export class Seasons {
     let days: RomcalLiturgicalDayInput[] = await Promise.all(daysOfLateOrdinaryTimePromise);
 
     // Sort dates according to moment
-    days = _.sortBy(days, (v) => v.date.valueOf());
+    days = _.sortBy(days, (v) => v.date && v.date.valueOf());
 
     return await setMetadata(days);
   };
@@ -586,10 +586,10 @@ export class Seasons {
     let combinedDaysOfLent: RomcalLiturgicalDayInput[];
 
     // Override in order: Solemnities, Holy Week and Sundays of Lent to days of Lent
-    combinedDaysOfLent = _.uniqBy(_.union(daysOfHolyWeek, sundays, weekdays), (v) => v.date.valueOf());
+    combinedDaysOfLent = _.uniqBy(_.union(daysOfHolyWeek, sundays, weekdays), (v) => v.date && v.date.valueOf());
 
     // Sort dates according to DayJS
-    combinedDaysOfLent = _.sortBy(combinedDaysOfLent, (v) => v.date.valueOf());
+    combinedDaysOfLent = _.sortBy(combinedDaysOfLent, (v) => v.date && v.date.valueOf());
 
     combinedDaysOfLent = await setMetadata(combinedDaysOfLent);
 
@@ -677,10 +677,10 @@ export class Seasons {
     let combinedDaysOfEaster: RomcalLiturgicalDayInput[];
 
     // Insert Solemnities and Sundays of Easter to days of Easter
-    combinedDaysOfEaster = _.uniqBy(_.union(sundays, days), (v) => v.date.valueOf());
+    combinedDaysOfEaster = _.uniqBy(_.union(sundays, days), (v) => v.date && v.date.valueOf());
 
     // Sort dates according to DayJS
-    combinedDaysOfEaster = _.sortBy(combinedDaysOfEaster, (v) => v.date.valueOf());
+    combinedDaysOfEaster = _.sortBy(combinedDaysOfEaster, (v) => v.date && v.date.valueOf());
 
     combinedDaysOfEaster = await setMetadata(combinedDaysOfEaster);
 

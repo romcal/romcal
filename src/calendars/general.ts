@@ -1164,6 +1164,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-11-2`),
       liturgicalColors: [LiturgicalColors.PURPLE, LiturgicalColors.BLACK],
+      prioritized: true,
     },
     {
       key: 'martin_de_porres_religious',

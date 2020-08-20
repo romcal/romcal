@@ -225,12 +225,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'gregory_i_the_great_pope',
+      extend: true,
       rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-9-3`),
-      liturgicalColors: LiturgicalColors.WHITE,
-      metadata: {
-        titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      },
     },
     {
       key: 'cuthbert_of_lindisfarne_bishop',
@@ -272,8 +268,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     // Saturday or a Monday it is transferred to the Sunday.
     {
       key: 'peter_and_paul_apostles',
+      extend: true,
       source: 'celebrations', // Override the default lookup source
-      rank: Ranks.SOLEMNITY,
       date: ((y: number): dayjs.Dayjs => {
         const date = dayjs.utc(`${y}-6-29`);
         if (date.day() === 1) {
@@ -284,15 +280,13 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
           return date;
         }
       })(year),
-      liturgicalColors: LiturgicalColors.RED,
-      prioritized: true,
     },
     // In England and Wales when the celebration falls on either a
     // Saturday or a Monday it is transferred to the Sunday.
     {
       key: 'assumption',
+      extend: true,
       source: 'celebrations',
-      rank: Ranks.SOLEMNITY,
       date: ((y: number): dayjs.Dayjs => {
         const date = dayjs.utc(`${y}-8-15`);
         if (date.day() === 1) {
@@ -303,8 +297,6 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
           return date;
         }
       })(year),
-      liturgicalColors: LiturgicalColors.WHITE,
-      prioritized: true,
     },
     {
       key: 'wilfrid_of_york_bishop',
@@ -369,8 +361,8 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     // on a Sunday it replaces the Sunday.
     {
       key: 'all_saints',
+      extend: true,
       source: 'celebrations', // Override the default locale lookup
-      rank: Ranks.SOLEMNITY,
       date: ((y: number): dayjs.Dayjs => {
         const date = dayjs.utc(`${y}-11-1`);
         if (date.day() === 6) {
@@ -379,12 +371,10 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
           return date;
         }
       })(year),
-      liturgicalColors: LiturgicalColors.WHITE,
-      prioritized: true,
     },
     {
       key: 'all_souls',
-      rank: Ranks.FEAST,
+      extend: true,
       date: ((y: number): dayjs.Dayjs => {
         const date = dayjs.utc(`${y}-11-1`);
         if (date.day() === 6) {
@@ -396,8 +386,6 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
           return dayjs.utc(`${y}-11-2`);
         }
       })(year),
-      liturgicalColors: [LiturgicalColors.PURPLE, LiturgicalColors.BLACK],
-      prioritized: true,
     },
     {
       key: 'thomas_becket_bishop',
