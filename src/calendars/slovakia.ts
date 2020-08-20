@@ -52,7 +52,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'sara_salkahazi_virgin',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-11`),
       metadata: {
         titles: [Titles.MARTYR],
@@ -127,7 +127,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'zdenka_cecilia_schelingova_virgin',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-30`),
       metadata: {
         titles: [Titles.MARTYR],
@@ -182,13 +182,13 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'dedication_of_consecrated_churches',
-      rank: RanksEnum.SOLEMNITY,
+      rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-10-26`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
       key: 'all_souls',
-      rank: RanksEnum.MEMORIAL,
+      rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-11-2`),
       liturgicalColors: [LiturgicalColors.PURPLE, LiturgicalColors.BLACK],
     },

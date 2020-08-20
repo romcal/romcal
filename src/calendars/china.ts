@@ -16,7 +16,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
   const _dates: Array<RomcalLiturgicalDayInput> = [
     {
       key: 'odoric_of_pordenone_priest',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-14`),
     },
     {
@@ -81,17 +81,17 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'mary_assunta_pallotta_virgin',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-4-8`),
     },
     {
       key: 'john_martin_moye_priest',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-4`),
     },
     {
       key: 'our_lady_of_china',
-      rank: RanksEnum.MEMORIAL,
+      rank: Ranks.MEMORIAL,
       date: ((y: number): dayjs.Dayjs => {
         const firstMay = dayjs.utc(`${y}-5-1`);
         const memorialDay = firstMay;
@@ -159,7 +159,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'maurice_tornay_priest',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-11`),
     },
     {

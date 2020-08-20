@@ -16,12 +16,12 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
   const _dates: Array<RomcalLiturgicalDayInput> = [
     {
       key: 'marcelina_darowska_religious',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-5`),
     },
     {
       key: 'bronislaw_markiewicz_priest',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-30`),
     },
     {
@@ -35,7 +35,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'mary_mother_of_the_church',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: ((y: number): dayjs.Dayjs => Dates.pentecostSunday(y).add(1, 'day'))(year),
       liturgicalColors: LiturgicalColors.WHITE,
       prioritized: true,
@@ -126,12 +126,12 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'our_lady_of_czestochowa',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-26`),
     },
     {
       key: 'wladyslaw_bladzinski_priest_and_companions_martyrs',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-9`),
       liturgicalColors: LiturgicalColors.RED,
       metadata: {
@@ -146,7 +146,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'saintJosephBilczewskiBishop',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-23`),
     },
   ];

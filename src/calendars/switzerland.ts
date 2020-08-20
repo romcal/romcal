@@ -26,6 +26,9 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-7-23`),
       liturgicalColors: LiturgicalColors.WHITE,
+      metadata: {
+        titles: [Titles.PATRON_OF_EUROPE],
+      },
     },
   ];
 

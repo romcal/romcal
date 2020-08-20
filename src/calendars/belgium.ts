@@ -26,7 +26,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'saintGertrudeOfNivellesAbbess',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-3-17`),
     },
     {
@@ -49,7 +49,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'our_lady_mediatrix_of_all_grace',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-8-31`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
@@ -64,7 +64,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'saintHubertOfLiegeBishop',
-      rank: RanksEnum.MEMORIAL,
+      rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-11-3`),
       liturgicalColors: LiturgicalColors.WHITE,
     },

@@ -23,12 +23,12 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'our_lady_of_the_discovery_of_the_hidden_christians',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-3-17`),
     },
     {
       key: 'peter_kibe_priest_and_companions_martyrs',
-      rank: RanksEnum.MEMORIAL,
+      rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-7-1`),
       liturgicalColors: LiturgicalColors.RED,
       metadata: {
@@ -37,7 +37,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: '205_blessed_martyrs_of_japan',
-      rank: RanksEnum.MEMORIAL,
+      rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-9-10`),
       liturgicalColors: LiturgicalColors.WHITE,
     },

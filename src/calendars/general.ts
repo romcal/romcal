@@ -110,7 +110,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     // were martyrs.
     {
       key: 'conversion_of_saint_paul_the_apostle',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-1-25`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
@@ -213,7 +213,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'chair_of_saint_peter_the_apostle',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-2-22`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
@@ -413,7 +413,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'our_lady_of_fatima',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-13`),
     },
     {
@@ -590,7 +590,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'first_martyrs_of_the_holy_roman_church',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-30`),
     },
     {
@@ -683,9 +683,9 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'mary_mother_of_the_church',
-      rank: RanksEnum.MEMORIAL,
-      date: ((y: number): dayjs.Dayjs => Dates.pentecostSunday(y).add(1, 'day'))(year),
-      liturgicalColors: LiturgicalColorsEnum.WHITE,
+      rank: Ranks.MEMORIAL,
+      date: ((y: number): Dayjs => Dates.pentecostSunday(y).add(1, 'day'))(year),
+      liturgicalColors: LiturgicalColors.WHITE,
       prioritized: true,
       cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
     },
@@ -762,7 +762,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'dedication_of_the_basilica_of_saint_mary_major',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-5`),
     },
     {
@@ -914,7 +914,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'nativity_of_mary',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-9-8`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
@@ -926,7 +926,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'most_holy_name_of_mary',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-12`),
     },
     {
@@ -1053,7 +1053,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'guardian_angels',
-      rank: RanksEnum.MEMORIAL,
+      rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-10-2`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
@@ -1170,7 +1170,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'all_souls',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-11-2`),
       liturgicalColors: [LiturgicalColors.PURPLE, LiturgicalColors.BLACK],
     },
@@ -1187,10 +1187,9 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'dedication_of_the_lateran_basilica',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-11-9`),
-      liturgicalColors: LiturgicalColorsEnum.WHITE,
-      // Replaces 32nd Sunday in Ordinary Time when it falls on a Sunday
+      liturgicalColors: LiturgicalColors.WHITE,
       prioritized: true,
     },
     {
@@ -1243,7 +1242,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'dedication_of_the_basilicas_of_saints_peter_and_paul_apostles',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-18`),
     },
     {
@@ -1339,7 +1338,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'our_lady_of_guadalupe',
-      rank: RanksEnum.OPT_MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-12-12`),
     },
     {
@@ -1390,7 +1389,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'holy_innocents_martyrs',
-      rank: RanksEnum.FEAST,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-12-28`),
       liturgicalColors: LiturgicalColors.RED,
       metadata: {
