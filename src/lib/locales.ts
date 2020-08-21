@@ -226,9 +226,20 @@ const getLocale = (): RomcalLocale => {
 };
 
 /**
- * Resolves a localized value for the given key and supporting parameters.
+ * Resolves the correct locale string based on the given key.
+ * The function accepts several parameters:
  *
- * Also resolves locale specific ordinal numbers where required.
+ * ```
+ * Utils.localize({
+ *   key: '',
+ *   week: 0,
+ *   count: 0,
+ * });
+ * ```
+ *
+ * - `key`: A dot delimited string representing the locale key (`celebrations.christmas`)
+ * - `week`: A non-zero integer for weeks which will be converted to its ordinal representation (1st Sunday of Advent)
+ * - `count`: A non-zero integer for days which will be converted to its ordinal representation (2nd Sunday of Christmas)
  *
  * @param localizeParams Options for retrieving the localized key
  */

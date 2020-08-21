@@ -51,7 +51,7 @@
 
 - [Install, Build, Run and Test romcal locally ⇗](/docs/contribute-to-romcal.md)
 - [Localization ⇗](/docs/localization.md)
-- [Advanced usage and contributions ⇗](/docs/advanced-usage.md)
+- [Calendar definitions and contributions ⇗](/docs/calendar-definitions.md)
 - [Codebase Documentation ⇗](https://romcal.github.io/romcal/)
 
 ## Description
@@ -189,6 +189,7 @@ This 2 methods produces an `Array` of `LiturgicalDay` objects (by default, one o
       easter: '2020-04-12T00:00:00.000Z',
     },
     fromCalendar: 'general',
+    fromExtendedCalendars: [],
     metadata: {
       titles: [],
     },
