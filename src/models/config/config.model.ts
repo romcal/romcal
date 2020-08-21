@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import { logger } from '@romcal/utils/logger/logger';
 import { isNil, isObject, isRomcalConfig, isString } from '@romcal/utils/type-guards/type-guards';
-import { RomcalCountry } from '@romcal/constants/countries/country.type';
+import { RomcalCalendarName } from '@romcal/constants/countries/country.type';
 import { RomcalLocaleKey } from '@romcal/models/locale/locale-types.type';
 import { RomcalQuery } from '@romcal/constants/query-options/query-types.type';
 import { sanitizeLocale } from '@romcal/lib/locales';
@@ -25,7 +25,7 @@ export interface BaseRomcalConfig {
   /**
    * The country
    */
-  readonly country?: RomcalCountry;
+  readonly country?: RomcalCalendarName;
   /**
    * The locale to be used for localizing
    */
@@ -81,7 +81,7 @@ type ConfigConstructorType = { query?: RomcalQuery } & Required<Omit<BaseRomcalC
  */
 export class RomcalConfig implements BaseRomcalConfig {
   private _year: number;
-  private readonly _country: RomcalCountry;
+  private readonly _country: RomcalCalendarName;
   private readonly _locale: RomcalLocaleKey;
   private readonly _epiphanyOnSunday: boolean;
   private readonly _corpusChristiOnSunday: boolean;
@@ -124,7 +124,7 @@ export class RomcalConfig implements BaseRomcalConfig {
     this._year = theYear;
   }
 
-  get country(): RomcalCountry {
+  get country(): RomcalCalendarName {
     return this._country;
   }
 
@@ -162,7 +162,7 @@ export class RomcalConfig implements BaseRomcalConfig {
    * If the country is not specified, return the configuration for the general calendar.
    * @param country The country to obtain default configurations from
    */
-  static async getConfig(country: RomcalCountry = 'general'): Promise<RomcalConfigInCalendarDef> {
+  static async getConfig(country: RomcalCalendarName = 'general'): Promise<RomcalConfigInCalendarDef> {
     const { defaultConfig: countrySpecificDefaultConfig } = await import(
       /* webpackExclude: /index\.ts/ */
       /* webpackChunkName: "calendars/[request]" */

@@ -1,7 +1,7 @@
 import dayjs, { ConfigType, Dayjs } from 'dayjs';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
-import { BaseRomcalLiturgicalDay } from '@romcal/models/liturgical-day/liturgical-day.types';
+import { BaseLiturgicalDay } from '@romcal/models/liturgical-day/liturgical-day.types';
 import { RomcalQueryType } from '@romcal/constants/query-options/query-types.type';
 import { Dictionary } from '@romcal/utils/type-guards/type-guards';
 import { LiturgicalDay } from '@romcal/models/liturgical-day/liturgical-day.model';
@@ -9,7 +9,7 @@ import { LiturgicalDay } from '@romcal/models/liturgical-day/liturgical-day.mode
 dayjs.extend(isSameOrAfter);
 dayjs.extend(isSameOrBefore);
 
-export interface BaseRomcalCalendar extends Array<BaseRomcalLiturgicalDay> {
+export interface BaseRomcalCalendar extends Array<BaseLiturgicalDay> {
   groupBy(criteria: RomcalQueryType): Dictionary<RomcalCalendar> | Dictionary<RomcalCalendar>[];
   hasLiturgicalDay(dateOrKey: Date | string): boolean;
   getDate(dateOrKey: Date | string): Date | undefined;

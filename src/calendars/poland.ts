@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import * as Locales from '@romcal/lib/locales';
 import { Dates } from '@romcal/lib/dates';
 import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
-import { RomcalLiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
+import { LiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
 import { rangeOfDays, rangeContainsDate } from '@romcal/utils/dates/dates';
 import { RomcalConfig, RomcalConfigInCalendarDef } from '@romcal/models/config/config.model';
 import { Ranks } from '@romcal/constants/ranks/ranks.enum';
@@ -11,9 +11,9 @@ import { Titles } from '@romcal/constants/titles/titles.enum';
 
 const defaultConfig: RomcalConfigInCalendarDef | undefined = undefined;
 
-const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInput>> => {
+const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> => {
   const year = config.year;
-  const _dates: Array<RomcalLiturgicalDayInput> = [
+  const _dates: Array<LiturgicalDayInput> = [
     {
       key: 'joseph_sebastian_pelczar_bishop',
       rank: Ranks.MEMORIAL,

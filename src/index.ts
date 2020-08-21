@@ -32,7 +32,7 @@ import {
   RomcalLiturgicalColor,
   RomcalLiturgicalColors,
 } from '@romcal/constants/liturgical-colors/liturgical-colors.type';
-import { RomcalCountry } from '@romcal/constants/countries/country.type';
+import { RomcalCalendarName } from '@romcal/constants/countries/country.type';
 import {
   RomcalCyclesMetadata,
   RomcalCelebrationCycle,
@@ -52,14 +52,16 @@ import { RomcalQuery, RomcalQueryType } from '@romcal/constants/query-options/qu
 import { RomcalTitle, RomcalTitles } from '@romcal/constants/titles/titles.type';
 import { RomcalRank, RomcalRanks } from '@romcal/constants/ranks/ranks.type';
 import {
-  BaseRomcalLiturgicalDay,
-  BaseRomcalLiturgicalDayInput,
-  RomcalLiturgicalDayExtendedInput,
-  RomcalLiturgicalDayArgs,
-  RomcalLiturgicalDayInput,
+  BaseLiturgicalDay,
+  BaseLiturgicalDayInput,
+  LiturgicalDayExtendedInput,
+  LiturgicalDayArgs,
+  LiturgicalDayInput,
+  LiturgiDayDiff,
+  LiturgyDayExtendedMetadata,
   RomcalLiturgicalDaySources,
   RomcalCalendarMetadata,
-  RomcalLiturgicalDayMetadata,
+  LiturgicalDayMetadata,
 } from '@romcal/models/liturgical-day/liturgical-day.types';
 import { logger } from './utils/logger/logger';
 import {
@@ -124,11 +126,13 @@ export {
   RomcalLocaleKey,
   RomcalLocalizeParams,
   // LiturgicalDay
-  BaseRomcalLiturgicalDay,
-  BaseRomcalLiturgicalDayInput,
-  RomcalLiturgicalDayExtendedInput,
-  RomcalLiturgicalDayInput,
-  RomcalLiturgicalDayArgs,
+  BaseLiturgicalDay,
+  BaseLiturgicalDayInput,
+  LiturgicalDayInput,
+  LiturgicalDayExtendedInput,
+  LiturgiDayDiff,
+  LiturgyDayExtendedMetadata,
+  LiturgicalDayArgs,
   RomcalQuery,
   RomcalQueryType,
   // LiturgicalDay metadata
@@ -147,12 +151,12 @@ export {
   RomcalWeekdayCycle,
   RomcalPsalterWeek,
   RomcalCalendarMetadata,
-  RomcalLiturgicalDayMetadata,
+  LiturgicalDayMetadata,
   RomcalTitle,
   RomcalTitles,
   RomcalLiturgicalDaySources,
   // Countries
-  RomcalCountry,
+  RomcalCalendarName,
   // Config
   BaseRomcalConfig,
   BaseRomcalConfigWithoutYear,

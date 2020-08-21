@@ -31,10 +31,10 @@ import utc from 'dayjs/plugin/utc';
 import Romcal, {
   ISO8601DateString,
   RomcalCalendarMetadata,
-  RomcalCountry,
+  RomcalCalendarName,
   RomcalCyclesMetadata,
   RomcalLiturgicalColor,
-  RomcalLiturgicalDayMetadata,
+  LiturgicalDayMetadata,
   RomcalLiturgicalPeriod,
   RomcalLiturgicalSeason,
 } from '@romcal/index';

@@ -2,16 +2,16 @@ import dayjs from 'dayjs';
 
 import * as Locales from '@romcal/lib/locales';
 import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
-import { RomcalLiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
+import { LiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
 import { RomcalConfig, RomcalConfigInCalendarDef } from '@romcal/models/config/config.model';
 import { Ranks } from '@romcal/constants/ranks/ranks.enum';
 import { Titles } from '@romcal/constants/titles/titles.enum';
 
 const defaultConfig: RomcalConfigInCalendarDef | undefined = undefined;
 
-const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInput>> => {
+const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> => {
   const year = config.year;
-  const _dates: Array<RomcalLiturgicalDayInput> = [
+  const _dates: Array<LiturgicalDayInput> = [
     {
       key: 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe',
       rank: Ranks.FEAST,

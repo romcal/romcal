@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { includes } from '@romcal/utils/array/array';
 import { isNil, isObject } from '@romcal/utils/type-guards/type-guards';
+import { isEqual, transform } from 'lodash';
 
 /**
  * http://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html
@@ -164,4 +165,18 @@ export const filter = <Original, K extends keyof Original>(
   value: Original[K] | undefined,
 ): Original[] => {
   return array.filter((item: Original) => item[key] === value);
+};
+
+/**
+ * Deep diff between two object
+ * @param object Object compared
+ * @param base Object to compare with
+ * @return
+ */
+export const difference = <T extends { [key: string]: any }>(object: T, base: T) => {
+  return transform(object, (result: any, value, key) => {
+    if (!isEqual(value, base[key])) {
+      result[key] = isObject(value) && isObject(base[key]) ? difference(value, base[key]) : value;
+    }
+  });
 };

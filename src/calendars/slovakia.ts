@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import * as Locales from '@romcal/lib/locales';
 import { Dates } from '@romcal/lib/dates';
 import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
-import { RomcalLiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
+import { LiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
 import { RomcalConfig, RomcalConfigInCalendarDef } from '@romcal/models/config/config.model';
 import { Ranks } from '@romcal/constants/ranks/ranks.enum';
 import { CelebrationsCycle } from '@romcal/constants/cycles/cycles.enum';
@@ -15,9 +15,9 @@ const defaultConfig: RomcalConfigInCalendarDef = {
   epiphanyOnSunday: false,
 };
 
-const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInput>> => {
+const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> => {
   const year = config.year;
-  const _dates: Array<RomcalLiturgicalDayInput> = [
+  const _dates: Array<LiturgicalDayInput> = [
     {
       // TODO: When votive Masses (#110) are implemented, change this celebration into votive Mass of `cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe`
       key: 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop',
