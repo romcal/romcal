@@ -297,9 +297,9 @@ describe('Testing calendar generation functions', () => {
       calendar2021 = await Romcal.calendarFor(2021);
       calendar2022 = await Romcal.calendarFor(2022);
 
-      easter2020 = calendar2020.find((item) => item.key === 'easter');
-      easter2021 = calendar2021.find((item) => item.key === 'easter');
-      easter2022 = calendar2022.find((item) => item.key === 'easter');
+      easter2020 = calendar2020.find((item) => item.key === 'easter_sunday');
+      easter2021 = calendar2021.find((item) => item.key === 'easter_sunday');
+      easter2022 = calendar2022.find((item) => item.key === 'easter_sunday');
 
       christmas2020 = calendar2020.find((item) => item.key === 'christmas');
       christmas2021 = calendar2021.find((item) => item.key === 'christmas');
