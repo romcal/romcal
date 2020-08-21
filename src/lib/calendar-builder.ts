@@ -26,12 +26,12 @@ import { RANKS } from '@romcal/constants/ranks/ranks.constant';
 import _ from 'lodash';
 import { RomcalCalendarName } from '@romcal/constants/countries/country.type';
 import {
-  isCelebrationCycle,
+  isLiturgicalDayCycle,
   RomcalCyclesMetadata,
   RomcalSundayCycle,
   RomcalWeekdayCycle,
 } from '@romcal/constants/cycles/cycles.type';
-import { CelebrationsCycle } from '@romcal/constants/cycles/cycles.enum';
+import { LiturgicalDayCycle } from '@romcal/constants/cycles/cycles.enum';
 import { Dates } from '@romcal/lib/dates';
 import { PSALTER_WEEKS, SUNDAYS_CYCLE, WEEKDAYS_CYCLE } from '@romcal/constants/cycles/cycles.constant';
 import { Seasons } from '@romcal/lib/seasons';
@@ -578,9 +578,9 @@ export class CalendarBuilder {
     // Check existing celebration cycle,
     // otherwise set the celebrationCycle to SANCTORALE as a default value
     const celebrationCycle =
-      !isNil(cycle.celebrationCycle) && isCelebrationCycle(cycle.celebrationCycle)
-        ? cycle.celebrationCycle
-        : CelebrationsCycle.SANCTORALE;
+      !isNil(cycle.liturgicalDayCycle) && isLiturgicalDayCycle(cycle.liturgicalDayCycle)
+        ? cycle.liturgicalDayCycle
+        : LiturgicalDayCycle.SANCTORALE;
 
     const year = dayjs(calendar.startOfLiturgicalYear).year();
     const firstSundayOfAdvent = Dates.firstSundayOfAdvent(year);
@@ -608,6 +608,6 @@ export class CalendarBuilder {
     const weekIndex = (calendar.weekOfSeason % 4) - 1;
     const psalterWeek = PSALTER_WEEKS[weekIndex > -1 ? weekIndex : 3];
 
-    return { celebrationCycle, sundayCycle, weekdayCycle: weekdayCycle, psalterWeek };
+    return { liturgicalDayCycle: celebrationCycle, sundayCycle, weekdayCycle: weekdayCycle, psalterWeek };
   }
 }

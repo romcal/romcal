@@ -17,7 +17,7 @@ import weekOfYear from 'dayjs/plugin/weekOfYear';
 import isoWeeksInYear from 'dayjs/plugin/isoWeeksInYear';
 import isLeapYear from 'dayjs/plugin/isLeapYear';
 import { RomcalLiturgicalColor } from '@romcal/constants/liturgical-colors/liturgical-colors.type';
-import { CelebrationsCycle } from '@romcal/constants/cycles/cycles.enum';
+import { LiturgicalDayCycle } from '@romcal/constants/cycles/cycles.enum';
 
 dayjs.extend(isoWeeksInYear);
 dayjs.extend(isLeapYear); // dependent on isLeapYear plugin
@@ -123,7 +123,7 @@ const epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<Li
             weekOfSeason: getWeekOfChristmastide(date),
             dayOfSeason: 9 + i,
           }),
-          cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
+          cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
         } as LiturgicalDayInput),
     ),
   );
@@ -168,7 +168,7 @@ const epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<Li
             weekOfSeason: getWeekOfChristmastide(date),
             dayOfSeason: date.date() + 7,
           }),
-          cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
+          cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
         } as LiturgicalDayInput),
     ),
   );
@@ -214,7 +214,7 @@ const holyWeek = async (year: number): Promise<Array<LiturgicalDayInput>> => {
         weekOfSeason: 6,
         dayOfSeason: 40 + i,
       }),
-      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
+      cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     } as LiturgicalDayInput;
   });
   return await Promise.all(datesPromise);
@@ -268,7 +268,7 @@ export class Seasons {
           weekOfSeason: Math.floor(i / 7) + 1,
           dayOfSeason: i + 1,
         }),
-        cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
+        cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
       } as LiturgicalDayInput;
     });
     let items: Array<LiturgicalDayInput> = await Promise.all(daysOfAdventPromise);
@@ -321,7 +321,7 @@ export class Seasons {
           weekOfSeason: getWeekOfChristmastide(date),
           dayOfSeason: i + 1,
         }),
-        cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
+        cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
       } as LiturgicalDayInput;
     });
     const daysOfChristmastide: Array<LiturgicalDayInput> = await Promise.all(datesOfChristmastidePromise);
@@ -344,7 +344,7 @@ export class Seasons {
           weekOfSeason: getWeekOfChristmastide(date),
           dayOfSeason: i + 1,
         }),
-        cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
+        cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
       } as LiturgicalDayInput;
     });
     const daysInTheOctaveOfChristmas: Array<LiturgicalDayInput> = await Promise.all(datesInTheOctaveOfChristmasPromise);
@@ -425,7 +425,7 @@ export class Seasons {
             weekOfSeason: week,
             dayOfSeason: (week - 1) * 7 + date.day(),
           }),
-          cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
+          cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
         } as LiturgicalDayInput;
       },
     );
@@ -481,7 +481,7 @@ export class Seasons {
             weekOfSeason: week,
             dayOfSeason: (week - 2) * 7 - 5 + date.day(),
           }),
-          cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
+          cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
         } as LiturgicalDayInput;
       });
     let days: LiturgicalDayInput[] = await Promise.all(daysOfLateOrdinaryTimePromise);
@@ -546,7 +546,7 @@ export class Seasons {
           weekOfSeason: week,
           dayOfSeason: i + 1,
         }),
-        cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
+        cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
       } as LiturgicalDayInput;
     });
     const weekdays = await Promise.all(daysOfLentPromise);
@@ -574,7 +574,7 @@ export class Seasons {
           weekOfSeason: i + 1,
           dayOfSeason: i * 7 + 5,
         }),
-        cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
+        cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
       } as LiturgicalDayInput;
     });
     const sundays = await Promise.all(sundaysOfLentPromise);
@@ -644,7 +644,7 @@ export class Seasons {
           weekOfSeason: week,
           dayOfSeason: (week - 1) * 7 + 1 + date.day(),
         }),
-        cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
+        cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
       } as LiturgicalDayInput;
     });
     const days: LiturgicalDayInput[] = await Promise.all(weekdaysOfEasterPromise);
@@ -667,7 +667,7 @@ export class Seasons {
           weekOfSeason: i + 1,
           dayOfSeason: i * 7 + 1 + date.day(),
         }),
-        cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
+        cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
       } as LiturgicalDayInput;
     });
     const sundays: LiturgicalDayInput[] = await Promise.all(sundaysOfEasterPromise);

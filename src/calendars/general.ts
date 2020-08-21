@@ -7,7 +7,7 @@ import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical
 import { LiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
 import { RomcalConfig, RomcalConfigInCalendarDef } from '@romcal/models/config/config.model';
 import { Ranks } from '@romcal/constants/ranks/ranks.enum';
-import { CelebrationsCycle } from '@romcal/constants/cycles/cycles.enum';
+import { LiturgicalDayCycle } from '@romcal/constants/cycles/cycles.enum';
 import { Titles } from '@romcal/constants/titles/titles.enum';
 
 const defaultConfig: RomcalConfigInCalendarDef = {
@@ -103,7 +103,7 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
         return firstDayOfOT.add(2, 'week').startOf('week');
       })(year),
       liturgicalColors: LiturgicalColors.GREEN,
-      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
+      cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
     // The proper color for the Chair of Peter (Feast, Feb 22) and the Conversion of
     // St. Paul (Feast, Jan 25) is white, although both St. Peter and St. Paul
@@ -681,7 +681,7 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
       date: ((y: number): Dayjs => Dates.pentecostSunday(y).add(1, 'day'))(year),
       liturgicalColors: LiturgicalColors.WHITE,
       prioritized: true,
-      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
+      cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
     {
       key: 'bridget_of_sweden_religious',
