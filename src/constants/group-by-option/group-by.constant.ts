@@ -1,7 +1,7 @@
 /**
  * All the possible grouping variants that can be supported by romcal.
  */
-export const QUERY_TYPES = [
+export const GROUP_BY = [
   'days',
   'months',
   'daysByMonth',

@@ -2,7 +2,7 @@ import dayjs, { ConfigType, Dayjs } from 'dayjs';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
 import { BaseLiturgicalDay } from '@romcal/models/liturgical-day/liturgical-day.types';
-import { RomcalQueryType } from '@romcal/constants/query-options/query-types.type';
+import { LiturgicalDayGroupBy } from '@romcal/constants/group-by-option/group-by.type';
 import { Dictionary } from '@romcal/utils/type-guards/type-guards';
 import { LiturgicalDay } from '@romcal/models/liturgical-day/liturgical-day.model';
 
@@ -10,7 +10,7 @@ dayjs.extend(isSameOrAfter);
 dayjs.extend(isSameOrBefore);
 
 export interface BaseRomcalCalendar extends Array<BaseLiturgicalDay> {
-  groupBy(criteria: RomcalQueryType): Dictionary<RomcalCalendar> | Dictionary<RomcalCalendar>[];
+  groupBy(criteria: LiturgicalDayGroupBy): Dictionary<RomcalCalendar> | Dictionary<RomcalCalendar>[];
   hasLiturgicalDay(dateOrKey: Date | string): boolean;
   getDate(dateOrKey: Date | string): Date | undefined;
   getDaysBefore(dateOrKey: Date | string): RomcalCalendar;
@@ -30,12 +30,12 @@ export class RomcalCalendar extends Array implements BaseRomcalCalendar {
    *
    * @param criteria The criteria to filter the dates by
    */
-  public groupBy<T extends RomcalQueryType>(
+  public groupBy<T extends LiturgicalDayGroupBy>(
     criteria: T,
   ): T extends 'daysByMonth' | 'weeksByMonth' // when the criteria have one of these values
     ? Dictionary<RomcalCalendar>[]
     : Dictionary<RomcalCalendar>;
-  public groupBy(criteria: RomcalQueryType): Dictionary<RomcalCalendar> | Dictionary<RomcalCalendar>[] {
+  public groupBy(criteria: LiturgicalDayGroupBy): Dictionary<RomcalCalendar> | Dictionary<RomcalCalendar>[] {
     const liturgicalDays = this;
 
     const _groupBy = (iteratee: Function) => {

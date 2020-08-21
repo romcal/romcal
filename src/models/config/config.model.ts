@@ -3,7 +3,6 @@ import { logger } from '@romcal/utils/logger/logger';
 import { isNil, isObject, isRomcalConfig, isString } from '@romcal/utils/type-guards/type-guards';
 import { RomcalCalendarName } from '@romcal/constants/countries/country.type';
 import { RomcalLocaleKey } from '@romcal/models/locale/locale-types.type';
-import { RomcalQuery } from '@romcal/constants/query-options/query-types.type';
 import { sanitizeLocale } from '@romcal/lib/locales';
 
 /**
@@ -60,10 +59,6 @@ export interface BaseRomcalConfig {
    * 2. `liturgical`: Religious calendar year (1st Sunday of Advent of the current year to the Saturday before the 1st Sunday of Advent in the next year).
    */
   readonly scope?: RomcalCalendarScope;
-  /**
-   * A query object to get specific data from the calendar
-   */
-  readonly query?: RomcalQuery;
 }
 
 export type RomcalConfigInCalendarDef = Required<
@@ -74,7 +69,7 @@ export type RomcalConfigInCalendarDef = Required<
  * A modified variant of [[RomcalConfig]] specifically for the [[Config]] class constructor
  * where all properties except query are **required**.
  */
-type ConfigConstructorType = { query?: RomcalQuery } & Required<Omit<BaseRomcalConfig, 'query'>>;
+type ConfigConstructorType = Required<Omit<BaseRomcalConfig, 'query'>>;
 
 /**
  * The [[Config]] class encapsulates all options that can be sent to this library to adjust date output.
@@ -88,7 +83,6 @@ export class RomcalConfig implements BaseRomcalConfig {
   private readonly _ascensionOnSunday: boolean;
   private readonly _outputOptionalMemorials: boolean;
   private readonly _scope: RomcalCalendarScope;
-  private readonly _query?: RomcalQuery;
 
   /**
    * Constructs a new [[Config]] object
@@ -103,7 +97,6 @@ export class RomcalConfig implements BaseRomcalConfig {
     ascensionOnSunday,
     outputOptionalMemorials,
     scope,
-    query,
   }: ConfigConstructorType) {
     this._year = year;
     this._country = country;
@@ -113,7 +106,6 @@ export class RomcalConfig implements BaseRomcalConfig {
     this._ascensionOnSunday = ascensionOnSunday;
     this._outputOptionalMemorials = outputOptionalMemorials;
     this._scope = scope;
-    this._query = query;
   }
 
   get year(): number {
@@ -150,10 +142,6 @@ export class RomcalConfig implements BaseRomcalConfig {
 
   get scope(): RomcalCalendarScope {
     return this._scope;
-  }
-
-  get query(): RomcalQuery | undefined {
-    return this._query;
   }
 
   /**
@@ -237,7 +225,6 @@ export class RomcalConfig implements BaseRomcalConfig {
       ascensionOnSunday: !!config.ascensionOnSunday, // Will use default if not defined
       outputOptionalMemorials: !!config.outputOptionalMemorials,
       scope: config.scope ?? 'gregorian', // Use the default value "gregorian" if scope not specified by user
-      ...(isObject(config.query) && { query: config.query }), // Attach query if there's one
     } as ConfigConstructorType;
   }
 }
