@@ -19,7 +19,7 @@ export interface RomcalLocale {
   readonly christmastide?: Pick<RomcalLocaleKeys, 'day' | 'octave' | 'season' | 'sunday'>;
   readonly epiphany?: Pick<RomcalLocaleKeys, 'after' | 'before' | 'season'>;
   readonly ordinaryTime?: Pick<RomcalLocaleKeys, 'weekday' | 'season' | 'sunday'>;
-  readonly lent?: Pick<RomcalLocaleKeys, 'weekday' | 'season' | 'sunday' | 'dayAfterAshWed'>;
+  readonly lent?: Pick<RomcalLocaleKeys, 'weekday' | 'season' | 'sunday' | 'day_after_ash_wed'>;
   readonly holyWeek?: Pick<RomcalLocaleKeys, 'weekday' | 'season'>;
   readonly eastertide?: Pick<RomcalLocaleKeys, 'weekday' | 'octave' | 'season' | 'sunday'>;
   readonly celebrations?: {

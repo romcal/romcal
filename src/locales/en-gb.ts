@@ -16,7 +16,7 @@ export default {
     season: 'Lent',
     weekday: '{{day}} of the {{week}} week of Lent',
     sunday: '{{week}} Sunday of Lent',  // us
-    dayAfterAshWed: '{{day}} after Ash Wednesday',  // us
+    day_after_ash_wed: '{{day}} after Ash Wednesday',  // us
   },
   eastertide: {
     season: 'Eastertide',

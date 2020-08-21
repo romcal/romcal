@@ -17,7 +17,7 @@ export default {
     before: '{{day}} before Epiphany',  // TODO: I suggest that we should use `christmastide.day` instead, or create a romcal global option as a switch whether romcal should use `christmastide.day` or `epiphany.before`
     after: '{{day}} after Epiphany',  // us; Was: `{{day}} after Epiphany`
   },
-  ordinaryTime: {
+  ordinary_time: {
     season: 'Ordinary Time',  // us
     weekday: '{{day}} of the {{week}} week of Ordinary Time',  // us: should it be `week in OT` or `week of OT`? I presume the former is used in the US
     sunday: '{{week}} Sunday in Ordinary Time',  // us; Was: `{{week}} Sunday of Ordinary Time`, gb
@@ -26,13 +26,13 @@ export default {
     season: 'Lenten Season',  // us; Was: `Lent`; src (see the book spine): https://catholicbookpublishing.com/product/105
     weekday: '{{day}} of the {{week}} week of Lent',
     sunday: '{{week}} Sunday of Lent',  // us, gb
-    dayAfterAshWed: '{{day}} after Ash Wednesday',  // us
+    day_after_ash_wed: '{{day}} after Ash Wednesday',  // us
   },
-  holyWeek: {
+  holy_week: {
     season: 'Holy Week',
     weekday: '{{day}} of Holy Week',
   },
-  paschalTriduum: {
+  paschal_triduum: {
     season: 'Paschal Triduum',
   },
   eastertide: {
@@ -41,7 +41,7 @@ export default {
     sunday: '{{week}} Sunday of Easter',  // us
     octave: '{{day}} within the Octave of Easter',  // us; Was: `Easter {{day}}`
   },
-  liturgicalColors: {
+  liturgicalColors: {  // TODO: Replace `liturgicalColors` with `liturgical_colors`
     BLACK: 'black',
     GOLD: 'gold',
     GREEN: 'green',
@@ -70,25 +70,25 @@ export default {
     baptism_of_the_lord: 'Baptism of the Lord',  // us, gb
     nativity_of_john_the_baptist: 'Nativity of Saint John the Baptist',  // us, gb
     christmas: 'Nativity of the Lord',  // us; Was: `Christmas`
-    christ_the_king_sunday: 'Our Lord Jesus Christ, King of the Universe',  // us; TODO: Change the name in Dates too (*sunday)
-    corpus_christi: 'Most Holy Body and Blood of Christ',  // us, gb in en-GB
+    christ_the_king_sunday: 'Our Lord Jesus Christ, King of the Universe',  // us
+    corpus_christi: 'Most Holy Body and Blood of Christ',  // us, gb in en-gb
     divine_mercy_sunday: 'Sunday of Divine Mercy',  // us; gb
     easter_sunday: 'Easter Sunday of the Resurrection of the Lord',  // us, gb
     epiphany: 'Epiphany of the Lord',  // us, gb
     good_friday: 'Good Friday',  // us, gb
-    holy_family: 'Holy Family of Jesus, Mary and Joseph',  // us; Was: `Holy Family`
+    holy_family: 'Holy Family of Jesus, Mary and Joseph',  // us
     holy_saturday: 'Holy Saturday/Easter Vigil',  // us, gb
-    holy_thursday: 'Holy Thursday',  // us, gb in en-GB
-    immaculate_conception: 'Immaculate Conception of the Blessed Virgin Mary',  // us
+    holy_thursday: 'Holy Thursday',  // us, gb in en-gb
+    immaculate_conception_of_mary: 'Immaculate Conception of the Blessed Virgin Mary',  // us
     immaculate_heart_of_mary: 'Immaculate Heart of the Blessed Virgin Mary',  // us, gb
     joseph_spouse_of_mary: 'Saint Joseph, Spouse of the Blessed Virgin Mary',  // us, gb
     mary_mother_of_god: 'Mary, the Holy Mother of God',  // us, gb
-    palm_sunday: 'Palm Sunday of the Passion of the Lord',  // us; Was: `Palm Sunday`, gb
+    palm_sunday: 'Palm Sunday of the Passion of the Lord',  // us, gb
     pentecost_sunday: 'Pentecost Sunday',  // us, gb
     peter_and_paul_apostles: 'Saints Peter and Paul, Apostles',  // us, gb
     presentation_of_the_lord: 'Presentation of the Lord',  // us, gb
-    sacred_heart_of_jesus: 'Most Sacred Heart of Jesus',  // us, gb; TODO: Change the key to correspond with the value
-    exaltation_of_the_holy_cross: 'Exaltation of the Holy Cross',  // us; TODO: Change the name in Dates too
+    most_sacred_heart_of_jesus: 'Most Sacred Heart of Jesus',  // us, gb
+    exaltation_of_the_holy_cross: 'Exaltation of the Holy Cross',  // us
     transfiguration: 'Transfiguration of the Lord',  // us
     trinity_sunday: 'Most Holy Trinity',  // us, gb
   },
@@ -212,7 +212,7 @@ export default {
     holy_innocents_martyrs: 'Holy Innocents, Martyrs',  // us
     most_holy_name_of_mary: 'Most Holy Name of Mary',  // us
     hungarian_saints_and_blesseds: 'Hungarian Saints and Blesseds',
-    immaculate_conception_principal_patroness_of_the_philippines: 'Immaculate Conception of the Blessed Virgin Mary, Principal Patroness of the Philippines',  // us
+    immaculate_conception_of_mary_principal_patroness_of_the_philippines: 'Immaculate Conception of the Blessed Virgin Mary, Principal Patroness of the Philippines',  // us
     mary_mother_of_the_church: 'Blessed Virgin Mary, Mother of the Church',  // us, gb
     our_lady_help_of_christians: 'Our Lady, Help of Christians',  // nz
     our_lady_mediatrix_of_all_grace: 'Our Lady, Mediatrix of All Grace',
@@ -311,7 +311,7 @@ export default {
     // saintBenedictOfNursiaAbbot: 'Saint Benedict, Abbot',  // us; Was: `Saint Benedict of Nursia, Abbot, Patron of Europe`, gb, scotland
     // saintBennoOfMeissenBishop: 'Saint Benno of Meissen, Bishop',
     // saintBernadetteSoubirousVirgin: 'Saint Bernadette Soubirous, Virgin',
-    // saintBernardineOfSienaPriest: 'Saint Bernardine of Siena, Priest',  // us, gb in en-GB
+    // saintBernardineOfSienaPriest: 'Saint Bernardine of Siena, Priest',  // us, gb in en-gb
     // saintBernardOfClairvauxAbbotAndDoctorOfTheChurch: 'Saint Bernard, Abbot and Doctor of the Church',  // us; Was: `Saint Bernard of Clairvaux, Abbot and Doctor of the Church`
     // saintBeunoAbbot: 'Saint Beuno, Abbot',  // gb (wales)
     // saintBlaseBishopAndMartyr: 'Saint Blaise, Bishop and Martyr',  // us, gb
@@ -539,7 +539,7 @@ export default {
     // saintLeoTheGreatPopeAndDoctor: 'Saint Leo the Great, Pope and Doctor of the Church',  // us
     // saintLouis: 'Saint Louis',  // us
     // saintLouisBertrandPriest: 'Saint Louis Bertrand, Priest',
-    // saintLouisMarieGrignionDeMontfortPriest: 'Saint Louis Grignion de Montfort, Priest',  // us; Was: `Saint Louis Marie Grignion de Montfort, Priest`, gb in en-GB, australia, nz
+    // saintLouisMarieGrignionDeMontfortPriest: 'Saint Louis Grignion de Montfort, Priest',  // us; Was: `Saint Louis Marie Grignion de Montfort, Priest`, gb in en-gb, australia, nz
     // saintLuciusOfChurBishopAndMartyr: 'Saint Lucius of Chur, Bishop and Martyr',
     // saintLucyOfSyracuseVirginAndMartyr: 'Saint Lucy, Virgin and Martyr',  // us; Was: `Saint Lucy of Syracuse, Virgin and Martyr`
     // saintLucyYiZhenmeiVirginAndMartyr: 'Saint Lucy Yi Zhenmei, Virgin and Martyr',
@@ -633,7 +633,7 @@ export default {
     // saintPhilipNeriPriest: 'Saint Philip Neri, Priest',  // us, gb
     // saintPioOfPietrelcinaPriest: 'Saint Pius of Pietrelcina, Priest',  // us
     // saintPirminAbbotAndBishop: 'Saint Pirmin, Abbot and Bishop',
-    // saintPiusVPope: 'Saint Pius V, Pope',  // us, gb in en-GB, ca
+    // saintPiusVPope: 'Saint Pius V, Pope',  // us, gb in en-gb, ca
     // saintPiusXPope: 'Saint Pius X, Pope',  // us
     // saintPolycarpBishopAndMartyr: 'Saint Polycarp, Bishop and Martyr',  // us
     // saintPothinusBishopSaintBlandinaVirginAndTheirCompanionsMartyrs: 'Saints Pothinus, Bishop, Blandina, Virgin, and Companions, Martyrs',
@@ -645,7 +645,7 @@ export default {
     // saintRafaelGuizarYValenciaBishop: 'Saint Rafael Guizar y Valencia, Bishop',
     // saintRafalKalinowskiPriest: 'Saint Rafal Kalinowski, Priest',
     // saintRafqaRebeccaVirgin: 'Saint Rafqa Pietra Choboq Ar-Rayès, Virgin',
-    // saintRaymondOfPenyafortPriest: 'Saint Raymond of Penyafort, Priest',  // us, gb in en-GB, ca
+    // saintRaymondOfPenyafortPriest: 'Saint Raymond of Penyafort, Priest',  // us, gb in en-gb, ca
     // saintRemigiusBishop: 'Saint Remigius, Bishop',
     // saintRichardGwynMartyr: 'Saint Richard Gwyn, Martyr',  // gb (wales)
     // saintRichardOfChichesterBishop: 'Saint Richard of Chichester, Bishop',  // gb
@@ -752,7 +752,7 @@ export default {
     // saintZygmuntGorazdowskiPriest: 'Saint Zygmunt Gorazdowski, Priest',
     // saintZygmuntSzczesnyFelinskiBishop: 'Saint Sigmund Felix Feliński, Bishop',
     // santoNinoInfantJesus: 'Santo Nino (Infant Jesus)',
-    // sevenHolyFoundersOfTheServiteOrder: 'Seven Holy Founders of the Servite Order',  // us, gb in en-GB
+    // sevenHolyFoundersOfTheServiteOrder: 'Seven Holy Founders of the Servite Order',  // us, gb in en-gb
     // sevenMartyredNunsFromTheFranciscanMissionariesOfMary: 'Seven Martyred Nuns from the Franciscan Missionaries of Mary',
     // shipwreckOfSaintPaulApostle: 'Shipwreck of Saint Paul, Apostle',
     // stDunstanArchbishopOfCanterbury: 'Saint Dunstan, Bishop',  // gb; Was: `St Dunstan, Archbishop of Canterbury`

@@ -200,7 +200,7 @@ const holyWeek = async (year: number): Promise<Array<RomcalLiturgicalDayInput>> 
       seasonNames: await (async (): Promise<string[]> => {
         const arr: string[] = [];
         if (date.day() <= 4) arr.push(await localize({ key: 'lent.season' })); // Until holy thursday
-        if (date.day() >= 4) arr.push(await localize({ key: 'paschalTriduum.season' })); // From holy thursday
+        if (date.day() >= 4) arr.push(await localize({ key: 'paschal_triduum.season' })); // From holy thursday
         return arr;
       })(),
       periods: [
@@ -412,12 +412,12 @@ export class Seasons {
                 ).toPascalCase()}WeekOfOrdinaryTime`,
           rank: date.day() === 0 ? Ranks.SUNDAY : Ranks.WEEKDAY,
           name: await localize({
-            key: date.day() === 0 ? 'ordinaryTime.sunday' : 'ordinaryTime.weekday',
+            key: date.day() === 0 ? 'ordinary_time.sunday' : 'ordinary_time.weekday',
             day: date.format('dddd'),
             week,
           }),
           seasons: [LiturgicalSeasons.ORDINARY_TIME],
-          seasonNames: [await localize({ key: 'ordinaryTime.season' })],
+          seasonNames: [await localize({ key: 'ordinary_time.season' })],
           liturgicalColors: [LiturgicalColors.GREEN],
           periods: [
             LiturgicalPeriods.EARLY_ORDINARY_TIME,
@@ -484,12 +484,12 @@ export class Seasons {
                 ).toPascalCase()}WeekOfOrdinaryTime`,
           rank: date.day() === 0 ? Ranks.SUNDAY : Ranks.WEEKDAY,
           name: await localize({
-            key: date.day() === 0 ? 'ordinaryTime.sunday' : 'ordinaryTime.weekday',
+            key: date.day() === 0 ? 'ordinary_time.sunday' : 'ordinary_time.weekday',
             day: date.format('dddd'),
             week: week,
           }),
           seasons: [LiturgicalSeasons.ORDINARY_TIME],
-          seasonNames: [await localize({ key: 'ordinaryTime.season' })],
+          seasonNames: [await localize({ key: 'ordinary_time.season' })],
           liturgicalColors: [LiturgicalColors.GREEN],
           periods: [LiturgicalPeriods.LATER_ORDINARY_TIME],
           ...getCalendarMetadata({
@@ -549,7 +549,7 @@ export class Seasons {
             : `${date.locale('en').format('dddd').toCamelCase()}OfThe${ordinal(week, true).toPascalCase()}WeekOfLent`,
         rank: Ranks.WEEKDAY,
         name: await localize({
-          key: i === 0 ? 'celebrations.ash_wednesday' : i < 4 ? 'lent.dayAfterAshWed' : 'lent.weekday',
+          key: i === 0 ? 'celebrations.ash_wednesday' : i < 4 ? 'lent.day_after_ash_wed' : 'lent.weekday',
           day: date.format('dddd'),
           week,
         }),

@@ -84,11 +84,11 @@ describe('Testing specific feasts and memorials', () => {
         year: 2018,
         locale: 'sk',
       });
-      const theExaltationOfTheHolyCross = dates.find((d) => {
+      const exaltationOfTheHolyCross = dates.find((d) => {
         return d.key === 'exaltation_of_the_holy_cross';
       });
-      expect(dayjs.utc(theExaltationOfTheHolyCross?.date).date()).toEqual(14);
-      expect(dayjs.utc(theExaltationOfTheHolyCross?.date).month()).toEqual(8);
+      expect(dayjs.utc(exaltationOfTheHolyCross?.date).date()).toEqual(14);
+      expect(dayjs.utc(exaltationOfTheHolyCross?.date).month()).toEqual(8);
     });
   });
 

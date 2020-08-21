@@ -17,9 +17,9 @@ const dates = async (year: number, config: RomcalConfig): Promise<Array<RomcalLi
   const _dates: Array<RomcalLiturgicalDayInput> = [
     // Solemnities
     {
-      key: 'immaculate_conception',
+      key: 'immaculate_conception_of_mary',
       rank: Ranks.SOLEMNITY,
-      date: Dates.immaculateConception(year),
+      date: Dates.immaculateConceptionOfMary(year),
       liturgicalColors: LiturgicalColors.WHITE,
       prioritized: true,
     },
@@ -61,9 +61,9 @@ const dates = async (year: number, config: RomcalConfig): Promise<Array<RomcalLi
       cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
     },
     {
-      key: 'sacred_heart_of_jesus',
+      key: 'most_sacred_heart_of_jesus',
       rank: Ranks.SOLEMNITY,
-      date: Dates.sacredHeartOfJesus(year),
+      date: Dates.mostSacredHeartOfJesus(year),
       liturgicalColors: LiturgicalColors.WHITE,
       prioritized: true,
       cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
@@ -71,7 +71,7 @@ const dates = async (year: number, config: RomcalConfig): Promise<Array<RomcalLi
     {
       key: 'nativity_of_john_the_baptist',
       rank: Ranks.SOLEMNITY,
-      date: Dates.birthOfJohnTheBaptist(year),
+      date: Dates.nativityOfJohnTheBaptist(year),
       liturgicalColors: LiturgicalColors.WHITE,
       prioritized: true,
     },
@@ -99,7 +99,7 @@ const dates = async (year: number, config: RomcalConfig): Promise<Array<RomcalLi
     {
       key: 'christ_the_king_sunday',
       rank: Ranks.SOLEMNITY,
-      date: Dates.christTheKing(year),
+      date: Dates.christTheKingSunday(year),
       liturgicalColors: LiturgicalColors.WHITE,
       prioritized: true,
       cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
@@ -107,7 +107,7 @@ const dates = async (year: number, config: RomcalConfig): Promise<Array<RomcalLi
     {
       key: 'joseph_spouse_of_mary',
       rank: Ranks.SOLEMNITY,
-      date: Dates.josephHusbandOfMary(year),
+      date: Dates.josephSpouseOfMary(year),
       liturgicalColors: LiturgicalColors.WHITE,
       prioritized: true,
     },
@@ -123,7 +123,7 @@ const dates = async (year: number, config: RomcalConfig): Promise<Array<RomcalLi
       rank: Ranks.SOLEMNITY,
       date: Dates.easter(year),
       seasons: [LiturgicalSeasons.PASCHAL_TRIDUUM, LiturgicalSeasons.EASTERTIDE],
-      seasonNames: [await localize({ key: 'paschalTriduum.season' }), await localize({ key: 'eastertide.season' })],
+      seasonNames: [await localize({ key: 'paschal_triduum.season' }), await localize({ key: 'eastertide.season' })],
       liturgicalColors: LiturgicalColors.WHITE,
       prioritized: true,
       cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
@@ -251,7 +251,7 @@ const dates = async (year: number, config: RomcalConfig): Promise<Array<RomcalLi
     {
       key: 'exaltation_of_the_holy_cross',
       rank: Ranks.FEAST,
-      date: Dates.theExaltationOfTheHolyCross(year),
+      date: Dates.exaltationOfTheHolyCross(year),
       liturgicalColors: LiturgicalColors.RED,
       metadata: {
         titles: [Titles.FEAST_OF_THE_LORD],

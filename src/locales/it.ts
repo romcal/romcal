@@ -17,7 +17,7 @@ export default {
     before: '{{day}} prima dell’Epifania',
     after: '{{day}} dopo l’Epifania',
   },
-  ordinaryTime: {
+  ordinary_time: {
     season: 'Tempo Ordinario',
     weekday: '{{day}} della {{week}} settimana del Tempo Ordinario',
     sunday: '{{week}} Domenica del Tempo Ordinario',
@@ -26,13 +26,13 @@ export default {
     season: 'Quaresima',
     weekday: '{{day}} della {{week}} settimana di Quaresima',
     sunday: '{{week}} Domenica di Quaresima',
-    dayAfterAshWed: '{{day}} dopo Mercoledí delle Ceneri',
+    day_after_ash_wed: '{{day}} dopo Mercoledí delle Ceneri',
   },
-  holyWeek: {
+  holy_week: {
     season: 'Settimana Santa',
     weekday: '{{day}} della Settimana Santa',
   },
-  paschalTriduum: {
+  paschal_triduum: {
     season: 'Triduo Pasquale',
   },
   eastertide: {
@@ -79,7 +79,7 @@ export default {
     holy_family: 'Santa Famiglia di Gesú, Maria e Giuseppe',
     holy_saturday: 'Sabato Santo / Vigilia di Pasqua',
     holy_thursday: 'Giovedí Santo',
-    immaculate_conception: 'Immacolata Concezione della Beata Vergine Maria',
+    immaculate_conception_of_mary: 'Immacolata Concezione della Beata Vergine Maria',
     immaculate_heart_of_mary: 'Cuore Immacolato della Beata Vergine Maria',
     joseph_spouse_of_mary: 'San Giuseppe, sposo della Beata Vergine Maria',
     mary_mother_of_god: 'Maria Santissima Madre di Dio',
@@ -87,7 +87,7 @@ export default {
     pentecost_sunday: 'Domenica di Pentecoste',
     peter_and_paul_apostles: 'Santi Pietro e Paolo, apostoli',
     presentation_of_the_lord: 'Presentazione del Signore',
-    sacred_heart_of_jesus: 'Sacratissimo Cuore di Gesù',
+    most_sacred_heart_of_jesus: 'Sacratissimo Cuore di Gesù',
     exaltation_of_the_holy_cross: 'Esaltazione della Santa Croce',
     transfiguration: 'Trasfigurazione del Signore',
     trinity_sunday: 'Santissima Trinitá',

@@ -17,7 +17,7 @@ export default {
     before: '{{day}} przed Objawieniem Pańskim',
     after: '{{day}} po Objawieniu Pańskim',
   },
-  ordinaryTime: {
+  ordinary_time: {
     season: 'Zwykła',
     weekday: '{{day}} {{week}} tygodnia zwykłego',
     sunday: '{{week}} Niedziela zwykła',
@@ -26,13 +26,13 @@ export default {
     season: 'Postu',
     weekday: '{{day}} {{week}} tygodnia Wielkiego Postu',
     sunday: '{{week}} Niedziela Wielkiego Postu',
-    dayAfterAshWed: '{{day}} po Popielcu',
+    day_after_ash_wed: '{{day}} po Popielcu',
   },
-  holyWeek: {
+  holy_week: {
     season: 'Wielki Tydzień',
     weekday: '{{day}} wielkiego tygodnia',
   },
-  paschalTriduum: {
+  paschal_triduum: {
     season: 'Triduum Paschalne',
   },
   eastertide: {
@@ -68,7 +68,7 @@ export default {
     holy_family: 'Świętej Rodziny Jezusa, Maryi i Józefa',
     holy_saturday: 'Wielka Sobota',
     holy_thursday: 'Wielki Czwartek',
-    immaculate_conception: 'Niepokalane Poczęcie Najświętszej Maryi Panny',
+    immaculate_conception_of_mary: 'Niepokalane Poczęcie Najświętszej Maryi Panny',
     immaculate_heart_of_mary: 'Niepokalanego Serca Najświętszej Maryi Panny',
     joseph_spouse_of_mary: 'Św. Józefa, Oblubieńca Najświętszej Maryi Panny',
     mary_mother_of_god: 'Świętej Bożej Rodzicielki Maryi',
@@ -76,7 +76,7 @@ export default {
     pentecost_sunday: 'Niedziela Zesłania Ducha Świętego',
     peter_and_paul_apostles: 'Świętych Apostołów Piotra i Pawła',
     presentation_of_the_lord: 'Ofiarowanie Pańskie',
-    sacred_heart_of_jesus: 'Najświętszego Serca Pana Jezusa',
+    most_sacred_heart_of_jesus: 'Najświętszego Serca Pana Jezusa',
     exaltation_of_the_holy_cross: 'Podwyższenie Krzyża Świętego',
     transfiguration: 'Przemienienie Pańskie',
     trinity_sunday: 'Niedziela Najświętszej Trójcy',

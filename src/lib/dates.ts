@@ -435,7 +435,7 @@ export class Dates {
    *
    * @param year The year to use for the calculation
    */
-  static christTheKing = (year: number): Dayjs => Dates.firstSundayOfAdvent(year).subtract(7, 'day').startOf('day');
+  static christTheKingSunday = (year: number): Dayjs => Dates.firstSundayOfAdvent(year).subtract(7, 'day').startOf('day');
 
   //==================================================================================
   // Fixed and movable Solemnities
@@ -457,7 +457,7 @@ export class Dates {
   static maryMotherOfGod = (year: number): Dayjs => dayjs.utc(`${year}-1-1`);
 
   /**
-   * Get the date of the celebration of Saint Joseph, Husband of Mary
+   * Get the date of the celebration of Saint Joseph, Spouse of the Blessed Virgin Mary
    *
    * *In the Roman Catholic church, the Feast of St. Joseph (19 March)
    * is a Solemnity (first class if using the Tridentine calendar), and
@@ -466,7 +466,7 @@ export class Dates {
    *
    * @param year The year to use for the calculation
    */
-  static josephHusbandOfMary = (year: number): Dayjs => {
+  static josephSpouseOfMary = (year: number): Dayjs => {
     let date = dayjs.utc(`${year}-3-19`);
 
     // Check to see if this solemnity falls on a Sunday of Lent
@@ -481,7 +481,7 @@ export class Dates {
     }
 
     // Check to see if this solemnity falls within Holy Week
-    // If Joseph, Husband of Mary (Mar 19) falls on
+    // If Joseph, Spouse of the Blessed Virgin Mary (Mar 19) falls on
     // Palm Sunday or during Holy Week, it is moved to
     // the Saturday preceding Palm Sunday.
     const holyWeekDates = Dates.holyWeek(year);
@@ -550,7 +550,7 @@ export class Dates {
    *
    * @param year The year to use for the calculation
    */
-  static birthOfJohnTheBaptist = (year: number): Dayjs => dayjs.utc(`${year}-6-24`);
+  static nativityOfJohnTheBaptist = (year: number): Dayjs => dayjs.utc(`${year}-6-24`);
 
   /**
    * Get the date of the solemnity of Saints Peter and Paul
@@ -599,7 +599,7 @@ export class Dates {
    *
    * @param year The year to use for the calculation
    */
-  static immaculateConception = (year: number): Dayjs => {
+  static immaculateConceptionOfMary = (year: number): Dayjs => {
     let _date = dayjs.utc(`${year}-12-8`);
     // Check to see if this solemnity falls on a Sunday of Advent
     // If it occurs on a Sunday of Advent is transferred to the
@@ -675,7 +675,7 @@ export class Dates {
    *
    * @param year The year to use for the calculation
    */
-  static sacredHeartOfJesus = (year: number): Dayjs => Dates.easter(year).add(68, 'day');
+  static mostSacredHeartOfJesus = (year: number): Dayjs => Dates.easter(year).add(68, 'day');
 
   /**
    * Get the date of the celebration of the Immaculate Heart of Mary
@@ -777,5 +777,5 @@ export class Dates {
    *
    * @param year The year to use for the calculation
    */
-  static theExaltationOfTheHolyCross = (year: number): Dayjs => dayjs.utc(`${year}-9-14`);
+  static exaltationOfTheHolyCross = (year: number): Dayjs => dayjs.utc(`${year}-9-14`);
 }

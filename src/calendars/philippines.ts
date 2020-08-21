@@ -74,7 +74,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'immaculate_conception_principal_patroness_of_the_philippines',
+      key: 'immaculate_conception_of_mary_principal_patroness_of_the_philippines',
       rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-12-8`),
     },

@@ -17,7 +17,7 @@ export default {
     before: '{{day}} post octavam Nativitatis',
     after: '{{day}} post Epiphaniam',
   },
-  ordinaryTime: {
+  ordinary_time: {
     season: 'Per annum',
     weekday: '{{day}}, hebdomada {{week}} per annum',
     sunday: 'Dominica {{week}} per annum',
@@ -26,9 +26,9 @@ export default {
     season: 'Quadragesimæ',
     weekday: '{{day}}, hebdomada {{week}} Quadragesimæ',
     sunday: 'Dominica {{week}} Quadragesimæ',
-    dayAfterAshWed: '{{day}} post Cineres',
+    day_after_ash_wed: '{{day}} post Cineres',
   },
-  holyWeek: {
+  holy_week: {
     season: 'Hebdomadæ Sanctæ',
     weekday: '{{day}} Hebdomadæ Sanctæ',
   },
@@ -83,7 +83,7 @@ export default {
     pentecost_sunday: 'Dominica Pentecostes',
     peter_and_paul_apostles: 'Ss. Petri et Pauli, apostolorum',
     presentation_of_the_lord: 'In Præsentatione Domini',
-    sacred_heart_of_jesus: 'Sacratissimi Cordis Iesu',
+    most_sacred_heart_of_jesus: 'Sacratissimi Cordis Iesu',
     exaltation_of_the_holy_cross: 'In Exaltatione Sanctæ Crucis',
     transfiguration: 'In Transfiguratione Domini',
     trinity_sunday: 'Ss.mæ Trinitatis',

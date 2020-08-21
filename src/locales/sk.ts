@@ -17,7 +17,7 @@ export default {
     before: '{{day}} vo vianočnom období',
     after: '{{day}} po Zjavení Pána',
   },
-  ordinaryTime: {
+  ordinary_time: {
     season: 'Cezročné obdobie',
     weekday: '{{day}} {{week}} týždňa v Cezročnom období',
     sunday: '{{week}} nedeľa v Cezročnom období',
@@ -26,13 +26,13 @@ export default {
     season: 'Pôstne obdobie',
     weekday: '{{day}} po {{week}} pôstnej nedeli',
     sunday: '{{week}} pôstna nedeľa',
-    dayAfterAshWed: '{{day}} po Popolcovej strede',
+    day_after_ash_wed: '{{day}} po Popolcovej strede',
   },
-  holyWeek: {
+  holy_week: {
     season: 'Veľký týždeň',
     weekday: '{{day}} Veľkého týždňa',
   },
-  paschalTriduum: {
+  paschal_triduum: {
     season: 'Veľkonočné Triduum',
   },
   eastertide: {
@@ -80,7 +80,7 @@ export default {
     holy_family: 'Svätej rodiny Ježiša, Márie a Jozefa',
     holy_saturday: 'Biela sobota',
     holy_thursday: 'Zelený štvrtok',
-    immaculate_conception: 'Nepoškvrnené počatie Panny Márie',
+    immaculate_conception_of_mary: 'Nepoškvrnené počatie Panny Márie',
     immaculate_heart_of_mary: 'Nepoškvrneného Srdca Panny Márie',
     joseph_spouse_of_mary: 'Svätého Jozefa, ženícha Panny Márie',
     mary_mother_of_god: 'Panny Márie Bohorodičky',
@@ -88,7 +88,7 @@ export default {
     pentecost_sunday: 'Zoslanie Ducha Svätého',
     peter_and_paul_apostles: 'Svätých Petra a Pavla, apoštolov',
     presentation_of_the_lord: 'Obetovanie Pána',
-    sacred_heart_of_jesus: 'Najsvätejšieho Srdca Ježišovho',
+    most_sacred_heart_of_jesus: 'Najsvätejšieho Srdca Ježišovho',
     exaltation_of_the_holy_cross: 'Povýšenie Svätého kríža',
     transfiguration: 'Premenenie Pána',
     trinity_sunday: 'Najsvätejšej Trojice',
@@ -212,7 +212,7 @@ export default {
     holy_innocents_martyrs: 'Svätých Neviniatok, mučeníkov',
     most_holy_name_of_mary: 'Najsvätejšieho mena Panny Márie',
     hungarian_saints_and_blesseds: 'Maďarských svätých a blahoslavených',
-    immaculate_conception_principal_patroness_of_the_philippines: 'Nepoškvrneného počatia Panny Márie, hlavná Patrónka Filipín',
+    immaculate_conception_of_mary_principal_patroness_of_the_philippines: 'Nepoškvrneného počatia Panny Márie, hlavná Patrónka Filipín',
     mary_mother_of_the_church: 'Preblahoslavenej Panny Márie, Matky Cirkvi',
     our_lady_help_of_christians: 'Panny Márie, Pomocnice kresťanov',
     our_lady_mediatrix_of_all_grace: 'Panny Márie, Prostrednice všetkých milostí',
