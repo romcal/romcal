@@ -1,16 +1,16 @@
 import {
-  CelebrationsCycle,
+  LiturgicalDayCycle,
   PsalterWeeksCycle,
   SundaysCycle,
   WeekdaysCycle,
 } from '@romcal/constants/cycles/cycles.enum';
 
 /**
- * A dynamically generated constant consisting of all the enum keys in [[CELEBRATION_CYCLES]]
+ * A dynamically generated constant consisting of all the enum keys in [[LITURGICAL_DAY_CYCLES]]
  */
-export const CELEBRATIONS_CYCLE = Object.keys(CelebrationsCycle).filter(
-  (key) => typeof CelebrationsCycle[key as keyof typeof CelebrationsCycle] === 'string',
-) as Array<keyof typeof CelebrationsCycle>;
+export const LITURGICAL_DAY_CYCLE = Object.keys(LiturgicalDayCycle).filter(
+  (key) => typeof LiturgicalDayCycle[key as keyof typeof LiturgicalDayCycle] === 'string',
+) as Array<keyof typeof LiturgicalDayCycle>;
 
 /**
  * A dynamically generated constant consisting of all the enum keys in [[SUNDAY_CYCLES]]

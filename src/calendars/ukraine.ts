@@ -6,7 +6,7 @@ import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical
 import { LiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
 import { RomcalConfig, RomcalConfigInCalendarDef } from '@romcal/models/config/config.model';
 import { Ranks } from '@romcal/constants/ranks/ranks.enum';
-import { CelebrationsCycle } from '@romcal/constants/cycles/cycles.enum';
+import { LiturgicalDayCycle } from '@romcal/constants/cycles/cycles.enum';
 import { Titles } from '@romcal/constants/titles/titles.enum';
 
 const defaultConfig: RomcalConfigInCalendarDef | undefined = undefined;
@@ -39,7 +39,7 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
       date: ((y: number): dayjs.Dayjs => Dates.pentecostSunday(y).add(1, 'day'))(year),
       liturgicalColors: LiturgicalColors.WHITE,
       prioritized: true,
-      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
+      cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
     {
       key: 'catherine_of_siena_virgin_copatroness_of_europe',

@@ -5,7 +5,7 @@ import { RomcalConfig } from '@romcal/models/config/config.model';
 import { Ranks } from '@romcal/constants/ranks/ranks.enum';
 import { LiturgicalPeriods, LiturgicalSeasons } from '@romcal/constants/seasons-and-periods/seasons-and-periods.enum';
 import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
-import { CelebrationsCycle } from '@romcal/constants/cycles/cycles.enum';
+import { LiturgicalDayCycle } from '@romcal/constants/cycles/cycles.enum';
 import { Titles } from '@romcal/constants/titles/titles.enum';
 
 /**
@@ -50,7 +50,7 @@ const dates = async (year: number, config: RomcalConfig): Promise<Array<Liturgic
       date: Dates.trinitySunday(year),
       liturgicalColors: LiturgicalColors.WHITE,
       prioritized: true,
-      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
+      cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
     {
       key: 'corpus_christi',
@@ -58,7 +58,7 @@ const dates = async (year: number, config: RomcalConfig): Promise<Array<Liturgic
       date: Dates.corpusChristi(year, config.corpusChristiOnSunday),
       liturgicalColors: LiturgicalColors.WHITE,
       prioritized: true,
-      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
+      cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
     {
       key: 'most_sacred_heart_of_jesus',
@@ -66,7 +66,7 @@ const dates = async (year: number, config: RomcalConfig): Promise<Array<Liturgic
       date: Dates.mostSacredHeartOfJesus(year),
       liturgicalColors: LiturgicalColors.WHITE,
       prioritized: true,
-      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
+      cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
     {
       key: 'nativity_of_john_the_baptist',
@@ -102,7 +102,7 @@ const dates = async (year: number, config: RomcalConfig): Promise<Array<Liturgic
       date: Dates.christTheKingSunday(year),
       liturgicalColors: LiturgicalColors.WHITE,
       prioritized: true,
-      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
+      cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
     {
       key: 'joseph_spouse_of_mary',
@@ -126,7 +126,7 @@ const dates = async (year: number, config: RomcalConfig): Promise<Array<Liturgic
       seasonNames: [await localize({ key: 'paschal_triduum.season' }), await localize({ key: 'eastertide.season' })],
       liturgicalColors: LiturgicalColors.WHITE,
       prioritized: true,
-      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
+      cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
     {
       key: 'divine_mercy_sunday',
@@ -134,7 +134,7 @@ const dates = async (year: number, config: RomcalConfig): Promise<Array<Liturgic
       date: Dates.divineMercySunday(year),
       liturgicalColors: LiturgicalColors.WHITE,
       prioritized: true,
-      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
+      cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
     {
       key: 'ascension',
@@ -142,7 +142,7 @@ const dates = async (year: number, config: RomcalConfig): Promise<Array<Liturgic
       date: Dates.ascension(year, config.ascensionOnSunday),
       liturgicalColors: LiturgicalColors.WHITE,
       prioritized: true,
-      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
+      cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
     {
       key: 'pentecost_sunday',
@@ -150,7 +150,7 @@ const dates = async (year: number, config: RomcalConfig): Promise<Array<Liturgic
       date: Dates.pentecostSunday(year),
       liturgicalColors: LiturgicalColors.RED,
       prioritized: true,
-      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
+      cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
     // Lent, Holy Week & Triduum
     {
@@ -159,7 +159,7 @@ const dates = async (year: number, config: RomcalConfig): Promise<Array<Liturgic
       date: Dates.ashWednesday(year),
       liturgicalColors: LiturgicalColors.PURPLE,
       prioritized: true,
-      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
+      cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
     {
       key: 'palm_sunday',
@@ -168,7 +168,7 @@ const dates = async (year: number, config: RomcalConfig): Promise<Array<Liturgic
       periods: [LiturgicalPeriods.HOLY_WEEK],
       liturgicalColors: LiturgicalColors.RED,
       prioritized: true,
-      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
+      cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
     {
       key: 'holy_thursday',
@@ -180,7 +180,7 @@ const dates = async (year: number, config: RomcalConfig): Promise<Array<Liturgic
         titles: [Titles.TRIDUUM],
       },
       prioritized: true,
-      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
+      cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
     {
       key: 'good_friday',
@@ -192,7 +192,7 @@ const dates = async (year: number, config: RomcalConfig): Promise<Array<Liturgic
         titles: [Titles.TRIDUUM],
       },
       prioritized: true,
-      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
+      cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
     {
       key: 'holy_saturday',
@@ -204,7 +204,7 @@ const dates = async (year: number, config: RomcalConfig): Promise<Array<Liturgic
         titles: [Titles.TRIDUUM],
       },
       prioritized: true,
-      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
+      cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
     // Feasts
     {
@@ -226,7 +226,7 @@ const dates = async (year: number, config: RomcalConfig): Promise<Array<Liturgic
         titles: [Titles.FEAST_OF_THE_LORD],
       },
       prioritized: true,
-      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
+      cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
     {
       key: 'presentation_of_the_lord',
@@ -265,7 +265,7 @@ const dates = async (year: number, config: RomcalConfig): Promise<Array<Liturgic
       date: Dates.immaculateHeartOfMary(year),
       liturgicalColors: LiturgicalColors.WHITE,
       prioritized: true,
-      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
+      cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
   ];
 

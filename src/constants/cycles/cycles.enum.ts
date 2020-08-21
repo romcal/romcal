@@ -1,7 +1,7 @@
 /**
- * Celebration cycle that can be used as metadata for liturgical days.
+ * Liturgical Day cycle that can be used as metadata for liturgical days.
  */
-export enum CelebrationsCycle {
+export enum LiturgicalDayCycle {
   TEMPORALE = 'TEMPORALE',
   SANCTORALE = 'SANCTORALE',
 }

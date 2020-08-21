@@ -16,7 +16,7 @@ import {
 import { COUNTRIES } from '@romcal/constants/countries/countries.constant';
 import { LITURGICAL_COLORS } from '@romcal/constants/liturgical-colors/liturgical-colors.constant';
 import {
-  CELEBRATIONS_CYCLE,
+  LITURGICAL_DAY_CYCLE,
   SUNDAYS_CYCLE,
   WEEKDAYS_CYCLE,
   PSALTER_WEEKS,
@@ -35,7 +35,7 @@ import {
 import { RomcalCalendarName } from '@romcal/constants/countries/country.type';
 import {
   RomcalCyclesMetadata,
-  RomcalCelebrationCycle,
+  RomcalLiturgicalDayCycle,
   RomcalSundayCycle,
   RomcalWeekdayCycle,
   RomcalPsalterWeek,
@@ -104,7 +104,7 @@ export { getLocale, getRankByDayOfWeek, localize, localizeDates, sanitizeLocale,
  */
 export {
   COUNTRIES,
-  CELEBRATIONS_CYCLE,
+  LITURGICAL_DAY_CYCLE,
   SUNDAYS_CYCLE,
   WEEKDAYS_CYCLE,
   PSALTER_WEEKS,
@@ -146,7 +146,7 @@ export {
   RomcalLiturgicalPeriod,
   RomcalLiturgicalPeriods,
   RomcalCyclesMetadata,
-  RomcalCelebrationCycle,
+  RomcalLiturgicalDayCycle,
   RomcalSundayCycle,
   RomcalWeekdayCycle,
   RomcalPsalterWeek,
