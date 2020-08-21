@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
 import { Dates } from './dates';
-import { RomcalLiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
+import { LiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
 import { RomcalCalendarMetadata } from '@romcal/models/liturgical-day/liturgical-day.types';
 import { Ranks } from '@romcal/constants/ranks/ranks.enum';
 import { getRankByDayOfWeek, localize } from '@romcal/lib/locales';
@@ -82,13 +82,13 @@ const getCalendarMetadata = ({
  * @param items An array of [[RomcalDateItem]] values
  * @returns An array of [[RomcalDateItem]] items.
  */
-const setMetadata = async (items: Array<RomcalLiturgicalDayInput>): Promise<Array<RomcalLiturgicalDayInput>> => {
-  const metadataPromises = items.map(async ({ date, ...rest }: RomcalLiturgicalDayInput) => {
+const setMetadata = async (items: Array<LiturgicalDayInput>): Promise<Array<LiturgicalDayInput>> => {
+  const metadataPromises = items.map(async ({ date, ...rest }: LiturgicalDayInput) => {
     return {
       ...rest,
       date,
       source: 'temporal', // IMPORTANT! Refer to RomcalDateItem.source for more information
-    } as RomcalLiturgicalDayInput;
+    } as LiturgicalDayInput;
   });
   return await Promise.all(metadataPromises);
 };
@@ -98,7 +98,7 @@ const setMetadata = async (items: Array<RomcalLiturgicalDayInput>): Promise<Arra
  * @param year The year to use for the calculation
  * @param epiphanyOnSunday If false, Epiphany will be fixed to Jan 6 (defaults to true)
  */
-const epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<RomcalLiturgicalDayInput>> => {
+const epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<LiturgicalDayInput>> => {
   const before: Array<Dayjs> = Dates.datesBeforeEpiphany(year, epiphanyOnSunday);
   const epiphany: Dayjs = Dates.epiphany(year, epiphanyOnSunday);
   const after: Array<Dayjs> = Dates.datesAfterEpiphany(year, epiphanyOnSunday);
@@ -124,7 +124,7 @@ const epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<Ro
             dayOfSeason: 9 + i,
           }),
           cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
-        } as RomcalLiturgicalDayInput),
+        } as LiturgicalDayInput),
     ),
   );
 
@@ -145,7 +145,7 @@ const epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<Ro
         weekOfSeason: getWeekOfChristmastide(epiphany),
         dayOfSeason: epiphany.date() + 7,
       }),
-    } as RomcalLiturgicalDayInput,
+    } as LiturgicalDayInput,
   ]);
 
   const datesAfterPromise = await Promise.all(
@@ -169,7 +169,7 @@ const epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<Ro
             dayOfSeason: date.date() + 7,
           }),
           cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
-        } as RomcalLiturgicalDayInput),
+        } as LiturgicalDayInput),
     ),
   );
 
@@ -180,7 +180,7 @@ const epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<Ro
  * Returns the days constituting holy week
  * @param year The year to use for the calculation
  */
-const holyWeek = async (year: number): Promise<Array<RomcalLiturgicalDayInput>> => {
+const holyWeek = async (year: number): Promise<Array<LiturgicalDayInput>> => {
   const dates: Dayjs[] = Dates.holyWeek(year);
   const datesPromise = dates.map(async (date: Dayjs, i: number) => {
     return {
@@ -215,7 +215,7 @@ const holyWeek = async (year: number): Promise<Array<RomcalLiturgicalDayInput>> 
         dayOfSeason: 40 + i,
       }),
       cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
-    } as RomcalLiturgicalDayInput;
+    } as LiturgicalDayInput;
   });
   return await Promise.all(datesPromise);
 };
@@ -241,7 +241,7 @@ export class Seasons {
    *
    * @param year The year to use for the calculation
    */
-  static advent = async (year: number): Promise<Array<RomcalLiturgicalDayInput>> => {
+  static advent = async (year: number): Promise<Array<LiturgicalDayInput>> => {
     const daysOfAdventPromise = Dates.datesOfAdvent(year).map(async (date: Dayjs, i: number) => {
       return {
         date,
@@ -269,9 +269,9 @@ export class Seasons {
           dayOfSeason: i + 1,
         }),
         cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
-      } as RomcalLiturgicalDayInput;
+      } as LiturgicalDayInput;
     });
-    let items: Array<RomcalLiturgicalDayInput> = await Promise.all(daysOfAdventPromise);
+    let items: Array<LiturgicalDayInput> = await Promise.all(daysOfAdventPromise);
 
     // Sort dates according to their date.objects in ascending order
     items = _.sortBy(items, (item) => item.date && item.date.valueOf());
@@ -294,10 +294,10 @@ export class Seasons {
    * @param year The year to use for the calculation
    * @param epiphanyOnSunday If false, Epiphany will be fixed to Jan 6 (defaults to true)
    */
-  static christmastide = async (year: number, epiphanyOnSunday = true): Promise<Array<RomcalLiturgicalDayInput>> => {
+  static christmastide = async (year: number, epiphanyOnSunday = true): Promise<Array<LiturgicalDayInput>> => {
     const datesOfChristmastide: Dayjs[] = Dates.datesOfChristmas(year, epiphanyOnSunday);
     const datesInTheOctaveOfChristmas: Dayjs[] = Dates.octaveOfChristmas(year);
-    const daysInThePeriodOfEpiphany: Array<RomcalLiturgicalDayInput> = await epiphany(year + 1, epiphanyOnSunday);
+    const daysInThePeriodOfEpiphany: Array<LiturgicalDayInput> = await epiphany(year + 1, epiphanyOnSunday);
     let count = 0;
 
     const datesOfChristmastidePromise = datesOfChristmastide.map(async (date: Dayjs, i: number) => {
@@ -322,9 +322,9 @@ export class Seasons {
           dayOfSeason: i + 1,
         }),
         cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
-      } as RomcalLiturgicalDayInput;
+      } as LiturgicalDayInput;
     });
-    const daysOfChristmastide: Array<RomcalLiturgicalDayInput> = await Promise.all(datesOfChristmastidePromise);
+    const daysOfChristmastide: Array<LiturgicalDayInput> = await Promise.all(datesOfChristmastidePromise);
 
     const datesInTheOctaveOfChristmasPromise = datesInTheOctaveOfChristmas.map(async (date: Dayjs, i: number) => {
       return {
@@ -345,18 +345,16 @@ export class Seasons {
           dayOfSeason: i + 1,
         }),
         cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
-      } as RomcalLiturgicalDayInput;
+      } as LiturgicalDayInput;
     });
-    const daysInTheOctaveOfChristmas: Array<RomcalLiturgicalDayInput> = await Promise.all(
-      datesInTheOctaveOfChristmasPromise,
-    );
+    const daysInTheOctaveOfChristmas: Array<LiturgicalDayInput> = await Promise.all(datesInTheOctaveOfChristmasPromise);
 
     //==============================================================================
     // Override in order: solemnities, feasts, epiphany and octave of christmas
     // to days of christmas
     //==============================================================================
 
-    let combinedDaysOfChristmas: Array<RomcalLiturgicalDayInput>;
+    let combinedDaysOfChristmas: Array<LiturgicalDayInput>;
     combinedDaysOfChristmas = _.uniqBy(
       _.union(daysInThePeriodOfEpiphany, daysInTheOctaveOfChristmas, daysOfChristmastide),
       (item) => item.date && item.date.valueOf(),
@@ -391,7 +389,7 @@ export class Seasons {
    * @param epiphanyOnSunday By default, Epiphany is celebrated on Sunday. If false, will cause Epiphany to land on January the 6th.
    * @returns
    */
-  static earlyOrdinaryTime = async (year: number, epiphanyOnSunday = true): Promise<RomcalLiturgicalDayInput[]> => {
+  static earlyOrdinaryTime = async (year: number, epiphanyOnSunday = true): Promise<LiturgicalDayInput[]> => {
     const presentationOfTheLord = Dates.presentationOfTheLord(year);
     const daysOfEarlyOrdinaryTimePromise = Dates.datesOfEarlyOrdinaryTime(year, epiphanyOnSunday).map(
       async (date: Dayjs, i: number) => {
@@ -428,10 +426,10 @@ export class Seasons {
             dayOfSeason: (week - 1) * 7 + date.day(),
           }),
           cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
-        } as RomcalLiturgicalDayInput;
+        } as LiturgicalDayInput;
       },
     );
-    let days: RomcalLiturgicalDayInput[] = await Promise.all(daysOfEarlyOrdinaryTimePromise);
+    let days: LiturgicalDayInput[] = await Promise.all(daysOfEarlyOrdinaryTimePromise);
 
     // Sort dates according to the value of the DayJS date object
     days = _.sortBy(days, (v) => v.date && v.date.valueOf());
@@ -457,7 +455,7 @@ export class Seasons {
    *
    * @param year
    */
-  static lateOrdinaryTime = async (year: number): Promise<RomcalLiturgicalDayInput[]> => {
+  static lateOrdinaryTime = async (year: number): Promise<LiturgicalDayInput[]> => {
     const daysOfLateOrdinaryTimePromise = Dates.datesOfLateOrdinaryTime(year)
       .reverse()
       .map(async (date: Dayjs, i: number) => {
@@ -484,9 +482,9 @@ export class Seasons {
             dayOfSeason: (week - 2) * 7 - 5 + date.day(),
           }),
           cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
-        } as RomcalLiturgicalDayInput;
+        } as LiturgicalDayInput;
       });
-    let days: RomcalLiturgicalDayInput[] = await Promise.all(daysOfLateOrdinaryTimePromise);
+    let days: LiturgicalDayInput[] = await Promise.all(daysOfLateOrdinaryTimePromise);
 
     // Sort dates according to moment
     days = _.sortBy(days, (v) => v.date && v.date.valueOf());
@@ -499,7 +497,7 @@ export class Seasons {
    * @param year
    * @param epiphanyOnSunday
    */
-  static ordinaryTime = async (year: number, epiphanyOnSunday: boolean): Promise<RomcalLiturgicalDayInput[]> =>
+  static ordinaryTime = async (year: number, epiphanyOnSunday: boolean): Promise<LiturgicalDayInput[]> =>
     Promise.all([
       Seasons.earlyOrdinaryTime(year, epiphanyOnSunday),
       Seasons.lateOrdinaryTime(year),
@@ -520,11 +518,11 @@ export class Seasons {
    *
    * @param year The year to use for calculation
    */
-  static lent = async (year: number): Promise<RomcalLiturgicalDayInput[]> => {
+  static lent = async (year: number): Promise<LiturgicalDayInput[]> => {
     const datesOfLent: Array<Dayjs> = Dates.datesOfLent(year);
     const sundaysOfLent: Array<Dayjs> = Dates.sundaysOfLent(year);
 
-    const daysOfLentPromise: Promise<RomcalLiturgicalDayInput>[] = datesOfLent.map(async (date: Dayjs, i: number) => {
+    const daysOfLentPromise: Promise<LiturgicalDayInput>[] = datesOfLent.map(async (date: Dayjs, i: number) => {
       const week = Math.floor((i - 4) / 7) + 1;
 
       return {
@@ -549,7 +547,7 @@ export class Seasons {
           dayOfSeason: i + 1,
         }),
         cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
-      } as RomcalLiturgicalDayInput;
+      } as LiturgicalDayInput;
     });
     const weekdays = await Promise.all(daysOfLentPromise);
 
@@ -577,13 +575,13 @@ export class Seasons {
           dayOfSeason: i * 7 + 5,
         }),
         cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
-      } as RomcalLiturgicalDayInput;
+      } as LiturgicalDayInput;
     });
     const sundays = await Promise.all(sundaysOfLentPromise);
 
-    const daysOfHolyWeek: RomcalLiturgicalDayInput[] = await holyWeek(year);
+    const daysOfHolyWeek: LiturgicalDayInput[] = await holyWeek(year);
 
-    let combinedDaysOfLent: RomcalLiturgicalDayInput[];
+    let combinedDaysOfLent: LiturgicalDayInput[];
 
     // Override in order: Solemnities, Holy Week and Sundays of Lent to days of Lent
     combinedDaysOfLent = _.uniqBy(_.union(daysOfHolyWeek, sundays, weekdays), (v) => v.date && v.date.valueOf());
@@ -601,7 +599,7 @@ export class Seasons {
    *
    * @param year The year to use for the calculation
    */
-  static paschalTriduum = async (year: number): Promise<RomcalLiturgicalDayInput[]> => (await holyWeek(year)).slice(-3);
+  static paschalTriduum = async (year: number): Promise<LiturgicalDayInput[]> => (await holyWeek(year)).slice(-3);
 
   /**
    * Calculates the season of Easter.
@@ -619,7 +617,7 @@ export class Seasons {
    *
    * @param year The year to use for the calculation
    */
-  static eastertide = async (year: number): Promise<RomcalLiturgicalDayInput[]> => {
+  static eastertide = async (year: number): Promise<LiturgicalDayInput[]> => {
     const weekdaysOfEaster = Dates.datesOfEaster(year);
     const sundaysOfEaster = Dates.sundaysOfEaster(year);
 
@@ -647,9 +645,9 @@ export class Seasons {
           dayOfSeason: (week - 1) * 7 + 1 + date.day(),
         }),
         cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
-      } as RomcalLiturgicalDayInput;
+      } as LiturgicalDayInput;
     });
-    const days: RomcalLiturgicalDayInput[] = await Promise.all(weekdaysOfEasterPromise);
+    const days: LiturgicalDayInput[] = await Promise.all(weekdaysOfEasterPromise);
 
     const sundaysOfEasterPromise = sundaysOfEaster.map(async (date: Dayjs, i: number) => {
       return {
@@ -670,11 +668,11 @@ export class Seasons {
           dayOfSeason: i * 7 + 1 + date.day(),
         }),
         cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
-      } as RomcalLiturgicalDayInput;
+      } as LiturgicalDayInput;
     });
-    const sundays: RomcalLiturgicalDayInput[] = await Promise.all(sundaysOfEasterPromise);
+    const sundays: LiturgicalDayInput[] = await Promise.all(sundaysOfEasterPromise);
 
-    let combinedDaysOfEaster: RomcalLiturgicalDayInput[];
+    let combinedDaysOfEaster: LiturgicalDayInput[];
 
     // Insert Solemnities and Sundays of Easter to days of Easter
     combinedDaysOfEaster = _.uniqBy(_.union(sundays, days), (v) => v.date && v.date.valueOf());
@@ -692,6 +690,6 @@ export class Seasons {
    *
    * @param year The year to use for the calculation
    */
-  static easterOctave = async (year: number): Promise<RomcalLiturgicalDayInput[]> =>
+  static easterOctave = async (year: number): Promise<LiturgicalDayInput[]> =>
     (await Seasons.eastertide(year)).slice(0, 8);
 }

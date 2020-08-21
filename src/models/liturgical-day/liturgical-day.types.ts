@@ -7,11 +7,11 @@ import {
   RomcalLiturgicalSeason,
 } from '@romcal/constants/seasons-and-periods/seasons-and-periods.type';
 import { RomcalCyclesMetadata } from '@romcal/constants/cycles/cycles.type';
-import { RomcalCountry } from '@romcal/constants/countries/country.type';
+import { RomcalCalendarName } from '@romcal/constants/countries/country.type';
 import { Dayjs } from 'dayjs';
 import { LiturgicalDay } from '@romcal/models/liturgical-day/liturgical-day.model';
 
-export type BaseRomcalLiturgicalDay = {
+export type BaseLiturgicalDay = {
   key: string;
   name: string;
   date: ISO8601DateString;
@@ -25,21 +25,22 @@ export type BaseRomcalLiturgicalDay = {
   periods: RomcalLiturgicalPeriod[];
   cycles: RomcalCyclesMetadata;
   calendar: RomcalCalendarMetadata;
-  fromCalendar: RomcalCountry;
-  metadata: RomcalLiturgicalDayMetadata;
+  fromCalendar: RomcalCalendarName;
+  fromExtendedCalendars: LiturgyDayExtendedMetadata[];
+  metadata: LiturgicalDayMetadata;
   base?: LiturgicalDay;
 };
 
-export type RomcalLiturgicalDayArgs = Readonly<
-  Omit<BaseRomcalLiturgicalDay, 'date'> & Partial<RomcalLiturgicalDayMetadata>
-> & {
+export type LiturgicalDayArgs = Readonly<Omit<BaseLiturgicalDay, 'date'> & Partial<LiturgicalDayMetadata>> & {
   readonly date: Dayjs;
   readonly baseItem?: LiturgicalDay;
   readonly _stack: number;
 };
 
-export type BaseRomcalLiturgicalDayInput = Pick<BaseRomcalLiturgicalDay, 'key'> &
-  Partial<Omit<BaseRomcalLiturgicalDay, 'key' | 'date' | 'rankName' | 'liturgicalColors' | 'cycles'>> & {
+export type BaseLiturgicalDayInput = Pick<BaseLiturgicalDay, 'key'> &
+  Partial<
+    Omit<BaseLiturgicalDay, 'key' | 'date' | 'rankName' | 'liturgicalColors' | 'liturgicalColorNames' | 'cycles'>
+  > & {
     date: Dayjs;
     liturgicalColors?: RomcalLiturgicalColor | RomcalLiturgicalColor[];
     cycles?: Partial<RomcalCyclesMetadata>;
@@ -61,9 +62,9 @@ export type BaseRomcalLiturgicalDayInput = Pick<BaseRomcalLiturgicalDay, 'key'> 
     extend?: boolean;
   };
 
-export type RomcalLiturgicalDayExtendedInput = Omit<BaseRomcalLiturgicalDayInput, 'date' | 'extend'> &
-  Partial<Pick<BaseRomcalLiturgicalDayInput, 'date'>> &
-  Required<Pick<BaseRomcalLiturgicalDayInput, 'extend'>>;
+export type LiturgicalDayExtendedInput = Omit<BaseLiturgicalDayInput, 'date' | 'extend'> &
+  Partial<Pick<BaseLiturgicalDayInput, 'date'>> &
+  Required<Pick<BaseLiturgicalDayInput, 'extend'>>;
 
 /**
  * This type is used internally by romcal
@@ -72,7 +73,16 @@ export type RomcalLiturgicalDayExtendedInput = Omit<BaseRomcalLiturgicalDayInput
  * the the object is constructed in stages. This interface
  * should not be used in consumer applications.
  */
-export type RomcalLiturgicalDayInput = BaseRomcalLiturgicalDayInput | RomcalLiturgicalDayExtendedInput;
+export type LiturgicalDayInput = BaseLiturgicalDayInput | LiturgicalDayExtendedInput;
+
+export type LiturgiDayDiff = Partial<Pick<LiturgicalDayInput, 'name' | 'rank' | 'prioritized' | 'liturgicalColors'>> & {
+  metadata?: Partial<LiturgicalDayMetadata>;
+};
+
+export type LiturgyDayExtendedMetadata = {
+  fromCalendar: RomcalCalendarName;
+  diff: LiturgiDayDiff;
+};
 
 export type RomcalCalendarMetadata = {
   totalWeeksInGregorianYear: number;
@@ -90,7 +100,7 @@ export type RomcalCalendarMetadata = {
   easter: Date | string;
 };
 
-export type RomcalLiturgicalDayMetadata = {
+export type LiturgicalDayMetadata = {
   titles: RomcalTitle[];
 };
 

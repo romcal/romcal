@@ -4,4 +4,4 @@ import { COUNTRIES } from '@romcal/constants/countries/countries.constant';
 /**
  * A dynamic type indexing all supported countries for calendar generation.
  */
-export type RomcalCountry = ElementType<typeof COUNTRIES>;
+export type RomcalCalendarName = ElementType<typeof COUNTRIES>;

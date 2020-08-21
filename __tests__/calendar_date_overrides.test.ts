@@ -27,9 +27,9 @@ import 'jest-extended';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import { LiturgicalDay } from '@romcal/models/liturgical-day/liturgical-day.model';
-import { RomcalLiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
-import { Seasons } from '../src/lib/seasons';
-import { Dates } from '../src/lib/dates';
+import { LiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
+import { Seasons } from '@romcal/lib/seasons';
+import { Dates } from '@romcal/lib/dates';
 import { Ranks } from '@romcal/constants/ranks/ranks.enum';
 import Romcal from '@romcal/index';
 
@@ -245,16 +245,16 @@ describe('Testing national calendar overrides', () => {
           country: 'england',
         });
 
-        const lateOrdinaryTimeDates2009: RomcalLiturgicalDayInput[] = await Seasons.lateOrdinaryTime(2009);
-        const lateOrdinaryTimeDates2011: RomcalLiturgicalDayInput[] = await Seasons.lateOrdinaryTime(2011);
+        const lateOrdinaryTimeDates2009: LiturgicalDayInput[] = await Seasons.lateOrdinaryTime(2009);
+        const lateOrdinaryTimeDates2011: LiturgicalDayInput[] = await Seasons.lateOrdinaryTime(2011);
 
-        const twentiethSundayOfOrdinaryTime2009: RomcalLiturgicalDayInput | undefined = lateOrdinaryTimeDates2009.find(
+        const twentiethSundayOfOrdinaryTime2009: LiturgicalDayInput | undefined = lateOrdinaryTimeDates2009.find(
           (d) => {
             return d.key === 'ordinary_time_20_sunday';
           },
         );
 
-        const twentiethSundayOfOrdinaryTime2011: RomcalLiturgicalDayInput | undefined = lateOrdinaryTimeDates2011.find(
+        const twentiethSundayOfOrdinaryTime2011: LiturgicalDayInput | undefined = lateOrdinaryTimeDates2011.find(
           (d) => {
             return d.key === 'ordinary_time_20_sunday';
           },
@@ -307,8 +307,8 @@ describe('Testing national calendar overrides', () => {
           country: 'england',
         });
 
-        const lateOrdinaryTimeDates: RomcalLiturgicalDayInput[] = await Seasons.lateOrdinaryTime(2010);
-        const twentiethSundayOfOrdinaryTime: RomcalLiturgicalDayInput | undefined = lateOrdinaryTimeDates.find((d) => {
+        const lateOrdinaryTimeDates: LiturgicalDayInput[] = await Seasons.lateOrdinaryTime(2010);
+        const twentiethSundayOfOrdinaryTime: LiturgicalDayInput | undefined = lateOrdinaryTimeDates.find((d) => {
           return d.key === 'ordinary_time_20_sunday';
         });
 

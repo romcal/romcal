@@ -6,15 +6,16 @@ import {
 } from '@romcal/constants/seasons-and-periods/seasons-and-periods.type';
 import {
   RomcalCalendarMetadata,
-  RomcalLiturgicalDayMetadata,
-  BaseRomcalLiturgicalDay,
-  RomcalLiturgicalDayArgs,
+  LiturgicalDayMetadata,
+  BaseLiturgicalDay,
+  LiturgicalDayArgs,
+  LiturgyDayExtendedMetadata,
 } from '@romcal/models/liturgical-day/liturgical-day.types';
 import { RomcalCyclesMetadata } from '@romcal/constants/cycles/cycles.type';
 import { RomcalLiturgicalColor } from '@romcal/constants/liturgical-colors/liturgical-colors.type';
-import { RomcalCountry } from '@romcal/constants/countries/country.type';
+import { RomcalCalendarName } from '@romcal/constants/countries/country.type';
 
-export class LiturgicalDay implements BaseRomcalLiturgicalDay {
+export class LiturgicalDay implements BaseLiturgicalDay {
   /**
    * The unique key of the liturgical day.
    */
@@ -68,13 +69,18 @@ export class LiturgicalDay implements BaseRomcalLiturgicalDay {
    */
   public readonly calendar: RomcalCalendarMetadata;
   /**
-   * Name of the calendar from which the liturgical day is defined
+   * The name of the calendar from which the liturgical day is defined
    */
-  public readonly fromCalendar: RomcalCountry;
+  public readonly fromCalendar: RomcalCalendarName;
+  /**
+   * The names and the object diff of the calendars from which this liturgical day is extended.
+   * From the first extended definitions to the latest extended definition.
+   */
+  public readonly fromExtendedCalendars: LiturgyDayExtendedMetadata[];
   /**
    * The specific metadata of a liturgical day
    */
-  public readonly metadata: RomcalLiturgicalDayMetadata;
+  public readonly metadata: LiturgicalDayMetadata;
   /**
    * A previous liturgical day on the same day that was overridden by the current one.
    */
@@ -105,10 +111,11 @@ export class LiturgicalDay implements BaseRomcalLiturgicalDay {
     cycles,
     calendar,
     fromCalendar,
+    fromExtendedCalendars,
     metadata,
     baseItem,
     _stack,
-  }: RomcalLiturgicalDayArgs) {
+  }: LiturgicalDayArgs) {
     this.key = key;
     this.name = name;
     this.date = date.toISOString();
@@ -123,6 +130,7 @@ export class LiturgicalDay implements BaseRomcalLiturgicalDay {
     this.cycles = cycles;
     this.calendar = calendar;
     this.fromCalendar = fromCalendar;
+    this.fromExtendedCalendars = fromExtendedCalendars;
     this.metadata = typeof metadata === 'object' ? metadata : { titles: [] };
 
     this._id = LiturgicalDay.incrementId();
@@ -148,7 +156,7 @@ export class LiturgicalDay implements BaseRomcalLiturgicalDay {
  * @param value The value that could be an instance of [[BaseRomcalLiturgicalDay]]
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const isRomcalLiturgicalDay = (value: Record<string, any>): value is BaseRomcalLiturgicalDay => {
+export const isRomcalLiturgicalDay = (value: Record<string, any>): value is BaseLiturgicalDay => {
   const { key, name, date, rank } = value;
   return !isNil(key) && !isNil(name) && !isNil(date) && !isNil(rank);
 };

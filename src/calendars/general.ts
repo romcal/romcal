@@ -4,7 +4,7 @@ import { Dates } from '@romcal/lib/dates';
 import * as Locales from '@romcal/lib/locales';
 import { Seasons } from '@romcal/lib/seasons';
 import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
-import { RomcalLiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
+import { LiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
 import { RomcalConfig, RomcalConfigInCalendarDef } from '@romcal/models/config/config.model';
 import { Ranks } from '@romcal/constants/ranks/ranks.enum';
 import { CelebrationsCycle } from '@romcal/constants/cycles/cycles.enum';
@@ -16,9 +16,9 @@ const defaultConfig: RomcalConfigInCalendarDef = {
   epiphanyOnSunday: true,
 };
 
-const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInput>> => {
+const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> => {
   const year = config.year;
-  const _dates: Array<RomcalLiturgicalDayInput> = [
+  const _dates: Array<LiturgicalDayInput> = [
     {
       key: 'basil_the_great_and_gregory_nazianzen_bishops',
       rank: Ranks.MEMORIAL,
