@@ -1,7 +1,7 @@
 import { Schema, Validator } from 'jsonschema';
 import { default as Locales } from '@romcal/locales/index';
 import { TITLES } from '@romcal/constants/titles/titles.constant';
-import { QUERY_TYPES } from '@romcal/constants/query-options/query-types.constant';
+import { GROUP_BY } from '@romcal/constants/group-by-option/group-by.constant';
 import { COUNTRIES } from '@romcal/constants/countries/countries.constant';
 
 export const getRomcalConfigJsonSchema = (): Schema => ({
@@ -47,8 +47,8 @@ export const getRomcalQueryJsonSchema = (): Schema => ({
     },
     group: {
       type: 'string',
-      enum: [...QUERY_TYPES],
-      description: `Acceptable values are ${QUERY_TYPES.join(', ')}`,
+      enum: [...GROUP_BY],
+      description: `Acceptable values are ${GROUP_BY.join(', ')}`,
     },
     title: {
       type: 'string',

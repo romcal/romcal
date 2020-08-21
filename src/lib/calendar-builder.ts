@@ -88,7 +88,6 @@ export class CalendarBuilder {
       scope,
       year,
       locale,
-      query,
     } = this._config;
 
     // Set the year range depending on the calendar type
@@ -137,7 +136,6 @@ export class CalendarBuilder {
         ascensionOnSunday,
         outputOptionalMemorials,
         scope: scope,
-        query,
       });
       return [...(await CalendarBuilder.fetchCalendar('general', yearSpecificConfig))];
     });
@@ -159,7 +157,6 @@ export class CalendarBuilder {
         ascensionOnSunday,
         outputOptionalMemorials,
         scope: scope,
-        query,
       });
       return [...(await CalendarBuilder.fetchCalendar(country, yearSpecificConfig))];
     });

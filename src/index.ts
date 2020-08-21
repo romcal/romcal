@@ -25,7 +25,7 @@ import {
   LITURGICAL_PERIODS,
   LITURGICAL_SEASONS,
 } from '@romcal/constants/seasons-and-periods/seasons-and-periods.constant';
-import { QUERY_TYPES } from '@romcal/constants/query-options/query-types.constant';
+import { GROUP_BY } from '@romcal/constants/group-by-option/group-by.constant';
 import { TITLES } from '@romcal/constants/titles/titles.constant';
 import { RANKS } from '@romcal/constants/ranks/ranks.constant';
 import {
@@ -48,7 +48,7 @@ import {
 } from '@romcal/constants/seasons-and-periods/seasons-and-periods.type';
 import { RomcalLocaleKey } from '@romcal/models/locale/locale-types.type';
 import { RomcalLocalizeParams } from '@romcal/models/locale/localize-params.type';
-import { RomcalQuery, RomcalQueryType } from '@romcal/constants/query-options/query-types.type';
+import { LiturgicalDayGroupBy } from '@romcal/constants/group-by-option/group-by.type';
 import { RomcalTitle, RomcalTitles } from '@romcal/constants/titles/titles.type';
 import { RomcalRank, RomcalRanks } from '@romcal/constants/ranks/ranks.type';
 import {
@@ -109,7 +109,7 @@ export {
   WEEKDAYS_CYCLE,
   PSALTER_WEEKS,
   LITURGICAL_COLORS,
-  QUERY_TYPES,
+  GROUP_BY,
   RANKS,
   LITURGICAL_SEASONS,
   LITURGICAL_PERIODS,
@@ -133,8 +133,7 @@ export {
   LiturgiDayDiff,
   LiturgyDayExtendedMetadata,
   LiturgicalDayArgs,
-  RomcalQuery,
-  RomcalQueryType,
+  LiturgicalDayGroupBy,
   // LiturgicalDay metadata
   RomcalRank,
   RomcalRanks,
