@@ -403,6 +403,21 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-12-13`),
     },
+    {
+      key: 'saintStephenTheFirstMartyr',
+      extend: true,
+      isHolyDayOfObligation: true,
+    },
+    {
+      key: 'easterMonday',
+      extend: true,
+      isHolyDayOfObligation: true,
+    },
+    {
+      key: 'maryMotherOfTheChurch',
+      extend: true,
+      isHolyDayOfObligation: true,
+    },
   ];
 
   // Get localized liturgical day names

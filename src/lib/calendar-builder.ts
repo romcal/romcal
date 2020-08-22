@@ -207,6 +207,7 @@ export class CalendarBuilder {
       const {
         key,
         name,
+        isHolyDayOfObligation,
         rank,
         prioritized,
         seasons,
@@ -240,9 +241,10 @@ export class CalendarBuilder {
           new LiturgicalDay({
             key,
             name,
+            date,
             rank: validatedRank,
             rankName: await localize({ key: `ranks.${validatedRank}` }),
-            date,
+            isHolyDayOfObligation: !!isHolyDayOfObligation,
             prioritized: !!prioritized,
             seasons: validatedSeasons,
             seasonNames: validatedSeasonNames,
