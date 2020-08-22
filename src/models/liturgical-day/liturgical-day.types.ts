@@ -39,7 +39,18 @@ export type LiturgicalDayArgs = Readonly<Omit<BaseLiturgicalDay, 'date'> & Parti
 
 export type BaseLiturgicalDayInput = Pick<BaseLiturgicalDay, 'key'> &
   Partial<
-    Omit<BaseLiturgicalDay, 'key' | 'date' | 'rankName' | 'liturgicalColors' | 'liturgicalColorNames' | 'cycles'>
+    Omit<
+      BaseLiturgicalDay,
+      | 'key'
+      | 'date'
+      | 'rankName'
+      | 'liturgicalColors'
+      | 'liturgicalColorNames'
+      | 'cycles'
+      | 'fromCalendar'
+      | 'fromExtendedCalendars'
+      | 'base'
+    >
   > & {
     date: Dayjs;
     liturgicalColors?: RomcalLiturgicalColor | RomcalLiturgicalColor[];
