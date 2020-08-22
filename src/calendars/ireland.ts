@@ -88,9 +88,9 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
     },
     {
       key: 'patrick_of_ireland_bishop_patron_of_ireland',
+      extend: true,
       rank: Ranks.SOLEMNITY,
-      date: dayjs.utc(`${year}-3-17`),
-      liturgicalColors: LiturgicalColors.WHITE,
+      isHolyDayOfObligation: true,
     },
     {
       key: 'enda_of_aran_abbot',

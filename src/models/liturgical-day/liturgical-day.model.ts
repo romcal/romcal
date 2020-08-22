@@ -16,74 +16,23 @@ import { RomcalLiturgicalColor } from '@romcal/constants/liturgical-colors/litur
 import { RomcalCalendarName } from '@romcal/constants/countries/country.type';
 
 export class LiturgicalDay implements BaseLiturgicalDay {
-  /**
-   * The unique key of the liturgical day.
-   */
   public readonly key: string;
-  /**
-   * The localized name of the liturgical day.
-   */
   public readonly name: string;
-  /**
-   * The ISO8601 formatted date and time string of the liturgical day.
-   */
   public readonly date: ISO8601DateString;
-  /**
-   * The rank of the liturgical day.
-   */
+  public readonly isHolyDayOfObligation: boolean;
   public readonly rank: Ranks;
-  /**
-   * The localized rank of the liturgical day
-   */
   public readonly rankName: string;
-  /**
-   * If this liturgical day should have always precedence, without rank consideration.
-   */
   public readonly prioritized: boolean;
-  /**
-   * The liturgical color of a liturgical day
-   */
   public readonly liturgicalColors: RomcalLiturgicalColor[];
-  /**
-   * The liturgical localized color of a liturgical day
-   */
   public readonly liturgicalColorNames: string[];
-  /**
-   * Season keys to which the liturgical day is a part.
-   */
   public readonly seasons: RomcalLiturgicalSeason[];
-  /**
-   * Season localized name to which the liturgical day is a part.
-   */
   public readonly seasonNames: string[];
-  /**
-   * Period keys to which the liturgical day is a part.
-   */
   public readonly periods: RomcalLiturgicalPeriod[];
-  /**
-   * Cycle metadata of a liturgical day.
-   */
   public readonly cycles: RomcalCyclesMetadata;
-  /**
-   * Calendar metadata for the liturgical day.
-   */
   public readonly calendar: RomcalCalendarMetadata;
-  /**
-   * The name of the calendar from which the liturgical day is defined
-   */
   public readonly fromCalendar: RomcalCalendarName;
-  /**
-   * The names and the object diff of the calendars from which this liturgical day is extended.
-   * From the first extended definitions to the latest extended definition.
-   */
   public readonly fromExtendedCalendars: LiturgyDayExtendedMetadata[];
-  /**
-   * The specific metadata of a liturgical day
-   */
   public readonly metadata: LiturgicalDayMetadata;
-  /**
-   * A previous liturgical day on the same day that was overridden by the current one.
-   */
   public readonly base: LiturgicalDay | undefined;
   /**
    * Internal index used by romcal for calendar generation.
@@ -102,6 +51,7 @@ export class LiturgicalDay implements BaseLiturgicalDay {
     date,
     rank,
     rankName,
+    isHolyDayOfObligation,
     prioritized,
     liturgicalColors,
     liturgicalColorNames,
@@ -121,6 +71,7 @@ export class LiturgicalDay implements BaseLiturgicalDay {
     this.date = date.toISOString();
     this.rank = rank;
     this.rankName = rankName;
+    this.isHolyDayOfObligation = isHolyDayOfObligation;
     this.prioritized = prioritized;
     this.liturgicalColors = liturgicalColors;
     this.liturgicalColorNames = liturgicalColorNames;
