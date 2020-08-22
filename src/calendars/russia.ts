@@ -62,7 +62,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'ourLadyOfPerpetualHelp',
+      key: 'our_lady_of_perpetual_help',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-27`),
     },
@@ -128,7 +128,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-8-26`),
     },
     {
-      key: 'ourLadyOfVladimir',
+      key: 'our_lady_of_vladimir',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-7`),
     },
@@ -145,7 +145,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'ourLadyOfTheGateOfDawn',
+      key: 'our_lady_of_the_gate_of_dawn',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-16`),
     },

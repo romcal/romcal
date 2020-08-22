@@ -69,7 +69,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintAgnesVirginAndMartyr',
+      key: 'saint_agnes_of_rome_virgin',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-1-21`),
       liturgicalColors: LiturgicalColors.RED,
@@ -151,7 +151,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-2-3`),
     },
     {
-      key: 'saintAgathaVirginAndMartyr',
+      key: 'saint_agatha_of_sicily_virgin',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-2-5`),
       liturgicalColors: LiturgicalColors.RED,
@@ -185,7 +185,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'ourLadyOfLourdes',
+      key: 'our_lady_of_lourdes',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-2-11`),
     },
@@ -328,7 +328,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintAdalbertBishopAndMartyr',
+      key: 'saint_adalbert_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-4-23`),
       liturgicalColors: LiturgicalColors.RED,
@@ -658,7 +658,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'ourLadyOfMountCarmel',
+      key: 'our_lady_of_mount_carmel',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-16`),
     },
@@ -853,7 +853,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'queenshipOfBlessedVirginMary',
+      key: 'queenship_of_mary',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-8-22`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -946,7 +946,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.RED,
     },
     {
-      key: 'ourLadyOfSorrows',
+      key: 'our_lady_of_sorrows',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-9-15`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -1075,7 +1075,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-10-6`),
     },
     {
-      key: 'ourLadyOfTheRosary',
+      key: 'our_lady_of_the_rosary',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-10-7`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -1246,7 +1246,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-11-18`),
     },
     {
-      key: 'presentationOfTheBlessedVirginMary',
+      key: 'presentation_of_mary',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-11-21`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -1327,7 +1327,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-12-9`),
     },
     {
-      key: 'ourLadyOfLoreto',
+      key: 'our_lady_of_loreto',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-12-10`),
     },

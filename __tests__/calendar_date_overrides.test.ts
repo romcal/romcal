@@ -251,16 +251,16 @@ describe('Testing national calendar overrides', () => {
           country: 'england',
         });
 
-        const laterOrdinaryTimeDates2009: RomcalLiturgicalDayInput[] = await Seasons.laterOrdinaryTime(2009);
-        const laterOrdinaryTimeDates2011: RomcalLiturgicalDayInput[] = await Seasons.laterOrdinaryTime(2011);
+        const lateOrdinaryTimeDates2009: RomcalLiturgicalDayInput[] = await Seasons.lateOrdinaryTime(2009);
+        const lateOrdinaryTimeDates2011: RomcalLiturgicalDayInput[] = await Seasons.lateOrdinaryTime(2011);
 
-        const twentiethSundayOfOrdinaryTime2009: RomcalLiturgicalDayInput | undefined = laterOrdinaryTimeDates2009.find(
+        const twentiethSundayOfOrdinaryTime2009: RomcalLiturgicalDayInput | undefined = lateOrdinaryTimeDates2009.find(
           (d) => {
             return d.key === 'twentiethSundayOfOrdinaryTime';
           },
         );
 
-        const twentiethSundayOfOrdinaryTime2011: RomcalLiturgicalDayInput | undefined = laterOrdinaryTimeDates2011.find(
+        const twentiethSundayOfOrdinaryTime2011: RomcalLiturgicalDayInput | undefined = lateOrdinaryTimeDates2011.find(
           (d) => {
             return d.key === 'twentiethSundayOfOrdinaryTime';
           },
@@ -313,8 +313,8 @@ describe('Testing national calendar overrides', () => {
           country: 'england',
         });
 
-        const laterOrdinaryTimeDates: RomcalLiturgicalDayInput[] = await Seasons.laterOrdinaryTime(2010);
-        const twentiethSundayOfOrdinaryTime: RomcalLiturgicalDayInput | undefined = laterOrdinaryTimeDates.find((d) => {
+        const lateOrdinaryTimeDates: RomcalLiturgicalDayInput[] = await Seasons.lateOrdinaryTime(2010);
+        const twentiethSundayOfOrdinaryTime: RomcalLiturgicalDayInput | undefined = lateOrdinaryTimeDates.find((d) => {
           return d.key === 'twentiethSundayOfOrdinaryTime';
         });
 
@@ -460,7 +460,7 @@ describe('Testing national calendar overrides', () => {
     test('Should be celebrated on the September 15, 2018 as a memorial in the General Calendar', async () => {
       const dates = await Romcal.calendarFor(2018);
       const ourLadyOfSorrows = dates.find((d) => {
-        return d.key === 'ourLadyOfSorrows';
+        return d.key === 'our_lady_of_sorrows';
       });
       expect(ourLadyOfSorrows?.rank).toEqual(Ranks.MEMORIAL);
       expect(dayjs.utc(ourLadyOfSorrows?.date).isSame(dayjs.utc('2018-9-15'))).toBeTruthy();
@@ -472,7 +472,7 @@ describe('Testing national calendar overrides', () => {
         country: 'malta',
       });
       const ourLadyOfSorrows = maltaDates.find((d) => {
-        return d.key === 'ourLadyOfSorrows';
+        return d.key === 'our_lady_of_sorrows';
       });
       expect(ourLadyOfSorrows?.rank).toEqual(Ranks.FEAST);
       expect(dayjs.utc(ourLadyOfSorrows?.date).isSame(dayjs.utc('2015-4-15'))).toBeTruthy();
@@ -495,7 +495,7 @@ describe('Testing national calendar overrides', () => {
         country: 'slovakia',
       });
       const ourLadyOfSorrows = slovakiaDates.find((d) => {
-        return d.key === 'ourLadyOfSorrows';
+        return d.key === 'our_lady_of_sorrows';
       });
       expect(ourLadyOfSorrows?.rank).toEqual(Ranks.SOLEMNITY);
       expect(dayjs.utc(ourLadyOfSorrows?.date).isSame(dayjs.utc('2018-9-15'))).toBeTruthy();

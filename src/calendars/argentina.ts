@@ -20,7 +20,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-1-22`),
     },
     {
-      key: 'ourLadyQueenOfPeace',
+      key: 'our_lady_of_peace',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-24`),
     },
@@ -31,7 +31,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'ourLadyOfLujanPatronessOfArgentina',
+      key: 'our_lady_of_lujan_patroness_of_argentina',
       rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-5-8`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -47,7 +47,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-5-16`),
     },
     {
-      key: 'ourLadyOfItati',
+      key: 'our_lady_of_itati',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-7-9`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -61,7 +61,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'ourLadyOfMountCarmel',
+      key: 'our_lady_of_mount_carmel',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-7-16`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -94,7 +94,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'ourLadyOfMercy',
+      key: 'our_lady_of_mercy',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-9-24`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -108,7 +108,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'ourLadyOfThePillar',
+      key: 'our_lady_of_the_pillar',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-12`),
     },
@@ -135,7 +135,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     // Saturday of the 2nd Week of Easter
     {
-      key: 'ourLadyOfTheValley',
+      key: 'our_lady_of_the_valley',
       rank: Ranks.MEMORIAL,
       date: ((y: number): dayjs.Dayjs => dayjs.utc(Dates.divineMercySunday(y).add(6, 'day').toISOString()))(year),
       liturgicalColors: LiturgicalColors.WHITE,

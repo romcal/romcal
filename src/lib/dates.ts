@@ -375,7 +375,7 @@ export class Dates {
    * @param epiphanyOnSunday If false, fixes Epiphany to Jan 6 (defaults to true)
    */
   static datesOfOrdinaryTime = (year: number, epiphanyOnSunday = true): Array<Dayjs> => {
-    return [...Dates.datesOfEarlyOrdinaryTime(year, epiphanyOnSunday), ...Dates.datesOfLaterOrdinaryTime(year)];
+    return [...Dates.datesOfEarlyOrdinaryTime(year, epiphanyOnSunday), ...Dates.datesOfLateOrdinaryTime(year)];
   };
 
   /**
@@ -411,19 +411,19 @@ export class Dates {
    *
    * @param year The year to use for the calculation
    */
-  static datesOfLaterOrdinaryTime = (year: number): Array<Dayjs> => {
+  static datesOfLateOrdinaryTime = (year: number): Array<Dayjs> => {
     const start = Dates.pentecostSunday(year);
     const end = Dates.firstSundayOfAdvent(year);
     return rangeOfDays(start, end, { exclude: [start, end] });
   };
 
   /**
-   * Gets all the Sundays that fall within the period of later Ordinary Time
+   * Gets all the Sundays that fall within the period of late Ordinary Time
    *
    * @param year The year to use for the calculation
    */
-  static sundaysOfLaterOrdinaryTime = (year: number): Array<Dayjs> => {
-    return eachDayOfWeekInRange(Dates.datesOfLaterOrdinaryTime(year), DayOfWeek.SUNDAY);
+  static sundaysOfLateOrdinaryTime = (year: number): Array<Dayjs> => {
+    return eachDayOfWeekInRange(Dates.datesOfLateOrdinaryTime(year), DayOfWeek.SUNDAY);
   };
 
   /**

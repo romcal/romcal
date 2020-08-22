@@ -34,7 +34,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-7-14`),
     },
     {
-      key: 'ourLadyOfPeace',
+      key: 'our_lady_of_peace',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-7-28`),
     },
@@ -49,12 +49,12 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-9-18`),
     },
     {
-      key: 'ourLadyOfMercy',
+      key: 'our_lady_of_mercy',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-24`),
     },
     {
-      key: 'ourLordOfMiracles',
+      key: 'our_lord_of_miracles',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-10-28`),
     },
@@ -69,7 +69,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-12-12`),
     },
     {
-      key: 'ourLordJesusChristTheEternalHighPriest',
+      key: 'our_lord_jesus_christ_the_eternal_high_priest',
       rank: Ranks.FEAST,
       date: ((y: number): dayjs.Dayjs => dayjs.utc(Dates.pentecostSunday(y).add(4, 'day').toISOString()))(year),
       liturgicalColors: LiturgicalColors.WHITE,

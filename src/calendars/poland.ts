@@ -61,7 +61,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     // jarosz: Moved saintAdalbert outside holy week and octave of Easter
     {
-      key: 'saintAdalbertBishopAndMartyr',
+      key: 'saint_adalbert_bishop',
       rank: Ranks.SOLEMNITY,
       date: ((y: number): dayjs.Dayjs => {
         const holyWeekDates = Dates.holyWeek(y);
@@ -108,7 +108,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'ourLadyQueenOfPoland',
+      key: 'our_lady_queen_of_poland',
       rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-5-3`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -259,7 +259,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-7-14`),
     },
     {
-      key: 'ourLadyOfMountCarmel',
+      key: 'our_lady_of_mount_carmel',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-7-16`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -499,7 +499,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
     },
     {
-      key: 'ourLordJesusChristTheEternalHighPriest',
+      key: 'our_lord_jesus_christ_the_eternal_high_priest',
       rank: Ranks.FEAST,
       date: ((y: number): dayjs.Dayjs => dayjs.utc(Dates.pentecostSunday(y).add(4, 'day').toISOString()))(year),
       liturgicalColors: LiturgicalColors.WHITE,

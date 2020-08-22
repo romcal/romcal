@@ -173,13 +173,13 @@ describe('Testing date range functions', () => {
 
     test('There are typically 24 to 29 Sundays in Ordinary Time between the Pentecost to the 1st Sunday of Advent', () => {
       for (let i = 1900, il = 2100; i <= il; i++) {
-        const dates = Dates.datesOfLaterOrdinaryTime(i);
-        const sundays = Dates.sundaysOfLaterOrdinaryTime(i);
-        const [firstDayInLaterOrdinaryTime] = dates;
-        const [lastDayInLaterOrdinaryTime] = dates.reverse();
+        const dates = Dates.datesOfLateOrdinaryTime(i);
+        const sundays = Dates.sundaysOfLateOrdinaryTime(i);
+        const [firstDayInLateOrdinaryTime] = dates;
+        const [lastDayInLateOrdinaryTime] = dates.reverse();
         expect(sundays.length).toBeOneOf([23, 24, 25, 26, 27, 28, 29]);
-        expect(firstDayInLaterOrdinaryTime.subtract(1, 'day').isSame(Dates.pentecostSunday(i))).toEqual(true);
-        expect(lastDayInLaterOrdinaryTime.add(1, 'day').isSame(Dates.sundaysOfAdvent(i)[0])).toEqual(true);
+        expect(firstDayInLateOrdinaryTime.subtract(1, 'day').isSame(Dates.pentecostSunday(i))).toEqual(true);
+        expect(lastDayInLateOrdinaryTime.add(1, 'day').isSame(Dates.sundaysOfAdvent(i)[0])).toEqual(true);
       }
     });
   });
@@ -234,7 +234,7 @@ describe('Testing seasons utility functions', () => {
       (await Seasons.earlyOrdinaryTime(2015, false)).forEach((date) => {
         expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColors.GREEN);
       });
-      (await Seasons.laterOrdinaryTime(2015)).forEach((date) => {
+      (await Seasons.lateOrdinaryTime(2015)).forEach((date) => {
         expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColors.GREEN);
       });
     });

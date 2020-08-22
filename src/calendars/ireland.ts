@@ -29,7 +29,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-1-16`),
     },
     {
-      key: 'saintAidanBishop',
+      key: 'saint_aidan_of_ferns_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-30`),
     },
@@ -82,7 +82,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-3-8`),
     },
     {
-      key: 'saintAengusOengusBishopAndAbbot',
+      key: 'saint_aengus_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-3-11`),
     },
@@ -258,7 +258,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-8-13`),
     },
     {
-      key: 'ourLadyOfKnock',
+      key: 'our_lady_of_knock',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-8-17`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -274,7 +274,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-8-30`),
     },
     {
-      key: 'saintAidanOfLindisfarneBishopAndMissionary',
+      key: 'saint_aidan_of_lindisfarne_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-31`),
     },

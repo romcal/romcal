@@ -450,7 +450,7 @@ export class Seasons {
   /**
    * Calculates the latter half of ordinary time in a given liturgical year.
    *
-   * **LITURGICAL- LATER ORDINARY TIME**
+   * **LITURGICAL- LATE ORDINARY TIME**
    *
    * The second phase of Ordinary Time begins on the Monday that immediately
    * follows Pentecost Sunday (i.e., the last Sunday of the Season of Easter).
@@ -465,8 +465,8 @@ export class Seasons {
    *
    * @param year
    */
-  static laterOrdinaryTime = async (year: number): Promise<RomcalLiturgicalDayInput[]> => {
-    const daysOfLaterOrdinaryTimePromise = Dates.datesOfLaterOrdinaryTime(year)
+  static lateOrdinaryTime = async (year: number): Promise<RomcalLiturgicalDayInput[]> => {
+    const daysOfLateOrdinaryTimePromise = Dates.datesOfLateOrdinaryTime(year)
       .reverse()
       .map(async (date: Dayjs, i: number) => {
         // Calculate the week of ordinary time
@@ -500,7 +500,7 @@ export class Seasons {
           cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
         } as RomcalLiturgicalDayInput;
       });
-    let days: RomcalLiturgicalDayInput[] = await Promise.all(daysOfLaterOrdinaryTimePromise);
+    let days: RomcalLiturgicalDayInput[] = await Promise.all(daysOfLateOrdinaryTimePromise);
 
     // Sort dates according to moment
     days = _.sortBy(days, (v) => v.date.valueOf());
@@ -516,7 +516,7 @@ export class Seasons {
   static ordinaryTime = async (year: number, epiphanyOnSunday: boolean): Promise<RomcalLiturgicalDayInput[]> =>
     Promise.all([
       Seasons.earlyOrdinaryTime(year, epiphanyOnSunday),
-      Seasons.laterOrdinaryTime(year),
+      Seasons.lateOrdinaryTime(year),
     ]).then(([early, later]) => early.concat(later));
 
   /**

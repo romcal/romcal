@@ -17,13 +17,13 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-1-16`),
     },
     {
-      key: 'ourLadyOfLanka',
+      key: 'our_lady_of_lanka',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-2-4`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'ourLadyOfMadhu',
+      key: 'our_lady_of_madhu',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-7-2`),
       liturgicalColors: LiturgicalColors.WHITE,

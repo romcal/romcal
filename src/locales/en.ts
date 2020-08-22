@@ -229,43 +229,42 @@ export default {
     our_lady_of_guadalupe: 'Our Lady of Guadalupe',  // us, ca
     our_lady_of_guadalupe_patroness_of_the_philippines: 'Our Lady of Guadalupe, Celestial Patroness of the Philippines',  // us, but not in us
     our_lady_of_hungary_principal_patron_of_hungary: 'Our Lady of Hungary, Principal Patron of Hungary',
-    // ourLadyOfItati: 'Our Lady of Itati',
-    // ourLadyOfKnock: 'Our Lady of Knock',  // ireland
-    // ourLadyOfLanka: 'Our Lady of Lanka',
-    // ourLadyOfLebanon: 'Our Lady of Lebanon',
-    // ourLadyOfLoreto: 'Our Lady of Loreto',  // us
-    // ourLadyOfLourdes: 'Our Lady of Lourdes',  // us, gb
-    // ourLadyOfLujanPatronessOfArgentina: 'Our Lady of Luján, Patroness of Argentina',
-    // ourLadyOfMadhu: 'Our Lady of Madhu',
-    // ourLadyOfMercy: 'Our Lady of Mercy',
-    // ourLadyOfMountCarmel: 'Our Lady of Mount Carmel',  // us, gb
-    // ourLadyOfMountCarmelMotherAndQueenOfChile: 'Our Lady of Mount Carmel, Mother and Queen of Chile',  // us
-    // ourLadyOfPeace: 'Our Lady of Peace',
-    // ourLadyOfPerpetualHelp: 'Our Lady of Perpetual Help',
-    // ourLadyOfRefuge: 'Our Lady of Refuge',
-    // ourLadyOfSorrows: 'Our Lady of Sorrows',  // us
-    // ourLadyOfTheGateOfDawn: 'Our Lady of the Gate of Dawn',
-    // ourLadyOfThePillar: 'Our Lady of the Pillar',
-    // ourLadyOfTheRosary: 'Our Lady of the Rosary',  // us
-    // ourLadyOfTheValley: 'Our Lady of the Valley',
-    // ourLadyOfVladimir: 'Our Lady of Vladimir',
-    // ourLadyOfWalsingham: 'Our Lady of Walsingham',  // us
-    // ourLadyQueenOfPeace: 'Our Lady, Queen of Peace',
-    // ourLadyQueenOfPoland: 'Our Lady, Queen of Poland',
-    // ourLordJesusChristTheEternalHighPriest: 'Our Lord Jesus Christ, the Eternal High Priest',  // gb
-    // ourLordOfMiracles: 'Our Lord of Miracles',
-    // presentationOfTheBlessedVirginMary: 'Presentation of the Blessed Virgin Mary',  // us
-    // queenshipOfBlessedVirginMary: 'Queenship of the Blessed Virgin Mary',  // us
-    // saintAdalbertBishopAndMartyr: 'Saint Adalbert, Bishop and Martyr',  // us, gb
-    // saintAelredOfRievaulx: 'Saint Aelred of Rievaulx, abbot',  // gb
-    // saintAengusOengusBishopAndAbbot: 'Saint Aengus, Bishop and Abbot',  // ireland
-    // saintAgathaVirginAndMartyr: 'Saint Agatha, Virgin and Martyr',  // us, gb
-    // saintAgnesOfBohemiaVirgin: 'Saint Agnes of Bohemia, Virgin',
-    // saintAgnesTsaoKouYingMartyr: 'Saint Agnes Cao Guiying, Martyr',
-    // saintAgnesVirginAndMartyr: 'Saint Agnes, Virgin and Martyr',  // us, gb
-    // saintAidanBishop: 'Saint Aidan, Bishop',  // ireland
-    // saintAidanBishopAndTheSaintsOfLindisfarne: 'Saint Aidan, Bishop, and the Saints of Lindisfarne',  // gb
-    // saintAidanOfLindisfarneBishopAndMissionary: 'Saint Aidan of Lindisfarne, Bishop and Missionary',  // ireland
+    our_lady_of_itati: 'Our Lady of Itatí',
+    our_lady_of_knock: 'Our Lady of Knock',  // ireland
+    our_lady_of_lanka: 'Our Lady of Lanka',
+    our_lady_of_lebanon: 'Our Lady of Lebanon',
+    our_lady_of_loreto: 'Our Lady of Loreto',  // us
+    our_lady_of_lourdes: 'Our Lady of Lourdes',  // us, gb
+    our_lady_of_lujan_patroness_of_argentina: 'Our Lady of Luján, Patroness of Argentina',
+    our_lady_of_madhu: 'Our Lady of Madhu',
+    our_lady_of_mercy: 'Our Lady of Mercy',
+    our_lady_of_mount_carmel: 'Our Lady of Mount Carmel',  // us, gb
+    our_lady_of_mount_carmel_mother_and_queen_of_chile: 'Our Lady of Mount Carmel, Mother and Queen of Chile',  // us
+    our_lady_of_peace: 'Our Lady of Peace',
+    our_lady_of_perpetual_help: 'Our Lady of Perpetual Help',
+    our_lady_of_refuge: 'Our Lady of Refuge',
+    our_lady_of_sorrows: 'Our Lady of Sorrows',  // us
+    our_lady_of_the_gate_of_dawn: 'Our Lady of the Gate of Dawn',
+    our_lady_of_the_pillar: 'Our Lady of the Pillar',
+    our_lady_of_the_rosary: 'Our Lady of the Rosary',  // us
+    our_lady_of_the_valley: 'Our Lady of the Valley',
+    our_lady_of_vladimir: 'Our Lady of Vladimir',
+    our_lady_of_walsingham: 'Our Lady of Walsingham',  // us
+    our_lady_queen_of_poland: 'Our Lady, Queen of Poland',
+    our_lord_jesus_christ_the_eternal_high_priest: 'Our Lord Jesus Christ, the Eternal High Priest',  // gb
+    our_lord_of_miracles: 'Our Lord of Miracles',
+    presentation_of_mary: 'Presentation of the Blessed Virgin Mary',  // us
+    queenship_of_mary: 'Queenship of the Blessed Virgin Mary',  // us
+    saint_adalbert_bishop: 'Saint Adalbert, Bishop and Martyr',  // us, gb
+    saint_aelred_of_rievaulx_abbot: 'Saint Aelred of Rievaulx, abbot',  // gb
+    saint_aengus_bishop: 'Saint Aengus, Bishop and Abbot',  // ireland
+    saint_agatha_of_sicily_virgin: 'Saint Agatha, Virgin and Martyr',  // us, gb
+    saint_agnes_of_bohemia_virgin: 'Saint Agnes of Bohemia, Virgin',
+    saint_agnes_tsao_kou_ying_martyr: 'Saint Agnes Tsao Kou Ying, Martyr',
+    saint_agnes_of_rome_virgin: 'Saint Agnes, Virgin and Martyr',  // us, gb
+    saint_aidan_of_ferns_bishop: 'Saint Aidan, Bishop',  // ireland  // of Ferns
+    saint_aidan_of_lindisfarne_bishop_and_the_saints_of_lindisfarne: 'Saint Aidan, Bishop, and the Saints of Lindisfarne',  // gb
+    saint_aidan_of_lindisfarne_bishop: 'Saint Aidan of Lindisfarne, Bishop and Missionary',  // ireland
     // saintAilbeBishop: 'Saint Ailbe, Bishop',  // ireland
     // saintAlbanMartyr: 'Saint Alban, Martyr',
     // saintAlbericCrescitelliPriestAndMartyr: 'Saint Alberic Crescitelli, Priest and Martyr',
