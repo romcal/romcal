@@ -133,6 +133,8 @@ Romcal.calendarFor({
   corpusChristiOnSunday: true | false,
   ascensionOnSunday: true | false,
   outputOptionalMemorials: true | false,
+  verbose: true | false,
+  prettyPrint: true | false,
 }).then(function (calendar) {
   console.log(calendar);
 });

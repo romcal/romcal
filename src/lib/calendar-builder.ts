@@ -79,16 +79,7 @@ export class CalendarBuilder {
    * Compute all the liturgical days that occur during a specific year (gregorian or liturgical).
    */
   public async compute(): Promise<RomcalCalendar> {
-    const {
-      ascensionOnSunday,
-      corpusChristiOnSunday,
-      country,
-      epiphanyOnSunday,
-      outputOptionalMemorials,
-      scope,
-      year,
-      locale,
-    } = this._config;
+    const { country, epiphanyOnSunday, scope, year } = this._config;
 
     // Set the year range depending on the calendar type
     const years = scope === 'liturgical' ? [year - 1, year] : [year];
@@ -128,14 +119,8 @@ export class CalendarBuilder {
     // Get the general calendar based on the given year
     const generalDatesPromise = years.map(async (thisYear) => {
       const yearSpecificConfig = new RomcalConfig({
+        ...this._config.toObject(),
         year: thisYear,
-        country,
-        locale,
-        epiphanyOnSunday,
-        corpusChristiOnSunday,
-        ascensionOnSunday,
-        outputOptionalMemorials,
-        scope: scope,
       });
       return [...(await CalendarBuilder.fetchCalendar('general', yearSpecificConfig))];
     });
@@ -149,14 +134,8 @@ export class CalendarBuilder {
     // Get the relevant national calendar object based on the given year and country
     const nationalDatesPromise = years.map(async (thisYear) => {
       const yearSpecificConfig = new RomcalConfig({
+        ...this._config.toObject(),
         year: thisYear,
-        country,
-        locale,
-        epiphanyOnSunday,
-        corpusChristiOnSunday,
-        ascensionOnSunday,
-        outputOptionalMemorials,
-        scope: scope,
       });
       return [...(await CalendarBuilder.fetchCalendar(country, yearSpecificConfig))];
     });

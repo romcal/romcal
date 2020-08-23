@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import { logger } from '@romcal/utils/logger/logger';
-import { isNil, isObject, isRomcalConfig, isString } from '@romcal/utils/type-guards/type-guards';
+import { isNil, isRomcalConfig, isString } from '@romcal/utils/type-guards/type-guards';
 import { RomcalCalendarName } from '@romcal/constants/countries/country.type';
 import { RomcalLocaleKey } from '@romcal/models/locale/locale-types.type';
 import { sanitizeLocale } from '@romcal/lib/locales';
@@ -59,17 +59,28 @@ export interface BaseRomcalConfig {
    * 2. `liturgical`: Religious calendar year (1st Sunday of Advent of the current year to the Saturday before the 1st Sunday of Advent in the next year).
    */
   readonly scope?: RomcalCalendarScope;
+  /**
+   * Enable logging output.
+   * Logs are newline delimited JSON (NDJSON),
+   * a convenient format for production usage and long-term storage.
+   */
+  readonly verbose?: boolean;
+  /**
+   * Prettify logs printed in the console, for a better experience in development environnements
+   * (instead of output them in NDJSON format).
+   */
+  readonly prettyPrint?: boolean;
 }
 
 export type RomcalConfigInCalendarDef = Required<
-  Omit<BaseRomcalConfig, 'country' | 'locale' | 'query' | 'year' | 'scope' | 'outputOptionalMemorials'>
+  Pick<BaseRomcalConfig, 'ascensionOnSunday' | 'corpusChristiOnSunday' | 'epiphanyOnSunday'>
 >;
 
 /**
  * A modified variant of [[RomcalConfig]] specifically for the [[Config]] class constructor
- * where all properties except query are **required**.
+ * where all properties are **required**.
  */
-type ConfigConstructorType = Required<Omit<BaseRomcalConfig, 'query'>>;
+type RomcalConfigArgs = Required<BaseRomcalConfig>;
 
 /**
  * The [[Config]] class encapsulates all options that can be sent to this library to adjust date output.
@@ -83,6 +94,8 @@ export class RomcalConfig implements BaseRomcalConfig {
   private readonly _ascensionOnSunday: boolean;
   private readonly _outputOptionalMemorials: boolean;
   private readonly _scope: RomcalCalendarScope;
+  private readonly _verbose: boolean;
+  private readonly _prettyPrint: boolean;
 
   /**
    * Constructs a new [[Config]] object
@@ -97,7 +110,9 @@ export class RomcalConfig implements BaseRomcalConfig {
     ascensionOnSunday,
     outputOptionalMemorials,
     scope,
-  }: ConfigConstructorType) {
+    verbose,
+    prettyPrint,
+  }: RomcalConfigArgs) {
     this._year = year;
     this._country = country;
     this._locale = locale;
@@ -106,6 +121,8 @@ export class RomcalConfig implements BaseRomcalConfig {
     this._ascensionOnSunday = ascensionOnSunday;
     this._outputOptionalMemorials = outputOptionalMemorials;
     this._scope = scope;
+    this._verbose = verbose;
+    this._prettyPrint = prettyPrint;
   }
 
   get year(): number {
@@ -144,6 +161,32 @@ export class RomcalConfig implements BaseRomcalConfig {
     return this._scope;
   }
 
+  get verbose(): boolean {
+    return this._verbose;
+  }
+
+  get prettyPrint(): boolean {
+    return this._prettyPrint;
+  }
+
+  /**
+   * Return the config settings as an Object
+   */
+  toObject(): RomcalConfigArgs {
+    return {
+      year: this._year,
+      country: this._country,
+      locale: this._locale,
+      epiphanyOnSunday: this.epiphanyOnSunday,
+      corpusChristiOnSunday: this._corpusChristiOnSunday,
+      ascensionOnSunday: this._ascensionOnSunday,
+      outputOptionalMemorials: this._outputOptionalMemorials,
+      scope: this._scope,
+      verbose: this._verbose,
+      prettyPrint: this._prettyPrint,
+    };
+  }
+
   /**
    * Get default configurations for the specified country from its calendar file.
    * If the country doesn't exist, return an empty object.
@@ -176,7 +219,7 @@ export class RomcalConfig implements BaseRomcalConfig {
    * Resolves the full configuration
    * @param maybeConfig An optional object that may be a usable instance of [[RomcalConfig]]
    */
-  static async resolveConfig(maybeConfig?: unknown): Promise<ConfigConstructorType> {
+  static async resolveConfig(maybeConfig?: unknown): Promise<RomcalConfigArgs> {
     // Initialize config with the default config
     let config: BaseRomcalConfig = await RomcalConfig.getConfig('general');
     const defaultLocale = 'en';
@@ -225,6 +268,8 @@ export class RomcalConfig implements BaseRomcalConfig {
       ascensionOnSunday: !!config.ascensionOnSunday, // Will use default if not defined
       outputOptionalMemorials: !!config.outputOptionalMemorials,
       scope: config.scope ?? 'gregorian', // Use the default value "gregorian" if scope not specified by user
-    } as ConfigConstructorType;
+      verbose: !!config.verbose,
+      prettyPrint: !!config.prettyPrint,
+    } as RomcalConfigArgs;
   }
 }
