@@ -1,7 +1,5 @@
 import { Schema, Validator } from 'jsonschema';
 import { default as Locales } from '@romcal/locales/index';
-import { TITLES } from '@romcal/constants/titles/titles.constant';
-import { GROUP_BY } from '@romcal/constants/group-by-option/group-by.constant';
 import { COUNTRIES } from '@romcal/constants/countries/countries.constant';
 
 export const getRomcalConfigJsonSchema = (): Schema => ({
@@ -26,41 +24,13 @@ export const getRomcalConfigJsonSchema = (): Schema => ({
     ascensionOnSunday: { type: 'boolean' },
     outputOptionalMemorials: { type: 'boolean' },
     scope: { type: 'string', enum: ['gregorian', 'liturgical'] },
-    query: { $ref: '/romcalQueryJsonSchema' },
-  },
-});
-
-export const getRomcalQueryJsonSchema = (): Schema => ({
-  id: '/romcalQueryJsonSchema',
-  type: 'object',
-  minProperties: 1,
-  properties: {
-    day: {
-      type: 'number',
-      enum: [0, 1, 2, 3, 4, 5, 6],
-      description: 'Acceptable values are numbers between 0 to 6 where 0 is Sunday and 6 is Saturday',
-    },
-    month: {
-      type: 'number',
-      enum: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-      description: 'Acceptable values are numbers between 0 to 11 where 0 is January and 11 is December',
-    },
-    group: {
-      type: 'string',
-      enum: [...GROUP_BY],
-      description: `Acceptable values are ${GROUP_BY.join(', ')}`,
-    },
-    title: {
-      type: 'string',
-      enum: Object.keys(TITLES),
-      description: `Acceptable values are ${Object.keys(TITLES).join(', ')}`,
-    },
+    verbose: { type: 'boolean' },
+    prettyPrint: { type: 'boolean' },
   },
 });
 
 export const getRomcalConfigSchemaValidator = (): Validator => {
   const validator = new Validator();
-  validator.addSchema(getRomcalQueryJsonSchema());
   validator.addSchema(getRomcalConfigJsonSchema());
   return validator;
 };

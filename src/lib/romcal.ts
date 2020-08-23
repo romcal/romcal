@@ -5,6 +5,7 @@ import { isInteger, isNil, isObject } from '@romcal/utils/type-guards/type-guard
 import { setLocale } from '@romcal/lib/locales';
 import { CalendarBuilder } from '@romcal/lib/calendar-builder';
 import { LiturgicalDay } from '@romcal/models/liturgical-day/liturgical-day.model';
+import { setLoggerOptions } from '@romcal/utils/logger/logger';
 
 export default class Romcal {
   /**
@@ -28,6 +29,9 @@ export default class Romcal {
         userConfig = options;
       }
     }
+
+    // Set logger options
+    setLoggerOptions({ verbose: !!userConfig.verbose, prettyPrint: !!userConfig.prettyPrint });
 
     // Sanitize incoming config into a complete configuration set
     const resolvedConfig = await RomcalConfig.resolveConfig(userConfig);
