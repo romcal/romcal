@@ -52,7 +52,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintAlphonsaOfTheImmaculateConceptionVirgin',
+      key: 'alphonsa_of_the_immaculate_conception_muttathupadathu_virgin',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-7-28`),
       liturgicalColors: LiturgicalColors.WHITE,

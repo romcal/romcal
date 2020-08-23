@@ -85,7 +85,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintAnthonyOfPaduaPriestAndDoctor',
+      key: 'anthony_of_padua_priest',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-6-13`),
       liturgicalColors: LiturgicalColors.WHITE,

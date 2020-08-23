@@ -70,7 +70,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-2-25`),
     },
     {
-      key: 'saint_agnes_tsao_kou_ying_martyr',
+      key: 'agnes_tsao_kou_ying_martyr',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-3-1`),
     },
@@ -148,7 +148,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-7-20`),
     },
     {
-      key: 'saintAlbericCrescitelliPriestAndMartyr',
+      key: 'alberic_crescitelli_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-21`),
     },

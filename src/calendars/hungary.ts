@@ -36,7 +36,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saint_adalbert_bishop',
+      key: 'adalbert_of_prague_bishop',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-4-23`),
       liturgicalColors: LiturgicalColors.RED,
@@ -101,7 +101,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-5-30`),
     },
     {
-      key: 'saint_agnes_of_bohemia_virgin',
+      key: 'agnes_of_bohemia_virgin',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-8`),
       liturgicalColors: LiturgicalColors.WHITE,

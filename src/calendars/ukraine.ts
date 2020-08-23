@@ -51,7 +51,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintAndrewBobolaPriestAndMartyr',
+      key: 'andrew_bobola_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-16`),
       metadata: {
@@ -67,7 +67,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintAlbertChmielowskiReligious',
+      key: 'albert_chmielowski_religious',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-17`),
     },

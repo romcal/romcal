@@ -14,7 +14,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
   const year = config.year;
   const _dates: Array<RomcalLiturgicalDayInput> = [
     {
-      key: 'saintAndreBessetteReligious',
+      key: 'andre_bessette_religious',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-1-7`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -90,7 +90,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintAnnePatronOfQuebecAndSaintJoachimParentsOfTheBlessedVirginMary',
+      key: 'joachim_and_anne_patroness_of_the_province_of_quebec_parents_of_mary',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-7-26`),
       liturgicalColors: LiturgicalColors.WHITE,

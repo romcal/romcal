@@ -255,46 +255,46 @@ export default {
     our_lord_of_miracles: 'Our Lord of Miracles',
     presentation_of_mary: 'Presentation of the Blessed Virgin Mary',  // us
     queenship_of_mary: 'Queenship of the Blessed Virgin Mary',  // us
-    saint_adalbert_bishop: 'Saint Adalbert, Bishop and Martyr',  // us, gb
-    saint_aelred_of_rievaulx_abbot: 'Saint Aelred of Rievaulx, abbot',  // gb
-    saint_aengus_bishop: 'Saint Aengus, Bishop and Abbot',  // ireland
-    saint_agatha_of_sicily_virgin: 'Saint Agatha, Virgin and Martyr',  // us, gb
-    saint_agnes_of_bohemia_virgin: 'Saint Agnes of Bohemia, Virgin',
-    saint_agnes_tsao_kou_ying_martyr: 'Saint Agnes Tsao Kou Ying, Martyr',
-    saint_agnes_of_rome_virgin: 'Saint Agnes, Virgin and Martyr',  // us, gb
-    saint_aidan_of_ferns_bishop: 'Saint Aidan, Bishop',  // ireland  // of Ferns
-    saint_aidan_of_lindisfarne_bishop_and_the_saints_of_lindisfarne: 'Saint Aidan, Bishop, and the Saints of Lindisfarne',  // gb
-    saint_aidan_of_lindisfarne_bishop: 'Saint Aidan of Lindisfarne, Bishop and Missionary',  // ireland
-    // saintAilbeBishop: 'Saint Ailbe, Bishop',  // ireland
-    // saintAlbanMartyr: 'Saint Alban, Martyr',
-    // saintAlbericCrescitelliPriestAndMartyr: 'Saint Alberic Crescitelli, Priest and Martyr',
-    // saintAlbertChmielowskiReligious: 'Saint Albert Chmielowski, Religious',
-    // saintAlbertoHurtadoPriest: 'Saint Alberto Hurtado, Priest',
-    // saintAlbertTheGreatBishopAndDoctor: 'Saint Albert the Great, Bishop and Doctor of the Church',  // us
-    // saintAloysiusGonzagaReligious: 'Saint Aloysius Gonzaga, Religious',  // us
-    // saintAlphonsaOfTheImmaculateConceptionVirgin: 'Saint Alphonsa of The Immaculate Conception, Virgin',
-    // saintAlphonsusMariaDeLiguoriBishopAndDoctorOfTheChurch: 'Saint Alphonsus Liguori, Bishop and Doctor of the Church',  // us
-    // saintAmandMissionary: 'Saint Amand, Bishop',
-    // saintAmbroseBishopAndDoctor: 'Saint Ambrose, Bishop and Doctor of the Church',  // us
-    // saintAndreBessetteReligious: 'Saint André Bessette, Religious',  // us, ca
-    // saintAndrewBobolaPriestAndMartyr: 'Saint Andrew Bobola, Priest and Martyr',
-    // saintAndrewDungLacAndCompanionsMartyrs: 'Saint Andrew Dũng-Lạc, Priest, and Companions, Martyrs',  // us
-    // saintAndrewKimTaegonPriestAndPaulChongHasangAndCompanionsMartyrs: 'Saint Andrew Kim Tae-gŏn, Priest, and Paul Chŏng Ha-sang and Companions, Martyrs',  // us
-    // saintAndrewTheApostle: 'Saint Andrew, Apostle',  // us, gb, scotland
-    // saintAndrewTheApostlePatronOfRussia: 'Saint Andrew, Apostle and Patron of Russia',  // us, but not in us
-    // saintAngelaMericiVirgin: 'Saint Angela Merici, Virgin',  // us, gb
-    // saintAnnePatronOfQuebecAndSaintJoachimParentsOfTheBlessedVirginMary: 'Saints Anne, Patron of the Province of Quebec, and Joachim, Parents of the Blessed Virgin Mary',  // us, but not in us, ca
-    // saintAnnoIiBishop: 'Saint Anno of Cologne, Bishop',
-    // saintAnselmOfCanterburyBishopAndDoctorOfTheChurch: 'Saint Anselm, Bishop and Doctor of the Church',  // us; Was: `Saint Anselm of Canterbury, Bishop and Doctor of the Church`, gb
-    // saintAnsgarBishop: 'Saint Ansgar, Bishop',  // us, gb
-    // saintAnthonyMaryClaretBishop: 'Saint Anthony Mary Claret, Bishop',  // us
-    // saintAnthonyOfEgyptAbbot: 'Saint Anthony, Abbot',  // us; Was: Saint Anthony of Egypt, Abbot, gb
-    // saintAnthonyOfPaduaPriestAndDoctor: 'Saint Anthony of Padua, Priest and Doctor of the Church',  // us, gb
-    // saintAnthonyOfSaintAnneGalvaoFreiGalvaoPriest: 'Saint Anthony of Saint Anne Galvao (Frei Galvao), Priest',
-    // saintAnthonyOfTheCavesMonk: 'Saint Anthony of the Caves, Monk',
-    // saintAnthonyZaccariaPriest: 'Saint Anthony Zaccaria, Priest',  // us
-    // saintApollinaris: 'Saint Apollinaris, Bishop and Martyr',  // us, gb
-    // saintAsaphBishop: 'Saint Asaph, Bishop',  // gb (wales)
+    adalbert_of_prague_bishop: 'Saint Adalbert, Bishop and Martyr',  // us, gb
+    aelred_of_rievaulx_abbot: 'Saint Aelred of Rievaulx, Abbot',  // gb
+    aengus_of_tallaght_bishop: 'Saint Aengus, Bishop and Abbot',  // ireland
+    agatha_of_sicily_virgin: 'Saint Agatha, Virgin and Martyr',  // us, gb
+    agnes_of_bohemia_virgin: 'Saint Agnes of Bohemia, Virgin',
+    agnes_tsao_kou_ying_martyr: 'Saint Agnes Tsao Kou Ying, Martyr',
+    agnes_of_rome_virgin: 'Saint Agnes, Virgin and Martyr',  // us, gb
+    aidan_of_ferns_bishop: 'Saint Aidan, Bishop',  // ireland
+    aidan_of_lindisfarne_bishop_and_the_saints_of_lindisfarne: 'Saint Aidan, Bishop, and the Saints of Lindisfarne',  // gb
+    aidan_of_lindisfarne_bishop: 'Saint Aidan of Lindisfarne, Bishop and Missionary',  // ireland
+    ailbe_of_emly_bishop: 'Saint Ailbe, Bishop',  // ireland
+    alban_of_britain_martyr: 'Saint Alban, Martyr',
+    alberic_crescitelli_priest: 'Saint Alberic Crescitelli, Priest and Martyr',
+    albert_chmielowski_religious: 'Saint Albert Chmielowski, Religious',
+    alberto_hurtado_priest: 'Saint Alberto Hurtado, Priest',
+    albert_the_great_bishop: 'Saint Albert the Great, Bishop and Doctor of the Church',  // us
+    aloysius_gonzaga_religious: 'Saint Aloysius Gonzaga, Religious',  // us
+    alphonsa_of_the_immaculate_conception_muttathupadathu_virgin: 'Saint Alphonsa of the Immaculate Conception Muttathupadathu, Virgin',
+    alphonsus_liguori_bishop: 'Saint Alphonsus Liguori, Bishop and Doctor of the Church',  // us
+    amand_of_maastricht_bishop: 'Saint Amand, Bishop',
+    ambrose_of_milan_bishop: 'Saint Ambrose, Bishop and Doctor of the Church',  // us
+    andre_bessette_religious: 'Saint André Bessette, Religious',  // us, ca
+    andrew_bobola_priest: 'Saint Andrew Bobola, Priest and Martyr',
+    andrew_dung_lac_priest_and_companions_martyrs: 'Saint Andrew Dũng-Lạc, Priest, and Companions, Martyrs',  // us
+    andrew_kim_tae_gon_priest_paul_chong_ha_sang_and_companions_martyrs: 'Saint Andrew Kim Tae-gŏn, Priest, Paul Chŏng Ha-sang and Companions, Martyrs',  // us
+    andrew_apostle: 'Saint Andrew, Apostle',  // us, gb, scotland
+    andrew_apostle_patron_of_russia: 'Saint Andrew, Apostle and Patron of Russia',  // us, but not in us
+    angela_merici_virgin: 'Saint Angela Merici, Virgin',  // us, gb
+    joachim_and_anne_patroness_of_the_province_of_quebec_parents_of_mary: 'Saints Anne, Patroness of the Province of Quebec, and Joachim, Parents of the Blessed Virgin Mary',  // us, but not in us, ca
+    anno_of_cologne_bishop: 'Saint Anno of Cologne, Bishop',
+    anselm_of_canterbury_bishop: 'Saint Anselm, Bishop and Doctor of the Church',  // us, gb
+    ansgar_of_hamburg_bishop: 'Saint Ansgar, Bishop',  // us, gb
+    anthony_mary_claret_bishop: 'Saint Anthony Mary Claret, Bishop',  // us
+    anthony_of_egypt_abbot: 'Saint Anthony, Abbot',  // us, gb
+    anthony_of_padua_priest: 'Saint Anthony of Padua, Priest and Doctor of the Church',  // us, gb
+    anthony_of_saint_anne_galvao_priest: 'Saint Anthony of Saint Anne Galvão, Priest',
+    anthony_of_the_caves_monk: 'Saint Anthony of the Caves, Monk',
+    anthony_zaccaria_priest: 'Saint Anthony Zaccaria, Priest',  // us
+    apollinaris_of_ravenna_bishop: 'Saint Apollinaris, Bishop and Martyr',  // us, gb
+    asaph_of_wales_bishop: 'Saint Asaph, Bishop',  // gb (wales)
     // saintAsicusBishop: 'Saint Asicus, Bishop',  // ireland
     // saintAthanasiusBishopAndDoctor: 'Saint Athanasius, Bishop and Doctor of the Church',  // us
     // saintAttractaVirgin: 'Saint Attracta, Virgin',  // ireland
@@ -444,7 +444,7 @@ export default {
     // saintHildegardOfBingenAbbessAndDoctor: 'Saint Hildegard of Bingen, Abbess and Doctor of the Church',
     // saintHubertOfLiegeBishop: 'Saint Hubert, Bishop',  // Note: key `OfLiege` in in the key name
     // saintHughOfLincolnBishop: 'Saint Hugh of Lincoln, Bishop',  // gb
-    hyacinthOfPolandPriest: 'Saint Hyacinth, Priest',
+    // hyacinthOfPolandPriest: 'Saint Hyacinth, Priest',
     // saintIgnatiusOfAntiochBishopAndMartyr: 'Saint Ignatius of Antioch, Bishop and Martyr',  // us
     // saintIgnatiusOfLoyolaPriest: 'Saint Ignatius of Loyola, Priest',  // us, gb
     // saintIldephonsusOfToledoBishop: 'Saint Ildephonsus of Toledo, Bishop',
@@ -502,7 +502,7 @@ export default {
     // saintJosephFreinademetzPriest: 'Saint Joseph Freinademetz, Priest',
     // saintJosephineBakhitaVirgin: 'Saint Josephine Bakhita, Virgin',  // us, gb
     // saintJosephOfCalasanzPriest: 'Saint Joseph of Calasanz, Priest',  // us
-    josephSpouseOfMaryCanada: 'Saint Joseph, Spouse of the Blessed Virgin Mary and Principal Patron of Canada',  // us, but not in the us, gb, ca
+    // josephSpouseOfMaryCanada: 'Saint Joseph, Spouse of the Blessed Virgin Mary and Principal Patron of Canada',  // us, but not in the us, gb, ca
     // saintJosephTheWorker: 'Saint Joseph the Worker',  // us
     // saintJosephYuanPriestAndMartyr: 'Saint Joseph Yuan, Priest and Martyr',
     // saintJosephZhangDapengMartyr: 'Saint Joseph Zhang Dapeng, Martyr',
@@ -609,7 +609,7 @@ export default {
     // saintPaschalBaylon: 'Saint Paschal Baylón',
     // saintPatrickBishop: 'Saint Patrick, Bishop',  // us, gb, scotland, ireland, australia
     // saintPaulChenChangpinAndCompanionsMartyrs: 'Saint Paul Chen Changpin and Companions, Martyrs',
-    saintPaulinaOfTheAgonizingHeartOfJesusVirgin: 'Saint Paulina of the Agonizing Heart of Jesus Visintainer, Virgin',  // gb, but not in gb
+    // saintPaulinaOfTheAgonizingHeartOfJesusVirgin: 'Saint Paulina of the Agonizing Heart of Jesus Visintainer, Virgin',  // gb, but not in gb
     // saintPaulinusOfNolaBishop: 'Saint Paulinus of Nola, Bishop',  // us, gb
     // saintPaulinusOfTrierBishop: 'Saint Paulinus of Trier, Bishop',
     // saintPaulinusOfYorkBishop: 'Saint Paulinus of York, Bishop',  // gb
@@ -679,7 +679,7 @@ export default {
     // saintSigismundMartyr: 'Saint Sigismund, Martyr',
     // saintSimonOfLipnicaPriest: 'Saint Simon of Lipnica, Priest',
     // saintSixtusIiPopeAndCompanionsMartyrs: 'Saint Sixtus II, Pope, and Companions, Martyrs',  // us
-    // saintsJoachimAndAnne: 'Saints Joachim and Anne, Parents of the Blessed Virgin Mary',  // us; Was: `Saints Joachim and Anne`
+    // saintsJoachimAndAnne: 'Saints Joachim and Anne, Parents of the Blessed Virgin Mary',  // us; Was: `Saints Joachim and Anne`  // joachim_and_anne_parents_of_mary
     // saintsJohnDeBrebeufIsaacJoguesPriestsAndCompanionsMartyrs: 'Saints John de Brébeuf and Isaac Jogues, Priests, and Companions, Martyrs',  // us
     // saintsJohnDeBrebeufIsaacJoguesPriestsAndCompanionsMartyrsSecondaryPatronsOfCanada: 'Saints John de Brébeuf and Isaac Jogues, Priests, and Companions, Martyrs and Secondary Patrons of Canada',  // us, but not in us; ca
     // saintsJohnFisherBishopAndThomasMoreMartyrs: 'Saints John Fisher, Bishop, and Thomas More, Martyrs',  // us, australia

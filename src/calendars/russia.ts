@@ -24,7 +24,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-1-29`),
     },
     {
-      key: 'saintAngelaMericiVirgin',
+      key: 'angela_merici_virgin',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-29`),
     },
@@ -90,7 +90,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintAnthonyOfTheCavesMonk',
+      key: 'anthony_of_the_caves_monk',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-24`),
     },
@@ -156,7 +156,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintAndrewTheApostlePatronOfRussia',
+      key: 'andrew_apostle_patron_of_russia',
       rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-11-30`),
       liturgicalColors: LiturgicalColors.WHITE,
