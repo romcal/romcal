@@ -125,20 +125,22 @@ This method accepts an object of configuration properties to obtain customized o
 
 ```javascript
 Romcal.calendarFor({
-  year: 2020,
-  scope: 'gregorian' | 'liturgical',
-  country: 'unitedStates',
-  locale: 'en',
-  epiphanyOnSunday: true | false,
-  corpusChristiOnSunday: true | false,
-  ascensionOnSunday: true | false,
-  outputOptionalMemorials: true | false,
-  verbose: true | false,
-  prettyPrint: true | false,
+  year: 2020,                               // the calendar year to compute.
+  scope: 'gregorian' | 'liturgical',        // 'gregorian': Jan 1 to Dec 31 ; or 'liturgical': the first Sunday of Advent to the last Saturday of Ordinary Time
+  country: 'unitedStates',                  // the 'general' calendar or any particular calendar
+  locale: 'en',                             // to get calendar data in the desired locale
+  epiphanyOnSunday: true | false,           // Epiphany always a Sunday (between January 2 - 8), or on January 6
+  corpusChristiOnSunday: true | false,      // Corpus Christi always a Sunday, or the Thursday after Trinity Sunday
+  ascensionOnSunday: true | false,          // Ascension always a Sunday, or the 40th day of Easter (a Thursday)
+  outputOptionalMemorials: true | false,    // also output available optional memorials, in addition of a weedkay
+  verbose: true | false,                    // enable logging output from romcal
+  prettyPrint: true | false,                // prettify logs printed in the console, for a better experience in development environnements
 }).then(function (calendar) {
   console.log(calendar);
 });
 ```
+
+For further information about these properties and the default options: :books: [Configuration options](docs/general-usage.md#configuration-options).
 
 A similar `.liturgicalDayFor` method is also available to retrieve data for a specific date only.
 The first parameter is a `Date` object, the second is the optional configuration properties (as for the `.calendarFor`).
