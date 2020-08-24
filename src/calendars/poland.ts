@@ -54,7 +54,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintCasimir',
+      key: 'casimir_of_poland',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-3-4`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -99,7 +99,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintCatherineOfSienaVirginAndDoctorOfTheChurch',
+      key: 'catherine_of_siena_virgin',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-4-29`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -231,13 +231,13 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintBenedictOfNursiaAbbot',
+      key: 'benedict_of_nursia_abbot',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-7-11`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintBrunoBonifaceOfQuerfurtBishopAndMartyr',
+      key: 'bruno_of_querfurt_bishop',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-7-12`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -249,7 +249,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintCamillusDeLellisPriest',
+      key: 'camillus_de_lellis_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-14`),
     },
@@ -293,7 +293,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintCharbelMakhloufPriestAndHermit',
+      key: 'sharbel_makhluf_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-28`),
     },
@@ -346,7 +346,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-9-9`),
     },
     {
-      key: 'saintDenisAndCompanionsMartyrs',
+      key: 'denis_of_paris_bishop_and_companions_martyrs',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-10`),
     },
@@ -486,7 +486,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-12-2`),
     },
     {
-      key: 'saintBarbaraVirginAndMartyr',
+      key: 'barbara_of_heliopolis_virgin',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-12-4`),
     },

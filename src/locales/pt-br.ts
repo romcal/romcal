@@ -47,19 +47,19 @@ export default {
     GREEN: 'verde',
     PURPLE: 'roxo',
     RED: 'vermelho',
-    ROSE: 'rosa',  // TODO: ??? róseo
+    ROSE: 'rosa',
     WHITE: 'branco',
   },
   ranks: {
-    SOLEMNITY: 'Solenidade',
-    SUNDAY: 'domingo',  // TODO: Is it always written with capital first letter or not?
+    SOLEMNITY: 'solenidade',
+    SUNDAY: 'domingo',
     TRIDUUM: 'Tríduo Pascal',
     HOLY_WEEK: 'Semana Santa',
     FEAST: 'festa',
     MEMORIAL: 'memória',
     OPT_MEMORIAL: 'memória facultativa',
-    COMMEMORATION: 'comemoração',  // TODO: Should it be rather `comemoração facultativa`?
-    WEEKDAY: 'ferial',
+    COMMEMORATION: 'comemoração',
+    WEEKDAY: 'dia de semana',
   },
   celebrations: {
     all_saints: 'Todos os Santos',

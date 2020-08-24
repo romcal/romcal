@@ -422,14 +422,14 @@ describe('Testing national calendar overrides', () => {
         year: 2019,
         outputOptionalMemorials: true,
       });
-      const saintChristopherMagallanesAndCompanionsMartyrs = dates.find((d) => {
-        return d.key === 'saintChristopherMagallanesAndCompanionsMartyrs';
+      const christopherMagallanesPriestAndCompanionsMartyrs = dates.find((d) => {
+        return d.key === 'christopher_magallanes_priest_and_companions_martyrs';
       });
-      const saintChristopherMagallanesAndCompanionsMartyrsMexico = mexicoDates.find((d) => {
-        return d.key === 'saintChristopherMagallanesAndCompanionsMartyrs';
+      const christopherMagallanesPriestAndCompanionsMartyrsMexico = mexicoDates.find((d) => {
+        return d.key === 'christopher_magallanes_priest_and_companions_martyrs';
       });
-      expect(saintChristopherMagallanesAndCompanionsMartyrs?.rank).toEqual(Ranks.OPT_MEMORIAL);
-      expect(saintChristopherMagallanesAndCompanionsMartyrsMexico?.rank).toEqual(Ranks.MEMORIAL);
+      expect(christopherMagallanesPriestAndCompanionsMartyrs?.rank).toEqual(Ranks.OPT_MEMORIAL);
+      expect(christopherMagallanesPriestAndCompanionsMartyrsMexico?.rank).toEqual(Ranks.MEMORIAL);
     });
   });
 

@@ -33,7 +33,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintDavidBishop',
+      key: 'david_of_wales_bishop',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-3-1`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -100,7 +100,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintCatherineOfSienaVirginAndDoctorOfTheChurch',
+      key: 'catherine_of_siena_virgin',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-4-29`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -120,7 +120,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-5-19`),
     },
     {
-      key: 'saintBedeTheVenerablePriestAndDoctor',
+      key: 'bede_the_venerable_priest',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-5-25`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -129,13 +129,13 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintAugustineOfCanterburyBishop',
+      key: 'augustine_of_canterbury_bishop',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-5-27`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintBonifaceBishopAndMartyr',
+      key: 'boniface_of_mainz_bishop',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-6-5`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -149,7 +149,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintColumbaAbbotAndMissionary',
+      key: 'columba_of_iona_abbot',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-9`),
     },
@@ -180,7 +180,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-7-1`),
     },
     {
-      key: 'saintBenedictOfNursiaAbbot',
+      key: 'benedict_of_nursia_abbot',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-7-11`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -189,7 +189,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintBridgetOfSwedenReligious',
+      key: 'bridget_of_sweden_religious',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-7-23`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -231,7 +231,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintCuthbertBishop',
+      key: 'cuthbert_of_lindisfarne_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-4`),
     },

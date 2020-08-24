@@ -30,7 +30,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-1-23`),
     },
     {
-      key: 'saintAugustineZhaoRongPriestAndMartyr',
+      key: 'augustine_zhao_rong_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-27`),
     },
@@ -134,7 +134,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-7-8`),
     },
     {
-      key: 'saintAugustineZhaoRongPriestAndCompanionsMartyrs',
+      key: 'augustine_zhao_rong_priest_and_companions_martyrs',
       rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-7-9`),
       liturgicalColors: LiturgicalColors.RED,

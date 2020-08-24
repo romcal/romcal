@@ -295,76 +295,76 @@ export default {
     anthony_zaccaria_priest: 'Saint Anthony Zaccaria, Priest',  // us
     apollinaris_of_ravenna_bishop: 'Saint Apollinaris, Bishop and Martyr',  // us, gb
     asaph_of_wales_bishop: 'Saint Asaph, Bishop',  // gb (wales)
-    // saintAsicusBishop: 'Saint Asicus, Bishop',  // ireland
-    // saintAthanasiusBishopAndDoctor: 'Saint Athanasius, Bishop and Doctor of the Church',  // us
-    // saintAttractaVirgin: 'Saint Attracta, Virgin',  // ireland
-    // saintAugustineOfCanterburyBishop: 'Saint Augustine of Canterbury, Bishop',  // us, gb
-    // saintAugustineOfHippoBishopAndDoctorOfTheChurch: 'Saint Augustine, Bishop and Doctor of the Church',  // us; Was: `Saint Augustine of Hippo, Bishop and Doctor of the Church`
-    // saintAugustineZhaoRongPriestAndCompanionsMartyrs: 'Saint Augustine Zhao Rong, Priest, and Companions, Martyrs',  // us, gb
-    // saintAugustineZhaoRongPriestAndMartyr: 'Saint Augustine Zhao Rong, Priest and Martyr',  // us, but not in us
-    // saintBarbaraVirginAndMartyr: 'Saint Barbara, Virgin and Martyr',
-    // saintBarnabasTheApostle: 'Saint Barnabas, Apostle',  // us, gb
-    // saintBartholomewTheApostle: 'Saint Bartholomew, Apostle',  // us
-    // saintBeatriceOfSilvaVirgin: 'Saint Beatrice of Silva, Virgin',
-    // saintBedeTheVenerablePriestAndDoctor: 'Saint Bede the Venerable, Priest and Doctor of the Church',  // us
-    // saintBenedictOfNursiaAbbot: 'Saint Benedict, Abbot',  // us; Was: `Saint Benedict of Nursia, Abbot, Patron of Europe`, gb, scotland
-    // saintBennoOfMeissenBishop: 'Saint Benno of Meissen, Bishop',
-    // saintBernadetteSoubirousVirgin: 'Saint Bernadette Soubirous, Virgin',
-    // saintBernardineOfSienaPriest: 'Saint Bernardine of Siena, Priest',  // us, gb in en-gb
-    // saintBernardOfClairvauxAbbotAndDoctorOfTheChurch: 'Saint Bernard, Abbot and Doctor of the Church',  // us; Was: `Saint Bernard of Clairvaux, Abbot and Doctor of the Church`
-    // saintBeunoAbbot: 'Saint Beuno, Abbot',  // gb (wales)
-    // saintBlaseBishopAndMartyr: 'Saint Blaise, Bishop and Martyr',  // us, gb
-    // saintBonaventureBishopAndDoctor: 'Saint Bonaventure, Bishop and Doctor of the Church',  // us, gb
-    // saintBonifaceBishopAndMartyr: 'Saint Boniface, Bishop and Martyr',  // us, gb
-    // saintBrendanAbbot: 'Saint Brendan, Abbot',  // ireland
-    // saintBridgetOfSwedenReligious: 'Saint Bridget, Religious',  // us; Was: `Saint Bridget of Sweden, Religious, Patron of Europe`, gb, scotland
-    // saintBrigidVirgin: 'Saint Brigid, Virgin',  // ireland
-    // saintBrotherMutienMarieReligious: 'Saint Brother Mutien Marie, Religious',
-    // saintBrunoBonifaceOfQuerfurtBishopAndMartyr: 'Saint Bruno Boniface of Querfurt, Bishop And Martyr',
-    // saintBrunoPriest: 'Saint Bruno, Priest',  // us
-    // saintCaesariusOfArlesBishop: 'Saint Caesarius of Arles, Bishop',
-    // saintCajetanPriest: 'Saint Cajetan, Priest',  // us
-    // saintCallistusIPopeAndMartyr: 'Saint Callistus I, Pope and Martyr',  // us
-    // saintCamillusDeLellisPriest: 'Saint Camillus de Lellis, Priest',  // us, gb
-    // saintCaniceAbbot: 'Saint Canice, Abbot',  // ireland
-    // saintCanuteMartyr: 'Saint Canute, Martyr',
-    // saintCarthageBishopMochuta: 'Saint Carthage, Bishop',  // ireland
-    // saintCasimir: 'Saint Casimir',  // us, gb
-    // saintCatherineOfAlexandriaVirginAndMartyr: 'Saint Catherine of Alexandria, Virgin and Martyr',  // us
-    // saintCatherineOfSienaVirginAndDoctorOfTheChurch: 'Saint Catherine of Siena, Virgin and Doctor of the Church',  // us; gb, scotland
-    // saintCeallachCelsusBishop: 'Saint Ceallach, Bishop',  // ireland
-    // saintCeciliaVirginAndMartyr: 'Saint Cecilia, Virgin and Martyr',  // us
-    // saintCharbelMakhloufPriestAndHermit: 'Saint Sharbel Makhlūf, Priest',  // us; Was: `Saint Charbel Makhlouf, Priest and Hermit`, gb
-    // saintCharlesBorromeoBishop: 'Saint Charles Borromeo, Bishop',  // us
-    // saintChristopherMagallanesAndCompanionsMartyrs: 'Saint Christopher Magallanes, Priest, and Companions, Martyrs',  // us
-    // saintChristopherMartyr: 'Saint Christopher, Martyr',
-    // saintCiaranAbbot: 'Saint Ciaran, Abbot',  // ireland
-    // saintClareVirgin: 'Saint Clare, Virgin',  // us
-    // saintClementIPopeAndMartyr: 'Saint Clement I, Pope and Martyr',  // us
-    // saintClementMaryHofbauerPriest: 'Saint Clement Mary Hofbauer, Priest',
-    // saintClotilde: 'Saint Clotilde',
-    // saintColmanOfCloyneBishop: 'Saint Colman of Cloyne, Bishop',  // ireland
-    // saintColmanOfDromoreBishop: 'Saint Colman of Dromore, Bishop',  // ireland
-    // saintColmanOfKilmacduaghBishop: 'Saint Colman of Kilmacduagh, Bishop',  // ireland
-    // saintColumbaAbbotAndMissionary: 'Saint Columba, Abbot',  // gb; Was: `Saint Columba, Abbot and Missionary`, scotland, ireland in en-IE
-    // saintColumbanAbbot: 'Saint Columban, Abbot',  // us, ireland in en-IE
-    // saintComgallAbbot: 'Saint Comgall, Abbot',  // ireland
-    // saintConlethBishop: 'Saint Conleth, Bishop',  // ireland
-    // saintConradOfParzhamReligious: 'Saint Conrad of Parzham, Religious',
-    // saintCorbinianBishop: 'Saint Corbinian, Bishop',
-    // saintCuthbertBishop: 'Saint Cuthbert, Bishop',  // gb
-    // saintCyrilOfAlexandriaBishopAndDoctor: 'Saint Cyril of Alexandria, Bishop and Doctor of the Church',  // us, gb
-    // saintCyrilOfJerusalemBishopAndDoctor: 'Saint Cyril of Jerusalem, Bishop and Doctor of the Church',  // us, gb
-    // saintDamasusIPope: 'Saint Damasus I, Pope',  // us
-    // saintDamienDeVeusterPriest: 'Saint Damien de Veuster, Priest',  // us
-    // saintDavidBishop: 'Saint David, Bishop',  // gb, wales, ireland
-    // saintDavidLewisPriestAndMartyr: 'Saint David Lewis, Priest and Martyr',  // gb (wales)
-    // saintDavnetVirgin: 'Saint Davnet, Virgin',  // ireland
-    // saintDeclanBishop: 'Saint Declan, Bishop',  // ireland
-    // saintDeiniolBishop: 'Saint Deiniol, Bishop',  // gb (wales)
-    // saintDemetrius: 'Saint Demetrius',
-    // saintDenisAndCompanionsMartyrs: 'Saint Denis, Bishop, and Companions, Martyrs',  // us
-    // saintDionysiusTheAreopagite: 'Saint Dionysius the Areopagite',
+    asicus_of_elphin_bishop: 'Saint Asicus, Bishop',  // ireland
+    athanasius_of_alexandria_bishop: 'Saint Athanasius, Bishop and Doctor of the Church',  // us
+    attracta_of_killaraght_virgin: 'Saint Attracta, Virgin',  // ireland
+    augustine_of_canterbury_bishop: 'Saint Augustine of Canterbury, Bishop',  // us, gb
+    augustine_of_hippo_bishop: 'Saint Augustine, Bishop and Doctor of the Church',  // us
+    augustine_zhao_rong_priest_and_companions_martyrs: 'Saint Augustine Zhao Rong, Priest, and Companions, Martyrs',  // us, gb
+    augustine_zhao_rong_priest: 'Saint Augustine Zhao Rong, Priest and Martyr',  // us, but not in us
+    barbara_of_heliopolis_virgin: 'Saint Barbara, Virgin and Martyr',
+    barnabas_apostle: 'Saint Barnabas, Apostle',  // us, gb
+    bartholomew_apostle: 'Saint Bartholomew, Apostle',  // us
+    beatrice_da_silva_meneses_virgin: 'Saint Beatrice da Silva Meneses, Virgin',
+    bede_the_venerable_priest: 'Saint Bede the Venerable, Priest and Doctor of the Church',  // us
+    benedict_of_nursia_abbot: 'Saint Benedict, Abbot',  // us, gb, scotland
+    benno_of_meissen_bishop: 'Saint Benno of Meissen, Bishop',
+    bernadette_soubirous_virgin: 'Saint Bernadette Soubirous, Virgin',
+    bernardine_of_siena_priest: 'Saint Bernardine of Siena, Priest',  // us, gb in en-gb
+    bernard_of_clairvaux_abbot: 'Saint Bernard, Abbot and Doctor of the Church',  // us
+    beuno_of_wales_abbot: 'Saint Beuno, Abbot',  // gb (wales)
+    blaise_of_sebaste_bishop: 'Saint Blaise, Bishop and Martyr',  // us, gb
+    bonaventure_of_bagnoregio_bishop: 'Saint Bonaventure, Bishop and Doctor of the Church',  // us, gb
+    boniface_of_mainz_bishop: 'Saint Boniface, Bishop and Martyr',  // us, gb
+    brendan_of_clonfert_abbot: 'Saint Brendan, Abbot',  // ireland
+    bridget_of_sweden_religious: 'Saint Bridget, Religious',  // us, gb, scotland
+    brigid_of_kildare_virgin: 'Saint Brigid, Virgin',  // ireland
+    mutien_marie_wiaux_religious: 'Saint Mutien-Marie Wiaux, Religious',
+    bruno_of_querfurt_bishop: 'Saint Bruno of Querfurt, Bishop And Martyr',
+    bruno_of_cologne_priest: 'Saint Bruno, Priest',  // us
+    caesarius_of_arles_bishop: 'Saint Caesarius of Arles, Bishop',
+    cajetan_of_thiene_priest: 'Saint Cajetan, Priest',  // us
+    callistus_i_pope: 'Saint Callistus I, Pope and Martyr',  // us
+    camillus_de_lellis_priest: 'Saint Camillus de Lellis, Priest',  // us, gb
+    canice_of_kilkenny_abbot: 'Saint Canice, Abbot',  // ireland
+    canute_iv_of_denmark_martyr: 'Saint Canute, Martyr',
+    carthage_of_lismore_bishop: 'Saint Carthage, Bishop',  // ireland
+    casimir_of_poland: 'Saint Casimir',  // us, gb
+    catherine_of_alexandria_virgin: 'Saint Catherine of Alexandria, Virgin and Martyr',  // us
+    catherine_of_siena_virgin: 'Saint Catherine of Siena, Virgin and Doctor of the Church',  // us; gb, scotland
+    ceallach_of_armagh_bishop: 'Saint Ceallach, Bishop',  // ireland
+    cecilia_of_rome_virgin: 'Saint Cecilia, Virgin and Martyr',  // us
+    sharbel_makhluf_priest: 'Saint Sharbel Makhlūf, Priest',  // us, gb
+    charles_borromeo_bishop: 'Saint Charles Borromeo, Bishop',  // us
+    christopher_magallanes_priest_and_companions_martyrs: 'Saint Christopher Magallanes, Priest, and Companions, Martyrs',  // us
+    christopher_of_palestine_martyr: 'Saint Christopher, Martyr',
+    ciaran_of_clonmacnoise_abbot: 'Saint Ciaran, Abbot',  // ireland
+    clare_of_assisi_virgin: 'Saint Clare, Virgin',  // us
+    clement_i_pope: 'Saint Clement I, Pope and Martyr',  // us
+    clement_mary_hofbauer_priest: 'Saint Clement Mary Hofbauer, Priest',
+    clotilde_of_burgundy: 'Saint Clotilde',
+    colman_of_cloyne_bishop: 'Saint Colman of Cloyne, Bishop',  // ireland
+    colman_of_dromore_bishop: 'Saint Colman of Dromore, Bishop',  // ireland
+    colman_of_kilmacduagh_bishop: 'Saint Colman of Kilmacduagh, Bishop',  // ireland
+    columba_of_iona_abbot: 'Saint Columba, Abbot',  // gb, scotland, ireland in en-IE
+    columban_of_ireland_abbot: 'Saint Columban, Abbot',  // us, ireland in en-IE
+    comgall_of_bangor_abbot: 'Saint Comgall, Abbot',  // ireland
+    conleth_of_kildare_bishop: 'Saint Conleth, Bishop',  // ireland
+    conrad_of_parzham_religious: 'Saint Conrad of Parzham, Religious',
+    corbinian_of_freising_bishop: 'Saint Corbinian, Bishop',
+    cuthbert_of_lindisfarne_bishop: 'Saint Cuthbert, Bishop',  // gb
+    cyril_of_alexandria_bishop: 'Saint Cyril of Alexandria, Bishop and Doctor of the Church',  // us, gb
+    cyril_of_jerusalem_bishop: 'Saint Cyril of Jerusalem, Bishop and Doctor of the Church',  // us, gb
+    damasus_i_pope: 'Saint Damasus I, Pope',  // us
+    damien_de_veuster_priest: 'Saint Damien de Veuster, Priest',  // us
+    david_of_wales_bishop: 'Saint David, Bishop',  // gb, wales, ireland
+    david_lewis_priest: 'Saint David Lewis, Priest and Martyr',  // gb (wales)
+    davnet_of_sliabh_beagh_virgin: 'Saint Davnet, Virgin',  // ireland
+    declan_of_ardmore_bishop: 'Saint Declan, Bishop',  // ireland
+    deiniol_of_bangor_bishop: 'Saint Deiniol, Bishop',  // gb (wales)
+    demetrius_of_thessaloniki_martyr: 'Saint Demetrius, Martyr',
+    denis_of_paris_bishop_and_companions_martyrs: 'Saint Denis, Bishop, and Companions, Martyrs',  // us
+    dionysius_the_areopagite_bishop: 'Saint Dionysius the Areopagite, Bishop and Martyr',
     // saintDominicPriest: 'Saint Dominic, Priest',  // us, australia, nz
     // saintDubriciusBishop: 'Saint Dyfrig, Bishop',  // gb (wales)
     // saintEdmundCampionPriestAndMartyr: 'Saint Edmund Campion, Priest and Martyr',

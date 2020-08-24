@@ -34,6 +34,6 @@ export default {
     saintLouisMarieGrignionDeMontfortPriest: 'Saint Louis Marie Grignion de Montfort, Priest',
     saintPiusVPope: 'Saint Pius V, Pope and Religious',  // This key should be removed after one can add titles within celebration definions
     saintPaulinaOfTheAgonizingHeartOfJesusVirgin: 'Saint Paulina of the Agonising Heart of Jesus Visintainer, Virgin',
-    saintBernardineOfSienaPriest: 'Saint Bernardine of Siena, Priest, Religious and Missionary',  // This key should be removed after one can add titles within celebration definions
+    bernardine_of_siena_priest: 'Saint Bernardine of Siena, Priest, Religious and Missionary',  // This key should be removed after one can add titles within celebration definions
   },
 } as RomcalLocale;
