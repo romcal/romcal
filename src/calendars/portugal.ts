@@ -104,7 +104,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-6-20`),
     },
     {
-      key: 'saintElizabethOfPortugal',
+      key: 'elizabeth_of_portugal',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-7-4`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -176,7 +176,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintFructuosusSaintMartinOfDumeAndSaintGeraldBishops',
+      key: 'fructuosus_of_braga_martin_of_dume_and_gerald_of_braga_bishops',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-12-5`),
       liturgicalColors: LiturgicalColors.WHITE,

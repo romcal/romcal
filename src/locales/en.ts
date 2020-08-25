@@ -365,77 +365,77 @@ export default {
     demetrius_of_thessaloniki_martyr: 'Saint Demetrius, Martyr',
     denis_of_paris_bishop_and_companions_martyrs: 'Saint Denis, Bishop, and Companions, Martyrs',  // us
     dionysius_the_areopagite_bishop: 'Saint Dionysius the Areopagite, Bishop and Martyr',
-    // saintDominicPriest: 'Saint Dominic, Priest',  // us, australia, nz
-    // saintDubriciusBishop: 'Saint Dyfrig, Bishop',  // gb (wales)
-    // saintEdmundCampionPriestAndMartyr: 'Saint Edmund Campion, Priest and Martyr',
-    // saintEdmundOfAbingdonBishop: 'Saint Edmund of Abingdon, Bishop',  // gb
-    // saintEdwardTheConfessor: 'Saint Edward the Confessor',  // gb
-    // saintElijahProphet: 'Saint Elijah, prophet',
-    // saintElizabethAnnSetonReligious: 'Saint Elizabeth Ann Seton, Religious',  // us
-    // saintElizabethOfHungaryReligious: 'Saint Elizabeth of Hungary, Religious',  // us, gb
-    // saintElizabethOfPortugal: 'Saint Elizabeth of Portugal',  // us, gb
-    // saintEmeric: 'Saint Emeric',
-    // saintEndaAbbot: 'Saint Enda, Abbot',  // ireland
-    // saintEphremDeaconAndDoctor: 'Saint Ephrem, Deacon and Doctor of the Church',  // us, gb
-    // saintEricIxMartyr: 'Saint Eric IX, Martyr',
-    // saintEtheldredaAudreyVirgin: 'Saint Ethelreda, Abbess',  // gb; Was: `Saint Etheldreda (Audrey), Virgin`
-    // saintEugeneDeMazenodBishop: 'Saint Eugène de Mazenod, Bishop',  // ca; Should we not translate the names?
-    // saintEugeneEoghanBishop: 'Saint Eugene (Eoghan), Bishop',  // ireland
-    // saintEulaliaOfMeridaVirginAndMartyr: 'Saint Eulalia of Merida, Virgin and Martyr',
-    // saintEulogiusOfCordobaBishop: 'Saint Eulogius of Cordoba, Bishop',
-    // saintEusebiusOfVercelliBishop: 'Saint Eusebius of Vercelli, Bishop',  // us
-    // saintEysteinnBishop: 'Saint Eysteinn, Bishop',
-    // saintEzequielMorenoBishop: 'Saint Ezequiel Moreno, Bishop',
-    // saintFabianPopeAndMartyr: 'Saint Fabian, Pope and Martyr',  // us, gb
-    // saintFachananOfKilfenoraBishop: 'Saint Fachanan, Bishop',  // ireland; Was: `Saint Fachanan of Kilfenora, Bishop`
-    // saintFachtnaBishop: 'Saint Fachtna, Bishop',  // ireland
-    // saintFaustinaKowalskaVirginAndReligious: 'Saint Faustina Kowalska, Virgin',  // us
-    // saintFelipeDeJesusPriestAndMartyr: 'Saint Felipe de Jesus, Priest And Martyr',
-    // saintFerdinand: 'Saint Ferdinand',
-    // saintFergalBishopAndMissionary: 'Saint Fergal, Bishop and Missionary',  // ireland
-    // saintFiacreMonk: 'Saint Fiacre, Monk',  // ireland
-    // saintFidelisOfSigmaringenPriestAndMartyr: 'Saint Fidelis of Sigmaringen, Priest and Martyr',  // us, gb
-    // saintFinbarrBishop: 'Saint Finbarr, Bishop',  // ireland
-    // saintFinnianOfClonardBishop: 'Saint Finian, Bishop',  // ireland; Was: `Saint Finian of Clonard, Bishop`
-    // saintFintan: 'Saint Fintan',  // ireland
-    // saintFlannanBishop: 'Saint Flannan, Bishop',  // ireland
-    // saintFlorianAndHisCompanionsMartyrs: 'Saint Florian and Companions, Martyrs',
-    // saintFlorianMartyr: 'Saint Florian, Martyr',
-    // saintFrancesOfRomeReligious: 'Saint Frances of Rome, Religious',  // us, gb
-    // saintFrancesXavierCabriniVirgin: 'Saint Frances Xavier Cabrini, Virgin',  // us
-    // saintFrancisBorgiaPriest: 'Saint Francis Borgia, Priest',
-    // saintFrancisDeSalesBishopAndDoctor: 'Saint Francis de Sales, Bishop and Doctor of the Church',  // us, gb
-    // saintFrancisDiazPriestAndCompanionsMartyrs: 'Saint Francis Diaz, Priest, and Companions, Martyrs',
-    // saintFrancisFernandezDeCapillasPriestAndMartyr: 'Saint Francis Fernandez de Capillas, Priest and Martyr',
-    // saintFrancisOfAssisi: 'Saint Francis of Assisi',  // us; TODO: He was a deacon
-    // saintFrancisOfPaolaHermit: 'Saint Francis of Paola, Hermit',  // us, gb
-    // saintFrancisSolanusPriest: 'Saint Francis Solanus, Priest',
-    // saintFrancisXavierPriest: 'Saint Francis Xavier, Priest',  // us
-    // saintFrancoisDeLavalBishop: 'Saint François de Laval, Bishop',  // ca; TODO: Should we not translate the names?
-    // saintFridolinOfSackingenMonk: 'Saint Fridolin of Säckingen, Monk',
-    // saintFructuosusSaintMartinOfDumeAndSaintGeraldBishops: 'Saints Fructuosus, Martin of Dume and Gerald, Bishops',
-    // saintFursaAbbotAndMissionary: 'Saint Fursa, Abbot and Missionary',  // ireland
-    // saintGabrieltaurinDufresseBishopAndMartyr: 'Saint Gabriel-Taurin Dufresse, Bishop and Martyr',
+    dominic_de_guzman_priest: 'Saint Dominic, Priest',  // us, australia, nz
+    dyfrig_of_wales_bishop: 'Saint Dyfrig, Bishop',  // gb (wales)
+    edmund_campion_priest: 'Saint Edmund Campion, Priest and Martyr',
+    edmund_of_abingdon_bishop: 'Saint Edmund of Abingdon, Bishop',  // gb
+    edward_the_confessor: 'Saint Edward the Confessor',  // gb
+    elijah_prophet: 'Saint Elijah, prophet',
+    elizabeth_ann_seton_religious: 'Saint Elizabeth Ann Seton, Religious',  // us
+    elizabeth_of_hungary_religious: 'Saint Elizabeth of Hungary, Religious',  // us, gb
+    elizabeth_of_portugal: 'Saint Elizabeth of Portugal',  // us, gb
+    emeric_of_hungary: 'Saint Emeric',
+    enda_of_aran_abbot: 'Saint Enda, Abbot',  // ireland
+    ephrem_the_syrian_deacon: 'Saint Ephrem, Deacon and Doctor of the Church',  // us, gb
+    eric_ix_of_sweden_martyr: 'Saint Eric IX of Sweden, Martyr',
+    etheldreda_of_ely_abbess: 'Saint Etheldreda, Abbess',  // gb
+    eugene_de_mazenod_bishop: 'Saint Eugène de Mazenod, Bishop',  // ca; Should we not translate the names?
+    eoghan_of_ardstraw_bishop: 'Saint Eoghan, Bishop',  // ireland
+    eulalia_of_merida_virgin: 'Saint Eulalia of Merida, Virgin and Martyr',
+    eulogius_of_cordoba_bishop: 'Saint Eulogius of Córdoba, Bishop',
+    eusebius_of_vercelli_bishop: 'Saint Eusebius of Vercelli, Bishop',  // us
+    eysteinn_of_nidaros_bishop: 'Saint Eysteinn of Nidaros, Bishop',
+    ezequiel_moreno_bishop: 'Saint Ezequiel Moreno, Bishop',
+    fabian_pope: 'Saint Fabian, Pope and Martyr',  // us, gb
+    fachanan_of_kilfenora_bishop: 'Saint Fachanan, Bishop',  // ireland; Was: `Saint Fachanan of Kilfenora, Bishop`
+    fachtna_of_rosscarbery_bishop: 'Saint Fachtna, Bishop',  // ireland
+    faustina_kowalska_virgin: 'Saint Faustina Kowalska, Virgin',  // us
+    philip_of_jesus_de_las_casas_martinez_martyr: 'Saint Philip of Jesus, Martyr',
+    ferdinand_iii_of_castile: 'Saint Ferdinand III of Castile',
+    fergal_of_salzburg_bishop: 'Saint Fergal, Bishop and Missionary',  // ireland
+    fiacre_of_breuil_monk: 'Saint Fiacre, Monk',  // ireland
+    fidelis_of_sigmaringen_priest: 'Saint Fidelis of Sigmaringen, Priest and Martyr',  // us, gb
+    finbarr_of_cork_bishop: 'Saint Finbarr, Bishop',  // ireland
+    finnian_of_clonard_bishop: 'Saint Finian, Bishop',  // ireland
+    fintan_of_clonenagh_abbot: 'Saint Fintan, Abbot',  // ireland
+    flannan_of_killaloe_bishop: 'Saint Flannan, Bishop',  // ireland
+    florian_of_lorch_and_companions_martyrs: 'Saint Florian and Companions, Martyrs',
+    florian_of_lorch_martyr: 'Saint Florian, Martyr',
+    frances_of_rome_religious: 'Saint Frances of Rome, Religious',  // us, gb
+    frances_xavier_cabrini_virgin: 'Saint Frances Xavier Cabrini, Virgin',  // us
+    francis_borgia_priest: 'Saint Francis Borgia, Priest',
+    francis_de_sales_bishop: 'Saint Francis de Sales, Bishop and Doctor of the Church',  // us, gb
+    francis_diaz_del_rincon_priest_and_companions_martyrs: 'Saint Francis Díaz del Rincon, Priest, and Companions, Martyrs',
+    francis_ferdinand_de_capillas_priest: 'Saint Francis Ferdinand de Capillas, Priest and Martyr',
+    francis_of_assisi: 'Saint Francis of Assisi',  // us
+    francis_of_paola_hermit: 'Saint Francis of Paola, Hermit',  // us, gb
+    francis_solanus_priest: 'Saint Francis Solanus, Priest',
+    francis_xavier_priest: 'Saint Francis Xavier, Priest',  // us
+    francois_de_laval_bishop: 'Saint François de Laval, Bishop',  // ca
+    fridolin_of_sackingen_monk: 'Saint Fridolin of Säckingen, Monk',
+    fructuosus_of_braga_martin_of_dume_and_gerald_of_braga_bishops: 'Saints Fructuosus of Braga, Martin of Dume and Gerald of Braga, Bishops',
+    fursa_of_peronne_abbot: 'Saint Fursa, Abbot and Missionary',  // ireland
+    gabriel_taurin_dufresse_bishop: 'Saint Gabriel-Taurin Dufresse, Bishop and Martyr',
     // saintGallAbbotAndMissionary: 'Saint Gall, Abbot and Missionary',  // ireland
-    // saintGenevieveVirgin: 'Saint Genevieve, Virgin',
-    // saintGeorgeMartyr: 'Saint George, Martyr',  // us, gb
-    // saintGeorgePrecaPriest: 'Saint George Preca, Priest',
-    // saintGerardBishop: 'Saint Gerard of Csanád, Bishop and Martyr',
-    // saintGermanusOfAuxerreBishop: 'Saint Germanus of Auxerre, Bishop',  // gb (wales)
-    // saintGertrudeOfNivellesAbbess: 'Saint Gertrude of Nivelles, Abbess',
-    // saintGertrudeTheGreatVirgin: 'Saint Gertrude, Virgin',  // us; Was: `Saint Gertrude The Great, Virgin`
-    // saintGobnaitVirgin: 'Saint Gobnait, Virgin',  // ireland
-    // saintGonsaloGarciaMartyr: 'Saint Gonsalo Garcia, Martyr',
-    // saintGorazdAndCompanions: 'Saint Gorazd and Companions',
-    // saintGotthardBishop: 'Saint Gotthard, Bishop',
-    // saintGregoryTheGreatPopeAndDoctor: 'Saint Gregory the Great, Pope and Doctor of the Church',  // us; gb
-    // saintGregoryViiPope: 'Saint Gregory VII, Pope',  // us, gb (wales)
-    // saintHectorValdivielsoSaezMartyr: 'Saint Benedict of Jesus Valdivielso Sáez, Religious and Martyr',
-    // saintHedwigOfPoland: 'Saint Hedwig of Poland',
-    // saintHedwigReligious: 'Saint Hedwig, Religious',  // us, ca
-    // saintHelena: 'Saint Helena',
-    // saintHemmaOfGurk: 'Saint Hemma of Gurk',
-    // saintHenry: 'Saint Henry',  // us, gb
+    genevieve_of_paris_virgin: 'Saint Genevieve, Virgin',
+    george_of_lydda_martyr: 'Saint George, Martyr',  // us, gb
+    george_preca_priest: 'Saint George Preca, Priest',
+    gerard_of_csanad_bishop: 'Saint Gerard of Csanád, Bishop and Martyr',
+    germanus_of_auxerre_bishop: 'Saint Germanus of Auxerre, Bishop',  // gb (wales)
+    gertrude_of_nivelles_abbess: 'Saint Gertrude of Nivelles, Abbess',
+    gertrude_the_great_virgin: 'Saint Gertrude, Virgin',  // us
+    gobnait_of_ballyvourney_virgin: 'Saint Gobnait, Virgin',  // ireland
+    gonsalo_garcia_martyr: 'Saint Gonsalo Garcia, Martyr',
+    gorazd_of_moravia_and_companions: 'Saint Gorazd and Companions',
+    gotthard_of_hildesheim_bishop: 'Saint Gotthard, Bishop',
+    gregory_the_great_pope: 'Saint Gregory the Great, Pope and Doctor of the Church',  // us; gb
+    gregory_vii_pope: 'Saint Gregory VII, Pope',  // us, gb (wales)
+    benedict_of_jesus_valdivielso_saez_religious: 'Saint Benedict of Jesus Valdivielso Sáez, Religious and Martyr',
+    hedwig_of_poland: 'Saint Hedwig of Poland',
+    hedwig_religious: 'Saint Hedwig, Religious',  // us, ca
+    helena_of_constantinople: 'Saint Helena',
+    hemma_of_gurk: 'Saint Hemma of Gurk',
+    henry_ii_emperor: 'Saint Henry',  // us, gb
     // saintHenryBishopAndMartyr: 'Saint Henry, Bishop and Martyr',
     // saintHermannJosephPriest: 'Saint Hermann Joseph, Priest',
     // saintHermenegildMartyr: 'Saint Hermenegild, Martyr',

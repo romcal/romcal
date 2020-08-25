@@ -20,7 +20,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-1-14`),
     },
     {
-      key: 'saintFrancisFernandezDeCapillasPriestAndMartyr',
+      key: 'francis_ferdinand_de_capillas_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-15`),
     },
@@ -168,7 +168,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-9-11`),
     },
     {
-      key: 'saintFrancisDiazPriestAndCompanionsMartyrs',
+      key: 'francis_diaz_del_rincon_priest_and_companions_martyrs',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-10-27`),
       liturgicalColors: LiturgicalColors.RED,
@@ -182,7 +182,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-11-7`),
     },
     {
-      key: 'saintGabrieltaurinDufresseBishopAndMartyr',
+      key: 'gabriel_taurin_dufresse_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-27`),
     },

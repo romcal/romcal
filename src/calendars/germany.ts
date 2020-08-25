@@ -66,7 +66,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-2-25`),
     },
     {
-      key: 'saintFridolinOfSackingenMonk',
+      key: 'fridolin_of_sackingen_monk',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-3-6`),
     },
@@ -89,7 +89,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-3-15`),
     },
     {
-      key: 'saintGertrudeOfNivellesAbbess',
+      key: 'gertrude_of_nivelles_abbess',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-3-17`),
     },
@@ -134,7 +134,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintFlorianAndHisCompanionsMartyrs',
+      key: 'florian_of_lorch_and_companions_martyrs',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-4`),
       metadata: {
@@ -142,7 +142,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintGotthardBishop',
+      key: 'gotthard_of_hildesheim_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-5`),
     },
@@ -173,7 +173,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-6-16`),
     },
     {
-      key: 'saintHemmaOfGurk',
+      key: 'hemma_of_gurk',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-27`),
     },
@@ -352,12 +352,12 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-11-15`),
     },
     {
-      key: 'saintGertrudeTheGreatVirgin',
+      key: 'gertrude_the_great_virgin',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-17`),
     },
     {
-      key: 'saintElizabethOfHungaryReligious',
+      key: 'elizabeth_of_hungary_religious',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-11-19`),
       liturgicalColors: LiturgicalColors.WHITE,

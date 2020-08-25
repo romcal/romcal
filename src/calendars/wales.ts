@@ -97,7 +97,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintGermanusOfAuxerreBishop',
+      key: 'germanus_of_auxerre_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-3`),
     },
@@ -197,7 +197,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       prioritized: true,
     },
     {
-      key: 'saintDubriciusBishop',
+      key: 'dyfrig_of_wales_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-14`),
       metadata: {

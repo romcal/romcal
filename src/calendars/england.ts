@@ -48,7 +48,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     // or in the Easter Octave it is transferred to the next available day —
     // generally the Monday of the Second Week of Easter.
     {
-      key: 'saintGeorgeMartyr',
+      key: 'george_of_lydda_martyr',
       rank: Ranks.SOLEMNITY,
       date: ((y: number): dayjs.Dayjs => {
         const holyWeekDates = Dates.holyWeek(y);
@@ -91,7 +91,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintFidelisOfSigmaringenPriestAndMartyr',
+      key: 'fidelis_of_sigmaringen_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-4-24`),
       liturgicalColors: LiturgicalColors.RED,
@@ -141,7 +141,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintEphremDeaconAndDoctor',
+      key: 'ephrem_the_syrian_deacon',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-9`),
       metadata: {
@@ -170,7 +170,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintEtheldredaAudreyVirgin',
+      key: 'etheldreda_of_ely_abbess',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-23`),
     },
@@ -222,7 +222,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-8-31`),
     },
     {
-      key: 'saintGregoryTheGreatPopeAndDoctor',
+      key: 'gregory_the_great_pope',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-9-3`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -302,7 +302,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-10-12`),
     },
     {
-      key: 'saintEdwardTheConfessor',
+      key: 'edward_the_confessor',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-13`),
     },
@@ -322,7 +322,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-11-7`),
     },
     {
-      key: 'saintEdmundOfAbingdonBishop',
+      key: 'edmund_of_abingdon_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-16`),
     },
@@ -332,7 +332,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-11-16`),
     },
     {
-      key: 'saintElizabethOfHungaryReligious',
+      key: 'elizabeth_of_hungary_religious',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-17`),
     },

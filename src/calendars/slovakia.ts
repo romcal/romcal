@@ -28,7 +28,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintGeorgeMartyr',
+      key: 'george_of_lydda_martyr',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-4-24`),
       metadata: {
@@ -45,7 +45,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintFlorianMartyr',
+      key: 'florian_of_lorch_martyr',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-4`),
       liturgicalColors: LiturgicalColors.RED,
@@ -120,7 +120,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintGorazdAndCompanions',
+      key: 'gorazd_of_moravia_and_companions',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-7-27`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -143,7 +143,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintHelena',
+      key: 'helena_of_constantinople',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-18`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -193,7 +193,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: [LiturgicalColors.PURPLE, LiturgicalColors.BLACK],
     },
     {
-      key: 'saintEmeric',
+      key: 'emeric_of_hungary',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-5`),
     },

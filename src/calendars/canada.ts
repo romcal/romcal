@@ -62,7 +62,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-5-4`),
     },
     {
-      key: 'saintFrancoisDeLavalBishop',
+      key: 'francois_de_laval_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-6`),
     },
@@ -72,7 +72,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-5-8`),
     },
     {
-      key: 'saintEugeneDeMazenodBishop',
+      key: 'eugene_de_mazenod_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-21`),
     },
@@ -148,7 +148,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintHedwigReligious',
+      key: 'hedwig_religious',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-20`),
     },
