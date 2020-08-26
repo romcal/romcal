@@ -58,7 +58,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintIrene',
+      key: 'irene_of_macedonia',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-5-5`),
       liturgicalColors: LiturgicalColors.WHITE,

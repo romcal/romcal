@@ -93,7 +93,7 @@ describe('Testing national calendar overrides', () => {
       const date = generalDates.filter((d) => {
         return (
           dayjs.utc(d.date).isSame(dayjs.utc(`${year}-4-4`)) &&
-          d.key === 'saintIsidoreOfSevilleBishopAndDoctorOfTheChurch'
+          d.key === 'isidore_of_seville_bishop'
         );
       });
       expect(date.length).toEqual(1);
@@ -102,14 +102,14 @@ describe('Testing national calendar overrides', () => {
       const date = spainDates.filter((d) => {
         return (
           dayjs.utc(d.date).isSame(dayjs.utc(`${year}-4-26`)) &&
-          d.key === 'saintIsidoreOfSevilleBishopAndDoctorOfTheChurch'
+          d.key === 'isidore_of_seville_bishop'
         );
       });
       expect(date.length).toEqual(1);
     });
     test('Therefore, national calendar of spain should only have one occurrence of this feast on the 26th of April', () => {
       const occurrences = spainDates.filter((d) => {
-        return d.key === 'saintIsidoreOfSevilleBishopAndDoctorOfTheChurch';
+        return d.key === 'isidore_of_seville_bishop';
       });
       expect(occurrences.length).toEqual(1);
     });

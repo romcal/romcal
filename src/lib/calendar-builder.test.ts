@@ -341,7 +341,7 @@ describe('Testing calendar generation functions', () => {
       const date = testDates.find((d) => {
         return dayjs.utc(d.date).isSame(dayjs.utc('2020-12-4'));
       });
-      expect(date?.key).not.toEqual('saintJohnDamascenePriestAndDoctor');
+      expect(date?.key).not.toEqual('john_damascene_priest');
     });
   });
 });

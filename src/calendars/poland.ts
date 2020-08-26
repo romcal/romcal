@@ -155,7 +155,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintJohnSarkanderPriestAndMartyr',
+      key: 'john_sarkander_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-30`),
     },
@@ -225,7 +225,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintJohnOfDuklaPriest',
+      key: 'john_of_dukla_priest',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-7-8`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -312,7 +312,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'hyacinthOfPolandPriest',
+      key: 'hyacinth_of_poland_priest',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-8-17`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -351,7 +351,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-9-10`),
     },
     {
-      key: 'saintJohnLeonardiPriest',
+      key: 'john_leonardi_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-10`),
     },
@@ -422,7 +422,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-10-16`),
     },
     {
-      key: 'saintJohnOfKantyPriest',
+      key: 'john_of_kanty_priest',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-10-20`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -434,13 +434,13 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintJohnPaulIiPope',
+      key: 'john_paul_ii_pope',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-10-22`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintJosephBilczewskiBishop',
+      key: 'joseph_bilczewski_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-23`),
     },

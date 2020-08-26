@@ -13,7 +13,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
   const year = config.year;
   const _dates: Array<RomcalLiturgicalDayInput> = [
     {
-      key: 'saintJohnNeumannBishop',
+      key: 'john_neumann_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-5`),
     },
@@ -147,7 +147,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-5-5`),
     },
     {
-      key: 'saintJohnNepomucenePriestAndMartyr',
+      key: 'john_nepomucene_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-16`),
       metadata: {
@@ -155,7 +155,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintHermannJosephPriest',
+      key: 'hermann_joseph_of_steinfeld_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-21`),
     },
@@ -265,7 +265,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-8-31`),
     },
     {
-      key: 'saintHildegardOfBingenAbbessAndDoctor',
+      key: 'hildegard_of_bingen_abbess',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-17`),
       metadata: {
@@ -304,7 +304,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-9-28`),
     },
     {
-      key: 'saintGallAbbotAndMissionary',
+      key: 'gall_of_switzerland_abbot',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-16`),
     },
@@ -327,7 +327,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-10-31`),
     },
     {
-      key: 'saintHubertOfLiegeBishop',
+      key: 'hubert_of_liege_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-3`),
     },

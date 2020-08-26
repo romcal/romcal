@@ -40,12 +40,12 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-1-29`),
     },
     {
-      key: 'saintJosephFreinademetzPriest',
+      key: 'joseph_freinademetz_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-29`),
     },
     {
-      key: 'saintJohnOfTrioraPriestAndMartyr',
+      key: 'john_of_triora_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-2-13`),
     },
@@ -75,7 +75,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-3-1`),
     },
     {
-      key: 'saintJosephZhangDapengMartyr',
+      key: 'joseph_zhang_dapeng_martyr',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-3-12`),
     },
@@ -114,7 +114,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-5-27`),
     },
     {
-      key: 'saintJoachimHoMartyr',
+      key: 'joachim_he_kaizhi_martyr',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-29`),
     },
@@ -124,7 +124,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-6-20`),
     },
     {
-      key: 'saintJosephYuanPriestAndMartyr',
+      key: 'joseph_yuan_gengyin_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-23`),
     },
@@ -163,7 +163,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-8-11`),
     },
     {
-      key: 'saintJohnGabrielPerboyrePriestAndMartyr',
+      key: 'john_gabriel_perboyre_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-11`),
     },

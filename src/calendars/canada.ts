@@ -31,7 +31,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'josephSpouseOfMaryCanada',
+      key: 'joseph_spouse_of_mary_principal_patron_of_canada',
       rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-3-19`),
       liturgicalColors: LiturgicalColors.WHITE,

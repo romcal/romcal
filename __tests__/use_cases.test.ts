@@ -70,11 +70,11 @@ describe('Testing specific feasts and memorials', () => {
     test('Should be celebrated as optional memorials', async () => {
       const dates = await Romcal.calendarFor({ year: 2016, outputOptionalMemorials: true });
 
-      const popeSaintJohnXXIII = dates.find((d) => d.key === 'saintJohnXxiiiPope');
-      const popeSaintJohnPaulII = dates.find((d) => d.key === 'saintJohnPaulIiPope');
+      const johnXxiiiPope = dates.find((d) => d.key === 'john_xxiii_pope');
+      const johnPaulIiPope = dates.find((d) => d.key === 'john_paul_ii_pope');
 
-      expect(popeSaintJohnXXIII?.rank).toEqual(Ranks.OPT_MEMORIAL);
-      expect(popeSaintJohnPaulII?.rank).toEqual(Ranks.OPT_MEMORIAL);
+      expect(johnXxiiiPope?.rank).toEqual(Ranks.OPT_MEMORIAL);
+      expect(johnPaulIiPope?.rank).toEqual(Ranks.OPT_MEMORIAL);
     });
   });
 

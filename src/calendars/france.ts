@@ -50,12 +50,12 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintIvoPriest',
+      key: 'ivo_of_kermartin_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-19`),
     },
     {
-      key: 'saintJoanOfArcVirginSecondaryPatronessOfFrance',
+      key: 'joan_of_arc_virgin_secondary_patroness_of_france',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-5-30`),
       liturgicalColors: LiturgicalColors.WHITE,

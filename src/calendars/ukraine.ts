@@ -59,7 +59,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintJohnNepomucenePriestAndMartyr',
+      key: 'john_nepomucene_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-21`),
       metadata: {
@@ -77,7 +77,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-6-26`),
     },
     {
-      key: 'saintJohnOfDuklaPriest',
+      key: 'john_of_dukla_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-8`),
     },
@@ -145,7 +145,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintJosephBilczewskiBishop',
+      key: 'joseph_bilczewski_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-23`),
     },

@@ -100,7 +100,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-8-16`),
     },
     {
-      key: 'hyacinthOfPolandPriest',
+      key: 'hyacinth_of_poland_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-17`),
     },

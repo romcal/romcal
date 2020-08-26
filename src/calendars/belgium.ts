@@ -63,13 +63,13 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintHubertOfLiegeBishop',
+      key: 'hubert_of_liege_bishop',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-11-3`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintJohnBerchmansReligious',
+      key: 'john_berchmans_religious',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-11-26`),
       liturgicalColors: LiturgicalColors.WHITE,

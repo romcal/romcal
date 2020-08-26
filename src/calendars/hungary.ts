@@ -75,7 +75,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintJohnNepomucenePriestAndMartyr',
+      key: 'john_nepomucene_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-16`),
       metadata: {
@@ -124,7 +124,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintJosemariaEscrivaDeBalaguerPriest',
+      key: 'josemaria_escriva_de_balaguer_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-26`),
     },
@@ -226,7 +226,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-9-12`),
     },
     {
-      key: 'saintHildegardOfBingenAbbessAndDoctor',
+      key: 'hildegard_of_bingen_abbess',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-17`),
       metadata: {
