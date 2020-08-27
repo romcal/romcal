@@ -94,12 +94,12 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-3-17`),
     },
     {
-      key: 'saintLudgerBishop',
+      key: 'ludger_of_utrecht_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-3-26`),
     },
     {
-      key: 'saintLeoIxPope',
+      key: 'leo_ix_pope',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-4-19`),
     },
@@ -199,7 +199,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-7-7`),
     },
     {
-      key: 'saintKilianBishopAndCompanionsMartyrs',
+      key: 'kilian_of_wurzburg_bishop_and_companions_martyrs',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-8`),
       metadata: {
@@ -229,7 +229,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-7-13`),
     },
     {
-      key: 'saintMargaretOfAntiochVirginAndMartyr',
+      key: 'margaret_of_antioch_virgin',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-20`),
       metadata: {
@@ -273,7 +273,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintLambertBishopAndMartyr',
+      key: 'lambert_of_maastricht_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-18`),
       metadata: {
@@ -299,7 +299,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-9-25`),
     },
     {
-      key: 'saintLeobaAbbess',
+      key: 'leoba_of_tauberbischofsheim_abbess',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-28`),
     },
@@ -337,7 +337,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-11-3`),
     },
     {
-      key: 'saintLeonardOfNoblacHermit',
+      key: 'leonard_of_noblac_hermit',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-6`),
     },
@@ -347,7 +347,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-11-7`),
     },
     {
-      key: 'saintLeopoldIII',
+      key: 'leopold_iii_of_babenberg',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-15`),
     },
@@ -373,7 +373,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-11-26`),
     },
     {
-      key: 'saintLuciusOfChurBishopAndMartyr',
+      key: 'lucius_of_chur_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-12-2`),
       metadata: {

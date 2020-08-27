@@ -30,7 +30,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-3-17`),
     },
     {
-      key: 'saintJulieBilliartVirgin',
+      key: 'julie_billiart_virgin',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-4-8`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -42,7 +42,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintJulianaOfLiegeVirgin',
+      key: 'juliana_of_liege_virgin',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-8-7`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -54,7 +54,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintLambertBishopAndMartyr',
+      key: 'lambert_of_maastricht_bishop',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-9-17`),
       liturgicalColors: LiturgicalColors.RED,

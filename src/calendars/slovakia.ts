@@ -68,7 +68,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintLadislaus',
+      key: 'ladislaus_i_of_hungary',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-27`),
     },

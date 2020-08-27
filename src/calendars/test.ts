@@ -23,11 +23,11 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       rank: Ranks.SUNDAY,
       date: dayjs.utc(Dates.ashWednesday(year).toISOString()),
     },
-    // Test priority where saintLukeTheEvangelist is defined
+    // Test priority where luke_evangelist is defined
     // in the "test" country as a commemoration instead of its
     // default rank, feast...
     {
-      key: 'saintLukeTheEvangelist',
+      key: 'luke_evangelist',
       rank: Ranks.COMMEMORATION,
       date: dayjs.utc(`${year}-10-18`),
       prioritized: true,

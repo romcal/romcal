@@ -15,7 +15,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
   const year = config.year;
   const _dates: Array<RomcalLiturgicalDayInput> = [
     {
-      key: 'saintJozefSebastianPelczar',
+      key: 'joseph_sebastian_pelczar_bishop',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-1-19`),
     },
@@ -210,7 +210,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-7-1`),
     },
     {
-      key: 'saintMariaGorettiVirginAndMartyr',
+      key: 'maria_goretti_virgin',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-5`),
       liturgicalColors: LiturgicalColors.RED,
@@ -287,7 +287,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintKingaVirgin',
+      key: 'kinga_of_poland_virgin',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-7-24`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -373,7 +373,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     // jarosz: Split saintRuizAndCo and saintWenceslaus (they are a single celebration in general.js)
     {
-      key: 'saintLawrenceRuizAndCompanionsMartyrs',
+      key: 'lawrence_ruiz_and_companions_martyrs',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-26`),
     },
@@ -412,7 +412,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-10-13`),
     },
     {
-      key: 'saintMargaretMaryAlacoqueVirgin',
+      key: 'margaret_mary_alacoque_virgin',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-10-14`),
     },

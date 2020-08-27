@@ -57,12 +57,12 @@ describe('Testing specific feasts and memorials', () => {
   describe('The celebration of Saint Mary Magdalene', () => {
     test('Should be ranked as a feast and should be celebrated on the July 22', async () => {
       const dates = await Romcal.calendarFor(2017);
-      const saintMaryMagdalene = dates.find((d) => {
-        return d.key === 'saintMaryMagdalene';
+      const maryMagdalene = dates.find((d) => {
+        return d.key === 'mary_magdalene';
       });
-      expect(dayjs.utc(saintMaryMagdalene?.date).date()).toEqual(22);
-      expect(dayjs.utc(saintMaryMagdalene?.date).month()).toEqual(6);
-      expect(saintMaryMagdalene?.rank).toEqual(Ranks.FEAST);
+      expect(dayjs.utc(maryMagdalene?.date).date()).toEqual(22);
+      expect(dayjs.utc(maryMagdalene?.date).month()).toEqual(6);
+      expect(maryMagdalene?.rank).toEqual(Ranks.FEAST);
     });
   });
 

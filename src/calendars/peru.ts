@@ -24,7 +24,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-5-24`),
     },
     {
-      key: 'saintMarianaDeJesusDeParedesVirgin',
+      key: 'mariana_of_jesus_de_paredes_virgin',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-5-26`),
     },
@@ -59,7 +59,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-10-28`),
     },
     {
-      key: 'saintMartinDePorresReligious',
+      key: 'martin_de_porres_religious',
       rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-11-3`),
     },

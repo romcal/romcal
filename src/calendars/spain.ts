@@ -102,7 +102,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-5-30`),
     },
     {
-      key: 'saintMariaMicaelaOfTheBlessedSacramentVirgin',
+      key: 'maria_micaela_of_the_blessed_sacrament_desmaisieres_virgin',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-15`),
     },
@@ -199,7 +199,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-10-19`),
     },
     {
-      key: 'saintLeanderBishop',
+      key: 'leander_of_seville_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-13`),
     },

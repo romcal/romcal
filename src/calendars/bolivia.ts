@@ -30,7 +30,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintMarianaDeJesusDeParedesVirgin',
+      key: 'mariana_of_jesus_de_paredes_virgin',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-25`),
     },
@@ -75,7 +75,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintLouisBertrandPriest',
+      key: 'louis_bertrand_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-9`),
     },
@@ -91,7 +91,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintMartinDePorresReligious',
+      key: 'martin_de_porres_religious',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-11-3`),
       liturgicalColors: LiturgicalColors.WHITE,

@@ -29,7 +29,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-2-25`),
     },
     {
-      key: 'saintMariaGuadalupeGarciaZavalaVirgin',
+      key: 'maria_guadalupe_garcia_zavala_virgin',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-4-27`),
     },
@@ -78,7 +78,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-7-4`),
     },
     {
-      key: 'saintMariaDeJesusSacramentadoVenegasVirgin',
+      key: 'mary_of_jesus_in_the_blessed_sacrament_venegas_virgin',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-30`),
     },
@@ -132,7 +132,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintJuanDiegoCuauhtlatoatzin',
+      key: 'juan_diego_cuauhtlatoatzin',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-12-9`),
     },

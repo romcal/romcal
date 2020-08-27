@@ -138,7 +138,7 @@ describe('Testing national calendar overrides', () => {
 
     test('A new prioritized celebration will replace any existing non-prioritized celebrations', () => {
       const dates = testDates.filter((d) => {
-        return d.key === 'saintLukeTheEvangelist';
+        return d.key === 'luke_evangelist';
       });
       expect(dates.length).toEqual(1);
       expect(dates[0].rank).toEqual(Ranks.COMMEMORATION);
@@ -445,14 +445,14 @@ describe('Testing national calendar overrides', () => {
         country: 'slovakia',
         outputOptionalMemorials: true,
       });
-      const saintLadislausHungary = hungaryDates.find((d) => {
-        return d.key === 'saintLadislaus';
+      const ladislausIOfHungaryHungary = hungaryDates.find((d) => {
+        return d.key === 'ladislaus_i_of_hungary';
       });
-      const saintLadislausSlovakia = slovakiaDates.find((d) => {
-        return d.key === 'saintLadislaus';
+      const ladislausIOfHungarySlovakia = slovakiaDates.find((d) => {
+        return d.key === 'ladislaus_i_of_hungary';
       });
-      expect(saintLadislausHungary?.rank).toEqual(Ranks.FEAST);
-      expect(saintLadislausSlovakia?.rank).toEqual(Ranks.OPT_MEMORIAL);
+      expect(ladislausIOfHungaryHungary?.rank).toEqual(Ranks.FEAST);
+      expect(ladislausIOfHungarySlovakia?.rank).toEqual(Ranks.OPT_MEMORIAL);
     });
   });
 
