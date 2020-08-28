@@ -175,7 +175,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-10-16`),
     },
     {
-      key: 'saintMaurusBishop',
+      key: 'maurus_of_pecs_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-25`),
       liturgicalColors: LiturgicalColors.WHITE,

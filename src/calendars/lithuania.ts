@@ -95,7 +95,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintRoch',
+      key: 'roch_of_montpellier',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-16`),
     },

@@ -60,7 +60,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-2-19`),
     },
     {
-      key: 'saintPaulLiuHanzouPriestAndMartyr',
+      key: 'paul_liu_hanzuo_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-2-21`),
     },
@@ -104,12 +104,12 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintPeterLiuMartyr',
+      key: 'peter_liu_wenyuan_martyr',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-14`),
     },
     {
-      key: 'saintPeterSanzBishopAndMartyr',
+      key: 'peter_sanz_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-27`),
     },
@@ -153,7 +153,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-7-21`),
     },
     {
-      key: 'saintPaulChenChangpinAndCompanionsMartyrs',
+      key: 'paul_chen_changpin_and_companions_martyrs',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-28`),
     },
@@ -177,7 +177,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintPeterWuMartyr',
+      key: 'peter_wu_guosheng_martyr',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-7`),
     },

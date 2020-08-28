@@ -22,7 +22,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-1-3`),
     },
     {
-      key: 'saintRemigiusBishop',
+      key: 'remigius_of_reims_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-15`),
     },
@@ -61,7 +61,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintPothinusBishopSaintBlandinaVirginAndTheirCompanionsMartyrs',
+      key: 'pothinus_of_lyon_bishop_blandina_of_lyon_virgin_and_companions_martyrs',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-2`),
     },

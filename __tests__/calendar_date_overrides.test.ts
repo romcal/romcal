@@ -379,8 +379,8 @@ describe('Testing national calendar overrides', () => {
   describe('Saint Matthias the Apostle', () => {
     test('Feast day falls on the May 14 in the general liturgical calendar', async () => {
       const dates = await Romcal.calendarFor(2018);
-      const saintMatthias = dates.find((d) => d.key === 'saintMatthiasTheApostle');
-      expect(dayjs.utc(saintMatthias?.date).isSame(dayjs.utc('2018-5-14'))).toBeTruthy();
+      const matthiasApostle = dates.find((d) => d.key === 'matthias_apostle');
+      expect(dayjs.utc(matthiasApostle?.date).isSame(dayjs.utc('2018-5-14'))).toBeTruthy();
     });
 
     test('Feast day falls on the 24th of February in the national calendar of Germany and Hungary', async () => {
@@ -395,20 +395,20 @@ describe('Testing national calendar overrides', () => {
         outputOptionalMemorials: true,
       });
 
-      const saintMatthiasGermany = germanyDates.find((d) => d.key === 'saintMatthiasTheApostle');
-      const saintMatthiasHungary = hungaryDates.find((d) => d.key === 'saintMatthiasTheApostle');
+      const matthiasApostleGermany = germanyDates.find((d) => d.key === 'matthias_apostle');
+      const matthiasApostleHungary = hungaryDates.find((d) => d.key === 'matthias_apostle');
 
-      expect(dayjs.utc(saintMatthiasGermany?.date).isSame(dayjs.utc('2018-2-24'))).toBeTruthy();
-      expect(dayjs.utc(saintMatthiasHungary?.date).isSame(dayjs.utc('2018-2-24'))).toBeTruthy();
+      expect(dayjs.utc(matthiasApostleGermany?.date).isSame(dayjs.utc('2018-2-24'))).toBeTruthy();
+      expect(dayjs.utc(matthiasApostleHungary?.date).isSame(dayjs.utc('2018-2-24'))).toBeTruthy();
     });
 
-    test('Is a memorial in the German liturgical calendar on A.D 2014', async () => {
+    test('Is a memorial in the German liturgical calendar on AD 2014', async () => {
       const germanyDates = await Romcal.calendarFor({
         year: 2014,
         country: 'germany',
       });
-      const saintMatthiasGermany = germanyDates.find((d) => d.key === 'saintMatthiasTheApostle');
-      expect(saintMatthiasGermany?.rank).toEqual(Ranks.MEMORIAL);
+      const matthiasApostleGermany = germanyDates.find((d) => d.key === 'matthias_apostle');
+      expect(matthiasApostleGermany?.rank).toEqual(Ranks.MEMORIAL);
     });
   });
 

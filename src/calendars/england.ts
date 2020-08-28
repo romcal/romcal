@@ -39,7 +39,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintPatrickBishop',
+      key: 'patrick_of_ireland_bishop',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-3-17`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -154,7 +154,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-6-9`),
     },
     {
-      key: 'saintRichardOfChichesterBishop',
+      key: 'richard_of_chichester_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-16`),
     },
@@ -175,7 +175,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-6-23`),
     },
     {
-      key: 'saintOliverPlunkettBishopAndMartyr',
+      key: 'oliver_plunket_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-1`),
     },
@@ -252,7 +252,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-10-9`),
     },
     {
-      key: 'saintPaulinusOfYorkBishop',
+      key: 'paulinus_of_york_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-10`),
     },

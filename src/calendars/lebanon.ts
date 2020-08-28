@@ -22,7 +22,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintNicholasBishop',
+      key: 'nicholas_of_myra_bishop',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-12-6`),
     },
@@ -37,7 +37,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-2-9`),
     },
     {
-      key: 'saintRafqaRebeccaVirgin',
+      key: 'rafqa_pietra_choboq_ar_rayes_virgin',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-3-23`),
     },

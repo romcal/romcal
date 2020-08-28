@@ -111,7 +111,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintOlafIiMartyr',
+      key: 'olaf_ii_of_norway_martyr',
       rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-5-29`),
       liturgicalColors: LiturgicalColors.WHITE,

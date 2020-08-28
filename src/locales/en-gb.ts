@@ -29,10 +29,10 @@ export default {
     holy_thursday: 'Maundy Thursday',
   },
   sanctoral: {
-    saintRaymondOfPenyafortPriest: 'Saint Raymond of Peñafort, Priest',
+    raymond_of_penyafort_priest: 'Saint Raymond of Peñafort, Priest',
     sevenHolyFoundersOfTheServiteOrder: 'Seven Founders of the Order of Servants of the Blessed Virgin Mary',
     louis_grignion_de_montfort_priest: 'Saint Louis Marie Grignion de Montfort, Priest',
-    saintPiusVPope: 'Saint Pius V, Pope and Religious',  // This key should be removed after one can add titles within celebration definions
+    pius_v_pope: 'Saint Pius V, Pope and Religious',  // This key should be removed after one can add titles within celebration definions
     paulina_of_the_agonizing_heart_of_jesus_visintainer_virgin: 'Saint Paulina of the Agonising Heart of Jesus Visintainer, Virgin',
     bernardine_of_siena_priest: 'Saint Bernardine of Siena, Priest, Religious and Missionary',  // This key should be removed after one can add titles within celebration definions
   },

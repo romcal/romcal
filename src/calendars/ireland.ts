@@ -13,7 +13,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
   const year = config.year;
   const _dates: Array<RomcalLiturgicalDayInput> = [
     {
-      key: 'saintMunchinBishop',
+      key: 'munchin_of_limerick_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-3`),
     },
@@ -43,7 +43,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintMelBishop',
+      key: 'mel_of_ardagh_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-2-7`),
     },
@@ -87,7 +87,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-3-11`),
     },
     {
-      key: 'saintPatrickBishop',
+      key: 'patrick_of_ireland_bishop',
       rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-3-17`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -108,7 +108,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-4-1`),
     },
     {
-      key: 'saintMolaiseLaisrenLaserianBishop',
+      key: 'laserian_of_leighlin_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-4-18`),
     },
@@ -188,7 +188,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintOliverPlunkettBishopAndMartyr',
+      key: 'oliver_plunket_bishop',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-7-1`),
       liturgicalColors: LiturgicalColors.RED,
@@ -197,7 +197,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintMoninneVirgin',
+      key: 'moninne_of_killeavy_virgin',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-6`),
     },
@@ -238,7 +238,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintMuredachBishop',
+      key: 'muredach_of_killala_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-12`),
     },
@@ -295,7 +295,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-9-12`),
     },
     {
-      key: 'saintPioOfPietrelcinaPriest',
+      key: 'pius_of_pietrelcina_priest',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-9-23`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -326,7 +326,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-10-16`),
     },
     {
-      key: 'saintOtteranMonk',
+      key: 'otteran_of_iona_monk',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-27`),
     },

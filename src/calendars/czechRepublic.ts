@@ -77,7 +77,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-6-19`),
     },
     {
-      key: 'saintProcopiusAbbot',
+      key: 'procopius_of_sazava_abbot',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-4`),
     },
@@ -141,7 +141,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-9-5`),
     },
     {
-      key: 'saintMelchiorGrodzieckiPriestAndMartyr',
+      key: 'melchior_grodziecki_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-7`),
     },
@@ -157,7 +157,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintRadimBishop',
+      key: 'radim_of_gniezno_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-12`),
     },

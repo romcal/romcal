@@ -13,7 +13,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
   const year = config.year;
   const _dates: Array<RomcalLiturgicalDayInput> = [
     {
-      key: 'saintPubliusBishop',
+      key: 'publius_of_malta_bishop',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-1-22`),
     },
@@ -50,7 +50,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintPiusVPope',
+      key: 'pius_v_pope',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-4-30`),
     },

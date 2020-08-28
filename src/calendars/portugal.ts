@@ -170,7 +170,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-10-27`),
     },
     {
-      key: 'saintNunoDeSantaMaria',
+      key: 'nuno_of_saint_mary_pereira_religious',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-11-6`),
       liturgicalColors: LiturgicalColors.WHITE,

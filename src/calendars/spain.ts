@@ -87,7 +87,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintPaschalBaylon',
+      key: 'paschal_baylon_religious',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-17`),
     },
@@ -107,7 +107,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-6-15`),
     },
     {
-      key: 'saintPelagiusMartyr',
+      key: 'pelagius_of_cordoba_martyr',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-26`),
       metadata: {
@@ -194,7 +194,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintPeterOfAlcantaraPriest',
+      key: 'peter_of_alcantara_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-19`),
     },
