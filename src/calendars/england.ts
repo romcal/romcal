@@ -24,7 +24,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-1-19`),
     },
     {
-      key: 'saintsCyrilMonkAndMethodiusBishop',
+      key: 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-2-14`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -164,7 +164,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-6-20`),
     },
     {
-      key: 'saintsJohnFisherBishopAndThomasMoreMartyrs',
+      key: 'john_fisher_bishop_and_thomas_more_martyrs',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-6-22`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -198,7 +198,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr',
+      key: 'teresa_benedicta_of_the_cross_stein_virgin',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-8-9`),
       liturgicalColors: LiturgicalColors.RED,
@@ -212,7 +212,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-8-26`),
     },
     {
-      key: 'saintsMargaretClitherowAnneLineAndMargaretWardMartyrs',
+      key: 'margaret_clitherow_anne_line_and_margaret_ward_martyrs',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-30`),
     },
@@ -236,7 +236,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-9-4`),
     },
     {
-      key: 'saintTheodoreOfCanterburyBishop',
+      key: 'theodore_of_canterbury_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-19`),
     },
@@ -307,7 +307,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-10-13`),
     },
     {
-      key: 'saintsChadAndCeddBishop',
+      key: 'chad_of_mercia_and_cedd_of_lastingham_bishops',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-26`),
     },
@@ -390,7 +390,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       prioritized: true,
     },
     {
-      key: 'saintThomasBecketBishopAndMartyr',
+      key: 'thomas_becket_bishop',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-12-29`),
       liturgicalColors: LiturgicalColors.RED,

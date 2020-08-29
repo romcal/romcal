@@ -27,7 +27,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
     },
     {
-      key: 'saintsPedroBautistaPaulMikiAndCompanionsMartyrs',
+      key: 'peter_baptist_blasquez_paul_miki_and_companions_martyrs',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-2-6`),
       liturgicalColors: LiturgicalColors.RED,
@@ -60,7 +60,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-8-19`),
     },
     {
-      key: 'saintRoseOfLimaSecondaryPatronessOfThePhilippines',
+      key: 'rose_of_lima_virgin_secondary_patroness_of_the_philippines',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-8-23`),
     },

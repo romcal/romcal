@@ -119,13 +119,13 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-9-24`),
     },
     {
-      key: 'saintsJohnDeBrebeufIsaacJoguesPriestsAndCompanionsMartyrsSecondaryPatronsOfCanada',
+      key: 'john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs_secondary_patrons_of_canada',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-9-26`),
       liturgicalColors: LiturgicalColors.RED,
     },
     {
-      key: 'saintsNereusAndAchilleusMartyrs',
+      key: 'nereus_of_terracina_and_achilleus_of_terracina_martyrs',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-9-26`),
       liturgicalColors: LiturgicalColors.RED,

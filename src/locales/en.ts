@@ -390,7 +390,7 @@ export default {
     fachanan_of_kilfenora_bishop: 'Saint Fachanan, Bishop',  // ireland
     fachtna_of_rosscarbery_bishop: 'Saint Fachtna, Bishop',  // ireland
     faustina_kowalska_virgin: 'Saint Faustina Kowalska, Virgin',  // us
-    philip_of_jesus_de_las_casas_martinez_martyr: 'Saint Philip of Jesus, Martyr',
+    philip_of_jesus_de_las_casas_martyr: 'Saint Philip of Jesus de las Casas, Martyr',
     ferdinand_iii_of_castile: 'Saint Ferdinand III of Castile',
     fergal_of_salzburg_bishop: 'Saint Fergal, Bishop and Missionary',  // ireland
     fiacre_of_breuil_monk: 'Saint Fiacre, Monk',  // ireland
@@ -651,77 +651,77 @@ export default {
     rita_of_cascia_religious: 'Saint Rita of Cascia, Religious',  // us
     robert_bellarmine_bishop: 'Saint Robert Bellarmine, Bishop and Doctor of the Church',  // us
     roch_of_montpellier: 'Saint Roch',
-    // saintRomualdAbbot: 'Saint Romuald, Abbot',  // us
-    // saintRoseOfLima: 'Saint Rose of Lima, Virgin',  // us
-    // saintRoseOfLimaSecondaryPatronessOfThePhilippines: 'Saint Rose of Lima, Virgin and Secondary Patroness of the Philippines',
-    // saintRosePhilippineDuchesneVirgin: 'Saint Rose Philippine Duchesne, Virgin',  // us
-    // saintsAlbanJuliusAndAaronMartyrs: 'Saints Alban, Julius and Aaron, Martyrs',  // gb (wales)
-    // saintsAndrewZorardAndBenedictHermits: 'Saints Andrew Zorard and Benedict, Hermits',
-    // saintsBasilTheGreatAndGregoryNazianzenBishopsAndDoctors: 'Saints Basil the Great and Gregory Nazianzen, Bishops and Doctors of the Church',  // us, gb
-    // saintsBenedyktJanMateuszIsaakAndKrystynMartyrs: 'Saints Benedykt, Jan, Mateusz, Isaak and Krystyn, Martyrs',
-    // saintsBorisAndGlebMartyrs: 'Saints Boris and Gleb, Martyrs',
-    // saintsCanuteEricAndOlafMartyrs: 'Saints Canute, Eric and Olaf, Martyrs',
-    // saintsChadAndCeddBishop: 'Saints Chad and Cedd, Bishops',  // gb
-    // saintsCharlesLwangaAndCompanionsMartyrs: 'Saints Charles Lwanga and Companions, Martyrs',  // us, gb, ireland
-    // saintScholasticaVirgin: 'Saint Scholastica, Virgin',  // us, gb
-    // saintsClementOfOhridAndGorazdBishopsAndCompanions: 'Saints Clement of Ohrid and Gorazd, Bishops, and Companions',
-    // saintsConradAndGebhardOfConstanceBishops: 'Saints Conrad and Gebhard of Constance, Bishops',
-    // saintsCorneliusPopeAndCyprianBishopMartyrs: 'Saints Cornelius, Pope, and Cyprian, Bishop, Martyrs',  // us
-    // saintsCosmasAndDamianMartyrs: 'Saints Cosmas and Damian, Martyrs',  // us, ca
-    // saintsCyrilMonkAndMethodiusBishop: 'Saints Cyril, Monk, and Methodius, Bishop',  // us, gb, scotland
-    // saintSebastianMartyr: 'Saint Sebastian, Martyr',  // us, gb
-    // saintSenanBishop: 'Saint Senan, Bishop',  // ireland
-    // saintSeverinusOfNoricumMonk: 'Saint Severinus of Noricum, Monk',
-    // saintsFelipeDeJesusPaulMikiAndCompanionsMartyrs: 'Saints Felipe de Jesus, Paul Miki and Companions, Martyrs',  // us, but not in us (Felipe de Jesus need to be proofed)
-    // saintsFructuosusBishopAndAuguriusAndEulogiusDeaconsMartyrs: 'Saints Fructuosus, Bishop, Augurius and Eulogius, Deacons, Martyrs',
-    // saintsGregoryGrassiFrancisFogollaAndAnthonyFantosatiBishopsAndCompanionsMartyrs: 'Saints Gregory Grassi, Francis Fogolla and Anthony Fantosati, Bishops, and Companions, Martyrs',
-    // saintsHenryAndCunigunde: 'Saints Henry and Cunigunde',
-    // saintSigismundMartyr: 'Saint Sigismund, Martyr',
-    // saintSimonOfLipnicaPriest: 'Saint Simon of Lipnica, Priest',
-    // saintSixtusIiPopeAndCompanionsMartyrs: 'Saint Sixtus II, Pope, and Companions, Martyrs',  // us
-    // saintsJoachimAndAnne: 'Saints Joachim and Anne, Parents of the Blessed Virgin Mary',  // us; Was: `Saints Joachim and Anne`  // joachim_and_anne_parents_of_mary
-    // saintsJohnDeBrebeufIsaacJoguesPriestsAndCompanionsMartyrs: 'Saints John de Brébeuf and Isaac Jogues, Priests, and Companions, Martyrs',  // us
-    // saintsJohnDeBrebeufIsaacJoguesPriestsAndCompanionsMartyrsSecondaryPatronsOfCanada: 'Saints John de Brébeuf and Isaac Jogues, Priests, and Companions, Martyrs and Secondary Patrons of Canada',  // us, but not in us; ca
-    // saintsJohnFisherBishopAndThomasMoreMartyrs: 'Saints John Fisher, Bishop, and Thomas More, Martyrs',  // us, australia
-    // saintsLouisVersigliaBishopAndCallistusCaravarioPriestMartyrs: 'Saints Louis Versiglia, Bishop and Callistus Caravario, Priest, Martyrs',
-    // saintsMarcellinusAndPeterMartyrs: 'Saints Marcellinus and Peter, Martyrs',  // us, gb
-    // saintsMargaretClitherowAnneLineAndMargaretWardMartyrs: 'Saints Margaret Clitherow, Anne Line and Margaret Ward, Virgin, Martyrs',  // gb
-    // saintsMarkoKrizinMelicharGrodeckiAndStephenPongracPriestsAndMartyrs: 'Saints Marko Krizin, Melichar Grodecki and Stephen Pongrac, Priests and Martyrs',
-    // saintsMichaelGabrielAndRaphaelArchangels: 'Saints Michael, Gabriel and Raphael, Archangels',  // us
-    // saintsNereusAndAchilleusMartyrs: 'Saints Nereus and Achilleus, Martyrs',  // us, gb
-    // saintSoledadTorresAcostaVirgin: 'Saint Soledad Torres Acosta, Virgin',
-    // saintsPedroBautistaPaulMikiAndCompanionsMartyrs: 'Saints Pedro Bautista, Paul Miki and Companions, Martyrs',  // us, but not in us (Pedro Bautista need to be proofed)
-    // saintsPerpetuaAndFelicityMartyrs: 'Saints Perpetua and Felicity, Martyrs',  // us, gb
-    // saintsPhilipAndJamesApostles: 'Saints Philip and James, Apostles',  // us
-    // saintsPhilipEvansAndJohnLloydPriestsAndMartyrs: 'Saints Philip Evans and John Lloyd, Priests and Martyrs',  // gb (wales)
-    // saintsPontianPopeAndHippolytusPriestMartyrs: 'Saints Pontian, Pope, and Hippolytus, Priest, Martyrs',  // us
-    // saintSpyridon: 'Saint Spyridon, Bishop',
-    // saintsRoqueGonzalezAlfonsoRodriguezOlmedoAndJuanDelCastilloPriestsAndMartyrs: 'Saints Roque Gonzalez, Alfonso Rodriguez Olmedo, and Juan del Castillo, Priests and Martyrs',
-    // saintsRupertAndVirgiliusOfSalzburgBishops: 'Saints Rupert and Virgilius of Salzburg, Bishops',
-    // saintsSimonAndJudeApostles: 'Saints Simon and Jude, Apostles',  // us
-    // saintStanislausBishopAndMartyr: 'Saint Stanislaus, Bishop and Martyr',  // us
-    // saintStanislausKazimierczykPriest: 'Saint Stanislaus Kazimierczyk, Priest',
-    // saintStanislausKostkaReligious: 'Saint Stanislaus Kostka, Religious',
-    // saintStephenOfHungary: 'Saint Stephen of Hungary',  // us
-    // saintStephenTheFirstMartyr: 'Saint Stephen, the First Martyr',  // us
-    // saintsTimothyAndTitusBishops: 'Saints Timothy and Titus, Bishops',  // us, australia
-    // saintSunnivaVirginAndMartyr: 'Saint Sunniva, Virgin and Martyr',
-    // saintSwithunBishop: 'Saint Swithun, Bishop',
-    // saintSylvesterIPope: 'Saint Sylvester I, Pope',  // us
-    // saintTeiloBishop: 'Saint Teilo, Bishop',  // gb (wales)
-    // saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr: 'Saint Teresa Benedicta of the Cross Stein, Virgin and Martyr',  // us, gb, scotland
-    // saintTeresaOfCalcuttaReligious: 'Saint Teresa of Calcutta, Religious',
-    // saintTeresaOfJesusJornetEIbarsVirgin: 'Saint Teresa of Jesus Jornet e Ibars, Virgin',
-    // saintTeresaOfJesusVirginAndDoctorOfTheChurch: 'Saint Teresa of Jesus, Virgin and Doctor of the Church',  // us
-    // saintTeresaOfLosAndesVirgin: 'Saint Teresa of Jesus of Los Andes, Virgin',
-    // saintTheodoreOfCanterburyBishop: 'Saint Theodore of Canterbury, Bishop',  // gb
-    // saintTheodosiusOfTheCavesAbbot: 'Saint Theodosius of the Caves, Abbot',
-    // saintTheotoniusPriest: 'Saint Theotonius, Priest',
-    // saintThereseOfTheChildJesusVirginAndDoctor: 'Saint Thérèse of the Child Jesus, Virgin and Doctor of the Church',  // us
-    // saintThereseOfTheChildJesusVirginSecondaryPatronessOfFrance: 'Saint Thérèse of the Child Jesus, Virgin, Doctor of the Church and Secondary Patroness of France',  // us, but not in us
-    // saintThomasAquinasPriestAndDoctor: 'Saint Thomas Aquinas, Priest and Doctor of the Church',  // us, gb
-    // saintThomasBecketBishopAndMartyr: 'Saint Thomas Becket, Bishop and Martyr',  // us, gb
-    // saintThomasOfVillanovaBishop: 'Saint Thomas of Villanova, Bishop',
+    romuald_of_ravenna_abbot: 'Saint Romuald, Abbot',  // us
+    rose_of_lima_virgin: 'Saint Rose of Lima, Virgin',  // us
+    rose_of_lima_virgin_secondary_patroness_of_the_philippines: 'Saint Rose of Lima, Virgin and Secondary Patroness of the Philippines',
+    rose_philippine_duchesne_virgin: 'Saint Rose Philippine Duchesne, Virgin',  // us
+    alban_of_britain_julius_of_caerleon_aaron_of_caerleon_martyrs: 'Saints Alban, Julius and Aaron, Martyrs',  // gb (wales)
+    andrew_zorard_of_nitra_and_benedict_of_skalka_hermits: 'Saints Andrew Zorard and Benedict, Hermits',
+    basil_the_great_and_gregory_nazianzen_bishops: 'Saints Basil the Great and Gregory Nazianzen, Bishops and Doctors of the Church',  // us, gb
+    first_polish_martyrs: 'Saints Benedict, John, Matthew, Isaac and Christian, the First Polish Martyrs',
+    boris_of_kiev_and_gleb_of_kiev_martyrs: 'Saints Boris and Gleb, Martyrs',
+    canute_iv_of_denmark_eric_ix_of_sweden_and_olaf_ii_of_norway_martyrs: 'Saints Canute, Eric and Olaf, Martyrs',
+    chad_of_mercia_and_cedd_of_lastingham_bishops: 'Saints Chad and Cedd, Bishops',  // gb
+    charles_lwanga_and_companions_martyrs: 'Saints Charles Lwanga and Companions, Martyrs',  // us, gb, ireland
+    scholastica_of_nursia_virgin: 'Saint Scholastica, Virgin',  // us, gb
+    clement_of_ohrid_and_gorazd_of_moravia_bishops_and_companions: 'Saints Clement of Ohrid and Gorazd, Bishops, and Companions',
+    conrad_of_constance_and_gebhard_of_constance_bishops: 'Saints Conrad and Gebhard of Constance, Bishops',
+    cornelius_i_pope_and_cyprian_of_carthage_bishop_martyrs: 'Saints Cornelius, Pope, and Cyprian, Bishop, Martyrs',  // us
+    cosmas_of_cilicia_and_damian_of_cilicia_martyrs: 'Saints Cosmas and Damian, Martyrs',  // us, ca
+    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop: 'Saints Cyril, Monk, and Methodius, Bishop',  // us, gb, scotland
+    sebastian_of_milan_martyr: 'Saint Sebastian, Martyr',  // us, gb
+    senan_of_inis_cathaigh_bishop: 'Saint Senan, Bishop',  // ireland
+    severinus_of_noricum_monk: 'Saint Severinus of Noricum, Monk',
+    philip_of_jesus_de_las_casas_paul_miki_and_companions_martyrs: 'Saints Philip of Jesus de las Casas, Paul Miki and Companions, Martyrs',  // us
+    fructuosus_of_tarragona_bishop_and_augurius_of_tarragona_and_eulogius_of_tarragona_deacons_martyrs: 'Saints Fructuosus, Bishop, Augurius and Eulogius, Deacons, Martyrs',
+    gregory_grassi_francis_fogolla_and_anthony_fantosati_bishops_and_companions_martyrs: 'Saints Gregory Grassi, Francis Fogolla and Anthony Fantosati, Bishops, and Companions, Martyrs',
+    henry_ii_emperor_and_cunigunde_of_luxembourg: 'Saints Henry and Cunigunde',
+    sigismund_of_burgundy_martyr: 'Saint Sigismund, Martyr',
+    simon_of_lipnica_priest: 'Saint Simon of Lipnica, Priest',
+    sixtus_ii_pope_and_companions_martyrs: 'Saint Sixtus II, Pope, and Companions, Martyrs',  // us
+    joachim_and_anne_parents_of_mary: 'Saints Joachim and Anne, Parents of the Blessed Virgin Mary',  // us
+    john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs: 'Saints John de Brébeuf and Isaac Jogues, Priests, and Companions, Martyrs',  // us
+    john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs_secondary_patrons_of_canada: 'Saints John de Brébeuf and Isaac Jogues, Priests, and Companions, Martyrs and Secondary Patrons of Canada',  // us, but not in us; ca
+    john_fisher_bishop_and_thomas_more_martyrs: 'Saints John Fisher, Bishop, and Thomas More, Martyrs',  // us, australia
+    louis_versiglia_bishop_and_callistus_caravario_priest_martyrs: 'Saints Louis Versiglia, Bishop and Callistus Caravario, Priest, Martyrs',
+    // saintsMarcellinusAndPeterMartyrs: 'Saints Marcellinus and Peter, Martyrs',  // us, gb   marcellinus_and_peter_the_exorcist_martyrs TODO: What should be the Marcellinus' last name?
+    margaret_clitherow_anne_line_and_margaret_ward_martyrs: 'Saints Margaret Clitherow, Anne Line and Margaret Ward, Virgin, Martyrs',  // gb
+    marko_krizin_melchior_grodziecki_and_stephen_pongracz_priests: 'Saints Marko Krizin, Melchior Grodziecki and Stephen Pongrácz, Priests and Martyrs',
+    michael_gabriel_and_raphael_archangels: 'Saints Michael, Gabriel and Raphael, Archangels',  // us
+    nereus_of_terracina_and_achilleus_of_terracina_martyrs: 'Saints Nereus and Achilleus, Martyrs',  // us, gb
+    mary_soledad_torres_acosta_virgin: 'Saint Mary Soledad Torres y Acosta, Virgin',
+    peter_baptist_blasquez_paul_miki_and_companions_martyrs: 'Saints Peter Baptist Blásquez, Paul Miki and Companions, Martyrs',  // us, but not in us
+    perpetua_of_carthage_and_felicity_of_carthage_martyrs: 'Saints Perpetua and Felicity, Martyrs',  // us, gb
+    philip_and_james_apostles: 'Saints Philip and James, Apostles',  // us
+    philip_evans_and_john_lloyd_priests: 'Saints Philip Evans and John Lloyd, Priests and Martyrs',  // gb (wales)
+    pontian_i_pope_and_hippolytus_of_rome_priest: 'Saints Pontian, Pope, and Hippolytus, Priest, Martyrs',  // us
+    spyridon_of_trimythous_bishop: 'Saint Spyridon, Bishop',
+    roch_gonzalez_alphonsus_rodriguez_and_john_del_castillo_priests: 'Saints Roch González, Alphonsus Rodríguez, and John del Castillo, Priests and Martyrs',
+    rupert_of_salzburg_and_virgilius_of_salzburg_bishops: 'Saints Rupert and Virgilius of Salzburg, Bishops',
+    simon_and_jude_apostles: 'Saints Simon and Jude, Apostles',  // us
+    stanislaus_of_szczepanow_bishop: 'Saint Stanislaus, Bishop and Martyr',  // us
+    stanislaus_kazimierczyk_priest: 'Saint Stanislaus Kazimierczyk, Priest',
+    stanislaus_kostka_religious: 'Saint Stanislaus Kostka, Religious',
+    stephen_i_of_hungary: 'Saint Stephen of Hungary',  // us
+    stephen_the_first_martyr: 'Saint Stephen, the First Martyr',  // us
+    timothy_of_ephesus_and_titus_of_crete_bishops: 'Saints Timothy and Titus, Bishops',  // us, australia
+    sunniva_of_norway_virgin: 'Saint Sunniva, Virgin and Martyr',
+    swithun_of_winchester_bishop: 'Saint Swithun, Bishop',
+    sylvester_i_pope: 'Saint Sylvester I, Pope',  // us
+    teilo_of_llandaff_bishop: 'Saint Teilo, Bishop',  // gb (wales)
+    teresa_benedicta_of_the_cross_stein_virgin: 'Saint Teresa Benedicta of the Cross Stein, Virgin and Martyr',  // us, gb, scotland
+    teresa_of_calcutta_religious: 'Saint Teresa of Calcutta, Religious',
+    teresa_of_jesus_jornet_ibars_virgin: 'Saint Teresa of Jesus Jornet Ibars, Virgin',
+    teresa_of_jesus_of_avila_virgin: 'Saint Teresa of Jesus of Ávila, Virgin and Doctor of the Church',  // us
+    teresa_of_jesus_of_los_andes_virgin: 'Saint Teresa of Jesus of Los Andes, Virgin',
+    theodore_of_canterbury_bishop: 'Saint Theodore of Canterbury, Bishop',  // gb
+    theodosius_of_the_caves_abbot: 'Saint Theodosius of the Caves, Abbot',
+    theotonius_of_coimbra_priest: 'Saint Theotonius of Coimbra, Priest',
+    therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin: 'Saint Thérèse of the Child Jesus and the Holy Face of Lisieux, Virgin and Doctor of the Church',  // us
+    therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin_secondary_patroness_of_france: 'Saint Thérèse of the Child Jesus and the Holy Face of Lisieux, Virgin, Doctor of the Church and Secondary Patroness of France',  // us, but not in us
+    thomas_aquinas_priest: 'Saint Thomas Aquinas, Priest and Doctor of the Church',  // us, gb
+    thomas_becket_bishop: 'Saint Thomas Becket, Bishop and Martyr',  // us, gb
+    thomas_of_villanova_bishop: 'Saint Thomas of Villanova, Bishop',
     // saintThomasRokuzayemonPriestAndCompanionsMartyrs: 'Saint Thomas Rokuzayemon, Priest, and Companions, Martyrs',
     // saintThomasTheApostle: 'Saint Thomas, Apostle',  // us, gb
     // saintThorfinnBishop: 'Saint Thorfinn, Bishop',

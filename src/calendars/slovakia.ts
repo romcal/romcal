@@ -82,7 +82,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     // commemorated on 9 March, but Pope Pius IX changed this date to 5 July
     // https://en.wikipedia.org/wiki/Saints_Cyril_and_Methodius
     {
-      key: 'saintsCyrilMonkAndMethodiusBishop',
+      key: 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop',
       rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-7-5`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -105,7 +105,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintsAndrewZorardAndBenedictHermits',
+      key: 'andrew_zorard_of_nitra_and_benedict_of_skalka_hermits',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-7-17`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -134,7 +134,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr',
+      key: 'teresa_benedicta_of_the_cross_stein_virgin',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-8-9`),
       liturgicalColors: LiturgicalColors.RED,
@@ -149,13 +149,13 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintTeresaOfCalcuttaReligious',
+      key: 'teresa_of_calcutta_religious',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-5`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintsMarkoKrizinMelicharGrodeckiAndStephenPongracPriestsAndMartyrs',
+      key: 'marko_krizin_melchior_grodziecki_and_stephen_pongracz_priests',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-9-7`),
       liturgicalColors: LiturgicalColors.RED,

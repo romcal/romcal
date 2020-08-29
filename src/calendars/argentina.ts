@@ -88,7 +88,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-8-26`),
     },
     {
-      key: 'saintRoseOfLima',
+      key: 'rose_of_lima_virgin',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-8-30`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -113,7 +113,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-10-12`),
     },
     {
-      key: 'saintsRoqueGonzalezAlfonsoRodriguezOlmedoAndJuanDelCastilloPriestsAndMartyrs',
+      key: 'roch_gonzalez_alphonsus_rodriguez_and_john_del_castillo_priests',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-11-17`),
       liturgicalColors: LiturgicalColors.RED,

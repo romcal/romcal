@@ -20,7 +20,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-1-9`),
     },
     {
-      key: 'saintsFructuosusBishopAndAuguriusAndEulogiusDeaconsMartyrs',
+      key: 'fructuosus_of_tarragona_bishop_and_augurius_of_tarragona_and_eulogius_of_tarragona_deacons_martyrs',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-20`),
       metadata: {
@@ -42,7 +42,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-1-23`),
     },
     {
-      key: 'saintsCyrilMonkAndMethodiusBishop',
+      key: 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-2-14`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -144,7 +144,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-7-25`),
     },
     {
-      key: 'saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr',
+      key: 'teresa_benedicta_of_the_cross_stein_virgin',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-8-9`),
       liturgicalColors: LiturgicalColors.RED,
@@ -158,7 +158,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-8-19`),
     },
     {
-      key: 'saintTeresaOfJesusJornetEIbarsVirgin',
+      key: 'teresa_of_jesus_jornet_ibars_virgin',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-8-26`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -169,12 +169,12 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-10-3`),
     },
     {
-      key: 'saintThomasOfVillanovaBishop',
+      key: 'thomas_of_villanova_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-10`),
     },
     {
-      key: 'saintSoledadTorresAcostaVirgin',
+      key: 'mary_soledad_torres_acosta_virgin',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-11`),
     },
@@ -185,7 +185,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintTeresaOfJesusVirginAndDoctorOfTheChurch',
+      key: 'teresa_of_jesus_of_avila_virgin',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-10-15`),
       liturgicalColors: LiturgicalColors.WHITE,

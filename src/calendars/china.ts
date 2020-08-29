@@ -65,7 +65,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-2-21`),
     },
     {
-      key: 'saintsLouisVersigliaBishopAndCallistusCaravarioPriestMartyrs',
+      key: 'louis_versiglia_bishop_and_callistus_caravario_priest_martyrs',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-2-25`),
     },
@@ -119,7 +119,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-5-29`),
     },
     {
-      key: 'saintsGregoryGrassiFrancisFogollaAndAnthonyFantosatiBishopsAndCompanionsMartyrs',
+      key: 'gregory_grassi_francis_fogolla_and_anthony_fantosati_bishops_and_companions_martyrs',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-20`),
     },

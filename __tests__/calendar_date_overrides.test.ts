@@ -202,7 +202,7 @@ describe('Testing national calendar overrides', () => {
     test('Should fall on February 14, 2017 in the general calendar', async () => {
       const dates = await Romcal.calendarFor(2017);
       const date = dates.find((d) => {
-        return d.key === 'saintsCyrilMonkAndMethodiusBishop';
+        return d.key === 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop';
       });
       expect(dayjs.utc(date?.date).isSame(dayjs.utc('2017-2-14'))).toBeTruthy();
     });
@@ -212,7 +212,7 @@ describe('Testing national calendar overrides', () => {
         year: 2017,
       });
       const date = dates.find((d) => {
-        return d.key === 'saintsCyrilMonkAndMethodiusBishop';
+        return d.key === 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop';
       });
       expect(dayjs.utc(date?.date).isSame(dayjs.utc('2017-7-5'))).toBeTruthy();
     });
@@ -222,7 +222,7 @@ describe('Testing national calendar overrides', () => {
         year: 2017,
       });
       const date = dates.find((d) => {
-        return d.key === 'saintsCyrilMonkAndMethodiusBishop';
+        return d.key === 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop';
       });
       expect(dayjs.utc(date?.date).isSame(dayjs.utc('2017-7-5'))).toBeTruthy();
     });

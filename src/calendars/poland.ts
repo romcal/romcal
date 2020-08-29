@@ -45,7 +45,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-1-29`),
     },
     {
-      key: 'saintsCyrilMonkAndMethodiusBishop',
+      key: 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-2-14`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -126,18 +126,18 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintStanislausKazimierczykPriest',
+      key: 'stanislaus_kazimierczyk_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-5`),
     },
     {
-      key: 'saintsPhilipAndJamesApostles',
+      key: 'philip_and_james_apostles',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-5-6`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintStanislausBishopAndMartyr',
+      key: 'stanislaus_of_szczepanow_bishop',
       rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-5-8`),
       liturgicalColors: LiturgicalColors.RED,
@@ -243,7 +243,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintsAndrewZorardAndBenedictHermits',
+      key: 'andrew_zorard_of_nitra_and_benedict_of_skalka_hermits',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-7-13`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -265,7 +265,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintSimonOfLipnicaPriest',
+      key: 'simon_of_lipnica_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-18`),
     },
@@ -303,7 +303,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-8-7`),
     },
     {
-      key: 'saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr',
+      key: 'teresa_benedicta_of_the_cross_stein_virgin',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-8-9`),
       liturgicalColors: LiturgicalColors.RED,
@@ -361,7 +361,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-9-17`),
     },
     {
-      key: 'saintStanislausKostkaReligious',
+      key: 'stanislaus_kostka_religious',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-9-18`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -452,7 +452,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintsBenedyktJanMateuszIsaakAndKrystynMartyrs',
+      key: 'first_polish_martyrs',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-11-13`),
       liturgicalColors: LiturgicalColors.RED,

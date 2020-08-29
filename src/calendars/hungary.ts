@@ -21,7 +21,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintsCyrilMonkAndMethodiusBishop',
+      key: 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-2-14`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -150,7 +150,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintsAndrewZorardAndBenedictHermits',
+      key: 'andrew_zorard_of_nitra_and_benedict_of_skalka_hermits',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-17`),
     },
@@ -174,7 +174,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-7-27`),
     },
     {
-      key: 'saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr',
+      key: 'teresa_benedicta_of_the_cross_stein_virgin',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-8-9`),
       liturgicalColors: LiturgicalColors.RED,
@@ -188,7 +188,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-8-13`),
     },
     {
-      key: 'saintsPontianPopeAndHippolytusPriestMartyrs',
+      key: 'pontian_i_pope_and_hippolytus_of_rome_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-16`),
       metadata: {
@@ -205,17 +205,17 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintStephenOfHungary',
+      key: 'stephen_i_of_hungary',
       rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-8-20`),
     },
     {
-      key: 'saintTeresaOfCalcuttaReligious',
+      key: 'teresa_of_calcutta_religious',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-5`),
     },
     {
-      key: 'saintsMarkoKrizinMelicharGrodeckiAndStephenPongracPriestsAndMartyrs',
+      key: 'marko_krizin_melchior_grodziecki_and_stephen_pongracz_priests',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-9-7`),
       liturgicalColors: LiturgicalColors.WHITE,
