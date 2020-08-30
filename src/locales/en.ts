@@ -279,7 +279,7 @@ export default {
     andre_bessette_religious: 'Saint André Bessette, Religious',  // us, ca
     andrew_bobola_priest: 'Saint Andrew Bobola, Priest and Martyr',
     andrew_dung_lac_priest_and_companions_martyrs: 'Saint Andrew Dũng-Lạc, Priest, and Companions, Martyrs',  // us
-    andrew_kim_tae_gon_priest_paul_chong_ha_sang_and_companions_martyrs: 'Saint Andrew Kim Tae-gŏn, Priest, Paul Chŏng Ha-sang and Companions, Martyrs',  // us
+    andrew_kim_tae_gon_priest_paul_chong_ha_sang_and_companions_martyrs: 'Saints Andrew Kim Tae-gŏn, Priest, Paul Chŏng Ha-sang and Companions, Martyrs',  // us
     andrew_apostle: 'Saint Andrew, Apostle',  // us, gb, scotland
     andrew_apostle_patron_of_russia: 'Saint Andrew, Apostle and Patron of Russia',  // us, but not in us
     angela_merici_virgin: 'Saint Angela Merici, Virgin',  // us, gb
@@ -684,7 +684,7 @@ export default {
     john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs_secondary_patrons_of_canada: 'Saints John de Brébeuf and Isaac Jogues, Priests, and Companions, Martyrs and Secondary Patrons of Canada',  // us, but not in us; ca
     john_fisher_bishop_and_thomas_more_martyrs: 'Saints John Fisher, Bishop, and Thomas More, Martyrs',  // us, australia
     louis_versiglia_bishop_and_callistus_caravario_priest_martyrs: 'Saints Louis Versiglia, Bishop and Callistus Caravario, Priest, Martyrs',
-    // saintsMarcellinusAndPeterMartyrs: 'Saints Marcellinus and Peter, Martyrs',  // us, gb   marcellinus_and_peter_the_exorcist_martyrs TODO: What should be the Marcellinus' last name?
+    marcellinus_of_rome_and_peter_the_exorcist_martyrs: 'Saints Marcellinus and Peter, Martyrs',  // us, gb
     margaret_clitherow_anne_line_and_margaret_ward_martyrs: 'Saints Margaret Clitherow, Anne Line and Margaret Ward, Virgin, Martyrs',  // gb
     marko_krizin_melchior_grodziecki_and_stephen_pongracz_priests: 'Saints Marko Krizin, Melchior Grodziecki and Stephen Pongrácz, Priests and Martyrs',
     michael_gabriel_and_raphael_archangels: 'Saints Michael, Gabriel and Raphael, Archangels',  // us
@@ -722,48 +722,47 @@ export default {
     thomas_aquinas_priest: 'Saint Thomas Aquinas, Priest and Doctor of the Church',  // us, gb
     thomas_becket_bishop: 'Saint Thomas Becket, Bishop and Martyr',  // us, gb
     thomas_of_villanova_bishop: 'Saint Thomas of Villanova, Bishop',
-    // saintThomasRokuzayemonPriestAndCompanionsMartyrs: 'Saint Thomas Rokuzayemon, Priest, and Companions, Martyrs',
-    // saintThomasTheApostle: 'Saint Thomas, Apostle',  // us, gb
-    // saintThorfinnBishop: 'Saint Thorfinn, Bishop',
-    // saintThorlacBishop: 'Saint Thorlac, Bishop',
-    // saintTuribiusOfMogrovejoBishop: 'Saint Turibius of Mogrovejo, Bishop',  // us, gb
-    // saintUlrichOfAugsburg: 'Saint Ulrich of Augsburg, Bishop',
-    // saintUrsulaAndCompanionsVirginsAndMartyrs: 'Saint Ursula and Companions, Virgins and Martyrs',
-    // saintUrsulaLedochowskaVirgin: 'Saint Ursula Ledochowska, Virgin',
-    // saintValentineOfRaetiaBishop: 'Saint Valentine of Raetia, Bishop',
-    // saintVincentDeaconAndMartyr: 'Saint Vincent, Deacon and Martyr',  // us, gb
-    // saintVincentDePaulPriest: 'Saint Vincent de Paul, Priest',  // us
-    // saintVincentFerrerPriest: 'Saint Vincent Ferrer, Priest',  // us
-    // saintVincentPallottiPriest: 'Saint Vincent Pallotti, Priest',
-    // saintVitusMartyr: 'Saint Vitus, Martyr',
-    // saintVladimirTheGreat: 'Saint Vladimir the Great',
-    // saintWalburgaAbbess: 'Saint Walburga, Abbess',
-    // saintWenceslausMartyr: 'Saint Wenceslaus, Martyr',  // us
-    // saintWendelinAbbot: 'Saint Wendelin, Abbot',
-    // saintWilfridBishop: 'Saint Wilfrid, Bishop',  // gb
-    // saintWillibaldBishop: 'Saint Willibald, Bishop',
-    // saintWillibrordBishop: 'Saint Willibrord, Bishop',  // gb, ireland in en-IE
-    // saintWinefrideVirgin: 'Saint Winefride, Virgin',  // gb
-    // saintWolfgangBishop: 'Saint Wolfgang, Bishop',
-    // saintWolfgangOfRegensburgBishop: 'Saint Wolfgang of Regensburg, Bishop',
-    // saintWulstanBishop: 'Saint Wulstan, Bishop',  // gb
-    // saintZdislava: 'Saint Zdislava',
-    // saintZygmuntGorazdowskiPriest: 'Saint Zygmunt Gorazdowski, Priest',
-    // saintZygmuntSzczesnyFelinskiBishop: 'Saint Sigmund Felix Feliński, Bishop',
-    // santoNinoInfantJesus: 'Santo Nino (Infant Jesus)',
-    // sevenHolyFoundersOfTheServiteOrder: 'Seven Holy Founders of the Servite Order',  // us, gb in en-gb
-    // sevenMartyredNunsFromTheFranciscanMissionariesOfMary: 'Seven Martyred Nuns from the Franciscan Missionaries of Mary',
-    // shipwreckOfSaintPaulApostle: 'Shipwreck of Saint Paul, Apostle',
-    // stDunstanArchbishopOfCanterbury: 'Saint Dunstan, Bishop',  // gb; Was: `St Dunstan, Archbishop of Canterbury`
-    // sundayOfTheWordOfGod: 'Sunday of the Word of God',  // us; this one was not found in the _Ordo 2017, 2018, 2020, 2021_
-    // theBeheadingOfSaintJohnTheBaptistMartyr: 'Passion of Saint John the Baptist',  // us
-    // theEnglishMartyrs: 'English Martyrs',  // gb
-    // theFiveWoundsOfTheLord: 'Five Wounds of the Lord',
-    // theMostHolyNameOfJesus: 'Most Holy Name of Jesus',  // us, gb
-    // theSixWelshMartyrsAndCompanions: 'Six Welsh Martyrs and Companions',  // gb (wales)
-    // transferOfTheRelicsOfSaintStephen: 'Transfer of the Relics of Saint Stephen',
-    // vietnameseMartyrs: 'Vietnamese Martyrs',
-    // visitationOfTheBlessedVirginMary: 'Visitation of the Blessed Virgin Mary',  // us
-    // waitangiDay: 'Waitangi Day',  // nz
+    thomas_hioji_rokuzayemon_nishi_priest_and_companions_martyrs: 'Saint Thomas Hioji Rokuzayemon Nishi, Priest, and Companions, Martyrs',
+    thomas_apostle: 'Saint Thomas, Apostle',  // us, gb
+    thorfinn_of_hamar_bishop: 'Saint Thorfinn, Bishop',
+    thorlac_of_iceland_bishop: 'Saint Thorlac, Bishop',
+    turibius_of_mogrovejo_bishop: 'Saint Turibius of Mogrovejo, Bishop',  // us, gb
+    ulrich_of_augsburg_bishop: 'Saint Ulrich of Augsburg, Bishop',
+    ursula_of_cologne_and_companions_virgins: 'Saint Ursula and Companions, Virgins and Martyrs',
+    mary_ursula_of_jesus_ledochowska_virgin: 'Saint Mary Ursula of Jesus Ledóchowska, Virgin',
+    valentine_of_raetia_bishop: 'Saint Valentine of Raetia, Bishop',
+    vincent_of_saragossa_deacon: 'Saint Vincent, Deacon and Martyr',  // us, gb
+    vincent_de_paul_priest: 'Saint Vincent de Paul, Priest',  // us
+    vincent_ferrer_priest: 'Saint Vincent Ferrer, Priest',  // us
+    vincent_pallotti_priest: 'Saint Vincent Pallotti, Priest',
+    vitus_of_lucania_martyr: 'Saint Vitus, Martyr',
+    vladimir_i_the_great_of_kiev: 'Saint Vladimir the Great',
+    walpurga_of_heidenheim_abbess: 'Saint Walpurga of Heidenheim, Abbess',
+    wenceslaus_i_of_bohemia_martyr: 'Saint Wenceslaus, Martyr',  // us
+    wendelin_of_trier_abbot: 'Saint Wendelin, Abbot',
+    wilfrid_of_york_bishop: 'Saint Wilfrid, Bishop',  // gb
+    willibald_of_eichstatt_bishop: 'Saint Willibald, Bishop',
+    willibrord_of_utrecht_bishop: 'Saint Willibrord, Bishop',  // gb, ireland in en-IE
+    winefride_of_flintshire_virgin: 'Saint Winefride, Virgin',  // gb
+    wolfgang_of_regensburg_bishop: 'Saint Wolfgang of Regensburg, Bishop',
+    wulstan_of_worcester_bishop: 'Saint Wulstan, Bishop',  // gb
+    zdislava_of_lemberk: 'Saint Zdislava',
+    zygmunt_gorazdowski_priest: 'Saint Zygmunt Gorazdowski, Priest',
+    sigmund_felix_felinski_bishop: 'Saint Sigmund Felix Feliński, Bishop',
+    holy_child_of_cebu: 'Holy Child of Cebú',
+    seven_holy_founders_of_the_servite_order: 'Seven Holy Founders of the Servite Order',  // us, gb in en-gb
+    seven_martyred_nuns_from_the_franciscan_missionaries_of_mary: 'Seven Martyred Nuns from the Franciscan Missionaries of Mary',
+    shipwreck_of_saint_paul_apostle: 'Shipwreck of Saint Paul, Apostle',
+    dunstan_of_canterbury_bishop: 'Saint Dunstan, Bishop',  // gb; Was: `St Dunstan, Archbishop of Canterbury`
+    sunday_of_the_word_of_god: 'Sunday of the Word of God',  // us; this one was not found in the _Ordo 2017, 2018, 2020, 2021_
+    passion_of_saint_john_the_baptist: 'Passion of Saint John the Baptist',  // us
+    english_martyrs: 'English Martyrs',  // gb
+    five_wounds_of_the_lord: 'Five Wounds of the Lord',
+    most_holy_name_of_jesus: 'Most Holy Name of Jesus',  // us, gb
+    six_welsh_martyrs_and_companions: 'Six Welsh Martyrs and Companions',  // gb (wales)
+    translation_of_the_relics_of_saint_stephen_of_hungary: 'Translation of the Relics of Saint Stephen of Hungary',
+    vietnamese_martyrs: 'Vietnamese Martyrs',
+    visitation_of_mary: 'Visitation of the Blessed Virgin Mary',  // us
+    waitangi_day: 'Waitangi Day',  // nz
   },
 } as RomcalLocale;

@@ -42,7 +42,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintThomasRokuzayemonPriestAndCompanionsMartyrs',
+      key: 'thomas_hioji_rokuzayemon_nishi_priest_and_companions_martyrs',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-9-28`),
       liturgicalColors: LiturgicalColors.WHITE,

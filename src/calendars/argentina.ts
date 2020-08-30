@@ -25,7 +25,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-1-24`),
     },
     {
-      key: 'saintTuribiusOfMogrovejoBishop',
+      key: 'turibius_of_mogrovejo_bishop',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-4-27`),
       liturgicalColors: LiturgicalColors.WHITE,

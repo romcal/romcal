@@ -19,7 +19,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-1-12`),
     },
     {
-      key: 'saintWulstanBishop',
+      key: 'wulstan_of_worcester_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-19`),
     },
@@ -109,13 +109,13 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'theEnglishMartyrs',
+      key: 'english_martyrs',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-5-4`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'stDunstanArchbishopOfCanterbury',
+      key: 'dunstan_of_canterbury_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-19`),
     },
@@ -297,7 +297,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       prioritized: true,
     },
     {
-      key: 'saintWilfridBishop',
+      key: 'wilfrid_of_york_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-12`),
     },
@@ -312,12 +312,12 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-10-26`),
     },
     {
-      key: 'saintWinefrideVirgin',
+      key: 'winefride_of_flintshire_virgin',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-3`),
     },
     {
-      key: 'saintWillibrordBishop',
+      key: 'willibrord_of_utrecht_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-7`),
     },

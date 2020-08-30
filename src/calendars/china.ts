@@ -129,7 +129,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-6-23`),
     },
     {
-      key: 'sevenMartyredNunsFromTheFranciscanMissionariesOfMary',
+      key: 'seven_martyred_nuns_from_the_franciscan_missionaries_of_mary',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-8`),
     },

@@ -29,7 +29,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'theMostHolyNameOfJesus',
+      key: 'most_holy_name_of_jesus',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-3`),
     },
@@ -78,7 +78,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintVincentDeaconAndMartyr',
+      key: 'vincent_of_saragossa_deacon',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-22`),
       metadata: {
@@ -96,7 +96,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     // http://www.vatican.va/content/francesco/en/motu_proprio/documents/papa-francesco-motu-proprio-20190930_aperuit-illis.html
     {
-      key: 'sundayOfTheWordOfGod',
+      key: 'sunday_of_the_word_of_god',
       rank: Ranks.SUNDAY,
       date: await (async (y: number): Promise<Dayjs> => {
         const firstDayOfOT = dayjs((await Seasons.earlyOrdinaryTime(y, config.epiphanyOnSunday))[0].date);
@@ -199,7 +199,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'sevenHolyFoundersOfTheServiteOrder',
+      key: 'seven_holy_founders_of_the_servite_order',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-2-17`),
     },
@@ -264,7 +264,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintTuribiusOfMogrovejoBishop',
+      key: 'turibius_of_mogrovejo_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-3-23`),
     },
@@ -282,7 +282,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintVincentFerrerPriest',
+      key: 'vincent_ferrer_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-4-5`),
     },
@@ -481,7 +481,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'visitationOfTheBlessedVirginMary',
+      key: 'visitation_of_mary',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-5-31`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -496,7 +496,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintsMarcellinusAndPeterMartyrs',
+      key: 'marcellinus_of_rome_and_peter_the_exorcist_martyrs',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-2`),
       metadata: {
@@ -594,7 +594,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-6-30`),
     },
     {
-      key: 'saintThomasTheApostle',
+      key: 'thomas_apostle',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-7-3`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -895,7 +895,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'theBeheadingOfSaintJohnTheBaptistMartyr',
+      key: 'passion_of_saint_john_the_baptist',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-8-29`),
       liturgicalColors: LiturgicalColors.RED,
@@ -1006,13 +1006,13 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintVincentDePaulPriest',
+      key: 'vincent_de_paul_priest',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-9-27`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintWenceslausMartyr',
+      key: 'wenceslaus_i_of_bohemia_martyr',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-28`),
       metadata: {

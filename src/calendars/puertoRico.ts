@@ -15,7 +15,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
   const year = config.year;
   const _dates: Array<RomcalLiturgicalDayInput> = [
     {
-      key: 'theMostHolyNameOfJesus',
+      key: 'most_holy_name_of_jesus',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-3`),
     },

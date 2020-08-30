@@ -134,7 +134,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'theSixWelshMartyrsAndCompanions',
+      key: 'six_welsh_martyrs_and_companions',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-10-25`),
       liturgicalColors: LiturgicalColors.RED,
@@ -143,7 +143,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintWinefrideVirgin',
+      key: 'winefride_of_flintshire_virgin',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-3`),
     },

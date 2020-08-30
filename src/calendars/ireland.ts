@@ -349,7 +349,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       prioritized: true,
     },
     {
-      key: 'saintWillibrordBishop',
+      key: 'willibrord_of_utrecht_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-7`),
     },

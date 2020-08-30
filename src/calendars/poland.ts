@@ -20,7 +20,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-1-19`),
     },
     {
-      key: 'saintVincentPallottiPriest',
+      key: 'vincent_pallotti_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-22`),
     },
@@ -149,7 +149,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintUrsulaLedochowskaVirgin',
+      key: 'mary_ursula_of_jesus_ledochowska_virgin',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-5-29`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -160,7 +160,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-5-30`),
     },
     {
-      key: 'saintZdislava',
+      key: 'zdislava_of_lemberk',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-30`),
     },
@@ -200,7 +200,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintZygmuntGorazdowskiPriest',
+      key: 'zygmunt_gorazdowski_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-26`),
     },
@@ -356,7 +356,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-9-10`),
     },
     {
-      key: 'saintZygmuntSzczesnyFelinskiBishop',
+      key: 'sigmund_felix_felinski_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-17`),
     },
@@ -371,14 +371,13 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-25`),
     },
-    // jarosz: Split saintRuizAndCo and saintWenceslaus (they are a single celebration in general.js)
     {
       key: 'lawrence_ruiz_and_companions_martyrs',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-26`),
     },
     {
-      key: 'saintWenceslausMartyr',
+      key: 'wenceslaus_i_of_bohemia_martyr',
       rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-9-28`),
       liturgicalColors: LiturgicalColors.WHITE,

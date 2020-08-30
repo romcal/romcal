@@ -96,7 +96,7 @@ describe('Testing specific feasts and memorials', () => {
     test('Should be celebrated on the 3rd Sunday of Ordinary Time', async () => {
       const dates = await Romcal.calendarFor(2020);
       const sundayOfTheWordOfGod = dates.find((d) => {
-        return d.key === 'sundayOfTheWordOfGod';
+        return d.key === 'sunday_of_the_word_of_god';
       });
       const sundays = await Seasons.earlyOrdinaryTime(2020, false);
       const thirdSundayOfOrdinaryTime = sundays.find((sunday) => sunday.key === 'thirdSundayOfOrdinaryTime');

@@ -18,7 +18,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-1-5`),
     },
     {
-      key: 'saintValentineOfRaetiaBishop',
+      key: 'valentine_of_raetia_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-7`),
     },
@@ -61,7 +61,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintWalburgaAbbess',
+      key: 'walpurga_of_heidenheim_abbess',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-2-25`),
     },
@@ -160,7 +160,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-5-21`),
     },
     {
-      key: 'saintVitusMartyr',
+      key: 'vitus_of_lucania_martyr',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-15`),
       metadata: {
@@ -183,18 +183,18 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-6-30`),
     },
     {
-      key: 'visitationOfTheBlessedVirginMary',
+      key: 'visitation_of_mary',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-7-2`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintUlrichOfAugsburg',
+      key: 'ulrich_of_augsburg_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-4`),
     },
     {
-      key: 'saintWillibaldBishop',
+      key: 'willibald_of_eichstatt_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-7`),
     },
@@ -309,12 +309,12 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-10-16`),
     },
     {
-      key: 'saintWendelinAbbot',
+      key: 'wendelin_of_trier_abbot',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-20`),
     },
     {
-      key: 'saintUrsulaAndCompanionsVirginsAndMartyrs',
+      key: 'ursula_of_cologne_and_companions_virgins',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-21`),
       metadata: {
@@ -322,7 +322,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintWolfgangOfRegensburgBishop',
+      key: 'wolfgang_of_regensburg_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-31`),
     },
@@ -342,7 +342,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-11-6`),
     },
     {
-      key: 'saintWillibrordBishop',
+      key: 'willibrord_of_utrecht_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-7`),
     },

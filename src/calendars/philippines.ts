@@ -14,7 +14,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
   const year = config.year;
   const _dates: Array<RomcalLiturgicalDayInput> = [
     {
-      key: 'santoNinoInfantJesus',
+      key: 'holy_child_of_cebu',
       rank: Ranks.FEAST,
       date: ((): dayjs.Dayjs => {
         // Third Sunday of January: Santo Niño (Holy Child Jesus)
