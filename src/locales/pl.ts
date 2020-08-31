@@ -376,5 +376,7 @@ export default {
     passion_of_saint_john_the_baptist: 'Męczeństwo św. Jana Chrzciciela',
     most_holy_name_of_jesus: 'Najświętszego Imienia Jezus',
     visitation_of_mary: 'Nawiedzenie Najświętszej Maryi Panny',
+    our_lady_of_sorrows_patroness_of_slovakia: 'Najświętszej Maryi Panny Bolesnej, patronki Słowacji',
+    george_of_lydda_martyr_patron_of_england: 'Św. Grzegorza, męczennika, patrona Anglii',
   },
 } as RomcalLocale;

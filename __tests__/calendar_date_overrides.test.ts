@@ -489,16 +489,16 @@ describe('Testing national calendar overrides', () => {
       expect(ourLadyOfSorrows.isSame(thirdSundayOfEaster!.date)).toBeTruthy();
     });
 
-    test('Should be celebrated on the 15th of April 2018 as a solemnity in the national calendar of Slovakia', async () => {
+    test('Should be celebrated on the 15th of September 2018 as a solemnity in the national calendar of Slovakia', async () => {
       const slovakiaDates = await Romcal.calendarFor({
         year: 2018,
         country: 'slovakia',
       });
-      const ourLadyOfSorrows = slovakiaDates.find((d) => {
-        return d.key === 'our_lady_of_sorrows';
+      const ourLadyOfSorrowsPatronessOfSlovakia = slovakiaDates.find((d) => {
+        return d.key === 'our_lady_of_sorrows_patroness_of_slovakia';
       });
-      expect(ourLadyOfSorrows?.rank).toEqual(Ranks.SOLEMNITY);
-      expect(dayjs.utc(ourLadyOfSorrows?.date).isSame(dayjs.utc('2018-9-15'))).toBeTruthy();
+      expect(ourLadyOfSorrowsPatronessOfSlovakia?.rank).toEqual(Ranks.SOLEMNITY);
+      expect(dayjs.utc(ourLadyOfSorrowsPatronessOfSlovakia?.date).isSame(dayjs.utc('2018-9-15'))).toBeTruthy();
     });
   });
 });

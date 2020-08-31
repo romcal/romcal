@@ -297,5 +297,7 @@ export default {
     passion_of_saint_john_the_baptist: 'Martirio di San Giovanni Battista',
     most_holy_name_of_jesus: 'Santissimo Nome di Gesú',
     visitation_of_mary: 'Visitazione della Beata Vergine Maria',
+    our_lady_of_sorrows_patroness_of_slovakia: 'Beata Vergine Maria Addolorata, patrona della Slovacchia',
+    george_of_lydda_martyr_patron_of_england: 'San Giorgio, martire e patrono d’Inghilterra',
   },
 } as RomcalLocale;

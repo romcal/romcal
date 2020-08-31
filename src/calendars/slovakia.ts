@@ -164,7 +164,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'our_lady_of_sorrows',
+      key: 'our_lady_of_sorrows_patroness_of_slovakia',
       rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-9-15`),
       liturgicalColors: LiturgicalColors.WHITE,

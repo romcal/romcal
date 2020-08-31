@@ -27,6 +27,11 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-7-23`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
+    {
+      key: 'charles_i_of_austria',
+      rank: Ranks.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-10-21`),
+    },
   ];
 
   // Get localized liturgical day names

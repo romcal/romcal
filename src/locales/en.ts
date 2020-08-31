@@ -481,7 +481,7 @@ export default {
     john_mary_vianney_priest: 'Saint John Vianney, Priest',  // us
     john_nepomucene_priest: 'Saint John Nepomucene, Priest and Martyr',
     john_neumann_bishop: 'Saint John Neumann, Bishop',  // us
-    john_of_avila_priest: 'Saint John of Ávila, Priest',
+    john_of_avila_priest: 'Saint John of Ávila, Priest and Doctor of the Church',
     john_of_capistrano_priest: 'Saint John of Capistrano, Priest',  // us
     john_of_dukla_priest: 'Saint John of Dukla, Priest',
     john_of_god_religious: 'Saint John of God, Religious',  // us
@@ -764,5 +764,19 @@ export default {
     vietnamese_martyrs: 'Vietnamese Martyrs',
     visitation_of_mary: 'Visitation of the Blessed Virgin Mary',  // us
     waitangi_day: 'Waitangi Day',  // nz
+    francis_xavier_seelos_priest: 'Blessed Francis Xavier Seelos, priest',  // us
+    immaculate_conception_of_mary_principal_patroness_of_the_usa: 'Immaculate Conception of the Blessed Virgin Mary, Principal Patroness of the USA',  // us
+    peter_chanel_priest_patron_of_oceania: 'Saint Peter Chanel, Proto-martyr of Oceania and Patron of Oceania',  // australia
+    john_brenner_priest: 'Blessed John Brenner, Priest and Martyr',  // hu
+    paul_of_thebes_hermit: 'Blessed Paul of Thebes, Hermit',  // hu
+    eusebius_of_esztergom_priest: 'Blessed Eusebius of Esztergom, Priest',  // hu
+    pavel_peter_gojdic_bishop: 'Blessed Pavel Peter Gojdič, Bishop and Martyr',  // hu
+    szilard_bogdanffy_bishop: 'Blessed Szilárd Bogdánffy, Bishop and Martyr',  // hu
+    ladislaus_batthyany_strattmann: 'Blessed Ladislaus Batthyány-Strattmann',  // hu
+    zoltan_lajos_meszlenyi_bishop: 'Blessed Zoltán Lajos Meszlényi, Bishop and Martyr',  // hu
+    ceferino_gimenez_malla_martyr: 'Blessed Ceferino Giménez Malla, Martyr',  // hu
+    john_scheffler_bishop: 'Blessed John Scheffler, Bishop and Martyr',  // hu
+    our_lady_of_sorrows_patroness_of_slovakia: 'Our Lady of Sorrows, Patroness of Slovakia',  // sk
+    george_of_lydda_martyr_patron_of_england: 'Saint George, Martyr and Patron of England',  // gb
   },
 } as RomcalLocale;

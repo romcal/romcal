@@ -1,4 +1,5 @@
 import dayjs from 'dayjs';
+
 import * as Locales from '@romcal/lib/locales';
 import { Dates } from '@romcal/lib/dates';
 import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
@@ -6,6 +7,7 @@ import { RomcalLiturgicalDayInput } from '@romcal/models/liturgical-day/liturgic
 import { rangeOfDays, rangeContainsDate } from '@romcal/utils/dates/dates';
 import { RomcalConfig, RomcalConfigInCalendarDef } from '@romcal/models/config/config.model';
 import { Ranks } from '@romcal/constants/ranks/ranks.enum';
+import { CelebrationsCycle } from '@romcal/constants/cycles/cycles.enum';
 import { Titles } from '@romcal/constants/titles/titles.enum';
 
 const defaultConfig: RomcalConfigInCalendarDef | undefined = undefined;
@@ -48,7 +50,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     // or in the Easter Octave it is transferred to the next available day —
     // generally the Monday of the Second Week of Easter.
     {
-      key: 'george_of_lydda_martyr',
+      key: 'george_of_lydda_martyr_patron_of_england',
       rank: Ranks.SOLEMNITY,
       date: ((y: number): dayjs.Dayjs => {
         const holyWeekDates = Dates.holyWeek(y);
@@ -397,6 +399,13 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       metadata: {
         titles: [Titles.MARTYR],
       },
+    },
+    {
+      key: 'our_lord_jesus_christ_the_eternal_high_priest',
+      rank: Ranks.FEAST,
+      date: ((y: number): dayjs.Dayjs => dayjs.utc(Dates.pentecostSunday(y).add(4, 'day').toISOString()))(year),
+      liturgicalColors: LiturgicalColors.WHITE,
+      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
     },
   ];
 

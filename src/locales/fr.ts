@@ -337,5 +337,7 @@ export default {
     passion_of_saint_john_the_baptist: 'Martyre de Saint Jean-Baptiste',
     most_holy_name_of_jesus: 'Saint Nom de Jésus',
     visitation_of_mary: 'Visitation de la Vierge Marie',
+    our_lady_of_sorrows_patroness_of_slovakia: 'Notre-Dame des Douleurs, Patronne de la Slovaquie',
+    george_of_lydda_martyr_patron_of_england: 'Saint Georges, Martyr et patron de l’Angleterre (✝ 303)',
   },
 } as RomcalLocale;

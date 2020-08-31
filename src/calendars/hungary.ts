@@ -15,10 +15,25 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
   const year = config.year;
   const _dates: Array<RomcalLiturgicalDayInput> = [
     {
+      key: 'paul_of_thebes_hermit',
+      rank: Ranks.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-1-15`),
+    },
+    {
       key: 'margaret_of_hungary_religious',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-1-18`),
       liturgicalColors: LiturgicalColors.WHITE,
+    },
+    {
+      key: 'eusebius_of_esztergom_priest',
+      rank: Ranks.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-1-20`),
+    },
+    {
+      key: 'ladislaus_batthyany_strattmann',
+      rank: Ranks.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-1-22`),
     },
     {
       key: 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop',
@@ -30,10 +45,29 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
+      key: 'jacinta_marto_and_francisco_marto',
+      rank: Ranks.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-2-20`),
+    },
+    {
       key: 'matthias_apostle',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-2-24`),
       liturgicalColors: LiturgicalColors.WHITE,
+    },
+    {
+      key: 'zoltan_lajos_meszlenyi_bishop',
+      rank: Ranks.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-3-4`),
+      liturgicalColors: LiturgicalColors.RED,
+      metadata: {
+        titles: [Titles.MARTYR],
+      },
+    },
+    {
+      key: 'bernadette_soubirous_virgin',
+      rank: Ranks.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-4-16`),
     },
     {
       key: 'adalbert_of_prague_bishop',
@@ -43,6 +77,11 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       metadata: {
         titles: [Titles.MARTYR],
       },
+    },
+    {
+      key: 'george_of_lydda_martyr',
+      rank: Ranks.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-4-24`),
     },
     {
       key: 'catherine_of_siena_virgin',
@@ -62,9 +101,23 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
+      key: 'ceferino_gimenez_malla_martyr',
+      rank: Ranks.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-5-4`),
+      liturgicalColors: LiturgicalColors.RED,
+      metadata: {
+        titles: [Titles.MARTYR],
+      },
+    },
+    {
       key: 'gisela_of_hungary',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-7`),
+    },
+    {
+      key: 'john_of_avila_priest',
+      rank: Ranks.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-5-10`),
     },
     {
       key: 'sara_salkahazi_virgin',
@@ -78,6 +131,14 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       key: 'john_nepomucene_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-16`),
+      metadata: {
+        titles: [Titles.MARTYR],
+      },
+    },
+    {
+      key: 'john_scheffler_bishop',
+      rank: Ranks.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-5-17`),
       metadata: {
         titles: [Titles.MARTYR],
       },
@@ -101,6 +162,11 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-5-30`),
     },
     {
+      key: 'quirinus_of_sescia_bishop',
+      rank: Ranks.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-6-4`),
+    },
+    {
       key: 'agnes_of_bohemia_virgin',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-8`),
@@ -114,6 +180,11 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       metadata: {
         titles: [Titles.MARTYR],
       },
+    },
+    {
+      key: 'yolanda_of_poland_religious',
+      rank: Ranks.MEMORIAL,
+      date: dayjs.utc(`${year}-6-15`),
     },
     {
       key: 'cyril_of_alexandria_bishop',
@@ -153,6 +224,15 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       key: 'andrew_zorard_of_nitra_and_benedict_of_skalka_hermits',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-17`),
+    },
+    {
+      key: 'pavel_peter_gojdic_bishop',
+      rank: Ranks.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-7-17`),
+      liturgicalColors: LiturgicalColors.RED,
+      metadata: {
+        titles: [Titles.MARTYR],
+      },
     },
     {
       key: 'bridget_of_sweden_religious',
@@ -240,6 +320,15 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
+      key: 'szilard_bogdanffy_bishop',
+      rank: Ranks.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-10-3`),
+      liturgicalColors: LiturgicalColors.RED,
+      metadata: {
+        titles: [Titles.MARTYR],
+      },
+    },
+    {
       key: 'our_lady_of_hungary_principal_patron_of_hungary',
       rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-10-8`),
@@ -290,6 +379,15 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-11-19`),
       liturgicalColors: LiturgicalColors.WHITE,
+    },
+    {
+      key: 'john_brenner_priest',
+      rank: Ranks.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-12-15`),
+      liturgicalColors: LiturgicalColors.RED,
+      metadata: {
+        titles: [Titles.MARTYR],
+      },
     },
     {
       key: 'our_lord_jesus_christ_the_eternal_high_priest',

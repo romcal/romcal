@@ -286,5 +286,7 @@ export default {
     most_holy_name_of_jesus: 'Santísimo Nombre de Jesús',
     vietnamese_martyrs: 'Mártires de Vietnam',
     visitation_of_mary: 'Visitación de la Santísima Vírgen María',
+    our_lady_of_sorrows_patroness_of_slovakia: 'Nuestra Señora del Socorro, Patrona de Eslovaquia',
+    george_of_lydda_martyr_patron_of_england: 'San Jorge, Mártir e Patrón de Inglaterra',
   },
 } as RomcalLocale;

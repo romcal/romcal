@@ -26,7 +26,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-4-27`),
     },
     {
-      key: 'peter_chanel_priest',
+      key: 'peter_chanel_priest_patron_of_oceania',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-4-28`),
       liturgicalColors: LiturgicalColors.RED,

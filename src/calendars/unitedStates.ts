@@ -1,13 +1,20 @@
 import dayjs from 'dayjs';
 
 import * as Locales from '@romcal/lib/locales';
+import { Dates } from '@romcal/lib/dates';
 import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
 import { RomcalLiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
 import { RomcalConfig, RomcalConfigInCalendarDef } from '@romcal/models/config/config.model';
 import { Ranks } from '@romcal/constants/ranks/ranks.enum';
+import { CelebrationsCycle } from '@romcal/constants/cycles/cycles.enum';
 import { Titles } from '@romcal/constants/titles/titles.enum';
 
-const defaultConfig: RomcalConfigInCalendarDef | undefined = undefined;
+const defaultConfig: RomcalConfigInCalendarDef = {
+  // TODO: Ascension3 is celebrated on Thursday in the following ecclesiastical provinces (in all other 26 EP, it is celebrated on Sunday): Boston, Hartford, New York, Newark, Omaha, Philadelphia
+  ascensionOnSunday: true,
+  corpusChristiOnSunday: true,
+  epiphanyOnSunday: true,
+};
 
 const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInput>> => {
   const year = config.year;
@@ -32,7 +39,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     {
       key: 'vincent_of_saragossa_deacon',
       rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-1-22`),
+      date: dayjs.utc(`${year}-1-23`),
       metadata: {
         titles: [Titles.MARTYR],
       },
@@ -40,7 +47,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     {
       key: 'marianne_cope_virgin',
       rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-1-22`),
+      date: dayjs.utc(`${year}-1-23`),
     },
     {
       key: 'katharine_drexel_virgin',
@@ -63,6 +70,11 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-7-1`),
     },
     {
+      key: 'elizabeth_of_portugal',
+      rank: Ranks.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-7-5`),
+    },
+    {
       key: 'kateri_tekakwitha_virgin',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-7-14`),
@@ -78,6 +90,11 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-9-9`),
       liturgicalColors: LiturgicalColors.WHITE,
+    },
+    {
+      key: 'francis_xavier_seelos_priest',
+      rank: Ranks.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-10-5`),
     },
     {
       key: 'marie_rose_durocher_virgin',
@@ -116,6 +133,20 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       metadata: {
         titles: [Titles.MARTYR],
       },
+    },
+    {
+      // It is a holyday of obligation unless it occurs with Sunday: then it is moved to the following Monday and while keeps its rank (solemnity), it is not a holyday of obligation
+      key: 'immaculate_conception_of_mary_principal_patroness_of_the_usa',
+      rank: Ranks.SOLEMNITY,
+      date: ((y: number): dayjs.Dayjs => {
+        const date = dayjs.utc(`${y}-12-8`);
+        if (date.day() === 0) {
+          // TODO: Also make the celebration _not_ a holyday of obligation when the holydays of obligation remark is implemented into romcal
+          return dayjs.utc(`${y}-12-9`);
+        } else {
+          return date;
+        }
+      })(year),
     },
     {
       key: 'our_lady_of_guadalupe',
