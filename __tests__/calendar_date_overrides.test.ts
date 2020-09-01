@@ -212,7 +212,7 @@ describe('Testing national calendar overrides', () => {
         year: 2017,
       });
       const date = dates.find((d) => {
-        return d.key === 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop';
+        return d.key === 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_secondary_patrons_of_europe';
       });
       expect(dayjs.utc(date?.date).isSame(dayjs.utc('2017-7-5'))).toBeTruthy();
     });
@@ -222,7 +222,7 @@ describe('Testing national calendar overrides', () => {
         year: 2017,
       });
       const date = dates.find((d) => {
-        return d.key === 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop';
+        return d.key === 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_slavic_missionaries';
       });
       expect(dayjs.utc(date?.date).isSame(dayjs.utc('2017-7-5'))).toBeTruthy();
     });
@@ -495,7 +495,7 @@ describe('Testing national calendar overrides', () => {
         country: 'slovakia',
       });
       const ourLadyOfSorrowsPatronessOfSlovakia = slovakiaDates.find((d) => {
-        return d.key === 'our_lady_of_sorrows_patroness_of_slovakia';
+        return d.key === 'our_lady_of_sorrows_principal_patroness_of_slovakia';
       });
       expect(ourLadyOfSorrowsPatronessOfSlovakia?.rank).toEqual(Ranks.SOLEMNITY);
       expect(dayjs.utc(ourLadyOfSorrowsPatronessOfSlovakia?.date).isSame(dayjs.utc('2018-9-15'))).toBeTruthy();

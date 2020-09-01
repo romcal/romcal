@@ -311,7 +311,7 @@ export default {
     peter_claver_priest: 'Św. Piotra Klawera, prezbitera',
     peter_damian_bishop: 'Św. Piotra Damianiego, biskupa i doktora Kościoła',
     peter_julian_eymard_priest: 'Św. Piotra Juliani Eymarda, prezbitera',
-    saintPeterLiuMartyr: 'Św. Piotra Liu, Męczennika',  // TODO: Change to `Saint Peter Liu Wenyuan, Martyr`
+    peter_liu_wenyuan_martyr: 'Św. Piotra Liu, Męczennika',  // TODO: Change to `Saint Peter Liu Wenyuan, Martyr`
     peter_sanz_bishop: 'Św. Piotra Sanza, Biskupa i Męczennika',
     peter_wu_guosheng_martyr: 'Św. Piotra Wu, Męczennika',  // TODO: Change to `Saint Peter Wu Guosheng, Martyr`
     philip_neri_priest: 'Św. Filipa Nereusza, prezbitera',
@@ -376,7 +376,12 @@ export default {
     passion_of_saint_john_the_baptist: 'Męczeństwo św. Jana Chrzciciela',
     most_holy_name_of_jesus: 'Najświętszego Imienia Jezus',
     visitation_of_mary: 'Nawiedzenie Najświętszej Maryi Panny',
-    our_lady_of_sorrows_patroness_of_slovakia: 'Najświętszej Maryi Panny Bolesnej, patronki Słowacji',
-    george_of_lydda_martyr_patron_of_england: 'Św. Grzegorza, męczennika, patrona Anglii',
+    our_lady_of_sorrows_principal_patroness_of_slovakia: 'Najświętszej Maryi Panny Bolesnej, głównej patronki Słowacji',
+    george_of_lydda_martyr_principal_patron_of_england: 'Św. Grzegorza, męczennika i głównego patrona Anglii',
+    benedict_of_nursia_abbot_principal_patron_of_europe: 'Św. Benedykta, opata i głównego patrona Europy',
+    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_secondary_patrons_of_europe: 'Świętych Cyryla, mnicha i Metodego, biskupa, patronów Europy',
+    teresa_benedicta_of_the_cross_stein_virgin_secondary_patron_of_europe: 'Św. Teresy Benedykty od Krzyża, dziewicy, męczennicy i patrona Europy',  // TODO: How to say `secundary patron` in Polish?
+    andrew_apostle_principal_patron_of_scotland: 'Św. Andrzeja, Apostoła i głównego patrona Szkocji',
+    bridget_of_sweden_religious_secondary_patroness_of_europe: 'Św. Brygidy, zakonnicy i patronki Europy',  // TODO: How to say `secundary patron` in Polish?
   },
 } as RomcalLocale;

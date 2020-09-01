@@ -90,7 +90,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'joachim_and_anne_patroness_of_the_province_of_quebec_parents_of_mary',
+      key: 'joachim_and_anne_principal_patroness_of_the_province_of_quebec_parents_of_mary',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-7-26`),
       liturgicalColors: LiturgicalColors.WHITE,

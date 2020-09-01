@@ -64,7 +64,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'our_lady_of_aparecida_patroness_of_brazil',
+      key: 'our_lady_of_aparecida_principal_patroness_of_brazil',
       rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-10-12`),
       liturgicalColors: LiturgicalColors.WHITE,

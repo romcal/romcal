@@ -217,9 +217,9 @@ export default {
     our_lady_help_of_christians: 'Our Lady, Help of Christians',  // nz
     our_lady_mediatrix_of_all_grace: 'Our Lady, Mediatrix of All Grace',
     our_lady_mother_of_christian_unity: 'Our Lady, Mother of Christian Unity',
-    our_lady_mother_of_divine_providence_patroness_of_puerto_rico: 'Our Lady, Mother of Divine Providence, Patroness of Puerto Rico',
+    our_lady_mother_of_divine_providence_principal_patroness_of_puerto_rico: 'Our Lady, Mother of Divine Providence, Principal Patroness of Puerto Rico',
     our_lady_mother_of_mercy: 'Our Lady, Mother of Mercy',
-    our_lady_of_aparecida_patroness_of_brazil: 'Our Lady of Aparecida, Patroness of Brazil',
+    our_lady_of_aparecida_principal_patroness_of_brazil: 'Our Lady of Aparecida, Principal Patroness of Brazil',
     our_lady_of_bethlehem: 'Our Lady of Bethlehem',
     our_lady_of_marija_bistrica: 'Our Lady of Marija Bistrica',
     our_lady_of_china: 'Our Lady of China',
@@ -227,15 +227,15 @@ export default {
     our_lady_of_fatima: 'Our Lady of Fatima',  // us, gb
     our_lady_of_good_counsel: 'Our Lady of Good Counsel',  // ca
     our_lady_of_guadalupe: 'Our Lady of Guadalupe',  // us, ca
-    our_lady_of_guadalupe_patroness_of_the_philippines: 'Our Lady of Guadalupe, Celestial Patroness of the Philippines',  // us, but not in us
-    our_lady_of_hungary_principal_patron_of_hungary: 'Our Lady of Hungary, Principal Patron of Hungary',
+    our_lady_of_guadalupe_principal_patroness_of_the_philippines: 'Our Lady of Guadalupe, Principal Patroness of the Philippines',  // us, but not in us
+    our_lady_of_hungary_principal_patroness_of_hungary: 'Our Lady of Hungary, Principal Patroness of Hungary',
     our_lady_of_itati: 'Our Lady of Itatí',
     our_lady_of_knock: 'Our Lady of Knock',  // ireland
     our_lady_of_lanka: 'Our Lady of Lanka',
     our_lady_of_lebanon: 'Our Lady of Lebanon',
     our_lady_of_loreto: 'Our Lady of Loreto',  // us
     our_lady_of_lourdes: 'Our Lady of Lourdes',  // us, gb
-    our_lady_of_lujan_patroness_of_argentina: 'Our Lady of Luján, Patroness of Argentina',
+    our_lady_of_lujan_principal_patroness_of_argentina: 'Our Lady of Luján, Principal Patroness of Argentina',
     our_lady_of_madhu: 'Our Lady of Madhu',
     our_lady_of_mercy: 'Our Lady of Mercy',
     our_lady_of_mount_carmel: 'Our Lady of Mount Carmel',  // us, gb
@@ -281,9 +281,9 @@ export default {
     andrew_dung_lac_priest_and_companions_martyrs: 'Saint Andrew Dũng-Lạc, Priest, and Companions, Martyrs',  // us
     andrew_kim_tae_gon_priest_paul_chong_ha_sang_and_companions_martyrs: 'Saints Andrew Kim Tae-gŏn, Priest, Paul Chŏng Ha-sang and Companions, Martyrs',  // us
     andrew_apostle: 'Saint Andrew, Apostle',  // us, gb, scotland
-    andrew_apostle_patron_of_russia: 'Saint Andrew, Apostle and Patron of Russia',  // us, but not in us
+    andrew_apostle_principal_patron_of_russia: 'Saint Andrew, Apostle and Principal Patron of Russia',  // us, but not in us
     angela_merici_virgin: 'Saint Angela Merici, Virgin',  // us, gb
-    joachim_and_anne_patroness_of_the_province_of_quebec_parents_of_mary: 'Saints Anne, Patroness of the Province of Quebec, and Joachim, Parents of the Blessed Virgin Mary',  // us, but not in us, ca
+    joachim_and_anne_principal_patroness_of_the_province_of_quebec_parents_of_mary: 'Saints Anne, Principal Patroness of the Province of Quebec, and Joachim, Parents of the Blessed Virgin Mary',  // us, but not in us, ca
     anno_of_cologne_bishop: 'Saint Anno of Cologne, Bishop',
     anselm_of_canterbury_bishop: 'Saint Anselm, Bishop and Doctor of the Church',  // us, gb
     ansgar_of_hamburg_bishop: 'Saint Ansgar, Bishop',  // us, gb
@@ -456,7 +456,7 @@ export default {
     ita_of_killeedy_virgin: 'Saint Ita, Virgin',  // ireland
     ivo_of_kermartin_priest: 'Saint Ivo, Priest',
     james_apostle: 'Saint James, Apostle',  // us, gb
-    james_apostle_patron_of_spain: 'Saint James, Apostle and Patron of Spain',  // us, but not in us
+    james_apostle_principal_patron_of_spain: 'Saint James, Apostle and Principal Patron of Spain',  // us, but not in us
     jane_frances_de_chantal_religious: 'Saint Jane Frances de Chantal, Religious',  // us
     januarius_i_of_benevento_bishop: 'Saint Januarius, Bishop and Martyr',  // us
     jarlath_of_tuam_bishop: 'Saint Jarlath, Bishop',  // ireland
@@ -521,7 +521,7 @@ export default {
     kinga_of_poland_virgin: 'Saint Kinga, Virgin',
     ladislaus_i_of_hungary: 'Saint Ladislaus',
     lambert_of_maastricht_bishop: 'Saint Lambert of Maastricht, Bishop and Martyr',
-    saintLaurenceOTooleBishop: 'Saint Laurence O’Toole, Bishop',  // ireland
+    laurence_otoole_bishop: 'Saint Laurence O’Toole, Bishop',  // ireland
     laurence_wang_bing_and_companions_martyrs: 'Saint Laurence Wang Bing and Companions, Martyrs',
     lawrence_bai_xiaoman_martyr: 'Saint Lawrence Bai Xiaoman, Martyr',
     lawrence_of_brindisi_priest: 'Saint Lawrence of Brindisi, Priest and Doctor of the Church',  // us, gb
@@ -766,7 +766,7 @@ export default {
     waitangi_day: 'Waitangi Day',  // nz
     francis_xavier_seelos_priest: 'Blessed Francis Xavier Seelos, priest',  // us
     immaculate_conception_of_mary_principal_patroness_of_the_usa: 'Immaculate Conception of the Blessed Virgin Mary, Principal Patroness of the USA',  // us
-    peter_chanel_priest_patron_of_oceania: 'Saint Peter Chanel, Proto-martyr of Oceania and Patron of Oceania',  // australia
+    peter_chanel_priest_principal_patron_of_oceania: 'Saint Peter Chanel, Proto-martyr of Oceania and Principal Patron of Oceania',  // australia
     john_brenner_priest: 'Blessed John Brenner, Priest and Martyr',  // hu
     paul_of_thebes_hermit: 'Blessed Paul of Thebes, Hermit',  // hu
     eusebius_of_esztergom_priest: 'Blessed Eusebius of Esztergom, Priest',  // hu
@@ -776,7 +776,14 @@ export default {
     zoltan_lajos_meszlenyi_bishop: 'Blessed Zoltán Lajos Meszlényi, Bishop and Martyr',  // hu
     ceferino_gimenez_malla_martyr: 'Blessed Ceferino Giménez Malla, Martyr',  // hu
     john_scheffler_bishop: 'Blessed John Scheffler, Bishop and Martyr',  // hu
-    our_lady_of_sorrows_patroness_of_slovakia: 'Our Lady of Sorrows, Patroness of Slovakia',  // sk
-    george_of_lydda_martyr_patron_of_england: 'Saint George, Martyr and Patron of England',  // gb
+    our_lady_of_sorrows_principal_patroness_of_slovakia: 'Our Lady of Sorrows, Principal Patroness of Slovakia',  // sk
+    george_of_lydda_martyr_principal_patron_of_england: 'Saint George, Martyr and Principal Patron of England',  // gb
+    benedict_of_nursia_abbot_principal_patron_of_europe: 'Saint Benedict, Abbot and Principal Patron of Europe',  // europe
+    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_secondary_patrons_of_europe: 'Saints Cyril, Monk, and Methodius, Bishop',  // europe
+    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_slavic_missionaries: 'Saints Cyril and Methodius, Slavic Missionaries',  // slovakia
+    teresa_benedicta_of_the_cross_stein_virgin_secondary_patron_of_europe: 'Saint Teresa Benedicta of the Cross Stein, Virgin, Martyr and Secondary Patron of Europe',  // europe
+    andrew_apostle_principal_patron_of_scotland: 'Saint Andrew, Apostle and Principal Patron of Scotland',  // scotland
+    david_of_wales_bishop_principal_patron_of_wales: 'Saint David, Bishop and Principal Patron of Wales',  // wales
+    bridget_of_sweden_religious_secondary_patroness_of_europe: 'Saint Bridget, Religious and Secondary Patroness of Europe',  // europe
   },
 } as RomcalLocale;
