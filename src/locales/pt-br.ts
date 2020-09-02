@@ -95,9 +95,9 @@ export default {
   sanctoral: {
     our_lady_help_of_christians: 'Nossa Senhora, Auxílio dos Cristãos',
     our_lady_mediatrix_of_all_grace: 'Nossa Senhora, Medianeira de todas as Graças',
-    our_lady_mother_of_divine_providence_principal_patroness_of_puerto_rico: 'Nossa Senhora, Mãe da Divina Providência',
+    our_lady_mother_of_divine_providence_principal_patroness_of_puerto_rico: 'Nossa Senhora, Mãe da Divina Providência',  // TODO: Add `Principal Patronness of Porto Rico` title
     our_lady_mother_of_mercy: 'Nossa Senhora, Mãe de Misericórdia',
-    our_lady_of_aparecida_principal_patroness_of_brazil: 'Nossa Senhora Aparecida',
+    our_lady_of_aparecida_principal_patroness_of_brazil: 'Nossa Senhora Aparecida',  // TODO: Add `Principal Patronness of Brazil` title
     our_lady_of_china: 'Nossa Senhora da China',
     our_lady_of_fatima: 'Nossa Senhora de Fatima',
     our_lady_of_good_counsel: 'Nossa Senhora do Bom Conselho',

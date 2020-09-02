@@ -34,7 +34,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-1-30`),
     },
     {
-      key: 'brigid_of_kildare_virgin',
+      key: 'brigid_of_kildare_virgin_secondary_patron_of_ireland',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-2-1`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -87,7 +87,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-3-11`),
     },
     {
-      key: 'patrick_of_ireland_bishop',
+      key: 'patrick_of_ireland_bishop_principal_patron_of_ireland',
       rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-3-17`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -118,7 +118,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-4-27`),
     },
     {
-      key: 'catherine_of_siena_virgin',
+      key: 'catherine_of_siena_virgin_secundary_patroness_of_europe',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-4-29`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -168,7 +168,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-6-7`),
     },
     {
-      key: 'columba_of_iona_abbot',
+      key: 'columba_of_iona_abbot_secondary_patron_of_ireland',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-6-9`),
       liturgicalColors: LiturgicalColors.WHITE,

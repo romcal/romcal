@@ -304,5 +304,11 @@ export default {
     teresa_benedicta_of_the_cross_stein_virgin_secondary_patron_of_europe: 'Santa Teresa Benedetta della Croce, vergine, martire e patrona secondaria d’Europa',
     andrew_apostle_principal_patron_of_scotland: 'Sant’Andrea, apostolo e patrono principale della Scozia',
     bridget_of_sweden_religious_secondary_patroness_of_europe: 'Santa Brigida, religiosa e patrona secondaria d’Europa',
+    catherine_of_siena_virgin_secundary_patroness_of_europe: 'Santa Caterina da Siena, vergine, dottore della Chiesa e patrona secondaria d’Europa',
+    catherine_of_siena_virgin_secondary_patroness_of_italy_and_europe: 'Santa Caterina da Siena, vergine, dottore della Chiesa e patrona secondaria d’Italia e d’Europa',
+    patrick_of_ireland_bishop_principal_patron_of_ireland: 'San Patrizio, vescovo e patrono principale dell’Irlanda',
+    columba_of_iona_abbot_secondary_patron_of_ireland: 'San Colombano, abate e patrono secondario dell’Irlanda',
+    our_lady_of_guadalupe_principal_patroness_of_the_americas: 'Beata Vergine Maria di Guadalupe, Patrona principale delle Americhe',
+    francis_of_assisi_principal_patron_of_italy: 'San Francesco d’Assisi, patrono principale d’Italia',
   },
 } as RomcalLocale;

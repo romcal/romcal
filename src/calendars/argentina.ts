@@ -128,12 +128,11 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'our_lady_of_guadalupe',
+      key: 'our_lady_of_guadalupe_principal_patroness_of_the_americas',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-12-12`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
-    // Saturday of the 2nd Week of Easter
     {
       key: 'our_lady_of_the_valley',
       rank: Ranks.MEMORIAL,

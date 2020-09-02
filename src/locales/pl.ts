@@ -380,8 +380,14 @@ export default {
     george_of_lydda_martyr_principal_patron_of_england: 'Św. Grzegorza, męczennika i głównego patrona Anglii',
     benedict_of_nursia_abbot_principal_patron_of_europe: 'Św. Benedykta, opata i głównego patrona Europy',
     cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_secondary_patrons_of_europe: 'Świętych Cyryla, mnicha i Metodego, biskupa, patronów Europy',
-    teresa_benedicta_of_the_cross_stein_virgin_secondary_patron_of_europe: 'Św. Teresy Benedykty od Krzyża, dziewicy, męczennicy i patrona Europy',  // TODO: How to say `secundary patron` in Polish?
+    teresa_benedicta_of_the_cross_stein_virgin_secondary_patron_of_europe: 'Św. Teresy Benedykty od Krzyża, dziewicy, męczennicy i patrona Europy',  // TODO: How to say `secundary patroness` in Polish?
     andrew_apostle_principal_patron_of_scotland: 'Św. Andrzeja, Apostoła i głównego patrona Szkocji',
-    bridget_of_sweden_religious_secondary_patroness_of_europe: 'Św. Brygidy, zakonnicy i patronki Europy',  // TODO: How to say `secundary patron` in Polish?
+    bridget_of_sweden_religious_secondary_patroness_of_europe: 'Św. Brygidy, zakonnicy i patronki Europy',  // TODO: How to say `secundary patroness` in Polish?
+    catherine_of_siena_virgin_secundary_patroness_of_europe: 'Św. Katarzyny Sieneńskiej, dziewicy, doktora Kościoła i patronki Europy',  // TODO: How to say `secundary patroness` in Polish?
+    catherine_of_siena_virgin_secondary_patroness_of_italy_and_europe: 'Św. Katarzyny Sieneńskiej, dziewicy, doktora Kościoła i patronki Włoch i Europy',  // TODO: How to say `secundary patroness` in Polish?
+    patrick_of_ireland_bishop_principal_patron_of_ireland: 'Św. Patryka, biskupa i głównego patrona Irlandii',
+    columba_of_iona_abbot_secondary_patron_of_ireland: 'Św. Kolumbana, zakonnika i patrona Irlandii',  // TODO: How to say `secundary patron` in Polish?
+    our_lady_of_guadalupe_principal_patroness_of_the_americas: 'Najświętszej Maryi Panny z Guadalupe, głównej Patronki obu Ameryk',
+    francis_of_assisi_principal_patron_of_italy: 'Św. Franciszka z Asyżu, głównego patrona Włoch',
   },
 } as RomcalLocale;

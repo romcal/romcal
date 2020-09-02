@@ -137,7 +137,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-12-9`),
     },
     {
-      key: 'our_lady_of_guadalupe',
+      key: 'our_lady_of_guadalupe_principal_patroness_of_the_americas',
       rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-12-12`),
     },

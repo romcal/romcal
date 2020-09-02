@@ -22,7 +22,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'catherine_of_siena_virgin',
+      key: 'catherine_of_siena_virgin_secondary_patroness_of_italy_and_europe',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-4-29`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -71,7 +71,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'francis_of_assisi',
+      key: 'francis_of_assisi_principal_patron_of_italy',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-10-4`),
       liturgicalColors: LiturgicalColors.WHITE,

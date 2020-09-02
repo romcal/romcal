@@ -22,6 +22,15 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
+      key: 'catherine_of_siena_virgin_secundary_patroness_of_europe',
+      rank: Ranks.FEAST,
+      date: dayjs.utc(`${year}-4-29`),
+      liturgicalColors: LiturgicalColors.WHITE,
+      metadata: {
+        titles: [Titles.PATRON_OF_EUROPE, Titles.DOCTOR_OF_THE_CHURCH],
+      },
+    },
+    {
       key: 'john_nepomucene_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-16`),
