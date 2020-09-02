@@ -12,11 +12,11 @@ export default {
     octave: '{{count}} Day within the Octave of the Nativity of the Lord',
     sunday: '{{count}} Sunday of Christmas',
   },
-epiphany: {
-season: 'Epiphany',
-before: '{{day}} before Epiphany',
-after: '{{day}} after Epiphany',
-},
+  epiphany: {
+    season: 'Epiphany',
+    before: '{{day}} before Epiphany',
+    after: '{{day}} after Epiphany',
+  },
   ordinary_time: {
     season: 'Ordinary Time',
     weekday: '{{day}} of the {{week}} week of Ordinary Time',

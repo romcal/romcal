@@ -7,6 +7,7 @@ import { RomcalLiturgicalDayInput } from '@romcal/models/liturgical-day/liturgic
 import { RomcalConfig, RomcalConfigInCalendarDef } from '@romcal/models/config/config.model';
 import { Ranks } from '@romcal/constants/ranks/ranks.enum';
 import { CelebrationsCycle } from '@romcal/constants/cycles/cycles.enum';
+import { Titles } from '@romcal/constants/titles/titles.enum';
 
 const defaultConfig: RomcalConfigInCalendarDef | undefined = undefined;
 

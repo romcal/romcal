@@ -4,7 +4,7 @@ export type RomcalLocaleKeys = {
   after: string;
   before: string;
   day: string;
-  dayAfterAshWed: string;
+  day_after_ash_wed: string;
   weekday: string;
   octave: string;
   season: string;
