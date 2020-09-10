@@ -47,7 +47,7 @@ export default {
     GREEN: 'verde',
     PURPLE: 'roxo',
     RED: 'vermelho',
-    ROSE: 'rosa',
+    ROSE: 'roséo',
     WHITE: 'branco',
   },
   ranks: {

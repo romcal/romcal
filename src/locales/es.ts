@@ -289,7 +289,7 @@ export default {
     teresa_benedicta_of_the_cross_stein_virgin_secondary_patron_of_europe: 'Santa Teresa Benedicta de la Cruz (Edith Stein), Vírgen, Mártir y Patrona Secundaria de Europa',
     andrew_apostle_principal_patron_of_scotland: 'San Andrés, Apóstol y Patrono Principal de Escocia',
     david_of_wales_bishop_principal_patron_of_wales: 'San David, Obispo y Patrono Principal de Gales',
-    catherine_of_siena_virgin_secundary_patroness_of_europe: 'Santa Catalina de Siena, Vírgen, Doctor de la Iglesia y Patrona Secundaria de Europa',
+    catherine_of_siena_virgin_secondary_patroness_of_europe: 'Santa Catalina de Siena, Vírgen, Doctor de la Iglesia y Patrona Secundaria de Europa',
     catherine_of_siena_virgin_secondary_patroness_of_italy_and_europe: 'Santa Catalina de Siena, Vírgen, Doctor de la Iglesia y Patrona Secundaria de Italia y Europa',
     our_lady_of_guadalupe_principal_patroness_of_the_americas: 'Nuestra Señora de Guadalupe, Patrona Principal de América',
     francis_of_assisi_principal_patron_of_italy: 'San Francisco of Asís, Patrono de Italia',

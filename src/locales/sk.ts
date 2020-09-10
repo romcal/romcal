@@ -785,7 +785,7 @@ export default {
     andrew_apostle_principal_patron_of_scotland: 'Svätého Ondreja, apoštola a hlavného patróna Škótska',
     david_of_wales_bishop_principal_patron_of_wales: 'Svätého Dávida z Walesu, biskupa a hlavného patróna Walesu',
     bridget_of_sweden_religious_secondary_patroness_of_europe: 'Svätej Brigity, rehoľnice a spolupatrónky Európy',
-    catherine_of_siena_virgin_secundary_patroness_of_europe: 'Svätej Kataríny Sienskej, panny, učiteľky Cirkvi a spolupatrónky Európy',
+    catherine_of_siena_virgin_secondary_patroness_of_europe: 'Svätej Kataríny Sienskej, panny, učiteľky Cirkvi a spolupatrónky Európy',
     catherine_of_siena_virgin_secondary_patroness_of_italy_and_europe: 'Svätej Kataríny Sienskej, panny, učiteľky Cirkvi a spolupatrónky Talianska a Európy',
     patrick_of_ireland_bishop_principal_patron_of_ireland: 'Svätého Patrika, biskupa a hlavného patróna Írska',
     columba_of_iona_abbot_secondary_patron_of_ireland: 'Svätého Kolumbu, opáta a spolupatróna Írska',

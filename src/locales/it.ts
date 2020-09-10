@@ -282,7 +282,7 @@ export default {
     timothy_of_ephesus_and_titus_of_crete_bishops: 'Santi Timoteo e Tito, vescovi',
     sylvester_i_pope: 'San Silvestro I, papa',
     teresa_benedicta_of_the_cross_stein_virgin: 'Santa Teresa Benedetta della Croce, vergine e martire',
-    teresa_of_jesus_of_avila_virgin: 'Santa Teresa d’Avila, vergine e dottore della Chiesa',  // TODO: Localise as `Saint Teresa of Jesus of Ávila, Virgin and Doctor of the Church`
+    teresa_of_jesus_of_avila_virgin: 'Santa Teresa di Gesù d’Avila, vergine e dottore della Chiesa',
     therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin: 'Santa Teresa di Gesu’ Bambino, vergine e dottore della Chiesa',
     thomas_aquinas_priest: 'San Tommaso d’Aquino, sacerdote e dottore della Chiesa',
     thomas_becket_bishop: 'San Tommaso Becket, vescovo e martire',
@@ -304,7 +304,7 @@ export default {
     teresa_benedicta_of_the_cross_stein_virgin_secondary_patron_of_europe: 'Santa Teresa Benedetta della Croce, vergine, martire e patrona secondaria d’Europa',
     andrew_apostle_principal_patron_of_scotland: 'Sant’Andrea, apostolo e patrono principale della Scozia',
     bridget_of_sweden_religious_secondary_patroness_of_europe: 'Santa Brigida, religiosa e patrona secondaria d’Europa',
-    catherine_of_siena_virgin_secundary_patroness_of_europe: 'Santa Caterina da Siena, vergine, dottore della Chiesa e patrona secondaria d’Europa',
+    catherine_of_siena_virgin_secondary_patroness_of_europe: 'Santa Caterina da Siena, vergine, dottore della Chiesa e patrona secondaria d’Europa',
     catherine_of_siena_virgin_secondary_patroness_of_italy_and_europe: 'Santa Caterina da Siena, vergine, dottore della Chiesa e patrona secondaria d’Italia e d’Europa',
     patrick_of_ireland_bishop_principal_patron_of_ireland: 'San Patrizio, vescovo e patrono principale dell’Irlanda',
     columba_of_iona_abbot_secondary_patron_of_ireland: 'San Colombano, abate e patrono secondario dell’Irlanda',
