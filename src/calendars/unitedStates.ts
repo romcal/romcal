@@ -10,7 +10,7 @@ import { CelebrationsCycle } from '@romcal/constants/cycles/cycles.enum';
 import { Titles } from '@romcal/constants/titles/titles.enum';
 
 const defaultConfig: RomcalConfigInCalendarDef = {
-  // TODO: Ascension3 is celebrated on Thursday in the following ecclesiastical provinces (in all other 26 EP, it is celebrated on Sunday): Boston, Hartford, New York, Newark, Omaha, Philadelphia
+  // TODO: Ascension is celebrated on Thursday in the following ecclesiastical provinces (in all other 26 EP, it is celebrated on Sunday): Boston, Hartford, New York, Newark, Omaha, Philadelphia
   ascensionOnSunday: true,
   corpusChristiOnSunday: true,
   epiphanyOnSunday: true,

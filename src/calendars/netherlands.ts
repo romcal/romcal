@@ -46,6 +46,9 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-7-23`),
       liturgicalColors: LiturgicalColors.WHITE,
+      metadata: {
+        titles: [Titles.PATRON_OF_EUROPE],
+      },
     },
     {
       key: 'teresa_benedicta_of_the_cross_stein_virgin_secondary_patron_of_europe',

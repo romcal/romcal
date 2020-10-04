@@ -260,7 +260,6 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     // In England and Wales when the celebration falls on either a
     // Saturday or a Monday it is transferred to the Sunday.
-    // Replaces 20th Sunday in Ordinary Time when it falls on a Sunday.
     {
       key: 'peter_and_paul_apostles',
       source: 'celebrations', // Override the default lookup source
@@ -280,7 +279,6 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     // In England and Wales when the celebration falls on either a
     // Saturday or a Monday it is transferred to the Sunday.
-    // Replaces 20th Sunday in Ordinary Time when it falls on a Sunday.
     {
       key: 'assumption',
       source: 'celebrations',

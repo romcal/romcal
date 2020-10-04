@@ -235,6 +235,9 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-7-11`),
       liturgicalColors: LiturgicalColors.WHITE,
+      metadata: {
+        titles: [Titles.PATRON_OF_EUROPE],
+      },
     },
     {
       key: 'bruno_of_querfurt_bishop',
@@ -285,6 +288,9 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-7-23`),
       liturgicalColors: LiturgicalColors.WHITE,
+      metadata: {
+        titles: [Titles.PATRON_OF_EUROPE],
+      },
     },
     {
       key: 'kinga_of_poland_virgin',

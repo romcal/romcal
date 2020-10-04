@@ -194,9 +194,6 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-2-14`),
       liturgicalColors: LiturgicalColors.WHITE,
-      metadata: {
-        titles: [Titles.PATRON_OF_EUROPE],
-      },
     },
     {
       key: 'seven_holy_founders_of_the_servite_order',
@@ -367,7 +364,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-4-29`),
       liturgicalColors: LiturgicalColors.WHITE,
       metadata: {
-        titles: [Titles.PATRON_OF_EUROPE, Titles.DOCTOR_OF_THE_CHURCH],
+        titles: [Titles.DOCTOR_OF_THE_CHURCH],
       },
     },
     {
@@ -631,9 +628,6 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-7-11`),
       liturgicalColors: LiturgicalColors.WHITE,
-      metadata: {
-        titles: [Titles.PATRON_OF_EUROPE],
-      },
     },
     {
       key: 'henry_ii_emperor',
@@ -694,9 +688,6 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-23`),
       liturgicalColors: LiturgicalColors.WHITE,
-      metadata: {
-        titles: [Titles.PATRON_OF_EUROPE],
-      },
     },
     {
       key: 'sharbel_makhluf_priest',
@@ -787,7 +778,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-8-9`),
       liturgicalColors: LiturgicalColors.RED,
       metadata: {
-        titles: [Titles.MARTYR, Titles.PATRON_OF_EUROPE],
+        titles: [Titles.MARTYR],
       },
     },
     {
