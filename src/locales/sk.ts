@@ -144,7 +144,7 @@ export default {
     james_strzemie_bishop: 'Blahoslaveného Jakuba Strzemię, biskupa',
     joan_of_portugal_virgin: 'Blahoslavenej Jany Portugalskej, panny',
     john_beyzym_priest: 'Blahoslaveného Jána Beyzyma, kňaza',
-    john_henry_newman_priest: 'Blahoslaveného Johna Henryho Newmana, kňaza',
+    john_henry_newman_priest: 'Svätého Johna Henryho Newmana, kňaza',
     john_martin_moye_priest: 'Blahoslaveného Jána Martina Moyeho, kňaza',
     yolanda_of_poland_religious: 'Blahoslavenej Jolany, rehoľnice',
     joseph_vaz_priest: 'Svätého Jozefa Vaza, kňaza',

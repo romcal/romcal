@@ -143,7 +143,7 @@ export default {
     james_strzemie_bishop: 'B. Iacobi Strzemię, episcopi',
     joan_of_portugal_virgin: 'B. Ioannæ Lusitaniæ, virginis',
     john_beyzym_priest: 'B. Ioannis Beyzym, presbyteri',
-    john_henry_newman_priest: 'B. Ioannis Henrici Newman, presbyteri',
+    john_henry_newman_priest: 'S. Ioannis Henrici Newman, presbyteri',
     john_martin_moye_priest: 'B. Ioannis Martini Moye, presbyteri',
     yolanda_of_poland_religious: 'B. Iolentæ, religiosæ',
     joseph_vaz_priest: 'S. Iosephi Vaz, presbyteri',

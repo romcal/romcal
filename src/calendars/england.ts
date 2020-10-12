@@ -250,8 +250,18 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       key: 'john_henry_newman_priest',
-      rank: Ranks.OPT_MEMORIAL,
+      rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-10-9`),
+    },
+    {
+      key: 'denis_of_paris_bishop_and_companions_martyrs',
+      rank: Ranks.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-10-10`),
+    },
+    {
+      key: 'john_leonardi_priest',
+      rank: Ranks.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-10-10`),
     },
     {
       key: 'paulinus_of_york_bishop',

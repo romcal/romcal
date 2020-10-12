@@ -143,7 +143,7 @@ export default {
     james_strzemie_bishop: 'Blessed James Strzemię, Bishop',
     joan_of_portugal_virgin: 'Blessed Joan of Portugal, Virgin',
     john_beyzym_priest: 'Blessed John Beyzym, Priest',
-    john_henry_newman_priest: 'Blessed John Henry Newman, Priest',
+    john_henry_newman_priest: 'Saint John Henry Newman, Priest',
     john_martin_moye_priest: 'Blessed John Martin Moye, Priest',
     yolanda_of_poland_religious: 'Blessed Yolanda, Religious',
     joseph_vaz_priest: 'Saint Joseph Vaz, Priest',
