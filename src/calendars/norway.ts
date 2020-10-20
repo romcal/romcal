@@ -32,7 +32,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-1-26`),
     },
     {
-      key: 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_secondary_patrons_of_europe',
+      key: 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-2-14`),
       metadata: {
@@ -49,7 +49,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'catherine_of_siena_virgin_secondary_patroness_of_europe',
+      key: 'catherine_of_siena_virgin_copatroness_of_europe',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-4-29`),
       metadata: {
@@ -84,7 +84,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'benedict_of_nursia_abbot_principal_patron_of_europe',
+      key: 'benedict_of_nursia_abbot_patron_of_europe',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-7-11`),
       metadata: {
@@ -102,7 +102,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-7-20`),
     },
     {
-      key: 'bridget_of_sweden_religious_secondary_patroness_of_europe',
+      key: 'bridget_of_sweden_religious_copatroness_of_europe',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-7-23`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -120,7 +120,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'teresa_benedicta_of_the_cross_stein_virgin_secondary_patron_of_europe',
+      key: 'teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-8-9`),
       liturgicalColors: LiturgicalColors.RED,

@@ -136,7 +136,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     },
     {
       // It is a holyday of obligation unless it occurs with Sunday: then it is moved to the following Monday and while keeps its rank (solemnity), it is not a holyday of obligation
-      key: 'immaculate_conception_of_mary_principal_patroness_of_the_usa',
+      key: 'immaculate_conception_of_mary_patroness_of_the_usa',
       rank: Ranks.SOLEMNITY,
       date: ((y: number): dayjs.Dayjs => {
         const date = dayjs.utc(`${y}-12-8`);
@@ -149,7 +149,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       })(year),
     },
     {
-      key: 'our_lady_of_guadalupe_principal_patroness_of_the_americas',
+      key: 'our_lady_of_guadalupe_patroness_of_the_americas',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-12-12`),
       liturgicalColors: LiturgicalColors.WHITE,

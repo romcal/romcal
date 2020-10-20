@@ -60,7 +60,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-8-19`),
     },
     {
-      key: 'rose_of_lima_virgin_secondary_patroness_of_the_philippines',
+      key: 'rose_of_lima_virgin_copatroness_of_the_philippines',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-8-23`),
     },
@@ -74,12 +74,12 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'immaculate_conception_of_mary_principal_patroness_of_the_philippines',
+      key: 'immaculate_conception_of_mary_patroness_of_the_philippines',
       rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-12-8`),
     },
     {
-      key: 'our_lady_of_guadalupe_principal_patroness_of_the_philippines',
+      key: 'our_lady_of_guadalupe_patroness_of_the_philippiness',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-12-12`),
     },

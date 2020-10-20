@@ -31,7 +31,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'joseph_spouse_of_mary_principal_patron_of_canada',
+      key: 'joseph_spouse_of_mary_patron_of_canada',
       rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-3-19`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -90,7 +90,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'joachim_and_anne_principal_patroness_of_the_province_of_quebec_parents_of_mary',
+      key: 'joachim_and_anne_patroness_of_the_province_of_quebec_parents_of_mary',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-7-26`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -119,7 +119,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-9-24`),
     },
     {
-      key: 'john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs_secondary_patrons_of_canada',
+      key: 'john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs_copatrons_of_canada',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-9-26`),
       liturgicalColors: LiturgicalColors.RED,
@@ -158,7 +158,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-10-20`),
     },
     {
-      key: 'our_lady_of_guadalupe_principal_patroness_of_the_americas',
+      key: 'our_lady_of_guadalupe_patroness_of_the_americas',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-12-12`),
       liturgicalColors: LiturgicalColors.WHITE,

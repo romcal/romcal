@@ -31,7 +31,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'our_lady_of_lujan_principal_patroness_of_argentina',
+      key: 'our_lady_of_lujan_patroness_of_argentina',
       rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-5-8`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -128,7 +128,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'our_lady_of_guadalupe_principal_patroness_of_the_americas',
+      key: 'our_lady_of_guadalupe_patroness_of_the_americas',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-12-12`),
       liturgicalColors: LiturgicalColors.WHITE,

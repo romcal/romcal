@@ -144,7 +144,7 @@ export default {
     our_lord_jesus_christ_the_eternal_high_priest: 'Jezusa Chrystusa, Najwyższego i Wiecznego Kapłana',
     presentation_of_mary: 'Ofiarowanie Najświętszej Maryi Panny',
     queenship_of_mary: 'Najświętszej Maryi Panny, Królowej',
-    adalbert_of_prague_bishop: 'Św. Wojciecha, biskupa i męczennika, głównego patrona Polski',
+    adalbert_of_prague_bishop: 'Św. Wojciecha, biskupa i męczennika',
     agatha_of_sicily_virgin: 'Św. Agaty, dziewicy i męczennicy',
     agnes_cao_guiying_martyr: 'Św. Agnieszki Cao Guiying, Męczennicy',
     agnes_of_rome_virgin: 'Św. Agnieszki, dziewicy i męczennicy',
@@ -348,7 +348,7 @@ export default {
     philip_and_james_apostles: 'Świętych Apostołów Filipa i Jakuba',
     pontian_i_pope_and_hippolytus_of_rome_priest: 'Świętych męczenników Poncjana, papieża i Hipolita, prezbiteras',
     simon_and_jude_apostles: 'Świętych Apostołów Szymona i Judy Tadeusza',
-    stanislaus_of_szczepanow_bishop: 'Św. Stanisława, biskupa i męczennika, głównego patrona Polski',
+    stanislaus_of_szczepanow_bishop: 'Św. Stanisława, biskupa i męczennika',
     stanislaus_kazimierczyk_priest: 'Św. Stanisława Kazimierczyka, prezbitera',
     stanislaus_kostka_religious: 'Św. Stanisława Kostki, zakonnika, patrona Polski',
     stephen_i_of_hungary: 'Św. Stefana Węgierskiego',
@@ -376,18 +376,20 @@ export default {
     passion_of_saint_john_the_baptist: 'Męczeństwo św. Jana Chrzciciela',
     most_holy_name_of_jesus: 'Najświętszego Imienia Jezus',
     visitation_of_mary: 'Nawiedzenie Najświętszej Maryi Panny',
-    our_lady_of_sorrows_principal_patroness_of_slovakia: 'Najświętszej Maryi Panny Bolesnej, głównej patronki Słowacji',
-    george_of_lydda_martyr_principal_patron_of_england: 'Św. Grzegorza, męczennika i głównego patrona Anglii',
-    benedict_of_nursia_abbot_principal_patron_of_europe: 'Św. Benedykta, opata i głównego patrona Europy',
-    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_secondary_patrons_of_europe: 'Świętych Cyryla, mnicha i Metodego, biskupa, patronów Europy',
-    teresa_benedicta_of_the_cross_stein_virgin_secondary_patron_of_europe: 'Św. Teresy Benedykty od Krzyża, dziewicy, męczennicy i patrona Europy',  // TODO: How to say `secundary patroness` in Polish?
-    andrew_apostle_principal_patron_of_scotland: 'Św. Andrzeja, Apostoła i głównego patrona Szkocji',
-    bridget_of_sweden_religious_secondary_patroness_of_europe: 'Św. Brygidy, zakonnicy i patronki Europy',  // TODO: How to say `secundary patroness` in Polish?
-    catherine_of_siena_virgin_secondary_patroness_of_europe: 'Św. Katarzyny Sieneńskiej, dziewicy, doktora Kościoła i patronki Europy',  // TODO: How to say `secundary patroness` in Polish?
-    catherine_of_siena_virgin_secondary_patroness_of_italy_and_europe: 'Św. Katarzyny Sieneńskiej, dziewicy, doktora Kościoła i patronki Włoch i Europy',  // TODO: How to say `secundary patroness` in Polish?
-    patrick_of_ireland_bishop_principal_patron_of_ireland: 'Św. Patryka, biskupa i głównego patrona Irlandii',
-    columba_of_iona_abbot_secondary_patron_of_ireland: 'Św. Kolumbana, zakonnika i patrona Irlandii',  // TODO: How to say `secundary patron` in Polish?
-    our_lady_of_guadalupe_principal_patroness_of_the_americas: 'Najświętszej Maryi Panny z Guadalupe, głównej Patronki obu Ameryk',
-    francis_of_assisi_principal_patron_of_italy: 'Św. Franciszka z Asyżu, głównego patrona Włoch',
+    our_lady_of_sorrows_patroness_of_slovakia: 'Najświętszej Maryi Panny Bolesnej, patronki Słowacji',
+    george_of_lydda_martyr_patron_of_england: 'Św. Grzegorza, męczennika i patrona Anglii',
+    benedict_of_nursia_abbot_patron_of_europe: 'Św. Benedykta, opata i patrona Europy',
+    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe: 'Świętych Cyryla, mnicha i Metodego, biskupa, patronów Europy', // TODO: How to say `secundary patrons` in Polish?
+    teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe: 'Św. Teresy Benedykty od Krzyża, dziewicy, męczennicy i patrona Europy',  // TODO: How to say `secundary patroness` in Polish?
+    andrew_apostle_patron_of_scotland: 'Św. Andrzeja, Apostoła i patrona Szkocji',
+    bridget_of_sweden_religious_copatroness_of_europe: 'Św. Brygidy, zakonnicy i patronki Europy',  // TODO: How to say `secundary patroness` in Polish?
+    catherine_of_siena_virgin_copatroness_of_europe: 'Św. Katarzyny Sieneńskiej, dziewicy, doktora Kościoła i patronki Europy',  // TODO: How to say `secundary patroness` in Polish?
+    catherine_of_siena_virgin_copatroness_of_italy_and_europe: 'Św. Katarzyny Sieneńskiej, dziewicy, doktora Kościoła i patronki Włoch i Europy',  // TODO: How to say `secundary patroness` in Polish?
+    patrick_of_ireland_bishop_patron_of_ireland: 'Św. Patryka, biskupa i patrona Irlandii',
+    columba_of_iona_abbot_copatron_of_ireland: 'Św. Kolumbana, zakonnika i patrona Irlandii',  // TODO: How to say `secundary patron` in Polish?
+    our_lady_of_guadalupe_patroness_of_the_americas: 'Najświętszej Maryi Panny z Guadalupe, Patronki obu Ameryk',
+    francis_of_assisi_patron_of_italy: 'Św. Franciszka z Asyżu, patrona Włoch',
+    adalbert_of_prague_bishop_patron_of_poland: 'Św. Wojciecha, biskupa i męczennika, głównego patrona Polski',
+    stanislaus_of_szczepanow_bishop_patron_of_poland: 'Św. Stanisława, biskupa i męczennika, głównego patrona Polski',
   },
 } as RomcalLocale;

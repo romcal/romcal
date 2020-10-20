@@ -65,13 +65,13 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-10-11`),
     },
     {
-      key: 'our_lady_mother_of_divine_providence_principal_patroness_of_puerto_rico',
+      key: 'our_lady_mother_of_divine_providence_patroness_of_puerto_rico',
       rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-11-19`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'our_lady_of_guadalupe_principal_patroness_of_the_americas',
+      key: 'our_lady_of_guadalupe_patroness_of_the_americas',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-12-12`),
       liturgicalColors: LiturgicalColors.WHITE,
