@@ -202,7 +202,7 @@ export default {
     gertrude_the_great_virgin: 'Sainte Gertrude, Vierge Moniale (✝ 1301)',
     gregory_i_the_great_pope: 'Saint Grégoire le Grand, Pape et Docteur de l’Église (✝ 604)',
     gregory_vii_pope: 'Saint Grégoire VII, Pape (✝ 1085)',
-    hedwig_religious: 'Sainte Edwige de Silésie, Veuve puis Religieuse (✝ 1243)',
+    hedwig_of_silesia: 'Sainte Edwige de Silésie, Veuve puis Religieuse (✝ 1243)',
     henry_ii_emperor: 'Saint Henri, Empereur Germanique (✝ 1024)',
     henry_of_finland_bishop: 'Saint Henri, Evêque et Martyr (✝ 1156)',
     hilary_of_poitiers_bishop: 'Saint Hilaire de Poitiers, Évêque et Docteur de l’Église (✝ 367)',

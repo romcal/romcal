@@ -204,7 +204,7 @@ export default {
     gonsalo_garcia_martyr: 'San Gonsalo Garcia, Mártir',
     gregory_i_the_great_pope: 'San Gregorio Magno, Papa y Doctor de la Iglesia',
     benedict_of_jesus_valdivielso_saez_religious: 'San Héctor Valdivielso Sáez, Mártir',
-    hedwig_religious: 'Santa Eduviges, Religiosa',
+    hedwig_of_silesia: 'Santa Eduviges, Religiosa',
     helena_of_constantinople: 'Santa Elena',
     ignatius_of_antioch_bishop: 'San Ignacio de Antioquía, Obispo y Mártir',
     ignatius_of_loyola_priest: 'San Ignacio de Loyola, Sacerdote',

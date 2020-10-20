@@ -1,12 +1,10 @@
 import dayjs from 'dayjs';
 
 import * as Locales from '@romcal/lib/locales';
-import { Dates } from '@romcal/lib/dates';
 import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
 import { RomcalLiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
 import { RomcalConfig, RomcalConfigInCalendarDef } from '@romcal/models/config/config.model';
 import { Ranks } from '@romcal/constants/ranks/ranks.enum';
-import { CelebrationsCycle } from '@romcal/constants/cycles/cycles.enum';
 import { Titles } from '@romcal/constants/titles/titles.enum';
 
 const defaultConfig: RomcalConfigInCalendarDef = {

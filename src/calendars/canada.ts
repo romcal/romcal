@@ -148,7 +148,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'hedwig_religious',
+      key: 'hedwig_of_silesia',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-20`),
     },

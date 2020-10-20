@@ -421,7 +421,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-10-14`),
     },
     {
-      key: 'hedwig_religious',
+      key: 'hedwig_of_silesia',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-10-16`),
     },
