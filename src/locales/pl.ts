@@ -248,7 +248,7 @@ export default {
     john_mary_vianney_priest: 'Św. Jana Marii Vianneya, prezbitera',
     john_of_capistrano_priest: 'Św. Jana Kapistrana, prezbitera',
     john_of_dukla_priest: 'Św. Jana z Dukli, prezbitera',
-    john_of_god_religious: 'Św. Jana Bożego, zakonnika',
+    john_of_god_duarte_cidade_religious: 'Św. Jana Bożego, zakonnika',
     john_of_kanty_priest: 'Św. Jana Kantego, prezbitera',
     john_of_the_cross_priest: 'Św. Jana od Krzyża, prezbitera i doktora Kościoła',
     john_of_triora_priest: 'Św. Jana z Triory, Kapłana i Męczennika',

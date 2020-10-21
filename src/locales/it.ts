@@ -201,7 +201,7 @@ export default {
     john_leonardi_priest: 'San Giovanni Leonardi, sacerdote',
     john_mary_vianney_priest: 'San Giovanni Maria Vianney, sacerdote',
     john_of_capistrano_priest: 'San Giovanni da Capestrano, sacerdote',
-    john_of_god_religious: 'San Giovanni di Dio, religioso',
+    john_of_god_duarte_cidade_religious: 'San Giovanni di Dio, religioso',
     john_of_kanty_priest: 'San Giovanni da Keti, sacerdote',
     john_of_the_cross_priest: 'San Giovanni della Croce, sacerdote e dottore della Chiesa',
     john_paul_ii_pope: 'San Giovanni Paolo II, papa',

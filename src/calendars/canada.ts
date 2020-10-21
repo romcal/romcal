@@ -67,7 +67,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-5-6`),
     },
     {
-      key: 'catherine_of_saint_augustine_virgin',
+      key: 'catherine_of_saint_augustine_de_simon_de_longpre_virgin',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-8`),
     },

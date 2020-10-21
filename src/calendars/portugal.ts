@@ -53,7 +53,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-2-20`),
     },
     {
-      key: 'john_of_god_religious',
+      key: 'john_of_god_duarte_cidade_religious',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-3-8`),
       liturgicalColors: LiturgicalColors.WHITE,
