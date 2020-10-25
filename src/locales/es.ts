@@ -178,7 +178,7 @@ export default {
     christopher_of_palestine_martyr: 'San Cristóbal, Mártir',
     clare_of_assisi_virgin: 'Santa Clara, Vírgen',
     clement_i_pope: 'San Clemente I, Papa y Mártir',
-    columban_of_ireland_abbot: 'San Columbano, Abad',
+    columban_of_luxeuil_abbot: 'San Columbano, Abad',
     clotilde_of_burgundy: 'Santa Clotilde',
     cyril_of_alexandria_bishop: 'San Cirilio de Alexandria, Obispo y Doctor',
     cyril_of_jerusalem_bishop: 'San Cirilio de Jerusalén, Obispo y Doctor',

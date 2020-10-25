@@ -348,7 +348,7 @@ export default {
     colman_of_dromore_bishop: 'S. Colmani Dromorensis, episcopi',
     colman_of_kilmacduagh_bishop: 'S. Colmani Duaci, episcopi',
     columba_of_iona_abbot: 'S. Columbæ Hiensis, abbatis',
-    columban_of_ireland_abbot: 'S. Columbani, abbatis',
+    columban_of_luxeuil_abbot: 'S. Columbani, abbatis',
     comgall_of_bangor_abbot: 'S. Comgalli, abbatis',
     conleth_of_kildare_bishop: 'S. Conlethi, episcopi',
     conrad_of_parzham_religious: 'S. Conradi  a  Parzham, religiosi',
