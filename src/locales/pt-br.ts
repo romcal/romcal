@@ -96,7 +96,7 @@ export default {
     our_lady_help_of_christians: 'Nossa Senhora, Auxílio dos Cristãos',
     our_lady_mediatrix_of_all_grace: 'Nossa Senhora, Medianeira de todas as Graças',
     our_lady_mother_of_divine_providence_patroness_of_puerto_rico: 'Nossa Senhora, Mãe da Divina Providência',  // TODO: Add `Patronness of Porto Rico` title
-    our_lady_mother_of_mercy: 'Nossa Senhora, Mãe de Misericórdia',
+    our_lady_of_the_gate_of_dawn: 'Nossa Senhora da Porta da Aurora',
     our_lady_of_aparecida_patroness_of_brazil: 'Nossa Senhora Aparecida',  // TODO: Add `Patronness of Brazil` title
     our_lady_of_china: 'Nossa Senhora da China',
     our_lady_of_fatima: 'Nossa Senhora de Fatima',
@@ -107,7 +107,7 @@ export default {
     our_lady_of_lourdes: 'Nossa Senhora de Lourdes',
     our_lady_of_lujan_patroness_of_argentina: 'Nossa Senhora de Luján, padroeira da Argentina',
     our_lady_of_mount_carmel: 'Nossa Senhora do Monte Carmelo',
-    our_lady_of_peace: 'Nossa Senhora da Paz',
+    our_lady_queen_of_peace: 'Nossa Senhora Rainha da Paz',
     our_lady_of_perpetual_help: 'Nossa Senhora do Perpétuo Socorro',
     our_lady_of_the_pillar: 'Nossa Senhora do Pilar',
     our_lady_of_the_rosary: 'Nossa Senhora do Rosário',
