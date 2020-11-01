@@ -213,7 +213,7 @@ export default {
     james_apostle: 'Santiago, Apóstol',
     james_apostle_patron_of_spain: 'Santiago, Apóstol, Patrono de España',
     john_mary_vianney_priest: 'San Juan María Vianney, Sacerdote',
-    joaquina_of_saint_francis_of_assisi_vedruna_religious: 'Santa Joaquina Vedruna, Religiosa',
+    joaquina_of_saint_francis_of_assisi_de_vedruna_religious: 'Santa Joaquina de Vedruna, Religiosa',
     john_baptist_de_la_salle_priest: 'San Juan Bautista de la Salle, Sacerdote',
     john_bosco_priest: 'San Juan Bosco, Sacerdote',
     john_chrysostom_bishop: 'San Juan Crisóstomo, Obispo y Doctor de la Iglesia',

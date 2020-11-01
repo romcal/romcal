@@ -236,7 +236,7 @@ export default {
     januarius_i_of_benevento_bishop: 'Św. Januarego, biskupa i męczennika',
     jerome_emiliani: 'Św. Hieronima Emilianiego',
     jerome_of_stridon_priest: 'Św. Hieronima, prezbitera i doktora Kościoła',
-    joachim_he_kaizhi_martyr: 'Św. Joachima Ho, Męczennika',
+    joachim_he_kaizhi_martyr: 'Św. Joachima He Kaizhi, Męczennika',
     john_baptist_de_la_salle_priest: 'Św. Jana Chrzciciela de la Salle, prezbitera',
     john_bosco_priest: 'Św. Jana Bosko, prezbitera',
     john_chrysostom_bishop: 'Św. Jana Chryzostoma, biskupa i doktora Kościoła',
