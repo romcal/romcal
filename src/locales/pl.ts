@@ -222,7 +222,7 @@ export default {
     gertrude_the_great_virgin: 'Św. Gertrudy, dziewicy',
     gregory_i_the_great_pope: 'Św. Grzegorza Wielkiego, papieża i doktora Kościoła',
     gregory_vii_pope: 'Św. Grzegorza VII, papieża',
-    hedwig_of_silesia: 'Św. Jadwigi Śląskiej',
+    hedwig_of_silesia_religious: 'Św. Jadwigi Śląskiej',
     henry_ii_emperor: 'Św. Henryka, cesarza',
     henry_of_finland_bishop: 'Św. Henryka, biskupa i męczennika',
     hilary_of_poitiers_bishop: 'Św. Hilarego, biskupa i doktora Kościoła',

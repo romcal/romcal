@@ -179,7 +179,7 @@ export default {
     gertrude_the_great_virgin: 'Santa Geltrude, vergine',
     gregory_i_the_great_pope: 'San Gregorio Magno, papa e dottore della Chiesa',
     gregory_vii_pope: 'San Gregorio VII, papa',
-    hedwig_of_silesia: 'Santa Edvige, religiosa',
+    hedwig_of_silesia_religious: 'Santa Edvige, religiosa',
     henry_ii_emperor: 'Sant’Enrico',
     henry_of_finland_bishop: 'Sant’Enrico, vescovo e martire',
     hilary_of_poitiers_bishop: 'Sant’Ilario, vescovo e dottore della Chiesa',
