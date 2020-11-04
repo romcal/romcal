@@ -214,7 +214,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-8-26`),
     },
     {
-      key: 'margaret_clitherow_anne_line_and_margaret_ward_martyrs',
+      key: 'margaret_clitherow_anne_line_and_margaret_ward_virgin_martyrs',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-30`),
     },

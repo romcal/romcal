@@ -340,7 +340,7 @@ export default {
     joachim_and_anne_parents_of_mary: 'Świętych Rodziców NMP Joachima i Anny',
     john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs: 'Świętych męczenników Jana de Brebeuf, Izaaka Jogues’a, prezbiterów oraz Towarzyszy',
     john_fisher_bishop_and_thomas_more_martyrs: 'Świętych męczenników Jana Fishera, biskupa i Tomasza More’a',
-    louis_versiglia_bishop_and_callistus_caravario_priest_martyrs: 'Świętych Alojzego Versiglii, Biskupa i Kaliksta Caravaria, Kapłana',
+    aloysius_versiglia_bishop_and_callistus_caravario_priest_martyrs: 'Świętych Alojzego Versiglii, Biskupa i Kaliksta Caravaria, Kapłana',
     marcellinus_of_rome_and_peter_the_exorcist_martyrs: 'Świętych męczenników Marcelina i Piotra',
     michael_gabriel_and_raphael_archangels: 'Świętych Archaniołów Michała, Gabriela i Rafała',
     nereus_of_terracina_and_achilleus_of_terracina_martyrs: 'Świętych męczenników Nereusza i Achillesa',

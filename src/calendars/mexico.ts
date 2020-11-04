@@ -78,7 +78,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-7-4`),
     },
     {
-      key: 'mary_of_jesus_in_the_blessed_sacrament_venegas_virgin',
+      key: 'mary_of_jesus_in_the_blessed_sacrament_venegas_de_la_torre_virgin',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-30`),
     },

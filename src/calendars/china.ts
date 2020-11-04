@@ -65,7 +65,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       date: dayjs.utc(`${year}-2-21`),
     },
     {
-      key: 'louis_versiglia_bishop_and_callistus_caravario_priest_martyrs',
+      key: 'aloysius_versiglia_bishop_and_callistus_caravario_priest_martyrs',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-2-25`),
     },
