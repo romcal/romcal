@@ -435,7 +435,8 @@ export class Dates {
    *
    * @param year The year to use for the calculation
    */
-  static christTheKingSunday = (year: number): Dayjs => Dates.firstSundayOfAdvent(year).subtract(7, 'day').startOf('day');
+  static christTheKingSunday = (year: number): Dayjs =>
+    Dates.firstSundayOfAdvent(year).subtract(7, 'day').startOf('day');
 
   //==================================================================================
   // Fixed and movable Solemnities

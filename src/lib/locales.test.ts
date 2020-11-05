@@ -36,9 +36,7 @@ describe('Testing localization functionality', () => {
     const localizedName = await Locales.localize({
       key: 'sanctoral.paulina_of_the_agonizing_heart_of_jesus_visintainer_virgin',
     });
-    expect(localizedName).toBe(
-      'Saint Paulina of the Agonising Heart of Jesus Visintainer, Virgin',
-    );
+    expect(localizedName).toBe('Saint Paulina of the Agonising Heart of Jesus Visintainer, Virgin');
   });
 
   test('If the locale is set with an unknown region, romcal should fallback to the base language if it exists in src/locales', async () => {
