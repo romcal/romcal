@@ -156,13 +156,13 @@ export type LiturgicalDayExtendedInput = Omit<BaseLiturgicalDayInput, 'date' | '
  */
 export type LiturgicalDayInput = BaseLiturgicalDayInput | LiturgicalDayExtendedInput;
 
-export type LiturgiDayDiff = Partial<Pick<LiturgicalDayInput, 'name' | 'rank' | 'prioritized' | 'liturgicalColors'>> & {
+export type LiturgyDayDiff = Partial<Pick<LiturgicalDayInput, 'name' | 'rank' | 'prioritized' | 'liturgicalColors'>> & {
   metadata?: Partial<LiturgicalDayMetadata>;
 };
 
 export type LiturgyDayExtendedMetadata = {
   fromCalendar: RomcalCalendarName;
-  diff: LiturgiDayDiff;
+  diff: LiturgyDayDiff;
 };
 
 export type RomcalCalendarMetadata = {
