@@ -324,7 +324,7 @@ export class CalendarBuilder {
    * @private
    */
   private localizeLiturgicalColors(colors: RomcalLiturgicalColor[]): Promise<string[]> {
-    return Promise.all(colors.map(async (key) => await localize({ key: `liturgicalColors.${key}` })));
+    return Promise.all(colors.map(async (key) => await localize({ key: `liturgical_colors.${key}` })));
   }
 
   /**
