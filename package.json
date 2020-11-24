@@ -1,7 +1,7 @@
 {
   "name": "romcal",
-  "version": "1.3.1-canary.91",
-  "description": "Utility library that outputs the Liturgical Calendar used by the Roman Rite (Western Church)",
+  "version": "2.0.0",
+  "description": "Generates the liturgical calendar of the Catholic Church used by the Roman Rite (post-Vatican II).",
   "main": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
   "engines": {
