@@ -9,7 +9,6 @@ describe('getConfig()', () => {
     const {
       year,
       scope,
-      query,
       locale,
       epiphanyOnSunday,
       country,
@@ -18,7 +17,6 @@ describe('getConfig()', () => {
     } = new RomcalConfig(resolvedConfig);
     expect(year).toBe(dayjs.utc().year());
     expect(scope).toBe('gregorian');
-    expect(query).toBeUndefined();
     expect(locale).toBe('en');
     expect(epiphanyOnSunday).toBeTrue();
     expect(country).toBe('general');

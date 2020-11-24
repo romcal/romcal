@@ -277,20 +277,24 @@ describe('Testing national calendar overrides', () => {
         });
 
         expect(
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-          walesAssumption2009?.date === twentiethSundayOfOrdinaryTime2009!.date.toISOString(),
+          walesAssumption2009 &&
+            twentiethSundayOfOrdinaryTime2009 &&
+            walesAssumption2009.date === twentiethSundayOfOrdinaryTime2009.date?.toISOString(),
         ).toBeTruthy();
         expect(
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-          englandAssumption2009?.date === twentiethSundayOfOrdinaryTime2009!.date.toISOString(),
+          englandAssumption2009 &&
+            twentiethSundayOfOrdinaryTime2009 &&
+            englandAssumption2009.date === twentiethSundayOfOrdinaryTime2009.date?.toISOString(),
         ).toBeTruthy();
         expect(
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-          walesAssumption2011?.date === twentiethSundayOfOrdinaryTime2011!.date.toISOString(),
+          walesAssumption2011 &&
+            twentiethSundayOfOrdinaryTime2011 &&
+            walesAssumption2011.date === twentiethSundayOfOrdinaryTime2011.date?.toISOString(),
         ).toBeTruthy();
         expect(
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-          englandAssumption2011?.date === twentiethSundayOfOrdinaryTime2011!.date.toISOString(),
+          englandAssumption2011 &&
+            twentiethSundayOfOrdinaryTime2011 &&
+            englandAssumption2011.date === twentiethSundayOfOrdinaryTime2011.date?.toISOString(),
         ).toBeTruthy();
       });
     });
@@ -315,10 +319,16 @@ describe('Testing national calendar overrides', () => {
         const walesAssumption: LiturgicalDay | undefined = walesDates.find((d) => d.key === 'assumption');
         const englandAssumption: LiturgicalDay | undefined = englandDates.find((d) => d.key === 'assumption');
 
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        expect(walesAssumption?.date === twentiethSundayOfOrdinaryTime!.date.toISOString()).toBeTruthy();
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        expect(englandAssumption?.date === twentiethSundayOfOrdinaryTime!.date.toISOString()).toBeTruthy();
+        expect(
+          walesAssumption &&
+            twentiethSundayOfOrdinaryTime &&
+            walesAssumption.date === twentiethSundayOfOrdinaryTime.date?.toISOString(),
+        ).toBeTruthy();
+        expect(
+          englandAssumption &&
+            twentiethSundayOfOrdinaryTime &&
+            englandAssumption.date === twentiethSundayOfOrdinaryTime.date?.toISOString(),
+        ).toBeTruthy();
       });
     });
   });
@@ -479,7 +489,6 @@ describe('Testing national calendar overrides', () => {
       });
       const ourLadyOfSorrows: dayjs.Dayjs = dayjs.utc('2018-4-15');
       const thirdSundayOfEaster: LiturgicalDay | undefined = maltaDates.find((d) => d.key === 'eastertide_3_sunday');
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       expect(ourLadyOfSorrows.isSame(thirdSundayOfEaster!.date)).toBeTruthy();
     });
 

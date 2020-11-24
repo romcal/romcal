@@ -10,3 +10,4 @@ dist/
 romcal-*.tgz
 coverage/
 *code-workspace
+typedocs

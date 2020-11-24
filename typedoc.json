@@ -2,7 +2,7 @@
   "mode": "file",
   "inputFiles": ["./src"],
   "includeVersion": true,
-  "out": "docs",
+  "out": "typedocs",
   "readme": "none",
   "exclude": "**/*.test{ts,tsx}",
   "includeDeclarations": true,
