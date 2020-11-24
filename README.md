@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  Supports Node v10+, Browsers (IE11+).
+  Supports Node v12+, Browsers (IE11+).
 </p>
 
 <p align="center">
