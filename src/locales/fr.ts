@@ -41,7 +41,7 @@ export default {
     sunday: '{{week}} Dimanche de Pâques',
     octave: '{{day}} de Pâques',
   },
-  liturgicalColors: {
+  liturgical_colors: {
     BLACK: 'noir',
     GOLD: 'doré',
     GREEN: 'vert',

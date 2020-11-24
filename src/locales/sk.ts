@@ -41,7 +41,7 @@ export default {
     sunday: '{{week}} veľkonočná nedeľa',
     octave: 'Veľkonočný {{day}}',
   },
-  liturgicalColors: {
+  liturgical_colors: {
     BLACK: 'čierna',
     GOLD: 'zlatá',
     GREEN: 'zelená',

@@ -41,7 +41,7 @@ export default {
     sunday: '{{week}} Niedziela Wielkanocna',
     octave: '{{day}} w oktawie Wielkanocy',
   },
-  liturgicalColors: {
+  liturgical_colors: {
     BLACK: 'czarny',
     GOLD: 'złoty',
     GREEN: 'zielony',

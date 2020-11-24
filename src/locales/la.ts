@@ -41,7 +41,7 @@ export default {
     sunday: 'Dominica {{week}} Paschæ',
     octave: 'De die {{day}} infra octavam Paschæ',
   },
-  liturgicalColors: {
+  liturgical_colors: {
     BLACK: 'niger',
     GOLD: 'auri',
     GREEN: 'viridis',

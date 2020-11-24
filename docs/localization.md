@@ -25,9 +25,9 @@ The structure of the locale file is typically like so:
   epiphany: {},
   ordinaryTime: {},
   lent: {},
-  holyWeek: {},
+  holy_week: {},
   eastertide: {},
-  liturgicalColors: {},
+  liturgical_colors: {},
   celebrations: {},
   sanctoral: {},
 }

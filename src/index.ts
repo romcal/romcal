@@ -1,14 +1,6 @@
 import '@romcal/utils/string-extentions/string-extentions';
 import Romcal from '@romcal/lib/romcal';
-import {
-  getLocale,
-  getRankByDayOfWeek,
-  localize,
-  localizeDates,
-  ordinal,
-  sanitizeLocale,
-  setLocale,
-} from '@romcal/lib/locales';
+import { getLocale, getRankByDayOfWeek, localize, localizeDates, sanitizeLocale, setLocale } from '@romcal/lib/locales';
 import { Seasons } from '@romcal/lib/seasons';
 import { RomcalCalendar, BaseRomcalCalendar } from '@romcal/models/calendar/calendar.model';
 import { Dates } from './lib/dates';
@@ -101,7 +93,7 @@ export { Seasons };
 /**
  * Export for helper functions in the [[Locales]]
  */
-export { getLocale, getRankByDayOfWeek, localize, localizeDates, ordinal, sanitizeLocale, setLocale };
+export { getLocale, getRankByDayOfWeek, localize, localizeDates, sanitizeLocale, setLocale };
 
 /**
  * Export for constants supporting romcal

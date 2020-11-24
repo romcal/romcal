@@ -41,7 +41,7 @@ export default {
     sunday: '{{week}} Domingo de Pascua',
     octave: '{{day}} día de la Octava de Pascua',
   },
-  liturgicalColors: {
+  liturgical_colors: {
     BLACK: 'negro',
     GOLD: 'dorado',
     GREEN: 'verde',

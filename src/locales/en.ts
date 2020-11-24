@@ -41,7 +41,7 @@ export default {
     sunday: '{{week}} Sunday of Easter',
     octave: '{{day}} within the Octave of Easter',
   },
-  liturgicalColors: {
+  liturgical_colors: {
     BLACK: 'black',
     GOLD: 'gold',
     GREEN: 'green',

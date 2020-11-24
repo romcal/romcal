@@ -99,7 +99,7 @@ describe('Testing specific feasts and memorials', () => {
         return d.key === 'sunday_of_the_word_of_god';
       });
       const sundays = await Seasons.earlyOrdinaryTime(2020, false);
-      const thirdSundayOfOrdinaryTime = sundays.find((sunday) => sunday.key === 'thirdSundayOfOrdinaryTime');
+      const thirdSundayOfOrdinaryTime = sundays.find((sunday) => sunday.key === 'third_sunday_of_ordinary_time');
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       expect(thirdSundayOfOrdinaryTime!.date.isSame(sundayOfTheWordOfGod!.date)).toBeTruthy();
     });

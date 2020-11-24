@@ -91,19 +91,13 @@ describe('Testing national calendar overrides', () => {
 
     test('The feast of Saint Isidore of Seville is celebrated on April 4 every year', () => {
       const date = generalDates.filter((d) => {
-        return (
-          dayjs.utc(d.date).isSame(dayjs.utc(`${year}-4-4`)) &&
-          d.key === 'isidore_of_seville_bishop'
-        );
+        return dayjs.utc(d.date).isSame(dayjs.utc(`${year}-4-4`)) && d.key === 'isidore_of_seville_bishop';
       });
       expect(date.length).toEqual(1);
     });
     test('However, in the national calendar of Spain, this same feast is celebrated on the 26th of April every year', () => {
       const date = spainDates.filter((d) => {
-        return (
-          dayjs.utc(d.date).isSame(dayjs.utc(`${year}-4-26`)) &&
-          d.key === 'isidore_of_seville_bishop'
-        );
+        return dayjs.utc(d.date).isSame(dayjs.utc(`${year}-4-26`)) && d.key === 'isidore_of_seville_bishop';
       });
       expect(date.length).toEqual(1);
     });
@@ -256,13 +250,13 @@ describe('Testing national calendar overrides', () => {
 
         const twentiethSundayOfOrdinaryTime2009: RomcalLiturgicalDayInput | undefined = lateOrdinaryTimeDates2009.find(
           (d) => {
-            return d.key === 'twentiethSundayOfOrdinaryTime';
+            return d.key === 'twentieth_sunday_of_ordinary_time';
           },
         );
 
         const twentiethSundayOfOrdinaryTime2011: RomcalLiturgicalDayInput | undefined = lateOrdinaryTimeDates2011.find(
           (d) => {
-            return d.key === 'twentiethSundayOfOrdinaryTime';
+            return d.key === 'twentieth_sunday_of_ordinary_time';
           },
         );
 
@@ -315,7 +309,7 @@ describe('Testing national calendar overrides', () => {
 
         const lateOrdinaryTimeDates: RomcalLiturgicalDayInput[] = await Seasons.lateOrdinaryTime(2010);
         const twentiethSundayOfOrdinaryTime: RomcalLiturgicalDayInput | undefined = lateOrdinaryTimeDates.find((d) => {
-          return d.key === 'twentiethSundayOfOrdinaryTime';
+          return d.key === 'twentieth_sunday_of_ordinary_time';
         });
 
         const walesAssumption: LiturgicalDay | undefined = walesDates.find((d) => d.key === 'assumption');
@@ -484,7 +478,7 @@ describe('Testing national calendar overrides', () => {
         country: 'malta',
       });
       const ourLadyOfSorrows: dayjs.Dayjs = dayjs.utc('2018-4-15');
-      const thirdSundayOfEaster: LiturgicalDay | undefined = maltaDates.find((d) => d.key === 'thirdSundayOfEaster');
+      const thirdSundayOfEaster: LiturgicalDay | undefined = maltaDates.find((d) => d.key === 'third_sunday_of_easter');
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       expect(ourLadyOfSorrows.isSame(thirdSundayOfEaster!.date)).toBeTruthy();
     });

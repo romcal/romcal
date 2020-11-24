@@ -41,7 +41,7 @@ export default {
     sunday: '{{week}} Domingo do Tempo Pascal',
     octave: 'Tempo Pascal {{day}}',
   },
-  liturgicalColors: {
+  liturgical_colors: {
     BLACK: 'preto',
     GOLD: 'dourado',
     GREEN: 'verde',
