@@ -100,11 +100,11 @@ describe('Testing date range functions', () => {
 
     test('The Saturday in the week after Ash Wednesday should be in the 1st week of Lent', async () => {
       const dates = await Seasons.lent(2017);
-      expect(dates[10].key).toEqual('saturdayOfTheFirstWeekOfLent');
+      expect(dates[10].key).toEqual('lent_1_saturday');
     });
 
     test('The 2nd Sunday of Lent should be in the 2nd week of Lent', async () => {
-      expect((await Seasons.lent(2017))[11].key).toEqual('secondSundayOfLent');
+      expect((await Seasons.lent(2017))[11].key).toEqual('lent_2_sunday');
     });
   });
 
@@ -173,13 +173,13 @@ describe('Testing date range functions', () => {
 
     test('There are typically 24 to 29 Sundays in Ordinary Time between the Pentecost to the 1st Sunday of Advent', () => {
       for (let i = 1900, il = 2100; i <= il; i++) {
-        const dates = Dates.datesOfLaterOrdinaryTime(i);
-        const sundays = Dates.sundaysOfLaterOrdinaryTime(i);
-        const [firstDayInLaterOrdinaryTime] = dates;
-        const [lastDayInLaterOrdinaryTime] = dates.reverse();
+        const dates = Dates.datesOfLateOrdinaryTime(i);
+        const sundays = Dates.sundaysOfLateOrdinaryTime(i);
+        const [firstDayInLateOrdinaryTime] = dates;
+        const [lastDayInLateOrdinaryTime] = dates.reverse();
         expect(sundays.length).toBeOneOf([23, 24, 25, 26, 27, 28, 29]);
-        expect(firstDayInLaterOrdinaryTime.subtract(1, 'day').isSame(Dates.pentecostSunday(i))).toEqual(true);
-        expect(lastDayInLaterOrdinaryTime.add(1, 'day').isSame(Dates.sundaysOfAdvent(i)[0])).toEqual(true);
+        expect(firstDayInLateOrdinaryTime.subtract(1, 'day').isSame(Dates.pentecostSunday(i))).toEqual(true);
+        expect(lastDayInLateOrdinaryTime.add(1, 'day').isSame(Dates.sundaysOfAdvent(i)[0])).toEqual(true);
       }
     });
   });
@@ -234,7 +234,7 @@ describe('Testing seasons utility functions', () => {
       (await Seasons.earlyOrdinaryTime(2015, false)).forEach((date) => {
         expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColors.GREEN);
       });
-      (await Seasons.laterOrdinaryTime(2015)).forEach((date) => {
+      (await Seasons.lateOrdinaryTime(2015)).forEach((date) => {
         expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColors.GREEN);
       });
     });
@@ -242,7 +242,7 @@ describe('Testing seasons utility functions', () => {
     test('The liturgical color for Lent and Advent is purple, except for the 4th Sunday of Lent and 3rd Sunday of Advent, which is rose', async () => {
       const lentDates = await Seasons.lent(2015);
       lentDates.forEach((date) => {
-        if (date.key === 'fourthSundayOfLent') {
+        if (date.key === 'lent_4_sunday') {
           expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColors.ROSE);
           expect(date.liturgicalColors && date.liturgicalColors[1]).toEqual(LiturgicalColors.PURPLE);
         } else {
@@ -252,7 +252,7 @@ describe('Testing seasons utility functions', () => {
 
       const adventDates = await Seasons.advent(2015);
       adventDates.forEach((date) => {
-        if (date.key === 'thirdSundayOfAdvent') {
+        if (date.key === 'advent_3_sunday') {
           expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColors.ROSE);
           expect(date.liturgicalColors && date.liturgicalColors[1]).toEqual(LiturgicalColors.PURPLE);
         } else {

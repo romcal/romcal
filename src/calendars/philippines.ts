@@ -14,7 +14,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
   const year = config.year;
   const _dates: Array<RomcalLiturgicalDayInput> = [
     {
-      key: 'santoNinoInfantJesus',
+      key: 'holy_child_of_cebu',
       rank: Ranks.FEAST,
       date: ((): dayjs.Dayjs => {
         // Third Sunday of January: Santo Niño (Holy Child Jesus)
@@ -27,7 +27,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
     },
     {
-      key: 'saintsPedroBautistaPaulMikiAndCompanionsMartyrs',
+      key: 'peter_baptist_blasquez_paul_miki_and_companions_martyrs',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-2-6`),
       liturgicalColors: LiturgicalColors.RED,
@@ -36,7 +36,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintPedroCalungsodMartyr',
+      key: 'pedro_calungsod_martyr',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-4-2`),
       liturgicalColors: LiturgicalColors.RED,
@@ -45,27 +45,27 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintIsidoreTheFarmer',
+      key: 'isidore_the_farmer',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-5-15`),
     },
     {
-      key: 'saintRoch',
+      key: 'roch_of_montpellier',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-8-16`),
     },
     {
-      key: 'saintEzequielMorenoBishop',
+      key: 'ezequiel_moreno_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-19`),
     },
     {
-      key: 'saintRoseOfLimaSecondaryPatronessOfThePhilippines',
+      key: 'rose_of_lima_virgin_copatroness_of_the_philippines',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-8-23`),
     },
     {
-      key: 'saintLawrenceRuizAndCompanionsMartyrs',
+      key: 'lawrence_ruiz_and_companions_martyrs',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-9-28`),
       liturgicalColors: LiturgicalColors.RED,
@@ -74,12 +74,12 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'immaculateConceptionOfTheBlessedVirginMaryPrincipalPatronessOfThePhilippines',
+      key: 'immaculate_conception_of_mary_patroness_of_the_philippines',
       rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-12-8`),
     },
     {
-      key: 'ourLadyOfGuadalupeCelestialPatronessOfThePhilippines',
+      key: 'our_lady_of_guadalupe_patroness_of_the_philippiness',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-12-12`),
     },

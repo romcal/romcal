@@ -15,82 +15,82 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
   const year = config.year;
   const _dates: Array<RomcalLiturgicalDayInput> = [
     {
-      key: 'blessedOdoricOfPordenonePriest',
+      key: 'odoric_of_pordenone_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-14`),
     },
     {
-      key: 'saintFrancisFernandezDeCapillasPriestAndMartyr',
+      key: 'francis_ferdinand_de_capillas_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-15`),
     },
     {
-      key: 'saintLawrenceBaiXiaomanMartyr',
+      key: 'lawrence_bai_xiaoman_martyr',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-23`),
     },
     {
-      key: 'saintAugustineZhaoRongPriestAndMartyr',
+      key: 'augustine_zhao_rong_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-27`),
     },
     {
-      key: 'saintLaurenceWangBingAndCompanionsMartyrs',
+      key: 'laurence_wang_bing_and_companions_martyrs',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-29`),
     },
     {
-      key: 'saintJosephFreinademetzPriest',
+      key: 'joseph_freinademetz_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-29`),
     },
     {
-      key: 'saintJohnOfTrioraPriestAndMartyr',
+      key: 'john_of_triora_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-2-13`),
     },
     {
-      key: 'saintMartinWuXueshengAndCompanionsMartyrs',
+      key: 'martin_wu_xuesheng_and_companions_martyrs',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-2-17`),
     },
     {
-      key: 'saintLucyYiZhenmeiVirginAndMartyr',
+      key: 'lucy_yi_zhenmei_virgin',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-2-19`),
     },
     {
-      key: 'saintPaulLiuHanzouPriestAndMartyr',
+      key: 'paul_liu_hanzuo_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-2-21`),
     },
     {
-      key: 'saintsLouisVersigliaBishopAndCallistusCaravarioPriestMartyrs',
+      key: 'aloysius_versiglia_bishop_and_callistus_caravario_priest_martyrs',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-2-25`),
     },
     {
-      key: 'saintAgnesTsaoKouYingMartyr',
+      key: 'agnes_cao_guiying_martyr',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-3-1`),
     },
     {
-      key: 'saintJosephZhangDapengMartyr',
+      key: 'joseph_zhang_dapeng_martyr',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-3-12`),
     },
     {
-      key: 'blessedMariaAssuntaPallottaVirgin',
+      key: 'mary_assunta_pallotta_virgin',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-4-8`),
     },
     {
-      key: 'blessedJohnMartinMoyePriest',
+      key: 'john_martin_moye_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-4`),
     },
     {
-      key: 'ourLadyOfChina',
+      key: 'our_lady_of_china',
       rank: Ranks.MEMORIAL,
       date: ((y: number): dayjs.Dayjs => {
         const firstMay = dayjs.utc(`${y}-5-1`);
@@ -104,37 +104,37 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintPeterLiuMartyr',
+      key: 'peter_liu_wenyuan_martyr',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-14`),
     },
     {
-      key: 'saintPeterSanzBishopAndMartyr',
+      key: 'peter_sanz_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-27`),
     },
     {
-      key: 'saintJoachimHoMartyr',
+      key: 'joachim_he_kaizhi_martyr',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-29`),
     },
     {
-      key: 'saintsGregoryGrassiFrancisFogollaAndAnthonyFantosatiBishopsAndCompanionsMartyrs',
+      key: 'gregory_grassi_francis_fogolla_and_anthony_fantosati_bishops_and_companions_martyrs',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-20`),
     },
     {
-      key: 'saintJosephYuanPriestAndMartyr',
+      key: 'joseph_yuan_gengyin_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-23`),
     },
     {
-      key: 'sevenMartyredNunsFromTheFranciscanMissionariesOfMary',
+      key: 'seven_martyred_nuns_from_the_franciscan_missionaries_of_mary',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-8`),
     },
     {
-      key: 'saintAugustineZhaoRongPriestAndCompanionsMartyrs',
+      key: 'augustine_zhao_rong_priest_and_companions_martyrs',
       rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-7-9`),
       liturgicalColors: LiturgicalColors.RED,
@@ -143,32 +143,32 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintLeoManginPriestAndCompanionsMartyrs',
+      key: 'leo_ignatius_mangin_priest_and_companions_martyrs',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-20`),
     },
     {
-      key: 'saintAlbericCrescitelliPriestAndMartyr',
+      key: 'alberic_crescitelli_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-21`),
     },
     {
-      key: 'saintPaulChenChangpinAndCompanionsMartyrs',
+      key: 'paul_chen_changpin_and_companions_martyrs',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-28`),
     },
     {
-      key: 'blessedMauriceTornayPriestAndMartyr',
+      key: 'maurice_tornay_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-11`),
     },
     {
-      key: 'saintJohnGabrielPerboyrePriestAndMartyr',
+      key: 'john_gabriel_perboyre_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-11`),
     },
     {
-      key: 'saintFrancisDiazPriestAndCompanionsMartyrs',
+      key: 'francis_diaz_del_rincon_priest_and_companions_martyrs',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-10-27`),
       liturgicalColors: LiturgicalColors.RED,
@@ -177,17 +177,17 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintPeterWuMartyr',
+      key: 'peter_wu_guosheng_martyr',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-7`),
     },
     {
-      key: 'saintGabrieltaurinDufresseBishopAndMartyr',
+      key: 'gabriel_taurin_dufresse_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-27`),
     },
     {
-      key: 'ourLordJesusChristTheEternalHighPriest',
+      key: 'our_lord_jesus_christ_the_eternal_high_priest',
       rank: Ranks.FEAST,
       date: ((y: number): dayjs.Dayjs => dayjs.utc(Dates.pentecostSunday(y).add(4, 'day').toISOString()))(year),
       liturgicalColors: LiturgicalColors.WHITE,

@@ -91,25 +91,19 @@ describe('Testing national calendar overrides', () => {
 
     test('The feast of Saint Isidore of Seville is celebrated on April 4 every year', () => {
       const date = generalDates.filter((d) => {
-        return (
-          dayjs.utc(d.date).isSame(dayjs.utc(`${year}-4-4`)) &&
-          d.key === 'saintIsidoreOfSevilleBishopAndDoctorOfTheChurch'
-        );
+        return dayjs.utc(d.date).isSame(dayjs.utc(`${year}-4-4`)) && d.key === 'isidore_of_seville_bishop';
       });
       expect(date.length).toEqual(1);
     });
     test('However, in the national calendar of Spain, this same feast is celebrated on the 26th of April every year', () => {
       const date = spainDates.filter((d) => {
-        return (
-          dayjs.utc(d.date).isSame(dayjs.utc(`${year}-4-26`)) &&
-          d.key === 'saintIsidoreOfSevilleBishopAndDoctorOfTheChurch'
-        );
+        return dayjs.utc(d.date).isSame(dayjs.utc(`${year}-4-26`)) && d.key === 'isidore_of_seville_bishop';
       });
       expect(date.length).toEqual(1);
     });
     test('Therefore, national calendar of spain should only have one occurrence of this feast on the 26th of April', () => {
       const occurrences = spainDates.filter((d) => {
-        return d.key === 'saintIsidoreOfSevilleBishopAndDoctorOfTheChurch';
+        return d.key === 'isidore_of_seville_bishop';
       });
       expect(occurrences.length).toEqual(1);
     });
@@ -130,7 +124,7 @@ describe('Testing national calendar overrides', () => {
 
     test('A celebration with a higher type rank and the same key cannot replace an existing prioritized celebration', () => {
       const dates = testDates.filter((d) => {
-        return d.key === 'ashWednesday';
+        return d.key === 'ash_wednesday';
       });
       expect(dates.length).toEqual(1);
       expect(dates[0].rank).toEqual(Ranks.WEEKDAY);
@@ -138,7 +132,7 @@ describe('Testing national calendar overrides', () => {
 
     test('A new prioritized celebration will replace any existing non-prioritized celebrations', () => {
       const dates = testDates.filter((d) => {
-        return d.key === 'saintLukeTheEvangelist';
+        return d.key === 'luke_evangelist';
       });
       expect(dates.length).toEqual(1);
       expect(dates[0].rank).toEqual(Ranks.COMMEMORATION);
@@ -149,7 +143,7 @@ describe('Testing national calendar overrides', () => {
         return dayjs.utc(d.date).isSame(Dates.pentecostSunday(year).add(1, 'day'));
       });
       expect(dates.length).toEqual(1);
-      expect(dates[0].key).toEqual('maryMotherOfTheChurch');
+      expect(dates[0].key).toEqual('mary_mother_of_the_church');
       expect(dates[0].rank).toEqual(Ranks.OPT_MEMORIAL);
     });
 
@@ -158,7 +152,7 @@ describe('Testing national calendar overrides', () => {
         return dayjs.utc(d.date).isSame(dayjs.utc('2020-11-9'));
       });
       expect(dates.length).toEqual(1);
-      expect(dates[0].key).toEqual('dedicationOfTheLateranBasilica');
+      expect(dates[0].key).toEqual('dedication_of_the_lateran_basilica');
       expect(dates[0].rank).toEqual(Ranks.FEAST);
     });
 
@@ -202,7 +196,7 @@ describe('Testing national calendar overrides', () => {
     test('Should fall on February 14, 2017 in the general calendar', async () => {
       const dates = await Romcal.calendarFor(2017);
       const date = dates.find((d) => {
-        return d.key === 'saintsCyrilMonkAndMethodiusBishop';
+        return d.key === 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop';
       });
       expect(dayjs.utc(date?.date).isSame(dayjs.utc('2017-2-14'))).toBeTruthy();
     });
@@ -212,7 +206,7 @@ describe('Testing national calendar overrides', () => {
         year: 2017,
       });
       const date = dates.find((d) => {
-        return d.key === 'saintsCyrilMonkAndMethodiusBishop';
+        return d.key === 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe';
       });
       expect(dayjs.utc(date?.date).isSame(dayjs.utc('2017-7-5'))).toBeTruthy();
     });
@@ -222,7 +216,7 @@ describe('Testing national calendar overrides', () => {
         year: 2017,
       });
       const date = dates.find((d) => {
-        return d.key === 'saintsCyrilMonkAndMethodiusBishop';
+        return d.key === 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_slavic_missionaries';
       });
       expect(dayjs.utc(date?.date).isSame(dayjs.utc('2017-7-5'))).toBeTruthy();
     });
@@ -251,18 +245,18 @@ describe('Testing national calendar overrides', () => {
           country: 'england',
         });
 
-        const laterOrdinaryTimeDates2009: RomcalLiturgicalDayInput[] = await Seasons.laterOrdinaryTime(2009);
-        const laterOrdinaryTimeDates2011: RomcalLiturgicalDayInput[] = await Seasons.laterOrdinaryTime(2011);
+        const lateOrdinaryTimeDates2009: RomcalLiturgicalDayInput[] = await Seasons.lateOrdinaryTime(2009);
+        const lateOrdinaryTimeDates2011: RomcalLiturgicalDayInput[] = await Seasons.lateOrdinaryTime(2011);
 
-        const twentiethSundayOfOrdinaryTime2009: RomcalLiturgicalDayInput | undefined = laterOrdinaryTimeDates2009.find(
+        const twentiethSundayOfOrdinaryTime2009: RomcalLiturgicalDayInput | undefined = lateOrdinaryTimeDates2009.find(
           (d) => {
-            return d.key === 'twentiethSundayOfOrdinaryTime';
+            return d.key === 'ordinary_time_20_sunday';
           },
         );
 
-        const twentiethSundayOfOrdinaryTime2011: RomcalLiturgicalDayInput | undefined = laterOrdinaryTimeDates2011.find(
+        const twentiethSundayOfOrdinaryTime2011: RomcalLiturgicalDayInput | undefined = lateOrdinaryTimeDates2011.find(
           (d) => {
-            return d.key === 'twentiethSundayOfOrdinaryTime';
+            return d.key === 'ordinary_time_20_sunday';
           },
         );
 
@@ -313,9 +307,9 @@ describe('Testing national calendar overrides', () => {
           country: 'england',
         });
 
-        const laterOrdinaryTimeDates: RomcalLiturgicalDayInput[] = await Seasons.laterOrdinaryTime(2010);
-        const twentiethSundayOfOrdinaryTime: RomcalLiturgicalDayInput | undefined = laterOrdinaryTimeDates.find((d) => {
-          return d.key === 'twentiethSundayOfOrdinaryTime';
+        const lateOrdinaryTimeDates: RomcalLiturgicalDayInput[] = await Seasons.lateOrdinaryTime(2010);
+        const twentiethSundayOfOrdinaryTime: RomcalLiturgicalDayInput | undefined = lateOrdinaryTimeDates.find((d) => {
+          return d.key === 'ordinary_time_20_sunday';
         });
 
         const walesAssumption: LiturgicalDay | undefined = walesDates.find((d) => d.key === 'assumption');
@@ -342,10 +336,10 @@ describe('Testing national calendar overrides', () => {
       });
       // So All Saints should be celebrated on Sunday
       const allSaintsEngland = englandDates.find((d) => {
-        return d.key === 'allSaints';
+        return d.key === 'all_saints';
       });
       const allSaintsWales = walesDates.find((d) => {
-        return d.key === 'allSaints';
+        return d.key === 'all_saints';
       });
       expect(dayjs.utc(allSaintsEngland?.date).day()).toEqual(0);
       expect(dayjs.utc(allSaintsWales?.date).day()).toEqual(0);
@@ -366,10 +360,10 @@ describe('Testing national calendar overrides', () => {
       // So All Saints should be celebrated on Sunday
       // and All Souls will be celebrated on Monday
       const allSaintsEngland = englandDates.find((d) => {
-        return d.key === 'allSouls';
+        return d.key === 'all_souls';
       });
       const allSaintsWales = walesDates.find((d) => {
-        return d.key === 'allSouls';
+        return d.key === 'all_souls';
       });
       expect(dayjs.utc(allSaintsEngland?.date).day()).toEqual(1);
       expect(dayjs.utc(allSaintsWales?.date).day()).toEqual(1);
@@ -379,8 +373,8 @@ describe('Testing national calendar overrides', () => {
   describe('Saint Matthias the Apostle', () => {
     test('Feast day falls on the May 14 in the general liturgical calendar', async () => {
       const dates = await Romcal.calendarFor(2018);
-      const saintMatthias = dates.find((d) => d.key === 'saintMatthiasTheApostle');
-      expect(dayjs.utc(saintMatthias?.date).isSame(dayjs.utc('2018-5-14'))).toBeTruthy();
+      const matthiasApostle = dates.find((d) => d.key === 'matthias_apostle');
+      expect(dayjs.utc(matthiasApostle?.date).isSame(dayjs.utc('2018-5-14'))).toBeTruthy();
     });
 
     test('Feast day falls on the 24th of February in the national calendar of Germany and Hungary', async () => {
@@ -395,20 +389,20 @@ describe('Testing national calendar overrides', () => {
         outputOptionalMemorials: true,
       });
 
-      const saintMatthiasGermany = germanyDates.find((d) => d.key === 'saintMatthiasTheApostle');
-      const saintMatthiasHungary = hungaryDates.find((d) => d.key === 'saintMatthiasTheApostle');
+      const matthiasApostleGermany = germanyDates.find((d) => d.key === 'matthias_apostle');
+      const matthiasApostleHungary = hungaryDates.find((d) => d.key === 'matthias_apostle');
 
-      expect(dayjs.utc(saintMatthiasGermany?.date).isSame(dayjs.utc('2018-2-24'))).toBeTruthy();
-      expect(dayjs.utc(saintMatthiasHungary?.date).isSame(dayjs.utc('2018-2-24'))).toBeTruthy();
+      expect(dayjs.utc(matthiasApostleGermany?.date).isSame(dayjs.utc('2018-2-24'))).toBeTruthy();
+      expect(dayjs.utc(matthiasApostleHungary?.date).isSame(dayjs.utc('2018-2-24'))).toBeTruthy();
     });
 
-    test('Is a memorial in the German liturgical calendar on A.D 2014', async () => {
+    test('Is a memorial in the German liturgical calendar on AD 2014', async () => {
       const germanyDates = await Romcal.calendarFor({
         year: 2014,
         country: 'germany',
       });
-      const saintMatthiasGermany = germanyDates.find((d) => d.key === 'saintMatthiasTheApostle');
-      expect(saintMatthiasGermany?.rank).toEqual(Ranks.MEMORIAL);
+      const matthiasApostleGermany = germanyDates.find((d) => d.key === 'matthias_apostle');
+      expect(matthiasApostleGermany?.rank).toEqual(Ranks.MEMORIAL);
     });
   });
 
@@ -422,14 +416,14 @@ describe('Testing national calendar overrides', () => {
         year: 2019,
         outputOptionalMemorials: true,
       });
-      const saintChristopherMagallanesAndCompanionsMartyrs = dates.find((d) => {
-        return d.key === 'saintChristopherMagallanesAndCompanionsMartyrs';
+      const christopherMagallanesPriestAndCompanionsMartyrs = dates.find((d) => {
+        return d.key === 'christopher_magallanes_priest_and_companions_martyrs';
       });
-      const saintChristopherMagallanesAndCompanionsMartyrsMexico = mexicoDates.find((d) => {
-        return d.key === 'saintChristopherMagallanesAndCompanionsMartyrs';
+      const christopherMagallanesPriestAndCompanionsMartyrsMexico = mexicoDates.find((d) => {
+        return d.key === 'christopher_magallanes_priest_and_companions_martyrs';
       });
-      expect(saintChristopherMagallanesAndCompanionsMartyrs?.rank).toEqual(Ranks.OPT_MEMORIAL);
-      expect(saintChristopherMagallanesAndCompanionsMartyrsMexico?.rank).toEqual(Ranks.MEMORIAL);
+      expect(christopherMagallanesPriestAndCompanionsMartyrs?.rank).toEqual(Ranks.OPT_MEMORIAL);
+      expect(christopherMagallanesPriestAndCompanionsMartyrsMexico?.rank).toEqual(Ranks.MEMORIAL);
     });
   });
 
@@ -445,14 +439,14 @@ describe('Testing national calendar overrides', () => {
         country: 'slovakia',
         outputOptionalMemorials: true,
       });
-      const saintLadislausHungary = hungaryDates.find((d) => {
-        return d.key === 'saintLadislaus';
+      const ladislausIOfHungaryHungary = hungaryDates.find((d) => {
+        return d.key === 'ladislaus_i_of_hungary';
       });
-      const saintLadislausSlovakia = slovakiaDates.find((d) => {
-        return d.key === 'saintLadislaus';
+      const ladislausIOfHungarySlovakia = slovakiaDates.find((d) => {
+        return d.key === 'ladislaus_i_of_hungary';
       });
-      expect(saintLadislausHungary?.rank).toEqual(Ranks.FEAST);
-      expect(saintLadislausSlovakia?.rank).toEqual(Ranks.OPT_MEMORIAL);
+      expect(ladislausIOfHungaryHungary?.rank).toEqual(Ranks.FEAST);
+      expect(ladislausIOfHungarySlovakia?.rank).toEqual(Ranks.OPT_MEMORIAL);
     });
   });
 
@@ -460,7 +454,7 @@ describe('Testing national calendar overrides', () => {
     test('Should be celebrated on the September 15, 2018 as a memorial in the General Calendar', async () => {
       const dates = await Romcal.calendarFor(2018);
       const ourLadyOfSorrows = dates.find((d) => {
-        return d.key === 'ourLadyOfSorrows';
+        return d.key === 'our_lady_of_sorrows';
       });
       expect(ourLadyOfSorrows?.rank).toEqual(Ranks.MEMORIAL);
       expect(dayjs.utc(ourLadyOfSorrows?.date).isSame(dayjs.utc('2018-9-15'))).toBeTruthy();
@@ -472,7 +466,7 @@ describe('Testing national calendar overrides', () => {
         country: 'malta',
       });
       const ourLadyOfSorrows = maltaDates.find((d) => {
-        return d.key === 'ourLadyOfSorrows';
+        return d.key === 'our_lady_of_sorrows';
       });
       expect(ourLadyOfSorrows?.rank).toEqual(Ranks.FEAST);
       expect(dayjs.utc(ourLadyOfSorrows?.date).isSame(dayjs.utc('2015-4-15'))).toBeTruthy();
@@ -484,21 +478,21 @@ describe('Testing national calendar overrides', () => {
         country: 'malta',
       });
       const ourLadyOfSorrows: dayjs.Dayjs = dayjs.utc('2018-4-15');
-      const thirdSundayOfEaster: LiturgicalDay | undefined = maltaDates.find((d) => d.key === 'thirdSundayOfEaster');
+      const thirdSundayOfEaster: LiturgicalDay | undefined = maltaDates.find((d) => d.key === 'eastertide_3_sunday');
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       expect(ourLadyOfSorrows.isSame(thirdSundayOfEaster!.date)).toBeTruthy();
     });
 
-    test('Should be celebrated on the 15th of April 2018 as a solemnity in the national calendar of Slovakia', async () => {
+    test('Should be celebrated on the 15th of September 2018 as a solemnity in the national calendar of Slovakia', async () => {
       const slovakiaDates = await Romcal.calendarFor({
         year: 2018,
         country: 'slovakia',
       });
-      const ourLadyOfSorrows = slovakiaDates.find((d) => {
-        return d.key === 'ourLadyOfSorrows';
+      const ourLadyOfSorrowsPatronessOfSlovakia = slovakiaDates.find((d) => {
+        return d.key === 'our_lady_of_sorrows_patroness_of_slovakia';
       });
-      expect(ourLadyOfSorrows?.rank).toEqual(Ranks.SOLEMNITY);
-      expect(dayjs.utc(ourLadyOfSorrows?.date).isSame(dayjs.utc('2018-9-15'))).toBeTruthy();
+      expect(ourLadyOfSorrowsPatronessOfSlovakia?.rank).toEqual(Ranks.SOLEMNITY);
+      expect(dayjs.utc(ourLadyOfSorrowsPatronessOfSlovakia?.date).isSame(dayjs.utc('2018-9-15'))).toBeTruthy();
     });
   });
 });

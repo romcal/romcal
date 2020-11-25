@@ -13,12 +13,12 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
   const year = config.year;
   const _dates: Array<RomcalLiturgicalDayInput> = [
     {
-      key: 'waitangiDay',
+      key: 'waitangi_day',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-2-6`),
     },
     {
-      key: 'saintPaulMikiAndCompanionsMartyrs',
+      key: 'paul_miki_and_companions_martyrs',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-2-7`),
       liturgicalColors: LiturgicalColors.RED,
@@ -27,22 +27,22 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintPatrickBishop',
+      key: 'patrick_of_ireland_bishop',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-3-17`),
     },
     {
-      key: 'saintMarkTheEvangelist',
+      key: 'mark_evangelist',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-4-26`),
     },
     {
-      key: 'saintLouisMarieGrignionDeMontfortPriest',
+      key: 'louis_grignion_de_montfort_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-4-27`),
     },
     {
-      key: 'saintPeterChanelPriestAndMartyr',
+      key: 'peter_chanel_priest_patron_of_oceania',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-4-28`),
       liturgicalColors: LiturgicalColors.RED,
@@ -51,32 +51,32 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'ourLadyHelpOfChristians',
+      key: 'our_lady_help_of_christians',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-5-24`),
     },
     {
-      key: 'saintMarcellinChampagnatPriest',
+      key: 'marcellin_champagnat_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-6`),
     },
     {
-      key: 'saintDominicPriest',
+      key: 'dominic_de_guzman_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-7`),
     },
     {
-      key: 'saintSixtusIiPopeAndCompanionsMartyrs',
+      key: 'sixtus_ii_pope_and_companions_martyrs',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-7`),
     },
     {
-      key: 'saintCajetanPriest',
+      key: 'cajetan_of_thiene_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-7`),
     },
     {
-      key: 'saintMaryMacKillopVirgin',
+      key: 'mary_of_the_cross_mackillop_virgin',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-8-8`),
     },

@@ -94,7 +94,7 @@ export class CalendarBuilder {
         ...(await Seasons.earlyOrdinaryTime(year, epiphanyOnSunday)),
         ...(await Seasons.lent(year)),
         ...(await Seasons.eastertide(year)),
-        ...(await Seasons.laterOrdinaryTime(year)),
+        ...(await Seasons.lateOrdinaryTime(year)),
         ...(await Seasons.advent(year)),
         ...(await Seasons.christmastide(year, epiphanyOnSunday)),
       ];
@@ -324,7 +324,7 @@ export class CalendarBuilder {
    * @private
    */
   private localizeLiturgicalColors(colors: RomcalLiturgicalColor[]): Promise<string[]> {
-    return Promise.all(colors.map(async (key) => await localize({ key: `liturgicalColors.${key}` })));
+    return Promise.all(colors.map(async (key) => await localize({ key: `liturgical_colors.${key}` })));
   }
 
   /**
