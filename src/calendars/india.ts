@@ -13,17 +13,17 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
   const year = config.year;
   const _dates: Array<RomcalLiturgicalDayInput> = [
     {
-      key: 'blessedKuriakoseEliasChavaraPriest',
+      key: 'kuriakose_elias_of_the_holy_family_chavara_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-3`),
     },
     {
-      key: 'blessedJosephVazPriest',
+      key: 'joseph_vaz_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-1-16`),
     },
     {
-      key: 'saintJohnDeBritoPriestAndMartyr',
+      key: 'john_de_britto_priest',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-2-4`),
       liturgicalColors: LiturgicalColors.RED,
@@ -32,7 +32,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintGonsaloGarciaMartyr',
+      key: 'gundisalvus_garcia_martyr',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-2-6`),
       liturgicalColors: LiturgicalColors.RED,
@@ -41,30 +41,30 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'blessedMariaTheresaChiramelVirgin',
+      key: 'mary_theresa_chiramel_mankidiyan_virgin',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-8`),
     },
     {
-      key: 'saintThomasTheApostle',
+      key: 'thomas_apostle',
       rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-7-3`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintAlphonsaOfTheImmaculateConceptionVirgin',
+      key: 'alphonsa_of_the_immaculate_conception_muttathupadathu_virgin',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-7-28`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintTeresaOfCalcuttaReligious',
+      key: 'teresa_of_calcutta_religious',
       rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-9-5`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintFrancisXavierPriest',
+      key: 'francis_xavier_priest',
       rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-12-3`),
       liturgicalColors: LiturgicalColors.WHITE,

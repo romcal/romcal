@@ -13,7 +13,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
   const year = config.year;
   const _dates: Array<RomcalLiturgicalDayInput> = [
     {
-      key: 'saintBarbaraVirginAndMartyr',
+      key: 'barbara_of_heliopolis_virgin',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-12-4`),
       liturgicalColors: LiturgicalColors.RED,
@@ -22,27 +22,27 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintNicholasBishop',
+      key: 'nicholas_of_myra_bishop',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-12-6`),
     },
     {
-      key: 'saintCharbelMakhloufPriestAndHermit',
+      key: 'sharbel_makhluf_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-12-24`),
     },
     {
-      key: 'saintMaroun',
+      key: 'maron_of_syria_hermit',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-2-9`),
     },
     {
-      key: 'saintRafqaRebeccaVirgin',
+      key: 'rafqa_pietra_choboq_ar_rayes_virgin',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-3-23`),
     },
     {
-      key: 'saintGeorgeMartyr',
+      key: 'george_of_lydda_martyr',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-4-23`),
       liturgicalColors: LiturgicalColors.RED,
@@ -51,7 +51,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'ourLadyOfLebanon',
+      key: 'our_lady_of_lebanon',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-5-1`),
     },

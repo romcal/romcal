@@ -13,7 +13,13 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
   const year = config.year;
   const _dates: Array<RomcalLiturgicalDayInput> = [
     {
-      key: 'ourLordJesusChristTheEternalHighPriest',
+      key: 'our_lady_of_guadalupe_patroness_of_the_americas',
+      rank: Ranks.FEAST,
+      date: dayjs.utc(`${year}-12-12`),
+      liturgicalColors: LiturgicalColors.WHITE,
+    },
+    {
+      key: 'our_lord_jesus_christ_the_eternal_high_priest',
       rank: Ranks.FEAST,
       date: ((y: number): dayjs.Dayjs => dayjs.utc(Dates.pentecostSunday(y).add(4, 'day').toISOString()))(year),
       liturgicalColors: LiturgicalColors.WHITE,

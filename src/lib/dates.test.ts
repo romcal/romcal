@@ -262,8 +262,8 @@ describe('Testing specific liturgical date functions', () => {
     describe('The Nativity of John the Baptist', () => {
       test('Occurs every year on June 24', () => {
         for (let i = 1900, il = 2100; i <= il; i++) {
-          expect(Dates.birthOfJohnTheBaptist(i).date()).toEqual(24);
-          expect(Dates.birthOfJohnTheBaptist(i).month()).toEqual(5);
+          expect(Dates.nativityOfJohnTheBaptist(i).date()).toEqual(24);
+          expect(Dates.nativityOfJohnTheBaptist(i).month()).toEqual(5);
         }
       });
     });
@@ -440,19 +440,19 @@ describe('Testing specific liturgical date functions', () => {
 
   describe('Sacred Heart of Jesus occurs on 68 days after Easter', () => {
     test('In 1969, Sacred Heart of Jesus was on Thursday, June 13', () => {
-      const date = Dates.sacredHeartOfJesus(1969);
+      const date = Dates.mostSacredHeartOfJesus(1969);
       expect(date.month()).toEqual(5);
       expect(date.date()).toEqual(13);
     });
 
     test('In 2008, Sacred Heart of Jesus was on May 30', () => {
-      const date = Dates.sacredHeartOfJesus(2008);
+      const date = Dates.mostSacredHeartOfJesus(2008);
       expect(date.month()).toEqual(4);
       expect(date.date()).toEqual(30);
     });
 
     test('In 2050, Sacred Heart of Jesus will be on June 17', () => {
-      const date = Dates.sacredHeartOfJesus(2050);
+      const date = Dates.mostSacredHeartOfJesus(2050);
       expect(date.month()).toEqual(5);
       expect(date.date()).toEqual(17);
     });
@@ -460,8 +460,8 @@ describe('Testing specific liturgical date functions', () => {
     test('It can occur anytime between May 29 and Jul 2 (inclusive)', () => {
       for (let i = 1900, il = 2100; i <= il; i++) {
         const range = rangeOfDays(dayjs.utc(`${i}-5-29`), dayjs.utc(`${i}-7-2`));
-        const sacredHeartOfJesus = Dates.sacredHeartOfJesus(i);
-        expect(rangeContainsDate(range, sacredHeartOfJesus)).toBeTrue();
+        const mostSacredHeartOfJesus = Dates.mostSacredHeartOfJesus(i);
+        expect(rangeContainsDate(range, mostSacredHeartOfJesus)).toBeTrue();
       }
     });
   });
@@ -498,8 +498,8 @@ describe('Testing specific liturgical date functions', () => {
     test('It can occur anytime between Nov 20 and Nov 26 (inclusive)', () => {
       for (let i = 1900, il = 2100; i <= il; i++) {
         const range = rangeOfDays(dayjs.utc(`${i}-11-20`), dayjs.utc(`${i}-11-26`));
-        const christTheKing = Dates.christTheKing(i);
-        expect(rangeContainsDate(range, christTheKing)).toBeTrue();
+        const christTheKingSunday = Dates.christTheKingSunday(i);
+        expect(rangeContainsDate(range, christTheKingSunday)).toBeTrue();
       }
     });
   });
@@ -623,7 +623,7 @@ describe('Testing specific liturgical date functions', () => {
         if (onSundayOfLent || rangeContainsDate(theRange, date)) {
           expect(true).toEqual(true);
         } else {
-          expect(date.isSame(Dates.josephHusbandOfMary(i))).toBeTrue();
+          expect(date.isSame(Dates.josephSpouseOfMary(i))).toBeTrue();
         }
       }
     });
@@ -643,7 +643,7 @@ describe('Testing specific liturgical date functions', () => {
         });
 
         if (onSundayOfLent && !rangeContainsDate(theRange, date)) {
-          expect(Dates.josephHusbandOfMary(i).day()).toEqual(1);
+          expect(Dates.josephSpouseOfMary(i).day()).toEqual(1);
         }
       }
     });
@@ -660,9 +660,9 @@ describe('Testing specific liturgical date functions', () => {
         const onSundayOfLent = rangeContainsDate(sundays, date);
 
         if (!onSundayOfLent && rangeContainsDate(theRange, date)) {
-          expect(Dates.josephHusbandOfMary(i).isSame(Dates.palmSunday(i).subtract(1, 'day'))).toEqual(true);
+          expect(Dates.josephSpouseOfMary(i).isSame(Dates.palmSunday(i).subtract(1, 'day'))).toEqual(true);
         } else {
-          expect(Dates.josephHusbandOfMary(i).isSame(date));
+          expect(Dates.josephSpouseOfMary(i).isSame(date));
         }
       }
     });
@@ -815,7 +815,7 @@ describe('Testing specific liturgical date functions', () => {
         });
 
         if (!onSundayOfAdvent) {
-          expect(date.date()).toEqual(Dates.immaculateConception(i).date());
+          expect(date.date()).toEqual(Dates.immaculateConceptionOfMary(i).date());
         }
       }
     });
@@ -833,7 +833,7 @@ describe('Testing specific liturgical date functions', () => {
         });
 
         if (onSundayOfAdvent) {
-          expect(Dates.immaculateConception(i).date()).toEqual(9);
+          expect(Dates.immaculateConceptionOfMary(i).date()).toEqual(9);
         }
       }
     });

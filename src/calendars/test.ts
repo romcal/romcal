@@ -12,22 +12,22 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
   const year = config.year;
   const _dates: Array<RomcalLiturgicalDayInput> = [
     {
-      key: 'maryMotherOfTheChurch',
+      key: 'mary_mother_of_the_church',
       rank: Ranks.OPT_MEMORIAL,
       date: ((y: number): dayjs.Dayjs => Dates.pentecostSunday(y).add(1, 'day'))(year),
       prioritized: true,
     },
     {
-      key: 'ashWednesday',
+      key: 'ash_wednesday',
       source: 'celebrations', // Override the default lookup source
       rank: Ranks.SUNDAY,
       date: dayjs.utc(Dates.ashWednesday(year).toISOString()),
     },
-    // Test priority where saintLukeTheEvangelist is defined
+    // Test priority where luke_evangelist is defined
     // in the "test" country as a commemoration instead of its
     // default rank, feast...
     {
-      key: 'saintLukeTheEvangelist',
+      key: 'luke_evangelist',
       rank: Ranks.COMMEMORATION,
       date: dayjs.utc(`${year}-10-18`),
       prioritized: true,

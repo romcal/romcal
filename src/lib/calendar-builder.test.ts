@@ -243,10 +243,10 @@ describe('Testing calendar generation functions', () => {
     test('The proper color of a Memorial or a Feast is white except for martyrs in which case it is red, and All Souls which is purple', async () => {
       const calendar = (await Romcal.calendarFor()).groupBy('ranks');
       _.get(calendar, Ranks.FEAST).forEach((d) => {
-        if (d.key === 'theExaltationOfTheHolyCross') {
+        if (d.key === 'exaltation_of_the_holy_cross') {
           expect(d.liturgicalColors[0]).toEqual(LiturgicalColors.RED);
         } else {
-          if (d.key === 'allSouls') {
+          if (d.key === 'all_souls') {
             expect(d.liturgicalColors[0]).toEqual(LiturgicalColors.PURPLE);
           } else if (!isNil(d.metadata.titles)) {
             if (d.metadata.titles?.includes(Titles.MARTYR)) {
@@ -274,7 +274,7 @@ describe('Testing calendar generation functions', () => {
 
     test('The proper color for the Chair of Peter and the Conversion of St. Paul is white, although both St. Peter and St. Paul were martyrs.', async () => {
       const dates = (await Romcal.calendarFor()).filter((d) =>
-        ['chairOfSaintPeterApostle', 'conversionOfSaintPaulApostle'].includes(d.key),
+        ['chair_of_saint_peter_the_apostle', 'conversion_of_saint_paul_the_apostle'].includes(d.key),
       );
       expect(dates.length).toBe(2);
       dates.forEach((d) => expect(d.liturgicalColors[0]).toEqual(LiturgicalColors.WHITE));
@@ -297,9 +297,9 @@ describe('Testing calendar generation functions', () => {
       calendar2021 = await Romcal.calendarFor(2021);
       calendar2022 = await Romcal.calendarFor(2022);
 
-      easter2020 = calendar2020.find((item) => item.key === 'easter');
-      easter2021 = calendar2021.find((item) => item.key === 'easter');
-      easter2022 = calendar2022.find((item) => item.key === 'easter');
+      easter2020 = calendar2020.find((item) => item.key === 'easter_sunday');
+      easter2021 = calendar2021.find((item) => item.key === 'easter_sunday');
+      easter2022 = calendar2022.find((item) => item.key === 'easter_sunday');
 
       christmas2020 = calendar2020.find((item) => item.key === 'christmas');
       christmas2021 = calendar2021.find((item) => item.key === 'christmas');
@@ -341,7 +341,7 @@ describe('Testing calendar generation functions', () => {
       const date = testDates.find((d) => {
         return dayjs.utc(d.date).isSame(dayjs.utc('2020-12-4'));
       });
-      expect(date?.key).not.toEqual('saintJohnDamascenePriestAndDoctor');
+      expect(date?.key).not.toEqual('cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop');
     });
   });
 });

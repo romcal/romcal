@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
 import { parse, Schema } from 'bcp-47';
-import { toOrdinal, toWordsOrdinal } from 'number-to-words';
+import { toOrdinal } from 'number-to-words';
 import { logger } from '@romcal/utils/logger/logger';
 
 import { findDescendantValueByKeys, mergeObjectsUniquely } from '@romcal/utils/object/object';
@@ -59,18 +59,6 @@ let _combinedLocaleContents: RomcalLocale | undefined;
  * Cache value to hold the current locale's data.
  */
 let _dayjsLocale: ILocale;
-
-/**
- * Returns an ordinal number representation of the integer provided.
- *
- * Ordinal numbers look like this: 1st, 2nd, 3rd, 4th, ..., 10th and so on.
- *
- * @param value The number to process
- * @param asWord Returns the ordinal representation of the number in words only (defaults to `false`)
- */
-export const ordinal = (value: number, asWord = false): string => {
-  return asWord ? toWordsOrdinal(value) : toOrdinal(value);
-};
 
 /**
  * Attempts to sanitize the incoming value into a valid BCP-47 IETF locale string.
@@ -139,7 +127,7 @@ export const sanitizeLocale = (
  * @param key The language key to use
  * @param customOrdinalFn An optional custom function to use for generating ordinal number values (defaults [[Locales.ordinal]] if not set)
  */
-const setLocale = async (key: RomcalLocaleKey, customOrdinalFn: (v: number) => string = ordinal): Promise<void> => {
+const setLocale = async (key: RomcalLocaleKey, customOrdinalFn: (v: number) => string = toOrdinal): Promise<void> => {
   // When setLocale() is called, all cache values are purged
   _localeContents = [];
   _combinedLocaleContents = undefined;
@@ -256,10 +244,10 @@ const localize = async ({ key, count, week, day, useDefaultOrdinalFn }: RomcalLo
     key,
     // If defined, pluralize a week and add it to the given template
     ...(typeof week === 'number' && {
-      week: useDefaultOrdinalFn === true ? ordinal(week) : _dayjsLocale.ordinal?.(week) ?? ordinal(week),
+      week: useDefaultOrdinalFn === true ? toOrdinal(week) : _dayjsLocale.ordinal?.(week) ?? toOrdinal(week),
     }),
     ...(typeof count === 'number' && {
-      count: useDefaultOrdinalFn === true ? ordinal(count) : _dayjsLocale.ordinal?.(count) ?? ordinal(count),
+      count: useDefaultOrdinalFn === true ? toOrdinal(count) : _dayjsLocale.ordinal?.(count) ?? toOrdinal(count),
     }),
     // If defined, add the day to be included in the translation
     ...(isString(day) && { day }),

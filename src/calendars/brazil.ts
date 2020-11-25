@@ -13,13 +13,13 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
   const year = config.year;
   const _dates: Array<RomcalLiturgicalDayInput> = [
     {
-      key: 'saintJoseDeAnchietaPriest',
+      key: 'joseph_de_anchieta_priest',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-6-9`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'blessedAlbertinaBerkenbrockVirginAndMartyr',
+      key: 'albertina_berkenbrock_virgin',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-6-15`),
       liturgicalColors: LiturgicalColors.RED,
@@ -28,19 +28,19 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintPaulinaOfTheAgonizingHeartOfJesusVirgin',
+      key: 'paulina_of_the_agonizing_heart_of_jesus_visintainer_virgin',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-7-9`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'ourLadyOfMountCarmel',
+      key: 'our_lady_of_mount_carmel',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-7-16`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'blessedInacioDeAzevedoPriestAndCompanionsMartyrs',
+      key: 'ignatius_de_azevedo_priest_and_companions_martyrs',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-7-17`),
       liturgicalColors: LiturgicalColors.RED,
@@ -49,13 +49,13 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintRoseOfLima',
+      key: 'rose_of_lima_virgin',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-8-23`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'blessedsAndreDeSoveralAndAmbrosioFranciscoFerroPriestsAndMartyrs',
+      key: 'andrew_de_soveral_and_ambrose_francis_ferro_priests',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-10-3`),
       liturgicalColors: LiturgicalColors.RED,
@@ -64,19 +64,19 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'ourLadyOfAparecidaPatronessOfBrazil',
+      key: 'our_lady_of_aparecida_patroness_of_brazil',
       rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-10-12`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintAnthonyOfSaintAnneGalvaoFreiGalvaoPriest',
+      key: 'anthony_of_saint_anne_galvao_priest',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-10-25`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintsRoqueGonzalezAlfonsoRodriguezOlmedoAndJuanDelCastilloPriestsAndMartyrs',
+      key: 'roch_gonzalez_alphonsus_rodriguez_and_john_del_castillo_priests',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-11-19`),
       liturgicalColors: LiturgicalColors.RED,
@@ -85,7 +85,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'ourLadyOfGuadalupe',
+      key: 'our_lady_of_guadalupe_patroness_of_the_americas',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-12-12`),
       liturgicalColors: LiturgicalColors.WHITE,

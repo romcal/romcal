@@ -1,10 +1,12 @@
 import dayjs from 'dayjs';
 
 import * as Locales from '@romcal/lib/locales';
+import { Dates } from '@romcal/lib/dates';
 import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
 import { RomcalLiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
 import { RomcalConfig, RomcalConfigInCalendarDef } from '@romcal/models/config/config.model';
 import { Ranks } from '@romcal/constants/ranks/ranks.enum';
+import { CelebrationsCycle } from '@romcal/constants/cycles/cycles.enum';
 import { Titles } from '@romcal/constants/titles/titles.enum';
 
 const defaultConfig: RomcalConfigInCalendarDef | undefined = undefined;
@@ -13,12 +15,12 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
   const year = config.year;
   const _dates: Array<RomcalLiturgicalDayInput> = [
     {
-      key: 'saintTeiloBishop',
+      key: 'teilo_of_llandaff_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-2-9`),
     },
     {
-      key: 'saintsCyrilMonkAndMethodiusBishop',
+      key: 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-2-14`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -27,18 +29,18 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintDavidBishop',
+      key: 'david_of_wales_bishop_patron_of_wales',
       rank: Ranks.SOLEMNITY,
       date: dayjs.utc(`${year}-3-1`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintBeunoAbbot',
+      key: 'beuno_of_wales_abbot',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-4-20`),
     },
     {
-      key: 'saintCatherineOfSienaVirginAndDoctorOfTheChurch',
+      key: 'catherine_of_siena_virgin_copatroness_of_europe',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-4-29`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -47,12 +49,12 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintAsaphBishop',
+      key: 'asaph_of_wales_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-5`),
     },
     {
-      key: 'saintsAlbanJuliusAndAaronMartyrs',
+      key: 'alban_of_britain_julius_of_caerleon_aaron_of_caerleon_martyrs',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-6-20`),
       liturgicalColors: LiturgicalColors.RED,
@@ -61,7 +63,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintBenedictOfNursiaAbbot',
+      key: 'benedict_of_nursia_abbot_patron_of_europe',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-7-11`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -70,7 +72,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintJohnJonesPriestAndMartyr',
+      key: 'john_jones_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-12`),
       liturgicalColors: LiturgicalColors.RED,
@@ -79,7 +81,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintBridgetOfSwedenReligious',
+      key: 'bridget_of_sweden_religious_copatroness_of_europe',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-7-23`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -88,7 +90,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintsPhilipEvansAndJohnLloydPriestsAndMartyrs',
+      key: 'philip_evans_and_john_lloyd_priests',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-25`),
       liturgicalColors: LiturgicalColors.RED,
@@ -97,12 +99,12 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintGermanusOfAuxerreBishop',
+      key: 'germanus_of_auxerre_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-3`),
     },
     {
-      key: 'saintTeresaBenedictaOfTheCrossEdithSteinVirginAndMartyr',
+      key: 'teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-8-9`),
       liturgicalColors: LiturgicalColors.RED,
@@ -111,7 +113,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintDavidLewisPriestAndMartyr',
+      key: 'david_lewis_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-8-26`),
       liturgicalColors: LiturgicalColors.RED,
@@ -120,12 +122,27 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintDeiniolBishop',
+      key: 'deiniol_of_bangor_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-11`),
     },
     {
-      key: 'saintRichardGwynMartyr',
+      key: 'john_henry_newman_priest',
+      rank: Ranks.FEAST,
+      date: dayjs.utc(`${year}-10-9`),
+    },
+    {
+      key: 'denis_of_paris_bishop_and_companions_martyrs',
+      rank: Ranks.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-10-10`),
+    },
+    {
+      key: 'john_leonardi_priest',
+      rank: Ranks.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-10-10`),
+    },
+    {
+      key: 'richard_gwyn_martyr',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-16`),
       liturgicalColors: LiturgicalColors.RED,
@@ -134,7 +151,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'theSixWelshMartyrsAndCompanions',
+      key: 'six_welsh_martyrs_and_companions',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-10-25`),
       liturgicalColors: LiturgicalColors.RED,
@@ -143,12 +160,12 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintWinefrideVirgin',
+      key: 'winefride_of_flintshire_virgin',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-3`),
     },
     {
-      key: 'saintIlltudAbbot',
+      key: 'illtud_the_knight_abbot',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-6`),
     },
@@ -158,7 +175,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     // However, in countries (not England & Wales) where it falls
     // on a Sunday it replaces the Sunday.
     {
-      key: 'allSaints',
+      key: 'all_saints',
       source: 'celebrations', // Override the default locale lookup
       rank: Ranks.SOLEMNITY,
       date: ((y: number): dayjs.Dayjs => {
@@ -173,7 +190,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       prioritized: true,
     },
     {
-      key: 'allSouls',
+      key: 'all_souls',
       rank: Ranks.FEAST,
       date: ((y: number): dayjs.Dayjs => {
         const date = dayjs.utc(`${y}-11-1`);
@@ -190,14 +207,14 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       prioritized: true,
     },
     {
-      key: 'allSaintsOfWales',
+      key: 'all_saints_of_wales',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-11-6`),
       liturgicalColors: LiturgicalColors.WHITE,
       prioritized: true,
     },
     {
-      key: 'saintDubriciusBishop',
+      key: 'dyfrig_of_wales_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-11-14`),
       metadata: {
@@ -205,7 +222,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'saintJohnRobertsPriestAndMartyr',
+      key: 'john_roberts_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-12-10`),
       liturgicalColors: LiturgicalColors.RED,
@@ -217,7 +234,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
     // Saturday or a Monday it is transferred to the Sunday.
     // Replaces 20th Sunday in Ordinary Time when it falls on a Sunday.
     {
-      key: 'peterAndPaulApostles',
+      key: 'peter_and_paul_apostles',
       source: 'celebrations', // Override the default lookup source
       rank: Ranks.SOLEMNITY,
       date: ((y: number): dayjs.Dayjs => {
@@ -252,6 +269,13 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       })(year),
       liturgicalColors: LiturgicalColors.WHITE,
       prioritized: true,
+    },
+    {
+      key: 'our_lord_jesus_christ_the_eternal_high_priest',
+      rank: Ranks.FEAST,
+      date: ((y: number): dayjs.Dayjs => dayjs.utc(Dates.pentecostSunday(y).add(4, 'day').toISOString()))(year),
+      liturgicalColors: LiturgicalColors.WHITE,
+      cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
     },
   ];
 

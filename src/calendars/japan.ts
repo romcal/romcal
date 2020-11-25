@@ -13,7 +13,7 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
   const year = config.year;
   const _dates: Array<RomcalLiturgicalDayInput> = [
     {
-      key: 'saintPaulMikiAndCompanionsMartyrs',
+      key: 'paul_miki_and_companions_martyrs',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-2-6`),
       liturgicalColors: LiturgicalColors.RED,
@@ -22,12 +22,12 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: 'discoveryOfTheHiddenChristians',
+      key: 'our_lady_of_the_discovery_of_the_hidden_christians',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-3-17`),
     },
     {
-      key: 'blessedPeterKibePriestAndCompanionsMartyrs',
+      key: 'peter_kibe_priest_and_companions_martyrs',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-7-1`),
       liturgicalColors: LiturgicalColors.RED,
@@ -36,19 +36,19 @@ const dates = async (config: RomcalConfig): Promise<Array<RomcalLiturgicalDayInp
       },
     },
     {
-      key: '205BlessedMartyrsOfJapan',
+      key: '205_blessed_martyrs_of_japan',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-9-10`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintThomasRokuzayemonPriestAndCompanionsMartyrs',
+      key: 'thomas_hioji_rokuzayemon_nishi_priest_and_companions_martyrs',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-9-28`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'saintFrancisXavierPriest',
+      key: 'francis_xavier_priest',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-12-3`),
       liturgicalColors: LiturgicalColors.WHITE,

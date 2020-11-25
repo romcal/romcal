@@ -4,7 +4,7 @@ import { Dates } from './dates';
 import { RomcalLiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
 import { RomcalCalendarMetadata } from '@romcal/models/liturgical-day/liturgical-day.types';
 import { Ranks } from '@romcal/constants/ranks/ranks.enum';
-import { getRankByDayOfWeek, localize, ordinal } from '@romcal/lib/locales';
+import { getRankByDayOfWeek, localize } from '@romcal/lib/locales';
 import {
   RomcalLiturgicalPeriod,
   RomcalLiturgicalSeason,
@@ -108,7 +108,7 @@ const epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<Ro
       async (date: Dayjs, i: number) =>
         ({
           date,
-          key: `${date.locale('en').format('dddd').toCamelCase()}BeforeEpiphany`,
+          key: `christmastide_${date.locale('en').format('MMMM_D').toLowerCase()}`,
           rank: Ranks.WEEKDAY,
           name: await localize({
             key: 'epiphany.before',
@@ -131,7 +131,7 @@ const epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<Ro
   const dateOfEpiphanyPromise = await Promise.all([
     {
       date: epiphany,
-      key: 'dayOfEpiphany',
+      key: 'day_of_epiphany',
       rank: Ranks.SOLEMNITY,
       name: await localize({
         key: 'celebrations.epiphany',
@@ -153,7 +153,7 @@ const epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<Ro
       async (date: Dayjs) =>
         ({
           date,
-          key: `${date.locale('en').format('dddd').toCamelCase()}AfterEpiphany`,
+          key: `${date.locale('en').format('dddd').toLowerCase()}_after_epiphany`,
           rank: Ranks.WEEKDAY,
           name: await localize({
             key: 'epiphany.after',
@@ -185,10 +185,10 @@ const holyWeek = async (year: number): Promise<Array<RomcalLiturgicalDayInput>> 
   const datesPromise = dates.map(async (date: Dayjs, i: number) => {
     return {
       date,
-      key: `${date.locale('en').format('dddd').toCamelCase()}OfHolyWeek`,
+      key: `holy_week_${date.locale('en').format('dddd').toLowerCase()}`,
       rank: Ranks.HOLY_WEEK,
       name: await localize({
-        key: 'holyWeek.weekday',
+        key: 'holy_week.weekday',
         day: date.format('dddd'),
       }),
       seasons: ((): RomcalLiturgicalSeason[] => {
@@ -200,7 +200,7 @@ const holyWeek = async (year: number): Promise<Array<RomcalLiturgicalDayInput>> 
       seasonNames: await (async (): Promise<string[]> => {
         const arr: string[] = [];
         if (date.day() <= 4) arr.push(await localize({ key: 'lent.season' })); // Until holy thursday
-        if (date.day() >= 4) arr.push(await localize({ key: 'paschalTriduum.season' })); // From holy thursday
+        if (date.day() >= 4) arr.push(await localize({ key: 'paschal_triduum.season' })); // From holy thursday
         return arr;
       })(),
       periods: [
@@ -246,11 +246,9 @@ export class Seasons {
       return {
         date,
         key:
-          date.day() === 0
-            ? `${ordinal(Math.floor(i / 7) + 1, true).toCamelCase()}SundayOfAdvent`
-            : `${date.locale('en').format('dddd').toCamelCase()}OfThe${ordinal(
-                Math.floor(i / 7) + 1,
-              ).toPascalCase()}WeekOfAdvent`,
+          date.month() >= 11 && date.date() >= 17 && date.day() > 0
+            ? `advent_${date.locale('en').format('MMMM_D').toLowerCase()}`
+            : `advent_${Math.floor(i / 7) + 1}_${date.locale('en').format('dddd').toLowerCase()}`,
         rank: getRankByDayOfWeek(date.day()),
         name: await localize({
           key: date.day() === 0 ? 'advent.sunday' : 'advent.weekday',
@@ -307,10 +305,7 @@ export class Seasons {
       count = dayOfWeek === 0 ? count + 1 : count;
       return {
         date,
-        key:
-          dayOfWeek === 0
-            ? `${ordinal(count, true).toCamelCase()}SundayOfChristmas`
-            : `${date.locale('en').format('dddd').toCamelCase()}OfChristmastide`,
+        key: `christmastide_${count}_${date.locale('en').format('dddd').toLowerCase()}`,
         rank: getRankByDayOfWeek(dayOfWeek),
         name: await localize({
           key: dayOfWeek === 0 ? 'christmastide.sunday' : 'christmastide.date',
@@ -334,7 +329,7 @@ export class Seasons {
     const datesInTheOctaveOfChristmasPromise = datesInTheOctaveOfChristmas.map(async (date: Dayjs, i: number) => {
       return {
         date,
-        key: `${ordinal(i + 1, true).toCamelCase()}DayInTheOctaveOfChristmas`,
+        key: `christmas_octave_day_${i + 1}`,
         rank: getRankByDayOfWeek(date.day()),
         name: await localize({
           key: 'christmastide.octave',
@@ -405,19 +400,16 @@ export class Seasons {
           date,
           key:
             date.day() === 0
-              ? `${ordinal(Math.floor(i / 7) + 2, true).toCamelCase()}SundayOfOrdinaryTime`
-              : `${date.locale('en').format('dddd').toCamelCase()}OfThe${ordinal(
-                  Math.floor(i / 7) + 1,
-                  true,
-                ).toPascalCase()}WeekOfOrdinaryTime`,
+              ? `ordinary_time_${Math.floor(i / 7) + 2}_sunday`
+              : `ordinary_time_${Math.floor(i / 7) + 1}_${date.locale('en').format('dddd').toLowerCase()}`,
           rank: date.day() === 0 ? Ranks.SUNDAY : Ranks.WEEKDAY,
           name: await localize({
-            key: date.day() === 0 ? 'ordinaryTime.sunday' : 'ordinaryTime.weekday',
+            key: date.day() === 0 ? 'ordinary_time.sunday' : 'ordinary_time.weekday',
             day: date.format('dddd'),
             week,
           }),
           seasons: [LiturgicalSeasons.ORDINARY_TIME],
-          seasonNames: [await localize({ key: 'ordinaryTime.season' })],
+          seasonNames: [await localize({ key: 'ordinary_time.season' })],
           liturgicalColors: [LiturgicalColors.GREEN],
           periods: [
             LiturgicalPeriods.EARLY_ORDINARY_TIME,
@@ -450,7 +442,7 @@ export class Seasons {
   /**
    * Calculates the latter half of ordinary time in a given liturgical year.
    *
-   * **LITURGICAL- LATER ORDINARY TIME**
+   * **LITURGICAL- LATE ORDINARY TIME**
    *
    * The second phase of Ordinary Time begins on the Monday that immediately
    * follows Pentecost Sunday (i.e., the last Sunday of the Season of Easter).
@@ -465,8 +457,8 @@ export class Seasons {
    *
    * @param year
    */
-  static laterOrdinaryTime = async (year: number): Promise<RomcalLiturgicalDayInput[]> => {
-    const daysOfLaterOrdinaryTimePromise = Dates.datesOfLaterOrdinaryTime(year)
+  static lateOrdinaryTime = async (year: number): Promise<RomcalLiturgicalDayInput[]> => {
+    const daysOfLateOrdinaryTimePromise = Dates.datesOfLateOrdinaryTime(year)
       .reverse()
       .map(async (date: Dayjs, i: number) => {
         // Calculate the week of ordinary time
@@ -475,21 +467,15 @@ export class Seasons {
 
         return {
           date,
-          key:
-            date.day() === 0
-              ? `${ordinal(week, true).toCamelCase()}SundayOfOrdinaryTime`
-              : `${date.locale('en').format('dddd').toCamelCase()}OfThe${ordinal(
-                  week,
-                  true,
-                ).toPascalCase()}WeekOfOrdinaryTime`,
+          key: `ordinary_time_${week}_${date.locale('en').format('dddd').toLowerCase()}`,
           rank: date.day() === 0 ? Ranks.SUNDAY : Ranks.WEEKDAY,
           name: await localize({
-            key: date.day() === 0 ? 'ordinaryTime.sunday' : 'ordinaryTime.weekday',
+            key: date.day() === 0 ? 'ordinary_time.sunday' : 'ordinary_time.weekday',
             day: date.format('dddd'),
             week: week,
           }),
           seasons: [LiturgicalSeasons.ORDINARY_TIME],
-          seasonNames: [await localize({ key: 'ordinaryTime.season' })],
+          seasonNames: [await localize({ key: 'ordinary_time.season' })],
           liturgicalColors: [LiturgicalColors.GREEN],
           periods: [LiturgicalPeriods.LATER_ORDINARY_TIME],
           ...getCalendarMetadata({
@@ -500,7 +486,7 @@ export class Seasons {
           cycles: { celebrationCycle: CelebrationsCycle.TEMPORALE },
         } as RomcalLiturgicalDayInput;
       });
-    let days: RomcalLiturgicalDayInput[] = await Promise.all(daysOfLaterOrdinaryTimePromise);
+    let days: RomcalLiturgicalDayInput[] = await Promise.all(daysOfLateOrdinaryTimePromise);
 
     // Sort dates according to moment
     days = _.sortBy(days, (v) => v.date.valueOf());
@@ -516,7 +502,7 @@ export class Seasons {
   static ordinaryTime = async (year: number, epiphanyOnSunday: boolean): Promise<RomcalLiturgicalDayInput[]> =>
     Promise.all([
       Seasons.earlyOrdinaryTime(year, epiphanyOnSunday),
-      Seasons.laterOrdinaryTime(year),
+      Seasons.lateOrdinaryTime(year),
     ]).then(([early, later]) => early.concat(later));
 
   /**
@@ -545,11 +531,11 @@ export class Seasons {
         date,
         key:
           i < 4
-            ? `${date.locale('en').format('dddd').toCamelCase()}AfterAshWednesday`
-            : `${date.locale('en').format('dddd').toCamelCase()}OfThe${ordinal(week, true).toPascalCase()}WeekOfLent`,
+            ? `${date.locale('en').format('dddd').toLowerCase()}_after_ash_wednesday`
+            : `lent_${week}_${date.locale('en').format('dddd').toLowerCase()}`,
         rank: Ranks.WEEKDAY,
         name: await localize({
-          key: i === 0 ? 'celebrations.ashWednesday' : i < 4 ? 'lent.dayAfterAshWed' : 'lent.weekday',
+          key: i === 0 ? 'celebrations.ash_wednesday' : i < 4 ? 'lent.day_after_ash_wed' : 'lent.weekday',
           day: date.format('dddd'),
           week,
         }),
@@ -570,7 +556,7 @@ export class Seasons {
     const sundaysOfLentPromise = sundaysOfLent.map(async (date: Dayjs, i: number) => {
       return {
         date,
-        key: `${ordinal(i + 1, true).toCamelCase()}SundayOfLent`,
+        key: `lent_${i + 1}_sunday`,
         rank: Ranks.SUNDAY,
         name: await localize({
           key: 'lent.sunday',
@@ -643,8 +629,8 @@ export class Seasons {
         date,
         key:
           i < 7
-            ? `easter${date.locale('en').format('dddd').toPascalCase()}`
-            : `${date.locale('en').format('dddd').toCamelCase()}OfThe${ordinal(week, true).toPascalCase()}WeekOfEaster`,
+            ? `easter_${date.locale('en').format('dddd').toLowerCase()}`
+            : `eastertide_${week}_${date.locale('en').format('dddd').toLowerCase()}`,
         rank: i < 7 ? Ranks.SOLEMNITY : Ranks.WEEKDAY,
         name: await localize({
           key: i < 7 ? 'eastertide.octave' : 'eastertide.weekday',
@@ -668,7 +654,7 @@ export class Seasons {
     const sundaysOfEasterPromise = sundaysOfEaster.map(async (date: Dayjs, i: number) => {
       return {
         date,
-        key: `${ordinal(i + 1, true).toCamelCase()}SundayOfEaster`,
+        key: `eastertide_${i + 1}_sunday`,
         rank: Ranks.SUNDAY,
         name: await localize({
           key: 'eastertide.sunday',

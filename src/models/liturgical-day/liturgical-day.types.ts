@@ -99,9 +99,9 @@ export type RomcalLiturgicalDaySources =
   | 'advent'
   | 'christmastide'
   | 'epiphany'
-  | 'ordinaryTime'
+  | 'ordinary_time'
   | 'lent'
-  | 'holyWeek'
+  | 'holy_week'
   | 'eastertide'
   | 'celebrations'
   | 'sanctoral';
