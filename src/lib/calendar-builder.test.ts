@@ -322,18 +322,18 @@ describe('Testing calendar generation functions', () => {
     test('All Saints should be a Holy Day of obligation', async () => {
       const christmasInGeneralCalendar: LiturgicalDay = (
         await Romcal.calendarFor({ country: 'general' })
-      ).getLiturgicalDay('allSaints')[0];
+      ).getLiturgicalDay('all_saints')[0];
       expect(christmasInGeneralCalendar.isHolyDayOfObligation).toBeTrue();
 
       const christmasInEnglandCalendar: LiturgicalDay = (
         await Romcal.calendarFor({ country: 'england' })
-      ).getLiturgicalDay('allSaints')[0];
+      ).getLiturgicalDay('all_saints')[0];
       expect(christmasInEnglandCalendar.isHolyDayOfObligation).toBeTrue();
     });
 
     test('Saint Patrick is a Holy Day of obligation in Ireland', async () => {
       const saintPatrickBishop: LiturgicalDay = (await Romcal.calendarFor({ country: 'ireland' })).getLiturgicalDay(
-        'saintPatrickBishop',
+        'patrick_of_ireland_bishop_patron_of_ireland',
       )[0];
       expect(saintPatrickBishop.isHolyDayOfObligation).toBeTrue();
     });
@@ -344,10 +344,10 @@ describe('Testing calendar generation functions', () => {
       const getDayAfter = (calendar: RomcalCalendar, key: string): LiturgicalDay =>
         calendar.getLiturgicalDay(dayjs(calendar.getDate(key)).add(1, 'day').toDate())[0];
 
-      expect(getDayAfter(germanyCalendar, 'easter').isHolyDayOfObligation).toBeTrue();
-      expect(getDayAfter(hungaryCalendar, 'easter').isHolyDayOfObligation).toBeTrue();
-      expect(getDayAfter(germanyCalendar, 'pentecostSunday').isHolyDayOfObligation).toBeTrue();
-      expect(getDayAfter(hungaryCalendar, 'pentecostSunday').isHolyDayOfObligation).toBeTrue();
+      expect(getDayAfter(germanyCalendar, 'easter_sunday').isHolyDayOfObligation).toBeTrue();
+      expect(getDayAfter(hungaryCalendar, 'easter_sunday').isHolyDayOfObligation).toBeTrue();
+      expect(getDayAfter(germanyCalendar, 'pentecost_sunday').isHolyDayOfObligation).toBeTrue();
+      expect(getDayAfter(hungaryCalendar, 'pentecost_sunday').isHolyDayOfObligation).toBeTrue();
       expect(getDayAfter(germanyCalendar, 'christmas').isHolyDayOfObligation).toBeTrue();
       expect(getDayAfter(hungaryCalendar, 'christmas').isHolyDayOfObligation).toBeTrue();
     });

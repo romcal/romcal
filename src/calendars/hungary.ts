@@ -397,17 +397,17 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
       cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
     {
-      key: 'saintStephenTheFirstMartyr',
+      key: 'stephen_the_first_martyr',
       extend: true,
       isHolyDayOfObligation: true,
     },
     {
-      key: 'easterMonday',
+      key: 'easter_monday',
       extend: true,
       isHolyDayOfObligation: true,
     },
     {
-      key: 'maryMotherOfTheChurch',
+      key: 'mary_mother_of_the_church',
       extend: true,
       isHolyDayOfObligation: true,
     },
