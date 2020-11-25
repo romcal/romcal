@@ -57,12 +57,14 @@ export class CalendarBuilder {
   private readonly _startDate: Dayjs;
   private readonly _endDate: Dayjs;
   private readonly _liturgicalDays: RomcalCalendar;
+  private readonly _baseLiturgicalDays: RomcalCalendar;
 
   /**
    * Create a new Calendar
    */
   constructor(config: RomcalConfig) {
     this._liturgicalDays = new RomcalCalendar();
+    this._baseLiturgicalDays = new RomcalCalendar();
     this._config = config;
 
     const { scope, year } = config;
@@ -181,7 +183,7 @@ export class CalendarBuilder {
       this.keepPrioritizedOnly(item);
 
       // Find the season date that has the same date as the incoming item and make it the base item.
-      const baseItem = find(this._liturgicalDays, { date: item.date && item.date.toISOString(), _stack: 0 });
+      const baseItem = find(this._baseLiturgicalDays, { date: item.date && item.date.toISOString() });
 
       const {
         key,
@@ -216,29 +218,37 @@ export class CalendarBuilder {
         const validatedCalendar = (calendar || baseItem?.calendar) as Required<RomcalCalendarMetadata>;
 
         // Create a new DateItem and add it to the collection
-        await this._liturgicalDays.push(
-          new LiturgicalDay({
-            key,
-            name,
-            date,
-            rank: validatedRank,
-            rankName: await localize({ key: `ranks.${validatedRank}` }),
-            isHolyDayOfObligation: isHolyDayOfObligation ?? baseItem?.isHolyDayOfObligation ?? false,
-            prioritized: !!prioritized,
-            seasons: validatedSeasons,
-            seasonNames: validatedSeasonNames,
-            periods: validatedPeriods,
-            cycles: CalendarBuilder.addLiturgicalCycleMetadata(date, validatedCalendar, cycles),
-            calendar: validatedCalendar,
-            fromCalendar,
-            fromExtendedCalendars,
-            liturgicalColors: validatedLiturgicalColors,
-            liturgicalColorNames: await this.localizeLiturgicalColors(validatedLiturgicalColors),
-            metadata: (typeof metadata === 'object' ? metadata : { titles: [] }) as LiturgicalDayMetadata,
-            _stack, // The stack number refers to the index in the calendars array in which this liturgical day's array is placed at
-            baseItem, // Attach the base item if any
-          }),
-        );
+        const newLiturgicalDay = await new LiturgicalDay({
+          key,
+          name,
+          date,
+          rank: validatedRank,
+          rankName: await localize({ key: `ranks.${validatedRank}` }),
+          isHolyDayOfObligation: isHolyDayOfObligation ?? baseItem?.isHolyDayOfObligation ?? false,
+          prioritized: !!prioritized,
+          seasons: validatedSeasons,
+          seasonNames: validatedSeasonNames,
+          periods: validatedPeriods,
+          cycles: CalendarBuilder.addLiturgicalCycleMetadata(date, validatedCalendar, cycles),
+          calendar: validatedCalendar,
+          fromCalendar,
+          fromExtendedCalendars,
+          liturgicalColors: validatedLiturgicalColors,
+          liturgicalColorNames: await this.localizeLiturgicalColors(validatedLiturgicalColors),
+          metadata: (typeof metadata === 'object' ? metadata : { titles: [] }) as LiturgicalDayMetadata,
+          _stack, // The stack number refers to the index in the calendars array in which this liturgical day's array is placed at
+          baseItem, // Attach the base item if any
+        });
+
+        // Add the new liturgical day to the main RomcalCalendar object
+        this._liturgicalDays.push(newLiturgicalDay);
+
+        // If the computed liturgical day is a base weekday/sunday item (generated in season.ts):
+        // add it also to a separate RomcalCalendar object.
+        // This will be useful to not compute again the base metadata on a new defined liturgical day
+        // coming from the general or any particular calendar (e.g. calendar metadata,
+        // cycle metadata, liturgical color if no new one is defined, ...)
+        if (_stack === 0) this._baseLiturgicalDays.push(newLiturgicalDay);
       }
     }
   }
