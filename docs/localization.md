@@ -23,7 +23,7 @@ The structure of the locale file is typically like so:
   advent: {},
   christmastide: {},
   epiphany: {},
-  ordinaryTime: {},
+  ordinary_time: {},
   lent: {},
   holy_week: {},
   eastertide: {},

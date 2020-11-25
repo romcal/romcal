@@ -398,7 +398,10 @@ export class Seasons {
         const week = date.day() === 0 ? Math.floor(i / 7) + 2 : Math.floor(i / 7) + 1;
         return {
           date,
-          key: `ordinary_time_${Math.floor(i / 7) + 1}_${date.locale('en').format('dddd').toLowerCase()}`,
+          key:
+            date.day() === 0
+              ? `ordinary_time_${Math.floor(i / 7) + 2}_sunday`
+              : `ordinary_time_${Math.floor(i / 7) + 1}_${date.locale('en').format('dddd').toLowerCase()}`,
           rank: date.day() === 0 ? Ranks.SUNDAY : Ranks.WEEKDAY,
           name: await localize({
             key: date.day() === 0 ? 'ordinary_time.sunday' : 'ordinary_time.weekday',

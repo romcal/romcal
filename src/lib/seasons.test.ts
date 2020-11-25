@@ -100,11 +100,11 @@ describe('Testing date range functions', () => {
 
     test('The Saturday in the week after Ash Wednesday should be in the 1st week of Lent', async () => {
       const dates = await Seasons.lent(2017);
-      expect(dates[10].key).toEqual('saturday_of_the_first_week_of_lent');
+      expect(dates[10].key).toEqual('lent_1_saturday');
     });
 
     test('The 2nd Sunday of Lent should be in the 2nd week of Lent', async () => {
-      expect((await Seasons.lent(2017))[11].key).toEqual('second_sunday_of_lent');
+      expect((await Seasons.lent(2017))[11].key).toEqual('lent_2_sunday');
     });
   });
 
@@ -242,7 +242,7 @@ describe('Testing seasons utility functions', () => {
     test('The liturgical color for Lent and Advent is purple, except for the 4th Sunday of Lent and 3rd Sunday of Advent, which is rose', async () => {
       const lentDates = await Seasons.lent(2015);
       lentDates.forEach((date) => {
-        if (date.key === 'fourth_sunday_of_lent') {
+        if (date.key === 'lent_4_sunday') {
           expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColors.ROSE);
           expect(date.liturgicalColors && date.liturgicalColors[1]).toEqual(LiturgicalColors.PURPLE);
         } else {
@@ -252,7 +252,7 @@ describe('Testing seasons utility functions', () => {
 
       const adventDates = await Seasons.advent(2015);
       adventDates.forEach((date) => {
-        if (date.key === 'third_sunday_of_advent') {
+        if (date.key === 'advent_3_sunday') {
           expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColors.ROSE);
           expect(date.liturgicalColors && date.liturgicalColors[1]).toEqual(LiturgicalColors.PURPLE);
         } else {

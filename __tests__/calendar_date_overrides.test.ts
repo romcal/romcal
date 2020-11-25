@@ -250,13 +250,13 @@ describe('Testing national calendar overrides', () => {
 
         const twentiethSundayOfOrdinaryTime2009: RomcalLiturgicalDayInput | undefined = lateOrdinaryTimeDates2009.find(
           (d) => {
-            return d.key === 'twentieth_sunday_of_ordinary_time';
+            return d.key === 'ordinary_time_20_sunday';
           },
         );
 
         const twentiethSundayOfOrdinaryTime2011: RomcalLiturgicalDayInput | undefined = lateOrdinaryTimeDates2011.find(
           (d) => {
-            return d.key === 'twentieth_sunday_of_ordinary_time';
+            return d.key === 'ordinary_time_20_sunday';
           },
         );
 
@@ -309,7 +309,7 @@ describe('Testing national calendar overrides', () => {
 
         const lateOrdinaryTimeDates: RomcalLiturgicalDayInput[] = await Seasons.lateOrdinaryTime(2010);
         const twentiethSundayOfOrdinaryTime: RomcalLiturgicalDayInput | undefined = lateOrdinaryTimeDates.find((d) => {
-          return d.key === 'twentieth_sunday_of_ordinary_time';
+          return d.key === 'ordinary_time_20_sunday';
         });
 
         const walesAssumption: LiturgicalDay | undefined = walesDates.find((d) => d.key === 'assumption');
@@ -478,7 +478,7 @@ describe('Testing national calendar overrides', () => {
         country: 'malta',
       });
       const ourLadyOfSorrows: dayjs.Dayjs = dayjs.utc('2018-4-15');
-      const thirdSundayOfEaster: LiturgicalDay | undefined = maltaDates.find((d) => d.key === 'third_sunday_of_easter');
+      const thirdSundayOfEaster: LiturgicalDay | undefined = maltaDates.find((d) => d.key === 'eastertide_3_sunday');
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       expect(ourLadyOfSorrows.isSame(thirdSundayOfEaster!.date)).toBeTruthy();
     });
