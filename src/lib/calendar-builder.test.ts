@@ -351,6 +351,19 @@ describe('Testing calendar generation functions', () => {
       expect(getDayAfter(germanyCalendar, 'christmas').isHolyDayOfObligation).toBeTrue();
       expect(getDayAfter(hungaryCalendar, 'christmas').isHolyDayOfObligation).toBeTrue();
     });
+
+    test('All Sundays are Holy Days of obligation', async () => {
+      const calendar: RomcalCalendar = await Romcal.calendarFor();
+      const result = [
+        ...new Set(
+          calendar
+            .filter((d: LiturgicalDay) => dayjs.utc(d.date).day() === 0)
+            .map((d: LiturgicalDay) => d.isHolyDayOfObligation),
+        ),
+      ];
+
+      expect(result.length === 1 && result[0] === true).toBeTrue();
+    });
   });
 
   describe('Testing the "drop" functionality for national calendars', () => {
