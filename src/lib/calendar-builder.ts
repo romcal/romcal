@@ -223,7 +223,7 @@ export class CalendarBuilder {
             date,
             rank: validatedRank,
             rankName: await localize({ key: `ranks.${validatedRank}` }),
-            isHolyDayOfObligation: !!isHolyDayOfObligation,
+            isHolyDayOfObligation: isHolyDayOfObligation ?? baseItem?.isHolyDayOfObligation ?? false,
             prioritized: !!prioritized,
             seasons: validatedSeasons,
             seasonNames: validatedSeasonNames,
