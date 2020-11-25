@@ -108,6 +108,7 @@ const epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<Li
       async (date: Dayjs, i: number) =>
         ({
           date,
+          isHolyDayOfObligation: date.day() === 0,
           key: `christmastide_${date.locale('en').format('MMMM_D').toLowerCase()}`,
           rank: Ranks.WEEKDAY,
           name: await localize({
@@ -131,6 +132,7 @@ const epiphany = async (year: number, epiphanyOnSunday = true): Promise<Array<Li
   const dateOfEpiphanyPromise = await Promise.all([
     {
       date: epiphany,
+      isHolyDayOfObligation: true,
       key: 'day_of_epiphany',
       rank: Ranks.SOLEMNITY,
       name: await localize({
@@ -185,6 +187,7 @@ const holyWeek = async (year: number): Promise<Array<LiturgicalDayInput>> => {
   const datesPromise = dates.map(async (date: Dayjs, i: number) => {
     return {
       date,
+      isHolyDayOfObligation: date.day() === 0,
       key: `holy_week_${date.locale('en').format('dddd').toLowerCase()}`,
       rank: Ranks.HOLY_WEEK,
       name: await localize({
@@ -245,6 +248,7 @@ export class Seasons {
     const daysOfAdventPromise = Dates.datesOfAdvent(year).map(async (date: Dayjs, i: number) => {
       return {
         date,
+        isHolyDayOfObligation: date.day() === 0,
         key:
           date.month() >= 11 && date.date() >= 17 && date.day() > 0
             ? `advent_${date.locale('en').format('MMMM_D').toLowerCase()}`
@@ -305,6 +309,7 @@ export class Seasons {
       count = dayOfWeek === 0 ? count + 1 : count;
       return {
         date,
+        isHolyDayOfObligation: date.day() === 0,
         key: `christmastide_${count}_${date.locale('en').format('dddd').toLowerCase()}`,
         rank: getRankByDayOfWeek(dayOfWeek),
         name: await localize({
@@ -329,6 +334,7 @@ export class Seasons {
     const datesInTheOctaveOfChristmasPromise = datesInTheOctaveOfChristmas.map(async (date: Dayjs, i: number) => {
       return {
         date,
+        isHolyDayOfObligation: date.day() === 0,
         key: `christmas_octave_day_${i + 1}`,
         rank: getRankByDayOfWeek(date.day()),
         name: await localize({
@@ -396,6 +402,7 @@ export class Seasons {
         const week = date.day() === 0 ? Math.floor(i / 7) + 2 : Math.floor(i / 7) + 1;
         return {
           date,
+          isHolyDayOfObligation: date.day() === 0,
           key:
             date.day() === 0
               ? `ordinary_time_${Math.floor(i / 7) + 2}_sunday`
@@ -465,6 +472,7 @@ export class Seasons {
 
         return {
           date,
+          isHolyDayOfObligation: date.day() === 0,
           key: `ordinary_time_${week}_${date.locale('en').format('dddd').toLowerCase()}`,
           rank: date.day() === 0 ? Ranks.SUNDAY : Ranks.WEEKDAY,
           name: await localize({
@@ -527,6 +535,7 @@ export class Seasons {
 
       return {
         date,
+        isHolyDayOfObligation: false,
         key:
           i < 4
             ? `${date.locale('en').format('dddd').toLowerCase()}_after_ash_wednesday`
@@ -554,6 +563,7 @@ export class Seasons {
     const sundaysOfLentPromise = sundaysOfLent.map(async (date: Dayjs, i: number) => {
       return {
         date,
+        isHolyDayOfObligation: true,
         key: `lent_${i + 1}_sunday`,
         rank: Ranks.SUNDAY,
         name: await localize({
@@ -625,6 +635,7 @@ export class Seasons {
       const week = Math.floor(i / 7) + 1;
       return {
         date,
+        isHolyDayOfObligation: false,
         key:
           i < 7
             ? `easter_${date.locale('en').format('dddd').toLowerCase()}`
@@ -652,6 +663,7 @@ export class Seasons {
     const sundaysOfEasterPromise = sundaysOfEaster.map(async (date: Dayjs, i: number) => {
       return {
         date,
+        isHolyDayOfObligation: true,
         key: `eastertide_${i + 1}_sunday`,
         rank: Ranks.SUNDAY,
         name: await localize({
