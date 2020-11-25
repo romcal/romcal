@@ -11,3 +11,4 @@ romcal-*.tgz
 coverage/
 *code-workspace
 typedocs
+local-*
