@@ -483,7 +483,7 @@ export class Seasons {
           seasons: [LiturgicalSeasons.ORDINARY_TIME],
           seasonNames: [await localize({ key: 'ordinary_time.season' })],
           liturgicalColors: [LiturgicalColors.GREEN],
-          periods: [LiturgicalPeriods.LATER_ORDINARY_TIME],
+          periods: [LiturgicalPeriods.LATE_ORDINARY_TIME],
           ...getCalendarMetadata({
             date,
             weekOfSeason: week,
