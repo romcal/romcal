@@ -83,7 +83,7 @@ if [ "$TRAVIS_BRANCH" == 'master' ]; then
             echo "Resolving merge conflicts with versions by retaining versions in current branch"
             git checkout --ours package.json
             git checkout --ours package-lock.json
-            git commit -am '[skip travis-ci] merge latest code from master to dev'
+            git commit -am 'docs: [ci skip] merge latest code from master to dev'
             git push origin dev
         else
             echo "Detected merge conflicts that cannot be automatically resolved... aborting auto merge"
