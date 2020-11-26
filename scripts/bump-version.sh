@@ -11,11 +11,11 @@ WILL_USE_CUSTOM_VERSION=false
 
 # Get the last commit message
 LAST_COMMIT_MESSAGE="$(git log --pretty='format:%Creset%s' --no-merges -1)"
-# Check if the commit message has the unique identifer [USE_CUSTOM_SEMVER]
+# Check if the commit message has the unique identifier [use-custom-semver]
 # If it does, then do not automatically increment builds in this script
 # and simply use the semver version set in package.json
-if [[ $LAST_COMMIT_MESSAGE == *"[USE_CUSTOM_SEMVER]"* ]]; then
-    echo "Found [USE_CUSTOM_SEMVER] identifier in latest commit, will use version specified in package.json"
+if [[ $LAST_COMMIT_MESSAGE == *"[use-custom-semver]"* ]]; then
+    echo "Found [use-custom-semver] identifier in latest commit, will use version specified in package.json"
     NEW_VERSION="$(node -pe "require('./package.json')['version']")"
     WILL_USE_CUSTOM_VERSION=true
 else
@@ -70,7 +70,7 @@ git add CHANGELOG.md
 git commit -m "docs: [ci skip] Update changelog"
 
 if [ "$WILL_USE_CUSTOM_VERSION" = true ];then
-    # Also allow same versions because the defaut behavior of npm-version
+    # Also allow same versions because the default behavior of npm-version
     # checks and throws and error if the version being supplied is the
     # same in package.json
     npm version "${NEW_VERSION}" --allow-same-version -m "chore: [ci skip] Release version %s"
