@@ -67,15 +67,15 @@ echo "NEW_VERSION is ${NEW_VERSION}"
 # Run auto changelog
 npm run updateChangelog
 git add CHANGELOG.md
-git commit -m "[skip travis-ci] Update changelog"
+git commit -m "docs: [ci skip] Update changelog"
 
 if [ "$WILL_USE_CUSTOM_VERSION" = true ];then
     # Also allow same versions because the defaut behavior of npm-version
     # checks and throws and error if the version being supplied is the
     # same in package.json
-    npm version "${NEW_VERSION}" --allow-same-version -m "[skip travis-ci] Release version %s"
+    npm version "${NEW_VERSION}" --allow-same-version -m "chore: [ci skip] Release version %s"
 else
-    npm version "${NEW_VERSION}" -m "[skip travis-ci] Release version %s"
+    npm version "${NEW_VERSION}" -m "chore: [ci skip] Release version %s"
 fi
 
 git push origin "${TRAVIS_BRANCH}"
