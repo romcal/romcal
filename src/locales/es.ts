@@ -300,5 +300,8 @@ export default {
     thomas_aquinas_priest: 'Santo Tomás de Aquino, Obispo y Doctor',
     vincent_de_paul_priest: 'San Vicente de Paúl, Obispo',
     visitation_of_mary: 'Visitación de la Santísima Vírgen María',
+    wenceslaus_i_of_bohemia_martyr: 'San Wenceslao de Bohemia, Mártir',
+    wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation:
+      'San Wenceslao de Bohemia, Mártir y Patrono de la nación checa',
   },
 } as RomcalLocale;

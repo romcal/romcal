@@ -396,5 +396,7 @@ export default {
     vincent_of_saragossa_deacon: 'Saint Vincent, Diacre et Martyr (✝ 304)',
     visitation_of_mary: 'Visitation de la Vierge Marie',
     wenceslaus_i_of_bohemia_martyr: 'Saint Venceslas, Martyr (✝ 929)',
+    wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation:
+      'Saint Venceslas, Martyr et Patron de la nation tchèque (✝ 929)',
   },
 } as RomcalLocale;

@@ -818,6 +818,7 @@ export default {
     waitangi_day: 'Deň Waitangi',
     walpurga_of_heidenheim_abbess: 'Svätej Valburgy z Heidenheimu, opátky',
     wenceslaus_i_of_bohemia_martyr: 'Svätého Václava, mučeníka',
+    wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation: 'Svätého Václava, mučeníka a patróna českého národa',
     wendelin_of_trier_abbot: 'Svätého Vendelína, opáta',
     wilfrid_of_york_bishop: 'Svätého Vilfrida, biskupa',
     william_apor_bishop: 'Blahoslaveného Viliama Apora, biskupa a mučeníka',

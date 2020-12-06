@@ -817,6 +817,8 @@ export default {
     waitangi_day: 'Waitangi Day',
     walpurga_of_heidenheim_abbess: 'Saint Walpurga of Heidenheim, Abbess',
     wenceslaus_i_of_bohemia_martyr: 'Saint Wenceslaus, Martyr',
+    wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation:
+      'Saint Wenceslaus, Martyr and patron of the Czech nation',
     wendelin_of_trier_abbot: 'Saint Wendelin, Abbot',
     wilfrid_of_york_bishop: 'Saint Wilfrid, Bishop',
     william_apor_bishop: 'Blessed William Apor, Bishop and Martyr',

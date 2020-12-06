@@ -321,5 +321,6 @@ export default {
     vincent_of_saragossa_deacon: 'San Vincenzo, diacono e martire',
     visitation_of_mary: 'Visitazione della Beata Vergine Maria',
     wenceslaus_i_of_bohemia_martyr: 'San Venceslao, martire',
+    wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation: 'San Venceslao, martire e patrono della nazione ceca',
   },
 } as RomcalLocale;
