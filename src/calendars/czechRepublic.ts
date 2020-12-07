@@ -111,7 +111,7 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
     },
     {
       key: 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe',
-      rank: Ranks.FEAST,  // TODO: Or solemnity (countrywide)?
+      rank: Ranks.SOLEMNITY, // TODO: Should we add `Patrons of Moravia`?
       date: dayjs.utc(`${year}-7-5`),
       liturgicalColors: LiturgicalColors.WHITE,
       metadata: {

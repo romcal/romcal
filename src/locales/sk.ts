@@ -637,7 +637,7 @@ export default {
     our_lady_of_guadalupe: 'Preblahoslavenej Panny Márie Guadalupskej',
     our_lady_of_guadalupe_patroness_of_the_americas: 'Preblahoslavenej Panny Márie Guadalupskej, patrónky Ameriky',
     our_lady_of_guadalupe_patroness_of_the_philippines: 'Preblahoslavenej Panny Márie Guadalupskej, patrónky Filipín',
-    our_lady_of_hungary_patroness_of_hungary: 'Panny Márie Maďarov, patrónky Maďarov',
+    our_lady_of_hungary_patroness_of_hungary: 'Panny Márie Maďarov, patrónky Maďarska',
     our_lady_of_itati: 'Panny Márie Itatskej',
     our_lady_of_knock: 'Panny Márie z Knock',
     our_lady_of_lanka: 'Panny Márie z Lanky',
