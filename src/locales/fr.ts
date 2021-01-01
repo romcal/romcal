@@ -202,7 +202,7 @@ export default {
     eusebius_of_vercelli_bishop: 'Saint Eusèbe de Verceil, Evêque (✝ 371)',
     fabian_i_pope: 'Saint Fabien, Pape et Martyr (✝ 250)',
     fidelis_of_sigmaringen_priest: 'Saint Fidèle de Sigmaringen, Prêtre et Martyr (✝ 1622)',
-    first_martyrs_of_the_holy_roman_church: 'Premiers martyrs de l''Église de Rome (✝ 64)',
+    first_martyrs_of_the_holy_roman_church: 'Premiers martyrs de l’Église de Rome (✝ 64)',
     frances_of_rome_religious: 'Sainte Françoise Romaine, Religieuse (✝ 1440)',
     francis_de_sales_bishop: 'Saint François de Sales, Evêque de Genève et Docteur de l’Église (✝ 1622)',
     francis_of_assisi: 'Saint François d’Assise, Fondateur de l’ordre des Frères mineurs (✝ 1226)',
