@@ -70,7 +70,7 @@ export default {
     baptism_of_the_lord: 'Baptême du Seigneur',
     christ_the_king_sunday: 'Christ, Roi de l’Univers',
     christmas: 'Nativité du Seigneur',
-    corpus_christi: 'Saint Sacrement',
+    corpus_christi: 'Saint-Sacrement',
     divine_mercy_sunday: 'Dimanche de la Divine Miséricorde',
     easter_sunday: 'Dimanche de Pâques',
     epiphany: 'L’Épiphanie du Seigneur',
