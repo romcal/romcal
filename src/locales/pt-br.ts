@@ -93,8 +93,12 @@ export default {
     trinity_sunday: 'Santíssima Trindade',
   },
   sanctoral: {
+    gregory_of_narek_abbot: 'São Gregório de Narek, abade e doutor da Igreja',
+    hildegard_of_bingen_abbess: 'Santa Hildegarda de Bingen, virgem e doutora da Igreja',
+    john_of_avila_priest: 'São João De Ávila, presbítero e doutor da Igreja',
     john_paul_ii_pope: 'Papa São João Paulo II',
     john_xxiii_pope: 'Papa São João XXIII',
+    martha_of_bethany_mary_of_bethany_and_lazarus_of_bethany: 'Santa Marta, Maria e Lázaro',
     our_lady_help_of_christians: 'Nossa Senhora, Auxílio dos Cristãos',
     our_lady_mediatrix_of_all_grace: 'Nossa Senhora, Medianeira de todas as Graças',
     our_lady_mother_of_divine_providence_patroness_of_puerto_rico: 'Nossa Senhora, Mãe da Divina Providência', // TODO: Add `Patronness of Porto Rico` title

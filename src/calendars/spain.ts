@@ -79,6 +79,9 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-5-10`),
       liturgicalColors: LiturgicalColors.WHITE,
+      metadata: {
+        titles: [Titles.MARTYR],
+      },
     },
     {
       key: 'isidore_the_farmer',

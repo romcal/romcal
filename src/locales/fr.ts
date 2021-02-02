@@ -218,6 +218,7 @@ export default {
     gertrude_of_nivelles_abbess: 'Sainte Gertrude de Nivelles, Abbesse (✝ 659)',
     gertrude_the_great_virgin: 'Sainte Gertrude, Vierge Moniale (✝ 1301)',
     gregory_i_the_great_pope: 'Saint Grégoire le Grand, Pape et Docteur de l’Église (✝ 604)',
+    gregory_of_narek_abbot: 'Saint Grégoire de Narek, Abbé et Docteur de l’Église',
     gregory_vii_pope: 'Saint Grégoire VII, Pape (✝ 1085)',
     guardian_angels: 'Saints Anges gardiens',
     hedwig_of_silesia_religious: 'Sainte Edwige de Silésie, Veuve puis Religieuse (✝ 1243)',
@@ -301,7 +302,8 @@ export default {
     marie_rose_durocher_virgin:
       'Bienheureuse Marie-Rose Durocher, Religieuse, Fondatrice des Sœurs des Saints Noms de Jésus et de Marie (✝ 1849)',
     mark_evangelist: 'Saint Marc, Évangéliste',
-    martha_of_bethany: 'Sainte Marthe, Disciple du Christ (Ier s.)',
+    martha_of_bethany_mary_of_bethany_and_lazarus_of_bethany:
+      'Saints Marthe, Marie et Lazare, Disciples du Christ (Ier s.)',
     martin_de_porres_religious: 'Saint Martin de Porrès, Religieux Dominicain à Lima (✝ 1639)',
     martin_i_pope: 'Saint Martin Ier, Pape et Martyr (✝ 656)',
     martin_of_tours_bishop: 'Saint Martin de Tours, Évêque (✝ 397)',
