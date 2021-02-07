@@ -372,7 +372,7 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'wladyslaw_of_gielniow_priest',
+      key: 'ladislas_of_gielniow_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-25`),
     },
