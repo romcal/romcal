@@ -1,6 +1,6 @@
 {
   "name": "romcal",
-  "version": "2.0.0-canary.1",
+  "version": "2.0.0-canary.2",
   "description": "Generates the liturgical calendar of the Catholic Church used by the Roman Rite (post-Vatican II).",
   "main": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
