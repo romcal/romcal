@@ -73,13 +73,13 @@ The rules are defined in the [_General Instruction on the Roman Missal_](https:/
 
 Install via **npm**:
 
-```
+```bash
 $ npm install romcal
 ```
 
 Install via **Yarn**:
 
-```
+```bash
 $ yarn add romcal
 ```
 
@@ -107,7 +107,7 @@ var Romcal = require('romcal');
 
 or as a CommonJS module:
 
-```javascript
+```ts
 import Romcal from 'romcal';
 ```
 
@@ -123,7 +123,7 @@ All the functions below will exist as properties of the Romcal object.
 Invoke the `.calendarFor` method to retrieve an array of liturgical dates and celebrations in the Roman Calendar.
 This method accepts an object of configuration properties to obtain customized output.
 
-```javascript
+```ts
 Romcal.calendarFor({
   year: 2020,                               // the calendar year to compute.
   scope: 'gregorian' | 'liturgical',        // 'gregorian': Jan 1 to Dec 31 ; or 'liturgical': the first Sunday of Advent to the last Saturday of Ordinary Time
@@ -147,7 +147,7 @@ The first parameter is a `Date` object, the second is the optional configuration
 
 e.g. to obtain today's liturgical day:
 
-```javascript
+```ts
 Romcal.liturgicalDayFor(new Date(), {
   country: 'france',
   locale: 'fr',
@@ -163,7 +163,7 @@ This 2 methods produces an `Array` of `LiturgicalDay` objects (by default, one o
 ```json5
 [
   {
-    key: 'maryMotherOfGod',
+    key: 'mary_mother_of_god',
     name: 'Mary, Mother of God',
     date: '2020-01-01T00:00:00.000Z',
     rank: 'SOLEMNITY',
