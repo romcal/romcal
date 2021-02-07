@@ -1,14 +1,15 @@
-# Specifies intentionally untracked files to ignore when using Git
-# http://git-scm.com/docs/gitignore
-
-npm-debug.log
-node_modules/
-dist/
-.idea
 **.DS_Store**
-.npmrc
-romcal-*.tgz
-coverage/
+*.bak
+*.orig
 *code-workspace
-typedocs
+*~
+.idea
+.npmrc
+coverage/
+dist/
 local-*
+node_modules/
+npm-debug.log
+romcal-*.tgz
+typedocs
+~*
