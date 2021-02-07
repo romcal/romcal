@@ -218,7 +218,7 @@ To jump into romcal’s codebase more easily, you might be interested in reading
 
 ## Revisions & Release History <a name="revisions"></a>
 
-See [history](HISTORY.md) for the latest updates and important/breaking changes.
+See [history](CHANGELOG.md) for the latest updates and important/breaking changes.
 
 ## Module Robustness & Data Integrity <a name="disclaimer"></a>
 
