@@ -80,7 +80,7 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
       date: dayjs.utc(`${year}-5-10`),
       liturgicalColors: LiturgicalColors.WHITE,
       metadata: {
-        titles: [Titles.MARTYR],
+        titles: [Titles.DOCTOR_OF_THE_CHURCH],
       },
     },
     {
