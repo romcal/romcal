@@ -491,6 +491,7 @@ export default {
     kilian_of_wurzburg_bishop_and_companions_martyrs: 'Svätého Kiliána, biskupa a spoločníkov, mučeníkov',
     kinga_of_poland_virgin: 'Svätej Kingy, panny',
     kuriakose_elias_of_the_holy_family_chavara_priest: 'Blahoslaveného Kyriaka Eliáša od Svätej rodiny Chavaru, kňaza',
+    ladislas_of_gielniow_priest: 'Blahoslaveného Vladislava z Gielňova, kňaza',
     ladislaus_batthyany_strattmann: 'Blahoslaveného Ladislava Batthyány-Strattmanna',
     ladislaus_i_of_hungary: 'Svätého Ladislava',
     lambert_of_maastricht_bishop: 'Svätého Lamberta z Maastrichtu, biskupa a mučeníka',
@@ -825,7 +826,6 @@ export default {
     winefride_of_flintshire_virgin: 'Svätej Winefridy, panny',
     wladyslaw_bladzinski_priest_and_companions_martyrs:
       'Blahoslaveného Vladislava Błądzińskiho, kňaza a spoločníkov, mučeníkov',
-    wladyslaw_of_gielniow_priest: 'Blahoslaveného Vladislava z Gielňova, kňaza',
     wolfgang_of_regensburg_bishop: 'Svätého Wolfganga z Regensburgu, biskupa',
     wulstan_of_worcester_bishop: 'Svätého Vulstana, biskupa',
     yolanda_of_poland_religious: 'Blahoslavenej Jolany, rehoľnice',
