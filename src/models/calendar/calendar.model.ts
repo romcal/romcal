@@ -91,6 +91,9 @@ export class RomcalCalendar extends Array implements BaseRomcalCalendar {
       case 'days':
         return _groupBy((item: LiturgicalDay) => new Date(item.date).getUTCDay());
 
+      case 'dates':
+        return _groupBy((item: LiturgicalDay) => new Date(item.date).toISOString().substr(0, 10));
+
       default:
         return { undefined: liturgicalDays };
     }
