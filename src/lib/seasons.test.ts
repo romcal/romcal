@@ -29,6 +29,7 @@ import { Seasons } from '@romcal/lib/seasons';
 import { setLocale } from '@romcal/lib/locales';
 import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
 import Romcal, { LiturgicalDay } from '@romcal/index';
+import dayjs = require('dayjs');
 
 describe('Testing date range functions', () => {
   // The locale needs to be set before any tests below can run properly
@@ -217,6 +218,13 @@ describe('Testing seasons utility functions', () => {
   // The locale needs to be set before any tests below can run properly
   beforeAll(async () => {
     await setLocale('en');
+  });
+
+  describe('Holy days of obligation', () => {
+    test('All Sundays are holy days of obligation', async () => {
+      const sundays: LiturgicalDay[] = (await Romcal.calendarFor()).filter((item) => dayjs(item.date).day() === 0);
+      expect(sundays.every((item) => item.isHolyDayOfObligation)).toBeTrue();
+    });
   });
 
   describe('The liturgical year is divided to a number of seasons', () => {

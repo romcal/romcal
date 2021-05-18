@@ -87,6 +87,7 @@ const setMetadata = async (items: Array<LiturgicalDayInput>): Promise<Array<Litu
     return {
       ...rest,
       date,
+      isHolyDayOfObligation: date?.day() === 0,
       source: 'temporale', // IMPORTANT! Refer to RomcalDateItem.source for more information
     } as LiturgicalDayInput;
   });
