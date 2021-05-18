@@ -359,6 +359,7 @@ export default {
     gregory_grassi_francis_fogolla_and_anthony_fantosati_bishops_and_companions_martyrs:
       'Ss. Gregorii Grassi, Francisci Fogolla et Antonini Fantosati, episcoporum, et sociorum, martyrum',
     gregory_i_the_great_pope: 'S. Gregorii Magni, papæ et Ecclesiæ doctoris',
+    gregory_of_narek_abbot: 'S. Gregorii Narecensis, abbatis et Ecclesiæ doctoris',
     gregory_vii_pope: 'S. Gregorii VII, papæ',
     guardian_angel_of_portugal: 'Ss. Angelorum Custodum Lusitaniæ',
     guardian_angels: 'Ss. Angelorum Custodum',
@@ -558,7 +559,7 @@ export default {
       'Ss. Marci Crisini, Melchioris Grodziecki et Stephani Pongracz, presbyterorum et martyrum',
     marko_krizin_priest: 'S. Marci Crisini, presbyteri et martyris',
     maron_of_syria_hermit: 'S. Maronis, eremitæ',
-    martha_of_bethany: 'S. Marthæ',
+    martha_of_bethany_mary_of_bethany_and_lazarus_of_bethany: 'S. Marthæ, Mariæ et Lazari',
     martin_de_porres_religious: 'S. Martini de Porres, religiosi',
     martin_i_pope: 'S. Martini I, papæ et martyris',
     martin_of_tours_bishop: 'S. Martini Turonensis, episcopi',

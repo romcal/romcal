@@ -359,6 +359,7 @@ export default {
     gregory_grassi_francis_fogolla_and_anthony_fantosati_bishops_and_companions_martyrs:
       'Saints Gregory Grassi, Francis Fogolla and Anthony Fantosati, Bishops, and Companions, Martyrs',
     gregory_i_the_great_pope: 'Saint Gregory the Great, Pope and Doctor of the Church',
+    gregory_of_narek_abbot: 'Saint Gregory of Narek, Abbot and Doctor of the Church',
     gregory_vii_pope: 'Saint Gregory VII, Pope',
     guardian_angel_of_portugal: 'Guardian Angel of Portugal',
     guardian_angels: 'Holy Guardian Angels',
@@ -558,7 +559,7 @@ export default {
       'Saints Marko Krizin, Melchior Grodziecki and Stephen Pongrácz, Priests and Martyrs',
     marko_krizin_priest: 'Saint Marko Krizin, Priest and Martyr',
     maron_of_syria_hermit: 'Saint Maroun, Hermit',
-    martha_of_bethany: 'Saint Martha',
+    martha_of_bethany_mary_of_bethany_and_lazarus_of_bethany: 'Saints Martha, Mary and Lazarus',
     martin_de_porres_religious: 'Saint Martin de Porres, Religious',
     martin_i_pope: 'Saint Martin I, Pope and Martyr',
     martin_of_tours_bishop: 'Saint Martin of Tours, Bishop',

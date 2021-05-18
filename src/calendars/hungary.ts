@@ -115,11 +115,6 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
       date: dayjs.utc(`${year}-5-7`),
     },
     {
-      key: 'john_of_avila_priest',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-5-10`),
-    },
-    {
       key: 'sara_salkahazi_virgin',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-11`),
@@ -304,14 +299,6 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
       key: 'most_holy_name_of_mary',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-9-12`),
-    },
-    {
-      key: 'hildegard_of_bingen_abbess',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-9-17`),
-      metadata: {
-        titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      },
     },
     {
       key: 'gerard_of_csanad_bishop',

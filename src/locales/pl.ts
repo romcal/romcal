@@ -216,6 +216,7 @@ export default {
     gregory_grassi_francis_fogolla_and_anthony_fantosati_bishops_and_companions_martyrs:
       'Świętych męczenników Grzegorza Grassiego, Franciszka Fogolli i Antoniego Fantosatiego, Biskupów i Towarzyszy',
     gregory_i_the_great_pope: 'Św. Grzegorza Wielkiego, papieża i doktora Kościoła',
+    gregory_of_narek_abbot: 'Św. Grzegorza z Nareku, opata i doktora Kościoła',
     gregory_vii_pope: 'Św. Grzegorza VII, papieża',
     guardian_angels: 'Świętych Aniołów Stróżów',
     hedwig_of_silesia_religious: 'Św. Jadwigi Śląskiej',
@@ -290,7 +291,7 @@ export default {
     margaret_of_scotland: 'Św. Małgorzaty Szkockiej',
     maria_goretti_virgin: 'Św. Marii Goretti, dziewicy i męczennicy',
     mark_evangelist: 'Św. Marka, Ewangelisty',
-    martha_of_bethany: 'Św. Marty',
+    martha_of_bethany_mary_of_bethany_and_lazarus_of_bethany: 'Św. Marty, Marii i Łazarza',
     martin_de_porres_religious: 'Św. Marcina de Porres, zakonnika',
     martin_i_pope: 'Św. Marcina I, papieża i męczennika',
     martin_of_tours_bishop: 'Św. Marcina z Tours, biskupa',

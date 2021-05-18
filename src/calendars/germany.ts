@@ -268,14 +268,6 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
       date: dayjs.utc(`${year}-8-31`),
     },
     {
-      key: 'hildegard_of_bingen_abbess',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-9-17`),
-      metadata: {
-        titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      },
-    },
-    {
       key: 'lambert_of_maastricht_bishop',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-18`),
