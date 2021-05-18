@@ -32,7 +32,7 @@ export class RomcalCalendar extends Array implements BaseRomcalCalendar {
    */
   public groupBy<T extends LiturgicalDayGroupBy>(
     criteria: T,
-  ): T extends 'daysByMonth' | 'weeksByMonth' // when the criteria have one of these values
+  ): T extends 'dayByMonth' | 'weekByMonth' // when the criteria have one of these values
     ? Dictionary<RomcalCalendar>[]
     : Dictionary<RomcalCalendar>;
   public groupBy(criteria: LiturgicalDayGroupBy): Dictionary<RomcalCalendar> | Dictionary<RomcalCalendar>[] {
@@ -47,10 +47,10 @@ export class RomcalCalendar extends Array implements BaseRomcalCalendar {
     };
 
     switch (criteria) {
-      case 'months':
+      case 'month':
         return _groupBy((item: LiturgicalDay) => new Date(item.date).getUTCMonth());
 
-      case 'daysByMonth':
+      case 'dayByMonth':
         return liturgicalDays.reduce((obj: Dictionary<RomcalCalendar>, item) => {
           const month = new Date(item.date).getUTCMonth();
           const days = new Date(item.date).getUTCDay();
@@ -59,7 +59,7 @@ export class RomcalCalendar extends Array implements BaseRomcalCalendar {
           return obj;
         }, {});
 
-      case 'weeksByMonth':
+      case 'weekByMonth':
         return liturgicalDays.reduce((obj: Dictionary<RomcalCalendar>, item) => {
           const month = new Date(item.date).getUTCMonth();
           const week = item.calendar.weekOfGregorianYear;
@@ -68,30 +68,30 @@ export class RomcalCalendar extends Array implements BaseRomcalCalendar {
           return obj;
         }, {});
 
-      case 'sundayCycles':
+      case 'sundayCycle':
         return _groupBy((item: LiturgicalDay) => item.cycles.sundayCycle);
 
-      case 'weekdayCycles':
+      case 'weekdayCycle':
         return _groupBy((item: LiturgicalDay) => item.cycles.weekdayCycle);
 
-      case 'ranks':
+      case 'rank':
         return _groupBy((item: LiturgicalDay) => item.rank);
 
       // Groups by the first liturgical season in the array
-      case 'liturgicalSeasons':
+      case 'liturgicalSeason':
         return _groupBy((item: LiturgicalDay) => item.seasons[0]);
 
       // Groups by the first liturgical color in the array
-      case 'liturgicalColors':
+      case 'liturgicalColor':
         return _groupBy((item: LiturgicalDay) => item.liturgicalColors[0]);
 
-      case 'psalterWeeks':
+      case 'psalterWeek':
         return _groupBy((item: LiturgicalDay) => item.cycles.psalterWeek);
 
-      case 'days':
+      case 'day':
         return _groupBy((item: LiturgicalDay) => new Date(item.date).getUTCDay());
 
-      case 'dates':
+      case 'date':
         return _groupBy((item: LiturgicalDay) => new Date(item.date).toISOString().substr(0, 10));
 
       default:
