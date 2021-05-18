@@ -269,7 +269,7 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
     {
       key: 'peter_and_paul_apostles',
       extend: true,
-      source: 'celebrations', // Override the default lookup source
+      namespace: 'celebrations', // Override the default locale namespace
       date: ((y: number): dayjs.Dayjs => {
         const date = dayjs.utc(`${y}-6-29`);
         if (date.day() === 1) {
@@ -286,7 +286,7 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
     {
       key: 'assumption',
       extend: true,
-      source: 'celebrations',
+      namespace: 'celebrations',
       date: ((y: number): dayjs.Dayjs => {
         const date = dayjs.utc(`${y}-8-15`);
         if (date.day() === 1) {
@@ -362,7 +362,7 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
     {
       key: 'all_saints',
       extend: true,
-      source: 'celebrations', // Override the default locale lookup
+      namespace: 'celebrations', // Override the default locale namespace
       date: ((y: number): dayjs.Dayjs => {
         const date = dayjs.utc(`${y}-11-1`);
         if (date.day() === 6) {

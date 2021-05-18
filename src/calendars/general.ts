@@ -949,7 +949,7 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
     },
     {
       key: 'exaltation_of_the_holy_cross',
-      source: 'celebrations', // Override the default lookup source
+      namespace: 'celebrations', // Override the default locale namespace
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-9-14`),
       liturgicalColors: LiturgicalColors.RED,

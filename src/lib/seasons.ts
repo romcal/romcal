@@ -77,7 +77,7 @@ const getCalendarMetadata = ({
 };
 
 /**
- * _.takes an array of [[RomcalDateItem]] items and adds the source key.
+ * _.takes an array of [[RomcalDateItem]] items and adds the locale namespace key.
  * Also updates the data object of the [[RomcalDateItem]] to include the calendar key.
  * @param items An array of [[RomcalDateItem]] values
  * @returns An array of [[RomcalDateItem]] items.
@@ -88,7 +88,7 @@ const setMetadata = async (items: Array<LiturgicalDayInput>): Promise<Array<Litu
       ...rest,
       date,
       isHolyDayOfObligation: date?.day() === 0,
-      source: 'temporale', // IMPORTANT! Refer to RomcalDateItem.source for more information
+      namespace: 'temporale',
     } as LiturgicalDayInput;
   });
   return await Promise.all(metadataPromises);

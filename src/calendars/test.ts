@@ -19,7 +19,7 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
     },
     {
       key: 'ash_wednesday',
-      source: 'celebrations', // Override the default lookup source
+      namespace: 'celebrations', // Override the default locale namespace
       rank: Ranks.SUNDAY,
       date: dayjs.utc(Dates.ashWednesday(year).toISOString()),
     },

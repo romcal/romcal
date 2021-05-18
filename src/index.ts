@@ -59,7 +59,7 @@ import {
   LiturgicalDayInput,
   LiturgyDayDiff,
   LiturgyDayExtendedMetadata,
-  RomcalLiturgicalDaySources,
+  RomcalLiturgicalDayNamespace,
   RomcalCalendarMetadata,
   LiturgicalDayMetadata,
 } from '@romcal/models/liturgical-day/liturgical-day.types';
@@ -153,7 +153,7 @@ export {
   LiturgicalDayMetadata,
   RomcalTitle,
   RomcalTitles,
-  RomcalLiturgicalDaySources,
+  RomcalLiturgicalDayNamespace,
   // Countries
   RomcalCalendarName,
   // Config
