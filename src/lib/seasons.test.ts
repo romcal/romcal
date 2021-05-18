@@ -221,7 +221,7 @@ describe('Testing seasons utility functions', () => {
 
   describe('The liturgical year is divided to a number of seasons', () => {
     test('Groups dates within seasons based on identifiers', async () => {
-      const calendar = (await Romcal.calendarFor()).groupBy('liturgicalSeasons');
+      const calendar = (await Romcal.calendarFor()).groupBy('liturgicalSeason');
       for (const liturgicalSeason in calendar) {
         if (calendar.hasOwnProperty(liturgicalSeason)) {
           const dates = calendar[liturgicalSeason];

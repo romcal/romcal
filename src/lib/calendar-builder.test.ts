@@ -148,12 +148,12 @@ describe('Testing calendar generation functions', () => {
 
   describe('Testing grouping feature filters', () => {
     test('Should group dates by days in a week', async () => {
-      const calendar = (await Romcal.calendarFor()).groupBy('days');
+      const calendar = (await Romcal.calendarFor()).groupBy('day');
       expect(Object.keys(calendar)).toEqual(['0', '1', '2', '3', '4', '5', '6']);
     });
 
     test('Should group dates by months in the year', async () => {
-      expect(Object.keys((await Romcal.calendarFor()).groupBy('months'))).toEqual([
+      expect(Object.keys((await Romcal.calendarFor()).groupBy('month'))).toEqual([
         '0',
         '1',
         '2',
@@ -170,7 +170,7 @@ describe('Testing calendar generation functions', () => {
     });
 
     test('Should group days of week by the months they belong to', async () => {
-      const dates = (await Romcal.calendarFor()).groupBy('daysByMonth');
+      const dates = (await Romcal.calendarFor()).groupBy('dayByMonth');
       Object.values(dates).forEach((monthGroup: Dictionary<LiturgicalDay[]>, monthIndex: number) => {
         Object.values(monthGroup).forEach((dateItems: LiturgicalDay[], dayIndex: number) => {
           dateItems.forEach((dateItem) => {
@@ -182,7 +182,7 @@ describe('Testing calendar generation functions', () => {
     });
 
     test('Should group weeks of year by the months they belong to', async () => {
-      const items = (await Romcal.calendarFor()).groupBy('weeksByMonth');
+      const items = (await Romcal.calendarFor()).groupBy('weekByMonth');
 
       // First level is months
       Object.keys(items).forEach((monthKey) => {
@@ -200,23 +200,23 @@ describe('Testing calendar generation functions', () => {
 
     test('Should group dates by their respective liturgical sunday cycles', async () => {
       const calendar = await Romcal.calendarFor({ year: 2015 });
-      const items = calendar.groupBy('sundayCycles');
+      const items = calendar.groupBy('sundayCycle');
       expect(Object.keys(items)).toEqual(['YEAR_B', 'YEAR_C']);
     });
 
     test('Should group dates by their respective liturgical weekday cycles', async () => {
       const calendar = await Romcal.calendarFor({ year: 2015 });
-      const items = calendar.groupBy('weekdayCycles');
+      const items = calendar.groupBy('weekdayCycle');
       expect(Object.keys(items)).toEqual(['YEAR_1', 'YEAR_2']);
     });
 
     test('Should group dates by their liturgical day ranks', async () => {
-      const typeKeys = Object.keys((await Romcal.calendarFor()).groupBy('ranks'));
+      const typeKeys = Object.keys((await Romcal.calendarFor()).groupBy('rank'));
       expect(typeKeys.every((typeKey) => Object.values(RANKS).includes(typeKey as RomcalRank))).toBeTrue();
     });
 
     test('Should group dates by their liturgical seasons', async () => {
-      const liturgicalSeasonGroupings = (await Romcal.calendarFor()).groupBy('liturgicalSeasons');
+      const liturgicalSeasonGroupings = (await Romcal.calendarFor()).groupBy('liturgicalSeason');
       expect(
         Object.keys(liturgicalSeasonGroupings).every((liturgicalSeasonKey) =>
           (LITURGICAL_SEASONS as string[]).includes(liturgicalSeasonKey),
@@ -225,14 +225,14 @@ describe('Testing calendar generation functions', () => {
     });
 
     test('Should group dates by their psalter weeks', async () => {
-      const psalterWeekKeys = Object.keys((await Romcal.calendarFor()).groupBy('psalterWeeks'));
+      const psalterWeekKeys = Object.keys((await Romcal.calendarFor()).groupBy('psalterWeek'));
       expect(psalterWeekKeys.sort()).toStrictEqual(PSALTER_WEEKS);
     });
   });
 
   describe('Testing liturgical colors', () => {
     test('The proper color of a Memorial or a Feast is white except for martyrs in which case it is red, and All Souls which is purple', async () => {
-      const calendar = (await Romcal.calendarFor()).groupBy('ranks');
+      const calendar = (await Romcal.calendarFor()).groupBy('rank');
       _.get(calendar, Ranks.FEAST).forEach((d) => {
         if (d.key === 'exaltation_of_the_holy_cross') {
           expect(d.liturgicalColors[0]).toEqual(LiturgicalColors.RED);
