@@ -425,11 +425,11 @@ export class CalendarBuilder {
     const ranks = RANKS.slice(0, RANKS.length - 1);
     ranks.splice(ranks.indexOf(Ranks.MEMORIAL) + 1, 0, RANKS[RANKS.length - 1]);
 
-    // Remove optional memorials and commemorations by default, to keep only
+    // Remove optional memorials and commemorations, to keep only
     // relevant celebrations that exactly match for every days.
-    // This can be disabled by specifying the `outputOptionalMemorials` flag
-    // to `true` in the romcal config.
-    if (!this._config.outputOptionalMemorials) {
+    // This can be enabled by specifying the `strictMode` flag to `true`
+    // in the romcal config.
+    if (this._config.strictMode) {
       // Note: the array is being re-indexed on every .splice()
       // Solution: iterate in reverse, since the indexing affects only the items
       // from the current point to the end of the Array,

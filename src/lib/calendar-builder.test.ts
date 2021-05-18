@@ -99,13 +99,13 @@ describe('Testing calendar generation functions', () => {
   });
 
   describe('Testing calendar options', () => {
-    test('Array should be 366 long on leap years', async () => {
-      const calendar = await Romcal.calendarFor({ year: 2020 });
+    test('Array should be exactly 366 long on leap years, when strict mode is enabled', async () => {
+      const calendar = await Romcal.calendarFor({ year: 2020, strictMode: true });
       expect(calendar.length).toBe(366);
     });
 
-    test('Array should be more than 366 long, when output for optional memorials and commemorations is enabled', async () => {
-      const calendar = await Romcal.calendarFor({ year: 2020, outputOptionalMemorials: true });
+    test('Array should be more than 366 long (also containing optional memorials and commemorations)', async () => {
+      const calendar = await Romcal.calendarFor({ year: 2020 });
       expect(calendar.length).toBeGreaterThan(366);
     });
   });

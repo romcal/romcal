@@ -68,7 +68,7 @@ describe('Testing specific feasts and memorials', () => {
 
   describe('The celebrations of Pope Saint John XXIII and Pope Saint John Paul II', () => {
     test('Should be celebrated as optional memorials', async () => {
-      const dates = await Romcal.calendarFor({ year: 2016, outputOptionalMemorials: true });
+      const dates = await Romcal.calendarFor(2016);
 
       const johnXxiiiPope = dates.find((d) => d.key === 'john_xxiii_pope');
       const johnPaulIiPope = dates.find((d) => d.key === 'john_paul_ii_pope');

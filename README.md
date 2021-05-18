@@ -132,7 +132,7 @@ Romcal.calendarFor({
   epiphanyOnSunday: true | false,           // Epiphany always a Sunday (between January 2 - 8), or on January 6
   corpusChristiOnSunday: true | false,      // Corpus Christi always a Sunday, or the Thursday after Trinity Sunday
   ascensionOnSunday: true | false,          // Ascension always a Sunday, or the 40th day of Easter (a Thursday)
-  outputOptionalMemorials: true | false,    // also output available optional memorials, in addition of a weedkay
+  strictMode: true | false,                 // if true, only output one object per day ; optional memorials are not outputed
   verbose: true | false,                    // enable logging output from romcal
   prettyPrint: true | false,                // prettify logs printed in the console, for a better experience in development environnements
 }).then(function (calendar) {
