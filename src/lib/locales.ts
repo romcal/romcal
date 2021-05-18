@@ -8,7 +8,7 @@ import { findDescendantValueByKeys, mergeObjectsUniquely } from '@romcal/utils/o
 import { isNil, isString } from '@romcal/utils/type-guards/type-guards';
 import { RomcalLocale } from '@romcal/models/locale/romcal-locale.type';
 import { Ranks } from '@romcal/constants/ranks/ranks.enum';
-import { LiturgicalDayInput, RomcalLiturgicalDaySources } from '@romcal/models/liturgical-day/liturgical-day.types';
+import { LiturgicalDayInput, RomcalLiturgicalDayNamespace } from '@romcal/models/liturgical-day/liturgical-day.types';
 import { RomcalLocaleKey } from '@romcal/models/locale/locale-types.type';
 import { RomcalLocalizeParams } from '@romcal/models/locale/localize-params.type';
 
@@ -266,25 +266,27 @@ const localize = async ({ key, count, week, day, useDefaultOrdinalFn }: RomcalLo
  * Utility function that takes an array of national calendar dates
  * and adds a localized name based on the key.
  *
- * Allows the specification of a source where when defined, points the localization logic
+ * Allows the specification of a namespace where when defined, points the localization logic
  * to a specific sub-tree within the locale file to obtain localized values from.
  *
- * If the source is `temporale`, the logic will only use the key for the lookup.
+ * If the namespace is `temporale`, the logic will only use the key for the lookup.
  *
  * @param dates A list of [[RomcalDateItem]]s to process
- * @param source The source of the date to localize. This value is used to lookup a specific sub tree in the locale file for the localized value.
+ * @param namespace The namespace of the date to localize. This value is used to lookup a specific sub tree in the locale file for the localized value.
  */
 const localizeDates = async (
   dates: Array<LiturgicalDayInput>,
-  source: RomcalLiturgicalDaySources = 'sanctorale',
+  namespace: RomcalLiturgicalDayNamespace = 'sanctorale',
 ): Promise<LiturgicalDayInput[]> => {
   const promiseDates: Promise<LiturgicalDayInput>[] = dates.map(async (date: LiturgicalDayInput) => {
     if (date.name !== undefined) return Promise.resolve(date);
     return {
       ...date,
       name: await localize({
-        // If the source is `temporale`, do not append anything before the date key
-        key: `${source === 'temporale' ? date.key : !isNil(date.source) ? date.source : source}.${date.key}`,
+        // If the namespace is `temporale`, do not append anything before the date key
+        key: `${namespace === 'temporale' ? date.key : !isNil(date.namespace) ? date.namespace : namespace}.${
+          date.key
+        }`,
       }),
     } as LiturgicalDayInput;
   });
