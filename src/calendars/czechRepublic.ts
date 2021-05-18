@@ -202,7 +202,6 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
     },
     {
       key: 'lawrence_ruiz_and_companions_martyrs',
-      date: dayjs.utc(`${year}-9-28`),
       drop: true,
     },
     {
