@@ -42,11 +42,10 @@ describe('Testing national calendar overrides', () => {
     let spainDates2020: LiturgicalDay[];
 
     beforeAll(async () => {
-      generalDates2020 = await Romcal.calendarFor({ year: 2020, outputOptionalMemorials: true });
-      generalDates2021 = await Romcal.calendarFor({ year: 2021, outputOptionalMemorials: true });
+      generalDates2020 = await Romcal.calendarFor(2020);
+      generalDates2021 = await Romcal.calendarFor(2021);
       spainDates2020 = await Romcal.calendarFor({
         year: 2020,
-        outputOptionalMemorials: true,
         country: 'spain',
       });
     });
@@ -85,8 +84,8 @@ describe('Testing national calendar overrides', () => {
 
     beforeAll(async () => {
       year = 2008;
-      generalDates = await Romcal.calendarFor({ year, outputOptionalMemorials: true });
-      spainDates = await Romcal.calendarFor({ year, outputOptionalMemorials: true, country: 'spain' });
+      generalDates = await Romcal.calendarFor({ year });
+      spainDates = await Romcal.calendarFor({ year, country: 'spain' });
     });
 
     test('The feast of Saint Isidore of Seville is celebrated on April 4 every year', () => {
@@ -118,7 +117,6 @@ describe('Testing national calendar overrides', () => {
       testDates = await Romcal.calendarFor({
         country: 'test',
         year,
-        outputOptionalMemorials: true,
       });
     });
 
@@ -391,12 +389,10 @@ describe('Testing national calendar overrides', () => {
       const germanyDates = await Romcal.calendarFor({
         year: 2018,
         country: 'germany',
-        outputOptionalMemorials: true,
       });
       const hungaryDates = await Romcal.calendarFor({
         year: 2018,
         country: 'hungary',
-        outputOptionalMemorials: true,
       });
 
       const matthiasApostleGermany = germanyDates.find((d) => d.key === 'matthias_apostle');
@@ -424,7 +420,6 @@ describe('Testing national calendar overrides', () => {
       });
       const dates = await Romcal.calendarFor({
         year: 2019,
-        outputOptionalMemorials: true,
       });
       const christopherMagallanesPriestAndCompanionsMartyrs = dates.find((d) => {
         return d.key === 'christopher_magallanes_priest_and_companions_martyrs';
@@ -442,12 +437,10 @@ describe('Testing national calendar overrides', () => {
       const hungaryDates = await Romcal.calendarFor({
         year: 2018,
         country: 'hungary',
-        outputOptionalMemorials: true,
       });
       const slovakiaDates = await Romcal.calendarFor({
         year: 2018,
         country: 'slovakia',
-        outputOptionalMemorials: true,
       });
       const ladislausIOfHungaryHungary = hungaryDates.find((d) => {
         return d.key === 'ladislaus_i_of_hungary';

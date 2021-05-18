@@ -22,7 +22,7 @@ export const getRomcalConfigJsonSchema = (): Schema => ({
     epiphanyOnSunday: { type: 'boolean' },
     corpusChristiOnSunday: { type: 'boolean' },
     ascensionOnSunday: { type: 'boolean' },
-    outputOptionalMemorials: { type: 'boolean' },
+    strictMode: { type: 'boolean' },
     scope: { type: 'string', enum: ['gregorian', 'liturgical'] },
     verbose: { type: 'boolean' },
     prettyPrint: { type: 'boolean' },
