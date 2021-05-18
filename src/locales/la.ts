@@ -819,6 +819,7 @@ export default {
     waitangi_day: 'Dies Nationalis Novæ Zelandiæ',
     walpurga_of_heidenheim_abbess: 'S. Walburgis, abatissæ',
     wenceslaus_i_of_bohemia_martyr: 'S. Wenceslai, martyris',
+    wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation: 'S. Wenceslai, martyris et patroni de gente Bohemica',
     wendelin_of_trier_abbot: 'S. Wendelini, abbatis',
     wilfrid_of_york_bishop: 'S. Wilfridi, episcopi',
     william_apor_bishop: 'B. Gulielmi Apor, episcopi et martyris',

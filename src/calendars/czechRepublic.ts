@@ -9,7 +9,11 @@ import { Ranks } from '@romcal/constants/ranks/ranks.enum';
 import { LiturgicalDayCycle } from '@romcal/constants/cycles/cycles.enum';
 import { Titles } from '@romcal/constants/titles/titles.enum';
 
-const defaultConfig: RomcalConfigInCalendarDef | undefined = undefined;
+const defaultConfig: RomcalConfigInCalendarDef = {
+  ascensionOnSunday: false,
+  corpusChristiOnSunday: false,
+  epiphanyOnSunday: false,
+};
 
 const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> => {
   const year = config.year;
@@ -21,14 +25,28 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'our_lady_mediatrix_of_all_grace',
+      key: 'john_ogilvie_priest',
       rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-5-8`),
+      date: dayjs.utc(`${year}-3-10`),
+      liturgicalColors: LiturgicalColors.RED,
+      metadata: {
+        titles: [Titles.MARTYR],
+      },
     },
+    // TODO: Should this key be dropped or kept in the CzechNational Proper?
+    // {
+    //   key: 'adalbert_of_prague_bishop',
+    //   rank: Ranks.MEMORIAL,
+    //   date: dayjs.utc(`${year}-4-23`),
+    //   liturgicalColors: LiturgicalColors.RED,
+    //   metadata: {
+    //     titles: [Titles.MARTYR],
+    //   },
+    // },
     {
-      key: 'adalbert_of_prague_bishop',
-      rank: Ranks.MEMORIAL,
-      date: dayjs.utc(`${year}-4-23`),
+      key: 'george_of_lydda_martyr',
+      rank: Ranks.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-4-24`),
       liturgicalColors: LiturgicalColors.RED,
       metadata: {
         titles: [Titles.MARTYR],
@@ -49,6 +67,16 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
       date: dayjs.utc(`${year}-4-30`),
     },
     {
+      key: 'john_sarkander_priest',
+      rank: Ranks.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-5-6`),
+    },
+    {
+      key: 'our_lady_mediatrix_of_all_grace',
+      rank: Ranks.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-5-8`),
+    },
+    {
       key: 'john_nepomucene_priest',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-5-16`),
@@ -56,13 +84,13 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
     },
     {
       key: 'clement_mary_hofbauer_priest',
-      rank: Ranks.MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-20`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
       key: 'zdislava_of_lemberk',
-      rank: Ranks.MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-5-30`),
       liturgicalColors: LiturgicalColors.WHITE,
     },
@@ -81,12 +109,9 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-7-4`),
     },
-    // In Slovakia and Czech Republic, the two brothers were originally
-    // commemorated on 9 March, but Pope Pius IX changed this date to 5 July
-    // https://en.wikipedia.org/wiki/Saints_Cyril_and_Methodius
     {
       key: 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe',
-      rank: Ranks.SOLEMNITY,
+      rank: Ranks.SOLEMNITY, // TODO: Should we add `Patrons of Moravia`?
       date: dayjs.utc(`${year}-7-5`),
       liturgicalColors: LiturgicalColors.WHITE,
       metadata: {
@@ -122,6 +147,11 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
       },
     },
     {
+      key: 'gorazd_of_moravia_and_companions',
+      rank: Ranks.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-7-27`),
+    },
+    {
       key: 'teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe',
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-8-9`),
@@ -136,11 +166,6 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
       date: dayjs.utc(`${year}-8-25`),
     },
     {
-      key: 'teresa_of_calcutta_religious',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-9-5`),
-    },
-    {
       key: 'melchior_grodziecki_priest',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-7`),
@@ -152,9 +177,32 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
     },
     {
       key: 'ludmila_of_bohemia_martyr',
-      rank: Ranks.MEMORIAL,
+      rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-9-16`),
       liturgicalColors: LiturgicalColors.WHITE,
+    },
+    {
+      // Lowered rank
+      // Moved from 16 Sep
+      key: 'cornelius_i_pope_and_cyprian_of_carthage_bishop_martyrs',
+      rank: Ranks.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-9-17`),
+      metadata: {
+        titles: [Titles.MARTYR],
+      },
+    },
+    {
+      key: 'wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation',
+      rank: Ranks.SOLEMNITY,
+      date: dayjs.utc(`${year}-9-28`),
+      liturgicalColors: LiturgicalColors.RED,
+      metadata: {
+        titles: [Titles.MARTYR],
+      },
+    },
+    {
+      key: 'lawrence_ruiz_and_companions_martyrs',
+      drop: true,
     },
     {
       key: 'radim_of_gniezno_bishop',
@@ -165,6 +213,14 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
       key: 'charles_i_of_austria',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-10-21`),
+    },
+    {
+      // TODO: Deal with this solemnity for consecrated churches
+      //       with known consecration date (#136)
+      key: 'dedication_of_consecrated_churches',
+      rank: Ranks.SOLEMNITY,
+      // TODO: On 25 Oct or the following Sunday
+      date: dayjs.utc(`${year}-10-25`),
     },
     {
       key: 'wolfgang_of_regensburg_bishop',
@@ -187,7 +243,7 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
       rank: Ranks.FEAST,
       date: ((y: number): dayjs.Dayjs => dayjs.utc(Dates.pentecostSunday(y).add(4, 'day').toISOString()))(year),
       liturgicalColors: LiturgicalColors.WHITE,
-      cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
+      cycles: { celebrationCycle: LiturgicalDayCycle.TEMPORALE },
     },
   ];
 

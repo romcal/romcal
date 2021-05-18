@@ -114,5 +114,7 @@ export default {
     our_lady_of_the_rosary: 'Nossa Senhora do Rosário',
     our_lady_queen_of_peace: 'Nossa Senhora Rainha da Paz',
     presentation_of_mary: 'Apresentação da Virgem Maria',
+    wenceslaus_i_of_bohemia_martyr: 'São Venceslau, mártir',
+    wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation: 'São Venceslau, mártir e patrono da nação tcheca',
   },
 } as RomcalLocale;
