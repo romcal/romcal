@@ -22,10 +22,10 @@ module.exports = {
       },
     ],
   },
-  'overrides': [
+  overrides: [
     {
-      'files': ['src/locales/*.ts'],
-      'rules': {
+      files: ['src/locales/*.ts'],
+      rules: {
         '@typescript-eslint/camelcase': 'off',
       },
     },

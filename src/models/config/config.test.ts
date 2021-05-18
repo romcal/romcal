@@ -6,15 +6,8 @@ describe('getConfig()', () => {
   // eslint-disable-next-line prettier/prettier
   test('should get general config if country doesnt have default configurations', async () => {
     const resolvedConfig = await RomcalConfig.resolveConfig();
-    const {
-      year,
-      scope,
-      locale,
-      epiphanyOnSunday,
-      country,
-      corpusChristiOnSunday,
-      outputOptionalMemorials,
-    } = new RomcalConfig(resolvedConfig);
+    const { year, scope, locale, epiphanyOnSunday, country, corpusChristiOnSunday, outputOptionalMemorials } =
+      new RomcalConfig(resolvedConfig);
     expect(year).toBe(dayjs.utc().year());
     expect(scope).toBe('gregorian');
     expect(locale).toBe('en');
