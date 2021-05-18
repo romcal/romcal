@@ -92,7 +92,7 @@ export default {
     transfiguration: 'In Transfiguratione Domini',
     trinity_sunday: 'Ss.mæ Trinitatis',
   },
-  sanctoral: {
+  sanctorale: {
     '205_blessed_martyrs_of_japan': 'B. Martyres Iaponici CCV',
     adalbert_of_prague_bishop: 'S. Adalberti, episcopi et martyris',
     adalbert_of_prague_bishop_patron_of_poland: 'S. Adalberti, episcopi, martyris et patroni Poloniæ',

@@ -92,7 +92,7 @@ export default {
     transfiguration: 'Trasfigurazione del Signore',
     trinity_sunday: 'Santissima Trinitá',
   },
-  sanctoral: {
+  sanctorale: {
     adalbert_of_prague_bishop: 'Sant’Adalberto, vescovo e martire',
     adalbert_of_prague_bishop_patron_of_poland: 'Sant’Adalberto, vescovo, martire e patrono della Polonia',
     agatha_of_sicily_virgin: 'Sant’Agata, vergine e martire',

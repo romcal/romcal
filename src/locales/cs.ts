@@ -92,7 +92,7 @@ export default {
     transfiguration: 'Proměnění Páně',
     trinity_sunday: 'Nejsvětější Trojice',
   },
-  sanctoral: {
+  sanctorale: {
     '205_blessed_martyrs_of_japan': 'Bl. 205 japonských mučedníků',
     adalbert_of_prague_bishop: 'Sv. Vojtěcha, biskupa a mučedníka',
     adalbert_of_prague_bishop_patron_of_poland: 'Sv. Vojtěcha, biskupa, mučedníka a patrona Polska',

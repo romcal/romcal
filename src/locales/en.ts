@@ -92,7 +92,7 @@ export default {
     transfiguration: 'Transfiguration of the Lord',
     trinity_sunday: 'Most Holy Trinity',
   },
-  sanctoral: {
+  sanctorale: {
     '205_blessed_martyrs_of_japan': '205 Blessed Martyrs of Japan',
     adalbert_of_prague_bishop: 'Saint Adalbert, Bishop and Martyr',
     adalbert_of_prague_bishop_patron_of_poland: 'Saint Adalbert, Bishop, Martyr and Patron of Poland',

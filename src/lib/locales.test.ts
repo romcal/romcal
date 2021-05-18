@@ -34,7 +34,7 @@ describe('Testing localization functionality', () => {
   test('If the locale is set to "en-gb", romcal should output text in British English', async () => {
     await Locales.setLocale('en-gb');
     const localizedName = await Locales.localize({
-      key: 'sanctoral.paulina_of_the_agonizing_heart_of_jesus_visintainer_virgin',
+      key: 'sanctorale.paulina_of_the_agonizing_heart_of_jesus_visintainer_virgin',
     });
     expect(localizedName).toBe('Saint Paulina of the Agonising Heart of Jesus Visintainer, Virgin');
   });

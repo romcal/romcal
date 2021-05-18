@@ -269,22 +269,22 @@ const localize = async ({ key, count, week, day, useDefaultOrdinalFn }: RomcalLo
  * Allows the specification of a source where when defined, points the localization logic
  * to a specific sub-tree within the locale file to obtain localized values from.
  *
- * If the source is `temporal`, the logic will only use the key for the lookup.
+ * If the source is `temporale`, the logic will only use the key for the lookup.
  *
  * @param dates A list of [[RomcalDateItem]]s to process
  * @param source The source of the date to localize. This value is used to lookup a specific sub tree in the locale file for the localized value.
  */
 const localizeDates = async (
   dates: Array<LiturgicalDayInput>,
-  source: RomcalLiturgicalDaySources = 'sanctoral',
+  source: RomcalLiturgicalDaySources = 'sanctorale',
 ): Promise<LiturgicalDayInput[]> => {
   const promiseDates: Promise<LiturgicalDayInput>[] = dates.map(async (date: LiturgicalDayInput) => {
     if (date.name !== undefined) return Promise.resolve(date);
     return {
       ...date,
       name: await localize({
-        // If the source is `temporal`, do not append anything before the date key
-        key: `${source === 'temporal' ? date.key : !isNil(date.source) ? date.source : source}.${date.key}`,
+        // If the source is `temporale`, do not append anything before the date key
+        key: `${source === 'temporale' ? date.key : !isNil(date.source) ? date.source : source}.${date.key}`,
       }),
     } as LiturgicalDayInput;
   });

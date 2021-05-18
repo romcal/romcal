@@ -92,7 +92,7 @@ export default {
     transfiguration: 'Transfiguration du Seigneur',
     trinity_sunday: 'Très Sainte Trinité',
   },
-  sanctoral: {
+  sanctorale: {
     adalbert_of_prague_bishop: 'Saint Adalbert, Évêque de Prague et Martyr (✝ 997)',
     adalbert_of_prague_bishop_patron_of_poland:
       'Saint Adalbert, Évêque de Prague, Martyr et Patron de la Pologne (✝ 997)',
