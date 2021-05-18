@@ -506,10 +506,9 @@ export class Seasons {
    * @param epiphanyOnSunday
    */
   static ordinaryTime = async (year: number, epiphanyOnSunday: boolean): Promise<LiturgicalDayInput[]> =>
-    Promise.all([
-      Seasons.earlyOrdinaryTime(year, epiphanyOnSunday),
-      Seasons.lateOrdinaryTime(year),
-    ]).then(([early, later]) => early.concat(later));
+    Promise.all([Seasons.earlyOrdinaryTime(year, epiphanyOnSunday), Seasons.lateOrdinaryTime(year)]).then(
+      ([early, later]) => early.concat(later),
+    );
 
   /**
    * Calculates the days in the season of Lent
