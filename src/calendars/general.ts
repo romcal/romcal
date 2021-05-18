@@ -224,6 +224,15 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
       },
     },
     {
+      key: 'gregory_of_narek_abbot',
+      rank: Ranks.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-2-27`),
+      liturgicalColors: LiturgicalColors.WHITE,
+      metadata: {
+        titles: [Titles.DOCTOR_OF_THE_CHURCH],
+      },
+    },
+    {
       key: 'casimir_of_poland',
       rank: Ranks.OPT_MEMORIAL,
       date: dayjs.utc(`${year}-3-4`),
@@ -391,6 +400,15 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
       rank: Ranks.FEAST,
       date: dayjs.utc(`${year}-5-3`),
       liturgicalColors: LiturgicalColors.WHITE,
+    },
+    {
+      key: 'john_of_avila_priest',
+      rank: Ranks.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-5-10`),
+      liturgicalColors: LiturgicalColors.WHITE,
+      metadata: {
+        titles: [Titles.DOCTOR_OF_THE_CHURCH],
+      },
     },
     {
       key: 'nereus_of_terracina_and_achilleus_of_terracina_martyrs',
@@ -707,7 +725,7 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
       liturgicalColors: LiturgicalColors.WHITE,
     },
     {
-      key: 'martha_of_bethany',
+      key: 'martha_of_bethany_mary_of_bethany_and_lazarus_of_bethany',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-7-29`),
       liturgicalColors: LiturgicalColors.WHITE,
@@ -949,6 +967,14 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
       liturgicalColors: LiturgicalColors.RED,
       metadata: {
         titles: [Titles.MARTYR],
+      },
+    },
+    {
+      key: 'hildegard_of_bingen_abbess',
+      rank: Ranks.OPT_MEMORIAL,
+      date: dayjs.utc(`${year}-9-17`),
+      metadata: {
+        titles: [Titles.DOCTOR_OF_THE_CHURCH],
       },
     },
     {
