@@ -201,6 +201,7 @@ export default {
       'Saint Eugène de Mazenod, Fondateur des Oblats de Marie-Immaculée, Évêque de Marseille (✝ 1861)',
     eusebius_of_vercelli_bishop: 'Saint Eusèbe de Verceil, Évêque (✝ 371)',
     fabian_i_pope: 'Saint Fabien, Pape et Martyr (✝ 250)',
+    faustina_kowalska_virgin: 'Sainte Faustina Kowalska (✝ 1938)',
     fidelis_of_sigmaringen_priest: 'Saint Fidèle de Sigmaringen, Prêtre et Martyr (✝ 1622)',
     first_martyrs_of_the_holy_roman_church: 'Premiers martyrs de l’Église de Rome (✝ 64)',
     frances_of_rome_religious: 'Sainte Françoise Romaine, Religieuse (✝ 1440)',
