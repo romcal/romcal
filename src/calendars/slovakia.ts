@@ -25,6 +25,11 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
       drop: true,
     },
     {
+      key: 'joseph_spouse_of_mary',
+      isHolyDayOfObligation: false,
+      extend: true,
+    },
+    {
       key: 'adalbert_of_prague_bishop',
       rank: Ranks.MEMORIAL,
       date: dayjs.utc(`${year}-4-23`),
