@@ -1,3 +1,4 @@
+import cs from './cs';
 import enGb from './en-gb';
 import enIe from './en-ie';
 import en from './en';
@@ -14,6 +15,7 @@ import sk from './sk';
  * in romcal.
  */
 const locales = {
+  cs: cs,
   'en-gb': enGb,
   'en-ie': enIe,
   en: en,

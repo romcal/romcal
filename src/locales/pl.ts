@@ -406,6 +406,8 @@ export default {
     vincent_pallotti_priest: 'Św. Wincentego Pallottiego, prezbitera',
     visitation_of_mary: 'Nawiedzenie Najświętszej Maryi Panny',
     wenceslaus_i_of_bohemia_martyr: 'Św. Wacława, męczennika',
+    wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation: 'Św. Wacława, męczennika, patrona narodu czeskiego',
+    wladyslaw_of_gielniow_priest: 'Bł. Władysława z Gielniowa, prezbitera',
     yolanda_of_poland_religious: 'Bł. Jolanty, zakonnicy',
     zdislava_of_lemberk: 'Św. Zdzisławy',
     zygmunt_gorazdowski_priest: 'Św. Zygmunta Gorazdowskiego, prezbitera',
