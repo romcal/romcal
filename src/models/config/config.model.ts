@@ -47,10 +47,10 @@ export interface BaseRomcalConfig {
    */
   readonly ascensionOnSunday?: boolean;
   /**
-   * If true, available optional memorials or commemorations are also outputted,
-   * in addition to the weekday.
+   * If true, output strictly the relevant liturgical day per date.
+   * Optional memorials or commemorations available for a specific day are not outputted.
    */
-  readonly outputOptionalMemorials?: boolean;
+  readonly strictMode?: boolean;
   /**
    * The calendar scope to query for.
    *
@@ -92,7 +92,7 @@ export class RomcalConfig implements BaseRomcalConfig {
   private readonly _epiphanyOnSunday: boolean;
   private readonly _corpusChristiOnSunday: boolean;
   private readonly _ascensionOnSunday: boolean;
-  private readonly _outputOptionalMemorials: boolean;
+  private readonly _strictMode: boolean;
   private readonly _scope: RomcalCalendarScope;
   private readonly _verbose: boolean;
   private readonly _prettyPrint: boolean;
@@ -108,7 +108,7 @@ export class RomcalConfig implements BaseRomcalConfig {
     epiphanyOnSunday,
     corpusChristiOnSunday,
     ascensionOnSunday,
-    outputOptionalMemorials,
+    strictMode,
     scope,
     verbose,
     prettyPrint,
@@ -119,7 +119,7 @@ export class RomcalConfig implements BaseRomcalConfig {
     this._epiphanyOnSunday = epiphanyOnSunday;
     this._corpusChristiOnSunday = corpusChristiOnSunday;
     this._ascensionOnSunday = ascensionOnSunday;
-    this._outputOptionalMemorials = outputOptionalMemorials;
+    this._strictMode = strictMode;
     this._scope = scope;
     this._verbose = verbose;
     this._prettyPrint = prettyPrint;
@@ -153,8 +153,8 @@ export class RomcalConfig implements BaseRomcalConfig {
     return this._ascensionOnSunday;
   }
 
-  get outputOptionalMemorials(): boolean {
-    return this._outputOptionalMemorials;
+  get strictMode(): boolean {
+    return this._strictMode;
   }
 
   get scope(): RomcalCalendarScope {
@@ -180,7 +180,7 @@ export class RomcalConfig implements BaseRomcalConfig {
       epiphanyOnSunday: this.epiphanyOnSunday,
       corpusChristiOnSunday: this._corpusChristiOnSunday,
       ascensionOnSunday: this._ascensionOnSunday,
-      outputOptionalMemorials: this._outputOptionalMemorials,
+      strictMode: this._strictMode,
       scope: this._scope,
       verbose: this._verbose,
       prettyPrint: this._prettyPrint,
@@ -266,7 +266,7 @@ export class RomcalConfig implements BaseRomcalConfig {
       epiphanyOnSunday: !!config.epiphanyOnSunday, // Will use default if not defined
       corpusChristiOnSunday: !!config.corpusChristiOnSunday, // Will use default if not defined
       ascensionOnSunday: !!config.ascensionOnSunday, // Will use default if not defined
-      outputOptionalMemorials: !!config.outputOptionalMemorials,
+      strictMode: !!config.strictMode,
       scope: config.scope ?? 'gregorian', // Use the default value "gregorian" if scope not specified by user
       verbose: !!config.verbose,
       prettyPrint: !!config.prettyPrint,
