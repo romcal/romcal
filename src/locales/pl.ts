@@ -92,7 +92,7 @@ export default {
     transfiguration: 'Przemienienie Pańskie',
     trinity_sunday: 'Najświętszej Trójcy',
   },
-  sanctoral: {
+  sanctorale: {
     adalbert_of_prague_bishop: 'Św. Wojciecha, biskupa i męczennika',
     adalbert_of_prague_bishop_patron_of_poland: 'Św. Wojciecha, biskupa i męczennika, głównego patrona Polski',
     agatha_of_sicily_virgin: 'Św. Agaty, dziewicy i męczennicy',
@@ -129,7 +129,8 @@ export default {
     augustine_of_canterbury_bishop: 'Św. Augustyna z Canterbury, biskupa',
     augustine_of_hippo_bishop: 'Św. Augustyna, biskupa i doktora Kościoła',
     augustine_zhao_rong_priest: 'Św. Augustyna Zhao Rong, prezbitera i męczennika',
-    augustine_zhao_rong_priest_and_companions_martyrs: 'Świętych męczenników Augustyna Zhao Rong, prezbitera, i Towarzyszy',
+    augustine_zhao_rong_priest_and_companions_martyrs:
+      'Świętych męczenników Augustyna Zhao Rong, prezbitera, i Towarzyszy',
     barbara_of_heliopolis_virgin: 'Św. Barbary, dziewicy i męczennicy',
     barnabas_apostle: 'Św. Barnaby, Apostoła',
     bartholomew_apostle: 'Św. Bartłomieja, Apostoła',
@@ -179,7 +180,7 @@ export default {
     cyril_of_alexandria_bishop: 'Św. Cyryla Aleksandryjskiego, biskupa i doktora Kościoła',
     cyril_of_jerusalem_bishop: 'Św. Cyryla Jerozolimskiego, biskupa i doktora Kościoła',
     cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop: 'Świętych Cyryla, mnicha i Metodego, biskupa',
-    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe:    
+    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe:
       'Świętych Cyryla, mnicha i Metodego, biskupa, patronów Europy',
     damasus_i_pope: 'Św. Damazego I, papieża',
     dedication_of_consecrated_churches: 'Rocznica poświęcenia kościoła własnego',

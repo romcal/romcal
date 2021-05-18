@@ -92,7 +92,7 @@ export default {
     transfiguration: 'Transfiguración',
     trinity_sunday: 'Domingo de la Santísima Trinidad',
   },
-  sanctoral: {
+  sanctorale: {
     '205_blessed_martyrs_of_japan': '205 Beatos y Mártires de Japón',
     adalbert_of_prague_bishop: 'San Adalberto, Obispo y Mártir',
     agatha_of_sicily_virgin: 'Santa Ágatha, Vírgen y Mártir',

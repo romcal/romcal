@@ -92,7 +92,7 @@ export default {
     transfiguration: 'Transfiguração do Senhor',
     trinity_sunday: 'Santíssima Trindade',
   },
-  sanctoral: {
+  sanctorale: {
     gregory_of_narek_abbot: 'São Gregório de Narek, abade e doutor da Igreja',
     hildegard_of_bingen_abbess: 'Santa Hildegarda de Bingen, virgem e doutora da Igreja',
     john_of_avila_priest: 'São João De Ávila, presbítero e doutor da Igreja',
