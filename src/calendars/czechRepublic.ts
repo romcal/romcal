@@ -202,6 +202,7 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
     },
     {
       key: 'lawrence_ruiz_and_companions_martyrs',
+      date: dayjs.utc(`${year}-9-28`),
       drop: true,
     },
     {
@@ -243,7 +244,7 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
       rank: Ranks.FEAST,
       date: ((y: number): dayjs.Dayjs => dayjs.utc(Dates.pentecostSunday(y).add(4, 'day').toISOString()))(year),
       liturgicalColors: LiturgicalColors.WHITE,
-      cycles: { celebrationCycle: LiturgicalDayCycle.TEMPORALE },
+      cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
   ];
 
