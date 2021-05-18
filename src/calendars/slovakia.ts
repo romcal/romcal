@@ -21,7 +21,6 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
     {
       // TODO: When votive Masses (#110) are implemented, change this celebration into votive Mass of `cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe`
       key: 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop',
-      date: dayjs.utc(`${year}-2-14`),
       drop: true,
     },
     {
