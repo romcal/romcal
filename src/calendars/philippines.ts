@@ -7,6 +7,7 @@ import { RomcalConfig, RomcalConfigInCalendarDef } from '@romcal/models/config/c
 import { Ranks } from '@romcal/constants/ranks/ranks.enum';
 import { LiturgicalDayCycle } from '@romcal/constants/cycles/cycles.enum';
 import { Titles } from '@romcal/constants/titles/titles.enum';
+import { Dates } from '@romcal/lib/dates';
 
 const defaultConfig: RomcalConfigInCalendarDef | undefined = undefined;
 
@@ -38,7 +39,18 @@ const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> =
     {
       key: 'pedro_calungsod_martyr',
       rank: Ranks.MEMORIAL,
-      date: dayjs.utc(`${year}-4-2`),
+      date: ((year: number): dayjs.Dayjs => {
+        const date = dayjs.utc(`${year}-4-2`);
+        const palmSunday = Dates.palmSunday(year);
+        const divineMercySunday = Dates.divineMercySunday(year);
+        // When 2 April occurs with a Sunday of Lent or the Holy Week
+        // or the Octave of Easter, the celebration is transferred
+        // to the Saturday before Palm Sunday.
+        if (date.day() === 0 || (date.isSameOrAfter(palmSunday) && date.isSameOrBefore(divineMercySunday))) {
+          return palmSunday.subtract(1, 'day');
+        }
+        return date;
+      })(year),
       liturgicalColors: LiturgicalColors.RED,
       metadata: {
         titles: [Titles.MARTYR],
