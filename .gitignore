@@ -27,6 +27,7 @@ build/
 
 # Misc
 .DS_Store
+local-*
 *.bak
 *.orig
 *code-workspace
