@@ -1,15 +1,33 @@
-**.DS_Store**
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependencies
+node_modules/
+
+# Coverage
+coverage
+
+# Transpiled files
+build/
+
+# VS Code
+.vscode
+!.vscode/tasks.js
+
+# JetBrains IDEs
+.idea/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Misc
+.DS_Store
 *.bak
 *.orig
 *code-workspace
 *~
-.idea
-.npmrc
-coverage/
-dist/
-local-*
-node_modules/
-npm-debug.log
-romcal-*.tgz
-typedocs
-~*
