@@ -1,35 +1,22 @@
-import dayjs from 'dayjs';
+import { CalendarDef, DateDefinitions } from '../models/calendar-def';
+import { Dates } from '../utils/dates';
+import { Precedences } from '../constants/precedences';
+import { LiturgicalColors } from '../constants/colors';
+import { Dayjs } from 'dayjs';
 
-import * as Locales from '@romcal/lib/locales';
-import { Dates } from '@romcal/lib/dates';
-import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
-import { LiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
-import { RomcalConfig, RomcalConfigInCalendarDef } from '@romcal/models/config/config.model';
-import { Ranks } from '@romcal/constants/ranks/ranks.enum';
-import { LiturgicalDayCycle } from '@romcal/constants/cycles/cycles.enum';
-
-const defaultConfig: RomcalConfigInCalendarDef | undefined = undefined;
-
-const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> => {
-  const year = config.year;
-  const _dates: Array<LiturgicalDayInput> = [
-    {
-      key: 'our_lady_of_guadalupe_patroness_of_the_americas',
-      rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-12-12`),
+export class Uruguay extends CalendarDef {
+  definitions: DateDefinitions = {
+    our_lady_of_guadalupe_patroness_of_the_americas: {
+      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
+      date: '12-12',
       liturgicalColors: LiturgicalColors.WHITE,
     },
-    {
-      key: 'our_lord_jesus_christ_the_eternal_high_priest',
-      rank: Ranks.FEAST,
-      date: ((y: number): dayjs.Dayjs => dayjs.utc(Dates.pentecostSunday(y).add(4, 'day').toISOString()))(year),
+
+    our_lord_jesus_christ_the_eternal_high_priest: {
+      precedence: Precedences.ProperFeast_8f,
+      date: (year: number): Dayjs => Dates.pentecostSunday(year).add(4, 'day'),
       liturgicalColors: LiturgicalColors.WHITE,
-      cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
+      // cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
-  ];
-
-  // Get localized liturgical day names
-  return await Locales.localizeDates(_dates);
-};
-
-export { dates, defaultConfig };
+  };
+}

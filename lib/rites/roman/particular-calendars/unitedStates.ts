@@ -1,161 +1,131 @@
-import dayjs from 'dayjs';
+import {
+  CalendarDef,
+  DateDefinitions,
+  ParticularConfig,
+} from '../models/calendar-def';
+import { Precedences } from '../constants/precedences';
+import { LiturgicalColors } from '../constants/colors';
+import dayjs, { Dayjs } from 'dayjs';
 
-import * as Locales from '@romcal/lib/locales';
-import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
-import { LiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
-import { RomcalConfig, RomcalConfigInCalendarDef } from '@romcal/models/config/config.model';
-import { Ranks } from '@romcal/constants/ranks/ranks.enum';
-import { Titles } from '@romcal/constants/titles/titles.enum';
+export class UnitedStates extends CalendarDef {
+  particularConfig: ParticularConfig = {
+    // TODO: Ascension is celebrated on Thursday in the following ecclesiastical provinces (in all other 26 EP, it is celebrated on Sunday): Boston, Hartford, New York, Newark, Omaha, Philadelphia
+    ascensionOnSunday: true,
+    corpusChristiOnSunday: true,
+    epiphanyOnSunday: true,
+  };
 
-const defaultConfig: RomcalConfigInCalendarDef = {
-  // TODO: Ascension is celebrated on Thursday in the following ecclesiastical provinces (in all other 26 EP, it is celebrated on Sunday): Boston, Hartford, New York, Newark, Omaha, Philadelphia
-  ascensionOnSunday: true,
-  corpusChristiOnSunday: true,
-  epiphanyOnSunday: true,
-};
-
-const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> => {
-  const year = config.year;
-  const _dates: Array<LiturgicalDayInput> = [
-    {
-      key: 'elizabeth_ann_seton_religious',
-      rank: Ranks.MEMORIAL,
-      date: dayjs.utc(`${year}-1-4`),
+  definitions: DateDefinitions = {
+    elizabeth_ann_seton_religious: {
+      precedence: Precedences.ProperMemorial_11b,
+      date: '1-4',
       liturgicalColors: LiturgicalColors.WHITE,
     },
-    {
-      key: 'john_neumann_bishop',
-      rank: Ranks.MEMORIAL,
-      date: dayjs.utc(`${year}-1-5`),
+    john_neumann_bishop: {
+      precedence: Precedences.ProperMemorial_11b,
+      date: '1-5',
       liturgicalColors: LiturgicalColors.WHITE,
     },
-    {
-      key: 'andre_bessette_religious',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-1-6`),
+    andre_bessette_religious: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '1-6',
     },
-    {
-      key: 'vincent_of_saragossa_deacon',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-1-23`),
-      metadata: {
-        titles: [Titles.MARTYR],
-      },
+    vincent_of_saragossa_deacon: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '1-23',
+      // metadata: {
+      //   titles: [Titles.MARTYR],
+      // },
     },
-    {
-      key: 'marianne_cope_virgin',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-1-23`),
+    marianne_cope_virgin: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '1-23',
     },
-    {
-      key: 'katharine_drexel_virgin',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-3-3`),
+    katharine_drexel_virgin: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '3-3',
     },
-    {
-      key: 'damien_de_veuster_priest',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-5-10`),
+    damien_de_veuster_priest: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '5-10',
     },
-    {
-      key: 'isidore_the_farmer',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-5-15`),
+    isidore_the_farmer: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '5-15',
     },
-    {
-      key: 'junipero_serra_priest',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-7-1`),
+    junipero_serra_priest: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '7-1',
     },
-    {
-      key: 'elizabeth_of_portugal',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-7-5`),
+    elizabeth_of_portugal: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '7-5',
     },
-    {
-      key: 'kateri_tekakwitha_virgin',
-      rank: Ranks.MEMORIAL,
-      date: dayjs.utc(`${year}-7-14`),
+    kateri_tekakwitha_virgin: {
+      precedence: Precedences.ProperMemorial_11b,
+      date: '7-14',
       liturgicalColors: LiturgicalColors.WHITE,
     },
-    {
-      key: 'camillus_de_lellis_priest',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-7-18`),
+    camillus_de_lellis_priest: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '7-18',
     },
-    {
-      key: 'peter_claver_priest',
-      rank: Ranks.MEMORIAL,
-      date: dayjs.utc(`${year}-9-9`),
+    peter_claver_priest: {
+      precedence: Precedences.ProperMemorial_11b,
+      date: '9-9',
       liturgicalColors: LiturgicalColors.WHITE,
     },
-    {
-      key: 'francis_xavier_seelos_priest',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-10-5`),
+    francis_xavier_seelos_priest: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '10-5',
     },
-    {
-      key: 'marie_rose_durocher_virgin',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-10-6`),
+    marie_rose_durocher_virgin: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '10-6',
     },
-    {
-      key: 'john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs',
-      rank: Ranks.MEMORIAL,
-      date: dayjs.utc(`${year}-10-19`),
+    john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs: {
+      precedence: Precedences.ProperMemorial_11b,
+      date: '10-19',
       liturgicalColors: LiturgicalColors.RED,
-      metadata: {
-        titles: [Titles.MARTYR],
-      },
+      // metadata: {
+      //   titles: [Titles.MARTYR],
+      // },
     },
-    {
-      key: 'paul_of_the_cross_priest',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-10-20`),
+    paul_of_the_cross_priest: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '10-20',
     },
-    {
-      key: 'frances_xavier_cabrini_virgin',
-      rank: Ranks.MEMORIAL,
-      date: dayjs.utc(`${year}-11-13`),
+    frances_xavier_cabrini_virgin: {
+      precedence: Precedences.ProperMemorial_11b,
+      date: '11-13',
       liturgicalColors: LiturgicalColors.WHITE,
     },
-    {
-      key: 'rose_philippine_duchesne_virgin',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-11-18`),
+    rose_philippine_duchesne_virgin: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '11-18',
     },
-    {
-      key: 'miguel_agustin_pro_priest',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-11-23`),
-      metadata: {
-        titles: [Titles.MARTYR],
+    miguel_agustin_pro_priest: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '11-23',
+      // metadata: {
+      //   titles: [Titles.MARTYR],
+      // },
+    },
+
+    // It is a holyday of obligation unless it occurs with Sunday: then it is moved to the following Monday and while keeps its rank (solemnity), it is not a holyday of obligation
+    immaculate_conception_of_mary_patroness_of_the_usa: {
+      precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
+      date: (year: number): Dayjs => {
+        const date = dayjs.utc(`${year}-12-8`);
+        return date.day() === 0
+          ? date.add(1, 'day')
+          : dayjs.utc(`${year}-12-9`);
       },
     },
-    {
-      // It is a holyday of obligation unless it occurs with Sunday: then it is moved to the following Monday and while keeps its rank (solemnity), it is not a holyday of obligation
-      key: 'immaculate_conception_of_mary_patroness_of_the_usa',
-      rank: Ranks.SOLEMNITY,
-      date: ((y: number): dayjs.Dayjs => {
-        const date = dayjs.utc(`${y}-12-8`);
-        if (date.day() === 0) {
-          // TODO: Also make the celebration _not_ a holyday of obligation when the holydays of obligation remark is implemented into romcal
-          return dayjs.utc(`${y}-12-9`);
-        } else {
-          return date;
-        }
-      })(year),
-    },
-    {
-      key: 'our_lady_of_guadalupe_patroness_of_the_americas',
-      rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-12-12`),
+    our_lady_of_guadalupe_patroness_of_the_americas: {
+      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
+      date: '12-12',
       liturgicalColors: LiturgicalColors.WHITE,
     },
-  ];
-
-  // Get localized liturgical day names
-  return await Locales.localizeDates(_dates);
-};
-
-export { dates, defaultConfig };
+  };
+}

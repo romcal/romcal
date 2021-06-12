@@ -1,89 +1,64 @@
-import dayjs from 'dayjs';
+import { CalendarDef, DateDefinitions } from '../models/calendar-def';
+import { Precedences } from '../constants/precedences';
+import { LiturgicalColors } from '../constants/colors';
 
-import * as Locales from '@romcal/lib/locales';
-import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
-import { LiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
-import { RomcalConfig, RomcalConfigInCalendarDef } from '@romcal/models/config/config.model';
-import { Ranks } from '@romcal/constants/ranks/ranks.enum';
-import { Titles } from '@romcal/constants/titles/titles.enum';
-
-const defaultConfig: RomcalConfigInCalendarDef | undefined = undefined;
-
-const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> => {
-  const year = config.year;
-  const _dates: Array<LiturgicalDayInput> = [
-    {
-      key: 'waitangi_day',
-      rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-2-6`),
+export class NewZealand extends CalendarDef {
+  definitions: DateDefinitions = {
+    waitangi_day: {
+      precedence: Precedences.ProperFeast_8f,
+      date: '2-6',
     },
-    {
-      key: 'paul_miki_and_companions_martyrs',
-      rank: Ranks.MEMORIAL,
-      date: dayjs.utc(`${year}-2-7`),
+    paul_miki_and_companions_martyrs: {
+      precedence: Precedences.ProperMemorial_11b,
+      date: '2-7',
       liturgicalColors: LiturgicalColors.RED,
-      metadata: {
-        titles: [Titles.MARTYR],
-      },
+      // metadata: {
+      //   titles: [Titles.MARTYR],
+      // },
     },
-    {
-      key: 'patrick_of_ireland_bishop',
-      rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-3-17`),
+    patrick_of_ireland_bishop: {
+      precedence: Precedences.ProperFeast_8f,
+      date: '3-17',
     },
-    {
-      key: 'mark_evangelist',
-      rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-4-26`),
+    mark_evangelist: {
+      precedence: Precedences.ProperFeast_8f,
+      date: '4-26',
     },
-    {
-      key: 'louis_grignion_de_montfort_priest',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-4-27`),
+    louis_grignion_de_montfort_priest: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '4-27',
     },
-    {
-      key: 'peter_chanel_priest_patron_of_oceania',
-      rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-4-28`),
+    peter_chanel_priest_patron_of_oceania: {
+      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
+      date: '4-28',
       liturgicalColors: LiturgicalColors.RED,
-      metadata: {
-        titles: [Titles.MARTYR],
-      },
+      // metadata: {
+      //   titles: [Titles.MARTYR],
+      // },
     },
-    {
-      key: 'our_lady_help_of_christians',
-      rank: Ranks.MEMORIAL,
-      date: dayjs.utc(`${year}-5-24`),
+    our_lady_help_of_christians: {
+      precedence: Precedences.ProperMemorial_11b,
+      date: '5-24',
     },
-    {
-      key: 'marcellin_champagnat_priest',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-6-6`),
+    marcellin_champagnat_priest: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '6-6',
     },
-    {
-      key: 'dominic_de_guzman_priest',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-8-7`),
+    dominic_de_guzman_priest: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '8-7',
     },
-    {
-      key: 'sixtus_ii_pope_and_companions_martyrs',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-8-7`),
+    sixtus_ii_pope_and_companions_martyrs: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '8-7',
     },
-    {
-      key: 'cajetan_of_thiene_priest',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-8-7`),
+    cajetan_of_thiene_priest: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '8-7',
     },
-    {
-      key: 'mary_of_the_cross_mackillop_virgin',
-      rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-8-8`),
+    mary_of_the_cross_mackillop_virgin: {
+      precedence: Precedences.ProperFeast_8f,
+      date: '8-8',
     },
-  ];
-
-  // Get localized liturgical day names
-  return await Locales.localizeDates(_dates);
-};
-
-export { dates, defaultConfig };
+  };
+}

@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 import { Dates } from '../utils/dates';
-import { RomcalCalendarScope } from '../../../constants/scope';
+import { CalendarScope } from '../../../constants/calendar-scope';
+import { CalendarDef } from './calendar-def';
 
 /**
  * The configuration object that is passed either to the [[Calendar.calendarFor]]
@@ -15,7 +16,7 @@ export interface BaseRomcalConfig {
   /**
    * The calendar
    */
-  readonly calendar?: string;
+  readonly particularCalendar?: typeof CalendarDef;
 
   /**
    * If `false`, fixes Epiphany on January 6th. Usually, Epiphany will be set to a
@@ -42,21 +43,13 @@ export interface BaseRomcalConfig {
   readonly ascensionOnSunday?: boolean;
 
   /**
-   * If true, output strictly the relevant liturgical day per date.
-   * Optional memorials or commemorations available for a specific day are not outputted.
-   *
-   * Default: false.
-   */
-  readonly strictMode?: boolean;
-
-  /**
    * The calendar scope to query for.
    *
    * The scope can be specified either as:
    * 1. `gregorian`: Which is the civil year for the majority of countries (January 1 to December 31); or
    * 2. `liturgical`: Religious calendar year (1st Sunday of Advent of the current year to the Saturday before the 1st Sunday of Advent in the next year).
    */
-  readonly scope?: RomcalCalendarScope;
+  readonly scope?: CalendarScope;
 
   /**
    * Enable logging output.
@@ -82,12 +75,11 @@ export type RomcalConfigInput = Partial<BaseRomcalConfig>;
  */
 export class RomcalConfig implements BaseRomcalConfig {
   readonly year: number;
-  readonly calendar: string;
+  readonly particularCalendar?: typeof CalendarDef;
   readonly epiphanyOnSunday: boolean;
   readonly corpusChristiOnSunday: boolean;
   readonly ascensionOnSunday: boolean;
-  readonly strictMode: boolean;
-  readonly scope: RomcalCalendarScope;
+  readonly scope: CalendarScope;
   readonly verbose: boolean;
   readonly prettyPrint: boolean;
 
@@ -96,12 +88,12 @@ export class RomcalConfig implements BaseRomcalConfig {
    * @param config [[RomcalConfig]] object representing all settings
    */
   constructor(config?: RomcalConfigInput) {
-    this.scope = config?.scope ?? RomcalCalendarScope.Gregorian;
+    this.scope = config?.scope ?? CalendarScope.Gregorian;
 
     this.year =
       config?.year ??
       // When year is undefined, determine the current year
-      this.scope === RomcalCalendarScope.Gregorian
+      this.scope === CalendarScope.Gregorian
         ? // Current Gregorian year
           dayjs().year()
         : // Current Liturgical year
@@ -112,11 +104,11 @@ export class RomcalConfig implements BaseRomcalConfig {
           // hat represent the main part of this Liturgical year
           dayjs().year() + 1;
 
-    this.calendar = config?.calendar ?? 'general';
+    if (config?.particularCalendar)
+      this.particularCalendar = config?.particularCalendar;
     this.epiphanyOnSunday = config?.epiphanyOnSunday ?? false;
     this.corpusChristiOnSunday = config?.corpusChristiOnSunday ?? true;
     this.ascensionOnSunday = config?.ascensionOnSunday ?? false;
-    this.strictMode = config?.strictMode ?? false;
     this.verbose = config?.verbose ?? false;
     this.prettyPrint = config?.prettyPrint ?? false;
   }
@@ -127,11 +119,10 @@ export class RomcalConfig implements BaseRomcalConfig {
   toObject(): BaseRomcalConfig {
     return {
       year: this.year,
-      calendar: this.calendar,
+      particularCalendar: this.particularCalendar,
       epiphanyOnSunday: this.epiphanyOnSunday,
       corpusChristiOnSunday: this.corpusChristiOnSunday,
       ascensionOnSunday: this.ascensionOnSunday,
-      strictMode: this.strictMode,
       scope: this.scope,
       verbose: this.verbose,
       prettyPrint: this.prettyPrint,

@@ -1,30 +1,16 @@
-import dayjs from 'dayjs';
+import { CalendarDef, DateDefinitions } from '../models/calendar-def';
+import { Precedences } from '../constants/precedences';
+import { LiturgicalColors } from '../constants/colors';
 
-import * as Locales from '@romcal/lib/locales';
-import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
-import { LiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
-import { RomcalConfig, RomcalConfigInCalendarDef } from '@romcal/models/config/config.model';
-import { Ranks } from '@romcal/constants/ranks/ranks.enum';
-import { Titles } from '@romcal/constants/titles/titles.enum';
-
-const defaultConfig: RomcalConfigInCalendarDef | undefined = undefined;
-
-const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> => {
-  const year = config.year;
-  const _dates: Array<LiturgicalDayInput> = [
-    {
-      key: 'andrew_dung_lac_priest_and_companions_martyrs',
-      rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-11-13`),
+export class Vietnam extends CalendarDef {
+  definitions: DateDefinitions = {
+    andrew_dung_lac_priest_and_companions_martyrs: {
+      precedence: Precedences.ProperFeast_8f,
+      date: '11-13',
       liturgicalColors: LiturgicalColors.RED,
-      metadata: {
-        titles: [Titles.MARTYR],
-      },
+      // metadata: {
+      //   titles: [Titles.MARTYR],
+      // },
     },
-  ];
-
-  // Get localized liturgical day names
-  return await Locales.localizeDates(_dates);
-};
-
-export { dates, defaultConfig };
+  };
+}

@@ -113,7 +113,7 @@ export enum Precedences {
    * 8f - Other Proper Feast
    * inscribed in the Calendar of each diocese or Order or Congregation.
    */
-  ProperFeast_FromADioceseOrReligiousOrg_8f = 'PROPER_FEAST_FROM_DIOCESE_OR_RELIGIOUS_ORG__8F',
+  ProperFeast_8f = 'PROPER_FEAST__8F',
 
   /**
    * 9 - Privileged Weekday
@@ -143,7 +143,7 @@ export enum Precedences {
    * 11b - Other Proper Obligatory Memorial
    * inscribed in the Calendar of each diocese, or Order or congregation.
    */
-  ProperMemorial_OtherProperMemorial_11b = 'PROPER_MEMORIAL__11B',
+  ProperMemorial_11b = 'PROPER_MEMORIAL__11B',
 
   /**
    * 13 - Weekday

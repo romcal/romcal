@@ -1,84 +1,60 @@
-import dayjs from 'dayjs';
+import { CalendarDef, DateDefinitions } from '../models/calendar-def';
+import { Dates } from '../utils/dates';
+import { Precedences } from '../constants/precedences';
+import { LiturgicalColors } from '../constants/colors';
+import { Dayjs } from 'dayjs';
 
-import * as Locales from '@romcal/lib/locales';
-import { Dates } from '@romcal/lib/dates';
-import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
-import { LiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
-import { RomcalConfig, RomcalConfigInCalendarDef } from '@romcal/models/config/config.model';
-import { Ranks } from '@romcal/constants/ranks/ranks.enum';
-import { LiturgicalDayCycle } from '@romcal/constants/cycles/cycles.enum';
-
-const defaultConfig: RomcalConfigInCalendarDef | undefined = undefined;
-
-const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> => {
-  const year = config.year;
-  const _dates: Array<LiturgicalDayInput> = [
-    {
-      key: 'finding_of_the_holy_cross',
-      rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-5-3`),
+export class Peru extends CalendarDef {
+  definitions: DateDefinitions = {
+    finding_of_the_holy_cross: {
+      precedence: Precedences.ProperFeast_8f,
+      date: '5-3',
     },
-    {
-      key: 'our_lady_help_of_christians',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-5-24`),
+    our_lady_help_of_christians: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '5-24',
     },
-    {
-      key: 'mariana_of_jesus_de_paredes_virgin',
-      rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-5-26`),
+    mariana_of_jesus_de_paredes_virgin: {
+      precedence: Precedences.ProperFeast_8f,
+      date: '5-26',
     },
-    {
-      key: 'francis_solanus_priest',
-      rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-7-14`),
+    francis_solanus_priest: {
+      precedence: Precedences.ProperFeast_8f,
+      date: '7-14',
     },
-    {
-      key: 'our_lady_queen_of_peace',
-      rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-7-28`),
+    our_lady_queen_of_peace: {
+      precedence: Precedences.ProperFeast_8f,
+      date: '7-28',
     },
-    {
-      key: 'rose_of_lima_virgin',
-      rank: Ranks.SOLEMNITY,
-      date: dayjs.utc(`${year}-8-23`),
+    rose_of_lima_virgin: {
+      precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
+      date: '8-23',
     },
-    {
-      key: 'john_macias_religious',
-      rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-9-18`),
+    john_macias_religious: {
+      precedence: Precedences.ProperFeast_8f,
+      date: '9-18',
     },
-    {
-      key: 'our_lady_of_mercy',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-9-24`),
+    our_lady_of_mercy: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '9-24',
     },
-    {
-      key: 'our_lord_of_miracles',
-      rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-10-28`),
+    our_lord_of_miracles: {
+      precedence: Precedences.ProperFeast_8f,
+      date: '10-28',
     },
-    {
-      key: 'martin_de_porres_religious',
-      rank: Ranks.SOLEMNITY,
-      date: dayjs.utc(`${year}-11-3`),
+    martin_de_porres_religious: {
+      precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
+      date: '11-3',
     },
-    {
-      key: 'our_lady_of_guadalupe_patroness_of_the_americas',
-      rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-12-12`),
+    our_lady_of_guadalupe_patroness_of_the_americas: {
+      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
+      date: '12-12',
     },
-    {
-      key: 'our_lord_jesus_christ_the_eternal_high_priest',
-      rank: Ranks.FEAST,
-      date: ((y: number): dayjs.Dayjs => dayjs.utc(Dates.pentecostSunday(y).add(4, 'day').toISOString()))(year),
+    our_lord_jesus_christ_the_eternal_high_priest: {
+      precedence: Precedences.ProperFeast_8f,
+      date: (year: number): Dayjs => Dates.pentecostSunday(year).add(4, 'day'),
       liturgicalColors: LiturgicalColors.WHITE,
-      cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
+      // cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
-  ];
-
-  // Get localized liturgical day names
-  return await Locales.localizeDates(_dates);
-};
-
-export { dates, defaultConfig };
+  };
+}
