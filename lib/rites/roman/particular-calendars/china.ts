@@ -1,201 +1,158 @@
-import dayjs from 'dayjs';
+import { CalendarDef, DateDefinitions } from '../models/calendar-def';
+import { Dates } from '../utils/dates';
+import { Precedences } from '../constants/precedences';
+import { LiturgicalColors } from '../constants/colors';
+import dayjs, { Dayjs } from 'dayjs';
 
-import * as Locales from '@romcal/lib/locales';
-import { Dates } from '@romcal/lib/dates';
-import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
-import { LiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
-import { RomcalConfig, RomcalConfigInCalendarDef } from '@romcal/models/config/config.model';
-import { Ranks } from '@romcal/constants/ranks/ranks.enum';
-import { LiturgicalDayCycle } from '@romcal/constants/cycles/cycles.enum';
-import { Titles } from '@romcal/constants/titles/titles.enum';
-
-const defaultConfig: RomcalConfigInCalendarDef | undefined = undefined;
-
-const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> => {
-  const year = config.year;
-  const _dates: Array<LiturgicalDayInput> = [
-    {
-      key: 'odoric_of_pordenone_priest',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-1-14`),
+export class China extends CalendarDef {
+  definitions: DateDefinitions = {
+    odoric_of_pordenone_priest: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '1-14',
     },
-    {
-      key: 'francis_ferdinand_de_capillas_priest',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-1-15`),
+    francis_ferdinand_de_capillas_priest: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '1-15',
     },
-    {
-      key: 'lawrence_bai_xiaoman_martyr',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-1-23`),
+    lawrence_bai_xiaoman_martyr: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '1-23',
     },
-    {
-      key: 'augustine_zhao_rong_priest',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-1-27`),
+    augustine_zhao_rong_priest: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '1-27',
     },
-    {
-      key: 'laurence_wang_bing_and_companions_martyrs',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-1-29`),
+    laurence_wang_bing_and_companions_martyrs: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '1-29',
     },
-    {
-      key: 'joseph_freinademetz_priest',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-1-29`),
+    joseph_freinademetz_priest: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '1-29',
     },
-    {
-      key: 'john_of_triora_priest',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-2-13`),
+    john_of_triora_priest: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '2-13',
     },
-    {
-      key: 'martin_wu_xuesheng_and_companions_martyrs',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-2-17`),
+    martin_wu_xuesheng_and_companions_martyrs: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '2-17',
     },
-    {
-      key: 'lucy_yi_zhenmei_virgin',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-2-19`),
+    lucy_yi_zhenmei_virgin: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '2-19',
     },
-    {
-      key: 'paul_liu_hanzuo_priest',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-2-21`),
+    paul_liu_hanzuo_priest: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '2-21',
     },
-    {
-      key: 'aloysius_versiglia_bishop_and_callistus_caravario_priest_martyrs',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-2-25`),
+    aloysius_versiglia_bishop_and_callistus_caravario_priest_martyrs: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '2-25',
     },
-    {
-      key: 'agnes_cao_guiying_martyr',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-3-1`),
+    agnes_cao_guiying_martyr: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '3-1',
     },
-    {
-      key: 'joseph_zhang_dapeng_martyr',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-3-12`),
+    joseph_zhang_dapeng_martyr: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '3-12',
     },
-    {
-      key: 'mary_assunta_pallotta_virgin',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-4-8`),
+    mary_assunta_pallotta_virgin: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '4-8',
     },
-    {
-      key: 'john_martin_moye_priest',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-5-4`),
+    john_martin_moye_priest: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '5-4',
     },
-    {
-      key: 'our_lady_of_china',
-      rank: Ranks.MEMORIAL,
-      date: ((y: number): dayjs.Dayjs => {
-        const firstMay = dayjs.utc(`${y}-5-1`);
+    our_lady_of_china: {
+      precedence: Precedences.ProperMemorial_11b,
+      date: (year: number): Dayjs => {
+        const firstMay = dayjs.utc(`${year}-5-1`);
         const memorialDay = firstMay;
         // determine first saturday
         memorialDay.add(6 - firstMay.day(), 'day');
         // Second saturday
         memorialDay.add(7, 'day');
         return memorialDay;
-      })(year),
+      },
       liturgicalColors: LiturgicalColors.WHITE,
     },
-    {
-      key: 'peter_liu_wenyuan_martyr',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-5-14`),
+    peter_liu_wenyuan_martyr: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '5-14',
     },
-    {
-      key: 'peter_sanz_bishop',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-5-27`),
+    peter_sanz_bishop: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '5-27',
     },
-    {
-      key: 'joachim_he_kaizhi_martyr',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-5-29`),
+    joachim_he_kaizhi_martyr: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '5-29',
     },
-    {
-      key: 'gregory_grassi_francis_fogolla_and_anthony_fantosati_bishops_and_companions_martyrs',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-6-20`),
-    },
-    {
-      key: 'joseph_yuan_gengyin_priest',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-6-23`),
-    },
-    {
-      key: 'seven_martyred_nuns_from_the_franciscan_missionaries_of_mary',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-7-8`),
-    },
-    {
-      key: 'augustine_zhao_rong_priest_and_companions_martyrs',
-      rank: Ranks.SOLEMNITY,
-      date: dayjs.utc(`${year}-7-9`),
-      liturgicalColors: LiturgicalColors.RED,
-      metadata: {
-        titles: [Titles.MARTYR],
+    gregory_grassi_francis_fogolla_and_anthony_fantosati_bishops_and_companions_martyrs:
+      {
+        precedence: Precedences.OptionalMemorial_12,
+        date: '6-20',
       },
+    joseph_yuan_gengyin_priest: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '6-23',
     },
-    {
-      key: 'leo_ignatius_mangin_priest_and_companions_martyrs',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-7-20`),
+    seven_martyred_nuns_from_the_franciscan_missionaries_of_mary: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '7-8',
     },
-    {
-      key: 'alberic_crescitelli_priest',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-7-21`),
-    },
-    {
-      key: 'paul_chen_changpin_and_companions_martyrs',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-7-28`),
-    },
-    {
-      key: 'maurice_tornay_priest',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-8-11`),
-    },
-    {
-      key: 'john_gabriel_perboyre_priest',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-9-11`),
-    },
-    {
-      key: 'francis_diaz_del_rincon_priest_and_companions_martyrs',
-      rank: Ranks.MEMORIAL,
-      date: dayjs.utc(`${year}-10-27`),
+    augustine_zhao_rong_priest_and_companions_martyrs: {
+      precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
+      date: '7-9',
       liturgicalColors: LiturgicalColors.RED,
-      metadata: {
-        titles: [Titles.MARTYR],
-      },
+      // metadata: {
+      //   titles: [Titles.MARTYR],
+      // },
     },
-    {
-      key: 'peter_wu_guosheng_martyr',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-11-7`),
+    leo_ignatius_mangin_priest_and_companions_martyrs: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '7-20',
     },
-    {
-      key: 'gabriel_taurin_dufresse_bishop',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-11-27`),
+    alberic_crescitelli_priest: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '7-21',
     },
-    {
-      key: 'our_lord_jesus_christ_the_eternal_high_priest',
-      rank: Ranks.FEAST,
-      date: ((y: number): dayjs.Dayjs => dayjs.utc(Dates.pentecostSunday(y).add(4, 'day').toISOString()))(year),
+    paul_chen_changpin_and_companions_martyrs: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '7-28',
+    },
+    maurice_tornay_priest: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '8-11',
+    },
+    john_gabriel_perboyre_priest: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '9-11',
+    },
+    francis_diaz_del_rincon_priest_and_companions_martyrs: {
+      precedence: Precedences.ProperMemorial_11b,
+      date: '10-27',
+      liturgicalColors: LiturgicalColors.RED,
+      // metadata: {
+      //   titles: [Titles.MARTYR],
+      // },
+    },
+    peter_wu_guosheng_martyr: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '11-7',
+    },
+    gabriel_taurin_dufresse_bishop: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '11-27',
+    },
+    our_lord_jesus_christ_the_eternal_high_priest: {
+      precedence: Precedences.ProperFeast_8f,
+      date: (year: number): Dayjs => Dates.pentecostSunday(year).add(4, 'day'),
       liturgicalColors: LiturgicalColors.WHITE,
-      cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
+      // cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
-  ];
-  // Get localized liturgical day names
-  return await Locales.localizeDates(_dates);
-};
-
-export { dates, defaultConfig };
+  };
+}

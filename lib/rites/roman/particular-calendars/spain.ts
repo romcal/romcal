@@ -1,236 +1,193 @@
-import dayjs from 'dayjs';
+import { CalendarDef, DateDefinitions } from '../models/calendar-def';
+import { Dates } from '../utils/dates';
+import { Precedences } from '../constants/precedences';
+import { LiturgicalColors } from '../constants/colors';
+import { Dayjs } from 'dayjs';
 
-import * as Locales from '@romcal/lib/locales';
-import { Dates } from '@romcal/lib/dates';
-import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
-import { LiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
-import { RomcalConfig, RomcalConfigInCalendarDef } from '@romcal/models/config/config.model';
-import { Ranks } from '@romcal/constants/ranks/ranks.enum';
-import { LiturgicalDayCycle } from '@romcal/constants/cycles/cycles.enum';
-import { Titles } from '@romcal/constants/titles/titles.enum';
-
-const defaultConfig: RomcalConfigInCalendarDef | undefined = undefined;
-
-const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> => {
-  const year = config.year;
-  const _dates: Array<LiturgicalDayInput> = [
-    {
-      key: 'eulogius_of_cordoba_bishop',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-1-9`),
+export class Spain extends CalendarDef {
+  definitions: DateDefinitions = {
+    eulogius_of_cordoba_bishop: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '1-9',
     },
-    {
-      key: 'fructuosus_of_tarragona_bishop_and_augurius_of_tarragona_and_eulogius_of_tarragona_deacons_martyrs',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-1-20`),
-      metadata: {
-        titles: [Titles.MARTYR],
+    fructuosus_of_tarragona_bishop_and_augurius_of_tarragona_and_eulogius_of_tarragona_deacons_martyrs:
+      {
+        precedence: Precedences.OptionalMemorial_12,
+        date: '1-20',
+        // metadata: {
+        //   titles: [Titles.MARTYR],
+        // },
       },
-    },
-    {
-      key: 'vincent_of_saragossa_deacon',
-      rank: Ranks.MEMORIAL,
-      date: dayjs.utc(`${year}-1-22`),
+    vincent_of_saragossa_deacon: {
+      precedence: Precedences.ProperMemorial_11b,
+      date: '1-22',
       liturgicalColors: LiturgicalColors.RED,
-      metadata: {
-        titles: [Titles.MARTYR],
+      // metadata: {
+      //   titles: [Titles.MARTYR],
+      // },
+    },
+    ildephonsus_of_toledo_bishop: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '1-23',
+    },
+    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe:
+      {
+        precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
+        date: '2-14',
+        liturgicalColors: LiturgicalColors.WHITE,
+        // metadata: {
+        //   titles: [Titles.PATRON_OF_EUROPE],
+        // },
       },
-    },
-    {
-      key: 'ildephonsus_of_toledo_bishop',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-1-23`),
-    },
-    {
-      key: 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe',
-      rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-2-14`),
-      liturgicalColors: LiturgicalColors.WHITE,
-      metadata: {
-        titles: [Titles.PATRON_OF_EUROPE],
-      },
-    },
-    {
-      key: 'hermenegild_the_visigoths_martyr',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-4-13`),
+    hermenegild_the_visigoths_martyr: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '4-13',
       liturgicalColors: LiturgicalColors.RED,
     },
-    {
-      key: 'isidore_of_seville_bishop',
-      rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-4-26`),
+    isidore_of_seville_bishop: {
+      precedence: Precedences.ProperFeast_8f,
+      date: '4-26',
       liturgicalColors: LiturgicalColors.WHITE,
-      metadata: {
-        titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      },
+      // metadata: {
+      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
+      // },
     },
-    {
-      key: 'catherine_of_siena_virgin_copatroness_of_europe',
-      rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-4-29`),
+    catherine_of_siena_virgin_copatroness_of_europe: {
+      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
+      date: '4-29',
       liturgicalColors: LiturgicalColors.WHITE,
-      metadata: {
-        titles: [Titles.PATRON_OF_EUROPE, Titles.DOCTOR_OF_THE_CHURCH],
-      },
+      // metadata: {
+      //   titles: [Titles.PATRON_OF_EUROPE, Titles.DOCTOR_OF_THE_CHURCH],
+      // },
     },
-    {
-      key: 'john_of_avila_priest',
-      rank: Ranks.MEMORIAL,
-      date: dayjs.utc(`${year}-5-10`),
+    john_of_avila_priest: {
+      precedence: Precedences.ProperMemorial_11b,
+      date: '5-10',
       liturgicalColors: LiturgicalColors.WHITE,
-      metadata: {
-        titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      },
+      // metadata: {
+      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
+      // },
     },
-    {
-      key: 'isidore_the_farmer',
-      rank: Ranks.MEMORIAL,
-      date: dayjs.utc(`${year}-5-15`),
+    isidore_the_farmer: {
+      precedence: Precedences.ProperMemorial_11b,
+      date: '5-15',
       liturgicalColors: LiturgicalColors.WHITE,
     },
-    {
-      key: 'paschal_baylon_religious',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-5-17`),
+    paschal_baylon_religious: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '5-17',
     },
-    {
-      key: 'joaquina_of_saint_francis_of_assisi_de_vedruna_religious',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-5-22`),
+    joaquina_of_saint_francis_of_assisi_de_vedruna_religious: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '5-22',
     },
-    {
-      key: 'ferdinand_iii_of_castile',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-5-30`),
+    ferdinand_iii_of_castile: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '5-30',
     },
-    {
-      key: 'maria_micaela_of_the_blessed_sacrament_desmaisieres_virgin',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-6-15`),
+    maria_micaela_of_the_blessed_sacrament_desmaisieres_virgin: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '6-15',
     },
-    {
-      key: 'pelagius_of_cordoba_martyr',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-6-26`),
-      metadata: {
-        titles: [Titles.MARTYR],
-      },
+    pelagius_of_cordoba_martyr: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '6-26',
+      // metadata: {
+      //   titles: [Titles.MARTYR],
+      // },
     },
-    {
-      key: 'benedict_of_nursia_abbot_patron_of_europe',
-      rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-7-11`),
+    benedict_of_nursia_abbot_patron_of_europe: {
+      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
+      date: '7-11',
       liturgicalColors: LiturgicalColors.WHITE,
-      metadata: {
-        titles: [Titles.PATRON_OF_EUROPE],
-      },
+      // metadata: {
+      //   titles: [Titles.PATRON_OF_EUROPE],
+      // },
     },
-    {
-      key: 'our_lady_of_mount_carmel',
-      rank: Ranks.MEMORIAL,
-      date: dayjs.utc(`${year}-7-16`),
+    our_lady_of_mount_carmel: {
+      precedence: Precedences.ProperMemorial_11b,
+      date: '7-16',
       liturgicalColors: LiturgicalColors.WHITE,
     },
-    {
-      key: 'bridget_of_sweden_religious_copatroness_of_europe',
-      rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-7-23`),
+    bridget_of_sweden_religious_copatroness_of_europe: {
+      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
+      date: '7-23',
       liturgicalColors: LiturgicalColors.WHITE,
-      metadata: {
-        titles: [Titles.PATRON_OF_EUROPE],
-      },
+      // metadata: {
+      //   titles: [Titles.PATRON_OF_EUROPE],
+      // },
     },
-    {
-      key: 'james_apostle_patron_of_spain',
-      rank: Ranks.SOLEMNITY,
-      date: dayjs.utc(`${year}-7-25`),
+    james_apostle_patron_of_spain: {
+      precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
+      date: '7-25',
     },
-    {
-      key: 'teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe',
-      rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-8-9`),
+    teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe: {
+      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
+      date: '8-9',
       liturgicalColors: LiturgicalColors.RED,
-      metadata: {
-        titles: [Titles.MARTYR, Titles.PATRON_OF_EUROPE],
-      },
+      // metadata: {
+      //   titles: [Titles.MARTYR, Titles.PATRON_OF_EUROPE],
+      // },
     },
-    {
-      key: 'ezequiel_moreno_bishop',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-8-19`),
+    ezequiel_moreno_bishop: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '8-19',
     },
-    {
-      key: 'teresa_of_jesus_jornet_ibars_virgin',
-      rank: Ranks.MEMORIAL,
-      date: dayjs.utc(`${year}-8-26`),
+    teresa_of_jesus_jornet_ibars_virgin: {
+      precedence: Precedences.ProperMemorial_11b,
+      date: '8-26',
       liturgicalColors: LiturgicalColors.WHITE,
     },
-    {
-      key: 'francis_borgia_priest',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-10-3`),
+    francis_borgia_priest: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '10-3',
     },
-    {
-      key: 'thomas_of_villanova_bishop',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-10-10`),
+    thomas_of_villanova_bishop: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '10-10',
     },
-    {
-      key: 'mary_soledad_torres_acosta_virgin',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-10-11`),
+    mary_soledad_torres_acosta_virgin: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '10-11',
     },
-    {
-      key: 'our_lady_of_the_pillar',
-      rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-10-12`),
+    our_lady_of_the_pillar: {
+      precedence: Precedences.ProperFeast_8f,
+      date: '10-12',
       liturgicalColors: LiturgicalColors.WHITE,
     },
-    {
-      key: 'teresa_of_jesus_of_avila_virgin',
-      rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-10-15`),
+    teresa_of_jesus_of_avila_virgin: {
+      precedence: Precedences.ProperFeast_8f,
+      date: '10-15',
       liturgicalColors: LiturgicalColors.WHITE,
-      metadata: {
-        titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      },
+      // metadata: {
+      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
+      // },
     },
-    {
-      key: 'peter_of_alcantara_priest',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-10-19`),
+    peter_of_alcantara_priest: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '10-19',
     },
-    {
-      key: 'leander_of_seville_bishop',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-11-13`),
+    leander_of_seville_bishop: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '11-13',
     },
-    {
-      key: 'eulalia_of_merida_virgin',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-12-10`),
+    eulalia_of_merida_virgin: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '12-10',
     },
-    {
-      key: 'john_of_the_cross_priest',
-      rank: Ranks.MEMORIAL,
-      date: dayjs.utc(`${year}-12-14`),
+    john_of_the_cross_priest: {
+      precedence: Precedences.ProperMemorial_11b,
+      date: '12-14',
       liturgicalColors: LiturgicalColors.WHITE,
-      metadata: {
-        titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      },
+      // metadata: {
+      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
+      // },
     },
-    {
-      key: 'our_lord_jesus_christ_the_eternal_high_priest',
-      rank: Ranks.FEAST,
-      date: ((y: number): dayjs.Dayjs => dayjs.utc(Dates.pentecostSunday(y).add(4, 'day').toISOString()))(year),
+    our_lord_jesus_christ_the_eternal_high_priest: {
+      precedence: Precedences.ProperFeast_8f,
+      date: (year: number): Dayjs => Dates.pentecostSunday(year).add(4, 'day'),
       liturgicalColors: LiturgicalColors.WHITE,
-      cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
+      // cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
-  ];
-
-  // Get localized liturgical day names
-  return await Locales.localizeDates(_dates);
-};
-
-export { dates, defaultConfig };
+  };
+}

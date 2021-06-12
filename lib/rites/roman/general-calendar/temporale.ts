@@ -57,7 +57,7 @@ export default class Temporale {
           periods: [],
           liturgicalColors: [LiturgicalColors.PURPLE],
           isHolyDayOfObligation: date.day() === 0,
-          fromCalendar: 'general',
+          fromCalendar: 'temporale',
         });
 
         const dateStr = date.format('YYYY-MM-DD');
@@ -137,7 +137,7 @@ export default class Temporale {
           ],
           liturgicalColors: [LiturgicalColors.WHITE],
           isHolyDayOfObligation: date.day() === 0,
-          fromCalendar: 'general',
+          fromCalendar: 'temporale',
         });
 
         const dateStr = date.format('YYYY-MM-DD');
@@ -208,7 +208,7 @@ export default class Temporale {
           periods: [],
           liturgicalColors,
           isHolyDayOfObligation: date.day() === 0,
-          fromCalendar: 'general',
+          fromCalendar: 'temporale',
         });
 
         // Holy Week begins from the Sixth Sunday of Lent
@@ -261,7 +261,7 @@ export default class Temporale {
           liturgicalColors:
             idx === 0 ? [LiturgicalColors.RED] : [LiturgicalColors.WHITE],
           isHolyDayOfObligation: false,
-          fromCalendar: 'general',
+          fromCalendar: 'temporale',
         });
 
         const dateStr = date.format('YYYY-MM-DD');
@@ -329,7 +329,7 @@ export default class Temporale {
           periods: [LiturgicalPeriods.HOLY_WEEK],
           liturgicalColors: [LiturgicalColors.WHITE],
           isHolyDayOfObligation: date.day() === 0,
-          fromCalendar: 'general',
+          fromCalendar: 'temporale',
         });
 
         // The Paschal Triduum of the Passion and Resurrection of the Lord begins with the evening Mass
@@ -415,7 +415,7 @@ export default class Temporale {
           periods: [periodOfOrdinaryTime],
           liturgicalColors: [LiturgicalColors.GREEN],
           isHolyDayOfObligation: date.day() === 0,
-          fromCalendar: 'general',
+          fromCalendar: 'temporale',
         });
 
         const dateStr = date.format('YYYY-MM-DD');

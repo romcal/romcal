@@ -1,7 +1,7 @@
 /**
  * The calendar scope that can be resolved by this library.
  */
-export enum RomcalCalendarScope {
+export enum CalendarScope {
   /**
    * January 1 to December 31
    */

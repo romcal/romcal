@@ -1,96 +1,69 @@
-import dayjs from 'dayjs';
+import { CalendarDef, DateDefinitions } from '../models/calendar-def';
+import { Dates } from '../utils/dates';
+import { Precedences } from '../constants/precedences';
+import { LiturgicalColors } from '../constants/colors';
+import { Dayjs } from 'dayjs';
 
-import * as Locales from '@romcal/lib/locales';
-import { Dates } from '@romcal/lib/dates';
-import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
-import { LiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
-import { RomcalConfig, RomcalConfigInCalendarDef } from '@romcal/models/config/config.model';
-import { Ranks } from '@romcal/constants/ranks/ranks.enum';
-import { LiturgicalDayCycle } from '@romcal/constants/cycles/cycles.enum';
-
-const defaultConfig: RomcalConfigInCalendarDef | undefined = undefined;
-
-const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> => {
-  const year = config.year;
-  const _dates: Array<LiturgicalDayInput> = [
-    {
-      key: 'laura_vicuna_virgin',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-1-22`),
+export class Chile extends CalendarDef {
+  definitions: DateDefinitions = {
+    laura_vicuna_virgin: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '1-22',
     },
-    {
-      key: 'pius_ix_pope',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-2-7`),
+    pius_ix_pope: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '2-7',
     },
-    {
-      key: 'our_lady_of_lourdes',
-      rank: Ranks.MEMORIAL,
-      date: dayjs.utc(`${year}-2-11`),
+    our_lady_of_lourdes: {
+      precedence: Precedences.ProperMemorial_11b,
+      date: '2-11',
       liturgicalColors: LiturgicalColors.WHITE,
     },
-    {
-      key: 'philip_and_james_apostles',
-      rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-5-4`),
+    philip_and_james_apostles: {
+      date: '5-4',
+    },
+    teresa_of_jesus_of_los_andes_virgin: {
+      precedence: Precedences.ProperFeast_8f,
+      date: '7-13',
       liturgicalColors: LiturgicalColors.WHITE,
     },
-    {
-      key: 'teresa_of_jesus_of_los_andes_virgin',
-      rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-7-13`),
+    camillus_de_lellis_priest: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '7-14',
+    },
+    henry_ii_emperor: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '7-14',
+    },
+    our_lady_of_mount_carmel_mother_and_queen_of_chile: {
+      precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
+      date: '7-16',
       liturgicalColors: LiturgicalColors.WHITE,
     },
-    {
-      key: 'camillus_de_lellis_priest',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-7-14`),
-    },
-    {
-      key: 'henry_ii_emperor',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-7-14`),
-    },
-    {
-      key: 'our_lady_of_mount_carmel_mother_and_queen_of_chile',
-      rank: Ranks.SOLEMNITY,
-      date: dayjs.utc(`${year}-7-16`),
+    alberto_hurtado_priest: {
+      precedence: Precedences.ProperMemorial_11b,
+      date: '8-18',
       liturgicalColors: LiturgicalColors.WHITE,
     },
-    {
-      key: 'alberto_hurtado_priest',
-      rank: Ranks.MEMORIAL,
-      date: dayjs.utc(`${year}-8-18`),
+    rose_of_lima_virgin: {
+      precedence: Precedences.ProperFeast_8f,
+      date: '8-30',
       liturgicalColors: LiturgicalColors.WHITE,
     },
-    {
-      key: 'rose_of_lima_virgin',
-      rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-8-30`),
+    our_lady_of_mercy: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '9-24',
+    },
+    our_lady_of_guadalupe_patroness_of_the_americas: {
+      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
+      date: '12-12',
       liturgicalColors: LiturgicalColors.WHITE,
     },
-    {
-      key: 'our_lady_of_mercy',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-9-24`),
-    },
-    {
-      key: 'our_lady_of_guadalupe_patroness_of_the_americas',
-      rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-12-12`),
+    our_lord_jesus_christ_the_eternal_high_priest: {
+      precedence: Precedences.ProperFeast_8f,
+      date: (year: number): Dayjs => Dates.pentecostSunday(year).add(4, 'day'),
       liturgicalColors: LiturgicalColors.WHITE,
+      // cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
-    {
-      key: 'our_lord_jesus_christ_the_eternal_high_priest',
-      rank: Ranks.FEAST,
-      date: ((y: number): dayjs.Dayjs => dayjs.utc(Dates.pentecostSunday(y).add(4, 'day').toISOString()))(year),
-      liturgicalColors: LiturgicalColors.WHITE,
-      cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
-    },
-  ];
-
-  // Get localized liturgical day names
-  return await Locales.localizeDates(_dates);
-};
-
-export { dates, defaultConfig };
+  };
+}

@@ -1,37 +1,22 @@
-import dayjs from 'dayjs';
+import { CalendarDef, DateDefinitions } from '../models/calendar-def';
+import { Precedences } from '../constants/precedences';
+import { LiturgicalColors } from '../constants/colors';
 
-import * as Locales from '@romcal/lib/locales';
-import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
-import { LiturgicalDayInput } from '@romcal/models/liturgical-day/liturgical-day.types';
-import { RomcalConfig, RomcalConfigInCalendarDef } from '@romcal/models/config/config.model';
-import { Ranks } from '@romcal/constants/ranks/ranks.enum';
-
-const defaultConfig: RomcalConfigInCalendarDef | undefined = undefined;
-
-const dates = async (config: RomcalConfig): Promise<Array<LiturgicalDayInput>> => {
-  const year = config.year;
-  const _dates: Array<LiturgicalDayInput> = [
-    {
-      key: 'joseph_vaz_priest',
-      rank: Ranks.OPT_MEMORIAL,
-      date: dayjs.utc(`${year}-1-16`),
+export class SriLanka extends CalendarDef {
+  definitions: DateDefinitions = {
+    joseph_vaz_priest: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '1-16',
     },
-    {
-      key: 'our_lady_of_lanka',
-      rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-2-4`),
+    our_lady_of_lanka: {
+      precedence: Precedences.ProperFeast_8f,
+      date: '2-4',
       liturgicalColors: LiturgicalColors.WHITE,
     },
-    {
-      key: 'our_lady_of_madhu',
-      rank: Ranks.FEAST,
-      date: dayjs.utc(`${year}-7-2`),
+    our_lady_of_madhu: {
+      precedence: Precedences.ProperFeast_8f,
+      date: '7-2',
       liturgicalColors: LiturgicalColors.WHITE,
     },
-  ];
-
-  // Get localized liturgical day names
-  return await Locales.localizeDates(_dates);
-};
-
-export { dates, defaultConfig };
+  };
+}

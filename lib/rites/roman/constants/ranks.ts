@@ -80,11 +80,11 @@ export const RanksFromPrecedence = {
   [Precedences.ProperFeast_TitleOrFounderOrPrincipalPatronOfAReligiousOrg_8d]:
     Ranks.FEAST,
   [Precedences.ProperFeast_ToAnIndividualChurch_8e]: Ranks.FEAST,
-  [Precedences.ProperFeast_FromADioceseOrReligiousOrg_8f]: Ranks.FEAST,
+  [Precedences.ProperFeast_8f]: Ranks.FEAST,
   [Precedences.PrivilegedWeekday_9]: Ranks.WEEKDAY,
   [Precedences.GeneralMemorial_10]: Ranks.MEMORIAL,
   [Precedences.ProperMemorial_SecondPatron_11a]: Ranks.MEMORIAL,
-  [Precedences.ProperMemorial_OtherProperMemorial_11b]: Ranks.MEMORIAL,
+  [Precedences.ProperMemorial_11b]: Ranks.MEMORIAL,
   [Precedences.OptionalMemorial_12]: Ranks.MEMORIAL,
   [Precedences.Weekday_13]: Ranks.WEEKDAY,
 };
