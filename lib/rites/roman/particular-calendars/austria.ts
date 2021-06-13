@@ -13,6 +13,7 @@ export class Austria extends CalendarDef {
         //   titles: [Titles.PATRON_OF_EUROPE],
         // },
       },
+
     catherine_of_siena_virgin_copatroness_of_europe: {
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       date: '4-29',
@@ -21,6 +22,7 @@ export class Austria extends CalendarDef {
       //   titles: [Titles.PATRON_OF_EUROPE, Titles.DOCTOR_OF_THE_CHURCH],
       // },
     },
+
     john_nepomucene_priest: {
       precedence: Precedences.ProperMemorial_11b,
       date: '5-16',
@@ -29,6 +31,7 @@ export class Austria extends CalendarDef {
       //   titles: [Titles.MARTYR],
       // },
     },
+
     benedict_of_nursia_abbot_patron_of_europe: {
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       date: '7-11',
@@ -37,6 +40,7 @@ export class Austria extends CalendarDef {
       //   titles: [Titles.PATRON_OF_EUROPE],
       // },
     },
+
     bridget_of_sweden_religious_copatroness_of_europe: {
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       date: '7-23',
@@ -45,6 +49,7 @@ export class Austria extends CalendarDef {
       //   titles: [Titles.PATRON_OF_EUROPE],
       // },
     },
+
     teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe: {
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       date: '8-9',
@@ -53,6 +58,7 @@ export class Austria extends CalendarDef {
       //   titles: [Titles.MARTYR, Titles.PATRON_OF_EUROPE],
       // },
     },
+
     charles_i_of_austria: {
       precedence: Precedences.OptionalMemorial_12,
       date: '10-21',

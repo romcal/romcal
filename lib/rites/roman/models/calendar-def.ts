@@ -24,7 +24,7 @@ export type DateDefInput = Partial<
   Pick<LiturgicalDay, 'precedence' | 'isHolyDayOfObligation'>
 > & {
   /**
-   * The Dayjs date object, or an ISO string, of the liturgical day.
+   * Date as string, in the 'M-D' format, or as Dayjs object.
    */
   date?: string | ((year: number) => Dayjs);
 

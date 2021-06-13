@@ -10,6 +10,7 @@ export class Wales extends CalendarDef {
       precedence: Precedences.OptionalMemorial_12,
       date: '2-9',
     },
+
     cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe:
       {
         precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
@@ -19,15 +20,18 @@ export class Wales extends CalendarDef {
         //   titles: [Titles.PATRON_OF_EUROPE],
         // },
       },
+
     david_of_wales_bishop_patron_of_wales: {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '3-1',
       liturgicalColors: LiturgicalColors.WHITE,
     },
+
     beuno_of_wales_abbot: {
       precedence: Precedences.OptionalMemorial_12,
       date: '4-20',
     },
+
     catherine_of_siena_virgin_copatroness_of_europe: {
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       date: '4-29',
@@ -36,10 +40,12 @@ export class Wales extends CalendarDef {
       //   titles: [Titles.PATRON_OF_EUROPE, Titles.DOCTOR_OF_THE_CHURCH],
       // },
     },
+
     asaph_of_wales_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '5-5',
     },
+
     alban_of_britain_julius_of_caerleon_aaron_of_caerleon_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '6-20',
@@ -48,6 +54,7 @@ export class Wales extends CalendarDef {
       //   titles: [Titles.MARTYR],
       // },
     },
+
     benedict_of_nursia_abbot_patron_of_europe: {
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       date: '7-11',
@@ -56,6 +63,7 @@ export class Wales extends CalendarDef {
       //   titles: [Titles.PATRON_OF_EUROPE],
       // },
     },
+
     john_jones_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-12',
@@ -64,6 +72,7 @@ export class Wales extends CalendarDef {
       //   titles: [Titles.MARTYR],
       // },
     },
+
     bridget_of_sweden_religious_copatroness_of_europe: {
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       date: '7-23',
@@ -72,6 +81,7 @@ export class Wales extends CalendarDef {
       //   titles: [Titles.PATRON_OF_EUROPE],
       // },
     },
+
     philip_evans_and_john_lloyd_priests: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-25',
@@ -80,10 +90,12 @@ export class Wales extends CalendarDef {
       //   titles: [Titles.MARTYR],
       // },
     },
+
     germanus_of_auxerre_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '8-3',
     },
+
     teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe: {
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       date: '8-9',
@@ -92,6 +104,7 @@ export class Wales extends CalendarDef {
       //   titles: [Titles.MARTYR, Titles.PATRON_OF_EUROPE],
       // },
     },
+
     david_lewis_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '8-26',
@@ -100,22 +113,27 @@ export class Wales extends CalendarDef {
       //   titles: [Titles.MARTYR],
       // },
     },
+
     deiniol_of_bangor_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '9-11',
     },
+
     john_henry_newman_priest: {
       precedence: Precedences.ProperFeast_8f,
       date: '10-9',
     },
+
     denis_of_paris_bishop_and_companions_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '10-10',
     },
+
     john_leonardi_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '10-10',
     },
+
     richard_gwyn_martyr: {
       precedence: Precedences.OptionalMemorial_12,
       date: '10-16',
@@ -124,6 +142,7 @@ export class Wales extends CalendarDef {
       //   titles: [Titles.MARTYR],
       // },
     },
+
     six_welsh_martyrs_and_companions: {
       precedence: Precedences.ProperFeast_8f,
       date: '10-25',
@@ -132,14 +151,17 @@ export class Wales extends CalendarDef {
       //   titles: [Titles.MARTYR],
       // },
     },
+
     winefride_of_flintshire_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       date: '11-3',
     },
+
     illtud_the_knight_abbot: {
       precedence: Precedences.OptionalMemorial_12,
       date: '11-6',
     },
+
     // In England and Wales when All Saints (1 November) falls on a Saturday
     // and is transferred to Sunday, All Souls is transferred to Monday 3 November.
     // Like Ash Wednesday, All Souls is, technically, without rank.
@@ -155,6 +177,7 @@ export class Wales extends CalendarDef {
         }
       },
     },
+
     all_souls: {
       date: (year: number): Dayjs => {
         const date = dayjs.utc(`${year}-11-1`);
@@ -168,11 +191,13 @@ export class Wales extends CalendarDef {
         }
       },
     },
+
     all_saints_of_wales: {
       precedence: Precedences.ProperFeast_8f,
       date: '11-6',
       liturgicalColors: LiturgicalColors.WHITE,
     },
+
     dyfrig_of_wales_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '11-14',
@@ -180,6 +205,7 @@ export class Wales extends CalendarDef {
       //   titles: [Titles.MARTYR],
       // },
     },
+
     john_roberts_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '12-10',
@@ -188,6 +214,7 @@ export class Wales extends CalendarDef {
       //   titles: [Titles.MARTYR],
       // },
     },
+
     // In England and Wales when this liturgical day falls on either a
     // Saturday or a Monday it is transferred to the Sunday.
     // Replaces 20th Sunday in Ordinary Time when it falls on a Sunday.
@@ -203,6 +230,7 @@ export class Wales extends CalendarDef {
         }
       },
     },
+
     // In England and Wales when this liturgical day falls on either a
     // Saturday or a Monday it is transferred to the Sunday.
     // Replaces 20th Sunday in Ordinary Time when it falls on a Sunday.
@@ -218,6 +246,7 @@ export class Wales extends CalendarDef {
         }
       },
     },
+
     our_lord_jesus_christ_the_eternal_high_priest: {
       precedence: Precedences.ProperFeast_8f,
       date: (year: number): Dayjs => Dates.pentecostSunday(year).add(4, 'day'),

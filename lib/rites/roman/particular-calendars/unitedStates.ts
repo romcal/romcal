@@ -21,15 +21,18 @@ export class UnitedStates extends CalendarDef {
       date: '1-4',
       liturgicalColors: LiturgicalColors.WHITE,
     },
+
     john_neumann_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       date: '1-5',
       liturgicalColors: LiturgicalColors.WHITE,
     },
+
     andre_bessette_religious: {
       precedence: Precedences.OptionalMemorial_12,
       date: '1-6',
     },
+
     vincent_of_saragossa_deacon: {
       precedence: Precedences.OptionalMemorial_12,
       date: '1-23',
@@ -37,52 +40,64 @@ export class UnitedStates extends CalendarDef {
       //   titles: [Titles.MARTYR],
       // },
     },
+
     marianne_cope_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       date: '1-23',
     },
+
     katharine_drexel_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       date: '3-3',
     },
+
     damien_de_veuster_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '5-10',
     },
+
     isidore_the_farmer: {
       precedence: Precedences.OptionalMemorial_12,
       date: '5-15',
     },
+
     junipero_serra_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-1',
     },
+
     elizabeth_of_portugal: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-5',
     },
+
     kateri_tekakwitha_virgin: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-14',
       liturgicalColors: LiturgicalColors.WHITE,
     },
+
     camillus_de_lellis_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-18',
     },
+
     peter_claver_priest: {
       precedence: Precedences.ProperMemorial_11b,
       date: '9-9',
       liturgicalColors: LiturgicalColors.WHITE,
     },
+
     francis_xavier_seelos_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '10-5',
     },
+
     marie_rose_durocher_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       date: '10-6',
     },
+
     john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs: {
       precedence: Precedences.ProperMemorial_11b,
       date: '10-19',
@@ -91,19 +106,23 @@ export class UnitedStates extends CalendarDef {
       //   titles: [Titles.MARTYR],
       // },
     },
+
     paul_of_the_cross_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '10-20',
     },
+
     frances_xavier_cabrini_virgin: {
       precedence: Precedences.ProperMemorial_11b,
       date: '11-13',
       liturgicalColors: LiturgicalColors.WHITE,
     },
+
     rose_philippine_duchesne_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       date: '11-18',
     },
+
     miguel_agustin_pro_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '11-23',
@@ -122,6 +141,7 @@ export class UnitedStates extends CalendarDef {
           : dayjs.utc(`${year}-12-9`);
       },
     },
+
     our_lady_of_guadalupe_patroness_of_the_americas: {
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       date: '12-12',
