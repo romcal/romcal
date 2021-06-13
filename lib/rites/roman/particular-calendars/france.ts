@@ -5,8 +5,11 @@ import {
 } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
+import { Europe } from './europe';
 
 export class France extends CalendarDef {
+  inheritFrom = Europe;
+
   particularConfig: ParticularConfig = {
     ascensionOnSunday: true,
     corpusChristiOnSunday: true,
@@ -24,28 +27,9 @@ export class France extends CalendarDef {
       date: '1-15',
     },
 
-    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe:
-      {
-        precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-        date: '2-14',
-        liturgicalColors: LiturgicalColors.WHITE,
-        // metadata: {
-        //   titles: [Titles.PATRON_OF_EUROPE],
-        // },
-      },
-
     bernadette_soubirous_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       date: '2-18',
-    },
-
-    catherine_of_siena_virgin_copatroness_of_europe: {
-      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      date: '4-29',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.PATRON_OF_EUROPE, Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     ivo_of_kermartin_priest: {
@@ -67,33 +51,6 @@ export class France extends CalendarDef {
     clotilde_of_burgundy: {
       precedence: Precedences.OptionalMemorial_12,
       date: '6-4',
-    },
-
-    benedict_of_nursia_abbot_patron_of_europe: {
-      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      date: '7-11',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.PATRON_OF_EUROPE],
-      // },
-    },
-
-    bridget_of_sweden_religious_copatroness_of_europe: {
-      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      date: '7-23',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.PATRON_OF_EUROPE],
-      // },
-    },
-
-    teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe: {
-      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      date: '8-9',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR, Titles.PATRON_OF_EUROPE],
-      // },
     },
 
     caesarius_of_arles_bishop: {

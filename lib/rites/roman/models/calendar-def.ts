@@ -29,7 +29,7 @@ export type DateDefInput = Partial<
   date?: string | ((year: number) => Dayjs);
 
   /**
-   * The liturgical colors of a liturgical day.
+   * The liturgical colors of the liturgical day.
    */
   liturgicalColors?: LiturgicalColors | LiturgicalColors[];
 
