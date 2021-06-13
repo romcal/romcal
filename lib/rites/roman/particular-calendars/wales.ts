@@ -31,6 +31,11 @@ export class Wales extends CalendarDef {
     },
 
     alban_of_britain_julius_of_caerleon_aaron_of_caerleon_martyrs: {
+      saints: [
+        'alban_of_britain_martyr',
+        'julius_of_caerleon_martyr',
+        'aaron_of_caerleon_martyr',
+      ],
       precedence: Precedences.OptionalMemorial_12,
       date: '6-20',
       liturgicalColors: LiturgicalColors.RED,

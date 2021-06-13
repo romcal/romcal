@@ -28,6 +28,8 @@ export type DateDefInput = Partial<
    */
   date?: string | ((year: number) => Dayjs);
 
+  saints?: string[];
+
   /**
    * The liturgical colors of the liturgical day.
    */
