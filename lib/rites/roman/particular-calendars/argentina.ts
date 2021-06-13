@@ -3,8 +3,11 @@ import { Dates } from '../utils/dates';
 import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
 import dayjs, { Dayjs } from 'dayjs';
+import { Americas } from './americas';
 
 export class Argentina extends CalendarDef {
+  inheritFrom = Americas;
+
   definitions: DateDefinitions = {
     laura_vicuna_virgin: {
       precedence: Precedences.OptionalMemorial_12,
@@ -116,12 +119,6 @@ export class Argentina extends CalendarDef {
     elizabeth_of_hungary_religious: {
       precedence: Precedences.ProperMemorial_11b,
       date: '11-18',
-      liturgicalColors: LiturgicalColors.WHITE,
-    },
-
-    our_lady_of_guadalupe_patroness_of_the_americas: {
-      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      date: '12-12',
       liturgicalColors: LiturgicalColors.WHITE,
     },
 

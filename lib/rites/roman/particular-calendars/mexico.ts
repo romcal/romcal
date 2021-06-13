@@ -3,8 +3,11 @@ import { Dates } from '../utils/dates';
 import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
 import { Dayjs } from 'dayjs';
+import { Americas } from './americas';
 
 export class Mexico extends CalendarDef {
+  inheritFrom = Americas;
+
   definitions: DateDefinitions = {
     philip_of_jesus_de_las_casas_martyr: {
       precedence: Precedences.ProperFeast_8f,
@@ -128,7 +131,6 @@ export class Mexico extends CalendarDef {
 
     our_lady_of_guadalupe_patroness_of_the_americas: {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      date: '12-12',
     },
 
     our_lord_jesus_christ_the_eternal_high_priest: {

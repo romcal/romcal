@@ -3,8 +3,11 @@ import { Dates } from '../utils/dates';
 import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
 import { Dayjs } from 'dayjs';
+import { Americas } from './americas';
 
 export class PuertoRico extends CalendarDef {
+  inheritFrom = Americas;
+
   definitions: DateDefinitions = {
     most_holy_name_of_jesus: {
       precedence: Precedences.OptionalMemorial_12,
@@ -59,12 +62,6 @@ export class PuertoRico extends CalendarDef {
     our_lady_mother_of_divine_providence_patroness_of_puerto_rico: {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '11-19',
-      liturgicalColors: LiturgicalColors.WHITE,
-    },
-
-    our_lady_of_guadalupe_patroness_of_the_americas: {
-      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      date: '12-12',
       liturgicalColors: LiturgicalColors.WHITE,
     },
 

@@ -1,8 +1,11 @@
 import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
+import { Americas } from './americas';
 
 export class Brazil extends CalendarDef {
+  inheritFrom = Americas;
+
   definitions: DateDefinitions = {
     joseph_de_anchieta_priest: {
       precedence: Precedences.ProperMemorial_11b,
@@ -74,12 +77,6 @@ export class Brazil extends CalendarDef {
       // metadata: {
       //   titles: [Titles.MARTYR],
       // },
-    },
-
-    our_lady_of_guadalupe_patroness_of_the_americas: {
-      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      date: '12-12',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
   };
 }

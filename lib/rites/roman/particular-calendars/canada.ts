@@ -1,8 +1,11 @@
 import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
+import { Americas } from './americas';
 
 export class Canada extends CalendarDef {
+  inheritFrom = Americas;
+
   definitions: DateDefinitions = {
     andre_bessette_religious: {
       precedence: Precedences.ProperMemorial_11b,
@@ -147,12 +150,6 @@ export class Canada extends CalendarDef {
     margaret_mary_alacoque_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       date: '10-20',
-    },
-
-    our_lady_of_guadalupe_patroness_of_the_americas: {
-      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      date: '12-12',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
   };
 }

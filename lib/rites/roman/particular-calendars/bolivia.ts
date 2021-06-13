@@ -3,8 +3,11 @@ import { Dates } from '../utils/dates';
 import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
 import { Dayjs } from 'dayjs';
+import { Americas } from './americas';
 
 export class Bolivia extends CalendarDef {
+  inheritFrom = Americas;
+
   definitions: DateDefinitions = {
     philip_of_jesus_de_las_casas_paul_miki_and_companions_martyrs: {
       precedence: Precedences.ProperMemorial_11b,
@@ -95,12 +98,6 @@ export class Bolivia extends CalendarDef {
       // metadata: {
       //   titles: [Titles.MARTYR],
       // },
-    },
-
-    our_lady_of_guadalupe_patroness_of_the_americas: {
-      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      date: '12-12',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     our_lord_jesus_christ_the_eternal_high_priest: {
