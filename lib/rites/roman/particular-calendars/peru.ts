@@ -3,8 +3,11 @@ import { Dates } from '../utils/dates';
 import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
 import { Dayjs } from 'dayjs';
+import { Americas } from './americas';
 
 export class Peru extends CalendarDef {
+  inheritFrom = Americas;
+
   definitions: DateDefinitions = {
     finding_of_the_holy_cross: {
       precedence: Precedences.ProperFeast_8f,
@@ -54,11 +57,6 @@ export class Peru extends CalendarDef {
     martin_de_porres_religious: {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '11-3',
-    },
-
-    our_lady_of_guadalupe_patroness_of_the_americas: {
-      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      date: '12-12',
     },
 
     our_lord_jesus_christ_the_eternal_high_priest: {

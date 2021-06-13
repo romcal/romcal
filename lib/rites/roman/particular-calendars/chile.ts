@@ -3,8 +3,11 @@ import { Dates } from '../utils/dates';
 import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
 import { Dayjs } from 'dayjs';
+import { Americas } from './americas';
 
 export class Chile extends CalendarDef {
+  inheritFrom = Americas;
+
   definitions: DateDefinitions = {
     laura_vicuna_virgin: {
       precedence: Precedences.OptionalMemorial_12,
@@ -63,12 +66,6 @@ export class Chile extends CalendarDef {
     our_lady_of_mercy: {
       precedence: Precedences.OptionalMemorial_12,
       date: '9-24',
-    },
-
-    our_lady_of_guadalupe_patroness_of_the_americas: {
-      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      date: '12-12',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     our_lord_jesus_christ_the_eternal_high_priest: {

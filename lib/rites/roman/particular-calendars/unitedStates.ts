@@ -6,8 +6,11 @@ import {
 import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
 import dayjs, { Dayjs } from 'dayjs';
+import { Americas } from './americas';
 
 export class UnitedStates extends CalendarDef {
+  inheritFrom = Americas;
+
   particularConfig: ParticularConfig = {
     // TODO: Ascension is celebrated on Thursday in the following ecclesiastical provinces (in all other 26 EP, it is celebrated on Sunday): Boston, Hartford, New York, Newark, Omaha, Philadelphia
     ascensionOnSunday: true,
@@ -140,12 +143,6 @@ export class UnitedStates extends CalendarDef {
           ? date.add(1, 'day')
           : dayjs.utc(`${year}-12-9`);
       },
-    },
-
-    our_lady_of_guadalupe_patroness_of_the_americas: {
-      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      date: '12-12',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
   };
 }
