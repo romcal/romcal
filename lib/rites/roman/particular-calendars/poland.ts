@@ -3,8 +3,11 @@ import { Dates } from '../utils/dates';
 import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
 import dayjs, { Dayjs } from 'dayjs';
+import { Europe } from './europe';
 
 export class Poland extends CalendarDef {
+  inheritFrom = Europe;
+
   definitions: DateDefinitions = {
     joseph_sebastian_pelczar_bishop: {
       precedence: Precedences.ProperMemorial_11b,
@@ -36,16 +39,6 @@ export class Poland extends CalendarDef {
       date: '1-29',
     },
 
-    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe:
-      {
-        precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-        date: '2-14',
-        liturgicalColors: LiturgicalColors.WHITE,
-        // metadata: {
-        //   titles: [Titles.PATRON_OF_EUROPE],
-        // },
-      },
-
     casimir_of_poland: {
       precedence: Precedences.ProperFeast_8f,
       date: '3-4',
@@ -70,15 +63,6 @@ export class Poland extends CalendarDef {
       liturgicalColors: LiturgicalColors.RED,
       // metadata: {
       //   titles: [Titles.MARTYR],
-      // },
-    },
-
-    catherine_of_siena_virgin_copatroness_of_europe: {
-      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      date: '4-29',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.PATRON_OF_EUROPE, Titles.DOCTOR_OF_THE_CHURCH],
       // },
     },
 
@@ -202,15 +186,6 @@ export class Poland extends CalendarDef {
       liturgicalColors: LiturgicalColors.WHITE,
     },
 
-    benedict_of_nursia_abbot_patron_of_europe: {
-      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      date: '7-11',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.PATRON_OF_EUROPE],
-      // },
-    },
-
     bruno_of_querfurt_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-12',
@@ -255,15 +230,6 @@ export class Poland extends CalendarDef {
       date: '7-21',
     },
 
-    bridget_of_sweden_religious_copatroness_of_europe: {
-      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      date: '7-23',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.PATRON_OF_EUROPE],
-      // },
-    },
-
     kinga_of_poland_virgin: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-24',
@@ -278,15 +244,6 @@ export class Poland extends CalendarDef {
     edmund_bojanowski: {
       precedence: Precedences.OptionalMemorial_12,
       date: '8-7',
-    },
-
-    teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe: {
-      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      date: '8-9',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR, Titles.PATRON_OF_EUROPE],
-      // },
     },
 
     hyacinth_of_poland_priest: {

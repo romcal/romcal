@@ -3,8 +3,11 @@ import { Dates } from '../utils/dates';
 import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
 import dayjs, { Dayjs } from 'dayjs';
+import { Europe } from './europe';
 
 export class England extends CalendarDef {
+  inheritFrom = Europe;
+
   definitions: DateDefinitions = {
     aelred_of_rievaulx_abbot: {
       precedence: Precedences.OptionalMemorial_12,
@@ -15,16 +18,6 @@ export class England extends CalendarDef {
       precedence: Precedences.OptionalMemorial_12,
       date: '1-19',
     },
-
-    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe:
-      {
-        precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-        date: '2-14',
-        liturgicalColors: LiturgicalColors.WHITE,
-        // metadata: {
-        //   titles: [Titles.PATRON_OF_EUROPE],
-        // },
-      },
 
     david_of_wales_bishop: {
       precedence: Precedences.ProperFeast_8f,
@@ -69,15 +62,6 @@ export class England extends CalendarDef {
       liturgicalColors: LiturgicalColors.RED,
       // metadata: {
       //   titles: [Titles.MARTYR],
-      // },
-    },
-
-    catherine_of_siena_virgin_copatroness_of_europe: {
-      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      date: '4-29',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.PATRON_OF_EUROPE, Titles.DOCTOR_OF_THE_CHURCH],
       // },
     },
 
@@ -150,33 +134,6 @@ export class England extends CalendarDef {
     oliver_plunket_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-1',
-    },
-
-    benedict_of_nursia_abbot_patron_of_europe: {
-      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      date: '7-11',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.PATRON_OF_EUROPE],
-      // },
-    },
-
-    bridget_of_sweden_religious_copatroness_of_europe: {
-      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      date: '7-23',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.PATRON_OF_EUROPE],
-      // },
-    },
-
-    teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe: {
-      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      date: '8-9',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR, Titles.PATRON_OF_EUROPE],
-      // },
     },
 
     dominic_of_the_mother_of_god_barberi_priest: {

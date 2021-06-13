@@ -1,8 +1,11 @@
 import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
+import { Europe } from './europe';
 
 export class Ireland extends CalendarDef {
+  inheritFrom = Europe;
+
   definitions: DateDefinitions = {
     munchin_of_limerick_bishop: {
       precedence: Precedences.OptionalMemorial_12,
@@ -43,16 +46,6 @@ export class Ireland extends CalendarDef {
       precedence: Precedences.OptionalMemorial_12,
       date: '2-11',
     },
-
-    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe:
-      {
-        precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-        date: '2-14',
-        liturgicalColors: LiturgicalColors.WHITE,
-        // metadata: {
-        //   titles: [Titles.PATRON_OF_EUROPE],
-        // },
-      },
 
     fintan_of_clonenagh_abbot: {
       precedence: Precedences.OptionalMemorial_12,
@@ -108,15 +101,6 @@ export class Ireland extends CalendarDef {
     asicus_of_elphin_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '4-27',
-    },
-
-    catherine_of_siena_virgin_copatroness_of_europe: {
-      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      date: '4-29',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.PATRON_OF_EUROPE, Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     conleth_of_kildare_bishop: {
@@ -207,36 +191,9 @@ export class Ireland extends CalendarDef {
       // },
     },
 
-    benedict_of_nursia_abbot_patron_of_europe: {
-      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      date: '7-11',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.PATRON_OF_EUROPE],
-      // },
-    },
-
-    bridget_of_sweden_religious_copatroness_of_europe: {
-      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      date: '7-23',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.PATRON_OF_EUROPE],
-      // },
-    },
-
     declan_of_ardmore_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-24',
-    },
-
-    teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe: {
-      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      date: '8-9',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR, Titles.PATRON_OF_EUROPE],
-      // },
     },
 
     muredach_of_killala_bishop: {
