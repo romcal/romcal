@@ -14,9 +14,11 @@ export class Philippines extends CalendarDef {
         const feastDay = 22 - (firstDay.day() == 0 ? 7 : firstDay.day());
         return dayjs.utc(`${year}-1-${feastDay}`);
       },
+
       liturgicalColors: LiturgicalColors.WHITE,
       // cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
+
     peter_baptist_blasquez_paul_miki_and_companions_martyrs: {
       precedence: Precedences.ProperMemorial_11b,
       date: '2-6',
@@ -25,6 +27,7 @@ export class Philippines extends CalendarDef {
       //   titles: [Titles.MARTYR],
       // },
     },
+
     pedro_calungsod_martyr: {
       precedence: Precedences.ProperMemorial_11b,
       date: (year: number): dayjs.Dayjs => {
@@ -43,27 +46,33 @@ export class Philippines extends CalendarDef {
         }
         return date;
       },
+
       liturgicalColors: LiturgicalColors.RED,
       // metadata: {
       //   titles: [Titles.MARTYR],
       // },
     },
+
     isidore_the_farmer: {
       precedence: Precedences.ProperMemorial_11b,
       date: '5-15',
     },
+
     roch_of_montpellier: {
       precedence: Precedences.ProperMemorial_11b,
       date: '8-16',
     },
+
     ezequiel_moreno_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '8-19',
     },
+
     rose_of_lima_virgin_copatroness_of_the_philippines: {
       precedence: Precedences.ProperMemorial_11b,
       date: '8-23',
     },
+
     lawrence_ruiz_and_companions_martyrs: {
       precedence: Precedences.ProperMemorial_11b,
       date: '9-28',
@@ -72,10 +81,12 @@ export class Philippines extends CalendarDef {
       //   titles: [Titles.MARTYR],
       // },
     },
+
     immaculate_conception_of_mary_patroness_of_the_philippines: {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '12-8',
     },
+
     our_lady_of_guadalupe_patroness_of_the_philippiness: {
       precedence: Precedences.ProperMemorial_11b,
       date: '12-12',

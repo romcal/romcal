@@ -11,6 +11,7 @@ export class Panama extends CalendarDef {
       date: '12-12',
       liturgicalColors: LiturgicalColors.WHITE,
     },
+
     our_lord_jesus_christ_the_eternal_high_priest: {
       precedence: Precedences.ProperFeast_8f,
       date: (year: number): Dayjs => Dates.pentecostSunday(year).add(4, 'day'),
