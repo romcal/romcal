@@ -1,14 +1,17 @@
-import { Dates } from '../utils/dates';
-import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
 import {
   CalendarDef,
   DateDefinitions,
   ParticularConfig,
 } from '../models/calendar-def';
 import { Dayjs } from 'dayjs';
+import { Dates } from '../utils/dates';
+import { Precedences } from '../constants/precedences';
+import { LiturgicalColors } from '../constants/colors';
+import { Sanctorale } from './sanctorale';
 
 export class GeneralRoman extends CalendarDef {
+  inheritFrom = Sanctorale;
+
   particularConfig: ParticularConfig = {
     ascensionOnSunday: false,
     corpusChristiOnSunday: true,

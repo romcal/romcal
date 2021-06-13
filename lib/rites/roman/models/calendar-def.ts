@@ -65,11 +65,11 @@ interface IConstructor<InstanceInterface> {
  * Base [CalendarDef] interface
  */
 interface BaseCalendarDef {
-  inheritFrom?: string;
+  inheritFrom?: StaticCalendarComputing<BaseCalendarDef>;
   calendarKey?: string;
   particularConfig?: ParticularConfig;
   definitions: DateDefinitions;
-  computeDates: (
+  buildDates: (
     builtData: LiturgicalDefBuiltData,
     config: RomcalConfig,
   ) => LiturgicalDefBuiltData;
@@ -82,17 +82,17 @@ interface BaseCalendarDef {
  */
 interface StaticCalendarComputing<T extends BaseCalendarDef>
   extends IConstructor<T> {
-  computeCalendar: (builtData: LiturgicalDefBuiltData) => LiturgicalCalendar;
+  generateCalendar: (builtData: LiturgicalDefBuiltData) => LiturgicalCalendar;
 }
 
 export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
   implements BaseCalendarDef
 {
+  inheritFrom?: StaticCalendarComputing<BaseCalendarDef>;
   definitions: DateDefinitions = {};
   particularConfig?: ParticularConfig;
 
   private _calendarName?: string;
-
   public get calendarName(): string {
     if (!this._calendarName) {
       this._calendarName = this.constructor.name
@@ -103,11 +103,41 @@ export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
     return this._calendarName;
   }
 
-  computeDates(
+  /**
+   * Recursive method that retrieve all inherited calendars
+   * @param InheritedCal
+   * @param builtData
+   * @param config
+   * @private
+   */
+  private retrieveInheritedCal(
+    InheritedCal: StaticCalendarComputing<BaseCalendarDef>,
+    builtData: LiturgicalDefBuiltData,
+    config: RomcalConfig,
+  ) {
+    const inheritedCal = new InheritedCal();
+    if (inheritedCal.inheritFrom) {
+      this.retrieveInheritedCal(inheritedCal.inheritFrom, builtData, config);
+    }
+
+    inheritedCal.buildDates(builtData, config);
+  }
+
+  /**
+   * Build LiturgicalDay objects from the date defined in this calendar,
+   * and extend the already built data with these new objects.
+   * @param builtData
+   * @param config
+   */
+  buildDates(
     builtData: LiturgicalDefBuiltData,
     config: RomcalConfig,
   ): LiturgicalDefBuiltData {
     const definitions = Object.keys(this.definitions);
+
+    if (this.inheritFrom) {
+      this.retrieveInheritedCal(this.inheritFrom, builtData, config);
+    }
 
     definitions.forEach((key) => {
       const def: DateDefInput = this.definitions[key];
@@ -267,7 +297,11 @@ export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
     return builtData;
   }
 
-  static computeCalendar(
+  /**
+   * Generate a liturgical calendar according to the precedence rules between liturgical days.
+   * @param builtData
+   */
+  static generateCalendar(
     builtData: LiturgicalDefBuiltData,
   ): LiturgicalCalendar {
     const finalData: LiturgicalCalendar = {};
