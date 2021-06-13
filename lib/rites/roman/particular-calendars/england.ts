@@ -147,6 +147,7 @@ export class England extends CalendarDef {
     },
 
     aidan_of_lindisfarne_bishop_and_the_saints_of_lindisfarne: {
+      saints: ['aidan_bishop', 'the_saints_of_lindisfarne'],
       precedence: Precedences.OptionalMemorial_12,
       date: '8-31',
     },
