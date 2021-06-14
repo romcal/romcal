@@ -1,4 +1,12 @@
 /**
+ * Canonization level of a person.
+ */
+export enum CanonizationLevel {
+  Blessed = 'BLESSED',
+  Saint = 'SAINT',
+}
+
+/**
  * Titles of Saints and Blessed from the Martyrology catalog.
  */
 export enum Titles {
@@ -69,5 +77,4 @@ export enum PatronTitles {
 export enum Sex {
   Male = 'MALE',
   Female = 'FEMALE',
-  NotApplicable = 'NOT_APPLICABLE',
 }
