@@ -1,6 +1,5 @@
 import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
 
 export class NewZealand extends CalendarDef {
   definitions: DateDefinitions = {
@@ -10,12 +9,7 @@ export class NewZealand extends CalendarDef {
     },
 
     paul_miki_and_companions_martyrs: {
-      precedence: Precedences.ProperMemorial_11b,
       date: '2-7',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     patrick_of_ireland_bishop: {
@@ -33,13 +27,11 @@ export class NewZealand extends CalendarDef {
       date: '4-27',
     },
 
-    peter_chanel_priest_patron_of_oceania: {
+    peter_chanel_priest: {
+      customLocaleKey: 'peter_chanel_priest_patron_of_oceania',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      date: '4-28',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
+      saints: ['peter_chanel_priest'],
+      titles: ['Proto-martyr of Oceania', 'Patron of Oceania'],
     },
 
     our_lady_help_of_christians: {
@@ -53,11 +45,6 @@ export class NewZealand extends CalendarDef {
     },
 
     dominic_de_guzman_priest: {
-      precedence: Precedences.OptionalMemorial_12,
-      date: '8-7',
-    },
-
-    sixtus_ii_pope_and_companions_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '8-7',
     },

@@ -28,13 +28,11 @@ export class Ireland extends CalendarDef {
       date: '1-30',
     },
 
-    brigid_of_kildare_virgin_copatroness_of_ireland: {
+    brigid_of_kildare_virgin: {
+      customLocaleKey: 'brigid_of_kildare_virgin_copatroness_of_ireland',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       date: '2-1',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.PATRON_OF_EUROPE],
-      // },
+      titles: (titles) => [...titles, 'Copatroness of Ireland'],
     },
 
     mel_of_ardagh_bishop: {
@@ -72,10 +70,11 @@ export class Ireland extends CalendarDef {
       date: '3-11',
     },
 
-    patrick_of_ireland_bishop_patron_of_ireland: {
-      date: '3-17',
+    patrick_of_ireland_bishop: {
+      customLocaleKey: 'patrick_of_ireland_bishop_patron_of_ireland',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       isHolyDayOfObligation: true,
+      titles: (titles) => [...titles, 'Patron of Ireland'],
     },
 
     enda_of_aran_abbot: {
@@ -144,10 +143,11 @@ export class Ireland extends CalendarDef {
       date: '6-7',
     },
 
-    columba_of_iona_abbot_copatron_of_ireland: {
+    columba_of_iona_abbot: {
+      customLocaleKey: 'columba_of_iona_abbot_copatron_of_ireland',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       date: '6-9',
-      liturgicalColors: LiturgicalColors.WHITE,
+      titles: (titles) => [...titles, 'Missionary', 'Copatron of Ireland'],
     },
 
     davnet_of_sliabh_beagh_virgin: {
@@ -158,19 +158,11 @@ export class Ireland extends CalendarDef {
     irish_martyrs: {
       precedence: Precedences.ProperMemorial_11b,
       date: '6-20',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     oliver_plunket_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-1',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     moninne_of_killeavy_virgin: {
@@ -186,9 +178,6 @@ export class Ireland extends CalendarDef {
     kilian_of_wurzburg_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-8',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     declan_of_ardmore_bishop: {

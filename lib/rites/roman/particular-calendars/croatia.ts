@@ -10,10 +10,6 @@ export class Croatia extends CalendarDef {
     aloysius_stepinac_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       date: '2-10',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     ivan_merz: {
@@ -47,9 +43,6 @@ export class Croatia extends CalendarDef {
     augustine_kazotic_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '8-3',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     marko_krizin_priest: {

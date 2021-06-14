@@ -49,9 +49,7 @@ export class PuertoRico extends CalendarDef {
     charles_spinola_and_jerome_de_angelis_priests: {
       precedence: Precedences.OptionalMemorial_12,
       date: '9-10',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
+      saints: ['charles_spinola_priest', 'jerome_de_angelis_priest'],
     },
 
     mary_soledad_torres_acosta_virgin: {
@@ -59,10 +57,12 @@ export class PuertoRico extends CalendarDef {
       date: '10-11',
     },
 
-    our_lady_mother_of_divine_providence_patroness_of_puerto_rico: {
+    our_lady_mother_of_divine_providence: {
+      customLocaleKey:
+        'our_lady_mother_of_divine_providence_patroness_of_puerto_rico',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '11-19',
-      liturgicalColors: LiturgicalColors.WHITE,
+      titles: (titles) => [...titles, 'Patroness of Puerto Rico'],
     },
 
     our_lord_jesus_christ_the_eternal_high_priest: {

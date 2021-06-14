@@ -10,28 +10,16 @@ export class Greece extends CalendarDef {
     cyril_of_jerusalem_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       date: '3-18',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     adalbert_of_prague_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '4-22',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     george_of_lydda_martyr: {
       precedence: Precedences.ProperMemorial_11b,
       date: '4-23',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     irene_of_macedonia: {
@@ -49,9 +37,6 @@ export class Greece extends CalendarDef {
       precedence: Precedences.ProperMemorial_11b,
       date: '6-27',
       liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     margaret_of_antioch_virgin: {
@@ -74,8 +59,6 @@ export class Greece extends CalendarDef {
 
     cosmas_of_cilicia_and_damian_of_cilicia_martyrs: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '9-26',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     dionysius_the_areopagite_bishop: {

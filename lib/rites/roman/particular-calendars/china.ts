@@ -29,6 +29,7 @@ export class China extends CalendarDef {
     laurence_wang_bing_and_companions_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '1-29',
+      saints: ['laurence_wang_bing_martyr', 'companions_martyrs'],
     },
 
     joseph_freinademetz_priest: {
@@ -44,6 +45,7 @@ export class China extends CalendarDef {
     martin_wu_xuesheng_and_companions_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '2-17',
+      saints: ['martin_wu_xuesheng_martyr', 'companions_martyrs'],
     },
 
     lucy_yi_zhenmei_virgin: {
@@ -115,6 +117,12 @@ export class China extends CalendarDef {
       {
         precedence: Precedences.OptionalMemorial_12,
         date: '6-20',
+        saints: [
+          'gregory_grassi_bishop',
+          'rancis_fogolla_bishop',
+          'anthony_fantosati_bishop',
+          'companions_martyrs',
+        ],
       },
 
     joseph_yuan_gengyin_priest: {
@@ -129,16 +137,12 @@ export class China extends CalendarDef {
 
     augustine_zhao_rong_priest_and_companions_martyrs: {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      date: '7-9',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     leo_ignatius_mangin_priest_and_companions_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-20',
+      saints: ['leo_ignatius_mangin_priest', 'companions_martyrs'],
     },
 
     alberic_crescitelli_priest: {
@@ -149,6 +153,7 @@ export class China extends CalendarDef {
     paul_chen_changpin_and_companions_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-28',
+      saints: ['paul_chen_changpin_martyr', 'companions_martyrs'],
     },
 
     maurice_tornay_priest: {
@@ -164,10 +169,7 @@ export class China extends CalendarDef {
     francis_diaz_del_rincon_priest_and_companions_martyrs: {
       precedence: Precedences.ProperMemorial_11b,
       date: '10-27',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
+      saints: ['francis_diaz_del_rincon_priest', 'companions_martyrs'],
     },
 
     peter_wu_guosheng_martyr: {

@@ -18,18 +18,16 @@ export class Spain extends CalendarDef {
       {
         precedence: Precedences.OptionalMemorial_12,
         date: '1-20',
-        // metadata: {
-        //   titles: [Titles.MARTYR],
-        // },
+        saints: [
+          'fructuosus_of_tarragona_bishop',
+          'augurius_of_tarragona_deacon',
+          'eulogius_of_tarragona_deacon',
+        ],
       },
 
     vincent_of_saragossa_deacon: {
       precedence: Precedences.ProperMemorial_11b,
       date: '1-22',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     ildephonsus_of_toledo_bishop: {
@@ -47,18 +45,12 @@ export class Spain extends CalendarDef {
       precedence: Precedences.ProperFeast_8f,
       date: '4-26',
       liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     john_of_avila_priest: {
       precedence: Precedences.ProperMemorial_11b,
       date: '5-10',
       liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     isidore_the_farmer: {
@@ -90,9 +82,6 @@ export class Spain extends CalendarDef {
     pelagius_of_cordoba_martyr: {
       precedence: Precedences.OptionalMemorial_12,
       date: '6-26',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     our_lady_of_mount_carmel: {
@@ -101,9 +90,10 @@ export class Spain extends CalendarDef {
       liturgicalColors: LiturgicalColors.WHITE,
     },
 
-    james_apostle_patron_of_spain: {
+    james_apostle: {
+      customLocaleKey: 'james_apostle_patron_of_spain',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      date: '7-25',
+      titles: (titles) => [...titles, 'Patron of Spain'],
     },
 
     ezequiel_moreno_bishop: {
@@ -141,10 +131,6 @@ export class Spain extends CalendarDef {
     teresa_of_jesus_of_avila_virgin: {
       precedence: Precedences.ProperFeast_8f,
       date: '10-15',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     peter_of_alcantara_priest: {
@@ -165,10 +151,6 @@ export class Spain extends CalendarDef {
     john_of_the_cross_priest: {
       precedence: Precedences.ProperMemorial_11b,
       date: '12-14',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     our_lord_jesus_christ_the_eternal_high_priest: {

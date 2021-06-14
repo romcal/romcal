@@ -25,9 +25,6 @@ export class Germany extends CalendarDef {
     meinrad_of_einsiedeln_martyr: {
       precedence: Precedences.OptionalMemorial_12,
       date: '1-21',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     henry_suso_priest: {
@@ -59,9 +56,6 @@ export class Germany extends CalendarDef {
     bruno_of_querfurt_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '3-9',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     matilda_of_ringelheim: {
@@ -92,9 +86,6 @@ export class Germany extends CalendarDef {
     marcel_callo_martyr: {
       precedence: Precedences.OptionalMemorial_12,
       date: '4-19',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     conrad_of_parzham_religious: {
@@ -105,17 +96,12 @@ export class Germany extends CalendarDef {
     peter_canisius_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '4-27',
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     florian_of_lorch_and_companions_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '5-4',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
+      saints: ['florian_of_lorch_martyr', 'companions_martyrs'],
     },
 
     gotthard_of_hildesheim_bishop: {
@@ -126,9 +112,6 @@ export class Germany extends CalendarDef {
     john_nepomucene_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '5-16',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     hermann_joseph_of_steinfeld_priest: {
@@ -139,9 +122,6 @@ export class Germany extends CalendarDef {
     vitus_of_lucania_martyr: {
       precedence: Precedences.OptionalMemorial_12,
       date: '6-15',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     benno_of_meissen_bishop: {
@@ -178,17 +158,17 @@ export class Germany extends CalendarDef {
     kilian_of_wurzburg_bishop_and_companions_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-8',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
+      saints: ['kilian_of_wurzburg_bishop', 'companions_martyrs'],
     },
 
     canute_iv_of_denmark_eric_ix_of_sweden_and_olaf_ii_of_norway_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-10',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
+      saints: [
+        'canute_iv_of_denmark_martyr',
+        'eric_ix_of_sweden_martyr',
+        'olaf_ii_of_norway_martyr',
+      ],
     },
 
     henry_ii_emperor_and_cunigunde_of_luxembourg: {
@@ -199,17 +179,11 @@ export class Germany extends CalendarDef {
     margaret_of_antioch_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-20',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     christopher_of_palestine_martyr: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-24',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     paulinus_of_trier_bishop: {
@@ -220,17 +194,12 @@ export class Germany extends CalendarDef {
     lambert_of_maastricht_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '9-18',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     maurice_of_agaunum_and_companions_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '9-22',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
+      saints: ['maurice_of_agaunum_martyr', 'companions_martyrs'],
     },
 
     rupert_of_salzburg_and_virgilius_of_salzburg_bishops: {
@@ -261,9 +230,13 @@ export class Germany extends CalendarDef {
     ursula_of_cologne_and_companions_virgins: {
       precedence: Precedences.OptionalMemorial_12,
       date: '10-21',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
+      saints: [
+        'ursula_of_cologne_virgins',
+        {
+          key: 'companions_martyr',
+          titles: (titles: string[]): string[] => ['Virgin', ...titles],
+        },
+      ],
     },
 
     wolfgang_of_regensburg_bishop: {
@@ -315,14 +288,12 @@ export class Germany extends CalendarDef {
     conrad_of_constance_and_gebhard_of_constance_bishops: {
       precedence: Precedences.OptionalMemorial_12,
       date: '11-26',
+      saints: ['conrad_of_constance_bishop', 'gebhard_of_constance_bishop'],
     },
 
     lucius_of_chur_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '12-2',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     barbara_of_heliopolis_virgin: {

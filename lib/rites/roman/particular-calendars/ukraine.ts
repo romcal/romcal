@@ -29,17 +29,11 @@ export class Ukraine extends CalendarDef {
     andrew_bobola_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '5-16',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     john_nepomucene_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '5-21',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     albert_chmielowski_religious: {
@@ -81,10 +75,7 @@ export class Ukraine extends CalendarDef {
     wladyslaw_bladzinski_priest_and_companions_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '9-9',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
+      saints: ['wladyslaw_bladzinski_priest', 'companions_martyrs'],
     },
 
     stanislaus_kostka_religious: {

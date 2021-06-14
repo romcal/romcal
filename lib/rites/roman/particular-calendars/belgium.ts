@@ -52,9 +52,6 @@ export class Belgium extends CalendarDef {
       precedence: Precedences.ProperMemorial_11b,
       date: '9-17',
       liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     hubert_of_liege_bishop: {

@@ -12,10 +12,6 @@ export class Mexico extends CalendarDef {
     philip_of_jesus_de_las_casas_martyr: {
       precedence: Precedences.ProperFeast_8f,
       date: '2-5',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     sebastian_de_aparicio_religious: {
@@ -45,19 +41,11 @@ export class Mexico extends CalendarDef {
     john_nepomucene_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '5-16',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     christopher_magallanes_priest_and_companions_martyrs: {
       precedence: Precedences.ProperMemorial_11b,
       date: '5-21',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     our_lady_of_perpetual_help: {
@@ -78,17 +66,12 @@ export class Mexico extends CalendarDef {
     bartholomew_dias_laurel_religious: {
       precedence: Precedences.OptionalMemorial_12,
       date: '8-16',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     peter_de_zuniga_and_louis_flores_priests: {
       precedence: Precedences.OptionalMemorial_12,
       date: '8-16',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
+      saints: ['peter_de_zuniga_priest', 'louis_flores_priest'],
     },
 
     junipero_serra_priest: {
@@ -119,9 +102,6 @@ export class Mexico extends CalendarDef {
     miguel_agustin_pro_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '11-23',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     juan_diego_cuauhtlatoatzin: {
@@ -129,7 +109,7 @@ export class Mexico extends CalendarDef {
       date: '12-9',
     },
 
-    our_lady_of_guadalupe_patroness_of_the_americas: {
+    our_lady_of_guadalupe: {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
     },
 

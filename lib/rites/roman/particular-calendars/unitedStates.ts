@@ -5,8 +5,8 @@ import {
 } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
-import dayjs, { Dayjs } from 'dayjs';
 import { Americas } from './americas';
+import { Dates } from '../utils/dates';
 
 export class UnitedStates extends CalendarDef {
   inheritFrom = Americas;
@@ -39,9 +39,6 @@ export class UnitedStates extends CalendarDef {
     vincent_of_saragossa_deacon: {
       precedence: Precedences.OptionalMemorial_12,
       date: '1-23',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     marianne_cope_virgin: {
@@ -103,11 +100,11 @@ export class UnitedStates extends CalendarDef {
 
     john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '10-19',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
+      saints: [
+        'john_de_brebeuf_priest',
+        'isaac_jogues_priest',
+        'companions_martyrs',
+      ],
     },
 
     paul_of_the_cross_priest: {
@@ -129,20 +126,17 @@ export class UnitedStates extends CalendarDef {
     miguel_agustin_pro_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '11-23',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
-    // It is a holyday of obligation unless it occurs with Sunday: then it is moved to the following Monday and while keeps its rank (solemnity), it is not a holyday of obligation
-    immaculate_conception_of_mary_patroness_of_the_usa: {
+    // It is a holiday of obligation unless it occurs with Sunday:
+    // then it is moved to the following Monday and while keeps its rank (solemnity),
+    // it is not a holiday of obligation
+    immaculate_conception_of_mary: {
+      customLocaleKey: 'immaculate_conception_of_mary_patroness_of_the_usa',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      date: (year: number): Dayjs => {
-        const date = dayjs.utc(`${year}-12-8`);
-        return date.day() === 0
-          ? date.add(1, 'day')
-          : dayjs.utc(`${year}-12-9`);
-      },
+      isHolyDayOfObligation: (year: number): boolean =>
+        Dates.immaculateConceptionOfMary(year).day() === 0,
+      titles: (titles) => [...titles, 'Patroness of the USA'],
     },
   };
 }

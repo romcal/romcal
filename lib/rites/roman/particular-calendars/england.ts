@@ -22,7 +22,6 @@ export class England extends CalendarDef {
     david_of_wales_bishop: {
       precedence: Precedences.ProperFeast_8f,
       date: '3-1',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     patrick_of_ireland_bishop: {
@@ -31,7 +30,8 @@ export class England extends CalendarDef {
       liturgicalColors: LiturgicalColors.WHITE,
     },
 
-    george_of_lydda_martyr_patron_of_england: {
+    george_of_lydda_martyr: {
+      customLocaleKey: 'george_of_lydda_martyr_patron_of_england',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: (year: number): Dayjs => {
         const date = dayjs.utc(`${year}-4-23`);
@@ -45,24 +45,17 @@ export class England extends CalendarDef {
           ? divineMercySunday.add(1, 'day')
           : date;
       },
+      titles: (titles) => [...titles, 'Patron of England'],
     },
 
     adalbert_of_prague_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '4-24',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     fidelis_of_sigmaringen_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '4-24',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     english_martyrs: {
@@ -79,10 +72,6 @@ export class England extends CalendarDef {
     bede_the_venerable_priest: {
       precedence: Precedences.ProperMemorial_11b,
       date: '5-25',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     augustine_of_canterbury_bishop: {
@@ -100,9 +89,6 @@ export class England extends CalendarDef {
     ephrem_the_syrian_deacon: {
       precedence: Precedences.OptionalMemorial_12,
       date: '6-9',
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     columba_of_iona_abbot: {
@@ -122,8 +108,6 @@ export class England extends CalendarDef {
 
     john_fisher_bishop_and_thomas_more_martyrs: {
       precedence: Precedences.ProperFeast_8f,
-      date: '6-22',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     etheldreda_of_ely_abbess: {
@@ -144,12 +128,17 @@ export class England extends CalendarDef {
     margaret_clitherow_anne_line_and_margaret_ward_virgin_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '8-30',
+      saints: [
+        'margaret_clitherow_virgin_martyr',
+        'anne_line_virgin_martyr',
+        'margaret_ward_virgin_martyr',
+      ],
     },
 
     aidan_of_lindisfarne_bishop_and_the_saints_of_lindisfarne: {
-      saints: ['aidan_bishop', 'the_saints_of_lindisfarne'],
       precedence: Precedences.OptionalMemorial_12,
       date: '8-31',
+      saints: ['aidan_of_lindisfarne_bishop', 'the_saints_of_lindisfarne'],
     },
 
     gregory_i_the_great_pope: {
@@ -178,7 +167,6 @@ export class England extends CalendarDef {
     },
 
     denis_of_paris_bishop_and_companions_martyrs: {
-      precedence: Precedences.OptionalMemorial_12,
       date: '10-10',
     },
 
@@ -235,6 +223,7 @@ export class England extends CalendarDef {
     chad_of_mercia_and_cedd_of_lastingham_bishops: {
       precedence: Precedences.OptionalMemorial_12,
       date: '10-26',
+      saints: ['chad_of_mercia_bishop', 'cedd_of_lastingham_bishop'],
     },
 
     winefride_of_flintshire_virgin: {
@@ -311,10 +300,6 @@ export class England extends CalendarDef {
     thomas_becket_bishop: {
       precedence: Precedences.ProperFeast_8f,
       date: '12-29',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     our_lord_jesus_christ_the_eternal_high_priest: {

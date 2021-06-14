@@ -27,13 +27,11 @@ export class Australia extends CalendarDef {
       date: '4-27',
     },
 
-    peter_chanel_priest_patron_of_oceania: {
+    peter_chanel_priest: {
+      customLocaleKey: 'peter_chanel_priest_patron_of_oceania',
       precedence: Precedences.ProperMemorial_11b,
-      date: '4-28',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
+      saints: ['peter_chanel_priest'],
+      titles: ['Proto-martyr of Oceania', 'Patron of Oceania'],
     },
 
     our_lady_help_of_christians: {
@@ -44,9 +42,6 @@ export class Australia extends CalendarDef {
     peter_to_rot_martyr: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-7',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     mary_of_the_cross_mackillop_virgin: {

@@ -24,10 +24,10 @@ export class Canada extends CalendarDef {
       liturgicalColors: LiturgicalColors.WHITE,
     },
 
-    joseph_spouse_of_mary_patron_of_canada: {
+    joseph_spouse_of_mary: {
+      customLocaleKey: 'joseph_spouse_of_mary_patron_of_canada',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      date: '3-19',
-      liturgicalColors: LiturgicalColors.WHITE,
+      titles: (titles) => [...titles, 'Patron of Canada'],
     },
 
     kateri_tekakwitha_virgin: {
@@ -78,15 +78,22 @@ export class Canada extends CalendarDef {
     nykyta_budka_and_vasyl_velychkovsky_bishops: {
       precedence: Precedences.OptionalMemorial_12,
       date: '6-27',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
+      saints: ['nykyta_budka_bishop', 'vasyl_velychkovsky_bishop'],
     },
 
     joachim_and_anne_patroness_of_the_province_of_quebec_parents_of_mary: {
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       date: '7-26',
-      liturgicalColors: LiturgicalColors.WHITE,
+      saints: [
+        {
+          key: 'anne_mother_of_mary',
+          titles: (titles: string[]): string[] => [
+            ...titles,
+            'Patroness of the Province of Quebec',
+          ],
+        },
+        'joachim_father_of_mary',
+      ],
     },
 
     frederic_janssoone_priest: {
@@ -97,9 +104,6 @@ export class Canada extends CalendarDef {
     andre_grasset_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '9-2',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     dina_belanger_virgin: {
@@ -116,7 +120,12 @@ export class Canada extends CalendarDef {
       {
         precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
         date: '9-26',
-        liturgicalColors: LiturgicalColors.RED,
+        titles: (titles) => [...titles, 'Copatrons of Canada'],
+        saints: [
+          'john_de_brebeuf_priest',
+          'isaac_jogues_priest',
+          'companions_martyrs',
+        ],
       },
 
     nereus_of_terracina_and_achilleus_of_terracina_martyrs: {

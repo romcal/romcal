@@ -17,19 +17,11 @@ export class India extends CalendarDef {
     john_de_britto_priest: {
       precedence: Precedences.ProperMemorial_11b,
       date: '2-4',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     gundisalvus_garcia_martyr: {
       precedence: Precedences.ProperMemorial_11b,
       date: '2-6',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     mary_theresa_chiramel_mankidiyan_virgin: {

@@ -10,10 +10,6 @@ export class Finland extends CalendarDef {
     henry_of_finland_bishop: {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '1-19',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     eric_ix_of_sweden_martyr: {
@@ -58,10 +54,6 @@ export class Finland extends CalendarDef {
     olaf_ii_of_norway_martyr: {
       precedence: Precedences.ProperMemorial_11b,
       date: '5-29',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     nicholas_steno_bishop: {

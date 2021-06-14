@@ -11,9 +11,6 @@ export class Austria extends CalendarDef {
       precedence: Precedences.ProperMemorial_11b,
       date: '5-16',
       liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     charles_i_of_austria: {
