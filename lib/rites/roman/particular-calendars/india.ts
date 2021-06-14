@@ -1,6 +1,5 @@
 import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
 
 export class India extends CalendarDef {
   definitions: DateDefinitions = {
@@ -32,25 +31,21 @@ export class India extends CalendarDef {
     thomas_apostle: {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '7-3',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     alphonsa_of_the_immaculate_conception_muttathupadathu_virgin: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-28',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     teresa_of_calcutta_religious: {
       precedence: Precedences.OptionalMemorial_12,
       date: '9-5',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     francis_xavier_priest: {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '12-3',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
   };
 }

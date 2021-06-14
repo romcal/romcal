@@ -43,7 +43,6 @@ export class Slovakia extends CalendarDef {
     florian_of_lorch_martyr: {
       precedence: Precedences.OptionalMemorial_12,
       date: '5-4',
-      liturgicalColors: LiturgicalColors.RED,
     },
 
     sara_salkahazi_virgin: {
@@ -64,14 +63,13 @@ export class Slovakia extends CalendarDef {
     visitation_of_mary: {
       precedence: Precedences.ProperFeast_8f,
       date: '7-2',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_slavic_missionaries:
       {
         precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
         date: '7-5',
-        liturgicalColors: LiturgicalColors.WHITE,
+
         titles: [Titles.SlavicMissionary],
         martyrology: [
           'cyril_the_philosopher_monk',
@@ -107,13 +105,11 @@ export class Slovakia extends CalendarDef {
     helena_of_constantinople: {
       precedence: Precedences.OptionalMemorial_12,
       date: '8-18',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     teresa_of_calcutta_religious: {
       precedence: Precedences.OptionalMemorial_12,
       date: '9-5',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     marko_krizin_melchior_grodziecki_and_stephen_pongracz_priests: {
@@ -140,13 +136,11 @@ export class Slovakia extends CalendarDef {
     maurus_of_pecs_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '10-25',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     dedication_of_consecrated_churches: {
       precedence: Precedences.ProperSolemnity_DedicationOfTheOwnChurch_4b,
       date: '10-26',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     all_souls: {
@@ -168,13 +162,11 @@ export class Slovakia extends CalendarDef {
     barbara_of_heliopolis_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       date: '12-4',
-      liturgicalColors: LiturgicalColors.RED,
     },
 
     our_lord_jesus_christ_the_eternal_high_priest: {
       precedence: Precedences.ProperFeast_8f,
       date: (year: number): Dayjs => Dates.pentecostSunday(year).add(4, 'day'),
-      liturgicalColors: LiturgicalColors.WHITE,
       // cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
   };

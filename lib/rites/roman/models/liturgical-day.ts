@@ -9,6 +9,7 @@ import {
 } from '../constants/colors';
 import { Precedences } from '../constants/precedences';
 import { MartyrologyItem } from '../../../catalog/martyrology';
+import { Titles } from '../../../constants/martyrology-metadata';
 
 export interface BaseLiturgicalDay {
   /**
@@ -139,12 +140,12 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
     this.seasons = day.seasons ?? [];
     this.periods = day.periods ?? [];
 
-    // this.liturgicalColors = day.liturgicalColors ?? [LiturgicalColors.WHITE];
     this.liturgicalColors = LiturgicalDay.checkOrDetermineLiturgicalColors(
+      dayjs.isDayjs(day.date) ? day.date : dayjs(day.date),
       this.rank,
       this.seasons,
       day.liturgicalColors,
-      [],
+      day.martyrology ?? [],
     );
 
     this.martyrology = day.martyrology ?? [];
@@ -170,21 +171,22 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
     return RanksFromPrecedence[precedence];
   }
 
-  // todo: needs some performance improvements
   /**
    * Check the provided liturgical color and return it in the good type,
    * or if not provided, try to determine the right color for the liturgical day.
    * @private
+   * @param date The date of the liturgical day
    * @param rank The rank of the liturgical day
    * @param seasons The season(s) of the liturgical day
    * @param liturgicalColors The liturgical color(s) of the liturgical day, if defined
-   * @param titles The title(s) of the blessed/saint for the liturgical day, if defined
+   * @param martyrology The martyrology items (if available) to retrieve their titles.
    */
   private static checkOrDetermineLiturgicalColors(
+    date: Dayjs,
     rank: Ranks,
     seasons: LiturgicalSeason[],
-    liturgicalColors: LiturgicalColor | LiturgicalColor[] | undefined,
-    titles: string[],
+    liturgicalColors: LiturgicalColor[] | undefined,
+    martyrology: MartyrologyItem[],
   ): LiturgicalColor[] {
     // A liturgical color(s) has already been defined, nothing more to do:
     // returns the color(s) as it, if the color type(s) is/are valid.
@@ -192,46 +194,59 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
       const validated = liturgicalColors.filter((color) =>
         isLiturgicalColor(color),
       );
-      if (validated.length > 0) {
-        return validated;
-      }
-    }
-
-    // A liturgical color has already been defined, but not wrapped in an array:
-    // returns the color(s) as it in an array, if the color type is valid.
-    if (
-      typeof liturgicalColors === 'string' &&
-      isLiturgicalColor(liturgicalColors)
-    ) {
-      return [liturgicalColors];
+      if (validated.length > 0) return validated;
     }
 
     // No liturgical color has been defined
     // Now try to find the right default color...
 
-    // todo
-    // If the liturgical day isn't a COMMEMORATION and is for a MARTYR, return RED
-    // Otherwise, if the liturgical day isn't a COMMEMORATION or a WEEKDAY, return WHITE
-    // if (rank && ![Ranks.COMMEMORATION, Ranks.WEEKDAY].includes(rank)) {
-    //   if (titles.includes(Titles.MARTYR)) return [LiturgicalColors.RED];
-    //   return [LiturgicalColors.WHITE];
-    // }
-
-    // The WEEKDAY or COMMEMORATION is celebrated during LENT, return PURPLE
+    // Solemnity, Fest or Memorial:
     if (
-      [LiturgicalSeasons.LENT, LiturgicalSeasons.ADVENT].some((season) =>
-        seasons?.includes(season),
-      )
+      rank === Ranks.SOLEMNITY ||
+      rank === Ranks.FEAST ||
+      rank === Ranks.MEMORIAL
     ) {
-      return [LiturgicalColors.PURPLE];
+      // The mass of a Memorial during Lent and in Advent from 17 December is not celebrated.
+      // In this case the color remain the default one of the season.
+      if (
+        rank === Ranks.MEMORIAL &&
+        // During Lent:
+        (seasons?.includes(LiturgicalSeasons.LENT) ||
+          // During Advent from 17 December:
+          (seasons?.includes(LiturgicalSeasons.ADVENT) &&
+            date.month() === 11 &&
+            date.date() >= 17))
+      ) {
+        return [LiturgicalColors.PURPLE];
+      }
+
+      // - Martyrs are red.
+      if (martyrology.some((m) => (m.titles ?? []).includes(Titles.Martyr))) {
+        return [LiturgicalColors.RED];
+      }
+
+      // - Otherwise it's white.
+      return [LiturgicalColors.WHITE];
     }
 
-    // The WEEKDAY or COMMEMORATION is celebrated during ORDINARY_TIME, return PURPLE
-    if (seasons?.includes(LiturgicalSeasons.ORDINARY_TIME)) {
-      return [LiturgicalColors.GREEN];
+    // Weekdays and Sundays:
+    if (rank === Ranks.WEEKDAY || rank === Ranks.SUNDAY) {
+      // - during Lent and Advent.
+      if (
+        [LiturgicalSeasons.LENT, LiturgicalSeasons.ADVENT].some((season) =>
+          seasons?.includes(season),
+        )
+      ) {
+        return [LiturgicalColors.PURPLE];
+      }
+
+      // - during the Ordinary Time.
+      if (seasons?.includes(LiturgicalSeasons.ORDINARY_TIME)) {
+        return [LiturgicalColors.GREEN];
+      }
     }
 
-    // Otherwise, return WHITE that match all other seasons, or as a default color
+    // During Easter Time, Christmas Time, and for any other use cases.
     return [LiturgicalColors.WHITE];
   }
 }

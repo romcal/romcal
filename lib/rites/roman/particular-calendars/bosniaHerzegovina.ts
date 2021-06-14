@@ -1,6 +1,5 @@
 import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
 import { Europe } from './europe';
 
 export class BosniaHerzegovina extends CalendarDef {
@@ -10,7 +9,6 @@ export class BosniaHerzegovina extends CalendarDef {
     scholastica_of_nursia_virgin: {
       precedence: Precedences.ProperMemorial_11b,
       date: '2-9',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     aloysius_stepinac_bishop: {
@@ -26,13 +24,11 @@ export class BosniaHerzegovina extends CalendarDef {
     ivan_merz: {
       precedence: Precedences.ProperMemorial_11b,
       date: '5-10',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     leopold_mandic_priest: {
       precedence: Precedences.ProperMemorial_11b,
       date: '5-12',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     mary_of_jesus_crucified_petkovic_virgin: {
@@ -48,7 +44,6 @@ export class BosniaHerzegovina extends CalendarDef {
     elijah_prophet: {
       precedence: Precedences.ProperFeast_8f,
       date: '7-20',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     clement_of_ohrid_and_gorazd_of_moravia_bishops_and_companions: {
@@ -74,7 +69,6 @@ export class BosniaHerzegovina extends CalendarDef {
     marko_krizin_priest: {
       precedence: Precedences.ProperFeast_8f,
       date: '9-7',
-      liturgicalColors: LiturgicalColors.RED,
     },
 
     gratia_of_cattaro_religious: {

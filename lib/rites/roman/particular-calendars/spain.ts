@@ -1,7 +1,6 @@
 import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Dates } from '../utils/dates';
 import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
 import { Dayjs } from 'dayjs';
 import { Europe } from './europe';
 import { PatronTitles } from '../../../constants/martyrology-metadata';
@@ -39,25 +38,21 @@ export class Spain extends CalendarDef {
     hermenegild_the_visigoths_martyr: {
       precedence: Precedences.OptionalMemorial_12,
       date: '4-13',
-      liturgicalColors: LiturgicalColors.RED,
     },
 
     isidore_of_seville_bishop: {
       precedence: Precedences.ProperFeast_8f,
       date: '4-26',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     john_of_avila_priest: {
       precedence: Precedences.ProperMemorial_11b,
       date: '5-10',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     isidore_the_farmer: {
       precedence: Precedences.ProperMemorial_11b,
       date: '5-15',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     paschal_baylon_religious: {
@@ -88,7 +83,6 @@ export class Spain extends CalendarDef {
     our_lady_of_mount_carmel: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-16',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     james_apostle: {
@@ -105,7 +99,6 @@ export class Spain extends CalendarDef {
     teresa_of_jesus_jornet_ibars_virgin: {
       precedence: Precedences.ProperMemorial_11b,
       date: '8-26',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     francis_borgia_priest: {
@@ -126,7 +119,6 @@ export class Spain extends CalendarDef {
     our_lady_of_the_pillar: {
       precedence: Precedences.ProperFeast_8f,
       date: '10-12',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     teresa_of_jesus_of_avila_virgin: {
@@ -157,7 +149,6 @@ export class Spain extends CalendarDef {
     our_lord_jesus_christ_the_eternal_high_priest: {
       precedence: Precedences.ProperFeast_8f,
       date: (year: number): Dayjs => Dates.pentecostSunday(year).add(4, 'day'),
-      liturgicalColors: LiturgicalColors.WHITE,
       // cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
   };

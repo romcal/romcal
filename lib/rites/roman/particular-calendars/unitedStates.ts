@@ -4,7 +4,6 @@ import {
   ParticularConfig,
 } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
 import { Americas } from './americas';
 import { Dates } from '../utils/dates';
 import { PatronTitles } from '../../../constants/martyrology-metadata';
@@ -23,13 +22,11 @@ export class UnitedStates extends CalendarDef {
     elizabeth_ann_seton_religious: {
       precedence: Precedences.ProperMemorial_11b,
       date: '1-4',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     john_neumann_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       date: '1-5',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     andre_bessette_religious: {
@@ -75,7 +72,6 @@ export class UnitedStates extends CalendarDef {
     kateri_tekakwitha_virgin: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-14',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     camillus_de_lellis_priest: {
@@ -86,7 +82,6 @@ export class UnitedStates extends CalendarDef {
     peter_claver_priest: {
       precedence: Precedences.ProperMemorial_11b,
       date: '9-9',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     francis_xavier_seelos_priest: {
@@ -116,7 +111,6 @@ export class UnitedStates extends CalendarDef {
     frances_xavier_cabrini_virgin: {
       precedence: Precedences.ProperMemorial_11b,
       date: '11-13',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     rose_philippine_duchesne_virgin: {

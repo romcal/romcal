@@ -1,7 +1,6 @@
 import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Dates } from '../utils/dates';
 import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
 import { Dayjs } from 'dayjs';
 import { Americas } from './americas';
 import { PatronTitles } from '../../../constants/martyrology-metadata';
@@ -33,7 +32,6 @@ export class PuertoRico extends CalendarDef {
     our_lady_of_mount_carmel: {
       precedence: Precedences.ProperFeast_8f,
       date: '7-16',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     teresa_of_jesus_jornet_ibars_virgin: {
@@ -44,7 +42,6 @@ export class PuertoRico extends CalendarDef {
     rose_of_lima_virgin: {
       precedence: Precedences.ProperFeast_8f,
       date: '8-30',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     charles_spinola_and_jerome_de_angelis_priests: {
@@ -69,7 +66,6 @@ export class PuertoRico extends CalendarDef {
     our_lord_jesus_christ_the_eternal_high_priest: {
       precedence: Precedences.ProperFeast_8f,
       date: (year: number): Dayjs => Dates.pentecostSunday(year).add(4, 'day'),
-      liturgicalColors: LiturgicalColors.WHITE,
       // cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
   };

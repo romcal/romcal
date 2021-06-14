@@ -1,6 +1,5 @@
 import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
 import { Europe } from './europe';
 
 export class Norway extends CalendarDef {
@@ -55,7 +54,6 @@ export class Norway extends CalendarDef {
     olaf_ii_of_norway_martyr: {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '5-29',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     nicholas_steno_bishop: {
