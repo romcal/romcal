@@ -1,18 +1,51 @@
-type MartyrologyItem = {
+export type MartyrologyItem = {
+  /**
+   * Temporarily property, will be move to the corresponding locale file
+   */
   name: string;
+
+  /**
+   * Titles of the Saint
+   */
   titles?: string[];
+
+  /**
+   * Specify if the titles should not be displayed.
+   * It's generally the case when titles are already included in the name.
+   */
   hideTitles?: boolean;
-  dateOfDeath?: string;
-  count?: number | 'many';
+
+  /**
+   * Date of Death, as a Number (year), a String (in 'YYYY-MM' or 'YYYY-MM-DD' format),
+   * or an object describing date range, multiple possible date, or a century.
+   */
+  dateOfDeath?:
+    | SaintDate
+    | { between: [SaintDate, SaintDate] }
+    | { or: SaintDate[] }
+    | { century: number };
+
+  /**
+   * Specify if an approximative indicator should be added, when the date is displayed.
+   * For example in English: 'c. 201'.
+   */
+  dateOfDeathIsApproximative?: boolean;
+
+  /**
+   * Number of person that this definition represent.
+   * It could be set as 'many' if the number is not defined.
+   */
+  count?: SaintCount;
 };
 
-type MartyrologyCatalog = Record<string, MartyrologyItem>;
-
-interface BaseMartyrology {
+export type SaintCount = number | 'many';
+export type SaintDate = number | string;
+export type MartyrologyCatalog = Record<string, MartyrologyItem>;
+export interface BaseMartyrology {
   catalog: MartyrologyCatalog;
 }
 
-class Martyrology implements BaseMartyrology {
+export class Martyrology implements BaseMartyrology {
   catalog: MartyrologyCatalog = {
     all_saints: {
       name: 'All Saints',
@@ -119,9 +152,14 @@ class Martyrology implements BaseMartyrology {
       name: 'Pentecost Sunday',
     },
 
-    peter_and_paul_apostles: {
-      name: 'Saints Peter and Paul',
-      titles: ['Apostles'],
+    peter_apostle: {
+      name: 'Saint Peter',
+      titles: ['Apostle'],
+    },
+
+    paul_apostle: {
+      name: 'Saint Paul',
+      titles: ['Apostle'],
     },
 
     presentation_of_the_lord: {
@@ -143,6 +181,7 @@ class Martyrology implements BaseMartyrology {
     adalbert_of_prague_bishop: {
       name: 'Saint Adalbert',
       titles: ['Bishop', 'Martyr'],
+      dateOfDeath: 997,
     },
 
     adolph_kolping_priest: {
@@ -163,6 +202,7 @@ class Martyrology implements BaseMartyrology {
     agatha_of_sicily_virgin: {
       name: 'Saint Agatha',
       titles: ['Virgin', 'Martyr'],
+      dateOfDeath: 251,
     },
 
     agnes_cao_guiying_martyr: {
@@ -178,6 +218,8 @@ class Martyrology implements BaseMartyrology {
     agnes_of_rome_virgin: {
       name: 'Saint Agnes',
       titles: ['Virgin', 'Martyr'],
+      dateOfDeath: 304,
+      dateOfDeathIsApproximative: true,
     },
 
     aidan_of_ferns_bishop: {
@@ -192,6 +234,7 @@ class Martyrology implements BaseMartyrology {
 
     the_saints_of_lindisfarne: {
       name: 'the Saints of Lindisfarne',
+      count: 'many',
     },
 
     ailbe_of_emly_bishop: {
@@ -227,6 +270,7 @@ class Martyrology implements BaseMartyrology {
     albert_the_great_bishop: {
       name: 'Saint Albert the Great',
       titles: ['Bishop', 'Doctor of the Church'],
+      dateOfDeath: 1280,
     },
 
     albertina_berkenbrock_virgin: {
@@ -241,10 +285,12 @@ class Martyrology implements BaseMartyrology {
 
     all_saints_of_ireland: {
       name: 'All Saints of Ireland',
+      count: 'many',
     },
 
     all_saints_of_wales: {
       name: 'All Saints of Wales',
+      count: 'many',
     },
 
     all_souls: {
@@ -254,6 +300,7 @@ class Martyrology implements BaseMartyrology {
     aloysius_gonzaga_religious: {
       name: 'Saint Aloysius Gonzaga',
       titles: ['Religious'],
+      dateOfDeath: 1591,
     },
 
     aloysius_stepinac_bishop: {
@@ -261,9 +308,14 @@ class Martyrology implements BaseMartyrology {
       titles: ['Bishop', 'Martyr'],
     },
 
-    aloysius_versiglia_bishop_and_callistus_caravario_priest_martyrs: {
-      name: 'Saints Aloysius Versiglia',
-      titles: ['Bishop and Callistus Caravario, Priest, Martyrs'],
+    aloysius_versiglia_bishop: {
+      name: 'Saint Aloysius Versiglia',
+      titles: ['Bishop', 'Martyr'],
+    },
+
+    callistus_caravario_priest: {
+      name: 'Saint Callistus Caravario',
+      titles: ['Priest', 'Martyr'],
     },
 
     alphonsa_of_the_immaculate_conception_muttathupadathu_virgin: {
@@ -279,21 +331,26 @@ class Martyrology implements BaseMartyrology {
     amand_of_maastricht_bishop: {
       name: 'Saint Amand',
       titles: ['Bishop'],
+      dateOfDeath: 676,
+      dateOfDeathIsApproximative: true,
     },
 
     ambrose_of_milan_bishop: {
       name: 'Saint Ambrose',
       titles: ['Bishop', 'Doctor of the Church'],
+      dateOfDeath: 397,
     },
 
     andre_bessette_religious: {
       name: 'Saint André Bessette',
       titles: ['Religious'],
+      dateOfDeath: 1937,
     },
 
     andre_grasset_priest: {
       name: 'Blessed André Grasset',
       titles: ['Priest', 'Martyr'],
+      dateOfDeath: 1792,
     },
 
     andrew_apostle: {
@@ -307,43 +364,49 @@ class Martyrology implements BaseMartyrology {
     },
 
     andrew_de_soveral_priest: {
-      name: 'Saints Andrew de Soveral and Ambrose Francis Ferro',
+      name: 'Saint Andrew de Soveral',
       titles: ['Priest', 'Martyr'],
     },
 
     ambrose_francis_ferro_priest: {
-      name: 'Saints Andrew de Soveral and Ambrose Francis Ferro',
+      name: 'Saint Ambrose Francis Ferro',
       titles: ['Priest', 'Martyr'],
     },
 
     andrew_dung_lac_priest: {
       name: 'Saint Andrew Dũng-Lạc',
       titles: ['Priest', 'Martyr'],
+      dateOfDeath: { between: [1745, 1862] },
     },
 
     andrew_kim_tae_gon_priest: {
       name: 'Saint Andrew Kim Tae-gŏn',
       titles: ['Priest', 'Martyr'],
+      dateOfDeath: { between: [1745, 1862] },
     },
 
     paul_chong_ha_sang_martyr: {
       name: 'Saint Paul Chŏng Ha-sang',
       titles: ['Martyr'],
+      dateOfDeath: { between: [1745, 1862] },
     },
 
     andrew_zorard_of_nitra_hermit: {
       name: 'Saint Andrew Zorard',
       titles: ['Hermit'],
+      dateOfDeath: 1009,
     },
 
     benedict_of_skalka_hermit: {
       name: 'Saint Benedict',
       titles: ['Hermit'],
+      dateOfDeath: 1012,
     },
 
     angela_merici_virgin: {
       name: 'Saint Angela Merici',
       titles: ['Virgin'],
+      dateOfDeath: 1540,
     },
 
     angela_salawa_virgin: {
@@ -359,11 +422,13 @@ class Martyrology implements BaseMartyrology {
     anselm_of_canterbury_bishop: {
       name: 'Saint Anselm',
       titles: ['Bishop', 'Doctor of the Church'],
+      dateOfDeath: 1109,
     },
 
     ansgar_of_hamburg_bishop: {
       name: 'Saint Ansgar',
       titles: ['Bishop'],
+      dateOfDeath: 865,
     },
 
     anthony_julian_nowowiejski_bishop: {
@@ -374,16 +439,19 @@ class Martyrology implements BaseMartyrology {
     anthony_mary_claret_bishop: {
       name: 'Saint Anthony Mary Claret',
       titles: ['Bishop'],
+      dateOfDeath: 1870,
     },
 
     anthony_of_egypt_abbot: {
       name: 'Saint Anthony',
       titles: ['Abbot'],
+      dateOfDeath: 356,
     },
 
     anthony_of_padua_priest: {
       name: 'Saint Anthony of Padua',
       titles: ['Priest', 'Doctor of the Church'],
+      dateOfDeath: 1231,
     },
 
     anthony_of_saint_anne_galvao_priest: {
@@ -399,11 +467,13 @@ class Martyrology implements BaseMartyrology {
     anthony_zaccaria_priest: {
       name: 'Saint Anthony Zaccaria',
       titles: ['Priest'],
+      dateOfDeath: 1539,
     },
 
     apollinaris_of_ravenna_bishop: {
       name: 'Saint Apollinaris',
       titles: ['Bishop', 'Martyr'],
+      dateOfDeath: 81,
     },
 
     asaph_of_wales_bishop: {
@@ -419,6 +489,7 @@ class Martyrology implements BaseMartyrology {
     athanasius_of_alexandria_bishop: {
       name: 'Saint Athanasius',
       titles: ['Bishop', 'Doctor of the Church'],
+      dateOfDeath: 373,
     },
 
     attracta_of_killaraght_virgin: {
@@ -434,16 +505,19 @@ class Martyrology implements BaseMartyrology {
     augustine_of_canterbury_bishop: {
       name: 'Saint Augustine of Canterbury',
       titles: ['Bishop'],
+      dateOfDeath: 604,
     },
 
     augustine_of_hippo_bishop: {
       name: 'Saint Augustine',
       titles: ['Bishop', 'Doctor of the Church'],
+      dateOfDeath: 430,
     },
 
     augustine_zhao_rong_priest: {
       name: 'Saint Augustine Zhao Rong',
       titles: ['Priest', 'Martyr'],
+      dateOfDeath: { between: [1648, 1930] },
     },
 
     barbara_of_heliopolis_virgin: {
@@ -474,11 +548,13 @@ class Martyrology implements BaseMartyrology {
     basil_the_great_bishop: {
       name: 'Saint Basil the Great',
       titles: ['Bishop', 'Doctor of the Church'],
+      dateOfDeath: 379,
     },
 
     gregory_nazianzen_bishop: {
       name: 'Saint Gregory Nazianzen',
       titles: ['Bishop', 'Doctor of the Church'],
+      dateOfDeath: 390,
     },
 
     beatrice_da_silva_meneses_virgin: {
@@ -489,6 +565,7 @@ class Martyrology implements BaseMartyrology {
     bede_the_venerable_priest: {
       name: 'Saint Bede the Venerable',
       titles: ['Priest', 'Doctor of the Church'],
+      dateOfDeath: 735,
     },
 
     benedict_of_jesus_valdivielso_saez_religious: {
@@ -499,6 +576,8 @@ class Martyrology implements BaseMartyrology {
     benedict_of_nursia_abbot: {
       name: 'Saint Benedict',
       titles: ['Abbot'],
+      dateOfDeath: 547,
+      dateOfDeathIsApproximative: true,
     },
 
     benno_of_meissen_bishop: {
@@ -509,16 +588,19 @@ class Martyrology implements BaseMartyrology {
     bernadette_soubirous_virgin: {
       name: 'Saint Bernadette Soubirous',
       titles: ['Virgin'],
+      dateOfDeath: 1879,
     },
 
     bernard_of_clairvaux_abbot: {
       name: 'Saint Bernard',
       titles: ['Abbot', 'Doctor of the Church'],
+      dateOfDeath: 1153,
     },
 
     bernardine_of_siena_priest: {
       name: 'Saint Bernardine of Siena',
       titles: ['Priest'],
+      dateOfDeath: 1444,
     },
 
     beuno_of_wales_abbot: {
@@ -529,6 +611,7 @@ class Martyrology implements BaseMartyrology {
     blaise_of_sebaste_bishop: {
       name: 'Saint Blaise',
       titles: ['Bishop', 'Martyr'],
+      dateOfDeath: 316,
     },
 
     bogumilus_of_dobrow_bishop: {
@@ -544,16 +627,23 @@ class Martyrology implements BaseMartyrology {
     bonaventure_of_bagnoregio_bishop: {
       name: 'Saint Bonaventure',
       titles: ['Bishop', 'Doctor of the Church'],
+      dateOfDeath: 1274,
     },
 
     boniface_of_mainz_bishop: {
       name: 'Saint Boniface',
       titles: ['Bishop', 'Martyr'],
+      dateOfDeath: 754,
     },
 
-    boris_of_kiev_and_gleb_of_kiev_martyrs: {
-      name: 'Saints Boris and Gleb',
-      titles: ['Martyrs'],
+    boris_of_kiev_martyr: {
+      name: 'Saint Boris',
+      titles: ['Martyr'],
+    },
+
+    gleb_of_kiev_martyr: {
+      name: 'Saint Gleb',
+      titles: ['Martyr'],
     },
 
     brendan_of_clonfert_abbot: {
@@ -564,6 +654,7 @@ class Martyrology implements BaseMartyrology {
     bridget_of_sweden_religious: {
       name: 'Saint Bridget',
       titles: ['Religious'],
+      dateOfDeath: 1373,
     },
 
     brigid_of_kildare_virgin: {
@@ -584,6 +675,7 @@ class Martyrology implements BaseMartyrology {
     bruno_of_cologne_priest: {
       name: 'Saint Bruno',
       titles: ['Priest'],
+      dateOfDeath: 1101,
     },
 
     bruno_of_querfurt_bishop: {
@@ -594,21 +686,25 @@ class Martyrology implements BaseMartyrology {
     caesarius_of_arles_bishop: {
       name: 'Saint Caesarius of Arles',
       titles: ['Bishop'],
+      dateOfDeath: 542,
     },
 
     cajetan_of_thiene_priest: {
       name: 'Saint Cajetan',
       titles: ['Priest'],
+      dateOfDeath: 1547,
     },
 
     callistus_i_pope: {
       name: 'Saint Callistus I',
       titles: ['Pope', 'Martyr'],
+      dateOfDeath: 222,
     },
 
     camillus_de_lellis_priest: {
       name: 'Saint Camillus de Lellis',
       titles: ['Priest'],
+      dateOfDeath: 1614,
     },
 
     canice_of_kilkenny_abbot: {
@@ -637,21 +733,26 @@ class Martyrology implements BaseMartyrology {
 
     casimir_of_poland: {
       name: 'Saint Casimir',
+      dateOfDeath: 1484,
     },
 
     catherine_of_alexandria_virgin: {
       name: 'Saint Catherine of Alexandria',
       titles: ['Virgin', 'Martyr'],
+      dateOfDeath: 305,
+      dateOfDeathIsApproximative: true,
     },
 
     catherine_of_saint_augustine_de_simon_de_longpre_virgin: {
       name: 'Blessed Catherine of Saint Augustine',
       titles: ['Virgin'],
+      dateOfDeath: 1668,
     },
 
     catherine_of_siena_virgin: {
       name: 'Saint Catherine of Siena',
       titles: ['Virgin', 'Doctor of the Church'],
+      dateOfDeath: 1380,
     },
 
     ceallach_of_armagh_bishop: {
@@ -662,6 +763,7 @@ class Martyrology implements BaseMartyrology {
     cecilia_of_rome_virgin: {
       name: 'Saint Cecilia',
       titles: ['Virgin', 'Martyr'],
+      dateOfDeath: 230,
     },
 
     ceferino_gimenez_malla_martyr: {
@@ -691,6 +793,7 @@ class Martyrology implements BaseMartyrology {
     charles_borromeo_bishop: {
       name: 'Saint Charles Borromeo',
       titles: ['Bishop'],
+      dateOfDeath: 1584,
     },
 
     charles_i_of_austria: {
@@ -699,6 +802,7 @@ class Martyrology implements BaseMartyrology {
 
     charles_lwanga_martyr: {
       name: 'Saint Charles Lwanga',
+      dateOfDeath: 618,
     },
 
     jerome_de_angelis_priest: {
@@ -714,6 +818,7 @@ class Martyrology implements BaseMartyrology {
     christopher_magallanes_priest: {
       name: 'Saint Christopher Magallanes',
       titles: ['Priest', 'Martyr'],
+      dateOfDeath: 1927,
     },
 
     christopher_of_palestine_martyr: {
@@ -734,6 +839,7 @@ class Martyrology implements BaseMartyrology {
     clement_i_pope: {
       name: 'Saint Clement I',
       titles: ['Pope', 'Martyr'],
+      dateOfDeath: 97,
     },
 
     clement_mary_hofbauer_priest: {
@@ -753,6 +859,7 @@ class Martyrology implements BaseMartyrology {
 
     clotilde_of_burgundy: {
       name: 'Saint Clotilde',
+      dateOfDeath: 545,
     },
 
     colman_of_cloyne_bishop: {
@@ -778,6 +885,7 @@ class Martyrology implements BaseMartyrology {
     columba_of_iona_abbot: {
       name: 'Saint Columba',
       titles: ['Abbot'],
+      dateOfDeath: 615,
     },
 
     columban_of_luxeuil_abbot: {
@@ -796,7 +904,7 @@ class Martyrology implements BaseMartyrology {
     },
 
     conrad_of_constance_bishop: {
-      name: 'Saints Conrad of Constance',
+      name: 'Saint Conrad of Constance',
       titles: ['Bishop'],
     },
 
@@ -822,11 +930,13 @@ class Martyrology implements BaseMartyrology {
     cornelius_i_pope: {
       name: 'Saint Cornelius',
       titles: ['Pope', 'Martyrs'],
+      dateOfDeath: '253-06',
     },
 
     cyprian_of_carthage_bishop: {
-      name: 'Saints Cornelius',
+      name: 'Saint Cornelius',
       titles: ['Bishop', 'Martyr'],
+      dateOfDeath: '258-09-14',
     },
 
     cosmas_of_cilicia_martyr: {
@@ -847,31 +957,37 @@ class Martyrology implements BaseMartyrology {
     cyril_of_alexandria_bishop: {
       name: 'Saint Cyril of Alexandria',
       titles: ['Bishop', 'Doctor of the Church'],
+      dateOfDeath: 444,
     },
 
     cyril_of_jerusalem_bishop: {
       name: 'Saint Cyril of Jerusalem',
       titles: ['Bishop', 'Doctor of the Church'],
+      dateOfDeath: 387,
     },
 
     cyril_the_philosopher_monk: {
       name: 'Saint Cyril',
       titles: ['Monk'],
+      dateOfDeath: '869-02-14',
     },
 
     methodius_of_thessaloniki_bishop: {
       name: 'Saint Methodius',
       titles: ['Bishop'],
+      dateOfDeath: '885-04-06',
     },
 
     damasus_i_pope: {
       name: 'Saint Damasus I',
       titles: ['Pope'],
+      dateOfDeath: 384,
     },
 
     damien_de_veuster_priest: {
       name: 'Saint Damien de Veuster',
       titles: ['Priest'],
+      dateOfDeath: 1889,
     },
 
     david_lewis_priest: {
@@ -925,11 +1041,13 @@ class Martyrology implements BaseMartyrology {
     denis_of_paris_bishop: {
       name: 'Saint Denis',
       titles: ['Bishop', 'Martyr'],
+      dateOfDeath: { or: [250, 258, 270] },
     },
 
     dina_belanger_virgin: {
       name: 'Blessed Dina Bélanger',
       titles: ['Virgin'],
+      dateOfDeath: 1929,
     },
 
     dionysius_the_areopagite_bishop: {
@@ -940,6 +1058,7 @@ class Martyrology implements BaseMartyrology {
     dominic_de_guzman_priest: {
       name: 'Saint Dominic',
       titles: ['Priest'],
+      dateOfDeath: 1221,
     },
 
     dominic_of_the_mother_of_god_barberi_priest: {
@@ -998,10 +1117,12 @@ class Martyrology implements BaseMartyrology {
     elizabeth_of_hungary_religious: {
       name: 'Saint Elizabeth of Hungary',
       titles: ['Religious'],
+      dateOfDeath: 1231,
     },
 
     elizabeth_of_portugal: {
       name: 'Saint Elizabeth of Portugal',
+      dateOfDeath: 1336,
     },
 
     emeric_of_hungary: {
@@ -1011,6 +1132,7 @@ class Martyrology implements BaseMartyrology {
     emilie_tavernier_gamelin_religious: {
       name: 'Blessed Émilie Tavernier-Gamelin',
       titles: ['Religious'],
+      dateOfDeath: 1851,
     },
 
     enda_of_aran_abbot: {
@@ -1033,6 +1155,7 @@ class Martyrology implements BaseMartyrology {
     ephrem_the_syrian_deacon: {
       name: 'Saint Ephrem',
       titles: ['Deacon', 'Doctor of the Church'],
+      dateOfDeath: 373,
     },
 
     eric_ix_of_sweden_martyr: {
@@ -1048,6 +1171,7 @@ class Martyrology implements BaseMartyrology {
     eugene_de_mazenod_bishop: {
       name: 'Saint Eugène de Mazenod',
       titles: ['Bishop'],
+      dateOfDeath: 1861,
     },
 
     eulalia_of_merida_virgin: {
@@ -1068,6 +1192,7 @@ class Martyrology implements BaseMartyrology {
     eusebius_of_vercelli_bishop: {
       name: 'Saint Eusebius of Vercelli',
       titles: ['Bishop'],
+      dateOfDeath: 371,
     },
 
     eysteinn_of_nidaros_bishop: {
@@ -1083,6 +1208,7 @@ class Martyrology implements BaseMartyrology {
     fabian_i_pope: {
       name: 'Saint Fabian',
       titles: ['Pope', 'Martyr'],
+      dateOfDeath: 250,
     },
 
     fachanan_of_kilfenora_bishop: {
@@ -1098,6 +1224,7 @@ class Martyrology implements BaseMartyrology {
     faustina_kowalska_virgin: {
       name: 'Saint Faustina Kowalska',
       titles: ['Virgin'],
+      dateOfDeath: 1938,
     },
 
     ferdinand_iii_of_castile: {
@@ -1112,6 +1239,7 @@ class Martyrology implements BaseMartyrology {
     fidelis_of_sigmaringen_priest: {
       name: 'Saint Fidelis of Sigmaringen',
       titles: ['Priest', 'Martyr'],
+      dateOfDeath: 1622,
     },
 
     finbarr_of_cork_bishop: {
@@ -1138,6 +1266,7 @@ class Martyrology implements BaseMartyrology {
       titles: ['Martyr'],
       hideTitles: true,
       count: 'many',
+      dateOfDeath: 64,
     },
 
     first_polish_martyrs: {
@@ -1164,6 +1293,7 @@ class Martyrology implements BaseMartyrology {
     frances_of_rome_religious: {
       name: 'Saint Frances of Rome',
       titles: ['Religious'],
+      dateOfDeath: 1440,
     },
 
     frances_xavier_cabrini_virgin: {
@@ -1179,6 +1309,7 @@ class Martyrology implements BaseMartyrology {
     francis_de_sales_bishop: {
       name: 'Saint Francis de Sales',
       titles: ['Bishop', 'Doctor of the Church'],
+      dateOfDeath: 1622,
     },
 
     francis_diaz_del_rincon_priest: {
@@ -1193,11 +1324,13 @@ class Martyrology implements BaseMartyrology {
 
     francis_of_assisi: {
       name: 'Saint Francis of Assisi',
+      dateOfDeath: 1226,
     },
 
     francis_of_paola_hermit: {
       name: 'Saint Francis of Paola',
       titles: ['Hermit'],
+      dateOfDeath: 1507,
     },
 
     francis_solanus_priest: {
@@ -1208,6 +1341,7 @@ class Martyrology implements BaseMartyrology {
     francis_xavier_priest: {
       name: 'Saint Francis Xavier',
       titles: ['Priest'],
+      dateOfDeath: 1552,
     },
 
     francis_xavier_seelos_priest: {
@@ -1218,11 +1352,13 @@ class Martyrology implements BaseMartyrology {
     francois_de_montmorency_laval_bishop: {
       name: 'Saint François de Laval',
       titles: ['Bishop'],
+      dateOfDeath: 1708,
     },
 
     frederic_janssoone_priest: {
       name: 'Blessed Frédéric Janssoone',
       titles: ['Priest'],
+      dateOfDeath: 1916,
     },
 
     fridolin_of_sackingen_monk: {
@@ -1231,17 +1367,17 @@ class Martyrology implements BaseMartyrology {
     },
 
     fructuosus_of_braga_bishop: {
-      name: 'Saints Fructuosus of Braga',
+      name: 'Saint Fructuosus of Braga',
       titles: ['Bishop'],
     },
 
     martin_of_braga_bishop: {
-      name: 'Saints Fructuosus of Braga',
+      name: 'Saint Martin of Braga',
       titles: ['Bishop'],
     },
 
     gerald_of_braga_bishop: {
-      name: 'Saints Fructuosus',
+      name: 'Saint Gerald of Braga',
       titles: ['Bishop'],
     },
 
@@ -1278,6 +1414,7 @@ class Martyrology implements BaseMartyrology {
     genevieve_of_paris_virgin: {
       name: 'Saint Genevieve',
       titles: ['Virgin'],
+      dateOfDeath: 500,
     },
 
     george_matulaitis_bishop: {
@@ -1288,6 +1425,7 @@ class Martyrology implements BaseMartyrology {
     george_of_lydda_martyr: {
       name: 'Saint George',
       titles: ['Martyr'],
+      dateOfDeath: 303,
     },
 
     george_preca_priest: {
@@ -1308,11 +1446,13 @@ class Martyrology implements BaseMartyrology {
     gertrude_of_nivelles_abbess: {
       name: 'Saint Gertrude of Nivelles',
       titles: ['Abbess'],
+      dateOfDeath: 659,
     },
 
     gertrude_the_great_virgin: {
       name: 'Saint Gertrude',
       titles: ['Virgin'],
+      dateOfDeath: 1301,
     },
 
     gisela_of_hungary: {
@@ -1339,23 +1479,24 @@ class Martyrology implements BaseMartyrology {
     },
 
     gregory_grassi_bishop: {
-      name: 'Saints Gregory Grassi',
+      name: 'Saint Gregory Grassi',
       titles: ['Bishop', 'Martyr'],
     },
 
-    rancis_fogolla_bishop: {
-      name: 'Saints Gregory Grassi',
+    francis_fogolla_bishop: {
+      name: 'Saint Francis Fogolla',
       titles: ['Bishop', 'Martyr'],
     },
 
     anthony_fantosati_bishop: {
-      name: 'Saints Gregory Grassi',
+      name: 'Saint Anthony Fantosati',
       titles: ['Bishop', 'Martyr'],
     },
 
     gregory_i_the_great_pope: {
       name: 'Saint Gregory the Great',
       titles: ['Pope', 'Doctor of the Church'],
+      dateOfDeath: 604,
     },
 
     gregory_of_narek_abbot: {
@@ -1366,6 +1507,7 @@ class Martyrology implements BaseMartyrology {
     gregory_vii_pope: {
       name: 'Saint Gregory VII',
       titles: ['Pope'],
+      dateOfDeath: 1085,
     },
 
     guardian_angel_of_portugal: {
@@ -1399,6 +1541,7 @@ class Martyrology implements BaseMartyrology {
     hedwig_of_silesia_religious: {
       name: 'Saint Hedwig',
       titles: ['Religious'],
+      dateOfDeath: 1243,
     },
 
     helena_of_constantinople: {
@@ -1416,15 +1559,17 @@ class Martyrology implements BaseMartyrology {
 
     henry_ii_emperor: {
       name: 'Saint Henry',
+      dateOfDeath: 1024,
     },
 
-    henry_ii_emperor_and_cunigunde_of_luxembourg: {
-      name: 'Saints Henry and Cunigunde',
+    cunigunde_of_luxembourg: {
+      name: 'Saint Cunigunde',
     },
 
     henry_of_finland_bishop: {
       name: 'Saint Henry',
       titles: ['Bishop', 'Martyr'],
+      dateOfDeath: 1156,
     },
 
     henry_suso_priest: {
@@ -1445,6 +1590,7 @@ class Martyrology implements BaseMartyrology {
     hilary_of_poitiers_bishop: {
       name: 'Saint Hilary',
       titles: ['Bishop', 'Doctor of the Church'],
+      dateOfDeath: 367,
     },
 
     hilda_of_whitby_abbess: {
@@ -1464,6 +1610,8 @@ class Martyrology implements BaseMartyrology {
     holy_innocents_martyrs: {
       name: 'Holy Innocents',
       titles: ['Martyrs'],
+      dateOfDeath: 2,
+      dateOfDeathIsApproximative: true,
     },
 
     honorat_kozminski_priest: {
@@ -1484,6 +1632,7 @@ class Martyrology implements BaseMartyrology {
     hubert_of_liege_bishop: {
       name: 'Saint Hubert',
       titles: ['Bishop'],
+      dateOfDeath: 727,
     },
 
     hugh_of_lincoln_bishop: {
@@ -1513,11 +1662,13 @@ class Martyrology implements BaseMartyrology {
     ignatius_of_antioch_bishop: {
       name: 'Saint Ignatius of Antioch',
       titles: ['Bishop', 'Martyr'],
+      dateOfDeath: 115,
     },
 
     ignatius_of_loyola_priest: {
       name: 'Saint Ignatius of Loyola',
       titles: ['Priest'],
+      dateOfDeath: 1556,
     },
 
     ildephonsus_of_toledo_bishop: {
@@ -1538,6 +1689,8 @@ class Martyrology implements BaseMartyrology {
     irenaeus_of_lyon_bishop: {
       name: 'Saint Irenaeus',
       titles: ['Bishop', 'Martyr'],
+      dateOfDeath: 201,
+      dateOfDeathIsApproximative: true,
     },
 
     irene_of_macedonia: {
@@ -1552,6 +1705,7 @@ class Martyrology implements BaseMartyrology {
     isidore_of_seville_bishop: {
       name: 'Saint Isidore',
       titles: ['Bishop', 'Doctor of the Church'],
+      dateOfDeath: 636,
     },
 
     isidore_the_farmer: {
@@ -1575,6 +1729,7 @@ class Martyrology implements BaseMartyrology {
     ivo_of_kermartin_priest: {
       name: 'Saint Ivo',
       titles: ['Priest'],
+      dateOfDeath: 1303,
     },
 
     jacinta_marto: {
@@ -1588,6 +1743,7 @@ class Martyrology implements BaseMartyrology {
     james_apostle: {
       name: 'Saint James',
       titles: ['Apostle'],
+      dateOfDeath: 44,
     },
 
     james_strzemie_bishop: {
@@ -1598,11 +1754,13 @@ class Martyrology implements BaseMartyrology {
     jane_frances_de_chantal_religious: {
       name: 'Saint Jane Frances de Chantal',
       titles: ['Religious'],
+      dateOfDeath: 1641,
     },
 
     januarius_i_of_benevento_bishop: {
       name: 'Saint Januarius',
       titles: ['Bishop', 'Martyr'],
+      dateOfDeath: 305,
     },
 
     jarlath_of_tuam_bishop: {
@@ -1612,21 +1770,25 @@ class Martyrology implements BaseMartyrology {
 
     jerome_emiliani: {
       name: 'Saint Jerome Emiliani',
+      dateOfDeath: 1537,
     },
 
     jerome_of_stridon_priest: {
       name: 'Saint Jerome',
       titles: ['Priest', 'Doctor of the Church'],
+      dateOfDeath: 420,
     },
 
     joachim_father_of_mary: {
       name: 'Saint Joachim',
       titles: ['Parents of the Blessed Virgin Mary'],
+      dateOfDeath: { century: 1 },
     },
 
     anne_mother_of_mary: {
       name: 'Saint Anne',
       titles: ['Parents of the Blessed Virgin Mary'],
+      dateOfDeath: { century: 1 },
     },
 
     joachim_he_kaizhi_martyr: {
@@ -1637,6 +1799,7 @@ class Martyrology implements BaseMartyrology {
     joan_of_arc_virgin: {
       name: 'Saint Joan of Arc',
       titles: ['Virgin'],
+      dateOfDeath: 1431,
     },
 
     joan_of_portugal_virgin: {
@@ -1657,11 +1820,13 @@ class Martyrology implements BaseMartyrology {
     john_baptist_de_la_salle_priest: {
       name: 'Saint John Baptist de la Salle',
       titles: ['Priest'],
+      dateOfDeath: 1719,
     },
 
     john_berchmans_religious: {
       name: 'Saint John Berchmans',
       titles: ['Religious'],
+      dateOfDeath: 1621,
     },
 
     john_beyzym_priest: {
@@ -1672,6 +1837,7 @@ class Martyrology implements BaseMartyrology {
     john_bosco_priest: {
       name: 'Saint John Bosco',
       titles: ['Priest'],
+      dateOfDeath: 1888,
     },
 
     john_brenner_priest: {
@@ -1687,21 +1853,25 @@ class Martyrology implements BaseMartyrology {
     john_chrysostom_bishop: {
       name: 'Saint John Chrysostom',
       titles: ['Bishop', 'Doctor of the Church'],
+      dateOfDeath: 407,
     },
 
     john_damascene_priest: {
       name: 'Saint John Damascene',
       titles: ['Priest', 'Doctor of the Church'],
+      dateOfDeath: 749,
     },
 
     john_de_brebeuf_priest: {
       name: 'Saint John de Brébeuf',
       titles: ['Priest', 'Martyr'],
+      dateOfDeath: '1649-03-16',
     },
 
     isaac_jogues_priest: {
       name: 'Saint Isaac Jogues',
       titles: ['Priest', 'Martyr'],
+      dateOfDeath: '1646-10-18',
     },
 
     john_de_britto_priest: {
@@ -1712,16 +1882,19 @@ class Martyrology implements BaseMartyrology {
     john_eudes_priest: {
       name: 'Saint John Eudes',
       titles: ['Priest'],
+      dateOfDeath: 1680,
     },
 
     john_fisher_bishop: {
       name: 'Saint John Fisher',
       titles: ['Bishop', 'Martyr'],
+      dateOfDeath: '1535-06-22',
     },
 
     thomas_more_martyr: {
       name: 'Saint Thomas More',
       titles: ['Martyr'],
+      dateOfDeath: '1537-07-6',
     },
 
     john_gabriel_perboyre_priest: {
@@ -1737,6 +1910,7 @@ class Martyrology implements BaseMartyrology {
     john_i_pope: {
       name: 'Saint John I',
       titles: ['Pope', 'Martyr'],
+      dateOfDeath: 526,
     },
 
     john_jones_priest: {
@@ -1747,6 +1921,7 @@ class Martyrology implements BaseMartyrology {
     john_leonardi_priest: {
       name: 'Saint John Leonardi',
       titles: ['Priest'],
+      dateOfDeath: 1609,
     },
 
     john_macias_religious: {
@@ -1762,6 +1937,7 @@ class Martyrology implements BaseMartyrology {
     john_mary_vianney_priest: {
       name: 'Saint John Vianney',
       titles: ['Priest'],
+      dateOfDeath: 1859,
     },
 
     john_nepomucene_neumann_bishop: {
@@ -1782,6 +1958,7 @@ class Martyrology implements BaseMartyrology {
     john_of_capistrano_priest: {
       name: 'Saint John of Capistrano',
       titles: ['Priest'],
+      dateOfDeath: 1456,
     },
 
     john_of_dukla_priest: {
@@ -1792,16 +1969,19 @@ class Martyrology implements BaseMartyrology {
     john_of_god_duoarte_cidade_religious: {
       name: 'Saint John of God',
       titles: ['Religious'],
+      dateOfDeath: 1550,
     },
 
     john_of_kanty_priest: {
       name: 'Saint John of Kanty',
       titles: ['Priest'],
+      dateOfDeath: 1473,
     },
 
     john_of_the_cross_priest: {
       name: 'Saint John of the Cross',
       titles: ['Priest', 'Doctor of the Church'],
+      dateOfDeath: 1591,
     },
 
     john_of_triora_priest: {
@@ -1817,6 +1997,7 @@ class Martyrology implements BaseMartyrology {
     john_paul_ii_pope: {
       name: 'Saint John Paul II',
       titles: ['Pope'],
+      dateOfDeath: 2005,
     },
 
     john_roberts_priest: {
@@ -1837,11 +2018,13 @@ class Martyrology implements BaseMartyrology {
     john_xxiii_pope: {
       name: 'Saint John XXIII',
       titles: ['Pope'],
+      dateOfDeath: 1963,
     },
 
     josaphat_kuntsevych_bishop: {
       name: 'Saint Josaphat',
       titles: ['Bishop', 'Martyr'],
+      dateOfDeath: 1623,
     },
 
     jose_maria_de_yermo_y_parres_priest: {
@@ -1872,6 +2055,7 @@ class Martyrology implements BaseMartyrology {
     joseph_of_calasanz_priest: {
       name: 'Saint Joseph of Calasanz',
       titles: ['Priest'],
+      dateOfDeath: 1648,
     },
 
     joseph_sebastian_pelczar_bishop: {
@@ -1901,20 +2085,24 @@ class Martyrology implements BaseMartyrology {
     josephine_bakhita_virgin: {
       name: 'Saint Josephine Bakhita',
       titles: ['Virgin'],
+      dateOfDeath: 1947,
     },
 
     juan_diego_cuauhtlatoatzin: {
       name: 'Saint Juan Diego Cuauhtlatoatzin',
+      dateOfDeath: 1548,
     },
 
     juliana_of_liege_virgin: {
       name: 'Saint Juliana of Liège',
       titles: ['Virgin'],
+      dateOfDeath: 1258,
     },
 
     julie_billiart_virgin: {
       name: 'Saint Julie Billiart',
       titles: ['Virgin'],
+      dateOfDeath: 1816,
     },
 
     junipero_serra_priest: {
@@ -1925,11 +2113,13 @@ class Martyrology implements BaseMartyrology {
     justin_martyr: {
       name: 'Saint Justin',
       titles: ['Martyr'],
+      dateOfDeath: 165,
     },
 
     kateri_tekakwitha_virgin: {
       name: 'Saint Kateri Tekakwitha',
       titles: ['Virgin'],
+      dateOfDeath: 1680,
     },
 
     katharine_drexel_virgin: {
@@ -1983,6 +2173,7 @@ class Martyrology implements BaseMartyrology {
     lambert_of_maastricht_bishop: {
       name: 'Saint Lambert of Maastricht',
       titles: ['Bishop', 'Martyr'],
+      dateOfDeath: 705,
     },
 
     laserian_of_leighlin_bishop: {
@@ -2013,16 +2204,20 @@ class Martyrology implements BaseMartyrology {
     lawrence_of_brindisi_priest: {
       name: 'Saint Lawrence of Brindisi',
       titles: ['Priest', 'Doctor of the Church'],
+      dateOfDeath: 1619,
     },
 
     lawrence_of_rome_deacon: {
       name: 'Saint Lawrence',
       titles: ['Deacon', 'Martyr'],
+      dateOfDeath: 258,
     },
 
     lawrence_ruiz_martyr: {
       name: 'Saint Lawrence Ruiz',
       titles: ['Martyr'],
+      dateOfDeath: 1635,
+      dateOfDeathIsApproximative: true,
     },
 
     leander_of_seville_bishop: {
@@ -2082,15 +2277,18 @@ class Martyrology implements BaseMartyrology {
     louis_grignion_de_montfort_priest: {
       name: 'Saint Louis Grignion de Montfort',
       titles: ['Priest'],
+      dateOfDeath: 1716,
     },
 
     louis_ix_of_france: {
       name: 'Saint Louis',
+      dateOfDeath: 1270,
     },
 
     louis_zephirin_moreau_bishop: {
       name: 'Blessed Louis-Zéphirin Moreau',
       titles: ['Bishop'],
+      dateOfDeath: 1901,
     },
 
     lucius_of_chur_bishop: {
@@ -2101,6 +2299,8 @@ class Martyrology implements BaseMartyrology {
     lucy_of_syracuse_virgin: {
       name: 'Saint Lucy',
       titles: ['Virgin', 'Martyr'],
+      dateOfDeath: 305,
+      dateOfDeathIsApproximative: true,
     },
 
     lucy_yi_zhenmei_virgin: {
@@ -2175,11 +2375,13 @@ class Martyrology implements BaseMartyrology {
     marcellinus_of_rome_martyr: {
       name: 'Saint Marcellinus',
       titles: ['Martyr'],
+      dateOfDeath: 304,
     },
 
     peter_the_exorcist_martyr: {
       name: 'Saint Peter',
       titles: ['Martyr'],
+      dateOfDeath: 304,
     },
 
     margaret_clitherow_virgin_martyr: {
@@ -2200,6 +2402,7 @@ class Martyrology implements BaseMartyrology {
     margaret_mary_alacoque_virgin: {
       name: 'Saint Margaret Mary Alacoque',
       titles: ['Virgin'],
+      dateOfDeath: 1690,
     },
 
     margaret_of_antioch_virgin: {
@@ -2214,21 +2417,25 @@ class Martyrology implements BaseMartyrology {
 
     margaret_of_scotland: {
       name: 'Saint Margaret of Scotland',
+      dateOfDeath: 1093,
     },
 
     marguerite_bourgeoys_virgin: {
       name: 'Saint Marguerite Bourgeoys',
       titles: ['Virgin'],
+      dateOfDeath: 1700,
     },
 
     marguerite_dyouville_religious: {
       name: 'Saint Marguerite d’Youville',
       titles: ['Religious'],
+      dateOfDeath: 1771,
     },
 
     maria_goretti_virgin: {
       name: 'Saint Maria Goretti',
       titles: ['Virgin', 'Martyr'],
+      dateOfDeath: 1902,
     },
 
     maria_guadalupe_garcia_zavala_virgin: {
@@ -2254,21 +2461,25 @@ class Martyrology implements BaseMartyrology {
     marie_anne_blondin_virgin: {
       name: 'Blessed Marie-Anne Blondin',
       titles: ['Virgin'],
+      dateOfDeath: 1890,
     },
 
     marie_leonie_paradis_virgin: {
       name: 'Blessed Marie-Léonie Paradis',
       titles: ['Virgin'],
+      dateOfDeath: 1912,
     },
 
     marie_of_the_incarnation_guyart_religious: {
       name: 'Saint Marie of the Incarnation Guyart',
       titles: ['Religious'],
+      dateOfDeath: 1672,
     },
 
     marie_rose_durocher_virgin: {
       name: 'Blessed Marie Rose Durocher',
       titles: ['Virgin'],
+      dateOfDeath: 1849,
     },
 
     mark_evangelist: {
@@ -2293,29 +2504,35 @@ class Martyrology implements BaseMartyrology {
 
     martha_of_bethany: {
       name: 'Saint Martha',
+      dateOfDeath: { century: 1 },
     },
 
     mary_of_bethany: {
       name: 'Saint Mary',
+      dateOfDeath: { century: 1 },
     },
 
     lazarus_of_bethany: {
       name: 'Saint Lazarus',
+      dateOfDeath: { century: 1 },
     },
 
     martin_de_porres_religious: {
       name: 'Saint Martin de Porres',
       titles: ['Religious'],
+      dateOfDeath: 1639,
     },
 
     martin_i_pope: {
       name: 'Saint Martin I',
       titles: ['Pope', 'Martyr'],
+      dateOfDeath: 656,
     },
 
     martin_of_tours_bishop: {
       name: 'Saint Martin of Tours',
       titles: ['Bishop'],
+      dateOfDeath: 397,
     },
 
     martin_wu_xuesheng_martyr: {
@@ -2340,11 +2557,13 @@ class Martyrology implements BaseMartyrology {
 
     mary_magdalene: {
       name: 'Saint Mary Magdalene',
+      dateOfDeath: { century: 1 },
     },
 
     mary_magdalene_de_pazzi_virgin: {
       name: 'Saint Mary Magdalene de’ Pazzi',
       titles: ['Virgin'],
+      dateOfDeath: 1607,
     },
 
     mary_mother_of_the_church: {
@@ -2434,6 +2653,7 @@ class Martyrology implements BaseMartyrology {
     maximilian_kolbe_priest: {
       name: 'Saint Maximilian Kolbe',
       titles: ['Priest', 'Martyr'],
+      dateOfDeath: 1941,
     },
 
     meinrad_of_einsiedeln_martyr: {
@@ -2451,9 +2671,19 @@ class Martyrology implements BaseMartyrology {
       titles: ['Priest', 'Martyr'],
     },
 
-    michael_gabriel_and_raphael_archangels: {
-      name: 'Saints Michael',
-      titles: ['Gabriel and Raphael, Archangels'],
+    michael_archangel: {
+      name: 'Saint Michael',
+      titles: ['Archangel'],
+    },
+
+    gabriel_archangel: {
+      name: 'Saint Gabriel',
+      titles: ['Archangel'],
+    },
+
+    raphael_archangel: {
+      name: 'Saint Raphael',
+      titles: ['Archangel'],
     },
 
     michael_kozal_bishop: {
@@ -2473,6 +2703,7 @@ class Martyrology implements BaseMartyrology {
 
     monica_of_hippo: {
       name: 'Saint Monica',
+      dateOfDeath: 387,
     },
 
     moninne_of_killeavy_virgin: {
@@ -2501,6 +2732,7 @@ class Martyrology implements BaseMartyrology {
     mutien_marie_wiaux_religious: {
       name: 'Saint Mutien-Marie Wiaux',
       titles: ['Religious'],
+      dateOfDeath: 1917,
     },
 
     nativity_of_mary: {
@@ -2515,6 +2747,8 @@ class Martyrology implements BaseMartyrology {
     nereus_of_terracina_martyr: {
       name: 'Saint Nereus',
       titles: ['Martyr'],
+      dateOfDeath: 304,
+      dateOfDeathIsApproximative: true,
     },
 
     achilleus_of_terracina_martyr: {
@@ -2530,6 +2764,8 @@ class Martyrology implements BaseMartyrology {
     nicholas_of_myra_bishop: {
       name: 'Saint Nicholas',
       titles: ['Bishop'],
+      dateOfDeath: 350,
+      dateOfDeathIsApproximative: true,
     },
 
     nicholas_steno_bishop: {
@@ -2550,6 +2786,7 @@ class Martyrology implements BaseMartyrology {
     norbert_of_xanten_bishop: {
       name: 'Saint Norbert',
       titles: ['Bishop'],
+      dateOfDeath: 1134,
     },
 
     nuno_of_saint_mary_pereira_religious: {
@@ -2560,11 +2797,13 @@ class Martyrology implements BaseMartyrology {
     nykyta_budka_bishop: {
       name: 'Blessed Nykyta Budka',
       titles: ['Bishop', 'Martyr'],
+      dateOfDeath: 1949,
     },
 
     vasyl_velychkovsky_bishop: {
       name: 'Blessed Vasyl Velychkovsky',
       titles: ['Bishop', 'Martyr'],
+      dateOfDeath: 1973,
     },
 
     odile_of_alsace_abbess: {
@@ -2767,6 +3006,8 @@ class Martyrology implements BaseMartyrology {
     pancras_of_rome_martyr: {
       name: 'Saint Pancras',
       titles: ['Martyr'],
+      dateOfDeath: 304,
+      dateOfDeathIsApproximative: true,
     },
 
     pantaleon_of_nicomedia_martyr: {
@@ -2786,6 +3027,7 @@ class Martyrology implements BaseMartyrology {
     patrick_of_ireland_bishop: {
       name: 'Saint Patrick',
       titles: ['Bishop'],
+      dateOfDeath: 461,
     },
 
     paul_chen_changpin_martyr: {
@@ -2801,11 +3043,13 @@ class Martyrology implements BaseMartyrology {
     paul_miki_martyr: {
       name: 'Saint Paul Miki',
       titles: ['Martyr'],
+      dateOfDeath: 1597,
     },
 
     paul_of_the_cross_priest: {
       name: 'Saint Paul of the Cross',
       titles: ['Priest'],
+      dateOfDeath: 1776,
     },
 
     paul_of_thebes_hermit: {
@@ -2826,6 +3070,7 @@ class Martyrology implements BaseMartyrology {
     paulinus_of_nola_bishop: {
       name: 'Saint Paulinus of Nola',
       titles: ['Bishop'],
+      dateOfDeath: 431,
     },
 
     paulinus_of_trier_bishop: {
@@ -2856,41 +3101,48 @@ class Martyrology implements BaseMartyrology {
     perpetua_of_carthage_martyr: {
       name: 'Saint Perpetua',
       titles: ['Martyr'],
+      dateOfDeath: 203,
     },
 
     felicity_of_carthage_martyr: {
       name: 'Saint Felicity',
       titles: ['Martyr'],
+      dateOfDeath: 203,
     },
 
     peter_baptist_blasquez_martyr: {
-      name: 'Saints Peter Baptist Blásquez',
+      name: 'Saint Peter Baptist Blásquez',
       titles: ['Martyr'],
     },
 
     peter_canisius_priest: {
       name: 'Saint Peter Canisius',
       titles: ['Priest', 'Doctor of the Church'],
+      dateOfDeath: 1597,
     },
 
     peter_chanel_priest: {
       name: 'Saint Peter Chanel',
       titles: ['Priest', 'Martyr'],
+      dateOfDeath: 1841,
     },
 
     peter_chrysologus_bishop: {
       name: 'Saint Peter Chrysologus',
       titles: ['Bishop', 'Doctor of the Church'],
+      dateOfDeath: 451,
     },
 
     peter_claver_priest: {
       name: 'Saint Peter Claver',
       titles: ['Priest'],
+      dateOfDeath: 1654,
     },
 
     peter_damian_bishop: {
       name: 'Saint Peter Damian',
       titles: ['Bishop', 'Doctor of the Church'],
+      dateOfDeath: 1072,
     },
 
     peter_de_zuniga_priest: {
@@ -2906,6 +3158,7 @@ class Martyrology implements BaseMartyrology {
     peter_julian_eymard_priest: {
       name: 'Saint Peter Julian Eymard',
       titles: ['Priest'],
+      dateOfDeath: 1868,
     },
 
     peter_kibe_priest: {
@@ -2956,6 +3209,7 @@ class Martyrology implements BaseMartyrology {
     philip_neri_priest: {
       name: 'Saint Philip Neri',
       titles: ['Priest'],
+      dateOfDeath: 1595,
     },
 
     philip_of_jesus_de_las_casas_martyr: {
@@ -2976,41 +3230,49 @@ class Martyrology implements BaseMartyrology {
     pius_of_pietrelcina_priest: {
       name: 'Saint Pius of Pietrelcina',
       titles: ['Priest'],
+      dateOfDeath: 1968,
     },
 
     pius_v_pope: {
       name: 'Saint Pius V',
       titles: ['Pope'],
+      dateOfDeath: 1572,
     },
 
     pius_x_pope: {
       name: 'Saint Pius X',
       titles: ['Pope'],
+      dateOfDeath: 1914,
     },
 
     polycarp_of_smyrna_bishop: {
       name: 'Saint Polycarp',
       titles: ['Bishop', 'Martyr'],
+      dateOfDeath: 167,
     },
 
     pontian_i_pope: {
       name: 'Saint Pontian',
       titles: ['Pope', 'Martyr'],
+      dateOfDeath: 235,
     },
 
     hippolytus_of_rome_priest: {
       name: 'Saint Hippolytus',
       titles: ['Priest', 'Martyr'],
+      dateOfDeath: 235,
     },
 
     pothinus_of_lyon_bishop: {
       name: 'Saint Pothinus',
       titles: ['Bishop', 'Martyr'],
+      dateOfDeath: 177,
     },
 
     blandina_of_lyon_virgin: {
       name: 'Saint Blandina',
       titles: ['Virgin', 'Martyr'],
+      dateOfDeath: 177,
     },
 
     presentation_of_mary: {
@@ -3069,11 +3331,13 @@ class Martyrology implements BaseMartyrology {
     raymond_of_penyafort_priest: {
       name: 'Saint Raymond of Penyafort',
       titles: ['Priest'],
+      dateOfDeath: 1275,
     },
 
     remigius_of_reims_bishop: {
       name: 'Saint Remigius',
       titles: ['Bishop'],
+      dateOfDeath: 530,
     },
 
     richard_gwyn_martyr: {
@@ -3089,11 +3353,13 @@ class Martyrology implements BaseMartyrology {
     rita_of_cascia_religious: {
       name: 'Saint Rita of Cascia',
       titles: ['Religious'],
+      dateOfDeath: 1456,
     },
 
     robert_bellarmine_bishop: {
       name: 'Saint Robert Bellarmine',
       titles: ['Bishop', 'Doctor of the Church'],
+      dateOfDeath: 1621,
     },
 
     roch_gonzalez_priest: {
@@ -3118,11 +3384,13 @@ class Martyrology implements BaseMartyrology {
     romuald_of_ravenna_abbot: {
       name: 'Saint Romuald',
       titles: ['Abbot'],
+      dateOfDeath: 1027,
     },
 
     rose_of_lima_virgin: {
       name: 'Saint Rose of Lima',
       titles: ['Virgin'],
+      dateOfDeath: 1617,
     },
 
     rose_philippine_duchesne_virgin: {
@@ -3130,9 +3398,9 @@ class Martyrology implements BaseMartyrology {
       titles: ['Virgin'],
     },
 
-    rupert_of_salzburg_and_virgilius_of_salzburg_bishops: {
-      name: 'Saints Rupert and Virgilius of Salzburg',
-      titles: ['Bishops'],
+    rupert_of_salzburg_bishop: {
+      name: 'Saint Rupert Salzburg',
+      titles: ['Bishop'],
     },
 
     salomea_of_poland_religious: {
@@ -3153,6 +3421,7 @@ class Martyrology implements BaseMartyrology {
     scholastica_of_nursia_virgin: {
       name: 'Saint Scholastica',
       titles: ['Virgin'],
+      dateOfDeath: 543,
     },
 
     sebastian_de_aparicio_religious: {
@@ -3163,6 +3432,8 @@ class Martyrology implements BaseMartyrology {
     sebastian_of_milan_martyr: {
       name: 'Saint Sebastian',
       titles: ['Martyr'],
+      dateOfDeath: 284,
+      dateOfDeathIsApproximative: true,
     },
 
     senan_of_inis_cathaigh_bishop: {
@@ -3173,6 +3444,7 @@ class Martyrology implements BaseMartyrology {
     seven_holy_founders_of_the_servite_order: {
       name: 'Seven Holy Founders of the Servite Order',
       count: 7,
+      dateOfDeath: 1310,
     },
 
     seven_martyred_nuns_from_the_franciscan_missionaries_of_mary: {
@@ -3188,6 +3460,7 @@ class Martyrology implements BaseMartyrology {
     sharbel_makhluf_priest: {
       name: 'Saint Sharbel Makhlūf',
       titles: ['Priest'],
+      dateOfDeath: 1898,
     },
 
     shipwreck_of_saint_paul_apostle: {
@@ -3229,6 +3502,7 @@ class Martyrology implements BaseMartyrology {
     sixtus_ii_pope: {
       name: 'Saint Sixtus II',
       titles: ['Pope', 'Martyr'],
+      dateOfDeath: 258,
     },
 
     spyridon_of_trimythous_bishop: {
@@ -3249,15 +3523,18 @@ class Martyrology implements BaseMartyrology {
     stanislaus_of_szczepanow_bishop: {
       name: 'Saint Stanislaus',
       titles: ['Bishop', 'Martyr'],
+      dateOfDeath: 1079,
     },
 
     stephen_i_of_hungary: {
       name: 'Saint Stephen of Hungary',
+      dateOfDeath: 1038,
     },
 
     stephen_the_first_martyr: {
       name: 'Saint Stephen',
       titles: ['the First Martyr'],
+      dateOfDeath: 35,
     },
 
     sunday_of_the_word_of_god: {
@@ -3277,6 +3554,7 @@ class Martyrology implements BaseMartyrology {
     sylvester_i_pope: {
       name: 'Saint Sylvester I',
       titles: ['Pope'],
+      dateOfDeath: 335,
     },
 
     szilard_bogdanffy_bishop: {
@@ -3292,6 +3570,7 @@ class Martyrology implements BaseMartyrology {
     teresa_benedicta_of_the_cross_stein_virgin: {
       name: 'Saint Teresa Benedicta of the Cross Stein',
       titles: ['Virgin', 'Martyr'],
+      dateOfDeath: 1942,
     },
 
     teresa_of_calcutta_religious: {
@@ -3307,6 +3586,7 @@ class Martyrology implements BaseMartyrology {
     teresa_of_jesus_of_avila_virgin: {
       name: 'Saint Teresa of Jesus of Ávila',
       titles: ['Virgin', 'Doctor of the Church'],
+      dateOfDeath: 1582,
     },
 
     teresa_of_jesus_of_los_andes_virgin: {
@@ -3342,6 +3622,7 @@ class Martyrology implements BaseMartyrology {
     therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin: {
       name: 'Saint Thérèse of the Child Jesus and the Holy Face of Lisieux',
       titles: ['Virgin', 'Doctor of the Church'],
+      dateOfDeath: 1897,
     },
 
     thomas_apostle: {
@@ -3352,11 +3633,13 @@ class Martyrology implements BaseMartyrology {
     thomas_aquinas_priest: {
       name: 'Saint Thomas Aquinas',
       titles: ['Priest', 'Doctor of the Church'],
+      dateOfDeath: 1274,
     },
 
     thomas_becket_bishop: {
       name: 'Saint Thomas Becket',
       titles: ['Bishop', 'Martyr'],
+      dateOfDeath: 1170,
     },
 
     thomas_hioji_rokuzayemon_nishi_priest: {
@@ -3382,11 +3665,13 @@ class Martyrology implements BaseMartyrology {
     timothy_of_ephesus_bishop: {
       name: 'Saint Timothy',
       titles: ['Bishop'],
+      dateOfDeath: { century: 1 },
     },
 
     titus_of_crete_bishop: {
       name: 'Saint Titus',
       titles: ['Bishop'],
+      dateOfDeath: { century: 1 },
     },
 
     translation_of_the_relics_of_saint_stephen_of_hungary: {
@@ -3396,6 +3681,7 @@ class Martyrology implements BaseMartyrology {
     turibius_of_mogrovejo_bishop: {
       name: 'Saint Turibius of Mogrovejo',
       titles: ['Bishop'],
+      dateOfDeath: 1606,
     },
 
     ulrich_of_augsburg_bishop: {
@@ -3416,11 +3702,13 @@ class Martyrology implements BaseMartyrology {
     vincent_de_paul_priest: {
       name: 'Saint Vincent de Paul',
       titles: ['Priest'],
+      dateOfDeath: 1660,
     },
 
     vincent_ferrer_priest: {
       name: 'Saint Vincent Ferrer',
       titles: ['Priest'],
+      dateOfDeath: 1419,
     },
 
     vincent_kadlubek_bishop: {
@@ -3436,6 +3724,7 @@ class Martyrology implements BaseMartyrology {
     vincent_of_saragossa_deacon: {
       name: 'Saint Vincent',
       titles: ['Deacon', 'Martyr'],
+      dateOfDeath: 304,
     },
 
     vincent_pallotti_priest: {
@@ -3444,8 +3733,9 @@ class Martyrology implements BaseMartyrology {
     },
 
     virgilius_of_salzburg_bishop: {
-      name: 'Saint Fergal',
-      titles: ['Bishop', 'Missionary'],
+      name: 'Saint Virgilius of Salzburg',
+      // name: 'Saint Fergal', todo: indicated in romcal as 'Saint Fergal' in Ireland, => check what's the official name in Ireland
+      titles: ['Bishop'],
     },
 
     visitation_of_mary: {
@@ -3478,6 +3768,7 @@ class Martyrology implements BaseMartyrology {
     wenceslaus_i_of_bohemia_martyr: {
       name: 'Saint Wenceslaus',
       titles: ['Martyr'],
+      dateOfDeath: 929,
     },
 
     wendelin_of_trier_abbot: {

@@ -174,6 +174,7 @@ export class Germany extends CalendarDef {
     henry_ii_emperor_and_cunigunde_of_luxembourg: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-13',
+      saints: ['henry_ii_emperor', 'cunigunde_of_luxembourg'],
     },
 
     margaret_of_antioch_virgin: {
@@ -205,6 +206,7 @@ export class Germany extends CalendarDef {
     rupert_of_salzburg_and_virgilius_of_salzburg_bishops: {
       precedence: Precedences.OptionalMemorial_12,
       date: '9-24',
+      saints: ['rupert_of_salzburg_bishop', 'virgilius_of_salzburg_bishop'],
     },
 
     nicholas_of_flue_hermit: {

@@ -319,6 +319,7 @@ export class Ireland extends CalendarDef {
     virgilius_of_salzburg_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '11-27',
+      titles: (titles) => [...titles, 'Missionary'],
     },
 
     finnian_of_clonard_bishop: {

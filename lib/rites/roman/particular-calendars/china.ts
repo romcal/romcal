@@ -61,6 +61,7 @@ export class China extends CalendarDef {
     aloysius_versiglia_bishop_and_callistus_caravario_priest_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '2-25',
+      saints: ['aloysius_versiglia_bishop', 'callistus_caravario_priest'],
     },
 
     agnes_cao_guiying_martyr: {
@@ -119,7 +120,7 @@ export class China extends CalendarDef {
         date: '6-20',
         saints: [
           'gregory_grassi_bishop',
-          'rancis_fogolla_bishop',
+          'francis_fogolla_bishop',
           'anthony_fantosati_bishop',
           'companions_martyrs',
         ],

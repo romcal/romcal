@@ -67,6 +67,7 @@ export class Sanctorale extends CalendarDef {
       date: Dates.peterAndPaulApostles,
       isHolyDayOfObligation: true,
       liturgicalColors: LiturgicalColors.RED,
+      saints: ['peter_apostle', 'paul_apostle'],
     },
 
     assumption: {
