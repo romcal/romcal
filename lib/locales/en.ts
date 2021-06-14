@@ -1,5 +1,3 @@
-import { RomcalLocale } from '@romcal/models/locale/romcal-locale.type';
-
 export default {
   advent: {
     season: 'Advent Season',
@@ -975,4 +973,4 @@ export default {
       'Blessed Zoltán Lajos Meszlényi, Bishop and Martyr',
     zygmunt_gorazdowski_priest: 'Saint Zygmunt Gorazdowski, Priest',
   },
-} as RomcalLocale;
+};
