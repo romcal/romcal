@@ -20,13 +20,9 @@ export class GeneralRoman extends CalendarDef {
 
   definitions: DateDefinitions = {
     basil_the_great_and_gregory_nazianzen_bishops: {
-      saints: ['basil_the_great_bishop', 'gregory_nazianzen_bishop'],
       precedence: Precedences.GeneralMemorial_10,
       date: '1-2',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
+      saints: ['basil_the_great_bishop', 'gregory_nazianzen_bishop'],
     },
 
     most_holy_name_of_jesus: {
@@ -42,57 +38,36 @@ export class GeneralRoman extends CalendarDef {
     hilary_of_poitiers_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '1-13',
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     anthony_of_egypt_abbot: {
       precedence: Precedences.GeneralMemorial_10,
       date: '1-17',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     fabian_i_pope: {
       precedence: Precedences.OptionalMemorial_12,
       date: '1-20',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     sebastian_of_milan_martyr: {
       precedence: Precedences.OptionalMemorial_12,
       date: '1-20',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     agnes_of_rome_virgin: {
       precedence: Precedences.GeneralMemorial_10,
       date: '1-21',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     vincent_of_saragossa_deacon: {
       precedence: Precedences.OptionalMemorial_12,
       date: '1-22',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     francis_de_sales_bishop: {
       precedence: Precedences.GeneralMemorial_10,
       date: '1-24',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     // http://www.vatican.va/content/francesco/en/motu_proprio/documents/papa-francesco-motu-proprio-20190930_aperuit-illis.html
@@ -115,7 +90,6 @@ export class GeneralRoman extends CalendarDef {
     timothy_of_ephesus_and_titus_of_crete_bishops: {
       precedence: Precedences.GeneralMemorial_10,
       date: '1-26',
-      liturgicalColors: LiturgicalColors.WHITE,
       saints: ['timothy_of_ephesus_bishop', 'titus_of_crete_bishop'],
     },
 
@@ -127,16 +101,11 @@ export class GeneralRoman extends CalendarDef {
     thomas_aquinas_priest: {
       precedence: Precedences.GeneralMemorial_10,
       date: '1-28',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     john_bosco_priest: {
       precedence: Precedences.GeneralMemorial_10,
       date: '1-31',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     blaise_of_sebaste_bishop: {
@@ -152,20 +121,12 @@ export class GeneralRoman extends CalendarDef {
     agatha_of_sicily_virgin: {
       precedence: Precedences.GeneralMemorial_10,
       date: '2-5',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     paul_miki_and_companions_martyrs: {
-      saints: ['paul_miki_martyr', 'companions_martyrs'],
       precedence: Precedences.GeneralMemorial_10,
       date: '2-6',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
+      saints: ['paul_miki_martyr', 'companions_martyrs'],
     },
 
     jerome_emiliani: {
@@ -181,7 +142,6 @@ export class GeneralRoman extends CalendarDef {
     scholastica_of_nursia_virgin: {
       precedence: Precedences.GeneralMemorial_10,
       date: '2-10',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     our_lady_of_lourdes: {
@@ -190,13 +150,12 @@ export class GeneralRoman extends CalendarDef {
     },
 
     cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop: {
+      precedence: Precedences.GeneralMemorial_10,
+      date: '2-14',
       saints: [
         'cyril_the_philosopher_monk',
         'methodius_of_thessaloniki_bishop',
       ],
-      precedence: Precedences.GeneralMemorial_10,
-      date: '2-14',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     seven_holy_founders_of_the_servite_order: {
@@ -207,9 +166,6 @@ export class GeneralRoman extends CalendarDef {
     peter_damian_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '2-21',
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     chair_of_saint_peter_the_apostle: {
@@ -221,19 +177,11 @@ export class GeneralRoman extends CalendarDef {
     polycarp_of_smyrna_bishop: {
       precedence: Precedences.GeneralMemorial_10,
       date: '2-23',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     gregory_of_narek_abbot: {
       precedence: Precedences.OptionalMemorial_12,
       date: '2-27',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     casimir_of_poland: {
@@ -242,9 +190,9 @@ export class GeneralRoman extends CalendarDef {
     },
 
     perpetua_of_carthage_and_felicity_of_carthage_martyrs: {
-      saints: ['perpetua_of_carthage_martyr', 'felicity_of_carthage_martyr'],
       precedence: Precedences.GeneralMemorial_10,
       date: '3-7',
+      saints: ['perpetua_of_carthage_martyr', 'felicity_of_carthage_martyr'],
     },
 
     john_of_god_duarte_cidade_religious: {
@@ -265,9 +213,6 @@ export class GeneralRoman extends CalendarDef {
     cyril_of_jerusalem_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '3-18',
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     turibius_of_mogrovejo_bishop: {
@@ -283,9 +228,6 @@ export class GeneralRoman extends CalendarDef {
     isidore_of_seville_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '4-4',
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     vincent_ferrer_priest: {
@@ -296,7 +238,6 @@ export class GeneralRoman extends CalendarDef {
     john_baptist_de_la_salle_priest: {
       precedence: Precedences.GeneralMemorial_10,
       date: '4-7',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     stanislaus_of_szczepanow_bishop: {
@@ -307,18 +248,11 @@ export class GeneralRoman extends CalendarDef {
     martin_i_pope: {
       precedence: Precedences.OptionalMemorial_12,
       date: '4-13',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     anselm_of_canterbury_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '4-21',
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     george_of_lydda_martyr: {
@@ -334,16 +268,12 @@ export class GeneralRoman extends CalendarDef {
     fidelis_of_sigmaringen_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '4-24',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     mark_evangelist: {
       precedence: Precedences.GeneralFeast_7,
       date: '4-25',
-      liturgicalColors: LiturgicalColors.WHITE,
+      liturgicalColors: LiturgicalColors.RED,
     },
 
     peter_chanel_priest: {
@@ -374,43 +304,29 @@ export class GeneralRoman extends CalendarDef {
     athanasius_of_alexandria_bishop: {
       precedence: Precedences.GeneralMemorial_10,
       date: '5-2',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     philip_and_james_apostles: {
       precedence: Precedences.GeneralFeast_7,
       date: '5-3',
       saints: ['philip_apostle', 'james_apostle'],
-      liturgicalColors: LiturgicalColors.WHITE,
+      liturgicalColors: LiturgicalColors.RED,
     },
 
     john_of_avila_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '5-10',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     nereus_of_terracina_and_achilleus_of_terracina_martyrs: {
-      saints: ['nereus_of_terracina_martyr', 'achilleus_of_terracina_martyr'],
       precedence: Precedences.OptionalMemorial_12,
       date: '5-12',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
+      saints: ['nereus_of_terracina_martyr', 'achilleus_of_terracina_martyr'],
     },
 
     pancras_of_rome_martyr: {
       precedence: Precedences.OptionalMemorial_12,
       date: '5-12',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     our_lady_of_fatima: {
@@ -421,15 +337,12 @@ export class GeneralRoman extends CalendarDef {
     matthias_apostle: {
       precedence: Precedences.GeneralFeast_7,
       date: '5-14',
-      liturgicalColors: LiturgicalColors.WHITE,
+      liturgicalColors: LiturgicalColors.RED,
     },
 
     john_i_pope: {
       precedence: Precedences.OptionalMemorial_12,
       date: '5-18',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     bernardine_of_siena_priest: {
@@ -438,12 +351,12 @@ export class GeneralRoman extends CalendarDef {
     },
 
     christopher_magallanes_priest_and_companions_martyrs: {
-      saints: ['christopher_magallanes_priest', 'companions_martyrs'],
       precedence: Precedences.OptionalMemorial_12,
       date: '5-21',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
+      saints: [
+        'christopher_magallanes_priest',
+        { key: 'companions_martyrs', count: 24 },
+      ],
     },
 
     rita_of_cascia_religious: {
@@ -469,7 +382,6 @@ export class GeneralRoman extends CalendarDef {
     philip_neri_priest: {
       precedence: Precedences.GeneralMemorial_10,
       date: '5-26',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     augustine_of_canterbury_bishop: {
@@ -480,79 +392,54 @@ export class GeneralRoman extends CalendarDef {
     paul_vi_pope: {
       precedence: Precedences.OptionalMemorial_12,
       date: '5-29',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     visitation_of_mary: {
       precedence: Precedences.GeneralFeast_7,
       date: '5-31',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     justin_martyr: {
       precedence: Precedences.GeneralMemorial_10,
       date: '6-1',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     marcellinus_of_rome_and_peter_the_exorcist_martyrs: {
-      saints: ['marcellinus_of_rome_martyr', 'peter_the_exorcist_martyr'],
       precedence: Precedences.OptionalMemorial_12,
       date: '6-2',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
+      saints: ['marcellinus_of_rome_martyr', 'peter_the_exorcist_martyr'],
     },
 
     charles_lwanga_and_companions_martyrs: {
-      saints: ['charles_lwanga_martyr', 'companions_martyrs'],
       precedence: Precedences.GeneralMemorial_10,
       date: '6-3',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
+      saints: ['charles_lwanga_martyr', 'companions_martyrs'],
     },
 
     boniface_of_mainz_bishop: {
       precedence: Precedences.GeneralMemorial_10,
       date: '6-5',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     norbert_of_xanten_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '6-6',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     ephrem_the_syrian_deacon: {
       precedence: Precedences.OptionalMemorial_12,
       date: '6-9',
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     barnabas_apostle: {
       precedence: Precedences.GeneralMemorial_10,
       date: '6-11',
-      liturgicalColors: LiturgicalColors.WHITE,
+      liturgicalColors: LiturgicalColors.RED,
     },
 
     anthony_of_padua_priest: {
       precedence: Precedences.GeneralMemorial_10,
       date: '6-13',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     romuald_of_ravenna_abbot: {
@@ -563,7 +450,6 @@ export class GeneralRoman extends CalendarDef {
     aloysius_gonzaga_religious: {
       precedence: Precedences.GeneralMemorial_10,
       date: '6-21',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     paulinus_of_nola_bishop: {
@@ -572,26 +458,19 @@ export class GeneralRoman extends CalendarDef {
     },
 
     john_fisher_bishop_and_thomas_more_martyrs: {
-      saints: ['john_fisher_bishop', 'thomas_more_martyr'],
       precedence: Precedences.OptionalMemorial_12,
       date: '6-22',
+      saints: ['john_fisher_bishop', 'thomas_more_martyr'],
     },
 
     cyril_of_alexandria_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '6-27',
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     irenaeus_of_lyon_bishop: {
       precedence: Precedences.GeneralMemorial_10,
       date: '6-28',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     first_martyrs_of_the_holy_roman_church: {
@@ -602,7 +481,7 @@ export class GeneralRoman extends CalendarDef {
     thomas_apostle: {
       precedence: Precedences.GeneralFeast_7,
       date: '7-3',
-      liturgicalColors: LiturgicalColors.WHITE,
+      liturgicalColors: LiturgicalColors.RED,
     },
 
     elizabeth_of_portugal: {
@@ -618,10 +497,6 @@ export class GeneralRoman extends CalendarDef {
     maria_goretti_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-6',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     augustine_zhao_rong_priest_and_companions_martyrs: {
@@ -633,15 +508,11 @@ export class GeneralRoman extends CalendarDef {
     benedict_of_nursia_abbot: {
       precedence: Precedences.GeneralMemorial_10,
       date: '7-11',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     henry_ii_emperor: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-13',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     camillus_de_lellis_priest: {
@@ -652,10 +523,6 @@ export class GeneralRoman extends CalendarDef {
     bonaventure_of_bagnoregio_bishop: {
       precedence: Precedences.GeneralMemorial_10,
       date: '7-15',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     our_lady_of_mount_carmel: {
@@ -671,22 +538,17 @@ export class GeneralRoman extends CalendarDef {
     lawrence_of_brindisi_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-21',
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     mary_magdalene: {
       precedence: Precedences.GeneralFeast_7,
       date: '7-22',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     mary_mother_of_the_church: {
       precedence: Precedences.GeneralMemorial_10,
       date: (y: number): Dayjs => Dates.pentecostSunday(y).add(1, 'day'),
-      liturgicalColors: LiturgicalColors.WHITE,
-      //prioritized: true,
+
       // cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
 
@@ -703,44 +565,34 @@ export class GeneralRoman extends CalendarDef {
     james_apostle: {
       precedence: Precedences.GeneralFeast_7,
       date: '7-25',
-      liturgicalColors: LiturgicalColors.WHITE,
+      liturgicalColors: LiturgicalColors.RED,
     },
 
     joachim_and_anne_parents_of_mary: {
-      saints: ['joachim_father_of_mary', 'anne_mother_of_mary'],
       precedence: Precedences.GeneralMemorial_10,
       date: '7-26',
-      liturgicalColors: LiturgicalColors.WHITE,
+      saints: ['joachim_father_of_mary', 'anne_mother_of_mary'],
     },
 
     martha_of_bethany_mary_of_bethany_and_lazarus_of_bethany: {
-      saints: ['martha_of_bethany', 'mary_of_bethany', 'lazarus_of_bethany'],
       precedence: Precedences.GeneralMemorial_10,
       date: '7-29',
-      liturgicalColors: LiturgicalColors.WHITE,
+      saints: ['martha_of_bethany', 'mary_of_bethany', 'lazarus_of_bethany'],
     },
 
     peter_chrysologus_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-30',
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     ignatius_of_loyola_priest: {
       precedence: Precedences.GeneralMemorial_10,
       date: '7-31',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     alphonsus_liguori_bishop: {
       precedence: Precedences.GeneralMemorial_10,
       date: '8-1',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     eusebius_of_vercelli_bishop: {
@@ -756,7 +608,6 @@ export class GeneralRoman extends CalendarDef {
     john_mary_vianney_priest: {
       precedence: Precedences.GeneralMemorial_10,
       date: '8-4',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     dedication_of_the_basilica_of_saint_mary_major: {
@@ -778,7 +629,6 @@ export class GeneralRoman extends CalendarDef {
     dominic_de_guzman_priest: {
       precedence: Precedences.GeneralMemorial_10,
       date: '8-8',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     teresa_benedicta_of_the_cross_stein_virgin: {
@@ -789,16 +639,11 @@ export class GeneralRoman extends CalendarDef {
     lawrence_of_rome_deacon: {
       precedence: Precedences.GeneralFeast_7,
       date: '8-10',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     clare_of_assisi_virgin: {
       precedence: Precedences.GeneralMemorial_10,
       date: '8-11',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     jane_frances_de_chantal_religious: {
@@ -807,18 +652,14 @@ export class GeneralRoman extends CalendarDef {
     },
 
     pontian_i_pope_and_hippolytus_of_rome_priest: {
-      saints: ['pontian_i_pope', 'hippolytus_of_rome_priest'],
       precedence: Precedences.OptionalMemorial_12,
       date: '8-13',
+      saints: ['pontian_i_pope', 'hippolytus_of_rome_priest'],
     },
 
     maximilian_kolbe_priest: {
       precedence: Precedences.GeneralMemorial_10,
       date: '8-14',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     stephen_i_of_hungary: {
@@ -834,22 +675,16 @@ export class GeneralRoman extends CalendarDef {
     bernard_of_clairvaux_abbot: {
       precedence: Precedences.GeneralMemorial_10,
       date: '8-20',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     pius_x_pope: {
       precedence: Precedences.GeneralMemorial_10,
       date: '8-21',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     queenship_of_mary: {
       precedence: Precedences.GeneralMemorial_10,
       date: '8-22',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     rose_of_lima_virgin: {
@@ -860,7 +695,7 @@ export class GeneralRoman extends CalendarDef {
     bartholomew_apostle: {
       precedence: Precedences.GeneralFeast_7,
       date: '8-24',
-      liturgicalColors: LiturgicalColors.WHITE,
+      liturgicalColors: LiturgicalColors.RED,
     },
 
     louis_ix_of_france: {
@@ -876,46 +711,31 @@ export class GeneralRoman extends CalendarDef {
     monica_of_hippo: {
       precedence: Precedences.GeneralMemorial_10,
       date: '8-27',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     augustine_of_hippo_bishop: {
       precedence: Precedences.GeneralMemorial_10,
       date: '8-28',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     passion_of_saint_john_the_baptist: {
       precedence: Precedences.GeneralMemorial_10,
       date: '8-29',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     gregory_i_the_great_pope: {
       precedence: Precedences.GeneralMemorial_10,
       date: '9-3',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     nativity_of_mary: {
       precedence: Precedences.GeneralFeast_7,
       date: '9-8',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     peter_claver_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '9-9',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     most_holy_name_of_mary: {
@@ -926,14 +746,9 @@ export class GeneralRoman extends CalendarDef {
     john_chrysostom_bishop: {
       precedence: Precedences.GeneralMemorial_10,
       date: '9-13',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     exaltation_of_the_holy_cross: {
-      // namespace: 'celebrations', // Override the default locale namespace
       precedence: Precedences.GeneralLordFeast_5,
       date: '9-14',
       liturgicalColors: LiturgicalColors.RED,
@@ -942,41 +757,27 @@ export class GeneralRoman extends CalendarDef {
     our_lady_of_sorrows: {
       precedence: Precedences.GeneralMemorial_10,
       date: '9-15',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     cornelius_i_pope_and_cyprian_of_carthage_bishop_martyrs: {
-      saints: ['cornelius_i_pope', 'cyprian_of_carthage_bishop'],
       precedence: Precedences.GeneralMemorial_10,
       date: '9-16',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
+      saints: ['cornelius_i_pope', 'cyprian_of_carthage_bishop'],
     },
 
     hildegard_of_bingen_abbess: {
       precedence: Precedences.OptionalMemorial_12,
       date: '9-17',
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     robert_bellarmine_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '9-17',
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     januarius_i_of_benevento_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '9-19',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     andrew_kim_tae_gon_priest_paul_chong_ha_sang_and_companions_martyrs: {
@@ -992,28 +793,23 @@ export class GeneralRoman extends CalendarDef {
     matthew_apostle: {
       precedence: Precedences.GeneralFeast_7,
       date: '9-21',
-      liturgicalColors: LiturgicalColors.WHITE,
+      liturgicalColors: LiturgicalColors.RED,
     },
 
     pius_of_pietrelcina_priest: {
       precedence: Precedences.GeneralMemorial_10,
       date: '9-23',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     cosmas_of_cilicia_and_damian_of_cilicia_martyrs: {
-      saints: ['cosmas_of_cilicia_martyr', 'damian_of_cilicia_martyr'],
       precedence: Precedences.OptionalMemorial_12,
       date: '9-26',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
+      saints: ['cosmas_of_cilicia_martyr', 'damian_of_cilicia_martyr'],
     },
 
     vincent_de_paul_priest: {
       precedence: Precedences.GeneralMemorial_10,
       date: '9-27',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     wenceslaus_i_of_bohemia_martyr: {
@@ -1030,16 +826,12 @@ export class GeneralRoman extends CalendarDef {
     michael_gabriel_and_raphael_archangels: {
       precedence: Precedences.GeneralFeast_7,
       date: '9-29',
-      liturgicalColors: LiturgicalColors.WHITE,
+      saints: ['michael_archangel', 'gabriel_archangel', 'raphael_archangel'],
     },
 
     jerome_of_stridon_priest: {
       precedence: Precedences.GeneralMemorial_10,
       date: '9-30',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin: {
@@ -1050,19 +842,16 @@ export class GeneralRoman extends CalendarDef {
     guardian_angels: {
       precedence: Precedences.GeneralMemorial_10,
       date: '10-2',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     francis_of_assisi: {
       precedence: Precedences.GeneralMemorial_10,
       date: '10-4',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     faustina_kowalska_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       date: '10-5',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     bruno_of_cologne_priest: {
@@ -1073,13 +862,12 @@ export class GeneralRoman extends CalendarDef {
     our_lady_of_the_rosary: {
       precedence: Precedences.GeneralMemorial_10,
       date: '10-7',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     denis_of_paris_bishop_and_companions_martyrs: {
-      saints: ['denis_of_paris_bishop', 'companions_martyrs'],
       precedence: Precedences.OptionalMemorial_12,
       date: '10-9',
+      saints: ['denis_of_paris_bishop', 'companions_martyrs'],
     },
 
     john_leonardi_priest: {
@@ -1100,18 +888,11 @@ export class GeneralRoman extends CalendarDef {
     callistus_i_pope: {
       precedence: Precedences.OptionalMemorial_12,
       date: '10-14',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     teresa_of_jesus_of_avila_virgin: {
       precedence: Precedences.GeneralMemorial_10,
       date: '10-15',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     hedwig_of_silesia_religious: {
@@ -1127,26 +908,22 @@ export class GeneralRoman extends CalendarDef {
     ignatius_of_antioch_bishop: {
       precedence: Precedences.GeneralMemorial_10,
       date: '10-17',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     luke_evangelist: {
       precedence: Precedences.GeneralFeast_7,
       date: '10-18',
-      liturgicalColors: LiturgicalColors.WHITE,
+      liturgicalColors: LiturgicalColors.RED,
     },
 
     john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '10-19',
       saints: [
         'john_de_brebeuf_priest',
         'isaac_jogues_priest',
         'companions_martyrs',
       ],
-      precedence: Precedences.OptionalMemorial_12,
-      date: '10-19',
     },
 
     paul_of_the_cross_priest: {
@@ -1168,6 +945,7 @@ export class GeneralRoman extends CalendarDef {
       precedence: Precedences.GeneralFeast_7,
       date: '10-28',
       saints: ['simon_apostle', 'jude_apostle'],
+      liturgicalColors: LiturgicalColors.RED,
     },
 
     all_souls: {
@@ -1184,45 +962,31 @@ export class GeneralRoman extends CalendarDef {
     charles_borromeo_bishop: {
       precedence: Precedences.GeneralMemorial_10,
       date: '11-4',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     dedication_of_the_lateran_basilica: {
       precedence: Precedences.GeneralFeast_7,
       date: '11-9',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     leo_i_the_great_pope: {
       precedence: Precedences.GeneralMemorial_10,
       date: '11-10',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     martin_of_tours_bishop: {
       precedence: Precedences.GeneralMemorial_10,
       date: '11-11',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     josaphat_kuntsevych_bishop: {
       precedence: Precedences.GeneralMemorial_10,
       date: '11-12',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     albert_the_great_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '11-15',
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     margaret_of_scotland: {
@@ -1238,7 +1002,6 @@ export class GeneralRoman extends CalendarDef {
     elizabeth_of_hungary_religious: {
       precedence: Precedences.GeneralMemorial_10,
       date: '11-17',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     dedication_of_the_basilicas_of_saints_peter_and_paul_apostles: {
@@ -1249,16 +1012,11 @@ export class GeneralRoman extends CalendarDef {
     presentation_of_mary: {
       precedence: Precedences.GeneralMemorial_10,
       date: '11-21',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     cecilia_of_rome_virgin: {
       precedence: Precedences.GeneralMemorial_10,
       date: '11-22',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     clement_i_pope: {
@@ -1280,29 +1038,22 @@ export class GeneralRoman extends CalendarDef {
     catherine_of_alexandria_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       date: '11-25',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     andrew_apostle: {
       precedence: Precedences.GeneralFeast_7,
       date: '11-30',
-      liturgicalColors: LiturgicalColors.WHITE,
+      liturgicalColors: LiturgicalColors.RED,
     },
 
     francis_xavier_priest: {
       precedence: Precedences.GeneralMemorial_10,
       date: '12-3',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     john_damascene_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '12-4',
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     nicholas_of_myra_bishop: {
@@ -1313,10 +1064,6 @@ export class GeneralRoman extends CalendarDef {
     ambrose_of_milan_bishop: {
       precedence: Precedences.GeneralMemorial_10,
       date: '12-7',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     juan_diego_cuauhtlatoatzin: {
@@ -1342,27 +1089,16 @@ export class GeneralRoman extends CalendarDef {
     lucy_of_syracuse_virgin: {
       precedence: Precedences.GeneralMemorial_10,
       date: '12-13',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     john_of_the_cross_priest: {
       precedence: Precedences.GeneralMemorial_10,
       date: '12-14',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     peter_canisius_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '12-21',
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     john_of_kanty_priest: {
@@ -1373,10 +1109,6 @@ export class GeneralRoman extends CalendarDef {
     stephen_the_first_martyr: {
       precedence: Precedences.GeneralFeast_7,
       date: '12-26',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     john_apostle: {
@@ -1388,18 +1120,11 @@ export class GeneralRoman extends CalendarDef {
     holy_innocents_martyrs: {
       precedence: Precedences.GeneralFeast_7,
       date: '12-28',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     thomas_becket_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '12-29',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     sylvester_i_pope: {

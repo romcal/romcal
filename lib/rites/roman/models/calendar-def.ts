@@ -6,6 +6,7 @@ import { LiturgicalColors } from '../constants/colors';
 import { CalendarScope } from '../../../constants/calendar-scope';
 import { Precedences, PRECEDENCES } from '../constants/precedences';
 import { Ranks } from '../constants/ranks';
+import { SaintCount } from '../../../catalog/martyrology';
 
 export type LiturgicalCalendar = Record<string, LiturgicalDay[]>;
 
@@ -19,7 +20,12 @@ export type ParticularConfig = Partial<
 export type TitlesDef = string[] | ((titles: string[]) => string[]);
 export type SaintDef = (
   | string
-  | { key: string; titles?: TitlesDef; hideTitles?: boolean }
+  | {
+      key: string;
+      titles?: TitlesDef;
+      hideTitles?: boolean;
+      count?: SaintCount;
+    }
 )[];
 
 /**
