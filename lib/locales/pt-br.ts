@@ -1,5 +1,3 @@
-import { RomcalLocale } from '@romcal/models/locale/romcal-locale.type';
-
 export default {
   advent: {
     season: 'Advento',
@@ -94,14 +92,18 @@ export default {
   },
   sanctorale: {
     gregory_of_narek_abbot: 'São Gregório de Narek, abade e doutor da Igreja',
-    hildegard_of_bingen_abbess: 'Santa Hildegarda de Bingen, virgem e doutora da Igreja',
+    hildegard_of_bingen_abbess:
+      'Santa Hildegarda de Bingen, virgem e doutora da Igreja',
     john_of_avila_priest: 'São João De Ávila, presbítero e doutor da Igreja',
     john_paul_ii_pope: 'Papa São João Paulo II',
     john_xxiii_pope: 'Papa São João XXIII',
-    martha_of_bethany_mary_of_bethany_and_lazarus_of_bethany: 'Santa Marta, Maria e Lázaro',
+    martha_of_bethany_mary_of_bethany_and_lazarus_of_bethany:
+      'Santa Marta, Maria e Lázaro',
     our_lady_help_of_christians: 'Nossa Senhora, Auxílio dos Cristãos',
-    our_lady_mediatrix_of_all_grace: 'Nossa Senhora, Medianeira de todas as Graças',
-    our_lady_mother_of_divine_providence_patroness_of_puerto_rico: 'Nossa Senhora, Mãe da Divina Providência', // TODO: Add `Patronness of Porto Rico` title
+    our_lady_mediatrix_of_all_grace:
+      'Nossa Senhora, Medianeira de todas as Graças',
+    our_lady_mother_of_divine_providence_patroness_of_puerto_rico:
+      'Nossa Senhora, Mãe da Divina Providência', // TODO: Add `Patronness of Porto Rico` title
     our_lady_of_aparecida_patroness_of_brazil: 'Nossa Senhora Aparecida', // TODO: Add `Patronness of Brazil` title
     our_lady_of_china: 'Nossa Senhora da China',
     our_lady_of_fatima: 'Nossa Senhora de Fatima',
@@ -110,7 +112,8 @@ export default {
     our_lady_of_hungary_patroness_of_hungary: 'Nossa Senhora da Hungria', // TODO: Translate `Out Lady of Hungary, Patroness of Hungary`
     our_lady_of_loreto: 'Nossa Senhora de Loreto',
     our_lady_of_lourdes: 'Nossa Senhora de Lourdes',
-    our_lady_of_lujan_patroness_of_argentina: 'Nossa Senhora de Luján, padroeira da Argentina',
+    our_lady_of_lujan_patroness_of_argentina:
+      'Nossa Senhora de Luján, padroeira da Argentina',
     our_lady_of_mount_carmel: 'Nossa Senhora do Monte Carmelo',
     our_lady_of_perpetual_help: 'Nossa Senhora do Perpétuo Socorro',
     our_lady_of_the_gate_of_dawn: 'Nossa Senhora da Porta da Aurora',
@@ -119,6 +122,7 @@ export default {
     our_lady_queen_of_peace: 'Nossa Senhora Rainha da Paz',
     presentation_of_mary: 'Apresentação da Virgem Maria',
     wenceslaus_i_of_bohemia_martyr: 'São Venceslau, mártir',
-    wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation: 'São Venceslau, mártir e patrono da nação tcheca',
+    wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation:
+      'São Venceslau, mártir e patrono da nação tcheca',
   },
-} as RomcalLocale;
+};
