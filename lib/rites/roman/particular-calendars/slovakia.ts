@@ -32,18 +32,11 @@ export class Slovakia extends CalendarDef {
     adalbert_of_prague_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       date: '4-23',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     george_of_lydda_martyr: {
       precedence: Precedences.OptionalMemorial_12,
       date: '4-24',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     florian_of_lorch_martyr: {
@@ -55,18 +48,11 @@ export class Slovakia extends CalendarDef {
     sara_salkahazi_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       date: '5-11',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     john_nepomucene_priest: {
       precedence: Precedences.ProperMemorial_11b,
       date: '5-16',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     ladislaus_i_of_hungary: {
@@ -85,9 +71,11 @@ export class Slovakia extends CalendarDef {
         precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
         date: '7-5',
         liturgicalColors: LiturgicalColors.WHITE,
-        // metadata: {
-        //   titles: [Titles.PATRON_OF_EUROPE],
-        // },
+        titles: ['Slavic Missionary'],
+        saints: [
+          'cyril_the_philosopher_monk',
+          'methodius_of_thessaloniki_bishop',
+        ],
       },
 
     anthony_zaccaria_priest: {
@@ -98,21 +86,18 @@ export class Slovakia extends CalendarDef {
     andrew_zorard_of_nitra_and_benedict_of_skalka_hermits: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-17',
-      liturgicalColors: LiturgicalColors.WHITE,
+      saints: ['andrew_zorard_of_nitra_hermit', 'benedict_of_skalka_hermit'],
     },
 
     gorazd_of_moravia_and_companions: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-27',
-      liturgicalColors: LiturgicalColors.WHITE,
+      saints: ['gorazd_of_moravia', 'companions_martyrs'],
     },
 
     zdenka_cecilia_schelingova_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-30',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     helena_of_constantinople: {
@@ -130,16 +115,17 @@ export class Slovakia extends CalendarDef {
     marko_krizin_melchior_grodziecki_and_stephen_pongracz_priests: {
       precedence: Precedences.ProperMemorial_11b,
       date: '9-7',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
+      saints: [
+        'marko_krizin_priest',
+        'melchior_grodziecki_priest',
+        'stephen_pongracz_priest',
+      ],
     },
 
-    our_lady_of_sorrows_patroness_of_slovakia: {
+    our_lady_of_sorrows: {
+      customLocaleKey: 'our_lady_of_sorrows_patroness_of_slovakia',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      date: '9-15',
-      liturgicalColors: LiturgicalColors.WHITE,
+      titles: (titles) => [...titles, 'Patroness of Slovakia'],
     },
 
     gall_of_switzerland_abbot: {

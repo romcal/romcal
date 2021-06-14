@@ -1,16 +1,11 @@
 import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
 
 export class Lebanon extends CalendarDef {
   definitions: DateDefinitions = {
     barbara_of_heliopolis_virgin: {
       precedence: Precedences.ProperMemorial_11b,
       date: '12-4',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     nicholas_of_myra_bishop: {
@@ -36,10 +31,6 @@ export class Lebanon extends CalendarDef {
     george_of_lydda_martyr: {
       precedence: Precedences.ProperMemorial_11b,
       date: '4-23',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     our_lady_of_lebanon: {

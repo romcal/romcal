@@ -16,19 +16,42 @@ export type ParticularConfig = Partial<
   >
 >;
 
+export type TitlesDef = string[] | ((titles: string[]) => string[]);
+export type SaintDef = (
+  | string
+  | { key: string; titles?: TitlesDef; hideTitles?: boolean }
+)[];
+
 /**
  * Date definition, used in the [CalendarDef] class
  */
 export type DateDefinitions = Record<string, DateDefInput>;
-export type DateDefInput = Partial<
-  Pick<LiturgicalDay, 'precedence' | 'isHolyDayOfObligation'>
-> & {
+export type DateDefInput = Partial<Pick<LiturgicalDay, 'precedence'>> & {
   /**
-   * Date as string, in the 'M-D' format, or as Dayjs object.
+   * Specify a custom locale key for this date definition, in this calendar.
+   */
+  customLocaleKey?: string;
+
+  /**
+   * Date as a String (in the 'M-D' format), or as a Dayjs object.
    */
   date?: string | ((year: number) => Dayjs);
 
-  saints?: string[];
+  /**
+   * Holy days of obligation are days on which the faithful are expected to attend Mass,
+   * and engage in rest from work and recreation.
+   */
+  isHolyDayOfObligation?: boolean | ((year: number) => boolean);
+
+  /**
+   * Link one or multiple Saints, Blessed, or any other celebrations from the Martyrology catalog.
+   */
+  saints?: SaintDef;
+
+  /**
+   * Replace (using an Array) or extend (using a Function) the titles of each Saints linked to this date definition.
+   */
+  titles?: string[] | ((titles: string[]) => string[]);
 
   /**
    * The liturgical colors of the liturgical day.
@@ -266,7 +289,12 @@ export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
             }
           : {}),
         ...(def.isHolyDayOfObligation
-          ? { isHolyDayOfObligation: def.isHolyDayOfObligation }
+          ? {
+              isHolyDayOfObligation:
+                typeof def.isHolyDayOfObligation === 'function'
+                  ? def.isHolyDayOfObligation(config.year)
+                  : def.isHolyDayOfObligation,
+            }
           : {}),
         // Convert Class name from PascalCase to underscore_case
         fromCalendar: this.calendarName,

@@ -37,15 +37,22 @@ export class France extends CalendarDef {
       date: '5-19',
     },
 
-    joan_of_arc_virgin_copatroness_of_france: {
+    joan_of_arc_virgin: {
+      customLocaleKey: 'joan_of_arc_virgin_copatroness_of_france',
       precedence: Precedences.ProperMemorial_SecondPatron_11a,
       date: '5-30',
+      titles: (titles) => [...titles, 'Copatroness of France'],
       liturgicalColors: LiturgicalColors.WHITE,
     },
 
     pothinus_of_lyon_bishop_blandina_of_lyon_virgin_and_companions_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '6-2',
+      saints: [
+        'pothinus_of_lyon_bishop',
+        'blandina_of_lyon_virgin',
+        'companions_martyrs',
+      ],
     },
 
     clotilde_of_burgundy: {
@@ -58,14 +65,10 @@ export class France extends CalendarDef {
       date: '8-26',
     },
 
-    therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin_copatroness_of_france:
-      {
-        precedence: Precedences.ProperMemorial_11b,
-        date: '10-1',
-        liturgicalColors: LiturgicalColors.WHITE,
-        // metadata: {
-        //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-        // },
-      },
+    therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin: {
+      customLocaleKey:
+        'therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin_copatroness_of_france',
+      titles: (titles) => [...titles, 'Copatroness of France'],
+    },
   };
 }

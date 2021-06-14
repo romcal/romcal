@@ -1,6 +1,5 @@
 import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
 import { Europe } from './europe';
 
 export class Malta extends CalendarDef {
@@ -50,10 +49,6 @@ export class Malta extends CalendarDef {
     catherine_of_alexandria_virgin: {
       precedence: Precedences.ProperMemorial_11b,
       date: '11-25',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
   };
 }

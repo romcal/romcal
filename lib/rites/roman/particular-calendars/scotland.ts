@@ -28,7 +28,6 @@ export class Scotland extends CalendarDef {
     columba_of_iona_abbot: {
       precedence: Precedences.ProperMemorial_11b,
       date: '6-9',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     ninian_of_whithorn_bishop: {
@@ -43,10 +42,10 @@ export class Scotland extends CalendarDef {
       liturgicalColors: LiturgicalColors.WHITE,
     },
 
-    andrew_apostle_patron_of_scotland: {
+    andrew_apostle: {
+      customLocaleKey: 'andrew_apostle_patron_of_scotland',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      date: '11-30',
-      liturgicalColors: LiturgicalColors.WHITE,
+      titles: (titles) => [...titles, 'Patron of Scotland'],
     },
   };
 }

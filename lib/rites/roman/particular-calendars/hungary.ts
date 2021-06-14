@@ -33,6 +33,7 @@ export class Hungary extends CalendarDef {
     jacinta_marto_and_francisco_marto: {
       precedence: Precedences.OptionalMemorial_12,
       date: '2-20',
+      saints: ['jacinta_marto', 'francisco_marto'],
     },
 
     matthias_apostle: {
@@ -42,10 +43,6 @@ export class Hungary extends CalendarDef {
     zoltan_lajos_meszlenyi_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '3-4',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     bernadette_soubirous_virgin: {
@@ -56,10 +53,6 @@ export class Hungary extends CalendarDef {
     adalbert_of_prague_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       date: '4-23',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     george_of_lydda_martyr: {
@@ -70,18 +63,11 @@ export class Hungary extends CalendarDef {
     florian_of_lorch_martyr: {
       precedence: Precedences.OptionalMemorial_12,
       date: '5-4',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     ceferino_gimenez_malla_martyr: {
       precedence: Precedences.OptionalMemorial_12,
       date: '5-4',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     gisela_of_hungary: {
@@ -92,33 +78,21 @@ export class Hungary extends CalendarDef {
     sara_salkahazi_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       date: '5-11',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     john_nepomucene_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '5-16',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     john_scheffler_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '5-17',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     william_apor_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '5-23',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     our_lady_help_of_christians: {
@@ -146,9 +120,6 @@ export class Hungary extends CalendarDef {
       precedence: Precedences.OptionalMemorial_12,
       date: '6-8',
       liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     yolanda_of_poland_religious: {
@@ -159,9 +130,6 @@ export class Hungary extends CalendarDef {
     cyril_of_alexandria_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '6-26',
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     josemaria_escriva_de_balaguer_priest: {
@@ -184,15 +152,12 @@ export class Hungary extends CalendarDef {
     andrew_zorard_of_nitra_and_benedict_of_skalka_hermits: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-17',
+      saints: ['andrew_zorard_of_nitra_hermit', 'benedict_of_skalka_hermit'],
     },
 
     pavel_peter_gojdic_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-17',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     kinga_of_poland_virgin: {
@@ -211,20 +176,12 @@ export class Hungary extends CalendarDef {
     },
 
     pontian_i_pope_and_hippolytus_of_rome_priest: {
-      precedence: Precedences.OptionalMemorial_12,
       date: '8-16',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     bernard_of_clairvaux_abbot: {
       precedence: Precedences.ProperMemorial_11b,
       date: '8-19',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     stephen_i_of_hungary: {
@@ -240,7 +197,11 @@ export class Hungary extends CalendarDef {
     marko_krizin_melchior_grodziecki_and_stephen_pongracz_priests: {
       precedence: Precedences.ProperFeast_8f,
       date: '9-7',
-      liturgicalColors: LiturgicalColors.WHITE,
+      saints: [
+        'marko_krizin_priest',
+        'melchior_grodziecki_priest',
+        'stephen_pongracz_priest',
+      ],
     },
 
     most_holy_name_of_mary: {
@@ -258,15 +219,13 @@ export class Hungary extends CalendarDef {
       precedence: Precedences.OptionalMemorial_12,
       date: '10-3',
       liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
-    our_lady_of_hungary_patroness_of_hungary: {
+    our_lady_of_hungary: {
+      customLocaleKey: 'our_lady_of_hungary_patroness_of_hungary',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '10-8',
-      liturgicalColors: LiturgicalColors.WHITE,
+      titles: (titles) => [...titles, 'Patroness of Hungary'],
     },
 
     charles_i_of_austria: {
@@ -282,9 +241,6 @@ export class Hungary extends CalendarDef {
     theodore_romzha_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '10-31',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     all_souls: {
@@ -318,10 +274,6 @@ export class Hungary extends CalendarDef {
     john_brenner_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '12-15',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     our_lord_jesus_christ_the_eternal_high_priest: {

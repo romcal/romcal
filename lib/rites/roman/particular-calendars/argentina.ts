@@ -25,10 +25,11 @@ export class Argentina extends CalendarDef {
       liturgicalColors: LiturgicalColors.WHITE,
     },
 
-    our_lady_of_lujan_patroness_of_argentina: {
+    our_lady_of_lujan: {
+      customLocaleKey: 'our_lady_of_lujan_patroness_of_argentina',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '5-8',
-      liturgicalColors: LiturgicalColors.WHITE,
+      titles: (titles) => [...titles, 'Patroness of Argentina'],
     },
 
     isidore_the_farmer: {
@@ -48,11 +49,7 @@ export class Argentina extends CalendarDef {
     },
 
     augustine_zhao_rong_priest_and_companions_martyrs: {
-      precedence: Precedences.OptionalMemorial_12,
       date: '7-10',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     our_lady_of_mount_carmel: {
@@ -97,9 +94,6 @@ export class Argentina extends CalendarDef {
     benedict_of_jesus_valdivielso_saez_religious: {
       precedence: Precedences.OptionalMemorial_12,
       date: '10-9',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     our_lady_of_the_pillar: {
@@ -110,10 +104,11 @@ export class Argentina extends CalendarDef {
     roch_gonzalez_alphonsus_rodriguez_and_john_del_castillo_priests: {
       precedence: Precedences.ProperMemorial_11b,
       date: '11-17',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
+      saints: [
+        'roch_gonzalez_priest',
+        'alphonsus_rodriguez_priest',
+        'john_del_castillo_priest',
+      ],
     },
 
     elizabeth_of_hungary_religious: {

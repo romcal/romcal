@@ -15,10 +15,6 @@ export class Norway extends CalendarDef {
     henry_of_finland_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       date: '1-19',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     eysteinn_of_nidaros_bishop: {
@@ -29,37 +25,21 @@ export class Norway extends CalendarDef {
     magnus_erlendsson_martyr: {
       precedence: Precedences.ProperMemorial_11b,
       date: '4-16',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     eric_ix_of_sweden_martyr: {
       precedence: Precedences.ProperMemorial_11b,
       date: '5-18',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     sunniva_of_norway_virgin: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-8',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     canute_iv_of_denmark_martyr: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-10',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     swithun_of_winchester_bishop: {
@@ -76,9 +56,6 @@ export class Norway extends CalendarDef {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '5-29',
       liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     nicholas_steno_bishop: {

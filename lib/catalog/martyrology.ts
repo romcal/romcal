@@ -1,15 +1,19 @@
 type MartyrologyItem = {
   name: string;
   titles?: string[];
+  hideTitles?: boolean;
   dateOfDeath?: string;
+  count?: number | 'many';
 };
 
-interface BaseMaryrologie {
-  catalog: Record<string, MartyrologyItem>;
+type MartyrologyCatalog = Record<string, MartyrologyItem>;
+
+interface BaseMartyrology {
+  catalog: MartyrologyCatalog;
 }
 
-class Martyrology implements BaseMaryrologie {
-  catalog = {
+class Martyrology implements BaseMartyrology {
+  catalog: MartyrologyCatalog = {
     all_saints: {
       name: 'All Saints',
       titles: [],
@@ -141,11 +145,6 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Bishop', 'Martyr'],
     },
 
-    adalbert_of_prague_bishop_patron_of_poland: {
-      name: 'Saint Adalbert',
-      titles: ['Bishop', 'Martyr', 'Patron of Poland'],
-    },
-
     adolph_kolping_priest: {
       name: 'Blessed Adolph Kolping',
       titles: ['Priest'],
@@ -191,12 +190,6 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Bishop', 'Missionary'],
     },
 
-    // todo: same as aidan_of_lindisfarne_bishop
-    aidan_bishop: {
-      name: 'Saint Aidan',
-      titles: ['Bishop'],
-    },
-
     the_saints_of_lindisfarne: {
       name: 'the Saints of Lindisfarne',
     },
@@ -207,23 +200,23 @@ class Martyrology implements BaseMaryrologie {
     },
 
     alban_of_britain_martyr: {
-      name: 'Saints Alban, Julius and Aaron',
+      name: 'Saint Alban',
       titles: ['Martyr'],
     },
 
     julius_of_caerleon_martyr: {
-      name: 'Saints Alban, Julius and Aaron',
+      name: 'Saint Julius',
       titles: ['Martyr'],
     },
 
     aaron_of_caerleon_martyr: {
-      name: 'Saints Alban, Julius and Aaron',
+      name: 'Saint Aaron',
       titles: ['Martyr'],
     },
 
     alberic_crescitelli_priest: {
       name: 'Saint Alberic Crescitelli',
-      titles: ['Priest and Martyr'],
+      titles: ['Priest', 'Martyr'],
     },
 
     albert_chmielowski_religious: {
@@ -233,12 +226,12 @@ class Martyrology implements BaseMaryrologie {
 
     albert_the_great_bishop: {
       name: 'Saint Albert the Great',
-      titles: ['Bishop and Doctor of the Church'],
+      titles: ['Bishop', 'Doctor of the Church'],
     },
 
     albertina_berkenbrock_virgin: {
       name: 'Blessed Albertina Berkenbrock',
-      titles: ['Virgin and Martyr'],
+      titles: ['Virgin', 'Martyr'],
     },
 
     alberto_hurtado_priest: {
@@ -265,7 +258,7 @@ class Martyrology implements BaseMaryrologie {
 
     aloysius_stepinac_bishop: {
       name: 'Blessed Aloysius Stepinac',
-      titles: ['Bishop and Martyr'],
+      titles: ['Bishop', 'Martyr'],
     },
 
     aloysius_versiglia_bishop_and_callistus_caravario_priest_martyrs: {
@@ -280,7 +273,7 @@ class Martyrology implements BaseMaryrologie {
 
     alphonsus_liguori_bishop: {
       name: 'Saint Alphonsus Liguori',
-      titles: ['Bishop and Doctor of the Church'],
+      titles: ['Bishop', 'Doctor of the Church'],
     },
 
     amand_of_maastricht_bishop: {
@@ -290,7 +283,7 @@ class Martyrology implements BaseMaryrologie {
 
     ambrose_of_milan_bishop: {
       name: 'Saint Ambrose',
-      titles: ['Bishop and Doctor of the Church'],
+      titles: ['Bishop', 'Doctor of the Church'],
     },
 
     andre_bessette_religious: {
@@ -300,7 +293,7 @@ class Martyrology implements BaseMaryrologie {
 
     andre_grasset_priest: {
       name: 'Blessed André Grasset',
-      titles: ['Priest and Martyr'],
+      titles: ['Priest', 'Martyr'],
     },
 
     andrew_apostle: {
@@ -308,39 +301,44 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Apostle'],
     },
 
-    andrew_apostle_patron_of_russia: {
-      name: 'Saint Andrew',
-      titles: ['Apostle and Patron of Russia'],
-    },
-
-    andrew_apostle_patron_of_scotland: {
-      name: 'Saint Andrew',
-      titles: ['Apostle and Patron of Scotland'],
-    },
-
     andrew_bobola_priest: {
       name: 'Saint Andrew Bobola',
-      titles: ['Priest and Martyr'],
+      titles: ['Priest', 'Martyr'],
     },
 
-    andrew_de_soveral_and_ambrose_francis_ferro_priests: {
+    andrew_de_soveral_priest: {
       name: 'Saints Andrew de Soveral and Ambrose Francis Ferro',
-      titles: ['Priests and Martyrs'],
+      titles: ['Priest', 'Martyr'],
     },
 
-    andrew_dung_lac_priest_and_companions_martyrs: {
+    ambrose_francis_ferro_priest: {
+      name: 'Saints Andrew de Soveral and Ambrose Francis Ferro',
+      titles: ['Priest', 'Martyr'],
+    },
+
+    andrew_dung_lac_priest: {
       name: 'Saint Andrew Dũng-Lạc',
-      titles: ['Priest, and Companions, Martyrs'],
+      titles: ['Priest', 'Martyr'],
     },
 
-    andrew_kim_tae_gon_priest_paul_chong_ha_sang_and_companions_martyrs: {
-      name: 'Saints Andrew Kim Tae-gŏn',
-      titles: ['Priest, Paul Chŏng Ha-sang and Companions, Martyrs'],
+    andrew_kim_tae_gon_priest: {
+      name: 'Saint Andrew Kim Tae-gŏn',
+      titles: ['Priest', 'Martyr'],
     },
 
-    andrew_zorard_of_nitra_and_benedict_of_skalka_hermits: {
-      name: 'Saints Andrew Zorard and Benedict',
-      titles: ['Hermits'],
+    paul_chong_ha_sang_martyr: {
+      name: 'Saint Paul Chŏng Ha-sang',
+      titles: ['Martyr'],
+    },
+
+    andrew_zorard_of_nitra_hermit: {
+      name: 'Saint Andrew Zorard',
+      titles: ['Hermit'],
+    },
+
+    benedict_of_skalka_hermit: {
+      name: 'Saint Benedict',
+      titles: ['Hermit'],
     },
 
     angela_merici_virgin: {
@@ -360,7 +358,7 @@ class Martyrology implements BaseMaryrologie {
 
     anselm_of_canterbury_bishop: {
       name: 'Saint Anselm',
-      titles: ['Bishop and Doctor of the Church'],
+      titles: ['Bishop', 'Doctor of the Church'],
     },
 
     ansgar_of_hamburg_bishop: {
@@ -368,9 +366,9 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Bishop'],
     },
 
-    anthony_julian_nowowiejski_bishop_and_companions_martyrs: {
+    anthony_julian_nowowiejski_bishop: {
       name: 'Blessed Anthony Julian Nowowiejski',
-      titles: ['Bishop, and Companions, Martyrs'],
+      titles: ['Bishop', 'Martyr'],
     },
 
     anthony_mary_claret_bishop: {
@@ -385,7 +383,7 @@ class Martyrology implements BaseMaryrologie {
 
     anthony_of_padua_priest: {
       name: 'Saint Anthony of Padua',
-      titles: ['Priest and Doctor of the Church'],
+      titles: ['Priest', 'Doctor of the Church'],
     },
 
     anthony_of_saint_anne_galvao_priest: {
@@ -405,7 +403,7 @@ class Martyrology implements BaseMaryrologie {
 
     apollinaris_of_ravenna_bishop: {
       name: 'Saint Apollinaris',
-      titles: ['Bishop and Martyr'],
+      titles: ['Bishop', 'Martyr'],
     },
 
     asaph_of_wales_bishop: {
@@ -420,7 +418,7 @@ class Martyrology implements BaseMaryrologie {
 
     athanasius_of_alexandria_bishop: {
       name: 'Saint Athanasius',
-      titles: ['Bishop and Doctor of the Church'],
+      titles: ['Bishop', 'Doctor of the Church'],
     },
 
     attracta_of_killaraght_virgin: {
@@ -430,7 +428,7 @@ class Martyrology implements BaseMaryrologie {
 
     augustine_kazotic_bishop: {
       name: 'Blessed Augustine Kažotić',
-      titles: ['Bishop and Martyr'],
+      titles: ['Bishop', 'Martyr'],
     },
 
     augustine_of_canterbury_bishop: {
@@ -440,22 +438,17 @@ class Martyrology implements BaseMaryrologie {
 
     augustine_of_hippo_bishop: {
       name: 'Saint Augustine',
-      titles: ['Bishop and Doctor of the Church'],
+      titles: ['Bishop', 'Doctor of the Church'],
     },
 
     augustine_zhao_rong_priest: {
       name: 'Saint Augustine Zhao Rong',
-      titles: ['Priest and Martyr'],
-    },
-
-    augustine_zhao_rong_priest_and_companions_martyrs: {
-      name: 'Saint Augustine Zhao Rong',
-      titles: ['Priest, and Companions, Martyrs'],
+      titles: ['Priest', 'Martyr'],
     },
 
     barbara_of_heliopolis_virgin: {
       name: 'Saint Barbara',
-      titles: ['Virgin and Martyr'],
+      titles: ['Virgin', 'Martyr'],
     },
 
     barnabas_apostle: {
@@ -470,7 +463,7 @@ class Martyrology implements BaseMaryrologie {
 
     bartholomew_dias_laurel_religious: {
       name: 'Blessed Bartholomew Días Laurel',
-      titles: ['Religious and Martyr'],
+      titles: ['Religious', 'Martyr'],
     },
 
     bartholomew_of_the_martyrs_fernandes_bishop: {
@@ -478,9 +471,14 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Bishop'],
     },
 
-    basil_the_great_and_gregory_nazianzen_bishops: {
-      name: 'Saints Basil the Great and Gregory Nazianzen',
-      titles: ['Bishops and Doctors of the Church'],
+    basil_the_great_bishop: {
+      name: 'Saint Basil the Great',
+      titles: ['Bishop', 'Doctor of the Church'],
+    },
+
+    gregory_nazianzen_bishop: {
+      name: 'Saint Gregory Nazianzen',
+      titles: ['Bishop', 'Doctor of the Church'],
     },
 
     beatrice_da_silva_meneses_virgin: {
@@ -490,22 +488,17 @@ class Martyrology implements BaseMaryrologie {
 
     bede_the_venerable_priest: {
       name: 'Saint Bede the Venerable',
-      titles: ['Priest and Doctor of the Church'],
+      titles: ['Priest', 'Doctor of the Church'],
     },
 
     benedict_of_jesus_valdivielso_saez_religious: {
       name: 'Saint Benedict of Jesus Valdivielso Sáez',
-      titles: ['Religious and Martyr'],
+      titles: ['Religious', 'Martyr'],
     },
 
     benedict_of_nursia_abbot: {
       name: 'Saint Benedict',
       titles: ['Abbot'],
-    },
-
-    benedict_of_nursia_abbot_patron_of_europe: {
-      name: 'Saint Benedict',
-      titles: ['Abbot and Patron of Europe'],
     },
 
     benno_of_meissen_bishop: {
@@ -520,7 +513,7 @@ class Martyrology implements BaseMaryrologie {
 
     bernard_of_clairvaux_abbot: {
       name: 'Saint Bernard',
-      titles: ['Abbot and Doctor of the Church'],
+      titles: ['Abbot', 'Doctor of the Church'],
     },
 
     bernardine_of_siena_priest: {
@@ -535,7 +528,7 @@ class Martyrology implements BaseMaryrologie {
 
     blaise_of_sebaste_bishop: {
       name: 'Saint Blaise',
-      titles: ['Bishop and Martyr'],
+      titles: ['Bishop', 'Martyr'],
     },
 
     bogumilus_of_dobrow_bishop: {
@@ -550,12 +543,12 @@ class Martyrology implements BaseMaryrologie {
 
     bonaventure_of_bagnoregio_bishop: {
       name: 'Saint Bonaventure',
-      titles: ['Bishop and Doctor of the Church'],
+      titles: ['Bishop', 'Doctor of the Church'],
     },
 
     boniface_of_mainz_bishop: {
       name: 'Saint Boniface',
-      titles: ['Bishop and Martyr'],
+      titles: ['Bishop', 'Martyr'],
     },
 
     boris_of_kiev_and_gleb_of_kiev_martyrs: {
@@ -573,14 +566,9 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Religious'],
     },
 
-    bridget_of_sweden_religious_copatroness_of_europe: {
-      name: 'Saint Bridget',
-      titles: ['Religious and Copatroness of Europe'],
-    },
-
-    brigid_of_kildare_virgin_copatroness_of_ireland: {
+    brigid_of_kildare_virgin: {
       name: 'Saint Brigid',
-      titles: ['Virgin and Copatroness of Ireland'],
+      titles: ['Virgin'],
     },
 
     bronislava_of_poland_virgin: {
@@ -600,7 +588,7 @@ class Martyrology implements BaseMaryrologie {
 
     bruno_of_querfurt_bishop: {
       name: 'Saint Bruno of Querfurt',
-      titles: ['Bishop And Martyr'],
+      titles: ['Bishop', 'Martyr'],
     },
 
     caesarius_of_arles_bishop: {
@@ -615,7 +603,7 @@ class Martyrology implements BaseMaryrologie {
 
     callistus_i_pope: {
       name: 'Saint Callistus I',
-      titles: ['Pope and Martyr'],
+      titles: ['Pope', 'Martyr'],
     },
 
     camillus_de_lellis_priest: {
@@ -626,11 +614,6 @@ class Martyrology implements BaseMaryrologie {
     canice_of_kilkenny_abbot: {
       name: 'Saint Canice',
       titles: ['Abbot'],
-    },
-
-    canute_iv_of_denmark_eric_ix_of_sweden_and_olaf_ii_of_norway_martyrs: {
-      name: 'Saints Canute',
-      titles: ['Eric and Olaf, Martyrs'],
     },
 
     canute_iv_of_denmark_martyr: {
@@ -644,7 +627,7 @@ class Martyrology implements BaseMaryrologie {
 
     caroline_kozka_virgin: {
       name: 'Blessed Caroline Kózka',
-      titles: ['Virgin and Martyr'],
+      titles: ['Virgin', 'Martyr'],
     },
 
     carthage_of_lismore_bishop: {
@@ -658,7 +641,7 @@ class Martyrology implements BaseMaryrologie {
 
     catherine_of_alexandria_virgin: {
       name: 'Saint Catherine of Alexandria',
-      titles: ['Virgin and Martyr'],
+      titles: ['Virgin', 'Martyr'],
     },
 
     catherine_of_saint_augustine_de_simon_de_longpre_virgin: {
@@ -668,19 +651,7 @@ class Martyrology implements BaseMaryrologie {
 
     catherine_of_siena_virgin: {
       name: 'Saint Catherine of Siena',
-      titles: ['Virgin and Doctor of the Church'],
-    },
-
-    catherine_of_siena_virgin_copatroness_of_europe: {
-      name: 'Saint Catherine of Siena',
-      titles: ['Virgin, Doctor of the Church and Copatroness of Europe'],
-    },
-
-    catherine_of_siena_virgin_copatroness_of_italy_and_europe: {
-      name: 'Saint Catherine of Siena',
-      titles: [
-        'Virgin, Doctor of the Church and Copatroness of Italy and Europe',
-      ],
+      titles: ['Virgin', 'Doctor of the Church'],
     },
 
     ceallach_of_armagh_bishop: {
@@ -690,7 +661,7 @@ class Martyrology implements BaseMaryrologie {
 
     cecilia_of_rome_virgin: {
       name: 'Saint Cecilia',
-      titles: ['Virgin and Martyr'],
+      titles: ['Virgin', 'Martyr'],
     },
 
     ceferino_gimenez_malla_martyr: {
@@ -698,19 +669,19 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Martyr'],
     },
 
-    ceslaus_of_poland_and_hyacinth_of_poland_priests: {
-      name: 'Blessed Ceslaus and Saint Hyacinth',
-      titles: ['Priests'],
-    },
-
     ceslaus_of_poland_priest: {
       name: 'Blessed Ceslaus',
       titles: ['Priest'],
     },
 
-    chad_of_mercia_and_cedd_of_lastingham_bishops: {
-      name: 'Saints Chad and Cedd',
-      titles: ['Bishops'],
+    chad_of_mercia_bishop: {
+      name: 'Saint Chad',
+      titles: ['Bishop'],
+    },
+
+    cedd_of_lastingham_bishop: {
+      name: 'Saint Cedd',
+      titles: ['Bishop'],
     },
 
     chair_of_saint_peter_the_apostle: {
@@ -726,24 +697,23 @@ class Martyrology implements BaseMaryrologie {
       name: 'Blessed Charles of Austria',
     },
 
-    charles_lwanga_and_companions_martyrs: {
-      name: 'Saints Charles Lwanga and Companions',
-      titles: ['Martyrs'],
+    charles_lwanga_martyr: {
+      name: 'Saint Charles Lwanga',
     },
 
-    charles_spinola_and_jerome_de_angelis_priests: {
-      name: 'Blesseds Charles Spinola and Jerome de Angelis',
-      titles: ['Priests and Martyrs'],
+    jerome_de_angelis_priest: {
+      name: 'Blessed Jerome de Angelis',
+      titles: ['Priest', 'Martyr'],
     },
 
     charles_spinola_priest: {
       name: 'Blessed Charles Spinola',
-      titles: ['Priest and Martyr'],
+      titles: ['Priest', 'Martyr'],
     },
 
-    christopher_magallanes_priest_and_companions_martyrs: {
+    christopher_magallanes_priest: {
       name: 'Saint Christopher Magallanes',
-      titles: ['Priest, and Companions, Martyrs'],
+      titles: ['Priest', 'Martyr'],
     },
 
     christopher_of_palestine_martyr: {
@@ -763,7 +733,7 @@ class Martyrology implements BaseMaryrologie {
 
     clement_i_pope: {
       name: 'Saint Clement I',
-      titles: ['Pope and Martyr'],
+      titles: ['Pope', 'Martyr'],
     },
 
     clement_mary_hofbauer_priest: {
@@ -771,9 +741,14 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Priest'],
     },
 
-    clement_of_ohrid_and_gorazd_of_moravia_bishops_and_companions: {
-      name: 'Saints Clement of Ohrid and Gorazd',
-      titles: ['Bishops, and Companions'],
+    clement_of_ohrid_bishop: {
+      name: 'Saint Clement of Ohrid',
+      titles: ['Bishop'],
+    },
+
+    gorazd_of_moravia_bishop: {
+      name: 'Saint Gorazd',
+      titles: ['Bishop'],
     },
 
     clotilde_of_burgundy: {
@@ -805,11 +780,6 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Abbot'],
     },
 
-    columba_of_iona_abbot_copatron_of_ireland: {
-      name: 'Saint Columba',
-      titles: ['Abbot, Missionary and Copatron of Ireland'],
-    },
-
     columban_of_luxeuil_abbot: {
       name: 'Saint Columban',
       titles: ['Abbot'],
@@ -825,9 +795,14 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Bishop'],
     },
 
-    conrad_of_constance_and_gebhard_of_constance_bishops: {
-      name: 'Saints Conrad and Gebhard of Constance',
-      titles: ['Bishops'],
+    conrad_of_constance_bishop: {
+      name: 'Saints Conrad of Constance',
+      titles: ['Bishop'],
+    },
+
+    gebhard_of_constance_bishop: {
+      name: 'Saint Gebhard of Constance',
+      titles: ['Bishop'],
     },
 
     conrad_of_parzham_religious: {
@@ -844,14 +819,24 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Bishop'],
     },
 
-    cornelius_i_pope_and_cyprian_of_carthage_bishop_martyrs: {
-      name: 'Saints Cornelius',
-      titles: ['Pope, and Cyprian, Bishop, Martyrs'],
+    cornelius_i_pope: {
+      name: 'Saint Cornelius',
+      titles: ['Pope', 'Martyrs'],
     },
 
-    cosmas_of_cilicia_and_damian_of_cilicia_martyrs: {
-      name: 'Saints Cosmas and Damian',
-      titles: ['Martyrs'],
+    cyprian_of_carthage_bishop: {
+      name: 'Saints Cornelius',
+      titles: ['Bishop', 'Martyr'],
+    },
+
+    cosmas_of_cilicia_martyr: {
+      name: 'Saint Cosmas',
+      titles: ['Martyr'],
+    },
+
+    damian_of_cilicia_martyr: {
+      name: 'Saint Damian',
+      titles: ['Martyr'],
     },
 
     cuthbert_of_lindisfarne_bishop: {
@@ -861,30 +846,23 @@ class Martyrology implements BaseMaryrologie {
 
     cyril_of_alexandria_bishop: {
       name: 'Saint Cyril of Alexandria',
-      titles: ['Bishop and Doctor of the Church'],
+      titles: ['Bishop', 'Doctor of the Church'],
     },
 
     cyril_of_jerusalem_bishop: {
       name: 'Saint Cyril of Jerusalem',
-      titles: ['Bishop and Doctor of the Church'],
+      titles: ['Bishop', 'Doctor of the Church'],
     },
 
-    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop: {
-      name: 'Saints Cyril',
-      titles: ['Monk, and Methodius, Bishop'],
+    cyril_the_philosopher_monk: {
+      name: 'Saint Cyril',
+      titles: ['Monk'],
     },
 
-    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe:
-      {
-        name: 'Saints Cyril',
-        titles: ['Monk, and Methodius, Bishop, Copatrons of Europe'],
-      },
-
-    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_slavic_missionaries:
-      {
-        name: 'Saints Cyril and Methodius',
-        titles: ['Slavic Missionaries'],
-      },
+    methodius_of_thessaloniki_bishop: {
+      name: 'Saint Methodius',
+      titles: ['Bishop'],
+    },
 
     damasus_i_pope: {
       name: 'Saint Damasus I',
@@ -898,17 +876,12 @@ class Martyrology implements BaseMaryrologie {
 
     david_lewis_priest: {
       name: 'Saint David Lewis',
-      titles: ['Priest and Martyr'],
+      titles: ['Priest', 'Martyr'],
     },
 
     david_of_wales_bishop: {
       name: 'Saint David',
       titles: ['Bishop'],
-    },
-
-    david_of_wales_bishop_patron_of_wales: {
-      name: 'Saint David',
-      titles: ['Bishop and Patron of Wales'],
     },
 
     davnet_of_sliabh_beagh_virgin: {
@@ -931,7 +904,8 @@ class Martyrology implements BaseMaryrologie {
 
     dedication_of_the_basilicas_of_saints_peter_and_paul_apostles: {
       name: 'Dedication of the Basilicas of Saints Peter and Paul',
-      titles: ['Apostles'],
+      titles: ['Apostle'],
+      count: 2,
     },
 
     dedication_of_the_lateran_basilica: {
@@ -948,9 +922,9 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Martyr'],
     },
 
-    denis_of_paris_bishop_and_companions_martyrs: {
+    denis_of_paris_bishop: {
       name: 'Saint Denis',
-      titles: ['Bishop, and Companions, Martyrs'],
+      titles: ['Bishop', 'Martyr'],
     },
 
     dina_belanger_virgin: {
@@ -960,7 +934,7 @@ class Martyrology implements BaseMaryrologie {
 
     dionysius_the_areopagite_bishop: {
       name: 'Saint Dionysius the Areopagite',
-      titles: ['Bishop and Martyr'],
+      titles: ['Bishop', 'Martyr'],
     },
 
     dominic_de_guzman_priest: {
@@ -989,7 +963,7 @@ class Martyrology implements BaseMaryrologie {
 
     edmund_campion_priest: {
       name: 'Saint Edmund Campion',
-      titles: ['Priest and Martyr'],
+      titles: ['Priest', 'Martyr'],
     },
 
     edmund_ignatius_rice_religious: {
@@ -1008,7 +982,7 @@ class Martyrology implements BaseMaryrologie {
 
     elijah_prophet: {
       name: 'Saint Elijah',
-      titles: ['prophet'],
+      titles: ['Prophet'],
     },
 
     elizabeth_ann_seton_religious: {
@@ -1046,6 +1020,9 @@ class Martyrology implements BaseMaryrologie {
 
     english_martyrs: {
       name: 'English Martyrs',
+      titles: ['Martyr'],
+      hideTitles: true,
+      count: 'many',
     },
 
     eoghan_of_ardstraw_bishop: {
@@ -1055,7 +1032,7 @@ class Martyrology implements BaseMaryrologie {
 
     ephrem_the_syrian_deacon: {
       name: 'Saint Ephrem',
-      titles: ['Deacon and Doctor of the Church'],
+      titles: ['Deacon', 'Doctor of the Church'],
     },
 
     eric_ix_of_sweden_martyr: {
@@ -1075,7 +1052,7 @@ class Martyrology implements BaseMaryrologie {
 
     eulalia_of_merida_virgin: {
       name: 'Saint Eulalia of Merida',
-      titles: ['Virgin and Martyr'],
+      titles: ['Virgin', 'Martyr'],
     },
 
     eulogius_of_cordoba_bishop: {
@@ -1105,7 +1082,7 @@ class Martyrology implements BaseMaryrologie {
 
     fabian_i_pope: {
       name: 'Saint Fabian',
-      titles: ['Pope and Martyr'],
+      titles: ['Pope', 'Martyr'],
     },
 
     fachanan_of_kilfenora_bishop: {
@@ -1134,7 +1111,7 @@ class Martyrology implements BaseMaryrologie {
 
     fidelis_of_sigmaringen_priest: {
       name: 'Saint Fidelis of Sigmaringen',
-      titles: ['Priest and Martyr'],
+      titles: ['Priest', 'Martyr'],
     },
 
     finbarr_of_cork_bishop: {
@@ -1158,11 +1135,16 @@ class Martyrology implements BaseMaryrologie {
 
     first_martyrs_of_the_holy_roman_church: {
       name: 'First Martyrs of the Holy Roman Church',
+      titles: ['Martyr'],
+      hideTitles: true,
+      count: 'many',
     },
 
     first_polish_martyrs: {
-      name: 'Saints Benedict',
-      titles: ['John, Matthew, Isaac and Christian, the First Polish Martyrs'],
+      name: 'Saints Benedict, John, Matthew, Isaac and Christian, the First Polish Martyrs',
+      titles: ['Martyr'],
+      hideTitles: true,
+      count: 5,
     },
 
     five_wounds_of_the_lord: {
@@ -1172,11 +1154,6 @@ class Martyrology implements BaseMaryrologie {
     flannan_of_killaloe_bishop: {
       name: 'Saint Flannan',
       titles: ['Bishop'],
-    },
-
-    florian_of_lorch_and_companions_martyrs: {
-      name: 'Saint Florian and Companions',
-      titles: ['Martyrs'],
     },
 
     florian_of_lorch_martyr: {
@@ -1201,26 +1178,21 @@ class Martyrology implements BaseMaryrologie {
 
     francis_de_sales_bishop: {
       name: 'Saint Francis de Sales',
-      titles: ['Bishop and Doctor of the Church'],
+      titles: ['Bishop', 'Doctor of the Church'],
     },
 
-    francis_diaz_del_rincon_priest_and_companions_martyrs: {
+    francis_diaz_del_rincon_priest: {
       name: 'Saint Francis Díaz del Rincon',
-      titles: ['Priest, and Companions, Martyrs'],
+      titles: ['Priest', 'Martyr'],
     },
 
     francis_ferdinand_de_capillas_priest: {
       name: 'Saint Francis Ferdinand de Capillas',
-      titles: ['Priest and Martyr'],
+      titles: ['Priest', 'Martyr'],
     },
 
     francis_of_assisi: {
       name: 'Saint Francis of Assisi',
-    },
-
-    francis_of_assisi_patron_of_italy: {
-      name: 'Saint Francis of Assisi',
-      titles: ['Patron of Italy'],
     },
 
     francis_of_paola_hermit: {
@@ -1240,7 +1212,7 @@ class Martyrology implements BaseMaryrologie {
 
     francis_xavier_seelos_priest: {
       name: 'Blessed Francis Xavier Seelos',
-      titles: ['priest'],
+      titles: ['Priest'],
     },
 
     francois_de_montmorency_laval_bishop: {
@@ -1258,30 +1230,49 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Monk'],
     },
 
-    fructuosus_of_braga_martin_of_braga_and_gerald_of_braga_bishops: {
-      name: 'Saints Fructuosus',
-      titles: ['Martin and Gerald of Braga, Bishops'],
+    fructuosus_of_braga_bishop: {
+      name: 'Saints Fructuosus of Braga',
+      titles: ['Bishop'],
     },
 
-    fructuosus_of_tarragona_bishop_and_augurius_of_tarragona_and_eulogius_of_tarragona_deacons_martyrs:
-      {
-        name: 'Saints Fructuosus',
-        titles: ['Bishop, Augurius and Eulogius, Deacons, Martyrs'],
-      },
+    martin_of_braga_bishop: {
+      name: 'Saints Fructuosus of Braga',
+      titles: ['Bishop'],
+    },
+
+    gerald_of_braga_bishop: {
+      name: 'Saints Fructuosus',
+      titles: ['Bishop'],
+    },
+
+    fructuosus_of_tarragona_bishop: {
+      name: 'Saint Fructuosus',
+      titles: ['Bishop', 'Martyr'],
+    },
+
+    augurius_of_tarragona_deacon: {
+      name: 'Saint Augurius',
+      titles: ['Deacon', 'Martyr'],
+    },
+
+    eulogius_of_tarragona_deacon: {
+      name: 'Saint Eulogius',
+      titles: ['Deacon', 'Martyr'],
+    },
 
     fursa_of_peronne_abbot: {
       name: 'Saint Fursa',
-      titles: ['Abbot and Missionary'],
+      titles: ['Abbot', 'Missionary'],
     },
 
     gabriel_taurin_dufresse_bishop: {
       name: 'Saint Gabriel-Taurin Dufresse',
-      titles: ['Bishop and Martyr'],
+      titles: ['Bishop', 'Martyr'],
     },
 
     gall_of_switzerland_abbot: {
       name: 'Saint Gall',
-      titles: ['Abbot and Missionary'],
+      titles: ['Abbot', 'Missionary'],
     },
 
     genevieve_of_paris_virgin: {
@@ -1299,11 +1290,6 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Martyr'],
     },
 
-    george_of_lydda_martyr_patron_of_england: {
-      name: 'Saint George',
-      titles: ['Martyr and Patron of England'],
-    },
-
     george_preca_priest: {
       name: 'Saint George Preca',
       titles: ['Priest'],
@@ -1311,7 +1297,7 @@ class Martyrology implements BaseMaryrologie {
 
     gerard_of_csanad_bishop: {
       name: 'Saint Gerard of Csanád',
-      titles: ['Bishop and Martyr'],
+      titles: ['Bishop', 'Martyr'],
     },
 
     germanus_of_auxerre_bishop: {
@@ -1338,8 +1324,8 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Virgin'],
     },
 
-    gorazd_of_moravia_and_companions: {
-      name: 'Saint Gorazd and Companions',
+    gorazd_of_moravia: {
+      name: 'Saint Gorazd',
     },
 
     gotthard_of_hildesheim_bishop: {
@@ -1352,22 +1338,29 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Religious'],
     },
 
-    gregory_grassi_francis_fogolla_and_anthony_fantosati_bishops_and_companions_martyrs:
-      {
-        name: 'Saints Gregory Grassi',
-        titles: [
-          'Francis Fogolla and Anthony Fantosati, Bishops, and Companions, Martyrs',
-        ],
-      },
+    gregory_grassi_bishop: {
+      name: 'Saints Gregory Grassi',
+      titles: ['Bishop', 'Martyr'],
+    },
+
+    rancis_fogolla_bishop: {
+      name: 'Saints Gregory Grassi',
+      titles: ['Bishop', 'Martyr'],
+    },
+
+    anthony_fantosati_bishop: {
+      name: 'Saints Gregory Grassi',
+      titles: ['Bishop', 'Martyr'],
+    },
 
     gregory_i_the_great_pope: {
       name: 'Saint Gregory the Great',
-      titles: ['Pope and Doctor of the Church'],
+      titles: ['Pope', 'Doctor of the Church'],
     },
 
     gregory_of_narek_abbot: {
       name: 'Saint Gregory of Narek',
-      titles: ['Abbot and Doctor of the Church'],
+      titles: ['Abbot', 'Doctor of the Church'],
     },
 
     gregory_vii_pope: {
@@ -1381,6 +1374,7 @@ class Martyrology implements BaseMaryrologie {
 
     guardian_angels: {
       name: 'Holy Guardian Angels',
+      count: 'many',
     },
 
     gundisalvus_garcia_martyr: {
@@ -1430,7 +1424,7 @@ class Martyrology implements BaseMaryrologie {
 
     henry_of_finland_bishop: {
       name: 'Saint Henry',
-      titles: ['Bishop and Martyr'],
+      titles: ['Bishop', 'Martyr'],
     },
 
     henry_suso_priest: {
@@ -1450,7 +1444,7 @@ class Martyrology implements BaseMaryrologie {
 
     hilary_of_poitiers_bishop: {
       name: 'Saint Hilary',
-      titles: ['Bishop and Doctor of the Church'],
+      titles: ['Bishop', 'Doctor of the Church'],
     },
 
     hilda_of_whitby_abbess: {
@@ -1460,7 +1454,7 @@ class Martyrology implements BaseMaryrologie {
 
     hildegard_of_bingen_abbess: {
       name: 'Saint Hildegard of Bingen',
-      titles: ['Abbess and Doctor of the Church'],
+      titles: ['Abbess', 'Doctor of the Church'],
     },
 
     holy_child_of_cebu: {
@@ -1499,6 +1493,7 @@ class Martyrology implements BaseMaryrologie {
 
     hungarian_saints_and_blesseds: {
       name: 'Hungarian Saints and Blesseds',
+      count: 'many',
     },
 
     hyacinth_of_poland_priest: {
@@ -1506,9 +1501,9 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Priest'],
     },
 
-    ignatius_de_azevedo_priest_and_companions_martyrs: {
+    ignatius_de_azevedo_priest: {
       name: 'Blessed Ignatius de Azevedo',
-      titles: ['Priest, and Companions, Martyrs'],
+      titles: ['Priest', 'Martyr'],
     },
 
     ignatius_falzon: {
@@ -1517,7 +1512,7 @@ class Martyrology implements BaseMaryrologie {
 
     ignatius_of_antioch_bishop: {
       name: 'Saint Ignatius of Antioch',
-      titles: ['Bishop and Martyr'],
+      titles: ['Bishop', 'Martyr'],
     },
 
     ignatius_of_loyola_priest: {
@@ -1535,16 +1530,6 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Abbot'],
     },
 
-    immaculate_conception_of_mary_patroness_of_the_philippines: {
-      name: 'Immaculate Conception of the Blessed Virgin Mary',
-      titles: ['Patroness of the Philippines'],
-    },
-
-    immaculate_conception_of_mary_patroness_of_the_usa: {
-      name: 'Immaculate Conception of the Blessed Virgin Mary',
-      titles: ['Patroness of the USA'],
-    },
-
     innocent_xi_pope: {
       name: 'Blessed Innocent XI',
       titles: ['Pope'],
@@ -1552,7 +1537,7 @@ class Martyrology implements BaseMaryrologie {
 
     irenaeus_of_lyon_bishop: {
       name: 'Saint Irenaeus',
-      titles: ['Bishop and Martyr'],
+      titles: ['Bishop', 'Martyr'],
     },
 
     irene_of_macedonia: {
@@ -1561,11 +1546,12 @@ class Martyrology implements BaseMaryrologie {
 
     irish_martyrs: {
       name: 'Irish Martyrs',
+      count: 'many',
     },
 
     isidore_of_seville_bishop: {
       name: 'Saint Isidore',
-      titles: ['Bishop and Doctor of the Church'],
+      titles: ['Bishop', 'Doctor of the Church'],
     },
 
     isidore_the_farmer: {
@@ -1574,7 +1560,7 @@ class Martyrology implements BaseMaryrologie {
 
     istvan_sandor_religious: {
       name: 'Blessed István Sándor',
-      titles: ['Religious and Martyr'],
+      titles: ['Religious', 'Martyr'],
     },
 
     ita_of_killeedy_virgin: {
@@ -1591,18 +1577,17 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Priest'],
     },
 
-    jacinta_marto_and_francisco_marto: {
-      name: 'Saints Jacinta and Francisco Marto',
+    jacinta_marto: {
+      name: 'Saint Jacinta Marto',
+    },
+
+    francisco_marto: {
+      name: 'Saint Francisco Marto',
     },
 
     james_apostle: {
       name: 'Saint James',
       titles: ['Apostle'],
-    },
-
-    james_apostle_patron_of_spain: {
-      name: 'Saint James',
-      titles: ['Apostle and Patron of Spain'],
     },
 
     james_strzemie_bishop: {
@@ -1617,7 +1602,7 @@ class Martyrology implements BaseMaryrologie {
 
     januarius_i_of_benevento_bishop: {
       name: 'Saint Januarius',
-      titles: ['Bishop and Martyr'],
+      titles: ['Bishop', 'Martyr'],
     },
 
     jarlath_of_tuam_bishop: {
@@ -1631,19 +1616,17 @@ class Martyrology implements BaseMaryrologie {
 
     jerome_of_stridon_priest: {
       name: 'Saint Jerome',
-      titles: ['Priest and Doctor of the Church'],
+      titles: ['Priest', 'Doctor of the Church'],
     },
 
-    joachim_and_anne_parents_of_mary: {
-      name: 'Saints Joachim and Anne',
+    joachim_father_of_mary: {
+      name: 'Saint Joachim',
       titles: ['Parents of the Blessed Virgin Mary'],
     },
 
-    joachim_and_anne_patroness_of_the_province_of_quebec_parents_of_mary: {
-      name: 'Saints Anne',
-      titles: [
-        'Patroness of the Province of Quebec, and Joachim, Parents of the Blessed Virgin Mary',
-      ],
+    anne_mother_of_mary: {
+      name: 'Saint Anne',
+      titles: ['Parents of the Blessed Virgin Mary'],
     },
 
     joachim_he_kaizhi_martyr: {
@@ -1651,9 +1634,9 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Martyr'],
     },
 
-    joan_of_arc_virgin_copatroness_of_france: {
+    joan_of_arc_virgin: {
       name: 'Saint Joan of Arc',
-      titles: ['Virgin, Copatroness of France'],
+      titles: ['Virgin'],
     },
 
     joan_of_portugal_virgin: {
@@ -1668,7 +1651,7 @@ class Martyrology implements BaseMaryrologie {
 
     john_apostle: {
       name: 'Saint John',
-      titles: ['Apostle and Evangelist'],
+      titles: ['Apostle', 'Evangelist'],
     },
 
     john_baptist_de_la_salle_priest: {
@@ -1693,7 +1676,7 @@ class Martyrology implements BaseMaryrologie {
 
     john_brenner_priest: {
       name: 'Blessed John Brenner',
-      titles: ['Priest and Martyr'],
+      titles: ['Priest', 'Martyr'],
     },
 
     john_cassian_priest: {
@@ -1703,28 +1686,27 @@ class Martyrology implements BaseMaryrologie {
 
     john_chrysostom_bishop: {
       name: 'Saint John Chrysostom',
-      titles: ['Bishop and Doctor of the Church'],
+      titles: ['Bishop', 'Doctor of the Church'],
     },
 
     john_damascene_priest: {
       name: 'Saint John Damascene',
-      titles: ['Priest and Doctor of the Church'],
+      titles: ['Priest', 'Doctor of the Church'],
     },
 
-    john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs: {
-      name: 'Saints John de Brébeuf and Isaac Jogues',
-      titles: ['Priests, and Companions, Martyrs'],
+    john_de_brebeuf_priest: {
+      name: 'Saint John de Brébeuf',
+      titles: ['Priest', 'Martyr'],
     },
 
-    john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs_copatrons_of_canada:
-      {
-        name: 'Saints John de Brébeuf and Isaac Jogues',
-        titles: ['Priests, and Companions, Martyrs and Copatrons of Canada'],
-      },
+    isaac_jogues_priest: {
+      name: 'Saint Isaac Jogues',
+      titles: ['Priest', 'Martyr'],
+    },
 
     john_de_britto_priest: {
       name: 'Saint John de Brito',
-      titles: ['Priest and Martyr'],
+      titles: ['Priest', 'Martyr'],
     },
 
     john_eudes_priest: {
@@ -1732,14 +1714,19 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Priest'],
     },
 
-    john_fisher_bishop_and_thomas_more_martyrs: {
-      name: 'Saints John Fisher',
-      titles: ['Bishop, and Thomas More, Martyrs'],
+    john_fisher_bishop: {
+      name: 'Saint John Fisher',
+      titles: ['Bishop', 'Martyr'],
+    },
+
+    thomas_more_martyr: {
+      name: 'Saint Thomas More',
+      titles: ['Martyr'],
     },
 
     john_gabriel_perboyre_priest: {
       name: 'Saint John Gabriel Perboyre',
-      titles: ['Priest and Martyr'],
+      titles: ['Priest', 'Martyr'],
     },
 
     john_henry_newman_priest: {
@@ -1749,12 +1736,12 @@ class Martyrology implements BaseMaryrologie {
 
     john_i_pope: {
       name: 'Saint John I',
-      titles: ['Pope and Martyr'],
+      titles: ['Pope', 'Martyr'],
     },
 
     john_jones_priest: {
       name: 'Saint John Jones',
-      titles: ['Priest and Martyr'],
+      titles: ['Priest', 'Martyr'],
     },
 
     john_leonardi_priest: {
@@ -1784,12 +1771,12 @@ class Martyrology implements BaseMaryrologie {
 
     john_nepomucene_priest: {
       name: 'Saint John Nepomucene',
-      titles: ['Priest and Martyr'],
+      titles: ['Priest', 'Martyr'],
     },
 
     john_of_avila_priest: {
       name: 'Saint John of Ávila',
-      titles: ['Priest and Doctor of the Church'],
+      titles: ['Priest', 'Doctor of the Church'],
     },
 
     john_of_capistrano_priest: {
@@ -1814,17 +1801,17 @@ class Martyrology implements BaseMaryrologie {
 
     john_of_the_cross_priest: {
       name: 'Saint John of the Cross',
-      titles: ['Priest and Doctor of the Church'],
+      titles: ['Priest', 'Doctor of the Church'],
     },
 
     john_of_triora_priest: {
       name: 'Saint John of Triora',
-      titles: ['Priest and Martyr'],
+      titles: ['Priest', 'Martyr'],
     },
 
     john_ogilvie_priest: {
       name: 'Saint John Ogilvie',
-      titles: ['Priest and Martyr'],
+      titles: ['Priest', 'Martyr'],
     },
 
     john_paul_ii_pope: {
@@ -1834,17 +1821,17 @@ class Martyrology implements BaseMaryrologie {
 
     john_roberts_priest: {
       name: 'Saint John Roberts',
-      titles: ['Priest and Martyr'],
+      titles: ['Priest', 'Martyr'],
     },
 
     john_sarkander_priest: {
       name: 'Saint John Sarkander',
-      titles: ['Priest and Martyr'],
+      titles: ['Priest', 'Martyr'],
     },
 
     john_scheffler_bishop: {
       name: 'Blessed John Scheffler',
-      titles: ['Bishop and Martyr'],
+      titles: ['Bishop', 'Martyr'],
     },
 
     john_xxiii_pope: {
@@ -1854,7 +1841,7 @@ class Martyrology implements BaseMaryrologie {
 
     josaphat_kuntsevych_bishop: {
       name: 'Saint Josaphat',
-      titles: ['Bishop and Martyr'],
+      titles: ['Bishop', 'Martyr'],
     },
 
     jose_maria_de_yermo_y_parres_priest: {
@@ -1892,11 +1879,6 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Bishop'],
     },
 
-    joseph_spouse_of_mary_patron_of_canada: {
-      name: 'Saint Joseph',
-      titles: ['Spouse of the Blessed Virgin Mary and Patron of Canada'],
-    },
-
     joseph_the_worker: {
       name: 'Saint Joseph the Worker',
     },
@@ -1908,7 +1890,7 @@ class Martyrology implements BaseMaryrologie {
 
     joseph_yuan_gengyin_priest: {
       name: 'Saint Joseph Yuan Gengyin',
-      titles: ['Priest and Martyr'],
+      titles: ['Priest', 'Martyr'],
     },
 
     joseph_zhang_dapeng_martyr: {
@@ -1972,12 +1954,7 @@ class Martyrology implements BaseMaryrologie {
 
     kilian_of_wurzburg_bishop: {
       name: 'Saint Kilian',
-      titles: ['Bishop and Martyr'],
-    },
-
-    kilian_of_wurzburg_bishop_and_companions_martyrs: {
-      name: 'Saint Kilian',
-      titles: ['Bishop, and Companions, Martyrs'],
+      titles: ['Bishop', 'Martyr'],
     },
 
     kinga_of_poland_virgin: {
@@ -1987,7 +1964,7 @@ class Martyrology implements BaseMaryrologie {
 
     kuriakose_elias_of_the_holy_family_chavara_priest: {
       name: 'Saint Kuriakose Elias of the Holy Family Chavara',
-      titles: ['priest'],
+      titles: ['Priest'],
     },
 
     ladislas_of_gielniow_priest: {
@@ -2005,7 +1982,7 @@ class Martyrology implements BaseMaryrologie {
 
     lambert_of_maastricht_bishop: {
       name: 'Saint Lambert of Maastricht',
-      titles: ['Bishop and Martyr'],
+      titles: ['Bishop', 'Martyr'],
     },
 
     laserian_of_leighlin_bishop: {
@@ -2023,9 +2000,9 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Bishop'],
     },
 
-    laurence_wang_bing_and_companions_martyrs: {
-      name: 'Saint Laurence Wang Bing and Companions',
-      titles: ['Martyrs'],
+    laurence_wang_bing_martyr: {
+      name: 'Saint Laurence Wang Bing',
+      titles: ['Martyr'],
     },
 
     lawrence_bai_xiaoman_martyr: {
@@ -2035,17 +2012,17 @@ class Martyrology implements BaseMaryrologie {
 
     lawrence_of_brindisi_priest: {
       name: 'Saint Lawrence of Brindisi',
-      titles: ['Priest and Doctor of the Church'],
+      titles: ['Priest', 'Doctor of the Church'],
     },
 
     lawrence_of_rome_deacon: {
       name: 'Saint Lawrence',
-      titles: ['Deacon and Martyr'],
+      titles: ['Deacon', 'Martyr'],
     },
 
-    lawrence_ruiz_and_companions_martyrs: {
-      name: 'Saint Lawrence Ruiz and Companions',
-      titles: ['Martyrs'],
+    lawrence_ruiz_martyr: {
+      name: 'Saint Lawrence Ruiz',
+      titles: ['Martyr'],
     },
 
     leander_of_seville_bishop: {
@@ -2060,12 +2037,12 @@ class Martyrology implements BaseMaryrologie {
 
     leo_i_the_great_pope: {
       name: 'Saint Leo the Great',
-      titles: ['Pope and Doctor of the Church'],
+      titles: ['Pope', 'Doctor of the Church'],
     },
 
-    leo_ignatius_mangin_priest_and_companions_martyrs: {
+    leo_ignatius_mangin_priest: {
       name: 'Saint Leo Ignatius Mangin',
-      titles: ['Priest, and Companions, Martyrs'],
+      titles: ['Priest', 'Martyr'],
     },
 
     leo_ix_pope: {
@@ -2085,7 +2062,7 @@ class Martyrology implements BaseMaryrologie {
 
     leonid_feodorov_priest: {
       name: 'Blessed Leonid Feodorov',
-      titles: ['Priest and Martyr'],
+      titles: ['Priest', 'Martyr'],
     },
 
     leopold_iii_of_babenberg: {
@@ -2118,17 +2095,17 @@ class Martyrology implements BaseMaryrologie {
 
     lucius_of_chur_bishop: {
       name: 'Saint Lucius of Chur',
-      titles: ['Bishop and Martyr'],
+      titles: ['Bishop', 'Martyr'],
     },
 
     lucy_of_syracuse_virgin: {
       name: 'Saint Lucy',
-      titles: ['Virgin and Martyr'],
+      titles: ['Virgin', 'Martyr'],
     },
 
     lucy_yi_zhenmei_virgin: {
       name: 'Saint Lucy Yi Zhenmei',
-      titles: ['Virgin and Martyr'],
+      titles: ['Virgin', 'Martyr'],
     },
 
     ludger_of_munster_bishop: {
@@ -2167,7 +2144,7 @@ class Martyrology implements BaseMaryrologie {
 
     maelruain_of_tallaght_bishop: {
       name: 'Saint Maelruain',
-      titles: ['Bishop and Abbot'],
+      titles: ['Bishop', 'Abbot'],
     },
 
     magnus_erlendsson_martyr: {
@@ -2195,14 +2172,29 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Priest'],
     },
 
-    marcellinus_of_rome_and_peter_the_exorcist_martyrs: {
-      name: 'Saints Marcellinus and Peter',
-      titles: ['Martyrs'],
+    marcellinus_of_rome_martyr: {
+      name: 'Saint Marcellinus',
+      titles: ['Martyr'],
     },
 
-    margaret_clitherow_anne_line_and_margaret_ward_virgin_martyrs: {
-      name: 'Saints Margaret Clitherow',
-      titles: ['Anne Line and Margaret Ward, Virgin, Martyrs'],
+    peter_the_exorcist_martyr: {
+      name: 'Saint Peter',
+      titles: ['Martyr'],
+    },
+
+    margaret_clitherow_virgin_martyr: {
+      name: 'Saint Margaret Clitherow',
+      titles: ['Martyr'],
+    },
+
+    anne_line_virgin_martyr: {
+      name: 'Saint Anne Line',
+      titles: ['Martyr'],
+    },
+
+    margaret_ward_virgin_martyr: {
+      name: 'Saint Margaret Ward',
+      titles: ['Martyr'],
     },
 
     margaret_mary_alacoque_virgin: {
@@ -2212,7 +2204,7 @@ class Martyrology implements BaseMaryrologie {
 
     margaret_of_antioch_virgin: {
       name: 'Saint Margaret of Antioch',
-      titles: ['Virgin and Martyr'],
+      titles: ['Virgin', 'Martyr'],
     },
 
     margaret_of_hungary_religious: {
@@ -2236,7 +2228,7 @@ class Martyrology implements BaseMaryrologie {
 
     maria_goretti_virgin: {
       name: 'Saint Maria Goretti',
-      titles: ['Virgin and Martyr'],
+      titles: ['Virgin', 'Martyr'],
     },
 
     maria_guadalupe_garcia_zavala_virgin: {
@@ -2284,14 +2276,14 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Evangelist'],
     },
 
-    marko_krizin_melchior_grodziecki_and_stephen_pongracz_priests: {
-      name: 'Saints Marko Krizin',
-      titles: ['Melchior Grodziecki and Stephen Pongrácz, Priests and Martyrs'],
-    },
-
     marko_krizin_priest: {
       name: 'Saint Marko Krizin',
-      titles: ['Priest and Martyr'],
+      titles: ['Priest', 'Martyr'],
+    },
+
+    stephen_pongracz_priest: {
+      name: 'Saint Stephen Pongrácz',
+      titles: ['Priest', 'Martyr'],
     },
 
     maron_of_syria_hermit: {
@@ -2299,9 +2291,16 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Hermit'],
     },
 
-    martha_of_bethany_mary_of_bethany_and_lazarus_of_bethany: {
-      name: 'Saints Martha',
-      titles: ['Mary and Lazarus'],
+    martha_of_bethany: {
+      name: 'Saint Martha',
+    },
+
+    mary_of_bethany: {
+      name: 'Saint Mary',
+    },
+
+    lazarus_of_bethany: {
+      name: 'Saint Lazarus',
     },
 
     martin_de_porres_religious: {
@@ -2311,7 +2310,7 @@ class Martyrology implements BaseMaryrologie {
 
     martin_i_pope: {
       name: 'Saint Martin I',
-      titles: ['Pope and Martyr'],
+      titles: ['Pope', 'Martyr'],
     },
 
     martin_of_tours_bishop: {
@@ -2319,9 +2318,9 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Bishop'],
     },
 
-    martin_wu_xuesheng_and_companions_martyrs: {
-      name: 'Saint Martin Wu Xuesheng and Companions',
-      titles: ['Martyrs'],
+    martin_wu_xuesheng_martyr: {
+      name: 'Saint Martin Wu Xuesheng',
+      titles: ['Martyr'],
     },
 
     mary_adeodata_pisani_virgin: {
@@ -2378,9 +2377,9 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Virgin'],
     },
 
-    mary_stella_of_the_blessed_sacrament_mardosewicz_and_companions_virgins: {
-      name: 'Blessed Mary Stella of the Blessed Sacrament Mardosewicz and Companions',
-      titles: ['Virgins and Martyrs'],
+    mary_stella_of_the_blessed_sacrament_mardosewicz_virgin: {
+      name: 'Blessed Mary Stella of the Blessed Sacrament Mardosewicz',
+      titles: ['Virgin', 'Martyr'],
     },
 
     mary_theresa_chiramel_mankidiyan_virgin: {
@@ -2409,7 +2408,7 @@ class Martyrology implements BaseMaryrologie {
 
     matthew_apostle: {
       name: 'Saint Matthew',
-      titles: ['Apostle and Evangelist'],
+      titles: ['Apostle', 'Evangelist'],
     },
 
     matthias_apostle: {
@@ -2417,14 +2416,14 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Apostle'],
     },
 
-    maurice_of_agaunum_and_companions_martyrs: {
-      name: 'Saint Maurice and Companions',
-      titles: ['Martyrs'],
+    maurice_of_agaunum_martyr: {
+      name: 'Saint Maurice',
+      titles: ['Martyr'],
     },
 
     maurice_tornay_priest: {
       name: 'Blessed Maurice Tornay',
-      titles: ['Priest and Martyr'],
+      titles: ['Priest', 'Martyr'],
     },
 
     maurus_of_pecs_bishop: {
@@ -2434,7 +2433,7 @@ class Martyrology implements BaseMaryrologie {
 
     maximilian_kolbe_priest: {
       name: 'Saint Maximilian Kolbe',
-      titles: ['Priest and Martyr'],
+      titles: ['Priest', 'Martyr'],
     },
 
     meinrad_of_einsiedeln_martyr: {
@@ -2449,7 +2448,7 @@ class Martyrology implements BaseMaryrologie {
 
     melchior_grodziecki_priest: {
       name: 'Saint Melchior Grodziecki',
-      titles: ['Priest and Martyr'],
+      titles: ['Priest', 'Martyr'],
     },
 
     michael_gabriel_and_raphael_archangels: {
@@ -2459,12 +2458,12 @@ class Martyrology implements BaseMaryrologie {
 
     michael_kozal_bishop: {
       name: 'Blessed Michael Kozal',
-      titles: ['Bishop and Martyr'],
+      titles: ['Bishop', 'Martyr'],
     },
 
     miguel_agustin_pro_priest: {
       name: 'Blessed Miguel Agustin Pro',
-      titles: ['Priest and Martyr'],
+      titles: ['Priest', 'Martyr'],
     },
 
     miguel_febres_cordero_religious: {
@@ -2513,9 +2512,14 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Virgin'],
     },
 
-    nereus_of_terracina_and_achilleus_of_terracina_martyrs: {
-      name: 'Saints Nereus and Achilleus',
-      titles: ['Martyrs'],
+    nereus_of_terracina_martyr: {
+      name: 'Saint Nereus',
+      titles: ['Martyr'],
+    },
+
+    achilleus_of_terracina_martyr: {
+      name: 'Saint Achilleus',
+      titles: ['Martyr'],
     },
 
     nicholas_of_flue_hermit: {
@@ -2535,7 +2539,7 @@ class Martyrology implements BaseMaryrologie {
 
     nicholas_tavelic_priest: {
       name: 'Saint Nicholas Tavelić',
-      titles: ['Priest and Martyr'],
+      titles: ['Priest', 'Martyr'],
     },
 
     ninian_of_whithorn_bishop: {
@@ -2553,9 +2557,14 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Religious'],
     },
 
-    nykyta_budka_and_vasyl_velychkovsky_bishops: {
-      name: 'Blesseds Nykyta Budka and Vasyl Velychkovsky',
-      titles: ['Bishops and Martyrs'],
+    nykyta_budka_bishop: {
+      name: 'Blessed Nykyta Budka',
+      titles: ['Bishop', 'Martyr'],
+    },
+
+    vasyl_velychkovsky_bishop: {
+      name: 'Blessed Vasyl Velychkovsky',
+      titles: ['Bishop', 'Martyr'],
     },
 
     odile_of_alsace_abbess: {
@@ -2575,7 +2584,7 @@ class Martyrology implements BaseMaryrologie {
 
     oleksiy_zarytskyi_priest: {
       name: 'Blessed Oleksiy Zarytskyi',
-      titles: ['Priest and Martyr'],
+      titles: ['Priest', 'Martyr'],
     },
 
     olga_of_kiev: {
@@ -2584,7 +2593,7 @@ class Martyrology implements BaseMaryrologie {
 
     oliver_plunket_bishop: {
       name: 'Saint Oliver Plunket',
-      titles: ['Bishop and Martyr'],
+      titles: ['Bishop', 'Martyr'],
     },
 
     otteran_of_iona_monk: {
@@ -2612,14 +2621,12 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Mother of Christian Unity'],
     },
 
-    our_lady_mother_of_divine_providence_patroness_of_puerto_rico: {
-      name: 'Our Lady',
-      titles: ['Mother of Divine Providence, Patroness of Puerto Rico'],
+    our_lady_mother_of_divine_providence: {
+      name: 'Our Lady, Mother of Divine Providence',
     },
 
-    our_lady_of_aparecida_patroness_of_brazil: {
+    our_lady_of_aparecida: {
       name: 'Our Lady of Aparecida',
-      titles: ['Patroness of Brazil'],
     },
 
     our_lady_of_bethlehem: {
@@ -2646,19 +2653,8 @@ class Martyrology implements BaseMaryrologie {
       name: 'Our Lady of Guadalupe',
     },
 
-    our_lady_of_guadalupe_patroness_of_the_americas: {
-      name: 'Our Lady of Guadalupe',
-      titles: ['Patroness of the Americas'],
-    },
-
-    our_lady_of_guadalupe_patroness_of_the_philippines: {
-      name: 'Our Lady of Guadalupe',
-      titles: ['Patroness of the Philippines'],
-    },
-
-    our_lady_of_hungary_patroness_of_hungary: {
+    our_lady_of_hungary: {
       name: 'Our Lady of Hungary',
-      titles: ['Patroness of Hungary'],
     },
 
     our_lady_of_itati: {
@@ -2685,9 +2681,8 @@ class Martyrology implements BaseMaryrologie {
       name: 'Our Lady of Lourdes',
     },
 
-    our_lady_of_lujan_patroness_of_argentina: {
+    our_lady_of_lujan: {
       name: 'Our Lady of Luján',
-      titles: ['Patroness of Argentina'],
     },
 
     our_lady_of_madhu: {
@@ -2721,11 +2716,6 @@ class Martyrology implements BaseMaryrologie {
 
     our_lady_of_sorrows: {
       name: 'Our Lady of Sorrows',
-    },
-
-    our_lady_of_sorrows_patroness_of_slovakia: {
-      name: 'Our Lady of Sorrows',
-      titles: ['Patroness of Slovakia'],
     },
 
     our_lady_of_the_discovery_of_the_hidden_christians: {
@@ -2798,24 +2788,19 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Bishop'],
     },
 
-    patrick_of_ireland_bishop_patron_of_ireland: {
-      name: 'Saint Patrick',
-      titles: ['Bishop and Patron of Ireland'],
-    },
-
-    paul_chen_changpin_and_companions_martyrs: {
-      name: 'Saint Paul Chen Changpin and Companions',
-      titles: ['Martyrs'],
+    paul_chen_changpin_martyr: {
+      name: 'Saint Paul Chen Changpin',
+      titles: ['Martyr'],
     },
 
     paul_liu_hanzuo_priest: {
       name: 'Saint Paul Liu Hanzuo',
-      titles: ['Priest and Martyr'],
+      titles: ['Priest', 'Martyr'],
     },
 
-    paul_miki_and_companions_martyrs: {
-      name: 'Saint Paul Miki and Companions',
-      titles: ['Martyrs'],
+    paul_miki_martyr: {
+      name: 'Saint Paul Miki',
+      titles: ['Martyr'],
     },
 
     paul_of_the_cross_priest: {
@@ -2855,7 +2840,7 @@ class Martyrology implements BaseMaryrologie {
 
     pavel_peter_gojdic_bishop: {
       name: 'Blessed Pavel Peter Gojdič',
-      titles: ['Bishop and Martyr'],
+      titles: ['Bishop', 'Martyr'],
     },
 
     pedro_calungsod_martyr: {
@@ -2868,34 +2853,34 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Martyr'],
     },
 
-    perpetua_of_carthage_and_felicity_of_carthage_martyrs: {
-      name: 'Saints Perpetua and Felicity',
-      titles: ['Martyrs'],
+    perpetua_of_carthage_martyr: {
+      name: 'Saint Perpetua',
+      titles: ['Martyr'],
     },
 
-    peter_baptist_blasquez_paul_miki_and_companions_martyrs: {
+    felicity_of_carthage_martyr: {
+      name: 'Saint Felicity',
+      titles: ['Martyr'],
+    },
+
+    peter_baptist_blasquez_martyr: {
       name: 'Saints Peter Baptist Blásquez',
-      titles: ['Paul Miki and Companions, Martyrs'],
+      titles: ['Martyr'],
     },
 
     peter_canisius_priest: {
       name: 'Saint Peter Canisius',
-      titles: ['Priest and Doctor of the Church'],
+      titles: ['Priest', 'Doctor of the Church'],
     },
 
     peter_chanel_priest: {
       name: 'Saint Peter Chanel',
-      titles: ['Priest and Martyr'],
-    },
-
-    peter_chanel_priest_patron_of_oceania: {
-      name: 'Saint Peter Chanel',
-      titles: ['Proto-martyr of Oceania and Patron of Oceania'],
+      titles: ['Priest', 'Martyr'],
     },
 
     peter_chrysologus_bishop: {
       name: 'Saint Peter Chrysologus',
-      titles: ['Bishop and Doctor of the Church'],
+      titles: ['Bishop', 'Doctor of the Church'],
     },
 
     peter_claver_priest: {
@@ -2905,12 +2890,17 @@ class Martyrology implements BaseMaryrologie {
 
     peter_damian_bishop: {
       name: 'Saint Peter Damian',
-      titles: ['Bishop and Doctor of the Church'],
+      titles: ['Bishop', 'Doctor of the Church'],
     },
 
-    peter_de_zuniga_and_louis_flores_priests: {
-      name: 'Blesseds Peter de Zúñiga and Louis Flores',
-      titles: ['Priests and Martyrs'],
+    peter_de_zuniga_priest: {
+      name: 'Blessed Peter de Zúñiga',
+      titles: ['Priest', 'Martyr'],
+    },
+
+    louis_flores_priest: {
+      name: 'Blessed Louis Flores',
+      titles: ['Priest', 'Martyr'],
     },
 
     peter_julian_eymard_priest: {
@@ -2918,9 +2908,9 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Priest'],
     },
 
-    peter_kibe_priest_and_companions_martyrs: {
+    peter_kibe_priest: {
       name: 'Blessed Peter Kibe',
-      titles: ['Priest, and Companions, Martyrs'],
+      titles: ['Priest', 'Martyr'],
     },
 
     peter_liu_wenyuan_martyr: {
@@ -2935,7 +2925,7 @@ class Martyrology implements BaseMaryrologie {
 
     peter_sanz_bishop: {
       name: 'Saint Peter Sanz',
-      titles: ['Bishop and Martyr'],
+      titles: ['Bishop', 'Martyr'],
     },
 
     peter_to_rot_martyr: {
@@ -2948,14 +2938,19 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Martyr'],
     },
 
-    philip_and_james_apostles: {
-      name: 'Saints Philip and James',
-      titles: ['Apostles'],
+    philip_apostle: {
+      name: 'Saint Philip',
+      titles: ['Apostle'],
     },
 
-    philip_evans_and_john_lloyd_priests: {
-      name: 'Saints Philip Evans and John Lloyd',
-      titles: ['Priests and Martyrs'],
+    philip_evans_priest: {
+      name: 'Saint Philip Evans',
+      titles: ['Priest', 'Martyr'],
+    },
+
+    john_lloyd_priest: {
+      name: 'Saint John Lloyd',
+      titles: ['Priest', 'Martyr'],
     },
 
     philip_neri_priest: {
@@ -2966,11 +2961,6 @@ class Martyrology implements BaseMaryrologie {
     philip_of_jesus_de_las_casas_martyr: {
       name: 'Saint Philip of Jesus de las Casas',
       titles: ['Martyr'],
-    },
-
-    philip_of_jesus_de_las_casas_paul_miki_and_companions_martyrs: {
-      name: 'Saints Philip of Jesus de las Casas',
-      titles: ['Paul Miki and Companions, Martyrs'],
     },
 
     pirmin_of_hornbach_abbot: {
@@ -3000,17 +2990,27 @@ class Martyrology implements BaseMaryrologie {
 
     polycarp_of_smyrna_bishop: {
       name: 'Saint Polycarp',
-      titles: ['Bishop and Martyr'],
+      titles: ['Bishop', 'Martyr'],
     },
 
-    pontian_i_pope_and_hippolytus_of_rome_priest: {
-      name: 'Saints Pontian',
-      titles: ['Pope, and Hippolytus, Priest, Martyrs'],
+    pontian_i_pope: {
+      name: 'Saint Pontian',
+      titles: ['Pope', 'Martyr'],
     },
 
-    pothinus_of_lyon_bishop_blandina_of_lyon_virgin_and_companions_martyrs: {
-      name: 'Saints Pothinus',
-      titles: ['Bishop, Blandina, Virgin, and Companions, Martyrs'],
+    hippolytus_of_rome_priest: {
+      name: 'Saint Hippolytus',
+      titles: ['Priest', 'Martyr'],
+    },
+
+    pothinus_of_lyon_bishop: {
+      name: 'Saint Pothinus',
+      titles: ['Bishop', 'Martyr'],
+    },
+
+    blandina_of_lyon_virgin: {
+      name: 'Saint Blandina',
+      titles: ['Virgin', 'Martyr'],
     },
 
     presentation_of_mary: {
@@ -3033,7 +3033,7 @@ class Martyrology implements BaseMaryrologie {
 
     quirinus_of_sescia_bishop: {
       name: 'Saint Quirinus of Sescia',
-      titles: ['Bishop and Martyr'],
+      titles: ['Bishop', 'Martyr'],
     },
 
     rabanus_maurus_bishop: {
@@ -3093,14 +3093,22 @@ class Martyrology implements BaseMaryrologie {
 
     robert_bellarmine_bishop: {
       name: 'Saint Robert Bellarmine',
-      titles: ['Bishop and Doctor of the Church'],
+      titles: ['Bishop', 'Doctor of the Church'],
     },
 
-    roch_gonzalez_alphonsus_rodriguez_and_john_del_castillo_priests: {
-      name: 'Saints Roch González',
-      titles: [
-        'Alphonsus Rodríguez and John del Castillo, Priests and Martyrs',
-      ],
+    roch_gonzalez_priest: {
+      name: 'Saint Roch González',
+      titles: ['Priest', 'Martyr'],
+    },
+
+    alphonsus_rodriguez_priest: {
+      name: 'Saint Alphonsus Rodríguez',
+      titles: ['Priest', 'Martyr'],
+    },
+
+    john_del_castillo_priest: {
+      name: 'Saint Roch González',
+      titles: ['Priest', 'Martyr'],
     },
 
     roch_of_montpellier: {
@@ -3115,11 +3123,6 @@ class Martyrology implements BaseMaryrologie {
     rose_of_lima_virgin: {
       name: 'Saint Rose of Lima',
       titles: ['Virgin'],
-    },
-
-    rose_of_lima_virgin_copatroness_of_the_philippines: {
-      name: 'Saint Rose of Lima',
-      titles: ['Virgin and Copatroness of the Philippines'],
     },
 
     rose_philippine_duchesne_virgin: {
@@ -3144,7 +3147,7 @@ class Martyrology implements BaseMaryrologie {
 
     sara_salkahazi_virgin: {
       name: 'Blessed Sára Salkaházi',
-      titles: ['Virgin and Martyr'],
+      titles: ['Virgin', 'Martyr'],
     },
 
     scholastica_of_nursia_virgin: {
@@ -3169,10 +3172,12 @@ class Martyrology implements BaseMaryrologie {
 
     seven_holy_founders_of_the_servite_order: {
       name: 'Seven Holy Founders of the Servite Order',
+      count: 7,
     },
 
     seven_martyred_nuns_from_the_franciscan_missionaries_of_mary: {
       name: 'Seven Martyred Nuns from the Franciscan Missionaries of Mary',
+      count: 7,
     },
 
     severinus_of_noricum_monk: {
@@ -3200,9 +3205,14 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Bishop'],
     },
 
-    simon_and_jude_apostles: {
-      name: 'Saints Simon and Jude',
-      titles: ['Apostles'],
+    simon_apostle: {
+      name: 'Saint Simon',
+      titles: ['Apostle'],
+    },
+
+    jude_apostle: {
+      name: 'Saint Jude',
+      titles: ['Apostle'],
     },
 
     simon_of_lipnica_priest: {
@@ -3210,13 +3220,15 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Priest'],
     },
 
-    six_welsh_martyrs_and_companions: {
-      name: 'Six Welsh Martyrs and Companions',
+    six_welsh_martyrs: {
+      name: 'Six Welsh Martyrs',
+      hideTitles: true,
+      count: 6,
     },
 
-    sixtus_ii_pope_and_companions_martyrs: {
+    sixtus_ii_pope: {
       name: 'Saint Sixtus II',
-      titles: ['Pope, and Companions, Martyrs'],
+      titles: ['Pope', 'Martyr'],
     },
 
     spyridon_of_trimythous_bishop: {
@@ -3236,12 +3248,7 @@ class Martyrology implements BaseMaryrologie {
 
     stanislaus_of_szczepanow_bishop: {
       name: 'Saint Stanislaus',
-      titles: ['Bishop and Martyr'],
-    },
-
-    stanislaus_of_szczepanow_bishop_patron_of_poland: {
-      name: 'Saint Stanislaus',
-      titles: ['Bishop, Martyr and Patron of Poland'],
+      titles: ['Bishop', 'Martyr'],
     },
 
     stephen_i_of_hungary: {
@@ -3259,7 +3266,7 @@ class Martyrology implements BaseMaryrologie {
 
     sunniva_of_norway_virgin: {
       name: 'Saint Sunniva',
-      titles: ['Virgin and Martyr'],
+      titles: ['Virgin', 'Martyr'],
     },
 
     swithun_of_winchester_bishop: {
@@ -3274,7 +3281,7 @@ class Martyrology implements BaseMaryrologie {
 
     szilard_bogdanffy_bishop: {
       name: 'Blessed Szilárd Bogdánffy',
-      titles: ['Bishop and Martyr'],
+      titles: ['Bishop', 'Martyr'],
     },
 
     teilo_of_llandaff_bishop: {
@@ -3284,12 +3291,7 @@ class Martyrology implements BaseMaryrologie {
 
     teresa_benedicta_of_the_cross_stein_virgin: {
       name: 'Saint Teresa Benedicta of the Cross Stein',
-      titles: ['Virgin and Martyr'],
-    },
-
-    teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe: {
-      name: 'Saint Teresa Benedicta of the Cross Stein',
-      titles: ['Virgin, Martyr and Copatroness of Europe'],
+      titles: ['Virgin', 'Martyr'],
     },
 
     teresa_of_calcutta_religious: {
@@ -3304,7 +3306,7 @@ class Martyrology implements BaseMaryrologie {
 
     teresa_of_jesus_of_avila_virgin: {
       name: 'Saint Teresa of Jesus of Ávila',
-      titles: ['Virgin and Doctor of the Church'],
+      titles: ['Virgin', 'Doctor of the Church'],
     },
 
     teresa_of_jesus_of_los_andes_virgin: {
@@ -3324,7 +3326,7 @@ class Martyrology implements BaseMaryrologie {
 
     theodore_romzha_bishop: {
       name: 'Blessed Theodore Romzha',
-      titles: ['Bishop and Martyr'],
+      titles: ['Bishop', 'Martyr'],
     },
 
     theodosius_of_the_caves_abbot: {
@@ -3339,14 +3341,8 @@ class Martyrology implements BaseMaryrologie {
 
     therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin: {
       name: 'Saint Thérèse of the Child Jesus and the Holy Face of Lisieux',
-      titles: ['Virgin and Doctor of the Church'],
+      titles: ['Virgin', 'Doctor of the Church'],
     },
-
-    therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin_copatroness_of_france:
-      {
-        name: 'Saint Thérèse of the Child Jesus and the Holy Face of Lisieux',
-        titles: ['Virgin, Doctor of the Church and Copatroness of France'],
-      },
 
     thomas_apostle: {
       name: 'Saint Thomas',
@@ -3355,17 +3351,17 @@ class Martyrology implements BaseMaryrologie {
 
     thomas_aquinas_priest: {
       name: 'Saint Thomas Aquinas',
-      titles: ['Priest and Doctor of the Church'],
+      titles: ['Priest', 'Doctor of the Church'],
     },
 
     thomas_becket_bishop: {
       name: 'Saint Thomas Becket',
-      titles: ['Bishop and Martyr'],
+      titles: ['Bishop', 'Martyr'],
     },
 
-    thomas_hioji_rokuzayemon_nishi_priest_and_companions_martyrs: {
+    thomas_hioji_rokuzayemon_nishi_priest: {
       name: 'Saint Thomas Hioji Rokuzayemon Nishi',
-      titles: ['Priest, and Companions, Martyrs'],
+      titles: ['Priest', 'Martyr'],
     },
 
     thomas_of_villanova_bishop: {
@@ -3383,9 +3379,14 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Bishop'],
     },
 
-    timothy_of_ephesus_and_titus_of_crete_bishops: {
-      name: 'Saints Timothy and Titus',
-      titles: ['Bishops'],
+    timothy_of_ephesus_bishop: {
+      name: 'Saint Timothy',
+      titles: ['Bishop'],
+    },
+
+    titus_of_crete_bishop: {
+      name: 'Saint Titus',
+      titles: ['Bishop'],
     },
 
     translation_of_the_relics_of_saint_stephen_of_hungary: {
@@ -3402,9 +3403,9 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Bishop'],
     },
 
-    ursula_of_cologne_and_companions_virgins: {
-      name: 'Saint Ursula and Companions',
-      titles: ['Virgins and Martyrs'],
+    ursula_of_cologne_virgin: {
+      name: 'Saint Ursula',
+      titles: ['Virgin', 'Martyr'],
     },
 
     valentine_of_raetia_bishop: {
@@ -3427,14 +3428,14 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Bishop'],
     },
 
-    vincent_lewoniuk_and_companions_martyrs: {
-      name: 'Blessed Vincent Lewoniuk and Companions',
-      titles: ['Martyrs'],
+    vincent_lewoniuk_martyr: {
+      name: 'Blessed Vincent Lewoniuk',
+      titles: ['Martyr'],
     },
 
     vincent_of_saragossa_deacon: {
       name: 'Saint Vincent',
-      titles: ['Deacon and Martyr'],
+      titles: ['Deacon', 'Martyr'],
     },
 
     vincent_pallotti_priest: {
@@ -3444,7 +3445,7 @@ class Martyrology implements BaseMaryrologie {
 
     virgilius_of_salzburg_bishop: {
       name: 'Saint Fergal',
-      titles: ['Bishop and Missionary'],
+      titles: ['Bishop', 'Missionary'],
     },
 
     visitation_of_mary: {
@@ -3458,7 +3459,7 @@ class Martyrology implements BaseMaryrologie {
 
     vladimir_ghika_priest: {
       name: 'Blessed Vladimir Ghika',
-      titles: ['Priest and Martyr'],
+      titles: ['Priest', 'Martyr'],
     },
 
     vladimir_i_the_great_of_kiev: {
@@ -3479,11 +3480,6 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Martyr'],
     },
 
-    wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation: {
-      name: 'Saint Wenceslaus',
-      titles: ['Martyr and patron of the Czech nation'],
-    },
-
     wendelin_of_trier_abbot: {
       name: 'Saint Wendelin',
       titles: ['Abbot'],
@@ -3496,7 +3492,7 @@ class Martyrology implements BaseMaryrologie {
 
     william_apor_bishop: {
       name: 'Blessed William Apor',
-      titles: ['Bishop and Martyr'],
+      titles: ['Bishop', 'Martyr'],
     },
 
     willibald_of_eichstatt_bishop: {
@@ -3514,9 +3510,9 @@ class Martyrology implements BaseMaryrologie {
       titles: ['Virgin'],
     },
 
-    wladyslaw_bladzinski_priest_and_companions_martyrs: {
+    wladyslaw_bladzinski_priest: {
       name: 'Blessed Wladyslaw Błądziński',
-      titles: ['Priest, and Companions, Martyrs'],
+      titles: ['Priest', 'Martyr'],
     },
 
     wolfgang_of_regensburg_bishop: {
@@ -3536,7 +3532,7 @@ class Martyrology implements BaseMaryrologie {
 
     zdenka_cecilia_schelingova_virgin: {
       name: 'Blessed Zdenka Cecilia Schelingová',
-      titles: ['Virgin and Martyr'],
+      titles: ['Virgin', 'Martyr'],
     },
 
     zdislava_of_lemberk: {
@@ -3549,12 +3545,18 @@ class Martyrology implements BaseMaryrologie {
 
     zoltan_lajos_meszlenyi_bishop: {
       name: 'Blessed Zoltán Lajos Meszlényi',
-      titles: ['Bishop and Martyr'],
+      titles: ['Bishop', 'Martyr'],
     },
 
     zygmunt_gorazdowski_priest: {
       name: 'Saint Zygmunt Gorazdowski',
       titles: ['Priest'],
+    },
+
+    companions_martyrs: {
+      name: 'Companions',
+      titles: ['Martyr'],
+      count: 'many',
     },
   };
 }

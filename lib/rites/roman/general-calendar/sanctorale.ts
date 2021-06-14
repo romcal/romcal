@@ -103,20 +103,20 @@ export class Sanctorale extends CalendarDef {
       liturgicalColors: LiturgicalColors.WHITE,
     },
 
-    easter_sunday: {
-      precedence: Precedences.Triduum_1,
-      date: Dates.easter,
-      // seasons: [
-      //   LiturgicalSeasons.PASCHAL_TRIDUUM,
-      //   LiturgicalSeasons.EASTERTIDE,
-      // ],
-      // seasonNames: [
-      //   await localize({ key: 'paschal_triduum.season' }),
-      //   await localize({ key: 'eastertide.season' }),
-      // ],
-      liturgicalColors: LiturgicalColors.WHITE,
-      // cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
-    },
+    // easter_sunday: {
+    //   precedence: Precedences.Triduum_1,
+    //   date: Dates.easter,
+    //   // seasons: [
+    //   //   LiturgicalSeasons.PASCHAL_TRIDUUM,
+    //   //   LiturgicalSeasons.EASTERTIDE,
+    //   // ],
+    //   // seasonNames: [
+    //   //   await localize({ key: 'paschal_triduum.season' }),
+    //   //   await localize({ key: 'eastertide.season' }),
+    //   // ],
+    //   liturgicalColors: LiturgicalColors.WHITE,
+    //   // cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
+    // },
 
     divine_mercy_sunday: {
       precedence: Precedences.PrivilegedSunday_2,

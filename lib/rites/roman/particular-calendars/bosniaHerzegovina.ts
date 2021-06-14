@@ -16,10 +16,6 @@ export class BosniaHerzegovina extends CalendarDef {
     aloysius_stepinac_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       date: '2-10',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     hosanna_of_cattaro_virgin: {
@@ -58,14 +54,16 @@ export class BosniaHerzegovina extends CalendarDef {
     clement_of_ohrid_and_gorazd_of_moravia_bishops_and_companions: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-27',
+      saints: [
+        'clement_of_ohrid_bishop',
+        'gorazd_of_moravia_bishop',
+        'companions_martyrs',
+      ],
     },
 
     augustine_kazotic_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '8-3',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     roch_of_montpellier: {
@@ -77,9 +75,6 @@ export class BosniaHerzegovina extends CalendarDef {
       precedence: Precedences.ProperFeast_8f,
       date: '9-7',
       liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     gratia_of_cattaro_religious: {
@@ -90,10 +85,6 @@ export class BosniaHerzegovina extends CalendarDef {
     nicholas_tavelic_priest: {
       precedence: Precedences.ProperMemorial_11b,
       date: '11-14',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
   };
 }

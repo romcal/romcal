@@ -26,10 +26,6 @@ export class Russia extends CalendarDef {
     george_of_lydda_martyr: {
       precedence: Precedences.ProperMemorial_11b,
       date: '5-6',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     theodosius_of_the_caves_abbot: {
@@ -67,9 +63,6 @@ export class Russia extends CalendarDef {
     boris_of_kiev_and_gleb_of_kiev_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '8-5',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     our_lady_of_czestochowa: {
@@ -105,18 +98,15 @@ export class Russia extends CalendarDef {
       liturgicalColors: LiturgicalColors.WHITE,
     },
 
-    andrew_apostle_patron_of_russia: {
+    andrew_apostle: {
+      customLocaleKey: 'andrew_apostle_patron_of_russia',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      date: '11-30',
-      liturgicalColors: LiturgicalColors.WHITE,
+      titles: (titles) => [...titles, 'Patron of Russia'],
     },
 
     barbara_of_heliopolis_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       date: '12-4',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     nicholas_of_myra_bishop: {

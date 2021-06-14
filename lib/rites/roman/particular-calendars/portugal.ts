@@ -15,10 +15,6 @@ export class Portugal extends CalendarDef {
     john_de_britto_priest: {
       precedence: Precedences.ProperMemorial_11b,
       date: '2-4',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     five_wounds_of_the_lord: {
@@ -36,6 +32,7 @@ export class Portugal extends CalendarDef {
     jacinta_marto_and_francisco_marto: {
       precedence: Precedences.OptionalMemorial_12,
       date: '2-20',
+      saints: ['jacinta_marto', 'francisco_marto'],
     },
 
     john_of_god_duarte_cidade_religious: {
@@ -64,10 +61,6 @@ export class Portugal extends CalendarDef {
     anthony_of_padua_priest: {
       precedence: Precedences.ProperFeast_8f,
       date: '6-13',
-      liturgicalColors: LiturgicalColors.WHITE,
-      // metadata: {
-      //   titles: [Titles.DOCTOR_OF_THE_CHURCH],
-      // },
     },
 
     sancha_of_portugal_and_mafalda_of_portugal_virgins: {
@@ -90,6 +83,7 @@ export class Portugal extends CalendarDef {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-17',
       liturgicalColors: LiturgicalColors.WHITE,
+      saints: ['ignatius_de_azevedo_priest', 'companions_martyrs'],
     },
 
     bartholomew_of_the_martyrs_fernandes_bishop: {
@@ -102,11 +96,6 @@ export class Portugal extends CalendarDef {
       precedence: Precedences.ProperMemorial_11b,
       date: '9-1',
       liturgicalColors: LiturgicalColors.WHITE,
-    },
-
-    denis_of_paris_bishop_and_companions_martyrs: {
-      precedence: Precedences.OptionalMemorial_12,
-      date: '10-9',
     },
 
     john_leonardi_priest: {
@@ -129,6 +118,11 @@ export class Portugal extends CalendarDef {
       precedence: Precedences.ProperMemorial_11b,
       date: '12-5',
       liturgicalColors: LiturgicalColors.WHITE,
+      saints: [
+        'fructuosus_of_braga_bishop',
+        'martin_of_braga_bishop',
+        'gerald_of_braga_bishop',
+      ],
     },
   };
 }

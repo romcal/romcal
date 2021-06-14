@@ -16,9 +16,6 @@ export class Romania extends CalendarDef {
     vladimir_ghika_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '5-16',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
   };
 }

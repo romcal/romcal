@@ -22,10 +22,11 @@ export class Philippines extends CalendarDef {
     peter_baptist_blasquez_paul_miki_and_companions_martyrs: {
       precedence: Precedences.ProperMemorial_11b,
       date: '2-6',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
+      saints: [
+        'peter_baptist_blasquez_martyr',
+        'paul_miki_martyr',
+        'companions_martyrs',
+      ],
     },
 
     pedro_calungsod_martyr: {
@@ -46,11 +47,6 @@ export class Philippines extends CalendarDef {
         }
         return date;
       },
-
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     isidore_the_farmer: {
@@ -68,28 +64,29 @@ export class Philippines extends CalendarDef {
       date: '8-19',
     },
 
-    rose_of_lima_virgin_copatroness_of_the_philippines: {
+    rose_of_lima_virgin: {
+      customLocaleKey: 'rose_of_lima_virgin_copatroness_of_the_philippines',
       precedence: Precedences.ProperMemorial_11b,
       date: '8-23',
+      titles: (titles) => [...titles, 'Copatroness of the Philippines'],
     },
 
     lawrence_ruiz_and_companions_martyrs: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '9-28',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
-    immaculate_conception_of_mary_patroness_of_the_philippines: {
+    immaculate_conception_of_mary: {
+      customLocaleKey:
+        'immaculate_conception_of_mary_patroness_of_the_philippines',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '12-8',
+      titles: (titles) => [...titles, 'Patroness of the Philippines'],
     },
 
-    our_lady_of_guadalupe_patroness_of_the_philippiness: {
+    our_lady_of_guadalupe: {
+      customLocaleKey: 'our_lady_of_guadalupe_patroness_of_the_philippiness',
       precedence: Precedences.ProperMemorial_11b,
-      date: '12-12',
+      titles: (titles) => [...titles, 'Patroness of the Philippines'],
     },
   };
 }

@@ -22,6 +22,7 @@ export class Poland extends CalendarDef {
     vincent_lewoniuk_and_companions_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '1-23',
+      saints: ['vincent_lewoniuk_martyr', 'companions_martyrs'],
     },
 
     george_matulaitis_bishop: {
@@ -45,7 +46,8 @@ export class Poland extends CalendarDef {
       liturgicalColors: LiturgicalColors.WHITE,
     },
 
-    adalbert_of_prague_bishop_patron_of_poland: {
+    adalbert_of_prague_bishop: {
+      customLocaleKey: 'adalbert_of_prague_bishop_patron_of_poland',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: (year: number): dayjs.Dayjs => {
         const date = dayjs.utc(`${year}-4-23`);
@@ -59,11 +61,7 @@ export class Poland extends CalendarDef {
           ? divineMercySunday.add(1, 'day')
           : date;
       },
-
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
+      titles: (titles) => [...titles, 'Patron of Poland'],
     },
 
     our_lady_queen_of_poland: {
@@ -93,10 +91,11 @@ export class Poland extends CalendarDef {
       date: '5-6',
     },
 
-    stanislaus_of_szczepanow_bishop_patron_of_poland: {
+    stanislaus_of_szczepanow_bishop: {
+      customLocaleKey: 'stanislaus_of_szczepanow_bishop_patron_of_poland',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '5-8',
-      liturgicalColors: LiturgicalColors.RED,
+      titles: (titles) => [...titles, 'Patron of Poland'],
     },
 
     andrew_bobola_priest: {
@@ -135,6 +134,7 @@ export class Poland extends CalendarDef {
     anthony_julian_nowowiejski_bishop_and_companions_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '6-12',
+      saints: ['anthony_julian_nowowiejski_bishop', 'companions_martyrs'],
     },
 
     michael_kozal_bishop: {
@@ -168,10 +168,6 @@ export class Poland extends CalendarDef {
     maria_goretti_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-5',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     mary_theresa_ledochowska_virgin: {
@@ -195,7 +191,7 @@ export class Poland extends CalendarDef {
     andrew_zorard_of_nitra_and_benedict_of_skalka_hermits: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-13',
-      liturgicalColors: LiturgicalColors.WHITE,
+      saints: ['andrew_zorard_of_nitra_hermit', 'benedict_of_skalka_hermit'],
     },
 
     camillus_de_lellis_priest: {
@@ -267,6 +263,13 @@ export class Poland extends CalendarDef {
     mary_stella_of_the_blessed_sacrament_mardosewicz_and_companions_virgins: {
       precedence: Precedences.OptionalMemorial_12,
       date: '9-4',
+      saints: [
+        'mary_stella_of_the_blessed_sacrament_mardosewicz_virgin',
+        {
+          key: 'companions_martyrs',
+          titles: (titles: string[]): string[] => ['Virgin', ...titles],
+        },
+      ],
     },
 
     melchior_grodziecki_priest: {
@@ -281,7 +284,6 @@ export class Poland extends CalendarDef {
     },
 
     denis_of_paris_bishop_and_companions_martyrs: {
-      precedence: Precedences.OptionalMemorial_12,
       date: '9-10',
     },
 
@@ -313,8 +315,6 @@ export class Poland extends CalendarDef {
 
     wenceslaus_i_of_bohemia_martyr: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '9-28',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     faustina_kowalska_virgin: {

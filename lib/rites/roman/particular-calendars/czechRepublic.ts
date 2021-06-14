@@ -28,10 +28,6 @@ export class CzechRepublic extends CalendarDef {
     john_ogilvie_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '3-10',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     // TODO: Should this key be dropped or kept in the CzechNational Proper?
@@ -39,19 +35,11 @@ export class CzechRepublic extends CalendarDef {
     //   key: 'adalbert_of_prague_bishop',
     //   precedence: Precedences.ProperMemorial_OtherProperMemorial_11b,
     //   date: '4-23',
-    //   liturgicalColors: LiturgicalColors.RED,
-    //   metadata: {
-    //     titles: [Titles.MARTYR],
-    //   },
     // },
 
     george_of_lydda_martyr: {
       precedence: Precedences.OptionalMemorial_12,
       date: '4-24',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     sigismund_of_burgundy_martyr: {
@@ -116,11 +104,13 @@ export class CzechRepublic extends CalendarDef {
     ceslaus_of_poland_and_hyacinth_of_poland_priests: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-17',
+      saints: ['ceslaus_of_poland_priest', 'hyacinth_of_poland_priest'],
     },
 
     gorazd_of_moravia_and_companions: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-27',
+      saints: ['gorazd_of_moravia', 'companions_martyrs'],
     },
 
     first_polish_martyrs: {
@@ -149,18 +139,13 @@ export class CzechRepublic extends CalendarDef {
     cornelius_i_pope_and_cyprian_of_carthage_bishop_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '9-17',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
-    wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation: {
+    wenceslaus_i_of_bohemia_martyr: {
+      customLocaleKey:
+        'wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      date: '9-28',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
+      titles: (titles) => [...titles, 'Patron of the Czech nation'],
     },
 
     lawrence_ruiz_and_companions_martyrs: {

@@ -14,10 +14,11 @@ export class Wales extends CalendarDef {
       date: '2-9',
     },
 
-    david_of_wales_bishop_patron_of_wales: {
+    david_of_wales_bishop: {
+      customLocaleKey: 'david_of_wales_bishop_patron_of_wales',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '3-1',
-      liturgicalColors: LiturgicalColors.WHITE,
+      titles: (titles) => [...titles, 'Patron of Wales'],
     },
 
     beuno_of_wales_abbot: {
@@ -31,35 +32,24 @@ export class Wales extends CalendarDef {
     },
 
     alban_of_britain_julius_of_caerleon_aaron_of_caerleon_martyrs: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '6-20',
       saints: [
         'alban_of_britain_martyr',
         'julius_of_caerleon_martyr',
         'aaron_of_caerleon_martyr',
       ],
-      precedence: Precedences.OptionalMemorial_12,
-      date: '6-20',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     john_jones_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-12',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     philip_evans_and_john_lloyd_priests: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-25',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
+      saints: ['philip_evans_priest', 'john_lloyd_priest'],
     },
 
     germanus_of_auxerre_bishop: {
@@ -70,10 +60,6 @@ export class Wales extends CalendarDef {
     david_lewis_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '8-26',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     deiniol_of_bangor_bishop: {
@@ -87,7 +73,6 @@ export class Wales extends CalendarDef {
     },
 
     denis_of_paris_bishop_and_companions_martyrs: {
-      precedence: Precedences.OptionalMemorial_12,
       date: '10-10',
     },
 
@@ -99,19 +84,15 @@ export class Wales extends CalendarDef {
     richard_gwyn_martyr: {
       precedence: Precedences.OptionalMemorial_12,
       date: '10-16',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     six_welsh_martyrs_and_companions: {
       precedence: Precedences.ProperFeast_8f,
       date: '10-25',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
+      saints: [
+        'six_welsh_martyrs',
+        { key: 'companions_martyrs', hideTitles: true },
+      ],
     },
 
     winefride_of_flintshire_virgin: {
@@ -163,18 +144,11 @@ export class Wales extends CalendarDef {
     dyfrig_of_wales_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '11-14',
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     john_roberts_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '12-10',
-      liturgicalColors: LiturgicalColors.RED,
-      // metadata: {
-      //   titles: [Titles.MARTYR],
-      // },
     },
 
     // In England and Wales when this liturgical day falls on either a
