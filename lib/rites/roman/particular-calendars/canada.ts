@@ -79,13 +79,13 @@ export class Canada extends CalendarDef {
     nykyta_budka_and_vasyl_velychkovsky_bishops: {
       precedence: Precedences.OptionalMemorial_12,
       date: '6-27',
-      saints: ['nykyta_budka_bishop', 'vasyl_velychkovsky_bishop'],
+      martyrology: ['nykyta_budka_bishop', 'vasyl_velychkovsky_bishop'],
     },
 
     joachim_and_anne_patroness_of_the_province_of_quebec_parents_of_mary: {
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       date: '7-26',
-      saints: [
+      martyrology: [
         {
           key: 'anne_mother_of_mary',
           titles: (titles: string[]): string[] => [
@@ -122,7 +122,7 @@ export class Canada extends CalendarDef {
         precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
         date: '9-26',
         titles: (titles) => [...titles, PatronTitles.CopatronsOfCanada],
-        saints: [
+        martyrology: [
           'john_de_brebeuf_priest',
           'isaac_jogues_priest',
           'companions_martyrs',

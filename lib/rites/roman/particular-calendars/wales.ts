@@ -35,7 +35,7 @@ export class Wales extends CalendarDef {
     alban_of_britain_julius_of_caerleon_aaron_of_caerleon_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '6-20',
-      saints: [
+      martyrology: [
         'alban_of_britain_martyr',
         'julius_of_caerleon_martyr',
         'aaron_of_caerleon_martyr',
@@ -50,7 +50,7 @@ export class Wales extends CalendarDef {
     philip_evans_and_john_lloyd_priests: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-25',
-      saints: ['philip_evans_priest', 'john_lloyd_priest'],
+      martyrology: ['philip_evans_priest', 'john_lloyd_priest'],
     },
 
     germanus_of_auxerre_bishop: {
@@ -90,7 +90,7 @@ export class Wales extends CalendarDef {
     six_welsh_martyrs_and_companions: {
       precedence: Precedences.ProperFeast_8f,
       date: '10-25',
-      saints: [
+      martyrology: [
         'six_welsh_martyrs',
         { key: 'companions_martyrs', hideTitles: true },
       ],

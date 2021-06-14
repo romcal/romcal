@@ -34,7 +34,7 @@ export class Hungary extends CalendarDef {
     jacinta_marto_and_francisco_marto: {
       precedence: Precedences.OptionalMemorial_12,
       date: '2-20',
-      saints: ['jacinta_marto', 'francisco_marto'],
+      martyrology: ['jacinta_marto', 'francisco_marto'],
     },
 
     matthias_apostle: {
@@ -153,7 +153,10 @@ export class Hungary extends CalendarDef {
     andrew_zorard_of_nitra_and_benedict_of_skalka_hermits: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-17',
-      saints: ['andrew_zorard_of_nitra_hermit', 'benedict_of_skalka_hermit'],
+      martyrology: [
+        'andrew_zorard_of_nitra_hermit',
+        'benedict_of_skalka_hermit',
+      ],
     },
 
     pavel_peter_gojdic_bishop: {
@@ -198,7 +201,7 @@ export class Hungary extends CalendarDef {
     marko_krizin_melchior_grodziecki_and_stephen_pongracz_priests: {
       precedence: Precedences.ProperFeast_8f,
       date: '9-7',
-      saints: [
+      martyrology: [
         'marko_krizin_priest',
         'melchior_grodziecki_priest',
         'stephen_pongracz_priest',

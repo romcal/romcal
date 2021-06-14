@@ -105,13 +105,13 @@ export class CzechRepublic extends CalendarDef {
     ceslaus_of_poland_and_hyacinth_of_poland_priests: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-17',
-      saints: ['ceslaus_of_poland_priest', 'hyacinth_of_poland_priest'],
+      martyrology: ['ceslaus_of_poland_priest', 'hyacinth_of_poland_priest'],
     },
 
     gorazd_of_moravia_and_companions: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-27',
-      saints: ['gorazd_of_moravia', 'companions_martyrs'],
+      martyrology: ['gorazd_of_moravia', 'companions_martyrs'],
     },
 
     first_polish_martyrs: {

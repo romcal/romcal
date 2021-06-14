@@ -64,7 +64,7 @@ export class Russia extends CalendarDef {
     boris_of_kiev_and_gleb_of_kiev_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '8-5',
-      saints: ['boris_of_kiev_martyr', 'gleb_of_kiev_martyr'],
+      martyrology: ['boris_of_kiev_martyr', 'gleb_of_kiev_martyr'],
     },
 
     our_lady_of_czestochowa: {

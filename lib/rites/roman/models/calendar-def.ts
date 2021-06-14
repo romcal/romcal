@@ -6,7 +6,11 @@ import { LiturgicalColors } from '../constants/colors';
 import { CalendarScope } from '../../../constants/calendar-scope';
 import { Precedences, PRECEDENCES } from '../constants/precedences';
 import { Ranks } from '../constants/ranks';
-import { SaintCount } from '../../../catalog/martyrology';
+import {
+  Martyrology,
+  MartyrologyItem,
+  SaintCount,
+} from '../../../catalog/martyrology';
 import { PatronTitles, Titles } from '../../../constants/martyrology-metadata';
 
 export type LiturgicalCalendar = Record<string, LiturgicalDay[]>;
@@ -19,15 +23,13 @@ export type ParticularConfig = Partial<
 >;
 
 export type TitlesDef = string[] | ((titles: string[]) => string[]);
-export type SaintDef = (
-  | string
-  | {
-      key: string;
-      titles?: TitlesDef;
-      hideTitles?: boolean;
-      count?: SaintCount;
-    }
-)[];
+export type MartyrologyItemPointer = (string | MartyrologyItemRedefined)[];
+export type MartyrologyItemRedefined = {
+  key: string;
+  titles?: TitlesDef;
+  hideTitles?: boolean;
+  count?: SaintCount;
+};
 
 /**
  * Date definition, used in the [CalendarDef] class
@@ -53,7 +55,7 @@ export type DateDefInput = Partial<Pick<LiturgicalDay, 'precedence'>> & {
   /**
    * Link one or multiple Saints, Blessed, or any other celebrations from the Martyrology catalog.
    */
-  saints?: SaintDef;
+  martyrology?: MartyrologyItemPointer;
 
   /**
    * Replace (using an Array) or extend (using a Function) the titles of each Saints linked to this date definition.
@@ -280,32 +282,64 @@ export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
       //   def.precedence = Precedences.OptionalMemorial_12;
       // }
 
-      // Update previous defined LiturgicalDay with the new data
-      builtData.byKeys[key] = new LiturgicalDay({
-        ...baseData,
-        ...(builtData.byKeys[key] ?? {}),
-        key: key,
-        ...(dateInput ? { date: dateInput } : {}),
-        ...(def.precedence ? { precedence: def.precedence } : {}),
-        ...(def.liturgicalColors
-          ? {
-              liturgicalColors: Array.isArray(def.liturgicalColors)
-                ? def.liturgicalColors
-                : [def.liturgicalColors],
+      // Retrieve the Martyrology items from the inherited LiturgicalDay object,
+      // or create a new empty list.
+      const martyrology: MartyrologyItem[] =
+        builtData.byKeys[key]?.martyrology ?? [];
+
+      // [1] Then, check if Martyrology data exists from the date definition;
+      // [2] if martyrology data no not exists, but an inherited LiturgicalDay exists: do nothing more;
+      // [3] if martyrology no not exists, and there is no inheritance: take the date key as the martyrology item key.
+      (def.martyrology ?? (builtData.byKeys[key] && []) ?? [key]).forEach(
+        (id) => {
+          const pointer = typeof id === 'string' ? { key: id } : id;
+
+          // Add the matching Martyrology item in the Martyrology list defined above this forEach loop.
+          if (Martyrology.catalog[pointer.key]) {
+            // But do not add it again if already exists in the list.
+            if (!martyrology.some((m) => m.key === pointer.key)) {
+              martyrology.push({
+                key: pointer.key,
+                ...Martyrology.catalog[pointer.key],
+              });
             }
-          : {}),
-        ...(def.isHolyDayOfObligation
-          ? {
-              isHolyDayOfObligation:
-                typeof def.isHolyDayOfObligation === 'function'
-                  ? def.isHolyDayOfObligation(this.config.year)
-                  : def.isHolyDayOfObligation,
-            }
-          : {}),
-        // Convert Class name from PascalCase to underscore_case
-        fromCalendar: this.calendarName,
-        // fromCalendar: this.calendarKey, // todo: https://stackoverflow.com/questions/13613524/get-an-objects-class-name-at-runtime
-      });
+          }
+          // If the Martyrology item is not found, it means this item is badly referenced in the date definition.
+          // In this situation, romcal must report en error.
+          else {
+            throw new Error(
+              `A LiturgicalDay with the key '${key}', have a badly referenced martyrology item: '${pointer.key}'.`,
+            );
+          }
+        },
+      );
+
+      if (def)
+        // Update previous defined LiturgicalDay with the new data
+        builtData.byKeys[key] = new LiturgicalDay({
+          ...baseData,
+          ...(builtData.byKeys[key] ?? {}),
+          key,
+          ...(dateInput ? { date: dateInput } : {}),
+          ...(def.precedence ? { precedence: def.precedence } : {}),
+          ...(def.liturgicalColors
+            ? {
+                liturgicalColors: Array.isArray(def.liturgicalColors)
+                  ? def.liturgicalColors
+                  : [def.liturgicalColors],
+              }
+            : {}),
+          ...(def.isHolyDayOfObligation
+            ? {
+                isHolyDayOfObligation:
+                  typeof def.isHolyDayOfObligation === 'function'
+                    ? def.isHolyDayOfObligation(this.config.year)
+                    : def.isHolyDayOfObligation,
+              }
+            : {}),
+          martyrology,
+          fromCalendar: this.calendarName,
+        });
 
       /**
        * For Memorial and Feast celebrations only, the weekday property is added

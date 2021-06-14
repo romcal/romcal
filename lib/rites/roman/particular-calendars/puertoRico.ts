@@ -50,7 +50,7 @@ export class PuertoRico extends CalendarDef {
     charles_spinola_and_jerome_de_angelis_priests: {
       precedence: Precedences.OptionalMemorial_12,
       date: '9-10',
-      saints: ['charles_spinola_priest', 'jerome_de_angelis_priest'],
+      martyrology: ['charles_spinola_priest', 'jerome_de_angelis_priest'],
     },
 
     mary_soledad_torres_acosta_virgin: {

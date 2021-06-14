@@ -23,7 +23,7 @@ export class Poland extends CalendarDef {
     vincent_lewoniuk_and_companions_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '1-23',
-      saints: ['vincent_lewoniuk_martyr', 'companions_martyrs'],
+      martyrology: ['vincent_lewoniuk_martyr', 'companions_martyrs'],
     },
 
     george_matulaitis_bishop: {
@@ -135,7 +135,7 @@ export class Poland extends CalendarDef {
     anthony_julian_nowowiejski_bishop_and_companions_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '6-12',
-      saints: ['anthony_julian_nowowiejski_bishop', 'companions_martyrs'],
+      martyrology: ['anthony_julian_nowowiejski_bishop', 'companions_martyrs'],
     },
 
     michael_kozal_bishop: {
@@ -192,7 +192,10 @@ export class Poland extends CalendarDef {
     andrew_zorard_of_nitra_and_benedict_of_skalka_hermits: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-13',
-      saints: ['andrew_zorard_of_nitra_hermit', 'benedict_of_skalka_hermit'],
+      martyrology: [
+        'andrew_zorard_of_nitra_hermit',
+        'benedict_of_skalka_hermit',
+      ],
     },
 
     camillus_de_lellis_priest: {
@@ -264,7 +267,7 @@ export class Poland extends CalendarDef {
     mary_stella_of_the_blessed_sacrament_mardosewicz_and_companions_virgins: {
       precedence: Precedences.OptionalMemorial_12,
       date: '9-4',
-      saints: [
+      martyrology: [
         'mary_stella_of_the_blessed_sacrament_mardosewicz_virgin',
         {
           key: 'companions_martyrs',

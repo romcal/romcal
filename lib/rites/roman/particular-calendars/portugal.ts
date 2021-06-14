@@ -32,7 +32,7 @@ export class Portugal extends CalendarDef {
     jacinta_marto_and_francisco_marto: {
       precedence: Precedences.OptionalMemorial_12,
       date: '2-20',
-      saints: ['jacinta_marto', 'francisco_marto'],
+      martyrology: ['jacinta_marto', 'francisco_marto'],
     },
 
     john_of_god_duarte_cidade_religious: {
@@ -66,7 +66,7 @@ export class Portugal extends CalendarDef {
     sancha_of_portugal_and_mafalda_of_portugal_virgins: {
       precedence: Precedences.OptionalMemorial_12,
       date: '6-20',
-      saints: ['sancha_of_portugal_virgin', 'mafalda_of_portugal_virgin'],
+      martyrology: ['sancha_of_portugal_virgin', 'mafalda_of_portugal_virgin'],
     },
 
     teresa_of_portugal_religious: {
@@ -84,7 +84,7 @@ export class Portugal extends CalendarDef {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-17',
       liturgicalColors: LiturgicalColors.WHITE,
-      saints: ['ignatius_de_azevedo_priest', 'companions_martyrs'],
+      martyrology: ['ignatius_de_azevedo_priest', 'companions_martyrs'],
     },
 
     bartholomew_of_the_martyrs_fernandes_bishop: {
@@ -119,7 +119,7 @@ export class Portugal extends CalendarDef {
       precedence: Precedences.ProperMemorial_11b,
       date: '12-5',
       liturgicalColors: LiturgicalColors.WHITE,
-      saints: [
+      martyrology: [
         'fructuosus_of_braga_bishop',
         'martin_of_braga_bishop',
         'gerald_of_braga_bishop',

@@ -101,7 +101,7 @@ export class Germany extends CalendarDef {
     florian_of_lorch_and_companions_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '5-4',
-      saints: ['florian_of_lorch_martyr', 'companions_martyrs'],
+      martyrology: ['florian_of_lorch_martyr', 'companions_martyrs'],
     },
 
     gotthard_of_hildesheim_bishop: {
@@ -158,13 +158,13 @@ export class Germany extends CalendarDef {
     kilian_of_wurzburg_bishop_and_companions_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-8',
-      saints: ['kilian_of_wurzburg_bishop', 'companions_martyrs'],
+      martyrology: ['kilian_of_wurzburg_bishop', 'companions_martyrs'],
     },
 
     canute_iv_of_denmark_eric_ix_of_sweden_and_olaf_ii_of_norway_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-10',
-      saints: [
+      martyrology: [
         'canute_iv_of_denmark_martyr',
         'eric_ix_of_sweden_martyr',
         'olaf_ii_of_norway_martyr',
@@ -174,7 +174,7 @@ export class Germany extends CalendarDef {
     henry_ii_emperor_and_cunigunde_of_luxembourg: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-13',
-      saints: ['henry_ii_emperor', 'cunigunde_of_luxembourg'],
+      martyrology: ['henry_ii_emperor', 'cunigunde_of_luxembourg'],
     },
 
     margaret_of_antioch_virgin: {
@@ -200,13 +200,16 @@ export class Germany extends CalendarDef {
     maurice_of_agaunum_and_companions_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '9-22',
-      saints: ['maurice_of_agaunum_martyr', 'companions_martyrs'],
+      martyrology: ['maurice_of_agaunum_martyr', 'companions_martyrs'],
     },
 
     rupert_of_salzburg_and_virgilius_of_salzburg_bishops: {
       precedence: Precedences.OptionalMemorial_12,
       date: '9-24',
-      saints: ['rupert_of_salzburg_bishop', 'virgilius_of_salzburg_bishop'],
+      martyrology: [
+        'rupert_of_salzburg_bishop',
+        'virgilius_of_salzburg_bishop',
+      ],
     },
 
     nicholas_of_flue_hermit: {
@@ -232,7 +235,7 @@ export class Germany extends CalendarDef {
     ursula_of_cologne_and_companions_virgins: {
       precedence: Precedences.OptionalMemorial_12,
       date: '10-21',
-      saints: [
+      martyrology: [
         'ursula_of_cologne_virgins',
         {
           key: 'companions_martyr',
@@ -290,7 +293,10 @@ export class Germany extends CalendarDef {
     conrad_of_constance_and_gebhard_of_constance_bishops: {
       precedence: Precedences.OptionalMemorial_12,
       date: '11-26',
-      saints: ['conrad_of_constance_bishop', 'gebhard_of_constance_bishop'],
+      martyrology: [
+        'conrad_of_constance_bishop',
+        'gebhard_of_constance_bishop',
+      ],
     },
 
     lucius_of_chur_bishop: {

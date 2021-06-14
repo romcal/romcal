@@ -73,7 +73,7 @@ export class Slovakia extends CalendarDef {
         date: '7-5',
         liturgicalColors: LiturgicalColors.WHITE,
         titles: [Titles.SlavicMissionary],
-        saints: [
+        martyrology: [
           'cyril_the_philosopher_monk',
           'methodius_of_thessaloniki_bishop',
         ],
@@ -87,13 +87,16 @@ export class Slovakia extends CalendarDef {
     andrew_zorard_of_nitra_and_benedict_of_skalka_hermits: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-17',
-      saints: ['andrew_zorard_of_nitra_hermit', 'benedict_of_skalka_hermit'],
+      martyrology: [
+        'andrew_zorard_of_nitra_hermit',
+        'benedict_of_skalka_hermit',
+      ],
     },
 
     gorazd_of_moravia_and_companions: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-27',
-      saints: ['gorazd_of_moravia', 'companions_martyrs'],
+      martyrology: ['gorazd_of_moravia', 'companions_martyrs'],
     },
 
     zdenka_cecilia_schelingova_virgin: {
@@ -116,7 +119,7 @@ export class Slovakia extends CalendarDef {
     marko_krizin_melchior_grodziecki_and_stephen_pongracz_priests: {
       precedence: Precedences.ProperMemorial_11b,
       date: '9-7',
-      saints: [
+      martyrology: [
         'marko_krizin_priest',
         'melchior_grodziecki_priest',
         'stephen_pongracz_priest',

@@ -5,7 +5,7 @@ import {
   Titles,
 } from '../constants/martyrology-metadata';
 
-export type MartyrologyItem = {
+export type MartyrologyDef = {
   /**
    * The canonization level of a person.
    */
@@ -65,16 +65,13 @@ export type MartyrologyItem = {
 
 export type SaintCount = number | 'many';
 export type SaintDate = number | string;
-export type MartyrologyCatalog = Record<string, MartyrologyItem>;
-export interface BaseMartyrology {
-  catalog: MartyrologyCatalog;
-}
+export type MartyrologyCatalog = Record<string, MartyrologyDef>;
+export type MartyrologyItem = { key: string } & MartyrologyDef;
 
-export class Martyrology implements BaseMartyrology {
-  catalog: MartyrologyCatalog = {
+export class Martyrology {
+  static catalog: MartyrologyCatalog = {
     all_saints: {
       name: 'All Saints',
-      titles: [],
     },
 
     annunciation: {
@@ -2316,7 +2313,7 @@ export class Martyrology implements BaseMartyrology {
       titles: [Titles.Priest],
     },
 
-    john_of_god_duoarte_cidade_religious: {
+    john_of_god_duarte_cidade_religious: {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'John of God',
       titles: [Titles.Religious],

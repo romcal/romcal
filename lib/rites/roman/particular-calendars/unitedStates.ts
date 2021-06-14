@@ -101,7 +101,7 @@ export class UnitedStates extends CalendarDef {
 
     john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs: {
       precedence: Precedences.ProperMemorial_11b,
-      saints: [
+      martyrology: [
         'john_de_brebeuf_priest',
         'isaac_jogues_priest',
         'companions_martyrs',
