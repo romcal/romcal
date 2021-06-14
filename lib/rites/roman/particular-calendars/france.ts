@@ -6,6 +6,7 @@ import {
 import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
 import { Europe } from './europe';
+import { PatronTitles } from '../../../constants/martyrology-metadata';
 
 export class France extends CalendarDef {
   inheritFrom = Europe;
@@ -41,7 +42,7 @@ export class France extends CalendarDef {
       customLocaleKey: 'joan_of_arc_virgin_copatroness_of_france',
       precedence: Precedences.ProperMemorial_SecondPatron_11a,
       date: '5-30',
-      titles: (titles) => [...titles, 'Copatroness of France'],
+      titles: (titles) => [...titles, PatronTitles.CopatronessOfFrance],
       liturgicalColors: LiturgicalColors.WHITE,
     },
 
@@ -68,7 +69,7 @@ export class France extends CalendarDef {
     therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin: {
       customLocaleKey:
         'therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin_copatroness_of_france',
-      titles: (titles) => [...titles, 'Copatroness of France'],
+      titles: (titles) => [...titles, PatronTitles.CopatronessOfFrance],
     },
   };
 }

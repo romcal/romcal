@@ -1,5 +1,6 @@
 import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
+import { PatronTitles, Titles } from '../../../constants/martyrology-metadata';
 
 export class NewZealand extends CalendarDef {
   definitions: DateDefinitions = {
@@ -31,7 +32,7 @@ export class NewZealand extends CalendarDef {
       customLocaleKey: 'peter_chanel_priest_patron_of_oceania',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       saints: ['peter_chanel_priest'],
-      titles: ['Proto-martyr of Oceania', 'Patron of Oceania'],
+      titles: [Titles.ProtoMartyrOfOceania, PatronTitles.PatronOfOceania],
     },
 
     our_lady_help_of_christians: {

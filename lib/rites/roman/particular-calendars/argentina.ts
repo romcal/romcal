@@ -4,6 +4,7 @@ import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
 import dayjs, { Dayjs } from 'dayjs';
 import { Americas } from './americas';
+import { PatronTitles } from '../../../constants/martyrology-metadata';
 
 export class Argentina extends CalendarDef {
   inheritFrom = Americas;
@@ -29,7 +30,7 @@ export class Argentina extends CalendarDef {
       customLocaleKey: 'our_lady_of_lujan_patroness_of_argentina',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '5-8',
-      titles: (titles) => [...titles, 'Patroness of Argentina'],
+      titles: (titles) => [...titles, PatronTitles.PatronessOfArgentina],
     },
 
     isidore_the_farmer: {

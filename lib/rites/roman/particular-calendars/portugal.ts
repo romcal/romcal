@@ -66,6 +66,7 @@ export class Portugal extends CalendarDef {
     sancha_of_portugal_and_mafalda_of_portugal_virgins: {
       precedence: Precedences.OptionalMemorial_12,
       date: '6-20',
+      saints: ['sancha_of_portugal_virgin', 'mafalda_of_portugal_virgin'],
     },
 
     teresa_of_portugal_religious: {

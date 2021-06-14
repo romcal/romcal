@@ -4,6 +4,7 @@ import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
 import { Dayjs } from 'dayjs';
 import { Americas } from './americas';
+import { PatronTitles } from '../../../constants/martyrology-metadata';
 
 export class PuertoRico extends CalendarDef {
   inheritFrom = Americas;
@@ -62,7 +63,7 @@ export class PuertoRico extends CalendarDef {
         'our_lady_mother_of_divine_providence_patroness_of_puerto_rico',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '11-19',
-      titles: (titles) => [...titles, 'Patroness of Puerto Rico'],
+      titles: (titles) => [...titles, PatronTitles.PatronessOfPuertoRico],
     },
 
     our_lord_jesus_christ_the_eternal_high_priest: {

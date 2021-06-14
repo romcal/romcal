@@ -2,6 +2,7 @@ import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
 import { Europe } from './europe';
+import { PatronTitles, Titles } from '../../../constants/martyrology-metadata';
 
 export class Ireland extends CalendarDef {
   inheritFrom = Europe;
@@ -32,7 +33,7 @@ export class Ireland extends CalendarDef {
       customLocaleKey: 'brigid_of_kildare_virgin_copatroness_of_ireland',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       date: '2-1',
-      titles: (titles) => [...titles, 'Copatroness of Ireland'],
+      titles: (titles) => [...titles, PatronTitles.CopatronessOfIreland],
     },
 
     mel_of_ardagh_bishop: {
@@ -74,7 +75,7 @@ export class Ireland extends CalendarDef {
       customLocaleKey: 'patrick_of_ireland_bishop_patron_of_ireland',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       isHolyDayOfObligation: true,
-      titles: (titles) => [...titles, 'Patron of Ireland'],
+      titles: (titles) => [...titles, PatronTitles.PatronOfIreland],
     },
 
     enda_of_aran_abbot: {
@@ -147,7 +148,11 @@ export class Ireland extends CalendarDef {
       customLocaleKey: 'columba_of_iona_abbot_copatron_of_ireland',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       date: '6-9',
-      titles: (titles) => [...titles, 'Missionary', 'Copatron of Ireland'],
+      titles: (titles) => [
+        ...titles,
+        Titles.Missionary,
+        PatronTitles.CopatronOfIreland,
+      ],
     },
 
     davnet_of_sliabh_beagh_virgin: {
@@ -319,7 +324,7 @@ export class Ireland extends CalendarDef {
     virgilius_of_salzburg_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '11-27',
-      titles: (titles) => [...titles, 'Missionary'],
+      titles: (titles) => [...titles, Titles.Missionary],
     },
 
     finnian_of_clonard_bishop: {

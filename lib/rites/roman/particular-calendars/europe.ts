@@ -1,6 +1,7 @@
 import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
+import { PatronTitles } from '../../../constants/martyrology-metadata';
 
 export class Europe extends CalendarDef {
   definitions: DateDefinitions = {
@@ -13,32 +14,32 @@ export class Europe extends CalendarDef {
         precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
         date: '2-14',
         liturgicalColors: LiturgicalColors.WHITE,
-        titles: (titles) => [...titles, 'Copatron of Europe'],
+        titles: (titles) => [...titles, PatronTitles.CopatronOfEurope],
       },
 
     catherine_of_siena_virgin: {
       customLocaleKey: 'catherine_of_siena_virgin_copatroness_of_europe',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      titles: (titles) => [...titles, 'Copatroness of Europe'],
+      titles: (titles) => [...titles, PatronTitles.CopatronessOfEurope],
     },
 
     benedict_of_nursia_abbot: {
       customLocaleKey: 'benedict_of_nursia_abbot_patron_of_europe',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      titles: (titles) => [...titles, 'Patron of Europe'],
+      titles: (titles) => [...titles, PatronTitles.PatronOfEurope],
     },
 
     bridget_of_sweden_religious: {
       customLocaleKey: 'bridget_of_sweden_religious_copatroness_of_europe',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      titles: (titles) => [...titles, 'Copatroness of Europe'],
+      titles: (titles) => [...titles, PatronTitles.CopatronessOfEurope],
     },
 
     teresa_benedicta_of_the_cross_stein_virgin: {
       customLocaleKey:
         'teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      titles: (titles) => [...titles, 'Copatroness of Europe'],
+      titles: (titles) => [...titles, PatronTitles.CopatronessOfEurope],
     },
   };
 }

@@ -2,6 +2,7 @@ import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
 import { Europe } from './europe';
+import { PatronTitles, Titles } from '../../../constants/martyrology-metadata';
 
 export class Italy extends CalendarDef {
   inheritFrom = Europe;
@@ -12,9 +13,9 @@ export class Italy extends CalendarDef {
         'catherine_of_siena_virgin_copatroness_of_italy_and_europe',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       titles: [
-        'Virgin',
-        'Doctor of the Church',
-        'Copatroness of Italy and Europe',
+        Titles.Virgin,
+        Titles.DoctorOfTheChurch,
+        PatronTitles.CopatronessOfItalyAndEurope,
       ],
     },
 
@@ -38,7 +39,7 @@ export class Italy extends CalendarDef {
     francis_of_assisi: {
       customLocaleKey: 'francis_of_assisi_patron_of_italy',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      titles: (titles) => [...titles, 'Patron of Italy'],
+      titles: (titles) => [...titles, PatronTitles.PatronOfItaly],
     },
   };
 }

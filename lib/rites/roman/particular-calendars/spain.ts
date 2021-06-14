@@ -4,6 +4,7 @@ import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
 import { Dayjs } from 'dayjs';
 import { Europe } from './europe';
+import { PatronTitles } from '../../../constants/martyrology-metadata';
 
 export class Spain extends CalendarDef {
   inheritFrom = Europe;
@@ -93,7 +94,7 @@ export class Spain extends CalendarDef {
     james_apostle: {
       customLocaleKey: 'james_apostle_patron_of_spain',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      titles: (titles) => [...titles, 'Patron of Spain'],
+      titles: (titles) => [...titles, PatronTitles.PatronOfSpain],
     },
 
     ezequiel_moreno_bishop: {

@@ -2,6 +2,7 @@ import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
 import { Americas } from './americas';
+import { PatronTitles } from '../../../constants/martyrology-metadata';
 
 export class Brazil extends CalendarDef {
   inheritFrom = Americas;
@@ -53,7 +54,7 @@ export class Brazil extends CalendarDef {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '10-12',
       liturgicalColors: LiturgicalColors.WHITE,
-      titles: (titles) => [...titles, 'Patroness of Brazil'],
+      titles: (titles) => [...titles, PatronTitles.PatronessOfBrazil],
     },
 
     anthony_of_saint_anne_galvao_priest: {

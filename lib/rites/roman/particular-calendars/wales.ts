@@ -4,6 +4,7 @@ import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
 import dayjs, { Dayjs } from 'dayjs';
 import { Europe } from './europe';
+import { PatronTitles } from '../../../constants/martyrology-metadata';
 
 export class Wales extends CalendarDef {
   inheritFrom = Europe;
@@ -18,7 +19,7 @@ export class Wales extends CalendarDef {
       customLocaleKey: 'david_of_wales_bishop_patron_of_wales',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '3-1',
-      titles: (titles) => [...titles, 'Patron of Wales'],
+      titles: (titles) => [...titles, PatronTitles.PatronOfWales],
     },
 
     beuno_of_wales_abbot: {

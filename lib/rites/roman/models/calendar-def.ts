@@ -6,7 +6,8 @@ import { LiturgicalColors } from '../constants/colors';
 import { CalendarScope } from '../../../constants/calendar-scope';
 import { Precedences, PRECEDENCES } from '../constants/precedences';
 import { Ranks } from '../constants/ranks';
-import { SaintCount } from '../../../catalog/martyrology';
+import { SaintCount, SaintTitles } from '../../../catalog/martyrology';
+import { PatronTitles, Titles } from '../../../constants/martyrology-metadata';
 
 export type LiturgicalCalendar = Record<string, LiturgicalDay[]>;
 
@@ -57,7 +58,9 @@ export type DateDefInput = Partial<Pick<LiturgicalDay, 'precedence'>> & {
   /**
    * Replace (using an Array) or extend (using a Function) the titles of each Saints linked to this date definition.
    */
-  titles?: string[] | ((titles: string[]) => string[]);
+  titles?:
+    | (Titles | PatronTitles)[]
+    | ((titles: (Titles | PatronTitles)[]) => (Titles | PatronTitles)[]);
 
   /**
    * The liturgical colors of the liturgical day.

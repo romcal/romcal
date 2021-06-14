@@ -3,6 +3,7 @@ import { Dates } from '../utils/dates';
 import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
 import dayjs, { Dayjs } from 'dayjs';
+import { PatronTitles } from '../../../constants/martyrology-metadata';
 
 export class Philippines extends CalendarDef {
   definitions: DateDefinitions = {
@@ -68,7 +69,7 @@ export class Philippines extends CalendarDef {
       customLocaleKey: 'rose_of_lima_virgin_copatroness_of_the_philippines',
       precedence: Precedences.ProperMemorial_11b,
       date: '8-23',
-      titles: (titles) => [...titles, 'Copatroness of the Philippines'],
+      titles: (titles) => [...titles, PatronTitles.CopatronessOfThePhilippines],
     },
 
     lawrence_ruiz_and_companions_martyrs: {
@@ -80,13 +81,13 @@ export class Philippines extends CalendarDef {
         'immaculate_conception_of_mary_patroness_of_the_philippines',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '12-8',
-      titles: (titles) => [...titles, 'Patroness of the Philippines'],
+      titles: (titles) => [...titles, PatronTitles.PatronessOfThePhilippines],
     },
 
     our_lady_of_guadalupe: {
       customLocaleKey: 'our_lady_of_guadalupe_patroness_of_the_philippiness',
       precedence: Precedences.ProperMemorial_11b,
-      titles: (titles) => [...titles, 'Patroness of the Philippines'],
+      titles: (titles) => [...titles, PatronTitles.PatronessOfThePhilippines],
     },
   };
 }
