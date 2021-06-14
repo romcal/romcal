@@ -1,7 +1,6 @@
 import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Dates } from '../utils/dates';
 import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
 import dayjs, { Dayjs } from 'dayjs';
 import { Americas } from './americas';
 import { PatronTitles } from '../../../constants/martyrology-metadata';
@@ -23,7 +22,6 @@ export class Argentina extends CalendarDef {
     turibius_of_mogrovejo_bishop: {
       precedence: Precedences.ProperFeast_8f,
       date: '4-27',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     our_lady_of_lujan: {
@@ -46,7 +44,6 @@ export class Argentina extends CalendarDef {
     our_lady_of_itati: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-9',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     augustine_zhao_rong_priest_and_companions_martyrs: {
@@ -56,7 +53,6 @@ export class Argentina extends CalendarDef {
     our_lady_of_mount_carmel: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-16',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     sharbel_makhluf_priest: {
@@ -67,7 +63,6 @@ export class Argentina extends CalendarDef {
     francis_solanus_priest: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-24',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     roch_of_montpellier: {
@@ -83,13 +78,11 @@ export class Argentina extends CalendarDef {
     rose_of_lima_virgin: {
       precedence: Precedences.ProperFeast_8f,
       date: '8-30',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     our_lady_of_mercy: {
       precedence: Precedences.ProperMemorial_11b,
       date: '9-24',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     benedict_of_jesus_valdivielso_saez_religious: {
@@ -115,14 +108,12 @@ export class Argentina extends CalendarDef {
     elizabeth_of_hungary_religious: {
       precedence: Precedences.ProperMemorial_11b,
       date: '11-18',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     our_lady_of_the_valley: {
       precedence: Precedences.ProperMemorial_11b,
       date: (year: number): Dayjs =>
         dayjs.utc(Dates.divineMercySunday(year).add(6, 'day')),
-      liturgicalColors: LiturgicalColors.WHITE,
       // // cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
   };

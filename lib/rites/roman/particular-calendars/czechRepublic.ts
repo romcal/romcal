@@ -5,7 +5,6 @@ import {
 } from '../models/calendar-def';
 import { Dates } from '../utils/dates';
 import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
 import { Dayjs } from 'dayjs';
 import { Europe } from './europe';
 import { PatronTitles } from '../../../constants/martyrology-metadata';
@@ -23,7 +22,6 @@ export class CzechRepublic extends CalendarDef {
     our_lady_mother_of_christian_unity: {
       precedence: Precedences.ProperMemorial_11b,
       date: '1-18',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     john_ogilvie_priest: {
@@ -61,19 +59,16 @@ export class CzechRepublic extends CalendarDef {
     john_nepomucene_priest: {
       precedence: Precedences.ProperFeast_8f,
       date: '5-16',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     clement_mary_hofbauer_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '5-20',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     zdislava_of_lemberk: {
       precedence: Precedences.OptionalMemorial_12,
       date: '5-30',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     vitus_of_lucania_martyr: {
@@ -132,7 +127,6 @@ export class CzechRepublic extends CalendarDef {
     ludmila_of_bohemia_martyr: {
       precedence: Precedences.OptionalMemorial_12,
       date: '9-16',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     // Lowered rank
@@ -179,7 +173,6 @@ export class CzechRepublic extends CalendarDef {
     agnes_of_bohemia_virgin: {
       precedence: Precedences.ProperMemorial_11b,
       date: '11-13',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     edmund_campion_priest: {
@@ -190,7 +183,6 @@ export class CzechRepublic extends CalendarDef {
     our_lord_jesus_christ_the_eternal_high_priest: {
       precedence: Precedences.ProperFeast_8f,
       date: (year: number): Dayjs => Dates.pentecostSunday(year).add(4, 'day'),
-      liturgicalColors: LiturgicalColors.WHITE,
       // cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
   };

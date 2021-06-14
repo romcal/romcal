@@ -1,7 +1,6 @@
 import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Dates } from '../utils/dates';
 import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
 import dayjs, { Dayjs } from 'dayjs';
 import { PatronTitles } from '../../../constants/martyrology-metadata';
 
@@ -15,8 +14,6 @@ export class Philippines extends CalendarDef {
         const feastDay = 22 - (firstDay.day() == 0 ? 7 : firstDay.day());
         return dayjs.utc(`${year}-1-${feastDay}`);
       },
-
-      liturgicalColors: LiturgicalColors.WHITE,
       // cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
 

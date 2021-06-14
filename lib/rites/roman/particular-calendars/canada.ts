@@ -1,6 +1,5 @@
 import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
 import { Americas } from './americas';
 import { PatronTitles } from '../../../constants/martyrology-metadata';
 
@@ -11,7 +10,6 @@ export class Canada extends CalendarDef {
     andre_bessette_religious: {
       precedence: Precedences.ProperMemorial_11b,
       date: '1-7',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     raymond_of_penyafort_priest: {
@@ -22,7 +20,6 @@ export class Canada extends CalendarDef {
     marguerite_bourgeoys_virgin: {
       precedence: Precedences.ProperMemorial_11b,
       date: '1-12',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     joseph_spouse_of_mary: {
@@ -132,13 +129,11 @@ export class Canada extends CalendarDef {
     nereus_of_terracina_and_achilleus_of_terracina_martyrs: {
       precedence: Precedences.ProperFeast_8f,
       date: '9-26',
-      liturgicalColors: LiturgicalColors.RED,
     },
 
     pancras_of_rome_martyr: {
       precedence: Precedences.ProperFeast_8f,
       date: '9-26',
-      liturgicalColors: LiturgicalColors.RED,
     },
 
     marie_rose_durocher_virgin: {
@@ -149,7 +144,6 @@ export class Canada extends CalendarDef {
     marguerite_dyouville_religious: {
       precedence: Precedences.ProperMemorial_11b,
       date: '10-16',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     hedwig_of_silesia_religious: {

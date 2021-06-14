@@ -1,6 +1,5 @@
 import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
 import { Europe } from './europe';
 
 export class Austria extends CalendarDef {
@@ -10,7 +9,6 @@ export class Austria extends CalendarDef {
     john_nepomucene_priest: {
       precedence: Precedences.ProperMemorial_11b,
       date: '5-16',
-      liturgicalColors: LiturgicalColors.RED,
     },
 
     charles_i_of_austria: {

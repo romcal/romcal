@@ -1,6 +1,5 @@
 import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
 import { Europe } from './europe';
 import { PatronTitles } from '../../../constants/martyrology-metadata';
 
@@ -11,7 +10,6 @@ export class Russia extends CalendarDef {
     george_matulaitis_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       date: '1-27',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     boleslawa_mary_lament_virgin: {
@@ -32,7 +30,6 @@ export class Russia extends CalendarDef {
     theodosius_of_the_caves_abbot: {
       precedence: Precedences.ProperMemorial_11b,
       date: '5-16',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     our_lady_of_perpetual_help: {
@@ -58,7 +55,6 @@ export class Russia extends CalendarDef {
     vladimir_i_the_great_of_kiev: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-28',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     boris_of_kiev_and_gleb_of_kiev_martyrs: {
@@ -80,13 +76,11 @@ export class Russia extends CalendarDef {
     faustina_kowalska_virgin: {
       precedence: Precedences.ProperMemorial_11b,
       date: '10-5',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     oleksiy_zarytskyi_priest: {
       precedence: Precedences.ProperMemorial_11b,
       date: '10-30',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     our_lady_of_the_gate_of_dawn: {
@@ -97,7 +91,6 @@ export class Russia extends CalendarDef {
     raphael_of_saint_joseph_kalinowski_priest: {
       precedence: Precedences.ProperMemorial_11b,
       date: '11-20',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     andrew_apostle: {
@@ -114,7 +107,6 @@ export class Russia extends CalendarDef {
     nicholas_of_myra_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       date: '12-6',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
   };
 }

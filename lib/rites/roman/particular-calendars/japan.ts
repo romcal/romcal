@@ -1,6 +1,5 @@
 import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
 
 export class Japan extends CalendarDef {
   definitions: DateDefinitions = {
@@ -22,7 +21,6 @@ export class Japan extends CalendarDef {
     '205_blessed_martyrs_of_japan': {
       precedence: Precedences.ProperMemorial_11b,
       date: '9-10',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     thomas_hioji_rokuzayemon_nishi_priest_and_companions_martyrs: {
@@ -37,7 +35,6 @@ export class Japan extends CalendarDef {
     francis_xavier_priest: {
       precedence: Precedences.ProperFeast_8f,
       date: '12-3',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
   };
 }

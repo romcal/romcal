@@ -1,6 +1,5 @@
 import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
 import { Europe } from './europe';
 
 export class Finland extends CalendarDef {
@@ -15,13 +14,11 @@ export class Finland extends CalendarDef {
     eric_ix_of_sweden_martyr: {
       precedence: Precedences.ProperMemorial_11b,
       date: '5-18',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     hemming_of_turku_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       date: '5-22',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     mary_ursula_of_jesus_ledochowska_virgin: {
@@ -42,13 +39,11 @@ export class Finland extends CalendarDef {
     canute_iv_of_denmark_martyr: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-10',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     thorlac_of_iceland_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-20',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     olaf_ii_of_norway_martyr: {

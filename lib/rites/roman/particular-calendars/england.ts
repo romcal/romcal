@@ -1,7 +1,6 @@
 import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Dates } from '../utils/dates';
 import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
 import dayjs, { Dayjs } from 'dayjs';
 import { Europe } from './europe';
 import { PatronTitles } from '../../../constants/martyrology-metadata';
@@ -28,7 +27,6 @@ export class England extends CalendarDef {
     patrick_of_ireland_bishop: {
       precedence: Precedences.ProperFeast_8f,
       date: '3-17',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     george_of_lydda_martyr: {
@@ -62,7 +60,6 @@ export class England extends CalendarDef {
     english_martyrs: {
       precedence: Precedences.ProperFeast_8f,
       date: '5-4',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     dunstan_of_canterbury_bishop: {
@@ -78,13 +75,11 @@ export class England extends CalendarDef {
     augustine_of_canterbury_bishop: {
       precedence: Precedences.ProperFeast_8f,
       date: '5-27',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     boniface_of_mainz_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       date: '6-5',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     ephrem_the_syrian_deacon: {
@@ -159,7 +154,6 @@ export class England extends CalendarDef {
     our_lady_of_walsingham: {
       precedence: Precedences.ProperMemorial_11b,
       date: '9-24',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     john_henry_newman_priest: {
@@ -265,7 +259,6 @@ export class England extends CalendarDef {
     andrew_apostle: {
       precedence: Precedences.ProperFeast_8f,
       date: '11-30',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     // In England and Wales when All Saints (1 November) falls on a Saturday
@@ -306,7 +299,6 @@ export class England extends CalendarDef {
     our_lord_jesus_christ_the_eternal_high_priest: {
       precedence: Precedences.ProperFeast_8f,
       date: (year: number): Dayjs => Dates.pentecostSunday(year).add(4, 'day'),
-      liturgicalColors: LiturgicalColors.WHITE,
       // cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
   };

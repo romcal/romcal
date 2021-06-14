@@ -317,8 +317,14 @@ export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
       if (def)
         // Update previous defined LiturgicalDay with the new data
         builtData.byKeys[key] = new LiturgicalDay({
-          ...baseData,
+          // Import the base liturgical day, but exclude its liturgical color
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          ...(({ liturgicalColors, ...o }) => o)(baseData),
+
+          // Import the inherited liturgical day to extend
           ...(builtData.byKeys[key] ?? {}),
+
+          // Set new object data
           key,
           ...(dateInput ? { date: dateInput } : {}),
           ...(def.precedence ? { precedence: def.precedence } : {}),

@@ -1,6 +1,5 @@
 import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
 import { Europe } from './europe';
 import { PatronTitles, Titles } from '../../../constants/martyrology-metadata';
 
@@ -22,7 +21,6 @@ export class Italy extends CalendarDef {
     norbert_of_xanten_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '6-6',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     barnabas_apostle: {
@@ -33,7 +31,6 @@ export class Italy extends CalendarDef {
     mary_magdalene: {
       precedence: Precedences.ProperFeast_8f,
       date: '7-22',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     francis_of_assisi: {

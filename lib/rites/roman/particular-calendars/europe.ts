@@ -1,6 +1,5 @@
 import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
 import { PatronTitles } from '../../../constants/martyrology-metadata';
 
 export class Europe extends CalendarDef {
@@ -13,7 +12,6 @@ export class Europe extends CalendarDef {
         ],
         precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
         date: '2-14',
-        liturgicalColors: LiturgicalColors.WHITE,
         titles: (titles) => [...titles, PatronTitles.CopatronOfEurope],
       },
 

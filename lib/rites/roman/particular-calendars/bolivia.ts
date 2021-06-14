@@ -1,7 +1,6 @@
 import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Dates } from '../utils/dates';
 import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
 import { Dayjs } from 'dayjs';
 import { Americas } from './americas';
 
@@ -22,7 +21,6 @@ export class Bolivia extends CalendarDef {
     turibius_of_mogrovejo_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       date: '3-23',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     mariana_of_jesus_de_paredes_virgin: {
@@ -33,7 +31,6 @@ export class Bolivia extends CalendarDef {
     nazaria_ignacia_of_saint_teresa_of_jesus_march_mesa_virgin: {
       precedence: Precedences.ProperMemorial_11b,
       date: '3-23',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     camillus_de_lellis_priest: {
@@ -44,19 +41,16 @@ export class Bolivia extends CalendarDef {
     francis_solanus_priest: {
       precedence: Precedences.ProperFeast_8f,
       date: '7-14',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     our_lady_of_mount_carmel: {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '7-16',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     rose_of_lima_virgin: {
       precedence: Precedences.ProperFeast_8f,
       date: '8-23',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     peter_claver_priest: {
@@ -67,7 +61,6 @@ export class Bolivia extends CalendarDef {
     john_macias_religious: {
       precedence: Precedences.ProperMemorial_11b,
       date: '9-18',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     louis_bertrand_priest: {
@@ -83,13 +76,11 @@ export class Bolivia extends CalendarDef {
     anthony_mary_claret_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       date: '10-24',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     martin_de_porres_religious: {
       precedence: Precedences.ProperMemorial_11b,
       date: '11-3',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     roch_gonzalez_alphonsus_rodriguez_and_john_del_castillo_priests: {
@@ -105,7 +96,6 @@ export class Bolivia extends CalendarDef {
     our_lord_jesus_christ_the_eternal_high_priest: {
       precedence: Precedences.ProperFeast_8f,
       date: (year: number): Dayjs => Dates.pentecostSunday(year).add(4, 'day'),
-      liturgicalColors: LiturgicalColors.WHITE,
       // cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
   };

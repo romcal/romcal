@@ -1,6 +1,5 @@
 import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
 import { Europe } from './europe';
 import { PatronTitles, Titles } from '../../../constants/martyrology-metadata';
 
@@ -16,7 +15,6 @@ export class Ireland extends CalendarDef {
     ita_of_killeedy_virgin: {
       precedence: Precedences.ProperMemorial_11b,
       date: '1-15',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     fursa_of_peronne_abbot: {
@@ -131,7 +129,6 @@ export class Ireland extends CalendarDef {
     kevin_of_glendalough_abbot: {
       precedence: Precedences.ProperMemorial_11b,
       date: '6-3',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     jarlath_of_tuam_bishop: {
@@ -213,7 +210,6 @@ export class Ireland extends CalendarDef {
     our_lady_of_knock: {
       precedence: Precedences.ProperFeast_8f,
       date: '8-17',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     eoghan_of_ardstraw_bishop: {
@@ -239,7 +235,6 @@ export class Ireland extends CalendarDef {
     ciaran_of_clonmacnoise_abbot: {
       precedence: Precedences.ProperMemorial_11b,
       date: '9-9',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     ailbe_of_emly_bishop: {
@@ -250,7 +245,6 @@ export class Ireland extends CalendarDef {
     pius_of_pietrelcina_priest: {
       precedence: Precedences.ProperMemorial_11b,
       date: '9-23',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     finbarr_of_cork_bishop: {
@@ -291,13 +285,11 @@ export class Ireland extends CalendarDef {
     malachy_of_armagh_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       date: '11-3',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     all_saints_of_ireland: {
       precedence: Precedences.ProperFeast_8f,
       date: '11-6',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     willibrord_of_utrecht_bishop: {
@@ -313,7 +305,6 @@ export class Ireland extends CalendarDef {
     columban_of_luxeuil_abbot: {
       precedence: Precedences.ProperMemorial_11b,
       date: '11-23',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     colman_of_cloyne_bishop: {

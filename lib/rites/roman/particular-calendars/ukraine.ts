@@ -1,7 +1,6 @@
 import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Dates } from '../utils/dates';
 import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
 import { Dayjs } from 'dayjs';
 import { Europe } from './europe';
 
@@ -22,7 +21,6 @@ export class Ukraine extends CalendarDef {
     mary_mother_of_the_church: {
       precedence: Precedences.ProperFeast_8f,
       date: (year: number): Dayjs => Dates.pentecostSunday(year).add(1, 'day'),
-      liturgicalColors: LiturgicalColors.WHITE,
       // cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
 
@@ -64,7 +62,6 @@ export class Ukraine extends CalendarDef {
     vladimir_i_the_great_of_kiev: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-28',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     our_lady_of_czestochowa: {
@@ -81,7 +78,6 @@ export class Ukraine extends CalendarDef {
     stanislaus_kostka_religious: {
       precedence: Precedences.ProperMemorial_11b,
       date: '9-18',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     joseph_bilczewski_bishop: {

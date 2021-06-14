@@ -18,7 +18,6 @@ export class Hungary extends CalendarDef {
     margaret_of_hungary_religious: {
       precedence: Precedences.ProperFeast_8f,
       date: '1-18',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     eusebius_of_esztergom_priest: {
@@ -114,13 +113,11 @@ export class Hungary extends CalendarDef {
     agnes_of_bohemia_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       date: '6-8',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     istvan_sandor_religious: {
       precedence: Precedences.OptionalMemorial_12,
       date: '6-8',
-      liturgicalColors: LiturgicalColors.RED,
     },
 
     yolanda_of_poland_religious: {
@@ -141,13 +138,11 @@ export class Hungary extends CalendarDef {
     ladislaus_i_of_hungary: {
       precedence: Precedences.ProperFeast_8f,
       date: '6-27',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     visitation_of_mary: {
       precedence: Precedences.ProperFeast_8f,
       date: '7-2',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     andrew_zorard_of_nitra_and_benedict_of_skalka_hermits: {
@@ -216,13 +211,11 @@ export class Hungary extends CalendarDef {
     gerard_of_csanad_bishop: {
       precedence: Precedences.ProperFeast_8f,
       date: '9-24',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     szilard_bogdanffy_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '10-3',
-      liturgicalColors: LiturgicalColors.RED,
     },
 
     our_lady_of_hungary: {
@@ -256,7 +249,6 @@ export class Hungary extends CalendarDef {
     emeric_of_hungary: {
       precedence: Precedences.ProperFeast_8f,
       date: '11-5',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     hungarian_saints_and_blesseds: {
@@ -272,7 +264,6 @@ export class Hungary extends CalendarDef {
     elizabeth_of_hungary_religious: {
       precedence: Precedences.ProperFeast_8f,
       date: '11-19',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     john_brenner_priest: {
@@ -283,7 +274,6 @@ export class Hungary extends CalendarDef {
     our_lord_jesus_christ_the_eternal_high_priest: {
       precedence: Precedences.ProperFeast_8f,
       date: (year: number): Dayjs => Dates.pentecostSunday(year).add(4, 'day'),
-      liturgicalColors: LiturgicalColors.WHITE,
       // cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
 

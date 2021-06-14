@@ -4,7 +4,6 @@ import {
   ParticularConfig,
 } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
 import { Europe } from './europe';
 import { PatronTitles } from '../../../constants/martyrology-metadata';
 
@@ -43,7 +42,6 @@ export class France extends CalendarDef {
       precedence: Precedences.ProperMemorial_SecondPatron_11a,
       date: '5-30',
       titles: (titles) => [...titles, PatronTitles.CopatronessOfFrance],
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     pothinus_of_lyon_bishop_blandina_of_lyon_virgin_and_companions_martyrs: {

@@ -1,7 +1,6 @@
 import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Dates } from '../utils/dates';
 import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
 import dayjs, { Dayjs } from 'dayjs';
 import { Europe } from './europe';
 import { PatronTitles } from '../../../constants/martyrology-metadata';
@@ -44,7 +43,6 @@ export class Poland extends CalendarDef {
     casimir_of_poland: {
       precedence: Precedences.ProperFeast_8f,
       date: '3-4',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     adalbert_of_prague_bishop: {
@@ -68,19 +66,16 @@ export class Poland extends CalendarDef {
     our_lady_queen_of_poland: {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '5-3',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     our_lady_help_of_christians: {
       precedence: Precedences.ProperMemorial_11b,
       date: '5-24',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     florian_of_lorch_martyr: {
       precedence: Precedences.ProperMemorial_11b,
       date: '5-4',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     stanislaus_kazimierczyk_priest: {
@@ -101,13 +96,11 @@ export class Poland extends CalendarDef {
 
     andrew_bobola_priest: {
       date: '5-16',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     mary_ursula_of_jesus_ledochowska_virgin: {
       precedence: Precedences.ProperMemorial_11b,
       date: '5-29',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     john_sarkander_priest: {
@@ -123,13 +116,11 @@ export class Poland extends CalendarDef {
     hedwig_of_poland: {
       precedence: Precedences.ProperMemorial_11b,
       date: '6-8',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     bogumilus_of_dobrow_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       date: '6-10',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     anthony_julian_nowowiejski_bishop_and_companions_martyrs: {
@@ -141,19 +132,16 @@ export class Poland extends CalendarDef {
     michael_kozal_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       date: '6-14',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     yolanda_of_poland_religious: {
       precedence: Precedences.ProperMemorial_11b,
       date: '6-15',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     albert_chmielowski_religious: {
       precedence: Precedences.ProperMemorial_11b,
       date: '6-17',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     zygmunt_gorazdowski_priest: {
@@ -174,19 +162,16 @@ export class Poland extends CalendarDef {
     mary_theresa_ledochowska_virgin: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-6',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     john_of_dukla_priest: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-8',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     bruno_of_querfurt_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-12',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     andrew_zorard_of_nitra_and_benedict_of_skalka_hermits: {
@@ -211,7 +196,6 @@ export class Poland extends CalendarDef {
     our_lady_of_mount_carmel: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-16',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     simon_of_lipnica_priest: {
@@ -222,7 +206,6 @@ export class Poland extends CalendarDef {
     ceslaus_of_poland_priest: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-20',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     apollinaris_of_ravenna_bishop: {
@@ -233,7 +216,6 @@ export class Poland extends CalendarDef {
     kinga_of_poland_virgin: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-24',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     sharbel_makhluf_priest: {
@@ -249,19 +231,16 @@ export class Poland extends CalendarDef {
     hyacinth_of_poland_priest: {
       precedence: Precedences.ProperMemorial_11b,
       date: '8-17',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     our_lady_of_czestochowa: {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '8-26',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     bronislava_of_poland_virgin: {
       precedence: Precedences.ProperMemorial_11b,
       date: '9-1',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     mary_stella_of_the_blessed_sacrament_mardosewicz_and_companions_virgins: {
@@ -279,7 +258,6 @@ export class Poland extends CalendarDef {
     melchior_grodziecki_priest: {
       precedence: Precedences.ProperMemorial_11b,
       date: '9-7',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     angela_salawa_virgin: {
@@ -304,7 +282,6 @@ export class Poland extends CalendarDef {
     stanislaus_kostka_religious: {
       precedence: Precedences.ProperFeast_8f,
       date: '9-18',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     ladislas_of_gielniow_priest: {
@@ -324,13 +301,11 @@ export class Poland extends CalendarDef {
     faustina_kowalska_virgin: {
       precedence: Precedences.ProperMemorial_11b,
       date: '10-5',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     vincent_kadlubek_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       date: '10-9',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     mary_angela_truszkowska_virgin: {
@@ -341,7 +316,6 @@ export class Poland extends CalendarDef {
     john_beyzym_priest: {
       precedence: Precedences.ProperMemorial_11b,
       date: '10-12',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     honorat_kozminski_priest: {
@@ -362,19 +336,16 @@ export class Poland extends CalendarDef {
     john_of_kanty_priest: {
       precedence: Precedences.ProperMemorial_11b,
       date: '10-20',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     james_strzemie_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       date: '10-21',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     john_paul_ii_pope: {
       precedence: Precedences.ProperMemorial_11b,
       date: '10-22',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     joseph_bilczewski_bishop: {
@@ -386,31 +357,26 @@ export class Poland extends CalendarDef {
     dedication_of_consecrated_churches: {
       precedence: Precedences.ProperSolemnity_DedicationOfTheOwnChurch_4b,
       date: (year) => dayjs.utc(`${year}-10-1`).endOf('month').startOf('week'),
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     first_polish_martyrs: {
       precedence: Precedences.ProperMemorial_11b,
       date: '11-13',
-      liturgicalColors: LiturgicalColors.RED,
     },
 
     caroline_kozka_virgin: {
       precedence: Precedences.ProperMemorial_11b,
       date: '11-18',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     salomea_of_poland_religious: {
       precedence: Precedences.ProperMemorial_11b,
       date: '11-19',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     raphael_of_saint_joseph_kalinowski_priest: {
       precedence: Precedences.ProperMemorial_11b,
       date: '11-20',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     mary_of_jesus_the_good_shepherd_siedliska_virgin: {
@@ -432,14 +398,12 @@ export class Poland extends CalendarDef {
       precedence: Precedences.ProperFeast_8f,
       date: (year: number): dayjs.Dayjs =>
         Dates.pentecostSunday(year).add(1, 'day'),
-      liturgicalColors: LiturgicalColors.WHITE,
       // cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
 
     our_lord_jesus_christ_the_eternal_high_priest: {
       precedence: Precedences.ProperFeast_8f,
       date: (year: number): Dayjs => Dates.pentecostSunday(year).add(4, 'day'),
-      liturgicalColors: LiturgicalColors.WHITE,
       // cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
   };

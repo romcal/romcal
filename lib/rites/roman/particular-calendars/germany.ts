@@ -1,6 +1,5 @@
 import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
 import { Europe } from './europe';
 
 export class Germany extends CalendarDef {
@@ -40,7 +39,6 @@ export class Germany extends CalendarDef {
     matthias_apostle: {
       precedence: Precedences.ProperMemorial_11b,
       date: '2-24',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     walpurga_of_heidenheim_abbess: {
@@ -142,7 +140,6 @@ export class Germany extends CalendarDef {
     visitation_of_mary: {
       precedence: Precedences.ProperFeast_8f,
       date: '7-2',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     ulrich_of_augsburg_bishop: {
@@ -282,7 +279,6 @@ export class Germany extends CalendarDef {
     elizabeth_of_hungary_religious: {
       precedence: Precedences.ProperMemorial_11b,
       date: '11-19',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     corbinian_of_freising_bishop: {

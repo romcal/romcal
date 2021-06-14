@@ -5,7 +5,6 @@ import {
 } from '../models/calendar-def';
 import { Dates } from '../utils/dates';
 import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
 import { Dayjs } from 'dayjs';
 import { PatronTitles, Titles } from '../../../constants/martyrology-metadata';
 
@@ -20,7 +19,6 @@ export class Australia extends CalendarDef {
     patrick_of_ireland_bishop: {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '3-17',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     louis_grignion_de_montfort_priest: {
@@ -48,13 +46,11 @@ export class Australia extends CalendarDef {
     mary_of_the_cross_mackillop_virgin: {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '8-8',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     our_lord_jesus_christ_the_eternal_high_priest: {
       precedence: Precedences.ProperFeast_8f,
       date: (year: number): Dayjs => Dates.pentecostSunday(year).add(4, 'day'),
-      liturgicalColors: LiturgicalColors.WHITE,
       // cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
     },
   };

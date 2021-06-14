@@ -1,6 +1,5 @@
 import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
 import { Europe } from './europe';
 
 export class Croatia extends CalendarDef {
@@ -15,13 +14,11 @@ export class Croatia extends CalendarDef {
     ivan_merz: {
       precedence: Precedences.ProperMemorial_11b,
       date: '5-10',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     leopold_mandic_priest: {
       precedence: Precedences.ProperMemorial_11b,
       date: '5-12',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     quirinus_of_sescia_bishop: {
@@ -37,7 +34,6 @@ export class Croatia extends CalendarDef {
     our_lady_of_marija_bistrica: {
       precedence: Precedences.ProperFeast_8f,
       date: '7-13',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     augustine_kazotic_bishop: {
@@ -48,13 +44,11 @@ export class Croatia extends CalendarDef {
     marko_krizin_priest: {
       precedence: Precedences.ProperMemorial_11b,
       date: '9-7',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     nicholas_tavelic_priest: {
       precedence: Precedences.ProperFeast_8f,
       date: '11-14',
-      liturgicalColors: LiturgicalColors.WHITE,
     },
   };
 }
