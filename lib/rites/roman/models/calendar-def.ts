@@ -6,7 +6,7 @@ import { LiturgicalColors } from '../constants/colors';
 import { CalendarScope } from '../../../constants/calendar-scope';
 import { Precedences, PRECEDENCES } from '../constants/precedences';
 import { Ranks } from '../constants/ranks';
-import { SaintCount, SaintTitles } from '../../../catalog/martyrology';
+import { SaintCount } from '../../../catalog/martyrology';
 import { PatronTitles, Titles } from '../../../constants/martyrology-metadata';
 
 export type LiturgicalCalendar = Record<string, LiturgicalDay[]>;
@@ -92,21 +92,19 @@ interface IConstructor<InstanceInterface> {
    *
    * @constructor
    */
-  new (): InstanceInterface;
+  new (config: RomcalConfig): InstanceInterface;
 }
 
 /**
  * Base [CalendarDef] interface
  */
 interface BaseCalendarDef {
+  config: RomcalConfig;
   inheritFrom?: StaticCalendarComputing<BaseCalendarDef>;
   calendarKey?: string;
   particularConfig?: ParticularConfig;
   definitions: DateDefinitions;
-  buildDates: (
-    builtData: LiturgicalDefBuiltData,
-    config: RomcalConfig,
-  ) => LiturgicalDefBuiltData;
+  buildDates: (builtData: LiturgicalDefBuiltData) => LiturgicalDefBuiltData;
 }
 
 /**
@@ -122,6 +120,7 @@ interface StaticCalendarComputing<T extends BaseCalendarDef>
 export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
   implements BaseCalendarDef
 {
+  config: RomcalConfig;
   inheritFrom?: StaticCalendarComputing<BaseCalendarDef>;
   definitions: DateDefinitions = {};
   particularConfig?: ParticularConfig;
@@ -137,40 +136,38 @@ export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
     return this._calendarName;
   }
 
+  constructor(config: RomcalConfig) {
+    this.config = config;
+  }
+
   /**
    * Recursive method that retrieve all inherited calendars
-   * @param InheritedCal
-   * @param builtData
-   * @param config
+   * @param InheritedCal - The inherited calendar object.
+   * @param builtData - The already build data that will extend the inherited data.
    * @private
    */
   private retrieveInheritedCal(
     InheritedCal: StaticCalendarComputing<BaseCalendarDef>,
     builtData: LiturgicalDefBuiltData,
-    config: RomcalConfig,
   ) {
-    const inheritedCal = new InheritedCal();
+    const inheritedCal = new InheritedCal(this.config);
     if (inheritedCal.inheritFrom) {
-      this.retrieveInheritedCal(inheritedCal.inheritFrom, builtData, config);
+      this.retrieveInheritedCal(inheritedCal.inheritFrom, builtData);
     }
 
-    inheritedCal.buildDates(builtData, config);
+    inheritedCal.buildDates(builtData);
   }
 
   /**
    * Build LiturgicalDay objects from the date defined in this calendar,
    * and extend the already built data with these new objects.
-   * @param builtData
-   * @param config
+   * @param builtData - The already build data, that will be extended in this method.
    */
-  buildDates(
-    builtData: LiturgicalDefBuiltData,
-    config: RomcalConfig,
-  ): LiturgicalDefBuiltData {
+  buildDates(builtData: LiturgicalDefBuiltData): LiturgicalDefBuiltData {
     const definitions = Object.keys(this.definitions);
 
     if (this.inheritFrom) {
-      this.retrieveInheritedCal(this.inheritFrom, builtData, config);
+      this.retrieveInheritedCal(this.inheritFrom, builtData);
     }
 
     definitions.forEach((key) => {
@@ -186,17 +183,17 @@ export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
       // If a date definition is defined,
       // it should be a string or a function.
       if (def.date) {
-        if (config.scope === CalendarScope.Liturgical) {
+        if (this.config.scope === CalendarScope.Liturgical) {
           dateInputPreviousYear =
             typeof def.date === 'string'
-              ? dayjs.utc(`${config.year - 1}-${def.date}`)
-              : def.date(config.year - 1);
+              ? dayjs.utc(`${this.config.year - 1}-${def.date}`)
+              : def.date(this.config.year - 1);
         }
 
         dateInputCurrentYear =
           typeof def.date === 'string'
-            ? dayjs.utc(`${config.year}-${def.date}`)
-            : def.date(config.year);
+            ? dayjs.utc(`${this.config.year}-${def.date}`)
+            : def.date(this.config.year);
 
         const dateInputPreviousYearStr =
           dateInputPreviousYear?.format('YYYY-MM-DD');
@@ -301,7 +298,7 @@ export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
           ? {
               isHolyDayOfObligation:
                 typeof def.isHolyDayOfObligation === 'function'
-                  ? def.isHolyDayOfObligation(config.year)
+                  ? def.isHolyDayOfObligation(this.config.year)
                   : def.isHolyDayOfObligation,
             }
           : {}),
@@ -338,7 +335,7 @@ export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
 
   /**
    * Generate a liturgical calendar according to the precedence rules between liturgical days.
-   * @param builtData
+   * @param builtData - The already build data, that will use to generate a calendar.
    */
   static generateCalendar(
     builtData: LiturgicalDefBuiltData,
