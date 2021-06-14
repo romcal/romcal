@@ -54,7 +54,7 @@ export class BosniaHerzegovina extends CalendarDef {
     clement_of_ohrid_and_gorazd_of_moravia_bishops_and_companions: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-27',
-      saints: [
+      martyrology: [
         'clement_of_ohrid_bishop',
         'gorazd_of_moravia_bishop',
         'companions_martyrs',

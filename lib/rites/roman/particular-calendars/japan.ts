@@ -16,7 +16,7 @@ export class Japan extends CalendarDef {
     peter_kibe_priest_and_companions_martyrs: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-1',
-      saints: ['peter_kibe_priest', 'companions_martyrs'],
+      martyrology: ['peter_kibe_priest', 'companions_martyrs'],
     },
 
     '205_blessed_martyrs_of_japan': {
@@ -28,7 +28,10 @@ export class Japan extends CalendarDef {
     thomas_hioji_rokuzayemon_nishi_priest_and_companions_martyrs: {
       precedence: Precedences.ProperMemorial_11b,
       date: '9-28',
-      saints: ['thomas_hioji_rokuzayemon_nishi_priest', 'companions_martyrs'],
+      martyrology: [
+        'thomas_hioji_rokuzayemon_nishi_priest',
+        'companions_martyrs',
+      ],
     },
 
     francis_xavier_priest: {

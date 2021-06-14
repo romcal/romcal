@@ -12,7 +12,7 @@ export class Bolivia extends CalendarDef {
     philip_of_jesus_de_las_casas_paul_miki_and_companions_martyrs: {
       precedence: Precedences.ProperMemorial_11b,
       date: '2-6',
-      saints: [
+      martyrology: [
         'philip_of_jesus_de_las_casas_martyr',
         'paul_miki_martyr',
         'companions_martyrs',
@@ -95,7 +95,7 @@ export class Bolivia extends CalendarDef {
     roch_gonzalez_alphonsus_rodriguez_and_john_del_castillo_priests: {
       precedence: Precedences.ProperMemorial_11b,
       date: '11-19',
-      saints: [
+      martyrology: [
         'roch_gonzalez_priest',
         'alphonsus_rodriguez_priest',
         'john_del_castillo_priest',

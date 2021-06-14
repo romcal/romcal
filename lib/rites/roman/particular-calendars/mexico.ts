@@ -71,7 +71,7 @@ export class Mexico extends CalendarDef {
     peter_de_zuniga_and_louis_flores_priests: {
       precedence: Precedences.OptionalMemorial_12,
       date: '8-16',
-      saints: ['peter_de_zuniga_priest', 'louis_flores_priest'],
+      martyrology: ['peter_de_zuniga_priest', 'louis_flores_priest'],
     },
 
     junipero_serra_priest: {

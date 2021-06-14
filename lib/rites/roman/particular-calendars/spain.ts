@@ -19,7 +19,7 @@ export class Spain extends CalendarDef {
       {
         precedence: Precedences.OptionalMemorial_12,
         date: '1-20',
-        saints: [
+        martyrology: [
           'fructuosus_of_tarragona_bishop',
           'augurius_of_tarragona_deacon',
           'eulogius_of_tarragona_deacon',

@@ -23,7 +23,7 @@ export class Philippines extends CalendarDef {
     peter_baptist_blasquez_paul_miki_and_companions_martyrs: {
       precedence: Precedences.ProperMemorial_11b,
       date: '2-6',
-      saints: [
+      martyrology: [
         'peter_baptist_blasquez_martyr',
         'paul_miki_martyr',
         'companions_martyrs',

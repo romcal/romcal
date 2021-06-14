@@ -8,66 +8,81 @@ import {
   LiturgicalColor,
 } from '../constants/colors';
 import { Precedences } from '../constants/precedences';
+import { MartyrologyItem } from '../../../catalog/martyrology';
 
 export interface BaseLiturgicalDay {
   /**
    * The unique key of the liturgical day.
    */
   key: string;
+
   /**
    * The localized name of the liturgical day.
    */
   name: string;
+
   /**
    * The ISO8601 formatted date and time string of the liturgical day.
    */
   date: string;
+
   /**
    * The precedence type of the liturgical day.
    */
   precedence: Precedences;
+
   /**
    * The rank of the liturgical day.
    */
   rank: Ranks;
-  // /**
-  //  * The localized rank of the liturgical day.
-  //  */
+
+  /**
+   * The localized rank of the liturgical day.
+   */
   // rankName: string;
+
   /**
    * Holy days of obligation are days on which the faithful are expected to attend Mass,
    * and engage in rest from work and recreation.
    */
   isHolyDayOfObligation: boolean;
-  // /**
-  //  * The liturgical localized colors of a liturgical day.
-  //  */
+
+  /**
+   * The liturgical localized colors of a liturgical day.
+   */
   // liturgicalColorNames: string[];
+
   /**
    * Season keys to which the liturgical day is a part.
    */
   seasons: LiturgicalSeasons[];
-  // /**
-  //  * Season localized name to which the liturgical day is a part.
-  //  */
+
+  /**
+   * Season localized name to which the liturgical day is a part.
+   */
   // seasonNames: string[];
+
   /**
    * Period keys to which the liturgical day is a part.
    */
   periods: LiturgicalPeriods[];
+
   /**
    * The liturgical colors of a liturgical day.
    */
   liturgicalColors: LiturgicalColor[];
-  // /**
-  //  * The names and the object diff of the calendars from which this liturgical day is extended.
-  //  * From the first extended definitions to the latest extended definition.
-  //  */
+
+  /**
+   * The specific martyrology metadata of a liturgical day, if applies.
+   */
+  martyrology: MartyrologyItem[];
+
+  /**
+   * The names and the object diff of the calendars from which this liturgical day is extended.
+   * From the first extended definitions to the latest extended definition.
+   */
   // fromExtendedCalendars: LiturgyDayExtendedMetadata[];
-  // /**
-  //  * The specific metadata of a liturgical day.
-  //  */
-  // metadata: LiturgicalDayMetadata;
+
   /**
    * Property used by Memorial and Feast celebrations only:
    * - Memorials: their observance is integrated into the celebration of the occurring weekday
@@ -78,14 +93,17 @@ export interface BaseLiturgicalDay {
    *    - Feasts: small hours are taken from the weekday.
    */
   weekday?: LiturgicalDay;
-  // /**
-  //  * Cycle metadata of a liturgical day.
-  //  */
+
+  /**
+   * Cycle metadata of a liturgical day.
+   */
   // cycles: RomcalCyclesMetadata;
+
   // /**
   //  * Calendar metadata for the liturgical day.
   //  */
   // calendar: RomcalCalendarMetadata;
+
   /**
    * The name of the calendar from which the liturgical day is defined.
    */
@@ -107,6 +125,7 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
   seasons: LiturgicalSeasons[];
   periods: LiturgicalPeriods[];
   liturgicalColors: LiturgicalColor[];
+  martyrology: MartyrologyItem[];
   weekday?: LiturgicalDay;
   fromCalendar: string;
 
@@ -127,6 +146,8 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
       day.liturgicalColors,
       [],
     );
+
+    this.martyrology = day.martyrology ?? [];
 
     if (day.weekday) {
       this.weekday = day.weekday;

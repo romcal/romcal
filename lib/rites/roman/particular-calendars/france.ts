@@ -49,7 +49,7 @@ export class France extends CalendarDef {
     pothinus_of_lyon_bishop_blandina_of_lyon_virgin_and_companions_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '6-2',
-      saints: [
+      martyrology: [
         'pothinus_of_lyon_bishop',
         'blandina_of_lyon_virgin',
         'companions_martyrs',

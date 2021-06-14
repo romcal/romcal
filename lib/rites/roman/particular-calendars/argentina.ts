@@ -105,7 +105,7 @@ export class Argentina extends CalendarDef {
     roch_gonzalez_alphonsus_rodriguez_and_john_del_castillo_priests: {
       precedence: Precedences.ProperMemorial_11b,
       date: '11-17',
-      saints: [
+      martyrology: [
         'roch_gonzalez_priest',
         'alphonsus_rodriguez_priest',
         'john_del_castillo_priest',

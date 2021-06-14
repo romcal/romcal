@@ -34,7 +34,7 @@ export class Brazil extends CalendarDef {
     ignatius_de_azevedo_priest_and_companions_martyrs: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-17',
-      saints: ['ignatius_de_azevedo_priest', 'companions_martyrs'],
+      martyrology: ['ignatius_de_azevedo_priest', 'companions_martyrs'],
     },
 
     rose_of_lima_virgin: {
@@ -46,7 +46,7 @@ export class Brazil extends CalendarDef {
     andrew_de_soveral_and_ambrose_francis_ferro_priests: {
       precedence: Precedences.ProperMemorial_11b,
       date: '10-3',
-      saints: ['andrew_de_soveral_priest', 'ambrose_francis_ferro_priest'],
+      martyrology: ['andrew_de_soveral_priest', 'ambrose_francis_ferro_priest'],
     },
 
     our_lady_of_aparecida: {
@@ -66,7 +66,7 @@ export class Brazil extends CalendarDef {
     roch_gonzalez_alphonsus_rodriguez_and_john_del_castillo_priests: {
       precedence: Precedences.ProperMemorial_11b,
       date: '11-19',
-      saints: [
+      martyrology: [
         'roch_gonzalez_priest',
         'alphonsus_rodriguez_priest',
         'john_del_castillo_priest',

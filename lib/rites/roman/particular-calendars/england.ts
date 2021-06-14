@@ -129,7 +129,7 @@ export class England extends CalendarDef {
     margaret_clitherow_anne_line_and_margaret_ward_virgin_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '8-30',
-      saints: [
+      martyrology: [
         'margaret_clitherow_virgin_martyr',
         'anne_line_virgin_martyr',
         'margaret_ward_virgin_martyr',
@@ -139,7 +139,7 @@ export class England extends CalendarDef {
     aidan_of_lindisfarne_bishop_and_the_saints_of_lindisfarne: {
       precedence: Precedences.OptionalMemorial_12,
       date: '8-31',
-      saints: ['aidan_of_lindisfarne_bishop', 'the_saints_of_lindisfarne'],
+      martyrology: ['aidan_of_lindisfarne_bishop', 'the_saints_of_lindisfarne'],
     },
 
     gregory_i_the_great_pope: {
@@ -224,7 +224,7 @@ export class England extends CalendarDef {
     chad_of_mercia_and_cedd_of_lastingham_bishops: {
       precedence: Precedences.OptionalMemorial_12,
       date: '10-26',
-      saints: ['chad_of_mercia_bishop', 'cedd_of_lastingham_bishop'],
+      martyrology: ['chad_of_mercia_bishop', 'cedd_of_lastingham_bishop'],
     },
 
     winefride_of_flintshire_virgin: {

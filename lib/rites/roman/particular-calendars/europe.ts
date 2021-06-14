@@ -7,7 +7,7 @@ export class Europe extends CalendarDef {
   definitions: DateDefinitions = {
     cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe:
       {
-        saints: [
+        martyrology: [
           'cyril_the_philosopher_monk',
           'methodius_of_thessaloniki_bishop',
         ],
