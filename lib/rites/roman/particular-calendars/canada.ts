@@ -2,6 +2,7 @@ import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
 import { Americas } from './americas';
+import { PatronTitles } from '../../../constants/martyrology-metadata';
 
 export class Canada extends CalendarDef {
   inheritFrom = Americas;
@@ -27,7 +28,7 @@ export class Canada extends CalendarDef {
     joseph_spouse_of_mary: {
       customLocaleKey: 'joseph_spouse_of_mary_patron_of_canada',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      titles: (titles) => [...titles, 'Patron of Canada'],
+      titles: (titles) => [...titles, PatronTitles.PatronOfCanada],
     },
 
     kateri_tekakwitha_virgin: {
@@ -89,7 +90,7 @@ export class Canada extends CalendarDef {
           key: 'anne_mother_of_mary',
           titles: (titles: string[]): string[] => [
             ...titles,
-            'Patroness of the Province of Quebec',
+            PatronTitles.PatronessOfTheProvinceOfQuebec,
           ],
         },
         'joachim_father_of_mary',
@@ -120,7 +121,7 @@ export class Canada extends CalendarDef {
       {
         precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
         date: '9-26',
-        titles: (titles) => [...titles, 'Copatrons of Canada'],
+        titles: (titles) => [...titles, PatronTitles.CopatronsOfCanada],
         saints: [
           'john_de_brebeuf_priest',
           'isaac_jogues_priest',

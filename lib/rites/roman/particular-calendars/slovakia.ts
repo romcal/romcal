@@ -8,6 +8,7 @@ import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
 import { Dayjs } from 'dayjs';
 import { Europe } from './europe';
+import { PatronTitles, Titles } from '../../../constants/martyrology-metadata';
 
 export class Slovakia extends CalendarDef {
   inheritFrom = Europe;
@@ -71,7 +72,7 @@ export class Slovakia extends CalendarDef {
         precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
         date: '7-5',
         liturgicalColors: LiturgicalColors.WHITE,
-        titles: ['Slavic Missionary'],
+        titles: [Titles.SlavicMissionary],
         saints: [
           'cyril_the_philosopher_monk',
           'methodius_of_thessaloniki_bishop',
@@ -125,7 +126,7 @@ export class Slovakia extends CalendarDef {
     our_lady_of_sorrows: {
       customLocaleKey: 'our_lady_of_sorrows_patroness_of_slovakia',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      titles: (titles) => [...titles, 'Patroness of Slovakia'],
+      titles: (titles) => [...titles, PatronTitles.PatronessOfSlovakia],
     },
 
     gall_of_switzerland_abbot: {

@@ -4,6 +4,7 @@ import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
 import { Dayjs } from 'dayjs';
 import { Europe } from './europe';
+import { PatronTitles } from '../../../constants/martyrology-metadata';
 
 export class Hungary extends CalendarDef {
   inheritFrom = Europe;
@@ -225,7 +226,7 @@ export class Hungary extends CalendarDef {
       customLocaleKey: 'our_lady_of_hungary_patroness_of_hungary',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '10-8',
-      titles: (titles) => [...titles, 'Patroness of Hungary'],
+      titles: (titles) => [...titles, PatronTitles.PatronessOfHungary],
     },
 
     charles_i_of_austria: {

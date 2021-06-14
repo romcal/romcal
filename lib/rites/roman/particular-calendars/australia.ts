@@ -7,6 +7,7 @@ import { Dates } from '../utils/dates';
 import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
 import { Dayjs } from 'dayjs';
+import { PatronTitles, Titles } from '../../../constants/martyrology-metadata';
 
 export class Australia extends CalendarDef {
   particularConfig: ParticularConfig = {
@@ -31,7 +32,7 @@ export class Australia extends CalendarDef {
       customLocaleKey: 'peter_chanel_priest_patron_of_oceania',
       precedence: Precedences.ProperMemorial_11b,
       saints: ['peter_chanel_priest'],
-      titles: ['Proto-martyr of Oceania', 'Patron of Oceania'],
+      titles: [Titles.ProtoMartyrOfOceania, PatronTitles.PatronOfOceania],
     },
 
     our_lady_help_of_christians: {

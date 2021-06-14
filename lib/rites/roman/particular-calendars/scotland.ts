@@ -2,6 +2,7 @@ import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
 import { Europe } from './europe';
+import { PatronTitles } from '../../../constants/martyrology-metadata';
 
 export class Scotland extends CalendarDef {
   inheritFrom = Europe;
@@ -45,7 +46,7 @@ export class Scotland extends CalendarDef {
     andrew_apostle: {
       customLocaleKey: 'andrew_apostle_patron_of_scotland',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      titles: (titles) => [...titles, 'Patron of Scotland'],
+      titles: (titles) => [...titles, PatronTitles.PatronOfScotland],
     },
   };
 }

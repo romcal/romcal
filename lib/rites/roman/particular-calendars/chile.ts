@@ -4,6 +4,7 @@ import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
 import { Dayjs } from 'dayjs';
 import { Americas } from './americas';
+import { Titles } from '../../../constants/martyrology-metadata';
 
 export class Chile extends CalendarDef {
   inheritFrom = Americas;
@@ -45,9 +46,11 @@ export class Chile extends CalendarDef {
       date: '7-14',
     },
 
-    our_lady_of_mount_carmel_mother_and_queen_of_chile: {
+    our_lady_of_mount_carmel: {
+      customLocaleKey: 'our_lady_of_mount_carmel_mother_and_queen_of_chile',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '7-16',
+      titles: (titles) => [...titles, Titles.MotherAndQueenOfChile],
       liturgicalColors: LiturgicalColors.WHITE,
     },
 

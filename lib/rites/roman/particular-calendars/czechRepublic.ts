@@ -8,6 +8,7 @@ import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
 import { Dayjs } from 'dayjs';
 import { Europe } from './europe';
+import { PatronTitles } from '../../../constants/martyrology-metadata';
 
 export class CzechRepublic extends CalendarDef {
   inheritFrom = Europe;
@@ -145,7 +146,7 @@ export class CzechRepublic extends CalendarDef {
       customLocaleKey:
         'wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      titles: (titles) => [...titles, 'Patron of the Czech nation'],
+      titles: (titles) => [...titles, PatronTitles.PatronOfTheCzechNation],
     },
 
     lawrence_ruiz_and_companions_martyrs: {

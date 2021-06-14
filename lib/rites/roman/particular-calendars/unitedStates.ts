@@ -7,6 +7,7 @@ import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
 import { Americas } from './americas';
 import { Dates } from '../utils/dates';
+import { PatronTitles } from '../../../constants/martyrology-metadata';
 
 export class UnitedStates extends CalendarDef {
   inheritFrom = Americas;
@@ -136,7 +137,7 @@ export class UnitedStates extends CalendarDef {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       isHolyDayOfObligation: (year: number): boolean =>
         Dates.immaculateConceptionOfMary(year).day() === 0,
-      titles: (titles) => [...titles, 'Patroness of the USA'],
+      titles: (titles) => [...titles, PatronTitles.PatronessOfTheUSA],
     },
   };
 }

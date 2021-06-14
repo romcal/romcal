@@ -2,6 +2,7 @@ import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
 import { Europe } from './europe';
+import { PatronTitles } from '../../../constants/martyrology-metadata';
 
 export class Russia extends CalendarDef {
   inheritFrom = Europe;
@@ -102,7 +103,7 @@ export class Russia extends CalendarDef {
     andrew_apostle: {
       customLocaleKey: 'andrew_apostle_patron_of_russia',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      titles: (titles) => [...titles, 'Patron of Russia'],
+      titles: (titles) => [...titles, PatronTitles.PatronOfRussia],
     },
 
     barbara_of_heliopolis_virgin: {

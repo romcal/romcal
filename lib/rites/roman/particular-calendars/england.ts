@@ -4,6 +4,7 @@ import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
 import dayjs, { Dayjs } from 'dayjs';
 import { Europe } from './europe';
+import { PatronTitles } from '../../../constants/martyrology-metadata';
 
 export class England extends CalendarDef {
   inheritFrom = Europe;
@@ -45,7 +46,7 @@ export class England extends CalendarDef {
           ? divineMercySunday.add(1, 'day')
           : date;
       },
-      titles: (titles) => [...titles, 'Patron of England'],
+      titles: (titles) => [...titles, PatronTitles.PatronOfEngland],
     },
 
     adalbert_of_prague_bishop: {

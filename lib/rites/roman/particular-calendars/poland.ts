@@ -4,6 +4,7 @@ import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
 import dayjs, { Dayjs } from 'dayjs';
 import { Europe } from './europe';
+import { PatronTitles } from '../../../constants/martyrology-metadata';
 
 export class Poland extends CalendarDef {
   inheritFrom = Europe;
@@ -61,7 +62,7 @@ export class Poland extends CalendarDef {
           ? divineMercySunday.add(1, 'day')
           : date;
       },
-      titles: (titles) => [...titles, 'Patron of Poland'],
+      titles: (titles) => [...titles, PatronTitles.PatronOfPoland],
     },
 
     our_lady_queen_of_poland: {
@@ -95,7 +96,7 @@ export class Poland extends CalendarDef {
       customLocaleKey: 'stanislaus_of_szczepanow_bishop_patron_of_poland',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '5-8',
-      titles: (titles) => [...titles, 'Patron of Poland'],
+      titles: (titles) => [...titles, PatronTitles.PatronOfPoland],
     },
 
     andrew_bobola_priest: {
