@@ -47,8 +47,8 @@ export default class Romcal {
       try {
         const data =
           this._config.scope === CalendarScope.Liturgical
-            ? Temporale.liturgicalYearBuilder(this._config.year)
-            : Temporale.gregorianYearBuilder(this._config.year);
+            ? new Temporale(this._config).liturgicalYearBuilder()
+            : new Temporale(this._config).gregorianYearBuilder();
 
         new GeneralRoman(this._config).buildDates(data);
 

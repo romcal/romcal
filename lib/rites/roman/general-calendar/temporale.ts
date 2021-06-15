@@ -1,10 +1,30 @@
 import { Dates } from '../utils/dates';
-import { Dayjs } from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
+import weekOfYear from 'dayjs/plugin/weekOfYear';
+import isoWeeksInYear from 'dayjs/plugin/isoWeeksInYear';
+import isLeapYear from 'dayjs/plugin/isLeapYear';
 import { Precedences } from '../constants/precedences';
 import { LiturgicalSeasons } from '../constants/seasons';
 import { LiturgicalPeriods } from '../constants/periods';
-import LiturgicalDay from '../models/liturgical-day';
+import LiturgicalDay, {
+  RomcalCalendarMetadata,
+  RomcalCyclesMetadata,
+} from '../models/liturgical-day';
 import { LiturgicalColors } from '../constants/colors';
+import {
+  LiturgicalDayCycles,
+  PSALTER_WEEKS,
+  PsalterWeeksCycles,
+  SUNDAYS_CYCLE,
+  SundaysCycles,
+  WEEKDAYS_CYCLE,
+  WeekdaysCycles,
+} from '../constants/cycles';
+import { RomcalConfig } from '../models/config';
+
+dayjs.extend(isoWeeksInYear);
+dayjs.extend(isLeapYear); // dependent on isLeapYear plugin
+dayjs.extend(weekOfYear);
 
 type DatesIndex = Record<string, string[]>;
 
@@ -20,16 +40,133 @@ export type LiturgicalDefBuiltData = {
 };
 
 export default class Temporale {
+  config: RomcalConfig;
+
+  private _cyclesCache?: Pick<
+    RomcalCyclesMetadata,
+    'liturgicalDayCycle' | 'sundayCycle' | 'weekdayCycle'
+  >;
+
+  private _calendarCache: Record<
+    number,
+    Pick<
+      RomcalCalendarMetadata,
+      'startOfLiturgicalYear' | 'endOfLiturgicalYear' | 'easter'
+    >
+  > = {};
+
+  constructor(config: RomcalConfig) {
+    this.config = config;
+  }
+
+  /**
+   * Output cycle metadata of the liturgical year.
+   */
+  private _addLiturgicalCycleMetadata(
+    date: Dayjs,
+    calendar: RomcalCalendarMetadata,
+  ): RomcalCyclesMetadata {
+    // Compute cycle of the liturgical year,
+    // and cache the data since they are the same for every days of the year
+    if (!this._cyclesCache) {
+      const year = dayjs(calendar.startOfLiturgicalYear).year();
+      const firstSundayOfAdvent = Dates.firstSundayOfAdvent(year);
+
+      let sundayCycle: SundaysCycles;
+      let weekdayCycle: WeekdaysCycles;
+
+      // Formula to calculate Sunday cycle (Year A, B, C)
+      const thisSundayCycleIndex: number = (year - 1963) % 3;
+      const nextSundayCycleIndex: number =
+        thisSundayCycleIndex === 2 ? 0 : thisSundayCycleIndex + 1;
+
+      // If the date is on or after the First Sunday of Advent,
+      // it is the next liturgical cycle
+      if (date.isSameOrAfter(firstSundayOfAdvent)) {
+        sundayCycle = SundaysCycles[SUNDAYS_CYCLE[nextSundayCycleIndex]];
+        weekdayCycle = WeekdaysCycles[WEEKDAYS_CYCLE[year % 2]];
+      } else {
+        sundayCycle = SundaysCycles[SUNDAYS_CYCLE[thisSundayCycleIndex]];
+        weekdayCycle = WeekdaysCycles[WEEKDAYS_CYCLE[(year + 1) % 2]];
+      }
+
+      this._cyclesCache = {
+        liturgicalDayCycle: LiturgicalDayCycles.TEMPORALE,
+        sundayCycle,
+        weekdayCycle,
+      };
+    }
+
+    // Psalter week cycle restart to 1 at the beginning of each season.
+    // Except during the four first days of lent (ash wednesday to the next saturday),
+    // which are in week 4, to start on week 1 after the first sunday of lent.
+    const weekIndex = (calendar.weekOfSeason % 4) - 1;
+    const psalterWeek =
+      PsalterWeeksCycles[PSALTER_WEEKS[weekIndex > -1 ? weekIndex : 3]];
+
+    return { ...this._cyclesCache, psalterWeek };
+  }
+
+  private _computeCalendarMetadata = (
+    year: number,
+    date: Dayjs,
+    startOfSeason: Dayjs,
+    endOfSeason: Dayjs,
+    weekOfSeason: number,
+    dayOfSeason: number,
+  ): RomcalCalendarMetadata => {
+    // Cache data so we don't have to compute them again each days
+    if (!this._calendarCache[year]) {
+      const startOfLiturgicalYear = Dates.firstSundayOfAdvent(year);
+      const endOfLiturgicalYear = Dates.firstSundayOfAdvent(year + 1).subtract(
+        1,
+        'day',
+      );
+      this._calendarCache[year] = {
+        startOfLiturgicalYear: startOfLiturgicalYear.toDate(),
+        endOfLiturgicalYear: endOfLiturgicalYear.toDate(),
+        easter: Dates.easter(year).toDate(),
+      };
+    }
+
+    const lCache = this._calendarCache[year];
+
+    return {
+      weekOfSeason,
+      dayOfSeason,
+      dayOfWeek: date.day(),
+      dayOfWeekCountInMonth: Math.ceil(date.date() / 7),
+      startOfLiturgicalYear: lCache.startOfLiturgicalYear,
+      endOfLiturgicalYear: lCache.endOfLiturgicalYear,
+      startOfSeason: startOfSeason.toDate(),
+      endOfSeason: endOfSeason.toDate(),
+      easter: lCache.easter,
+    };
+  };
+
+  /**
+   * Given a date in Christmastide, determine the week number of this season
+   * @param date The date that occur during christmastide
+   */
+  private _getWeekOfChristmastide = (date: Dayjs): number => {
+    const y = date.month() === 11 ? date.year() : date.year() - 1;
+    const christmas = Dates.christmas(y);
+    const firstDayOfWeek = christmas.clone().startOf('week');
+    return date.diff(firstDayOfWeek, 'week') + 1;
+  };
+
   /**
    * Generates the Proper of Time of the season of Advent
    * @param year
    */
-  static adventBuilder = (year: number): LiturgicalDefBuiltData => {
+  adventBuilder = (year: number): LiturgicalDefBuiltData => {
     const datesOfAdvent = Dates.datesOfAdvent(year - 1);
     const datesIndex: DatesIndex = {};
 
     const byKeys = datesOfAdvent.reduce(
       (acc: Record<string, LiturgicalDay>, date: Dayjs, idx) => {
+        const week = Math.floor(idx / 7) + 1;
+
         const key =
           date.month() >= 11 && date.date() >= 17 && date.day() > 0
             ? `advent_${date.locale('en').format('MMMM_D').toLowerCase()}`
@@ -48,6 +185,15 @@ export default class Temporale {
             : // Weekdays of Advent up to and including December 16. (UNLY #59 13)
               Precedences.Weekday_13;
 
+        const calendar = this._computeCalendarMetadata(
+          year,
+          date,
+          datesOfAdvent[0],
+          datesOfAdvent[datesOfAdvent.length - 1],
+          week,
+          idx,
+        );
+
         acc[key] = new LiturgicalDay({
           date,
           key,
@@ -55,6 +201,8 @@ export default class Temporale {
           precedence,
           seasons: [LiturgicalSeasons.ADVENT],
           periods: [],
+          cycles: this._addLiturgicalCycleMetadata(date, calendar),
+          calendar,
           liturgicalColors: [LiturgicalColors.PURPLE],
           isHolyDayOfObligation: date.day() === 0,
           fromCalendar: 'temporale',
@@ -71,7 +219,7 @@ export default class Temporale {
     return { byKeys, datesIndex };
   };
 
-  static christmasTimeBuilder = (
+  christmasTimeBuilder = (
     year: number,
     part: ChristmasTimeParts = ChristmasTimeParts.All,
   ): LiturgicalDefBuiltData => {
@@ -124,6 +272,15 @@ export default class Temporale {
         (date.month() === 0 && part === ChristmasTimeParts.LateChristmasTime) ||
         (date.month() === 11 && part === ChristmasTimeParts.EarlyChristmasTime)
       ) {
+        const calendar = this._computeCalendarMetadata(
+          year,
+          date,
+          datesOfChristmasTime[0],
+          datesOfChristmasTime[datesOfChristmasTime.length - 1],
+          this._getWeekOfChristmastide(date),
+          idx,
+        );
+
         byKeys[key] = new LiturgicalDay({
           date,
           key,
@@ -135,6 +292,8 @@ export default class Temporale {
               ? [LiturgicalPeriods.CHRISTMAS_OCTAVE]
               : []),
           ],
+          cycles: this._addLiturgicalCycleMetadata(date, calendar),
+          calendar,
           liturgicalColors: [LiturgicalColors.WHITE],
           isHolyDayOfObligation: date.day() === 0,
           fromCalendar: 'temporale',
@@ -148,7 +307,7 @@ export default class Temporale {
     return { byKeys, datesIndex };
   };
 
-  static lentBuilder = (year: number): LiturgicalDefBuiltData => {
+  lentBuilder = (year: number): LiturgicalDefBuiltData => {
     const datesOfLent = Dates.datesOfLent(year);
     const datesIndex: DatesIndex = {};
 
@@ -199,6 +358,15 @@ export default class Temporale {
           precedence = Precedences.PrivilegedWeekday_9;
         }
 
+        const calendar = this._computeCalendarMetadata(
+          year,
+          date,
+          datesOfLent[0],
+          datesOfLent[datesOfLent.length - 1],
+          week,
+          idx,
+        );
+
         acc[key] = new LiturgicalDay({
           date,
           key,
@@ -206,6 +374,8 @@ export default class Temporale {
           precedence,
           seasons: [LiturgicalSeasons.LENT],
           periods: [],
+          cycles: this._addLiturgicalCycleMetadata(date, calendar),
+          calendar,
           liturgicalColors,
           isHolyDayOfObligation: date.day() === 0,
           fromCalendar: 'temporale',
@@ -237,7 +407,7 @@ export default class Temporale {
     return { byKeys, datesIndex };
   };
 
-  static paschalTriduumBuilder = (year: number): LiturgicalDefBuiltData => {
+  paschalTriduumBuilder = (year: number): LiturgicalDefBuiltData => {
     // Retrieve only Holy Friday and Holy Saturday,
     // the Holy Thursday is managed in the Lent function
     // Easter Sunday is managed in the EasterTime function
@@ -251,6 +421,15 @@ export default class Temporale {
       (acc: Record<string, LiturgicalDay>, date: Dayjs, idx) => {
         const key = idx === 0 ? 'good_friday' : 'holy_saturday';
 
+        const calendar = this._computeCalendarMetadata(
+          year,
+          date,
+          datesOfPaschalTriduum[0],
+          datesOfPaschalTriduum[datesOfPaschalTriduum.length - 1].add(1, 'day'),
+          1,
+          idx,
+        );
+
         acc[key] = new LiturgicalDay({
           date,
           key,
@@ -258,6 +437,8 @@ export default class Temporale {
           precedence: Precedences.Triduum_1,
           seasons: [LiturgicalSeasons.PASCHAL_TRIDUUM],
           periods: [LiturgicalPeriods.HOLY_WEEK],
+          cycles: this._addLiturgicalCycleMetadata(date, calendar),
+          calendar,
           liturgicalColors:
             idx === 0 ? [LiturgicalColors.RED] : [LiturgicalColors.WHITE],
           isHolyDayOfObligation: false,
@@ -275,7 +456,7 @@ export default class Temporale {
     return { byKeys, datesIndex };
   };
 
-  static easterTimeBuilder = (year: number): LiturgicalDefBuiltData => {
+  easterTimeBuilder = (year: number): LiturgicalDefBuiltData => {
     const datesOfEaster = Dates.datesOfEaster(year);
     const datesIndex: DatesIndex = {};
 
@@ -320,6 +501,15 @@ export default class Temporale {
           precedence = Precedences.Weekday_13;
         }
 
+        const calendar = this._computeCalendarMetadata(
+          year,
+          date,
+          datesOfEaster[0],
+          datesOfEaster[datesOfEaster.length - 1],
+          week,
+          idx,
+        );
+
         acc[key] = new LiturgicalDay({
           date,
           key,
@@ -327,6 +517,8 @@ export default class Temporale {
           precedence,
           seasons: [LiturgicalSeasons.EASTER_TIME],
           periods: [LiturgicalPeriods.HOLY_WEEK],
+          cycles: this._addLiturgicalCycleMetadata(date, calendar),
+          calendar,
           liturgicalColors: [LiturgicalColors.WHITE],
           isHolyDayOfObligation: date.day() === 0,
           fromCalendar: 'temporale',
@@ -350,27 +542,38 @@ export default class Temporale {
     return { byKeys, datesIndex };
   };
 
-  static earlyOrdinaryTimeBuilder = (year: number): LiturgicalDefBuiltData =>
-    Temporale._ordinaryTimeBuilderFromDates(
+  earlyOrdinaryTimeBuilder = (year: number): LiturgicalDefBuiltData =>
+    this._ordinaryTimeBuilderFromDates(
+      year,
       Dates.datesOfEarlyOrdinaryTime(year),
       LiturgicalPeriods.EARLY_ORDINARY_TIME,
       true,
     );
 
-  static lateOrdinaryTimeBuilder = (year: number): LiturgicalDefBuiltData =>
-    Temporale._ordinaryTimeBuilderFromDates(
+  lateOrdinaryTimeBuilder = (year: number): LiturgicalDefBuiltData =>
+    this._ordinaryTimeBuilderFromDates(
+      year,
       Dates.datesOfLateOrdinaryTime(year),
       LiturgicalPeriods.LATE_ORDINARY_TIME,
       false,
     );
 
-  private static _ordinaryTimeBuilderFromDates = (
+  private _ordinaryTimeBuilderFromDates = (
+    year: number,
     dates: Dayjs[],
     periodOfOrdinaryTime: LiturgicalPeriods,
     isEarlyOrdinaryTime: boolean,
   ): LiturgicalDefBuiltData => {
     const lateOrdinaryStartWeekCount = 35 - (dates.length + 1) / 7;
     const datesIndex: DatesIndex = {};
+
+    const firstDayOfSeason = Dates.baptismOfTheLord(
+      this.config.year,
+      this.config.epiphanyOnSunday,
+    ).add(1, 'day');
+    const lastDayOfSeason = Dates.firstSundayOfAdvent(
+      this.config.year + 1,
+    ).subtract(1, 'day');
 
     const byKeys = dates.reduce(
       (acc: Record<string, LiturgicalDay>, date: Dayjs, idx) => {
@@ -406,6 +609,15 @@ export default class Temporale {
                 Precedences.Weekday_13;
         }
 
+        const calendar = this._computeCalendarMetadata(
+          year,
+          date,
+          firstDayOfSeason,
+          lastDayOfSeason,
+          week,
+          idx,
+        );
+
         acc[key] = new LiturgicalDay({
           date,
           key,
@@ -413,6 +625,8 @@ export default class Temporale {
           precedence,
           seasons: [LiturgicalSeasons.ORDINARY_TIME],
           periods: [periodOfOrdinaryTime],
+          cycles: this._addLiturgicalCycleMetadata(date, calendar),
+          calendar,
           liturgicalColors: [LiturgicalColors.GREEN],
           isHolyDayOfObligation: date.day() === 0,
           fromCalendar: 'temporale',
@@ -429,14 +643,14 @@ export default class Temporale {
     return { byKeys, datesIndex };
   };
 
-  static liturgicalYearBuilder = (year: number): LiturgicalDefBuiltData => {
-    const advent = Temporale.adventBuilder(year);
-    const christmasTime = Temporale.christmasTimeBuilder(year);
-    const earlyOrdinaryTime = Temporale.earlyOrdinaryTimeBuilder(year);
-    const lent = Temporale.lentBuilder(year);
-    const paschalTriduum = Temporale.paschalTriduumBuilder(year);
-    const easterTime = Temporale.easterTimeBuilder(year);
-    const lateOrdinaryTime = Temporale.lateOrdinaryTimeBuilder(year);
+  liturgicalYearBuilder = (): LiturgicalDefBuiltData => {
+    const advent = this.adventBuilder(this.config.year);
+    const christmasTime = this.christmasTimeBuilder(this.config.year);
+    const earlyOrdinaryTime = this.earlyOrdinaryTimeBuilder(this.config.year);
+    const lent = this.lentBuilder(this.config.year);
+    const paschalTriduum = this.paschalTriduumBuilder(this.config.year);
+    const easterTime = this.easterTimeBuilder(this.config.year);
+    const lateOrdinaryTime = this.lateOrdinaryTimeBuilder(this.config.year);
 
     return {
       byKeys: {
@@ -460,19 +674,19 @@ export default class Temporale {
     };
   };
 
-  static gregorianYearBuilder = (year: number): LiturgicalDefBuiltData => {
-    const lateChristmasTime = Temporale.christmasTimeBuilder(
-      year,
+  gregorianYearBuilder = (): LiturgicalDefBuiltData => {
+    const lateChristmasTime = this.christmasTimeBuilder(
+      this.config.year,
       ChristmasTimeParts.LateChristmasTime,
     );
-    const earlyOrdinaryTime = Temporale.earlyOrdinaryTimeBuilder(year);
-    const lent = Temporale.lentBuilder(year);
-    const paschalTriduum = Temporale.paschalTriduumBuilder(year);
-    const easterTime = Temporale.easterTimeBuilder(year);
-    const lateOrdinaryTime = Temporale.lateOrdinaryTimeBuilder(year);
-    const advent = Temporale.adventBuilder(year + 1);
-    const earlyChristmasTime = Temporale.christmasTimeBuilder(
-      year + 1,
+    const earlyOrdinaryTime = this.earlyOrdinaryTimeBuilder(this.config.year);
+    const lent = this.lentBuilder(this.config.year);
+    const paschalTriduum = this.paschalTriduumBuilder(this.config.year);
+    const easterTime = this.easterTimeBuilder(this.config.year);
+    const lateOrdinaryTime = this.lateOrdinaryTimeBuilder(this.config.year);
+    const advent = this.adventBuilder(this.config.year + 1);
+    const earlyChristmasTime = this.christmasTimeBuilder(
+      this.config.year + 1,
       ChristmasTimeParts.EarlyChristmasTime,
     );
 

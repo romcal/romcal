@@ -10,6 +10,31 @@ import {
 import { Precedences } from '../constants/precedences';
 import { MartyrologyItem } from '../../../catalog/martyrology';
 import { Titles } from '../../../constants/martyrology-metadata';
+import {
+  LiturgicalDayCycles,
+  PsalterWeeksCycles,
+  SundaysCycles,
+  WeekdaysCycles,
+} from '../constants/cycles';
+
+export type RomcalCyclesMetadata = {
+  liturgicalDayCycle: LiturgicalDayCycles;
+  sundayCycle: SundaysCycles;
+  weekdayCycle: WeekdaysCycles;
+  psalterWeek: PsalterWeeksCycles;
+};
+
+export type RomcalCalendarMetadata = {
+  weekOfSeason: number;
+  dayOfSeason: number;
+  dayOfWeek: number; // 0 | 1 | 2 | 3 | 4 | 5 | 6; // 0 is Sunday, 6 is Saturday
+  dayOfWeekCountInMonth: number;
+  startOfLiturgicalYear: Date;
+  endOfLiturgicalYear: Date;
+  startOfSeason: Date;
+  endOfSeason: Date;
+  easter: Date;
+};
 
 export interface BaseLiturgicalDay {
   /**
@@ -98,12 +123,12 @@ export interface BaseLiturgicalDay {
   /**
    * Cycle metadata of a liturgical day.
    */
-  // cycles: RomcalCyclesMetadata;
+  cycles: RomcalCyclesMetadata;
 
-  // /**
-  //  * Calendar metadata for the liturgical day.
-  //  */
-  // calendar: RomcalCalendarMetadata;
+  /**
+   * Calendar metadata for the liturgical day.
+   */
+  calendar: Partial<RomcalCalendarMetadata>;
 
   /**
    * The name of the calendar from which the liturgical day is defined.
@@ -111,7 +136,10 @@ export interface BaseLiturgicalDay {
   fromCalendar: string;
 }
 
-export type LiturgicalDayInput = Pick<BaseLiturgicalDay, 'key' | 'precedence'> &
+export type LiturgicalDayInput = Pick<
+  BaseLiturgicalDay,
+  'key' | 'precedence' | 'cycles' | 'calendar'
+> &
   Partial<Omit<BaseLiturgicalDay, 'key' | 'date' | 'precedence' | 'rank'>> & {
     date: string | Dayjs;
   };
@@ -127,6 +155,8 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
   periods: LiturgicalPeriods[];
   liturgicalColors: LiturgicalColor[];
   martyrology: MartyrologyItem[];
+  cycles: RomcalCyclesMetadata;
+  calendar: Partial<RomcalCalendarMetadata>;
   weekday?: LiturgicalDay;
   fromCalendar: string;
 
@@ -139,6 +169,8 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
     this.name = day.name ?? day.key;
     this.seasons = day.seasons ?? [];
     this.periods = day.periods ?? [];
+    this.cycles = day.cycles;
+    this.calendar = day.calendar;
 
     this.liturgicalColors = LiturgicalDay.checkOrDetermineLiturgicalColors(
       dayjs.isDayjs(day.date) ? day.date : dayjs(day.date),
