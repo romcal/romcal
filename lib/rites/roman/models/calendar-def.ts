@@ -1,6 +1,6 @@
 import { RomcalConfig } from './config';
 import { LiturgicalDefBuiltData } from '../general-calendar/temporale';
-import LiturgicalDay, { RomcalCyclesMetadata } from './liturgical-day';
+import LiturgicalDay from './liturgical-day';
 import dayjs, { Dayjs } from 'dayjs';
 import { LiturgicalColors } from '../constants/colors';
 import { CalendarScope } from '../../../constants/calendar-scope';
@@ -250,6 +250,7 @@ export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
             (k) => k !== key,
           );
         }
+        return;
       }
 
       // If no date is defined, and no inherited LiturgicalDay exists,
@@ -318,39 +319,38 @@ export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
         cycles.properCycle = ProperCycles.SANCTORALE;
       }
 
-      if (def)
-        // Update previous defined LiturgicalDay with the new data
-        builtData.byKeys[key] = new LiturgicalDay({
-          // Import the base liturgical day, but exclude its liturgical color
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
-          ...(({ liturgicalColors, ...o }) => o)(baseData),
+      // Update previous defined LiturgicalDay with the new data
+      builtData.byKeys[key] = new LiturgicalDay({
+        // Import the base liturgical day, but exclude its liturgical color
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        ...(({ liturgicalColors, ...o }) => o)(baseData),
 
-          // Import the inherited liturgical day to extend
-          ...(builtData.byKeys[key] ?? {}),
+        // Import the inherited liturgical day to extend
+        ...(builtData.byKeys[key] ?? {}),
 
-          // Set new object data
-          key,
-          ...(dateInput ? { date: dateInput } : {}),
-          ...(def.precedence ? { precedence: def.precedence } : {}),
-          ...(def.liturgicalColors
-            ? {
-                liturgicalColors: Array.isArray(def.liturgicalColors)
-                  ? def.liturgicalColors
-                  : [def.liturgicalColors],
-              }
-            : {}),
-          ...(def.isHolyDayOfObligation
-            ? {
-                isHolyDayOfObligation:
-                  typeof def.isHolyDayOfObligation === 'function'
-                    ? def.isHolyDayOfObligation(this.config.year)
-                    : def.isHolyDayOfObligation,
-              }
-            : {}),
-          cycles,
-          martyrology,
-          fromCalendar: this.calendarName,
-        });
+        // Set new object data
+        key,
+        ...(dateInput ? { date: dateInput } : {}),
+        ...(def.precedence ? { precedence: def.precedence } : {}),
+        ...(def.liturgicalColors
+          ? {
+              liturgicalColors: Array.isArray(def.liturgicalColors)
+                ? def.liturgicalColors
+                : [def.liturgicalColors],
+            }
+          : {}),
+        ...(def.isHolyDayOfObligation
+          ? {
+              isHolyDayOfObligation:
+                typeof def.isHolyDayOfObligation === 'function'
+                  ? def.isHolyDayOfObligation(this.config.year)
+                  : def.isHolyDayOfObligation,
+            }
+          : {}),
+        cycles,
+        martyrology,
+        fromCalendar: this.calendarName,
+      });
 
       /**
        * For Memorial and Feast celebrations only, the weekday property is added
