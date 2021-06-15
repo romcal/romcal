@@ -4,16 +4,17 @@ import { PatronTitles } from '../../../constants/martyrology-metadata';
 
 export class Europe extends CalendarDef {
   definitions: DateDefinitions = {
-    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe:
-      {
-        martyrology: [
-          'cyril_the_philosopher_monk',
-          'methodius_of_thessaloniki_bishop',
-        ],
-        precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-        date: '2-14',
-        titles: (titles) => [...titles, PatronTitles.CopatronOfEurope],
-      },
+    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop: {
+      customLocaleKey:
+        'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe',
+      martyrology: [
+        'cyril_the_philosopher_monk',
+        'methodius_of_thessaloniki_bishop',
+      ],
+      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
+      date: '2-14',
+      titles: (titles) => [...titles, PatronTitles.CopatronOfEurope],
+    },
 
     catherine_of_siena_virgin: {
       customLocaleKey: 'catherine_of_siena_virgin_copatroness_of_europe',

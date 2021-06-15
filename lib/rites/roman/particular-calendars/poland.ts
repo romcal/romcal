@@ -96,6 +96,7 @@ export class Poland extends CalendarDef {
     },
 
     andrew_bobola_priest: {
+      precedence: Precedences.ProperFeast_8f,
       date: '5-16',
     },
 

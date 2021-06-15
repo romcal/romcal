@@ -21,11 +21,7 @@ export class Slovakia extends CalendarDef {
   };
 
   definitions: DateDefinitions = {
-    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe:
-      {
-        // TODO: When votive Masses (#110) are implemented, change this celebration into votive Mass of `cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe`
-        drop: true,
-      },
+    // TODO: When votive Masses (#110) are implemented, on '2-14', add a votive Mass for `cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop`
 
     joseph_spouse_of_mary: {
       isHolyDayOfObligation: false,
@@ -66,17 +62,17 @@ export class Slovakia extends CalendarDef {
       date: '7-2',
     },
 
-    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_slavic_missionaries:
-      {
-        precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-        date: '7-5',
-
-        titles: [Titles.SlavicMissionary],
-        martyrology: [
-          'cyril_the_philosopher_monk',
-          'methodius_of_thessaloniki_bishop',
-        ],
-      },
+    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop: {
+      customLocaleKey:
+        'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_slavic_missionaries',
+      precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
+      date: '7-5',
+      titles: [Titles.SlavicMissionary],
+      martyrology: [
+        'cyril_the_philosopher_monk',
+        'methodius_of_thessaloniki_bishop',
+      ],
+    },
 
     anthony_zaccaria_priest: {
       precedence: Precedences.OptionalMemorial_12,

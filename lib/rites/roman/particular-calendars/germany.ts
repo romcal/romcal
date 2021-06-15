@@ -233,9 +233,9 @@ export class Germany extends CalendarDef {
       precedence: Precedences.OptionalMemorial_12,
       date: '10-21',
       martyrology: [
-        'ursula_of_cologne_virgins',
+        'ursula_of_cologne_virgin',
         {
-          key: 'companions_martyr',
+          key: 'companions_martyrs',
           titles: (titles: string[]): string[] => ['Virgin', ...titles],
         },
       ],

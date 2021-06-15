@@ -225,7 +225,7 @@ export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
         // computing is out of scope. In this case romcal must throw an error.
         else {
           throw new Error(
-            `DateDefInput with key '${key}' have a date out of scope.`,
+            `In the '${this.calendarName}' calendar, , DateDefInput with key '${key}' have a date out of scope.`,
           );
         }
       }
@@ -238,11 +238,11 @@ export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
       if (def.drop) {
         if (!builtData.byKeys[key]) {
           throw new Error(
-            `Trying to drop a LiturgicalDay that doesn't exists: '${key}'.`,
+            `In the '${this.calendarName}' calendar, trying to drop a LiturgicalDay that doesn't exists: '${key}'.`,
           );
         } else if (builtData.datesIndex[dateStr].length === 1) {
           throw new Error(
-            `You can't drop a LiturgicalDay from the Proper of Time: '${key}'.`,
+            `In the '${this.calendarName}' calendar, you can't drop a LiturgicalDay from the Proper of Time: '${key}'.`,
           );
         } else {
           delete builtData.byKeys[key];
@@ -256,7 +256,7 @@ export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
       // romcal must throw an error.
       if (!builtData.byKeys[key] && !dateInput) {
         throw new Error(
-          `DateDefInput with key '${key}' must have a 'date' defined.`,
+          `In the '${this.calendarName}' calendar, DateDefInput with key '${key}' must have a 'date' defined.`,
         );
       }
 
@@ -264,7 +264,7 @@ export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
       // romcal must throw an error.
       if (!builtData.byKeys[key] && !def.precedence) {
         throw new Error(
-          `DateDefInput with key '${key}' must have a 'precedence' defined.`,
+          `In the '${this.calendarName}' calendar, DateDefInput with key '${key}' must have a 'precedence' defined.`,
         );
       }
 
@@ -300,7 +300,7 @@ export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
           // In this situation, romcal must report en error.
           else {
             throw new Error(
-              `A LiturgicalDay with the key '${key}', have a badly referenced martyrology item: '${pointer.key}'.`,
+              `In the '${this.calendarName}' calendar, a LiturgicalDay with the key '${key}', have a badly referenced martyrology item: '${pointer.key}'.`,
             );
           }
         },

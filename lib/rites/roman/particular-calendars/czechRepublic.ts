@@ -87,11 +87,10 @@ export class CzechRepublic extends CalendarDef {
       date: '7-4',
     },
 
-    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe:
-      {
-        date: '7-5',
-        // TODO: Should we add `Patrons of Moravia`?
-      },
+    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop: {
+      date: '7-5',
+      // TODO: Should we add `Patrons of Moravia`?
+    },
 
     hroznata_of_bohemia_martyr: {
       precedence: Precedences.OptionalMemorial_12,
