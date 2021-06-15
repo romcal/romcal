@@ -172,7 +172,7 @@ export class Ireland extends CalendarDef {
       date: '7-6',
     },
 
-    saintMaelruainMaolruainVirgin: {
+    maelruain_of_tallaght_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-7',
     },
