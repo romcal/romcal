@@ -3,6 +3,7 @@ import { Dates } from '../utils/dates';
 import { Precedences } from '../constants/precedences';
 import dayjs, { Dayjs } from 'dayjs';
 import { PatronTitles } from '../../../constants/martyrology-metadata';
+import { ProperCycles } from '../constants/cycles';
 
 export class Philippines extends CalendarDef {
   definitions: DateDefinitions = {
@@ -14,7 +15,7 @@ export class Philippines extends CalendarDef {
         const feastDay = 22 - (firstDay.day() == 0 ? 7 : firstDay.day());
         return dayjs.utc(`${year}-1-${feastDay}`);
       },
-      // cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
+      properCycle: ProperCycles.TEMPORALE,
     },
 
     peter_baptist_blasquez_paul_miki_and_companions_martyrs: {

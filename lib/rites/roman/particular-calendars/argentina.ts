@@ -4,6 +4,7 @@ import { Precedences } from '../constants/precedences';
 import dayjs, { Dayjs } from 'dayjs';
 import { Americas } from './americas';
 import { PatronTitles } from '../../../constants/martyrology-metadata';
+import { ProperCycles } from '../constants/cycles';
 
 export class Argentina extends CalendarDef {
   inheritFrom = Americas;
@@ -114,7 +115,7 @@ export class Argentina extends CalendarDef {
       precedence: Precedences.ProperMemorial_11b,
       date: (year: number): Dayjs =>
         dayjs.utc(Dates.divineMercySunday(year).add(6, 'day')),
-      // // cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
+      properCycle: ProperCycles.TEMPORALE,
     },
   };
 }

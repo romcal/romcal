@@ -11,29 +11,77 @@ import { Precedences } from '../constants/precedences';
 import { MartyrologyItem } from '../../../catalog/martyrology';
 import { Titles } from '../../../constants/martyrology-metadata';
 import {
-  LiturgicalDayCycles,
+  ProperCycles,
   PsalterWeeksCycles,
   SundaysCycles,
   WeekdaysCycles,
 } from '../constants/cycles';
 
 export type RomcalCyclesMetadata = {
-  liturgicalDayCycle: LiturgicalDayCycles;
+  /**
+   * The proper cycle in which the liturgical day is part.
+   */
+  properCycle: ProperCycles;
+
+  /**
+   * The Sunday yearly cycle in which the liturgical day is part.
+   */
   sundayCycle: SundaysCycles;
+
+  /**
+   * The weekday yearly cycle in which the liturgical day is part.
+   */
   weekdayCycle: WeekdaysCycles;
+
+  /**
+   * The psalter week cycle in which the liturgical day is part.
+   */
   psalterWeek: PsalterWeeksCycles;
 };
 
 export type RomcalCalendarMetadata = {
+  /**
+   * The week number of the liturgical season.
+   * Starts from `1`, except in the seasons of lent,
+   * the week of Ash Wednesday to the next Saturday is count as `0`.
+   */
   weekOfSeason: number;
+
+  /**
+   * The day number within the whole season.
+   */
   dayOfSeason: number;
-  dayOfWeek: number; // 0 | 1 | 2 | 3 | 4 | 5 | 6; // 0 is Sunday, 6 is Saturday
-  dayOfWeekCountInMonth: number;
+
+  /**
+   * The day of the week.
+   * Returns numbers from 0 (Sunday) to 6 (Saturday).
+   */
+  dayOfWeek: number; // 0 | 1 | 2 | 3 | 4 | 5 | 6;
+
+  /**
+   * The nth day of week in month.
+   */
+  nthDayOfWeekInMonth: number;
+
+  /**
+   * The first day of the liturgical day, i.e. the first Sunday of Advent.
+   */
   startOfLiturgicalYear: Date;
+
+  /**
+   * The last day of the liturgical day, i.e. the last Saturday of Ordinary Time, in the 34th week.
+   */
   endOfLiturgicalYear: Date;
+
+  /**
+   * The first day of the current liturgical season.
+   */
   startOfSeason: Date;
+
+  /**
+   * The last day of the current liturgical season.
+   */
   endOfSeason: Date;
-  easter: Date;
 };
 
 export interface BaseLiturgicalDay {

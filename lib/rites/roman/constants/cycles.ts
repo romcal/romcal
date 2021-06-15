@@ -1,7 +1,7 @@
 /**
  * Liturgical Day cycle that can be used as metadata for liturgical days.
  */
-export enum LiturgicalDayCycles {
+export enum ProperCycles {
   TEMPORALE = 'TEMPORALE',
   SANCTORALE = 'SANCTORALE',
 }
@@ -36,11 +36,9 @@ export enum PsalterWeeksCycles {
 /**
  * A dynamically generated constant consisting of all the enum keys in [[LITURGICAL_DAY_CYCLES]]
  */
-export const LITURGICAL_DAY_CYCLE = Object.keys(LiturgicalDayCycles).filter(
-  (key) =>
-    typeof LiturgicalDayCycles[key as keyof typeof LiturgicalDayCycles] ===
-    'string',
-) as Array<keyof typeof LiturgicalDayCycles>;
+export const LITURGICAL_DAY_CYCLE = Object.keys(ProperCycles).filter(
+  (key) => typeof ProperCycles[key as keyof typeof ProperCycles] === 'string',
+) as Array<keyof typeof ProperCycles>;
 
 /**
  * A dynamically generated constant consisting of all the enum keys in [[SUNDAY_CYCLES]]
