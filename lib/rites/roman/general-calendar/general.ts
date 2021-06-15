@@ -8,6 +8,7 @@ import { Dates } from '../utils/dates';
 import { Precedences } from '../constants/precedences';
 import { LiturgicalColors } from '../constants/colors';
 import { Sanctorale } from './sanctorale';
+import { ProperCycles } from '../constants/cycles';
 
 export class GeneralRoman extends CalendarDef {
   inheritFrom = Sanctorale;
@@ -75,7 +76,7 @@ export class GeneralRoman extends CalendarDef {
       precedence: Precedences.UnprivilegedSunday_6,
       date: (y: number): Dayjs =>
         Dates.baptismOfTheLord(y).add(2, 'week').startOf('week'),
-      // cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
+      properCycle: ProperCycles.TEMPORALE,
     },
 
     // The proper color for the Chair of Peter (Feast, Feb 22) and the Conversion of
@@ -554,8 +555,7 @@ export class GeneralRoman extends CalendarDef {
     mary_mother_of_the_church: {
       precedence: Precedences.GeneralMemorial_10,
       date: (y: number): Dayjs => Dates.pentecostSunday(y).add(1, 'day'),
-
-      // cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
+      properCycle: ProperCycles.TEMPORALE,
     },
 
     bridget_of_sweden_religious: {

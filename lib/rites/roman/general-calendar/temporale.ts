@@ -12,7 +12,7 @@ import LiturgicalDay, {
 } from '../models/liturgical-day';
 import { LiturgicalColors } from '../constants/colors';
 import {
-  LiturgicalDayCycles,
+  ProperCycles,
   PSALTER_WEEKS,
   PsalterWeeksCycles,
   SUNDAYS_CYCLE,
@@ -44,14 +44,14 @@ export default class Temporale {
 
   private _cyclesCache?: Pick<
     RomcalCyclesMetadata,
-    'liturgicalDayCycle' | 'sundayCycle' | 'weekdayCycle'
+    'properCycle' | 'sundayCycle' | 'weekdayCycle'
   >;
 
   private _calendarCache: Record<
     number,
     Pick<
       RomcalCalendarMetadata,
-      'startOfLiturgicalYear' | 'endOfLiturgicalYear' | 'easter'
+      'startOfLiturgicalYear' | 'endOfLiturgicalYear'
     >
   > = {};
 
@@ -91,7 +91,7 @@ export default class Temporale {
       }
 
       this._cyclesCache = {
-        liturgicalDayCycle: LiturgicalDayCycles.TEMPORALE,
+        properCycle: ProperCycles.TEMPORALE,
         sundayCycle,
         weekdayCycle,
       };
@@ -125,7 +125,6 @@ export default class Temporale {
       this._calendarCache[year] = {
         startOfLiturgicalYear: startOfLiturgicalYear.toDate(),
         endOfLiturgicalYear: endOfLiturgicalYear.toDate(),
-        easter: Dates.easter(year).toDate(),
       };
     }
 
@@ -135,12 +134,11 @@ export default class Temporale {
       weekOfSeason,
       dayOfSeason,
       dayOfWeek: date.day(),
-      dayOfWeekCountInMonth: Math.ceil(date.date() / 7),
+      nthDayOfWeekInMonth: Math.ceil(date.date() / 7),
       startOfLiturgicalYear: lCache.startOfLiturgicalYear,
       endOfLiturgicalYear: lCache.endOfLiturgicalYear,
       startOfSeason: startOfSeason.toDate(),
       endOfSeason: endOfSeason.toDate(),
-      easter: lCache.easter,
     };
   };
 
@@ -234,11 +232,13 @@ export default class Temporale {
 
       let key: string;
       let precedence: Precedences;
+      let isHolyDayOfObligation = date.day() === 0;
 
       // Nativity of the Lord
       if (idx === 0) {
         key = 'christmas';
         precedence = Precedences.TemporaleSolemnity_2;
+        isHolyDayOfObligation = true;
       }
       // Days within the Octave of Christmas. (UNLY #59 9)
       else if (idx < 7) {
@@ -249,6 +249,7 @@ export default class Temporale {
       else if (idx === 7) {
         key = 'mary_mother_of_god';
         precedence = Precedences.GeneralSolemnity_3;
+        isHolyDayOfObligation = true;
       }
       // Sundays of Christmas Time. (UNLY #59 6)
       else if (date.day() === 0) {
@@ -295,7 +296,7 @@ export default class Temporale {
           cycles: this._addLiturgicalCycleMetadata(date, calendar),
           calendar,
           liturgicalColors: [LiturgicalColors.WHITE],
-          isHolyDayOfObligation: date.day() === 0,
+          isHolyDayOfObligation,
           fromCalendar: 'temporale',
         });
 

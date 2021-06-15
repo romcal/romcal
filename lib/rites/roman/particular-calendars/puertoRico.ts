@@ -4,6 +4,7 @@ import { Precedences } from '../constants/precedences';
 import { Dayjs } from 'dayjs';
 import { Americas } from './americas';
 import { PatronTitles } from '../../../constants/martyrology-metadata';
+import { ProperCycles } from '../constants/cycles';
 
 export class PuertoRico extends CalendarDef {
   inheritFrom = Americas;
@@ -66,7 +67,7 @@ export class PuertoRico extends CalendarDef {
     our_lord_jesus_christ_the_eternal_high_priest: {
       precedence: Precedences.ProperFeast_8f,
       date: (year: number): Dayjs => Dates.pentecostSunday(year).add(4, 'day'),
-      // cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
+      properCycle: ProperCycles.TEMPORALE,
     },
   };
 }

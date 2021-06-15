@@ -5,6 +5,7 @@ import { LiturgicalColors } from '../constants/colors';
 import { Dayjs } from 'dayjs';
 import { Europe } from './europe';
 import { PatronTitles } from '../../../constants/martyrology-metadata';
+import { ProperCycles } from '../constants/cycles';
 
 export class Hungary extends CalendarDef {
   inheritFrom = Europe;
@@ -274,7 +275,7 @@ export class Hungary extends CalendarDef {
     our_lord_jesus_christ_the_eternal_high_priest: {
       precedence: Precedences.ProperFeast_8f,
       date: (year: number): Dayjs => Dates.pentecostSunday(year).add(4, 'day'),
-      // cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
+      properCycle: ProperCycles.TEMPORALE,
     },
 
     stephen_the_first_martyr: {

@@ -3,6 +3,7 @@ import { Dates } from '../utils/dates';
 import { Precedences } from '../constants/precedences';
 import { Dayjs } from 'dayjs';
 import { Europe } from './europe';
+import { ProperCycles } from '../constants/cycles';
 
 export class Ukraine extends CalendarDef {
   inheritFrom = Europe;
@@ -21,7 +22,7 @@ export class Ukraine extends CalendarDef {
     mary_mother_of_the_church: {
       precedence: Precedences.ProperFeast_8f,
       date: (year: number): Dayjs => Dates.pentecostSunday(year).add(1, 'day'),
-      // cycles: { liturgicalDayCycle: LiturgicalDayCycle.TEMPORALE },
+      properCycle: ProperCycles.TEMPORALE,
     },
 
     andrew_bobola_priest: {

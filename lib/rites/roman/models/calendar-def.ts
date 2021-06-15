@@ -1,6 +1,6 @@
 import { RomcalConfig } from './config';
 import { LiturgicalDefBuiltData } from '../general-calendar/temporale';
-import LiturgicalDay from './liturgical-day';
+import LiturgicalDay, { RomcalCyclesMetadata } from './liturgical-day';
 import dayjs, { Dayjs } from 'dayjs';
 import { LiturgicalColors } from '../constants/colors';
 import { CalendarScope } from '../../../constants/calendar-scope';
@@ -12,6 +12,7 @@ import {
   SaintCount,
 } from '../../../catalog/martyrology';
 import { PatronTitles, Titles } from '../../../constants/martyrology-metadata';
+import { ProperCycles } from '../constants/cycles';
 
 export type LiturgicalCalendar = Record<string, LiturgicalDay[]>;
 
@@ -68,6 +69,11 @@ export type DateDefInput = Partial<Pick<LiturgicalDay, 'precedence'>> & {
    * The liturgical colors of the liturgical day.
    */
   liturgicalColors?: LiturgicalColors | LiturgicalColors[];
+
+  /**
+   * The proper cycle in which the liturgical day is part.
+   */
+  properCycle?: ProperCycles;
 
   /**
    * If this liturgical day must be removed from this calendar and from all those it inherits,
@@ -268,20 +274,6 @@ export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
       const baseData: LiturgicalDay =
         builtData.byKeys[builtData.datesIndex[dateStr][0]];
 
-      // // Obligatory Memorials may be celebrated as Optional Memorials if they
-      // // happen to fall on Lenten weekdays. (UNLY #59 12)
-      // if (
-      //   def.precedence &&
-      //   baseData.seasons.includes(LiturgicalSeasons.LENT) &&
-      //   [
-      //     Precedences.GeneralMemorial_10,
-      //     Precedences.ProperMemorial_SecondPatron_11a,
-      //     Precedences.ProperMemorial_OtherProperMemorial_11b,
-      //   ].includes(def.precedence)
-      // ) {
-      //   def.precedence = Precedences.OptionalMemorial_12;
-      // }
-
       // Retrieve the Martyrology items from the inherited LiturgicalDay object,
       // or create a new empty list.
       const martyrology: MartyrologyItem[] =
@@ -314,6 +306,18 @@ export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
         },
       );
 
+      // Retrieve and clone existing cycle data,
+      // from the inherited LiturgicalDay object (if exists),
+      // of from the base data (e.i. the LiturgicalDay object from the temporale)
+      const cycles = { ...(builtData.byKeys[key]?.cycles ?? baseData.cycles) };
+
+      // Apply the newly defined proper cycle
+      if (def.properCycle) cycles.properCycle = def.properCycle;
+      // Or set SANCTORALE if no one is already defined
+      else if (!builtData.byKeys[key]) {
+        cycles.properCycle = ProperCycles.SANCTORALE;
+      }
+
       if (def)
         // Update previous defined LiturgicalDay with the new data
         builtData.byKeys[key] = new LiturgicalDay({
@@ -343,6 +347,7 @@ export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
                     : def.isHolyDayOfObligation,
               }
             : {}),
+          cycles,
           martyrology,
           fromCalendar: this.calendarName,
         });
