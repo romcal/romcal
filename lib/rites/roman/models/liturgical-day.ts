@@ -84,6 +84,20 @@ export type RomcalCalendarMetadata = {
   endOfSeason: Date;
 };
 
+export type LiturgyDayDiff = Pick<LiturgicalDay, 'fromCalendar'> &
+  Partial<
+    Pick<
+      LiturgicalDay,
+      | 'fromCalendar'
+      | 'date'
+      | 'precedence'
+      | 'rank'
+      | 'isHolyDayOfObligation'
+      | 'name'
+      | 'liturgicalColors'
+    > & { cycles: Partial<Pick<RomcalCyclesMetadata, 'properCycle'>> }
+  >;
+
 export interface BaseLiturgicalDay {
   /**
    * The unique key of the liturgical day.
@@ -152,12 +166,6 @@ export interface BaseLiturgicalDay {
   martyrology: MartyrologyItem[];
 
   /**
-   * The names and the object diff of the calendars from which this liturgical day is extended.
-   * From the first extended definitions to the latest extended definition.
-   */
-  // fromExtendedCalendars: LiturgyDayExtendedMetadata[];
-
-  /**
    * Property used by Memorial and Feast celebrations only:
    * - Memorials: their observance is integrated into the celebration of the occurring weekday
    *   in accordance with the norms set forth in the General Instruction of the Roman
@@ -182,13 +190,24 @@ export interface BaseLiturgicalDay {
    * The name of the calendar from which the liturgical day is defined.
    */
   fromCalendar: string;
+
+  /**
+   * The names and the object diff of the calendars from which this liturgical day is extended.
+   * From the first extended definitions to the latest extended definition.
+   */
+  fromExtendedCalendars: LiturgyDayDiff[];
 }
 
 export type LiturgicalDayInput = Pick<
   BaseLiturgicalDay,
-  'key' | 'precedence' | 'cycles' | 'calendar'
+  'key' | 'precedence' | 'cycles' | 'calendar' | 'fromCalendar'
 > &
-  Partial<Omit<BaseLiturgicalDay, 'key' | 'date' | 'precedence' | 'rank'>> & {
+  Partial<
+    Omit<
+      BaseLiturgicalDay,
+      'key' | 'date' | 'precedence' | 'cycles' | 'calendar' | 'fromCalendar'
+    >
+  > & {
     date: string | Dayjs;
   };
 
@@ -207,6 +226,7 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
   calendar: Partial<RomcalCalendarMetadata>;
   weekday?: LiturgicalDay;
   fromCalendar: string;
+  fromExtendedCalendars: LiturgyDayDiff[];
 
   constructor(day: LiturgicalDayInput) {
     this.key = day.key;
@@ -236,7 +256,8 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
       delete this.weekday;
     }
 
-    this.fromCalendar = day.fromCalendar ?? '';
+    this.fromCalendar = day.fromCalendar;
+    this.fromExtendedCalendars = day.fromExtendedCalendars ?? [];
   }
 
   private static precedenceToRank(

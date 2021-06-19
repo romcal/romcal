@@ -1,6 +1,6 @@
 import { RomcalConfig } from './config';
 import { LiturgicalDefBuiltData } from '../general-calendar/temporale';
-import LiturgicalDay from './liturgical-day';
+import LiturgicalDay, { LiturgyDayDiff } from './liturgical-day';
 import dayjs, { Dayjs } from 'dayjs';
 import { LiturgicalColors } from '../constants/colors';
 import { CalendarScope } from '../../../constants/calendar-scope';
@@ -319,8 +319,8 @@ export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
         cycles.properCycle = ProperCycles.SANCTORALE;
       }
 
-      // Update previous defined LiturgicalDay with the new data
-      builtData.byKeys[key] = new LiturgicalDay({
+      // Create a new LiturgicalDay from existing and new data
+      const liturgicalDay = new LiturgicalDay({
         // Import the base liturgical day, but exclude its liturgical color
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         ...(({ liturgicalColors, ...o }) => o)(baseData),
@@ -352,6 +352,20 @@ export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
         fromCalendar: this.calendarName,
       });
 
+      // Check object differences between the previously inherited object
+      // and the new one
+      if (builtData.byKeys[key]) {
+        const diff = this._getLiturgicalDayDiff(
+          builtData.byKeys[key],
+          liturgicalDay,
+        );
+        // Store object diffs in the new LiturgicalDay object
+        if (diff) liturgicalDay.fromExtendedCalendars.push(diff);
+      }
+
+      // Create or overwrite the new or updated LiturgicalDay
+      builtData.byKeys[key] = liturgicalDay;
+
       /**
        * For Memorial and Feast celebrations only, the weekday property is added
        * containing the LiturgicalDay object of the base weekday.
@@ -364,7 +378,12 @@ export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
        *    - Memorials: the liturgy of the hour remain the one of the weekday.
        *    - Feasts: small hours are taken from the weekday.
        */
-      if ([Ranks.FEAST, Ranks.MEMORIAL].includes(builtData.byKeys[key].rank)) {
+      if (
+        [Ranks.FEAST, Ranks.MEMORIAL].includes(builtData.byKeys[key].rank) &&
+        // below, this test prevents adding the weekday property on base temporale object,
+        // especially on all the weekdays during the Easter octave (since all theses days are Solemnities).
+        baseData.key !== key
+      ) {
         builtData.byKeys[key].weekday = baseData;
       } else {
         delete builtData.byKeys[key].weekday;
@@ -376,6 +395,59 @@ export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
     });
 
     return builtData;
+  }
+
+  /**
+   * Get a partial LiturgicalDay object containing the difference
+   * between 2 LiturgicalDay objects that have the same date.
+   * @param dayA
+   * @param dayB
+   * @private
+   */
+  private _getLiturgicalDayDiff(
+    dayA: LiturgicalDay,
+    dayB: LiturgicalDay,
+  ): LiturgyDayDiff | null {
+    const diff = {
+      // date
+      ...(dayA.date !== dayB.date ? { date: dayA.date } : {}),
+
+      // precedence
+      ...(dayA.precedence !== dayB.precedence
+        ? { precedence: dayA.precedence }
+        : {}),
+
+      // rank
+      ...(dayA.rank !== dayB.rank ? { rank: dayA.rank } : {}),
+
+      // isHolyDayOfObligation
+      ...(dayA.isHolyDayOfObligation !== dayB.isHolyDayOfObligation
+        ? { isHolyDayOfObligation: dayA.isHolyDayOfObligation }
+        : {}),
+
+      // name
+      ...(dayA.name !== dayB.name ? { name: dayA.name } : {}),
+
+      // liturgicalColors
+      ...(dayA.liturgicalColors
+        .filter((x) => !dayB.liturgicalColors.includes(x))
+        .concat(
+          dayB.liturgicalColors.filter(
+            (x) => !dayA.liturgicalColors.includes(x),
+          ),
+        ).length
+        ? { liturgicalColors: dayA.liturgicalColors }
+        : {}),
+
+      // cycles.properCycle
+      ...(dayA.cycles.properCycle !== dayB.cycles.properCycle
+        ? { cycles: { properCycle: dayA.cycles.properCycle } }
+        : {}),
+    };
+
+    return Object.keys(diff).length
+      ? { ...diff, fromCalendar: dayA.fromCalendar }
+      : null;
   }
 
   /**
