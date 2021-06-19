@@ -12,7 +12,6 @@ export class Europe extends CalendarDef {
         'methodius_of_thessaloniki_bishop',
       ],
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      date: '2-14',
       titles: (titles) => [...titles, PatronTitles.CopatronOfEurope],
     },
 
