@@ -222,50 +222,76 @@ export default class Temporale {
     part: ChristmasTimeParts = ChristmasTimeParts.All,
   ): LiturgicalDefBuiltData => {
     const datesOfChristmasTime = Dates.datesOfChristmasTime(year - 1);
+    const epiphany = Dates.epiphany(year, this.config.epiphanyOnSunday);
     const datesIndex: DatesIndex = {};
     const byKeys: Record<string, LiturgicalDay> = {};
     let count = 0;
 
     datesOfChristmasTime.forEach((date: Dayjs, idx) => {
+      const holyFamily = Dates.holyFamily(year - 1);
       const dayOfWeek = date.day();
       count = dayOfWeek === 0 ? count + 1 : count;
 
       let key: string;
       let precedence: Precedences;
       let isHolyDayOfObligation = date.day() === 0;
+      const periods = [LiturgicalPeriods.CHRISTMAS_TO_PRESENTATION_OF_THE_LORD];
 
       // Nativity of the Lord
       if (idx === 0) {
         key = 'christmas';
         precedence = Precedences.TemporaleSolemnity_2;
         isHolyDayOfObligation = true;
+        periods.push(LiturgicalPeriods.CHRISTMAS_OCTAVE);
+      }
+      // Holy Family
+      else if (date.isSame(holyFamily, 'date')) {
+        key = 'holy_family';
+        precedence = Precedences.GeneralLordFeast_5;
       }
       // Days within the Octave of Christmas. (UNLY #59 9)
       else if (idx < 7) {
         key = `christmas_octave_day_${idx + 1}`;
         precedence = Precedences.PrivilegedWeekday_9;
+        periods.push(LiturgicalPeriods.CHRISTMAS_OCTAVE);
       }
       // Mary, the Holy Mother of God
       else if (idx === 7) {
         key = 'mary_mother_of_god';
         precedence = Precedences.GeneralSolemnity_3;
         isHolyDayOfObligation = true;
+        periods.push(LiturgicalPeriods.CHRISTMAS_OCTAVE);
       }
-      // Sundays of Christmas Time. (UNLY #59 6)
+      // Day of Epiphany
+      else if (epiphany.isSame(date, 'date')) {
+        key = 'epiphany';
+        precedence = Precedences.TemporaleSolemnity_2;
+        isHolyDayOfObligation = true;
+        periods.push(LiturgicalPeriods.DAYS_AFTER_EPIPHANY);
+      }
+      // Second Sunday after Christmas.
       else if (date.day() === 0) {
-        key = `christmastide_${count}_${date
-          .locale('en')
-          .format('dddd')
-          .toLowerCase()}`;
+        key = `second_sunday_after_christmas`;
         precedence = Precedences.UnprivilegedSunday_6;
+        periods.push(LiturgicalPeriods.DAYS_BEFORE_EPIPHANY);
       }
-      // Weekdays of Christmas Time from January 2 until the Saturday after the Epiphany. (UNLY #59 13)
-      else {
-        key = `christmastide_${count}_${date
+      // Days before Epiphany
+      else if (date.isBefore(epiphany)) {
+        key = `christmastide_${date
           .locale('en')
-          .format('dddd')
+          .format('MMMM_D')
           .toLowerCase()}`;
         precedence = Precedences.Weekday_13;
+        periods.push(LiturgicalPeriods.DAYS_BEFORE_EPIPHANY);
+      }
+      // Days after Epiphany
+      else {
+        key = `${date
+          .locale('en')
+          .format('dddd')
+          .toLowerCase()}_after_epiphany`;
+        precedence = Precedences.Weekday_13;
+        periods.push(LiturgicalPeriods.DAYS_AFTER_EPIPHANY);
       }
 
       if (
@@ -288,11 +314,7 @@ export default class Temporale {
           name: key,
           precedence,
           seasons: [LiturgicalSeasons.CHRISTMAS_TIME],
-          periods: [
-            ...(date.day() <= 31 || date.day() === 1
-              ? [LiturgicalPeriods.CHRISTMAS_OCTAVE]
-              : []),
-          ],
+          periods,
           cycles: this._addLiturgicalCycleMetadata(date, calendar),
           calendar,
           liturgicalColors: [LiturgicalColors.WHITE],
@@ -311,6 +333,9 @@ export default class Temporale {
   lentBuilder = (year: number): LiturgicalDefBuiltData => {
     const datesOfLent = Dates.datesOfLent(year);
     const datesIndex: DatesIndex = {};
+    const periods = [
+      LiturgicalPeriods.PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY,
+    ];
 
     const byKeys = datesOfLent.reduce(
       (acc: Record<string, LiturgicalDay>, date: Dayjs, idx) => {
@@ -374,7 +399,7 @@ export default class Temporale {
           name: key,
           precedence,
           seasons: [LiturgicalSeasons.LENT],
-          periods: [],
+          periods,
           cycles: this._addLiturgicalCycleMetadata(date, calendar),
           calendar,
           liturgicalColors,
@@ -466,16 +491,19 @@ export default class Temporale {
         const week = Math.floor(idx / 7) + 1;
         let key: string;
         let precedence: Precedences;
+        const periods: LiturgicalPeriods[] = [];
 
         // Easter Sunday
         if (idx == 0) {
           key = 'easter_sunday';
           precedence = Precedences.Triduum_1;
+          periods.push(LiturgicalPeriods.EASTER_OCTAVE);
         }
         // Divine Mercy Sunday
         else if (idx === 7) {
           key = 'divine_mercy_sunday';
           precedence = Precedences.PrivilegedSunday_2;
+          periods.push(LiturgicalPeriods.EASTER_OCTAVE);
         }
         // Pentecost Sunday
         else if (idx === 49) {
@@ -491,6 +519,7 @@ export default class Temporale {
         else if (idx <= 7) {
           key = `easter_${date.locale('en').format('dddd').toLowerCase()}`;
           precedence = Precedences.WeekdayOfEasterOctave_2;
+          periods.push(LiturgicalPeriods.EASTER_OCTAVE);
         }
         // Weekdays of the Easter Time from Monday after the Octave of Easter up to and including the
         // Saturday before Pentecost. (UNLY #59 13)
@@ -517,7 +546,7 @@ export default class Temporale {
           name: key,
           precedence,
           seasons: [LiturgicalSeasons.EASTER_TIME],
-          periods: [LiturgicalPeriods.HOLY_WEEK],
+          periods,
           cycles: this._addLiturgicalCycleMetadata(date, calendar),
           calendar,
           liturgicalColors: [LiturgicalColors.WHITE],
@@ -619,13 +648,24 @@ export default class Temporale {
           idx,
         );
 
+        const periods = [periodOfOrdinaryTime];
+
+        if (periodOfOrdinaryTime === LiturgicalPeriods.EARLY_ORDINARY_TIME) {
+          const presentationOfTheLord = Dates.presentationOfTheLord(year);
+          periods.push(
+            date.isSameOrBefore(presentationOfTheLord)
+              ? LiturgicalPeriods.CHRISTMAS_TO_PRESENTATION_OF_THE_LORD
+              : LiturgicalPeriods.PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY,
+          );
+        }
+
         acc[key] = new LiturgicalDay({
           date,
           key,
           name: key,
           precedence,
           seasons: [LiturgicalSeasons.ORDINARY_TIME],
-          periods: [periodOfOrdinaryTime],
+          periods,
           cycles: this._addLiturgicalCycleMetadata(date, calendar),
           calendar,
           liturgicalColors: [LiturgicalColors.GREEN],
