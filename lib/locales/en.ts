@@ -1,4 +1,4 @@
-import { Locale } from '../models/locale';
+import { Locale } from '../types/locale';
 
 export const locale: Locale = {
   key: 'en',
@@ -7,30 +7,33 @@ export const locale: Locale = {
     seasons: {
       advent: {
         season: 'Advent Season',
-        weekday: '{{day, capitalize}} of the {{week}} week of Advent',
-        sunday: '{{week}} Sunday of Advent',
+        weekday:
+          '{{day, capitalize}} of the $t(ordinals:{{week}}) week of Advent',
+        sunday: '$t(ordinals:{{week}}, capitalize) Sunday of Advent',
       },
 
       christmastide: {
         season: 'Christmas Season',
-        day: '{{day}} of Christmastide',
-        octave: '{{count}} day within the Octave of the Nativity of the Lord',
+        day: '{{day, capitalize}} of Christmastide',
+        octave: '{{count}}º day within the Octave of the Nativity of the Lord',
         second_sunday_after_christmas:
           'Second Sunday after the Nativity of the Lord',
-        before_epiphany: '{{day}} before the Epiphany of the Lord',
-        after_epiphany: '{{day}} after the Epiphany of the Lord',
+        before_epiphany: '{{day, capitalize}} before the Epiphany of the Lord',
+        after_epiphany: '{{day, capitalize}} after the Epiphany of the Lord',
       },
 
       ordinary_time: {
         season: 'Ordinary Time',
-        weekday: '{{day, capitalize}} of the {{week}} week of Ordinary Time',
-        sunday: '{{week}} Sunday in Ordinary Time',
+        weekday:
+          '{{day, capitalize}} of the $t(ordinals:{{week}}) week of Ordinary Time',
+        sunday: '$t(ordinals:{{week}}, capitalize) Sunday in Ordinary Time',
       },
 
       lent: {
         season: 'Lenten Season',
-        weekday: '{{day, capitalize}} of the {{week}} week of Lent',
-        sunday: '{{week}} Sunday of Lent',
+        weekday:
+          '{{day, capitalize}} of the $t(ordinals:{{week}}) week of Lent',
+        sunday: '$t(ordinals:{{week}}, capitalize) Sunday of Lent',
         day_after_ash_wed: '{{day, capitalize}} after Ash Wednesday',
         holy_week_day: '{{day, capitalize}} of Holy Week',
       },
@@ -41,8 +44,9 @@ export const locale: Locale = {
 
       eastertide: {
         season: 'Easter Season',
-        weekday: '{{day, capitalize}} of the {{week}} week of Easter',
-        sunday: '{{week}} Sunday of Easter',
+        weekday:
+          '{{day, capitalize}} of the $t(ordinals:{{week}}) week of Easter',
+        sunday: '$t(ordinals:{{week}}, capitalize) Sunday of Easter',
         octave: '{{day, capitalize}} within the Octave of Easter',
       },
     },
@@ -102,6 +106,43 @@ export const locale: Locale = {
     red: 'red',
     rose: 'rose',
     white: 'white',
+  },
+
+  ordinals: {
+    '1': 'first',
+    '2': 'second',
+    '3': 'third',
+    '4': 'fourth',
+    '5': 'fifth',
+    '6': 'sixth',
+    '7': 'seventh',
+    '8': 'eighth',
+    '9': 'ninth',
+    '10': 'tenth',
+    '11': 'eleventh',
+    '12': 'twelfth',
+    '13': 'thirteenth',
+    '14': 'fourteenth',
+    '15': 'fifteenth',
+    '16': 'sixteenth',
+    '17': 'seventeenth',
+    '18': 'eighteenth',
+    '19': 'nineteenth',
+    '20': 'twentieth',
+    '21': 'twenty-first',
+    '22': 'twenty-second',
+    '23': 'twenty-third',
+    '24': 'twenty-fourth',
+    '25': 'twenty-fifth',
+    '26': 'twenty-sixth',
+    '27': 'twenty-seventh',
+    '28': 'twenty-eighth',
+    '29': 'twenty-ninth',
+    '30': 'thirtieth',
+    '31': 'thirty-first',
+    '32': 'thirty-second',
+    '33': 'thirty-third',
+    '34': 'thirty-fourth',
   },
 
   martyrology: {

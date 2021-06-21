@@ -1,26 +1,21 @@
-import { Locale } from '../models/locale';
+import { Locale } from '../types/locale';
 
 export const locale: Locale = {
   key: 'fr',
-
-  ordinals: {
-    '1': '1er',
-    '1__feminine': '1ère',
-    default: (n: number): string => `${n}ème`,
-  },
 
   roman_rite: {
     seasons: {
       advent: {
         season: 'Temps de l’Avent',
-        weekday: '{{day, capitalize}} de la {{week}} semaine de l’Avent',
-        sunday: '{{week}} Dimanche de l’Avent',
+        weekday:
+          '{{day, capitalize}} de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine de l’Avent',
+        sunday: '$t(ordinals:{{week}}, capitalize) Dimanche de l’Avent',
       },
 
       christmastide: {
         season: 'Temps de Noël',
-        day: '{{day}} dans le Temps de Noël',
-        octave: '{{count}} jour dans l’Octave de la Nativité',
+        day: '{{day, capitalize}} dans le Temps de Noël',
+        octave: '{{count}}ᵉ jour dans l’Octave de la Nativité',
         second_sunday_after_christmas: 'Deuxième Dimanche après la Nativité',
         before_epiphany: '{{day, capitalize}} avant l’Épiphanie',
         after_epiphany: '{{day, capitalize}} après l’Épiphanie',
@@ -29,14 +24,15 @@ export const locale: Locale = {
       ordinary_time: {
         season: 'Temps Ordinaire',
         weekday:
-          '{{day, capitalize}} de la {{week}} semaine du Temps Ordinaire',
-        sunday: '{{week}} Dimanche du Temps Ordinaire',
+          '{{day, capitalize}} de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine du Temps Ordinaire',
+        sunday: '$t(ordinals:{{week}}, capitalize) Dimanche du Temps Ordinaire',
       },
 
       lent: {
-        season: 'Carême',
-        weekday: '{{day, capitalize}} de la {{week}} semaine de Carême',
-        sunday: '{{week}} Dimanche du Carême',
+        season: 'Temps du Carême',
+        weekday:
+          '{{day, capitalize}} de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine de Carême',
+        sunday: '$t(ordinals:{{week}}, capitalize) Dimanche de Carême',
         day_after_ash_wed: '{{day, capitalize}} après les Cendres',
         holy_week_day: '{{day, capitalize}} Saint',
       },
@@ -47,8 +43,9 @@ export const locale: Locale = {
 
       eastertide: {
         season: 'Temps Pascal',
-        weekday: '{{day, capitalize}} de la {{week}} semaine de Pâques',
-        sunday: '{{week}} Dimanche de Pâques',
+        weekday:
+          '{{day, capitalize}} de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine de Pâques',
+        sunday: '$t(ordinals:{{week}}, capitalize) Dimanche de Pâques',
         octave: '{{day, capitalize}} dans l’Octave de Pâques',
       },
     },
@@ -107,6 +104,44 @@ export const locale: Locale = {
     red: 'rouge',
     rose: 'rose',
     white: 'blanc',
+  },
+
+  ordinals: {
+    '1': 'premier',
+    '1_feminine': 'première',
+    '2': 'deuxième',
+    '3': 'troisième',
+    '4': 'quatrième',
+    '5': 'cinquième',
+    '6': 'sixième',
+    '7': 'septième',
+    '8': 'huitième',
+    '9': 'neuvième',
+    '10': 'dixième',
+    '11': 'onzième',
+    '12': 'douzième',
+    '13': 'treizième',
+    '14': 'quatorzième',
+    '15': 'quinzième',
+    '16': 'seizième',
+    '17': 'dix-septième',
+    '18': 'dix-huitième',
+    '19': 'dix-neuvième',
+    '20': 'vingtième',
+    '21': 'vingt et unième',
+    '22': 'vingt-deuxième',
+    '23': 'vingt-troisième',
+    '24': 'vingt-quatrième',
+    '25': 'vingt-cinquième',
+    '26': 'vingt-sixième',
+    '27': 'vingt-septième',
+    '28': 'vingt-huitième',
+    '29': 'vingt-neuvième',
+    '30': 'trentième',
+    '31': 'trente et unième',
+    '32': 'trente-deuxième',
+    '33': 'trente-troisième',
+    '34': 'trente-quatrième',
   },
 
   martyrology: {

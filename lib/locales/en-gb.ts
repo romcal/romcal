@@ -1,4 +1,4 @@
-import { Locale } from '../models/locale';
+import { Locale } from '../types/locale';
 
 export const locale: Locale = {
   key: 'en-gb',
@@ -7,28 +7,19 @@ export const locale: Locale = {
     seasons: {
       advent: {
         season: 'Advent',
-        weekday: '{{day}} of the {{week}} week of Advent',
-        sunday: '{{week}} Sunday of Advent',
       },
 
       christmastide: {
         season: 'Christmastide',
-        day: '{{day}} of Christmastide',
-        octave: '{{count}} Day of Christmas Octave',
+        octave: '{{count}}º Day of Christmas Octave',
       },
 
       lent: {
         season: 'Lent',
-        weekday: '{{day}} of the {{week}} week of Lent',
-        sunday: '{{week}} Sunday of Lent',
-        day_after_ash_wed: '{{day}} after Ash Wednesday',
       },
 
       eastertide: {
         season: 'Eastertide',
-        weekday: '{{day}} of the {{week}} week of Easter',
-        sunday: '{{week}} Sunday of Easter',
-        octave: '{{day}} within the Octave of Easter',
       },
     },
 

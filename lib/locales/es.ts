@@ -1,4 +1,4 @@
-import { Locale } from '../models/locale';
+import { Locale } from '../types/locale';
 
 export const locale: Locale = {
   key: 'es',
@@ -7,30 +7,35 @@ export const locale: Locale = {
     seasons: {
       advent: {
         season: 'Adviento',
-        weekday: '{{day}} de la {{week}} semana de Adviento',
-        sunday: '{{week}} Domingo de Adviento',
+        weekday:
+          '{{day, capitalize}} de la $t(ordinals:{{week}}, { "context": "feminine" }) semana de Adviento',
+        sunday: '$t(ordinals:{{week}}, capitalize) Domingo de Adviento',
       },
 
       christmastide: {
         season: 'Navidad',
-        day: '{{day}} de Navidad',
-        octave: '{{count}} día de la Octava de Navidad',
+        day: '{{day, capitalize}} de Navidad',
+        octave: '{{count}}º día de la Octava de Navidad',
         second_sunday_after_christmas: 'Segundo Domingo de Navidad',
-        before_epiphany: '{{day}} antes de la Epifanía',
-        after_epiphany: '{{day}} después de la Epifanía',
+        before_epiphany: '{{day, capitalize}} antes de la Epifanía',
+        after_epiphany: '{{day, capitalize}} después de la Epifanía',
       },
 
       ordinary_time: {
         season: 'Tiempo Ordinario',
-        weekday: '{{day}} de la {{week}} semana del Tiempo Ordinario',
-        sunday: '{{week}} Domingo del Tiempo Ordinario',
+        weekday:
+          '{{day, capitalize}} de la $t(ordinals:{{week}}, { "context": "feminine" }) semana del Tiempo Ordinario',
+        sunday:
+          '$t(ordinals:{{week}}, capitalize) Domingo del Tiempo Ordinario',
       },
 
       lent: {
         season: 'Cuaresma',
-        weekday: '{{day}} de la {{week}} semana de Cuaresma',
-        sunday: '{{week}} Domingo de Cuaresma',
-        day_after_ash_wed: '{{day}} después de Miércoles de Ceniza',
+        weekday:
+          '{{day, capitalize}} de la $t(ordinals:{{week}}, { "context": "feminine" }) semana de Cuaresma',
+        sunday: '$t(ordinals:{{week}}, capitalize) Domingo de Cuaresma',
+        day_after_ash_wed: '{{day, capitalize}} después de Miércoles de Ceniza',
+        holy_week_day: '{{day, capitalize}} de Semana Santa',
       },
 
       paschal_triduum: {
@@ -39,9 +44,10 @@ export const locale: Locale = {
 
       eastertide: {
         season: 'Pascua',
-        weekday: '{{day}} de la {{week}} semana de Pascua',
-        sunday: '{{week}} Domingo de Pascua',
-        octave: '{{day}} día de la Octava de Pascua',
+        weekday:
+          '{{day, capitalize}} de la $t(ordinals:{{week}}, { "context": "feminine" }) semana de Pascua',
+        sunday: '$t(ordinals:{{week}}, capitalize) Domingo de Pascua',
+        octave: '{{day, capitalize}} día de la Octava de Pascua',
       },
     },
 
@@ -99,6 +105,77 @@ export const locale: Locale = {
     red: 'rojo',
     rose: 'rosa',
     white: 'blanco',
+  },
+
+  ordinals: {
+    '1': 'primero',
+    '1_feminine': 'primera',
+    '2': 'segundo',
+    '2_feminine': 'segunda',
+    '3': 'tercer',
+    '3_feminine': 'tercera',
+    '4': 'cuarto',
+    '4_feminine': 'cuarta',
+    '5': 'quinto',
+    '5_feminine': 'quinta',
+    '6': 'sexto',
+    '6_feminine': 'sexta',
+    '7': 'séptimo',
+    '7_feminine': 'séptima',
+    '8': 'octavo',
+    '8_feminine': 'octava',
+    '9': 'noveno',
+    '9_feminine': 'novena',
+    '10': 'décimo',
+    '10_feminine': 'décima',
+    '11': 'undécimo',
+    '11_feminine': 'undécima',
+    '12': 'duodécimo',
+    '12_feminine': 'duodécima',
+    '13': 'decimotercer',
+    '13_feminine': 'decimotercera',
+    '14': 'decimocuarto',
+    '14_feminine': 'decimocuarta',
+    '15': 'decimoquinto',
+    '15_feminine': 'decimoquinta',
+    '16': 'decimosexto',
+    '16_feminine': 'decimosexta',
+    '17': 'decimoséptimo',
+    '17_feminine': 'decimoséptima',
+    '18': 'decimoctavo',
+    '18_feminine': 'decimoctava',
+    '19': 'decimonoveno',
+    '19_feminine': 'decimonovena',
+    '20': 'vigésimo',
+    '20_feminine': 'vigésima',
+    '21': 'vigésimo primero',
+    '21_feminine': 'vigésima primera',
+    '22': 'vigésimo segundo',
+    '22_feminine': 'vigésima segunda',
+    '23': 'vigésimo tercer',
+    '23_feminine': 'vigésima tercera',
+    '24': 'vigésimo cuarto',
+    '24_feminine': 'vigésima cuarta',
+    '25': 'vigésimo quinto',
+    '25_feminine': 'vigésima quinta',
+    '26': 'vigésimo sexto',
+    '26_feminine': 'vigésima sexta',
+    '27': 'vigésimo séptimo',
+    '27_feminine': 'vigésima séptima',
+    '28': 'vigésimo octavo',
+    '28_feminine': 'vigésima octava',
+    '29': 'vigésimo noveno',
+    '29_feminine': 'vigésima novena',
+    '30': 'trigésimo',
+    '30_feminine': 'trigésima',
+    '31': 'trigésimo primero',
+    '31_feminine': 'trigésima primera',
+    '32': 'trigésimo segundo',
+    '32_feminine': 'trigésima segunda',
+    '33': 'trigésimo tercer',
+    '33_feminine': 'trigésima tercera',
+    '34': 'trigésima cuarto',
+    '34_feminine': 'trigésima cuarta',
   },
 
   martyrology: {

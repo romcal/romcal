@@ -3,7 +3,7 @@ import { Dates } from '../utils/dates';
 import { CalendarScope } from '../../../constants/calendar-scope';
 import { CalendarDef } from './calendar-def';
 import i18next, { i18n } from 'i18next';
-import { Locale } from '../../../models/locale';
+import { Locale } from '../../../types/locale';
 import { locale as en } from '../../../locales/en';
 import { LiturgicalSeasons } from '../constants/seasons';
 import { LiturgicalColor } from '../constants/colors';
@@ -138,7 +138,7 @@ export class RomcalConfig implements IRoncalConfig {
         fallbackLng: ['en', 'dev'],
         lng: this.locale ? this.locale.key : 'en',
         initImmediate: false,
-        contextSeparator: '__',
+        // contextSeparator: '__',
         interpolation: {
           format: function (value, format, locale) {
             if (format === 'uppercase') return value.toUpperCase();
@@ -159,6 +159,7 @@ export class RomcalConfig implements IRoncalConfig {
     // another specified locale
     this.i18next.addResourceBundle('en', 'roman_rite', en.roman_rite);
     this.i18next.addResourceBundle('en', 'colors', en.colors);
+    this.i18next.addResourceBundle('en', 'ordinals', en.ordinals);
     this.i18next.addResourceBundle('en', 'martyrology', en.martyrology);
 
     // If another locale is specified, load associated ressources in the
@@ -173,6 +174,11 @@ export class RomcalConfig implements IRoncalConfig {
         this.locale.key,
         'colors',
         this.locale.colors,
+      );
+      this.i18next.addResourceBundle(
+        this.locale.key,
+        'ordinals',
+        this.locale.ordinals,
       );
       this.i18next.addResourceBundle(
         this.locale.key,
