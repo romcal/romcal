@@ -1,96 +1,115 @@
-export default {
-  advent: {
-    season: 'Temps de l’Avent',
-    weekday: '{{day}} de la {{week}} semaine de l’Avent',
-    sunday: '{{week}} Dimanche de l’Avent',
+import { Locale } from '../models/locale';
+
+export const locale: Locale = {
+  key: 'fr',
+
+  ordinals: {
+    '1': '1er',
+    '1__feminine': '1ère',
+    default: (n: number): string => `${n}ème`,
   },
-  christmastide: {
-    season: 'Temps de Noël',
-    day: '{{day}} dans le Temps de Noël',
-    octave: '{{count}} jour dans l’Octave de Noël',
-    sunday: '{{count}} Dimanche de Noël',
+
+  roman_rite: {
+    seasons: {
+      advent: {
+        season: 'Temps de l’Avent',
+        weekday: '{{day, capitalize}} de la {{week}} semaine de l’Avent',
+        sunday: '{{week}} Dimanche de l’Avent',
+      },
+
+      christmastide: {
+        season: 'Temps de Noël',
+        day: '{{day}} dans le Temps de Noël',
+        octave: '{{count}} jour dans l’Octave de la Nativité',
+        second_sunday_after_christmas: 'Deuxième Dimanche après la Nativité',
+        before_epiphany: '{{day, capitalize}} avant l’Épiphanie',
+        after_epiphany: '{{day, capitalize}} après l’Épiphanie',
+      },
+
+      ordinary_time: {
+        season: 'Temps Ordinaire',
+        weekday:
+          '{{day, capitalize}} de la {{week}} semaine du Temps Ordinaire',
+        sunday: '{{week}} Dimanche du Temps Ordinaire',
+      },
+
+      lent: {
+        season: 'Carême',
+        weekday: '{{day, capitalize}} de la {{week}} semaine de Carême',
+        sunday: '{{week}} Dimanche du Carême',
+        day_after_ash_wed: '{{day, capitalize}} après les Cendres',
+        holy_week_day: '{{day, capitalize}} Saint',
+      },
+
+      paschal_triduum: {
+        season: 'Triduum Pascal',
+      },
+
+      eastertide: {
+        season: 'Temps Pascal',
+        weekday: '{{day, capitalize}} de la {{week}} semaine de Pâques',
+        sunday: '{{week}} Dimanche de Pâques',
+        octave: '{{day, capitalize}} dans l’Octave de Pâques',
+      },
+    },
+
+    periods: {
+      epiphany: 'Épiphanie',
+      holy_week: 'Semaine Sainte',
+    },
+
+    ranks: {
+      solemnity: 'Solennité',
+      sunday: 'Dimanche',
+      feast: 'Fête',
+      memorial: 'Mémoire',
+      weekday: 'Férie',
+    },
+
+    celebrations: {
+      all_saints: 'Tous les Saints',
+      annunciation: 'Annonciation du Seigneur',
+      ascension: 'Ascension du Seigneur',
+      ash_wednesday: 'Mercredi des Cendres',
+      assumption: 'Assomption de la Vierge Marie',
+      baptism_of_the_lord: 'Baptême du Seigneur',
+      christ_the_king_sunday: 'Christ, Roi de l’Univers',
+      christmas: 'Nativité du Seigneur',
+      corpus_christi: 'Saint-Sacrement',
+      divine_mercy_sunday: 'Dimanche de la Divine Miséricorde',
+      easter_sunday: 'Dimanche de Pâques',
+      epiphany: 'L’Épiphanie du Seigneur',
+      exaltation_of_the_holy_cross: 'La Croix Glorieuse',
+      good_friday: 'Vendredi Saint',
+      holy_family: 'La Sainte Famille',
+      holy_saturday: 'Samedi Saint',
+      holy_thursday: 'Jeudi Saint',
+      immaculate_conception_of_mary: 'Immaculée Conception de la Vierge Marie',
+      immaculate_heart_of_mary: 'Cœur immaculé de Marie',
+      joseph_spouse_of_mary: 'Saint Joseph, Époux de la Vierge Marie',
+      mary_mother_of_god: 'Sainte Marie, Mère de Dieu',
+      most_sacred_heart_of_jesus: 'Sacré-Cœur de Jésus',
+      nativity_of_john_the_baptist: 'Nativité de Saint Jean le Baptiste',
+      palm_sunday: 'Dimanche des Rameaux et de la Passion',
+      pentecost_sunday: 'Pentecôte',
+      peter_and_paul_apostles: 'Saint Pierre et Saint Paul, Apôtres',
+      presentation_of_the_lord: 'Présentation du Seigneur au Temple',
+      transfiguration: 'Transfiguration du Seigneur',
+      trinity_sunday: 'Très Sainte Trinité',
+    },
   },
-  epiphany: {
-    season: 'Épiphanie',
-    before: '{{day}} avant l’Épiphanie',
-    after: '{{day}} après l’Épiphanie',
+
+  colors: {
+    black: 'noir',
+    gold: 'doré',
+    green: 'vert',
+    purple: 'violet',
+    red: 'rouge',
+    rose: 'rose',
+    white: 'blanc',
   },
-  ordinary_time: {
-    season: 'Temps Ordinaire',
-    weekday: '{{day}} de la {{week}} semaine du Temps Ordinaire',
-    sunday: '{{week}} Dimanche du Temps Ordinaire',
-  },
-  lent: {
-    season: 'Carême',
-    weekday: '{{day}} de la {{week}} semaine du Carême',
-    sunday: '{{week}} Dimanche du Carême',
-    day_after_ash_wed: '{{day}} des Cendres',
-  },
-  holy_week: {
-    season: 'Semaine Sainte',
-    weekday: '{{day}} Saint',
-  },
-  paschal_triduum: {
-    season: 'Triduum Pascal',
-  },
-  eastertide: {
-    season: 'Temps Pascal',
-    weekday: '{{day}} de la {{week}} semaine de Pâques',
-    sunday: '{{week}} Dimanche de Pâques',
-    octave: '{{day}} de Pâques',
-  },
-  liturgical_colors: {
-    BLACK: 'noir',
-    GOLD: 'doré',
-    GREEN: 'vert',
-    PURPLE: 'violet',
-    RED: 'rouge',
-    ROSE: 'rose',
-    WHITE: 'blanc',
-  },
-  ranks: {
-    SOLEMNITY: 'Solennité',
-    SUNDAY: 'Dimanche',
-    TRIDUUM: 'Triduum',
-    HOLY_WEEK: 'Semaine sainte',
-    FEAST: 'Fête',
-    MEMORIAL: 'Mémoire',
-    OPT_MEMORIAL: 'Mémoire facultative',
-    COMMEMORATION: 'Commémoration',
-    WEEKDAY: 'Férie',
-  },
-  celebrations: {
-    all_saints: 'Tous les Saints',
-    annunciation: 'Annonciation du Seigneur',
-    ascension: 'Ascension du Seigneur',
-    ash_wednesday: 'Mercredi des Cendres',
-    assumption: 'Assomption de la Vierge Marie',
-    baptism_of_the_lord: 'Baptême du Seigneur',
-    christ_the_king_sunday: 'Christ, Roi de l’Univers',
-    christmas: 'Nativité du Seigneur',
-    corpus_christi: 'Saint-Sacrement',
-    divine_mercy_sunday: 'Dimanche de la Divine Miséricorde',
-    easter_sunday: 'Dimanche de Pâques',
-    epiphany: 'L’Épiphanie du Seigneur',
-    exaltation_of_the_holy_cross: 'La Croix Glorieuse',
-    good_friday: 'Vendredi Saint',
-    holy_family: 'La Sainte Famille',
-    holy_saturday: 'Samedi Saint',
-    holy_thursday: 'Jeudi Saint',
-    immaculate_conception_of_mary: 'Immaculée Conception de la Vierge Marie',
-    immaculate_heart_of_mary: 'Cœur immaculé de Marie',
-    joseph_spouse_of_mary: 'Saint Joseph, Époux de la Vierge Marie',
-    mary_mother_of_god: 'Sainte Marie, Mère de Dieu',
-    most_sacred_heart_of_jesus: 'Sacré-Cœur de Jésus',
-    nativity_of_john_the_baptist: 'Nativité de Saint Jean le Baptiste',
-    palm_sunday: 'Dimanche des Rameaux et de la Passion du Seigneur',
-    pentecost_sunday: 'Pentecôte',
-    peter_and_paul_apostles: 'Saint Pierre et Saint Paul, Apôtres',
-    presentation_of_the_lord: 'Présentation du Seigneur au Temple',
-    transfiguration: 'Transfiguration du Seigneur',
-    trinity_sunday: 'Très Sainte Trinité',
-  },
-  sanctorale: {
+
+  martyrology: {
     adalbert_of_prague_bishop:
       'Saint Adalbert, Évêque de Prague et Martyr (✝ 997)',
     adalbert_of_prague_bishop_patron_of_poland:

@@ -319,38 +319,58 @@ export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
         cycles.properCycle = ProperCycles.SANCTORALE;
       }
 
+      // Compute the localized name of the liturgical day.
+      let name =
+        builtData.byKeys[key]?.name ??
+        this.config.i18next.t('martyrology:' + (def.customLocaleKey ?? key));
+      // If not found in the Martyrology catalog, have a look in the Roman celebrations.
+      if (name === (def.customLocaleKey ?? key)) {
+        name = this.config.i18next.t(
+          'roman_rite:celebrations.' + (def.customLocaleKey ?? key),
+        );
+      }
+      // Finally, if there is no localization, romcal must throw an error,
+      // because it should have at least a localization in English.
+      if (name === `celebrations.${key}`) {
+        throw new Error(`Locale key '${key}' is missing.`);
+      }
+
       // Create a new LiturgicalDay from existing and new data
-      const liturgicalDay = new LiturgicalDay({
-        // Import the base liturgical day, but exclude its liturgical color
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        ...(({ liturgicalColors, ...o }) => o)(baseData),
+      const liturgicalDay = new LiturgicalDay(
+        {
+          // Import the base liturgical day, but exclude its name & liturgical color
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          ...(({ name, liturgicalColors, ...o }) => o)(baseData),
 
-        // Import the inherited liturgical day to extend
-        ...(builtData.byKeys[key] ?? {}),
+          // Import the inherited liturgical day to extend
+          ...(builtData.byKeys[key] ?? {}),
 
-        // Set new object data
-        key,
-        ...(dateInput ? { date: dateInput } : {}),
-        ...(def.precedence ? { precedence: def.precedence } : {}),
-        ...(def.liturgicalColors
-          ? {
-              liturgicalColors: Array.isArray(def.liturgicalColors)
-                ? def.liturgicalColors
-                : [def.liturgicalColors],
-            }
-          : {}),
-        ...(def.isHolyDayOfObligation
-          ? {
-              isHolyDayOfObligation:
-                typeof def.isHolyDayOfObligation === 'function'
-                  ? def.isHolyDayOfObligation(this.config.year)
-                  : def.isHolyDayOfObligation,
-            }
-          : {}),
-        cycles,
-        martyrology,
-        fromCalendar: this.calendarName,
-      });
+          // Set new object data
+          key,
+          name,
+          ...(dateInput ? { date: dateInput } : {}),
+          ...(def.precedence ? { precedence: def.precedence } : {}),
+          ...(def.liturgicalColors
+            ? {
+                liturgicalColors: Array.isArray(def.liturgicalColors)
+                  ? def.liturgicalColors
+                  : [def.liturgicalColors],
+              }
+            : {}),
+          ...(def.isHolyDayOfObligation
+            ? {
+                isHolyDayOfObligation:
+                  typeof def.isHolyDayOfObligation === 'function'
+                    ? def.isHolyDayOfObligation(this.config.year)
+                    : def.isHolyDayOfObligation,
+              }
+            : {}),
+          cycles,
+          martyrology,
+          fromCalendar: this.calendarName,
+        },
+        this.config,
+      );
 
       // Check object differences between the previously inherited object
       // and the new one

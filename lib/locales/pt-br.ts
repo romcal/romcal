@@ -1,96 +1,107 @@
-export default {
-  advent: {
-    season: 'Advento',
-    weekday: '{{day}} da {{week}} semana do Advento',
-    sunday: '{{week}} Domingo do Advento',
+import { Locale } from '../models/locale';
+
+export const locale: Locale = {
+  key: 'pt-br',
+
+  roman_rite: {
+    seasons: {
+      advent: {
+        season: 'Advento',
+        weekday: '{{day}} da {{week}} semana do Advento',
+        sunday: '{{week}} Domingo do Advento',
+      },
+
+      christmastide: {
+        season: 'Natal',
+        day: '{{day}} do Tempo do Natal',
+        octave: '{{count}} dia da Oitava de Natal',
+        second_sunday_after_christmas: 'Segundo Domingo do Natal',
+        before_epiphany: '{{day}} antes da Epifania do Senhor',
+        after_epiphany: '{{day}} depois da Epifania do Senhor',
+      },
+
+      ordinary_time: {
+        season: 'Tempo Comum',
+        weekday: '{{day}} da {{week}} semana do Tempo Comum',
+        sunday: '{{week}} Domingo do Tempo Comum',
+      },
+
+      lent: {
+        season: 'Quaresma',
+        weekday: '{{day}} da {{week}} semana da Quaresma',
+        sunday: '{{week}} Domingo da Quaresma',
+        day_after_ash_wed: '{{day}} depois da Quarta-feira de Cinzas',
+      },
+
+      paschal_triduum: {
+        season: 'Tríduo Pascal',
+      },
+
+      eastertide: {
+        season: 'Páscoa',
+        weekday: '{{day}} da {{week}} semana do Tempo Pascal',
+        sunday: '{{week}} Domingo do Tempo Pascal',
+        octave: 'Tempo Pascal {{day}}',
+      },
+    },
+
+    periods: {
+      epiphany: 'Epifania do Senhor',
+      holy_week: 'Semana Santa',
+    },
+
+    ranks: {
+      solemnity: 'solenidade',
+      sunday: 'domingo',
+      feast: 'festa',
+      memorial: 'memória',
+      weekday: 'dia de semana',
+    },
+
+    celebrations: {
+      all_saints: 'Todos os Santos',
+      annunciation: 'Anunciação do Senhor',
+      ascension: 'Ascensão do Senhor',
+      ash_wednesday: 'Quarta-feira de Cinzas',
+      assumption: 'Assunção da Bem Aventurada Virgem Maria',
+      baptism_of_the_lord: 'Batismo do Senhor',
+      christ_the_king_sunday: 'Cristo Rei do Universo',
+      christmas: 'Natal',
+      corpus_christi: 'Corpus Christi',
+      divine_mercy_sunday: 'Domingo da Misericórdia',
+      easter_sunday: 'Domingo da Páscoa',
+      epiphany: 'Epifania do Senhor',
+      exaltation_of_the_holy_cross: 'Exaltação da Santa Cruz',
+      good_friday: 'Sexta-feira Santa',
+      holy_family: 'Sagrada Família',
+      holy_saturday: 'Sábado Santo',
+      holy_thursday: 'Quinta-feira Santa',
+      immaculate_conception_of_mary: 'Imaculada Conceição',
+      immaculate_heart_of_mary: 'Imaculado Coração de Maria',
+      joseph_spouse_of_mary: 'São José, esposo de Maria',
+      mary_mother_of_god: 'Maria, Mãe de Deus',
+      most_sacred_heart_of_jesus: 'Sagrado Coração de Jesus',
+      nativity_of_john_the_baptist: 'Nascimento de João Batista',
+      palm_sunday: 'Domingo de Ramos',
+      pentecost_sunday: 'Pentecostes',
+      peter_and_paul_apostles: 'São Pedro e São Paulo, Apóstolos',
+      presentation_of_the_lord: 'Apresentação do Senhor',
+      transfiguration: 'Transfiguração do Senhor',
+      trinity_sunday: 'Santíssima Trindade',
+    },
   },
-  christmastide: {
-    season: 'Natal',
-    day: '{{day}} do Tempo do Natal',
-    octave: '{{count}} dia da Oitava de Natal',
-    sunday: '{{count}} Domingo do Natal',
+
+  colors: {
+    black: 'preto',
+    gold: 'dourado',
+    green: 'verde',
+    purple: 'roxo',
+    red: 'vermelho',
+    rose: 'roséo',
+    white: 'branco',
   },
-  epiphany: {
-    season: 'Epifania do Senhor',
-    before: '{{day}} antes da Epifania do Senhor',
-    after: '{{day}} depois da Epifania do Senhor',
-  },
-  ordinary_time: {
-    season: 'Tempo Comum',
-    weekday: '{{day}} da {{week}} semana do Tempo Comum',
-    sunday: '{{week}} Domingo do Tempo Comum',
-  },
-  lent: {
-    season: 'Quaresma',
-    weekday: '{{day}} da {{week}} semana da Quaresma',
-    sunday: '{{week}} Domingo da Quaresma',
-    day_after_ash_wed: '{{day}} depois da Quarta-feira de Cinzas',
-  },
-  holy_week: {
-    season: 'Semana Santa',
-    weekday: '{{day}} of Semana Santa',
-  },
-  paschal_triduum: {
-    season: 'Tríduo Pascal',
-  },
-  eastertide: {
-    season: 'Páscoa',
-    weekday: '{{day}} da {{week}} semana do Tempo Pascal',
-    sunday: '{{week}} Domingo do Tempo Pascal',
-    octave: 'Tempo Pascal {{day}}',
-  },
-  liturgical_colors: {
-    BLACK: 'preto',
-    GOLD: 'dourado',
-    GREEN: 'verde',
-    PURPLE: 'roxo',
-    RED: 'vermelho',
-    ROSE: 'roséo',
-    WHITE: 'branco',
-  },
-  ranks: {
-    SOLEMNITY: 'solenidade',
-    SUNDAY: 'domingo',
-    TRIDUUM: 'Tríduo Pascal',
-    HOLY_WEEK: 'Semana Santa',
-    FEAST: 'festa',
-    MEMORIAL: 'memória',
-    OPT_MEMORIAL: 'memória facultativa',
-    COMMEMORATION: 'comemoração',
-    WEEKDAY: 'dia de semana',
-  },
-  celebrations: {
-    all_saints: 'Todos os Santos',
-    annunciation: 'Anunciação do Senhor',
-    ascension: 'Ascensão do Senhor',
-    ash_wednesday: 'Quarta-feira de Cinzas',
-    assumption: 'Assunção da Bem Aventurada Virgem Maria',
-    baptism_of_the_lord: 'Batismo do Senhor',
-    christ_the_king_sunday: 'Cristo Rei do Universo',
-    christmas: 'Natal',
-    corpus_christi: 'Corpus Christi',
-    divine_mercy_sunday: 'Domingo da Misericórdia',
-    easter_sunday: 'Domingo da Páscoa',
-    epiphany: 'Epifania do Senhor',
-    exaltation_of_the_holy_cross: 'Exaltação da Santa Cruz',
-    good_friday: 'Sexta-feira Santa',
-    holy_family: 'Sagrada Família',
-    holy_saturday: 'Sábado Santo',
-    holy_thursday: 'Quinta-feira Santa',
-    immaculate_conception_of_mary: 'Imaculada Conceição',
-    immaculate_heart_of_mary: 'Imaculado Coração de Maria',
-    joseph_spouse_of_mary: 'São José, esposo de Maria',
-    mary_mother_of_god: 'Maria, Mãe de Deus',
-    most_sacred_heart_of_jesus: 'Sagrado Coração de Jesus',
-    nativity_of_john_the_baptist: 'Nascimento de João Batista',
-    palm_sunday: 'Domingo de Ramos',
-    pentecost_sunday: 'Pentecostes',
-    peter_and_paul_apostles: 'São Pedro e São Paulo, Apóstolos',
-    presentation_of_the_lord: 'Apresentação do Senhor',
-    transfiguration: 'Transfiguração do Senhor',
-    trinity_sunday: 'Santíssima Trindade',
-  },
-  sanctorale: {
+
+  martyrology: {
     gregory_of_narek_abbot: 'São Gregório de Narek, abade e doutor da Igreja',
     hildegard_of_bingen_abbess:
       'Santa Hildegarda de Bingen, virgem e doutora da Igreja',

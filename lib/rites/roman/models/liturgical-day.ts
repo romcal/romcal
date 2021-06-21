@@ -2,10 +2,11 @@ import { Ranks, RanksFromPrecedence } from '../constants/ranks';
 import { LiturgicalSeason, LiturgicalSeasons } from '../constants/seasons';
 import { LiturgicalPeriods } from '../constants/periods';
 import dayjs, { Dayjs } from 'dayjs';
+import { RomcalConfig } from './config';
 import {
   isLiturgicalColor,
-  LiturgicalColors,
   LiturgicalColor,
+  LiturgicalColors,
 } from '../constants/colors';
 import { Precedences } from '../constants/precedences';
 import { MartyrologyItem } from '../../../catalog/martyrology';
@@ -127,7 +128,7 @@ export interface BaseLiturgicalDay {
   /**
    * The localized rank of the liturgical day.
    */
-  // rankName: string;
+  rankName: string;
 
   /**
    * Holy days of obligation are days on which the faithful are expected to attend Mass,
@@ -138,7 +139,7 @@ export interface BaseLiturgicalDay {
   /**
    * The liturgical localized colors of a liturgical day.
    */
-  // liturgicalColorNames: string[];
+  liturgicalColorNames: string[];
 
   /**
    * Season keys to which the liturgical day is a part.
@@ -148,7 +149,7 @@ export interface BaseLiturgicalDay {
   /**
    * Season localized name to which the liturgical day is a part.
    */
-  // seasonNames: string[];
+  seasonNames: string[];
 
   /**
    * Period keys to which the liturgical day is a part.
@@ -216,11 +217,14 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
   date: string;
   precedence: Precedences;
   rank: Ranks;
+  rankName: string;
   isHolyDayOfObligation: boolean;
   name: string;
   seasons: LiturgicalSeasons[];
+  seasonNames: string[];
   periods: LiturgicalPeriods[];
   liturgicalColors: LiturgicalColor[];
+  liturgicalColorNames: string[];
   martyrology: MartyrologyItem[];
   cycles: RomcalCyclesMetadata;
   calendar: Partial<RomcalCalendarMetadata>;
@@ -228,14 +232,19 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
   fromCalendar: string;
   fromExtendedCalendars: LiturgyDayDiff[];
 
-  constructor(day: LiturgicalDayInput) {
+  private _config: RomcalConfig;
+
+  constructor(day: LiturgicalDayInput, config: RomcalConfig) {
+    this._config = config;
     this.key = day.key;
     this.date = dayjs.isDayjs(day.date) ? day.date.toISOString() : day.date;
     this.precedence = day.precedence;
     this.rank = LiturgicalDay.precedenceToRank(day.precedence, day.date);
+    this.rankName = config.toRankName(this.rank);
     this.isHolyDayOfObligation = !!day.isHolyDayOfObligation;
     this.name = day.name ?? day.key;
     this.seasons = day.seasons ?? [];
+    this.seasonNames = this.seasons.map((key) => config.toSeasonName(key));
     this.periods = day.periods ?? [];
     this.cycles = day.cycles;
     this.calendar = day.calendar;
@@ -246,6 +255,10 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
       this.seasons,
       day.liturgicalColors,
       day.martyrology ?? [],
+    );
+
+    this.liturgicalColorNames = this.liturgicalColors.map((key) =>
+      config.toColorName(key),
     );
 
     this.martyrology = day.martyrology ?? [];

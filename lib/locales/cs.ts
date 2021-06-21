@@ -1,97 +1,108 @@
-export default {
-  advent: {
-    season: 'Doba adventní',
-    weekday: '{{day}} po {{week}} neděli adventní',
-    sunday: '{{week}} neděle adventní',
+import { Locale } from '../models/locale';
+
+export const locale: Locale = {
+  key: 'cs',
+
+  roman_rite: {
+    seasons: {
+      advent: {
+        season: 'Doba adventní',
+        weekday: '{{day}} po {{week}} neděli adventní',
+        sunday: '{{week}} neděle adventní',
+      },
+
+      christmastide: {
+        season: 'Doba vánoční',
+        day: '{{day}} po oktávu Narození Páně',
+        octave: '{{count}} den v oktávu Narození Páně',
+        second_sunday_after_christmas: 'Druhá neděle po Narození Páně',
+        before_epiphany: '{{day}} před Zjevením Páně',
+        after_epiphany: '{{day}} po Zjevení Páně',
+      },
+
+      ordinary_time: {
+        season: 'Liturgické mezidobí',
+        weekday: '{{day}} {{week}} týdne v mezidobí',
+        sunday: '{{week}} neděle v mezidobí',
+      },
+
+      lent: {
+        season: 'Doba postní',
+        weekday: '{{day}} po {{week}} neděli postní',
+        sunday: '{{week}} neděle postní',
+        day_after_ash_wed: '{{day}} po Popeleční středě',
+      },
+
+      paschal_triduum: {
+        season: 'Velikonoční triduum',
+      },
+
+      eastertide: {
+        season: 'Doba velikonoční',
+        weekday: '{{day}} po {{week}} neděli velikonoční',
+        sunday: '{{week}} neděle velikonoční',
+        octave: '{{day}} v oktávu velikonočním',
+      },
+    },
+
+    periods: {
+      epiphany: 'Zjevení Páně',
+      holy_week: 'Svatý týden',
+    },
+
+    ranks: {
+      solemnity: 'slavnost',
+      sunday: 'neděle',
+      feast: 'svátek',
+      memorial: 'památka',
+      weekday: 'ferie',
+    },
+
+    celebrations: {
+      all_saints: 'Všech svatých',
+      annunciation: 'Zvěstování Páně',
+      ascension: 'Nanebevstoupení Páně',
+      ash_wednesday: 'Popeleční středa',
+      assumption: 'Nanebevzetí Panny Marie',
+      baptism_of_the_lord: 'Křtu Páně',
+      christ_the_king_sunday: 'Ježíše Krista krále',
+      christmas: 'Narození Páně',
+      corpus_christi: 'Těla a krve Páně',
+      divine_mercy_sunday: 'Neděle Božího milosrdenství',
+      easter_sunday: 'Zmrtvýchvstání Páně',
+      epiphany: 'Zjevení Páně',
+      exaltation_of_the_holy_cross: 'Povýšení svatého kříže',
+      good_friday: 'Velký pátek',
+      holy_family: 'Svaté rodiny Ježíše, Marie a Josefa',
+      holy_saturday: 'Bílá sobota/Velikonoční vigilie',
+      holy_thursday: 'Zelený čtvrtek',
+      immaculate_conception_of_mary:
+        'Panny Marie, počaté bez poskvrny prvotního hříchu',
+      immaculate_heart_of_mary: 'Neposkvrněného Srdce Panny Marie',
+      joseph_spouse_of_mary: 'Sv. Josefa, Snoubence Panny Marie',
+      mary_mother_of_god: 'Matky Boží, Panny Marie',
+      most_sacred_heart_of_jesus: 'Nejsvětějšího srdce Ježíšova',
+      nativity_of_john_the_baptist: 'Narození svatého Jana Křtitele',
+      palm_sunday: 'Květná neděle',
+      pentecost_sunday: 'Seslání Ducha svatého',
+      peter_and_paul_apostles: 'Sv. Petra a Pavla, apoštolů',
+      presentation_of_the_lord: 'Uvedení Páně do chrámu',
+      transfiguration: 'Proměnění Páně',
+      trinity_sunday: 'Nejsvětější Trojice',
+    },
   },
-  christmastide: {
-    season: 'Doba vánoční',
-    day: '{{day}} po oktávu Narození Páně',
-    octave: '{{count}} den v oktávu Narození Páně',
-    sunday: '{{count}} neděle po Narození Páně',
+
+  colors: {
+    black: 'černá',
+    gold: 'zlatá',
+    green: 'zelená',
+    purple: 'fialová',
+    red: 'červená',
+    rose: 'růžová',
+    white: 'bílá',
   },
-  epiphany: {
-    season: 'Zjevení Páně',
-    before: '{{day}} před Zjevením Páně',
-    after: '{{day}} po Zjevení Páně',
-  },
-  ordinary_time: {
-    season: 'Liturgické mezidobí',
-    weekday: '{{day}} {{week}} týdne v mezidobí',
-    sunday: '{{week}} neděle v mezidobí',
-  },
-  lent: {
-    season: 'Doba postní',
-    weekday: '{{day}} po {{week}} neděli postní',
-    sunday: '{{week}} neděle postní',
-    day_after_ash_wed: '{{day}} po Popeleční středě',
-  },
-  holy_week: {
-    season: 'Svatý týden',
-    weekday: '{{day}} Svatého týdne',
-  },
-  paschal_triduum: {
-    season: 'Velikonoční triduum',
-  },
-  eastertide: {
-    season: 'Doba velikonoční',
-    weekday: '{{day}} po {{week}} neděli velikonoční',
-    sunday: '{{week}} neděle velikonoční',
-    octave: '{{day}} v oktávu velikonočním',
-  },
-  liturgical_colors: {
-    BLACK: 'černá',
-    GOLD: 'zlatá',
-    GREEN: 'zelená',
-    PURPLE: 'fialová',
-    RED: 'červená',
-    ROSE: 'růžová',
-    WHITE: 'bílá',
-  },
-  ranks: {
-    SOLEMNITY: 'slavnost',
-    SUNDAY: 'neděle',
-    TRIDUUM: 'Velikonoční triduum',
-    HOLY_WEEK: 'Svatý týden',
-    FEAST: 'svátek',
-    MEMORIAL: 'památka',
-    OPT_MEMORIAL: 'nezávazná památka',
-    COMMEMORATION: 'připomínka',
-    WEEKDAY: 'ferie',
-  },
-  celebrations: {
-    all_saints: 'Všech svatých',
-    annunciation: 'Zvěstování Páně',
-    ascension: 'Nanebevstoupení Páně',
-    ash_wednesday: 'Popeleční středa',
-    assumption: 'Nanebevzetí Panny Marie',
-    baptism_of_the_lord: 'Křtu Páně',
-    christ_the_king_sunday: 'Ježíše Krista krále',
-    christmas: 'Narození Páně',
-    corpus_christi: 'Těla a krve Páně',
-    divine_mercy_sunday: 'Neděle Božího milosrdenství',
-    easter_sunday: 'Zmrtvýchvstání Páně',
-    epiphany: 'Zjevení Páně',
-    exaltation_of_the_holy_cross: 'Povýšení svatého kříže',
-    good_friday: 'Velký pátek',
-    holy_family: 'Svaté rodiny Ježíše, Marie a Josefa',
-    holy_saturday: 'Bílá sobota/Velikonoční vigilie',
-    holy_thursday: 'Zelený čtvrtek',
-    immaculate_conception_of_mary:
-      'Panny Marie, počaté bez poskvrny prvotního hříchu',
-    immaculate_heart_of_mary: 'Neposkvrněného Srdce Panny Marie',
-    joseph_spouse_of_mary: 'Sv. Josefa, Snoubence Panny Marie',
-    mary_mother_of_god: 'Matky Boží, Panny Marie',
-    most_sacred_heart_of_jesus: 'Nejsvětějšího srdce Ježíšova',
-    nativity_of_john_the_baptist: 'Narození svatého Jana Křtitele',
-    palm_sunday: 'Květná neděle',
-    pentecost_sunday: 'Seslání Ducha svatého',
-    peter_and_paul_apostles: 'Sv. Petra a Pavla, apoštolů',
-    presentation_of_the_lord: 'Uvedení Páně do chrámu',
-    transfiguration: 'Proměnění Páně',
-    trinity_sunday: 'Nejsvětější Trojice',
-  },
-  sanctorale: {
+
+  martyrology: {
     '205_blessed_martyrs_of_japan': 'Bl. 205 japonských mučedníků',
     adalbert_of_prague_bishop: 'Sv. Vojtěcha, biskupa a mučedníka',
     adalbert_of_prague_bishop_patron_of_poland:
@@ -504,7 +515,7 @@ export default {
     john_of_avila_priest: 'Sv. Jana z Ávily, kněze a učitele církve',
     john_of_capistrano_priest: 'Sv. Jana Kapistránského, kněze',
     john_of_dukla_priest: 'Sv. Jana z Dukly, kněze',
-    john_of_god_duoarte_cidade_religious: 'Sv. Jana z Boha, řeholníka',
+    john_of_god_duarte_cidade_religious: 'Sv. Jana z Boha, řeholníka',
     john_of_kanty_priest: 'Sv. Jana Kentského, kněze',
     john_of_the_cross_priest: 'Sv. Jana od Kříže, kněze a učitele církve',
     john_of_triora_priest: 'Sv. Jana z Triora, kněze a mučedníka',

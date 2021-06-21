@@ -24,7 +24,7 @@ export class UnitedStates extends CalendarDef {
       date: '1-4',
     },
 
-    john_neumann_bishop: {
+    john_nepomucene_neumann_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       date: '1-5',
     },
