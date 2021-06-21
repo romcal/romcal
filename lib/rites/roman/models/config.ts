@@ -8,6 +8,9 @@ import { locale as en } from '../../../locales/en';
 import { LiturgicalSeasons } from '../constants/seasons';
 import { LiturgicalColor } from '../constants/colors';
 import { Ranks } from '../constants/ranks';
+import updateLocale from 'dayjs/plugin/updateLocale';
+
+dayjs.extend(updateLocale);
 
 /**
  * The configuration object that is passed either to the [[Calendar.calendarFor]]
@@ -93,6 +96,7 @@ export class RomcalConfig implements IRoncalConfig {
   readonly year: number;
   readonly particularCalendar?: typeof CalendarDef;
   readonly locale?: Locale;
+  readonly localeKey: string;
   readonly epiphanyOnSunday: boolean;
   readonly corpusChristiOnSunday: boolean;
   readonly ascensionOnSunday: boolean;
@@ -189,9 +193,32 @@ export class RomcalConfig implements IRoncalConfig {
 
     // Set dayjs locale
     if (this.locale) {
-      require(`dayjs/locale/${this.locale.key}`);
-      dayjs.locale(this.locale.key);
+      try {
+        require(`dayjs/locale/${this.locale.key}`);
+        dayjs.locale(this.locale.key);
+      } catch (e) {
+        // logger.warn(
+        //   `Failed to load the '${this.locale.key}' locale file for the romcal’s date management library, using the default 'en' instead. Maybe '${this.locale.key}' doesn't exists in Day.js.`,
+        // );
+      }
     }
+
+    this.localeKey = config?.locale?.key ?? 'en';
+
+    /**
+     * Ensure that the first day is always a Sunday in romcal & DayJS
+     * Monday is the first day of the week according to the international standard ISO 8601,
+     * In the US, Canada, and Japan, it's counted as the second day of the week (Sunday is the first day).
+     * In Christian calendars, Sunday is always the first day of the week.
+     * In other words, the romcal will use US, Canada definitions for the start of the week.
+     */
+    dayjs.updateLocale(this.localeKey, {
+      weekStart: 0,
+      week: {
+        dow: 0, // US, Canada: 1st day of week is Sunday
+        doy: 6, // US, Canada: 1st week of the year is the one that contains the 1st of January (7 + 0 - 1)
+      },
+    });
   }
 
   /**
