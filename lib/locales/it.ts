@@ -6,18 +6,18 @@ export const locale: Locale = {
   roman_rite: {
     seasons: {
       advent: {
-        season: 'Avvento',
+        season: 'Tempo du Avvento',
         weekday:
           '{{day, capitalize}} della $t(ordinals:{{week}}, { "context": "feminine" }) settimana di Avvento',
         sunday:
-          '$t(ordinals:{{week}}, { "context": "feminine" }) Domenica di Avvento',
+          '$t(ordinals:{{week}}, { "context": "feminine" }) domenica di Avvento',
       },
 
       christmastide: {
-        season: 'Natale',
+        season: 'Tempo di Natale',
         day: '{{day, capitalize}} di Natale',
-        octave: '{{count}}º giorno dell’Ottava di Natale',
-        second_sunday_after_christmas: 'Seconda Domenica di Natale',
+        octave: '{{count}}º giorno fra l’Ottava di Natale',
+        second_sunday_after_christmas: 'Seconda domenica dopo Natale',
         before_epiphany: '{{day, capitalize}} prima dell’Epifania',
         after_epiphany: '{{day, capitalize}} dopo l’Epifania',
       },
@@ -27,16 +27,16 @@ export const locale: Locale = {
         weekday:
           '{{day, capitalize}} della $t(ordinals:{{week}}, { "context": "feminine" }) settimana del Tempo Ordinario',
         sunday:
-          '$t(ordinals:{{week}}, { "context": "feminine" }) Domenica del Tempo Ordinario',
+          '$t(ordinals:{{week}}, { "context": "feminine" }) domenica del Tempo Ordinario',
       },
 
       lent: {
-        season: 'Quaresima',
+        season: 'Tempo di Quaresima',
         weekday:
           '{{day, capitalize}} della $t(ordinals:{{week}}, { "context": "feminine" }) settimana di Quaresima',
         sunday:
-          '$t(ordinals:{{week}}, { "context": "feminine" }) Domenica di Quaresima',
-        day_after_ash_wed: '{{day, capitalize}} dopo Mercoledí delle Ceneri',
+          '$t(ordinals:{{week}}, { "context": "feminine" }) domenica di Quaresima',
+        day_after_ash_wed: '{{day, capitalize}} dopo le Ceneri',
         holy_week_day: '{{day, capitalize}} della Settimana Santa',
       },
 
@@ -49,8 +49,8 @@ export const locale: Locale = {
         weekday:
           '{{day, capitalize}} della $t(ordinals:{{week}}, { "context": "feminine" }) settimana di Pasqua',
         sunday:
-          '$t(ordinals:{{week}}, { "context": "feminine" }) Domenica di Pasqua',
-        octave: '{{day, capitalize}} di Pasqua',
+          '$t(ordinals:{{week}}, { "context": "feminine" }) domenica di Pasqua',
+        octave: '{{day, capitalize}} fra l’Ottava di Pasqua',
       },
     },
 
@@ -77,8 +77,8 @@ export const locale: Locale = {
       christ_the_king_sunday: 'Cristo Re dell’universo',
       christmas: 'Natale del Signore',
       corpus_christi: 'Santissimo Corpo e Sangue di Cristo',
-      divine_mercy_sunday: '2º Domenica di Pasqua / Divina Misericordia',
-      easter_sunday: 'Domenica di Pasqua',
+      divine_mercy_sunday: '2º domenica di Pasqua / Divina Misericordia',
+      easter_sunday: 'Domenica di Pasqua / Risurrezione del Signore',
       epiphany: 'Epifania del Signore',
       exaltation_of_the_holy_cross: 'Esaltazione della Santa Croce',
       good_friday: 'Venerdí Santo',
@@ -89,10 +89,10 @@ export const locale: Locale = {
         'Immacolata Concezione della Beata Vergine Maria',
       immaculate_heart_of_mary: 'Cuore Immacolato della Beata Vergine Maria',
       joseph_spouse_of_mary: 'San Giuseppe, sposo della Beata Vergine Maria',
-      mary_mother_of_god: 'Maria Santissima Madre di Dio',
+      mary_mother_of_god: 'Maria santissima Madre di Dio',
       most_sacred_heart_of_jesus: 'Sacratissimo Cuore di Gesù',
       nativity_of_john_the_baptist: 'Nativitá di San Giovanni Battista',
-      palm_sunday: 'Domenica delle Palme',
+      palm_sunday: 'Domenica delle Palme: Passione del Signore',
       pentecost_sunday: 'Domenica di Pentecoste',
       peter_and_paul_apostles: 'Santi Pietro e Paolo, apostoli',
       presentation_of_the_lord: 'Presentazione del Signore',
