@@ -9,14 +9,14 @@ export const locale: Locale = {
         season: 'Temps de l’Avent',
         weekday:
           '{{day, capitalize}} de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine de l’Avent',
-        sunday: '$t(ordinals:{{week}}, capitalize) Dimanche de l’Avent',
+        sunday: '$t(ordinals:{{week}}, capitalize) dimanche de l’Avent',
       },
 
       christmastide: {
         season: 'Temps de Noël',
         day: '{{day, capitalize}} dans le Temps de Noël',
         octave: '{{count}}ᵉ jour dans l’Octave de la Nativité',
-        second_sunday_after_christmas: 'Deuxième Dimanche après la Nativité',
+        second_sunday_after_christmas: 'Deuxième dimanche après la Nativité',
         before_epiphany: '{{day, capitalize}} avant l’Épiphanie',
         after_epiphany: '{{day, capitalize}} après l’Épiphanie',
       },
@@ -25,14 +25,14 @@ export const locale: Locale = {
         season: 'Temps Ordinaire',
         weekday:
           '{{day, capitalize}} de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine du Temps Ordinaire',
-        sunday: '$t(ordinals:{{week}}, capitalize) Dimanche du Temps Ordinaire',
+        sunday: '$t(ordinals:{{week}}, capitalize) dimanche du Temps Ordinaire',
       },
 
       lent: {
         season: 'Temps du Carême',
         weekday:
           '{{day, capitalize}} de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine de Carême',
-        sunday: '$t(ordinals:{{week}}, capitalize) Dimanche de Carême',
+        sunday: '$t(ordinals:{{week}}, capitalize) dimanche de Carême',
         day_after_ash_wed: '{{day, capitalize}} après les Cendres',
         holy_week_day: '{{day, capitalize}} Saint',
       },
@@ -45,7 +45,7 @@ export const locale: Locale = {
         season: 'Temps Pascal',
         weekday:
           '{{day, capitalize}} de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine de Pâques',
-        sunday: '$t(ordinals:{{week}}, capitalize) Dimanche de Pâques',
+        sunday: '$t(ordinals:{{week}}, capitalize) dimanche de Pâques',
         octave: '{{day, capitalize}} dans l’Octave de Pâques',
       },
     },
@@ -70,12 +70,14 @@ export const locale: Locale = {
       ash_wednesday: 'Mercredi des Cendres',
       assumption: 'Assomption de la Vierge Marie',
       baptism_of_the_lord: 'Baptême du Seigneur',
-      christ_the_king_sunday: 'Christ, Roi de l’Univers',
+      christ_the_king_sunday:
+        'Trente-quatrième et dernier dimanche - Le Christ, Roi de l’Univers',
       christmas: 'Nativité du Seigneur',
-      corpus_christi: 'Saint-Sacrement',
-      divine_mercy_sunday: 'Dimanche de la Divine Miséricorde',
-      easter_sunday: 'Dimanche de Pâques',
-      epiphany: 'L’Épiphanie du Seigneur',
+      corpus_christi: 'Le Saint-Sacrement du Corps et du Sang du Christ',
+      divine_mercy_sunday:
+        'Deuxième dimanche de Pâques ou de la Divine Miséricorde',
+      easter_sunday: 'Dimanche de Pâques - La résurrection du Seigneur',
+      epiphany: 'Épiphanie du Seigneur',
       exaltation_of_the_holy_cross: 'La Croix Glorieuse',
       good_friday: 'Vendredi Saint',
       holy_family: 'La Sainte Famille',
@@ -92,7 +94,7 @@ export const locale: Locale = {
       peter_and_paul_apostles: 'Saint Pierre et Saint Paul, Apôtres',
       presentation_of_the_lord: 'Présentation du Seigneur au Temple',
       transfiguration: 'Transfiguration du Seigneur',
-      trinity_sunday: 'Très Sainte Trinité',
+      trinity_sunday: 'La Sainte Trinité',
     },
   },
 
