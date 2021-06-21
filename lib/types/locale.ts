@@ -7,9 +7,7 @@ export interface Locale {
 }
 
 // export type LocaleOrdinals = Record<string, string | ((n: number) => string)>;
-export type LocaleOrdinals =
-  | Record<string, string>
-  | Record<'default', (n: number) => string>;
+export type LocaleOrdinals = Record<string, string>;
 
 export type LocaleColors = {
   black?: string;

@@ -1,4 +1,4 @@
-import { Locale } from '../models/locale';
+import { Locale } from '../types/locale';
 
 export const locale: Locale = {
   key: 'pl',
@@ -7,30 +7,32 @@ export const locale: Locale = {
     seasons: {
       advent: {
         season: 'Adwent',
-        weekday: '{{day}} {{week}} tygodnia Adwentu',
-        sunday: '{{week}} Niedziela Adwentu',
+        weekday: '{{day, capitalize}} $t(ordinals:{{week}}) tygodnia Adwentu',
+        sunday: '$t(ordinals:{{week}}, capitalize) Niedziela Adwentu',
       },
 
       christmastide: {
         season: 'Narodzenie Pańskie',
-        day: '{{day}} boże Narodzenie',
-        octave: '{{count}} dzień w oktawie Narodzenia Pańskiego',
+        day: '{{day, capitalize}} boże Narodzenie',
+        octave: '{{count}}. dzień w oktawie Narodzenia Pańskiego',
         second_sunday_after_christmas: 'Druga Niedziela po Narodzeniu Pańskim',
-        before_epiphany: '{{day}} przed Objawieniem Pańskim',
-        after_epiphany: '{{day}} po Objawieniu Pańskim',
+        before_epiphany: '{{day, capitalize}} przed Objawieniem Pańskim',
+        after_epiphany: '{{day, capitalize}} po Objawieniu Pańskim',
       },
 
       ordinary_time: {
         season: 'Okres Zwykły',
-        weekday: '{{day}} {{week}} tygodnia zwykłego',
-        sunday: '{{week}} Niedziela zwykła',
+        weekday: '{{day, capitalize}} $t(ordinals:{{week}}) tygodnia zwykłego',
+        sunday: '$t(ordinals:{{week}}, capitalize) Niedziela zwykła',
       },
 
       lent: {
         season: 'Wielki Post',
-        weekday: '{{day}} {{week}} tygodnia Wielkiego Postu',
-        sunday: '{{week}} Niedziela Wielkiego Postu',
-        day_after_ash_wed: '{{day}} po Popielcu',
+        weekday:
+          '{{day, capitalize}} $t(ordinals:{{week}}) tygodnia Wielkiego Postu',
+        sunday: '$t(ordinals:{{week}}, capitalize) Niedziela Wielkiego Postu',
+        day_after_ash_wed: '{{day, capitalize}} po Popielcu',
+        holy_week_day: '{{day, capitalize}} Wielkiego Tygodnia',
       },
 
       paschal_triduum: {
@@ -39,9 +41,10 @@ export const locale: Locale = {
 
       eastertide: {
         season: 'Wielkanoc',
-        weekday: '{{day}} {{week}} tygodnia wielkanocnego',
-        sunday: '{{week}} Niedziela Wielkanocna',
-        octave: '{{day}} w oktawie Wielkanocy',
+        weekday:
+          '{{day, capitalize}} $t(ordinals:{{week}}) tygodnia wielkanocnego',
+        sunday: '$t(ordinals:{{week}}, capitalize) Niedziela Wielkanocna',
+        octave: '{{day, capitalize}} w oktawie Wielkanocy',
       },
     },
 

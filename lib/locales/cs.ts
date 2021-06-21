@@ -1,4 +1,4 @@
-import { Locale } from '../models/locale';
+import { Locale } from '../types/locale';
 
 export const locale: Locale = {
   key: 'cs',
@@ -7,30 +7,31 @@ export const locale: Locale = {
     seasons: {
       advent: {
         season: 'Doba adventní',
-        weekday: '{{day}} po {{week}} neděli adventní',
-        sunday: '{{week}} neděle adventní',
+        weekday: '{{day, capitalize}} po $t(ordinals:{{week}}) neděli adventní',
+        sunday: '$t(ordinals:{{week}}, capitalize) neděle adventní',
       },
 
       christmastide: {
         season: 'Doba vánoční',
-        day: '{{day}} po oktávu Narození Páně',
-        octave: '{{count}} den v oktávu Narození Páně',
+        day: '{{day, capitalize}} po oktávu Narození Páně',
+        octave: '{{count}}. den v oktávu Narození Páně',
         second_sunday_after_christmas: 'Druhá neděle po Narození Páně',
-        before_epiphany: '{{day}} před Zjevením Páně',
-        after_epiphany: '{{day}} po Zjevení Páně',
+        before_epiphany: '{{day, capitalize}} před Zjevením Páně',
+        after_epiphany: '{{day, capitalize}} po Zjevení Páně',
       },
 
       ordinary_time: {
         season: 'Liturgické mezidobí',
-        weekday: '{{day}} {{week}} týdne v mezidobí',
-        sunday: '{{week}} neděle v mezidobí',
+        weekday: '{{day, capitalize}} $t(ordinals:{{week}}) týdne v mezidobí',
+        sunday: '$t(ordinals:{{week}}, capitalize) neděle v mezidobí',
       },
 
       lent: {
         season: 'Doba postní',
-        weekday: '{{day}} po {{week}} neděli postní',
-        sunday: '{{week}} neděle postní',
-        day_after_ash_wed: '{{day}} po Popeleční středě',
+        weekday: '{{day, capitalize}} po $t(ordinals:{{week}}) neděli postní',
+        sunday: '$t(ordinals:{{week}}, capitalize) neděle postní',
+        day_after_ash_wed: '{{day, capitalize}} po Popeleční středě',
+        holy_week_day: '{{day, capitalize}} Svatého týdne',
       },
 
       paschal_triduum: {
@@ -39,9 +40,10 @@ export const locale: Locale = {
 
       eastertide: {
         season: 'Doba velikonoční',
-        weekday: '{{day}} po {{week}} neděli velikonoční',
-        sunday: '{{week}} neděle velikonoční',
-        octave: '{{day}} v oktávu velikonočním',
+        weekday:
+          '{{day, capitalize}} po $t(ordinals:{{week}}) neděli velikonoční',
+        sunday: '$t(ordinals:{{week}}) neděle velikonoční',
+        octave: '{{day, capitalize}} v oktávu velikonočním',
       },
     },
 

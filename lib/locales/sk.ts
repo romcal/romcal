@@ -1,4 +1,4 @@
-import { Locale } from '../models/locale';
+import { Locale } from '../types/locale';
 
 export const locale: Locale = {
   key: 'sk',
@@ -7,30 +7,33 @@ export const locale: Locale = {
     seasons: {
       advent: {
         season: 'Adventné obdobie',
-        weekday: '{{day}} po {{week}} adventnej nedeli',
-        sunday: '{{week}} adventná nedeľa',
+        weekday:
+          '{{day, capitalize}} po $t(ordinals:{{week}}) adventnej nedeli',
+        sunday: '$t(ordinals:{{week}}, capitalize) adventná nedeľa',
       },
 
       christmastide: {
         season: 'Vianočné obdobie',
-        day: '{{day}} vo Vianočnom období',
-        octave: '{{count}} deň v oktáve narodenia Pána',
+        day: '{{day, capitalize}} vo Vianočnom období',
+        octave: '{{count}}. deň v oktáve narodenia Pána',
         second_sunday_after_christmas: 'Druhú nedeľa po narodení Pána',
-        before_epiphany: '{{day}} vo vianočnom období',
-        after_epiphany: '{{day}} po Zjavení Pána',
+        before_epiphany: '{{day, capitalize}} vo vianočnom období',
+        after_epiphany: '{{day, capitalize}} po Zjavení Pána',
       },
 
       ordinary_time: {
         season: 'Cezročné obdobie',
-        weekday: '{{day}} {{week}} týždňa v Cezročnom období',
-        sunday: '{{week}} nedeľa v Cezročnom období',
+        weekday:
+          '{{day, capitalize}} $t(ordinals:{{week}}) týždňa v Cezročnom období',
+        sunday: '$t(ordinals:{{week}}, capitalize) nedeľa v Cezročnom období',
       },
 
       lent: {
         season: 'Pôstne obdobie',
-        weekday: '{{day}} po {{week}} pôstnej nedeli',
-        sunday: '{{week}} pôstna nedeľa',
-        day_after_ash_wed: '{{day}} po Popolcovej strede',
+        weekday: '{{day, capitalize}} po $t(ordinals:{{week}}) pôstnej nedeli',
+        sunday: '$t(ordinals:{{week}}, capitalize) pôstna nedeľa',
+        day_after_ash_wed: '{{day, capitalize}} po Popolcovej strede',
+        holy_week_day: '{{day, capitalize}} Veľkého týždňa',
       },
 
       paschal_triduum: {
@@ -39,8 +42,9 @@ export const locale: Locale = {
 
       eastertide: {
         season: 'Veľkonočné obdobie',
-        weekday: '{{day}} po {{week}} veľkonočnej nedeli',
-        sunday: '{{week}} veľkonočná nedeľa',
+        weekday:
+          '{{day, capitalize}} po $t(ordinals:{{week}}) veľkonočnej nedeli',
+        sunday: '$t(ordinals:{{week}}, capitalize) veľkonočná nedeľa',
         octave: 'Veľkonočný {{day}}',
       },
     },

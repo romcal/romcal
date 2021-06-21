@@ -1,4 +1,4 @@
-import { Locale } from '../models/locale';
+import { Locale } from '../types/locale';
 
 export const locale: Locale = {
   key: 'la',
@@ -7,30 +7,34 @@ export const locale: Locale = {
     seasons: {
       advent: {
         season: 'Adventus',
-        weekday: '{{day}}, hebdomada {{week}} Adventus',
-        sunday: 'Dominica {{week}} Adventus',
+        weekday:
+          '{{day, capitalize}}, hebdomada $t(ordinals:{{week}}) Adventus',
+        sunday: 'Dominica $t(ordinals:{{week}}) Adventus',
       },
 
       christmastide: {
         season: 'Nativitatis',
-        day: '{{day}} temporis Nativitatis',
+        day: '{{day, capitalize}} temporis Nativitatis',
         octave: 'De die {{count}} infra octavam Nativitatis',
         second_sunday_after_christmas: 'Dominica Secundi post Nativitatem',
-        before_epiphany: '{{day}} post octavam Nativitatis',
-        after_epiphany: '{{day}} post Epiphaniam',
+        before_epiphany: '{{day, capitalize}} post octavam Nativitatis',
+        after_epiphany: '{{day, capitalize}} post Epiphaniam',
       },
 
       ordinary_time: {
         season: 'Per annum',
-        weekday: '{{day}}, hebdomada {{week}} per annum',
-        sunday: 'Dominica {{week}} per annum',
+        weekday:
+          '{{day, capitalize}}, hebdomada $t(ordinals:{{week}}) per annum',
+        sunday: 'Dominica $t(ordinals:{{week}}) per annum',
       },
 
       lent: {
         season: 'Quadragesimæ',
-        weekday: '{{day}}, hebdomada {{week}} Quadragesimæ',
-        sunday: 'Dominica {{week}} Quadragesimæ',
-        day_after_ash_wed: '{{day}} post Cineres',
+        weekday:
+          '{{day, capitalize}}, hebdomada $t(ordinals:{{week}}) Quadragesimæ',
+        sunday: 'Dominica $t(ordinals:{{week}}) Quadragesimæ',
+        day_after_ash_wed: '{{day, capitalize}} post Cineres',
+        holy_week_day: '{{day, capitalize}} Hebdomadæ Sanctæ',
       },
 
       paschal_triduum: {
@@ -39,8 +43,9 @@ export const locale: Locale = {
 
       eastertide: {
         season: 'Paschæ',
-        weekday: '{{day}}, hebdomada {{week}} temporis paschalis',
-        sunday: 'Dominica {{week}} Paschæ',
+        weekday:
+          '{{day, capitalize}}, hebdomada $t(ordinals:{{week}}) temporis paschalis',
+        sunday: 'Dominica $t(ordinals:{{week}}) Paschæ',
         octave: 'De die {{day}} infra octavam Paschæ',
       },
     },
