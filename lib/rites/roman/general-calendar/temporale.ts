@@ -198,7 +198,7 @@ export default class Temporale {
                 week: calendar.weekOfSeason,
               })
             : this.config.i18next.t('roman_rite:seasons.advent.weekday', {
-                day: date.format('dddd'),
+                day: date.locale(this.config.localeKey).format('dddd'),
                 week: calendar.weekOfSeason,
               });
 
@@ -306,7 +306,7 @@ export default class Temporale {
           .toLowerCase()}`;
         name = this.config.i18next.t(
           'roman_rite:seasons.christmastide.before_epiphany',
-          { day: date.format('dddd') },
+          { day: date.locale(this.config.localeKey).format('dddd') },
         );
         precedence = Precedences.Weekday_13;
         periods.push(LiturgicalPeriods.DAYS_BEFORE_EPIPHANY);
@@ -320,7 +320,7 @@ export default class Temporale {
           .toLowerCase()}_after_epiphany`;
         name = this.config.i18next.t(
           'roman_rite:seasons.christmastide.after_epiphany',
-          { day: date.format('dddd') },
+          { day: date.locale(this.config.localeKey).format('dddd') },
         );
         precedence = Precedences.Weekday_13;
         periods.push(LiturgicalPeriods.DAYS_AFTER_EPIPHANY);
@@ -406,7 +406,7 @@ export default class Temporale {
           precedence = Precedences.PrivilegedWeekday_9;
           name = this.config.i18next.t(
             'roman_rite:seasons.lent.day_after_ash_wed',
-            { day: date.format('dddd') },
+            { day: date.locale(this.config.localeKey).format('dddd') },
           );
         }
 
@@ -429,7 +429,7 @@ export default class Temporale {
           name = this.config.i18next.t(
             'roman_rite:seasons.lent.holy_week_day',
             {
-              day: date.format('dddd'),
+              day: date.locale(this.config.localeKey).format('dddd'),
             },
           );
 
@@ -468,7 +468,7 @@ export default class Temporale {
             .toLowerCase()}`;
           precedence = Precedences.PrivilegedWeekday_9;
           name = this.config.i18next.t('roman_rite:seasons.lent.weekday', {
-            day: date.format('dddd'),
+            day: date.locale(this.config.localeKey).format('dddd'),
             week: calendar.weekOfSeason,
           });
         }
@@ -611,7 +611,7 @@ export default class Temporale {
           precedence = Precedences.WeekdayOfEasterOctave_2;
           periods.push(LiturgicalPeriods.EASTER_OCTAVE);
           name = this.config.i18next.t('roman_rite:seasons.eastertide.octave', {
-            day: date.format('dddd'),
+            day: date.locale(this.config.localeKey).format('dddd'),
           });
         }
 
@@ -626,7 +626,7 @@ export default class Temporale {
           name = this.config.i18next.t(
             'roman_rite:seasons.eastertide.weekday',
             {
-              day: date.format('dddd'),
+              day: date.locale(this.config.localeKey).format('dddd'),
               week: idx + 1,
             },
           );
@@ -764,7 +764,7 @@ export default class Temporale {
             : this.config.i18next.t(
                 'roman_rite:seasons.ordinary_time.weekday',
                 {
-                  day: date.format('dddd'),
+                  day: date.locale(this.config.localeKey).format('dddd'),
                   week: calendar.weekOfSeason,
                 },
               );
