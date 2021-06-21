@@ -1,95 +1,110 @@
-export default {
-  advent: {
-    season: 'Advent Season',
-    weekday: '{{day}} of the {{week}} week of Advent',
-    sunday: '{{week}} Sunday of Advent',
+import { Locale } from '../models/locale';
+
+export const locale: Locale = {
+  key: 'en',
+
+  roman_rite: {
+    seasons: {
+      advent: {
+        season: 'Advent Season',
+        weekday: '{{day, capitalize}} of the {{week}} week of Advent',
+        sunday: '{{week}} Sunday of Advent',
+      },
+
+      christmastide: {
+        season: 'Christmas Season',
+        day: '{{day}} of Christmastide',
+        octave: '{{count}} day within the Octave of the Nativity of the Lord',
+        second_sunday_after_christmas:
+          'Second Sunday after the Nativity of the Lord',
+        before_epiphany: '{{day}} before the Epiphany of the Lord',
+        after_epiphany: '{{day}} after the Epiphany of the Lord',
+      },
+
+      ordinary_time: {
+        season: 'Ordinary Time',
+        weekday: '{{day, capitalize}} of the {{week}} week of Ordinary Time',
+        sunday: '{{week}} Sunday in Ordinary Time',
+      },
+
+      lent: {
+        season: 'Lenten Season',
+        weekday: '{{day, capitalize}} of the {{week}} week of Lent',
+        sunday: '{{week}} Sunday of Lent',
+        day_after_ash_wed: '{{day, capitalize}} after Ash Wednesday',
+        holy_week_day: '{{day, capitalize}} of Holy Week',
+      },
+
+      paschal_triduum: {
+        season: 'Paschal Triduum',
+      },
+
+      eastertide: {
+        season: 'Easter Season',
+        weekday: '{{day, capitalize}} of the {{week}} week of Easter',
+        sunday: '{{week}} Sunday of Easter',
+        octave: '{{day, capitalize}} within the Octave of Easter',
+      },
+    },
+
+    periods: {
+      epiphany: 'Epiphany',
+      holy_week: 'Holy Week',
+    },
+
+    ranks: {
+      solemnity: 'solemnity',
+      sunday: 'Sunday',
+      feast: 'feast',
+      memorial: 'memorial',
+      weekday: 'weekday',
+    },
+
+    celebrations: {
+      all_saints: 'All Saints',
+      annunciation: 'Annunciation of the Lord',
+      ascension: 'Ascension of the Lord',
+      ash_wednesday: 'Ash Wednesday',
+      assumption: 'Assumption of the Blessed Virgin Mary',
+      baptism_of_the_lord: 'Baptism of the Lord',
+      christ_the_king_sunday: 'Our Lord Jesus Christ, King of the Universe',
+      christmas: 'Nativity of the Lord',
+      corpus_christi: 'Most Holy Body and Blood of Christ',
+      divine_mercy_sunday: 'Sunday of Divine Mercy',
+      easter_sunday: 'Easter Sunday of the Resurrection of the Lord',
+      epiphany: 'Epiphany of the Lord',
+      exaltation_of_the_holy_cross: 'Exaltation of the Holy Cross',
+      good_friday: 'Good Friday',
+      holy_family: 'Holy Family of Jesus, Mary and Joseph',
+      holy_saturday: 'Holy Saturday/Easter Vigil',
+      holy_thursday: 'Holy Thursday',
+      immaculate_conception_of_mary:
+        'Immaculate Conception of the Blessed Virgin Mary',
+      immaculate_heart_of_mary: 'Immaculate Heart of the Blessed Virgin Mary',
+      joseph_spouse_of_mary: 'Saint Joseph, Spouse of the Blessed Virgin Mary',
+      mary_mother_of_god: 'Mary, the Holy Mother of God',
+      most_sacred_heart_of_jesus: 'Most Sacred Heart of Jesus',
+      nativity_of_john_the_baptist: 'Nativity of Saint John the Baptist',
+      palm_sunday: 'Palm Sunday of the Passion of the Lord',
+      pentecost_sunday: 'Pentecost Sunday',
+      peter_and_paul_apostles: 'Saints Peter and Paul, Apostles',
+      presentation_of_the_lord: 'Presentation of the Lord',
+      transfiguration: 'Transfiguration of the Lord',
+      trinity_sunday: 'Most Holy Trinity',
+    },
   },
-  christmastide: {
-    season: 'Christmas Season',
-    day: '{{day}} of Christmastide',
-    octave: '{{count}} Day within the Octave of the Nativity of the Lord',
-    sunday: '{{count}} Sunday of Christmas',
+
+  colors: {
+    black: 'black',
+    gold: 'gold',
+    green: 'green',
+    purple: 'purple',
+    red: 'red',
+    rose: 'rose',
+    white: 'white',
   },
-  epiphany: {
-    season: 'Epiphany',
-    before: '{{day}} before Epiphany',
-    after: '{{day}} after Epiphany',
-  },
-  ordinary_time: {
-    season: 'Ordinary Time',
-    weekday: '{{day}} of the {{week}} week of Ordinary Time',
-    sunday: '{{week}} Sunday in Ordinary Time',
-  },
-  lent: {
-    season: 'Lenten Season',
-    weekday: '{{day}} of the {{week}} week of Lent',
-    sunday: '{{week}} Sunday of Lent',
-    day_after_ash_wed: '{{day}} after Ash Wednesday',
-  },
-  holy_week: {
-    season: 'Holy Week',
-    weekday: '{{day}} of Holy Week',
-  },
-  paschal_triduum: {
-    season: 'Paschal Triduum',
-  },
-  eastertide: {
-    season: 'Easter Season',
-    weekday: '{{day}} of the {{week}} week of Easter',
-    sunday: '{{week}} Sunday of Easter',
-    octave: '{{day}} within the Octave of Easter',
-  },
-  liturgical_colors: {
-    BLACK: 'black',
-    GOLD: 'gold',
-    GREEN: 'green',
-    PURPLE: 'purple',
-    RED: 'red',
-    ROSE: 'rose',
-    WHITE: 'white',
-  },
-  ranks: {
-    SOLEMNITY: 'solemnity',
-    SUNDAY: 'Sunday',
-    TRIDUUM: 'Triduum',
-    HOLY_WEEK: 'Holy Week',
-    FEAST: 'feast',
-    MEMORIAL: 'memorial',
-    OPT_MEMORIAL: 'optional memorial',
-    COMMEMORATION: 'commemoration',
-    WEEKDAY: 'weekday',
-  },
-  celebrations: {
-    all_saints: 'All Saints',
-    annunciation: 'Annunciation of the Lord',
-    ascension: 'Ascension of the Lord',
-    ash_wednesday: 'Ash Wednesday',
-    assumption: 'Assumption of the Blessed Virgin Mary',
-    baptism_of_the_lord: 'Baptism of the Lord',
-    christ_the_king_sunday: 'Our Lord Jesus Christ, King of the Universe',
-    christmas: 'Nativity of the Lord',
-    corpus_christi: 'Most Holy Body and Blood of Christ',
-    divine_mercy_sunday: 'Sunday of Divine Mercy',
-    easter_sunday: 'Easter Sunday of the Resurrection of the Lord',
-    epiphany: 'Epiphany of the Lord',
-    exaltation_of_the_holy_cross: 'Exaltation of the Holy Cross',
-    good_friday: 'Good Friday',
-    holy_family: 'Holy Family of Jesus, Mary and Joseph',
-    holy_saturday: 'Holy Saturday/Easter Vigil',
-    holy_thursday: 'Holy Thursday',
-    immaculate_conception_of_mary:
-      'Immaculate Conception of the Blessed Virgin Mary',
-    immaculate_heart_of_mary: 'Immaculate Heart of the Blessed Virgin Mary',
-    joseph_spouse_of_mary: 'Saint Joseph, Spouse of the Blessed Virgin Mary',
-    mary_mother_of_god: 'Mary, the Holy Mother of God',
-    most_sacred_heart_of_jesus: 'Most Sacred Heart of Jesus',
-    nativity_of_john_the_baptist: 'Nativity of Saint John the Baptist',
-    palm_sunday: 'Palm Sunday of the Passion of the Lord',
-    pentecost_sunday: 'Pentecost Sunday',
-    peter_and_paul_apostles: 'Saints Peter and Paul, Apostles',
-    presentation_of_the_lord: 'Presentation of the Lord',
-    transfiguration: 'Transfiguration of the Lord',
-    trinity_sunday: 'Most Holy Trinity',
+
+  martyrology: {
     '205_blessed_martyrs_of_japan': '205 Blessed Martyrs of Japan',
     adalbert_of_prague_bishop: 'Saint Adalbert, Bishop and Martyr',
     adalbert_of_prague_bishop_patron_of_poland:
@@ -521,7 +536,7 @@ export default {
       'Saint John of Ávila, Priest and Doctor of the Church',
     john_of_capistrano_priest: 'Saint John of Capistrano, Priest',
     john_of_dukla_priest: 'Saint John of Dukla, Priest',
-    john_of_god_duoarte_cidade_religious: 'Saint John of God, Religious',
+    john_of_god_duarte_cidade_religious: 'Saint John of God, Religious',
     john_of_kanty_priest: 'Saint John of Kanty, Priest',
     john_of_the_cross_priest:
       'Saint John of the Cross, Priest and Doctor of the Church',

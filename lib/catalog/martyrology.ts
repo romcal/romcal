@@ -2282,12 +2282,6 @@ export class Martyrology {
       dateOfDeath: 1859,
     },
 
-    john_neumann_bishop: {
-      canonizationLevel: CanonizationLevel.Saint,
-      name: 'John Neumann',
-      titles: [Titles.Bishop],
-    },
-
     john_nepomucene_neumann_bishop: {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'John Neumann',

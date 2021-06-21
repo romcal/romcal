@@ -192,19 +192,32 @@ export default class Temporale {
           idx,
         );
 
-        acc[key] = new LiturgicalDay({
-          date,
-          key,
-          name: key,
-          precedence,
-          seasons: [LiturgicalSeasons.ADVENT],
-          periods: [],
-          cycles: this._addLiturgicalCycleMetadata(date, calendar),
-          calendar,
-          liturgicalColors: [LiturgicalColors.PURPLE],
-          isHolyDayOfObligation: date.day() === 0,
-          fromCalendar: 'temporale',
-        });
+        const name =
+          date.day() === 0
+            ? this.config.i18next.t('roman_rite:seasons.advent.sunday', {
+                week: calendar.weekOfSeason,
+              })
+            : this.config.i18next.t('roman_rite:seasons.advent.weekday', {
+                day: date.format('dddd'),
+                week: calendar.weekOfSeason,
+              });
+
+        acc[key] = new LiturgicalDay(
+          {
+            date,
+            key,
+            name,
+            precedence,
+            seasons: [LiturgicalSeasons.ADVENT],
+            periods: [],
+            cycles: this._addLiturgicalCycleMetadata(date, calendar),
+            calendar,
+            liturgicalColors: [LiturgicalColors.PURPLE],
+            isHolyDayOfObligation: date.day() === 0,
+            fromCalendar: 'temporale',
+          },
+          this.config,
+        );
 
         const dateStr = date.format('YYYY-MM-DD');
         datesIndex[dateStr] = [key];
@@ -228,11 +241,11 @@ export default class Temporale {
     let count = 0;
 
     datesOfChristmasTime.forEach((date: Dayjs, idx) => {
-      const holyFamily = Dates.holyFamily(year - 1);
       const dayOfWeek = date.day();
       count = dayOfWeek === 0 ? count + 1 : count;
 
       let key: string;
+      let name: string;
       let precedence: Precedences;
       let isHolyDayOfObligation = date.day() === 0;
       const periods = [LiturgicalPeriods.CHRISTMAS_TO_PRESENTATION_OF_THE_LORD];
@@ -240,56 +253,75 @@ export default class Temporale {
       // Nativity of the Lord
       if (idx === 0) {
         key = 'christmas';
+        name = this.config.i18next.t(`roman_rite:celebrations.${key}`);
         precedence = Precedences.TemporaleSolemnity_2;
         isHolyDayOfObligation = true;
         periods.push(LiturgicalPeriods.CHRISTMAS_OCTAVE);
       }
-      // Holy Family
-      else if (date.isSame(holyFamily, 'date')) {
-        key = 'holy_family';
-        precedence = Precedences.GeneralLordFeast_5;
-      }
+
       // Days within the Octave of Christmas. (UNLY #59 9)
       else if (idx < 7) {
         key = `christmas_octave_day_${idx + 1}`;
+        name = this.config.i18next.t(
+          'roman_rite:seasons.christmastide.octave',
+          {
+            count: idx + 1,
+          },
+        );
         precedence = Precedences.PrivilegedWeekday_9;
         periods.push(LiturgicalPeriods.CHRISTMAS_OCTAVE);
       }
+
       // Mary, the Holy Mother of God
       else if (idx === 7) {
         key = 'mary_mother_of_god';
+        name = this.config.i18next.t(`roman_rite:celebrations.${key}`);
         precedence = Precedences.GeneralSolemnity_3;
         isHolyDayOfObligation = true;
         periods.push(LiturgicalPeriods.CHRISTMAS_OCTAVE);
       }
+
       // Day of Epiphany
       else if (epiphany.isSame(date, 'date')) {
         key = 'epiphany';
+        name = this.config.i18next.t(`roman_rite:celebrations.${key}`);
         precedence = Precedences.TemporaleSolemnity_2;
         isHolyDayOfObligation = true;
         periods.push(LiturgicalPeriods.DAYS_AFTER_EPIPHANY);
       }
+
       // Second Sunday after Christmas.
       else if (date.day() === 0) {
         key = `second_sunday_after_christmas`;
+        name = this.config.i18next.t(`roman_rite:seasons.christmastide.${key}`);
         precedence = Precedences.UnprivilegedSunday_6;
         periods.push(LiturgicalPeriods.DAYS_BEFORE_EPIPHANY);
       }
+
       // Days before Epiphany
       else if (date.isBefore(epiphany)) {
         key = `christmastide_${date
           .locale('en')
           .format('MMMM_D')
           .toLowerCase()}`;
+        name = this.config.i18next.t(
+          'roman_rite:seasons.christmastide.before_epiphany',
+          { day: date.format('dddd') },
+        );
         precedence = Precedences.Weekday_13;
         periods.push(LiturgicalPeriods.DAYS_BEFORE_EPIPHANY);
       }
+
       // Days after Epiphany
       else {
         key = `${date
           .locale('en')
           .format('dddd')
           .toLowerCase()}_after_epiphany`;
+        name = this.config.i18next.t(
+          'roman_rite:seasons.christmastide.after_epiphany',
+          { day: date.format('dddd') },
+        );
         precedence = Precedences.Weekday_13;
         periods.push(LiturgicalPeriods.DAYS_AFTER_EPIPHANY);
       }
@@ -308,19 +340,22 @@ export default class Temporale {
           idx,
         );
 
-        byKeys[key] = new LiturgicalDay({
-          date,
-          key,
-          name: key,
-          precedence,
-          seasons: [LiturgicalSeasons.CHRISTMAS_TIME],
-          periods,
-          cycles: this._addLiturgicalCycleMetadata(date, calendar),
-          calendar,
-          liturgicalColors: [LiturgicalColors.WHITE],
-          isHolyDayOfObligation,
-          fromCalendar: 'temporale',
-        });
+        byKeys[key] = new LiturgicalDay(
+          {
+            date,
+            key,
+            name,
+            precedence,
+            seasons: [LiturgicalSeasons.CHRISTMAS_TIME],
+            periods,
+            cycles: this._addLiturgicalCycleMetadata(date, calendar),
+            calendar,
+            liturgicalColors: [LiturgicalColors.WHITE],
+            isHolyDayOfObligation,
+            fromCalendar: 'temporale',
+          },
+          this.config,
+        );
 
         const dateStr = date.format('YYYY-MM-DD');
         datesIndex[dateStr] = [key];
@@ -333,56 +368,18 @@ export default class Temporale {
   lentBuilder = (year: number): LiturgicalDefBuiltData => {
     const datesOfLent = Dates.datesOfLent(year);
     const datesIndex: DatesIndex = {};
-    const periods = [
-      LiturgicalPeriods.PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY,
-    ];
 
     const byKeys = datesOfLent.reduce(
       (acc: Record<string, LiturgicalDay>, date: Dayjs, idx) => {
         const week = Math.floor((idx - 4) / 7) + 1;
         let key: string;
+        let name: string;
         let precedence: Precedences;
+        const seasons = [LiturgicalSeasons.LENT];
+        const periods = [
+          LiturgicalPeriods.PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY,
+        ];
         let liturgicalColors = [LiturgicalColors.PURPLE];
-
-        // Ash Wednesday
-        if (idx === 0) {
-          key = 'ash_wednesday';
-          precedence = Precedences.AshWednesday_2;
-        }
-        // Days after Ash Wednesday
-        else if (idx < 4) {
-          key = `${date
-            .locale('en')
-            .format('dddd')
-            .toLowerCase()}_after_ash_wednesday`;
-          precedence = Precedences.PrivilegedWeekday_9;
-        }
-        // Palm Sunday of the Passion of the Lord. (UNLY #30)
-        else if (idx === 39) {
-          key = 'palm_sunday';
-          precedence = Precedences.PrivilegedSunday_2;
-          liturgicalColors = [LiturgicalColors.RED];
-        }
-        // Holy Week. (UNLY #30)
-        else if (idx > 39) {
-          key = `holy_${date.locale('en').format('dddd').toLowerCase()}`;
-          precedence = Precedences.PrivilegedWeekday_9;
-          // Holy Thursday is white
-          if (idx === 43) liturgicalColors = [LiturgicalColors.WHITE];
-        }
-        // Sundays of Lent Time. (UNLY #59 2)
-        else if (date.day() === 0) {
-          key = `lent_${week}_sunday`;
-          precedence = Precedences.PrivilegedSunday_2;
-        }
-        // Weekdays of Lent. (UNLY #59 9)
-        else {
-          key = `lent_${week}_${date
-            .locale('en')
-            .format('dddd')
-            .toLowerCase()}`;
-          precedence = Precedences.PrivilegedWeekday_9;
-        }
 
         const calendar = this._computeCalendarMetadata(
           year,
@@ -393,34 +390,105 @@ export default class Temporale {
           idx,
         );
 
-        acc[key] = new LiturgicalDay({
-          date,
-          key,
-          name: key,
-          precedence,
-          seasons: [LiturgicalSeasons.LENT],
-          periods,
-          cycles: this._addLiturgicalCycleMetadata(date, calendar),
-          calendar,
-          liturgicalColors,
-          isHolyDayOfObligation: date.day() === 0,
-          fromCalendar: 'temporale',
-        });
-
-        // Holy Week begins from the Sixth Sunday of Lent
-        // (from Palm Sunday of the Passion of the Lord). (UNLY #30)
-        if (idx >= 38) {
-          acc[key].periods.push(LiturgicalPeriods.HOLY_WEEK);
+        // Ash Wednesday
+        if (idx === 0) {
+          key = 'ash_wednesday';
+          precedence = Precedences.AshWednesday_2;
+          name = this.config.i18next.t(`roman_rite:celebrations.${key}`);
         }
 
-        // Holy Thursday is in between the season of Lent and the Paschal Triduum:
-        // - The forty days of Lent run from Ash Wednesday up to but excluding
-        //    the Mass of the Lord’s Supper exclusive. (UNLY #28)
-        // - The Paschal Triduum of the Passion and Resurrection of the Lord begins with
-        //   the evening Mass of the Lord’s Supper. (UNLY #19)
-        if (idx === 43) {
-          acc[key].seasons.push(LiturgicalSeasons.PASCHAL_TRIDUUM);
+        // Days after Ash Wednesday
+        else if (idx < 4) {
+          key = `${date
+            .locale('en')
+            .format('dddd')
+            .toLowerCase()}_after_ash_wednesday`;
+          precedence = Precedences.PrivilegedWeekday_9;
+          name = this.config.i18next.t(
+            'roman_rite:seasons.lent.day_after_ash_wed',
+            { day: date.format('dddd') },
+          );
         }
+
+        // Palm Sunday of the Passion of the Lord. (UNLY #30)
+        else if (idx === 39) {
+          key = 'palm_sunday';
+          precedence = Precedences.PrivilegedSunday_2;
+          liturgicalColors = [LiturgicalColors.RED];
+          name = this.config.i18next.t(`roman_rite:celebrations.${key}`);
+
+          // Holy Week begins from the Sixth Sunday of Lent
+          // (from Palm Sunday of the Passion of the Lord). (UNLY #30)
+          periods.push(LiturgicalPeriods.HOLY_WEEK);
+        }
+
+        // Holy Week. (UNLY #30)
+        else if (idx > 39) {
+          key = `holy_${date.locale('en').format('dddd').toLowerCase()}`;
+          precedence = Precedences.PrivilegedWeekday_9;
+          name = this.config.i18next.t(
+            'roman_rite:seasons.lent.holy_week_day',
+            {
+              day: date.format('dddd'),
+            },
+          );
+
+          // Holy Week begins from the Sixth Sunday of Lent
+          // (from Palm Sunday of the Passion of the Lord). (UNLY #30)
+          periods.push(LiturgicalPeriods.HOLY_WEEK);
+
+          // Holy Thursday is white, and have a custom key name.
+          if (idx === 43) {
+            name = this.config.i18next.t(`roman_rite:celebrations.${key}`);
+            liturgicalColors = [LiturgicalColors.WHITE];
+
+            // Holy Thursday is in between the season of Lent and the Paschal Triduum:
+            // - The forty days of Lent run from Ash Wednesday up to but excluding
+            //    the Mass of the Lord’s Supper exclusive. (UNLY #28)
+            // - The Paschal Triduum of the Passion and Resurrection of the Lord begins with
+            //   the evening Mass of the Lord’s Supper. (UNLY #19)
+            seasons.push(LiturgicalSeasons.PASCHAL_TRIDUUM);
+          }
+        }
+
+        // Sundays of Lent Time. (UNLY #59 2)
+        else if (date.day() === 0) {
+          key = `lent_${week}_sunday`;
+          precedence = Precedences.PrivilegedSunday_2;
+          name = this.config.i18next.t('roman_rite:seasons.lent.sunday', {
+            week: calendar.weekOfSeason,
+          });
+        }
+
+        // Weekdays of Lent. (UNLY #59 9)
+        else {
+          key = `lent_${week}_${date
+            .locale('en')
+            .format('dddd')
+            .toLowerCase()}`;
+          precedence = Precedences.PrivilegedWeekday_9;
+          name = this.config.i18next.t('roman_rite:seasons.lent.weekday', {
+            day: date.format('dddd'),
+            week: calendar.weekOfSeason,
+          });
+        }
+
+        acc[key] = new LiturgicalDay(
+          {
+            date,
+            key,
+            name,
+            precedence,
+            seasons,
+            periods,
+            cycles: this._addLiturgicalCycleMetadata(date, calendar),
+            calendar,
+            liturgicalColors,
+            isHolyDayOfObligation: date.day() === 0,
+            fromCalendar: 'temporale',
+          },
+          this.config,
+        );
 
         const dateStr = date.format('YYYY-MM-DD');
         datesIndex[dateStr] = [key];
@@ -456,20 +524,25 @@ export default class Temporale {
           idx,
         );
 
-        acc[key] = new LiturgicalDay({
-          date,
-          key,
-          name: key,
-          precedence: Precedences.Triduum_1,
-          seasons: [LiturgicalSeasons.PASCHAL_TRIDUUM],
-          periods: [LiturgicalPeriods.HOLY_WEEK],
-          cycles: this._addLiturgicalCycleMetadata(date, calendar),
-          calendar,
-          liturgicalColors:
-            idx === 0 ? [LiturgicalColors.RED] : [LiturgicalColors.WHITE],
-          isHolyDayOfObligation: false,
-          fromCalendar: 'temporale',
-        });
+        const name = this.config.i18next.t(`roman_rite:celebrations.${key}`);
+
+        acc[key] = new LiturgicalDay(
+          {
+            date,
+            key,
+            name,
+            precedence: Precedences.Triduum_1,
+            seasons: [LiturgicalSeasons.PASCHAL_TRIDUUM],
+            periods: [LiturgicalPeriods.HOLY_WEEK],
+            cycles: this._addLiturgicalCycleMetadata(date, calendar),
+            calendar,
+            liturgicalColors:
+              idx === 0 ? [LiturgicalColors.RED] : [LiturgicalColors.WHITE],
+            isHolyDayOfObligation: false,
+            fromCalendar: 'temporale',
+          },
+          this.config,
+        );
 
         const dateStr = date.format('YYYY-MM-DD');
         datesIndex[dateStr] = [key];
@@ -490,7 +563,9 @@ export default class Temporale {
       (acc: Record<string, LiturgicalDay>, date: Dayjs, idx) => {
         const week = Math.floor(idx / 7) + 1;
         let key: string;
+        let name: string;
         let precedence: Precedences;
+        const seasons = [LiturgicalSeasons.EASTER_TIME];
         const periods: LiturgicalPeriods[] = [];
 
         // Easter Sunday
@@ -498,29 +573,48 @@ export default class Temporale {
           key = 'easter_sunday';
           precedence = Precedences.Triduum_1;
           periods.push(LiturgicalPeriods.EASTER_OCTAVE);
+          name = this.config.i18next.t(`roman_rite:celebrations.${key}`);
+
+          // The Paschal Triduum of the Passion and Resurrection of the Lord begins with the evening Mass
+          // of the Lord’s Supper, has its center in the Easter Vigil, and closes with Vespers (Evening Prayer) of the
+          // Sunday of the Resurrection. (UNLY #19)
+          seasons.unshift(LiturgicalSeasons.PASCHAL_TRIDUUM);
         }
+
         // Divine Mercy Sunday
         else if (idx === 7) {
           key = 'divine_mercy_sunday';
           precedence = Precedences.PrivilegedSunday_2;
           periods.push(LiturgicalPeriods.EASTER_OCTAVE);
+          name = this.config.i18next.t(`roman_rite:celebrations.${key}`);
         }
+
         // Pentecost Sunday
         else if (idx === 49) {
           key = 'pentecost_sunday';
           precedence = Precedences.TemporaleSolemnity_2;
+          name = this.config.i18next.t(`roman_rite:celebrations.${key}`);
         }
+
         // Sundays of Easter Time. (UNLY #59 2)
         else if (date.day() === 0) {
           key = `eastertide_${week}_sunday`;
           precedence = Precedences.PrivilegedSunday_2;
+          name = this.config.i18next.t('roman_rite:seasons.eastertide.sunday', {
+            week: idx + 1,
+          });
         }
+
         // Days within the Octave of Easter. (UNLY #59 2)
         else if (idx <= 7) {
           key = `easter_${date.locale('en').format('dddd').toLowerCase()}`;
           precedence = Precedences.WeekdayOfEasterOctave_2;
           periods.push(LiturgicalPeriods.EASTER_OCTAVE);
+          name = this.config.i18next.t('roman_rite:seasons.eastertide.octave', {
+            day: date.format('dddd'),
+          });
         }
+
         // Weekdays of the Easter Time from Monday after the Octave of Easter up to and including the
         // Saturday before Pentecost. (UNLY #59 13)
         else {
@@ -529,6 +623,13 @@ export default class Temporale {
             .format('dddd')
             .toLowerCase()}`;
           precedence = Precedences.Weekday_13;
+          name = this.config.i18next.t(
+            'roman_rite:seasons.eastertide.weekday',
+            {
+              day: date.format('dddd'),
+              week: idx + 1,
+            },
+          );
         }
 
         const calendar = this._computeCalendarMetadata(
@@ -540,26 +641,22 @@ export default class Temporale {
           idx,
         );
 
-        acc[key] = new LiturgicalDay({
-          date,
-          key,
-          name: key,
-          precedence,
-          seasons: [LiturgicalSeasons.EASTER_TIME],
-          periods,
-          cycles: this._addLiturgicalCycleMetadata(date, calendar),
-          calendar,
-          liturgicalColors: [LiturgicalColors.WHITE],
-          isHolyDayOfObligation: date.day() === 0,
-          fromCalendar: 'temporale',
-        });
-
-        // The Paschal Triduum of the Passion and Resurrection of the Lord begins with the evening Mass
-        // of the Lord’s Supper, has its center in the Easter Vigil, and closes with Vespers (Evening Prayer) of the
-        // Sunday of the Resurrection. (UNLY #19)
-        if (idx === 0) {
-          acc[key].seasons.unshift(LiturgicalSeasons.PASCHAL_TRIDUUM);
-        }
+        acc[key] = new LiturgicalDay(
+          {
+            date,
+            key,
+            name,
+            precedence,
+            seasons,
+            periods,
+            cycles: this._addLiturgicalCycleMetadata(date, calendar),
+            calendar,
+            liturgicalColors: [LiturgicalColors.WHITE],
+            isHolyDayOfObligation: date.day() === 0,
+            fromCalendar: 'temporale',
+          },
+          this.config,
+        );
 
         const dateStr = date.format('YYYY-MM-DD');
         datesIndex[dateStr] = [key];
@@ -659,19 +756,35 @@ export default class Temporale {
           );
         }
 
-        acc[key] = new LiturgicalDay({
-          date,
-          key,
-          name: key,
-          precedence,
-          seasons: [LiturgicalSeasons.ORDINARY_TIME],
-          periods,
-          cycles: this._addLiturgicalCycleMetadata(date, calendar),
-          calendar,
-          liturgicalColors: [LiturgicalColors.GREEN],
-          isHolyDayOfObligation: date.day() === 0,
-          fromCalendar: 'temporale',
-        });
+        const name =
+          date.day() === 0
+            ? this.config.i18next.t('roman_rite:seasons.ordinary_time.sunday', {
+                week: calendar.weekOfSeason,
+              })
+            : this.config.i18next.t(
+                'roman_rite:seasons.ordinary_time.weekday',
+                {
+                  day: date.format('dddd'),
+                  week: calendar.weekOfSeason,
+                },
+              );
+
+        acc[key] = new LiturgicalDay(
+          {
+            date,
+            key,
+            name,
+            precedence,
+            seasons: [LiturgicalSeasons.ORDINARY_TIME],
+            periods,
+            cycles: this._addLiturgicalCycleMetadata(date, calendar),
+            calendar,
+            liturgicalColors: [LiturgicalColors.GREEN],
+            isHolyDayOfObligation: date.day() === 0,
+            fromCalendar: 'temporale',
+          },
+          this.config,
+        );
 
         const dateStr = date.format('YYYY-MM-DD');
         datesIndex[dateStr] = [key];

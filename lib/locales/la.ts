@@ -1,98 +1,110 @@
-export default {
-  advent: {
-    season: 'Adventus',
-    weekday: '{{day}}, hebdomada {{week}} Adventus',
-    sunday: 'Dominica {{week}} Adventus',
+import { Locale } from '../models/locale';
+
+export const locale: Locale = {
+  key: 'la',
+
+  roman_rite: {
+    seasons: {
+      advent: {
+        season: 'Adventus',
+        weekday: '{{day}}, hebdomada {{week}} Adventus',
+        sunday: 'Dominica {{week}} Adventus',
+      },
+
+      christmastide: {
+        season: 'Nativitatis',
+        day: '{{day}} temporis Nativitatis',
+        octave: 'De die {{count}} infra octavam Nativitatis',
+        second_sunday_after_christmas: 'Dominica Secundi post Nativitatem',
+        before_epiphany: '{{day}} post octavam Nativitatis',
+        after_epiphany: '{{day}} post Epiphaniam',
+      },
+
+      ordinary_time: {
+        season: 'Per annum',
+        weekday: '{{day}}, hebdomada {{week}} per annum',
+        sunday: 'Dominica {{week}} per annum',
+      },
+
+      lent: {
+        season: 'Quadragesimæ',
+        weekday: '{{day}}, hebdomada {{week}} Quadragesimæ',
+        sunday: 'Dominica {{week}} Quadragesimæ',
+        day_after_ash_wed: '{{day}} post Cineres',
+      },
+
+      paschal_triduum: {
+        season: 'Triduum paschale',
+      },
+
+      eastertide: {
+        season: 'Paschæ',
+        weekday: '{{day}}, hebdomada {{week}} temporis paschalis',
+        sunday: 'Dominica {{week}} Paschæ',
+        octave: 'De die {{day}} infra octavam Paschæ',
+      },
+    },
+
+    periods: {
+      epiphany: 'Epiphaniæ',
+      holy_week: 'Hebdomadæ Sanctæ',
+    },
+
+    ranks: {
+      solemnity: 'sollemnitas',
+      sunday: 'dominica',
+      feast: 'festum',
+      memorial: 'memoria',
+      weekday: 'feria',
+    },
+
+    celebrations: {
+      all_saints: 'Omnium Sanctorum',
+      annunciation: 'In Annuntiatione Domini',
+      ascension: 'In Ascensione Domini',
+      ash_wednesday: 'Feria IV Cinerum',
+      assumption: 'In Assumptione Beatæ Mariæ Virginis',
+      baptism_of_the_lord: 'In Baptismate Domini',
+      christ_the_king_sunday: 'D. N. I. C. universorum regis',
+      christmas: 'In Nativitate Domini',
+      corpus_christi: 'Ss.mi Corporis et Sanguinis Christi',
+      divine_mercy_sunday:
+        'Dominica in octava Paschæ seu de Divina Misericordia',
+      easter_sunday: 'Dominica Paschæ in Resurrectione Domini',
+      epiphany: 'In Epiphania Domini',
+      exaltation_of_the_holy_cross: 'In Exaltatione Sanctæ Crucis',
+      good_friday: 'Feria VI in Passione Domini',
+      holy_family: 'Sanctæ Familiæ Iesu, Mariæ et Ioseph',
+      holy_saturday: 'Sabbato Sancto/Vigilia paschalis',
+      holy_thursday: 'Feria V Hebdomadæ Sanctæ',
+      immaculate_conception_of_mary:
+        'In Conceptione Immaculata Beatæ Mariæ Virginis',
+      immaculate_heart_of_mary: 'Immaculati Cordis B. Mariæ Virginis',
+      joseph_spouse_of_mary: 'S. Iosephi, Sponsi B. M. V.',
+      mary_mother_of_god:
+        'In octava Nativitatis Domini, Sollemnitas Sanctæ Dei Genetricis Mariæ',
+      most_sacred_heart_of_jesus: 'Sacratissimi Cordis Iesu',
+      nativity_of_john_the_baptist: 'In Nativitate S. Ioannis Baptistæ',
+      palm_sunday: 'Dominica in Palmis de Passione Domini',
+      pentecost_sunday: 'Dominica Pentecostes',
+      peter_and_paul_apostles: 'Ss. Petri et Pauli, apostolorum',
+      presentation_of_the_lord: 'In Præsentatione Domini',
+      transfiguration: 'In Transfiguratione Domini',
+      trinity_sunday: 'Ss.mæ Trinitatis',
+    },
   },
-  christmastide: {
-    season: 'Nativitatis',
-    day: '{{day}} temporis Nativitatis',
-    octave: 'De die {{count}} infra octavam Nativitatis',
-    sunday: 'Dominica {{count}} post Nativitatem',
+
+  colors: {
+    black: 'niger',
+    gold: 'auri',
+    green: 'viridis',
+    purple: 'violaceus',
+    red: 'ruber',
+    rose: 'rosaceus',
+    white: 'albus',
   },
-  epiphany: {
-    season: 'Epiphaniæ',
-    before: '{{day}} post octavam Nativitatis',
-    after: '{{day}} post Epiphaniam',
-  },
-  ordinary_time: {
-    season: 'Per annum',
-    weekday: '{{day}}, hebdomada {{week}} per annum',
-    sunday: 'Dominica {{week}} per annum',
-  },
-  lent: {
-    season: 'Quadragesimæ',
-    weekday: '{{day}}, hebdomada {{week}} Quadragesimæ',
-    sunday: 'Dominica {{week}} Quadragesimæ',
-    day_after_ash_wed: '{{day}} post Cineres',
-  },
-  holy_week: {
-    season: 'Hebdomadæ Sanctæ',
-    weekday: '{{day}} Hebdomadæ Sanctæ',
-  },
-  paschal_triduum: {
-    season: 'Triduum paschale',
-  },
-  eastertide: {
-    season: 'Paschæ',
-    weekday: '{{day}}, hebdomada {{week}} temporis paschalis',
-    sunday: 'Dominica {{week}} Paschæ',
-    octave: 'De die {{day}} infra octavam Paschæ',
-  },
-  liturgical_colors: {
-    BLACK: 'niger',
-    GOLD: 'auri',
-    GREEN: 'viridis',
-    PURPLE: 'violaceus',
-    RED: 'ruber',
-    ROSE: 'rosaceus',
-    WHITE: 'albus',
-  },
-  ranks: {
-    SOLEMNITY: 'sollemnitas',
-    SUNDAY: 'dominica',
-    TRIDUUM: 'Triduum paschale',
-    HOLY_WEEK: 'Hebdomada Sancta',
-    FEAST: 'festum',
-    MEMORIAL: 'memoria',
-    OPT_MEMORIAL: 'memoria ad libitum',
-    COMMEMORATION: 'commemoratio',
-    WEEKDAY: 'feria',
-  },
-  celebrations: {
-    all_saints: 'Omnium Sanctorum',
-    annunciation: 'In Annuntiatione Domini',
-    ascension: 'In Ascensione Domini',
-    ash_wednesday: 'Feria IV Cinerum',
-    assumption: 'In Assumptione Beatæ Mariæ Virginis',
-    baptism_of_the_lord: 'In Baptismate Domini',
-    christ_the_king_sunday: 'D. N. I. C. universorum regis',
-    christmas: 'In Nativitate Domini',
-    corpus_christi: 'Ss.mi Corporis et Sanguinis Christi',
-    divine_mercy_sunday: 'Dominica in octava Paschæ seu de Divina Misericordia',
-    easter_sunday: 'Dominica Paschæ in Resurrectione Domini',
-    epiphany: 'In Epiphania Domini',
-    exaltation_of_the_holy_cross: 'In Exaltatione Sanctæ Crucis',
-    good_friday: 'Feria VI in Passione Domini',
-    holy_family: 'Sanctæ Familiæ Iesu, Mariæ et Ioseph',
-    holy_saturday: 'Sabbato Sancto/Vigilia paschalis',
-    holy_thursday: 'Feria V Hebdomadæ Sanctæ',
-    immaculate_conception_of_mary:
-      'In Conceptione Immaculata Beatæ Mariæ Virginis',
-    immaculate_heart_of_mary: 'Immaculati Cordis B. Mariæ Virginis',
-    joseph_spouse_of_mary: 'S. Iosephi, Sponsi B. M. V.',
-    mary_mother_of_god:
-      'In octava Nativitatis Domini, Sollemnitas Sanctæ Dei Genetricis Mariæ',
-    most_sacred_heart_of_jesus: 'Sacratissimi Cordis Iesu',
-    nativity_of_john_the_baptist: 'In Nativitate S. Ioannis Baptistæ',
-    palm_sunday: 'Dominica in Palmis de Passione Domini',
-    pentecost_sunday: 'Dominica Pentecostes',
-    peter_and_paul_apostles: 'Ss. Petri et Pauli, apostolorum',
-    presentation_of_the_lord: 'In Præsentatione Domini',
-    transfiguration: 'In Transfiguratione Domini',
-    trinity_sunday: 'Ss.mæ Trinitatis',
-  },
-  sanctorale: {
+
+  martyrology: {
     '205_blessed_martyrs_of_japan': 'B. Martyres Iaponici CCV',
     adalbert_of_prague_bishop: 'S. Adalberti, episcopi et martyris',
     adalbert_of_prague_bishop_patron_of_poland:
