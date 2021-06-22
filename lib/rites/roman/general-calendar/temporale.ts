@@ -40,7 +40,7 @@ export type LiturgicalDefBuiltData = {
 };
 
 export default class Temporale {
-  config: RomcalConfig;
+  private readonly _config: RomcalConfig;
 
   private _cyclesCache?: Pick<
     RomcalCyclesMetadata,
@@ -56,7 +56,7 @@ export default class Temporale {
   > = {};
 
   constructor(config: RomcalConfig) {
-    this.config = config;
+    this._config = config;
   }
 
   /**
@@ -194,11 +194,11 @@ export default class Temporale {
 
         const name =
           date.day() === 0
-            ? this.config.i18next.t('roman_rite:seasons.advent.sunday', {
+            ? this._config.i18next.t('roman_rite:seasons.advent.sunday', {
                 week: calendar.weekOfSeason,
               })
-            : this.config.i18next.t('roman_rite:seasons.advent.weekday', {
-                day: date.locale(this.config.localeKey).format('dddd'),
+            : this._config.i18next.t('roman_rite:seasons.advent.weekday', {
+                day: date.locale(this._config.localeKey).format('dddd'),
                 week: calendar.weekOfSeason,
               });
 
@@ -216,7 +216,7 @@ export default class Temporale {
             isHolyDayOfObligation: date.day() === 0,
             fromCalendar: 'temporale',
           },
-          this.config,
+          this._config,
         );
 
         const dateStr = date.format('YYYY-MM-DD');
@@ -234,8 +234,15 @@ export default class Temporale {
     year: number,
     part: ChristmasTimeParts = ChristmasTimeParts.All,
   ): LiturgicalDefBuiltData => {
-    const datesOfChristmasTime = Dates.datesOfChristmasTime(year - 1);
-    const epiphany = Dates.epiphany(year, this.config.epiphanyOnSunday);
+    const datesOfChristmasTime = Dates.datesOfChristmasTime(
+      year - 1,
+      this._config.epiphanyOnSunday,
+    );
+    const epiphany = Dates.epiphany(year, this._config.epiphanyOnSunday);
+    const baptismOfTheLord = Dates.baptismOfTheLord(
+      year,
+      this._config.epiphanyOnSunday,
+    );
     const datesIndex: DatesIndex = {};
     const byKeys: Record<string, LiturgicalDay> = {};
     let count = 0;
@@ -253,7 +260,7 @@ export default class Temporale {
       // Nativity of the Lord
       if (idx === 0) {
         key = 'christmas';
-        name = this.config.i18next.t(`roman_rite:celebrations.${key}`);
+        name = this._config.i18next.t(`roman_rite:celebrations.${key}`);
         precedence = Precedences.TemporaleSolemnity_2;
         isHolyDayOfObligation = true;
         periods.push(LiturgicalPeriods.CHRISTMAS_OCTAVE);
@@ -262,7 +269,7 @@ export default class Temporale {
       // Days within the Octave of Christmas. (UNLY #59 9)
       else if (idx < 7) {
         key = `christmas_octave_day_${idx + 1}`;
-        name = this.config.i18next.t(
+        name = this._config.i18next.t(
           'roman_rite:seasons.christmastide.octave',
           {
             count: idx + 1,
@@ -275,7 +282,7 @@ export default class Temporale {
       // Mary, the Holy Mother of God
       else if (idx === 7) {
         key = 'mary_mother_of_god';
-        name = this.config.i18next.t(`roman_rite:celebrations.${key}`);
+        name = this._config.i18next.t(`roman_rite:celebrations.${key}`);
         precedence = Precedences.GeneralSolemnity_3;
         isHolyDayOfObligation = true;
         periods.push(LiturgicalPeriods.CHRISTMAS_OCTAVE);
@@ -284,16 +291,26 @@ export default class Temporale {
       // Day of Epiphany
       else if (epiphany.isSame(date, 'date')) {
         key = 'epiphany';
-        name = this.config.i18next.t(`roman_rite:celebrations.${key}`);
+        name = this._config.i18next.t(`roman_rite:celebrations.${key}`);
         precedence = Precedences.TemporaleSolemnity_2;
         isHolyDayOfObligation = true;
+        periods.push(LiturgicalPeriods.DAYS_AFTER_EPIPHANY);
+      }
+
+      // Baptisms of the Lord.
+      else if (baptismOfTheLord.isSame(date, 'date')) {
+        key = `baptism_of_the_lord`;
+        name = this._config.i18next.t(`roman_rite:celebrations.${key}`);
+        precedence = Precedences.GeneralLordFeast_5;
         periods.push(LiturgicalPeriods.DAYS_AFTER_EPIPHANY);
       }
 
       // Second Sunday after Christmas.
       else if (date.day() === 0) {
         key = `second_sunday_after_christmas`;
-        name = this.config.i18next.t(`roman_rite:seasons.christmastide.${key}`);
+        name = this._config.i18next.t(
+          `roman_rite:seasons.christmastide.${key}`,
+        );
         precedence = Precedences.UnprivilegedSunday_6;
         periods.push(LiturgicalPeriods.DAYS_BEFORE_EPIPHANY);
       }
@@ -304,9 +321,9 @@ export default class Temporale {
           .locale('en')
           .format('MMMM_D')
           .toLowerCase()}`;
-        name = this.config.i18next.t(
+        name = this._config.i18next.t(
           'roman_rite:seasons.christmastide.before_epiphany',
-          { day: date.locale(this.config.localeKey).format('dddd') },
+          { day: date.locale(this._config.localeKey).format('dddd') },
         );
         precedence = Precedences.Weekday_13;
         periods.push(LiturgicalPeriods.DAYS_BEFORE_EPIPHANY);
@@ -318,9 +335,9 @@ export default class Temporale {
           .locale('en')
           .format('dddd')
           .toLowerCase()}_after_epiphany`;
-        name = this.config.i18next.t(
+        name = this._config.i18next.t(
           'roman_rite:seasons.christmastide.after_epiphany',
-          { day: date.locale(this.config.localeKey).format('dddd') },
+          { day: date.locale(this._config.localeKey).format('dddd') },
         );
         precedence = Precedences.Weekday_13;
         periods.push(LiturgicalPeriods.DAYS_AFTER_EPIPHANY);
@@ -354,7 +371,7 @@ export default class Temporale {
             isHolyDayOfObligation,
             fromCalendar: 'temporale',
           },
-          this.config,
+          this._config,
         );
 
         const dateStr = date.format('YYYY-MM-DD');
@@ -394,7 +411,7 @@ export default class Temporale {
         if (idx === 0) {
           key = 'ash_wednesday';
           precedence = Precedences.AshWednesday_2;
-          name = this.config.i18next.t(`roman_rite:celebrations.${key}`);
+          name = this._config.i18next.t(`roman_rite:celebrations.${key}`);
         }
 
         // Days after Ash Wednesday
@@ -404,9 +421,9 @@ export default class Temporale {
             .format('dddd')
             .toLowerCase()}_after_ash_wednesday`;
           precedence = Precedences.PrivilegedWeekday_9;
-          name = this.config.i18next.t(
+          name = this._config.i18next.t(
             'roman_rite:seasons.lent.day_after_ash_wed',
-            { day: date.locale(this.config.localeKey).format('dddd') },
+            { day: date.locale(this._config.localeKey).format('dddd') },
           );
         }
 
@@ -415,7 +432,7 @@ export default class Temporale {
           key = 'palm_sunday';
           precedence = Precedences.PrivilegedSunday_2;
           liturgicalColors = [LiturgicalColors.RED];
-          name = this.config.i18next.t(`roman_rite:celebrations.${key}`);
+          name = this._config.i18next.t(`roman_rite:celebrations.${key}`);
 
           // Holy Week begins from the Sixth Sunday of Lent
           // (from Palm Sunday of the Passion of the Lord). (UNLY #30)
@@ -426,10 +443,10 @@ export default class Temporale {
         else if (idx > 39) {
           key = `holy_${date.locale('en').format('dddd').toLowerCase()}`;
           precedence = Precedences.PrivilegedWeekday_9;
-          name = this.config.i18next.t(
+          name = this._config.i18next.t(
             'roman_rite:seasons.lent.holy_week_day',
             {
-              day: date.locale(this.config.localeKey).format('dddd'),
+              day: date.locale(this._config.localeKey).format('dddd'),
             },
           );
 
@@ -439,7 +456,7 @@ export default class Temporale {
 
           // Holy Thursday is white, and have a custom key name.
           if (idx === 43) {
-            name = this.config.i18next.t(`roman_rite:celebrations.${key}`);
+            name = this._config.i18next.t(`roman_rite:celebrations.${key}`);
             liturgicalColors = [LiturgicalColors.WHITE];
 
             // Holy Thursday is in between the season of Lent and the Paschal Triduum:
@@ -455,7 +472,7 @@ export default class Temporale {
         else if (date.day() === 0) {
           key = `lent_${week}_sunday`;
           precedence = Precedences.PrivilegedSunday_2;
-          name = this.config.i18next.t('roman_rite:seasons.lent.sunday', {
+          name = this._config.i18next.t('roman_rite:seasons.lent.sunday', {
             week: calendar.weekOfSeason,
           });
         }
@@ -467,8 +484,8 @@ export default class Temporale {
             .format('dddd')
             .toLowerCase()}`;
           precedence = Precedences.PrivilegedWeekday_9;
-          name = this.config.i18next.t('roman_rite:seasons.lent.weekday', {
-            day: date.locale(this.config.localeKey).format('dddd'),
+          name = this._config.i18next.t('roman_rite:seasons.lent.weekday', {
+            day: date.locale(this._config.localeKey).format('dddd'),
             week: calendar.weekOfSeason,
           });
         }
@@ -487,7 +504,7 @@ export default class Temporale {
             isHolyDayOfObligation: date.day() === 0,
             fromCalendar: 'temporale',
           },
-          this.config,
+          this._config,
         );
 
         const dateStr = date.format('YYYY-MM-DD');
@@ -524,7 +541,7 @@ export default class Temporale {
           idx,
         );
 
-        const name = this.config.i18next.t(`roman_rite:celebrations.${key}`);
+        const name = this._config.i18next.t(`roman_rite:celebrations.${key}`);
 
         acc[key] = new LiturgicalDay(
           {
@@ -541,7 +558,7 @@ export default class Temporale {
             isHolyDayOfObligation: false,
             fromCalendar: 'temporale',
           },
-          this.config,
+          this._config,
         );
 
         const dateStr = date.format('YYYY-MM-DD');
@@ -573,7 +590,7 @@ export default class Temporale {
           key = 'easter_sunday';
           precedence = Precedences.Triduum_1;
           periods.push(LiturgicalPeriods.EASTER_OCTAVE);
-          name = this.config.i18next.t(`roman_rite:celebrations.${key}`);
+          name = this._config.i18next.t(`roman_rite:celebrations.${key}`);
 
           // The Paschal Triduum of the Passion and Resurrection of the Lord begins with the evening Mass
           // of the Lord’s Supper, has its center in the Easter Vigil, and closes with Vespers (Evening Prayer) of the
@@ -586,23 +603,26 @@ export default class Temporale {
           key = 'divine_mercy_sunday';
           precedence = Precedences.PrivilegedSunday_2;
           periods.push(LiturgicalPeriods.EASTER_OCTAVE);
-          name = this.config.i18next.t(`roman_rite:celebrations.${key}`);
+          name = this._config.i18next.t(`roman_rite:celebrations.${key}`);
         }
 
         // Pentecost Sunday
         else if (idx === 49) {
           key = 'pentecost_sunday';
           precedence = Precedences.TemporaleSolemnity_2;
-          name = this.config.i18next.t(`roman_rite:celebrations.${key}`);
+          name = this._config.i18next.t(`roman_rite:celebrations.${key}`);
         }
 
         // Sundays of Easter Time. (UNLY #59 2)
         else if (date.day() === 0) {
           key = `eastertide_${week}_sunday`;
           precedence = Precedences.PrivilegedSunday_2;
-          name = this.config.i18next.t('roman_rite:seasons.eastertide.sunday', {
-            week: idx + 1,
-          });
+          name = this._config.i18next.t(
+            'roman_rite:seasons.eastertide.sunday',
+            {
+              week: idx + 1,
+            },
+          );
         }
 
         // Days within the Octave of Easter. (UNLY #59 2)
@@ -610,9 +630,12 @@ export default class Temporale {
           key = `easter_${date.locale('en').format('dddd').toLowerCase()}`;
           precedence = Precedences.WeekdayOfEasterOctave_2;
           periods.push(LiturgicalPeriods.EASTER_OCTAVE);
-          name = this.config.i18next.t('roman_rite:seasons.eastertide.octave', {
-            day: date.locale(this.config.localeKey).format('dddd'),
-          });
+          name = this._config.i18next.t(
+            'roman_rite:seasons.eastertide.octave',
+            {
+              day: date.locale(this._config.localeKey).format('dddd'),
+            },
+          );
         }
 
         // Weekdays of the Easter Time from Monday after the Octave of Easter up to and including the
@@ -623,10 +646,10 @@ export default class Temporale {
             .format('dddd')
             .toLowerCase()}`;
           precedence = Precedences.Weekday_13;
-          name = this.config.i18next.t(
+          name = this._config.i18next.t(
             'roman_rite:seasons.eastertide.weekday',
             {
-              day: date.locale(this.config.localeKey).format('dddd'),
+              day: date.locale(this._config.localeKey).format('dddd'),
               week: idx + 1,
             },
           );
@@ -655,7 +678,7 @@ export default class Temporale {
             isHolyDayOfObligation: date.day() === 0,
             fromCalendar: 'temporale',
           },
-          this.config,
+          this._config,
         );
 
         const dateStr = date.format('YYYY-MM-DD');
@@ -672,7 +695,7 @@ export default class Temporale {
   earlyOrdinaryTimeBuilder = (year: number): LiturgicalDefBuiltData =>
     this._ordinaryTimeBuilderFromDates(
       year,
-      Dates.datesOfEarlyOrdinaryTime(year),
+      Dates.datesOfEarlyOrdinaryTime(year, this._config.epiphanyOnSunday),
       LiturgicalPeriods.EARLY_ORDINARY_TIME,
       true,
     );
@@ -695,11 +718,11 @@ export default class Temporale {
     const datesIndex: DatesIndex = {};
 
     const firstDayOfSeason = Dates.baptismOfTheLord(
-      this.config.year,
-      this.config.epiphanyOnSunday,
+      this._config.year,
+      this._config.epiphanyOnSunday,
     ).add(1, 'day');
     const lastDayOfSeason = Dates.firstSundayOfAdvent(
-      this.config.year + 1,
+      this._config.year + 1,
     ).subtract(1, 'day');
 
     const byKeys = dates.reduce(
@@ -758,13 +781,16 @@ export default class Temporale {
 
         const name =
           date.day() === 0
-            ? this.config.i18next.t('roman_rite:seasons.ordinary_time.sunday', {
-                week: calendar.weekOfSeason,
-              })
-            : this.config.i18next.t(
+            ? this._config.i18next.t(
+                'roman_rite:seasons.ordinary_time.sunday',
+                {
+                  week: calendar.weekOfSeason,
+                },
+              )
+            : this._config.i18next.t(
                 'roman_rite:seasons.ordinary_time.weekday',
                 {
-                  day: date.locale(this.config.localeKey).format('dddd'),
+                  day: date.locale(this._config.localeKey).format('dddd'),
                   week: calendar.weekOfSeason,
                 },
               );
@@ -783,7 +809,7 @@ export default class Temporale {
             isHolyDayOfObligation: date.day() === 0,
             fromCalendar: 'temporale',
           },
-          this.config,
+          this._config,
         );
 
         const dateStr = date.format('YYYY-MM-DD');
@@ -798,13 +824,13 @@ export default class Temporale {
   };
 
   liturgicalYearBuilder = (): LiturgicalDefBuiltData => {
-    const advent = this.adventBuilder(this.config.year);
-    const christmasTime = this.christmasTimeBuilder(this.config.year);
-    const earlyOrdinaryTime = this.earlyOrdinaryTimeBuilder(this.config.year);
-    const lent = this.lentBuilder(this.config.year);
-    const paschalTriduum = this.paschalTriduumBuilder(this.config.year);
-    const easterTime = this.easterTimeBuilder(this.config.year);
-    const lateOrdinaryTime = this.lateOrdinaryTimeBuilder(this.config.year);
+    const advent = this.adventBuilder(this._config.year);
+    const christmasTime = this.christmasTimeBuilder(this._config.year);
+    const earlyOrdinaryTime = this.earlyOrdinaryTimeBuilder(this._config.year);
+    const lent = this.lentBuilder(this._config.year);
+    const paschalTriduum = this.paschalTriduumBuilder(this._config.year);
+    const easterTime = this.easterTimeBuilder(this._config.year);
+    const lateOrdinaryTime = this.lateOrdinaryTimeBuilder(this._config.year);
 
     return {
       byKeys: {
@@ -830,17 +856,17 @@ export default class Temporale {
 
   gregorianYearBuilder = (): LiturgicalDefBuiltData => {
     const lateChristmasTime = this.christmasTimeBuilder(
-      this.config.year,
+      this._config.year,
       ChristmasTimeParts.LateChristmasTime,
     );
-    const earlyOrdinaryTime = this.earlyOrdinaryTimeBuilder(this.config.year);
-    const lent = this.lentBuilder(this.config.year);
-    const paschalTriduum = this.paschalTriduumBuilder(this.config.year);
-    const easterTime = this.easterTimeBuilder(this.config.year);
-    const lateOrdinaryTime = this.lateOrdinaryTimeBuilder(this.config.year);
-    const advent = this.adventBuilder(this.config.year + 1);
+    const earlyOrdinaryTime = this.earlyOrdinaryTimeBuilder(this._config.year);
+    const lent = this.lentBuilder(this._config.year);
+    const paschalTriduum = this.paschalTriduumBuilder(this._config.year);
+    const easterTime = this.easterTimeBuilder(this._config.year);
+    const lateOrdinaryTime = this.lateOrdinaryTimeBuilder(this._config.year);
+    const advent = this.adventBuilder(this._config.year + 1);
     const earlyChristmasTime = this.christmasTimeBuilder(
-      this.config.year + 1,
+      this._config.year + 1,
       ChristmasTimeParts.EarlyChristmasTime,
     );
 
