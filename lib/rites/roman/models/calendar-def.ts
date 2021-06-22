@@ -1,4 +1,4 @@
-import { RomcalConfig } from './config';
+import { RomcalConfig, RomcalConfigInput } from './config';
 import { LiturgicalDefBuiltData } from '../general-calendar/temporale';
 import LiturgicalDay, { LiturgyDayDiff } from './liturgical-day';
 import dayjs, { Dayjs } from 'dayjs';
@@ -106,32 +106,33 @@ interface IConstructor<InstanceInterface> {
 /**
  * Base [CalendarDef] interface
  */
-interface BaseCalendarDef {
-  config: RomcalConfig;
-  inheritFrom?: StaticCalendarComputing<BaseCalendarDef>;
-  calendarKey?: string;
+interface ICalendarDef {
+  inheritFrom?: BaseCalendarDef | null;
+  inheritFromInstance?: InstanceType<BaseCalendarDef>;
   particularConfig?: ParticularConfig;
   definitions: DateDefinitions;
+  updateConfig: (config?: RomcalConfigInput) => void;
   buildDates: (builtData: LiturgicalDefBuiltData) => LiturgicalDefBuiltData;
 }
 
 /**
  * Create a Constructor Interface by extending IConstructor and
- * specifying [BaseCalendarDef].
- * This allows to define static methods from [BaseCalendarDef]
+ * specifying [ICalendarDef].
+ * This allows to define static methods from [ICalendarDef]
  */
-interface StaticCalendarComputing<T extends BaseCalendarDef>
+interface StaticCalendarComputing<T extends ICalendarDef>
   extends IConstructor<T> {
   generateCalendar: (builtData: LiturgicalDefBuiltData) => LiturgicalCalendar;
 }
 
-export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
-  implements BaseCalendarDef
-{
-  config: RomcalConfig;
-  inheritFrom?: StaticCalendarComputing<BaseCalendarDef>;
+export type BaseCalendarDef = StaticCalendarComputing<ICalendarDef>;
+
+export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
+  private readonly _config: RomcalConfig;
+  inheritFrom?: BaseCalendarDef | null;
+  inheritFromInstance?: InstanceType<BaseCalendarDef>;
+  readonly particularConfig?: ParticularConfig;
   definitions: DateDefinitions = {};
-  particularConfig?: ParticularConfig;
 
   private _calendarName?: string;
   public get calendarName(): string {
@@ -145,22 +146,57 @@ export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
   }
 
   constructor(config: RomcalConfig) {
-    this.config = config;
+    // Init the inherited calendar
+    if (this.inheritFrom) {
+      this.inheritFromInstance = new this.inheritFrom(config);
+    }
+
+    // Save the configuration to the main class object.
+    this._config = config;
+  }
+
+  /**
+   * Update the main RomcalConfig from the provided user config
+   * or any particular config from calendar definitions.
+   * @param input - The input configuration provided by the user.
+   */
+  updateConfig(input?: RomcalConfigInput): void {
+    // Update first the configuration form inherited calendars
+    if (this.inheritFromInstance) {
+      this.inheritFromInstance.updateConfig(input);
+    }
+
+    // Combine the provided user configuration,
+    // the particular configuration from this calendar,
+    // and the sanitized configuration.
+    this._config.epiphanyOnSunday =
+      input?.epiphanyOnSunday ??
+      this.particularConfig?.epiphanyOnSunday ??
+      this._config.epiphanyOnSunday;
+
+    this._config.ascensionOnSunday =
+      input?.ascensionOnSunday ??
+      this.particularConfig?.ascensionOnSunday ??
+      this._config.ascensionOnSunday;
+
+    this._config.corpusChristiOnSunday =
+      input?.corpusChristiOnSunday ??
+      this.particularConfig?.corpusChristiOnSunday ??
+      this._config.corpusChristiOnSunday;
   }
 
   /**
    * Recursive method that retrieve all inherited calendars
-   * @param InheritedCal - The inherited calendar object.
+   * @param inheritedCal - The inherited calendar object.
    * @param builtData - The already build data that will extend the inherited data.
    * @private
    */
   private retrieveInheritedCal(
-    InheritedCal: StaticCalendarComputing<BaseCalendarDef>,
+    inheritedCal: InstanceType<BaseCalendarDef>,
     builtData: LiturgicalDefBuiltData,
   ) {
-    const inheritedCal = new InheritedCal(this.config);
-    if (inheritedCal.inheritFrom) {
-      this.retrieveInheritedCal(inheritedCal.inheritFrom, builtData);
+    if (inheritedCal.inheritFromInstance) {
+      this.retrieveInheritedCal(inheritedCal.inheritFromInstance, builtData);
     }
 
     inheritedCal.buildDates(builtData);
@@ -174,8 +210,8 @@ export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
   buildDates(builtData: LiturgicalDefBuiltData): LiturgicalDefBuiltData {
     const definitions = Object.keys(this.definitions);
 
-    if (this.inheritFrom) {
-      this.retrieveInheritedCal(this.inheritFrom, builtData);
+    if (this.inheritFromInstance) {
+      this.retrieveInheritedCal(this.inheritFromInstance, builtData);
     }
 
     definitions.forEach((key) => {
@@ -191,17 +227,17 @@ export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
       // If a date definition is defined,
       // it should be a string or a function.
       if (def.date) {
-        if (this.config.scope === CalendarScope.Liturgical) {
+        if (this._config.scope === CalendarScope.Liturgical) {
           dateInputPreviousYear =
             typeof def.date === 'string'
-              ? dayjs.utc(`${this.config.year - 1}-${def.date}`)
-              : def.date(this.config.year - 1);
+              ? dayjs.utc(`${this._config.year - 1}-${def.date}`)
+              : def.date(this._config.year - 1);
         }
 
         dateInputCurrentYear =
           typeof def.date === 'string'
-            ? dayjs.utc(`${this.config.year}-${def.date}`)
-            : def.date(this.config.year);
+            ? dayjs.utc(`${this._config.year}-${def.date}`)
+            : def.date(this._config.year);
 
         const dateInputPreviousYearStr =
           dateInputPreviousYear?.format('YYYY-MM-DD');
@@ -322,10 +358,10 @@ export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
       // Compute the localized name of the liturgical day.
       let name =
         builtData.byKeys[key]?.name ??
-        this.config.i18next.t('martyrology:' + (def.customLocaleKey ?? key));
+        this._config.i18next.t('martyrology:' + (def.customLocaleKey ?? key));
       // If not found in the Martyrology catalog, have a look in the Roman celebrations.
       if (name === (def.customLocaleKey ?? key)) {
-        name = this.config.i18next.t(
+        name = this._config.i18next.t(
           'roman_rite:celebrations.' + (def.customLocaleKey ?? key),
         );
       }
@@ -361,7 +397,7 @@ export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
             ? {
                 isHolyDayOfObligation:
                   typeof def.isHolyDayOfObligation === 'function'
-                    ? def.isHolyDayOfObligation(this.config.year)
+                    ? def.isHolyDayOfObligation(this._config.year)
                     : def.isHolyDayOfObligation,
               }
             : {}),
@@ -369,7 +405,7 @@ export const CalendarDef: StaticCalendarComputing<BaseCalendarDef> = class
           martyrology,
           fromCalendar: this.calendarName,
         },
-        this.config,
+        this._config,
       );
 
       // Check object differences between the previously inherited object

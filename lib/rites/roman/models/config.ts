@@ -98,17 +98,17 @@ export class RomcalConfig implements IRoncalConfig {
   readonly particularCalendar?: typeof CalendarDef;
   readonly locale?: Locale;
   readonly localeKey: string;
-  readonly epiphanyOnSunday: boolean;
-  readonly corpusChristiOnSunday: boolean;
-  readonly ascensionOnSunday: boolean;
+  epiphanyOnSunday: boolean;
+  corpusChristiOnSunday: boolean;
+  ascensionOnSunday: boolean;
   readonly scope: CalendarScope;
   readonly verbose: boolean;
   readonly prettyPrint: boolean;
   readonly i18next: i18n;
 
   /**
-   * Constructs a new [[Config]] object
-   * @param config [[RomcalConfig]] object representing all settings
+   * Constructs a new [[Config]] object.
+   * @param config [[RomcalConfig]] object representing all settings.
    */
   constructor(config?: RomcalConfigInput) {
     this.scope = config?.scope ?? CalendarScope.Gregorian;
@@ -129,6 +129,7 @@ export class RomcalConfig implements IRoncalConfig {
 
     if (config?.particularCalendar)
       this.particularCalendar = config?.particularCalendar;
+
     this.epiphanyOnSunday = config?.epiphanyOnSunday ?? false;
     this.corpusChristiOnSunday = config?.corpusChristiOnSunday ?? true;
     this.ascensionOnSunday = config?.ascensionOnSunday ?? false;
@@ -231,7 +232,7 @@ export class RomcalConfig implements IRoncalConfig {
 
   /**
    * Utility helper to translate and cache Season names.
-   * @param seasonKey
+   * @param seasonKey - The season key.
    */
   toSeasonName(seasonKey: LiturgicalSeasons): string {
     if (this._seasonsNames[seasonKey]) return this._seasonsNames[seasonKey];
@@ -244,7 +245,7 @@ export class RomcalConfig implements IRoncalConfig {
 
   /**
    * Utility helper to translate and cache liturgical color names.
-   * @param colorKey
+   * @param colorKey - The color key.
    */
   toColorName(colorKey: LiturgicalColor): string {
     if (this._colorNames[colorKey]) return this._colorNames[colorKey];
@@ -257,7 +258,7 @@ export class RomcalConfig implements IRoncalConfig {
 
   /**
    * Utility helper to translate and cache liturgical rank names.
-   * @param rankKey
+   * @param rankKey - The rank key.
    */
   toRankName(rankKey: Ranks): string {
     if (this._rankNames[rankKey]) return this._rankNames[rankKey];
@@ -269,12 +270,13 @@ export class RomcalConfig implements IRoncalConfig {
   private _rankNames: Record<string, string> = {};
 
   /**
-   * Return the config settings as an Object
+   * Return the config settings as an Object.
    */
   toObject(): BaseRomcalConfig {
     return {
       year: this.year,
       particularCalendar: this.particularCalendar,
+      locale: this.locale,
       epiphanyOnSunday: this.epiphanyOnSunday,
       corpusChristiOnSunday: this.corpusChristiOnSunday,
       ascensionOnSunday: this.ascensionOnSunday,

@@ -6,20 +6,34 @@ import {
   RomcalConfigInput,
 } from './models/config';
 import { CalendarScope } from '../../constants/calendar-scope';
-import { CalendarDef, LiturgicalCalendar } from './models/calendar-def';
+import {
+  BaseCalendarDef,
+  CalendarDef,
+  LiturgicalCalendar,
+} from './models/calendar-def';
 import { Dates } from './utils/dates';
 
 export default class Romcal {
+  private readonly _config: RomcalConfig;
+  private readonly _calendarsDef: InstanceType<BaseCalendarDef>[];
+  private _computedCalendar?: LiturgicalCalendar;
+
   /**
    * Utility helpers to compute the date(s) of specific liturgical days or seasons.
    */
   static dates = Dates;
 
-  private readonly _config: RomcalConfig;
-  private _calendar?: LiturgicalCalendar;
-
   constructor(config?: RomcalConfigInput) {
     this._config = new RomcalConfig(config);
+    this._calendarsDef = [new GeneralRoman(this._config)];
+
+    if (this._config.particularCalendar) {
+      this._calendarsDef.push(
+        new this._config.particularCalendar(this._config),
+      );
+    }
+
+    this._calendarsDef.map((cal) => cal.updateConfig(config));
   }
 
   /**
@@ -39,8 +53,8 @@ export default class Romcal {
     return new Promise((resolve, reject) => {
       // Check if calendar data is already computed and saved in a cache variable.
       // If this is the case, no need to compute it again.
-      if (this._calendar) {
-        resolve(this._calendar);
+      if (this._computedCalendar) {
+        resolve(this._computedCalendar);
         return;
       }
 
@@ -50,14 +64,10 @@ export default class Romcal {
             ? new Temporale(this._config).liturgicalYearBuilder()
             : new Temporale(this._config).gregorianYearBuilder();
 
-        new GeneralRoman(this._config).buildDates(data);
+        this._calendarsDef.forEach((cal) => cal.buildDates(data));
+        this._computedCalendar = CalendarDef.generateCalendar(data);
 
-        if (this._config.particularCalendar) {
-          new this._config.particularCalendar(this._config).buildDates(data);
-        }
-
-        this._calendar = CalendarDef.generateCalendar(data);
-        resolve(this._calendar);
+        resolve(this._computedCalendar);
       } catch (e) {
         reject(e);
       }

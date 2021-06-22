@@ -213,26 +213,26 @@ export type LiturgicalDayInput = Pick<
   };
 
 export default class LiturgicalDay implements BaseLiturgicalDay {
-  key: string;
-  date: string;
-  precedence: Precedences;
-  rank: Ranks;
-  rankName: string;
-  isHolyDayOfObligation: boolean;
-  name: string;
-  seasons: LiturgicalSeasons[];
-  seasonNames: string[];
-  periods: LiturgicalPeriods[];
-  liturgicalColors: LiturgicalColor[];
-  liturgicalColorNames: string[];
-  martyrology: MartyrologyItem[];
-  cycles: RomcalCyclesMetadata;
-  calendar: Partial<RomcalCalendarMetadata>;
+  readonly key: string;
+  readonly date: string;
+  readonly precedence: Precedences;
+  readonly rank: Ranks;
+  readonly rankName: string;
+  readonly isHolyDayOfObligation: boolean;
+  readonly name: string;
+  readonly seasons: LiturgicalSeasons[];
+  readonly seasonNames: string[];
+  readonly periods: LiturgicalPeriods[];
+  readonly liturgicalColors: LiturgicalColor[];
+  readonly liturgicalColorNames: string[];
+  readonly martyrology: MartyrologyItem[];
+  readonly cycles: RomcalCyclesMetadata;
+  readonly calendar: Partial<RomcalCalendarMetadata>;
   weekday?: LiturgicalDay;
-  fromCalendar: string;
-  fromExtendedCalendars: LiturgyDayDiff[];
+  readonly fromCalendar: string;
+  readonly fromExtendedCalendars: LiturgyDayDiff[];
 
-  private _config: RomcalConfig;
+  private readonly _config: RomcalConfig;
 
   constructor(day: LiturgicalDayInput, config: RomcalConfig) {
     this._config = config;
