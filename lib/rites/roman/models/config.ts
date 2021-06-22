@@ -9,6 +9,7 @@ import { LiturgicalSeasons } from '../constants/seasons';
 import { LiturgicalColor } from '../constants/colors';
 import { Ranks } from '../constants/ranks';
 import updateLocale from 'dayjs/plugin/updateLocale';
+import { toRomanNumber } from '../../../utils/numbers';
 
 dayjs.extend(updateLocale);
 
@@ -145,11 +146,18 @@ export class RomcalConfig implements IRoncalConfig {
         // contextSeparator: '__',
         interpolation: {
           format: function (value, format, locale) {
-            if (format === 'uppercase') return value.toUpperCase();
-            if (format === 'capitalize')
+            if (format === 'romanize') {
+              return toRomanNumber(parseInt(value, 10));
+            }
+            if (format === 'uppercase') {
+              return value.toUpperCase();
+            }
+            if (format === 'capitalize') {
               return value[0].toUpperCase() + value.slice(1);
-            if (dayjs.isDayjs(value))
+            }
+            if (dayjs.isDayjs(value)) {
               return value.locale(locale ?? 'en').format(format);
+            }
             return value;
           },
         },

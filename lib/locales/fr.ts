@@ -532,7 +532,8 @@ export const locale: Locale = {
       'Saint Stanislas, Évêque de Cracovie, Martyr et Patron de la Pologne (✝ 1079)',
     stephen_i_of_hungary: 'Saint Étienne, Roi de Hongrie (✝ 1038)',
     stephen_the_first_martyr: 'Saint Étienne, Diacre et Premier Martyr (✝ 35)',
-    sunday_of_the_word_of_god: 'Dimanche de la Parole de Dieu',
+    sunday_of_the_word_of_god:
+      'Dimanche de la Parole de Dieu - Troisième dimanche du Temps Ordinaire',
     sylvester_i_pope: 'Saint Sylvestre Ier, Pape (✝ 335)',
     teresa_benedicta_of_the_cross_stein_virgin:
       'Sainte Thérèse-Bénédicte de la Croix (Edith Stein), Carmélite, Martyr en Pologne (✝ 1942)',

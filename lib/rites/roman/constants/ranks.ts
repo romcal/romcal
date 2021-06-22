@@ -72,7 +72,7 @@ export const RanksFromPrecedence = {
   [Precedences.ProperSolemnity_TitleOrFounderOrPrincipalPatronOfAReligiousOrg_4d]:
     Ranks.SOLEMNITY,
   [Precedences.GeneralLordFeast_5]: Ranks.FEAST,
-  [Precedences.UnprivilegedSunday_6]: Ranks.WEEKDAY,
+  [Precedences.UnprivilegedSunday_6]: Ranks.SUNDAY,
   [Precedences.GeneralFeast_7]: Ranks.FEAST,
   [Precedences.ProperFeast_PrincipalPatronOfADiocese_8a]: Ranks.FEAST,
   [Precedences.ProperFeast_DedicationOfTheCathedralChurch_8b]: Ranks.FEAST,

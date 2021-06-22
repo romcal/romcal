@@ -8,16 +8,15 @@ export const locale: Locale = {
       advent: {
         season: 'Tempo du Avvento',
         weekday:
-          '{{day, capitalize}} della $t(ordinals:{{week}}, { "context": "feminine" }) settimana di Avvento',
-        sunday:
-          '$t(ordinals:{{week}}, { "context": "feminine" }) domenica di Avvento',
+          '{{day, capitalize}} della {{week, romanize}} settimana di Avvento',
+        sunday: '{{week, romanize}} domenica di Avvento',
       },
 
       christmastide: {
         season: 'Tempo di Natale',
         day: '{{day, capitalize}} di Natale',
         octave: '{{count}}º giorno fra l’Ottava di Natale',
-        second_sunday_after_christmas: 'Seconda domenica dopo Natale',
+        second_sunday_after_christmas: 'II domenica dopo Natale',
         before_epiphany: '{{day, capitalize}} prima dell’Epifania',
         after_epiphany: '{{day, capitalize}} dopo l’Epifania',
       },
@@ -25,17 +24,15 @@ export const locale: Locale = {
       ordinary_time: {
         season: 'Tempo Ordinario',
         weekday:
-          '{{day, capitalize}} della $t(ordinals:{{week}}, { "context": "feminine" }) settimana del Tempo Ordinario',
-        sunday:
-          '$t(ordinals:{{week}}, { "context": "feminine" }) domenica del Tempo Ordinario',
+          '{{day, capitalize}} della {{week, romanize}} settimana del Tempo Ordinario',
+        sunday: '{{week, romanize}} domenica del Tempo Ordinario',
       },
 
       lent: {
         season: 'Tempo di Quaresima',
         weekday:
-          '{{day, capitalize}} della $t(ordinals:{{week}}, { "context": "feminine" }) settimana di Quaresima',
-        sunday:
-          '$t(ordinals:{{week}}, { "context": "feminine" }) domenica di Quaresima',
+          '{{day, capitalize}} della {{week, romanize}} settimana di Quaresima',
+        sunday: '{{week, romanize}} domenica di Quaresima',
         day_after_ash_wed: '{{day, capitalize}} dopo le Ceneri',
         holy_week_day: '{{day, capitalize}} della Settimana Santa',
       },
@@ -45,11 +42,10 @@ export const locale: Locale = {
       },
 
       eastertide: {
-        season: 'Pasqua',
+        season: 'Tempo di Pasqua',
         weekday:
-          '{{day, capitalize}} della $t(ordinals:{{week}}, { "context": "feminine" }) settimana di Pasqua',
-        sunday:
-          '$t(ordinals:{{week}}, { "context": "feminine" }) domenica di Pasqua',
+          '{{day, capitalize}} della {{week, romanize}} settimana di Pasqua',
+        sunday: '{{week, romanize}} domenica di Pasqua',
         octave: '{{day, capitalize}} fra l’Ottava di Pasqua',
       },
     },
@@ -452,7 +448,8 @@ export const locale: Locale = {
       'Santo Stanislao, vescovo, martire e patrono della Polonia',
     stephen_i_of_hungary: 'Santo Stefano di Ungheria',
     stephen_the_first_martyr: 'Santo Stefano, primo martire',
-    sunday_of_the_word_of_god: 'Domenica della Parola di Dio',
+    sunday_of_the_word_of_god:
+      'Domenica della Parola di Dio / III domenica del Tempo Ordinario',
     sylvester_i_pope: 'San Silvestro I, papa',
     teresa_benedicta_of_the_cross_stein_virgin:
       'Santa Teresa Benedetta della Croce, vergine e martire',
