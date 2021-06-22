@@ -7,9 +7,8 @@ export const locale: Locale = {
     seasons: {
       advent: {
         season: 'Adventné obdobie',
-        weekday:
-          '{{day, capitalize}} po $t(ordinals:{{week}}) adventnej nedeli',
-        sunday: '$t(ordinals:{{week}}, capitalize) adventná nedeľa',
+        weekday: '{{day, capitalize}} po {{week}}. adventnej nedeli',
+        sunday: '{{week}}. adventná nedeľa',
       },
 
       christmastide: {
@@ -23,15 +22,14 @@ export const locale: Locale = {
 
       ordinary_time: {
         season: 'Cezročné obdobie',
-        weekday:
-          '{{day, capitalize}} $t(ordinals:{{week}}) týždňa v Cezročnom období',
-        sunday: '$t(ordinals:{{week}}, capitalize) nedeľa v Cezročnom období',
+        weekday: '{{day, capitalize}} {{week}}. týždňa v Cezročnom období',
+        sunday: '{{week}}. nedeľa v Cezročnom období',
       },
 
       lent: {
         season: 'Pôstne obdobie',
-        weekday: '{{day, capitalize}} po $t(ordinals:{{week}}) pôstnej nedeli',
-        sunday: '$t(ordinals:{{week}}, capitalize) pôstna nedeľa',
+        weekday: '{{day, capitalize}} po {{week}}. pôstnej nedeli',
+        sunday: '{{week}}. pôstna nedeľa',
         day_after_ash_wed: '{{day, capitalize}} po Popolcovej strede',
         holy_week_day: '{{day, capitalize}} Veľkého týždňa',
       },
@@ -42,9 +40,8 @@ export const locale: Locale = {
 
       eastertide: {
         season: 'Veľkonočné obdobie',
-        weekday:
-          '{{day, capitalize}} po $t(ordinals:{{week}}) veľkonočnej nedeli',
-        sunday: '$t(ordinals:{{week}}, capitalize) veľkonočná nedeľa',
+        weekday: '{{day, capitalize}} po {{week}}. veľkonočnej nedeli',
+        sunday: '{{week}}. veľkonočná nedeľa',
         octave: 'Veľkonočný {{day}}',
       },
     },

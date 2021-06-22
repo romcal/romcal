@@ -7,8 +7,8 @@ export const locale: Locale = {
     seasons: {
       advent: {
         season: 'Adwent',
-        weekday: '{{day, capitalize}} $t(ordinals:{{week}}) tygodnia Adwentu',
-        sunday: '$t(ordinals:{{week}}, capitalize) Niedziela Adwentu',
+        weekday: '{{day, capitalize}} {{week}}. tygodnia Adwentu',
+        sunday: '{{week}}. Niedziela Adwentu',
       },
 
       christmastide: {
@@ -22,15 +22,14 @@ export const locale: Locale = {
 
       ordinary_time: {
         season: 'Okres Zwykły',
-        weekday: '{{day, capitalize}} $t(ordinals:{{week}}) tygodnia zwykłego',
-        sunday: '$t(ordinals:{{week}}, capitalize) Niedziela zwykła',
+        weekday: '{{day, capitalize}} {{week}}. tygodnia zwykłego',
+        sunday: '{{week}}. Niedziela zwykła',
       },
 
       lent: {
         season: 'Wielki Post',
-        weekday:
-          '{{day, capitalize}} $t(ordinals:{{week}}) tygodnia Wielkiego Postu',
-        sunday: '$t(ordinals:{{week}}, capitalize) Niedziela Wielkiego Postu',
+        weekday: '{{day, capitalize}} {{week}}. tygodnia Wielkiego Postu',
+        sunday: '{{week}}. Niedziela Wielkiego Postu',
         day_after_ash_wed: '{{day, capitalize}} po Popielcu',
         holy_week_day: '{{day, capitalize}} Wielkiego Tygodnia',
       },
@@ -41,9 +40,8 @@ export const locale: Locale = {
 
       eastertide: {
         season: 'Wielkanoc',
-        weekday:
-          '{{day, capitalize}} $t(ordinals:{{week}}) tygodnia wielkanocnego',
-        sunday: '$t(ordinals:{{week}}, capitalize) Niedziela Wielkanocna',
+        weekday: '{{day, capitalize}} {{week}}. tygodnia wielkanocnego',
+        sunday: '{{week}}. Niedziela Wielkanocna',
         octave: '{{day, capitalize}} w oktawie Wielkanocy',
       },
     },

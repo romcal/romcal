@@ -7,9 +7,8 @@ export const locale: Locale = {
     seasons: {
       advent: {
         season: 'Advento',
-        weekday:
-          '{{day, capitalize}} da $t(ordinals:{{week}}, { "context": "feminine" }) semana do Advento',
-        sunday: '$t(ordinals:{{week}}, capitalize) Domingo do Advento',
+        weekday: '{{day, capitalize}} da {{week}}ª semana do Advento',
+        sunday: '{{week}}º Domingo do Advento',
       },
 
       christmastide: {
@@ -23,16 +22,14 @@ export const locale: Locale = {
 
       ordinary_time: {
         season: 'Tempo Comum',
-        weekday:
-          '{{day, capitalize}} da $t(ordinals:{{week}}, { "context": "feminine" }) semana do Tempo Comum',
-        sunday: '$t(ordinals:{{week}}, capitalize) Domingo do Tempo Comum',
+        weekday: '{{day, capitalize}} da {{week}}ª semana do Tempo Comum',
+        sunday: '{{week}}º Domingo do Tempo Comum',
       },
 
       lent: {
         season: 'Quaresma',
-        weekday:
-          '{{day, capitalize}} da $t(ordinals:{{week}}, { "context": "feminine" }) semana da Quaresma',
-        sunday: '$t(ordinals:{{week}}, capitalize) Domingo da Quaresma',
+        weekday: '{{day, capitalize}} da {{week}}ª semana da Quaresma',
+        sunday: '{{week}}º Domingo da Quaresma',
         day_after_ash_wed:
           '{{day, capitalize}} depois da Quarta-feira de Cinzas',
         holy_week_day: '{{day, capitalize}} of Semana Santa',
@@ -44,9 +41,8 @@ export const locale: Locale = {
 
       eastertide: {
         season: 'Páscoa',
-        weekday:
-          '{{day, capitalize}} da $t(ordinals:{{week}}, { "context": "feminine" }) semana do Tempo Pascal',
-        sunday: '$t(ordinals:{{week}}, capitalize) Domingo do Tempo Pascal',
+        weekday: '{{day, capitalize}} da {{week}}ª semana do Tempo Pascal',
+        sunday: '{{week}}º Domingo do Tempo Pascal',
         octave: 'Tempo Pascal {{day}}',
       },
     },

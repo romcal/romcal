@@ -7,16 +7,15 @@ export const locale: Locale = {
     seasons: {
       advent: {
         season: 'Adviento',
-        weekday:
-          '{{day, capitalize}} de la $t(ordinals:{{week}}, { "context": "feminine" }) semana de Adviento',
-        sunday: '$t(ordinals:{{week}}, capitalize) Domingo de Adviento',
+        weekday: '{{day, capitalize}} de la {{week}}ª semana de Adviento',
+        sunday: '{{week}}º domingo de Adviento',
       },
 
       christmastide: {
         season: 'Navidad',
         day: '{{day, capitalize}} de Navidad',
         octave: '{{count}}º día de la Octava de Navidad',
-        second_sunday_after_christmas: 'Segundo Domingo de Navidad',
+        second_sunday_after_christmas: '2º domingo de Navidad',
         before_epiphany: '{{day, capitalize}} antes de la Epifanía',
         after_epiphany: '{{day, capitalize}} después de la Epifanía',
       },
@@ -24,16 +23,14 @@ export const locale: Locale = {
       ordinary_time: {
         season: 'Tiempo Ordinario',
         weekday:
-          '{{day, capitalize}} de la $t(ordinals:{{week}}, { "context": "feminine" }) semana del Tiempo Ordinario',
-        sunday:
-          '$t(ordinals:{{week}}, capitalize) Domingo del Tiempo Ordinario',
+          '{{day, capitalize}} de la {{week}}ª semana del Tiempo Ordinario',
+        sunday: '{{week}}º domingo del Tiempo Ordinario',
       },
 
       lent: {
         season: 'Cuaresma',
-        weekday:
-          '{{day, capitalize}} de la $t(ordinals:{{week}}, { "context": "feminine" }) semana de Cuaresma',
-        sunday: '$t(ordinals:{{week}}, capitalize) Domingo de Cuaresma',
+        weekday: '{{day, capitalize}} de la {{week}}ª semana de Cuaresma',
+        sunday: '{{week}}º domingo de Cuaresma',
         day_after_ash_wed: '{{day, capitalize}} después de Miércoles de Ceniza',
         holy_week_day: '{{day, capitalize}} de Semana Santa',
       },
@@ -44,9 +41,8 @@ export const locale: Locale = {
 
       eastertide: {
         season: 'Pascua',
-        weekday:
-          '{{day, capitalize}} de la $t(ordinals:{{week}}, { "context": "feminine" }) semana de Pascua',
-        sunday: '$t(ordinals:{{week}}, capitalize) Domingo de Pascua',
+        weekday: '{{day, capitalize}} de la {{week}}ª semana de Pascua',
+        sunday: '{{week}}º domingo de Pascua',
         octave: '{{day, capitalize}} día de la Octava de Pascua',
       },
     },
