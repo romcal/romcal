@@ -132,6 +132,16 @@ export interface BaseLiturgicalDay {
   isHolyDayOfObligation: boolean;
 
   /**
+   * Specify is this LiturgicalDay (generally a Memorial) is optional.
+   *
+   * UNLY #14:
+   * Memorials are either obligatory or optional; their observance is integrated into
+   * the celebration of the occurring weekday in accordance with the norms set forth in the
+   * General Instruction of the Roman Missal and of the Liturgy of the Hours
+   */
+  isOptional: boolean;
+
+  /**
    * The liturgical localized colors of a liturgical day.
    */
   liturgicalColorNames: string[];

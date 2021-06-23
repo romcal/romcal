@@ -1,4 +1,5 @@
 import { ProperCycles } from '@roman-rite/constants/cycles';
+import { LiturgicalPeriods } from '@roman-rite/constants/periods';
 import { Precedences, PRECEDENCES } from '@roman-rite/constants/precedences';
 import { Ranks } from '@roman-rite/constants/ranks';
 import { LiturgicalDefBuiltData } from '@roman-rite/general-calendar/temporale';
@@ -440,7 +441,7 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
       // - a privileged weekday (UNLY #59 9):
       //     - a weekdays of Advent from December 17 up to and including December 24;
       //     - a days within the Octave of Christmas;
-      //     - a weekdays of Lent.
+      //     - a weekdays of Lent (except Ash Wednesday and all weekdays of the Holy Week, UNLY #16 a).
       //
       // - a weekday (UNLY #59 13).
       //
@@ -472,12 +473,14 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
       //    for Various Needs, or a Votive Mass.
       let optionalMemorials: LiturgicalDay[] = [];
       if (
-        defaultLiturgicalDay.precedence === Precedences.PrivilegedWeekday_9 ||
-        defaultLiturgicalDay.precedence === Precedences.Weekday_13
+        (defaultLiturgicalDay.precedence === Precedences.PrivilegedWeekday_9 ||
+          defaultLiturgicalDay.precedence === Precedences.Weekday_13) &&
+        !defaultLiturgicalDay.periods.includes(LiturgicalPeriods.HOLY_WEEK)
       ) {
         optionalMemorials = dates
           .slice(1)
-          .filter((d) => d.precedence === Precedences.OptionalMemorial_12);
+          .filter((d) => d.precedence === Precedences.OptionalMemorial_12)
+          .map((d) => (d.isOptional = true) && d);
       }
 
       finalData[dateStr] = [defaultLiturgicalDay, ...optionalMemorials];
