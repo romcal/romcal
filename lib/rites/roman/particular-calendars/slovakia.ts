@@ -3,10 +3,7 @@ import { ProperCycles } from '@roman-rite/constants/cycles';
 import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { Europe } from '@roman-rite/particular-calendars/europe';
-import {
-  DateDefinitions,
-  ParticularConfig,
-} from '@roman-rite/types/calendar-def';
+import { DateDefinitions, ParticularConfig } from '@roman-rite/types/calendar-def';
 import { Dates } from '@roman-rite/utils/dates';
 import { PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
 import { Dayjs } from 'dayjs';
@@ -68,10 +65,7 @@ export class Slovakia extends CalendarDef {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '7-5',
       titles: [Titles.SlavicMissionary],
-      martyrology: [
-        'cyril_the_philosopher_monk',
-        'methodius_of_thessaloniki_bishop',
-      ],
+      martyrology: ['cyril_the_philosopher_monk', 'methodius_of_thessaloniki_bishop'],
     },
 
     anthony_zaccaria_priest: {
@@ -82,10 +76,7 @@ export class Slovakia extends CalendarDef {
     andrew_zorard_of_nitra_and_benedict_of_skalka_hermits: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-17',
-      martyrology: [
-        'andrew_zorard_of_nitra_hermit',
-        'benedict_of_skalka_hermit',
-      ],
+      martyrology: ['andrew_zorard_of_nitra_hermit', 'benedict_of_skalka_hermit'],
     },
 
     gorazd_of_moravia_and_companions: {
@@ -112,11 +103,7 @@ export class Slovakia extends CalendarDef {
     marko_krizin_melchior_grodziecki_and_stephen_pongracz_priests: {
       precedence: Precedences.ProperMemorial_11b,
       date: '9-7',
-      martyrology: [
-        'marko_krizin_priest',
-        'melchior_grodziecki_priest',
-        'stephen_pongracz_priest',
-      ],
+      martyrology: ['marko_krizin_priest', 'melchior_grodziecki_priest', 'stephen_pongracz_priest'],
     },
 
     our_lady_of_sorrows: {

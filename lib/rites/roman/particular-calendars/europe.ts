@@ -8,10 +8,7 @@ export class Europe extends CalendarDef {
     cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop: {
       customLocaleKey:
         'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe',
-      martyrology: [
-        'cyril_the_philosopher_monk',
-        'methodius_of_thessaloniki_bishop',
-      ],
+      martyrology: ['cyril_the_philosopher_monk', 'methodius_of_thessaloniki_bishop'],
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       titles: (titles) => [...titles, PatronTitles.CopatronOfEurope],
     },
@@ -35,8 +32,7 @@ export class Europe extends CalendarDef {
     },
 
     teresa_benedicta_of_the_cross_stein_virgin: {
-      customLocaleKey:
-        'teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe',
+      customLocaleKey: 'teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       titles: (titles) => [...titles, PatronTitles.CopatronessOfEurope],
     },

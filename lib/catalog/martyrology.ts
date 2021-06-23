@@ -1,7 +1,4 @@
-import {
-  CanonizationLevel,
-  Titles,
-} from '@romcal/constants/martyrology-metadata';
+import { CanonizationLevel, Titles } from '@romcal/constants/martyrology-metadata';
 import { MartyrologyCatalog } from '@romcal/types/martyrology';
 
 export class Martyrology {

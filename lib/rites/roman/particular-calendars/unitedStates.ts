@@ -1,10 +1,7 @@
 import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { Americas } from '@roman-rite/particular-calendars/americas';
-import {
-  DateDefinitions,
-  ParticularConfig,
-} from '@roman-rite/types/calendar-def';
+import { DateDefinitions, ParticularConfig } from '@roman-rite/types/calendar-def';
 import { Dates } from '@roman-rite/utils/dates';
 import { PatronTitles } from '@romcal/constants/martyrology-metadata';
 
@@ -96,11 +93,7 @@ export class UnitedStates extends CalendarDef {
 
     john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs: {
       precedence: Precedences.ProperMemorial_11b,
-      martyrology: [
-        'john_de_brebeuf_priest',
-        'isaac_jogues_priest',
-        'companions_martyrs',
-      ],
+      martyrology: ['john_de_brebeuf_priest', 'isaac_jogues_priest', 'companions_martyrs'],
     },
 
     paul_of_the_cross_priest: {

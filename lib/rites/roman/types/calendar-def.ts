@@ -11,10 +11,7 @@ import { Dayjs } from 'dayjs';
 export type LiturgicalCalendar = Record<string, LiturgicalDay[]>;
 
 export type ParticularConfig = Partial<
-  Pick<
-    RomcalConfig,
-    'ascensionOnSunday' | 'epiphanyOnSunday' | 'corpusChristiOnSunday'
-  >
+  Pick<RomcalConfig, 'ascensionOnSunday' | 'epiphanyOnSunday' | 'corpusChristiOnSunday'>
 >;
 
 export type TitlesDef =
@@ -115,8 +112,7 @@ export interface ICalendarDef {
  * specifying [ICalendarDef].
  * This allows to define static methods from [ICalendarDef]
  */
-interface StaticCalendarComputing<T extends ICalendarDef>
-  extends IConstructor<T> {
+interface StaticCalendarComputing<T extends ICalendarDef> extends IConstructor<T> {
   generateCalendar: (builtData: LiturgicalDefBuiltData) => LiturgicalCalendar;
 }
 

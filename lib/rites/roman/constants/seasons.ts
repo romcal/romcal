@@ -16,9 +16,7 @@ export enum LiturgicalSeasons {
  * A dynamically generated constant consisting of all the enum keys in [[LITURGICAL_SEASONS]]
  */
 export const LITURGICAL_SEASONS = Object.keys(LiturgicalSeasons).filter(
-  (key) =>
-    typeof LiturgicalSeasons[key as keyof typeof LiturgicalSeasons] ===
-    'string',
+  (key) => typeof LiturgicalSeasons[key as keyof typeof LiturgicalSeasons] === 'string',
 ) as Array<keyof typeof LiturgicalSeasons>;
 
 export type LiturgicalSeason = typeof LITURGICAL_SEASONS[number];

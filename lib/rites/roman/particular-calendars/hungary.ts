@@ -150,10 +150,7 @@ export class Hungary extends CalendarDef {
     andrew_zorard_of_nitra_and_benedict_of_skalka_hermits: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-17',
-      martyrology: [
-        'andrew_zorard_of_nitra_hermit',
-        'benedict_of_skalka_hermit',
-      ],
+      martyrology: ['andrew_zorard_of_nitra_hermit', 'benedict_of_skalka_hermit'],
     },
 
     pavel_peter_gojdic_bishop: {
@@ -198,11 +195,7 @@ export class Hungary extends CalendarDef {
     marko_krizin_melchior_grodziecki_and_stephen_pongracz_priests: {
       precedence: Precedences.ProperFeast_8f,
       date: '9-7',
-      martyrology: [
-        'marko_krizin_priest',
-        'melchior_grodziecki_priest',
-        'stephen_pongracz_priest',
-      ],
+      martyrology: ['marko_krizin_priest', 'melchior_grodziecki_priest', 'stephen_pongracz_priest'],
     },
 
     most_holy_name_of_mary: {

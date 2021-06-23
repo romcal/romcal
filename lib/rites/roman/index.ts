@@ -2,10 +2,7 @@ import { GeneralRoman } from '@roman-rite/general-calendar/general';
 import Temporale from '@roman-rite/general-calendar/temporale';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { RomcalConfig } from '@roman-rite/models/config';
-import {
-  BaseCalendarDef,
-  LiturgicalCalendar,
-} from '@roman-rite/types/calendar-def';
+import { BaseCalendarDef, LiturgicalCalendar } from '@roman-rite/types/calendar-def';
 import { BaseRomcalConfig, RomcalConfigInput } from '@roman-rite/types/config';
 import { Dates } from '@roman-rite/utils/dates';
 import { CalendarScope } from '@romcal/constants/calendar-scope';
@@ -25,9 +22,7 @@ export default class Romcal {
     this.#calendarsDef = [new GeneralRoman(this.#config)];
 
     if (this.#config.particularCalendar) {
-      this.#calendarsDef.push(
-        new this.#config.particularCalendar(this.#config),
-      );
+      this.#calendarsDef.push(new this.#config.particularCalendar(this.#config));
     }
 
     this.#calendarsDef.map((cal) => cal.updateConfig(config));

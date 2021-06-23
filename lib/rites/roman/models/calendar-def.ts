@@ -133,11 +133,9 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
             ? dayjs.utc(`${this.#config.year}-${def.date}`)
             : def.date(this.#config.year);
 
-        const dateInputPreviousYearStr =
-          dateInputPreviousYear?.format('YYYY-MM-DD');
+        const dateInputPreviousYearStr = dateInputPreviousYear?.format('YYYY-MM-DD');
 
-        const dateInputCurrentYearStr =
-          dateInputCurrentYear.format('YYYY-MM-DD');
+        const dateInputCurrentYearStr = dateInputCurrentYear.format('YYYY-MM-DD');
 
         // Lookup for a matching date object, to keep the relevant date
         if (
@@ -145,9 +143,7 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
           Array.isArray(builtData.datesIndex[dateInputPreviousYearStr])
         ) {
           dateInput = dateInputPreviousYear;
-        } else if (
-          Array.isArray(builtData.datesIndex[dateInputCurrentYearStr])
-        ) {
+        } else if (Array.isArray(builtData.datesIndex[dateInputCurrentYearStr])) {
           dateInput = dateInputCurrentYear;
         }
         // A temporale LiturgicalDay is generated for each day of the Liturgical Year.
@@ -160,9 +156,7 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
         }
       }
 
-      const dateStr = (dateInput ?? dayjs(builtData.byKeys[key].date)).format(
-        'YYYY-MM-DD',
-      );
+      const dateStr = (dateInput ?? dayjs(builtData.byKeys[key].date)).format('YYYY-MM-DD');
 
       // Delete a LiturgicalDay has the `drop: true` property
       if (def.drop) {
@@ -176,9 +170,7 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
           );
         } else {
           delete builtData.byKeys[key];
-          builtData.datesIndex[dateStr] = builtData.datesIndex[dateStr].filter(
-            (k) => k !== key,
-          );
+          builtData.datesIndex[dateStr] = builtData.datesIndex[dateStr].filter((k) => k !== key);
         }
         return;
       }
@@ -202,75 +194,67 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
       // Take the first LiturgicalDay object of a specified day.
       // The first object is always a temporale LiturgicalDay,
       // since a LiturgicalDay is generated for each day of the Liturgical Year.
-      const baseData: LiturgicalDay =
-        builtData.byKeys[builtData.datesIndex[dateStr][0]];
+      const baseData: LiturgicalDay = builtData.byKeys[builtData.datesIndex[dateStr][0]];
 
       // Retrieve the Martyrology items from the inherited LiturgicalDay object,
       // or create a new empty list.
-      const martyrology: MartyrologyItem[] =
-        builtData.byKeys[key]?.martyrology ?? [];
+      const martyrology: MartyrologyItem[] = builtData.byKeys[key]?.martyrology ?? [];
 
       // [1] Then, check if Martyrology data exists from the date definition;
       // [2] if martyrology data no not exists, but an inherited LiturgicalDay exists: do nothing more;
       // [3] if martyrology no not exists, and there is no inheritance: take the date key as the martyrology item key.
-      (def.martyrology ?? (builtData.byKeys[key] && []) ?? [key]).forEach(
-        (id) => {
-          const pointer = typeof id === 'string' ? { key: id } : id;
+      (def.martyrology ?? (builtData.byKeys[key] && []) ?? [key]).forEach((id) => {
+        const pointer = typeof id === 'string' ? { key: id } : id;
 
-          // Add the matching Martyrology item in the Martyrology list defined above this forEach loop.
-          if (Martyrology.catalog[pointer.key]) {
-            // Check if the matching Martyrology item already exists
-            let martyrologyItem = martyrology.find(
-              (item) => item.key === pointer.key,
-            );
+        // Add the matching Martyrology item in the Martyrology list defined above this forEach loop.
+        if (Martyrology.catalog[pointer.key]) {
+          // Check if the matching Martyrology item already exists
+          let martyrologyItem = martyrology.find((item) => item.key === pointer.key);
 
-            // Otherwise, add it.
-            if (!martyrologyItem) {
-              martyrology.push(
-                (martyrologyItem = {
-                  key: pointer.key,
-                  ...Martyrology.catalog[pointer.key],
-                }),
-              );
-            }
-
-            // Combine `hideTitles` if provided.
-            if (typeof pointer.hideTitles === 'boolean') {
-              martyrologyItem.hideTitles = pointer.hideTitles;
-            }
-
-            // Combine `count` if provided.
-            if (typeof pointer.count === 'number' || pointer.count === 'many') {
-              martyrologyItem.count = pointer.count;
-            }
-
-            // Combine `titles` if provided.
-            if (pointer.titles) {
-              martyrologyItem.titles =
-                typeof pointer.titles === 'function'
-                  ? pointer.titles(
-                      Martyrology.catalog[pointer.key].titles || [],
-                    )
-                  : pointer.titles;
-            }
-
-            // Combine `titles` from the main date definition, if provided.
-            if (def?.titles) {
-              martyrologyItem.titles =
-                typeof def?.titles === 'function'
-                  ? def?.titles(martyrologyItem.titles || [])
-                  : def?.titles;
-            }
-          }
-          // If the Martyrology item is not found, it means this item is badly referenced in the date definition.
-          // In this situation, romcal must report en error.
-          else {
-            throw new Error(
-              `In the '${this.calendarName}' calendar, a LiturgicalDay with the key '${key}', have a badly referenced martyrology item: '${pointer.key}'.`,
+          // Otherwise, add it.
+          if (!martyrologyItem) {
+            martyrology.push(
+              (martyrologyItem = {
+                key: pointer.key,
+                ...Martyrology.catalog[pointer.key],
+              }),
             );
           }
-        },
-      );
+
+          // Combine `hideTitles` if provided.
+          if (typeof pointer.hideTitles === 'boolean') {
+            martyrologyItem.hideTitles = pointer.hideTitles;
+          }
+
+          // Combine `count` if provided.
+          if (typeof pointer.count === 'number' || pointer.count === 'many') {
+            martyrologyItem.count = pointer.count;
+          }
+
+          // Combine `titles` if provided.
+          if (pointer.titles) {
+            martyrologyItem.titles =
+              typeof pointer.titles === 'function'
+                ? pointer.titles(Martyrology.catalog[pointer.key].titles || [])
+                : pointer.titles;
+          }
+
+          // Combine `titles` from the main date definition, if provided.
+          if (def?.titles) {
+            martyrologyItem.titles =
+              typeof def?.titles === 'function'
+                ? def?.titles(martyrologyItem.titles || [])
+                : def?.titles;
+          }
+        }
+        // If the Martyrology item is not found, it means this item is badly referenced in the date definition.
+        // In this situation, romcal must report en error.
+        else {
+          throw new Error(
+            `In the '${this.calendarName}' calendar, a LiturgicalDay with the key '${key}', have a badly referenced martyrology item: '${pointer.key}'.`,
+          );
+        }
+      });
 
       // Retrieve and clone existing cycle data,
       // from the inherited LiturgicalDay object (if exists),
@@ -290,9 +274,7 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
         this.#config.i18next.t('martyrology:' + (def.customLocaleKey ?? key));
       // If not found in the Martyrology catalog, have a look in the Roman celebrations.
       if (name === (def.customLocaleKey ?? key)) {
-        name = this.#config.i18next.t(
-          'roman_rite:celebrations.' + (def.customLocaleKey ?? key),
-        );
+        name = this.#config.i18next.t('roman_rite:celebrations.' + (def.customLocaleKey ?? key));
       }
       // Finally, if there is no localization, romcal must throw an error,
       // because it should have at least a localization in English.
@@ -340,10 +322,7 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
       // Check object differences between the previously inherited object
       // and the new one
       if (builtData.byKeys[key]) {
-        const diff = this.#getLiturgicalDayDiff(
-          builtData.byKeys[key],
-          liturgicalDay,
-        );
+        const diff = this.#getLiturgicalDayDiff(builtData.byKeys[key], liturgicalDay);
         // Store object diffs in the new LiturgicalDay object
         if (diff) liturgicalDay.fromExtendedCalendars.push(diff);
       }
@@ -389,18 +368,13 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
    * @param dayA
    * @param dayB
    */
-  #getLiturgicalDayDiff(
-    dayA: LiturgicalDay,
-    dayB: LiturgicalDay,
-  ): LiturgyDayDiff | null {
+  #getLiturgicalDayDiff(dayA: LiturgicalDay, dayB: LiturgicalDay): LiturgyDayDiff | null {
     const diff = {
       // date
       ...(dayA.date !== dayB.date ? { date: dayA.date } : {}),
 
       // precedence
-      ...(dayA.precedence !== dayB.precedence
-        ? { precedence: dayA.precedence }
-        : {}),
+      ...(dayA.precedence !== dayB.precedence ? { precedence: dayA.precedence } : {}),
 
       // rank
       ...(dayA.rank !== dayB.rank ? { rank: dayA.rank } : {}),
@@ -416,11 +390,7 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
       // liturgicalColors
       ...(dayA.liturgicalColors
         .filter((x) => !dayB.liturgicalColors.includes(x))
-        .concat(
-          dayB.liturgicalColors.filter(
-            (x) => !dayA.liturgicalColors.includes(x),
-          ),
-        ).length
+        .concat(dayB.liturgicalColors.filter((x) => !dayA.liturgicalColors.includes(x))).length
         ? { liturgicalColors: dayA.liturgicalColors }
         : {}),
 
@@ -430,32 +400,26 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
         : {}),
     };
 
-    return Object.keys(diff).length
-      ? { ...diff, fromCalendar: dayA.fromCalendar }
-      : null;
+    return Object.keys(diff).length ? { ...diff, fromCalendar: dayA.fromCalendar } : null;
   }
 
   /**
    * Generate a liturgical calendar according to the precedence rules between liturgical days.
    * @param builtData - The already build data, that will use to generate a calendar.
    */
-  static generateCalendar(
-    builtData: LiturgicalDefBuiltData,
-  ): LiturgicalCalendar {
+  static generateCalendar(builtData: LiturgicalDefBuiltData): LiturgicalCalendar {
     const finalData: LiturgicalCalendar = {};
 
     Object.keys(builtData.datesIndex).forEach((dateStr) => {
       const dates: LiturgicalDay[] = builtData.datesIndex[dateStr]
         .map((key) => builtData.byKeys[key])
-        .sort(
-          ({ precedence: firstPrecedence }, { precedence: nextPrecedence }) => {
-            const type1 = PRECEDENCES.indexOf(firstPrecedence);
-            const type2 = PRECEDENCES.indexOf(nextPrecedence);
-            if (type1 < type2) return -1;
-            if (type1 > type2) return 1;
-            return 0;
-          },
-        );
+        .sort(({ precedence: firstPrecedence }, { precedence: nextPrecedence }) => {
+          const type1 = PRECEDENCES.indexOf(firstPrecedence);
+          const type2 = PRECEDENCES.indexOf(nextPrecedence);
+          if (type1 < type2) return -1;
+          if (type1 > type2) return 1;
+          return 0;
+        });
 
       // - The first item in the array correspond to the Liturgical Day that take precedence.
       // - When multiple LiturgicalDay objects are output the same day, it means that all other

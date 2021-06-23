@@ -199,10 +199,7 @@ export type LiturgicalDayInput = Pick<
   'key' | 'precedence' | 'cycles' | 'calendar' | 'fromCalendar'
 > &
   Partial<
-    Omit<
-      BaseLiturgicalDay,
-      'key' | 'date' | 'precedence' | 'cycles' | 'calendar' | 'fromCalendar'
-    >
+    Omit<BaseLiturgicalDay, 'key' | 'date' | 'precedence' | 'cycles' | 'calendar' | 'fromCalendar'>
   > & {
     date: string | Dayjs;
   };

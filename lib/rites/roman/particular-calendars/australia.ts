@@ -1,10 +1,7 @@
 import { ProperCycles } from '@roman-rite/constants/cycles';
 import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
-import {
-  DateDefinitions,
-  ParticularConfig,
-} from '@roman-rite/types/calendar-def';
+import { DateDefinitions, ParticularConfig } from '@roman-rite/types/calendar-def';
 import { Dates } from '@roman-rite/utils/dates';
 import { PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
 import { Dayjs } from 'dayjs';

@@ -9,14 +9,9 @@ export class Italy extends CalendarDef {
 
   definitions: DateDefinitions = {
     catherine_of_siena_virgin: {
-      customLocaleKey:
-        'catherine_of_siena_virgin_copatroness_of_italy_and_europe',
+      customLocaleKey: 'catherine_of_siena_virgin_copatroness_of_italy_and_europe',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      titles: [
-        Titles.Virgin,
-        Titles.DoctorOfTheChurch,
-        PatronTitles.CopatronessOfItalyAndEurope,
-      ],
+      titles: [Titles.Virgin, Titles.DoctorOfTheChurch, PatronTitles.CopatronessOfItalyAndEurope],
     },
 
     norbert_of_xanten_bishop: {

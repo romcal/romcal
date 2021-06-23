@@ -58,8 +58,7 @@ export class PuertoRico extends CalendarDef {
     },
 
     our_lady_mother_of_divine_providence: {
-      customLocaleKey:
-        'our_lady_mother_of_divine_providence_patroness_of_puerto_rico',
+      customLocaleKey: 'our_lady_mother_of_divine_providence_patroness_of_puerto_rico',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '11-19',
       titles: (titles) => [...titles, PatronTitles.PatronessOfPuertoRico],

@@ -57,8 +57,7 @@ export class Poland extends CalendarDef {
 
         // When it falls between Palm Sunday and the Second Sunday of Easter inclusive,
         // it is transferred to the Monday after the Second Sunday of Easter
-        return date.isSameOrAfter(palmSunday) &&
-          date.isSameOrBefore(divineMercySunday)
+        return date.isSameOrAfter(palmSunday) && date.isSameOrBefore(divineMercySunday)
           ? divineMercySunday.add(1, 'day')
           : date;
       },
@@ -180,10 +179,7 @@ export class Poland extends CalendarDef {
     andrew_zorard_of_nitra_and_benedict_of_skalka_hermits: {
       precedence: Precedences.ProperMemorial_11b,
       date: '7-13',
-      martyrology: [
-        'andrew_zorard_of_nitra_hermit',
-        'benedict_of_skalka_hermit',
-      ],
+      martyrology: ['andrew_zorard_of_nitra_hermit', 'benedict_of_skalka_hermit'],
     },
 
     camillus_de_lellis_priest: {
@@ -399,8 +395,7 @@ export class Poland extends CalendarDef {
 
     mary_mother_of_the_church: {
       precedence: Precedences.ProperFeast_8f,
-      date: (year: number): dayjs.Dayjs =>
-        Dates.pentecostSunday(year).add(1, 'day'),
+      date: (year: number): dayjs.Dayjs => Dates.pentecostSunday(year).add(1, 'day'),
       properCycle: ProperCycles.TEMPORALE,
     },
 

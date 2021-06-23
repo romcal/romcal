@@ -1,15 +1,8 @@
-import {
-  isLiturgicalColor,
-  LiturgicalColor,
-  LiturgicalColors,
-} from '@roman-rite/constants/colors';
+import { isLiturgicalColor, LiturgicalColor, LiturgicalColors } from '@roman-rite/constants/colors';
 import { LiturgicalPeriods } from '@roman-rite/constants/periods';
 import { Precedences } from '@roman-rite/constants/precedences';
 import { Ranks, RanksFromPrecedence } from '@roman-rite/constants/ranks';
-import {
-  LiturgicalSeason,
-  LiturgicalSeasons,
-} from '@roman-rite/constants/seasons';
+import { LiturgicalSeason, LiturgicalSeasons } from '@roman-rite/constants/seasons';
 import { RomcalConfig } from '@roman-rite/models/config';
 import {
   BaseLiturgicalDay,
@@ -67,9 +60,7 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
       day.martyrology ?? [],
     );
 
-    this.liturgicalColorNames = this.liturgicalColors.map((key) =>
-      config.toColorName(key),
-    );
+    this.liturgicalColorNames = this.liturgicalColors.map((key) => config.toColorName(key));
 
     this.martyrology = day.martyrology ?? [];
 
@@ -90,10 +81,7 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
    * @param date The date of the liturgical day.
    * @private
    */
-  static #precedenceToRank(
-    precedence: Precedences,
-    date: string | Dayjs,
-  ): Ranks {
+  static #precedenceToRank(precedence: Precedences, date: string | Dayjs): Ranks {
     // Easter Sunday
     if (precedence === Precedences.Triduum_1 && dayjs(date).day() === 0) {
       return Ranks.SOLEMNITY;
@@ -122,9 +110,7 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
     // A liturgical color(s) has already been defined, nothing more to do:
     // returns the color(s) as it, if the color type(s) is/are valid.
     if (Array.isArray(liturgicalColors)) {
-      const validated = liturgicalColors.filter((color) =>
-        isLiturgicalColor(color),
-      );
+      const validated = liturgicalColors.filter((color) => isLiturgicalColor(color));
       if (validated.length > 0) return validated;
     }
 
@@ -132,11 +118,7 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
     // Now try to find the right default color...
 
     // Solemnity, Fest or Memorial:
-    if (
-      rank === Ranks.SOLEMNITY ||
-      rank === Ranks.FEAST ||
-      rank === Ranks.MEMORIAL
-    ) {
+    if (rank === Ranks.SOLEMNITY || rank === Ranks.FEAST || rank === Ranks.MEMORIAL) {
       // The mass of a Memorial during Lent and in Advent from 17 December is not celebrated.
       // In this case the color remain the default one of the season.
       if (
@@ -144,9 +126,7 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
         // During Lent:
         (seasons?.includes(LiturgicalSeasons.LENT) ||
           // During Advent from 17 December:
-          (seasons?.includes(LiturgicalSeasons.ADVENT) &&
-            date.month() === 11 &&
-            date.date() >= 17))
+          (seasons?.includes(LiturgicalSeasons.ADVENT) && date.month() === 11 && date.date() >= 17))
       ) {
         return [LiturgicalColors.PURPLE];
       }

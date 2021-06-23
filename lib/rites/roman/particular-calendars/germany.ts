@@ -205,10 +205,7 @@ export class Germany extends CalendarDef {
     rupert_of_salzburg_and_virgilius_of_salzburg_bishops: {
       precedence: Precedences.OptionalMemorial_12,
       date: '9-24',
-      martyrology: [
-        'rupert_of_salzburg_bishop',
-        'virgilius_of_salzburg_bishop',
-      ],
+      martyrology: ['rupert_of_salzburg_bishop', 'virgilius_of_salzburg_bishop'],
     },
 
     nicholas_of_flue_hermit: {
@@ -291,10 +288,7 @@ export class Germany extends CalendarDef {
     conrad_of_constance_and_gebhard_of_constance_bishops: {
       precedence: Precedences.OptionalMemorial_12,
       date: '11-26',
-      martyrology: [
-        'conrad_of_constance_bishop',
-        'gebhard_of_constance_bishop',
-      ],
+      martyrology: ['conrad_of_constance_bishop', 'gebhard_of_constance_bishop'],
     },
 
     lucius_of_chur_bishop: {

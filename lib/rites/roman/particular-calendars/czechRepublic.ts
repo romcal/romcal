@@ -2,10 +2,7 @@ import { ProperCycles } from '@roman-rite/constants/cycles';
 import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { Europe } from '@roman-rite/particular-calendars/europe';
-import {
-  DateDefinitions,
-  ParticularConfig,
-} from '@roman-rite/types/calendar-def';
+import { DateDefinitions, ParticularConfig } from '@roman-rite/types/calendar-def';
 import { Dates } from '@roman-rite/utils/dates';
 import { PatronTitles } from '@romcal/constants/martyrology-metadata';
 import { Dayjs } from 'dayjs';
@@ -137,8 +134,7 @@ export class CzechRepublic extends CalendarDef {
     },
 
     wenceslaus_i_of_bohemia_martyr: {
-      customLocaleKey:
-        'wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation',
+      customLocaleKey: 'wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       titles: (titles) => [...titles, PatronTitles.PatronOfTheCzechNation],
     },

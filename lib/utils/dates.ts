@@ -7,9 +7,7 @@ import { Dayjs } from 'dayjs';
  *
  * @param year The year on which to check when Easter falls (integer)
  */
-export const computeGregorianEasterDate = (
-  year: number,
-): Record<string, number> => {
+export const computeGregorianEasterDate = (year: number): Record<string, number> => {
   const Y = year;
   const C = Math.floor(Y / 100);
   const N = Y - 19 * Math.floor(Y / 19);
@@ -20,10 +18,7 @@ export const computeGregorianEasterDate = (
   I =
     I -
     Math.floor(I / 28) *
-      (1 -
-        Math.floor(I / 28) *
-          Math.floor(29 / (I + 1)) *
-          Math.floor((21 - N) / 11));
+      (1 - Math.floor(I / 28) * Math.floor(29 / (I + 1)) * Math.floor((21 - N) / 11));
 
   let J = Y + Math.floor(Y / 4) + I + 2 - C + Math.floor(C / 4);
   J = J - 7 * Math.floor(J / 7);

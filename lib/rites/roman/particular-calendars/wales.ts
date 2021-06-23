@@ -91,10 +91,7 @@ export class Wales extends CalendarDef {
     six_welsh_martyrs_and_companions: {
       precedence: Precedences.ProperFeast_8f,
       date: '10-25',
-      martyrology: [
-        'six_welsh_martyrs',
-        { key: 'companions_martyrs', hideTitles: true },
-      ],
+      martyrology: ['six_welsh_martyrs', { key: 'companions_martyrs', hideTitles: true }],
     },
 
     winefride_of_flintshire_virgin: {

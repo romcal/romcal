@@ -27,10 +27,7 @@ export class Japan extends CalendarDef {
     thomas_hioji_rokuzayemon_nishi_priest_and_companions_martyrs: {
       precedence: Precedences.ProperMemorial_11b,
       date: '9-28',
-      martyrology: [
-        'thomas_hioji_rokuzayemon_nishi_priest',
-        'companions_martyrs',
-      ],
+      martyrology: ['thomas_hioji_rokuzayemon_nishi_priest', 'companions_martyrs'],
     },
 
     francis_xavier_priest: {
