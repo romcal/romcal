@@ -1,7 +1,8 @@
-import { CalendarDef, DateDefinitions } from '../models/calendar-def';
-import { Precedences } from '../constants/precedences';
-import { Europe } from './europe';
-import { PatronTitles, Titles } from '../../../constants/martyrology-metadata';
+import { Precedences } from '@roman-rite/constants/precedences';
+import { CalendarDef } from '@roman-rite/models/calendar-def';
+import { Europe } from '@roman-rite/particular-calendars/europe';
+import { DateDefinitions } from '@roman-rite/types/calendar-def';
+import { PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
 
 export class Ireland extends CalendarDef {
   inheritFrom = Europe;

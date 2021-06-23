@@ -1,15 +1,15 @@
+import { LiturgicalColors } from '@roman-rite/constants/colors';
+import { ProperCycles } from '@roman-rite/constants/cycles';
+import { Precedences } from '@roman-rite/constants/precedences';
+import { CalendarDef } from '@roman-rite/models/calendar-def';
+import { Europe } from '@roman-rite/particular-calendars/europe';
 import {
-  CalendarDef,
   DateDefinitions,
   ParticularConfig,
-} from '../models/calendar-def';
-import { Dates } from '../utils/dates';
-import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
+} from '@roman-rite/types/calendar-def';
+import { Dates } from '@roman-rite/utils/dates';
+import { PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
 import { Dayjs } from 'dayjs';
-import { Europe } from './europe';
-import { PatronTitles, Titles } from '../../../constants/martyrology-metadata';
-import { ProperCycles } from '../constants/cycles';
 
 export class Slovakia extends CalendarDef {
   inheritFrom = Europe;

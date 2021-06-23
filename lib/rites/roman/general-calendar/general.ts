@@ -1,14 +1,14 @@
+import { LiturgicalColors } from '@roman-rite/constants/colors';
+import { ProperCycles } from '@roman-rite/constants/cycles';
+import { Precedences } from '@roman-rite/constants/precedences';
+import { Sanctorale } from '@roman-rite/general-calendar/sanctorale';
+import { CalendarDef } from '@roman-rite/models/calendar-def';
 import {
-  CalendarDef,
   DateDefinitions,
   ParticularConfig,
-} from '../models/calendar-def';
+} from '@roman-rite/types/calendar-def';
+import { Dates } from '@roman-rite/utils/dates';
 import { Dayjs } from 'dayjs';
-import { Dates } from '../utils/dates';
-import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
-import { Sanctorale } from './sanctorale';
-import { ProperCycles } from '../constants/cycles';
 
 export class GeneralRoman extends CalendarDef {
   inheritFrom = Sanctorale;

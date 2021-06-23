@@ -1,12 +1,12 @@
+import { Precedences } from '@roman-rite/constants/precedences';
+import { CalendarDef } from '@roman-rite/models/calendar-def';
+import { Americas } from '@roman-rite/particular-calendars/americas';
 import {
-  CalendarDef,
   DateDefinitions,
   ParticularConfig,
-} from '../models/calendar-def';
-import { Precedences } from '../constants/precedences';
-import { Americas } from './americas';
-import { Dates } from '../utils/dates';
-import { PatronTitles } from '../../../constants/martyrology-metadata';
+} from '@roman-rite/types/calendar-def';
+import { Dates } from '@roman-rite/utils/dates';
+import { PatronTitles } from '@romcal/constants/martyrology-metadata';
 
 export class UnitedStates extends CalendarDef {
   inheritFrom = Americas;

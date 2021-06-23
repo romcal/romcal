@@ -1,9 +1,10 @@
-import { Dates } from '../utils/dates';
-import { Precedences } from '../constants/precedences';
-import { LiturgicalColors } from '../constants/colors';
-import { CalendarDef, DateDefinitions } from '../models/calendar-def';
+import { LiturgicalColors } from '@roman-rite/constants/colors';
+import { ProperCycles } from '@roman-rite/constants/cycles';
+import { Precedences } from '@roman-rite/constants/precedences';
+import { CalendarDef } from '@roman-rite/models/calendar-def';
+import { DateDefinitions } from '@roman-rite/types/calendar-def';
+import { Dates } from '@roman-rite/utils/dates';
 import { Dayjs } from 'dayjs';
-import { ProperCycles } from '../constants/cycles';
 
 export class Sanctorale extends CalendarDef {
   definitions: DateDefinitions = {

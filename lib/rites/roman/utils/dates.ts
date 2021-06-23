@@ -1,11 +1,10 @@
-import { computeGregorianEasterDate, rangeOfDays } from '../../../utils/dates';
-import dayjs from 'dayjs';
-import { Dayjs } from 'dayjs';
-import utc from 'dayjs/plugin/utc';
+import { computeGregorianEasterDate, rangeOfDays } from '@romcal/utils/dates';
+import dayjs, { Dayjs } from 'dayjs';
 import dayOfYear from 'dayjs/plugin/dayOfYear';
-import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
-import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 import isBetween from 'dayjs/plugin/isBetween';
+import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
+import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
+import utc from 'dayjs/plugin/utc';
 
 dayjs.extend(utc);
 dayjs.extend(dayOfYear);

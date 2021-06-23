@@ -1,7 +1,8 @@
-import { CalendarDef, DateDefinitions } from '../models/calendar-def';
-import { Precedences } from '../constants/precedences';
-import { Americas } from './americas';
-import { PatronTitles } from '../../../constants/martyrology-metadata';
+import { Precedences } from '@roman-rite/constants/precedences';
+import { CalendarDef } from '@roman-rite/models/calendar-def';
+import { Americas } from '@roman-rite/particular-calendars/americas';
+import { DateDefinitions } from '@roman-rite/types/calendar-def';
+import { PatronTitles } from '@romcal/constants/martyrology-metadata';
 
 export class Canada extends CalendarDef {
   inheritFrom = Americas;

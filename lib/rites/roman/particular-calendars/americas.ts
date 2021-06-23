@@ -1,6 +1,7 @@
-import { CalendarDef, DateDefinitions } from '../models/calendar-def';
-import { Precedences } from '../constants/precedences';
-import { PatronTitles } from '../../../constants/martyrology-metadata';
+import { Precedences } from '@roman-rite/constants/precedences';
+import { CalendarDef } from '@roman-rite/models/calendar-def';
+import { DateDefinitions } from '@roman-rite/types/calendar-def';
+import { PatronTitles } from '@romcal/constants/martyrology-metadata';
 
 export class Americas extends CalendarDef {
   definitions: DateDefinitions = {

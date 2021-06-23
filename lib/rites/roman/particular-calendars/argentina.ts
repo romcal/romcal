@@ -1,10 +1,11 @@
-import { CalendarDef, DateDefinitions } from '../models/calendar-def';
-import { Dates } from '../utils/dates';
-import { Precedences } from '../constants/precedences';
+import { ProperCycles } from '@roman-rite/constants/cycles';
+import { Precedences } from '@roman-rite/constants/precedences';
+import { CalendarDef } from '@roman-rite/models/calendar-def';
+import { Americas } from '@roman-rite/particular-calendars/americas';
+import { DateDefinitions } from '@roman-rite/types/calendar-def';
+import { Dates } from '@roman-rite/utils/dates';
+import { PatronTitles } from '@romcal/constants/martyrology-metadata';
 import dayjs, { Dayjs } from 'dayjs';
-import { Americas } from './americas';
-import { PatronTitles } from '../../../constants/martyrology-metadata';
-import { ProperCycles } from '../constants/cycles';
 
 export class Argentina extends CalendarDef {
   inheritFrom = Americas;

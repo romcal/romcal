@@ -1,17 +1,14 @@
-import Temporale from './general-calendar/temporale';
-import { GeneralRoman } from './general-calendar/general';
-import {
-  BaseRomcalConfig,
-  RomcalConfig,
-  RomcalConfigInput,
-} from './models/config';
-import { CalendarScope } from '../../constants/calendar-scope';
+import { GeneralRoman } from '@roman-rite/general-calendar/general';
+import Temporale from '@roman-rite/general-calendar/temporale';
+import { CalendarDef } from '@roman-rite/models/calendar-def';
+import { RomcalConfig } from '@roman-rite/models/config';
 import {
   BaseCalendarDef,
-  CalendarDef,
   LiturgicalCalendar,
-} from './models/calendar-def';
-import { Dates } from './utils/dates';
+} from '@roman-rite/types/calendar-def';
+import { BaseRomcalConfig, RomcalConfigInput } from '@roman-rite/types/config';
+import { Dates } from '@roman-rite/utils/dates';
+import { CalendarScope } from '@romcal/constants/calendar-scope';
 
 export default class Romcal {
   readonly #config: RomcalConfig;
