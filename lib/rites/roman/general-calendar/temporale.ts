@@ -1,16 +1,4 @@
-import { Dates } from '../utils/dates';
-import dayjs, { Dayjs } from 'dayjs';
-import weekOfYear from 'dayjs/plugin/weekOfYear';
-import isoWeeksInYear from 'dayjs/plugin/isoWeeksInYear';
-import isLeapYear from 'dayjs/plugin/isLeapYear';
-import { Precedences } from '../constants/precedences';
-import { LiturgicalSeasons } from '../constants/seasons';
-import { LiturgicalPeriods } from '../constants/periods';
-import LiturgicalDay, {
-  RomcalCalendarMetadata,
-  RomcalCyclesMetadata,
-} from '../models/liturgical-day';
-import { LiturgicalColors } from '../constants/colors';
+import { LiturgicalColors } from '@roman-rite/constants/colors';
 import {
   ProperCycles,
   PSALTER_WEEKS,
@@ -19,12 +7,18 @@ import {
   SundaysCycles,
   WEEKDAYS_CYCLE,
   WeekdaysCycles,
-} from '../constants/cycles';
-import { RomcalConfig } from '../models/config';
-
-dayjs.extend(isoWeeksInYear);
-dayjs.extend(isLeapYear); // dependent on isLeapYear plugin
-dayjs.extend(weekOfYear);
+} from '@roman-rite/constants/cycles';
+import { LiturgicalPeriods } from '@roman-rite/constants/periods';
+import { Precedences } from '@roman-rite/constants/precedences';
+import { LiturgicalSeasons } from '@roman-rite/constants/seasons';
+import { RomcalConfig } from '@roman-rite/models/config';
+import LiturgicalDay from '@roman-rite/models/liturgical-day';
+import {
+  RomcalCalendarMetadata,
+  RomcalCyclesMetadata,
+} from '@roman-rite/types/liturgical-day';
+import { Dates } from '@roman-rite/utils/dates';
+import dayjs, { Dayjs } from 'dayjs';
 
 type DatesIndex = Record<string, string[]>;
 

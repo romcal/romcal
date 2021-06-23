@@ -1,9 +1,10 @@
-import { CalendarDef, DateDefinitions } from '../models/calendar-def';
-import { Dates } from '../utils/dates';
-import { Precedences } from '../constants/precedences';
+import { ProperCycles } from '@roman-rite/constants/cycles';
+import { Precedences } from '@roman-rite/constants/precedences';
+import { CalendarDef } from '@roman-rite/models/calendar-def';
+import { DateDefinitions } from '@roman-rite/types/calendar-def';
+import { Dates } from '@roman-rite/utils/dates';
+import { PatronTitles } from '@romcal/constants/martyrology-metadata';
 import dayjs, { Dayjs } from 'dayjs';
-import { PatronTitles } from '../../../constants/martyrology-metadata';
-import { ProperCycles } from '../constants/cycles';
 
 export class Philippines extends CalendarDef {
   definitions: DateDefinitions = {

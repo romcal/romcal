@@ -1,9 +1,10 @@
-import { CalendarDef, DateDefinitions } from '../models/calendar-def';
-import { Dates } from '../utils/dates';
-import { Precedences } from '../constants/precedences';
+import { ProperCycles } from '@roman-rite/constants/cycles';
+import { Precedences } from '@roman-rite/constants/precedences';
+import { CalendarDef } from '@roman-rite/models/calendar-def';
+import { Europe } from '@roman-rite/particular-calendars/europe';
+import { DateDefinitions } from '@roman-rite/types/calendar-def';
+import { Dates } from '@roman-rite/utils/dates';
 import { Dayjs } from 'dayjs';
-import { Europe } from './europe';
-import { ProperCycles } from '../constants/cycles';
 
 export class Netherlands extends CalendarDef {
   inheritFrom = Europe;

@@ -1,5 +1,6 @@
-import { CalendarDef, DateDefinitions } from '../models/calendar-def';
-import { Precedences } from '../constants/precedences';
+import { Precedences } from '@roman-rite/constants/precedences';
+import { CalendarDef } from '@roman-rite/models/calendar-def';
+import { DateDefinitions } from '@roman-rite/types/calendar-def';
 
 export class Japan extends CalendarDef {
   definitions: DateDefinitions = {

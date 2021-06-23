@@ -1,10 +1,10 @@
+import { Precedences } from '@roman-rite/constants/precedences';
+
 /**
  * Rank of liturgical days.
  * @readonly
  * @enum {string}
  */
-import { Precedences } from './precedences';
-
 export enum Ranks {
   /**
    * Solemnities are counted among the most important days, whose celebration
