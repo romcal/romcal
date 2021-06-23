@@ -22,12 +22,13 @@
     THE SOFTWARE.
 */
 
-import 'jest-extended';
 import { Ranks } from '@roman-rite/constants/ranks';
 import { Dates } from '@roman-rite/utils/dates';
+import { locale as Sk } from '@romcal/locales/sk';
 import { Romcal } from '@romcal/main';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
+import 'jest-extended';
 
 dayjs.extend(utc);
 
@@ -75,20 +76,15 @@ describe('Testing specific feasts and memorials', () => {
       const johnXxiiiPope = dates.find((d) => d.key === 'john_xxiii_pope');
       const johnPaulIiPope = dates.find((d) => d.key === 'john_paul_ii_pope');
 
-      expect(johnXxiiiPope?.rank).toEqual(Ranks.OPT_MEMORIAL);
-      expect(johnPaulIiPope?.rank).toEqual(Ranks.OPT_MEMORIAL);
+      expect(johnXxiiiPope?.isOptional).toBeTrue();
+      expect(johnPaulIiPope?.isOptional).toBeTrue();
     });
   });
 
   describe('The Feast of the Exultation of the Cross', () => {
     test('Is celebrated on the 14th of September', async () => {
-      const dates = await Romcal.calendarFor({
-        year: 2018,
-        locale: 'sk',
-      });
-      const exaltationOfTheHolyCross = dates.find((d) => {
-        return d.key === 'exaltation_of_the_holy_cross';
-      });
+      const dates = await new Romcal({ year: 2018, locale: Sk }).generate();
+      const exaltationOfTheHolyCross = dates['exaltation_of_the_holy_cross'][0];
       expect(dayjs.utc(exaltationOfTheHolyCross?.date).date()).toEqual(14);
       expect(dayjs.utc(exaltationOfTheHolyCross?.date).month()).toEqual(8);
     });
@@ -96,18 +92,9 @@ describe('Testing specific feasts and memorials', () => {
 
   describe('The Sunday of the Word of God', () => {
     test('Should be celebrated on the 3rd Sunday of Ordinary Time', async () => {
-      const dates = await Romcal.calendarFor(2020);
-      const sundayOfTheWordOfGod = dates.find((d) => {
-        return d.key === 'sunday_of_the_word_of_god';
-      });
-      const sundays = await Seasons.earlyOrdinaryTime(2020, false);
-      const thirdSundayOfOrdinaryTime = sundays.find(
-        (sunday) => sunday.key === 'ordinary_time_3_sunday',
-      );
-      expect(
-        thirdSundayOfOrdinaryTime &&
-          thirdSundayOfOrdinaryTime.date?.isSame(sundayOfTheWordOfGod.date),
-      ).toBeTruthy();
+      const dates = await new Romcal({ year: 2020 }).generate();
+      const sundayOfTheWordOfGod = dates['sunday_of_the_word_of_god'][0];
+      expect(sundayOfTheWordOfGod.calendar.weekOfSeason).toEqual(3);
     });
   });
 });
