@@ -26,7 +26,7 @@ export type LocaleRomanRite = {
       weekday?: string;
       sunday?: string;
     };
-    christmastide?: {
+    christmas_time?: {
       season?: string;
       day?: string;
       octave?: string;
@@ -49,7 +49,7 @@ export type LocaleRomanRite = {
     paschal_triduum?: {
       season?: string;
     };
-    eastertide?: {
+    easter_time?: {
       season?: string;
       weekday?: string;
       sunday?: string;

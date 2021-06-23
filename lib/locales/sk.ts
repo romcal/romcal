@@ -11,7 +11,7 @@ export const locale: Locale = {
         sunday: '{{week}}. adventná nedeľa',
       },
 
-      christmastide: {
+      christmas_time: {
         season: 'Vianočné obdobie',
         day: '{{day, capitalize}} vo Vianočnom období',
         octave: '{{count}}. deň v oktáve narodenia Pána',
@@ -38,7 +38,7 @@ export const locale: Locale = {
         season: 'Veľkonočné Triduum',
       },
 
-      eastertide: {
+      easter_time: {
         season: 'Veľkonočné obdobie',
         weekday: '{{day, capitalize}} po {{week}}. veľkonočnej nedeli',
         sunday: '{{week}}. veľkonočná nedeľa',
