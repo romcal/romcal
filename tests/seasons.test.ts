@@ -24,13 +24,6 @@
 
 import 'jest-extended';
 
-import { Dates } from '@romcal/lib/dates';
-import { Seasons } from '@romcal/lib/seasons';
-import { setLocale } from '@romcal/lib/locales';
-import { LiturgicalColors } from '@romcal/constants/liturgical-colors/liturgical-colors.enum';
-import Romcal, { LiturgicalDay } from '@romcal/index';
-import dayjs = require('dayjs');
-
 describe('Testing date range functions', () => {
   // The locale needs to be set before any tests below can run properly
   beforeAll(async () => {
@@ -88,7 +81,9 @@ describe('Testing date range functions', () => {
 
     test('The first Sunday of Lent should be 4 days after Ash Wednesday', () => {
       for (let i = 1900, il = 2200; i <= il; i++) {
-        expect(Dates.sundaysOfLent(i)[0].subtract(4, 'day').isSame(Dates.ashWednesday(i))).toEqual(true);
+        expect(Dates.sundaysOfLent(i)[0].subtract(4, 'day').isSame(Dates.ashWednesday(i))).toEqual(
+          true,
+        );
       }
     });
 
@@ -158,8 +153,12 @@ describe('Testing date range functions', () => {
         const dates = Dates.datesOfEarlyOrdinaryTime(i);
         const [firstDayInEarlyOrdinaryTime] = dates;
         const [lastDayInEarlyOrdinaryTime] = dates.reverse();
-        expect(firstDayInEarlyOrdinaryTime.subtract(1, 'day').isSame(Dates.baptismOfTheLord(i))).toEqual(true);
-        expect(lastDayInEarlyOrdinaryTime.add(1, 'day').isSame(Dates.ashWednesday(i))).toEqual(true);
+        expect(
+          firstDayInEarlyOrdinaryTime.subtract(1, 'day').isSame(Dates.baptismOfTheLord(i)),
+        ).toEqual(true);
+        expect(lastDayInEarlyOrdinaryTime.add(1, 'day').isSame(Dates.ashWednesday(i))).toEqual(
+          true,
+        );
       }
     });
 
@@ -179,8 +178,12 @@ describe('Testing date range functions', () => {
         const [firstDayInLateOrdinaryTime] = dates;
         const [lastDayInLateOrdinaryTime] = dates.reverse();
         expect(sundays.length).toBeOneOf([23, 24, 25, 26, 27, 28, 29]);
-        expect(firstDayInLateOrdinaryTime.subtract(1, 'day').isSame(Dates.pentecostSunday(i))).toEqual(true);
-        expect(lastDayInLateOrdinaryTime.add(1, 'day').isSame(Dates.sundaysOfAdvent(i)[0])).toEqual(true);
+        expect(
+          firstDayInLateOrdinaryTime.subtract(1, 'day').isSame(Dates.pentecostSunday(i)),
+        ).toEqual(true);
+        expect(lastDayInLateOrdinaryTime.add(1, 'day').isSame(Dates.sundaysOfAdvent(i)[0])).toEqual(
+          true,
+        );
       }
     });
   });
@@ -222,7 +225,9 @@ describe('Testing seasons utility functions', () => {
 
   describe('Holy days of obligation', () => {
     test('All Sundays are holy days of obligation', async () => {
-      const sundays: LiturgicalDay[] = (await Romcal.calendarFor()).filter((item) => dayjs(item.date).day() === 0);
+      const sundays: LiturgicalDay[] = (await Romcal.calendarFor()).filter(
+        (item) => dayjs(item.date).day() === 0,
+      );
       expect(sundays.every((item) => item.isHolyDayOfObligation)).toBeTrue();
     });
   });
@@ -252,9 +257,13 @@ describe('Testing seasons utility functions', () => {
       lentDates.forEach((date) => {
         if (date.key === 'lent_4_sunday') {
           expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColors.ROSE);
-          expect(date.liturgicalColors && date.liturgicalColors[1]).toEqual(LiturgicalColors.PURPLE);
+          expect(date.liturgicalColors && date.liturgicalColors[1]).toEqual(
+            LiturgicalColors.PURPLE,
+          );
         } else {
-          expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColors.PURPLE);
+          expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(
+            LiturgicalColors.PURPLE,
+          );
         }
       });
 
@@ -262,16 +271,22 @@ describe('Testing seasons utility functions', () => {
       adventDates.forEach((date) => {
         if (date.key === 'advent_3_sunday') {
           expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColors.ROSE);
-          expect(date.liturgicalColors && date.liturgicalColors[1]).toEqual(LiturgicalColors.PURPLE);
+          expect(date.liturgicalColors && date.liturgicalColors[1]).toEqual(
+            LiturgicalColors.PURPLE,
+          );
         } else {
-          expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColors.PURPLE);
+          expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(
+            LiturgicalColors.PURPLE,
+          );
         }
       });
     });
 
     test('The liturgical color for Christmastide and Eastertide is white', async () => {
       (await Seasons.christmastide(2015, false)).forEach((date) => {
-        expect(date.liturgicalColors && date.liturgicalColors[0]).toStrictEqual(LiturgicalColors.WHITE);
+        expect(date.liturgicalColors && date.liturgicalColors[0]).toStrictEqual(
+          LiturgicalColors.WHITE,
+        );
       });
       (await Seasons.eastertide(2015)).forEach((date) => {
         expect(date.liturgicalColors && date.liturgicalColors[0]).toEqual(LiturgicalColors.WHITE);
