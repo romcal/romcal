@@ -86,10 +86,7 @@ export class Canada extends CalendarDef {
       martyrology: [
         {
           key: 'anne_mother_of_mary',
-          titles: (titles) => [
-            ...titles,
-            PatronTitles.PatronessOfTheProvinceOfQuebec,
-          ],
+          titles: (titles) => [...titles, PatronTitles.PatronessOfTheProvinceOfQuebec],
         },
         'joachim_father_of_mary',
       ],
@@ -115,17 +112,12 @@ export class Canada extends CalendarDef {
       date: '9-24',
     },
 
-    john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs_copatrons_of_canada:
-      {
-        precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-        date: '9-26',
-        titles: (titles) => [...titles, PatronTitles.CopatronsOfCanada],
-        martyrology: [
-          'john_de_brebeuf_priest',
-          'isaac_jogues_priest',
-          'companions_martyrs',
-        ],
-      },
+    john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs_copatrons_of_canada: {
+      precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
+      date: '9-26',
+      titles: (titles) => [...titles, PatronTitles.CopatronsOfCanada],
+      martyrology: ['john_de_brebeuf_priest', 'isaac_jogues_priest', 'companions_martyrs'],
+    },
 
     nereus_of_terracina_and_achilleus_of_terracina_martyrs: {
       precedence: Precedences.ProperFeast_8f,

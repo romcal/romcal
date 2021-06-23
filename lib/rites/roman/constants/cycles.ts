@@ -51,15 +51,12 @@ export const SUNDAYS_CYCLE = Object.keys(SundaysCycles).filter(
  * A dynamically generated constant consisting of all the enum keys in [[WEEKDAY_CYCLES]]
  */
 export const WEEKDAYS_CYCLE = Object.keys(WeekdaysCycles).filter(
-  (key) =>
-    typeof WeekdaysCycles[key as keyof typeof WeekdaysCycles] === 'string',
+  (key) => typeof WeekdaysCycles[key as keyof typeof WeekdaysCycles] === 'string',
 ) as Array<keyof typeof WeekdaysCycles>;
 
 /**
  * A dynamically generated constant consisting of all the enum keys in [[PSALTER_WEEKS]]
  */
 export const PSALTER_WEEKS = Object.keys(PsalterWeeksCycles).filter(
-  (key) =>
-    typeof PsalterWeeksCycles[key as keyof typeof PsalterWeeksCycles] ===
-    'string',
+  (key) => typeof PsalterWeeksCycles[key as keyof typeof PsalterWeeksCycles] === 'string',
 ) as Array<keyof typeof PsalterWeeksCycles>;

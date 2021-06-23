@@ -146,11 +146,7 @@ export class Ireland extends CalendarDef {
       customLocaleKey: 'columba_of_iona_abbot_copatron_of_ireland',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       date: '6-9',
-      titles: (titles) => [
-        ...titles,
-        Titles.Missionary,
-        PatronTitles.CopatronOfIreland,
-      ],
+      titles: (titles) => [...titles, Titles.Missionary, PatronTitles.CopatronOfIreland],
     },
 
     davnet_of_sliabh_beagh_virgin: {

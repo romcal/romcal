@@ -7,8 +7,7 @@ export const locale: Locale = {
     seasons: {
       advent: {
         season: 'Tempo du Avvento',
-        weekday:
-          '{{day, capitalize}} della {{week, romanize}} settimana di Avvento',
+        weekday: '{{day, capitalize}} della {{week, romanize}} settimana di Avvento',
         sunday: '{{week, romanize}} domenica di Avvento',
       },
 
@@ -23,15 +22,13 @@ export const locale: Locale = {
 
       ordinary_time: {
         season: 'Tempo Ordinario',
-        weekday:
-          '{{day, capitalize}} della {{week, romanize}} settimana del Tempo Ordinario',
+        weekday: '{{day, capitalize}} della {{week, romanize}} settimana del Tempo Ordinario',
         sunday: '{{week, romanize}} domenica del Tempo Ordinario',
       },
 
       lent: {
         season: 'Tempo di Quaresima',
-        weekday:
-          '{{day, capitalize}} della {{week, romanize}} settimana di Quaresima',
+        weekday: '{{day, capitalize}} della {{week, romanize}} settimana di Quaresima',
         sunday: '{{week, romanize}} domenica di Quaresima',
         day_after_ash_wed: '{{day, capitalize}} dopo le Ceneri',
         holy_week_day: '{{day, capitalize}} della Settimana Santa',
@@ -43,8 +40,7 @@ export const locale: Locale = {
 
       easter_time: {
         season: 'Tempo di Pasqua',
-        weekday:
-          '{{day, capitalize}} della {{week, romanize}} settimana di Pasqua',
+        weekday: '{{day, capitalize}} della {{week, romanize}} settimana di Pasqua',
         sunday: '{{week, romanize}} domenica di Pasqua',
         octave: '{{day, capitalize}} fra l’Ottava di Pasqua',
       },
@@ -81,8 +77,7 @@ export const locale: Locale = {
       holy_family: 'Santa Famiglia di Gesú, Maria e Giuseppe',
       holy_saturday: 'Sabato Santo / Vigilia di Pasqua',
       holy_thursday: 'Giovedí Santo',
-      immaculate_conception_of_mary:
-        'Immacolata Concezione della Beata Vergine Maria',
+      immaculate_conception_of_mary: 'Immacolata Concezione della Beata Vergine Maria',
       immaculate_heart_of_mary: 'Cuore Immacolato della Beata Vergine Maria',
       joseph_spouse_of_mary: 'San Giuseppe, sposo della Beata Vergine Maria',
       mary_mother_of_god: 'Maria santissima Madre di Dio',
@@ -184,16 +179,13 @@ export const locale: Locale = {
       'Sant’Adalberto, vescovo, martire e patrono della Polonia',
     agatha_of_sicily_virgin: 'Sant’Agata, vergine e martire',
     agnes_of_rome_virgin: 'Sant’Agnese, vergine e martire',
-    albert_the_great_bishop:
-      'Sant’Alberto Magno, vescovo e dottore della Chiesa',
+    albert_the_great_bishop: 'Sant’Alberto Magno, vescovo e dottore della Chiesa',
     all_souls: 'Commemorazione di tutti i fedeli defunti',
     aloysius_gonzaga_religious: 'San Luigi Gonzaga, religioso',
-    alphonsus_liguori_bishop:
-      'Sant’Alfonso Maria de Liguori, vescovo e dottore della Chiesa',
+    alphonsus_liguori_bishop: 'Sant’Alfonso Maria de Liguori, vescovo e dottore della Chiesa',
     ambrose_of_milan_bishop: 'Sant’Ambrogio, vescovo e dottore della Chiesa',
     andrew_apostle: 'Sant’Andrea, apostolo',
-    andrew_apostle_patron_of_scotland:
-      'Sant’Andrea, apostolo e patrono della Scozia',
+    andrew_apostle_patron_of_scotland: 'Sant’Andrea, apostolo e patrono della Scozia',
     andrew_dung_lac_priest_and_companions_martyrs:
       'Santi Andrea Dung-Lac, sacerdote e compagni, martiri',
     andrew_kim_tae_gon_priest_paul_chong_ha_sang_and_companions_martyrs:
@@ -203,12 +195,10 @@ export const locale: Locale = {
     ansgar_of_hamburg_bishop: 'Sant’Ansgario, vescovo',
     anthony_mary_claret_bishop: 'Sant’Antonio Marla Claret, vescovo',
     anthony_of_egypt_abbot: 'Sant’Antonio, abate',
-    anthony_of_padua_priest:
-      'Sant’Antonio di Padova, sacerdote e dottore della Chiesa',
+    anthony_of_padua_priest: 'Sant’Antonio di Padova, sacerdote e dottore della Chiesa',
     anthony_zaccaria_priest: 'Sant’Antonio Maria Zaccaria, sacerdote',
     apollinaris_of_ravenna_bishop: 'Sant’Apollinare, vescovo e martire',
-    athanasius_of_alexandria_bishop:
-      'Sant’Atanasio, vescovo e dottore della Chiesa',
+    athanasius_of_alexandria_bishop: 'Sant’Atanasio, vescovo e dottore della Chiesa',
     augustine_of_canterbury_bishop: 'Sant’Agostino di Canterbury, vescovo',
     augustine_of_hippo_bishop: 'Sant’Agostino, vescovo e dottore della Chiesa',
     augustine_zhao_rong_priest_and_companions_martyrs:
@@ -217,16 +207,13 @@ export const locale: Locale = {
     bartholomew_apostle: 'San Bartolomeo, apostolo',
     basil_the_great_and_gregory_nazianzen_bishops:
       'Santi Basilio Magno e Gregorio Nazianzeno, vescovi e dottori della Chiesa',
-    bede_the_venerable_priest:
-      'San Beda Venerabile, sacerdote e dottore della Chiesa',
+    bede_the_venerable_priest: 'San Beda Venerabile, sacerdote e dottore della Chiesa',
     benedict_of_nursia_abbot: 'San Benedetto, abate',
-    benedict_of_nursia_abbot_patron_of_europe:
-      'San Benedetto, abate e patrono d’Europa',
+    benedict_of_nursia_abbot_patron_of_europe: 'San Benedetto, abate e patrono d’Europa',
     bernard_of_clairvaux_abbot: 'San Bernardo, abate e dottore della Chiesa',
     bernardine_of_siena_priest: 'San Bernardino da Siena, sacerdote',
     blaise_of_sebaste_bishop: 'San Biagio, vescovo e martire',
-    bonaventure_of_bagnoregio_bishop:
-      'San Bonaventura, vescovo e dottore della Chiesa',
+    bonaventure_of_bagnoregio_bishop: 'San Bonaventura, vescovo e dottore della Chiesa',
     boniface_of_mainz_bishop: 'San Bonifacio, vescovo e martire',
     bridget_of_sweden_religious: 'Santa Brigida, religiosa',
     bridget_of_sweden_religious_copatroness_of_europe:
@@ -236,10 +223,8 @@ export const locale: Locale = {
     callistus_i_pope: 'San Callisto I, papa e martire',
     camillus_de_lellis_priest: 'San Camillo de Lellis, sacerdote',
     casimir_of_poland: 'San Casimiro',
-    catherine_of_alexandria_virgin:
-      'Santa Caterina di Alessandria, vergine e martire',
-    catherine_of_siena_virgin:
-      'Santa Caterina da Siena, vergine e dottore della Chiesa',
+    catherine_of_alexandria_virgin: 'Santa Caterina di Alessandria, vergine e martire',
+    catherine_of_siena_virgin: 'Santa Caterina da Siena, vergine e dottore della Chiesa',
     catherine_of_siena_virgin_copatroness_of_europe:
       'Santa Caterina da Siena, vergine, dottore della Chiesa e patrona secondaria d’Europa',
     catherine_of_siena_virgin_copatroness_of_italy_and_europe:
@@ -247,8 +232,7 @@ export const locale: Locale = {
     cecilia_of_rome_virgin: 'Santa Cecilia, vergine e martire',
     chair_of_saint_peter_the_apostle: 'Cattedra di San Pietro apostolo',
     charles_borromeo_bishop: 'San Carlo Borromeo, vescovo',
-    charles_lwanga_and_companions_martyrs:
-      'San Carlo Lwanga e compagni, martiri',
+    charles_lwanga_and_companions_martyrs: 'San Carlo Lwanga e compagni, martiri',
     christopher_magallanes_priest_and_companions_martyrs:
       'Santi Cristoforo Magallanes, sacerdote, e compagni, martiri',
     clare_of_assisi_virgin: 'Santa Chiara, vergine',
@@ -259,12 +243,9 @@ export const locale: Locale = {
     conversion_of_saint_paul_the_apostle: 'Conversione di San Paolo apostolo',
     cornelius_i_pope_and_cyprian_of_carthage_bishop_martyrs:
       'Santi Cornelio, papa e Cipriano, vescovo, martiri',
-    cosmas_of_cilicia_and_damian_of_cilicia_martyrs:
-      'Santi Cosma e Damiano, martiri',
-    cyril_of_alexandria_bishop:
-      'San Cirillo di Alessandria, vescovo e dottore della Chiesa',
-    cyril_of_jerusalem_bishop:
-      'San Cirillo di Gerusalemme, vescovo e dottore della Chiesa',
+    cosmas_of_cilicia_and_damian_of_cilicia_martyrs: 'Santi Cosma e Damiano, martiri',
+    cyril_of_alexandria_bishop: 'San Cirillo di Alessandria, vescovo e dottore della Chiesa',
+    cyril_of_jerusalem_bishop: 'San Cirillo di Gerusalemme, vescovo e dottore della Chiesa',
     cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop:
       'Santi Cirillo, monaco e Metodio, vescovo',
     cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe:
@@ -274,35 +255,27 @@ export const locale: Locale = {
       'Dedicazione della Basilica di Santa Maria Maggiore',
     dedication_of_the_basilicas_of_saints_peter_and_paul_apostles:
       'Dedicazione delle Basiliche dei Santi Pietro e Paolo apostoli',
-    dedication_of_the_lateran_basilica:
-      'Dedicazione della basilica Lateranense',
-    denis_of_paris_bishop_and_companions_martyrs:
-      'San Dionigi, vescovo e compagni, martiri',
+    dedication_of_the_lateran_basilica: 'Dedicazione della basilica Lateranense',
+    denis_of_paris_bishop_and_companions_martyrs: 'San Dionigi, vescovo e compagni, martiri',
     dominic_de_guzman_priest: 'San Domenico, sacerdote',
     elizabeth_of_hungary_religious: 'Sant’Elisabetta di Ungheria, religiosa',
     elizabeth_of_portugal: 'Santa Elisabetta di Portogallo',
     ephrem_the_syrian_deacon: 'Sant’Efrem, diacono e dottore della Chiesa',
     eusebius_of_vercelli_bishop: 'Sant’Eusebio di Vercelli, vescovo',
     fabian_i_pope: 'San Fabiano, papa e martire',
-    fidelis_of_sigmaringen_priest:
-      'San Fedele da Sigmaringen, sacerdote e martire ',
-    first_martyrs_of_the_holy_roman_church:
-      'Santi Primi Martiri della Chiesa Romana',
+    fidelis_of_sigmaringen_priest: 'San Fedele da Sigmaringen, sacerdote e martire ',
+    first_martyrs_of_the_holy_roman_church: 'Santi Primi Martiri della Chiesa Romana',
     frances_of_rome_religious: 'Santa Francesca Romana, religiosa',
-    francis_de_sales_bishop:
-      'San Francesco di Sales, vescovo e dottore della Chiesa',
+    francis_de_sales_bishop: 'San Francesco di Sales, vescovo e dottore della Chiesa',
     francis_of_assisi: 'San Francesco d’Assisi',
-    francis_of_assisi_patron_of_italy:
-      'San Francesco d’Assisi, patrono d’Italia',
+    francis_of_assisi_patron_of_italy: 'San Francesco d’Assisi, patrono d’Italia',
     francis_of_paola_hermit: 'San Francesco da Paola, eremita',
     francis_xavier_priest: 'San Francesco Saverio, sacerdote',
     george_of_lydda_martyr: 'San Giorgio, martire',
-    george_of_lydda_martyr_patron_of_england:
-      'San Giorgio, martire e patrono d’Inghilterra',
+    george_of_lydda_martyr_patron_of_england: 'San Giorgio, martire e patrono d’Inghilterra',
     gertrude_the_great_virgin: 'Santa Geltrude, vergine',
     gregory_i_the_great_pope: 'San Gregorio Magno, papa e dottore della Chiesa',
-    gregory_of_narek_abbot:
-      'San Gregorio di Narek, abate e dottore della Chiesa',
+    gregory_of_narek_abbot: 'San Gregorio di Narek, abate e dottore della Chiesa',
     gregory_vii_pope: 'San Gregorio VII, papa',
     guardian_angels: 'Santi Angeli Custodi',
     hedwig_of_silesia_religious: 'Santa Edvige, religiosa',
@@ -315,21 +288,16 @@ export const locale: Locale = {
     irenaeus_of_lyon_bishop: 'Sant’Ireneo, vescovo e martire',
     isidore_of_seville_bishop: 'Sant’Isidoro, vescovo e dottore della Chiesa',
     james_apostle: 'San Giacomo, apostolo',
-    jane_frances_de_chantal_religious:
-      'Santa Giovanna Francesca de Chantal, religiosa',
+    jane_frances_de_chantal_religious: 'Santa Giovanna Francesca de Chantal, religiosa',
     januarius_i_of_benevento_bishop: 'San Gennaro, vescovo e martire',
     jerome_emiliani: 'San Girolamo Emiliani',
     jerome_of_stridon_priest: 'San Girolamo, sacerdote e dottore della Chiesa',
-    joachim_and_anne_parents_of_mary:
-      'Santi Gioacchino e Anna, genitori della Beata Vergine Maria',
+    joachim_and_anne_parents_of_mary: 'Santi Gioacchino e Anna, genitori della Beata Vergine Maria',
     john_apostle: 'San Giovanni, apostolo ed evangelista',
-    john_baptist_de_la_salle_priest:
-      'San Giovanni Battista de La Salle, sacerdote',
+    john_baptist_de_la_salle_priest: 'San Giovanni Battista de La Salle, sacerdote',
     john_bosco_priest: 'San Giovanni Bosco, sacerdote',
-    john_chrysostom_bishop:
-      'San Giovanni Crisostomo, vescovo e dottore della Chiesa',
-    john_damascene_priest:
-      'San Giovanni Damasceno, sacerdote e dottore della Chiesa',
+    john_chrysostom_bishop: 'San Giovanni Crisostomo, vescovo e dottore della Chiesa',
+    john_damascene_priest: 'San Giovanni Damasceno, sacerdote e dottore della Chiesa',
     john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs:
       'Santi Giovanni de Brébeuf e Isacco Jogues, sacerdoti e compagni, martiri',
     john_eudes_priest: 'San Giovanni Eudes, sacerdote',
@@ -341,8 +309,7 @@ export const locale: Locale = {
     john_of_capistrano_priest: 'San Giovanni da Capestrano, sacerdote',
     john_of_god_duarte_cidade_religious: 'San Giovanni di Dio, religioso',
     john_of_kanty_priest: 'San Giovanni da Keti, sacerdote',
-    john_of_the_cross_priest:
-      'San Giovanni della Croce, sacerdote e dottore della Chiesa',
+    john_of_the_cross_priest: 'San Giovanni della Croce, sacerdote e dottore della Chiesa',
     john_paul_ii_pope: 'San Giovanni Paolo II, papa',
     john_xxiii_pope: 'San Giovanni XXIII, papa',
     josaphat_kuntsevych_bishop: 'San Giosafat, vescovo e martire',
@@ -351,25 +318,20 @@ export const locale: Locale = {
     josephine_bakhita_virgin: 'Santa Giuseppina Bakhita, vergine',
     juan_diego_cuauhtlatoatzin: 'San Giovanni Diego Cuauhtlatoatzin',
     justin_martyr: 'San Giustino, martire',
-    lawrence_of_brindisi_priest:
-      'San Lorenzo da Brindisi, sacerdote e dottore della Chiesa',
+    lawrence_of_brindisi_priest: 'San Lorenzo da Brindisi, sacerdote e dottore della Chiesa',
     lawrence_of_rome_deacon: 'San Lorenzo, diacono e martire',
-    lawrence_ruiz_and_companions_martyrs:
-      'Santi Lorenzo Ruiz e compagni, martiri',
+    lawrence_ruiz_and_companions_martyrs: 'Santi Lorenzo Ruiz e compagni, martiri',
     leo_i_the_great_pope: 'San Leone Magno, papa e dottore della Chiesa',
-    louis_grignion_de_montfort_priest:
-      'San Luigi Maria Grignion de Montfort, sacerdote',
+    louis_grignion_de_montfort_priest: 'San Luigi Maria Grignion de Montfort, sacerdote',
     louis_ix_of_france: 'San Ludovico',
     lucy_of_syracuse_virgin: 'Santa Lucia, vergine e martire',
     luke_evangelist: 'San Luca, evangelista',
-    marcellinus_of_rome_and_peter_the_exorcist_martyrs:
-      'Santi Marcellino e Pietro, martiri',
+    marcellinus_of_rome_and_peter_the_exorcist_martyrs: 'Santi Marcellino e Pietro, martiri',
     margaret_mary_alacoque_virgin: 'Santa Margherita Maria Alacoque, vergine',
     margaret_of_scotland: 'Santa Margherita di Scozia',
     maria_goretti_virgin: 'Santa Maria Goretti, vergine e martire',
     mark_evangelist: 'San Marco, evangelista',
-    martha_of_bethany_mary_of_bethany_and_lazarus_of_bethany:
-      'Santa Marta, Maria e Lazzaro',
+    martha_of_bethany_mary_of_bethany_and_lazarus_of_bethany: 'Santa Marta, Maria e Lazzaro',
     martin_de_porres_religious: 'San Martino di Porres, religioso',
     martin_i_pope: 'San Martino I, papa e martire',
     martin_of_tours_bishop: 'San Martino di Tours, vescovo',
@@ -378,16 +340,13 @@ export const locale: Locale = {
     mary_mother_of_the_church: 'Beata Vergine Maria Madre della Chiesa',
     matthew_apostle: 'San Matteo, apostolo ed evangelista',
     matthias_apostle: 'San Mattia, apostolo',
-    maximilian_kolbe_priest:
-      'San Massimiliano Maria Kolbe, sacerdote e martire',
-    michael_gabriel_and_raphael_archangels:
-      'Santi Arcangeli Michele, Gabriele e Raffaele',
+    maximilian_kolbe_priest: 'San Massimiliano Maria Kolbe, sacerdote e martire',
+    michael_gabriel_and_raphael_archangels: 'Santi Arcangeli Michele, Gabriele e Raffaele',
     monica_of_hippo: 'Santa Monica',
     most_holy_name_of_jesus: 'Santissimo Nome di Gesú',
     most_holy_name_of_mary: 'Santissimo Nome di Maria',
     nativity_of_mary: 'Nativitá della Beata Vergine Maria',
-    nereus_of_terracina_and_achilleus_of_terracina_martyrs:
-      'Santi Nereo e Achilleo, martiri',
+    nereus_of_terracina_and_achilleus_of_terracina_martyrs: 'Santi Nereo e Achilleo, martiri',
     nicholas_of_myra_bishop: 'San Nicola, vescovo',
     norbert_of_xanten_bishop: 'San Norberto, vescovo',
     our_lady_of_fatima: 'Beata Vergine Maria di Fatima',
@@ -403,19 +362,14 @@ export const locale: Locale = {
     pancras_of_rome_martyr: 'San Pancrazio, martire',
     passion_of_saint_john_the_baptist: 'Martirio di San Giovanni Battista',
     patrick_of_ireland_bishop: 'San Patrizio, vescovo',
-    patrick_of_ireland_bishop_patron_of_ireland:
-      'San Patrizio, vescovo e patrono dell’Irlanda',
-    paul_miki_and_companions_martyrs:
-      'San Paolo Miki sacerdote e compagni, martiri',
+    patrick_of_ireland_bishop_patron_of_ireland: 'San Patrizio, vescovo e patrono dell’Irlanda',
+    paul_miki_and_companions_martyrs: 'San Paolo Miki sacerdote e compagni, martiri',
     paul_of_the_cross_priest: 'San Paolo della Croce, sacerdote',
     paulinus_of_nola_bishop: 'San Paolino di Nola, vescovo',
-    perpetua_of_carthage_and_felicity_of_carthage_martyrs:
-      'Sante Perpetua e Felicita, martiri',
-    peter_canisius_priest:
-      'San Pietro Canisio, sacerdote e dottore della Chiesa',
+    perpetua_of_carthage_and_felicity_of_carthage_martyrs: 'Sante Perpetua e Felicita, martiri',
+    peter_canisius_priest: 'San Pietro Canisio, sacerdote e dottore della Chiesa',
     peter_chanel_priest: 'San Pietro Chanel, sacerdote e martire',
-    peter_chrysologus_bishop:
-      'San Pietro Crisologo, vescovo e dottore della Chiesa',
+    peter_chrysologus_bishop: 'San Pietro Crisologo, vescovo e dottore della Chiesa',
     peter_claver_priest: 'San Pietro Claver, sacerdote',
     peter_damian_bishop: 'San Pier Damiani, vescovo e dottore della Chiesa',
     peter_julian_eymard_priest: 'San Pietro Giuliano Eymard, sacerdote',
@@ -431,8 +385,7 @@ export const locale: Locale = {
     queenship_of_mary: 'Beata Vergine Maria regina',
     raymond_of_penyafort_priest: 'San Raimondo di Peñafort, sacerdote',
     rita_of_cascia_religious: 'Santa Rita da Cascia, religiosa',
-    robert_bellarmine_bishop:
-      'San Roberto Bellarmino, vescovo e dottore della Chiesa',
+    robert_bellarmine_bishop: 'San Roberto Bellarmino, vescovo e dottore della Chiesa',
     romuald_of_ravenna_abbot: 'San Romualdo, abate',
     rose_of_lima_virgin: 'Santa Rosa da Lima, vergine',
     scholastica_of_nursia_virgin: 'Santa Scolastica, vergine',
@@ -441,30 +394,25 @@ export const locale: Locale = {
       'Santi Sette Fondatori dei Servi della Beata Vergine Maria',
     sharbel_makhluf_priest: 'San Charbel Makhluf, sacerdote',
     simon_and_jude_apostles: 'Santi Simone e Giuda, apostoli',
-    sixtus_ii_pope_and_companions_martyrs:
-      'San Sisto II, papa e compagni, martiri',
+    sixtus_ii_pope_and_companions_martyrs: 'San Sisto II, papa e compagni, martiri',
     stanislaus_of_szczepanow_bishop: 'Santo Stanislao, vescovo e martire',
     stanislaus_of_szczepanow_bishop_patron_of_poland:
       'Santo Stanislao, vescovo, martire e patrono della Polonia',
     stephen_i_of_hungary: 'Santo Stefano di Ungheria',
     stephen_the_first_martyr: 'Santo Stefano, primo martire',
-    sunday_of_the_word_of_god:
-      'Domenica della Parola di Dio / III domenica del Tempo Ordinario',
+    sunday_of_the_word_of_god: 'Domenica della Parola di Dio / III domenica del Tempo Ordinario',
     sylvester_i_pope: 'San Silvestro I, papa',
     teresa_benedicta_of_the_cross_stein_virgin:
       'Santa Teresa Benedetta della Croce, vergine e martire',
     teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe:
       'Santa Teresa Benedetta della Croce, vergine, martire e patrona secondaria d’Europa',
-    teresa_of_jesus_of_avila_virgin:
-      'Santa Teresa di Gesù d’Avila, vergine e dottore della Chiesa',
+    teresa_of_jesus_of_avila_virgin: 'Santa Teresa di Gesù d’Avila, vergine e dottore della Chiesa',
     therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin:
       'Santa Teresa di Gesu’ Bambino, vergine e dottore della Chiesa',
     thomas_apostle: 'San Tommaso, apostolo',
-    thomas_aquinas_priest:
-      'San Tommaso d’Aquino, sacerdote e dottore della Chiesa',
+    thomas_aquinas_priest: 'San Tommaso d’Aquino, sacerdote e dottore della Chiesa',
     thomas_becket_bishop: 'San Tommaso Becket, vescovo e martire',
-    timothy_of_ephesus_and_titus_of_crete_bishops:
-      'Santi Timoteo e Tito, vescovi',
+    timothy_of_ephesus_and_titus_of_crete_bishops: 'Santi Timoteo e Tito, vescovi',
     turibius_of_mogrovejo_bishop: 'San Turibio de Mogrovejo, vescovo',
     vincent_de_paul_priest: 'San Vincenzo de’ Paoli, sacerdote',
     vincent_ferrer_priest: 'San Vincenzo Ferrer, sacerdote',

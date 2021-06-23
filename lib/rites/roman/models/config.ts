@@ -2,11 +2,7 @@ import { LiturgicalColor } from '@roman-rite/constants/colors';
 import { Ranks } from '@roman-rite/constants/ranks';
 import { LiturgicalSeasons } from '@roman-rite/constants/seasons';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
-import {
-  BaseRomcalConfig,
-  IRoncalConfig,
-  RomcalConfigInput,
-} from '@roman-rite/types/config';
+import { BaseRomcalConfig, IRoncalConfig, RomcalConfigInput } from '@roman-rite/types/config';
 import { Dates } from '@roman-rite/utils/dates';
 import { CalendarScope } from '@romcal/constants/calendar-scope';
 import { locale as en } from '@romcal/locales/en';
@@ -55,8 +51,7 @@ export class RomcalConfig implements IRoncalConfig {
           // hat represent the main part of this Liturgical year
           dayjs().year() + 1);
 
-    if (config?.particularCalendar)
-      this.particularCalendar = config?.particularCalendar;
+    if (config?.particularCalendar) this.particularCalendar = config?.particularCalendar;
 
     this.epiphanyOnSunday = config?.epiphanyOnSunday ?? false;
     this.corpusChristiOnSunday = config?.corpusChristiOnSunday ?? true;
@@ -106,26 +101,10 @@ export class RomcalConfig implements IRoncalConfig {
     // If another locale is specified, load associated ressources in the
     // i18next library.
     if (this.locale) {
-      this.i18next.addResourceBundle(
-        this.locale.key,
-        'roman_rite',
-        this.locale.roman_rite,
-      );
-      this.i18next.addResourceBundle(
-        this.locale.key,
-        'colors',
-        this.locale.colors,
-      );
-      this.i18next.addResourceBundle(
-        this.locale.key,
-        'ordinals',
-        this.locale.ordinals,
-      );
-      this.i18next.addResourceBundle(
-        this.locale.key,
-        'martyrology',
-        this.locale.martyrology,
-      );
+      this.i18next.addResourceBundle(this.locale.key, 'roman_rite', this.locale.roman_rite);
+      this.i18next.addResourceBundle(this.locale.key, 'colors', this.locale.colors);
+      this.i18next.addResourceBundle(this.locale.key, 'ordinals', this.locale.ordinals);
+      this.i18next.addResourceBundle(this.locale.key, 'martyrology', this.locale.martyrology);
     }
 
     // Set dayjs locale
@@ -177,9 +156,7 @@ export class RomcalConfig implements IRoncalConfig {
    */
   toColorName(colorKey: LiturgicalColor): string {
     if (this.#colorNames[colorKey]) return this.#colorNames[colorKey];
-    this.#colorNames[colorKey] = this.i18next.t(
-      `colors:${colorKey.toLowerCase()}`,
-    );
+    this.#colorNames[colorKey] = this.i18next.t(`colors:${colorKey.toLowerCase()}`);
     return this.#colorNames[colorKey];
   }
   #colorNames: Record<string, string> = {};
@@ -190,9 +167,7 @@ export class RomcalConfig implements IRoncalConfig {
    */
   toRankName(rankKey: Ranks): string {
     if (this.#rankNames[rankKey]) return this.#rankNames[rankKey];
-    this.#rankNames[rankKey] = this.i18next.t(
-      `roman_rite:ranks.${rankKey.toLowerCase()}`,
-    );
+    this.#rankNames[rankKey] = this.i18next.t(`roman_rite:ranks.${rankKey.toLowerCase()}`);
     return this.#rankNames[rankKey];
   }
   #rankNames: Record<string, string> = {};

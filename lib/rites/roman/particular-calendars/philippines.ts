@@ -22,11 +22,7 @@ export class Philippines extends CalendarDef {
     peter_baptist_blasquez_paul_miki_and_companions_martyrs: {
       precedence: Precedences.ProperMemorial_11b,
       date: '2-6',
-      martyrology: [
-        'peter_baptist_blasquez_martyr',
-        'paul_miki_martyr',
-        'companions_martyrs',
-      ],
+      martyrology: ['peter_baptist_blasquez_martyr', 'paul_miki_martyr', 'companions_martyrs'],
     },
 
     pedro_calungsod_martyr: {
@@ -40,8 +36,7 @@ export class Philippines extends CalendarDef {
         // to the Saturday before Palm Sunday.
         if (
           date.day() === 0 ||
-          (date.isSameOrAfter(palmSunday) &&
-            date.isSameOrBefore(divineMercySunday))
+          (date.isSameOrAfter(palmSunday) && date.isSameOrBefore(divineMercySunday))
         ) {
           return palmSunday.subtract(1, 'day');
         }
@@ -76,8 +71,7 @@ export class Philippines extends CalendarDef {
     },
 
     immaculate_conception_of_mary: {
-      customLocaleKey:
-        'immaculate_conception_of_mary_patroness_of_the_philippines',
+      customLocaleKey: 'immaculate_conception_of_mary_patroness_of_the_philippines',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '12-8',
       titles: (titles) => [...titles, PatronTitles.PatronessOfThePhilippines],

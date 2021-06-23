@@ -104,10 +104,7 @@ export class Dates {
    * @param year The year to use for the calculation
    * @param epiphanyOnSunday If false, Epiphany will be fixed to Jan 6 (defaults to true)
    */
-  static datesOfChristmasTime = (
-    year: number,
-    epiphanyOnSunday = true,
-  ): Array<Dayjs> => {
+  static datesOfChristmasTime = (year: number, epiphanyOnSunday = true): Array<Dayjs> => {
     const start = Dates.christmas(year);
     const end = Dates.baptismOfTheLord(year + 1, epiphanyOnSunday);
 
@@ -120,10 +117,7 @@ export class Dates {
    * @param year The year to use for the calculation
    * @param epiphanyOnSunday If false, Epiphany will be fixed to Jan 6 (defaults to true)
    */
-  static datesBeforeEpiphany = (
-    year: number,
-    epiphanyOnSunday = true,
-  ): Array<Dayjs> => {
+  static datesBeforeEpiphany = (year: number, epiphanyOnSunday = true): Array<Dayjs> => {
     const start = Dates.maryMotherOfGod(year);
     const end = Dates.epiphany(year, epiphanyOnSunday).subtract(1, 'day');
     return rangeOfDays(start, end);
@@ -173,15 +167,9 @@ export class Dates {
    * @param year The year to use for the calculation
    * @param epiphanyOnSunday If false, Epiphany will be fixed to Jan 6 (defaults to true)
    */
-  static datesAfterEpiphany = (
-    year: number,
-    epiphanyOnSunday = true,
-  ): Array<Dayjs> => {
+  static datesAfterEpiphany = (year: number, epiphanyOnSunday = true): Array<Dayjs> => {
     const start = Dates.epiphany(year, epiphanyOnSunday);
-    const end = Dates.baptismOfTheLord(year, epiphanyOnSunday).subtract(
-      1,
-      'day',
-    );
+    const end = Dates.baptismOfTheLord(year, epiphanyOnSunday).subtract(1, 'day');
     return rangeOfDays(start, end);
   };
 
@@ -235,8 +223,7 @@ export class Dates {
    *
    * @param year The year to use for the calculation
    */
-  static palmSunday = (year: number): Dayjs =>
-    Dates.easter(year).subtract(7, 'day').startOf('day');
+  static palmSunday = (year: number): Dayjs => Dates.easter(year).subtract(7, 'day').startOf('day');
 
   /**
    * HOLY WEEK
@@ -259,8 +246,7 @@ export class Dates {
    *
    * @param year The year to use for the calculation
    */
-  static goodFriday = (year: number): Dayjs =>
-    Dates.easter(year).subtract(2, 'day').startOf('day');
+  static goodFriday = (year: number): Dayjs => Dates.easter(year).subtract(2, 'day').startOf('day');
 
   /**
    * Get the date of Holy Saturday
@@ -307,13 +293,8 @@ export class Dates {
    * @param year The year to use for the calculation
    * @param includeHolyThursday
    */
-  static datesOfPaschalTriduum = (
-    year: number,
-    includeHolyThursday = true,
-  ): Dayjs[] => {
-    const start = includeHolyThursday
-      ? Dates.holyThursday(year)
-      : Dates.goodFriday(year);
+  static datesOfPaschalTriduum = (year: number, includeHolyThursday = true): Dayjs[] => {
+    const start = includeHolyThursday ? Dates.holyThursday(year) : Dates.goodFriday(year);
     const end = Dates.easter(year);
     return rangeOfDays(start, end);
   };
@@ -407,10 +388,7 @@ export class Dates {
    * @param year The year to use for the calculation
    * @param epiphanyOnSunday If false, fixes Epiphany to Jan 6 (defaults to true)
    */
-  static datesOfOrdinaryTime = (
-    year: number,
-    epiphanyOnSunday = true,
-  ): Array<Dayjs> => {
+  static datesOfOrdinaryTime = (year: number, epiphanyOnSunday = true): Array<Dayjs> => {
     return [
       ...Dates.datesOfEarlyOrdinaryTime(year, epiphanyOnSunday),
       ...Dates.datesOfLateOrdinaryTime(year),
@@ -428,10 +406,7 @@ export class Dates {
    * @param year The year to use for the calculation
    * @param epiphanyOnSunday If false, fixes Epiphany to Jan 6 (defaults to true)
    */
-  static datesOfEarlyOrdinaryTime = (
-    year: number,
-    epiphanyOnSunday = true,
-  ): Array<Dayjs> => {
+  static datesOfEarlyOrdinaryTime = (year: number, epiphanyOnSunday = true): Array<Dayjs> => {
     const start = Dates.baptismOfTheLord(year, epiphanyOnSunday).add(1, 'day');
     const end = Dates.ashWednesday(year).subtract(1, 'day');
 
@@ -528,10 +503,7 @@ export class Dates {
     // Palm Sunday or during Holy Week, it is moved to
     // the Saturday preceding Palm Sunday.
     const palmSunday = Dates.palmSunday(year);
-    if (
-      date.isSameOrAfter(palmSunday) &&
-      date.isBefore(palmSunday.add(8, 'days'))
-    ) {
+    if (date.isSameOrAfter(palmSunday) && date.isBefore(palmSunday.add(8, 'days'))) {
       date = Dates.palmSunday(year).subtract(1, 'day').startOf('day');
     }
 
@@ -553,10 +525,7 @@ export class Dates {
     // it is transferred to the Monday of the Second Week of Easter.
     const palmSunday = Dates.palmSunday(year);
     const divineMercySunday = Dates.divineMercySunday(year);
-    if (
-      date.isSameOrAfter(palmSunday) &&
-      date.isSameOrBefore(divineMercySunday)
-    ) {
+    if (date.isSameOrAfter(palmSunday) && date.isSameOrBefore(divineMercySunday)) {
       date = divineMercySunday.add(1, 'day');
     }
 
@@ -576,8 +545,7 @@ export class Dates {
    *
    * @param year The year to use for the calculation
    */
-  static nativityOfJohnTheBaptist = (year: number): Dayjs =>
-    dayjs.utc(`${year}-6-24`);
+  static nativityOfJohnTheBaptist = (year: number): Dayjs => dayjs.utc(`${year}-6-24`);
 
   /**
    * Get the date of the solemnity of Saints Peter and Paul
@@ -590,8 +558,7 @@ export class Dates {
    *
    * @param year The year to use for the calculation
    */
-  static peterAndPaulApostles = (year: number): Dayjs =>
-    dayjs.utc(`${year}-6-29`);
+  static peterAndPaulApostles = (year: number): Dayjs => dayjs.utc(`${year}-6-29`);
 
   /**
    * Get the date of the celebration of the Assumption
@@ -656,10 +623,7 @@ export class Dates {
    * @param year The year to use for the calculation
    * @param ascensionOn7thSundayOfEaster Sets Ascension to the 7th Sunday of Easter when true. Defaults to false.
    */
-  static ascension = (
-    year: number,
-    ascensionOn7thSundayOfEaster = false,
-  ): Dayjs => {
+  static ascension = (year: number, ascensionOn7thSundayOfEaster = false): Dayjs => {
     // If specified, move Ascension to Sunday
     if (ascensionOn7thSundayOfEaster) {
       return Dates.easter(year).add(42, 'day');
@@ -676,8 +640,7 @@ export class Dates {
    *
    * @param year The year to use for the calculation
    */
-  static trinitySunday = (year: number): Dayjs =>
-    Dates.easter(year).add(56, 'day');
+  static trinitySunday = (year: number): Dayjs => Dates.easter(year).add(56, 'day');
 
   /**
    * Get the date of the solemnity of Corpus Christi
@@ -691,10 +654,7 @@ export class Dates {
    * @param year The year to use for the calculation
    * @param corpusChristiOnSunday Optional boolean to determine if Corpus Christi should be on Sunday or Thursday (defaults to true, meaning that Corpus Christi will be on Sunday)
    */
-  static corpusChristi = (
-    year: number,
-    corpusChristiOnSunday = true,
-  ): Dayjs => {
+  static corpusChristi = (year: number, corpusChristiOnSunday = true): Dayjs => {
     // By default Corpus Christi on Sunday
     if (corpusChristiOnSunday) {
       return Dates.easter(year).add(63, 'day');
@@ -710,8 +670,7 @@ export class Dates {
    *
    * @param year The year to use for the calculation
    */
-  static mostSacredHeartOfJesus = (year: number): Dayjs =>
-    Dates.easter(year).add(68, 'day');
+  static mostSacredHeartOfJesus = (year: number): Dayjs => Dates.easter(year).add(68, 'day');
 
   /**
    * Get the date of the celebration of the Immaculate Heart of Mary
@@ -719,8 +678,7 @@ export class Dates {
    *
    * @param year The year to use for the calculation
    */
-  static immaculateHeartOfMary = (year: number): Dayjs =>
-    Dates.easter(year).add(69, 'day');
+  static immaculateHeartOfMary = (year: number): Dayjs => Dates.easter(year).add(69, 'day');
 
   /**
    * FEASTS OF THE LORD
@@ -776,10 +734,7 @@ export class Dates {
     else {
       // If Epiphany occurs on Sunday Jan. 7 or Sunday Jan. 8,
       //  then the Baptism of the Lord is the next day (Monday)
-      if (
-        (date.day() === 0 && date.dayOfYear() === 7) ||
-        date.dayOfYear() === 8
-      ) {
+      if ((date.day() === 0 && date.dayOfYear() === 7) || date.dayOfYear() === 8) {
         date = date.add(1, 'day');
       }
       // If Epiphany occurs before Jan. 6, the Sunday
@@ -803,8 +758,7 @@ export class Dates {
    *
    * @param year The year to use for the calculation
    */
-  static presentationOfTheLord = (year: number): Dayjs =>
-    dayjs.utc(`${year}-2-2`);
+  static presentationOfTheLord = (year: number): Dayjs => dayjs.utc(`${year}-2-2`);
 
   /**
    * Get the date for the Transfiguration of our Lord.
@@ -818,6 +772,5 @@ export class Dates {
    *
    * @param year The year to use for the calculation
    */
-  static exaltationOfTheHolyCross = (year: number): Dayjs =>
-    dayjs.utc(`${year}-9-14`);
+  static exaltationOfTheHolyCross = (year: number): Dayjs => dayjs.utc(`${year}-9-14`);
 }

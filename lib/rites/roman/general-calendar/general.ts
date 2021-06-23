@@ -3,10 +3,7 @@ import { ProperCycles } from '@roman-rite/constants/cycles';
 import { Precedences } from '@roman-rite/constants/precedences';
 import { Sanctorale } from '@roman-rite/general-calendar/sanctorale';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
-import {
-  DateDefinitions,
-  ParticularConfig,
-} from '@roman-rite/types/calendar-def';
+import { DateDefinitions, ParticularConfig } from '@roman-rite/types/calendar-def';
 import { Dates } from '@roman-rite/utils/dates';
 import { Dayjs } from 'dayjs';
 
@@ -74,8 +71,7 @@ export class GeneralRoman extends CalendarDef {
     // http://www.vatican.va/content/francesco/en/motu_proprio/documents/papa-francesco-motu-proprio-20190930_aperuit-illis.html
     sunday_of_the_word_of_god: {
       precedence: Precedences.UnprivilegedSunday_6,
-      date: (y: number): Dayjs =>
-        Dates.baptismOfTheLord(y).add(2, 'week').startOf('week'),
+      date: (y: number): Dayjs => Dates.baptismOfTheLord(y).add(2, 'week').startOf('week'),
       properCycle: ProperCycles.TEMPORALE,
     },
 
@@ -153,10 +149,7 @@ export class GeneralRoman extends CalendarDef {
     cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop: {
       precedence: Precedences.GeneralMemorial_10,
       date: '2-14',
-      martyrology: [
-        'cyril_the_philosopher_monk',
-        'methodius_of_thessaloniki_bishop',
-      ],
+      martyrology: ['cyril_the_philosopher_monk', 'methodius_of_thessaloniki_bishop'],
     },
 
     seven_holy_founders_of_the_servite_order: {
@@ -193,10 +186,7 @@ export class GeneralRoman extends CalendarDef {
     perpetua_of_carthage_and_felicity_of_carthage_martyrs: {
       precedence: Precedences.GeneralMemorial_10,
       date: '3-7',
-      martyrology: [
-        'perpetua_of_carthage_martyr',
-        'felicity_of_carthage_martyr',
-      ],
+      martyrology: ['perpetua_of_carthage_martyr', 'felicity_of_carthage_martyr'],
     },
 
     john_of_god_duarte_cidade_religious: {
@@ -325,10 +315,7 @@ export class GeneralRoman extends CalendarDef {
     nereus_of_terracina_and_achilleus_of_terracina_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '5-12',
-      martyrology: [
-        'nereus_of_terracina_martyr',
-        'achilleus_of_terracina_martyr',
-      ],
+      martyrology: ['nereus_of_terracina_martyr', 'achilleus_of_terracina_martyr'],
     },
 
     pancras_of_rome_martyr: {
@@ -360,10 +347,7 @@ export class GeneralRoman extends CalendarDef {
     christopher_magallanes_priest_and_companions_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '5-21',
-      martyrology: [
-        'christopher_magallanes_priest',
-        { key: 'companions_martyrs', count: 24 },
-      ],
+      martyrology: ['christopher_magallanes_priest', { key: 'companions_martyrs', count: 24 }],
     },
 
     rita_of_cascia_religious: {
@@ -583,11 +567,7 @@ export class GeneralRoman extends CalendarDef {
     martha_of_bethany_mary_of_bethany_and_lazarus_of_bethany: {
       precedence: Precedences.GeneralMemorial_10,
       date: '7-29',
-      martyrology: [
-        'martha_of_bethany',
-        'mary_of_bethany',
-        'lazarus_of_bethany',
-      ],
+      martyrology: ['martha_of_bethany', 'mary_of_bethany', 'lazarus_of_bethany'],
     },
 
     peter_chrysologus_bishop: {
@@ -793,11 +773,7 @@ export class GeneralRoman extends CalendarDef {
     andrew_kim_tae_gon_priest_paul_chong_ha_sang_and_companions_martyrs: {
       precedence: Precedences.GeneralMemorial_10,
       date: '9-20',
-      martyrology: [
-        'andrew_kim_tae_gon_priest',
-        'paul_chong_ha_sang_martyr',
-        'companions_martyrs',
-      ],
+      martyrology: ['andrew_kim_tae_gon_priest', 'paul_chong_ha_sang_martyr', 'companions_martyrs'],
     },
 
     matthew_apostle: {
@@ -836,11 +812,7 @@ export class GeneralRoman extends CalendarDef {
     michael_gabriel_and_raphael_archangels: {
       precedence: Precedences.GeneralFeast_7,
       date: '9-29',
-      martyrology: [
-        'michael_archangel',
-        'gabriel_archangel',
-        'raphael_archangel',
-      ],
+      martyrology: ['michael_archangel', 'gabriel_archangel', 'raphael_archangel'],
     },
 
     jerome_of_stridon_priest: {
@@ -933,11 +905,7 @@ export class GeneralRoman extends CalendarDef {
     john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '10-19',
-      martyrology: [
-        'john_de_brebeuf_priest',
-        'isaac_jogues_priest',
-        'companions_martyrs',
-      ],
+      martyrology: ['john_de_brebeuf_priest', 'isaac_jogues_priest', 'companions_martyrs'],
     },
 
     paul_of_the_cross_priest: {

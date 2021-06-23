@@ -113,17 +113,16 @@ export class China extends CalendarDef {
       date: '5-29',
     },
 
-    gregory_grassi_francis_fogolla_and_anthony_fantosati_bishops_and_companions_martyrs:
-      {
-        precedence: Precedences.OptionalMemorial_12,
-        date: '6-20',
-        martyrology: [
-          'gregory_grassi_bishop',
-          'francis_fogolla_bishop',
-          'anthony_fantosati_bishop',
-          'companions_martyrs',
-        ],
-      },
+    gregory_grassi_francis_fogolla_and_anthony_fantosati_bishops_and_companions_martyrs: {
+      precedence: Precedences.OptionalMemorial_12,
+      date: '6-20',
+      martyrology: [
+        'gregory_grassi_bishop',
+        'francis_fogolla_bishop',
+        'anthony_fantosati_bishop',
+        'companions_martyrs',
+      ],
+    },
 
     joseph_yuan_gengyin_priest: {
       precedence: Precedences.OptionalMemorial_12,

@@ -1,10 +1,7 @@
 import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { Europe } from '@roman-rite/particular-calendars/europe';
-import {
-  DateDefinitions,
-  ParticularConfig,
-} from '@roman-rite/types/calendar-def';
+import { DateDefinitions, ParticularConfig } from '@roman-rite/types/calendar-def';
 import { PatronTitles } from '@romcal/constants/martyrology-metadata';
 
 export class France extends CalendarDef {
@@ -47,11 +44,7 @@ export class France extends CalendarDef {
     pothinus_of_lyon_bishop_blandina_of_lyon_virgin_and_companions_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '6-2',
-      martyrology: [
-        'pothinus_of_lyon_bishop',
-        'blandina_of_lyon_virgin',
-        'companions_martyrs',
-      ],
+      martyrology: ['pothinus_of_lyon_bishop', 'blandina_of_lyon_virgin', 'companions_martyrs'],
     },
 
     clotilde_of_burgundy: {

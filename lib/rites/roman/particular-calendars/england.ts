@@ -41,8 +41,7 @@ export class England extends CalendarDef {
 
         // When it falls between Palm Sunday and the Second Sunday of Easter inclusive,
         // it is transferred to the Monday after the Second Sunday of Easter
-        return date.isSameOrAfter(palmSunday) &&
-          date.isSameOrBefore(divineMercySunday)
+        return date.isSameOrAfter(palmSunday) && date.isSameOrBefore(divineMercySunday)
           ? divineMercySunday.add(1, 'day')
           : date;
       },
