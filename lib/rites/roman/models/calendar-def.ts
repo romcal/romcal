@@ -146,23 +146,21 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
   }
 
   constructor(config: RomcalConfig) {
-    // Init the inherited calendar
-    if (this.inheritFrom) {
-      this.inheritFromInstance = new this.inheritFrom(config);
-    }
-
-    // Save the configuration to the main class object.
     this._config = config;
   }
 
   /**
-   * Update the main RomcalConfig from the provided user config
-   * or any particular config from calendar definitions.
+   * Initialize inherited calendars, and update the main RomcalConfig
+   * from the provided user config or from any particular config from
+   * the calendar definitions.
    * @param input - The input configuration provided by the user.
    */
   updateConfig(input?: RomcalConfigInput): void {
-    // Update first the configuration form inherited calendars
-    if (this.inheritFromInstance) {
+    // Init the inherited calendar
+    if (this.inheritFrom) {
+      this.inheritFromInstance = new this.inheritFrom(this._config);
+
+      // Update first the configuration form inherited calendars
       this.inheritFromInstance.updateConfig(input);
     }
 
