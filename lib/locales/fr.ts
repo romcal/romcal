@@ -12,7 +12,7 @@ export const locale: Locale = {
         sunday: '$t(ordinals:{{week}}, capitalize) dimanche de l’Avent',
       },
 
-      christmastide: {
+      christmas_time: {
         season: 'Temps de Noël',
         day: '{{day, capitalize}} dans le Temps de Noël',
         octave: '{{count}}ᵉ jour dans l’Octave de la Nativité',
@@ -41,7 +41,7 @@ export const locale: Locale = {
         season: 'Triduum Pascal',
       },
 
-      eastertide: {
+      easter_time: {
         season: 'Temps Pascal',
         weekday:
           '{{day, capitalize}} de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine de Pâques',

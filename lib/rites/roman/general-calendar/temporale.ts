@@ -143,10 +143,10 @@ export default class Temporale {
   };
 
   /**
-   * Given a date in Christmastide, determine the week number of this season
-   * @param date The date that occur during christmastide
+   * Given a date in Christmas Time, determine the week number of this season.
+   * @param date The date that occur during christmas time.
    */
-  private _getWeekOfChristmastide = (date: Dayjs): number => {
+  private _getWeekOfChristmasTime = (date: Dayjs): number => {
     const y = date.month() === 11 ? date.year() : date.year() - 1;
     const christmas = Dates.christmas(y);
     const firstDayOfWeek = christmas.clone().startOf('week');
@@ -154,7 +154,7 @@ export default class Temporale {
   };
 
   /**
-   * Generates the Proper of Time of the season of Advent
+   * Generates the Proper of Time of the season of Advent.
    * @param year
    */
   adventBuilder = (year: number): LiturgicalDefBuiltData => {
@@ -270,7 +270,7 @@ export default class Temporale {
       else if (idx < 7) {
         key = `christmas_octave_day_${idx + 1}`;
         name = this._config.i18next.t(
-          'roman_rite:seasons.christmastide.octave',
+          'roman_rite:seasons.christmas_time.octave',
           {
             count: idx + 1,
           },
@@ -309,7 +309,7 @@ export default class Temporale {
       else if (date.day() === 0) {
         key = `second_sunday_after_christmas`;
         name = this._config.i18next.t(
-          `roman_rite:seasons.christmastide.${key}`,
+          `roman_rite:seasons.christmas_time.${key}`,
         );
         precedence = Precedences.UnprivilegedSunday_6;
         periods.push(LiturgicalPeriods.DAYS_BEFORE_EPIPHANY);
@@ -317,12 +317,12 @@ export default class Temporale {
 
       // Days before Epiphany
       else if (date.isBefore(epiphany)) {
-        key = `christmastide_${date
+        key = `christmas_time_${date
           .locale('en')
           .format('MMMM_D')
           .toLowerCase()}`;
         name = this._config.i18next.t(
-          'roman_rite:seasons.christmastide.before_epiphany',
+          'roman_rite:seasons.christmas_time.before_epiphany',
           { day: date.locale(this._config.localeKey).format('dddd') },
         );
         precedence = Precedences.Weekday_13;
@@ -336,7 +336,7 @@ export default class Temporale {
           .format('dddd')
           .toLowerCase()}_after_epiphany`;
         name = this._config.i18next.t(
-          'roman_rite:seasons.christmastide.after_epiphany',
+          'roman_rite:seasons.christmas_time.after_epiphany',
           { day: date.locale(this._config.localeKey).format('dddd') },
         );
         precedence = Precedences.Weekday_13;
@@ -353,7 +353,7 @@ export default class Temporale {
           date,
           datesOfChristmasTime[0],
           datesOfChristmasTime[datesOfChristmasTime.length - 1],
-          this._getWeekOfChristmastide(date),
+          this._getWeekOfChristmasTime(date),
           idx,
         );
 
@@ -615,10 +615,10 @@ export default class Temporale {
 
         // Sundays of Easter Time. (UNLY #59 2)
         else if (date.day() === 0) {
-          key = `eastertide_${week}_sunday`;
+          key = `easter_time_${week}_sunday`;
           precedence = Precedences.PrivilegedSunday_2;
           name = this._config.i18next.t(
-            'roman_rite:seasons.eastertide.sunday',
+            'roman_rite:seasons.easter_time.sunday',
             {
               week: idx + 1,
             },
@@ -631,7 +631,7 @@ export default class Temporale {
           precedence = Precedences.WeekdayOfEasterOctave_2;
           periods.push(LiturgicalPeriods.EASTER_OCTAVE);
           name = this._config.i18next.t(
-            'roman_rite:seasons.eastertide.octave',
+            'roman_rite:seasons.easter_time.octave',
             {
               day: date.locale(this._config.localeKey).format('dddd'),
             },
@@ -641,13 +641,13 @@ export default class Temporale {
         // Weekdays of the Easter Time from Monday after the Octave of Easter up to and including the
         // Saturday before Pentecost. (UNLY #59 13)
         else {
-          key = `eastertide_${week}_${date
+          key = `easter_time_${week}_${date
             .locale('en')
             .format('dddd')
             .toLowerCase()}`;
           precedence = Precedences.Weekday_13;
           name = this._config.i18next.t(
-            'roman_rite:seasons.eastertide.weekday',
+            'roman_rite:seasons.easter_time.weekday',
             {
               day: date.locale(this._config.localeKey).format('dddd'),
               week: idx + 1,

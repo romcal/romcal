@@ -6,16 +6,16 @@ export const locale: Locale = {
   roman_rite: {
     seasons: {
       advent: {
-        season: 'Advent Season',
+        season: 'Advent',
         weekday:
           '{{day, capitalize}} of the $t(ordinals:{{week}}) week of Advent',
         sunday: '$t(ordinals:{{week}}, capitalize) Sunday of Advent',
       },
 
-      christmastide: {
-        season: 'Christmas Season',
-        day: '{{day, capitalize}} of Christmastide',
-        octave: '{{count}}º day within the Octave of the Nativity of the Lord',
+      christmas_time: {
+        season: 'Christmas Time',
+        day: '{{day, capitalize}} of Christmas Time',
+        octave: '{{count}}º Day within the Octave of the Nativity of the Lord',
         second_sunday_after_christmas:
           'Second Sunday after the Nativity of the Lord',
         before_epiphany: '{{day, capitalize}} before the Epiphany of the Lord',
@@ -30,7 +30,7 @@ export const locale: Locale = {
       },
 
       lent: {
-        season: 'Lenten Season',
+        season: 'Lent',
         weekday:
           '{{day, capitalize}} of the $t(ordinals:{{week}}) week of Lent',
         sunday: '$t(ordinals:{{week}}, capitalize) Sunday of Lent',
@@ -42,8 +42,8 @@ export const locale: Locale = {
         season: 'Paschal Triduum',
       },
 
-      eastertide: {
-        season: 'Easter Season',
+      easter_time: {
+        season: 'Easter Time',
         weekday:
           '{{day, capitalize}} of the $t(ordinals:{{week}}) week of Easter',
         sunday: '$t(ordinals:{{week}}, capitalize) Sunday of Easter',
@@ -74,7 +74,7 @@ export const locale: Locale = {
       christ_the_king_sunday: 'Our Lord Jesus Christ, King of the Universe',
       christmas: 'Nativity of the Lord',
       corpus_christi: 'Most Holy Body and Blood of Christ',
-      divine_mercy_sunday: 'Sunday of Divine Mercy',
+      divine_mercy_sunday: 'Second Sunday of Easter, or of Divine Mercy',
       easter_sunday: 'Easter Sunday of the Resurrection of the Lord',
       epiphany: 'Epiphany of the Lord',
       exaltation_of_the_holy_cross: 'Exaltation of the Holy Cross',
@@ -949,7 +949,8 @@ export const locale: Locale = {
       'Saint Stanislaus, Bishop, Martyr and Patron of Poland',
     stephen_i_of_hungary: 'Saint Stephen of Hungary',
     stephen_the_first_martyr: 'Saint Stephen, the First Martyr',
-    sunday_of_the_word_of_god: 'Sunday of the Word of God',
+    sunday_of_the_word_of_god:
+      'Third Sunday in Ordinary Time, or of the Word of God',
     sunniva_of_norway_virgin: 'Saint Sunniva, Virgin and Martyr',
     swithun_of_winchester_bishop: 'Saint Swithun, Bishop',
     sylvester_i_pope: 'Saint Sylvester I, Pope',

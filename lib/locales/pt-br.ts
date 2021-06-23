@@ -11,7 +11,7 @@ export const locale: Locale = {
         sunday: '{{week}}º Domingo do Advento',
       },
 
-      christmastide: {
+      christmas_time: {
         season: 'Natal',
         day: '{{day, capitalize}} do Tempo do Natal',
         octave: '{{count}}º dia da Oitava de Natal',
@@ -39,7 +39,7 @@ export const locale: Locale = {
         season: 'Tríduo Pascal',
       },
 
-      eastertide: {
+      easter_time: {
         season: 'Páscoa',
         weekday: '{{day, capitalize}} da {{week}}ª semana do Tempo Pascal',
         sunday: '{{week}}º Domingo do Tempo Pascal',

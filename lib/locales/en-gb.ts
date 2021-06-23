@@ -9,16 +9,12 @@ export const locale: Locale = {
         season: 'Advent',
       },
 
-      christmastide: {
+      christmas_time: {
         season: 'Christmastide',
         octave: '{{count}}º Day of Christmas Octave',
       },
 
-      lent: {
-        season: 'Lent',
-      },
-
-      eastertide: {
+      easter_time: {
         season: 'Eastertide',
       },
     },
