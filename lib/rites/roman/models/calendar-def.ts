@@ -129,25 +129,25 @@ interface StaticCalendarComputing<T extends ICalendarDef>
 export type BaseCalendarDef = StaticCalendarComputing<ICalendarDef>;
 
 export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
-  private readonly _config: RomcalConfig;
+  readonly #config: RomcalConfig;
   inheritFrom?: BaseCalendarDef | null;
   inheritFromInstance?: InstanceType<BaseCalendarDef>;
   readonly particularConfig?: ParticularConfig;
   definitions: DateDefinitions = {};
 
-  private _calendarName?: string;
   public get calendarName(): string {
-    if (!this._calendarName) {
-      this._calendarName = this.constructor.name
+    if (!this.#calendarName) {
+      this.#calendarName = this.constructor.name
         .split(/(?=[A-Z])/)
         .join('_')
         .toLowerCase();
     }
-    return this._calendarName;
+    return this.#calendarName;
   }
+  #calendarName?: string;
 
   constructor(config: RomcalConfig) {
-    this._config = config;
+    this.#config = config;
   }
 
   /**
@@ -159,7 +159,7 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
   updateConfig(input?: RomcalConfigInput): void {
     // Init the inherited calendar
     if (this.inheritFrom) {
-      this.inheritFromInstance = new this.inheritFrom(this._config);
+      this.inheritFromInstance = new this.inheritFrom(this.#config);
 
       // Update first the configuration form inherited calendars
       this.inheritFromInstance.updateConfig(input);
@@ -168,34 +168,35 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
     // Combine the provided user configuration,
     // the particular configuration from this calendar,
     // and the sanitized configuration.
-    this._config.epiphanyOnSunday =
+    this.#config.epiphanyOnSunday =
       input?.epiphanyOnSunday ??
       this.particularConfig?.epiphanyOnSunday ??
-      this._config.epiphanyOnSunday;
+      this.#config.epiphanyOnSunday;
 
-    this._config.ascensionOnSunday =
+    this.#config.ascensionOnSunday =
       input?.ascensionOnSunday ??
       this.particularConfig?.ascensionOnSunday ??
-      this._config.ascensionOnSunday;
+      this.#config.ascensionOnSunday;
 
-    this._config.corpusChristiOnSunday =
+    this.#config.corpusChristiOnSunday =
       input?.corpusChristiOnSunday ??
       this.particularConfig?.corpusChristiOnSunday ??
-      this._config.corpusChristiOnSunday;
+      this.#config.corpusChristiOnSunday;
   }
 
   /**
    * Recursive method that retrieve all inherited calendars
+   * @private
    * @param inheritedCal - The inherited calendar object.
    * @param builtData - The already build data that will extend the inherited data.
    * @private
    */
-  private retrieveInheritedCal(
+  #retrieveInheritedCal(
     inheritedCal: InstanceType<BaseCalendarDef>,
     builtData: LiturgicalDefBuiltData,
-  ) {
+  ): void {
     if (inheritedCal.inheritFromInstance) {
-      this.retrieveInheritedCal(inheritedCal.inheritFromInstance, builtData);
+      this.#retrieveInheritedCal(inheritedCal.inheritFromInstance, builtData);
     }
 
     inheritedCal.buildDates(builtData);
@@ -210,7 +211,7 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
     const definitions = Object.keys(this.definitions);
 
     if (this.inheritFromInstance) {
-      this.retrieveInheritedCal(this.inheritFromInstance, builtData);
+      this.#retrieveInheritedCal(this.inheritFromInstance, builtData);
     }
 
     definitions.forEach((key) => {
@@ -226,17 +227,17 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
       // If a date definition is defined,
       // it should be a string or a function.
       if (def.date) {
-        if (this._config.scope === CalendarScope.Liturgical) {
+        if (this.#config.scope === CalendarScope.Liturgical) {
           dateInputPreviousYear =
             typeof def.date === 'string'
-              ? dayjs.utc(`${this._config.year - 1}-${def.date}`)
-              : def.date(this._config.year - 1);
+              ? dayjs.utc(`${this.#config.year - 1}-${def.date}`)
+              : def.date(this.#config.year - 1);
         }
 
         dateInputCurrentYear =
           typeof def.date === 'string'
-            ? dayjs.utc(`${this._config.year}-${def.date}`)
-            : def.date(this._config.year);
+            ? dayjs.utc(`${this.#config.year}-${def.date}`)
+            : def.date(this.#config.year);
 
         const dateInputPreviousYearStr =
           dateInputPreviousYear?.format('YYYY-MM-DD');
@@ -392,10 +393,10 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
       // Compute the localized name of the liturgical day.
       let name =
         builtData.byKeys[key]?.name ??
-        this._config.i18next.t('martyrology:' + (def.customLocaleKey ?? key));
+        this.#config.i18next.t('martyrology:' + (def.customLocaleKey ?? key));
       // If not found in the Martyrology catalog, have a look in the Roman celebrations.
       if (name === (def.customLocaleKey ?? key)) {
-        name = this._config.i18next.t(
+        name = this.#config.i18next.t(
           'roman_rite:celebrations.' + (def.customLocaleKey ?? key),
         );
       }
@@ -431,7 +432,7 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
             ? {
                 isHolyDayOfObligation:
                   typeof def.isHolyDayOfObligation === 'function'
-                    ? def.isHolyDayOfObligation(this._config.year)
+                    ? def.isHolyDayOfObligation(this.#config.year)
                     : def.isHolyDayOfObligation,
               }
             : {}),
@@ -439,13 +440,13 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
           martyrology,
           fromCalendar: this.calendarName,
         },
-        this._config,
+        this.#config,
       );
 
       // Check object differences between the previously inherited object
       // and the new one
       if (builtData.byKeys[key]) {
-        const diff = this._getLiturgicalDayDiff(
+        const diff = this.#getLiturgicalDayDiff(
           builtData.byKeys[key],
           liturgicalDay,
         );
@@ -490,11 +491,11 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
   /**
    * Get a partial LiturgicalDay object containing the difference
    * between 2 LiturgicalDay objects that have the same date.
+   * @private
    * @param dayA
    * @param dayB
-   * @private
    */
-  private _getLiturgicalDayDiff(
+  #getLiturgicalDayDiff(
     dayA: LiturgicalDay,
     dayB: LiturgicalDay,
   ): LiturgyDayDiff | null {

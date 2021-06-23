@@ -235,39 +235,39 @@ export class RomcalConfig implements IRoncalConfig {
    * @param seasonKey - The season key.
    */
   toSeasonName(seasonKey: LiturgicalSeasons): string {
-    if (this._seasonsNames[seasonKey]) return this._seasonsNames[seasonKey];
-    this._seasonsNames[seasonKey] = this.i18next.t(
+    if (this.#seasonsNames[seasonKey]) return this.#seasonsNames[seasonKey];
+    this.#seasonsNames[seasonKey] = this.i18next.t(
       `roman_rite:seasons.${seasonKey.toLowerCase()}.season`,
     );
-    return this._seasonsNames[seasonKey];
+    return this.#seasonsNames[seasonKey];
   }
-  private _seasonsNames: Record<string, string> = {};
+  #seasonsNames: Record<string, string> = {};
 
   /**
    * Utility helper to translate and cache liturgical color names.
    * @param colorKey - The color key.
    */
   toColorName(colorKey: LiturgicalColor): string {
-    if (this._colorNames[colorKey]) return this._colorNames[colorKey];
-    this._colorNames[colorKey] = this.i18next.t(
+    if (this.#colorNames[colorKey]) return this.#colorNames[colorKey];
+    this.#colorNames[colorKey] = this.i18next.t(
       `colors:${colorKey.toLowerCase()}`,
     );
-    return this._colorNames[colorKey];
+    return this.#colorNames[colorKey];
   }
-  private _colorNames: Record<string, string> = {};
+  #colorNames: Record<string, string> = {};
 
   /**
    * Utility helper to translate and cache liturgical rank names.
    * @param rankKey - The rank key.
    */
   toRankName(rankKey: Ranks): string {
-    if (this._rankNames[rankKey]) return this._rankNames[rankKey];
-    this._rankNames[rankKey] = this.i18next.t(
+    if (this.#rankNames[rankKey]) return this.#rankNames[rankKey];
+    this.#rankNames[rankKey] = this.i18next.t(
       `roman_rite:ranks.${rankKey.toLowerCase()}`,
     );
-    return this._rankNames[rankKey];
+    return this.#rankNames[rankKey];
   }
-  private _rankNames: Record<string, string> = {};
+  #rankNames: Record<string, string> = {};
 
   /**
    * Return the config settings as an Object.

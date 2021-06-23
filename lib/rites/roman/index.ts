@@ -14,9 +14,9 @@ import {
 import { Dates } from './utils/dates';
 
 export default class Romcal {
-  private readonly _config: RomcalConfig;
-  private readonly _calendarsDef: InstanceType<BaseCalendarDef>[];
-  private _computedCalendar?: LiturgicalCalendar;
+  readonly #config: RomcalConfig;
+  readonly #calendarsDef: InstanceType<BaseCalendarDef>[];
+  #computedCalendar?: LiturgicalCalendar;
 
   /**
    * Utility helpers to compute the date(s) of specific liturgical days or seasons.
@@ -24,23 +24,23 @@ export default class Romcal {
   static dates = Dates;
 
   constructor(config?: RomcalConfigInput) {
-    this._config = new RomcalConfig(config);
-    this._calendarsDef = [new GeneralRoman(this._config)];
+    this.#config = new RomcalConfig(config);
+    this.#calendarsDef = [new GeneralRoman(this.#config)];
 
-    if (this._config.particularCalendar) {
-      this._calendarsDef.push(
-        new this._config.particularCalendar(this._config),
+    if (this.#config.particularCalendar) {
+      this.#calendarsDef.push(
+        new this.#config.particularCalendar(this.#config),
       );
     }
 
-    this._calendarsDef.map((cal) => cal.updateConfig(config));
+    this.#calendarsDef.map((cal) => cal.updateConfig(config));
   }
 
   /**
    * Get the complete configuration, used to create and generate a calendar.
    */
   public get config(): BaseRomcalConfig {
-    return this._config.toObject();
+    return this.#config.toObject();
   }
 
   /**
@@ -53,21 +53,21 @@ export default class Romcal {
     return new Promise((resolve, reject) => {
       // Check if calendar data is already computed and saved in a cache variable.
       // If this is the case, no need to compute it again.
-      if (this._computedCalendar) {
-        resolve(this._computedCalendar);
+      if (this.#computedCalendar) {
+        resolve(this.#computedCalendar);
         return;
       }
 
       try {
         const data =
-          this._config.scope === CalendarScope.Liturgical
-            ? new Temporale(this._config).liturgicalYearBuilder()
-            : new Temporale(this._config).gregorianYearBuilder();
+          this.#config.scope === CalendarScope.Liturgical
+            ? new Temporale(this.#config).liturgicalYearBuilder()
+            : new Temporale(this.#config).gregorianYearBuilder();
 
-        this._calendarsDef.forEach((cal) => cal.buildDates(data));
-        this._computedCalendar = CalendarDef.generateCalendar(data);
+        this.#calendarsDef.forEach((cal) => cal.buildDates(data));
+        this.#computedCalendar = CalendarDef.generateCalendar(data);
 
-        resolve(this._computedCalendar);
+        resolve(this.#computedCalendar);
       } catch (e) {
         reject(e);
       }
