@@ -3,7 +3,7 @@ import { Dates } from '../utils/dates';
 import { Precedences } from '../constants/precedences';
 import dayjs, { Dayjs } from 'dayjs';
 import { Europe } from './europe';
-import { PatronTitles } from '../../../constants/martyrology-metadata';
+import { PatronTitles, Titles } from '../../../constants/martyrology-metadata';
 import { ProperCycles } from '../constants/cycles';
 
 export class Poland extends CalendarDef {
@@ -252,7 +252,7 @@ export class Poland extends CalendarDef {
         'mary_stella_of_the_blessed_sacrament_mardosewicz_virgin',
         {
           key: 'companions_martyrs',
-          titles: (titles: string[]): string[] => ['Virgin', ...titles],
+          titles: (titles) => [Titles.Virgin, ...titles],
         },
       ],
     },

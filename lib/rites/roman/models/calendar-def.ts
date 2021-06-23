@@ -23,7 +23,10 @@ export type ParticularConfig = Partial<
   >
 >;
 
-export type TitlesDef = string[] | ((titles: string[]) => string[]);
+export type TitlesDef =
+  | (Titles | PatronTitles)[]
+  | ((titles: (Titles | PatronTitles)[]) => (Titles | PatronTitles)[]);
+
 export type MartyrologyItemPointer = (string | MartyrologyItemRedefined)[];
 export type MartyrologyItemRedefined = {
   key: string;
@@ -61,9 +64,7 @@ export type DateDefInput = Partial<Pick<LiturgicalDay, 'precedence'>> & {
   /**
    * Replace (using an Array) or extend (using a Function) the titles of each Saints linked to this date definition.
    */
-  titles?:
-    | (Titles | PatronTitles)[]
-    | ((titles: (Titles | PatronTitles)[]) => (Titles | PatronTitles)[]);
+  titles?: TitlesDef;
 
   /**
    * The liturgical colors of the liturgical day.
@@ -323,12 +324,47 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
 
           // Add the matching Martyrology item in the Martyrology list defined above this forEach loop.
           if (Martyrology.catalog[pointer.key]) {
-            // But do not add it again if already exists in the list.
-            if (!martyrology.some((m) => m.key === pointer.key)) {
-              martyrology.push({
-                key: pointer.key,
-                ...Martyrology.catalog[pointer.key],
-              });
+            // Check if the matching Martyrology item already exists
+            let martyrologyItem = martyrology.find(
+              (item) => item.key === pointer.key,
+            );
+
+            // Otherwise, add it.
+            if (!martyrologyItem) {
+              martyrology.push(
+                (martyrologyItem = {
+                  key: pointer.key,
+                  ...Martyrology.catalog[pointer.key],
+                }),
+              );
+            }
+
+            // Combine `hideTitles` if provided.
+            if (typeof pointer.hideTitles === 'boolean') {
+              martyrologyItem.hideTitles = pointer.hideTitles;
+            }
+
+            // Combine `count` if provided.
+            if (typeof pointer.count === 'number' || pointer.count === 'many') {
+              martyrologyItem.count = pointer.count;
+            }
+
+            // Combine `titles` if provided.
+            if (pointer.titles) {
+              martyrologyItem.titles =
+                typeof pointer.titles === 'function'
+                  ? pointer.titles(
+                      Martyrology.catalog[pointer.key].titles || [],
+                    )
+                  : pointer.titles;
+            }
+
+            // Combine `titles` from the main date definition, if provided.
+            if (def?.titles) {
+              martyrologyItem.titles =
+                typeof def?.titles === 'function'
+                  ? def?.titles(martyrologyItem.titles || [])
+                  : def?.titles;
             }
           }
           // If the Martyrology item is not found, it means this item is badly referenced in the date definition.
