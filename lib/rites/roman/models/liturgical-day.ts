@@ -22,6 +22,7 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
   readonly rank: Ranks;
   readonly rankName: string;
   readonly isHolyDayOfObligation: boolean;
+  isOptional: boolean;
   readonly name: string;
   readonly seasons: LiturgicalSeasons[];
   readonly seasonNames: string[];
@@ -45,6 +46,7 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
     this.rank = LiturgicalDay.#precedenceToRank(day.precedence, day.date);
     this.rankName = config.toRankName(this.rank);
     this.isHolyDayOfObligation = !!day.isHolyDayOfObligation;
+    this.isOptional = day.isOptional ?? false;
     this.name = day.name ?? day.key;
     this.seasons = day.seasons ?? [];
     this.seasonNames = this.seasons.map((key) => config.toSeasonName(key));
@@ -125,10 +127,16 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
         rank === Ranks.MEMORIAL &&
         // During Lent:
         (seasons?.includes(LiturgicalSeasons.LENT) ||
-          // During Advent from 17 December:
+          // Or during Advent from 17 December:
           (seasons?.includes(LiturgicalSeasons.ADVENT) && date.month() === 11 && date.date() >= 17))
       ) {
-        return [LiturgicalColors.PURPLE];
+        // UNLY #16b: The weekdays of Advent from 17 December up to and including 24 December
+        // and all the weekdays of Lent have precedence over Obligatory Memorials.
+        //
+        // In this situation, we do not output liturgical colors,
+        // since the mass for this memorial can't be celebrated
+        // (which do not prevent to commemorate this memorial within this liturgical weekday).
+        return [];
       }
 
       // - Martyrs are red.
