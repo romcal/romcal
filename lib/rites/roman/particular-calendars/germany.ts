@@ -1,6 +1,7 @@
 import { CalendarDef, DateDefinitions } from '../models/calendar-def';
 import { Precedences } from '../constants/precedences';
 import { Europe } from './europe';
+import { Titles } from '../../../constants/martyrology-metadata';
 
 export class Germany extends CalendarDef {
   inheritFrom = Europe;
@@ -236,7 +237,7 @@ export class Germany extends CalendarDef {
         'ursula_of_cologne_virgin',
         {
           key: 'companions_martyrs',
-          titles: (titles: string[]): string[] => ['Virgin', ...titles],
+          titles: (titles) => [Titles.Virgin, ...titles],
         },
       ],
     },

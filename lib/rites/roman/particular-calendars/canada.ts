@@ -85,7 +85,7 @@ export class Canada extends CalendarDef {
       martyrology: [
         {
           key: 'anne_mother_of_mary',
-          titles: (titles: string[]): string[] => [
+          titles: (titles) => [
             ...titles,
             PatronTitles.PatronessOfTheProvinceOfQuebec,
           ],
