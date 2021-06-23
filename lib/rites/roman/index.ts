@@ -2,6 +2,7 @@ import { GeneralRoman } from '@roman-rite/general-calendar/general';
 import Temporale from '@roman-rite/general-calendar/temporale';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { RomcalConfig } from '@roman-rite/models/config';
+import LiturgicalDay from '@roman-rite/models/liturgical-day';
 import { BaseCalendarDef, LiturgicalCalendar } from '@roman-rite/types/calendar-def';
 import { BaseRomcalConfig, RomcalConfigInput } from '@roman-rite/types/config';
 import { Dates } from '@roman-rite/utils/dates';
@@ -64,6 +65,21 @@ export default class Romcal {
         reject(e);
       }
     });
+  }
+
+  /**
+   * @deprecated
+   * @param config
+   */
+  static async calendarFor(config?: RomcalConfigInput | number): Promise<LiturgicalDay[]> {
+    if (typeof config === 'number') {
+      config = { year: config };
+    }
+
+    const calendar = new Romcal(config);
+    const data = await calendar.generate();
+
+    return Object.values(data).flat();
   }
 }
 
