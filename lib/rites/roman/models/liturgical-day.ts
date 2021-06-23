@@ -232,14 +232,14 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
   readonly fromCalendar: string;
   readonly fromExtendedCalendars: LiturgyDayDiff[];
 
-  private readonly _config: RomcalConfig;
+  readonly #config: RomcalConfig;
 
   constructor(day: LiturgicalDayInput, config: RomcalConfig) {
-    this._config = config;
+    this.#config = config;
     this.key = day.key;
     this.date = dayjs.isDayjs(day.date) ? day.date.toISOString() : day.date;
     this.precedence = day.precedence;
-    this.rank = LiturgicalDay.precedenceToRank(day.precedence, day.date);
+    this.rank = LiturgicalDay.#precedenceToRank(day.precedence, day.date);
     this.rankName = config.toRankName(this.rank);
     this.isHolyDayOfObligation = !!day.isHolyDayOfObligation;
     this.name = day.name ?? day.key;
@@ -249,7 +249,7 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
     this.cycles = day.cycles;
     this.calendar = day.calendar;
 
-    this.liturgicalColors = LiturgicalDay.checkOrDetermineLiturgicalColors(
+    this.liturgicalColors = LiturgicalDay.#checkOrDetermineLiturgicalColors(
       dayjs.isDayjs(day.date) ? day.date : dayjs(day.date),
       this.rank,
       this.seasons,
@@ -273,7 +273,14 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
     this.fromExtendedCalendars = day.fromExtendedCalendars ?? [];
   }
 
-  private static precedenceToRank(
+  /**
+   * Return the corresponding Rank that correspond to a Precedence.
+   * @private
+   * @param precedence The Precedence type of the liturgical day.
+   * @param date The date of the liturgical day.
+   * @private
+   */
+  static #precedenceToRank(
     precedence: Precedences,
     date: string | Dayjs,
   ): Ranks {
@@ -295,7 +302,7 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
    * @param liturgicalColors The liturgical color(s) of the liturgical day, if defined
    * @param martyrology The martyrology items (if available) to retrieve their titles.
    */
-  private static checkOrDetermineLiturgicalColors(
+  static #checkOrDetermineLiturgicalColors(
     date: Dayjs,
     rank: Ranks,
     seasons: LiturgicalSeason[],
