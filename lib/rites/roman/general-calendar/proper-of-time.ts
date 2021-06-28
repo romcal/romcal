@@ -15,7 +15,10 @@ import { LiturgicalSeasons } from '@roman-rite/constants/seasons';
 import { WEEKDAYS } from '@roman-rite/constants/weekdays';
 import { RomcalConfig } from '@roman-rite/models/config';
 import LiturgicalDay from '@roman-rite/models/liturgical-day';
-import { TemporaleDateDefinitions, TemporaleDateDefInput } from '@roman-rite/types/calendar-def';
+import {
+  ProperOfTimeDateDefinitions,
+  ProperOfTimeDateDefInput,
+} from '@roman-rite/types/calendar-def';
 import { RomcalCalendarMetadata, RomcalCyclesMetadata } from '@roman-rite/types/liturgical-day';
 import { Dates } from '@roman-rite/utils/dates';
 import { CalendarScope } from '@romcal/constants/calendar-scope';
@@ -39,7 +42,7 @@ export class ProperOfTime {
     Pick<RomcalCalendarMetadata, 'startOfLiturgicalYear' | 'endOfLiturgicalYear'>
   > = {};
 
-  definitions: TemporaleDateDefinitions = {};
+  definitions: ProperOfTimeDateDefinitions = {};
 
   constructor(config: RomcalConfig) {
     this.#config = config;
@@ -71,7 +74,7 @@ export class ProperOfTime {
     let datesIndex: DatesIndex = {};
 
     Object.keys(this.definitions).forEach((key) => {
-      const def: TemporaleDateDefInput = this.definitions[key];
+      const def: ProperOfTimeDateDefInput = this.definitions[key];
       const date: Dayjs | null = def.date(this.#config.year);
 
       // If date is null, it means that this date doesn't occur in the given liturgical year.
@@ -95,7 +98,7 @@ export class ProperOfTime {
           calendar,
           liturgicalColors: def.liturgicalColors,
           isHolyDayOfObligation: def.isHolyDayOfObligation ?? date.day() === 0,
-          fromCalendar: 'temporale',
+          fromCalendar: 'proper_of_time',
         },
         this.#config,
       );
@@ -200,7 +203,7 @@ export class ProperOfTime {
 
     // The Nativity of the Lord.
     this.definitions[`christmas`] = {
-      precedence: Precedences.TemporaleSolemnity_2,
+      precedence: Precedences.ProperOfTimeSolemnity_2,
       date: (year) => this.dates.christmas(year - 1),
       isHolyDayOfObligation: true,
       seasons: [LiturgicalSeasons.CHRISTMAS_TIME],
@@ -312,7 +315,7 @@ export class ProperOfTime {
 
     // The Epiphany of the Lord.
     this.definitions[`epiphany`] = {
-      precedence: Precedences.TemporaleSolemnity_2,
+      precedence: Precedences.ProperOfTimeSolemnity_2,
       date: (year) => this.dates.epiphany(year),
       isHolyDayOfObligation: true,
       seasons: [LiturgicalSeasons.CHRISTMAS_TIME],
@@ -345,7 +348,7 @@ export class ProperOfTime {
 
     // The Baptism of the Lord.
     this.definitions[`baptism_of_the_lord`] = {
-      precedence: Precedences.TemporaleSolemnity_2,
+      precedence: Precedences.ProperOfTimeSolemnity_2,
       date: (year) => this.dates.baptismOfTheLord(year),
       isHolyDayOfObligation: true,
       seasons: [LiturgicalSeasons.CHRISTMAS_TIME],
@@ -549,7 +552,7 @@ export class ProperOfTime {
       const week = Math.floor(i / 7) + 1;
       const dow = i - (week - 1) * 7;
 
-      const data: TemporaleDateDefInput = {
+      const data: ProperOfTimeDateDefInput = {
         precedence: dow === 0 ? Precedences.PrivilegedSunday_2 : Precedences.Weekday_13,
         date: (year) =>
           this.dates.weekdayOrSundayOfEasterTime(dow, week, year, this.#config.ascensionOnSunday),
@@ -568,7 +571,7 @@ export class ProperOfTime {
       if (week === 6 && dow === 4) {
         this.definitions[`ascension`] = {
           ...data,
-          precedence: Precedences.TemporaleSolemnity_2,
+          precedence: Precedences.ProperOfTimeSolemnity_2,
           date: (year) => this.dates.ascension(year),
           isHolyDayOfObligation: true,
           name: this.#config.i18next.t(`roman_rite:celebrations.ascension`),
@@ -655,7 +658,7 @@ export class ProperOfTime {
           startOnMonday ? i : i + 1,
         );
 
-      const data: TemporaleDateDefInput = {
+      const data: ProperOfTimeDateDefInput = {
         precedence: dow === 0 ? Precedences.UnprivilegedSunday_6 : Precedences.Weekday_13,
         date: (year) => this.dates.dateOfOrdinaryTime(dow, week, year),
         isHolyDayOfObligation: dow === 0,
@@ -777,7 +780,7 @@ export class ProperOfTime {
       }
 
       this.#cyclesCache = {
-        properCycle: ProperCycles.TEMPORALE,
+        properCycle: ProperCycles.PROPER_OF_TIME,
         sundayCycle,
         weekdayCycle,
       };

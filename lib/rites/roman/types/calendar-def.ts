@@ -32,12 +32,12 @@ export type MartyrologyItemRedefined = {
  * General date definition collection, used in the [CalendarDef] class
  */
 export type DateDefinitions = Record<string, DateDefInput>;
-export type TemporaleDateDefinitions = Record<string, TemporaleDateDefInput>;
+export type ProperOfTimeDateDefinitions = Record<string, ProperOfTimeDateDefInput>;
 
 /**
  * Used specifically for the Proper of Time.
  */
-export type TemporaleDateDefInput = Required<
+export type ProperOfTimeDateDefInput = Required<
   Pick<LiturgicalDay, 'precedence' | 'seasons' | 'periods' | 'liturgicalColors' | 'name'>
 > & {
   date: (year: number) => Dayjs | null;
@@ -49,7 +49,7 @@ export type TemporaleDateDefInput = Required<
  */
 export type DateDefInput = Partial<Pick<LiturgicalDay, 'precedence'>> & PartialInput;
 
-// Partial type def, used bellow on TemporaleDateDefInput and DateDefInput.
+// Partial type def, used bellow on ProperOfTimeDateDefInput and DateDefInput.
 type PartialInput = {
   /**
    * Specify a custom locale key for this date definition, in this calendar.

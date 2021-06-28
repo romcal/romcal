@@ -1,4 +1,4 @@
-import { GeneralRoman } from '@roman-rite/general-calendar/general';
+import { GeneralRoman } from '@roman-rite/general-calendar/proper-of-saints';
 import { ProperOfTime } from '@roman-rite/general-calendar/proper-of-time';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { RomcalConfig } from '@roman-rite/models/config';

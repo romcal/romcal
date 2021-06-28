@@ -395,13 +395,13 @@ export class Poland extends CalendarDef {
     mary_mother_of_the_church: {
       precedence: Precedences.ProperFeast_8f,
       date: (year) => this.dates.pentecostSunday(year).add(1, 'day'),
-      properCycle: ProperCycles.TEMPORALE,
+      properCycle: ProperCycles.PROPER_OF_TIME,
     },
 
     our_lord_jesus_christ_the_eternal_high_priest: {
       precedence: Precedences.ProperFeast_8f,
       date: (year) => this.dates.pentecostSunday(year).add(4, 'day'),
-      properCycle: ProperCycles.TEMPORALE,
+      properCycle: ProperCycles.PROPER_OF_TIME,
     },
   };
 }

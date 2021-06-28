@@ -1,13 +1,10 @@
 import { LiturgicalColors } from '@roman-rite/constants/colors';
 import { ProperCycles } from '@roman-rite/constants/cycles';
 import { Precedences } from '@roman-rite/constants/precedences';
-import { Sanctorale } from '@roman-rite/general-calendar/sanctorale';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { DateDefinitions, ParticularConfig } from '@roman-rite/types/calendar-def';
 
 export class GeneralRoman extends CalendarDef {
-  inheritFrom = Sanctorale;
-
   particularConfig: ParticularConfig = {
     ascensionOnSunday: false,
     corpusChristiOnSunday: true,
@@ -66,9 +63,6 @@ export class GeneralRoman extends CalendarDef {
       date: '1-24',
     },
 
-    // The proper color for the Chair of Peter (Feast, Feb 22) and the Conversion of
-    // St. Paul (Feast, Jan 25) is white, although both St. Peter and St. Paul
-    // were martyrs.
     conversion_of_saint_paul_the_apostle: {
       precedence: Precedences.GeneralFeast_7,
       date: '1-25',
@@ -94,6 +88,13 @@ export class GeneralRoman extends CalendarDef {
     john_bosco_priest: {
       precedence: Precedences.GeneralMemorial_10,
       date: '1-31',
+    },
+
+    presentation_of_the_lord: {
+      precedence: Precedences.GeneralLordFeast_5,
+      // 02-02
+      date: (year) => this.dates.presentationOfTheLord(year),
+      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     blaise_of_sebaste_bishop: {
@@ -200,9 +201,24 @@ export class GeneralRoman extends CalendarDef {
       date: '3-18',
     },
 
+    joseph_spouse_of_mary: {
+      precedence: Precedences.GeneralSolemnity_3,
+      // 03-19
+      date: (year) => this.dates.josephSpouseOfMary(year),
+      isHolyDayOfObligation: true,
+      liturgicalColors: LiturgicalColors.WHITE,
+    },
+
     turibius_of_mogrovejo_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '3-23',
+    },
+
+    annunciation: {
+      precedence: Precedences.GeneralSolemnity_3,
+      // 03-25
+      date: (year) => this.dates.annunciation(year),
+      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     francis_of_paola_hermit: {
@@ -381,6 +397,21 @@ export class GeneralRoman extends CalendarDef {
       date: '5-31',
     },
 
+    mary_mother_of_the_church: {
+      precedence: Precedences.GeneralMemorial_10,
+      // The Monday, after Pentecost Sunday
+      date: (year) => this.dates.pentecostSunday(year).add(1, 'day'),
+      properCycle: ProperCycles.PROPER_OF_TIME,
+    },
+
+    immaculate_heart_of_mary: {
+      precedence: Precedences.GeneralMemorial_10,
+      // The Saturday, after the Solemnity of the Most Sacred Heart of Jesus
+      date: (year) => this.dates.immaculateHeartOfMary(year),
+      liturgicalColors: LiturgicalColors.WHITE,
+      properCycle: ProperCycles.PROPER_OF_TIME,
+    },
+
     justin_martyr: {
       precedence: Precedences.GeneralMemorial_10,
       date: '6-1',
@@ -445,6 +476,13 @@ export class GeneralRoman extends CalendarDef {
       martyrology: ['john_fisher_bishop', 'thomas_more_martyr'],
     },
 
+    nativity_of_john_the_baptist: {
+      precedence: Precedences.GeneralSolemnity_3,
+      // 06-24
+      date: (year) => this.dates.nativityOfJohnTheBaptist(year),
+      liturgicalColors: LiturgicalColors.WHITE,
+    },
+
     cyril_of_alexandria_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '6-27',
@@ -453,6 +491,15 @@ export class GeneralRoman extends CalendarDef {
     irenaeus_of_lyon_bishop: {
       precedence: Precedences.GeneralMemorial_10,
       date: '6-28',
+    },
+
+    peter_and_paul_apostles: {
+      precedence: Precedences.GeneralSolemnity_3,
+      // 06-29
+      date: (year) => this.dates.peterAndPaulApostles(year),
+      isHolyDayOfObligation: true,
+      liturgicalColors: LiturgicalColors.RED,
+      martyrology: ['peter_apostle', 'paul_apostle'],
     },
 
     first_martyrs_of_the_holy_roman_church: {
@@ -527,12 +574,6 @@ export class GeneralRoman extends CalendarDef {
       date: '7-22',
     },
 
-    mary_mother_of_the_church: {
-      precedence: Precedences.GeneralMemorial_10,
-      date: (year) => this.dates.pentecostSunday(year).add(1, 'day'),
-      properCycle: ProperCycles.TEMPORALE,
-    },
-
     bridget_of_sweden_religious: {
       precedence: Precedences.OptionalMemorial_12,
       date: '7-23',
@@ -596,6 +637,13 @@ export class GeneralRoman extends CalendarDef {
       date: '8-5',
     },
 
+    transfiguration: {
+      precedence: Precedences.GeneralLordFeast_5,
+      // 08-06
+      date: (year) => this.dates.transfiguration(year),
+      liturgicalColors: LiturgicalColors.WHITE,
+    },
+
     sixtus_ii_pope_and_companions_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       date: '8-7',
@@ -641,6 +689,14 @@ export class GeneralRoman extends CalendarDef {
     maximilian_kolbe_priest: {
       precedence: Precedences.GeneralMemorial_10,
       date: '8-14',
+    },
+
+    assumption: {
+      precedence: Precedences.ProperOfTimeSolemnity_2,
+      // 08-15
+      date: (year) => this.dates.assumption(year),
+      isHolyDayOfObligation: true,
+      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     stephen_i_of_hungary: {
@@ -731,7 +787,8 @@ export class GeneralRoman extends CalendarDef {
 
     exaltation_of_the_holy_cross: {
       precedence: Precedences.GeneralLordFeast_5,
-      date: '9-14',
+      // 09-14
+      date: (year) => this.dates.exaltationOfTheHolyCross(year),
       liturgicalColors: LiturgicalColors.RED,
     },
 
@@ -921,6 +978,14 @@ export class GeneralRoman extends CalendarDef {
       liturgicalColors: LiturgicalColors.RED,
     },
 
+    all_saints: {
+      precedence: Precedences.GeneralSolemnity_3,
+      // 11-01
+      date: (year) => this.dates.allSaints(year),
+      isHolyDayOfObligation: true,
+      liturgicalColors: LiturgicalColors.WHITE,
+    },
+
     all_souls: {
       precedence: Precedences.GeneralSolemnity_3,
       date: '11-2',
@@ -1037,6 +1102,14 @@ export class GeneralRoman extends CalendarDef {
     ambrose_of_milan_bishop: {
       precedence: Precedences.GeneralMemorial_10,
       date: '12-7',
+    },
+
+    immaculate_conception_of_mary: {
+      precedence: Precedences.GeneralSolemnity_3,
+      // 12-08
+      date: (year) => this.dates.immaculateConceptionOfMary(year),
+      isHolyDayOfObligation: true,
+      liturgicalColors: LiturgicalColors.WHITE,
     },
 
     juan_diego_cuauhtlatoatzin: {

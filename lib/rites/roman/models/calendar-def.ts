@@ -238,7 +238,7 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
     }
 
     // Take the first LiturgicalDay object of a specified day.
-    // The first object is always a temporale LiturgicalDay,
+    // The first object is always a LiturgicalDay from the Proper of Time,
     // since a LiturgicalDay is generated for each day of the Liturgical Year.
     const baseData: LiturgicalDay = builtData.byKeys[builtData.datesIndex[dateStr][0]];
 
@@ -306,14 +306,14 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
 
     // Retrieve and clone existing cycle data,
     // from the inherited LiturgicalDay object (if exists),
-    // of from the base data (e.i. the LiturgicalDay object from the temporale)
+    // of from the base data (e.i. the LiturgicalDay object from the Proper of Time)
     const cycles = { ...(builtData.byKeys[key]?.cycles ?? baseData.cycles) };
 
     // Apply the newly defined proper cycle
     if (def.properCycle) cycles.properCycle = def.properCycle;
-    // Or set SANCTORALE if no one is already defined
+    // Or set PROPER_OF_SAINTS if no one is already defined
     else if (!builtData.byKeys[key]) {
-      cycles.properCycle = ProperCycles.SANCTORALE;
+      cycles.properCycle = ProperCycles.PROPER_OF_SAINTS;
     }
 
     // Compute the localized name of the liturgical day.
@@ -392,7 +392,7 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
      */
     if (
       [Ranks.FEAST, Ranks.MEMORIAL].includes(builtData.byKeys[key].rank) &&
-      // below, this test prevents adding the weekday property on base temporale object,
+      // below, this test prevents adding the weekday property on a base Proper of Time object,
       // especially on all the weekdays during the Easter octave (since all theses days are Solemnities).
       baseData.key !== key
     ) {

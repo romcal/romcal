@@ -13,7 +13,7 @@ export enum Precedences {
   /**
    * 2 - The Nativity of the Lord, the Epiphany, the Ascension, or Pentecost.
    */
-  TemporaleSolemnity_2 = 'TEMPORALE_SOLEMNITY__2',
+  ProperOfTimeSolemnity_2 = 'PROPER_OF_TIME_SOLEMNITY__2',
   /**
    * 2 - A Sunday of Advent, Lent, or Easter.
    */

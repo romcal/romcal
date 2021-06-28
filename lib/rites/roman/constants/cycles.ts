@@ -2,8 +2,8 @@
  * Liturgical Day cycle that can be used as metadata for liturgical days.
  */
 export enum ProperCycles {
-  TEMPORALE = 'TEMPORALE',
-  SANCTORALE = 'SANCTORALE',
+  PROPER_OF_TIME = 'PROPER_OF_TIME',
+  PROPER_OF_SAINTS = 'PROPER_OF_SAINTS',
 }
 
 /**
