@@ -59,7 +59,7 @@ export enum Ranks {
 
 export const RanksFromPrecedence = {
   [Precedences.Triduum_1]: Ranks.WEEKDAY,
-  [Precedences.TemporaleSolemnity_2]: Ranks.SOLEMNITY,
+  [Precedences.ProperOfTimeSolemnity_2]: Ranks.SOLEMNITY,
   [Precedences.PrivilegedSunday_2]: Ranks.SUNDAY,
   [Precedences.AshWednesday_2]: Ranks.WEEKDAY,
   [Precedences.WeekdayOfHolyWeek_2]: Ranks.WEEKDAY,

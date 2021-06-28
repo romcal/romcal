@@ -267,7 +267,7 @@ export class Hungary extends CalendarDef {
     our_lord_jesus_christ_the_eternal_high_priest: {
       precedence: Precedences.ProperFeast_8f,
       date: (year) => this.dates.pentecostSunday(year).add(4, 'day'),
-      properCycle: ProperCycles.TEMPORALE,
+      properCycle: ProperCycles.PROPER_OF_TIME,
     },
 
     stephen_the_first_martyr: {

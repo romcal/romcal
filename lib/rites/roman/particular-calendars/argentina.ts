@@ -113,7 +113,7 @@ export class Argentina extends CalendarDef {
     our_lady_of_the_valley: {
       precedence: Precedences.ProperMemorial_11b,
       date: (year) => this.dates.divineMercySunday(year).add(6, 'day'),
-      properCycle: ProperCycles.TEMPORALE,
+      properCycle: ProperCycles.PROPER_OF_TIME,
     },
   };
 }
