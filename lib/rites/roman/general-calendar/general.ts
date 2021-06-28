@@ -4,8 +4,6 @@ import { Precedences } from '@roman-rite/constants/precedences';
 import { Sanctorale } from '@roman-rite/general-calendar/sanctorale';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { DateDefinitions, ParticularConfig } from '@roman-rite/types/calendar-def';
-import { Dates } from '@roman-rite/utils/dates';
-import { Dayjs } from 'dayjs';
 
 export class GeneralRoman extends CalendarDef {
   inheritFrom = Sanctorale;
@@ -66,13 +64,6 @@ export class GeneralRoman extends CalendarDef {
     francis_de_sales_bishop: {
       precedence: Precedences.GeneralMemorial_10,
       date: '1-24',
-    },
-
-    // http://www.vatican.va/content/francesco/en/motu_proprio/documents/papa-francesco-motu-proprio-20190930_aperuit-illis.html
-    sunday_of_the_word_of_god: {
-      precedence: Precedences.UnprivilegedSunday_6,
-      date: (y: number): Dayjs => Dates.baptismOfTheLord(y).add(2, 'week').startOf('week'),
-      properCycle: ProperCycles.TEMPORALE,
     },
 
     // The proper color for the Chair of Peter (Feast, Feb 22) and the Conversion of
@@ -538,7 +529,7 @@ export class GeneralRoman extends CalendarDef {
 
     mary_mother_of_the_church: {
       precedence: Precedences.GeneralMemorial_10,
-      date: (y: number): Dayjs => Dates.pentecostSunday(y).add(1, 'day'),
+      date: (year) => this.dates.pentecostSunday(year).add(1, 'day'),
       properCycle: ProperCycles.TEMPORALE,
     },
 

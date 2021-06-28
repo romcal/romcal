@@ -18,6 +18,7 @@ dayjs.extend(updateLocale);
  * The [[Config]] class encapsulates all options that can be sent to this library to adjust date output.
  */
 export class RomcalConfig implements IRoncalConfig {
+  readonly #input: RomcalConfigInput;
   readonly year: number;
   readonly particularCalendar?: typeof CalendarDef;
   readonly locale?: Locale;
@@ -29,12 +30,23 @@ export class RomcalConfig implements IRoncalConfig {
   readonly verbose: boolean;
   readonly prettyPrint: boolean;
   readonly i18next: i18n;
+  readonly dates: Dates;
+
+  /**
+   * Clone the RomcalConfig object
+   * @param year
+   */
+  clone(year: number): RomcalConfig {
+    return new RomcalConfig({ ...this.#input, year: year ?? this.year });
+  }
 
   /**
    * Constructs a new [[Config]] object.
    * @param config [[RomcalConfig]] object representing all settings.
    */
   constructor(config?: RomcalConfigInput) {
+    this.#input = config || {};
+
     this.scope = config?.scope ?? CalendarScope.Gregorian;
 
     this.year =
@@ -44,7 +56,7 @@ export class RomcalConfig implements IRoncalConfig {
         ? // Current Gregorian year
           dayjs().year()
         : // Current Liturgical year
-        dayjs().isBefore(Dates.firstSundayOfAdvent(dayjs().year()))
+        dayjs().isBefore(Dates.firstSundayOfAdvent(dayjs().year() + 1))
         ? // We are before the first Sunday of Advent, taking the current year
           dayjs().year()
         : // We are after the first Sunday of Advent, setting the next Gregorian year
@@ -69,19 +81,11 @@ export class RomcalConfig implements IRoncalConfig {
         initImmediate: false,
         // contextSeparator: '__',
         interpolation: {
-          format: function (value, format, locale) {
-            if (format === 'romanize') {
-              return toRomanNumber(parseInt(value, 10));
-            }
-            if (format === 'uppercase') {
-              return value.toUpperCase();
-            }
-            if (format === 'capitalize') {
-              return value[0].toUpperCase() + value.slice(1);
-            }
-            if (dayjs.isDayjs(value)) {
-              return value.locale(locale ?? 'en').format(format);
-            }
+          format: function (value, format) {
+            if (value === '') return value;
+            if (format === 'romanize') return toRomanNumber(parseInt(value, 10));
+            if (format === 'uppercase') return value.toUpperCase();
+            if (format === 'capitalize') return value[0].toUpperCase() + value.slice(1);
             return value;
           },
         },
@@ -93,31 +97,11 @@ export class RomcalConfig implements IRoncalConfig {
 
     // English is the default locale, used when a localized key is missing in
     // another specified locale
-    this.i18next.addResourceBundle('en', 'roman_rite', en.roman_rite);
-    this.i18next.addResourceBundle('en', 'colors', en.colors);
-    this.i18next.addResourceBundle('en', 'ordinals', en.ordinals);
-    this.i18next.addResourceBundle('en', 'martyrology', en.martyrology);
+    this.#addResourceBundles(en);
 
     // If another locale is specified, load associated ressources in the
     // i18next library.
-    if (this.locale) {
-      this.i18next.addResourceBundle(this.locale.key, 'roman_rite', this.locale.roman_rite);
-      this.i18next.addResourceBundle(this.locale.key, 'colors', this.locale.colors);
-      this.i18next.addResourceBundle(this.locale.key, 'ordinals', this.locale.ordinals);
-      this.i18next.addResourceBundle(this.locale.key, 'martyrology', this.locale.martyrology);
-    }
-
-    // Set dayjs locale
-    if (this.locale) {
-      try {
-        require(`dayjs/locale/${this.locale.key}`);
-        dayjs.locale(this.locale.key);
-      } catch (e) {
-        // logger.warn(
-        //   `Failed to load the '${this.locale.key}' locale file for the romcal’s date management library, using the default 'en' instead. Maybe '${this.locale.key}' doesn't exists in Day.js.`,
-        // );
-      }
-    }
+    if (this.locale) this.#addResourceBundles(this.locale);
 
     this.localeKey = config?.locale?.key ?? 'en';
 
@@ -135,6 +119,23 @@ export class RomcalConfig implements IRoncalConfig {
         doy: 6, // US, Canada: 1st week of the year is the one that contains the 1st of January (7 + 0 - 1)
       },
     });
+
+    // Initialize the Date library.
+    this.dates = new Dates(this);
+  }
+
+  /**
+   * Add ressource bundles to the i18next library
+   * @param locale
+   * @private
+   */
+  #addResourceBundles(locale: Locale): void {
+    this.i18next.addResourceBundle(locale.key, 'roman_rite', locale.roman_rite);
+    this.i18next.addResourceBundle(locale.key, 'weekdays', locale.weekdays);
+    this.i18next.addResourceBundle(locale.key, 'months', locale.months);
+    this.i18next.addResourceBundle(locale.key, 'colors', locale.colors);
+    this.i18next.addResourceBundle(locale.key, 'ordinals', locale.ordinals);
+    this.i18next.addResourceBundle(locale.key, 'martyrology', locale.martyrology);
   }
 
   /**

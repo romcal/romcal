@@ -62,22 +62,22 @@ export type RomcalCalendarMetadata = {
   /**
    * The first day of the liturgical day, i.e. the first Sunday of Advent.
    */
-  startOfLiturgicalYear: Date;
+  startOfLiturgicalYear: string;
 
   /**
    * The last day of the liturgical day, i.e. the last Saturday of Ordinary Time, in the 34th week.
    */
-  endOfLiturgicalYear: Date;
+  endOfLiturgicalYear: string;
 
   /**
    * The first day of the current liturgical season.
    */
-  startOfSeason: Date;
+  startOfSeason: string;
 
   /**
    * The last day of the current liturgical season.
    */
-  endOfSeason: Date;
+  endOfSeason: string;
 };
 
 export type LiturgyDayDiff = Pick<LiturgicalDay, 'fromCalendar'> &
@@ -164,7 +164,7 @@ export interface BaseLiturgicalDay {
   /**
    * The liturgical colors of a liturgical day.
    */
-  liturgicalColors: LiturgicalColor[];
+  liturgicalColors?: LiturgicalColor[];
 
   /**
    * The specific martyrology metadata of a liturgical day, if applies.

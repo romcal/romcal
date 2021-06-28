@@ -3,9 +3,7 @@ import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { Americas } from '@roman-rite/particular-calendars/americas';
 import { DateDefinitions } from '@roman-rite/types/calendar-def';
-import { Dates } from '@roman-rite/utils/dates';
 import { PatronTitles } from '@romcal/constants/martyrology-metadata';
-import dayjs, { Dayjs } from 'dayjs';
 
 export class Argentina extends CalendarDef {
   inheritFrom = Americas;
@@ -114,7 +112,7 @@ export class Argentina extends CalendarDef {
 
     our_lady_of_the_valley: {
       precedence: Precedences.ProperMemorial_11b,
-      date: (year: number): Dayjs => dayjs.utc(Dates.divineMercySunday(year).add(6, 'day')),
+      date: (year) => this.dates.divineMercySunday(year).add(6, 'day'),
       properCycle: ProperCycles.TEMPORALE,
     },
   };

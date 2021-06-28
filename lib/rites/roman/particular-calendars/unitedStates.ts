@@ -2,7 +2,6 @@ import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { Americas } from '@roman-rite/particular-calendars/americas';
 import { DateDefinitions, ParticularConfig } from '@roman-rite/types/calendar-def';
-import { Dates } from '@roman-rite/utils/dates';
 import { PatronTitles } from '@romcal/constants/martyrology-metadata';
 
 export class UnitedStates extends CalendarDef {
@@ -122,8 +121,7 @@ export class UnitedStates extends CalendarDef {
     immaculate_conception_of_mary: {
       customLocaleKey: 'immaculate_conception_of_mary_patroness_of_the_usa',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      isHolyDayOfObligation: (year: number): boolean =>
-        Dates.immaculateConceptionOfMary(year).day() === 0,
+      isHolyDayOfObligation: () => this.dates.immaculateConceptionOfMary().day() === 0,
       titles: (titles) => [...titles, PatronTitles.PatronessOfTheUSA],
     },
   };

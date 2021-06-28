@@ -36,7 +36,7 @@ export const computeGregorianEasterDate = (year: number): Record<string, number>
  * @param end The end date
  * @returns An array of dates representing the range
  */
-export const rangeOfDays = (start: Dayjs, end: Dayjs): Dayjs[] => {
+export const rangeOfDays = (start: Dayjs, end: Dayjs, title?: string): Dayjs[] => {
   const days = end.diff(start, 'day');
   const range: Dayjs[] = [];
   Array.from(new Array(days + 1), (_x, i) => {

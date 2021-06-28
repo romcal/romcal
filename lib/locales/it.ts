@@ -7,31 +7,33 @@ export const locale: Locale = {
     seasons: {
       advent: {
         season: 'Tempo du Avvento',
-        weekday: '{{day, capitalize}} della {{week, romanize}} settimana di Avvento',
+        weekday: '$t(weekdays:{{dow}}, capitalize) della {{week, romanize}} settimana di Avvento',
         sunday: '{{week, romanize}} domenica di Avvento',
+        privileged_weekday: '{{day}} $t(months:11)',
       },
 
       christmas_time: {
         season: 'Tempo di Natale',
-        day: '{{day, capitalize}} di Natale',
+        day: '$t(weekdays:{{dow}}, capitalize) di Natale',
         octave: '{{count}}º giorno fra l’Ottava di Natale',
         second_sunday_after_christmas: 'II domenica dopo Natale',
-        before_epiphany: '{{day, capitalize}} prima dell’Epifania',
-        after_epiphany: '{{day, capitalize}} dopo l’Epifania',
+        before_epiphany: '{{day}} $t(months:0)',
+        after_epiphany: '$t(weekdays:{{dow}}, capitalize) dopo l’Epifania',
       },
 
       ordinary_time: {
         season: 'Tempo Ordinario',
-        weekday: '{{day, capitalize}} della {{week, romanize}} settimana del Tempo Ordinario',
+        weekday:
+          '$t(weekdays:{{dow}}, capitalize) della {{week, romanize}} settimana del Tempo Ordinario',
         sunday: '{{week, romanize}} domenica del Tempo Ordinario',
       },
 
       lent: {
         season: 'Tempo di Quaresima',
-        weekday: '{{day, capitalize}} della {{week, romanize}} settimana di Quaresima',
+        weekday: '$t(weekdays:{{dow}}, capitalize) della {{week, romanize}} settimana di Quaresima',
         sunday: '{{week, romanize}} domenica di Quaresima',
-        day_after_ash_wed: '{{day, capitalize}} dopo le Ceneri',
-        holy_week_day: '{{day, capitalize}} della Settimana Santa',
+        day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) dopo le Ceneri',
+        holy_week_day: '$t(weekdays:{{dow}}, capitalize) della Settimana Santa',
       },
 
       paschal_triduum: {
@@ -40,9 +42,9 @@ export const locale: Locale = {
 
       easter_time: {
         season: 'Tempo di Pasqua',
-        weekday: '{{day, capitalize}} della {{week, romanize}} settimana di Pasqua',
+        weekday: '$t(weekdays:{{dow}}, capitalize) della {{week, romanize}} settimana di Pasqua',
         sunday: '{{week, romanize}} domenica di Pasqua',
-        octave: '{{day, capitalize}} fra l’Ottava di Pasqua',
+        octave: '$t(weekdays:{{dow}}, capitalize) fra l’Ottava di Pasqua',
       },
     },
 
@@ -63,20 +65,20 @@ export const locale: Locale = {
       all_saints: 'Tutti i Santi',
       annunciation: 'Annunciazione del Signore',
       ascension: 'Ascensione del Signore',
-      ash_wednesday: 'Mercoledí delle Ceneri',
+      ash_wednesday: 'Mercoledì delle Ceneri',
       assumption: 'Assunzione della Beata Vergine Maria',
       baptism_of_the_lord: 'Battesimo del Signore',
       christ_the_king_sunday: 'Cristo Re dell’universo',
       christmas: 'Natale del Signore',
       corpus_christi: 'Santissimo Corpo e Sangue di Cristo',
-      divine_mercy_sunday: '2º domenica di Pasqua / Divina Misericordia',
+      divine_mercy_sunday: 'II domenica di Pasqua / Divina Misericordia',
       easter_sunday: 'Domenica di Pasqua / Risurrezione del Signore',
       epiphany: 'Epifania del Signore',
       exaltation_of_the_holy_cross: 'Esaltazione della Santa Croce',
-      good_friday: 'Venerdí Santo',
+      good_friday: 'Venerdì Santo / Passione del Signore',
       holy_family: 'Santa Famiglia di Gesú, Maria e Giuseppe',
       holy_saturday: 'Sabato Santo / Vigilia di Pasqua',
-      holy_thursday: 'Giovedí Santo',
+      holy_thursday: 'Giovedì Santo',
       immaculate_conception_of_mary: 'Immacolata Concezione della Beata Vergine Maria',
       immaculate_heart_of_mary: 'Cuore Immacolato della Beata Vergine Maria',
       joseph_spouse_of_mary: 'San Giuseppe, sposo della Beata Vergine Maria',
@@ -87,9 +89,36 @@ export const locale: Locale = {
       pentecost_sunday: 'Domenica di Pentecoste',
       peter_and_paul_apostles: 'Santi Pietro e Paolo, apostoli',
       presentation_of_the_lord: 'Presentazione del Signore',
+      sunday_of_the_word_of_god: 'III domenica del Tempo Ordinario / Domenica della Parola di Dio',
+      thursday_of_the_lord_s_supper: 'Giovedì Santo / Cena del Signore',
       transfiguration: 'Trasfigurazione del Signore',
       trinity_sunday: 'Santissima Trinitá',
     },
+  },
+
+  weekdays: {
+    0: 'domenica',
+    1: 'lunedì',
+    2: 'martedì',
+    3: 'mercoledì',
+    4: 'giovedì',
+    5: 'venerdì',
+    6: 'sabato',
+  },
+
+  months: {
+    0: 'gennaio',
+    1: 'febbraio',
+    2: 'marzo',
+    3: 'aprile',
+    4: 'maggio',
+    5: 'giugno',
+    6: 'luglio',
+    7: 'agosto',
+    8: 'settembre',
+    9: 'ottobre',
+    10: 'novembre',
+    11: 'dicembre',
   },
 
   colors: {
@@ -400,7 +429,6 @@ export const locale: Locale = {
       'Santo Stanislao, vescovo, martire e patrono della Polonia',
     stephen_i_of_hungary: 'Santo Stefano di Ungheria',
     stephen_the_first_martyr: 'Santo Stefano, primo martire',
-    sunday_of_the_word_of_god: 'Domenica della Parola di Dio / III domenica del Tempo Ordinario',
     sylvester_i_pope: 'San Silvestro I, papa',
     teresa_benedicta_of_the_cross_stein_virgin:
       'Santa Teresa Benedetta della Croce, vergine e martire',

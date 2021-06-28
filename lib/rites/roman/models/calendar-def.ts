@@ -2,7 +2,7 @@ import { ProperCycles } from '@roman-rite/constants/cycles';
 import { LiturgicalPeriods } from '@roman-rite/constants/periods';
 import { Precedences, PRECEDENCES } from '@roman-rite/constants/precedences';
 import { Ranks } from '@roman-rite/constants/ranks';
-import { LiturgicalDefBuiltData } from '@roman-rite/general-calendar/temporale';
+import { LiturgicalDefBuiltData } from '@roman-rite/general-calendar/proper-of-time';
 import { RomcalConfig } from '@roman-rite/models/config';
 import LiturgicalDay from '@roman-rite/models/liturgical-day';
 import {
@@ -11,17 +11,20 @@ import {
   DateDefInput,
   ICalendarDef,
   LiturgicalCalendar,
+  MartyrologyItemRedefined,
   ParticularConfig,
 } from '@roman-rite/types/calendar-def';
 import { RomcalConfigInput } from '@roman-rite/types/config';
 import { LiturgyDayDiff } from '@roman-rite/types/liturgical-day';
+import { Dates } from '@roman-rite/utils/dates';
 import { Martyrology } from '@romcal/catalog/martyrology';
 import { CalendarScope } from '@romcal/constants/calendar-scope';
 import { MartyrologyItem } from '@romcal/types/martyrology';
-import dayjs from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
 
 export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
   readonly #config: RomcalConfig;
+  readonly dates: Dates;
   inheritFrom?: BaseCalendarDef | null;
   inheritFromInstance?: InstanceType<BaseCalendarDef>;
   readonly particularConfig?: ParticularConfig;
@@ -43,6 +46,7 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
 
   constructor(config: RomcalConfig) {
     this.#config = config;
+    this.dates = this.#config.dates;
   }
 
   /**
@@ -63,6 +67,7 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
     // Combine the provided user configuration,
     // the particular configuration from this calendar,
     // and the sanitized configuration.
+
     this.#config.epiphanyOnSunday =
       input?.epiphanyOnSunday ??
       this.particularConfig?.epiphanyOnSunday ??
@@ -94,7 +99,7 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
       this.#retrieveInheritedCal(inheritedCal.inheritFromInstance, builtData);
     }
 
-    inheritedCal.buildDates(builtData);
+    inheritedCal.buildAllDates(builtData);
   }
 
   /**
@@ -102,7 +107,7 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
    * and extend the already built data with these new objects.
    * @param builtData - The already build data, that will be extended in this method.
    */
-  buildDates(builtData: LiturgicalDefBuiltData): LiturgicalDefBuiltData {
+  buildAllDates(builtData: LiturgicalDefBuiltData): LiturgicalDefBuiltData {
     const definitions = Object.keys(this.definitions);
 
     if (this.inheritFromInstance) {
@@ -111,100 +116,141 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
 
     definitions.forEach((key) => {
       const def: DateDefInput = this.definitions[key];
+      this.#datesLookup(builtData, def).forEach((dateInput) =>
+        this.#buildDate(builtData, key, def, dateInput),
+      );
+    });
 
-      // Because a Liturgical Year is straddling 2 Gregorian year,
-      // we need to compute the date on the 2 Gregorian years,
-      // and then determine the one to keep between both.
-      let dateInputPreviousYear;
-      let dateInputCurrentYear;
-      let dateInput;
+    return builtData;
+  }
 
-      // If a date definition is defined,
-      // it should be a string or a function.
-      if (def.date) {
-        if (this.#config.scope === CalendarScope.Liturgical) {
-          dateInputPreviousYear =
-            typeof def.date === 'string'
-              ? dayjs.utc(`${this.#config.year - 1}-${def.date}`)
-              : def.date(this.#config.year - 1);
-        }
+  /**
+   * Lookup for Gregorian dates from the date definitions.
+   * @private
+   * @param builtData The already build data that will extend the inherited data.
+   * @param def The definition of the liturgical day.
+   */
+  #datesLookup(builtData: LiturgicalDefBuiltData, def: DateDefInput): (Dayjs | null | undefined)[] {
+    // Because a Liturgical Year is straddling 2 Gregorian year,
+    // we need to compute the date on the 2 Gregorian years,
+    // and then determine the one to keep between both.
+    let dateInputPreviousYear;
+    let dateInputCurrentYear;
+    const datesInput: (Dayjs | null | undefined)[] = [];
 
-        dateInputCurrentYear =
+    // If a date definition is defined,
+    // it should be a string or a function.
+    if (def.date) {
+      if (this.#config.scope === CalendarScope.Liturgical) {
+        dateInputPreviousYear =
           typeof def.date === 'string'
-            ? dayjs.utc(`${this.#config.year}-${def.date}`)
-            : def.date(this.#config.year);
-
-        const dateInputPreviousYearStr = dateInputPreviousYear?.format('YYYY-MM-DD');
-
-        const dateInputCurrentYearStr = dateInputCurrentYear.format('YYYY-MM-DD');
-
-        // Lookup for a matching date object, to keep the relevant date
-        if (
-          dateInputPreviousYearStr &&
-          Array.isArray(builtData.datesIndex[dateInputPreviousYearStr])
-        ) {
-          dateInput = dateInputPreviousYear;
-        } else if (Array.isArray(builtData.datesIndex[dateInputCurrentYearStr])) {
-          dateInput = dateInputCurrentYear;
-        }
-        // A temporale LiturgicalDay is generated for each day of the Liturgical Year.
-        // If above no LiturgicalDay date was found, it means that the date
-        // computing is out of scope. In this case romcal must throw an error.
-        else {
-          throw new Error(
-            `In the '${this.calendarName}' calendar, , DateDefInput with key '${key}' have a date out of scope.`,
-          );
-        }
+            ? dayjs.utc(`${this.#config.year - 1}-${def.date}`)
+            : def.date(this.#config.year - 1);
       }
 
-      const dateStr = (dateInput ?? dayjs(builtData.byKeys[key].date)).format('YYYY-MM-DD');
+      dateInputCurrentYear =
+        typeof def.date === 'string'
+          ? dayjs.utc(`${this.#config.year}-${def.date}`)
+          : def.date(this.#config.year);
 
-      // Delete a LiturgicalDay has the `drop: true` property
-      if (def.drop) {
-        if (!builtData.byKeys[key]) {
-          throw new Error(
-            `In the '${this.calendarName}' calendar, trying to drop a LiturgicalDay that doesn't exists: '${key}'.`,
-          );
-        } else if (builtData.datesIndex[dateStr].length === 1) {
-          throw new Error(
-            `In the '${this.calendarName}' calendar, you can't drop a LiturgicalDay from the Proper of Time: '${key}'.`,
-          );
-        } else {
-          delete builtData.byKeys[key];
-          builtData.datesIndex[dateStr] = builtData.datesIndex[dateStr].filter((k) => k !== key);
-        }
-        return;
+      const dateInputPreviousYearStr = dateInputPreviousYear?.format('YYYY-MM-DD');
+      const dateInputCurrentYearStr = dateInputCurrentYear?.format('YYYY-MM-DD');
+
+      // Lookup for a matching date object, to keep the relevant date
+      if (
+        dateInputPreviousYearStr &&
+        Array.isArray(builtData.datesIndex[dateInputPreviousYearStr])
+      ) {
+        datesInput.push(dateInputPreviousYear);
+      } else if (
+        dateInputCurrentYearStr &&
+        Array.isArray(builtData.datesIndex[dateInputCurrentYearStr])
+      ) {
+        datesInput.push(dateInputCurrentYear);
       }
 
-      // If no date is defined, and no inherited LiturgicalDay exists,
-      // romcal must throw an error.
-      if (!builtData.byKeys[key] && !dateInput) {
+      // Some liturgical days may be celebrated twice within the same Liturgical year.
+      // E.g., Saint Andrew, the Apostle, is celebrated November 30.
+      // This celebration can be both at the beginning of Advent (if it starts before November 30),
+      // and at the end of the Ordinary Time (if it end the or after November 30).
+      if (
+        dateInputPreviousYearStr &&
+        Array.isArray(builtData.datesIndex[dateInputPreviousYearStr]) &&
+        dateInputCurrentYearStr &&
+        Array.isArray(builtData.datesIndex[dateInputCurrentYearStr])
+      ) {
+        datesInput.push(dateInputCurrentYear);
+      }
+    }
+
+    return datesInput;
+  }
+
+  /**
+   * Build a LiturgicalDay object from a date definition, defined in this calendar,
+   * and extend the already built data with this new objects.
+   * @private
+   * @param builtData The already build data that will extend the inherited data.
+   * @param key The key of the LiturgicalDay to create.
+   * @param def The definition of the liturgical day.
+   * @param dateInput The matching date of the liturgical day definition.
+   */
+  #buildDate(
+    builtData: LiturgicalDefBuiltData,
+    key: Lowercase<string>,
+    def: DateDefInput,
+    dateInput: Dayjs | null | undefined,
+  ): void {
+    const dateStr = (dateInput ?? dayjs(builtData.byKeys[key].date)).format('YYYY-MM-DD');
+
+    // Delete a LiturgicalDay that has the `drop: true` property
+    // or that have a `date` function returning `null`.
+    if (def.drop || (typeof def.date === 'function' && def.date(this.#config.year) === null)) {
+      if (!builtData.byKeys[key]) {
         throw new Error(
-          `In the '${this.calendarName}' calendar, DateDefInput with key '${key}' must have a 'date' defined.`,
+          `In the '${this.calendarName}' calendar, trying to drop a LiturgicalDay that doesn't exists: '${key}'.`,
         );
-      }
-
-      // If no precedence type is set, and no inherited LiturgicalDay exists,
-      // romcal must throw an error.
-      if (!builtData.byKeys[key] && !def.precedence) {
+      } else if (builtData.datesIndex[dateStr].length === 1) {
         throw new Error(
-          `In the '${this.calendarName}' calendar, DateDefInput with key '${key}' must have a 'precedence' defined.`,
+          `In the '${this.calendarName}' calendar, you can't drop a LiturgicalDay from the Proper of Time: '${key}'.`,
         );
+      } else {
+        delete builtData.byKeys[key];
+        builtData.datesIndex[dateStr] = builtData.datesIndex[dateStr].filter((k) => k !== key);
       }
+      return;
+    }
 
-      // Take the first LiturgicalDay object of a specified day.
-      // The first object is always a temporale LiturgicalDay,
-      // since a LiturgicalDay is generated for each day of the Liturgical Year.
-      const baseData: LiturgicalDay = builtData.byKeys[builtData.datesIndex[dateStr][0]];
+    // If no date is defined, and no inherited LiturgicalDay exists,
+    // romcal must throw an error.
+    if (!builtData.byKeys[key] && !dateInput) {
+      throw new Error(
+        `In the '${this.calendarName}' calendar, DateDefInput with key '${key}' must have a 'date' defined.`,
+      );
+    }
 
-      // Retrieve the Martyrology items from the inherited LiturgicalDay object,
-      // or create a new empty list.
-      const martyrology: MartyrologyItem[] = builtData.byKeys[key]?.martyrology ?? [];
+    // If no precedence type is set, and no inherited LiturgicalDay exists,
+    // romcal must throw an error.
+    if (!builtData.byKeys[key] && !def.precedence) {
+      throw new Error(
+        `In the '${this.calendarName}' calendar, DateDefInput with key '${key}' must have a 'precedence' defined.`,
+      );
+    }
 
-      // [1] Then, check if Martyrology data exists from the date definition;
-      // [2] if martyrology data no not exists, but an inherited LiturgicalDay exists: do nothing more;
-      // [3] if martyrology no not exists, and there is no inheritance: take the date key as the martyrology item key.
-      (def.martyrology ?? (builtData.byKeys[key] && []) ?? [key]).forEach((id) => {
+    // Take the first LiturgicalDay object of a specified day.
+    // The first object is always a temporale LiturgicalDay,
+    // since a LiturgicalDay is generated for each day of the Liturgical Year.
+    const baseData: LiturgicalDay = builtData.byKeys[builtData.datesIndex[dateStr][0]];
+
+    // Retrieve the Martyrology items from the inherited LiturgicalDay object,
+    // or create a new empty list.
+    const martyrology: MartyrologyItem[] = builtData.byKeys[key]?.martyrology ?? [];
+
+    // [1] Then, check if Martyrology data exists from the date definition;
+    // [2] if martyrology data no not exists, but an inherited LiturgicalDay exists: do nothing more;
+    // [3] if martyrology no not exists, and there is no inheritance: take the date key as the martyrology item key.
+    (def.martyrology ?? (builtData.byKeys[key] && []) ?? [key]).forEach(
+      (id: string | MartyrologyItemRedefined) => {
         const pointer = typeof id === 'string' ? { key: id } : id;
 
         // Add the matching Martyrology item in the Martyrology list defined above this forEach loop.
@@ -255,111 +301,108 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
             `In the '${this.calendarName}' calendar, a LiturgicalDay with the key '${key}', have a badly referenced martyrology item: '${pointer.key}'.`,
           );
         }
-      });
+      },
+    );
 
-      // Retrieve and clone existing cycle data,
-      // from the inherited LiturgicalDay object (if exists),
-      // of from the base data (e.i. the LiturgicalDay object from the temporale)
-      const cycles = { ...(builtData.byKeys[key]?.cycles ?? baseData.cycles) };
+    // Retrieve and clone existing cycle data,
+    // from the inherited LiturgicalDay object (if exists),
+    // of from the base data (e.i. the LiturgicalDay object from the temporale)
+    const cycles = { ...(builtData.byKeys[key]?.cycles ?? baseData.cycles) };
 
-      // Apply the newly defined proper cycle
-      if (def.properCycle) cycles.properCycle = def.properCycle;
-      // Or set SANCTORALE if no one is already defined
-      else if (!builtData.byKeys[key]) {
-        cycles.properCycle = ProperCycles.SANCTORALE;
-      }
+    // Apply the newly defined proper cycle
+    if (def.properCycle) cycles.properCycle = def.properCycle;
+    // Or set SANCTORALE if no one is already defined
+    else if (!builtData.byKeys[key]) {
+      cycles.properCycle = ProperCycles.SANCTORALE;
+    }
 
-      // Compute the localized name of the liturgical day.
-      let name =
-        builtData.byKeys[key]?.name ??
-        this.#config.i18next.t('martyrology:' + (def.customLocaleKey ?? key));
-      // If not found in the Martyrology catalog, have a look in the Roman celebrations.
-      if (name === (def.customLocaleKey ?? key)) {
-        name = this.#config.i18next.t('roman_rite:celebrations.' + (def.customLocaleKey ?? key));
-      }
-      // Finally, if there is no localization, romcal must throw an error,
-      // because it should have at least a localization in English.
-      if (name === `celebrations.${key}`) {
-        throw new Error(`Locale key '${key}' is missing.`);
-      }
+    // Compute the localized name of the liturgical day.
+    let name =
+      builtData.byKeys[key]?.name ??
+      this.#config.i18next.t('martyrology:' + (def.customLocaleKey ?? key));
+    // If not found in the Martyrology catalog, have a look in the Roman celebrations.
+    if (name === (def.customLocaleKey ?? key)) {
+      name = this.#config.i18next.t('roman_rite:celebrations.' + (def.customLocaleKey ?? key));
+    }
+    // Finally, if there is no localization, romcal must throw an error,
+    // because it should have at least a localization in English.
+    if (name === `celebrations.${key}`) {
+      throw new Error(`Locale key '${key}' is missing.`);
+    }
 
-      // Create a new LiturgicalDay from existing and new data
-      const liturgicalDay = new LiturgicalDay(
-        {
-          // Import the base liturgical day, but exclude its name & liturgical color
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
-          ...(({ name, liturgicalColors, ...o }) => o)(baseData),
+    // Create a new LiturgicalDay from existing and new data
+    const liturgicalDay = new LiturgicalDay(
+      {
+        // Import the base liturgical day, but exclude its name & liturgical color
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        ...(({ name, liturgicalColors, ...o }) => o)(baseData),
 
-          // Import the inherited liturgical day to extend
-          ...(builtData.byKeys[key] ?? {}),
+        // Import the inherited liturgical day to extend
+        ...(builtData.byKeys[key] ?? {}),
 
-          // Set new object data
-          key,
-          name,
-          ...(dateInput ? { date: dateInput } : {}),
-          ...(def.precedence ? { precedence: def.precedence } : {}),
-          ...(def.liturgicalColors
-            ? {
-                liturgicalColors: Array.isArray(def.liturgicalColors)
-                  ? def.liturgicalColors
-                  : [def.liturgicalColors],
-              }
-            : {}),
-          ...(def.isHolyDayOfObligation
-            ? {
-                isHolyDayOfObligation:
-                  typeof def.isHolyDayOfObligation === 'function'
-                    ? def.isHolyDayOfObligation(this.#config.year)
-                    : def.isHolyDayOfObligation,
-              }
-            : {}),
-          cycles,
-          martyrology,
-          fromCalendar: this.calendarName,
-        },
-        this.#config,
-      );
+        // Set new object data
+        key,
+        name,
+        ...(dateInput ? { date: dateInput } : {}),
+        ...(def.precedence ? { precedence: def.precedence } : {}),
+        ...(def.liturgicalColors
+          ? {
+              liturgicalColors: Array.isArray(def.liturgicalColors)
+                ? def.liturgicalColors
+                : [def.liturgicalColors],
+            }
+          : {}),
+        ...(def.isHolyDayOfObligation
+          ? {
+              isHolyDayOfObligation:
+                typeof def.isHolyDayOfObligation === 'function'
+                  ? def.isHolyDayOfObligation(this.#config.year)
+                  : def.isHolyDayOfObligation,
+            }
+          : {}),
+        cycles,
+        martyrology,
+        fromCalendar: this.calendarName,
+      },
+      this.#config,
+    );
 
-      // Check object differences between the previously inherited object
-      // and the new one
-      if (builtData.byKeys[key]) {
-        const diff = this.#getLiturgicalDayDiff(builtData.byKeys[key], liturgicalDay);
-        // Store object diffs in the new LiturgicalDay object
-        if (diff) liturgicalDay.fromExtendedCalendars.push(diff);
-      }
+    // Check object differences between the previously inherited object
+    // and the new one
+    if (builtData.byKeys[key]) {
+      const diff = this.#getLiturgicalDayDiff(builtData.byKeys[key], liturgicalDay);
+      // Store object diffs in the new LiturgicalDay object
+      if (diff) liturgicalDay.fromExtendedCalendars.push(diff);
+    }
 
-      // Create or overwrite the new or updated LiturgicalDay
-      builtData.byKeys[key] = liturgicalDay;
+    // Create or overwrite the new or updated LiturgicalDay
+    builtData.byKeys[key] = liturgicalDay;
 
-      /**
-       * For Memorial and Feast celebrations only, the weekday property is added
-       * containing the LiturgicalDay object of the base weekday.
-       * Otherwise, this object is removed.
-       *
-       * - Memorials: their observance is integrated into the celebration of the occurring weekday
-       *   in accordance with the norms set forth in the General Instruction of the Roman
-       *   Missal and of the Liturgy of the Hours. (UNLY #14)
-       * - Liturgy of the hours: // todo: cite precise sources from the General Instructions of the Liturgy of the hours
-       *    - Memorials: the liturgy of the hour remain the one of the weekday.
-       *    - Feasts: small hours are taken from the weekday.
-       */
-      if (
-        [Ranks.FEAST, Ranks.MEMORIAL].includes(builtData.byKeys[key].rank) &&
-        // below, this test prevents adding the weekday property on base temporale object,
-        // especially on all the weekdays during the Easter octave (since all theses days are Solemnities).
-        baseData.key !== key
-      ) {
-        builtData.byKeys[key].weekday = baseData;
-      } else {
-        delete builtData.byKeys[key].weekday;
-      }
+    /**
+     * For Memorial and Feast celebrations only, the weekday property is added
+     * containing the LiturgicalDay object of the base weekday.
+     * Otherwise, this object is removed.
+     *
+     * - Memorials: their observance is integrated into the celebration of the occurring weekday
+     *   in accordance with the norms set forth in the General Instruction of the Roman
+     *   Missal and of the Liturgy of the Hours. (UNLY #14)
+     * - Liturgy of the hours: // todo: cite precise sources from the General Instructions of the Liturgy of the hours
+     *    - Memorials: the liturgy of the hour remain the one of the weekday.
+     *    - Feasts: small hours are taken from the weekday.
+     */
+    if (
+      [Ranks.FEAST, Ranks.MEMORIAL].includes(builtData.byKeys[key].rank) &&
+      // below, this test prevents adding the weekday property on base temporale object,
+      // especially on all the weekdays during the Easter octave (since all theses days are Solemnities).
+      baseData.key !== key
+    ) {
+      builtData.byKeys[key].weekday = baseData;
+    } else {
+      delete builtData.byKeys[key].weekday;
+    }
 
-      // Now update the datesIndex object if it not already contains the matching key
-      builtData.datesIndex[dateStr].indexOf(key) === -1 &&
-        builtData.datesIndex[dateStr].unshift(key);
-    });
-
-    return builtData;
+    // Now update the datesIndex object if it not already contains the matching key
+    builtData.datesIndex[dateStr].indexOf(key) === -1 && builtData.datesIndex[dateStr].unshift(key);
   }
 
   /**
@@ -412,6 +455,7 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
     const finalData: LiturgicalCalendar = {};
 
     Object.keys(builtData.datesIndex).forEach((dateStr) => {
+      // Order the LiturgicalDays objects, following the precedence rules defined in the UNLY #49.
       const dates: LiturgicalDay[] = builtData.datesIndex[dateStr]
         .map((key) => builtData.byKeys[key])
         .sort(({ precedence: firstPrecedence }, { precedence: nextPrecedence }) => {
@@ -421,6 +465,28 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
           if (type1 > type2) return 1;
           return 0;
         });
+
+      // Exception the Thursday within the Holy Week, this day contain 2 liturgical days, i.e.:
+      //
+      // - The weekday of Holy Thursday and the season of Lent is finishing just before the
+      //   mass of the Lord’s Supper memorial.
+      //   UNLY #28. The forty days of Lent run from Ash Wednesday up to but excluding the Mass of
+      //   the Lord’s Supper exclusive.
+      //
+      // - The Paschal Triduum starts from the mass of the Lord’s Supper memorial.
+      //   UNLY #19. The Paschal Triduum of the Passion and Resurrection of the Lord begins with the
+      //   evening Mass of the Lord’s Supper, has its centre in the Easter Vigil, and closes with
+      //   Vespers (Evening Prayer) of the Sunday of the Resurrection.
+      //
+      // These 2 liturgical day entities needs to be separated, because they do not have the same
+      // metadata: different liturgical colors, seasons, rank, precedence...
+      // The mass (Chrismal Mass on Holy Thursday, and the Mass the Lord’s Supper the evening), as
+      // well as the liturgy of the hours are also different.
+      let thursdayOfTheLordsSupper: LiturgicalDay | null = null;
+      if (dates[0].key === 'thursday_of_the_lord_s_supper') {
+        thursdayOfTheLordsSupper = dates[0];
+        dates.shift();
+      }
 
       // - The first item in the array correspond to the Liturgical Day that take precedence.
       // - When multiple LiturgicalDay objects are output the same day, it means that all other
@@ -483,7 +549,11 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
           .map((d) => (d.isOptional = true) && d);
       }
 
-      finalData[dateStr] = [defaultLiturgicalDay, ...optionalMemorials];
+      finalData[dateStr] = [
+        defaultLiturgicalDay,
+        ...optionalMemorials,
+        ...(thursdayOfTheLordsSupper ? [thursdayOfTheLordsSupper] : []),
+      ];
     });
 
     return finalData;

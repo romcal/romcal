@@ -3,9 +3,8 @@ import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { Europe } from '@roman-rite/particular-calendars/europe';
 import { DateDefinitions } from '@roman-rite/types/calendar-def';
-import { Dates } from '@roman-rite/utils/dates';
 import { PatronTitles } from '@romcal/constants/martyrology-metadata';
-import dayjs, { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 
 export class England extends CalendarDef {
   inheritFrom = Europe;
@@ -34,15 +33,14 @@ export class England extends CalendarDef {
     george_of_lydda_martyr: {
       customLocaleKey: 'george_of_lydda_martyr_patron_of_england',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      date: (year: number): Dayjs => {
+      date: (year) => {
         const date = dayjs.utc(`${year}-4-23`);
-        const palmSunday = Dates.palmSunday(year);
-        const divineMercySunday = Dates.divineMercySunday(year);
 
         // When it falls between Palm Sunday and the Second Sunday of Easter inclusive,
         // it is transferred to the Monday after the Second Sunday of Easter
-        return date.isSameOrAfter(palmSunday) && date.isSameOrBefore(divineMercySunday)
-          ? divineMercySunday.add(1, 'day')
+        return date.isSameOrAfter(this.dates.palmSunday()) &&
+          date.isSameOrBefore(this.dates.divineMercySunday())
+          ? this.dates.divineMercySunday().add(1, 'day')
           : date;
       },
       titles: (titles) => [...titles, PatronTitles.PatronOfEngland],
@@ -179,7 +177,7 @@ export class England extends CalendarDef {
     // In England and Wales when the celebration falls on either a
     // Saturday or a Monday it is transferred to the Sunday.
     peter_and_paul_apostles: {
-      date: (year: number): Dayjs => {
+      date: (year) => {
         const date = dayjs.utc(`${year}-6-29`);
         if (date.day() === 1) {
           return date.subtract(1, 'day');
@@ -194,7 +192,7 @@ export class England extends CalendarDef {
     // In England and Wales when the celebration falls on either a
     // Saturday or a Monday it is transferred to the Sunday.
     assumption: {
-      date: (year: number): dayjs.Dayjs => {
+      date: (year) => {
         const date = dayjs.utc(`${year}-8-15`);
         if (date.day() === 1) {
           return date.subtract(1, 'day');
@@ -268,7 +266,7 @@ export class England extends CalendarDef {
     // However, in countries (not England & Wales) where it falls
     // on a Sunday it replaces the Sunday.
     all_saints: {
-      date: (year: number): dayjs.Dayjs => {
+      date: (year) => {
         const date = dayjs.utc(`${year}-11-1`);
         if (date.day() === 6) {
           return dayjs.utc(`${year}-11-2`);
@@ -279,7 +277,7 @@ export class England extends CalendarDef {
     },
 
     all_souls: {
-      date: (year: number): dayjs.Dayjs => {
+      date: (year) => {
         const date = dayjs.utc(`${year}-11-1`);
         if (date.day() === 6) {
           // If All Saints is on Saturday
@@ -299,7 +297,7 @@ export class England extends CalendarDef {
 
     our_lord_jesus_christ_the_eternal_high_priest: {
       precedence: Precedences.ProperFeast_8f,
-      date: (year: number): Dayjs => Dates.pentecostSunday(year).add(4, 'day'),
+      date: (year) => this.dates.pentecostSunday(year).add(4, 'day'),
       properCycle: ProperCycles.TEMPORALE,
     },
   };

@@ -97,7 +97,7 @@ export class Bolivia extends CalendarDef {
 
     our_lord_jesus_christ_the_eternal_high_priest: {
       precedence: Precedences.ProperFeast_8f,
-      date: (year: number): Dayjs => Dates.pentecostSunday(year).add(4, 'day'),
+      date: (year) => this.dates.pentecostSunday(year).add(4, 'day'),
       properCycle: ProperCycles.TEMPORALE,
     },
   };

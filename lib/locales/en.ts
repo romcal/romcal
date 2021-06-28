@@ -7,31 +7,33 @@ export const locale: Locale = {
     seasons: {
       advent: {
         season: 'Advent',
-        weekday: '{{day, capitalize}} of the $t(ordinals:{{week}}) week of Advent',
+        weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Advent',
         sunday: '$t(ordinals:{{week}}, capitalize) Sunday of Advent',
+        privileged_weekday: '$t(months:11, capitalize) {{day}}',
       },
 
       christmas_time: {
         season: 'Christmas Time',
-        day: '{{day, capitalize}} of Christmas Time',
+        day: '$t(weekdays:{{dow}}, capitalize) of Christmas Time',
         octave: '{{count}}º Day within the Octave of the Nativity of the Lord',
         second_sunday_after_christmas: 'Second Sunday after the Nativity of the Lord',
-        before_epiphany: '{{day, capitalize}} before the Epiphany of the Lord',
-        after_epiphany: '{{day, capitalize}} after the Epiphany of the Lord',
+        before_epiphany: '$t(months:0, capitalize) {{day}}',
+        after_epiphany: '$t(weekdays:{{dow}}, capitalize) after the Epiphany of the Lord',
       },
 
       ordinary_time: {
         season: 'Ordinary Time',
-        weekday: '{{day, capitalize}} of the $t(ordinals:{{week}}) week of Ordinary Time',
+        weekday:
+          '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Ordinary Time',
         sunday: '$t(ordinals:{{week}}, capitalize) Sunday in Ordinary Time',
       },
 
       lent: {
         season: 'Lent',
-        weekday: '{{day, capitalize}} of the $t(ordinals:{{week}}) week of Lent',
+        weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Lent',
         sunday: '$t(ordinals:{{week}}, capitalize) Sunday of Lent',
-        day_after_ash_wed: '{{day, capitalize}} after Ash Wednesday',
-        holy_week_day: '{{day, capitalize}} of Holy Week',
+        day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) after Ash Wednesday',
+        holy_week_day: '$t(weekdays:{{dow}}, capitalize) of Holy Week',
       },
 
       paschal_triduum: {
@@ -40,9 +42,9 @@ export const locale: Locale = {
 
       easter_time: {
         season: 'Easter Time',
-        weekday: '{{day, capitalize}} of the $t(ordinals:{{week}}) week of Easter',
+        weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Easter',
         sunday: '$t(ordinals:{{week}}, capitalize) Sunday of Easter',
-        octave: '{{day, capitalize}} within the Octave of Easter',
+        octave: '$t(weekdays:{{dow}}, capitalize) within the Octave of Easter',
       },
     },
 
@@ -87,9 +89,36 @@ export const locale: Locale = {
       pentecost_sunday: 'Pentecost Sunday',
       peter_and_paul_apostles: 'Saints Peter and Paul, Apostles',
       presentation_of_the_lord: 'Presentation of the Lord',
+      sunday_of_the_word_of_god: 'Third Sunday in Ordinary Time, or of the Word of God',
+      thursday_of_the_lord_s_supper: 'Thursday of the Lord’s Supper',
       transfiguration: 'Transfiguration of the Lord',
       trinity_sunday: 'Most Holy Trinity',
     },
+  },
+
+  weekdays: {
+    0: 'Sunday',
+    1: 'Monday',
+    2: 'Tuesday',
+    3: 'Wednesday',
+    4: 'Thursday',
+    5: 'Friday',
+    6: 'Saturday',
+  },
+
+  months: {
+    0: 'January',
+    1: 'February',
+    2: 'March',
+    3: 'April',
+    4: 'May',
+    5: 'June',
+    6: 'July',
+    7: 'August',
+    8: 'September',
+    9: 'October',
+    10: 'November',
+    11: 'December',
   },
 
   colors: {
@@ -853,7 +882,6 @@ export const locale: Locale = {
       'Saint Stanislaus, Bishop, Martyr and Patron of Poland',
     stephen_i_of_hungary: 'Saint Stephen of Hungary',
     stephen_the_first_martyr: 'Saint Stephen, the First Martyr',
-    sunday_of_the_word_of_god: 'Third Sunday in Ordinary Time, or of the Word of God',
     sunniva_of_norway_virgin: 'Saint Sunniva, Virgin and Martyr',
     swithun_of_winchester_bishop: 'Saint Swithun, Bishop',
     sylvester_i_pope: 'Saint Sylvester I, Pope',

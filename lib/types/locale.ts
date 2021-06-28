@@ -2,12 +2,18 @@ export interface Locale {
   key: string;
   ordinals?: LocaleOrdinals;
   roman_rite?: LocaleRomanRite;
+  weekdays?: LocaleWeeks;
+  months?: LocaleMonths;
   colors?: LocaleColors;
   martyrology?: LocaleMartyrology;
 }
 
 // export type LocaleOrdinals = Record<string, string | ((n: number) => string)>;
 export type LocaleOrdinals = Record<string, string>;
+
+export type LocaleWeeks = Record<string, string>;
+
+export type LocaleMonths = Record<string, string>;
 
 export type LocaleColors = {
   black?: string;
@@ -25,6 +31,7 @@ export type LocaleRomanRite = {
       season?: string;
       weekday?: string;
       sunday?: string;
+      privileged_weekday?: string;
     };
     christmas_time?: {
       season?: string;
