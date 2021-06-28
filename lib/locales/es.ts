@@ -7,31 +7,32 @@ export const locale: Locale = {
     seasons: {
       advent: {
         season: 'Adviento',
-        weekday: '{{day, capitalize}} de la {{week}}ª semana de Adviento',
+        weekday: '$t(weekdays:{{dow}}, capitalize) de la {{week}}ª semana de Adviento',
         sunday: '{{week}}º domingo de Adviento',
+        privileged_weekday: '{{day}} de $t(months:11)',
       },
 
       christmas_time: {
         season: 'Navidad',
-        day: '{{day, capitalize}} de Navidad',
+        day: '$t(weekdays:{{dow}}, capitalize) de Navidad',
         octave: '{{count}}º día de la Octava de Navidad',
         second_sunday_after_christmas: '2º domingo de Navidad',
-        before_epiphany: '{{day, capitalize}} antes de la Epifanía',
-        after_epiphany: '{{day, capitalize}} después de la Epifanía',
+        before_epiphany: '{{day}} de $t(months:0)',
+        after_epiphany: '$t(weekdays:{{dow}}, capitalize) después de la Epifanía',
       },
 
       ordinary_time: {
         season: 'Tiempo Ordinario',
-        weekday: '{{day, capitalize}} de la {{week}}ª semana del Tiempo Ordinario',
+        weekday: '$t(weekdays:{{dow}}, capitalize) de la {{week}}ª semana del Tiempo Ordinario',
         sunday: '{{week}}º domingo del Tiempo Ordinario',
       },
 
       lent: {
         season: 'Cuaresma',
-        weekday: '{{day, capitalize}} de la {{week}}ª semana de Cuaresma',
+        weekday: '$t(weekdays:{{dow}}, capitalize) de la {{week}}ª semana de Cuaresma',
         sunday: '{{week}}º domingo de Cuaresma',
-        day_after_ash_wed: '{{day, capitalize}} después de Miércoles de Ceniza',
-        holy_week_day: '{{day, capitalize}} de Semana Santa',
+        day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) después de Miércoles de Ceniza',
+        holy_week_day: '$t(weekdays:{{dow}}, capitalize) de Semana Santa',
       },
 
       paschal_triduum: {
@@ -40,9 +41,9 @@ export const locale: Locale = {
 
       easter_time: {
         season: 'Pascua',
-        weekday: '{{day, capitalize}} de la {{week}}ª semana de Pascua',
+        weekday: '$t(weekdays:{{dow}}, capitalize) de la {{week}}ª semana de Pascua',
         sunday: '{{week}}º domingo de Pascua',
-        octave: '{{day, capitalize}} día de la Octava de Pascua',
+        octave: '$t(weekdays:{{dow}}, capitalize) día de la Octava de Pascua',
       },
     },
 
@@ -87,6 +88,8 @@ export const locale: Locale = {
       pentecost_sunday: 'Pentecostés',
       peter_and_paul_apostles: 'San Pedro y San Pablo, Apóstoles',
       presentation_of_the_lord: 'Presentación de Jesús en el Templo',
+      sunday_of_the_word_of_god: '3º domingo del Tiempo Ordinario, o domingo de la Palabra de Dios',
+      thursday_of_the_lord_s_supper: '$(roman_rite:celebrations.holy_thursday)',
       transfiguration: 'Transfiguración',
       trinity_sunday: 'Domingo de la Santísima Trinidad',
     },
@@ -100,6 +103,31 @@ export const locale: Locale = {
     red: 'rojo',
     rose: 'rosa',
     white: 'blanco',
+  },
+
+  weekdays: {
+    0: 'domingo',
+    1: 'lunes',
+    2: 'martes',
+    3: 'miércoles',
+    4: 'jueves',
+    5: 'viernes',
+    6: 'sábado',
+  },
+
+  months: {
+    0: 'enero',
+    1: 'febrero',
+    2: 'marzo',
+    3: 'abril',
+    4: 'mayo',
+    5: 'junio',
+    6: 'julio',
+    7: 'agosto',
+    8: 'septiembre',
+    9: 'octubre',
+    10: 'noviembre',
+    11: 'diciembre',
   },
 
   ordinals: {

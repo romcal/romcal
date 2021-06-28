@@ -1,4 +1,4 @@
-import { isLiturgicalColor, LiturgicalColor, LiturgicalColors } from '@roman-rite/constants/colors';
+import { LiturgicalColor, LiturgicalColors } from '@roman-rite/constants/colors';
 import { LiturgicalPeriods } from '@roman-rite/constants/periods';
 import { Precedences } from '@roman-rite/constants/precedences';
 import { Ranks, RanksFromPrecedence } from '@roman-rite/constants/ranks';
@@ -16,7 +16,7 @@ import { MartyrologyItem } from '@romcal/types/martyrology';
 import dayjs, { Dayjs } from 'dayjs';
 
 export default class LiturgicalDay implements BaseLiturgicalDay {
-  readonly key: string;
+  readonly key: Lowercase<string>;
   readonly date: string;
   readonly precedence: Precedences;
   readonly rank: Ranks;
@@ -111,10 +111,9 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
   ): LiturgicalColor[] {
     // A liturgical color(s) has already been defined, nothing more to do:
     // returns the color(s) as it, if the color type(s) is/are valid.
-    if (Array.isArray(liturgicalColors)) {
-      const validated = liturgicalColors.filter((color) => isLiturgicalColor(color));
-      if (validated.length > 0) return validated;
-    }
+    // Note: it's also possible to define 0 colors (e.g., Holy Saturday,
+    // or Memorials during Lent or Advent from December 17).
+    if (Array.isArray(liturgicalColors)) return liturgicalColors;
 
     // No liturgical color has been defined
     // Now try to find the right default color...

@@ -1,5 +1,5 @@
 import { GeneralRoman } from '@roman-rite/general-calendar/general';
-import Temporale from '@roman-rite/general-calendar/temporale';
+import { ProperOfTime } from '@roman-rite/general-calendar/proper-of-time';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { RomcalConfig } from '@roman-rite/models/config';
 import LiturgicalDay from '@roman-rite/models/liturgical-day';
@@ -16,10 +16,11 @@ export default class Romcal {
   /**
    * Utility helpers to compute the date(s) of specific liturgical days or seasons.
    */
-  static dates = Dates;
+  dates: Dates;
 
   constructor(config?: RomcalConfigInput) {
     this.#config = new RomcalConfig(config);
+    this.dates = this.#config.dates;
     this.#calendarsDef = [new GeneralRoman(this.#config)];
 
     if (this.#config.particularCalendar) {
@@ -52,12 +53,9 @@ export default class Romcal {
       }
 
       try {
-        const data =
-          this.#config.scope === CalendarScope.Liturgical
-            ? new Temporale(this.#config).liturgicalYearBuilder()
-            : new Temporale(this.#config).gregorianYearBuilder();
+        const data = new ProperOfTime(this.#config).buildDates();
 
-        this.#calendarsDef.forEach((cal) => cal.buildDates(data));
+        this.#calendarsDef.forEach((cal) => cal.buildAllDates(data));
         this.#computedCalendar = CalendarDef.generateCalendar(data);
 
         resolve(this.#computedCalendar);

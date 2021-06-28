@@ -8,33 +8,34 @@ export const locale: Locale = {
       advent: {
         season: 'Temps de l’Avent',
         weekday:
-          '{{day, capitalize}} de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine de l’Avent',
+          '$t(weekdays:{{dow}}, capitalize) de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine de l’Avent',
         sunday: '$t(ordinals:{{week}}, capitalize) dimanche de l’Avent',
+        privileged_weekday: '{{day}} $t(months:11)',
       },
 
       christmas_time: {
         season: 'Temps de Noël',
-        day: '{{day, capitalize}} dans le Temps de Noël',
+        day: '$t(weekdays:{{dow}}, capitalize) dans le Temps de Noël',
         octave: '{{count}}ᵉ jour dans l’Octave de la Nativité',
         second_sunday_after_christmas: 'Deuxième dimanche après la Nativité',
-        before_epiphany: '{{day, capitalize}} avant l’Épiphanie',
-        after_epiphany: '{{day, capitalize}} après l’Épiphanie',
+        before_epiphany: '{{day}} $t(months:0)',
+        after_epiphany: '$t(weekdays:{{dow}}, capitalize) après l’Épiphanie',
       },
 
       ordinary_time: {
         season: 'Temps Ordinaire',
         weekday:
-          '{{day, capitalize}} de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine du Temps Ordinaire',
-        sunday: '$t(ordinals:{{week}}, capitalize) dimanche du Temps Ordinaire',
+          '$t(weekdays:{{dow}}, capitalize) de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine du Temps Ordinaire',
+        sunday: '$t(ordinals:{{week}}, capitalize) $t(weekdays:0) du Temps Ordinaire',
       },
 
       lent: {
         season: 'Temps du Carême',
         weekday:
-          '{{day, capitalize}} de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine de Carême',
+          '$t(weekdays:{{dow}}, capitalize) de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine de Carême',
         sunday: '$t(ordinals:{{week}}, capitalize) dimanche de Carême',
-        day_after_ash_wed: '{{day, capitalize}} après les Cendres',
-        holy_week_day: '{{day, capitalize}} Saint',
+        day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) après les Cendres',
+        holy_week_day: '$t(weekdays:{{dow}}, capitalize) Saint',
       },
 
       paschal_triduum: {
@@ -44,9 +45,9 @@ export const locale: Locale = {
       easter_time: {
         season: 'Temps Pascal',
         weekday:
-          '{{day, capitalize}} de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine de Pâques',
+          '$t(weekdays:{{dow}}, capitalize) de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine de Pâques',
         sunday: '$t(ordinals:{{week}}, capitalize) dimanche de Pâques',
-        octave: '{{day, capitalize}} dans l’Octave de Pâques',
+        octave: '$t(weekdays:{{dow}}, capitalize) dans l’Octave de Pâques',
       },
     },
 
@@ -91,9 +92,36 @@ export const locale: Locale = {
       pentecost_sunday: 'Pentecôte',
       peter_and_paul_apostles: 'Saint Pierre et Saint Paul, Apôtres',
       presentation_of_the_lord: 'Présentation du Seigneur au Temple',
+      sunday_of_the_word_of_god: 'Troisième dimanche du Temps Ordinaire, ou de la Parole de Dieu',
+      thursday_of_the_lord_s_supper: 'Mémoire de la Cène du Seigneur',
       transfiguration: 'Transfiguration du Seigneur',
       trinity_sunday: 'La Sainte Trinité',
     },
+  },
+
+  weekdays: {
+    0: 'dimanche',
+    1: 'lundi',
+    2: 'mardi',
+    3: 'mercredi',
+    4: 'jeudi',
+    5: 'vendredi',
+    6: 'samedi',
+  },
+
+  months: {
+    0: 'janvier',
+    1: 'février',
+    2: 'mars',
+    3: 'avril',
+    4: 'mai',
+    5: 'juin',
+    6: 'juillet',
+    7: 'août',
+    8: 'septembre',
+    9: 'octobre',
+    10: 'novembre',
+    11: 'décembre',
   },
 
   colors: {
@@ -465,8 +493,6 @@ export const locale: Locale = {
       'Saint Stanislas, Évêque de Cracovie, Martyr et Patron de la Pologne (✝ 1079)',
     stephen_i_of_hungary: 'Saint Étienne, Roi de Hongrie (✝ 1038)',
     stephen_the_first_martyr: 'Saint Étienne, Diacre et Premier Martyr (✝ 35)',
-    sunday_of_the_word_of_god:
-      'Dimanche de la Parole de Dieu - Troisième dimanche du Temps Ordinaire',
     sylvester_i_pope: 'Saint Sylvestre Ier, Pape (✝ 335)',
     teresa_benedicta_of_the_cross_stein_virgin:
       'Sainte Thérèse-Bénédicte de la Croix (Edith Stein), Carmélite, Martyr en Pologne (✝ 1942)',

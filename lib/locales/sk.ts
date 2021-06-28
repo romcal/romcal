@@ -7,31 +7,32 @@ export const locale: Locale = {
     seasons: {
       advent: {
         season: 'Adventné obdobie',
-        weekday: '{{day, capitalize}} po {{week}}. adventnej nedeli',
+        weekday: '$t(weekdays:{{dow}}, capitalize) po {{week}}. adventnej nedeli',
         sunday: '{{week}}. adventná nedeľa',
+        privileged_weekday: '{{day}} $t(months:11)',
       },
 
       christmas_time: {
         season: 'Vianočné obdobie',
-        day: '{{day, capitalize}} vo Vianočnom období',
+        day: '$t(weekdays:{{dow}}, capitalize) vo Vianočnom období',
         octave: '{{count}}. deň v oktáve narodenia Pána',
         second_sunday_after_christmas: 'Druhú nedeľa po narodení Pána',
-        before_epiphany: '{{day, capitalize}} vo vianočnom období',
-        after_epiphany: '{{day, capitalize}} po Zjavení Pána',
+        before_epiphany: '{{day}}. $t(months:0) vo vianočnom období',
+        after_epiphany: '$t(weekdays:{{dow}}, capitalize) po Zjavení Pána',
       },
 
       ordinary_time: {
         season: 'Cezročné obdobie',
-        weekday: '{{day, capitalize}} {{week}}. týždňa v Cezročnom období',
+        weekday: '$t(weekdays:{{dow}}, capitalize) {{week}}. týždňa v Cezročnom období',
         sunday: '{{week}}. nedeľa v Cezročnom období',
       },
 
       lent: {
         season: 'Pôstne obdobie',
-        weekday: '{{day, capitalize}} po {{week}}. pôstnej nedeli',
+        weekday: '$t(weekdays:{{dow}}, capitalize) po {{week}}. pôstnej nedeli',
         sunday: '{{week}}. pôstna nedeľa',
-        day_after_ash_wed: '{{day, capitalize}} po Popolcovej strede',
-        holy_week_day: '{{day, capitalize}} Veľkého týždňa',
+        day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) po Popolcovej strede',
+        holy_week_day: '$t(weekdays:{{dow}}, capitalize) Veľkého týždňa',
       },
 
       paschal_triduum: {
@@ -40,9 +41,9 @@ export const locale: Locale = {
 
       easter_time: {
         season: 'Veľkonočné obdobie',
-        weekday: '{{day, capitalize}} po {{week}}. veľkonočnej nedeli',
+        weekday: '$t(weekdays:{{dow}}, capitalize) po {{week}}. veľkonočnej nedeli',
         sunday: '{{week}}. veľkonočná nedeľa',
-        octave: 'Veľkonočný {{day}}',
+        octave: 'Veľkonočný $t(weekdays:{{dow}}, capitalize)',
       },
     },
 
@@ -88,9 +89,36 @@ export const locale: Locale = {
       pentecost_sunday: 'Zoslanie Ducha Svätého',
       peter_and_paul_apostles: 'Svätých Petra a Pavla, apoštolov',
       presentation_of_the_lord: 'Obetovanie Pána',
+      sunday_of_the_word_of_god: 'Nedeľa Božieho slova',
+      thursday_of_the_lord_s_supper: '$(roman_rite:celebrations.holy_thursday)',
       transfiguration: 'Premenenie Pána',
       trinity_sunday: 'Najsvätejšej Trojice',
     },
+  },
+
+  weekdays: {
+    0: 'nedeľa',
+    1: 'pondelok',
+    2: 'utorok',
+    3: 'streda',
+    4: 'štvrtok',
+    5: 'piatok',
+    6: 'sobota',
+  },
+
+  months: {
+    0: 'január',
+    1: 'február',
+    2: 'marec',
+    3: 'apríl',
+    4: 'máj',
+    5: 'jún',
+    6: 'júl',
+    7: 'august',
+    8: 'september',
+    9: 'október',
+    10: 'november',
+    11: 'december',
   },
 
   colors: {
@@ -827,7 +855,6 @@ export const locale: Locale = {
       'Svätého Stanislava, biskupa, mučeníka a patróna Poľska',
     stephen_i_of_hungary: 'Svätého Štefana Uhorského',
     stephen_the_first_martyr: 'Svätého Štefana, prvého mučeníka',
-    sunday_of_the_word_of_god: 'Nedeľa Božieho slova',
     sunniva_of_norway_virgin: 'Svätej Sunnivy, panny a mučenice',
     swithun_of_winchester_bishop: 'Svätého Swithuna, biskupa',
     sylvester_i_pope: 'Svätého Silvestra I., pápeža',

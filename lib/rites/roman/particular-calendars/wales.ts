@@ -3,9 +3,8 @@ import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { Europe } from '@roman-rite/particular-calendars/europe';
 import { DateDefinitions } from '@roman-rite/types/calendar-def';
-import { Dates } from '@roman-rite/utils/dates';
 import { PatronTitles } from '@romcal/constants/martyrology-metadata';
-import dayjs, { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 
 export class Wales extends CalendarDef {
   inheritFrom = Europe;
@@ -110,7 +109,7 @@ export class Wales extends CalendarDef {
     // However, in countries (not England & Wales) where it falls
     // on a Sunday it replaces the Sunday.
     all_saints: {
-      date: (year: number): Dayjs => {
+      date: (year) => {
         const date = dayjs.utc(`${year}-11-1`);
         if (date.day() === 6) {
           return dayjs.utc(`${year}-11-2`);
@@ -121,7 +120,7 @@ export class Wales extends CalendarDef {
     },
 
     all_souls: {
-      date: (year: number): Dayjs => {
+      date: (year) => {
         const date = dayjs.utc(`${year}-11-1`);
         if (date.day() === 6) {
           // If All Saints is on Saturday
@@ -153,7 +152,7 @@ export class Wales extends CalendarDef {
     // Saturday or a Monday it is transferred to the Sunday.
     // Replaces 20th Sunday in Ordinary Time when it falls on a Sunday.
     peter_and_paul_apostles: {
-      date: (year: number): Dayjs => {
+      date: (year) => {
         const date = dayjs.utc(`${year}-5-29`);
         if (date.day() === 1) {
           return date.subtract(1, 'day');
@@ -169,7 +168,7 @@ export class Wales extends CalendarDef {
     // Saturday or a Monday it is transferred to the Sunday.
     // Replaces 20th Sunday in Ordinary Time when it falls on a Sunday.
     assumption: {
-      date: (year: number): dayjs.Dayjs => {
+      date: (year): dayjs.Dayjs => {
         const date = dayjs.utc(`${year}-8-15`);
         if (date.day() === 1) {
           return date.subtract(1, 'day');
@@ -183,7 +182,7 @@ export class Wales extends CalendarDef {
 
     our_lord_jesus_christ_the_eternal_high_priest: {
       precedence: Precedences.ProperFeast_8f,
-      date: (year: number): Dayjs => Dates.pentecostSunday(year).add(4, 'day'),
+      date: (year) => this.dates.pentecostSunday(year).add(4, 'day'),
       properCycle: ProperCycles.TEMPORALE,
     },
   };

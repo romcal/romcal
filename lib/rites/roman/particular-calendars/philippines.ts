@@ -1,22 +1,19 @@
-import { ProperCycles } from '@roman-rite/constants/cycles';
 import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { DateDefinitions } from '@roman-rite/types/calendar-def';
-import { Dates } from '@roman-rite/utils/dates';
 import { PatronTitles } from '@romcal/constants/martyrology-metadata';
-import dayjs, { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 
 export class Philippines extends CalendarDef {
   definitions: DateDefinitions = {
     holy_child_of_cebu: {
       precedence: Precedences.ProperFeast_8f,
-      date: (year: number): Dayjs => {
+      date: (year) => {
         // Third Sunday of January: Santo Niño (Holy Child Jesus)
         const firstDay = dayjs.utc(`${year}-1-1`);
         const feastDay = 22 - (firstDay.day() == 0 ? 7 : firstDay.day());
         return dayjs.utc(`${year}-1-${feastDay}`);
       },
-      properCycle: ProperCycles.TEMPORALE,
     },
 
     peter_baptist_blasquez_paul_miki_and_companions_martyrs: {
@@ -27,10 +24,10 @@ export class Philippines extends CalendarDef {
 
     pedro_calungsod_martyr: {
       precedence: Precedences.ProperMemorial_11b,
-      date: (year: number): dayjs.Dayjs => {
+      date: (year) => {
         const date = dayjs.utc(`${year}-4-2`);
-        const palmSunday = Dates.palmSunday(year);
-        const divineMercySunday = Dates.divineMercySunday(year);
+        const palmSunday = this.dates.palmSunday();
+        const divineMercySunday = this.dates.divineMercySunday();
         // When 2 April occurs with a Sunday of Lent or the Holy Week
         // or the Octave of Easter, the celebration is transferred
         // to the Saturday before Palm Sunday.

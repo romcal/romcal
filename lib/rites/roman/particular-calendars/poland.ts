@@ -3,9 +3,8 @@ import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { Europe } from '@roman-rite/particular-calendars/europe';
 import { DateDefinitions } from '@roman-rite/types/calendar-def';
-import { Dates } from '@roman-rite/utils/dates';
 import { PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
-import dayjs, { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 
 export class Poland extends CalendarDef {
   inheritFrom = Europe;
@@ -50,10 +49,10 @@ export class Poland extends CalendarDef {
     adalbert_of_prague_bishop: {
       customLocaleKey: 'adalbert_of_prague_bishop_patron_of_poland',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      date: (year: number): dayjs.Dayjs => {
+      date: (year) => {
         const date = dayjs.utc(`${year}-4-23`);
-        const palmSunday = Dates.palmSunday(year);
-        const divineMercySunday = Dates.divineMercySunday(year);
+        const palmSunday = this.dates.palmSunday();
+        const divineMercySunday = this.dates.divineMercySunday();
 
         // When it falls between Palm Sunday and the Second Sunday of Easter inclusive,
         // it is transferred to the Monday after the Second Sunday of Easter
@@ -395,13 +394,13 @@ export class Poland extends CalendarDef {
 
     mary_mother_of_the_church: {
       precedence: Precedences.ProperFeast_8f,
-      date: (year: number): dayjs.Dayjs => Dates.pentecostSunday(year).add(1, 'day'),
+      date: (year) => this.dates.pentecostSunday(year).add(1, 'day'),
       properCycle: ProperCycles.TEMPORALE,
     },
 
     our_lord_jesus_christ_the_eternal_high_priest: {
       precedence: Precedences.ProperFeast_8f,
-      date: (year: number): Dayjs => Dates.pentecostSunday(year).add(4, 'day'),
+      date: (year) => this.dates.pentecostSunday(year).add(4, 'day'),
       properCycle: ProperCycles.TEMPORALE,
     },
   };

@@ -8,7 +8,7 @@ export class France extends CalendarDef {
   inheritFrom = Europe;
 
   particularConfig: ParticularConfig = {
-    ascensionOnSunday: true,
+    ascensionOnSunday: false,
     corpusChristiOnSunday: true,
     epiphanyOnSunday: true,
   };

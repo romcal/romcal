@@ -3,7 +3,6 @@ import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { Europe } from '@roman-rite/particular-calendars/europe';
 import { DateDefinitions } from '@roman-rite/types/calendar-def';
-import { Dates } from '@roman-rite/utils/dates';
 import { Dayjs } from 'dayjs';
 
 export class Ukraine extends CalendarDef {
@@ -22,8 +21,6 @@ export class Ukraine extends CalendarDef {
 
     mary_mother_of_the_church: {
       precedence: Precedences.ProperFeast_8f,
-      date: (year: number): Dayjs => Dates.pentecostSunday(year).add(1, 'day'),
-      properCycle: ProperCycles.TEMPORALE,
     },
 
     andrew_bobola_priest: {

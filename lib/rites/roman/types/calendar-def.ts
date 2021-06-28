@@ -1,9 +1,11 @@
 import { LiturgicalColors } from '@roman-rite/constants/colors';
 import { ProperCycles } from '@roman-rite/constants/cycles';
-import { LiturgicalDefBuiltData } from '@roman-rite/general-calendar/temporale';
+import { LiturgicalDefBuiltData } from '@roman-rite/general-calendar/proper-of-time';
 import { RomcalConfig } from '@roman-rite/models/config';
 import LiturgicalDay from '@roman-rite/models/liturgical-day';
 import { RomcalConfigInput } from '@roman-rite/types/config';
+import { RomcalCalendarMetadata } from '@roman-rite/types/liturgical-day';
+import { Dates } from '@roman-rite/utils/dates';
 import { PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
 import { SaintCount } from '@romcal/types/martyrology';
 import { Dayjs } from 'dayjs';
@@ -27,10 +29,28 @@ export type MartyrologyItemRedefined = {
 };
 
 /**
- * Date definition, used in the [CalendarDef] class
+ * General date definition collection, used in the [CalendarDef] class
  */
 export type DateDefinitions = Record<string, DateDefInput>;
-export type DateDefInput = Partial<Pick<LiturgicalDay, 'precedence'>> & {
+export type TemporaleDateDefinitions = Record<string, TemporaleDateDefInput>;
+
+/**
+ * Used specifically for the Proper of Time.
+ */
+export type TemporaleDateDefInput = Required<
+  Pick<LiturgicalDay, 'precedence' | 'seasons' | 'periods' | 'liturgicalColors' | 'name'>
+> & {
+  date: (year: number) => Dayjs | null;
+  calendar: (date: Dayjs) => RomcalCalendarMetadata;
+  isHolyDayOfObligation?: boolean;
+};
+/**
+ * Used for the General Roman Calendar, and any Particular Calendars.
+ */
+export type DateDefInput = Partial<Pick<LiturgicalDay, 'precedence'>> & PartialInput;
+
+// Partial type def, used bellow on TemporaleDateDefInput and DateDefInput.
+type PartialInput = {
   /**
    * Specify a custom locale key for this date definition, in this calendar.
    */
@@ -39,7 +59,7 @@ export type DateDefInput = Partial<Pick<LiturgicalDay, 'precedence'>> & {
   /**
    * Date as a String (in the 'M-D' format), or as a Dayjs object.
    */
-  date?: string | ((year: number) => Dayjs);
+  date?: string | ((year: number) => Dayjs | null);
 
   /**
    * Holy days of obligation are days on which the faithful are expected to attend Mass,
@@ -103,8 +123,9 @@ export interface ICalendarDef {
   inheritFromInstance?: InstanceType<BaseCalendarDef>;
   particularConfig?: ParticularConfig;
   definitions: DateDefinitions;
+  dates: Dates;
   updateConfig: (config?: RomcalConfigInput) => void;
-  buildDates: (builtData: LiturgicalDefBuiltData) => LiturgicalDefBuiltData;
+  buildAllDates: (builtData: LiturgicalDefBuiltData) => LiturgicalDefBuiltData;
 }
 
 /**
