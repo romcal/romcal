@@ -38,7 +38,7 @@ export type MartyrologyItemRedefined = {
  * General date definition collection, used in the [CalendarDef] class
  */
 export type InputDefinitions = Record<string, DateDefInput>;
-export type ProperOfTimeDateDefinitions = Record<string, ProperOfTimeDateDefInput>;
+export type ProperOfTimeDateDefinitions = Map<string, ProperOfTimeDateDefInput>;
 
 /**
  * Extended Date Definitions.
