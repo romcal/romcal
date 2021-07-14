@@ -40,7 +40,7 @@ export class ProperOfTime {
     Pick<RomcalCalendarMetadata, 'startOfLiturgicalYear' | 'endOfLiturgicalYear'>
   > = {};
 
-  #definitions: ProperOfTimeDateDefinitions = {};
+  #definitions: ProperOfTimeDateDefinitions = new Map<string, ProperOfTimeDateDefInput>();
 
   constructor(config: RomcalConfig) {
     this.#config = config;
@@ -56,8 +56,7 @@ export class ProperOfTime {
     const byKeys: Record<string, LiturgicalDay> = {};
     let datesIndex: DatesIndex = {};
 
-    Object.keys(this.#definitions).forEach((key) => {
-      const def: ProperOfTimeDateDefInput = this.#definitions[key];
+    this.#definitions.forEach((def, key) => {
       const date: Dayjs | null = def.date(this.#config.year);
 
       // If date is null, it means that this date doesn't occur in the given liturgical year.
@@ -106,8 +105,7 @@ export class ProperOfTime {
 
     const byKeys: ByKeys = {};
 
-    Object.keys(this.#definitions).forEach((key) => {
-      const def: ProperOfTimeDateDefInput = this.#definitions[key];
+    this.#definitions.forEach((def, key) => {
       const date: Dayjs | null = def.date(this.#config.year);
 
       // If date is null, it means that this date doesn't occur in the given liturgical year.
@@ -168,7 +166,7 @@ export class ProperOfTime {
     for (let i = 0; i < 20; i++) {
       const week = Math.floor(i / 7) + 1;
       const dow = i - (week - 1) * 7;
-      this.#definitions[`advent_${week}_${this.#weekdays[dow]}`] = {
+      this.#definitions.set(`advent_${week}_${this.#weekdays[dow]}`, {
         precedence: dow === 0 ? Precedences.PrivilegedSunday_2 : Precedences.Weekday_13,
         date: (year) =>
           dow === 0
@@ -187,11 +185,11 @@ export class ProperOfTime {
           dow === 0
             ? this.#config.i18next.t('roman_rite:seasons.advent.sunday', { week })
             : this.#config.i18next.t('roman_rite:seasons.advent.weekday', { week, dow }),
-      };
+      });
     }
 
     // Fourth Sunday of Advent.
-    this.#definitions[`advent_4_${this.#weekdays[0]}`] = {
+    this.#definitions.set(`advent_4_${this.#weekdays[0]}`, {
       precedence: Precedences.PrivilegedSunday_2,
       date: (year) => this.dates.sundayOfAdvent(4, year - 1),
       isHolyDayOfObligation: true,
@@ -201,11 +199,11 @@ export class ProperOfTime {
         this.#computeCalendarMetadata(year, date, startOfSeason, endOfSeason, 4, 22),
       liturgicalColors: [LiturgicalColors.PURPLE],
       name: this.#config.i18next.t('roman_rite:seasons.advent.sunday', { week: 4 }),
-    };
+    });
 
     // Week before Christmas, from the 17 to 24 December.
     for (let day = 17; day < 25; day++) {
-      this.#definitions[`advent_${this.#months[11]}_${day}`] = {
+      this.#definitions.set(`advent_${this.#months[11]}_${day}`, {
         precedence: Precedences.PrivilegedWeekday_9,
         date: (year) => this.dates.privilegedWeekdayOfAdvent(day, year - 1),
         seasons: [LiturgicalSeasons.ADVENT],
@@ -215,7 +213,7 @@ export class ProperOfTime {
           this.#computeCalendarMetadata(year, date, startOfSeason, endOfSeason, 0, 0),
         liturgicalColors: [LiturgicalColors.PURPLE],
         name: this.#config.i18next.t('roman_rite:seasons.advent.privileged_weekday', { day }),
-      };
+      });
     }
   }
 
@@ -240,7 +238,7 @@ export class ProperOfTime {
     const endOfSeason = this.dates.baptismOfTheLord(year);
 
     // The Nativity of the Lord.
-    this.#definitions[`christmas`] = {
+    this.#definitions.set(`christmas`, {
       precedence: Precedences.ProperOfTimeSolemnity_2,
       date: (year) => this.dates.christmas(year - 1),
       isHolyDayOfObligation: true,
@@ -253,11 +251,11 @@ export class ProperOfTime {
         this.#computeCalendarMetadata(year, date, startOfSeason, endOfSeason, 0, 0),
       liturgicalColors: [LiturgicalColors.WHITE],
       name: this.#config.i18next.t(`roman_rite:celebrations.christmas`),
-    };
+    });
 
     // Octave of the Nativity of the Lord (without December 25 and January 1).
     for (let count = 2; count < 8; count++) {
-      this.#definitions[`christmas_octave_day_${count}`] = {
+      this.#definitions.set(`christmas_octave_day_${count}`, {
         precedence: Precedences.PrivilegedWeekday_9,
         date: (year) => this.dates.weekdayWithinOctaveOfChristmas(count, year - 1),
         seasons: [LiturgicalSeasons.CHRISTMAS_TIME],
@@ -269,12 +267,12 @@ export class ProperOfTime {
           this.#computeCalendarMetadata(year, date, startOfSeason, endOfSeason, 0, 0),
         liturgicalColors: [LiturgicalColors.WHITE],
         name: this.#config.i18next.t('roman_rite:seasons.christmas_time.octave', { count }),
-      };
+      });
     }
 
     // The Sunday within the Octave of the Nativity of the Lord,
     // Feast of the Holy Family of Jesus, Mary and Joseph.
-    this.#definitions[`holy_family`] = {
+    this.#definitions.set(`holy_family`, {
       precedence: Precedences.GeneralLordFeast_5,
       date: (year) => this.dates.holyFamily(year - 1),
       seasons: [LiturgicalSeasons.CHRISTMAS_TIME],
@@ -286,7 +284,7 @@ export class ProperOfTime {
         this.#computeCalendarMetadata(year, date, startOfSeason, endOfSeason, 0, 0),
       liturgicalColors: [LiturgicalColors.WHITE],
       name: this.#config.i18next.t(`roman_rite:celebrations.holy_family`),
-    };
+    });
   }
 
   /**
@@ -301,7 +299,7 @@ export class ProperOfTime {
     const endOfSeason = this.dates.baptismOfTheLord(year);
 
     // Solemnity of Mary, the Holy Mother of God.
-    this.#definitions[`mary_mother_of_god`] = {
+    this.#definitions.set(`mary_mother_of_god`, {
       precedence: Precedences.GeneralSolemnity_3,
       date: (year) => this.dates.maryMotherOfGod(year),
       isHolyDayOfObligation: true,
@@ -314,10 +312,10 @@ export class ProperOfTime {
         this.#computeCalendarMetadata(year, date, startOfSeason, endOfSeason, 0, 0),
       liturgicalColors: [LiturgicalColors.WHITE],
       name: this.#config.i18next.t('roman_rite:celebrations.mary_mother_of_god'),
-    };
+    });
 
     // Second Sunday after the Nativity.
-    this.#definitions[`second_sunday_after_christmas`] = {
+    this.#definitions.set(`second_sunday_after_christmas`, {
       precedence: Precedences.UnprivilegedSunday_6,
       date: (year) => this.dates.secondSundayAfterChristmas(year),
       isHolyDayOfObligation: true,
@@ -332,11 +330,11 @@ export class ProperOfTime {
       name: this.#config.i18next.t(
         'roman_rite:seasons.christmas_time.second_sunday_after_christmas',
       ),
-    };
+    });
 
     // Weekdays of Christmas Time, before the Epiphany of the Lord.
     for (let day = 2; day < 9; day++) {
-      this.#definitions[`christmas_time_${this.#months[0]}_${day}`] = {
+      this.#definitions.set(`christmas_time_${this.#months[0]}_${day}`, {
         precedence: Precedences.Weekday_13,
         date: (year) => this.dates.weekdayBeforeEpiphany(day, year),
         seasons: [LiturgicalSeasons.CHRISTMAS_TIME],
@@ -348,11 +346,11 @@ export class ProperOfTime {
           this.#computeCalendarMetadata(year, date, startOfSeason, endOfSeason, 0, 0),
         liturgicalColors: [LiturgicalColors.WHITE],
         name: this.#config.i18next.t('roman_rite:seasons.christmas_time.before_epiphany', { day }),
-      };
+      });
     }
 
     // The Epiphany of the Lord.
-    this.#definitions[`epiphany`] = {
+    this.#definitions.set(`epiphany`, {
       precedence: Precedences.ProperOfTimeSolemnity_2,
       date: (year) => this.dates.epiphany(year),
       isHolyDayOfObligation: true,
@@ -365,11 +363,11 @@ export class ProperOfTime {
         this.#computeCalendarMetadata(year, date, startOfSeason, endOfSeason, 0, 0),
       liturgicalColors: [LiturgicalColors.WHITE],
       name: this.#config.i18next.t('roman_rite:celebrations.epiphany'),
-    };
+    });
 
     // Weekdays of Christmas Time, after the Epiphany of the Lord.
     for (let dow = 1; dow < 7; dow++) {
-      this.#definitions[`${this.#weekdays[dow]}_after_epiphany`] = {
+      this.#definitions.set(`${this.#weekdays[dow]}_after_epiphany`, {
         precedence: Precedences.Weekday_13,
         date: (year) => this.dates.weekdayAfterEpiphany(dow, year),
         seasons: [LiturgicalSeasons.CHRISTMAS_TIME],
@@ -381,11 +379,11 @@ export class ProperOfTime {
           this.#computeCalendarMetadata(year, date, startOfSeason, endOfSeason, 0, 0),
         liturgicalColors: [LiturgicalColors.WHITE],
         name: this.#config.i18next.t('roman_rite:seasons.christmas_time.after_epiphany', { dow }),
-      };
+      });
     }
 
     // The Baptism of the Lord.
-    this.#definitions[`baptism_of_the_lord`] = {
+    this.#definitions.set(`baptism_of_the_lord`, {
       precedence: Precedences.ProperOfTimeSolemnity_2,
       date: (year) => this.dates.baptismOfTheLord(year),
       isHolyDayOfObligation: true,
@@ -398,7 +396,7 @@ export class ProperOfTime {
         this.#computeCalendarMetadata(year, date, startOfSeason, endOfSeason, 0, 0),
       liturgicalColors: [LiturgicalColors.WHITE],
       name: this.#config.i18next.t('roman_rite:celebrations.baptism_of_the_lord'),
-    };
+    });
   }
 
   /**
@@ -410,7 +408,7 @@ export class ProperOfTime {
     const endOfSeason = this.dates.holyThursday(year);
 
     // Ash Wednesday.
-    this.#definitions[`ash_wednesday`] = {
+    this.#definitions.set(`ash_wednesday`, {
       precedence: Precedences.AshWednesday_2,
       date: (year) => this.dates.ashWednesday(year),
       seasons: [LiturgicalSeasons.LENT],
@@ -419,11 +417,11 @@ export class ProperOfTime {
       calendar: (date) =>
         this.#computeCalendarMetadata(year, date, startOfSeason, endOfSeason, 0, 0),
       name: this.#config.i18next.t(`roman_rite:celebrations.ash_wednesday`),
-    };
+    });
 
     // Days after Ash Wednesday.
     for (let dow = 4; dow < 7; dow++) {
-      this.#definitions[`${this.#weekdays[dow]}_after_ash_wednesday`] = {
+      this.#definitions.set(`${this.#weekdays[dow]}_after_ash_wednesday`, {
         precedence: Precedences.PrivilegedWeekday_9,
         date: (year) => this.dates.ashWednesday(year).add(dow - 3, 'days'),
         seasons: [LiturgicalSeasons.LENT],
@@ -432,14 +430,14 @@ export class ProperOfTime {
         calendar: (date) =>
           this.#computeCalendarMetadata(year, date, startOfSeason, endOfSeason, 0, 0),
         name: this.#config.i18next.t('roman_rite:seasons.lent.day_after_ash_wed', { dow }),
-      };
+      });
     }
 
     // All days, from the 1st Sunday of Lent to the Saturday of the 5th week of Lent.
     for (let i = 0; i < 35; i++) {
       const week = Math.floor(i / 7) + 1;
       const dow = i - (week - 1) * 7;
-      this.#definitions[`lent_${week}_${this.#weekdays[dow]}`] = {
+      this.#definitions.set(`lent_${week}_${this.#weekdays[dow]}`, {
         precedence: dow === 0 ? Precedences.PrivilegedSunday_2 : Precedences.PrivilegedWeekday_9,
         date: (year) => this.dates.ashWednesday(year).add(i + 4, 'days'),
         isHolyDayOfObligation: dow === 0,
@@ -455,11 +453,11 @@ export class ProperOfTime {
           dow === 0
             ? this.#config.i18next.t('roman_rite:seasons.lent.sunday', { week })
             : this.#config.i18next.t('roman_rite:seasons.lent.weekday', { week, dow }),
-      };
+      });
     }
 
     // Palm Sunday of the Passion of the Lord.
-    this.#definitions[`palm_sunday`] = {
+    this.#definitions.set(`palm_sunday`, {
       precedence: Precedences.PrivilegedSunday_2,
       date: (year) => this.dates.palmSunday(year),
       isHolyDayOfObligation: true,
@@ -472,11 +470,11 @@ export class ProperOfTime {
         this.#computeCalendarMetadata(year, date, startOfSeason, endOfSeason, 0, 0),
       liturgicalColors: [LiturgicalColors.RED],
       name: this.#config.i18next.t(`roman_rite:celebrations.palm_sunday`),
-    };
+    });
 
     // Holy Week, Monday to Thursday.
     for (let dow = 1; dow < 5; dow++) {
-      this.#definitions[`holy_${this.#weekdays[dow]}`] = {
+      this.#definitions.set(`holy_${this.#weekdays[dow]}`, {
         precedence: Precedences.PrivilegedWeekday_9,
         date: (year) => this.dates.palmSunday(year).add(dow, 'days'),
         seasons: [LiturgicalSeasons.LENT],
@@ -488,7 +486,7 @@ export class ProperOfTime {
           this.#computeCalendarMetadata(year, date, startOfSeason, endOfSeason, 0, 0),
         liturgicalColors: [LiturgicalColors.PURPLE],
         name: this.#config.i18next.t('roman_rite:seasons.lent.holy_week_day', { dow }),
-      };
+      });
     }
   }
 
@@ -501,7 +499,7 @@ export class ProperOfTime {
     const endOfSeason = this.dates.easterSunday(year);
 
     // Thursday of the Lord's Supper (at the Evening Mass).
-    this.#definitions[`thursday_of_the_lord_s_supper`] = {
+    this.#definitions.set(`thursday_of_the_lord_s_supper`, {
       precedence: Precedences.Triduum_1,
       date: (year) => this.dates.holyThursday(year),
       seasons: [LiturgicalSeasons.PASCHAL_TRIDUUM],
@@ -510,10 +508,10 @@ export class ProperOfTime {
         this.#computeCalendarMetadata(year, date, startOfSeason, endOfSeason, 0, 0),
       liturgicalColors: [LiturgicalColors.WHITE],
       name: this.#config.i18next.t(`roman_rite:celebrations.thursday_of_the_lord_s_supper`),
-    };
+    });
 
     // Friday of the Passion of the Lord.
-    this.#definitions[`good_friday`] = {
+    this.#definitions.set(`good_friday`, {
       precedence: Precedences.Triduum_1,
       date: (year) => this.dates.goodFriday(year),
       seasons: [LiturgicalSeasons.PASCHAL_TRIDUUM],
@@ -522,10 +520,10 @@ export class ProperOfTime {
         this.#computeCalendarMetadata(year, date, startOfSeason, endOfSeason, 0, 0),
       liturgicalColors: [LiturgicalColors.RED],
       name: this.#config.i18next.t(`roman_rite:celebrations.good_friday`),
-    };
+    });
 
     // Holy Saturday
-    this.#definitions[`holy_saturday`] = {
+    this.#definitions.set(`holy_saturday`, {
       precedence: Precedences.Triduum_1,
       date: (year) => this.dates.holySaturday(year),
       seasons: [LiturgicalSeasons.PASCHAL_TRIDUUM],
@@ -534,10 +532,10 @@ export class ProperOfTime {
         this.#computeCalendarMetadata(year, date, startOfSeason, endOfSeason, 0, 0),
       liturgicalColors: [],
       name: this.#config.i18next.t(`roman_rite:celebrations.holy_saturday`),
-    };
+    });
 
     // Easter Sunday of the Resurrection of the Lord.
-    this.#definitions[`easter_sunday`] = {
+    this.#definitions.set(`easter_sunday`, {
       precedence: Precedences.Triduum_1,
       date: (year) => this.dates.easterSunday(year),
       isHolyDayOfObligation: true,
@@ -547,7 +545,7 @@ export class ProperOfTime {
         this.#computeCalendarMetadata(year, date, startOfSeason, endOfSeason, 0, 0),
       liturgicalColors: [LiturgicalColors.WHITE],
       name: this.#config.i18next.t(`roman_rite:celebrations.easter_sunday`),
-    };
+    });
   }
 
   /**
@@ -560,7 +558,7 @@ export class ProperOfTime {
 
     // Octave of Easter.
     for (let dow = 1; dow < 7; dow++) {
-      this.#definitions[`easter_${this.#weekdays[dow]}`] = {
+      this.#definitions.set(`easter_${this.#weekdays[dow]}`, {
         precedence: Precedences.WeekdayOfEasterOctave_2,
         date: (year) => this.dates.easterSunday(year).add(dow, 'days'),
         seasons: [LiturgicalSeasons.EASTER_TIME],
@@ -569,11 +567,11 @@ export class ProperOfTime {
           this.#computeCalendarMetadata(year, date, startOfSeason, endOfSeason, 0, 0),
         liturgicalColors: [LiturgicalColors.WHITE],
         name: this.#config.i18next.t('roman_rite:seasons.easter_time.octave', { dow }),
-      };
+      });
     }
 
     // Second Sunday of Easter, or of Divine Mercy.
-    this.#definitions[`divine_mercy_sunday`] = {
+    this.#definitions.set(`divine_mercy_sunday`, {
       precedence: Precedences.PrivilegedSunday_2,
       date: (year) => this.dates.divineMercySunday(year),
       isHolyDayOfObligation: true,
@@ -583,7 +581,7 @@ export class ProperOfTime {
         this.#computeCalendarMetadata(year, date, startOfSeason, endOfSeason, 0, 0),
       liturgicalColors: [LiturgicalColors.WHITE],
       name: this.#config.i18next.t(`roman_rite:celebrations.divine_mercy_sunday`),
-    };
+    });
 
     // All days, from the 2nd Monday to the 7th Saturday of Easter Time.
     for (let i = 8; i < 49; i++) {
@@ -607,20 +605,20 @@ export class ProperOfTime {
       };
       // The Ascension of the Lord.
       if (week === 6 && dow === 4) {
-        this.#definitions[`ascension`] = {
+        this.#definitions.set(`ascension`, {
           ...data,
           precedence: Precedences.ProperOfTimeSolemnity_2,
           date: (year) => this.dates.ascension(year),
           isHolyDayOfObligation: true,
           name: this.#config.i18next.t(`roman_rite:celebrations.ascension`),
-        };
+        });
       }
       // All other Sundays and weekdays.
-      this.#definitions[`easter_time_${week}_${this.#weekdays[dow]}`] = { ...data };
+      this.#definitions.set(`easter_time_${week}_${this.#weekdays[dow]}`, data);
     }
 
     // Pentecost Sunday.
-    this.#definitions[`pentecost_sunday`] = {
+    this.#definitions.set(`pentecost_sunday`, {
       precedence: Precedences.PrivilegedSunday_2,
       date: (year) => this.dates.pentecostSunday(year),
       isHolyDayOfObligation: true,
@@ -630,7 +628,7 @@ export class ProperOfTime {
         this.#computeCalendarMetadata(year, date, startOfSeason, endOfSeason, 0, 0),
       liturgicalColors: [LiturgicalColors.RED],
       name: this.#config.i18next.t(`roman_rite:celebrations.pentecost_sunday`),
-    };
+    });
   }
 
   /**
@@ -643,7 +641,7 @@ export class ProperOfTime {
     const startOnMonday = this.dates.baptismOfTheLord(year).day() === 0;
 
     // The Most Holy Trinity.
-    this.#definitions[`trinity_sunday`] = {
+    this.#definitions.set(`trinity_sunday`, {
       precedence: Precedences.GeneralSolemnity_3,
       date: (year) => this.dates.trinitySunday(year),
       isHolyDayOfObligation: true,
@@ -653,10 +651,10 @@ export class ProperOfTime {
         this.#computeCalendarMetadata(year, date, startOfSeason, endOfSeason, 0, 0),
       liturgicalColors: [LiturgicalColors.WHITE],
       name: this.#config.i18next.t(`roman_rite:celebrations.trinity_sunday`),
-    };
+    });
 
     // The Most Holy Body and Blood of Christ (Corpus Christi).
-    this.#definitions[`corpus_christi`] = {
+    this.#definitions.set(`corpus_christi`, {
       precedence: Precedences.GeneralSolemnity_3,
       date: (year) => this.dates.corpusChristi(year),
       isHolyDayOfObligation: true,
@@ -666,10 +664,10 @@ export class ProperOfTime {
         this.#computeCalendarMetadata(year, date, startOfSeason, endOfSeason, 0, 0),
       liturgicalColors: [LiturgicalColors.WHITE],
       name: this.#config.i18next.t(`roman_rite:celebrations.corpus_christi`),
-    };
+    });
 
     // The Most Sacred Heart of Jesus.
-    this.#definitions[`most_sacred_heart_of_jesus`] = {
+    this.#definitions.set(`most_sacred_heart_of_jesus`, {
       precedence: Precedences.GeneralSolemnity_3,
       date: (year) => this.dates.mostSacredHeartOfJesus(year),
       isHolyDayOfObligation: true,
@@ -679,7 +677,7 @@ export class ProperOfTime {
         this.#computeCalendarMetadata(year, date, startOfSeason, endOfSeason, 0, 0),
       liturgicalColors: [LiturgicalColors.WHITE],
       name: this.#config.i18next.t(`roman_rite:celebrations.most_sacred_heart_of_jesus`),
-    };
+    });
 
     // Ordinary Time.
     for (let i = 1; i < 238; i++) {
@@ -713,27 +711,26 @@ export class ProperOfTime {
       // Sunday of the Word of God
       // http://www.vatican.va/content/francesco/en/motu_proprio/documents/papa-francesco-motu-proprio-20190930_aperuit-illis.html
       if (week === 3 && dow === 0) {
-        this.#definitions[`sunday_of_the_word_of_god`] = {
+        this.#definitions.set(`sunday_of_the_word_of_god`, {
           ...data,
-          // date:
           name: this.#config.i18next.t(`roman_rite:celebrations.sunday_of_the_word_of_god`),
-        };
+        });
       }
 
       // 34th week in Ordinary Time,
       // or the Solemnity of our Lord Jesus Christ, King of the Universe.
       else if (week === 34 && dow === 0) {
-        this.#definitions[`christ_the_king_sunday`] = {
+        this.#definitions.set(`christ_the_king_sunday`, {
           ...data,
           precedence: Precedences.GeneralSolemnity_3,
           liturgicalColors: [LiturgicalColors.WHITE],
           name: this.#config.i18next.t(`roman_rite:celebrations.christ_the_king_sunday`),
-        };
+        });
       }
 
       // All other Sundays and weekdays.
       else {
-        this.#definitions[`ordinary_time_${week}_${this.#weekdays[dow]}`] = { ...data };
+        this.#definitions.set(`ordinary_time_${week}_${this.#weekdays[dow]}`, data);
       }
     }
   }
