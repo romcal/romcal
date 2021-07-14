@@ -2,13 +2,13 @@ import { ProperCycles } from '@roman-rite/constants/cycles';
 import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { Europe } from '@roman-rite/particular-calendars/europe';
-import { DateDefinitions } from '@roman-rite/types/calendar-def';
+import { InputDefinitions } from '@roman-rite/types/calendar-def';
 import { Dayjs } from 'dayjs';
 
 export class Ukraine extends CalendarDef {
   inheritFrom = Europe;
 
-  definitions: DateDefinitions = {
+  definitions: InputDefinitions = {
     marcelina_darowska_religious: {
       precedence: Precedences.OptionalMemorial_12,
       date: '1-5',

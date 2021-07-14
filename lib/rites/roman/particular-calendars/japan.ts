@@ -1,9 +1,9 @@
 import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
-import { DateDefinitions } from '@roman-rite/types/calendar-def';
+import { InputDefinitions } from '@roman-rite/types/calendar-def';
 
 export class Japan extends CalendarDef {
-  definitions: DateDefinitions = {
+  definitions: InputDefinitions = {
     paul_miki_and_companions_martyrs: {
       precedence: Precedences.ProperFeast_8f,
     },

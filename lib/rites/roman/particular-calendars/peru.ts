@@ -2,12 +2,12 @@ import { ProperCycles } from '@roman-rite/constants/cycles';
 import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { Americas } from '@roman-rite/particular-calendars/americas';
-import { DateDefinitions } from '@roman-rite/types/calendar-def';
+import { InputDefinitions } from '@roman-rite/types/calendar-def';
 
 export class Peru extends CalendarDef {
   inheritFrom = Americas;
 
-  definitions: DateDefinitions = {
+  definitions: InputDefinitions = {
     finding_of_the_holy_cross: {
       precedence: Precedences.ProperFeast_8f,
       date: '5-3',

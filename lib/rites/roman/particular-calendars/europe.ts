@@ -1,10 +1,10 @@
 import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
-import { DateDefinitions } from '@roman-rite/types/calendar-def';
+import { InputDefinitions } from '@roman-rite/types/calendar-def';
 import { PatronTitles } from '@romcal/constants/martyrology-metadata';
 
 export class Europe extends CalendarDef {
-  definitions: DateDefinitions = {
+  definitions: InputDefinitions = {
     cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop: {
       customLocaleKey:
         'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe',

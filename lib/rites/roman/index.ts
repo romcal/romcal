@@ -3,7 +3,7 @@ import { ProperOfTime } from '@roman-rite/general-calendar/proper-of-time';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { RomcalConfig } from '@roman-rite/models/config';
 import LiturgicalDay from '@roman-rite/models/liturgical-day';
-import { BaseCalendarDef, LiturgicalCalendar } from '@roman-rite/types/calendar-def';
+import { BaseCalendarDef, ByKeys, LiturgicalCalendar } from '@roman-rite/types/calendar-def';
 import { BaseRomcalConfig, RomcalConfigInput } from '@roman-rite/types/config';
 import { Dates } from '@roman-rite/utils/dates';
 import { CalendarScope } from '@romcal/constants/calendar-scope';
@@ -63,6 +63,27 @@ export default class Romcal {
         reject(e);
       }
     });
+  }
+
+  /**
+   * Get all possible liturgical days from the Proper of the Time of the General
+   * Roman Calendar, outside the context of a specific year.
+   */
+  properOfTimeDefinitions(): null {
+    return null;
+  }
+
+  /**
+   * Get all possible liturgical days from the currently selected calendar,
+   * (including all possible inherited calendars until the General Roman Calendar,
+   * and the Proper of the Time), outside the context of a specific year.
+   */
+  definitions(): ByKeys {
+    const data = {};
+
+    this.#calendarsDef.forEach((cal) => cal.buildAllDefinitions(data));
+
+    return data;
   }
 
   /**

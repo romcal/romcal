@@ -1,11 +1,11 @@
 import { ProperCycles } from '@roman-rite/constants/cycles';
 import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
-import { DateDefinitions } from '@roman-rite/types/calendar-def';
+import { InputDefinitions } from '@roman-rite/types/calendar-def';
 import dayjs from 'dayjs';
 
 export class China extends CalendarDef {
-  definitions: DateDefinitions = {
+  definitions: InputDefinitions = {
     odoric_of_pordenone_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '1-14',

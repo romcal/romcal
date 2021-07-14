@@ -1,4 +1,4 @@
-import { LiturgicalColor } from '@roman-rite/constants/colors';
+import { LiturgicalColor, LiturgicalColors } from '@roman-rite/constants/colors';
 import {
   ProperCycles,
   PsalterWeeksCycles,
@@ -10,6 +10,8 @@ import { Precedences } from '@roman-rite/constants/precedences';
 import { Ranks } from '@roman-rite/constants/ranks';
 import { LiturgicalSeasons } from '@roman-rite/constants/seasons';
 import LiturgicalDay from '@roman-rite/models/liturgical-day';
+import LiturgicalDayDef from '@roman-rite/models/liturgical-day-def';
+import { MartyrologyItemPointer, TitlesDef } from '@roman-rite/types/calendar-def';
 import { MartyrologyItem } from '@romcal/types/martyrology';
 import { Dayjs } from 'dayjs';
 
@@ -94,11 +96,16 @@ export type LiturgyDayDiff = Pick<LiturgicalDay, 'fromCalendar'> &
     > & { cycles: Partial<Pick<RomcalCyclesMetadata, 'properCycle'>> }
   >;
 
-export interface BaseLiturgicalDay {
+export interface BaseLiturgicalDayDef {
   /**
    * The unique key of the liturgical day.
    */
-  key: string;
+  key: Lowercase<string>;
+
+  /**
+   * Specify a custom locale key for this date definition, in this calendar.
+   */
+  customLocaleKey?: string;
 
   /**
    * The localized name of the liturgical day.
@@ -106,9 +113,9 @@ export interface BaseLiturgicalDay {
   name: string;
 
   /**
-   * The ISO8601 formatted date and time string of the liturgical day.
+   * The date function to compute the date of the liturgical day.
    */
-  date: string;
+  date: (year: number) => Dayjs | null;
 
   /**
    * The precedence type of the liturgical day.
@@ -142,11 +149,6 @@ export interface BaseLiturgicalDay {
   isOptional: boolean;
 
   /**
-   * The liturgical localized colors of a liturgical day.
-   */
-  liturgicalColorNames: string[];
-
-  /**
    * Season keys to which the liturgical day is a part.
    */
   seasons: LiturgicalSeasons[];
@@ -164,7 +166,12 @@ export interface BaseLiturgicalDay {
   /**
    * The liturgical colors of a liturgical day.
    */
-  liturgicalColors?: LiturgicalColor[];
+  liturgicalColors: LiturgicalColor[];
+
+  /**
+   * The liturgical localized colors of a liturgical day.
+   */
+  liturgicalColorNames: string[];
 
   /**
    * The specific martyrology metadata of a liturgical day, if applies.
@@ -172,25 +179,9 @@ export interface BaseLiturgicalDay {
   martyrology: MartyrologyItem[];
 
   /**
-   * Property used by Memorial and Feast celebrations only:
-   * - Memorials: their observance is integrated into the celebration of the occurring weekday
-   *   in accordance with the norms set forth in the General Instruction of the Roman
-   *   Missal and of the Liturgy of the Hours. (UNLY #14)
-   * - Liturgy of the hours: // todo: cite precise sources from the General Instructions of the Liturgy of the hours
-   *    - Memorials: the liturgy of the hour remain the one of the weekday.
-   *    - Feasts: small hours are taken from the weekday.
+   * The proper cycle in which the liturgical day is part.
    */
-  weekday?: LiturgicalDay;
-
-  /**
-   * Cycle metadata of a liturgical day.
-   */
-  cycles: RomcalCyclesMetadata;
-
-  /**
-   * Calendar metadata for the liturgical day.
-   */
-  calendar: Partial<RomcalCalendarMetadata>;
+  properCycle?: ProperCycles;
 
   /**
    * The name of the calendar from which the liturgical day is defined.
@@ -204,12 +195,93 @@ export interface BaseLiturgicalDay {
   fromExtendedCalendars: LiturgyDayDiff[];
 }
 
+export interface BaseLiturgicalDay extends Omit<BaseLiturgicalDayDef, 'date' | 'properCycle'> {
+  /**
+   * The ISO8601 formatted date and time string of the liturgical day.
+   */
+  date: string;
+
+  /**
+   * Calendar metadata for the liturgical day.
+   */
+  calendar: Partial<RomcalCalendarMetadata>;
+
+  /**
+   * Cycle metadata of a liturgical day.
+   */
+  cycles: RomcalCyclesMetadata;
+
+  /**
+   * Property used by Memorial and Feast celebrations only:
+   * - Memorials: their observance is integrated into the celebration of the occurring weekday
+   *   in accordance with the norms set forth in the General Instruction of the Roman
+   *   Missal and of the Liturgy of the Hours. (UNLY #14)
+   * - Liturgy of the hours: // todo: cite precise sources from the General Instructions of the Liturgy of the hours
+   *    - Memorials: the liturgy of the hour remain the one of the weekday.
+   *    - Feasts: small hours are taken from the weekday.
+   */
+  weekday?: LiturgicalDay;
+}
+
 export type LiturgicalDayInput = Pick<
   BaseLiturgicalDay,
-  'key' | 'precedence' | 'cycles' | 'calendar' | 'fromCalendar'
+  'key' | 'customLocaleKey' | 'precedence' | 'cycles' | 'calendar' | 'fromCalendar'
 > &
   Partial<
     Omit<BaseLiturgicalDay, 'key' | 'date' | 'precedence' | 'cycles' | 'calendar' | 'fromCalendar'>
   > & {
     date: string | Dayjs;
   };
+
+/**
+ * Complete Date Definition.
+ */
+export type LiturgicalDayDefInput = Omit<
+  LiturgicalDayDef,
+  'date' | 'calendar' | 'cycles' | 'weekday' | 'liturgicalColorNames'
+> &
+  Pick<BaseLiturgicalDayDef, 'customLocaleKey'> &
+  Pick<PartialInput, 'drop'> &
+  Required<Omit<PartialInput, 'liturgicalColors' | 'drop' | 'titles'>>;
+
+/**
+ * Used for the General Roman Calendar, and any Particular Calendars.
+ */
+export type DateDefInput = Partial<
+  Pick<LiturgicalDayDef, 'customLocaleKey' | 'precedence' | 'isHolyDayOfObligation'>
+> &
+  PartialInput;
+
+// Partial type def, used bellow on ProperOfTimeDateDefInput and DateDefInput.
+type PartialInput = {
+  /**
+   * Date as a String (in the 'M-D' format), or as a Dayjs object.
+   */
+  date?: string | ((year: number) => Dayjs | null);
+
+  /**
+   * Link one or multiple Saints, Blessed, or any other celebrations from the Martyrology catalog.
+   */
+  martyrology?: MartyrologyItemPointer;
+
+  /**
+   * Replace (using an Array) or extend (using a Function) the titles of each Saints linked to this date definition.
+   */
+  titles?: TitlesDef;
+
+  /**
+   * The liturgical colors of the liturgical day.
+   */
+  liturgicalColors?: LiturgicalColors | LiturgicalColors[];
+
+  /**
+   * The proper cycle in which the liturgical day is part.
+   */
+  properCycle?: ProperCycles;
+
+  /**
+   * If this liturgical day must be removed from this calendar and from all those it inherits,
+   * on the final calendar generated by romcal.
+   */
+  drop?: boolean;
+};

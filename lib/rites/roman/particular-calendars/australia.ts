@@ -1,7 +1,7 @@
 import { ProperCycles } from '@roman-rite/constants/cycles';
 import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
-import { DateDefinitions, ParticularConfig } from '@roman-rite/types/calendar-def';
+import { InputDefinitions, ParticularConfig } from '@roman-rite/types/calendar-def';
 import { PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
 
 export class Australia extends CalendarDef {
@@ -11,7 +11,7 @@ export class Australia extends CalendarDef {
     epiphanyOnSunday: false,
   };
 
-  definitions: DateDefinitions = {
+  definitions: InputDefinitions = {
     patrick_of_ireland_bishop: {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       date: '3-17',

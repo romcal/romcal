@@ -1,9 +1,10 @@
-import { LiturgicalColor, LiturgicalColors } from '@roman-rite/constants/colors';
+import { LiturgicalColor } from '@roman-rite/constants/colors';
 import { LiturgicalPeriods } from '@roman-rite/constants/periods';
 import { Precedences } from '@roman-rite/constants/precedences';
-import { Ranks, RanksFromPrecedence } from '@roman-rite/constants/ranks';
+import { Ranks } from '@roman-rite/constants/ranks';
 import { LiturgicalSeason, LiturgicalSeasons } from '@roman-rite/constants/seasons';
 import { RomcalConfig } from '@roman-rite/models/config';
+import LiturgicalDayDef from '@roman-rite/models/liturgical-day-def';
 import {
   BaseLiturgicalDay,
   LiturgicalDayInput,
@@ -11,7 +12,6 @@ import {
   RomcalCalendarMetadata,
   RomcalCyclesMetadata,
 } from '@roman-rite/types/liturgical-day';
-import { Titles } from '@romcal/constants/martyrology-metadata';
 import { MartyrologyItem } from '@romcal/types/martyrology';
 import dayjs, { Dayjs } from 'dayjs';
 
@@ -43,7 +43,7 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
     this.key = day.key;
     this.date = dayjs.isDayjs(day.date) ? day.date.toISOString() : day.date;
     this.precedence = day.precedence;
-    this.rank = LiturgicalDay.#precedenceToRank(day.precedence, day.date);
+    this.rank = LiturgicalDayDef.precedenceToRank(day.precedence, day.key);
     this.rankName = config.toRankName(this.rank);
     this.isHolyDayOfObligation = !!day.isHolyDayOfObligation;
     this.isOptional = day.isOptional ?? false;
@@ -77,22 +77,6 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
   }
 
   /**
-   * Return the corresponding Rank that correspond to a Precedence.
-   * @private
-   * @param precedence The Precedence type of the liturgical day.
-   * @param date The date of the liturgical day.
-   * @private
-   */
-  static #precedenceToRank(precedence: Precedences, date: string | Dayjs): Ranks {
-    // Easter Sunday
-    if (precedence === Precedences.Triduum_1 && dayjs(date).day() === 0) {
-      return Ranks.SOLEMNITY;
-    }
-
-    return RanksFromPrecedence[precedence];
-  }
-
-  /**
    * Check the provided liturgical color and return it in the good type,
    * or if not provided, try to determine the right color for the liturgical day.
    * @private
@@ -118,53 +102,29 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
     // No liturgical color has been defined
     // Now try to find the right default color...
 
-    // Solemnity, Fest or Memorial:
-    if (rank === Ranks.SOLEMNITY || rank === Ranks.FEAST || rank === Ranks.MEMORIAL) {
-      // The mass of a Memorial during Lent and in Advent from 17 December is not celebrated.
-      // In this case the color remain the default one of the season.
-      if (
-        rank === Ranks.MEMORIAL &&
-        // During Lent:
-        (seasons?.includes(LiturgicalSeasons.LENT) ||
-          // Or during Advent from 17 December:
-          (seasons?.includes(LiturgicalSeasons.ADVENT) && date.month() === 11 && date.date() >= 17))
-      ) {
-        // UNLY #16b: The weekdays of Advent from 17 December up to and including 24 December
-        // and all the weekdays of Lent have precedence over Obligatory Memorials.
-        //
-        // In this situation, we do not output liturgical colors,
-        // since the mass for this memorial can't be celebrated
-        // (which do not prevent to commemorate this memorial within this liturgical weekday).
-        return [];
-      }
-
-      // - Martyrs are red.
-      if (martyrology.some((m) => (m.titles ?? []).includes(Titles.Martyr))) {
-        return [LiturgicalColors.RED];
-      }
-
-      // - Otherwise it's white.
-      return [LiturgicalColors.WHITE];
+    // The mass of a Memorial during Lent and in Advent from 17 December is not celebrated.
+    // In this case the color remain the default one of the season.
+    if (
+      rank === Ranks.MEMORIAL &&
+      // During Lent:
+      (seasons?.includes(LiturgicalSeasons.LENT) ||
+        // Or during Advent from 17 December:
+        (seasons?.includes(LiturgicalSeasons.ADVENT) && date.month() === 11 && date.date() >= 17))
+    ) {
+      // UNLY #16b: The weekdays of Advent from 17 December up to and including 24 December
+      // and all the weekdays of Lent have precedence over Obligatory Memorials.
+      //
+      // In this situation, we do not output liturgical colors,
+      // since the mass for this memorial can't be celebrated
+      // (which do not prevent to commemorate this memorial within this liturgical weekday).
+      return [];
     }
 
-    // Weekdays and Sundays:
-    if (rank === Ranks.WEEKDAY || rank === Ranks.SUNDAY) {
-      // - during Lent and Advent.
-      if (
-        [LiturgicalSeasons.LENT, LiturgicalSeasons.ADVENT].some((season) =>
-          seasons?.includes(season),
-        )
-      ) {
-        return [LiturgicalColors.PURPLE];
-      }
-
-      // - during the Ordinary Time.
-      if (seasons?.includes(LiturgicalSeasons.ORDINARY_TIME)) {
-        return [LiturgicalColors.GREEN];
-      }
-    }
-
-    // During Easter Time, Christmas Time, and for any other use cases.
-    return [LiturgicalColors.WHITE];
+    return LiturgicalDayDef.checkOrDetermineLiturgicalColors(
+      rank,
+      seasons,
+      liturgicalColors,
+      martyrology,
+    );
   }
 }
