@@ -2,13 +2,13 @@ import { ProperCycles } from '@roman-rite/constants/cycles';
 import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { Americas } from '@roman-rite/particular-calendars/americas';
-import { DateDefinitions } from '@roman-rite/types/calendar-def';
+import { InputDefinitions } from '@roman-rite/types/calendar-def';
 import { PatronTitles } from '@romcal/constants/martyrology-metadata';
 
 export class PuertoRico extends CalendarDef {
   inheritFrom = Americas;
 
-  definitions: DateDefinitions = {
+  definitions: InputDefinitions = {
     most_holy_name_of_jesus: {
       precedence: Precedences.OptionalMemorial_12,
       date: '1-3',

@@ -1,11 +1,11 @@
 import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
-import { DateDefinitions } from '@roman-rite/types/calendar-def';
+import { InputDefinitions } from '@roman-rite/types/calendar-def';
 import { PatronTitles } from '@romcal/constants/martyrology-metadata';
 import dayjs from 'dayjs';
 
 export class Philippines extends CalendarDef {
-  definitions: DateDefinitions = {
+  definitions: InputDefinitions = {
     holy_child_of_cebu: {
       precedence: Precedences.ProperFeast_8f,
       date: (year) => {

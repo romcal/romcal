@@ -1,13 +1,13 @@
 import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { Americas } from '@roman-rite/particular-calendars/americas';
-import { DateDefinitions } from '@roman-rite/types/calendar-def';
+import { InputDefinitions } from '@roman-rite/types/calendar-def';
 import { PatronTitles } from '@romcal/constants/martyrology-metadata';
 
 export class Canada extends CalendarDef {
   inheritFrom = Americas;
 
-  definitions: DateDefinitions = {
+  definitions: InputDefinitions = {
     andre_bessette_religious: {
       precedence: Precedences.ProperMemorial_11b,
       date: '1-7',

@@ -1,12 +1,12 @@
 import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { Europe } from '@roman-rite/particular-calendars/europe';
-import { DateDefinitions } from '@roman-rite/types/calendar-def';
+import { InputDefinitions } from '@roman-rite/types/calendar-def';
 
 export class Malta extends CalendarDef {
   inheritFrom = Europe;
 
-  definitions: DateDefinitions = {
+  definitions: InputDefinitions = {
     publius_of_malta_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       date: '1-22',

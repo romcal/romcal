@@ -1,13 +1,13 @@
 import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { Europe } from '@roman-rite/particular-calendars/europe';
-import { DateDefinitions } from '@roman-rite/types/calendar-def';
+import { InputDefinitions } from '@roman-rite/types/calendar-def';
 import { PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
 
 export class Ireland extends CalendarDef {
   inheritFrom = Europe;
 
-  definitions: DateDefinitions = {
+  definitions: InputDefinitions = {
     munchin_of_limerick_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       date: '1-3',

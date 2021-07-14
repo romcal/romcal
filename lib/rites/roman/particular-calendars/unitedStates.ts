@@ -1,7 +1,7 @@
 import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { Americas } from '@roman-rite/particular-calendars/americas';
-import { DateDefinitions, ParticularConfig } from '@roman-rite/types/calendar-def';
+import { InputDefinitions, ParticularConfig } from '@roman-rite/types/calendar-def';
 import { PatronTitles } from '@romcal/constants/martyrology-metadata';
 
 export class UnitedStates extends CalendarDef {
@@ -14,7 +14,7 @@ export class UnitedStates extends CalendarDef {
     epiphanyOnSunday: true,
   };
 
-  definitions: DateDefinitions = {
+  definitions: InputDefinitions = {
     elizabeth_ann_seton_religious: {
       precedence: Precedences.ProperMemorial_11b,
       date: '1-4',
@@ -121,8 +121,12 @@ export class UnitedStates extends CalendarDef {
     immaculate_conception_of_mary: {
       customLocaleKey: 'immaculate_conception_of_mary_patroness_of_the_usa',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      isHolyDayOfObligation: () => this.dates.immaculateConceptionOfMary().day() === 0,
+      isHolyDayOfObligation: true,
+      // isHolyDayOfObligation: () => this.dates.immaculateConceptionOfMary().day() === 0,
       titles: (titles) => [...titles, PatronTitles.PatronessOfTheUSA],
+      // afterBuild: (def) => {
+      //   def.isHolyDayOfObligation = this.dates.immaculateConceptionOfMary().day() === 0;
+      // },
     },
   };
 }

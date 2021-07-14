@@ -1,9 +1,9 @@
 import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
-import { DateDefinitions } from '@roman-rite/types/calendar-def';
+import { InputDefinitions } from '@roman-rite/types/calendar-def';
 
 export class India extends CalendarDef {
-  definitions: DateDefinitions = {
+  definitions: InputDefinitions = {
     kuriakose_elias_of_the_holy_family_chavara_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '1-3',

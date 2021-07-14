@@ -3,7 +3,7 @@ import { ProperCycles } from '@roman-rite/constants/cycles';
 import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { Europe } from '@roman-rite/particular-calendars/europe';
-import { DateDefinitions, ParticularConfig } from '@roman-rite/types/calendar-def';
+import { InputDefinitions, ParticularConfig } from '@roman-rite/types/calendar-def';
 import { PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
 
 export class Slovakia extends CalendarDef {
@@ -15,7 +15,7 @@ export class Slovakia extends CalendarDef {
     epiphanyOnSunday: false,
   };
 
-  definitions: DateDefinitions = {
+  definitions: InputDefinitions = {
     // TODO: When votive Masses (#110) are implemented, on '2-14', add a votive Mass for `cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop`
 
     joseph_spouse_of_mary: {

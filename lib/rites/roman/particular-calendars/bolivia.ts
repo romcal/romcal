@@ -2,14 +2,14 @@ import { ProperCycles } from '@roman-rite/constants/cycles';
 import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { Americas } from '@roman-rite/particular-calendars/americas';
-import { DateDefinitions } from '@roman-rite/types/calendar-def';
+import { InputDefinitions } from '@roman-rite/types/calendar-def';
 import { Dates } from '@roman-rite/utils/dates';
 import { Dayjs } from 'dayjs';
 
 export class Bolivia extends CalendarDef {
   inheritFrom = Americas;
 
-  definitions: DateDefinitions = {
+  definitions: InputDefinitions = {
     philip_of_jesus_de_las_casas_paul_miki_and_companions_martyrs: {
       precedence: Precedences.ProperMemorial_11b,
       date: '2-6',

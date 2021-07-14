@@ -1,10 +1,10 @@
 import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
-import { DateDefinitions } from '@roman-rite/types/calendar-def';
+import { InputDefinitions } from '@roman-rite/types/calendar-def';
 import { PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
 
 export class NewZealand extends CalendarDef {
-  definitions: DateDefinitions = {
+  definitions: InputDefinitions = {
     waitangi_day: {
       precedence: Precedences.ProperFeast_8f,
       date: '2-6',

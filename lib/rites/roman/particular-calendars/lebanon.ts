@@ -1,9 +1,9 @@
 import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
-import { DateDefinitions } from '@roman-rite/types/calendar-def';
+import { InputDefinitions } from '@roman-rite/types/calendar-def';
 
 export class Lebanon extends CalendarDef {
-  definitions: DateDefinitions = {
+  definitions: InputDefinitions = {
     barbara_of_heliopolis_virgin: {
       precedence: Precedences.ProperMemorial_11b,
       date: '12-4',

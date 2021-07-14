@@ -2,13 +2,13 @@ import { ProperCycles } from '@roman-rite/constants/cycles';
 import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { Americas } from '@roman-rite/particular-calendars/americas';
-import { DateDefinitions } from '@roman-rite/types/calendar-def';
+import { InputDefinitions } from '@roman-rite/types/calendar-def';
 import { Titles } from '@romcal/constants/martyrology-metadata';
 
 export class Chile extends CalendarDef {
   inheritFrom = Americas;
 
-  definitions: DateDefinitions = {
+  definitions: InputDefinitions = {
     laura_vicuna_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       date: '1-22',

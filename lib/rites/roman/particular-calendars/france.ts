@@ -1,7 +1,7 @@
 import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { Europe } from '@roman-rite/particular-calendars/europe';
-import { DateDefinitions, ParticularConfig } from '@roman-rite/types/calendar-def';
+import { InputDefinitions, ParticularConfig } from '@roman-rite/types/calendar-def';
 import { PatronTitles } from '@romcal/constants/martyrology-metadata';
 
 export class France extends CalendarDef {
@@ -13,7 +13,7 @@ export class France extends CalendarDef {
     epiphanyOnSunday: true,
   };
 
-  definitions: DateDefinitions = {
+  definitions: InputDefinitions = {
     genevieve_of_paris_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       date: '1-3',

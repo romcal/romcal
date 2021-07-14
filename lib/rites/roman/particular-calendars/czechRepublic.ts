@@ -2,7 +2,7 @@ import { ProperCycles } from '@roman-rite/constants/cycles';
 import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { Europe } from '@roman-rite/particular-calendars/europe';
-import { DateDefinitions, ParticularConfig } from '@roman-rite/types/calendar-def';
+import { InputDefinitions, ParticularConfig } from '@roman-rite/types/calendar-def';
 import { PatronTitles } from '@romcal/constants/martyrology-metadata';
 
 export class CzechRepublic extends CalendarDef {
@@ -14,7 +14,7 @@ export class CzechRepublic extends CalendarDef {
     epiphanyOnSunday: false,
   };
 
-  definitions: DateDefinitions = {
+  definitions: InputDefinitions = {
     our_lady_mother_of_christian_unity: {
       precedence: Precedences.ProperMemorial_11b,
       date: '1-18',

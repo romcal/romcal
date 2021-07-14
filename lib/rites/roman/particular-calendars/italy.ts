@@ -1,13 +1,13 @@
 import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { Europe } from '@roman-rite/particular-calendars/europe';
-import { DateDefinitions } from '@roman-rite/types/calendar-def';
+import { InputDefinitions } from '@roman-rite/types/calendar-def';
 import { PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
 
 export class Italy extends CalendarDef {
   inheritFrom = Europe;
 
-  definitions: DateDefinitions = {
+  definitions: InputDefinitions = {
     catherine_of_siena_virgin: {
       customLocaleKey: 'catherine_of_siena_virgin_copatroness_of_italy_and_europe',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,

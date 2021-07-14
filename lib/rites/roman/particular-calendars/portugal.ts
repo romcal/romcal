@@ -1,12 +1,12 @@
 import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { Europe } from '@roman-rite/particular-calendars/europe';
-import { DateDefinitions } from '@roman-rite/types/calendar-def';
+import { InputDefinitions } from '@roman-rite/types/calendar-def';
 
 export class Portugal extends CalendarDef {
   inheritFrom = Europe;
 
-  definitions: DateDefinitions = {
+  definitions: InputDefinitions = {
     gundisalvus_of_amarante_priest: {
       precedence: Precedences.OptionalMemorial_12,
       date: '1-11',

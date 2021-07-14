@@ -2,7 +2,7 @@ import { LiturgicalColors } from '@roman-rite/constants/colors';
 import { ProperCycles } from '@roman-rite/constants/cycles';
 import { Precedences } from '@roman-rite/constants/precedences';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
-import { DateDefinitions, ParticularConfig } from '@roman-rite/types/calendar-def';
+import { InputDefinitions, ParticularConfig } from '@roman-rite/types/calendar-def';
 
 export class GeneralRoman extends CalendarDef {
   particularConfig: ParticularConfig = {
@@ -11,7 +11,7 @@ export class GeneralRoman extends CalendarDef {
     epiphanyOnSunday: true,
   };
 
-  definitions: DateDefinitions = {
+  definitions: InputDefinitions = {
     basil_the_great_and_gregory_nazianzen_bishops: {
       precedence: Precedences.GeneralMemorial_10,
       date: '1-2',
