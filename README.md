@@ -5,7 +5,7 @@
 </h1>
 
 <p align="center">
-  Generates the liturgical calendar of the Catholic Church used by the Roman Rite (post-Vatican II).
+  Generates liturgical calendars of the Roman Rite of the Roman Catholic Church.
 </p>
 
 <p align="center">
