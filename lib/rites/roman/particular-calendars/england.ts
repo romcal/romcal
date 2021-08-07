@@ -4,7 +4,6 @@ import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { Europe } from '@roman-rite/particular-calendars/europe';
 import { InputDefinitions } from '@roman-rite/types/calendar-def';
 import { PatronTitles } from '@romcal/constants/martyrology-metadata';
-import dayjs from 'dayjs';
 
 export class England extends CalendarDef {
   inheritFrom = Europe;
@@ -12,93 +11,94 @@ export class England extends CalendarDef {
   definitions: InputDefinitions = {
     aelred_of_rievaulx_abbot: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '1-12',
+      dateDef: { month: 1, date: 12 },
     },
 
     wulstan_of_worcester_bishop: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '1-19',
+      dateDef: { month: 1, date: 19 },
     },
 
     david_of_wales_bishop: {
       precedence: Precedences.ProperFeast_8f,
-      date: '3-1',
+      dateDef: { month: 3, date: 1 },
     },
 
     patrick_of_ireland_bishop: {
       precedence: Precedences.ProperFeast_8f,
-      date: '3-17',
+      dateDef: { month: 3, date: 17 },
     },
 
     george_of_lydda_martyr: {
       customLocaleKey: 'george_of_lydda_martyr_patron_of_england',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      date: (year) => {
-        const date = dayjs.utc(`${year}-4-23`);
-
-        // When it falls between Palm Sunday and the Second Sunday of Easter inclusive,
-        // it is transferred to the Monday after the Second Sunday of Easter
-        return date.isSameOrAfter(this.dates.palmSunday()) &&
-          date.isSameOrBefore(this.dates.divineMercySunday())
-          ? this.dates.divineMercySunday().add(1, 'day')
-          : date;
+      dateDef: { month: 4, date: 23 },
+      // When it falls between Palm Sunday and the Second Sunday of Easter inclusive,
+      // it is transferred to the Monday after the Second Sunday of Easter
+      dateExceptions: {
+        ifIsBetween: {
+          from: { dateFn: 'palmSunday' },
+          to: { dateFn: 'divineMercySunday' },
+          inclusive: true,
+        },
+        setDate: { dateFn: 'divineMercySunday', addDay: 1 },
       },
-      titles: (titles) => [...titles, PatronTitles.PatronOfEngland],
+      titles: { append: [PatronTitles.PatronOfEngland] },
     },
 
     adalbert_of_prague_bishop: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '4-24',
+      dateDef: { month: 4, date: 24 },
     },
 
     fidelis_of_sigmaringen_priest: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '4-24',
+      dateDef: { month: 4, date: 24 },
     },
 
     english_martyrs: {
       precedence: Precedences.ProperFeast_8f,
-      date: '5-4',
+      dateDef: { month: 5, date: 4 },
     },
 
     dunstan_of_canterbury_bishop: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '5-19',
+      dateDef: { month: 5, date: 19 },
     },
 
     bede_the_venerable_priest: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '5-25',
+      dateDef: { month: 5, date: 25 },
     },
 
     augustine_of_canterbury_bishop: {
       precedence: Precedences.ProperFeast_8f,
-      date: '5-27',
+      dateDef: { month: 5, date: 27 },
     },
 
     boniface_of_mainz_bishop: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '6-5',
+      dateDef: { month: 6, date: 5 },
     },
 
     ephrem_the_syrian_deacon: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '6-9',
+      dateDef: { month: 6, date: 9 },
     },
 
     columba_of_iona_abbot: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '6-9',
+      dateDef: { month: 6, date: 9 },
     },
 
     richard_of_chichester_bishop: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '6-16',
+      dateDef: { month: 6, date: 16 },
     },
 
     alban_of_britain_martyr: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '6-20',
+      dateDef: { month: 6, date: 20 },
     },
 
     john_fisher_bishop_and_thomas_more_martyrs: {
@@ -107,22 +107,22 @@ export class England extends CalendarDef {
 
     etheldreda_of_ely_abbess: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '6-23',
+      dateDef: { month: 6, date: 23 },
     },
 
     oliver_plunket_bishop: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '7-1',
+      dateDef: { month: 7, date: 1 },
     },
 
     dominic_of_the_mother_of_god_barberi_priest: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '8-26',
+      dateDef: { month: 8, date: 26 },
     },
 
     margaret_clitherow_anne_line_and_margaret_ward_virgin_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '8-30',
+      dateDef: { month: 8, date: 30 },
       martyrology: [
         'margaret_clitherow_virgin_martyr',
         'anne_line_virgin_martyr',
@@ -132,7 +132,7 @@ export class England extends CalendarDef {
 
     aidan_of_lindisfarne_bishop_and_the_saints_of_lindisfarne: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '8-31',
+      dateDef: { month: 8, date: 31 },
       martyrology: ['aidan_of_lindisfarne_bishop', 'the_saints_of_lindisfarne'],
     },
 
@@ -142,122 +142,124 @@ export class England extends CalendarDef {
 
     cuthbert_of_lindisfarne_bishop: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '9-4',
+      dateDef: { month: 9, date: 4 },
     },
 
     theodore_of_canterbury_bishop: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '9-19',
+      dateDef: { month: 9, date: 19 },
     },
 
     our_lady_of_walsingham: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '9-24',
+      dateDef: { month: 9, date: 24 },
     },
 
     john_henry_newman_priest: {
       precedence: Precedences.ProperFeast_8f,
-      date: '10-9',
+      dateDef: { month: 10, date: 9 },
     },
 
     denis_of_paris_bishop_and_companions_martyrs: {
-      date: '10-10',
+      dateDef: { month: 10, date: 10 },
     },
 
     john_leonardi_priest: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '10-10',
+      dateDef: { month: 10, date: 10 },
     },
 
     paulinus_of_york_bishop: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '10-10',
+      dateDef: { month: 10, date: 10 },
     },
 
-    // In England and Wales when the celebration falls on either a
-    // Saturday or a Monday it is transferred to the Sunday.
     peter_and_paul_apostles: {
-      date: (year) => {
-        const date = dayjs.utc(`${year}-6-29`);
-        if (date.day() === 1) {
-          return date.subtract(1, 'day');
-        } else if (date.day() === 6) {
-          return date.add(1, 'day').startOf('day');
-        } else {
-          return date;
-        }
-      },
+      dateDef: { month: 6, date: 29 },
+      // In England and Wales when the celebration falls on either a
+      // Saturday or a Monday it is transferred to the Sunday.
+      dateExceptions: [
+        {
+          ifIsDayOfWeek: 1, // if is a Monday
+          setDate: { subtractDay: 1 },
+        },
+        {
+          ifIsDayOfWeek: 6, // if is a Saturday
+          setDate: { addDay: 1 },
+        },
+      ],
     },
 
-    // In England and Wales when the celebration falls on either a
-    // Saturday or a Monday it is transferred to the Sunday.
     assumption: {
-      date: (year) => {
-        const date = dayjs.utc(`${year}-8-15`);
-        if (date.day() === 1) {
-          return date.subtract(1, 'day');
-        } else if (date.day() === 6) {
-          return date.add(1, 'day').startOf('day');
-        } else {
-          return date;
-        }
-      },
+      dateDef: { month: 8, date: 15 },
+      // In England and Wales when the celebration falls on either a
+      // Saturday or a Monday it is transferred to the Sunday.
+      dateExceptions: [
+        {
+          ifIsDayOfWeek: 1, // if is Monday
+          setDate: { subtractDay: 1 },
+        },
+        {
+          ifIsDayOfWeek: 6, // if is Saturday
+          setDate: { addDay: 1 },
+        },
+      ],
     },
 
     wilfrid_of_york_bishop: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '10-12',
+      dateDef: { month: 10, date: 12 },
     },
 
     edward_the_confessor: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '10-13',
+      dateDef: { month: 10, date: 13 },
     },
 
     chad_of_mercia_and_cedd_of_lastingham_bishops: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '10-26',
+      dateDef: { month: 10, date: 26 },
       martyrology: ['chad_of_mercia_bishop', 'cedd_of_lastingham_bishop'],
     },
 
     winefride_of_flintshire_virgin: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '11-3',
+      dateDef: { month: 11, date: 3 },
     },
 
     willibrord_of_utrecht_bishop: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '11-7',
+      dateDef: { month: 11, date: 7 },
     },
 
     edmund_of_abingdon_bishop: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '11-16',
+      dateDef: { month: 11, date: 16 },
     },
 
     margaret_of_scotland: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '11-16',
+      dateDef: { month: 11, date: 16 },
     },
 
     elizabeth_of_hungary_religious: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '11-17',
+      dateDef: { month: 11, date: 17 },
     },
 
     hilda_of_whitby_abbess: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '11-17',
+      dateDef: { month: 11, date: 17 },
     },
 
     hugh_of_lincoln_bishop: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '11-17',
+      dateDef: { month: 11, date: 17 },
     },
 
     andrew_apostle: {
       precedence: Precedences.ProperFeast_8f,
-      date: '11-30',
+      dateDef: { month: 11, date: 30 },
     },
 
     // In England and Wales when All Saints (1 November) falls on a Saturday
@@ -266,38 +268,29 @@ export class England extends CalendarDef {
     // However, in countries (not England & Wales) where it falls
     // on a Sunday it replaces the Sunday.
     all_saints: {
-      date: (year) => {
-        const date = dayjs.utc(`${year}-11-1`);
-        if (date.day() === 6) {
-          return dayjs.utc(`${year}-11-2`);
-        } else {
-          return date;
-        }
+      dateDef: { month: 11, date: 1 },
+      dateExceptions: {
+        ifIsDayOfWeek: 6, // if is a Saturday
+        setDate: { addDay: 1 },
       },
     },
 
     all_souls: {
-      date: (year) => {
-        const date = dayjs.utc(`${year}-11-1`);
-        if (date.day() === 6) {
-          // If All Saints is on Saturday
-          // Then All Souls will be on Monday because All Saints will be moved to Sunday on the rule above
-          return dayjs.utc(`${year}-11-3`);
-        } else {
-          // Else, All Souls is the day after All Saints
-          return dayjs.utc(`${year}-11-2`);
-        }
+      dateDef: { month: 11, date: 2 },
+      dateExceptions: {
+        ifIsDayOfWeek: 0, // if is a Sunday
+        setDate: { addDay: 1 },
       },
     },
 
     thomas_becket_bishop: {
       precedence: Precedences.ProperFeast_8f,
-      date: '12-29',
+      dateDef: { month: 12, date: 29 },
     },
 
     our_lord_jesus_christ_the_eternal_high_priest: {
       precedence: Precedences.ProperFeast_8f,
-      date: (year) => this.dates.pentecostSunday(year).add(4, 'day'),
+      dateDef: { dateFn: 'pentecostSunday', addDay: 4 },
       properCycle: ProperCycles.PROPER_OF_TIME,
     },
   };

@@ -1,4 +1,4 @@
-import { LiturgicalColor, LiturgicalColors } from '@roman-rite/constants/colors';
+import { LiturgicalColors } from '@roman-rite/constants/colors';
 import {
   ProperCycles,
   PsalterWeeksCycles,
@@ -9,12 +9,81 @@ import { LiturgicalPeriods } from '@roman-rite/constants/periods';
 import { Precedences } from '@roman-rite/constants/precedences';
 import { Ranks } from '@roman-rite/constants/ranks';
 import { LiturgicalSeasons } from '@roman-rite/constants/seasons';
-import LiturgicalDay from '@roman-rite/models/liturgical-day';
 import LiturgicalDayDef from '@roman-rite/models/liturgical-day-def';
-import { MartyrologyItemPointer, TitlesDef } from '@roman-rite/types/calendar-def';
-import { MartyrologyItem } from '@romcal/types/martyrology';
+import { Dates } from '@roman-rite/utils/dates';
+import { PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
+import { MartyrologyItem, SaintCount } from '@romcal/types/martyrology';
 import { Dayjs } from 'dayjs';
+import { StringMap } from 'i18next';
 
+/**
+ * Utility types
+ */
+type Without<T, U> = { [P in Exclude<keyof T, keyof U>]?: never };
+// eslint-disable-next-line @typescript-eslint/ban-types
+type XOR<T, U> = T | U extends object ? (Without<T, U> & U) | (Without<U, T> & T) : T | U;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AllXOR<T extends any[]> = T extends [infer Only]
+  ? Only
+  : T extends [infer A, infer B, ...infer Rest]
+  ? AllXOR<[XOR<A, B>, ...Rest]>
+  : never;
+
+/**
+ * A key, in lower_underscore_case
+ */
+export type Key = Lowercase<string>;
+
+/**
+ * The liturgical day date definition
+ */
+export type DateDef = AllXOR<
+  [
+    DateDefMonthDate,
+    DateDefDateFnAddDay,
+    DateDefDateFnSubtractDay,
+    DateDefMonthDowNthDowInMonth,
+    DateDefMonthLastDowInMonth,
+  ]
+>;
+
+export type Month = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+export type DayOfWeek = 0 | 1 | 2 | 3 | 4 | 5 | 6;
+export type DateDefMonthDate = { month: Month; date: number };
+export type DateDefDateFnAddDay = { dateFn: keyof Dates; dateArg?: number[]; addDay?: number };
+export type DateDefDateFnSubtractDay = {
+  dateFn: keyof Dates;
+  dateArg?: number[];
+  subtractDay?: number;
+};
+export type DateDefMonthDowNthDowInMonth = {
+  month: Month;
+  dayOfWeek: DayOfWeek;
+  nthDayOfWeekInMonth: number;
+};
+export type DateDefMonthLastDowInMonth = { month: Month; lastDayOfWeekInMonth: DayOfWeek };
+
+/**
+ * The liturgical day date definition, can extend a previously defined date
+ */
+export type DateDefExtended = AllXOR<[DateDef, DateDefAddDay, DateDefSubtractDay]>;
+
+export type DateDefAddDay = { addDay: number };
+export type DateDefSubtractDay = { subtractDay: number };
+
+/**
+ * The liturgical day date exception
+ */
+export type DateDefException =
+  | (
+      | { ifIsBetween: { from: DateDef; to: DateDef; inclusive: boolean } }
+      | { ifIsSameAsDate: DateDef }
+      | { ifIsDayOfWeek: number }
+    ) & { setDate: DateDefExtended };
+
+/**
+ * Cycles Metadata
+ */
 export type RomcalCyclesMetadata = {
   /**
    * The proper cycle in which the liturgical day is part.
@@ -37,6 +106,9 @@ export type RomcalCyclesMetadata = {
   psalterWeek: PsalterWeeksCycles;
 };
 
+/**
+ * Calendar Metadata
+ */
 export type RomcalCalendarMetadata = {
   /**
    * The week number of the liturgical season.
@@ -82,40 +154,42 @@ export type RomcalCalendarMetadata = {
   endOfSeason: string;
 };
 
-export type LiturgyDayDiff = Pick<LiturgicalDay, 'fromCalendar'> &
-  Partial<
-    Pick<
-      LiturgicalDay,
-      | 'fromCalendar'
-      | 'date'
-      | 'precedence'
-      | 'rank'
-      | 'isHolyDayOfObligation'
-      | 'name'
-      | 'liturgicalColors'
-    > & { cycles: Partial<Pick<RomcalCyclesMetadata, 'properCycle'>> }
-  >;
+/**
+ * The associated titles of a liturgical day
+ */
+export type TitlesDef =
+  | (Titles | PatronTitles)[]
+  | { append?: (Titles | PatronTitles)[]; prepend?: (Titles | PatronTitles)[] };
 
-export interface BaseLiturgicalDayDef {
+/**
+ * The associated martyrology item
+ */
+export type MartyrologyItemPointer = string | MartyrologyItemRedefined;
+
+/**
+ * The associated martyrology item, with its overridden properties
+ */
+export type MartyrologyItemRedefined = {
+  key: string;
+  titles?: TitlesDef;
+  hideTitles?: boolean;
+  count?: SaintCount;
+};
+
+/**
+ * Base object extended by other derived Liturgical Day objects
+ */
+type LiturgicalDayRoot = {
   /**
-   * The unique key of the liturgical day.
+   * Date definition
    */
-  key: Lowercase<string>;
+  dateDef: DateDef;
 
   /**
-   * Specify a custom locale key for this date definition, in this calendar.
+   * Computed date within a context of a year
+   * @param year
    */
-  customLocaleKey?: string;
-
-  /**
-   * The localized name of the liturgical day.
-   */
-  name: string;
-
-  /**
-   * The date function to compute the date of the liturgical day.
-   */
-  date: (year: number) => Dayjs | null;
+  date: Dayjs | null;
 
   /**
    * The precedence type of the liturgical day.
@@ -131,6 +205,21 @@ export interface BaseLiturgicalDayDef {
    * The localized rank of the liturgical day.
    */
   rankName: string;
+
+  /**
+   * Date definition exception
+   */
+  dateExceptions?: DateDefException | DateDefException[];
+
+  /**
+   * The liturgical colors of the liturgical day.
+   */
+  liturgicalColors: LiturgicalColors[];
+
+  /**
+   * The liturgical localized colors of a liturgical day.
+   */
+  liturgicalColorNames: string[];
 
   /**
    * Holy days of obligation are days on which the faithful are expected to attend Mass,
@@ -149,6 +238,21 @@ export interface BaseLiturgicalDayDef {
   isOptional: boolean;
 
   /**
+   * The localized name of the liturgical day.
+   */
+  name: string;
+
+  /**
+   * The i18n definition
+   */
+  i18nDef: [string] | [string, StringMap | string];
+
+  /**
+   * Specify a custom locale key for this date definition, in this calendar.
+   */
+  customLocaleKey?: string;
+
+  /**
    * Season keys to which the liturgical day is a part.
    */
   seasons: LiturgicalSeasons[];
@@ -164,19 +268,14 @@ export interface BaseLiturgicalDayDef {
   periods: LiturgicalPeriods[];
 
   /**
-   * The liturgical colors of a liturgical day.
-   */
-  liturgicalColors: LiturgicalColor[];
-
-  /**
-   * The liturgical localized colors of a liturgical day.
-   */
-  liturgicalColorNames: string[];
-
-  /**
    * The specific martyrology metadata of a liturgical day, if applies.
    */
   martyrology: MartyrologyItem[];
+
+  /**
+   * Combined titles of each Saints linked to this date definition.
+   */
+  titles: (Titles | PatronTitles)[];
 
   /**
    * The proper cycle in which the liturgical day is part.
@@ -186,102 +285,128 @@ export interface BaseLiturgicalDayDef {
   /**
    * The name of the calendar from which the liturgical day is defined.
    */
-  fromCalendar: string;
+  fromCalendar: Lowercase<string>;
 
   /**
    * The names and the object diff of the calendars from which this liturgical day is extended.
    * From the first extended definitions to the latest extended definition.
    */
   fromExtendedCalendars: LiturgyDayDiff[];
-}
-
-export interface BaseLiturgicalDay extends Omit<BaseLiturgicalDayDef, 'date' | 'properCycle'> {
-  /**
-   * The ISO8601 formatted date and time string of the liturgical day.
-   */
-  date: string;
-
-  /**
-   * Calendar metadata for the liturgical day.
-   */
-  calendar: Partial<RomcalCalendarMetadata>;
-
-  /**
-   * Cycle metadata of a liturgical day.
-   */
-  cycles: RomcalCyclesMetadata;
-
-  /**
-   * Property used by Memorial and Feast celebrations only:
-   * - Memorials: their observance is integrated into the celebration of the occurring weekday
-   *   in accordance with the norms set forth in the General Instruction of the Roman
-   *   Missal and of the Liturgy of the Hours. (UNLY #14)
-   * - Liturgy of the hours: // todo: cite precise sources from the General Instructions of the Liturgy of the hours
-   *    - Memorials: the liturgy of the hour remain the one of the weekday.
-   *    - Feasts: small hours are taken from the weekday.
-   */
-  weekday?: LiturgicalDay;
-}
-
-export type LiturgicalDayInput = Pick<
-  BaseLiturgicalDay,
-  'key' | 'customLocaleKey' | 'precedence' | 'cycles' | 'calendar' | 'fromCalendar'
-> &
-  Partial<
-    Omit<BaseLiturgicalDay, 'key' | 'date' | 'precedence' | 'cycles' | 'calendar' | 'fromCalendar'>
-  > & {
-    date: string | Dayjs;
-  };
-
-/**
- * Complete Date Definition.
- */
-export type LiturgicalDayDefInput = Omit<
-  LiturgicalDayDef,
-  'date' | 'calendar' | 'cycles' | 'weekday' | 'liturgicalColorNames'
-> &
-  Pick<BaseLiturgicalDayDef, 'customLocaleKey'> &
-  Pick<PartialInput, 'drop'> &
-  Required<Omit<PartialInput, 'liturgicalColors' | 'drop' | 'titles'>>;
-
-/**
- * Used for the General Roman Calendar, and any Particular Calendars.
- */
-export type DateDefInput = Partial<
-  Pick<LiturgicalDayDef, 'customLocaleKey' | 'precedence' | 'isHolyDayOfObligation'>
-> &
-  PartialInput;
-
-// Partial type def, used bellow on ProperOfTimeDateDefInput and DateDefInput.
-type PartialInput = {
-  /**
-   * Date as a String (in the 'M-D' format), or as a Dayjs object.
-   */
-  date?: string | ((year: number) => Dayjs | null);
-
-  /**
-   * Link one or multiple Saints, Blessed, or any other celebrations from the Martyrology catalog.
-   */
-  martyrology?: MartyrologyItemPointer;
-
-  /**
-   * Replace (using an Array) or extend (using a Function) the titles of each Saints linked to this date definition.
-   */
-  titles?: TitlesDef;
-
-  /**
-   * The liturgical colors of the liturgical day.
-   */
-  liturgicalColors?: LiturgicalColors | LiturgicalColors[];
-
-  /**
-   * The proper cycle in which the liturgical day is part.
-   */
-  properCycle?: ProperCycles;
 
   /**
    * If this liturgical day must be removed from this calendar and from all those it inherits,
    * on the final calendar generated by romcal.
    */
   drop?: boolean;
+};
+
+/**
+ * Generated object containing all metadata in a context of a proper calendar,
+ * that can be used then to compute its date in a context of a year
+ */
+export type BaseLiturgicalDayDef = Omit<LiturgicalDayRoot, 'date' | 'drop'> & {
+  /**
+   * The unique key of the liturgical day.
+   */
+  key: Key;
+};
+
+/**
+ * Input object used in calendar definition files
+ */
+export type LiturgicalDayInput = Partial<
+  Pick<
+    LiturgicalDayRoot,
+    | 'dateDef'
+    | 'dateExceptions'
+    | 'precedence'
+    | 'isHolyDayOfObligation'
+    | 'isOptional'
+    | 'properCycle'
+    | 'customLocaleKey'
+    | 'drop'
+  >
+> & {
+  /**
+   * The liturgical color(s) of the liturgical day.
+   */
+  liturgicalColors?: LiturgicalColors | LiturgicalColors[];
+
+  /**
+   * Link one or multiple Saints, Blessed, or any other celebrations from the Martyrology catalog.
+   */
+  martyrology?: MartyrologyItemPointer[];
+
+  /**
+   * Redefine the titles of each Saints linked to this date definition.
+   */
+  titles?: TitlesDef;
+};
+
+/**
+ * Input object with its base properties from the proper of time
+ */
+export type LiturgicalDayProperOfTimeInput = Omit<
+  LiturgicalDayRoot,
+  | 'date'
+  | 'rank'
+  | 'rankName'
+  | 'name'
+  | 'isHolyDayOfObligation'
+  | 'isOptional'
+  | 'seasonNames'
+  | 'martyrology'
+  | 'titles'
+  | 'liturgicalColorNames'
+  | 'fromCalendar'
+  | 'fromExtendedCalendars'
+> &
+  Partial<Pick<LiturgicalDayRoot, 'isHolyDayOfObligation' | 'isOptional'>> & {
+    /**
+     * Function that compute calendar metadata
+     * @param date
+     */
+    calendar?: (date: Dayjs) => RomcalCalendarMetadata;
+
+    /**
+     * Define year offset during the proper of time generation
+     */
+    yearOffset: number;
+  };
+
+/**
+ * Generated object with computed date within a specific year
+ */
+export type BaseLiturgicalDay = Omit<LiturgicalDayRoot, 'properCycle' | 'drop'> & {
+  /**
+   * The unique key of the liturgical day.
+   */
+  key: Key;
+};
+
+/**
+ * LiturgyDayDiff object used to compare definition iterations
+ */
+export type LiturgyDayDiff = Pick<LiturgicalDayDef, 'fromCalendar'> &
+  Partial<
+    Pick<
+      LiturgicalDayRoot,
+      | 'fromCalendar'
+      // | 'date'
+      | 'dateDef'
+      | 'precedence'
+      | 'rank'
+      | 'isHolyDayOfObligation'
+      | 'i18nDef'
+      | 'titles'
+      | 'liturgicalColors'
+    > & { cycles: Partial<Pick<RomcalCyclesMetadata, 'properCycle'>> }
+  >;
+
+/**
+ * Check if the provided object is a [LiturgicalDayProperOfTimeInput] object
+ * @param maybeObj
+ */
+export const isLiturgicalDayProperOfTimeInput = (maybeObj: unknown): boolean => {
+  return typeof maybeObj === 'object' && Object.prototype.hasOwnProperty.call(maybeObj, 'periods');
 };

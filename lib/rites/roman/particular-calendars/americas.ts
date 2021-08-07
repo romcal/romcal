@@ -8,7 +8,7 @@ export class Americas extends CalendarDef {
     our_lady_of_guadalupe: {
       customLocaleKey: 'our_lady_of_guadalupe_patroness_of_the_americas',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      titles: (titles) => [...titles, PatronTitles.PatronessOfTheAmericas],
+      titles: { append: [PatronTitles.PatronessOfTheAmericas] },
     },
   };
 }

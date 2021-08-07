@@ -10,38 +10,38 @@ export class Scotland extends CalendarDef {
   definitions: InputDefinitions = {
     kentigern_of_scotland_bishop: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '1-13',
+      dateDef: { month: 1, date: 13 },
     },
 
     john_ogilvie_priest: {
       precedence: Precedences.ProperFeast_8f,
-      date: '3-10',
+      dateDef: { month: 3, date: 10 },
     },
 
     patrick_of_ireland_bishop: {
       precedence: Precedences.ProperFeast_8f,
-      date: '3-17',
+      dateDef: { month: 3, date: 17 },
     },
 
     columba_of_iona_abbot: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '6-9',
+      dateDef: { month: 6, date: 9 },
     },
 
     ninian_of_whithorn_bishop: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '9-16',
+      dateDef: { month: 9, date: 16 },
     },
 
     margaret_of_scotland: {
       precedence: Precedences.ProperFeast_8f,
-      date: '11-16',
+      dateDef: { month: 11, date: 16 },
     },
 
     andrew_apostle: {
       customLocaleKey: 'andrew_apostle_patron_of_scotland',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      titles: (titles) => [...titles, PatronTitles.PatronOfScotland],
+      titles: { append: [PatronTitles.PatronOfScotland] },
     },
   };
 }

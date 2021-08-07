@@ -1,7 +1,5 @@
-import { LiturgicalColor } from '@roman-rite/constants/colors';
-import { Ranks } from '@roman-rite/constants/ranks';
-import { LiturgicalSeasons } from '@roman-rite/constants/seasons';
 import { CalendarDef } from '@roman-rite/models/calendar-def';
+import { LiturgicalDayDefinitions } from '@roman-rite/types/calendar-def';
 import { BaseRomcalConfig, IRoncalConfig, RomcalConfigInput } from '@roman-rite/types/config';
 import { Dates } from '@roman-rite/utils/dates';
 import { CalendarScope } from '@romcal/constants/calendar-scope';
@@ -31,6 +29,8 @@ export class RomcalConfig implements IRoncalConfig {
   readonly prettyPrint: boolean;
   readonly i18next: i18n;
   readonly dates: Dates;
+
+  liturgicalDayDef: LiturgicalDayDefinitions = {};
 
   /**
    * Clone the RomcalConfig object
@@ -137,41 +137,6 @@ export class RomcalConfig implements IRoncalConfig {
     this.i18next.addResourceBundle(locale.key, 'ordinals', locale.ordinals);
     this.i18next.addResourceBundle(locale.key, 'martyrology', locale.martyrology);
   }
-
-  /**
-   * Utility helper to translate and cache Season names.
-   * @param seasonKey - The season key.
-   */
-  toSeasonName(seasonKey: LiturgicalSeasons): string {
-    if (this.#seasonsNames[seasonKey]) return this.#seasonsNames[seasonKey];
-    this.#seasonsNames[seasonKey] = this.i18next.t(
-      `roman_rite:seasons.${seasonKey.toLowerCase()}.season`,
-    );
-    return this.#seasonsNames[seasonKey];
-  }
-  #seasonsNames: Record<string, string> = {};
-
-  /**
-   * Utility helper to translate and cache liturgical color names.
-   * @param colorKey - The color key.
-   */
-  toColorName(colorKey: LiturgicalColor): string {
-    if (this.#colorNames[colorKey]) return this.#colorNames[colorKey];
-    this.#colorNames[colorKey] = this.i18next.t(`colors:${colorKey.toLowerCase()}`);
-    return this.#colorNames[colorKey];
-  }
-  #colorNames: Record<string, string> = {};
-
-  /**
-   * Utility helper to translate and cache liturgical rank names.
-   * @param rankKey - The rank key.
-   */
-  toRankName(rankKey: Ranks): string {
-    if (this.#rankNames[rankKey]) return this.#rankNames[rankKey];
-    this.#rankNames[rankKey] = this.i18next.t(`roman_rite:ranks.${rankKey.toLowerCase()}`);
-    return this.#rankNames[rankKey];
-  }
-  #rankNames: Record<string, string> = {};
 
   /**
    * Return the config settings as an Object.

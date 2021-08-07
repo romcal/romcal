@@ -9,47 +9,47 @@ export class Malta extends CalendarDef {
   definitions: InputDefinitions = {
     publius_of_malta_bishop: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '1-22',
+      dateDef: { month: 1, date: 22 },
     },
 
     shipwreck_of_saint_paul_apostle: {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      date: '2-10',
+      dateDef: { month: 2, date: 10 },
     },
 
     mary_adeodata_pisani_virgin: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '2-25',
+      dateDef: { month: 2, date: 25 },
     },
 
     our_lady_of_sorrows: {
       precedence: Precedences.ProperFeast_8f,
-      date: '4-15',
+      dateDef: { month: 4, date: 15 },
     },
 
     pius_v_pope: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '4-30',
+      dateDef: { month: 4, date: 30 },
     },
 
     george_preca_priest: {
       precedence: Precedences.ProperFeast_8f,
-      date: '5-9',
+      dateDef: { month: 5, date: 9 },
     },
 
     ignatius_falzon: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '7-1',
+      dateDef: { month: 7, date: 1 },
     },
 
     our_lady_of_mount_carmel: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '7-16',
+      dateDef: { month: 7, date: 16 },
     },
 
     catherine_of_alexandria_virgin: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '11-25',
+      dateDef: { month: 11, date: 25 },
     },
   };
 }

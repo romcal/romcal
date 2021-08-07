@@ -9,42 +9,42 @@ export class Lithuania extends CalendarDef {
   definitions: InputDefinitions = {
     george_matulaitis_bishop: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '1-27',
+      dateDef: { month: 1, date: 27 },
     },
 
     casimir_of_poland: {
       precedence: Precedences.ProperFeast_8f,
-      date: '3-4',
+      dateDef: { month: 3, date: 4 },
     },
 
     bruno_of_querfurt_bishop: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '3-9',
+      dateDef: { month: 3, date: 9 },
     },
 
     adalbert_of_prague_bishop: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '4-23',
+      dateDef: { month: 4, date: 23 },
     },
 
     andrew_bobola_priest: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '5-16',
+      dateDef: { month: 5, date: 16 },
     },
 
     our_lady_of_the_gate_of_dawn: {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      date: '11-16',
+      dateDef: { month: 11, date: 16 },
     },
 
     roch_of_montpellier: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '8-16',
+      dateDef: { month: 8, date: 16 },
     },
 
     hyacinth_of_poland_priest: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '8-17',
+      dateDef: { month: 8, date: 17 },
     },
 
     nativity_of_mary: {

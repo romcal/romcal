@@ -17,124 +17,124 @@ export class CzechRepublic extends CalendarDef {
   definitions: InputDefinitions = {
     our_lady_mother_of_christian_unity: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '1-18',
+      dateDef: { month: 1, date: 18 },
     },
 
     john_ogilvie_priest: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '3-10',
+      dateDef: { month: 3, date: 10 },
     },
 
     // TODO: Should this key be dropped or kept in the CzechNational Proper?
     // {
     //   key: 'adalbert_of_prague_bishop',
     //   precedence: Precedences.ProperMemorial_OtherProperMemorial_11b,
-    //   date: '4-23',
+    //   date: { month: 4, date: 23 },
     // },
 
     george_of_lydda_martyr: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '4-24',
+      dateDef: { month: 4, date: 24 },
     },
 
     sigismund_of_burgundy_martyr: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '4-30',
+      dateDef: { month: 4, date: 30 },
     },
 
     john_sarkander_priest: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '5-6',
+      dateDef: { month: 5, date: 6 },
     },
 
     our_lady_mediatrix_of_all_grace: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '5-8',
+      dateDef: { month: 5, date: 8 },
     },
 
     john_nepomucene_priest: {
       precedence: Precedences.ProperFeast_8f,
-      date: '5-16',
+      dateDef: { month: 5, date: 16 },
     },
 
     clement_mary_hofbauer_priest: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '5-20',
+      dateDef: { month: 5, date: 20 },
     },
 
     zdislava_of_lemberk: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '5-30',
+      dateDef: { month: 5, date: 30 },
     },
 
     vitus_of_lucania_martyr: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '6-15',
+      dateDef: { month: 6, date: 15 },
     },
 
     john_nepomucene_neumann_bishop: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '6-19',
+      dateDef: { month: 6, date: 19 },
     },
 
     procopius_of_sazava_abbot: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '7-4',
+      dateDef: { month: 7, date: 4 },
     },
 
     cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop: {
-      date: '7-5',
+      dateDef: { month: 7, date: 5 },
       // TODO: Should we add `Patrons of Moravia`?
     },
 
     hroznata_of_bohemia_martyr: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '7-14',
+      dateDef: { month: 7, date: 14 },
     },
 
     ceslaus_of_poland_and_hyacinth_of_poland_priests: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '7-17',
+      dateDef: { month: 7, date: 17 },
       martyrology: ['ceslaus_of_poland_priest', 'hyacinth_of_poland_priest'],
     },
 
     gorazd_of_moravia_and_companions: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '7-27',
+      dateDef: { month: 7, date: 27 },
       martyrology: ['gorazd_of_moravia', 'companions_martyrs'],
     },
 
     first_polish_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '8-25',
+      dateDef: { month: 8, date: 25 },
     },
 
     melchior_grodziecki_priest: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '9-7',
+      dateDef: { month: 9, date: 7 },
     },
 
     charles_spinola_priest: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '9-10',
+      dateDef: { month: 9, date: 10 },
     },
 
     ludmila_of_bohemia_martyr: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '9-16',
+      dateDef: { month: 9, date: 16 },
     },
 
     // Lowered rank
     // Moved from 16 Sep
     cornelius_i_pope_and_cyprian_of_carthage_bishop_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '9-17',
+      dateDef: { month: 9, date: 17 },
     },
 
     wenceslaus_i_of_bohemia_martyr: {
       customLocaleKey: 'wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      titles: (titles) => [...titles, PatronTitles.PatronOfTheCzechNation],
+      titles: { append: [PatronTitles.PatronOfTheCzechNation] },
     },
 
     lawrence_ruiz_and_companions_martyrs: {
@@ -143,12 +143,12 @@ export class CzechRepublic extends CalendarDef {
 
     radim_of_gniezno_bishop: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '10-12',
+      dateDef: { month: 10, date: 12 },
     },
 
     charles_i_of_austria: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '10-21',
+      dateDef: { month: 10, date: 21 },
     },
 
     // TODO: Deal with this solemnity for consecrated churches
@@ -156,27 +156,27 @@ export class CzechRepublic extends CalendarDef {
     dedication_of_consecrated_churches: {
       precedence: Precedences.ProperSolemnity_DedicationOfTheOwnChurch_4b,
       // TODO: On 25 Oct or the following Sunday
-      date: '10-25',
+      dateDef: { month: 10, date: 25 },
     },
 
     wolfgang_of_regensburg_bishop: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '10-31',
+      dateDef: { month: 10, date: 31 },
     },
 
     agnes_of_bohemia_virgin: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '11-13',
+      dateDef: { month: 11, date: 13 },
     },
 
     edmund_campion_priest: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '12-1',
+      dateDef: { month: 12, date: 1 },
     },
 
     our_lord_jesus_christ_the_eternal_high_priest: {
       precedence: Precedences.ProperFeast_8f,
-      date: (year) => this.dates.pentecostSunday(year).add(4, 'day'),
+      dateDef: { dateFn: 'pentecostSunday', addDay: 4 },
       properCycle: ProperCycles.PROPER_OF_TIME,
     },
   };

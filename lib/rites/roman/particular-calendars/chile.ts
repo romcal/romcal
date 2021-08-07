@@ -11,63 +11,63 @@ export class Chile extends CalendarDef {
   definitions: InputDefinitions = {
     laura_vicuna_virgin: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '1-22',
+      dateDef: { month: 1, date: 22 },
     },
 
     pius_ix_pope: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '2-7',
+      dateDef: { month: 2, date: 7 },
     },
 
     our_lady_of_lourdes: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '2-11',
+      dateDef: { month: 2, date: 11 },
     },
 
     philip_and_james_apostles: {
-      date: '5-4',
+      dateDef: { month: 5, date: 4 },
     },
 
     teresa_of_jesus_of_los_andes_virgin: {
       precedence: Precedences.ProperFeast_8f,
-      date: '7-13',
+      dateDef: { month: 7, date: 13 },
     },
 
     camillus_de_lellis_priest: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '7-14',
+      dateDef: { month: 7, date: 14 },
     },
 
     henry_ii_emperor: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '7-14',
+      dateDef: { month: 7, date: 14 },
     },
 
     our_lady_of_mount_carmel: {
       customLocaleKey: 'our_lady_of_mount_carmel_mother_and_queen_of_chile',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      date: '7-16',
-      titles: (titles) => [...titles, Titles.MotherAndQueenOfChile],
+      dateDef: { month: 7, date: 16 },
+      titles: { append: [Titles.MotherAndQueenOfChile] },
     },
 
     alberto_hurtado_priest: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '8-18',
+      dateDef: { month: 8, date: 18 },
     },
 
     rose_of_lima_virgin: {
       precedence: Precedences.ProperFeast_8f,
-      date: '8-30',
+      dateDef: { month: 8, date: 30 },
     },
 
     our_lady_of_mercy: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '9-24',
+      dateDef: { month: 9, date: 24 },
     },
 
     our_lord_jesus_christ_the_eternal_high_priest: {
       precedence: Precedences.ProperFeast_8f,
-      date: (year) => this.dates.pentecostSunday(year).add(4, 'day'),
+      dateDef: { dateFn: 'pentecostSunday', addDay: 4 },
       properCycle: ProperCycles.PROPER_OF_TIME,
     },
   };
