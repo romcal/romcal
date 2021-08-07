@@ -1,9 +1,11 @@
 import { GeneralRoman } from '@roman-rite/general-calendar/proper-of-saints';
 import { ProperOfTime } from '@roman-rite/general-calendar/proper-of-time';
-import { CalendarDef } from '@roman-rite/models/calendar-def';
 import { RomcalConfig } from '@roman-rite/models/config';
-import LiturgicalDay from '@roman-rite/models/liturgical-day';
-import { BaseCalendarDef, ByKeys, LiturgicalCalendar } from '@roman-rite/types/calendar-def';
+import {
+  BaseCalendarDef,
+  LiturgicalCalendar,
+  LiturgicalDayDefinitions,
+} from '@roman-rite/types/calendar-def';
 import { BaseRomcalConfig, RomcalConfigInput } from '@roman-rite/types/config';
 import { Dates } from '@roman-rite/utils/dates';
 import { CalendarScope } from '@romcal/constants/calendar-scope';
@@ -40,37 +42,38 @@ export default class Romcal {
   /**
    * Generate a liturgical calendar, within a Liturgical or Gregorian scope.
    */
-  generate(): Promise<LiturgicalCalendar> {
-    // Wrap the calendar computing process in a Promise.
-    // Even if this method is called with async/await, this makes this method running in a microtask queue:
-    // it does not run on the main thread, meaning other things can occur (click events, rendering, etc.).
-    return new Promise((resolve, reject) => {
-      // Check if calendar data is already computed and saved in a cache variable.
-      // If this is the case, no need to compute it again.
-      if (this.#computedCalendar) {
-        resolve(this.#computedCalendar);
-        return;
-      }
-
-      try {
-        const data = new ProperOfTime(this.#config).buildDates();
-
-        this.#calendarsDef.forEach((cal) => cal.buildAllDates(data));
-        this.#computedCalendar = CalendarDef.generateCalendar(data);
-
-        resolve(this.#computedCalendar);
-      } catch (e) {
-        reject(e);
-      }
-    });
-  }
+  // generate(): Promise<LiturgicalCalendar> {
+  //   // Wrap the calendar computing process in a Promise.
+  //   // Even if this method is called with async/await, this makes this method running in a microtask queue:
+  //   // it does not run on the main thread, meaning other things can occur (click events, rendering, etc.).
+  //   return new Promise((resolve, reject) => {
+  //     // Check if calendar data is already computed and saved in a cache variable.
+  //     // If this is the case, no need to compute it again.
+  //     if (this.#computedCalendar) {
+  //       resolve(this.#computedCalendar);
+  //       return;
+  //     }
+  //
+  //     try {
+  //       const data = new ProperOfTime(this.#config).buildDates();
+  //
+  //       this.#calendarsDef.forEach((cal) => cal.buildAllDates(data));
+  //       this.#computedCalendar = CalendarDef.generateCalendar(data);
+  //
+  //       resolve(this.#computedCalendar);
+  //     } catch (e) {
+  //       reject(e);
+  //     }
+  //   });
+  // }
 
   /**
    * Get all possible liturgical days from the Proper of the Time of the General
    * Roman Calendar, outside the context of a specific year.
    */
-  properOfTimeDefinitions(): null {
-    return null;
+  properOfTimeDefinitions(): LiturgicalDayDefinitions {
+    new ProperOfTime(this.#config).buildAllDefinitions();
+    return this.#config.liturgicalDayDef;
   }
 
   /**
@@ -78,28 +81,26 @@ export default class Romcal {
    * (including all possible inherited calendars until the General Roman Calendar,
    * and the Proper of the Time), outside the context of a specific year.
    */
-  definitions(): ByKeys {
-    const data = {};
-
-    this.#calendarsDef.forEach((cal) => cal.buildAllDefinitions(data));
-
-    return data;
+  allDefinitions(): LiturgicalDayDefinitions {
+    this.properOfTimeDefinitions();
+    this.#calendarsDef.forEach((cal) => cal.buildAllDefinitions());
+    return this.#config.liturgicalDayDef;
   }
 
   /**
    * @deprecated
    * @param config
    */
-  static async calendarFor(config?: RomcalConfigInput | number): Promise<LiturgicalDay[]> {
-    if (typeof config === 'number') {
-      config = { year: config };
-    }
-
-    const calendar = new Romcal(config);
-    const data = await calendar.generate();
-
-    return Object.values(data).flat();
-  }
+  // static async calendarFor(config?: RomcalConfigInput | number): Promise<LiturgicalDay[]> {
+  //   if (typeof config === 'number') {
+  //     config = { year: config };
+  //   }
+  //
+  //   const calendar = new Romcal(config);
+  //   const data = await calendar.generate();
+  //
+  //   return Object.values(data).flat();
+  // }
 }
 
 export { CalendarScope, BaseRomcalConfig, LiturgicalCalendar };

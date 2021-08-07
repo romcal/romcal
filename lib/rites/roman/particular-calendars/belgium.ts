@@ -9,52 +9,52 @@ export class Belgium extends CalendarDef {
   definitions: InputDefinitions = {
     mutien_marie_wiaux_religious: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '1-30',
+      dateDef: { month: 1, date: 30 },
     },
 
     amand_of_maastricht_bishop: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '2-6',
+      dateDef: { month: 2, date: 6 },
     },
 
     gertrude_of_nivelles_abbess: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '3-17',
+      dateDef: { month: 3, date: 17 },
     },
 
     julie_billiart_virgin: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '4-8',
+      dateDef: { month: 4, date: 8 },
     },
 
     damien_de_veuster_priest: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '5-10',
+      dateDef: { month: 5, date: 10 },
     },
 
     juliana_of_liege_virgin: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '8-7',
+      dateDef: { month: 8, date: 7 },
     },
 
     our_lady_mediatrix_of_all_grace: {
       precedence: Precedences.ProperFeast_8f,
-      date: '8-31',
+      dateDef: { month: 8, date: 31 },
     },
 
     lambert_of_maastricht_bishop: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '9-17',
+      dateDef: { month: 9, date: 17 },
     },
 
     hubert_of_liege_bishop: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '11-3',
+      dateDef: { month: 11, date: 3 },
     },
 
     john_berchmans_religious: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '11-26',
+      dateDef: { month: 11, date: 26 },
     },
   };
 }

@@ -9,7 +9,7 @@ export class Slovenia extends CalendarDef {
   definitions: InputDefinitions = {
     john_nepomucene_priest: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '5-16',
+      dateDef: { month: 5, date: 16 },
     },
   };
 }

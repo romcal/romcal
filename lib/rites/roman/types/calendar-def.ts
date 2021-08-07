@@ -1,59 +1,33 @@
 import { RomcalConfig } from '@roman-rite/models/config';
-import LiturgicalDay from '@roman-rite/models/liturgical-day';
 import LiturgicalDayDef from '@roman-rite/models/liturgical-day-def';
 import { RomcalConfigInput } from '@roman-rite/types/config';
-import { DateDefInput, RomcalCalendarMetadata } from '@roman-rite/types/liturgical-day';
+import { BaseLiturgicalDay, Key, LiturgicalDayInput } from '@roman-rite/types/liturgical-day';
 import { Dates } from '@roman-rite/utils/dates';
-import { PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
-import { SaintCount } from '@romcal/types/martyrology';
-import { Dayjs } from 'dayjs';
 
-export type LiturgicalCalendar = Record<string, LiturgicalDay[]>;
+/**
+ * Liturgical Calendar, containing LiturgicalDay objects, within the context of a year
+ */
+export type LiturgicalCalendar = Record<string, BaseLiturgicalDay[]>;
 
+/**
+ * Specific and proper configuration of a particular calendar
+ */
 export type ParticularConfig = Partial<
   Pick<RomcalConfig, 'ascensionOnSunday' | 'epiphanyOnSunday' | 'corpusChristiOnSunday'>
 >;
 
-export type ByKeys = Record<string, LiturgicalDay>;
-export type DatesIndex = Record<string, string[]>;
+/**
+ * General date definition collection
+ */
+export type InputDefinitions = Record<Key, LiturgicalDayInput>;
+export type LiturgicalDayDefinitions = Record<Key, LiturgicalDayDef>;
+
+export type ByKeys = Record<Key, BaseLiturgicalDay>;
+export type DatesIndex = Record<string, Key[]>;
 
 export type LiturgicalDefBuiltData = {
   byKeys: ByKeys;
   datesIndex: DatesIndex;
-};
-
-export type TitlesDef =
-  | (Titles | PatronTitles)[]
-  | ((titles: (Titles | PatronTitles)[]) => (Titles | PatronTitles)[]);
-
-export type MartyrologyItemPointer = (string | MartyrologyItemRedefined)[];
-export type MartyrologyItemRedefined = {
-  key: string;
-  titles?: TitlesDef;
-  hideTitles?: boolean;
-  count?: SaintCount;
-};
-
-/**
- * General date definition collection, used in the [CalendarDef] class
- */
-export type InputDefinitions = Record<string, DateDefInput>;
-export type ProperOfTimeDateDefinitions = Map<string, ProperOfTimeDateDefInput>;
-
-/**
- * Extended Date Definitions.
- */
-export type ExtendedDefinitions = Record<string, LiturgicalDayDef>;
-
-/**
- * Used specifically for the Proper of Time.
- */
-export type ProperOfTimeDateDefInput = Required<
-  Pick<LiturgicalDay, 'precedence' | 'seasons' | 'periods' | 'liturgicalColors' | 'name'>
-> & {
-  date: (year: number) => Dayjs | null;
-  calendar: (date: Dayjs) => RomcalCalendarMetadata;
-  isHolyDayOfObligation?: boolean;
 };
 
 /**
@@ -88,7 +62,7 @@ export interface ICalendarDef {
   dates: Dates;
   updateConfig: (config?: RomcalConfigInput) => void;
   buildAllDates: (builtData: LiturgicalDefBuiltData) => LiturgicalDefBuiltData;
-  buildAllDefinitions: (byKeys: ByKeys) => ByKeys;
+  buildAllDefinitions: () => void;
 }
 
 /**

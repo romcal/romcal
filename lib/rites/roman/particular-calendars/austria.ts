@@ -9,12 +9,12 @@ export class Austria extends CalendarDef {
   definitions: InputDefinitions = {
     john_nepomucene_priest: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '5-16',
+      dateDef: { month: 5, date: 16 },
     },
 
     charles_i_of_austria: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '10-21',
+      dateDef: { month: 10, date: 21 },
     },
   };
 }

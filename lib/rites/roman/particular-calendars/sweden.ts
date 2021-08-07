@@ -10,12 +10,12 @@ export class Sweden extends CalendarDef {
   definitions: InputDefinitions = {
     elizabeth_hesselblad_religious: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '6-4',
+      dateDef: { month: 6, date: 4 },
     },
 
     our_lord_jesus_christ_the_eternal_high_priest: {
       precedence: Precedences.ProperFeast_8f,
-      date: (year) => this.dates.pentecostSunday(year).add(4, 'day'),
+      dateDef: { dateFn: 'pentecostSunday', addDay: 4 },
       properCycle: ProperCycles.PROPER_OF_TIME,
     },
   };

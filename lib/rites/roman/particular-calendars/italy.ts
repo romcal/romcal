@@ -16,23 +16,23 @@ export class Italy extends CalendarDef {
 
     norbert_of_xanten_bishop: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '6-6',
+      dateDef: { month: 6, date: 6 },
     },
 
     barnabas_apostle: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '6-11',
+      dateDef: { month: 6, date: 11 },
     },
 
     mary_magdalene: {
       precedence: Precedences.ProperFeast_8f,
-      date: '7-22',
+      dateDef: { month: 7, date: 22 },
     },
 
     francis_of_assisi: {
       customLocaleKey: 'francis_of_assisi_patron_of_italy',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      titles: (titles) => [...titles, PatronTitles.PatronOfItaly],
+      titles: { append: [PatronTitles.PatronOfItaly] },
     },
   };
 }

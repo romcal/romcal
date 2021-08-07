@@ -11,13 +11,13 @@ export class Spain extends CalendarDef {
   definitions: InputDefinitions = {
     eulogius_of_cordoba_bishop: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '1-9',
+      dateDef: { month: 1, date: 9 },
     },
 
     fructuosus_of_tarragona_bishop_and_augurius_of_tarragona_and_eulogius_of_tarragona_deacons_martyrs:
       {
         precedence: Precedences.OptionalMemorial_12,
-        date: '1-20',
+        dateDef: { month: 1, date: 20 },
         martyrology: [
           'fructuosus_of_tarragona_bishop',
           'augurius_of_tarragona_deacon',
@@ -27,128 +27,128 @@ export class Spain extends CalendarDef {
 
     vincent_of_saragossa_deacon: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '1-22',
+      dateDef: { month: 1, date: 22 },
     },
 
     ildephonsus_of_toledo_bishop: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '1-23',
+      dateDef: { month: 1, date: 23 },
     },
 
     hermenegild_the_visigoths_martyr: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '4-13',
+      dateDef: { month: 4, date: 13 },
     },
 
     isidore_of_seville_bishop: {
       precedence: Precedences.ProperFeast_8f,
-      date: '4-26',
+      dateDef: { month: 4, date: 26 },
     },
 
     john_of_avila_priest: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '5-10',
+      dateDef: { month: 5, date: 10 },
     },
 
     isidore_the_farmer: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '5-15',
+      dateDef: { month: 5, date: 15 },
     },
 
     paschal_baylon_religious: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '5-17',
+      dateDef: { month: 5, date: 17 },
     },
 
     joaquina_of_saint_francis_of_assisi_de_vedruna_religious: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '5-22',
+      dateDef: { month: 5, date: 22 },
     },
 
     ferdinand_iii_of_castile: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '5-30',
+      dateDef: { month: 5, date: 30 },
     },
 
     maria_micaela_of_the_blessed_sacrament_desmaisieres_virgin: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '6-15',
+      dateDef: { month: 6, date: 15 },
     },
 
     pelagius_of_cordoba_martyr: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '6-26',
+      dateDef: { month: 6, date: 26 },
     },
 
     our_lady_of_mount_carmel: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '7-16',
+      dateDef: { month: 7, date: 16 },
     },
 
     james_apostle: {
       customLocaleKey: 'james_apostle_patron_of_spain',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      titles: (titles) => [...titles, PatronTitles.PatronOfSpain],
+      titles: { append: [PatronTitles.PatronOfSpain] },
     },
 
     ezequiel_moreno_bishop: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '8-19',
+      dateDef: { month: 8, date: 19 },
     },
 
     teresa_of_jesus_jornet_ibars_virgin: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '8-26',
+      dateDef: { month: 8, date: 26 },
     },
 
     francis_borgia_priest: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '10-3',
+      dateDef: { month: 10, date: 3 },
     },
 
     thomas_of_villanova_bishop: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '10-10',
+      dateDef: { month: 10, date: 10 },
     },
 
     mary_soledad_torres_acosta_virgin: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '10-11',
+      dateDef: { month: 10, date: 11 },
     },
 
     our_lady_of_the_pillar: {
       precedence: Precedences.ProperFeast_8f,
-      date: '10-12',
+      dateDef: { month: 10, date: 12 },
     },
 
     teresa_of_jesus_of_avila_virgin: {
       precedence: Precedences.ProperFeast_8f,
-      date: '10-15',
+      dateDef: { month: 10, date: 15 },
     },
 
     peter_of_alcantara_priest: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '10-19',
+      dateDef: { month: 10, date: 19 },
     },
 
     leander_of_seville_bishop: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '11-13',
+      dateDef: { month: 11, date: 13 },
     },
 
     eulalia_of_merida_virgin: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '12-10',
+      dateDef: { month: 12, date: 10 },
     },
 
     john_of_the_cross_priest: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '12-14',
+      dateDef: { month: 12, date: 14 },
     },
 
     our_lord_jesus_christ_the_eternal_high_priest: {
       precedence: Precedences.ProperFeast_8f,
-      date: (year) => this.dates.pentecostSunday(year).add(4, 'day'),
+      dateDef: { dateFn: 'pentecostSunday', addDay: 4 },
       properCycle: ProperCycles.PROPER_OF_TIME,
     },
   };

@@ -1,6 +1,8 @@
 /**
  * Canonization level of a person.
  */
+import * as timers from 'timers';
+
 export enum CanonizationLevel {
   Blessed = 'BLESSED',
   Saint = 'SAINT',
@@ -35,6 +37,18 @@ export enum Titles {
   'TheFirstMartyr' = 'THE_FIRST_MARTYR',
   'Virgin' = 'VIRGIN',
 }
+
+/**
+ * Return true if the provided title contain at least one Martyr title
+ * @param titles
+ */
+export const isMartyr = (titles: (Titles | PatronTitles)[]): boolean => {
+  return (
+    titles.includes(Titles.Martyr) ||
+    titles.includes(Titles.TheFirstMartyr) ||
+    titles.includes(Titles.ProtoMartyrOfOceania)
+  );
+};
 
 /**
  *  Patron Titles of Saints and Blessed from the Martyrology catalog.

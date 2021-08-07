@@ -11,93 +11,93 @@ export class Argentina extends CalendarDef {
   definitions: InputDefinitions = {
     laura_vicuna_virgin: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '1-22',
+      dateDef: { month: 1, date: 22 },
     },
 
     our_lady_queen_of_peace: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '1-24',
+      dateDef: { month: 1, date: 24 },
     },
 
     turibius_of_mogrovejo_bishop: {
       precedence: Precedences.ProperFeast_8f,
-      date: '4-27',
+      dateDef: { month: 4, date: 27 },
     },
 
     our_lady_of_lujan: {
       customLocaleKey: 'our_lady_of_lujan_patroness_of_argentina',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      date: '5-8',
-      titles: (titles) => [...titles, PatronTitles.PatronessOfArgentina],
+      dateDef: { month: 5, date: 8 },
+      titles: { append: [PatronTitles.PatronessOfArgentina] },
     },
 
     isidore_the_farmer: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '5-15',
+      dateDef: { month: 5, date: 15 },
     },
 
     luigi_orione_priest: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '5-16',
+      dateDef: { month: 5, date: 16 },
     },
 
     our_lady_of_itati: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '7-9',
+      dateDef: { month: 7, date: 9 },
     },
 
     augustine_zhao_rong_priest_and_companions_martyrs: {
-      date: '7-10',
+      dateDef: { month: 7, date: 10 },
     },
 
     our_lady_of_mount_carmel: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '7-16',
+      dateDef: { month: 7, date: 16 },
     },
 
     sharbel_makhluf_priest: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '7-23',
+      dateDef: { month: 7, date: 23 },
     },
 
     francis_solanus_priest: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '7-24',
+      dateDef: { month: 7, date: 24 },
     },
 
     roch_of_montpellier: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '8-16',
+      dateDef: { month: 8, date: 16 },
     },
 
     zepherin_namuncura: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '8-26',
+      dateDef: { month: 8, date: 26 },
     },
 
     rose_of_lima_virgin: {
       precedence: Precedences.ProperFeast_8f,
-      date: '8-30',
+      dateDef: { month: 8, date: 30 },
     },
 
     our_lady_of_mercy: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '9-24',
+      dateDef: { month: 9, date: 24 },
     },
 
     benedict_of_jesus_valdivielso_saez_religious: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '10-9',
+      dateDef: { month: 10, date: 9 },
     },
 
     our_lady_of_the_pillar: {
       precedence: Precedences.OptionalMemorial_12,
-      date: '10-12',
+      dateDef: { month: 10, date: 12 },
     },
 
     roch_gonzalez_alphonsus_rodriguez_and_john_del_castillo_priests: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '11-17',
+      dateDef: { month: 11, date: 17 },
       martyrology: [
         'roch_gonzalez_priest',
         'alphonsus_rodriguez_priest',
@@ -107,12 +107,12 @@ export class Argentina extends CalendarDef {
 
     elizabeth_of_hungary_religious: {
       precedence: Precedences.ProperMemorial_11b,
-      date: '11-18',
+      dateDef: { month: 11, date: 18 },
     },
 
     our_lady_of_the_valley: {
       precedence: Precedences.ProperMemorial_11b,
-      date: (year) => this.dates.divineMercySunday(year).add(6, 'day'),
+      dateDef: { dateFn: 'divineMercySunday', addDay: 6 },
       properCycle: ProperCycles.PROPER_OF_TIME,
     },
   };
