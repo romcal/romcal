@@ -1,0 +1,60 @@
+import { Precedences } from '@romcal/constants/precedences';
+import { CalendarDef } from '@romcal/models/calendar-def';
+import { Europe } from '@romcal/particular-calendars/europe';
+import { InputDefinitions } from '@romcal/types/calendar-def';
+
+export class Belgium extends CalendarDef {
+  inheritFrom = Europe;
+
+  definitions: InputDefinitions = {
+    mutien_marie_wiaux_religious: {
+      precedence: Precedences.ProperMemorial_11b,
+      dateDef: { month: 1, date: 30 },
+    },
+
+    amand_of_maastricht_bishop: {
+      precedence: Precedences.ProperMemorial_11b,
+      dateDef: { month: 2, date: 6 },
+    },
+
+    gertrude_of_nivelles_abbess: {
+      precedence: Precedences.OptionalMemorial_12,
+      dateDef: { month: 3, date: 17 },
+    },
+
+    julie_billiart_virgin: {
+      precedence: Precedences.ProperMemorial_11b,
+      dateDef: { month: 4, date: 8 },
+    },
+
+    damien_de_veuster_priest: {
+      precedence: Precedences.ProperMemorial_11b,
+      dateDef: { month: 5, date: 10 },
+    },
+
+    juliana_of_liege_virgin: {
+      precedence: Precedences.ProperMemorial_11b,
+      dateDef: { month: 8, date: 7 },
+    },
+
+    our_lady_mediatrix_of_all_grace: {
+      precedence: Precedences.ProperFeast_8f,
+      dateDef: { month: 8, date: 31 },
+    },
+
+    lambert_of_maastricht_bishop: {
+      precedence: Precedences.ProperMemorial_11b,
+      dateDef: { month: 9, date: 17 },
+    },
+
+    hubert_of_liege_bishop: {
+      precedence: Precedences.ProperMemorial_11b,
+      dateDef: { month: 11, date: 3 },
+    },
+
+    john_berchmans_religious: {
+      precedence: Precedences.ProperMemorial_11b,
+      dateDef: { month: 11, date: 26 },
+    },
+  };
+}

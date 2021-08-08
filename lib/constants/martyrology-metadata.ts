@@ -1,7 +1,6 @@
 /**
  * Canonization level of a person.
  */
-import * as timers from 'timers';
 
 export enum CanonizationLevel {
   Blessed = 'BLESSED',
