@@ -23,7 +23,6 @@
     "baseUrl": ".",
     "paths": {
       "@romcal/*": ["lib/*"],
-      "@roman-rite/*": ["lib/rites/roman/*"]
     }
   },
   "include": [

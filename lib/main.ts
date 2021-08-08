@@ -1,3 +1,3 @@
-import Romcal, { CalendarScope, LiturgicalCalendar } from './rites/roman';
+import Romcal, { CalendarScope, LiturgicalCalendar } from './index';
 
 export { Romcal, CalendarScope, LiturgicalCalendar };
