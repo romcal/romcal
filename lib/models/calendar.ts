@@ -51,7 +51,7 @@ export class Calendar implements BaseCalendar {
       typeof dateDef.dateFn === 'string' &&
       Object.prototype.hasOwnProperty.call(this.dates, dateDef.dateFn)
     ) {
-      const args = [...(dateDef.dateArg ?? []), year];
+      const args = [...(dateDef.dateArgs ?? []), year];
       // todo: set correctly TS typing
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
