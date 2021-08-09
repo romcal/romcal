@@ -777,10 +777,16 @@ export class Dates {
   ): Dayjs | null => {
     const id = year + epiphanyOnSunday.toString();
 
-    if (!this.#dateOfOrdinaryTime[id] !== undefined) {
+    const aa = this.#dateOfOrdinaryTime[id];
+
+    if (this.#dateOfOrdinaryTime[id] === undefined) {
       const early = this.allDatesOfEarlyOrdinaryTime(year, epiphanyOnSunday);
       const late = this.allDatesOfLateOrdinaryTime(year);
       const lateOrdinaryStartWeekCount = Math.floor(35 - (late.length + 1) / 7);
+
+      const trinitySunday = this.trinitySunday(year).toDate().getTime();
+      const corpusChristi = this.corpusChristi(year).toDate().getTime();
+      const mostSacredHeartOfJesus = this.mostSacredHeartOfJesus(year).toDate().getTime();
 
       const groupBy = (dates: Dayjs[], isEarlyOrdinaryTime: boolean) =>
         dates.reduce((result: Record<string, Record<string, Dayjs | null>>, item, idx) => {
@@ -794,10 +800,11 @@ export class Dates {
             ? lateOrdinaryStartWeekCount + Math.floor(idx / 7) + 1
             : lateOrdinaryStartWeekCount + Math.floor(idx / 7);
 
+          const dateTime = item.toDate().getTime();
           const date =
-            item.isSame(this.trinitySunday(year), 'date') ||
-            item.isSame(this.corpusChristi(year), 'date') ||
-            item.isSame(this.mostSacredHeartOfJesus(year), 'date')
+            dateTime === trinitySunday ||
+            dateTime === corpusChristi ||
+            dateTime === mostSacredHeartOfJesus
               ? null
               : item;
 
