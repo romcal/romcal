@@ -203,8 +203,18 @@ export class GeneralRoman extends CalendarDef {
 
     joseph_spouse_of_mary: {
       precedence: Precedences.GeneralSolemnity_3,
-      // 03-19
-      dateDef: { dateFn: 'josephSpouseOfMary' },
+      dateDef: { month: 3, date: 19 },
+      dateExceptions: [
+        { ifIsDayOfWeek: 0, setDate: { addDay: 1 } },
+        {
+          ifIsBetween: {
+            from: { dateFn: 'palmSunday' },
+            to: { dateFn: 'divineMercySunday' },
+            inclusive: true,
+          },
+          setDate: { dateFn: 'palmSunday', subtractDay: 1 },
+        },
+      ],
       isHolyDayOfObligation: true,
       liturgicalColors: LiturgicalColors.WHITE,
     },

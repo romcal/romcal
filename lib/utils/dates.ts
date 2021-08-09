@@ -56,6 +56,16 @@ export const rangeOfDays = (start: Dayjs, end: Dayjs): Dayjs[] => {
   return range;
 };
 
+/**
+ * Determines if a given date exists within a range of dates.
+ * @param range The range to search against
+ * @param date The date to search for in the range
+ * @returns `true` if the date exists in tha range or false if otherwise
+ */
+export const rangeContainsDate = (range: Array<dayjs.Dayjs>, date: dayjs.Dayjs): boolean => {
+  return range.map((date) => date.toISOString()).includes(date.toISOString());
+};
+
 export class Dates {
   readonly #config: RomcalConfig;
   readonly #year: number;
@@ -843,45 +853,6 @@ export class Dates {
     return (this.#maryMotherOfGod[year] = dayjs.utc(`${year}-1-1`));
   };
   #maryMotherOfGod: Record<string, Dayjs> = {};
-
-  /**
-   * Get the date of the celebration of Saint Joseph, Spouse of the Blessed Virgin Mary
-   *
-   * *In the Roman Catholic church, the Feast of St. Joseph (19 March)
-   * is a Solemnity (first class if using the Tridentine calendar), and
-   * is transferred to another date if impeded (i.e., 19 March falling
-   * on Sunday or in Holy Week).*
-   *
-   * @param year Gregorian year
-   */
-  josephSpouseOfMary = (year = this.#year): Dayjs => {
-    if (this.#josephSpouseOfMary[year]) return this.#josephSpouseOfMary[year];
-
-    let date = dayjs.utc(`${year}-3-19`);
-
-    // Check to see if this solemnity falls on a Sunday of Lent
-    // If it occurs on a Sunday of Lent is transferred to the
-    // following Monday.
-    if (date.day() === 0) {
-      this.allSundaysOfLent(year).forEach((sunday) => {
-        if (date.isSame(sunday)) {
-          date = sunday.add(1, 'day');
-        }
-      });
-    }
-
-    // Check to see if this solemnity falls within Holy Week
-    // If Joseph, Spouse of the Blessed Virgin Mary (Mar 19) falls on
-    // Palm Sunday or during Holy Week, it is moved to
-    // the Saturday preceding Palm Sunday.
-    const palmSunday = this.palmSunday(year);
-    if (date.isSameOrAfter(palmSunday) && date.isBefore(palmSunday.add(8, 'days'))) {
-      date = this.palmSunday(year).subtract(1, 'day').startOf('day');
-    }
-
-    return (this.#josephSpouseOfMary[year] = date);
-  };
-  #josephSpouseOfMary: Record<string, Dayjs> = {};
 
   /**
    * Get the date of the celebration of the Annunciation
