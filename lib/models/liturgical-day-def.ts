@@ -347,7 +347,12 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
 
       // dateDef
       ...(JSON.stringify(dayA.dateDef) !== JSON.stringify(dayB.dateDef)
-        ? { name: dayA.dateDef }
+        ? { dateDef: dayA.dateDef }
+        : {}),
+
+      // dateExceptions
+      ...(JSON.stringify(dayA.dateExceptions) !== JSON.stringify(dayB.dateExceptions)
+        ? { dateExceptions: dayA.dateExceptions }
         : {}),
 
       // precedence
