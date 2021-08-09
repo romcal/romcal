@@ -1,6 +1,6 @@
 import { CalendarScope } from '@romcal/constants/calendar-scope';
 import { GeneralRoman } from '@romcal/general-calendar/proper-of-saints';
-import { ProperOfTime } from '@romcal/general-calendar/proper-of-time';
+import { PROPER_OF_TIME_NAME, ProperOfTime } from '@romcal/general-calendar/proper-of-time';
 import { Calendar } from '@romcal/models/calendar';
 import { RomcalConfig } from '@romcal/models/config';
 import { RomcalYear } from '@romcal/models/year';
@@ -72,7 +72,14 @@ export default class Romcal {
     return new Promise((resolve, reject) => {
       try {
         new ProperOfTime(this.#config).buildAllDefinitions();
-        resolve(this.#config.liturgicalDayDef);
+        resolve(
+          Object.values(this.#config.liturgicalDayDef)
+            .filter((def) => def.fromCalendar === PROPER_OF_TIME_NAME)
+            .reduce((obj: LiturgicalDayDefinitions, def) => {
+              obj[def.key] = def;
+              return obj;
+            }, {}),
+        );
       } catch (e) {
         reject(e);
       }
@@ -87,10 +94,9 @@ export default class Romcal {
   getAllDefinitions(): Promise<LiturgicalDayDefinitions> {
     return new Promise((resolve, reject) => {
       try {
-        this.getProperOfTimeDefinitions().then(() => {
-          this.#calendarsDef.forEach((cal) => cal.buildAllDefinitions());
-          resolve(this.#config.liturgicalDayDef);
-        });
+        new ProperOfTime(this.#config).buildAllDefinitions();
+        this.#calendarsDef.forEach((cal) => cal.buildAllDefinitions());
+        resolve(this.#config.liturgicalDayDef);
       } catch (e) {
         reject(e);
       }
