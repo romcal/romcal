@@ -5,158 +5,25 @@ import { Ranks } from '@romcal/constants/ranks';
 import { PROPER_OF_TIME_NAME } from '@romcal/general-calendar/proper-of-time';
 import { RomcalConfig } from '@romcal/models/config';
 import LiturgicalDay from '@romcal/models/liturgical-day';
-import LiturgicalDayDef from '@romcal/models/liturgical-day-def';
+import { RomcalYear } from '@romcal/models/year';
 import {
   BaseCalendar,
   DatesIndex,
   LiturgicalBuiltData,
   LiturgicalCalendar,
 } from '@romcal/types/calendar';
-import { DateDef, DateDefExtended, DayOfWeek } from '@romcal/types/liturgical-day';
 import { Dates } from '@romcal/utils/dates';
 import dayjs, { Dayjs } from 'dayjs';
 
 export class Calendar implements BaseCalendar {
   readonly #config: RomcalConfig;
-  readonly #year: number;
+  readonly #romcalYear: RomcalYear;
   readonly dates: Dates;
 
-  constructor(config: RomcalConfig, year: number) {
+  constructor(config: RomcalConfig, romcalYear: RomcalYear) {
     this.#config = config;
-    this.#year = year;
-    this.dates = new Dates(config, year);
-  }
-
-  /**
-   * Lookup the date of a LiturgicalDayDef object, from a defined year scope
-   * @param dateDef
-   * @param yearOffset
-   */
-  #dateLookup(dateDef: DateDef | DateDefExtended, yearOffset = 0): Dayjs | null {
-    let date: Dayjs | null = null;
-    const year = this.#year + (dateDef.yearOffset ?? 0) + yearOffset;
-
-    // DateDefMonthDate
-    if (
-      Number.isInteger(dateDef.month) &&
-      Number.isInteger(dateDef.date) &&
-      dateDef.month! > 0 &&
-      dateDef.date! > 0
-    ) {
-      date = dayjs(`${year}-${dateDef.month}-${dateDef.date}`);
-    }
-
-    // DateDefDateFnAddDay or DateDefDateFnSubtractDay
-    else if (
-      typeof dateDef.dateFn === 'string' &&
-      Object.prototype.hasOwnProperty.call(this.dates, dateDef.dateFn)
-    ) {
-      const args = [...(dateDef.dateArgs ?? []), year];
-      // todo: set correctly TS typing
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      const dates = this.dates[dateDef.dateFn](...args);
-      date = (Array.isArray(dates) ? dates.find((e) => e) : dates) || null;
-
-      if (date && Number.isInteger(dateDef.addDay)) date = date.add(dateDef.addDay!, 'days');
-      if (date && Number.isInteger(dateDef.subtractDay))
-        date = date.subtract(dateDef.subtractDay!, 'days');
-    }
-
-    // DateDefMonthDowNthWeekInMonth
-    else if (
-      Number.isInteger(dateDef.month) &&
-      Number.isInteger(dateDef.dayOfWeek) &&
-      Number.isInteger(dateDef.nthWeekInMonth)
-    ) {
-      const firstDayOf7Days = dayjs(`${year}-${dateDef.month}-${7 * dateDef.nthWeekInMonth! - 6}`);
-
-      date = Calendar.#getNextDayOfWeek(firstDayOf7Days, dateDef.dayOfWeek!);
-    }
-
-    // DateDefMonthLastDowInMonth
-    else if (Number.isInteger(dateDef.month) && Number.isInteger(dateDef.lastDayOfWeekInMonth)) {
-      const firstDayOfMonth = dayjs(`${year}-${dateDef.month}-01`);
-      const firstDayOfLast7DaysOfMonth = dayjs(
-        `${year}-${dateDef.month}-${firstDayOfMonth.daysInMonth()}`,
-      ).subtract(6, 'days');
-
-      date = Calendar.#getNextDayOfWeek(firstDayOfLast7DaysOfMonth, dateDef.lastDayOfWeekInMonth!);
-    }
-
-    return date;
-  }
-
-  /**
-   * Lookup the date of a LiturgicalDayDef object (from a defined year scope)
-   * and manage defined date exceptions
-   * @param def
-   * @param yearOffset
-   * @private
-   */
-  #buildDate(def: LiturgicalDayDef, yearOffset = 0): Dayjs | null {
-    let date = this.#dateLookup(def.dateDef, yearOffset);
-
-    const setDate = (dateDefExtended: DateDefExtended) => {
-      if (Number.isInteger(dateDefExtended.addDay)) {
-        date = date!.add(dateDefExtended.addDay!, 'days');
-      } else if (Number.isInteger(dateDefExtended.subtractDay)) {
-        date = date!.subtract(dateDefExtended.subtractDay!, 'days');
-      } else {
-        date = this.#dateLookup(dateDefExtended, yearOffset);
-      }
-    };
-
-    if (date) {
-      def.dateExceptions.forEach((exception) => {
-        // ifIsBetween
-        if (typeof exception.ifIsBetween === 'object') {
-          const from = this.#dateLookup(exception.ifIsBetween.from, yearOffset);
-          const to = this.#dateLookup(exception.ifIsBetween.to, yearOffset);
-          if (from && to) {
-            // From-To inclusive
-            if (exception.ifIsBetween.inclusive) {
-              if (date!.isSameOrAfter(from) && date!.isSameOrBefore(to)) {
-                setDate(exception.setDate);
-              }
-            }
-            // From-To exclusive
-            else {
-              if (date!.isAfter(from) && date!.isBefore(to)) {
-                setDate(exception.setDate);
-              }
-            }
-          }
-        }
-
-        // ifIsSameAsDate
-        else if (typeof exception.ifIsSameAsDate === 'object') {
-          const dateComparison = this.#dateLookup(exception.ifIsSameAsDate, yearOffset);
-          if (dateComparison && dateComparison.isSame(date!)) {
-            setDate(exception.setDate);
-          }
-        }
-
-        // ifIsDayOfWeek
-        else if (Number.isInteger(exception.ifIsDayOfWeek)) {
-          if (date!.day() === exception.ifIsDayOfWeek) {
-            setDate(exception.setDate);
-          }
-        }
-      });
-    }
-
-    return date;
-  }
-
-  /**
-   * Get the next day of week from the provided date until the next 6 days
-   * @param date
-   * @param dayOfWeek
-   * @private
-   */
-  static #getNextDayOfWeek(date: Dayjs, dayOfWeek: DayOfWeek): Dayjs {
-    return date.add((7 + dayOfWeek - date.day()) % 7, 'days');
+    this.#romcalYear = romcalYear;
+    this.dates = new Dates(config, romcalYear.year);
   }
 
   /**
@@ -178,10 +45,10 @@ export class Calendar implements BaseCalendar {
       //   so in this case we don't have to check the previously gregorian year.
       const previousYearDate =
         def.fromCalendar !== PROPER_OF_TIME_NAME && this.#config.scope === CalendarScope.Liturgical
-          ? this.#buildDate(def, -1)
+          ? this.#romcalYear.buildDate(def, -1)
           : null;
 
-      const currentYearDate = this.#buildDate(def);
+      const currentYearDate = this.#romcalYear.buildDate(def);
 
       [previousYearDate, currentYearDate]
         // Remove all dates that are null. This can occur when a liturgical day isn't celebrated
@@ -244,7 +111,7 @@ export class Calendar implements BaseCalendar {
             dateStr,
             {
               ...this.#config.toObject(),
-              year: this.#year,
+              year: this.#romcalYear.year,
             },
             weekday,
           );
