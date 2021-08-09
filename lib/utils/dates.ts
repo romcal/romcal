@@ -47,7 +47,7 @@ export const computeGregorianEasterDate = (year: number): Record<string, number>
  * @param end The end date
  * @returns An array of dates representing the range
  */
-export const rangeOfDays = (start: Dayjs, end: Dayjs, title?: string): Dayjs[] => {
+export const rangeOfDays = (start: Dayjs, end: Dayjs): Dayjs[] => {
   const days = end.diff(start, 'day');
   const range: Dayjs[] = [];
   Array.from(new Array(days + 1), (_x, i) => {
@@ -58,13 +58,13 @@ export const rangeOfDays = (start: Dayjs, end: Dayjs, title?: string): Dayjs[] =
 
 export class Dates {
   readonly #config: RomcalConfig;
-  readonly #isLiturgicalYear: boolean;
   readonly #year: number;
+  readonly #isLiturgicalYear: boolean;
 
-  constructor(config: RomcalConfig) {
+  constructor(config: RomcalConfig, year: number) {
     this.#config = config;
+    this.#year = year;
     this.#isLiturgicalYear = this.#config.scope === CalendarScope.Liturgical;
-    this.#year = config.year;
   }
 
   /**
@@ -80,7 +80,7 @@ export class Dates {
     if (this.#allDatesOfAdvent[year]) return this.#allDatesOfAdvent[year];
     const start = this.firstSundayOfAdvent(year);
     const end = this.christmas(year).subtract(1, 'day');
-    return (this.#allDatesOfAdvent[year] = rangeOfDays(start, end, 'datesOfAdvent'));
+    return (this.#allDatesOfAdvent[year] = rangeOfDays(start, end));
   };
   #allDatesOfAdvent: Record<string, Dayjs[]> = {};
 
@@ -278,7 +278,7 @@ export class Dates {
     if (this.#allDatesOfChristmasTime[id]) return this.#allDatesOfChristmasTime[id];
     const start = this.christmas(year);
     const end = this.baptismOfTheLord(year + 1, epiphanyOnSunday);
-    return (this.#allDatesOfChristmasTime[id] = rangeOfDays(start, end, 'datesOfChristmasTime'));
+    return (this.#allDatesOfChristmasTime[id] = rangeOfDays(start, end));
   };
   #allDatesOfChristmasTime: Record<string, Dayjs[]> = {};
 
@@ -466,7 +466,7 @@ export class Dates {
     if (this.#allDatesOfLent[year]) return this.#allDatesOfLent[year];
     const start = this.ashWednesday(year);
     const end = this.holyThursday(year);
-    return (this.#allDatesOfLent[year] = rangeOfDays(start, end, 'datesOfLent'));
+    return (this.#allDatesOfLent[year] = rangeOfDays(start, end));
   };
   #allDatesOfLent: Record<string, Dayjs[]> = {};
 
@@ -562,11 +562,7 @@ export class Dates {
     if (this.#allDatesOfPaschalTriduum[year]) return this.#allDatesOfPaschalTriduum[year];
     const start = this.holyThursday(year);
     const end = this.easterSunday(year);
-    return (this.#allDatesOfPaschalTriduum[year] = rangeOfDays(
-      start,
-      end,
-      'datesOfPaschalTriduum',
-    ));
+    return (this.#allDatesOfPaschalTriduum[year] = rangeOfDays(start, end));
   };
   #allDatesOfPaschalTriduum: Record<string, Dayjs[]> = {};
 
@@ -650,7 +646,7 @@ export class Dates {
     if (this.#allDatesOfEasterTime[year]) return this.#allDatesOfEasterTime[year];
     const start = this.easterSunday(year);
     const end = this.pentecostSunday(year);
-    return (this.#allDatesOfEasterTime[year] = rangeOfDays(start, end, 'datesOfEaster'));
+    return (this.#allDatesOfEasterTime[year] = rangeOfDays(start, end));
   };
   #allDatesOfEasterTime: Record<string, Dayjs[]> = {};
 
@@ -717,11 +713,7 @@ export class Dates {
     if (this.#allDatesOfEarlyOrdinaryTime[id]) return this.#allDatesOfEarlyOrdinaryTime[id];
     const start = this.baptismOfTheLord(year, epiphanyOnSunday).add(1, 'day');
     const end = this.ashWednesday(year).subtract(1, 'day');
-    return (this.#allDatesOfEarlyOrdinaryTime[id] = rangeOfDays(
-      start,
-      end,
-      'datesOfEarlyOrdinaryTime',
-    ));
+    return (this.#allDatesOfEarlyOrdinaryTime[id] = rangeOfDays(start, end));
   };
   #allDatesOfEarlyOrdinaryTime: Record<string, Dayjs[]> = {};
 
@@ -746,11 +738,7 @@ export class Dates {
     if (this.#allDatesOfLateOrdinaryTime[year]) return this.#allDatesOfLateOrdinaryTime[year];
     const start = this.pentecostSunday(year).add(1, 'day');
     const end = this.firstSundayOfAdvent(year).subtract(1, 'day');
-    return (this.#allDatesOfLateOrdinaryTime[year] = rangeOfDays(
-      start,
-      end,
-      'datesOfLateOrdinaryTime',
-    ));
+    return (this.#allDatesOfLateOrdinaryTime[year] = rangeOfDays(start, end));
   };
   #allDatesOfLateOrdinaryTime: Record<string, Dayjs[]> = {};
 

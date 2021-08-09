@@ -1,13 +1,8 @@
 import { RomcalConfig } from '@romcal/models/config';
 import LiturgicalDayDef from '@romcal/models/liturgical-day-def';
 import { RomcalConfigInput } from '@romcal/types/config';
-import { BaseLiturgicalDay, Key, LiturgicalDayInput } from '@romcal/types/liturgical-day';
+import { Key, LiturgicalDayInput } from '@romcal/types/liturgical-day';
 import { Dates } from '@romcal/utils/dates';
-
-/**
- * Liturgical Calendar, containing LiturgicalDay objects, within the context of a year
- */
-export type LiturgicalCalendar = Record<string, BaseLiturgicalDay[]>;
 
 /**
  * Specific and proper configuration of a particular calendar
@@ -21,14 +16,6 @@ export type ParticularConfig = Partial<
  */
 export type InputDefinitions = Record<Key, LiturgicalDayInput>;
 export type LiturgicalDayDefinitions = Record<Key, LiturgicalDayDef>;
-
-export type ByKeys = Record<Key, BaseLiturgicalDay>;
-export type DatesIndex = Record<string, Key[]>;
-
-export type LiturgicalDefBuiltData = {
-  byKeys: ByKeys;
-  datesIndex: DatesIndex;
-};
 
 /**
  * Root interface for Constructor Interfaces. This is a workaround for
@@ -59,9 +46,8 @@ export interface ICalendarDef {
   inheritFromInstance?: InstanceType<BaseCalendarDef>;
   particularConfig?: ParticularConfig;
   definitions: InputDefinitions;
-  dates: Dates;
+  dates: typeof Dates;
   updateConfig: (config?: RomcalConfigInput) => void;
-  buildAllDates: (builtData: LiturgicalDefBuiltData) => LiturgicalDefBuiltData;
   buildAllDefinitions: () => void;
 }
 
@@ -71,7 +57,7 @@ export interface ICalendarDef {
  * This allows to define static methods from [ICalendarDef]
  */
 interface StaticCalendarComputing<T extends ICalendarDef> extends IConstructor<T> {
-  generateCalendar: (builtData: LiturgicalDefBuiltData) => LiturgicalCalendar;
+  temp: () => void;
 }
 
 export type BaseCalendarDef = StaticCalendarComputing<ICalendarDef>;
