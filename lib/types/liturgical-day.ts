@@ -50,28 +50,99 @@ export type DateDef = AllXOR<
 
 export type Month = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 export type DayOfWeek = 0 | 1 | 2 | 3 | 4 | 5 | 6;
-export type DateDefMonthDate = { month: Month; date: number; yearOffset?: number };
+export type DateDefMonthDate = {
+  /**
+   * The month of this liturgical day.
+   */
+  month: Month;
+
+  /**
+   * The date of this liturgical day.
+   */
+  date: number;
+
+  /**
+   * Offset the current year to compute dates in the scope of different years.
+   */
+  yearOffset?: number;
+};
 export type DateDefDateFnAddDay = {
+  /**
+   * A date function name from the [Date] class.
+   */
   dateFn: keyof Dates;
-  dateArg?: number[];
+
+  /**
+   * Possible date function arguments that may be required.
+   */
+  dateArgs?: number[];
+
+  /**
+   * Add additional day(s) to the date computed from the 'dateFn' option.
+   */
   addDay?: number;
+
+  /**
+   * Offset the current year to compute dates in the scope of different years.
+   */
   yearOffset?: number;
 };
 export type DateDefDateFnSubtractDay = {
+  /**
+   * A date function name from the [Date] class.
+   */
   dateFn: keyof Dates;
-  dateArg?: number[];
+
+  /**
+   * Possible date function arguments that may be required.
+   */
+  dateArgs?: number[];
+
+  /**
+   * Subtract some day(s) to the date computed from the 'dateFn' option.
+   */
   subtractDay?: number;
+
+  /**
+   * Offset the current year to compute dates in the scope of different years.
+   */
   yearOffset?: number;
 };
 export type DateDefMonthDowNthWeekInMonth = {
+  /**
+   * The month of this liturgical day.
+   */
   month: Month;
+
+  /**
+   * The day of week this liturgical year must occur.
+   */
   dayOfWeek: DayOfWeek;
+
+  /**
+   * The nth week in the month this liturgical year must occur.
+   */
   nthWeekInMonth: number;
+
+  /**
+   * Offset the current year to compute dates in the scope of different years.
+   */
   yearOffset?: number;
 };
 export type DateDefMonthLastDowInMonth = {
+  /**
+   * The month of this liturgical day.
+   */
   month: Month;
+
+  /**
+   * The last day of week in the month this liturgical year must occur.
+   */
   lastDayOfWeekInMonth: DayOfWeek;
+
+  /**
+   * Offset the current year to compute dates in the scope of different years.
+   */
   yearOffset?: number;
 };
 
@@ -89,11 +160,31 @@ export type DateDefSubtractDay = { subtractDay: number };
 export type DateDefException =
   | AllXOR<
       [
-        { ifIsBetween: { from: DateDef; to: DateDef; inclusive: boolean } },
-        { ifIsSameAsDate: DateDef },
-        { ifIsDayOfWeek: DayOfWeek },
+        {
+          /**
+           * Add an exception if the computed date occur between two dates.
+           */
+          ifIsBetween: { from: DateDef; to: DateDef; inclusive: boolean };
+        },
+        {
+          /**
+           * Add an exception if the computed date occur the same day as another date.
+           */
+          ifIsSameAsDate: DateDef;
+        },
+        {
+          /**
+           * Add an exception if the computed date occur on a specific day of week.
+           */
+          ifIsDayOfWeek: DayOfWeek;
+        },
       ]
-    > & { setDate: DateDefExtended };
+    > & {
+      /**
+       * Set an updated date from the exception rules
+       */
+      setDate: DateDefExtended;
+    };
 
 /**
  * Cycles Metadata
@@ -169,24 +260,49 @@ export type RomcalCalendarMetadata = {
 };
 
 /**
- * The associated titles of a liturgical day
+ * The associated titles of a liturgical day.
  */
 export type TitlesDef =
   | (Titles | PatronTitles)[]
-  | { append?: (Titles | PatronTitles)[]; prepend?: (Titles | PatronTitles)[] };
+  | {
+      /**
+       * Add title(s) to the end of the existing list of title(s).
+       */
+      append?: (Titles | PatronTitles)[];
+      /**
+       * Add title(s) to the  beginning of the existing list of title(s).
+       */
+      prepend?: (Titles | PatronTitles)[];
+    };
 
 /**
- * The associated martyrology item
+ * The associated martyrology item.
  */
 export type MartyrologyItemPointer = string | MartyrologyItemRedefined;
 
 /**
- * The associated martyrology item, with its overridden properties
+ * The associated martyrology item, with its overridden properties.
  */
 export type MartyrologyItemRedefined = {
+  /**
+   * The key of the martyrology item.
+   */
   key: string;
+
+  /**
+   * The redefined titles of the martyrology item.
+   */
   titles?: TitlesDef;
+
+  /**
+   * Specify if titles should not be displayed. This can occur when a title is already included in
+   * the name of the martyrology item.
+   */
   hideTitles?: boolean;
+
+  /**
+   * Specify the number of persons this martyrology item is representing.
+   */
   count?: SaintCount;
 };
 
@@ -367,7 +483,7 @@ export type LiturgicalDayInput = Partial<
   martyrology?: MartyrologyItemPointer[];
 
   /**
-   * Redefine the titles of each Saints linked to this date definition.
+   * Redefine the titles of each Saints linked to this date definition, from the martyrology catalog.
    */
   titles?: TitlesDef;
 };

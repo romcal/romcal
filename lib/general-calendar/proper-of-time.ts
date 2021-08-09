@@ -73,10 +73,10 @@ export class ProperOfTime {
         precedence: dow === 0 ? Precedences.PrivilegedSunday_2 : Precedences.Weekday_13,
         dateDef:
           dow === 0
-            ? { dateFn: 'sundayOfAdvent', dateArg: [week], yearOffset: -1 + yearOffset }
+            ? { dateFn: 'sundayOfAdvent', dateArgs: [week], yearOffset: -1 + yearOffset }
             : {
                 dateFn: 'unprivilegedWeekdayOfAdvent',
-                dateArg: [dow, week],
+                dateArgs: [dow, week],
                 yearOffset: -1 + yearOffset,
               },
         isHolyDayOfObligation: dow === 0,
@@ -98,7 +98,7 @@ export class ProperOfTime {
     // Fourth Sunday of Advent.
     this.#newLiturgicalDayDef(`advent_4_${this.#weekdays[0]}`, {
       precedence: Precedences.PrivilegedSunday_2,
-      dateDef: { dateFn: 'sundayOfAdvent', dateArg: [4], yearOffset: -1 + yearOffset },
+      dateDef: { dateFn: 'sundayOfAdvent', dateArgs: [4], yearOffset: -1 + yearOffset },
       isHolyDayOfObligation: true,
       seasons: [LiturgicalSeasons.ADVENT],
       periods: [],
@@ -112,7 +112,7 @@ export class ProperOfTime {
         precedence: Precedences.PrivilegedWeekday_9,
         dateDef: {
           dateFn: 'privilegedWeekdayOfAdvent',
-          dateArg: [day],
+          dateArgs: [day],
           yearOffset: -1 + yearOffset,
         },
         seasons: [LiturgicalSeasons.ADVENT],
@@ -160,7 +160,7 @@ export class ProperOfTime {
         precedence: Precedences.PrivilegedWeekday_9,
         dateDef: {
           dateFn: 'weekdayWithinOctaveOfChristmas',
-          dateArg: [count],
+          dateArgs: [count],
           yearOffset: -1 + yearOffset,
         },
         seasons: [LiturgicalSeasons.CHRISTMAS_TIME],
@@ -230,7 +230,7 @@ export class ProperOfTime {
     for (let day = 2; day < 9; day++) {
       this.#newLiturgicalDayDef(`christmas_time_${this.#months[0]}_${day}`, {
         precedence: Precedences.Weekday_13,
-        dateDef: { dateFn: 'weekdayBeforeEpiphany', dateArg: [day], yearOffset: yearOffset },
+        dateDef: { dateFn: 'weekdayBeforeEpiphany', dateArgs: [day], yearOffset: yearOffset },
         seasons: [LiturgicalSeasons.CHRISTMAS_TIME],
         periods: [
           LiturgicalPeriods.DAYS_BEFORE_EPIPHANY,
@@ -259,7 +259,7 @@ export class ProperOfTime {
     for (let dow = 1; dow < 7; dow++) {
       this.#newLiturgicalDayDef(`${this.#weekdays[dow]}_after_epiphany`, {
         precedence: Precedences.Weekday_13,
-        dateDef: { dateFn: 'weekdayAfterEpiphany', dateArg: [dow], yearOffset: yearOffset },
+        dateDef: { dateFn: 'weekdayAfterEpiphany', dateArgs: [dow], yearOffset: yearOffset },
         seasons: [LiturgicalSeasons.CHRISTMAS_TIME],
         periods: [
           LiturgicalPeriods.DAYS_FROM_EPIPHANY,
@@ -447,7 +447,7 @@ export class ProperOfTime {
         precedence: dow === 0 ? Precedences.PrivilegedSunday_2 : Precedences.Weekday_13,
         dateDef: {
           dateFn: 'weekdayOrSundayOfEasterTime',
-          dateArg: [dow, week],
+          dateArgs: [dow, week],
           yearOffset: yearOffset,
         },
         isHolyDayOfObligation: dow === 0,
@@ -530,7 +530,7 @@ export class ProperOfTime {
 
       const data: LiturgicalDayProperOfTimeInput = {
         precedence: dow === 0 ? Precedences.UnprivilegedSunday_6 : Precedences.Weekday_13,
-        dateDef: { dateFn: 'dateOfOrdinaryTime', dateArg: [dow, week], yearOffset: yearOffset },
+        dateDef: { dateFn: 'dateOfOrdinaryTime', dateArgs: [dow, week], yearOffset: yearOffset },
         isHolyDayOfObligation: dow === 0,
         seasons: [LiturgicalSeasons.ORDINARY_TIME],
         periods: [], // todo: add early / late ordinary time
