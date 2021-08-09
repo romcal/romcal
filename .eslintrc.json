@@ -17,5 +17,7 @@
     "plugin:jest/recommended",
     "prettier"
   ],
-  "rules": {}
+  "rules": {
+    "@typescript-eslint/no-non-null-assertion": "off"
+  }
 }

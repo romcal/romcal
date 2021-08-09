@@ -8,7 +8,7 @@ export class Philippines extends CalendarDef {
     holy_child_of_cebu: {
       precedence: Precedences.ProperFeast_8f,
       // Third Sunday of January: Santo Niño (Holy Child Jesus)
-      dateDef: { month: 1, dayOfWeek: 0, nthDayOfWeekInMonth: 3 },
+      dateDef: { month: 1, dayOfWeek: 0, nthWeekInMonth: 3 },
     },
 
     peter_baptist_blasquez_paul_miki_and_companions_martyrs: {

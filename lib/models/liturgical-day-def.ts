@@ -11,6 +11,7 @@ import { RomcalConfig } from '@romcal/models/config';
 import {
   BaseLiturgicalDayDef,
   DateDef,
+  DateDefException,
   isLiturgicalDayProperOfTimeInput,
   Key,
   LiturgicalDayInput,
@@ -26,6 +27,7 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
   readonly #config: RomcalConfig;
   readonly key: Key;
   readonly dateDef: DateDef;
+  readonly dateExceptions: DateDefException[];
   readonly precedence: Precedences;
   readonly rank: Ranks;
   readonly isHolyDayOfObligation: boolean;
@@ -61,7 +63,6 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
     }
     this.#name = name;
 
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     return this.#name;
   }
 
@@ -112,8 +113,13 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
         `In the '${fromCalendar}' calendar, the property 'dateDef' for '${key}' must be defined.`,
       );
     }
-    // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
     this.dateDef = input.dateDef ?? previousDef!.dateDef;
+
+    this.dateExceptions = Array.isArray(input.dateExceptions)
+      ? input.dateExceptions
+      : input.dateExceptions
+      ? [input.dateExceptions]
+      : [];
 
     if (!input.precedence && !previousDef) {
       throw new Error(
@@ -286,7 +292,6 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
     // Combine `titles` from the main date definition, if provided.
     if (input.titles) {
       martyrology.forEach((m, i) => {
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         m.titles = this.#combineTitles(input.titles!, martyrology[i].key, previousDef);
       });
       if (martyrology.length === 0) {

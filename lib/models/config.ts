@@ -2,7 +2,7 @@ import { CalendarScope } from '@romcal/constants/calendar-scope';
 import { locale as en } from '@romcal/locales/en';
 import { CalendarDef } from '@romcal/models/calendar-def';
 import { LiturgicalDayDefinitions } from '@romcal/types/calendar-def';
-import { BaseRomcalConfig, IRoncalConfig, RomcalConfigInput } from '@romcal/types/config';
+import { IRoncalConfig, RomcalConfigInput, RomcalConfigOutput } from '@romcal/types/config';
 import { Locale } from '@romcal/types/locale';
 import { Dates } from '@romcal/utils/dates';
 import { toRomanNumber } from '@romcal/utils/numbers';
@@ -17,7 +17,6 @@ dayjs.extend(updateLocale);
  */
 export class RomcalConfig implements IRoncalConfig {
   readonly #input: RomcalConfigInput;
-  readonly year: number;
   readonly particularCalendar?: typeof CalendarDef;
   readonly locale?: Locale;
   readonly localeKey: string;
@@ -28,16 +27,15 @@ export class RomcalConfig implements IRoncalConfig {
   readonly verbose: boolean;
   readonly prettyPrint: boolean;
   readonly i18next: i18n;
-  readonly dates: Dates;
+  readonly dates: typeof Dates;
 
   liturgicalDayDef: LiturgicalDayDefinitions = {};
 
   /**
    * Clone the RomcalConfig object
-   * @param year
    */
-  clone(year: number): RomcalConfig {
-    return new RomcalConfig({ ...this.#input, year: year ?? this.year });
+  clone(): RomcalConfig {
+    return new RomcalConfig({ ...this.#input });
   }
 
   /**
@@ -48,20 +46,6 @@ export class RomcalConfig implements IRoncalConfig {
     this.#input = config || {};
 
     this.scope = config?.scope ?? CalendarScope.Gregorian;
-
-    this.year =
-      config?.year ??
-      // When year is undefined, determine the current year
-      (this.scope === CalendarScope.Gregorian
-        ? // Current Gregorian year
-          dayjs().year()
-        : // Current Liturgical year
-        dayjs().isBefore(Dates.firstSundayOfAdvent(dayjs().year() + 1))
-        ? // We are before the first Sunday of Advent, taking the current year
-          dayjs().year()
-        : // We are after the first Sunday of Advent, setting the next Gregorian year
-          // hat represent the main part of this Liturgical year
-          dayjs().year() + 1);
 
     if (config?.particularCalendar) this.particularCalendar = config?.particularCalendar;
 
@@ -121,7 +105,7 @@ export class RomcalConfig implements IRoncalConfig {
     });
 
     // Initialize the Date library.
-    this.dates = new Dates(this);
+    this.dates = Dates;
   }
 
   /**
@@ -141,9 +125,8 @@ export class RomcalConfig implements IRoncalConfig {
   /**
    * Return the config settings as an Object.
    */
-  toObject(): BaseRomcalConfig {
+  toObject(): RomcalConfigOutput {
     return {
-      year: this.year,
       particularCalendar: this.particularCalendar,
       locale: this.locale,
       epiphanyOnSunday: this.epiphanyOnSunday,

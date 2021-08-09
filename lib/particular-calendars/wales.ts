@@ -139,7 +139,6 @@ export class Wales extends CalendarDef {
     },
 
     peter_and_paul_apostles: {
-      dateDef: { month: 6, date: 29 },
       // In England and Wales when the celebration falls on either a
       // Saturday or a Monday it is transferred to the Sunday.
       dateExceptions: [

@@ -85,7 +85,7 @@ export class China extends CalendarDef {
 
     our_lady_of_china: {
       precedence: Precedences.ProperMemorial_11b,
-      dateDef: { month: 5, dayOfWeek: 6, nthDayOfWeekInMonth: 2 },
+      dateDef: { month: 5, dayOfWeek: 6, nthWeekInMonth: 2 },
     },
 
     peter_liu_wenyuan_martyr: {

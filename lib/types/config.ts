@@ -9,11 +9,6 @@ import { i18n } from 'i18next';
  */
 export interface BaseRomcalConfig {
   /**
-   * The calendar year to obtain.
-   */
-  readonly year?: number;
-
-  /**
    * The calendar
    */
   readonly particularCalendar?: typeof CalendarDef;
@@ -79,3 +74,6 @@ export interface IRoncalConfig extends BaseRomcalConfig {
  * where all properties are **required**.
  */
 export type RomcalConfigInput = Partial<BaseRomcalConfig>;
+
+export type RomcalConfigOutput = Required<Omit<BaseRomcalConfig, 'particularCalendar' | 'locale'>> &
+  Pick<BaseRomcalConfig, 'particularCalendar' | 'locale'>;
