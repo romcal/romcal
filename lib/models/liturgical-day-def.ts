@@ -18,6 +18,7 @@ import {
   LiturgicalDayProperOfTimeInput,
   LiturgyDayDiff,
   MartyrologyItemRedefined,
+  PartialCyclesDef,
   TitlesDef,
 } from '@romcal/types/liturgical-day';
 import { MartyrologyItem } from '@romcal/types/martyrology';
@@ -38,7 +39,7 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
   readonly liturgicalColors: LiturgicalColors[];
   readonly martyrology: MartyrologyItem[];
   readonly titles: (Titles | PatronTitles)[];
-  readonly properCycle: ProperCycles;
+  readonly cycles: PartialCyclesDef;
   readonly fromCalendar: Lowercase<string>;
   readonly fromExtendedCalendars: LiturgyDayDiff[];
 
@@ -170,8 +171,10 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
       ? [LiturgicalColors.RED]
       : [LiturgicalColors.WHITE];
 
-    this.properCycle =
-      input.properCycle ?? previousDef?.properCycle ?? ProperCycles.PROPER_OF_SAINTS;
+    this.cycles = {
+      properCycle:
+        input.properCycle ?? previousDef?.cycles.properCycle ?? ProperCycles.PROPER_OF_SAINTS,
+    };
 
     this.fromCalendar = fromCalendar;
 
