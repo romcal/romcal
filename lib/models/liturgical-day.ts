@@ -1,5 +1,5 @@
 import { LiturgicalColors } from '@romcal/constants/colors';
-import { ProperCycles } from '@romcal/constants/cycles';
+import { PsalterWeeksCycles, SundaysCycles, WeekdaysCycles } from '@romcal/constants/cycles';
 import { PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
 import { LiturgicalPeriods } from '@romcal/constants/periods';
 import { Precedences } from '@romcal/constants/precedences';
@@ -7,7 +7,14 @@ import { Ranks } from '@romcal/constants/ranks';
 import { LiturgicalSeasons } from '@romcal/constants/seasons';
 import { LiturgicalDayConfig } from '@romcal/models/liturgical-day-config';
 import LiturgicalDayDef from '@romcal/models/liturgical-day-def';
-import { BaseLiturgicalDay, DateDef, Key, LiturgyDayDiff } from '@romcal/types/liturgical-day';
+import {
+  BaseLiturgicalDay,
+  DateDef,
+  Key,
+  LiturgyDayDiff,
+  RomcalCalendarMetadata,
+  RomcalCyclesMetadata,
+} from '@romcal/types/liturgical-day';
 import { LiturgicalDayConfigOutput } from '@romcal/types/liturgical-day-config';
 import { MartyrologyItem } from '@romcal/types/martyrology';
 import { StringMap } from 'i18next';
@@ -28,7 +35,8 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
   readonly liturgicalColors: LiturgicalColors[];
   readonly martyrology: MartyrologyItem[];
   readonly titles: (Titles | PatronTitles)[];
-  readonly properCycle: ProperCycles;
+  readonly calendar: RomcalCalendarMetadata;
+  readonly cycles: RomcalCyclesMetadata;
   readonly fromCalendar: Lowercase<string>;
   readonly fromExtendedCalendars: LiturgyDayDiff[];
   weekday?: LiturgicalDay;
@@ -108,7 +116,26 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
 
     this.martyrology = def.martyrology;
     this.titles = def.titles;
-    this.properCycle = def.properCycle;
+
+    this.calendar = {
+      // todo
+      weekOfSeason: 0,
+      dayOfSeason: 0,
+      dayOfWeek: 0,
+      nthDayOfWeekInMonth: 0,
+      startOfLiturgicalYear: '',
+      endOfLiturgicalYear: '',
+      startOfSeason: '',
+      endOfSeason: '',
+    };
+
+    this.cycles = baseData?.cycles ?? {
+      properCycle: def.cycles.properCycle,
+      sundayCycle: SundaysCycles.YEAR_A, // todo
+      weekdayCycle: WeekdaysCycles.YEAR_1,
+      psalterWeek: PsalterWeeksCycles.WEEK_1,
+    };
+
     this.fromCalendar = def.fromCalendar;
     this.fromExtendedCalendars = def.fromExtendedCalendars;
 

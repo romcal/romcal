@@ -14,7 +14,6 @@ import LiturgicalDay from '@romcal/models/liturgical-day';
 import LiturgicalDayDef from '@romcal/models/liturgical-day-def';
 import { MartyrologyItem, SaintCount } from '@romcal/types/martyrology';
 import { Dates } from '@romcal/utils/dates';
-import { Dayjs } from 'dayjs';
 import { StringMap } from 'i18next';
 
 /**
@@ -210,6 +209,11 @@ export type RomcalCyclesMetadata = {
    */
   psalterWeek: PsalterWeeksCycles;
 };
+
+/**
+ * Partial Cycle Metadata definition
+ */
+export type PartialCyclesDef = Pick<RomcalCyclesMetadata, 'properCycle'>;
 
 /**
  * Calendar Metadata
@@ -408,9 +412,20 @@ type LiturgicalDayRoot = {
   titles: (Titles | PatronTitles)[];
 
   /**
+   * Cycle metadata of a liturgical day.
+   */
+  cycles: RomcalCyclesMetadata;
+
+  /**
    * The proper cycle in which the liturgical day is part.
    */
   properCycle?: ProperCycles;
+
+  /**
+   * Function that compute calendar metadata
+   * @param date
+   */
+  calendar: RomcalCalendarMetadata;
 
   /**
    * The name of the calendar from which the liturgical day is defined.
@@ -445,11 +460,19 @@ type LiturgicalDayRoot = {
  * Generated object containing all metadata in a context of a proper calendar,
  * that can be used then to compute its date in a context of a year
  */
-export type BaseLiturgicalDayDef = Omit<LiturgicalDayRoot, 'date' | 'drop' | 'weekday'> & {
+export type BaseLiturgicalDayDef = Omit<
+  LiturgicalDayRoot,
+  'date' | 'customLocaleKey' | 'cycles' | 'calendar' | 'properCycle' | 'drop' | 'weekday'
+> & {
   /**
    * The unique key of the liturgical day.
    */
   key: Key;
+
+  /**
+   * Cycle metadata of a liturgical day.
+   */
+  cycles: PartialCyclesDef;
 };
 
 /**
@@ -503,18 +526,13 @@ export type LiturgicalDayProperOfTimeInput = Omit<
   | 'martyrology'
   | 'titles'
   | 'liturgicalColorNames'
+  | 'cycles'
+  | 'calendar'
   | 'fromCalendar'
   | 'fromExtendedCalendars'
   | 'weekday'
 > &
-  Partial<Pick<LiturgicalDayRoot, 'isHolyDayOfObligation' | 'isOptional'>> & {
-    /**
-     * Function that compute calendar metadata
-     * @param date
-     */
-    calendar?: (date: Dayjs) => RomcalCalendarMetadata;
-  };
-
+  Partial<Pick<LiturgicalDayRoot, 'isHolyDayOfObligation' | 'isOptional'>>;
 /**
  * Generated object with computed date within a specific year
  */
