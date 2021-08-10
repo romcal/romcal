@@ -1,7 +1,5 @@
 import LiturgicalDay from '@romcal/models/liturgical-day';
-import { RomcalConfigOutput } from '@romcal/types/config';
 import { BaseLiturgicalDay, Key } from '@romcal/types/liturgical-day';
-import { BaseRomcalYear } from '@romcal/types/year';
 import { Dates } from '@romcal/utils/dates';
 
 /**
@@ -28,5 +26,3 @@ export interface BaseCalendar {
   dates: Dates;
   generateCalendar: (builtData: LiturgicalBuiltData) => LiturgicalCalendar;
 }
-
-export type LiturgicalDayConfig = RomcalConfigOutput & BaseRomcalYear;

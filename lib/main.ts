@@ -4,7 +4,7 @@ import { PROPER_OF_TIME_NAME, ProperOfTime } from '@romcal/general-calendar/prop
 import { Calendar } from '@romcal/models/calendar';
 import { RomcalConfig } from '@romcal/models/config';
 import LiturgicalDay from '@romcal/models/liturgical-day';
-import { RomcalYear } from '@romcal/models/year';
+import { LiturgicalDayConfig } from '@romcal/models/liturgical-day-config';
 import { LiturgicalCalendar } from '@romcal/types/calendar';
 import { BaseCalendarDef, LiturgicalDayDefinitions } from '@romcal/types/calendar-def';
 import { BaseRomcalConfig, RomcalConfigInput } from '@romcal/types/config';
@@ -44,9 +44,9 @@ export default class Romcal {
    * @param year
    */
   dates(year?: number): Dates {
-    const yc = new RomcalYear(this.#config, year);
-    if (this.#dates[yc.year]) return this.#dates[yc.year];
-    return (this.#dates[yc.year] = yc.dates);
+    const ldConfig = new LiturgicalDayConfig(this.#config, year);
+    if (this.#dates[ldConfig.year]) return this.#dates[ldConfig.year];
+    return (this.#dates[ldConfig.year] = ldConfig.dates);
   }
 
   /**
@@ -59,7 +59,7 @@ export default class Romcal {
    * @param year
    */
   getOneLiturgicalDay(key: Key, year?: number): Promise<LiturgicalDay | null | undefined> {
-    const romcalYear = new RomcalYear(this.#config, year);
+    const ldConfig = new LiturgicalDayConfig(this.#config, year);
 
     return new Promise((resolve, reject) => {
       try {
@@ -70,7 +70,7 @@ export default class Romcal {
           }
 
           // Compute the date of the LiturgicalDayDef
-          const date = romcalYear.buildDate(this.#config.liturgicalDayDef[key]);
+          const date = ldConfig.buildDate(this.#config.liturgicalDayDef[key]);
           if (!date || (dayjs.isDayjs(date) && !date.isValid())) return resolve(null);
 
           // Return the LiturgicalDay object
@@ -79,10 +79,7 @@ export default class Romcal {
               this.#config.liturgicalDayDef[key],
               null,
               date.toISOString(),
-              {
-                ...this.#config.toObject(),
-                year: romcalYear.year,
-              },
+              ldConfig,
               null,
             ),
           );
@@ -97,21 +94,24 @@ export default class Romcal {
    * Generate a liturgical calendar, within a Liturgical or Gregorian scope.
    */
   generateCalendar(year?: number): Promise<LiturgicalCalendar> {
-    const yc = new RomcalYear(this.#config, year);
+    const ldConfig = new LiturgicalDayConfig(this.#config, year);
 
     // Wrap the calendar computing process in a Promise.
     // Even if this method is called with async/await, this makes this method running in a microtask queue:
     // it does not run on the main thread, meaning other things can occur (click events, rendering, etc.).
     return new Promise((resolve, reject) => {
       // Return cached data, if the calendar has been already computed
-      if (this.#computedCalendars[yc.year]) {
-        return resolve(this.#computedCalendars[yc.year]);
+      if (this.#computedCalendars[ldConfig.year]) {
+        return resolve(this.#computedCalendars[ldConfig.year]);
       }
 
       try {
         this.getAllDefinitions().then(() => {
-          this.#computedCalendars[yc.year] = new Calendar(this.#config, yc).generateCalendar();
-          resolve(this.#computedCalendars[yc.year]);
+          this.#computedCalendars[ldConfig.year] = new Calendar(
+            this.#config,
+            ldConfig,
+          ).generateCalendar();
+          resolve(this.#computedCalendars[ldConfig.year]);
         });
       } catch (e) {
         reject(e);

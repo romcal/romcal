@@ -5,7 +5,7 @@ import { Ranks } from '@romcal/constants/ranks';
 import { PROPER_OF_TIME_NAME } from '@romcal/general-calendar/proper-of-time';
 import { RomcalConfig } from '@romcal/models/config';
 import LiturgicalDay from '@romcal/models/liturgical-day';
-import { RomcalYear } from '@romcal/models/year';
+import { LiturgicalDayConfig } from '@romcal/models/liturgical-day-config';
 import {
   BaseCalendar,
   DatesIndex,
@@ -17,13 +17,13 @@ import dayjs, { Dayjs } from 'dayjs';
 
 export class Calendar implements BaseCalendar {
   readonly #config: RomcalConfig;
-  readonly #romcalYear: RomcalYear;
+  readonly #liturgicalDayConfig: LiturgicalDayConfig;
   readonly dates: Dates;
 
-  constructor(config: RomcalConfig, romcalYear: RomcalYear) {
+  constructor(config: RomcalConfig, liturgicalDayConfig: LiturgicalDayConfig) {
     this.#config = config;
-    this.#romcalYear = romcalYear;
-    this.dates = new Dates(config, romcalYear.year);
+    this.#liturgicalDayConfig = liturgicalDayConfig;
+    this.dates = new Dates(config, liturgicalDayConfig.year);
   }
 
   /**
@@ -45,10 +45,10 @@ export class Calendar implements BaseCalendar {
       //   so in this case we don't have to check the previously gregorian year.
       const previousYearDate =
         def.fromCalendar !== PROPER_OF_TIME_NAME && this.#config.scope === CalendarScope.Liturgical
-          ? this.#romcalYear.buildDate(def, -1)
+          ? this.#liturgicalDayConfig.buildDate(def, -1)
           : null;
 
-      const currentYearDate = this.#romcalYear.buildDate(def);
+      const currentYearDate = this.#liturgicalDayConfig.buildDate(def);
 
       [previousYearDate, currentYearDate]
         // Remove all dates that are null. This can occur when a liturgical day isn't celebrated
@@ -95,24 +95,14 @@ export class Calendar implements BaseCalendar {
            *    - Feasts: small hours are taken from the weekday.
            */
           const weekday: LiturgicalDay | null =
-            baseData &&
-            builtData.byKeys[def.key] &&
-            [Ranks.FEAST, Ranks.MEMORIAL].includes(builtData.byKeys[def.key].rank) &&
-            // below, this test prevents adding the weekday property on a base Proper of Time object,
-            // especially on all the weekdays during the Easter octave (since all theses days are Solemnities).
-            baseData.key !== def.key
-              ? baseData
-              : null;
+            baseData && [Ranks.FEAST, Ranks.MEMORIAL].includes(def.rank) ? baseData : null;
 
           // Create a new LiturgicalDay object, and add it to the builtData object.
           builtData.byKeys[def.key] = new LiturgicalDay(
             def,
             baseData,
             dateStr,
-            {
-              ...this.#config.toObject(),
-              year: this.#romcalYear.year,
-            },
+            this.#liturgicalDayConfig,
             weekday,
           );
 

@@ -1,4 +1,5 @@
 import { CalendarScope } from '@romcal/constants/calendar-scope';
+import { LiturgicalColors } from '@romcal/constants/colors';
 import { locale as en } from '@romcal/locales/en';
 import { CalendarDef } from '@romcal/models/calendar-def';
 import { LiturgicalDayDefinitions } from '@romcal/types/calendar-def';
@@ -120,6 +121,17 @@ export class RomcalConfig implements IRoncalConfig {
     this.i18next.addResourceBundle(locale.key, 'colors', locale.colors);
     this.i18next.addResourceBundle(locale.key, 'ordinals', locale.ordinals);
     this.i18next.addResourceBundle(locale.key, 'martyrology', locale.martyrology);
+  }
+
+  /**
+   * Return localised liturgical colors from color keys
+   * @param liturgicalColors
+   */
+  getLiturgicalColorNames(liturgicalColors: LiturgicalColors[]): string[] {
+    return liturgicalColors.map((s) => {
+      const key = `colors:${(s ?? '').toLowerCase()}`;
+      return this.i18next.t(key) ?? key;
+    });
   }
 
   /**

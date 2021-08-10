@@ -85,10 +85,9 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
   #liturgicalColorNames?: string[];
   public get liturgicalColorNames(): string[] {
     if (this.#liturgicalColorNames !== undefined) return this.#liturgicalColorNames;
-    return (this.#liturgicalColorNames = this.liturgicalColors.map((s) => {
-      const key = `colors:${(s ?? '').toLowerCase()}`;
-      return this.#config.i18next.t(key) ?? key;
-    }));
+    return (this.#liturgicalColorNames = this.#config.getLiturgicalColorNames(
+      this.liturgicalColors,
+    ));
   }
 
   constructor(
