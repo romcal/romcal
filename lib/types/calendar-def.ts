@@ -18,27 +18,6 @@ export type InputDefinitions = Record<Key, LiturgicalDayInput>;
 export type LiturgicalDayDefinitions = Record<Key, LiturgicalDayDef>;
 
 /**
- * Root interface for Constructor Interfaces. This is a workaround for
- * TypeScript's lack of "static" methods for classes.
- *
- * Based on StackOverflow user chris's solution. See
- * - https://stackoverflow.com/a/43484801/1037165
- * - https://pastebin.com/v8Rf6g6Y
- *
- * @interface IConstructor
- * @template InstanceInterface
- */
-interface IConstructor<InstanceInterface> {
-  /**
-   * Explicitly typed constructor is required, so make an extremely permissive
-   * declaration that can be refined in subclasses.
-   *
-   * @constructor
-   */
-  new (config: RomcalConfig): InstanceInterface;
-}
-
-/**
  * Base [CalendarDef] interface
  */
 export interface ICalendarDef {
@@ -51,13 +30,8 @@ export interface ICalendarDef {
   buildAllDefinitions: () => void;
 }
 
-/**
- * Create a Constructor Interface by extending IConstructor and
- * specifying [ICalendarDef].
- * This allows to define static methods from [ICalendarDef]
- */
-interface StaticCalendarComputing<T extends ICalendarDef> extends IConstructor<T> {
-  temp: () => void;
+interface IConstructor<InstanceInterface> {
+  new (config: RomcalConfig): InstanceInterface;
 }
 
-export type BaseCalendarDef = StaticCalendarComputing<ICalendarDef>;
+export type BaseCalendarDef = IConstructor<ICalendarDef>;

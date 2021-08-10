@@ -143,8 +143,4 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
       this.#config,
     );
   }
-
-  static temp(): void {
-    return;
-  }
 };
