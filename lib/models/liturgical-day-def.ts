@@ -10,6 +10,7 @@ import { PROPER_OF_TIME_NAME } from '@romcal/general-calendar/proper-of-time';
 import { RomcalConfig } from '@romcal/models/config';
 import {
   BaseLiturgicalDayDef,
+  CalendarDef,
   DateDef,
   DateDefException,
   isLiturgicalDayProperOfTimeInput,
@@ -36,6 +37,7 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
   readonly i18nDef: [string] | [string, StringMap | string];
   readonly seasons: LiturgicalSeasons[];
   readonly periods: LiturgicalPeriods[];
+  readonly calendarDef: CalendarDef;
   readonly liturgicalColors: LiturgicalColors[];
   readonly martyrology: MartyrologyItem[];
   readonly titles: (Titles | PatronTitles)[];
@@ -152,6 +154,13 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
     } else {
       this.seasons = previousDef?.seasons ?? [];
       this.periods = previousDef?.periods ?? [];
+    }
+
+    if (isLiturgicalDayProperOfTimeInput(input)) {
+      const data = input as LiturgicalDayProperOfTimeInput;
+      this.calendarDef = data.calendarDef;
+    } else {
+      this.calendarDef = {};
     }
 
     this.martyrology = this.#retrieveMartyrologyData(key, input, fromCalendar, previousDef);

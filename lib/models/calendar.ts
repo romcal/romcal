@@ -2,6 +2,7 @@ import { CalendarScope } from '@romcal/constants/calendar-scope';
 import { LiturgicalPeriods } from '@romcal/constants/periods';
 import { Precedences, PRECEDENCES } from '@romcal/constants/precedences';
 import { Ranks } from '@romcal/constants/ranks';
+import { LiturgicalSeasons } from '@romcal/constants/seasons';
 import { PROPER_OF_TIME_NAME } from '@romcal/general-calendar/proper-of-time';
 import { RomcalConfig } from '@romcal/models/config';
 import LiturgicalDay from '@romcal/models/liturgical-day';
@@ -12,6 +13,7 @@ import {
   LiturgicalBuiltData,
   LiturgicalCalendar,
 } from '@romcal/types/calendar';
+import { RomcalCalendarMetadata } from '@romcal/types/liturgical-day';
 import { Dates } from '@romcal/utils/dates';
 import dayjs, { Dayjs } from 'dayjs';
 
@@ -35,6 +37,9 @@ export class Calendar implements BaseCalendar {
       byKeys: {},
       datesIndex: {},
     };
+
+    const startOfSeasonsDic = this.dates.startOfSeasons();
+    const endOfSeasonsDic = this.dates.endOfSeasons();
 
     Object.values(this.#config.liturgicalDayDef).forEach((def) => {
       // In a Liturgical Calendar scope:
@@ -83,6 +88,30 @@ export class Calendar implements BaseCalendar {
               ? null
               : builtData.byKeys[builtData.datesIndex[dateStr][0]];
 
+          // For definitions from the proper of time, retrieve or compute the calendar metadata
+          let calendar: RomcalCalendarMetadata | undefined = undefined;
+          if (def.fromCalendar === PROPER_OF_TIME_NAME) {
+            const startOfSeason = startOfSeasonsDic[def.seasons[0]];
+            const endOfSeason = endOfSeasonsDic[def.seasons[0]];
+            calendar = {
+              weekOfSeason: baseData?.calendar.weekOfSeason ?? def.calendarDef.weekOfSeason ?? NaN, // todo
+              dayOfSeason:
+                baseData?.calendar.dayOfSeason ??
+                def.calendarDef.dayOfSeason ??
+                date.diff(startOfSeason, 'day') + 2,
+              dayOfWeek: baseData?.calendar.dayOfWeek ?? def.calendarDef.dayOfWeek ?? date.day(),
+              nthDayOfWeekInMonth: Math.ceil(date.date() / 7),
+              startOfSeason: startOfSeason.toISOString().substr(0, 10),
+              endOfSeason: endOfSeason.toISOString().substr(0, 10),
+              startOfLiturgicalYear: startOfSeasonsDic[LiturgicalSeasons.ADVENT]
+                .toISOString()
+                .substr(0, 10),
+              endOfLiturgicalYear: endOfSeasonsDic[LiturgicalSeasons.ORDINARY_TIME]
+                .toISOString()
+                .substr(0, 10),
+            };
+          }
+
           /**
            * For Memorial and Feast celebrations only, the weekday property is added
            * containing the LiturgicalDay object of the base weekday.
@@ -102,6 +131,7 @@ export class Calendar implements BaseCalendar {
             def,
             baseData,
             dateStr,
+            (calendar ?? baseData?.calendar)!,
             this.#liturgicalDayConfig,
             weekday,
           );

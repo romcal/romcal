@@ -1,3 +1,4 @@
+import { LiturgicalSeasons } from '@romcal/constants/seasons';
 import { CalendarScope } from '@romcal/main';
 import { RomcalConfig } from '@romcal/models/config';
 import dayjs, { Dayjs } from 'dayjs';
@@ -1156,4 +1157,30 @@ export class Dates {
     return (this.#exaltationOfTheHolyCross[year] = dayjs.utc(`${year}-9-14`));
   };
   #exaltationOfTheHolyCross: Record<string, Dayjs> = {};
+
+  startOfSeasons = (year = this.#year): Record<LiturgicalSeasons, Dayjs> => {
+    if (this.#startOfSeasons[year]) return this.#startOfSeasons[year];
+    return (this.#startOfSeasons[year] = {
+      [LiturgicalSeasons.ADVENT]: this.firstSundayOfAdvent(year - 1),
+      [LiturgicalSeasons.CHRISTMAS_TIME]: this.christmas(year - 1),
+      [LiturgicalSeasons.LENT]: this.ashWednesday(year),
+      [LiturgicalSeasons.PASCHAL_TRIDUUM]: this.holyThursday(year),
+      [LiturgicalSeasons.EASTER_TIME]: this.easterSunday(year),
+      [LiturgicalSeasons.ORDINARY_TIME]: this.baptismOfTheLord(year).add(1, 'day'),
+    });
+  };
+  #startOfSeasons: Record<number, Record<LiturgicalSeasons, Dayjs>> = {};
+
+  endOfSeasons = (year = this.#year): Record<LiturgicalSeasons, Dayjs> => {
+    if (this.#endOfSeasons[year]) return this.#endOfSeasons[year];
+    return (this.#endOfSeasons[year] = {
+      [LiturgicalSeasons.ADVENT]: dayjs(`${year - 1}-12-23`),
+      [LiturgicalSeasons.CHRISTMAS_TIME]: this.baptismOfTheLord(year - 1),
+      [LiturgicalSeasons.LENT]: this.holyThursday(year),
+      [LiturgicalSeasons.PASCHAL_TRIDUUM]: this.easterSunday(year),
+      [LiturgicalSeasons.EASTER_TIME]: this.pentecostSunday(year),
+      [LiturgicalSeasons.ORDINARY_TIME]: this.christTheKingSunday(year).add(6, 'day'),
+    });
+  };
+  #endOfSeasons: Record<number, Record<LiturgicalSeasons, Dayjs>> = {};
 }
