@@ -186,6 +186,15 @@ export type DateDefException =
     };
 
 /**
+ * Calendar definition, to compute then the calendar metadata
+ */
+export type CalendarDef = {
+  dayOfSeason?: number;
+  weekOfSeason?: number;
+  dayOfWeek?: number;
+};
+
+/**
  * Cycles Metadata
  */
 export type RomcalCyclesMetadata = {
@@ -428,6 +437,11 @@ type LiturgicalDayRoot = {
   calendar: RomcalCalendarMetadata;
 
   /**
+   * Calendar definition, to compute then the calendar metadata
+   */
+  calendarDef: CalendarDef;
+
+  /**
    * The name of the calendar from which the liturgical day is defined.
    */
   fromCalendar: Lowercase<string>;
@@ -536,7 +550,7 @@ export type LiturgicalDayProperOfTimeInput = Omit<
 /**
  * Generated object with computed date within a specific year
  */
-export type BaseLiturgicalDay = Omit<LiturgicalDayRoot, 'properCycle' | 'drop'> & {
+export type BaseLiturgicalDay = Omit<LiturgicalDayRoot, 'properCycle' | 'calendarDef' | 'drop'> & {
   /**
    * The unique key of the liturgical day.
    */

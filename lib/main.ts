@@ -1,4 +1,5 @@
 import { CalendarScope } from '@romcal/constants/calendar-scope';
+import { LiturgicalSeasons } from '@romcal/constants/seasons';
 import { GeneralRoman } from '@romcal/general-calendar/proper-of-saints';
 import { PROPER_OF_TIME_NAME, ProperOfTime } from '@romcal/general-calendar/proper-of-time';
 import { Calendar } from '@romcal/models/calendar';
@@ -8,7 +9,7 @@ import { LiturgicalDayConfig } from '@romcal/models/liturgical-day-config';
 import { LiturgicalCalendar } from '@romcal/types/calendar';
 import { BaseCalendarDef, LiturgicalDayDefinitions } from '@romcal/types/calendar-def';
 import { BaseRomcalConfig, RomcalConfigInput } from '@romcal/types/config';
-import { Key } from '@romcal/types/liturgical-day';
+import { Key, RomcalCalendarMetadata } from '@romcal/types/liturgical-day';
 import { Dates } from '@romcal/utils/dates';
 import dayjs from 'dayjs';
 
@@ -69,20 +70,37 @@ export default class Romcal {
             return resolve(undefined);
           }
 
+          const def = this.#config.liturgicalDayDef[key];
+
           // Compute the date of the LiturgicalDayDef
-          const date = ldConfig.buildDate(this.#config.liturgicalDayDef[key]);
+          const date = ldConfig.buildDate(def);
           if (!date || (dayjs.isDayjs(date) && !date.isValid())) return resolve(null);
 
+          // Try to compute the calendar metadata with the data we have (without the whole year background)
+          const startOfSeasonsDic = ldConfig.dates.startOfSeasons();
+          const endOfSeasonsDic = ldConfig.dates.endOfSeasons();
+          const startOfSeason = def.seasons.length ? startOfSeasonsDic[def.seasons[0]] : '';
+          const endOfSeason = def.seasons.length ? endOfSeasonsDic[def.seasons[0]] : '';
+          const calendar: RomcalCalendarMetadata = {
+            dayOfWeek: def.calendarDef.dayOfWeek ?? NaN,
+            dayOfSeason:
+              def.calendarDef.dayOfSeason ??
+              (startOfSeason ? date.diff(startOfSeason) + 1 : NaN) ??
+              NaN,
+            weekOfSeason: def.calendarDef.weekOfSeason ?? NaN,
+            nthDayOfWeekInMonth: Math.ceil(date.date() / 7),
+            startOfSeason: startOfSeason ? startOfSeason.toISOString().substr(0, 10) : '',
+            endOfSeason: endOfSeason ? endOfSeason.toISOString().substr(0, 10) : '',
+            startOfLiturgicalYear: startOfSeasonsDic[LiturgicalSeasons.ADVENT]
+              .toISOString()
+              .substr(0, 10),
+            endOfLiturgicalYear: endOfSeasonsDic[LiturgicalSeasons.ORDINARY_TIME]
+              .toISOString()
+              .substr(0, 10),
+          };
+
           // Return the LiturgicalDay object
-          resolve(
-            new LiturgicalDay(
-              this.#config.liturgicalDayDef[key],
-              null,
-              date.toISOString(),
-              ldConfig,
-              null,
-            ),
-          );
+          resolve(new LiturgicalDay(def, null, date.toISOString(), calendar, ldConfig, null));
         });
       } catch (e) {
         reject(e);

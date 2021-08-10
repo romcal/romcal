@@ -82,7 +82,8 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       const dates = this.dates[dateDef.dateFn](...args);
-      date = (Array.isArray(dates) ? dates.find((e) => e) : dates) || null;
+      date =
+        (Array.isArray(dates) ? dates.find((e) => e) : dayjs.isDayjs(dates) ? dates : null) || null;
 
       if (date && Number.isInteger(dateDef.addDay)) date = date.add(dateDef.addDay!, 'days');
       if (date && Number.isInteger(dateDef.subtractDay))

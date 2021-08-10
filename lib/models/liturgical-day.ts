@@ -1,5 +1,13 @@
 import { LiturgicalColors } from '@romcal/constants/colors';
-import { PsalterWeeksCycles, SundaysCycles, WeekdaysCycles } from '@romcal/constants/cycles';
+import {
+  PsalterWeeksCycles,
+  SundaysCycles,
+  SUNDAYS_CYCLE,
+  WeekdaysCycles,
+  WEEKDAYS_CYCLE,
+  ProperCycles,
+  PSALTER_WEEKS,
+} from '@romcal/constants/cycles';
 import { PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
 import { LiturgicalPeriods } from '@romcal/constants/periods';
 import { Precedences } from '@romcal/constants/precedences';
@@ -17,6 +25,7 @@ import {
 } from '@romcal/types/liturgical-day';
 import { LiturgicalDayConfigOutput } from '@romcal/types/liturgical-day-config';
 import { MartyrologyItem } from '@romcal/types/martyrology';
+import dayjs, { Dayjs } from 'dayjs';
 import { StringMap } from 'i18next';
 
 export default class LiturgicalDay implements BaseLiturgicalDay {
@@ -40,6 +49,7 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
   readonly fromCalendar: Lowercase<string>;
   readonly fromExtendedCalendars: LiturgyDayDiff[];
   weekday?: LiturgicalDay;
+  #cyclesCache?: Pick<RomcalCyclesMetadata, 'properCycle' | 'sundayCycle' | 'weekdayCycle'>;
 
   public get name(): string {
     return this.#liturgicalDayDef.name;
@@ -79,6 +89,7 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
     def: LiturgicalDayDef,
     baseData: LiturgicalDay | null,
     date: string,
+    calendar: RomcalCalendarMetadata,
     liturgicalDayConfig: LiturgicalDayConfig,
     weekday: LiturgicalDay | null,
   ) {
@@ -117,24 +128,15 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
     this.martyrology = def.martyrology;
     this.titles = def.titles;
 
-    this.calendar = {
-      // todo
-      weekOfSeason: 0,
-      dayOfSeason: 0,
-      dayOfWeek: 0,
-      nthDayOfWeekInMonth: 0,
-      startOfLiturgicalYear: '',
-      endOfLiturgicalYear: '',
-      startOfSeason: '',
-      endOfSeason: '',
-    };
+    this.calendar = baseData?.calendar ?? calendar;
 
-    this.cycles = baseData?.cycles ?? {
-      properCycle: def.cycles.properCycle,
-      sundayCycle: SundaysCycles.YEAR_A, // todo
-      weekdayCycle: WeekdaysCycles.YEAR_1,
-      psalterWeek: PsalterWeeksCycles.WEEK_1,
-    };
+    this.cycles =
+      baseData?.cycles ??
+      this.#computeLiturgicalCycleMetadata(
+        dayjs(date),
+        calendar,
+        baseData?.cycles.properCycle ?? def.cycles.properCycle,
+      );
 
     this.fromCalendar = def.fromCalendar;
     this.fromExtendedCalendars = def.fromExtendedCalendars;
@@ -147,5 +149,56 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
     } else {
       delete this.weekday;
     }
+  }
+
+  /**
+   * Compute cycle metadata of the liturgical year.
+   * @param date The date object
+   * @param calendar The calendar metadata
+   * @private
+   */
+  #computeLiturgicalCycleMetadata(
+    date: Dayjs,
+    calendar: RomcalCalendarMetadata,
+    properCycle: ProperCycles,
+  ): RomcalCyclesMetadata {
+    // Compute cycle of the liturgical year,
+    // and cache the data since they are the same for every days of the year
+    if (!this.#cyclesCache) {
+      const year = dayjs(calendar.startOfLiturgicalYear).year();
+      const firstSundayOfAdvent = dayjs(calendar.startOfLiturgicalYear);
+
+      let sundayCycle: SundaysCycles;
+      let weekdayCycle: WeekdaysCycles;
+
+      // Formula to calculate Sunday cycle (Year A, B, C)
+      const thisSundayCycleIndex: number = (year - 1963) % 3;
+      const nextSundayCycleIndex: number =
+        thisSundayCycleIndex === 2 ? 0 : thisSundayCycleIndex + 1;
+
+      // If the date is on or after the First Sunday of Advent,
+      // it is the next liturgical cycle
+      if (date.isSameOrAfter(firstSundayOfAdvent)) {
+        sundayCycle = SundaysCycles[SUNDAYS_CYCLE[nextSundayCycleIndex]];
+        weekdayCycle = WeekdaysCycles[WEEKDAYS_CYCLE[year % 2]];
+      } else {
+        sundayCycle = SundaysCycles[SUNDAYS_CYCLE[thisSundayCycleIndex]];
+        weekdayCycle = WeekdaysCycles[WEEKDAYS_CYCLE[(year + 1) % 2]];
+      }
+
+      this.#cyclesCache = {
+        properCycle,
+        sundayCycle,
+        weekdayCycle,
+      };
+    }
+
+    // Psalter week cycle restart to 1 at the beginning of each season.
+    // Except during the four first days of lent (ash wednesday to the next saturday),
+    // which are in week 4, to start on week 1 after the first sunday of lent.
+    const weekIndex = (calendar.weekOfSeason % 4) - 1;
+    const psalterWeek = PsalterWeeksCycles[PSALTER_WEEKS[weekIndex > -1 ? weekIndex : 3]];
+
+    return { ...this.#cyclesCache, psalterWeek };
   }
 }
