@@ -78,10 +78,8 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
       Object.prototype.hasOwnProperty.call(this.dates, dateDef.dateFn)
     ) {
       const args = [...(dateDef.dateArgs ?? []), year];
-      // todo: set correctly TS typing
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      const dates = this.dates[dateDef.dateFn](...args);
+      // todo: improve TS typing here
+      const dates = this.dates[dateDef.dateFn].apply<ThisType<Dates>, any, any>(this, args);
       date =
         (Array.isArray(dates) ? dates.find((e) => e) : dayjs.isDayjs(dates) ? dates : null) || null;
 
