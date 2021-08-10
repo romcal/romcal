@@ -24,8 +24,8 @@
 
 import { Ranks } from '@roman-rite/constants/ranks';
 import { Dates } from '@roman-rite/utils/dates';
-import { locale as Sk } from '@romcal/locales/sk';
-import { Romcal } from '@romcal/main';
+import { locale as Sk } from '../lib/locales/sk';
+import { Romcal } from '../lib/main';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import 'jest-extended';

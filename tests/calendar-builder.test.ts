@@ -24,7 +24,7 @@
 
 import 'jest-extended';
 import LiturgicalDay from '@roman-rite/models/liturgical-day';
-import { Romcal } from '@romcal/main';
+import { Romcal } from '../lib/main';
 
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
