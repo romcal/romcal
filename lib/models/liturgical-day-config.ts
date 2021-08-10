@@ -2,28 +2,20 @@ import { CalendarScope } from '@romcal/constants/calendar-scope';
 import { RomcalConfig } from '@romcal/models/config';
 import LiturgicalDayDef from '@romcal/models/liturgical-day-def';
 import { DateDef, DateDefExtended, DayOfWeek } from '@romcal/types/liturgical-day';
-import { BaseRomcalYear } from '@romcal/types/year';
+import {
+  BaseLiturgicalDayConfig,
+  LiturgicalDayConfigOutput,
+} from '@romcal/types/liturgical-day-config';
 import { Dates } from '@romcal/utils/dates';
 import dayjs, { Dayjs } from 'dayjs';
 import updateLocale from 'dayjs/plugin/updateLocale';
 
 dayjs.extend(updateLocale);
 
-/**
- * The [[Config]] class encapsulates all options that can be sent to this library to adjust date output.
- */
-export class RomcalYear implements BaseRomcalYear {
-  readonly #config: RomcalConfig;
+export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
+  readonly config: RomcalConfig;
   readonly year: number;
   readonly dates: Dates;
-
-  /**
-   * Clone the RomcalConfig object
-   * @param year
-   */
-  clone(year: number): RomcalYear {
-    return new RomcalYear(this.#config, year ?? this.year);
-  }
 
   /**
    * Constructs a new [[Config]] object.
@@ -31,7 +23,7 @@ export class RomcalYear implements BaseRomcalYear {
    * @param year
    */
   constructor(config: RomcalConfig, year?: number) {
-    this.#config = config;
+    this.config = config;
 
     this.year =
       year ??
@@ -107,7 +99,7 @@ export class RomcalYear implements BaseRomcalYear {
         `${year}-${dateDef.month}-${7 * dateDef.nthWeekInMonth! - 6}`,
       );
 
-      date = RomcalYear.#getNextDayOfWeek(firstDayOf7Days, dateDef.dayOfWeek!);
+      date = LiturgicalDayConfig.#getNextDayOfWeek(firstDayOf7Days, dateDef.dayOfWeek!);
     }
 
     // DateDefMonthLastDowInMonth
@@ -117,7 +109,7 @@ export class RomcalYear implements BaseRomcalYear {
         .utc(`${year}-${dateDef.month}-${firstDayOfMonth.daysInMonth()}`)
         .subtract(6, 'days');
 
-      date = RomcalYear.#getNextDayOfWeek(
+      date = LiturgicalDayConfig.#getNextDayOfWeek(
         firstDayOfLast7DaysOfMonth,
         dateDef.lastDayOfWeekInMonth!,
       );
@@ -186,5 +178,15 @@ export class RomcalYear implements BaseRomcalYear {
     }
 
     return date;
+  }
+
+  /**
+   * Return the config settings as an Object.
+   */
+  getConfigObject(): LiturgicalDayConfigOutput {
+    return {
+      ...this.config.toObject(),
+      year: this.year,
+    };
   }
 }
