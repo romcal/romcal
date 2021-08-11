@@ -33,7 +33,7 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
   readonly precedence: Precedences;
   readonly rank: Ranks;
   readonly isHolyDayOfObligation: boolean;
-  isOptional: boolean;
+  readonly isOptional: boolean;
   readonly i18nDef: [string] | [string, StringMap | string];
   readonly seasons: LiturgicalSeasons[];
   readonly periods: LiturgicalPeriods[];

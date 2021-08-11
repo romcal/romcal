@@ -111,33 +111,21 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
    * @private
    */
   #buildDefinition(key: Key, input: LiturgicalDayInput): void {
-    // Retrieve the Martyrology items from the inherited LiturgicalDay object.
-    // const martyrology = this.#retrieveMartyrologyData(byKeys, key, input);
-
-    // Compute the localized name of the liturgical day.
-    // const name = this.#retrieveLiturgicalDayName(byKeys, key, input);
-
-    // Create a new LiturgicalDay from existing and new data
-
+    // Create a new LiturgicalDay object from its definition
     new LiturgicalDayDef(
       key,
       {
-        // Set new object data
-        // name,
         dateDef: input.dateDef,
         dateExceptions: input.dateExceptions,
         precedence: input.precedence,
-
         customLocaleKey: input.customLocaleKey,
-        drop: input.drop,
         isHolyDayOfObligation: !!input.isHolyDayOfObligation,
         isOptional: input.isOptional,
-
         liturgicalColors: input.liturgicalColors,
-
         martyrology: input.martyrology,
         titles: input.titles,
         properCycle: input.properCycle,
+        drop: input.drop,
       },
       this.calendarName,
       this.#config,
