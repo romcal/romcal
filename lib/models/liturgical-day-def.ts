@@ -377,6 +377,9 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
         ? { isHolyDayOfObligation: dayA.isHolyDayOfObligation }
         : {}),
 
+      // isOptional
+      ...(dayA.isOptional !== dayB.isOptional ? { isOptional: dayA.isOptional } : {}),
+
       // i18n
       ...(JSON.stringify(dayA.i18nDef) !== JSON.stringify(dayB.i18nDef)
         ? { i18nDef: dayA.i18nDef }
@@ -394,12 +397,15 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
         ? { titles: dayA.titles }
         : {}),
 
+      // martyrology
+      ...(JSON.stringify(dayA.martyrology) !== JSON.stringify(dayB.martyrology)
+        ? { martyrology: dayA.martyrology.map((m) => m.key) }
+        : {}),
+
       // cycles.properCycle
-      // ...(dayA instanceof LiturgicalDay &&
-      // dayB instanceof LiturgicalDay &&
-      // dayA.cycles.properCycle !== dayB.cycles.properCycle
-      //   ? { cycles: { properCycle: dayA.cycles.properCycle } }
-      //   : {}),
+      ...(dayA.cycles.properCycle !== dayB.cycles.properCycle
+        ? { cycles: { properCycle: dayA.cycles.properCycle } }
+        : {}),
     };
 
     return Object.keys(diff).length ? { ...diff, fromCalendar: dayA.fromCalendar } : null;
