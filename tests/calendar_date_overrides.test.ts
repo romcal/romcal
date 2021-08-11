@@ -16,7 +16,7 @@
 
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
     IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
     AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
     LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
@@ -90,13 +90,19 @@ describe('Testing national calendar overrides', () => {
 
     test('The feast of Saint Isidore of Seville is celebrated on April 4 every year', () => {
       const date = generalDates.filter((d) => {
-        return dayjs.utc(d.date).isSame(dayjs.utc(`${year}-4-4`)) && d.key === 'isidore_of_seville_bishop';
+        return (
+          dayjs.utc(d.date).isSame(dayjs.utc(`${year}-4-4`)) &&
+          d.key === 'isidore_of_seville_bishop'
+        );
       });
       expect(date.length).toEqual(1);
     });
     test('However, in the national calendar of Spain, this same feast is celebrated on the 26th of April every year', () => {
       const date = spainDates.filter((d) => {
-        return dayjs.utc(d.date).isSame(dayjs.utc(`${year}-4-26`)) && d.key === 'isidore_of_seville_bishop';
+        return (
+          dayjs.utc(d.date).isSame(dayjs.utc(`${year}-4-26`)) &&
+          d.key === 'isidore_of_seville_bishop'
+        );
       });
       expect(date.length).toEqual(1);
     });
@@ -204,7 +210,10 @@ describe('Testing national calendar overrides', () => {
         year: 2017,
       });
       const date = dates.find((d) => {
-        return d.key === 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe';
+        return (
+          d.key ===
+          'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe'
+        );
       });
       expect(dayjs.utc(date?.date).isSame(dayjs.utc('2017-7-5'))).toBeTruthy();
     });
@@ -214,7 +223,10 @@ describe('Testing national calendar overrides', () => {
         year: 2017,
       });
       const date = dates.find((d) => {
-        return d.key === 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_slavic_missionaries';
+        return (
+          d.key ===
+          'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_slavic_missionaries'
+        );
       });
       expect(dayjs.utc(date?.date).isSame(dayjs.utc('2017-7-5'))).toBeTruthy();
     });
@@ -243,20 +255,22 @@ describe('Testing national calendar overrides', () => {
           country: 'england',
         });
 
-        const lateOrdinaryTimeDates2009: LiturgicalDayInput[] = await Seasons.lateOrdinaryTime(2009);
-        const lateOrdinaryTimeDates2011: LiturgicalDayInput[] = await Seasons.lateOrdinaryTime(2011);
-
-        const twentiethSundayOfOrdinaryTime2009: LiturgicalDayInput | undefined = lateOrdinaryTimeDates2009.find(
-          (d) => {
-            return d.key === 'ordinary_time_20_sunday';
-          },
+        const lateOrdinaryTimeDates2009: LiturgicalDayInput[] = await Seasons.lateOrdinaryTime(
+          2009,
+        );
+        const lateOrdinaryTimeDates2011: LiturgicalDayInput[] = await Seasons.lateOrdinaryTime(
+          2011,
         );
 
-        const twentiethSundayOfOrdinaryTime2011: LiturgicalDayInput | undefined = lateOrdinaryTimeDates2011.find(
-          (d) => {
+        const twentiethSundayOfOrdinaryTime2009: LiturgicalDayInput | undefined =
+          lateOrdinaryTimeDates2009.find((d) => {
             return d.key === 'ordinary_time_20_sunday';
-          },
-        );
+          });
+
+        const twentiethSundayOfOrdinaryTime2011: LiturgicalDayInput | undefined =
+          lateOrdinaryTimeDates2011.find((d) => {
+            return d.key === 'ordinary_time_20_sunday';
+          });
 
         const walesAssumption2009: LiturgicalDay | undefined = wales2009Dates.find((d) => {
           return d.key === 'assumption';
@@ -310,12 +324,17 @@ describe('Testing national calendar overrides', () => {
         });
 
         const lateOrdinaryTimeDates: LiturgicalDayInput[] = await Seasons.lateOrdinaryTime(2010);
-        const twentiethSundayOfOrdinaryTime: LiturgicalDayInput | undefined = lateOrdinaryTimeDates.find((d) => {
-          return d.key === 'ordinary_time_20_sunday';
-        });
+        const twentiethSundayOfOrdinaryTime: LiturgicalDayInput | undefined =
+          lateOrdinaryTimeDates.find((d) => {
+            return d.key === 'ordinary_time_20_sunday';
+          });
 
-        const walesAssumption: LiturgicalDay | undefined = walesDates.find((d) => d.key === 'assumption');
-        const englandAssumption: LiturgicalDay | undefined = englandDates.find((d) => d.key === 'assumption');
+        const walesAssumption: LiturgicalDay | undefined = walesDates.find(
+          (d) => d.key === 'assumption',
+        );
+        const englandAssumption: LiturgicalDay | undefined = englandDates.find(
+          (d) => d.key === 'assumption',
+        );
 
         expect(
           walesAssumption &&
@@ -481,7 +500,9 @@ describe('Testing national calendar overrides', () => {
         country: 'malta',
       });
       const ourLadyOfSorrows: dayjs.Dayjs = dayjs.utc('2018-4-15');
-      const thirdSundayOfEaster: LiturgicalDay | undefined = maltaDates.find((d) => d.key === 'eastertide_3_sunday');
+      const thirdSundayOfEaster: LiturgicalDay | undefined = maltaDates.find(
+        (d) => d.key === 'eastertide_3_sunday',
+      );
       expect(ourLadyOfSorrows.isSame(thirdSundayOfEaster!.date)).toBeTruthy();
     });
 
@@ -494,7 +515,9 @@ describe('Testing national calendar overrides', () => {
         return d.key === 'our_lady_of_sorrows_patroness_of_slovakia';
       });
       expect(ourLadyOfSorrowsPatronessOfSlovakia?.rank).toEqual(Ranks.SOLEMNITY);
-      expect(dayjs.utc(ourLadyOfSorrowsPatronessOfSlovakia?.date).isSame(dayjs.utc('2018-9-15'))).toBeTruthy();
+      expect(
+        dayjs.utc(ourLadyOfSorrowsPatronessOfSlovakia?.date).isSame(dayjs.utc('2018-9-15')),
+      ).toBeTruthy();
     });
   });
 });
