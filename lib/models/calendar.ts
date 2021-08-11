@@ -166,6 +166,15 @@ export class Calendar implements BaseCalendar {
     };
 
     Object.values(this.#config.liturgicalDayDef).forEach((def) => {
+      // Flag to determine if the current definition is coming from the Proper of Time.
+      // Note: a Proper of Time definition can be extended in a particular calendar;
+      // in this case the `fromCalendar` is taking the name of the particular calendar,
+      // so we need to check the calendar name of the first item in the `fromExtendedCalendars`.
+      const isFromProperOfTime =
+        def.fromCalendar === PROPER_OF_TIME_NAME ||
+        (def.fromExtendedCalendars.length > 0 &&
+          def.fromExtendedCalendars[0].fromCalendar === PROPER_OF_TIME_NAME);
+
       // In a Liturgical Calendar scope:
       // - Because a Liturgical Year is straddling 2 Gregorian year,
       //   we need to compute the date on the 2 Gregorian years,
@@ -173,7 +182,7 @@ export class Calendar implements BaseCalendar {
       // - Note: dates from the Proper of Time are already generated within a liturgical year,
       //   so in this case we don't have to check the previously gregorian year.
       const previousYearDate =
-        def.fromCalendar !== PROPER_OF_TIME_NAME && this.#config.scope === CalendarScope.Liturgical
+        !isFromProperOfTime && this.#config.scope === CalendarScope.Liturgical
           ? this.#liturgicalDayConfig.buildDate(def, -1)
           : null;
 
@@ -189,15 +198,6 @@ export class Calendar implements BaseCalendar {
           // Typing: the nullable dates have been removed in the filter above,
           // so we redefine the date object as a non-nullable Dayjs object
           date = date as Dayjs;
-
-          // Flag to determine if the current definition is coming from the Proper of Time.
-          // Note: a Proper of Time definition can be extended in a particular calendar;
-          // in this case the `fromCalendar` is taking the name of the particular calendar,
-          // so we need to check the calendar name of the first item in the `fromExtendedCalendars`.
-          const isFromProperOfTime =
-            def.fromCalendar === PROPER_OF_TIME_NAME ||
-            (def.fromExtendedCalendars.length > 0 &&
-              def.fromExtendedCalendars[0].fromCalendar === PROPER_OF_TIME_NAME);
 
           const dateStr = date.format('YYYY-MM-DD');
           // const dateStr = date.toISOString().substr(0, 10);
