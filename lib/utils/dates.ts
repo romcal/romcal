@@ -1172,8 +1172,8 @@ export class Dates {
   endOfSeasons = (year = this.#year): Record<LiturgicalSeasons, Dayjs> => {
     if (this.#endOfSeasons[year]) return this.#endOfSeasons[year];
     return (this.#endOfSeasons[year] = {
-      [LiturgicalSeasons.ADVENT]: dayjs(`${year - 1}-12-23`),
-      [LiturgicalSeasons.CHRISTMAS_TIME]: this.baptismOfTheLord(year - 1),
+      [LiturgicalSeasons.ADVENT]: dayjs.utc(`${year - 1}-12-24`),
+      [LiturgicalSeasons.CHRISTMAS_TIME]: this.baptismOfTheLord(year),
       [LiturgicalSeasons.LENT]: this.holyThursday(year),
       [LiturgicalSeasons.PASCHAL_TRIDUUM]: this.easterSunday(year),
       [LiturgicalSeasons.EASTER_TIME]: this.pentecostSunday(year),
