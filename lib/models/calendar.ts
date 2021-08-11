@@ -218,7 +218,7 @@ export class Calendar implements BaseCalendar {
           // Create a new LiturgicalDay object, and add it to the builtData object.
           builtData.byKeys[def.key] = new LiturgicalDay(
             def,
-            dateStr,
+            date,
             this.#liturgicalDayConfig,
             calendar,
             cycles,
@@ -269,15 +269,7 @@ export class Calendar implements BaseCalendar {
     const cycles = this.#computeLiturgicalCycleMetadata(date, calendar, def.cycles.properCycle);
 
     // Return the LiturgicalDay object
-    return new LiturgicalDay(
-      def,
-      date.toISOString(),
-      this.#liturgicalDayConfig,
-      calendar,
-      cycles,
-      null,
-      null,
-    );
+    return new LiturgicalDay(def, date, this.#liturgicalDayConfig, calendar, cycles, null, null);
   }
 
   /**
