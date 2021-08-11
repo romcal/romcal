@@ -64,7 +64,7 @@ export default class Romcal {
    */
   getOneLiturgicalDay(
     key: Key,
-    options: { year?: number; computeInWholeYear: boolean } = { computeInWholeYear: false },
+    options: { year?: number; computeInWholeYear?: boolean } = { computeInWholeYear: false },
   ): Promise<LiturgicalDay | null | undefined> {
     const ldConfig = new LiturgicalDayConfig(this.#config, options.year);
 
