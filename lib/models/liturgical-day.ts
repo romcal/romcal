@@ -16,6 +16,7 @@ import {
 } from '@romcal/types/liturgical-day';
 import { LiturgicalDayConfigOutput } from '@romcal/types/liturgical-day-config';
 import { MartyrologyItem } from '@romcal/types/martyrology';
+import { Dayjs } from 'dayjs';
 import { StringMap } from 'i18next';
 
 export default class LiturgicalDay implements BaseLiturgicalDay {
@@ -76,7 +77,7 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
 
   constructor(
     def: LiturgicalDayDef,
-    date: string,
+    date: Dayjs,
     liturgicalDayConfig: LiturgicalDayConfig,
     calendar: RomcalCalendarMetadata,
     cycles: RomcalCyclesMetadata,
@@ -86,11 +87,11 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
     this.#liturgicalDayDef = def;
     this.#liturgicalDayConfig = liturgicalDayConfig;
     this.key = def.key;
-    this.date = date.substr(0, 10);
+    this.date = date.toISOString().substr(0, 10);
     this.dateDef = def.dateDef;
     this.precedence = def.precedence;
     this.rank = def.rank;
-    this.isHolyDayOfObligation = def.isHolyDayOfObligation;
+    this.isHolyDayOfObligation = calendar.dayOfWeek === 0 ?? def.isHolyDayOfObligation;
     this.isOptional = def.isOptional;
     this.i18nDef = def.i18nDef;
     this.seasons = baseData?.seasons ?? def.seasons;
