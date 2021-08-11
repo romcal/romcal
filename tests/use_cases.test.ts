@@ -22,22 +22,23 @@
     THE SOFTWARE.
 */
 
-import { Ranks } from '@roman-rite/constants/ranks';
-import { Dates } from '@roman-rite/utils/dates';
-import { locale as Sk } from '../lib/locales/sk';
-import { Romcal } from '../lib/main';
+import { Ranks } from '@romcal/constants/ranks';
+import { Slovakia } from '@romcal/particular-calendars/slovakia';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import 'jest-extended';
+import { Romcal } from '../lib/main';
 
 dayjs.extend(utc);
 
 describe('Testing specific feasts and memorials', () => {
   describe('The memorial of the Blessed Virgin Mary, Mother of the Church', () => {
     test('Should be celebrated on the Monday after Pentecost', async () => {
-      const dates = await Romcal.calendarFor(); // Get the calendar for the current year
-      const pentecostSunday = Dates.pentecostSunday(dayjs.utc().year());
-      const maryMotherOfTheChurch = dates.find((d) => d.key === 'mary_mother_of_the_church');
+      const romcal = new Romcal();
+      const pentecostSunday = romcal.dates(dayjs.utc().year()).pentecostSunday();
+      const maryMotherOfTheChurch = await romcal.getOneLiturgicalDay('mary_mother_of_the_church', {
+        computeInWholeYear: true,
+      });
       const dayBeforeMaryMotherOfTheChurch = dayjs
         .utc(maryMotherOfTheChurch?.date)
         .subtract(1, 'day');
@@ -48,9 +49,9 @@ describe('Testing specific feasts and memorials', () => {
 
     test('Should take precedence in the event of coincidence with another memorial of a saint or blessed', async () => {
       // In 2020, monday after Pentecost is June 1
-      const juneDates = (await Romcal.calendarFor({ year: 2020 })).filter(
-        (d) => new Date(d.date).getUTCMonth() === 5,
-      );
+      const juneDates = Object.values(await new Romcal().generateCalendar(2020))
+        .flat()
+        .filter((d) => new Date(d.date).getUTCMonth() === 5);
       // according to the general calendar, June 1 is the memorial of saint Justin, Martyr
       const maybeSaintJustinMartyr = juneDates[0];
       expect(maybeSaintJustinMartyr.key).toEqual('mary_mother_of_the_church');
@@ -59,10 +60,12 @@ describe('Testing specific feasts and memorials', () => {
 
   describe('The celebration of Saint Mary Magdalene', () => {
     test('Should be ranked as a feast and should be celebrated on the July 22', async () => {
-      const dates = await Romcal.calendarFor(2017);
-      const maryMagdalene = dates.find((d) => {
-        return d.key === 'mary_magdalene';
+      const romcal = new Romcal();
+      const maryMagdalene = await romcal.getOneLiturgicalDay('mary_magdalene', {
+        year: 2017,
+        computeInWholeYear: true,
       });
+
       expect(dayjs.utc(maryMagdalene?.date).date()).toEqual(22);
       expect(dayjs.utc(maryMagdalene?.date).month()).toEqual(6);
       expect(maryMagdalene?.rank).toEqual(Ranks.FEAST);
@@ -71,10 +74,17 @@ describe('Testing specific feasts and memorials', () => {
 
   describe('The celebrations of Pope Saint John XXIII and Pope Saint John Paul II', () => {
     test('Should be celebrated as optional memorials', async () => {
-      const dates = await Romcal.calendarFor(2016);
+      const romcal = new Romcal();
 
-      const johnXxiiiPope = dates.find((d) => d.key === 'john_xxiii_pope');
-      const johnPaulIiPope = dates.find((d) => d.key === 'john_paul_ii_pope');
+      const johnXxiiiPope = await romcal.getOneLiturgicalDay('john_xxiii_pope', {
+        year: 2016,
+        computeInWholeYear: true,
+      });
+
+      const johnPaulIiPope = await romcal.getOneLiturgicalDay('john_paul_ii_pope', {
+        year: 2016,
+        computeInWholeYear: true,
+      });
 
       expect(johnXxiiiPope?.isOptional).toBeTrue();
       expect(johnPaulIiPope?.isOptional).toBeTrue();
@@ -83,8 +93,13 @@ describe('Testing specific feasts and memorials', () => {
 
   describe('The Feast of the Exultation of the Cross', () => {
     test('Is celebrated on the 14th of September', async () => {
-      const dates = await new Romcal({ year: 2018, locale: Sk }).generate();
-      const exaltationOfTheHolyCross = dates['exaltation_of_the_holy_cross'][0];
+      const exaltationOfTheHolyCross = await new Romcal({
+        particularCalendar: Slovakia,
+      }).getOneLiturgicalDay('exaltation_of_the_holy_cross', {
+        year: 2018,
+        computeInWholeYear: true,
+      });
+
       expect(dayjs.utc(exaltationOfTheHolyCross?.date).date()).toEqual(14);
       expect(dayjs.utc(exaltationOfTheHolyCross?.date).month()).toEqual(8);
     });
@@ -92,9 +107,14 @@ describe('Testing specific feasts and memorials', () => {
 
   describe('The Sunday of the Word of God', () => {
     test('Should be celebrated on the 3rd Sunday of Ordinary Time', async () => {
-      const dates = await new Romcal({ year: 2020 }).generate();
-      const sundayOfTheWordOfGod = dates['sunday_of_the_word_of_god'][0];
-      expect(sundayOfTheWordOfGod.calendar.weekOfSeason).toEqual(3);
+      const sundayOfTheWordOfGod = await new Romcal({
+        particularCalendar: Slovakia,
+      }).getOneLiturgicalDay('sunday_of_the_word_of_god', {
+        year: 2020,
+        computeInWholeYear: true,
+      });
+
+      expect(sundayOfTheWordOfGod!.calendar.weekOfSeason).toEqual(3);
     });
   });
 });
