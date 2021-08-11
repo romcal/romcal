@@ -61,9 +61,6 @@ export class ProperOfTime {
    * @param yearOffset A Liturgical year offset
    */
   advent(yearOffset = 0): void {
-    // const startOfSeason = this.dates.firstSundayOfAdvent(year - 1);
-    // const endOfSeason = this.dates.christmas(year - 1).subtract(1, 'day');
-
     // All days, from the 1st Sunday of Advent to the Friday of the 3rd week of Advent.
     for (let i = 0; i < 20; i++) {
       const week = Math.floor(i / 7) + 1;
@@ -83,8 +80,6 @@ export class ProperOfTime {
         seasons: [LiturgicalSeasons.ADVENT],
         periods: [],
         calendarDef: { weekOfSeason: week, dayOfSeason: i + 1, dayOfWeek: dow },
-        // calendar: (date) =>
-        //   this.#computeCalendarMetadata(year, date, startOfSeason, endOfSeason, week, i + 1),
         liturgicalColors: [
           ...(week === 3 && dow === 0 ? [LiturgicalColors.ROSE] : []), // Gaudete
           LiturgicalColors.PURPLE,
