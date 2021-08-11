@@ -981,6 +981,20 @@ export class GeneralRoman extends CalendarDef {
       dateDef: { month: 10, date: 24 },
     },
 
+    dedication_of_consecrated_churches_on_fixed_date: {
+      precedence: Precedences.ProperSolemnity_DedicationOfTheOwnChurch_4b,
+      customLocaleKey: 'dedication_of_consecrated_churches',
+      dateDef: { month: 10, date: 25 },
+      isOptional: true,
+    },
+
+    dedication_of_consecrated_churches_on_last_sunday_of_october: {
+      precedence: Precedences.ProperSolemnity_DedicationOfTheOwnChurch_4b,
+      customLocaleKey: 'dedication_of_consecrated_churches',
+      dateDef: { month: 10, lastDayOfWeekInMonth: 0 },
+      isOptional: true,
+    },
+
     simon_and_jude_apostles: {
       precedence: Precedences.GeneralFeast_7,
       dateDef: { month: 10, date: 28 },

@@ -1,10 +1,10 @@
 import { LiturgicalColors } from '@romcal/constants/colors';
 import { ProperCycles } from '@romcal/constants/cycles';
+import { PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
 import { Precedences } from '@romcal/constants/precedences';
 import { CalendarDef } from '@romcal/models/calendar-def';
 import { Europe } from '@romcal/particular-calendars/europe';
 import { InputDefinitions, ParticularConfig } from '@romcal/types/calendar-def';
-import { PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
 
 export class Slovakia extends CalendarDef {
   inheritFrom = Europe;
@@ -120,9 +120,12 @@ export class Slovakia extends CalendarDef {
       dateDef: { month: 10, date: 25 },
     },
 
-    dedication_of_consecrated_churches: {
-      precedence: Precedences.ProperSolemnity_DedicationOfTheOwnChurch_4b,
+    dedication_of_consecrated_churches_on_fixed_date: {
       dateDef: { month: 10, date: 26 },
+    },
+
+    dedication_of_consecrated_churches_on_last_sunday_of_october: {
+      drop: true,
     },
 
     all_souls: {

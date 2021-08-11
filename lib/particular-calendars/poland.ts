@@ -1,9 +1,9 @@
 import { ProperCycles } from '@romcal/constants/cycles';
+import { PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
 import { Precedences } from '@romcal/constants/precedences';
 import { CalendarDef } from '@romcal/models/calendar-def';
 import { Europe } from '@romcal/particular-calendars/europe';
 import { InputDefinitions } from '@romcal/types/calendar-def';
-import { PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
 
 export class Poland extends CalendarDef {
   inheritFrom = Europe;
@@ -350,10 +350,8 @@ export class Poland extends CalendarDef {
       dateDef: { month: 10, date: 23 },
     },
 
-    dedication_of_consecrated_churches: {
-      precedence: Precedences.ProperSolemnity_DedicationOfTheOwnChurch_4b,
-      // Dedication of a particular church: solemnity on last Sunday of October
-      dateDef: { month: 10, lastDayOfWeekInMonth: 0 },
+    dedication_of_consecrated_churches_on_fixed_date: {
+      drop: true,
     },
 
     first_polish_martyrs: {

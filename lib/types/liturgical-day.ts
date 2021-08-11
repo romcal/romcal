@@ -371,12 +371,15 @@ type LiturgicalDayRoot = {
   isHolyDayOfObligation: boolean;
 
   /**
-   * Specify is this LiturgicalDay (generally a Memorial) is optional.
+   * Specify is this LiturgicalDay is optional within a specific liturgical calendar.
    *
    * UNLY #14:
    * Memorials are either obligatory or optional; their observance is integrated into
    * the celebration of the occurring weekday in accordance with the norms set forth in the
    * General Instruction of the Roman Missal and of the Liturgy of the Hours
+   *
+   * Note: also used for the dedication of consecrated churches, which is an optional solemnity
+   * that should not overwrite the default weekday.
    */
   isOptional: boolean;
 
