@@ -788,8 +788,6 @@ export class Dates {
   ): Dayjs | null => {
     const id = year + epiphanyOnSunday.toString();
 
-    const aa = this.#dateOfOrdinaryTime[id];
-
     if (this.#dateOfOrdinaryTime[id] === undefined) {
       const early = this.allDatesOfEarlyOrdinaryTime(year, epiphanyOnSunday);
       const late = this.allDatesOfLateOrdinaryTime(year);
