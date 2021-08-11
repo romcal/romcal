@@ -81,13 +81,13 @@ export class Calendar implements BaseCalendar {
   }
 
   /**
-   * Compute cycle metadata of the liturgical year.
+   * Build cycle metadata of the liturgical year.
    * @param date The date object
    * @param calendar The calendar metadata
    * @param properCycle
    * @private
    */
-  #computeLiturgicalCycleMetadata(
+  #buildLiturgicalCycleMetadata(
     date: Dayjs,
     calendar: RomcalCalendarMetadata,
     properCycle: ProperCycles,
@@ -166,6 +166,15 @@ export class Calendar implements BaseCalendar {
           // so we redefine the date object as a non-nullable Dayjs object
           date = date as Dayjs;
 
+          // Flag to determine if the current definition is coming from the Proper of Time.
+          // Note: a Proper of Time definition can be extended in a particular calendar;
+          // in this case the `fromCalendar` is taking the name of the particular calendar,
+          // so we need to check the calendar name of the first item in the `fromExtendedCalendars`.
+          const isFromProperOfTime =
+            def.fromCalendar === PROPER_OF_TIME_NAME ||
+            (def.fromExtendedCalendars.length > 0 &&
+              def.fromExtendedCalendars[0].fromCalendar === PROPER_OF_TIME_NAME);
+
           const dateStr = date.format('YYYY-MM-DD');
           // const dateStr = date.toISOString().substr(0, 10);
 
@@ -174,7 +183,7 @@ export class Calendar implements BaseCalendar {
           // Then, all dates from the general/particular calendar(s) that don't match
           // an existing date from the Proper of Time must be ignored,
           // because they falls outside the year scope defined by the Proper of Time.
-          if (def.fromCalendar !== PROPER_OF_TIME_NAME && !builtData.datesIndex[dateStr]) {
+          if (!isFromProperOfTime && !builtData.datesIndex[dateStr]) {
             return;
           }
 
@@ -183,19 +192,17 @@ export class Calendar implements BaseCalendar {
           // since a LiturgicalDay is generated for each day of the Liturgical Year.
           // In the case the LiturgicalDayDef is coming from the Proper of Time,
           // the baseData must be null.
-          const baseData: LiturgicalDay | null =
-            def.fromCalendar === PROPER_OF_TIME_NAME
-              ? null
-              : builtData.byKeys[builtData.datesIndex[dateStr][0]];
+          const baseData: LiturgicalDay | null = isFromProperOfTime
+            ? null
+            : builtData.byKeys[builtData.datesIndex[dateStr][0]];
 
           // Retrieve calendar metadata from the proper of time
-          const calendar: RomcalCalendarMetadata =
-            def.fromCalendar === PROPER_OF_TIME_NAME
-              ? this.#buildCalendarMetadata(def, date, baseData)
-              : baseData!.calendar;
+          const calendar: RomcalCalendarMetadata = isFromProperOfTime
+            ? this.#buildCalendarMetadata(def, date, baseData)
+            : baseData!.calendar;
 
           // Retrieve cycles metadata from the proper of time
-          const cycles: RomcalCyclesMetadata = this.#computeLiturgicalCycleMetadata(
+          const cycles: RomcalCyclesMetadata = this.#buildLiturgicalCycleMetadata(
             date,
             calendar,
             def.cycles.properCycle,
@@ -266,7 +273,7 @@ export class Calendar implements BaseCalendar {
     const calendar = this.#buildCalendarMetadata(def, date, null);
 
     // Compute the cycle metadata
-    const cycles = this.#computeLiturgicalCycleMetadata(date, calendar, def.cycles.properCycle);
+    const cycles = this.#buildLiturgicalCycleMetadata(date, calendar, def.cycles.properCycle);
 
     // Return the LiturgicalDay object
     return new LiturgicalDay(def, date, this.#liturgicalDayConfig, calendar, cycles, null, null);

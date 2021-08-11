@@ -577,7 +577,7 @@ export type LiturgyDayDiff = Pick<LiturgicalDayDef, 'fromCalendar'> &
       | 'i18nDef'
       | 'titles'
       | 'liturgicalColors'
-    > & { cycles: Partial<Pick<RomcalCyclesMetadata, 'properCycle'>> }
+    > & { cycles: Partial<Pick<RomcalCyclesMetadata, 'properCycle'>>; martyrology: Key[] }
   >;
 
 /**

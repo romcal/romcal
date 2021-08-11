@@ -92,7 +92,7 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
     this.dateDef = def.dateDef;
     this.precedence = def.precedence;
     this.rank = def.rank;
-    this.isHolyDayOfObligation = calendar.dayOfWeek === 0 ?? def.isHolyDayOfObligation;
+    this.isHolyDayOfObligation = calendar.dayOfWeek === 0 ? true : def.isHolyDayOfObligation;
     this.isOptional = def.isOptional;
     this.i18nDef = def.i18nDef;
     this.seasons = baseData?.seasons ?? def.seasons;
