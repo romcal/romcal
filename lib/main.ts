@@ -54,16 +54,34 @@ export default class Romcal {
    * Note: this function compute only one LiturgicalDay without the liturgical whole year background,
    * so some metadata may be missing, and the precedence rules between different LiturgicalDay
    * objects are ignored.
+   *
+   * Optionally, you can set the `computeInWholeYear` option to `true`,
+   * so all the liturgical calendar will be computed before returning the desired liturgical day.
+   * With this option enabled, all the metadata and precedence rules are correctly computed.
+   *
    * @param key
-   * @param year
+   * @param options
    */
-  getOneLiturgicalDay(key: Key, year?: number): Promise<LiturgicalDay | null | undefined> {
-    const ldConfig = new LiturgicalDayConfig(this.#config, year);
+  getOneLiturgicalDay(
+    key: Key,
+    options: { year?: number; computeInWholeYear: boolean } = { computeInWholeYear: false },
+  ): Promise<LiturgicalDay | null | undefined> {
+    const ldConfig = new LiturgicalDayConfig(this.#config, options.year);
 
     return new Promise((resolve, reject) => {
       try {
         this.getAllDefinitions().then(() => {
-          resolve(new Calendar(this.#config, ldConfig).getOneLiturgicalDay(key));
+          const partialLd = new Calendar(this.#config, ldConfig).getOneLiturgicalDay(key);
+          if (!options.computeInWholeYear) return resolve(partialLd);
+
+          if (!partialLd) resolve(partialLd);
+          return this.generateCalendar(ldConfig.year).then((value) => {
+            resolve(
+              Object.values(value)
+                .flat()
+                .find((d) => d.key === key),
+            );
+          });
         });
       } catch (e) {
         reject(e);
