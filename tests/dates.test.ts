@@ -617,7 +617,9 @@ describe('Testing specific liturgical date functions', () => {
         const palmSunday = dates.palmSunday();
 
         const date = dayjs.utc(`${i}-3-19`);
-        const josephSpouseOfMary = await romcal.getOneLiturgicalDay('joseph_spouse_of_mary', i);
+        const josephSpouseOfMary = await romcal.getOneLiturgicalDay('joseph_spouse_of_mary', {
+          year: i,
+        });
         const computedDate = dayjs(josephSpouseOfMary!.date);
 
         expect(
@@ -638,7 +640,9 @@ describe('Testing specific liturgical date functions', () => {
         const palmSunday = dates.palmSunday();
 
         const date = dayjs.utc(`${i}-3-19`);
-        const josephSpouseOfMary = await romcal.getOneLiturgicalDay('joseph_spouse_of_mary', i);
+        const josephSpouseOfMary = await romcal.getOneLiturgicalDay('joseph_spouse_of_mary', {
+          year: i,
+        });
         const computedDate = dayjs(josephSpouseOfMary!.date);
 
         expect(
@@ -660,7 +664,9 @@ describe('Testing specific liturgical date functions', () => {
         const palmSunday = dates.palmSunday();
 
         const date = dayjs.utc(`${i}-3-19`);
-        const josephSpouseOfMary = await romcal.getOneLiturgicalDay('joseph_spouse_of_mary', i);
+        const josephSpouseOfMary = await romcal.getOneLiturgicalDay('joseph_spouse_of_mary', {
+          year: i,
+        });
         const computedDate = dayjs(josephSpouseOfMary!.date);
 
         expect(
