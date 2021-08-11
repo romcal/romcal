@@ -220,7 +220,8 @@ export class ProperOfTime {
       isHolyDayOfObligation: true,
       seasons: [LiturgicalSeasons.CHRISTMAS_TIME],
       periods: [
-        // todo: add period => can be before or after Epiphany
+        // Note: before / from Epiphany flag is added during the creation of the liturgical day object,
+        // because this can only be determined within a liturgical year scope.
         LiturgicalPeriods.CHRISTMAS_TO_PRESENTATION_OF_THE_LORD,
       ],
       calendarDef: {},
