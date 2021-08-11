@@ -4,6 +4,7 @@ import { LiturgicalPeriods } from '@romcal/constants/periods';
 import { Precedences } from '@romcal/constants/precedences';
 import { Ranks } from '@romcal/constants/ranks';
 import { LiturgicalSeasons } from '@romcal/constants/seasons';
+import { PROPER_OF_TIME_NAME } from '@romcal/general-calendar/proper-of-time';
 import { LiturgicalDayConfig } from '@romcal/models/liturgical-day-config';
 import LiturgicalDayDef from '@romcal/models/liturgical-day-def';
 import {
@@ -95,7 +96,33 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
     this.isOptional = def.isOptional;
     this.i18nDef = def.i18nDef;
     this.seasons = baseData?.seasons ?? def.seasons;
+
     this.periods = baseData?.periods ?? def.periods;
+
+    // The second Sunday after the Christmas octave can before or after the Epiphany,
+    // and this can be determined from the definition of the Proper of the Time.
+    // without having a liturgical year context.
+    if (def.fromCalendar === PROPER_OF_TIME_NAME && this.key === 'second_sunday_after_christmas') {
+      if (date.isSameOrAfter(liturgicalDayConfig.dates.epiphany(), 'date')) {
+        this.periods.unshift(LiturgicalPeriods.DAYS_FROM_EPIPHANY);
+      } else if (date.isAfter(liturgicalDayConfig.dates.maryMotherOfGod(), 'date')) {
+        this.periods.unshift(LiturgicalPeriods.DAYS_BEFORE_EPIPHANY);
+      }
+    }
+
+    // Specify the early/late period of an ordinary time liturgical day item
+    if (
+      def.fromCalendar === PROPER_OF_TIME_NAME &&
+      this.seasons[0] === LiturgicalSeasons.ORDINARY_TIME
+    ) {
+      if (
+        date.toDate().getTime() < liturgicalDayConfig.dates.pentecostSunday().toDate().getTime()
+      ) {
+        this.periods.unshift(LiturgicalPeriods.EARLY_ORDINARY_TIME);
+      } else {
+        this.periods.unshift(LiturgicalPeriods.LATE_ORDINARY_TIME);
+      }
+    }
 
     /**
      * UNLY #16. Privileged weekdays takes precedences over memorials.
