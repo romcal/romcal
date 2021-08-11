@@ -1,9 +1,9 @@
 import { ProperCycles } from '@romcal/constants/cycles';
+import { PatronTitles } from '@romcal/constants/martyrology-metadata';
 import { Precedences } from '@romcal/constants/precedences';
 import { CalendarDef } from '@romcal/models/calendar-def';
 import { Europe } from '@romcal/particular-calendars/europe';
 import { InputDefinitions, ParticularConfig } from '@romcal/types/calendar-def';
-import { PatronTitles } from '@romcal/constants/martyrology-metadata';
 
 export class CzechRepublic extends CalendarDef {
   inheritFrom = Europe;
@@ -149,14 +149,6 @@ export class CzechRepublic extends CalendarDef {
     charles_i_of_austria: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 10, date: 21 },
-    },
-
-    // TODO: Deal with this solemnity for consecrated churches
-    //       with known consecration date (#136)
-    dedication_of_consecrated_churches: {
-      precedence: Precedences.ProperSolemnity_DedicationOfTheOwnChurch_4b,
-      // TODO: On 25 Oct or the following Sunday
-      dateDef: { month: 10, date: 25 },
     },
 
     wolfgang_of_regensburg_bishop: {

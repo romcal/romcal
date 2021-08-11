@@ -292,13 +292,22 @@ export class Calendar implements BaseCalendar {
       // Order the LiturgicalDays objects, following the precedence rules defined in the UNLY #49.
       const dates: LiturgicalDay[] = builtData.datesIndex[dateStr]
         .map((key) => builtData.byKeys[key])
-        .sort(({ precedence: firstPrecedence }, { precedence: nextPrecedence }) => {
-          const type1 = PRECEDENCES.indexOf(firstPrecedence);
-          const type2 = PRECEDENCES.indexOf(nextPrecedence);
-          if (type1 < type2) return -1;
-          if (type1 > type2) return 1;
-          return 0;
-        });
+        .sort(
+          (
+            { precedence: firstPrecedence, isOptional: firstOptional },
+            { precedence: nextPrecedence, isOptional: nextOptional },
+          ) => {
+            if (firstOptional === nextOptional) {
+              const type1 = PRECEDENCES.indexOf(firstPrecedence);
+              const type2 = PRECEDENCES.indexOf(nextPrecedence);
+              if (type1 < type2) return -1;
+              if (type1 > type2) return 1;
+              return 0;
+            }
+            // Sort definitions marked as optional to the end of the list
+            return firstOptional ? 1 : -1;
+          },
+        );
 
       // Exception the Thursday within the Holy Week, this day contain 2 liturgical days, i.e.:
       //
@@ -379,8 +388,19 @@ export class Calendar implements BaseCalendar {
       ) {
         optionalMemorials = dates
           .slice(1)
-          .filter((d) => d.precedence === Precedences.OptionalMemorial_12)
+          .filter((d) => d.precedence === Precedences.OptionalMemorial_12 || d.isOptional)
           .map((d) => (d.isOptional = true) && d);
+      }
+      // Also keep liturgical days marked as optional.
+      // e.g. The dedication of consecrated Churches is an optional solemnity.
+      else if (dates.length > 1) {
+        const optionalDayKeys = dates
+          .slice(1)
+          .filter((d) => d.isOptional)
+          .map((d) => d.key);
+        if (optionalDayKeys.length) {
+          optionalMemorials = dates.filter((d) => optionalDayKeys.includes(d.key));
+        }
       }
 
       finalData[dateStr] = [

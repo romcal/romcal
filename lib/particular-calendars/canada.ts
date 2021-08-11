@@ -1,8 +1,8 @@
+import { PatronTitles } from '@romcal/constants/martyrology-metadata';
 import { Precedences } from '@romcal/constants/precedences';
 import { CalendarDef } from '@romcal/models/calendar-def';
 import { Americas } from '@romcal/particular-calendars/americas';
 import { InputDefinitions } from '@romcal/types/calendar-def';
-import { PatronTitles } from '@romcal/constants/martyrology-metadata';
 
 export class Canada extends CalendarDef {
   inheritFrom = Americas;
@@ -147,6 +147,14 @@ export class Canada extends CalendarDef {
     margaret_mary_alacoque_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 10, date: 20 },
+    },
+
+    dedication_of_consecrated_churches_on_fixed_date: {
+      dateDef: { month: 10, date: 22 },
+    },
+
+    dedication_of_consecrated_churches_on_last_sunday_of_october: {
+      drop: true,
     },
   };
 }
