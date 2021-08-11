@@ -31,16 +31,17 @@ export class Calendar implements BaseCalendar {
   readonly #config: RomcalConfig;
   readonly #liturgicalDayConfig: LiturgicalDayConfig;
   readonly dates: Dates;
-  readonly #startOfSeasonsDic: Record<LiturgicalSeasons, Dayjs>;
-  readonly #endOfSeasonsDic: Record<LiturgicalSeasons, Dayjs>;
-  #cyclesCache?: Pick<RomcalCyclesMetadata, 'sundayCycle' | 'weekdayCycle'>;
+  readonly #startOfSeasonsDic: Record<number, Record<LiturgicalSeasons, Dayjs>> = {};
+  readonly #endOfSeasonsDic: Record<number, Record<LiturgicalSeasons, Dayjs>> = {};
+  readonly #cyclesCache: Record<
+    number,
+    Pick<RomcalCyclesMetadata, 'sundayCycle' | 'weekdayCycle'>
+  > = {};
 
   constructor(config: RomcalConfig, liturgicalDayConfig: LiturgicalDayConfig) {
     this.#config = config;
     this.#liturgicalDayConfig = liturgicalDayConfig;
     this.dates = new Dates(config, liturgicalDayConfig.year);
-    this.#startOfSeasonsDic = liturgicalDayConfig.dates.startOfSeasons();
-    this.#endOfSeasonsDic = liturgicalDayConfig.dates.endOfSeasons();
   }
 
   /**
@@ -54,8 +55,30 @@ export class Calendar implements BaseCalendar {
     date: Dayjs,
     baseData: LiturgicalDay | null,
   ): RomcalCalendarMetadata {
-    const startOfSeason = def.seasons.length ? this.#startOfSeasonsDic[def.seasons[0]] : undefined;
-    const endOfSeason = def.seasons.length ? this.#endOfSeasonsDic[def.seasons[0]] : undefined;
+    let currentYear = this.#liturgicalDayConfig.year;
+
+    if (
+      this.#config.scope === CalendarScope.Gregorian &&
+      this.#liturgicalDayConfig.dates
+        .firstSundayOfAdvent(this.#liturgicalDayConfig.year)
+        .toDate()
+        .getTime() <= date.toDate().getTime()
+    ) {
+      currentYear++;
+    }
+
+    const startOfSeasonsDic =
+      this.#startOfSeasonsDic[currentYear] ||
+      (this.#startOfSeasonsDic[currentYear] =
+        this.#liturgicalDayConfig.dates.startOfSeasons(currentYear));
+
+    const endOfSeasonsDic =
+      this.#endOfSeasonsDic[currentYear] ||
+      (this.#endOfSeasonsDic[currentYear] =
+        this.#liturgicalDayConfig.dates.endOfSeasons(currentYear));
+
+    const startOfSeason = def.seasons.length ? startOfSeasonsDic[def.seasons[0]] : undefined;
+    const endOfSeason = def.seasons.length ? endOfSeasonsDic[def.seasons[0]] : undefined;
     const dayOfSeason =
       baseData?.calendar.dayOfSeason ??
       def.calendarDef.dayOfSeason ??
@@ -71,10 +94,10 @@ export class Calendar implements BaseCalendar {
       nthDayOfWeekInMonth: Math.ceil(date.date() / 7),
       startOfSeason: startOfSeason ? startOfSeason.toISOString().substr(0, 10) : '',
       endOfSeason: endOfSeason ? endOfSeason.toISOString().substr(0, 10) : '',
-      startOfLiturgicalYear: this.#startOfSeasonsDic[LiturgicalSeasons.ADVENT]
+      startOfLiturgicalYear: startOfSeasonsDic[LiturgicalSeasons.ADVENT]
         .toISOString()
         .substr(0, 10),
-      endOfLiturgicalYear: this.#endOfSeasonsDic[LiturgicalSeasons.ORDINARY_TIME]
+      endOfLiturgicalYear: endOfSeasonsDic[LiturgicalSeasons.ORDINARY_TIME]
         .toISOString()
         .substr(0, 10),
     };
@@ -92,10 +115,11 @@ export class Calendar implements BaseCalendar {
     calendar: RomcalCalendarMetadata,
     properCycle: ProperCycles,
   ): RomcalCyclesMetadata {
+    const year = parseInt(calendar.startOfLiturgicalYear, 10);
+
     // Compute cycle of the liturgical year,
     // and cache the data since they are the same for every days of the year
-    if (!this.#cyclesCache) {
-      const year = dayjs(calendar.startOfLiturgicalYear).year();
+    if (!this.#cyclesCache[year]) {
       const firstSundayOfAdvent = dayjs(calendar.startOfLiturgicalYear);
 
       let sundayCycle: SundaysCycles;
@@ -116,7 +140,7 @@ export class Calendar implements BaseCalendar {
         weekdayCycle = WeekdaysCycles[WEEKDAYS_CYCLE[(year + 1) % 2]];
       }
 
-      this.#cyclesCache = {
+      this.#cyclesCache[year] = {
         sundayCycle,
         weekdayCycle,
       };
@@ -128,7 +152,7 @@ export class Calendar implements BaseCalendar {
     const weekIndex = (calendar.weekOfSeason % 4) - 1;
     const psalterWeek = PsalterWeeksCycles[PSALTER_WEEKS[weekIndex > -1 ? weekIndex : 3]];
 
-    return { properCycle, ...this.#cyclesCache, psalterWeek };
+    return { properCycle, ...this.#cyclesCache[year], psalterWeek };
   }
 
   /**

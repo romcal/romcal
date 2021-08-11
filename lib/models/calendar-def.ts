@@ -119,7 +119,7 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
         dateExceptions: input.dateExceptions,
         precedence: input.precedence,
         customLocaleKey: input.customLocaleKey,
-        isHolyDayOfObligation: !!input.isHolyDayOfObligation,
+        isHolyDayOfObligation: input.isHolyDayOfObligation,
         isOptional: input.isOptional,
         liturgicalColors: input.liturgicalColors,
         martyrology: input.martyrology,
