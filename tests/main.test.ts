@@ -15,11 +15,9 @@ describe('Romcal library', () => {
     jest.useFakeTimers();
     timeoutSpy = jest.spyOn(global, 'setTimeout');
 
-    const calendar = new Romcal({
-      year: 2021,
-    });
+    const calendar = new Romcal();
 
-    data = await calendar.generate();
+    data = await calendar.generateCalendar(2021);
 
     jest.runOnlyPendingTimers();
   });
