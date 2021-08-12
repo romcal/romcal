@@ -28,7 +28,7 @@ import { Precedences } from '@romcal/constants/precedences';
 import { Ranks } from '@romcal/constants/ranks';
 import Romcal from '@romcal/main';
 import LiturgicalDay from '@romcal/models/liturgical-day';
-import { CzechRepublic } from '@romcal/particular-calendars/czechRepublic';
+import { CzechRepublic } from '@romcal/particular-calendars/czech-republic';
 import { England } from '@romcal/particular-calendars/england';
 import { Germany } from '@romcal/particular-calendars/germany';
 import { Hungary } from '@romcal/particular-calendars/hungary';
