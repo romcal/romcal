@@ -411,7 +411,15 @@ export class Calendar implements BaseCalendar {
       ) {
         optionalMemorials = dates
           .slice(1)
-          .filter((d) => d.precedence === Precedences.OptionalMemorial_12 || d.isOptional)
+          .filter(
+            (d) =>
+              [
+                Precedences.GeneralMemorial_10,
+                Precedences.ProperMemorial_SecondPatron_11a,
+                Precedences.ProperMemorial_11b,
+                Precedences.OptionalMemorial_12,
+              ].includes(d.precedence) || d.isOptional,
+          )
           .map((d) => (d.isOptional = true) && d);
       }
       // Also keep liturgical days marked as optional.
