@@ -620,7 +620,7 @@ describe('Testing specific liturgical date functions', () => {
         const josephSpouseOfMary = await romcal.getOneLiturgicalDay('joseph_spouse_of_mary', {
           year: i,
         });
-        const computedDate = dayjs(josephSpouseOfMary!.date);
+        const computedDate = dayjs.utc(josephSpouseOfMary!.date);
 
         expect(
           // If it falls during Holy Week (or after)
@@ -643,7 +643,7 @@ describe('Testing specific liturgical date functions', () => {
         const josephSpouseOfMary = await romcal.getOneLiturgicalDay('joseph_spouse_of_mary', {
           year: i,
         });
-        const computedDate = dayjs(josephSpouseOfMary!.date);
+        const computedDate = dayjs.utc(josephSpouseOfMary!.date);
 
         expect(
           // If it falls during Holy Week (or after)
@@ -667,7 +667,7 @@ describe('Testing specific liturgical date functions', () => {
         const josephSpouseOfMary = await romcal.getOneLiturgicalDay('joseph_spouse_of_mary', {
           year: i,
         });
-        const computedDate = dayjs(josephSpouseOfMary!.date);
+        const computedDate = dayjs.utc(josephSpouseOfMary!.date);
 
         expect(
           // If it falls during Holy Week (or after)
