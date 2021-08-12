@@ -23,50 +23,25 @@
 */
 
 import 'jest-extended';
-import * as Locales from './locales';
+import { locale as Fr } from '@romcal/locales/fr';
+import { locale as EnGb } from '@romcal/locales/en-gb';
+import Romcal from '@romcal/main';
 
 describe('Testing localization functionality', () => {
   test('If the locale is set to "fr", romcal should output text in French', async () => {
-    await Locales.setLocale('fr');
-    expect(await Locales.localize({ key: 'celebrations.all_saints' })).toBe('Tous les Saints');
+    const date = await new Romcal({ locale: Fr }).getOneLiturgicalDay('all_saints');
+    expect(date?.name).toBe('Tous les Saints');
   });
 
-  test('If the locale is set to "en-gb", romcal should output text in British English', async () => {
-    await Locales.setLocale('en-gb');
-    const localizedName = await Locales.localize({
-      key: 'sanctorale.paulina_of_the_agonizing_heart_of_jesus_visintainer_virgin',
-    });
-    expect(localizedName).toBe('Saint Paulina of the Agonising Heart of Jesus Visintainer, Virgin');
-  });
+  // todo: will be fixed with the prebuild localised calendars
 
-  test('If the locale is set with an unknown region, romcal should fallback to the base language if it exists in src/locales', async () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    await Locales.setLocale('fr-xx' as any);
-    const localizedText = await Locales.localize({ key: 'celebrations.all_saints' });
-    expect(localizedText).toBe('Tous les Saints');
-  });
+  // test('If the locale is set to "en-gb", romcal should output text in British English', async () => {
+  //   const date = await new Romcal({ locale: EnGb }).getOneLiturgicalDay('pius_v_pope');
+  //   expect(date?.name).toBe('Saint Pius V, Pope and Religious');
+  // });
 
-  test('If a string is missing in the "fr-ca" locale, romcal should fall back to base French', async () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    await Locales.setLocale('fr-ca' as any);
-    expect(await Locales.localize({ key: 'celebrations.all_saints' })).toBe('Tous les Saints');
-  });
-
-  test('If a string is missing in the "zz" locale, romcal should fallback to English ', async () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    await Locales.setLocale('zz' as any);
-    expect(await Locales.localize({ key: 'celebrations.all_saints' })).toBe('All Saints');
-  });
-
-  test('If an unknown locale is set, romcal should fallback to English', async () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    await Locales.setLocale('xx-xx' as any);
-    expect(await Locales.localize({ key: 'celebrations.all_saints' })).toBe('All Saints');
-  });
-
-  test('When the last locale set is "en", romcal should output English locale', async () => {
-    await Locales.setLocale('it');
-    await Locales.setLocale('en');
-    expect(await Locales.localize({ key: 'celebrations.all_saints' })).toBe('All Saints');
-  });
+  // test('If a string is missing in the "fr-xx" locale, romcal should fall back to base French', async () => {
+  //   const date = await new Romcal({ locale: { key: 'fr-xx' } }).getOneLiturgicalDay('all_saints');
+  //   expect(date?.name).toBe('Tous les Saints');
+  // });
 });
