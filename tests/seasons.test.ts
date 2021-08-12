@@ -263,7 +263,8 @@ describe('Testing seasons utility functions', () => {
     test('All Sundays are holy days of obligation', async () => {
       const sundays: LiturgicalDay[] = Object.values(await new Romcal().generateCalendar())
         .flat()
-        .filter((item) => dayjs(item.date).day() === 0);
+        .filter((item) => item.calendar.dayOfWeek === 0);
+      sundays.every((item) => item.isHolyDayOfObligation);
       expect(sundays.every((item) => item.isHolyDayOfObligation)).toBeTrue();
     });
   });
@@ -290,7 +291,8 @@ describe('Testing seasons utility functions', () => {
           (d) =>
             (d.seasons.includes(LiturgicalSeasons.LENT) ||
               d.seasons.includes(LiturgicalSeasons.ADVENT)) &&
-            (d.rank === Ranks.SUNDAY || d.rank === Ranks.WEEKDAY),
+            (d.rank === Ranks.SUNDAY || d.rank === Ranks.WEEKDAY) &&
+            d.key !== 'palm_sunday',
         )
         .forEach((date) => {
           if (date.key === 'lent_4_sunday' || date.key === 'advent_3_sunday') {
@@ -313,7 +315,8 @@ describe('Testing seasons utility functions', () => {
           (d) =>
             (d.seasons.includes(LiturgicalSeasons.CHRISTMAS_TIME) ||
               d.seasons.includes(LiturgicalSeasons.EASTER_TIME)) &&
-            (d.rank === Ranks.SUNDAY || d.rank === Ranks.WEEKDAY),
+            (d.rank === Ranks.SUNDAY || d.rank === Ranks.WEEKDAY) &&
+            d.key !== 'pentecost_sunday',
         )
         .forEach((date) => {
           // eslint-disable-next-line jest/no-conditional-expect
