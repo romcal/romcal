@@ -24,7 +24,7 @@
 
 import Romcal from '../lib/main';
 import { France } from '../lib/particular-calendars/france';
-import { UnitedStates } from '../lib/particular-calendars/unitedStates';
+import { UnitedStates } from '@romcal/particular-calendars/united-states';
 import { rangeContainsDate, rangeOfDays } from '../lib/utils/dates';
 import 'jest-extended';
 
