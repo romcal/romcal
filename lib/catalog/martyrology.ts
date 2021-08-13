@@ -224,6 +224,12 @@ export class Martyrology {
       count: 'many',
     },
 
+    all_the_saints_of_the_diocese_of_saint_denis: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'All the Saints of the diocese of Saint-Denis',
+      count: 'many',
+    },
+
     julius_of_caerleon_martyr: {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Julius',
@@ -1277,6 +1283,13 @@ export class Martyrology {
     edward_the_confessor: {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Edward the Confessor',
+    },
+
+    eloi_of_noyon_bishop: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Eloi',
+      titles: [Titles.Bishop],
+      dateOfDeath: 660,
     },
 
     elijah_prophet: {
@@ -3442,6 +3455,13 @@ export class Martyrology {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Otto of Bamberg',
       titles: [Titles.Bishop],
+    },
+
+    ouen_bishop: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Ouen',
+      titles: [Titles.Bishop],
+      dateOfDeath: 684,
     },
 
     our_lady_help_of_christians: {

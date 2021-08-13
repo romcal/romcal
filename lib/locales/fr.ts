@@ -182,6 +182,7 @@ export const locale: Locale = {
       'Saint Albert le Grand, Frère prêcheur, Évêque de Ratisbonne, Docteur de l’Eglise (✝ 1280)',
     all_souls: 'Commémoration de tous les fidèles défunts',
     all_the_saints_of_the_diocese_of_paris: 'Tous les Saints du diocèse de Paris',
+    all_the_saints_of_the_diocese_of_saint_denis: 'Tous les Saints du diocèse de Saint-Denis',
     aloysius_gonzaga_religious: 'Saint Louis de Gonzague, Religieux Jésuite (✝ 1591)',
     alphonsus_liguori_bishop: 'Saint Alphonse-Marie de Liguori, Bishop and Doctor of the Church',
     amand_of_maastricht_bishop:
@@ -286,9 +287,12 @@ export const locale: Locale = {
     dedication_of_the_basilicas_of_saints_peter_and_paul_apostles:
       'Dédicace des basiliques de Saint Pierre et Saint Paul, Apôtres, à Rome',
     dedication_of_the_cathedral_of_paris: 'Dédicace de la cathédrale de Paris',
+    dedication_of_the_cathedral_of_saint_denis: 'Dédicace de la cathédrale de Saint-Denis',
     dedication_of_the_lateran_basilica: 'Dédicace de la Basilique du Latran',
     denis_of_paris_bishop_patron_of_the_diocese_of_paris:
       'Saint Denis, Martyr, Premier évêque, Patron du diocèse',
+    denis_of_paris_bishop_patron_of_the_diocese_of_saint_denis:
+      'Saint Denis, Évêque et Martyr, Patron de la ville et du diocèse de Saint-Denis',
     denis_of_paris_bishop_and_companions_martyrs:
       'Saint Denis, Évêque, et ses compagnons, martyrs à Paris (IIIème s.)',
     dina_belanger_virgin:
@@ -297,6 +301,7 @@ export const locale: Locale = {
       'Saint Dominique de Guzman, Prêtre, Fondateur de l’Ordre des Frères prêcheurs (✝ 1221)',
     elizabeth_of_hungary_religious: 'Sainte Élisabeth de Hongrie (✝ 1231)',
     elizabeth_of_portugal: 'Sainte Élisabeth du Portugal, Reine (✝ 1336)',
+    eloi_of_noyon_bishop: 'Saint Éloi, Évêque',
     emilie_tavernier_gamelin_religious:
       'Bienheureuse Émilie Tavernier-Gamelin, Religieuse, Fondatrice des Sœurs de la Providence de Montréal (✝ 1851)',
     ephrem_the_syrian_deacon: 'Saint Ephrem, Diacre et Docteur de l’Église, (✝ 373)',
@@ -464,6 +469,7 @@ export const locale: Locale = {
     norbert_of_xanten_bishop: 'Saint Norbert, Évêque (✝ 1134)',
     nykyta_budka_and_vasyl_velychkovsky_bishops:
       'Bienheureux Nicétas Budka (✝ 1949) et Vasyl Velychkowsky (✝ 1973), Évêques et Martyrs',
+    ouen_bishop: 'Saint Ouen, Évêque',
     our_lady_mediatrix_of_all_grace: 'Marie, Médiatrice de toute grâce',
     our_lady_of_fatima: 'Notre-Dame de Fatima',
     our_lady_of_good_counsel: 'Notre-Dame du Bon Conseil',
