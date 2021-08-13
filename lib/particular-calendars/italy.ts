@@ -19,11 +19,6 @@ export class Italy extends CalendarDef {
       dateDef: { month: 6, date: 6 },
     },
 
-    barnabas_apostle: {
-      precedence: Precedences.ProperMemorial_11b,
-      dateDef: { month: 6, date: 11 },
-    },
-
     mary_magdalene: {
       precedence: Precedences.ProperFeast_8f,
       dateDef: { month: 7, date: 22 },
