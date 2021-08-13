@@ -218,6 +218,12 @@ export class Martyrology {
       titles: [Titles.Martyr],
     },
 
+    all_the_saints_of_the_diocese_of_paris: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'All the Saints of the diocese of Paris',
+      count: 'many',
+    },
+
     julius_of_caerleon_martyr: {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Julius',
@@ -651,6 +657,13 @@ export class Martyrology {
       dateOfDeath: 316,
     },
 
+    blessed_martyrs_of_paris: {
+      canonizationLevel: CanonizationLevel.Blessed,
+      name: 'Blessed martyrs of Paris',
+      count: 'many',
+      hideTitles: true,
+    },
+
     bogumilus_of_dobrow_bishop: {
       canonizationLevel: CanonizationLevel.Blessed,
       name: 'Bogumilus',
@@ -778,6 +791,14 @@ export class Martyrology {
       name: 'Carlos Manuel Rodríguez Santiago',
     },
 
+    carmelites_of_compiegne_virgins_and_martyrs: {
+      canonizationLevel: CanonizationLevel.Blessed,
+      name: 'Carmelites of Compiègne',
+      titles: [Titles.Virgin, Titles.Martyr],
+      count: 16,
+      dateOfDeath: '21-7-1794',
+    },
+
     caroline_kozka_virgin: {
       canonizationLevel: CanonizationLevel.Blessed,
       name: 'Caroline Kózka',
@@ -794,6 +815,13 @@ export class Martyrology {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Casimir',
       dateOfDeath: 1484,
+    },
+
+    catherine_laboure_virgin: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Catherine Labouré',
+      titles: [Titles.Virgin],
+      dateOfDeath: 1876,
     },
 
     catherine_of_alexandria_virgin: {
@@ -855,6 +883,13 @@ export class Martyrology {
       titles: [Titles.Bishop],
     },
 
+    ceran_of_paris_bishop: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Céran of Paris',
+      titles: [Titles.Bishop],
+      dateOfDeath: { century: 7 },
+    },
+
     chair_of_saint_peter_the_apostle: {
       name: 'Chair of Saint Peter the Apostle',
     },
@@ -864,6 +899,13 @@ export class Martyrology {
       name: 'Charles Borromeo',
       titles: [Titles.Bishop],
       dateOfDeath: 1584,
+    },
+
+    charles_de_foucauld: {
+      canonizationLevel: CanonizationLevel.Blessed,
+      name: 'Charles de Foucauld',
+      titles: [Titles.Priest],
+      dateOfDeath: '1916-12-1',
     },
 
     charles_i_of_austria: {
@@ -1096,6 +1138,13 @@ export class Martyrology {
       dateOfDeath: 1889,
     },
 
+    daniel_brottier_priest: {
+      canonizationLevel: CanonizationLevel.Blessed,
+      name: 'Daniel Brottier',
+      titles: [Titles.Priest],
+      dateOfDeath: '28-2-1936',
+    },
+
     david_lewis_priest: {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'David Lewis',
@@ -1181,6 +1230,13 @@ export class Martyrology {
       canonizationLevel: CanonizationLevel.Blessed,
       name: 'Dominic of the Mother of God Barberi',
       titles: [Titles.Priest],
+    },
+
+    droctovee_abbot: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Droctovée',
+      titles: [Titles.Bishop],
+      dateOfDeath: 558,
     },
 
     dunstan_of_canterbury_bishop: {
@@ -1530,6 +1586,12 @@ export class Martyrology {
       dateOfDeath: 1916,
     },
 
+    frederic_ozanam: {
+      canonizationLevel: CanonizationLevel.Blessed,
+      name: 'Frédéric Ozonaman',
+      dateOfDeath: '1853-9-8',
+    },
+
     fridolin_of_sackingen_monk: {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Fridolin of Säckingen',
@@ -1622,10 +1684,18 @@ export class Martyrology {
       titles: [Titles.Bishop, Titles.Martyr],
     },
 
+    germain_of_paris_bishop: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Germain of Paris',
+      titles: [Titles.Bishop],
+      dateOfDeath: 576,
+    },
+
     germanus_of_auxerre_bishop: {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Germanus of Auxerre',
       titles: [Titles.Bishop],
+      dateOfDeath: 448,
     },
 
     gertrude_of_nivelles_abbess: {
@@ -1909,6 +1979,13 @@ export class Martyrology {
       titles: [Titles.Abbot],
     },
 
+    innocent_v_pope: {
+      canonizationLevel: CanonizationLevel.Blessed,
+      name: 'Innocent V',
+      titles: [Titles.Pope],
+      dateOfDeath: 1276,
+    },
+
     innocent_xi_pope: {
       canonizationLevel: CanonizationLevel.Blessed,
       name: 'Innocent XI',
@@ -2135,6 +2212,13 @@ export class Martyrology {
       name: 'Isaac Jogues',
       titles: [Titles.Priest, Titles.Martyr],
       dateOfDeath: '1646-10-18',
+    },
+
+    isabelle_of_france_virgin: {
+      canonizationLevel: CanonizationLevel.Blessed,
+      name: 'Isabelle of France',
+      titles: [Titles.Virgin],
+      dateOfDeath: 1272,
     },
 
     john_de_britto_priest: {
@@ -2496,6 +2580,13 @@ export class Martyrology {
       dateOfDeath: 705,
     },
 
+    landry_of_paris_bishop: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Landry of Paris',
+      titles: [Titles.Bishop],
+      dateOfDeath: { century: 7 },
+    },
+
     laserian_of_leighlin_bishop: {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Laserian',
@@ -2631,6 +2722,13 @@ export class Martyrology {
       name: 'Louis-Zéphirin Moreau',
       titles: [Titles.Bishop],
       dateOfDeath: 1901,
+    },
+
+    louise_of_marillac: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Louise of Marillac',
+      titles: [Titles.Religious],
+      dateOfDeath: 1660,
     },
 
     lucius_of_chur_bishop: {
@@ -2839,6 +2937,27 @@ export class Martyrology {
       dateOfDeath: 1890,
     },
 
+    marie_de_la_providence_virgin: {
+      canonizationLevel: CanonizationLevel.Blessed,
+      name: 'Blessed Marie de la Providence',
+      titles: [Titles.Virgin],
+      dateOfDeath: 1871,
+    },
+
+    marie_de_incarnation_religious: {
+      canonizationLevel: CanonizationLevel.Blessed,
+      name: 'Marie de l‘Incarnation',
+      titles: [Titles.Religious],
+      dateOfDeath: 1618,
+    },
+
+    marie_eugenie_milleret_virgin: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Marie-Eugénie de Jésus',
+      titles: [Titles.Virgin],
+      dateOfDeath: 1898,
+    },
+
     marie_leonie_paradis_virgin: {
       canonizationLevel: CanonizationLevel.Blessed,
       name: 'Marie-Léonie Paradis',
@@ -2858,6 +2977,13 @@ export class Martyrology {
       name: 'Marie Rose Durocher',
       titles: [Titles.Virgin],
       dateOfDeath: 1849,
+    },
+
+    marie_therese_de_soubiran_virgin: {
+      canonizationLevel: CanonizationLevel.Blessed,
+      name: 'Marie-Thérèse de Soubiran',
+      titles: [Titles.Virgin],
+      dateOfDeath: 1889,
     },
 
     mark_evangelist: {
@@ -3103,6 +3229,27 @@ export class Martyrology {
       titles: [Titles.Archangel],
     },
 
+    madeleine_sophie_barat_virgin: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Madeleine Sophie Barat',
+      titles: [Titles.Virgin],
+      dateOfDeath: 1865,
+    },
+
+    marcel_of_paris_bishop: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Marcel of Paris',
+      titles: [Titles.Bishop],
+      dateOfDeath: { century: 5 },
+    },
+
+    merry_abbot: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Merry',
+      titles: [Titles.Bishop],
+      dateOfDeath: { century: 7 },
+    },
+
     michael_kozal_bishop: {
       canonizationLevel: CanonizationLevel.Blessed,
       name: 'Michael Kozal',
@@ -3208,6 +3355,13 @@ export class Martyrology {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Nicholas Tavelić',
       titles: [Titles.Priest, Titles.Martyr],
+    },
+
+    nicholas_barre: {
+      canonizationLevel: CanonizationLevel.Blessed,
+      name: 'Nicholas Barré',
+      titles: [Titles.Priest],
+      dateOfDeath: '1686-5-31',
     },
 
     ninian_of_whithorn_bishop: {
@@ -3402,6 +3556,10 @@ export class Martyrology {
       name: 'Our Lady of the Gate of Dawn',
     },
 
+    our_lady_of_the_miraculous_medal: {
+      name: 'Our Lady of the Miraculous Medal',
+    },
+
     our_lady_of_the_pillar: {
       name: 'Our Lady of the Pillar',
     },
@@ -3429,6 +3587,10 @@ export class Martyrology {
     our_lady_queen_of_poland: {
       name: 'Our Lady',
       titles: [Titles.QueenOfPoland],
+    },
+
+    holy_mary_refuge_of_sinner: {
+      name: 'Holy Mary, Refuge of Sinner',
     },
 
     our_lord_jesus_christ_the_eternal_high_priest: {
@@ -3890,6 +4052,13 @@ export class Martyrology {
       name: 'Romuald',
       titles: [Titles.Abbot],
       dateOfDeath: 1027,
+    },
+
+    rosalie_rendu_virgin: {
+      canonizationLevel: CanonizationLevel.Blessed,
+      name: 'Rosalie Rendu',
+      titles: [Titles.Virgin],
+      dateOfDeath: '1856-2-7',
     },
 
     rose_of_lima_virgin: {
