@@ -120,7 +120,7 @@ export class Slovakia extends CalendarDef {
       dateDef: { month: 10, date: 25 },
     },
 
-    dedication_of_consecrated_churches_on_fixed_date: {
+    dedication_of_consecrated_churches_on_october_25: {
       dateDef: { month: 10, date: 26 },
     },
 

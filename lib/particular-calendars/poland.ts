@@ -350,7 +350,7 @@ export class Poland extends CalendarDef {
       dateDef: { month: 10, date: 23 },
     },
 
-    dedication_of_consecrated_churches_on_fixed_date: {
+    dedication_of_consecrated_churches_on_october_25: {
       drop: true,
     },
 
