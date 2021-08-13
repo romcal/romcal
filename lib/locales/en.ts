@@ -197,6 +197,7 @@ export const locale: Locale = {
     all_saints_of_wales: 'All Saints of Wales',
     all_souls: 'Commemoration of All the Faithful Departed',
     all_the_saints_of_the_diocese_of_paris: 'All the Saints of the diocese of Paris',
+    all_the_saints_of_the_diocese_of_saint_denis: 'All the Saints of the diocese of Saint-Denis',
     aloysius_gonzaga_religious: 'Saint Aloysius Gonzaga, Religious',
     aloysius_stepinac_bishop: 'Blessed Aloysius Stepinac, Bishop and Martyr',
     aloysius_versiglia_bishop_and_callistus_caravario_priest_martyrs:
@@ -370,11 +371,14 @@ export const locale: Locale = {
     dedication_of_the_basilicas_of_saints_peter_and_paul_apostles:
       'Dedication of the Basilicas of Saints Peter and Paul, Apostles',
     dedication_of_the_cathedral_of_paris: 'Dedication of the Cathedral of Paris',
+    dedication_of_the_cathedral_of_saint_denis: 'Dedication of the Cathedral of Saint-Denis',
     dedication_of_the_lateran_basilica: 'Dedication of the Lateran Basilica',
     deiniol_of_bangor_bishop: 'Saint Deiniol, Bishop',
     demetrius_of_thessaloniki_martyr: 'Saint Demetrius of Thessaloniki, Martyr',
     denis_of_paris_bishop_patron_of_the_diocese_of_paris:
       'Saint Denis, Martyr, First bishop, Patron of the diocese',
+    denis_of_paris_bishop_patron_of_the_diocese_of_saint_denis:
+      'Saint Denis, Bishop and Martyr,Patron of the city and the diocese of Saint-Denis',
     denis_of_paris_bishop_and_companions_martyrs: 'Saint Denis, Bishop, and Companions, Martyrs',
     dina_belanger_virgin: 'Blessed Dina Bélanger, Virgin',
     dionysius_the_areopagite_bishop: 'Saint Dionysius the Areopagite, Bishop and Martyr',
@@ -393,6 +397,7 @@ export const locale: Locale = {
     elizabeth_hesselblad_religious: 'Saint Elizabeth Hesselblad, Religious',
     elizabeth_of_hungary_religious: 'Saint Elizabeth of Hungary, Religious',
     elizabeth_of_portugal: 'Saint Elizabeth of Portugal',
+    eloi_of_noyon_bishop: 'Saint Eloi, Bishop',
     emeric_of_hungary: 'Saint Emeric',
     emilie_tavernier_gamelin_religious: 'Blessed Émilie Tavernier-Gamelin, Religious',
     enda_of_aran_abbot: 'Saint Enda, Abbot',
@@ -752,6 +757,7 @@ export const locale: Locale = {
     oliver_plunket_bishop: 'Saint Oliver Plunket, Bishop and Martyr',
     otteran_of_iona_monk: 'Saint Otteran, Monk',
     otto_of_bamberg_bishop: 'Saint Otto of Bamberg, Bishop',
+    ouen_bishop: 'Saint Ouen, Bishop',
     our_lady_help_of_christians: 'Our Lady, Help of Christians',
     our_lady_mediatrix_of_all_grace: 'Our Lady, Mediatrix of All Grace',
     our_lady_mother_of_christian_unity: 'Our Lady, Mother of Christian Unity',
