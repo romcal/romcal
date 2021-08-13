@@ -299,6 +299,7 @@ export const locale: Locale = {
       'Bienheureuse Dina Bélanger, Religieuse de la congrégation des Sœurs de Jésus-Marie (✝ 1929)',
     dominic_de_guzman_priest:
       'Saint Dominique de Guzman, Prêtre, Fondateur de l’Ordre des Frères prêcheurs (✝ 1221)',
+    elijah_prophet: 'Saint Élie, Prophète (IXe siècle av. J.-C.)',
     elizabeth_of_hungary_religious: 'Sainte Élisabeth de Hongrie (✝ 1231)',
     elizabeth_of_portugal: 'Sainte Élisabeth du Portugal, Reine (✝ 1336)',
     eloi_of_noyon_bishop: 'Saint Éloi, Évêque',

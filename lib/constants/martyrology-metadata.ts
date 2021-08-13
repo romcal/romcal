@@ -27,6 +27,7 @@ export enum Titles {
   'MotherAndQueenOfChile' = 'MOTHER_AND_QUEEN_OF_CHILE',
   'ParentsOfTheBlessedVirginMary' = 'PARENTS_OF_THE_BLESSED_VIRGIN_MARY',
   'Pope' = 'POPE',
+  'Patriarch' = 'PATRIARCH',
   'Priest' = 'PRIEST',
   'Prophet' = 'PROPHET',
   'ProtoMartyrOfOceania' = 'PROTO_MARTYR_OF_OCEANIA',

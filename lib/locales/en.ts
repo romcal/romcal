@@ -392,7 +392,7 @@ export const locale: Locale = {
     edmund_ignatius_rice_religious: 'Blessed Edmund Rice, Religious',
     edmund_of_abingdon_bishop: 'Saint Edmund of Abingdon, Bishop',
     edward_the_confessor: 'Saint Edward the Confessor',
-    elijah_prophet: 'Saint Elijah, prophet',
+    elijah_prophet: 'Saint Elijah, Prophet',
     elizabeth_ann_seton_religious: 'Saint Elizabeth Ann Seton, Religious',
     elizabeth_hesselblad_religious: 'Saint Elizabeth Hesselblad, Religious',
     elizabeth_of_hungary_religious: 'Saint Elizabeth of Hungary, Religious',
