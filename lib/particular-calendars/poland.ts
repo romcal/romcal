@@ -297,7 +297,6 @@ export class Poland extends CalendarDef {
 
     faustina_kowalska_virgin: {
       precedence: Precedences.ProperMemorial_11b,
-      dateDef: { month: 10, date: 5 },
     },
 
     vincent_kadlubek_bishop: {
