@@ -3,29 +3,24 @@ import { Locale } from '@romcal/types/locale';
 export const locale: Locale = {
   key: 'en-gb',
 
-  roman_rite: {
-    seasons: {
-      advent: {
-        season: 'Advent',
-      },
-
-      christmas_time: {
-        season: 'Christmastide',
-        octave: '{{count}}º Day of Christmas Octave',
-      },
-
-      easter_time: {
-        season: 'Eastertide',
-      },
+  seasons: {
+    advent: {
+      season: 'Advent',
     },
 
-    celebrations: {
-      corpus_christi: 'Most Holy Body and Blood of the Lord',
-      holy_thursday: 'Maundy Thursday',
+    christmas_time: {
+      season: 'Christmastide',
+      octave: '{{count}}º Day of Christmas Octave',
+    },
+
+    easter_time: {
+      season: 'Eastertide',
     },
   },
 
-  martyrology: {
+  names: {
+    corpus_christi: 'Most Holy Body and Blood of the Lord',
+    holy_thursday: 'Maundy Thursday',
     bernardine_of_siena_priest: 'Saint Bernardine of Siena, Priest, Religious and Missionary', // TODO: This key should be removed after one can add titles within celebration definions
     louis_grignion_de_montfort_priest: 'Saint Louis Marie Grignion de Montfort, Priest',
     paulina_of_the_agonizing_heart_of_jesus_visintainer_virgin:

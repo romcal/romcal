@@ -86,8 +86,8 @@ export class ProperOfTime {
         ],
         i18nDef:
           dow === 0
-            ? ['roman_rite:seasons.advent.sunday', { week: week }]
-            : ['roman_rite:seasons.advent.weekday', { week: week, dow }],
+            ? ['seasons:advent.sunday', { week: week }]
+            : ['seasons:advent.weekday', { week: week, dow }],
       });
     }
 
@@ -100,7 +100,7 @@ export class ProperOfTime {
       periods: [],
       calendarDef: { weekOfSeason: 4, dayOfSeason: 22, dayOfWeek: 0 },
       liturgicalColors: [LiturgicalColors.PURPLE],
-      i18nDef: ['roman_rite:seasons.advent.sunday', { week: 4 }],
+      i18nDef: ['seasons:advent.sunday', { week: 4 }],
     });
 
     // Week before Christmas, from the 17 to 24 December.
@@ -116,7 +116,7 @@ export class ProperOfTime {
         periods: [],
         calendarDef: {},
         liturgicalColors: [LiturgicalColors.PURPLE],
-        i18nDef: ['roman_rite:seasons.advent.privileged_weekday', { day }],
+        i18nDef: ['seasons:advent.privileged_weekday', { day }],
       });
     }
   }
@@ -150,7 +150,7 @@ export class ProperOfTime {
       ],
       calendarDef: { weekOfSeason: 1, dayOfSeason: 1 },
       liturgicalColors: [LiturgicalColors.WHITE],
-      i18nDef: [`roman_rite:celebrations.christmas`],
+      i18nDef: [`names:christmas`],
     });
 
     // Octave of the Nativity of the Lord (without December 25 and January 1).
@@ -169,7 +169,7 @@ export class ProperOfTime {
         ],
         calendarDef: { dayOfSeason: count },
         liturgicalColors: [LiturgicalColors.WHITE],
-        i18nDef: ['roman_rite:seasons.christmas_time.octave', { count }],
+        i18nDef: ['seasons:christmas_time.octave', { count }],
       });
     }
 
@@ -186,7 +186,7 @@ export class ProperOfTime {
       ],
       calendarDef: {},
       liturgicalColors: [LiturgicalColors.WHITE],
-      i18nDef: [`roman_rite:celebrations.holy_family`],
+      i18nDef: [`names:holy_family`],
     });
   }
 
@@ -210,7 +210,7 @@ export class ProperOfTime {
       ],
       calendarDef: { dayOfSeason: 8 },
       liturgicalColors: [LiturgicalColors.WHITE],
-      i18nDef: ['roman_rite:celebrations.mary_mother_of_god'],
+      i18nDef: ['names:mary_mother_of_god'],
     });
 
     // Second Sunday after the Nativity.
@@ -226,7 +226,7 @@ export class ProperOfTime {
       ],
       calendarDef: {},
       liturgicalColors: [LiturgicalColors.WHITE],
-      i18nDef: ['roman_rite:seasons.christmas_time.second_sunday_after_christmas'],
+      i18nDef: ['seasons:christmas_time.second_sunday_after_christmas'],
     });
 
     // Weekdays of Christmas Time, before the Epiphany of the Lord.
@@ -241,7 +241,7 @@ export class ProperOfTime {
         ],
         calendarDef: { dayOfSeason: 7 + day },
         liturgicalColors: [LiturgicalColors.WHITE],
-        i18nDef: ['roman_rite:seasons.christmas_time.before_epiphany', { day }],
+        i18nDef: ['seasons:christmas_time.before_epiphany', { day }],
       });
     }
 
@@ -257,7 +257,7 @@ export class ProperOfTime {
       ],
       calendarDef: {},
       liturgicalColors: [LiturgicalColors.WHITE],
-      i18nDef: ['roman_rite:celebrations.epiphany'],
+      i18nDef: ['names:epiphany'],
     });
 
     // Weekdays of Christmas Time, after the Epiphany of the Lord.
@@ -272,7 +272,7 @@ export class ProperOfTime {
         ],
         calendarDef: {},
         liturgicalColors: [LiturgicalColors.WHITE],
-        i18nDef: ['roman_rite:seasons.christmas_time.after_epiphany', { dow }],
+        i18nDef: ['seasons:christmas_time.after_epiphany', { dow }],
       });
     }
 
@@ -288,7 +288,7 @@ export class ProperOfTime {
       ],
       calendarDef: {},
       liturgicalColors: [LiturgicalColors.WHITE],
-      i18nDef: ['roman_rite:celebrations.baptism_of_the_lord'],
+      i18nDef: ['names:baptism_of_the_lord'],
     });
   }
 
@@ -305,7 +305,7 @@ export class ProperOfTime {
       periods: [LiturgicalPeriods.PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY],
       calendarDef: { weekOfSeason: 0, dayOfSeason: 1, dayOfWeek: 3 },
       liturgicalColors: [LiturgicalColors.PURPLE],
-      i18nDef: [`roman_rite:celebrations.ash_wednesday`],
+      i18nDef: [`names:ash_wednesday`],
     });
 
     // Days after Ash Wednesday.
@@ -317,7 +317,7 @@ export class ProperOfTime {
         periods: [LiturgicalPeriods.PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY],
         calendarDef: { weekOfSeason: 0, dayOfSeason: dow - 2, dayOfWeek: dow },
         liturgicalColors: [LiturgicalColors.PURPLE],
-        i18nDef: ['roman_rite:seasons.lent.day_after_ash_wed', { dow }],
+        i18nDef: ['seasons:lent.day_after_ash_wed', { dow }],
       });
     }
 
@@ -338,8 +338,8 @@ export class ProperOfTime {
         ],
         i18nDef:
           dow === 0
-            ? ['roman_rite:seasons.lent.sunday', { week: week }]
-            : ['roman_rite:seasons.lent.weekday', { week: week, dow }],
+            ? ['seasons:lent.sunday', { week: week }]
+            : ['seasons:lent.weekday', { week: week, dow }],
       });
     }
 
@@ -355,7 +355,7 @@ export class ProperOfTime {
       ],
       calendarDef: { weekOfSeason: 6, dayOfSeason: 35, dayOfWeek: 0 },
       liturgicalColors: [LiturgicalColors.RED],
-      i18nDef: [`roman_rite:celebrations.palm_sunday`],
+      i18nDef: [`names:palm_sunday`],
     });
 
     // Holy Week, Monday to Thursday.
@@ -370,7 +370,7 @@ export class ProperOfTime {
         ],
         calendarDef: { weekOfSeason: 6, dayOfSeason: 35 + dow, dayOfWeek: dow },
         liturgicalColors: [LiturgicalColors.PURPLE],
-        i18nDef: ['roman_rite:seasons.lent.holy_week_day', { dow }],
+        i18nDef: ['seasons:lent.holy_week_day', { dow }],
       });
     }
   }
@@ -388,7 +388,7 @@ export class ProperOfTime {
       periods: [LiturgicalPeriods.HOLY_WEEK],
       calendarDef: { weekOfSeason: 1, dayOfSeason: 0, dayOfWeek: 4 },
       liturgicalColors: [LiturgicalColors.WHITE],
-      i18nDef: [`roman_rite:celebrations.thursday_of_the_lord_s_supper`],
+      i18nDef: [`names:thursday_of_the_lord_s_supper`],
     });
 
     // Friday of the Passion of the Lord.
@@ -399,7 +399,7 @@ export class ProperOfTime {
       periods: [LiturgicalPeriods.HOLY_WEEK],
       calendarDef: { weekOfSeason: 1, dayOfSeason: 1, dayOfWeek: 5 },
       liturgicalColors: [LiturgicalColors.RED],
-      i18nDef: [`roman_rite:celebrations.good_friday`],
+      i18nDef: [`names:good_friday`],
     });
 
     // Holy Saturday
@@ -410,7 +410,7 @@ export class ProperOfTime {
       periods: [LiturgicalPeriods.HOLY_WEEK],
       calendarDef: { weekOfSeason: 1, dayOfSeason: 2, dayOfWeek: 6 },
       liturgicalColors: [],
-      i18nDef: [`roman_rite:celebrations.holy_saturday`],
+      i18nDef: [`names:holy_saturday`],
     });
 
     // Easter Sunday of the Resurrection of the Lord.
@@ -422,7 +422,7 @@ export class ProperOfTime {
       periods: [LiturgicalPeriods.EASTER_OCTAVE],
       calendarDef: { weekOfSeason: 1, dayOfSeason: 1, dayOfWeek: 1 },
       liturgicalColors: [LiturgicalColors.WHITE],
-      i18nDef: [`roman_rite:celebrations.easter_sunday`],
+      i18nDef: [`names:easter_sunday`],
     });
   }
 
@@ -440,7 +440,7 @@ export class ProperOfTime {
         periods: [LiturgicalPeriods.EASTER_OCTAVE],
         calendarDef: { weekOfSeason: 1, dayOfSeason: dow + 1, dayOfWeek: dow },
         liturgicalColors: [LiturgicalColors.WHITE],
-        i18nDef: ['roman_rite:seasons.easter_time.octave', { dow }],
+        i18nDef: ['seasons:easter_time.octave', { dow }],
       });
     }
 
@@ -453,7 +453,7 @@ export class ProperOfTime {
       periods: [LiturgicalPeriods.EASTER_OCTAVE],
       calendarDef: { weekOfSeason: 2, dayOfSeason: 8, dayOfWeek: 0 },
       liturgicalColors: [LiturgicalColors.WHITE],
-      i18nDef: [`roman_rite:celebrations.divine_mercy_sunday`],
+      i18nDef: [`names:divine_mercy_sunday`],
     });
 
     // All days, from the 2nd Monday to the 7th Saturday of Easter Time.
@@ -475,8 +475,8 @@ export class ProperOfTime {
         liturgicalColors: [LiturgicalColors.WHITE],
         i18nDef:
           dow === 0
-            ? ['roman_rite:seasons.easter_time.sunday', { week }]
-            : ['roman_rite:seasons.easter_time.weekday', { week, dow }],
+            ? ['seasons:easter_time.sunday', { week }]
+            : ['seasons:easter_time.weekday', { week, dow }],
       };
       // The Ascension of the Lord.
       if (week === 6 && dow === 4) {
@@ -486,7 +486,7 @@ export class ProperOfTime {
           dateDef: { dateFn: 'ascension', yearOffset: yearOffset },
           isHolyDayOfObligation: true,
           calendarDef: {},
-          i18nDef: [`roman_rite:celebrations.ascension`],
+          i18nDef: [`names:ascension`],
         });
       }
       // All other Sundays and weekdays.
@@ -502,7 +502,7 @@ export class ProperOfTime {
       periods: [],
       calendarDef: { weekOfSeason: 8, dayOfSeason: 50, dayOfWeek: 0 },
       liturgicalColors: [LiturgicalColors.RED],
-      i18nDef: [`roman_rite:celebrations.pentecost_sunday`],
+      i18nDef: [`names:pentecost_sunday`],
     });
   }
 
@@ -520,7 +520,7 @@ export class ProperOfTime {
       periods: [],
       calendarDef: { dayOfWeek: 0 },
       liturgicalColors: [LiturgicalColors.WHITE],
-      i18nDef: [`roman_rite:celebrations.trinity_sunday`],
+      i18nDef: [`names:trinity_sunday`],
     });
 
     // The Most Holy Body and Blood of Christ (Corpus Christi).
@@ -532,7 +532,7 @@ export class ProperOfTime {
       periods: [],
       calendarDef: {},
       liturgicalColors: [LiturgicalColors.WHITE],
-      i18nDef: [`roman_rite:celebrations.corpus_christi`],
+      i18nDef: [`names:corpus_christi`],
     });
 
     // The Most Sacred Heart of Jesus.
@@ -544,7 +544,7 @@ export class ProperOfTime {
       periods: [],
       calendarDef: { dayOfWeek: 5 },
       liturgicalColors: [LiturgicalColors.WHITE],
-      i18nDef: [`roman_rite:celebrations.most_sacred_heart_of_jesus`],
+      i18nDef: [`names:most_sacred_heart_of_jesus`],
     });
 
     // Ordinary Time.
@@ -562,8 +562,8 @@ export class ProperOfTime {
         liturgicalColors: [LiturgicalColors.GREEN],
         i18nDef:
           dow === 0
-            ? ['roman_rite:seasons.ordinary_time.sunday', { week }]
-            : ['roman_rite:seasons.ordinary_time.weekday', { week, dow }],
+            ? ['seasons:ordinary_time.sunday', { week }]
+            : ['seasons:ordinary_time.weekday', { week, dow }],
       };
 
       // Sunday of the Word of God
@@ -571,7 +571,7 @@ export class ProperOfTime {
       if (week === 3 && dow === 0) {
         this.#newLiturgicalDayDef(`sunday_of_the_word_of_god`, {
           ...data,
-          i18nDef: [`roman_rite:celebrations.sunday_of_the_word_of_god`],
+          i18nDef: [`names:sunday_of_the_word_of_god`],
         });
       }
 
@@ -582,7 +582,7 @@ export class ProperOfTime {
           ...data,
           precedence: Precedences.GeneralSolemnity_3,
           liturgicalColors: [LiturgicalColors.WHITE],
-          i18nDef: [`roman_rite:celebrations.christ_the_king_sunday`],
+          i18nDef: [`names:christ_the_king_sunday`],
         });
       }
 

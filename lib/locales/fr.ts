@@ -3,100 +3,64 @@ import { Locale } from '@romcal/types/locale';
 export const locale: Locale = {
   key: 'fr',
 
-  roman_rite: {
-    seasons: {
-      advent: {
-        season: 'Temps de l’Avent',
-        weekday:
-          '$t(weekdays:{{dow}}, capitalize) de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine de l’Avent',
-        sunday: '$t(ordinals:{{week}}, capitalize) dimanche de l’Avent',
-        privileged_weekday: '{{day}} $t(months:11)',
-      },
-
-      christmas_time: {
-        season: 'Temps de Noël',
-        day: '$t(weekdays:{{dow}}, capitalize) dans le Temps de Noël',
-        octave: '{{count}}ᵉ jour dans l’Octave de la Nativité',
-        second_sunday_after_christmas: 'Deuxième dimanche après la Nativité',
-        before_epiphany: '{{day}} $t(months:0)',
-        after_epiphany: '$t(weekdays:{{dow}}, capitalize) après l’Épiphanie',
-      },
-
-      ordinary_time: {
-        season: 'Temps Ordinaire',
-        weekday:
-          '$t(weekdays:{{dow}}, capitalize) de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine du Temps Ordinaire',
-        sunday: '$t(ordinals:{{week}}, capitalize) $t(weekdays:0) du Temps Ordinaire',
-      },
-
-      lent: {
-        season: 'Temps du Carême',
-        weekday:
-          '$t(weekdays:{{dow}}, capitalize) de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine de Carême',
-        sunday: '$t(ordinals:{{week}}, capitalize) dimanche de Carême',
-        day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) après les Cendres',
-        holy_week_day: '$t(weekdays:{{dow}}, capitalize) Saint',
-      },
-
-      paschal_triduum: {
-        season: 'Triduum Pascal',
-      },
-
-      easter_time: {
-        season: 'Temps Pascal',
-        weekday:
-          '$t(weekdays:{{dow}}, capitalize) de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine de Pâques',
-        sunday: '$t(ordinals:{{week}}, capitalize) dimanche de Pâques',
-        octave: '$t(weekdays:{{dow}}, capitalize) dans l’Octave de Pâques',
-      },
+  seasons: {
+    advent: {
+      season: 'Temps de l’Avent',
+      weekday:
+        '$t(weekdays:{{dow}}, capitalize) de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine de l’Avent',
+      sunday: '$t(ordinals:{{week}}, capitalize) dimanche de l’Avent',
+      privileged_weekday: '{{day}} $t(months:11)',
     },
 
-    periods: {
-      epiphany: 'Épiphanie',
-      holy_week: 'Semaine Sainte',
+    christmas_time: {
+      season: 'Temps de Noël',
+      day: '$t(weekdays:{{dow}}, capitalize) dans le Temps de Noël',
+      octave: '{{count}}ᵉ jour dans l’Octave de la Nativité',
+      second_sunday_after_christmas: 'Deuxième dimanche après la Nativité',
+      before_epiphany: '{{day}} $t(months:0)',
+      after_epiphany: '$t(weekdays:{{dow}}, capitalize) après l’Épiphanie',
     },
 
-    ranks: {
-      solemnity: 'Solennité',
-      sunday: 'Dimanche',
-      feast: 'Fête',
-      memorial: 'Mémoire',
-      weekday: 'Férie',
+    ordinary_time: {
+      season: 'Temps Ordinaire',
+      weekday:
+        '$t(weekdays:{{dow}}, capitalize) de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine du Temps Ordinaire',
+      sunday: '$t(ordinals:{{week}}, capitalize) $t(weekdays:0) du Temps Ordinaire',
     },
 
-    celebrations: {
-      all_saints: 'Tous les Saints',
-      annunciation: 'Annonciation du Seigneur',
-      ascension: 'Ascension du Seigneur',
-      ash_wednesday: 'Mercredi des Cendres',
-      assumption: 'Assomption de la vierge Marie',
-      baptism_of_the_lord: 'Baptême du Seigneur',
-      christ_the_king_sunday: 'Trente-quatrième et dernier dimanche - Le Christ, Roi de l’Univers',
-      christmas: 'Nativité du Seigneur',
-      corpus_christi: 'Le Saint-Sacrement du Corps et du Sang du Christ',
-      divine_mercy_sunday: 'Deuxième dimanche de Pâques ou de la Divine Miséricorde',
-      easter_sunday: 'Dimanche de Pâques - La résurrection du Seigneur',
-      epiphany: 'Épiphanie du Seigneur',
-      exaltation_of_the_holy_cross: 'La Croix Glorieuse',
-      good_friday: 'Vendredi Saint',
-      holy_family: 'La Sainte Famille',
-      holy_saturday: 'Samedi Saint',
-      holy_thursday: 'Jeudi Saint',
-      immaculate_conception_of_mary: 'Immaculée Conception de la vierge Marie',
-      immaculate_heart_of_mary: 'Cœur immaculé de Marie',
-      joseph_spouse_of_mary: 'Saint Joseph, Époux de la vierge Marie',
-      mary_mother_of_god: 'Sainte Marie, Mère de Dieu',
-      most_sacred_heart_of_jesus: 'Sacré-Cœur de Jésus',
-      nativity_of_john_the_baptist: 'Nativité de Saint Jean le Baptiste',
-      palm_sunday: 'Dimanche des Rameaux et de la Passion',
-      pentecost_sunday: 'Pentecôte',
-      peter_and_paul_apostles: 'Saint Pierre et Saint Paul, apôtres',
-      presentation_of_the_lord: 'Présentation du Seigneur au Temple',
-      sunday_of_the_word_of_god: 'Troisième dimanche du Temps Ordinaire, ou de la Parole de Dieu',
-      thursday_of_the_lord_s_supper: 'Mémoire de la Cène du Seigneur',
-      transfiguration: 'Transfiguration du Seigneur',
-      trinity_sunday: 'La Sainte Trinité',
+    lent: {
+      season: 'Temps du Carême',
+      weekday:
+        '$t(weekdays:{{dow}}, capitalize) de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine de Carême',
+      sunday: '$t(ordinals:{{week}}, capitalize) dimanche de Carême',
+      day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) après les Cendres',
+      holy_week_day: '$t(weekdays:{{dow}}, capitalize) Saint',
     },
+
+    paschal_triduum: {
+      season: 'Triduum Pascal',
+    },
+
+    easter_time: {
+      season: 'Temps Pascal',
+      weekday:
+        '$t(weekdays:{{dow}}, capitalize) de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine de Pâques',
+      sunday: '$t(ordinals:{{week}}, capitalize) dimanche de Pâques',
+      octave: '$t(weekdays:{{dow}}, capitalize) dans l’Octave de Pâques',
+    },
+  },
+
+  periods: {
+    epiphany: 'Épiphanie',
+    holy_week: 'Semaine Sainte',
+  },
+
+  ranks: {
+    solemnity: 'Solennité',
+    sunday: 'Dimanche',
+    feast: 'Fête',
+    memorial: 'Mémoire',
+    weekday: 'Férie',
   },
 
   weekdays: {
@@ -172,7 +136,38 @@ export const locale: Locale = {
     '34': 'trente-quatrième',
   },
 
-  martyrology: {
+  names: {
+    all_saints: 'Tous les Saints',
+    annunciation: 'Annonciation du Seigneur',
+    ascension: 'Ascension du Seigneur',
+    ash_wednesday: 'Mercredi des Cendres',
+    assumption: 'Assomption de la vierge Marie',
+    baptism_of_the_lord: 'Baptême du Seigneur',
+    christ_the_king_sunday: 'Trente-quatrième et dernier dimanche - Le Christ, Roi de l’Univers',
+    christmas: 'Nativité du Seigneur',
+    corpus_christi: 'Le Saint-Sacrement du Corps et du Sang du Christ',
+    divine_mercy_sunday: 'Deuxième dimanche de Pâques ou de la Divine Miséricorde',
+    easter_sunday: 'Dimanche de Pâques - La résurrection du Seigneur',
+    epiphany: 'Épiphanie du Seigneur',
+    exaltation_of_the_holy_cross: 'La Croix Glorieuse',
+    good_friday: 'Vendredi Saint',
+    holy_family: 'La Sainte Famille',
+    holy_saturday: 'Samedi Saint',
+    holy_thursday: 'Jeudi Saint',
+    immaculate_conception_of_mary: 'Immaculée Conception de la vierge Marie',
+    immaculate_heart_of_mary: 'Cœur immaculé de Marie',
+    joseph_spouse_of_mary: 'Saint Joseph, Époux de la vierge Marie',
+    mary_mother_of_god: 'Sainte Marie, Mère de Dieu',
+    most_sacred_heart_of_jesus: 'Sacré-Cœur de Jésus',
+    nativity_of_john_the_baptist: 'Nativité de Saint Jean le Baptiste',
+    palm_sunday: 'Dimanche des Rameaux et de la Passion',
+    pentecost_sunday: 'Pentecôte',
+    peter_and_paul_apostles: 'Saint Pierre et Saint Paul, apôtres',
+    presentation_of_the_lord: 'Présentation du Seigneur au Temple',
+    sunday_of_the_word_of_god: 'Troisième dimanche du Temps Ordinaire, ou de la Parole de Dieu',
+    thursday_of_the_lord_s_supper: 'Mémoire de la Cène du Seigneur',
+    transfiguration: 'Transfiguration du Seigneur',
+    trinity_sunday: 'La Sainte Trinité',
     adalbert_of_prague_bishop: 'Saint Adalbert, évêque de Prague et martyr (✝ 997)',
     adalbert_of_prague_bishop_patron_of_poland:
       'Saint Adalbert, évêque de Prague, martyr et patron de la Pologne (✝ 997)',

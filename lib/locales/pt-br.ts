@@ -3,95 +3,60 @@ import { Locale } from '@romcal/types/locale';
 export const locale: Locale = {
   key: 'pt-br',
 
-  roman_rite: {
-    seasons: {
-      advent: {
-        season: 'Advento',
-        weekday: '$t(weekdays:{{dow}}, capitalize) da {{week}}ª semana do Advento',
-        sunday: '{{week}}º Domingo do Advento',
-        privileged_weekday: '{{day}} de $t(months:11)',
-      },
-
-      christmas_time: {
-        season: 'Natal',
-        day: '$t(weekdays:{{dow}}, capitalize) do Tempo do Natal',
-        octave: '{{count}}º dia da Oitava de Natal',
-        second_sunday_after_christmas: 'Segundo Domingo do Natal',
-        before_epiphany: '{{day}} de $t(months:0)',
-        after_epiphany: '$t(weekdays:{{dow}}, capitalize) depois da Epifania do Senhor',
-      },
-
-      ordinary_time: {
-        season: 'Tempo Comum',
-        weekday: '$t(weekdays:{{dow}}, capitalize) da {{week}}ª semana do Tempo Comum',
-        sunday: '{{week}}º Domingo do Tempo Comum',
-      },
-
-      lent: {
-        season: 'Quaresma',
-        weekday: '$t(weekdays:{{dow}}, capitalize) da {{week}}ª semana da Quaresma',
-        sunday: '{{week}}º Domingo da Quaresma',
-        day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) depois da Quarta-feira de Cinzas',
-        holy_week_day: '$t(weekdays:{{dow}}, capitalize) of Semana Santa',
-      },
-
-      paschal_triduum: {
-        season: 'Tríduo Pascal',
-      },
-
-      easter_time: {
-        season: 'Páscoa',
-        weekday: '$t(weekdays:{{dow}}, capitalize) da {{week}}ª semana do Tempo Pascal',
-        sunday: '{{week}}º Domingo do Tempo Pascal',
-        octave: 'Tempo Pascal $t(weekdays:{{dow}}, capitalize)',
-      },
+  seasons: {
+    advent: {
+      season: 'Advento',
+      weekday: '$t(weekdays:{{dow}}, capitalize) da {{week}}ª semana do Advento',
+      sunday: '{{week}}º Domingo do Advento',
+      privileged_weekday: '{{day}} de $t(months:11)',
     },
 
-    periods: {
-      epiphany: 'Epifania do Senhor',
-      holy_week: 'Semana Santa',
+    christmas_time: {
+      season: 'Natal',
+      day: '$t(weekdays:{{dow}}, capitalize) do Tempo do Natal',
+      octave: '{{count}}º dia da Oitava de Natal',
+      second_sunday_after_christmas: 'Segundo Domingo do Natal',
+      before_epiphany: '{{day}} de $t(months:0)',
+      after_epiphany: '$t(weekdays:{{dow}}, capitalize) depois da Epifania do Senhor',
     },
 
-    ranks: {
-      solemnity: 'solenidade',
-      sunday: 'domingo',
-      feast: 'festa',
-      memorial: 'memória',
-      weekday: 'dia de semana',
+    ordinary_time: {
+      season: 'Tempo Comum',
+      weekday: '$t(weekdays:{{dow}}, capitalize) da {{week}}ª semana do Tempo Comum',
+      sunday: '{{week}}º Domingo do Tempo Comum',
     },
 
-    celebrations: {
-      all_saints: 'Todos os Santos',
-      annunciation: 'Anunciação do Senhor',
-      ascension: 'Ascensão do Senhor',
-      ash_wednesday: 'Quarta-feira de Cinzas',
-      assumption: 'Assunção da Bem Aventurada Virgem Maria',
-      baptism_of_the_lord: 'Batismo do Senhor',
-      christ_the_king_sunday: 'Cristo Rei do Universo',
-      christmas: 'Natal',
-      corpus_christi: 'Corpus Christi',
-      divine_mercy_sunday: 'Domingo da Misericórdia',
-      easter_sunday: 'Domingo da Páscoa',
-      epiphany: 'Epifania do Senhor',
-      exaltation_of_the_holy_cross: 'Exaltação da Santa Cruz',
-      good_friday: 'Sexta-feira Santa',
-      holy_family: 'Sagrada Família',
-      holy_saturday: 'Sábado Santo',
-      holy_thursday: 'Quinta-feira Santa',
-      immaculate_conception_of_mary: 'Imaculada Conceição',
-      immaculate_heart_of_mary: 'Imaculado Coração de Maria',
-      joseph_spouse_of_mary: 'São José, esposo de Maria',
-      mary_mother_of_god: 'Maria, Mãe de Deus',
-      most_sacred_heart_of_jesus: 'Sagrado Coração de Jesus',
-      nativity_of_john_the_baptist: 'Nascimento de João Batista',
-      palm_sunday: 'Domingo de Ramos',
-      pentecost_sunday: 'Pentecostes',
-      peter_and_paul_apostles: 'São Pedro e São Paulo, Apóstolos',
-      presentation_of_the_lord: 'Apresentação do Senhor',
-      thursday_of_the_lord_s_supper: '$(roman_rite:celebrations.holy_thursday)',
-      transfiguration: 'Transfiguração do Senhor',
-      trinity_sunday: 'Santíssima Trindade',
+    lent: {
+      season: 'Quaresma',
+      weekday: '$t(weekdays:{{dow}}, capitalize) da {{week}}ª semana da Quaresma',
+      sunday: '{{week}}º Domingo da Quaresma',
+      day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) depois da Quarta-feira de Cinzas',
+      holy_week_day: '$t(weekdays:{{dow}}, capitalize) of Semana Santa',
     },
+
+    paschal_triduum: {
+      season: 'Tríduo Pascal',
+    },
+
+    easter_time: {
+      season: 'Páscoa',
+      weekday: '$t(weekdays:{{dow}}, capitalize) da {{week}}ª semana do Tempo Pascal',
+      sunday: '{{week}}º Domingo do Tempo Pascal',
+      octave: 'Tempo Pascal $t(weekdays:{{dow}}, capitalize)',
+    },
+  },
+
+  periods: {
+    epiphany: 'Epifania do Senhor',
+    holy_week: 'Semana Santa',
+  },
+
+  ranks: {
+    solemnity: 'solenidade',
+    sunday: 'domingo',
+    feast: 'festa',
+    memorial: 'memória',
+    weekday: 'dia de semana',
   },
 
   weekdays: {
@@ -200,7 +165,37 @@ export const locale: Locale = {
     '34_feminine': 'trigésima quarta',
   },
 
-  martyrology: {
+  names: {
+    all_saints: 'Todos os Santos',
+    annunciation: 'Anunciação do Senhor',
+    ascension: 'Ascensão do Senhor',
+    ash_wednesday: 'Quarta-feira de Cinzas',
+    assumption: 'Assunção da Bem Aventurada Virgem Maria',
+    baptism_of_the_lord: 'Batismo do Senhor',
+    christ_the_king_sunday: 'Cristo Rei do Universo',
+    christmas: 'Natal',
+    corpus_christi: 'Corpus Christi',
+    divine_mercy_sunday: 'Domingo da Misericórdia',
+    easter_sunday: 'Domingo da Páscoa',
+    epiphany: 'Epifania do Senhor',
+    exaltation_of_the_holy_cross: 'Exaltação da Santa Cruz',
+    good_friday: 'Sexta-feira Santa',
+    holy_family: 'Sagrada Família',
+    holy_saturday: 'Sábado Santo',
+    holy_thursday: 'Quinta-feira Santa',
+    immaculate_conception_of_mary: 'Imaculada Conceição',
+    immaculate_heart_of_mary: 'Imaculado Coração de Maria',
+    joseph_spouse_of_mary: 'São José, esposo de Maria',
+    mary_mother_of_god: 'Maria, Mãe de Deus',
+    most_sacred_heart_of_jesus: 'Sagrado Coração de Jesus',
+    nativity_of_john_the_baptist: 'Nascimento de João Batista',
+    palm_sunday: 'Domingo de Ramos',
+    pentecost_sunday: 'Pentecostes',
+    peter_and_paul_apostles: 'São Pedro e São Paulo, Apóstolos',
+    presentation_of_the_lord: 'Apresentação do Senhor',
+    thursday_of_the_lord_s_supper: '$(names:holy_thursday)',
+    transfiguration: 'Transfiguração do Senhor',
+    trinity_sunday: 'Santíssima Trindade',
     gregory_of_narek_abbot: 'São Gregório de Narek, abade e doutor da Igreja',
     hildegard_of_bingen_abbess: 'Santa Hildegarda de Bingen, virgem e doutora da Igreja',
     john_of_avila_priest: 'São João De Ávila, presbítero e doutor da Igreja',

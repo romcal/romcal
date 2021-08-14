@@ -55,14 +55,7 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
     }
     // i18nDef from general or particular calendars
     else {
-      name = this.#config.i18next.t('martyrology:' + this.i18nDef[0], this.i18nDef[1]);
-      // If not found in the Martyrology catalog, have a look in the Roman celebrations.
-      if (name === this.i18nDef[0]) {
-        name = this.#config.i18next.t(
-          'roman_rite:celebrations.' + this.i18nDef[0],
-          this.i18nDef[1],
-        );
-      }
+      name = this.#config.i18next.t('names:' + this.i18nDef[0], this.i18nDef[1]);
     }
     this.#name = name;
 
@@ -72,17 +65,14 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
   #rankName?: string;
   public get rankName(): string {
     if (this.#rankName !== undefined) return this.#rankName;
-    const key = `roman_rite:ranks.${(this.rank ?? '').toLowerCase()}`;
+    const key = `ranks:${(this.rank ?? '').toLowerCase()}`;
     return (this.#rankName = this.#config.i18next.t(key) ?? key);
   }
 
   #seasonNames?: string[];
   public get seasonNames(): string[] {
     if (this.#seasonNames !== undefined) return this.#seasonNames;
-    return (this.#seasonNames = this.seasons.map((s) => {
-      const key = `roman_rite:seasons.${(s ?? '').toLowerCase()}.season`;
-      return this.#config.i18next.t(key) ?? key;
-    }));
+    return (this.#seasonNames = this.#config.getSeasonNames(this.seasons));
   }
 
   #liturgicalColorNames?: string[];
