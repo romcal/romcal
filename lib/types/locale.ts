@@ -1,31 +1,9 @@
 export interface Locale {
   key: string;
   ordinals?: LocaleOrdinals;
-  roman_rite?: LocaleRomanRite;
   weekdays?: LocaleWeeks;
   months?: LocaleMonths;
   colors?: LocaleColors;
-  martyrology?: LocaleMartyrology;
-}
-
-// export type LocaleOrdinals = Record<string, string | ((n: number) => string)>;
-export type LocaleOrdinals = Record<string, string>;
-
-export type LocaleWeeks = Record<string, string>;
-
-export type LocaleMonths = Record<string, string>;
-
-export type LocaleColors = {
-  black?: string;
-  gold?: string;
-  green?: string;
-  purple?: string;
-  red?: string;
-  rose: string;
-  white?: string;
-};
-
-export type LocaleRomanRite = {
   seasons?: {
     advent?: {
       season?: string;
@@ -74,7 +52,24 @@ export type LocaleRomanRite = {
     memorial?: string;
     weekday?: string;
   };
-  celebrations?: Record<string, string>;
+  names?: LocaleMartyrology;
+}
+
+// export type LocaleOrdinals = Record<string, string | ((n: number) => string)>;
+export type LocaleOrdinals = Record<string, string>;
+
+export type LocaleWeeks = Record<string, string>;
+
+export type LocaleMonths = Record<string, string>;
+
+export type LocaleColors = {
+  black?: string;
+  gold?: string;
+  green?: string;
+  purple?: string;
+  red?: string;
+  rose: string;
+  white?: string;
 };
 
 export type LocaleMartyrology = Record<string, string>;

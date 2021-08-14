@@ -58,8 +58,10 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
     ));
   }
 
+  #seasonNames?: string[];
   public get seasonNames(): string[] {
-    return this.#liturgicalDayDef.seasonNames;
+    if (this.#seasonNames !== undefined) return this.#seasonNames;
+    return (this.#seasonNames = this.#liturgicalDayConfig.config.getSeasonNames(this.seasons));
   }
 
   /**

@@ -3,95 +3,60 @@ import { Locale } from '@romcal/types/locale';
 export const locale: Locale = {
   key: 'pl',
 
-  roman_rite: {
-    seasons: {
-      advent: {
-        season: 'Adwent',
-        weekday: '$t(weekdays:{{dow}}, capitalize) {{week}}. tygodnia Adwentu',
-        sunday: '{{week}}. Niedziela Adwentu',
-        privileged_weekday: '{{day}} $t(months:11)',
-      },
-
-      christmas_time: {
-        season: 'Narodzenie Pańskie',
-        day: '$t(weekdays:{{dow}}, capitalize) boże Narodzenie',
-        octave: '{{count}}. dzień w oktawie Narodzenia Pańskiego',
-        second_sunday_after_christmas: 'Druga Niedziela po Narodzeniu Pańskim',
-        before_epiphany: '{{day}} $t(months:0)',
-        after_epiphany: '$t(weekdays:{{dow}}, capitalize) po Objawieniu Pańskim',
-      },
-
-      ordinary_time: {
-        season: 'Okres Zwykły',
-        weekday: '$t(weekdays:{{dow}}, capitalize) {{week}}. tygodnia zwykłego',
-        sunday: '{{week}}. Niedziela zwykła',
-      },
-
-      lent: {
-        season: 'Wielki Post',
-        weekday: '$t(weekdays:{{dow}}, capitalize) {{week}}. tygodnia Wielkiego Postu',
-        sunday: '{{week}}. Niedziela Wielkiego Postu',
-        day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) po Popielcu',
-        holy_week_day: '$t(weekdays:{{dow}}, capitalize) Wielkiego Tygodnia',
-      },
-
-      paschal_triduum: {
-        season: 'Triduum Paschalne',
-      },
-
-      easter_time: {
-        season: 'Wielkanoc',
-        weekday: '$t(weekdays:{{dow}}, capitalize) {{week}}. tygodnia wielkanocnego',
-        sunday: '{{week}}. Niedziela Wielkanocna',
-        octave: '$t(weekdays:{{dow}}, capitalize) w oktawie Wielkanocy',
-      },
+  seasons: {
+    advent: {
+      season: 'Adwent',
+      weekday: '$t(weekdays:{{dow}}, capitalize) {{week}}. tygodnia Adwentu',
+      sunday: '{{week}}. Niedziela Adwentu',
+      privileged_weekday: '{{day}} $t(months:11)',
     },
 
-    periods: {
-      epiphany: 'Objawienie Pańskie',
-      holy_week: 'Wielki Tydzień',
+    christmas_time: {
+      season: 'Narodzenie Pańskie',
+      day: '$t(weekdays:{{dow}}, capitalize) boże Narodzenie',
+      octave: '{{count}}. dzień w oktawie Narodzenia Pańskiego',
+      second_sunday_after_christmas: 'Druga Niedziela po Narodzeniu Pańskim',
+      before_epiphany: '{{day}} $t(months:0)',
+      after_epiphany: '$t(weekdays:{{dow}}, capitalize) po Objawieniu Pańskim',
     },
 
-    ranks: {
-      solemnity: 'uroczystość',
-      sunday: 'niedziela',
-      feast: 'święto',
-      memorial: 'wspomnienie obowiązkowe',
-      weekday: 'dzień powszedni',
+    ordinary_time: {
+      season: 'Okres Zwykły',
+      weekday: '$t(weekdays:{{dow}}, capitalize) {{week}}. tygodnia zwykłego',
+      sunday: '{{week}}. Niedziela zwykła',
     },
 
-    celebrations: {
-      all_saints: 'Wszystkich Świętych',
-      annunciation: 'Zwiastowanie Pańskie',
-      ascension: 'Wniebowstąpienie Pańskie',
-      ash_wednesday: 'Środa Popielcowa',
-      assumption: 'Wniebowzięcie Najświętszej Maryi Panny',
-      baptism_of_the_lord: 'Chrzest Pański',
-      christ_the_king_sunday: 'Jezusa Chrystusa Króla Wszechświata',
-      christmas: 'Narodzenie Pańskie',
-      corpus_christi: 'Najświętszego Ciała i Krwi Chrystusa',
-      divine_mercy_sunday: '2 Niedziela Wielkanocna czyli Miłosierdzia Bożego',
-      easter_sunday: 'Niedziela Wielkanocna Zmartwychwstania Pańskiego',
-      epiphany: 'Objawienie Pańskie',
-      exaltation_of_the_holy_cross: 'Podwyższenie Krzyża Świętego',
-      good_friday: 'Wielki Piątek',
-      holy_family: 'Świętej Rodziny Jezusa, Maryi i Józefa',
-      holy_saturday: 'Wielka Sobota',
-      holy_thursday: 'Wielki Czwartek',
-      immaculate_conception_of_mary: 'Niepokalane Poczęcie Najświętszej Maryi Panny',
-      immaculate_heart_of_mary: 'Niepokalanego Serca Najświętszej Maryi Panny',
-      joseph_spouse_of_mary: 'Św. Józefa, Oblubieńca Najświętszej Maryi Panny',
-      mary_mother_of_god: 'Świętej Bożej Rodzicielki Maryi',
-      most_sacred_heart_of_jesus: 'Najświętszego Serca Pana Jezusa',
-      nativity_of_john_the_baptist: 'Narodzenie św. Jana Chrzciciela',
-      palm_sunday: 'Niedziela Palmowa Męki Pańskiej',
-      pentecost_sunday: 'Niedziela Zesłania Ducha Świętego',
-      peter_and_paul_apostles: 'Świętych Apostołów Piotra i Pawła',
-      presentation_of_the_lord: 'Ofiarowanie Pańskie',
-      thursday_of_the_lord_s_supper: '$(roman_rite:celebrations.holy_thursday)',
-      transfiguration: 'Przemienienie Pańskie',
-      trinity_sunday: 'Najświętszej Trójcy',
+    lent: {
+      season: 'Wielki Post',
+      weekday: '$t(weekdays:{{dow}}, capitalize) {{week}}. tygodnia Wielkiego Postu',
+      sunday: '{{week}}. Niedziela Wielkiego Postu',
+      day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) po Popielcu',
+      holy_week_day: '$t(weekdays:{{dow}}, capitalize) Wielkiego Tygodnia',
     },
+
+    paschal_triduum: {
+      season: 'Triduum Paschalne',
+    },
+
+    easter_time: {
+      season: 'Wielkanoc',
+      weekday: '$t(weekdays:{{dow}}, capitalize) {{week}}. tygodnia wielkanocnego',
+      sunday: '{{week}}. Niedziela Wielkanocna',
+      octave: '$t(weekdays:{{dow}}, capitalize) w oktawie Wielkanocy',
+    },
+  },
+
+  periods: {
+    epiphany: 'Objawienie Pańskie',
+    holy_week: 'Wielki Tydzień',
+  },
+
+  ranks: {
+    solemnity: 'uroczystość',
+    sunday: 'niedziela',
+    feast: 'święto',
+    memorial: 'wspomnienie obowiązkowe',
+    weekday: 'dzień powszedni',
   },
 
   weekdays: {
@@ -129,7 +94,37 @@ export const locale: Locale = {
     white: 'biały',
   },
 
-  martyrology: {
+  names: {
+    all_saints: 'Wszystkich Świętych',
+    annunciation: 'Zwiastowanie Pańskie',
+    ascension: 'Wniebowstąpienie Pańskie',
+    ash_wednesday: 'Środa Popielcowa',
+    assumption: 'Wniebowzięcie Najświętszej Maryi Panny',
+    baptism_of_the_lord: 'Chrzest Pański',
+    christ_the_king_sunday: 'Jezusa Chrystusa Króla Wszechświata',
+    christmas: 'Narodzenie Pańskie',
+    corpus_christi: 'Najświętszego Ciała i Krwi Chrystusa',
+    divine_mercy_sunday: '2 Niedziela Wielkanocna czyli Miłosierdzia Bożego',
+    easter_sunday: 'Niedziela Wielkanocna Zmartwychwstania Pańskiego',
+    epiphany: 'Objawienie Pańskie',
+    exaltation_of_the_holy_cross: 'Podwyższenie Krzyża Świętego',
+    good_friday: 'Wielki Piątek',
+    holy_family: 'Świętej Rodziny Jezusa, Maryi i Józefa',
+    holy_saturday: 'Wielka Sobota',
+    holy_thursday: 'Wielki Czwartek',
+    immaculate_conception_of_mary: 'Niepokalane Poczęcie Najświętszej Maryi Panny',
+    immaculate_heart_of_mary: 'Niepokalanego Serca Najświętszej Maryi Panny',
+    joseph_spouse_of_mary: 'Św. Józefa, Oblubieńca Najświętszej Maryi Panny',
+    mary_mother_of_god: 'Świętej Bożej Rodzicielki Maryi',
+    most_sacred_heart_of_jesus: 'Najświętszego Serca Pana Jezusa',
+    nativity_of_john_the_baptist: 'Narodzenie św. Jana Chrzciciela',
+    palm_sunday: 'Niedziela Palmowa Męki Pańskiej',
+    pentecost_sunday: 'Niedziela Zesłania Ducha Świętego',
+    peter_and_paul_apostles: 'Świętych Apostołów Piotra i Pawła',
+    presentation_of_the_lord: 'Ofiarowanie Pańskie',
+    thursday_of_the_lord_s_supper: '$(names:holy_thursday)',
+    transfiguration: 'Przemienienie Pańskie',
+    trinity_sunday: 'Najświętszej Trójcy',
     adalbert_of_prague_bishop: 'Św. Wojciecha, biskupa i męczennika',
     adalbert_of_prague_bishop_patron_of_poland:
       'Św. Wojciecha, biskupa i męczennika, głównego patrona Polski',

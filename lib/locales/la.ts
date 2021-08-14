@@ -3,100 +3,64 @@ import { Locale } from '@romcal/types/locale';
 export const locale: Locale = {
   key: 'la',
 
-  roman_rite: {
-    seasons: {
-      advent: {
-        season: 'Adventus',
-        weekday:
-          '$t(weekdays:{{dow}}, capitalize), hebdomada $t(ordinals:{{week}}, { "context": "feminine" }) Adventus',
-        sunday: 'Dominica $t(ordinals:{{week}}) Adventus',
-        privileged_weekday: 'Dia {{day}} $t(months:11)',
-      },
-
-      christmas_time: {
-        season: 'Nativitatis',
-        day: '$t(weekdays:{{dow}}, capitalize) temporis Nativitatis',
-        octave: 'De die {{count}} infra octavam Nativitatis',
-        second_sunday_after_christmas: 'Dominica secunda post Nativitatem',
-        before_epiphany: 'Die {{day}} $t(months:0)',
-        after_epiphany: '$t(weekdays:{{dow}}, capitalize) post Epiphaniam',
-      },
-
-      ordinary_time: {
-        season: 'Per annum',
-        weekday:
-          '$t(weekdays:{{dow}}, capitalize), hebdomada $t(ordinals:{{week}}, { "context": "feminine" }) per annum',
-        sunday: 'Dominica $t(ordinals:{{week}}) per annum',
-      },
-
-      lent: {
-        season: 'Quadragesimæ',
-        weekday:
-          '$t(weekdays:{{dow}}, capitalize), hebdomada $t(ordinals:{{week}}, { "context": "feminine" }) Quadragesimæ',
-        sunday: 'Dominica $t(ordinals:{{week}}) Quadragesimæ',
-        day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) post Cineres',
-        holy_week_day: '$t(weekdays:{{dow}}, capitalize) Hebdomadæ Sanctæ',
-      },
-
-      paschal_triduum: {
-        season: 'Triduum paschale',
-      },
-
-      easter_time: {
-        season: 'Paschæ',
-        weekday:
-          '$t(weekdays:{{dow}}, capitalize), hebdomada $t(ordinals:{{week}}, { "context": "feminine" }) temporis paschalis',
-        sunday: 'Dominica $t(ordinals:{{week}}) Paschæ',
-        octave: 'De die $t(weekdays:{{dow}}, capitalize) infra octavam Paschæ',
-      },
+  seasons: {
+    advent: {
+      season: 'Adventus',
+      weekday:
+        '$t(weekdays:{{dow}}, capitalize), hebdomada $t(ordinals:{{week}}, { "context": "feminine" }) Adventus',
+      sunday: 'Dominica $t(ordinals:{{week}}) Adventus',
+      privileged_weekday: 'Dia {{day}} $t(months:11)',
     },
 
-    periods: {
-      epiphany: 'Epiphaniæ',
-      holy_week: 'Hebdomadæ Sanctæ',
+    christmas_time: {
+      season: 'Nativitatis',
+      day: '$t(weekdays:{{dow}}, capitalize) temporis Nativitatis',
+      octave: 'De die {{count}} infra octavam Nativitatis',
+      second_sunday_after_christmas: 'Dominica secunda post Nativitatem',
+      before_epiphany: 'Die {{day}} $t(months:0)',
+      after_epiphany: '$t(weekdays:{{dow}}, capitalize) post Epiphaniam',
     },
 
-    ranks: {
-      solemnity: 'sollemnitas',
-      sunday: 'dominica',
-      feast: 'festum',
-      memorial: 'memoria',
-      weekday: 'feria',
+    ordinary_time: {
+      season: 'Per annum',
+      weekday:
+        '$t(weekdays:{{dow}}, capitalize), hebdomada $t(ordinals:{{week}}, { "context": "feminine" }) per annum',
+      sunday: 'Dominica $t(ordinals:{{week}}) per annum',
     },
 
-    celebrations: {
-      all_saints: 'Omnium Sanctorum',
-      annunciation: 'In Annuntiatione Domini',
-      ascension: 'In Ascensione Domini',
-      ash_wednesday: 'Feria IV Cinerum',
-      assumption: 'In Assumptione Beatæ Mariæ Virginis',
-      baptism_of_the_lord: 'In Baptismate Domini',
-      christ_the_king_sunday: 'D. N. I. C. universorum regis',
-      christmas: 'In Nativitate Domini',
-      corpus_christi: 'Ss.mi Corporis et Sanguinis Christi',
-      divine_mercy_sunday: 'Dominica in octava Paschæ seu de Divina Misericordia',
-      easter_sunday: 'Dominica Paschæ in Resurrectione Domini',
-      epiphany: 'In Epiphania Domini',
-      exaltation_of_the_holy_cross: 'In Exaltatione Sanctæ Crucis',
-      good_friday: 'Feria VI in Passione Domini',
-      holy_family: 'Sanctæ Familiæ Iesu, Mariæ et Ioseph',
-      holy_saturday: 'Sabbato Sancto/Vigilia paschalis',
-      holy_thursday: 'Feria V Hebdomadæ Sanctæ',
-      immaculate_conception_of_mary: 'In Conceptione Immaculata Beatæ Mariæ Virginis',
-      immaculate_heart_of_mary: 'Immaculati Cordis B. Mariæ Virginis',
-      joseph_spouse_of_mary: 'S. Iosephi, Sponsi B. M. V.',
-      mary_mother_of_god: 'In octava Nativitatis Domini, Sollemnitas Sanctæ Dei Genetricis Mariæ',
-      most_sacred_heart_of_jesus: 'Sacratissimi Cordis Iesu',
-      nativity_of_john_the_baptist: 'In Nativitate S. Ioannis Baptistæ',
-      palm_sunday: 'Dominica in Palmis de Passione Domini',
-      pentecost_sunday: 'Dominica Pentecostes',
-      peter_and_paul_apostles: 'Ss. Petri et Pauli, apostolorum',
-      presentation_of_the_lord: 'In Præsentatione Domini',
-      sunday_of_the_word_of_god: 'Dominica $t(ordinals:{{week}}) per annum, Dominica Verbi Dei',
-      thursday_of_the_lord_s_supper: '$(roman_rite:celebrations.holy_thursday), in Cena Domini',
-      transfiguration: 'In Transfiguratione Domini',
-      trinity_sunday: 'Ss.mæ Trinitatis',
+    lent: {
+      season: 'Quadragesimæ',
+      weekday:
+        '$t(weekdays:{{dow}}, capitalize), hebdomada $t(ordinals:{{week}}, { "context": "feminine" }) Quadragesimæ',
+      sunday: 'Dominica $t(ordinals:{{week}}) Quadragesimæ',
+      day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) post Cineres',
+      holy_week_day: '$t(weekdays:{{dow}}, capitalize) Hebdomadæ Sanctæ',
     },
+
+    paschal_triduum: {
+      season: 'Triduum paschale',
+    },
+
+    easter_time: {
+      season: 'Paschæ',
+      weekday:
+        '$t(weekdays:{{dow}}, capitalize), hebdomada $t(ordinals:{{week}}, { "context": "feminine" }) temporis paschalis',
+      sunday: 'Dominica $t(ordinals:{{week}}) Paschæ',
+      octave: 'De die $t(weekdays:{{dow}}, capitalize) infra octavam Paschæ',
+    },
+  },
+
+  periods: {
+    epiphany: 'Epiphaniæ',
+    holy_week: 'Hebdomadæ Sanctæ',
+  },
+
+  ranks: {
+    solemnity: 'sollemnitas',
+    sunday: 'dominica',
+    feast: 'festum',
+    memorial: 'memoria',
+    weekday: 'feria',
   },
 
   weekdays: {
@@ -239,7 +203,38 @@ export const locale: Locale = {
     '34_feminine': 'trigesima quartra',
   },
 
-  martyrology: {
+  names: {
+    all_saints: 'Omnium Sanctorum',
+    annunciation: 'In Annuntiatione Domini',
+    ascension: 'In Ascensione Domini',
+    ash_wednesday: 'Feria IV Cinerum',
+    assumption: 'In Assumptione Beatæ Mariæ Virginis',
+    baptism_of_the_lord: 'In Baptismate Domini',
+    christ_the_king_sunday: 'D. N. I. C. universorum regis',
+    christmas: 'In Nativitate Domini',
+    corpus_christi: 'Ss.mi Corporis et Sanguinis Christi',
+    divine_mercy_sunday: 'Dominica in octava Paschæ seu de Divina Misericordia',
+    easter_sunday: 'Dominica Paschæ in Resurrectione Domini',
+    epiphany: 'In Epiphania Domini',
+    exaltation_of_the_holy_cross: 'In Exaltatione Sanctæ Crucis',
+    good_friday: 'Feria VI in Passione Domini',
+    holy_family: 'Sanctæ Familiæ Iesu, Mariæ et Ioseph',
+    holy_saturday: 'Sabbato Sancto/Vigilia paschalis',
+    holy_thursday: 'Feria V Hebdomadæ Sanctæ',
+    immaculate_conception_of_mary: 'In Conceptione Immaculata Beatæ Mariæ Virginis',
+    immaculate_heart_of_mary: 'Immaculati Cordis B. Mariæ Virginis',
+    joseph_spouse_of_mary: 'S. Iosephi, Sponsi B. M. V.',
+    mary_mother_of_god: 'In octava Nativitatis Domini, Sollemnitas Sanctæ Dei Genetricis Mariæ',
+    most_sacred_heart_of_jesus: 'Sacratissimi Cordis Iesu',
+    nativity_of_john_the_baptist: 'In Nativitate S. Ioannis Baptistæ',
+    palm_sunday: 'Dominica in Palmis de Passione Domini',
+    pentecost_sunday: 'Dominica Pentecostes',
+    peter_and_paul_apostles: 'Ss. Petri et Pauli, apostolorum',
+    presentation_of_the_lord: 'In Præsentatione Domini',
+    sunday_of_the_word_of_god: 'Dominica $t(ordinals:{{week}}) per annum, Dominica Verbi Dei',
+    thursday_of_the_lord_s_supper: '$(names:holy_thursday), in Cena Domini',
+    transfiguration: 'In Transfiguratione Domini',
+    trinity_sunday: 'Ss.mæ Trinitatis',
     '205_blessed_martyrs_of_japan': 'B. Martyres Iaponici CCV',
     adalbert_of_prague_bishop: 'S. Adalberti, episcopi et martyris',
     adalbert_of_prague_bishop_patron_of_poland:

@@ -10,6 +10,7 @@ import { toRomanNumber } from '@romcal/utils/numbers';
 import dayjs from 'dayjs';
 import updateLocale from 'dayjs/plugin/updateLocale';
 import i18next, { i18n } from 'i18next';
+import { LiturgicalSeasons } from '@romcal/constants/seasons';
 
 dayjs.extend(updateLocale);
 
@@ -115,12 +116,14 @@ export class RomcalConfig implements IRoncalConfig {
    * @private
    */
   #addResourceBundles(locale: Locale): void {
-    this.i18next.addResourceBundle(locale.key, 'roman_rite', locale.roman_rite);
+    this.i18next.addResourceBundle(locale.key, 'seasons', locale.seasons);
+    this.i18next.addResourceBundle(locale.key, 'periods', locale.periods);
+    this.i18next.addResourceBundle(locale.key, 'ranks', locale.ranks);
     this.i18next.addResourceBundle(locale.key, 'weekdays', locale.weekdays);
     this.i18next.addResourceBundle(locale.key, 'months', locale.months);
     this.i18next.addResourceBundle(locale.key, 'colors', locale.colors);
     this.i18next.addResourceBundle(locale.key, 'ordinals', locale.ordinals);
-    this.i18next.addResourceBundle(locale.key, 'martyrology', locale.martyrology);
+    this.i18next.addResourceBundle(locale.key, 'names', locale.names);
   }
 
   /**
@@ -130,6 +133,17 @@ export class RomcalConfig implements IRoncalConfig {
   getLiturgicalColorNames(liturgicalColors: LiturgicalColors[]): string[] {
     return liturgicalColors.map((s) => {
       const key = `colors:${(s ?? '').toLowerCase()}`;
+      return this.i18next.t(key) ?? key;
+    });
+  }
+
+  /**
+   * Return localised season names from season keys
+   * @param seasons
+   */
+  getSeasonNames(seasons: LiturgicalSeasons[]): string[] {
+    return seasons.map((s) => {
+      const key = `seasons:${(s ?? '').toLowerCase()}.season`;
       return this.i18next.t(key) ?? key;
     });
   }

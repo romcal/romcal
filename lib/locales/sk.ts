@@ -3,97 +3,60 @@ import { Locale } from '@romcal/types/locale';
 export const locale: Locale = {
   key: 'sk',
 
-  roman_rite: {
-    seasons: {
-      advent: {
-        season: 'Adventné obdobie',
-        weekday: '$t(weekdays:{{dow}}, capitalize) po {{week}}. adventnej nedeli',
-        sunday: '{{week}}. adventná nedeľa',
-        privileged_weekday: '{{day}} $t(months:11)',
-      },
-
-      christmas_time: {
-        season: 'Vianočné obdobie',
-        day: '$t(weekdays:{{dow}}, capitalize) vo Vianočnom období',
-        octave: '{{count}}. deň v oktáve narodenia Pána',
-        second_sunday_after_christmas: 'Druhú nedeľa po narodení Pána',
-        before_epiphany: '{{day}}. $t(months:0) vo vianočnom období',
-        after_epiphany: '$t(weekdays:{{dow}}, capitalize) po Zjavení Pána',
-      },
-
-      ordinary_time: {
-        season: 'Cezročné obdobie',
-        weekday: '$t(weekdays:{{dow}}, capitalize) {{week}}. týždňa v Cezročnom období',
-        sunday: '{{week}}. nedeľa v Cezročnom období',
-      },
-
-      lent: {
-        season: 'Pôstne obdobie',
-        weekday: '$t(weekdays:{{dow}}, capitalize) po {{week}}. pôstnej nedeli',
-        sunday: '{{week}}. pôstna nedeľa',
-        day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) po Popolcovej strede',
-        holy_week_day: '$t(weekdays:{{dow}}, capitalize) Veľkého týždňa',
-      },
-
-      paschal_triduum: {
-        season: 'Veľkonočné Triduum',
-      },
-
-      easter_time: {
-        season: 'Veľkonočné obdobie',
-        weekday: '$t(weekdays:{{dow}}, capitalize) po {{week}}. veľkonočnej nedeli',
-        sunday: '{{week}}. veľkonočná nedeľa',
-        octave: 'Veľkonočný $t(weekdays:{{dow}}, capitalize)',
-      },
+  seasons: {
+    advent: {
+      season: 'Adventné obdobie',
+      weekday: '$t(weekdays:{{dow}}, capitalize) po {{week}}. adventnej nedeli',
+      sunday: '{{week}}. adventná nedeľa',
+      privileged_weekday: '{{day}} $t(months:11)',
     },
 
-    periods: {
-      epiphany: 'Zjavenie Pána',
-      holy_week: 'Veľký týždeň',
+    christmas_time: {
+      season: 'Vianočné obdobie',
+      day: '$t(weekdays:{{dow}}, capitalize) vo Vianočnom období',
+      octave: '{{count}}. deň v oktáve narodenia Pána',
+      second_sunday_after_christmas: 'Druhú nedeľa po narodení Pána',
+      before_epiphany: '{{day}}. $t(months:0) vo vianočnom období',
+      after_epiphany: '$t(weekdays:{{dow}}, capitalize) po Zjavení Pána',
     },
 
-    ranks: {
-      solemnity: 'slávnosť',
-      sunday: 'nedeľa',
-      feast: 'sviatok',
-      memorial: 'spomienka',
-      weekday: 'féria',
+    ordinary_time: {
+      season: 'Cezročné obdobie',
+      weekday: '$t(weekdays:{{dow}}, capitalize) {{week}}. týždňa v Cezročnom období',
+      sunday: '{{week}}. nedeľa v Cezročnom období',
     },
 
-    celebrations: {
-      all_saints: 'Všetkých svätých',
-      annunciation: 'Zvestovanie Pána',
-      ascension: 'Nanebovstúpenie Pána',
-      ash_wednesday: 'Popolcová streda',
-      assumption: 'Nanebovzatie Panny Márie',
-      baptism_of_the_lord: 'Krst Krista Pána',
-      christ_the_king_sunday: 'Krista Kráľa',
-      christmas: 'Narodenie Pána',
-      corpus_christi: 'Najsvätejšieho Kristovho Tela a Krvi',
-      divine_mercy_sunday: 'Nedeľa Božieho milosrdenstva',
-      easter_sunday: 'Nedeľa Pánovho zmŕtvychvstania',
-      epiphany: 'Zjavenie Pána',
-      exaltation_of_the_holy_cross: 'Povýšenie Svätého kríža',
-      good_friday: 'Veľký piatok',
-      guardian_angel_of_portugal: 'Anjela strážcu Portugalska',
-      holy_family: 'Svätej rodiny Ježiša, Márie a Jozefa',
-      holy_saturday: 'Biela sobota',
-      holy_thursday: 'Zelený štvrtok',
-      immaculate_conception_of_mary: 'Nepoškvrnené počatie Panny Márie',
-      immaculate_heart_of_mary: 'Nepoškvrneného Srdca Panny Márie',
-      joseph_spouse_of_mary: 'Svätého Jozefa, ženícha Panny Márie',
-      mary_mother_of_god: 'Panny Márie Bohorodičky',
-      most_sacred_heart_of_jesus: 'Najsvätejšieho Srdca Ježišovho',
-      nativity_of_john_the_baptist: 'Narodenie svätého Jána Krstiteľa',
-      palm_sunday: 'Kvetná nedeľa',
-      pentecost_sunday: 'Zoslanie Ducha Svätého',
-      peter_and_paul_apostles: 'Svätých Petra a Pavla, apoštolov',
-      presentation_of_the_lord: 'Obetovanie Pána',
-      sunday_of_the_word_of_god: 'Nedeľa Božieho slova',
-      thursday_of_the_lord_s_supper: '$(roman_rite:celebrations.holy_thursday)',
-      transfiguration: 'Premenenie Pána',
-      trinity_sunday: 'Najsvätejšej Trojice',
+    lent: {
+      season: 'Pôstne obdobie',
+      weekday: '$t(weekdays:{{dow}}, capitalize) po {{week}}. pôstnej nedeli',
+      sunday: '{{week}}. pôstna nedeľa',
+      day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) po Popolcovej strede',
+      holy_week_day: '$t(weekdays:{{dow}}, capitalize) Veľkého týždňa',
     },
+
+    paschal_triduum: {
+      season: 'Veľkonočné Triduum',
+    },
+
+    easter_time: {
+      season: 'Veľkonočné obdobie',
+      weekday: '$t(weekdays:{{dow}}, capitalize) po {{week}}. veľkonočnej nedeli',
+      sunday: '{{week}}. veľkonočná nedeľa',
+      octave: 'Veľkonočný $t(weekdays:{{dow}}, capitalize)',
+    },
+  },
+
+  periods: {
+    epiphany: 'Zjavenie Pána',
+    holy_week: 'Veľký týždeň',
+  },
+
+  ranks: {
+    solemnity: 'slávnosť',
+    sunday: 'nedeľa',
+    feast: 'sviatok',
+    memorial: 'spomienka',
+    weekday: 'féria',
   },
 
   weekdays: {
@@ -131,7 +94,39 @@ export const locale: Locale = {
     white: 'biela',
   },
 
-  martyrology: {
+  names: {
+    all_saints: 'Všetkých svätých',
+    annunciation: 'Zvestovanie Pána',
+    ascension: 'Nanebovstúpenie Pána',
+    ash_wednesday: 'Popolcová streda',
+    assumption: 'Nanebovzatie Panny Márie',
+    baptism_of_the_lord: 'Krst Krista Pána',
+    christ_the_king_sunday: 'Krista Kráľa',
+    christmas: 'Narodenie Pána',
+    corpus_christi: 'Najsvätejšieho Kristovho Tela a Krvi',
+    divine_mercy_sunday: 'Nedeľa Božieho milosrdenstva',
+    easter_sunday: 'Nedeľa Pánovho zmŕtvychvstania',
+    epiphany: 'Zjavenie Pána',
+    exaltation_of_the_holy_cross: 'Povýšenie Svätého kríža',
+    good_friday: 'Veľký piatok',
+    guardian_angel_of_portugal: 'Anjela strážcu Portugalska',
+    holy_family: 'Svätej rodiny Ježiša, Márie a Jozefa',
+    holy_saturday: 'Biela sobota',
+    holy_thursday: 'Zelený štvrtok',
+    immaculate_conception_of_mary: 'Nepoškvrnené počatie Panny Márie',
+    immaculate_heart_of_mary: 'Nepoškvrneného Srdca Panny Márie',
+    joseph_spouse_of_mary: 'Svätého Jozefa, ženícha Panny Márie',
+    mary_mother_of_god: 'Panny Márie Bohorodičky',
+    most_sacred_heart_of_jesus: 'Najsvätejšieho Srdca Ježišovho',
+    nativity_of_john_the_baptist: 'Narodenie svätého Jána Krstiteľa',
+    palm_sunday: 'Kvetná nedeľa',
+    pentecost_sunday: 'Zoslanie Ducha Svätého',
+    peter_and_paul_apostles: 'Svätých Petra a Pavla, apoštolov',
+    presentation_of_the_lord: 'Obetovanie Pána',
+    sunday_of_the_word_of_god: 'Nedeľa Božieho slova',
+    thursday_of_the_lord_s_supper: '$(names:holy_thursday)',
+    transfiguration: 'Premenenie Pána',
+    trinity_sunday: 'Najsvätejšej Trojice',
     '205_blessed_martyrs_of_japan': 'Blahoslavených 205 japonských mučeníkov',
     adalbert_of_prague_bishop: 'Svätého Vojtecha, biskupa a mučeníka',
     adalbert_of_prague_bishop_patron_of_poland:
