@@ -143,6 +143,20 @@ export class Martyrology {
       dateOfDeath: 997,
     },
 
+    adelaide_of_burgundy: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Adelaide of Burgundy',
+      titles: [Titles.Empress],
+      dateOfDeath: '999-12-16',
+    },
+
+    adelphus_bishop: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Adolph Kolping',
+      titles: [Titles.Bishop],
+      dateOfDeath: { century: 5 },
+    },
+
     adolph_kolping_priest: {
       canonizationLevel: CanonizationLevel.Blessed,
       name: 'Adolph Kolping',
@@ -334,6 +348,21 @@ export class Martyrology {
       dateOfDeathIsApproximative: true,
     },
 
+    amandus_of_strasbourg_bishop: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Amandus of Strasbourg',
+      titles: [Titles.Bishop],
+      dateOfDeath: 346,
+      dateOfDeathIsApproximative: true,
+    },
+
+    amarin_abbot: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Amarin',
+      titles: [Titles.Abbot, Titles.Martyr],
+      dateOfDeath: { or: [674, 676] },
+    },
+
     ambrose_of_milan_bishop: {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Ambrose',
@@ -379,6 +408,13 @@ export class Martyrology {
       titles: [Titles.Priest, Titles.Martyr],
     },
 
+    andre_bauer_martyr: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'André Bauer',
+      titles: [Titles.Martyr],
+      dateOfDeath: '1900-7-9',
+    },
+
     andrew_dung_lac_priest: {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Andrew Dũng-Lạc',
@@ -405,13 +441,6 @@ export class Martyrology {
       name: 'Andrew Zorard',
       titles: [Titles.Hermit],
       dateOfDeath: 1009,
-    },
-
-    benedict_of_skalka_hermit: {
-      canonizationLevel: CanonizationLevel.Saint,
-      name: 'Benedict',
-      titles: [Titles.Hermit],
-      dateOfDeath: 1012,
     },
 
     angela_merici_virgin: {
@@ -500,6 +529,13 @@ export class Martyrology {
       dateOfDeath: 81,
     },
 
+    arbogast_of_strassburg_bishop: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Arbogast',
+      titles: [Titles.Bishop],
+      dateOfDeath: 678,
+    },
+
     asaph_of_wales_bishop: {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Asaph',
@@ -517,6 +553,13 @@ export class Martyrology {
       name: 'Athanasius',
       titles: [Titles.Bishop, Titles.DoctorOfTheChurch],
       dateOfDeath: 373,
+    },
+
+    attale_of_alsace_virgin: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Attale',
+      titles: [Titles.Virgin],
+      dateOfDeath: { century: 8 },
     },
 
     attracta_of_killaraght_virgin: {
@@ -550,6 +593,12 @@ export class Martyrology {
       name: 'Augustine Zhao Rong',
       titles: [Titles.Priest, Titles.Martyr],
       dateOfDeath: { between: [1648, 1930] },
+    },
+
+    aurelia_virgin: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Aurelia',
+      titles: [Titles.Virgin],
     },
 
     barbara_of_heliopolis_virgin: {
@@ -609,6 +658,13 @@ export class Martyrology {
       dateOfDeath: 735,
     },
 
+    benedict_of_aniane_abbot: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Benedict of Aniane',
+      titles: [Titles.Abbot],
+      dateOfDeath: '820-2-11',
+    },
+
     benedict_of_jesus_valdivielso_saez_religious: {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Benedict of Jesus Valdivielso Sáez',
@@ -627,6 +683,13 @@ export class Martyrology {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Benno of Meissen',
       titles: [Titles.Bishop],
+    },
+
+    benedict_of_skalka_hermit: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Benedict',
+      titles: [Titles.Hermit],
+      dateOfDeath: 1012,
     },
 
     bernadette_soubirous_virgin: {
@@ -724,7 +787,8 @@ export class Martyrology {
     brigid_of_kildare_virgin: {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Brigid',
-      titles: [Titles.Virgin],
+      titles: [Titles.Abbess],
+      dateOfDeath: 523,
     },
 
     bronislava_of_poland_virgin: {
@@ -990,6 +1054,7 @@ export class Martyrology {
     clotilde_of_burgundy: {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Clotilde',
+      titles: [Titles.Queen],
       dateOfDeath: 545,
     },
 
@@ -1320,6 +1385,7 @@ export class Martyrology {
     elizabeth_of_portugal: {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Elizabeth of Portugal',
+      titles: [Titles.Queen],
       dateOfDeath: 1336,
     },
 
@@ -1373,11 +1439,25 @@ export class Martyrology {
       titles: [Titles.Abbess],
     },
 
+    eucharius_of_treves_bishop: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Eucharius',
+      titles: [Titles.Bishop],
+      dateOfDeath: { century: 3 },
+    },
+
     eugene_de_mazenod_bishop: {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Eugène de Mazenod',
       titles: [Titles.Bishop],
       dateOfDeath: 1861,
+    },
+
+    eugenie_of_alsace_virgin: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Eugenie of Alsace',
+      titles: [Titles.Virgin],
+      dateOfDeath: { century: 8 },
     },
 
     eulalia_of_merida_virgin: {
@@ -1515,6 +1595,13 @@ export class Martyrology {
       titles: [Titles.Martyr],
     },
 
+    florentius_of_strasbourg_bishop: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Florentius of Strasbourg',
+      titles: [Titles.Bishop],
+      dateOfDeath: { century: 7 },
+    },
+
     frances_of_rome_religious: {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Frances of Rome',
@@ -1608,7 +1695,9 @@ export class Martyrology {
     fridolin_of_sackingen_monk: {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Fridolin of Säckingen',
-      titles: [Titles.Monk],
+      titles: [Titles.Monk, Titles.Missionary],
+      dateOfDeath: '540-3-6',
+      dateOfDeathIsApproximative: true,
     },
 
     fructuosus_of_braga_bishop: {
@@ -1663,6 +1752,7 @@ export class Martyrology {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Gall',
       titles: [Titles.Abbot, Titles.Missionary],
+      dateOfDeath: { or: [641, 646] },
     },
 
     genevieve_of_paris_virgin: {
@@ -2234,6 +2324,13 @@ export class Martyrology {
       dateOfDeath: 1272,
     },
 
+    jean_georges_rehm_priest_and_martyr: {
+      canonizationLevel: CanonizationLevel.Blessed,
+      name: 'Jean-Georges Rehm',
+      titles: [Titles.Priest, Titles.Martyr],
+      dateOfDeath: '1794-8',
+    },
+
     john_de_britto_priest: {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'John de Brito',
@@ -2680,12 +2777,20 @@ export class Martyrology {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Leo IX',
       titles: [Titles.Pope],
+      dateOfDeath: '1054-4-19',
     },
 
     leoba_of_tauberbischofsheim_abbess: {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Leoba',
       titles: [Titles.Abbess],
+    },
+
+    leodegar_bishop_and_martyr: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Leodegar',
+      titles: [Titles.Abbot, Titles.Martyr],
+      dateOfDeath: { or: [679, 680] },
     },
 
     leonard_of_noblac_hermit: {
@@ -2727,6 +2832,7 @@ export class Martyrology {
     louis_ix_of_france: {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Louis',
+      titles: [Titles.King],
       dateOfDeath: 1270,
     },
 
@@ -2762,6 +2868,13 @@ export class Martyrology {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Lucy Yi Zhenmei',
       titles: [Titles.Virgin, Titles.Martyr],
+    },
+
+    ludan_pilgrim: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Ludan',
+      titles: [Titles.Pilgrim],
+      dateOfDeath: '1202-02-12',
     },
 
     ludger_of_munster_bishop: {
@@ -3023,6 +3136,13 @@ export class Martyrology {
       titles: [Titles.Hermit],
     },
 
+    maternus_of_cologne_bishop: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Maternus of Cologne',
+      titles: [Titles.Bishop],
+      dateOfDeath: { century: 4 },
+    },
+
     martha_of_bethany: {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Martha',
@@ -3230,6 +3350,21 @@ export class Martyrology {
       titles: [Titles.Archangel],
     },
 
+    modeste_andlauer_martyr: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Modeste Andlauer',
+      titles: [Titles.Martyr],
+      dateOfDeath: '1900-6-19',
+    },
+
+    morandus_of_cluny_monk: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Morandus',
+      titles: [Titles.Monk],
+      dateOfDeath: '1115-6-3',
+      dateOfDeathIsApproximative: true,
+    },
+
     gabriel_archangel: {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Gabriel',
@@ -3414,6 +3549,8 @@ export class Martyrology {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Odile of Alsace',
       titles: [Titles.Abbess],
+      dateOfDeath: 720,
+      dateOfDeathIsApproximative: true,
     },
 
     odoric_of_pordenone_priest: {
@@ -3757,7 +3894,7 @@ export class Martyrology {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Peter Canisius',
       titles: [Titles.Priest, Titles.DoctorOfTheChurch],
-      dateOfDeath: 1597,
+      dateOfDeath: '1597-12-21',
     },
 
     peter_chanel_priest: {
@@ -3878,6 +4015,7 @@ export class Martyrology {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Pirmin',
       titles: [Titles.Abbot],
+      dateOfDeath: '753-11-3',
     },
 
     pius_ix_pope: {
@@ -4028,6 +4166,13 @@ export class Martyrology {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Richard of Chichester',
       titles: [Titles.Bishop],
+    },
+
+    richardis_of_swabi: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Richardis',
+      titles: [Titles.Empress],
+      dateOfDeath: { or: [894, 896] },
     },
 
     rita_of_cascia_religious: {
@@ -4251,6 +4396,7 @@ export class Martyrology {
     stephen_i_of_hungary: {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Stephen of Hungary',
+      titles: [Titles.King],
       dateOfDeath: 1038,
     },
 
@@ -4438,6 +4584,14 @@ export class Martyrology {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Ulrich of Augsburg',
       titles: [Titles.Bishop],
+      dateOfDeath: '973-7-4',
+    },
+
+    urban_i_pape: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Urban I',
+      titles: [Titles.Pope, Titles.Martyr],
+      dateOfDeath: { century: 3 },
     },
 
     ursula_of_cologne_virgin: {
@@ -4450,6 +4604,13 @@ export class Martyrology {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Valentine of Raetia',
       titles: [Titles.Bishop],
+    },
+
+    valerius_of_treves_bishop: {
+      canonizationLevel: CanonizationLevel.Saint,
+      name: 'Valerius of Trèves',
+      titles: [Titles.Bishop],
+      dateOfDeath: 320,
     },
 
     vincent_de_paul_priest: {
@@ -4539,7 +4700,8 @@ export class Martyrology {
     wendelin_of_trier_abbot: {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Wendelin',
-      titles: [Titles.Abbot],
+      titles: [Titles.Hermit, Titles.Abbot],
+      dateOfDeath: 617,
     },
 
     wilfrid_of_york_bishop: {

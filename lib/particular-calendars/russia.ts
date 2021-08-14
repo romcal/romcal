@@ -76,7 +76,6 @@ export class Russia extends CalendarDef {
 
     faustina_kowalska_virgin: {
       precedence: Precedences.ProperMemorial_11b,
-      dateDef: { month: 10, date: 5 },
     },
 
     oleksiy_zarytskyi_priest: {

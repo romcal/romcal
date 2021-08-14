@@ -198,7 +198,6 @@ export class Hungary extends CalendarDef {
 
     most_holy_name_of_mary: {
       precedence: Precedences.ProperMemorial_11b,
-      dateDef: { month: 9, date: 12 },
     },
 
     gerard_of_csanad_bishop: {
