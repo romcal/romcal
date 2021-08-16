@@ -86,26 +86,24 @@ const RomcalBundler = () => {
       const mergedLocale = mergeDeep(locales.en, locale);
 
       // Extract required liturgical names
-      const localeKeys: string[] = Object.entries(definitions)
-        .map(
-          ([key, input]) =>
-            [...input].reverse().find((i) => i.customLocaleKey)?.customLocaleKey || key,
-        )
-        .sort();
-      const names = localeKeys.reduce((obj: LocaleLiturgicalDayNames, key: string) => {
-        if (locale.names && Object.prototype.hasOwnProperty.call(locale.names, key)) {
-          obj[key] = locale.names[key];
-        } else if (
-          locales.en.names &&
-          Object.prototype.hasOwnProperty.call(locales.en.names, key)
-        ) {
-          obj[key] = locales.en.names[key];
-        } else {
-          obj[key] = key;
-          //console.error(` Locale key 'names:${key}' is missing.`);
-        }
-        return obj;
-      }, {});
+      const names = Object.values(config.liturgicalDayDef)
+        .filter((def) => def.i18nDef[0].startsWith('names:'))
+        .map((def) => def.i18nDef[0].substr(6))
+        .reduce((obj: LocaleLiturgicalDayNames, key: string) => {
+          if (locale.names && Object.prototype.hasOwnProperty.call(locale.names, key)) {
+            obj[key] = locale.names[key];
+          } else if (
+            locales.en.names &&
+            Object.prototype.hasOwnProperty.call(locales.en.names, key)
+          ) {
+            obj[key] = locales.en.names[key];
+          } else {
+            throw new Error(
+              `Locale key 'names:${key}' is missing in the calendar '${calendar.name}'.`,
+            );
+          }
+          return obj;
+        }, {});
 
       // Extract martyrology items
       const martyrology: MartyrologyCatalog = Object.fromEntries(
