@@ -5,7 +5,7 @@ import { InputDefinitions } from '@romcal/types/calendar-def';
 import { PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
 
 export class Ireland extends CalendarDef {
-  inheritFrom = Europe;
+  parentCalendar = Europe;
 
   definitions: InputDefinitions = {
     munchin_of_limerick_bishop: {

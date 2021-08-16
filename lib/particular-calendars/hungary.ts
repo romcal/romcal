@@ -7,7 +7,7 @@ import { InputDefinitions } from '@romcal/types/calendar-def';
 import { PatronTitles } from '@romcal/constants/martyrology-metadata';
 
 export class Hungary extends CalendarDef {
-  inheritFrom = Europe;
+  parentCalendar = Europe;
 
   definitions: InputDefinitions = {
     paul_of_thebes_hermit: {

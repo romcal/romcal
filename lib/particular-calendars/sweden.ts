@@ -5,7 +5,7 @@ import { Europe } from '@romcal/particular-calendars/europe';
 import { InputDefinitions } from '@romcal/types/calendar-def';
 
 export class Sweden extends CalendarDef {
-  inheritFrom = Europe;
+  parentCalendar = Europe;
 
   definitions: InputDefinitions = {
     elizabeth_hesselblad_religious: {

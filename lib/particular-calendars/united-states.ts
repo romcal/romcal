@@ -5,7 +5,7 @@ import { InputDefinitions, ParticularConfig } from '@romcal/types/calendar-def';
 import { PatronTitles } from '@romcal/constants/martyrology-metadata';
 
 export class UnitedStates extends CalendarDef {
-  inheritFrom = Americas;
+  parentCalendar = Americas;
 
   particularConfig: ParticularConfig = {
     // TODO: Ascension is celebrated on Thursday in the following ecclesiastical provinces (in all other 26 EP, it is celebrated on Sunday): Boston, Hartford, New York, Newark, Omaha, Philadelphia

@@ -4,7 +4,7 @@ import { Europe } from '@romcal/particular-calendars/europe';
 import { InputDefinitions } from '@romcal/types/calendar-def';
 
 export class Lithuania extends CalendarDef {
-  inheritFrom = Europe;
+  parentCalendar = Europe;
 
   definitions: InputDefinitions = {
     george_matulaitis_bishop: {

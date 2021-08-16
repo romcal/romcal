@@ -5,7 +5,7 @@ import { France } from '@romcal/particular-calendars/france';
 import { PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
 
 export class France_Paris extends CalendarDef {
-  inheritFrom = France;
+  parentCalendar = France;
 
   definitions: InputDefinitions = {
     genevieve_of_paris_virgin: {

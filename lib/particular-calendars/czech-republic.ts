@@ -6,7 +6,7 @@ import { Europe } from '@romcal/particular-calendars/europe';
 import { InputDefinitions, ParticularConfig } from '@romcal/types/calendar-def';
 
 export class CzechRepublic extends CalendarDef {
-  inheritFrom = Europe;
+  parentCalendar = Europe;
 
   particularConfig: ParticularConfig = {
     ascensionOnSunday: false,

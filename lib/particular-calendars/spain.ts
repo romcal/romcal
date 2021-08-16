@@ -6,7 +6,7 @@ import { InputDefinitions } from '@romcal/types/calendar-def';
 import { PatronTitles } from '@romcal/constants/martyrology-metadata';
 
 export class Spain extends CalendarDef {
-  inheritFrom = Europe;
+  parentCalendar = Europe;
 
   definitions: InputDefinitions = {
     eulogius_of_cordoba_bishop: {

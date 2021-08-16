@@ -6,7 +6,7 @@ import { InputDefinitions } from '@romcal/types/calendar-def';
 import { Titles } from '@romcal/constants/martyrology-metadata';
 
 export class Chile extends CalendarDef {
-  inheritFrom = Americas;
+  parentCalendar = Americas;
 
   definitions: InputDefinitions = {
     laura_vicuna_virgin: {

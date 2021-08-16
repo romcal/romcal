@@ -5,7 +5,7 @@ import { InputDefinitions, ParticularConfig } from '@romcal/types/calendar-def';
 import { PatronTitles } from '@romcal/constants/martyrology-metadata';
 
 export class France extends CalendarDef {
-  inheritFrom = Europe;
+  parentCalendar = Europe;
 
   particularConfig: ParticularConfig = {
     ascensionOnSunday: false,

@@ -5,7 +5,7 @@ import { Americas } from '@romcal/particular-calendars/americas';
 import { InputDefinitions } from '@romcal/types/calendar-def';
 
 export class Paraguay extends CalendarDef {
-  inheritFrom = Americas;
+  parentCalendar = Americas;
 
   definitions: InputDefinitions = {
     our_lord_jesus_christ_the_eternal_high_priest: {

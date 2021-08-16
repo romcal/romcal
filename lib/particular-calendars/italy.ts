@@ -5,7 +5,7 @@ import { InputDefinitions } from '@romcal/types/calendar-def';
 import { PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
 
 export class Italy extends CalendarDef {
-  inheritFrom = Europe;
+  parentCalendar = Europe;
 
   definitions: InputDefinitions = {
     catherine_of_siena_virgin: {

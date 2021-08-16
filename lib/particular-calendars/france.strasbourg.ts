@@ -5,7 +5,7 @@ import { Precedences } from '@romcal/constants/precedences';
 import { PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
 
 export class France_Strasbourg extends CalendarDef {
-  inheritFrom = France;
+  parentCalendar = France;
 
   definitions: InputDefinitions = {
     amarin_abbot: {

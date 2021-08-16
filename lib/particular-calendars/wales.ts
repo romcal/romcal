@@ -6,7 +6,7 @@ import { InputDefinitions } from '@romcal/types/calendar-def';
 import { PatronTitles } from '@romcal/constants/martyrology-metadata';
 
 export class Wales extends CalendarDef {
-  inheritFrom = Europe;
+  parentCalendar = Europe;
 
   definitions: InputDefinitions = {
     teilo_of_llandaff_bishop: {

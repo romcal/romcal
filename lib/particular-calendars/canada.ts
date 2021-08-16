@@ -5,7 +5,7 @@ import { Americas } from '@romcal/particular-calendars/americas';
 import { InputDefinitions } from '@romcal/types/calendar-def';
 
 export class Canada extends CalendarDef {
-  inheritFrom = Americas;
+  parentCalendar = Americas;
 
   definitions: InputDefinitions = {
     andre_bessette_religious: {
