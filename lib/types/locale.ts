@@ -52,7 +52,7 @@ export interface Locale {
     memorial?: string;
     weekday?: string;
   };
-  names?: LocaleMartyrology;
+  names?: LocaleLiturgicalDayNames;
 }
 
 // export type LocaleOrdinals = Record<string, string | ((n: number) => string)>;
@@ -72,4 +72,4 @@ export type LocaleColors = {
   white?: string;
 };
 
-export type LocaleMartyrology = Record<string, string>;
+export type LocaleLiturgicalDayNames = Record<string, string>;

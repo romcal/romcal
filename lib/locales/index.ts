@@ -9,12 +9,13 @@ import { locale as la } from './la';
 import { locale as pl } from './pl';
 import { locale as ptBr } from './pt-br';
 import { locale as sk } from './sk';
+import { Locale } from '@romcal/types/locale';
 
 /**
  * An BCP-47 IETF key to value mapping of all supported locale resource files
  * in romcal.
  */
-const locales = {
+export const locales: Record<Lowercase<string>, Locale> = {
   cs: cs,
   'en-gb': enGb,
   'en-ie': enIe,
@@ -27,5 +28,3 @@ const locales = {
   'pt-br': ptBr,
   sk: sk,
 };
-
-export default locales;

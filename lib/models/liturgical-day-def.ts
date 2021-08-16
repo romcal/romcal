@@ -15,6 +15,7 @@ import {
   DateDefException,
   isLiturgicalDayProperOfTimeInput,
   Key,
+  LiturgicalDayBundleInput,
   LiturgicalDayInput,
   LiturgicalDayProperOfTimeInput,
   LiturgyDayDiff,
@@ -44,6 +45,7 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
   readonly cycles: PartialCyclesDef;
   readonly fromCalendar: Lowercase<string>;
   readonly fromExtendedCalendars: LiturgyDayDiff[];
+  readonly input: LiturgicalDayBundleInput[];
 
   #name?: string;
   public get name(): string {
@@ -55,7 +57,7 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
     }
     // i18nDef from general or particular calendars
     else {
-      name = this.#config.i18next.t('names:' + this.i18nDef[0], this.i18nDef[1]);
+      name = this.#config.i18next.t(this.i18nDef[0], this.i18nDef[1]);
     }
     this.#name = name;
 
@@ -85,7 +87,7 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
 
   constructor(
     key: Key,
-    input: LiturgicalDayProperOfTimeInput | LiturgicalDayInput,
+    input: LiturgicalDayProperOfTimeInput | LiturgicalDayInput | LiturgicalDayBundleInput,
     fromCalendar: Lowercase<string>,
     config: RomcalConfig,
   ) {
@@ -133,8 +135,8 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
       this.i18nDef = data.i18nDef;
     } else {
       this.i18nDef = input.customLocaleKey
-        ? [input.customLocaleKey]
-        : previousDef?.i18nDef || [key];
+        ? [`names:${input.customLocaleKey}`]
+        : previousDef?.i18nDef || [`names:${key}`];
     }
 
     if (isLiturgicalDayProperOfTimeInput(input)) {
@@ -185,6 +187,9 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
       // Store object diffs in the new LiturgicalDay object
       if (diff) this.fromExtendedCalendars.push(diff);
     }
+
+    // Store input object, that will be required to generate a calendar bundle.
+    this.input = [...(previousDef?.input || []), { ...input, fromCalendar }];
 
     // Delete a date definition that has the `drop: true` property,
     if (input.drop) {
