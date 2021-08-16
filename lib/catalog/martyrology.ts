@@ -1306,7 +1306,7 @@ export class Martyrology {
     droctovee_abbot: {
       canonizationLevel: CanonizationLevel.Saint,
       name: 'Droctovée',
-      titles: [Titles.Bishop],
+      titles: [Titles.Abbot],
       dateOfDeath: 558,
     },
 
