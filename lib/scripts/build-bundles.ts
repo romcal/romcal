@@ -142,6 +142,9 @@ const RomcalBundler = () => {
   }
 
   gauge.stop();
+  console.log(
+    `${allCalendars.length} calendars in ${allLocaleKeys.length} locales built in the ./lib/bundles/ directory.`,
+  );
 };
 
 RomcalBundler();
