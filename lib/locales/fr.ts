@@ -478,6 +478,7 @@ export const locale: Locale = {
     matthew_apostle: 'Saint Matthieu, apôtre et évangéliste',
     matthias_apostle: 'Saint Matthias, apôtre',
     maximilian_kolbe_priest: 'Saint Maximilien-Marie Kolbe, prêtre et martyr (✝ 1941)',
+    merry_and_saint_droctovee_abbots: 'Saint Merry et Saint Droctovée, Abbés',
     modeste_andlauer_and_andre_bauer_martyrs:
       'Saints Modeste Andlauer et André Bauer, martyrs (✝ 1900)',
     modeste_andlauer_martyr: 'Saint Modeste Andlauer, martyr (✝ 1900)',

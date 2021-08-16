@@ -739,6 +739,7 @@ export const locale: Locale = {
     meinrad_of_einsiedeln_martyr: 'Saint Meinrad of Einsiedeln, Martyr',
     mel_of_ardagh_bishop: 'Saint Mel, Bishop',
     melchior_grodziecki_priest: 'Saint Melchior Grodziecki, Priest and Martyr',
+    merry_and_saint_droctovee_abbots: 'Saint Merry and Saint Droctovée, Abbots',
     michael_gabriel_and_raphael_archangels: 'Saints Michael, Gabriel and Raphael, Archangels',
     michael_kozal_bishop: 'Blessed Michael Kozal, Bishop and Martyr',
     miguel_agustin_pro_priest: 'Blessed Miguel Agustin Pro, Priest and Martyr',
