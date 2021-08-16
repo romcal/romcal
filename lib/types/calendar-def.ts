@@ -22,8 +22,8 @@ export type LiturgicalDayDefinitions = Record<Key, LiturgicalDayDef>;
  * Base [CalendarDef] interface
  */
 export interface ICalendarDef {
-  inheritFrom?: BaseCalendarDef | null;
-  inheritFromInstance?: InstanceType<BaseCalendarDef>;
+  parentCalendar?: BaseCalendarDef | null;
+  parentCalendarInstance?: InstanceType<BaseCalendarDef>;
   particularConfig?: ParticularConfig;
   definitions: InputDefinitions;
   dates: typeof Dates;

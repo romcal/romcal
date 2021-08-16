@@ -13,8 +13,8 @@ import { Dates } from '@romcal/utils/dates';
 export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
   readonly #config: RomcalConfig;
   readonly dates: typeof Dates;
-  inheritFrom?: BaseCalendarDef | null;
-  inheritFromInstance?: InstanceType<BaseCalendarDef>;
+  parentCalendar?: BaseCalendarDef | null;
+  parentCalendarInstance?: InstanceType<BaseCalendarDef>;
   readonly particularConfig?: ParticularConfig;
   definitions: InputDefinitions = {};
   #definitionsBuilt = false;
@@ -39,18 +39,17 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
   }
 
   /**
-   * Initialize inherited calendars, and update the main RomcalConfig
-   * from the provided user config or from any particular config from
-   * the calendar definitions.
+   * Initialize inherited calendars (the parent calendars), and update the main RomcalConfig
+   * from the provided user config or from any particular config from the calendar definitions.
    * @param input - The input configuration provided by the user.
    */
   updateConfig(input?: RomcalConfigInput): void {
-    // Init the inherited calendar
-    if (this.inheritFrom) {
-      this.inheritFromInstance = new this.inheritFrom(this.#config);
+    // Init the parent calendar
+    if (this.parentCalendar) {
+      this.parentCalendarInstance = new this.parentCalendar(this.#config);
 
-      // Update first the configuration form inherited calendars
-      this.inheritFromInstance.updateConfig(input);
+      // Update first the configuration from the parent calendar(s)
+      this.parentCalendarInstance.updateConfig(input);
     }
 
     // Combine the provided user configuration,
@@ -74,17 +73,17 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
   }
 
   /**
-   * Recursive method that retrieve all inherited calendars definitions
+   * Recursive method that retrieve all parent calendars definitions
    * @private
-   * @param inheritedCal - The inherited calendar object.
+   * @param parentCal - The parent calendar object.
    * @private
    */
-  #retrieveInheritedCalDefinitions(inheritedCal: InstanceType<BaseCalendarDef>): void {
-    if (inheritedCal.inheritFromInstance) {
-      this.#retrieveInheritedCalDefinitions(inheritedCal.inheritFromInstance);
+  #retrieveParentCalDefinitions(parentCal: InstanceType<BaseCalendarDef>): void {
+    if (parentCal.parentCalendarInstance) {
+      this.#retrieveParentCalDefinitions(parentCal.parentCalendarInstance);
     }
 
-    inheritedCal.buildAllDefinitions();
+    parentCal.buildAllDefinitions();
   }
 
   buildAllDefinitions(): void {
@@ -92,8 +91,8 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
 
     const definitions = Object.keys(this.definitions);
 
-    if (this.inheritFromInstance) {
-      this.#retrieveInheritedCalDefinitions(this.inheritFromInstance);
+    if (this.parentCalendarInstance) {
+      this.#retrieveParentCalDefinitions(this.parentCalendarInstance);
     }
 
     definitions.forEach((key) => {

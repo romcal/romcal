@@ -5,7 +5,7 @@ import { Americas } from '@romcal/particular-calendars/americas';
 import { InputDefinitions } from '@romcal/types/calendar-def';
 
 export class Bolivia extends CalendarDef {
-  inheritFrom = Americas;
+  parentCalendar = Americas;
 
   definitions: InputDefinitions = {
     philip_of_jesus_de_las_casas_paul_miki_and_companions_martyrs: {

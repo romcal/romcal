@@ -5,7 +5,7 @@ import { InputDefinitions } from '@romcal/types/calendar-def';
 import { Titles } from '@romcal/constants/martyrology-metadata';
 
 export class Germany extends CalendarDef {
-  inheritFrom = Europe;
+  parentCalendar = Europe;
 
   definitions: InputDefinitions = {
     john_nepomucene_neumann_bishop: {
