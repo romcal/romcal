@@ -73,7 +73,7 @@ export class Philippines extends CalendarDef {
     },
 
     our_lady_of_guadalupe: {
-      customLocaleKey: 'our_lady_of_guadalupe_patroness_of_the_philippiness',
+      customLocaleKey: 'our_lady_of_guadalupe_patroness_of_the_philippines',
       precedence: Precedences.ProperMemorial_11b,
       titles: { append: [PatronTitles.PatronessOfThePhilippines] },
     },

@@ -490,6 +490,11 @@ export type BaseLiturgicalDayDef = Omit<
    * Cycle metadata of a liturgical day.
    */
   cycles: PartialCyclesDef;
+
+  /**
+   * Merged input definition, from all calendars this definition input is defined.
+   */
+  input: LiturgicalDayBundleInput[];
 };
 
 /**
@@ -527,6 +532,9 @@ export type LiturgicalDayInput = Partial<
    */
   titles?: TitlesDef;
 };
+
+export type LiturgicalDayBundleInput = LiturgicalDayInput &
+  Partial<Pick<LiturgicalDayRoot, 'fromCalendar'>>;
 
 /**
  * Input object with its base properties from the proper of time

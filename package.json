@@ -13,7 +13,8 @@
     "build:watch": "tsc -w -p tsconfig.release.json",
     "lint": "eslint . --ext .ts,.tsx",
     "test": "jest --coverage",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "bundle": "node -r ts-node/register -r tsconfig-paths/register lib/scripts/build-bundles.ts"
   },
   "repository": {
     "type": "git",
@@ -52,10 +53,12 @@
   },
   "homepage": "https://github.com/romcal/romcal/blob/master/README.md",
   "dependencies": {
+    "cli-progress": "^3.9.0",
     "dayjs": "^1.10.5",
     "i18next": "^20.3.2"
   },
   "devDependencies": {
+    "@types/cli-progress": "^3.9.2",
     "@types/jest": "~26.0.23",
     "@types/node": "~14.14.45",
     "@typescript-eslint/eslint-plugin": "~4.25.0",
