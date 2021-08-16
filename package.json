@@ -9,12 +9,13 @@
     "start": "node build/lib/main.js",
     "clean": "rimraf coverage build tmp",
     "prebuild": "npm run lint",
-    "build": "tsc -p tsconfig.release.json",
+    "build": "tsc -p tsconfig.release.json && npm run bundle",
     "build:watch": "tsc -w -p tsconfig.release.json",
     "lint": "eslint . --ext .ts,.tsx",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
-    "bundle": "node -r ts-node/register -r tsconfig-paths/register lib/scripts/build-bundles.ts"
+    "bundle": "node -r ts-node/register -r tsconfig-paths/register lib/scripts/build-bundles.ts",
+    "postinstall": "npm run bundle"
   },
   "repository": {
     "type": "git",
