@@ -2,12 +2,12 @@ import { RomcalConfig } from '@romcal/models/config';
 import LiturgicalDayDef from '@romcal/models/liturgical-day-def';
 import {
   BaseCalendarDef,
+  BundleDefinitions,
   ICalendarDef,
-  InputDefinitions,
   ParticularConfig,
 } from '@romcal/types/calendar-def';
 import { RomcalConfigInput } from '@romcal/types/config';
-import { Key, LiturgicalDayInput } from '@romcal/types/liturgical-day';
+import { Key, LiturgicalDayBundleInput } from '@romcal/types/liturgical-day';
 import { Dates } from '@romcal/utils/dates';
 
 export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
@@ -16,7 +16,7 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
   parentCalendar?: BaseCalendarDef | null;
   parentCalendarInstance?: InstanceType<BaseCalendarDef>;
   readonly particularConfig?: ParticularConfig;
-  definitions: InputDefinitions = {};
+  definitions: BundleDefinitions = {};
   #definitionsBuilt = false;
 
   /**
@@ -33,9 +33,10 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
   }
   #calendarName?: string;
 
-  constructor(config: RomcalConfig) {
+  constructor(config: RomcalConfig, definitions?: BundleDefinitions) {
     this.#config = config;
     this.dates = this.#config.dates;
+    if (definitions) this.definitions = definitions;
   }
 
   /**
@@ -89,15 +90,17 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
   buildAllDefinitions(): void {
     if (this.#definitionsBuilt) return;
 
-    const definitions = Object.keys(this.definitions);
+    const inputs = Object.keys(this.definitions);
 
     if (this.parentCalendarInstance) {
       this.#retrieveParentCalDefinitions(this.parentCalendarInstance);
     }
 
-    definitions.forEach((key) => {
-      const def: LiturgicalDayInput = this.definitions[key];
-      this.#buildDefinition(key, def);
+    inputs.forEach((key) => {
+      const inputValues: LiturgicalDayBundleInput[] = Array.isArray(this.definitions[key])
+        ? (this.definitions[key] as LiturgicalDayBundleInput[])
+        : [this.definitions[key] as LiturgicalDayBundleInput];
+      inputValues.forEach((input) => this.#buildDefinition(key, input));
     });
 
     this.#definitionsBuilt = true;
@@ -109,7 +112,7 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
    * @param input
    * @private
    */
-  #buildDefinition(key: Key, input: LiturgicalDayInput): void {
+  #buildDefinition(key: Key, input: LiturgicalDayBundleInput): void {
     // Create a new LiturgicalDay object from its definition
     new LiturgicalDayDef(
       key,
@@ -126,7 +129,7 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
         properCycle: input.properCycle,
         drop: input.drop,
       },
-      this.calendarName,
+      input.fromCalendar ?? this.calendarName,
       this.#config,
     );
   }

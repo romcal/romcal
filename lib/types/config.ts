@@ -1,6 +1,6 @@
 import { CalendarScope } from '@romcal/constants/calendar-scope';
-import { CalendarDef } from '@romcal/models/calendar-def';
-import { Locale } from '@romcal/types/locale';
+import { RomcalBundleObject } from '@romcal/types/bundle';
+import { BaseCalendarDef } from '@romcal/types/calendar-def';
 import { i18n } from 'i18next';
 
 /**
@@ -9,14 +9,9 @@ import { i18n } from 'i18next';
  */
 export interface BaseRomcalConfig {
   /**
-   * The calendar
+   * The localized calendar bundle object.
    */
-  readonly particularCalendar?: typeof CalendarDef;
-
-  /**
-   * The locale
-   */
-  readonly locale?: Locale;
+  readonly localizedCalendar?: RomcalBundleObject;
 
   /**
    * If `false`, fixes Epiphany on January 6th. Usually, Epiphany will be set to a
@@ -63,6 +58,21 @@ export interface BaseRomcalConfig {
    * (instead of output them in NDJSON format).
    */
   readonly prettyPrint?: boolean;
+
+  /**
+   * All calendar definitions
+   */
+  readonly calendarsDef: InstanceType<BaseCalendarDef>[];
+
+  /**
+   * The locale key
+   */
+  readonly localeKey: string;
+
+  /**
+   * The calendar name
+   */
+  readonly calendarName: string;
 }
 
 export interface IRoncalConfig extends BaseRomcalConfig {
@@ -73,7 +83,11 @@ export interface IRoncalConfig extends BaseRomcalConfig {
  * A modified variant of [[RomcalConfig]] specifically for the [[Config]] class constructor
  * where all properties are **required**.
  */
-export type RomcalConfigInput = Partial<BaseRomcalConfig>;
+export type RomcalConfigInput = Omit<Partial<BaseRomcalConfig>, 'localeKey' | 'calendarName'>;
 
-export type RomcalConfigOutput = Required<Omit<BaseRomcalConfig, 'particularCalendar' | 'locale'>> &
-  Pick<BaseRomcalConfig, 'particularCalendar' | 'locale'>;
+/**
+ * Output object of the romcal config.
+ */
+export type RomcalConfigOutput = Required<
+  Omit<BaseRomcalConfig, 'localizedCalendar' | 'calendarsDef'>
+>;

@@ -22,17 +22,17 @@
     THE SOFTWARE.
 */
 
-import Romcal from '../lib/main';
-import { France } from '../lib/particular-calendars/france';
-import { UnitedStates } from '@romcal/particular-calendars/united-states';
-import { rangeContainsDate, rangeOfDays } from '../lib/utils/dates';
-import 'jest-extended';
+import { France_Fr } from '@romcal/bundles/france.fr';
+import { UnitedStates_En } from '@romcal/bundles/united-states.en';
 
 import dayjs from 'dayjs';
 import dayOfYear from 'dayjs/plugin/dayOfYear';
 import utc from 'dayjs/plugin/utc';
 import weekday from 'dayjs/plugin/weekday';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
+import 'jest-extended';
+import Romcal from '../lib/main';
+import { rangeContainsDate, rangeOfDays } from '../lib/utils/dates';
 
 dayjs.extend(dayOfYear);
 dayjs.extend(utc);
@@ -42,11 +42,11 @@ dayjs.extend(weekday);
 describe('Testing specific liturgical date functions', () => {
   describe('In Christian calendars, Sunday is the first day of the week', () => {
     test('The Solemnity of Epiphany is a Sunday when using the calendar of France', async () => {
-      const date1 = new Romcal({ particularCalendar: France }).dates().epiphany(1969);
+      const date1 = new Romcal({ localizedCalendar: France_Fr }).dates().epiphany(1969);
       expect(date1.weekday()).toEqual(0);
     });
     test('The Solemnity of Epiphany is a Sunday when using the calendar of UnitedStates', async () => {
-      const date2 = new Romcal({ particularCalendar: UnitedStates }).dates().epiphany(1969);
+      const date2 = new Romcal({ localizedCalendar: UnitedStates_En }).dates().epiphany(1969);
       expect(date2.weekday()).toEqual(0);
     });
   });

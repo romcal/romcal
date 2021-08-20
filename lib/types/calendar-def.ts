@@ -14,7 +14,7 @@ export type ParticularConfig = Partial<
 /**
  * General date definition collection
  */
-export type InputDefinitions = Record<Key, LiturgicalDayInput>;
+export type InputDefinitions = Record<Key, LiturgicalDayInput | LiturgicalDayInput[]>;
 export type BundleDefinitions = Record<Key, LiturgicalDayBundleInput[]>;
 export type LiturgicalDayDefinitions = Record<Key, LiturgicalDayDef>;
 
@@ -25,7 +25,7 @@ export interface ICalendarDef {
   parentCalendar?: BaseCalendarDef | null;
   parentCalendarInstance?: InstanceType<BaseCalendarDef>;
   particularConfig?: ParticularConfig;
-  definitions: InputDefinitions;
+  definitions: InputDefinitions | BundleDefinitions;
   dates: typeof Dates;
   updateConfig: (config?: RomcalConfigInput) => void;
   buildAllDefinitions: () => void;
@@ -33,7 +33,7 @@ export interface ICalendarDef {
 }
 
 interface IConstructor<InstanceInterface> {
-  new (config: RomcalConfig): InstanceInterface;
+  new (config: RomcalConfig, definitions?: BundleDefinitions): InstanceInterface;
 }
 
 export type BaseCalendarDef = IConstructor<ICalendarDef>;

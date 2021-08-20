@@ -10,9 +10,9 @@ import {
 } from '@romcal/constants/cycles';
 import { LiturgicalPeriods } from '@romcal/constants/periods';
 import { Precedences, PRECEDENCES } from '@romcal/constants/precedences';
+import { PROPER_OF_TIME_NAME } from '@romcal/constants/proper-of-time-name';
 import { Ranks } from '@romcal/constants/ranks';
 import { LiturgicalSeasons } from '@romcal/constants/seasons';
-import { PROPER_OF_TIME_NAME } from '@romcal/general-calendar/proper-of-time';
 import { RomcalConfig } from '@romcal/models/config';
 import LiturgicalDay from '@romcal/models/liturgical-day';
 import { LiturgicalDayConfig } from '@romcal/models/liturgical-day-config';
@@ -199,8 +199,7 @@ export class Calendar implements BaseCalendar {
           // so we redefine the date object as a non-nullable Dayjs object
           date = date as Dayjs;
 
-          const dateStr = date.format('YYYY-MM-DD');
-          // const dateStr = date.toISOString().substr(0, 10);
+          const dateStr = date.toISOString().substr(0, 10);
 
           // All the dates of the whole year (gregorian or liturgical) are already generated
           // from the Proper of Time.

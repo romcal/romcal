@@ -22,10 +22,9 @@
     THE SOFTWARE.
 */
 
-import 'jest-extended';
 import { locale as Fr } from '@romcal/locales/fr';
-import { locale as EnGb } from '@romcal/locales/en-gb';
 import Romcal from '@romcal/main';
+import 'jest-extended';
 
 describe('Testing localization functionality', () => {
   test('If the locale is set to "fr", romcal should output text in French', async () => {

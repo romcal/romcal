@@ -1,20 +1,23 @@
-import { locales } from '@romcal/locales';
-import { particularCalendars } from '@romcal/particular-calendars';
+import { Martyrology } from '@romcal/catalog/martyrology';
+import { LiturgicalColors } from '@romcal/constants/colors';
+import { ProperCycles } from '@romcal/constants/cycles';
+import { CanonizationLevel, PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
+import { LiturgicalPeriods } from '@romcal/constants/periods';
+import { Precedences } from '@romcal/constants/precedences';
+import { LiturgicalSeasons } from '@romcal/constants/seasons';
 import { GeneralRoman } from '@romcal/general-calendar/proper-of-saints';
-import { CalendarDef } from '@romcal/models/calendar-def';
+import { locales } from '@romcal/locales';
+import { RomcalBuilder } from '@romcal/main';
 import { RomcalBundle } from '@romcal/models/bundle';
-import { ProperOfTime } from '@romcal/general-calendar/proper-of-time';
-import { RomcalConfig } from '@romcal/models/config';
-import { BaseCalendarDef, BundleDefinitions } from '@romcal/types/calendar-def';
+import { CalendarDef } from '@romcal/models/calendar-def';
+import { particularCalendars } from '@romcal/particular-calendars';
 import { LocaleLiturgicalDayNames } from '@romcal/types/locale';
-import * as fs from 'fs';
-import path from 'path';
-import LiturgicalDayDef from '@romcal/models/liturgical-day-def';
+import { MartyrologyCatalog } from '@romcal/types/martyrology';
 import { mergeDeep } from '@romcal/utils/objects';
 import cliProgress from 'cli-progress';
-import { Martyrology } from '@romcal/catalog/martyrology';
-import { MartyrologyCatalog } from '@romcal/types/martyrology';
-import { CalendarScope } from '@romcal/constants/calendar-scope';
+import * as fs from 'fs';
+import path from 'path';
+import * as util from 'util';
 
 const RomcalBundler = () => {
   const gauge = new cliProgress.SingleBar(
@@ -39,54 +42,26 @@ const RomcalBundler = () => {
 
       // Init config
       const isGRC = calendar.name === GeneralRoman.name;
-      const scope = CalendarScope.Liturgical;
-      const config = isGRC
-        ? new RomcalConfig({ locale, scope })
-        : new RomcalConfig({ locale, scope, particularCalendar: calendar });
+      const builder = isGRC ? new RomcalBuilder(locale) : new RomcalBuilder(locale, calendar);
 
       // Init calendars
-      const cal: InstanceType<BaseCalendarDef> = new GeneralRoman(config);
-      const calendarDefs: InstanceType<BaseCalendarDef>[] = [cal];
-      if (!isGRC) calendarDefs.push(new calendar(config));
-      calendarDefs.map((cal) => cal.updateConfig(config));
-      const currentCalendarName: string = calendarDefs[calendarDefs.length - 1].calendarName
-        .replace('__', '.')
-        .replace('_', '-');
-      const filename = `${currentCalendarName}.${locale.key}.json`;
-      let martyrologyKeys: string[] = [];
+      const filename = builder.getOutputFilename();
+      const calendarConstructorName = builder.calendarConstructorName();
+      const calendarName = builder.getCalendarName();
 
       // Provide CLI feedback
       gauge.update(gaugeCount++, { filename });
 
-      // Build definitions
-      new ProperOfTime(config).buildAllDefinitions();
-      calendarDefs.forEach((cal) => cal.buildAllDefinitions());
-      const definitions = Object.values(config.liturgicalDayDef).reduce(
-        (obj: BundleDefinitions, def: LiturgicalDayDef) => {
-          //if (def.fromCalendar !== PROPER_OF_TIME_NAME)
-          obj[def.key] = def.input;
-
-          // Retrieve martyrology keys
-          martyrologyKeys = [
-            ...new Set(
-              martyrologyKeys.concat(
-                def.input.flatMap(
-                  (i) => i.martyrology?.flatMap((m) => (typeof m === 'string' ? m : m.key)) ?? [],
-                ),
-              ),
-            ),
-          ];
-
-          return obj;
-        },
-        {},
-      );
+      // Build and get definitions & martyrology items
+      const inputs = builder.getAllInputs();
+      const definitions = builder.getAllDefinitions();
+      const martyrologyKeys = builder.martyrologyKeys;
 
       // Merge the current locale with the default English locale
       const mergedLocale = mergeDeep(locales.en, locale);
 
       // Extract required liturgical names
-      const names = Object.values(config.liturgicalDayDef)
+      const names = Object.values(inputs)
         .filter((def) => def.i18nDef[0].startsWith('names:'))
         .map((def) => def.i18nDef[0].substr(6))
         .reduce((obj: LocaleLiturgicalDayNames, key: string) => {
@@ -112,12 +87,11 @@ const RomcalBundler = () => {
 
       // Create a romcal bundle object
       const bundle = new RomcalBundle({
-        calendarName: calendar.name,
-        locale: locale.key,
+        calendarName,
         particularConfig: {
-          epiphanyOnSunday: config.epiphanyOnSunday,
-          ascensionOnSunday: config.ascensionOnSunday,
-          corpusChristiOnSunday: config.corpusChristiOnSunday,
+          epiphanyOnSunday: builder.config.epiphanyOnSunday,
+          ascensionOnSunday: builder.config.ascensionOnSunday,
+          corpusChristiOnSunday: builder.config.corpusChristiOnSunday,
         },
         definitions,
         martyrology,
@@ -134,10 +108,49 @@ const RomcalBundler = () => {
         },
       });
 
-      // Write bundled calendars
+      // Prepare the bundled calendars file content.
       const dir = path.resolve(__dirname, '../bundles');
+      const calVarName = `${calendarConstructorName}_${locale.key
+        // Locale key to UpperCamelCase
+        .replace(/(^.)/, (k) => k.toUpperCase())
+        .replace(/(-\w)/g, (k) => k[1].toUpperCase())}`;
+      let jsOutput = util
+        .inspect(bundle, false, 99)
+        .replace(/^RomcalBundle\s/, '')
+        .replace(/(\n\s*\S+:\sundefined,)/gi, '')
+        .replace(/\n\s*(!:seasons|periods)\s:\[],/gi, '');
+
+      // Replace string values by the corresponding constant objects.
+      const stringToObj = {
+        CanonizationLevel: CanonizationLevel,
+        LiturgicalColors: LiturgicalColors,
+        LiturgicalPeriods: LiturgicalPeriods,
+        LiturgicalSeasons: LiturgicalSeasons,
+        Titles: Titles,
+        Precedences: Precedences,
+        PatronTitles: PatronTitles,
+        ProperCycles: ProperCycles,
+      };
+      Object.entries(stringToObj).forEach(([objName, obj]) => {
+        Object.entries(obj).forEach(([key, value]) => {
+          jsOutput = jsOutput.replace(new RegExp(`'${value}'`, 'g'), `${objName}.${key}`);
+        });
+      });
+
+      // Append imports inside the bundle file.
+      jsOutput =
+        `import { LiturgicalColors } from '@romcal/constants/colors';\n` +
+        `import { ProperCycles } from '@romcal/constants/cycles';\n` +
+        `import { CanonizationLevel, PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';\n` +
+        `import { LiturgicalPeriods } from '@romcal/constants/periods';\n` +
+        `import { Precedences } from '@romcal/constants/precedences';\n` +
+        `import { LiturgicalSeasons } from '@romcal/constants/seasons';\n` +
+        `import { RomcalBundleObject } from '@romcal/types/bundle';\n\n` +
+        `export const ${calVarName}: RomcalBundleObject = ${jsOutput}`;
+
+      // Write the calendar bundle file.
       if (!fs.existsSync(dir)) fs.mkdirSync(dir);
-      fs.writeFileSync(path.resolve(dir, filename), JSON.stringify(bundle, null, 0));
+      fs.writeFileSync(path.resolve(dir, filename), jsOutput, 'utf-8');
     }
   }
 

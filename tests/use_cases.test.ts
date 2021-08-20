@@ -22,8 +22,8 @@
     THE SOFTWARE.
 */
 
+import { Slovakia_Sk } from '@romcal/bundles/slovakia.sk';
 import { Ranks } from '@romcal/constants/ranks';
-import { Slovakia } from '@romcal/particular-calendars/slovakia';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import 'jest-extended';
@@ -94,7 +94,7 @@ describe('Testing specific feasts and memorials', () => {
   describe('The Feast of the Exultation of the Cross', () => {
     test('Is celebrated on the 14th of September', async () => {
       const exaltationOfTheHolyCross = await new Romcal({
-        particularCalendar: Slovakia,
+        localizedCalendar: Slovakia_Sk,
       }).getOneLiturgicalDay('exaltation_of_the_holy_cross', {
         year: 2018,
         computeInWholeYear: true,
@@ -108,7 +108,7 @@ describe('Testing specific feasts and memorials', () => {
   describe('The Sunday of the Word of God', () => {
     test('Should be celebrated on the 3rd Sunday of Ordinary Time', async () => {
       const sundayOfTheWordOfGod = await new Romcal({
-        particularCalendar: Slovakia,
+        localizedCalendar: Slovakia_Sk,
       }).getOneLiturgicalDay('sunday_of_the_word_of_god', {
         year: 2020,
         computeInWholeYear: true,

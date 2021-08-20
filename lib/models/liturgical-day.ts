@@ -2,9 +2,9 @@ import { LiturgicalColors } from '@romcal/constants/colors';
 import { PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
 import { LiturgicalPeriods } from '@romcal/constants/periods';
 import { Precedences } from '@romcal/constants/precedences';
+import { PROPER_OF_TIME_NAME } from '@romcal/constants/proper-of-time-name';
 import { Ranks } from '@romcal/constants/ranks';
 import { LiturgicalSeasons } from '@romcal/constants/seasons';
-import { PROPER_OF_TIME_NAME } from '@romcal/general-calendar/proper-of-time';
 import { LiturgicalDayConfig } from '@romcal/models/liturgical-day-config';
 import LiturgicalDayDef from '@romcal/models/liturgical-day-def';
 import {

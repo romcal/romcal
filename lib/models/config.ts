@@ -1,8 +1,11 @@
 import { CalendarScope } from '@romcal/constants/calendar-scope';
 import { LiturgicalColors } from '@romcal/constants/colors';
-import { locale as en } from '@romcal/locales/en';
+import { LiturgicalSeasons } from '@romcal/constants/seasons';
+import { GeneralRoman } from '@romcal/general-calendar/proper-of-saints';
+import { ProperOfTime } from '@romcal/general-calendar/proper-of-time';
 import { CalendarDef } from '@romcal/models/calendar-def';
-import { LiturgicalDayDefinitions } from '@romcal/types/calendar-def';
+import { RomcalBundleObject } from '@romcal/types/bundle';
+import { BaseCalendarDef, LiturgicalDayDefinitions } from '@romcal/types/calendar-def';
 import { IRoncalConfig, RomcalConfigInput, RomcalConfigOutput } from '@romcal/types/config';
 import { Locale } from '@romcal/types/locale';
 import { Dates } from '@romcal/utils/dates';
@@ -10,7 +13,6 @@ import { toRomanNumber } from '@romcal/utils/numbers';
 import dayjs from 'dayjs';
 import updateLocale from 'dayjs/plugin/updateLocale';
 import i18next, { i18n } from 'i18next';
-import { LiturgicalSeasons } from '@romcal/constants/seasons';
 
 dayjs.extend(updateLocale);
 
@@ -19,9 +21,9 @@ dayjs.extend(updateLocale);
  */
 export class RomcalConfig implements IRoncalConfig {
   readonly #input: RomcalConfigInput;
-  readonly particularCalendar?: typeof CalendarDef;
-  readonly locale?: Locale;
+  readonly localizedCalendar?: RomcalBundleObject;
   readonly localeKey: string;
+  readonly calendarName: string;
   epiphanyOnSunday: boolean;
   corpusChristiOnSunday: boolean;
   ascensionOnSunday: boolean;
@@ -31,6 +33,7 @@ export class RomcalConfig implements IRoncalConfig {
   readonly i18next: i18n;
   readonly dates: typeof Dates;
 
+  readonly calendarsDef: InstanceType<BaseCalendarDef>[];
   liturgicalDayDef: LiturgicalDayDefinitions = {};
 
   /**
@@ -43,27 +46,46 @@ export class RomcalConfig implements IRoncalConfig {
   /**
    * Constructs a new [[Config]] object.
    * @param config [[RomcalConfig]] object representing all settings.
+   * @param locale
+   * @param particularCalendar
    */
-  constructor(config?: RomcalConfigInput) {
+  constructor(
+    config?: RomcalConfigInput,
+    locale?: Locale,
+    particularCalendar?: typeof CalendarDef,
+  ) {
     this.#input = config || {};
+
+    if (config?.localizedCalendar) {
+      this.localizedCalendar = config.localizedCalendar;
+    }
 
     this.scope = config?.scope ?? CalendarScope.Gregorian;
 
-    if (config?.particularCalendar) this.particularCalendar = config?.particularCalendar;
+    this.epiphanyOnSunday =
+      config?.epiphanyOnSunday ??
+      this.localizedCalendar?.particularConfig.epiphanyOnSunday ??
+      false;
+    this.corpusChristiOnSunday =
+      config?.corpusChristiOnSunday ??
+      this.localizedCalendar?.particularConfig.corpusChristiOnSunday ??
+      true;
+    this.ascensionOnSunday =
+      config?.ascensionOnSunday ??
+      this.localizedCalendar?.particularConfig.ascensionOnSunday ??
+      false;
 
-    this.epiphanyOnSunday = config?.epiphanyOnSunday ?? false;
-    this.corpusChristiOnSunday = config?.corpusChristiOnSunday ?? true;
-    this.ascensionOnSunday = config?.ascensionOnSunday ?? false;
     this.verbose = config?.verbose ?? false;
     this.prettyPrint = config?.prettyPrint ?? false;
 
-    if (config?.locale) this.locale = config.locale;
+    const localeObj: Locale | undefined = this.localizedCalendar?.i18n ?? locale;
+    this.localeKey = localeObj?.key ?? 'dev';
 
     // Create an instance and set up the i18next library.
     this.i18next = i18next.createInstance(
       {
-        fallbackLng: ['en', 'dev'],
-        lng: this.locale ? this.locale.key : 'en',
+        fallbackLng: ['dev'],
+        lng: this.localeKey,
         initImmediate: false,
         // contextSeparator: '__',
         interpolation: {
@@ -81,15 +103,9 @@ export class RomcalConfig implements IRoncalConfig {
       },
     );
 
-    // English is the default locale, used when a localized key is missing in
-    // another specified locale
-    this.#addResourceBundles(en);
-
     // If another locale is specified, load associated ressources in the
     // i18next library.
-    if (this.locale) this.#addResourceBundles(this.locale);
-
-    this.localeKey = config?.locale?.key ?? 'en';
+    if (localeObj) this.#addResourceBundles(localeObj);
 
     /**
      * Ensure that the first day is always a Sunday in romcal & DayJS
@@ -108,6 +124,30 @@ export class RomcalConfig implements IRoncalConfig {
 
     // Initialize the Date library.
     this.dates = Dates;
+
+    // Initiate the CalendarDef objects.
+    this.calendarsDef = [];
+
+    // Import input definitions within a new CalendarDef object
+    if (config?.localizedCalendar) {
+      this.calendarsDef.push(new CalendarDef(this, config.localizedCalendar.definitions));
+    }
+    // Otherwise, it's mean that the whole calendar input & definitions must be computed from scratch,
+    // probably by using the RomcalBuilder class helper.
+    else {
+      this.calendarsDef.push(new ProperOfTime(this));
+      this.calendarsDef.push(new GeneralRoman(this));
+      if (particularCalendar) {
+        this.calendarsDef.push(new particularCalendar(this));
+      }
+    }
+
+    this.calendarName =
+      config?.localizedCalendar?.calendarName ??
+      this.calendarsDef[this.calendarsDef.length - 1].calendarName;
+
+    // Update the config by checking if a particularConfig is present in all CalendarDef objects.
+    this.calendarsDef.map((cal) => cal.updateConfig(this));
   }
 
   /**
@@ -153,11 +193,11 @@ export class RomcalConfig implements IRoncalConfig {
    */
   toObject(): RomcalConfigOutput {
     return {
-      particularCalendar: this.particularCalendar,
-      locale: this.locale,
       epiphanyOnSunday: this.epiphanyOnSunday,
       corpusChristiOnSunday: this.corpusChristiOnSunday,
       ascensionOnSunday: this.ascensionOnSunday,
+      localeKey: this.localeKey,
+      calendarName: this.calendarName,
       scope: this.scope,
       verbose: this.verbose,
       prettyPrint: this.prettyPrint,
