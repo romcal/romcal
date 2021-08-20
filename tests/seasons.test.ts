@@ -27,7 +27,6 @@ import { Ranks } from '@romcal/constants/ranks';
 import { LiturgicalSeasons } from '@romcal/constants/seasons';
 import Romcal from '@romcal/main';
 import LiturgicalDay from '@romcal/models/liturgical-day';
-import dayjs from 'dayjs';
 import 'jest-extended';
 
 describe('Testing date range functions', () => {

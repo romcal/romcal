@@ -1,12 +1,11 @@
 import { BaseRomcalBundle } from '@romcal/types/bundle';
-import { Key } from '@romcal/types/liturgical-day';
 import { BundleDefinitions, ParticularConfig } from '@romcal/types/calendar-def';
-import { MartyrologyCatalog } from '@romcal/types/martyrology';
+import { Key } from '@romcal/types/liturgical-day';
 import { Locale } from '@romcal/types/locale';
+import { MartyrologyCatalog } from '@romcal/types/martyrology';
 
 export class RomcalBundle implements BaseRomcalBundle {
   calendarName: Key;
-  locale: Key;
   particularConfig: ParticularConfig;
   definitions: BundleDefinitions;
   martyrology: MartyrologyCatalog;
@@ -14,7 +13,6 @@ export class RomcalBundle implements BaseRomcalBundle {
 
   constructor(input: BaseRomcalBundle) {
     this.calendarName = input.calendarName;
-    this.locale = input.locale;
     this.particularConfig = input.particularConfig;
     this.definitions = input.definitions;
     this.martyrology = input.martyrology;

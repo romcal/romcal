@@ -4,25 +4,33 @@ import { ProperCycles } from '@romcal/constants/cycles';
 import { MONTHS } from '@romcal/constants/months';
 import { LiturgicalPeriods } from '@romcal/constants/periods';
 import { Precedences } from '@romcal/constants/precedences';
+import { PROPER_OF_TIME_NAME } from '@romcal/constants/proper-of-time-name';
 import { LiturgicalSeasons } from '@romcal/constants/seasons';
 import { WEEKDAYS } from '@romcal/constants/weekdays';
+import { CalendarDef } from '@romcal/models/calendar-def';
 import { RomcalConfig } from '@romcal/models/config';
 import LiturgicalDayDef from '@romcal/models/liturgical-day-def';
+import { BundleDefinitions } from '@romcal/types/calendar-def';
 import { Key, LiturgicalDayProperOfTimeInput } from '@romcal/types/liturgical-day';
 
-export const PROPER_OF_TIME_NAME = 'proper_of_time';
-
-export class ProperOfTime {
+export class ProperOfTime extends CalendarDef {
   readonly #config: RomcalConfig;
   readonly #weekdays = WEEKDAYS;
   readonly #months = MONTHS;
+  #calendarName: string = PROPER_OF_TIME_NAME;
 
-  constructor(config: RomcalConfig) {
+  public get calendarName(): string {
+    return this.#calendarName;
+  }
+
+  constructor(config: RomcalConfig, definitions?: BundleDefinitions) {
+    super(config, definitions);
     this.#config = config;
   }
 
-  buildAllDefinitions(): void {
+  buildAllDefinitions = (): void => {
     if (Object.keys(Object.keys(this.#config.liturgicalDayDef)).length > 0) return;
+
     if (this.#config.scope === CalendarScope.Gregorian) {
       this.lateChristmasTime();
       this.lent();
@@ -39,7 +47,7 @@ export class ProperOfTime {
       this.easterTime();
       this.ordinaryTime();
     }
-  }
+  };
 
   /**
    * Helper function to create new LiturgicalDayDef object

@@ -22,16 +22,16 @@
     THE SOFTWARE.
 */
 
+import { England_En } from '@romcal/bundles/england.en';
+import { Germany_En } from '@romcal/bundles/germany.en';
+import { Hungary_En } from '@romcal/bundles/hungary.en';
+import { Ireland_En } from '@romcal/bundles/ireland.en';
+import { Slovakia_Sk } from '@romcal/bundles/slovakia.sk';
 import { LiturgicalColors } from '@romcal/constants/colors';
 import { isMartyr, Titles } from '@romcal/constants/martyrology-metadata';
 import { Ranks } from '@romcal/constants/ranks';
 import LiturgicalDay from '@romcal/models/liturgical-day';
 import LiturgicalDayDef from '@romcal/models/liturgical-day-def';
-import { England } from '@romcal/particular-calendars/england';
-import { Germany } from '@romcal/particular-calendars/germany';
-import { Hungary } from '@romcal/particular-calendars/hungary';
-import { Ireland } from '@romcal/particular-calendars/ireland';
-import { Slovakia } from '@romcal/particular-calendars/slovakia';
 
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
@@ -252,21 +252,21 @@ describe('Testing calendar generation functions', () => {
       expect(allSaintsInGeneralCalendar.isHolyDayOfObligation).toBeTrue();
 
       const allSaintsInEnglandCalendar: LiturgicalDay = (await new Romcal({
-        particularCalendar: England,
+        localizedCalendar: England_En,
       }).getOneLiturgicalDay('all_saints'))!;
       expect(allSaintsInEnglandCalendar.isHolyDayOfObligation).toBeTrue();
     });
 
     test('Saint Patrick is a Holy Day of obligation in Ireland', async () => {
       const saintPatrickBishop: LiturgicalDay = (await new Romcal({
-        particularCalendar: Ireland,
+        localizedCalendar: Ireland_En,
       }).getOneLiturgicalDay('patrick_of_ireland_bishop'))!;
       expect(saintPatrickBishop.isHolyDayOfObligation).toBeTrue();
     });
 
     test('Easter Monday, Pentecost Monday and St. Stephen are Holy Days of obligation in Germany and Hungary', async () => {
-      const germanyCal = await new Romcal({ particularCalendar: Germany });
-      const hungaryCal = await new Romcal({ particularCalendar: Hungary });
+      const germanyCal = await new Romcal({ localizedCalendar: Germany_En });
+      const hungaryCal = await new Romcal({ localizedCalendar: Hungary_En });
 
       const getDayAfter = async (romcal: Romcal, key: string): Promise<LiturgicalDay> => {
         const date = (await romcal.getOneLiturgicalDay(key))!.date;
@@ -298,7 +298,7 @@ describe('Testing calendar generation functions', () => {
 
     beforeAll(async () => {
       testDates = Object.values(
-        await new Romcal({ particularCalendar: Slovakia }).generateCalendar(2020),
+        await new Romcal({ localizedCalendar: Slovakia_Sk }).generateCalendar(2020),
       ).flat();
     });
 

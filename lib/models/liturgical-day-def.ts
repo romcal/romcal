@@ -4,9 +4,9 @@ import { ProperCycles } from '@romcal/constants/cycles';
 import { isMartyr, PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
 import { LiturgicalPeriods } from '@romcal/constants/periods';
 import { Precedences } from '@romcal/constants/precedences';
+import { PROPER_OF_TIME_NAME } from '@romcal/constants/proper-of-time-name';
 import { Ranks, RanksFromPrecedence } from '@romcal/constants/ranks';
 import { LiturgicalSeasons } from '@romcal/constants/seasons';
-import { PROPER_OF_TIME_NAME } from '@romcal/general-calendar/proper-of-time';
 import { RomcalConfig } from '@romcal/models/config';
 import {
   BaseLiturgicalDayDef,

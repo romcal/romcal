@@ -1,19 +1,20 @@
 import { CalendarScope } from '@romcal/constants/calendar-scope';
-import { GeneralRoman } from '@romcal/general-calendar/proper-of-saints';
-import { PROPER_OF_TIME_NAME, ProperOfTime } from '@romcal/general-calendar/proper-of-time';
+import { PROPER_OF_TIME_NAME } from '@romcal/constants/proper-of-time-name';
 import { Calendar } from '@romcal/models/calendar';
+import { CalendarDef } from '@romcal/models/calendar-def';
 import { RomcalConfig } from '@romcal/models/config';
 import LiturgicalDay from '@romcal/models/liturgical-day';
 import { LiturgicalDayConfig } from '@romcal/models/liturgical-day-config';
+import LiturgicalDayDef from '@romcal/models/liturgical-day-def';
 import { LiturgicalCalendar } from '@romcal/types/calendar';
-import { BaseCalendarDef, LiturgicalDayDefinitions } from '@romcal/types/calendar-def';
-import { BaseRomcalConfig, RomcalConfigInput } from '@romcal/types/config';
+import { BundleDefinitions, LiturgicalDayDefinitions } from '@romcal/types/calendar-def';
+import { BaseRomcalConfig, RomcalConfigInput, RomcalConfigOutput } from '@romcal/types/config';
 import { Key } from '@romcal/types/liturgical-day';
+import { Locale } from '@romcal/types/locale';
 import { Dates } from '@romcal/utils/dates';
 
 export default class Romcal {
   readonly #config: RomcalConfig;
-  readonly #calendarsDef: InstanceType<BaseCalendarDef>[];
   #computedCalendars: Record<number, LiturgicalCalendar> = {};
   #dates: Record<number, Dates> = {};
 
@@ -22,19 +23,12 @@ export default class Romcal {
    */
   constructor(config?: RomcalConfigInput) {
     this.#config = new RomcalConfig(config);
-    this.#calendarsDef = [new GeneralRoman(this.#config)];
-
-    if (this.#config.particularCalendar) {
-      this.#calendarsDef.push(new this.#config.particularCalendar(this.#config));
-    }
-
-    this.#calendarsDef.map((cal) => cal.updateConfig(config));
   }
 
   /**
    * Get the complete configuration, used to create and generate a calendar.
    */
-  public get config(): BaseRomcalConfig {
+  public get config(): RomcalConfigOutput {
     return this.#config.toObject();
   }
 
@@ -94,7 +88,6 @@ export default class Romcal {
    */
   generateCalendar(year?: number): Promise<LiturgicalCalendar> {
     const ldConfig = new LiturgicalDayConfig(this.#config, year);
-
     // Wrap the calendar computing process in a Promise.
     // Even if this method is called with async/await, this makes this method running in a microtask queue:
     // it does not run on the main thread, meaning other things can occur (click events, rendering, etc.).
@@ -125,7 +118,7 @@ export default class Romcal {
   getProperOfTimeDefinitions(): Promise<LiturgicalDayDefinitions> {
     return new Promise((resolve, reject) => {
       try {
-        new ProperOfTime(this.#config).buildAllDefinitions();
+        this.#config.calendarsDef.forEach((cal) => cal.buildAllDefinitions());
         resolve(
           Object.values(this.#config.liturgicalDayDef)
             .filter((def) => def.fromCalendar === PROPER_OF_TIME_NAME)
@@ -148,29 +141,78 @@ export default class Romcal {
   getAllDefinitions(): Promise<LiturgicalDayDefinitions> {
     return new Promise((resolve, reject) => {
       try {
-        new ProperOfTime(this.#config).buildAllDefinitions();
-        this.#calendarsDef.forEach((cal) => cal.buildAllDefinitions());
+        this.#config.calendarsDef.forEach((cal) => cal.buildAllDefinitions());
         resolve(this.#config.liturgicalDayDef);
       } catch (e) {
         reject(e);
       }
     });
   }
+}
 
-  /**
-   * @deprecated
-   * @param config
-   */
-  // static async calendarFor(config?: RomcalConfigInput | number): Promise<LiturgicalDay[]> {
-  //   if (typeof config === 'number') {
-  //     config = { year: config };
-  //   }
-  //
-  //   const calendar = new Romcal(config);
-  //   const data = await calendar.generate();
-  //
-  //   return Object.values(data).flat();
-  // }
+/**
+ * Class helper, used to build the localized calendar bundles.
+ */
+export class RomcalBuilder {
+  readonly #config: RomcalConfig;
+  #martyrologyKeys: string[] = [];
+
+  constructor(locale: Locale, particularCalendar?: typeof CalendarDef) {
+    const scope = { scope: CalendarScope.Liturgical };
+    this.#config = new RomcalConfig(scope, locale, particularCalendar);
+  }
+
+  get martyrologyKeys(): string[] {
+    return this.#martyrologyKeys;
+  }
+
+  get config(): RomcalConfigOutput {
+    return this.#config.toObject();
+  }
+
+  calendarConstructorName(): string {
+    const calendarDefs = this.#config.calendarsDef;
+    return calendarDefs[calendarDefs.length - 1].constructor.name;
+  }
+
+  getCalendarName(): string {
+    const calendarDefs = this.#config.calendarsDef;
+    return calendarDefs[calendarDefs.length - 1].calendarName;
+  }
+
+  getOutputFilename(): string {
+    const calendarDefs = this.#config.calendarsDef;
+    const currentCalendarName: string = calendarDefs[calendarDefs.length - 1].calendarName
+      .replace('__', '.')
+      .replace('_', '-');
+    return `${currentCalendarName}.${this.#config.localeKey}.ts`;
+  }
+
+  getAllInputs(): LiturgicalDayDefinitions {
+    this.#config.calendarsDef.forEach((cal) => cal.buildAllDefinitions());
+    return this.#config.liturgicalDayDef;
+  }
+
+  getAllDefinitions(): BundleDefinitions {
+    return Object.values(this.#config.liturgicalDayDef).reduce(
+      (obj: BundleDefinitions, def: LiturgicalDayDef) => {
+        obj[def.key] = def.input;
+
+        // Retrieve martyrology keys
+        const martyrologyKeys: string[] = this.#martyrologyKeys.concat(
+          def.input.flatMap(
+            (i) => i.martyrology?.flatMap((m) => (typeof m === 'string' ? m : m.key)) ?? [],
+          ),
+        );
+
+        // Remove duplicates and save the martyrology keys
+        this.#martyrologyKeys = [...new Set(martyrologyKeys)];
+
+        return obj;
+      },
+      {},
+    );
+  }
 }
 
 export { Romcal, CalendarScope, LiturgicalCalendar, BaseRomcalConfig };

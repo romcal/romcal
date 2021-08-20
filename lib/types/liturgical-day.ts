@@ -12,22 +12,10 @@ import { Ranks } from '@romcal/constants/ranks';
 import { LiturgicalSeasons } from '@romcal/constants/seasons';
 import LiturgicalDay from '@romcal/models/liturgical-day';
 import LiturgicalDayDef from '@romcal/models/liturgical-day-def';
+import { AllXOR, XOR } from '@romcal/types/common';
 import { MartyrologyItem, SaintCount } from '@romcal/types/martyrology';
 import { Dates } from '@romcal/utils/dates';
 import { StringMap } from 'i18next';
-
-/**
- * Utility types
- */
-type Without<T, U> = { [P in Exclude<keyof T, keyof U>]?: never };
-// eslint-disable-next-line @typescript-eslint/ban-types
-type XOR<T, U> = T | U extends object ? (Without<T, U> & U) | (Without<U, T> & T) : T | U;
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type AllXOR<T extends any[]> = T extends [infer Only]
-  ? Only
-  : T extends [infer A, infer B, ...infer Rest]
-  ? AllXOR<[XOR<A, B>, ...Rest]>
-  : never;
 
 /**
  * A key, in lower_underscore_case
@@ -477,9 +465,27 @@ type LiturgicalDayRoot = {
  * Generated object containing all metadata in a context of a proper calendar,
  * that can be used then to compute its date in a context of a year
  */
-export type BaseLiturgicalDayDef = Omit<
+export type BaseLiturgicalDayDef = Pick<
   LiturgicalDayRoot,
-  'date' | 'customLocaleKey' | 'cycles' | 'calendar' | 'properCycle' | 'drop' | 'weekday'
+  | 'liturgicalColors'
+  | 'fromCalendar'
+  | 'periods'
+  | 'i18nDef'
+  | 'calendarDef'
+  | 'fromExtendedCalendars'
+  | 'seasons'
+  | 'isHolyDayOfObligation'
+  | 'isOptional'
+  | 'precedence'
+  | 'dateDef'
+  | 'dateExceptions'
+  | 'titles'
+  | 'liturgicalColorNames'
+  | 'martyrology'
+  | 'name'
+  | 'rank'
+  | 'rankName'
+  | 'seasonNames'
 > & {
   /**
    * The unique key of the liturgical day.
@@ -533,31 +539,29 @@ export type LiturgicalDayInput = Partial<
   titles?: TitlesDef;
 };
 
-export type LiturgicalDayBundleInput = LiturgicalDayInput &
+export type LiturgicalDayBundleInput = XOR<LiturgicalDayInput, LiturgicalDayProperOfTimeInput> &
   Partial<Pick<LiturgicalDayRoot, 'fromCalendar'>>;
 
 /**
  * Input object with its base properties from the proper of time
  */
-export type LiturgicalDayProperOfTimeInput = Omit<
+
+export type LiturgicalDayProperOfTimeInput = Pick<
   LiturgicalDayRoot,
-  | 'date'
-  | 'rank'
-  | 'rankName'
-  | 'name'
-  | 'isHolyDayOfObligation'
-  | 'isOptional'
-  | 'seasonNames'
-  | 'martyrology'
-  | 'titles'
-  | 'liturgicalColorNames'
-  | 'cycles'
-  | 'calendar'
-  | 'fromCalendar'
-  | 'fromExtendedCalendars'
-  | 'weekday'
+  | 'liturgicalColors'
+  | 'properCycle'
+  | 'drop'
+  | 'periods'
+  | 'i18nDef'
+  | 'calendarDef'
+  | 'seasons'
+  | 'customLocaleKey'
+  | 'precedence'
+  | 'dateDef'
+  | 'dateExceptions'
 > &
   Partial<Pick<LiturgicalDayRoot, 'isHolyDayOfObligation' | 'isOptional'>>;
+
 /**
  * Generated object with computed date within a specific year
  */
