@@ -6,9 +6,9 @@ import { PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
 
 export class Australia extends CalendarDef {
   particularConfig: ParticularConfig = {
+    epiphanyOnSunday: false,
     ascensionOnSunday: false,
     corpusChristiOnSunday: false,
-    epiphanyOnSunday: false,
   };
 
   definitions: InputDefinitions = {

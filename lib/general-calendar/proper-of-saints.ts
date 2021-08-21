@@ -6,9 +6,9 @@ import { InputDefinitions, ParticularConfig } from '@romcal/types/calendar-def';
 
 export class GeneralRoman extends CalendarDef {
   particularConfig: ParticularConfig = {
+    epiphanyOnSunday: true,
     ascensionOnSunday: false,
     corpusChristiOnSunday: true,
-    epiphanyOnSunday: true,
   };
 
   definitions: InputDefinitions = {
