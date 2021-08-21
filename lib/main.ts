@@ -196,6 +196,8 @@ export class RomcalBuilder {
   getAllDefinitions(): BundleDefinitions {
     return Object.values(this.#config.liturgicalDayDef).reduce(
       (obj: BundleDefinitions, def: LiturgicalDayDef) => {
+        if (def.fromCalendar === PROPER_OF_TIME_NAME) return obj;
+
         obj[def.key] = def.input;
 
         // Retrieve martyrology keys

@@ -128,14 +128,16 @@ export class RomcalConfig implements IRoncalConfig {
     // Initiate the CalendarDef objects.
     this.calendarsDef = [];
 
-    // Import input definitions within a new CalendarDef object
+    // In all cases, generate the ProperOfTime calendar
+    this.calendarsDef.push(new ProperOfTime(this));
+
+    // Then, import input definitions within a new CalendarDef object
     if (config?.localizedCalendar) {
       this.calendarsDef.push(new CalendarDef(this, config.localizedCalendar.definitions));
     }
-    // Otherwise, it's mean that the whole calendar input & definitions must be computed from scratch,
+    // Otherwise, it's mean that the GRC or particular calendar must be computed from scratch,
     // probably by using the RomcalBuilder class helper.
     else {
-      this.calendarsDef.push(new ProperOfTime(this));
       this.calendarsDef.push(new GeneralRoman(this));
       if (particularCalendar) {
         this.calendarsDef.push(new particularCalendar(this));
