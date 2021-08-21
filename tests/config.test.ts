@@ -13,7 +13,7 @@ describe('getConfig()', () => {
 
     expect(year).toBe(dayjs.utc().year());
     expect(scope).toBe(CalendarScope.Gregorian);
-    expect(epiphanyOnSunday).toBeFalse();
+    expect(epiphanyOnSunday).toBeTrue();
     expect(corpusChristiOnSunday).toBeTrue();
     expect(ascensionOnSunday).toBeFalse();
   });
