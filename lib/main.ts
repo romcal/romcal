@@ -1,16 +1,13 @@
 import { CalendarScope } from '@romcal/constants/calendar-scope';
 import { PROPER_OF_TIME_NAME } from '@romcal/constants/proper-of-time-name';
 import { Calendar } from '@romcal/models/calendar';
-import { CalendarDef } from '@romcal/models/calendar-def';
 import { RomcalConfig } from '@romcal/models/config';
 import LiturgicalDay from '@romcal/models/liturgical-day';
 import { LiturgicalDayConfig } from '@romcal/models/liturgical-day-config';
-import LiturgicalDayDef from '@romcal/models/liturgical-day-def';
 import { LiturgicalCalendar } from '@romcal/types/calendar';
-import { BundleDefinitions, LiturgicalDayDefinitions } from '@romcal/types/calendar-def';
+import { LiturgicalDayDefinitions } from '@romcal/types/calendar-def';
 import { BaseRomcalConfig, RomcalConfigInput, RomcalConfigOutput } from '@romcal/types/config';
 import { Key } from '@romcal/types/liturgical-day';
-import { Locale } from '@romcal/types/locale';
 import { Dates } from '@romcal/utils/dates';
 
 export default class Romcal {
@@ -147,73 +144,6 @@ export default class Romcal {
         reject(e);
       }
     });
-  }
-}
-
-/**
- * Class helper, used to build the localized calendar bundles.
- */
-export class RomcalBuilder {
-  readonly #config: RomcalConfig;
-  #martyrologyKeys: string[] = [];
-
-  constructor(locale: Locale, particularCalendar?: typeof CalendarDef) {
-    const scope = { scope: CalendarScope.Liturgical };
-    this.#config = new RomcalConfig(scope, locale, particularCalendar);
-  }
-
-  get martyrologyKeys(): string[] {
-    return this.#martyrologyKeys;
-  }
-
-  get config(): RomcalConfigOutput {
-    return this.#config.toObject();
-  }
-
-  calendarConstructorName(): string {
-    const calendarDefs = this.#config.calendarsDef;
-    return calendarDefs[calendarDefs.length - 1].constructor.name;
-  }
-
-  getCalendarName(): string {
-    const calendarDefs = this.#config.calendarsDef;
-    return calendarDefs[calendarDefs.length - 1].calendarName;
-  }
-
-  getOutputFilename(): string {
-    const calendarDefs = this.#config.calendarsDef;
-    const currentCalendarName: string = calendarDefs[calendarDefs.length - 1].calendarName
-      .replace('__', '.')
-      .replace('_', '-');
-    return `${currentCalendarName}.${this.#config.localeKey}.ts`;
-  }
-
-  getAllInputs(): LiturgicalDayDefinitions {
-    this.#config.calendarsDef.forEach((cal) => cal.buildAllDefinitions());
-    return this.#config.liturgicalDayDef;
-  }
-
-  getAllDefinitions(): BundleDefinitions {
-    return Object.values(this.#config.liturgicalDayDef).reduce(
-      (obj: BundleDefinitions, def: LiturgicalDayDef) => {
-        if (def.fromCalendar === PROPER_OF_TIME_NAME) return obj;
-
-        obj[def.key] = def.input;
-
-        // Retrieve martyrology keys
-        const martyrologyKeys: string[] = this.#martyrologyKeys.concat(
-          def.input.flatMap(
-            (i) => i.martyrology?.flatMap((m) => (typeof m === 'string' ? m : m.key)) ?? [],
-          ),
-        );
-
-        // Remove duplicates and save the martyrology keys
-        this.#martyrologyKeys = [...new Set(martyrologyKeys)];
-
-        return obj;
-      },
-      {},
-    );
   }
 }
 

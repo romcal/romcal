@@ -22,7 +22,7 @@ export type MartyrologyDef = {
    * The content of this property will be move to the corresponding locale file.
    * @deprecated
    */
-  name: string;
+  name?: string;
 
   /**
    * Titles of the Saint or the Blessed

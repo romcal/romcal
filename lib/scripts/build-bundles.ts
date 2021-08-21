@@ -4,20 +4,92 @@ import { ProperCycles } from '@romcal/constants/cycles';
 import { CanonizationLevel, PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
 import { LiturgicalPeriods } from '@romcal/constants/periods';
 import { Precedences } from '@romcal/constants/precedences';
+import { PROPER_OF_TIME_NAME } from '@romcal/constants/proper-of-time-name';
 import { LiturgicalSeasons } from '@romcal/constants/seasons';
 import { GeneralRoman } from '@romcal/general-calendar/proper-of-saints';
 import { locales } from '@romcal/locales';
-import { RomcalBuilder } from '@romcal/main';
+import { CalendarScope } from '@romcal/main';
 import { RomcalBundle } from '@romcal/models/bundle';
 import { CalendarDef } from '@romcal/models/calendar-def';
+import { RomcalConfig } from '@romcal/models/config';
+import LiturgicalDayDef from '@romcal/models/liturgical-day-def';
 import { particularCalendars } from '@romcal/particular-calendars';
-import { LocaleLiturgicalDayNames } from '@romcal/types/locale';
+import { BundleDefinitions, LiturgicalDayDefinitions } from '@romcal/types/calendar-def';
+import { RomcalConfigOutput } from '@romcal/types/config';
+import { Locale, LocaleLiturgicalDayNames } from '@romcal/types/locale';
 import { MartyrologyCatalog } from '@romcal/types/martyrology';
 import { mergeDeep } from '@romcal/utils/objects';
 import cliProgress from 'cli-progress';
 import * as fs from 'fs';
 import path from 'path';
 import * as util from 'util';
+
+/**
+ * Class helper, used to build the localized calendar bundles.
+ */
+class RomcalBuilder {
+  readonly #config: RomcalConfig;
+  #martyrologyKeys: string[] = [];
+
+  constructor(locale: Locale, particularCalendar?: typeof CalendarDef) {
+    const scope = { scope: CalendarScope.Liturgical };
+    this.#config = new RomcalConfig(scope, Martyrology.catalog, locale, particularCalendar);
+  }
+
+  get martyrologyKeys(): string[] {
+    return this.#martyrologyKeys;
+  }
+
+  get config(): RomcalConfigOutput {
+    return this.#config.toObject();
+  }
+
+  calendarConstructorName(): string {
+    const calendarDefs = this.#config.calendarsDef;
+    return calendarDefs[calendarDefs.length - 1].constructor.name;
+  }
+
+  getCalendarName(): string {
+    const calendarDefs = this.#config.calendarsDef;
+    return calendarDefs[calendarDefs.length - 1].calendarName;
+  }
+
+  getOutputFilename(): string {
+    const calendarDefs = this.#config.calendarsDef;
+    const currentCalendarName: string = calendarDefs[calendarDefs.length - 1].calendarName
+      .replace('__', '.')
+      .replace('_', '-');
+    return `${currentCalendarName}.${this.#config.localeKey}.ts`;
+  }
+
+  getAllInputs(): LiturgicalDayDefinitions {
+    this.#config.calendarsDef.forEach((cal) => cal.buildAllDefinitions());
+    return this.#config.liturgicalDayDef;
+  }
+
+  getAllDefinitions(): BundleDefinitions {
+    return Object.values(this.#config.liturgicalDayDef).reduce(
+      (obj: BundleDefinitions, def: LiturgicalDayDef) => {
+        if (def.fromCalendar === PROPER_OF_TIME_NAME) return obj;
+
+        obj[def.key] = def.input;
+
+        // Retrieve martyrology keys
+        const martyrologyKeys: string[] = this.#martyrologyKeys.concat(
+          def.input.flatMap(
+            (i) => i.martyrology?.flatMap((m) => (typeof m === 'string' ? m : m.key)) ?? [],
+          ),
+        );
+
+        // Remove duplicates and save the martyrology keys
+        this.#martyrologyKeys = [...new Set(martyrologyKeys)];
+
+        return obj;
+      },
+      {},
+    );
+  }
+}
 
 const RomcalBundler = () => {
   const gauge = new cliProgress.SingleBar(
@@ -82,7 +154,17 @@ const RomcalBundler = () => {
 
       // Extract martyrology items
       const martyrology: MartyrologyCatalog = Object.fromEntries(
-        Object.entries(Martyrology.catalog).filter(([key]) => martyrologyKeys.includes(key)),
+        Object.entries(Martyrology.catalog)
+          .filter(([key]) => martyrologyKeys.includes(key))
+          .map(([key, data]) => [
+            key,
+            (() => {
+              // Extract the 'name' property since it's deprecated in the item definition.
+              // eslint-disable-next-line @typescript-eslint/no-unused-vars
+              const { name, ...martyrologyData } = data;
+              return martyrologyData;
+            })(),
+          ]),
       );
 
       // Create a romcal bundle object

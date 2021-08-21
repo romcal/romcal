@@ -6,16 +6,14 @@
     "node": ">= 14.16 <=16"
   },
   "scripts": {
-    "start": "node build/lib/main.js",
-    "clean": "rimraf coverage build tmp",
+    "clean": "rimraf coverage dist tmp",
     "prebuild": "npm run lint",
-    "build": "tsc -p tsconfig.release.json",
+    "build": "npm run bundle & webpack",
     "build:watch": "tsc -w -p tsconfig.release.json",
-    "lint": "eslint . --ext .ts,.tsx",
-    "test": "jest --coverage",
-    "test:watch": "jest --watch",
     "bundle": "node -r ts-node/register -r tsconfig-paths/register lib/scripts/build-bundles.ts",
-    "postinstall": "npm run bundle"
+    "lint": "eslint . --ext .ts",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -54,7 +52,6 @@
   },
   "homepage": "https://github.com/romcal/romcal/blob/master/README.md",
   "dependencies": {
-    "cli-progress": "^3.9.0",
     "dayjs": "^1.10.5",
     "i18next": "^20.3.2"
   },
@@ -64,19 +61,26 @@
     "@types/node": "~14.14.45",
     "@typescript-eslint/eslint-plugin": "~4.25.0",
     "@typescript-eslint/parser": "~4.25.0",
+    "cli-progress": "^3.9.0",
     "eslint": "~7.27.0",
     "eslint-config-prettier": "~8.3.0",
     "eslint-plugin-jest": "~24.3.6",
+    "fork-ts-checker-webpack-plugin": "^6.3.2",
+    "glob": "^7.1.7",
     "jest": "~27.0.4",
     "jest-extended": "^0.11.5",
     "prettier": "~2.3.1",
     "rimraf": "~3.0.2",
+    "terser-webpack-plugin": "^5.1.4",
     "ts-jest": "~27.0.3",
+    "ts-loader": "^9.2.5",
     "ts-node": "^10.0.0",
     "tsconfig-paths": "^3.9.0",
     "tslib": "^2.3.0",
     "tsutils": "~3.21.0",
-    "typescript": "~4.3.4"
+    "typescript": "~4.3.4",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0"
   },
   "volta": {
     "node": "14.16.1",
