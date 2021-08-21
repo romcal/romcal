@@ -1,4 +1,3 @@
-import { Martyrology } from '@romcal/catalog/martyrology';
 import { LiturgicalColors } from '@romcal/constants/colors';
 import { ProperCycles } from '@romcal/constants/cycles';
 import { isMartyr, PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
@@ -254,7 +253,7 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
         const pointer = typeof id === 'string' ? { key: id } : id;
 
         // Add the matching Martyrology item in the Martyrology list defined above this forEach loop.
-        if (Martyrology.catalog[pointer.key]) {
+        if (this.#config.martyrologyCatalog[pointer.key]) {
           // Check if the matching Martyrology item already exists
           let martyrologyItem = martyrology.find((item) => item.key === pointer.key);
 
@@ -263,7 +262,7 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
             martyrology.push(
               (martyrologyItem = {
                 key: pointer.key,
-                ...Martyrology.catalog[pointer.key],
+                ...this.#config.martyrologyCatalog[pointer.key],
               }),
             );
           }
@@ -329,7 +328,7 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
           ...new Set([
             ...(titlesDef.prepend ?? []),
             ...(previousDef?.martyrology.find((m) => m.key === martyrologyKey)?.titles ??
-              Martyrology.catalog[martyrologyKey].titles ??
+              this.#config.martyrologyCatalog[martyrologyKey].titles ??
               []),
             ...(titlesDef.append ?? []),
           ]),
