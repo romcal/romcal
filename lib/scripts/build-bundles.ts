@@ -139,6 +139,7 @@ const RomcalBundler = () => {
 
       // Append imports inside the bundle file.
       jsOutput =
+        `/* eslint-disable */\n` +
         `import { LiturgicalColors } from '@romcal/constants/colors';\n` +
         `import { ProperCycles } from '@romcal/constants/cycles';\n` +
         `import { CanonizationLevel, PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';\n` +
