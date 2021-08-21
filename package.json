@@ -9,7 +9,7 @@
     "start": "node build/lib/main.js",
     "clean": "rimraf coverage build tmp",
     "prebuild": "npm run lint",
-    "build": "tsc -p tsconfig.release.json && npm run bundle",
+    "build": "tsc -p tsconfig.release.json",
     "build:watch": "tsc -w -p tsconfig.release.json",
     "lint": "eslint . --ext .ts,.tsx",
     "test": "jest --coverage",
