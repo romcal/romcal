@@ -136,7 +136,7 @@ export class RomcalConfig implements IRoncalConfig {
       this.calendarsDef.push(new CalendarDef(this, config.localizedCalendar.definitions));
     }
     // Otherwise, it's mean that the GRC or particular calendar must be computed from scratch,
-    // probably by using the RomcalBuilder class helper.
+    // probably by using the RomcalBuilder class helper, or Romcal without a specific localizedCalendar.
     else {
       this.calendarsDef.push(new GeneralRoman(this));
       if (particularCalendar) {
@@ -149,7 +149,7 @@ export class RomcalConfig implements IRoncalConfig {
       this.calendarsDef[this.calendarsDef.length - 1].calendarName;
 
     // Update the config by checking if a particularConfig is present in all CalendarDef objects.
-    this.calendarsDef.map((cal) => cal.updateConfig(this));
+    this.calendarsDef.map((cal) => cal.updateConfig(config));
   }
 
   /**

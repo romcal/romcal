@@ -8,9 +8,9 @@ export class France extends CalendarDef {
   parentCalendar = Europe;
 
   particularConfig: ParticularConfig = {
+    epiphanyOnSunday: true,
     ascensionOnSunday: false,
     corpusChristiOnSunday: true,
-    epiphanyOnSunday: true,
   };
 
   definitions: InputDefinitions = {

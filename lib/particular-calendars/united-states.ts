@@ -8,10 +8,10 @@ export class UnitedStates extends CalendarDef {
   parentCalendar = Americas;
 
   particularConfig: ParticularConfig = {
+    epiphanyOnSunday: true,
     // TODO: Ascension is celebrated on Thursday in the following ecclesiastical provinces (in all other 26 EP, it is celebrated on Sunday): Boston, Hartford, New York, Newark, Omaha, Philadelphia
     ascensionOnSunday: true,
     corpusChristiOnSunday: true,
-    epiphanyOnSunday: true,
   };
 
   definitions: InputDefinitions = {
