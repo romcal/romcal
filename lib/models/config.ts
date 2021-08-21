@@ -1,3 +1,4 @@
+import { Martyrology } from '@romcal/catalog/martyrology';
 import { CalendarScope } from '@romcal/constants/calendar-scope';
 import { LiturgicalColors } from '@romcal/constants/colors';
 import { LiturgicalSeasons } from '@romcal/constants/seasons';
@@ -8,6 +9,7 @@ import { RomcalBundleObject } from '@romcal/types/bundle';
 import { BaseCalendarDef, LiturgicalDayDefinitions } from '@romcal/types/calendar-def';
 import { IRoncalConfig, RomcalConfigInput, RomcalConfigOutput } from '@romcal/types/config';
 import { Locale } from '@romcal/types/locale';
+import { MartyrologyCatalog } from '@romcal/types/martyrology';
 import { Dates } from '@romcal/utils/dates';
 import { toRomanNumber } from '@romcal/utils/numbers';
 import dayjs from 'dayjs';
@@ -32,6 +34,7 @@ export class RomcalConfig implements IRoncalConfig {
   readonly prettyPrint: boolean;
   readonly i18next: i18n;
   readonly dates: typeof Dates;
+  readonly martyrologyCatalog: MartyrologyCatalog;
 
   readonly calendarsDef: InstanceType<BaseCalendarDef>[];
   liturgicalDayDef: LiturgicalDayDefinitions = {};
@@ -133,11 +136,13 @@ export class RomcalConfig implements IRoncalConfig {
 
     // Then, import input definitions within a new CalendarDef object
     if (config?.localizedCalendar) {
+      this.martyrologyCatalog = config.localizedCalendar.martyrology;
       this.calendarsDef.push(new CalendarDef(this, config.localizedCalendar.definitions));
     }
     // Otherwise, it's mean that the GRC or particular calendar must be computed from scratch,
     // probably by using the RomcalBuilder class helper, or Romcal without a specific localizedCalendar.
     else {
+      this.martyrologyCatalog = Martyrology.catalog;
       this.calendarsDef.push(new GeneralRoman(this));
       if (particularCalendar) {
         this.calendarsDef.push(new particularCalendar(this));
