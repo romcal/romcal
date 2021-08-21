@@ -185,7 +185,7 @@ export class Dates {
       return this.#privilegedWeekdayOfAdvent[id];
     }
     if (day < 17 || day > 24) return (this.#privilegedWeekdayOfAdvent[id] = null);
-    let date: Dayjs | null = dayjs(`${year}-12-${day}`);
+    let date: Dayjs | null = dayjs.utc(`${year}-12-${day}`);
     if (date.day() === 0) date = null;
     return (this.#privilegedWeekdayOfAdvent[id] = date);
   };
