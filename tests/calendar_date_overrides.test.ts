@@ -27,6 +27,7 @@ import { CzechRepublic_Cs } from '@romcal/bundles/czech-republic.cs';
 import { England_En } from '@romcal/bundles/england.en';
 import { Germany_En } from '@romcal/bundles/germany.en';
 import { Hungary_En } from '@romcal/bundles/hungary.en';
+import { Malta_En } from '@romcal/bundles/malta.en';
 import { Mexico_Es } from '@romcal/bundles/mexico.es';
 import { Slovakia_Sk } from '@romcal/bundles/slovakia.sk';
 import { Spain_Es } from '@romcal/bundles/spain.es';

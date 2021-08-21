@@ -22,13 +22,15 @@
     THE SOFTWARE.
 */
 
-import { locale as Fr } from '@romcal/locales/fr';
+import { France_Fr } from '@romcal/bundles/france.fr';
 import Romcal from '@romcal/main';
 import 'jest-extended';
 
 describe('Testing localization functionality', () => {
   test('If the locale is set to "fr", romcal should output text in French', async () => {
-    const date = await new Romcal({ locale: Fr }).getOneLiturgicalDay('all_saints');
+    const date = await new Romcal({ localizedCalendar: France_Fr }).getOneLiturgicalDay(
+      'all_saints',
+    );
     expect(date?.name).toBe('Tous les Saints');
   });
 
