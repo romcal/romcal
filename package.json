@@ -6,11 +6,12 @@
     "node": ">= 14.16 <=16"
   },
   "scripts": {
-    "clean": "rimraf coverage dist tmp",
+    "clean": "rimraf build coverage dist tmp",
     "prebuild": "npm run lint",
-    "build": "npm run bundle & webpack",
+    "build": "npm run bundle && tsc -p tsconfig.release.json",
     "build:watch": "tsc -w -p tsconfig.release.json",
     "bundle": "node -r ts-node/register -r tsconfig-paths/register lib/scripts/build-bundles.ts",
+    "pack": "webpack",
     "lint": "eslint . --ext .ts",
     "test": "jest --coverage",
     "test:watch": "jest --watch"

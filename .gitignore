@@ -7,11 +7,12 @@ npm-debug.log*
 node_modules/
 
 # Coverage
-coverage
+coverage/
 
 # Transpiled files
-lib/bundles
+build/
 dist/
+lib/bundles
 
 # VS Code
 .vscode
