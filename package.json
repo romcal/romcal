@@ -6,7 +6,7 @@
     "node": ">= 14.16 <=16"
   },
   "scripts": {
-    "clean": "rimraf build coverage dist tmp",
+    "clean": "rimraf build bundles coverage dist tmp",
     "prebuild": "npm run lint",
     "build": "npm run bundle && tsc -p tsconfig.release.json",
     "build:watch": "tsc -w -p tsconfig.release.json",

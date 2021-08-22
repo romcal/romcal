@@ -191,7 +191,7 @@ const RomcalBundler = () => {
       });
 
       // Prepare the bundled calendars file content.
-      const dir = path.resolve(__dirname, '../bundles');
+      const dir = path.resolve(__dirname, '../../bundles');
       const calVarName = `${calendarConstructorName}_${locale.key
         // Locale key to UpperCamelCase
         .replace(/(^.)/, (k) => k.toUpperCase())
@@ -232,14 +232,14 @@ const RomcalBundler = () => {
         `export const ${calVarName}: RomcalBundleObject = ${jsOutput}`;
 
       // Write the calendar bundle file.
-      if (!fs.existsSync(dir)) fs.mkdirSync(dir);
+      if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
       fs.writeFileSync(path.resolve(dir, filename), jsOutput, 'utf-8');
     }
   }
 
   gauge.stop();
   console.log(
-    `${allCalendars.length} calendars in ${allLocaleKeys.length} locales built in the ./lib/bundles/ directory.`,
+    `${allCalendars.length} calendars in ${allLocaleKeys.length} locales built in the /build/bundles/ directory.`,
   );
 };
 

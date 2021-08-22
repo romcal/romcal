@@ -22,8 +22,8 @@
     THE SOFTWARE.
 */
 
-import { France_Fr } from '@romcal/bundles/france.fr';
 import Romcal from '@romcal/main';
+import { France_Fr } from 'bundles/france.fr';
 import 'jest-extended';
 
 describe('Testing localization functionality', () => {

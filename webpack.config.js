@@ -3,7 +3,7 @@ const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 
 const bundles = glob
-  .sync('lib/bundles/*.ts')
+  .sync('bundles/*.ts')
   .splice(0, 900)
   .reduce((obj, path) => {
     obj['bundles/' + path.match(/([^/]+)\.ts$/gm)[0].replace(/\.ts$/, '')] = './' + path;

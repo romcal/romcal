@@ -22,16 +22,16 @@
     THE SOFTWARE.
 */
 
-import { England_En } from '@romcal/bundles/england.en';
-import { Germany_En } from '@romcal/bundles/germany.en';
-import { Hungary_En } from '@romcal/bundles/hungary.en';
-import { Ireland_En } from '@romcal/bundles/ireland.en';
-import { Slovakia_Sk } from '@romcal/bundles/slovakia.sk';
 import { LiturgicalColors } from '@romcal/constants/colors';
 import { isMartyr, Titles } from '@romcal/constants/martyrology-metadata';
 import { Ranks } from '@romcal/constants/ranks';
 import LiturgicalDay from '@romcal/models/liturgical-day';
 import LiturgicalDayDef from '@romcal/models/liturgical-day-def';
+import { England_En } from 'bundles/england.en';
+import { Germany_En } from 'bundles/germany.en';
+import { Hungary_En } from 'bundles/hungary.en';
+import { Ireland_En } from 'bundles/ireland.en';
+import { Slovakia_Sk } from 'bundles/slovakia.sk';
 
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
