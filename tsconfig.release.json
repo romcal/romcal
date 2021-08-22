@@ -6,6 +6,7 @@
     "removeComments": true
   },
   "include": [
-    "lib/**/*"
+    "lib/**/*",
+    "bundles/**/*"
   ],
 }

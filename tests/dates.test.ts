@@ -22,9 +22,8 @@
     THE SOFTWARE.
 */
 
-import { France_Fr } from '@romcal/bundles/france.fr';
-import { UnitedStates_En } from '@romcal/bundles/united-states.en';
-
+import { France_Fr } from 'bundles/france.fr';
+import { UnitedStates_En } from 'bundles/united-states.en';
 import dayjs from 'dayjs';
 import dayOfYear from 'dayjs/plugin/dayOfYear';
 import utc from 'dayjs/plugin/utc';

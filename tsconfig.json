@@ -27,6 +27,7 @@
   },
   "include": [
     "lib/**/*",
+    "bundles/**/*",
     "tests/**/*"
   ]
 }

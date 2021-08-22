@@ -1,5 +1,5 @@
 /**/*.js
-build
-coverage
-dist
-lib/bundles
+build/
+bundles/
+coverage/
+dist/

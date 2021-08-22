@@ -23,20 +23,20 @@
     THE SOFTWARE.
 */
 
-import { CzechRepublic_Cs } from '@romcal/bundles/czech-republic.cs';
-import { England_En } from '@romcal/bundles/england.en';
-import { Germany_En } from '@romcal/bundles/germany.en';
-import { Hungary_En } from '@romcal/bundles/hungary.en';
-import { Malta_En } from '@romcal/bundles/malta.en';
-import { Mexico_Es } from '@romcal/bundles/mexico.es';
-import { Slovakia_Sk } from '@romcal/bundles/slovakia.sk';
-import { Spain_Es } from '@romcal/bundles/spain.es';
-import { Wales_En } from '@romcal/bundles/wales.en';
 import { LiturgicalPeriods } from '@romcal/constants/periods';
 import { Precedences } from '@romcal/constants/precedences';
 import { Ranks } from '@romcal/constants/ranks';
 import Romcal from '@romcal/main';
 import LiturgicalDay from '@romcal/models/liturgical-day';
+import { CzechRepublic_Cs } from 'bundles/czech-republic.cs';
+import { England_En } from 'bundles/england.en';
+import { Germany_En } from 'bundles/germany.en';
+import { Hungary_En } from 'bundles/hungary.en';
+import { Malta_En } from 'bundles/malta.en';
+import { Mexico_Es } from 'bundles/mexico.es';
+import { Slovakia_Sk } from 'bundles/slovakia.sk';
+import { Spain_Es } from 'bundles/spain.es';
+import { Wales_En } from 'bundles/wales.en';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import 'jest-extended';
