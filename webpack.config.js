@@ -1,18 +1,21 @@
 const glob = require('glob');
 const path = require('path');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+
+const bundles = glob
+  .sync('lib/bundles/*.ts')
+  .splice(0, 900)
+  .reduce((obj, path) => {
+    obj['bundles/' + path.match(/([^/]+)\.ts$/gm)[0].replace(/\.ts$/, '')] = './' + path;
+    return obj;
+  }, {});
 
 module.exports = {
   context: __dirname, // to automatically find tsconfig.json
   mode: 'production',
   entry: {
     romcal: './lib/main.ts',
-    ...(() =>
-      glob.sync('lib/bundles/*.ts').reduce((obj, path) => {
-        obj['bundles/' + path.match(/([^/]+)\.ts$/gm)[0].replace(/\.ts$/, '')] = './' + path;
-        return obj;
-      }, {}))(),
+    ...bundles,
   },
   module: {
     rules: [
@@ -21,7 +24,8 @@ module.exports = {
         loader: 'ts-loader',
         exclude: /node_modules/,
         options: {
-          // disable type checker - we will use it in fork plugin
+          // Disable type checker because of high performance impact during the build
+          // Note: types are already checked in a previous CI task (npm run build), in GitHub Actions,
           transpileOnly: true,
         },
       },
@@ -45,6 +49,4 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
   },
-  plugins: [new ForkTsCheckerWebpackPlugin()],
-  // devtool: 'source-map',
 };
