@@ -11,7 +11,7 @@
     "build": "npm run bundle && tsc -p tsconfig.release.json",
     "build:watch": "tsc -w -p tsconfig.release.json",
     "bundle": "node -r ts-node/register -r tsconfig-paths/register lib/scripts/build-bundles.ts",
-    "pack": "webpack",
+    "pack": "node --max_old_space_size=4096 ./node_modules/webpack/bin/webpack.js",
     "lint": "eslint . --ext .ts",
     "test": "jest --coverage",
     "test:watch": "jest --watch"
