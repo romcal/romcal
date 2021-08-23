@@ -1,6 +1,6 @@
 import { BaseRomcalBundle } from '@romcal/types/bundle';
 import { BundleDefinitions, ParticularConfig } from '@romcal/types/calendar-def';
-import { Key } from '@romcal/types/liturgical-day';
+import { Key } from '@romcal/types/common';
 import { Locale } from '@romcal/types/locale';
 import { MartyrologyCatalog } from '@romcal/types/martyrology';
 

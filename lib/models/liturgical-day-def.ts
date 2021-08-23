@@ -3,17 +3,17 @@ import { ProperCycles } from '@romcal/constants/cycles';
 import { isMartyr, PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
 import { LiturgicalPeriods } from '@romcal/constants/periods';
 import { Precedences } from '@romcal/constants/precedences';
-import { PROPER_OF_TIME_NAME } from '@romcal/constants/proper-of-time-name';
+import { GENERAL_ROMAN_NAME, PROPER_OF_TIME_NAME } from '@romcal/constants/general-calendar-names';
 import { Ranks, RanksFromPrecedence } from '@romcal/constants/ranks';
 import { LiturgicalSeasons } from '@romcal/constants/seasons';
 import { RomcalConfig } from '@romcal/models/config';
+import { Key } from '@romcal/types/common';
 import {
   BaseLiturgicalDayDef,
-  CalendarDef,
+  CalendarMetadata,
   DateDef,
   DateDefException,
   isLiturgicalDayProperOfTimeInput,
-  Key,
   LiturgicalDayBundleInput,
   LiturgicalDayInput,
   LiturgicalDayProperOfTimeInput,
@@ -37,7 +37,7 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
   readonly i18nDef: [string] | [string, StringMap | string];
   readonly seasons: LiturgicalSeasons[];
   readonly periods: LiturgicalPeriods[];
-  readonly calendarDef: CalendarDef;
+  readonly calendarDef: CalendarMetadata;
   readonly liturgicalColors: LiturgicalColors[];
   readonly martyrology: MartyrologyItem[];
   readonly titles: (Titles | PatronTitles)[];
@@ -287,9 +287,17 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
         // Note: romcal do not report an error when the liturgical day key is used to find a martyrology item,
         // because this liturgical day definition may not be related to a martyrology item.
         else if (input.martyrology) {
-          throw new Error(
-            `In the '${fromCalendar}' calendar, a LiturgicalDay with the key '${key}', have a badly referenced martyrology item: '${pointer.key}'.`,
-          );
+          // If the martyrology catalog as 0 items, we take the assumption that a new romcal instance
+          // has been created, without a specified localized calendar. In this case romcal compute the
+          // General Roman Calendar without localization and martyrology data.
+          if (
+            Object.keys(this.#config.martyrologyCatalog).length > 0 &&
+            this.#config.calendarName === GENERAL_ROMAN_NAME
+          ) {
+            throw new Error(
+              `In the '${fromCalendar}' calendar, a LiturgicalDay with the key '${key}', have a badly referenced martyrology item: '${pointer.key}'.`,
+            );
+          }
         }
       },
     );

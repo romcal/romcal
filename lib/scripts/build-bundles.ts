@@ -1,14 +1,14 @@
 import { Martyrology } from '@romcal/catalog/martyrology';
 import { LiturgicalColors } from '@romcal/constants/colors';
 import { ProperCycles } from '@romcal/constants/cycles';
+import { PROPER_OF_TIME_NAME } from '@romcal/constants/general-calendar-names';
 import { CanonizationLevel, PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
 import { LiturgicalPeriods } from '@romcal/constants/periods';
 import { Precedences } from '@romcal/constants/precedences';
-import { PROPER_OF_TIME_NAME } from '@romcal/constants/proper-of-time-name';
 import { LiturgicalSeasons } from '@romcal/constants/seasons';
 import { GeneralRoman } from '@romcal/general-calendar/proper-of-saints';
 import { locales } from '@romcal/locales';
-import { CalendarScope } from '@romcal/main';
+import { CalendarScope } from '@romcal/index';
 import { RomcalBundle } from '@romcal/models/bundle';
 import { CalendarDef } from '@romcal/models/calendar-def';
 import { RomcalConfig } from '@romcal/models/config';
@@ -77,7 +77,10 @@ class RomcalBuilder {
         // Retrieve martyrology keys
         const martyrologyKeys: string[] = this.#martyrologyKeys.concat(
           def.input.flatMap(
-            (i) => i.martyrology?.flatMap((m) => (typeof m === 'string' ? m : m.key)) ?? [],
+            (i) =>
+              i.martyrology?.flatMap((m) => (typeof m === 'string' ? m : m.key)) ??
+              (Martyrology.catalog[def.key] ? [def.key] : []) ??
+              [],
           ),
         );
 
@@ -191,7 +194,7 @@ const RomcalBundler = () => {
       });
 
       // Prepare the bundled calendars file content.
-      const dir = path.resolve(__dirname, '../../bundles');
+      const dir = path.resolve(__dirname, '../../tmp/bundles/');
       const calVarName = `${calendarConstructorName}_${locale.key
         // Locale key to UpperCamelCase
         .replace(/(^.)/, (k) => k.toUpperCase())
@@ -239,7 +242,7 @@ const RomcalBundler = () => {
 
   gauge.stop();
   console.log(
-    `${allCalendars.length} calendars in ${allLocaleKeys.length} locales built in the /build/bundles/ directory.`,
+    `${allCalendars.length} calendars in ${allLocaleKeys.length} locales built in the /tmp/bundles/ directory.`,
   );
 };
 

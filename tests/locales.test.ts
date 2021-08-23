@@ -22,9 +22,10 @@
     THE SOFTWARE.
 */
 
-import Romcal from '@romcal/main';
-import { France_Fr } from 'bundles/france.fr';
+import Romcal from '@romcal/index';
 import 'jest-extended';
+import { France_Fr } from '../tmp/bundles/france.fr';
+import { GeneralRoman_EnGb } from '../tmp/bundles/general-roman.en-gb';
 
 describe('Testing localization functionality', () => {
   test('If the locale is set to "fr", romcal should output text in French', async () => {
@@ -37,7 +38,9 @@ describe('Testing localization functionality', () => {
   // todo: will be fixed with the prebuild localised calendars
 
   // test('If the locale is set to "en-gb", romcal should output text in British English', async () => {
-  //   const date = await new Romcal({ locale: EnGb }).getOneLiturgicalDay('pius_v_pope');
+  //   const date = await new Romcal({ localizedCalendar: GeneralRoman_EnGb }).getOneLiturgicalDay(
+  //     'pius_v_pope',
+  //   );
   //   expect(date?.name).toBe('Saint Pius V, Pope and Religious');
   // });
 

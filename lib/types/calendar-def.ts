@@ -1,7 +1,8 @@
 import { RomcalConfig } from '@romcal/models/config';
 import LiturgicalDayDef from '@romcal/models/liturgical-day-def';
+import { Key } from '@romcal/types/common';
 import { RomcalConfigInput } from '@romcal/types/config';
-import { Key, LiturgicalDayBundleInput, LiturgicalDayInput } from '@romcal/types/liturgical-day';
+import { LiturgicalDayBundleInput, LiturgicalDayInput } from '@romcal/types/liturgical-day';
 import { Dates } from '@romcal/utils/dates';
 
 /**

@@ -1,5 +1,5 @@
 import LiturgicalDay from '@romcal/models/liturgical-day';
-import { Key } from '@romcal/types/liturgical-day';
+import { Key } from '@romcal/types/common';
 import { Dates } from '@romcal/utils/dates';
 
 /**

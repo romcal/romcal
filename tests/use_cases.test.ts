@@ -22,12 +22,11 @@
     THE SOFTWARE.
 */
 
-import { Ranks } from '@romcal/constants/ranks';
-import { Slovakia_Sk } from 'bundles/slovakia.sk';
+import Romcal, { Ranks } from '@romcal/index';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import 'jest-extended';
-import { Romcal } from '../lib/main';
+import { Slovakia_Sk } from '../tmp/bundles/slovakia.sk';
 
 dayjs.extend(utc);
 

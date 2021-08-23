@@ -10,7 +10,7 @@ import {
 } from '@romcal/constants/cycles';
 import { LiturgicalPeriods } from '@romcal/constants/periods';
 import { Precedences, PRECEDENCES } from '@romcal/constants/precedences';
-import { PROPER_OF_TIME_NAME } from '@romcal/constants/proper-of-time-name';
+import { PROPER_OF_TIME_NAME } from '@romcal/constants/general-calendar-names';
 import { Ranks } from '@romcal/constants/ranks';
 import { LiturgicalSeasons } from '@romcal/constants/seasons';
 import { RomcalConfig } from '@romcal/models/config';
@@ -23,7 +23,8 @@ import {
   LiturgicalBuiltData,
   LiturgicalCalendar,
 } from '@romcal/types/calendar';
-import { Key, RomcalCalendarMetadata, RomcalCyclesMetadata } from '@romcal/types/liturgical-day';
+import { Key } from '@romcal/types/common';
+import { RomcalCalendarMetadata, RomcalCyclesMetadata } from '@romcal/types/liturgical-day';
 import { Dates } from '@romcal/utils/dates';
 import dayjs, { Dayjs } from 'dayjs';
 

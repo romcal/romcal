@@ -1,5 +1,5 @@
 import { LiturgicalSeasons } from '@romcal/constants/seasons';
-import { CalendarScope } from '@romcal/main';
+import { CalendarScope } from '../index';
 import { RomcalConfig } from '@romcal/models/config';
 import dayjs, { Dayjs } from 'dayjs';
 import isBetween from 'dayjs/plugin/isBetween';

@@ -2,11 +2,13 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "rootDir": ".",
-    "outDir": "build",
-    "removeComments": true
+    "outDir": "dist",
+    "removeComments": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
   },
   "include": [
     "lib/**/*",
-    "bundles/**/*"
+    "tmp/bundles/**/*"
   ],
 }

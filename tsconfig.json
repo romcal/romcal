@@ -20,6 +20,7 @@
     "forceConsistentCasingInFileNames": true,
     "downlevelIteration": true,
     "importHelpers": true,
+    "allowJs": true,
     "baseUrl": ".",
     "paths": {
       "@romcal/*": ["lib/*"],

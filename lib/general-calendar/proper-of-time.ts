@@ -4,14 +4,15 @@ import { ProperCycles } from '@romcal/constants/cycles';
 import { MONTHS } from '@romcal/constants/months';
 import { LiturgicalPeriods } from '@romcal/constants/periods';
 import { Precedences } from '@romcal/constants/precedences';
-import { PROPER_OF_TIME_NAME } from '@romcal/constants/proper-of-time-name';
+import { PROPER_OF_TIME_NAME } from '@romcal/constants/general-calendar-names';
 import { LiturgicalSeasons } from '@romcal/constants/seasons';
 import { WEEKDAYS } from '@romcal/constants/weekdays';
 import { CalendarDef } from '@romcal/models/calendar-def';
 import { RomcalConfig } from '@romcal/models/config';
 import LiturgicalDayDef from '@romcal/models/liturgical-day-def';
 import { BundleDefinitions } from '@romcal/types/calendar-def';
-import { Key, LiturgicalDayProperOfTimeInput } from '@romcal/types/liturgical-day';
+import { Key } from '@romcal/types/common';
+import { LiturgicalDayProperOfTimeInput } from '@romcal/types/liturgical-day';
 
 export class ProperOfTime extends CalendarDef {
   readonly #config: RomcalConfig;

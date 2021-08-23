@@ -1,6 +1,4 @@
-import { CalendarScope } from '@romcal/constants/calendar-scope';
-import { RomcalConfig } from '@romcal/models/config';
-import { LiturgicalDayConfig } from '@romcal/models/liturgical-day-config';
+import { CalendarScope, LiturgicalDayConfig, RomcalConfig } from '@romcal/index';
 import dayjs from 'dayjs';
 import 'jest-extended';
 
