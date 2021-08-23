@@ -126,6 +126,7 @@ const RomcalBundler = () => {
 
       // Provide CLI feedback
       gauge.update(gaugeCount++, { filename });
+      if (process.env['CI'] && j === 0) console.log('- ' + calendarName);
 
       // Build and get definitions & martyrology items
       const inputs = builder.getAllInputs();
