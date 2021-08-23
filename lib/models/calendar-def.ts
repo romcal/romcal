@@ -6,8 +6,9 @@ import {
   ICalendarDef,
   ParticularConfig,
 } from '@romcal/types/calendar-def';
+import { Key } from '@romcal/types/common';
 import { RomcalConfigInput } from '@romcal/types/config';
-import { Key, LiturgicalDayBundleInput } from '@romcal/types/liturgical-day';
+import { LiturgicalDayBundleInput } from '@romcal/types/liturgical-day';
 import { Dates } from '@romcal/utils/dates';
 
 export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {

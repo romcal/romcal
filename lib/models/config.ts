@@ -48,6 +48,7 @@ export class RomcalConfig implements IRoncalConfig {
   /**
    * Constructs a new [[Config]] object.
    * @param config [[RomcalConfig]] object representing all settings.
+   * @param martyrologyCatalog
    * @param locale
    * @param particularCalendar
    */
@@ -132,7 +133,7 @@ export class RomcalConfig implements IRoncalConfig {
     this.calendarsDef = [];
 
     // Initiate the Martyrology Catalog object.
-    this.martyrologyCatalog = martyrologyCatalog ?? {};
+    this.martyrologyCatalog = this.localizedCalendar?.martyrology ?? martyrologyCatalog ?? {};
 
     // In all cases, generate the ProperOfTime calendar
     this.calendarsDef.push(new ProperOfTime(this));

@@ -2,19 +2,16 @@ const glob = require('glob');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 
-const bundles = glob
-  .sync('bundles/*.ts')
-  .splice(0, 900)
-  .reduce((obj, path) => {
-    obj['bundles/' + path.match(/([^/]+)\.ts$/gm)[0].replace(/\.ts$/, '')] = './' + path;
-    return obj;
-  }, {});
+const bundles = glob.sync('tmp/bundles/*.ts').reduce((obj, path) => {
+  obj['bundles/' + path.match(/([^/]+)\.ts$/gm)[0].replace(/\.ts$/, '')] = './' + path;
+  return obj;
+}, {});
 
 module.exports = {
   context: __dirname, // to automatically find tsconfig.json
   mode: 'production',
   entry: {
-    romcal: './lib/main.ts',
+    'lib/index': './lib/index.ts',
     ...bundles,
   },
   module: {

@@ -44,11 +44,7 @@ export type MartyrologyDef = {
    * Date of Death, as a Number (year), a String (in 'YYYY-MM' or 'YYYY-MM-DD' format),
    * or an object describing date range, multiple possible date, or a century.
    */
-  dateOfDeath?:
-    | SaintDate
-    | { between: [SaintDate, SaintDate] }
-    | { or: SaintDate[] }
-    | { century: number };
+  dateOfDeath?: SaintDateDef;
 
   /**
    * Specify if an approximative indicator should be added, when the date is displayed.
@@ -65,5 +61,10 @@ export type MartyrologyDef = {
 
 export type SaintCount = number | 'many';
 export type SaintDate = number | string;
+export type SaintDateDef =
+  | SaintDate
+  | { between: [SaintDate, SaintDate] }
+  | { or: SaintDate[] }
+  | { century: number };
 export type MartyrologyCatalog = Record<string, MartyrologyDef>;
 export type MartyrologyItem = { key: string } & MartyrologyDef;

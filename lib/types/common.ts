@@ -13,3 +13,8 @@ export type AllXOR<T extends any[]> = T extends [infer Only]
   : T extends [infer A, infer B, ...infer Rest]
   ? AllXOR<[XOR<A, B>, ...Rest]>
   : never;
+
+/**
+ * A key, in lower_underscore_case
+ */
+export type Key = Lowercase<string>;

@@ -1,5 +1,4 @@
 /**/*.js
-build/
-bundles/
 coverage/
 dist/
+tmp/

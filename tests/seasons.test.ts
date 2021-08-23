@@ -22,11 +22,7 @@
     THE SOFTWARE.
 */
 
-import { LiturgicalColors } from '@romcal/constants/colors';
-import { Ranks } from '@romcal/constants/ranks';
-import { LiturgicalSeasons } from '@romcal/constants/seasons';
-import Romcal from '@romcal/main';
-import LiturgicalDay from '@romcal/models/liturgical-day';
+import Romcal, { LiturgicalColors, LiturgicalDay, LiturgicalSeasons, Ranks } from '@romcal/index';
 import 'jest-extended';
 
 describe('Testing date range functions', () => {

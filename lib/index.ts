@@ -1,14 +1,91 @@
 import { CalendarScope } from '@romcal/constants/calendar-scope';
-import { PROPER_OF_TIME_NAME } from '@romcal/constants/proper-of-time-name';
+import { GENERAL_ROMAN_NAME, PROPER_OF_TIME_NAME } from '@romcal/constants/general-calendar-names';
 import { Calendar } from '@romcal/models/calendar';
 import { RomcalConfig } from '@romcal/models/config';
 import LiturgicalDay from '@romcal/models/liturgical-day';
 import { LiturgicalDayConfig } from '@romcal/models/liturgical-day-config';
 import { LiturgicalCalendar } from '@romcal/types/calendar';
-import { LiturgicalDayDefinitions } from '@romcal/types/calendar-def';
-import { BaseRomcalConfig, RomcalConfigInput, RomcalConfigOutput } from '@romcal/types/config';
-import { Key } from '@romcal/types/liturgical-day';
-import { Dates } from '@romcal/utils/dates';
+import {
+  InputDefinitions,
+  LiturgicalDayDefinitions,
+  ParticularConfig,
+} from '@romcal/types/calendar-def';
+import { RomcalConfigInput, RomcalConfigOutput } from '@romcal/types/config';
+import {
+  computeGregorianEasterDate,
+  Dates,
+  rangeContainsDate,
+  rangeOfDays,
+} from '@romcal/utils/dates';
+import { isLiturgicalColor, LITURGICAL_COLORS, LiturgicalColors } from './constants/colors';
+import {
+  LITURGICAL_DAY_CYCLE,
+  ProperCycles,
+  PSALTER_WEEKS,
+  PsalterWeeksCycles,
+  SUNDAYS_CYCLE,
+  SundaysCycles,
+  WEEKDAYS_CYCLE,
+  WeekdaysCycles,
+} from './constants/cycles';
+import {
+  CanonizationLevel,
+  isMartyr,
+  PatronTitles,
+  Sex,
+  Titles,
+} from './constants/martyrology-metadata';
+import { MONTHS, Months } from './constants/months';
+import { LITURGICAL_PERIODS, LiturgicalPeriods, RomcalLiturgicalPeriod } from './constants/periods';
+import { PRECEDENCES, Precedences } from './constants/precedences';
+import { Ranks, RanksFromPrecedence } from './constants/ranks';
+import { LITURGICAL_SEASONS, LiturgicalSeason, LiturgicalSeasons } from './constants/seasons';
+import { WEEKDAYS } from './constants/weekdays';
+import { RomcalBundle } from './models/bundle';
+import { CalendarDef } from './models/calendar-def';
+import LiturgicalDayDef from './models/liturgical-day-def';
+import { RomcalBundleObject } from './types/bundle';
+import { Key } from './types/common';
+import {
+  CalendarMetadata,
+  DateDef,
+  DateDefAddDay,
+  DateDefDateFnAddDay,
+  DateDefDateFnSubtractDay,
+  DateDefException,
+  DateDefExtended,
+  DateDefMonthDate,
+  DateDefMonthDowNthWeekInMonth,
+  DateDefMonthLastDowInMonth,
+  DateDefSubtractDay,
+  DayOfWeek,
+  LiturgicalDayInput,
+  LiturgyDayDiff,
+  MartyrologyItemPointer,
+  MartyrologyItemRedefined,
+  Month,
+  PartialCyclesDef,
+  RomcalCalendarMetadata,
+  RomcalCyclesMetadata,
+  TitlesDef,
+} from './types/liturgical-day';
+import { LiturgicalDayConfigOutput } from './types/liturgical-day-config';
+import {
+  Locale,
+  LocaleColors,
+  LocaleLiturgicalDayNames,
+  LocaleMonths,
+  LocaleOrdinals,
+  LocaleWeeks,
+} from './types/locale';
+import {
+  MartyrologyCatalog,
+  MartyrologyItem,
+  SaintCount,
+  SaintDate,
+  SaintDateDef,
+} from './types/martyrology';
+import { toRomanNumber } from './utils/numbers';
 
 export default class Romcal {
   readonly #config: RomcalConfig;
@@ -147,4 +224,113 @@ export default class Romcal {
   }
 }
 
-export { Romcal, CalendarScope, LiturgicalCalendar, BaseRomcalConfig };
+export {
+  // constants/calendar-scope.ts
+  CalendarScope,
+  // constants/colors.ts
+  LiturgicalColors,
+  LITURGICAL_COLORS,
+  isLiturgicalColor,
+  // constants/cycles.ts
+  ProperCycles,
+  SundaysCycles,
+  WeekdaysCycles,
+  PsalterWeeksCycles,
+  LITURGICAL_DAY_CYCLE,
+  SUNDAYS_CYCLE,
+  WEEKDAYS_CYCLE,
+  PSALTER_WEEKS,
+  // constants/general-calendar-names.ts
+  PROPER_OF_TIME_NAME,
+  GENERAL_ROMAN_NAME,
+  // constants/martyrology-metadata.ts
+  CanonizationLevel,
+  Titles,
+  isMartyr,
+  PatronTitles,
+  Sex,
+  // constants/months.ts
+  Months,
+  MONTHS,
+  // constants/periods.ts
+  LiturgicalPeriods,
+  LITURGICAL_PERIODS,
+  RomcalLiturgicalPeriod,
+  // constants/precedences.ts
+  Precedences,
+  PRECEDENCES,
+  // constants/ranks.ts
+  Ranks,
+  RanksFromPrecedence,
+  // constants/seasons.ts
+  LiturgicalSeasons,
+  LITURGICAL_SEASONS,
+  LiturgicalSeason,
+  // constants/weekdays.ts
+  WEEKDAYS,
+  // types/bundle.ts
+  RomcalBundleObject,
+  // types/calendar.ts
+  LiturgicalCalendar,
+  // types/calendar-def.ts
+  ParticularConfig,
+  InputDefinitions,
+  LiturgicalDayDefinitions,
+  // types/common.ts
+  Key,
+  // types/config.ts
+  RomcalConfigInput,
+  RomcalConfigOutput,
+  // types/liturgical-day.ts
+  DateDef,
+  Month,
+  DayOfWeek,
+  DateDefMonthDate,
+  DateDefDateFnAddDay,
+  DateDefDateFnSubtractDay,
+  DateDefMonthDowNthWeekInMonth,
+  DateDefMonthLastDowInMonth,
+  DateDefExtended,
+  DateDefAddDay,
+  DateDefSubtractDay,
+  DateDefException,
+  CalendarMetadata,
+  RomcalCyclesMetadata,
+  PartialCyclesDef,
+  RomcalCalendarMetadata,
+  TitlesDef,
+  MartyrologyItemPointer,
+  MartyrologyItemRedefined,
+  LiturgicalDayInput,
+  LiturgyDayDiff,
+  // types/liturgical-day-config.ts
+  LiturgicalDayConfigOutput,
+  // types/locale.ts
+  Locale,
+  LocaleOrdinals,
+  LocaleWeeks,
+  LocaleMonths,
+  LocaleColors,
+  LocaleLiturgicalDayNames,
+  // types/martyrology.ts
+  SaintCount,
+  SaintDate,
+  SaintDateDef,
+  MartyrologyCatalog,
+  MartyrologyItem,
+  // models/*
+  RomcalBundle,
+  Calendar,
+  CalendarDef,
+  RomcalConfig,
+  LiturgicalDay,
+  LiturgicalDayConfig,
+  LiturgicalDayDef,
+  // utils/dates.ts
+  computeGregorianEasterDate,
+  rangeOfDays,
+  rangeContainsDate,
+  Dates,
+  // utils/numbers.ts
+  toRomanNumber,
+};

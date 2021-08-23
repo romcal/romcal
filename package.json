@@ -2,17 +2,18 @@
   "name": "romcal",
   "version": "3.0.0-alpha.0",
   "description": "Generates liturgical calendars of the Roman Rite of the Roman Catholic Church.",
+  "main": "dist/lib/index.js",
   "engines": {
     "node": ">= 14.16 <=16"
   },
   "scripts": {
-    "clean": "rimraf build bundles coverage dist tmp",
-    "prebuild": "npm run lint",
-    "build": "npm run bundle && node --max-old-space-size=4096 ./node_modules/typescript/bin/tsc -p tsconfig.release.json",
-    "build:watch": "tsc -w -p tsconfig.release.json",
-    "bundle": "node -r ts-node/register -r tsconfig-paths/register lib/scripts/build-bundles.ts",
-    "pack": "node --max_old_space_size=4096 ./node_modules/webpack/bin/webpack.js",
+    "clean": "rimraf coverage dist tmp",
     "lint": "eslint . --ext .ts",
+    "prebuild": "npm run lint",
+    "build": "npm run bundle && npm run typing && npm run pack",
+    "bundle": "rimraf tmp && node -r ts-node/register -r tsconfig-paths/register lib/scripts/build-bundles.ts",
+    "typing": "node --max-old-space-size=4096 ./node_modules/typescript/bin/tsc -p tsconfig.release.json && node -r ts-node/register -r tsconfig-paths/register lib/scripts/organize-dist-files.ts",
+    "pack": "node --max_old_space_size=4096 ./node_modules/webpack/bin/webpack.js",
     "test": "jest --coverage",
     "test:watch": "jest --watch"
   },
@@ -58,8 +59,10 @@
   },
   "devDependencies": {
     "@types/cli-progress": "^3.9.2",
+    "@types/glob": "^7.1.4",
     "@types/jest": "~26.0.23",
     "@types/node": "~14.14.45",
+    "@types/rimraf": "^3.0.2",
     "@typescript-eslint/eslint-plugin": "~4.25.0",
     "@typescript-eslint/parser": "~4.25.0",
     "cli-progress": "^3.9.0",

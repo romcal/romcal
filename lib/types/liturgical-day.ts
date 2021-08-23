@@ -12,15 +12,10 @@ import { Ranks } from '@romcal/constants/ranks';
 import { LiturgicalSeasons } from '@romcal/constants/seasons';
 import LiturgicalDay from '@romcal/models/liturgical-day';
 import LiturgicalDayDef from '@romcal/models/liturgical-day-def';
-import { AllXOR, XOR } from '@romcal/types/common';
+import { AllXOR, Key, XOR } from '@romcal/types/common';
 import { MartyrologyItem, SaintCount } from '@romcal/types/martyrology';
 import { Dates } from '@romcal/utils/dates';
 import { StringMap } from 'i18next';
-
-/**
- * A key, in lower_underscore_case
- */
-export type Key = Lowercase<string>;
 
 /**
  * The liturgical day date definition
@@ -176,7 +171,7 @@ export type DateDefException =
 /**
  * Calendar definition, to compute then the calendar metadata
  */
-export type CalendarDef = {
+export type CalendarMetadata = {
   dayOfSeason?: number;
   weekOfSeason?: number;
   dayOfWeek?: number;
@@ -430,7 +425,7 @@ type LiturgicalDayRoot = {
   /**
    * Calendar definition, to compute then the calendar metadata
    */
-  calendarDef: CalendarDef;
+  calendarDef: CalendarMetadata;
 
   /**
    * The name of the calendar from which the liturgical day is defined.
