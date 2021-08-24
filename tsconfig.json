@@ -26,6 +26,7 @@
       "@romcal/*": ["lib/*"],
     }
   },
+  "exclude": ["node_modules"],
   "include": [
     "lib/**/*",
     "bundles/**/*",

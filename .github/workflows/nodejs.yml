@@ -13,7 +13,7 @@ jobs:
     - run: npm ci --no-audit
     - run: npm run lint
     - run: npm run bundle
-    - run: npm run typing
+    - run: npm run type
     - run: npm run pack
     - run: npm test
 
