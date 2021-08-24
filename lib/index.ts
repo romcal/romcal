@@ -17,6 +17,7 @@ import {
   rangeContainsDate,
   rangeOfDays,
 } from '@romcal/utils/dates';
+import { version } from '../package.json';
 import { isLiturgicalColor, LITURGICAL_COLORS, LiturgicalColors } from './constants/colors';
 import {
   LITURGICAL_DAY_CYCLE,
@@ -221,6 +222,20 @@ export default class Romcal {
         reject(e);
       }
     });
+  }
+
+  /**
+   * Get Romcal version
+   */
+  getVersion(): string {
+    return Romcal.getVersion();
+  }
+
+  /**
+   * Get Romcal version
+   */
+  static getVersion(): string {
+    return version;
   }
 }
 
