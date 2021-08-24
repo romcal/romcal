@@ -1,9 +1,9 @@
 import { LiturgicalColors } from '@romcal/constants/colors';
 import { ProperCycles } from '@romcal/constants/cycles';
+import { GENERAL_ROMAN_NAME, PROPER_OF_TIME_NAME } from '@romcal/constants/general-calendar-names';
 import { isMartyr, PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
 import { LiturgicalPeriods } from '@romcal/constants/periods';
 import { Precedences } from '@romcal/constants/precedences';
-import { GENERAL_ROMAN_NAME, PROPER_OF_TIME_NAME } from '@romcal/constants/general-calendar-names';
 import { Ranks, RanksFromPrecedence } from '@romcal/constants/ranks';
 import { LiturgicalSeasons } from '@romcal/constants/seasons';
 import { RomcalConfig } from '@romcal/models/config';
@@ -37,7 +37,7 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
   readonly i18nDef: [string] | [string, StringMap | string];
   readonly seasons: LiturgicalSeasons[];
   readonly periods: LiturgicalPeriods[];
-  readonly calendarDef: CalendarMetadata;
+  readonly calendarMetadata: CalendarMetadata;
   readonly liturgicalColors: LiturgicalColors[];
   readonly martyrology: MartyrologyItem[];
   readonly titles: (Titles | PatronTitles)[];
@@ -149,9 +149,9 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
 
     if (isLiturgicalDayProperOfTimeInput(input)) {
       const data = input as LiturgicalDayProperOfTimeInput;
-      this.calendarDef = data.calendarDef;
+      this.calendarMetadata = data.calendarMetadata;
     } else {
-      this.calendarDef = {};
+      this.calendarMetadata = {};
     }
 
     this.martyrology = this.#retrieveMartyrologyData(key, input, fromCalendar, previousDef);
