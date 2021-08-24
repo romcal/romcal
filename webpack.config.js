@@ -1,6 +1,7 @@
 const glob = require('glob');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
+const description = require('./package.json').description;
 
 const bundles = glob.sync('tmp/bundles/*.ts').reduce((obj, path) => {
   obj['bundles/' + path.match(/([^/]+)\.ts$/gm)[0].replace(/\.ts$/, '')] = './' + path;
@@ -17,13 +18,13 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        loader: 'ts-loader',
+        test: /\.(ts|js)x?$/i,
         exclude: /node_modules/,
-        options: {
-          // Disable type checker because of high performance impact during the build
-          // Note: types are already checked in a previous CI task (npm run build), in GitHub Actions,
-          transpileOnly: true,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-typescript'],
+          },
         },
       },
     ],
@@ -45,5 +46,10 @@ module.exports = {
     library: 'Romcal',
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
+    libraryTarget: 'umd',
+    libraryExport: 'default',
+    globalObject: 'this',
+    auxiliaryComment: description,
   },
+  devtool: 'source-map',
 };
