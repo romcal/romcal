@@ -8,9 +8,9 @@ import {
   WEEKDAYS_CYCLE,
   WeekdaysCycles,
 } from '@romcal/constants/cycles';
+import { PROPER_OF_TIME_NAME } from '@romcal/constants/general-calendar-names';
 import { LiturgicalPeriods } from '@romcal/constants/periods';
 import { Precedences, PRECEDENCES } from '@romcal/constants/precedences';
-import { PROPER_OF_TIME_NAME } from '@romcal/constants/general-calendar-names';
 import { Ranks } from '@romcal/constants/ranks';
 import { LiturgicalSeasons } from '@romcal/constants/seasons';
 import { RomcalConfig } from '@romcal/models/config';
@@ -82,16 +82,16 @@ export class Calendar implements BaseCalendar {
     const endOfSeason = def.seasons.length ? endOfSeasonsDic[def.seasons[0]] : undefined;
     const dayOfSeason =
       baseData?.calendar.dayOfSeason ??
-      def.calendarDef.dayOfSeason ??
+      def.calendarMetadata.dayOfSeason ??
       (startOfSeason ? date.diff(startOfSeason, 'day') + 2 : NaN);
 
     return {
       weekOfSeason:
         baseData?.calendar.weekOfSeason ??
-        def.calendarDef.weekOfSeason ??
+        def.calendarMetadata.weekOfSeason ??
         (Number.isNaN(dayOfSeason) ? NaN : Math.ceil(dayOfSeason / 7)),
       dayOfSeason,
-      dayOfWeek: baseData?.calendar.dayOfWeek ?? def.calendarDef.dayOfWeek ?? date.day(),
+      dayOfWeek: baseData?.calendar.dayOfWeek ?? def.calendarMetadata.dayOfWeek ?? date.day(),
       nthDayOfWeekInMonth: Math.ceil(date.date() / 7),
       startOfSeason: startOfSeason ? startOfSeason.toISOString().substr(0, 10) : '',
       endOfSeason: endOfSeason ? endOfSeason.toISOString().substr(0, 10) : '',

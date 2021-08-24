@@ -425,7 +425,7 @@ type LiturgicalDayRoot = {
   /**
    * Calendar definition, to compute then the calendar metadata
    */
-  calendarDef: CalendarMetadata;
+  calendarMetadata: CalendarMetadata;
 
   /**
    * The name of the calendar from which the liturgical day is defined.
@@ -466,7 +466,7 @@ export type BaseLiturgicalDayDef = Pick<
   | 'fromCalendar'
   | 'periods'
   | 'i18nDef'
-  | 'calendarDef'
+  | 'calendarMetadata'
   | 'fromExtendedCalendars'
   | 'seasons'
   | 'isHolyDayOfObligation'
@@ -548,7 +548,7 @@ export type LiturgicalDayProperOfTimeInput = Pick<
   | 'drop'
   | 'periods'
   | 'i18nDef'
-  | 'calendarDef'
+  | 'calendarMetadata'
   | 'seasons'
   | 'customLocaleKey'
   | 'precedence'
@@ -560,7 +560,10 @@ export type LiturgicalDayProperOfTimeInput = Pick<
 /**
  * Generated object with computed date within a specific year
  */
-export type BaseLiturgicalDay = Omit<LiturgicalDayRoot, 'properCycle' | 'calendarDef' | 'drop'> & {
+export type BaseLiturgicalDay = Omit<
+  LiturgicalDayRoot,
+  'properCycle' | 'calendarMetadata' | 'drop'
+> & {
   /**
    * The unique key of the liturgical day.
    */
