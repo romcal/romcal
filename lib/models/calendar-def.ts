@@ -1,9 +1,10 @@
 import { RomcalConfig } from '@romcal/models/config';
 import LiturgicalDayDef from '@romcal/models/liturgical-day-def';
 import {
-  BaseCalendarDef,
+  CalendarDefInstance,
   BundleDefinitions,
-  ICalendarDef,
+  CalendarDefInputs,
+  BaseCalendarDef,
   ParticularConfig,
 } from '@romcal/types/calendar-def';
 import { Key } from '@romcal/types/common';
@@ -11,13 +12,13 @@ import { RomcalConfigInput } from '@romcal/types/config';
 import { LiturgicalDayBundleInput } from '@romcal/types/liturgical-day';
 import { Dates } from '@romcal/utils/dates';
 
-export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
+export class CalendarDef implements BaseCalendarDef {
   readonly #config: RomcalConfig;
   readonly dates: typeof Dates;
-  parentCalendar?: BaseCalendarDef | null;
-  parentCalendarInstance?: InstanceType<BaseCalendarDef>;
+  parentCalendar?: CalendarDefInstance | null;
+  parentCalendarInstance?: InstanceType<CalendarDefInstance>;
   readonly particularConfig?: ParticularConfig;
-  definitions: BundleDefinitions = {};
+  definitions: CalendarDefInputs = {};
   #definitionsBuilt = false;
 
   /**
@@ -80,7 +81,7 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
    * @param parentCal - The parent calendar object.
    * @private
    */
-  #retrieveParentCalDefinitions(parentCal: InstanceType<BaseCalendarDef>): void {
+  #retrieveParentCalDefinitions(parentCal: InstanceType<CalendarDefInstance>): void {
     if (parentCal.parentCalendarInstance) {
       this.#retrieveParentCalDefinitions(parentCal.parentCalendarInstance);
     }
@@ -134,4 +135,4 @@ export const CalendarDef: BaseCalendarDef = class implements ICalendarDef {
       this.#config,
     );
   }
-};
+}

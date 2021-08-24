@@ -6,6 +6,7 @@ import LiturgicalDay from '@romcal/models/liturgical-day';
 import { LiturgicalDayConfig } from '@romcal/models/liturgical-day-config';
 import { LiturgicalCalendar } from '@romcal/types/calendar';
 import {
+  CalendarDefInputs,
   InputDefinitions,
   LiturgicalDayDefinitions,
   ParticularConfig,
@@ -288,6 +289,7 @@ export {
   // types/calendar.ts
   LiturgicalCalendar,
   // types/calendar-def.ts
+  CalendarDefInputs,
   ParticularConfig,
   InputDefinitions,
   LiturgicalDayDefinitions,

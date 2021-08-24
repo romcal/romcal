@@ -5,7 +5,7 @@ import { GeneralRoman } from '@romcal/general-calendar/proper-of-saints';
 import { ProperOfTime } from '@romcal/general-calendar/proper-of-time';
 import { CalendarDef } from '@romcal/models/calendar-def';
 import { RomcalBundleObject } from '@romcal/types/bundle';
-import { BaseCalendarDef, LiturgicalDayDefinitions } from '@romcal/types/calendar-def';
+import { CalendarDefInstance, LiturgicalDayDefinitions } from '@romcal/types/calendar-def';
 import { IRoncalConfig, RomcalConfigInput, RomcalConfigOutput } from '@romcal/types/config';
 import { Locale } from '@romcal/types/locale';
 import { MartyrologyCatalog } from '@romcal/types/martyrology';
@@ -35,7 +35,7 @@ export class RomcalConfig implements IRoncalConfig {
   readonly dates: typeof Dates;
   readonly martyrologyCatalog: MartyrologyCatalog;
 
-  readonly calendarsDef: InstanceType<BaseCalendarDef>[];
+  readonly calendarsDef: InstanceType<CalendarDefInstance>[];
   liturgicalDayDef: LiturgicalDayDefinitions = {};
 
   /**
