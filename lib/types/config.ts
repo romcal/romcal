@@ -1,6 +1,6 @@
 import { CalendarScope } from '@romcal/constants/calendar-scope';
 import { RomcalBundleObject } from '@romcal/types/bundle';
-import { BaseCalendarDef } from '@romcal/types/calendar-def';
+import { CalendarDefInstance } from '@romcal/types/calendar-def';
 import { i18n } from 'i18next';
 
 /**
@@ -62,7 +62,7 @@ export interface BaseRomcalConfig {
   /**
    * All calendar definitions
    */
-  readonly calendarsDef: InstanceType<BaseCalendarDef>[];
+  readonly calendarsDef: InstanceType<CalendarDefInstance>[];
 
   /**
    * The locale key
