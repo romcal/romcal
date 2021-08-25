@@ -22,13 +22,13 @@
     THE SOFTWARE.
 */
 
-import Romcal, { rangeContainsDate, rangeOfDays } from '@romcal/index';
 import dayjs from 'dayjs';
 import dayOfYear from 'dayjs/plugin/dayOfYear';
 import utc from 'dayjs/plugin/utc';
 import weekday from 'dayjs/plugin/weekday';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
 import 'jest-extended';
+import Romcal, { rangeContainsDate, rangeOfDays } from 'lib';
 import { France_Fr } from '../tmp/bundles/france.fr';
 import { UnitedStates_En } from '../tmp/bundles/united-states.en';
 

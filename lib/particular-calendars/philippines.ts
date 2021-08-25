@@ -1,7 +1,4 @@
-import { Precedences } from '@romcal/constants/precedences';
-import { CalendarDef } from '@romcal/models/calendar-def';
-import { InputDefinitions } from '@romcal/types/calendar-def';
-import { PatronTitles } from '@romcal/constants/martyrology-metadata';
+import { CalendarDef, InputDefinitions, PatronTitles, Precedences } from '../index';
 
 export class Philippines extends CalendarDef {
   definitions: InputDefinitions = {

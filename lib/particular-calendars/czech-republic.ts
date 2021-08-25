@@ -1,9 +1,12 @@
-import { ProperCycles } from '@romcal/constants/cycles';
-import { PatronTitles } from '@romcal/constants/martyrology-metadata';
-import { Precedences } from '@romcal/constants/precedences';
-import { CalendarDef } from '@romcal/models/calendar-def';
-import { Europe } from '@romcal/particular-calendars/europe';
-import { InputDefinitions, ParticularConfig } from '@romcal/types/calendar-def';
+import {
+  CalendarDef,
+  InputDefinitions,
+  ParticularConfig,
+  PatronTitles,
+  Precedences,
+  ProperCycles,
+} from '../index';
+import { Europe } from './europe';
 
 export class CzechRepublic extends CalendarDef {
   parentCalendar = Europe;

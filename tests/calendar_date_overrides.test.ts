@@ -23,10 +23,10 @@
     THE SOFTWARE.
 */
 
-import Romcal, { LiturgicalDay, LiturgicalPeriods, Precedences, Ranks } from '@romcal/index';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import 'jest-extended';
+import Romcal, { LiturgicalDay, LiturgicalPeriods, Precedences, Ranks } from 'lib';
 import { CzechRepublic_Cs } from '../tmp/bundles/czech-republic.cs';
 import { England_En } from '../tmp/bundles/england.en';
 import { Germany_En } from '../tmp/bundles/germany.en';

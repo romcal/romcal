@@ -1,7 +1,7 @@
-import { BundleDefinitions, ParticularConfig } from '@romcal/types/calendar-def';
-import { Key } from '@romcal/types/common';
-import { Locale } from '@romcal/types/locale';
-import { MartyrologyCatalog } from '@romcal/types/martyrology';
+import { BundleDefinitions, ParticularConfig } from './calendar-def';
+import { Key } from './common';
+import { Locale } from './locale';
+import { MartyrologyCatalog } from './martyrology';
 
 export interface BaseRomcalBundle {
   calendarName: Key;

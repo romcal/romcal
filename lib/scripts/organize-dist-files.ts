@@ -20,6 +20,9 @@ glob.sync('./bundles/*', { cwd: './dist/tmp' }).forEach((p) => {
   const currentPath = path.resolve('dist/tmp', p);
   const destinationPath = path.resolve('dist', p);
   fs.renameSync(currentPath, destinationPath);
+  // Update import path
+  const content = fs.readFileSync(destinationPath, 'utf8').replace('../../lib/index', '../index');
+  fs.writeFileSync(destinationPath, content, 'utf8');
 });
 
 // Delete the dist/tmp directory

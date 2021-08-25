@@ -1,4 +1,5 @@
-import { CalendarScope } from '@romcal/constants/calendar-scope';
+import dayjs, { Dayjs } from 'dayjs';
+import { CalendarScope } from '../constants/calendar-scope';
 import {
   ProperCycles,
   PSALTER_WEEKS,
@@ -7,26 +8,25 @@ import {
   SundaysCycles,
   WEEKDAYS_CYCLE,
   WeekdaysCycles,
-} from '@romcal/constants/cycles';
-import { PROPER_OF_TIME_NAME } from '@romcal/constants/general-calendar-names';
-import { LiturgicalPeriods } from '@romcal/constants/periods';
-import { Precedences, PRECEDENCES } from '@romcal/constants/precedences';
-import { Ranks } from '@romcal/constants/ranks';
-import { LiturgicalSeasons } from '@romcal/constants/seasons';
-import { RomcalConfig } from '@romcal/models/config';
-import LiturgicalDay from '@romcal/models/liturgical-day';
-import { LiturgicalDayConfig } from '@romcal/models/liturgical-day-config';
-import LiturgicalDayDef from '@romcal/models/liturgical-day-def';
+} from '../constants/cycles';
+import { PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
+import { LiturgicalPeriods } from '../constants/periods';
+import { Precedences, PRECEDENCES } from '../constants/precedences';
+import { Ranks } from '../constants/ranks';
+import { LiturgicalSeasons } from '../constants/seasons';
 import {
   BaseCalendar,
   DatesIndex,
   LiturgicalBuiltData,
   LiturgicalCalendar,
-} from '@romcal/types/calendar';
-import { Key } from '@romcal/types/common';
-import { RomcalCalendarMetadata, RomcalCyclesMetadata } from '@romcal/types/liturgical-day';
-import { Dates } from '@romcal/utils/dates';
-import dayjs, { Dayjs } from 'dayjs';
+} from '../types/calendar';
+import { Key } from '../types/common';
+import { RomcalCalendarMetadata, RomcalCyclesMetadata } from '../types/liturgical-day';
+import { Dates } from '../utils/dates';
+import { RomcalConfig } from './config';
+import LiturgicalDay from './liturgical-day';
+import { LiturgicalDayConfig } from './liturgical-day-config';
+import LiturgicalDayDef from './liturgical-day-def';
 
 export class Calendar implements BaseCalendar {
   readonly #config: RomcalConfig;

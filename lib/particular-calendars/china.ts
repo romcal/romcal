@@ -1,7 +1,4 @@
-import { ProperCycles } from '@romcal/constants/cycles';
-import { Precedences } from '@romcal/constants/precedences';
-import { CalendarDef } from '@romcal/models/calendar-def';
-import { InputDefinitions } from '@romcal/types/calendar-def';
+import { CalendarDef, InputDefinitions, Precedences, ProperCycles } from '../index';
 
 export class China extends CalendarDef {
   definitions: InputDefinitions = {

@@ -1,9 +1,4 @@
-import {
-  CanonizationLevel,
-  PatronTitles,
-  Sex,
-  Titles,
-} from '@romcal/constants/martyrology-metadata';
+import { CanonizationLevel, PatronTitles, Sex, Titles } from '../constants/martyrology-metadata';
 
 export type MartyrologyDef = {
   /**

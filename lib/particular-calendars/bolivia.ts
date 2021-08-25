@@ -1,8 +1,5 @@
-import { ProperCycles } from '@romcal/constants/cycles';
-import { Precedences } from '@romcal/constants/precedences';
-import { CalendarDef } from '@romcal/models/calendar-def';
-import { Americas } from '@romcal/particular-calendars/americas';
-import { InputDefinitions } from '@romcal/types/calendar-def';
+import { CalendarDef, InputDefinitions, Precedences, ProperCycles } from '../index';
+import { Americas } from './americas';
 
 export class Bolivia extends CalendarDef {
   parentCalendar = Americas;

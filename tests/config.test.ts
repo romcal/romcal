@@ -1,6 +1,6 @@
-import { CalendarScope, LiturgicalDayConfig, RomcalConfig } from '@romcal/index';
 import dayjs from 'dayjs';
 import 'jest-extended';
+import { CalendarScope, LiturgicalDayConfig, RomcalConfig } from 'lib';
 
 describe('getConfig()', () => {
   test('should get general config if country doesnt have default configurations', async () => {

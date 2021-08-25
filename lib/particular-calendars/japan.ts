@@ -1,6 +1,4 @@
-import { Precedences } from '@romcal/constants/precedences';
-import { CalendarDef } from '@romcal/models/calendar-def';
-import { InputDefinitions } from '@romcal/types/calendar-def';
+import { CalendarDef, InputDefinitions, Precedences } from '../index';
 
 export class Japan extends CalendarDef {
   definitions: InputDefinitions = {

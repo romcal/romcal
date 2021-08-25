@@ -1,18 +1,18 @@
-import { CalendarScope } from '@romcal/constants/calendar-scope';
-import { LiturgicalColors } from '@romcal/constants/colors';
-import { ProperCycles } from '@romcal/constants/cycles';
-import { PROPER_OF_TIME_NAME } from '@romcal/constants/general-calendar-names';
-import { MONTHS } from '@romcal/constants/months';
-import { LiturgicalPeriods } from '@romcal/constants/periods';
-import { Precedences } from '@romcal/constants/precedences';
-import { LiturgicalSeasons } from '@romcal/constants/seasons';
-import { WEEKDAYS } from '@romcal/constants/weekdays';
-import { CalendarDef } from '@romcal/models/calendar-def';
-import { RomcalConfig } from '@romcal/models/config';
-import LiturgicalDayDef from '@romcal/models/liturgical-day-def';
-import { BundleDefinitions } from '@romcal/types/calendar-def';
-import { Key } from '@romcal/types/common';
-import { LiturgicalDayProperOfTimeInput } from '@romcal/types/liturgical-day';
+import { CalendarDef } from '../models/calendar-def';
+import { RomcalConfig } from '../models/config';
+import { CalendarScope } from '../constants/calendar-scope';
+import { LiturgicalColors } from '../constants/colors';
+import { ProperCycles } from '../constants/cycles';
+import { PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
+import { MONTHS } from '../constants/months';
+import { LiturgicalPeriods } from '../constants/periods';
+import { Precedences } from '../constants/precedences';
+import { LiturgicalSeasons } from '../constants/seasons';
+import { WEEKDAYS } from '../constants/weekdays';
+import LiturgicalDayDef from '../models/liturgical-day-def';
+import { BundleDefinitions } from '../types/calendar-def';
+import { Key } from '../types/common';
+import { LiturgicalDayProperOfTimeInput } from '../types/liturgical-day';
 
 export class ProperOfTime extends CalendarDef {
   readonly #config: RomcalConfig;

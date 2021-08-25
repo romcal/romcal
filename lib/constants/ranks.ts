@@ -1,4 +1,4 @@
-import { Precedences } from '@romcal/constants/precedences';
+import { Precedences } from './precedences';
 
 /**
  * Rank of liturgical days.

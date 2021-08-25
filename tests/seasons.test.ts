@@ -22,8 +22,8 @@
     THE SOFTWARE.
 */
 
-import Romcal, { LiturgicalColors, LiturgicalDay, LiturgicalSeasons, Ranks } from '@romcal/index';
 import 'jest-extended';
+import Romcal, { LiturgicalColors, LiturgicalDay, LiturgicalSeasons, Ranks } from 'lib';
 
 describe('Testing date range functions', () => {
   describe('The Season of Advent', () => {
