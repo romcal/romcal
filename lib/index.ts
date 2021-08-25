@@ -1,24 +1,5 @@
-import { CalendarScope } from '@romcal/constants/calendar-scope';
-import { GENERAL_ROMAN_NAME, PROPER_OF_TIME_NAME } from '@romcal/constants/general-calendar-names';
-import { Calendar } from '@romcal/models/calendar';
-import { RomcalConfig } from '@romcal/models/config';
-import LiturgicalDay from '@romcal/models/liturgical-day';
-import { LiturgicalDayConfig } from '@romcal/models/liturgical-day-config';
-import { LiturgicalCalendar } from '@romcal/types/calendar';
-import {
-  CalendarDefInputs,
-  InputDefinitions,
-  LiturgicalDayDefinitions,
-  ParticularConfig,
-} from '@romcal/types/calendar-def';
-import { RomcalConfigInput, RomcalConfigOutput } from '@romcal/types/config';
-import {
-  computeGregorianEasterDate,
-  Dates,
-  rangeContainsDate,
-  rangeOfDays,
-} from '@romcal/utils/dates';
 import { version } from '../package.json';
+import { CalendarScope } from './constants/calendar-scope';
 import { isLiturgicalColor, LITURGICAL_COLORS, LiturgicalColors } from './constants/colors';
 import {
   LITURGICAL_DAY_CYCLE,
@@ -30,6 +11,7 @@ import {
   WEEKDAYS_CYCLE,
   WeekdaysCycles,
 } from './constants/cycles';
+import { GENERAL_ROMAN_NAME, PROPER_OF_TIME_NAME } from './constants/general-calendar-names';
 import {
   CanonizationLevel,
   isMartyr,
@@ -44,10 +26,22 @@ import { Ranks, RanksFromPrecedence } from './constants/ranks';
 import { LITURGICAL_SEASONS, LiturgicalSeason, LiturgicalSeasons } from './constants/seasons';
 import { WEEKDAYS } from './constants/weekdays';
 import { RomcalBundle } from './models/bundle';
+import { Calendar } from './models/calendar';
 import { CalendarDef } from './models/calendar-def';
+import { RomcalConfig } from './models/config';
+import LiturgicalDay from './models/liturgical-day';
+import { LiturgicalDayConfig } from './models/liturgical-day-config';
 import LiturgicalDayDef from './models/liturgical-day-def';
 import { RomcalBundleObject } from './types/bundle';
+import { LiturgicalCalendar } from './types/calendar';
+import {
+  CalendarDefInputs,
+  InputDefinitions,
+  LiturgicalDayDefinitions,
+  ParticularConfig,
+} from './types/calendar-def';
 import { Key } from './types/common';
+import { RomcalConfigInput, RomcalConfigOutput } from './types/config';
 import {
   CalendarMetadata,
   DateDef,
@@ -87,6 +81,7 @@ import {
   SaintDate,
   SaintDateDef,
 } from './types/martyrology';
+import { computeGregorianEasterDate, Dates, rangeContainsDate, rangeOfDays } from './utils/dates';
 import { toRomanNumber } from './utils/numbers';
 
 export default class Romcal {
