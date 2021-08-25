@@ -1,4 +1,4 @@
-import Romcal, { LiturgicalCalendar } from '@romcal/index';
+import Romcal, { LiturgicalCalendar } from 'lib';
 
 describe('Romcal library', () => {
   let data: LiturgicalCalendar;

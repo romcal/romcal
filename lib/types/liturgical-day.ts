@@ -1,21 +1,21 @@
-import { LiturgicalColors } from '@romcal/constants/colors';
+import { StringMap } from 'i18next';
+import { LiturgicalColors } from '../constants/colors';
 import {
   ProperCycles,
   PsalterWeeksCycles,
   SundaysCycles,
   WeekdaysCycles,
-} from '@romcal/constants/cycles';
-import { PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
-import { LiturgicalPeriods } from '@romcal/constants/periods';
-import { Precedences } from '@romcal/constants/precedences';
-import { Ranks } from '@romcal/constants/ranks';
-import { LiturgicalSeasons } from '@romcal/constants/seasons';
-import LiturgicalDay from '@romcal/models/liturgical-day';
-import LiturgicalDayDef from '@romcal/models/liturgical-day-def';
-import { AllXOR, Key, XOR } from '@romcal/types/common';
-import { MartyrologyItem, SaintCount } from '@romcal/types/martyrology';
-import { Dates } from '@romcal/utils/dates';
-import { StringMap } from 'i18next';
+} from '../constants/cycles';
+import { PatronTitles, Titles } from '../constants/martyrology-metadata';
+import { LiturgicalPeriods } from '../constants/periods';
+import { Precedences } from '../constants/precedences';
+import { Ranks } from '../constants/ranks';
+import { LiturgicalSeasons } from '../constants/seasons';
+import LiturgicalDay from '../models/liturgical-day';
+import LiturgicalDayDef from '../models/liturgical-day-def';
+import { Dates } from '../utils/dates';
+import { AllXOR, Key, XOR } from './common';
+import { MartyrologyItem, SaintCount } from './martyrology';
 
 /**
  * The liturgical day date definition

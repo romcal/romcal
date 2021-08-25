@@ -1,11 +1,11 @@
-import { LiturgicalSeasons } from '@romcal/constants/seasons';
-import { CalendarScope } from '../index';
-import { RomcalConfig } from '@romcal/models/config';
 import dayjs, { Dayjs } from 'dayjs';
 import isBetween from 'dayjs/plugin/isBetween';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
 import utc from 'dayjs/plugin/utc';
+import { CalendarScope } from '../constants/calendar-scope';
+import { LiturgicalSeasons } from '../constants/seasons';
+import { RomcalConfig } from '../models/config';
 
 dayjs.extend(utc);
 dayjs.extend(isSameOrBefore);

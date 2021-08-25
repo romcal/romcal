@@ -1,8 +1,5 @@
-import { Precedences } from '@romcal/constants/precedences';
-import { CalendarDef } from '@romcal/models/calendar-def';
-import { Europe } from '@romcal/particular-calendars/europe';
-import { InputDefinitions } from '@romcal/types/calendar-def';
-import { PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
+import { CalendarDef, InputDefinitions, PatronTitles, Precedences, Titles } from '../index';
+import { Europe } from './europe';
 
 export class Italy extends CalendarDef {
   parentCalendar = Europe;

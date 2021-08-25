@@ -9,12 +9,6 @@
       {
         "regenerator": true
       }
-    ],
-    ["module-resolver", {
-      "root": ["."],
-      "alias": {
-        "@romcal": "./lib"
-      }
-    }]
+    ]
   ]
 }

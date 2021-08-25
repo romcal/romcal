@@ -22,6 +22,9 @@
     THE SOFTWARE.
 */
 
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+import 'jest-extended';
 import Romcal, {
   CalendarScope,
   isMartyr,
@@ -31,10 +34,7 @@ import Romcal, {
   LiturgicalDayDef,
   Ranks,
   Titles,
-} from '@romcal/index';
-import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc';
-import 'jest-extended';
+} from 'lib';
 import { England_En } from '../tmp/bundles/england.en';
 import { GeneralRoman_En } from '../tmp/bundles/general-roman.en';
 import { Germany_En } from '../tmp/bundles/germany.en';

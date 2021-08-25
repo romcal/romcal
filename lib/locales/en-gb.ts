@@ -1,4 +1,4 @@
-import { Locale } from '@romcal/types/locale';
+import { Locale } from '../types/locale';
 
 export const locale: Locale = {
   key: 'en-gb',

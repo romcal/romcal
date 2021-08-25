@@ -1,8 +1,12 @@
-import { ProperCycles } from '@romcal/constants/cycles';
-import { Precedences } from '@romcal/constants/precedences';
-import { CalendarDef } from '@romcal/models/calendar-def';
-import { InputDefinitions, ParticularConfig } from '@romcal/types/calendar-def';
-import { PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
+import {
+  CalendarDef,
+  InputDefinitions,
+  ParticularConfig,
+  PatronTitles,
+  Precedences,
+  ProperCycles,
+  Titles,
+} from '../index';
 
 export class Australia extends CalendarDef {
   particularConfig: ParticularConfig = {

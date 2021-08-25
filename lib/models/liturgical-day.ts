@@ -1,24 +1,24 @@
-import { LiturgicalColors } from '@romcal/constants/colors';
-import { PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
-import { LiturgicalPeriods } from '@romcal/constants/periods';
-import { Precedences } from '@romcal/constants/precedences';
-import { PROPER_OF_TIME_NAME } from '@romcal/constants/general-calendar-names';
-import { Ranks } from '@romcal/constants/ranks';
-import { LiturgicalSeasons } from '@romcal/constants/seasons';
-import { LiturgicalDayConfig } from '@romcal/models/liturgical-day-config';
-import LiturgicalDayDef from '@romcal/models/liturgical-day-def';
-import { Key } from '@romcal/types/common';
+import { Dayjs } from 'dayjs';
+import { StringMap } from 'i18next';
+import { LiturgicalColors } from '../constants/colors';
+import { PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
+import { PatronTitles, Titles } from '../constants/martyrology-metadata';
+import { LiturgicalPeriods } from '../constants/periods';
+import { Precedences } from '../constants/precedences';
+import { Ranks } from '../constants/ranks';
+import { LiturgicalSeasons } from '../constants/seasons';
+import { Key } from '../types/common';
 import {
   BaseLiturgicalDay,
   DateDef,
   LiturgyDayDiff,
   RomcalCalendarMetadata,
   RomcalCyclesMetadata,
-} from '@romcal/types/liturgical-day';
-import { LiturgicalDayConfigOutput } from '@romcal/types/liturgical-day-config';
-import { MartyrologyItem } from '@romcal/types/martyrology';
-import { Dayjs } from 'dayjs';
-import { StringMap } from 'i18next';
+} from '../types/liturgical-day';
+import { LiturgicalDayConfigOutput } from '../types/liturgical-day-config';
+import { MartyrologyItem } from '../types/martyrology';
+import { LiturgicalDayConfig } from './liturgical-day-config';
+import LiturgicalDayDef from './liturgical-day-def';
 
 export default class LiturgicalDay implements BaseLiturgicalDay {
   readonly #liturgicalDayDef: LiturgicalDayDef;

@@ -1,8 +1,8 @@
-import { LiturgicalColors } from '@romcal/constants/colors';
-import { ProperCycles } from '@romcal/constants/cycles';
-import { Precedences } from '@romcal/constants/precedences';
-import { CalendarDef } from '@romcal/models/calendar-def';
-import { InputDefinitions, ParticularConfig } from '@romcal/types/calendar-def';
+import { LiturgicalColors } from '../constants/colors';
+import { ProperCycles } from '../constants/cycles';
+import { Precedences } from '../constants/precedences';
+import { InputDefinitions, ParticularConfig } from '../types/calendar-def';
+import { CalendarDef } from '../index';
 
 export class GeneralRoman extends CalendarDef {
   particularConfig: ParticularConfig = {

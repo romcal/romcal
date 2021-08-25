@@ -1,7 +1,7 @@
-import { CalendarScope } from '@romcal/constants/calendar-scope';
-import { RomcalBundleObject } from '@romcal/types/bundle';
-import { CalendarDefInstance } from '@romcal/types/calendar-def';
 import { i18n } from 'i18next';
+import { CalendarScope } from '../constants/calendar-scope';
+import { RomcalBundleObject } from './bundle';
+import { CalendarDefInstance } from './calendar-def';
 
 /**
  * The configuration object that is passed either to the [[Calendar.calendarFor]]

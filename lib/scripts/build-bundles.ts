@@ -1,28 +1,28 @@
-import { Martyrology } from '@romcal/catalog/martyrology';
-import { LiturgicalColors } from '@romcal/constants/colors';
-import { ProperCycles } from '@romcal/constants/cycles';
-import { PROPER_OF_TIME_NAME } from '@romcal/constants/general-calendar-names';
-import { CanonizationLevel, PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
-import { LiturgicalPeriods } from '@romcal/constants/periods';
-import { Precedences } from '@romcal/constants/precedences';
-import { LiturgicalSeasons } from '@romcal/constants/seasons';
-import { GeneralRoman } from '@romcal/general-calendar/proper-of-saints';
-import { locales } from '@romcal/locales';
-import { CalendarScope } from '@romcal/index';
-import { RomcalBundle } from '@romcal/models/bundle';
-import { CalendarDef } from '@romcal/models/calendar-def';
-import { RomcalConfig } from '@romcal/models/config';
-import LiturgicalDayDef from '@romcal/models/liturgical-day-def';
-import { particularCalendars } from '@romcal/particular-calendars';
-import { BundleDefinitions, LiturgicalDayDefinitions } from '@romcal/types/calendar-def';
-import { RomcalConfigOutput } from '@romcal/types/config';
-import { Locale, LocaleLiturgicalDayNames } from '@romcal/types/locale';
-import { MartyrologyCatalog } from '@romcal/types/martyrology';
-import { mergeDeep } from '@romcal/utils/objects';
 import cliProgress from 'cli-progress';
 import * as fs from 'fs';
 import path from 'path';
 import * as util from 'util';
+import { Martyrology } from '../catalog/martyrology';
+import { CalendarScope } from '../constants/calendar-scope';
+import { LiturgicalColors } from '../constants/colors';
+import { ProperCycles } from '../constants/cycles';
+import { PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
+import { CanonizationLevel, PatronTitles, Titles } from '../constants/martyrology-metadata';
+import { LiturgicalPeriods } from '../constants/periods';
+import { Precedences } from '../constants/precedences';
+import { LiturgicalSeasons } from '../constants/seasons';
+import { GeneralRoman } from '../general-calendar/proper-of-saints';
+import { locales } from '../locales';
+import { RomcalBundle } from '../models/bundle';
+import { CalendarDef } from '../models/calendar-def';
+import { RomcalConfig } from '../models/config';
+import LiturgicalDayDef from '../models/liturgical-day-def';
+import { particularCalendars } from '../particular-calendars';
+import { BundleDefinitions, LiturgicalDayDefinitions } from '../types/calendar-def';
+import { RomcalConfigOutput } from '../types/config';
+import { Locale, LocaleLiturgicalDayNames } from '../types/locale';
+import { MartyrologyCatalog } from '../types/martyrology';
+import { mergeDeep } from '../utils/objects';
 
 /**
  * Class helper, used to build the localized calendar bundles.
@@ -198,8 +198,8 @@ const RomcalBundler = () => {
       const dir = path.resolve(__dirname, '../../tmp/bundles/');
       const calVarName = `${calendarConstructorName}_${locale.key
         // Locale key to UpperCamelCase
-        .replace(/(^.)/, (k) => k.toUpperCase())
-        .replace(/(-\w)/g, (k) => k[1].toUpperCase())}`;
+        .replace(/(^.)/, (k: string) => k.toUpperCase())
+        .replace(/(-\w)/g, (k: string) => k[1].toUpperCase())}`;
       let jsOutput = util
         .inspect(bundle, false, 99)
         .replace(/^RomcalBundle\s/, '')
@@ -226,13 +226,7 @@ const RomcalBundler = () => {
       // Append imports inside the bundle file.
       jsOutput =
         `/* eslint-disable */\n` +
-        `import { LiturgicalColors } from '@romcal/constants/colors';\n` +
-        `import { ProperCycles } from '@romcal/constants/cycles';\n` +
-        `import { CanonizationLevel, PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';\n` +
-        `import { LiturgicalPeriods } from '@romcal/constants/periods';\n` +
-        `import { Precedences } from '@romcal/constants/precedences';\n` +
-        `import { LiturgicalSeasons } from '@romcal/constants/seasons';\n` +
-        `import { RomcalBundleObject } from '@romcal/types/bundle';\n\n` +
+        `import {\n  CanonizationLevel,\n  LiturgicalColors,\n  LiturgicalPeriods,\n  LiturgicalSeasons,\n  PatronTitles,\n  Precedences,\n  ProperCycles,\n  RomcalBundleObject,\n  Titles,\n} from '../../lib/index';\n\n` +
         `export const ${calVarName}: RomcalBundleObject = ${jsOutput}`;
 
       // Write the calendar bundle file.

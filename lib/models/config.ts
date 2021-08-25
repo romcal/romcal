@@ -1,19 +1,19 @@
-import { CalendarScope } from '@romcal/constants/calendar-scope';
-import { LiturgicalColors } from '@romcal/constants/colors';
-import { LiturgicalSeasons } from '@romcal/constants/seasons';
-import { GeneralRoman } from '@romcal/general-calendar/proper-of-saints';
-import { ProperOfTime } from '@romcal/general-calendar/proper-of-time';
-import { CalendarDef } from '@romcal/models/calendar-def';
-import { RomcalBundleObject } from '@romcal/types/bundle';
-import { CalendarDefInstance, LiturgicalDayDefinitions } from '@romcal/types/calendar-def';
-import { IRoncalConfig, RomcalConfigInput, RomcalConfigOutput } from '@romcal/types/config';
-import { Locale } from '@romcal/types/locale';
-import { MartyrologyCatalog } from '@romcal/types/martyrology';
-import { Dates } from '@romcal/utils/dates';
-import { toRomanNumber } from '@romcal/utils/numbers';
 import dayjs from 'dayjs';
 import updateLocale from 'dayjs/plugin/updateLocale';
 import i18next, { i18n } from 'i18next';
+import { CalendarScope } from '../constants/calendar-scope';
+import { LiturgicalColors } from '../constants/colors';
+import { LiturgicalSeasons } from '../constants/seasons';
+import { GeneralRoman } from '../general-calendar/proper-of-saints';
+import { ProperOfTime } from '../general-calendar/proper-of-time';
+import { RomcalBundleObject } from '../types/bundle';
+import { CalendarDefInstance, LiturgicalDayDefinitions } from '../types/calendar-def';
+import { IRoncalConfig, RomcalConfigInput, RomcalConfigOutput } from '../types/config';
+import { Locale } from '../types/locale';
+import { MartyrologyCatalog } from '../types/martyrology';
+import { Dates } from '../utils/dates';
+import { toRomanNumber } from '../utils/numbers';
+import { CalendarDef } from './calendar-def';
 
 dayjs.extend(updateLocale);
 

@@ -1,10 +1,10 @@
-import LiturgicalDay from '@romcal/models/liturgical-day';
-import { Key } from '@romcal/types/common';
-import { Dates } from '@romcal/utils/dates';
-
 /**
  * Liturgical Calendar, containing LiturgicalDay objects, within the context of a year
  */
+import LiturgicalDay from '../models/liturgical-day';
+import { Dates } from '../utils/dates';
+import { Key } from './common';
+
 export type LiturgicalCalendar = Record<string, LiturgicalDay[]>;
 
 /**

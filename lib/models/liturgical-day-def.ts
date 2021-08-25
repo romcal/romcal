@@ -1,13 +1,13 @@
-import { LiturgicalColors } from '@romcal/constants/colors';
-import { ProperCycles } from '@romcal/constants/cycles';
-import { GENERAL_ROMAN_NAME, PROPER_OF_TIME_NAME } from '@romcal/constants/general-calendar-names';
-import { isMartyr, PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
-import { LiturgicalPeriods } from '@romcal/constants/periods';
-import { Precedences } from '@romcal/constants/precedences';
-import { Ranks, RanksFromPrecedence } from '@romcal/constants/ranks';
-import { LiturgicalSeasons } from '@romcal/constants/seasons';
-import { RomcalConfig } from '@romcal/models/config';
-import { Key } from '@romcal/types/common';
+import { StringMap } from 'i18next';
+import { LiturgicalColors } from '../constants/colors';
+import { ProperCycles } from '../constants/cycles';
+import { GENERAL_ROMAN_NAME, PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
+import { isMartyr, PatronTitles, Titles } from '../constants/martyrology-metadata';
+import { LiturgicalPeriods } from '../constants/periods';
+import { Precedences } from '../constants/precedences';
+import { Ranks, RanksFromPrecedence } from '../constants/ranks';
+import { LiturgicalSeasons } from '../constants/seasons';
+import { Key } from '../types/common';
 import {
   BaseLiturgicalDayDef,
   CalendarMetadata,
@@ -21,9 +21,9 @@ import {
   MartyrologyItemRedefined,
   PartialCyclesDef,
   TitlesDef,
-} from '@romcal/types/liturgical-day';
-import { MartyrologyItem } from '@romcal/types/martyrology';
-import { StringMap } from 'i18next';
+} from '../types/liturgical-day';
+import { MartyrologyItem } from '../types/martyrology';
+import { RomcalConfig } from './config';
 
 export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
   readonly #config: RomcalConfig;

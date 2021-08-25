@@ -1,8 +1,5 @@
-import { CalendarDef } from '@romcal/models/calendar-def';
-import { InputDefinitions } from '@romcal/types/calendar-def';
-import { France } from '@romcal/particular-calendars/france';
-import { Precedences } from '@romcal/constants/precedences';
-import { PatronTitles, Titles } from '@romcal/constants/martyrology-metadata';
+import { CalendarDef, InputDefinitions, PatronTitles, Precedences, Titles } from '../index';
+import { France } from './france';
 
 export class France_Strasbourg extends CalendarDef {
   parentCalendar = France;

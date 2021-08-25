@@ -1,4 +1,4 @@
-import { RomcalConfigOutput } from '@romcal/types/config';
+import { RomcalConfigOutput } from './config';
 
 export interface BaseLiturgicalDayConfig {
   /**

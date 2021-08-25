@@ -1,14 +1,11 @@
-import { CalendarScope } from '@romcal/constants/calendar-scope';
-import { RomcalConfig } from '@romcal/models/config';
-import LiturgicalDayDef from '@romcal/models/liturgical-day-def';
-import { DateDef, DateDefExtended, DayOfWeek } from '@romcal/types/liturgical-day';
-import {
-  BaseLiturgicalDayConfig,
-  LiturgicalDayConfigOutput,
-} from '@romcal/types/liturgical-day-config';
-import { Dates } from '@romcal/utils/dates';
 import dayjs, { Dayjs } from 'dayjs';
 import updateLocale from 'dayjs/plugin/updateLocale';
+import { CalendarScope } from '../constants/calendar-scope';
+import { DateDef, DateDefExtended, DayOfWeek } from '../types/liturgical-day';
+import { BaseLiturgicalDayConfig, LiturgicalDayConfigOutput } from '../types/liturgical-day-config';
+import { Dates } from '../utils/dates';
+import { RomcalConfig } from './config';
+import LiturgicalDayDef from './liturgical-day-def';
 
 dayjs.extend(updateLocale);
 

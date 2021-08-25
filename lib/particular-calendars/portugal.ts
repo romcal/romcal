@@ -1,7 +1,5 @@
-import { Precedences } from '@romcal/constants/precedences';
-import { CalendarDef } from '@romcal/models/calendar-def';
-import { Europe } from '@romcal/particular-calendars/europe';
-import { InputDefinitions } from '@romcal/types/calendar-def';
+import { CalendarDef, InputDefinitions, Precedences } from '../index';
+import { Europe } from './europe';
 
 export class Portugal extends CalendarDef {
   parentCalendar = Europe;

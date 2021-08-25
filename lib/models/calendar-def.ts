@@ -1,16 +1,16 @@
-import { RomcalConfig } from '@romcal/models/config';
-import LiturgicalDayDef from '@romcal/models/liturgical-day-def';
 import {
-  CalendarDefInstance,
+  BaseCalendarDef,
   BundleDefinitions,
   CalendarDefInputs,
-  BaseCalendarDef,
+  CalendarDefInstance,
   ParticularConfig,
-} from '@romcal/types/calendar-def';
-import { Key } from '@romcal/types/common';
-import { RomcalConfigInput } from '@romcal/types/config';
-import { LiturgicalDayBundleInput } from '@romcal/types/liturgical-day';
-import { Dates } from '@romcal/utils/dates';
+} from '../types/calendar-def';
+import { Key } from '../types/common';
+import { RomcalConfigInput } from '../types/config';
+import { LiturgicalDayBundleInput } from '../types/liturgical-day';
+import { Dates } from '../utils/dates';
+import { RomcalConfig } from './config';
+import LiturgicalDayDef from './liturgical-day-def';
 
 export class CalendarDef implements BaseCalendarDef {
   readonly #config: RomcalConfig;

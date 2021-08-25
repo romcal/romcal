@@ -21,10 +21,7 @@
     "downlevelIteration": true,
     "importHelpers": true,
     "allowJs": true,
-    "baseUrl": ".",
-    "paths": {
-      "@romcal/*": ["lib/*"],
-    }
+    "baseUrl": "."
   },
   "exclude": ["node_modules"],
   "include": [

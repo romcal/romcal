@@ -30,9 +30,6 @@ module.exports = {
     ],
   },
   resolve: {
-    alias: {
-      '@romcal': path.resolve(__dirname, 'lib'),
-    },
     extensions: ['.ts', '.js'],
   },
   optimization: {

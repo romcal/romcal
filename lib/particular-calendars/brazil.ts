@@ -1,8 +1,5 @@
-import { Precedences } from '@romcal/constants/precedences';
-import { CalendarDef } from '@romcal/models/calendar-def';
-import { Americas } from '@romcal/particular-calendars/americas';
-import { InputDefinitions } from '@romcal/types/calendar-def';
-import { PatronTitles } from '@romcal/constants/martyrology-metadata';
+import { CalendarDef, InputDefinitions, PatronTitles, Precedences } from '../index';
+import { Americas } from './americas';
 
 export class Brazil extends CalendarDef {
   parentCalendar = Americas;
