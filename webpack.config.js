@@ -1,7 +1,7 @@
 const glob = require('glob');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
-const description = require('./package.json').description;
+const { name, description } = require('./package.json');
 
 const bundles = glob.sync('tmp/bundles/*.ts').reduce((obj, path) => {
   obj['bundles/' + path.match(/([^/]+)\.ts$/gm)[0].replace(/\.ts$/, '')] = './' + path;
@@ -12,7 +12,7 @@ module.exports = {
   context: __dirname, // to automatically find tsconfig.json
   mode: 'production',
   entry: {
-    'lib/index': './lib/index.ts',
+    index: './lib/index.ts',
     ...bundles,
   },
   module: {
@@ -43,13 +43,16 @@ module.exports = {
     ],
   },
   output: {
-    library: 'Romcal',
+    library: {
+      name: 'Romcal',
+      type: 'umd',
+      auxiliaryComment: `${name} ${description}`,
+      umdNamedDefine: true,
+    },
+    scriptType: 'module',
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
-    libraryTarget: 'umd',
-    libraryExport: 'default',
     globalObject: 'this',
-    auxiliaryComment: description,
   },
   devtool: 'source-map',
 };

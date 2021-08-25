@@ -2,8 +2,8 @@
   "name": "romcal",
   "version": "3.0.0-alpha.0",
   "description": "Generates liturgical calendars of the Roman Rite of the Roman Catholic Church.",
-  "main": "dist/lib/index.js",
-  "typings": "dist/lib/index.d.ts",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "engines": {
     "node": ">= 14.16 <=16"
   },
@@ -73,6 +73,7 @@
     "@typescript-eslint/eslint-plugin": "~4.25.0",
     "@typescript-eslint/parser": "~4.25.0",
     "babel-loader": "^8.2.2",
+    "babel-plugin-module-resolver": "^4.1.0",
     "cli-progress": "^3.9.0",
     "eslint": "~7.27.0",
     "eslint-config-prettier": "~8.3.0",
@@ -80,6 +81,7 @@
     "glob": "^7.1.7",
     "jest": "~27.0.4",
     "jest-extended": "^0.11.5",
+    "parallel-webpack": "github:emagnier/parallel-webpack#patch-1",
     "prettier": "~2.3.1",
     "rimraf": "~3.0.2",
     "terser-webpack-plugin": "^5.1.4",
