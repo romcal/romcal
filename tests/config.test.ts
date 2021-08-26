@@ -1,4 +1,3 @@
-import dayjs from 'dayjs';
 import 'jest-extended';
 import { RomcalConfig } from '../lib/models/config';
 import { CalendarScope } from '../lib/constants/calendar-scope';
@@ -11,7 +10,7 @@ describe('getConfig()', () => {
     const { year, scope, epiphanyOnSunday, corpusChristiOnSunday, ascensionOnSunday } =
       liturgicalDayConfig.getConfigObject();
 
-    expect(year).toBe(dayjs.utc().year());
+    expect(year).toBe(new Date().getFullYear());
     expect(scope).toBe(CalendarScope.Gregorian);
     expect(epiphanyOnSunday).toBeTrue();
     expect(corpusChristiOnSunday).toBeTrue();

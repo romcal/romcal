@@ -1,13 +1,17 @@
-import dayjs, { Dayjs } from 'dayjs';
-import updateLocale from 'dayjs/plugin/updateLocale';
 import { CalendarScope } from '../constants/calendar-scope';
 import { DateDef, DateDefExtended, DayOfWeek } from '../types/liturgical-day';
 import { BaseLiturgicalDayConfig, LiturgicalDayConfigOutput } from '../types/liturgical-day-config';
-import { Dates } from '../utils/dates';
+import {
+  addDays,
+  Dates,
+  daysInMonth,
+  getUtcDate,
+  isValidDate,
+  isSameDate,
+  subtractsDays,
+} from '../utils/dates';
 import { RomcalConfig } from './config';
 import LiturgicalDayDef from './liturgical-day-def';
-
-dayjs.extend(updateLocale);
 
 export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
   readonly config: RomcalConfig;
@@ -22,19 +26,20 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
   constructor(config: RomcalConfig, year?: number) {
     this.config = config;
 
+    const currentYear = new Date().getFullYear();
     this.year =
       year ??
       // When year is undefined, determine the current year
       (config.scope === CalendarScope.Gregorian
         ? // Current Gregorian year
-          dayjs().year()
+          currentYear
         : // Current Liturgical year
-        dayjs().isBefore(Dates.firstSundayOfAdvent(dayjs().year() + 1))
+        new Date().getTime() < Dates.firstSundayOfAdvent(currentYear + 1).getTime()
         ? // We are before the first Sunday of Advent, taking the current year
-          dayjs().year()
+          currentYear
         : // We are after the first Sunday of Advent, setting the next Gregorian year
           // hat represent the main part of this Liturgical year
-          dayjs().year() + 1);
+          currentYear + 1);
 
     // Initialise the Dates class
     this.dates = new Dates(config, this.year);
@@ -46,8 +51,8 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
    * @param dayOfWeek
    * @private
    */
-  static #getNextDayOfWeek(date: Dayjs, dayOfWeek: DayOfWeek): Dayjs {
-    return date.add((7 + dayOfWeek - date.day()) % 7, 'days');
+  static #getNextDayOfWeek(date: Date, dayOfWeek: DayOfWeek): Date {
+    return addDays(date, (7 + dayOfWeek - date.getDay()) % 7);
   }
 
   /**
@@ -55,8 +60,8 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
    * @param dateDef
    * @param yearOffset
    */
-  #dateLookup(dateDef: DateDef | DateDefExtended, yearOffset = 0): Dayjs | null {
-    let date: Dayjs | null = null;
+  #dateLookup(dateDef: DateDef | DateDefExtended, yearOffset = 0): Date | null {
+    let date: Date | null = null;
     const year = this.year + (dateDef.yearOffset ?? 0) + yearOffset;
 
     // DateDefMonthDate
@@ -66,7 +71,7 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
       dateDef.month! > 0 &&
       dateDef.date! > 0
     ) {
-      date = dayjs.utc(`${year}-${dateDef.month}-${dateDef.date}`);
+      date = getUtcDate(year, dateDef.month!, dateDef.date!);
     }
 
     // DateDefDateFnAddDay or DateDefDateFnSubtractDay
@@ -78,11 +83,11 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
       // todo: improve TS typing here
       const dates = this.dates[dateDef.dateFn].apply<ThisType<Dates>, any, any>(this, args);
       date =
-        (Array.isArray(dates) ? dates.find((e) => e) : dayjs.isDayjs(dates) ? dates : null) || null;
+        (Array.isArray(dates) ? dates.find((e) => e) : isValidDate(dates) ? dates : null) || null;
 
-      if (date && Number.isInteger(dateDef.addDay)) date = date.add(dateDef.addDay!, 'days');
+      if (date && Number.isInteger(dateDef.addDay)) date = addDays(date, dateDef.addDay!);
       if (date && Number.isInteger(dateDef.subtractDay))
-        date = date.subtract(dateDef.subtractDay!, 'days');
+        date = subtractsDays(date, dateDef.subtractDay!);
     }
 
     // DateDefMonthDowNthWeekInMonth
@@ -91,19 +96,18 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
       Number.isInteger(dateDef.dayOfWeek) &&
       Number.isInteger(dateDef.nthWeekInMonth)
     ) {
-      const firstDayOf7Days = dayjs.utc(
-        `${year}-${dateDef.month}-${7 * dateDef.nthWeekInMonth! - 6}`,
-      );
+      const firstDayOf7Days = getUtcDate(year, dateDef.month!, 7 * dateDef.nthWeekInMonth! - 6);
 
       date = LiturgicalDayConfig.#getNextDayOfWeek(firstDayOf7Days, dateDef.dayOfWeek!);
     }
 
     // DateDefMonthLastDowInMonth
     else if (Number.isInteger(dateDef.month) && Number.isInteger(dateDef.lastDayOfWeekInMonth)) {
-      const firstDayOfMonth = dayjs.utc(`${year}-${dateDef.month}-01`);
-      const firstDayOfLast7DaysOfMonth = dayjs
-        .utc(`${year}-${dateDef.month}-${firstDayOfMonth.daysInMonth()}`)
-        .subtract(6, 'days');
+      const firstDayOfMonth = getUtcDate(year, dateDef.month!, 1);
+      const firstDayOfLast7DaysOfMonth = subtractsDays(
+        getUtcDate(year, dateDef.month!, daysInMonth(firstDayOfMonth)),
+        6,
+      );
 
       date = LiturgicalDayConfig.#getNextDayOfWeek(
         firstDayOfLast7DaysOfMonth,
@@ -121,14 +125,14 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
    * @param yearOffset
    * @private
    */
-  buildDate(def: LiturgicalDayDef, yearOffset = 0): Dayjs | null {
+  buildDate(def: LiturgicalDayDef, yearOffset = 0): Date | null {
     let date = this.#dateLookup(def.dateDef, yearOffset);
 
     const setDate = (dateDefExtended: DateDefExtended) => {
       if (Number.isInteger(dateDefExtended.addDay)) {
-        date = date!.add(dateDefExtended.addDay!, 'days');
+        date = addDays(date!, dateDefExtended.addDay!);
       } else if (Number.isInteger(dateDefExtended.subtractDay)) {
-        date = date!.subtract(dateDefExtended.subtractDay!, 'days');
+        date = subtractsDays(date!, dateDefExtended.subtractDay!);
       } else {
         date = this.#dateLookup(dateDefExtended, yearOffset);
       }
@@ -143,13 +147,13 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
           if (from && to) {
             // From-To inclusive
             if (exception.ifIsBetween.inclusive) {
-              if (date!.isSameOrAfter(from) && date!.isSameOrBefore(to)) {
+              if (date!.getTime() >= from.getTime() && date!.getTime() <= to.getTime()) {
                 setDate(exception.setDate);
               }
             }
             // From-To exclusive
             else {
-              if (date!.isAfter(from) && date!.isBefore(to)) {
+              if (date!.getTime() > from.getTime() && date!.getTime() < to.getTime()) {
                 setDate(exception.setDate);
               }
             }
@@ -159,14 +163,14 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
         // ifIsSameAsDate
         else if (typeof exception.ifIsSameAsDate === 'object') {
           const dateComparison = this.#dateLookup(exception.ifIsSameAsDate, yearOffset);
-          if (dateComparison && dateComparison.isSame(date!)) {
+          if (dateComparison && isSameDate(dateComparison, date!)) {
             setDate(exception.setDate);
           }
         }
 
         // ifIsDayOfWeek
         else if (Number.isInteger(exception.ifIsDayOfWeek)) {
-          if (date!.day() === exception.ifIsDayOfWeek) {
+          if (date!.getDay() === exception.ifIsDayOfWeek) {
             setDate(exception.setDate);
           }
         }

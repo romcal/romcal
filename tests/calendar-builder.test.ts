@@ -22,8 +22,6 @@
     THE SOFTWARE.
 */
 
-import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc';
 import 'jest-extended';
 import { isMartyr, Titles } from '../lib/constants/martyrology-metadata';
 import Romcal from '../lib';
@@ -39,8 +37,7 @@ import { Germany_En } from '../tmp/bundles/germany.en';
 import { Hungary_En } from '../tmp/bundles/hungary.en';
 import { Ireland_En } from '../tmp/bundles/ireland.en';
 import { Slovakia_Sk } from '../tmp/bundles/slovakia.sk';
-
-dayjs.extend(utc);
+import { getUtcDate, getUtcDateFromString, isSameDate, subtractsDays } from '../lib/utils/dates';
 
 describe('Testing calendar generation functions', () => {
   test('Each item should have a key', async () => {
@@ -105,24 +102,24 @@ describe('Testing calendar generation functions', () => {
   describe('Testing calendar functions', () => {
     describe('When requesting the liturgical year', () => {
       let year: number;
-      let start: dayjs.Dayjs;
-      let end: dayjs.Dayjs;
+      let start: Date;
+      let end: Date;
       let calendar: LiturgicalCalendar;
       let calendarArr: LiturgicalDay[][];
 
       beforeEach(async () => {
         const romcal = new Romcal({ scope: CalendarScope.Liturgical });
-        year = dayjs.utc().year();
+        year = new Date().getFullYear();
         start = romcal.dates(year).firstSundayOfAdvent();
-        end = romcal.dates(year).firstSundayOfAdvent(year).subtract(1, 'day');
+        end = subtractsDays(romcal.dates(year).firstSundayOfAdvent(year), 1);
         calendar = await romcal.generateCalendar(year);
         calendarArr = Object.values(calendar);
       });
 
       test('Should start on the 1st Sunday of Advent and end on the Saturday after Christ the King', () => {
-        expect(dayjs.utc(calendarArr[0][0].date).isSame(start, 'day')).toBeTrue();
+        expect(isSameDate(getUtcDateFromString(calendarArr[0][0].date), start)).toBeTrue();
         expect(
-          dayjs.utc(calendarArr[calendarArr.length - 1][0].date).isSame(end, 'day'),
+          isSameDate(getUtcDateFromString(calendarArr[calendarArr.length - 1][0].date), end),
         ).toBeTrue();
       });
     });
@@ -132,10 +129,10 @@ describe('Testing calendar generation functions', () => {
         const calendarArr = Object.values(await new Romcal().generateCalendar());
         const firstDate = calendarArr[0][0];
         const lastDate = calendarArr.reverse()[0][0];
-        expect(dayjs.utc(firstDate.date).month()).toEqual(0);
-        expect(dayjs.utc(firstDate.date).date()).toEqual(1);
-        expect(dayjs.utc(lastDate.date).month()).toEqual(11);
-        expect(dayjs.utc(lastDate.date).date()).toEqual(31);
+        expect(getUtcDateFromString(firstDate.date).getMonth()).toEqual(0);
+        expect(getUtcDateFromString(firstDate.date).getDate()).toEqual(1);
+        expect(getUtcDateFromString(lastDate.date).getMonth()).toEqual(11);
+        expect(getUtcDateFromString(lastDate.date).getDate()).toEqual(31);
       });
     });
   });
@@ -307,9 +304,9 @@ describe('Testing calendar generation functions', () => {
     });
 
     test('A dropped liturgical day should not be appended in the final calendar', () => {
-      const date = testDates.find((d) => {
-        return dayjs.utc(d.date).isSame(dayjs.utc('2020-12-4', 'day'));
-      });
+      const date = testDates.find((d) =>
+        isSameDate(getUtcDateFromString(d.date), getUtcDate(2020, 12, 4)),
+      );
       expect(date?.key).not.toEqual(
         'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop',
       );

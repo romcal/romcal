@@ -1,17 +1,87 @@
-import * as dayjs from 'dayjs';
-import { Dayjs } from 'dayjs';
-import isBetween from 'dayjs/plugin/isBetween';
-import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
-import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
-import utc from 'dayjs/plugin/utc';
 import { CalendarScope } from '../constants/calendar-scope';
 import { LiturgicalSeasons } from '../constants/seasons';
 import { RomcalConfig } from '../models/config';
 
-dayjs.extend(utc);
-dayjs.extend(isSameOrBefore);
-dayjs.extend(isSameOrAfter);
-dayjs.extend(isBetween);
+export const getUtcDate = (year: number, month: number, date: number): Date => {
+  return new Date(Date.UTC(year, month - 1, date, 0, 0, 0, 0));
+};
+
+export const getUtcDateFromString = (dateStr: string): Date => {
+  const [year, month, date] = dateStr.split('-').map((n) => parseInt(n, 10));
+  return getUtcDate(year, month, date);
+};
+
+export const addDays = (date: Date, days: number): Date => {
+  return new Date(date.valueOf() + 864e5 * days); // 864e5 = 24 * 60 * 60 * 1000
+};
+
+export const subtractsDays = (date: Date, days: number): Date => {
+  return new Date(date.valueOf() - 864e5 * days);
+};
+
+export const isSameDate = (date1: Date, date2: Date): boolean => {
+  return (
+    date1 &&
+    date2 &&
+    date1.getFullYear() === date2.getFullYear() &&
+    date1.getMonth() === date2.getMonth() &&
+    date1.getDate() === date2.getDate()
+  );
+};
+
+export const dateDifference = (date1: Date, date2: Date): number => {
+  return Math.abs(Math.floor((date2.getTime() - date1.getTime()) / (1000 * 60 * 60 * 24)));
+};
+
+export const startOfWeek = (date: Date): Date => {
+  return subtractsDays(date, date.getDay());
+};
+
+export const isValidDate = (maybeDate: unknown): boolean => {
+  // it is a date
+  if (Object.prototype.toString.call(maybeDate) === '[object Date]') {
+    if (isNaN((maybeDate as Date).getTime())) return false; // date is not valid
+    return true; // date is valid
+  }
+  // not a date
+  return false;
+};
+
+export const daysInMonth = (date: Date): number => {
+  return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+};
+
+/**
+ * For a given date, get the ISO week number
+ * @param date
+ */
+export const getWeekNumber = (date: Date): number => {
+  const newYear = new Date(date.getFullYear(), 0, 1);
+  let day = newYear.getDay(); // The day of week the year begins on
+  day = day >= 0 ? day : day + 7;
+  const dayNum =
+    Math.floor(
+      (date.getTime() -
+        newYear.getTime() -
+        (date.getTimezoneOffset() - newYear.getTimezoneOffset()) * 60000) /
+        86400000,
+    ) + 1;
+  let weekNum;
+  // If the year starts before the middle of a week
+  if (day < 4) {
+    weekNum = Math.floor((dayNum + day - 1) / 7) + 1;
+    if (weekNum > 52) {
+      const nYear = new Date(date.getFullYear() + 1, 0, 1);
+      let nDay = nYear.getDay();
+      nDay = nDay >= 0 ? nDay : nDay + 7;
+      // If the next year starts before the middle of the week, it is week #1 of that year
+      weekNum = nDay < 4 ? 1 : 53;
+    }
+  } else {
+    weekNum = Math.floor((dayNum + day - 1) / 7);
+  }
+  return weekNum;
+};
 
 /**
  * This algorithm is based on the algorithm of Oudin (1940) and quoted in
@@ -49,11 +119,11 @@ export const computeGregorianEasterDate = (year: number): Record<string, number>
  * @param end The end date
  * @returns An array of dates representing the range
  */
-export const rangeOfDays = (start: Dayjs, end: Dayjs): Dayjs[] => {
-  const days = end.diff(start, 'day');
-  const range: Dayjs[] = [];
+export const rangeOfDays = (start: Date, end: Date): Date[] => {
+  const days = dateDifference(start, end);
+  const range: Date[] = [];
   Array.from(new Array(days + 1), (_x, i) => {
-    range.push(start.add(i, 'day'));
+    range.push(addDays(start, i));
   });
   return range;
 };
@@ -64,7 +134,7 @@ export const rangeOfDays = (start: Dayjs, end: Dayjs): Dayjs[] => {
  * @param date The date to search for in the range
  * @returns `true` if the date exists in tha range or false if otherwise
  */
-export const rangeContainsDate = (range: Array<dayjs.Dayjs>, date: dayjs.Dayjs): boolean => {
+export const rangeContainsDate = (range: Date[], date: Date): boolean => {
   return range.map((date) => date.toISOString()).includes(date.toISOString());
 };
 
@@ -88,63 +158,63 @@ export class Dates {
    * The length of Advent depends upon the day of the week on which Christmas occurs
    * @param year Gregorian year
    */
-  allDatesOfAdvent = (year = this.#isLiturgicalYear ? this.#year - 1 : this.#year): Dayjs[] => {
+  allDatesOfAdvent = (year = this.#isLiturgicalYear ? this.#year - 1 : this.#year): Date[] => {
     if (this.#allDatesOfAdvent[year]) return this.#allDatesOfAdvent[year];
     const start = this.firstSundayOfAdvent(year);
-    const end = this.christmas(year).subtract(1, 'day');
+    const end = subtractsDays(this.christmas(year), 1);
     return (this.#allDatesOfAdvent[year] = rangeOfDays(start, end));
   };
-  #allDatesOfAdvent: Record<string, Dayjs[]> = {};
+  #allDatesOfAdvent: Record<string, Date[]> = {};
 
   /**
    * Get the all 4 Sundays of Advent
    * @param year Gregorian year
    */
-  allSundaysOfAdvent = (year = this.#isLiturgicalYear ? this.#year - 1 : this.#year): Dayjs[] => {
+  allSundaysOfAdvent = (year = this.#isLiturgicalYear ? this.#year - 1 : this.#year): Date[] => {
     if (this.#allSundaysOfAdvent[year]) return this.#allSundaysOfAdvent[year];
     const firstSunday = this.firstSundayOfAdvent(year);
     return (this.#allSundaysOfAdvent[year] = [
       firstSunday,
-      firstSunday.add(7, 'days'),
-      firstSunday.add(14, 'days'),
-      firstSunday.add(21, 'days'),
+      addDays(firstSunday, 7),
+      addDays(firstSunday, 14),
+      addDays(firstSunday, 21),
     ]);
   };
-  #allSundaysOfAdvent: Record<string, Dayjs[]> = {};
+  #allSundaysOfAdvent: Record<string, Date[]> = {};
 
   /**
    * Get the date of the first Sunday of Advent
    * (the start of Advent depends upon the day of the week on which Christmas occurs)
    * @param year Gregorian year
    */
-  firstSundayOfAdvent = (year = this.#isLiturgicalYear ? this.#year - 1 : this.#year): Dayjs => {
+  firstSundayOfAdvent = (year = this.#isLiturgicalYear ? this.#year - 1 : this.#year): Date => {
     if (this.#firstSundayOfAdvent[year]) return this.#firstSundayOfAdvent[year];
     return (this.#firstSundayOfAdvent[year] = Dates.firstSundayOfAdvent(year));
   };
-  #firstSundayOfAdvent: Record<string, Dayjs> = {};
+  #firstSundayOfAdvent: Record<string, Date> = {};
 
   /**
    * Get the date of the first Sunday of Advent
    * (the start of Advent depends upon the day of the week on which Christmas occurs)
    * @param year Gregorian year
    */
-  static firstSundayOfAdvent = (year: number): Dayjs => {
-    switch (Dates.christmas(year).day()) {
+  static firstSundayOfAdvent = (year: number): Date => {
+    switch (Dates.christmas(year).getDay()) {
       case 0: // Sunday
-        return dayjs.utc(`${year}-11-27`);
+        return getUtcDate(year, 11, 27);
       case 1: // Monday
-        return dayjs.utc(`${year}-12-3`);
+        return getUtcDate(year, 12, 3);
       case 2: // Tuesday
-        return dayjs.utc(`${year}-12-2`);
+        return getUtcDate(year, 12, 2);
       case 3: // Wednesday
-        return dayjs.utc(`${year}-12-1`);
+        return getUtcDate(year, 12, 1);
       case 4: // Thursday
-        return dayjs.utc(`${year}-11-30`);
+        return getUtcDate(year, 11, 30);
       case 5: // Friday
-        return dayjs.utc(`${year}-11-29`);
+        return getUtcDate(year, 11, 29);
       default:
         // Saturday
-        return dayjs.utc(`${year}-11-28`);
+        return getUtcDate(year, 11, 28);
     }
   };
 
@@ -158,18 +228,18 @@ export class Dates {
     dow: number,
     week: number,
     year = this.#isLiturgicalYear ? this.#year - 1 : this.#year,
-  ): Dayjs | null => {
+  ): Date | null => {
     const id = `${year}_${week}_${dow}`;
     if (this.#unprivilegedWeekdayOfAdvent[id] !== undefined) {
       return this.#unprivilegedWeekdayOfAdvent[id];
     }
     if (dow < 1 || dow > 6 || week < 1 || week > 4)
       return (this.#unprivilegedWeekdayOfAdvent[id] = null);
-    let date: Dayjs | null = this.firstSundayOfAdvent(year).add((week - 1) * 7 + dow, 'days');
-    if (date.date() >= 17 && date.month() === 11 && date.day() !== 0) date = null;
+    let date: Date | null = addDays(this.firstSundayOfAdvent(year), (week - 1) * 7 + dow);
+    if (date!.getDate() >= 17 && date!.getMonth() === 11 && date!.getDay() !== 0) date = null;
     return (this.#unprivilegedWeekdayOfAdvent[id] = date);
   };
-  #unprivilegedWeekdayOfAdvent: Record<string, Dayjs | null> = {};
+  #unprivilegedWeekdayOfAdvent: Record<string, Date | null> = {};
 
   /**
    * Get the date of a privileged weekday within Advent, from 17 to 24 December,
@@ -180,17 +250,17 @@ export class Dates {
   privilegedWeekdayOfAdvent = (
     day: number,
     year = this.#isLiturgicalYear ? this.#year - 1 : this.#year,
-  ): Dayjs | null => {
+  ): Date | null => {
     const id = `${year}_${day}`;
     if (this.#privilegedWeekdayOfAdvent[id] !== undefined) {
       return this.#privilegedWeekdayOfAdvent[id];
     }
     if (day < 17 || day > 24) return (this.#privilegedWeekdayOfAdvent[id] = null);
-    let date: Dayjs | null = dayjs.utc(`${year}-12-${day}`);
-    if (date.day() === 0) date = null;
+    let date: Date | null = getUtcDate(year, 12, day);
+    if (date.getDay() === 0) date = null;
     return (this.#privilegedWeekdayOfAdvent[id] = date);
   };
-  #privilegedWeekdayOfAdvent: Record<string, Dayjs | null> = {};
+  #privilegedWeekdayOfAdvent: Record<string, Date | null> = {};
 
   /**
    * Get the date of a Sundays of Advent (1st to 4th).
@@ -200,13 +270,13 @@ export class Dates {
   sundayOfAdvent = (
     week: number,
     year = this.#isLiturgicalYear ? this.#year - 1 : this.#year,
-  ): Dayjs | null => {
+  ): Date | null => {
     const id = `${year}_${week}`;
     if (this.#sundayOfAdvent[id] !== undefined) return this.#sundayOfAdvent[id];
     if (week < 1 || week > 4) return (this.#sundayOfAdvent[id] = null);
-    return (this.#sundayOfAdvent[id] = this.firstSundayOfAdvent(year).add(7 * (week - 1), 'days'));
+    return (this.#sundayOfAdvent[id] = addDays(this.firstSundayOfAdvent(year), 7 * (week - 1)));
   };
-  #sundayOfAdvent: Record<string, Dayjs | null> = {};
+  #sundayOfAdvent: Record<string, Date | null> = {};
 
   /**
    * CHRISTMAS TIME
@@ -217,19 +287,19 @@ export class Dates {
    * (in the Roman Rite, Christmas always falls on December 25).
    * @param year Gregorian year
    */
-  christmas = (year = this.#isLiturgicalYear ? this.#year - 1 : this.#year): Dayjs => {
+  christmas = (year = this.#isLiturgicalYear ? this.#year - 1 : this.#year): Date => {
     if (this.#christmas[year]) return this.#christmas[year];
     return (this.#christmas[year] = Dates.christmas(year));
   };
-  #christmas: Record<string, Dayjs> = {};
+  #christmas: Record<string, Date> = {};
 
   /**
    * Get the date of Christmas
    * (in the Roman Rite, Christmas always falls on December 25).
    * @param year Gregorian year
    */
-  static christmas = (year: number): Dayjs => {
-    return dayjs.utc(`${year}-12-25`);
+  static christmas = (year: number): Date => {
+    return getUtcDate(year, 12, 25);
   };
 
   /**
@@ -239,14 +309,14 @@ export class Dates {
    */
   allDatesInOctaveOfChristmas = (
     year = this.#isLiturgicalYear ? this.#year - 1 : this.#year,
-  ): Dayjs[] => {
+  ): Date[] => {
     if (this.#allDatesInOctaveOfChristmas[year]) return this.#allDatesInOctaveOfChristmas[year];
     return (this.#allDatesInOctaveOfChristmas[year] = rangeOfDays(
       this.christmas(year),
-      this.christmas(year).add(6, 'days'),
+      addDays(this.christmas(year), 6),
     ).concat(this.maryMotherOfGod(year)));
   };
-  #allDatesInOctaveOfChristmas: Record<string, Dayjs[]> = {};
+  #allDatesInOctaveOfChristmas: Record<string, Date[]> = {};
 
   /**
    * Get the date of the nth weekday within the Octave of the Nativity of the Lord.
@@ -257,18 +327,18 @@ export class Dates {
   weekdayWithinOctaveOfChristmas = (
     dayOfOctave: number,
     year = this.#isLiturgicalYear ? this.#year - 1 : this.#year,
-  ): Dayjs | null => {
+  ): Date | null => {
     const id = `${year}_${dayOfOctave}`;
     if (this.#weekdayWithinOctaveOfChristmas[id] !== undefined) {
       return this.#weekdayWithinOctaveOfChristmas[id];
     }
     if (dayOfOctave < 1 || dayOfOctave > 8)
       return (this.#weekdayWithinOctaveOfChristmas[id] = null);
-    let date: Dayjs | null = this.christmas(year).add(dayOfOctave - 1, 'days');
-    if (date.isSame(this.holyFamily(year), 'day')) date = null;
+    let date: Date | null = addDays(this.christmas(year), dayOfOctave - 1);
+    if (isSameDate(date, this.holyFamily(year))) date = null;
     return (this.#weekdayWithinOctaveOfChristmas[id] = date);
   };
-  #weekdayWithinOctaveOfChristmas: Record<string, Dayjs | null> = {};
+  #weekdayWithinOctaveOfChristmas: Record<string, Date | null> = {};
 
   /**
    * Get all the dates occurring in the season of Christmas.
@@ -285,14 +355,14 @@ export class Dates {
   allDatesOfChristmasTime = (
     year = this.#isLiturgicalYear ? this.#year - 1 : this.#year,
     epiphanyOnSunday = this.#config.epiphanyOnSunday,
-  ): Dayjs[] => {
+  ): Date[] => {
     const id = year + epiphanyOnSunday.toString();
     if (this.#allDatesOfChristmasTime[id]) return this.#allDatesOfChristmasTime[id];
     const start = this.christmas(year);
     const end = this.baptismOfTheLord(year + 1, epiphanyOnSunday);
     return (this.#allDatesOfChristmasTime[id] = rangeOfDays(start, end));
   };
-  #allDatesOfChristmasTime: Record<string, Dayjs[]> = {};
+  #allDatesOfChristmasTime: Record<string, Date[]> = {};
 
   /**
    * Get the second Sunday after the Octave of the Nativity of the Lord,
@@ -304,18 +374,18 @@ export class Dates {
   secondSundayAfterChristmas = (
     year = this.#year,
     epiphanyOnSunday = this.#config.epiphanyOnSunday,
-  ): Dayjs | null => {
+  ): Date | null => {
     const id = year + epiphanyOnSunday.toString();
     if (this.#secondSundayAfterChristmas[id] !== undefined) {
       return this.#secondSundayAfterChristmas[id];
     }
     if (epiphanyOnSunday) return (this.#secondSundayAfterChristmas[id] = null);
     const date =
-      this.allDatesBeforeEpiphany(year, epiphanyOnSunday).find((d) => d.day() === 0) ??
-      this.allDatesAfterEpiphany(year, epiphanyOnSunday).find((d) => d.day() === 0);
+      this.allDatesBeforeEpiphany(year, epiphanyOnSunday).find((d) => d.getDay() === 0) ??
+      this.allDatesAfterEpiphany(year, epiphanyOnSunday).find((d) => d.getDay() === 0);
     return (this.#secondSundayAfterChristmas[id] = date ?? null);
   };
-  #secondSundayAfterChristmas: Record<string, Dayjs | null> = {};
+  #secondSundayAfterChristmas: Record<string, Date | null> = {};
 
   /**
    * Get all the date before Epiphany (and from January 2)
@@ -325,14 +395,14 @@ export class Dates {
   allDatesBeforeEpiphany = (
     year = this.#year,
     epiphanyOnSunday = this.#config.epiphanyOnSunday,
-  ): Dayjs[] => {
+  ): Date[] => {
     const id = year + epiphanyOnSunday.toString();
     if (this.#allDatesBeforeEpiphany[id]) return this.#allDatesBeforeEpiphany[id];
-    const start = this.maryMotherOfGod(year).add(1, 'day');
-    const end = this.epiphany(year, epiphanyOnSunday).subtract(1, 'day');
+    const start = addDays(this.maryMotherOfGod(year), 1);
+    const end = subtractsDays(this.epiphany(year, epiphanyOnSunday), 1);
     return (this.#allDatesBeforeEpiphany[id] = rangeOfDays(start, end));
   };
-  #allDatesBeforeEpiphany: Record<string, Dayjs[]> = {};
+  #allDatesBeforeEpiphany: Record<string, Date[]> = {};
 
   /**
    * Get the date of a weekday before Epiphany (and from January 2)
@@ -344,14 +414,14 @@ export class Dates {
     day: number,
     year = this.#year,
     epiphanyOnSunday = this.#config.epiphanyOnSunday,
-  ): Dayjs | null => {
+  ): Date | null => {
     const id = `${day}_${year}_${epiphanyOnSunday.toString()}`;
     if (this.#weekdayBeforeEpiphany[id] !== undefined) return this.#weekdayBeforeEpiphany[id];
     if (day < 2 || day > 8) return (this.#weekdayBeforeEpiphany[id] = null);
     return (this.#weekdayBeforeEpiphany[id] =
-      this.allDatesBeforeEpiphany(year, epiphanyOnSunday).find((d) => d.date() === day) ?? null);
+      this.allDatesBeforeEpiphany(year, epiphanyOnSunday).find((d) => d.getDate() === day) ?? null);
   };
-  #weekdayBeforeEpiphany: Record<string, Dayjs | null> = {};
+  #weekdayBeforeEpiphany: Record<string, Date | null> = {};
 
   /**
    * Get the date of Epiphany
@@ -364,37 +434,37 @@ export class Dates {
    * @param year Gregorian year
    * @param epiphanyOnSunday Is Epiphany is fixed on a Sunday
    */
-  epiphany = (year = this.#year, epiphanyOnSunday = this.#config.epiphanyOnSunday): Dayjs => {
+  epiphany = (year = this.#year, epiphanyOnSunday = this.#config.epiphanyOnSunday): Date => {
     const id = year + epiphanyOnSunday.toString();
     if (this.#epiphany[id]) return this.#epiphany[id];
 
     // Get the first day of the year
-    const firstDay = dayjs.utc(`${year}-1-1`);
-    let date = dayjs.utc(`${year}-1-6`);
+    const firstDay = getUtcDate(year, 1, 1);
+    let date = getUtcDate(year, 1, 6);
 
     if (epiphanyOnSunday) {
-      switch (firstDay.day()) {
+      switch (firstDay.getDay()) {
         // If first day of the year is a Saturday, Mary Mother of God is on that day
         // and Epiphany is on the next day
         case 6:
-          date = firstDay.add(1, 'day');
+          date = addDays(firstDay, 1);
           break;
         // If first day of the year is a Sunday, Mary Mother of God is on that Sunday and
         // the Sunday proceeding will be Epiphany
         case 0:
-          date = firstDay.add(7, 'day');
+          date = addDays(firstDay, 7);
           break;
         // If first day of the year is on a weekday (i.e. Monday - Friday),
         // Epiphany will be celebrated on the Sunday proceeding
         default:
-          date = firstDay.add(1, 'week').startOf('week');
+          date = startOfWeek(addDays(firstDay, 7));
           break;
       }
     }
 
     return (this.#epiphany[id] = date);
   };
-  #epiphany: Record<string, Dayjs> = {};
+  #epiphany: Record<string, Date> = {};
 
   /**
    * Get all the dates after Epiphany, until the day before the Baptism of the Lord.
@@ -404,14 +474,14 @@ export class Dates {
   allDatesAfterEpiphany = (
     year = this.#year,
     epiphanyOnSunday = this.#config.epiphanyOnSunday,
-  ): Dayjs[] => {
+  ): Date[] => {
     const id = year + epiphanyOnSunday.toString();
     if (this.#allDatesAfterEpiphany[id]) return this.#allDatesAfterEpiphany[id];
-    const start = this.epiphany(year, epiphanyOnSunday).add(1, 'day');
-    const end = this.baptismOfTheLord(year, epiphanyOnSunday).subtract(1, 'day');
+    const start = addDays(this.epiphany(year, epiphanyOnSunday), 1);
+    const end = subtractsDays(this.baptismOfTheLord(year, epiphanyOnSunday), 1);
     return (this.#allDatesAfterEpiphany[id] = rangeOfDays(start, end));
   };
-  #allDatesAfterEpiphany: Record<string, Dayjs[]> = {};
+  #allDatesAfterEpiphany: Record<string, Date[]> = {};
 
   /**
    * Get the date of a weekday after Epiphany (and before the Baptism of the Lord)
@@ -423,14 +493,14 @@ export class Dates {
     dow: number,
     year = this.#year,
     epiphanyOnSunday = this.#config.epiphanyOnSunday,
-  ): Dayjs | null => {
+  ): Date | null => {
     const id = `${dow}_${year}_${epiphanyOnSunday.toString()}`;
     if (this.#weekdayAfterEpiphany[id] !== undefined) return this.#weekdayAfterEpiphany[id];
     if (dow < 1 || dow > 6) return (this.#weekdayAfterEpiphany[id] = null);
     return (this.#weekdayAfterEpiphany[id] =
-      this.allDatesAfterEpiphany(year, epiphanyOnSunday).find((d) => d.day() === dow) ?? null);
+      this.allDatesAfterEpiphany(year, epiphanyOnSunday).find((d) => d.getDay() === dow) ?? null);
   };
-  #weekdayAfterEpiphany: Record<string, Dayjs | null> = {};
+  #weekdayAfterEpiphany: Record<string, Date | null> = {};
 
   /**
    * LENT
@@ -446,51 +516,51 @@ export class Dates {
    *
    * @param year Gregorian year
    */
-  ashWednesday = (year = this.#year): Dayjs => {
+  ashWednesday = (year = this.#year): Date => {
     if (this.#ashWednesday[year]) return this.#ashWednesday[year];
-    return (this.#ashWednesday[year] = this.easterSunday(year).subtract(46, 'day').startOf('day'));
+    return (this.#ashWednesday[year] = subtractsDays(this.easterSunday(year), 46));
   };
-  #ashWednesday: Record<string, Dayjs> = {};
+  #ashWednesday: Record<string, Date> = {};
 
   /**
    * Get all the Sunday of Lent
    * @param year Gregorian year
    */
-  allSundaysOfLent = (year = this.#year): Dayjs[] => {
+  allSundaysOfLent = (year = this.#year): Date[] => {
     if (this.#allSundaysOfLent[year]) return this.#allSundaysOfLent[year];
-    const firstSunday = this.ashWednesday(year).add(4, 'days');
+    const firstSunday = addDays(this.ashWednesday(year), 4);
     return (this.#allSundaysOfLent[year] = [
       firstSunday,
-      firstSunday.add(7, 'days'),
-      firstSunday.add(14, 'days'),
-      firstSunday.add(21, 'days'),
-      firstSunday.add(28, 'days'),
-      firstSunday.add(35, 'days'),
+      addDays(firstSunday, 7),
+      addDays(firstSunday, 14),
+      addDays(firstSunday, 21),
+      addDays(firstSunday, 28),
+      addDays(firstSunday, 35),
     ]);
   };
-  #allSundaysOfLent: Record<string, Dayjs[]> = {};
+  #allSundaysOfLent: Record<string, Date[]> = {};
 
   /**
    * Get all the dates occurring in Lent (from Ash Wednesday and runs until the day before Holy Thursday)
    * @param year Gregorian year
    */
-  allDatesOfLent = (year = this.#year): Dayjs[] => {
+  allDatesOfLent = (year = this.#year): Date[] => {
     if (this.#allDatesOfLent[year]) return this.#allDatesOfLent[year];
     const start = this.ashWednesday(year);
     const end = this.holyThursday(year);
     return (this.#allDatesOfLent[year] = rangeOfDays(start, end));
   };
-  #allDatesOfLent: Record<string, Dayjs[]> = {};
+  #allDatesOfLent: Record<string, Date[]> = {};
 
   /**
    * Get the date of Palm Sunday
    * @param year Gregorian year
    */
-  palmSunday = (year = this.#year): Dayjs => {
+  palmSunday = (year = this.#year): Date => {
     if (this.#palmSunday[year]) return this.#palmSunday[year];
-    return (this.#palmSunday[year] = this.easterSunday(year).subtract(7, 'day').startOf('day'));
+    return (this.#palmSunday[year] = subtractsDays(this.easterSunday(year), 7));
   };
-  #palmSunday: Record<string, Dayjs> = {};
+  #palmSunday: Record<string, Date> = {};
 
   /**
    * HOLY WEEK
@@ -500,11 +570,11 @@ export class Dates {
    * Get the date of Holy Thursday (or Maundy Thursday)
    * @param year Gregorian year
    */
-  holyThursday = (year = this.#year): Dayjs => {
+  holyThursday = (year = this.#year): Date => {
     if (this.#holyThursday[year]) return this.#holyThursday[year];
-    return (this.#holyThursday[year] = this.easterSunday(year).subtract(3, 'day').startOf('day'));
+    return (this.#holyThursday[year] = subtractsDays(this.easterSunday(year), 3));
   };
-  #holyThursday: Record<string, Dayjs> = {};
+  #holyThursday: Record<string, Date> = {};
 
   /**
    * Get the date of Good Friday (or Holy Friday)
@@ -515,11 +585,11 @@ export class Dates {
    *
    * @param year Gregorian year
    */
-  goodFriday = (year = this.#year): Dayjs => {
+  goodFriday = (year = this.#year): Date => {
     if (this.#goodFriday[year]) return this.#goodFriday[year];
-    return (this.#goodFriday[year] = this.easterSunday(year).subtract(2, 'day').startOf('day'));
+    return (this.#goodFriday[year] = subtractsDays(this.easterSunday(year), 2));
   };
-  #goodFriday: Record<string, Dayjs> = {};
+  #goodFriday: Record<string, Date> = {};
 
   /**
    * Get the date of Holy Saturday
@@ -532,11 +602,11 @@ export class Dates {
    *
    * @param year Gregorian year
    */
-  holySaturday = (year = this.#year): Dayjs => {
+  holySaturday = (year = this.#year): Date => {
     if (this.#holySaturday[year]) return this.#holySaturday[year];
-    return (this.#holySaturday[year] = this.easterSunday(year).subtract(1, 'day').startOf('day'));
+    return (this.#holySaturday[year] = subtractsDays(this.easterSunday(year), 1));
   };
-  #holySaturday: Record<string, Dayjs> = {};
+  #holySaturday: Record<string, Date> = {};
 
   /**
    * Get all the date occurring during Holy Week
@@ -549,13 +619,13 @@ export class Dates {
    *
    * @param year Gregorian year
    */
-  allDatesOfHolyWeek = (year = this.#year): Dayjs[] => {
+  allDatesOfHolyWeek = (year = this.#year): Date[] => {
     if (this.#allDatesOfHolyWeek[year]) return this.#allDatesOfHolyWeek[year];
     const start = this.palmSunday(year);
     const end = this.holySaturday(year);
     return (this.#allDatesOfHolyWeek[year] = rangeOfDays(start, end));
   };
-  #allDatesOfHolyWeek: Record<string, Dayjs[]> = {};
+  #allDatesOfHolyWeek: Record<string, Date[]> = {};
 
   /**
    * PASCHAL TRIDUUM
@@ -570,13 +640,13 @@ export class Dates {
    *
    * @param year Gregorian year
    */
-  allDatesOfPaschalTriduum = (year = this.#year): Dayjs[] => {
+  allDatesOfPaschalTriduum = (year = this.#year): Date[] => {
     if (this.#allDatesOfPaschalTriduum[year]) return this.#allDatesOfPaschalTriduum[year];
     const start = this.holyThursday(year);
     const end = this.easterSunday(year);
     return (this.#allDatesOfPaschalTriduum[year] = rangeOfDays(start, end));
   };
-  #allDatesOfPaschalTriduum: Record<string, Dayjs[]> = {};
+  #allDatesOfPaschalTriduum: Record<string, Date[]> = {};
 
   /**
    * EASTER TIME
@@ -586,25 +656,25 @@ export class Dates {
    * Get the date of Easter
    * @param year Gregorian year
    */
-  easterSunday = (year = this.#year): Dayjs => {
+  easterSunday = (year = this.#year): Date => {
     if (this.#easter[year]) return this.#easter[year];
     const { month, day } = computeGregorianEasterDate(year);
-    return (this.#easter[year] = dayjs.utc(`${year}-${month}-${day}`));
+    return (this.#easter[year] = getUtcDate(year, month, day));
   };
-  #easter: Record<string, Dayjs> = {};
+  #easter: Record<string, Date> = {};
 
   /**
    * Get all the dates occurring during the octave of Easter
    * from Easter Sunday until the Sunday following Easter (Divine Mercy Sunday), inclusive.
    * @param year Gregorian year
    */
-  allDatesInOctaveOfEaster = (year = this.#year): Dayjs[] => {
+  allDatesInOctaveOfEaster = (year = this.#year): Date[] => {
     if (this.#allDatesInOctaveOfEaster[year]) return this.#allDatesInOctaveOfEaster[year];
     const start = this.easterSunday(year);
     const end = this.divineMercySunday(year);
     return (this.#allDatesInOctaveOfEaster[year] = rangeOfDays(start, end));
   };
-  #allDatesInOctaveOfEaster: Record<string, Dayjs[]> = {};
+  #allDatesInOctaveOfEaster: Record<string, Date[]> = {};
 
   /**
    * Get all the Sunday of Easter
@@ -614,28 +684,28 @@ export class Dates {
    *
    * @param year Gregorian year
    */
-  allSundaysOfEaster = (year = this.#year): Dayjs[] => {
+  allSundaysOfEaster = (year = this.#year): Date[] => {
     if (this.#allSundaysOfEaster[year]) return this.#allSundaysOfEaster[year];
     const firstSunday = this.easterSunday(year);
     return (this.#allSundaysOfEaster[year] = [
       firstSunday,
-      firstSunday.add(7, 'days'),
-      firstSunday.add(14, 'days'),
-      firstSunday.add(21, 'days'),
-      firstSunday.add(28, 'days'),
-      firstSunday.add(35, 'days'),
-      firstSunday.add(42, 'days'),
-      firstSunday.add(49, 'days'),
+      addDays(firstSunday, 7),
+      addDays(firstSunday, 14),
+      addDays(firstSunday, 21),
+      addDays(firstSunday, 28),
+      addDays(firstSunday, 35),
+      addDays(firstSunday, 42),
+      addDays(firstSunday, 49),
     ]);
   };
-  #allSundaysOfEaster: Record<string, Dayjs[]> = {};
+  #allSundaysOfEaster: Record<string, Date[]> = {};
 
   weekdayOrSundayOfEasterTime = (
     dow: number,
     week: number,
     year = this.#year,
     ascensionOnSunday = this.#config.ascensionOnSunday,
-  ): Dayjs | null => {
+  ): Date | null => {
     const id = `${year}_${ascensionOnSunday}_${week}_${dow}`;
     if (this.#weekdayOrSundayOfEasterTime[id] !== undefined) {
       return this.#weekdayOrSundayOfEasterTime[id];
@@ -643,46 +713,46 @@ export class Dates {
     if (week < 1 || week > 7 || dow < 0 || dow > 6) {
       return (this.#weekdayOrSundayOfEasterTime[id] = null);
     }
-    const date = this.easterSunday(year).add((week - 1) * 7 + dow, 'days');
+    const date = addDays(this.easterSunday(year), (week - 1) * 7 + dow);
     const ascension = this.ascension(year, ascensionOnSunday);
-    return (this.#weekdayOrSundayOfEasterTime[id] = ascension.isSame(date, 'date') ? null : date);
+    return (this.#weekdayOrSundayOfEasterTime[id] = isSameDate(ascension, date) ? null : date);
   };
-  #weekdayOrSundayOfEasterTime: Record<string, Dayjs | null> = {};
+  #weekdayOrSundayOfEasterTime: Record<string, Date | null> = {};
 
   /**
    * Get all the dates occurring in Easter Time.
    * Easter Time is the period of fifty days from Easter Sunday to Pentecost Sunday.
    * @param year Gregorian year
    */
-  allDatesOfEasterTime = (year = this.#year): Dayjs[] => {
+  allDatesOfEasterTime = (year = this.#year): Date[] => {
     if (this.#allDatesOfEasterTime[year]) return this.#allDatesOfEasterTime[year];
     const start = this.easterSunday(year);
     const end = this.pentecostSunday(year);
     return (this.#allDatesOfEasterTime[year] = rangeOfDays(start, end));
   };
-  #allDatesOfEasterTime: Record<string, Dayjs[]> = {};
+  #allDatesOfEasterTime: Record<string, Date[]> = {};
 
   /**
    * Get the date of Divine Mercy Sunday
    * (the Sunday after Easter, in the Octave of Easter)
    * @param year Gregorian year
    */
-  divineMercySunday = (year = this.#year): Dayjs => {
+  divineMercySunday = (year = this.#year): Date => {
     if (this.#divineMercySunday[year]) return this.#divineMercySunday[year];
-    return (this.#divineMercySunday[year] = this.easterSunday(year).add(7, 'day').startOf('day'));
+    return (this.#divineMercySunday[year] = addDays(this.easterSunday(year), 7));
   };
-  #divineMercySunday: Record<string, Dayjs> = {};
+  #divineMercySunday: Record<string, Date> = {};
 
   /**
    * Get the date of Pentecost
    * (occurs 49 days after Easter)
    * @param year Gregorian year
    */
-  pentecostSunday = (year = this.#year): Dayjs => {
+  pentecostSunday = (year = this.#year): Date => {
     if (this.#pentecostSunday[year]) return this.#pentecostSunday[year];
-    return (this.#pentecostSunday[year] = this.easterSunday(year).add(49, 'day').startOf('day'));
+    return (this.#pentecostSunday[year] = addDays(this.easterSunday(year), 49));
   };
-  #pentecostSunday: Record<string, Dayjs> = {};
+  #pentecostSunday: Record<string, Date> = {};
 
   //==================================================================================
   // Ordinary Time
@@ -696,7 +766,7 @@ export class Dates {
   allDatesOfOrdinaryTime = (
     year = this.#year,
     epiphanyOnSunday = this.#config.epiphanyOnSunday,
-  ): Dayjs[] => {
+  ): Date[] => {
     const id = year + epiphanyOnSunday.toString();
     if (this.#allDatesOfOrdinaryTime[id]) return this.#allDatesOfOrdinaryTime[id];
     return (this.#allDatesOfOrdinaryTime[id] = [
@@ -704,7 +774,7 @@ export class Dates {
       ...this.allDatesOfLateOrdinaryTime(year),
     ]);
   };
-  #allDatesOfOrdinaryTime: Record<string, Dayjs[]> = {};
+  #allDatesOfOrdinaryTime: Record<string, Date[]> = {};
 
   /**
    * Get all the dates of the Ordinary Time, from the day after the Christmas Time
@@ -720,53 +790,53 @@ export class Dates {
   allDatesOfEarlyOrdinaryTime = (
     year = this.#year,
     epiphanyOnSunday = this.#config.epiphanyOnSunday,
-  ): Dayjs[] => {
+  ): Date[] => {
     const id = year + epiphanyOnSunday.toString();
     if (this.#allDatesOfEarlyOrdinaryTime[id]) return this.#allDatesOfEarlyOrdinaryTime[id];
-    const start = this.baptismOfTheLord(year, epiphanyOnSunday).add(1, 'day');
-    const end = this.ashWednesday(year).subtract(1, 'day');
+    const start = addDays(this.baptismOfTheLord(year, epiphanyOnSunday), 1);
+    const end = subtractsDays(this.ashWednesday(year), 1);
     return (this.#allDatesOfEarlyOrdinaryTime[id] = rangeOfDays(start, end));
   };
-  #allDatesOfEarlyOrdinaryTime: Record<string, Dayjs[]> = {};
+  #allDatesOfEarlyOrdinaryTime: Record<string, Date[]> = {};
 
   /**
    * Get all Sundays that fall within the period of early Ordinary Time
    * @param year Gregorian year
    */
-  sundaysOfEarlyOrdinaryTime = (year = this.#year): Dayjs[] => {
+  sundaysOfEarlyOrdinaryTime = (year = this.#year): Date[] => {
     if (this.#sundaysOfEarlyOrdinaryTime[year]) return this.#sundaysOfEarlyOrdinaryTime[year];
     return (this.#sundaysOfEarlyOrdinaryTime[year] = this.allDatesOfEarlyOrdinaryTime(year).filter(
-      (d) => d.day() === 0,
+      (d) => d.getDay() === 0,
     ));
   };
-  #sundaysOfEarlyOrdinaryTime: Record<string, Dayjs[]> = {};
+  #sundaysOfEarlyOrdinaryTime: Record<string, Date[]> = {};
 
   /**
    * Get all the dates of Ordinary Time after Pentecost to the day before the
    * First Sunday of Advent.
    * @param year Gregorian year
    */
-  allDatesOfLateOrdinaryTime = (year = this.#year): Dayjs[] => {
+  allDatesOfLateOrdinaryTime = (year = this.#year): Date[] => {
     if (this.#allDatesOfLateOrdinaryTime[year]) return this.#allDatesOfLateOrdinaryTime[year];
-    const start = this.pentecostSunday(year).add(1, 'day');
-    const end = this.firstSundayOfAdvent(year).subtract(1, 'day');
+    const start = addDays(this.pentecostSunday(year), 1);
+    const end = subtractsDays(this.firstSundayOfAdvent(year), 1);
     return (this.#allDatesOfLateOrdinaryTime[year] = rangeOfDays(start, end));
   };
-  #allDatesOfLateOrdinaryTime: Record<string, Dayjs[]> = {};
+  #allDatesOfLateOrdinaryTime: Record<string, Date[]> = {};
 
   /**
    * Gets all the Sundays that fall within the period of late Ordinary Time
    * @param year Gregorian year
    */
-  allSundaysOfLateOrdinaryTime = (year = this.#year): Dayjs[] => {
+  allSundaysOfLateOrdinaryTime = (year = this.#year): Date[] => {
     if (this.#allSundaysOfLateOrdinaryTime[year]) return this.#allSundaysOfLateOrdinaryTime[year];
     return (this.#allSundaysOfLateOrdinaryTime[year] = this.allDatesOfLateOrdinaryTime(year).filter(
-      (d) => d.day() === 0,
+      (d) => d.getDay() === 0,
     ));
   };
-  #allSundaysOfLateOrdinaryTime: Record<string, Dayjs[]> = {};
+  #allSundaysOfLateOrdinaryTime: Record<string, Date[]> = {};
 
-  christTheKingSunday = (year = this.#year): Dayjs => {
+  christTheKingSunday = (year = this.#year): Date => {
     /**
      * Get the date of the Solemnity of Christ the King
      *
@@ -775,18 +845,16 @@ export class Dates {
      * latter part of the year are numbered backwards from Christ the King to Pentecost.*
      */
     if (this.#christTheKingSunday[year]) return this.#christTheKingSunday[year];
-    return (this.#christTheKingSunday[year] = this.firstSundayOfAdvent(year)
-      .subtract(7, 'day')
-      .startOf('day'));
+    return (this.#christTheKingSunday[year] = subtractsDays(this.firstSundayOfAdvent(year), 7));
   };
-  #christTheKingSunday: Record<string, Dayjs> = {};
+  #christTheKingSunday: Record<string, Date> = {};
 
   dateOfOrdinaryTime = (
     dow: number,
     week: number,
     year = this.#year,
     epiphanyOnSunday = this.#config.epiphanyOnSunday,
-  ): Dayjs | null => {
+  ): Date | null => {
     const id = year + epiphanyOnSunday.toString();
 
     if (this.#dateOfOrdinaryTime[id] === undefined) {
@@ -794,23 +862,23 @@ export class Dates {
       const late = this.allDatesOfLateOrdinaryTime(year);
       const lateOrdinaryStartWeekCount = Math.floor(35 - (late.length + 1) / 7);
 
-      const trinitySunday = this.trinitySunday(year).toDate().getTime();
-      const corpusChristi = this.corpusChristi(year).toDate().getTime();
-      const mostSacredHeartOfJesus = this.mostSacredHeartOfJesus(year).toDate().getTime();
+      const trinitySunday = this.trinitySunday(year).getTime();
+      const corpusChristi = this.corpusChristi(year).getTime();
+      const mostSacredHeartOfJesus = this.mostSacredHeartOfJesus(year).getTime();
 
-      const groupBy = (dates: Dayjs[], isEarlyOrdinaryTime: boolean) =>
-        dates.reduce((result: Record<string, Record<string, Dayjs | null>>, item, idx) => {
+      const groupBy = (dates: Date[], isEarlyOrdinaryTime: boolean) =>
+        dates.reduce((result: Record<string, Record<string, Date | null>>, item, idx) => {
           const week = isEarlyOrdinaryTime
             ? // Early Ordinary Time
-              item.day() === 0
+              item.getDay() === 0
               ? Math.floor(idx / 7) + 2
               : Math.floor(idx / 7) + 1
             : // Late Ordinary Time
-            item.day() === 0
+            item.getDay() === 0
             ? lateOrdinaryStartWeekCount + Math.floor(idx / 7) + 1
             : lateOrdinaryStartWeekCount + Math.floor(idx / 7);
 
-          const dateTime = item.toDate().getTime();
+          const dateTime = item.getTime();
           const date =
             dateTime === trinitySunday ||
             dateTime === corpusChristi ||
@@ -818,7 +886,7 @@ export class Dates {
               ? null
               : item;
 
-          return { ...result, [week]: { ...(result[week] || []), [item.day()]: date } };
+          return { ...result, [week]: { ...(result[week] || []), [item.getDay()]: date } };
         }, {});
 
       this.#dateOfOrdinaryTime[id] = {
@@ -829,7 +897,7 @@ export class Dates {
 
     return (this.#dateOfOrdinaryTime[id][week] && this.#dateOfOrdinaryTime[id][week][dow]) ?? null;
   };
-  #dateOfOrdinaryTime: Record<string, Record<string, Record<string, Dayjs | null>>> = {};
+  #dateOfOrdinaryTime: Record<string, Record<string, Record<string, Date | null>>> = {};
 
   //==================================================================================
   // Fixed and movable Solemnities
@@ -848,11 +916,11 @@ export class Dates {
    *
    * @param year Gregorian year
    */
-  maryMotherOfGod = (year = this.#year): Dayjs => {
+  maryMotherOfGod = (year = this.#year): Date => {
     if (this.#maryMotherOfGod[year]) return this.#maryMotherOfGod[year];
-    return (this.#maryMotherOfGod[year] = dayjs.utc(`${year}-1-1`));
+    return (this.#maryMotherOfGod[year] = getUtcDate(year, 1, 1));
   };
-  #maryMotherOfGod: Record<string, Dayjs> = {};
+  #maryMotherOfGod: Record<string, Date> = {};
 
   /**
    * Get the date of the celebration of the Annunciation
@@ -862,22 +930,22 @@ export class Dates {
    *
    * @param year Gregorian year
    */
-  annunciation = (year = this.#year): Dayjs => {
+  annunciation = (year = this.#year): Date => {
     if (this.#annunciation[year]) return this.#annunciation[year];
 
-    let date = dayjs.utc(`${year}-3-25`);
+    let date = getUtcDate(year, 3, 25);
 
     // If it occurs during Holy Week or the Octave of Easter
     // it is transferred to the Monday of the Second Week of Easter.
     const palmSunday = this.palmSunday(year);
     const divineMercySunday = this.divineMercySunday(year);
-    if (date.isSameOrAfter(palmSunday) && date.isSameOrBefore(divineMercySunday)) {
-      date = divineMercySunday.add(1, 'day');
+    if (date.getTime() >= palmSunday.getTime() && date.getTime() <= divineMercySunday.getTime()) {
+      date = addDays(divineMercySunday, 1);
     }
 
     return (this.#annunciation[year] = date);
   };
-  #annunciation: Record<string, Dayjs> = {};
+  #annunciation: Record<string, Date> = {};
 
   /**
    * Get the date of the celebration of the birth of John the Baptist
@@ -892,11 +960,11 @@ export class Dates {
    *
    * @param year Gregorian year
    */
-  nativityOfJohnTheBaptist = (year = this.#year): Dayjs => {
+  nativityOfJohnTheBaptist = (year = this.#year): Date => {
     if (this.#nativityOfJohnTheBaptist[year]) return this.#nativityOfJohnTheBaptist[year];
-    return (this.#nativityOfJohnTheBaptist[year] = dayjs.utc(`${year}-6-24`));
+    return (this.#nativityOfJohnTheBaptist[year] = getUtcDate(year, 6, 24));
   };
-  #nativityOfJohnTheBaptist: Record<string, Dayjs> = {};
+  #nativityOfJohnTheBaptist: Record<string, Date> = {};
 
   /**
    * Get the date of the solemnity of Saints Peter and Paul
@@ -909,11 +977,11 @@ export class Dates {
    *
    * @param year Gregorian year
    */
-  peterAndPaulApostles = (year = this.#year): Dayjs => {
+  peterAndPaulApostles = (year = this.#year): Date => {
     if (this.#peterAndPaulApostles[year]) return this.#peterAndPaulApostles[year];
-    return (this.#peterAndPaulApostles[year] = dayjs.utc(`${year}-6-29`));
+    return (this.#peterAndPaulApostles[year] = getUtcDate(year, 6, 29));
   };
-  #peterAndPaulApostles: Record<string, Dayjs> = {};
+  #peterAndPaulApostles: Record<string, Date> = {};
 
   /**
    * Get the date of the celebration of the Assumption
@@ -924,11 +992,11 @@ export class Dates {
    *
    * @param year Gregorian year
    */
-  assumption = (year = this.#year): Dayjs => {
+  assumption = (year = this.#year): Date => {
     if (this.#assumption[year]) return this.#assumption[year];
-    return (this.#assumption[year] = dayjs.utc(`${year}-8-15`));
+    return (this.#assumption[year] = getUtcDate(year, 8, 15));
   };
-  #assumption: Record<string, Dayjs> = {};
+  #assumption: Record<string, Date> = {};
 
   /**
    * Get the date of the solemnity of All Saints
@@ -939,11 +1007,11 @@ export class Dates {
    *
    * @param year Gregorian year
    */
-  allSaints = (year = this.#year): Dayjs => {
+  allSaints = (year = this.#year): Date => {
     if (this.#allSaints[year]) return this.#allSaints[year];
-    return (this.#allSaints[year] = dayjs.utc(`${year}-11-1`));
+    return (this.#allSaints[year] = getUtcDate(year, 11, 1));
   };
-  #allSaints: Record<string, Dayjs> = {};
+  #allSaints: Record<string, Date> = {};
 
   /**
    * Get the date of the celebration of the Immaculate Conception
@@ -960,15 +1028,15 @@ export class Dates {
    */
   immaculateConceptionOfMary = (
     year = this.#isLiturgicalYear ? this.#year - 1 : this.#year,
-  ): Dayjs => {
+  ): Date => {
     if (this.#immaculateConceptionOfMary[year]) return this.#immaculateConceptionOfMary[year];
-    let date = dayjs.utc(`${year}-12-8`);
+    let date = getUtcDate(year, 12, 8);
     // If this solemnity falls on a Sunday, is transferred to the
     // following Monday.
-    if (date.day() === 0) date = date.add(1, 'day');
+    if (date.getDay() === 0) date = addDays(date, 1);
     return (this.#immaculateConceptionOfMary[year] = date);
   };
-  #immaculateConceptionOfMary: Record<string, Dayjs> = {};
+  #immaculateConceptionOfMary: Record<string, Date> = {};
 
   /**
    * Get the date of the solemnity of Ascension
@@ -984,27 +1052,27 @@ export class Dates {
    * @param year Gregorian year
    * @param ascensionOnSunday Is Ascension is fixed on a Sunday
    */
-  ascension = (year = this.#year, ascensionOnSunday = this.#config.ascensionOnSunday): Dayjs => {
+  ascension = (year = this.#year, ascensionOnSunday = this.#config.ascensionOnSunday): Date => {
     const id = year + ascensionOnSunday.toString();
     if (this.#ascension[id]) return this.#ascension[id];
     return (this.#ascension[id] = ascensionOnSunday
       ? // If specified, move Ascension to Sunday
-        this.easterSunday(year).add(42, 'day')
+        addDays(this.easterSunday(year), 42)
       : // else by default, Ascension on Thursday
-        this.easterSunday(year).add(39, 'day'));
+        addDays(this.easterSunday(year), 39));
   };
-  #ascension: Record<string, Dayjs> = {};
+  #ascension: Record<string, Date> = {};
 
   /**
    * Get the date of the Solemnity of Trinity Sunday
    * (occurs 56 days after Easter)
    * @param year Gregorian year
    */
-  trinitySunday = (year = this.#year): Dayjs => {
+  trinitySunday = (year = this.#year): Date => {
     if (this.#trinitySunday[year]) return this.#trinitySunday[year];
-    return (this.#trinitySunday[year] = this.easterSunday(year).add(56, 'day'));
+    return (this.#trinitySunday[year] = addDays(this.easterSunday(year), 56));
   };
-  #trinitySunday: Record<string, Dayjs> = {};
+  #trinitySunday: Record<string, Date> = {};
 
   /**
    * Get the date of the solemnity of Corpus Christi
@@ -1021,38 +1089,38 @@ export class Dates {
   corpusChristi = (
     year = this.#year,
     corpusChristiOnSunday = this.#config.corpusChristiOnSunday,
-  ): Dayjs => {
+  ): Date => {
     const id = year + corpusChristiOnSunday.toString();
     if (this.#corpusChristi[id]) return this.#corpusChristi[id];
     return (this.#corpusChristi[id] = corpusChristiOnSunday
       ? // By default Corpus Christi on Sunday
-        this.easterSunday(year).add(63, 'day')
+        addDays(this.easterSunday(year), 63)
       : // If specified, move Corpus Christi to Thursday
-        this.easterSunday(year).add(60, 'day'));
+        addDays(this.easterSunday(year), 60));
   };
-  #corpusChristi: Record<string, Dayjs> = {};
+  #corpusChristi: Record<string, Date> = {};
 
   /**
    * Get the date of the Solemnity of the Sacred Heart of Jesus
    * (occurs 68 days after Easter)
    * @param year Gregorian year
    */
-  mostSacredHeartOfJesus = (year = this.#year): Dayjs => {
+  mostSacredHeartOfJesus = (year = this.#year): Date => {
     if (this.#mostSacredHeartOfJesus[year]) return this.#mostSacredHeartOfJesus[year];
-    return (this.#mostSacredHeartOfJesus[year] = this.easterSunday(year).add(68, 'day'));
+    return (this.#mostSacredHeartOfJesus[year] = addDays(this.easterSunday(year), 68));
   };
-  #mostSacredHeartOfJesus: Record<string, Dayjs> = {};
+  #mostSacredHeartOfJesus: Record<string, Date> = {};
 
   /**
    * Get the date of the celebration of the Immaculate Heart of Mary
    * (occurs 69 days after Easter)
    * @param year Gregorian year
    */
-  immaculateHeartOfMary = (year = this.#year): Dayjs => {
+  immaculateHeartOfMary = (year = this.#year): Date => {
     if (this.#immaculateHeartOfMary[year]) return this.#immaculateHeartOfMary[year];
-    return (this.#immaculateHeartOfMary[year] = this.easterSunday(year).add(69, 'day'));
+    return (this.#immaculateHeartOfMary[year] = addDays(this.easterSunday(year), 69));
   };
-  #immaculateHeartOfMary: Record<string, Dayjs> = {};
+  #immaculateHeartOfMary: Record<string, Date> = {};
 
   /**
    * FEASTS OF THE LORD
@@ -1069,16 +1137,16 @@ export class Dates {
    *
    * @param year Gregorian year
    */
-  holyFamily = (year = this.#isLiturgicalYear ? this.#year - 1 : this.#year): Dayjs => {
+  holyFamily = (year = this.#isLiturgicalYear ? this.#year - 1 : this.#year): Date => {
     if (this.#holyFamily[year]) return this.#holyFamily[year];
     return (this.#holyFamily[year] =
-      this.christmas(year).day() === 0
+      this.christmas(year).getDay() === 0
         ? // If Christmas is on Sunday, then Holy Family is on the 30th Dec
-          dayjs.utc(`${year}-12-30`)
+          getUtcDate(year, 12, 30)
         : // Holy Family is 1 week after Christmas when Christmas is on a weekday
-          this.christmas(year).add(1, 'week').startOf('week'));
+          startOfWeek(addDays(this.christmas(year), 7)));
   };
-  #holyFamily: Record<string, Dayjs> = {};
+  #holyFamily: Record<string, Date> = {};
 
   /**
    * Get the date of the Baptism of the Lord
@@ -1098,7 +1166,7 @@ export class Dates {
   baptismOfTheLord = (
     year = this.#year,
     epiphanyOnSunday = this.#config.epiphanyOnSunday,
-  ): Dayjs => {
+  ): Date => {
     const id = year + epiphanyOnSunday.toString();
     if (this.#baptismOfTheLord[id]) return this.#baptismOfTheLord[id];
 
@@ -1106,19 +1174,19 @@ export class Dates {
 
     // If Epiphany is celebrated on Jan. 6
     // the Baptism of the Lord occurs on the Sunday following Jan. 6.
-    if (epiphany.date() === 6) {
-      return epiphany.add(1, 'week').startOf('week');
+    if (epiphany.getDate() === 6) {
+      return startOfWeek(addDays(epiphany, 7));
     }
     // If Epiphany occurs on Sunday Jan. 7 or Sunday Jan. 8,
     //  then the Baptism of the Lord is the next day (Monday)
-    if ((epiphany.day() === 0 && epiphany.date() === 7) || epiphany.date() === 8) {
-      return epiphany.add(1, 'day');
+    if ((epiphany.getDay() === 0 && epiphany.getDate() === 7) || epiphany.getDate() === 8) {
+      return addDays(epiphany, 1);
     }
     // If Epiphany occurs before Jan. 6, the Sunday
     // following Epiphany is the Baptism of the Lord.
-    return (this.#baptismOfTheLord[id] = epiphany.add(1, 'week').startOf('week'));
+    return (this.#baptismOfTheLord[id] = startOfWeek(addDays(epiphany, 7)));
   };
-  #baptismOfTheLord: Record<string, Dayjs> = {};
+  #baptismOfTheLord: Record<string, Date> = {};
 
   /**
    * Get the date of the Presentation of the Lord
@@ -1131,33 +1199,33 @@ export class Dates {
    *
    * @param year Gregorian year
    */
-  presentationOfTheLord = (year = this.#year): Dayjs => {
+  presentationOfTheLord = (year = this.#year): Date => {
     if (this.#presentationOfTheLord[year]) return this.#presentationOfTheLord[year];
-    return (this.#presentationOfTheLord[year] = dayjs.utc(`${year}-2-2`));
+    return (this.#presentationOfTheLord[year] = getUtcDate(year, 2, 2));
   };
-  #presentationOfTheLord: Record<string, Dayjs> = {};
+  #presentationOfTheLord: Record<string, Date> = {};
 
   /**
    * Get the date for the Transfiguration of our Lord.
    * @param year Gregorian year
    */
-  transfiguration = (year = this.#year): Dayjs => {
+  transfiguration = (year = this.#year): Date => {
     if (this.#transfiguration[year]) return this.#transfiguration[year];
-    return (this.#transfiguration[year] = dayjs.utc(`${year}-8-6`));
+    return (this.#transfiguration[year] = getUtcDate(year, 8, 6));
   };
-  #transfiguration: Record<string, Dayjs> = {};
+  #transfiguration: Record<string, Date> = {};
 
   /**
    * Get the date for The Exultation of The Holy Cross.
    * @param year Gregorian year
    */
-  exaltationOfTheHolyCross = (year = this.#year): Dayjs => {
+  exaltationOfTheHolyCross = (year = this.#year): Date => {
     if (this.#exaltationOfTheHolyCross[year]) return this.#exaltationOfTheHolyCross[year];
-    return (this.#exaltationOfTheHolyCross[year] = dayjs.utc(`${year}-9-14`));
+    return (this.#exaltationOfTheHolyCross[year] = getUtcDate(year, 9, 14));
   };
-  #exaltationOfTheHolyCross: Record<string, Dayjs> = {};
+  #exaltationOfTheHolyCross: Record<string, Date> = {};
 
-  startOfSeasons = (year = this.#year): Record<LiturgicalSeasons, Dayjs> => {
+  startOfSeasons = (year = this.#year): Record<LiturgicalSeasons, Date> => {
     if (this.#startOfSeasons[year]) return this.#startOfSeasons[year];
     return (this.#startOfSeasons[year] = {
       [LiturgicalSeasons.ADVENT]: this.firstSundayOfAdvent(year - 1),
@@ -1165,21 +1233,21 @@ export class Dates {
       [LiturgicalSeasons.LENT]: this.ashWednesday(year),
       [LiturgicalSeasons.PASCHAL_TRIDUUM]: this.holyThursday(year),
       [LiturgicalSeasons.EASTER_TIME]: this.easterSunday(year),
-      [LiturgicalSeasons.ORDINARY_TIME]: this.baptismOfTheLord(year).add(1, 'day'),
+      [LiturgicalSeasons.ORDINARY_TIME]: addDays(this.baptismOfTheLord(year), 1),
     });
   };
-  #startOfSeasons: Record<number, Record<LiturgicalSeasons, Dayjs>> = {};
+  #startOfSeasons: Record<number, Record<LiturgicalSeasons, Date>> = {};
 
-  endOfSeasons = (year = this.#year): Record<LiturgicalSeasons, Dayjs> => {
+  endOfSeasons = (year = this.#year): Record<LiturgicalSeasons, Date> => {
     if (this.#endOfSeasons[year]) return this.#endOfSeasons[year];
     return (this.#endOfSeasons[year] = {
-      [LiturgicalSeasons.ADVENT]: dayjs.utc(`${year - 1}-12-24`),
+      [LiturgicalSeasons.ADVENT]: getUtcDate(year - 1, 12, 24),
       [LiturgicalSeasons.CHRISTMAS_TIME]: this.baptismOfTheLord(year),
       [LiturgicalSeasons.LENT]: this.holyThursday(year),
       [LiturgicalSeasons.PASCHAL_TRIDUUM]: this.easterSunday(year),
       [LiturgicalSeasons.EASTER_TIME]: this.pentecostSunday(year),
-      [LiturgicalSeasons.ORDINARY_TIME]: this.christTheKingSunday(year).add(6, 'day'),
+      [LiturgicalSeasons.ORDINARY_TIME]: addDays(this.christTheKingSunday(year), 6),
     });
   };
-  #endOfSeasons: Record<number, Record<LiturgicalSeasons, Dayjs>> = {};
+  #endOfSeasons: Record<number, Record<LiturgicalSeasons, Date>> = {};
 }

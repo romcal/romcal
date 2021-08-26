@@ -22,29 +22,27 @@
     THE SOFTWARE.
 */
 
-import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc';
 import 'jest-extended';
 import Romcal from '../lib';
 import { Ranks } from '../lib/constants/ranks';
 import { Slovakia_Sk } from '../tmp/bundles/slovakia.sk';
-
-dayjs.extend(utc);
+import { getUtcDateFromString, isSameDate, subtractsDays } from '../lib/utils/dates';
 
 describe('Testing specific feasts and memorials', () => {
   describe('The memorial of the Blessed Virgin Mary, Mother of the Church', () => {
     test('Should be celebrated on the Monday after Pentecost', async () => {
       const romcal = new Romcal();
-      const pentecostSunday = romcal.dates(dayjs.utc().year()).pentecostSunday();
+      const pentecostSunday = romcal.dates().pentecostSunday();
       const maryMotherOfTheChurch = await romcal.getOneLiturgicalDay('mary_mother_of_the_church', {
         computeInWholeYear: true,
       });
-      const dayBeforeMaryMotherOfTheChurch = dayjs
-        .utc(maryMotherOfTheChurch?.date)
-        .subtract(1, 'day');
-      expect(dayjs.utc(maryMotherOfTheChurch?.date).day()).toEqual(1);
-      expect(dayBeforeMaryMotherOfTheChurch?.day()).toEqual(0);
-      expect(dayBeforeMaryMotherOfTheChurch?.isSame(pentecostSunday)).toBeTruthy();
+      const dayBeforeMaryMotherOfTheChurch = subtractsDays(
+        getUtcDateFromString(maryMotherOfTheChurch!.date),
+        1,
+      );
+      expect(getUtcDateFromString(maryMotherOfTheChurch!.date).getDay()).toEqual(1);
+      expect(dayBeforeMaryMotherOfTheChurch.getDay()).toEqual(0);
+      expect(isSameDate(dayBeforeMaryMotherOfTheChurch, pentecostSunday)).toBeTruthy();
     });
 
     test('Should take precedence in the event of coincidence with another memorial of a saint or blessed', async () => {
@@ -66,8 +64,8 @@ describe('Testing specific feasts and memorials', () => {
         computeInWholeYear: true,
       });
 
-      expect(dayjs.utc(maryMagdalene?.date).date()).toEqual(22);
-      expect(dayjs.utc(maryMagdalene?.date).month()).toEqual(6);
+      expect(getUtcDateFromString(maryMagdalene!.date).getDate()).toEqual(22);
+      expect(getUtcDateFromString(maryMagdalene!.date).getMonth()).toEqual(6);
       expect(maryMagdalene?.rank).toEqual(Ranks.FEAST);
     });
   });
@@ -100,8 +98,8 @@ describe('Testing specific feasts and memorials', () => {
         computeInWholeYear: true,
       });
 
-      expect(dayjs.utc(exaltationOfTheHolyCross?.date).date()).toEqual(14);
-      expect(dayjs.utc(exaltationOfTheHolyCross?.date).month()).toEqual(8);
+      expect(getUtcDateFromString(exaltationOfTheHolyCross!.date).getDate()).toEqual(14);
+      expect(getUtcDateFromString(exaltationOfTheHolyCross!.date).getMonth()).toEqual(8);
     });
   });
 

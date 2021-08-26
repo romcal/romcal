@@ -1,4 +1,3 @@
-import { Dayjs } from 'dayjs';
 import { StringMap } from 'i18next';
 import { LiturgicalColors } from '../constants/colors';
 import { PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
@@ -80,7 +79,7 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
 
   constructor(
     def: LiturgicalDayDef,
-    date: Dayjs,
+    date: Date,
     liturgicalDayConfig: LiturgicalDayConfig,
     calendar: RomcalCalendarMetadata,
     cycles: RomcalCyclesMetadata,
@@ -105,9 +104,9 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
     // and this can be determined from the definition of the Proper of the Time.
     // without having a liturgical year context.
     if (def.fromCalendar === PROPER_OF_TIME_NAME && this.key === 'second_sunday_after_christmas') {
-      if (date.isSameOrAfter(liturgicalDayConfig.dates.epiphany(), 'date')) {
+      if (date.getTime() >= liturgicalDayConfig.dates.epiphany().getTime()) {
         this.periods.unshift(LiturgicalPeriods.DAYS_FROM_EPIPHANY);
-      } else if (date.isAfter(liturgicalDayConfig.dates.maryMotherOfGod(), 'date')) {
+      } else if (date.getTime() > liturgicalDayConfig.dates.maryMotherOfGod().getTime()) {
         this.periods.unshift(LiturgicalPeriods.DAYS_BEFORE_EPIPHANY);
       }
     }
@@ -117,9 +116,7 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
       def.fromCalendar === PROPER_OF_TIME_NAME &&
       this.seasons[0] === LiturgicalSeasons.ORDINARY_TIME
     ) {
-      if (
-        date.toDate().getTime() < liturgicalDayConfig.dates.pentecostSunday().toDate().getTime()
-      ) {
+      if (date.getTime() < liturgicalDayConfig.dates.pentecostSunday().getTime()) {
         this.periods.unshift(LiturgicalPeriods.EARLY_ORDINARY_TIME);
       } else {
         this.periods.unshift(LiturgicalPeriods.LATE_ORDINARY_TIME);
