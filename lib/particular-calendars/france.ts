@@ -1,10 +1,7 @@
-import {
-  CalendarDef,
-  InputDefinitions,
-  ParticularConfig,
-  PatronTitles,
-  Precedences,
-} from '../index';
+import { CalendarDef } from '../models/calendar-def';
+import { InputDefinitions, ParticularConfig } from '../types/calendar-def';
+import { Precedences } from '../constants/precedences';
+import { PatronTitles } from '../constants/martyrology-metadata';
 import { Europe } from './europe';
 
 export class France extends CalendarDef {

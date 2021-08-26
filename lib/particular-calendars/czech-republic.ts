@@ -1,11 +1,8 @@
-import {
-  CalendarDef,
-  InputDefinitions,
-  ParticularConfig,
-  PatronTitles,
-  Precedences,
-  ProperCycles,
-} from '../index';
+import { CalendarDef } from '../models/calendar-def';
+import { InputDefinitions, ParticularConfig } from '../types/calendar-def';
+import { Precedences } from '../constants/precedences';
+import { PatronTitles } from '../constants/martyrology-metadata';
+import { ProperCycles } from '../constants/cycles';
 import { Europe } from './europe';
 
 export class CzechRepublic extends CalendarDef {

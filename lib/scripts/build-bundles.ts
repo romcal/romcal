@@ -226,7 +226,13 @@ const RomcalBundler = () => {
       // Append imports inside the bundle file.
       jsOutput =
         `/* eslint-disable */\n` +
-        `import {\n  CanonizationLevel,\n  LiturgicalColors,\n  LiturgicalPeriods,\n  LiturgicalSeasons,\n  PatronTitles,\n  Precedences,\n  ProperCycles,\n  RomcalBundleObject,\n  Titles,\n} from '../../lib/index';\n\n` +
+        `import { Precedences } from '../../lib/constants/precedences';\n` +
+        `import { CanonizationLevel, PatronTitles, Titles } from '../../lib/constants/martyrology-metadata';\n` +
+        `import { ProperCycles } from '../../lib/constants/cycles';\n` +
+        `import { RomcalBundleObject } from '../../lib/types/bundle';\n` +
+        `import { LiturgicalColors } from '../../lib/constants/colors';\n` +
+        `import { LiturgicalPeriods } from '../../lib/constants/periods';\n` +
+        `import { LiturgicalSeasons } from '../../lib/constants/seasons';\n\n` +
         `export const ${calVarName}: RomcalBundleObject = ${jsOutput}`;
 
       // Write the calendar bundle file.

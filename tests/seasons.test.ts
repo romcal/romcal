@@ -23,7 +23,11 @@
 */
 
 import 'jest-extended';
-import Romcal, { LiturgicalColors, LiturgicalDay, LiturgicalSeasons, Ranks } from 'lib';
+import Romcal from '../lib';
+import { LiturgicalSeasons } from '../lib/constants/seasons';
+import { LiturgicalColors } from '../lib/constants/colors';
+import { Ranks } from '../lib/constants/ranks';
+import LiturgicalDay from '../lib/models/liturgical-day';
 
 describe('Testing date range functions', () => {
   describe('The Season of Advent', () => {

@@ -25,16 +25,14 @@
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import 'jest-extended';
-import Romcal, {
-  CalendarScope,
-  isMartyr,
-  LiturgicalCalendar,
-  LiturgicalColors,
-  LiturgicalDay,
-  LiturgicalDayDef,
-  Ranks,
-  Titles,
-} from 'lib';
+import { isMartyr, Titles } from '../lib/constants/martyrology-metadata';
+import Romcal from '../lib';
+import { LiturgicalColors } from '../lib/constants/colors';
+import { LiturgicalCalendar } from '../lib/types/calendar';
+import { Ranks } from '../lib/constants/ranks';
+import { CalendarScope } from '../lib/constants/calendar-scope';
+import LiturgicalDay from '../lib/models/liturgical-day';
+import LiturgicalDayDef from '../lib/models/liturgical-day-def';
 import { England_En } from '../tmp/bundles/england.en';
 import { GeneralRoman_En } from '../tmp/bundles/general-roman.en';
 import { Germany_En } from '../tmp/bundles/germany.en';

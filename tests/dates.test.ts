@@ -28,7 +28,8 @@ import utc from 'dayjs/plugin/utc';
 import weekday from 'dayjs/plugin/weekday';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
 import 'jest-extended';
-import Romcal, { rangeContainsDate, rangeOfDays } from 'lib';
+import Romcal from '../lib';
+import { rangeContainsDate, rangeOfDays } from '../lib/utils/dates';
 import { France_Fr } from '../tmp/bundles/france.fr';
 import { UnitedStates_En } from '../tmp/bundles/united-states.en';
 

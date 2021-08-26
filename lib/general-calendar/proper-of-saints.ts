@@ -2,7 +2,7 @@ import { LiturgicalColors } from '../constants/colors';
 import { ProperCycles } from '../constants/cycles';
 import { Precedences } from '../constants/precedences';
 import { InputDefinitions, ParticularConfig } from '../types/calendar-def';
-import { CalendarDef } from '../index';
+import { CalendarDef } from '../models/calendar-def';
 
 export class GeneralRoman extends CalendarDef {
   particularConfig: ParticularConfig = {

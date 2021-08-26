@@ -1,10 +1,17 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "module": "esnext",
+    "target": "esnext",
+    "lib": [
+      "ES2020",
+      "ESNext"
+    ],
+    "moduleResolution": "node",
     "rootDir": ".",
-    "outDir": "dist",
     "removeComments": true,
     "declaration": true,
+    "declarationDir": "tmp/dts",
     "emitDeclarationOnly": true,
   },
   "include": [

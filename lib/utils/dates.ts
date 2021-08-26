@@ -1,4 +1,5 @@
-import dayjs, { Dayjs } from 'dayjs';
+import * as dayjs from 'dayjs';
+import { Dayjs } from 'dayjs';
 import isBetween from 'dayjs/plugin/isBetween';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';

@@ -26,7 +26,11 @@
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import 'jest-extended';
-import Romcal, { LiturgicalDay, LiturgicalPeriods, Precedences, Ranks } from 'lib';
+import Romcal from '../lib';
+import { Precedences } from '../lib/constants/precedences';
+import { Ranks } from '../lib/constants/ranks';
+import { LiturgicalPeriods } from '../lib/constants/periods';
+import LiturgicalDay from '../lib/models/liturgical-day';
 import { CzechRepublic_Cs } from '../tmp/bundles/czech-republic.cs';
 import { England_En } from '../tmp/bundles/england.en';
 import { Germany_En } from '../tmp/bundles/germany.en';
