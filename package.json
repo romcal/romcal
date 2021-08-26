@@ -12,7 +12,7 @@
     "clean": "rimraf coverage dist tmp",
     "lint": "eslint . --ext .ts",
     "prebuild": "npm run lint",
-    "build": "npm run bundle && npm run type && npm run pack",
+    "build": "npm run bundle && npm run type && npm run rollup",
     "bundle": "rimraf tmp/bundles && node -r ts-node/register lib/scripts/build-bundles.ts",
     "type": "rimraf tmp/dts && node --max-old-space-size=4096 ./node_modules/typescript/bin/tsc -p tsconfig.release.json && node -r ts-node/register lib/scripts/organize-dist-files.mjs",
     "pack": "node --max_old_space_size=6144 ./node_modules/webpack/bin/webpack.js",
