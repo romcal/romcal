@@ -27,20 +27,13 @@ const plugins = [
   }),
   json(),
   terser({ keep_classnames: true }),
-  nodeResolve({ dedupe: ['dayjs'] }),
+  nodeResolve(),
 ];
 
 // ESM/UMD/IIFE shared settings: externals
 // Refer to https://rollupjs.org/guide/en/#warning-treating-module-as-external-dependency
 const external = [
   // list external dependencies, exactly the way it is written in the import statement.
-  'dayjs',
-  'dayjs/plugin/isSameOrAfter',
-  'dayjs/plugin/isSameOrBefore',
-  'dayjs/plugin/isBetween',
-  'dayjs/plugin/updateLocale',
-  'dayjs/plugin/utc',
-  'i18next',
   'i18next',
 ];
 
@@ -48,12 +41,6 @@ const external = [
 // Refer to https://rollupjs.org/guide/en#output-globals for details
 const globals = {
   // Provide global variable names to replace your external imports
-  dayjs: 'dayjs',
-  'dayjs/plugin/isSameOrAfter': 'isSameOrAfter',
-  'dayjs/plugin/isSameOrBefore': 'isSameOrBefore',
-  'dayjs/plugin/isBetween': 'isBetween',
-  'dayjs/plugin/updateLocale': 'updateLocale',
-  'dayjs/plugin/utc': 'utc',
   i18next: 'i18next',
 };
 
@@ -61,11 +48,12 @@ export default [
   // CJS (CommonJS) — Suitable for Node and other bundlers (alias: commonjs).
   {
     input,
-    // external,
+    external,
     output: {
       format: 'cjs',
       file: pkg.main,
       sourcemap,
+      globals,
       exports: 'default',
     },
     plugins: [...plugins, cjs(), babel(getBabelOptions({ useESModules: false }))],
@@ -94,7 +82,6 @@ export default [
       sourcemap,
       globals,
       exports: 'default',
-      interop: 'auto',
     },
     plugins: [...plugins, babel(getBabelOptions({ useESModules: true }))],
   },
