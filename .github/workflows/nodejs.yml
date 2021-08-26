@@ -14,7 +14,7 @@ jobs:
     - run: npm run lint
     - run: npm run bundle
     - run: npm run type
-    - run: npm run pack
+    - run: npm run rollup
     - run: npm test
 
     env:
