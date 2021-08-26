@@ -1,4 +1,7 @@
-import { CalendarDef, InputDefinitions, Precedences, ProperCycles } from '../index';
+import { CalendarDef } from '../models/calendar-def';
+import { InputDefinitions } from '../types/calendar-def';
+import { Precedences } from '../constants/precedences';
+import { ProperCycles } from '../constants/cycles';
 
 export class China extends CalendarDef {
   definitions: InputDefinitions = {

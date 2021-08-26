@@ -25,7 +25,8 @@
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import 'jest-extended';
-import Romcal, { Ranks } from 'lib';
+import Romcal from '../lib';
+import { Ranks } from '../lib/constants/ranks';
 import { Slovakia_Sk } from '../tmp/bundles/slovakia.sk';
 
 dayjs.extend(utc);

@@ -1,14 +1,10 @@
-import {
-  CalendarDef,
-  InputDefinitions,
-  LiturgicalColors,
-  ParticularConfig,
-  PatronTitles,
-  Precedences,
-  ProperCycles,
-  Titles,
-} from '../index';
+import { CalendarDef } from '../models/calendar-def';
+import { InputDefinitions, ParticularConfig } from '../types/calendar-def';
+import { Precedences } from '../constants/precedences';
+import { PatronTitles, Titles } from '../constants/martyrology-metadata';
+import { ProperCycles } from '../constants/cycles';
 import { Europe } from './europe';
+import { LiturgicalColors } from '../constants/colors';
 
 export class Slovakia extends CalendarDef {
   parentCalendar = Europe;

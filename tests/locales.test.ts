@@ -23,7 +23,7 @@
 */
 
 import 'jest-extended';
-import Romcal from 'lib';
+import Romcal from '../lib';
 import { France_Fr } from '../tmp/bundles/france.fr';
 
 describe('Testing localization functionality', () => {

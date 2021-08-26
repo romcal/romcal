@@ -1,4 +1,3 @@
-import { CalendarDef } from '../index';
 import { Americas } from './americas';
 import { Argentina } from './argentina';
 import { Australia } from './australia';
@@ -57,6 +56,7 @@ import { Uruguay } from './uruguay';
 import { Venezuela } from './venezuela';
 import { Vietnam } from './vietnam';
 import { Wales } from './wales';
+import { CalendarDef } from '../models/calendar-def';
 
 export const particularCalendars: Record<string, typeof CalendarDef> = {
   americas: Americas,

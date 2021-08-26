@@ -1,4 +1,4 @@
-import dayjs from 'dayjs';
+import * as dayjs from 'dayjs';
 import updateLocale from 'dayjs/plugin/updateLocale';
 import i18next, { i18n } from 'i18next';
 import { CalendarScope } from '../constants/calendar-scope';
