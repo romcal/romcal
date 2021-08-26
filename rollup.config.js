@@ -20,8 +20,8 @@ const sourcemap = true;
 const plugins = [
   typescript({
     sourceMap: true,
-    module: 'esnext',
-    target: 'esnext',
+    module: 'es2020',
+    target: 'es2020',
     moduleResolution: 'node',
     // tsconfig: './tsconfig.release.json', // todo: tsconfig not imported correctly
   }),

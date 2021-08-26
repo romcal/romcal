@@ -6,7 +6,7 @@
   "module": "dist/esm/romcal.js",
   "typings": "dist/index.d.ts",
   "engines": {
-    "node": ">= 14.16 <=16"
+    "node": "^14.16 || >=16.0.0"
   },
   "scripts": {
     "clean": "rimraf coverage dist tmp",
