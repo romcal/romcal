@@ -28,6 +28,7 @@ import { LiturgicalSeasons } from '../lib/constants/seasons';
 import { LiturgicalColors } from '../lib/constants/colors';
 import { Ranks } from '../lib/constants/ranks';
 import LiturgicalDay from '../lib/models/liturgical-day';
+import { addDays, isSameDate, subtractsDays } from '../lib/utils/dates';
 
 describe('Testing date range functions', () => {
   describe('The Season of Advent', () => {
@@ -39,42 +40,42 @@ describe('Testing date range functions', () => {
 
     test('Depending on the day of Christmas, the 1st Sunday of Advent will be between Nov 27 - Dec 3', () => {
       const romcal = new Romcal();
-      expect(romcal.dates(2005).allSundaysOfAdvent()[0].date()).toEqual(27);
-      expect(romcal.dates(2000).allSundaysOfAdvent()[0].date()).toEqual(3);
-      expect(romcal.dates(2001).allSundaysOfAdvent()[0].date()).toEqual(2);
-      expect(romcal.dates(2001).allSundaysOfAdvent(2002)[0].date()).toEqual(1);
-      expect(romcal.dates(2003).allSundaysOfAdvent()[0].date()).toEqual(30);
-      expect(romcal.dates(1998).allSundaysOfAdvent()[0].date()).toEqual(29);
-      expect(romcal.dates(1999).allSundaysOfAdvent()[0].date()).toEqual(28);
+      expect(romcal.dates(2005).allSundaysOfAdvent()[0].getDate()).toEqual(27);
+      expect(romcal.dates(2000).allSundaysOfAdvent()[0].getDate()).toEqual(3);
+      expect(romcal.dates(2001).allSundaysOfAdvent()[0].getDate()).toEqual(2);
+      expect(romcal.dates(2001).allSundaysOfAdvent(2002)[0].getDate()).toEqual(1);
+      expect(romcal.dates(2003).allSundaysOfAdvent()[0].getDate()).toEqual(30);
+      expect(romcal.dates(1998).allSundaysOfAdvent()[0].getDate()).toEqual(29);
+      expect(romcal.dates(1999).allSundaysOfAdvent()[0].getDate()).toEqual(28);
     });
 
     test('Depending on the day of Christmas, the number of days in Advent varies', () => {
       const romcal = new Romcal();
-      if (romcal.dates().christmas(2005).day() === 0) {
+      if (romcal.dates().christmas(2005).getDay() === 0) {
         // eslint-disable-next-line jest/no-conditional-expect
         expect(romcal.dates(2005).allDatesOfAdvent().length).toEqual(28);
       }
-      if (romcal.dates().christmas(2000).day() === 1) {
+      if (romcal.dates().christmas(2000).getDay() === 1) {
         // eslint-disable-next-line jest/no-conditional-expect
         expect(romcal.dates(2000).allDatesOfAdvent().length).toEqual(22);
       }
-      if (romcal.dates().christmas(2001).day() === 2) {
+      if (romcal.dates().christmas(2001).getDay() === 2) {
         // eslint-disable-next-line jest/no-conditional-expect
         expect(romcal.dates(2001).allDatesOfAdvent().length).toEqual(23);
       }
-      if (romcal.dates().christmas(2002).day() === 3) {
+      if (romcal.dates().christmas(2002).getDay() === 3) {
         // eslint-disable-next-line jest/no-conditional-expect
         expect(romcal.dates(2002).allDatesOfAdvent().length).toEqual(24);
       }
-      if (romcal.dates().christmas(2003).day() === 4) {
+      if (romcal.dates().christmas(2003).getDay() === 4) {
         // eslint-disable-next-line jest/no-conditional-expect
         expect(romcal.dates(2003).allDatesOfAdvent().length).toEqual(25);
       }
-      if (romcal.dates().christmas(1998).day() === 5) {
+      if (romcal.dates().christmas(1998).getDay() === 5) {
         // eslint-disable-next-line jest/no-conditional-expect
         expect(romcal.dates(1998).allDatesOfAdvent().length).toEqual(26);
       }
-      if (romcal.dates().christmas(1999).day() === 6) {
+      if (romcal.dates().christmas(1999).getDay() === 6) {
         // eslint-disable-next-line jest/no-conditional-expect
         expect(romcal.dates(1999).allDatesOfAdvent().length).toEqual(27);
       }
@@ -93,9 +94,9 @@ describe('Testing date range functions', () => {
       const romcal = new Romcal();
       for (let i = 1900, il = 2200; i <= il; i++) {
         const dates = romcal.dates(i);
-        expect(dates.allSundaysOfLent()[0].subtract(4, 'day').isSame(dates.ashWednesday())).toEqual(
-          true,
-        );
+        expect(
+          isSameDate(subtractsDays(dates.allSundaysOfLent()[0], 4), dates.ashWednesday()),
+        ).toEqual(true);
       }
     });
 
@@ -104,7 +105,7 @@ describe('Testing date range functions', () => {
       for (let i = 1900, il = 2200; i <= il; i++) {
         const dates = romcal.dates(i);
         const [lastSundayOfLent] = dates.allSundaysOfLent().reverse();
-        expect(lastSundayOfLent.isSame(dates.palmSunday())).toEqual(true);
+        expect(isSameDate(lastSundayOfLent, dates.palmSunday())).toEqual(true);
       }
     });
 
@@ -135,7 +136,7 @@ describe('Testing date range functions', () => {
       const romcal = new Romcal();
       for (let i = 1900, il = 2100; i <= il; i++) {
         const dates = romcal.dates(i);
-        expect(dates.allDatesInOctaveOfEaster()[0].isSame(dates.easterSunday())).toEqual(true);
+        expect(isSameDate(dates.allDatesInOctaveOfEaster()[0], dates.easterSunday())).toEqual(true);
       }
     });
 
@@ -144,7 +145,7 @@ describe('Testing date range functions', () => {
       for (let i = 1900, il = 2100; i <= il; i++) {
         const dates = romcal.dates(i);
         const [lastDayInTheOctaveOfEaster] = dates.allDatesInOctaveOfEaster().reverse();
-        expect(lastDayInTheOctaveOfEaster.isSame(dates.divineMercySunday())).toEqual(true);
+        expect(isSameDate(lastDayInTheOctaveOfEaster, dates.divineMercySunday())).toEqual(true);
       }
     });
   });
@@ -163,7 +164,7 @@ describe('Testing date range functions', () => {
       for (let i = 1900, il = 2100; i <= il; i++) {
         const dates = romcal.dates(i);
         const [firstSundayOfEaster] = dates.allSundaysOfEaster();
-        expect(firstSundayOfEaster.isSame(dates.easterSunday())).toEqual(true);
+        expect(isSameDate(firstSundayOfEaster, dates.easterSunday())).toEqual(true);
       }
     });
 
@@ -172,7 +173,7 @@ describe('Testing date range functions', () => {
       for (let i = 1900, il = 2100; i <= il; i++) {
         const dates = romcal.dates(i);
         const [lastSundayOfEaster] = dates.allSundaysOfEaster().reverse();
-        expect(lastSundayOfEaster.isSame(dates.pentecostSunday())).toEqual(true);
+        expect(isSameDate(lastSundayOfEaster, dates.pentecostSunday())).toEqual(true);
       }
     });
   });
@@ -186,9 +187,11 @@ describe('Testing date range functions', () => {
         const [firstDayInEarlyOrdinaryTime] = ordinaryTime;
         const [lastDayInEarlyOrdinaryTime] = ordinaryTime.reverse();
         expect(
-          firstDayInEarlyOrdinaryTime.subtract(1, 'day').isSame(dates.baptismOfTheLord()),
+          isSameDate(subtractsDays(firstDayInEarlyOrdinaryTime, 1), dates.baptismOfTheLord()),
         ).toEqual(true);
-        expect(lastDayInEarlyOrdinaryTime.add(1, 'day').isSame(dates.ashWednesday())).toEqual(true);
+        expect(isSameDate(addDays(lastDayInEarlyOrdinaryTime, 1), dates.ashWednesday())).toEqual(
+          true,
+        );
       }
     });
 
@@ -199,7 +202,7 @@ describe('Testing date range functions', () => {
         const days = dates.allDatesOfEarlyOrdinaryTime();
         const sundays = dates.sundaysOfEarlyOrdinaryTime();
         expect(sundays.length).toBeOneOf([3, 4, 5, 6, 7, 8, 9]);
-        expect(days.reverse()[0].add(1, 'day').isSame(dates.ashWednesday())).toEqual(true);
+        expect(isSameDate(addDays(days.reverse()[0], 1), dates.ashWednesday())).toEqual(true);
       }
     });
 
@@ -213,10 +216,10 @@ describe('Testing date range functions', () => {
         const [lastDayInLateOrdinaryTime] = lateOrdinaryTime.reverse();
         expect(sundays.length).toBeOneOf([23, 24, 25, 26, 27, 28, 29]);
         expect(
-          firstDayInLateOrdinaryTime.subtract(1, 'day').isSame(dates.pentecostSunday()),
+          isSameDate(subtractsDays(firstDayInLateOrdinaryTime, 1), dates.pentecostSunday()),
         ).toEqual(true);
         expect(
-          lastDayInLateOrdinaryTime.add(1, 'day').isSame(dates.allSundaysOfAdvent()[0]),
+          isSameDate(addDays(lastDayInLateOrdinaryTime, 1), dates.allSundaysOfAdvent()[0]),
         ).toEqual(true);
       }
     });
@@ -239,7 +242,7 @@ describe('Testing date range functions', () => {
         for (let i = 1900, il = 2100; i <= il; i++) {
           const dates = romcal.dates(i);
           const [lastDayInChristmastide] = dates.allDatesOfChristmasTime().reverse();
-          expect(lastDayInChristmastide.day()).toEqual(0);
+          expect(lastDayInChristmastide.getDay()).toEqual(0);
         }
       });
     });
@@ -250,7 +253,7 @@ describe('Testing date range functions', () => {
         for (let i = 1900, il = 2100; i <= il; i++) {
           const dates = romcal.dates(i);
           const [lastDayInChristmastide] = dates.allDatesOfChristmasTime(i).reverse();
-          expect(lastDayInChristmastide.isSame(dates.baptismOfTheLord(i + 1))).toEqual(true);
+          expect(isSameDate(lastDayInChristmastide, dates.baptismOfTheLord(i + 1))).toEqual(true);
         }
       });
     });

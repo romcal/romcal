@@ -57,7 +57,6 @@
   },
   "homepage": "https://github.com/romcal/romcal/blob/master/README.md",
   "dependencies": {
-    "dayjs": "^1.10.5",
     "i18next": "^20.3.2"
   },
   "devDependencies": {

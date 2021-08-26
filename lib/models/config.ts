@@ -1,5 +1,3 @@
-import * as dayjs from 'dayjs';
-import updateLocale from 'dayjs/plugin/updateLocale';
 import i18next, { i18n } from 'i18next';
 import { CalendarScope } from '../constants/calendar-scope';
 import { LiturgicalColors } from '../constants/colors';
@@ -14,8 +12,6 @@ import { MartyrologyCatalog } from '../types/martyrology';
 import { Dates } from '../utils/dates';
 import { toRomanNumber } from '../utils/numbers';
 import { CalendarDef } from './calendar-def';
-
-dayjs.extend(updateLocale);
 
 /**
  * The [[Config]] class encapsulates all options that can be sent to this library to adjust date output.
@@ -110,21 +106,6 @@ export class RomcalConfig implements IRoncalConfig {
     // If another locale is specified, load associated ressources in the
     // i18next library.
     if (localeObj) this.#addResourceBundles(localeObj);
-
-    /**
-     * Ensure that the first day is always a Sunday in romcal & DayJS
-     * Monday is the first day of the week according to the international standard ISO 8601,
-     * In the US, Canada, and Japan, it's counted as the second day of the week (Sunday is the first day).
-     * In Christian calendars, Sunday is always the first day of the week.
-     * In other words, the romcal will use US, Canada definitions for the start of the week.
-     */
-    dayjs.updateLocale(this.localeKey, {
-      weekStart: 0,
-      week: {
-        dow: 0, // US, Canada: 1st day of week is Sunday
-        doy: 6, // US, Canada: 1st week of the year is the one that contains the 1st of January (7 + 0 - 1)
-      },
-    });
 
     // Initialize the Date library.
     this.dates = Dates;
