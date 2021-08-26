@@ -1,4 +1,6 @@
-/**/*.js
-coverage/
 dist/
+coverage/
+node_modules/
 tmp/
+/**/*.js
+local-*
