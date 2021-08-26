@@ -15,7 +15,6 @@
     "build": "npm run bundle && npm run type && npm run rollup",
     "bundle": "rimraf tmp/bundles && node -r ts-node/register lib/scripts/build-bundles.ts",
     "type": "rimraf tmp/dts && node --max-old-space-size=4096 ./node_modules/typescript/bin/tsc -p tsconfig.release.json && node -r ts-node/register lib/scripts/organize-dist-files.mjs",
-    "pack": "node --max_old_space_size=6144 ./node_modules/webpack/bin/webpack.js",
     "rollup": "rimraf dist && rollup -c",
     "test": "jest --coverage",
     "test:watch": "jest --watch"
@@ -75,7 +74,6 @@
     "@types/jest": "~26.0.23",
     "@types/node": "~14.14.45",
     "@types/rimraf": "^3.0.2",
-    "@types/webpack": "^5.28.0",
     "@typescript-eslint/eslint-plugin": "~4.25.0",
     "@typescript-eslint/parser": "~4.25.0",
     "babel-loader": "^8.2.2",
@@ -86,21 +84,17 @@
     "glob": "^7.1.7",
     "jest": "~27.0.4",
     "jest-extended": "^0.11.5",
-    "parallel-webpack": "github:emagnier/parallel-webpack#patch-1",
     "prettier": "~2.3.1",
     "rimraf": "~3.0.2",
     "rollup": "^2.56.3",
     "rollup-plugin-dts": "^3.0.2",
     "rollup-plugin-terser": "^7.0.2",
-    "terser-webpack-plugin": "^5.1.4",
     "ts-jest": "~27.0.3",
     "ts-loader": "^9.2.5",
     "ts-node": "^10.0.0",
     "tslib": "^2.3.1",
     "tsutils": "~3.21.0",
-    "typescript": "~4.3.4",
-    "webpack": "^5.51.1",
-    "webpack-cli": "^4.8.0"
+    "typescript": "~4.3.4"
   },
   "volta": {
     "node": "14.16.1",
