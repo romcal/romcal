@@ -125,7 +125,7 @@ export class CalendarDef implements BaseCalendarDef {
         customLocaleKey: input.customLocaleKey,
         isHolyDayOfObligation: input.isHolyDayOfObligation,
         isOptional: input.isOptional,
-        liturgicalColors: input.liturgicalColors,
+        colors: input.colors,
         martyrology: input.martyrology,
         titles: input.titles,
         properCycle: input.properCycle,

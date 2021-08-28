@@ -1,36 +1,38 @@
+import { PascalToUpperSnakeCase } from '../types/common';
+
 /**
  * Liturgical Day cycle that can be used as metadata for liturgical days.
  */
 export enum ProperCycles {
-  PROPER_OF_TIME = 'PROPER_OF_TIME',
-  PROPER_OF_SAINTS = 'PROPER_OF_SAINTS',
+  ProperOfTime = 'PROPER_OF_TIME',
+  ProperOfSaints = 'PROPER_OF_SAINTS',
 }
 
 /**
  * Sundays cycle that can be used as metadata for liturgical days.
  */
 export enum SundaysCycles {
-  YEAR_A = 'YEAR_A',
-  YEAR_B = 'YEAR_B',
-  YEAR_C = 'YEAR_C',
+  YearA = 'YEAR_A',
+  YearB = 'YEAR_B',
+  YearC = 'YEAR_C',
 }
 
 /**
  * Weekdays cycle that can be used as metadata for liturgical days.
  */
 export enum WeekdaysCycles {
-  YEAR_1 = 'YEAR_1',
-  YEAR_2 = 'YEAR_2',
+  Year1 = 'YEAR_1',
+  Year2 = 'YEAR_2',
 }
 
 /**
  * Psalter weeks that can be used as metadata for liturgical days.
  */
 export enum PsalterWeeksCycles {
-  WEEK_1 = 'WEEK_1',
-  WEEK_2 = 'WEEK_2',
-  WEEK_3 = 'WEEK_3',
-  WEEK_4 = 'WEEK_4',
+  Week1 = 'WEEK_1',
+  Week2 = 'WEEK_2',
+  Week3 = 'WEEK_3',
+  Week4 = 'WEEK_4',
 }
 
 /**
@@ -38,25 +40,33 @@ export enum PsalterWeeksCycles {
  */
 export const LITURGICAL_DAY_CYCLE = Object.keys(ProperCycles).filter(
   (key) => typeof ProperCycles[key as keyof typeof ProperCycles] === 'string',
-) as Array<keyof typeof ProperCycles>;
+) as Array<PascalToUpperSnakeCase<keyof typeof ProperCycles>>;
+
+export type ProperCycle = typeof LITURGICAL_DAY_CYCLE[number];
 
 /**
  * A dynamically generated constant consisting of all the enum keys in [[SUNDAY_CYCLES]]
  */
 export const SUNDAYS_CYCLE = Object.keys(SundaysCycles).filter(
   (key) => typeof SundaysCycles[key as keyof typeof SundaysCycles] === 'string',
-) as Array<keyof typeof SundaysCycles>;
+) as Array<PascalToUpperSnakeCase<keyof typeof SundaysCycles>>;
+
+export type SundaysCycle = typeof SUNDAYS_CYCLE[number];
 
 /**
  * A dynamically generated constant consisting of all the enum keys in [[WEEKDAY_CYCLES]]
  */
 export const WEEKDAYS_CYCLE = Object.keys(WeekdaysCycles).filter(
   (key) => typeof WeekdaysCycles[key as keyof typeof WeekdaysCycles] === 'string',
-) as Array<keyof typeof WeekdaysCycles>;
+) as Array<PascalToUpperSnakeCase<keyof typeof WeekdaysCycles>>;
+
+export type WeekdaysCycle = typeof WEEKDAYS_CYCLE[number];
 
 /**
  * A dynamically generated constant consisting of all the enum keys in [[PSALTER_WEEKS]]
  */
 export const PSALTER_WEEKS = Object.keys(PsalterWeeksCycles).filter(
   (key) => typeof PsalterWeeksCycles[key as keyof typeof PsalterWeeksCycles] === 'string',
-) as Array<keyof typeof PsalterWeeksCycles>;
+) as Array<PascalToUpperSnakeCase<keyof typeof PsalterWeeksCycles>>;
+
+export type PsalterWeeksCycle = typeof PSALTER_WEEKS[number];

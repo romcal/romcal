@@ -1,32 +1,29 @@
 /**
  * Liturgical colors that can be used as metadata for celebrations.
  */
-export enum LiturgicalColors {
-  RED = 'RED',
-  ROSE = 'ROSE',
-  PURPLE = 'PURPLE',
-  GREEN = 'GREEN',
-  WHITE = 'WHITE',
-  GOLD = 'GOLD',
-  BLACK = 'BLACK',
+export enum Colors {
+  Red = 'RED',
+  Rose = 'ROSE',
+  Purple = 'PURPLE',
+  Green = 'GREEN',
+  White = 'WHITE',
+  Gold = 'GOLD',
+  Black = 'BLACK',
 }
 
 /**
  * A dynamically generated constant consisting of all the enum keys in [[LITURGICAL_COLORS]]
  */
-export const LITURGICAL_COLORS = Object.keys(LiturgicalColors).filter(
-  (key) => typeof LiturgicalColors[key as keyof typeof LiturgicalColors] === 'string',
-) as Array<keyof typeof LiturgicalColors>;
+export const COLORS = Object.keys(Colors).filter(
+  (key) => typeof Colors[key as keyof typeof Colors] === 'string',
+) as Array<Uppercase<keyof typeof Colors>>;
 
-export type LiturgicalColor = typeof LITURGICAL_COLORS[number];
+export type Color = typeof COLORS[number];
 
 /**
  * Check if a value is a liturgical color.
- * @param maybeLiturgicalColor
+ * @param maybeColor
  */
-export const isLiturgicalColor = (maybeLiturgicalColor: unknown): boolean => {
-  return (
-    typeof maybeLiturgicalColor === 'string' &&
-    LITURGICAL_COLORS.includes(maybeLiturgicalColor as LiturgicalColor)
-  );
+export const isColor = (maybeColor: unknown): boolean => {
+  return typeof maybeColor === 'string' && COLORS.includes(maybeColor as Color);
 };

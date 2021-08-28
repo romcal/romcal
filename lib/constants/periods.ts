@@ -1,20 +1,22 @@
-export enum LiturgicalPeriods {
-  CHRISTMAS_OCTAVE = 'CHRISTMAS_OCTAVE',
-  DAYS_BEFORE_EPIPHANY = 'DAYS_BEFORE_EPIPHANY',
-  DAYS_FROM_EPIPHANY = 'DAYS_FROM_EPIPHANY',
-  CHRISTMAS_TO_PRESENTATION_OF_THE_LORD = 'CHRISTMAS_TO_PRESENTATION_OF_THE_LORD',
-  PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY = 'PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY',
-  HOLY_WEEK = 'HOLY_WEEK',
-  EASTER_OCTAVE = 'EASTER_OCTAVE',
-  EARLY_ORDINARY_TIME = 'EARLY_ORDINARY_TIME',
-  LATE_ORDINARY_TIME = 'LATE_ORDINARY_TIME',
+import { PascalToUpperSnakeCase } from '../types/common';
+
+export enum Periods {
+  ChristmasOctave = 'CHRISTMAS_OCTAVE',
+  DaysBeforeEpiphany = 'DAYS_BEFORE_EPIPHANY',
+  DaysFromEpiphany = 'DAYS_FROM_EPIPHANY',
+  ChristmasToPresentationOfTheLord = 'CHRISTMAS_TO_PRESENTATION_OF_THE_LORD',
+  PresentationOfTheLordToHolyThursday = 'PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY',
+  HolyWeek = 'HOLY_WEEK',
+  EasterOctave = 'EASTER_OCTAVE',
+  EarlyOrdinaryTime = 'EARLY_ORDINARY_TIME',
+  LateOrdinaryTime = 'LATE_ORDINARY_TIME',
 }
 
 /**
  * A dynamically generated constant consisting of all the enum keys in [[LITURGICAL_PERIODS]]
  */
-export const LITURGICAL_PERIODS = Object.keys(LiturgicalPeriods).filter(
-  (key) => typeof LiturgicalPeriods[key as keyof typeof LiturgicalPeriods] === 'string',
-) as Array<keyof typeof LiturgicalPeriods>;
+export const PERIODS = Object.keys(Periods).filter(
+  (key) => typeof Periods[key as keyof typeof Periods] === 'string',
+) as Array<PascalToUpperSnakeCase<keyof typeof Periods>>;
 
-export type RomcalLiturgicalPeriod = typeof LITURGICAL_PERIODS[number];
+export type Period = typeof PERIODS[number];

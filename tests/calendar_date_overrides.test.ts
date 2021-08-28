@@ -25,10 +25,11 @@
 
 import 'jest-extended';
 import Romcal from '../lib';
+import { Periods } from '../lib/constants/periods';
 import { Precedences } from '../lib/constants/precedences';
 import { Ranks } from '../lib/constants/ranks';
-import { LiturgicalPeriods } from '../lib/constants/periods';
 import LiturgicalDay from '../lib/models/liturgical-day';
+import { getUtcDateFromString } from '../lib/utils/dates';
 import { CzechRepublic_Cs } from '../tmp/bundles/czech-republic.cs';
 import { England_En } from '../tmp/bundles/england.en';
 import { Germany_En } from '../tmp/bundles/germany.en';
@@ -38,7 +39,6 @@ import { Mexico_Es } from '../tmp/bundles/mexico.es';
 import { Slovakia_Sk } from '../tmp/bundles/slovakia.sk';
 import { Spain_Es } from '../tmp/bundles/spain.es';
 import { Wales_En } from '../tmp/bundles/wales.en';
-import { getUtcDateFromString } from '../lib/utils/dates';
 
 describe('Testing national calendar overrides', () => {
   describe('An optional celebration is available to be celebrated, in addition to the weekday', () => {
@@ -69,7 +69,7 @@ describe('Testing national calendar overrides', () => {
     });
     test('When optional celebrations are available, the weekday is the first celebration available', () => {
       const [firstDate] = spainDates2020.filter((d) => d.date === '2020-01-20');
-      expect(firstDate.rank).toEqual(Ranks.WEEKDAY);
+      expect(firstDate.rank).toEqual(Ranks.Weekday);
     });
   });
 
@@ -174,12 +174,12 @@ describe('Testing national calendar overrides', () => {
           await new Romcal().generateCalendar(2009),
         )
           .flat()
-          .filter((d) => d.periods.includes(LiturgicalPeriods.LATE_ORDINARY_TIME));
+          .filter((d) => d.periods.includes(Periods.LateOrdinaryTime));
         const lateOrdinaryTimeDates2011: LiturgicalDay[] = Object.values(
           await new Romcal().generateCalendar(2011),
         )
           .flat()
-          .filter((d) => d.periods.includes(LiturgicalPeriods.LATE_ORDINARY_TIME));
+          .filter((d) => d.periods.includes(Periods.LateOrdinaryTime));
 
         const twentiethSundayOfOrdinaryTime2009 = lateOrdinaryTimeDates2009.find(
           (d) => d.key === 'ordinary_time_20_sunday',
@@ -290,7 +290,7 @@ describe('Testing national calendar overrides', () => {
         await new Romcal({ localizedCalendar: Germany_En }).generateCalendar(2014),
       ).flat();
       const matthiasApostleGermany = germanyDates.find((d) => d.key === 'matthias_apostle');
-      expect(matthiasApostleGermany?.rank).toEqual(Ranks.MEMORIAL);
+      expect(matthiasApostleGermany?.rank).toEqual(Ranks.Memorial);
     });
   });
 
@@ -338,7 +338,7 @@ describe('Testing national calendar overrides', () => {
     test('Should be celebrated on the September 15, 2018 as a memorial in the General Calendar', async () => {
       const dates = Object.values(await new Romcal().generateCalendar(2018)).flat();
       const ourLadyOfSorrows = dates.find((d) => d.key === 'our_lady_of_sorrows');
-      expect(ourLadyOfSorrows?.rank).toEqual(Ranks.MEMORIAL);
+      expect(ourLadyOfSorrows?.rank).toEqual(Ranks.Memorial);
       expect(ourLadyOfSorrows?.date).toEqual('2018-09-15');
     });
 
@@ -347,7 +347,7 @@ describe('Testing national calendar overrides', () => {
         await new Romcal({ localizedCalendar: Malta_En }).generateCalendar(2015),
       ).flat();
       const ourLadyOfSorrows = maltaDates.find((d) => d.key === 'our_lady_of_sorrows');
-      expect(ourLadyOfSorrows?.rank).toEqual(Ranks.FEAST);
+      expect(ourLadyOfSorrows?.rank).toEqual(Ranks.Feast);
       expect(ourLadyOfSorrows?.date).toEqual('2015-04-15');
     });
 

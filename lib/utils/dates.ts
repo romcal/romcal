@@ -1,5 +1,5 @@
-import { CalendarScope } from '../constants/calendar-scope';
-import { LiturgicalSeasons } from '../constants/seasons';
+import { CalendarScopes } from '../constants/calendar-scopes';
+import { Seasons } from '../constants/seasons';
 import { RomcalConfig } from '../models/config';
 
 export const getUtcDate = (year: number, month: number, date: number): Date => {
@@ -146,7 +146,7 @@ export class Dates {
   constructor(config: RomcalConfig, year: number) {
     this.#config = config;
     this.#year = year;
-    this.#isLiturgicalYear = this.#config.scope === CalendarScope.Liturgical;
+    this.#isLiturgicalYear = this.#config.scope === CalendarScopes.Liturgical;
   }
 
   /**
@@ -1225,29 +1225,29 @@ export class Dates {
   };
   #exaltationOfTheHolyCross: Record<string, Date> = {};
 
-  startOfSeasons = (year = this.#year): Record<LiturgicalSeasons, Date> => {
+  startOfSeasons = (year = this.#year): Record<Seasons, Date> => {
     if (this.#startOfSeasons[year]) return this.#startOfSeasons[year];
     return (this.#startOfSeasons[year] = {
-      [LiturgicalSeasons.ADVENT]: this.firstSundayOfAdvent(year - 1),
-      [LiturgicalSeasons.CHRISTMAS_TIME]: this.christmas(year - 1),
-      [LiturgicalSeasons.LENT]: this.ashWednesday(year),
-      [LiturgicalSeasons.PASCHAL_TRIDUUM]: this.holyThursday(year),
-      [LiturgicalSeasons.EASTER_TIME]: this.easterSunday(year),
-      [LiturgicalSeasons.ORDINARY_TIME]: addDays(this.baptismOfTheLord(year), 1),
+      [Seasons.Advent]: this.firstSundayOfAdvent(year - 1),
+      [Seasons.ChristmasTime]: this.christmas(year - 1),
+      [Seasons.Lent]: this.ashWednesday(year),
+      [Seasons.PaschalTriduum]: this.holyThursday(year),
+      [Seasons.EasterTime]: this.easterSunday(year),
+      [Seasons.OrdinaryTime]: addDays(this.baptismOfTheLord(year), 1),
     });
   };
-  #startOfSeasons: Record<number, Record<LiturgicalSeasons, Date>> = {};
+  #startOfSeasons: Record<number, Record<Seasons, Date>> = {};
 
-  endOfSeasons = (year = this.#year): Record<LiturgicalSeasons, Date> => {
+  endOfSeasons = (year = this.#year): Record<Seasons, Date> => {
     if (this.#endOfSeasons[year]) return this.#endOfSeasons[year];
     return (this.#endOfSeasons[year] = {
-      [LiturgicalSeasons.ADVENT]: getUtcDate(year - 1, 12, 24),
-      [LiturgicalSeasons.CHRISTMAS_TIME]: this.baptismOfTheLord(year),
-      [LiturgicalSeasons.LENT]: this.holyThursday(year),
-      [LiturgicalSeasons.PASCHAL_TRIDUUM]: this.easterSunday(year),
-      [LiturgicalSeasons.EASTER_TIME]: this.pentecostSunday(year),
-      [LiturgicalSeasons.ORDINARY_TIME]: addDays(this.christTheKingSunday(year), 6),
+      [Seasons.Advent]: getUtcDate(year - 1, 12, 24),
+      [Seasons.ChristmasTime]: this.baptismOfTheLord(year),
+      [Seasons.Lent]: this.holyThursday(year),
+      [Seasons.PaschalTriduum]: this.easterSunday(year),
+      [Seasons.EasterTime]: this.pentecostSunday(year),
+      [Seasons.OrdinaryTime]: addDays(this.christTheKingSunday(year), 6),
     });
   };
-  #endOfSeasons: Record<number, Record<LiturgicalSeasons, Date>> = {};
+  #endOfSeasons: Record<number, Record<Seasons, Date>> = {};
 }

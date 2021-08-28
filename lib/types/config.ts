@@ -1,5 +1,5 @@
 import { i18n } from 'i18next';
-import { CalendarScope } from '../constants/calendar-scope';
+import { CalendarScope } from '../constants/calendar-scopes';
 import { RomcalBundleObject } from './bundle';
 import { CalendarDefInstance } from './calendar-def';
 

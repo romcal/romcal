@@ -25,8 +25,8 @@
 import 'jest-extended';
 import Romcal from '../lib';
 import { Ranks } from '../lib/constants/ranks';
-import { Slovakia_Sk } from '../tmp/bundles/slovakia.sk';
 import { getUtcDateFromString, isSameDate, subtractsDays } from '../lib/utils/dates';
+import { Slovakia_Sk } from '../tmp/bundles/slovakia.sk';
 
 describe('Testing specific feasts and memorials', () => {
   describe('The memorial of the Blessed Virgin Mary, Mother of the Church', () => {
@@ -66,7 +66,7 @@ describe('Testing specific feasts and memorials', () => {
 
       expect(getUtcDateFromString(maryMagdalene!.date).getDate()).toEqual(22);
       expect(getUtcDateFromString(maryMagdalene!.date).getMonth()).toEqual(6);
-      expect(maryMagdalene?.rank).toEqual(Ranks.FEAST);
+      expect(maryMagdalene?.rank).toEqual(Ranks.Feast);
     });
   });
 

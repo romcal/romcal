@@ -1,8 +1,8 @@
+import { ProperCycles } from '../constants/cycles';
+import { PatronTitles } from '../constants/martyrology-metadata';
+import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { InputDefinitions } from '../types/calendar-def';
-import { Precedences } from '../constants/precedences';
-import { PatronTitles } from '../constants/martyrology-metadata';
-import { ProperCycles } from '../constants/cycles';
 import { Americas } from './americas';
 
 export class Argentina extends CalendarDef {
@@ -113,7 +113,7 @@ export class Argentina extends CalendarDef {
     our_lady_of_the_valley: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { dateFn: 'divineMercySunday', addDay: 6 },
-      properCycle: ProperCycles.PROPER_OF_TIME,
+      properCycle: ProperCycles.ProperOfTime,
     },
   };
 }

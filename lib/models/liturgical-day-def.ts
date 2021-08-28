@@ -1,12 +1,12 @@
 import { StringMap } from 'i18next';
-import { LiturgicalColors } from '../constants/colors';
+import { Color, Colors } from '../constants/colors';
 import { ProperCycles } from '../constants/cycles';
 import { GENERAL_ROMAN_NAME, PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
-import { isMartyr, PatronTitles, Titles } from '../constants/martyrology-metadata';
-import { LiturgicalPeriods } from '../constants/periods';
-import { Precedences } from '../constants/precedences';
-import { Ranks, RanksFromPrecedence } from '../constants/ranks';
-import { LiturgicalSeasons } from '../constants/seasons';
+import { isMartyr, PatronTitle, Title } from '../constants/martyrology-metadata';
+import { Period } from '../constants/periods';
+import { Precedence, Precedences } from '../constants/precedences';
+import { Rank, Ranks, RanksFromPrecedence } from '../constants/ranks';
+import { Season } from '../constants/seasons';
 import { Key } from '../types/common';
 import {
   BaseLiturgicalDayDef,
@@ -30,17 +30,17 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
   readonly key: Key;
   readonly dateDef: DateDef;
   readonly dateExceptions: DateDefException[];
-  readonly precedence: Precedences;
-  readonly rank: Ranks;
+  readonly precedence: Precedence;
+  readonly rank: Rank;
   readonly isHolyDayOfObligation: boolean;
   readonly isOptional: boolean;
   readonly i18nDef: [string] | [string, StringMap | string];
-  readonly seasons: LiturgicalSeasons[];
-  readonly periods: LiturgicalPeriods[];
+  readonly seasons: Season[];
+  readonly periods: Period[];
   readonly calendarMetadata: CalendarMetadata;
-  readonly liturgicalColors: LiturgicalColors[];
+  readonly colors: Color[];
   readonly martyrology: MartyrologyItem[];
-  readonly titles: (Titles | PatronTitles)[];
+  readonly titles: (Title | PatronTitle)[];
   readonly cycles: PartialCyclesDef;
   readonly fromCalendar: Lowercase<string>;
   readonly fromExtendedCalendars: LiturgyDayDiff[];
@@ -76,12 +76,10 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
     return (this.#seasonNames = this.#config.getSeasonNames(this.seasons));
   }
 
-  #liturgicalColorNames?: string[];
-  public get liturgicalColorNames(): string[] {
-    if (this.#liturgicalColorNames !== undefined) return this.#liturgicalColorNames;
-    return (this.#liturgicalColorNames = this.#config.getLiturgicalColorNames(
-      this.liturgicalColors,
-    ));
+  #colorNames?: string[];
+  public get colorNames(): string[] {
+    if (this.#colorNames !== undefined) return this.#colorNames;
+    return (this.#colorNames = this.#config.getLiturgicalColorNames(this.colors));
   }
 
   constructor(
@@ -160,20 +158,20 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
     // are placed at the end of the array (not between the contained titles).
     this.titles = [...new Set(this.martyrology.flatMap((m) => m.titles || []).reverse())].reverse();
 
-    this.liturgicalColors = Array.isArray(input.liturgicalColors)
-      ? input.liturgicalColors
-      : input.liturgicalColors
-      ? [input.liturgicalColors]
-      : Array.isArray(previousDef?.liturgicalColors)
+    this.colors = Array.isArray(input.colors)
+      ? input.colors
+      : input.colors
+      ? [input.colors]
+      : Array.isArray(previousDef?.colors)
       ? // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
-        previousDef!.liturgicalColors
+        previousDef!.colors
       : isMartyr(this.titles)
-      ? [LiturgicalColors.RED]
-      : [LiturgicalColors.WHITE];
+      ? [Colors.Red]
+      : [Colors.White];
 
     this.cycles = {
       properCycle:
-        input.properCycle ?? previousDef?.cycles.properCycle ?? ProperCycles.PROPER_OF_SAINTS,
+        input.properCycle ?? previousDef?.cycles.properCycle ?? ProperCycles.ProperOfSaints,
     };
 
     this.fromCalendar = fromCalendar;
@@ -218,10 +216,10 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
    * @param key The key of the liturgical day.
    * @private
    */
-  static precedenceToRank(precedence: Precedences, key: string): Ranks {
+  static precedenceToRank(precedence: Precedence, key: string): Rank {
     // Easter Sunday
     if (precedence === Precedences.Triduum_1 && key === 'easter_sunday') {
-      return Ranks.SOLEMNITY;
+      return Ranks.Solemnity;
     }
 
     return RanksFromPrecedence[precedence];
@@ -327,7 +325,7 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
     titlesDef: TitlesDef,
     martyrologyKey: Key,
     previousDef?: LiturgicalDayDef,
-  ): (Titles | PatronTitles)[] {
+  ): (Title | PatronTitle)[] {
     return Array.isArray(titlesDef)
       ? titlesDef
       : typeof titlesDef === 'object'
@@ -387,11 +385,11 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
         ? { i18nDef: dayA.i18nDef }
         : {}),
 
-      // liturgicalColors
-      ...(dayA.liturgicalColors
-        .filter((x) => !dayB.liturgicalColors.includes(x))
-        .concat(dayB.liturgicalColors.filter((x) => !dayA.liturgicalColors.includes(x))).length
-        ? { liturgicalColors: dayA.liturgicalColors }
+      // colors
+      ...(dayA.colors
+        .filter((x) => !dayB.colors.includes(x))
+        .concat(dayB.colors.filter((x) => !dayA.colors.includes(x))).length
+        ? { colors: dayA.colors }
         : {}),
 
       // titles

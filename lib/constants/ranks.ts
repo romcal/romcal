@@ -1,4 +1,4 @@
-import { Precedences } from './precedences';
+import { Precedence, Precedences } from './precedences';
 
 /**
  * Rank of liturgical days.
@@ -12,7 +12,7 @@ export enum Ranks {
    * are also endowed with their own Vigil Mass, which is to be used on the evening of the
    * preceding day, if an evening Mass is celebrated. (UNLY #11)
    */
-  SOLEMNITY = 'SOLEMNITY',
+  Solemnity = 'SOLEMNITY',
 
   /**
    * On the first day of each week, which is known as the Day of the Lord or the Lord’s
@@ -20,7 +20,7 @@ export enum Ranks {
    * the Resurrection of Christ, celebrates the Paschal Mystery. Hence, Sunday must be
    * considered the primordial feast day. (UNLY #4)
    */
-  SUNDAY = 'SUNDAY',
+  Sunday = 'SUNDAY',
 
   /**
    * Feasts are celebrated within the limits of the natural day; accordingly they have
@@ -28,7 +28,7 @@ export enum Ranks {
    * on a Sunday in Ordinary Time or in Christmas Time and which replace the Sunday
    * Office. (UNLY #13)
    */
-  FEAST = 'FEAST',
+  Feast = 'FEAST',
 
   /**
    * Memorials are either obligatory or optional; their observance is integrated into
@@ -39,7 +39,7 @@ export enum Ranks {
    * If several Optional Memorials are inscribed in the Calendar on the same day, only
    * one may be celebrated, the others being omitted. (UNLY #14)
    */
-  MEMORIAL = 'MEMORIAL',
+  Memorial = 'MEMORIAL',
 
   /**
    * The days of the week that follow Sunday are called weekdays; however, they are
@@ -54,35 +54,41 @@ export enum Ranks {
    *
    *  (UNLY #16)
    */
-  WEEKDAY = 'WEEKDAY',
+  Weekday = 'WEEKDAY',
 }
 
-export const RanksFromPrecedence = {
-  [Precedences.Triduum_1]: Ranks.WEEKDAY,
-  [Precedences.ProperOfTimeSolemnity_2]: Ranks.SOLEMNITY,
-  [Precedences.PrivilegedSunday_2]: Ranks.SUNDAY,
-  [Precedences.AshWednesday_2]: Ranks.WEEKDAY,
-  [Precedences.WeekdayOfHolyWeek_2]: Ranks.WEEKDAY,
-  [Precedences.WeekdayOfEasterOctave_2]: Ranks.SOLEMNITY,
-  [Precedences.GeneralSolemnity_3]: Ranks.SOLEMNITY,
-  [Precedences.CommemorationOfAllTheFaithfulDeparted_3]: Ranks.FEAST,
-  [Precedences.ProperSolemnity_PrincipalPatron_4a]: Ranks.SOLEMNITY,
-  [Precedences.ProperSolemnity_DedicationOfTheOwnChurch_4b]: Ranks.SOLEMNITY,
-  [Precedences.ProperSolemnity_TitleOfTheOwnChurch_4c]: Ranks.SOLEMNITY,
-  [Precedences.ProperSolemnity_TitleOrFounderOrPrincipalPatronOfAReligiousOrg_4d]: Ranks.SOLEMNITY,
-  [Precedences.GeneralLordFeast_5]: Ranks.FEAST,
-  [Precedences.UnprivilegedSunday_6]: Ranks.SUNDAY,
-  [Precedences.GeneralFeast_7]: Ranks.FEAST,
-  [Precedences.ProperFeast_PrincipalPatronOfADiocese_8a]: Ranks.FEAST,
-  [Precedences.ProperFeast_DedicationOfTheCathedralChurch_8b]: Ranks.FEAST,
-  [Precedences.ProperFeast_PrincipalPatronOfARegion_8c]: Ranks.FEAST,
-  [Precedences.ProperFeast_TitleOrFounderOrPrincipalPatronOfAReligiousOrg_8d]: Ranks.FEAST,
-  [Precedences.ProperFeast_ToAnIndividualChurch_8e]: Ranks.FEAST,
-  [Precedences.ProperFeast_8f]: Ranks.FEAST,
-  [Precedences.PrivilegedWeekday_9]: Ranks.WEEKDAY,
-  [Precedences.GeneralMemorial_10]: Ranks.MEMORIAL,
-  [Precedences.ProperMemorial_SecondPatron_11a]: Ranks.MEMORIAL,
-  [Precedences.ProperMemorial_11b]: Ranks.MEMORIAL,
-  [Precedences.OptionalMemorial_12]: Ranks.MEMORIAL,
-  [Precedences.Weekday_13]: Ranks.WEEKDAY,
+export const RANKS = Object.keys(Ranks).filter(
+  (key) => typeof Ranks[key as keyof typeof Ranks] === 'string',
+) as Array<Uppercase<keyof typeof Ranks>>;
+
+export type Rank = typeof RANKS[number];
+
+export const RanksFromPrecedence: Record<Precedence, Rank> = {
+  [Precedences.Triduum_1]: Ranks.Weekday,
+  [Precedences.ProperOfTimeSolemnity_2]: Ranks.Solemnity,
+  [Precedences.PrivilegedSunday_2]: Ranks.Sunday,
+  [Precedences.AshWednesday_2]: Ranks.Weekday,
+  [Precedences.WeekdayOfHolyWeek_2]: Ranks.Weekday,
+  [Precedences.WeekdayOfEasterOctave_2]: Ranks.Solemnity,
+  [Precedences.GeneralSolemnity_3]: Ranks.Solemnity,
+  [Precedences.CommemorationOfAllTheFaithfulDeparted_3]: Ranks.Feast,
+  [Precedences.ProperSolemnity_PrincipalPatron_4a]: Ranks.Solemnity,
+  [Precedences.ProperSolemnity_DedicationOfTheOwnChurch_4b]: Ranks.Solemnity,
+  [Precedences.ProperSolemnity_TitleOfTheOwnChurch_4c]: Ranks.Solemnity,
+  [Precedences.ProperSolemnity_TitleOrFounderOrPrimaryPatronOfAReligiousOrg_4d]: Ranks.Solemnity,
+  [Precedences.GeneralLordFeast_5]: Ranks.Feast,
+  [Precedences.UnprivilegedSunday_6]: Ranks.Sunday,
+  [Precedences.GeneralFeast_7]: Ranks.Feast,
+  [Precedences.ProperFeast_PrincipalPatronOfADiocese_8a]: Ranks.Feast,
+  [Precedences.ProperFeast_DedicationOfTheCathedralChurch_8b]: Ranks.Feast,
+  [Precedences.ProperFeast_PrincipalPatronOfARegion_8c]: Ranks.Feast,
+  [Precedences.ProperFeast_TitleOrFounderOrPrimaryPatronOfAReligiousOrg_8d]: Ranks.Feast,
+  [Precedences.ProperFeast_ToAnIndividualChurch_8e]: Ranks.Feast,
+  [Precedences.ProperFeast_8f]: Ranks.Feast,
+  [Precedences.PrivilegedWeekday_9]: Ranks.Weekday,
+  [Precedences.GeneralMemorial_10]: Ranks.Memorial,
+  [Precedences.ProperMemorial_SecondPatron_11a]: Ranks.Memorial,
+  [Precedences.ProperMemorial_11b]: Ranks.Memorial,
+  [Precedences.OptionalMemorial_12]: Ranks.Memorial,
+  [Precedences.Weekday_13]: Ranks.Weekday,
 };

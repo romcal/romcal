@@ -1,4 +1,4 @@
-import { CalendarScope } from '../constants/calendar-scope';
+import { CalendarScopes } from '../constants/calendar-scopes';
 import { DateDef, DateDefExtended, DayOfWeek } from '../types/liturgical-day';
 import { BaseLiturgicalDayConfig, LiturgicalDayConfigOutput } from '../types/liturgical-day-config';
 import {
@@ -6,8 +6,8 @@ import {
   Dates,
   daysInMonth,
   getUtcDate,
-  isValidDate,
   isSameDate,
+  isValidDate,
   subtractsDays,
 } from '../utils/dates';
 import { RomcalConfig } from './config';
@@ -30,7 +30,7 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
     this.year =
       year ??
       // When year is undefined, determine the current year
-      (config.scope === CalendarScope.Gregorian
+      (config.scope === CalendarScopes.Gregorian
         ? // Current Gregorian year
           currentYear
         : // Current Liturgical year

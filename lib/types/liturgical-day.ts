@@ -1,16 +1,11 @@
 import { StringMap } from 'i18next';
-import { LiturgicalColors } from '../constants/colors';
-import {
-  ProperCycles,
-  PsalterWeeksCycles,
-  SundaysCycles,
-  WeekdaysCycles,
-} from '../constants/cycles';
-import { PatronTitles, Titles } from '../constants/martyrology-metadata';
-import { LiturgicalPeriods } from '../constants/periods';
-import { Precedences } from '../constants/precedences';
-import { Ranks } from '../constants/ranks';
-import { LiturgicalSeasons } from '../constants/seasons';
+import { Color } from '../constants/colors';
+import { ProperCycle, PsalterWeeksCycle, SundaysCycle, WeekdaysCycle } from '../constants/cycles';
+import { PatronTitle, Title } from '../constants/martyrology-metadata';
+import { Period } from '../constants/periods';
+import { Precedence } from '../constants/precedences';
+import { Rank } from '../constants/ranks';
+import { Season } from '../constants/seasons';
 import LiturgicalDay from '../models/liturgical-day';
 import LiturgicalDayDef from '../models/liturgical-day-def';
 import { Dates } from '../utils/dates';
@@ -184,22 +179,22 @@ export type RomcalCyclesMetadata = {
   /**
    * The proper cycle in which the liturgical day is part.
    */
-  properCycle: ProperCycles;
+  properCycle: ProperCycle;
 
   /**
    * The Sunday yearly cycle in which the liturgical day is part.
    */
-  sundayCycle: SundaysCycles;
+  sundayCycle: SundaysCycle;
 
   /**
    * The weekday yearly cycle in which the liturgical day is part.
    */
-  weekdayCycle: WeekdaysCycles;
+  weekdayCycle: WeekdaysCycle;
 
   /**
    * The psalter week cycle in which the liturgical day is part.
    */
-  psalterWeek: PsalterWeeksCycles;
+  psalterWeek: PsalterWeeksCycle;
 };
 
 /**
@@ -259,16 +254,16 @@ export type RomcalCalendarMetadata = {
  * The associated titles of a liturgical day.
  */
 export type TitlesDef =
-  | (Titles | PatronTitles)[]
+  | (Title | PatronTitle)[]
   | {
       /**
        * Add title(s) to the end of the existing list of title(s).
        */
-      append?: (Titles | PatronTitles)[];
+      append?: (Title | PatronTitle)[];
       /**
        * Add title(s) to the  beginning of the existing list of title(s).
        */
-      prepend?: (Titles | PatronTitles)[];
+      prepend?: (Title | PatronTitle)[];
     };
 
 /**
@@ -325,12 +320,12 @@ type LiturgicalDayRoot = {
   /**
    * The precedence type of the liturgical day.
    */
-  precedence: Precedences;
+  precedence: Precedence;
 
   /**
    * The rank of the liturgical day.
    */
-  rank: Ranks;
+  rank: Rank;
 
   /**
    * The localized rank of the liturgical day.
@@ -340,12 +335,12 @@ type LiturgicalDayRoot = {
   /**
    * The liturgical colors of the liturgical day.
    */
-  liturgicalColors: LiturgicalColors[];
+  colors: Color[];
 
   /**
    * The liturgical localized colors of a liturgical day.
    */
-  liturgicalColorNames: string[];
+  colorNames: string[];
 
   /**
    * Holy days of obligation are days on which the faithful are expected to attend Mass,
@@ -384,7 +379,7 @@ type LiturgicalDayRoot = {
   /**
    * Season keys to which the liturgical day is a part.
    */
-  seasons: LiturgicalSeasons[];
+  seasons: Season[];
 
   /**
    * Season localized name to which the liturgical day is a part.
@@ -394,7 +389,7 @@ type LiturgicalDayRoot = {
   /**
    * Period keys to which the liturgical day is a part.
    */
-  periods: LiturgicalPeriods[];
+  periods: Period[];
 
   /**
    * The specific martyrology metadata of a liturgical day, if applies.
@@ -404,7 +399,7 @@ type LiturgicalDayRoot = {
   /**
    * Combined titles of each Saints linked to this date definition.
    */
-  titles: (Titles | PatronTitles)[];
+  titles: (Title | PatronTitle)[];
 
   /**
    * Cycle metadata of a liturgical day.
@@ -414,7 +409,7 @@ type LiturgicalDayRoot = {
   /**
    * The proper cycle in which the liturgical day is part.
    */
-  properCycle?: ProperCycles;
+  properCycle?: ProperCycle;
 
   /**
    * Function that compute calendar metadata
@@ -462,7 +457,7 @@ type LiturgicalDayRoot = {
  */
 export type BaseLiturgicalDayDef = Pick<
   LiturgicalDayRoot,
-  | 'liturgicalColors'
+  | 'colors'
   | 'fromCalendar'
   | 'periods'
   | 'i18nDef'
@@ -475,7 +470,7 @@ export type BaseLiturgicalDayDef = Pick<
   | 'dateDef'
   | 'dateExceptions'
   | 'titles'
-  | 'liturgicalColorNames'
+  | 'colorNames'
   | 'martyrology'
   | 'name'
   | 'rank'
@@ -521,7 +516,7 @@ export type LiturgicalDayInput = Partial<
   /**
    * The liturgical color(s) of the liturgical day.
    */
-  liturgicalColors?: LiturgicalColors | LiturgicalColors[];
+  colors?: Color | Color[];
 
   /**
    * Link one or multiple Saints, Blessed, or any other celebrations from the Martyrology catalog.
@@ -543,7 +538,7 @@ export type LiturgicalDayBundleInput = XOR<LiturgicalDayInput, LiturgicalDayProp
 
 export type LiturgicalDayProperOfTimeInput = Pick<
   LiturgicalDayRoot,
-  | 'liturgicalColors'
+  | 'colors'
   | 'properCycle'
   | 'drop'
   | 'periods'
@@ -586,7 +581,7 @@ export type LiturgyDayDiff = Pick<LiturgicalDayDef, 'fromCalendar'> &
       | 'isHolyDayOfObligation'
       | 'i18nDef'
       | 'titles'
-      | 'liturgicalColors'
+      | 'colors'
     > & { cycles: Partial<Pick<RomcalCyclesMetadata, 'properCycle'>>; martyrology: Key[] }
   >;
 

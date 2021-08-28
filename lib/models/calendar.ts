@@ -1,18 +1,17 @@
-import { CalendarScope } from '../constants/calendar-scope';
+import { CalendarScopes } from '../constants/calendar-scopes';
 import {
-  ProperCycles,
+  ProperCycle,
   PSALTER_WEEKS,
-  PsalterWeeksCycles,
   SUNDAYS_CYCLE,
-  SundaysCycles,
+  SundaysCycle,
   WEEKDAYS_CYCLE,
-  WeekdaysCycles,
+  WeekdaysCycle,
 } from '../constants/cycles';
 import { PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
-import { LiturgicalPeriods } from '../constants/periods';
+import { Periods } from '../constants/periods';
 import { Precedences, PRECEDENCES } from '../constants/precedences';
 import { Ranks } from '../constants/ranks';
-import { LiturgicalSeasons } from '../constants/seasons';
+import { Seasons } from '../constants/seasons';
 import {
   BaseCalendar,
   DatesIndex,
@@ -31,8 +30,8 @@ export class Calendar implements BaseCalendar {
   readonly #config: RomcalConfig;
   readonly #liturgicalDayConfig: LiturgicalDayConfig;
   readonly dates: Dates;
-  readonly #startOfSeasonsDic: Record<number, Record<LiturgicalSeasons, Date>> = {};
-  readonly #endOfSeasonsDic: Record<number, Record<LiturgicalSeasons, Date>> = {};
+  readonly #startOfSeasonsDic: Record<number, Record<Seasons, Date>> = {};
+  readonly #endOfSeasonsDic: Record<number, Record<Seasons, Date>> = {};
   readonly #cyclesCache: Record<
     number,
     Pick<RomcalCyclesMetadata, 'sundayCycle' | 'weekdayCycle'>
@@ -58,7 +57,7 @@ export class Calendar implements BaseCalendar {
     let currentYear = this.#liturgicalDayConfig.year;
 
     if (
-      this.#config.scope === CalendarScope.Gregorian &&
+      this.#config.scope === CalendarScopes.Gregorian &&
       this.#liturgicalDayConfig.dates
         .firstSundayOfAdvent(this.#liturgicalDayConfig.year)
         .getTime() <= date.getTime()
@@ -93,12 +92,8 @@ export class Calendar implements BaseCalendar {
       nthDayOfWeekInMonth: Math.ceil(date.getDate() / 7),
       startOfSeason: startOfSeason ? startOfSeason.toISOString().substr(0, 10) : '',
       endOfSeason: endOfSeason ? endOfSeason.toISOString().substr(0, 10) : '',
-      startOfLiturgicalYear: startOfSeasonsDic[LiturgicalSeasons.ADVENT]
-        .toISOString()
-        .substr(0, 10),
-      endOfLiturgicalYear: endOfSeasonsDic[LiturgicalSeasons.ORDINARY_TIME]
-        .toISOString()
-        .substr(0, 10),
+      startOfLiturgicalYear: startOfSeasonsDic[Seasons.Advent].toISOString().substr(0, 10),
+      endOfLiturgicalYear: endOfSeasonsDic[Seasons.OrdinaryTime].toISOString().substr(0, 10),
     };
   }
 
@@ -112,7 +107,7 @@ export class Calendar implements BaseCalendar {
   #buildLiturgicalCycleMetadata(
     date: Date,
     calendar: RomcalCalendarMetadata,
-    properCycle: ProperCycles,
+    properCycle: ProperCycle,
   ): RomcalCyclesMetadata {
     const year = parseInt(calendar.startOfLiturgicalYear, 10);
 
@@ -121,8 +116,8 @@ export class Calendar implements BaseCalendar {
     if (!this.#cyclesCache[year]) {
       const firstSundayOfAdvent = getUtcDateFromString(calendar.startOfLiturgicalYear);
 
-      let sundayCycle: SundaysCycles;
-      let weekdayCycle: WeekdaysCycles;
+      let sundayCycle: SundaysCycle;
+      let weekdayCycle: WeekdaysCycle;
 
       // Formula to calculate Sunday cycle (Year A, B, C)
       const thisSundayCycleIndex: number = (year - 1963) % 3;
@@ -132,11 +127,11 @@ export class Calendar implements BaseCalendar {
       // If the date is on or after the First Sunday of Advent,
       // it is the next liturgical cycle
       if (date.getTime() >= firstSundayOfAdvent.getTime()) {
-        sundayCycle = SundaysCycles[SUNDAYS_CYCLE[nextSundayCycleIndex]];
-        weekdayCycle = WeekdaysCycles[WEEKDAYS_CYCLE[year % 2]];
+        sundayCycle = SUNDAYS_CYCLE[nextSundayCycleIndex];
+        weekdayCycle = WEEKDAYS_CYCLE[year % 2];
       } else {
-        sundayCycle = SundaysCycles[SUNDAYS_CYCLE[thisSundayCycleIndex]];
-        weekdayCycle = WeekdaysCycles[WEEKDAYS_CYCLE[(year + 1) % 2]];
+        sundayCycle = SUNDAYS_CYCLE[thisSundayCycleIndex];
+        weekdayCycle = WEEKDAYS_CYCLE[(year + 1) % 2];
       }
 
       this.#cyclesCache[year] = {
@@ -149,7 +144,7 @@ export class Calendar implements BaseCalendar {
     // Except during the four first days of lent (ash wednesday to the next saturday),
     // which are in week 4, to start on week 1 after the first sunday of lent.
     const weekIndex = (calendar.weekOfSeason % 4) - 1;
-    const psalterWeek = PsalterWeeksCycles[PSALTER_WEEKS[weekIndex > -1 ? weekIndex : 3]];
+    const psalterWeek = PSALTER_WEEKS[weekIndex > -1 ? weekIndex : 3];
 
     return { properCycle, ...this.#cyclesCache[year], psalterWeek };
   }
@@ -181,7 +176,7 @@ export class Calendar implements BaseCalendar {
       // - Note: dates from the Proper of Time are already generated within a liturgical year,
       //   so in this case we don't have to check the previously gregorian year.
       const previousYearDate =
-        !isFromProperOfTime && this.#config.scope === CalendarScope.Liturgical
+        !isFromProperOfTime && this.#config.scope === CalendarScopes.Liturgical
           ? this.#liturgicalDayConfig.buildDate(def, -1)
           : null;
 
@@ -242,7 +237,7 @@ export class Calendar implements BaseCalendar {
            *    - Feasts: small hours are taken from the weekday.
            */
           const weekday: LiturgicalDay | null =
-            baseData && [Ranks.FEAST, Ranks.MEMORIAL].includes(def.rank) ? baseData : null;
+            baseData && [Ranks.Feast, Ranks.Memorial].some((r) => r === def.rank) ? baseData : null;
 
           // Create a new LiturgicalDay object, and add it to the builtData object.
           builtData.byKeys[def.key] = new LiturgicalDay(
@@ -405,7 +400,7 @@ export class Calendar implements BaseCalendar {
       if (
         (defaultLiturgicalDay.precedence === Precedences.PrivilegedWeekday_9 ||
           defaultLiturgicalDay.precedence === Precedences.Weekday_13) &&
-        !defaultLiturgicalDay.periods.includes(LiturgicalPeriods.HOLY_WEEK)
+        !defaultLiturgicalDay.periods.includes(Periods.HolyWeek)
       ) {
         optionalMemorials = dates
           .slice(1)
@@ -416,7 +411,7 @@ export class Calendar implements BaseCalendar {
                 Precedences.ProperMemorial_SecondPatron_11a,
                 Precedences.ProperMemorial_11b,
                 Precedences.OptionalMemorial_12,
-              ].includes(d.precedence) || d.isOptional,
+              ].some((p) => p === d.precedence) || d.isOptional,
           )
           .map((d) => (d.isOptional = true) && d);
       }
