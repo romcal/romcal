@@ -1,7 +1,7 @@
+import { PatronTitles } from '../constants/martyrology-metadata';
+import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { InputDefinitions } from '../types/calendar-def';
-import { Precedences } from '../constants/precedences';
-import { PatronTitles } from '../constants/martyrology-metadata';
 import { Americas } from './americas';
 
 export class Canada extends CalendarDef {
@@ -115,7 +115,7 @@ export class Canada extends CalendarDef {
     john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs_copatrons_of_canada: {
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       dateDef: { month: 9, date: 26 },
-      titles: { append: [PatronTitles.CopatronsOfCanada] },
+      titles: { append: [PatronTitles.CopatronOfCanada] },
       martyrology: ['john_de_brebeuf_priest', 'isaac_jogues_priest', 'companions_martyrs'],
     },
 

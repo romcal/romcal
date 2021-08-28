@@ -1,7 +1,7 @@
-import { CalendarDef } from '../models/calendar-def';
-import { InputDefinitions } from '../types/calendar-def';
 import { PatronTitles } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
+import { CalendarDef } from '../models/calendar-def';
+import { InputDefinitions } from '../types/calendar-def';
 
 export class Americas extends CalendarDef {
   definitions: InputDefinitions = {

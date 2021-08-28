@@ -3,14 +3,8 @@ import * as fs from 'fs';
 import path from 'path';
 import * as util from 'util';
 import { Martyrology } from '../catalog/martyrology';
-import { CalendarScope } from '../constants/calendar-scope';
-import { LiturgicalColors } from '../constants/colors';
-import { ProperCycles } from '../constants/cycles';
+import { CalendarScopes } from '../constants/calendar-scopes';
 import { PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
-import { CanonizationLevel, PatronTitles, Titles } from '../constants/martyrology-metadata';
-import { LiturgicalPeriods } from '../constants/periods';
-import { Precedences } from '../constants/precedences';
-import { LiturgicalSeasons } from '../constants/seasons';
 import { GeneralRoman } from '../general-calendar/proper-of-saints';
 import { locales } from '../locales';
 import { RomcalBundle } from '../models/bundle';
@@ -32,7 +26,7 @@ class RomcalBuilder {
   #martyrologyKeys: string[] = [];
 
   constructor(locale: Locale, particularCalendar?: typeof CalendarDef) {
-    const scope = { scope: CalendarScope.Liturgical };
+    const scope = { scope: CalendarScopes.Liturgical };
     this.#config = new RomcalConfig(scope, Martyrology.catalog, locale, particularCalendar);
   }
 
@@ -208,14 +202,14 @@ const RomcalBundler = () => {
 
       // Replace string values by the corresponding constant objects.
       const stringToObj = {
-        CanonizationLevel: CanonizationLevel,
-        LiturgicalColors: LiturgicalColors,
-        LiturgicalPeriods: LiturgicalPeriods,
-        LiturgicalSeasons: LiturgicalSeasons,
-        Titles: Titles,
-        Precedences: Precedences,
-        PatronTitles: PatronTitles,
-        ProperCycles: ProperCycles,
+        CanonizationLevel: '_CanonizationLevels',
+        Colors: '_Colors',
+        Periods: '_Periods',
+        Seasons: '_Seasons',
+        Titles: '_Titles',
+        Precedences: '_Precedences',
+        PatronTitles: '_PatronTitles',
+        ProperCycles: '_ProperCycles',
       };
       Object.entries(stringToObj).forEach(([objName, obj]) => {
         Object.entries(obj).forEach(([key, value]) => {
@@ -226,13 +220,7 @@ const RomcalBundler = () => {
       // Append imports inside the bundle file.
       jsOutput =
         `/* eslint-disable */\n` +
-        `import { Precedences } from '../../lib/constants/precedences';\n` +
-        `import { CanonizationLevel, PatronTitles, Titles } from '../../lib/constants/martyrology-metadata';\n` +
-        `import { ProperCycles } from '../../lib/constants/cycles';\n` +
-        `import { RomcalBundleObject } from '../../lib/types/bundle';\n` +
-        `import { LiturgicalColors } from '../../lib/constants/colors';\n` +
-        `import { LiturgicalPeriods } from '../../lib/constants/periods';\n` +
-        `import { LiturgicalSeasons } from '../../lib/constants/seasons';\n\n` +
+        `import { RomcalBundleObject } from '../../lib/types/bundle';\n\n` +
         `export const ${calVarName}: RomcalBundleObject = ${jsOutput}`;
 
       // Write the calendar bundle file.

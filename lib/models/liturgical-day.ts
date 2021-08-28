@@ -1,11 +1,11 @@
 import { StringMap } from 'i18next';
-import { LiturgicalColors } from '../constants/colors';
+import { Color } from '../constants/colors';
 import { PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
-import { PatronTitles, Titles } from '../constants/martyrology-metadata';
-import { LiturgicalPeriods } from '../constants/periods';
-import { Precedences } from '../constants/precedences';
-import { Ranks } from '../constants/ranks';
-import { LiturgicalSeasons } from '../constants/seasons';
+import { PatronTitle, Title } from '../constants/martyrology-metadata';
+import { Period, Periods } from '../constants/periods';
+import { Precedence, Precedences } from '../constants/precedences';
+import { Rank, Ranks } from '../constants/ranks';
+import { Season, Seasons } from '../constants/seasons';
 import { Key } from '../types/common';
 import {
   BaseLiturgicalDay,
@@ -25,16 +25,16 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
   readonly key: Key;
   readonly date: string;
   readonly dateDef: DateDef;
-  readonly precedence: Precedences;
-  readonly rank: Ranks;
+  readonly precedence: Precedence;
+  readonly rank: Rank;
   readonly isHolyDayOfObligation: boolean;
   isOptional: boolean;
   readonly i18nDef: [string] | [string, StringMap | string];
-  readonly seasons: LiturgicalSeasons[];
-  readonly periods: LiturgicalPeriods[];
-  readonly liturgicalColors: LiturgicalColors[];
+  readonly seasons: Season[];
+  readonly periods: Period[];
+  readonly colors: Color[];
   readonly martyrology: MartyrologyItem[];
-  readonly titles: (Titles | PatronTitles)[];
+  readonly titles: (Title | PatronTitle)[];
   readonly calendar: RomcalCalendarMetadata;
   readonly cycles: RomcalCyclesMetadata;
   readonly fromCalendar: Lowercase<string>;
@@ -49,11 +49,11 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
     return this.#liturgicalDayDef.rankName;
   }
 
-  #liturgicalColorNames?: string[];
-  public get liturgicalColorNames(): string[] {
-    if (this.#liturgicalColorNames !== undefined) return this.#liturgicalColorNames;
-    return (this.#liturgicalColorNames = this.#liturgicalDayConfig.config.getLiturgicalColorNames(
-      this.liturgicalColors,
+  #colorNames?: string[];
+  public get colorNames(): string[] {
+    if (this.#colorNames !== undefined) return this.#colorNames;
+    return (this.#colorNames = this.#liturgicalDayConfig.config.getLiturgicalColorNames(
+      this.colors,
     ));
   }
 
@@ -105,21 +105,18 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
     // without having a liturgical year context.
     if (def.fromCalendar === PROPER_OF_TIME_NAME && this.key === 'second_sunday_after_christmas') {
       if (date.getTime() >= liturgicalDayConfig.dates.epiphany().getTime()) {
-        this.periods.unshift(LiturgicalPeriods.DAYS_FROM_EPIPHANY);
+        this.periods.unshift(Periods.DaysFromEpiphany);
       } else if (date.getTime() > liturgicalDayConfig.dates.maryMotherOfGod().getTime()) {
-        this.periods.unshift(LiturgicalPeriods.DAYS_BEFORE_EPIPHANY);
+        this.periods.unshift(Periods.DaysBeforeEpiphany);
       }
     }
 
     // Specify the early/late period of an ordinary time liturgical day item
-    if (
-      def.fromCalendar === PROPER_OF_TIME_NAME &&
-      this.seasons[0] === LiturgicalSeasons.ORDINARY_TIME
-    ) {
+    if (def.fromCalendar === PROPER_OF_TIME_NAME && this.seasons[0] === Seasons.OrdinaryTime) {
       if (date.getTime() < liturgicalDayConfig.dates.pentecostSunday().getTime()) {
-        this.periods.unshift(LiturgicalPeriods.EARLY_ORDINARY_TIME);
+        this.periods.unshift(Periods.EarlyOrdinaryTime);
       } else {
-        this.periods.unshift(LiturgicalPeriods.LATE_ORDINARY_TIME);
+        this.periods.unshift(Periods.LateOrdinaryTime);
       }
     }
 
@@ -137,10 +134,10 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
      * The weekdays of Advent from 17 December up to and including 24 December
      * and all the weekdays of Lent have precedence over Obligatory Memorials.
      */
-    this.liturgicalColors =
-      weekday?.precedence === Precedences.PrivilegedWeekday_9 && this.rank === Ranks.MEMORIAL
+    this.colors =
+      weekday?.precedence === Precedences.PrivilegedWeekday_9 && this.rank === Ranks.Memorial
         ? []
-        : def.liturgicalColors;
+        : def.colors;
 
     this.martyrology = def.martyrology;
     this.titles = def.titles;

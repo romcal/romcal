@@ -24,9 +24,9 @@
 
 import 'jest-extended';
 import Romcal from '../lib';
-import { LiturgicalSeasons } from '../lib/constants/seasons';
-import { LiturgicalColors } from '../lib/constants/colors';
+import { Colors } from '../lib/constants/colors';
 import { Ranks } from '../lib/constants/ranks';
+import { Seasons } from '../lib/constants/seasons';
 import LiturgicalDay from '../lib/models/liturgical-day';
 import { addDays, isSameDate, subtractsDays } from '../lib/utils/dates';
 
@@ -112,14 +112,14 @@ describe('Testing date range functions', () => {
     test('The Saturday in the week after Ash Wednesday should be in the 1st week of Lent', async () => {
       const dates = Object.values(await new Romcal().generateCalendar(2017))
         .flatMap((arr) => arr[0])
-        .filter((d) => d.seasons.includes(LiturgicalSeasons.LENT));
+        .filter((d) => d.seasons.includes(Seasons.Lent));
       expect(dates[10].key).toEqual('lent_1_saturday');
     });
 
     test('The 2nd Sunday of Lent should be in the 2nd week of Lent', async () => {
       const dates = Object.values(await new Romcal().generateCalendar(2017))
         .flatMap((arr) => arr[0])
-        .filter((d) => d.seasons.includes(LiturgicalSeasons.LENT));
+        .filter((d) => d.seasons.includes(Seasons.Lent));
       expect(dates[11].key).toEqual('lent_2_sunday');
     });
   });
@@ -277,11 +277,11 @@ describe('Testing seasons utility functions', () => {
       calendar
         .filter(
           (d) =>
-            d.seasons.includes(LiturgicalSeasons.ORDINARY_TIME) &&
-            (d.rank === Ranks.SUNDAY || d.rank === Ranks.WEEKDAY),
+            d.seasons.includes(Seasons.OrdinaryTime) &&
+            (d.rank === Ranks.Sunday || d.rank === Ranks.Weekday),
         )
         .forEach((date) => {
-          expect(date.liturgicalColors[0]).toEqual(LiturgicalColors.GREEN);
+          expect(date.colors[0]).toEqual(Colors.Green);
         });
     });
 
@@ -291,20 +291,19 @@ describe('Testing seasons utility functions', () => {
       calendar
         .filter(
           (d) =>
-            (d.seasons.includes(LiturgicalSeasons.LENT) ||
-              d.seasons.includes(LiturgicalSeasons.ADVENT)) &&
-            (d.rank === Ranks.SUNDAY || d.rank === Ranks.WEEKDAY) &&
+            (d.seasons.includes(Seasons.Lent) || d.seasons.includes(Seasons.Advent)) &&
+            (d.rank === Ranks.Sunday || d.rank === Ranks.Weekday) &&
             d.key !== 'palm_sunday',
         )
         .forEach((date) => {
           if (date.key === 'lent_4_sunday' || date.key === 'advent_3_sunday') {
             // eslint-disable-next-line jest/no-conditional-expect
-            expect(date.liturgicalColors[0]).toEqual(LiturgicalColors.ROSE);
+            expect(date.colors[0]).toEqual(Colors.Rose);
             // eslint-disable-next-line jest/no-conditional-expect
-            expect(date.liturgicalColors[1]).toEqual(LiturgicalColors.PURPLE);
+            expect(date.colors[1]).toEqual(Colors.Purple);
           } else {
             // eslint-disable-next-line jest/no-conditional-expect
-            expect(date.liturgicalColors[0]).toEqual(LiturgicalColors.PURPLE);
+            expect(date.colors[0]).toEqual(Colors.Purple);
           }
         });
     });
@@ -315,14 +314,13 @@ describe('Testing seasons utility functions', () => {
       calendar
         .filter(
           (d) =>
-            (d.seasons.includes(LiturgicalSeasons.CHRISTMAS_TIME) ||
-              d.seasons.includes(LiturgicalSeasons.EASTER_TIME)) &&
-            (d.rank === Ranks.SUNDAY || d.rank === Ranks.WEEKDAY) &&
+            (d.seasons.includes(Seasons.ChristmasTime) || d.seasons.includes(Seasons.EasterTime)) &&
+            (d.rank === Ranks.Sunday || d.rank === Ranks.Weekday) &&
             d.key !== 'pentecost_sunday',
         )
         .forEach((date) => {
           // eslint-disable-next-line jest/no-conditional-expect
-          expect(date.liturgicalColors[0]).toEqual(LiturgicalColors.WHITE);
+          expect(date.colors[0]).toEqual(Colors.White);
         });
     });
   });

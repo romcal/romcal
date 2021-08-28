@@ -1,8 +1,8 @@
+import { ProperCycles } from '../constants/cycles';
+import { PatronTitles } from '../constants/martyrology-metadata';
+import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { InputDefinitions } from '../types/calendar-def';
-import { Precedences } from '../constants/precedences';
-import { PatronTitles } from '../constants/martyrology-metadata';
-import { ProperCycles } from '../constants/cycles';
 import { Europe } from './europe';
 
 export class Wales extends CalendarDef {
@@ -172,7 +172,7 @@ export class Wales extends CalendarDef {
     our_lord_jesus_christ_the_eternal_high_priest: {
       precedence: Precedences.ProperFeast_8f,
       dateDef: { dateFn: 'pentecostSunday', addDay: 4 },
-      properCycle: ProperCycles.PROPER_OF_TIME,
+      properCycle: ProperCycles.ProperOfTime,
     },
   };
 }

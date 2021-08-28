@@ -1,6 +1,6 @@
 import { version } from '../package.json';
-import { CalendarScope } from './constants/calendar-scope';
-import { LiturgicalColors } from './constants/colors';
+import { CalendarScopes } from './constants/calendar-scopes';
+import { Colors } from './constants/colors';
 import {
   ProperCycles,
   PsalterWeeksCycles,
@@ -8,11 +8,11 @@ import {
   WeekdaysCycles,
 } from './constants/cycles';
 import { PROPER_OF_TIME_NAME } from './constants/general-calendar-names';
-import { CanonizationLevel, PatronTitles, Sex, Titles } from './constants/martyrology-metadata';
-import { LiturgicalPeriods } from './constants/periods';
+import { CanonizationLevels, PatronTitles, Sexes, Titles } from './constants/martyrology-metadata';
+import { Periods } from './constants/periods';
 import { Precedences } from './constants/precedences';
 import { Ranks } from './constants/ranks';
-import { LiturgicalSeasons } from './constants/seasons';
+import { Seasons } from './constants/seasons';
 import { Calendar } from './models/calendar';
 import { RomcalConfig } from './models/config';
 import LiturgicalDay from './models/liturgical-day';
@@ -173,18 +173,18 @@ export default class Romcal {
     return version;
   }
 
-  static CalendarScope = CalendarScope;
-  static LiturgicalColors = LiturgicalColors;
+  static CalendarScopes = CalendarScopes;
+  static Colors = Colors;
   static ProperCycles = ProperCycles;
   static SundaysCycles = SundaysCycles;
   static WeekdaysCycles = WeekdaysCycles;
   static PsalterWeeksCycles = PsalterWeeksCycles;
-  static CanonizationLevel = CanonizationLevel;
-  static Sex = Sex;
+  static CanonizationLevels = CanonizationLevels;
+  static Sexes = Sexes;
   static Titles = Titles;
   static PatronTitles = PatronTitles;
   static Precedences = Precedences;
   static Ranks = Ranks;
-  static LiturgicalSeasons = LiturgicalSeasons;
-  static LiturgicalPeriods = LiturgicalPeriods;
+  static Seasons = Seasons;
+  static Periods = Periods;
 }

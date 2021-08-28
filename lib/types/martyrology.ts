@@ -1,4 +1,4 @@
-import { CanonizationLevel, PatronTitles, Sex, Titles } from '../constants/martyrology-metadata';
+import { CanonizationLevel, PatronTitle, Sex, Title } from '../constants/martyrology-metadata';
 
 export type MartyrologyDef = {
   /**
@@ -22,7 +22,7 @@ export type MartyrologyDef = {
   /**
    * Titles of the Saint or the Blessed
    */
-  titles?: (Titles | PatronTitles)[];
+  titles?: (Title | PatronTitle)[];
 
   /**
    * Determine if the Saint or the Blessed is a male or a female.

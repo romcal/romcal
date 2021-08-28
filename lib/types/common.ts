@@ -15,6 +15,78 @@ export type AllXOR<T extends any[]> = T extends [infer Only]
   : never;
 
 /**
+ * Template literal types
+ */
+
+/**
+ * PascalCaseToUpperSnakeCase
+ */
+export type PascalToUpperSnakeCase<S extends string> = CamelToUpperSnakeCase<Uncapitalize<S>>;
+
+/**
+ * CamelToUpperSnakeCase (using template literal types).
+ * Note: first per 3 chars, then per 2 chars (to optimize performance and avoid TS2589 error),
+ * and finally per 1 char.
+ */
+// todo: fix extra _ added, and _ added before numbers
+export type CamelToUpperSnakeCase<S extends string> =
+  S extends `${infer C0}${infer C1}${infer C2}${infer R}`
+    ? `${`${C0}${C1}${C2}` extends `${UpperChar}${Lowercase<C1>}${Lowercase<C2>}`
+        ? `_${Uppercase<C0>}${Uppercase<C1>}${Uppercase<C2>}`
+        : `${`${C0}${C1}${C2}` extends `${Lowercase<C0>}${UpperChar}${Lowercase<C2>}`
+            ? `${Uppercase<C0>}_${Uppercase<C1>}${Uppercase<C2>}`
+            : `${`${C0}${C1}${C2}` extends `${Lowercase<C0>}${Lowercase<C1>}${UpperChar}`
+                ? `${Uppercase<C0>}${Uppercase<C1>}_${Uppercase<C2>}`
+                : `${`${C0}${C1}${C2}` extends `${UpperChar}${UpperChar}${Lowercase<C2>}`
+                    ? `_${Uppercase<C0>}_${Uppercase<C1>}${Uppercase<C2>}`
+                    : `${`${C0}${C1}${C2}` extends `${UpperChar}${Lowercase<C1>}${UpperChar}`
+                        ? `_${Uppercase<C0>}${Uppercase<C1>}_${Uppercase<C2>}`
+                        : `${`${C0}${C1}${C2}` extends `${Lowercase<C0>}${UpperChar}${UpperChar}`
+                            ? `${Uppercase<C0>}_${Uppercase<C1>}_${Uppercase<C2>}`
+                            : `${`${C0}${C1}${C2}` extends `${UpperChar}${UpperChar}${UpperChar}`
+                                ? `_${Uppercase<C0>}_${Uppercase<C1>}_${Uppercase<C2>}`
+                                : `${Uppercase<C0>}${Uppercase<C1>}${Uppercase<C2>}`}`}`}`}`}`}`}${CamelToUpperSnakeCase<R>}`
+    : S extends `${infer C0}${infer C1}${infer R}`
+    ? `${`${C0}${C1}` extends `${UpperChar}${Lowercase<C1>}`
+        ? `_${Uppercase<C0>}${Uppercase<C1>}`
+        : `${`${C0}${C1}` extends `${Lowercase<C0>}${UpperChar}`
+            ? `${Uppercase<C0>}_${Uppercase<C1>}`
+            : `${`${C0}${C1}` extends `${UpperChar}${UpperChar}`
+                ? `_${Uppercase<C0>}_${Uppercase<C1>}`
+                : `${Uppercase<C0>}${Uppercase<C1>}`}`}`}${CamelToUpperSnakeCase<R>}`
+    : S extends `${infer C0}${infer R}`
+    ? `${C0 extends UpperChar ? '_' : ''}${Uppercase<C0>}${CamelToUpperSnakeCase<R>}`
+    : S;
+
+type UpperChar =
+  | 'A'
+  | 'B'
+  | 'C'
+  | 'D'
+  | 'E'
+  | 'F'
+  | 'G'
+  | 'H'
+  | 'I'
+  | 'J'
+  | 'K'
+  | 'L'
+  | 'M'
+  | 'N'
+  | 'O'
+  | 'P'
+  | 'Q'
+  | 'R'
+  | 'S'
+  | 'T'
+  | 'U'
+  | 'V'
+  | 'W'
+  | 'X'
+  | 'Y'
+  | 'Z';
+
+/**
  * A key, in lower_underscore_case
  */
 export type Key = Lowercase<string>;

@@ -1,8 +1,8 @@
-import { LiturgicalColors } from '../constants/colors';
+import { Colors } from '../constants/colors';
 import { ProperCycles } from '../constants/cycles';
 import { Precedences } from '../constants/precedences';
-import { InputDefinitions, ParticularConfig } from '../types/calendar-def';
 import { CalendarDef } from '../models/calendar-def';
+import { InputDefinitions, ParticularConfig } from '../types/calendar-def';
 
 export class GeneralRoman extends CalendarDef {
   particularConfig: ParticularConfig = {
@@ -66,7 +66,7 @@ export class GeneralRoman extends CalendarDef {
     conversion_of_saint_paul_the_apostle: {
       precedence: Precedences.GeneralFeast_7,
       dateDef: { month: 1, date: 25 },
-      liturgicalColors: LiturgicalColors.WHITE,
+      colors: Colors.White,
     },
 
     timothy_of_ephesus_and_titus_of_crete_bishops: {
@@ -94,7 +94,7 @@ export class GeneralRoman extends CalendarDef {
       precedence: Precedences.GeneralLordFeast_5,
       // 02-02
       dateDef: { dateFn: 'presentationOfTheLord' },
-      liturgicalColors: LiturgicalColors.WHITE,
+      colors: Colors.White,
     },
 
     blaise_of_sebaste_bishop: {
@@ -157,7 +157,7 @@ export class GeneralRoman extends CalendarDef {
     chair_of_saint_peter_the_apostle: {
       precedence: Precedences.GeneralFeast_7,
       dateDef: { month: 2, date: 22 },
-      liturgicalColors: LiturgicalColors.WHITE,
+      colors: Colors.White,
     },
 
     polycarp_of_smyrna_bishop: {
@@ -216,7 +216,7 @@ export class GeneralRoman extends CalendarDef {
         },
       ],
       isHolyDayOfObligation: true,
-      liturgicalColors: LiturgicalColors.WHITE,
+      colors: Colors.White,
     },
 
     turibius_of_mogrovejo_bishop: {
@@ -228,7 +228,7 @@ export class GeneralRoman extends CalendarDef {
       precedence: Precedences.GeneralSolemnity_3,
       // 03-25
       dateDef: { dateFn: 'annunciation' },
-      liturgicalColors: LiturgicalColors.WHITE,
+      colors: Colors.White,
     },
 
     francis_of_paola_hermit: {
@@ -284,7 +284,7 @@ export class GeneralRoman extends CalendarDef {
     mark_evangelist: {
       precedence: Precedences.GeneralFeast_7,
       dateDef: { month: 4, date: 25 },
-      liturgicalColors: LiturgicalColors.RED,
+      colors: Colors.Red,
     },
 
     peter_chanel_priest: {
@@ -321,7 +321,7 @@ export class GeneralRoman extends CalendarDef {
       precedence: Precedences.GeneralFeast_7,
       dateDef: { month: 5, date: 3 },
       martyrology: ['philip_apostle', 'james_apostle'],
-      liturgicalColors: LiturgicalColors.RED,
+      colors: Colors.Red,
     },
 
     john_of_avila_priest: {
@@ -348,7 +348,7 @@ export class GeneralRoman extends CalendarDef {
     matthias_apostle: {
       precedence: Precedences.GeneralFeast_7,
       dateDef: { month: 5, date: 14 },
-      liturgicalColors: LiturgicalColors.RED,
+      colors: Colors.Red,
     },
 
     john_i_pope: {
@@ -411,15 +411,15 @@ export class GeneralRoman extends CalendarDef {
       precedence: Precedences.GeneralMemorial_10,
       // The Monday, after Pentecost Sunday
       dateDef: { dateFn: 'pentecostSunday', addDay: 1 },
-      properCycle: ProperCycles.PROPER_OF_TIME,
+      properCycle: ProperCycles.ProperOfTime,
     },
 
     immaculate_heart_of_mary: {
       precedence: Precedences.GeneralMemorial_10,
       // The Saturday, after the Solemnity of the Most Sacred Heart of Jesus
       dateDef: { dateFn: 'immaculateHeartOfMary' },
-      liturgicalColors: LiturgicalColors.WHITE,
-      properCycle: ProperCycles.PROPER_OF_TIME,
+      colors: Colors.White,
+      properCycle: ProperCycles.ProperOfTime,
     },
 
     justin_martyr: {
@@ -457,7 +457,7 @@ export class GeneralRoman extends CalendarDef {
     barnabas_apostle: {
       precedence: Precedences.GeneralMemorial_10,
       dateDef: { month: 6, date: 11 },
-      liturgicalColors: LiturgicalColors.RED,
+      colors: Colors.Red,
     },
 
     anthony_of_padua_priest: {
@@ -490,7 +490,7 @@ export class GeneralRoman extends CalendarDef {
       precedence: Precedences.GeneralSolemnity_3,
       // 06-24
       dateDef: { dateFn: 'nativityOfJohnTheBaptist' },
-      liturgicalColors: LiturgicalColors.WHITE,
+      colors: Colors.White,
     },
 
     cyril_of_alexandria_bishop: {
@@ -508,7 +508,7 @@ export class GeneralRoman extends CalendarDef {
       // 06-29
       dateDef: { dateFn: 'peterAndPaulApostles' },
       isHolyDayOfObligation: true,
-      liturgicalColors: LiturgicalColors.RED,
+      colors: Colors.Red,
       martyrology: ['peter_apostle', 'paul_apostle'],
     },
 
@@ -520,7 +520,7 @@ export class GeneralRoman extends CalendarDef {
     thomas_apostle: {
       precedence: Precedences.GeneralFeast_7,
       dateDef: { month: 7, date: 3 },
-      liturgicalColors: LiturgicalColors.RED,
+      colors: Colors.Red,
     },
 
     elizabeth_of_portugal: {
@@ -597,7 +597,7 @@ export class GeneralRoman extends CalendarDef {
     james_apostle: {
       precedence: Precedences.GeneralFeast_7,
       dateDef: { month: 7, date: 25 },
-      liturgicalColors: LiturgicalColors.RED,
+      colors: Colors.Red,
     },
 
     joachim_and_anne_parents_of_mary: {
@@ -651,7 +651,7 @@ export class GeneralRoman extends CalendarDef {
       precedence: Precedences.GeneralLordFeast_5,
       // 08-06
       dateDef: { dateFn: 'transfiguration' },
-      liturgicalColors: LiturgicalColors.WHITE,
+      colors: Colors.White,
     },
 
     sixtus_ii_pope_and_companions_martyrs: {
@@ -706,7 +706,7 @@ export class GeneralRoman extends CalendarDef {
       // 08-15
       dateDef: { dateFn: 'assumption' },
       isHolyDayOfObligation: true,
-      liturgicalColors: LiturgicalColors.WHITE,
+      colors: Colors.White,
     },
 
     stephen_i_of_hungary: {
@@ -742,7 +742,7 @@ export class GeneralRoman extends CalendarDef {
     bartholomew_apostle: {
       precedence: Precedences.GeneralFeast_7,
       dateDef: { month: 8, date: 24 },
-      liturgicalColors: LiturgicalColors.RED,
+      colors: Colors.Red,
     },
 
     louis_ix_of_france: {
@@ -799,7 +799,7 @@ export class GeneralRoman extends CalendarDef {
       precedence: Precedences.GeneralLordFeast_5,
       // 09-14
       dateDef: { dateFn: 'exaltationOfTheHolyCross' },
-      liturgicalColors: LiturgicalColors.RED,
+      colors: Colors.Red,
     },
 
     our_lady_of_sorrows: {
@@ -837,7 +837,7 @@ export class GeneralRoman extends CalendarDef {
     matthew_apostle: {
       precedence: Precedences.GeneralFeast_7,
       dateDef: { month: 9, date: 21 },
-      liturgicalColors: LiturgicalColors.RED,
+      colors: Colors.Red,
     },
 
     pius_of_pietrelcina_priest: {
@@ -957,7 +957,7 @@ export class GeneralRoman extends CalendarDef {
     luke_evangelist: {
       precedence: Precedences.GeneralFeast_7,
       dateDef: { month: 10, date: 18 },
-      liturgicalColors: LiturgicalColors.RED,
+      colors: Colors.Red,
     },
 
     john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs: {
@@ -999,7 +999,7 @@ export class GeneralRoman extends CalendarDef {
       precedence: Precedences.GeneralFeast_7,
       dateDef: { month: 10, date: 28 },
       martyrology: ['simon_apostle', 'jude_apostle'],
-      liturgicalColors: LiturgicalColors.RED,
+      colors: Colors.Red,
     },
 
     all_saints: {
@@ -1007,13 +1007,13 @@ export class GeneralRoman extends CalendarDef {
       // 11-01
       dateDef: { dateFn: 'allSaints' },
       isHolyDayOfObligation: true,
-      liturgicalColors: LiturgicalColors.WHITE,
+      colors: Colors.White,
     },
 
     all_souls: {
       precedence: Precedences.GeneralSolemnity_3,
       dateDef: { month: 11, date: 2 },
-      liturgicalColors: [LiturgicalColors.PURPLE, LiturgicalColors.BLACK],
+      colors: [Colors.Purple, Colors.Black],
     },
 
     martin_de_porres_religious: {
@@ -1105,7 +1105,7 @@ export class GeneralRoman extends CalendarDef {
     andrew_apostle: {
       precedence: Precedences.GeneralFeast_7,
       dateDef: { month: 11, date: 30 },
-      liturgicalColors: LiturgicalColors.RED,
+      colors: Colors.Red,
     },
 
     francis_xavier_priest: {
@@ -1133,7 +1133,7 @@ export class GeneralRoman extends CalendarDef {
       // 12-08
       dateDef: { dateFn: 'immaculateConceptionOfMary' },
       isHolyDayOfObligation: true,
-      liturgicalColors: LiturgicalColors.WHITE,
+      colors: Colors.White,
     },
 
     juan_diego_cuauhtlatoatzin: {
@@ -1184,7 +1184,7 @@ export class GeneralRoman extends CalendarDef {
     john_apostle: {
       precedence: Precedences.GeneralFeast_7,
       dateDef: { month: 12, date: 27 },
-      liturgicalColors: LiturgicalColors.WHITE,
+      colors: Colors.White,
     },
 
     holy_innocents_martyrs: {

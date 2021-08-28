@@ -23,21 +23,21 @@
 */
 
 import 'jest-extended';
-import { isMartyr, Titles } from '../lib/constants/martyrology-metadata';
 import Romcal from '../lib';
-import { LiturgicalColors } from '../lib/constants/colors';
-import { LiturgicalCalendar } from '../lib/types/calendar';
+import { CalendarScopes } from '../lib/constants/calendar-scopes';
+import { Colors } from '../lib/constants/colors';
+import { isMartyr, Titles } from '../lib/constants/martyrology-metadata';
 import { Ranks } from '../lib/constants/ranks';
-import { CalendarScope } from '../lib/constants/calendar-scope';
 import LiturgicalDay from '../lib/models/liturgical-day';
 import LiturgicalDayDef from '../lib/models/liturgical-day-def';
+import { LiturgicalCalendar } from '../lib/types/calendar';
+import { getUtcDate, getUtcDateFromString, isSameDate, subtractsDays } from '../lib/utils/dates';
 import { England_En } from '../tmp/bundles/england.en';
 import { GeneralRoman_En } from '../tmp/bundles/general-roman.en';
 import { Germany_En } from '../tmp/bundles/germany.en';
 import { Hungary_En } from '../tmp/bundles/hungary.en';
 import { Ireland_En } from '../tmp/bundles/ireland.en';
 import { Slovakia_Sk } from '../tmp/bundles/slovakia.sk';
-import { getUtcDate, getUtcDateFromString, isSameDate, subtractsDays } from '../lib/utils/dates';
 
 describe('Testing calendar generation functions', () => {
   test('Each item should have a key', async () => {
@@ -69,7 +69,7 @@ describe('Testing calendar generation functions', () => {
         'i18nDef',
         'seasons',
         'periods',
-        'liturgicalColors',
+        'colors',
         'calendar',
         'cycles',
         'fromCalendar',
@@ -84,7 +84,7 @@ describe('Testing calendar generation functions', () => {
             d.name !== undefined &&
             d.rankName !== undefined &&
             d.seasonNames !== undefined &&
-            d.liturgicalColorNames !== undefined,
+            d.colorNames !== undefined,
         );
 
       expect(test).toBeTrue();
@@ -108,7 +108,7 @@ describe('Testing calendar generation functions', () => {
       let calendarArr: LiturgicalDay[][];
 
       beforeEach(async () => {
-        const romcal = new Romcal({ scope: CalendarScope.Liturgical });
+        const romcal = new Romcal({ scope: CalendarScopes.Liturgical });
         year = new Date().getFullYear();
         start = romcal.dates(year).firstSundayOfAdvent();
         end = subtractsDays(romcal.dates(year).firstSundayOfAdvent(year), 1);
@@ -146,42 +146,42 @@ describe('Testing calendar generation functions', () => {
       defs
         .filter(
           (d) =>
-            d.rank === Ranks.FEAST &&
+            d.rank === Ranks.Feast &&
             !d.titles.includes(Titles.Apostle) &&
             !d.titles.includes(Titles.Evangelist),
         )
         .forEach((d) => {
           if (d.key === 'exaltation_of_the_holy_cross' || d.key === 'mark_evangelist') {
             // eslint-disable-next-line jest/no-conditional-expect
-            expect(d.liturgicalColors[0]).toEqual(LiturgicalColors.RED);
+            expect(d.colors[0]).toEqual(Colors.Red);
           } else if (d.key === 'all_souls') {
             // eslint-disable-next-line jest/no-conditional-expect
-            expect(d.liturgicalColors[0]).toEqual(LiturgicalColors.PURPLE);
+            expect(d.colors[0]).toEqual(Colors.Purple);
             // eslint-disable-next-line jest/no-conditional-expect
-            expect(d.liturgicalColors[1]).toEqual(LiturgicalColors.BLACK);
+            expect(d.colors[1]).toEqual(Colors.Black);
           } else if (isMartyr(d.titles)) {
             // eslint-disable-next-line jest/no-conditional-expect
-            expect(d.liturgicalColors[0]).toEqual(LiturgicalColors.RED);
+            expect(d.colors[0]).toEqual(Colors.Red);
           } else {
             // eslint-disable-next-line jest/no-conditional-expect
-            // expect(d.liturgicalColors[0]).toEqual(LiturgicalColors.WHITE);
+            // expect(d.colors[0]).toEqual(LiturgicalColors.WHITE);
           }
         });
 
       defs
         .filter(
           (d) =>
-            d.rank === Ranks.MEMORIAL &&
+            d.rank === Ranks.Memorial &&
             !d.titles.includes(Titles.Apostle) &&
             !d.titles.includes(Titles.Evangelist),
         )
         .forEach((d) => {
           if (isMartyr(d.titles)) {
             // eslint-disable-next-line jest/no-conditional-expect
-            expect(d.liturgicalColors[0]).toEqual(LiturgicalColors.RED);
+            expect(d.colors[0]).toEqual(Colors.Red);
           } else {
             // eslint-disable-next-line jest/no-conditional-expect
-            expect(d.liturgicalColors[0]).toEqual(LiturgicalColors.WHITE);
+            expect(d.colors[0]).toEqual(Colors.White);
           }
         });
     });
@@ -195,7 +195,7 @@ describe('Testing calendar generation functions', () => {
           ),
         );
       expect(dates.length).toBe(2);
-      dates.forEach((d) => expect(d.liturgicalColors[0]).toEqual(LiturgicalColors.WHITE));
+      dates.forEach((d) => expect(d.colors[0]).toEqual(Colors.White));
     });
   });
 

@@ -1,6 +1,6 @@
+import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { InputDefinitions } from '../types/calendar-def';
-import { Precedences } from '../constants/precedences';
 import { Europe } from './europe';
 
 export class Switzerland extends CalendarDef {

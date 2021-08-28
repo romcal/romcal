@@ -1,7 +1,7 @@
+import { PatronTitles } from '../constants/martyrology-metadata';
+import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { InputDefinitions } from '../types/calendar-def';
-import { Precedences } from '../constants/precedences';
-import { PatronTitles } from '../constants/martyrology-metadata';
 
 export class Europe extends CalendarDef {
   definitions: InputDefinitions = {

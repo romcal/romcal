@@ -1,7 +1,7 @@
+import { PatronTitles } from '../constants/martyrology-metadata';
+import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { InputDefinitions, ParticularConfig } from '../types/calendar-def';
-import { Precedences } from '../constants/precedences';
-import { PatronTitles } from '../constants/martyrology-metadata';
 import { Americas } from './americas';
 
 export class UnitedStates extends CalendarDef {

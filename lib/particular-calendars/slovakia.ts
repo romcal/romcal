@@ -1,10 +1,10 @@
+import { Colors } from '../constants/colors';
+import { ProperCycles } from '../constants/cycles';
+import { PatronTitles, Titles } from '../constants/martyrology-metadata';
+import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { InputDefinitions, ParticularConfig } from '../types/calendar-def';
-import { Precedences } from '../constants/precedences';
-import { PatronTitles, Titles } from '../constants/martyrology-metadata';
-import { ProperCycles } from '../constants/cycles';
 import { Europe } from './europe';
-import { LiturgicalColors } from '../constants/colors';
 
 export class Slovakia extends CalendarDef {
   parentCalendar = Europe;
@@ -131,7 +131,7 @@ export class Slovakia extends CalendarDef {
     all_souls: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 11, date: 2 },
-      liturgicalColors: [LiturgicalColors.PURPLE, LiturgicalColors.BLACK],
+      colors: [Colors.Purple, Colors.Black],
     },
 
     emeric_of_hungary: {
@@ -152,7 +152,7 @@ export class Slovakia extends CalendarDef {
     our_lord_jesus_christ_the_eternal_high_priest: {
       precedence: Precedences.ProperFeast_8f,
       dateDef: { dateFn: 'pentecostSunday', addDay: 4 },
-      properCycle: ProperCycles.PROPER_OF_TIME,
+      properCycle: ProperCycles.ProperOfTime,
     },
   };
 }

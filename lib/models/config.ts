@@ -1,7 +1,7 @@
 import i18next, { i18n } from 'i18next';
-import { CalendarScope } from '../constants/calendar-scope';
-import { LiturgicalColors } from '../constants/colors';
-import { LiturgicalSeasons } from '../constants/seasons';
+import { CalendarScope, CalendarScopes } from '../constants/calendar-scopes';
+import { Color } from '../constants/colors';
+import { Season } from '../constants/seasons';
 import { GeneralRoman } from '../general-calendar/proper-of-saints';
 import { ProperOfTime } from '../general-calendar/proper-of-time';
 import { RomcalBundleObject } from '../types/bundle';
@@ -60,7 +60,7 @@ export class RomcalConfig implements IRoncalConfig {
       this.localizedCalendar = config.localizedCalendar;
     }
 
-    this.scope = config?.scope ?? CalendarScope.Gregorian;
+    this.scope = config?.scope ?? CalendarScopes.Gregorian;
 
     this.epiphanyOnSunday =
       config?.epiphanyOnSunday ??
@@ -158,10 +158,10 @@ export class RomcalConfig implements IRoncalConfig {
 
   /**
    * Return localised liturgical colors from color keys
-   * @param liturgicalColors
+   * @param colors
    */
-  getLiturgicalColorNames(liturgicalColors: LiturgicalColors[]): string[] {
-    return liturgicalColors.map((s) => {
+  getLiturgicalColorNames(colors: Color[]): string[] {
+    return colors.map((s) => {
       const key = `colors:${(s ?? '').toLowerCase()}`;
       return this.i18next.t(key) ?? key;
     });
@@ -171,7 +171,7 @@ export class RomcalConfig implements IRoncalConfig {
    * Return localised season names from season keys
    * @param seasons
    */
-  getSeasonNames(seasons: LiturgicalSeasons[]): string[] {
+  getSeasonNames(seasons: Season[]): string[] {
     return seasons.map((s) => {
       const key = `seasons:${(s ?? '').toLowerCase()}.season`;
       return this.i18next.t(key) ?? key;
