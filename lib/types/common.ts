@@ -18,10 +18,38 @@ export type AllXOR<T extends any[]> = T extends [infer Only]
  * Template literal types
  */
 
+type UpperChar =
+  | 'A'
+  | 'B'
+  | 'C'
+  | 'D'
+  | 'E'
+  | 'F'
+  | 'G'
+  | 'H'
+  | 'I'
+  | 'J'
+  | 'K'
+  | 'L'
+  | 'M'
+  | 'N'
+  | 'O'
+  | 'P'
+  | 'Q'
+  | 'R'
+  | 'S'
+  | 'T'
+  | 'U'
+  | 'V'
+  | 'W'
+  | 'X'
+  | 'Y'
+  | 'Z';
+
 /**
  * PascalCaseToUpperSnakeCase
  */
-export type PascalToUpperSnakeCase<S extends string> = CamelToUpperSnakeCase<Uncapitalize<S>>;
+export type ScreamingSnakeCase<S extends string> = CamelToUpperSnakeCase<Uncapitalize<S>>;
 
 /**
  * CamelToUpperSnakeCase (using template literal types).
@@ -57,34 +85,6 @@ export type CamelToUpperSnakeCase<S extends string> =
     : S extends `${infer C0}${infer R}`
     ? `${C0 extends UpperChar ? '_' : ''}${Uppercase<C0>}${CamelToUpperSnakeCase<R>}`
     : S;
-
-type UpperChar =
-  | 'A'
-  | 'B'
-  | 'C'
-  | 'D'
-  | 'E'
-  | 'F'
-  | 'G'
-  | 'H'
-  | 'I'
-  | 'J'
-  | 'K'
-  | 'L'
-  | 'M'
-  | 'N'
-  | 'O'
-  | 'P'
-  | 'Q'
-  | 'R'
-  | 'S'
-  | 'T'
-  | 'U'
-  | 'V'
-  | 'W'
-  | 'X'
-  | 'Y'
-  | 'Z';
 
 /**
  * A key, in lower_underscore_case
