@@ -1,4 +1,5 @@
-import { PascalToUpperSnakeCase } from '../types/common';
+import { ScreamingSnakeCase } from '../types/common';
+import { toScreamingSnakeCase } from '../utils/string';
 
 export enum Periods {
   ChristmasOctave = 'CHRISTMAS_OCTAVE',
@@ -15,8 +16,8 @@ export enum Periods {
 /**
  * A dynamically generated constant consisting of all the enum keys in [[LITURGICAL_PERIODS]]
  */
-export const PERIODS = Object.keys(Periods).filter(
-  (key) => typeof Periods[key as keyof typeof Periods] === 'string',
-) as Array<PascalToUpperSnakeCase<keyof typeof Periods>>;
+export const PERIODS = Object.keys(Periods)
+  .filter((key) => typeof Periods[key as keyof typeof Periods] === 'string')
+  .map((key) => toScreamingSnakeCase(key)) as Array<ScreamingSnakeCase<keyof typeof Periods>>;
 
 export type Period = typeof PERIODS[number];
