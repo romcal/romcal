@@ -24,11 +24,11 @@
 
 import 'jest-extended';
 import Romcal from '../lib';
-import { France_Fr } from '../tmp/bundles/france.fr';
+import { france_fr } from '../tmp/bundles/france/fr';
 
 describe('Testing localization functionality', () => {
   test('If the locale is set to "fr", romcal should output text in French', async () => {
-    const date = await new Romcal({ localizedCalendar: France_Fr }).getOneLiturgicalDay(
+    const date = await new Romcal({ localizedCalendar: france_fr }).getOneLiturgicalDay(
       'all_saints',
     );
     expect(date?.name).toBe('Tous les Saints');

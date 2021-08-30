@@ -79,7 +79,7 @@ export const particularCalendars: Record<string, typeof CalendarDef> = {
   finland: Finland,
   france: France,
   france_paris: France_Paris,
-  France_saintDenis: France_SaintDenis,
+  france_saintDenis: France_SaintDenis,
   germany: Germany,
   greece: Greece,
   guatemala: Guatemala,
