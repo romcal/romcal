@@ -35,17 +35,17 @@ import {
   startOfWeek,
   subtractsDays,
 } from '../lib/utils/dates';
-import { France_Fr } from '../tmp/bundles/france.fr';
-import { UnitedStates_En } from '../tmp/bundles/united-states.en';
+import { france_fr } from '../tmp/bundles/france/fr';
+import { unitedStates_en } from '../tmp/bundles/united-states/en';
 
 describe('Testing specific liturgical date functions', () => {
   describe('In Christian calendars, Sunday is the first day of the week', () => {
     test('The Solemnity of Epiphany is a Sunday when using the calendar of France', async () => {
-      const date1 = new Romcal({ localizedCalendar: France_Fr }).dates().epiphany(1969);
+      const date1 = new Romcal({ localizedCalendar: france_fr }).dates().epiphany(1969);
       expect(date1.getDay()).toEqual(0);
     });
     test('The Solemnity of Epiphany is a Sunday when using the calendar of UnitedStates', async () => {
-      const date2 = new Romcal({ localizedCalendar: UnitedStates_En }).dates().epiphany(1969);
+      const date2 = new Romcal({ localizedCalendar: unitedStates_en }).dates().epiphany(1969);
       expect(date2.getDay()).toEqual(0);
     });
   });

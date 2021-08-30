@@ -30,15 +30,15 @@ import { Precedences } from '../lib/constants/precedences';
 import { Ranks } from '../lib/constants/ranks';
 import LiturgicalDay from '../lib/models/liturgical-day';
 import { getUtcDateFromString } from '../lib/utils/dates';
-import { CzechRepublic_Cs } from '../tmp/bundles/czech-republic.cs';
-import { England_En } from '../tmp/bundles/england.en';
-import { Germany_En } from '../tmp/bundles/germany.en';
-import { Hungary_En } from '../tmp/bundles/hungary.en';
-import { Malta_En } from '../tmp/bundles/malta.en';
-import { Mexico_Es } from '../tmp/bundles/mexico.es';
-import { Slovakia_Sk } from '../tmp/bundles/slovakia.sk';
-import { Spain_Es } from '../tmp/bundles/spain.es';
-import { Wales_En } from '../tmp/bundles/wales.en';
+import { czechRepublic_cs } from '../tmp/bundles/czech-republic/cs';
+import { england_en } from '../tmp/bundles/england/en';
+import { germany_en } from '../tmp/bundles/germany/en';
+import { hungary_en } from '../tmp/bundles/hungary/en';
+import { malta_en } from '../tmp/bundles/malta/en';
+import { mexico_es } from '../tmp/bundles/mexico/es';
+import { slovakia_sk } from '../tmp/bundles/slovakia/sk';
+import { spain_es } from '../tmp/bundles/spain/es';
+import { wales_en } from '../tmp/bundles/wales/en';
 
 describe('Testing national calendar overrides', () => {
   describe('An optional celebration is available to be celebrated, in addition to the weekday', () => {
@@ -50,7 +50,7 @@ describe('Testing national calendar overrides', () => {
       generalDates2020 = Object.values(await new Romcal().generateCalendar(2020)).flat();
       generalDates2021 = Object.values(await new Romcal().generateCalendar(2021)).flat();
       spainDates2020 = Object.values(
-        await new Romcal({ localizedCalendar: Spain_Es }).generateCalendar(2020),
+        await new Romcal({ localizedCalendar: spain_es }).generateCalendar(2020),
       ).flat();
     });
 
@@ -82,7 +82,7 @@ describe('Testing national calendar overrides', () => {
       year = 2008;
       generalDates = Object.values(await new Romcal().generateCalendar(year)).flat();
       spainDates = Object.values(
-        await new Romcal({ localizedCalendar: Spain_Es }).generateCalendar(year),
+        await new Romcal({ localizedCalendar: spain_es }).generateCalendar(year),
       ).flat();
     });
 
@@ -107,7 +107,7 @@ describe('Testing national calendar overrides', () => {
   describe('The feast of Epiphany', () => {
     test('Should always be celebrated on January 6 in Slovakia unless explicitly configured otherwise', async () => {
       const slovakiaDates = Object.values(
-        await new Romcal({ localizedCalendar: Slovakia_Sk }).generateCalendar(),
+        await new Romcal({ localizedCalendar: slovakia_sk }).generateCalendar(),
       ).flat();
       const epiphanySlovakia = slovakiaDates.find((d) => d.key === 'epiphany');
       // Should always be Jan 6th in Slovakia
@@ -117,7 +117,7 @@ describe('Testing national calendar overrides', () => {
     test('Will fall on Sunday as calculated by the Epiphany rubric, when `epiphanyOnSunday` is explicitly configured as `true`', async () => {
       const slovakiaDates = Object.values(
         await new Romcal({
-          localizedCalendar: Slovakia_Sk,
+          localizedCalendar: slovakia_sk,
           epiphanyOnSunday: true,
         }).generateCalendar(2010),
       ).flat();
@@ -136,14 +136,14 @@ describe('Testing national calendar overrides', () => {
       expect(date?.date).toEqual('2017-02-14');
     });
     test('Should fall on 5th July 2017 in the national calendar of the Czech Republic', async () => {
-      const day = await new Romcal({ localizedCalendar: CzechRepublic_Cs }).getOneLiturgicalDay(
+      const day = await new Romcal({ localizedCalendar: czechRepublic_cs }).getOneLiturgicalDay(
         'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop',
         { year: 2017 },
       );
       expect(day?.date).toEqual('2017-07-05');
     });
     test('Should fall on 5th July 2017 in the national calendar of Slovakia', async () => {
-      const day = await new Romcal({ localizedCalendar: Slovakia_Sk }).getOneLiturgicalDay(
+      const day = await new Romcal({ localizedCalendar: slovakia_sk }).getOneLiturgicalDay(
         'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop',
         { year: 2017 },
       );
@@ -155,19 +155,19 @@ describe('Testing national calendar overrides', () => {
     describe('If the feast of the Assumption falls on Saturday on Monday', () => {
       test('It is transferred to Sunday', async () => {
         const wales2009Dates = Object.values(
-          await new Romcal({ localizedCalendar: Wales_En }).generateCalendar(2009),
+          await new Romcal({ localizedCalendar: wales_en }).generateCalendar(2009),
         ).flat();
 
         const england2009Dates = Object.values(
-          await new Romcal({ localizedCalendar: England_En }).generateCalendar(2009),
+          await new Romcal({ localizedCalendar: england_en }).generateCalendar(2009),
         ).flat();
 
         const wales2011Dates = Object.values(
-          await new Romcal({ localizedCalendar: Wales_En }).generateCalendar(2011),
+          await new Romcal({ localizedCalendar: wales_en }).generateCalendar(2011),
         ).flat();
 
         const england2011Dates = Object.values(
-          await new Romcal({ localizedCalendar: England_En }).generateCalendar(2011),
+          await new Romcal({ localizedCalendar: england_en }).generateCalendar(2011),
         ).flat();
 
         const lateOrdinaryTimeDates2009: LiturgicalDay[] = Object.values(
@@ -232,10 +232,10 @@ describe('Testing national calendar overrides', () => {
     test('If All Saints is on Saturday, it will be moved to Sunday (the next day)', async () => {
       // In 2008, 1st of November was on a Saturday
       const englandDates = Object.values(
-        await new Romcal({ localizedCalendar: England_En }).generateCalendar(2008),
+        await new Romcal({ localizedCalendar: england_en }).generateCalendar(2008),
       ).flat();
       const walesDates = Object.values(
-        await new Romcal({ localizedCalendar: Wales_En }).generateCalendar(2008),
+        await new Romcal({ localizedCalendar: wales_en }).generateCalendar(2008),
       ).flat();
       // So All Saints should be celebrated on Sunday
       const allSaintsEngland = englandDates.find((d) => d.key === 'all_saints');
@@ -249,10 +249,10 @@ describe('Testing national calendar overrides', () => {
     test('If All Saints is moved to Sunday, All Souls must be on Monday (the next day)', async () => {
       // In 2008, 1st of November was on a Saturday
       const englandDates = Object.values(
-        await new Romcal({ localizedCalendar: England_En }).generateCalendar(2008),
+        await new Romcal({ localizedCalendar: england_en }).generateCalendar(2008),
       ).flat();
       const walesDates = Object.values(
-        await new Romcal({ localizedCalendar: Wales_En }).generateCalendar(2008),
+        await new Romcal({ localizedCalendar: wales_en }).generateCalendar(2008),
       ).flat();
       // So All Saints should be celebrated on Sunday
       // and All Souls will be celebrated on Monday
@@ -272,10 +272,10 @@ describe('Testing national calendar overrides', () => {
 
     test('Feast day falls on the 24th of February in the national calendar of Germany and Hungary', async () => {
       const germanyDates = Object.values(
-        await new Romcal({ localizedCalendar: Germany_En }).generateCalendar(2018),
+        await new Romcal({ localizedCalendar: germany_en }).generateCalendar(2018),
       ).flat();
       const hungaryDates = Object.values(
-        await new Romcal({ localizedCalendar: Hungary_En }).generateCalendar(2018),
+        await new Romcal({ localizedCalendar: hungary_en }).generateCalendar(2018),
       ).flat();
 
       const matthiasApostleGermany = germanyDates.find((d) => d.key === 'matthias_apostle');
@@ -287,7 +287,7 @@ describe('Testing national calendar overrides', () => {
 
     test('Is a memorial in the German liturgical calendar on AD 2014', async () => {
       const germanyDates = Object.values(
-        await new Romcal({ localizedCalendar: Germany_En }).generateCalendar(2014),
+        await new Romcal({ localizedCalendar: germany_en }).generateCalendar(2014),
       ).flat();
       const matthiasApostleGermany = germanyDates.find((d) => d.key === 'matthias_apostle');
       expect(matthiasApostleGermany?.rank).toEqual(Ranks.Memorial);
@@ -297,7 +297,7 @@ describe('Testing national calendar overrides', () => {
   describe('Saint Christopher Magallanes and Companions, Martyrs', () => {
     test('A memorial in Mexico but an optional memorial in the general calendar', async () => {
       const mexicoDates = Object.values(
-        await new Romcal({ localizedCalendar: Mexico_Es }).generateCalendar(2019),
+        await new Romcal({ localizedCalendar: mexico_es }).generateCalendar(2019),
       ).flat();
       const dates = Object.values(await new Romcal().generateCalendar(2019)).flat();
       const christopherMagallanesPriestAndCompanionsMartyrs = dates.find(
@@ -318,10 +318,10 @@ describe('Testing national calendar overrides', () => {
   describe('Saint Ladislaus', () => {
     test('A feast in Hungary but an optional memorial in Slovakia', async () => {
       const hungaryDates = Object.values(
-        await new Romcal({ localizedCalendar: Hungary_En }).generateCalendar(2018),
+        await new Romcal({ localizedCalendar: hungary_en }).generateCalendar(2018),
       ).flat();
       const slovakiaDates = Object.values(
-        await new Romcal({ localizedCalendar: Slovakia_Sk }).generateCalendar(2018),
+        await new Romcal({ localizedCalendar: slovakia_sk }).generateCalendar(2018),
       ).flat();
       const ladislausIOfHungaryHungary = hungaryDates.find(
         (d) => d.key === 'ladislaus_i_of_hungary',
@@ -344,7 +344,7 @@ describe('Testing national calendar overrides', () => {
 
     test('Should be celebrated on the 15th of April 2015 as a feast in the national calendar of Malta', async () => {
       const maltaDates = Object.values(
-        await new Romcal({ localizedCalendar: Malta_En }).generateCalendar(2015),
+        await new Romcal({ localizedCalendar: malta_en }).generateCalendar(2015),
       ).flat();
       const ourLadyOfSorrows = maltaDates.find((d) => d.key === 'our_lady_of_sorrows');
       expect(ourLadyOfSorrows?.rank).toEqual(Ranks.Feast);
@@ -353,7 +353,7 @@ describe('Testing national calendar overrides', () => {
 
     test('Should be replaced by the 3rd Sunday of Easter in 2018 in the national calendar of Malta due to precedence', async () => {
       const maltaDates = Object.values(
-        await new Romcal({ localizedCalendar: Malta_En }).generateCalendar(2018),
+        await new Romcal({ localizedCalendar: malta_en }).generateCalendar(2018),
       ).flat();
       const ourLadyOfSorrows = '2018-04-15';
       const thirdSundayOfEaster = maltaDates.find((d) => d.key === 'easter_time_3_sunday');
@@ -362,7 +362,7 @@ describe('Testing national calendar overrides', () => {
 
     test('Should be celebrated on the 15th of September 2018 as a solemnity in the national calendar of Slovakia', async () => {
       const slovakiaDates = Object.values(
-        await new Romcal({ localizedCalendar: Slovakia_Sk }).generateCalendar(2018),
+        await new Romcal({ localizedCalendar: slovakia_sk }).generateCalendar(2018),
       ).flat();
       const ourLadyOfSorrowsPatronessOfSlovakia = slovakiaDates.find(
         (d) => d.key === 'our_lady_of_sorrows',

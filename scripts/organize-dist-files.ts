@@ -14,7 +14,7 @@ glob.sync('./*', { cwd: './tmp/dts/lib' }).forEach((p) => {
 rimraf.sync(path.resolve('tmp/dts/lib'));
 
 // Move all bundled files from /tmp/dts/tmp/bundles/* to /tmp/dts/bundles/
-const bundleDir = path.resolve('tmp/dts/bundles');
+const bundleDir = path.resolve('./tmp/dts/bundles');
 if (!fs.existsSync(bundleDir)) fs.mkdirSync(bundleDir, { recursive: true });
 glob.sync('./bundles/*', { cwd: './tmp/dts/tmp' }).forEach((p) => {
   const currentPath = path.resolve('tmp/dts/tmp', p);

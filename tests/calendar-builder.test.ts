@@ -32,12 +32,12 @@ import LiturgicalDay from '../lib/models/liturgical-day';
 import LiturgicalDayDef from '../lib/models/liturgical-day-def';
 import { LiturgicalCalendar } from '../lib/types/calendar';
 import { getUtcDate, getUtcDateFromString, isSameDate, subtractsDays } from '../lib/utils/dates';
-import { England_En } from '../tmp/bundles/england.en';
-import { GeneralRoman_En } from '../tmp/bundles/general-roman.en';
-import { Germany_En } from '../tmp/bundles/germany.en';
-import { Hungary_En } from '../tmp/bundles/hungary.en';
-import { Ireland_En } from '../tmp/bundles/ireland.en';
-import { Slovakia_Sk } from '../tmp/bundles/slovakia.sk';
+import { england_en } from '../tmp/bundles/england/en';
+import { generalRoman_en } from '../tmp/bundles/general-roman/en';
+import { germany_en } from '../tmp/bundles/germany/en';
+import { hungary_en } from '../tmp/bundles/hungary/en';
+import { ireland_en } from '../tmp/bundles/ireland/en';
+import { slovakia_sk } from '../tmp/bundles/slovakia/sk';
 
 describe('Testing calendar generation functions', () => {
   test('Each item should have a key', async () => {
@@ -140,7 +140,7 @@ describe('Testing calendar generation functions', () => {
   describe('Testing liturgical colors', () => {
     test('The proper color of a Memorial or a Feast is white except for martyrs in which case it is red, and All Souls which is purple', async () => {
       const defs: LiturgicalDayDef[] = Object.values(
-        await new Romcal({ localizedCalendar: GeneralRoman_En }).getAllDefinitions(),
+        await new Romcal({ localizedCalendar: generalRoman_en }).getAllDefinitions(),
       ).flat();
 
       defs
@@ -253,21 +253,21 @@ describe('Testing calendar generation functions', () => {
       expect(allSaintsInGeneralCalendar.isHolyDayOfObligation).toBeTrue();
 
       const allSaintsInEnglandCalendar: LiturgicalDay = (await new Romcal({
-        localizedCalendar: England_En,
+        localizedCalendar: england_en,
       }).getOneLiturgicalDay('all_saints'))!;
       expect(allSaintsInEnglandCalendar.isHolyDayOfObligation).toBeTrue();
     });
 
     test('Saint Patrick is a Holy Day of obligation in Ireland', async () => {
       const saintPatrickBishop: LiturgicalDay = (await new Romcal({
-        localizedCalendar: Ireland_En,
+        localizedCalendar: ireland_en,
       }).getOneLiturgicalDay('patrick_of_ireland_bishop'))!;
       expect(saintPatrickBishop.isHolyDayOfObligation).toBeTrue();
     });
 
     test('Easter Monday, Pentecost Monday and St. Stephen are Holy Days of obligation in Germany and Hungary', async () => {
-      const germanyCal = await new Romcal({ localizedCalendar: Germany_En });
-      const hungaryCal = await new Romcal({ localizedCalendar: Hungary_En });
+      const germanyCal = await new Romcal({ localizedCalendar: germany_en });
+      const hungaryCal = await new Romcal({ localizedCalendar: hungary_en });
 
       const getDayAfter = async (romcal: Romcal, key: string): Promise<LiturgicalDay> => {
         const date = (await romcal.getOneLiturgicalDay(key))!.date;
@@ -299,7 +299,7 @@ describe('Testing calendar generation functions', () => {
 
     beforeAll(async () => {
       testDates = Object.values(
-        await new Romcal({ localizedCalendar: Slovakia_Sk }).generateCalendar(2020),
+        await new Romcal({ localizedCalendar: slovakia_sk }).generateCalendar(2020),
       ).flat();
     });
 

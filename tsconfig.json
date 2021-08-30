@@ -26,7 +26,8 @@
   "exclude": ["node_modules"],
   "include": [
     "lib/**/*",
-    "bundles/**/*",
-    "tests/**/*"
+    "tests/**/*",
+    "scripts/**/*",
+    "tmp/bundles/**/*"
   ]
 }

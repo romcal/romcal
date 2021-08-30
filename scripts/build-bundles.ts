@@ -2,21 +2,22 @@ import cliProgress from 'cli-progress';
 import * as fs from 'fs';
 import path from 'path';
 import * as util from 'util';
-import { Martyrology } from '../catalog/martyrology';
-import { CalendarScopes } from '../constants/calendar-scopes';
-import { PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
-import { GeneralRoman } from '../general-calendar/proper-of-saints';
-import { locales } from '../locales';
-import { RomcalBundle } from '../models/bundle';
-import { CalendarDef } from '../models/calendar-def';
-import { RomcalConfig } from '../models/config';
-import LiturgicalDayDef from '../models/liturgical-day-def';
-import { particularCalendars } from '../particular-calendars';
-import { BundleDefinitions, LiturgicalDayDefinitions } from '../types/calendar-def';
-import { RomcalConfigOutput } from '../types/config';
-import { Locale, LocaleLiturgicalDayNames } from '../types/locale';
-import { MartyrologyCatalog } from '../types/martyrology';
-import { mergeDeep } from '../utils/objects';
+import { Martyrology } from '../lib/catalog/martyrology';
+import { CalendarScopes } from '../lib/constants/calendar-scopes';
+import { PROPER_OF_TIME_NAME } from '../lib/constants/general-calendar-names';
+import { GeneralRoman } from '../lib/general-calendar/proper-of-saints';
+import { locales } from '../lib/locales';
+import { RomcalBundle } from '../lib/models/bundle';
+import { CalendarDef } from '../lib/models/calendar-def';
+import { RomcalConfig } from '../lib/models/config';
+import LiturgicalDayDef from '../lib/models/liturgical-day-def';
+import { particularCalendars } from '../lib/particular-calendars';
+import { BundleDefinitions, LiturgicalDayDefinitions } from '../lib/types/calendar-def';
+import { RomcalConfigOutput } from '../lib/types/config';
+import { Locale, LocaleLiturgicalDayNames } from '../lib/types/locale';
+import { MartyrologyCatalog } from '../lib/types/martyrology';
+import { mergeDeep } from '../lib/utils/objects';
+import { toCamelCase, uncapitalize } from '../lib/utils/string';
 
 /**
  * Class helper, used to build the localized calendar bundles.
@@ -114,12 +115,14 @@ const RomcalBundler = () => {
       const builder = isGRC ? new RomcalBuilder(locale) : new RomcalBuilder(locale, calendar);
 
       // Init calendars
-      const filename = builder.getOutputFilename();
+      const outputFilenameArr = builder.getOutputFilename().split('.');
+      const enclosingDir = outputFilenameArr.slice(0, -2).join('.');
+      const filename = outputFilenameArr.slice(outputFilenameArr.length - 2).join('.');
       const calendarConstructorName = builder.calendarConstructorName();
       const calendarName = builder.getCalendarName();
 
       // Provide CLI feedback
-      gauge.update(gaugeCount++, { filename });
+      gauge.update(gaugeCount++, { filename: `${enclosingDir}/${filename}` });
       if (process.env['CI'] && j === 0) console.log('- ' + calendarName);
 
       // Build and get definitions & martyrology items
@@ -189,11 +192,8 @@ const RomcalBundler = () => {
       });
 
       // Prepare the bundled calendars file content.
-      const dir = path.resolve(__dirname, '../../tmp/bundles/');
-      const calVarName = `${calendarConstructorName}_${locale.key
-        // Locale key to UpperCamelCase
-        .replace(/(^.)/, (k: string) => k.toUpperCase())
-        .replace(/(-\w)/g, (k: string) => k[1].toUpperCase())}`;
+      const dir = path.resolve(__dirname, '../tmp/bundles/', enclosingDir);
+      const calVarName = `${uncapitalize(calendarConstructorName)}_${toCamelCase(locale.key)}`;
       let jsOutput = util
         .inspect(bundle, false, 99)
         .replace(/^RomcalBundle\s/, '')
@@ -220,7 +220,7 @@ const RomcalBundler = () => {
       // Append imports inside the bundle file.
       jsOutput =
         `/* eslint-disable */\n` +
-        `import { RomcalBundleObject } from '../../lib/types/bundle';\n\n` +
+        `import { RomcalBundleObject } from '../../../lib/types/bundle';\n\n` +
         `export const ${calVarName}: RomcalBundleObject = ${jsOutput}`;
 
       // Write the calendar bundle file.

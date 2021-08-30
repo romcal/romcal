@@ -7,7 +7,7 @@ import pkg from './package.json';
 import dts from 'rollup-plugin-dts';
 import cjs from '@rollup/plugin-commonjs';
 
-const getBabelOptions = ({ useESModules }) => ({
+export const getBabelOptions = ({ useESModules }) => ({
   exclude: /node_modules/,
   babelHelpers: 'runtime',
   plugins: [['@babel/transform-runtime', { useESModules }]],
@@ -16,14 +16,16 @@ const getBabelOptions = ({ useESModules }) => ({
 
 const input = './lib/index.ts';
 const name = 'Romcal';
-const sourcemap = true;
-const plugins = [
+const sourcemap = false;
+
+export const plugins = (sourceMap = sourcemap, includePaths = []) => [
   typescript({
-    sourceMap: true,
+    sourceMap,
     module: 'es2020',
     target: 'es2020',
     moduleResolution: 'node',
     // tsconfig: './tsconfig.release.json', // todo: tsconfig not imported correctly
+    include: ['lib/**/*', ...includePaths],
   }),
   json(),
   terser({ keep_classnames: true }),
@@ -44,7 +46,7 @@ const globals = {
   i18next: 'i18next',
 };
 
-export default [
+const coreConfig = [
   // CJS (CommonJS) — Suitable for Node and other bundlers (alias: commonjs).
   {
     input,
@@ -56,7 +58,11 @@ export default [
       globals,
       exports: 'default',
     },
-    plugins: [...plugins, cjs(), babel(getBabelOptions({ useESModules: false }))],
+    plugins: [
+      ...plugins(),
+      cjs({ sourceMap: false }),
+      babel(getBabelOptions({ useESModules: false })),
+    ],
   },
 
   // ES - Keep the bundle as an ES module file. Suitable for other bundlers and inclusion
@@ -65,7 +71,7 @@ export default [
     input,
     external,
     output: { format: 'esm', file: pkg.module, sourcemap },
-    plugins: [...plugins, babel(getBabelOptions({ useESModules: true }))],
+    plugins: [...plugins(), babel(getBabelOptions({ useESModules: true }))],
   },
 
   // UMD (Universal Module Definition) — Works as amd, cjs, and iife all in one.
@@ -83,7 +89,7 @@ export default [
       globals,
       exports: 'default',
     },
-    plugins: [...plugins, babel(getBabelOptions({ useESModules: true }))],
+    plugins: [...plugins(), babel(getBabelOptions({ useESModules: true }))],
   },
 
   // Rollup types into a unique and clean index.d.ts
@@ -93,3 +99,5 @@ export default [
     plugins: [dts()],
   },
 ];
+
+export default coreConfig;

@@ -17,14 +17,14 @@ import { locale as sk } from './sk';
  */
 export const locales: Record<Lowercase<string>, Locale> = {
   cs: cs,
-  'en-gb': enGb,
-  'en-ie': enIe,
+  enGb: enGb,
+  enIe: enIe,
   en: en,
   es: es,
   fr: fr,
   it: it,
   la: la,
   pl: pl,
-  'pt-br': ptBr,
+  ptBr: ptBr,
   sk: sk,
 };
