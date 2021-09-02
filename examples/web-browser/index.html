@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>My Website</title>
+
+  	<script src="node_modules/romcal-next/dist/iife/romcal.js"></script>
+	  <script src="node_modules/romcal-next/dist/bundles/france/iife/fr.js"></script>
+
+  </head>
+  <body>
+  <h1>romcal v3</h1>
+  <hr/>
+  <p>Open the developer tools and check the console.</p>
+  <script>
+    const romcal = new Romcal({particularCalendar: france_fr});
+
+    romcal.getAllDefinitions().then((calendarDefinitions) => {
+      console.log('All definitions, which are all possible liturgical days of a specific calendar, that can occur during a whole year:')
+      console.log(calendarDefinitions);
+    });
+
+    romcal.generateCalendar(2022).then((myCalendar) => {
+      console.log('A calendar that contains all liturgical days occurring during 2022:');
+      console.log(myCalendar);
+    });
+  </script>
+  </body>
+</html>
