@@ -15,7 +15,6 @@
     "emitDeclarationOnly": true,
   },
   "include": [
-    "lib/**/*",
-    "tmp/bundles/**/*"
+    "lib/**/*"
   ],
 }
