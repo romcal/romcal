@@ -1,23 +1,30 @@
+import chalk from 'chalk';
 import cliProgress from 'cli-progress';
 import * as fs from 'fs';
 import path from 'path';
+import rimraf from 'rimraf';
 import * as util from 'util';
+import {
+  CalendarDef,
+  CalendarScopes,
+  Locale,
+  LocaleLiturgicalDayNames,
+  MartyrologyCatalog,
+  PROPER_OF_TIME_NAME,
+  RomcalBundle,
+  RomcalConfig,
+  RomcalConfigOutput,
+} from '../lib';
 import { Martyrology } from '../lib/catalog/martyrology';
-import { CalendarScopes } from '../lib/constants/calendar-scopes';
-import { PROPER_OF_TIME_NAME } from '../lib/constants/general-calendar-names';
 import { GeneralRoman } from '../lib/general-calendar/proper-of-saints';
 import { locales } from '../lib/locales';
-import { RomcalBundle } from '../lib/models/bundle';
-import { CalendarDef } from '../lib/models/calendar-def';
-import { RomcalConfig } from '../lib/models/config';
 import LiturgicalDayDef from '../lib/models/liturgical-day-def';
 import { particularCalendars } from '../lib/particular-calendars';
 import { BundleDefinitions, LiturgicalDayDefinitions } from '../lib/types/calendar-def';
-import { RomcalConfigOutput } from '../lib/types/config';
-import { Locale, LocaleLiturgicalDayNames } from '../lib/types/locale';
-import { MartyrologyCatalog } from '../lib/types/martyrology';
 import { mergeDeep } from '../lib/utils/objects';
 import { toCamelCase, uncapitalize } from '../lib/utils/string';
+
+const log = console.log;
 
 /**
  * Class helper, used to build the localized calendar bundles.
@@ -89,7 +96,9 @@ class RomcalBuilder {
   }
 }
 
-const RomcalBundler = () => {
+export const RomcalBundler = (): void => {
+  rimraf.sync(path.resolve('tmp/bundles'));
+
   const gauge = new cliProgress.SingleBar(
     {
       format: '[{bar}] {percentage}% | ETA: {eta}s | {value}/{total} | {filename}',
@@ -101,12 +110,13 @@ const RomcalBundler = () => {
   const allCalendars: typeof CalendarDef[] = [GeneralRoman, ...Object.values(particularCalendars)];
   const allLocaleKeys = Object.keys(locales);
 
-  console.log('Building romcal calendar bundles…');
+  log(chalk.bold(`\n✓ Generate calendar bundle files into ${chalk.cyan('./tmp/bundles/')}`));
   gauge.start(allCalendars.length * allLocaleKeys.length - 1, 0);
   let gaugeCount = 0;
 
   for (let i = 0; i < allCalendars.length; i++) {
     const calendar = allCalendars[i];
+    const calVarObj: Record<string, string> = {};
     for (let j = 0; j < allLocaleKeys.length; j++) {
       const locale = locales[allLocaleKeys[j]];
 
@@ -123,7 +133,7 @@ const RomcalBundler = () => {
 
       // Provide CLI feedback
       gauge.update(gaugeCount++, { filename: `${enclosingDir}/${filename}` });
-      if (process.env['CI'] && j === 0) console.log('- ' + calendarName);
+      if (process.env['CI'] && j === 0) log(chalk.dim('  - ' + calendarName));
 
       // Build and get definitions & martyrology items
       const inputs = builder.getAllInputs();
@@ -194,45 +204,95 @@ const RomcalBundler = () => {
       // Prepare the bundled calendars file content.
       const dir = path.resolve(__dirname, '../tmp/bundles/', enclosingDir);
       const calVarName = `${uncapitalize(calendarConstructorName)}_${toCamelCase(locale.key)}`;
-      let jsOutput = util
+      calVarObj[locale.key] = calVarName;
+      const data = util
         .inspect(bundle, false, 99)
-        .replace(/^RomcalBundle\s/, '')
-        .replace(/(\n\s*\S+:\sundefined,)/gi, '')
-        .replace(/\n\s*(!:seasons|periods)\s:\[],/gi, '');
-
-      // Replace string values by the corresponding constant objects.
-      const stringToObj = {
-        CanonizationLevel: '_CanonizationLevels',
-        Colors: '_Colors',
-        Periods: '_Periods',
-        Seasons: '_Seasons',
-        Titles: '_Titles',
-        Precedences: '_Precedences',
-        PatronTitles: '_PatronTitles',
-        ProperCycles: '_ProperCycles',
-      };
-      Object.entries(stringToObj).forEach(([objName, obj]) => {
-        Object.entries(obj).forEach(([key, value]) => {
-          jsOutput = jsOutput.replace(new RegExp(`'${value}'`, 'g'), `${objName}.${key}`);
-        });
-      });
-
-      // Append imports inside the bundle file.
-      jsOutput =
+        .replace(/^RomcalBundle\s/, '') // Remove object type name
+        .replace(/(\n\s*\S+:\sundefined,)/gi, '') // Remove undefined properties
+        .replace(/\n\s*(!:seasons|periods)\s:\[],/gi, ''); // Remove empty arrays
+      const jsOutput =
         `/* eslint-disable */\n` +
-        `import { RomcalBundleObject } from '../../../lib/types/bundle';\n\n` +
-        `export const ${calVarName}: RomcalBundleObject = ${jsOutput}`;
+        `import { RomcalBundleObject } from '../../../lib';\n\n` +
+        `export const ${calVarName}: RomcalBundleObject = ${data}`;
 
       // Write the calendar bundle file.
       if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
       fs.writeFileSync(path.resolve(dir, filename), jsOutput, 'utf-8');
+
+      // Add another calendar bundle file for the IIFE format, that will output the calendar
+      // bundle in a global variable, for iife usage.
+      // Note: will not be required if this issue is addressed: https://github.com/evanw/esbuild/issues/1182
+      const jsIifeOutput =
+        `import { ${calVarName} } from './${locale.key}';\n` + `module.exports = ${calVarName};\n`;
+      const iifeFilename = filename.replace(/\.ts$/, '.iife.ts');
+      fs.writeFileSync(path.resolve(dir, iifeFilename), jsIifeOutput, 'utf-8');
     }
+
+    // Define package name, variable name and package dist.
+    const pkgName = calendar.name
+      .replace(/([^_]+)([A-Z])/g, '$1-$2')
+      .replace(/_/g, '.')
+      .toLowerCase();
+    const varName = uncapitalize(calendar.name);
+    const dir = path.resolve(__dirname, '../tmp/bundles/', pkgName);
+
+    /**
+     * Write index.ts file within all calendar directories
+     */
+    const indexImports = Object.entries(calVarObj).reduce((acc, [locale, varName]) => {
+      const importFileName = locale.replace(/([A-Z])/g, '-$1').toLowerCase();
+      return acc + `import { ${varName} } from './${importFileName}';\n`;
+    }, '');
+    const indexTypes = Object.entries(calVarObj).reduce((acc, [locale]) => {
+      return acc + `  ${toCamelCase(locale)}: RomcalBundleObject;\n`;
+    }, '');
+    const indexRecord = Object.entries(calVarObj).reduce((acc, [locale, varName]) => {
+      return acc + `  ${toCamelCase(locale)}: ${varName},\n`;
+    }, '');
+    const indexExports = Object.entries(calVarObj).reduce((acc, [, varName]) => {
+      return acc + `    ${varName},\n`;
+    }, '');
+    const indexOutput =
+      `import { RomcalBundleObject } from '../../../lib';\n` +
+      indexImports +
+      '\n' +
+      `export type RomcalBundles = {\n` +
+      indexTypes +
+      `}\n\n` +
+      `const ${varName}: RomcalBundles = {\n` +
+      indexRecord +
+      `};\n\n` +
+      `export default ${varName};\n\n` +
+      `export {\n` +
+      indexExports +
+      `};`;
+    fs.writeFileSync(path.resolve(dir, `index.ts`), indexOutput, 'utf-8');
+
+    /**
+     * Write index.d.ts files
+     */
+    const dtsExports = Object.entries(calVarObj).reduce((acc, [, varName]) => {
+      return acc + `export declare const ${varName}: RomcalBundleObject;\n`;
+    }, '');
+    const dtsTypes = Object.entries(calVarObj).reduce((acc, [locale]) => {
+      return acc + `	${toCamelCase(locale)}: RomcalBundleObject;\n`;
+    }, '');
+    const dtsOutput =
+      `import { RomcalBundleObject } from 'romcal-next';\n\n` +
+      dtsExports +
+      `\nexport declare type RomcalBundles = {\n` +
+      dtsTypes +
+      `}\n\n` +
+      `declare const ${varName}: RomcalBundles;\n` +
+      `export default ${varName};\n`;
+    fs.writeFileSync(path.resolve(dir, `index.ts`), indexOutput, 'utf-8');
+    fs.writeFileSync(path.resolve(dir, `index.d.ts`), dtsOutput, 'utf-8');
   }
 
   gauge.stop();
-  console.log(
-    `${allCalendars.length} calendars in ${allLocaleKeys.length} locales built in the /tmp/bundles/ directory.`,
+  log(
+    chalk.dim(
+      `  generated ${allCalendars.length} calendars in ${allLocaleKeys.length} locales in ./tmp/bundles/`,
+    ),
   );
 };
-
-RomcalBundler();
