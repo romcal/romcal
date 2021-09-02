@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "serve": "http-server ./"
+  },
+  "dependencies": {
+    "@romcal/calendar-france": "file:../../dist/bundles/france",
+    "http-server": "^13.0.1",
+    "romcal-next": "file:../../"
+  }
+}
