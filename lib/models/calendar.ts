@@ -1,4 +1,3 @@
-import { CalendarScopes } from '../constants/calendar-scopes';
 import {
   ProperCycle,
   PSALTER_WEEKS,
@@ -57,7 +56,7 @@ export class Calendar implements BaseCalendar {
     let currentYear = this.#liturgicalDayConfig.year;
 
     if (
-      this.#config.scope === CalendarScopes.Gregorian &&
+      this.#config.scope === 'gregorian' &&
       this.#liturgicalDayConfig.dates
         .firstSundayOfAdvent(this.#liturgicalDayConfig.year)
         .getTime() <= date.getTime()
@@ -176,7 +175,7 @@ export class Calendar implements BaseCalendar {
       // - Note: dates from the Proper of Time are already generated within a liturgical year,
       //   so in this case we don't have to check the previously gregorian year.
       const previousYearDate =
-        !isFromProperOfTime && this.#config.scope === CalendarScopes.Liturgical
+        !isFromProperOfTime && this.#config.scope === 'liturgical'
           ? this.#liturgicalDayConfig.buildDate(def, -1)
           : null;
 

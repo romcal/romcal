@@ -1,5 +1,4 @@
 import { i18n } from 'i18next';
-import { CalendarScope } from '../constants/calendar-scopes';
 import { RomcalBundleObject } from './bundle';
 import { CalendarDefInstance } from './calendar-def';
 
@@ -91,3 +90,5 @@ export type RomcalConfigInput = Omit<Partial<BaseRomcalConfig>, 'localeKey' | 'c
 export type RomcalConfigOutput = Required<
   Omit<BaseRomcalConfig, 'localizedCalendar' | 'calendarsDef'>
 >;
+
+export type CalendarScope = 'gregorian' | 'liturgical';
