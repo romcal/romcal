@@ -6,13 +6,13 @@ import rimraf from 'rimraf';
 import * as util from 'util';
 import {
   CalendarDef,
-  CalendarScopes,
   Locale,
   LocaleLiturgicalDayNames,
   MartyrologyCatalog,
   PROPER_OF_TIME_NAME,
   RomcalBundle,
   RomcalConfig,
+  RomcalConfigInput,
   RomcalConfigOutput,
 } from '../lib';
 import { Martyrology } from '../lib/catalog/martyrology';
@@ -34,7 +34,7 @@ class RomcalBuilder {
   #martyrologyKeys: string[] = [];
 
   constructor(locale: Locale, particularCalendar?: typeof CalendarDef) {
-    const scope = { scope: CalendarScopes.Liturgical };
+    const scope: RomcalConfigInput = { scope: 'liturgical' };
     this.#config = new RomcalConfig(scope, Martyrology.catalog, locale, particularCalendar);
   }
 

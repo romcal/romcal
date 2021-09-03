@@ -1,4 +1,3 @@
-import { CalendarScopes } from '../constants/calendar-scopes';
 import { DateDef, DateDefExtended, DayOfWeek } from '../types/liturgical-day';
 import { BaseLiturgicalDayConfig, LiturgicalDayConfigOutput } from '../types/liturgical-day-config';
 import {
@@ -30,7 +29,7 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
     this.year =
       year ??
       // When year is undefined, determine the current year
-      (config.scope === CalendarScopes.Gregorian
+      (config.scope === 'gregorian'
         ? // Current Gregorian year
           currentYear
         : // Current Liturgical year

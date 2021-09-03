@@ -1,5 +1,4 @@
 import { version } from '../package.json';
-import { CALENDAR_SCOPES, CalendarScope, CalendarScopes } from './constants/calendar-scopes';
 import { Color, COLORS, Colors, isColor } from './constants/colors';
 import {
   LITURGICAL_DAY_CYCLE,
@@ -261,7 +260,6 @@ class Romcal {
     return version;
   }
 
-  static CalendarScopes = CalendarScopes;
   static Colors = Colors;
   static ProperCycles = ProperCycles;
   static SundaysCycles = SundaysCycles;
@@ -291,10 +289,6 @@ class Romcal {
 export default Romcal;
 
 export {
-  // constants/calendar-scope.ts
-  CalendarScopes,
-  CALENDAR_SCOPES,
-  CalendarScope,
   // constants/colors.ts
   Colors,
   COLORS,

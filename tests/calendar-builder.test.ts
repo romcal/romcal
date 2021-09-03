@@ -24,7 +24,6 @@
 
 import 'jest-extended';
 import Romcal from '../lib';
-import { CalendarScopes } from '../lib/constants/calendar-scopes';
 import { Colors } from '../lib/constants/colors';
 import { isMartyr, Titles } from '../lib/constants/martyrology-metadata';
 import { Ranks } from '../lib/constants/ranks';
@@ -108,7 +107,7 @@ describe('Testing calendar generation functions', () => {
       let calendarArr: LiturgicalDay[][];
 
       beforeEach(async () => {
-        const romcal = new Romcal({ scope: CalendarScopes.Liturgical });
+        const romcal = new Romcal({ scope: 'liturgical' });
         year = new Date().getFullYear();
         start = romcal.dates(year).firstSundayOfAdvent();
         end = subtractsDays(romcal.dates(year).firstSundayOfAdvent(year), 1);

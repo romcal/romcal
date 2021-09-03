@@ -1,4 +1,3 @@
-import { CalendarScopes } from '../constants/calendar-scopes';
 import { Colors } from '../constants/colors';
 import { ProperCycles } from '../constants/cycles';
 import { PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
@@ -32,7 +31,7 @@ export class ProperOfTime extends CalendarDef {
   buildAllDefinitions = (): void => {
     if (Object.keys(Object.keys(this.#config.liturgicalDayDef)).length > 0) return;
 
-    if (this.#config.scope === CalendarScopes.Gregorian) {
+    if (this.#config.scope === 'gregorian') {
       this.lateChristmasTime();
       this.lent();
       this.paschalTriduum();

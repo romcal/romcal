@@ -1,12 +1,16 @@
 import i18next, { i18n } from 'i18next';
-import { CalendarScope, CalendarScopes } from '../constants/calendar-scopes';
 import { Color } from '../constants/colors';
 import { Season } from '../constants/seasons';
 import { GeneralRoman } from '../general-calendar/proper-of-saints';
 import { ProperOfTime } from '../general-calendar/proper-of-time';
 import { RomcalBundleObject } from '../types/bundle';
 import { CalendarDefInstance, LiturgicalDayDefinitions } from '../types/calendar-def';
-import { IRoncalConfig, RomcalConfigInput, RomcalConfigOutput } from '../types/config';
+import {
+  CalendarScope,
+  IRoncalConfig,
+  RomcalConfigInput,
+  RomcalConfigOutput,
+} from '../types/config';
 import { Locale } from '../types/locale';
 import { MartyrologyCatalog } from '../types/martyrology';
 import { Dates } from '../utils/dates';
@@ -60,7 +64,7 @@ export class RomcalConfig implements IRoncalConfig {
       this.localizedCalendar = config.localizedCalendar;
     }
 
-    this.scope = config?.scope ?? CalendarScopes.Gregorian;
+    this.scope = config?.scope ?? 'gregorian';
 
     this.epiphanyOnSunday =
       config?.epiphanyOnSunday ??

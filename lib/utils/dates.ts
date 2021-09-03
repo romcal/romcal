@@ -1,4 +1,3 @@
-import { CalendarScopes } from '../constants/calendar-scopes';
 import { Seasons } from '../constants/seasons';
 import { RomcalConfig } from '../models/config';
 
@@ -146,7 +145,7 @@ export class Dates {
   constructor(config: RomcalConfig, year: number) {
     this.#config = config;
     this.#year = year;
-    this.#isLiturgicalYear = this.#config.scope === CalendarScopes.Liturgical;
+    this.#isLiturgicalYear = this.#config.scope === 'liturgical';
   }
 
   /**
