@@ -1,4 +1,5 @@
 {
+  "name": "romcal-html-web-page-example",
   "scripts": {
     "serve": "http-server ./"
   },
