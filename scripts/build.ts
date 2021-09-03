@@ -150,7 +150,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
     log(chalk.dim(`  ./lib/index.ts → dist/${format}/romcal.js`));
     await build({
       bundle: true,
-      minify: false,
+      minify: true,
       globalName: 'Romcal',
       sourcemap: 'external',
       ...(format === 'iife' ? {} : { external: ['i18next'] }),
@@ -173,7 +173,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
         const calendar = p.match(/([^/]+)\/[^/]+$/)![1];
         const locale = p.match(/([^/]+)\.\w+$/)![1].replace('.iife', '');
         await build({
-          minify: false,
+          minify: true,
           ...(format === 'iife' ? { globalName: toGlobalName(calendar, locale) } : {}),
           bundle: format === 'iife',
           platform,
