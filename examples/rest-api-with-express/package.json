@@ -1,12 +1,13 @@
 {
-  "name": "romcal-html-web-page-example",
+  "name": "rest-api-with-express-example",
+  "main": "index.js",
   "scripts": {
-    "serve": "http-server ./"
+    "start": "node index.js"
   },
   "dependencies": {
     "@romcal/calendar-france": "file:../../dist/bundles/france",
     "@romcal/calendar-general-roman": "file:../../dist/bundles/general-roman",
-    "http-server": "^13.0.1",
+    "express": "^4.17.1",
     "romcal-next": "file:../../"
   }
 }
