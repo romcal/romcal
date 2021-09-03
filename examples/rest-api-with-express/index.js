@@ -1,10 +1,12 @@
-const path = require('path');
 const express = require('express');
 const Romcal = require('romcal-next').default;
 const general_roman = require('@romcal/calendar-general-roman').default;
 const { france_fr } = require('@romcal/calendar-france');
 
-// Initialize the Express.js app.
+/**
+ * Initialize the Express.js server.
+ * @type {*|Express}
+ */
 const app = express();
 
 /**
@@ -18,12 +20,16 @@ const getYear = (maybeYear) => {
   return Number.isInteger(yearInput) ? yearInput : undefined;
 };
 
-// Wire an index HTML page to the URL root of this server.
-app.use(express.static(path.join(__dirname, 'public')));
+/**
+ * Wire an index HTML page to the URL root of this server.
+ */
 app.get('/', (req, res) => {
   res.sendFile(`${__dirname}/public/index.html`);
 });
 
+/**
+ * Example with the General Roman calendar, all its possible locales, and an optional year.
+ */
 app.get('/romcal/general-roman/:locale/:year?', async (req, res) => {
   // Get the locale parameter and transform its name from kebab-case to camelCase.
   // E.g. `en-ie` => `enIe`
@@ -45,14 +51,17 @@ app.get('/romcal/general-roman/:locale/:year?', async (req, res) => {
   res.json(data);
 });
 
-// Simple example with only 1 supported locale by the REST API (`fr` in this example),
-// and the calendar of France.
-//
-// Note 1: importing `france_fr` is the same thing as importing `france` and then accessing to the
-// localized calendar `france.fr`.
-// Note 2: in the example below, we only use the `fr` locale. In this case it's better to
-// initialize the romcal object outside the `app.get` method, so the romcal object isn't recreated
-// everytime the API is called.
+/**
+ * Simple example with only 1 supported locale by the REST API (`fr` in this example),
+ * and the calendar of France.
+ *
+ * Note 1: importing `france_fr` is the same thing as importing `france` and then accessing to the
+ * localized calendar `france.fr`.
+ *
+ * Note 2: in the example below, we only use the `fr` locale. In this case it's better to
+ * initialize the romcal object outside the `app.get` method, so the romcal object isn't recreated
+ * everytime the API is called.
+ */
 const romcalFranceFr = new Romcal({ localizedCalendar: france_fr });
 app.get('/romcal/france/fr/:year?', async (req, res) => {
   const year = getYear(parseInt(req.params['year']));
@@ -60,8 +69,10 @@ app.get('/romcal/france/fr/:year?', async (req, res) => {
   res.json(data);
 });
 
-// Launch the Express.js server
-app.listen(3333, () => {
-  console.log('Romcal server listening on port 3333');
+/**
+ * Run the server.
+ */
+app.listen(3000, () => {
+  console.log('Romcal server listening on port 3000');
   console.log('url: http://127.0.0.1:3333');
 });
