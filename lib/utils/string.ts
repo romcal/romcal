@@ -10,6 +10,18 @@ export const toScreamingSnakeCase = (string: string): string =>
     .toUpperCase();
 
 /**
+ * Convert a class name from camelCase to kebab-case, replacing the _ namespace separator to a dot.
+ * @param string
+ */
+export const toPackageName = (string: string): string =>
+  string
+    .replace(/_/g, '.')
+    .replace(/(.)([A-Z][a-z]+)/, '$1-$2')
+    .replace(/([A-Z][a-z]+)([0-9])/, '$1-$2')
+    .replace(/([a-z0-9])([A-Z])/, '$1_$2')
+    .toLowerCase();
+
+/**
  * Convert the string to camelCase
  * @param string
  */

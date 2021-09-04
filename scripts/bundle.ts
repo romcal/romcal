@@ -5,19 +5,19 @@ import path from 'path';
 import rimraf from 'rimraf';
 import * as util from 'util';
 import {
-  CalendarDef,
   Locale,
   LocaleLiturgicalDayNames,
   MartyrologyCatalog,
-  PROPER_OF_TIME_NAME,
-  RomcalBundle,
-  RomcalConfig,
   RomcalConfigInput,
   RomcalConfigOutput,
 } from '../lib';
 import { Martyrology } from '../lib/catalog/martyrology';
+import { PROPER_OF_TIME_NAME } from '../lib/constants/general-calendar-names';
 import { GeneralRoman } from '../lib/general-calendar/proper-of-saints';
 import { locales } from '../lib/locales';
+import { RomcalBundle } from '../lib/models/bundle';
+import { CalendarDef } from '../lib/models/calendar-def';
+import { RomcalConfig } from '../lib/models/config';
 import LiturgicalDayDef from '../lib/models/liturgical-day-def';
 import { particularCalendars } from '../lib/particular-calendars';
 import { BundleDefinitions, LiturgicalDayDefinitions } from '../lib/types/calendar-def';
@@ -233,7 +233,6 @@ export const RomcalBundler = (): void => {
       .replace(/([^_]+)([A-Z])/g, '$1-$2')
       .replace(/_/g, '.')
       .toLowerCase();
-    const varName = uncapitalize(calendar.name);
     const dir = path.resolve(__dirname, '../tmp/bundles/', pkgName);
 
     /**
@@ -243,27 +242,14 @@ export const RomcalBundler = (): void => {
       const importFileName = locale.replace(/([A-Z])/g, '-$1').toLowerCase();
       return acc + `import { ${varName} } from './${importFileName}';\n`;
     }, '');
-    const indexTypes = Object.entries(calVarObj).reduce((acc, [locale]) => {
-      return acc + `  ${toCamelCase(locale)}: RomcalBundleObject;\n`;
-    }, '');
-    const indexRecord = Object.entries(calVarObj).reduce((acc, [locale, varName]) => {
-      return acc + `  ${toCamelCase(locale)}: ${varName},\n`;
-    }, '');
-    const indexExports = Object.entries(calVarObj).reduce((acc, [, varName]) => {
-      return acc + `    ${varName},\n`;
-    }, '');
+    const indexExports = Object.entries(calVarObj).reduce(
+      (acc, [, varName]) => acc + `    ${varName},\n`,
+      '',
+    );
     const indexOutput =
       `import { RomcalBundleObject } from '../../../lib';\n` +
       indexImports +
-      '\n' +
-      `export type RomcalBundles = {\n` +
-      indexTypes +
-      `}\n\n` +
-      `const ${varName}: RomcalBundles = {\n` +
-      indexRecord +
-      `};\n\n` +
-      `export default ${varName};\n\n` +
-      `export {\n` +
+      `\nexport {\n` +
       indexExports +
       `};`;
     fs.writeFileSync(path.resolve(dir, `index.ts`), indexOutput, 'utf-8');
@@ -271,21 +257,11 @@ export const RomcalBundler = (): void => {
     /**
      * Write index.d.ts files
      */
-    const dtsExports = Object.entries(calVarObj).reduce((acc, [, varName]) => {
-      return acc + `export declare const ${varName}: RomcalBundleObject;\n`;
-    }, '');
-    const dtsTypes = Object.entries(calVarObj).reduce((acc, [locale]) => {
-      return acc + `	${toCamelCase(locale)}: RomcalBundleObject;\n`;
-    }, '');
-    const dtsOutput =
-      `import { RomcalBundleObject } from 'romcal-next';\n\n` +
-      dtsExports +
-      `\nexport declare type RomcalBundles = {\n` +
-      dtsTypes +
-      `}\n\n` +
-      `declare const ${varName}: RomcalBundles;\n` +
-      `export default ${varName};\n`;
-    fs.writeFileSync(path.resolve(dir, `index.ts`), indexOutput, 'utf-8');
+    const dtsExports = Object.entries(calVarObj).reduce(
+      (acc, [, varName]) => acc + `export declare const ${varName}: RomcalBundleObject;\n`,
+      '',
+    );
+    const dtsOutput = `import { RomcalBundleObject } from 'romcal-next';\n\n` + dtsExports;
     fs.writeFileSync(path.resolve(dir, `index.d.ts`), dtsOutput, 'utf-8');
   }
 

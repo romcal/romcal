@@ -1,9 +1,10 @@
-const Romcal = require('romcal-next').default;
-const general_roman = require('@romcal/calendar-general-roman').default;
-const { france_fr } = require('@romcal/calendar-france');
-const fs = require('fs');
-const path = require('path');
-const fastify = require('fastify')();
+import Romcal from 'romcal-next';
+import fs from 'fs';
+import path from 'path';
+import Fastify from 'fastify';
+import { france_fr } from '@romcal/calendar.france';
+
+const fastify = new Fastify();
 
 /**
  * Check if a correct year is provided.
@@ -25,23 +26,25 @@ fastify.get('/', async (request, reply) => {
 });
 
 /**
- * Example with the General Roman calendar, all its possible locales, and an optional year.
+ * Example with the General Roman calendar, all its defined locales, and an optional year.
  */
 
 const manageGeneralRomanRoute = async (request, reply) => {
-  // Get the locale parameter and transform its name from kebab-case to camelCase.
-  // E.g. `en-ie` => `enIe`
-  const locale = request.params['locale']
-    .toLowerCase()
-    .replace(/(-\w)/g, (c) => c[1].toUpperCase());
+  const locale = request.params['locale'].toLowerCase();
+  const localeIndex = Romcal.LOCALE_KEYS.indexOf(locale);
 
   // Check if the provided locale exists in the `general_roman` calendar. If no, return a 404 error.
-  if (!Object.prototype.hasOwnProperty.call(general_roman, locale)) {
+  if (localeIndex === -1) {
     return reply.status(404).send("404 - The provided locale doesn't exists.");
   }
 
+  // Load dynamically the localized General Roman Calendar
+  const module = await import(`@romcal/calendar.general-roman/esm/${locale}.mjs`);
+  const localeVarName = Romcal.LOCALE_VAR_NAMES[localeIndex];
+  const localizedCalendar = module[`generalRoman_${localeVarName}`];
+
   // Initialize a romcal object with the General Roman Calendar data.
-  const romcalGeneralRoman = new Romcal({ localizedCalendar: general_roman[locale] });
+  const romcalGeneralRoman = new Romcal({ localizedCalendar });
 
   // Generate a liturgical calendar with the provided locale and year.
   const year = getYear(parseInt(request.params['year']));
@@ -60,13 +63,6 @@ fastify.get('/romcal/general-roman/:locale/:year', manageGeneralRomanRoute);
 /**
  * Simple example with only 1 supported locale by the REST API (`fr` in this example),
  * and the calendar of France.
- *
- * Note 1: importing `france_fr` is the same thing as importing `france` and then accessing to the
- * localized calendar `france.fr`.
- *
- * Note 2: in the example below, we only use the `fr` locale. In this case it's better to
- * initialize the romcal object outside the `app.get` method, so the romcal object isn't recreated
- * everytime the API is called.
  */
 
 const romcalFranceFr = new Romcal({ localizedCalendar: france_fr });

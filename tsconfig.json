@@ -28,6 +28,7 @@
     "lib/**/*",
     "tests/**/*",
     "scripts/**/*",
-    "tmp/bundles/**/*"
+    "tmp/bundles/**/*",
+    "tmp/constants/**/*"
   ]
 }

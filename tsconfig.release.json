@@ -15,6 +15,7 @@
     "emitDeclarationOnly": true,
   },
   "include": [
-    "lib/**/*"
+    "lib/**/*",
+    "tmp/constants/**/*"
   ],
 }

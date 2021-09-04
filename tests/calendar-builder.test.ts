@@ -23,13 +23,12 @@
 */
 
 import 'jest-extended';
-import Romcal from '../lib';
+import Romcal, { LiturgicalCalendar } from '../lib';
 import { Colors } from '../lib/constants/colors';
 import { isMartyr, Titles } from '../lib/constants/martyrology-metadata';
 import { Ranks } from '../lib/constants/ranks';
 import LiturgicalDay from '../lib/models/liturgical-day';
 import LiturgicalDayDef from '../lib/models/liturgical-day-def';
-import { LiturgicalCalendar } from '../lib/types/calendar';
 import { getUtcDate, getUtcDateFromString, isSameDate, subtractsDays } from '../lib/utils/dates';
 import { england_en } from '../tmp/bundles/england/en';
 import { generalRoman_en } from '../tmp/bundles/general-roman/en';
