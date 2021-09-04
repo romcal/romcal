@@ -247,6 +247,19 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
   };
 
   /**
+   * Retrieve the license, and wrap it in code comments
+   */
+  const LICENSE =
+    `/**\n` +
+    fs
+      .readFileSync('./LICENSE', 'utf8')
+      .trim()
+      .split(/\n/g)
+      .map((l) => ` * ${l}`)
+      .join('\n') +
+    `\n */\n`;
+
+  /**
    * Build the core library and all calendar bundles
    */
   for (const format of ['cjs', 'esm', 'iife'] as Format[]) {
@@ -264,6 +277,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
       ...(format === 'esm'
         ? { entryPoints: ['lib/index.ts'] }
         : { entryPoints: ['lib/exports.ts'] }),
+      banner: { js: LICENSE },
       format,
       outfile: `dist/${format}/romcal.${format === 'esm' ? 'mjs' : 'js'}`,
     }).catch(() => process.exit(1));
@@ -285,6 +299,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
           bundle: format === 'iife',
           platform,
           entryPoints: [p],
+          banner: { js: LICENSE },
           format,
           keepNames: true,
           outfile: `dist/bundles/${calendar}/${format}/${locale}.${
