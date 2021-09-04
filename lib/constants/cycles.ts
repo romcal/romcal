@@ -39,11 +39,11 @@ export enum PsalterWeeksCycles {
 /**
  * A dynamically generated constant consisting of all the enum keys in [[LITURGICAL_DAY_CYCLES]]
  */
-export const LITURGICAL_DAY_CYCLE = Object.keys(ProperCycles)
+export const PROPER_CYCLE = Object.keys(ProperCycles)
   .filter((key) => typeof ProperCycles[key as keyof typeof ProperCycles] === 'string')
   .map((key) => toScreamingSnakeCase(key)) as Array<ScreamingSnakeCase<keyof typeof ProperCycles>>;
 
-export type ProperCycle = typeof LITURGICAL_DAY_CYCLE[number];
+export type ProperCycle = typeof PROPER_CYCLE[number];
 
 /**
  * A dynamically generated constant consisting of all the enum keys in [[SUNDAY_CYCLES]]

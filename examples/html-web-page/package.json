@@ -1,12 +1,13 @@
 {
   "name": "romcal-html-web-page-example",
   "scripts": {
-    "serve": "http-server ./"
+    "start": "http-server ./"
   },
   "dependencies": {
-    "@romcal/calendar-france": "file:../../dist/bundles/france",
-    "@romcal/calendar-general-roman": "file:../../dist/bundles/general-roman",
+    "@romcal/calendar.france": "file:../../dist/bundles/france",
+    "@romcal/calendar.general-roman": "file:../../dist/bundles/general-roman",
     "http-server": "^13.0.1",
     "romcal-next": "file:../../"
-  }
+  },
+  "license": "MIT"
 }

@@ -5,17 +5,25 @@ import fs from 'fs';
 import { glob } from 'glob';
 import humanizeDuration, { Unit, UnitTranslationOptions } from 'humanize-duration';
 import path from 'path';
+import prettier from 'prettier';
 import rimraf from 'rimraf';
 import { PackageJson } from 'type-fest';
 import * as ts from 'typescript';
-import { GENERAL_ROMAN_NAME } from '../lib';
+import { LiturgicalDayInput, MartyrologyCatalog, MartyrologyItemRedefined } from '../lib';
+import { Martyrology } from '../lib/catalog/martyrology';
+import { GENERAL_ROMAN_NAME } from '../lib/constants/general-calendar-names';
+import { GeneralRoman } from '../lib/general-calendar/proper-of-saints';
+import { locales } from '../lib/locales';
+import { RomcalConfig } from '../lib/models/config';
 import { particularCalendars } from '../lib/particular-calendars';
 import { toCamelCase } from '../lib/utils/string';
 import pkg from '../package.json';
 import { RomcalBundler } from './bundle';
 
-const log = console.log;
 const tsConfigPath = './tsconfig.release.json';
+const log = console.log;
+const formatCode = (code: string): string =>
+  prettier.format(code, { parser: 'typescript', singleQuote: true });
 
 function reportDiagnostics(diagnostics: ts.Diagnostic[]): void {
   diagnostics.forEach((diagnostic) => {
@@ -73,6 +81,105 @@ function compile(configFileName: string): void {
 log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
 (async () => {
   const time = new Date();
+
+  /**
+   * Create constants from locales, calendars and martyrology data
+   */
+
+  // Init directory
+  log(
+    chalk.bold(
+      `\n✓ Write constants into ${chalk.cyan.bold(
+        './tmp/constants/',
+      )}, to list available calendars and locales`,
+    ),
+  );
+  const constantDir = './tmp/constants';
+  rimraf.sync(path.resolve(constantDir));
+  fs.mkdirSync('./tmp/constants', { recursive: true });
+
+  // Locales
+  log(chalk.dim(`  ./tmp/constants/locales.ts`));
+  const localeNames = Object.keys(locales);
+  fs.writeFileSync(
+    path.resolve(constantDir, 'locales.ts'),
+    formatCode(
+      `import { toPackageName } from "../../lib/utils/string";\n\n` +
+        `export const LOCALE_VAR_NAMES = ${JSON.stringify(localeNames)};\n\n` +
+        `export const LOCALE_KEYS = LOCALE_VAR_NAMES.map(c => toPackageName(c));\n`,
+    ),
+    'utf-8',
+  );
+
+  // Calendars
+  log(chalk.dim(`  ./tmp/constants/calendars.ts`));
+  const calendarNames = Object.keys(particularCalendars)
+    .concat([toCamelCase(GENERAL_ROMAN_NAME)])
+    .sort();
+  fs.writeFileSync(
+    path.resolve(constantDir, 'calendars.ts'),
+    formatCode(
+      `import { toPackageName } from "../../lib/utils/string";\n\n` +
+        `export const CALENDAR_VAR_NAMES = ${JSON.stringify(calendarNames, null, 2)};\n\n` +
+        `export const CALENDAR_PKG_NAMES = CALENDAR_VAR_NAMES` +
+        '.map(c => `@romcal/calendar.${toPackageName(c)}`);\n',
+    ),
+    'utf-8',
+  );
+
+  /**
+   * Extract only martyrology titles for the General Roman Calendar.
+   * These data must be included in the core Romcal library to compute correctly the liturgical colors.
+   */
+
+  log(
+    chalk.bold(
+      `\n✓ Extract martyrology titles of the GRC to be included in the core romcal library`,
+    ),
+  );
+
+  // GRC martyrology titles
+  log(chalk.dim(`  ./tmp/constants/grc-martyrology-titles.ts`));
+  const grcMartyrologyKeys: string[] = [
+    // Defining an array in a new set will automatically remove duplicates
+    ...new Set(
+      Object.entries(new GeneralRoman(new RomcalConfig()).definitions).flatMap(([key, inputs]) => [
+        // Add input definition key
+        key,
+        // Check if a martyrology metadata is defined. If yes, add all martyrology keys.
+        ...((Array.isArray(inputs) ? inputs : [inputs]) as LiturgicalDayInput[]).flatMap((input) =>
+          input.martyrology && input.martyrology.length > 0
+            ? input.martyrology?.map(
+                (id: string | MartyrologyItemRedefined) =>
+                  (typeof id === 'string' ? { key: id } : id).key,
+              )
+            : [],
+        ),
+      ]),
+    ),
+  ].sort();
+  // Now, we pick the martyrology items from the catalog, and returns a corresponding object containing
+  // only the titles metadata: the minimum required information to obtain the right liturgical color,
+  // while keeping a lightweight romcal library.
+  // If we need all other metadata, we have to provide in the Romcal() options the general_calendar as
+  // a localized calendar.
+  const grcMartyrology: MartyrologyCatalog = Object.fromEntries(
+    Object.entries(Martyrology.catalog)
+      .filter(
+        ([key, def]) => grcMartyrologyKeys.includes(key) && def.titles && def.titles.length > 0,
+      )
+      .map(([key, def]) => [key, { titles: def.titles }]),
+  );
+  fs.writeFileSync(
+    path.resolve(constantDir, 'grc-martyrology-titles.ts'),
+    formatCode(
+      `import { MartyrologyCatalog } from "../../lib";\n\n` +
+        `export const GRC_MARTYROLOGY_TITLES: MartyrologyCatalog = ${JSON.stringify(
+          grcMartyrology,
+        )};\n`,
+    ),
+    'utf-8',
+  );
 
   /**
    * Compiling sources and checking types of the romcal library
@@ -150,15 +257,15 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
     log(chalk.dim(`  ./lib/index.ts → dist/${format}/romcal.js`));
     await build({
       bundle: true,
-      minify: true,
+      minify: false,
       globalName: 'Romcal',
       sourcemap: 'external',
       ...(format === 'iife' ? {} : { external: ['i18next'] }),
-      ...(format === 'iife'
-        ? { entryPoints: ['lib/index.iife.ts'] }
-        : { entryPoints: ['lib/index.ts'] }),
+      ...(format === 'esm'
+        ? { entryPoints: ['lib/index.ts'] }
+        : { entryPoints: ['lib/exports.ts'] }),
       format,
-      outfile: `dist/${format}/romcal.js`,
+      outfile: `dist/${format}/romcal.${format === 'esm' ? 'mjs' : 'js'}`,
     }).catch(() => process.exit(1));
 
     log(chalk.dim(`  ./tmp/bundles/**/*.ts → dist/bundles/[calendar]/${format}/[locale].js`));
@@ -173,14 +280,16 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
         const calendar = p.match(/([^/]+)\/[^/]+$/)![1];
         const locale = p.match(/([^/]+)\.\w+$/)![1].replace('.iife', '');
         await build({
-          minify: true,
+          minify: false,
           ...(format === 'iife' ? { globalName: toGlobalName(calendar, locale) } : {}),
           bundle: format === 'iife',
           platform,
           entryPoints: [p],
           format,
           keepNames: true,
-          outfile: `dist/bundles/${calendar}/${format}/${locale}.js`,
+          outfile: `dist/bundles/${calendar}/${format}/${locale}.${
+            format === 'esm' ? 'mjs' : 'js'
+          }`,
           sourcemap: false,
           target: 'es2019',
         }).catch(() => process.exit(1));
@@ -204,7 +313,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
     const dir = path.resolve(__dirname, `../dist/bundles/${pkgName}`);
 
     const modulePkg: PackageJson = {
-      name: `@romcal/calendar-${pkgName}`,
+      name: `@romcal/calendar.${pkgName}`,
       version: pkg.version,
       description: `Localized romcal calendar for '${calendar}'`,
       main: 'cjs/index.js',
