@@ -1,41 +1,22 @@
-/*
-    The MIT License (MIT)
-
-    Copyright (c) 2014 Pereira, Julian Matthew
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in
-    all copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-    THE SOFTWARE.
-*/
-
 import 'jest-extended';
-import Romcal, { LiturgicalCalendar } from '../lib';
-import { Colors } from '../lib/constants/colors';
-import { isMartyr, Titles } from '../lib/constants/martyrology-metadata';
-import { Ranks } from '../lib/constants/ranks';
-import LiturgicalDay from '../lib/models/liturgical-day';
-import LiturgicalDayDef from '../lib/models/liturgical-day-def';
-import { getUtcDate, getUtcDateFromString, isSameDate, subtractsDays } from '../lib/utils/dates';
-import { england_en } from '../tmp/bundles/england/en';
-import { generalRoman_en } from '../tmp/bundles/general-roman/en';
-import { germany_en } from '../tmp/bundles/germany/en';
-import { hungary_en } from '../tmp/bundles/hungary/en';
-import { ireland_en } from '../tmp/bundles/ireland/en';
-import { slovakia_sk } from '../tmp/bundles/slovakia/sk';
+import Romcal, { LiturgicalCalendar, BaseLiturgicalDay, BaseLiturgicalDayDef } from '../lib';
+import { england_en } from 'romcal-next/dist/bundles/england';
+import { generalRoman_en } from 'romcal-next/dist/bundles/general-roman';
+import { germany_en } from 'romcal-next/dist/bundles/germany';
+import { hungary_en } from 'romcal-next/dist/bundles/hungary';
+import { ireland_en } from 'romcal-next/dist/bundles/ireland';
+import { slovakia_sk } from 'romcal-next/dist/bundles/slovakia';
+
+const {
+  Colors,
+  isMartyr,
+  Titles,
+  Ranks,
+  getUtcDate,
+  getUtcDateFromString,
+  isSameDate,
+  subtractsDays,
+} = Romcal;
 
 describe('Testing calendar generation functions', () => {
   test('Each item should have a key', async () => {
@@ -103,7 +84,7 @@ describe('Testing calendar generation functions', () => {
       let start: Date;
       let end: Date;
       let calendar: LiturgicalCalendar;
-      let calendarArr: LiturgicalDay[][];
+      let calendarArr: BaseLiturgicalDay[][];
 
       beforeEach(async () => {
         const romcal = new Romcal({ scope: 'liturgical' });
@@ -137,7 +118,7 @@ describe('Testing calendar generation functions', () => {
 
   describe('Testing liturgical colors', () => {
     test('The proper color of a Memorial or a Feast is white except for martyrs in which case it is red, and All Souls which is purple', async () => {
-      const defs: LiturgicalDayDef[] = Object.values(
+      const defs: BaseLiturgicalDayDef[] = Object.values(
         await new Romcal({ localizedCalendar: generalRoman_en }).getAllDefinitions(),
       ).flat();
 
@@ -198,15 +179,15 @@ describe('Testing calendar generation functions', () => {
   });
 
   describe('Testing calendar cycles', () => {
-    let calendar2020: LiturgicalDay[];
-    let calendar2021: LiturgicalDay[];
-    let calendar2022: LiturgicalDay[];
-    let easter2020: LiturgicalDay | undefined;
-    let easter2021: LiturgicalDay | undefined;
-    let easter2022: LiturgicalDay | undefined;
-    let christmas2020: LiturgicalDay | undefined;
-    let christmas2021: LiturgicalDay | undefined;
-    let christmas2022: LiturgicalDay | undefined;
+    let calendar2020: BaseLiturgicalDay[];
+    let calendar2021: BaseLiturgicalDay[];
+    let calendar2022: BaseLiturgicalDay[];
+    let easter2020: BaseLiturgicalDay | undefined;
+    let easter2021: BaseLiturgicalDay | undefined;
+    let easter2022: BaseLiturgicalDay | undefined;
+    let christmas2020: BaseLiturgicalDay | undefined;
+    let christmas2021: BaseLiturgicalDay | undefined;
+    let christmas2022: BaseLiturgicalDay | undefined;
 
     beforeEach(async () => {
       calendar2020 = Object.values(await new Romcal().generateCalendar(2020)).flat();
@@ -245,19 +226,19 @@ describe('Testing calendar generation functions', () => {
 
   describe('Testing Holy Days of Obligation', () => {
     test('All Saints should be a Holy Day of obligation', async () => {
-      const allSaintsInGeneralCalendar: LiturgicalDay = (await new Romcal().getOneLiturgicalDay(
+      const allSaintsInGeneralCalendar: BaseLiturgicalDay = (await new Romcal().getOneLiturgicalDay(
         'all_saints',
       ))!;
       expect(allSaintsInGeneralCalendar.isHolyDayOfObligation).toBeTrue();
 
-      const allSaintsInEnglandCalendar: LiturgicalDay = (await new Romcal({
+      const allSaintsInEnglandCalendar: BaseLiturgicalDay = (await new Romcal({
         localizedCalendar: england_en,
       }).getOneLiturgicalDay('all_saints'))!;
       expect(allSaintsInEnglandCalendar.isHolyDayOfObligation).toBeTrue();
     });
 
     test('Saint Patrick is a Holy Day of obligation in Ireland', async () => {
-      const saintPatrickBishop: LiturgicalDay = (await new Romcal({
+      const saintPatrickBishop: BaseLiturgicalDay = (await new Romcal({
         localizedCalendar: ireland_en,
       }).getOneLiturgicalDay('patrick_of_ireland_bishop'))!;
       expect(saintPatrickBishop.isHolyDayOfObligation).toBeTrue();
@@ -267,7 +248,7 @@ describe('Testing calendar generation functions', () => {
       const germanyCal = await new Romcal({ localizedCalendar: germany_en });
       const hungaryCal = await new Romcal({ localizedCalendar: hungary_en });
 
-      const getDayAfter = async (romcal: Romcal, key: string): Promise<LiturgicalDay> => {
+      const getDayAfter = async (romcal: Romcal, key: string): Promise<BaseLiturgicalDay> => {
         const date = (await romcal.getOneLiturgicalDay(key))!.date;
         const calendar = await romcal.generateCalendar();
         const dayAfter =
@@ -293,7 +274,7 @@ describe('Testing calendar generation functions', () => {
   });
 
   describe('Testing the "drop" functionality for national calendars', () => {
-    let testDates: LiturgicalDay[];
+    let testDates: BaseLiturgicalDay[];
 
     beforeAll(async () => {
       testDates = Object.values(

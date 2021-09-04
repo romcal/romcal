@@ -1,6 +1,6 @@
 import 'jest-extended';
-import { RomcalConfig } from '../lib/models/config';
-import { LiturgicalDayConfig } from '../lib/models/liturgical-day-config';
+import Romcal from '../lib';
+const { RomcalConfig, LiturgicalDayConfig } = Romcal;
 
 describe('getConfig()', () => {
   test('should get general config if country doesnt have default configurations', async () => {

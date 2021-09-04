@@ -105,6 +105,8 @@ import {
   getWeekNumber,
   isSameDate,
   isValidDate,
+  rangeContainsDate,
+  rangeOfDays,
   startOfWeek,
   subtractsDays,
 } from './utils/dates';
@@ -322,6 +324,8 @@ class Romcal {
   static daysInMonth = daysInMonth;
   static getWeekNumber = getWeekNumber;
   static computeGregorianEasterDate = computeGregorianEasterDate;
+  static rangeContainsDate = rangeContainsDate;
+  static rangeOfDays = rangeOfDays;
   // utils/numbers.ts
   static toRomanNumber = toRomanNumber;
   // generated data from build
