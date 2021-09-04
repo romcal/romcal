@@ -105,8 +105,8 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
     path.resolve(constantDir, 'locales.ts'),
     formatCode(
       `import { toPackageName } from "../../lib/utils/string";\n\n` +
-        `export const LOCALE_VAR_NAMES = ${JSON.stringify(localeNames)};\n\n` +
-        `export const LOCALE_KEYS = LOCALE_VAR_NAMES.map(c => toPackageName(c));\n`,
+        `export const LOCALE_VAR_NAMES: string[] = ${JSON.stringify(localeNames)};\n\n` +
+        `export const LOCALE_KEYS: string[] = LOCALE_VAR_NAMES.map(c => toPackageName(c));\n`,
     ),
     'utf-8',
   );
@@ -120,8 +120,8 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
     path.resolve(constantDir, 'calendars.ts'),
     formatCode(
       `import { toPackageName } from "../../lib/utils/string";\n\n` +
-        `export const CALENDAR_VAR_NAMES = ${JSON.stringify(calendarNames, null, 2)};\n\n` +
-        `export const CALENDAR_PKG_NAMES = CALENDAR_VAR_NAMES` +
+        `export const CALENDAR_VAR_NAMES: string[] = ${JSON.stringify(calendarNames)};\n\n` +
+        `export const CALENDAR_PKG_NAMES: string[] = CALENDAR_VAR_NAMES` +
         '.map(c => `@romcal/calendar.${toPackageName(c)}`);\n',
     ),
     'utf-8',
@@ -330,10 +330,10 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
     const modulePkg: PackageJson = {
       name: `@romcal/calendar.${pkgName}`,
       version: pkg.version,
-      description: `Localized romcal calendar for '${calendar}'`,
-      main: 'cjs/index.js',
-      module: 'esm/index.js',
-      typings: 'index.d.ts',
+      description: `Localized romcal calendar for ${calendar}`,
+      main: './cjs/index.js',
+      module: './esm/index.mjs',
+      typings: './index.d.ts',
       engines: pkg.engines,
       repository: pkg.repository,
       keywords: pkg.keywords,
