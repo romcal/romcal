@@ -1,50 +1,22 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/*
-    The MIT License (MIT)
-
-    Copyright (c) 2014 Pereira, Julian Matthew
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in
-    all copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-    THE SOFTWARE.
-*/
-
 import 'jest-extended';
-import Romcal from '../lib';
-import { Periods } from '../lib/constants/periods';
-import { Precedences } from '../lib/constants/precedences';
-import { Ranks } from '../lib/constants/ranks';
-import LiturgicalDay from '../lib/models/liturgical-day';
-import { getUtcDateFromString } from '../lib/utils/dates';
-import { czechRepublic_cs } from '../tmp/bundles/czech-republic/cs';
-import { england_en } from '../tmp/bundles/england/en';
-import { germany_en } from '../tmp/bundles/germany/en';
-import { hungary_en } from '../tmp/bundles/hungary/en';
-import { malta_en } from '../tmp/bundles/malta/en';
-import { mexico_es } from '../tmp/bundles/mexico/es';
-import { slovakia_sk } from '../tmp/bundles/slovakia/sk';
-import { spain_es } from '../tmp/bundles/spain/es';
-import { wales_en } from '../tmp/bundles/wales/en';
+import Romcal, { BaseLiturgicalDay } from '../lib';
+import { czechRepublic_cs } from 'romcal-next/dist/bundles/czech-republic';
+import { england_en } from 'romcal-next/dist/bundles/england';
+import { germany_en } from 'romcal-next/dist/bundles/germany';
+import { hungary_en } from 'romcal-next/dist/bundles/hungary';
+import { malta_en } from 'romcal-next/dist/bundles/malta';
+import { mexico_es } from 'romcal-next/dist/bundles/mexico';
+import { slovakia_sk } from 'romcal-next/dist/bundles/slovakia';
+import { spain_es } from 'romcal-next/dist/bundles/spain';
+import { wales_en } from 'romcal-next/dist/bundles/wales';
+
+const { Ranks, Periods, Precedences, getUtcDateFromString } = Romcal;
 
 describe('Testing national calendar overrides', () => {
   describe('An optional celebration is available to be celebrated, in addition to the weekday', () => {
-    let generalDates2020: LiturgicalDay[];
-    let generalDates2021: LiturgicalDay[];
-    let spainDates2020: LiturgicalDay[];
+    let generalDates2020: BaseLiturgicalDay[];
+    let generalDates2021: BaseLiturgicalDay[];
+    let spainDates2020: BaseLiturgicalDay[];
 
     beforeAll(async () => {
       generalDates2020 = Object.values(await new Romcal().generateCalendar(2020)).flat();
@@ -75,8 +47,8 @@ describe('Testing national calendar overrides', () => {
 
   describe('A feast defined in a national calendar should replace the same feast defined in the general calendar', () => {
     let year: number;
-    let generalDates: LiturgicalDay[];
-    let spainDates: LiturgicalDay[];
+    let generalDates: BaseLiturgicalDay[];
+    let spainDates: BaseLiturgicalDay[];
 
     beforeAll(async () => {
       year = 2008;
@@ -170,12 +142,12 @@ describe('Testing national calendar overrides', () => {
           await new Romcal({ localizedCalendar: england_en }).generateCalendar(2011),
         ).flat();
 
-        const lateOrdinaryTimeDates2009: LiturgicalDay[] = Object.values(
+        const lateOrdinaryTimeDates2009: BaseLiturgicalDay[] = Object.values(
           await new Romcal().generateCalendar(2009),
         )
           .flat()
           .filter((d) => d.periods.includes(Periods.LateOrdinaryTime));
-        const lateOrdinaryTimeDates2011: LiturgicalDay[] = Object.values(
+        const lateOrdinaryTimeDates2011: BaseLiturgicalDay[] = Object.values(
           await new Romcal().generateCalendar(2011),
         )
           .flat()
@@ -219,7 +191,7 @@ describe('Testing national calendar overrides', () => {
 
     describe('If the feast of the Assumption falls on Sunday', () => {
       test('It replaces the 20th Sunday of OT', async () => {
-        const twentiethSundayOfOrdinaryTime: LiturgicalDay = (
+        const twentiethSundayOfOrdinaryTime: BaseLiturgicalDay = (
           await new Romcal().generateCalendar(2010)
         )['2010-08-15'][0];
 
