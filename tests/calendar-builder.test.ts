@@ -119,7 +119,7 @@ describe('Testing calendar generation functions', () => {
   describe('Testing liturgical colors', () => {
     test('The proper color of a Memorial or a Feast is white except for martyrs in which case it is red, and All Souls which is purple', async () => {
       const defs: BaseLiturgicalDayDef[] = Object.values(
-        await new Romcal({ localizedCalendar: generalRoman_en }).getAllDefinitions(),
+        await new Romcal().getAllDefinitions(),
       ).flat();
 
       defs
@@ -143,7 +143,7 @@ describe('Testing calendar generation functions', () => {
             expect(d.colors[0]).toEqual(Colors.Red);
           } else {
             // eslint-disable-next-line jest/no-conditional-expect
-            // expect(d.colors[0]).toEqual(LiturgicalColors.WHITE);
+            expect(d.colors[0]).toEqual(Colors.White);
           }
         });
 
