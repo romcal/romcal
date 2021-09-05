@@ -1,5 +1,4 @@
 import i18next, { i18n } from 'i18next';
-import { GRC_MARTYROLOGY_TITLES } from '../../tmp/constants/grc-martyrology-titles';
 import { Color } from '../constants/colors';
 import { Season } from '../constants/seasons';
 import { GeneralRoman } from '../general-calendar/proper-of-saints';
@@ -119,8 +118,7 @@ export class RomcalConfig implements IRoncalConfig {
     this.calendarsDef = [];
 
     // Initiate the Martyrology Catalog object.
-    this.martyrologyCatalog =
-      this.localizedCalendar?.martyrology ?? martyrologyCatalog ?? GRC_MARTYROLOGY_TITLES ?? {};
+    this.martyrologyCatalog = this.localizedCalendar?.martyrology ?? martyrologyCatalog ?? {};
 
     // In all cases, generate the ProperOfTime calendar
     this.calendarsDef.push(new ProperOfTime(this));
