@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  Supports Node v12+, Browsers (IE11+).
+  Supports Node v14+, Modern Browsers (desktop and mobile).
 </p>
 
 <p align="center">
@@ -23,19 +23,13 @@
   <a href="https://www.npmjs.com/package/romcal/v/alpha" target="_blank" rel="noopener noreferrer"><img alt="alpha" src="https://img.shields.io/npm/v/romcal/alpha?style=flat-square&logo=npm"></a>
 </p>
 
-<p align="center">
-  <a href="https://travis-ci.org/romcal/romcal/branches" target="_blank" rel="noopener noreferrer"><img alt="master" src="https://img.shields.io/travis/romcal/romcal.svg?label=master&style=flat-square&logo=travis"></a>
-  <a href="https://travis-ci.org/romcal/romcal/branches" target="_blank" rel="noopener noreferrer"><img alt="test" src="https://img.shields.io/travis/romcal/romcal.svg?label=test&style=flat-square&logo=travis"></a>
-  <a href="https://travis-ci.org/romcal/romcal/branches" target="_blank" rel="noopener noreferrer"><img alt="dev" src="https://img.shields.io/travis/romcal/romcal.svg?label=dev&style=flat-square&logo=travis"></a>
-</p>
-
 ## Documentation
 
 **Quick start** (below on this page)
 
 - [Description](#description)
-- [Install](#install)
-- [Usage](#usage)
+- [Getting started](#getting-started)
+- [Basic samples](#basic-samples)
 - [Contribute](#contribute)
 - [Revisions & Release History](#revisions)
 - [Module Robustness & Data Integrity](#disclaimer)
@@ -54,11 +48,12 @@
 - [Calendar definitions and contributions ⇗](/docs/calendar-definitions.md)
 - [Codebase Documentation ⇗](https://romcal.github.io/romcal/)
 
+
 ## Description
 
-romcal generates the liturgical calendar of the Catholic Church used by the Roman Rite (post-Vatican II).
+Romcal generates liturgical calendars of the Roman Rite of the Roman Catholic Church.
 Output conforms to the revised liturgical calendar as approved by Paul VI in [Mysterii Paschalis](http://w2.vatican.va/content/paul-vi/en/motu_proprio/documents/hf_p-vi_motu-proprio_19690214_mysterii-paschalis.html) dated 14 February 1969.
-The rules are defined in the [_General Instruction on the Roman Missal_](https://www.catholicculture.org/culture/library/view.cfm?recnum=337) (GIRM) and the [_General Norms for the Liturgical Year and the Calendar_](https://www.catholicculture.org/culture/library/view.cfm?id=10842).
+The rules are defined in the [_General Instruction on the Roman Missal_](https://www.catholicculture.org/culture/library/view.cfm?recnum=337) (GIRM) and the [_General Norms for the Liturgical Year and the Calendar_](https://www.catholicculture.org/culture/library/view.cfm?id=10842) (GNLY).
 
 - :date: **Perpetual calendar:**<br> romcal allows querying liturgical dates for any year in the standard calendar.
   Note that dates for years before 1969 will still be returned in a format conforming to the calendar reforms of 1969, even though those years came before this calendar reform.
@@ -69,144 +64,141 @@ The rules are defined in the [_General Instruction on the Roman Missal_](https:/
 - :globe_with_meridians: **i18n, localization and calendars:**<br> romcal aims to have your liturgical calendars and contents in your native language, and support various liturgical calendars (national, diocesan...).
   You are more than welcome to contribute, add new localization, and improve the quality of this library!
 
-## Install
 
-Install via **npm**:
+## Getting started
 
-```bash
-$ npm install romcal
-```
+### Installation
 
-Install via **Yarn**:
+Romcal can be added to your project using npm or yarn:
 
 ```bash
-$ yarn add romcal
+# npm
+npm install romcal@3.x
+
+# yarn
+yarn add romcal@3.x
 ```
 
-Additionally, romcal is also available for installation via various "release tags" that represent different stages of development for a given version of the code.
+The default export is CommonJS compatible.
 
-- [`latest`](href="https://www.npmjs.com/package/romcal/v/latest)
-  The latest, stable and production-ready version of romcal is always released on the `master` branch. Releases on this branch are tagged in `npm` using the `latest` tag and can be installed via `npm install romcal@latest` or simply `npm install romcal` which defaults to the `latest` tag.
+In the `/dist` folder you may find additional builds for es6 modules (`esm`) or to be used globally from the browser (`iife`).
+The correct entry points are already configured in the package.json so there should be no extra setup to get the best build option.
 
-- [`beta`](href="https://www.npmjs.com/package/romcal/v/beta)
-  The release candidate for production. Code here is mostly stable but may still lack some tests and so may be subject to some unexpected behavior. Install via `npm install romcal@beta`.
 
-- [`alpha`](href="https://www.npmjs.com/package/romcal/v/alpha)
-  The unstable development release tag. Code here might be unstable and untested. Use at your own risk! Normally, only developers would use this release for testing purposes. Install via `npm install romcal@alpha`.
+### Load from CDN
 
-- [`canary`](href="https://www.npmjs.com/package/romcal/v/canary)
-  Bleeding edge features; high levels of code instability. Consumers should almost always never need to install these releases as they contain ongoing work that is not complete for general use. Install via `npm install romcal@canary`.
+You can also directly add a script tag loading romcal from one of the CDNs providing it:
 
-## Usage
+#### unpkg.com
 
-Require romcal in your project:
+- https://unpkg.com/romcal/dist/iife/romcal.js
 
-```javascript
-var Romcal = require('romcal');
-```
+esm or cjs:
 
-or as a CommonJS module:
+- https://unpkg.com/romcal/dist/esm/romcal.js
+- https://unpkg.com/romcal/dist/cjs/romcal.js
+
+Make sure to use a fixed version in production like https://unpkg.com/romcal@3.0.0/dist/cjs/romcal.js as passing no version will redirect to latest version which might contain breaking changes in future.
+
+#### cdnjs.com
+
+https://cdnjs.com/libraries/romcal
+
+
+## Basic samples
+
+### Generate calendar: `.generateCalendar(year)`
 
 ```ts
 import Romcal from 'romcal';
-```
+import { france_fr } from '@romcal/calendar.france';
 
-or in a webpage for direct usage on browsers:
-
-```html
-<script type="text/javascript" src="node_modules/romcal/dist/es5/romcal.bundle.min.js"></script>
-```
-
-Including romcal directly in the browser will result in an object called `romcal` being attached to the DOM `window` object.
-All the functions below will exist as properties of the Romcal object.
-
-Invoke the `.calendarFor` method to retrieve an array of liturgical dates and celebrations in the Roman Calendar.
-This method accepts an object of configuration properties to obtain customized output.
-
-```ts
-Romcal.calendarFor({
-  year: 2020,                               // the calendar year to compute.
-  scope: 'gregorian' | 'liturgical',        // 'gregorian': Jan 1 to Dec 31 ; or 'liturgical': the first Sunday of Advent to the last Saturday of Ordinary Time
-  country: 'unitedStates',                  // the 'general' calendar or any particular calendar
-  locale: 'en',                             // to get calendar data in the desired locale
-  epiphanyOnSunday: true | false,           // Epiphany always a Sunday (between January 2 - 8), or on January 6
-  corpusChristiOnSunday: true | false,      // Corpus Christi always a Sunday, or the Thursday after Trinity Sunday
-  ascensionOnSunday: true | false,          // Ascension always a Sunday, or the 40th day of Easter (a Thursday)
-  strictMode: true | false,                 // if true, only output one object per day ; optional memorials are not outputed
-  verbose: true | false,                    // enable logging output from romcal
-  prettyPrint: true | false,                // prettify logs printed in the console, for a better experience in development environnements
-}).then(function (calendar) {
-  console.log(calendar);
+// Initialize romcal (all options are optional)
+const romcal = new Romcal({
+  localizedCalendar: france_fr,              // The localized calendar to use with romcal
+  calendarScope: 'gregorian' | 'liturgical', // Default: 'gregorian' (Jan 1 to Dec 31). Optionally: 'liturgical' (the first Sunday of Advent to the last Saturday of Ordinary Time)
+  epiphanyOnSunday: true | false,            // Epiphany always a Sunday (between January 2 - 8), or on January 6
+  corpusChristiOnSunday: true | false,       // Corpus Christi always a Sunday, or the Thursday after Trinity Sunday
+  ascensionOnSunday: true | false,           // Ascension always a Sunday, or the 40th day of Easter (a Thursday)
 });
-```
 
-For further information about these properties and the default options: :books: [Configuration options](docs/general-usage.md#configuration-options).
-
-A similar `.liturgicalDayFor` method is also available to retrieve data for a specific date only.
-The first parameter is a `Date` object, the second is the optional configuration properties (as for the `.calendarFor`).
-
-e.g. to obtain today's liturgical day:
-
-```ts
-Romcal.liturgicalDayFor(new Date(), {
-  country: 'france',
-  locale: 'fr',
-}).then(function (today) {
-  console.log(today);
+// Get a romcal calendar for 2030, using a Promise:
+romcal.generateCalendar(2030).then((data) => {
+  console.log(data);
 });
+
+// Or get a romcal calendar for the current year, using async/await:
+const data = await romcal.generateCalendar();
+console.log(data);
 ```
 
-Please note that `.calendarFor` and `.liturgicalDayFor` are **async**. For further information in general: :books: [General use of romcal](/docs/general-usage.md).
+For further information about romcal configuration and the default options: :books: [Configuration options](docs/general-usage.md#configuration-options).
 
-This 2 methods produces an `Array` of `LiturgicalDay` objects (by default, one object per each day of the year):
+You can also take a look to the [./examples](./examples) directory, which contain additional examples:
+- [html-web-page](./examples/html-web-page) – loading romcal in a HTML script tag (`iife`).
+- [react-app](./examples/react-app) – a basic React application loading and displaying romcal data.
+- [rest-api-with-express](./examples/rest-api-with-express) – a REST API using Node.js and Express, written as CommonJs (`cjs`).
+- [rest-api-with-fastify](./examples/rest-api-with-fastify) – a REST API using Node.js and Fastify, written as ES Module (`esm`).
+
+This method produces an `Object` of key/values, where the key is a date (as a ISO8601 string), and the value is an `Array` of `LiturgicalDay` objects that can occur on a specific day (the first object is the default one, the following objects are optionals).
 
 ```json5
-[
-  {
-    key: 'mary_mother_of_god',
-    name: 'Mary, Mother of God',
-    date: '2020-01-01T00:00:00.000Z',
-    rank: 'SOLEMNITY',
-    rankName: 'Solemnity',
-    liturgicalColors: ['WHITE'],
-    seasons: ['CHRISTMASTIDE'],
-    seasonNames: ['Christmas'],
-    periods: ['CHRISTMAS_OCTAVE'],
-    cycles: {
-      sundayCycle: 'YEAR_A',
-      weekdayCycle: 'YEAR_2',
-      psalterWeek: 'WEEK_2',
-    },
-    calendar: {
-      totalWeeksInGregorianYear: 53,
-      totalWeeksInLiturgicalYear: 52,
-      weekOfGregorianYear: 1,
-      weekOfLiturgicalYear: 5,
-      weekOfSeason: 2,
-      dayOfGregorianYear: 1,
-      dayOfLiturgicalYear: 32,
-      dayOfSeason: 8,
-      dayOfWeek: 3,
-      dayOfWeekCountInMonth: 1,
-      startOfLiturgicalYear: '2019-12-01T00:00:00.000Z',
-      endOfLiturgicalYear: '2020-11-28T00:00:00.000Z',
-      easter: '2020-04-12T00:00:00.000Z',
-    },
-    fromCalendar: 'general',
-    fromExtendedCalendars: [],
-    metadata: {
-      titles: [],
-    },
+{
+  key: 'mary_mother_of_god',
+  name: 'Mary, Mother of God',
+  date: '2020-01-01',
+  precedence: 'GENERAL_SOLEMNITY_3',
+  rank: 'SOLEMNITY',
+  rankName: 'Solemnity',
+  isHolyDayOfObligation: true,
+  isOptional: false,
+  colors: ['WHITE'],
+  seasons: ['CHRISTMASTIDE'],
+  seasonNames: ['Christmas'],
+  periods: ['CHRISTMAS_OCTAVE'],
+  martyrology: [],
+  titles: [],
+  cycles: {
+    sundayCycle: 'YEAR_A',
+    weekdayCycle: 'YEAR_2',
+    psalterWeek: 'WEEK_2',
   },
-  // ...
-]
+  calendar: {
+    weekOfSeason: 2,
+    dayOfSeason: 8,
+    dayOfWeek: 3,
+    nthDayOfWeekInMonth: 1,
+    startOfSeason: '2021-12-25',
+    endOfSeason: '2022-01-09',
+    startOfLiturgicalYear: '2021-11-28',
+    endOfLiturgicalYear: '2022-11-26',
+  },
+  fromCalendar: 'proper_of_time',
+  fromExtendedCalendars: [],
+}
 ```
 
 For further information: :books: [Output data and JSON schema](docs/data-output.md).
 
+### Get one liturgical day:
+`.getOneLiturgicalDay(year, options)`
+
+> todo: add documentation here
+
+### Get liturgical day definitions:
+#### `.getAllDefinitions()`
+#### `.getProperOfTimeDefinitions()`
+
+> todo: add documentation here
+
+### Get dates:
+#### `.date(year).fn()`
+
+> todo: add documentation here
+
 ## Contribute
 
-romcal is an open source project, this means you are more than welcome to contribute!
+Romcal is an open source project, this means you are more than welcome to contribute!
 Especially to find bugs or write new tests, verify or complete calendars, or pull new localization.
 
 To jump into romcal’s codebase more easily, you might be interested in reading:
@@ -222,7 +214,7 @@ See [history](CHANGELOG.md) for the latest updates and important/breaking change
 
 ## Module Robustness & Data Integrity <a name="disclaimer"></a>
 
-**romcal’s code logic** aim to be fully compliant with the [_General Instruction on the Roman Missal_](https://www.catholicculture.org/culture/library/view.cfm?recnum=337) (GIRM) and the [_General Norms for the Liturgical Year and the Calendar_](https://www.catholicculture.org/culture/library/view.cfm?id=10842).
+**Romcal’s code logic** aim to be fully compliant with the [_General Instruction on the Roman Missal_](https://www.catholicculture.org/culture/library/view.cfm?recnum=337) (GIRM) and the [_General Norms for the Liturgical Year and the Calendar_](https://www.catholicculture.org/culture/library/view.cfm?id=10842).
 
 **Calendar entries** are pulled from the missal and official sources for the _General Roman Calendar_. Other calendar entries are pulled from various liturgical books and sources from the internet (when we don't have access to the missal or official proper books of the country / region). As such the accuracy for all calendars might not be ensured.
 If you find an incorrect calendar entry (e.g. wrong date, wrong feast rank, spelling issue, typos), you are most welcome to contribute or inform the team on the GitHub issue tracker, so that the necessary changes can be made to make this a more robust and reliable module.
