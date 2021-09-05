@@ -56,6 +56,8 @@ import {
 import { Key } from './types/common';
 import { CalendarScope, RomcalConfigInput, RomcalConfigOutput } from './types/config';
 import {
+  BaseLiturgicalDay,
+  BaseLiturgicalDayDef,
   CalendarMetadata,
   DateDef,
   DateDefAddDay,
@@ -376,6 +378,8 @@ export {
   RomcalConfigOutput,
   CalendarScope,
   // types/liturgical-day.ts
+  BaseLiturgicalDay,
+  BaseLiturgicalDayDef,
   DateDef,
   Month,
   DayOfWeek,
