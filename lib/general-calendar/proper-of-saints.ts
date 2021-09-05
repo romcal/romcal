@@ -4,6 +4,11 @@ import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { InputDefinitions, ParticularConfig } from '../types/calendar-def';
 
+// Note: Liturgical colors are added automatically, leaning on the martyrology catalog.
+// But since Romcal can be run without a localized calendar (so without martyrology and title data),
+// we must set manually the RED color on all martyrs in this General Roman Calendar,
+// which is the default calendar if no options are provided.
+
 export class GeneralRoman extends CalendarDef {
   particularConfig: ParticularConfig = {
     epiphanyOnSunday: true,
@@ -41,21 +46,25 @@ export class GeneralRoman extends CalendarDef {
     fabian_i_pope: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 1, date: 20 },
+      colors: Colors.Red,
     },
 
     sebastian_of_milan_martyr: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 1, date: 20 },
+      colors: Colors.Red,
     },
 
     agnes_of_rome_virgin: {
       precedence: Precedences.GeneralMemorial_10,
       dateDef: { month: 1, date: 21 },
+      colors: Colors.Red,
     },
 
     vincent_of_saragossa_deacon: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 1, date: 22 },
+      colors: Colors.Red,
     },
 
     francis_de_sales_bishop: {
@@ -100,6 +109,7 @@ export class GeneralRoman extends CalendarDef {
     blaise_of_sebaste_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 2, date: 3 },
+      colors: Colors.Red,
     },
 
     ansgar_of_hamburg_bishop: {
@@ -110,12 +120,14 @@ export class GeneralRoman extends CalendarDef {
     agatha_of_sicily_virgin: {
       precedence: Precedences.GeneralMemorial_10,
       dateDef: { month: 2, date: 5 },
+      colors: Colors.Red,
     },
 
     paul_miki_and_companions_martyrs: {
       precedence: Precedences.GeneralMemorial_10,
       dateDef: { month: 2, date: 6 },
       martyrology: ['paul_miki_martyr', 'companions_martyrs'],
+      colors: Colors.Red,
     },
 
     jerome_emiliani: {
@@ -163,6 +175,7 @@ export class GeneralRoman extends CalendarDef {
     polycarp_of_smyrna_bishop: {
       precedence: Precedences.GeneralMemorial_10,
       dateDef: { month: 2, date: 23 },
+      colors: Colors.Red,
     },
 
     gregory_of_narek_abbot: {
@@ -179,6 +192,7 @@ export class GeneralRoman extends CalendarDef {
       precedence: Precedences.GeneralMemorial_10,
       dateDef: { month: 3, date: 7 },
       martyrology: ['perpetua_of_carthage_martyr', 'felicity_of_carthage_martyr'],
+      colors: Colors.Red,
     },
 
     john_of_god_duarte_cidade_religious: {
@@ -254,11 +268,13 @@ export class GeneralRoman extends CalendarDef {
     stanislaus_of_szczepanow_bishop: {
       precedence: Precedences.GeneralMemorial_10,
       dateDef: { month: 4, date: 11 },
+      colors: Colors.Red,
     },
 
     martin_i_pope: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 4, date: 13 },
+      colors: Colors.Red,
     },
 
     anselm_of_canterbury_bishop: {
@@ -269,16 +285,19 @@ export class GeneralRoman extends CalendarDef {
     george_of_lydda_martyr: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 4, date: 23 },
+      colors: Colors.Red,
     },
 
     adalbert_of_prague_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 4, date: 23 },
+      colors: Colors.Red,
     },
 
     fidelis_of_sigmaringen_priest: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 4, date: 24 },
+      colors: Colors.Red,
     },
 
     mark_evangelist: {
@@ -290,6 +309,7 @@ export class GeneralRoman extends CalendarDef {
     peter_chanel_priest: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 4, date: 28 },
+      colors: Colors.Red,
     },
 
     louis_grignion_de_montfort_priest: {
@@ -333,11 +353,13 @@ export class GeneralRoman extends CalendarDef {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 5, date: 12 },
       martyrology: ['nereus_of_terracina_martyr', 'achilleus_of_terracina_martyr'],
+      colors: Colors.Red,
     },
 
     pancras_of_rome_martyr: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 5, date: 12 },
+      colors: Colors.Red,
     },
 
     our_lady_of_fatima: {
@@ -354,6 +376,7 @@ export class GeneralRoman extends CalendarDef {
     john_i_pope: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 5, date: 18 },
+      colors: Colors.Red,
     },
 
     bernardine_of_siena_priest: {
@@ -365,6 +388,7 @@ export class GeneralRoman extends CalendarDef {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 5, date: 21 },
       martyrology: ['christopher_magallanes_priest', { key: 'companions_martyrs', count: 24 }],
+      colors: Colors.Red,
     },
 
     rita_of_cascia_religious: {
@@ -425,23 +449,27 @@ export class GeneralRoman extends CalendarDef {
     justin_martyr: {
       precedence: Precedences.GeneralMemorial_10,
       dateDef: { month: 6, date: 1 },
+      colors: Colors.Red,
     },
 
     marcellinus_of_rome_and_peter_the_exorcist_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 6, date: 2 },
       martyrology: ['marcellinus_of_rome_martyr', 'peter_the_exorcist_martyr'],
+      colors: Colors.Red,
     },
 
     charles_lwanga_and_companions_martyrs: {
       precedence: Precedences.GeneralMemorial_10,
       dateDef: { month: 6, date: 3 },
       martyrology: ['charles_lwanga_martyr', 'companions_martyrs'],
+      colors: Colors.Red,
     },
 
     boniface_of_mainz_bishop: {
       precedence: Precedences.GeneralMemorial_10,
       dateDef: { month: 6, date: 5 },
+      colors: Colors.Red,
     },
 
     norbert_of_xanten_bishop: {
@@ -484,6 +512,7 @@ export class GeneralRoman extends CalendarDef {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 6, date: 22 },
       martyrology: ['john_fisher_bishop', 'thomas_more_martyr'],
+      colors: Colors.Red,
     },
 
     nativity_of_john_the_baptist: {
@@ -501,6 +530,7 @@ export class GeneralRoman extends CalendarDef {
     irenaeus_of_lyon_bishop: {
       precedence: Precedences.GeneralMemorial_10,
       dateDef: { month: 6, date: 28 },
+      colors: Colors.Red,
     },
 
     peter_and_paul_apostles: {
@@ -515,6 +545,7 @@ export class GeneralRoman extends CalendarDef {
     first_martyrs_of_the_holy_roman_church: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 6, date: 30 },
+      colors: Colors.Red,
     },
 
     thomas_apostle: {
@@ -536,12 +567,14 @@ export class GeneralRoman extends CalendarDef {
     maria_goretti_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 7, date: 6 },
+      colors: Colors.Red,
     },
 
     augustine_zhao_rong_priest_and_companions_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 7, date: 9 },
       martyrology: ['augustine_zhao_rong_priest', 'companions_martyrs'],
+      colors: Colors.Red,
     },
 
     benedict_of_nursia_abbot: {
@@ -572,6 +605,7 @@ export class GeneralRoman extends CalendarDef {
     apollinaris_of_ravenna_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 7, date: 20 },
+      colors: Colors.Red,
     },
 
     lawrence_of_brindisi_priest: {
@@ -658,6 +692,7 @@ export class GeneralRoman extends CalendarDef {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 8, date: 7 },
       martyrology: ['sixtus_ii_pope', 'companions_martyrs'],
+      colors: Colors.Red,
     },
 
     cajetan_of_thiene_priest: {
@@ -673,11 +708,13 @@ export class GeneralRoman extends CalendarDef {
     teresa_benedicta_of_the_cross_stein_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 8, date: 9 },
+      colors: Colors.Red,
     },
 
     lawrence_of_rome_deacon: {
       precedence: Precedences.GeneralFeast_7,
       dateDef: { month: 8, date: 10 },
+      colors: Colors.Red,
     },
 
     clare_of_assisi_virgin: {
@@ -694,11 +731,13 @@ export class GeneralRoman extends CalendarDef {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 8, date: 13 },
       martyrology: ['pontian_i_pope', 'hippolytus_of_rome_priest'],
+      colors: Colors.Red,
     },
 
     maximilian_kolbe_priest: {
       precedence: Precedences.GeneralMemorial_10,
       dateDef: { month: 8, date: 14 },
+      colors: Colors.Red,
     },
 
     assumption: {
@@ -811,6 +850,7 @@ export class GeneralRoman extends CalendarDef {
       precedence: Precedences.GeneralMemorial_10,
       dateDef: { month: 9, date: 16 },
       martyrology: ['cornelius_i_pope', 'cyprian_of_carthage_bishop'],
+      colors: Colors.Red,
     },
 
     hildegard_of_bingen_abbess: {
@@ -826,12 +866,14 @@ export class GeneralRoman extends CalendarDef {
     januarius_i_of_benevento_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 9, date: 19 },
+      colors: Colors.Red,
     },
 
     andrew_kim_tae_gon_priest_paul_chong_ha_sang_and_companions_martyrs: {
       precedence: Precedences.GeneralMemorial_10,
       dateDef: { month: 9, date: 20 },
       martyrology: ['andrew_kim_tae_gon_priest', 'paul_chong_ha_sang_martyr', 'companions_martyrs'],
+      colors: Colors.Red,
     },
 
     matthew_apostle: {
@@ -849,6 +891,7 @@ export class GeneralRoman extends CalendarDef {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 9, date: 26 },
       martyrology: ['cosmas_of_cilicia_martyr', 'damian_of_cilicia_martyr'],
+      colors: Colors.Red,
     },
 
     vincent_de_paul_priest: {
@@ -859,12 +902,14 @@ export class GeneralRoman extends CalendarDef {
     wenceslaus_i_of_bohemia_martyr: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 9, date: 28 },
+      colors: Colors.Red,
     },
 
     lawrence_ruiz_and_companions_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 9, date: 28 },
       martyrology: ['lawrence_ruiz_martyr', 'companions_martyrs'],
+      colors: Colors.Red,
     },
 
     michael_gabriel_and_raphael_archangels: {
@@ -912,6 +957,7 @@ export class GeneralRoman extends CalendarDef {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 10, date: 9 },
       martyrology: ['denis_of_paris_bishop', 'companions_martyrs'],
+      colors: Colors.Red,
     },
 
     john_leonardi_priest: {
@@ -932,6 +978,7 @@ export class GeneralRoman extends CalendarDef {
     callistus_i_pope: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 10, date: 14 },
+      colors: Colors.Red,
     },
 
     teresa_of_jesus_of_avila_virgin: {
@@ -952,6 +999,7 @@ export class GeneralRoman extends CalendarDef {
     ignatius_of_antioch_bishop: {
       precedence: Precedences.GeneralMemorial_10,
       dateDef: { month: 10, date: 17 },
+      colors: Colors.Red,
     },
 
     luke_evangelist: {
@@ -964,6 +1012,7 @@ export class GeneralRoman extends CalendarDef {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 10, date: 19 },
       martyrology: ['john_de_brebeuf_priest', 'isaac_jogues_priest', 'companions_martyrs'],
+      colors: Colors.Red,
     },
 
     paul_of_the_cross_priest: {
@@ -1044,6 +1093,7 @@ export class GeneralRoman extends CalendarDef {
     josaphat_kuntsevych_bishop: {
       precedence: Precedences.GeneralMemorial_10,
       dateDef: { month: 11, date: 12 },
+      colors: Colors.Red,
     },
 
     albert_the_great_bishop: {
@@ -1079,11 +1129,13 @@ export class GeneralRoman extends CalendarDef {
     cecilia_of_rome_virgin: {
       precedence: Precedences.GeneralMemorial_10,
       dateDef: { month: 11, date: 22 },
+      colors: Colors.Red,
     },
 
     clement_i_pope: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 11, date: 23 },
+      colors: Colors.Red,
     },
 
     columban_of_luxeuil_abbot: {
@@ -1095,11 +1147,13 @@ export class GeneralRoman extends CalendarDef {
       precedence: Precedences.GeneralMemorial_10,
       dateDef: { month: 11, date: 24 },
       martyrology: ['andrew_dung_lac_priest', 'companions_martyrs'],
+      colors: Colors.Red,
     },
 
     catherine_of_alexandria_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 11, date: 25 },
+      colors: Colors.Red,
     },
 
     andrew_apostle: {
@@ -1159,6 +1213,7 @@ export class GeneralRoman extends CalendarDef {
     lucy_of_syracuse_virgin: {
       precedence: Precedences.GeneralMemorial_10,
       dateDef: { month: 12, date: 13 },
+      colors: Colors.Red,
     },
 
     john_of_the_cross_priest: {
@@ -1179,6 +1234,7 @@ export class GeneralRoman extends CalendarDef {
     stephen_the_first_martyr: {
       precedence: Precedences.GeneralFeast_7,
       dateDef: { month: 12, date: 26 },
+      colors: Colors.Red,
     },
 
     john_apostle: {
@@ -1190,11 +1246,13 @@ export class GeneralRoman extends CalendarDef {
     holy_innocents_martyrs: {
       precedence: Precedences.GeneralFeast_7,
       dateDef: { month: 12, date: 28 },
+      colors: Colors.Red,
     },
 
     thomas_becket_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 12, date: 29 },
+      colors: Colors.Red,
     },
 
     sylvester_i_pope: {
