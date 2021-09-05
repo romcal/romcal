@@ -1,13 +1,13 @@
 import 'jest-extended';
-import { czechRepublic_cs } from 'romcal-next/dist/bundles/czech-republic';
-import { england_en } from 'romcal-next/dist/bundles/england';
-import { germany_en } from 'romcal-next/dist/bundles/germany';
-import { hungary_en } from 'romcal-next/dist/bundles/hungary';
-import { malta_en } from 'romcal-next/dist/bundles/malta';
-import { mexico_es } from 'romcal-next/dist/bundles/mexico';
-import { slovakia_sk } from 'romcal-next/dist/bundles/slovakia';
-import { spain_es } from 'romcal-next/dist/bundles/spain';
-import { wales_en } from 'romcal-next/dist/bundles/wales';
+import { czechRepublic_cs } from 'romcal/dist/bundles/czech-republic';
+import { england_en } from 'romcal/dist/bundles/england';
+import { germany_en } from 'romcal/dist/bundles/germany';
+import { hungary_en } from 'romcal/dist/bundles/hungary';
+import { malta_en } from 'romcal/dist/bundles/malta';
+import { mexico_es } from 'romcal/dist/bundles/mexico';
+import { slovakia_sk } from 'romcal/dist/bundles/slovakia';
+import { spain_es } from 'romcal/dist/bundles/spain';
+import { wales_en } from 'romcal/dist/bundles/wales';
 import Romcal, { BaseLiturgicalDay } from '../lib';
 
 const { Ranks, Periods, Precedences, getUtcDateFromString } = Romcal;

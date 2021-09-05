@@ -1,5 +1,5 @@
 const express = require('express');
-const Romcal = require('romcal-next');
+const Romcal = require('romcal');
 const { france_fr } = require('@romcal/calendar.france');
 
 /**

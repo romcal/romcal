@@ -1,6 +1,6 @@
 import 'jest-extended';
-import { france_fr } from 'romcal-next/dist/bundles/france';
-import { unitedStates_en } from 'romcal-next/dist/bundles/united-states';
+import { france_fr } from 'romcal/dist/bundles/france';
+import { unitedStates_en } from 'romcal/dist/bundles/united-states';
 import Romcal from '../lib';
 
 const {

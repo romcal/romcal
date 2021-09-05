@@ -8,7 +8,7 @@
     "@romcal/calendar.france": "file:../../dist/bundles/france",
     "@romcal/calendar.general-roman": "file:../../dist/bundles/general-roman",
     "express": "^4.17.1",
-    "romcal-next": "file:../../"
+    "romcal": "file:../../"
   },
   "license": "MIT"
 }

@@ -1,10 +1,10 @@
 import 'jest-extended';
-import { england_en } from 'romcal-next/dist/bundles/england';
-import { generalRoman_en } from 'romcal-next/dist/bundles/general-roman';
-import { germany_en } from 'romcal-next/dist/bundles/germany';
-import { hungary_en } from 'romcal-next/dist/bundles/hungary';
-import { ireland_en } from 'romcal-next/dist/bundles/ireland';
-import { slovakia_sk } from 'romcal-next/dist/bundles/slovakia';
+import { england_en } from 'romcal/dist/bundles/england';
+import { generalRoman_en } from 'romcal/dist/bundles/general-roman';
+import { germany_en } from 'romcal/dist/bundles/germany';
+import { hungary_en } from 'romcal/dist/bundles/hungary';
+import { ireland_en } from 'romcal/dist/bundles/ireland';
+import { slovakia_sk } from 'romcal/dist/bundles/slovakia';
 import Romcal, { BaseLiturgicalDay, BaseLiturgicalDayDef, LiturgicalCalendar } from '../lib';
 
 const {
