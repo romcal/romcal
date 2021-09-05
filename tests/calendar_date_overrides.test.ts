@@ -1,5 +1,4 @@
 import 'jest-extended';
-import Romcal, { BaseLiturgicalDay } from '../lib';
 import { czechRepublic_cs } from 'romcal-next/dist/bundles/czech-republic';
 import { england_en } from 'romcal-next/dist/bundles/england';
 import { germany_en } from 'romcal-next/dist/bundles/germany';
@@ -9,6 +8,7 @@ import { mexico_es } from 'romcal-next/dist/bundles/mexico';
 import { slovakia_sk } from 'romcal-next/dist/bundles/slovakia';
 import { spain_es } from 'romcal-next/dist/bundles/spain';
 import { wales_en } from 'romcal-next/dist/bundles/wales';
+import Romcal, { BaseLiturgicalDay } from '../lib';
 
 const { Ranks, Periods, Precedences, getUtcDateFromString } = Romcal;
 

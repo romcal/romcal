@@ -1,7 +1,7 @@
 import 'jest-extended';
-import Romcal from '../lib';
 import { france_fr } from 'romcal-next/dist/bundles/france';
 import { unitedStates_en } from 'romcal-next/dist/bundles/united-states';
+import Romcal from '../lib';
 
 const {
   addDays,
