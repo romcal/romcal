@@ -1,5 +1,5 @@
 import 'jest-extended';
-import { slovakia_sk } from 'romcal-next/dist/bundles/slovakia';
+import { slovakia_sk } from 'romcal/dist/bundles/slovakia';
 import Romcal from '../lib';
 
 const { Ranks, getUtcDateFromString, isSameDate, subtractsDays } = Romcal;

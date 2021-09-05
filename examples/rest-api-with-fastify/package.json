@@ -12,7 +12,7 @@
     "@romcal/calendar.france": "file:../../dist/bundles/france",
     "@romcal/calendar.general-roman": "file:../../dist/bundles/general-roman",
     "fastify": "^3.20.2",
-    "romcal-next": "file:../../"
+    "romcal": "file:../../"
   },
   "license": "MIT"
 }

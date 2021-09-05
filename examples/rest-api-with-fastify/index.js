@@ -1,4 +1,4 @@
-import Romcal from 'romcal-next';
+import Romcal from 'romcal';
 import fs from 'fs';
 import path from 'path';
 import Fastify from 'fastify';

@@ -1,5 +1,5 @@
 import 'jest-extended';
-import { france_fr } from 'romcal-next/dist/bundles/france';
+import { france_fr } from 'romcal/dist/bundles/france';
 import Romcal from '../lib';
 
 describe('Testing localization functionality', () => {

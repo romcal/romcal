@@ -261,7 +261,7 @@ export const RomcalBundler = (): void => {
       (acc, [, varName]) => acc + `export declare const ${varName}: RomcalBundleObject;\n`,
       '',
     );
-    const dtsOutput = `import { RomcalBundleObject } from 'romcal-next';\n\n` + dtsExports;
+    const dtsOutput = `import { RomcalBundleObject } from 'romcal';\n\n` + dtsExports;
     fs.writeFileSync(path.resolve(dir, `index.d.ts`), dtsOutput, 'utf-8');
   }
 
