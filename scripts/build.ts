@@ -140,12 +140,12 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
 
   // GRC martyrology titles
   log(chalk.dim(`  ./tmp/constants/grc-martyrology-titles.ts`));
+  const grcDefs = new GeneralRoman(new RomcalConfig()).definitions;
+  const grcDefKeys = Object.keys(grcDefs); // Add input definition key
   const grcMartyrologyKeys: string[] = [
     // Defining an array in a new set will automatically remove duplicates
     ...new Set(
-      Object.entries(new GeneralRoman(new RomcalConfig()).definitions).flatMap(([key, inputs]) => [
-        // Add input definition key
-        key,
+      Object.entries(grcDefs).flatMap(([, inputs]) => [
         // Check if a martyrology metadata is defined. If yes, add all martyrology keys.
         ...((Array.isArray(inputs) ? inputs : [inputs]) as LiturgicalDayInput[]).flatMap((input) =>
           input.martyrology && input.martyrology.length > 0
@@ -166,7 +166,9 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
   const grcMartyrology: MartyrologyCatalog = Object.fromEntries(
     Object.entries(Martyrology.catalog)
       .filter(
-        ([key, def]) => grcMartyrologyKeys.includes(key) && def.titles && def.titles.length > 0,
+        ([key, def]) =>
+          grcMartyrologyKeys.includes(key) ||
+          (grcDefKeys.includes(key) && def.titles && def.titles.length > 0),
       )
       .map(([key, def]) => [key, { titles: def.titles }]),
   );
