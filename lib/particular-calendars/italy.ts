@@ -1,13 +1,13 @@
 import { PatronTitles, Titles } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
-import { InputDefinitions } from '../types/calendar-def';
+import { Inputs } from '../types/calendar-def';
 import { Europe } from './europe';
 
 export class Italy extends CalendarDef {
   parentCalendar = Europe;
 
-  definitions: InputDefinitions = {
+  inputs: Inputs = {
     catherine_of_siena_virgin: {
       customLocaleKey: 'catherine_of_siena_virgin_copatroness_of_italy_and_europe',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,

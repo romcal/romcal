@@ -1,7 +1,7 @@
 import { PatronTitles } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
-import { InputDefinitions, ParticularConfig } from '../types/calendar-def';
+import { Inputs, ParticularConfig } from '../types/calendar-def';
 import { Europe } from './europe';
 
 export class France extends CalendarDef {
@@ -13,7 +13,7 @@ export class France extends CalendarDef {
     corpusChristiOnSunday: true,
   };
 
-  definitions: InputDefinitions = {
+  inputs: Inputs = {
     genevieve_of_paris_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 1, date: 3 },

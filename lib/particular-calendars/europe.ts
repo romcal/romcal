@@ -1,10 +1,10 @@
 import { PatronTitles } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
-import { InputDefinitions } from '../types/calendar-def';
+import { Inputs } from '../types/calendar-def';
 
 export class Europe extends CalendarDef {
-  definitions: InputDefinitions = {
+  inputs: Inputs = {
     cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop: {
       customLocaleKey:
         'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe',

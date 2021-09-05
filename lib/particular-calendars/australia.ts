@@ -2,7 +2,7 @@ import { ProperCycles } from '../constants/cycles';
 import { PatronTitles, Titles } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
-import { InputDefinitions, ParticularConfig } from '../types/calendar-def';
+import { Inputs, ParticularConfig } from '../types/calendar-def';
 
 export class Australia extends CalendarDef {
   particularConfig: ParticularConfig = {
@@ -11,7 +11,7 @@ export class Australia extends CalendarDef {
     corpusChristiOnSunday: false,
   };
 
-  definitions: InputDefinitions = {
+  inputs: Inputs = {
     patrick_of_ireland_bishop: {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       dateDef: { month: 3, date: 17 },

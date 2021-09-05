@@ -1,12 +1,12 @@
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
-import { InputDefinitions } from '../types/calendar-def';
+import { Inputs } from '../types/calendar-def';
 import { Europe } from './europe';
 
 export class Finland extends CalendarDef {
   parentCalendar = Europe;
 
-  definitions: InputDefinitions = {
+  inputs: Inputs = {
     henry_of_finland_bishop: {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       dateDef: { month: 1, date: 19 },

@@ -49,7 +49,7 @@ import { RomcalBundleObject } from './types/bundle';
 import { LiturgicalCalendar } from './types/calendar';
 import {
   CalendarDefInputs,
-  InputDefinitions,
+  Inputs,
   LiturgicalDayDefinitions,
   ParticularConfig,
 } from './types/calendar-def';
@@ -369,7 +369,7 @@ export {
   // types/calendar-def.ts
   CalendarDefInputs,
   ParticularConfig,
-  InputDefinitions,
+  Inputs,
   LiturgicalDayDefinitions,
   // types/common.ts
   Key,

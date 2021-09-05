@@ -1,9 +1,9 @@
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
-import { InputDefinitions } from '../types/calendar-def';
+import { Inputs } from '../types/calendar-def';
 
 export class India extends CalendarDef {
-  definitions: InputDefinitions = {
+  inputs: Inputs = {
     kuriakose_elias_of_the_holy_family_chavara_priest: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 1, date: 3 },

@@ -1,13 +1,13 @@
 import { PatronTitles, Titles } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
-import { InputDefinitions } from '../types/calendar-def';
+import { Inputs } from '../types/calendar-def';
 import { France } from './france';
 
 export class France_Strasbourg extends CalendarDef {
   parentCalendar = France;
 
-  definitions: InputDefinitions = {
+  inputs: Inputs = {
     amarin_abbot: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 1, date: 27 },

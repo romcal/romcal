@@ -1,13 +1,13 @@
 import { PatronTitles, Titles } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
-import { InputDefinitions } from '../types/calendar-def';
+import { Inputs } from '../types/calendar-def';
 import { France } from './france';
 
 export class France_SaintDenis extends CalendarDef {
   parentCalendar = France;
 
-  definitions: InputDefinitions = {
+  inputs: Inputs = {
     genevieve_of_paris_virgin: {
       precedence: Precedences.ProperMemorial_11b,
     },

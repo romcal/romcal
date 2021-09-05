@@ -1,7 +1,7 @@
 import { PatronTitles } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
-import { InputDefinitions, ParticularConfig } from '../types/calendar-def';
+import { Inputs, ParticularConfig } from '../types/calendar-def';
 import { Americas } from './americas';
 
 export class UnitedStates extends CalendarDef {
@@ -14,7 +14,7 @@ export class UnitedStates extends CalendarDef {
     corpusChristiOnSunday: true,
   };
 
-  definitions: InputDefinitions = {
+  inputs: Inputs = {
     elizabeth_ann_seton_religious: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 1, date: 4 },

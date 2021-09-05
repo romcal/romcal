@@ -1,12 +1,12 @@
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
-import { InputDefinitions } from '../types/calendar-def';
+import { Inputs } from '../types/calendar-def';
 import { Europe } from './europe';
 
 export class Portugal extends CalendarDef {
   parentCalendar = Europe;
 
-  definitions: InputDefinitions = {
+  inputs: Inputs = {
     gundisalvus_of_amarante_priest: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 1, date: 11 },

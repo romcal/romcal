@@ -1,13 +1,13 @@
 import { ProperCycles } from '../constants/cycles';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
-import { InputDefinitions } from '../types/calendar-def';
+import { Inputs } from '../types/calendar-def';
 import { Americas } from './americas';
 
 export class Bolivia extends CalendarDef {
   parentCalendar = Americas;
 
-  definitions: InputDefinitions = {
+  inputs: Inputs = {
     philip_of_jesus_de_las_casas_paul_miki_and_companions_martyrs: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 2, date: 6 },

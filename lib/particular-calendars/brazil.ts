@@ -1,13 +1,13 @@
 import { PatronTitles } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
-import { InputDefinitions } from '../types/calendar-def';
+import { Inputs } from '../types/calendar-def';
 import { Americas } from './americas';
 
 export class Brazil extends CalendarDef {
   parentCalendar = Americas;
 
-  definitions: InputDefinitions = {
+  inputs: Inputs = {
     joseph_de_anchieta_priest: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 6, date: 9 },

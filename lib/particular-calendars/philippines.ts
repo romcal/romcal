@@ -1,10 +1,10 @@
 import { PatronTitles } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
-import { InputDefinitions } from '../types/calendar-def';
+import { Inputs } from '../types/calendar-def';
 
 export class Philippines extends CalendarDef {
-  definitions: InputDefinitions = {
+  inputs: Inputs = {
     holy_child_of_cebu: {
       precedence: Precedences.ProperFeast_8f,
       // Third Sunday of January: Santo Niño (Holy Child Jesus)
