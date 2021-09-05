@@ -1,10 +1,10 @@
 import { PatronTitles, Titles } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
-import { InputDefinitions } from '../types/calendar-def';
+import { Inputs } from '../types/calendar-def';
 
 export class NewZealand extends CalendarDef {
-  definitions: InputDefinitions = {
+  inputs: Inputs = {
     waitangi_day: {
       precedence: Precedences.ProperFeast_8f,
       dateDef: { month: 2, date: 6 },

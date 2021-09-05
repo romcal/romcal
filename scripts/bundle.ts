@@ -20,7 +20,7 @@ import { CalendarDef } from '../lib/models/calendar-def';
 import { RomcalConfig } from '../lib/models/config';
 import LiturgicalDayDef from '../lib/models/liturgical-day-def';
 import { particularCalendars } from '../lib/particular-calendars';
-import { BundleDefinitions, LiturgicalDayDefinitions } from '../lib/types/calendar-def';
+import { BundleInputs, LiturgicalDayDefinitions } from '../lib/types/calendar-def';
 import { mergeDeep } from '../lib/utils/objects';
 import { toCamelCase, uncapitalize } from '../lib/utils/string';
 
@@ -69,9 +69,9 @@ class RomcalBuilder {
     return this.#config.liturgicalDayDef;
   }
 
-  getAllDefinitions(): BundleDefinitions {
+  getAllDefinitions(): BundleInputs {
     return Object.values(this.#config.liturgicalDayDef).reduce(
-      (obj: BundleDefinitions, def: LiturgicalDayDef) => {
+      (obj: BundleInputs, def: LiturgicalDayDef) => {
         if (def.fromCalendar === PROPER_OF_TIME_NAME) return obj;
 
         obj[def.key] = def.input;
@@ -186,7 +186,7 @@ export const RomcalBundler = (): void => {
           ascensionOnSunday: builder.config.ascensionOnSunday,
           corpusChristiOnSunday: builder.config.corpusChristiOnSunday,
         },
-        definitions,
+        inputs: definitions,
         martyrology,
         i18n: {
           key: locale.key,

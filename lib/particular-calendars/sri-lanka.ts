@@ -1,9 +1,9 @@
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
-import { InputDefinitions } from '../types/calendar-def';
+import { Inputs } from '../types/calendar-def';
 
 export class SriLanka extends CalendarDef {
-  definitions: InputDefinitions = {
+  inputs: Inputs = {
     joseph_vaz_priest: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 1, date: 16 },

@@ -1,4 +1,4 @@
-import { BundleDefinitions, ParticularConfig } from './calendar-def';
+import { BundleInputs, ParticularConfig } from './calendar-def';
 import { Key } from './common';
 import { Locale } from './locale';
 import { MartyrologyCatalog } from './martyrology';
@@ -6,7 +6,7 @@ import { MartyrologyCatalog } from './martyrology';
 export interface BaseRomcalBundle {
   calendarName: Key;
   particularConfig: ParticularConfig;
-  definitions: BundleDefinitions;
+  inputs: BundleInputs;
   martyrology: MartyrologyCatalog;
   i18n: Locale;
 }

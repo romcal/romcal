@@ -3,7 +3,7 @@ import { ProperCycles } from '../constants/cycles';
 import { PatronTitles, Titles } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
-import { InputDefinitions, ParticularConfig } from '../types/calendar-def';
+import { Inputs, ParticularConfig } from '../types/calendar-def';
 import { Europe } from './europe';
 
 export class Slovakia extends CalendarDef {
@@ -15,7 +15,7 @@ export class Slovakia extends CalendarDef {
     corpusChristiOnSunday: false,
   };
 
-  definitions: InputDefinitions = {
+  inputs: Inputs = {
     // TODO: When votive Masses (#110) are implemented, on '2-14', add a votive Mass for `cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop`
 
     joseph_spouse_of_mary: {

@@ -2,13 +2,13 @@ import { ProperCycles } from '../constants/cycles';
 import { PatronTitles } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
-import { InputDefinitions } from '../types/calendar-def';
+import { Inputs } from '../types/calendar-def';
 import { Americas } from './americas';
 
 export class PuertoRico extends CalendarDef {
   parentCalendar = Americas;
 
-  definitions: InputDefinitions = {
+  inputs: Inputs = {
     most_holy_name_of_jesus: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 1, date: 3 },

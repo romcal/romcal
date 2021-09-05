@@ -1,12 +1,12 @@
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
-import { InputDefinitions } from '../types/calendar-def';
+import { Inputs } from '../types/calendar-def';
 import { Europe } from './europe';
 
 export class Malta extends CalendarDef {
   parentCalendar = Europe;
 
-  definitions: InputDefinitions = {
+  inputs: Inputs = {
     publius_of_malta_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 1, date: 22 },

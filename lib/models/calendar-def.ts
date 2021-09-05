@@ -1,6 +1,6 @@
 import {
   BaseCalendarDef,
-  BundleDefinitions,
+  BundleInputs,
   CalendarDefInputs,
   CalendarDefInstance,
   ParticularConfig,
@@ -18,7 +18,7 @@ export class CalendarDef implements BaseCalendarDef {
   parentCalendar?: CalendarDefInstance | null;
   parentCalendarInstance?: InstanceType<CalendarDefInstance>;
   readonly particularConfig?: ParticularConfig;
-  definitions: CalendarDefInputs = {};
+  inputs: CalendarDefInputs = {};
   #definitionsBuilt = false;
 
   /**
@@ -35,10 +35,10 @@ export class CalendarDef implements BaseCalendarDef {
   }
   #calendarName?: string;
 
-  constructor(config: RomcalConfig, definitions?: BundleDefinitions) {
+  constructor(config: RomcalConfig, inputs?: BundleInputs) {
     this.#config = config;
     this.dates = this.#config.dates;
-    if (definitions) this.definitions = definitions;
+    if (inputs) this.inputs = inputs;
   }
 
   /**
@@ -81,9 +81,9 @@ export class CalendarDef implements BaseCalendarDef {
    * @param parentCal - The parent calendar object.
    * @private
    */
-  #retrieveParentCalDefinitions(parentCal: InstanceType<CalendarDefInstance>): void {
+  #retrieveParentCalInputs(parentCal: InstanceType<CalendarDefInstance>): void {
     if (parentCal.parentCalendarInstance) {
-      this.#retrieveParentCalDefinitions(parentCal.parentCalendarInstance);
+      this.#retrieveParentCalInputs(parentCal.parentCalendarInstance);
     }
 
     parentCal.buildAllDefinitions();
@@ -92,16 +92,16 @@ export class CalendarDef implements BaseCalendarDef {
   buildAllDefinitions(): void {
     if (this.#definitionsBuilt) return;
 
-    const inputs = Object.keys(this.definitions);
+    const inputs = Object.keys(this.inputs);
 
     if (this.parentCalendarInstance) {
-      this.#retrieveParentCalDefinitions(this.parentCalendarInstance);
+      this.#retrieveParentCalInputs(this.parentCalendarInstance);
     }
 
     inputs.forEach((key) => {
-      const inputValues: LiturgicalDayBundleInput[] = Array.isArray(this.definitions[key])
-        ? (this.definitions[key] as LiturgicalDayBundleInput[])
-        : [this.definitions[key] as LiturgicalDayBundleInput];
+      const inputValues: LiturgicalDayBundleInput[] = Array.isArray(this.inputs[key])
+        ? (this.inputs[key] as LiturgicalDayBundleInput[])
+        : [this.inputs[key] as LiturgicalDayBundleInput];
       inputValues.forEach((input) => this.#buildDefinition(key, input));
     });
 

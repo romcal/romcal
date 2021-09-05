@@ -3,13 +3,13 @@ import { ProperCycles } from '../constants/cycles';
 import { PatronTitles } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
-import { InputDefinitions } from '../types/calendar-def';
+import { Inputs } from '../types/calendar-def';
 import { Europe } from './europe';
 
 export class Hungary extends CalendarDef {
   parentCalendar = Europe;
 
-  definitions: InputDefinitions = {
+  inputs: Inputs = {
     paul_of_thebes_hermit: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 1, date: 15 },

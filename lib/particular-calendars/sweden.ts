@@ -1,13 +1,13 @@
 import { ProperCycles } from '../constants/cycles';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
-import { InputDefinitions } from '../types/calendar-def';
+import { Inputs } from '../types/calendar-def';
 import { Europe } from './europe';
 
 export class Sweden extends CalendarDef {
   parentCalendar = Europe;
 
-  definitions: InputDefinitions = {
+  inputs: Inputs = {
     elizabeth_hesselblad_religious: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 6, date: 4 },

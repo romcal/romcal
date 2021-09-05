@@ -1,13 +1,13 @@
 import { PatronTitles } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
-import { InputDefinitions } from '../types/calendar-def';
+import { Inputs } from '../types/calendar-def';
 import { Americas } from './americas';
 
 export class Canada extends CalendarDef {
   parentCalendar = Americas;
 
-  definitions: InputDefinitions = {
+  inputs: Inputs = {
     andre_bessette_religious: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 1, date: 7 },

@@ -2,7 +2,7 @@ import { ProperCycles } from '../constants/cycles';
 import { PatronTitles } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
-import { InputDefinitions, ParticularConfig } from '../types/calendar-def';
+import { Inputs, ParticularConfig } from '../types/calendar-def';
 import { Europe } from './europe';
 
 export class CzechRepublic extends CalendarDef {
@@ -14,7 +14,7 @@ export class CzechRepublic extends CalendarDef {
     corpusChristiOnSunday: false,
   };
 
-  definitions: InputDefinitions = {
+  inputs: Inputs = {
     our_lady_mother_of_christian_unity: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 1, date: 18 },

@@ -1,13 +1,13 @@
 import { ProperCycles } from '../constants/cycles';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
-import { InputDefinitions } from '../types/calendar-def';
+import { Inputs } from '../types/calendar-def';
 import { Americas } from './americas';
 
 export class Peru extends CalendarDef {
   parentCalendar = Americas;
 
-  definitions: InputDefinitions = {
+  inputs: Inputs = {
     finding_of_the_holy_cross: {
       precedence: Precedences.ProperFeast_8f,
       dateDef: { month: 5, date: 3 },

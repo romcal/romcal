@@ -2,7 +2,7 @@ import { Colors } from '../constants/colors';
 import { ProperCycles } from '../constants/cycles';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
-import { InputDefinitions, ParticularConfig } from '../types/calendar-def';
+import { Inputs, ParticularConfig } from '../types/calendar-def';
 
 // Note: Liturgical colors are added automatically, leaning on the martyrology catalog.
 // But since Romcal can be run without a localized calendar (so without martyrology and title data),
@@ -16,7 +16,7 @@ export class GeneralRoman extends CalendarDef {
     corpusChristiOnSunday: true,
   };
 
-  definitions: InputDefinitions = {
+  inputs: Inputs = {
     basil_the_great_and_gregory_nazianzen_bishops: {
       precedence: Precedences.GeneralMemorial_10,
       dateDef: { month: 1, date: 2 },

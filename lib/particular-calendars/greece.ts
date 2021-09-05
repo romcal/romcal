@@ -1,12 +1,12 @@
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
-import { InputDefinitions } from '../types/calendar-def';
+import { Inputs } from '../types/calendar-def';
 import { Europe } from './europe';
 
 export class Greece extends CalendarDef {
   parentCalendar = Europe;
 
-  definitions: InputDefinitions = {
+  inputs: Inputs = {
     cyril_of_jerusalem_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 3, date: 18 },

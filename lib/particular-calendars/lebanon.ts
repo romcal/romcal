@@ -1,9 +1,9 @@
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
-import { InputDefinitions } from '../types/calendar-def';
+import { Inputs } from '../types/calendar-def';
 
 export class Lebanon extends CalendarDef {
-  definitions: InputDefinitions = {
+  inputs: Inputs = {
     barbara_of_heliopolis_virgin: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 12, date: 4 },

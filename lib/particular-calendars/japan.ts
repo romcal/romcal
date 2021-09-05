@@ -1,9 +1,9 @@
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
-import { InputDefinitions } from '../types/calendar-def';
+import { Inputs } from '../types/calendar-def';
 
 export class Japan extends CalendarDef {
-  definitions: InputDefinitions = {
+  inputs: Inputs = {
     paul_miki_and_companions_martyrs: {
       precedence: Precedences.ProperFeast_8f,
     },

@@ -9,7 +9,7 @@ import { WEEKDAYS } from '../constants/weekdays';
 import { CalendarDef } from '../models/calendar-def';
 import { RomcalConfig } from '../models/config';
 import LiturgicalDayDef from '../models/liturgical-day-def';
-import { BundleDefinitions } from '../types/calendar-def';
+import { BundleInputs } from '../types/calendar-def';
 import { Key } from '../types/common';
 import { LiturgicalDayProperOfTimeInput } from '../types/liturgical-day';
 
@@ -23,8 +23,8 @@ export class ProperOfTime extends CalendarDef {
     return this.#calendarName;
   }
 
-  constructor(config: RomcalConfig, definitions?: BundleDefinitions) {
-    super(config, definitions);
+  constructor(config: RomcalConfig, inputs?: BundleInputs) {
+    super(config, inputs);
     this.#config = config;
   }
 
