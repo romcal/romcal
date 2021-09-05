@@ -1,11 +1,11 @@
 import 'jest-extended';
-import Romcal, { LiturgicalCalendar, BaseLiturgicalDay, BaseLiturgicalDayDef } from '../lib';
 import { england_en } from 'romcal-next/dist/bundles/england';
 import { generalRoman_en } from 'romcal-next/dist/bundles/general-roman';
 import { germany_en } from 'romcal-next/dist/bundles/germany';
 import { hungary_en } from 'romcal-next/dist/bundles/hungary';
 import { ireland_en } from 'romcal-next/dist/bundles/ireland';
 import { slovakia_sk } from 'romcal-next/dist/bundles/slovakia';
+import Romcal, { BaseLiturgicalDay, BaseLiturgicalDayDef, LiturgicalCalendar } from '../lib';
 
 const {
   Colors,
@@ -119,7 +119,7 @@ describe('Testing calendar generation functions', () => {
   describe('Testing liturgical colors', () => {
     test('The proper color of a Memorial or a Feast is white except for martyrs in which case it is red, and All Souls which is purple', async () => {
       const defs: BaseLiturgicalDayDef[] = Object.values(
-        await new Romcal().getAllDefinitions(),
+        await new Romcal({ localizedCalendar: generalRoman_en }).getAllDefinitions(),
       ).flat();
 
       defs

@@ -1,6 +1,6 @@
 import 'jest-extended';
-import Romcal from '../lib';
 import { france_fr } from 'romcal-next/dist/bundles/france';
+import Romcal from '../lib';
 
 describe('Testing localization functionality', () => {
   test('If the locale is set to "fr", romcal should output text in French', async () => {
