@@ -84,6 +84,9 @@ The default export is CommonJS compatible (`cjs`).
 In the `/dist` folder you may find additional builds for es6 modules (`esm`) or to be used globally from the browser (`iife`).
 The correct entry points are already configured in the package.json so there should be no extra setup to get the best build option.
 
+
+### Calendars installation
+
 The romcal library only include the General Roman Calendar (GRC), and the Proper of Time. By default, there is no other calendars, neither translation (even in English) nor extra martyrology metadata.
 
 The complete GRC, or any other particular calendar (for a country, a region or a diocese) are available as separated plugins, that contain a bundle of the calendar data, localizations, and a martyrology catalog (containing extra metadata).
@@ -163,11 +166,11 @@ Or with any of the optional options:
 ```ts
 // Initialize romcal (all options are optional)
 const romcal = new Romcal({
-  localizedCalendar: france_fr,              // The localized calendar to use with romcal
-  calendarScope: 'gregorian' | 'liturgical', // Default: 'gregorian' (Jan 1 to Dec 31). Optionally: 'liturgical' (the first Sunday of Advent to the last Saturday of Ordinary Time)
-  epiphanyOnSunday: true | false,            // Epiphany always a Sunday (between January 2 - 8), or on January 6
-  corpusChristiOnSunday: true | false,       // Corpus Christi always a Sunday, or the Thursday after Trinity Sunday
-  ascensionOnSunday: true | false,           // Ascension always a Sunday, or the 40th day of Easter (a Thursday)
+  localizedCalendar: france_fr,           // The localized calendar to use with romcal
+  scope: 'gregorian' | 'liturgical',      // Default: 'gregorian' (Jan 1 to Dec 31). Optionally: 'liturgical' (the first Sunday of Advent to the last Saturday of Ordinary Time)
+  epiphanyOnSunday: true | false,         // Epiphany always a Sunday (between January 2 - 8), or on January 6
+  corpusChristiOnSunday: true | false,    // Corpus Christi always a Sunday, or the Thursday after Trinity Sunday
+  ascensionOnSunday: true | false,        // Ascension always a Sunday, or the 40th day of Easter (a Thursday)
 });
 ```
 
@@ -237,11 +240,11 @@ The first `LiturgicalDay` object is the default one, the following objects are o
 ```
 
 By default, the range dates correspond to a Gregorian calendar (Jan 1 to Dec 31).
-Except if you previously initialized the `Romcal` object with `{ calendarScope: 'liturgical' }`: the range corresponds to a liturgical year (the first Sunday of Advent to the last Saturday of Ordinary Time).
+Except if you previously initialized the `Romcal` object with `{ scope: 'liturgical' }`: the range corresponds to a liturgical year (the first Sunday of Advent to the last Saturday of Ordinary Time).
 
 ```ts
 // Will generate a liturgical calendar, from 2029-12-02 to 2030-11-30
-const romcal = new Romcal({ calendarScope: 'liturgical' });
+const romcal = new Romcal({ scope: 'liturgical' });
 const data = await romcal.generateCalendar(2030);
 ```
 
