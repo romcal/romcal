@@ -134,11 +134,28 @@ class Romcal {
   }
 
   /**
+   * Sanitize the provided year
+   * @param year
+   * @private
+   */
+  static #sanitizeYear(year?: number | string): number | undefined {
+    const y: number | undefined = typeof year === 'string' ? parseInt(year, 10) : year;
+    if (
+      (y !== undefined && !Number.isInteger(y)) ||
+      (Number.isInteger(y) && (y! < 0 || y! > 9999))
+    ) {
+      throw new Error('The provided year is incorrect');
+    }
+    return y;
+  }
+
+  /**
    * Dates library
    * @param year
    */
-  dates(year?: number): Dates {
-    const ldConfig = new LiturgicalDayConfig(this.#config, year);
+  dates(year?: number | string): Dates {
+    const y = Romcal.#sanitizeYear(year);
+    const ldConfig = new LiturgicalDayConfig(this.#config, y);
     if (this.#dates[ldConfig.year]) return this.#dates[ldConfig.year];
     return (this.#dates[ldConfig.year] = ldConfig.dates);
   }
@@ -159,12 +176,15 @@ class Romcal {
    */
   getOneLiturgicalDay(
     key: Key,
-    options: { year?: number; computeInWholeYear?: boolean } = { computeInWholeYear: false },
+    options: { year?: number | string; computeInWholeYear?: boolean } = {
+      computeInWholeYear: false,
+    },
   ): Promise<LiturgicalDay | null | undefined> {
-    const ldConfig = new LiturgicalDayConfig(this.#config, options.year);
-
     return new Promise((resolve, reject) => {
       try {
+        const y = Romcal.#sanitizeYear(options.year);
+        const ldConfig = new LiturgicalDayConfig(this.#config, y);
+
         this.getAllDefinitions().then(() => {
           const partialLd = new Calendar(this.#config, ldConfig).getOneLiturgicalDay(key);
           if (!options.computeInWholeYear) return resolve(partialLd);
@@ -187,18 +207,20 @@ class Romcal {
   /**
    * Generate a liturgical calendar, within a Liturgical or Gregorian scope.
    */
-  generateCalendar(year?: number): Promise<LiturgicalCalendar> {
-    const ldConfig = new LiturgicalDayConfig(this.#config, year);
+  generateCalendar(year?: number | string): Promise<LiturgicalCalendar> {
     // Wrap the calendar computing process in a Promise.
     // Even if this method is called with async/await, this makes this method running in a microtask queue:
     // it does not run on the main thread, meaning other things can occur (click events, rendering, etc.).
     return new Promise((resolve, reject) => {
-      // Return cached data, if the calendar has been already computed
-      if (this.#computedCalendars[ldConfig.year]) {
-        return resolve(this.#computedCalendars[ldConfig.year]);
-      }
-
       try {
+        const y = Romcal.#sanitizeYear(year);
+        const ldConfig = new LiturgicalDayConfig(this.#config, y);
+
+        // Return cached data, if the calendar has been already computed
+        if (this.#computedCalendars[ldConfig.year]) {
+          return resolve(this.#computedCalendars[ldConfig.year]);
+        }
+
         this.getAllDefinitions().then(() => {
           this.#computedCalendars[ldConfig.year] = new Calendar(
             this.#config,
