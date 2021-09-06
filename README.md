@@ -84,6 +84,25 @@ The default export is CommonJS compatible (`cjs`).
 In the `/dist` folder you may find additional builds for es6 modules (`esm`) or to be used globally from the browser (`iife`).
 The correct entry points are already configured in the package.json so there should be no extra setup to get the best build option.
 
+The romcal library only include the General Roman Calendar (GRC), and the Proper of Time. By default, there is no other calendars, neither translation (even in English) nor extra martyrology metadata.
+
+The complete GRC, or any other particular calendar (for a country, a region or a diocese) are available as separated plugins, that contain a bundle of the calendar data, localizations, and a martyrology catalog (containing extra metadata).
+
+
+For example, to install the General Roman Calendar and the calendar of France:
+
+```bash
+# npm
+npm install @romcal/calendar.general-roman
+npm install @romcal/calendar.france
+
+# yarn
+yarn add @romcal/calendar.general-roman
+yarn add @romcal/calendar.france
+```
+
+The complete list of localized calendar is [available here](#).
+
 
 ### Load from CDN
 
