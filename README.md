@@ -79,7 +79,7 @@ npm install romcal@3.x
 yarn add romcal@3.x
 ```
 
-The default export is CommonJS compatible.
+The default export is CommonJS compatible (`cjs`).
 
 In the `/dist` folder you may find additional builds for es6 modules (`esm`) or to be used globally from the browser (`iife`).
 The correct entry points are already configured in the package.json so there should be no extra setup to get the best build option.
@@ -98,7 +98,7 @@ esm or cjs:
 - https://unpkg.com/romcal/dist/esm/romcal.js
 - https://unpkg.com/romcal/dist/cjs/romcal.js
 
-Make sure to use a fixed version in production like https://unpkg.com/romcal@3.0.0/dist/cjs/romcal.js as passing no version will redirect to latest version which might contain breaking changes in future.
+Make sure to use a fixed version in production like https://unpkg.com/romcal@3.0.0/dist/cjs/romcal.js as passing no version will redirect to the latest version which might contain breaking changes in the future.
 
 #### cdnjs.com
 
@@ -107,12 +107,41 @@ https://cdnjs.com/libraries/romcal
 
 ## Basic samples
 
-### Generate calendar: `.generateCalendar(year)`
+### Initialize a Romcal object
 
+Before generating any kind of data, you must first generate a `new Romcal()` object.
+
+#### 1. Import Romcal
+
+As `esm`:
 ```ts
 import Romcal from 'romcal';
 import { france_fr } from '@romcal/calendar.france';
+```
 
+Or as `cjs`:
+```ts
+const Romcal = require('romcal');
+const { france_fr } = require('@romcal/calendar.france');
+```
+
+Or as `iife` in a web HTML page:
+```html
+<script src="https://unpkg.com/romcal@3.0.0/dist/iife/romcal.js"></script>
+<script src="https://unpkg.com/@romcal/calendar.france@3.0.0/dist/iife/fr.js"></script>
+```
+
+#### 2. Initialize Romcal
+
+With default options:
+
+```ts
+const romcal = new Romcal();
+```
+
+Or any of the optional options:
+
+```ts
 // Initialize romcal (all options are optional)
 const romcal = new Romcal({
   localizedCalendar: france_fr,              // The localized calendar to use with romcal
@@ -121,15 +150,6 @@ const romcal = new Romcal({
   corpusChristiOnSunday: true | false,       // Corpus Christi always a Sunday, or the Thursday after Trinity Sunday
   ascensionOnSunday: true | false,           // Ascension always a Sunday, or the 40th day of Easter (a Thursday)
 });
-
-// Get a romcal calendar for 2030, using a Promise:
-romcal.generateCalendar(2030).then((data) => {
-  console.log(data);
-});
-
-// Or get a romcal calendar for the current year, using async/await:
-const data = await romcal.generateCalendar();
-console.log(data);
 ```
 
 For further information about romcal configuration and the default options: :books: [Configuration options](docs/general-usage.md#configuration-options).
@@ -140,7 +160,25 @@ You can also take a look to the [./examples](./examples) directory, which contai
 - [rest-api-with-express](./examples/rest-api-with-express) – a REST API using Node.js and Express, written as CommonJs (`cjs`).
 - [rest-api-with-fastify](./examples/rest-api-with-fastify) – a REST API using Node.js and Fastify, written as ES Module (`esm`).
 
-This method produces an `Object` of key/values, where the key is a date (as a ISO8601 string), and the value is an `Array` of `LiturgicalDay` objects that can occur on a specific day (the first object is the default one, the following objects are optionals).
+
+### Generate a calendar `.generateCalendar(year)`
+
+The `year` parameter is optional.
+
+Below, 2 examples to generate a calendar for a specific year or the current year.
+
+```ts
+// Get a romcal calendar for 2030, using a Promise:
+romcal.generateCalendar(2030).then((data) => {
+  console.log(data);
+});
+
+// Or get a romcal calendar for the current year, using async/await:
+const data = await romcal.generateCalendar();
+```
+
+This method produces an `Object` of key/values, where the key is a date (as a ISO8601 string), and the value is an `Array` of `LiturgicalDay` objects that can occur on a specific day.
+The first `LiturgicalDay` object is the default one, the following objects are optionals (e.g. optional memorials).
 
 ```json5
 {
@@ -178,23 +216,80 @@ This method produces an `Object` of key/values, where the key is a date (as a IS
 }
 ```
 
+By default, the range dates correspond to the Gregorian calendar (Jan 1 to Dec 31).
+Except if you previously initialized the `Romcal` object with `{ calendarScope: 'liturgical' }`: the range corresponds to a liturgical year (the first Sunday of Advent to the last Saturday of Ordinary Time).
+
+```ts
+// Will generate a liturgical calendar, from 2029-12-02 to 2030-11-30
+const romcal = new Romcal({ calendarScope: 'liturgical' });
+const data = await romcal.generateCalendar(2030);
+```
+
 For further information: :books: [Output data and JSON schema](docs/data-output.md).
 
-### Get one liturgical day:
-`.getOneLiturgicalDay(year, options)`
+### Get one liturgical day `.getOneLiturgicalDay(key, options)`
 
-> todo: add documentation here
+Instead of returning `LitugicalDay` objects for the whole year, you can try to retrieve only one object by its `key`.
 
-### Get liturgical day definitions:
-#### `.getAllDefinitions()`
-#### `.getProperOfTimeDefinitions()`
+```ts
+const data = romcal.getOneLiturgicalDay('easter_sunday');
+```
 
-> todo: add documentation here
+It may return `null` if the `LiturgicalDay` exists in the calendar definitions, but do not occur in this specific year.
+Or `undefined` if the desired `LiturgicalYear` do not exist in the calendar.
 
-### Get dates:
-#### `.date(year).fn()`
+By default, romcal compute this `LiturgicalDay` in the context of the current year.
+You can set a specific year in the options: `{ year: 2030 }`.
 
-> todo: add documentation here
+**Important:** from this method, romcal do not compute the whole year for performance reasons.
+Some metadata (especially the `seasons` and the `periods` in Christmas Time, and the `precedence` rules) might be incomplete or not accurate.
+
+If this is an issue for your requirements, you can tell Romcal to compute first the whole year to ensure data integrity, by setting this option: `{ computeInWholeYear: true }`.
+
+```ts
+const data = romcal.getOneLiturgicalDay('ordinary_time_12_sunday', {
+  year: 2022,
+  computeInWholeYear: true,
+});
+// Will return `null`, because `corpus_christi` is taking precedence over `ordinary_time_12_sunday` in 2022
+```
+
+
+### Get all liturgical day definitions `.getAllDefinitions()`
+
+The 2 methods above (`.generateCalendar` and `.getOneLiturgicalDay`) are returning `LiturgicalDay` objects, in the context of a year.
+That is, every `LiturgicalDay` objects have a `date` property, and are sorted and possibly removed depending on the year context and seasons/precedence rules.
+
+But you might need to retrieve all possible calendar definitions, without any rules or year context.
+
+The `.getAllDefinitions()` method returns absolutely all `LiturgicalDayDef` objects that are part of a liturgical calendar.
+The returned object is a key/value, where the key is the `key` of the `LiturgicalDayDef` object, and the value is the `LiturgicalDayDef` itself.
+
+```ts
+const definitions = romcal.getAllDefinitions();
+```
+
+
+### Get the date of major celebrations `.date(year).fn()`
+
+You might only need the `Date` of a liturgical day, without computing all other metadata or a whole calendar.
+
+This gives you access to all methods from the `Dates` class: [./lib/utils/dates.ts](./lib/utils/dates.ts).
+
+The `year` parameter is optional (taking the current year by default, if not provided).
+
+```ts
+const romcal = new Romcal();
+const dates = romcal.dates(2030);
+const easterOf2030 = dates.easterSunday();
+```
+
+Note that you can also pass a `year` property to the last method:
+
+```ts
+const pentecostOf2030 = romcal.dates().pentecostSunday(2030);
+```
+
 
 ## Contribute
 
@@ -216,7 +311,7 @@ See [history](CHANGELOG.md) for the latest updates and important/breaking change
 
 **Romcal’s code logic** aim to be fully compliant with the [_General Instruction on the Roman Missal_](https://www.catholicculture.org/culture/library/view.cfm?recnum=337) (GIRM) and the [_General Norms for the Liturgical Year and the Calendar_](https://www.catholicculture.org/culture/library/view.cfm?id=10842).
 
-**Calendar entries** are pulled from the missal and official sources for the _General Roman Calendar_. Other calendar entries are pulled from various liturgical books and sources from the internet (when we don't have access to the missal or official proper books of the country / region). As such the accuracy for all calendars might not be ensured.
+**Calendar entries** are pulled from the missal and official sources for the _General Roman Calendar_. Other calendar entries are pulled from various liturgical books and sources from the internet (when we don't have access to the missal or proper official books of the country / region). As such the accuracy of all calendars might not be ensured.
 If you find an incorrect calendar entry (e.g. wrong date, wrong feast rank, spelling issue, typos), you are most welcome to contribute or inform the team on the GitHub issue tracker, so that the necessary changes can be made to make this a more robust and reliable module.
 
 ## Credits
