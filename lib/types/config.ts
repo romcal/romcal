@@ -46,19 +46,6 @@ export interface BaseRomcalConfig {
   readonly scope?: CalendarScope;
 
   /**
-   * Enable logging output.
-   * Logs are newline delimited JSON (NDJSON),
-   * a convenient format for production usage and long-term storage.
-   */
-  readonly verbose?: boolean;
-
-  /**
-   * Prettify logs printed in the console, for a better experience in development environnements
-   * (instead of output them in NDJSON format).
-   */
-  readonly prettyPrint?: boolean;
-
-  /**
    * All calendar definitions
    */
   readonly calendarsDef: InstanceType<CalendarDefInstance>[];

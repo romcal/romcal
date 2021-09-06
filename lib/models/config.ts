@@ -29,8 +29,6 @@ export class RomcalConfig implements IRoncalConfig {
   corpusChristiOnSunday: boolean;
   ascensionOnSunday: boolean;
   readonly scope: CalendarScope;
-  readonly verbose: boolean;
-  readonly prettyPrint: boolean;
   readonly i18next: i18n;
   readonly dates: typeof Dates;
   readonly martyrologyCatalog: MartyrologyCatalog;
@@ -78,9 +76,6 @@ export class RomcalConfig implements IRoncalConfig {
       config?.ascensionOnSunday ??
       this.localizedCalendar?.particularConfig.ascensionOnSunday ??
       false;
-
-    this.verbose = config?.verbose ?? false;
-    this.prettyPrint = config?.prettyPrint ?? false;
 
     const localeObj: Locale | undefined = this.localizedCalendar?.i18n ?? locale;
     this.localeKey = localeObj?.key ?? 'dev';
@@ -193,8 +188,6 @@ export class RomcalConfig implements IRoncalConfig {
       localeKey: this.localeKey,
       calendarName: this.calendarName,
       scope: this.scope,
-      verbose: this.verbose,
-      prettyPrint: this.prettyPrint,
     };
   }
 }
