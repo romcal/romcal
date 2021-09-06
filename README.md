@@ -113,20 +113,20 @@ Before generating any kind of data, you must first generate a `new Romcal()` obj
 
 #### 1. Import Romcal
 
-As `esm`:
 ```ts
+// as esm
 import Romcal from 'romcal';
 import { france_fr } from '@romcal/calendar.france';
 ```
 
-Or as `cjs`:
 ```ts
+// or as cjs
 const Romcal = require('romcal');
 const { france_fr } = require('@romcal/calendar.france');
 ```
 
-Or as `iife` in a web HTML page:
 ```html
+<!-- or as iife in a web HTML page -->
 <script src="https://unpkg.com/romcal@3.0.0/dist/iife/romcal.js"></script>
 <script src="https://unpkg.com/@romcal/calendar.france@3.0.0/dist/iife/fr.js"></script>
 ```
@@ -139,7 +139,7 @@ With default options:
 const romcal = new Romcal();
 ```
 
-Or any of the optional options:
+Or with any of the optional options:
 
 ```ts
 // Initialize romcal (all options are optional)
@@ -169,12 +169,13 @@ Below, 2 examples to generate a calendar for a specific year or the current year
 
 ```ts
 // Get a romcal calendar for 2030, using a Promise:
-romcal.generateCalendar(2030).then((data) => {
-  console.log(data);
+romcal.generateCalendar(2030).then((data1) => {
+  console.log(data1);
 });
 
 // Or get a romcal calendar for the current year, using async/await:
-const data = await romcal.generateCalendar();
+const data2 = await romcal.generateCalendar();
+console.log(data2);
 ```
 
 This method produces an `Object` of key/values, where the key is a date (as a ISO8601 string), and the value is an `Array` of `LiturgicalDay` objects that can occur on a specific day.
@@ -216,7 +217,7 @@ The first `LiturgicalDay` object is the default one, the following objects are o
 }
 ```
 
-By default, the range dates correspond to the Gregorian calendar (Jan 1 to Dec 31).
+By default, the range dates correspond to a Gregorian calendar (Jan 1 to Dec 31).
 Except if you previously initialized the `Romcal` object with `{ calendarScope: 'liturgical' }`: the range corresponds to a liturgical year (the first Sunday of Advent to the last Saturday of Ordinary Time).
 
 ```ts
@@ -235,13 +236,15 @@ Instead of returning `LitugicalDay` objects for the whole year, you can try to r
 const data = romcal.getOneLiturgicalDay('easter_sunday');
 ```
 
-It may return `null` if the `LiturgicalDay` exists in the calendar definitions, but do not occur in this specific year.
-Or `undefined` if the desired `LiturgicalYear` do not exist in the calendar.
+It will return:
+- The corresponding `LiturgicalDay` found in the calendar.
+- Or `null` if the `LiturgicalDay` exists in the calendar definitions, but do not occur in this specific year.
+- Or `undefined` if the desired `LiturgicalYear` do not exist in the calendar.
 
 By default, romcal compute this `LiturgicalDay` in the context of the current year.
 You can set a specific year in the options: `{ year: 2030 }`.
 
-**Important:** from this method, romcal do not compute the whole year for performance reasons.
+:warning: **Important:** from this method, romcal do not compute the whole year for performance reasons.
 Some metadata (especially the `seasons` and the `periods` in Christmas Time, and the `precedence` rules) might be incomplete or not accurate.
 
 If this is an issue for your requirements, you can tell Romcal to compute first the whole year to ensure data integrity, by setting this option: `{ computeInWholeYear: true }`.
@@ -260,7 +263,7 @@ const data = romcal.getOneLiturgicalDay('ordinary_time_12_sunday', {
 The 2 methods above (`.generateCalendar` and `.getOneLiturgicalDay`) are returning `LiturgicalDay` objects, in the context of a year.
 That is, every `LiturgicalDay` objects have a `date` property, and are sorted and possibly removed depending on the year context and seasons/precedence rules.
 
-But you might need to retrieve all possible calendar definitions, without any rules or year context.
+However, you might need to retrieve all possible calendar definitions, without any rules or year context.
 
 The `.getAllDefinitions()` method returns absolutely all `LiturgicalDayDef` objects that are part of a liturgical calendar.
 The returned object is a key/value, where the key is the `key` of the `LiturgicalDayDef` object, and the value is the `LiturgicalDayDef` itself.
@@ -268,6 +271,10 @@ The returned object is a key/value, where the key is the `key` of the `Liturgica
 ```ts
 const definitions = romcal.getAllDefinitions();
 ```
+
+Note that a `LiturgicalDayDef` object is different from a `LiturgicalDay` object.
+The first one contain already most of the metadata, but do not have the `date` property, and the `seasons` & `periods` might be incomplete.
+Also, some properties like `colors`, `ranks`, `precedence` might be updated in a `LiturgicalDay` object, according to the year context and seasons/rules.
 
 
 ### Get the date of major celebrations `.date(year).fn()`
@@ -283,6 +290,8 @@ const romcal = new Romcal();
 const dates = romcal.dates(2030);
 const easterOf2030 = dates.easterSunday();
 ```
+
+All these methods will return a `Date` object (or a range of `Date` objects).
 
 Note that you can also pass a `year` property to the last method:
 

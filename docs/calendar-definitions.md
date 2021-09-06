@@ -1,3 +1,5 @@
+**:warning: The documentation above is written for romcal v2, and has not been updated yet to romcal v3.**
+
 # Calendar definitions and contributions
 
 - [Liturgical calendar building](#liturgical-calendar-building)

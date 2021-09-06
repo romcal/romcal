@@ -1,3 +1,5 @@
+**:warning: The documentation above is written for romcal v2, and has not been updated yet to romcal v3.**
+
 # Install, Build, Run and Test romcal locally
 
 This section describes how to run the romcal source code in your machine, and how to contribute to this project.
