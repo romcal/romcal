@@ -7,17 +7,6 @@ import { france_fr } from '@romcal/calendar.france';
 const fastify = new Fastify();
 
 /**
- * Check if a correct year is provided.
- * Otherwise leave it to undefined (in this romcal will take the current year instead).
- * @param maybeYear
- * @returns {number|undefined}
- */
-const getYear = (maybeYear) => {
-  const yearInput = parseInt(maybeYear, 10);
-  return Number.isInteger(yearInput) ? yearInput : undefined;
-};
-
-/**
  * Wire an index HTML page to the URL root of this server.
  */
 fastify.get('/', async (request, reply) => {
@@ -26,7 +15,8 @@ fastify.get('/', async (request, reply) => {
 });
 
 /**
- * Example with the General Roman calendar, all its defined locales, and an optional year.
+ * Example that output data of the General Roman calendar, and all its defined locales.
+ * The year is optional (taking the current year by default).
  */
 
 const manageGeneralRomanRoute = async (request, reply) => {
@@ -35,7 +25,8 @@ const manageGeneralRomanRoute = async (request, reply) => {
 
   // Check if the provided locale exists in the `general_roman` calendar. If no, return a 404 error.
   if (localeIndex === -1) {
-    return reply.status(404).send("404 - The provided locale doesn't exists.");
+    const code = 404;
+    return reply.status(code).send({ code, message: "The provided locale doesn't exists" });
   }
 
   // Load dynamically the localized General Roman Calendar
@@ -46,34 +37,46 @@ const manageGeneralRomanRoute = async (request, reply) => {
   // Initialize a romcal object with the General Roman Calendar data.
   const romcalGeneralRoman = new Romcal({ localizedCalendar });
 
-  // Generate a liturgical calendar with the provided locale and year.
-  const year = getYear(parseInt(request.params['year']));
-  const data = await romcalGeneralRoman.generateCalendar(year);
+  try {
+    // Generate a liturgical calendar with the provided locale and year.
+    const year = request.params['year'];
+    const data = await romcalGeneralRoman.generateCalendar(year);
 
-  // Finally, send the computed data.
-  reply
-    .code(200)
-    .header('Content-Type', 'application/json; charset=utf-8')
-    .send(JSON.stringify(data));
+    // Finally, send the computed data.
+    reply
+      .code(200)
+      .header('Content-Type', 'application/json; charset=utf-8')
+      .send(JSON.stringify(data));
+  } catch ({ message }) {
+    // If romcal return an error, we must manage and display it through Fastify.
+    const code = 500;
+    reply.status(code).send({ code, message });
+  }
 };
 
 fastify.get('/romcal/general-roman/:locale', manageGeneralRomanRoute);
 fastify.get('/romcal/general-roman/:locale/:year', manageGeneralRomanRoute);
 
 /**
- * Simple example with only 1 supported locale by the REST API (`fr` in this example),
- * and the calendar of France.
+ * Simple example with only 1 supported calendar and locale by the REST API:
+ * the calendar of France and the `fr` locale.
  */
 
 const romcalFranceFr = new Romcal({ localizedCalendar: france_fr });
 
 const manageFranceFrRoute = async (request, reply) => {
-  const year = getYear(parseInt(request.params['year']));
-  const data = await romcalFranceFr.generateCalendar(year);
-  reply
-    .code(200)
-    .header('Content-Type', 'application/json; charset=utf-8')
-    .send(JSON.stringify(data));
+  try {
+    const year = request.params['year'];
+    const data = await romcalFranceFr.generateCalendar(year);
+    reply
+      .code(200)
+      .header('Content-Type', 'application/json; charset=utf-8')
+      .send(JSON.stringify(data));
+  } catch ({ message }) {
+    // If romcal return an error, we must manage and display it through Fastify.
+    const code = 500;
+    reply.status(code).send({ code, message });
+  }
 };
 
 fastify.get('/romcal/france/fr', manageFranceFrRoute);
