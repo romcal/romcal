@@ -235,28 +235,6 @@ class Romcal {
   }
 
   /**
-   * Get all possible liturgical days from the Proper of the Time of the General
-   * Roman Calendar, outside the context of a specific year.
-   */
-  getProperOfTimeDefinitions(): Promise<LiturgicalDayDefinitions> {
-    return new Promise((resolve, reject) => {
-      try {
-        this.#config.calendarsDef.forEach((cal) => cal.buildAllDefinitions());
-        resolve(
-          Object.values(this.#config.liturgicalDayDef)
-            .filter((def) => def.fromCalendar === PROPER_OF_TIME_NAME)
-            .reduce((obj: LiturgicalDayDefinitions, def) => {
-              obj[def.key] = def;
-              return obj;
-            }, {}),
-        );
-      } catch (e) {
-        reject(e);
-      }
-    });
-  }
-
-  /**
    * Get all possible liturgical days from the currently selected calendar,
    * (including all possible inherited calendars until the General Roman Calendar,
    * and the Proper of the Time), outside the context of a specific year.
