@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 ## Romcal 3
 
 The romcal v3 is a major rewrite of the core library, with performance and architecture in mind.
-As a result, romcal v3 is now up to x10 faster than v2 and v1.
+As a result, romcal v3 is now up to 10x faster than v2 and v1.
 The new architecture helped to introduce new features without performance and code quality impacts.
 
 ### Added
@@ -52,7 +52,7 @@ The new architecture helped to introduce new features without performance and co
   - Defining a date is now a lot simpler than before, thanks to predefined date definitions. No need to write custom functions anymore, to manage exceptions.
   - Calendar definitions do not contain anymore executed code, so the data are now easily serializable. It makes easier to plug any kind of data adapter for advanced usages (like any third-party data source/db), and open to the possibility to use YAML in the future.
 - Ranks and precedence rules:
-  - In the core library, this part has been fully rewritten, to be fully compliant with the _General Norms for the Liturgical Year and the Calendar_.
+  - In the core library, this part has been fully redesigned, to be fully compliant with the _General Norms for the Liturgical Year and the Calendar_.
   - The `LiturgicalDay` object are now following closely the precedences rules. The `rank` metadata is still proposed to describe the type of liturgical day (Solemnity, Feast, Memorial, Sunday, Weekday)
 - Seasons and Periods:
   - `seasons` are now following closely the _General Norms for the Liturgical Year and the Calendar_. There is no more a Holy Week season (moved to the period metadata), Holy Thursday have 2 possible liturgical days (the Holy Thursday which is the last day of Lent, and the Thursday of the Lord's Supper which start the Paschal Triduum), Easter Sunday take place in 2 seasons (the Paschal Triduum and the Easter Time).
