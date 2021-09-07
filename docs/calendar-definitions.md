@@ -32,14 +32,12 @@ By default, you will only get one liturgical day per date.
 Output conforms to the revised liturgical calendar as approved by Paul VI in [Mysterii Paschalis](http://w2.vatican.va/content/paul-vi/en/motu_proprio/documents/hf_p-vi_motu-proprio_19690214_mysterii-paschalis.html) for the Roman Rite (post-Vatican II).
 Rules followed by romcal are defined in the [_General Instruction on the Roman Missal_](https://www.catholicculture.org/culture/library/view.cfm?recnum=337) (GIRM) and the [_General Norms for the Liturgical Year and the Calendar_](https://www.catholicculture.org/culture/library/view.cfm?id=10842).
 
-
 ## Particular calendars
 
 As well as the General Roman calendar, romcal allows defining various particular calendar, that could serve specific regions, countries, dioceses, parishes, communities...
 Currently, only country calendars are proposed from this romcal project. In a near future we plan to propose diocesan calendars, and offer an easy way to extend romcal with any third calendars to support all your needs.
 
 You will find below some indications on the available features, to contribute to maintaining and improving calendars into romcal.
-
 
 ### Extending a liturgical day
 
@@ -58,7 +56,6 @@ In the `england` calendar, we will only define a new entry with its `key` and th
 
 It's generally a good practice to extend an existing liturgical day, with its specifications for a particular calendar, instead of redefining multiple time the same liturgical day in different calendars.
 
-
 ### Overriding a liturgical day by its key
 
 In most countries, All Saints and All Souls are always celebrated on the 1st and 2nd of November respectively. However, in England and Wales, if All Saints (1 November) falls on a Saturday, it is transferred to the Sunday and All Souls is transferred to Monday 3rd November.
@@ -70,7 +67,6 @@ Since liturgical day in particular calendars have higher precedence than liturgi
 Also, since prioritized liturgical days in the particular calendar can override days in the general calendar, the day definitions for All Saints and All Souls will now be taken from the particular calendar.
 
 Therefore, it is important that the key in the particular calendar is **exactly** the same as the one in the general calendar so that romcal recognizes it for overriding. Typos (even case mismatch), will cause unexpected results.
-
 
 ### Overriding a liturgical day by its priority
 
@@ -85,7 +81,6 @@ All liturgical days in `src/lib/Celebrations.ts` (Christmas, Easter) are priorit
 
 For example, `allSaints` in `src/lib/Celebrations.ts` can be overridden by `allSaints` in `src/calendars/england.ts`) because the entry in that particular calendar was set with `prioritized`: `true`.
 
-
 ### Removing liturgical day of the general calendar, in particular calendar output
 
 By default, romcal _does not_ remove any celebrations in its output. Instead, prioritization (see above) is the preferred way to go about overriding celebrations to exhibit different characteristics.
@@ -97,7 +92,6 @@ However, in some cases, a particular calendar may need to omit a celebration ent
 - when a celebration of two or more saints are celebrated separately in the `general` roman calendar, but jointly in the particular calendar.
 
 romcal enables this flexibility via the `drop` key.
-
 
 #### The `drop` keyword
 

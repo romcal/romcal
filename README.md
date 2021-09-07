@@ -48,7 +48,6 @@
 - [Calendar definitions and contributions ⇗](/docs/calendar-definitions.md)
 - [Codebase Documentation ⇗](https://romcal.github.io/romcal/)
 
-
 ## Description
 
 Romcal generates liturgical calendars of the Roman Rite of the Roman Catholic Church.
@@ -63,7 +62,6 @@ The rules are defined in the [_General Instruction on the Roman Missal_](https:/
 
 - :globe_with_meridians: **i18n, localization and calendars:**<br> romcal aims to have your liturgical calendars and contents in your native language, and support various liturgical calendars (national, diocesan...).
   You are more than welcome to contribute, add new localization, and improve the quality of this library!
-
 
 ## Getting started
 
@@ -84,13 +82,11 @@ The default export is CommonJS compatible (`cjs`).
 In the `/dist` folder you may find additional builds for es6 modules (`esm`) or to be used globally from the browser (`iife`).
 The correct entry points are already configured in the package.json so there should be no extra setup to get the best build option.
 
-
 ### Calendars installation
 
 The romcal library only include the General Roman Calendar (GRC), and the Proper of Time. By default, there is no other calendars, neither translation (even in English) nor extra martyrology metadata.
 
 The complete GRC, or any other particular calendar (for a country, a region or a diocese) are available as separated plugins, that contain a bundle of the calendar data, localizations, and a martyrology catalog (containing extra metadata).
-
 
 For example, to install the General Roman Calendar and the calendar of France:
 
@@ -105,7 +101,6 @@ yarn add @romcal/calendar.france
 ```
 
 The complete list of localized calendar is [available here](#).
-
 
 ### Load from CDN
 
@@ -125,7 +120,6 @@ Make sure to use a fixed version in production like https://unpkg.com/romcal@3.0
 #### cdnjs.com
 
 https://cdnjs.com/libraries/romcal
-
 
 ## Basic samples
 
@@ -166,22 +160,22 @@ Or with any of the optional options:
 ```ts
 // Initialize romcal (all options are optional)
 const romcal = new Romcal({
-  localizedCalendar: france_fr,           // The localized calendar to use with romcal
-  scope: 'gregorian' | 'liturgical',      // Default: 'gregorian' (Jan 1 to Dec 31). Optionally: 'liturgical' (the first Sunday of Advent to the last Saturday of Ordinary Time)
-  epiphanyOnSunday: true | false,         // Epiphany always a Sunday (between January 2 - 8), or on January 6
-  corpusChristiOnSunday: true | false,    // Corpus Christi always a Sunday, or the Thursday after Trinity Sunday
-  ascensionOnSunday: true | false,        // Ascension always a Sunday, or the 40th day of Easter (a Thursday)
+  localizedCalendar: france_fr, // The localized calendar to use with romcal
+  scope: 'gregorian' | 'liturgical', // Default: 'gregorian' (Jan 1 to Dec 31). Optionally: 'liturgical' (the first Sunday of Advent to the last Saturday of Ordinary Time)
+  epiphanyOnSunday: true | false, // Epiphany always a Sunday (between January 2 - 8), or on January 6
+  corpusChristiOnSunday: true | false, // Corpus Christi always a Sunday, or the Thursday after Trinity Sunday
+  ascensionOnSunday: true | false, // Ascension always a Sunday, or the 40th day of Easter (a Thursday)
 });
 ```
 
 For further information about romcal configuration and the default options: :books: [Configuration options](docs/general-usage.md#configuration-options).
 
 You can also take a look to the [./examples](./examples) directory, which contain additional examples:
+
 - [html-web-page](./examples/html-web-page) – loading romcal in a HTML script tag (`iife`).
 - [react-app](./examples/react-app) – a basic React application loading and displaying romcal data.
 - [rest-api-with-express](./examples/rest-api-with-express) – a REST API using Node.js and Express, written as CommonJs (`cjs`).
 - [rest-api-with-fastify](./examples/rest-api-with-fastify) – a REST API using Node.js and Fastify, written as ES Module (`esm`).
-
 
 ### Generate a calendar `.generateCalendar(year)`
 
@@ -259,6 +253,7 @@ const data = romcal.getOneLiturgicalDay('easter_sunday');
 ```
 
 It will return:
+
 - The corresponding `LiturgicalDay` found in the calendar.
 - Or `null` if the `LiturgicalDay` exists in the calendar definitions, but do not occur in this specific year.
 - Or `undefined` if the desired `LiturgicalYear` do not exist in the calendar.
@@ -279,7 +274,6 @@ const data = romcal.getOneLiturgicalDay('ordinary_time_12_sunday', {
 // Will return `null`, because `corpus_christi` is taking precedence over `ordinary_time_12_sunday` in 2022
 ```
 
-
 ### Get all liturgical day definitions `.getAllDefinitions()`
 
 The 2 methods above (`.generateCalendar` and `.getOneLiturgicalDay`) are returning `LiturgicalDay` objects, in the context of a year.
@@ -297,7 +291,6 @@ const definitions = romcal.getAllDefinitions();
 Note that a `LiturgicalDayDef` object is different from a `LiturgicalDay` object.
 The first one contain already most of the metadata, but do not have the `date` property, and the `seasons` & `periods` might be incomplete.
 Also, some properties like `colors`, `ranks`, `precedence` might be updated in a `LiturgicalDay` object, according to the year context and seasons/rules.
-
 
 ### Get the date of major celebrations `.date(year).fn()`
 
@@ -320,7 +313,6 @@ Note that you can also pass a `year` property to the last method:
 ```ts
 const pentecostOf2030 = romcal.dates().pentecostSunday(2030);
 ```
-
 
 ## Contribute
 

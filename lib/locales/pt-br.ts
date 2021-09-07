@@ -204,8 +204,7 @@ export const locale: Locale = {
     martha_of_bethany_mary_of_bethany_and_lazarus_of_bethany: 'Santa Marta, Maria e Lázaro',
     our_lady_help_of_christians: 'Nossa Senhora, Auxílio dos Cristãos',
     our_lady_mediatrix_of_all_grace: 'Nossa Senhora, Medianeira de todas as Graças',
-    our_lady_mother_of_divine_providence_patroness_of_puerto_rico:
-      'Nossa Senhora, Mãe da Divina Providência', // TODO: Add `Patronness of Porto Rico` title
+    our_lady_mother_of_divine_providence_patroness_of_puerto_rico: 'Nossa Senhora, Mãe da Divina Providência', // TODO: Add `Patronness of Porto Rico` title
     our_lady_of_aparecida_patroness_of_brazil: 'Nossa Senhora Aparecida', // TODO: Add `Patronness of Brazil` title
     our_lady_of_china: 'Nossa Senhora da China',
     our_lady_of_fatima: 'Nossa Senhora de Fatima',
@@ -223,7 +222,6 @@ export const locale: Locale = {
     our_lady_queen_of_peace: 'Nossa Senhora Rainha da Paz',
     presentation_of_mary: 'Apresentação da Virgem Maria',
     wenceslaus_i_of_bohemia_martyr: 'São Venceslau, mártir',
-    wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation:
-      'São Venceslau, mártir e patrono da nação tcheca',
+    wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation: 'São Venceslau, mártir e patrono da nação tcheca',
   },
 };

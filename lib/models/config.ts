@@ -5,12 +5,7 @@ import { GeneralRoman } from '../general-calendar/proper-of-saints';
 import { ProperOfTime } from '../general-calendar/proper-of-time';
 import { RomcalBundleObject } from '../types/bundle';
 import { CalendarDefInstance, LiturgicalDayDefinitions } from '../types/calendar-def';
-import {
-  CalendarScope,
-  IRoncalConfig,
-  RomcalConfigInput,
-  RomcalConfigOutput,
-} from '../types/config';
+import { CalendarScope, IRoncalConfig, RomcalConfigInput, RomcalConfigOutput } from '../types/config';
 import { Locale } from '../types/locale';
 import { MartyrologyCatalog } from '../types/martyrology';
 import { Dates } from '../utils/dates';
@@ -65,17 +60,11 @@ export class RomcalConfig implements IRoncalConfig {
     this.scope = config?.scope ?? 'gregorian';
 
     this.epiphanyOnSunday =
-      config?.epiphanyOnSunday ??
-      this.localizedCalendar?.particularConfig.epiphanyOnSunday ??
-      false;
+      config?.epiphanyOnSunday ?? this.localizedCalendar?.particularConfig.epiphanyOnSunday ?? false;
     this.corpusChristiOnSunday =
-      config?.corpusChristiOnSunday ??
-      this.localizedCalendar?.particularConfig.corpusChristiOnSunday ??
-      true;
+      config?.corpusChristiOnSunday ?? this.localizedCalendar?.particularConfig.corpusChristiOnSunday ?? true;
     this.ascensionOnSunday =
-      config?.ascensionOnSunday ??
-      this.localizedCalendar?.particularConfig.ascensionOnSunday ??
-      false;
+      config?.ascensionOnSunday ?? this.localizedCalendar?.particularConfig.ascensionOnSunday ?? false;
 
     const localeObj: Locale | undefined = this.localizedCalendar?.i18n ?? locale;
     this.localeKey = localeObj?.key ?? 'dev';
@@ -132,8 +121,7 @@ export class RomcalConfig implements IRoncalConfig {
     }
 
     this.calendarName =
-      config?.localizedCalendar?.calendarName ??
-      this.calendarsDef[this.calendarsDef.length - 1].calendarName;
+      config?.localizedCalendar?.calendarName ?? this.calendarsDef[this.calendarsDef.length - 1].calendarName;
 
     // Update the config by checking if a particularConfig is present in all CalendarDef objects.
     this.calendarsDef.map((cal) => cal.updateConfig(config));

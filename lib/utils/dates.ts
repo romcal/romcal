@@ -60,9 +60,7 @@ export const getWeekNumber = (date: Date): number => {
   day = day >= 0 ? day : day + 7;
   const dayNum =
     Math.floor(
-      (date.getTime() -
-        newYear.getTime() -
-        (date.getTimezoneOffset() - newYear.getTimezoneOffset()) * 60000) /
+      (date.getTime() - newYear.getTime() - (date.getTimezoneOffset() - newYear.getTimezoneOffset()) * 60000) /
         86400000,
     ) + 1;
   let weekNum;
@@ -97,10 +95,7 @@ export const computeGregorianEasterDate = (year: number): Record<string, number>
   let I = C - Math.floor(C / 4) - Math.floor((C - K) / 3) + 19 * N + 15;
 
   I = I - 30 * Math.floor(I / 30);
-  I =
-    I -
-    Math.floor(I / 28) *
-      (1 - Math.floor(I / 28) * Math.floor(29 / (I + 1)) * Math.floor((21 - N) / 11));
+  I = I - Math.floor(I / 28) * (1 - Math.floor(I / 28) * Math.floor(29 / (I + 1)) * Math.floor((21 - N) / 11));
 
   let J = Y + Math.floor(Y / 4) + I + 2 - C + Math.floor(C / 4);
   J = J - 7 * Math.floor(J / 7);
@@ -232,8 +227,7 @@ export class Dates {
     if (this.#unprivilegedWeekdayOfAdvent[id] !== undefined) {
       return this.#unprivilegedWeekdayOfAdvent[id];
     }
-    if (dow < 1 || dow > 6 || week < 1 || week > 4)
-      return (this.#unprivilegedWeekdayOfAdvent[id] = null);
+    if (dow < 1 || dow > 6 || week < 1 || week > 4) return (this.#unprivilegedWeekdayOfAdvent[id] = null);
     let date: Date | null = addDays(this.firstSundayOfAdvent(year), (week - 1) * 7 + dow);
     if (date!.getDate() >= 17 && date!.getMonth() === 11 && date!.getDay() !== 0) date = null;
     return (this.#unprivilegedWeekdayOfAdvent[id] = date);
@@ -266,10 +260,7 @@ export class Dates {
    * @param week Nth week of season, from 1 to 4
    * @param year Gregorian year
    */
-  sundayOfAdvent = (
-    week: number,
-    year = this.#isLiturgicalYear ? this.#year - 1 : this.#year,
-  ): Date | null => {
+  sundayOfAdvent = (week: number, year = this.#isLiturgicalYear ? this.#year - 1 : this.#year): Date | null => {
     const id = `${year}_${week}`;
     if (this.#sundayOfAdvent[id] !== undefined) return this.#sundayOfAdvent[id];
     if (week < 1 || week > 4) return (this.#sundayOfAdvent[id] = null);
@@ -306,9 +297,7 @@ export class Dates {
    * (from Christmas to Mary Mother of God, inclusive)
    * @param year Gregorian year
    */
-  allDatesInOctaveOfChristmas = (
-    year = this.#isLiturgicalYear ? this.#year - 1 : this.#year,
-  ): Date[] => {
+  allDatesInOctaveOfChristmas = (year = this.#isLiturgicalYear ? this.#year - 1 : this.#year): Date[] => {
     if (this.#allDatesInOctaveOfChristmas[year]) return this.#allDatesInOctaveOfChristmas[year];
     return (this.#allDatesInOctaveOfChristmas[year] = rangeOfDays(
       this.christmas(year),
@@ -331,8 +320,7 @@ export class Dates {
     if (this.#weekdayWithinOctaveOfChristmas[id] !== undefined) {
       return this.#weekdayWithinOctaveOfChristmas[id];
     }
-    if (dayOfOctave < 1 || dayOfOctave > 8)
-      return (this.#weekdayWithinOctaveOfChristmas[id] = null);
+    if (dayOfOctave < 1 || dayOfOctave > 8) return (this.#weekdayWithinOctaveOfChristmas[id] = null);
     let date: Date | null = addDays(this.christmas(year), dayOfOctave - 1);
     if (isSameDate(date, this.holyFamily(year))) date = null;
     return (this.#weekdayWithinOctaveOfChristmas[id] = date);
@@ -370,10 +358,7 @@ export class Dates {
    * @param year Gregorian year
    * @param epiphanyOnSunday Is Epiphany is fixed on a Sunday
    */
-  secondSundayAfterChristmas = (
-    year = this.#year,
-    epiphanyOnSunday = this.#config.epiphanyOnSunday,
-  ): Date | null => {
+  secondSundayAfterChristmas = (year = this.#year, epiphanyOnSunday = this.#config.epiphanyOnSunday): Date | null => {
     const id = year + epiphanyOnSunday.toString();
     if (this.#secondSundayAfterChristmas[id] !== undefined) {
       return this.#secondSundayAfterChristmas[id];
@@ -391,10 +376,7 @@ export class Dates {
    * @param year Gregorian year
    * @param epiphanyOnSunday Is Epiphany is fixed on a Sunday
    */
-  allDatesBeforeEpiphany = (
-    year = this.#year,
-    epiphanyOnSunday = this.#config.epiphanyOnSunday,
-  ): Date[] => {
+  allDatesBeforeEpiphany = (year = this.#year, epiphanyOnSunday = this.#config.epiphanyOnSunday): Date[] => {
     const id = year + epiphanyOnSunday.toString();
     if (this.#allDatesBeforeEpiphany[id]) return this.#allDatesBeforeEpiphany[id];
     const start = addDays(this.maryMotherOfGod(year), 1);
@@ -470,10 +452,7 @@ export class Dates {
    * @param year Gregorian year
    * @param epiphanyOnSunday Is Epiphany is fixed on a Sunday
    */
-  allDatesAfterEpiphany = (
-    year = this.#year,
-    epiphanyOnSunday = this.#config.epiphanyOnSunday,
-  ): Date[] => {
+  allDatesAfterEpiphany = (year = this.#year, epiphanyOnSunday = this.#config.epiphanyOnSunday): Date[] => {
     const id = year + epiphanyOnSunday.toString();
     if (this.#allDatesAfterEpiphany[id]) return this.#allDatesAfterEpiphany[id];
     const start = addDays(this.epiphany(year, epiphanyOnSunday), 1);
@@ -762,10 +741,7 @@ export class Dates {
    * @param year Gregorian year
    * @param epiphanyOnSunday Is Epiphany is fixed on a Sunday
    */
-  allDatesOfOrdinaryTime = (
-    year = this.#year,
-    epiphanyOnSunday = this.#config.epiphanyOnSunday,
-  ): Date[] => {
+  allDatesOfOrdinaryTime = (year = this.#year, epiphanyOnSunday = this.#config.epiphanyOnSunday): Date[] => {
     const id = year + epiphanyOnSunday.toString();
     if (this.#allDatesOfOrdinaryTime[id]) return this.#allDatesOfOrdinaryTime[id];
     return (this.#allDatesOfOrdinaryTime[id] = [
@@ -786,10 +762,7 @@ export class Dates {
    * @param year Gregorian year
    * @param epiphanyOnSunday Is Epiphany is fixed on a Sunday
    */
-  allDatesOfEarlyOrdinaryTime = (
-    year = this.#year,
-    epiphanyOnSunday = this.#config.epiphanyOnSunday,
-  ): Date[] => {
+  allDatesOfEarlyOrdinaryTime = (year = this.#year, epiphanyOnSunday = this.#config.epiphanyOnSunday): Date[] => {
     const id = year + epiphanyOnSunday.toString();
     if (this.#allDatesOfEarlyOrdinaryTime[id]) return this.#allDatesOfEarlyOrdinaryTime[id];
     const start = addDays(this.baptismOfTheLord(year, epiphanyOnSunday), 1);
@@ -879,9 +852,7 @@ export class Dates {
 
           const dateTime = item.getTime();
           const date =
-            dateTime === trinitySunday ||
-            dateTime === corpusChristi ||
-            dateTime === mostSacredHeartOfJesus
+            dateTime === trinitySunday || dateTime === corpusChristi || dateTime === mostSacredHeartOfJesus
               ? null
               : item;
 
@@ -1025,9 +996,7 @@ export class Dates {
    * @param year Gregorian year
    *
    */
-  immaculateConceptionOfMary = (
-    year = this.#isLiturgicalYear ? this.#year - 1 : this.#year,
-  ): Date => {
+  immaculateConceptionOfMary = (year = this.#isLiturgicalYear ? this.#year - 1 : this.#year): Date => {
     if (this.#immaculateConceptionOfMary[year]) return this.#immaculateConceptionOfMary[year];
     let date = getUtcDate(year, 12, 8);
     // If this solemnity falls on a Sunday, is transferred to the
@@ -1085,10 +1054,7 @@ export class Dates {
    * @param year Gregorian year
    * @param corpusChristiOnSunday Is Corpus Christi is fixed on a Sunday
    */
-  corpusChristi = (
-    year = this.#year,
-    corpusChristiOnSunday = this.#config.corpusChristiOnSunday,
-  ): Date => {
+  corpusChristi = (year = this.#year, corpusChristiOnSunday = this.#config.corpusChristiOnSunday): Date => {
     const id = year + corpusChristiOnSunday.toString();
     if (this.#corpusChristi[id]) return this.#corpusChristi[id];
     return (this.#corpusChristi[id] = corpusChristiOnSunday
@@ -1162,10 +1128,7 @@ export class Dates {
    * @param year Gregorian year
    * @param epiphanyOnSunday Is Epiphany is fixed on a Sunday
    */
-  baptismOfTheLord = (
-    year = this.#year,
-    epiphanyOnSunday = this.#config.epiphanyOnSunday,
-  ): Date => {
+  baptismOfTheLord = (year = this.#year, epiphanyOnSunday = this.#config.epiphanyOnSunday): Date => {
     const id = year + epiphanyOnSunday.toString();
     if (this.#baptismOfTheLord[id]) return this.#baptismOfTheLord[id];
 

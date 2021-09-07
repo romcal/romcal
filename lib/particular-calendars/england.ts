@@ -123,11 +123,7 @@ export class England extends CalendarDef {
     margaret_clitherow_anne_line_and_margaret_ward_virgin_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 8, date: 30 },
-      martyrology: [
-        'margaret_clitherow_virgin_martyr',
-        'anne_line_virgin_martyr',
-        'margaret_ward_virgin_martyr',
-      ],
+      martyrology: ['margaret_clitherow_virgin_martyr', 'anne_line_virgin_martyr', 'margaret_ward_virgin_martyr'],
     },
 
     aidan_of_lindisfarne_bishop_and_the_saints_of_lindisfarne: {

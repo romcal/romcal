@@ -18,8 +18,7 @@ import { RomcalBundler } from './bundle';
 
 const tsConfigPath = './tsconfig.release.json';
 const log = console.log;
-const formatCode = (code: string): string =>
-  prettier.format(code, { parser: 'typescript', singleQuote: true });
+const formatCode = (code: string): string => prettier.format(code, { parser: 'typescript', singleQuote: true });
 
 function reportDiagnostics(diagnostics: ts.Diagnostic[]): void {
   diagnostics.forEach((diagnostic) => {
@@ -46,11 +45,7 @@ function readConfigFile(configFileName: string) {
   }
 
   // Extract config information
-  const configParseResult = ts.parseJsonConfigFileContent(
-    configObject,
-    ts.sys,
-    path.dirname(configFileName),
-  );
+  const configParseResult = ts.parseJsonConfigFileContent(configObject, ts.sys, path.dirname(configFileName));
   if (configParseResult.errors.length > 0) {
     reportDiagnostics(configParseResult.errors);
     process.exit(1);
@@ -85,9 +80,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
   // Init directory
   log(
     chalk.bold(
-      `\n✓ Write constants into ${chalk.cyan.bold(
-        './tmp/constants/',
-      )}, to list available calendars and locales`,
+      `\n✓ Write constants into ${chalk.cyan.bold('./tmp/constants/')}, to list available calendars and locales`,
     ),
   );
   const constantDir = './tmp/constants';
@@ -146,11 +139,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
   /**
    * Bundle all .d.ts files of the core romcal library
    */
-  log(
-    chalk.bold(
-      `\n✓ Bundle all ${chalk.cyan('.d.ts')} files into ${chalk.cyan('./dist/index.d.ts')}`,
-    ),
-  );
+  log(chalk.bold(`\n✓ Bundle all ${chalk.cyan('.d.ts')} files into ${chalk.cyan('./dist/index.d.ts')}`));
   const dts = generateDtsBundle(
     [
       {
@@ -216,9 +205,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
       globalName: 'Romcal',
       sourcemap: 'external',
       ...(format === 'iife' ? {} : { external: ['i18next'] }),
-      ...(format === 'esm'
-        ? { entryPoints: ['lib/index.ts'] }
-        : { entryPoints: ['lib/exports.ts'] }),
+      ...(format === 'esm' ? { entryPoints: ['lib/index.ts'] } : { entryPoints: ['lib/exports.ts'] }),
       banner: { js: LICENSE },
       format,
       outfile: `dist/${format}/romcal.${format === 'esm' ? 'mjs' : 'js'}`,
@@ -230,8 +217,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
       // and only output locale.iife.js on iife format
       if (
         (format !== 'iife' || !p.match(/\/index\.ts$/)) &&
-        ((p.match(/.iife\.ts$/) && format === 'iife') ||
-          (!p.match(/.iife\.ts$/) && format !== 'iife'))
+        ((p.match(/.iife\.ts$/) && format === 'iife') || (!p.match(/.iife\.ts$/) && format !== 'iife'))
       ) {
         const calendar = p.match(/([^/]+)\/[^/]+$/)![1];
         const locale = p.match(/([^/]+)\.\w+$/)![1].replace('.iife', '');
@@ -244,9 +230,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
           banner: { js: LICENSE },
           format,
           keepNames: true,
-          outfile: `dist/bundles/${calendar}/${format}/${locale}.${
-            format === 'esm' ? 'mjs' : 'js'
-          }`,
+          outfile: `dist/bundles/${calendar}/${format}/${locale}.${format === 'esm' ? 'mjs' : 'js'}`,
           sourcemap: false,
           target: 'es2019',
         }).catch(() => process.exit(1));
@@ -286,11 +270,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
       license: pkg.license,
     };
 
-    fs.writeFileSync(
-      path.resolve(dir, 'package.json'),
-      JSON.stringify(modulePkg, null, 2),
-      'utf-8',
-    );
+    fs.writeFileSync(path.resolve(dir, 'package.json'), JSON.stringify(modulePkg, null, 2), 'utf-8');
 
     const currentPath = path.resolve(__dirname, `../tmp/bundles/${pkgName}/index.d.ts`);
     const destinationPath = path.resolve(__dirname, `../dist/bundles/${pkgName}/index.d.ts`);

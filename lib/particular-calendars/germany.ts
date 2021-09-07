@@ -163,11 +163,7 @@ export class Germany extends CalendarDef {
     canute_iv_of_denmark_eric_ix_of_sweden_and_olaf_ii_of_norway_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 7, date: 10 },
-      martyrology: [
-        'canute_iv_of_denmark_martyr',
-        'eric_ix_of_sweden_martyr',
-        'olaf_ii_of_norway_martyr',
-      ],
+      martyrology: ['canute_iv_of_denmark_martyr', 'eric_ix_of_sweden_martyr', 'olaf_ii_of_norway_martyr'],
     },
 
     henry_ii_emperor_and_cunigunde_of_luxembourg: {

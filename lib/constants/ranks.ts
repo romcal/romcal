@@ -57,9 +57,9 @@ export enum Ranks {
   Weekday = 'WEEKDAY',
 }
 
-export const RANKS = Object.keys(Ranks).filter(
-  (key) => typeof Ranks[key as keyof typeof Ranks] === 'string',
-) as Array<Uppercase<keyof typeof Ranks>>;
+export const RANKS = Object.keys(Ranks).filter((key) => typeof Ranks[key as keyof typeof Ranks] === 'string') as Array<
+  Uppercase<keyof typeof Ranks>
+>;
 
 export type Rank = typeof RANKS[number];
 

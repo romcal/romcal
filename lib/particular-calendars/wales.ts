@@ -34,11 +34,7 @@ export class Wales extends CalendarDef {
     alban_of_britain_julius_of_caerleon_aaron_of_caerleon_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 6, date: 20 },
-      martyrology: [
-        'alban_of_britain_martyr',
-        'julius_of_caerleon_martyr',
-        'aaron_of_caerleon_martyr',
-      ],
+      martyrology: ['alban_of_britain_martyr', 'julius_of_caerleon_martyr', 'aaron_of_caerleon_martyr'],
     },
 
     john_jones_priest: {

@@ -32,8 +32,7 @@ export const toCamelCase = (string: string): string =>
  * Converts the first character in the string to an uppercase equivalent.
  * @param string
  */
-export const capitalize = (string: string): string =>
-  string.charAt(0).toUpperCase() + string.slice(1);
+export const capitalize = (string: string): string => string.charAt(0).toUpperCase() + string.slice(1);
 
 /**
  * Converts the first character in the string, and the first character after un _, to a lowercase equivalent.

@@ -11,12 +11,7 @@ import { Periods } from '../constants/periods';
 import { Precedences, PRECEDENCES } from '../constants/precedences';
 import { Ranks } from '../constants/ranks';
 import { Seasons } from '../constants/seasons';
-import {
-  BaseCalendar,
-  DatesIndex,
-  LiturgicalBuiltData,
-  LiturgicalCalendar,
-} from '../types/calendar';
+import { BaseCalendar, DatesIndex, LiturgicalBuiltData, LiturgicalCalendar } from '../types/calendar';
 import { Key } from '../types/common';
 import { RomcalCalendarMetadata, RomcalCyclesMetadata } from '../types/liturgical-day';
 import { dateDifference, Dates, getUtcDateFromString, isValidDate } from '../utils/dates';
@@ -31,10 +26,7 @@ export class Calendar implements BaseCalendar {
   readonly dates: Dates;
   readonly #startOfSeasonsDic: Record<number, Record<Seasons, Date>> = {};
   readonly #endOfSeasonsDic: Record<number, Record<Seasons, Date>> = {};
-  readonly #cyclesCache: Record<
-    number,
-    Pick<RomcalCyclesMetadata, 'sundayCycle' | 'weekdayCycle'>
-  > = {};
+  readonly #cyclesCache: Record<number, Pick<RomcalCyclesMetadata, 'sundayCycle' | 'weekdayCycle'>> = {};
 
   constructor(config: RomcalConfig, liturgicalDayConfig: LiturgicalDayConfig) {
     this.#config = config;
@@ -48,31 +40,23 @@ export class Calendar implements BaseCalendar {
    * @param date
    * @param baseData
    */
-  #buildCalendarMetadata(
-    def: LiturgicalDayDef,
-    date: Date,
-    baseData: LiturgicalDay | null,
-  ): RomcalCalendarMetadata {
+  #buildCalendarMetadata(def: LiturgicalDayDef, date: Date, baseData: LiturgicalDay | null): RomcalCalendarMetadata {
     let currentYear = this.#liturgicalDayConfig.year;
 
     if (
       this.#config.scope === 'gregorian' &&
-      this.#liturgicalDayConfig.dates
-        .firstSundayOfAdvent(this.#liturgicalDayConfig.year)
-        .getTime() <= date.getTime()
+      this.#liturgicalDayConfig.dates.firstSundayOfAdvent(this.#liturgicalDayConfig.year).getTime() <= date.getTime()
     ) {
       currentYear++;
     }
 
     const startOfSeasonsDic =
       this.#startOfSeasonsDic[currentYear] ||
-      (this.#startOfSeasonsDic[currentYear] =
-        this.#liturgicalDayConfig.dates.startOfSeasons(currentYear));
+      (this.#startOfSeasonsDic[currentYear] = this.#liturgicalDayConfig.dates.startOfSeasons(currentYear));
 
     const endOfSeasonsDic =
       this.#endOfSeasonsDic[currentYear] ||
-      (this.#endOfSeasonsDic[currentYear] =
-        this.#liturgicalDayConfig.dates.endOfSeasons(currentYear));
+      (this.#endOfSeasonsDic[currentYear] = this.#liturgicalDayConfig.dates.endOfSeasons(currentYear));
 
     const startOfSeason = def.seasons.length ? startOfSeasonsDic[def.seasons[0]] : undefined;
     const endOfSeason = def.seasons.length ? endOfSeasonsDic[def.seasons[0]] : undefined;
@@ -120,8 +104,7 @@ export class Calendar implements BaseCalendar {
 
       // Formula to calculate Sunday cycle (Year A, B, C)
       const thisSundayCycleIndex: number = (year - 1963) % 3;
-      const nextSundayCycleIndex: number =
-        thisSundayCycleIndex === 2 ? 0 : thisSundayCycleIndex + 1;
+      const nextSundayCycleIndex: number = thisSundayCycleIndex === 2 ? 0 : thisSundayCycleIndex + 1;
 
       // If the date is on or after the First Sunday of Advent,
       // it is the next liturgical cycle
@@ -165,8 +148,7 @@ export class Calendar implements BaseCalendar {
       // so we need to check the calendar name of the first item in the `fromExtendedCalendars`.
       const isFromProperOfTime =
         def.fromCalendar === PROPER_OF_TIME_NAME ||
-        (def.fromExtendedCalendars.length > 0 &&
-          def.fromExtendedCalendars[0].fromCalendar === PROPER_OF_TIME_NAME);
+        (def.fromExtendedCalendars.length > 0 && def.fromExtendedCalendars[0].fromCalendar === PROPER_OF_TIME_NAME);
 
       // In a Liturgical Calendar scope:
       // - Because a Liturgical Year is straddling 2 Gregorian year,

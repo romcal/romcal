@@ -43,10 +43,7 @@ const manageGeneralRomanRoute = async (request, reply) => {
     const data = await romcalGeneralRoman.generateCalendar(year);
 
     // Finally, send the computed data.
-    reply
-      .code(200)
-      .header('Content-Type', 'application/json; charset=utf-8')
-      .send(JSON.stringify(data));
+    reply.code(200).header('Content-Type', 'application/json; charset=utf-8').send(JSON.stringify(data));
   } catch ({ message }) {
     // If romcal return an error, we must manage and display it through Fastify.
     const code = 500;
@@ -68,10 +65,7 @@ const manageFranceFrRoute = async (request, reply) => {
   try {
     const year = request.params['year'];
     const data = await romcalFranceFr.generateCalendar(year);
-    reply
-      .code(200)
-      .header('Content-Type', 'application/json; charset=utf-8')
-      .send(JSON.stringify(data));
+    reply.code(200).header('Content-Type', 'application/json; charset=utf-8').send(JSON.stringify(data));
   } catch ({ message }) {
     // If romcal return an error, we must manage and display it through Fastify.
     const code = 500;

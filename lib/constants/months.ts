@@ -1,17 +1,4 @@
-export type Months = [
-  string,
-  string,
-  string,
-  string,
-  string,
-  string,
-  string,
-  string,
-  string,
-  string,
-  string,
-  string,
-];
+export type Months = [string, string, string, string, string, string, string, string, string, string, string, string];
 
 export const MONTHS: Months = [
   'january',

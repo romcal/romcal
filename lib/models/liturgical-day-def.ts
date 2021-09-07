@@ -92,17 +92,12 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
 
     this.key = key;
 
-    const previousDef: LiturgicalDayDef | undefined = Object.prototype.hasOwnProperty.call(
-      config.liturgicalDayDef,
-      key,
-    )
+    const previousDef: LiturgicalDayDef | undefined = Object.prototype.hasOwnProperty.call(config.liturgicalDayDef, key)
       ? config.liturgicalDayDef[key]
       : undefined;
 
     if (!input.dateDef && !previousDef) {
-      throw new Error(
-        `In the '${fromCalendar}' calendar, the property 'dateDef' for '${key}' must be defined.`,
-      );
+      throw new Error(`In the '${fromCalendar}' calendar, the property 'dateDef' for '${key}' must be defined.`);
     }
     this.dateDef = input.dateDef ?? previousDef!.dateDef;
 
@@ -113,17 +108,14 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
       : [];
 
     if (!input.precedence && !previousDef) {
-      throw new Error(
-        `In the '${fromCalendar}' calendar, the property 'precedence' for '${key}' must be defined.`,
-      );
+      throw new Error(`In the '${fromCalendar}' calendar, the property 'precedence' for '${key}' must be defined.`);
     }
     // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
     this.precedence = input.precedence ?? previousDef!.precedence;
 
     this.rank = LiturgicalDayDef.precedenceToRank(this.precedence, key);
 
-    this.isHolyDayOfObligation =
-      input.isHolyDayOfObligation ?? previousDef?.isHolyDayOfObligation ?? false;
+    this.isHolyDayOfObligation = input.isHolyDayOfObligation ?? previousDef?.isHolyDayOfObligation ?? false;
 
     this.isOptional = input.isOptional ?? previousDef?.isOptional ?? false;
 
@@ -170,8 +162,7 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
       : [Colors.White];
 
     this.cycles = {
-      properCycle:
-        input.properCycle ?? previousDef?.cycles.properCycle ?? ProperCycles.ProperOfSaints,
+      properCycle: input.properCycle ?? previousDef?.cycles.properCycle ?? ProperCycles.ProperOfSaints,
     };
 
     this.fromCalendar = fromCalendar;
@@ -246,59 +237,57 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
     // [1] Then, check if Martyrology data exists from the date definition;
     // [2] if martyrology data do not exists, but an inherited LiturgicalDay exists: do nothing more;
     // [3] if martyrology no not exists, and there is no inheritance: take the def key as the martyrology item key.
-    (input.martyrology ?? (previousDef && []) ?? [key]).forEach(
-      (id: string | MartyrologyItemRedefined) => {
-        const pointer = typeof id === 'string' ? { key: id } : id;
+    (input.martyrology ?? (previousDef && []) ?? [key]).forEach((id: string | MartyrologyItemRedefined) => {
+      const pointer = typeof id === 'string' ? { key: id } : id;
 
-        // Add the matching Martyrology item in the Martyrology list defined above this forEach loop.
-        if (this.#config.martyrologyCatalog[pointer.key]) {
-          // Check if the matching Martyrology item already exists
-          let martyrologyItem = martyrology.find((item) => item.key === pointer.key);
+      // Add the matching Martyrology item in the Martyrology list defined above this forEach loop.
+      if (this.#config.martyrologyCatalog[pointer.key]) {
+        // Check if the matching Martyrology item already exists
+        let martyrologyItem = martyrology.find((item) => item.key === pointer.key);
 
-          // Otherwise, add it.
-          if (!martyrologyItem) {
-            martyrology.push(
-              (martyrologyItem = {
-                key: pointer.key,
-                ...this.#config.martyrologyCatalog[pointer.key],
-              }),
-            );
-          }
-
-          // Combine `hideTitles` if provided.
-          if (typeof pointer.hideTitles === 'boolean') {
-            martyrologyItem.hideTitles = pointer.hideTitles;
-          }
-
-          // Combine `count` if provided.
-          if (typeof pointer.count === 'number' || pointer.count === 'many') {
-            martyrologyItem.count = pointer.count;
-          }
-
-          // Combine specific martyrology item `titles`, if provided.
-          if (pointer.titles) {
-            martyrologyItem.titles = this.#combineTitles(pointer.titles, pointer.key, previousDef);
-          }
+        // Otherwise, add it.
+        if (!martyrologyItem) {
+          martyrology.push(
+            (martyrologyItem = {
+              key: pointer.key,
+              ...this.#config.martyrologyCatalog[pointer.key],
+            }),
+          );
         }
-        // If the Martyrology item is not found, it means this item is badly referenced in the date definition.
-        // In this situation, romcal must report en error.
-        // Note: romcal do not report an error when the liturgical day key is used to find a martyrology item,
-        // because this liturgical day definition may not be related to a martyrology item.
-        else if (input.martyrology) {
-          // If the martyrology catalog as 0 items, we take the assumption that a new romcal instance
-          // has been created, without a specified localized calendar. In this case romcal compute the
-          // General Roman Calendar without localization and martyrology data.
-          if (
-            Object.keys(this.#config.martyrologyCatalog).length > 0 &&
-            this.#config.calendarName === GENERAL_ROMAN_NAME
-          ) {
-            throw new Error(
-              `In the '${fromCalendar}' calendar, a LiturgicalDay with the key '${key}', have a badly referenced martyrology item: '${pointer.key}'.`,
-            );
-          }
+
+        // Combine `hideTitles` if provided.
+        if (typeof pointer.hideTitles === 'boolean') {
+          martyrologyItem.hideTitles = pointer.hideTitles;
         }
-      },
-    );
+
+        // Combine `count` if provided.
+        if (typeof pointer.count === 'number' || pointer.count === 'many') {
+          martyrologyItem.count = pointer.count;
+        }
+
+        // Combine specific martyrology item `titles`, if provided.
+        if (pointer.titles) {
+          martyrologyItem.titles = this.#combineTitles(pointer.titles, pointer.key, previousDef);
+        }
+      }
+      // If the Martyrology item is not found, it means this item is badly referenced in the date definition.
+      // In this situation, romcal must report en error.
+      // Note: romcal do not report an error when the liturgical day key is used to find a martyrology item,
+      // because this liturgical day definition may not be related to a martyrology item.
+      else if (input.martyrology) {
+        // If the martyrology catalog as 0 items, we take the assumption that a new romcal instance
+        // has been created, without a specified localized calendar. In this case romcal compute the
+        // General Roman Calendar without localization and martyrology data.
+        if (
+          Object.keys(this.#config.martyrologyCatalog).length > 0 &&
+          this.#config.calendarName === GENERAL_ROMAN_NAME
+        ) {
+          throw new Error(
+            `In the '${fromCalendar}' calendar, a LiturgicalDay with the key '${key}', have a badly referenced martyrology item: '${pointer.key}'.`,
+          );
+        }
+      }
+    });
 
     // Combine `titles` from the main date definition, if provided.
     if (input.titles) {
@@ -321,11 +310,7 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
    * @param martyrologyKey
    * @param previousDef
    */
-  #combineTitles(
-    titlesDef: TitlesDef,
-    martyrologyKey: Key,
-    previousDef?: LiturgicalDayDef,
-  ): (Title | PatronTitle)[] {
+  #combineTitles(titlesDef: TitlesDef, martyrologyKey: Key, previousDef?: LiturgicalDayDef): (Title | PatronTitle)[] {
     return Array.isArray(titlesDef)
       ? titlesDef
       : typeof titlesDef === 'object'
@@ -357,9 +342,7 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
       //   : {}),
 
       // dateDef
-      ...(JSON.stringify(dayA.dateDef) !== JSON.stringify(dayB.dateDef)
-        ? { dateDef: dayA.dateDef }
-        : {}),
+      ...(JSON.stringify(dayA.dateDef) !== JSON.stringify(dayB.dateDef) ? { dateDef: dayA.dateDef } : {}),
 
       // dateExceptions
       ...(JSON.stringify(dayA.dateExceptions) !== JSON.stringify(dayB.dateExceptions)
@@ -381,9 +364,7 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
       ...(dayA.isOptional !== dayB.isOptional ? { isOptional: dayA.isOptional } : {}),
 
       // i18n
-      ...(JSON.stringify(dayA.i18nDef) !== JSON.stringify(dayB.i18nDef)
-        ? { i18nDef: dayA.i18nDef }
-        : {}),
+      ...(JSON.stringify(dayA.i18nDef) !== JSON.stringify(dayB.i18nDef) ? { i18nDef: dayA.i18nDef } : {}),
 
       // colors
       ...(dayA.colors
@@ -393,9 +374,7 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
         : {}),
 
       // titles
-      ...(JSON.stringify(dayA.titles) !== JSON.stringify(dayB.titles)
-        ? { titles: dayA.titles }
-        : {}),
+      ...(JSON.stringify(dayA.titles) !== JSON.stringify(dayB.titles) ? { titles: dayA.titles } : {}),
 
       // martyrology
       ...(JSON.stringify(dayA.martyrology) !== JSON.stringify(dayB.martyrology)

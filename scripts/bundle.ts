@@ -4,13 +4,7 @@ import * as fs from 'fs';
 import path from 'path';
 import rimraf from 'rimraf';
 import * as util from 'util';
-import {
-  Locale,
-  LocaleLiturgicalDayNames,
-  MartyrologyCatalog,
-  RomcalConfigInput,
-  RomcalConfigOutput,
-} from '../lib';
+import { Locale, LocaleLiturgicalDayNames, MartyrologyCatalog, RomcalConfigInput, RomcalConfigOutput } from '../lib';
 import { Martyrology } from '../lib/catalog/martyrology';
 import { PROPER_OF_TIME_NAME } from '../lib/constants/general-calendar-names';
 import { GeneralRoman } from '../lib/general-calendar/proper-of-saints';
@@ -70,29 +64,26 @@ class RomcalBuilder {
   }
 
   getAllDefinitions(): BundleInputs {
-    return Object.values(this.#config.liturgicalDayDef).reduce(
-      (obj: BundleInputs, def: LiturgicalDayDef) => {
-        if (def.fromCalendar === PROPER_OF_TIME_NAME) return obj;
+    return Object.values(this.#config.liturgicalDayDef).reduce((obj: BundleInputs, def: LiturgicalDayDef) => {
+      if (def.fromCalendar === PROPER_OF_TIME_NAME) return obj;
 
-        obj[def.key] = def.input;
+      obj[def.key] = def.input;
 
-        // Retrieve martyrology keys
-        const martyrologyKeys: string[] = this.#martyrologyKeys.concat(
-          def.input.flatMap(
-            (i) =>
-              i.martyrology?.flatMap((m) => (typeof m === 'string' ? m : m.key)) ??
-              (Martyrology.catalog[def.key] ? [def.key] : []) ??
-              [],
-          ),
-        );
+      // Retrieve martyrology keys
+      const martyrologyKeys: string[] = this.#martyrologyKeys.concat(
+        def.input.flatMap(
+          (i) =>
+            i.martyrology?.flatMap((m) => (typeof m === 'string' ? m : m.key)) ??
+            (Martyrology.catalog[def.key] ? [def.key] : []) ??
+            [],
+        ),
+      );
 
-        // Remove duplicates and save the martyrology keys
-        this.#martyrologyKeys = [...new Set(martyrologyKeys)];
+      // Remove duplicates and save the martyrology keys
+      this.#martyrologyKeys = [...new Set(martyrologyKeys)];
 
-        return obj;
-      },
-      {},
-    );
+      return obj;
+    }, {});
   }
 }
 
@@ -150,15 +141,10 @@ export const RomcalBundler = (): void => {
         .reduce((obj: LocaleLiturgicalDayNames, key: string) => {
           if (locale.names && Object.prototype.hasOwnProperty.call(locale.names, key)) {
             obj[key] = locale.names[key];
-          } else if (
-            locales.en.names &&
-            Object.prototype.hasOwnProperty.call(locales.en.names, key)
-          ) {
+          } else if (locales.en.names && Object.prototype.hasOwnProperty.call(locales.en.names, key)) {
             obj[key] = locales.en.names[key];
           } else {
-            throw new Error(
-              `Locale key 'names:${key}' is missing in the calendar '${calendar.name}'.`,
-            );
+            throw new Error(`Locale key 'names:${key}' is missing in the calendar '${calendar.name}'.`);
           }
           return obj;
         }, {});
@@ -222,8 +208,7 @@ export const RomcalBundler = (): void => {
       // Add another calendar bundle file for the IIFE format, that will output the calendar
       // bundle in a global variable, for iife usage.
       // Note: will not be required if this issue is addressed: https://github.com/evanw/esbuild/issues/1182
-      const jsIifeOutput =
-        `import { ${calVarName} } from './${locale.key}';\n` + `module.exports = ${calVarName};\n`;
+      const jsIifeOutput = `import { ${calVarName} } from './${locale.key}';\n` + `module.exports = ${calVarName};\n`;
       const iifeFilename = filename.replace(/\.ts$/, '.iife.ts');
       fs.writeFileSync(path.resolve(dir, iifeFilename), jsIifeOutput, 'utf-8');
     }
@@ -242,16 +227,9 @@ export const RomcalBundler = (): void => {
       const importFileName = locale.replace(/([A-Z])/g, '-$1').toLowerCase();
       return acc + `import { ${varName} } from './${importFileName}';\n`;
     }, '');
-    const indexExports = Object.entries(calVarObj).reduce(
-      (acc, [, varName]) => acc + `    ${varName},\n`,
-      '',
-    );
+    const indexExports = Object.entries(calVarObj).reduce((acc, [, varName]) => acc + `    ${varName},\n`, '');
     const indexOutput =
-      `import { RomcalBundleObject } from '../../../lib';\n` +
-      indexImports +
-      `\nexport {\n` +
-      indexExports +
-      `};`;
+      `import { RomcalBundleObject } from '../../../lib';\n` + indexImports + `\nexport {\n` + indexExports + `};`;
     fs.writeFileSync(path.resolve(dir, `index.ts`), indexOutput, 'utf-8');
 
     /**
@@ -266,9 +244,5 @@ export const RomcalBundler = (): void => {
   }
 
   gauge.stop();
-  log(
-    chalk.dim(
-      `  generated ${allCalendars.length} calendars in ${allLocaleKeys.length} locales in ./tmp/bundles/`,
-    ),
-  );
+  log(chalk.dim(`  generated ${allCalendars.length} calendars in ${allLocaleKeys.length} locales in ./tmp/bundles/`));
 };

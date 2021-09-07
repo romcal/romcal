@@ -1,14 +1,6 @@
 import { DateDef, DateDefExtended, DayOfWeek } from '../types/liturgical-day';
 import { BaseLiturgicalDayConfig, LiturgicalDayConfigOutput } from '../types/liturgical-day-config';
-import {
-  addDays,
-  Dates,
-  daysInMonth,
-  getUtcDate,
-  isSameDate,
-  isValidDate,
-  subtractsDays,
-} from '../utils/dates';
+import { addDays, Dates, daysInMonth, getUtcDate, isSameDate, isValidDate, subtractsDays } from '../utils/dates';
 import { RomcalConfig } from './config';
 import LiturgicalDayDef from './liturgical-day-def';
 
@@ -64,29 +56,19 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
     const year = this.year + (dateDef.yearOffset ?? 0) + yearOffset;
 
     // DateDefMonthDate
-    if (
-      Number.isInteger(dateDef.month) &&
-      Number.isInteger(dateDef.date) &&
-      dateDef.month! > 0 &&
-      dateDef.date! > 0
-    ) {
+    if (Number.isInteger(dateDef.month) && Number.isInteger(dateDef.date) && dateDef.month! > 0 && dateDef.date! > 0) {
       date = getUtcDate(year, dateDef.month!, dateDef.date!);
     }
 
     // DateDefDateFnAddDay or DateDefDateFnSubtractDay
-    else if (
-      typeof dateDef.dateFn === 'string' &&
-      Object.prototype.hasOwnProperty.call(this.dates, dateDef.dateFn)
-    ) {
+    else if (typeof dateDef.dateFn === 'string' && Object.prototype.hasOwnProperty.call(this.dates, dateDef.dateFn)) {
       const args = [...(dateDef.dateArgs ?? []), year];
       // todo: improve TS typing here
       const dates = this.dates[dateDef.dateFn].apply<ThisType<Dates>, any, any>(this, args);
-      date =
-        (Array.isArray(dates) ? dates.find((e) => e) : isValidDate(dates) ? dates : null) || null;
+      date = (Array.isArray(dates) ? dates.find((e) => e) : isValidDate(dates) ? dates : null) || null;
 
       if (date && Number.isInteger(dateDef.addDay)) date = addDays(date, dateDef.addDay!);
-      if (date && Number.isInteger(dateDef.subtractDay))
-        date = subtractsDays(date, dateDef.subtractDay!);
+      if (date && Number.isInteger(dateDef.subtractDay)) date = subtractsDays(date, dateDef.subtractDay!);
     }
 
     // DateDefMonthDowNthWeekInMonth
@@ -108,10 +90,7 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
         6,
       );
 
-      date = LiturgicalDayConfig.#getNextDayOfWeek(
-        firstDayOfLast7DaysOfMonth,
-        dateDef.lastDayOfWeekInMonth!,
-      );
+      date = LiturgicalDayConfig.#getNextDayOfWeek(firstDayOfLast7DaysOfMonth, dateDef.lastDayOfWeekInMonth!);
     }
 
     return date;

@@ -148,8 +148,7 @@ export class Precedences {
    * 11a - Proper Obligatory Memorial of a secondary Patron
    * of the place, diocese, region, or religious province.
    */
-  static ProperMemorial_SecondPatron_11a: 'PROPER_MEMORIAL__SECOND_PATRON_11A' =
-    'PROPER_MEMORIAL__SECOND_PATRON_11A';
+  static ProperMemorial_SecondPatron_11a: 'PROPER_MEMORIAL__SECOND_PATRON_11A' = 'PROPER_MEMORIAL__SECOND_PATRON_11A';
 
   /**
    * 11b - Other Proper Obligatory Memorial

@@ -59,9 +59,7 @@ export type SundaysCycle = typeof SUNDAYS_CYCLE[number];
  */
 export const WEEKDAYS_CYCLE = Object.keys(WeekdaysCycles)
   .filter((key) => typeof WeekdaysCycles[key as keyof typeof WeekdaysCycles] === 'string')
-  .map((key) => toScreamingSnakeCase(key)) as Array<
-  ScreamingSnakeCase<keyof typeof WeekdaysCycles>
->;
+  .map((key) => toScreamingSnakeCase(key)) as Array<ScreamingSnakeCase<keyof typeof WeekdaysCycles>>;
 
 export type WeekdaysCycle = typeof WEEKDAYS_CYCLE[number];
 
@@ -70,8 +68,6 @@ export type WeekdaysCycle = typeof WEEKDAYS_CYCLE[number];
  */
 export const PSALTER_WEEKS = Object.keys(PsalterWeeksCycles)
   .filter((key) => typeof PsalterWeeksCycles[key as keyof typeof PsalterWeeksCycles] === 'string')
-  .map((key) => toScreamingSnakeCase(key)) as Array<
-  ScreamingSnakeCase<keyof typeof PsalterWeeksCycles>
->;
+  .map((key) => toScreamingSnakeCase(key)) as Array<ScreamingSnakeCase<keyof typeof PsalterWeeksCycles>>;
 
 export type PsalterWeeksCycle = typeof PSALTER_WEEKS[number];

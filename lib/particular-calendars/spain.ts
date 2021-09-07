@@ -14,16 +14,11 @@ export class Spain extends CalendarDef {
       dateDef: { month: 1, date: 9 },
     },
 
-    fructuosus_of_tarragona_bishop_and_augurius_of_tarragona_and_eulogius_of_tarragona_deacons_martyrs:
-      {
-        precedence: Precedences.OptionalMemorial_12,
-        dateDef: { month: 1, date: 20 },
-        martyrology: [
-          'fructuosus_of_tarragona_bishop',
-          'augurius_of_tarragona_deacon',
-          'eulogius_of_tarragona_deacon',
-        ],
-      },
+    fructuosus_of_tarragona_bishop_and_augurius_of_tarragona_and_eulogius_of_tarragona_deacons_martyrs: {
+      precedence: Precedences.OptionalMemorial_12,
+      dateDef: { month: 1, date: 20 },
+      martyrology: ['fructuosus_of_tarragona_bishop', 'augurius_of_tarragona_deacon', 'eulogius_of_tarragona_deacon'],
+    },
 
     vincent_of_saragossa_deacon: {
       precedence: Precedences.ProperMemorial_11b,
