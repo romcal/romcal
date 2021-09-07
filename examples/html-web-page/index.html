@@ -14,7 +14,7 @@
     <hr />
     <p>Open the developer tools and check the console.</p>
     <script>
-      const romcal = new Romcal({ particularCalendar: france_fr });
+      const romcal = new Romcal({ localizedCalendar: france_fr });
 
       romcal.getAllDefinitions().then((calendarDefinitions) => {
         console.log('All definitions, which are all possible liturgical days of a specific calendar, that can occur during a whole year:');
