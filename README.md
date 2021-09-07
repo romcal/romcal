@@ -334,9 +334,9 @@ To jump into romcal’s codebase more easily, you might be interested in reading
 - :books: [Localization](/docs/localization.md).
 - :books: [Codebase Documentation](https://romcal.github.io/romcal/).
 
-## Revisions & Release History <a name="revisions"></a>
+## Changelog & Release History <a name="revisions"></a>
 
-See [history](CHANGELOG.md) for the latest updates and important/breaking changes.
+See the [changelog](CHANGELOG.md) for the latest updates and important/breaking changes.
 
 ## Module Robustness & Data Integrity <a name="disclaimer"></a>
 
