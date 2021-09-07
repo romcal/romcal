@@ -12,9 +12,7 @@ export enum CanonizationLevels {
 
 export const CANONIZATION_LEVEL = Object.keys(CanonizationLevels)
   .filter((key) => typeof CanonizationLevels[key as keyof typeof CanonizationLevels] === 'string')
-  .map((key) => toScreamingSnakeCase(key)) as Array<
-  ScreamingSnakeCase<keyof typeof CanonizationLevels>
->;
+  .map((key) => toScreamingSnakeCase(key)) as Array<ScreamingSnakeCase<keyof typeof CanonizationLevels>>;
 
 export type CanonizationLevel = typeof CANONIZATION_LEVEL[number];
 

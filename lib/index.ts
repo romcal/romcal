@@ -47,12 +47,7 @@ import { LiturgicalDayConfig } from './models/liturgical-day-config';
 import LiturgicalDayDef from './models/liturgical-day-def';
 import { RomcalBundleObject } from './types/bundle';
 import { LiturgicalCalendar } from './types/calendar';
-import {
-  CalendarDefInputs,
-  Inputs,
-  LiturgicalDayDefinitions,
-  ParticularConfig,
-} from './types/calendar-def';
+import { CalendarDefInputs, Inputs, LiturgicalDayDefinitions, ParticularConfig } from './types/calendar-def';
 import { Key } from './types/common';
 import { CalendarScope, RomcalConfigInput, RomcalConfigOutput } from './types/config';
 import {
@@ -89,13 +84,7 @@ import {
   LocaleOrdinals,
   LocaleWeeks,
 } from './types/locale';
-import {
-  MartyrologyCatalog,
-  MartyrologyItem,
-  SaintCount,
-  SaintDate,
-  SaintDateDef,
-} from './types/martyrology';
+import { MartyrologyCatalog, MartyrologyItem, SaintCount, SaintDate, SaintDateDef } from './types/martyrology';
 import {
   addDays,
   computeGregorianEasterDate,
@@ -140,10 +129,7 @@ class Romcal {
    */
   static #sanitizeYear(year?: number | string): number | undefined {
     const y: number | undefined = typeof year === 'string' ? parseInt(year, 10) : year;
-    if (
-      (y !== undefined && !Number.isInteger(y)) ||
-      (Number.isInteger(y) && (y! < 0 || y! > 9999))
-    ) {
+    if ((y !== undefined && !Number.isInteger(y)) || (Number.isInteger(y) && (y! < 0 || y! > 9999))) {
       throw new Error('The provided year is incorrect');
     }
     return y;
@@ -222,10 +208,7 @@ class Romcal {
         }
 
         this.getAllDefinitions().then(() => {
-          this.#computedCalendars[ldConfig.year] = new Calendar(
-            this.#config,
-            ldConfig,
-          ).generateCalendar();
+          this.#computedCalendars[ldConfig.year] = new Calendar(this.#config, ldConfig).generateCalendar();
           resolve(this.#computedCalendars[ldConfig.year]);
         });
       } catch (e) {

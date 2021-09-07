@@ -6,8 +6,7 @@ export const locale: Locale = {
   seasons: {
     advent: {
       season: 'Adventus',
-      weekday:
-        '$t(weekdays:{{dow}}, capitalize), hebdomada $t(ordinals:{{week}}, { "context": "feminine" }) Adventus',
+      weekday: '$t(weekdays:{{dow}}, capitalize), hebdomada $t(ordinals:{{week}}, { "context": "feminine" }) Adventus',
       sunday: 'Dominica $t(ordinals:{{week}}) Adventus',
       privileged_weekday: 'Dia {{day}} $t(months:11)',
     },
@@ -23,8 +22,7 @@ export const locale: Locale = {
 
     ordinary_time: {
       season: 'Per annum',
-      weekday:
-        '$t(weekdays:{{dow}}, capitalize), hebdomada $t(ordinals:{{week}}, { "context": "feminine" }) per annum',
+      weekday: '$t(weekdays:{{dow}}, capitalize), hebdomada $t(ordinals:{{week}}, { "context": "feminine" }) per annum',
       sunday: 'Dominica $t(ordinals:{{week}}) per annum',
     },
 
@@ -237,8 +235,7 @@ export const locale: Locale = {
     trinity_sunday: 'Ss.mæ Trinitatis',
     '205_blessed_martyrs_of_japan': 'B. Martyres Iaponici CCV',
     adalbert_of_prague_bishop: 'S. Adalberti, episcopi et martyris',
-    adalbert_of_prague_bishop_patron_of_poland:
-      'S. Adalberti, episcopi, martyris et patroni Poloniæ',
+    adalbert_of_prague_bishop_patron_of_poland: 'S. Adalberti, episcopi, martyris et patroni Poloniæ',
     adolph_kolping_priest: 'B. Adolphi Kolping, presbyteri',
     aelred_of_rievaulx_abbot: 'S. Ælredi Riævallensis, abbatis',
     aengus_of_tallaght_bishop: 'S. Ængi, episcopi et abbatis',
@@ -248,11 +245,9 @@ export const locale: Locale = {
     agnes_of_rome_virgin: 'S. Agnetis, virginis et martyris',
     aidan_of_ferns_bishop: 'S. Ædani Lindisfarnensis, episcopi',
     aidan_of_lindisfarne_bishop: 'S. Ædani Lindisfarnensis, episcopi',
-    aidan_of_lindisfarne_bishop_and_the_saints_of_lindisfarne:
-      'Ss. Ædani, episcopi et Sanctorum Lindisfarnensis',
+    aidan_of_lindisfarne_bishop_and_the_saints_of_lindisfarne: 'Ss. Ædani, episcopi et Sanctorum Lindisfarnensis',
     ailbe_of_emly_bishop: 'S. Albei, episcopi',
-    alban_of_britain_julius_of_caerleon_aaron_of_caerleon_martyrs:
-      'Ss. Albani, Iulii et Aaron, martyrum',
+    alban_of_britain_julius_of_caerleon_aaron_of_caerleon_martyrs: 'Ss. Albani, Iulii et Aaron, martyrum',
     alban_of_britain_martyr: 'S. Albani, martyris',
     alberic_crescitelli_priest: 'S. Alberici Crescitelli, presbyteri et martyris',
     albert_chmielowski_religious: 'S. Alberti Chmielowski, religiosi',
@@ -279,12 +274,10 @@ export const locale: Locale = {
     andrew_bobola_priest: 'S. Andreæ Bobola, presbyteri et martyris',
     andrew_de_soveral_and_ambrose_francis_ferro_priests:
       'Ss. Andreæ de Soveral et Ambrosii Francisci Ferro, presbyterorum et martyrum',
-    andrew_dung_lac_priest_and_companions_martyrs:
-      'Ss. Andreæ Dũng Lạc, presbyteri, et sociorum, martyrum',
+    andrew_dung_lac_priest_and_companions_martyrs: 'Ss. Andreæ Dũng Lạc, presbyteri, et sociorum, martyrum',
     andrew_kim_tae_gon_priest_paul_chong_ha_sang_and_companions_martyrs:
       'Ss. Andreæ Kim Tae-gŏn, presbyteri, Pauli Chŏng Ha-sang et sociorum, martyrum',
-    andrew_zorard_of_nitra_and_benedict_of_skalka_hermits:
-      'Ss. Andreæ Zœrardi et Benedicti, eremitarum',
+    andrew_zorard_of_nitra_and_benedict_of_skalka_hermits: 'Ss. Andreæ Zœrardi et Benedicti, eremitarum',
     angela_merici_virgin: 'S. Angelæ Merici, virginis',
     angela_salawa_virgin: 'B. Angelæ Salawa, virginis',
     anno_of_cologne_bishop: 'S. Annonis Coloniensis, episcopi',
@@ -307,8 +300,7 @@ export const locale: Locale = {
     augustine_of_canterbury_bishop: 'S. Augustini Cantuariensis, episcopi',
     augustine_of_hippo_bishop: 'S. Augustini, episcopi et Ecclesiæ doctoris',
     augustine_zhao_rong_priest: 'S. Augustini Zhao Rong, presbyteri et martyris',
-    augustine_zhao_rong_priest_and_companions_martyrs:
-      'Ss. Augustini Zhao Rong, presbyteri, et sociorum, martyrum',
+    augustine_zhao_rong_priest_and_companions_martyrs: 'Ss. Augustini Zhao Rong, presbyteri, et sociorum, martyrum',
     barbara_of_heliopolis_virgin: 'S. Barbaræ, virginis et martyris',
     barnabas_apostle: 'S. Barnabæ, apostoli',
     bartholomew_apostle: 'S. Bartholomæi, apostoli',
@@ -318,8 +310,7 @@ export const locale: Locale = {
       'Ss. Basilii Magni et Gregorii Nazianzeni, episcoporum et Ecclesiæ doctorum',
     beatrice_da_silva_meneses_virgin: 'S. Beatricis de Silva, virginis',
     bede_the_venerable_priest: 'S. Bedæ Venerabilis, presbyteri et Ecclesiæ doctoris',
-    benedict_of_jesus_valdivielso_saez_religious:
-      'S. Benedicti a Iesu Valdivielso Sáez, religiosi et martyris',
+    benedict_of_jesus_valdivielso_saez_religious: 'S. Benedicti a Iesu Valdivielso Sáez, religiosi et martyris',
     benedict_of_nursia_abbot: 'S. Benedicti, abbatis',
     benedict_of_nursia_abbot_patron_of_europe: 'S. Benedicti, abbatis et patroni Europæ',
     benno_of_meissen_bishop: 'S. Bennonis Misnensis, episcopi',
@@ -335,10 +326,8 @@ export const locale: Locale = {
     boris_of_kiev_and_gleb_of_kiev_martyrs: 'Ss. Borisi et Hlibi, martyrum',
     brendan_of_clonfert_abbot: 'S. Brendani, abbatis',
     bridget_of_sweden_religious: 'S. Birgittæ, religiosæ',
-    bridget_of_sweden_religious_copatroness_of_europe:
-      'S. Birgittæ, religiosæ et patronæ secundariæ Europæ',
-    brigid_of_kildare_virgin_copatroness_of_ireland:
-      'S. Brigidæ, virginis et patronæ secundariæ Hiberniæ',
+    bridget_of_sweden_religious_copatroness_of_europe: 'S. Birgittæ, religiosæ et patronæ secundariæ Europæ',
+    brigid_of_kildare_virgin_copatroness_of_ireland: 'S. Brigidæ, virginis et patronæ secundariæ Hiberniæ',
     bronislava_of_poland_virgin: 'B. Bronislavæ, virginis',
     bronislaw_markiewicz_priest: 'B. Bronislawi Markiewicz, presbyteri',
     bruno_of_cologne_priest: 'S. Brunonis, presbyteri',
@@ -348,8 +337,7 @@ export const locale: Locale = {
     callistus_i_pope: 'S. Callisti I, papæ et martyris',
     camillus_de_lellis_priest: 'S. Camilli de Lellis, presbyteri',
     canice_of_kilkenny_abbot: 'S. Canici, abbatis',
-    canute_iv_of_denmark_eric_ix_of_sweden_and_olaf_ii_of_norway_martyrs:
-      'Ss. Canuti, Erici et Olavi, martyrum',
+    canute_iv_of_denmark_eric_ix_of_sweden_and_olaf_ii_of_norway_martyrs: 'Ss. Canuti, Erici et Olavi, martyrum',
     canute_iv_of_denmark_martyr: 'S. Canuti, martyris',
     carlos_manuel_rodriguez_santiago: 'B. Caroli Emmanueli Rodriguez Santiago',
     caroline_kozka_virgin: 'B. Carolinæ Kózka, virginis et martyris',
@@ -391,24 +379,20 @@ export const locale: Locale = {
     colman_of_kilmacduagh_bishop: 'S. Colmani Duaci, episcopi',
     columba_marmion_priest: 'B. Columbæ Marmion, presbyteri',
     columba_of_iona_abbot: 'S. Columbæ Hiensis, abbatis',
-    columba_of_iona_abbot_copatron_of_ireland:
-      'S. Columbæ Hiensis, abbatis et patroni secundarii Hiberniæ',
+    columba_of_iona_abbot_copatron_of_ireland: 'S. Columbæ Hiensis, abbatis et patroni secundarii Hiberniæ',
     columban_of_luxeuil_abbot: 'S. Columbani, abbatis',
     comgall_of_bangor_abbot: 'S. Comgalli, abbatis',
     conleth_of_kildare_bishop: 'S. Conlethi, episcopi',
-    conrad_of_constance_and_gebhard_of_constance_bishops:
-      'Ss. Conradi et Gebhardi Constantiensis, episcoporum',
+    conrad_of_constance_and_gebhard_of_constance_bishops: 'Ss. Conradi et Gebhardi Constantiensis, episcoporum',
     conrad_of_parzham_religious: 'S. Conradi  a  Parzham, religiosi',
     conversion_of_saint_paul_the_apostle: 'In conversione S. Pauli, apostoli',
     corbinian_of_freising_bishop: 'S. Corbiniani, episcopi',
-    cornelius_i_pope_and_cyprian_of_carthage_bishop_martyrs:
-      'Ss. Cornelii, papæ, et Cypriani, episcopi, martyrum',
+    cornelius_i_pope_and_cyprian_of_carthage_bishop_martyrs: 'Ss. Cornelii, papæ, et Cypriani, episcopi, martyrum',
     cosmas_of_cilicia_and_damian_of_cilicia_martyrs: 'Ss. Cosmæ et Damiani, martyrum',
     cuthbert_of_lindisfarne_bishop: 'S. Cuthberti, episcopi',
     cyril_of_alexandria_bishop: 'S. Cyrilli Alexandrini, episcopi et Ecclesiæ doctoris',
     cyril_of_jerusalem_bishop: 'S. Cyrilli Hierosolymitani, episcopi et Ecclesiæ doctoris',
-    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop:
-      'Ss. Cyrilli, monachi, et Methodii, episcopi',
+    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop: 'Ss. Cyrilli, monachi, et Methodii, episcopi',
     cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe:
       'Ss. Cyrilli, monachi, et Methodii, episcopi, patronorum secundariorum Europæ',
     cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_slavic_missionaries:
@@ -420,8 +404,7 @@ export const locale: Locale = {
     david_of_wales_bishop_patron_of_wales: 'S. Davidis, episcopis et patroni Cambriæ',
     davnet_of_sliabh_beagh_virgin: 'S. Dymphnæ, virginis',
     declan_of_ardmore_bishop: 'S. Declani, episcopi',
-    dedication_of_consecrated_churches:
-      'In Dedicatione Ecclesiæ, cuius dies consecrationis ignotus est',
+    dedication_of_consecrated_churches: 'In Dedicatione Ecclesiæ, cuius dies consecrationis ignotus est',
     dedication_of_the_basilica_of_saint_mary_major: 'In Dedicatione basilicæ S. Mariæ',
     dedication_of_the_basilicas_of_saints_peter_and_paul_apostles:
       'In Dedicatione basilicarum Ss. Petri et Pauli, apostolorum',
@@ -432,8 +415,7 @@ export const locale: Locale = {
     dina_belanger_virgin: 'B. Dinæ Bélanger, virginis',
     dionysius_the_areopagite_bishop: 'S. Dionysii Areopagitæ',
     dominic_de_guzman_priest: 'S. Dominici, presbyteri',
-    dominic_of_the_mother_of_god_barberi_priest:
-      'B. Dominici Barberi a Matre Dei Barberi, presbyteri',
+    dominic_of_the_mother_of_god_barberi_priest: 'B. Dominici Barberi a Matre Dei Barberi, presbyteri',
     dunstan_of_canterbury_bishop: 'S. Dunstani Cantuariensis, episcopi',
     dyfrig_of_wales_bishop: 'S. Dubricii, episcopi',
     edmund_bojanowski: 'B. Edmundi Bojanowski',
@@ -482,10 +464,8 @@ export const locale: Locale = {
     frances_xavier_cabrini_virgin: 'S. Franciscæ Xaveriæ Cabrini, virginis',
     francis_borgia_priest: 'S. Francisci Borgia, presbyteri',
     francis_de_sales_bishop: 'S. Francisci de Sales, episcopi et Ecclesiæ doctoris',
-    francis_diaz_del_rincon_priest_and_companions_martyrs:
-      'Ss. Francisci Diaz, presbyteri, et sociorum, martyrum',
-    francis_ferdinand_de_capillas_priest:
-      'S. Francisci Fernández de Capillas, presbyteri et martyris',
+    francis_diaz_del_rincon_priest_and_companions_martyrs: 'Ss. Francisci Diaz, presbyteri, et sociorum, martyrum',
+    francis_ferdinand_de_capillas_priest: 'S. Francisci Fernández de Capillas, presbyteri et martyris',
     francis_of_assisi: 'S. Francisci Assisiensis',
     francis_of_assisi_patron_of_italy: 'S. Francisci Assisiensis, patroni Italiæ',
     francis_of_paola_hermit: 'S. Francisci de Paola, eremitæ',
@@ -549,8 +529,7 @@ export const locale: Locale = {
     hugh_of_lincoln_bishop: 'S. Hugonis Lincolnien, episcopi',
     hungarian_saints_and_blesseds: 'Sanctorum et Beatorum Hungariæ',
     hyacinth_of_poland_priest: 'S. Hyacinthi, presbyteri',
-    ignatius_de_azevedo_priest_and_companions_martyrs:
-      'B. Ignatii de Azevedo, presbyteri, et sociorum, martyrum',
+    ignatius_de_azevedo_priest_and_companions_martyrs: 'B. Ignatii de Azevedo, presbyteri, et sociorum, martyrum',
     ignatius_falzon: 'B. Ignatii Falzon',
     ignatius_of_antioch_bishop: 'S. Ignatii Antiocheni, episcopi et martyris',
     ignatius_of_loyola_priest: 'S. Ignatii de Loyola, presbyteri',
@@ -583,8 +562,7 @@ export const locale: Locale = {
     joachim_and_anne_patroness_of_the_province_of_quebec_parents_of_mary:
       'S. Annæ, patronæ Quebeci, et S. Ioachim, parentum B. M. V.',
     joachim_he_kaizhi_martyr: 'S. Ioachim He Kaizhi, martyris',
-    joan_of_arc_virgin_copatroness_of_france:
-      'S. Ioannæ Arcensis, virginis et patronæ secundariæ Galliæ',
+    joan_of_arc_virgin_copatroness_of_france: 'S. Ioannæ Arcensis, virginis et patronæ secundariæ Galliæ',
     joan_of_portugal_virgin: 'B. Ioannæ Lusitaniæ, virginis',
     joaquina_of_saint_francis_of_assisi_de_vedruna_religious:
       'S. Ioachimæ a Sancto Francisco Assisiensis de Vedruna, religiosæ',
@@ -603,8 +581,7 @@ export const locale: Locale = {
       'Ss. Ioannis de Brébeuf, Isaac Jogues, presbyterorum, et sociorum, martyrum et patronorum secundariorum Canadæ',
     john_de_britto_priest: 'S. Ioannis de Britto, presbyteri et martyris',
     john_eudes_priest: 'S. Ioannis Eudes, presbyteri',
-    john_fisher_bishop_and_thomas_more_martyrs:
-      'Ss. Ioannis Fisher, episcopi, et Thomæ More, martyrum',
+    john_fisher_bishop_and_thomas_more_martyrs: 'Ss. Ioannis Fisher, episcopi, et Thomæ More, martyrum',
     john_gabriel_perboyre_priest: 'S. Ioannis Gabrielis Perboyre, presbyteri et martyris',
     john_henry_newman_priest: 'S. Ioannis Henrici Newman, presbyteri',
     john_i_pope: 'S. Ioannis I, papæ et martyris',
@@ -653,11 +630,9 @@ export const locale: Locale = {
     kevin_of_glendalough_abbot: 'S. Cœmgeni, abbatis',
     kieran_of_saigir_bishop: 'S. Kyarani, episcopi',
     kilian_of_wurzburg_bishop: 'S. Kiliani, episcopi et martyris',
-    kilian_of_wurzburg_bishop_and_companions_martyrs:
-      'Ss. Kiliani, episcopi, et sociorum, martyrum',
+    kilian_of_wurzburg_bishop_and_companions_martyrs: 'Ss. Kiliani, episcopi, et sociorum, martyrum',
     kinga_of_poland_virgin: 'S. Cunegundæ, virginis',
-    kuriakose_elias_of_the_holy_family_chavara_priest:
-      'S. Kuriakose Eliæ Chavara a Sacra Familia Chavara, presbyteri',
+    kuriakose_elias_of_the_holy_family_chavara_priest: 'S. Kuriakose Eliæ Chavara a Sacra Familia Chavara, presbyteri',
     ladislas_of_gielniow_priest: 'B. Ladislai a Gielniów, presbyteri',
     ladislaus_batthyany_strattmann: 'B. Ladislai Batthyány-Strattmann',
     ladislaus_i_of_hungary: 'S. Ladislai',
@@ -673,8 +648,7 @@ export const locale: Locale = {
     leander_of_seville_bishop: 'S. Leandri, episcopi',
     lelia_of_killeely_virgin: 'S. Leliæ, virginis',
     leo_i_the_great_pope: 'S. Leonis Magni, papæ et Ecclesiæ doctoris',
-    leo_ignatius_mangin_priest_and_companions_martyrs:
-      'Ss. Leonis Ignatii Mangin, presbyteri, et sociorum, martyrum',
+    leo_ignatius_mangin_priest_and_companions_martyrs: 'Ss. Leonis Ignatii Mangin, presbyteri, et sociorum, martyrum',
     leo_ix_pope: 'S. Leonis IX, papæ',
     leoba_of_tauberbischofsheim_abbess: 'S. Leobæ, abatissæ',
     leonard_of_noblac_hermit: 'S. Leonardi, eremitæ',
@@ -737,10 +711,8 @@ export const locale: Locale = {
     mary_magdalene_de_pazzi_virgin: 'S. Mariæ Magdalenæ de’ Pazzi, virginis',
     mary_mother_of_the_church: 'B. Mariæ Virginis Ecclesiæ Matris',
     mary_of_jesus_crucified_petkovic_virgin: 'B. Mariæ a Iesu Crucifixo Petković, virginis',
-    mary_of_jesus_in_the_blessed_sacrament_venegas_virgin:
-      'S. Mariæ a Iesu Sacramentato Venegas de la Torre, virginis',
-    mary_of_jesus_the_good_shepherd_siedliska_virgin:
-      'B. Mariæ a Iesu Bono Pastore Siedliska, virginis',
+    mary_of_jesus_in_the_blessed_sacrament_venegas_virgin: 'S. Mariæ a Iesu Sacramentato Venegas de la Torre, virginis',
+    mary_of_jesus_the_good_shepherd_siedliska_virgin: 'B. Mariæ a Iesu Bono Pastore Siedliska, virginis',
     mary_of_the_cross_mackillop_virgin: 'S. Mariæ a Cruce MacKillop, virginis',
     mary_soledad_torres_acosta_virgin: 'S. Mariæ a Solitudine Torres Acosta, virginis',
     mary_stella_of_the_blessed_sacrament_mardosewicz_and_companions_virgins:
@@ -781,8 +753,7 @@ export const locale: Locale = {
     ninian_of_whithorn_bishop: 'S. Niniani, episcopi',
     norbert_of_xanten_bishop: 'S. Norberti, episcopi',
     nuno_of_saint_mary_pereira_religious: 'S. Nunii a Sancta Maria Pereira, religiosi',
-    nykyta_budka_and_vasyl_velychkovsky_bishops:
-      'Bb. Niceti Budka et Basilii Velychkovskyi, episcoporum et martyrum',
+    nykyta_budka_and_vasyl_velychkovsky_bishops: 'Bb. Niceti Budka et Basilii Velychkovskyi, episcoporum et martyrum',
     odile_of_alsace_abbess: 'S. Odiliæ, abatissæ',
     odoric_of_pordenone_priest: 'B. Odorici de Portu Naonis, presbyteri',
     olaf_ii_of_norway_martyr: 'S. Olavi, martyris',
@@ -803,8 +774,7 @@ export const locale: Locale = {
     our_lady_of_fatima: 'B. Mariæ Virginis de Fatima',
     our_lady_of_good_counsel: 'B. Mariæ Virginis boni Consilii Matris',
     our_lady_of_guadalupe: 'B. Mariæ Virginis de Guadalupe',
-    our_lady_of_guadalupe_patroness_of_the_americas:
-      'B. Mariæ Virginis de Guadalupe, Patronæ Americæ',
+    our_lady_of_guadalupe_patroness_of_the_americas: 'B. Mariæ Virginis de Guadalupe, Patronæ Americæ',
     our_lady_of_guadalupe_patroness_of_the_philippines:
       'Beatæ Mariæ Virginis de Guadalupe, Patronæ Insularum Philippinarum',
     our_lady_of_hungary_patroness_of_hungary: 'B. Mariæ Virginis, Patronæ Hungariæ',
@@ -825,8 +795,7 @@ export const locale: Locale = {
     our_lady_of_refuge: 'B. Mariæ Virginis Refugii peccatorum',
     our_lady_of_sorrows: 'B. Mariæ Virginis Perdolentis',
     our_lady_of_sorrows_patroness_of_slovakia: 'B. Mariæ Virginis Perdolentis, Patronæ Slovaciæ',
-    our_lady_of_the_discovery_of_the_hidden_christians:
-      'B. Mariæ Virginis a Inventione occultorum Christianorum',
+    our_lady_of_the_discovery_of_the_hidden_christians: 'B. Mariæ Virginis a Inventione occultorum Christianorum',
     our_lady_of_the_gate_of_dawn: 'B. Mariæ Virginis Portæ Auroræ',
     our_lady_of_the_pillar: 'B. Mariæ Virginis a Columna',
     our_lady_of_the_rosary: 'B. Mariæ Virginis a Rosario',
@@ -835,8 +804,7 @@ export const locale: Locale = {
     our_lady_of_walsingham: 'B. Mariæ Virginis de Walsingham',
     our_lady_queen_of_peace: 'B. Mariæ Virginis Reginæ Pacis',
     our_lady_queen_of_poland: 'B Mariæ Virginis Reginæ Poloniæ',
-    our_lord_jesus_christ_the_eternal_high_priest:
-      'Domini nostri Iesu Christi, Summi et Æterni Sacerdotis',
+    our_lord_jesus_christ_the_eternal_high_priest: 'Domini nostri Iesu Christi, Summi et Æterni Sacerdotis',
     our_lord_of_miracles: 'Domini Miraculorum',
     pancras_of_rome_martyr: 'S. Pancratii, martyris',
     pantaleon_of_nicomedia_martyr: 'S. Pantaleonis, martyris',
@@ -863,24 +831,20 @@ export const locale: Locale = {
       'Ss. Petri Baptistæ Blázquez, Pauli Miki et sociorum, martyrum',
     peter_canisius_priest: 'S. Petri Canisii, presbyteri et Ecclesiæ doctoris',
     peter_chanel_priest: 'S. Petri Chanel, presbyteri et martyris',
-    peter_chanel_priest_patron_of_oceania:
-      'S. Petri Chanel, protomartyris Oceaniæ et patroni Oceaniæ',
+    peter_chanel_priest_patron_of_oceania: 'S. Petri Chanel, protomartyris Oceaniæ et patroni Oceaniæ',
     peter_chrysologus_bishop: 'S. Petri Chrysologi, episcopi et Ecclesiæ doctoris',
     peter_claver_priest: 'S. Petri Claver, presbyteri',
     peter_damian_bishop: 'S. Petri Damiani, episcopi et Ecclesiæ doctoris',
-    peter_de_zuniga_and_louis_flores_priests:
-      'Bb. Petri de Zúñiga et Ludovici Flores, presbyterorum et martyrum',
+    peter_de_zuniga_and_louis_flores_priests: 'Bb. Petri de Zúñiga et Ludovici Flores, presbyterorum et martyrum',
     peter_julian_eymard_priest: 'S. Petri Iuliani Eymard, presbyteri',
-    peter_kibe_priest_and_companions_martyrs:
-      'B. Petri Kibe Kasui, presbyteri, et sociorum, martyrum',
+    peter_kibe_priest_and_companions_martyrs: 'B. Petri Kibe Kasui, presbyteri, et sociorum, martyrum',
     peter_liu_wenyuan_martyr: 'S. Petri Liu Wenyuan, martyris',
     peter_of_alcantara_priest: 'S. Petri de Alcantara, presbyteri',
     peter_sanz_bishop: 'S. Petri Sanz, episcopi et martyris',
     peter_to_rot_martyr: 'B. Petri To Rot, martyris',
     peter_wu_guosheng_martyr: 'S. Petri Wu Guosheng, martyris',
     philip_and_james_apostles: 'Ss. Philippi et Iacobi, apostolorum',
-    philip_evans_and_john_lloyd_priests:
-      'Ss. Philippi Evans et Ioannis Lloyd, presbyterorum et martyrum',
+    philip_evans_and_john_lloyd_priests: 'Ss. Philippi Evans et Ioannis Lloyd, presbyterorum et martyrum',
     philip_neri_priest: 'S. Philippi Neri, presbyteri',
     philip_of_jesus_de_las_casas_martyr: 'S. Philippi a Iesu, presbyteri et martyris',
     philip_of_jesus_de_las_casas_paul_miki_and_companions_martyrs:
@@ -891,8 +855,7 @@ export const locale: Locale = {
     pius_v_pope: 'S. Pii V, papæ',
     pius_x_pope: 'S. Pii X, papæ',
     polycarp_of_smyrna_bishop: 'S. Polycarpi, episcopi et martyris',
-    pontian_i_pope_and_hippolytus_of_rome_priest:
-      'Ss. Pontiani, papæ, et Hippolyti, presbyteri, martyrum',
+    pontian_i_pope_and_hippolytus_of_rome_priest: 'Ss. Pontiani, papæ, et Hippolyti, presbyteri, martyrum',
     pothinus_of_lyon_bishop_blandina_of_lyon_virgin_and_companions_martyrs:
       'Ss. Pothini, episcopi, Blandinæ, virginis, et sociorum, martyrum',
     presentation_of_mary: 'In Præsentatione B. Mariæ Virginis',
@@ -905,8 +868,7 @@ export const locale: Locale = {
     rafqa_pietra_choboq_ar_rayes_virgin: 'S. Rafqa Petræ Choboq Ar-Rayès, virginis',
     raphael_chylinski_priest: 'B. Raphaelis Chyliński, presbyteri',
     raphael_guizar_y_valencia_bishop: 'S. Raphaelis Guízar Valencia, episcopi',
-    raphael_of_saint_joseph_kalinowski_priest:
-      'S. Raphaelis a Sancto Ioseph Kalinowski, presbyteri',
+    raphael_of_saint_joseph_kalinowski_priest: 'S. Raphaelis a Sancto Ioseph Kalinowski, presbyteri',
     raymond_of_penyafort_priest: 'S. Raimundi de Penyafort, presbyteri',
     remigius_of_reims_bishop: 'S. Remigii, episcopi',
     richard_gwyn_martyr: 'S. Richardi Gwyn, martyris',
@@ -921,8 +883,7 @@ export const locale: Locale = {
     rose_of_lima_virgin_copatroness_of_the_philippines:
       'S. Rosæ de Lima, virginis et patronæ secundariæ Insularum Philippinæ',
     rose_philippine_duchesne_virgin: 'S. Rosæ Philippinæ Duchesne, virginis',
-    rupert_of_salzburg_and_virgilius_of_salzburg_bishops:
-      'Ss. Ruperti et Virgilii Salisburgensis, episcoporum',
+    rupert_of_salzburg_and_virgilius_of_salzburg_bishops: 'Ss. Ruperti et Virgilii Salisburgensis, episcoporum',
     salomea_of_poland_religious: 'B. Salomeæ, religiosæ',
     sancha_of_portugal_and_mafalda_of_portugal_virgins: 'B. Sanchæ et Maphaldæ, virginum',
     sara_salkahazi_virgin: 'B. Saræ Salkaházi, virginis et martyris',
@@ -946,8 +907,7 @@ export const locale: Locale = {
     stanislaus_kazimierczyk_priest: 'S. Stanislai Kazimierczyk, presbyteri',
     stanislaus_kostka_religious: 'S. Stanislai Kostka, religiosi',
     stanislaus_of_szczepanow_bishop: 'S. Stanislai, episcopi et martyris',
-    stanislaus_of_szczepanow_bishop_patron_of_poland:
-      'S. Stanislai, episcopi, martyris et patroni Poloniæ',
+    stanislaus_of_szczepanow_bishop_patron_of_poland: 'S. Stanislai, episcopi, martyris et patroni Poloniæ',
     stephen_i_of_hungary: 'S. Stephani Hungariæ',
     stephen_the_first_martyr: 'S. Stephani, protomartyris',
     sunniva_of_norway_virgin: 'S. Sunnivæ, virginis et martyris',
@@ -955,8 +915,7 @@ export const locale: Locale = {
     sylvester_i_pope: 'S. Silvestri I, papæ',
     szilard_bogdanffy_bishop: 'B. Szilárd Bogdánffy, episcopi et martyris',
     teilo_of_llandaff_bishop: 'S. Teliavi, episcopi',
-    teresa_benedicta_of_the_cross_stein_virgin:
-      'S. Teresiæ Benedictæ a Cruce Stein, virginis et martyris',
+    teresa_benedicta_of_the_cross_stein_virgin: 'S. Teresiæ Benedictæ a Cruce Stein, virginis et martyris',
     teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe:
       'S. Teresiæ Benedictæ a Cruce Stein, virginis, martyris et patronæ secundariæ Europæ',
     teresa_of_calcutta_religious: 'S. Teresiæ de Calcutta, religiosi',
@@ -981,12 +940,10 @@ export const locale: Locale = {
     thorfinn_of_hamar_bishop: 'S. Thorfinni, episcopi',
     thorlac_of_iceland_bishop: 'S. Thorlaci, episcopi',
     timothy_of_ephesus_and_titus_of_crete_bishops: 'Ss. Timothei et Titi, episcoporum',
-    translation_of_the_relics_of_saint_stephen_of_hungary:
-      'In Translatione reliquiarum S. Stephani Hungariæ',
+    translation_of_the_relics_of_saint_stephen_of_hungary: 'In Translatione reliquiarum S. Stephani Hungariæ',
     turibius_of_mogrovejo_bishop: 'S. Turibii de Mogrovejo, episcopi',
     ulrich_of_augsburg_bishop: 'S. Udalrici Augustensis, episcopi',
-    ursula_of_cologne_and_companions_virgins:
-      'Ss. Ursulæ Coloniensis et sociorum, virginum et martyrum',
+    ursula_of_cologne_and_companions_virgins: 'Ss. Ursulæ Coloniensis et sociorum, virginum et martyrum',
     valentine_of_raetia_bishop: 'S. Valentini Rhætiæ, episcopi',
     vincent_de_paul_priest: 'S. Vincentii de Paul, presbyteri',
     vincent_ferrer_priest: 'S. Vincentii Ferrer, presbyteri',
@@ -1002,16 +959,14 @@ export const locale: Locale = {
     waitangi_day: 'Dies Nationalis Novæ Zelandiæ',
     walpurga_of_heidenheim_abbess: 'S. Walburgis, abatissæ',
     wenceslaus_i_of_bohemia_martyr: 'S. Wenceslai, martyris',
-    wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation:
-      'S. Wenceslai, martyris et patroni de gente Bohemica',
+    wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation: 'S. Wenceslai, martyris et patroni de gente Bohemica',
     wendelin_of_trier_abbot: 'S. Wendelini, abbatis',
     wilfrid_of_york_bishop: 'S. Wilfridi, episcopi',
     william_apor_bishop: 'B. Gulielmi Apor, episcopi et martyris',
     willibald_of_eichstatt_bishop: 'S. Willibaldi, episcopi',
     willibrord_of_utrecht_bishop: 'S. Willibrordi, episcopi',
     winefride_of_flintshire_virgin: 'S. Wenefredæ, virginis',
-    wladyslaw_bladzinski_priest_and_companions_martyrs:
-      'B. Ladislai Błądziński, presbyteri, et sociorum, martyrum',
+    wladyslaw_bladzinski_priest_and_companions_martyrs: 'B. Ladislai Błądziński, presbyteri, et sociorum, martyrum',
     wolfgang_of_regensburg_bishop: 'S. Wolfgangi Ratisbonensis, episcopi',
     wulstan_of_worcester_bishop: 'S. Wulstani, episcopi',
     yolanda_of_poland_religious: 'B. Iolentæ, religiosæ',

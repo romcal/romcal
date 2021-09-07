@@ -126,8 +126,7 @@ export const locale: Locale = {
     transfiguration: 'Przemienienie Pańskie',
     trinity_sunday: 'Najświętszej Trójcy',
     adalbert_of_prague_bishop: 'Św. Wojciecha, biskupa i męczennika',
-    adalbert_of_prague_bishop_patron_of_poland:
-      'Św. Wojciecha, biskupa i męczennika, głównego patrona Polski',
+    adalbert_of_prague_bishop_patron_of_poland: 'Św. Wojciecha, biskupa i męczennika, głównego patrona Polski',
     agatha_of_sicily_virgin: 'Św. Agaty, dziewicy i męczennicy',
     agnes_cao_guiying_martyr: 'Św. Agnieszki Cao Guiying, męczennicy',
     agnes_of_rome_virgin: 'Św. Agnieszki, dziewicy i męczennicy',
@@ -143,12 +142,10 @@ export const locale: Locale = {
     andrew_apostle: 'Św. Andrzeja, Apostoła',
     andrew_apostle_patron_of_scotland: 'Św. Andrzeja, Apostoła, patrona Szkocji',
     andrew_bobola_priest: 'Św. Andrzeja Boboli, prezbitera i męczennika, patrona Polski',
-    andrew_dung_lac_priest_and_companions_martyrs:
-      'Świętych męczenników Andrzeja Dung-Lac, prezbitera, i Towarzyszy',
+    andrew_dung_lac_priest_and_companions_martyrs: 'Świętych męczenników Andrzeja Dung-Lac, prezbitera, i Towarzyszy',
     andrew_kim_tae_gon_priest_paul_chong_ha_sang_and_companions_martyrs:
       'Świętych męczenników Andrzeja Kim Taegon, prezbitera, Pawła Chong Hasang i Towarzyszy',
-    andrew_zorard_of_nitra_and_benedict_of_skalka_hermits:
-      'Świętych pustelników Andrzeja Świerada i Benedykta',
+    andrew_zorard_of_nitra_and_benedict_of_skalka_hermits: 'Świętych pustelników Andrzeja Świerada i Benedykta',
     angela_merici_virgin: 'Św. Anieli Merici, dziewicy',
     angela_salawa_virgin: 'Bł. Anieli Salawy, dziewicy',
     anselm_of_canterbury_bishop: 'Św. Anzelma, biskupa i doktora Kościoła',
@@ -214,19 +211,16 @@ export const locale: Locale = {
     cosmas_of_cilicia_and_damian_of_cilicia_martyrs: 'Świętych męczenników Kosmy i Damiana',
     cyril_of_alexandria_bishop: 'Św. Cyryla Aleksandryjskiego, biskupa i doktora Kościoła',
     cyril_of_jerusalem_bishop: 'Św. Cyryla Jerozolimskiego, biskupa i doktora Kościoła',
-    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop:
-      'Świętych Cyryla, mnicha i Metodego, biskupa',
+    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop: 'Świętych Cyryla, mnicha i Metodego, biskupa',
     cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe:
       'Świętych Cyryla, mnicha i Metodego, biskupa, patronów Europy',
     damasus_i_pope: 'Św. Damazego I, papieża',
     dedication_of_consecrated_churches: 'Rocznica poświęcenia kościoła własnego',
-    dedication_of_the_basilica_of_saint_mary_major:
-      'Rocznica poświęcenia rzymskiej Bazyliki Najświętszej Maryi Panny',
+    dedication_of_the_basilica_of_saint_mary_major: 'Rocznica poświęcenia rzymskiej Bazyliki Najświętszej Maryi Panny',
     dedication_of_the_basilicas_of_saints_peter_and_paul_apostles:
       'Rocznica poświęcenia rzymskich bazylik świętych apostołów Piotra i Pawła',
     dedication_of_the_lateran_basilica: 'Rocznica poświęcenia Bazyliki Laterańskiej',
-    denis_of_paris_bishop_and_companions_martyrs:
-      'Świętych męczenników Dionizego, biskupa, i Towarzyszy',
+    denis_of_paris_bishop_and_companions_martyrs: 'Świętych męczenników Dionizego, biskupa, i Towarzyszy',
     dominic_de_guzman_priest: 'Św. Dominika, prezbitera',
     edmund_bojanowski: 'Bł. Edmunda Bojanowskiego',
     elizabeth_of_hungary_religious: 'Św. Elżbiety Węgierskiej, zakonnicy',
@@ -236,17 +230,14 @@ export const locale: Locale = {
     fabian_i_pope: 'Św. Fabiana, papieża i męczennika',
     faustina_kowalska_virgin: 'Św. Faustyny Kowalskiej, dziewicy',
     fidelis_of_sigmaringen_priest: 'Św. Fidelisa z Sigmaringen, prezbitera i męczennika',
-    first_martyrs_of_the_holy_roman_church:
-      'Świętych Pierwszych męczenników Św. Kościoła rzymskiego',
-    first_polish_martyrs:
-      'Świętych Benedykta, Jana, Mateusza, Izaaka i Krystyna, pierwszych męczenników Polski',
+    first_martyrs_of_the_holy_roman_church: 'Świętych Pierwszych męczenników Św. Kościoła rzymskiego',
+    first_polish_martyrs: 'Świętych Benedykta, Jana, Mateusza, Izaaka i Krystyna, pierwszych męczenników Polski',
     florian_of_lorch_martyr: 'Św. Floriana, męczennika',
     frances_of_rome_religious: 'Św. Franciszki Rzymianki, zakonnicy',
     francis_de_sales_bishop: 'Św. Franciszka Salezego, biskupa i doktora Kościoła',
     francis_diaz_del_rincon_priest_and_companions_martyrs:
       'Świętych męczenników Franciszka Diaza, prezbitera, i Towarzyszy',
-    francis_ferdinand_de_capillas_priest:
-      'Św. Franciszka Fernandeza de Capillas, prezbitera i męczennika',
+    francis_ferdinand_de_capillas_priest: 'Św. Franciszka Fernandeza de Capillas, prezbitera i męczennika',
     francis_of_assisi: 'Św. Franciszka z Asyżu',
     francis_of_assisi_patron_of_italy: 'Św. Franciszka z Asyżu, patrona Włoch',
     francis_of_paola_hermit: 'Św. Franciszka z Paoli, pustelnika',
@@ -291,8 +282,7 @@ export const locale: Locale = {
     john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs:
       'Świętych męczenników Jana de Brebeuf, Izaaka Jogues’a, prezbiterów, i Towarzyszy',
     john_eudes_priest: 'Św. Jana Eudesa, prezbitera',
-    john_fisher_bishop_and_thomas_more_martyrs:
-      'Świętych męczenników Jana Fishera, biskupa i Tomasza More’a',
+    john_fisher_bishop_and_thomas_more_martyrs: 'Świętych męczenników Jana Fishera, biskupa i Tomasza More’a',
     john_gabriel_perboyre_priest: 'Św. Jana Gabriela Perboyre’a, prezbitera i męczennika',
     john_i_pope: 'Św. Jana I, papieża i męczennika',
     john_leonardi_priest: 'Św. Jana Leonardiego, prezbitera',
@@ -320,15 +310,13 @@ export const locale: Locale = {
     justin_martyr: 'Św. Justyna, męczennika',
     kinga_of_poland_virgin: 'Św. Kingi, dziewicy',
     ladislas_of_gielniow_priest: 'Bł. Władysława z Gielniowa, prezbitera',
-    laurence_wang_bing_and_companions_martyrs:
-      'Świętych męczenników Wawrzyńca Wang Binga i Towarzyszy',
+    laurence_wang_bing_and_companions_martyrs: 'Świętych męczenników Wawrzyńca Wang Binga i Towarzyszy',
     lawrence_bai_xiaoman_martyr: 'Św. Wawrzyńa Bai Xiaomana, męczennika',
     lawrence_of_brindisi_priest: 'Św. Wawrzyńca z Brindisi, prezbitera i doktora Kościoła',
     lawrence_of_rome_deacon: 'Św. Wawrzyńca, diakona i męczennika',
     lawrence_ruiz_and_companions_martyrs: 'Świętych męczenników Wawrzyńca Ruiz i Towarzyszy',
     leo_i_the_great_pope: 'Św. Leona Wielkiego, papieża i doktora Kościoła',
-    leo_ignatius_mangin_priest_and_companions_martyrs:
-      'Świętych męczenników Leona Mangina, prezbitera, i Towarzyszy',
+    leo_ignatius_mangin_priest_and_companions_martyrs: 'Świętych męczenników Leona Mangina, prezbitera, i Towarzyszy',
     louis_grignion_de_montfort_priest: 'Św. Ludwika Marii Grignion de Montfort, prezbitera',
     louis_ix_of_france: 'Św. Ludwika',
     lucy_of_syracuse_virgin: 'Św. Łucji, dziewicy i męczennicy',
@@ -343,8 +331,7 @@ export const locale: Locale = {
     martin_de_porres_religious: 'Św. Marcina de Porres, zakonnika',
     martin_i_pope: 'Św. Marcina I, papieża i męczennika',
     martin_of_tours_bishop: 'Św. Marcina z Tours, biskupa',
-    martin_wu_xuesheng_and_companions_martyrs:
-      'Świętych męczenników Marcina Wu Xueshenga, i Towarzyszy',
+    martin_wu_xuesheng_and_companions_martyrs: 'Świętych męczenników Marcina Wu Xueshenga, i Towarzyszy',
     mary_angela_truszkowska_virgin: 'Bł. Marii Angeli Truszkowskiej, dziewicy',
     mary_assunta_pallotta_virgin: 'Bł. Marii Assunty Pallotty, Dziewicy',
     mary_magdalene: 'Św. Marii Magdaleny',
@@ -367,8 +354,7 @@ export const locale: Locale = {
     most_holy_name_of_jesus: 'Najświętszego Imienia Jezus',
     most_holy_name_of_mary: 'Najświętszego Imienia Maryi',
     nativity_of_mary: 'Narodzenie Najświętszej Maryi Panny',
-    nereus_of_terracina_and_achilleus_of_terracina_martyrs:
-      'Świętych męczenników Nereusza i Achillesa',
+    nereus_of_terracina_and_achilleus_of_terracina_martyrs: 'Świętych męczenników Nereusza i Achillesa',
     nicholas_of_myra_bishop: 'Św. Mikołaja, biskupa',
     norbert_of_xanten_bishop: 'Św. Norberta, biskupa',
     odoric_of_pordenone_priest: 'Bł. Odoryka z Pordenone, prezbitera',
@@ -378,24 +364,20 @@ export const locale: Locale = {
     our_lady_of_czestochowa: 'Najświętszej Maryi Panny Częstochowskiej',
     our_lady_of_fatima: 'Najświętszej Maryi Panny z Fatimy',
     our_lady_of_guadalupe: 'Najświętszej Maryi Panny z Guadalupe',
-    our_lady_of_guadalupe_patroness_of_the_americas:
-      'Najświętszej Maryi Panny z Guadalupe, Patronki obu Ameryk',
+    our_lady_of_guadalupe_patroness_of_the_americas: 'Najświętszej Maryi Panny z Guadalupe, Patronki obu Ameryk',
     our_lady_of_loreto: 'Najświętszej Maryi Panny Loretańskiej',
     our_lady_of_lourdes: 'Najświętszej Maryi Panny z Lourdes',
     our_lady_of_mount_carmel: 'Najświętszej Maryi Panny z Góry Karmel',
     our_lady_of_sorrows: 'Najświętszej Maryi Panny Bolesnej',
-    our_lady_of_sorrows_patroness_of_slovakia:
-      'Najświętszej Maryi Panny Bolesnej, patronki Słowacji',
+    our_lady_of_sorrows_patroness_of_slovakia: 'Najświętszej Maryi Panny Bolesnej, patronki Słowacji',
     our_lady_of_the_rosary: 'Najświętszej Maryi Panny Różańcowej',
     our_lady_queen_of_poland: 'Najświętszej Maryi Panny, Królowej Polski, głownej patronki Polski',
-    our_lord_jesus_christ_the_eternal_high_priest:
-      'Jezusa Chrystusa, Najwyższego i Wiecznego Kapłana',
+    our_lord_jesus_christ_the_eternal_high_priest: 'Jezusa Chrystusa, Najwyższego i Wiecznego Kapłana',
     pancras_of_rome_martyr: 'Św. Pankracego, męczennika',
     passion_of_saint_john_the_baptist: 'Męczeństwo św. Jana Chrzciciela',
     patrick_of_ireland_bishop: 'Św. Patryka, biskupa',
     patrick_of_ireland_bishop_patron_of_ireland: 'Św. Patryka, biskupa, patrona Irlandii',
-    paul_chen_changpin_and_companions_martyrs:
-      'Świętych męczenników Pawła Chen Changpina i Towarzyszy',
+    paul_chen_changpin_and_companions_martyrs: 'Świętych męczenników Pawła Chen Changpina i Towarzyszy',
     paul_liu_hanzuo_priest: 'Św. Pawła Liu Hanzuo, prezbitera i męczennika',
     paul_miki_and_companions_martyrs: 'Świętych męczenników Pawła Miki i Towarzyszy',
     paul_of_the_cross_priest: 'Św. Pawła od Krzyża, prezbitera',
@@ -416,8 +398,7 @@ export const locale: Locale = {
     pius_v_pope: 'Św. Piusa V, papieża',
     pius_x_pope: 'Św. Piusa X, papieża',
     polycarp_of_smyrna_bishop: 'Św. Polikarpa, biskupa i męczennika',
-    pontian_i_pope_and_hippolytus_of_rome_priest:
-      'Świętych męczenników Poncjana, papieża i Hipolita, prezbiteras',
+    pontian_i_pope_and_hippolytus_of_rome_priest: 'Świętych męczenników Poncjana, papieża i Hipolita, prezbiteras',
     presentation_of_mary: 'Ofiarowanie Najświętszej Maryi Panny',
     queenship_of_mary: 'Najświętszej Maryi Panny, Królowej',
     raphael_chylinski_priest: 'Bł. Rafała Chylińskiego, prezbitera',
@@ -430,26 +411,22 @@ export const locale: Locale = {
     salomea_of_poland_religious: 'Bł. Salomei, zakonnicy',
     scholastica_of_nursia_virgin: 'Św. Scholastyki, dziewicy',
     sebastian_of_milan_martyr: 'Św. Sebastiana, męczennika',
-    seven_holy_founders_of_the_servite_order:
-      'Świętych siedmiu założycieli Zakonu Serwitów Najświętszej Maryi Panny',
+    seven_holy_founders_of_the_servite_order: 'Świętych siedmiu założycieli Zakonu Serwitów Najświętszej Maryi Panny',
     seven_martyred_nuns_from_the_franciscan_missionaries_of_mary:
       'Siedmiu męcznnic ze Zgromadzenia Franciszkanek Misjonarek Maryi',
     sharbel_makhluf_priest: 'Św. Szarbela Maklufa, prezbitera',
     sigmund_felix_felinski_bishop: 'Św. Zygmunta Szczęsnego Felińskiego, biskupa',
     simon_and_jude_apostles: 'Świętych Apostołów Szymona i Judy Tadeusza',
     simon_of_lipnica_priest: 'Św. Szymona z Lipnicy, prezbitera',
-    sixtus_ii_pope_and_companions_martyrs:
-      'Świętych męczenników Sykstusa II, papieża, i Towarzyszy',
+    sixtus_ii_pope_and_companions_martyrs: 'Świętych męczenników Sykstusa II, papieża, i Towarzyszy',
     stanislaus_kazimierczyk_priest: 'Św. Stanisława Kazimierczyka, prezbitera',
     stanislaus_kostka_religious: 'Św. Stanisława Kostki, zakonnika, patrona Polski',
     stanislaus_of_szczepanow_bishop: 'Św. Stanisława, biskupa i męczennika',
-    stanislaus_of_szczepanow_bishop_patron_of_poland:
-      'Św. Stanisława, biskupa i męczennika, głównego patrona Polski',
+    stanislaus_of_szczepanow_bishop_patron_of_poland: 'Św. Stanisława, biskupa i męczennika, głównego patrona Polski',
     stephen_i_of_hungary: 'Św. Stefana Węgierskiego',
     stephen_the_first_martyr: 'Św. Szczepana, pierwszego męczennika',
     sylvester_i_pope: 'Św. Sylwestra I, papieża',
-    teresa_benedicta_of_the_cross_stein_virgin:
-      'Św. Teresy Benedykty od Krzyża, dziewicy i męczennicy',
+    teresa_benedicta_of_the_cross_stein_virgin: 'Św. Teresy Benedykty od Krzyża, dziewicy i męczennicy',
     teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe:
       'Św. Teresy Benedykty od Krzyża, dziewicy i męczennicy, patronki Europy',
     teresa_of_jesus_of_avila_virgin: 'Św. Teresy od Jezusa, dziewicy i doktora Kościoła',
@@ -463,14 +440,12 @@ export const locale: Locale = {
     vincent_de_paul_priest: 'Św. Wincentego à Paulo, prezbitera',
     vincent_ferrer_priest: 'Św. Wincentego Ferreriusza, prezbitera',
     vincent_kadlubek_bishop: 'Bł. Wincentego Kadłubka, biskupa',
-    vincent_lewoniuk_and_companions_martyrs:
-      'Błogosławionych męczenników Wincentego Lewoniuka i Towarzyszy',
+    vincent_lewoniuk_and_companions_martyrs: 'Błogosławionych męczenników Wincentego Lewoniuka i Towarzyszy',
     vincent_of_saragossa_deacon: 'Św. Wincentego, diakona i męczennika',
     vincent_pallotti_priest: 'Św. Wincentego Pallottiego, prezbitera',
     visitation_of_mary: 'Nawiedzenie Najświętszej Maryi Panny',
     wenceslaus_i_of_bohemia_martyr: 'Św. Wacława, męczennika',
-    wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation:
-      'Św. Wacława, męczennika, patrona narodu czeskiego',
+    wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation: 'Św. Wacława, męczennika, patrona narodu czeskiego',
     wladyslaw_of_gielniow_priest: 'Bł. Władysława z Gielniowa, prezbitera',
     yolanda_of_poland_religious: 'Bł. Jolanty, zakonnicy',
     zdislava_of_lemberk: 'Św. Zdzisławy',

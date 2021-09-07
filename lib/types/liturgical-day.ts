@@ -499,13 +499,7 @@ export type BaseLiturgicalDayDef = Pick<
 export type LiturgicalDayInput = Partial<
   Pick<
     LiturgicalDayRoot,
-    | 'dateDef'
-    | 'precedence'
-    | 'isHolyDayOfObligation'
-    | 'isOptional'
-    | 'properCycle'
-    | 'customLocaleKey'
-    | 'drop'
+    'dateDef' | 'precedence' | 'isHolyDayOfObligation' | 'isOptional' | 'properCycle' | 'customLocaleKey' | 'drop'
   >
 > & {
   /**
@@ -555,10 +549,7 @@ export type LiturgicalDayProperOfTimeInput = Pick<
 /**
  * Generated object with computed date within a specific year
  */
-export type BaseLiturgicalDay = Omit<
-  LiturgicalDayRoot,
-  'properCycle' | 'calendarMetadata' | 'drop'
-> & {
+export type BaseLiturgicalDay = Omit<LiturgicalDayRoot, 'properCycle' | 'calendarMetadata' | 'drop'> & {
   /**
    * The unique key of the liturgical day.
    */

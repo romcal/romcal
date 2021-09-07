@@ -9,6 +9,7 @@ As a result, romcal v3 is now up to x10 faster than v2 and v1.
 The new architecture helped to introduce new features without performance and code quality impacts.
 
 ### Added
+
 - Locales & Internationalization:
   - introducing a new internationalization library, [i18next](https://www.i18next.com/).
     i18next provide the standard i18n features such as (plurals, context, interpolation, format) and better tooling to manage locales in general.
@@ -29,6 +30,7 @@ The new architecture helped to introduce new features without performance and co
   - This is just a start, new metadata could be added or refined.
 
 ### Changed
+
 - Build: the build process have been completely rewritten.
   - The core library do not contain anymore all the calendar and localization files, to lightweight the size of the library (it only contain a lightweight version of the General Roman Calendar, without translation and extra metadata).
   - All calendars are now available as romcal plugin, which are a bundles of the calendar data, the localized strings, and the new martyrology metadata catalog.
@@ -57,12 +59,13 @@ The new architecture helped to introduce new features without performance and co
   - `periods` include additional information, like early/late ordinary time, and special liturgical periods coming from the monastic traditions.
 
 ### Removed
-- Options to group and filters `LiturgicalDay` objects by predefined criteria is now removed. The reason is that is now very easy to group or filter a JavaScript object, and hard to cover all possible user requirement. However, produced data is by default sorted and grouped by dates.
 
+- Options to group and filters `LiturgicalDay` objects by predefined criteria is now removed. The reason is that is now very easy to group or filter a JavaScript object, and hard to cover all possible user requirement. However, produced data is by default sorted and grouped by dates.
 
 ## Romcal 2 (2021-05-18)
 
 ### Breaking Changes
+
 - Data schema outputted by romcal has been drastically remodeled. Please have look to the documentation for more informations.
 - ascensionOnSunday, corpusChristiOnSunday, epiphanyOnSunday option names have been renamed.
 - General romcal option names have been unified. `calendar` is renamed to `scope` and take the values: `gregorian` or `liturgical`.
@@ -75,12 +78,14 @@ The new architecture helped to introduce new features without performance and co
   - National calendars are renamed to particular
 
 ### Improved
+
 - Codebase rewritten from JavaScript to TypeScript.
 - Improved the existing `psalterWeek` metadata, according to the guideline of the liturgy of the hours.
 - Several improvements in the codebase (architecture, documentation, naming...).
 - The documentation has been updated to cover all new feature in detail, and available in the `/docs/` directory.
 
 ### Added
+
 - New romcal logo.
 - Added `weekdayCycle` metadata.
 - Added `isHolyDayOfObligation` metadata, on all Sundays and liturgical day that are a holiday of obligation.
@@ -91,11 +96,12 @@ The new architecture helped to introduce new features without performance and co
   - Institution of the Sunday of the Word of God
 
 ### Fixed
+
 - Many bug fixes thanks to the switch to the TypeScript language, and the strong typing of this language.
 
 ### Removed
-- The `christmastideIncludesTheSeasonOfEpiphany` and `christmastideIncludesTheSeasonOfEpiphany` are removed.
 
+- The `christmastideIncludesTheSeasonOfEpiphany` and `christmastideIncludesTheSeasonOfEpiphany` are removed.
 
 ## Romcal 1.3 (2020-01-26)
 

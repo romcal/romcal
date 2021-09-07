@@ -52,9 +52,7 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
   #colorNames?: string[];
   public get colorNames(): string[] {
     if (this.#colorNames !== undefined) return this.#colorNames;
-    return (this.#colorNames = this.#liturgicalDayConfig.config.getLiturgicalColorNames(
-      this.colors,
-    ));
+    return (this.#colorNames = this.#liturgicalDayConfig.config.getLiturgicalColorNames(this.colors));
   }
 
   #seasonNames?: string[];
@@ -135,9 +133,7 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
      * and all the weekdays of Lent have precedence over Obligatory Memorials.
      */
     this.colors =
-      weekday?.precedence === Precedences.PrivilegedWeekday_9 && this.rank === Ranks.Memorial
-        ? []
-        : def.colors;
+      weekday?.precedence === Precedences.PrivilegedWeekday_9 && this.rank === Ranks.Memorial ? [] : def.colors;
 
     this.martyrology = def.martyrology;
     this.titles = def.titles;

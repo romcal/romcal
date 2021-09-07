@@ -58,8 +58,7 @@ export class France extends CalendarDef {
     },
 
     therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin: {
-      customLocaleKey:
-        'therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin_copatroness_of_france',
+      customLocaleKey: 'therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin_copatroness_of_france',
       titles: { append: [PatronTitles.CopatronessOfFrance] },
     },
   };

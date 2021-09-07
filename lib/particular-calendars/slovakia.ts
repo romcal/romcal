@@ -58,8 +58,7 @@ export class Slovakia extends CalendarDef {
     },
 
     cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop: {
-      customLocaleKey:
-        'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_slavic_missionaries',
+      customLocaleKey: 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_slavic_missionaries',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       dateDef: { month: 7, date: 5 },
       titles: [Titles.SlavicMissionary],

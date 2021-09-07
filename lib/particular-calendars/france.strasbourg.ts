@@ -99,11 +99,7 @@ export class France_Strasbourg extends CalendarDef {
     maternus_of_cologne_and_valerius_of_treves_and_eucharius_first_apostles_of_alsace: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 9, date: 12 },
-      martyrology: [
-        'maternus_of_cologne_bishop',
-        'valerius_of_treves_bishop',
-        'eucharius_of_treves_bishop',
-      ],
+      martyrology: ['maternus_of_cologne_bishop', 'valerius_of_treves_bishop', 'eucharius_of_treves_bishop'],
     },
 
     lambert_of_maastricht_bishop: {

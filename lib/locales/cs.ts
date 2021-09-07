@@ -138,11 +138,9 @@ export const locale: Locale = {
     agnes_of_rome_virgin: 'Sv. Anežky Římské, panny a mučednice',
     aidan_of_ferns_bishop: 'Sv. Aidana, biskupa',
     aidan_of_lindisfarne_bishop: 'Sv. Aidana Lindisfarnského, biskupa a misionáře',
-    aidan_of_lindisfarne_bishop_and_the_saints_of_lindisfarne:
-      'Sv. Aidana, biskupa, a lindisfarnských svatých',
+    aidan_of_lindisfarne_bishop_and_the_saints_of_lindisfarne: 'Sv. Aidana, biskupa, a lindisfarnských svatých',
     ailbe_of_emly_bishop: 'Sv. Ailbe, biskupa',
-    alban_of_britain_julius_of_caerleon_aaron_of_caerleon_martyrs:
-      'Sv. Albana, Julia a Árona, mučedníků',
+    alban_of_britain_julius_of_caerleon_aaron_of_caerleon_martyrs: 'Sv. Albana, Julia a Árona, mučedníků',
     alban_of_britain_martyr: 'Sv. Albana, mučedníka',
     alberic_crescitelli_priest: 'Sv. Alberika Crescitelliho, kněze a mučedníka',
     albert_chmielowski_religious: 'Sv. Alberta Chmielowského, řeholníka',
@@ -169,12 +167,10 @@ export const locale: Locale = {
     andrew_bobola_priest: 'Sv. Ondřeje Bobolu, kněze a mučedníka',
     andrew_de_soveral_and_ambrose_francis_ferro_priests:
       'Sv. Ondřeje de Soveral a Ambrože Františka Ferro, kněží a mučedníků',
-    andrew_dung_lac_priest_and_companions_martyrs:
-      'Sv. Ondřeje Dũng Lạca, kněze, a druhů, mučedníků',
+    andrew_dung_lac_priest_and_companions_martyrs: 'Sv. Ondřeje Dũng Lạca, kněze, a druhů, mučedníků',
     andrew_kim_tae_gon_priest_paul_chong_ha_sang_and_companions_martyrs:
       'Sv. Ondřeje Kim Tae-gỏna, kněze, Pavla Chõng Ha-sanga a druhů, mučedníků',
-    andrew_zorard_of_nitra_and_benedict_of_skalka_hermits:
-      'Sv. Ondřeje-Svorada a Benedikta, poustevníka',
+    andrew_zorard_of_nitra_and_benedict_of_skalka_hermits: 'Sv. Ondřeje-Svorada a Benedikta, poustevníka',
     angela_merici_virgin: 'Sv. Anděly Mericiové, panny',
     angela_salawa_virgin: 'Bl. Anděly Salawové, panny',
     anno_of_cologne_bishop: 'Sv. Anna Kolínského, biskupa',
@@ -197,19 +193,16 @@ export const locale: Locale = {
     augustine_of_canterbury_bishop: 'Sv. Augustina z Canterbury, biskupa',
     augustine_of_hippo_bishop: 'Sv. Augustina, biskupa a učitele církve',
     augustine_zhao_rong_priest: 'Sv. Augustina Žao Ronga, kněze a mučedníka',
-    augustine_zhao_rong_priest_and_companions_martyrs:
-      'Sv. Augustina Žao Ronga, kněze, a druhů, mučedníků',
+    augustine_zhao_rong_priest_and_companions_martyrs: 'Sv. Augustina Žao Ronga, kněze, a druhů, mučedníků',
     barbara_of_heliopolis_virgin: 'Sv. Barbory, panny a mučednice',
     barnabas_apostle: 'Sv. Barnabáše, apoštola',
     bartholomew_apostle: 'Sv. Bartoloměje, apoštola',
     bartholomew_dias_laurel_religious: 'Bl. Bartoloměje Días Laurel, řeholníka a mučedníka',
     bartholomew_of_the_martyrs_fernandes_bishop: 'Sv. Bartoloměje od Mučedníků Fernandese, biskupa',
-    basil_the_great_and_gregory_nazianzen_bishops:
-      'Sv. Basila Velikého a Řehoře Naziánského, biskupů a učitelů církve',
+    basil_the_great_and_gregory_nazianzen_bishops: 'Sv. Basila Velikého a Řehoře Naziánského, biskupů a učitelů církve',
     beatrice_da_silva_meneses_virgin: 'Sv. Beatrice da Silva Meneses, panny',
     bede_the_venerable_priest: 'Sv. Bedy Ctihodného, kněze a učitele církve',
-    benedict_of_jesus_valdivielso_saez_religious:
-      'Sv. Benedikta od Ježíše Valdivielso Sáez, řeholníka a mučedníka',
+    benedict_of_jesus_valdivielso_saez_religious: 'Sv. Benedikta od Ježíše Valdivielso Sáez, řeholníka a mučedníka',
     benedict_of_nursia_abbot: 'Sv. Benedikta, opata',
     benedict_of_nursia_abbot_patron_of_europe: 'Sv. Benedikta, opata a patrona Evropy',
     benno_of_meissen_bishop: 'Sv. Benna z Míšně, biskupa',
@@ -225,10 +218,8 @@ export const locale: Locale = {
     boris_of_kiev_and_gleb_of_kiev_martyrs: 'Sv. Borise a Gleba, mučedníků',
     brendan_of_clonfert_abbot: 'Sv. Brendana, opata',
     bridget_of_sweden_religious: 'Sv. Brigity, řeholnice',
-    bridget_of_sweden_religious_copatroness_of_europe:
-      'Sv. Brigity, řeholnice a spolupatronky Evropy',
-    brigid_of_kildare_virgin_copatroness_of_ireland:
-      'Sv. Brigity z Kildare, panny a spolupatronky Irska',
+    bridget_of_sweden_religious_copatroness_of_europe: 'Sv. Brigity, řeholnice a spolupatronky Evropy',
+    brigid_of_kildare_virgin_copatroness_of_ireland: 'Sv. Brigity z Kildare, panny a spolupatronky Irska',
     bronislava_of_poland_virgin: 'Bl. Bronislavy, panny',
     bronislaw_markiewicz_priest: 'Bl. Bronislava Markiewicze, kněze',
     bruno_of_cologne_priest: 'Sv. Bruna, kněze',
@@ -238,8 +229,7 @@ export const locale: Locale = {
     callistus_i_pope: 'Sv. Kalista I., papeže a mučedníka',
     camillus_de_lellis_priest: 'Sv. Kamila de Lellis, kněze',
     canice_of_kilkenny_abbot: 'Sv. Kanuka, opata',
-    canute_iv_of_denmark_eric_ix_of_sweden_and_olaf_ii_of_norway_martyrs:
-      'Sv. Kanuta, Erika a Olafa, mučedníků',
+    canute_iv_of_denmark_eric_ix_of_sweden_and_olaf_ii_of_norway_martyrs: 'Sv. Kanuta, Erika a Olafa, mučedníků',
     canute_iv_of_denmark_martyr: 'Sv. Kanuta, mučedníka',
     carlos_manuel_rodriguez_santiago: 'Bl. Karla Emanuela Rodríguez Santiago',
     caroline_kozka_virgin: 'Bl. Karoliny Kózka, panny a mučednice',
@@ -262,11 +252,9 @@ export const locale: Locale = {
     charles_borromeo_bishop: 'Sv. Karla Boromejského, biskupa',
     charles_i_of_austria: 'Bl. Karla Rakouského',
     charles_lwanga_and_companions_martyrs: 'Sv. Karla Lwangy a druhů, mučedníků',
-    charles_spinola_and_jerome_de_angelis_priests:
-      'Bl. Karla Spinoly a Jeronýma de Angelis, kněží a mučedníků',
+    charles_spinola_and_jerome_de_angelis_priests: 'Bl. Karla Spinoly a Jeronýma de Angelis, kněží a mučedníků',
     charles_spinola_priest: 'Bl. Karla Spinoly, kněze a mučedníka',
-    christopher_magallanes_priest_and_companions_martyrs:
-      'Sv. Kryštofa Magallanese, kněze, a druhů, mučedníků',
+    christopher_magallanes_priest_and_companions_martyrs: 'Sv. Kryštofa Magallanese, kněze, a druhů, mučedníků',
     christopher_of_palestine_martyr: 'Sv. Kryštofa, mučedníka',
     ciaran_of_clonmacnoise_abbot: 'Sv. Kierána z Clonmacnoise, opata',
     clare_of_assisi_virgin: 'Sv. Kláry, panny',
@@ -280,24 +268,20 @@ export const locale: Locale = {
     colman_of_kilmacduagh_bishop: 'Sv. Kolomana z Kilmacduagh, biskupa',
     columba_marmion_priest: 'Bl. Columby Marmiona, kněze',
     columba_of_iona_abbot: 'Sv. Kolumby, opata',
-    columba_of_iona_abbot_copatron_of_ireland:
-      'Sv. Kolumby, Abbot, Missionary and Copatron of Ireland',
+    columba_of_iona_abbot_copatron_of_ireland: 'Sv. Kolumby, Abbot, Missionary and Copatron of Ireland',
     columban_of_luxeuil_abbot: 'Sv. Kolumbána, opata',
     comgall_of_bangor_abbot: 'Sv. Komgala, opata',
     conleth_of_kildare_bishop: 'Sv. Konleta, biskupa',
-    conrad_of_constance_and_gebhard_of_constance_bishops:
-      'Sv. Konráda a Gebharda z Kostnice, biskupů',
+    conrad_of_constance_and_gebhard_of_constance_bishops: 'Sv. Konráda a Gebharda z Kostnice, biskupů',
     conrad_of_parzham_religious: 'Sv. Konráda z Parzhamu, řeholníka',
     conversion_of_saint_paul_the_apostle: 'Obrácení svatého Pavla, apoštola',
     corbinian_of_freising_bishop: 'Sv. Korbiniána, biskupa',
-    cornelius_i_pope_and_cyprian_of_carthage_bishop_martyrs:
-      'Sv. Kornélia, papeže, a Cypriána, biskupa, mučedníků',
+    cornelius_i_pope_and_cyprian_of_carthage_bishop_martyrs: 'Sv. Kornélia, papeže, a Cypriána, biskupa, mučedníků',
     cosmas_of_cilicia_and_damian_of_cilicia_martyrs: 'Sv. Kosmy a Damiána, mučedníků',
     cuthbert_of_lindisfarne_bishop: 'Sv. Kutberta, biskupa',
     cyril_of_alexandria_bishop: 'Sv. Cyrila Alexandrijského, biskupa a učitele církve',
     cyril_of_jerusalem_bishop: 'Sv. Cyrila Jeruzalémského, biskupa a učitele církve',
-    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop:
-      'Sv. Cyrila, mnicha, a Metoděje, biskupa',
+    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop: 'Sv. Cyrila, mnicha, a Metoděje, biskupa',
     cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe:
       'Sv. Cyrila, mnicha, a Metoděje, biskupa, spolupatronů Evropy',
     cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_slavic_missionaries:
@@ -370,8 +354,7 @@ export const locale: Locale = {
     frances_xavier_cabrini_virgin: 'Sv. Františky Xavery Cabriniové, panny',
     francis_borgia_priest: 'Sv. Františka Borgiáše, kněze',
     francis_de_sales_bishop: 'Sv. Františka Saleského, biskupa a učitele církve',
-    francis_diaz_del_rincon_priest_and_companions_martyrs:
-      'Sv. Františka Díaz del Rincon, kněze, a druhů, mučedníků',
+    francis_diaz_del_rincon_priest_and_companions_martyrs: 'Sv. Františka Díaz del Rincon, kněze, a druhů, mučedníků',
     francis_ferdinand_de_capillas_priest: 'Sv. Františka Ferdinanda de Capillas, kněze a mučedníka',
     francis_of_assisi: 'Sv. Františka z Assisi',
     francis_of_assisi_patron_of_italy: 'Sv. Františka z Assisi, patrona Itálie',
@@ -435,8 +418,7 @@ export const locale: Locale = {
     hugh_of_lincoln_bishop: 'Sv. Huga z Lincolnu, biskupa',
     hungarian_saints_and_blesseds: 'Maďarských svatých a blahoslavených',
     hyacinth_of_poland_priest: 'Sv. Hyacinta, kněze',
-    ignatius_de_azevedo_priest_and_companions_martyrs:
-      'Bl. Ignáce de Azevedo, kněze, a druhů, mučedníků',
+    ignatius_de_azevedo_priest_and_companions_martyrs: 'Bl. Ignáce de Azevedo, kněze, a druhů, mučedníků',
     ignatius_falzon: 'Bl. Ignáce Falzon',
     ignatius_of_antioch_bishop: 'Sv. Ignáce Antiochijského, biskupa a mučedníka',
     ignatius_of_loyola_priest: 'Sv. Ignáce z Loyoly, kněze',
@@ -488,8 +470,7 @@ export const locale: Locale = {
       'Sv. Jana de Brébeuf a Izáka Joguese, kněží, a druhů, mučedníků a spolupatronů Kanady',
     john_de_britto_priest: 'Sv. Jana de Brito, kněze a mučedníka',
     john_eudes_priest: 'Sv. Jana Eudese, kněze',
-    john_fisher_bishop_and_thomas_more_martyrs:
-      'Sv. Jana Fishera, biskupa a Tomáše Mora, mučedníků',
+    john_fisher_bishop_and_thomas_more_martyrs: 'Sv. Jana Fishera, biskupa a Tomáše Mora, mučedníků',
     john_gabriel_perboyre_priest: 'Sv. Jana Gabriela Perboyre, kněze a mučedníka',
     john_henry_newman_priest: 'Sv. Johna Henry Newmana, kněze',
     john_i_pope: 'Sv. Jana I., papeže a mučedníka',
@@ -540,8 +521,7 @@ export const locale: Locale = {
     kilian_of_wurzburg_bishop: 'Sv. Kiliána, biskupa a mučedníka',
     kilian_of_wurzburg_bishop_and_companions_martyrs: 'Sv. Kiliána, biskupa, a druhů, mučedníků',
     kinga_of_poland_virgin: 'Sv. Kingy, panny',
-    kuriakose_elias_of_the_holy_family_chavara_priest:
-      'Sv. Cyriaka Eliáše od Svaté rodiny Chavara, kněze',
+    kuriakose_elias_of_the_holy_family_chavara_priest: 'Sv. Cyriaka Eliáše od Svaté rodiny Chavara, kněze',
     ladislaus_batthyany_strattmann: 'Bl. Ladislava Batthyány-Strattmanna',
     ladislaus_i_of_hungary: 'Sv. Ladislava',
     lambert_of_maastricht_bishop: 'Sv. Lamberta z Maastrichtu, biskupa a mučedníka',
@@ -556,8 +536,7 @@ export const locale: Locale = {
     leander_of_seville_bishop: 'Sv. Leandra ze Sevilly, biskupa',
     lelia_of_killeely_virgin: 'Sv. Lelie, panny',
     leo_i_the_great_pope: 'Sv. Lva Velikého, papeže a učitele církve',
-    leo_ignatius_mangin_priest_and_companions_martyrs:
-      'Sv. Lva Ignáce Mangina, kněze a druhů, mučedníků',
+    leo_ignatius_mangin_priest_and_companions_martyrs: 'Sv. Lva Ignáce Mangina, kněze a druhů, mučedníků',
     leo_ix_pope: 'Sv. Lva IX., papeže',
     leoba_of_tauberbischofsheim_abbess: 'Sv. Leoby, abatyše',
     leonard_of_noblac_hermit: 'Sv. Leonarda z Noblatu, poustevníka',
@@ -622,8 +601,7 @@ export const locale: Locale = {
     mary_of_jesus_crucified_petkovic_virgin: 'Bl. Marie od Ukřižovaného Ježíše Petković, panny',
     mary_of_jesus_in_the_blessed_sacrament_venegas_de_la_torre_virgin:
       'Sv. Marie od Ježíše v Nejsvětější Svátosti Venegas de la Torre, panny',
-    mary_of_jesus_the_good_shepherd_siedliska_virgin:
-      'Bl. Marie od Ježíše Dobrého Pastýře Siedliské, panny',
+    mary_of_jesus_the_good_shepherd_siedliska_virgin: 'Bl. Marie od Ježíše Dobrého Pastýře Siedliské, panny',
     mary_of_the_cross_mackillop_virgin: 'Sv. Marie od Kříže MacKillop, panny',
     mary_soledad_torres_acosta_virgin: 'Sv. Marie Soledad Torres y Acosta, panny',
     mary_stella_of_the_blessed_sacrament_mardosewicz_and_companions_virgins:
@@ -664,8 +642,7 @@ export const locale: Locale = {
     ninian_of_whithorn_bishop: 'Sv. Niniána, biskupa',
     norbert_of_xanten_bishop: 'Sv. Norberta, biskupa',
     nuno_of_saint_mary_pereira_religious: 'Sv. Nuna od sv. Marie Pereira, řeholníka',
-    nykyta_budka_and_vasyl_velychkovsky_bishops:
-      'Bl. Nikity Budka a Vasila Velichkovského, biskupů a mučedníků',
+    nykyta_budka_and_vasyl_velychkovsky_bishops: 'Bl. Nikity Budka a Vasila Velichkovského, biskupů a mučedníků',
     odile_of_alsace_abbess: 'Sv. Otýlie, abatyše',
     odoric_of_pordenone_priest: 'Bl. Odorika z Pordenone, kněze',
     olaf_ii_of_norway_martyr: 'Sv. Olafa, mučedníka',
@@ -686,8 +663,7 @@ export const locale: Locale = {
     our_lady_of_fatima: 'Panny Marie Fatimské',
     our_lady_of_good_counsel: 'Panny Marie Dobré rady',
     our_lady_of_guadalupe: 'Panny Marie Guadalupské',
-    our_lady_of_guadalupe_patroness_of_the_americas:
-      'Panny Marie Guadalupské, patronky obou Amerik',
+    our_lady_of_guadalupe_patroness_of_the_americas: 'Panny Marie Guadalupské, patronky obou Amerik',
     our_lady_of_guadalupe_patroness_of_the_philippines: 'Panny Marie Guadalupské, patronky Filipín',
     our_lady_of_hungary_patroness_of_hungary: 'Panny Marie Maďarů, patronky Maďarska',
     our_lady_of_itati: 'Panny Marie Itatské',
@@ -701,8 +677,7 @@ export const locale: Locale = {
     our_lady_of_marija_bistrica: 'Panny Marie z Marije Bistrice',
     our_lady_of_mercy: 'Panny Marie milosrdenství',
     our_lady_of_mount_carmel: 'Panny Marie Karmelské',
-    our_lady_of_mount_carmel_mother_and_queen_of_chile:
-      'Panny Marie Karmelské, Matky a Královny Čile',
+    our_lady_of_mount_carmel_mother_and_queen_of_chile: 'Panny Marie Karmelské, Matky a Královny Čile',
     our_lady_of_perpetual_help: 'Panny Marie Matky ustavičné pomoci',
     our_lady_of_refuge: 'Pannu Marii, Útočiště hříšníků',
     our_lady_of_sorrows: 'Panny Marie Bolestné',
@@ -743,13 +718,11 @@ export const locale: Locale = {
       'Sv. Petra Bautist Blásqueze, Pavla Mikiho a druhů, mučedníků',
     peter_canisius_priest: 'Sv. Petra Kanisia, kněze a učitele církve',
     peter_chanel_priest: 'Sv. Petra Chanela, kněze a mučedníka',
-    peter_chanel_priest_patron_of_oceania:
-      'Sv. Petra Chanela, prvního mučedníka Oceánie a patrona Oceánie',
+    peter_chanel_priest_patron_of_oceania: 'Sv. Petra Chanela, prvního mučedníka Oceánie a patrona Oceánie',
     peter_chrysologus_bishop: 'Sv. Petra Chryzologa, biskupa a učitele církve',
     peter_claver_priest: 'Sv. Petra Klavera, kněze',
     peter_damian_bishop: 'Sv. Petra Damianiho, biskupa a učitele církve',
-    peter_de_zuniga_and_louis_flores_priests:
-      'Bl. Petra de Zúñiga a Ludvíka Flores, kněží a mučedníků',
+    peter_de_zuniga_and_louis_flores_priests: 'Bl. Petra de Zúñiga a Ludvíka Flores, kněží a mučedníků',
     peter_julian_eymard_priest: 'Sv. Petra Juliána Eymarda, kněze',
     peter_kibe_priest_and_companions_martyrs: 'Bl. Petra Kibe, kněze, a druhů, mučedníků',
     peter_liu_wenyuan_martyr: 'Sv. Petra Liu Wenyuan, mučedníka',
@@ -769,8 +742,7 @@ export const locale: Locale = {
     pius_v_pope: 'Sv. Pia V., papeže',
     pius_x_pope: 'Sv. Pia X., papeže',
     polycarp_of_smyrna_bishop: 'Sv. Polykarpa, biskupa a mučedníka',
-    pontian_i_pope_and_hippolytus_of_rome_priest:
-      'Sv. Ponciána, papeže, a Hippolyta, kněze, mučedníků',
+    pontian_i_pope_and_hippolytus_of_rome_priest: 'Sv. Ponciána, papeže, a Hippolyta, kněze, mučedníků',
     pothinus_of_lyon_bishop_blandina_of_lyon_virgin_and_companions_martyrs:
       'Sv. Potína, biskupa, Blandiny, panny a druhů, mučedníků',
     presentation_of_mary: 'Zasvěcení Panny Marie v Jeruzalémě',
@@ -795,11 +767,9 @@ export const locale: Locale = {
     roch_of_montpellier: 'Sv. Rocha',
     romuald_of_ravenna_abbot: 'Sv. Romualda, opata',
     rose_of_lima_virgin: 'Sv. Růženy z Limy, panny',
-    rose_of_lima_virgin_copatroness_of_the_philippines:
-      'Sv. Růženy z Limy, panny a spolupatronky Filipín',
+    rose_of_lima_virgin_copatroness_of_the_philippines: 'Sv. Růženy z Limy, panny a spolupatronky Filipín',
     rose_philippine_duchesne_virgin: 'Sv. Růženy Filipíny Duchesne, panny',
-    rupert_of_salzburg_and_virgilius_of_salzburg_bishops:
-      'Sv. Ruperta a Virgila ze Salzburgu, biskupů',
+    rupert_of_salzburg_and_virgilius_of_salzburg_bishops: 'Sv. Ruperta a Virgila ze Salzburgu, biskupů',
     salomea_of_poland_religious: 'Bl. Salomey Polské, řeholnice',
     sancha_of_portugal_and_mafalda_of_portugal_virgins: 'Bl. Sanchi a Mafaldy, panen',
     sara_salkahazi_virgin: 'Bl. Sáry Salkaháziové, panny a mučednice',
@@ -823,8 +793,7 @@ export const locale: Locale = {
     stanislaus_kazimierczyk_priest: 'Sv. Stanislava Kazimierczyka, kněze',
     stanislaus_kostka_religious: 'Sv. Stanislava Kostky, řeholníka',
     stanislaus_of_szczepanow_bishop: 'Sv. Stanislava, biskupa a mučedníka',
-    stanislaus_of_szczepanow_bishop_patron_of_poland:
-      'Sv. Stanislava, biskupa, mučedníka a patrona Polska',
+    stanislaus_of_szczepanow_bishop_patron_of_poland: 'Sv. Stanislava, biskupa, mučedníka a patrona Polska',
     stephen_i_of_hungary: 'Sv. Štěpána Uherského',
     stephen_the_first_martyr: 'Sv. Štěpána, prvomučedníka',
     sunniva_of_norway_virgin: 'Sv. Sunnivy, panny a mučednice',
@@ -875,16 +844,14 @@ export const locale: Locale = {
     waitangi_day: 'Den Waitangi',
     walpurga_of_heidenheim_abbess: 'Sv. Valburgy z Heidenheimu, abatyše',
     wenceslaus_i_of_bohemia_martyr: 'Sv. Václava, mučedníka',
-    wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation:
-      'Sv. Václava, mučedníka a patrona českého národa',
+    wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation: 'Sv. Václava, mučedníka a patrona českého národa',
     wendelin_of_trier_abbot: 'Sv. Vendelína, opata',
     wilfrid_of_york_bishop: 'Sv. Vilfrida, biskupa',
     william_apor_bishop: 'Bl. Viléma Apore, biskupa a mučedníka',
     willibald_of_eichstatt_bishop: 'Sv. Willibalda, biskupa',
     willibrord_of_utrecht_bishop: 'Sv. Willibrorda, biskupa',
     winefride_of_flintshire_virgin: 'Sv. Winefridy, panny',
-    wladyslaw_bladzinski_priest_and_companions_martyrs:
-      'Bl. Vladislava Błądziński, kněze, a druhů, mučedníků',
+    wladyslaw_bladzinski_priest_and_companions_martyrs: 'Bl. Vladislava Błądziński, kněze, a druhů, mučedníků',
     wladyslaw_of_gielniow_priest: 'Bl. Vladislava z Gielniówa, kněze',
     wolfgang_of_regensburg_bishop: 'Sv. Wolfganga, biskupa',
     wulstan_of_worcester_bishop: 'Sv. Wulstana, biskupa',

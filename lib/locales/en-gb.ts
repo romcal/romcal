@@ -27,7 +27,6 @@ export const locale: Locale = {
       'Saint Paulina of the Agonising Heart of Jesus Visintainer, Virgin',
     pius_v_pope: 'Saint Pius V, Pope and Religious', // TODO: This key should be removed after one can add titles within celebration definions
     raymond_of_penyafort_priest: 'Saint Raymond of Peñafort, Priest',
-    seven_holy_founders_of_the_servite_order:
-      'Seven Founders of the Order of Servants of the Blessed Virgin Mary',
+    seven_holy_founders_of_the_servite_order: 'Seven Founders of the Order of Servants of the Blessed Virgin Mary',
   },
 };

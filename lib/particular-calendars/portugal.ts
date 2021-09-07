@@ -110,11 +110,7 @@ export class Portugal extends CalendarDef {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 12, date: 5 },
 
-      martyrology: [
-        'fructuosus_of_braga_bishop',
-        'martin_of_braga_bishop',
-        'gerald_of_braga_bishop',
-      ],
+      martyrology: ['fructuosus_of_braga_bishop', 'martin_of_braga_bishop', 'gerald_of_braga_bishop'],
     },
   };
 }
