@@ -4,19 +4,14 @@ Since then, many significant contributions have been made towards the progress o
 
 This list recognizes contributors to romcal past and present.
 
-#### Active Contributors
+### Active Contributors
 
-As of February 2020
+As of September 2021
 
 - [Etienne Magnier](https://github.com/emagnier)
 - [Tukusej’s Sirs](https://github.com/tukusejssirs)
 - [Julian Pereira](https://github.com/pejulian)
 
-#### Past contributors
+### All contributors
 
-As of February 2020
-
-- [Jacek Roszkowski](https://github.com/jarosz)
-- [Ahmet Cetin](https://github.com/ahmetcetin)
-- [Gennaro Tortone](https://github.com/gtortone)
-- [Damiaan Dufaux](https://github.com/Dev1an)
+https://github.com/romcal/romcal/graphs/contributors
