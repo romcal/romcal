@@ -2,7 +2,7 @@ import Romcal from 'romcal';
 import fs from 'fs';
 import path from 'path';
 import Fastify from 'fastify';
-import { france_fr } from '@romcal/calendar.france';
+import { France_Fr } from '@romcal/calendar.france';
 
 const fastify = new Fastify();
 
@@ -32,7 +32,7 @@ const manageGeneralRomanRoute = async (request, reply) => {
   // Load dynamically the localized General Roman Calendar
   const module = await import(`@romcal/calendar.general-roman/esm/${locale}.mjs`);
   const localeVarName = Romcal.LOCALE_VAR_NAMES[localeIndex];
-  const localizedCalendar = module[`generalRoman_${localeVarName}`];
+  const localizedCalendar = module[`GeneralRoman_${localeVarName}`];
 
   // Initialize a romcal object with the General Roman Calendar data.
   const romcalGeneralRoman = new Romcal({ localizedCalendar });
@@ -59,7 +59,7 @@ fastify.get('/romcal/general-roman/:locale/:year', manageGeneralRomanRoute);
  * the calendar of France and the `fr` locale.
  */
 
-const romcalFranceFr = new Romcal({ localizedCalendar: france_fr });
+const romcalFranceFr = new Romcal({ localizedCalendar: France_Fr });
 
 const manageFranceFrRoute = async (request, reply) => {
   try {

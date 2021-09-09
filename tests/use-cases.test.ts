@@ -1,5 +1,5 @@
 import 'jest-extended';
-import { slovakia_sk } from 'romcal/dist/bundles/slovakia';
+import { Slovakia_Sk } from 'romcal/dist/bundles/slovakia';
 import Romcal from '../lib';
 
 const { Ranks, getUtcDateFromString, isSameDate, subtractsDays } = Romcal;
@@ -12,10 +12,7 @@ describe('Testing specific feasts and memorials', () => {
       const maryMotherOfTheChurch = await romcal.getOneLiturgicalDay('mary_mother_of_the_church', {
         computeInWholeYear: true,
       });
-      const dayBeforeMaryMotherOfTheChurch = subtractsDays(
-        getUtcDateFromString(maryMotherOfTheChurch!.date),
-        1,
-      );
+      const dayBeforeMaryMotherOfTheChurch = subtractsDays(getUtcDateFromString(maryMotherOfTheChurch!.date), 1);
       expect(getUtcDateFromString(maryMotherOfTheChurch!.date).getDay()).toEqual(1);
       expect(dayBeforeMaryMotherOfTheChurch.getDay()).toEqual(0);
       expect(isSameDate(dayBeforeMaryMotherOfTheChurch, pentecostSunday)).toBeTruthy();
@@ -68,7 +65,7 @@ describe('Testing specific feasts and memorials', () => {
   describe('The Feast of the Exultation of the Cross', () => {
     test('Is celebrated on the 14th of September', async () => {
       const exaltationOfTheHolyCross = await new Romcal({
-        localizedCalendar: slovakia_sk,
+        localizedCalendar: Slovakia_Sk,
       }).getOneLiturgicalDay('exaltation_of_the_holy_cross', {
         year: 2018,
         computeInWholeYear: true,
@@ -82,7 +79,7 @@ describe('Testing specific feasts and memorials', () => {
   describe('The Sunday of the Word of God', () => {
     test('Should be celebrated on the 3rd Sunday of Ordinary Time', async () => {
       const sundayOfTheWordOfGod = await new Romcal({
-        localizedCalendar: slovakia_sk,
+        localizedCalendar: Slovakia_Sk,
       }).getOneLiturgicalDay('sunday_of_the_word_of_god', {
         year: 2020,
         computeInWholeYear: true,
