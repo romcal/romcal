@@ -3,7 +3,6 @@ import { generateDtsBundle } from 'dts-bundle-generator';
 import { build, Format, Platform } from 'esbuild';
 import fs from 'fs';
 import { glob } from 'glob';
-import humanizeDuration, { Unit, UnitTranslationOptions } from 'humanize-duration';
 import path from 'path';
 import prettier from 'prettier';
 import rimraf from 'rimraf';
@@ -15,6 +14,7 @@ import { particularCalendars } from '../lib/particular-calendars';
 import { toPackageName, toPascalCase } from '../lib/utils/string';
 import pkg from '../package.json';
 import { RomcalBundler } from './bundle';
+import { getDuration } from './time';
 
 const tsConfigPath = './tsconfig.release.json';
 const log = console.log;
@@ -280,19 +280,6 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
   /**
    * Init and display duration helpers
    */
-  const units: Unit[] = ['h', 'm', 's'];
-  const shortEnglishHumanizer = humanizeDuration.humanizer({
-    language: 'shortEn',
-    conjunction: ' and ',
-    languages: {
-      shortEn: units.reduce((acc: UnitTranslationOptions, k) => {
-        acc[k] = () => k;
-        return acc;
-      }, {}),
-    },
-  });
-  const duration = shortEnglishHumanizer(new Date().getTime() - time.getTime(), {
-    units,
-  }).replace(/(\d+)\s/g, '$1');
+  const duration = getDuration(time);
   log(chalk.green(`\n✨ Done in ${chalk.bold(duration)}`));
 })();

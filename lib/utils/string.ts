@@ -16,9 +16,9 @@ export const toScreamingSnakeCase = (string: string): string =>
 export const toPackageName = (string: string): string =>
   string
     .replace(/_/g, '.')
-    .replace(/(.)([A-Z][a-z]+)/, '$1-$2')
-    .replace(/([A-Z][a-z]+)([0-9])/, '$1-$2')
-    .replace(/([a-z0-9])([A-Z])/, '$1_$2')
+    .replace(/([^.])([A-Z][a-z]+)/g, '$1-$2')
+    .replace(/([A-Z][a-z]+)([0-9])/g, '$1-$2')
+    .replace(/([a-z0-9])([A-Z])/g, '$1_$2')
     .toLowerCase();
 
 /**

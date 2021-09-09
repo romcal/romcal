@@ -86,7 +86,7 @@ The correct entry points are already configured in the package.json so there sho
 
 The romcal library only include the General Roman Calendar (GRC), and the Proper of Time. By default, there is no other calendars, neither translation (even in English) nor extra martyrology metadata.
 
-The complete GRC, or any other particular calendar (for a country, a region or a diocese) are available as separated plugins, that contain a bundle of the calendar data, localizations, and a martyrology catalog (containing extra metadata).
+The complete GRC, and any other particular calendar (for a country, a region or a diocese) are available as separated plugins, that contain a bundle of the calendar data, localizations, and a martyrology catalog (containing extra metadata).
 
 For example, to install the General Roman Calendar and the calendar of France:
 
@@ -100,7 +100,7 @@ yarn add @romcal/calendar.general-roman
 yarn add @romcal/calendar.france
 ```
 
-The complete list of localized calendar is [available here](#).
+The complete list of localized calendar is [available here](./docs/calendar-plugins.md).
 
 ### Load from CDN
 
