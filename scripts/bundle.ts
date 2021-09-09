@@ -4,7 +4,15 @@ import * as fs from 'fs';
 import path from 'path';
 import rimraf from 'rimraf';
 import * as util from 'util';
-import { Locale, LocaleLiturgicalDayNames, MartyrologyCatalog, RomcalConfigInput, RomcalConfigOutput } from '../lib';
+import {
+  BundleInputs,
+  LiturgicalDayDefinitions,
+  Locale,
+  LocaleLiturgicalDayNames,
+  MartyrologyCatalog,
+  RomcalConfigInput,
+  RomcalConfigOutput,
+} from '../lib';
 import { Martyrology } from '../lib/catalog/martyrology';
 import { PROPER_OF_TIME_NAME } from '../lib/constants/general-calendar-names';
 import { GeneralRoman } from '../lib/general-calendar/proper-of-saints';
@@ -14,9 +22,8 @@ import { CalendarDef } from '../lib/models/calendar-def';
 import { RomcalConfig } from '../lib/models/config';
 import LiturgicalDayDef from '../lib/models/liturgical-day-def';
 import { particularCalendars } from '../lib/particular-calendars';
-import { BundleInputs, LiturgicalDayDefinitions } from '../lib/types/calendar-def';
 import { mergeDeep } from '../lib/utils/objects';
-import { toCamelCase, uncapitalize } from '../lib/utils/string';
+import { toPascalCase } from '../lib/utils/string';
 
 const log = console.log;
 
@@ -132,7 +139,7 @@ export const RomcalBundler = (): void => {
       const martyrologyKeys = builder.martyrologyKeys;
 
       // Merge the current locale with the default English locale
-      const mergedLocale = mergeDeep(locales.en, locale);
+      const mergedLocale = mergeDeep(locales.En, locale);
 
       // Extract required liturgical names
       const names = Object.values(inputs)
@@ -141,8 +148,8 @@ export const RomcalBundler = (): void => {
         .reduce((obj: LocaleLiturgicalDayNames, key: string) => {
           if (locale.names && Object.prototype.hasOwnProperty.call(locale.names, key)) {
             obj[key] = locale.names[key];
-          } else if (locales.en.names && Object.prototype.hasOwnProperty.call(locales.en.names, key)) {
-            obj[key] = locales.en.names[key];
+          } else if (locales.En.names && Object.prototype.hasOwnProperty.call(locales.En.names, key)) {
+            obj[key] = locales.En.names[key];
           } else {
             throw new Error(`Locale key 'names:${key}' is missing in the calendar '${calendar.name}'.`);
           }
@@ -189,7 +196,7 @@ export const RomcalBundler = (): void => {
 
       // Prepare the bundled calendars file content.
       const dir = path.resolve(__dirname, '../tmp/bundles/', enclosingDir);
-      const calVarName = `${uncapitalize(calendarConstructorName)}_${toCamelCase(locale.key)}`;
+      const calVarName = `${calendarConstructorName}_${toPascalCase(locale.key)}`;
       calVarObj[locale.key] = calVarName;
       const data = util
         .inspect(bundle, false, 99)

@@ -1,6 +1,6 @@
 const express = require('express');
 const Romcal = require('romcal');
-const { france_fr } = require('@romcal/calendar.france');
+const { France_Fr } = require('@romcal/calendar.france');
 
 /**
  * Initialize the Express.js server.
@@ -32,7 +32,7 @@ app.get('/romcal/general-roman/:locale/:year?', async (req, res) => {
   // Load dynamically the localized General Roman Calendar
   const module = await require(`@romcal/calendar.general-roman/cjs/${locale}.js`);
   const localeVarName = Romcal.LOCALE_VAR_NAMES[localeIndex];
-  const localizedCalendar = module[`generalRoman_${localeVarName}`];
+  const localizedCalendar = module[`GeneralRoman_${localeVarName}`];
 
   // Initialize a romcal object with the General Roman Calendar data.
   const romcalGeneralRoman = new Romcal({ localizedCalendar });
@@ -55,7 +55,7 @@ app.get('/romcal/general-roman/:locale/:year?', async (req, res) => {
  * Simple example with only 1 supported calendar and locale by the REST API:
  * the calendar of France and the `fr` locale.
  */
-const romcalFranceFr = new Romcal({ localizedCalendar: france_fr });
+const romcalFranceFr = new Romcal({ localizedCalendar: France_Fr });
 app.get('/romcal/france/fr/:year?', async (req, res) => {
   const year = req.params['year'];
   try {

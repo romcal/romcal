@@ -29,6 +29,13 @@ export const toCamelCase = (string: string): string =>
   string.toLowerCase().replace(/((?:-|_|\s)\w)/g, (k: string) => k[1].toUpperCase());
 
 /**
+ * Convert the string to PascalCase
+ * @param string
+ */
+export const toPascalCase = (string: string): string =>
+  capitalize(string.toLowerCase().replace(/((?:-|_|\s)\w)/g, (k: string) => k[1].toUpperCase()));
+
+/**
  * Converts the first character in the string to an uppercase equivalent.
  * @param string
  */

@@ -1,30 +1,30 @@
 import { Locale } from '../types/locale';
-import { locale as cs } from './cs';
-import { locale as en } from './en';
-import { locale as enGb } from './en-gb';
-import { locale as enIe } from './en-ie';
-import { locale as es } from './es';
-import { locale as fr } from './fr';
-import { locale as it } from './it';
-import { locale as la } from './la';
-import { locale as pl } from './pl';
-import { locale as ptBr } from './pt-br';
-import { locale as sk } from './sk';
+import { locale as Cs } from './cs';
+import { locale as En } from './en';
+import { locale as EnGb } from './en-gb';
+import { locale as EnIe } from './en-ie';
+import { locale as Es } from './es';
+import { locale as Fr } from './fr';
+import { locale as It } from './it';
+import { locale as La } from './la';
+import { locale as Pl } from './pl';
+import { locale as PtBr } from './pt-br';
+import { locale as Sk } from './sk';
 
 /**
  * An BCP-47 IETF key to value mapping of all supported locale resource files
  * in romcal.
  */
 export const locales: Record<Lowercase<string>, Locale> = {
-  cs: cs,
-  enGb: enGb,
-  enIe: enIe,
-  en: en,
-  es: es,
-  fr: fr,
-  it: it,
-  la: la,
-  pl: pl,
-  ptBr: ptBr,
-  sk: sk,
+  Cs: Cs,
+  EnGb: EnGb,
+  EnIe: EnIe,
+  En: En,
+  Es: Es,
+  Fr: Fr,
+  It: It,
+  La: La,
+  Pl: Pl,
+  PtBr: PtBr,
+  Sk: Sk,
 };

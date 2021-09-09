@@ -12,7 +12,7 @@ import * as ts from 'typescript';
 import { GENERAL_ROMAN_NAME } from '../lib/constants/general-calendar-names';
 import { locales } from '../lib/locales';
 import { particularCalendars } from '../lib/particular-calendars';
-import { toCamelCase } from '../lib/utils/string';
+import { toPackageName, toPascalCase } from '../lib/utils/string';
 import pkg from '../package.json';
 import { RomcalBundler } from './bundle';
 
@@ -103,7 +103,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
   // Calendars
   log(chalk.dim(`  ./tmp/constants/calendars.ts`));
   const calendarNames = Object.keys(particularCalendars)
-    .concat([toCamelCase(GENERAL_ROMAN_NAME)])
+    .concat([toPascalCase(GENERAL_ROMAN_NAME)])
     .sort();
   fs.writeFileSync(
     path.resolve(constantDir, 'calendars.ts'),
@@ -172,9 +172,9 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
   const toGlobalName = (calendar: string, locale: string) => {
     const varName = calendar
       .split('.')
-      .map((s) => toCamelCase(s))
+      .map((s) => toPascalCase(s))
       .join('_');
-    return varName + '_' + toCamelCase(locale);
+    return varName + '_' + toPascalCase(locale);
   };
 
   /**
@@ -242,14 +242,11 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
    * Add package.json and index.d.ts files to all calendar bundles
    */
   log(chalk.bold(`\n✓ Package calendar bundles as npm modules`));
-  const allCalendars = [toCamelCase(GENERAL_ROMAN_NAME), ...Object.keys(particularCalendars)];
+  const allCalendars = [toPascalCase(GENERAL_ROMAN_NAME), ...Object.keys(particularCalendars)];
 
   allCalendars.forEach((calendar) => {
     // mixed snake and underscore case to kebab case
-    const pkgName = calendar
-      .replace(/([A-Z])/g, '-$1')
-      .replace(/_/g, '.')
-      .toLowerCase();
+    const pkgName = toPackageName(calendar);
 
     const dir = path.resolve(__dirname, `../dist/bundles/${pkgName}`);
 

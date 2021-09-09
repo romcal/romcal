@@ -47,7 +47,13 @@ import { LiturgicalDayConfig } from './models/liturgical-day-config';
 import LiturgicalDayDef from './models/liturgical-day-def';
 import { RomcalBundleObject } from './types/bundle';
 import { LiturgicalCalendar } from './types/calendar';
-import { CalendarDefInputs, Inputs, LiturgicalDayDefinitions, ParticularConfig } from './types/calendar-def';
+import {
+  BundleInputs,
+  CalendarDefInputs,
+  Inputs,
+  LiturgicalDayDefinitions,
+  ParticularConfig,
+} from './types/calendar-def';
 import { Key } from './types/common';
 import { CalendarScope, RomcalConfigInput, RomcalConfigOutput } from './types/config';
 import {
@@ -353,6 +359,7 @@ export {
   CalendarDefInputs,
   ParticularConfig,
   Inputs,
+  BundleInputs,
   LiturgicalDayDefinitions,
   // types/common.ts
   Key,

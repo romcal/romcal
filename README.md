@@ -132,13 +132,13 @@ Before generating any kind of data, you must first generate a `new Romcal()` obj
 ```ts
 // as esm
 import Romcal from 'romcal';
-import { france_fr } from '@romcal/calendar.france';
+import { France_Fr } from '@romcal/calendar.france';
 ```
 
 ```ts
 // or as cjs
 const Romcal = require('romcal');
-const { france_fr } = require('@romcal/calendar.france');
+const { France_Fr } = require('@romcal/calendar.france');
 ```
 
 ```html
@@ -160,7 +160,7 @@ Or with any of the optional options:
 ```ts
 // Initialize romcal (all options are optional)
 const romcal = new Romcal({
-  localizedCalendar: france_fr, // The localized calendar to use with romcal
+  localizedCalendar: France_Fr, // The localized calendar to use with romcal
   scope: 'gregorian' | 'liturgical', // Default: 'gregorian' (Jan 1 to Dec 31). Optionally: 'liturgical' (the first Sunday of Advent to the last Saturday of Ordinary Time)
   epiphanyOnSunday: true | false, // Epiphany always a Sunday (between January 2 - 8), or on January 6
   corpusChristiOnSunday: true | false, // Corpus Christi always a Sunday, or the Thursday after Trinity Sunday
