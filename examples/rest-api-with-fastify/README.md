@@ -1,6 +1,6 @@
 # Using romcal as a REST API with Fastify
 
-First, from the parent `romcal` module:
+First, from the parent `romcal` directory:
 
 ```shell
 # if necessary, if you are in the ./examples/web-browser directory
@@ -10,10 +10,10 @@ npm install
 npm build
 ```
 
-Then, from this module (`rest-api-with-express`):
+Then, from this directory (`rest-api-with-fastify`):
 
 ```shell
-cd examples/rest-api-with-express
+cd examples/rest-api-with-fastify
 
 npm install
 npm run start

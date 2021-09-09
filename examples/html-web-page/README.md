@@ -1,6 +1,6 @@
 # Using romcal from a web page
 
-First, from the parent `romcal` module:
+First, from the parent `romcal` directory:
 
 ```shell
 # if necessary, if you are in the ./examples/web-browser directory
@@ -10,7 +10,7 @@ npm install
 npm build
 ```
 
-Then, from this module (`html-web-page`):
+Then, from this directory (`html-web-page`):
 
 ```shell
 cd examples/html-web-page
