@@ -64,11 +64,6 @@ fi
 
 echo "NEW_VERSION is ${NEW_VERSION}"
 
-# Run auto changelog
-npm run updateChangelog
-git add CHANGELOG.md
-git commit -m "docs: [ci skip] Update changelog"
-
 if [ "$WILL_USE_CUSTOM_VERSION" = true ];then
     # Also allow same versions because the default behavior of npm-version
     # checks and throws and error if the version being supplied is the
