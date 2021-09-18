@@ -19,7 +19,7 @@ import { MartyrologyItem } from '../types/martyrology';
 import { LiturgicalDayConfig } from './liturgical-day-config';
 import LiturgicalDayDef from './liturgical-day-def';
 
-export default class LiturgicalDay implements BaseLiturgicalDay {
+class LiturgicalDay implements BaseLiturgicalDay {
   readonly #liturgicalDayDef: LiturgicalDayDef;
   readonly #liturgicalDayConfig: LiturgicalDayConfig;
   readonly key: Key;
@@ -152,3 +152,5 @@ export default class LiturgicalDay implements BaseLiturgicalDay {
     }
   }
 }
+
+export default LiturgicalDay;
