@@ -8,6 +8,7 @@ import Day from './components/Day';
 import LocaleMenu from './components/LocaleMenu';
 import MonthPicker from './components/MonthPicker';
 import RomcalHeaderLogo from './components/RomcalHeaderLogo';
+import './RomcalApp.css';
 
 const romcal = new Romcal({ localizedCalendar: GeneralRoman_En });
 const fetchCalendar = (): Promise<BaseLiturgicalDay[][]> => romcal.generateCalendar().then(Object.values);
@@ -60,5 +61,5 @@ const MonthContainer = styled('div')`
 `;
 
 const ToolBar = styled(Grid)`
-  margin-bottom: 30px;
+  margin-bottom: 0;
 `;
