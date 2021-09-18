@@ -1,0 +1,75 @@
+.dow-0:not(.date-in-month-1) {
+  padding-top: 30px;
+  position: relative;
+}
+
+.dow-0:not(.date-in-month-1)::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 20%;
+  right: 20%;
+  border-top: solid thin #ccc;
+}
+
+.solemnity {
+  font-variant: small-caps slashed-zero;
+  font-size: 1.5em;
+}
+
+.sunday {
+  font-variant: small-caps slashed-zero;
+  font-size: 1.5em;
+}
+
+.feast {
+  text-transform: uppercase;
+  font-size: 1.1em;
+}
+
+.memorial {
+  font-size: 1.1em;
+}
+
+.weekday {
+  font-size: 1.1em;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.color-ship {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  margin: 0 2px;
+  box-sizing: border-box;
+}
+
+.color-ship.white {
+  border: solid 1px black;
+}
+
+.color-ship.green {
+  background: #90be6d;
+}
+
+.color-ship.red {
+  background: #d90429;
+}
+
+.color-ship.purple {
+  background: #AA4586;
+}
+
+.color-ship.black {
+  background: black;
+}
+
+.color-ship.gold {
+  background: #f9c74f;
+}
+
+.color-ship.rose {
+  background: #FF82A9;
+}
