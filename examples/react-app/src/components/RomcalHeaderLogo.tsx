@@ -2,7 +2,11 @@ import { styled } from '@mui/material/styles';
 import * as React from 'react';
 
 export default function RomcalHeaderLogo() {
-  return <Logo src="./romcal-logo.png" alt="Romcal" />;
+  return (
+    <a href="./">
+      <Logo src="./romcal-logo.png" alt="Romcal" />
+    </a>
+  );
 }
 
 const Logo = styled('img')`
