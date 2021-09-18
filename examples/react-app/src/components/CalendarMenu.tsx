@@ -1,11 +1,24 @@
-import { Box, FormControl, InputLabel, NativeSelect } from '@mui/material';
+import { Box, capitalize, FormControl, InputLabel, NativeSelect } from '@mui/material';
 import React from 'react';
+import Romcal from 'romcal';
+
+const toHumanName = (str: string): string =>
+  capitalize(
+    str
+      .replace(/_/g, ' / ')
+      .replace(/([A-Z])/g, ' $1')
+      .replace(/\s([a-z])/g, (c) => ` ${c.toUpperCase()}`),
+  );
 
 export default function CalendarMenu() {
-  const [calendar, setCalendar] = React.useState('general_roman');
+  const allCalendars = Romcal.CALENDAR_PKG_NAMES.reduce((acc: Record<string, string>, pkg, index) => {
+    acc[Romcal.CALENDAR_VAR_NAMES[index]] = pkg;
+    return acc;
+  }, {});
+
+  const [calendar, setCalendar] = React.useState(Object.values(allCalendars)[0]);
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log(event.target.value);
     setCalendar(event.target.value as string);
   };
 
@@ -15,19 +28,12 @@ export default function CalendarMenu() {
         <InputLabel variant="standard" htmlFor="uncontrolled-native">
           Calendar
         </InputLabel>
-        <NativeSelect
-          defaultValue={calendar}
-          id="demo-simple-select"
-          value={calendar}
-          onChange={handleChange}
-          inputProps={{
-            name: 'age',
-            id: 'uncontrolled-native',
-          }}
-        >
-          <option value={'general_roman'}>General Roman</option>
-          <option value={'france'}>France</option>
-          <option value={'slovakia'}>Slovakia</option>
+        <NativeSelect defaultValue={calendar} id="calendar" value={calendar} onChange={handleChange}>
+          {Object.entries(allCalendars).map(([key, pkg]) => (
+            <option key={key} value={pkg}>
+              {toHumanName(key)}
+            </option>
+          ))}
         </NativeSelect>
       </FormControl>
     </Box>
