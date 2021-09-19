@@ -11,5 +11,5 @@ export default function RomcalHeaderLogo() {
 
 const Logo = styled('img')`
   max-height: 60px;
-  padding: 30px 20px 40px;
+  padding: 35px 20px 40px;
 `;
