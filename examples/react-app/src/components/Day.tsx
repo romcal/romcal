@@ -34,7 +34,7 @@ export default function Day(props: { liturgicalDay: BaseLiturgicalDay[] }) {
               liturgicalDay.slice(1).map((altDay) => (
                 <div key={altDay.key}>
                   <OptionalTitle key={altDay.key} className={altDay.rank.toLowerCase()}>
-                    <OrLabel>or: </OrLabel>
+                    {altDay.isOptional ? <OrLabel>or: </OrLabel> : <></>}
                     {altDay.name}
                   </OptionalTitle>
                   <AdditionalLineContent day={altDay} />
@@ -94,6 +94,8 @@ const OptionalTitle = styled('h6')`
 `;
 
 const OrLabel = styled('span')`
-  font-size: 1.1em;
+  font-size: 19px;
+  text-transform: none;
+  font-variant: normal;
   font-weight: 400;
 `;
