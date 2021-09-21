@@ -1,8 +1,8 @@
 import { Box, capitalize, FormControl, InputLabel, NativeSelect } from '@mui/material';
 import { observer } from 'mobx-react';
 import React, { useContext } from 'react';
-import Romcal from 'romcal';
 import { AppContext } from '../AppContext';
+import { CALENDARS } from '../constants/calendars';
 
 const toHumanName = (str: string): string =>
   capitalize(
@@ -29,7 +29,7 @@ const CalendarMenu = observer(() => {
           Calendar
         </InputLabel>
         <NativeSelect defaultValue={calendarKey} id="calendar" value={calendarKey} onChange={handleChange}>
-          {Romcal.CALENDAR_VAR_NAMES.map((key) => (
+          {Object.keys(CALENDARS).map((key) => (
             <option key={key} value={key}>
               {toHumanName(key)}
             </option>
