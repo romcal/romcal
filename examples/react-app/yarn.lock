@@ -1804,10 +1804,181 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
+"@romcal/calendar.americas@file:../../dist/bundles/americas":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.argentina@file:../../dist/bundles/argentina":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.australia@file:../../dist/bundles/australia":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.austria@file:../../dist/bundles/austria":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.belgium@file:../../dist/bundles/belgium":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.bolivia@file:../../dist/bundles/bolivia":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.bosnia-herzegovina@file:../../dist/bundles/bosnia-herzegovina":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.brazil@file:../../dist/bundles/brazil":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.canada@file:../../dist/bundles/canada":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.chile@file:../../dist/bundles/chile":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.china@file:../../dist/bundles/china":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.costa-rica@file:../../dist/bundles/costa-rica":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.croatia@file:../../dist/bundles/croatia":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.czech-republic@file:../../dist/bundles/czech-republic":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.denmark@file:../../dist/bundles/denmark":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.england@file:../../dist/bundles/england":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.europe@file:../../dist/bundles/europe":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.finland@file:../../dist/bundles/finland":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.france.paris@file:../../dist/bundles/france.paris":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.france.saint-denis@file:../../dist/bundles/france.saint-denis":
+  version "3.0.0-alpha.0"
+
 "@romcal/calendar.france@file:../../dist/bundles/france":
   version "3.0.0-alpha.0"
 
 "@romcal/calendar.general-roman@file:../../dist/bundles/general-roman":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.germany@file:../../dist/bundles/germany":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.greece@file:../../dist/bundles/greece":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.guatemala@file:../../dist/bundles/guatemala":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.hungary@file:../../dist/bundles/hungary":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.india@file:../../dist/bundles/india":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.ireland@file:../../dist/bundles/ireland":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.italy@file:../../dist/bundles/italy":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.japan@file:../../dist/bundles/japan":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.lebanon@file:../../dist/bundles/lebanon":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.lithuania@file:../../dist/bundles/lithuania":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.malta@file:../../dist/bundles/malta":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.mexico@file:../../dist/bundles/mexico":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.netherlands@file:../../dist/bundles/netherlands":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.new-zealand@file:../../dist/bundles/new-zealand":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.norway@file:../../dist/bundles/norway":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.panama@file:../../dist/bundles/panama":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.paraguay@file:../../dist/bundles/paraguay":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.peru@file:../../dist/bundles/peru":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.philippines@file:../../dist/bundles/philippines":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.poland@file:../../dist/bundles/poland":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.portugal@file:../../dist/bundles/portugal":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.puerto-rico@file:../../dist/bundles/puerto-rico":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.romania@file:../../dist/bundles/romania":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.russia@file:../../dist/bundles/russia":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.scotland@file:../../dist/bundles/scotland":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.slovakia@file:../../dist/bundles/slovakia":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.slovenia@file:../../dist/bundles/slovenia":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.spain@file:../../dist/bundles/spain":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.sri-lanka@file:../../dist/bundles/sri-lanka":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.sweden@file:../../dist/bundles/sweden":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.switzerland@file:../../dist/bundles/switzerland":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.ukraine@file:../../dist/bundles/ukraine":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.united-states@file:../../dist/bundles/united-states":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.uruguay@file:../../dist/bundles/uruguay":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.venezuela@file:../../dist/bundles/venezuela":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.vietnam@file:../../dist/bundles/vietnam":
+  version "3.0.0-alpha.0"
+
+"@romcal/calendar.wales@file:../../dist/bundles/wales":
   version "3.0.0-alpha.0"
 
 "@sinonjs/commons@^1.7.0":
