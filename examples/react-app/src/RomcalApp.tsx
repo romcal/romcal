@@ -1,8 +1,7 @@
 import { Container } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import React from 'react';
-import CalendarContent from './components/CalendarContent';
-import CalendarToolbar from './components/CalendarToolbar';
+import { Calendar } from './components/Calendar';
 import Header from './components/Header';
 import Headline from './components/Headline';
 import './RomcalApp.css';
@@ -12,8 +11,7 @@ function RomcalApp() {
     <AppContainer maxWidth="md" fixed={true}>
       <Header />
       <Headline />
-      <CalendarToolbar />
-      <CalendarContent />
+      <Calendar />
     </AppContainer>
   );
 }
@@ -27,4 +25,6 @@ const AppContainer = styled(Container)`
   border-left-width: thin;
   border-right-width: thin;
   background-color: rgba(255, 255, 2555, 0.9);
+  box-sizing: border-box;
+  min-height: 100vh;
 `;

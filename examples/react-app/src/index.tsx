@@ -3,6 +3,7 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import { createTheme, ThemeProvider } from '@mui/material';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { AppContext, stores } from './AppContext';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import RomcalApp from './RomcalApp';
@@ -26,11 +27,13 @@ const theme = createTheme({
 
 ReactDOM.render(
   <React.StrictMode>
-    <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <ThemeProvider theme={theme}>
-        <RomcalApp />
-      </ThemeProvider>
-    </LocalizationProvider>
+    <AppContext.Provider value={stores}>
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <ThemeProvider theme={theme}>
+          <RomcalApp />
+        </ThemeProvider>
+      </LocalizationProvider>
+    </AppContext.Provider>
   </React.StrictMode>,
   document.getElementById('root'),
 );

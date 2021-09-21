@@ -1,27 +1,34 @@
 import { styled } from '@mui/material/styles';
-import React, { useEffect, useState } from 'react';
-import Romcal, { BaseLiturgicalDay } from 'romcal';
-import { GeneralRoman_En } from 'romcal/dist/bundles/general-roman';
+import { observer } from 'mobx-react';
+import React, { useContext } from 'react';
+import { AppContext } from '../AppContext';
 import Day from './Day';
+import LoadingIndicator from './LoadingIndicator';
 
-const romcal = new Romcal({ localizedCalendar: GeneralRoman_En });
-const fetchCalendar = (): Promise<BaseLiturgicalDay[][]> => romcal.generateCalendar().then(Object.values);
+interface Props {}
 
-export default function CalendarContent() {
-  const [calendar, updateCalendar] = useState<BaseLiturgicalDay[][]>([]);
+const CalendarContent = observer((props: Props) => {
+  const { romcalStore } = useContext(AppContext);
+  const { fetchingData, monthlyData } = romcalStore;
 
-  useEffect(() => {
-    fetchCalendar().then(updateCalendar);
-  }, []);
+  if (monthlyData.length === 0 && !fetchingData) {
+    romcalStore.getMonthData();
+  }
+
+  if (fetchingData) {
+    return <LoadingIndicator />;
+  }
 
   return (
     <MonthContainer>
-      {calendar.map((day) => (
+      {monthlyData.map((day) => (
         <Day liturgicalDay={day} key={day[0].date} />
       ))}
     </MonthContainer>
   );
-}
+});
+
+export default CalendarContent;
 
 const MonthContainer = styled('div')`
   padding: 30px 10px;

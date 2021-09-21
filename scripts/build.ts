@@ -102,9 +102,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
 
   // Calendars
   log(chalk.dim(`  ./tmp/constants/calendars.ts`));
-  const calendarNames = Object.keys(particularCalendars)
-    .concat([toPascalCase(GENERAL_ROMAN_NAME)])
-    .sort();
+  const calendarNames = Object.keys(particularCalendars).concat([GENERAL_ROMAN_NAME]).sort();
   fs.writeFileSync(
     path.resolve(constantDir, 'calendars.ts'),
     formatCode(
@@ -242,7 +240,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
    * Add package.json and index.d.ts files to all calendar bundles
    */
   log(chalk.bold(`\n✓ Package calendar bundles as npm modules`));
-  const allCalendars = [toPascalCase(GENERAL_ROMAN_NAME), ...Object.keys(particularCalendars)];
+  const allCalendars = [GENERAL_ROMAN_NAME, ...Object.keys(particularCalendars)];
 
   allCalendars.forEach((calendar) => {
     // mixed snake and underscore case to kebab case
