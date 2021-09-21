@@ -23,7 +23,7 @@ const LocaleMenu = observer(() => {
         <InputLabel variant="standard" htmlFor="uncontrolled-native">
           Locale
         </InputLabel>
-        <NativeSelect defaultValue={localeKey} id="calendar" value={localeKey} onChange={handleChange}>
+        <NativeSelect id="calendar" value={localeKey} onChange={handleChange}>
           {Object.entries(allLocales).map(([key, isoKey]) => (
             <option key={key} value={key}>
               {isoKey}

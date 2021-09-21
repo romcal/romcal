@@ -28,7 +28,7 @@ const CalendarMenu = observer(() => {
         <InputLabel variant="standard" htmlFor="uncontrolled-native">
           Calendar
         </InputLabel>
-        <NativeSelect defaultValue={calendarKey} id="calendar" value={calendarKey} onChange={handleChange}>
+        <NativeSelect id="calendar" value={calendarKey} onChange={handleChange}>
           {Object.keys(CALENDARS).map((key) => (
             <option key={key} value={key}>
               {toHumanName(key)}

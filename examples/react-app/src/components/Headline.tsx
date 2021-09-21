@@ -20,7 +20,7 @@ const HeadlineContainer = styled('div')`
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
   font-size: 1.5em;
-  margin: 0 0 50px;
+  margin: 0 0 30px;
   padding: 20px;
   border-radius: 3px;
   background-image: linear-gradient(135deg, #fcfaf8 0%, #faf7f4 100%);

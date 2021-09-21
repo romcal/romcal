@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <Grid container direction="row" justifyContent="space-between" alignItems="center">
       <RomcalHeaderLogo />
-      <Box>
+      <HeaderLinksContainer>
         <HeaderLink href="https://github.com/romcal/romcal/blob/dev/README.md" underline="hover">
           Documentation
         </HeaderLink>
@@ -15,10 +15,14 @@ export default function Header() {
         <HeaderLink href="https://github.com/romcal/romcal" underline="hover">
           Source Code
         </HeaderLink>
-      </Box>
+      </HeaderLinksContainer>
     </Grid>
   );
 }
+
+const HeaderLinksContainer = styled(Box)`
+  margin: 20px 0;
+`;
 
 const HeaderLink = styled(Link)`
   text-transform: uppercase;
