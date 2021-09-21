@@ -8,15 +8,20 @@ import MonthPicker from './MonthPicker';
 export default function CalendarToolbar() {
   return (
     <Container container direction="row" justifyContent="space-between" alignItems="center">
-      <Grid container xs>
-        <MonthPicker />
-      </Grid>
-      <CalendarMenu />
-      <LocaleMenu />
+      <MonthPicker />
+      <Group>
+        <CalendarMenu />
+        <LocaleMenu />
+      </Group>
     </Container>
   );
 }
 
 const Container = styled(Grid)`
   margin-bottom: 0;
+`;
+
+const Group = styled('div')`
+  margin-top: 20px;
+  display: inline-flex;
 `;
