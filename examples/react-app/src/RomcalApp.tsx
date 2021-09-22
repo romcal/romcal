@@ -1,18 +1,44 @@
-import { Container } from '@mui/material';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import { Container, createTheme, ThemeProvider } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import React from 'react';
+import { AppContext, stores } from './AppContext';
 import { Calendar } from './components/Calendar';
 import Header from './components/Header';
 import Headline from './components/Headline';
 import './RomcalApp.css';
 
+const theme = createTheme({
+  palette: {
+    primary: {
+      light: '#ff5f3d',
+      main: '#D02611',
+      dark: '#970000',
+      contrastText: '#000',
+    },
+    secondary: {
+      light: '#4f5b62',
+      main: '#263238',
+      dark: '#000a12',
+      contrastText: '#fff',
+    },
+  },
+});
+
 function RomcalApp() {
   return (
-    <AppContainer maxWidth="md" fixed={true}>
-      <Header />
-      <Headline />
-      <Calendar />
-    </AppContainer>
+    <AppContext.Provider value={stores}>
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <ThemeProvider theme={theme}>
+          <AppContainer maxWidth="md" fixed={true}>
+            <Header />
+            <Headline />
+            <Calendar />
+          </AppContainer>
+        </ThemeProvider>
+      </LocalizationProvider>
+    </AppContext.Provider>
   );
 }
 
