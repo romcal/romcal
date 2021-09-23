@@ -174,9 +174,9 @@ export class Precedences {
    *
    * **Note:**
    * Optional Memorials (12) are placed after the weekday (13):
-   * - For computing performance raisons (sorting performance).
+   * - For computing performance reasons (sorting performance).
    * - Because as long as they are not celebrated, the Weekday still takes precedence.
-   *   The Optional Memorials remains outputted for convenient raisons or any custom usage of romcal generated data.
+   *   The Optional Memorials remains outputted for convenient reasons or any custom usage of romcal generated data.
    *   The output or Optional Memorials can be disabled with the `strictMode: true`.
    */
   static OptionalMemorial_12: 'OPTIONAL_MEMORIAL_12' = 'OPTIONAL_MEMORIAL_12';
