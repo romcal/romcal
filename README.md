@@ -71,10 +71,10 @@ Romcal can be added to your project using npm or yarn:
 
 ```bash
 # npm
-npm install romcal@3.x
+npm install romcal
 
 # yarn
-yarn add romcal@3.x
+yarn add romcal
 ```
 
 The default export is CommonJS compatible (`cjs`).
@@ -115,7 +115,7 @@ esm or cjs:
 - https://unpkg.com/romcal/dist/esm/romcal.js
 - https://unpkg.com/romcal/dist/cjs/romcal.js
 
-Make sure to use a fixed version in production like https://unpkg.com/romcal@3.0.0/dist/cjs/romcal.js as passing no version will redirect to the latest version which might contain breaking changes in the future.
+Make sure to use a fixed version in production like https://unpkg.com/romcal@3.0.0-alpha.0/dist/cjs/romcal.js as passing no version will redirect to the latest version which might contain breaking changes in the future.
 
 #### cdnjs.com
 
