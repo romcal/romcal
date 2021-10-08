@@ -2098,7 +2098,7 @@ export class Martyrology {
     irenaeus_of_lyon_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Irenaeus',
-      titles: [Titles.Bishop, Titles.Martyr],
+      titles: [Titles.Bishop, Titles.Martyr, Titles.DoctorOfTheChurch],
       dateOfDeath: 201,
       dateOfDeathIsApproximative: true,
     },
