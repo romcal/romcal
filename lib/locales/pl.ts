@@ -263,7 +263,7 @@ export const locale: Locale = {
     hyacinth_of_poland_priest: 'Św. Jacka, prezbitera',
     ignatius_of_antioch_bishop: 'Św. Ignacego Antiocheńskiego, biskupa i męczennika',
     ignatius_of_loyola_priest: 'Św. Ignacego z Loyoli, prezbitera',
-    irenaeus_of_lyon_bishop: 'Św. Ireneusza, biskupa i męczennika',
+    irenaeus_of_lyon_bishop: 'Św. Ireneusza, biskupa, męczennika i doktora Kościoła',
     isidore_of_seville_bishop: 'Św. Izydora, biskupa i doktora Kościoła',
     james_apostle: 'Św. Jakuba, Apostoła',
     james_strzemie_bishop: 'Bł. Jakuba Strzemię, biskupa',

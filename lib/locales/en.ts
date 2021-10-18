@@ -501,7 +501,7 @@ export const locale: Locale = {
       'Immaculate Conception of the Blessed Virgin Mary, Patroness of the USA',
     innocent_v_pope: 'Blessed Innocent V, Pope',
     innocent_xi_pope: 'Blessed Innocent XI, Pope',
-    irenaeus_of_lyon_bishop: 'Saint Irenaeus, Bishop and Martyr',
+    irenaeus_of_lyon_bishop: 'Saint Irenaeus, Bishop, Martyr and Doctor of the Church',
     irene_of_macedonia: 'Saint Irene',
     irish_martyrs: 'Irish Martyrs',
     isabelle_of_france_virgin: 'Blessed Isabelle of France, Virgin',

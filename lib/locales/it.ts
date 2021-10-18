@@ -299,7 +299,7 @@ export const locale: Locale = {
     holy_innocents_martyrs: 'Santi Innocenti, martiri',
     ignatius_of_antioch_bishop: 'Sant’Ignazio di Antiochia, vescovo e martire',
     ignatius_of_loyola_priest: 'Sant’Ignazio di Loyola, sacerdote',
-    irenaeus_of_lyon_bishop: 'Sant’Ireneo, vescovo e martire',
+    irenaeus_of_lyon_bishop: 'Sant’Ireneo, vescovo, martire e dottore della Chiesa',
     isidore_of_seville_bishop: 'Sant’Isidoro, vescovo e dottore della Chiesa',
     james_apostle: 'San Giacomo, apostolo',
     jane_frances_de_chantal_religious: 'Santa Giovanna Francesca de Chantal, religiosa',
