@@ -341,7 +341,7 @@ export const locale: Locale = {
     ignatius_of_antioch_bishop: 'Saint Ignace d’Antioche, évêque et martyr, père et docteur de l’Église (✝ 115)',
     ignatius_of_loyola_priest: 'Saint Ignace de Loyola, prêtre, fondateur de la Compagnie de Jésus (✝ 1556)',
     innocent_v_pope: 'Bienheureux Innocent V, pape († 1276)',
-    irenaeus_of_lyon_bishop: 'Saint Irénée, évêque et martyr (✝ v. 201)',
+    irenaeus_of_lyon_bishop: 'Saint Irénée, évêque, martyr et docteur de l’Église (✝ v. 201)',
     isabelle_of_france_virgin: 'Bienheureuse Isabelle de France, sœur de saint Louis, vierge († 1270)',
     isidore_of_seville_bishop: 'Saint Isidore de Séville, docteur de l’Église, évêque et Confesseur (✝ 636)',
     ivo_of_kermartin_priest: 'Saint Yves Hélory, prêtre et juge en Bretagne (✝ 1303)',

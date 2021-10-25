@@ -540,7 +540,7 @@ export const locale: Locale = {
     immaculate_conception_of_mary_patroness_of_the_usa:
       'In Conceptione Immaculata Beatæ Mariæ Virginis, Patronæ Civitatum Fœderatæ Americæ',
     innocent_xi_pope: 'B. Innocentii XI, papæ',
-    irenaeus_of_lyon_bishop: 'S. Irenæi, episcopi et martyris',
+    irenaeus_of_lyon_bishop: 'S. Irenæi, episcopi, martyris et Ecclesiæ doctoris',
     irene_of_macedonia: 'S. Irenæ',
     irish_martyrs: 'Bb. Martyrum Hiberniæ',
     isidore_of_seville_bishop: 'S. Isidori, episcopi et Ecclesiæ doctoris',

@@ -429,7 +429,7 @@ export const locale: Locale = {
     immaculate_conception_of_mary_patroness_of_the_usa:
       'Panny Marie, počaté bez poskvrny prvotního hříchu, patronky USA',
     innocent_xi_pope: 'Bl. Inocence XI., papeže',
-    irenaeus_of_lyon_bishop: 'Sv. Ireneje, biskupa a mučedníka',
+    irenaeus_of_lyon_bishop: 'Sv. Ireneje, biskupa, mučedníka a učitele církve',
     irene_of_macedonia: 'Sv. Ireny',
     irish_martyrs: 'Bl. irských mučedníků',
     isidore_of_seville_bishop: 'Sv. Izidora, biskupa a učitele církve',
