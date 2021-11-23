@@ -291,18 +291,31 @@ export class Calendar implements BaseCalendar {
         .map((key) => builtData.byKeys[key])
         .sort(
           (
-            { precedence: firstPrecedence, isOptional: firstOptional },
-            { precedence: nextPrecedence, isOptional: nextOptional },
+            {
+              precedence: firstPrecedence,
+              allowSimilarRankItems: firstAllowSimilarRankItems,
+              isOptional: firstIsOptional,
+            },
+            {
+              precedence: nextPrecedence,
+              allowSimilarRankItems: nextAllowSimilarRankItems,
+              isOptional: nextIsOptional,
+            },
           ) => {
-            if (firstOptional === nextOptional) {
-              const type1 = PRECEDENCES.indexOf(firstPrecedence);
-              const type2 = PRECEDENCES.indexOf(nextPrecedence);
-              if (type1 < type2) return -1;
-              if (type1 > type2) return 1;
-              return 0;
+            if (firstIsOptional === nextIsOptional) {
+              if (firstAllowSimilarRankItems === nextAllowSimilarRankItems) {
+                const type1 = PRECEDENCES.indexOf(firstPrecedence);
+                const type2 = PRECEDENCES.indexOf(nextPrecedence);
+                if (type1 < type2) return -1;
+                if (type1 > type2) return 1;
+                return 0;
+              }
+
+              // Sort definitions marked as allowing similar rank items
+              return firstAllowSimilarRankItems ? -1 : 1;
             }
             // Sort definitions marked as optional to the end of the list
-            return firstOptional ? 1 : -1;
+            return firstIsOptional ? 1 : -1;
           },
         );
 
@@ -342,6 +355,8 @@ export class Calendar implements BaseCalendar {
       // celebrated, the others being omitted.
       const defaultLiturgicalDay = dates[0];
 
+      let optionalMemorials: LiturgicalDay[] = [];
+
       // If the current day is:
       //
       // - a privileged weekday (UNLY #59 9):
@@ -377,35 +392,62 @@ export class Calendar implements BaseCalendar {
       //    weekday, or the Mass of an Optional Memorial which happens to occur on that
       //    day, or the Mass of any Saint inscribed in the Martyrology for that day, or a Mass
       //    for Various Needs, or a Votive Mass.
-      let optionalMemorials: LiturgicalDay[] = [];
       if (
         (defaultLiturgicalDay.precedence === Precedences.PrivilegedWeekday_9 ||
           defaultLiturgicalDay.precedence === Precedences.Weekday_13) &&
         !defaultLiturgicalDay.periods.includes(Periods.HolyWeek)
       ) {
-        optionalMemorials = dates
-          .slice(1)
-          .filter(
-            (d) =>
-              [
-                Precedences.GeneralMemorial_10,
-                Precedences.ProperMemorial_SecondPatron_11a,
-                Precedences.ProperMemorial_11b,
-                Precedences.OptionalMemorial_12,
-              ].some((p) => p === d.precedence) || d.isOptional,
-          )
-          .map((d) => (d.isOptional = true) && d);
+        optionalMemorials = optionalMemorials.concat(
+          dates
+            .slice(1)
+            .filter(
+              (d) =>
+                [
+                  Precedences.GeneralMemorial_10,
+                  Precedences.ProperMemorial_SecondPatron_11a,
+                  Precedences.ProperMemorial_11b,
+                  Precedences.OptionalMemorial_12,
+                ].some((p) => p === d.precedence) || d.isOptional,
+            )
+            .map((d) => (d.isOptional = true) && d),
+        );
       }
-      // Also keep liturgical days marked as optional.
+
+      // If the default liturgical day is marked as allowing similar rank types (allowSimilarRankItems: true),
+      // keep the next liturgical(s) day(s) from the list that have also this option enabled,
+      // and finally the one that have the same rank type.
+      // Note: all sibling items are already sorted by precedence (higher first),
+      // so the next items have always the same or a lower precedence type.
+      // e.g. The memorial of the Immaculate heart of Mary, that can falls the same day of another memorial.
+      if (defaultLiturgicalDay.allowSimilarRankItems && dates.length > 1) {
+        const checkNextItems = (d: LiturgicalDay) =>
+          d.rank === defaultLiturgicalDay.rank &&
+          d.precedence !== Precedences.OptionalMemorial_12 &&
+          !optionalMemorials.map((d) => d.key).includes(d.key);
+
+        const nextAllowingSimilarItems = dates.slice(1).filter((d) => d.allowSimilarRankItems && checkNextItems(d));
+        optionalMemorials = [...optionalMemorials, ...nextAllowingSimilarItems];
+
+        const nextItem = dates.slice(1).find((d) => !d.allowSimilarRankItems && checkNextItems(d));
+        if (nextItem) optionalMemorials.push(nextItem);
+      }
+
+      // Also keep liturgical days marked as optional,
+      // and that have a similar or higher precedence type than the default liturgical day.
       // e.g. The dedication of consecrated Churches is an optional solemnity.
-      else if (dates.length > 1) {
-        const optionalDayKeys = dates
-          .slice(1)
-          .filter((d) => d.isOptional)
-          .map((d) => d.key);
-        if (optionalDayKeys.length) {
-          optionalMemorials = dates.filter((d) => optionalDayKeys.includes(d.key));
-        }
+      if (dates.length > 1) {
+        const optionalDayKeys = optionalMemorials.map((d) => d.key);
+        const defaultPrecedenceIndex = PRECEDENCES.indexOf(defaultLiturgicalDay.precedence);
+        optionalMemorials = optionalMemorials.concat(
+          dates
+            .slice(1)
+            .filter(
+              (d) =>
+                d.isOptional &&
+                PRECEDENCES.indexOf(d.precedence) >= defaultPrecedenceIndex &&
+                !optionalDayKeys.includes(d.key),
+            ),
+        );
       }
 
       finalData[dateStr] = [

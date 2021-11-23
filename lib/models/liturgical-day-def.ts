@@ -33,6 +33,7 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
   readonly precedence: Precedence;
   readonly rank: Rank;
   readonly isHolyDayOfObligation: boolean;
+  readonly allowSimilarRankItems: boolean;
   readonly isOptional: boolean;
   readonly i18nDef: [string] | [string, StringMap | string];
   readonly seasons: Season[];
@@ -114,6 +115,8 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
     this.precedence = input.precedence ?? previousDef!.precedence;
 
     this.rank = LiturgicalDayDef.precedenceToRank(this.precedence, key);
+
+    this.allowSimilarRankItems = input.allowSimilarRankItems ?? previousDef?.allowSimilarRankItems ?? false;
 
     this.isHolyDayOfObligation = input.isHolyDayOfObligation ?? previousDef?.isHolyDayOfObligation ?? false;
 

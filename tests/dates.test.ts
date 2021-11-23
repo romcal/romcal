@@ -468,6 +468,18 @@ describe('Testing specific liturgical date functions', () => {
         expect(rangeContainsDate(range, immaculateHeartOfMary)).toBeTrue();
       }
     });
+
+    test('When it falls the same day as another memorial, both memorials are kept', async () => {
+      const romcal = new Romcal();
+      const keys = (await romcal.generateCalendar(2015))['2015-06-13'].map((d) => d.key);
+      expect(JSON.stringify(keys)).toEqual(JSON.stringify(['immaculate_heart_of_mary', 'anthony_of_padua_priest']));
+    });
+
+    test('When it falls on a weekday, only one item is output for this day', async () => {
+      const romcal = new Romcal();
+      const keys = (await romcal.generateCalendar(2022))['2022-06-25'].map((d) => d.key);
+      expect(JSON.stringify(keys)).toEqual(JSON.stringify(['immaculate_heart_of_mary']));
+    });
   });
 
   describe('Christ the King is always the 34th (and last) Sunday of Ordinary Time and is the week before the First Sunday of Advent', () => {
