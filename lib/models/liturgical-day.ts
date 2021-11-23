@@ -98,8 +98,8 @@ class LiturgicalDay implements BaseLiturgicalDay {
 
     this.periods = baseData?.periods ?? def.periods;
 
-    // The second Sunday after the Christmas octave can before or after the Epiphany,
-    // and this can be determined from the definition of the Proper of the Time.
+    // The second Sunday after the Christmas octave can be before or after the Epiphany,
+    // and this can be determined from the definition of the Proper of the Time,
     // without having a liturgical year context.
     if (def.fromCalendar === PROPER_OF_TIME_NAME && this.key === 'second_sunday_after_christmas') {
       if (date.getTime() >= liturgicalDayConfig.dates.epiphany().getTime()) {
