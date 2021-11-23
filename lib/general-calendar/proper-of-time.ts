@@ -460,7 +460,7 @@ export class ProperOfTime extends CalendarDef {
 
     // Pentecost Sunday.
     this.#newLiturgicalDayDef(`pentecost_sunday`, {
-      precedence: Precedences.PrivilegedSunday_2,
+      precedence: Precedences.ProperOfTimeSolemnity_2,
       dateDef: { dateFn: 'pentecostSunday', yearOffset: yearOffset },
       isHolyDayOfObligation: true,
       seasons: [Seasons.EasterTime],
