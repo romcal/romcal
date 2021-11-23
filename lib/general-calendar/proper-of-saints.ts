@@ -442,8 +442,8 @@ export class GeneralRoman extends CalendarDef {
       precedence: Precedences.GeneralMemorial_10,
       // The Saturday, after the Solemnity of the Most Sacred Heart of Jesus
       dateDef: { dateFn: 'immaculateHeartOfMary' },
-      // If this liturgical day fall the same day of another memorial, do not
-      // replace this another memorial, but keep them both.
+      // If this liturgical day and a memorial occur on the same day,
+      // do not replace the latter, but output them both.
       allowSimilarRankItems: true,
       colors: Colors.White,
       properCycle: ProperCycles.ProperOfTime,
