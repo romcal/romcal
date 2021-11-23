@@ -27,6 +27,7 @@ class LiturgicalDay implements BaseLiturgicalDay {
   readonly dateDef: DateDef;
   readonly precedence: Precedence;
   readonly rank: Rank;
+  readonly allowSimilarRankItems: boolean;
   readonly isHolyDayOfObligation: boolean;
   isOptional: boolean;
   readonly i18nDef: [string] | [string, StringMap | string];
@@ -91,6 +92,7 @@ class LiturgicalDay implements BaseLiturgicalDay {
     this.dateDef = def.dateDef;
     this.precedence = def.precedence;
     this.rank = def.rank;
+    this.allowSimilarRankItems = def.allowSimilarRankItems;
     this.isHolyDayOfObligation = calendar.dayOfWeek === 0 ? true : def.isHolyDayOfObligation;
     this.isOptional = def.isOptional;
     this.i18nDef = def.i18nDef;

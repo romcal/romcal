@@ -333,6 +333,13 @@ type LiturgicalDayRoot = {
   rankName: string;
 
   /**
+   * In addition to this liturgical day, allow similar items that have the same rank,
+   * and the same or lower precedence,
+   * so the current liturgical day will not overwrite another defined item.
+   */
+  allowSimilarRankItems: boolean;
+
+  /**
    * The liturgical colors of the liturgical day.
    */
   colors: Color[];
@@ -499,7 +506,14 @@ export type BaseLiturgicalDayDef = Pick<
 export type LiturgicalDayInput = Partial<
   Pick<
     LiturgicalDayRoot,
-    'dateDef' | 'precedence' | 'isHolyDayOfObligation' | 'isOptional' | 'properCycle' | 'customLocaleKey' | 'drop'
+    | 'dateDef'
+    | 'precedence'
+    | 'allowSimilarRankItems'
+    | 'isHolyDayOfObligation'
+    | 'isOptional'
+    | 'properCycle'
+    | 'customLocaleKey'
+    | 'drop'
   >
 > & {
   /**
@@ -544,7 +558,7 @@ export type LiturgicalDayProperOfTimeInput = Pick<
   | 'dateDef'
   | 'dateExceptions'
 > &
-  Partial<Pick<LiturgicalDayRoot, 'isHolyDayOfObligation' | 'isOptional'>>;
+  Partial<Pick<LiturgicalDayRoot, 'allowSimilarRankItems' | 'isHolyDayOfObligation' | 'isOptional'>>;
 
 /**
  * Generated object with computed date within a specific year
