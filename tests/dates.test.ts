@@ -475,7 +475,7 @@ describe('Testing specific liturgical date functions', () => {
       expect(JSON.stringify(keys)).toEqual(JSON.stringify(['immaculate_heart_of_mary', 'anthony_of_padua_priest']));
     });
 
-    test('When it falls on a weekday, only one item is output for this day', async () => {
+    test('When it occurs on a weekday, only one item is output for this day', async () => {
       const romcal = new Romcal();
       const keys = (await romcal.generateCalendar(2022))['2022-06-25'].map((d) => d.key);
       expect(JSON.stringify(keys)).toEqual(JSON.stringify(['immaculate_heart_of_mary']));
