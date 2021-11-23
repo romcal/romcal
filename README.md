@@ -71,10 +71,10 @@ Romcal can be added to your project using npm or yarn:
 
 ```bash
 # npm
-npm install romcal
+npm install romcal@alpha
 
 # yarn
-yarn add romcal
+yarn add romcal@alpha
 ```
 
 The default export is CommonJS compatible (`cjs`).
