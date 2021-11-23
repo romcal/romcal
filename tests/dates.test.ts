@@ -469,7 +469,7 @@ describe('Testing specific liturgical date functions', () => {
       }
     });
 
-    test('When it falls the same day as another memorial, both memorials are kept', async () => {
+    test('When it occurs on the same day as another memorial, both memorials are output', async () => {
       const romcal = new Romcal();
       const keys = (await romcal.generateCalendar(2015))['2015-06-13'].map((d) => d.key);
       expect(JSON.stringify(keys)).toEqual(JSON.stringify(['immaculate_heart_of_mary', 'anthony_of_padua_priest']));
