@@ -232,7 +232,7 @@ describe('Testing date range functions', () => {
         expect(datesAfter2021.length).toEqual(6);
       });
 
-      test('In 2022 Epiphany is January 2, so there is only 6 weekdays after', () => {
+      test('In 2022, Epiphany occurs on January 2, so there are only 6 weekdays after', () => {
         const datesBefore2022 = romcal.dates(2022).allDatesBeforeEpiphany();
         expect(datesBefore2022.length).toEqual(0);
 
