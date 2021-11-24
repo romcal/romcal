@@ -463,7 +463,7 @@ export class Dates {
     const start = addDays(this.epiphany(year, epiphanyOnSunday), 1);
     const baptismOfTheLord = this.baptismOfTheLord(year, epiphanyOnSunday);
 
-    // If no days between Epiphany and Baptism of the Lord
+    // If there are no days between Epiphany and Baptism of the Lord
     if (isSameDate(start, baptismOfTheLord)) return (this.#allDatesAfterEpiphany[id] = []);
 
     const end = subtractsDays(baptismOfTheLord, 1);
