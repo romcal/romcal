@@ -232,7 +232,7 @@ describe('Testing date range functions', () => {
         expect(datesAfter2021.length).toEqual(6);
       });
 
-      test('In 2022, Epiphany occurs on January 2, so there are only 6 weekdays after', () => {
+      test('In 2022, Epiphany occurs on January 2, so there are no weekdays before and only 6 weekdays after', () => {
         const datesBefore2022 = romcal.dates(2022).allDatesBeforeEpiphany();
         expect(datesBefore2022.length).toEqual(0);
 
@@ -240,7 +240,7 @@ describe('Testing date range functions', () => {
         expect(datesAfter2022.length).toEqual(6);
       });
 
-      test('In 2023, Epiphany occurs on January 3, and the Baptism of the Lord is on the following day, so there are only 6 weekdays before', () => {
+      test('In 2023, Epiphany occurs on January 3, and the Baptism of the Lord is on the following day, so there are only 6 weekdays before and no weekdays after', () => {
         const datesBefore2023 = romcal.dates(2023).allDatesBeforeEpiphany();
         expect(datesBefore2023.length).toEqual(6);
 
