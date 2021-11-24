@@ -224,7 +224,7 @@ describe('Testing date range functions', () => {
     describe('Check weekdays before and after Epiphany', () => {
       const romcal = new Romcal({ epiphanyOnSunday: true });
 
-      test('In 2021 Epiphany is January 3, so there is 1 weekday before, and 6 weekdays after', () => {
+      test('In 2021, Epiphany occurs on January 3, so there is 1 weekday before, and 6 weekdays after', () => {
         const datesBefore2021 = romcal.dates(2021).allDatesBeforeEpiphany();
         expect(datesBefore2021.length).toEqual(1);
 
