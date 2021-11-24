@@ -382,7 +382,7 @@ export class Dates {
     const start = addDays(this.maryMotherOfGod(year), 1);
     const epiphany = this.epiphany(year, epiphanyOnSunday);
 
-    // If no days between Mary Mother of God Epiphany
+    // If there are no days between Mary, Mother of God and Epiphany
     if (isSameDate(start, epiphany)) return (this.#allDatesBeforeEpiphany[id] = []);
 
     const end = subtractsDays(epiphany, 1);
