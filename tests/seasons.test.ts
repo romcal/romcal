@@ -67,9 +67,7 @@ describe('Testing date range functions', () => {
       const romcal = new Romcal();
       for (let i = 1900, il = 2200; i <= il; i++) {
         const dates = romcal.dates(i);
-        expect(
-          isSameDate(subtractsDays(dates.allSundaysOfLent()[0], 4), dates.ashWednesday()),
-        ).toEqual(true);
+        expect(isSameDate(subtractsDays(dates.allSundaysOfLent()[0], 4), dates.ashWednesday())).toEqual(true);
       }
     });
 
@@ -159,12 +157,8 @@ describe('Testing date range functions', () => {
         const ordinaryTime = dates.allDatesOfEarlyOrdinaryTime();
         const [firstDayInEarlyOrdinaryTime] = ordinaryTime;
         const [lastDayInEarlyOrdinaryTime] = ordinaryTime.reverse();
-        expect(
-          isSameDate(subtractsDays(firstDayInEarlyOrdinaryTime, 1), dates.baptismOfTheLord()),
-        ).toEqual(true);
-        expect(isSameDate(addDays(lastDayInEarlyOrdinaryTime, 1), dates.ashWednesday())).toEqual(
-          true,
-        );
+        expect(isSameDate(subtractsDays(firstDayInEarlyOrdinaryTime, 1), dates.baptismOfTheLord())).toEqual(true);
+        expect(isSameDate(addDays(lastDayInEarlyOrdinaryTime, 1), dates.ashWednesday())).toEqual(true);
       }
     });
 
@@ -188,12 +182,8 @@ describe('Testing date range functions', () => {
         const [firstDayInLateOrdinaryTime] = lateOrdinaryTime;
         const [lastDayInLateOrdinaryTime] = lateOrdinaryTime.reverse();
         expect(sundays.length).toBeOneOf([23, 24, 25, 26, 27, 28, 29]);
-        expect(
-          isSameDate(subtractsDays(firstDayInLateOrdinaryTime, 1), dates.pentecostSunday()),
-        ).toEqual(true);
-        expect(
-          isSameDate(addDays(lastDayInLateOrdinaryTime, 1), dates.allSundaysOfAdvent()[0]),
-        ).toEqual(true);
+        expect(isSameDate(subtractsDays(firstDayInLateOrdinaryTime, 1), dates.pentecostSunday())).toEqual(true);
+        expect(isSameDate(addDays(lastDayInLateOrdinaryTime, 1), dates.allSundaysOfAdvent()[0])).toEqual(true);
       }
     });
   });
@@ -230,6 +220,34 @@ describe('Testing date range functions', () => {
         }
       });
     });
+
+    describe('Check weekdays before and after Epiphany', () => {
+      const romcal = new Romcal({ epiphanyOnSunday: true });
+
+      test('In 2021, Epiphany occurs on January 3, so there is 1 weekday before, and 6 weekdays after', () => {
+        const datesBefore2021 = romcal.dates(2021).allDatesBeforeEpiphany();
+        expect(datesBefore2021.length).toEqual(1);
+
+        const datesAfter2021 = romcal.dates(2021).allDatesAfterEpiphany();
+        expect(datesAfter2021.length).toEqual(6);
+      });
+
+      test('In 2022, Epiphany occurs on January 2, so there are no weekdays before and only 6 weekdays after', () => {
+        const datesBefore2022 = romcal.dates(2022).allDatesBeforeEpiphany();
+        expect(datesBefore2022.length).toEqual(0);
+
+        const datesAfter2022 = romcal.dates(2022).allDatesAfterEpiphany();
+        expect(datesAfter2022.length).toEqual(6);
+      });
+
+      test('In 2023, Epiphany occurs on January 3, and the Baptism of the Lord is on the following day, so there are only 6 weekdays before and no weekdays after', () => {
+        const datesBefore2023 = romcal.dates(2023).allDatesBeforeEpiphany();
+        expect(datesBefore2023.length).toEqual(6);
+
+        const datesAfter2023 = romcal.dates(2023).allDatesAfterEpiphany();
+        expect(datesAfter2023.length).toEqual(0);
+      });
+    });
   });
 });
 
@@ -249,9 +267,7 @@ describe('Testing seasons utility functions', () => {
       const calendar = Object.values(await new Romcal().generateCalendar(2015)).flat();
       calendar
         .filter(
-          (d) =>
-            d.seasons.includes(Seasons.OrdinaryTime) &&
-            (d.rank === Ranks.Sunday || d.rank === Ranks.Weekday),
+          (d) => d.seasons.includes(Seasons.OrdinaryTime) && (d.rank === Ranks.Sunday || d.rank === Ranks.Weekday),
         )
         .forEach((date) => {
           expect(date.colors[0]).toEqual(Colors.Green);

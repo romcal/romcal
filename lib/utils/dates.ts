@@ -380,7 +380,12 @@ export class Dates {
     const id = year + epiphanyOnSunday.toString();
     if (this.#allDatesBeforeEpiphany[id]) return this.#allDatesBeforeEpiphany[id];
     const start = addDays(this.maryMotherOfGod(year), 1);
-    const end = subtractsDays(this.epiphany(year, epiphanyOnSunday), 1);
+    const epiphany = this.epiphany(year, epiphanyOnSunday);
+
+    // If there are no days between Mary, Mother of God and Epiphany
+    if (isSameDate(start, epiphany)) return (this.#allDatesBeforeEpiphany[id] = []);
+
+    const end = subtractsDays(epiphany, 1);
     return (this.#allDatesBeforeEpiphany[id] = rangeOfDays(start, end));
   };
   #allDatesBeforeEpiphany: Record<string, Date[]> = {};
@@ -456,7 +461,12 @@ export class Dates {
     const id = year + epiphanyOnSunday.toString();
     if (this.#allDatesAfterEpiphany[id]) return this.#allDatesAfterEpiphany[id];
     const start = addDays(this.epiphany(year, epiphanyOnSunday), 1);
-    const end = subtractsDays(this.baptismOfTheLord(year, epiphanyOnSunday), 1);
+    const baptismOfTheLord = this.baptismOfTheLord(year, epiphanyOnSunday);
+
+    // If there are no days between Epiphany and Baptism of the Lord
+    if (isSameDate(start, baptismOfTheLord)) return (this.#allDatesAfterEpiphany[id] = []);
+
+    const end = subtractsDays(baptismOfTheLord, 1);
     return (this.#allDatesAfterEpiphany[id] = rangeOfDays(start, end));
   };
   #allDatesAfterEpiphany: Record<string, Date[]> = {};
