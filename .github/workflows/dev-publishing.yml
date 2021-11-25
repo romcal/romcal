@@ -43,7 +43,7 @@ jobs:
           default: prerelease
           preid: dev
           tag-prefix:  'v'
-          commit-message: 'ci: bumps version to {{version}}'
+          commit-message: 'ci: bump version to {{version}}'
 
       - name: Build romcal project (romcal + all calendar bundles)
         run: npm run build
