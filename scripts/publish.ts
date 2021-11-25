@@ -34,7 +34,7 @@ const afterPublish = (data: Results) => {
   afterPublish(data);
 
   // Retrieve the list of all calendar bundles
-  const bundlesBasePath = path.join(__dirname, '..', 'dist', 'bundles');
+  const bundlesBasePath = path.join(__dirname, '../dist/bundles');
   const bundleNames = fs
     .readdirSync(bundlesBasePath, { withFileTypes: true })
     .filter((dirent) => dirent.isDirectory())
