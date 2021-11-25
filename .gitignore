@@ -13,6 +13,9 @@ coverage/
 dist/
 tmp/
 
+# Act (run GitHub Actions locally)
+*.event
+
 # VS Code
 .vscode
 !.vscode/tasks.js

@@ -1,0 +1,57 @@
+name: Dev branch publishing
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  dev_branch_publishing:
+    runs-on: ubuntu-latest
+
+    environment: npm-publish
+
+    if: github.repository == 'romcal/romcal'
+
+    env:
+      CI: true
+      GITHUB_USER: romcalproject
+      GITHUB_EMAIL: romcalproject@gmail.com
+
+    steps:
+      - name: Git checkout dev branch
+        uses: actions/checkout@v2
+        with:
+          ref: dev
+
+      - name: Install node.js and npm
+        uses: volta-cli/action@v1
+
+      - name: Install npm depencancies
+        run: npm ci --no-audit
+
+      - name: Update browsers list (caniuse)
+        run: npx browserslist@latest --update-db
+
+      - name: Automated version bump
+        uses: phips28/gh-action-bump-version@master
+        with:
+          major-wording: 'MajorBump'
+          minor-wording: 'MinorBump'
+          patch-wording: 'PatchBump'
+          rc-wording:
+          default: prerelease
+          preid: dev
+          tag-prefix:  'v'
+          commit-message: 'ci: bumps version to {{version}}'
+
+      - name: Build romcal project (romcal + all calendar bundles)
+        run: npm run build
+
+      - name: Run tests
+        run: npm run test:without-coverage
+
+      - name: Npm publish a new 'dev' version (romcal + all calendar bundles)
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: node -r ts-node/register scripts/publish.ts

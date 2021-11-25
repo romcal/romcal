@@ -1,6 +1,6 @@
 {
   "name": "romcal",
-  "version": "3.0.0-alpha.0",
+  "version": "3.0.0-alpha.1",
   "description": "JavaScript library that generates liturgical calendars of the Roman Rite of the Roman Catholic Church.",
   "main": "dist/cjs/romcal.js",
   "module": "dist/esm/romcal.js",
@@ -15,6 +15,7 @@
     "build": "node -r ts-node/register scripts/build.ts",
     "doc": "node -r ts-node/register scripts/bundle-doc.ts",
     "test": "jest --coverage",
+    "test:without-coverage": "jest",
     "test:watch": "jest --watch"
   },
   "repository": {
@@ -57,6 +58,7 @@
     "i18next": "^20.4.0"
   },
   "devDependencies": {
+    "@jsdevtools/npm-publish": "^1.4.3",
     "@types/cli-progress": "^3.9.2",
     "@types/glob": "^7.1.4",
     "@types/humanize-duration": "^3.25.1",
