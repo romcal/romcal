@@ -27,7 +27,7 @@ jobs:
       - name: Install node.js and npm
         uses: volta-cli/action@v1
 
-      - name: Install npm depencancies
+      - name: Install npm dependencies
         run: npm ci --no-audit
 
       - name: Update browsers list (caniuse)
