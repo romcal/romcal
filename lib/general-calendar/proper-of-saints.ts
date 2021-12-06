@@ -434,7 +434,7 @@ export class GeneralRoman extends CalendarDef {
     mary_mother_of_the_church: {
       precedence: Precedences.GeneralMemorial_10,
       // The Monday, after Pentecost Sunday
-      dateDef: { dateFn: 'pentecostSunday', addDay: 1 },
+      dateDef: { dateFn: 'maryMotherOfTheChurch' },
       properCycle: ProperCycles.ProperOfTime,
     },
 

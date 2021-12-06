@@ -5,7 +5,11 @@ import { Germany_En } from 'romcal/dist/bundles/germany';
 import { Hungary_En } from 'romcal/dist/bundles/hungary';
 import { Ireland_En } from 'romcal/dist/bundles/ireland';
 import { Slovakia_Sk } from 'romcal/dist/bundles/slovakia';
-import Romcal, { BaseLiturgicalDay, BaseLiturgicalDayDef, LiturgicalCalendar } from '../lib';
+import Romcal, { BaseLiturgicalDay, BaseLiturgicalDayDef, CalendarScope, LiturgicalCalendar } from '../lib';
+import LiturgicalDay from '../lib/models/liturgical-day';
+import { Seasons } from '../lib/constants/seasons';
+import { Periods } from '../lib/constants/periods';
+import { addDays, dateDifference } from '../lib/utils/dates';
 
 const { Colors, isMartyr, Titles, Ranks, getUtcDate, getUtcDateFromString, isSameDate, subtractsDays } = Romcal;
 
@@ -201,6 +205,96 @@ describe('Testing calendar generation functions', () => {
       expect(christmas2020?.cycles.weekdayCycle).toBe('YEAR_1');
       expect(christmas2021?.cycles.weekdayCycle).toBe('YEAR_2');
       expect(christmas2022?.cycles.weekdayCycle).toBe('YEAR_1');
+    });
+  });
+
+  describe('Testing calendar metadata', () => {
+    const testCalendarMetada = async (scope: CalendarScope) => {
+      for (let year = 2010; year <= 2050; year++) {
+        const romcal = new Romcal({ scope });
+        const data: LiturgicalDay[] = Object.values(await romcal.generateCalendar(year)).flatMap((d) => d[0]);
+
+        let currentSeason = data[0].seasons;
+        let weekOfSeason = scope === 'liturgical' ? 0 : Math.ceil((8 + new Date(data[0].date).getDay()) / 7);
+        let dayOfSeason = scope === 'liturgical' ? 0 : 7;
+        let dayOfWeek = new Date(data[0].date).getDay();
+
+        let dayOfOrdinaryTime = 0;
+        const lastDayOfOT = subtractsDays(
+          romcal.dates(scope === 'liturgical' ? year + 1 : year).firstSundayOfAdvent(),
+          1,
+        );
+
+        const nthDayOfWeekInMonth: Record<number, number | undefined> = {
+          0: undefined,
+          1: undefined,
+          2: undefined,
+          3: undefined,
+          4: undefined,
+          5: undefined,
+          6: undefined,
+        };
+
+        for (let i = 0; i < data.length; i++) {
+          const day = data[i];
+          const date = new Date(day.date);
+          const dow = date.getDay();
+
+          // Compute data for current day
+          if (!currentSeason.some((s) => day.seasons.includes(s)) || day.key === 'easter_sunday') {
+            dayOfSeason = 0;
+            weekOfSeason = 0;
+
+            if (day.periods.includes(Periods.LateOrdinaryTime) && dayOfSeason === 0) {
+              weekOfSeason = 35 - Math.ceil((dateDifference(lastDayOfOT, date) + 1) / 7);
+            }
+          }
+          currentSeason = day.seasons;
+
+          // Days of week
+          if (nthDayOfWeekInMonth[dow] === undefined) nthDayOfWeekInMonth[dow] = Math.ceil(date.getDate() / 7) - 1;
+          if (date.getDate() === 1) {
+            for (let j = 0; j < 7; j++) {
+              nthDayOfWeekInMonth[j] = 0;
+            }
+          }
+          nthDayOfWeekInMonth[dow] = (nthDayOfWeekInMonth[dow] ?? 0) + 1;
+          expect(day.calendar.nthDayOfWeekInMonth).toBe(nthDayOfWeekInMonth[dow]);
+
+          // Day of season
+          dayOfSeason++;
+          if (day.seasons.includes(Seasons.OrdinaryTime)) {
+            dayOfOrdinaryTime++;
+            dayOfSeason = dayOfOrdinaryTime;
+          }
+          expect(day.calendar.dayOfSeason).toBe(dayOfSeason);
+
+          // Week of season
+          if (dayOfSeason === 1) {
+            weekOfSeason = day.seasons.includes(Seasons.Lent) ? 0 : 1;
+          }
+          expect(day.calendar.weekOfSeason).toBe(weekOfSeason);
+
+          // Day of week
+          expect(dow).toBe(dayOfWeek);
+          expect(day.calendar.dayOfWeek).toBe(dayOfWeek);
+
+          // Compute data for next day
+          dayOfWeek++;
+          if (dayOfWeek === 7) {
+            dayOfWeek = 0;
+            weekOfSeason++;
+          }
+        }
+      }
+    };
+
+    test('Testing calendar metadata in a gregorian scope, from 2010 to 2050', async () => {
+      await testCalendarMetada('gregorian');
+    });
+
+    test('Testing calendar metadata in a liturgical scope, from 2010 to 2050', async () => {
+      await testCalendarMetada('liturgical');
     });
   });
 

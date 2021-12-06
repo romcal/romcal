@@ -11,7 +11,7 @@ export type LiturgicalCalendar = Record<string, LiturgicalDay[]>;
  * General date definition collection
  */
 
-export type ByKeys = Record<Key, LiturgicalDay>;
+export type ByKeys = Record<Key, LiturgicalDay[]>;
 export type DatesIndex = Record<string, Key[]>;
 
 export type LiturgicalBuiltData = {
