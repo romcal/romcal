@@ -36,8 +36,8 @@ jobs:
           rc-wording:
           default: prerelease
           preid: dev
-          tag-prefix:  'v'
-          commit-message: 'ci: bump version to {{version}}'
+          skip-commit: 'true'
+          skip-tag:  'true'
 
       - name: Install npm dependencies
         run: npm ci --no-audit
@@ -50,6 +50,18 @@ jobs:
 
       - name: Run tests
         run: npm run test:without-coverage
+
+      - name: Read package.json
+        uses: culshaw/read-package-node-version-actions@v1
+        id: package
+
+      - name: Commit and tag the updated version
+        uses: EndBug/add-and-commit@v7
+        with:
+          message: 'ci: bump version to ${{ steps.package.outputs.version }}'
+          tag: 'v${{ steps.package.outputs.version }}'
+          author_name: ${{ env.GITHUB_USER }}
+          author_email: ${{ env.GITHUB_EMAIL }}
 
       - name: Npm publish a new 'dev' version (romcal + all calendar bundles)
         env:
