@@ -72,7 +72,7 @@ export class Calendar implements BaseCalendar {
       def.calendarMetadata.dayOfSeason ??
       (startOfSeason ? dateDifference(date, startOfSeason) + 1 : NaN);
 
-    // In later Ordinary Time, we need to subtract the days of Lent, Paschal Triduum and Easter Time,
+    // In late Ordinary Time, we need to subtract the days of Lent, Paschal Triduum and Easter Time,
     // from the first day of Ordinary Time (the day after the Baptism of the Lord).
     if (isLaterOrdinaryTime) {
       dayOfSeason = dayOfSeason - 96;
@@ -83,7 +83,7 @@ export class Calendar implements BaseCalendar {
       def.calendarMetadata.weekOfSeason ??
       (startOfSeason ? Math.ceil((dayOfSeason + startOfSeason.getDay()) / 7) : NaN);
 
-    // In later Ordinary Time, we need compute the week number from the remaining days of the liturgical year
+    // In late Ordinary Time, we need to compute the week number from the remaining days of the liturgical year
     if (isLaterOrdinaryTime) {
       weekOfSeason = endOfSeason ? Math.ceil(34 - dateDifference(date, endOfSeason) / 7) : NaN;
     }
@@ -213,7 +213,7 @@ export class Calendar implements BaseCalendar {
             ? null
             : builtData.byKeys[builtData.datesIndex[dateStr][0]]
                 // Look up for the right LiturgicalDay item, according to its date.
-                // Note: 2 LiturgicalDay objects with the same date can occur within the same liturgical year,
+                // Note: Two LiturgicalDay objects with the same key can occur within the same liturgical year,
                 // for example, Saint Andrew Apostle (30 November), in 2012.
                 .find((d) => d.date === date.toISOString().substr(0, 10)) || null;
 
@@ -308,7 +308,7 @@ export class Calendar implements BaseCalendar {
       const dates: LiturgicalDay[] = builtData.datesIndex[dateStr]
         .reduce((acc, key) => {
           // Look up for the right LiturgicalDay item, according to its date.
-          // Note: 2 LiturgicalDay objects with the same date can occur within the same liturgical year,
+          // Note: Two LiturgicalDay objects with the same date can occur within the same liturgical year,
           // for example, Saint Andrew Apostle (30 November), in 2012.
           const item = builtData.byKeys[key].find((d) => d.date === dateStr);
           if (item) acc.push(item);

@@ -861,7 +861,7 @@ export class Dates {
             ? lateOrdinaryStartWeekCount + Math.floor(idx / 7) + 1
             : lateOrdinaryStartWeekCount + Math.floor(idx / 7);
 
-          // When the Baptism of the Lord is a Monday, it means that the Ordinary Time start a Tuesday.
+          // When the Baptism of the Lord is observed on Monday, Ordinary Time starts on Tuesday.
           // So in this case, the Monday (from the group of 7 days computed above) takes place in the next week.
           if (isEarlyOrdinaryTime && baptismOfTheLordIsMonday && item.getDay() === 1) week++;
 
