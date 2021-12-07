@@ -96,6 +96,7 @@ class RomcalBuilder {
 
 export const RomcalBundler = (): void => {
   rimraf.sync(path.resolve('tmp/bundles'));
+  const isCI = process.env['CI'] === 'true';
 
   const gauge = new cliProgress.SingleBar(
     {
@@ -109,7 +110,7 @@ export const RomcalBundler = (): void => {
   const allLocaleKeys = Object.keys(locales);
 
   log(chalk.bold(`\n✓ Generate calendar bundle files into ${chalk.cyan('./tmp/bundles/')}`));
-  gauge.start(allCalendars.length * allLocaleKeys.length - 1, 0);
+  if (!isCI) gauge.start(allCalendars.length * allLocaleKeys.length - 1, 0);
   let gaugeCount = 0;
 
   for (let i = 0; i < allCalendars.length; i++) {
@@ -130,8 +131,11 @@ export const RomcalBundler = (): void => {
       const calendarName = builder.getCalendarName();
 
       // Provide CLI feedback
-      gauge.update(gaugeCount++, { filename: `${enclosingDir}/${filename}` });
-      if (process.env['CI'] && j === 0) log(chalk.dim('  - ' + calendarName));
+      if (!isCI) {
+        gauge.update(gaugeCount++, { filename: `${enclosingDir}/${filename}` });
+      } else {
+        if (j === 0) log(chalk.dim('  - ' + calendarName));
+      }
 
       // Build and get definitions & martyrology items
       const inputs = builder.getAllInputs();
@@ -250,6 +254,6 @@ export const RomcalBundler = (): void => {
     fs.writeFileSync(path.resolve(dir, `index.d.ts`), dtsOutput, 'utf-8');
   }
 
-  gauge.stop();
+  if (!isCI) gauge.stop();
   log(chalk.dim(`  generated ${allCalendars.length} calendars in ${allLocaleKeys.length} locales in ./tmp/bundles/`));
 };

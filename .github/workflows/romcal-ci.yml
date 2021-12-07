@@ -6,12 +6,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      CI: true
+
     steps:
       - uses: actions/checkout@v2
       - uses: volta-cli/action@v1
       - run: npm ci --no-audit
       - run: npm run build
-      - run: npm test
-
-    env:
-      CI: true
+      - run: npm run test:without-coverage
