@@ -436,6 +436,7 @@ export const locale: Locale = {
     martin_of_tours_bishop: 'Saint Martin de Tours, évêque (✝ 397)',
     mary_magdalene: 'Sainte Marie-Madeleine, disciple du Christ (Ier s.)',
     mary_magdalene_de_pazzi_virgin: 'Sainte Marie-Madeleine de Pazzi, vierge de l’Ordre du Carmel (✝ 1607)',
+    mary_mother_of_the_church: 'Bienheureuse Vierge Marie, Mère de l’Église',
     mary_refuge_of_sinner: 'Sainte Marie, refuge des pécheurs',
     maternus_of_cologne_and_valerius_of_treves_and_eucharius_first_apostles_of_alsace:
       'Les premiers Apôtres de l‘Église en Alsace : Saints Materne, Valère et Euchaire',
