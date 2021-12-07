@@ -843,6 +843,7 @@ export class Dates {
       const early = this.allDatesOfEarlyOrdinaryTime(year, epiphanyOnSunday);
       const late = this.allDatesOfLateOrdinaryTime(year);
       const lateOrdinaryStartWeekCount = Math.floor(35 - (late.length + 1) / 7);
+      const baptismOfTheLordIsMonday = this.baptismOfTheLord(year).getDay() === 1;
 
       const trinitySunday = this.trinitySunday(year).getTime();
       const corpusChristi = this.corpusChristi(year).getTime();
@@ -850,7 +851,7 @@ export class Dates {
 
       const groupBy = (dates: Date[], isEarlyOrdinaryTime: boolean) =>
         dates.reduce((result: Record<string, Record<string, Date | null>>, item, idx) => {
-          const week = isEarlyOrdinaryTime
+          let week = isEarlyOrdinaryTime
             ? // Early Ordinary Time
               item.getDay() === 0
               ? Math.floor(idx / 7) + 2
@@ -859,6 +860,10 @@ export class Dates {
             item.getDay() === 0
             ? lateOrdinaryStartWeekCount + Math.floor(idx / 7) + 1
             : lateOrdinaryStartWeekCount + Math.floor(idx / 7);
+
+          // When the Baptism of the Lord is observed on Monday, Ordinary Time starts on Tuesday.
+          // So in this case, the Monday (from the group of 7 days computed above) takes place in the next week.
+          if (isEarlyOrdinaryTime && baptismOfTheLordIsMonday && item.getDay() === 1) week++;
 
           const dateTime = item.getTime();
           const date =
@@ -1040,6 +1045,17 @@ export class Dates {
         addDays(this.easterSunday(year), 39));
   };
   #ascension: Record<string, Date> = {};
+
+  /**
+   * Get the date of the Memorial of Mary, Mother of the Church
+   * (occurs the day after Pentecost Sunday)
+   * @param year Gregorian year
+   */
+  maryMotherOfTheChurch = (year = this.#year): Date => {
+    if (this.#maryMotherOfTheChurch[year]) return this.#maryMotherOfTheChurch[year];
+    return (this.#maryMotherOfTheChurch[year] = addDays(this.easterSunday(year), 50));
+  };
+  #maryMotherOfTheChurch: Record<string, Date> = {};
 
   /**
    * Get the date of the Solemnity of Trinity Sunday

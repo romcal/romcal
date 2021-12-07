@@ -308,7 +308,7 @@ export class ProperOfTime extends CalendarDef {
         isHolyDayOfObligation: dow === 0,
         seasons: [Seasons.Lent],
         periods: [Periods.PresentationOfTheLordToHolyThursday],
-        calendarMetadata: { weekOfSeason: week, dayOfSeason: i + 4, dayOfWeek: dow },
+        calendarMetadata: { weekOfSeason: week, dayOfSeason: i + 5, dayOfWeek: dow },
         colors: [
           ...(week === 4 && dow === 0 ? [Colors.Rose] : []), // Laetare
           Colors.Purple,
@@ -324,7 +324,7 @@ export class ProperOfTime extends CalendarDef {
       isHolyDayOfObligation: true,
       seasons: [Seasons.Lent],
       periods: [Periods.HolyWeek, Periods.PresentationOfTheLordToHolyThursday],
-      calendarMetadata: { weekOfSeason: 6, dayOfSeason: 35, dayOfWeek: 0 },
+      calendarMetadata: { weekOfSeason: 6, dayOfSeason: 40, dayOfWeek: 0 },
       colors: [Colors.Red],
       i18nDef: [`names:palm_sunday`],
     });
@@ -336,7 +336,7 @@ export class ProperOfTime extends CalendarDef {
         dateDef: { dateFn: 'palmSunday', addDay: dow, yearOffset: yearOffset },
         seasons: [Seasons.Lent],
         periods: [Periods.HolyWeek, Periods.PresentationOfTheLordToHolyThursday],
-        calendarMetadata: { weekOfSeason: 6, dayOfSeason: 35 + dow, dayOfWeek: dow },
+        calendarMetadata: { weekOfSeason: 6, dayOfSeason: 40 + dow, dayOfWeek: dow },
         colors: [Colors.Purple],
         i18nDef: ['seasons:lent.holy_week_day', { dow }],
       });
@@ -388,7 +388,7 @@ export class ProperOfTime extends CalendarDef {
       isHolyDayOfObligation: true,
       seasons: [Seasons.PaschalTriduum, Seasons.EasterTime],
       periods: [Periods.EasterOctave],
-      calendarMetadata: { weekOfSeason: 1, dayOfSeason: 1, dayOfWeek: 1 },
+      calendarMetadata: { weekOfSeason: 1, dayOfSeason: 1, dayOfWeek: 0 },
       colors: [Colors.White],
       i18nDef: [`names:easter_sunday`],
     });
@@ -522,8 +522,8 @@ export class ProperOfTime extends CalendarDef {
         dateDef: { dateFn: 'dateOfOrdinaryTime', dateArgs: [dow, week], yearOffset: yearOffset },
         isHolyDayOfObligation: dow === 0,
         seasons: [Seasons.OrdinaryTime],
-        periods: [], // todo: add early / late ordinary time
-        calendarMetadata: { weekOfSeason: week, dayOfSeason: i, dayOfWeek: dow },
+        periods: [],
+        calendarMetadata: { weekOfSeason: week, dayOfWeek: dow },
         colors: [Colors.Green],
         i18nDef:
           dow === 0 ? ['seasons:ordinary_time.sunday', { week }] : ['seasons:ordinary_time.weekday', { week, dow }],

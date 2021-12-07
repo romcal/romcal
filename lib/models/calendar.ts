@@ -26,12 +26,14 @@ export class Calendar implements BaseCalendar {
   readonly dates: Dates;
   readonly #startOfSeasonsDic: Record<number, Record<Seasons, Date>> = {};
   readonly #endOfSeasonsDic: Record<number, Record<Seasons, Date>> = {};
+  readonly #startOfLaterOrdinaryTime: Date;
   readonly #cyclesCache: Record<number, Pick<RomcalCyclesMetadata, 'sundayCycle' | 'weekdayCycle'>> = {};
 
   constructor(config: RomcalConfig, liturgicalDayConfig: LiturgicalDayConfig) {
     this.#config = config;
     this.#liturgicalDayConfig = liturgicalDayConfig;
     this.dates = new Dates(config, liturgicalDayConfig.year);
+    this.#startOfLaterOrdinaryTime = this.dates.maryMotherOfTheChurch();
   }
 
   /**
@@ -60,16 +62,34 @@ export class Calendar implements BaseCalendar {
 
     const startOfSeason = def.seasons.length ? startOfSeasonsDic[def.seasons[0]] : undefined;
     const endOfSeason = def.seasons.length ? endOfSeasonsDic[def.seasons[0]] : undefined;
-    const dayOfSeason =
+
+    const isLaterOrdinaryTime =
+      (baseData?.seasons ?? def.seasons).includes(Seasons.OrdinaryTime) &&
+      date.getTime() >= this.#startOfLaterOrdinaryTime.getTime();
+
+    let dayOfSeason =
       baseData?.calendar.dayOfSeason ??
       def.calendarMetadata.dayOfSeason ??
-      (startOfSeason ? dateDifference(date, startOfSeason) + 2 : NaN);
+      (startOfSeason ? dateDifference(date, startOfSeason) + 1 : NaN);
+
+    // In late Ordinary Time, we need to subtract the days of Lent, Paschal Triduum and Easter Time,
+    // from the first day of Ordinary Time (the day after the Baptism of the Lord).
+    if (isLaterOrdinaryTime) {
+      dayOfSeason = dayOfSeason - 96;
+    }
+
+    let weekOfSeason =
+      baseData?.calendar.weekOfSeason ??
+      def.calendarMetadata.weekOfSeason ??
+      (startOfSeason ? Math.ceil((dayOfSeason + startOfSeason.getDay()) / 7) : NaN);
+
+    // In late Ordinary Time, we need to compute the week number from the remaining days of the liturgical year
+    if (isLaterOrdinaryTime) {
+      weekOfSeason = endOfSeason ? Math.ceil(34 - dateDifference(date, endOfSeason) / 7) : NaN;
+    }
 
     return {
-      weekOfSeason:
-        baseData?.calendar.weekOfSeason ??
-        def.calendarMetadata.weekOfSeason ??
-        (Number.isNaN(dayOfSeason) ? NaN : Math.ceil(dayOfSeason / 7)),
+      weekOfSeason,
       dayOfSeason,
       dayOfWeek: baseData?.calendar.dayOfWeek ?? def.calendarMetadata.dayOfWeek ?? date.getDay(),
       nthDayOfWeekInMonth: Math.ceil(date.getDate() / 7),
@@ -168,12 +188,11 @@ export class Calendar implements BaseCalendar {
         // because of any general/particular calendar settings.
         // E.g. The 6th Thursday within the Easter Time can be not celebrated
         // because in some calendars, the Solemnity of the Ascension is taking precedence.
-        .filter((d) => d && isValidDate(d))
+        .reduce((acc, d) => {
+          if (d && isValidDate(d)) acc.push(d as Date);
+          return acc;
+        }, [] as Date[])
         .forEach((date) => {
-          // Typing: the nullable dates have been removed in the filter above,
-          // so we redefine the date object as a non-nullable Date object
-          date = date as Date;
-
           const dateStr = date.toISOString().substr(0, 10);
 
           // All the dates of the whole year (gregorian or liturgical) are already generated
@@ -192,7 +211,11 @@ export class Calendar implements BaseCalendar {
           // the baseData must be null.
           const baseData: LiturgicalDay | null = isFromProperOfTime
             ? null
-            : builtData.byKeys[builtData.datesIndex[dateStr][0]];
+            : builtData.byKeys[builtData.datesIndex[dateStr][0]]
+                // Look up for the right LiturgicalDay item, according to its date.
+                // Note: Two LiturgicalDay objects with the same key can occur within the same liturgical year,
+                // for example, Saint Andrew Apostle (30 November 2011 and 30 November 2012), in liturgical year 2012, which starts on 27 November 2011 and ends 1 December 2012.
+                .find((d) => d.date === date.toISOString().substr(0, 10)) || null;
 
           // Retrieve calendar metadata from the proper of time
           const calendar: RomcalCalendarMetadata = isFromProperOfTime
@@ -221,15 +244,10 @@ export class Calendar implements BaseCalendar {
             baseData && [Ranks.Feast, Ranks.Memorial].some((r) => r === def.rank) ? baseData : null;
 
           // Create a new LiturgicalDay object, and add it to the builtData object.
-          builtData.byKeys[def.key] = new LiturgicalDay(
-            def,
-            date,
-            this.#liturgicalDayConfig,
-            calendar,
-            cycles,
-            baseData,
-            weekday,
-          );
+          builtData.byKeys[def.key] = [
+            ...(builtData.byKeys[def.key] ?? []),
+            new LiturgicalDay(def, date, this.#liturgicalDayConfig, calendar, cycles, baseData, weekday),
+          ];
 
           // Also add the corresponding date-key object.
           builtData.datesIndex[dateStr] = [...(builtData.datesIndex[dateStr] ?? []), def.key];
@@ -288,7 +306,14 @@ export class Calendar implements BaseCalendar {
     Object.keys(builtData.datesIndex).forEach((dateStr) => {
       // Order the LiturgicalDays objects, following the precedence rules defined in the UNLY #49.
       const dates: LiturgicalDay[] = builtData.datesIndex[dateStr]
-        .map((key) => builtData.byKeys[key])
+        .reduce((acc, key) => {
+          // Look up for the right LiturgicalDay item, according to its date.
+          // Note: Two LiturgicalDay objects with the same key can occur within the same liturgical year,
+          // for example, Saint Andrew Apostle (30 November 2011 and 30 November 2012), in liturgical year 2012, which starts on 27 November 2011 and ends 1 December 2012.
+          const item = builtData.byKeys[key].find((d) => d.date === dateStr);
+          if (item) acc.push(item);
+          return acc;
+        }, [] as LiturgicalDay[])
         .sort(
           (
             {
