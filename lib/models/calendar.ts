@@ -308,7 +308,7 @@ export class Calendar implements BaseCalendar {
       const dates: LiturgicalDay[] = builtData.datesIndex[dateStr]
         .reduce((acc, key) => {
           // Look up for the right LiturgicalDay item, according to its date.
-          // Note: Two LiturgicalDay objects with the same date can occur within the same liturgical year,
+          // Note: Two LiturgicalDay objects with the same key can occur within the same liturgical year,
           // for example, Saint Andrew Apostle (30 November), in 2012.
           const item = builtData.byKeys[key].find((d) => d.date === dateStr);
           if (item) acc.push(item);
