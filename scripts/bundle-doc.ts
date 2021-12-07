@@ -22,12 +22,12 @@ For example, to install the *General Roman Calendar* and the calendar of *France
 
 \`\`\`bash
 # npm
-npm install @romcal/calendar.general-roman
-npm install @romcal/calendar.france
+npm install @romcal/calendar.general-roman@dev
+npm install @romcal/calendar.france@dev
 
 # yarn
-yarn add @romcal/calendar.general-roman
-yarn add @romcal/calendar.france
+yarn add @romcal/calendar.general-roman@dev
+yarn add @romcal/calendar.france@dev
 \`\`\`
 
 Below the list of all available calendar plugins:
@@ -38,7 +38,7 @@ Below the list of all available calendar plugins:
 for (let i = 0; i < allCalendars.length; i++) {
   const calendar = allCalendars[i];
   const humanName = calendar.name.replace(/([A-Z])/g, ' $1').replace('_', ' / ');
-  mdTemplate += `|${humanName}|\`@romcal/calendar.${toPackageName(calendar.name)}\`|\n`;
+  mdTemplate += `|${humanName}|\`@romcal/calendar.${toPackageName(calendar.name)}@dev\`|\n`;
 }
 
 fs.writeFileSync(path.resolve('./docs/', 'calendar-plugins.md'), mdTemplate, 'utf-8');

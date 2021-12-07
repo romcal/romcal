@@ -20,7 +20,7 @@
 <p align="center">
   <a href="https://www.npmjs.com/package/romcal/v/latest" target="_blank" rel="noopener noreferrer"><img alt="latest" src="https://img.shields.io/npm/v/romcal/latest?style=flat-square&logo=npm"></a>
   <a href="https://www.npmjs.com/package/romcal/v/beta" target="_blank" rel="noopener noreferrer"><img alt="beta" src="https://img.shields.io/npm/v/romcal/beta?style=flat-square&logo=npm"></a>
-  <a href="https://www.npmjs.com/package/romcal/v/alpha" target="_blank" rel="noopener noreferrer"><img alt="alpha" src="https://img.shields.io/npm/v/romcal/alpha?style=flat-square&logo=npm"></a>
+  <a href="https://www.npmjs.com/package/romcal/v/dev" target="_blank" rel="noopener noreferrer"><img alt="dev" src="https://img.shields.io/npm/v/romcal/dev?style=flat-square&logo=npm"></a>
 </p>
 
 ## Documentation
@@ -71,10 +71,10 @@ Romcal can be added to your project using npm or yarn:
 
 ```bash
 # npm
-npm install romcal@alpha
+npm install romcal@dev
 
 # yarn
-yarn add romcal@alpha
+yarn add romcal@dev
 ```
 
 The default export is CommonJS compatible (`cjs`).
@@ -92,12 +92,12 @@ For example, to install the General Roman Calendar and the calendar of France:
 
 ```bash
 # npm
-npm install @romcal/calendar.general-roman
-npm install @romcal/calendar.france
+npm install @romcal/calendar.general-roman@dev
+npm install @romcal/calendar.france@dev
 
 # yarn
-yarn add @romcal/calendar.general-roman
-yarn add @romcal/calendar.france
+yarn add @romcal/calendar.general-roman@dev
+yarn add @romcal/calendar.france@dev
 ```
 
 The complete list of localized calendar is [available here](./docs/calendar-plugins.md).

@@ -6,74 +6,74 @@ For example, to install the *General Roman Calendar* and the calendar of *France
 
 ```bash
 # npm
-npm install @romcal/calendar.general-roman
-npm install @romcal/calendar.france
+npm install @romcal/calendar.general-roman@dev
+npm install @romcal/calendar.france@dev
 
 # yarn
-yarn add @romcal/calendar.general-roman
-yarn add @romcal/calendar.france
+yarn add @romcal/calendar.general-roman@dev
+yarn add @romcal/calendar.france@dev
 ```
 
 Below the list of all available calendar plugins:
 
 | Name | NPM Package name |
 | -----|------------------|
-| General Roman|`@romcal/calendar.general-roman`|
-| Americas|`@romcal/calendar.americas`|
-| Argentina|`@romcal/calendar.argentina`|
-| Australia|`@romcal/calendar.australia`|
-| Austria|`@romcal/calendar.austria`|
-| Belgium|`@romcal/calendar.belgium`|
-| Bolivia|`@romcal/calendar.bolivia`|
-| Bosnia Herzegovina|`@romcal/calendar.bosnia-herzegovina`|
-| Brazil|`@romcal/calendar.brazil`|
-| Canada|`@romcal/calendar.canada`|
-| Chile|`@romcal/calendar.chile`|
-| China|`@romcal/calendar.china`|
-| Costa Rica|`@romcal/calendar.costa-rica`|
-| Croatia|`@romcal/calendar.croatia`|
-| Czech Republic|`@romcal/calendar.czech-republic`|
-| Denmark|`@romcal/calendar.denmark`|
-| England|`@romcal/calendar.england`|
-| Europe|`@romcal/calendar.europe`|
-| Finland|`@romcal/calendar.finland`|
-| France|`@romcal/calendar.france`|
-| France /  Paris|`@romcal/calendar.france.paris`|
-| France /  Saint Denis|`@romcal/calendar.france.saint-denis`|
-| Germany|`@romcal/calendar.germany`|
-| Greece|`@romcal/calendar.greece`|
-| Guatemala|`@romcal/calendar.guatemala`|
-| Hungary|`@romcal/calendar.hungary`|
-| India|`@romcal/calendar.india`|
-| Ireland|`@romcal/calendar.ireland`|
-| Italy|`@romcal/calendar.italy`|
-| Japan|`@romcal/calendar.japan`|
-| Lebanon|`@romcal/calendar.lebanon`|
-| Lithuania|`@romcal/calendar.lithuania`|
-| Malta|`@romcal/calendar.malta`|
-| Mexico|`@romcal/calendar.mexico`|
-| Netherlands|`@romcal/calendar.netherlands`|
-| New Zealand|`@romcal/calendar.new-zealand`|
-| Norway|`@romcal/calendar.norway`|
-| Panama|`@romcal/calendar.panama`|
-| Paraguay|`@romcal/calendar.paraguay`|
-| Peru|`@romcal/calendar.peru`|
-| Philippines|`@romcal/calendar.philippines`|
-| Poland|`@romcal/calendar.poland`|
-| Portugal|`@romcal/calendar.portugal`|
-| Puerto Rico|`@romcal/calendar.puerto-rico`|
-| Romania|`@romcal/calendar.romania`|
-| Russia|`@romcal/calendar.russia`|
-| Scotland|`@romcal/calendar.scotland`|
-| Slovakia|`@romcal/calendar.slovakia`|
-| Slovenia|`@romcal/calendar.slovenia`|
-| Spain|`@romcal/calendar.spain`|
-| Sri Lanka|`@romcal/calendar.sri-lanka`|
-| Sweden|`@romcal/calendar.sweden`|
-| Switzerland|`@romcal/calendar.switzerland`|
-| Ukraine|`@romcal/calendar.ukraine`|
-| United States|`@romcal/calendar.united-states`|
-| Uruguay|`@romcal/calendar.uruguay`|
-| Venezuela|`@romcal/calendar.venezuela`|
-| Vietnam|`@romcal/calendar.vietnam`|
-| Wales|`@romcal/calendar.wales`|
+| General Roman|`@romcal/calendar.general-roman@dev`|
+| Americas|`@romcal/calendar.americas@dev`|
+| Argentina|`@romcal/calendar.argentina@dev`|
+| Australia|`@romcal/calendar.australia@dev`|
+| Austria|`@romcal/calendar.austria@dev`|
+| Belgium|`@romcal/calendar.belgium@dev`|
+| Bolivia|`@romcal/calendar.bolivia@dev`|
+| Bosnia Herzegovina|`@romcal/calendar.bosnia-herzegovina@dev`|
+| Brazil|`@romcal/calendar.brazil@dev`|
+| Canada|`@romcal/calendar.canada@dev`|
+| Chile|`@romcal/calendar.chile@dev`|
+| China|`@romcal/calendar.china@dev`|
+| Costa Rica|`@romcal/calendar.costa-rica@dev`|
+| Croatia|`@romcal/calendar.croatia@dev`|
+| Czech Republic|`@romcal/calendar.czech-republic@dev`|
+| Denmark|`@romcal/calendar.denmark@dev`|
+| England|`@romcal/calendar.england@dev`|
+| Europe|`@romcal/calendar.europe@dev`|
+| Finland|`@romcal/calendar.finland@dev`|
+| France|`@romcal/calendar.france@dev`|
+| France /  Paris|`@romcal/calendar.france.paris@dev`|
+| France /  Saint Denis|`@romcal/calendar.france.saint-denis@dev`|
+| Germany|`@romcal/calendar.germany@dev`|
+| Greece|`@romcal/calendar.greece@dev`|
+| Guatemala|`@romcal/calendar.guatemala@dev`|
+| Hungary|`@romcal/calendar.hungary@dev`|
+| India|`@romcal/calendar.india@dev`|
+| Ireland|`@romcal/calendar.ireland@dev`|
+| Italy|`@romcal/calendar.italy@dev`|
+| Japan|`@romcal/calendar.japan@dev`|
+| Lebanon|`@romcal/calendar.lebanon@dev`|
+| Lithuania|`@romcal/calendar.lithuania@dev`|
+| Malta|`@romcal/calendar.malta@dev`|
+| Mexico|`@romcal/calendar.mexico@dev`|
+| Netherlands|`@romcal/calendar.netherlands@dev`|
+| New Zealand|`@romcal/calendar.new-zealand@dev`|
+| Norway|`@romcal/calendar.norway@dev`|
+| Panama|`@romcal/calendar.panama@dev`|
+| Paraguay|`@romcal/calendar.paraguay@dev`|
+| Peru|`@romcal/calendar.peru@dev`|
+| Philippines|`@romcal/calendar.philippines@dev`|
+| Poland|`@romcal/calendar.poland@dev`|
+| Portugal|`@romcal/calendar.portugal@dev`|
+| Puerto Rico|`@romcal/calendar.puerto-rico@dev`|
+| Romania|`@romcal/calendar.romania@dev`|
+| Russia|`@romcal/calendar.russia@dev`|
+| Scotland|`@romcal/calendar.scotland@dev`|
+| Slovakia|`@romcal/calendar.slovakia@dev`|
+| Slovenia|`@romcal/calendar.slovenia@dev`|
+| Spain|`@romcal/calendar.spain@dev`|
+| Sri Lanka|`@romcal/calendar.sri-lanka@dev`|
+| Sweden|`@romcal/calendar.sweden@dev`|
+| Switzerland|`@romcal/calendar.switzerland@dev`|
+| Ukraine|`@romcal/calendar.ukraine@dev`|
+| United States|`@romcal/calendar.united-states@dev`|
+| Uruguay|`@romcal/calendar.uruguay@dev`|
+| Venezuela|`@romcal/calendar.venezuela@dev`|
+| Vietnam|`@romcal/calendar.vietnam@dev`|
+| Wales|`@romcal/calendar.wales@dev`|
