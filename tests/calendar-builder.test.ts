@@ -209,7 +209,7 @@ describe('Testing calendar generation functions', () => {
   });
 
   describe('Testing calendar metadata', () => {
-    const testCalendarMetada = async (scope: CalendarScope) => {
+    const testCalendarMetadata = async (scope: CalendarScope) => {
       for (let year = 2010; year <= 2050; year++) {
         const romcal = new Romcal({ scope });
         const data: LiturgicalDay[] = Object.values(await romcal.generateCalendar(year)).flatMap((d) => d[0]);
@@ -290,11 +290,11 @@ describe('Testing calendar generation functions', () => {
     };
 
     test('Testing calendar metadata in a gregorian scope, from 2010 to 2050', async () => {
-      await testCalendarMetada('gregorian');
+      await testCalendarMetadata('gregorian');
     });
 
     test('Testing calendar metadata in a liturgical scope, from 2010 to 2050', async () => {
-      await testCalendarMetada('liturgical');
+      await testCalendarMetadata('liturgical');
     });
   });
 
