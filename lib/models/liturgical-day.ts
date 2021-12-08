@@ -1,7 +1,5 @@
-import { StringMap } from 'i18next';
 import { Color } from '../constants/colors';
 import { PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
-import { PatronTitle, Title } from '../constants/martyrology-metadata';
 import { Period, Periods } from '../constants/periods';
 import { Precedence, Precedences } from '../constants/precedences';
 import { Rank, Ranks } from '../constants/ranks';
@@ -10,9 +8,12 @@ import { Key } from '../types/common';
 import {
   BaseLiturgicalDay,
   DateDef,
+  FromCalendar,
+  i18nDef,
   LiturgyDayDiff,
   RomcalCalendarMetadata,
   RomcalCyclesMetadata,
+  RomcalTitles,
 } from '../types/liturgical-day';
 import { LiturgicalDayConfigOutput } from '../types/liturgical-day-config';
 import { MartyrologyItem } from '../types/martyrology';
@@ -30,15 +31,15 @@ class LiturgicalDay implements BaseLiturgicalDay {
   readonly allowSimilarRankItems: boolean;
   readonly isHolyDayOfObligation: boolean;
   isOptional: boolean;
-  readonly i18nDef: [string] | [string, StringMap | string];
+  readonly i18nDef: i18nDef;
   readonly seasons: Season[];
   readonly periods: Period[];
   readonly colors: Color[];
   readonly martyrology: MartyrologyItem[];
-  readonly titles: (Title | PatronTitle)[];
+  readonly titles: RomcalTitles;
   readonly calendar: RomcalCalendarMetadata;
   readonly cycles: RomcalCyclesMetadata;
-  readonly fromCalendar: Lowercase<string>;
+  readonly fromCalendar: FromCalendar;
   readonly fromExtendedCalendars: LiturgyDayDiff[];
   weekday?: LiturgicalDay;
 

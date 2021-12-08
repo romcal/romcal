@@ -1,5 +1,6 @@
 import { ScreamingSnakeCase } from '../types/common';
 import { toScreamingSnakeCase } from '../utils/string';
+import { RomcalTitles } from '../types/liturgical-day';
 
 /**
  * Canonization level of a person.
@@ -62,7 +63,7 @@ export type Title = typeof TITLES[number];
  * Return true if the provided title contain at least one Martyr title
  * @param titles
  */
-export const isMartyr = (titles: (Title | PatronTitle)[]): boolean => {
+export const isMartyr = (titles: RomcalTitles): boolean => {
   return (
     titles.includes(Titles.Martyr) ||
     titles.includes(Titles.TheFirstMartyr) ||

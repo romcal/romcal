@@ -11,6 +11,8 @@ import LiturgicalDayDef from '../models/liturgical-day-def';
 import { Dates } from '../utils/dates';
 import { AllXOR, Key, XOR } from './common';
 import { MartyrologyItem, SaintCount } from './martyrology';
+import { MonthIndex } from '../constants/months';
+import { DayOfWeek } from '../constants/weekdays';
 
 /**
  * The liturgical day date definition
@@ -25,13 +27,13 @@ export type DateDef = AllXOR<
   ]
 >;
 
-export type Month = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
-export type DayOfWeek = 0 | 1 | 2 | 3 | 4 | 5 | 6;
+export type DateStr = Lowercase<string>;
+
 export type DateDefMonthDate = {
   /**
    * The month of this liturgical day.
    */
-  month: Month;
+  month: MonthIndex;
 
   /**
    * The date of this liturgical day.
@@ -89,7 +91,7 @@ export type DateDefMonthDowNthWeekInMonth = {
   /**
    * The month of this liturgical day.
    */
-  month: Month;
+  month: MonthIndex;
 
   /**
    * The day of week this liturgical year must occur.
@@ -110,7 +112,7 @@ export type DateDefMonthLastDowInMonth = {
   /**
    * The month of this liturgical day.
    */
-  month: Month;
+  month: MonthIndex;
 
   /**
    * The last day of week in the month this liturgical year must occur.
@@ -251,25 +253,36 @@ export type RomcalCalendarMetadata = {
 };
 
 /**
+ * i18n definitions
+ */
+export type i18nDef = [string] | [string, StringMap | string];
+
+/**
  * The associated titles of a liturgical day.
  */
+export type RomcalTitles = (Title | PatronTitle)[];
 export type TitlesDef =
-  | (Title | PatronTitle)[]
+  | RomcalTitles
   | {
       /**
        * Add title(s) to the end of the existing list of title(s).
        */
-      append?: (Title | PatronTitle)[];
+      append?: RomcalTitles;
       /**
        * Add title(s) to the  beginning of the existing list of title(s).
        */
-      prepend?: (Title | PatronTitle)[];
+      prepend?: RomcalTitles;
     };
 
 /**
  * The associated martyrology item.
  */
 export type MartyrologyItemPointer = string | MartyrologyItemRedefined;
+
+/**
+ * From calendar key name
+ */
+export type FromCalendar = Lowercase<string>;
 
 /**
  * The associated martyrology item, with its overridden properties.
@@ -315,7 +328,7 @@ type LiturgicalDayRoot = {
    * Computed date, in ISO 8601 format: YYYY-MM-DD
    * @param year
    */
-  date: Lowercase<string>;
+  date: DateStr;
 
   /**
    * The precedence type of the liturgical day.
@@ -376,7 +389,7 @@ type LiturgicalDayRoot = {
   /**
    * The i18n definition
    */
-  i18nDef: [string] | [string, StringMap | string];
+  i18nDef: i18nDef;
 
   /**
    * Specify a custom locale key for this date definition, in this calendar.
@@ -406,7 +419,7 @@ type LiturgicalDayRoot = {
   /**
    * Combined titles of each Saints linked to this date definition.
    */
-  titles: (Title | PatronTitle)[];
+  titles: RomcalTitles;
 
   /**
    * Cycle metadata of a liturgical day.
@@ -432,7 +445,7 @@ type LiturgicalDayRoot = {
   /**
    * The name of the calendar from which the liturgical day is defined.
    */
-  fromCalendar: Lowercase<string>;
+  fromCalendar: FromCalendar;
 
   /**
    * The names and the object diff of the calendars from which this liturgical day is extended.

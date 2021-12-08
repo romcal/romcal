@@ -32,12 +32,12 @@ import {
   TITLES,
   Titles,
 } from './constants/martyrology-metadata';
-import { Months, MONTHS } from './constants/months';
+import { Month, MonthIndex, MONTHS } from './constants/months';
 import { Period, PERIODS, Periods } from './constants/periods';
 import { Precedence, PRECEDENCES, Precedences } from './constants/precedences';
 import { Rank, RANKS, Ranks, RanksFromPrecedence } from './constants/ranks';
 import { Season, SEASONS, Seasons } from './constants/seasons';
-import { WEEKDAYS } from './constants/weekdays';
+import { DayOfWeek, Weekday, WEEKDAYS } from './constants/weekdays';
 import { RomcalBundle } from './models/bundle';
 import { Calendar } from './models/calendar';
 import { CalendarDef } from './models/calendar-def';
@@ -70,15 +70,17 @@ import {
   DateDefMonthDowNthWeekInMonth,
   DateDefMonthLastDowInMonth,
   DateDefSubtractDay,
-  DayOfWeek,
+  DateStr,
+  FromCalendar,
+  i18nDef,
   LiturgicalDayInput,
   LiturgyDayDiff,
   MartyrologyItemPointer,
   MartyrologyItemRedefined,
-  Month,
   PartialCyclesDef,
   RomcalCalendarMetadata,
   RomcalCyclesMetadata,
+  RomcalTitles,
   TitlesDef,
 } from './types/liturgical-day';
 import { LiturgicalDayConfigOutput } from './types/liturgical-day-config';
@@ -328,6 +330,8 @@ class Romcal {
 
 export default Romcal;
 
+export { RomcalBundle, Calendar, CalendarDef, RomcalConfig, LiturgicalDay, LiturgicalDayConfig, LiturgicalDayDef };
+
 export {
   // constants/colors.ts
   Color,
@@ -342,7 +346,8 @@ export {
   PatronTitle,
   Sex,
   // constants/months.ts
-  Months,
+  Month,
+  MonthIndex,
   // constants/periods.ts
   Period,
   // constants/precedences.ts
@@ -351,6 +356,9 @@ export {
   Rank,
   // constants/seasons.ts
   Season,
+  // constants/Weekday.ts
+  Weekday,
+  DayOfWeek,
   // types/bundle.ts
   RomcalBundleObject,
   // types/calendar.ts
@@ -371,8 +379,7 @@ export {
   BaseLiturgicalDay,
   BaseLiturgicalDayDef,
   DateDef,
-  Month,
-  DayOfWeek,
+  DateStr,
   DateDefMonthDate,
   DateDefDateFnAddDay,
   DateDefDateFnSubtractDay,
@@ -386,11 +393,14 @@ export {
   RomcalCyclesMetadata,
   PartialCyclesDef,
   RomcalCalendarMetadata,
+  i18nDef,
   TitlesDef,
+  RomcalTitles,
   MartyrologyItemPointer,
   MartyrologyItemRedefined,
   LiturgicalDayInput,
   LiturgyDayDiff,
+  FromCalendar,
   // types/liturgical-day-config.ts
   LiturgicalDayConfigOutput,
   // types/locale.ts

@@ -1,8 +1,9 @@
-import { DateDef, DateDefExtended, DayOfWeek } from '../types/liturgical-day';
+import { DateDef, DateDefExtended } from '../types/liturgical-day';
 import { BaseLiturgicalDayConfig, LiturgicalDayConfigOutput } from '../types/liturgical-day-config';
 import { addDays, Dates, daysInMonth, getUtcDate, isSameDate, isValidDate, subtractsDays } from '../utils/dates';
 import { RomcalConfig } from './config';
 import LiturgicalDayDef from './liturgical-day-def';
+import { DayOfWeek } from '../constants/weekdays';
 
 export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
   readonly config: RomcalConfig;

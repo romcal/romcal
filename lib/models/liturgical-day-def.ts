@@ -1,8 +1,7 @@
-import { StringMap } from 'i18next';
 import { Color, Colors } from '../constants/colors';
 import { ProperCycles } from '../constants/cycles';
 import { GENERAL_ROMAN_NAME, PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
-import { isMartyr, PatronTitle, Title } from '../constants/martyrology-metadata';
+import { isMartyr } from '../constants/martyrology-metadata';
 import { Period } from '../constants/periods';
 import { Precedence, Precedences } from '../constants/precedences';
 import { Rank, Ranks, RanksFromPrecedence } from '../constants/ranks';
@@ -13,6 +12,8 @@ import {
   CalendarMetadata,
   DateDef,
   DateDefException,
+  FromCalendar,
+  i18nDef,
   isLiturgicalDayProperOfTimeInput,
   LiturgicalDayBundleInput,
   LiturgicalDayInput,
@@ -20,6 +21,7 @@ import {
   LiturgyDayDiff,
   MartyrologyItemRedefined,
   PartialCyclesDef,
+  RomcalTitles,
   TitlesDef,
 } from '../types/liturgical-day';
 import { MartyrologyItem } from '../types/martyrology';
@@ -35,15 +37,15 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
   readonly isHolyDayOfObligation: boolean;
   readonly allowSimilarRankItems: boolean;
   readonly isOptional: boolean;
-  readonly i18nDef: [string] | [string, StringMap | string];
+  readonly i18nDef: i18nDef;
   readonly seasons: Season[];
   readonly periods: Period[];
   readonly calendarMetadata: CalendarMetadata;
   readonly colors: Color[];
   readonly martyrology: MartyrologyItem[];
-  readonly titles: (Title | PatronTitle)[];
+  readonly titles: RomcalTitles;
   readonly cycles: PartialCyclesDef;
-  readonly fromCalendar: Lowercase<string>;
+  readonly fromCalendar: FromCalendar;
   readonly fromExtendedCalendars: LiturgyDayDiff[];
   readonly input: LiturgicalDayBundleInput[];
 
@@ -86,7 +88,7 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
   constructor(
     key: Key,
     input: LiturgicalDayProperOfTimeInput | LiturgicalDayInput | LiturgicalDayBundleInput,
-    fromCalendar: Lowercase<string>,
+    fromCalendar: FromCalendar,
     config: RomcalConfig,
   ) {
     this.#config = config;
@@ -313,7 +315,7 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
    * @param martyrologyKey
    * @param previousDef
    */
-  #combineTitles(titlesDef: TitlesDef, martyrologyKey: Key, previousDef?: LiturgicalDayDef): (Title | PatronTitle)[] {
+  #combineTitles(titlesDef: TitlesDef, martyrologyKey: Key, previousDef?: LiturgicalDayDef): RomcalTitles {
     return Array.isArray(titlesDef)
       ? titlesDef
       : typeof titlesDef === 'object'
