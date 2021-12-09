@@ -1,4 +1,3 @@
-import 'jest-extended';
 import Romcal from '../lib';
 
 const { RomcalConfig, LiturgicalDayConfig } = Romcal;

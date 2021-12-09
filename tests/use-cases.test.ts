@@ -1,4 +1,3 @@
-import 'jest-extended';
 import { Slovakia_Sk } from 'romcal/dist/bundles/slovakia';
 import Romcal from '../lib';
 
