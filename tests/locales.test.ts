@@ -1,4 +1,3 @@
-import 'jest-extended';
 import { France_Fr } from 'romcal/dist/bundles/france';
 import Romcal from '../lib';
 

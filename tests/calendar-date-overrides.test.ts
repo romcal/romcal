@@ -1,4 +1,3 @@
-import 'jest-extended';
 import { CzechRepublic_Cs } from 'romcal/dist/bundles/czech-republic';
 import { England_En } from 'romcal/dist/bundles/england';
 import { Germany_En } from 'romcal/dist/bundles/germany';

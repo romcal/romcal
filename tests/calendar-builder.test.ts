@@ -1,4 +1,3 @@
-import 'jest-extended';
 import { England_En } from 'romcal/dist/bundles/england';
 import { GeneralRoman_En } from 'romcal/dist/bundles/general-roman';
 import { Germany_En } from 'romcal/dist/bundles/germany';
@@ -9,7 +8,7 @@ import Romcal, { BaseLiturgicalDay, BaseLiturgicalDayDef, CalendarScope, Liturgi
 import LiturgicalDay from '../lib/models/liturgical-day';
 import { Seasons } from '../lib/constants/seasons';
 import { Periods } from '../lib/constants/periods';
-import { addDays, dateDifference } from '../lib/utils/dates';
+import { dateDifference } from '../lib/utils/dates';
 
 const { Colors, isMartyr, Titles, Ranks, getUtcDate, getUtcDateFromString, isSameDate, subtractsDays } = Romcal;
 

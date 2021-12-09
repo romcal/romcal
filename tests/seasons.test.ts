@@ -1,4 +1,3 @@
-import 'jest-extended';
 import Romcal, { BaseLiturgicalDay } from '../lib';
 
 const { Colors, Seasons, Ranks, addDays, isSameDate, subtractsDays } = Romcal;

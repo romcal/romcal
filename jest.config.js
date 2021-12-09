@@ -9,4 +9,5 @@ module.exports = {
   coverageDirectory: 'coverage',
   collectCoverageFrom: ['lib/**/*.{ts,tsx,js,jsx}', '!lib/**/*.d.ts'],
   coveragePathIgnorePatterns: ['lib/locales', 'lib/particular-calendars', 'examples'],
+  setupFilesAfterEnv: ['jest-extended/all'],
 };
