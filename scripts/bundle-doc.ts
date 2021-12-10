@@ -6,6 +6,7 @@ import { CalendarDef } from '../lib/models/calendar-def';
 import { particularCalendars } from '../lib/particular-calendars';
 import { toPackageName } from '../lib/utils/string';
 import { getDuration } from './time';
+import prettier from 'prettier';
 
 const log = console.log;
 const time = new Date();
@@ -18,7 +19,7 @@ let mdTemplate = `# Calendar plugins
 
 The complete **General Roman Calendar**, and any other **particular calendar** (for a country, a region or a diocese) are available as **separated plugins**, that contain a bundle of the calendar data, localizations, and a martyrology catalog (containing extra metadata).
 
-For example, to install the *General Roman Calendar* and the calendar of *France*:
+For example, to install the _General Roman Calendar_ and the calendar of _France_:
 
 \`\`\`bash
 # npm
@@ -37,9 +38,12 @@ Below the list of all available calendar plugins:
 
 for (let i = 0; i < allCalendars.length; i++) {
   const calendar = allCalendars[i];
-  const humanName = calendar.name.replace(/([A-Z])/g, ' $1').replace('_', ' / ');
+  const humanName = calendar.name.replace(/([A-Z])/g, ' $1').replace('_', ' /');
   mdTemplate += `|${humanName}|\`@romcal/calendar.${toPackageName(calendar.name)}@dev\`|\n`;
 }
+
+// Prettify the generated documentation
+mdTemplate = prettier.format(mdTemplate, { parser: 'markdown' });
 
 fs.writeFileSync(path.resolve('./docs/', 'calendar-plugins.md'), mdTemplate, 'utf-8');
 
