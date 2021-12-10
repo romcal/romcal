@@ -63,7 +63,8 @@ export class Calendar implements BaseCalendar {
     const startOfSeason = def.seasons.length ? startOfSeasonsDic[def.seasons[0]] : undefined;
     const endOfSeason = def.seasons.length ? endOfSeasonsDic[def.seasons[0]] : undefined;
 
-    const isLaterOrdinaryTime =
+    const isLent = (baseData?.seasons ?? def.seasons).includes(Seasons.Lent);
+    const isLateOrdinaryTime =
       (baseData?.seasons ?? def.seasons).includes(Seasons.OrdinaryTime) &&
       date.getTime() >= this.#startOfLaterOrdinaryTime.getTime();
 
@@ -74,17 +75,22 @@ export class Calendar implements BaseCalendar {
 
     // In late Ordinary Time, we need to subtract the days of Lent, Paschal Triduum and Easter Time,
     // from the first day of Ordinary Time (the day after the Baptism of the Lord).
-    if (isLaterOrdinaryTime) {
+    if (isLateOrdinaryTime) {
       dayOfSeason = dayOfSeason - 96;
     }
+
+    // In the season of Lent, the first week starts from zero (week of Ash Wednesday)
+    // then the week 1 is the week of the first Sunday of Lent.
+    // This variable below allows shifting the right week number, if we are during Lent or not.
+    const weekOfSeasonOffset = isLent ? -1 : 0;
 
     let weekOfSeason =
       baseData?.calendar.weekOfSeason ??
       def.calendarMetadata.weekOfSeason ??
-      (startOfSeason ? Math.ceil((dayOfSeason + startOfSeason.getDay()) / 7) : NaN);
+      (startOfSeason ? Math.ceil((dayOfSeason + startOfSeason.getDay()) / 7) + weekOfSeasonOffset : NaN);
 
     // In late Ordinary Time, we need to compute the week number from the remaining days of the liturgical year
-    if (isLaterOrdinaryTime) {
+    if (isLateOrdinaryTime) {
       weekOfSeason = endOfSeason ? Math.ceil(34 - dateDifference(date, endOfSeason) / 7) : NaN;
     }
 
