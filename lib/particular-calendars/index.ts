@@ -20,6 +20,7 @@ import { Finland } from './finland';
 import { France } from './france';
 import { France_Paris } from './france.paris';
 import { France_SaintDenis } from './france.saint-denis';
+import { France_Strasbourg } from './france.strasbourg';
 import { Germany } from './germany';
 import { Greece } from './greece';
 import { Guatemala } from './guatemala';
@@ -80,6 +81,7 @@ export const particularCalendars: Record<string, typeof CalendarDef> = {
   France: France,
   France_Paris: France_Paris,
   France_SaintDenis: France_SaintDenis,
+  France_Strasbourg: France_Strasbourg,
   Germany: Germany,
   Greece: Greece,
   Guatemala: Guatemala,
