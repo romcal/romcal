@@ -1,22 +1,12 @@
 # Using romcal as a REST API with Express.js
 
-First, from the parent `romcal` directory:
-
-```shell
-# if necessary, if you are in the ./examples/web-browser directory
-cd ../..
-
-npm install
-npm build
-```
-
-Then, from this directory (`rest-api-with-express`):
+From this project dir (`rest-api-with-express`):
 
 ```shell
 cd examples/rest-api-with-express
 
 npm install
-npm run start
+npm start
 ```
 
 And open the URL provided by the terminal.\
