@@ -4,10 +4,10 @@
     "start": "http-server ./"
   },
   "dependencies": {
-    "@romcal/calendar.france": "file:../../dist/bundles/france",
-    "@romcal/calendar.general-roman": "file:../../dist/bundles/general-roman",
-    "http-server": "^13.0.1",
-    "romcal": "file:../../"
+    "@romcal/calendar.france": "^3.0.0-dev.6",
+    "@romcal/calendar.general-roman": "^3.0.0-dev.6",
+    "http-server": "^14.0.0",
+    "romcal": "^3.0.0-dev.6"
   },
   "license": "MIT"
 }

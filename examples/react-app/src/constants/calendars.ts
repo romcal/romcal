@@ -21,6 +21,7 @@ export const CALENDARS: Record<string, Promise<any>> = {
   France: import('@romcal/calendar.france'),
   France_Paris: import('@romcal/calendar.france.paris'),
   France_SaintDenis: import('@romcal/calendar.france.saint-denis'),
+  France_Strasbourg: import('@romcal/calendar.france.strasbourg'),
   Germany: import('@romcal/calendar.germany'),
   Greece: import('@romcal/calendar.greece'),
   Guatemala: import('@romcal/calendar.guatemala'),
