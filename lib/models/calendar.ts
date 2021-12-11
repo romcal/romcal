@@ -2,9 +2,9 @@ import {
   ProperCycle,
   PSALTER_WEEKS,
   SundayCycle,
-  SUNDAYS_CYCLE,
+  SUNDAY_CYCLES,
   WeekdayCycle,
-  WEEKDAYS_CYCLE,
+  WEEKDAY_CYCLES,
 } from '../constants/cycles';
 import { PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
 import { Periods } from '../constants/periods';
@@ -135,11 +135,11 @@ export class Calendar implements BaseCalendar {
       // If the date is on or after the First Sunday of Advent,
       // it is the next liturgical cycle
       if (date.getTime() >= firstSundayOfAdvent.getTime()) {
-        sundayCycle = SUNDAYS_CYCLE[nextSundayCycleIndex];
-        weekdayCycle = WEEKDAYS_CYCLE[year % 2];
+        sundayCycle = SUNDAY_CYCLES[nextSundayCycleIndex];
+        weekdayCycle = WEEKDAY_CYCLES[year % 2];
       } else {
-        sundayCycle = SUNDAYS_CYCLE[thisSundayCycleIndex];
-        weekdayCycle = WEEKDAYS_CYCLE[(year + 1) % 2];
+        sundayCycle = SUNDAY_CYCLES[thisSundayCycleIndex];
+        weekdayCycle = WEEKDAY_CYCLES[(year + 1) % 2];
       }
 
       this.#cyclesCache[year] = {

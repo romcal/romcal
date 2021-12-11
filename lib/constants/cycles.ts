@@ -1,13 +1,37 @@
 /**
- * Liturgical Day cycles that can be used as metadata for liturgical days.
+ * Represent the two main cycle, that compose the liturgical year in the Roman rite.
  */
 export const ProperCycles = {
+  /**
+   * The "Proper of Time" (or "Temporal") consists of the movable feasts,
+   * most of them keyed to Easter (which falls on a different Sunday every year),
+   * including Ascension, Pentecost, and so on.
+   */
   ProperOfTime: 'PROPER_OF_TIME',
+  /**
+   * The "Proper of Saints" (or "Sanctorale") consists of the fixed feasts,
+   * celebrated on the very same date each year (no matter what the day of the week),
+   * including Christmas and all the saints' days.
+   */
   ProperOfSaints: 'PROPER_OF_SAINTS',
 } as const;
 
 /**
- * Sundays cycle that can be used as metadata for liturgical days.
+ * A dynamically generated array from {@link ProperCycles} that contains all the possible proper cycles,
+ * that compose the liturgical year in the Roman rite.
+ */
+export const PROPER_CYCLES = Object.values(ProperCycles);
+
+/**
+ * Represent one of the two main cycles (available from {@link ProperCycles}),
+ * that compose the liturgical year in the Roman rite.
+ */
+export type ProperCycle = typeof PROPER_CYCLES[number];
+
+/**
+ * A three-year cycles for the Sunday mass readings (and some solemnities).
+ * The years are designated A, B, or C. Each yearly cycle begins on the first Sunday of Advent.
+ * Year B follows year A, year C follows year B, then back again to A.
  */
 export const SundayCycles = {
   YearA: 'YEAR_A',
@@ -16,7 +40,19 @@ export const SundayCycles = {
 } as const;
 
 /**
- * Weekdays cycle that can be used as metadata for liturgical days.
+ * A dynamically generated array from {@link SundayCycles} that contains all the possible
+ * three-year Sunday cycles.
+ */
+export const SUNDAY_CYCLES = Object.values(SundayCycles);
+
+/**
+ * Represent one of the three-year Sunday cycles (available from {@link SundayCycles}).
+ */
+export type SundayCycle = typeof SUNDAY_CYCLES[number];
+
+/**
+ * A two-year cycle for the weekday mass readings (also called Cycle I and Cycle II).
+ * Odd-numbered years are the year 1 (or Cycle I); even-numbered ones are the year 2 (or Cycle II).
  */
 export const WeekdayCycles = {
   Year1: 'YEAR_1',
@@ -24,7 +60,20 @@ export const WeekdayCycles = {
 } as const;
 
 /**
- * Psalter weeks that can be used as metadata for liturgical days.
+ * A dynamically generated array from {@link WeekdayCycles} that contains all the possible
+ * two-year weekday cycles.
+ */
+export const WEEKDAY_CYCLES = Object.values(WeekdayCycles);
+
+/**
+ * Represent one of the two-year weekday cycles (available from {@link WeekdayCycles}).
+ */
+export type WeekdayCycle = typeof WEEKDAY_CYCLES[number];
+
+/**
+ The four-week cycle of the psalter is coordinated with the liturgical year in such a way that
+ on the First Sunday of Advent, the First Sunday in Ordinary Time, the First Sunday of Lent,
+ and Easter Sunday the cycle is always begun again with Week 1 (others being omitted when necessary).
  */
 export const PsalterWeekCycles = {
   Week1: 'WEEK_1',
@@ -34,25 +83,12 @@ export const PsalterWeekCycles = {
 } as const;
 
 /**
- * A dynamically generated constant consisting of all the enum keys in [[LITURGICAL_DAY_CYCLES]]
- */
-export const PROPER_CYCLE = Object.values(ProperCycles);
-export type ProperCycle = typeof PROPER_CYCLE[number];
-
-/**
- * A dynamically generated constant consisting of all the enum keys in [[SUNDAY_CYCLES]]
- */
-export const SUNDAYS_CYCLE = Object.values(SundayCycles);
-export type SundayCycle = typeof SUNDAYS_CYCLE[number];
-
-/**
- * A dynamically generated constant consisting of all the enum keys in [[WEEKDAY_CYCLES]]
- */
-export const WEEKDAYS_CYCLE = Object.values(WeekdayCycles);
-export type WeekdayCycle = typeof WEEKDAYS_CYCLE[number];
-
-/**
- * A dynamically generated constant consisting of all the enum keys in [[PSALTER_WEEKS]]
+ * A dynamically generated array from {@link PsalterWeekCycles} that contains all the possible
+ * psalter week cycles.
  */
 export const PSALTER_WEEKS = Object.values(PsalterWeekCycles);
+
+/**
+ * Represent one of the four-week psalter cycles (available from {@link PsalterWeekCycles}).
+ */
 export type PsalterWeekCycle = typeof PSALTER_WEEKS[number];
