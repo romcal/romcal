@@ -7,14 +7,14 @@ import {
   ProperCycle,
   ProperCycles,
   PSALTER_WEEKS,
-  PsalterWeeksCycle,
-  PsalterWeeksCycles,
+  PsalterWeekCycle,
+  PsalterWeekCycles,
+  SundayCycle,
+  SundayCycles,
   SUNDAYS_CYCLE,
-  SundaysCycle,
-  SundaysCycles,
+  WeekdayCycle,
+  WeekdayCycles,
   WEEKDAYS_CYCLE,
-  WeekdaysCycle,
-  WeekdaysCycles,
 } from './constants/cycles';
 import { GENERAL_ROMAN_NAME, PROPER_OF_TIME_NAME } from './constants/general-calendar-names';
 import {
@@ -262,11 +262,11 @@ class Romcal {
   // constants/cycles.ts
   static ProperCycles = ProperCycles;
   static PROPER_CYCLE = PROPER_CYCLE;
-  static SundaysCycles = SundaysCycles;
+  static SundayCycles = SundayCycles;
   static SUNDAYS_CYCLE = SUNDAYS_CYCLE;
-  static WeekdaysCycles = WeekdaysCycles;
+  static WeekdayCycles = WeekdayCycles;
   static WEEKDAYS_CYCLE = WEEKDAYS_CYCLE;
-  static PsalterWeeksCycles = PsalterWeeksCycles;
+  static PsalterWeekCycles = PsalterWeekCycles;
   static PSALTER_WEEKS = PSALTER_WEEKS;
   // constants/general-calendar-names.ts
   static PROPER_OF_TIME_NAME = PROPER_OF_TIME_NAME;
@@ -337,9 +337,9 @@ export {
   Color,
   // constants/cycles.ts
   ProperCycle,
-  SundaysCycle,
-  WeekdaysCycle,
-  PsalterWeeksCycle,
+  SundayCycle,
+  WeekdayCycle,
+  PsalterWeekCycle,
   // constants/martyrology-metadata.ts
   CanonizationLevel,
   Title,

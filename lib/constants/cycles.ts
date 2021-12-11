@@ -1,5 +1,5 @@
 /**
- * Liturgical Day cycle that can be used as metadata for liturgical days.
+ * Liturgical Day cycles that can be used as metadata for liturgical days.
  */
 export const ProperCycles = {
   ProperOfTime: 'PROPER_OF_TIME',
@@ -9,7 +9,7 @@ export const ProperCycles = {
 /**
  * Sundays cycle that can be used as metadata for liturgical days.
  */
-export const SundaysCycles = {
+export const SundayCycles = {
   YearA: 'YEAR_A',
   YearB: 'YEAR_B',
   YearC: 'YEAR_C',
@@ -18,7 +18,7 @@ export const SundaysCycles = {
 /**
  * Weekdays cycle that can be used as metadata for liturgical days.
  */
-export const WeekdaysCycles = {
+export const WeekdayCycles = {
   Year1: 'YEAR_1',
   Year2: 'YEAR_2',
 } as const;
@@ -26,7 +26,7 @@ export const WeekdaysCycles = {
 /**
  * Psalter weeks that can be used as metadata for liturgical days.
  */
-export const PsalterWeeksCycles = {
+export const PsalterWeekCycles = {
   Week1: 'WEEK_1',
   Week2: 'WEEK_2',
   Week3: 'WEEK_3',
@@ -42,17 +42,17 @@ export type ProperCycle = typeof PROPER_CYCLE[number];
 /**
  * A dynamically generated constant consisting of all the enum keys in [[SUNDAY_CYCLES]]
  */
-export const SUNDAYS_CYCLE = Object.values(SundaysCycles);
-export type SundaysCycle = typeof SUNDAYS_CYCLE[number];
+export const SUNDAYS_CYCLE = Object.values(SundayCycles);
+export type SundayCycle = typeof SUNDAYS_CYCLE[number];
 
 /**
  * A dynamically generated constant consisting of all the enum keys in [[WEEKDAY_CYCLES]]
  */
-export const WEEKDAYS_CYCLE = Object.values(WeekdaysCycles);
-export type WeekdaysCycle = typeof WEEKDAYS_CYCLE[number];
+export const WEEKDAYS_CYCLE = Object.values(WeekdayCycles);
+export type WeekdayCycle = typeof WEEKDAYS_CYCLE[number];
 
 /**
  * A dynamically generated constant consisting of all the enum keys in [[PSALTER_WEEKS]]
  */
-export const PSALTER_WEEKS = Object.values(PsalterWeeksCycles);
-export type PsalterWeeksCycle = typeof PSALTER_WEEKS[number];
+export const PSALTER_WEEKS = Object.values(PsalterWeekCycles);
+export type PsalterWeekCycle = typeof PSALTER_WEEKS[number];

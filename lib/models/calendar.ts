@@ -1,10 +1,10 @@
 import {
   ProperCycle,
   PSALTER_WEEKS,
+  SundayCycle,
   SUNDAYS_CYCLE,
-  SundaysCycle,
+  WeekdayCycle,
   WEEKDAYS_CYCLE,
-  WeekdaysCycle,
 } from '../constants/cycles';
 import { PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
 import { Periods } from '../constants/periods';
@@ -125,8 +125,8 @@ export class Calendar implements BaseCalendar {
     if (!this.#cyclesCache[year]) {
       const firstSundayOfAdvent = getUtcDateFromString(calendar.startOfLiturgicalYear);
 
-      let sundayCycle: SundaysCycle;
-      let weekdayCycle: WeekdaysCycle;
+      let sundayCycle: SundayCycle;
+      let weekdayCycle: WeekdayCycle;
 
       // Formula to calculate Sunday cycle (Year A, B, C)
       const thisSundayCycleIndex: number = (year - 1963) % 3;
