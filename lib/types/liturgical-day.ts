@@ -1,6 +1,6 @@
 import { StringMap } from 'i18next';
 import { Color } from '../constants/colors';
-import { ProperCycle, PsalterWeeksCycle, SundaysCycle, WeekdaysCycle } from '../constants/cycles';
+import { ProperCycle, PsalterWeekCycle, SundayCycle, WeekdayCycle } from '../constants/cycles';
 import { PatronTitle, Title } from '../constants/martyrology-metadata';
 import { Period } from '../constants/periods';
 import { Precedence } from '../constants/precedences';
@@ -186,17 +186,17 @@ export type RomcalCyclesMetadata = {
   /**
    * The Sunday yearly cycle in which the liturgical day is part.
    */
-  sundayCycle: SundaysCycle;
+  sundayCycle: SundayCycle;
 
   /**
    * The weekday yearly cycle in which the liturgical day is part.
    */
-  weekdayCycle: WeekdaysCycle;
+  weekdayCycle: WeekdayCycle;
 
   /**
    * The psalter week cycle in which the liturgical day is part.
    */
-  psalterWeek: PsalterWeeksCycle;
+  psalterWeek: PsalterWeekCycle;
 };
 
 /**
@@ -222,7 +222,7 @@ export type RomcalCalendarMetadata = {
 
   /**
    * The day of the week.
-   * Returns numbers from 0 (Sunday) to 6 (Saturday).
+   * Returns a number from 0 (Sunday) to 6 (Saturday).
    */
   dayOfWeek: number; // 0 | 1 | 2 | 3 | 4 | 5 | 6;
 

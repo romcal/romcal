@@ -3,18 +3,18 @@ import { CALENDAR_PKG_NAMES, CALENDAR_VAR_NAMES } from '../tmp/constants/calenda
 import { LOCALE_KEYS, LOCALE_VAR_NAMES } from '../tmp/constants/locales';
 import { Color, COLORS, Colors, isColor } from './constants/colors';
 import {
-  PROPER_CYCLE,
+  PROPER_CYCLES,
   ProperCycle,
   ProperCycles,
   PSALTER_WEEKS,
-  PsalterWeeksCycle,
-  PsalterWeeksCycles,
-  SUNDAYS_CYCLE,
-  SundaysCycle,
-  SundaysCycles,
-  WEEKDAYS_CYCLE,
-  WeekdaysCycle,
-  WeekdaysCycles,
+  PsalterWeekCycle,
+  PsalterWeekCycles,
+  SundayCycle,
+  SundayCycles,
+  SUNDAY_CYCLES,
+  WeekdayCycle,
+  WeekdayCycles,
+  WEEKDAY_CYCLES,
 } from './constants/cycles';
 import { GENERAL_ROMAN_NAME, PROPER_OF_TIME_NAME } from './constants/general-calendar-names';
 import {
@@ -261,12 +261,12 @@ class Romcal {
   static isColor = isColor;
   // constants/cycles.ts
   static ProperCycles = ProperCycles;
-  static PROPER_CYCLE = PROPER_CYCLE;
-  static SundaysCycles = SundaysCycles;
-  static SUNDAYS_CYCLE = SUNDAYS_CYCLE;
-  static WeekdaysCycles = WeekdaysCycles;
-  static WEEKDAYS_CYCLE = WEEKDAYS_CYCLE;
-  static PsalterWeeksCycles = PsalterWeeksCycles;
+  static PROPER_CYCLE = PROPER_CYCLES;
+  static SundayCycles = SundayCycles;
+  static SUNDAYS_CYCLE = SUNDAY_CYCLES;
+  static WeekdayCycles = WeekdayCycles;
+  static WEEKDAYS_CYCLE = WEEKDAY_CYCLES;
+  static PsalterWeekCycles = PsalterWeekCycles;
   static PSALTER_WEEKS = PSALTER_WEEKS;
   // constants/general-calendar-names.ts
   static PROPER_OF_TIME_NAME = PROPER_OF_TIME_NAME;
@@ -337,9 +337,9 @@ export {
   Color,
   // constants/cycles.ts
   ProperCycle,
-  SundaysCycle,
-  WeekdaysCycle,
-  PsalterWeeksCycle,
+  SundayCycle,
+  WeekdayCycle,
+  PsalterWeekCycle,
   // constants/martyrology-metadata.ts
   CanonizationLevel,
   Title,
