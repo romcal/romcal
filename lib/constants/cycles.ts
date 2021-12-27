@@ -29,9 +29,10 @@ export const PROPER_CYCLES = Object.values(ProperCycles);
 export type ProperCycle = typeof PROPER_CYCLES[number];
 
 /**
- * A three-year cycles for the Sunday mass readings (and some solemnities).
- * The years are designated A, B, or C. Each yearly cycle begins on the first Sunday of Advent.
- * Year B follows year A, year C follows year B, then back again to A.
+ * A three-year cycle for Sunday Mass readings (and some solemnities), designated by A, B, or C. 
+ * Each cycle begins on the First Sunday of Advent of the previous civil year and ends on Saturday 
+ * after the Christ the King Solemnity. The cycles follow each other in alphabetical order.
+ * C year is always divisible by 3, A has remainder of 1, and B remainder of 2.
  */
 export const SundayCycles = {
   YearA: 'YEAR_A',
