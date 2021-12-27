@@ -3,7 +3,7 @@
  */
 export const ProperCycles = {
   /**
-   * The "Proper of Time" (or "Temporal") consists of the movable feasts,
+   * The "Proper of Time" (or "Temporale") consists of the movable feasts,
    * most of them keyed to Easter (which falls on a different Sunday every year),
    * including Ascension, Pentecost, and so on.
    */
@@ -17,7 +17,7 @@ export const ProperCycles = {
 } as const;
 
 /**
- * A dynamically generated array from {@link ProperCycles} that contains all the possible proper cycles,
+ * A dynamically generated array from {@link ProperCycles} that contains all possible proper cycles,
  * that compose the liturgical year in the Roman rite.
  */
 export const PROPER_CYCLES = Object.values(ProperCycles);
@@ -40,19 +40,19 @@ export const SundayCycles = {
 } as const;
 
 /**
- * A dynamically generated array from {@link SundayCycles} that contains all the possible
+ * A dynamically generated array from {@link SundayCycles} that contains all possible
  * three-year Sunday cycles.
  */
 export const SUNDAY_CYCLES = Object.values(SundayCycles);
 
 /**
- * Represent one of the three-year Sunday cycles (available from {@link SundayCycles}).
+ * Represent one of the three-year Sunday cycle (available from {@link SundayCycles}).
  */
 export type SundayCycle = typeof SUNDAY_CYCLES[number];
 
 /**
- * A two-year cycle for the weekday mass readings (also called Cycle I and Cycle II).
- * Odd-numbered years are the year 1 (or Cycle I); even-numbered ones are the year 2 (or Cycle II).
+ * A two-year cycle for the weekday Mass readings (also called Cycle I and Cycle II).
+ * Odd-numbered years are the Cycle I (year 1); even-numbered ones are the Cycle II (year 2).
  */
 export const WeekdayCycles = {
   Year1: 'YEAR_1',
@@ -60,18 +60,18 @@ export const WeekdayCycles = {
 } as const;
 
 /**
- * A dynamically generated array from {@link WeekdayCycles} that contains all the possible
+ * A dynamically generated array from {@link WeekdayCycles} that contains all possible
  * two-year weekday cycles.
  */
 export const WEEKDAY_CYCLES = Object.values(WeekdayCycles);
 
 /**
- * Represent one of the two-year weekday cycles (available from {@link WeekdayCycles}).
+ * Represent one of the two-year weekday cycle (available from {@link WeekdayCycles}).
  */
 export type WeekdayCycle = typeof WEEKDAY_CYCLES[number];
 
 /**
- The four-week cycle of the psalter is coordinated with the liturgical year in such a way that
+[GILH §133] The four-week cycle of the psalter is coordinated with the liturgical year in such a way that
  on the First Sunday of Advent, the First Sunday in Ordinary Time, the First Sunday of Lent,
  and Easter Sunday the cycle is always begun again with Week 1 (others being omitted when necessary).
  */
@@ -83,12 +83,12 @@ export const PsalterWeekCycles = {
 } as const;
 
 /**
- * A dynamically generated array from {@link PsalterWeekCycles} that contains all the possible
+ * A dynamically generated array from {@link PsalterWeekCycles} that contains all possible
  * psalter week cycles.
  */
 export const PSALTER_WEEKS = Object.values(PsalterWeekCycles);
 
 /**
- * Represent one of the four-week psalter cycles (available from {@link PsalterWeekCycles}).
+ * Represent one of the four-week psalter cycle (available from {@link PsalterWeekCycles}).
  */
 export type PsalterWeekCycle = typeof PSALTER_WEEKS[number];
