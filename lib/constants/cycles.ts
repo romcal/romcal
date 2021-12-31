@@ -29,8 +29,8 @@ export const PROPER_CYCLES = Object.values(ProperCycles);
 export type ProperCycle = typeof PROPER_CYCLES[number];
 
 /**
- * A three-year cycle for Sunday Mass readings (and some solemnities), designated by A, B, or C. 
- * Each cycle begins on the First Sunday of Advent of the previous civil year and ends on Saturday 
+ * A three-year cycle for Sunday Mass readings (and some solemnities), designated by A, B, or C.
+ * Each cycle begins on the First Sunday of Advent of the previous civil year and ends on Saturday
  * after the Christ the King Solemnity. The cycles follow each other in alphabetical order.
  * C year is always divisible by 3, A has remainder of 1, and B remainder of 2.
  */
@@ -72,9 +72,9 @@ export const WEEKDAY_CYCLES = Object.values(WeekdayCycles);
 export type WeekdayCycle = typeof WEEKDAY_CYCLES[number];
 
 /**
-[GILH §133] The four-week cycle of the psalter is coordinated with the liturgical year in such a way that
- on the First Sunday of Advent, the First Sunday in Ordinary Time, the First Sunday of Lent,
- and Easter Sunday the cycle is always begun again with Week 1 (others being omitted when necessary).
+ * [GILH §133] The four-week cycle of the psalter is coordinated with the liturgical year in such a way that
+ * on the First Sunday of Advent, the First Sunday in Ordinary Time, the First Sunday of Lent,
+ * and Easter Sunday the cycle is always begun again with Week 1 (others being omitted when necessary).
  */
 export const PsalterWeekCycles = {
   Week1: 'WEEK_1',

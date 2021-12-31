@@ -11,6 +11,7 @@ import { MartyrologyCatalog } from '../types/martyrology';
 import { Dates } from '../utils/dates';
 import { toRomanNumber } from '../utils/numbers';
 import { CalendarDef } from './calendar-def';
+import { BaseCyclesMetadata } from '../types/cycles-metadata';
 
 /**
  * The [[Config]] class encapsulates all options that can be sent to this library to adjust date output.
@@ -27,7 +28,7 @@ export class RomcalConfig implements IRoncalConfig {
   readonly i18next: i18n;
   readonly dates: typeof Dates;
   readonly martyrologyCatalog: MartyrologyCatalog;
-
+  readonly cyclesCache: Record<number, Pick<BaseCyclesMetadata, 'sundayCycle' | 'weekdayCycle'>> = {};
   readonly calendarsDef: InstanceType<CalendarDefInstance>[];
   liturgicalDayDef: LiturgicalDayDefinitions = {};
 
@@ -136,6 +137,7 @@ export class RomcalConfig implements IRoncalConfig {
     this.i18next.addResourceBundle(locale.key, 'seasons', locale.seasons);
     this.i18next.addResourceBundle(locale.key, 'periods', locale.periods);
     this.i18next.addResourceBundle(locale.key, 'ranks', locale.ranks);
+    this.i18next.addResourceBundle(locale.key, 'cycles', locale.cycles);
     this.i18next.addResourceBundle(locale.key, 'weekdays', locale.weekdays);
     this.i18next.addResourceBundle(locale.key, 'months', locale.months);
     this.i18next.addResourceBundle(locale.key, 'colors', locale.colors);

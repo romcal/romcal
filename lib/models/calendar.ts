@@ -1,11 +1,3 @@
-import {
-  ProperCycle,
-  PSALTER_WEEKS,
-  SundayCycle,
-  SUNDAY_CYCLES,
-  WeekdayCycle,
-  WEEKDAY_CYCLES,
-} from '../constants/cycles';
 import { PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
 import { Periods } from '../constants/periods';
 import { Precedences, PRECEDENCES } from '../constants/precedences';
@@ -13,8 +5,8 @@ import { Ranks } from '../constants/ranks';
 import { Seasons } from '../constants/seasons';
 import { BaseCalendar, DatesIndex, LiturgicalBuiltData, LiturgicalCalendar } from '../types/calendar';
 import { Key } from '../types/common';
-import { RomcalCalendarMetadata, RomcalCyclesMetadata } from '../types/liturgical-day';
-import { dateDifference, Dates, getUtcDateFromString, isValidDate } from '../utils/dates';
+import { RomcalCalendarMetadata } from '../types/liturgical-day';
+import { dateDifference, Dates, isValidDate } from '../utils/dates';
 import { RomcalConfig } from './config';
 import LiturgicalDay from './liturgical-day';
 import { LiturgicalDayConfig } from './liturgical-day-config';
@@ -27,7 +19,6 @@ export class Calendar implements BaseCalendar {
   readonly #startOfSeasonsDic: Record<number, Record<Seasons, Date>> = {};
   readonly #endOfSeasonsDic: Record<number, Record<Seasons, Date>> = {};
   readonly #startOfLaterOrdinaryTime: Date;
-  readonly #cyclesCache: Record<number, Pick<RomcalCyclesMetadata, 'sundayCycle' | 'weekdayCycle'>> = {};
 
   constructor(config: RomcalConfig, liturgicalDayConfig: LiturgicalDayConfig) {
     this.#config = config;
@@ -107,57 +98,6 @@ export class Calendar implements BaseCalendar {
   }
 
   /**
-   * Build cycle metadata of the liturgical year.
-   * @param date The date object
-   * @param calendar The calendar metadata
-   * @param properCycle
-   * @private
-   */
-  #buildLiturgicalCycleMetadata(
-    date: Date,
-    calendar: RomcalCalendarMetadata,
-    properCycle: ProperCycle,
-  ): RomcalCyclesMetadata {
-    const year = parseInt(calendar.startOfLiturgicalYear, 10);
-
-    // Compute cycle of the liturgical year,
-    // and cache the data since they are the same for every days of the year
-    if (!this.#cyclesCache[year]) {
-      const firstSundayOfAdvent = getUtcDateFromString(calendar.startOfLiturgicalYear);
-
-      let sundayCycle: SundayCycle;
-      let weekdayCycle: WeekdayCycle;
-
-      // Formula to calculate Sunday cycle (Year A, B, C)
-      const thisSundayCycleIndex: number = (year - 1963) % 3;
-      const nextSundayCycleIndex: number = thisSundayCycleIndex === 2 ? 0 : thisSundayCycleIndex + 1;
-
-      // If the date is on or after the First Sunday of Advent,
-      // it is the next liturgical cycle
-      if (date.getTime() >= firstSundayOfAdvent.getTime()) {
-        sundayCycle = SUNDAY_CYCLES[nextSundayCycleIndex];
-        weekdayCycle = WEEKDAY_CYCLES[year % 2];
-      } else {
-        sundayCycle = SUNDAY_CYCLES[thisSundayCycleIndex];
-        weekdayCycle = WEEKDAY_CYCLES[(year + 1) % 2];
-      }
-
-      this.#cyclesCache[year] = {
-        sundayCycle,
-        weekdayCycle,
-      };
-    }
-
-    // Psalter week cycle restart to 1 at the beginning of each season.
-    // Except during the four first days of lent (ash wednesday to the next saturday),
-    // which are in week 4, to start on week 1 after the first sunday of lent.
-    const weekIndex = (calendar.weekOfSeason % 4) - 1;
-    const psalterWeek = PSALTER_WEEKS[weekIndex > -1 ? weekIndex : 3];
-
-    return { properCycle, ...this.#cyclesCache[year], psalterWeek };
-  }
-
-  /**
    * Build the LiturgicalDay data collection, with their dates
    * @private
    */
@@ -228,13 +168,6 @@ export class Calendar implements BaseCalendar {
             ? this.#buildCalendarMetadata(def, date, baseData)
             : baseData!.calendar;
 
-          // Retrieve cycles metadata from the proper of time
-          const cycles: RomcalCyclesMetadata = this.#buildLiturgicalCycleMetadata(
-            date,
-            calendar,
-            def.cycles.properCycle,
-          );
-
           /**
            * For Memorial and Feast celebrations only, the weekday property is added
            * containing the LiturgicalDay object of the base weekday.
@@ -252,7 +185,7 @@ export class Calendar implements BaseCalendar {
           // Create a new LiturgicalDay object, and add it to the builtData object.
           builtData.byKeys[def.key] = [
             ...(builtData.byKeys[def.key] ?? []),
-            new LiturgicalDay(def, date, this.#liturgicalDayConfig, calendar, cycles, baseData, weekday),
+            new LiturgicalDay(def, date, this.#liturgicalDayConfig, calendar, baseData, weekday),
           ];
 
           // Also add the corresponding date-key object.
@@ -294,11 +227,8 @@ export class Calendar implements BaseCalendar {
     // Try to compute the calendar metadata with the data we have (without the whole year background)
     const calendar = this.#buildCalendarMetadata(def, date, null);
 
-    // Compute the cycle metadata
-    const cycles = this.#buildLiturgicalCycleMetadata(date, calendar, def.cycles.properCycle);
-
     // Return the LiturgicalDay object
-    return new LiturgicalDay(def, date, this.#liturgicalDayConfig, calendar, cycles, null, null);
+    return new LiturgicalDay(def, date, this.#liturgicalDayConfig, calendar, null, null);
   }
 
   /**

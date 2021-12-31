@@ -59,6 +59,20 @@ export const locale: Locale = {
     weekday: 'Feria',
   },
 
+  cycles: {
+    proper_of_time: 'Proprio del Tempo',
+    proper_of_saints: 'Proprio dei Santi',
+    sunday_year_a: 'Anno A',
+    sunday_year_b: 'Anno B',
+    sunday_year_c: 'Anno C',
+    weekday_year_1: 'Anno dispari',
+    weekday_year_2: 'Anno pari',
+    psalter_week_1: 'I Settimana del Salterio',
+    psalter_week_2: 'II Settimana del Salterio',
+    psalter_week_3: 'III Settimana del Salterio',
+    psalter_week_4: 'IV Settimana del Salterio',
+  },
+
   weekdays: {
     0: 'domenica',
     1: 'lunedì',

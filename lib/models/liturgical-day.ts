@@ -12,13 +12,13 @@ import {
   i18nDef,
   LiturgyDayDiff,
   RomcalCalendarMetadata,
-  RomcalCyclesMetadata,
   RomcalTitles,
 } from '../types/liturgical-day';
 import { LiturgicalDayConfigOutput } from '../types/liturgical-day-config';
 import { MartyrologyItem } from '../types/martyrology';
 import { LiturgicalDayConfig } from './liturgical-day-config';
 import LiturgicalDayDef from './liturgical-day-def';
+import { CyclesMetadata } from './cycles-metadata';
 
 class LiturgicalDay implements BaseLiturgicalDay {
   readonly #liturgicalDayDef: LiturgicalDayDef;
@@ -38,7 +38,7 @@ class LiturgicalDay implements BaseLiturgicalDay {
   readonly martyrology: MartyrologyItem[];
   readonly titles: RomcalTitles;
   readonly calendar: RomcalCalendarMetadata;
-  readonly cycles: RomcalCyclesMetadata;
+  readonly cycles: CyclesMetadata;
   readonly fromCalendar: FromCalendar;
   readonly fromExtendedCalendars: LiturgyDayDiff[];
   weekday?: LiturgicalDay;
@@ -82,7 +82,6 @@ class LiturgicalDay implements BaseLiturgicalDay {
     date: Date,
     liturgicalDayConfig: LiturgicalDayConfig,
     calendar: RomcalCalendarMetadata,
-    cycles: RomcalCyclesMetadata,
     baseData: LiturgicalDay | null,
     weekday: LiturgicalDay | null,
   ) {
@@ -141,7 +140,7 @@ class LiturgicalDay implements BaseLiturgicalDay {
     this.martyrology = def.martyrology;
     this.titles = def.titles;
     this.calendar = baseData?.calendar ?? calendar;
-    this.cycles = cycles;
+    this.cycles = new CyclesMetadata(date, calendar, def.cycles.properCycle, liturgicalDayConfig.config);
     this.fromCalendar = def.fromCalendar;
     this.fromExtendedCalendars = def.fromExtendedCalendars;
 
