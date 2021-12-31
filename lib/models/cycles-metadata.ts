@@ -40,8 +40,8 @@ export class CyclesMetadata implements BaseCyclesMetadata {
       let weekdayCycle: WeekdayCycle;
 
       // Formula to calculate Sunday cycle (Year A, B, C)
-      const thisSundayCycleIndex: number = (year - 1963) % 3;
-      const nextSundayCycleIndex: number = thisSundayCycleIndex === 2 ? 0 : thisSundayCycleIndex + 1;
+      const thisSundayCycleIndex: number = (year + 2) % 3;
+      const nextSundayCycleIndex: number = (year + 3) % 3;
 
       // If the date is on or after the First Sunday of Advent,
       // it is the next liturgical cycle
