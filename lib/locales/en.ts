@@ -59,6 +59,20 @@ export const locale: Locale = {
     weekday: 'weekday',
   },
 
+  cycles: {
+    proper_of_time: 'Proper of Time',
+    proper_of_saints: 'Proper of Saints',
+    sunday_year_a: 'Year A',
+    sunday_year_b: 'Year B',
+    sunday_year_c: 'Year C',
+    weekday_year_1: 'Cycle I',
+    weekday_year_2: 'Cycle II',
+    psalter_week_1: 'Week I',
+    psalter_week_2: 'Week II',
+    psalter_week_3: 'Week III',
+    psalter_week_4: 'Week IV',
+  },
+
   weekdays: {
     0: 'Sunday',
     1: 'Monday',

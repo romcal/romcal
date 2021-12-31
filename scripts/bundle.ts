@@ -192,6 +192,7 @@ export const RomcalBundler = (): void => {
           ordinals: mergedLocale.ordinals,
           periods: mergedLocale.periods,
           ranks: mergedLocale.ranks,
+          cycles: mergedLocale.cycles,
           seasons: mergedLocale.seasons,
           weekdays: mergedLocale.weekdays,
           names,

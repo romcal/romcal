@@ -42,6 +42,7 @@ import { RomcalBundle } from './models/bundle';
 import { Calendar } from './models/calendar';
 import { CalendarDef } from './models/calendar-def';
 import { RomcalConfig } from './models/config';
+import { CyclesMetadata } from './models/cycles-metadata';
 import LiturgicalDay from './models/liturgical-day';
 import { LiturgicalDayConfig } from './models/liturgical-day-config';
 import LiturgicalDayDef from './models/liturgical-day-def';
@@ -56,6 +57,7 @@ import {
 } from './types/calendar-def';
 import { Key } from './types/common';
 import { CalendarScope, RomcalConfigInput, RomcalConfigOutput } from './types/config';
+import { BaseCyclesMetadata, PartialCyclesDef, PlainCyclesMetadata } from './types/cycles-metadata';
 import {
   BaseLiturgicalDay,
   BaseLiturgicalDayDef,
@@ -77,9 +79,7 @@ import {
   LiturgyDayDiff,
   MartyrologyItemPointer,
   MartyrologyItemRedefined,
-  PartialCyclesDef,
   RomcalCalendarMetadata,
-  RomcalCyclesMetadata,
   RomcalTitles,
   TitlesDef,
 } from './types/liturgical-day';
@@ -302,6 +302,7 @@ class Romcal {
   static Calendar = Calendar;
   static CalendarDef = CalendarDef;
   static RomcalConfig = RomcalConfig;
+  static CyclesMetadata = CyclesMetadata;
   static LiturgicalDay = LiturgicalDay;
   static LiturgicalDayConfig = LiturgicalDayConfig;
   static LiturgicalDayDef = LiturgicalDayDef;
@@ -330,7 +331,16 @@ class Romcal {
 
 export default Romcal;
 
-export { RomcalBundle, Calendar, CalendarDef, RomcalConfig, LiturgicalDay, LiturgicalDayConfig, LiturgicalDayDef };
+export {
+  RomcalBundle,
+  Calendar,
+  CalendarDef,
+  RomcalConfig,
+  CyclesMetadata,
+  LiturgicalDay,
+  LiturgicalDayConfig,
+  LiturgicalDayDef,
+};
 
 export {
   // constants/colors.ts
@@ -375,6 +385,10 @@ export {
   RomcalConfigInput,
   RomcalConfigOutput,
   CalendarScope,
+  // types/cycles-metadata.ts
+  BaseCyclesMetadata,
+  PartialCyclesDef,
+  PlainCyclesMetadata,
   // types/liturgical-day.ts
   BaseLiturgicalDay,
   BaseLiturgicalDayDef,
@@ -390,8 +404,6 @@ export {
   DateDefSubtractDay,
   DateDefException,
   CalendarMetadata,
-  RomcalCyclesMetadata,
-  PartialCyclesDef,
   RomcalCalendarMetadata,
   i18nDef,
   TitlesDef,

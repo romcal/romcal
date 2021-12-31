@@ -52,6 +52,19 @@ export interface Locale {
     memorial?: string;
     weekday?: string;
   };
+  cycles?: {
+    proper_of_time?: string;
+    proper_of_saints?: string;
+    sunday_year_a?: string;
+    sunday_year_b?: string;
+    sunday_year_c?: string;
+    weekday_year_1?: string;
+    weekday_year_2?: string;
+    psalter_week_1?: string;
+    psalter_week_2?: string;
+    psalter_week_3?: string;
+    psalter_week_4?: string;
+  };
   names?: LocaleLiturgicalDayNames;
 }
 

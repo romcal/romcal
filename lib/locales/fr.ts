@@ -63,6 +63,20 @@ export const locale: Locale = {
     weekday: 'Férie',
   },
 
+  cycles: {
+    proper_of_time: 'Propre du Temps',
+    proper_of_saints: 'Propre des Saints',
+    sunday_year_a: 'Année A',
+    sunday_year_b: 'Année B',
+    sunday_year_c: 'Année C',
+    weekday_year_1: 'Année impaire',
+    weekday_year_2: 'Année paire',
+    psalter_week_1: 'Semaine I des Psaumes',
+    psalter_week_2: 'Semaine II des Psaumes',
+    psalter_week_3: 'Semaine III des Psaumes',
+    psalter_week_4: 'Semaine IV des Psaumes',
+  },
+
   weekdays: {
     0: 'dimanche',
     1: 'lundi',

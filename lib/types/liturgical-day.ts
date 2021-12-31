@@ -1,6 +1,6 @@
 import { StringMap } from 'i18next';
 import { Color } from '../constants/colors';
-import { ProperCycle, PsalterWeekCycle, SundayCycle, WeekdayCycle } from '../constants/cycles';
+import { ProperCycle } from '../constants/cycles';
 import { PatronTitle, Title } from '../constants/martyrology-metadata';
 import { Period } from '../constants/periods';
 import { Precedence } from '../constants/precedences';
@@ -13,6 +13,7 @@ import { AllXOR, Key, XOR } from './common';
 import { MartyrologyItem, SaintCount } from './martyrology';
 import { MonthIndex } from '../constants/months';
 import { DayOfWeek } from '../constants/weekdays';
+import { PartialCyclesDef, BaseCyclesMetadata } from './cycles-metadata';
 
 /**
  * The liturgical day date definition
@@ -173,36 +174,6 @@ export type CalendarMetadata = {
   weekOfSeason?: number;
   dayOfWeek?: number;
 };
-
-/**
- * Cycles Metadata
- */
-export type RomcalCyclesMetadata = {
-  /**
-   * The proper cycle in which the liturgical day is part.
-   */
-  properCycle: ProperCycle;
-
-  /**
-   * The Sunday yearly cycle in which the liturgical day is part.
-   */
-  sundayCycle: SundayCycle;
-
-  /**
-   * The weekday yearly cycle in which the liturgical day is part.
-   */
-  weekdayCycle: WeekdayCycle;
-
-  /**
-   * The psalter week cycle in which the liturgical day is part.
-   */
-  psalterWeek: PsalterWeekCycle;
-};
-
-/**
- * Partial Cycle Metadata definition
- */
-export type PartialCyclesDef = Pick<RomcalCyclesMetadata, 'properCycle'>;
 
 /**
  * Calendar Metadata
@@ -424,7 +395,7 @@ type LiturgicalDayRoot = {
   /**
    * Cycle metadata of a liturgical day.
    */
-  cycles: RomcalCyclesMetadata;
+  cycles: BaseCyclesMetadata;
 
   /**
    * The proper cycle in which the liturgical day is part.
@@ -600,7 +571,7 @@ export type LiturgyDayDiff = Pick<LiturgicalDayDef, 'fromCalendar'> &
       | 'i18nDef'
       | 'titles'
       | 'colors'
-    > & { cycles: Partial<Pick<RomcalCyclesMetadata, 'properCycle'>>; martyrology: Key[] }
+    > & { cycles: Partial<Pick<BaseCyclesMetadata, 'properCycle'>>; martyrology: Key[] }
   >;
 
 /**

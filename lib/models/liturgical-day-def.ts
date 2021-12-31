@@ -1,3 +1,4 @@
+import { PartialCyclesDef } from '../types/cycles-metadata';
 import { Color, Colors } from '../constants/colors';
 import { ProperCycles } from '../constants/cycles';
 import { GENERAL_ROMAN_NAME, PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
@@ -20,7 +21,6 @@ import {
   LiturgicalDayProperOfTimeInput,
   LiturgyDayDiff,
   MartyrologyItemRedefined,
-  PartialCyclesDef,
   RomcalTitles,
   TitlesDef,
 } from '../types/liturgical-day';
