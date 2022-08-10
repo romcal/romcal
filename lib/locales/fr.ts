@@ -272,7 +272,7 @@ export const locale: Locale = {
     ceran_of_paris_bishop: 'Saint Céran, évêque de Paris au 7e siècle',
     chair_of_saint_peter_the_apostle: 'Chaire de Saint Pierre, apôtre',
     charles_borromeo_bishop: 'Saint Charles Borromée, Archevêque de Milan (✝ 1584)',
-    charles_de_foucauld: 'Bienheureux Charles de Foucauld, prêtre, ermite et missionnaire au Sahara († 1916)',
+    charles_de_foucauld: 'Saint Charles de Foucauld, prêtre, ermite et missionnaire au Sahara († 1916)',
     charles_lwanga_and_companions_martyrs: 'Saints Charles Lwanga et ses douze compagnons, martyrs (✝ 618)',
     christopher_magallanes_priest_and_companions_martyrs:
       'Saints Cristóbal Magallanes, prêtre, et ses 24 compagnons, martyrs Mexicains (✝ 1927)',

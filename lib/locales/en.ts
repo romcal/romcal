@@ -318,7 +318,7 @@ export const locale: Locale = {
     chad_of_mercia_and_cedd_of_lastingham_bishops: 'Saints Chad and Cedd, Bishops',
     chair_of_saint_peter_the_apostle: 'Chair of Saint Peter the Apostle',
     charles_borromeo_bishop: 'Saint Charles Borromeo, Bishop',
-    charles_de_foucauld: 'Blessed Charles de Foucauld, Priest',
+    charles_de_foucauld: 'Saint Charles de Foucauld, Priest',
     charles_i_of_austria: 'Blessed Charles of Austria',
     charles_lwanga_and_companions_martyrs: 'Saints Charles Lwanga and Companions, Martyrs',
     charles_spinola_and_jerome_de_angelis_priests:

@@ -972,7 +972,7 @@ export class Martyrology {
     },
 
     charles_de_foucauld: {
-      canonizationLevel: CanonizationLevels.Blessed,
+      canonizationLevel: CanonizationLevels.Saint,
       name: 'Charles de Foucauld',
       titles: [Titles.Priest],
       dateOfDeath: '1916-12-1',
