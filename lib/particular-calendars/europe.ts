@@ -5,9 +5,9 @@ import { Inputs } from '../types/calendar-def';
 
 export class Europe extends CalendarDef {
   inputs: Inputs = {
-    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop: {
-      customLocaleKey: 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_copatrons_of_europe',
-      martyrology: ['cyril_the_philosopher_monk', 'methodius_of_thessaloniki_bishop'],
+    cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop: {
+      customLocaleKey:
+        'cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop_copatrons_of_europe',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       titles: { append: [PatronTitles.CopatronOfEurope] },
     },

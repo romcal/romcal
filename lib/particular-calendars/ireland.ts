@@ -239,11 +239,6 @@ export class Ireland extends CalendarDef {
       dateDef: { month: 9, date: 12 },
     },
 
-    pius_of_pietrelcina_priest: {
-      precedence: Precedences.ProperMemorial_11b,
-      dateDef: { month: 9, date: 23 },
-    },
-
     finbarr_of_cork_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 9, date: 25 },

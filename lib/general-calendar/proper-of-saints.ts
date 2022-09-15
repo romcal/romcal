@@ -150,10 +150,10 @@ export class GeneralRoman extends CalendarDef {
       dateDef: { month: 2, date: 11 },
     },
 
-    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop: {
+    cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop: {
       precedence: Precedences.GeneralMemorial_10,
       dateDef: { month: 2, date: 14 },
-      martyrology: ['cyril_the_philosopher_monk', 'methodius_of_thessaloniki_bishop'],
+      martyrology: ['cyril_constantine_the_philosopher_monk', 'methodius_michael_of_thessaloniki_bishop'],
     },
 
     seven_holy_founders_of_the_servite_order: {
@@ -238,7 +238,7 @@ export class GeneralRoman extends CalendarDef {
       dateDef: { month: 3, date: 23 },
     },
 
-    annunciation: {
+    annunciation_of_the_lord: {
       precedence: Precedences.GeneralSolemnity_3,
       // 03-25
       dateDef: { dateFn: 'annunciation' },
@@ -659,7 +659,7 @@ export class GeneralRoman extends CalendarDef {
       dateDef: { month: 7, date: 31 },
     },
 
-    alphonsus_liguori_bishop: {
+    alphonsus_mary_liguori_bishop: {
       precedence: Precedences.GeneralMemorial_10,
       dateDef: { month: 8, date: 1 },
     },
@@ -684,7 +684,7 @@ export class GeneralRoman extends CalendarDef {
       dateDef: { month: 8, date: 5 },
     },
 
-    transfiguration: {
+    transfiguration_of_the_lord: {
       precedence: Precedences.GeneralLordFeast_5,
       // 08-06
       dateDef: { dateFn: 'transfiguration' },
@@ -737,13 +737,13 @@ export class GeneralRoman extends CalendarDef {
       colors: Colors.Red,
     },
 
-    maximilian_kolbe_priest: {
+    maximilian_mary_raymund_kolbe_priest: {
       precedence: Precedences.GeneralMemorial_10,
       dateDef: { month: 8, date: 14 },
       colors: Colors.Red,
     },
 
-    assumption: {
+    assumption_of_the_blessed_virgin_mary: {
       precedence: Precedences.ProperOfTimeSolemnity_2,
       // 08-15
       dateDef: { dateFn: 'assumption' },
@@ -771,7 +771,7 @@ export class GeneralRoman extends CalendarDef {
       dateDef: { month: 8, date: 21 },
     },
 
-    queenship_of_mary: {
+    queenship_of_the_blessed_virgin_mary: {
       precedence: Precedences.GeneralMemorial_10,
       dateDef: { month: 8, date: 22 },
     },
@@ -817,7 +817,7 @@ export class GeneralRoman extends CalendarDef {
       dateDef: { month: 9, date: 3 },
     },
 
-    nativity_of_mary: {
+    nativity_of_the_blessed_virgin_mary: {
       precedence: Precedences.GeneralFeast_7,
       dateDef: { month: 9, date: 8 },
     },
@@ -885,7 +885,7 @@ export class GeneralRoman extends CalendarDef {
       colors: Colors.Red,
     },
 
-    pius_of_pietrelcina_priest: {
+    pius_francesco_forgione_priest: {
       precedence: Precedences.GeneralMemorial_10,
       dateDef: { month: 9, date: 23 },
     },
@@ -931,7 +931,7 @@ export class GeneralRoman extends CalendarDef {
       dateDef: { month: 10, date: 1 },
     },
 
-    guardian_angels: {
+    holy_guardian_angels: {
       precedence: Precedences.GeneralMemorial_10,
       dateDef: { month: 10, date: 2 },
     },
@@ -1062,7 +1062,7 @@ export class GeneralRoman extends CalendarDef {
       colors: Colors.White,
     },
 
-    all_souls: {
+    commemoration_of_all_the_faithful_departed: {
       precedence: Precedences.GeneralSolemnity_3,
       dateDef: { month: 11, date: 2 },
       colors: [Colors.Purple, Colors.Black],
@@ -1124,7 +1124,7 @@ export class GeneralRoman extends CalendarDef {
       dateDef: { month: 11, date: 18 },
     },
 
-    presentation_of_mary: {
+    presentation_of_the_blessed_virgin_mary: {
       precedence: Precedences.GeneralMemorial_10,
       dateDef: { month: 11, date: 21 },
     },
@@ -1185,7 +1185,7 @@ export class GeneralRoman extends CalendarDef {
       dateDef: { month: 12, date: 7 },
     },
 
-    immaculate_conception_of_mary: {
+    immaculate_conception_of_the_blessed_virgin_mary: {
       precedence: Precedences.GeneralSolemnity_3,
       // 12-08
       dateDef: { dateFn: 'immaculateConceptionOfMary' },

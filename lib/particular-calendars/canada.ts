@@ -44,7 +44,7 @@ export class Canada extends CalendarDef {
       dateDef: { month: 4, date: 26 },
     },
 
-    marie_of_the_incarnation_guyart_religious: {
+    mary_of_the_incarnation_marie_guyart_religious: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 4, date: 30 },
     },

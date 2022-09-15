@@ -16,12 +16,12 @@ export class France_SaintDenis extends CalendarDef {
       dateDef: { month: 1, date: 4 },
     },
 
-    mary_refuge_of_sinner: {
+    our_lady_refuge_of_sinners: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 1, date: 16 },
     },
 
-    louise_of_marillac: {
+    louise_de_marillac_religious: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 3, date: 15 },
     },
@@ -31,12 +31,12 @@ export class France_SaintDenis extends CalendarDef {
       dateDef: { month: 5, date: 8 },
     },
 
-    marie_therese_de_soubiran_virgin: {
+    mary_of_the_sacred_heart_sophie_therese_de_soubiran_la_louviere_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 6, date: 7 },
     },
 
-    dedication_of_the_cathedral_of_saint_denis: {
+    dedication_of_the_cathedral_basilica_of_saint_denis_france: {
       precedence: Precedences.ProperFeast_DedicationOfTheCathedralChurch_8b,
       dateDef: { month: 6, date: 11 },
     },
@@ -45,7 +45,7 @@ export class France_SaintDenis extends CalendarDef {
       dateDef: { month: 6, date: 12 },
     },
 
-    ouen_bishop: {
+    audoen_of_rouen_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 8, date: 23 },
     },
@@ -65,17 +65,17 @@ export class France_SaintDenis extends CalendarDef {
 
     denis_of_paris_bishop: {
       precedence: Precedences.ProperFeast_PrincipalPatronOfADiocese_8a,
-      customLocaleKey: 'denis_of_paris_bishop_patron_of_the_diocese_of_saint_denis',
+      customLocaleKey: 'denis_of_paris_bishop_patron_of_the_city_and_of_the_diocese_of_saint_denis',
       dateDef: { month: 10, date: 9 },
       titles: [Titles.Bishop, Titles.Martyr, PatronTitles.PatronOfTheDiocese],
     },
 
-    all_the_saints_of_the_diocese_of_saint_denis: {
+    all_saints_of_the_diocese_of_saint_denis: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 11, date: 8 },
     },
 
-    eloi_of_noyon_bishop: {
+    eligius_of_noyon_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 12, date: 1 },
     },

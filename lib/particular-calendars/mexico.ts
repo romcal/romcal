@@ -52,7 +52,7 @@ export class Mexico extends CalendarDef {
       dateDef: { month: 6, date: 27 },
     },
 
-    our_lady_of_refuge: {
+    our_lady_refuge_of_sinners: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 7, date: 4 },
     },

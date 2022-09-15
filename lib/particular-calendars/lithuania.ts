@@ -47,7 +47,7 @@ export class Lithuania extends CalendarDef {
       dateDef: { month: 8, date: 17 },
     },
 
-    nativity_of_mary: {
+    nativity_of_the_blessed_virgin_mary: {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
     },
   };

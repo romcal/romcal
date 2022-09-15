@@ -16,7 +16,7 @@ export class Slovakia extends CalendarDef {
   };
 
   inputs: Inputs = {
-    // TODO: When votive Masses (#110) are implemented, on '2-14', add a votive Mass for `cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop`
+    // TODO: When votive Masses (#110) are implemented, on '2-14', add a votive Mass for `cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop`
 
     joseph_spouse_of_mary: {
       isHolyDayOfObligation: false,
@@ -57,12 +57,12 @@ export class Slovakia extends CalendarDef {
       dateDef: { month: 7, date: 2 },
     },
 
-    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop: {
-      customLocaleKey: 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop_slavic_missionaries',
+    cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop: {
+      customLocaleKey:
+        'cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop_slavic_missionaries_copatrons_of_europe',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       dateDef: { month: 7, date: 5 },
       titles: [Titles.SlavicMissionary],
-      martyrology: ['cyril_the_philosopher_monk', 'methodius_of_thessaloniki_bishop'],
     },
 
     anthony_zaccaria_priest: {
@@ -127,7 +127,7 @@ export class Slovakia extends CalendarDef {
       drop: true,
     },
 
-    all_souls: {
+    commemoration_of_all_the_faithful_departed: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 11, date: 2 },
       colors: [Colors.Purple, Colors.Black],

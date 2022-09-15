@@ -27,10 +27,10 @@ describe('Testing national calendar overrides', () => {
       const dates = generalDates2020.filter((d) => d.date === '2020-01-03');
       expect(dates.length).toEqual(2);
     });
-    test('However, if the 3th of January is a Sunday, the Solemnity of Epiphany takes the precedence.', () => {
+    test('However, if the 3th of January is a Sunday, the Solemnity of Epiphany of the Lord takes the precedence.', () => {
       const dates = generalDates2021.filter((d) => d.date === '2021-01-03');
       expect(dates.length).toEqual(1);
-      expect(dates[0].key).toEqual('epiphany');
+      expect(dates[0].key).toEqual('epiphany_of_the_lord');
     });
     test('The optional memory of Saint Fructuosus is celebrated on the January 20 in Spain, in addition of Saint Fabian & Saint Sebastian from the general calendar', () => {
       const dates = spainDates2020.filter((d) => d.date === '2020-01-20');
@@ -67,24 +67,24 @@ describe('Testing national calendar overrides', () => {
     });
   });
 
-  describe('The feast of Epiphany', () => {
+  describe('The Solemnity of Epiphany of the Lord', () => {
     test('Should always be celebrated on January 6 in Slovakia unless explicitly configured otherwise', async () => {
       const slovakiaDates = Object.values(
         await new Romcal({ localizedCalendar: Slovakia_Sk }).generateCalendar(),
       ).flat();
-      const epiphanySlovakia = slovakiaDates.find((d) => d.key === 'epiphany');
+      const epiphanySlovakia = slovakiaDates.find((d) => d.key === 'epiphany_of_the_lord');
       // Should always be Jan 6th in Slovakia
       expect(getUtcDateFromString(epiphanySlovakia!.date).getDate()).toEqual(6);
       expect(getUtcDateFromString(epiphanySlovakia!.date).getMonth()).toEqual(0);
     });
-    test('Will fall on Sunday as calculated by the Epiphany rubric, when `epiphanyOnSunday` is explicitly configured as `true`', async () => {
+    test('Will fall on Sunday as calculated by the Epiphany of the Lord rubric, when `epiphanyOnSunday` is explicitly configured as `true`', async () => {
       const slovakiaDates = Object.values(
         await new Romcal({
           localizedCalendar: Slovakia_Sk,
           epiphanyOnSunday: true,
         }).generateCalendar(2010),
       ).flat();
-      const epiphanySlovakia = slovakiaDates.find((d) => d.key === 'epiphany');
+      const epiphanySlovakia = slovakiaDates.find((d) => d.key === 'epiphany_of_the_lord');
       expect(getUtcDateFromString(epiphanySlovakia!.date).getDay()).toEqual(0);
       expect(getUtcDateFromString(epiphanySlovakia!.date).getMonth()).toEqual(0);
     });
@@ -94,28 +94,28 @@ describe('Testing national calendar overrides', () => {
     test('Should fall on February 14, 2017 in the general calendar', async () => {
       const dates = Object.values(await new Romcal().generateCalendar(2017)).flat();
       const date = dates.find((d) => {
-        return d.key === 'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop';
+        return d.key === 'cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop';
       });
       expect(date?.date).toEqual('2017-02-14');
     });
     test('Should fall on 5th July 2017 in the national calendar of the Czech Republic', async () => {
       const day = await new Romcal({ localizedCalendar: CzechRepublic_Cs }).getOneLiturgicalDay(
-        'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop',
+        'cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop',
         { year: 2017 },
       );
       expect(day?.date).toEqual('2017-07-05');
     });
     test('Should fall on 5th July 2017 in the national calendar of Slovakia', async () => {
       const day = await new Romcal({ localizedCalendar: Slovakia_Sk }).getOneLiturgicalDay(
-        'cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop',
+        'cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop',
         { year: 2017 },
       );
       expect(day?.date).toEqual('2017-07-05');
     });
   });
 
-  describe('The feast of the Assumption in England and Wales', () => {
-    describe('If the feast of the Assumption falls on Saturday on Monday', () => {
+  describe('The feast of the Assumption of the Blessed Virgin Mary in England and Wales', () => {
+    describe('If the feast of the Assumption of the Blessed Virgin Mary falls on Saturday on Monday', () => {
       test('It is transferred to Sunday', async () => {
         const wales2009Dates = Object.values(
           await new Romcal({ localizedCalendar: Wales_En }).generateCalendar(2009),
@@ -148,10 +148,10 @@ describe('Testing national calendar overrides', () => {
           (d) => d.key === 'ordinary_time_20_sunday',
         );
 
-        const walesAssumption2009 = wales2009Dates.find((d) => d.key === 'assumption');
-        const englandAssumption2009 = england2009Dates.find((d) => d.key === 'assumption');
-        const walesAssumption2011 = wales2011Dates.find((d) => d.key === 'assumption');
-        const englandAssumption2011 = england2011Dates.find((d) => d.key === 'assumption');
+        const walesAssumption2009 = wales2009Dates.find((d) => d.key === 'assumption_of_the_blessed_virgin_mary');
+        const englandAssumption2009 = england2009Dates.find((d) => d.key === 'assumption_of_the_blessed_virgin_mary');
+        const walesAssumption2011 = wales2011Dates.find((d) => d.key === 'assumption_of_the_blessed_virgin_mary');
+        const englandAssumption2011 = england2011Dates.find((d) => d.key === 'assumption_of_the_blessed_virgin_mary');
 
         expect(
           walesAssumption2009 &&
@@ -176,13 +176,13 @@ describe('Testing national calendar overrides', () => {
       });
     });
 
-    describe('If the feast of the Assumption falls on Sunday', () => {
+    describe('If the feast of the Assumption of the Blessed Virgin Mary falls on Sunday', () => {
       test('It replaces the 20th Sunday of OT', async () => {
         const twentiethSundayOfOrdinaryTime: BaseLiturgicalDay = (await new Romcal().generateCalendar(2010))[
           '2010-08-15'
         ][0];
 
-        expect(twentiethSundayOfOrdinaryTime.key).toEqual('assumption');
+        expect(twentiethSundayOfOrdinaryTime.key).toEqual('assumption_of_the_blessed_virgin_mary');
       });
     });
   });
@@ -211,8 +211,8 @@ describe('Testing national calendar overrides', () => {
       const walesDates = Object.values(await new Romcal({ localizedCalendar: Wales_En }).generateCalendar(2008)).flat();
       // So All Saints should be celebrated on Sunday
       // and All Souls will be celebrated on Monday
-      const allSaintsEngland = englandDates.find((d) => d.key === 'all_souls');
-      const allSaintsWales = walesDates.find((d) => d.key === 'all_souls');
+      const allSaintsEngland = englandDates.find((d) => d.key === 'commemoration_of_all_the_faithful_departed');
+      const allSaintsWales = walesDates.find((d) => d.key === 'commemoration_of_all_the_faithful_departed');
       expect(getUtcDateFromString(allSaintsEngland!.date).getDay()).toEqual(1);
       expect(getUtcDateFromString(allSaintsWales!.date).getDay()).toEqual(1);
     });

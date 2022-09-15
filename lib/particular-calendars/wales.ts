@@ -111,7 +111,7 @@ export class Wales extends CalendarDef {
       },
     },
 
-    all_souls: {
+    commemoration_of_all_the_faithful_departed: {
       dateDef: { month: 11, date: 2 },
       dateExceptions: {
         ifIsDayOfWeek: 0, // if is a Sunday
@@ -149,7 +149,7 @@ export class Wales extends CalendarDef {
       ],
     },
 
-    assumption: {
+    assumption_of_the_blessed_virgin_mary: {
       dateDef: { month: 8, date: 15 },
       // In England and Wales when the celebration falls on either a
       // Saturday or a Monday it is transferred to the Sunday.

@@ -65,8 +65,8 @@ export class Philippines extends CalendarDef {
       precedence: Precedences.ProperMemorial_11b,
     },
 
-    immaculate_conception_of_mary: {
-      customLocaleKey: 'immaculate_conception_of_mary_patroness_of_the_philippines',
+    immaculate_conception_of_the_blessed_virgin_mary: {
+      customLocaleKey: 'immaculate_conception_of_the_blessed_virgin_mary_patroness_of_the_philippines',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       dateDef: { month: 12, date: 8 },
       titles: { append: [PatronTitles.PatronessOfThePhilippines] },
