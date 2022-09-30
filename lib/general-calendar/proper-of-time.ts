@@ -173,7 +173,6 @@ export class ProperOfTime extends CalendarDef {
     this.#newLiturgicalDayDef(`holy_family_of_jesus_mary_and_joseph`, {
       precedence: Precedences.GeneralLordFeast_5,
       dateDef: { dateFn: 'holyFamily', yearOffset: -1 + yearOffset },
-      isHolyDayOfObligation: false,
       seasons: [Seasons.ChristmasTime],
       periods: [Periods.ChristmasOctave, Periods.ChristmasToPresentationOfTheLord],
       calendarMetadata: {},
@@ -260,7 +259,6 @@ export class ProperOfTime extends CalendarDef {
     this.#newLiturgicalDayDef(`baptism_of_the_lord`, {
       precedence: Precedences.ProperOfTimeSolemnity_2,
       dateDef: { dateFn: 'baptismOfTheLord', yearOffset: yearOffset },
-      isHolyDayOfObligation: true,
       seasons: [Seasons.ChristmasTime],
       periods: [Periods.DaysFromEpiphany, Periods.ChristmasToPresentationOfTheLord],
       calendarMetadata: {},
@@ -504,7 +502,7 @@ export class ProperOfTime extends CalendarDef {
     this.#newLiturgicalDayDef(`most_sacred_heart_of_jesus`, {
       precedence: Precedences.GeneralSolemnity_3,
       dateDef: { dateFn: 'mostSacredHeartOfJesus', yearOffset: yearOffset },
-      isHolyDayOfObligation: true,
+      isHolyDayOfObligation: false,
       seasons: [Seasons.OrdinaryTime],
       periods: [],
       calendarMetadata: { dayOfWeek: 5 },
