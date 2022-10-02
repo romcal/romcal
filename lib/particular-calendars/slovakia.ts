@@ -47,11 +47,6 @@ export class Slovakia extends CalendarDef {
       dateDef: { month: 5, date: 16 },
     },
 
-    ladislaus_i_of_hungary: {
-      precedence: Precedences.OptionalMemorial_12,
-      dateDef: { month: 6, date: 27 },
-    },
-
     visitation_of_mary: {
       precedence: Precedences.ProperFeast_8f,
       dateDef: { month: 7, date: 2 },
@@ -92,11 +87,6 @@ export class Slovakia extends CalendarDef {
       dateDef: { month: 8, date: 18 },
     },
 
-    teresa_of_calcutta_religious: {
-      precedence: Precedences.OptionalMemorial_12,
-      dateDef: { month: 9, date: 5 },
-    },
-
     marko_krizin_melchior_grodziecki_and_stephen_pongracz_priests: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 9, date: 7 },
@@ -131,16 +121,6 @@ export class Slovakia extends CalendarDef {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 11, date: 2 },
       colors: [Colors.Purple, Colors.Black],
-    },
-
-    emeric_of_hungary: {
-      precedence: Precedences.OptionalMemorial_12,
-      dateDef: { month: 11, date: 5 },
-    },
-
-    john_damascene_priest: {
-      precedence: Precedences.OptionalMemorial_12,
-      dateDef: { month: 12, date: 4 },
     },
 
     barbara_of_heliopolis_virgin: {
