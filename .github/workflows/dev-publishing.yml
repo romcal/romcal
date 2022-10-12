@@ -34,7 +34,6 @@ jobs:
           major-wording: 'MajorBump'
           minor-wording: 'MinorBump'
           patch-wording: 'PatchBump'
-          rc-wording:
           default: prerelease
           preid: dev
           skip-commit: 'true'

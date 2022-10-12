@@ -1,6 +1,10 @@
 name: Romcal CI
 
-on: [push]
+on:
+  push:
+    branches: [dev, master]
+  pull_request:
+    types: [opened, reopened, synchronize]
 
 jobs:
   build:
