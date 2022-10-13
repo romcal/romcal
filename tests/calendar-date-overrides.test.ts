@@ -2,6 +2,7 @@ import { CzechRepublic_Cs } from 'romcal/dist/bundles/czech-republic';
 import { England_En } from 'romcal/dist/bundles/england';
 import { Germany_En } from 'romcal/dist/bundles/germany';
 import { Hungary_En } from 'romcal/dist/bundles/hungary';
+import { Ireland_En } from 'romcal/dist/bundles/ireland'
 import { Malta_En } from 'romcal/dist/bundles/malta';
 import { Mexico_Es } from 'romcal/dist/bundles/mexico';
 import { Slovakia_Sk } from 'romcal/dist/bundles/slovakia';
@@ -266,20 +267,21 @@ describe('Testing national calendar overrides', () => {
     });
   });
 
-  describe('Saint Ladislaus', () => {
-    test('A feast in Hungary but an optional memorial in Slovakia', async () => {
-      const hungaryDates = Object.values(
-        await new Romcal({ localizedCalendar: Hungary_En }).generateCalendar(2018),
+  describe('Saint Oliver Plunket', () => {
+    test('A memorial in Ireland but an optional memorial in England', async () => {
+      const irelandDates = Object.values(
+        await new Romcal({ localizedCalendar: Ireland_En }).generateCalendar(2019),
       ).flat();
-      const slovakiaDates = Object.values(
-        await new Romcal({ localizedCalendar: Slovakia_Sk }).generateCalendar(2018),
+      const englandDates = Object.values(
+        await new Romcal({ localizedCalendar: England_En }).generateCalendar(2019),
       ).flat();
-      const ladislausIOfHungaryHungary = hungaryDates.find((d) => d.key === 'ladislaus_i_of_hungary');
-      const ladislausIOfHungarySlovakia = slovakiaDates.find((d) => d.key === 'ladislaus_i_of_hungary');
-      expect(ladislausIOfHungaryHungary?.precedence).toEqual(Precedences.ProperFeast_8f);
-      expect(ladislausIOfHungarySlovakia?.precedence).toEqual(Precedences.OptionalMemorial_12);
-    });
-  });
+      const oliverPlunketBishopIreland = irelandDates.find((d) => d.key === 'oliver_plunket_bishop');
+      const oliverPlunketBishopEngland = englandDates.find((d) => d.key === 'oliver_plunket_bishop');
+
+      expect(oliverPlunketBishopIreland?.precedence).toEqual(Precedences.ProperMemorial_11b);
+      expect(oliverPlunketBishopEngland?.precedence).toEqual(Precedences.OptionalMemorial_12);
+    })
+  })
 
   describe('Our Lady of Sorrows', () => {
     test('Should be celebrated on the September 15, 2018 as a memorial in the General Calendar', async () => {
