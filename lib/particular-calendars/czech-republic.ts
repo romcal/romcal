@@ -25,7 +25,7 @@ export class CzechRepublic extends CalendarDef {
       dateDef: { month: 3, date: 10 },
     },
 
-    // TODO: Should this key be dropped or kept in the CzechNational Proper?
+    // TODO: Should this key be dropped or kept in the Czech National Proper?
     // {
     //   key: 'adalbert_of_prague_bishop',
     //   precedence: Precedences.ProperMemorial_OtherProperMemorial_11b,
@@ -82,7 +82,7 @@ export class CzechRepublic extends CalendarDef {
       dateDef: { month: 7, date: 4 },
     },
 
-    cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop: {
+    cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop: {
       dateDef: { month: 7, date: 5 },
       // TODO: Should we add `Patrons of Moravia`?
     },

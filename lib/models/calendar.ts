@@ -297,7 +297,7 @@ export class Calendar implements BaseCalendar {
       // The mass (Chrismal Mass on Holy Thursday, and the Mass the Lord’s Supper the evening), as
       // well as the liturgy of the hours are also different.
       let thursdayOfTheLordsSupper: LiturgicalDay | null = null;
-      if (dates[0].key === 'thursday_of_the_lord_s_supper') {
+      if (dates[0].key === 'thursday_of_the_lords_supper') {
         thursdayOfTheLordsSupper = dates[0];
         dates.shift();
       }

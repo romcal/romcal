@@ -129,7 +129,7 @@ export class England extends CalendarDef {
     aidan_of_lindisfarne_bishop_and_the_saints_of_lindisfarne: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 8, date: 31 },
-      martyrology: ['aidan_of_lindisfarne_bishop', 'the_saints_of_lindisfarne'],
+      martyrology: ['aidan_of_lindisfarne_bishop', 'saints_of_lindisfarne'],
     },
 
     gregory_i_the_great_pope: {
@@ -185,7 +185,7 @@ export class England extends CalendarDef {
       ],
     },
 
-    assumption: {
+    assumption_of_the_blessed_virgin_mary: {
       dateDef: { month: 8, date: 15 },
       // In England and Wales when the celebration falls on either a
       // Saturday or a Monday it is transferred to the Sunday.
@@ -270,7 +270,7 @@ export class England extends CalendarDef {
       },
     },
 
-    all_souls: {
+    commemoration_of_all_the_faithful_departed: {
       dateDef: { month: 11, date: 2 },
       dateExceptions: {
         ifIsDayOfWeek: 0, // if is a Sunday

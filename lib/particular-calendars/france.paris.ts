@@ -16,17 +16,17 @@ export class France_Paris extends CalendarDef {
       dateDef: { month: 1, date: 4 },
     },
 
-    mary_refuge_of_sinner: {
+    our_lady_refuge_of_sinners: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 1, date: 16 },
     },
 
-    marie_de_la_providence_virgin: {
+    mary_of_the_providence_eugenie_smet_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 2, date: 7 },
     },
 
-    rosalie_rendu_virgin: {
+    rosalie_jeanne_marie_rendu_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 2, date: 9 },
     },
@@ -41,17 +41,17 @@ export class France_Paris extends CalendarDef {
       dateDef: { month: 2, date: 28 },
     },
 
-    marie_eugenie_milleret_virgin: {
+    marie_eugenie_of_jesus_milleret_de_brou_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 3, date: 10 },
     },
 
-    louise_of_marillac: {
+    louise_de_marillac_religious: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 3, date: 15 },
     },
 
-    marie_de_incarnation_religious: {
+    mary_of_the_incarnation_barbara_acarie_religious: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 4, date: 18 },
     },
@@ -70,7 +70,7 @@ export class France_Paris extends CalendarDef {
       precedence: Precedences.ProperMemorial_11b,
     },
 
-    marie_therese_de_soubiran_virgin: {
+    mary_of_the_sacred_heart_sophie_therese_de_soubiran_la_louviere_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 6, date: 7 },
     },
@@ -80,7 +80,7 @@ export class France_Paris extends CalendarDef {
       dateDef: { month: 6, date: 10 },
     },
 
-    dedication_of_the_cathedral_of_paris: {
+    dedication_of_the_notre_dame_de_paris_cathedral_paris_france: {
       precedence: Precedences.ProperFeast_DedicationOfTheCathedralChurch_8b,
       dateDef: { month: 6, date: 16 },
     },
@@ -103,10 +103,10 @@ export class France_Paris extends CalendarDef {
       dateDef: { month: 8, date: 26 },
     },
 
-    merry_and_saint_droctovee_abbots: {
+    mederic_of_autun_and_droctoveus_of_autun_abbots: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 8, date: 30 },
-      martyrology: ['merry_abbot', 'droctovee_abbot'],
+      martyrology: ['mederic_of_autun_abbot', 'droctoveus_of_autun_abbot'],
     },
 
     blessed_martyrs_of_paris: {
@@ -114,12 +114,12 @@ export class France_Paris extends CalendarDef {
       dateDef: { month: 9, date: 2 },
     },
 
-    frederic_ozanam: {
+    frederic_ozanam_founder: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 9, date: 9 },
     },
 
-    ceran_of_paris_bishop: {
+    ceraunus_of_paris_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 9, date: 26 },
     },
@@ -130,7 +130,7 @@ export class France_Paris extends CalendarDef {
 
     denis_of_paris_bishop: {
       precedence: Precedences.ProperFeast_PrincipalPatronOfADiocese_8a,
-      customLocaleKey: 'denis_of_paris_bishop_patron_of_the_diocese_of_paris',
+      customLocaleKey: 'denis_of_paris_bishop_patron_of_the_archdiocese_of_paris',
       dateDef: { month: 10, date: 9 },
       titles: [Titles.Martyr, Titles.FirstBishop, PatronTitles.PatronOfTheDiocese],
     },
@@ -139,17 +139,17 @@ export class France_Paris extends CalendarDef {
       drop: true,
     },
 
-    nicholas_barre: {
+    nicholas_barre_priest: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 10, date: 21 },
     },
 
-    marcel_of_paris_bishop: {
+    marcellus_of_paris_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 11, date: 3 },
     },
 
-    all_the_saints_of_the_diocese_of_paris: {
+    all_saints_of_the_archdiocese_of_paris: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 11, date: 8 },
     },
@@ -159,12 +159,12 @@ export class France_Paris extends CalendarDef {
       dateDef: { month: 11, date: 27 },
     },
 
-    catherine_laboure_virgin: {
+    catherine_zoe_laboure_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 11, date: 28 },
     },
 
-    charles_de_foucauld: {
+    charles_of_jesus_de_foucauld: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 12, date: 1 },
     },

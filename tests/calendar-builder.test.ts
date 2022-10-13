@@ -122,7 +122,7 @@ describe('Testing calendar generation functions', () => {
           if (d.key === 'exaltation_of_the_holy_cross' || d.key === 'mark_evangelist') {
             // eslint-disable-next-line jest/no-conditional-expect
             expect(d.colors[0]).toEqual(Colors.Red);
-          } else if (d.key === 'all_souls') {
+          } else if (d.key === 'commemoration_of_all_the_faithful_departed') {
             // eslint-disable-next-line jest/no-conditional-expect
             expect(d.colors[0]).toEqual(Colors.Purple);
             // eslint-disable-next-line jest/no-conditional-expect
@@ -181,9 +181,9 @@ describe('Testing calendar generation functions', () => {
       easter2021 = calendar2021.find((item) => item.key === 'easter_sunday');
       easter2022 = calendar2022.find((item) => item.key === 'easter_sunday');
 
-      christmas2020 = calendar2020.find((item) => item.key === 'christmas');
-      christmas2021 = calendar2021.find((item) => item.key === 'christmas');
-      christmas2022 = calendar2022.find((item) => item.key === 'christmas');
+      christmas2020 = calendar2020.find((item) => item.key === 'nativity_of_the_lord');
+      christmas2021 = calendar2021.find((item) => item.key === 'nativity_of_the_lord');
+      christmas2022 = calendar2022.find((item) => item.key === 'nativity_of_the_lord');
     });
 
     test('Should have the right sunday cycle', async () => {
@@ -330,8 +330,8 @@ describe('Testing calendar generation functions', () => {
       expect((await getDayAfter(hungaryCal, 'easter_sunday')).isHolyDayOfObligation).toBeTrue();
       expect((await getDayAfter(germanyCal, 'pentecost_sunday')).isHolyDayOfObligation).toBeTrue();
       expect((await getDayAfter(hungaryCal, 'pentecost_sunday')).isHolyDayOfObligation).toBeTrue();
-      expect((await getDayAfter(germanyCal, 'christmas')).isHolyDayOfObligation).toBeTrue();
-      expect((await getDayAfter(hungaryCal, 'christmas')).isHolyDayOfObligation).toBeTrue();
+      expect((await getDayAfter(germanyCal, 'nativity_of_the_lord')).isHolyDayOfObligation).toBeTrue();
+      expect((await getDayAfter(hungaryCal, 'nativity_of_the_lord')).isHolyDayOfObligation).toBeTrue();
     });
 
     test('All Sundays are Holy Days of obligation', async () => {
@@ -352,7 +352,7 @@ describe('Testing calendar generation functions', () => {
 
     test('A dropped liturgical day should not be appended in the final calendar', () => {
       const date = testDates.find((d) => isSameDate(getUtcDateFromString(d.date), getUtcDate(2020, 12, 4)));
-      expect(date?.key).not.toEqual('cyril_the_philosopher_monk_and_methodius_of_thessaloniki_bishop');
+      expect(date?.key).not.toEqual('cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop');
     });
   });
 });

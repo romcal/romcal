@@ -232,7 +232,7 @@ export class Hungary extends CalendarDef {
       dateDef: { month: 10, date: 31 },
     },
 
-    all_souls: {
+    commemoration_of_all_the_faithful_departed: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 11, date: 2 },
       colors: [Colors.Purple, Colors.Black],

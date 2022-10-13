@@ -66,7 +66,7 @@ export class Greece extends CalendarDef {
       dateDef: { month: 10, date: 26 },
     },
 
-    presentation_of_mary: {
+    presentation_of_the_blessed_virgin_mary: {
       precedence: Precedences.ProperFeast_8f,
       dateDef: { month: 11, date: 21 },
     },

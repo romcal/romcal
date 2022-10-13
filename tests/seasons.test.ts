@@ -281,7 +281,7 @@ describe('Testing seasons utility functions', () => {
           (d) =>
             (d.seasons.includes(Seasons.Lent) || d.seasons.includes(Seasons.Advent)) &&
             (d.rank === Ranks.Sunday || d.rank === Ranks.Weekday) &&
-            d.key !== 'palm_sunday',
+            d.key !== 'palm_sunday_of_the_passion_of_the_lord',
         )
         .forEach((date) => {
           if (date.key === 'lent_4_sunday' || date.key === 'advent_3_sunday') {

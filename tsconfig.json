@@ -30,5 +30,6 @@
     "scripts/**/*",
     "tmp/bundles/**/*",
     "tmp/constants/**/*"
-  ]
+  ],
+  "files": ["types/global.d.ts"]
 }

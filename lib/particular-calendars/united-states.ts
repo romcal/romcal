@@ -118,8 +118,8 @@ export class UnitedStates extends CalendarDef {
     // It is a holiday of obligation unless it occurs with Sunday:
     // then it is moved to the following Monday and while keeps its rank (solemnity),
     // it is not a holiday of obligation
-    immaculate_conception_of_mary: {
-      customLocaleKey: 'immaculate_conception_of_mary_patroness_of_the_usa',
+    immaculate_conception_of_the_blessed_virgin_mary: {
+      customLocaleKey: 'immaculate_conception_of_the_blessed_virgin_mary_patroness_of_the_usa',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       isHolyDayOfObligation: true,
       // isHolyDayOfObligation: () => this.dates.immaculateConceptionOfMary().day() === 0,

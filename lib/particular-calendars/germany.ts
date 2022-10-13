@@ -219,7 +219,7 @@ export class Germany extends CalendarDef {
       dateDef: { month: 10, date: 16 },
     },
 
-    wendelin_of_trier_abbot: {
+    wendelin_of_trier_hermit: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 10, date: 20 },
     },
