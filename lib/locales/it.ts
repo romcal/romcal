@@ -239,8 +239,7 @@ export const locale: Locale = {
     bridget_of_sweden_religious: 'Santa Brigida, religiosa',
     bridget_of_sweden_religious_copatroness_of_europe: 'Santa Brigida, religiosa e patrona secondaria d’Europa',
     brigid_of_kildare_virgin: 'Santa Brigida di Kildare, badessa',
-    brigid_of_kildare_virgin_copatroness_of_ireland:
-      'Santa Brigida di Kildare, badessa e patrona secondaria d’Irlanda',
+    brigid_of_kildare_virgin_copatroness_of_ireland: 'Santa Brigida di Kildare, badessa e patrona secondaria d’Irlanda',
     bruno_of_cologne_priest: 'San Bruno, sacerdote',
     cajetan_of_thiene_priest: 'San Gaetano, sacerdote',
     callistus_i_pope: 'San Callisto I, papa e martire',

@@ -279,7 +279,8 @@ export const locale: Locale = {
     dedication_of_the_cathedral_of_notre_dame_de_strasbourg_france: 'Dédicace de la cathédrale de Strasbourg',
     dedication_of_the_lateran_basilica: 'Dédicace de la Basilique du Latran',
     dedication_of_the_notre_dame_de_paris_cathedral_paris_france: 'Dédicace de la cathédrale de Paris',
-    denis_of_paris_bishop_and_companions_martyrs: 'Saint Denis, évêque, et ses compagnons, martyrs à Paris († IIIème s.)',
+    denis_of_paris_bishop_and_companions_martyrs:
+      'Saint Denis, évêque, et ses compagnons, martyrs à Paris († IIIème s.)',
     denis_of_paris_bishop_patron_of_the_archdiocese_of_paris: 'Saint Denis, martyr, premier évêque, patron du diocèse',
     denis_of_paris_bishop_patron_of_the_city_and_of_the_diocese_of_saint_denis:
       'Saint Denis, évêque et martyr, patron de la ville et du diocèse de Saint-Denis',
