@@ -75,8 +75,8 @@ describe('Testing national calendar overrides', () => {
       ).flat();
       const epiphanySlovakia = slovakiaDates.find((d) => d.key === 'epiphany_of_the_lord');
       // Should always be Jan 6th in Slovakia
-      expect(getUtcDateFromString(epiphanySlovakia!.date).getDate()).toEqual(6);
-      expect(getUtcDateFromString(epiphanySlovakia!.date).getMonth()).toEqual(0);
+      expect(getUtcDateFromString(epiphanySlovakia!.date).getUTCDate()).toEqual(6);
+      expect(getUtcDateFromString(epiphanySlovakia!.date).getUTCMonth()).toEqual(0);
     });
     test('Will fall on Sunday as calculated by the Epiphany of the Lord rubric, when `epiphanyOnSunday` is explicitly configured as `true`', async () => {
       const slovakiaDates = Object.values(
@@ -86,8 +86,8 @@ describe('Testing national calendar overrides', () => {
         }).generateCalendar(2010),
       ).flat();
       const epiphanySlovakia = slovakiaDates.find((d) => d.key === 'epiphany_of_the_lord');
-      expect(getUtcDateFromString(epiphanySlovakia!.date).getDay()).toEqual(0);
-      expect(getUtcDateFromString(epiphanySlovakia!.date).getMonth()).toEqual(0);
+      expect(getUtcDateFromString(epiphanySlovakia!.date).getUTCDay()).toEqual(0);
+      expect(getUtcDateFromString(epiphanySlovakia!.date).getUTCMonth()).toEqual(0);
     });
   });
 
@@ -198,8 +198,8 @@ describe('Testing national calendar overrides', () => {
       // So All Saints should be celebrated on Sunday
       const allSaintsEngland = englandDates.find((d) => d.key === 'all_saints');
       const allSaintsWales = walesDates.find((d) => d.key === 'all_saints');
-      expect(getUtcDateFromString(allSaintsEngland!.date).getDay()).toEqual(0);
-      expect(getUtcDateFromString(allSaintsWales!.date).getDay()).toEqual(0);
+      expect(getUtcDateFromString(allSaintsEngland!.date).getUTCDay()).toEqual(0);
+      expect(getUtcDateFromString(allSaintsWales!.date).getUTCDay()).toEqual(0);
     });
   });
 
@@ -214,8 +214,8 @@ describe('Testing national calendar overrides', () => {
       // and All Souls will be celebrated on Monday
       const allSaintsEngland = englandDates.find((d) => d.key === 'commemoration_of_all_the_faithful_departed');
       const allSaintsWales = walesDates.find((d) => d.key === 'commemoration_of_all_the_faithful_departed');
-      expect(getUtcDateFromString(allSaintsEngland!.date).getDay()).toEqual(1);
-      expect(getUtcDateFromString(allSaintsWales!.date).getDay()).toEqual(1);
+      expect(getUtcDateFromString(allSaintsEngland!.date).getUTCDay()).toEqual(1);
+      expect(getUtcDateFromString(allSaintsWales!.date).getUTCDay()).toEqual(1);
     });
   });
 

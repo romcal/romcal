@@ -12,42 +12,42 @@ describe('Testing date range functions', () => {
 
     test('Depending on the day of Christmas, the 1st Sunday of Advent will be between Nov 27 - Dec 3', () => {
       const romcal = new Romcal();
-      expect(romcal.dates(2005).allSundaysOfAdvent()[0].getDate()).toEqual(27);
-      expect(romcal.dates(2000).allSundaysOfAdvent()[0].getDate()).toEqual(3);
-      expect(romcal.dates(2001).allSundaysOfAdvent()[0].getDate()).toEqual(2);
-      expect(romcal.dates(2001).allSundaysOfAdvent(2002)[0].getDate()).toEqual(1);
-      expect(romcal.dates(2003).allSundaysOfAdvent()[0].getDate()).toEqual(30);
-      expect(romcal.dates(1998).allSundaysOfAdvent()[0].getDate()).toEqual(29);
-      expect(romcal.dates(1999).allSundaysOfAdvent()[0].getDate()).toEqual(28);
+      expect(romcal.dates(2005).allSundaysOfAdvent()[0].getUTCDate()).toEqual(27);
+      expect(romcal.dates(2000).allSundaysOfAdvent()[0].getUTCDate()).toEqual(3);
+      expect(romcal.dates(2001).allSundaysOfAdvent()[0].getUTCDate()).toEqual(2);
+      expect(romcal.dates(2001).allSundaysOfAdvent(2002)[0].getUTCDate()).toEqual(1);
+      expect(romcal.dates(2003).allSundaysOfAdvent()[0].getUTCDate()).toEqual(30);
+      expect(romcal.dates(1998).allSundaysOfAdvent()[0].getUTCDate()).toEqual(29);
+      expect(romcal.dates(1999).allSundaysOfAdvent()[0].getUTCDate()).toEqual(28);
     });
 
     test('Depending on the day of Christmas, the number of days in Advent varies', () => {
       const romcal = new Romcal();
-      if (romcal.dates().christmas(2005).getDay() === 0) {
+      if (romcal.dates().christmas(2005).getUTCDay() === 0) {
         // eslint-disable-next-line jest/no-conditional-expect
         expect(romcal.dates(2005).allDatesOfAdvent().length).toEqual(28);
       }
-      if (romcal.dates().christmas(2000).getDay() === 1) {
+      if (romcal.dates().christmas(2000).getUTCDay() === 1) {
         // eslint-disable-next-line jest/no-conditional-expect
         expect(romcal.dates(2000).allDatesOfAdvent().length).toEqual(22);
       }
-      if (romcal.dates().christmas(2001).getDay() === 2) {
+      if (romcal.dates().christmas(2001).getUTCDay() === 2) {
         // eslint-disable-next-line jest/no-conditional-expect
         expect(romcal.dates(2001).allDatesOfAdvent().length).toEqual(23);
       }
-      if (romcal.dates().christmas(2002).getDay() === 3) {
+      if (romcal.dates().christmas(2002).getUTCDay() === 3) {
         // eslint-disable-next-line jest/no-conditional-expect
         expect(romcal.dates(2002).allDatesOfAdvent().length).toEqual(24);
       }
-      if (romcal.dates().christmas(2003).getDay() === 4) {
+      if (romcal.dates().christmas(2003).getUTCDay() === 4) {
         // eslint-disable-next-line jest/no-conditional-expect
         expect(romcal.dates(2003).allDatesOfAdvent().length).toEqual(25);
       }
-      if (romcal.dates().christmas(1998).getDay() === 5) {
+      if (romcal.dates().christmas(1998).getUTCDay() === 5) {
         // eslint-disable-next-line jest/no-conditional-expect
         expect(romcal.dates(1998).allDatesOfAdvent().length).toEqual(26);
       }
-      if (romcal.dates().christmas(1999).getDay() === 6) {
+      if (romcal.dates().christmas(1999).getUTCDay() === 6) {
         // eslint-disable-next-line jest/no-conditional-expect
         expect(romcal.dates(1999).allDatesOfAdvent().length).toEqual(27);
       }
@@ -204,7 +204,7 @@ describe('Testing date range functions', () => {
         for (let i = 1900, il = 2100; i <= il; i++) {
           const dates = romcal.dates(i);
           const [lastDayInChristmastide] = dates.allDatesOfChristmasTime().reverse();
-          expect(lastDayInChristmastide.getDay()).toEqual(0);
+          expect(lastDayInChristmastide.getUTCDay()).toEqual(0);
         }
       });
     });

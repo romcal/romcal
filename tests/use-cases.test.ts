@@ -12,8 +12,8 @@ describe('Testing specific feasts and memorials', () => {
         computeInWholeYear: true,
       });
       const dayBeforeMaryMotherOfTheChurch = subtractsDays(getUtcDateFromString(maryMotherOfTheChurch!.date), 1);
-      expect(getUtcDateFromString(maryMotherOfTheChurch!.date).getDay()).toEqual(1);
-      expect(dayBeforeMaryMotherOfTheChurch.getDay()).toEqual(0);
+      expect(getUtcDateFromString(maryMotherOfTheChurch!.date).getUTCDay()).toEqual(1);
+      expect(dayBeforeMaryMotherOfTheChurch.getUTCDay()).toEqual(0);
       expect(isSameDate(dayBeforeMaryMotherOfTheChurch, pentecostSunday)).toBeTruthy();
     });
 
@@ -36,8 +36,8 @@ describe('Testing specific feasts and memorials', () => {
         computeInWholeYear: true,
       });
 
-      expect(getUtcDateFromString(maryMagdalene!.date).getDate()).toEqual(22);
-      expect(getUtcDateFromString(maryMagdalene!.date).getMonth()).toEqual(6);
+      expect(getUtcDateFromString(maryMagdalene!.date).getUTCDate()).toEqual(22);
+      expect(getUtcDateFromString(maryMagdalene!.date).getUTCMonth()).toEqual(6);
       expect(maryMagdalene?.rank).toEqual(Ranks.Feast);
     });
   });
@@ -70,8 +70,8 @@ describe('Testing specific feasts and memorials', () => {
         computeInWholeYear: true,
       });
 
-      expect(getUtcDateFromString(exaltationOfTheHolyCross!.date).getDate()).toEqual(14);
-      expect(getUtcDateFromString(exaltationOfTheHolyCross!.date).getMonth()).toEqual(8);
+      expect(getUtcDateFromString(exaltationOfTheHolyCross!.date).getUTCDate()).toEqual(14);
+      expect(getUtcDateFromString(exaltationOfTheHolyCross!.date).getUTCMonth()).toEqual(8);
     });
   });
 

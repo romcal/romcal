@@ -78,7 +78,7 @@ export class Calendar implements BaseCalendar {
     let weekOfSeason =
       baseData?.calendar.weekOfSeason ??
       def.calendarMetadata.weekOfSeason ??
-      (startOfSeason ? Math.ceil((dayOfSeason + startOfSeason.getDay()) / 7) + weekOfSeasonOffset : NaN);
+      (startOfSeason ? Math.ceil((dayOfSeason + startOfSeason.getUTCDay()) / 7) + weekOfSeasonOffset : NaN);
 
     // In late Ordinary Time, we need to compute the week number from the remaining days of the liturgical year
     if (isLateOrdinaryTime) {
@@ -88,8 +88,8 @@ export class Calendar implements BaseCalendar {
     return {
       weekOfSeason,
       dayOfSeason,
-      dayOfWeek: baseData?.calendar.dayOfWeek ?? def.calendarMetadata.dayOfWeek ?? date.getDay(),
-      nthDayOfWeekInMonth: Math.ceil(date.getDate() / 7),
+      dayOfWeek: baseData?.calendar.dayOfWeek ?? def.calendarMetadata.dayOfWeek ?? date.getUTCDay(),
+      nthDayOfWeekInMonth: Math.ceil(date.getUTCDate() / 7),
       startOfSeason: startOfSeason ? startOfSeason.toISOString().substr(0, 10) : '',
       endOfSeason: endOfSeason ? endOfSeason.toISOString().substr(0, 10) : '',
       startOfLiturgicalYear: startOfSeasonsDic[Seasons.Advent].toISOString().substr(0, 10),

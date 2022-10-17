@@ -18,7 +18,7 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
   constructor(config: RomcalConfig, year?: number) {
     this.config = config;
 
-    const currentYear = new Date().getFullYear();
+    const currentYear = new Date().getUTCFullYear();
     this.year =
       year ??
       // When year is undefined, determine the current year
@@ -44,7 +44,7 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
    * @private
    */
   static #getNextDayOfWeek(date: Date, dayOfWeek: DayOfWeek): Date {
-    return addDays(date, (7 + dayOfWeek - date.getDay()) % 7);
+    return addDays(date, (7 + dayOfWeek - date.getUTCDay()) % 7);
   }
 
   /**
@@ -149,7 +149,7 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
 
         // ifIsDayOfWeek
         else if (Number.isInteger(exception.ifIsDayOfWeek)) {
-          if (date!.getDay() === exception.ifIsDayOfWeek) {
+          if (date!.getUTCDay() === exception.ifIsDayOfWeek) {
             setDate(exception.setDate);
           }
         }
