@@ -11,9 +11,9 @@ import { Inputs, ParticularConfig } from '../types/calendar-def';
 
 export class GeneralRoman extends CalendarDef {
   particularConfig: ParticularConfig = {
-    epiphanyOnSunday: true,
+    epiphanyOnSunday: false,
     ascensionOnSunday: false,
-    corpusChristiOnSunday: true,
+    corpusChristiOnSunday: false,
   };
 
   inputs: Inputs = {

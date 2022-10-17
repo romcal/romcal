@@ -358,19 +358,19 @@ describe('Testing specific liturgical date functions', () => {
   describe('Corpus Christi', () => {
     describe('If it is celebrated on Sunday (63 days after Easter)', () => {
       test('In 1969, Corpus Christi was on June 8', () => {
-        const date = new Romcal().dates().corpusChristi(1969);
+        const date = new Romcal().dates().corpusChristi(1969, true);
         expect(date.getMonth()).toEqual(5);
         expect(date.getDate()).toEqual(8);
       });
 
       test('In 2008, Corpus Christi was on May 25', () => {
-        const date = new Romcal().dates().corpusChristi(2008);
+        const date = new Romcal().dates().corpusChristi(2008, true);
         expect(date.getMonth()).toEqual(4);
         expect(date.getDate()).toEqual(25);
       });
 
       test('In 2050, Corpus Christi will be on June 12', () => {
-        const date = new Romcal().dates().corpusChristi(2050);
+        const date = new Romcal().dates().corpusChristi(2050, true);
         expect(date.getMonth()).toEqual(5);
         expect(date.getDate()).toEqual(12);
       });
@@ -378,7 +378,7 @@ describe('Testing specific liturgical date functions', () => {
       test('It can occur anytime between May 24 and June 27 (inclusive)', () => {
         for (let i = 1900, il = 2100; i <= il; i++) {
           const range = rangeOfDays(getUtcDate(i, 5, 24), getUtcDate(i, 6, 27));
-          const corpusChristi = new Romcal().dates().corpusChristi(i);
+          const corpusChristi = new Romcal().dates().corpusChristi(i, true);
           expect(rangeContainsDate(range, corpusChristi)).toBeTrue();
         }
       });
@@ -547,10 +547,10 @@ describe('Testing specific liturgical date functions', () => {
 
     describe('If Epiphany of the Lord is not celebrated on Jan 6, Epiphany of the Lord is celebrated on the 1st Sunday after the 1st Saturday in January', () => {
       test('If first day of the year 2011 is a Saturday, Mary Mother of God is on that day and Epiphany of the Lord is on the next day', () => {
-        // If first day of 2011, 2022 was/is a Saturday
+        // If first day of 2011, 2022 was a Saturday
         const first = getUtcDate(2011, 1, 1);
         const target = startOfWeek(getUtcDate(2011, 1, 8));
-        const date = new Romcal().dates().epiphany(2011);
+        const date = new Romcal().dates().epiphany(2011, true);
 
         expect(first.getDay()).toEqual(6); // First day of the year should be a Saturday
         expect(isSameDate(first, new Romcal().dates().maryMotherOfGod(2011))).toEqual(true); // First day of the year is Mary, Mother of God
@@ -563,7 +563,7 @@ describe('Testing specific liturgical date functions', () => {
         // First day of 2012, 2017 was a Sunday
         const first = getUtcDate(2012, 1, 1);
         const target = startOfWeek(getUtcDate(2012, 1, 8));
-        const date = new Romcal().dates().epiphany(2012);
+        const date = new Romcal().dates().epiphany(2012, true);
 
         expect(first.getDay()).toEqual(0); // First day of the year should be a Sunday
         expect(isSameDate(first, new Romcal().dates().maryMotherOfGod(2012))).toEqual(true); // First day of the year is Mary, Mother of God
@@ -577,7 +577,7 @@ describe('Testing specific liturgical date functions', () => {
         // First day of 2014 was a Wed, First day of 2015 was a Thurs
         const first = getUtcDate(2011, 1, 1);
         const target = getUtcDate(2011, 1, 2);
-        const date = new Romcal().dates().epiphany(2011);
+        const date = new Romcal().dates().epiphany(2011, true);
         expect(first.getDay()).toBeOneOf([1, 2, 3, 4, 5, 6]); // First day of the year should be a weekday
         expect(target.getDate()).toEqual(2); // Epiphany should be the 4th day of the year
         expect(target.getDay()).toEqual(0); // Epiphany should be a Sunday
@@ -585,13 +585,13 @@ describe('Testing specific liturgical date functions', () => {
       });
 
       test('Its earliest occurring date is Jan 2 and latest occurring date is Jan 8', () => {
-        expect(new Romcal().dates().epiphany(1999).getDate()).toBeOneOf([2, 3, 4, 5, 6, 7, 8]);
-        expect(new Romcal().dates().epiphany(2000).getDate()).toBeOneOf([2, 3, 4, 5, 6, 7, 8]);
-        expect(new Romcal().dates().epiphany(2001).getDate()).toBeOneOf([2, 3, 4, 5, 6, 7, 8]);
-        expect(new Romcal().dates().epiphany(2002).getDate()).toBeOneOf([2, 3, 4, 5, 6, 7, 8]);
-        expect(new Romcal().dates().epiphany(2003).getDate()).toBeOneOf([2, 3, 4, 5, 6, 7, 8]);
-        expect(new Romcal().dates().epiphany(2004).getDate()).toBeOneOf([2, 3, 4, 5, 6, 7, 8]);
-        expect(new Romcal().dates().epiphany(2005).getDate()).toBeOneOf([2, 3, 4, 5, 6, 7, 8]);
+        expect(new Romcal().dates().epiphany(1999, true).getDate()).toBeOneOf([2, 3, 4, 5, 6, 7, 8]);
+        expect(new Romcal().dates().epiphany(2000, true).getDate()).toBeOneOf([2, 3, 4, 5, 6, 7, 8]);
+        expect(new Romcal().dates().epiphany(2001, true).getDate()).toBeOneOf([2, 3, 4, 5, 6, 7, 8]);
+        expect(new Romcal().dates().epiphany(2002, true).getDate()).toBeOneOf([2, 3, 4, 5, 6, 7, 8]);
+        expect(new Romcal().dates().epiphany(2003, true).getDate()).toBeOneOf([2, 3, 4, 5, 6, 7, 8]);
+        expect(new Romcal().dates().epiphany(2004, true).getDate()).toBeOneOf([2, 3, 4, 5, 6, 7, 8]);
+        expect(new Romcal().dates().epiphany(2005, true).getDate()).toBeOneOf([2, 3, 4, 5, 6, 7, 8]);
       });
     });
   });
@@ -780,22 +780,22 @@ describe('Testing specific liturgical date functions', () => {
     describe('When Epiphany of the Lord is not celebrated on Jan. 6 (i.e. celebrated on a Sunday)', () => {
       test('If Epiphany of the Lord occurs on Sunday Jan. 7 or Sunday Jan. 8, then the Baptism of the Lord is the next day (Monday)', () => {
         for (let i = 1900, il = 2100; i <= il; i++) {
-          const epiphany = new Romcal().dates().epiphany(i);
+          const epiphany = new Romcal().dates().epiphany(i, true);
           expect(epiphany.getDay()).toEqual(0);
           if (epiphany.getDate() === 7 || epiphany.getDate() === 8) {
             // eslint-disable-next-line jest/no-conditional-expect
-            expect(isSameDate(addDays(epiphany, 1), new Romcal().dates().baptismOfTheLord(i))).toEqual(true);
+            expect(isSameDate(addDays(epiphany, 1), new Romcal().dates().baptismOfTheLord(i, true))).toEqual(true);
           }
         }
       });
 
       test('If Epiphany of the Lord occurs on a Sunday before Jan. 6, the Sunday following Epiphany of the Lord is the Baptism of the Lord.', () => {
         for (let i = 1900, il = 2100; i <= il; i++) {
-          const epiphany = new Romcal().dates().epiphany(i);
+          const epiphany = new Romcal().dates().epiphany(i, true);
           expect(epiphany.getDay()).toEqual(0);
           if (epiphany.getDate() < 6) {
             // eslint-disable-next-line jest/no-conditional-expect
-            expect(isSameDate(startOfWeek(addDays(epiphany, 7)), new Romcal().dates().baptismOfTheLord(i))).toEqual(
+            expect(isSameDate(startOfWeek(addDays(epiphany, 7)), new Romcal().dates().baptismOfTheLord(i, true))).toEqual(
               true,
             );
           }
@@ -804,11 +804,11 @@ describe('Testing specific liturgical date functions', () => {
 
       test('If Epiphany of the Lord occurs on Sunday Jan. 6, the Baptism of the Lord occurs on the following Sunday', () => {
         for (let i = 1900, il = 2100; i <= il; i++) {
-          const epiphany = new Romcal().dates().epiphany(i);
+          const epiphany = new Romcal().dates().epiphany(i, true);
           expect(epiphany.getDay()).toEqual(0);
           if (epiphany.getDate() === 6) {
             // eslint-disable-next-line jest/no-conditional-expect
-            expect(isSameDate(startOfWeek(addDays(epiphany, 7)), new Romcal().dates().baptismOfTheLord(i))).toEqual(
+            expect(isSameDate(startOfWeek(addDays(epiphany, 7)), new Romcal().dates().baptismOfTheLord(i, true))).toEqual(
               true,
             );
           }
