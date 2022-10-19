@@ -1,5 +1,6 @@
 import { CzechRepublic_Cs } from 'romcal/dist/bundles/czech-republic';
 import { England_En } from 'romcal/dist/bundles/england';
+import { France_Fr } from 'romcal/dist/bundles/france';
 import { Germany_En } from 'romcal/dist/bundles/germany';
 import { Hungary_En } from 'romcal/dist/bundles/hungary';
 import { Ireland_En } from 'romcal/dist/bundles/ireland'
@@ -14,13 +15,13 @@ const { Ranks, Periods, Precedences, getUtcDateFromString } = Romcal;
 
 describe('Testing national calendar overrides', () => {
   describe('An optional celebration is available to be celebrated, in addition to the weekday', () => {
+    let franceDates2021: BaseLiturgicalDay[];
     let generalDates2020: BaseLiturgicalDay[];
-    let generalDates2021: BaseLiturgicalDay[];
     let spainDates2020: BaseLiturgicalDay[];
 
     beforeAll(async () => {
+      franceDates2021 = Object.values(await new Romcal({ localizedCalendar: France_Fr }).generateCalendar(2021)).flat();
       generalDates2020 = Object.values(await new Romcal().generateCalendar(2020)).flat();
-      generalDates2021 = Object.values(await new Romcal().generateCalendar(2021)).flat();
       spainDates2020 = Object.values(await new Romcal({ localizedCalendar: Spain_Es }).generateCalendar(2020)).flat();
     });
 
@@ -29,7 +30,7 @@ describe('Testing national calendar overrides', () => {
       expect(dates.length).toEqual(2);
     });
     test('However, if the 3th of January is a Sunday, the Solemnity of Epiphany of the Lord takes the precedence.', () => {
-      const dates = generalDates2021.filter((d) => d.date === '2021-01-03');
+      const dates = franceDates2021.filter((d) => d.date === '2021-01-03');
       expect(dates.length).toEqual(1);
       expect(dates[0].key).toEqual('epiphany_of_the_lord');
     });

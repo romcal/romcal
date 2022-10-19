@@ -11,8 +11,8 @@ describe('getConfig()', () => {
 
     expect(year).toBe(new Date().getUTCFullYear());
     expect(scope).toBe('gregorian');
-    expect(epiphanyOnSunday).toBeTrue();
-    expect(corpusChristiOnSunday).toBeTrue();
+    expect(epiphanyOnSunday).toBeFalse();
+    expect(corpusChristiOnSunday).toBeFalse();
     expect(ascensionOnSunday).toBeFalse();
   });
 });

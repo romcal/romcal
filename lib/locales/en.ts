@@ -959,7 +959,7 @@ export const locale: Locale = {
     vincent_lewoniuk_and_companions_martyrs: 'Blessed Vincent Lewoniuk and Companions, Martyrs',
     vincent_of_saragossa_deacon: 'Saint Vincent, Deacon and Martyr',
     vincent_pallotti_priest: 'Saint Vincent Pallotti, Priest',
-    virgilius_of_salzburg_bishop: 'Saint Fergal, Bishop and Missionary',
+    virgilius_of_salzburg_bishop: 'Saint Virgilius, Bishop and Missionary',
     visitation_of_mary: 'The Visitation of the Blessed Virgin Mary',
     vitus_of_lucania_martyr: 'Saint Vitus, Martyr',
     vladimir_ghika_priest: 'Blessed Vladimir Ghika, Priest and Martyr',
