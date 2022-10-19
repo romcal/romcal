@@ -332,7 +332,7 @@ var hasToday = calendar.hasLiturgicalDay(new Date()); // true
 var hasEaster = calendar.getDaysAfter('easter_sunday').hasLiturgicalDay('easter_sunday'); // false
 ```
 
-#### → Get a date within a calendar `.getDate(dateOrKey)`
+#### → Get a date within a calendar `.getUTCDate(dateOrKey)`
 
 Get a validated `Date` within a romcal calendar, or `undefined` if no matching day is found.
 
@@ -340,16 +340,16 @@ Get a validated `Date` within a romcal calendar, or `undefined` if no matching d
 - Returns the `Date` of the found liturgical day within the `RomcalCalendar` array. Or `undefined` if the matching liturgical day is not found.
 
 ```javascript
-// Types: getDate(dateOrKey: Date | string): Date | undefined
+// Types: getUTCDate(dateOrKey: Date | string): Date | undefined
 
 var calendar = await Romcal.calendarFor({ year: 2020 });
 
 // January 1 of 2019 is not part of the computed calendar for 2020
-var firstJanuaryOf2019 = calendar.getDate(new Date(2019, 0, 1)); // undefined
+var firstJanuaryOf2019 = calendar.getUTCDate(new Date(2019, 0, 1)); // undefined
 
 // These 2 days are part of the computed calendar for 2020
-var firstJanuaryOf2020 = calendar.getDate(new Date(2020, 0, 1)); // "2020-01-01T00:00:00.000Z"
-var easterDate = calendar.getDate('easter_sunday'); // "2020-04-12T00:00:00.000Z"
+var firstJanuaryOf2020 = calendar.getUTCDate(new Date(2020, 0, 1)); // "2020-01-01T00:00:00.000Z"
+var easterDate = calendar.getUTCDate('easter_sunday'); // "2020-04-12T00:00:00.000Z"
 ```
 
 ## Group results by criteria

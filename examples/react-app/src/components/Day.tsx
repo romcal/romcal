@@ -11,18 +11,18 @@ export default function Day(props: { liturgicalDay: BaseLiturgicalDay[] }) {
 
   return (
     <>
-      {date.getDate() === 1 && <MonthTitle>{format(date, 'MMMM yyyy')}</MonthTitle>}
+      {date.getUTCDate() === 1 && <MonthTitle>{format(date, 'MMMM yyyy')}</MonthTitle>}
       <DayContainer
         container
         direction="row"
         justifyContent="flex-start"
         alignItems="flex-start"
-        className={`dow-${date.getDay()} date-in-month-${date.getDate()}`}
+        className={`dow-${date.getUTCDay()} date-in-month-${date.getUTCDate()}`}
       >
         <Grid item xs={1}>
           <Box>
             <Tooltip placement="top-start" title={format(date, 'EEEE')}>
-              <DayNumber>{date.getDate()}</DayNumber>
+              <DayNumber>{date.getUTCDate()}</DayNumber>
             </Tooltip>
           </Box>
         </Grid>

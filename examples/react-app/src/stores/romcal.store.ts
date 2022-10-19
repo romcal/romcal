@@ -9,8 +9,8 @@ export class RomcalStore {
   monthlyData: BaseLiturgicalDay[][] = [];
   localeKey: string = 'En';
   calendarKey: string = 'GeneralRoman';
-  currentYear: number = new Date().getFullYear();
-  currentMonth: number = new Date().getMonth();
+  currentYear: number = new Date().getUTCFullYear();
+  currentMonth: number = new Date().getUTCMonth();
 
   constructor() {
     makeAutoObservable(this);
@@ -31,7 +31,7 @@ export class RomcalStore {
   getMonthData = () => {
     runInAction(() => (this.fetchingData = true));
     this.fetchRomcalData().then(() => {
-      const monthlyData = this.yearlyData.filter((days) => new Date(days[0].date).getMonth() === this.currentMonth);
+      const monthlyData = this.yearlyData.filter((days) => new Date(days[0].date).getUTCMonth() === this.currentMonth);
       runInAction(() => {
         this.monthlyData = monthlyData;
         this.fetchingData = false;
@@ -52,26 +52,26 @@ export class RomcalStore {
   };
 
   setDate = (date: Date): void => {
-    const newYear = date.getFullYear();
+    const newYear = date.getUTCFullYear();
     if (newYear !== this.currentMonth) this.yearlyData = [];
     this.currentYear = newYear;
-    this.currentMonth = date.getMonth();
+    this.currentMonth = date.getUTCMonth();
     this.getMonthData();
   };
 
   setPreviousMonth = (): void => {
     const newDate = subMonths(new Date(this.currentYear, this.currentMonth, 1), 1);
-    if (newDate.getFullYear() !== this.currentMonth) this.yearlyData = [];
-    this.currentYear = newDate.getFullYear();
-    this.currentMonth = newDate.getMonth();
+    if (newDate.getUTCFullYear() !== this.currentMonth) this.yearlyData = [];
+    this.currentYear = newDate.getUTCFullYear();
+    this.currentMonth = newDate.getUTCMonth();
     this.getMonthData();
   };
 
   setNextMonth = (): void => {
     const newDate = addMonths(new Date(this.currentYear, this.currentMonth, 1), 1);
-    if (newDate.getFullYear() !== this.currentMonth) this.yearlyData = [];
-    this.currentYear = newDate.getFullYear();
-    this.currentMonth = newDate.getMonth();
+    if (newDate.getUTCFullYear() !== this.currentMonth) this.yearlyData = [];
+    this.currentYear = newDate.getUTCFullYear();
+    this.currentMonth = newDate.getUTCMonth();
     this.getMonthData();
   };
 }

@@ -82,7 +82,7 @@ describe('Testing calendar generation functions', () => {
 
       beforeEach(async () => {
         const romcal = new Romcal({ scope: 'liturgical' });
-        year = new Date().getFullYear();
+        year = new Date().getUTCFullYear();
         start = romcal.dates(year).firstSundayOfAdvent();
         end = subtractsDays(romcal.dates(year).firstSundayOfAdvent(year), 1);
         calendar = await romcal.generateCalendar(year);
@@ -100,10 +100,10 @@ describe('Testing calendar generation functions', () => {
         const calendarArr = Object.values(await new Romcal().generateCalendar());
         const firstDate = calendarArr[0][0];
         const lastDate = calendarArr.reverse()[0][0];
-        expect(getUtcDateFromString(firstDate.date).getMonth()).toEqual(0);
-        expect(getUtcDateFromString(firstDate.date).getDate()).toEqual(1);
-        expect(getUtcDateFromString(lastDate.date).getMonth()).toEqual(11);
-        expect(getUtcDateFromString(lastDate.date).getDate()).toEqual(31);
+        expect(getUtcDateFromString(firstDate.date).getUTCMonth()).toEqual(0);
+        expect(getUtcDateFromString(firstDate.date).getUTCDate()).toEqual(1);
+        expect(getUtcDateFromString(lastDate.date).getUTCMonth()).toEqual(11);
+        expect(getUtcDateFromString(lastDate.date).getUTCDate()).toEqual(31);
       });
     });
   });
@@ -214,9 +214,9 @@ describe('Testing calendar generation functions', () => {
         const data: LiturgicalDay[] = Object.values(await romcal.generateCalendar(year)).flatMap((d) => d[0]);
 
         let currentSeason = data[0].seasons;
-        let weekOfSeason = scope === 'liturgical' ? 0 : Math.ceil((8 + new Date(data[0].date).getDay()) / 7);
+        let weekOfSeason = scope === 'liturgical' ? 0 : Math.ceil((8 + new Date(data[0].date).getUTCDay()) / 7);
         let dayOfSeason = scope === 'liturgical' ? 0 : 7;
-        let dayOfWeek = new Date(data[0].date).getDay();
+        let dayOfWeek = new Date(data[0].date).getUTCDay();
 
         let dayOfOrdinaryTime = 0;
         const lastDayOfOT = subtractsDays(
@@ -237,7 +237,7 @@ describe('Testing calendar generation functions', () => {
         for (let i = 0; i < data.length; i++) {
           const day = data[i];
           const date = new Date(day.date);
-          const dow = date.getDay();
+          const dow = date.getUTCDay();
 
           // Compute data for current day
           if (!currentSeason.some((s) => day.seasons.includes(s)) || day.key === 'easter_sunday') {
@@ -251,8 +251,8 @@ describe('Testing calendar generation functions', () => {
           currentSeason = day.seasons;
 
           // Days of week
-          if (nthDayOfWeekInMonth[dow] === undefined) nthDayOfWeekInMonth[dow] = Math.ceil(date.getDate() / 7) - 1;
-          if (date.getDate() === 1) {
+          if (nthDayOfWeekInMonth[dow] === undefined) nthDayOfWeekInMonth[dow] = Math.ceil(date.getUTCDate() / 7) - 1;
+          if (date.getUTCDate() === 1) {
             for (let j = 0; j < 7; j++) {
               nthDayOfWeekInMonth[j] = 0;
             }

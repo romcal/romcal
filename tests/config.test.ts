@@ -9,7 +9,7 @@ describe('getConfig()', () => {
     const { year, scope, epiphanyOnSunday, corpusChristiOnSunday, ascensionOnSunday } =
       liturgicalDayConfig.getConfigObject();
 
-    expect(year).toBe(new Date().getFullYear());
+    expect(year).toBe(new Date().getUTCFullYear());
     expect(scope).toBe('gregorian');
     expect(epiphanyOnSunday).toBeFalse();
     expect(corpusChristiOnSunday).toBeFalse();
