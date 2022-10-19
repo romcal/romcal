@@ -5,10 +5,10 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "@romcal/calendar.france": "^3.0.0-dev.6",
-    "@romcal/calendar.general-roman": "^3.0.0-dev.6",
-    "express": "^4.17.1",
-    "romcal": "^3.0.0-dev.6"
+    "@romcal/calendar.france": "^3.0.0-dev.20",
+    "@romcal/calendar.general-roman": "^3.0.0-dev.20",
+    "express": "^4.18.2",
+    "romcal": "^3.0.0-dev.20"
   },
   "license": "MIT"
 }

@@ -5,9 +5,7 @@ import { AppContext } from '../AppContext';
 import Day from './Day';
 import LoadingIndicator from './LoadingIndicator';
 
-interface Props {}
-
-const CalendarContent = observer((props: Props) => {
+const CalendarContent = observer(() => {
   const { romcalStore } = useContext(AppContext);
   const { fetchingData, monthlyData } = romcalStore;
 

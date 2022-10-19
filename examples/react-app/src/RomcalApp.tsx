@@ -1,7 +1,7 @@
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import { LocalizationProvider } from '@mui/x-date-pickers';
 import { Container, createTheme, ThemeProvider } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import React from 'react';
 import { AppContext, stores } from './AppContext';
 import { Calendar } from './components/Calendar';
