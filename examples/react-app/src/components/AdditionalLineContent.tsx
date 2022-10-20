@@ -7,7 +7,7 @@ import Colors from './Colors';
 export default function AdditionalLineContent(props: { day: BaseLiturgicalDay }) {
   const { day } = props;
   const rank = ['SUNDAY', 'WEEKDAY'].includes(day.rank) ? null : capitalize(day.rankName);
-  const hdo = day.isHolyDayOfObligation && new Date(day.date).getUTCDay() !== 0 ? '(Holy Day of Obligation)' : null;
+  const hdo = day.isHolyDayOfObligation && day.calendar.dayOfWeek !== 0 ? '(Holy Day of Obligation)' : null;
 
   return (
     <Container>

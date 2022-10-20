@@ -9,8 +9,8 @@ export class RomcalStore {
   monthlyData: BaseLiturgicalDay[][] = [];
   localeKey: string = 'En';
   calendarKey: string = 'GeneralRoman';
-  currentYear: number = new Date().getUTCFullYear();
-  currentMonth: number = new Date().getUTCMonth();
+  currentYear: number = new Date().getFullYear();
+  currentMonth: number = new Date().getMonth();
 
   constructor() {
     makeAutoObservable(this);
@@ -52,26 +52,26 @@ export class RomcalStore {
   };
 
   setDate = (date: Date): void => {
-    const newYear = date.getUTCFullYear();
+    const newYear = date.getFullYear();
     if (newYear !== this.currentMonth) this.yearlyData = [];
     this.currentYear = newYear;
-    this.currentMonth = date.getUTCMonth();
+    this.currentMonth = date.getMonth();
     this.getMonthData();
   };
 
   setPreviousMonth = (): void => {
     const newDate = subMonths(new Date(this.currentYear, this.currentMonth, 1), 1);
-    if (newDate.getUTCFullYear() !== this.currentMonth) this.yearlyData = [];
-    this.currentYear = newDate.getUTCFullYear();
-    this.currentMonth = newDate.getUTCMonth();
+    if (newDate.getFullYear() !== this.currentMonth) this.yearlyData = [];
+    this.currentYear = newDate.getFullYear();
+    this.currentMonth = newDate.getMonth();
     this.getMonthData();
   };
 
   setNextMonth = (): void => {
     const newDate = addMonths(new Date(this.currentYear, this.currentMonth, 1), 1);
-    if (newDate.getUTCFullYear() !== this.currentMonth) this.yearlyData = [];
-    this.currentYear = newDate.getUTCFullYear();
-    this.currentMonth = newDate.getUTCMonth();
+    if (newDate.getFullYear() !== this.currentMonth) this.yearlyData = [];
+    this.currentYear = newDate.getFullYear();
+    this.currentMonth = newDate.getMonth();
     this.getMonthData();
   };
 }

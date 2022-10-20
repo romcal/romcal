@@ -11,7 +11,7 @@ const fastify = new Fastify();
  */
 fastify.get('/', async (request, reply) => {
   const stream = fs.createReadStream(path.resolve('./public/index.html'));
-  reply.type('text/html').send(stream);
+  return reply.type('text/html').send(stream);
 });
 
 /**
@@ -43,7 +43,7 @@ const manageGeneralRomanRoute = async (request, reply) => {
     const data = await romcalGeneralRoman.generateCalendar(year);
 
     // Finally, send the computed data.
-    reply.code(200).header('Content-Type', 'application/json; charset=utf-8').send(JSON.stringify(data));
+    return reply.code(200).header('Content-Type', 'application/json; charset=utf-8').send(JSON.stringify(data));
   } catch ({ message }) {
     // If romcal return an error, we must manage and display it through Fastify.
     const code = 500;
@@ -82,7 +82,7 @@ fastify.get('/romcal/france/fr/:year', manageFranceFrRoute);
  */
 const start = async () => {
   try {
-    await fastify.listen(3000);
+    await fastify.listen({ port: 3000 });
     console.log('Romcal server listening on port 3000');
     console.log('url: http://127.0.0.1:3000');
   } catch (err) {

@@ -1,16 +1,14 @@
 import styled from '@emotion/styled';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import DatePicker from '@mui/lab/DatePicker';
-import { Box, IconButton, TextField } from '@mui/material';
+import { Box, IconButton, TextField, TextFieldProps } from '@mui/material';
+import { DatePicker } from '@mui/x-date-pickers';
 import { observer } from 'mobx-react';
 import * as React from 'react';
 import { useContext } from 'react';
 import { AppContext } from '../AppContext';
 
-interface Props {}
-
-const MonthPicker = observer((props: Props) => {
+const MonthPicker = observer(() => {
   const { romcalStore } = useContext(AppContext);
   const { currentYear, currentMonth } = romcalStore;
 
@@ -26,7 +24,7 @@ const MonthPicker = observer((props: Props) => {
   return (
     <Container>
       <Box sx={{ marginRight: 1, marginTop: 1 }}>
-        <IconButton aria-label="delete" color="primary" onClick={previousMonth}>
+        <IconButton color="primary" onClick={previousMonth}>
           <ArrowBackIcon />
         </IconButton>
       </Box>
@@ -37,11 +35,11 @@ const MonthPicker = observer((props: Props) => {
           minDate={new Date('1969-01-01')}
           value={new Date(currentYear, currentMonth, 1)}
           onChange={datePickerChange}
-          renderInput={(params) => <TextField {...params} variant="standard" helperText={null} />}
+          renderInput={(params: TextFieldProps) => <TextField {...params} variant="standard" helperText={null} />}
         />
       </Box>
       <Box sx={{ marginLeft: 1, marginTop: 1 }}>
-        <IconButton aria-label="delete" color="primary" onClick={nextMonth}>
+        <IconButton color="primary" onClick={nextMonth}>
           <ArrowForwardIcon />
         </IconButton>
       </Box>
