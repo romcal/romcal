@@ -3,7 +3,7 @@ import { England_En } from 'romcal/dist/bundles/england';
 import { France_Fr } from 'romcal/dist/bundles/france';
 import { Germany_En } from 'romcal/dist/bundles/germany';
 import { Hungary_En } from 'romcal/dist/bundles/hungary';
-import { Ireland_En } from 'romcal/dist/bundles/ireland'
+import { Ireland_En } from 'romcal/dist/bundles/ireland';
 import { Malta_En } from 'romcal/dist/bundles/malta';
 import { Mexico_Es } from 'romcal/dist/bundles/mexico';
 import { Slovakia_Sk } from 'romcal/dist/bundles/slovakia';
@@ -281,8 +281,8 @@ describe('Testing national calendar overrides', () => {
 
       expect(oliverPlunketBishopIreland?.precedence).toEqual(Precedences.ProperMemorial_11b);
       expect(oliverPlunketBishopEngland?.precedence).toEqual(Precedences.OptionalMemorial_12);
-    })
-  })
+    });
+  });
 
   describe('Our Lady of Sorrows', () => {
     test('Should be celebrated on the September 15, 2018 as a memorial in the General Calendar', async () => {

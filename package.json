@@ -12,6 +12,8 @@
     "clean": "rimraf coverage dist tmp",
     "lint": "eslint . --ext .ts",
     "prebuild": "npm run lint",
+    "prettier": "prettier -c --config .prettierrc {lib,docs,tests}",
+    "prettier:fix": "prettier -w --config .prettierrc {lib,docs,tests}",
     "build": "node -r ts-node/register scripts/build.ts",
     "doc": "node -r ts-node/register scripts/bundle-doc.ts",
     "test": "jest --coverage",
