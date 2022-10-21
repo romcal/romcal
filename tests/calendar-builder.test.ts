@@ -352,7 +352,9 @@ describe('Testing calendar generation functions', () => {
 
     test('A dropped liturgical day should not be appended in the final calendar', () => {
       const date = testDates.find((d) => isSameDate(getUtcDateFromString(d.date), getUtcDate(2020, 12, 4)));
-      expect(date?.key).not.toEqual('cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop');
+      expect(date?.key).not.toEqual(
+        'cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop',
+      );
     });
   });
 });
