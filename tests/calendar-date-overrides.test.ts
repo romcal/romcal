@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { CzechRepublic_Cs } from 'romcal/dist/bundles/czech-republic';
 import { England_En } from 'romcal/dist/bundles/england';
 import { France_Fr } from 'romcal/dist/bundles/france';
@@ -9,15 +10,16 @@ import { Mexico_Es } from 'romcal/dist/bundles/mexico';
 import { Slovakia_Sk } from 'romcal/dist/bundles/slovakia';
 import { Spain_Es } from 'romcal/dist/bundles/spain';
 import { Wales_En } from 'romcal/dist/bundles/wales';
-import Romcal, { BaseLiturgicalDay } from '../lib';
+
+import Romcal, { LiturgicalDay } from '../lib';
 
 const { Ranks, Periods, Precedences, getUtcDateFromString } = Romcal;
 
 describe('Testing national calendar overrides', () => {
   describe('An optional celebration is available to be celebrated, in addition to the weekday', () => {
-    let franceDates2021: BaseLiturgicalDay[];
-    let generalDates2020: BaseLiturgicalDay[];
-    let spainDates2020: BaseLiturgicalDay[];
+    let franceDates2021: LiturgicalDay[];
+    let generalDates2020: LiturgicalDay[];
+    let spainDates2020: LiturgicalDay[];
 
     beforeAll(async () => {
       franceDates2021 = Object.values(await new Romcal({ localizedCalendar: France_Fr }).generateCalendar(2021)).flat();
@@ -46,8 +48,8 @@ describe('Testing national calendar overrides', () => {
 
   describe('A feast defined in a national calendar should replace the same feast defined in the general calendar', () => {
     let year: number;
-    let generalDates: BaseLiturgicalDay[];
-    let spainDates: BaseLiturgicalDay[];
+    let generalDates: LiturgicalDay[];
+    let spainDates: LiturgicalDay[];
 
     beforeAll(async () => {
       year = 2008;
@@ -135,10 +137,10 @@ describe('Testing national calendar overrides', () => {
           await new Romcal({ localizedCalendar: England_En }).generateCalendar(2011),
         ).flat();
 
-        const lateOrdinaryTimeDates2009: BaseLiturgicalDay[] = Object.values(await new Romcal().generateCalendar(2009))
+        const lateOrdinaryTimeDates2009: LiturgicalDay[] = Object.values(await new Romcal().generateCalendar(2009))
           .flat()
           .filter((d) => d.periods.includes(Periods.LateOrdinaryTime));
-        const lateOrdinaryTimeDates2011: BaseLiturgicalDay[] = Object.values(await new Romcal().generateCalendar(2011))
+        const lateOrdinaryTimeDates2011: LiturgicalDay[] = Object.values(await new Romcal().generateCalendar(2011))
           .flat()
           .filter((d) => d.periods.includes(Periods.LateOrdinaryTime));
 
@@ -180,7 +182,7 @@ describe('Testing national calendar overrides', () => {
 
     describe('If the feast of the Assumption of the Blessed Virgin Mary falls on Sunday', () => {
       test('It replaces the 20th Sunday of OT', async () => {
-        const twentiethSundayOfOrdinaryTime: BaseLiturgicalDay = (await new Romcal().generateCalendar(2010))[
+        const twentiethSundayOfOrdinaryTime: LiturgicalDay = (await new Romcal().generateCalendar(2010))[
           '2010-08-15'
         ][0];
 

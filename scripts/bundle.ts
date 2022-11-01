@@ -3,9 +3,12 @@ import cliProgress from 'cli-progress';
 import * as fs from 'fs';
 import path from 'path';
 import rimraf from 'rimraf';
+import merge from 'ts-deepmerge';
 import * as util from 'util';
+
 import {
   BundleInputs,
+  Key,
   LiturgicalDayDefinitions,
   Locale,
   LocaleLiturgicalDayNames,
@@ -22,7 +25,6 @@ import { CalendarDef } from '../lib/models/calendar-def';
 import { RomcalConfig } from '../lib/models/config';
 import LiturgicalDayDef from '../lib/models/liturgical-day-def';
 import { particularCalendars } from '../lib/particular-calendars';
-import { mergeDeep } from '../lib/utils/objects';
 import { toPascalCase } from '../lib/utils/string';
 
 const log = console.log;
@@ -52,7 +54,7 @@ class RomcalBuilder {
     return calendarDefs[calendarDefs.length - 1].constructor.name;
   }
 
-  getCalendarName(): string {
+  getCalendarName(): Key {
     const calendarDefs = this.#config.calendarsDef;
     return calendarDefs[calendarDefs.length - 1].calendarName;
   }
@@ -143,10 +145,10 @@ export const RomcalBundler = (): void => {
       const martyrologyKeys = builder.martyrologyKeys;
 
       // Merge the current locale with the default English locale
-      const mergedLocale = mergeDeep(locales.En, locale);
+      const mergedLocale = merge(locales.En, locale);
 
       // Extract required liturgical names
-      const names = Object.values(inputs)
+      const names = Object.values<LiturgicalDayDef>(inputs)
         .filter((def) => def.i18nDef[0].startsWith('names:'))
         .map((def) => def.i18nDef[0].substr(6))
         .reduce((obj: LocaleLiturgicalDayNames, key: string) => {
@@ -166,11 +168,11 @@ export const RomcalBundler = (): void => {
           .filter(([key]) => martyrologyKeys.includes(key))
           .map(([key, data]) => [
             key,
-            (() => {
+            ((): MartyrologyCatalog => {
               // Extract the 'name' property since it's deprecated in the item definition.
               // eslint-disable-next-line @typescript-eslint/no-unused-vars
               const { name, ...martyrologyData } = data;
-              return martyrologyData;
+              return martyrologyData as MartyrologyCatalog;
             })(),
           ]),
       );

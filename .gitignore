@@ -17,8 +17,11 @@ tmp/
 *.event
 
 # VS Code
-.vscode
-!.vscode/tasks.js
+.vscode/*
+!.vscode/settings.json
+!.vscode/task.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
 # JetBrains IDEs
 .idea/

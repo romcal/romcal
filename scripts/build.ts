@@ -8,6 +8,7 @@ import prettier from 'prettier';
 import rimraf from 'rimraf';
 import { PackageJson } from 'type-fest';
 import * as ts from 'typescript';
+
 import { GENERAL_ROMAN_NAME } from '../lib/constants/general-calendar-names';
 import { locales } from '../lib/locales';
 import { particularCalendars } from '../lib/particular-calendars';
@@ -32,7 +33,7 @@ function reportDiagnostics(diagnostics: ts.Diagnostic[]): void {
   });
 }
 
-function readConfigFile(configFileName: string) {
+function readConfigFile(configFileName: string): ts.ParsedCommandLine {
   // Read config file
   const configFileText = fs.readFileSync(configFileName).toString();
 
@@ -70,7 +71,7 @@ function compile(configFileName: string): void {
 }
 
 log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
-(async () => {
+(async (): Promise<void> => {
   const time = new Date();
 
   /**
@@ -165,9 +166,9 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
   const bundles = glob
     .sync('../tmp/bundles/**/*.ts', { cwd: __dirname })
     .map((p) => path.resolve(__dirname, p))
-    .filter((p) => !p.match(/\.d\.ts$/));
+    .filter((p) => !/\.d\.ts$/.exec(p));
 
-  const toGlobalName = (calendar: string, locale: string) => {
+  const toGlobalName = (calendar: string, locale: string): string => {
     const varName = calendar
       .split('.')
       .map((s) => toPascalCase(s))
@@ -214,14 +215,15 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
       // Do not output index.ts on iife format
       // and only output locale.iife.js on iife format
       if (
-        (format !== 'iife' || !p.match(/\/index\.ts$/)) &&
-        ((p.match(/.iife\.ts$/) && format === 'iife') || (!p.match(/.iife\.ts$/) && format !== 'iife'))
+        (format !== 'iife' || !/\/index\.ts$/.exec(p)) &&
+        ((/.iife\.ts$/.exec(p) && format === 'iife') || (!/.iife\.ts$/.exec(p) && format !== 'iife'))
       ) {
-        const calendar = p.match(/([^/]+)\/[^/]+$/)![1];
-        const locale = p.match(/([^/]+)\.\w+$/)![1].replace('.iife', '');
+        const calendar = /([^/]+)\/[^/]+$/.exec(p)?.[1];
+        const locale = /([^/]+)\.\w+$/.exec(p)?.[1].replace('.iife', '');
         await build({
           minify: true,
-          ...(format === 'iife' ? { globalName: toGlobalName(calendar, locale) } : {}),
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+          ...(format === 'iife' ? { globalName: toGlobalName(calendar!, locale!) } : {}),
           bundle: format === 'iife',
           platform,
           entryPoints: [p],

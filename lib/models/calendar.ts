@@ -1,9 +1,9 @@
 import { PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
 import { Periods } from '../constants/periods';
-import { Precedences, PRECEDENCES } from '../constants/precedences';
+import { PRECEDENCES, Precedences } from '../constants/precedences';
 import { Ranks } from '../constants/ranks';
 import { Seasons } from '../constants/seasons';
-import { BaseCalendar, DatesIndex, LiturgicalBuiltData, LiturgicalCalendar } from '../types/calendar';
+import { BaseCalendar, ByKeys, DatesIndex, LiturgicalBuiltData, LiturgicalCalendar } from '../types/calendar';
 import { Key } from '../types/common';
 import { RomcalCalendarMetadata } from '../types/liturgical-day';
 import { dateDifference, Dates, isValidDate } from '../utils/dates';
@@ -103,8 +103,8 @@ export class Calendar implements BaseCalendar {
    */
   #buildDatesData(): LiturgicalBuiltData {
     const builtData: LiturgicalBuiltData = {
-      byKeys: {},
-      datesIndex: {},
+      byKeys: {} as ByKeys,
+      datesIndex: {} as DatesIndex,
     };
 
     Object.values(this.#config.liturgicalDayDef).forEach((def) => {
@@ -134,10 +134,10 @@ export class Calendar implements BaseCalendar {
         // because of any general/particular calendar settings.
         // E.g. The 6th Thursday within the Easter Time can be not celebrated
         // because in some calendars, the Solemnity of the Ascension is taking precedence.
-        .reduce((acc, d) => {
+        .reduce<Date[]>((acc, d) => {
           if (d && isValidDate(d)) acc.push(d as Date);
           return acc;
-        }, [] as Date[])
+        }, [])
         .forEach((date) => {
           const dateStr = date.toISOString().substr(0, 10);
 
@@ -166,7 +166,9 @@ export class Calendar implements BaseCalendar {
           // Retrieve calendar metadata from the proper of time
           const calendar: RomcalCalendarMetadata = isFromProperOfTime
             ? this.#buildCalendarMetadata(def, date, baseData)
-            : baseData!.calendar;
+            : // TODO: refactor this to avoir non-null assertion
+              // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+              baseData!.calendar;
 
           /**
            * For Memorial and Feast celebrations only, the weekday property is added
@@ -242,14 +244,14 @@ export class Calendar implements BaseCalendar {
     Object.keys(builtData.datesIndex).forEach((dateStr) => {
       // Order the LiturgicalDays objects, following the precedence rules defined in the UNLY #49.
       const dates: LiturgicalDay[] = builtData.datesIndex[dateStr]
-        .reduce((acc, key) => {
+        .reduce<LiturgicalDay[]>((acc, key) => {
           // Look up for the right LiturgicalDay item, according to its date.
           // Note: Two LiturgicalDay objects with the same key can occur within the same liturgical year,
           // for example, Saint Andrew Apostle (30 November 2011 and 30 November 2012), in liturgical year 2012, which starts on 27 November 2011 and ends 1 December 2012.
           const item = builtData.byKeys[key].find((d) => d.date === dateStr);
           if (item) acc.push(item);
           return acc;
-        }, [] as LiturgicalDay[])
+        }, [])
         .sort(
           (
             {
@@ -381,10 +383,10 @@ export class Calendar implements BaseCalendar {
       // so the next items have always the same or a lower precedence type.
       // e.g. The memorial of the Immaculate heart of Mary, that can falls the same day of another memorial.
       if (defaultLiturgicalDay.allowSimilarRankItems && dates.length > 1) {
-        const checkNextItems = (d: LiturgicalDay) =>
+        const checkNextItems = (d: LiturgicalDay): boolean =>
           d.rank === defaultLiturgicalDay.rank &&
           d.precedence !== Precedences.OptionalMemorial_12 &&
-          !optionalMemorials.map((d) => d.key).includes(d.key);
+          !optionalMemorials.map((om) => om.key).includes(d.key);
 
         const nextAllowingSimilarItems = dates.slice(1).filter((d) => d.allowSimilarRankItems && checkNextItems(d));
         optionalMemorials = [...optionalMemorials, ...nextAllowingSimilarItems];

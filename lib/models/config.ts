@@ -1,22 +1,23 @@
 import i18next, { i18n } from 'i18next';
+
 import { Color } from '../constants/colors';
 import { Season } from '../constants/seasons';
 import { GeneralRoman } from '../general-calendar/proper-of-saints';
 import { ProperOfTime } from '../general-calendar/proper-of-time';
 import { RomcalBundleObject } from '../types/bundle';
 import { CalendarDefInstance, LiturgicalDayDefinitions } from '../types/calendar-def';
-import { CalendarScope, IRoncalConfig, RomcalConfigInput, RomcalConfigOutput } from '../types/config';
+import { CalendarScope, IRomcalConfig, RomcalConfigInput, RomcalConfigOutput } from '../types/config';
+import { BaseCyclesMetadata } from '../types/cycles-metadata';
 import { Locale } from '../types/locale';
 import { MartyrologyCatalog } from '../types/martyrology';
 import { Dates } from '../utils/dates';
 import { toRomanNumber } from '../utils/numbers';
 import { CalendarDef } from './calendar-def';
-import { BaseCyclesMetadata } from '../types/cycles-metadata';
 
 /**
  * The [[Config]] class encapsulates all options that can be sent to this library to adjust date output.
  */
-export class RomcalConfig implements IRoncalConfig {
+export class RomcalConfig implements IRomcalConfig {
   readonly #input: RomcalConfigInput;
   readonly localizedCalendar?: RomcalBundleObject;
   readonly localeKey: string;
@@ -30,7 +31,7 @@ export class RomcalConfig implements IRoncalConfig {
   readonly martyrologyCatalog: MartyrologyCatalog;
   readonly cyclesCache: Record<number, Pick<BaseCyclesMetadata, 'sundayCycle' | 'weekdayCycle'>> = {};
   readonly calendarsDef: InstanceType<CalendarDefInstance>[];
-  liturgicalDayDef: LiturgicalDayDefinitions = {};
+  liturgicalDayDef: LiturgicalDayDefinitions = {} as LiturgicalDayDefinitions;
 
   /**
    * Clone the RomcalConfig object
@@ -103,7 +104,7 @@ export class RomcalConfig implements IRoncalConfig {
     this.calendarsDef = [];
 
     // Initiate the Martyrology Catalog object.
-    this.martyrologyCatalog = this.localizedCalendar?.martyrology ?? martyrologyCatalog ?? {};
+    this.martyrologyCatalog = this.localizedCalendar?.martyrology ?? martyrologyCatalog ?? ({} as MartyrologyCatalog);
 
     // In all cases, generate the ProperOfTime calendar
     this.calendarsDef.push(new ProperOfTime(this));

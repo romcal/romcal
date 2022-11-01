@@ -1,9 +1,10 @@
+import { DayOfWeek } from '../constants/weekdays';
 import { DateDef, DateDefExtended } from '../types/liturgical-day';
 import { BaseLiturgicalDayConfig, LiturgicalDayConfigOutput } from '../types/liturgical-day-config';
 import { addDays, Dates, daysInMonth, getUtcDate, isSameDate, isValidDate, subtractsDays } from '../utils/dates';
+import { isInteger } from '../utils/numbers';
 import { RomcalConfig } from './config';
 import LiturgicalDayDef from './liturgical-day-def';
-import { DayOfWeek } from '../constants/weekdays';
 
 export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
   readonly config: RomcalConfig;
@@ -57,41 +58,38 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
     const year = this.year + (dateDef.yearOffset ?? 0) + yearOffset;
 
     // DateDefMonthDate
-    if (Number.isInteger(dateDef.month) && Number.isInteger(dateDef.date) && dateDef.month! > 0 && dateDef.date! > 0) {
-      date = getUtcDate(year, dateDef.month!, dateDef.date!);
+    if (isInteger(dateDef.month) && isInteger(dateDef.date) && dateDef.month > 0 && dateDef.date > 0) {
+      date = getUtcDate(year, dateDef.month, dateDef.date);
     }
 
     // DateDefDateFnAddDay or DateDefDateFnSubtractDay
     else if (typeof dateDef.dateFn === 'string' && Object.prototype.hasOwnProperty.call(this.dates, dateDef.dateFn)) {
       const args = [...(dateDef.dateArgs ?? []), year];
-      // todo: improve TS typing here
+      // TODO: improve TS typing here
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const dates = this.dates[dateDef.dateFn].apply<ThisType<Dates>, any, any>(this, args);
       date = (Array.isArray(dates) ? dates.find((e) => e) : isValidDate(dates) ? dates : null) || null;
 
-      if (date && Number.isInteger(dateDef.addDay)) date = addDays(date, dateDef.addDay!);
-      if (date && Number.isInteger(dateDef.subtractDay)) date = subtractsDays(date, dateDef.subtractDay!);
+      if (date && isInteger(dateDef.addDay)) date = addDays(date, dateDef.addDay);
+      if (date && isInteger(dateDef.subtractDay)) date = subtractsDays(date, dateDef.subtractDay);
     }
 
     // DateDefMonthDowNthWeekInMonth
-    else if (
-      Number.isInteger(dateDef.month) &&
-      Number.isInteger(dateDef.dayOfWeek) &&
-      Number.isInteger(dateDef.nthWeekInMonth)
-    ) {
-      const firstDayOf7Days = getUtcDate(year, dateDef.month!, 7 * dateDef.nthWeekInMonth! - 6);
+    else if (isInteger(dateDef.month) && isInteger(dateDef.dayOfWeek) && isInteger(dateDef.nthWeekInMonth)) {
+      const firstDayOf7Days = getUtcDate(year, dateDef.month, 7 * dateDef.nthWeekInMonth - 6);
 
-      date = LiturgicalDayConfig.#getNextDayOfWeek(firstDayOf7Days, dateDef.dayOfWeek!);
+      date = LiturgicalDayConfig.#getNextDayOfWeek(firstDayOf7Days, dateDef.dayOfWeek);
     }
 
     // DateDefMonthLastDowInMonth
-    else if (Number.isInteger(dateDef.month) && Number.isInteger(dateDef.lastDayOfWeekInMonth)) {
-      const firstDayOfMonth = getUtcDate(year, dateDef.month!, 1);
+    else if (isInteger(dateDef.month) && isInteger(dateDef.lastDayOfWeekInMonth)) {
+      const firstDayOfMonth = getUtcDate(year, dateDef.month, 1);
       const firstDayOfLast7DaysOfMonth = subtractsDays(
-        getUtcDate(year, dateDef.month!, daysInMonth(firstDayOfMonth)),
+        getUtcDate(year, dateDef.month, daysInMonth(firstDayOfMonth)),
         6,
       );
 
-      date = LiturgicalDayConfig.#getNextDayOfWeek(firstDayOfLast7DaysOfMonth, dateDef.lastDayOfWeekInMonth!);
+      date = LiturgicalDayConfig.#getNextDayOfWeek(firstDayOfLast7DaysOfMonth, dateDef.lastDayOfWeekInMonth);
     }
 
     return date;
@@ -105,58 +103,58 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
    * @private
    */
   buildDate(def: LiturgicalDayDef, yearOffset = 0): Date | null {
-    let date = this.#dateLookup(def.dateDef, yearOffset);
+    const date = this.#dateLookup(def.dateDef, yearOffset);
+    if (!date) return null;
+    let updatedDate: Date | null = date;
 
-    const setDate = (dateDefExtended: DateDefExtended) => {
-      if (Number.isInteger(dateDefExtended.addDay)) {
-        date = addDays(date!, dateDefExtended.addDay!);
-      } else if (Number.isInteger(dateDefExtended.subtractDay)) {
-        date = subtractsDays(date!, dateDefExtended.subtractDay!);
+    const setDate = (dateDefExtended: DateDefExtended): void => {
+      if (isInteger(dateDefExtended.addDay)) {
+        updatedDate = addDays(date, dateDefExtended.addDay);
+      } else if (isInteger(dateDefExtended.subtractDay)) {
+        updatedDate = subtractsDays(date, dateDefExtended.subtractDay);
       } else {
-        date = this.#dateLookup(dateDefExtended, yearOffset);
+        updatedDate = this.#dateLookup(dateDefExtended, yearOffset);
       }
     };
 
-    if (date) {
-      def.dateExceptions.forEach((exception) => {
-        // ifIsBetween
-        if (typeof exception.ifIsBetween === 'object') {
-          const from = this.#dateLookup(exception.ifIsBetween.from, yearOffset);
-          const to = this.#dateLookup(exception.ifIsBetween.to, yearOffset);
-          if (from && to) {
-            // From-To inclusive
-            if (exception.ifIsBetween.inclusive) {
-              if (date!.getTime() >= from.getTime() && date!.getTime() <= to.getTime()) {
-                setDate(exception.setDate);
-              }
+    def.dateExceptions.forEach((exception) => {
+      // ifIsBetween
+      if (typeof exception.ifIsBetween === 'object') {
+        const from = this.#dateLookup(exception.ifIsBetween.from, yearOffset);
+        const to = this.#dateLookup(exception.ifIsBetween.to, yearOffset);
+        if (from && to) {
+          // From-To inclusive
+          if (exception.ifIsBetween.inclusive) {
+            if (date.getTime() >= from.getTime() && date.getTime() <= to.getTime()) {
+              setDate(exception.setDate);
             }
-            // From-To exclusive
-            else {
-              if (date!.getTime() > from.getTime() && date!.getTime() < to.getTime()) {
-                setDate(exception.setDate);
-              }
+          }
+          // From-To exclusive
+          else {
+            if (date.getTime() > from.getTime() && date.getTime() < to.getTime()) {
+              setDate(exception.setDate);
             }
           }
         }
+      }
 
-        // ifIsSameAsDate
-        else if (typeof exception.ifIsSameAsDate === 'object') {
-          const dateComparison = this.#dateLookup(exception.ifIsSameAsDate, yearOffset);
-          if (dateComparison && isSameDate(dateComparison, date!)) {
-            setDate(exception.setDate);
-          }
+      // ifIsSameAsDate
+      else if (typeof exception.ifIsSameAsDate === 'object') {
+        const dateComparison = this.#dateLookup(exception.ifIsSameAsDate, yearOffset);
+        if (dateComparison && isSameDate(dateComparison, date)) {
+          setDate(exception.setDate);
         }
+      }
 
-        // ifIsDayOfWeek
-        else if (Number.isInteger(exception.ifIsDayOfWeek)) {
-          if (date!.getUTCDay() === exception.ifIsDayOfWeek) {
-            setDate(exception.setDate);
-          }
+      // ifIsDayOfWeek
+      else if (Number.isInteger(exception.ifIsDayOfWeek)) {
+        if (date.getUTCDay() === exception.ifIsDayOfWeek) {
+          setDate(exception.setDate);
         }
-      });
-    }
+      }
+    });
 
-    return date;
+    return updatedDate;
   }
 
   /**

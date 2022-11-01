@@ -1,0 +1,14 @@
+{
+  // Linters & Prettier extensions settings
+  "files.trimTrailingWhitespace": true,
+  "eslint.validate": ["typescript", "json"],
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true, // if developer has eslint extension enabled
+    "source.fixAll.tslint": false // if developer has tslint extension enabled
+  },
+  "eslint.format.enable": false, // let prettier do it, it is faster and safer
+  // Jest extension settings
+  "jest.autoRun": {}
+}

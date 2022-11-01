@@ -11,7 +11,7 @@ const token = process.env.NPM_TOKEN;
  * Provide a feedback message after a package is published to NPM
  * @param data
  */
-const afterPublish = (data: Results) => {
+const afterPublish = (data: Results): void => {
   if (data.oldVersion !== data.version) {
     console.log(` ✓ Package "${data.package}" published: ${data.oldVersion} → ${data.version} (${data.tag})\n`);
   } else if (data.oldVersion === data.version) {
@@ -21,17 +21,17 @@ const afterPublish = (data: Results) => {
   }
 };
 
-(async () => {
+(async (): Promise<void> => {
   // Start by publishing the main romcal library
   console.log(` - Publishing romcal`);
-  const data = await npmPublish({
+  const mainData = await npmPublish({
     package: path.join(__dirname, '../package.json'),
     access: 'public',
     token,
     tag,
     dryRun,
   });
-  afterPublish(data);
+  afterPublish(mainData);
 
   // Retrieve the list of all calendar bundles
   const bundlesBasePath = path.join(__dirname, '../dist/bundles');
@@ -43,13 +43,13 @@ const afterPublish = (data: Results) => {
   // Then, publish every calendar bundles as standalone NPM packages
   for (let i = 0; i < bundleNames.length; i++) {
     console.log(` - Publishing bundle: ${bundleNames[i]}`);
-    const data = await npmPublish({
+    const calendarData = await npmPublish({
       package: path.join(bundlesBasePath, bundleNames[i], 'package.json'),
       access: 'public',
       token,
       tag,
       dryRun,
     });
-    afterPublish(data);
+    afterPublish(calendarData);
   }
 })();

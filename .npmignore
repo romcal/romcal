@@ -17,7 +17,7 @@ scripts/
 tests/
 .editorconfig
 .eslintignore
-.eslintrc.json
+.eslintrc.js
 .prettierrc
 jest.config.js
 tsconfig.*

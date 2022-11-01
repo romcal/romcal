@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { France_Fr } from 'romcal/dist/bundles/france';
 import { UnitedStates_En } from 'romcal/dist/bundles/united-states';
+
 import Romcal from '../lib';
 
 /**
@@ -12,19 +14,28 @@ import Romcal from '../lib';
  * @param    dayOfWeek - Day of week to count
  * @returns  Number of week days in the range, including the end date
  */
-const getNumberOfWeekDaysInRange = ({start, end, dayOfWeek = 0}: {start: Date, end: Date, dayOfWeek?: 0 | 1 | 2 | 3 | 4 | 5 | 6}): number => {
+const getNumberOfWeekDaysInRange = ({
+  start,
+  end,
+  dayOfWeek = 0,
+}: {
+  start: Date;
+  end: Date;
+  dayOfWeek?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
+}): number => {
   // Calculate the number of weeks (even partial) from the first target day to the end
   return Math.ceil(
     // Calculate the number of days from the first target day to the end
     Math.max(
       // Calculate the number of days between start and end, including the end date (thus `+ 1` at the end)
-      Math.ceil((end.getTime() - start.getTime()) / 864e5) + 1
-      // Calculate the nb of days before the next target day (e.g. next Sunday after start)
-      - (7 + dayOfWeek - start.getUTCDay()) % 7,
-      0
-    ) / 7
+      Math.ceil((end.getTime() - start.getTime()) / 864e5) +
+        1 -
+        // Calculate the nb of days before the next target day (e.g. next Sunday after start)
+        ((7 + dayOfWeek - start.getUTCDay()) % 7),
+      0,
+    ) / 7,
   );
-}
+};
 
 const {
   addDays,
@@ -204,7 +215,7 @@ describe('Testing specific liturgical date functions', () => {
       for (let i = 1900, il = 2100; i <= il; i++) {
         const range = rangeOfDays(getUtcDate(i, 3, 22), getUtcDate(i, 4, 25));
         const easter = new Romcal().dates().easterSunday(i);
-        expect(rangeContainsDate(range, easter)).toBeTrue();
+        expect(rangeContainsDate(range, easter)).toBeTruthy();
       }
     });
   });
@@ -253,7 +264,7 @@ describe('Testing specific liturgical date functions', () => {
         for (let i = 1900, il = 2100; i <= il; i++) {
           const range = rangeOfDays(getUtcDate(i, 4, 30), getUtcDate(i, 6, 3));
           const ascension = new Romcal().dates().ascension(i);
-          expect(rangeContainsDate(range, ascension)).toBeTrue();
+          expect(rangeContainsDate(range, ascension)).toBeTruthy();
         }
       });
     });
@@ -317,7 +328,7 @@ describe('Testing specific liturgical date functions', () => {
         for (let i = 1900, il = 2100; i <= il; i++) {
           const range = rangeOfDays(getUtcDate(i, 5, 3), getUtcDate(i, 6, 6));
           const ascension = new Romcal().dates().ascension(i, true);
-          expect(rangeContainsDate(range, ascension)).toBeTrue();
+          expect(rangeContainsDate(range, ascension)).toBeTruthy();
         }
       });
     });
@@ -346,7 +357,7 @@ describe('Testing specific liturgical date functions', () => {
       for (let i = 1900, il = 2100; i <= il; i++) {
         const range = rangeOfDays(getUtcDate(i, 5, 10), getUtcDate(i, 6, 13));
         const pentecostSunday = new Romcal().dates().pentecostSunday(i);
-        expect(rangeContainsDate(range, pentecostSunday)).toBeTrue();
+        expect(rangeContainsDate(range, pentecostSunday)).toBeTruthy();
       }
     });
   });
@@ -374,7 +385,7 @@ describe('Testing specific liturgical date functions', () => {
       for (let i = 1900, il = 2100; i <= il; i++) {
         const range = rangeOfDays(getUtcDate(i, 5, 17), getUtcDate(i, 6, 20));
         const trinitySunday = new Romcal().dates().trinitySunday(i);
-        expect(rangeContainsDate(range, trinitySunday)).toBeTrue();
+        expect(rangeContainsDate(range, trinitySunday)).toBeTruthy();
       }
     });
   });
@@ -403,7 +414,7 @@ describe('Testing specific liturgical date functions', () => {
         for (let i = 1900, il = 2100; i <= il; i++) {
           const range = rangeOfDays(getUtcDate(i, 5, 24), getUtcDate(i, 6, 27));
           const corpusChristi = new Romcal().dates().corpusChristi(i, true);
-          expect(rangeContainsDate(range, corpusChristi)).toBeTrue();
+          expect(rangeContainsDate(range, corpusChristi)).toBeTruthy();
         }
       });
     });
@@ -431,7 +442,7 @@ describe('Testing specific liturgical date functions', () => {
         for (let i = 1900, il = 2100; i <= il; i++) {
           const range = rangeOfDays(getUtcDate(i, 5, 21), getUtcDate(i, 6, 24));
           const corpusChristi = new Romcal().dates().corpusChristi(i, false);
-          expect(rangeContainsDate(range, corpusChristi)).toBeTrue();
+          expect(rangeContainsDate(range, corpusChristi)).toBeTruthy();
         }
       });
     });
@@ -460,7 +471,7 @@ describe('Testing specific liturgical date functions', () => {
       for (let i = 1900, il = 2100; i <= il; i++) {
         const range = rangeOfDays(getUtcDate(i, 5, 29), getUtcDate(i, 7, 2));
         const mostSacredHeartOfJesus = new Romcal().dates().mostSacredHeartOfJesus(i);
-        expect(rangeContainsDate(range, mostSacredHeartOfJesus)).toBeTrue();
+        expect(rangeContainsDate(range, mostSacredHeartOfJesus)).toBeTruthy();
       }
     });
   });
@@ -488,7 +499,7 @@ describe('Testing specific liturgical date functions', () => {
       for (let i = 1900, il = 2100; i <= il; i++) {
         const range = rangeOfDays(getUtcDate(i, 5, 30), getUtcDate(i, 7, 3));
         const immaculateHeartOfMary = new Romcal().dates().immaculateHeartOfMary(i);
-        expect(rangeContainsDate(range, immaculateHeartOfMary)).toBeTrue();
+        expect(rangeContainsDate(range, immaculateHeartOfMary)).toBeTruthy();
       }
     });
 
@@ -510,7 +521,7 @@ describe('Testing specific liturgical date functions', () => {
       for (let i = 1900, il = 2100; i <= il; i++) {
         const range = rangeOfDays(getUtcDate(i, 11, 20), getUtcDate(i, 11, 26));
         const christTheKingSunday = new Romcal().dates().christTheKingSunday(i);
-        expect(rangeContainsDate(range, christTheKingSunday)).toBeTrue();
+        expect(rangeContainsDate(range, christTheKingSunday)).toBeTruthy();
       }
     });
   });
@@ -593,7 +604,7 @@ describe('Testing specific liturgical date functions', () => {
         expect(isSameDate(first, new Romcal().dates().maryMotherOfGod(2012))).toEqual(true); // First day of the year is Mary, Mother of God
         expect(target.getUTCDate()).toEqual(8); // Epiphany should be the 8th day of the year
         expect(getWeekNumber(target)).toEqual(1); // Epiphany Sunday should be in the first ISO week of the year
-        expect(getNumberOfWeekDaysInRange({start: first, end: target})).toEqual(2); // Epiphany should be the 2nd Sunday day of the year
+        expect(getNumberOfWeekDaysInRange({ start: first, end: target })).toEqual(2); // Epiphany should be the 2nd Sunday day of the year
         expect(target.getUTCDay()).toEqual(0); // Epiphany should be a Sunday
         expect(isSameDate(date, target)).toEqual(true);
       });
@@ -641,7 +652,7 @@ describe('Testing specific liturgical date functions', () => {
             date.getUTCDay() === 0 ||
             // Otherwise, the computed date must be March 19
             isSameDate(computedDate, date),
-        ).toBeTrue();
+        ).toBeTruthy();
       }
     });
 
@@ -664,7 +675,7 @@ describe('Testing specific liturgical date functions', () => {
             (date.getUTCDay() === 0 && computedDate.getUTCDay() === 1) ||
             // Otherwise, the computed date must be March 19
             isSameDate(computedDate, date),
-        ).toBeTrue();
+        ).toBeTruthy();
       }
     });
 
@@ -688,7 +699,7 @@ describe('Testing specific liturgical date functions', () => {
             date.getUTCDay() === 0 ||
             // Otherwise, the computed date must be March 19
             isSameDate(computedDate, date),
-        ).toBeTrue();
+        ).toBeTruthy();
       }
     });
   });
@@ -721,7 +732,7 @@ describe('Testing specific liturgical date functions', () => {
           // This test case specifically doesn't care about what happens if one or
           // all of the above condition are not met... that is tested in another use case
           // eslint-disable-next-line jest/no-conditional-expect
-          expect(true).toBeTrue();
+          expect(true).toBeTruthy();
         }
       }
     });
@@ -753,7 +764,7 @@ describe('Testing specific liturgical date functions', () => {
           // This test case specifically doesn't care about what happens if one or
           // all of the above condition are not met... that is tested in another use case
           // eslint-disable-next-line jest/no-conditional-expect
-          expect(true).toBeTrue();
+          expect(true).toBeTruthy();
         }
       }
     });
@@ -784,7 +795,7 @@ describe('Testing specific liturgical date functions', () => {
           // This test case specifically doesn't care about what happens if one or
           // all of the above condition are not met... that is tested in another use case
           // eslint-disable-next-line jest/no-conditional-expect
-          expect(true).toBeTrue();
+          expect(true).toBeTruthy();
         }
       }
     });
@@ -820,9 +831,9 @@ describe('Testing specific liturgical date functions', () => {
           expect(epiphany.getUTCDay()).toEqual(0);
           if (epiphany.getUTCDate() < 6) {
             // eslint-disable-next-line jest/no-conditional-expect
-            expect(isSameDate(startOfWeek(addDays(epiphany, 7)), new Romcal().dates().baptismOfTheLord(i, true))).toEqual(
-              true,
-            );
+            expect(
+              isSameDate(startOfWeek(addDays(epiphany, 7)), new Romcal().dates().baptismOfTheLord(i, true)),
+            ).toEqual(true);
           }
         }
       });
@@ -833,9 +844,9 @@ describe('Testing specific liturgical date functions', () => {
           expect(epiphany.getUTCDay()).toEqual(0);
           if (epiphany.getUTCDate() === 6) {
             // eslint-disable-next-line jest/no-conditional-expect
-            expect(isSameDate(startOfWeek(addDays(epiphany, 7)), new Romcal().dates().baptismOfTheLord(i, true))).toEqual(
-              true,
-            );
+            expect(
+              isSameDate(startOfWeek(addDays(epiphany, 7)), new Romcal().dates().baptismOfTheLord(i, true)),
+            ).toEqual(true);
           }
         }
       });

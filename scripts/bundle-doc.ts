@@ -1,12 +1,13 @@
 import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
+import prettier from 'prettier';
+
 import { GeneralRoman } from '../lib/general-calendar/proper-of-saints';
 import { CalendarDef } from '../lib/models/calendar-def';
 import { particularCalendars } from '../lib/particular-calendars';
 import { toPackageName } from '../lib/utils/string';
 import { getDuration } from './time';
-import prettier from 'prettier';
 
 const log = console.log;
 const time = new Date();

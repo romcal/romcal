@@ -20,6 +20,6 @@ export enum Seasons {
  */
 export const SEASONS = Object.keys(Seasons)
   .filter((key) => typeof Seasons[key as keyof typeof Seasons] === 'string')
-  .map((key) => toScreamingSnakeCase(key)) as Array<ScreamingSnakeCase<keyof typeof Seasons>>;
+  .map((key) => toScreamingSnakeCase(key)) as ScreamingSnakeCase<keyof typeof Seasons>[];
 
 export type Season = typeof SEASONS[number];

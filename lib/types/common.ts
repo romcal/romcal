@@ -88,4 +88,4 @@ export type CamelToUpperSnakeCase<S extends string> = S extends `${infer C0}${in
 /**
  * A key, in lower_underscore_case
  */
-export type Key = Lowercase<string>;
+export type Key = string;

@@ -1,19 +1,20 @@
 import { StringMap } from 'i18next';
+
 import { Color } from '../constants/colors';
 import { ProperCycle } from '../constants/cycles';
 import { PatronTitle, Title } from '../constants/martyrology-metadata';
+import { MonthIndex } from '../constants/months';
 import { Period } from '../constants/periods';
 import { Precedence } from '../constants/precedences';
 import { Rank } from '../constants/ranks';
 import { Season } from '../constants/seasons';
+import { DayOfWeek } from '../constants/weekdays';
 import LiturgicalDay from '../models/liturgical-day';
 import LiturgicalDayDef from '../models/liturgical-day-def';
 import { Dates } from '../utils/dates';
 import { AllXOR, Key, XOR } from './common';
+import { BaseCyclesMetadata, PartialCyclesDef } from './cycles-metadata';
 import { MartyrologyItem, SaintCount } from './martyrology';
-import { MonthIndex } from '../constants/months';
-import { DayOfWeek } from '../constants/weekdays';
-import { PartialCyclesDef, BaseCyclesMetadata } from './cycles-metadata';
 
 /**
  * The liturgical day date definition
@@ -27,8 +28,6 @@ export type DateDef = AllXOR<
     DateDefMonthLastDowInMonth,
   ]
 >;
-
-export type DateStr = Lowercase<string>;
 
 export type DateDefMonthDate = {
   /**
@@ -248,12 +247,12 @@ export type TitlesDef =
 /**
  * The associated martyrology item.
  */
-export type MartyrologyItemPointer = string | MartyrologyItemRedefined;
+export type MartyrologyItemPointer = Key | MartyrologyItemRedefined;
 
 /**
- * From calendar key name
+ * From calendar key
  */
-export type FromCalendar = Lowercase<string>;
+export type FromCalendar = Key;
 
 /**
  * The associated martyrology item, with its overridden properties.
@@ -299,7 +298,7 @@ type LiturgicalDayRoot = {
    * Computed date, in ISO 8601 format: YYYY-MM-DD
    * @param year
    */
-  date: DateStr;
+  date: string;
 
   /**
    * The precedence type of the liturgical day.
