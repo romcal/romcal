@@ -6,53 +6,53 @@ export const locale: Locale = {
   seasons: {
     advent: {
       season: 'Advent',
-      weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Advent',
+      /*weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Advent',
       sunday: '$t(ordinals:{{week}}, capitalize) Sunday of Advent',
-      privileged_weekday: '$t(months:11, capitalize) {{day}}',
+      privileged_weekday: '$t(months:11, capitalize) {{day}}',*/
     },
 
     christmas_time: {
       season: 'Karácsonyi idő',
-      day: '$t(weekdays:{{dow}}, capitalize) of Christmas Time',
+      /*day: '$t(weekdays:{{dow}}, capitalize) of Christmas Time',
       octave: '$t(ordinals:{{count}}, capitalize) Day within the Octave of the Nativity of the Lord',
       second_sunday_after_christmas: 'Second Sunday after the Nativity of the Lord',
       before_epiphany: '$t(months:0, capitalize) {{day}}',
-      after_epiphany: '$t(weekdays:{{dow}}, capitalize) after the Epiphany of the Lord',
+      after_epiphany: '$t(weekdays:{{dow}}, capitalize) after the Epiphany of the Lord',*/
     },
 
     ordinary_time: {
       season: 'Évközi idő',
-      weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Ordinary Time',
-      sunday: '$t(ordinals:{{week}}, capitalize) Sunday in Ordinary Time',
+      /*weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Ordinary Time',
+      sunday: '$t(ordinals:{{week}}, capitalize) Sunday in Ordinary Time',*/
     },
 
     lent: {
-      season: 'Lent',
+      /*season: 'Lent',
       weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Lent',
       sunday: '$t(ordinals:{{week}}, capitalize) Sunday of Lent',
       day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) after Ash Wednesday',
-      holy_week_day: '$t(weekdays:{{dow}}, capitalize) of Holy Week',
+      holy_week_day: '$t(weekdays:{{dow}}, capitalize) of Holy Week',*/
     },
 
     paschal_triduum: {
-      season: 'Paschal Triduum',
+      //season: 'Paschal Triduum',
     },
 
     easter_time: {
       season: 'Húsvéti idő',
-      weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Easter',
+      /*weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Easter',
       sunday: '$t(ordinals:{{week}}, capitalize) Sunday of Easter',
-      octave: '$t(weekdays:{{dow}}, capitalize) within the Octave of Easter',
+      octave: '$t(weekdays:{{dow}}, capitalize) within the Octave of Easter',*/
     },
   },
 
   periods: {
-    epiphany: 'Epiphany',
-    holy_week: 'Holy Week',
+    /*epiphany: 'Epiphany',
+    holy_week: 'Holy Week',*/
   },
 
   ranks: {
-    solemnity: 'solemnity',
+    //solemnity: 'solemnity',
     sunday: 'vasárnap',
     feast: 'ünnep',
     memorial: 'emléknap',
@@ -60,17 +60,17 @@ export const locale: Locale = {
   },
 
   cycles: {
-    proper_of_time: 'Proper of Time',
-    proper_of_saints: 'Proper of Saints',
-    sunday_year_a: 'Year A',
-    sunday_year_b: 'Year B',
-    sunday_year_c: 'Year C',
-    weekday_year_1: 'Cycle I',
-    weekday_year_2: 'Cycle II',
-    psalter_week_1: 'Week I',
+    //proper_of_time: 'Proper of Time',
+    //proper_of_saints: 'Proper of Saints',
+    sunday_year_a: 'A év',
+    sunday_year_b: 'B év',
+    sunday_year_c: 'C év',
+    weekday_year_1: 'I. év',
+    weekday_year_2: 'II. év',
+    /*psalter_week_1: 'Week I',
     psalter_week_2: 'Week II',
     psalter_week_3: 'Week III',
-    psalter_week_4: 'Week IV',
+    psalter_week_4: 'Week IV',*/
   },
 
   weekdays: {
@@ -146,10 +146,10 @@ export const locale: Locale = {
   },
 
   names: {
-    '205_blessed_martyrs_of_japan': '205 Blessed Martyrs of Japan',
-    adalbert_of_prague_bishop: 'Saint Adalbert, Bishop and Martyr',
-    adalbert_of_prague_bishop_patron_of_poland: 'Saint Adalbert, Bishop and Martyr, Patron of Poland',
-    adelaide_of_burgundy_empress: 'Saint Adelaide of Burgundy, Empress',
+    //'205_blessed_martyrs_of_japan': '205 Blessed Martyrs of Japan',
+    adalbert_of_prague_bishop: 'Szent Adalbert püspök és vértanú',
+    adalbert_of_prague_bishop_patron_of_poland: 'Szent Adalbert püspök és vértanú, Legyelország patrónusa',
+    /*adelaide_of_burgundy_empress: 'Saint Adelaide of Burgundy, Empress',
     adelphus_of_metz_bishop: 'Saint Adelphus, Bishop',
     adolph_kolping_priest: 'Blessed Adolph Kolping, Priest',
     aelred_of_rievaulx_abbot: 'Saint Aelred of Rievaulx, Abbot',
@@ -168,34 +168,30 @@ export const locale: Locale = {
     albert_chmielowski_religious: 'Saint Albert Chmielowski, Religious',
     albert_the_great_bishop: 'Saint Albert the Great, Bishop and Doctor of the Church',
     albertina_berkenbrock_virgin: 'Blessed Albertina Berkenbrock, Virgin and Martyr',
-    alberto_hurtado_priest: 'Saint Alberto Hurtado, Priest',
+    alberto_hurtado_priest: 'Saint Alberto Hurtado, Priest',*/
     all_saints: 'Mindenszentek',
-    all_saints_of_ireland: 'All Saints of Ireland',
+    /*all_saints_of_ireland: 'All Saints of Ireland',
     all_saints_of_the_archdiocese_of_paris: 'All Saints of the Archdiocese of Paris',
     all_saints_of_the_diocese_of_saint_denis: 'All Saints of the Diocese of Saint-Denis',
     all_saints_of_wales: 'All Saints of Wales',
     aloysius_gonzaga_religious: 'Saint Aloysius Gonzaga, Religious',
     aloysius_stepinac_bishop: 'Blessed Aloysius Stepinac, Bishop and Martyr',
-    aloysius_versiglia_bishop_and_callistus_caravario_priest_martyrs:
-      'Saints Aloysius Versiglia, Bishop and Callistus Caravario, Priest, Martyrs',
-    alphonsa_of_the_immaculate_conception_muttathupadathu_virgin:
-      'Saint Alphonsa of the Immaculate Conception Muttathupadathu, Virgin',
+    aloysius_versiglia_bishop_and_callistus_caravario_priest_martyrs: 'Saints Aloysius Versiglia, Bishop and Callistus Caravario, Priest, Martyrs',
+    alphonsa_of_the_immaculate_conception_muttathupadathu_virgin: 'Saint Alphonsa of the Immaculate Conception Muttathupadathu, Virgin',
     alphonsus_mary_liguori_bishop: 'Saint Alphonsus Mary Liguori, Bishop and Doctor of the Church',
     amand_of_maastricht_bishop: 'Saint Amand, Bishop',
     amandus_of_strasbourg_bishop: 'Saint Amandus of Strasbourg, Bishop',
     amarin_of_alsace_abbot: 'Saint Amarin, Abbot and Martyr',
     ambrose_of_milan_bishop: 'Saint Ambrose, Bishop and Doctor of the Church',
     andre_bessette_religious: 'Saint André Bessette, Religious',
-    andre_grasset_priest: 'Blessed André Grasset, Priest and Martyr',
+    andre_grasset_priest: 'Blessed André Grasset, Priest and Martyr',*/
     andrew_apostle: 'Szent András apostol',
     andrew_apostle_patron_of_russia: 'Szent András apostol, Oroszország patrónusa',
     andrew_apostle_patron_of_scotland: 'Szent András apostol, Skócia patrónusa',
-    andrew_bobola_priest: 'Saint Andrew Bobola, Priest and Martyr',
-    andrew_de_soveral_and_ambrose_francis_ferro_priests:
-      'Saints Andrew de Soveral and Ambrose Francis Ferro, Priests and Martyrs',
+    /*andrew_bobola_priest: 'Saint Andrew Bobola, Priest and Martyr',
+    andrew_de_soveral_and_ambrose_francis_ferro_priests: 'Saints Andrew de Soveral and Ambrose Francis Ferro, Priests and Martyrs',
     andrew_dung_lac_priest_and_companions_martyrs: 'Saint Andrew Dũng-Lạc, Priest, and Companions, Martyrs',
-    andrew_kim_tae_gon_priest_paul_chong_ha_sang_and_companions_martyrs:
-      'Saints Andrew Kim Tae-gŏn, Priest, Paul Chŏng Ha-sang and Companions, Martyrs',
+    andrew_kim_tae_gon_priest_paul_chong_ha_sang_and_companions_martyrs: 'Saints Andrew Kim Tae-gŏn, Priest, Paul Chŏng Ha-sang and Companions, Martyrs',
     andrew_zorard_of_nitra_and_benedict_of_skalka_hermits: 'Saints Andrew Zorard and Benedict, Hermits',
     angela_merici_virgin: 'Saint Angela Merici, Virgin',
     angela_salawa_virgin: 'Blessed Angela Salawa, Virgin',
@@ -203,8 +199,7 @@ export const locale: Locale = {
     annunciation_of_the_lord: 'The Annunciation of the Lord',
     anselm_of_canterbury_bishop: 'Saint Anselm, Bishop and Doctor of the Church',
     ansgar_of_hamburg_bishop: 'Saint Ansgar, Bishop',
-    anthony_julian_nowowiejski_bishop_and_companions_martyrs:
-      'Blessed Anthony Julian Nowowiejski, Bishop, and Companions, Martyrs',
+    anthony_julian_nowowiejski_bishop_and_companions_martyrs: 'Blessed Anthony Julian Nowowiejski, Bishop, and Companions, Martyrs',
     anthony_mary_claret_bishop: 'Saint Anthony Mary Claret, Bishop',
     anthony_of_egypt_abbot: 'Saint Anthony, Abbot',
     anthony_of_padua_priest: 'Saint Anthony of Padua, Priest and Doctor of the Church',
@@ -213,8 +208,7 @@ export const locale: Locale = {
     anthony_zaccaria_priest: 'Saint Anthony Zaccaria, Priest',
     apollinaris_of_ravenna_bishop: 'Saint Apollinaris, Bishop and Martyr',
     arbogast_of_strasbourg_bishop: 'Saint Arbogast, Bishop',
-    arbogast_of_strasbourg_bishop_patron_of_the_archdiocese_of_strasbourg:
-      'Saint Arbogast, Bishop, Patron of the Archdiocese of Strasbourg',
+    arbogast_of_strasbourg_bishop_patron_of_the_archdiocese_of_strasbourg: 'Saint Arbogast, Bishop, Patron of the Archdiocese of Strasbourg',
     asaph_of_wales_bishop: 'Saint Asaph, Bishop',
     ascension_of_the_lord: 'The Ascension of the Lord',
     ash_wednesday: 'Ash Wednesday',
@@ -230,9 +224,9 @@ export const locale: Locale = {
     augustine_zhao_rong_priest_and_companions_martyrs: 'Saint Augustine Zhao Rong, Priest, and Companions, Martyrs',
     aurelia_of_strasbourg_virgin: 'Saint Aurelia of Strasbourg, Virgin',
     baptism_of_the_lord: 'The Baptism of the Lord',
-    barbara_of_heliopolis_virgin: 'Saint Barbara, Virgin and Martyr',
-    barnabas_apostle: 'Saint Barnabas, Apostle',
-    bartholomew_apostle: 'Saint Bartholomew, Apostle',
+    barbara_of_heliopolis_virgin: 'Saint Barbara, Virgin and Martyr',*/
+    barnabas_apostle: 'Saint Barnabás apostol',
+    /*bartholomew_apostle: 'Saint Bartholomew, Apostle',
     bartholomew_dias_laurel_religious: 'Blessed Bartholomew Días Laurel, Religious and Martyr',
     bartholomew_of_the_martyrs_fernandes_bishop: 'Saint Bartholomew of the Martyrs Fernandes, Bishop',
     basil_the_great_and_gregory_nazianzen_bishops: 'Saints Basil the Great and Gregory Nazianzen, Bishops and Doctors of the Church',
@@ -408,10 +402,10 @@ export const locale: Locale = {
     francis_borgia_priest: 'Saint Francis Borgia, Priest',
     francis_de_sales_bishop: 'Saint Francis de Sales, Bishop and Doctor of the Church',
     francis_diaz_del_rincon_priest_and_companions_martyrs: 'Saint Francis Díaz del Rincon, Priest, and Companions, Martyrs',
-    francis_ferdinand_de_capillas_priest: 'Saint Francis Ferdinand de Capillas, Priest and Martyr',
+    francis_ferdinand_de_capillas_priest: 'Saint Francis Ferdinand de Capillas, Priest and Martyr',*/
     francis_of_assisi: 'Assisi Szent Ferenc',
     francis_of_assisi_patron_of_italy: 'Assisi Szent Ferenc, Olaszország patrónusa',
-    francis_of_paola_hermit: 'Saint Francis of Paola, Hermit',
+    /*francis_of_paola_hermit: 'Saint Francis of Paola, Hermit',
     francis_solanus_priest: 'Saint Francis Solanus, Priest',
     francis_xavier_priest: 'Saint Francis Xavier, Priest',
     francis_xavier_seelos_priest: 'Blessed Francis Xavier Seelos, priest',
@@ -434,18 +428,18 @@ export const locale: Locale = {
     germain_of_paris_bishop: 'Saint Germain of Paris, Bishop',
     germanus_of_auxerre_bishop: 'Saint Germanus of Auxerre, Bishop',
     gertrude_of_nivelles_abbess: 'Saint Gertrude of Nivelles, Abbess',
-    gertrude_the_great_virgin: 'Saint Gertrude, Virgin',
+    gertrude_the_great_virgin: 'Saint Gertrude, Virgin',*/
     gisela_of_hungary: 'Boldog Gizella',
-    gobnait_of_ballyvourney_virgin: 'Saint Gobnait, Virgin',
+    /*gobnait_of_ballyvourney_virgin: 'Saint Gobnait, Virgin',
     gorazd_of_moravia_and_companions: 'Saint Gorazd and Companions',
     gotthard_of_hildesheim_bishop: 'Saint Gotthard, Bishop',
     gratia_of_cattaro_religious: 'Blessed Gratia of Cattaro, Religious',
     gregory_grassi_francis_fogolla_and_anthony_fantosati_bishops_and_companions_martyrs: 'Saints Gregory Grassi, Francis Fogolla and Anthony Fantosati, Bishops, and Companions, Martyrs',
     gregory_i_the_great_pope: 'Saint Gregory the Great, Pope and Doctor of the Church',
     gregory_of_narek_abbot: 'Saint Gregory of Narek, Abbot and Doctor of the Church',
-    gregory_vii_pope: 'Saint Gregory VII, Pope',
+    gregory_vii_pope: 'Saint Gregory VII, Pope',*/
     guardian_angel_of_portugal: 'Portugália őrangyala',
-    gundisalvus_garcia_martyr: 'Saint Gundisalvus Garcia, Martyr',
+    /*gundisalvus_garcia_martyr: 'Saint Gundisalvus Garcia, Martyr',
     gundisalvus_of_amarante_priest: 'Blessed Gundisalvus of Amarante, Priest',
     gundisalvus_of_lagos_priest: 'Blessed Gundisalvus of Lagos, Priest',
     hedwig_of_poland: 'Saint Hedwig of Poland',
@@ -463,9 +457,9 @@ export const locale: Locale = {
     hilda_of_whitby_abbess: 'Saint Hilda, Abbess',
     hildegard_of_bingen_abbess: 'Saint Hildegard of Bingen, Abbess and Doctor of the Church',
     holy_child_of_cebu: 'The Holy Child of Cebú',
-    holy_family_of_jesus_mary_and_joseph: 'The Holy Family of Jesus, Mary and Joseph',
+    holy_family_of_jesus_mary_and_joseph: 'The Holy Family of Jesus, Mary and Joseph',*/
     holy_guardian_angels: 'A szent őrzőangyalok',
-    holy_innocents_martyrs: 'The Holy Innocents, Martyrs',
+    /*holy_innocents_martyrs: 'The Holy Innocents, Martyrs',
     holy_saturday: 'Holy Saturday/Easter Vigil',
     holy_thursday: 'Holy Thursday',
     honorat_kozminski_priest: 'Blessed Honorat Koźmiński, Priest',
@@ -547,9 +541,9 @@ export const locale: Locale = {
     john_paul_ii_pope: 'Saint John Paul II, Pope',
     john_roberts_priest: 'Saint John Roberts, Priest and Martyr',
     john_sarkander_priest: 'Saint John Sarkander, Priest and Martyr',
-    john_scheffler_bishop: 'Blessed John Scheffler, Bishop and Martyr',
+    john_scheffler_bishop: 'Blessed John Scheffler, Bishop and Martyr',*/
     john_xxiii_pope: 'Szent XXIII. János pápa',
-    josaphat_kuntsevych_bishop: 'Saint Josaphat, Bishop and Martyr',
+    /*josaphat_kuntsevych_bishop: 'Saint Josaphat, Bishop and Martyr',
     jose_maria_de_yermo_y_parres_priest: 'Saint José Maria de Yermo y Parres, Priest',
     josemaria_escriva_de_balaguer_priest: 'Saint Josemaría Escrivá de Balaguer, Priest',
     joseph_bilczewski_bishop: 'Saint Joseph Bilczewski, Bishop',
@@ -594,9 +588,9 @@ export const locale: Locale = {
     leander_of_seville_bishop: 'Saint Leander of Seville, Bishop',
     lelia_of_killeely_virgin: 'Saint Lelia, Virgin',
     leo_i_the_great_pope: 'Saint Leo the Great, Pope and Doctor of the Church',
-    leo_ignatius_mangin_priest_and_companions_martyrs: 'Saint Leo Ignatius Mangin, Priest, and Companions, Martyrs',
+    leo_ignatius_mangin_priest_and_companions_martyrs: 'Saint Leo Ignatius Mangin, Priest, and Companions, Martyrs',*/
     leo_ix_pope: 'Szent IX Leó pápa',
-    leoba_of_tauberbischofsheim_abbess: 'Saint Leoba, Abbess',
+    /*leoba_of_tauberbischofsheim_abbess: 'Saint Leoba, Abbess',
     leodegar_of_autun_bishop: 'Saint Leodegar of Autun, Bishop and Martyr',
     leonard_of_noblac_hermit: 'Saint Leonard of Noblac, Hermit',
     leonid_feodorov_priest: 'Blessed Leonid Feodorov, Priest and Martyr',
@@ -613,9 +607,9 @@ export const locale: Locale = {
     ludan_of_scotland_pilgrim: 'Saint Ludan, Pilgrim',
     ludger_of_munster_bishop: 'Saint Ludger of Münster, Bishop',
     ludmila_of_bohemia_martyr: 'Saint Ludmila, Martyr',
-    luigi_orione_priest: 'Saint Luigi Orione, Priest',
+    luigi_orione_priest: 'Saint Luigi Orione, Priest',*/
     luke_evangelist: 'Szent Lukács evangelista',
-    lydia_of_philippi: 'Saint Lydia of Philippi',
+    /*lydia_of_philippi: 'Saint Lydia of Philippi',
     mac_nissi_of_connor_bishop: 'Saint Mac Nissi, Bishop',
     macartan_of_clogher_bishop: 'Saint Macartan, Bishop',
     madeleine_sophie_barat_virgin: 'Saint Madeleine Sophie Barat, Virgin',
@@ -790,9 +784,9 @@ export const locale: Locale = {
     pedro_calungsod_martyr: 'Saint Pedro Calungsod, Martyr',
     pelagius_of_cordoba_martyr: 'Saint Pelagius of Córdoba, Martyr',
     pentecost_sunday: 'Pünkösdvasárnap',
-    perpetua_of_carthage_and_felicity_of_carthage_martyrs: 'Saints Perpetua and Felicity, Martyrs',
+    perpetua_of_carthage_and_felicity_of_carthage_martyrs: 'Saints Perpetua and Felicity, Martyrs',*/
     peter_and_paul_apostles: 'Szent Péter és Pál apostolok',
-    peter_baptist_blasquez_paul_miki_and_companions_martyrs: 'Saints Peter Baptist Blásquez, Paul Miki and Companions, Martyrs',
+    /*peter_baptist_blasquez_paul_miki_and_companions_martyrs: 'Saints Peter Baptist Blásquez, Paul Miki and Companions, Martyrs',
     peter_canisius_priest: 'Saint Peter Canisius, Priest and Doctor of the Church',
     peter_chanel_priest: 'Saint Peter Chanel, Priest and Martyr',
     peter_chanel_priest_patron_of_oceania: 'Saint Peter Chanel, Proto-martyr of Oceania, Patron of Oceania',
@@ -813,11 +807,11 @@ export const locale: Locale = {
     philip_of_jesus_de_las_casas_martyr: 'Saint Philip of Jesus de las Casas, Martyr',
     philip_of_jesus_de_las_casas_paul_miki_and_companions_martyrs: 'Saints Philip of Jesus de las Casas, Paul Miki and Companions, Martyrs',
     pirmin_of_hornbach_abbot: 'Saint Pirmin, Abbot',
-    pius_francesco_forgione_priest: 'Saint Pius of Pietrelcina, Priest',
+    pius_francesco_forgione_priest: 'Saint Pius of Pietrelcina, Priest',*/
     pius_ix_pope: 'Boldog IX. Piusz pápa',
     pius_v_pope: 'Szent V. Piusz pápa',
     pius_x_pope: 'Szent X. Piusz pápa',
-    polycarp_of_smyrna_bishop: 'Saint Polycarp, Bishop and Martyr',
+    /*polycarp_of_smyrna_bishop: 'Saint Polycarp, Bishop and Martyr',
     pontian_i_pope_and_hippolytus_of_rome_priest: 'Saints Pontian, Pope, and Hippolytus, Priest, Martyrs',
     pothinus_of_lyon_bishop_blandina_of_lyon_virgin_and_companions_martyrs: 'Saints Pothinus, Bishop, Blandina, Virgin, and Companions, Martyrs',
     presentation_of_the_blessed_virgin_mary: 'The Presentation of the Blessed Virgin Mary',
@@ -848,9 +842,9 @@ export const locale: Locale = {
     rose_philippine_duchesne_virgin: 'Saint Rose Philippine Duchesne, Virgin',
     rupert_of_salzburg_and_virgilius_of_salzburg_bishops: 'Saints Rupert and Virgilius of Salzburg, Bishops',
     salomea_of_poland_religious: 'Blessed Salomea of Poland, Religious',
-    sancha_of_portugal_and_mafalda_of_portugal_virgins: 'Blessed Sancha and Mafalda, Virgins',
+    sancha_of_portugal_and_mafalda_of_portugal_virgins: 'Blessed Sancha and Mafalda, Virgins',*/
     sara_salkahazi_virgin: 'Boldog Salkaházi Sára szűz és vértanú',
-    scholastica_of_nursia_virgin: 'Saint Scholastica, Virgin',
+    /*scholastica_of_nursia_virgin: 'Saint Scholastica, Virgin',
     sebastian_de_aparicio_religious: 'Blessed Sebastian de Aparicio, Religious',
     sebastian_of_milan_martyr: 'Saint Sebastian, Martyr',
     senan_of_inis_cathaigh_bishop: 'Saint Senan, Bishop',
@@ -870,18 +864,18 @@ export const locale: Locale = {
     stanislaus_kostka_religious: 'Saint Stanislaus Kostka, Religious',
     stanislaus_of_szczepanow_bishop: 'Saint Stanislaus, Bishop and Martyr',
     stanislaus_of_szczepanow_bishop_patron_of_poland: 'Saint Stanislaus, Bishop and Martyr, Patron of Poland',
-    stephen_i_of_hungary: 'Saint Stephen of Hungary',
+    stephen_i_of_hungary: 'Saint Stephen of Hungary',*/
     stephen_the_first_martyr: 'Szent István első vértanú',
     sunday_of_the_word_of_god: 'Évközi III. vasárnap vagy az Isteni Ige vasárnapja',
-    sunniva_of_norway_virgin: 'Saint Sunniva, Virgin and Martyr',
-    swithun_of_winchester_bishop: 'Saint Swithun, Bishop',
+    /*sunniva_of_norway_virgin: 'Saint Sunniva, Virgin and Martyr',
+    swithun_of_winchester_bishop: 'Saint Swithun, Bishop',*/
     sylvester_i_pope: 'Szent I. Szilveszter pápa',
     szilard_bogdanffy_bishop: 'Boldog Bogdánffy Szilárd püspök és vértanú',
-    teilo_of_llandaff_bishop: 'Saint Teilo, Bishop',
+    /*teilo_of_llandaff_bishop: 'Saint Teilo, Bishop',
     teresa_benedicta_of_the_cross_stein_virgin: 'Saint Teresa Benedicta of the Cross Stein, Virgin and Martyr',
-    teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe: 'Saint Teresa Benedicta of the Cross Stein, Virgin and Martyr, Copatroness of Europe',
+    teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe: 'Saint Teresa Benedicta of the Cross Stein, Virgin and Martyr, Copatroness of Europe',*/
     teresa_of_calcutta_religious: 'Kalkuttai Szent Teréz',
-    teresa_of_jesus_jornet_ibars_virgin: 'Saint Teresa of Jesus Jornet Ibars, Virgin',
+    /*teresa_of_jesus_jornet_ibars_virgin: 'Saint Teresa of Jesus Jornet Ibars, Virgin',
     teresa_of_jesus_of_avila_virgin: 'Saint Teresa of Jesus, Virgin and Doctor of the Church',
     teresa_of_jesus_of_los_andes_virgin: 'Saint Teresa of Jesus of Los Andes, Virgin',
     teresa_of_portugal_religious: 'Blessed Teresa of Portugal, Religious',
@@ -890,11 +884,11 @@ export const locale: Locale = {
     theodosius_of_the_caves_abbot: 'Saint Theodosius of the Caves, Abbot',
     theotonius_of_coimbra_priest: 'Saint Theotonius of Coimbra, Priest',
     therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin: 'Saint Thérèse of the Child Jesus, Virgin and Doctor of the Church',
-    therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin_copatroness_of_france: 'Saint Thérèse of the Child Jesus, Virgin and Doctor of the Church, Copatroness of France',
+    therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin_copatroness_of_france: 'Saint Thérèse of the Child Jesus, Virgin and Doctor of the Church, Copatroness of France',*/
     thomas_apostle: 'Szent Tamás apostol',
-    thomas_aquinas_priest: 'Saint Thomas Aquinas, Priest and Doctor of the Church',
+    //thomas_aquinas_priest: 'Saint Thomas Aquinas, Priest and Doctor of the Church',
     thomas_becket_bishop: 'Becket Szent Tamás püspök és vértanú',
-    thomas_hioji_rokuzayemon_nishi_priest_and_companions_martyrs: 'Saint Thomas Hioji Rokuzayemon Nishi, Priest, and Companions, Martyrs',
+    /*thomas_hioji_rokuzayemon_nishi_priest_and_companions_martyrs: 'Saint Thomas Hioji Rokuzayemon Nishi, Priest, and Companions, Martyrs',
     thomas_jean_georges_rehm_priest: 'Blessed Thomas Jean-Georges Rehm, Priest and Martyr',
     thomas_of_villanova_bishop: 'Saint Thomas of Villanova, Bishop',
     thorfinn_of_hamar_bishop: 'Saint Thorfinn, Bishop',
@@ -926,9 +920,9 @@ export const locale: Locale = {
     wenceslaus_i_of_bohemia_martyr: 'Saint Wenceslaus, Martyr',
     wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation: 'Saint Wenceslaus, Martyr, Patron of the Czech nation',
     wendelin_of_trier_hermit: 'Saint Wendelin, Hermit',
-    wilfrid_of_york_bishop: 'Saint Wilfrid, Bishop',
+    wilfrid_of_york_bishop: 'Saint Wilfrid, Bishop',*/
     william_apor_bishop: 'Boldog Apor Vilmos püspök és vértanú',
-    willibald_of_eichstatt_bishop: 'Saint Willibald, Bishop',
+    /*willibald_of_eichstatt_bishop: 'Saint Willibald, Bishop',
     willibrord_of_utrecht_bishop: 'Saint Willibrord, Bishop',
     winefride_of_flintshire_virgin: 'Saint Winefride, Virgin',
     wladyslaw_bladzinski_priest_and_companions_martyrs: 'Blessed Wladyslaw Błądziński, Priest, and Companions, Martyrs',
@@ -939,6 +933,6 @@ export const locale: Locale = {
     zdislava_of_lemberk: 'Saint Zdislava',
     zepherin_namuncura: 'Blessed Zepherin Namuncurá',
     zoltan_lajos_meszlenyi_bishop: 'Blessed Zoltán Lajos Meszlényi, Bishop and Martyr',
-    zygmunt_gorazdowski_priest: 'Saint Zygmunt Gorazdowski, Priest',
+    zygmunt_gorazdowski_priest: 'Saint Zygmunt Gorazdowski, Priest',*/
   },
 };
