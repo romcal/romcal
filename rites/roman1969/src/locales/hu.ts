@@ -571,7 +571,7 @@ export const locale: Locale = {
     john_roberts_priest: 'Saint John Roberts, Priest and Martyr',
     john_sarkander_priest: 'Saint John Sarkander, Priest and Martyr',
     john_scheffler_bishop: 'Blessed John Scheffler, Bishop and Martyr',
-    john_xxiii_pope: 'Saint John XXIII, Pope',
+    john_xxiii_pope: 'Szent XXIII. János pápa',
     josaphat_kuntsevych_bishop: 'Saint Josaphat, Bishop and Martyr',
     jose_maria_de_yermo_y_parres_priest: 'Saint José Maria de Yermo y Parres, Priest',
     josemaria_escriva_de_balaguer_priest: 'Saint Josemaría Escrivá de Balaguer, Priest',
