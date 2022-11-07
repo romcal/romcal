@@ -148,7 +148,7 @@ export const locale: Locale = {
   names: {
     //'205_blessed_martyrs_of_japan': '205 Blessed Martyrs of Japan',
     adalbert_of_prague_bishop: 'Szent Adalbert püspök és vértanú',
-    adalbert_of_prague_bishop_patron_of_poland: 'Szent Adalbert püspök és vértanú, Legyelország patrónusa',
+    adalbert_of_prague_bishop_patron_of_poland: 'Szent Adalbert püspök és vértanú, Legyelország főpátrónája',
     /*adelaide_of_burgundy_empress: 'Saint Adelaide of Burgundy, Empress',
     adelphus_of_metz_bishop: 'Saint Adelphus, Bishop',
     adolph_kolping_priest: 'Blessed Adolph Kolping, Priest',
@@ -429,7 +429,7 @@ export const locale: Locale = {
     germanus_of_auxerre_bishop: 'Saint Germanus of Auxerre, Bishop',
     gertrude_of_nivelles_abbess: 'Saint Gertrude of Nivelles, Abbess',
     gertrude_the_great_virgin: 'Saint Gertrude, Virgin',*/
-    gisela_of_hungary: 'Boldog Gizella',
+    gisela_of_hungary: 'Boldog Gizella királyné',
     /*gobnait_of_ballyvourney_virgin: 'Saint Gobnait, Virgin',
     gorazd_of_moravia_and_companions: 'Saint Gorazd and Companions',
     gotthard_of_hildesheim_bishop: 'Saint Gotthard, Bishop',
@@ -458,7 +458,7 @@ export const locale: Locale = {
     hildegard_of_bingen_abbess: 'Saint Hildegard of Bingen, Abbess and Doctor of the Church',
     holy_child_of_cebu: 'The Holy Child of Cebú',
     holy_family_of_jesus_mary_and_joseph: 'The Holy Family of Jesus, Mary and Joseph',*/
-    holy_guardian_angels: 'A szent őrzőangyalok',
+    holy_guardian_angels: 'Szent Őrzőangyalok',
     /*holy_innocents_martyrs: 'The Holy Innocents, Martyrs',
     holy_saturday: 'Holy Saturday/Easter Vigil',
     holy_thursday: 'Holy Thursday',
@@ -785,7 +785,7 @@ export const locale: Locale = {
     pelagius_of_cordoba_martyr: 'Saint Pelagius of Córdoba, Martyr',
     pentecost_sunday: 'Pünkösdvasárnap',
     perpetua_of_carthage_and_felicity_of_carthage_martyrs: 'Saints Perpetua and Felicity, Martyrs',*/
-    peter_and_paul_apostles: 'Szent Péter és Pál apostolok',
+    peter_and_paul_apostles: 'Szent Péter és Szent Pál apostolok',
     /*peter_baptist_blasquez_paul_miki_and_companions_martyrs: 'Saints Peter Baptist Blásquez, Paul Miki and Companions, Martyrs',
     peter_canisius_priest: 'Saint Peter Canisius, Priest and Doctor of the Church',
     peter_chanel_priest: 'Saint Peter Chanel, Priest and Martyr',
@@ -865,8 +865,8 @@ export const locale: Locale = {
     stanislaus_of_szczepanow_bishop: 'Saint Stanislaus, Bishop and Martyr',
     stanislaus_of_szczepanow_bishop_patron_of_poland: 'Saint Stanislaus, Bishop and Martyr, Patron of Poland',
     stephen_i_of_hungary: 'Saint Stephen of Hungary',*/
-    stephen_the_first_martyr: 'Szent István első vértanú',
-    sunday_of_the_word_of_god: 'Évközi III. vasárnap vagy az Isteni Ige vasárnapja',
+    stephen_the_first_martyr: 'Szent István diakónus, első vértanú',
+    sunday_of_the_word_of_god: 'Évközi III. vasárnap vagy az Isten Igéjének vasárnapja',
     /*sunniva_of_norway_virgin: 'Saint Sunniva, Virgin and Martyr',
     swithun_of_winchester_bishop: 'Saint Swithun, Bishop',*/
     sylvester_i_pope: 'Szent I. Szilveszter pápa',
