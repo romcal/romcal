@@ -438,7 +438,7 @@ export const locale: Locale = {
     gregory_i_the_great_pope: 'Saint Gregory the Great, Pope and Doctor of the Church',
     gregory_of_narek_abbot: 'Saint Gregory of Narek, Abbot and Doctor of the Church',
     gregory_vii_pope: 'Saint Gregory VII, Pope',*/
-    guardian_angel_of_portugal: 'Portugália őrangyala',
+    guardian_angel_of_portugal: 'Portugália Őrzőangyala',
     /*gundisalvus_garcia_martyr: 'Saint Gundisalvus Garcia, Martyr',
     gundisalvus_of_amarante_priest: 'Blessed Gundisalvus of Amarante, Priest',
     gundisalvus_of_lagos_priest: 'Blessed Gundisalvus of Lagos, Priest',
