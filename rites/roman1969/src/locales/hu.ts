@@ -6,32 +6,32 @@ export const locale: Locale = {
   seasons: {
     advent: {
       season: 'Advent',
-      /*weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Advent',
-      sunday: '$t(ordinals:{{week}}, capitalize) Sunday of Advent',
-      privileged_weekday: '$t(months:11, capitalize) {{day}}',*/
+      //weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Advent',
+      //sunday: '$t(ordinals:{{week}}, capitalize) Sunday of Advent',
+      //privileged_weekday: '$t(months:11, capitalize) {{day}}',
     },
 
     christmas_time: {
       season: 'Karácsonyi idő',
-      /*day: '$t(weekdays:{{dow}}, capitalize) of Christmas Time',
-      octave: '$t(ordinals:{{count}}, capitalize) Day within the Octave of the Nativity of the Lord',
-      second_sunday_after_christmas: 'Second Sunday after the Nativity of the Lord',
-      before_epiphany: '$t(months:0, capitalize) {{day}}',
-      after_epiphany: '$t(weekdays:{{dow}}, capitalize) after the Epiphany of the Lord',*/
+      //day: '$t(weekdays:{{dow}}, capitalize) of Christmas Time',
+      //octave: '$t(ordinals:{{count}}, capitalize) Day within the Octave of the Nativity of the Lord',
+      //second_sunday_after_christmas: 'Second Sunday after the Nativity of the Lord',
+      //before_epiphany: '$t(months:0, capitalize) {{day}}',
+      //after_epiphany: '$t(weekdays:{{dow}}, capitalize) after the Epiphany of the Lord',
     },
 
     ordinary_time: {
       season: 'Évközi idő',
-      /*weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Ordinary Time',
-      sunday: '$t(ordinals:{{week}}, capitalize) Sunday in Ordinary Time',*/
+      //weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Ordinary Time',
+      //sunday: '$t(ordinals:{{week}}, capitalize) Sunday in Ordinary Time',
     },
 
     lent: {
-      /*season: 'Lent',
-      weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Lent',
-      sunday: '$t(ordinals:{{week}}, capitalize) Sunday of Lent',
-      day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) after Ash Wednesday',
-      holy_week_day: '$t(weekdays:{{dow}}, capitalize) of Holy Week',*/
+      //season: 'Lent',
+      //weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Lent',
+      //sunday: '$t(ordinals:{{week}}, capitalize) Sunday of Lent',
+      //day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) after Ash Wednesday',
+      //holy_week_day: '$t(weekdays:{{dow}}, capitalize) of Holy Week',
     },
 
     paschal_triduum: {
@@ -40,15 +40,15 @@ export const locale: Locale = {
 
     easter_time: {
       season: 'Húsvéti idő',
-      /*weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Easter',
-      sunday: '$t(ordinals:{{week}}, capitalize) Sunday of Easter',
-      octave: '$t(weekdays:{{dow}}, capitalize) within the Octave of Easter',*/
+      //weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Easter',
+      //sunday: '$t(ordinals:{{week}}, capitalize) Sunday of Easter',
+      //octave: '$t(weekdays:{{dow}}, capitalize) within the Octave of Easter',
     },
   },
 
   periods: {
-    /*epiphany: 'Epiphany',
-    holy_week: 'Holy Week',*/
+    //epiphany: 'Epiphany',
+    //holy_week: 'Holy Week',
   },
 
   ranks: {
@@ -148,7 +148,7 @@ export const locale: Locale = {
   names: {
     //'205_blessed_martyrs_of_japan': '205 Blessed Martyrs of Japan',
     adalbert_of_prague_bishop: 'Szent Adalbert püspök és vértanú',
-    adalbert_of_prague_bishop_patron_of_poland: 'Szent Adalbert püspök és vértanú, Legyelország főpátrónája',
+    adalbert_of_prague_bishop_patron_of_poland: 'Szent Adalbert, püspök és vértanú, Legyelország főpátrónája',
     /*adelaide_of_burgundy_empress: 'Saint Adelaide of Burgundy, Empress',
     adelphus_of_metz_bishop: 'Saint Adelphus, Bishop',
     adolph_kolping_priest: 'Blessed Adolph Kolping, Priest',
@@ -186,8 +186,8 @@ export const locale: Locale = {
     andre_bessette_religious: 'Saint André Bessette, Religious',
     andre_grasset_priest: 'Blessed André Grasset, Priest and Martyr',*/
     andrew_apostle: 'Szent András apostol',
-    andrew_apostle_patron_of_russia: 'Szent András apostol, Oroszország patrónusa',
-    andrew_apostle_patron_of_scotland: 'Szent András apostol, Skócia patrónusa',
+    andrew_apostle_patron_of_russia: 'Szent András apostol, Oroszország pátrónája',
+    andrew_apostle_patron_of_scotland: 'Szent András apostol, Skócia pátrónája',
     /*andrew_bobola_priest: 'Saint Andrew Bobola, Priest and Martyr',
     andrew_de_soveral_and_ambrose_francis_ferro_priests: 'Saints Andrew de Soveral and Ambrose Francis Ferro, Priests and Martyrs',
     andrew_dung_lac_priest_and_companions_martyrs: 'Saint Andrew Dũng-Lạc, Priest, and Companions, Martyrs',
@@ -404,7 +404,7 @@ export const locale: Locale = {
     francis_diaz_del_rincon_priest_and_companions_martyrs: 'Saint Francis Díaz del Rincon, Priest, and Companions, Martyrs',
     francis_ferdinand_de_capillas_priest: 'Saint Francis Ferdinand de Capillas, Priest and Martyr',*/
     francis_of_assisi: 'Assisi Szent Ferenc',
-    francis_of_assisi_patron_of_italy: 'Assisi Szent Ferenc, Olaszország patrónusa',
+    francis_of_assisi_patron_of_italy: 'Assisi Szent Ferenc, Olaszország pátrónája',
     /*francis_of_paola_hermit: 'Saint Francis of Paola, Hermit',
     francis_solanus_priest: 'Saint Francis Solanus, Priest',
     francis_xavier_priest: 'Saint Francis Xavier, Priest',
@@ -589,7 +589,7 @@ export const locale: Locale = {
     lelia_of_killeely_virgin: 'Saint Lelia, Virgin',
     leo_i_the_great_pope: 'Saint Leo the Great, Pope and Doctor of the Church',
     leo_ignatius_mangin_priest_and_companions_martyrs: 'Saint Leo Ignatius Mangin, Priest, and Companions, Martyrs',*/
-    leo_ix_pope: 'Szent IX Leó pápa',
+    leo_ix_pope: 'Szent IX. Leó pápa',
     /*leoba_of_tauberbischofsheim_abbess: 'Saint Leoba, Abbess',
     leodegar_of_autun_bishop: 'Saint Leodegar of Autun, Bishop and Martyr',
     leonard_of_noblac_hermit: 'Saint Leonard of Noblac, Hermit',
@@ -608,7 +608,7 @@ export const locale: Locale = {
     ludger_of_munster_bishop: 'Saint Ludger of Münster, Bishop',
     ludmila_of_bohemia_martyr: 'Saint Ludmila, Martyr',
     luigi_orione_priest: 'Saint Luigi Orione, Priest',*/
-    luke_evangelist: 'Szent Lukács evangelista',
+    luke_evangelist: 'Szent Lukács evangélista',
     /*lydia_of_philippi: 'Saint Lydia of Philippi',
     mac_nissi_of_connor_bishop: 'Saint Mac Nissi, Bishop',
     macartan_of_clogher_bishop: 'Saint Macartan, Bishop',
