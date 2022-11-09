@@ -148,7 +148,7 @@ export const locale: Locale = {
   names: {
     //'205_blessed_martyrs_of_japan': '205 Blessed Martyrs of Japan',
     adalbert_of_prague_bishop: 'Szent Adalbert püspök és vértanú',
-    adalbert_of_prague_bishop_patron_of_poland: 'Szent Adalbert, püspök és vértanú, Legyelország főpátrónája',
+    adalbert_of_prague_bishop_patron_of_poland: 'Szent Adalbert püspök és vértanú, Legyelország főpátrónája',
     /*adelaide_of_burgundy_empress: 'Saint Adelaide of Burgundy, Empress',
     adelphus_of_metz_bishop: 'Saint Adelphus, Bishop',
     adolph_kolping_priest: 'Blessed Adolph Kolping, Priest',
