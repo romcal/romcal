@@ -1,0 +1,29 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependencies
+node_modules/
+
+# Coverage
+coverage/
+
+# Transpiled files
+dist/
+tmp/
+
+# Act (run GitHub Actions locally)
+*.event
+
+# Romcal codebase
+examples/
+LICENSE
+
+# Misc
+.DS_Store
+local-*
+*.bak
+*.orig
+*code-workspace
+*~

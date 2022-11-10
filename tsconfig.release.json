@@ -3,19 +3,13 @@
   "compilerOptions": {
     "module": "es2020",
     "target": "es2020",
-    "lib": [
-      "ES2020",
-      "ESNext"
-    ],
+    "lib": ["ES2020", "ESNext"],
     "moduleResolution": "node",
     "rootDir": ".",
     "removeComments": true,
     "declaration": true,
     "declarationDir": "tmp/dts",
-    "emitDeclarationOnly": true,
+    "emitDeclarationOnly": true
   },
-  "include": [
-    "lib/**/*",
-    "tmp/constants/**/*"
-  ],
+  "include": ["lib/**/*", "tmp/constants/**/*"]
 }
