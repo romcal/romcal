@@ -18,6 +18,7 @@ tests/
 .editorconfig
 .eslintignore
 .eslintrc.js
+.prettierignore
 .prettierrc
 jest.config.js
 tsconfig.*
@@ -29,12 +30,9 @@ tmp/
 # Act (run GitHub Actions locally)
 *.event
 
-# VS Code
-.vscode
-!.vscode/tasks.js
-
-# JetBrains IDEs
+# IDEs
 .idea/
+.vscode/
 
 # Optional npm cache directory
 .npm
