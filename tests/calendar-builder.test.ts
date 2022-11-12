@@ -358,3 +358,25 @@ describe('Testing calendar generation functions', () => {
     });
   });
 });
+
+describe('Testing calendar snapshots', () => {
+  test('General Roman Calendar in gregorian year', async () => {
+    const gregorianCalendar2020 = await new Romcal().generateCalendar(2020);
+    const gregorianCalendar2021 = await new Romcal().generateCalendar(2021);
+    const gregorianCalendar2022 = await new Romcal().generateCalendar(2022);
+
+    expect(gregorianCalendar2020).toMatchSnapshot();
+    expect(gregorianCalendar2021).toMatchSnapshot();
+    expect(gregorianCalendar2022).toMatchSnapshot();
+  });
+
+  test('General Roman Calendar in liturgical year', async () => {
+    const liturgicalCalendar2020 = await new Romcal({ scope: 'liturgical' }).generateCalendar(2020);
+    const liturgicalCalendar2021 = await new Romcal({ scope: 'liturgical' }).generateCalendar(2021);
+    const liturgicalCalendar2022 = await new Romcal({ scope: 'liturgical' }).generateCalendar(2022);
+
+    expect(liturgicalCalendar2020).toMatchSnapshot();
+    expect(liturgicalCalendar2021).toMatchSnapshot();
+    expect(liturgicalCalendar2022).toMatchSnapshot();
+  });
+});

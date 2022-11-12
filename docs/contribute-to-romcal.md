@@ -102,6 +102,12 @@ romcal code is unit tested using the [jest](https://jestjs.io/) framework.
 npm test
 ```
 
+- When computed data has changed due to a codebase update, data snapshot tests will fail. To update the snapshots, run:
+
+```bash
+npx jest --updateSnapshot
+```
+
 - For running all test suites and then watch the source directory for changes:
 
 ```bash
