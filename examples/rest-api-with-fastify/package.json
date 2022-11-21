@@ -11,7 +11,7 @@
   "dependencies": {
     "@romcal/calendar.france": "^3.0.0-dev.20",
     "@romcal/calendar.general-roman": "^3.0.0-dev.20",
-    "fastify": "^4.9.2",
+    "fastify": "^4.10.2",
     "romcal": "^3.0.0-dev.20"
   },
   "license": "MIT"
