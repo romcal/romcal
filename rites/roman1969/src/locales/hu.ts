@@ -27,7 +27,7 @@ export const locale: Locale = {
     },
 
     lent: {
-      //season: 'Lent',
+      season: 'Nagyböjt',
       //weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Lent',
       //sunday: '$t(ordinals:{{week}}, capitalize) Sunday of Lent',
       //day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) after Ash Wednesday',
