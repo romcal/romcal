@@ -67,10 +67,10 @@ export const locale: Locale = {
     sunday_year_c: 'C év',
     weekday_year_1: 'I. év',
     weekday_year_2: 'II. év',
-    /*psalter_week_1: 'Week I',
-    psalter_week_2: 'Week II',
-    psalter_week_3: 'Week III',
-    psalter_week_4: 'Week IV',*/
+    psalter_week_1: 'I. zsoltárhét',
+    psalter_week_2: 'II. zsoltárhét',
+    psalter_week_3: 'III. zsoltárhét',
+    psalter_week_4: 'IV. zsoltárhét',
   },
 
   weekdays: {
