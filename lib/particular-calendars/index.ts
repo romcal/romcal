@@ -47,6 +47,13 @@ import { Romania } from './romania';
 import { Russia } from './russia';
 import { Scotland } from './scotland';
 import { Slovakia } from './slovakia';
+import { Slovakia_BanskaBystrica } from './slovakia.banska-bystrica'
+import { Slovakia_BanskaBystrica_Cathedral } from './slovakia.banska-bystrica.cathedral'
+import { Slovakia_Bratislava } from './slovakia.bratislava'
+import { Slovakia_Bratislava_MartinOfTours_CathedralOfSaintMartinOfTours } from './slovakia.bratislava.martin-of-tours.cathedral-of-saint-martin-of-tours'
+import {Slovakia_Kosice} from './slovakia.kosice'
+import {Slovakia_Kosice_Kosice} from './slovakia.kosice.kosice'
+import {Slovakia_Kosice_Kosice_ElizabethOfHungary_CathedralOfSaintElizabethOfHungary} from './slovakia.kosice.kosice.elizabeth-of-hungary.cathedral-of-saint-elizabeth-of-hungary'
 import { Slovenia } from './slovenia';
 import { Spain } from './spain';
 import { SriLanka } from './sri-lanka';
@@ -108,6 +115,13 @@ export const particularCalendars: Record<string, typeof CalendarDef> = {
   Russia: Russia,
   Scotland: Scotland,
   Slovakia: Slovakia,
+  Slovakia_BanskaBystrica: Slovakia_BanskaBystrica,
+  Slovakia_BanskaBystrica_Cathedral: Slovakia_BanskaBystrica_Cathedral,
+  Slovakia_Bratislava: Slovakia_Bratislava,
+  Slovakia_Bratislava_MartinOfTours_CathedralOfSaintMartinOfTours: Slovakia_Bratislava_MartinOfTours_CathedralOfSaintMartinOfTours,
+  Slovakia_Kosice: Slovakia_Kosice,
+  Slovakia_Kosice_Kosice: Slovakia_Kosice_Kosice,
+  Slovakia_Kosice_Kosice_ElizabethOfHungary_CathedralOfSaintElizabethOfHungary: Slovakia_Kosice_Kosice_ElizabethOfHungary_CathedralOfSaintElizabethOfHungary,
   Slovenia: Slovenia,
   Spain: Spain,
   SriLanka: SriLanka,

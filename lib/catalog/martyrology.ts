@@ -989,6 +989,15 @@ export class Martyrology {
       titles: [Titles.Apostle],
       count: 2,
     },
+    dedication_of_the_cathedral_of_saint_elizabeth_of_hungary_kosice_slovakia: {
+      name: 'Dedication of the Cathedral of Saint Elizabeth of Hungary, Košice, Slovakia',
+    },
+    dedication_of_the_cathedral_of_saint_francis_xavier_banska_bystrica_slovakia: {
+      name: 'Dedication of the Cathedral of Saint Francis Xavier, Banská Bystrica, Slovakia',
+    },
+    dedication_of_the_cathedral_of_saint_martin_of_tours_bishop_bratislava_slovakia: {
+      name: 'Dedication of the Cathedral of Saint Martin of Tours, Bratislava, Slovakia',
+    },
     dedication_of_the_lateran_basilica: {
       name: 'Dedication of the Lateran Basilica',
     },
@@ -2091,6 +2100,17 @@ export class Martyrology {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'John Scheffler',
       titles: [Titles.Bishop, Titles.Martyr],
+    },
+    john_the_merciful_of_alexandria_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'John the Merciful',
+      titles: [Titles.Bishop],
+      sex: 'MALE',
+      // dateOfBirth: 552,
+      // dateOfDeathIsApproximative: true,
+      dateOfDeath: '616',  // `[616, 620]` (c. 616-620)
+      dateOfDeathIsApproximative: true,
+      count: 1
     },
     john_xxiii_pope: {
       canonizationLevel: CanonizationLevels.Saint,
