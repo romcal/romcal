@@ -92,7 +92,7 @@ export class RomcalConfig implements IRoncalConfig {
       },
     );
 
-    // If another locale is specified, load associated ressources in the
+    // If another locale is specified, load associated resources in the
     // i18next library.
     if (localeObj) this.#addResourceBundles(localeObj);
 
