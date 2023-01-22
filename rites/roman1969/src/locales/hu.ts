@@ -52,7 +52,7 @@ export const locale: Locale = {
   },
 
   ranks: {
-    //solemnity: 'solemnity',
+    solemnity: 'főünnep',
     sunday: 'vasárnap',
     feast: 'ünnep',
     memorial: 'emléknap',
