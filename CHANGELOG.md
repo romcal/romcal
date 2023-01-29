@@ -66,7 +66,7 @@ The new architecture helped to introduce new features without performance and co
 
 ### Breaking Changes
 
-- Data schema outputted by romcal has been drastically remodeled. Please have look to the documentation for more informations.
+- Data schema output by romcal has been drastically remodeled. Please have look to the documentation for more information.
 - ascensionOnSunday, corpusChristiOnSunday, epiphanyOnSunday option names have been renamed.
 - General romcal option names have been unified. `calendar` is renamed to `scope` and take the values: `gregorian` or `liturgical`.
 - The provided liturgical year now correspond to the second year (the almost whole part of the civil year).

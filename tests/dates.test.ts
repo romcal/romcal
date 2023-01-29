@@ -718,7 +718,7 @@ describe('Testing specific liturgical date functions', () => {
           // eslint-disable-next-line jest/no-conditional-expect
           expect(new Romcal().dates().annunciation(i).getUTCDay()).toEqual(25);
         } else {
-          // This test case specifically doesnt care about what happens if one or
+          // This test case specifically doesn't care about what happens if one or
           // all of the above condition are not met... that is tested in another use case
           // eslint-disable-next-line jest/no-conditional-expect
           expect(true).toBeTrue();
@@ -750,7 +750,7 @@ describe('Testing specific liturgical date functions', () => {
             isSameDate(new Romcal().dates().annunciation(i), addDays(new Romcal().dates().divineMercySunday(i), 1)),
           ).toEqual(true);
         } else {
-          // This test case specifically doesnt care about what happens if one or
+          // This test case specifically doesn't care about what happens if one or
           // all of the above condition are not met... that is tested in another use case
           // eslint-disable-next-line jest/no-conditional-expect
           expect(true).toBeTrue();
@@ -781,7 +781,7 @@ describe('Testing specific liturgical date functions', () => {
             isSameDate(new Romcal().dates().annunciation(i), addDays(new Romcal().dates().divineMercySunday(i), 1)),
           ).toEqual(true);
         } else {
-          // This test case specifically doesnt care about what happens if one or
+          // This test case specifically doesn't care about what happens if one or
           // all of the above condition are not met... that is tested in another use case
           // eslint-disable-next-line jest/no-conditional-expect
           expect(true).toBeTrue();
