@@ -153,7 +153,7 @@ describe('Testing calendar generation functions', () => {
     });
 
     test('The proper color for the Chair of Peter and the Conversion of St. Paul is white, although both St. Peter and St. Paul were martyrs.', async () => {
-      const dates = Object.values(await new Romcal().generateCalendar())
+      const dates = Object.values(await new Romcal().generateCalendar(2022))
         .flat()
         .filter((d) => ['chair_of_saint_peter_the_apostle', 'conversion_of_saint_paul_the_apostle'].includes(d.key));
       expect(dates.length).toBe(2);
