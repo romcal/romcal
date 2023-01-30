@@ -16,9 +16,9 @@ import {
 } from '../types/liturgical-day';
 import { LiturgicalDayConfigOutput } from '../types/liturgical-day-config';
 import { MartyrologyItem } from '../types/martyrology';
+import { CyclesMetadata } from './cycles-metadata';
 import { LiturgicalDayConfig } from './liturgical-day-config';
 import LiturgicalDayDef from './liturgical-day-def';
-import { CyclesMetadata } from './cycles-metadata';
 
 class LiturgicalDay implements BaseLiturgicalDay {
   readonly #liturgicalDayDef: LiturgicalDayDef;
@@ -88,7 +88,7 @@ class LiturgicalDay implements BaseLiturgicalDay {
     this.#liturgicalDayDef = def;
     this.#liturgicalDayConfig = liturgicalDayConfig;
     this.key = def.key;
-    this.date = date.toISOString().substr(0, 10);
+    this.date = date.toISOString().substring(0, 10);
     this.dateDef = def.dateDef;
     this.precedence = def.precedence;
     this.rank = def.rank;

@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { Slovakia_Sk } from 'romcal/dist/bundles/slovakia';
+
 import Romcal from '../lib';
 
 const { Ranks, getUtcDateFromString, isSameDate, subtractsDays } = Romcal;
@@ -56,8 +58,8 @@ describe('Testing specific feasts and memorials', () => {
         computeInWholeYear: true,
       });
 
-      expect(johnXxiiiPope?.isOptional).toBeTrue();
-      expect(johnPaulIiPope?.isOptional).toBeTrue();
+      expect(johnXxiiiPope?.isOptional).toBeTruthy();
+      expect(johnPaulIiPope?.isOptional).toBeTruthy();
     });
   });
 

@@ -16,7 +16,7 @@ export enum Colors {
  */
 export const COLORS = Object.keys(Colors).filter(
   (key) => typeof Colors[key as keyof typeof Colors] === 'string',
-) as Array<Uppercase<keyof typeof Colors>>;
+) as Uppercase<keyof typeof Colors>[];
 
 export type Color = typeof COLORS[number];
 

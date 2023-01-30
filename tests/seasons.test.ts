@@ -1,4 +1,4 @@
-import Romcal, { BaseLiturgicalDay } from '../lib';
+import Romcal, { LiturgicalDay } from '../lib';
 
 const { Colors, Seasons, Ranks, addDays, isSameDate, subtractsDays } = Romcal;
 
@@ -95,8 +95,8 @@ describe('Testing date range functions', () => {
   });
 
   describe('The Octave of Easter', () => {
-    const romcal = new Romcal();
     test('Should be 8 days long', () => {
+      const romcal = new Romcal();
       for (let i = 1900, il = 2100; i <= il; i++) {
         expect(romcal.dates(i).allDatesInOctaveOfEaster().length).toEqual(8);
       }
@@ -253,11 +253,11 @@ describe('Testing date range functions', () => {
 describe('Testing seasons utility functions', () => {
   describe('Holy days of obligation', () => {
     test('All Sundays are holy days of obligation', async () => {
-      const sundays: BaseLiturgicalDay[] = Object.values(await new Romcal().generateCalendar())
+      const sundays: LiturgicalDay[] = Object.values(await new Romcal().generateCalendar())
         .flat()
         .filter((item) => item.calendar.dayOfWeek === 0);
       sundays.every((item) => item.isHolyDayOfObligation);
-      expect(sundays.every((item) => item.isHolyDayOfObligation)).toBeTrue();
+      expect(sundays.every((item) => item.isHolyDayOfObligation)).toBeTruthy();
     });
   });
 

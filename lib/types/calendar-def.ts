@@ -31,7 +31,7 @@ export interface BaseCalendarDef {
   dates: typeof Dates;
   updateConfig: (config?: RomcalConfigInput) => void;
   buildAllDefinitions: () => void;
-  calendarName: string;
+  calendarName: Key;
 }
 
 interface IConstructor<InstanceInterface> {

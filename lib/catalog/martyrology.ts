@@ -1,8 +1,8 @@
 import { CanonizationLevels, Titles } from '../constants/martyrology-metadata';
 import { MartyrologyCatalog } from '../types/martyrology';
 
-export class Martyrology {
-  static catalog: MartyrologyCatalog = {
+export const Martyrology: { catalog: MartyrologyCatalog } = {
+  catalog: {
     '205_blessed_martyrs_of_japan': {
       canonizationLevel: CanonizationLevels.Blessed,
       name: '205 Blessed Martyrs of Japan',
@@ -4058,5 +4058,5 @@ export class Martyrology {
       name: 'Zygmunt Gorazdowski',
       titles: [Titles.Priest],
     },
-  };
-}
+  },
+};

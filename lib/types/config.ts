@@ -1,6 +1,8 @@
 import { i18n } from 'i18next';
+
 import { RomcalBundleObject } from './bundle';
 import { CalendarDefInstance } from './calendar-def';
+import { Key } from './common';
 
 /**
  * The configuration object that is passed either to the [[Calendar.calendarFor]]
@@ -53,7 +55,7 @@ export interface BaseRomcalConfig {
   /**
    * The locale key
    */
-  readonly localeKey: string;
+  readonly localeKey: Key;
 
   /**
    * The calendar name
@@ -61,7 +63,7 @@ export interface BaseRomcalConfig {
   readonly calendarName: string;
 }
 
-export interface IRoncalConfig extends BaseRomcalConfig {
+export interface IRomcalConfig extends BaseRomcalConfig {
   readonly i18next: i18n;
 }
 

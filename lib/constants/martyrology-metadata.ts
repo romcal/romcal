@@ -1,6 +1,6 @@
 import { ScreamingSnakeCase } from '../types/common';
-import { toScreamingSnakeCase } from '../utils/string';
 import { RomcalTitles } from '../types/liturgical-day';
+import { toScreamingSnakeCase } from '../utils/string';
 
 /**
  * Canonization level of a person.
@@ -13,7 +13,7 @@ export enum CanonizationLevels {
 
 export const CANONIZATION_LEVEL = Object.keys(CanonizationLevels)
   .filter((key) => typeof CanonizationLevels[key as keyof typeof CanonizationLevels] === 'string')
-  .map((key) => toScreamingSnakeCase(key)) as Array<ScreamingSnakeCase<keyof typeof CanonizationLevels>>;
+  .map((key) => toScreamingSnakeCase(key)) as ScreamingSnakeCase<keyof typeof CanonizationLevels>[];
 
 export type CanonizationLevel = typeof CANONIZATION_LEVEL[number];
 
@@ -55,7 +55,7 @@ export enum Titles {
 
 export const TITLES = Object.keys(Titles)
   .filter((key) => typeof Titles[key as keyof typeof Titles] === 'string')
-  .map((key) => toScreamingSnakeCase(key)) as Array<ScreamingSnakeCase<keyof typeof Titles>>;
+  .map((key) => toScreamingSnakeCase(key)) as ScreamingSnakeCase<keyof typeof Titles>[];
 
 export type Title = typeof TITLES[number];
 
@@ -110,7 +110,7 @@ export enum PatronTitles {
 
 export const PATRON_TITLES = Object.keys(PatronTitles)
   .filter((key) => typeof PatronTitles[key as keyof typeof PatronTitles] === 'string')
-  .map((key) => toScreamingSnakeCase(key)) as Array<ScreamingSnakeCase<keyof typeof PatronTitles>>;
+  .map((key) => toScreamingSnakeCase(key)) as ScreamingSnakeCase<keyof typeof PatronTitles>[];
 
 export type PatronTitle = typeof PATRON_TITLES[number];
 
@@ -124,6 +124,6 @@ export enum Sexes {
 
 export const SEXES = Object.keys(Sexes)
   .filter((key) => typeof Sexes[key as keyof typeof Sexes] === 'string')
-  .map((key) => toScreamingSnakeCase(key)) as Array<ScreamingSnakeCase<keyof typeof Sexes>>;
+  .map((key) => toScreamingSnakeCase(key)) as ScreamingSnakeCase<keyof typeof Sexes>[];
 
 export type Sex = typeof SEXES[number];

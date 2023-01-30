@@ -1,4 +1,3 @@
-import { PartialCyclesDef } from '../types/cycles-metadata';
 import { Color, Colors } from '../constants/colors';
 import { ProperCycles } from '../constants/cycles';
 import { GENERAL_ROMAN_NAME, PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
@@ -8,6 +7,7 @@ import { Precedence, Precedences } from '../constants/precedences';
 import { Rank, Ranks, RanksFromPrecedence } from '../constants/ranks';
 import { Season } from '../constants/seasons';
 import { Key } from '../types/common';
+import { PartialCyclesDef } from '../types/cycles-metadata';
 import {
   BaseLiturgicalDayDef,
   CalendarMetadata,
@@ -102,6 +102,8 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
     if (!input.dateDef && !previousDef) {
       throw new Error(`In the '${fromCalendar}' calendar, the property 'dateDef' for '${key}' must be defined.`);
     }
+    // TODO: refactor this to avoid non-null assertion
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     this.dateDef = input.dateDef ?? previousDef!.dateDef;
 
     this.dateExceptions = Array.isArray(input.dateExceptions)
@@ -297,6 +299,8 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
     // Combine `titles` from the main date definition, if provided.
     if (input.titles) {
       martyrology.forEach((m, i) => {
+        // TODO: refactor this to avoid non-null assertion
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         m.titles = this.#combineTitles(input.titles!, martyrology[i].key, previousDef);
       });
       if (martyrology.length === 0) {
@@ -315,7 +319,7 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
    * @param martyrologyKey
    * @param previousDef
    */
-  #combineTitles(titlesDef: TitlesDef, martyrologyKey: Key, previousDef?: LiturgicalDayDef): RomcalTitles {
+  #combineTitles(titlesDef: TitlesDef, martyrologyKey: string, previousDef?: LiturgicalDayDef): RomcalTitles {
     return Array.isArray(titlesDef)
       ? titlesDef
       : typeof titlesDef === 'object'

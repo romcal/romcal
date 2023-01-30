@@ -9,12 +9,12 @@ import {
   PSALTER_WEEKS,
   PsalterWeekCycle,
   PsalterWeekCycles,
+  SUNDAY_CYCLES,
   SundayCycle,
   SundayCycles,
-  SUNDAY_CYCLES,
+  WEEKDAY_CYCLES,
   WeekdayCycle,
   WeekdayCycles,
-  WEEKDAY_CYCLES,
 } from './constants/cycles';
 import { GENERAL_ROMAN_NAME, PROPER_OF_TIME_NAME } from './constants/general-calendar-names';
 import {
@@ -72,7 +72,6 @@ import {
   DateDefMonthDowNthWeekInMonth,
   DateDefMonthLastDowInMonth,
   DateDefSubtractDay,
-  DateStr,
   FromCalendar,
   i18nDef,
   LiturgicalDayInput,
@@ -109,7 +108,7 @@ import {
   startOfWeek,
   subtractsDays,
 } from './utils/dates';
-import { toRomanNumber } from './utils/numbers';
+import { isInteger, toRomanNumber } from './utils/numbers';
 
 class Romcal {
   readonly #config: RomcalConfig;
@@ -137,7 +136,7 @@ class Romcal {
    */
   static #sanitizeYear(year?: number | string): number | undefined {
     const y: number | undefined = typeof year === 'string' ? parseInt(year, 10) : year;
-    if ((y !== undefined && !Number.isInteger(y)) || (Number.isInteger(y) && (y! < 0 || y! > 9999))) {
+    if ((y !== undefined && !Number.isInteger(y)) || (isInteger(y) && (y < 0 || y > 9999))) {
       throw new Error('The provided year is incorrect');
     }
     return y;
@@ -332,100 +331,99 @@ class Romcal {
 export default Romcal;
 
 export {
-  RomcalBundle,
   Calendar,
   CalendarDef,
-  RomcalConfig,
   CyclesMetadata,
   LiturgicalDay,
   LiturgicalDayConfig,
   LiturgicalDayDef,
+  RomcalBundle,
+  RomcalConfig,
 };
 
 export {
-  // constants/colors.ts
-  Color,
-  // constants/cycles.ts
-  ProperCycle,
-  SundayCycle,
-  WeekdayCycle,
-  PsalterWeekCycle,
-  // constants/martyrology-metadata.ts
-  CanonizationLevel,
-  Title,
-  PatronTitle,
-  Sex,
-  // constants/months.ts
-  Month,
-  MonthIndex,
-  // constants/periods.ts
-  Period,
-  // constants/precedences.ts
-  Precedence,
-  // constants/ranks.ts
-  Rank,
-  // constants/seasons.ts
-  Season,
-  // constants/Weekday.ts
-  Weekday,
-  DayOfWeek,
-  // types/bundle.ts
-  RomcalBundleObject,
-  // types/calendar.ts
-  LiturgicalCalendar,
-  // types/calendar-def.ts
-  CalendarDefInputs,
-  ParticularConfig,
-  Inputs,
-  BundleInputs,
-  LiturgicalDayDefinitions,
-  // types/common.ts
-  Key,
-  // types/config.ts
-  RomcalConfigInput,
-  RomcalConfigOutput,
-  CalendarScope,
   // types/cycles-metadata.ts
   BaseCyclesMetadata,
-  PartialCyclesDef,
-  PlainCyclesMetadata,
   // types/liturgical-day.ts
   BaseLiturgicalDay,
   BaseLiturgicalDayDef,
+  BundleInputs,
+  // types/calendar-def.ts
+  CalendarDefInputs,
+  CalendarMetadata,
+  CalendarScope,
+  // constants/martyrology-metadata.ts
+  CanonizationLevel,
+  // constants/colors.ts
+  Color,
   DateDef,
-  DateStr,
-  DateDefMonthDate,
+  DateDefAddDay,
   DateDefDateFnAddDay,
   DateDefDateFnSubtractDay,
+  DateDefException,
+  DateDefExtended,
+  DateDefMonthDate,
   DateDefMonthDowNthWeekInMonth,
   DateDefMonthLastDowInMonth,
-  DateDefExtended,
-  DateDefAddDay,
   DateDefSubtractDay,
-  DateDefException,
-  CalendarMetadata,
-  RomcalCalendarMetadata,
-  i18nDef,
-  TitlesDef,
-  RomcalTitles,
-  MartyrologyItemPointer,
-  MartyrologyItemRedefined,
-  LiturgicalDayInput,
-  LiturgyDayDiff,
+  DayOfWeek,
   FromCalendar,
+  i18nDef,
+  Inputs,
+  // types/common.ts
+  Key,
+  // types/calendar.ts
+  LiturgicalCalendar,
   // types/liturgical-day-config.ts
   LiturgicalDayConfigOutput,
+  LiturgicalDayDefinitions,
+  LiturgicalDayInput,
+  LiturgyDayDiff,
   // types/locale.ts
   Locale,
-  LocaleOrdinals,
-  LocaleWeeks,
-  LocaleMonths,
   LocaleColors,
   LocaleLiturgicalDayNames,
+  LocaleMonths,
+  LocaleOrdinals,
+  LocaleWeeks,
+  MartyrologyCatalog,
+  MartyrologyItem,
+  MartyrologyItemPointer,
+  MartyrologyItemRedefined,
+  // constants/months.ts
+  Month,
+  MonthIndex,
+  PartialCyclesDef,
+  ParticularConfig,
+  PatronTitle,
+  // constants/periods.ts
+  Period,
+  PlainCyclesMetadata,
+  // constants/precedences.ts
+  Precedence,
+  // constants/cycles.ts
+  ProperCycle,
+  PsalterWeekCycle,
+  // constants/ranks.ts
+  Rank,
+  // types/bundle.ts
+  RomcalBundleObject,
+  RomcalCalendarMetadata,
+  // types/config.ts
+  RomcalConfigInput,
+  RomcalConfigOutput,
+  RomcalTitles,
   // types/martyrology.ts
   SaintCount,
   SaintDate,
   SaintDateDef,
-  MartyrologyCatalog,
-  MartyrologyItem,
+  // constants/seasons.ts
+  Season,
+  Sex,
+  SundayCycle,
+  Title,
+  TitlesDef,
+  // constants/Weekday.ts
+  Weekday,
+  WeekdayCycle,
 };

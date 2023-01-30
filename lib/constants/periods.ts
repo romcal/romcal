@@ -18,6 +18,6 @@ export enum Periods {
  */
 export const PERIODS = Object.keys(Periods)
   .filter((key) => typeof Periods[key as keyof typeof Periods] === 'string')
-  .map((key) => toScreamingSnakeCase(key)) as Array<ScreamingSnakeCase<keyof typeof Periods>>;
+  .map((key) => toScreamingSnakeCase(key)) as ScreamingSnakeCase<keyof typeof Periods>[];
 
 export type Period = typeof PERIODS[number];

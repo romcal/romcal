@@ -38,7 +38,7 @@ jobs:
           default: prerelease
           preid: dev
           skip-commit: 'true'
-          skip-tag:  'true'
+          skip-tag: 'true'
 
       - name: Read package.json
         uses: culshaw/read-package-node-version-actions@v1

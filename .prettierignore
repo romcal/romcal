@@ -16,21 +16,9 @@ tmp/
 # Act (run GitHub Actions locally)
 *.event
 
-# VS Code
-.vscode/*
-!.vscode/settings.json
-!.vscode/task.json
-!.vscode/launch.json
-!.vscode/extensions.json
-
-# JetBrains IDEs
-.idea/
-
-# Optional npm cache directory
-.npm
-
-# Optional eslint cache
-.eslintcache
+# Romcal codebase
+examples/
+LICENSE
 
 # Misc
 .DS_Store

@@ -59,7 +59,7 @@ export const daysInMonth = (date: Date): number => {
 /**
  * For a given date, get the ISO week number
  *
- * @remarks This function was sourced from [StakOverflow](https://stackoverflow.com/a/6117889/3408342).
+ * @remarks This function was sourced from [StackOverflow](https://stackoverflow.com/a/6117889/3408342).
  *
  * @param    date - Date which should be considered
  * @returns  ISO week number of the specified date
@@ -67,7 +67,7 @@ export const daysInMonth = (date: Date): number => {
 export const getWeekNumber = (date: Date): number => {
   const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
   d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
-  return Math.ceil(((d.getTime() - new Date(Date.UTC(d.getUTCFullYear(), 0, 1)).getTime()) / 864e5 + 1) / 7)
+  return Math.ceil(((d.getTime() - new Date(Date.UTC(d.getUTCFullYear(), 0, 1)).getTime()) / 864e5 + 1) / 7);
 };
 
 /**
@@ -119,7 +119,7 @@ export const rangeOfDays = (start: Date, end: Date): Date[] => {
  * @returns `true` if the date exists in the range or false if otherwise
  */
 export const rangeContainsDate = (range: Date[], date: Date): boolean => {
-  return range.map((date) => date.toISOString()).includes(date.toISOString());
+  return range.map((d) => d.toISOString()).includes(date.toISOString());
 };
 
 export class Dates {
@@ -219,7 +219,7 @@ export class Dates {
     }
     if (dow < 1 || dow > 6 || week < 1 || week > 4) return (this.#unprivilegedWeekdayOfAdvent[id] = null);
     let date: Date | null = addDays(this.firstSundayOfAdvent(year), (week - 1) * 7 + dow);
-    if (date!.getUTCDate() >= 17 && date!.getUTCMonth() === 11 && date!.getUTCDay() !== 0) date = null;
+    if (date.getUTCDate() >= 17 && date.getUTCMonth() === 11 && date.getUTCDay() !== 0) date = null;
     return (this.#unprivilegedWeekdayOfAdvent[id] = date);
   };
   #unprivilegedWeekdayOfAdvent: Record<string, Date | null> = {};
@@ -839,9 +839,9 @@ export class Dates {
       const corpusChristi = this.corpusChristi(year).getTime();
       const mostSacredHeartOfJesus = this.mostSacredHeartOfJesus(year).getTime();
 
-      const groupBy = (dates: Date[], isEarlyOrdinaryTime: boolean) =>
+      const groupBy = (dates: Date[], isEarlyOrdinaryTime: boolean): Record<string, Record<string, Date | null>> =>
         dates.reduce((result: Record<string, Record<string, Date | null>>, item, idx) => {
-          let week = isEarlyOrdinaryTime
+          let weekNumber = isEarlyOrdinaryTime
             ? // Early Ordinary Time
               item.getUTCDay() === 0
               ? Math.floor(idx / 7) + 2
@@ -853,7 +853,7 @@ export class Dates {
 
           // When the Baptism of the Lord is observed on Monday, Ordinary Time starts on Tuesday.
           // So in this case, the Monday (from the group of 7 days computed above) takes place in the next week.
-          if (isEarlyOrdinaryTime && baptismOfTheLordIsMonday && item.getUTCDay() === 1) week++;
+          if (isEarlyOrdinaryTime && baptismOfTheLordIsMonday && item.getUTCDay() === 1) weekNumber++;
 
           const dateTime = item.getTime();
           const date =
@@ -861,7 +861,7 @@ export class Dates {
               ? null
               : item;
 
-          return { ...result, [week]: { ...(result[week] || []), [item.getUTCDay()]: date } };
+          return { ...result, [weekNumber]: { ...(result[weekNumber] || []), [item.getUTCDay()]: date } };
         }, {});
 
       this.#dateOfOrdinaryTime[id] = {

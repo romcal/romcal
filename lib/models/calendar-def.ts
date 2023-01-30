@@ -24,7 +24,7 @@ export class CalendarDef implements BaseCalendarDef {
   /**
    * Get the name of the CalendarDef class.
    */
-  public get calendarName(): string {
+  public get calendarName(): Key {
     if (!this.#calendarName) {
       this.#calendarName = this.constructor.name
         .split(/(?=[A-Z])/)
@@ -33,7 +33,7 @@ export class CalendarDef implements BaseCalendarDef {
     }
     return this.#calendarName;
   }
-  #calendarName?: string;
+  #calendarName?: Key;
 
   constructor(config: RomcalConfig, inputs?: BundleInputs) {
     this.#config = config;

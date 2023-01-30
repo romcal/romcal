@@ -11,7 +11,7 @@ export const getDuration = (initialTime: Date): string => {
     conjunction: ' and ',
     languages: {
       shortEn: units.reduce((acc: UnitTranslationOptions, k) => {
-        acc[k] = () => k;
+        acc[k] = (): humanizeDuration.Unit => k;
         return acc;
       }, {}),
     },

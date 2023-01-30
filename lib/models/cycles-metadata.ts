@@ -1,4 +1,3 @@
-import { BaseCyclesMetadata, PlainCyclesMetadata } from '../types/cycles-metadata';
 import {
   ProperCycle,
   PSALTER_WEEKS,
@@ -8,9 +7,10 @@ import {
   WEEKDAY_CYCLES,
   WeekdayCycle,
 } from '../constants/cycles';
-import { RomcalConfig } from './config';
-import { getUtcDateFromString } from '../utils/dates';
+import { BaseCyclesMetadata, PlainCyclesMetadata } from '../types/cycles-metadata';
 import { RomcalCalendarMetadata } from '../types/liturgical-day';
+import { getUtcDateFromString } from '../utils/dates';
+import { RomcalConfig } from './config';
 
 /**
  * A cycle metadata object, based on the contextual liturgical day & year
