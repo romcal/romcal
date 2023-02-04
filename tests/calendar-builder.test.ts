@@ -47,7 +47,7 @@ describe('Testing calendar generation functions', () => {
         'colors',
         'calendar',
         'cycles',
-        'fromCalendar',
+        'fromCalendarId',
         'fromExtendedCalendars',
       ];
 

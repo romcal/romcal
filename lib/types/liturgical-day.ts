@@ -252,7 +252,7 @@ export type MartyrologyItemPointer = Id | MartyrologyItemRedefined;
 /**
  * From calendar ID
  */
-export type FromCalendar = Id;
+export type FromCalendarId = Id;
 
 /**
  * The associated martyrology item, with its overridden properties.
@@ -415,7 +415,7 @@ type LiturgicalDayRoot = {
   /**
    * The ID of the calendar from which the liturgical day is defined.
    */
-  fromCalendar: FromCalendar;
+  fromCalendarId: FromCalendarId;
 
   /**
    * The names and the object diff of the calendars from which this liturgical day is extended.
@@ -448,7 +448,7 @@ type LiturgicalDayRoot = {
 export type BaseLiturgicalDayDef = Pick<
   LiturgicalDayRoot,
   | 'colors'
-  | 'fromCalendar'
+  | 'fromCalendarId'
   | 'periods'
   | 'i18nDef'
   | 'calendarMetadata'
@@ -521,7 +521,7 @@ export type LiturgicalDayInput = Partial<
 };
 
 export type LiturgicalDayBundleInput = XOR<LiturgicalDayInput, LiturgicalDayProperOfTimeInput> &
-  Partial<Pick<LiturgicalDayRoot, 'fromCalendar'>>;
+  Partial<Pick<LiturgicalDayRoot, 'fromCalendarId'>>;
 
 /**
  * Input object with its base properties from the proper of time
@@ -556,11 +556,11 @@ export type BaseLiturgicalDay = Omit<LiturgicalDayRoot, 'properCycle' | 'calenda
 /**
  * LiturgyDayDiff object used to compare definition iterations
  */
-export type LiturgyDayDiff = Pick<LiturgicalDayDef, 'fromCalendar'> &
+export type LiturgyDayDiff = Pick<LiturgicalDayDef, 'fromCalendarId'> &
   Partial<
     Pick<
       LiturgicalDayRoot,
-      | 'fromCalendar'
+      | 'fromCalendarId'
       // | 'date'
       | 'dateDef'
       | 'dateExceptions'

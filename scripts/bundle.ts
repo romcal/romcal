@@ -74,7 +74,7 @@ class RomcalBuilder {
 
   getAllDefinitions(): BundleInputs {
     return Object.values(this.#config.liturgicalDayDef).reduce((obj: BundleInputs, def: LiturgicalDayDef) => {
-      if (def.fromCalendar === PROPER_OF_TIME_NAME) return obj;
+      if (def.fromCalendarId === PROPER_OF_TIME_NAME) return obj;
 
       obj[def.id] = def.input;
 

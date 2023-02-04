@@ -128,7 +128,7 @@ export class CalendarDef implements BaseCalendarDef {
         properCycle: input.properCycle,
         drop: input.drop,
       },
-      input.fromCalendar ?? this.calendarName,
+      input.fromCalendarId ?? this.calendarName,
       this.#config,
     );
   }

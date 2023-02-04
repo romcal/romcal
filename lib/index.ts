@@ -72,7 +72,7 @@ import {
   DateDefMonthDowNthWeekInMonth,
   DateDefMonthLastDowInMonth,
   DateDefSubtractDay,
-  FromCalendar,
+  FromCalendarId,
   i18nDef,
   LiturgicalDayInput,
   LiturgyDayDiff,
@@ -367,7 +367,7 @@ export {
   DateDefMonthLastDowInMonth,
   DateDefSubtractDay,
   DayOfWeek,
-  FromCalendar,
+  FromCalendarId,
   i18nDef,
   // types/common.ts
   Id,

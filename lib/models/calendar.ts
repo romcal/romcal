@@ -110,11 +110,11 @@ export class Calendar implements BaseCalendar {
     Object.values(this.#config.liturgicalDayDef).forEach((def) => {
       // Flag to determine if the current definition is coming from the Proper of Time.
       // Note: a Proper of Time definition can be extended in a particular calendar;
-      // in this case the `fromCalendar` is taking the name of the particular calendar,
+      // in this case the `fromCalendarId` is taking the name of the particular calendar,
       // so we need to check the calendar name of the first item in the `fromExtendedCalendars`.
       const isFromProperOfTime =
-        def.fromCalendar === PROPER_OF_TIME_NAME ||
-        (def.fromExtendedCalendars.length > 0 && def.fromExtendedCalendars[0].fromCalendar === PROPER_OF_TIME_NAME);
+        def.fromCalendarId === PROPER_OF_TIME_NAME ||
+        (def.fromExtendedCalendars.length > 0 && def.fromExtendedCalendars[0].fromCalendarId === PROPER_OF_TIME_NAME);
 
       // In a Liturgical Calendar scope:
       // - Because a Liturgical Year is straddling 2 Gregorian year,
