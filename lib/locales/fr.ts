@@ -1,7 +1,7 @@
 import { Locale } from '../types/locale';
 
 export const locale: Locale = {
-  key: 'fr',
+  id: 'fr',
 
   seasons: {
     advent: {

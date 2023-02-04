@@ -12,7 +12,7 @@ import { DayOfWeek } from '../constants/weekdays';
 import LiturgicalDay from '../models/liturgical-day';
 import LiturgicalDayDef from '../models/liturgical-day-def';
 import { Dates } from '../utils/dates';
-import { AllXOR, Key, XOR } from './common';
+import { AllXOR, Id, XOR } from './common';
 import { BaseCyclesMetadata, PartialCyclesDef } from './cycles-metadata';
 import { MartyrologyItem, SaintCount } from './martyrology';
 
@@ -247,21 +247,21 @@ export type TitlesDef =
 /**
  * The associated martyrology item.
  */
-export type MartyrologyItemPointer = Key | MartyrologyItemRedefined;
+export type MartyrologyItemPointer = Id | MartyrologyItemRedefined;
 
 /**
- * From calendar key
+ * From calendar ID
  */
-export type FromCalendar = Key;
+export type FromCalendar = Id;
 
 /**
  * The associated martyrology item, with its overridden properties.
  */
 export type MartyrologyItemRedefined = {
   /**
-   * The key of the martyrology item.
+   * The ID of the martyrology item.
    */
-  key: string;
+  id: string;
 
   /**
    * The redefined titles of the martyrology item.
@@ -362,12 +362,12 @@ type LiturgicalDayRoot = {
   i18nDef: i18nDef;
 
   /**
-   * Specify a custom locale key for this date definition, in this calendar.
+   * Specify a custom locale ID for this date definition, in this calendar.
    */
-  customLocaleKey?: string;
+  customLocaleId?: string;
 
   /**
-   * Season keys to which the liturgical day is a part.
+   * Season IDs to which the liturgical day is a part.
    */
   seasons: Season[];
 
@@ -377,7 +377,7 @@ type LiturgicalDayRoot = {
   seasonNames: string[];
 
   /**
-   * Period keys to which the liturgical day is a part.
+   * Period IDs to which the liturgical day is a part.
    */
   periods: Period[];
 
@@ -413,7 +413,7 @@ type LiturgicalDayRoot = {
   calendarMetadata: CalendarMetadata;
 
   /**
-   * The name of the calendar from which the liturgical day is defined.
+   * The ID of the calendar from which the liturgical day is defined.
    */
   fromCalendar: FromCalendar;
 
@@ -468,9 +468,9 @@ export type BaseLiturgicalDayDef = Pick<
   | 'seasonNames'
 > & {
   /**
-   * The unique key of the liturgical day.
+   * An ID of the liturgical day.
    */
-  key: Key;
+  id: Id;
 
   /**
    * Cycle metadata of a liturgical day.
@@ -495,7 +495,7 @@ export type LiturgicalDayInput = Partial<
     | 'isHolyDayOfObligation'
     | 'isOptional'
     | 'properCycle'
-    | 'customLocaleKey'
+    | 'customLocaleId'
     | 'drop'
   >
 > & {
@@ -536,7 +536,7 @@ export type LiturgicalDayProperOfTimeInput = Pick<
   | 'i18nDef'
   | 'calendarMetadata'
   | 'seasons'
-  | 'customLocaleKey'
+  | 'customLocaleId'
   | 'precedence'
   | 'dateDef'
   | 'dateExceptions'
@@ -548,9 +548,9 @@ export type LiturgicalDayProperOfTimeInput = Pick<
  */
 export type BaseLiturgicalDay = Omit<LiturgicalDayRoot, 'properCycle' | 'calendarMetadata' | 'drop'> & {
   /**
-   * The unique key of the liturgical day.
+   * An ID of the liturgical day.
    */
-  key: Key;
+  id: Id;
 };
 
 /**
@@ -570,7 +570,7 @@ export type LiturgyDayDiff = Pick<LiturgicalDayDef, 'fromCalendar'> &
       | 'i18nDef'
       | 'titles'
       | 'colors'
-    > & { cycles: Partial<Pick<BaseCyclesMetadata, 'properCycle'>>; martyrology: Key[] }
+    > & { cycles: Partial<Pick<BaseCyclesMetadata, 'properCycle'>>; martyrology: Id[] }
   >;
 
 /**

@@ -14,10 +14,10 @@ export enum Periods {
 }
 
 /**
- * A dynamically generated constant consisting of all the enum keys in [[LITURGICAL_PERIODS]]
+ * A dynamically generated constant consisting of all the enum IDs in [[LITURGICAL_PERIODS]]
  */
 export const PERIODS = Object.keys(Periods)
-  .filter((key) => typeof Periods[key as keyof typeof Periods] === 'string')
-  .map((key) => toScreamingSnakeCase(key)) as ScreamingSnakeCase<keyof typeof Periods>[];
+  .filter((id) => typeof Periods[id as keyof typeof Periods] === 'string')
+  .map((id) => toScreamingSnakeCase(id)) as ScreamingSnakeCase<keyof typeof Periods>[];
 
 export type Period = typeof PERIODS[number];

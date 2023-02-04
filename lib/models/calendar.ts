@@ -3,8 +3,8 @@ import { Periods } from '../constants/periods';
 import { PRECEDENCES, Precedences } from '../constants/precedences';
 import { Ranks } from '../constants/ranks';
 import { Seasons } from '../constants/seasons';
-import { BaseCalendar, ByKeys, DatesIndex, LiturgicalBuiltData, LiturgicalCalendar } from '../types/calendar';
-import { Key } from '../types/common';
+import { BaseCalendar, ByIds, DatesIndex, LiturgicalBuiltData, LiturgicalCalendar } from '../types/calendar';
+import { Id } from '../types/common';
 import { RomcalCalendarMetadata } from '../types/liturgical-day';
 import { dateDifference, Dates, isValidDate } from '../utils/dates';
 import { RomcalConfig } from './config';
@@ -103,7 +103,7 @@ export class Calendar implements BaseCalendar {
    */
   #buildDatesData(): LiturgicalBuiltData {
     const builtData: LiturgicalBuiltData = {
-      byKeys: {} as ByKeys,
+      byIds: {} as ByIds,
       datesIndex: {} as DatesIndex,
     };
 
@@ -157,9 +157,9 @@ export class Calendar implements BaseCalendar {
           // the baseData must be null.
           const baseData: LiturgicalDay | null = isFromProperOfTime
             ? null
-            : builtData.byKeys[builtData.datesIndex[dateStr][0]]
+            : builtData.byIds[builtData.datesIndex[dateStr][0]]
                 // Look up for the right LiturgicalDay item, according to its date.
-                // Note: Two LiturgicalDay objects with the same key can occur within the same liturgical year,
+                // Note: Two LiturgicalDay objects with the same ID can occur within the same liturgical year,
                 // for example, Saint Andrew Apostle (30 November 2011 and 30 November 2012), in liturgical year 2012, which starts on 27 November 2011 and ends 1 December 2012.
                 .find((d) => d.date === date.toISOString().substr(0, 10)) || null;
 
@@ -185,21 +185,21 @@ export class Calendar implements BaseCalendar {
             baseData && [Ranks.Feast, Ranks.Memorial].some((r) => r === def.rank) ? baseData : null;
 
           // Create a new LiturgicalDay object, and add it to the builtData object.
-          builtData.byKeys[def.key] = [
-            ...(builtData.byKeys[def.key] ?? []),
+          builtData.byIds[def.id] = [
+            ...(builtData.byIds[def.id] ?? []),
             new LiturgicalDay(def, date, this.#liturgicalDayConfig, calendar, baseData, weekday),
           ];
 
-          // Also add the corresponding date-key object.
-          builtData.datesIndex[dateStr] = [...(builtData.datesIndex[dateStr] ?? []), def.key];
+          // Also add the corresponding date-ID object.
+          builtData.datesIndex[dateStr] = [...(builtData.datesIndex[dateStr] ?? []), def.id];
         });
     });
 
     // Order data by date
     builtData.datesIndex = Object.keys(builtData.datesIndex)
       .sort()
-      .reduce((obj: DatesIndex, key) => {
-        obj[key] = builtData.datesIndex[key];
+      .reduce((obj: DatesIndex, id) => {
+        obj[id] = builtData.datesIndex[id];
         return obj;
       }, {});
 
@@ -207,20 +207,20 @@ export class Calendar implements BaseCalendar {
   }
 
   /**
-   * Get one LiturgicalDay by its key.
+   * Get one LiturgicalDay by its ID.
    * Return undefined if not found, or null if the LiturgicalDay do not occur in the provided year.
    * Note: this function compute only one LiturgicalDay without the liturgical whole year background,
    * so some metadata may be missing, and the precedence rules between different LiturgicalDay
    * objects are ignored.
-   * @param key
+   * @param id
    */
-  getOneLiturgicalDay(key: Key): LiturgicalDay | null | undefined {
+  getOneLiturgicalDay(id: Id): LiturgicalDay | null | undefined {
     // Return undefined if not found
-    if (!Object.prototype.hasOwnProperty.call(this.#config.liturgicalDayDef, key)) {
+    if (!Object.prototype.hasOwnProperty.call(this.#config.liturgicalDayDef, id)) {
       return undefined;
     }
 
-    const def = this.#config.liturgicalDayDef[key];
+    const def = this.#config.liturgicalDayDef[id];
 
     // Compute the date of the LiturgicalDayDef
     const date = this.#liturgicalDayConfig.buildDate(def);
@@ -244,11 +244,11 @@ export class Calendar implements BaseCalendar {
     Object.keys(builtData.datesIndex).forEach((dateStr) => {
       // Order the LiturgicalDays objects, following the precedence rules defined in the UNLY #49.
       const dates: LiturgicalDay[] = builtData.datesIndex[dateStr]
-        .reduce<LiturgicalDay[]>((acc, key) => {
+        .reduce<LiturgicalDay[]>((acc, id) => {
           // Look up for the right LiturgicalDay item, according to its date.
-          // Note: Two LiturgicalDay objects with the same key can occur within the same liturgical year,
+          // Note: Two LiturgicalDay objects with the same ID can occur within the same liturgical year,
           // for example, Saint Andrew Apostle (30 November 2011 and 30 November 2012), in liturgical year 2012, which starts on 27 November 2011 and ends 1 December 2012.
-          const item = builtData.byKeys[key].find((d) => d.date === dateStr);
+          const item = builtData.byIds[id].find((d) => d.date === dateStr);
           if (item) acc.push(item);
           return acc;
         }, [])
@@ -299,7 +299,7 @@ export class Calendar implements BaseCalendar {
       // The mass (Chrismal Mass on Holy Thursday, and the Mass the Lord’s Supper the evening), as
       // well as the liturgy of the hours are also different.
       let thursdayOfTheLordsSupper: LiturgicalDay | null = null;
-      if (dates[0].key === 'thursday_of_the_lords_supper') {
+      if (dates[0].id === 'thursday_of_the_lords_supper') {
         thursdayOfTheLordsSupper = dates[0];
         dates.shift();
       }
@@ -386,7 +386,7 @@ export class Calendar implements BaseCalendar {
         const checkNextItems = (d: LiturgicalDay): boolean =>
           d.rank === defaultLiturgicalDay.rank &&
           d.precedence !== Precedences.OptionalMemorial_12 &&
-          !optionalMemorials.map((om) => om.key).includes(d.key);
+          !optionalMemorials.map((om) => om.id).includes(d.id);
 
         const nextAllowingSimilarItems = dates.slice(1).filter((d) => d.allowSimilarRankItems && checkNextItems(d));
         optionalMemorials = [...optionalMemorials, ...nextAllowingSimilarItems];
@@ -399,7 +399,7 @@ export class Calendar implements BaseCalendar {
       // and that have a similar or higher precedence type than the default liturgical day.
       // e.g. The dedication of consecrated Churches is an optional solemnity.
       if (dates.length > 1) {
-        const optionalDayKeys = optionalMemorials.map((d) => d.key);
+        const optionalDayIds = optionalMemorials.map((d) => d.id);
         const defaultPrecedenceIndex = PRECEDENCES.indexOf(defaultLiturgicalDay.precedence);
         optionalMemorials = optionalMemorials.concat(
           dates
@@ -408,7 +408,7 @@ export class Calendar implements BaseCalendar {
               (d) =>
                 d.isOptional &&
                 PRECEDENCES.indexOf(d.precedence) >= defaultPrecedenceIndex &&
-                !optionalDayKeys.includes(d.key),
+                !optionalDayIds.includes(d.id),
             ),
         );
       }

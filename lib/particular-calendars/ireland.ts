@@ -29,7 +29,7 @@ export class Ireland extends CalendarDef {
     },
 
     brigid_of_kildare_virgin: {
-      customLocaleKey: 'brigid_of_kildare_virgin_copatroness_of_ireland',
+      customLocaleId: 'brigid_of_kildare_virgin_copatroness_of_ireland',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       dateDef: { month: 2, date: 1 },
       titles: { append: [PatronTitles.CopatronessOfIreland] },
@@ -71,7 +71,7 @@ export class Ireland extends CalendarDef {
     },
 
     patrick_of_ireland_bishop: {
-      customLocaleKey: 'patrick_of_ireland_bishop_patron_of_ireland',
+      customLocaleId: 'patrick_of_ireland_bishop_patron_of_ireland',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       isHolyDayOfObligation: true,
       titles: { append: [PatronTitles.PatronOfIreland] },
@@ -143,7 +143,7 @@ export class Ireland extends CalendarDef {
     },
 
     columba_of_iona_abbot: {
-      customLocaleKey: 'columba_of_iona_abbot_copatron_of_ireland',
+      customLocaleId: 'columba_of_iona_abbot_copatron_of_ireland',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       dateDef: { month: 6, date: 9 },
       titles: { append: [Titles.Missionary, PatronTitles.CopatronOfIreland] },

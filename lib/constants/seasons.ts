@@ -16,10 +16,10 @@ export enum Seasons {
 }
 
 /**
- * A dynamically generated constant consisting of all the enum keys in [[LITURGICAL_SEASONS]]
+ * A dynamically generated constant consisting of all the enum IDs in [[LITURGICAL_SEASONS]]
  */
 export const SEASONS = Object.keys(Seasons)
-  .filter((key) => typeof Seasons[key as keyof typeof Seasons] === 'string')
-  .map((key) => toScreamingSnakeCase(key)) as ScreamingSnakeCase<keyof typeof Seasons>[];
+  .filter((id) => typeof Seasons[id as keyof typeof Seasons] === 'string')
+  .map((id) => toScreamingSnakeCase(id)) as ScreamingSnakeCase<keyof typeof Seasons>[];
 
 export type Season = typeof SEASONS[number];

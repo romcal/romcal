@@ -53,7 +53,7 @@ export class Slovakia extends CalendarDef {
     },
 
     cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop: {
-      customLocaleKey:
+      customLocaleId:
         'cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop_slavic_missionaries_copatrons_of_europe',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       dateDef: { month: 7, date: 5 },
@@ -94,7 +94,7 @@ export class Slovakia extends CalendarDef {
     },
 
     our_lady_of_sorrows: {
-      customLocaleKey: 'our_lady_of_sorrows_patroness_of_slovakia',
+      customLocaleId: 'our_lady_of_sorrows_patroness_of_slovakia',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       titles: { append: [PatronTitles.PatronessOfSlovakia] },
     },

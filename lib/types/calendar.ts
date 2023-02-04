@@ -3,7 +3,7 @@
  */
 import LiturgicalDay from '../models/liturgical-day';
 import { Dates } from '../utils/dates';
-import { Key } from './common';
+import { Id } from './common';
 
 export type LiturgicalCalendar = Record<string, LiturgicalDay[]>;
 
@@ -11,11 +11,11 @@ export type LiturgicalCalendar = Record<string, LiturgicalDay[]>;
  * General date definition collection
  */
 
-export type ByKeys = Record<Key, LiturgicalDay[]>;
-export type DatesIndex = Record<string, Key[]>;
+export type ByIds = Record<Id, LiturgicalDay[]>;
+export type DatesIndex = Record<string, Id[]>;
 
 export type LiturgicalBuiltData = {
-  byKeys: ByKeys;
+  byIds: ByIds;
   datesIndex: DatesIndex;
 };
 

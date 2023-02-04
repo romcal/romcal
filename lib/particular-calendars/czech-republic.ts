@@ -25,11 +25,9 @@ export class CzechRepublic extends CalendarDef {
       dateDef: { month: 3, date: 10 },
     },
 
-    // TODO: Should this key be dropped or kept in the Czech National Proper?
-    // {
-    //   key: 'adalbert_of_prague_bishop',
+    // TODO: Should this celebration be dropped or kept in the Czech National Proper?
+    // adalbert_of_prague_bishop: {
     //   precedence: Precedences.ProperMemorial_OtherProperMemorial_11b,
-    //   date: { month: 4, date: 23 },
     // },
 
     george_of_lydda_martyr: {
@@ -132,7 +130,7 @@ export class CzechRepublic extends CalendarDef {
     },
 
     wenceslaus_i_of_bohemia_martyr: {
-      customLocaleKey: 'wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation',
+      customLocaleId: 'wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       titles: { append: [PatronTitles.PatronOfTheCzechNation] },
     },

@@ -96,7 +96,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
     formatCode(
       `import { toPackageName } from "../../lib/utils/string";\n\n` +
         `export const LOCALE_VAR_NAMES: string[] = ${JSON.stringify(localeNames)};\n\n` +
-        `export const LOCALE_KEYS: string[] = LOCALE_VAR_NAMES.map(c => toPackageName(c));\n`,
+        `export const LOCALE_IDS: string[] = LOCALE_VAR_NAMES.map(c => toPackageName(c));\n`,
     ),
     'utf-8',
   );

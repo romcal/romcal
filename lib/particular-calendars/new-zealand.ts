@@ -30,7 +30,7 @@ export class NewZealand extends CalendarDef {
     },
 
     peter_chanel_priest: {
-      customLocaleKey: 'peter_chanel_priest_patron_of_oceania',
+      customLocaleId: 'peter_chanel_priest_patron_of_oceania',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       martyrology: ['peter_chanel_priest'],
       titles: [Titles.ProtoMartyrOfOceania, PatronTitles.PatronOfOceania],

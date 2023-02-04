@@ -26,7 +26,7 @@ describe('Testing specific feasts and memorials', () => {
         .filter((d) => new Date(d.date).getUTCMonth() === 5);
       // according to the general calendar, June 1 is the memorial of saint Justin, Martyr
       const maybeSaintJustinMartyr = juneDates[0];
-      expect(maybeSaintJustinMartyr.key).toEqual('mary_mother_of_the_church');
+      expect(maybeSaintJustinMartyr.id).toEqual('mary_mother_of_the_church');
     });
   });
 

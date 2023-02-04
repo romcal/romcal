@@ -46,7 +46,7 @@ export class Brazil extends CalendarDef {
     },
 
     our_lady_of_aparecida: {
-      customLocaleKey: 'our_lady_of_aparecida_patroness_of_brazil',
+      customLocaleId: 'our_lady_of_aparecida_patroness_of_brazil',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       dateDef: { month: 10, date: 12 },
       titles: { append: [PatronTitles.PatronessOfBrazil] },

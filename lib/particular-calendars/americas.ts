@@ -6,7 +6,7 @@ import { Inputs } from '../types/calendar-def';
 export class Americas extends CalendarDef {
   inputs: Inputs = {
     our_lady_of_guadalupe: {
-      customLocaleKey: 'our_lady_of_guadalupe_patroness_of_the_americas',
+      customLocaleId: 'our_lady_of_guadalupe_patroness_of_the_americas',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       titles: { append: [PatronTitles.PatronessOfTheAmericas] },
     },

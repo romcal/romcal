@@ -20,7 +20,7 @@ import { CalendarDef } from './calendar-def';
 export class RomcalConfig implements IRomcalConfig {
   readonly #input: RomcalConfigInput;
   readonly localizedCalendar?: RomcalBundleObject;
-  readonly localeKey: string;
+  readonly localeId: string;
   readonly calendarName: string;
   epiphanyOnSunday: boolean;
   corpusChristiOnSunday: boolean;
@@ -69,13 +69,13 @@ export class RomcalConfig implements IRomcalConfig {
       config?.ascensionOnSunday ?? this.localizedCalendar?.particularConfig.ascensionOnSunday ?? false;
 
     const localeObj: Locale | undefined = this.localizedCalendar?.i18n ?? locale;
-    this.localeKey = localeObj?.key ?? 'dev';
+    this.localeId = localeObj?.id ?? 'dev';
 
     // Create an instance and set up the i18next library.
     this.i18next = i18next.createInstance(
       {
         fallbackLng: ['dev'],
-        lng: this.localeKey,
+        lng: this.localeId,
         initImmediate: false,
         // contextSeparator: '__',
         interpolation: {
@@ -135,36 +135,36 @@ export class RomcalConfig implements IRomcalConfig {
    * @private
    */
   #addResourceBundles(locale: Locale): void {
-    this.i18next.addResourceBundle(locale.key, 'seasons', locale.seasons);
-    this.i18next.addResourceBundle(locale.key, 'periods', locale.periods);
-    this.i18next.addResourceBundle(locale.key, 'ranks', locale.ranks);
-    this.i18next.addResourceBundle(locale.key, 'cycles', locale.cycles);
-    this.i18next.addResourceBundle(locale.key, 'weekdays', locale.weekdays);
-    this.i18next.addResourceBundle(locale.key, 'months', locale.months);
-    this.i18next.addResourceBundle(locale.key, 'colors', locale.colors);
-    this.i18next.addResourceBundle(locale.key, 'ordinals', locale.ordinals);
-    this.i18next.addResourceBundle(locale.key, 'names', locale.names);
+    this.i18next.addResourceBundle(locale.id, 'seasons', locale.seasons);
+    this.i18next.addResourceBundle(locale.id, 'periods', locale.periods);
+    this.i18next.addResourceBundle(locale.id, 'ranks', locale.ranks);
+    this.i18next.addResourceBundle(locale.id, 'cycles', locale.cycles);
+    this.i18next.addResourceBundle(locale.id, 'weekdays', locale.weekdays);
+    this.i18next.addResourceBundle(locale.id, 'months', locale.months);
+    this.i18next.addResourceBundle(locale.id, 'colors', locale.colors);
+    this.i18next.addResourceBundle(locale.id, 'ordinals', locale.ordinals);
+    this.i18next.addResourceBundle(locale.id, 'names', locale.names);
   }
 
   /**
-   * Return localised liturgical colors from color keys
+   * Return localised liturgical colors from color IDs
    * @param colors
    */
   getLiturgicalColorNames(colors: Color[]): string[] {
     return colors.map((s) => {
-      const key = `colors:${(s ?? '').toLowerCase()}`;
-      return this.i18next.t(key) ?? key;
+      const id = `colors:${(s ?? '').toLowerCase()}`;
+      return this.i18next.t(id) ?? id;
     });
   }
 
   /**
-   * Return localised season names from season keys
+   * Return localised season names from season IDs
    * @param seasons
    */
   getSeasonNames(seasons: Season[]): string[] {
     return seasons.map((s) => {
-      const key = `seasons:${(s ?? '').toLowerCase()}.season`;
-      return this.i18next.t(key) ?? key;
+      const id = `seasons:${(s ?? '').toLowerCase()}.season`;
+      return this.i18next.t(id) ?? id;
     });
   }
 
@@ -176,7 +176,7 @@ export class RomcalConfig implements IRomcalConfig {
       epiphanyOnSunday: this.epiphanyOnSunday,
       corpusChristiOnSunday: this.corpusChristiOnSunday,
       ascensionOnSunday: this.ascensionOnSunday,
-      localeKey: this.localeKey,
+      localeId: this.localeId,
       calendarName: this.calendarName,
       scope: this.scope,
     };

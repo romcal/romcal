@@ -1,7 +1,7 @@
 import { RomcalConfig } from '../models/config';
 import LiturgicalDayDef from '../models/liturgical-day-def';
 import { Dates } from '../utils/dates';
-import { Key, XOR } from './common';
+import { Id, XOR } from './common';
 import { RomcalConfigInput } from './config';
 import { LiturgicalDayBundleInput, LiturgicalDayInput } from './liturgical-day';
 
@@ -16,9 +16,9 @@ export type ParticularConfig = Partial<
  * General date definition collection
  */
 export type CalendarDefInputs = XOR<Inputs, BundleInputs>;
-export type Inputs = Record<Key, LiturgicalDayInput | LiturgicalDayInput[]>;
-export type BundleInputs = Record<Key, LiturgicalDayBundleInput[]>;
-export type LiturgicalDayDefinitions = Record<Key, LiturgicalDayDef>;
+export type Inputs = Record<Id, LiturgicalDayInput | LiturgicalDayInput[]>;
+export type BundleInputs = Record<Id, LiturgicalDayBundleInput[]>;
+export type LiturgicalDayDefinitions = Record<Id, LiturgicalDayDef>;
 
 /**
  * Base [CalendarDef] interface
@@ -31,7 +31,7 @@ export interface BaseCalendarDef {
   dates: typeof Dates;
   updateConfig: (config?: RomcalConfigInput) => void;
   buildAllDefinitions: () => void;
-  calendarName: Key;
+  calendarName: Id;
 }
 
 interface IConstructor<InstanceInterface> {

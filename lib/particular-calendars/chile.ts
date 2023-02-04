@@ -44,7 +44,7 @@ export class Chile extends CalendarDef {
     },
 
     our_lady_of_mount_carmel: {
-      customLocaleKey: 'our_lady_of_mount_carmel_mother_and_queen_of_chile',
+      customLocaleId: 'our_lady_of_mount_carmel_mother_and_queen_of_chile',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       dateDef: { month: 7, date: 16 },
       titles: { append: [Titles.MotherAndQueenOfChile] },

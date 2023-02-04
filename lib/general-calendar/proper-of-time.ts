@@ -10,7 +10,7 @@ import { CalendarDef } from '../models/calendar-def';
 import { RomcalConfig } from '../models/config';
 import LiturgicalDayDef from '../models/liturgical-day-def';
 import { BundleInputs } from '../types/calendar-def';
-import { Key } from '../types/common';
+import { Id } from '../types/common';
 import { LiturgicalDayProperOfTimeInput } from '../types/liturgical-day';
 
 export class ProperOfTime extends CalendarDef {
@@ -51,12 +51,12 @@ export class ProperOfTime extends CalendarDef {
 
   /**
    * Helper function to create new LiturgicalDayDef object
-   * @param key
+   * @param id
    * @param input
    * @private
    */
-  #newLiturgicalDayDef(key: Key, input: LiturgicalDayProperOfTimeInput): void {
-    new LiturgicalDayDef(key, { properCycle: ProperCycles.ProperOfTime, ...input }, PROPER_OF_TIME_NAME, this.#config);
+  #newLiturgicalDayDef(id: Id, input: LiturgicalDayProperOfTimeInput): void {
+    new LiturgicalDayDef(id, { properCycle: ProperCycles.ProperOfTime, ...input }, PROPER_OF_TIME_NAME, this.#config);
   }
 
   /**

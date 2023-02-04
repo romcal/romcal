@@ -5,7 +5,7 @@ import {
   CalendarDefInstance,
   ParticularConfig,
 } from '../types/calendar-def';
-import { Key } from '../types/common';
+import { Id } from '../types/common';
 import { RomcalConfigInput } from '../types/config';
 import { LiturgicalDayBundleInput } from '../types/liturgical-day';
 import { Dates } from '../utils/dates';
@@ -24,7 +24,7 @@ export class CalendarDef implements BaseCalendarDef {
   /**
    * Get the name of the CalendarDef class.
    */
-  public get calendarName(): Key {
+  public get calendarName(): Id {
     if (!this.#calendarName) {
       this.#calendarName = this.constructor.name
         .split(/(?=[A-Z])/)
@@ -33,7 +33,7 @@ export class CalendarDef implements BaseCalendarDef {
     }
     return this.#calendarName;
   }
-  #calendarName?: Key;
+  #calendarName?: Id;
 
   constructor(config: RomcalConfig, inputs?: BundleInputs) {
     this.#config = config;
@@ -94,11 +94,11 @@ export class CalendarDef implements BaseCalendarDef {
       this.#retrieveParentCalInputs(this.parentCalendarInstance);
     }
 
-    inputs.forEach((key) => {
-      const inputValues: LiturgicalDayBundleInput[] = Array.isArray(this.inputs[key])
-        ? (this.inputs[key] as LiturgicalDayBundleInput[])
-        : [this.inputs[key] as LiturgicalDayBundleInput];
-      inputValues.forEach((input) => this.#buildDefinition(key, input));
+    inputs.forEach((id) => {
+      const inputValues: LiturgicalDayBundleInput[] = Array.isArray(this.inputs[id])
+        ? (this.inputs[id] as LiturgicalDayBundleInput[])
+        : [this.inputs[id] as LiturgicalDayBundleInput];
+      inputValues.forEach((input) => this.#buildDefinition(id, input));
     });
 
     this.#definitionsBuilt = true;
@@ -106,20 +106,20 @@ export class CalendarDef implements BaseCalendarDef {
 
   /**
    *
-   * @param key
+   * @param id
    * @param input
    * @private
    */
-  #buildDefinition(key: Key, input: LiturgicalDayBundleInput): void {
+  #buildDefinition(id: Id, input: LiturgicalDayBundleInput): void {
     // Create a new LiturgicalDay object from its definition
     new LiturgicalDayDef(
-      key,
+      id,
       {
         dateDef: input.dateDef,
         dateExceptions: input.dateExceptions,
         precedence: input.precedence,
         allowSimilarRankItems: input.allowSimilarRankItems,
-        customLocaleKey: input.customLocaleKey,
+        customLocaleId: input.customLocaleId,
         isHolyDayOfObligation: input.isHolyDayOfObligation,
         isOptional: input.isOptional,
         colors: input.colors,

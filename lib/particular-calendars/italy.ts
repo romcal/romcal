@@ -9,7 +9,7 @@ export class Italy extends CalendarDef {
 
   inputs: Inputs = {
     catherine_of_siena_virgin: {
-      customLocaleKey: 'catherine_of_siena_virgin_copatroness_of_italy_and_europe',
+      customLocaleId: 'catherine_of_siena_virgin_copatroness_of_italy_and_europe',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       titles: [Titles.Virgin, Titles.DoctorOfTheChurch, PatronTitles.CopatronessOfItalyAndEurope],
     },
@@ -25,7 +25,7 @@ export class Italy extends CalendarDef {
     },
 
     francis_of_assisi: {
-      customLocaleKey: 'francis_of_assisi_patron_of_italy',
+      customLocaleId: 'francis_of_assisi_patron_of_italy',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       titles: { append: [PatronTitles.PatronOfItaly] },
     },

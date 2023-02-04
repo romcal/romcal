@@ -15,7 +15,7 @@ export class Wales extends CalendarDef {
     },
 
     david_of_wales_bishop: {
-      customLocaleKey: 'david_of_wales_bishop_patron_of_wales',
+      customLocaleId: 'david_of_wales_bishop_patron_of_wales',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       dateDef: { month: 3, date: 1 },
       titles: { append: [PatronTitles.PatronOfWales] },
@@ -85,7 +85,7 @@ export class Wales extends CalendarDef {
     six_welsh_martyrs_and_companions: {
       precedence: Precedences.ProperFeast_8f,
       dateDef: { month: 10, date: 25 },
-      martyrology: ['six_welsh_martyrs', { key: 'companions_martyrs', hideTitles: true }],
+      martyrology: ['six_welsh_martyrs', { id: 'companions_martyrs', hideTitles: true }],
     },
 
     winefride_of_flintshire_virgin: {

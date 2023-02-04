@@ -55,7 +55,7 @@ export class Philippines extends CalendarDef {
     },
 
     rose_of_lima_virgin: {
-      customLocaleKey: 'rose_of_lima_virgin_copatroness_of_the_philippines',
+      customLocaleId: 'rose_of_lima_virgin_copatroness_of_the_philippines',
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 8, date: 23 },
       titles: { append: [PatronTitles.CopatronessOfThePhilippines] },
@@ -66,14 +66,14 @@ export class Philippines extends CalendarDef {
     },
 
     immaculate_conception_of_the_blessed_virgin_mary: {
-      customLocaleKey: 'immaculate_conception_of_the_blessed_virgin_mary_patroness_of_the_philippines',
+      customLocaleId: 'immaculate_conception_of_the_blessed_virgin_mary_patroness_of_the_philippines',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       dateDef: { month: 12, date: 8 },
       titles: { append: [PatronTitles.PatronessOfThePhilippines] },
     },
 
     our_lady_of_guadalupe: {
-      customLocaleKey: 'our_lady_of_guadalupe_patroness_of_the_philippines',
+      customLocaleId: 'our_lady_of_guadalupe_patroness_of_the_philippines',
       precedence: Precedences.ProperMemorial_11b,
       titles: { append: [PatronTitles.PatronessOfThePhilippines] },
     },

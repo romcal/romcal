@@ -387,7 +387,7 @@ export class GeneralRoman extends CalendarDef {
     christopher_magallanes_priest_and_companions_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 5, date: 21 },
-      martyrology: ['christopher_magallanes_priest', { key: 'companions_martyrs', count: 24 }],
+      martyrology: ['christopher_magallanes_priest', { id: 'companions_martyrs', count: 24 }],
       colors: Colors.Red,
     },
 
@@ -1035,14 +1035,14 @@ export class GeneralRoman extends CalendarDef {
 
     dedication_of_consecrated_churches_on_october_25: {
       precedence: Precedences.ProperSolemnity_DedicationOfTheOwnChurch_4b,
-      customLocaleKey: 'dedication_of_consecrated_churches',
+      customLocaleId: 'dedication_of_consecrated_churches',
       dateDef: { month: 10, date: 25 },
       isOptional: true,
     },
 
     dedication_of_consecrated_churches_on_last_sunday_of_october: {
       precedence: Precedences.ProperSolemnity_DedicationOfTheOwnChurch_4b,
-      customLocaleKey: 'dedication_of_consecrated_churches',
+      customLocaleId: 'dedication_of_consecrated_churches',
       dateDef: { month: 10, lastDayOfWeekInMonth: 0 },
       isOptional: true,
     },
