@@ -6,15 +6,15 @@ import { AppContext } from '../AppContext';
 
 const LocaleMenu = observer(() => {
   const { romcalStore } = useContext(AppContext);
-  const { localeKey, setLocaleKey } = romcalStore;
+  const { localeId, setLocaleId } = romcalStore;
 
-  const allLocales = Romcal.LOCALE_KEYS.reduce((acc: Record<string, string>, pkg, index) => {
+  const allLocales = Romcal.LOCALE_IDS.reduce((acc: Record<string, string>, pkg, index) => {
     acc[Romcal.LOCALE_VAR_NAMES[index]] = pkg;
     return acc;
   }, {});
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setLocaleKey(event.target.value as string);
+    setLocaleId(event.target.value as string);
   };
 
   return (
@@ -23,10 +23,10 @@ const LocaleMenu = observer(() => {
         <InputLabel variant="standard" htmlFor="uncontrolled-native">
           Locale
         </InputLabel>
-        <NativeSelect id="calendar" value={localeKey} onChange={handleChange}>
-          {Object.entries(allLocales).map(([key, isoKey]) => (
-            <option key={key} value={key}>
-              {isoKey}
+        <NativeSelect id="calendar" value={localeId} onChange={handleChange}>
+          {Object.entries(allLocales).map(([id, isoId]) => (
+            <option key={id} value={id}>
+              {isoId}
             </option>
           ))}
         </NativeSelect>

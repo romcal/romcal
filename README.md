@@ -115,7 +115,7 @@ esm or cjs:
 - https://unpkg.com/romcal/dist/esm/romcal.js
 - https://unpkg.com/romcal/dist/cjs/romcal.js
 
-Make sure to use a fixed version in production like https://unpkg.com/romcal@3.0.0-dev.7/dist/cjs/romcal.js as passing no version will redirect to the latest version which might contain breaking changes in the future.
+Make sure to use a fixed version in production like https://unpkg.com/romcal@3.0.0-dev.29/dist/cjs/romcal.js as passing no version will redirect to the latest version which might contain breaking changes in the future.
 
 #### cdnjs.com
 
@@ -143,8 +143,8 @@ const { France_Fr } = require('@romcal/calendar.france');
 
 ```html
 <!-- or as iife in a web HTML page -->
-<script src="https://unpkg.com/romcal@3.0.0-dev.7/dist/iife/romcal.js"></script>
-<script src="https://unpkg.com/@romcal/calendar.france@3.0.0-dev.7/iife/fr.js"></script>
+<script src="https://unpkg.com/romcal@3.0.0-dev.29/dist/iife/romcal.js"></script>
+<script src="https://unpkg.com/@romcal/calendar.france@3.0.0-dev.29/iife/fr.js"></script>
 ```
 
 #### 2. Initialize Romcal

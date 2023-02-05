@@ -21,7 +21,7 @@ fastify.get('/', async (request, reply) => {
 
 const manageGeneralRomanRoute = async (request, reply) => {
   const locale = request.params['locale'].toLowerCase();
-  const localeIndex = Romcal.LOCALE_KEYS.indexOf(locale);
+  const localeIndex = Romcal.LOCALE_IDS.indexOf(locale);
 
   // Check if the provided locale exists in the `general_roman` calendar. If no, return a 404 error.
   if (localeIndex === -1) {
