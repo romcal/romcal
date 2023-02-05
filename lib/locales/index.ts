@@ -16,15 +16,15 @@ import { locale as Sk } from './sk';
  * in romcal.
  */
 export const locales: Record<string, Locale> = {
-  Cs: Cs,
-  EnGb: EnGb,
-  EnIe: EnIe,
-  En: En,
-  Es: Es,
-  Fr: Fr,
-  It: It,
-  La: La,
-  Pl: Pl,
-  PtBr: PtBr,
-  Sk: Sk,
+  Cs,
+  EnGb,
+  EnIe,
+  En,
+  Es,
+  Fr,
+  It,
+  La,
+  Pl,
+  PtBr,
+  Sk,
 };
