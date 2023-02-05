@@ -1,6 +1,6 @@
 import { version } from '../package.json';
 import { CALENDAR_PKG_NAMES, CALENDAR_VAR_NAMES } from '../tmp/constants/calendars';
-import { LOCALE_KEYS, LOCALE_VAR_NAMES } from '../tmp/constants/locales';
+import { LOCALE_IDS, LOCALE_VAR_NAMES } from '../tmp/constants/locales';
 import { Color, COLORS, Colors, isColor } from './constants/colors';
 import {
   PROPER_CYCLES,
@@ -55,7 +55,7 @@ import {
   LiturgicalDayDefinitions,
   ParticularConfig,
 } from './types/calendar-def';
-import { Key } from './types/common';
+import { Id } from './types/common';
 import { CalendarScope, RomcalConfigInput, RomcalConfigOutput } from './types/config';
 import { BaseCyclesMetadata, PartialCyclesDef, PlainCyclesMetadata } from './types/cycles-metadata';
 import {
@@ -72,7 +72,7 @@ import {
   DateDefMonthDowNthWeekInMonth,
   DateDefMonthLastDowInMonth,
   DateDefSubtractDay,
-  FromCalendar,
+  FromCalendarId,
   i18nDef,
   LiturgicalDayInput,
   LiturgyDayDiff,
@@ -154,7 +154,7 @@ class Romcal {
   }
 
   /**
-   * Get one LiturgicalDay by its key.
+   * Get one LiturgicalDay by its ID.
    * Return undefined if not found, or null if the LiturgicalDay do not occur in the provided year.
    * Note: this function compute only one LiturgicalDay without the liturgical whole year background,
    * so some metadata may be missing, and the precedence rules between different LiturgicalDay
@@ -164,11 +164,11 @@ class Romcal {
    * so all the liturgical calendar will be computed before returning the desired liturgical day.
    * With this option enabled, all the metadata and precedence rules are correctly computed.
    *
-   * @param key
+   * @param id
    * @param options
    */
   getOneLiturgicalDay(
-    key: Key,
+    id: Id,
     options: { year?: number | string; computeInWholeYear?: boolean } = {
       computeInWholeYear: false,
     },
@@ -179,7 +179,7 @@ class Romcal {
         const ldConfig = new LiturgicalDayConfig(this.#config, y);
 
         this.getAllDefinitions().then(() => {
-          const partialLd = new Calendar(this.#config, ldConfig).getOneLiturgicalDay(key);
+          const partialLd = new Calendar(this.#config, ldConfig).getOneLiturgicalDay(id);
           if (!options.computeInWholeYear) return resolve(partialLd);
 
           if (!partialLd) resolve(partialLd);
@@ -187,7 +187,7 @@ class Romcal {
             resolve(
               Object.values(value)
                 .flat()
-                .find((d) => d.key === key),
+                .find((d) => d.id === id),
             );
           });
         });
@@ -325,7 +325,7 @@ class Romcal {
   static CALENDAR_VAR_NAMES = CALENDAR_VAR_NAMES;
   static CALENDAR_PKG_NAMES = CALENDAR_PKG_NAMES;
   static LOCALE_VAR_NAMES = LOCALE_VAR_NAMES;
-  static LOCALE_KEYS = LOCALE_KEYS;
+  static LOCALE_IDS = LOCALE_IDS;
 }
 
 export default Romcal;
@@ -367,11 +367,11 @@ export {
   DateDefMonthLastDowInMonth,
   DateDefSubtractDay,
   DayOfWeek,
-  FromCalendar,
+  FromCalendarId,
   i18nDef,
-  Inputs,
   // types/common.ts
-  Key,
+  Id,
+  Inputs,
   // types/calendar.ts
   LiturgicalCalendar,
   // types/liturgical-day-config.ts

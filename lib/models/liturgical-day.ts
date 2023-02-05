@@ -4,11 +4,11 @@ import { Period, Periods } from '../constants/periods';
 import { Precedence, Precedences } from '../constants/precedences';
 import { Rank, Ranks } from '../constants/ranks';
 import { Season, Seasons } from '../constants/seasons';
-import { Key } from '../types/common';
+import { Id } from '../types/common';
 import {
   BaseLiturgicalDay,
   DateDef,
-  FromCalendar,
+  FromCalendarId,
   i18nDef,
   LiturgyDayDiff,
   RomcalCalendarMetadata,
@@ -23,7 +23,7 @@ import LiturgicalDayDef from './liturgical-day-def';
 class LiturgicalDay implements BaseLiturgicalDay {
   readonly #liturgicalDayDef: LiturgicalDayDef;
   readonly #liturgicalDayConfig: LiturgicalDayConfig;
-  readonly key: Key;
+  readonly id: Id;
   readonly date: string;
   readonly dateDef: DateDef;
   readonly precedence: Precedence;
@@ -39,7 +39,7 @@ class LiturgicalDay implements BaseLiturgicalDay {
   readonly titles: RomcalTitles;
   readonly calendar: RomcalCalendarMetadata;
   readonly cycles: CyclesMetadata;
-  readonly fromCalendar: FromCalendar;
+  readonly fromCalendarId: FromCalendarId;
   readonly fromExtendedCalendars: LiturgyDayDiff[];
   weekday?: LiturgicalDay;
 
@@ -87,7 +87,7 @@ class LiturgicalDay implements BaseLiturgicalDay {
   ) {
     this.#liturgicalDayDef = def;
     this.#liturgicalDayConfig = liturgicalDayConfig;
-    this.key = def.key;
+    this.id = def.id;
     this.date = date.toISOString().substring(0, 10);
     this.dateDef = def.dateDef;
     this.precedence = def.precedence;
@@ -103,7 +103,7 @@ class LiturgicalDay implements BaseLiturgicalDay {
     // The second Sunday after the Christmas octave can be before or after the Epiphany,
     // and this can be determined from the definition of the Proper of the Time,
     // without having a liturgical year context.
-    if (def.fromCalendar === PROPER_OF_TIME_NAME && this.key === 'second_sunday_after_christmas') {
+    if (def.fromCalendarId === PROPER_OF_TIME_NAME && this.id === 'second_sunday_after_christmas') {
       if (date.getTime() >= liturgicalDayConfig.dates.epiphany().getTime()) {
         this.periods.unshift(Periods.DaysFromEpiphany);
       } else if (date.getTime() > liturgicalDayConfig.dates.maryMotherOfGod().getTime()) {
@@ -112,7 +112,7 @@ class LiturgicalDay implements BaseLiturgicalDay {
     }
 
     // Specify the early/late period of an ordinary time liturgical day item
-    if (def.fromCalendar === PROPER_OF_TIME_NAME && this.seasons[0] === Seasons.OrdinaryTime) {
+    if (def.fromCalendarId === PROPER_OF_TIME_NAME && this.seasons[0] === Seasons.OrdinaryTime) {
       if (date.getTime() < liturgicalDayConfig.dates.pentecostSunday().getTime()) {
         this.periods.unshift(Periods.EarlyOrdinaryTime);
       } else {
@@ -141,7 +141,7 @@ class LiturgicalDay implements BaseLiturgicalDay {
     this.titles = def.titles;
     this.calendar = baseData?.calendar ?? calendar;
     this.cycles = new CyclesMetadata(date, calendar, def.cycles.properCycle, liturgicalDayConfig.config);
-    this.fromCalendar = def.fromCalendar;
+    this.fromCalendarId = def.fromCalendarId;
     this.fromExtendedCalendars = def.fromExtendedCalendars;
 
     // For Memorial and Feast celebrations only, the weekday property is added

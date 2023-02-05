@@ -12,7 +12,7 @@ import { locale as PtBr } from './pt-br';
 import { locale as Sk } from './sk';
 
 /**
- * An BCP-47 IETF key to value mapping of all supported locale resource files
+ * An BCP-47 IETF tag to value mapping of all supported locale resource files
  * in romcal.
  */
 export const locales: Record<string, Locale> = {

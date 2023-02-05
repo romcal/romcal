@@ -39,7 +39,7 @@ export class Scotland extends CalendarDef {
     },
 
     andrew_apostle: {
-      customLocaleKey: 'andrew_apostle_patron_of_scotland',
+      customLocaleId: 'andrew_apostle_patron_of_scotland',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       titles: { append: [PatronTitles.PatronOfScotland] },
     },

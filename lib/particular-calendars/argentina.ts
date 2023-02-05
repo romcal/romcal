@@ -25,7 +25,7 @@ export class Argentina extends CalendarDef {
     },
 
     our_lady_of_lujan: {
-      customLocaleKey: 'our_lady_of_lujan_patroness_of_argentina',
+      customLocaleId: 'our_lady_of_lujan_patroness_of_argentina',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       dateDef: { month: 5, date: 8 },
       titles: { append: [PatronTitles.PatronessOfArgentina] },

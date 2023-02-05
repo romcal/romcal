@@ -23,7 +23,7 @@ export class Australia extends CalendarDef {
     },
 
     peter_chanel_priest: {
-      customLocaleKey: 'peter_chanel_priest_patron_of_oceania',
+      customLocaleId: 'peter_chanel_priest_patron_of_oceania',
       precedence: Precedences.ProperMemorial_11b,
       martyrology: ['peter_chanel_priest'],
       titles: [Titles.ProtoMartyrOfOceania, PatronTitles.PatronOfOceania],

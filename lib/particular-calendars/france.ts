@@ -35,7 +35,7 @@ export class France extends CalendarDef {
     },
 
     joan_of_arc_virgin: {
-      customLocaleKey: 'joan_of_arc_virgin_copatroness_of_france',
+      customLocaleId: 'joan_of_arc_virgin_copatroness_of_france',
       precedence: Precedences.ProperMemorial_SecondPatron_11a,
       dateDef: { month: 5, date: 30 },
       titles: { append: [PatronTitles.CopatronessOfFrance] },
@@ -58,7 +58,7 @@ export class France extends CalendarDef {
     },
 
     therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin: {
-      customLocaleKey: 'therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin_copatroness_of_france',
+      customLocaleId: 'therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin_copatroness_of_france',
       titles: { append: [PatronTitles.CopatronessOfFrance] },
     },
   };

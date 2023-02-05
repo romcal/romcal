@@ -46,7 +46,7 @@ export class Poland extends CalendarDef {
     },
 
     adalbert_of_prague_bishop: {
-      customLocaleKey: 'adalbert_of_prague_bishop_patron_of_poland',
+      customLocaleId: 'adalbert_of_prague_bishop_patron_of_poland',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       dateDef: { month: 4, date: 23 },
       // When it falls between Palm Sunday and the Second Sunday of Easter inclusive,
@@ -87,7 +87,7 @@ export class Poland extends CalendarDef {
     },
 
     stanislaus_of_szczepanow_bishop: {
-      customLocaleKey: 'stanislaus_of_szczepanow_bishop_patron_of_poland',
+      customLocaleId: 'stanislaus_of_szczepanow_bishop_patron_of_poland',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       dateDef: { month: 5, date: 8 },
       titles: { append: [PatronTitles.PatronOfPoland] },
@@ -246,7 +246,7 @@ export class Poland extends CalendarDef {
       martyrology: [
         'mary_stella_of_the_blessed_sacrament_mardosewicz_virgin',
         {
-          key: 'companions_martyrs',
+          id: 'companions_martyrs',
           titles: { prepend: [Titles.Virgin] },
         },
       ],

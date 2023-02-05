@@ -24,7 +24,7 @@ export class Canada extends CalendarDef {
     },
 
     joseph_spouse_of_mary: {
-      customLocaleKey: 'joseph_spouse_of_mary_patron_of_canada',
+      customLocaleId: 'joseph_spouse_of_mary_patron_of_canada',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       titles: { append: [PatronTitles.PatronOfCanada] },
     },
@@ -85,7 +85,7 @@ export class Canada extends CalendarDef {
       dateDef: { month: 7, date: 26 },
       martyrology: [
         {
-          key: 'anne_mother_of_mary',
+          id: 'anne_mother_of_mary',
           titles: { append: [PatronTitles.PatronessOfTheProvinceOfQuebec] },
         },
         'joachim_father_of_mary',

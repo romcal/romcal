@@ -6,7 +6,7 @@ import { Hungary_En } from 'romcal/dist/bundles/hungary';
 import { Ireland_En } from 'romcal/dist/bundles/ireland';
 import { Slovakia_Sk } from 'romcal/dist/bundles/slovakia';
 
-import Romcal, { CalendarScope, Key, LiturgicalCalendar, LiturgicalDayDef } from '../lib';
+import Romcal, { CalendarScope, Id, LiturgicalCalendar, LiturgicalDayDef } from '../lib';
 import { Periods } from '../lib/constants/periods';
 import { Seasons } from '../lib/constants/seasons';
 import LiturgicalDay from '../lib/models/liturgical-day';
@@ -15,11 +15,11 @@ import { dateDifference } from '../lib/utils/dates';
 const { Colors, isMartyr, Titles, Ranks, getUtcDate, getUtcDateFromString, isSameDate, subtractsDays } = Romcal;
 
 describe('Testing calendar generation functions', () => {
-  test('Each item should have a key', async () => {
+  test('Each item should have an ID', async () => {
     const calendar = await new Romcal().generateCalendar();
     const result = Object.values(calendar)
       .flat()
-      .every((value) => Object.prototype.hasOwnProperty.call(value, 'key'));
+      .every((value) => Object.prototype.hasOwnProperty.call(value, 'id'));
     expect(result).toBeTruthy();
   });
 
@@ -33,8 +33,8 @@ describe('Testing calendar generation functions', () => {
     });
 
     test('Each object should contain the required properties', async () => {
-      const requiredKeys = [
-        'key',
+      const requiredIds = [
+        'id',
         'date',
         'dateDef',
         'precedence',
@@ -47,7 +47,7 @@ describe('Testing calendar generation functions', () => {
         'colors',
         'calendar',
         'cycles',
-        'fromCalendar',
+        'fromCalendarId',
         'fromExtendedCalendars',
       ];
 
@@ -55,7 +55,7 @@ describe('Testing calendar generation functions', () => {
         .flat()
         .every(
           (d) =>
-            requiredKeys.every((k) => Object.prototype.hasOwnProperty.call(d, k)) &&
+            requiredIds.every((k) => Object.prototype.hasOwnProperty.call(d, k)) &&
             d.name !== undefined &&
             d.rankName !== undefined &&
             d.seasonNames !== undefined &&
@@ -121,10 +121,10 @@ describe('Testing calendar generation functions', () => {
           (d) => d.rank === Ranks.Feast && !d.titles.includes(Titles.Apostle) && !d.titles.includes(Titles.Evangelist),
         )
         .forEach((d) => {
-          if (d.key === 'exaltation_of_the_holy_cross' || d.key === 'mark_evangelist') {
+          if (d.id === 'exaltation_of_the_holy_cross' || d.id === 'mark_evangelist') {
             // eslint-disable-next-line jest/no-conditional-expect
             expect(d.colors[0]).toEqual(Colors.Red);
-          } else if (d.key === 'commemoration_of_all_the_faithful_departed') {
+          } else if (d.id === 'commemoration_of_all_the_faithful_departed') {
             // eslint-disable-next-line jest/no-conditional-expect
             expect(d.colors[0]).toEqual(Colors.Purple);
             // eslint-disable-next-line jest/no-conditional-expect
@@ -157,7 +157,7 @@ describe('Testing calendar generation functions', () => {
     test('The proper color for the Chair of Peter and the Conversion of St. Paul is white, although both St. Peter and St. Paul were martyrs.', async () => {
       const dates = Object.values(await new Romcal().generateCalendar(2022))
         .flat()
-        .filter((d) => ['chair_of_saint_peter_the_apostle', 'conversion_of_saint_paul_the_apostle'].includes(d.key));
+        .filter((d) => ['chair_of_saint_peter_the_apostle', 'conversion_of_saint_paul_the_apostle'].includes(d.id));
       expect(dates.length).toBe(2);
       dates.forEach((d) => expect(d.colors[0]).toEqual(Colors.White));
     });
@@ -179,13 +179,13 @@ describe('Testing calendar generation functions', () => {
       calendar2021 = Object.values(await new Romcal().generateCalendar(2021)).flat();
       calendar2022 = Object.values(await new Romcal().generateCalendar(2022)).flat();
 
-      easter2020 = calendar2020.find((item) => item.key === 'easter_sunday');
-      easter2021 = calendar2021.find((item) => item.key === 'easter_sunday');
-      easter2022 = calendar2022.find((item) => item.key === 'easter_sunday');
+      easter2020 = calendar2020.find((item) => item.id === 'easter_sunday');
+      easter2021 = calendar2021.find((item) => item.id === 'easter_sunday');
+      easter2022 = calendar2022.find((item) => item.id === 'easter_sunday');
 
-      christmas2020 = calendar2020.find((item) => item.key === 'nativity_of_the_lord');
-      christmas2021 = calendar2021.find((item) => item.key === 'nativity_of_the_lord');
-      christmas2022 = calendar2022.find((item) => item.key === 'nativity_of_the_lord');
+      christmas2020 = calendar2020.find((item) => item.id === 'nativity_of_the_lord');
+      christmas2021 = calendar2021.find((item) => item.id === 'nativity_of_the_lord');
+      christmas2022 = calendar2022.find((item) => item.id === 'nativity_of_the_lord');
     });
 
     test('Should have the right sunday cycle', async () => {
@@ -242,7 +242,7 @@ describe('Testing calendar generation functions', () => {
           const dow = date.getUTCDay();
 
           // Compute data for current day
-          if (!currentSeason.some((s) => day.seasons.includes(s)) || day.key === 'easter_sunday') {
+          if (!currentSeason.some((s) => day.seasons.includes(s)) || day.id === 'easter_sunday') {
             dayOfSeason = 0;
             weekOfSeason = 0;
 
@@ -323,8 +323,8 @@ describe('Testing calendar generation functions', () => {
       const germanyCal = await new Romcal({ localizedCalendar: Germany_En });
       const hungaryCal = await new Romcal({ localizedCalendar: Hungary_En });
 
-      const getDayAfter = async (romcal: Romcal, key: Key): Promise<LiturgicalDay> => {
-        const date = (await romcal.getOneLiturgicalDay(key))!.date;
+      const getDayAfter = async (romcal: Romcal, id: Id): Promise<LiturgicalDay> => {
+        const date = (await romcal.getOneLiturgicalDay(id))!.date;
         const calendar = await romcal.generateCalendar();
         const dayAfter = Object.values(calendar)[Object.keys(calendar).findIndex((k) => k === date) + 1];
         return dayAfter[0];
@@ -356,7 +356,7 @@ describe('Testing calendar generation functions', () => {
 
     test('A dropped liturgical day should not be appended in the final calendar', () => {
       const date = testDates.find((d) => isSameDate(getUtcDateFromString(d.date), getUtcDate(2020, 12, 4)));
-      expect(date?.key).not.toEqual(
+      expect(date?.id).not.toEqual(
         'cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop',
       );
     });

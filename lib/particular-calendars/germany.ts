@@ -230,7 +230,7 @@ export class Germany extends CalendarDef {
       martyrology: [
         'ursula_of_cologne_virgin',
         {
-          key: 'companions_martyrs',
+          id: 'companions_martyrs',
           titles: { append: [Titles.Virgin] },
         },
       ],

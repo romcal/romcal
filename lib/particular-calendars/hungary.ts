@@ -211,7 +211,7 @@ export class Hungary extends CalendarDef {
     },
 
     our_lady_of_hungary: {
-      customLocaleKey: 'our_lady_of_hungary_patroness_of_hungary',
+      customLocaleId: 'our_lady_of_hungary_patroness_of_hungary',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       dateDef: { month: 10, date: 8 },
       titles: { append: [PatronTitles.PatronessOfHungary] },

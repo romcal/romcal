@@ -72,7 +72,7 @@ export class France_Strasbourg extends CalendarDef {
 
     arbogast_of_strasbourg_bishop: {
       precedence: Precedences.ProperFeast_PrincipalPatronOfADiocese_8a,
-      customLocaleKey: 'arbogast_of_strasbourg_bishop_patron_of_the_archdiocese_of_strasbourg',
+      customLocaleId: 'arbogast_of_strasbourg_bishop_patron_of_the_archdiocese_of_strasbourg',
       dateDef: { month: 7, date: 21 },
       titles: { append: [PatronTitles.PatronOfTheDiocese] },
     },
@@ -167,7 +167,7 @@ export class France_Strasbourg extends CalendarDef {
 
     odile_of_alsace_abbess: {
       precedence: Precedences.ProperFeast_PrincipalPatronOfADiocese_8a,
-      customLocaleKey: 'odile_of_alsace_abbess_patroness_of_alsace',
+      customLocaleId: 'odile_of_alsace_abbess_patroness_of_alsace',
       dateDef: { month: 12, date: 13 },
       titles: { append: [PatronTitles.PatronessOfAlsace] },
     },

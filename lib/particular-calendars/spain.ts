@@ -81,7 +81,7 @@ export class Spain extends CalendarDef {
     },
 
     james_apostle: {
-      customLocaleKey: 'james_apostle_patron_of_spain',
+      customLocaleId: 'james_apostle_patron_of_spain',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       titles: { append: [PatronTitles.PatronOfSpain] },
     },

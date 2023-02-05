@@ -1,7 +1,7 @@
-import { Key } from './common';
+import { Id } from './common';
 
 export interface Locale {
-  key: Key;
+  id: Id;
   ordinals?: LocaleOrdinals;
   weekdays?: LocaleWeeks;
   months?: LocaleMonths;

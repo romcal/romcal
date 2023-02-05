@@ -130,7 +130,7 @@ export class France_Paris extends CalendarDef {
 
     denis_of_paris_bishop: {
       precedence: Precedences.ProperFeast_PrincipalPatronOfADiocese_8a,
-      customLocaleKey: 'denis_of_paris_bishop_patron_of_the_archdiocese_of_paris',
+      customLocaleId: 'denis_of_paris_bishop_patron_of_the_archdiocese_of_paris',
       dateDef: { month: 10, date: 9 },
       titles: [Titles.Martyr, Titles.FirstBishop, PatronTitles.PatronOfTheDiocese],
     },

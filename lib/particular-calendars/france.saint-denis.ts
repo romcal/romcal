@@ -65,7 +65,7 @@ export class France_SaintDenis extends CalendarDef {
 
     denis_of_paris_bishop: {
       precedence: Precedences.ProperFeast_PrincipalPatronOfADiocese_8a,
-      customLocaleKey: 'denis_of_paris_bishop_patron_of_the_city_and_of_the_diocese_of_saint_denis',
+      customLocaleId: 'denis_of_paris_bishop_patron_of_the_city_and_of_the_diocese_of_saint_denis',
       dateDef: { month: 10, date: 9 },
       titles: [Titles.Bishop, Titles.Martyr, PatronTitles.PatronOfTheDiocese],
     },

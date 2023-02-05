@@ -94,7 +94,7 @@ export class Russia extends CalendarDef {
     },
 
     andrew_apostle: {
-      customLocaleKey: 'andrew_apostle_patron_of_russia',
+      customLocaleId: 'andrew_apostle_patron_of_russia',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       titles: { append: [PatronTitles.PatronOfRussia] },
     },

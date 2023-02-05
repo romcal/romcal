@@ -2,7 +2,7 @@ import { i18n } from 'i18next';
 
 import { RomcalBundleObject } from './bundle';
 import { CalendarDefInstance } from './calendar-def';
-import { Key } from './common';
+import { Id } from './common';
 
 /**
  * The configuration object that is passed either to the [[Calendar.calendarFor]]
@@ -53,9 +53,9 @@ export interface BaseRomcalConfig {
   readonly calendarsDef: InstanceType<CalendarDefInstance>[];
 
   /**
-   * The locale key
+   * The locale ID
    */
-  readonly localeKey: Key;
+  readonly localeId: Id;
 
   /**
    * The calendar name
@@ -71,7 +71,7 @@ export interface IRomcalConfig extends BaseRomcalConfig {
  * A modified variant of [[RomcalConfig]] specifically for the [[Config]] class constructor
  * where all properties are **required**.
  */
-export type RomcalConfigInput = Omit<Partial<BaseRomcalConfig>, 'localeKey' | 'calendarName'>;
+export type RomcalConfigInput = Omit<Partial<BaseRomcalConfig>, 'localeId' | 'calendarName'>;
 
 /**
  * Output object of the romcal config.

@@ -505,14 +505,14 @@ describe('Testing specific liturgical date functions', () => {
 
     test('When it occurs on the same day as another memorial, both memorials are output', async () => {
       const romcal = new Romcal();
-      const keys = (await romcal.generateCalendar(2015))['2015-06-13'].map((d) => d.key);
-      expect(JSON.stringify(keys)).toEqual(JSON.stringify(['immaculate_heart_of_mary', 'anthony_of_padua_priest']));
+      const ids = (await romcal.generateCalendar(2015))['2015-06-13'].map((d) => d.id);
+      expect(JSON.stringify(ids)).toEqual(JSON.stringify(['immaculate_heart_of_mary', 'anthony_of_padua_priest']));
     });
 
     test('When it occurs on a weekday, only one item is output for this day', async () => {
       const romcal = new Romcal();
-      const keys = (await romcal.generateCalendar(2022))['2022-06-25'].map((d) => d.key);
-      expect(JSON.stringify(keys)).toEqual(JSON.stringify(['immaculate_heart_of_mary']));
+      const ids = (await romcal.generateCalendar(2022))['2022-06-25'].map((d) => d.id);
+      expect(JSON.stringify(ids)).toEqual(JSON.stringify(['immaculate_heart_of_mary']));
     });
   });
 

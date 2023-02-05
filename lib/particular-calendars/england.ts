@@ -30,7 +30,7 @@ export class England extends CalendarDef {
     },
 
     george_of_lydda_martyr: {
-      customLocaleKey: 'george_of_lydda_martyr_patron_of_england',
+      customLocaleId: 'george_of_lydda_martyr_patron_of_england',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       dateDef: { month: 4, date: 23 },
       // When it falls between Palm Sunday and the Second Sunday of Easter inclusive,

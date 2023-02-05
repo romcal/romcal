@@ -83,14 +83,14 @@ describe('Testing date range functions', () => {
       const dates = Object.values(await new Romcal().generateCalendar(2017))
         .flatMap((arr) => arr[0])
         .filter((d) => d.seasons.includes(Seasons.Lent));
-      expect(dates[10].key).toEqual('lent_1_saturday');
+      expect(dates[10].id).toEqual('lent_1_saturday');
     });
 
     test('The 2nd Sunday of Lent should be in the 2nd week of Lent', async () => {
       const dates = Object.values(await new Romcal().generateCalendar(2017))
         .flatMap((arr) => arr[0])
         .filter((d) => d.seasons.includes(Seasons.Lent));
-      expect(dates[11].key).toEqual('lent_2_sunday');
+      expect(dates[11].id).toEqual('lent_2_sunday');
     });
   });
 
@@ -281,10 +281,10 @@ describe('Testing seasons utility functions', () => {
           (d) =>
             (d.seasons.includes(Seasons.Lent) || d.seasons.includes(Seasons.Advent)) &&
             (d.rank === Ranks.Sunday || d.rank === Ranks.Weekday) &&
-            d.key !== 'palm_sunday_of_the_passion_of_the_lord',
+            d.id !== 'palm_sunday_of_the_passion_of_the_lord',
         )
         .forEach((date) => {
-          if (date.key === 'lent_4_sunday' || date.key === 'advent_3_sunday') {
+          if (date.id === 'lent_4_sunday' || date.id === 'advent_3_sunday') {
             // eslint-disable-next-line jest/no-conditional-expect
             expect(date.colors[0]).toEqual(Colors.Rose);
             // eslint-disable-next-line jest/no-conditional-expect
@@ -304,7 +304,7 @@ describe('Testing seasons utility functions', () => {
           (d) =>
             (d.seasons.includes(Seasons.ChristmasTime) || d.seasons.includes(Seasons.EasterTime)) &&
             (d.rank === Ranks.Sunday || d.rank === Ranks.Weekday) &&
-            d.key !== 'pentecost_sunday',
+            d.id !== 'pentecost_sunday',
         )
         .forEach((date) => {
           // eslint-disable-next-line jest/no-conditional-expect
