@@ -14,11 +14,11 @@ const toHumanName = (str: string): string =>
 
 const CalendarMenu = observer(() => {
   const { romcalStore } = useContext(AppContext);
-  const { calendarKey, setCalendarKey } = romcalStore;
+  const { calendarId, setCalendarId } = romcalStore;
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     if (event.target.value) {
-      setCalendarKey(event.target.value);
+      setCalendarId(event.target.value);
     }
   };
 
@@ -28,10 +28,10 @@ const CalendarMenu = observer(() => {
         <InputLabel variant="standard" htmlFor="uncontrolled-native">
           Calendar
         </InputLabel>
-        <NativeSelect id="calendar" value={calendarKey} onChange={handleChange}>
-          {Object.keys(CALENDARS).map((key) => (
-            <option key={key} value={key}>
-              {toHumanName(key)}
+        <NativeSelect id="calendar" value={calendarId} onChange={handleChange}>
+          {Object.keys(CALENDARS).map((id) => (
+            <option key={id} value={id}>
+              {toHumanName(id)}
             </option>
           ))}
         </NativeSelect>

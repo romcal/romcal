@@ -32,8 +32,8 @@ export default function Day(props: { liturgicalDay: BaseLiturgicalDay[] }) {
             <AdditionalLineContent day={liturgicalDay[0]} />
             {liturgicalDay.length > 1 &&
               liturgicalDay.slice(1).map((altDay) => (
-                <div key={altDay.key}>
-                  <OptionalTitle key={altDay.key} className={altDay.rank.toLowerCase()}>
+                <div key={altDay.id}>
+                  <OptionalTitle key={altDay.id} className={altDay.rank.toLowerCase()}>
                     {altDay.isOptional ? <OrLabel>or: </OrLabel> : <></>}
                     {altDay.name}
                   </OptionalTitle>

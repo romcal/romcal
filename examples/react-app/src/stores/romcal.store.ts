@@ -7,8 +7,8 @@ export class RomcalStore {
   fetchingData: boolean = false;
   yearlyData: BaseLiturgicalDay[][] = [];
   monthlyData: BaseLiturgicalDay[][] = [];
-  localeKey: string = 'En';
-  calendarKey: string = 'GeneralRoman';
+  localeId: string = 'En';
+  calendarId: string = 'GeneralRoman';
   currentYear: number = new Date().getFullYear();
   currentMonth: number = new Date().getMonth();
 
@@ -18,7 +18,7 @@ export class RomcalStore {
 
   fetchRomcalData = async () => {
     if (this.yearlyData.length === 0) {
-      const calendar = (await CALENDARS[this.calendarKey])[`${this.calendarKey}_${this.localeKey}`];
+      const calendar = (await CALENDARS[this.calendarId])[`${this.calendarId}_${this.localeId}`];
       const romcal = new Romcal({ localizedCalendar: calendar });
       const data = await romcal.generateCalendar(this.currentYear).then(Object.values);
       runInAction(() => {
@@ -39,14 +39,14 @@ export class RomcalStore {
     });
   };
 
-  setCalendarKey = (key: string): void => {
-    this.calendarKey = key;
+  setCalendarId = (id: string): void => {
+    this.calendarId = id;
     this.yearlyData = [];
     this.getMonthData();
   };
 
-  setLocaleKey = (key: string): void => {
-    this.localeKey = key;
+  setLocaleId = (id: string): void => {
+    this.localeId = id;
     this.yearlyData = [];
     this.getMonthData();
   };
