@@ -26,6 +26,7 @@ module.exports = {
     'import/no-duplicates': 'error',
     'import/no-unused-modules': 'error',
     'no-unused-vars': 'off',
+    'object-shorthand': 'error',
     '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', ignoreRestSiblings: true }],
     '@typescript-eslint/explicit-module-boundary-types': 'error',
     '@typescript-eslint/explicit-function-return-type': 'error',
