@@ -18,6 +18,7 @@ import { England } from './england';
 import { Europe } from './europe';
 import { Finland } from './finland';
 import { France } from './france';
+import { France_Lyon } from './france.lyon';
 import { France_Paris } from './france.paris';
 import { France_SaintDenis } from './france.saint-denis';
 import { France_Strasbourg } from './france.strasbourg';
@@ -79,6 +80,7 @@ export const particularCalendars: Record<string, typeof CalendarDef> = {
   Europe,
   Finland,
   France,
+  France_Lyon,
   France_Paris,
   France_SaintDenis,
   France_Strasbourg,

@@ -122,6 +122,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Alberto Hurtado',
       titles: [Titles.Priest],
     },
+    alexander_of_lyon_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Alexander',
+      dateOfDeath: 178,
+      titles: [Titles.Martyr],
+    },
     all_saints: {
       name: 'All Saints',
     },
@@ -288,6 +294,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
         century: 1,
       },
     },
+    annemund_of_lyon_bishop: {
+      name: 'Annemund',
+      titles: [Titles.Bishop, Titles.Martyr],
+      dateOfDeath: 658,
+      dateOfDeathIsApproximative: true,
+    },
     anno_of_cologne_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Anno of Cologne',
@@ -322,7 +334,8 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Anthony Mary Claret',
       titles: [Titles.Bishop],
-      dateOfDeath: 1870,
+      dateOfBirth: '1807-12-23',
+      dateOfDeath: '1870-10-24',
     },
     anthony_of_egypt_abbot: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -351,6 +364,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Anthony Zaccaria',
       titles: [Titles.Priest],
       dateOfDeath: 1539,
+    },
+    antoine_chevrier_priest: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Antoine Chevrier',
+      titles: [Titles.Priest],
+      dateOfBirth: '1826-4-16',
+      dateOfDeath: '1879-10-2',
     },
     apollinaris_of_ravenna_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -442,6 +462,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Aurelia',
       titles: [Titles.Virgin],
+    },
+    baldomerus_of_lyon_religious: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Saint Galmier',
+      titles: [Titles.Religious],
+      dateOfDeath: '630-2-27',
+      dateOfDeathIsApproximative: true,
     },
     baptism_of_the_lord: {
       name: 'The Baptism of the Lord',
@@ -572,6 +599,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Bonaventure',
       titles: [Titles.Bishop, Titles.DoctorOfTheChurch],
+      dateOfBirth: 1221,
       dateOfDeath: 1274,
     },
     boniface_of_mainz_bishop: {
@@ -801,6 +829,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Clare',
       titles: [Titles.Virgin],
+    },
+    claudine_thevenet_religious: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Claudine Thévenet',
+      dateOfDeath: 1837,
+      titles: [Titles.Religious],
     },
     clement_i_pope: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -1142,6 +1176,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     epiphany_of_the_lord: {
       name: 'The Epiphany of the Lord',
     },
+    epipodius_of_lyon_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Epipodius',
+      dateOfDeath: 178,
+      titles: [Titles.Martyr],
+    },
     eric_ix_of_sweden_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Eric IX of Sweden',
@@ -1151,6 +1191,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Etheldreda',
       titles: [Titles.Abbess],
+    },
+    eucherius_of_lyon_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Eucharius',
+      titles: [Titles.Bishop],
+      dateOfBirth: 380,
+      dateOfBirthIsApproximative: true,
+      dateOfDeath: 449,
+      dateOfDeathIsApproximative: true,
     },
     eucharius_of_trier_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -1392,6 +1441,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     frederic_ozanam_founder: {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Frédéric Ozanam',
+      dateOfBirth: '1813-4-23',
       dateOfDeath: '1853-9-8',
     },
     friday_of_the_passion_of_the_lord: {
@@ -1558,6 +1608,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Gregory VII',
       titles: [Titles.Pope],
       dateOfDeath: 1085,
+    },
+    gregory_x_pope: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Gregory X',
+      titles: [Titles.Pope],
+      dateOfDeath: '1276-1-10',
     },
     guardian_angel_of_portugal: {
       name: 'Guardian Angel of Portugal',
@@ -1747,7 +1803,9 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Innocent V',
       titles: [Titles.Pope],
-      dateOfDeath: 1276,
+      dateOfBirth: 1224,
+      dateOfBirthIsApproximative: true,
+      dateOfDeath: '1276-6-22',
     },
     innocent_xi_pope: {
       canonizationLevel: CanonizationLevels.Blessed,
@@ -1758,6 +1816,8 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Irenaeus',
       titles: [Titles.Bishop, Titles.Martyr, Titles.DoctorOfTheChurch],
+      dateOfBirth: 130,
+      dateOfBirthIsApproximative: true,
       dateOfDeath: 201,
       dateOfDeathIsApproximative: true,
     },
@@ -1815,6 +1875,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Jacinta Marto',
     },
+    jacques_jules_bonnaud_martyr: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Jacques Jules Bonnaud',
+      titles: [Titles.Martyr],
+      dateOfBirth: 1740,
+      dateOfDeath: '1792-09-02',
+    },
     james_apostle: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'James',
@@ -1842,6 +1909,18 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Jarlath',
       titles: [Titles.Bishop],
+    },
+    jean_louis_bonnard_priest: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Jean-Louis Bonnard',
+      titles: [Titles.Priest, Titles.Martyr],
+      dateOfDeath: '1852-5-01',
+    },
+    jean_pierre_neel_priest: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Jean-Pierre Néel',
+      titles: [Titles.Priest, Titles.Martyr],
+      dateOfDeath: '1862-2-18',
     },
     jerome_de_angelis_priest: {
       canonizationLevel: CanonizationLevels.Blessed,
@@ -1966,6 +2045,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Titles.Bishop, Titles.Martyr],
       dateOfDeath: '1535-06-22',
     },
+    john_francis_regis_priest: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'John Francis Regis',
+      titles: [Titles.Priest, Titles.Missionary],
+      dateOfBirth: 1597,
+      dateOfDeath: '1640-12-31',
+    },
     john_gabriel_perboyre_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'John Gabriel Perboyre',
@@ -2012,6 +2098,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'John Vianney',
       titles: [Titles.Priest],
+      dateOfBirth: 1786,
       dateOfDeath: 1859,
     },
     john_nepomucene_neumann_bishop: {
@@ -2204,6 +2291,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Justin',
       titles: [Titles.Martyr],
       dateOfDeath: 165,
+    },
+    justus_of_lyon_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Justus of Lyon',
+      titles: [Titles.Bishop],
+      dateOfBirth: { century: 4 },
+      dateOfDeath: 389,
+      dateOfDeathIsApproximative: true,
     },
     kateri_tekakwitha_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -2513,6 +2608,8 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Marcellin Champagnat',
       titles: [Titles.Priest],
+      dateOfBirth: 1789,
+      dateOfDeath: '1840-6-6',
     },
     marcellinus_of_rome_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -2813,6 +2910,8 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Maurice',
       titles: [Titles.Martyr],
+      dateOfDeath: 287,
+      dateOfDeathIsApproximative: true,
     },
     maurice_tornay_priest: {
       canonizationLevel: CanonizationLevels.Blessed,
@@ -2987,6 +3086,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Ninian',
       titles: [Titles.Bishop],
     },
+    nicetius_of_lyon_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Nicetius',
+      titles: [Titles.Bishop],
+      dateOfDeath: '573-4-2',
+    },
     norbert_of_xanten_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Norbert',
@@ -3071,6 +3176,9 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     },
     our_lady_of_fatima: {
       name: 'Our Lady of Fatima',
+    },
+    our_lady_of_fourviere: {
+      name: 'Our Lady of Fourvière',
     },
     our_lady_of_good_counsel: {
       name: 'Our Lady of Good Counsel',
@@ -3332,6 +3440,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Peter Julian Eymard',
       titles: [Titles.Priest],
+      dateOfBirth: 1811,
       dateOfDeath: 1868,
     },
     peter_kibe_priest: {
@@ -3773,6 +3882,10 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Teresa of Portugal',
       titles: [Titles.Religious],
     },
+    the_penitent_thief: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'The Penitent Thief',
+    },
     theodore_of_canterbury_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Theodore of Canterbury',
@@ -3792,6 +3905,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Theotonius of Coimbra',
       titles: [Titles.Priest],
+    },
+    therese_couderc_virgin: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Thérèse Couderc',
+      titles: [Titles.Virgin],
+      dateOfBirth: '1805-2-1',
+      dateOfDeath: '1885-9-26',
     },
     therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -3911,6 +4031,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Vasyl Velychkovsky',
       titles: [Titles.Bishop, Titles.Martyr],
       dateOfDeath: 1973,
+    },
+    viator_of_lyon: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Viator of Lyons',
+      dateOfBirth: 370,
+      dateOfBirthIsApproximative: true,
+      dateOfDeath: 389,
+      dateOfDeathIsApproximative: true,
     },
     vincent_de_paul_priest: {
       canonizationLevel: CanonizationLevels.Saint,
