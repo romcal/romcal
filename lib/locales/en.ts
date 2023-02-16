@@ -532,7 +532,8 @@ export const locale: Locale = {
     ivan_merz: 'Blessed Ivan Merz',
     ivo_of_kermartin_priest: 'Saint Ivo, Priest',
     jacinta_marto_and_francisco_marto: 'Saints Jacinta and Francisco Marto',
-    jacques_jules_bonnaud_priest_and_companions_martyrs: 'Blessed Jacques-Jules Bonnaud, and Companions, Martyrs',
+    jacques_jules_bonnaud_priest_and_companions_martyrs:
+      'Blessed Jacques-Jules Bonnaud, Priest, and Companions, Martyrs',
     james_apostle: 'Saint James, Apostle',
     james_apostle_patron_of_spain: 'Saint James, Apostle, Patron of Spain',
     james_strzemie_bishop: 'Blessed James Strzemię, Bishop',

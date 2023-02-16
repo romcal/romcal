@@ -361,7 +361,7 @@ export const locale: Locale = {
     innocent_v_pope: 'Bienheureux Innocent V, pape († 1276)',
     irenaeus_of_lyon_bishop: 'Saint Irénée, évêque, martyr et docteur de l’Église († v. 201)',
     irenaeus_of_lyon_bishop_patron_of_the_archdiocese_of_lyon_and_companions_martyrs:
-      'Saint Irénée, évêque et docteur de l’Église, patron principal du diocèse de Lyon, et ses compagnons, martyrs († v. 201)',
+      'Saint Irénée, évêque et docteur de l’Église, patron principal du diocèse, et ses compagnons, martyrs († v. 201)',
     isabelle_of_france_virgin: 'Bienheureuse Isabelle de France, sœur de saint Louis, vierge († 1270)',
     isidore_of_seville_bishop: 'Saint Isidore de Séville, docteur de l’Église, évêque et Confesseur († 636)',
     ivo_of_kermartin_priest: 'Saint Yves Hélory, prêtre et juge en Bretagne († 1303)',
