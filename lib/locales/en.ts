@@ -169,13 +169,13 @@ export const locale: Locale = {
     albert_the_great_bishop: 'Saint Albert the Great, Bishop and Doctor of the Church',
     albertina_berkenbrock_virgin: 'Blessed Albertina Berkenbrock, Virgin and Martyr',
     alberto_hurtado_priest: 'Saint Alberto Hurtado, Priest',
+    all_holy_bishops_of_the_archdiocese_of_lyon: 'All Holy Bishops of the Archdiocese of Lyon',
     all_saints: 'All Saints',
     all_saints_of_ireland: 'All Saints of Ireland',
     all_saints_of_the_archdiocese_of_lyon: 'All Saints of the Archdiocese of Lyon',
     all_saints_of_the_archdiocese_of_paris: 'All Saints of the Archdiocese of Paris',
     all_saints_of_the_diocese_of_saint_denis: 'All Saints of the Diocese of Saint-Denis',
     all_saints_of_wales: 'All Saints of Wales',
-    all_the_holy_bishops_of_the_archdiocese_of_lyon: 'All the Holy Bishops of the Archdiocese of Lyon',
     aloysius_gonzaga_religious: 'Saint Aloysius Gonzaga, Religious',
     aloysius_stepinac_bishop: 'Blessed Aloysius Stepinac, Bishop and Martyr',
     aloysius_versiglia_bishop_and_callistus_caravario_priest_martyrs:
@@ -206,6 +206,7 @@ export const locale: Locale = {
     annunciation_of_the_lord: 'The Annunciation of the Lord',
     anselm_of_canterbury_bishop: 'Saint Anselm, Bishop and Doctor of the Church',
     ansgar_of_hamburg_bishop: 'Saint Ansgar, Bishop',
+    anthony_chevrier_priest: 'Blessed Anthony Chevrier, Priest',
     anthony_julian_nowowiejski_bishop_and_companions_martyrs:
       'Blessed Anthony Julian Nowowiejski, Bishop, and Companions, Martyrs',
     anthony_mary_claret_bishop: 'Saint Anthony Mary Claret, Bishop',
@@ -214,7 +215,6 @@ export const locale: Locale = {
     anthony_of_saint_anne_galvao_priest: 'Saint Anthony of Saint Anne Galvão, Priest',
     anthony_of_the_caves_monk: 'Saint Anthony of the Caves, Monk',
     anthony_zaccaria_priest: 'Saint Anthony Zaccaria, Priest',
-    antoine_chevrier_priest: 'Blessed Antoine Chevrier, Priest',
     apollinaris_of_ravenna_bishop: 'Saint Apollinaris, Bishop and Martyr',
     arbogast_of_strasbourg_bishop: 'Saint Arbogast, Bishop',
     arbogast_of_strasbourg_bishop_patron_of_the_archdiocese_of_strasbourg:
@@ -309,7 +309,6 @@ export const locale: Locale = {
     christopher_of_palestine_martyr: 'Saint Christopher, Martyr',
     ciaran_of_clonmacnoise_abbot: 'Saint Ciaran, Abbot',
     clare_of_assisi_virgin: 'Saint Clare, Virgin',
-    claudine_thevenet_religious: 'Saint Claudine Thévenet, Religious',
     clement_i_pope: 'Saint Clement I, Pope and Martyr',
     clement_mary_hofbauer_priest: 'Saint Clement Mary Hofbauer, Priest',
     clement_of_ohrid_and_gorazd_of_moravia_bishops_and_companions:
@@ -356,7 +355,8 @@ export const locale: Locale = {
       'The Dedication of the Cathedral Basilica of Saint-Denis, France',
     dedication_of_the_cathedral_of_notre_dame_de_strasbourg_france:
       'The Dedication of the Cathedral of Notre-Dame of Strasbourg',
-    dedication_of_the_cathedral_saint_john_of_lyon_france: 'The Dedication of the Primatiale Cathedral',
+    dedication_of_the_cathedral_of_saint_john_the_baptist_lyon_france:
+      'The Dedication of the Cathedral of Saint John the Baptist, Lyon',
     dedication_of_the_lateran_basilica: 'The Dedication of the Lateran Basilica',
     dedication_of_the_notre_dame_de_paris_cathedral_paris_france:
       'The Dedication of the Notre-Dame de Paris Cathedral, Paris',
@@ -369,6 +369,7 @@ export const locale: Locale = {
       'Saint Denis, Bishop and Martyr, Patron of the City and of the Diocese of Saint-Denis',
     dina_belanger_virgin: 'Blessed Dina Bélanger, Virgin',
     dionysius_the_areopagite_bishop: 'Saint Dionysius the Areopagite, Bishop and Martyr',
+    dismas_the_good_thief: 'Dismas the Good Thief',
     divine_mercy_sunday: 'Second Sunday of Easter or Sunday of Divine Mercy',
     dominic_de_guzman_priest: 'Saint Dominic, Priest',
     dominic_of_the_mother_of_god_barberi_priest: 'Blessed Dominic of the Mother of God Barberi, Priest',
@@ -393,7 +394,7 @@ export const locale: Locale = {
     eoghan_of_ardstraw_bishop: 'Saint Eoghan, Bishop',
     ephrem_the_syrian_deacon: 'Saint Ephrem, Deacon and Doctor of the Church',
     epiphany_of_the_lord: 'The Epiphany of the Lord',
-    epipodius_and_alexander_of_lyon_martyrs: 'Saints Epipodius and Alexander, Martyrs',
+    epipodius_of_lyon_and_alexander_of_lyon_martyrs: 'Saints Epipodius and Alexander, Martyrs',
     eric_ix_of_sweden_martyr: 'Saint Eric IX of Sweden, Martyr',
     etheldreda_of_ely_abbess: 'Saint Etheldreda, Abbess',
     eucherius_of_lyon_bishop: 'Saint Eucherius, Bishop',
@@ -519,8 +520,8 @@ export const locale: Locale = {
     innocent_v_pope: 'Blessed Innocent V, Pope',
     innocent_xi_pope: 'Blessed Innocent XI, Pope',
     irenaeus_of_lyon_bishop: 'Saint Irenaeus, Bishop, Martyr and Doctor of the Church',
-    irenaeus_of_lyon_bishop_patron_of_diocese_of_lyon_and_companions_martyrs:
-      'Saints Ireneus, Bishop and Doctor of the Church, Principal Patron of the Archdiocese, and Companions, Martyrs',
+    irenaeus_of_lyon_bishop_patron_of_the_archdiocese_of_lyon_and_companions_martyrs:
+      'Saints Irenaeus, Bishop and Doctor of the Church, Principal Patron of the Archdiocese of Lyon, and Companions, Martyrs',
     irene_of_macedonia: 'Saint Irene',
     irish_martyrs: 'Irish Martyrs',
     isabelle_of_france_virgin: 'Blessed Isabelle of France, Virgin',
@@ -531,14 +532,14 @@ export const locale: Locale = {
     ivan_merz: 'Blessed Ivan Merz',
     ivo_of_kermartin_priest: 'Saint Ivo, Priest',
     jacinta_marto_and_francisco_marto: 'Saints Jacinta and Francisco Marto',
-    jacques_jules_bonnaud_martyr_and_companions_martyrs: 'Blessed Jacques-Jules Bonnaud, and Companions, Martyrs',
+    jacques_jules_bonnaud_priest_and_companions_martyrs: 'Blessed Jacques-Jules Bonnaud, and Companions, Martyrs',
     james_apostle: 'Saint James, Apostle',
     james_apostle_patron_of_spain: 'Saint James, Apostle, Patron of Spain',
     james_strzemie_bishop: 'Blessed James Strzemię, Bishop',
     jane_frances_de_chantal_religious: 'Saint Jane Frances de Chantal, Religious',
     januarius_i_of_benevento_bishop: 'Saint Januarius, Bishop and Martyr',
     jarlath_of_tuam_bishop: 'Saint Jarlath, Bishop',
-    jean_louis_bonnard_priest: 'Saint Jean-Louis Bonnard, Priest et Martyr',
+    jean_louis_bonnard_priest: 'Saint Jean-Louis Bonnard, Priest and Martyr',
     jean_pierre_neel_priest: 'Saint Jean Pierre Néel, Priest and Martyr',
     jerome_emiliani: 'Saint Jerome Emiliani',
     jerome_of_stridon_priest: 'Saint Jerome, Priest and Doctor of the Church',
@@ -687,6 +688,7 @@ export const locale: Locale = {
     marie_eugenie_of_jesus_milleret_de_brou_virgin:
       'Saint Marie-Eugénie of Jesus Milleret de Brou, Virgin and Foundress',
     marie_leonie_paradis_virgin: 'Blessed Marie-Léonie Paradis, Virgin',
+    marie_of_saint_ignatius_claudine_thevenet_religious: 'Saint Claudine Thévenet, Religious',
     marie_rose_durocher_virgin: 'Blessed Marie Rose Durocher, Virgin',
     mark_evangelist: 'Saint Mark, Evangelist',
     marko_krizin_melchior_grodziecki_and_stephen_pongracz_priests:
@@ -879,7 +881,7 @@ export const locale: Locale = {
     pothinus_of_lyon_bishop_blandina_of_lyon_virgin_and_companions_martyrs:
       'Saints Pothinus, Bishop, Blandina, Virgin, and Companions, Martyrs',
     pothinus_of_lyon_bishop_patron_the_city_of_lyon_blandina_of_lyon_virgin_and_companions_martyrs:
-      'Saints Pothinus, Bishop, Patron of the city of Lyon, Blandina, Virgin, and Companions, Martyrs',
+      'Saints Pothinus, Bishop, Patron of the City of Lyon, Blandina, Virgin, and Companions, Martyrs',
     presentation_of_the_blessed_virgin_mary: 'The Presentation of the Blessed Virgin Mary',
     presentation_of_the_lord: 'The Presentation of the Lord',
     procopius_of_sazava_abbot: 'Saint Procopius of Sázava, Abbot',
@@ -948,12 +950,11 @@ export const locale: Locale = {
     teresa_of_jesus_of_avila_virgin: 'Saint Teresa of Jesus, Virgin and Doctor of the Church',
     teresa_of_jesus_of_los_andes_virgin: 'Saint Teresa of Jesus of Los Andes, Virgin',
     teresa_of_portugal_religious: 'Blessed Teresa of Portugal, Religious',
-    the_penitent_thief: 'The Penitent Thief',
     theodore_of_canterbury_bishop: 'Saint Theodore of Canterbury, Bishop',
     theodore_romzha_bishop: 'Blessed Theodore Romzha, Bishop and Martyr',
     theodosius_of_the_caves_abbot: 'Saint Theodosius of the Caves, Abbot',
     theotonius_of_coimbra_priest: 'Saint Theotonius of Coimbra, Priest',
-    therese_couderc_virgin: 'Saint Thérèse Couderc, Virgin',
+    therese_marie_victoire_couderc_virgin: 'Saint Thérèse Couderc, Virgin',
     therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin:
       'Saint Thérèse of the Child Jesus, Virgin and Doctor of the Church',
     therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin_copatroness_of_france:

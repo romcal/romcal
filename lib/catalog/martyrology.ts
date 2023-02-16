@@ -365,9 +365,9 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Titles.Priest],
       dateOfDeath: 1539,
     },
-    antoine_chevrier_priest: {
+    anthony_chevrier_priest: {
       canonizationLevel: CanonizationLevels.Blessed,
-      name: 'Antoine Chevrier',
+      name: 'Anthony Chevrier',
       titles: [Titles.Priest],
       dateOfBirth: '1826-4-16',
       dateOfDeath: '1879-10-2',
@@ -830,7 +830,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Clare',
       titles: [Titles.Virgin],
     },
-    claudine_thevenet_religious: {
+    marie_of_saint_ignatius_claudine_thevenet_religious: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Claudine Thévenet',
       dateOfDeath: 1837,
@@ -1051,6 +1051,10 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Dionysius the Areopagite',
       titles: [Titles.Bishop, Titles.Martyr],
+    },
+    dismas_the_good_thief: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Dismas the Good Thief',
     },
     divine_mercy_sunday: {
       name: 'Sunday of Divine Mercy',
@@ -1875,10 +1879,10 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Jacinta Marto',
     },
-    jacques_jules_bonnaud_martyr: {
+    jacques_jules_bonnaud_priest: {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Jacques Jules Bonnaud',
-      titles: [Titles.Martyr],
+      titles: [Titles.Priest, Titles.Martyr],
       dateOfBirth: 1740,
       dateOfDeath: '1792-09-02',
     },
@@ -3882,10 +3886,6 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Teresa of Portugal',
       titles: [Titles.Religious],
     },
-    the_penitent_thief: {
-      canonizationLevel: CanonizationLevels.Saint,
-      name: 'The Penitent Thief',
-    },
     theodore_of_canterbury_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Theodore of Canterbury',
@@ -3906,7 +3906,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Theotonius of Coimbra',
       titles: [Titles.Priest],
     },
-    therese_couderc_virgin: {
+    therese_marie_victoire_couderc_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Thérèse Couderc',
       titles: [Titles.Virgin],

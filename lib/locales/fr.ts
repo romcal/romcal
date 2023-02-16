@@ -160,11 +160,11 @@ export const locale: Locale = {
     agnes_of_rome_virgin: 'Sainte Agnès, vierge et martyre († v. 304)',
     albert_the_great_bishop:
       'Saint Albert le Grand, frère prêcheur, évêque de Ratisbonne, docteur de l’Église († 1280)',
+    all_holy_bishops_of_the_archdiocese_of_lyon: 'Tous les Saints Évêques du diocèse de Lyon',
     all_saints: 'Tous les Saints',
     all_saints_of_the_archdiocese_of_lyon: 'Tous les Saints du diocèse de Lyon',
     all_saints_of_the_archdiocese_of_paris: 'Tous les Saints du diocèse de Paris',
     all_saints_of_the_diocese_of_saint_denis: 'Tous les Saints du diocèse de Saint-Denis',
-    all_the_holy_bishops_of_the_archdiocese_of_lyon: 'Tous les Saints Évêques du diocèse de Lyon',
     aloysius_gonzaga_religious: 'Saint Louis de Gonzague, religieux Jésuite († 1591)',
     alphonsus_mary_liguori_bishop: 'Saint Alphonse-Marie de Liguori, évêque et docteur de l’Église',
     amand_of_maastricht_bishop: 'Saint Amand d’Elnone, Missionnaire, évêque de Maastricht († v. 676)',
@@ -188,11 +188,11 @@ export const locale: Locale = {
     annunciation_of_the_lord: 'Annonciation du Seigneur',
     anselm_of_canterbury_bishop: 'Saint Anselme de Cantorbéry, évêque, docteur de l’Église († 1109)',
     ansgar_of_hamburg_bishop: 'Saint Anschaire de Brême, évêque († 865)',
+    anthony_chevrier_priest: 'Bienheureux Antoine Chevrier, prêtre († 1879)',
     anthony_mary_claret_bishop: 'Saint Antoine-Marie Claret, évêque († 1870)',
     anthony_of_egypt_abbot: 'Saint Antoine le Grand, ermite en Égypte († 356)',
     anthony_of_padua_priest: 'Saint Antoine, prêtre et docteur de l’Église († 1231)',
     anthony_zaccaria_priest: 'Saint Antoine-Marie Zaccaria, prêtre († 1539)',
-    antoine_chevrier_priest: 'Bienheureux Antoine Chevrier, prêtre († 1879)',
     apollinaris_of_ravenna_bishop: 'Saint Apollinaire, évêque et martyr († IIème s.)',
     arbogast_of_strasbourg_bishop: 'Saint Arbogast, évêque († 678)',
     arbogast_of_strasbourg_bishop_patron_of_the_archdiocese_of_strasbourg:
@@ -258,7 +258,6 @@ export const locale: Locale = {
     christopher_magallanes_priest_and_companions_martyrs:
       'Saints Cristóbal Magallanes, prêtre, et ses 24 compagnons, martyrs mexicains († 1927)',
     clare_of_assisi_virgin: 'Sainte Claire, vierge',
-    claudine_thevenet_religious: 'Sainte Claudine Thévenet, religieuse († 1837)',
     clement_i_pope: 'Saint Clément Ier, pape et martyr († 97)',
     clotilde_of_burgundy: 'Sainte Clotilde, reine des Francs († 545)',
     columba_of_iona_abbot: 'Saint Colomba, religieux († 615)',
@@ -285,7 +284,7 @@ export const locale: Locale = {
       'Dédicace des basiliques de Saint Pierre et Saint Paul, apôtres, à Rome',
     dedication_of_the_cathedral_basilica_of_saint_denis_france: 'Dédicace de la cathédrale de Saint-Denis',
     dedication_of_the_cathedral_of_notre_dame_de_strasbourg_france: 'Dédicace de la cathédrale de Strasbourg',
-    dedication_of_the_cathedral_saint_john_of_lyon_france: 'Dédicace de la cathédrale primatiale',
+    dedication_of_the_cathedral_of_saint_john_the_baptist_lyon_france: 'Dédicace de la cathédrale primatiale',
     dedication_of_the_lateran_basilica: 'Dédicace de la Basilique du Latran',
     dedication_of_the_notre_dame_de_paris_cathedral_paris_france: 'Dédicace de la cathédrale de Paris',
     denis_of_paris_bishop_and_companions_martyrs:
@@ -294,6 +293,7 @@ export const locale: Locale = {
     denis_of_paris_bishop_patron_of_the_city_and_of_the_diocese_of_saint_denis:
       'Saint Denis, évêque et martyr, patron de la ville et du diocèse de Saint-Denis',
     dina_belanger_virgin: 'Bienheureuse Dina Bélanger, religieuse de la congrégation des Sœurs de Jésus-Marie († 1929)',
+    dismas_the_good_thief: 'Saint Dismas (le Bon Larron)',
     divine_mercy_sunday: 'Deuxième dimanche de Pâques ou de la Divine Miséricorde',
     dominic_de_guzman_priest: 'Saint Dominique de Guzman, prêtre, fondateur de l’Ordre des Frères prêcheurs († 1221)',
     easter_sunday: 'Dimanche de Pâques - La résurrection du Seigneur',
@@ -305,7 +305,7 @@ export const locale: Locale = {
       'Bienheureuse Émilie Tavernier-Gamelin, religieuse, fondatrice des Sœurs de la Providence de Montréal († 1851)',
     ephrem_the_syrian_deacon: 'Saint Ephrem, diacre et docteur de l’Église, († 373)',
     epiphany_of_the_lord: 'Épiphanie du Seigneur',
-    epipodius_and_alexander_of_lyon_martyrs: 'Saints Épipode et Alexandre, martyrs († 178)',
+    epipodius_of_lyon_and_alexander_of_lyon_martyrs: 'Saints Épipode et Alexandre, martyrs († 178)',
     eucharius_of_trier_bishop: 'Saint Euchaire, évêque († IVème s.)',
     eucherius_of_lyon_bishop: 'Saint Eucher, évêque († v. 449)',
     eugene_de_mazenod_bishop:
@@ -360,13 +360,13 @@ export const locale: Locale = {
     immaculate_heart_of_mary: 'Cœur immaculé de Marie',
     innocent_v_pope: 'Bienheureux Innocent V, pape († 1276)',
     irenaeus_of_lyon_bishop: 'Saint Irénée, évêque, martyr et docteur de l’Église († v. 201)',
-    irenaeus_of_lyon_bishop_patron_of_diocese_of_lyon_and_companions_martyrs:
-      'Saint Irénée, évêque et docteur de l’Église, patron principal du diocèse, et ses compagnons, martyrs († v. 201)',
+    irenaeus_of_lyon_bishop_patron_of_the_archdiocese_of_lyon_and_companions_martyrs:
+      'Saint Irénée, évêque et docteur de l’Église, patron principal du diocèse de Lyon, et ses compagnons, martyrs († v. 201)',
     isabelle_of_france_virgin: 'Bienheureuse Isabelle de France, sœur de saint Louis, vierge († 1270)',
     isidore_of_seville_bishop: 'Saint Isidore de Séville, docteur de l’Église, évêque et Confesseur († 636)',
     ivo_of_kermartin_priest: 'Saint Yves Hélory, prêtre et juge en Bretagne († 1303)',
-    jacques_jules_bonnaud_martyr_and_companions_martyrs:
-      'Bienheureux Jacques-Jules Bonnaud, et ses compagnons, martyrs († 1792)',
+    jacques_jules_bonnaud_priest_and_companions_martyrs:
+      'Bienheureux Jacques-Jules Bonnaud, prêtre, et ses compagnons, martyrs († 1792)',
     james_apostle: 'Saint Jacques le Majeur, apôtre († 44)',
     jane_frances_de_chantal_religious: 'Sainte Jeanne-Françoise de Chantal, religieuse († 1641)',
     januarius_i_of_benevento_bishop: 'Saint Janvier, évêque de Bénévent et martyr († 305)',
@@ -448,6 +448,7 @@ export const locale: Locale = {
       'Sainte Marie-Eugénie Milleret, vierge, fondatrice des Sœurs de l’Assomption († 1898 à Paris)',
     marie_leonie_paradis_virgin:
       'Bienheureuse Marie-Léonie Paradis, religieuse, fondatrice de la Congrégation des Petites Sœurs de la Sainte Famille († 1912)',
+    marie_of_saint_ignatius_claudine_thevenet_religious: 'Sainte Claudine Thévenet, religieuse († 1837)',
     marie_rose_durocher_virgin:
       'Bienheureuse Marie-Rose Durocher, religieuse, fondatrice des Sœurs des Saints Noms de Jésus et de Marie († 1849)',
     mark_evangelist: 'Saint Marc, évangéliste',
@@ -572,8 +573,7 @@ export const locale: Locale = {
     teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe:
       'Sainte Thérèse-Bénédicte de la Croix (Edith Stein), Carmélite, martyr en Pologne, co-patronne de l’Europe († 1942)',
     teresa_of_jesus_of_avila_virgin: 'Sainte Thérèse de Jésus (d’Avila), vierge et docteur de l’Église († 1582)',
-    the_penitent_thief: 'Saint Dismas (le Bon Larron)',
-    therese_couderc_virgin: 'Sainte Thérèse Couderc, vierge († 1885)',
+    therese_marie_victoire_couderc_virgin: 'Sainte Thérèse Couderc, vierge († 1885)',
     therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin:
       'Sainte Thérèse de l’Enfant-Jésus, vierge et docteur de l’Église († 1897)',
     therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin_copatroness_of_france:

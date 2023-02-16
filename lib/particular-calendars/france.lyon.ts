@@ -18,7 +18,7 @@ export class France_Lyon extends CalendarDef {
       titles: { append: [PatronTitles.PatronOfTheLyonClergy] },
     },
 
-    claudine_thevenet_religious: {
+    marie_of_saint_ignatius_claudine_thevenet_religious: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 2, date: 3 },
     },
@@ -38,7 +38,7 @@ export class France_Lyon extends CalendarDef {
       dateDef: { month: 4, date: 2 },
     },
 
-    epipodius_and_alexander_of_lyon_martyrs: {
+    epipodius_of_lyon_and_alexander_of_lyon_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 4, date: 22 },
       martyrology: ['epipodius_of_lyon_martyr', 'alexander_of_lyon_martyr'],
@@ -87,7 +87,7 @@ export class France_Lyon extends CalendarDef {
     },
 
     irenaeus_of_lyon_bishop: {
-      customLocaleId: 'irenaeus_of_lyon_bishop_patron_of_diocese_of_lyon_and_companions_martyrs',
+      customLocaleId: 'irenaeus_of_lyon_bishop_patron_of_the_archdiocese_of_lyon_and_companions_martyrs',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       martyrology: [
         {
@@ -102,10 +102,10 @@ export class France_Lyon extends CalendarDef {
       precedence: Precedences.ProperFeast_8f,
     },
 
-    jacques_jules_bonnaud_martyr_and_companions_martyrs: {
+    jacques_jules_bonnaud_priest_and_companions_martyrs: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 9, date: 1 },
-      martyrology: ['jacques_jules_bonnaud_martyr', 'companions_martyrs'],
+      martyrology: ['jacques_jules_bonnaud_priest', 'companions_martyrs'],
     },
 
     justus_of_lyon_bishop: {
@@ -124,7 +124,7 @@ export class France_Lyon extends CalendarDef {
       martyrology: ['maurice_of_agaunum_martyr', 'companions_martyrs'],
     },
 
-    therese_couderc_virgin: {
+    therese_marie_victoire_couderc_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 9, date: 26 },
     },
@@ -134,12 +134,12 @@ export class France_Lyon extends CalendarDef {
       dateDef: { month: 9, date: 28 },
     },
 
-    antoine_chevrier_priest: {
+    anthony_chevrier_priest: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 10, date: 3 },
     },
 
-    the_penitent_thief: {
+    dismas_the_good_thief: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 10, date: 12 },
     },
@@ -149,7 +149,7 @@ export class France_Lyon extends CalendarDef {
       dateDef: { month: 10, date: 21 },
     },
 
-    dedication_of_the_cathedral_saint_john_of_lyon_france: {
+    dedication_of_the_cathedral_of_saint_john_the_baptist_lyon_france: {
       precedence: Precedences.ProperFeast_DedicationOfTheCathedralChurch_8b,
       dateDef: { month: 10, date: 24 },
     },
@@ -158,7 +158,7 @@ export class France_Lyon extends CalendarDef {
       dateDef: { month: 10, date: 26 },
     },
 
-    all_the_holy_bishops_of_the_archdiocese_of_lyon: {
+    all_holy_bishops_of_the_archdiocese_of_lyon: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 11, date: 5 },
     },
