@@ -20,4 +20,4 @@ export const PERIODS = Object.keys(Periods)
   .filter((id) => typeof Periods[id as keyof typeof Periods] === 'string')
   .map((id) => toScreamingSnakeCase(id)) as ScreamingSnakeCase<keyof typeof Periods>[];
 
-export type Period = typeof PERIODS[number];
+export type Period = (typeof PERIODS)[number];

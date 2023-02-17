@@ -14,7 +14,7 @@ const time = new Date();
 
 log(chalk.bold(`\n✓ Update the documentation of all calendar plugins in ${chalk.cyan('./docs/calendar-plugins.md')}`));
 
-const allCalendars: typeof CalendarDef[] = [GeneralRoman, ...Object.values(particularCalendars)];
+const allCalendars: (typeof CalendarDef)[] = [GeneralRoman, ...Object.values(particularCalendars)];
 
 let mdTemplate = `# Calendar plugins
 

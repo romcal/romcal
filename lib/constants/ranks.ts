@@ -61,7 +61,7 @@ export const RANKS = Object.keys(Ranks).filter(
   (key) => typeof Ranks[key as keyof typeof Ranks] === 'string',
 ) as Uppercase<keyof typeof Ranks>[];
 
-export type Rank = typeof RANKS[number];
+export type Rank = (typeof RANKS)[number];
 
 export const RanksFromPrecedence: Record<Precedence, Rank> = {
   [Precedences.Triduum_1]: Ranks.Weekday,

@@ -79,7 +79,7 @@ export class RomcalConfig implements IRomcalConfig {
         initImmediate: false,
         // contextSeparator: '__',
         interpolation: {
-          format (value, format) {
+          format(value, format) {
             if (value === '') return value;
             if (format === 'romanize') return toRomanNumber(parseInt(value, 10));
             if (format === 'uppercase') return value.toUpperCase();

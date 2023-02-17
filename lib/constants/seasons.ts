@@ -22,4 +22,4 @@ export const SEASONS = Object.keys(Seasons)
   .filter((id) => typeof Seasons[id as keyof typeof Seasons] === 'string')
   .map((id) => toScreamingSnakeCase(id)) as ScreamingSnakeCase<keyof typeof Seasons>[];
 
-export type Season = typeof SEASONS[number];
+export type Season = (typeof SEASONS)[number];
