@@ -18,7 +18,7 @@ export const COLORS = Object.keys(Colors).filter(
   (key) => typeof Colors[key as keyof typeof Colors] === 'string',
 ) as Uppercase<keyof typeof Colors>[];
 
-export type Color = typeof COLORS[number];
+export type Color = (typeof COLORS)[number];
 
 /**
  * Check if a value is a liturgical color.

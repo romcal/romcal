@@ -26,7 +26,7 @@ export const PROPER_CYCLES = Object.values(ProperCycles);
  * Represent one of the two main cycles (available from {@link ProperCycles}),
  * that compose the liturgical year in the Roman rite.
  */
-export type ProperCycle = typeof PROPER_CYCLES[number];
+export type ProperCycle = (typeof PROPER_CYCLES)[number];
 
 /**
  * A three-year cycle for Sunday Mass readings (and some solemnities), designated by A, B, or C.
@@ -49,7 +49,7 @@ export const SUNDAY_CYCLES = Object.values(SundayCycles);
 /**
  * Represent one of the three-year Sunday cycle (available from {@link SundayCycles}).
  */
-export type SundayCycle = typeof SUNDAY_CYCLES[number];
+export type SundayCycle = (typeof SUNDAY_CYCLES)[number];
 
 /**
  * A two-year cycle for the weekday Mass readings (also called Cycle I and Cycle II).
@@ -69,7 +69,7 @@ export const WEEKDAY_CYCLES = Object.values(WeekdayCycles);
 /**
  * Represent one of the two-year weekday cycle (available from {@link WeekdayCycles}).
  */
-export type WeekdayCycle = typeof WEEKDAY_CYCLES[number];
+export type WeekdayCycle = (typeof WEEKDAY_CYCLES)[number];
 
 /**
  * [GILH §133] The four-week cycle of the psalter is coordinated with the liturgical year in such a way that
@@ -92,4 +92,4 @@ export const PSALTER_WEEKS = Object.values(PsalterWeekCycles);
 /**
  * Represent one of the four-week psalter cycle (available from {@link PsalterWeekCycles}).
  */
-export type PsalterWeekCycle = typeof PSALTER_WEEKS[number];
+export type PsalterWeekCycle = (typeof PSALTER_WEEKS)[number];

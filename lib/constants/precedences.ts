@@ -204,4 +204,4 @@ export const PRECEDENCES = [
   Precedences.OptionalMemorial_12,
 ];
 
-export type Precedence = typeof PRECEDENCES[number];
+export type Precedence = (typeof PRECEDENCES)[number];

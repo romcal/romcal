@@ -10,7 +10,7 @@ module.exports = {
     project: 'tsconfig.json',
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'jest', 'simple-import-sort', 'import'],
+  plugins: ['@typescript-eslint', 'jest', 'simple-import-sort', 'import', 'unused-imports'],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
@@ -28,6 +28,7 @@ module.exports = {
     'no-unused-vars': 'off',
     'object-shorthand': 'error',
     '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', ignoreRestSiblings: true }],
+    'unused-imports/no-unused-imports': 'error',
     '@typescript-eslint/explicit-module-boundary-types': 'error',
     '@typescript-eslint/explicit-function-return-type': 'error',
     '@typescript-eslint/no-non-null-assertion': 'error',

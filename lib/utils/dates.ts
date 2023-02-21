@@ -870,7 +870,7 @@ export class Dates {
       };
     }
 
-    return (this.#dateOfOrdinaryTime[id][week] && this.#dateOfOrdinaryTime[id][week][dow]) ?? null;
+    return this.#dateOfOrdinaryTime[id][week]?.[dow] ?? null;
   };
   #dateOfOrdinaryTime: Record<string, Record<string, Record<string, Date | null>>> = {};
 

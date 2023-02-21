@@ -15,7 +15,7 @@ export const CANONIZATION_LEVEL = Object.keys(CanonizationLevels)
   .filter((key) => typeof CanonizationLevels[key as keyof typeof CanonizationLevels] === 'string')
   .map((key) => toScreamingSnakeCase(key)) as ScreamingSnakeCase<keyof typeof CanonizationLevels>[];
 
-export type CanonizationLevel = typeof CANONIZATION_LEVEL[number];
+export type CanonizationLevel = (typeof CANONIZATION_LEVEL)[number];
 
 /**
  * Titles of Saints and Blessed from the Martyrology catalog.
@@ -57,7 +57,7 @@ export const TITLES = Object.keys(Titles)
   .filter((key) => typeof Titles[key as keyof typeof Titles] === 'string')
   .map((key) => toScreamingSnakeCase(key)) as ScreamingSnakeCase<keyof typeof Titles>[];
 
-export type Title = typeof TITLES[number];
+export type Title = (typeof TITLES)[number];
 
 /**
  * Return true if the provided title contain at least one Martyr title
@@ -112,7 +112,7 @@ export const PATRON_TITLES = Object.keys(PatronTitles)
   .filter((key) => typeof PatronTitles[key as keyof typeof PatronTitles] === 'string')
   .map((key) => toScreamingSnakeCase(key)) as ScreamingSnakeCase<keyof typeof PatronTitles>[];
 
-export type PatronTitle = typeof PATRON_TITLES[number];
+export type PatronTitle = (typeof PATRON_TITLES)[number];
 
 /**
  * Determine if a Saint or a Blessed is a male or a female.
@@ -126,4 +126,4 @@ export const SEXES = Object.keys(Sexes)
   .filter((key) => typeof Sexes[key as keyof typeof Sexes] === 'string')
   .map((key) => toScreamingSnakeCase(key)) as ScreamingSnakeCase<keyof typeof Sexes>[];
 
-export type Sex = typeof SEXES[number];
+export type Sex = (typeof SEXES)[number];

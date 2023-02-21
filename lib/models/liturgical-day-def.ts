@@ -130,9 +130,7 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
       const data = input as LiturgicalDayProperOfTimeInput;
       this.i18nDef = data.i18nDef;
     } else {
-      this.i18nDef = input.customLocaleId
-        ? [`names:${input.customLocaleId}`]
-        : previousDef?.i18nDef || [`names:${id}`];
+      this.i18nDef = input.customLocaleId ? [`names:${input.customLocaleId}`] : previousDef?.i18nDef || [`names:${id}`];
     }
 
     if (isLiturgicalDayProperOfTimeInput(input)) {

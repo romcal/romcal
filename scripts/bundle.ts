@@ -108,7 +108,7 @@ export const RomcalBundler = (): void => {
     },
     cliProgress.Presets.shades_classic,
   );
-  const allCalendars: typeof CalendarDef[] = [GeneralRoman, ...Object.values(particularCalendars)];
+  const allCalendars: (typeof CalendarDef)[] = [GeneralRoman, ...Object.values(particularCalendars)];
   const allLocaleIds = Object.keys(locales);
 
   log(chalk.bold(`\n✓ Generate calendar bundle files into ${chalk.cyan('./tmp/bundles/')}`));

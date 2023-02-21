@@ -87,8 +87,7 @@ export class ProperOfTime extends CalendarDef {
           ...(week === 3 && dow === 0 ? [Colors.Rose] : []), // Gaudete
           Colors.Purple,
         ],
-        i18nDef:
-          dow === 0 ? ['seasons:advent.sunday', { week }] : ['seasons:advent.weekday', { week, dow }],
+        i18nDef: dow === 0 ? ['seasons:advent.sunday', { week }] : ['seasons:advent.weekday', { week, dow }],
       });
     }
 
