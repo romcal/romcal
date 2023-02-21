@@ -29,7 +29,7 @@ import {
   Title,
   TITLES,
   Titles,
-} from '../packages/core/src/constants/martyrology-metadata';
+} from '../packages/data/src/metadata/martyrology-metadata';
 import { Month, MonthIndex, MONTHS } from '../packages/core/src/constants/months';
 import { Period, PERIODS, Periods } from '../packages/core/src/constants/periods';
 import { Precedence, PRECEDENCES, Precedences } from '../packages/core/src/constants/precedences';

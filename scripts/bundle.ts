@@ -13,8 +13,8 @@ import { CalendarDef } from '../packages/core/src/models/calendar-def';
 import { RomcalConfig } from '../packages/core/src/models/config';
 import LiturgicalDayDef from '../packages/core/src/models/liturgical-day-def';
 import { toPascalCase } from '../packages/core/src/utils/string';
-import { Martyrology } from '../packages/data/src/catalog/martyrology';
 import { locales } from '../packages/data/src/locales';
+import { Martyrology } from '../packages/data/src/metadata/martyrology';
 import { particularCalendars } from '../packages/data/src/particular-calendars';
 import {
   BundleInputs,

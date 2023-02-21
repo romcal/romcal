@@ -2,7 +2,7 @@ import { StringMap } from 'i18next';
 
 import { Color } from '../constants/colors';
 import { ProperCycle } from '../constants/cycles';
-import { PatronTitle, Title } from '../constants/martyrology-metadata';
+import { PatronTitle, Title } from '../../../data/src/metadata/martyrology-metadata';
 import { MonthIndex } from '../constants/months';
 import { Period } from '../constants/periods';
 import { Precedence } from '../constants/precedences';

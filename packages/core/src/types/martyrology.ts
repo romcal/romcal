@@ -1,4 +1,4 @@
-import { CanonizationLevel, Sex } from '../constants/martyrology-metadata';
+import { CanonizationLevel, Sex } from '../../../data/src/metadata/martyrology-metadata';
 import { RomcalTitles } from './liturgical-day';
 
 export type MartyrologyDef = {

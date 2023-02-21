@@ -1,4 +1,4 @@
-import { PatronTitles } from '../../../core/src/constants/martyrology-metadata';
+import { PatronTitles } from '../metadata/martyrology-metadata';
 import { Precedences } from '../../../core/src/constants/precedences';
 import { CalendarDef } from '../../../core/src/models/calendar-def';
 import { Inputs } from '../../../core/src/types/calendar-def';

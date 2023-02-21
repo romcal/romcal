@@ -1,4 +1,4 @@
-import { CanonizationLevels, Titles } from '../../../core/src/constants/martyrology-metadata';
+import { CanonizationLevels, Titles } from './martyrology-metadata';
 import { MartyrologyCatalog } from '../../../core/src/types/martyrology';
 
 export const Martyrology: { catalog: MartyrologyCatalog } = {

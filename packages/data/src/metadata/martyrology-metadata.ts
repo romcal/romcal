@@ -1,6 +1,6 @@
-import { ScreamingSnakeCase } from '../types/common';
-import { RomcalTitles } from '../types/liturgical-day';
-import { toScreamingSnakeCase } from '../utils/string';
+import { ScreamingSnakeCase } from '../../../core/src/types/common';
+import { RomcalTitles } from '../../../core/src/types/liturgical-day';
+import { toScreamingSnakeCase } from '../../../core/src/utils/string';
 
 /**
  * Canonization level of a person.
