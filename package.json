@@ -60,7 +60,9 @@
   },
   "homepage": "https://github.com/romcal/romcal/blob/master/README.md",
   "dependencies": {
-    "i18next": "^21.10.0"
+    "i18next": "^21.10.0",
+    "@romcal/core": "workspace:*",
+    "@romcal/data": "workspace:*"
   },
   "devDependencies": {
     "@jsdevtools/npm-publish": "^1.4.3",

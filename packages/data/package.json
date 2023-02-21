@@ -1,0 +1,57 @@
+{
+  "name": "@romcal/data",
+  "version": "3.0.0-dev.30",
+  "description": "Romcal data",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "packageManager": "pnpm@7.27.0",
+  "scripts": {
+    "clean": "rimraf coverage dist tmp",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "prebuild": "npm run lint",
+    "prettier": "prettier -c --config .prettierrc {.github,./*}",
+    "prettier:fix": "prettier -w --config .prettierrc {.github,./*}",
+    "build": "tsup ../src/index.ts --format cjs,esm,iife --dts --minify --sourcemap --external i18next",
+    "test": "jest --coverage",
+    "test:without-coverage": "jest",
+    "test:watch": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/romcal/romcal.git"
+  },
+  "author": {
+    "name": "Julian Pereira",
+    "email": "bleushade@gmail.com",
+    "url": "https://github.com/pejulian"
+  },
+  "contributors": [
+    {
+      "name": "Etienne Magnier",
+      "email": "etienne.magnier@gmail.com",
+      "url": "https://github.com/emagnier"
+    },
+    {
+      "name": "Tukusej’s Sirs",
+      "email": "tukusejssirs@protonmail.com",
+      "url": "https://github.com/tukusejssirs"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/romcal/romcal/issues"
+  },
+  "homepage": "https://github.com/romcal/romcal/blob/dev/packages/data/README.md",
+  "dependencies": {
+    "@romcal/core": "workspace:*",
+    "i18next": "^21.10.0"
+  },
+  "devDependencies": {
+    "tsup": "^6.6.3"
+  },
+  "license": "MIT"
+}

@@ -9,11 +9,11 @@ import rimraf from 'rimraf';
 import { PackageJson } from 'type-fest';
 import * as ts from 'typescript';
 
-import { GENERAL_ROMAN_NAME } from '../lib/constants/general-calendar-names';
-import { locales } from '../lib/locales';
-import { particularCalendars } from '../lib/particular-calendars';
-import { toPackageName, toPascalCase } from '../lib/utils/string';
 import pkg from '../package.json';
+import { GENERAL_ROMAN_NAME } from '../packages/core/src/constants/general-calendar-names';
+import { toPackageName, toPascalCase } from '../packages/core/src/utils/string';
+import { locales } from '../packages/data/src/locales';
+import { particularCalendars } from '../packages/data/src/particular-calendars';
 import { RomcalBundler } from './bundle';
 import { getDuration } from './time';
 
@@ -94,7 +94,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
   fs.writeFileSync(
     path.resolve(constantDir, 'locales.ts'),
     formatCode(
-      `import { toPackageName } from "../../lib/utils/string";\n\n` +
+      `import { toPackageName } from '@romcal/core/src/utils/string';\n\n` +
         `export const LOCALE_VAR_NAMES: string[] = ${JSON.stringify(localeNames)};\n\n` +
         `export const LOCALE_IDS: string[] = LOCALE_VAR_NAMES.map(c => toPackageName(c));\n`,
     ),
@@ -107,7 +107,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
   fs.writeFileSync(
     path.resolve(constantDir, 'calendars.ts'),
     formatCode(
-      `import { toPackageName } from "../../lib/utils/string";\n\n` +
+      `import { toPackageName } from '@romcal/core/src/utils/string';\n\n` +
         `export const CALENDAR_VAR_NAMES: string[] = ${JSON.stringify(calendarNames)};\n\n` +
         `export const CALENDAR_PKG_NAMES: string[] = CALENDAR_VAR_NAMES` +
         '.map(c => `@romcal/calendar.${toPackageName(c)}`);\n',
@@ -142,7 +142,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
   const dts = generateDtsBundle(
     [
       {
-        filePath: './tmp/dts/lib/index.d.ts',
+        filePath: './tmp/dts/src/index.d.ts',
         failOnClass: false,
         libraries: { importedLibraries: ['i18next', 'typescript'] },
         output: {
@@ -204,7 +204,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
       globalName: 'Romcal',
       sourcemap: 'external',
       ...(format === 'iife' ? {} : { external: ['i18next'] }),
-      ...(format === 'esm' ? { entryPoints: ['lib/index.ts'] } : { entryPoints: ['lib/exports.ts'] }),
+      ...(format === 'esm' ? { entryPoints: ['src/index.ts'] } : { entryPoints: ['src/exports.ts'] }),
       banner: { js: LICENSE },
       format,
       outfile: `dist/${format}/romcal.${format === 'esm' ? 'mjs' : 'js'}`,

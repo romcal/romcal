@@ -11,5 +11,6 @@
     "declarationDir": "tmp/dts",
     "emitDeclarationOnly": true
   },
-  "include": ["lib/**/*", "tmp/constants/**/*"]
+  "include": ["src/**/*", "packages/core/src/**/*", "packages/data/src/**/*", "tmp/constants/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }

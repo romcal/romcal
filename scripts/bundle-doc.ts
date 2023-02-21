@@ -3,10 +3,10 @@ import fs from 'fs';
 import path from 'path';
 import prettier from 'prettier';
 
-import { GeneralRoman } from '../lib/general-calendar/proper-of-saints';
-import { CalendarDef } from '../lib/models/calendar-def';
-import { particularCalendars } from '../lib/particular-calendars';
-import { toPackageName } from '../lib/utils/string';
+import { GeneralRoman } from '../packages/core/src/general-calendar/proper-of-saints';
+import { CalendarDef } from '../packages/core/src/models/calendar-def';
+import { toPackageName } from '../packages/core/src/utils/string';
+import { particularCalendars } from '../packages/data/src/particular-calendars';
 import { getDuration } from './time';
 
 const log = console.log;

@@ -18,7 +18,14 @@
     "allowJs": true,
     "baseUrl": "."
   },
+  "include": [
+    "src/**/*",
+    "packages/core/src/**/*",
+    "packages/data/src/**/*",
+    "scripts/**/*",
+    "tmp/bundles/**/*",
+    "tmp/constants/**/*"
+  ],
   "exclude": ["node_modules"],
-  "include": ["lib/**/*", "tests/**/*", "scripts/**/*", "tmp/bundles/**/*", "tmp/constants/**/*"],
   "files": ["global.d.ts"]
 }

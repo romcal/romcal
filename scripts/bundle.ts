@@ -6,6 +6,16 @@ import rimraf from 'rimraf';
 import merge from 'ts-deepmerge';
 import * as util from 'util';
 
+import { PROPER_OF_TIME_NAME } from '../packages/core/src/constants/general-calendar-names';
+import { GeneralRoman } from '../packages/core/src/general-calendar/proper-of-saints';
+import { RomcalBundle } from '../packages/core/src/models/bundle';
+import { CalendarDef } from '../packages/core/src/models/calendar-def';
+import { RomcalConfig } from '../packages/core/src/models/config';
+import LiturgicalDayDef from '../packages/core/src/models/liturgical-day-def';
+import { toPascalCase } from '../packages/core/src/utils/string';
+import { Martyrology } from '../packages/data/src/catalog/martyrology';
+import { locales } from '../packages/data/src/locales';
+import { particularCalendars } from '../packages/data/src/particular-calendars';
 import {
   BundleInputs,
   Id,
@@ -15,17 +25,7 @@ import {
   MartyrologyCatalog,
   RomcalConfigInput,
   RomcalConfigOutput,
-} from '../lib';
-import { Martyrology } from '../lib/catalog/martyrology';
-import { PROPER_OF_TIME_NAME } from '../lib/constants/general-calendar-names';
-import { GeneralRoman } from '../lib/general-calendar/proper-of-saints';
-import { locales } from '../lib/locales';
-import { RomcalBundle } from '../lib/models/bundle';
-import { CalendarDef } from '../lib/models/calendar-def';
-import { RomcalConfig } from '../lib/models/config';
-import LiturgicalDayDef from '../lib/models/liturgical-day-def';
-import { particularCalendars } from '../lib/particular-calendars';
-import { toPascalCase } from '../lib/utils/string';
+} from '../src';
 
 const log = console.log;
 
