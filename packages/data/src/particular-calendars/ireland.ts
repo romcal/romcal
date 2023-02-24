@@ -1,7 +1,7 @@
-import { PatronTitles, Titles } from '../metadata/martyrology-metadata';
 import { Precedences } from '../../../core/src/constants/precedences';
 import { CalendarDef } from '../../../core/src/models/calendar-def';
 import { Inputs } from '../../../core/src/types/calendar-def';
+import { PatronTitles, Titles } from '../metadata/martyrology-metadata';
 import { Europe } from './europe';
 
 export class Ireland extends CalendarDef {

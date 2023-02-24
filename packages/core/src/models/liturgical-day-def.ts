@@ -1,7 +1,7 @@
+import { isMartyr } from '../../../data/src/metadata/martyrology-metadata';
 import { Color, Colors } from '../constants/colors';
 import { ProperCycles } from '../constants/cycles';
 import { GENERAL_ROMAN_NAME, PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
-import { isMartyr } from '../../../data/src/metadata/martyrology-metadata';
 import { Period } from '../constants/periods';
 import { Precedence, Precedences } from '../constants/precedences';
 import { Rank, Ranks, RanksFromPrecedence } from '../constants/ranks';

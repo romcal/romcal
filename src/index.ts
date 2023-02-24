@@ -15,21 +15,6 @@ import {
   WeekdayCycles,
 } from '../packages/core/src/constants/cycles';
 import { GENERAL_ROMAN_NAME, PROPER_OF_TIME_NAME } from '../packages/core/src/constants/general-calendar-names';
-import {
-  CANONIZATION_LEVEL,
-  CanonizationLevel,
-  CanonizationLevels,
-  isMartyr,
-  PATRON_TITLES,
-  PatronTitle,
-  PatronTitles,
-  Sex,
-  SEXES,
-  Sexes,
-  Title,
-  TITLES,
-  Titles,
-} from '../packages/data/src/metadata/martyrology-metadata';
 import { Month, MonthIndex, MONTHS } from '../packages/core/src/constants/months';
 import { Period, PERIODS, Periods } from '../packages/core/src/constants/periods';
 import { Precedence, PRECEDENCES, Precedences } from '../packages/core/src/constants/precedences';
@@ -113,6 +98,21 @@ import {
   subtractsDays,
 } from '../packages/core/src/utils/dates';
 import { isInteger, toRomanNumber } from '../packages/core/src/utils/numbers';
+import {
+  CANONIZATION_LEVEL,
+  CanonizationLevel,
+  CanonizationLevels,
+  isMartyr,
+  PATRON_TITLES,
+  PatronTitle,
+  PatronTitles,
+  Sex,
+  SEXES,
+  Sexes,
+  Title,
+  TITLES,
+  Titles,
+} from '../packages/data/src/metadata/martyrology-metadata';
 import { CALENDAR_PKG_NAMES, CALENDAR_VAR_NAMES } from '../tmp/constants/calendars';
 import { LOCALE_IDS, LOCALE_VAR_NAMES } from '../tmp/constants/locales';
 

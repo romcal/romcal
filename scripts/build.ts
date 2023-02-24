@@ -7,7 +7,7 @@ import path from 'path';
 import prettier from 'prettier';
 import rimraf from 'rimraf';
 import { PackageJson } from 'type-fest';
-import * as ts from 'typescript';
+import ts from 'typescript';
 
 import pkg from '../package.json';
 import { GENERAL_ROMAN_NAME } from '../packages/core/src/constants/general-calendar-names';

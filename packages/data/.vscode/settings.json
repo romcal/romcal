@@ -1,0 +1,4 @@
+{
+  "jest.jestCommandLine": "jest --runInBand --detectOpenHandles",
+  "jest.rootPath": "./"
+}

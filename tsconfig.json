@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
+    "lib": ["es2021"],
     "module": "commonjs",
-    "target": "es2017",
-    "lib": ["ES2018", "ES2019", "ES2020", "ESNext"],
-    "sourceMap": true,
+    "target": "es2021",
+    // "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -11,21 +11,18 @@
     "noImplicitThis": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "allowSyntheticDefaultImports": true,
+    // "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
-    "downlevelIteration": true,
+    // "downlevelIteration": true,
     "importHelpers": true,
     "allowJs": true,
+    // "noEmit": true,
+    "paths": {
+      "@romcal/*": ["./packages/*"]
+    },
     "baseUrl": "."
   },
-  "include": [
-    "src/**/*",
-    "packages/core/src/**/*",
-    "packages/data/src/**/*",
-    "scripts/**/*",
-    "tmp/bundles/**/*",
-    "tmp/constants/**/*"
-  ],
+  "include": ["src", "packages/core/src", "packages/data/src", "scripts", "tmp/bundles", "tmp/constants"],
   "exclude": ["node_modules"],
   "files": ["global.d.ts"]
 }

@@ -9,6 +9,8 @@
     "source.fixAll.tslint": false // if developer has tslint extension enabled
   },
   "eslint.format.enable": false, // let prettier do it, it is faster and safer
+
   // Jest extension settings
-  "jest.autoRun": {}
+  "jest.autoRun": {},
+  "jest.jestCommandLine": "jest --runInBand --detectOpenHandles"
 }

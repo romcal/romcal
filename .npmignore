@@ -18,6 +18,7 @@ tests/
 .editorconfig
 .eslintignore
 .eslintrc.js
+*.config.js
 .prettierignore
 .prettierrc
 jest.config.js

@@ -1,7 +1,7 @@
-import { PatronTitles, Titles } from '../metadata/martyrology-metadata';
 import { Precedences } from '../../../core/src/constants/precedences';
 import { CalendarDef } from '../../../core/src/models/calendar-def';
 import { Inputs } from '../../../core/src/types/calendar-def';
+import { PatronTitles, Titles } from '../metadata/martyrology-metadata';
 import { France } from './france';
 
 export class France_Paris extends CalendarDef {

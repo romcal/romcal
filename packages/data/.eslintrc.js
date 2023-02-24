@@ -1,9 +1,6 @@
-const base = require('../../.eslintrc');
-
 module.exports = {
-  ...base,
+  extends: ['@romcal/eslint-config'],
   parserOptions: {
     project: './tsconfig.json',
-    sourceType: 'module',
   },
 };

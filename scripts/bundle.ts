@@ -1,10 +1,10 @@
 import chalk from 'chalk';
 import cliProgress from 'cli-progress';
-import * as fs from 'fs';
+import fs from 'fs';
 import path from 'path';
 import rimraf from 'rimraf';
 import merge from 'ts-deepmerge';
-import * as util from 'util';
+import util from 'util';
 
 import { PROPER_OF_TIME_NAME } from '../packages/core/src/constants/general-calendar-names';
 import { GeneralRoman } from '../packages/core/src/general-calendar/proper-of-saints';
@@ -212,7 +212,7 @@ export const RomcalBundler = (): void => {
         .replace(/\n\s*(!:seasons|periods)\s:\[],/gi, ''); // Remove empty arrays
       const jsOutput =
         `/* eslint-disable */\n` +
-        `import { RomcalBundleObject } from '../../../lib';\n\n` +
+        `import { RomcalBundleObject } from 'romcal';\n\n` +
         `export const ${calVarName}: RomcalBundleObject = ${data}`;
 
       // Write the calendar bundle file.
@@ -243,7 +243,7 @@ export const RomcalBundler = (): void => {
     }, '');
     const indexExports = Object.entries(calVarObj).reduce((acc, [, varName]) => acc + `    ${varName},\n`, '');
     const indexOutput =
-      `import { RomcalBundleObject } from '../../../lib';\n` + indexImports + `\nexport {\n` + indexExports + `};`;
+      `import { RomcalBundleObject } from 'romcal';\n` + indexImports + `\nexport {\n` + indexExports + `};`;
     fs.writeFileSync(path.resolve(dir, `index.ts`), indexOutput, 'utf-8');
 
     /**
