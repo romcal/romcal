@@ -11,7 +11,7 @@ import { Slovakia_Sk } from 'romcal/dist/bundles/slovakia';
 import { Spain_Es } from 'romcal/dist/bundles/spain';
 import { Wales_En } from 'romcal/dist/bundles/wales';
 
-import Romcal, { LiturgicalDay } from '../../../../src';
+import Romcal, { LiturgicalDay } from '../index';
 
 const { Ranks, Periods, Precedences, getUtcDateFromString } = Romcal;
 

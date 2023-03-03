@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { Slovakia_Sk } from 'romcal/dist/bundles/slovakia';
 
-import Romcal from '../../../../src';
+import Romcal from '../index';
 
 const { Ranks, getUtcDateFromString, isSameDate, subtractsDays } = Romcal;
 

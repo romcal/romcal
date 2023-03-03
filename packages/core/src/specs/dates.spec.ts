@@ -2,7 +2,7 @@
 import { France_Fr } from 'romcal/dist/bundles/france';
 import { UnitedStates_En } from 'romcal/dist/bundles/united-states';
 
-import Romcal from '../../../../src';
+import Romcal from '../index';
 
 /**
  * Gets the number of week days in range, including the end date

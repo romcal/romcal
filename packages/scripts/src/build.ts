@@ -1,3 +1,7 @@
+import { GENERAL_ROMAN_NAME } from '@romcal/core/src/constants/general-calendar-names';
+import { toPackageName, toPascalCase } from '@romcal/core/src/utils/string';
+import { locales } from '@romcal/data/src/locales';
+import { particularCalendars } from '@romcal/data/src/particular-calendars';
 import chalk from 'chalk';
 import { generateDtsBundle } from 'dts-bundle-generator';
 import { build, Format, Platform } from 'esbuild';
@@ -9,15 +13,11 @@ import rimraf from 'rimraf';
 import { PackageJson } from 'type-fest';
 import ts from 'typescript';
 
-import pkg from '../package.json';
-import { GENERAL_ROMAN_NAME } from '../packages/core/src/constants/general-calendar-names';
-import { toPackageName, toPascalCase } from '../packages/core/src/utils/string';
-import { locales } from '../packages/data/src/locales';
-import { particularCalendars } from '../packages/data/src/particular-calendars';
+import pkg from '../../../package.json';
 import { RomcalBundler } from './bundle';
 import { getDuration } from './time';
 
-const tsConfigPath = './tsconfig.release.json';
+const tsConfigPath = './packages/scripts/tsconfig.json';
 const log = console.log;
 const formatCode = (code: string): string => prettier.format(code, { parser: 'typescript', singleQuote: true });
 
@@ -81,15 +81,17 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
   // Init directory
   log(
     chalk.bold(
-      `\n✓ Write constants into ${chalk.cyan.bold('./tmp/constants/')}, to list available calendars and locales`,
+      `\n✓ Write constants into ${chalk.cyan.bold(
+        './packages/scripts/tmp/constants/',
+      )}, to list available calendars and locales`,
     ),
   );
-  const constantDir = './tmp/constants';
+  const constantDir = './packages/scripts/tmp/constants';
   rimraf.sync(path.resolve(constantDir));
-  fs.mkdirSync('./tmp/constants', { recursive: true });
+  fs.mkdirSync('./packages/scripts/tmp/constants', { recursive: true });
 
   // Locales
-  log(chalk.dim(`  ./tmp/constants/locales.ts`));
+  log(chalk.dim(`  ./packages/scripts/tmp/constants/locales.ts`));
   const localeNames = Object.keys(locales);
   fs.writeFileSync(
     path.resolve(constantDir, 'locales.ts'),
@@ -102,7 +104,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
   );
 
   // Calendars
-  log(chalk.dim(`  ./tmp/constants/calendars.ts`));
+  log(chalk.dim(`  ./packages/scripts/tmp/constants/calendars.ts`));
   const calendarNames = Object.keys(particularCalendars).concat([GENERAL_ROMAN_NAME]).sort();
   fs.writeFileSync(
     path.resolve(constantDir, 'calendars.ts'),
@@ -119,9 +121,9 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
    * Compiling sources and checking types of the romcal library
    */
   log(chalk.bold(`\n✓ Compiling sources and checking types of the romcal library`));
-  rimraf.sync(path.resolve('tmp/dts'));
+  rimraf.sync(path.resolve('packages/scripts/tmp/dts'));
   compile(tsConfigPath);
-  log(chalk.dim(`  .d.ts files created in ./tmp/dts/`));
+  log(chalk.dim(`  .d.ts files created in ./packages/scripts/tmp/dts/`));
 
   /**
    * Create calendar bundle files
@@ -142,7 +144,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
   const dts = generateDtsBundle(
     [
       {
-        filePath: './tmp/dts/src/index.d.ts',
+        filePath: './packages/scripts/tmp/dts/packages/core/src/index.d.ts',
         failOnClass: false,
         libraries: { importedLibraries: ['i18next', 'typescript'] },
         output: {
@@ -158,7 +160,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
     { preferredConfigPath: tsConfigPath },
   );
   fs.writeFileSync(path.resolve('dist', 'index.d.ts'), dts.join('\n'), 'utf-8');
-  log(chalk.dim(`  ./tmp/dts/lib/index.d.ts → dist/index.d.ts`));
+  log(chalk.dim(`  ./packages/scripts/tmp/dts/packages/core/src/index.d.ts → dist/index.d.ts`));
 
   /**
    * Retrieve all calendar bundles
@@ -180,7 +182,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
    * Retrieve the license, and wrap it in code comments
    */
   const LICENSE =
-    `/**\n` +
+    `\n\n/**\n` +
     fs
       .readFileSync('./LICENSE', 'utf8')
       .trim()
@@ -197,20 +199,22 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
     const fromFormats: Record<Format, Platform> = { cjs: 'node', esm: 'neutral', iife: 'browser' };
     const platform: Platform = fromFormats[format];
 
-    log(chalk.dim(`  ./lib/index.ts → dist/${format}/romcal.js`));
+    log(chalk.dim(`  ./packages/core/src/index.ts → dist/${format}/romcal.js`));
     await build({
       bundle: true,
       minify: true,
       globalName: 'Romcal',
       sourcemap: 'external',
       ...(format === 'iife' ? {} : { external: ['i18next'] }),
-      ...(format === 'esm' ? { entryPoints: ['src/index.ts'] } : { entryPoints: ['src/exports.ts'] }),
+      ...(format === 'esm'
+        ? { entryPoints: ['packages/core/src/index.ts'] }
+        : { entryPoints: ['packages/core/src/exports.ts'] }),
       banner: { js: LICENSE },
       format,
       outfile: `dist/${format}/romcal.${format === 'esm' ? 'mjs' : 'js'}`,
     }).catch(() => process.exit(1));
 
-    log(chalk.dim(`  ./tmp/bundles/**/*.ts → dist/bundles/[calendar]/${format}/[locale].js`));
+    log(chalk.dim(`  ./packages/scripts/tmp/bundles/**/*.ts → dist/bundles/[calendar]/${format}/[locale].js`));
     for (const p of bundles) {
       // Do not output index.ts on iife format
       // and only output locale.iife.js on iife format
@@ -248,7 +252,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
     // mixed snake and underscore case to kebab case
     const pkgName = toPackageName(calendar);
 
-    const dir = path.resolve(__dirname, `../dist/bundles/${pkgName}`);
+    const dir = path.resolve(__dirname, `../../../dist/bundles/${pkgName}`);
 
     const modulePkg: PackageJson = {
       name: `@romcal/calendar.${pkgName}`,
@@ -270,12 +274,12 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
     fs.writeFileSync(path.resolve(dir, 'package.json'), JSON.stringify(modulePkg, null, 2), 'utf-8');
 
     const currentPath = path.resolve(__dirname, `../tmp/bundles/${pkgName}/index.d.ts`);
-    const destinationPath = path.resolve(__dirname, `../dist/bundles/${pkgName}/index.d.ts`);
+    const destinationPath = path.resolve(__dirname, `../../../dist/bundles/${pkgName}/index.d.ts`);
     fs.copyFileSync(currentPath, destinationPath);
   });
   log(chalk.dim(`  created ${allCalendars.length} modules in ./dist/bundles/`));
   log(chalk.dim(`  created ./package.json to each modules`));
-  log(chalk.dim(`  /tmp/bundles/[calendar]/index.d.ts → dist/bundles/[calendar]/index.d.ts`));
+  log(chalk.dim(`  /packages/scripts/tmp/bundles/[calendar]/index.d.ts → dist/bundles/[calendar]/index.d.ts`));
 
   /**
    * Init and display duration helpers

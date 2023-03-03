@@ -5,6 +5,7 @@ npm-debug.log*
 
 # Dependencies
 node_modules/
+pnpm-lock.yaml
 
 # Coverage
 coverage/

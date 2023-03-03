@@ -1,16 +1,16 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "module": "es2020",
     "target": "es2020",
     "lib": ["ES2020", "ESNext"],
     "moduleResolution": "node",
-    "rootDir": ".",
     "removeComments": true,
     "declaration": true,
     "declarationDir": "tmp/dts",
     "emitDeclarationOnly": true
   },
-  "include": ["src/**/*", "packages/core/src/**/*", "packages/data/src/**/*", "tmp/constants/**/*"],
-  "exclude": ["node_modules", "**/*.spec.ts"]
+  "include": ["src", "../core/src", "../data/src", "tmp/constants"],
+  "exclude": ["node_modules", "../../**/*.spec.ts", "src"],
+  "files": []
 }

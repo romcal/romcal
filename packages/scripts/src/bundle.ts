@@ -1,21 +1,3 @@
-import chalk from 'chalk';
-import cliProgress from 'cli-progress';
-import fs from 'fs';
-import path from 'path';
-import rimraf from 'rimraf';
-import merge from 'ts-deepmerge';
-import util from 'util';
-
-import { PROPER_OF_TIME_NAME } from '../packages/core/src/constants/general-calendar-names';
-import { GeneralRoman } from '../packages/core/src/general-calendar/proper-of-saints';
-import { RomcalBundle } from '../packages/core/src/models/bundle';
-import { CalendarDef } from '../packages/core/src/models/calendar-def';
-import { RomcalConfig } from '../packages/core/src/models/config';
-import LiturgicalDayDef from '../packages/core/src/models/liturgical-day-def';
-import { toPascalCase } from '../packages/core/src/utils/string';
-import { locales } from '../packages/data/src/locales';
-import { Martyrology } from '../packages/data/src/metadata/martyrology';
-import { particularCalendars } from '../packages/data/src/particular-calendars';
 import {
   BundleInputs,
   Id,
@@ -25,7 +7,24 @@ import {
   MartyrologyCatalog,
   RomcalConfigInput,
   RomcalConfigOutput,
-} from '../src';
+} from '@romcal/core/src';
+import { PROPER_OF_TIME_NAME } from '@romcal/core/src/constants/general-calendar-names';
+import { GeneralRoman } from '@romcal/core/src/general-calendar/proper-of-saints';
+import { RomcalBundle } from '@romcal/core/src/models/bundle';
+import { CalendarDef } from '@romcal/core/src/models/calendar-def';
+import { RomcalConfig } from '@romcal/core/src/models/config';
+import LiturgicalDayDef from '@romcal/core/src/models/liturgical-day-def';
+import { toPascalCase } from '@romcal/core/src/utils/string';
+import { locales } from '@romcal/data/src/locales';
+import { Martyrology } from '@romcal/data/src/metadata/martyrology';
+import { particularCalendars } from '@romcal/data/src/particular-calendars';
+import chalk from 'chalk';
+import cliProgress from 'cli-progress';
+import fs from 'fs';
+import path from 'path';
+import rimraf from 'rimraf';
+import merge from 'ts-deepmerge';
+import util from 'util';
 
 const log = console.log;
 
@@ -111,7 +110,7 @@ export const RomcalBundler = (): void => {
   const allCalendars: (typeof CalendarDef)[] = [GeneralRoman, ...Object.values(particularCalendars)];
   const allLocaleIds = Object.keys(locales);
 
-  log(chalk.bold(`\n✓ Generate calendar bundle files into ${chalk.cyan('./tmp/bundles/')}`));
+  log(chalk.bold(`\n✓ Generate calendar bundle files into ${chalk.cyan('./packages/script/tmp/bundles/')}`));
   if (!isCI) gauge.start(allCalendars.length * allLocaleIds.length - 1, 0);
   let gaugeCount = 0;
 
@@ -212,7 +211,7 @@ export const RomcalBundler = (): void => {
         .replace(/\n\s*(!:seasons|periods)\s:\[],/gi, ''); // Remove empty arrays
       const jsOutput =
         `/* eslint-disable */\n` +
-        `import { RomcalBundleObject } from 'romcal';\n\n` +
+        `import { RomcalBundleObject } from '@romcal/core/src';\n\n` +
         `export const ${calVarName}: RomcalBundleObject = ${data}`;
 
       // Write the calendar bundle file.
@@ -243,7 +242,7 @@ export const RomcalBundler = (): void => {
     }, '');
     const indexExports = Object.entries(calVarObj).reduce((acc, [, varName]) => acc + `    ${varName},\n`, '');
     const indexOutput =
-      `import { RomcalBundleObject } from 'romcal';\n` + indexImports + `\nexport {\n` + indexExports + `};`;
+      `import { RomcalBundleObject } from '@romcal/core/src';\n` + indexImports + `\nexport {\n` + indexExports + `};`;
     fs.writeFileSync(path.resolve(dir, `index.ts`), indexOutput, 'utf-8');
 
     /**
@@ -253,10 +252,14 @@ export const RomcalBundler = (): void => {
       (acc, [, varName]) => acc + `export declare const ${varName}: RomcalBundleObject;\n`,
       '',
     );
-    const dtsOutput = `import { RomcalBundleObject } from 'romcal';\n\n` + dtsExports;
+    const dtsOutput = `import { RomcalBundleObject } from '@romcal/core/src';\n\n` + dtsExports;
     fs.writeFileSync(path.resolve(dir, `index.d.ts`), dtsOutput, 'utf-8');
   }
 
   if (!isCI) gauge.stop();
-  log(chalk.dim(`  generated ${allCalendars.length} calendars in ${allLocaleIds.length} locales in ./tmp/bundles/`));
+  log(
+    chalk.dim(
+      `  generated ${allCalendars.length} calendars in ${allLocaleIds.length} locales in ./packages/scripts/tmp/bundles/`,
+    ),
+  );
 };

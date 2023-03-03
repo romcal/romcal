@@ -1,5 +1,22 @@
-import { version } from '../package.json';
-import { Color, COLORS, Colors, isColor } from '../packages/core/src/constants/colors';
+import { version } from '../../../package.json';
+import {
+  CANONIZATION_LEVEL,
+  CanonizationLevel,
+  CanonizationLevels,
+  isMartyr,
+  PATRON_TITLES,
+  PatronTitle,
+  PatronTitles,
+  Sex,
+  SEXES,
+  Sexes,
+  Title,
+  TITLES,
+  Titles,
+} from '../../data/src/metadata/martyrology-metadata';
+import { CALENDAR_PKG_NAMES, CALENDAR_VAR_NAMES } from '../../scripts/tmp/constants/calendars';
+import { LOCALE_IDS, LOCALE_VAR_NAMES } from '../../scripts/tmp/constants/locales';
+import { Color, COLORS, Colors, isColor } from './constants/colors';
 import {
   PROPER_CYCLES,
   ProperCycle,
@@ -13,34 +30,34 @@ import {
   WEEKDAY_CYCLES,
   WeekdayCycle,
   WeekdayCycles,
-} from '../packages/core/src/constants/cycles';
-import { GENERAL_ROMAN_NAME, PROPER_OF_TIME_NAME } from '../packages/core/src/constants/general-calendar-names';
-import { Month, MonthIndex, MONTHS } from '../packages/core/src/constants/months';
-import { Period, PERIODS, Periods } from '../packages/core/src/constants/periods';
-import { Precedence, PRECEDENCES, Precedences } from '../packages/core/src/constants/precedences';
-import { Rank, RANKS, Ranks, RanksFromPrecedence } from '../packages/core/src/constants/ranks';
-import { Season, SEASONS, Seasons } from '../packages/core/src/constants/seasons';
-import { DayOfWeek, Weekday, WEEKDAYS } from '../packages/core/src/constants/weekdays';
-import { RomcalBundle } from '../packages/core/src/models/bundle';
-import { Calendar } from '../packages/core/src/models/calendar';
-import { CalendarDef } from '../packages/core/src/models/calendar-def';
-import { RomcalConfig } from '../packages/core/src/models/config';
-import { CyclesMetadata } from '../packages/core/src/models/cycles-metadata';
-import LiturgicalDay from '../packages/core/src/models/liturgical-day';
-import { LiturgicalDayConfig } from '../packages/core/src/models/liturgical-day-config';
-import LiturgicalDayDef from '../packages/core/src/models/liturgical-day-def';
-import { RomcalBundleObject } from '../packages/core/src/types/bundle';
-import { LiturgicalCalendar } from '../packages/core/src/types/calendar';
+} from './constants/cycles';
+import { GENERAL_ROMAN_NAME, PROPER_OF_TIME_NAME } from './constants/general-calendar-names';
+import { Month, MonthIndex, MONTHS } from './constants/months';
+import { Period, PERIODS, Periods } from './constants/periods';
+import { Precedence, PRECEDENCES, Precedences } from './constants/precedences';
+import { Rank, RANKS, Ranks, RanksFromPrecedence } from './constants/ranks';
+import { Season, SEASONS, Seasons } from './constants/seasons';
+import { DayOfWeek, Weekday, WEEKDAYS } from './constants/weekdays';
+import { RomcalBundle } from './models/bundle';
+import { Calendar } from './models/calendar';
+import { CalendarDef } from './models/calendar-def';
+import { RomcalConfig } from './models/config';
+import { CyclesMetadata } from './models/cycles-metadata';
+import LiturgicalDay from './models/liturgical-day';
+import { LiturgicalDayConfig } from './models/liturgical-day-config';
+import LiturgicalDayDef from './models/liturgical-day-def';
+import { RomcalBundleObject } from './types/bundle';
+import { LiturgicalCalendar } from './types/calendar';
 import {
   BundleInputs,
   CalendarDefInputs,
   Inputs,
   LiturgicalDayDefinitions,
   ParticularConfig,
-} from '../packages/core/src/types/calendar-def';
-import { Id } from '../packages/core/src/types/common';
-import { CalendarScope, RomcalConfigInput, RomcalConfigOutput } from '../packages/core/src/types/config';
-import { BaseCyclesMetadata, PartialCyclesDef, PlainCyclesMetadata } from '../packages/core/src/types/cycles-metadata';
+} from './types/calendar-def';
+import { Id } from './types/common';
+import { CalendarScope, RomcalConfigInput, RomcalConfigOutput } from './types/config';
+import { BaseCyclesMetadata, PartialCyclesDef, PlainCyclesMetadata } from './types/cycles-metadata';
 import {
   BaseLiturgicalDay,
   BaseLiturgicalDayDef,
@@ -64,8 +81,8 @@ import {
   RomcalCalendarMetadata,
   RomcalTitles,
   TitlesDef,
-} from '../packages/core/src/types/liturgical-day';
-import { LiturgicalDayConfigOutput } from '../packages/core/src/types/liturgical-day-config';
+} from './types/liturgical-day';
+import { LiturgicalDayConfigOutput } from './types/liturgical-day-config';
 import {
   Locale,
   LocaleColors,
@@ -73,14 +90,8 @@ import {
   LocaleMonths,
   LocaleOrdinals,
   LocaleWeeks,
-} from '../packages/core/src/types/locale';
-import {
-  MartyrologyCatalog,
-  MartyrologyItem,
-  SaintCount,
-  SaintDate,
-  SaintDateDef,
-} from '../packages/core/src/types/martyrology';
+} from './types/locale';
+import { MartyrologyCatalog, MartyrologyItem, SaintCount, SaintDate, SaintDateDef } from './types/martyrology';
 import {
   addDays,
   computeGregorianEasterDate,
@@ -96,25 +107,8 @@ import {
   rangeOfDays,
   startOfWeek,
   subtractsDays,
-} from '../packages/core/src/utils/dates';
-import { isInteger, toRomanNumber } from '../packages/core/src/utils/numbers';
-import {
-  CANONIZATION_LEVEL,
-  CanonizationLevel,
-  CanonizationLevels,
-  isMartyr,
-  PATRON_TITLES,
-  PatronTitle,
-  PatronTitles,
-  Sex,
-  SEXES,
-  Sexes,
-  Title,
-  TITLES,
-  Titles,
-} from '../packages/data/src/metadata/martyrology-metadata';
-import { CALENDAR_PKG_NAMES, CALENDAR_VAR_NAMES } from '../tmp/constants/calendars';
-import { LOCALE_IDS, LOCALE_VAR_NAMES } from '../tmp/constants/locales';
+} from './utils/dates';
+import { isInteger, toRomanNumber } from './utils/numbers';
 
 class Romcal {
   readonly #config: RomcalConfig;

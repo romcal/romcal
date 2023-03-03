@@ -1,0 +1,10 @@
+dist/
+coverage/
+examples/
+node_modules/
+tmp/
+/**/*.js
+local-*
+package.json
+.eslintrc.js
+*.config.js

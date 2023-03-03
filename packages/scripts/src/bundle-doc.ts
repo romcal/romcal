@@ -1,12 +1,12 @@
+import { GeneralRoman } from '@romcal/core/src/general-calendar/proper-of-saints';
+import { CalendarDef } from '@romcal/core/src/models/calendar-def';
+import { toPackageName } from '@romcal/core/src/utils/string';
+import { particularCalendars } from '@romcal/data/src/particular-calendars';
 import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
 import prettier from 'prettier';
 
-import { GeneralRoman } from '../packages/core/src/general-calendar/proper-of-saints';
-import { CalendarDef } from '../packages/core/src/models/calendar-def';
-import { toPackageName } from '../packages/core/src/utils/string';
-import { particularCalendars } from '../packages/data/src/particular-calendars';
 import { getDuration } from './time';
 
 const log = console.log;

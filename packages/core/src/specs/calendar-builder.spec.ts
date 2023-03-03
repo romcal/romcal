@@ -6,9 +6,9 @@ import { Hungary_En } from 'romcal/dist/bundles/hungary';
 import { Ireland_En } from 'romcal/dist/bundles/ireland';
 import { Slovakia_Sk } from 'romcal/dist/bundles/slovakia';
 
-import Romcal, { CalendarScope, Id, LiturgicalCalendar, LiturgicalDayDef } from '../../../../src';
 import { Periods } from '../constants/periods';
 import { Seasons } from '../constants/seasons';
+import Romcal, { CalendarScope, Id, LiturgicalCalendar, LiturgicalDayDef } from '../index';
 import LiturgicalDay from '../models/liturgical-day';
 import { dateDifference } from '../utils/dates';
 

@@ -1,4 +1,5 @@
 {
+  "rootDir": "./",
   "compilerOptions": {
     "lib": ["es2021"],
     "module": "commonjs",
@@ -22,7 +23,13 @@
     },
     "baseUrl": "."
   },
-  "include": ["src", "packages/core/src", "packages/data/src", "scripts", "tmp/bundles", "tmp/constants"],
+  "include": [
+    "packages/core/src",
+    "packages/data/src",
+    "packages/scripts/src",
+    "packages/scripts/tmp/bundles",
+    "packages/scripts/tmp/constants"
+  ],
   "exclude": ["node_modules"],
   "files": ["global.d.ts"]
 }
