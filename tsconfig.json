@@ -4,7 +4,6 @@
     "lib": ["es2021"],
     "module": "commonjs",
     "target": "es2021",
-    // "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -12,12 +11,9 @@
     "noImplicitThis": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    // "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
-    // "downlevelIteration": true,
     "importHelpers": true,
     "allowJs": true,
-    // "noEmit": true,
     "paths": {
       "@romcal/*": ["./packages/*"]
     },
