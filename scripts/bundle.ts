@@ -25,7 +25,7 @@ import { CalendarDef } from '../lib/models/calendar-def';
 import { RomcalConfig } from '../lib/models/config';
 import LiturgicalDayDef from '../lib/models/liturgical-day-def';
 import { particularCalendars } from '../lib/particular-calendars';
-import { toPascalCase } from '../lib/utils/string';
+import { sanitizeLocaleId, toPascalCase } from '../lib/utils/string';
 
 const log = console.log;
 
@@ -128,7 +128,10 @@ export const RomcalBundler = (): void => {
       // Init calendars
       const outputFilenameArr = builder.getOutputFilename().split('.');
       const enclosingDir = outputFilenameArr.slice(0, -2).join('.');
-      const filename = outputFilenameArr.slice(outputFilenameArr.length - 2).join('.');
+      const filename = outputFilenameArr
+        .slice(outputFilenameArr.length - 2)
+        .join('.')
+        .toLowerCase();
       const calendarConstructorName = builder.calendarConstructorName();
       const calendarName = builder.getCalendarName();
 
@@ -188,7 +191,7 @@ export const RomcalBundler = (): void => {
         inputs: definitions,
         martyrology,
         i18n: {
-          id: locale.id,
+          id: sanitizeLocaleId(locale.id),
           colors: mergedLocale.colors,
           months: mergedLocale.months,
           ordinals: mergedLocale.ordinals,
@@ -222,7 +225,8 @@ export const RomcalBundler = (): void => {
       // Add another calendar bundle file for the IIFE format, that will output the calendar
       // bundle in a global variable, for iife usage.
       // Note: will not be required if this issue is addressed: https://github.com/evanw/esbuild/issues/1182
-      const jsIifeOutput = `import { ${calVarName} } from './${locale.id}';\n` + `module.exports = ${calVarName};\n`;
+      const jsIifeOutput =
+        `import { ${calVarName} } from './${locale.id.toLowerCase()}';\n` + `module.exports = ${calVarName};\n`;
       const iifeFilename = filename.replace(/\.ts$/, '.iife.ts');
       fs.writeFileSync(path.resolve(dir, iifeFilename), jsIifeOutput, 'utf-8');
     }

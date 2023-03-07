@@ -12,6 +12,7 @@ import { Locale } from '../types/locale';
 import { MartyrologyCatalog } from '../types/martyrology';
 import { Dates } from '../utils/dates';
 import { toRomanNumber } from '../utils/numbers';
+import { sanitizeLocaleId } from '../utils/string';
 import { CalendarDef } from './calendar-def';
 
 /**
@@ -69,7 +70,7 @@ export class RomcalConfig implements IRomcalConfig {
       config?.ascensionOnSunday ?? this.localizedCalendar?.particularConfig.ascensionOnSunday ?? false;
 
     const localeObj: Locale | undefined = this.localizedCalendar?.i18n ?? locale;
-    this.localeId = localeObj?.id ?? 'dev';
+    this.localeId = localeObj?.id ? sanitizeLocaleId(localeObj.id) : 'dev';
 
     // Create an instance and set up the i18next library.
     this.i18next = i18next.createInstance(

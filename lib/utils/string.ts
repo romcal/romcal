@@ -47,3 +47,14 @@ export const toPascalCase = (string: string): string =>
  */
 export const unCapitalize = (string: string): string =>
   string.charAt(0).toLowerCase() + string.slice(1).replace(/(_[A-Z]+)/g, (v) => v.toLowerCase());
+
+/**
+ * Ensure the localeId is in the format xx-XX
+ * @param localeId
+ */
+export const sanitizeLocaleId = (localeId: string): string => {
+  if (localeId?.length >= 5) {
+    return localeId.substring(0, 2).toLowerCase() + '-' + localeId.substring(3, 5).toUpperCase();
+  }
+  return localeId.toLowerCase();
+};
