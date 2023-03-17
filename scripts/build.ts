@@ -215,11 +215,11 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
       // Do not output index.ts on iife format
       // and only output locale.iife.js on iife format
       if (
-        (format !== 'iife' || !/\/index\.ts$/.exec(p)) &&
+        (format !== 'iife' || !/[\\/]index\.ts$/.exec(p)) &&
         ((/.iife\.ts$/.exec(p) && format === 'iife') || (!/.iife\.ts$/.exec(p) && format !== 'iife'))
       ) {
-        const calendar = /([^/]+)\/[^/]+$/.exec(p)?.[1];
-        const locale = /([^/]+)\.\w+$/.exec(p)?.[1].replace('.iife', '');
+        const calendar = /([^\\/]+)[\\/]+[^\\/]+$/.exec(p)?.[1];
+        const locale = /([^\\/]+)\.\w+$/.exec(p)?.[1].replace('.iife', '');
         await build({
           minify: true,
           // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
