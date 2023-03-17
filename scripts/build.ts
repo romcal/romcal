@@ -1,9 +1,10 @@
+import { dirname, resolve } from 'node:path';
+
 import chalk from 'chalk';
 import { generateDtsBundle } from 'dts-bundle-generator';
 import { build, Format, Platform } from 'esbuild';
 import fs from 'fs';
 import { glob } from 'glob';
-import path from 'path';
 import prettier from 'prettier';
 import rimraf from 'rimraf';
 import { PackageJson } from 'type-fest';
@@ -46,7 +47,7 @@ function readConfigFile(configFileName: string): ts.ParsedCommandLine {
   }
 
   // Extract config information
-  const configParseResult = ts.parseJsonConfigFileContent(configObject, ts.sys, path.dirname(configFileName));
+  const configParseResult = ts.parseJsonConfigFileContent(configObject, ts.sys, dirname(configFileName));
   if (configParseResult.errors.length > 0) {
     reportDiagnostics(configParseResult.errors);
     process.exit(1);
@@ -85,14 +86,14 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
     ),
   );
   const constantDir = './tmp/constants';
-  rimraf.sync(path.resolve(constantDir));
+  rimraf.sync(resolve(constantDir));
   fs.mkdirSync('./tmp/constants', { recursive: true });
 
   // Locales
   log(chalk.dim(`  ./tmp/constants/locales.ts`));
   const localeNames = Object.keys(locales);
   fs.writeFileSync(
-    path.resolve(constantDir, 'locales.ts'),
+    resolve(constantDir, 'locales.ts'),
     formatCode(
       `import { toPackageName } from "../../lib/utils/string";\n\n` +
         `export const LOCALE_VAR_NAMES: string[] = ${JSON.stringify(localeNames)};\n\n` +
@@ -105,7 +106,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
   log(chalk.dim(`  ./tmp/constants/calendars.ts`));
   const calendarNames = Object.keys(particularCalendars).concat([GENERAL_ROMAN_NAME]).sort();
   fs.writeFileSync(
-    path.resolve(constantDir, 'calendars.ts'),
+    resolve(constantDir, 'calendars.ts'),
     formatCode(
       `import { toPackageName } from "../../lib/utils/string";\n\n` +
         `export const CALENDAR_VAR_NAMES: string[] = ${JSON.stringify(calendarNames)};\n\n` +
@@ -119,7 +120,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
    * Compiling sources and checking types of the romcal library
    */
   log(chalk.bold(`\n✓ Compiling sources and checking types of the romcal library`));
-  rimraf.sync(path.resolve('tmp/dts'));
+  rimraf.sync(resolve('tmp/dts'));
   compile(tsConfigPath);
   log(chalk.dim(`  .d.ts files created in ./tmp/dts/`));
 
@@ -132,7 +133,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
    * Delete and recreate empty dist directory
    */
   log(chalk.bold(`\n✓ Cleaning up the ${chalk.cyan.bold('./dist/')} directory`));
-  rimraf.sync(path.resolve('dist'));
+  rimraf.sync(resolve('dist'));
   fs.mkdirSync('dist', { recursive: true });
 
   /**
@@ -157,7 +158,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
     ],
     { preferredConfigPath: tsConfigPath },
   );
-  fs.writeFileSync(path.resolve('dist', 'index.d.ts'), dts.join('\n'), 'utf-8');
+  fs.writeFileSync(resolve('dist', 'index.d.ts'), dts.join('\n'), 'utf-8');
   log(chalk.dim(`  ./tmp/dts/lib/index.d.ts → dist/index.d.ts`));
 
   /**
@@ -165,7 +166,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
    */
   const bundles = glob
     .sync('../tmp/bundles/**/*.ts', { cwd: __dirname })
-    .map((p) => path.resolve(__dirname, p))
+    .map((p) => resolve(__dirname, p))
     .filter((p) => !/\.d\.ts$/.exec(p));
 
   const toGlobalName = (calendar: string, locale: string): string => {
@@ -248,7 +249,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
     // mixed snake and underscore case to kebab case
     const pkgName = toPackageName(calendar);
 
-    const dir = path.resolve(__dirname, `../dist/bundles/${pkgName}`);
+    const dir = resolve(__dirname, `../dist/bundles/${pkgName}`);
 
     const modulePkg: PackageJson = {
       name: `@romcal/calendar.${pkgName}`,
@@ -267,10 +268,10 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
       license: pkg.license,
     };
 
-    fs.writeFileSync(path.resolve(dir, 'package.json'), JSON.stringify(modulePkg, null, 2), 'utf-8');
+    fs.writeFileSync(resolve(dir, 'package.json'), JSON.stringify(modulePkg, null, 2), 'utf-8');
 
-    const currentPath = path.resolve(__dirname, `../tmp/bundles/${pkgName}/index.d.ts`);
-    const destinationPath = path.resolve(__dirname, `../dist/bundles/${pkgName}/index.d.ts`);
+    const currentPath = resolve(__dirname, `../tmp/bundles/${pkgName}/index.d.ts`);
+    const destinationPath = resolve(__dirname, `../dist/bundles/${pkgName}/index.d.ts`);
     fs.copyFileSync(currentPath, destinationPath);
   });
   log(chalk.dim(`  created ${allCalendars.length} modules in ./dist/bundles/`));
