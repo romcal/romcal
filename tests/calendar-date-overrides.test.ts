@@ -71,6 +71,22 @@ describe('Testing national calendar overrides', () => {
     });
   });
 
+  describe('Extend already defined liturgical day definitions on calendars', () => {
+    test('Extend an existing liturgical day definition, does not affect date exceptions rules on the base liturgical day definition', async () => {
+      const generalDates = Object.values(await new Romcal().generateCalendar(2023)).flat();
+      const generalDate = generalDates.find((d) => d.id === 'joseph_spouse_of_mary');
+
+      const skDates = Object.values(await new Romcal({ localizedCalendar: Slovakia_Sk }).generateCalendar(2023)).flat();
+      const skDate = skDates.find((d) => d.id === 'joseph_spouse_of_mary');
+
+      expect(generalDate?.date).toEqual(skDate?.date);
+      expect(generalDate?.date).toEqual('2023-03-20'); // Date is moved to the day after in 2023, because of a date rule exception.
+      expect(generalDate?.isHolyDayOfObligation).toBeTruthy();
+      expect(skDate?.isHolyDayOfObligation).toBeFalsy();
+      expect(skDate?.dateExceptions.length).toBeGreaterThan(0);
+    });
+  });
+
   describe('The Solemnity of Epiphany of the Lord', () => {
     test('Should always be celebrated on January 6 in Slovakia unless explicitly configured otherwise', async () => {
       const slovakiaDates = Object.values(

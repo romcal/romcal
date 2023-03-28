@@ -37,6 +37,7 @@ describe('Testing calendar generation functions', () => {
         'id',
         'date',
         'dateDef',
+        'dateExceptions',
         'precedence',
         'rank',
         'isHolyDayOfObligation',

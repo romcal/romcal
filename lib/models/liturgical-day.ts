@@ -8,6 +8,7 @@ import { Id } from '../types/common';
 import {
   BaseLiturgicalDay,
   DateDef,
+  DateDefException,
   FromCalendarId,
   i18nDef,
   LiturgyDayDiff,
@@ -26,6 +27,7 @@ class LiturgicalDay implements BaseLiturgicalDay {
   readonly id: Id;
   readonly date: string;
   readonly dateDef: DateDef;
+  readonly dateExceptions: DateDefException[];
   readonly precedence: Precedence;
   readonly rank: Rank;
   readonly allowSimilarRankItems: boolean;
@@ -90,6 +92,7 @@ class LiturgicalDay implements BaseLiturgicalDay {
     this.id = def.id;
     this.date = date.toISOString().substring(0, 10);
     this.dateDef = def.dateDef;
+    this.dateExceptions = def.dateExceptions;
     this.precedence = def.precedence;
     this.rank = def.rank;
     this.allowSimilarRankItems = def.allowSimilarRankItems;
