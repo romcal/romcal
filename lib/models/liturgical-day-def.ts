@@ -110,6 +110,8 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
       ? input.dateExceptions
       : input.dateExceptions
       ? [input.dateExceptions]
+      : previousDef
+      ? previousDef.dateExceptions
       : [];
 
     if (!input.precedence && !previousDef) {
