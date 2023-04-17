@@ -5,12 +5,13 @@
 This section describes how to run the romcal source code in your machine, and how to contribute to this project.
 You might also be interested in reading the general [contribution guide](../CONTRIBUTING.md).
 
-- [Retrieve the codebase](#retrieve-the-codebase)
-- [Install](#install)
-- [build](#build)
-- [Run](#run)
-- [Test](#test)
-- [Coverage reporting](#coverage-reporting)
+- [Install, Build, Run and Test romcal locally](#install-build-run-and-test-romcal-locally)
+  - [Retrieve the codebase](#retrieve-the-codebase)
+  - [Install](#install)
+  - [Build](#build)
+  - [Run](#run)
+  - [Test](#test)
+  - [Coverage reporting](#coverage-reporting)
 
 ## Retrieve the codebase
 
@@ -46,7 +47,7 @@ You will also find a lot of information on how to use `git` and GitHub over the 
 When you have just cloned romcal, and every time you have fetched or rebased the latest code change, you have to install the romcal dependencies:
 
 ```
-npm install
+pnpm install
 ```
 
 ## Build
@@ -58,7 +59,7 @@ To make it work on the frontend side, the frontend library is wrapped and built 
 Build the project each time you are getting fresh code or updating the codebase:
 
 ```bash
-npm run build
+pnpm build
 ```
 
 ## Run
@@ -99,25 +100,25 @@ romcal code is unit tested using the [jest](https://jestjs.io/) framework.
 - For running all test suites in a single run:
 
 ```bash
-npm test
+pnpm test
 ```
 
 - When computed data has changed due to a codebase update, data snapshot tests will fail. To update the snapshots, run:
 
 ```bash
-npx jest --updateSnapshot
+pnpm test:snapshot:update
 ```
 
 - For running all test suites and then watch the source directory for changes:
 
 ```bash
-npm run test:watch
+pnpm test:watch
 ```
 
 - For testing a single file during development,
 
 ```bash
-npm run test -t ./src/utils/object/object.test.ts
+pnpm test -t ./src/utils/object/object.test.ts
 ```
 
 _pass the `-t` flag and the path of the file_
