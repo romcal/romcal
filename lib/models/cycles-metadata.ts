@@ -1,15 +1,16 @@
 import {
+  getUtcDateFromString,
   ProperCycle,
-  PSALTER_WEEKS,
+  PSALTER_WEEK_CYCLES,
   PsalterWeekCycle,
   SUNDAY_CYCLES,
   SundayCycle,
   WEEKDAY_CYCLES,
   WeekdayCycle,
-} from '../constants/cycles';
+} from '@romcal/shared';
+
 import { BaseCyclesMetadata, PlainCyclesMetadata } from '../types/cycles-metadata';
 import { RomcalCalendarMetadata } from '../types/liturgical-day';
-import { getUtcDateFromString } from '../utils/dates';
 import { RomcalConfig } from './config';
 
 /**
@@ -63,7 +64,7 @@ export class CyclesMetadata implements BaseCyclesMetadata {
     // Except during the four first days of lent (ash wednesday to the next saturday),
     // which are in week 4, to start on week 1 after the first sunday of lent.
     const weekIndex = (calendar.weekOfSeason % 4) - 1;
-    const psalterWeek = PSALTER_WEEKS[weekIndex > -1 ? weekIndex : 3];
+    const psalterWeek = PSALTER_WEEK_CYCLES[weekIndex > -1 ? weekIndex : 3];
 
     this.properCycle = properCycle;
     this.sundayCycle = this.#config.cyclesCache[year].sundayCycle;

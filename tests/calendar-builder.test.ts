@@ -124,18 +124,18 @@ describe('Testing calendar generation functions', () => {
         .forEach((d) => {
           if (d.id === 'exaltation_of_the_holy_cross' || d.id === 'mark_evangelist') {
             // eslint-disable-next-line jest/no-conditional-expect
-            expect(d.colors[0]).toEqual(Colors.Red);
+            expect(d.colors[0]).toEqual(Color.Red);
           } else if (d.id === 'commemoration_of_all_the_faithful_departed') {
             // eslint-disable-next-line jest/no-conditional-expect
-            expect(d.colors[0]).toEqual(Colors.Purple);
+            expect(d.colors[0]).toEqual(Color.Purple);
             // eslint-disable-next-line jest/no-conditional-expect
-            expect(d.colors[1]).toEqual(Colors.Black);
+            expect(d.colors[1]).toEqual(Color.Black);
           } else if (isMartyr(d.titles)) {
             // eslint-disable-next-line jest/no-conditional-expect
-            expect(d.colors[0]).toEqual(Colors.Red);
+            expect(d.colors[0]).toEqual(Color.Red);
           } else {
             // eslint-disable-next-line jest/no-conditional-expect
-            expect(d.colors[0]).toEqual(Colors.White);
+            expect(d.colors[0]).toEqual(Color.White);
           }
         });
 
@@ -147,10 +147,10 @@ describe('Testing calendar generation functions', () => {
         .forEach((d) => {
           if (isMartyr(d.titles)) {
             // eslint-disable-next-line jest/no-conditional-expect
-            expect(d.colors[0]).toEqual(Colors.Red);
+            expect(d.colors[0]).toEqual(Color.Red);
           } else {
             // eslint-disable-next-line jest/no-conditional-expect
-            expect(d.colors[0]).toEqual(Colors.White);
+            expect(d.colors[0]).toEqual(Color.White);
           }
         });
     });
@@ -160,7 +160,7 @@ describe('Testing calendar generation functions', () => {
         .flat()
         .filter((d) => ['chair_of_saint_peter_the_apostle', 'conversion_of_saint_paul_the_apostle'].includes(d.id));
       expect(dates.length).toBe(2);
-      dates.forEach((d) => expect(d.colors[0]).toEqual(Colors.White));
+      dates.forEach((d) => expect(d.colors[0]).toEqual(Color.White));
     });
   });
 

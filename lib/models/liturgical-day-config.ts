@@ -1,8 +1,18 @@
-import { DayOfWeek } from '../constants/weekdays';
+import {
+  addDays,
+  DayOfWeek,
+  DAYS_OF_WEEK,
+  daysInMonth,
+  getUtcDate,
+  isInteger,
+  isSameDate,
+  isValidDate,
+  subtractsDays,
+} from '@romcal/shared';
+
 import { DateDef, DateDefExtended } from '../types/liturgical-day';
 import { BaseLiturgicalDayConfig, LiturgicalDayConfigOutput } from '../types/liturgical-day-config';
-import { addDays, Dates, daysInMonth, getUtcDate, isSameDate, isValidDate, subtractsDays } from '../utils/dates';
-import { isInteger } from '../utils/numbers';
+import { Dates } from '../utils/dates';
 import { RomcalConfig } from './config';
 import LiturgicalDayDef from './liturgical-day-def';
 
@@ -45,7 +55,7 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
    * @private
    */
   static #getNextDayOfWeek(date: Date, dayOfWeek: DayOfWeek): Date {
-    return addDays(date, (7 + dayOfWeek - date.getUTCDay()) % 7);
+    return addDays(date, (7 + DAYS_OF_WEEK.indexOf(dayOfWeek) - date.getUTCDay()) % 7);
   }
 
   /**
@@ -148,7 +158,7 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
 
       // ifIsDayOfWeek
       else if (Number.isInteger(exception.ifIsDayOfWeek)) {
-        if (date.getUTCDay() === exception.ifIsDayOfWeek) {
+        if (DAYS_OF_WEEK[date.getUTCDay()] === exception.ifIsDayOfWeek) {
           setDate(exception.setDate);
         }
       }

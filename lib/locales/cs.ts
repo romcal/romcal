@@ -1,7 +1,7 @@
-import { Locale } from '../types/locale';
+import { Locale } from '@romcal/shared';
 
 export const locale: Locale = {
-  id: 'cs',
+  localeCode: 'cs',
 
   seasons: {
     advent: {

@@ -1,9 +1,5 @@
-import { Color } from '../constants/colors';
-import { PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
-import { Period, Periods } from '../constants/periods';
-import { Precedence, Precedences } from '../constants/precedences';
-import { Rank, Ranks } from '../constants/ranks';
-import { Season, Seasons } from '../constants/seasons';
+import { Color, MartyrologyItem, Period, Precedence, PROPER_OF_TIME_ID, Rank, Season } from '@romcal/shared';
+
 import { Id } from '../types/common';
 import {
   BaseLiturgicalDay,
@@ -16,7 +12,6 @@ import {
   RomcalTitles,
 } from '../types/liturgical-day';
 import { LiturgicalDayConfigOutput } from '../types/liturgical-day-config';
-import { MartyrologyItem } from '../types/martyrology';
 import { CyclesMetadata } from './cycles-metadata';
 import { LiturgicalDayConfig } from './liturgical-day-config';
 import LiturgicalDayDef from './liturgical-day-def';
@@ -106,20 +101,20 @@ class LiturgicalDay implements BaseLiturgicalDay {
     // The second Sunday after the Christmas octave can be before or after the Epiphany,
     // and this can be determined from the definition of the Proper of the Time,
     // without having a liturgical year context.
-    if (def.fromCalendarId === PROPER_OF_TIME_NAME && this.id === 'second_sunday_after_christmas') {
+    if (def.fromCalendarId === PROPER_OF_TIME_ID && this.id === 'second_sunday_after_christmas') {
       if (date.getTime() >= liturgicalDayConfig.dates.epiphany().getTime()) {
-        this.periods.unshift(Periods.DaysFromEpiphany);
+        this.periods.unshift(Period.DaysFromEpiphany);
       } else if (date.getTime() > liturgicalDayConfig.dates.maryMotherOfGod().getTime()) {
-        this.periods.unshift(Periods.DaysBeforeEpiphany);
+        this.periods.unshift(Period.DaysBeforeEpiphany);
       }
     }
 
     // Specify the early/late period of an ordinary time liturgical day item
-    if (def.fromCalendarId === PROPER_OF_TIME_NAME && this.seasons[0] === Seasons.OrdinaryTime) {
+    if (def.fromCalendarId === PROPER_OF_TIME_ID && this.seasons[0] === Season.OrdinaryTime) {
       if (date.getTime() < liturgicalDayConfig.dates.pentecostSunday().getTime()) {
-        this.periods.unshift(Periods.EarlyOrdinaryTime);
+        this.periods.unshift(Period.EarlyOrdinaryTime);
       } else {
-        this.periods.unshift(Periods.LateOrdinaryTime);
+        this.periods.unshift(Period.LateOrdinaryTime);
       }
     }
 
@@ -138,7 +133,7 @@ class LiturgicalDay implements BaseLiturgicalDay {
      * and all the weekdays of Lent have precedence over Obligatory Memorials.
      */
     this.colors =
-      weekday?.precedence === Precedences.PrivilegedWeekday_9 && this.rank === Ranks.Memorial ? [] : def.colors;
+      weekday?.precedence === Precedence.PrivilegedWeekday_9 && this.rank === Rank.Memorial ? [] : def.colors;
 
     this.martyrology = def.martyrology;
     this.titles = def.titles;

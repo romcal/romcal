@@ -1,14 +1,14 @@
+import { Locale, MartyrologyMap } from '@romcal/shared';
+
 import { BaseRomcalBundle } from '../types/bundle';
 import { BundleInputs, ParticularConfig } from '../types/calendar-def';
 import { Id } from '../types/common';
-import { Locale } from '../types/locale';
-import { MartyrologyCatalog } from '../types/martyrology';
 
 export class RomcalBundle implements BaseRomcalBundle {
   calendarName: Id;
   particularConfig: ParticularConfig;
   inputs: BundleInputs;
-  martyrology: MartyrologyCatalog;
+  martyrology: MartyrologyMap;
   i18n: Locale;
 
   constructor(input: BaseRomcalBundle) {

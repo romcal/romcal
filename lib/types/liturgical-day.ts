@@ -1,20 +1,24 @@
+import {
+  Color,
+  DayOfWeek,
+  MartyrologyItem,
+  MonthIndex,
+  PatronTitle,
+  Period,
+  Precedence,
+  ProperCycle,
+  Rank,
+  SaintCount,
+  Season,
+  Title,
+} from '@romcal/shared';
 import { StringMap } from 'i18next';
 
-import { Color } from '../constants/colors';
-import { ProperCycle } from '../constants/cycles';
-import { PatronTitle, Title } from '../constants/martyrology-metadata';
-import { MonthIndex } from '../constants/months';
-import { Period } from '../constants/periods';
-import { Precedence } from '../constants/precedences';
-import { Rank } from '../constants/ranks';
-import { Season } from '../constants/seasons';
-import { DayOfWeek } from '../constants/weekdays';
 import LiturgicalDay from '../models/liturgical-day';
 import LiturgicalDayDef from '../models/liturgical-day-def';
 import { Dates } from '../utils/dates';
 import { AllXOR, Id, XOR } from './common';
 import { BaseCyclesMetadata, PartialCyclesDef } from './cycles-metadata';
-import { MartyrologyItem, SaintCount } from './martyrology';
 
 /**
  * The liturgical day date definition

@@ -1,3 +1,4 @@
+import { PROPER_OF_TIME_ID } from '@romcal/shared';
 import chalk from 'chalk';
 import cliProgress from 'cli-progress';
 import * as fs from 'fs';
@@ -12,12 +13,11 @@ import {
   LiturgicalDayDefinitions,
   Locale,
   LocaleLiturgicalDayNames,
-  MartyrologyCatalog,
+  MartyrologyMap,
   RomcalConfigInput,
   RomcalConfigOutput,
 } from '../lib';
 import { Martyrology } from '../lib/catalog/martyrology';
-import { PROPER_OF_TIME_NAME } from '../lib/constants/general-calendar-names';
 import { GeneralRoman } from '../lib/general-calendar/proper-of-saints';
 import { locales } from '../lib/locales';
 import { RomcalBundle } from '../lib/models/bundle';
@@ -74,7 +74,7 @@ class RomcalBuilder {
 
   getAllDefinitions(): BundleInputs {
     return Object.values(this.#config.liturgicalDayDef).reduce((obj: BundleInputs, def: LiturgicalDayDef) => {
-      if (def.fromCalendarId === PROPER_OF_TIME_NAME) return obj;
+      if (def.fromCalendarId === PROPER_OF_TIME_ID) return obj;
 
       obj[def.id] = def.input;
 
@@ -166,16 +166,16 @@ export const RomcalBundler = (): void => {
         }, {});
 
       // Extract martyrology items
-      const martyrology: MartyrologyCatalog = Object.fromEntries(
+      const martyrology: MartyrologyMap = Object.fromEntries(
         Object.entries(Martyrology.catalog)
           .filter(([id]) => martyrologyIds.includes(id))
           .map(([id, data]) => [
             id,
-            ((): MartyrologyCatalog => {
+            ((): MartyrologyMap => {
               // Extract the 'name' property since it's deprecated in the item definition.
               // eslint-disable-next-line @typescript-eslint/no-unused-vars
               const { name, ...martyrologyData } = data;
-              return martyrologyData as MartyrologyCatalog;
+              return martyrologyData as MartyrologyMap;
             })(),
           ]),
       );

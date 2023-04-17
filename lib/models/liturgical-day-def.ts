@@ -1,11 +1,17 @@
-import { Color, Colors } from '../constants/colors';
-import { ProperCycles } from '../constants/cycles';
-import { GENERAL_ROMAN_NAME, PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
-import { isMartyr } from '../constants/martyrology-metadata';
-import { Period } from '../constants/periods';
-import { Precedence, Precedences } from '../constants/precedences';
-import { Rank, Ranks, RanksFromPrecedence } from '../constants/ranks';
-import { Season } from '../constants/seasons';
+import {
+  Color,
+  isMartyr,
+  MartyrologyItem,
+  Period,
+  Precedence,
+  PROPER_OF_TIME_ID,
+  ProperCycle,
+  Rank,
+  RanksFromPrecedence,
+  Season,
+} from '@romcal/shared';
+import arrify from 'arrify';
+
 import { Id } from '../types/common';
 import { PartialCyclesDef } from '../types/cycles-metadata';
 import {
@@ -24,7 +30,6 @@ import {
   RomcalTitles,
   TitlesDef,
 } from '../types/liturgical-day';
-import { MartyrologyItem } from '../types/martyrology';
 import { RomcalConfig } from './config';
 
 export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
@@ -54,7 +59,7 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
     if (this.#name !== undefined) return this.#name;
     let name: string;
     // i18nDef from the proper of time already contains the ID
-    if (this.fromCalendarId === PROPER_OF_TIME_NAME) {
+    if (this.fromCalendarId === PROPER_OF_TIME_ID) {
       name = this.#config.i18next.t(this.i18nDef[0], this.i18nDef[1]);
     }
     // i18nDef from general or particular calendars
@@ -157,19 +162,14 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
     // are placed at the end of the array (not between the contained titles).
     this.titles = [...new Set(this.martyrology.flatMap((m) => m.titles || []).reverse())].reverse();
 
-    this.colors = Array.isArray(input.colors)
-      ? input.colors
-      : input.colors
-      ? [input.colors]
-      : Array.isArray(previousDef?.colors)
-      ? // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
-        previousDef!.colors
-      : isMartyr(this.titles)
-      ? [Colors.Red]
-      : [Colors.White];
+    this.colors = input.colors
+      ? (arrify(input.colors) as Color[])
+      : previousDef
+      ? (arrify(previousDef.colors) as Color[])
+      : (arrify(this.titles.some((t) => isMartyr(t)) ? Color.Red : Color.White) as Color[]);
 
     this.cycles = {
-      properCycle: input.properCycle ?? previousDef?.cycles.properCycle ?? ProperCycles.ProperOfSaints,
+      properCycle: input.properCycle ?? previousDef?.cycles.properCycle ?? ProperCycle.ProperOfSaints,
     };
 
     this.fromCalendarId = fromCalendarId;
@@ -192,7 +192,7 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
         throw new Error(
           `In the '${fromCalendarId}' calendar, trying to drop a LiturgicalDay that doesn't exists: '${id}'.`,
         );
-      } else if (previousDef.fromCalendarId === PROPER_OF_TIME_NAME) {
+      } else if (previousDef.fromCalendarId === PROPER_OF_TIME_ID) {
         throw new Error(
           `In the '${fromCalendarId}' calendar, you can't drop a LiturgicalDay from the Proper of Time: '${id}'.`,
         );
@@ -216,8 +216,8 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
    */
   static precedenceToRank(precedence: Precedence, id: string): Rank {
     // Easter Sunday
-    if (precedence === Precedences.Triduum_1 && id === 'easter_sunday') {
-      return Ranks.Solemnity;
+    if (precedence === Precedence.Triduum_1 && id === 'easter_sunday') {
+      return Rank.Solemnity;
     }
 
     return RanksFromPrecedence[precedence];
@@ -250,13 +250,13 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
       // Add the matching Martyrology item in the Martyrology list defined above this forEach loop.
       if (this.#config.martyrologyCatalog[pointer.id]) {
         // Check if the matching Martyrology item already exists
-        let martyrologyItem = martyrology.find((item) => item.id === pointer.id);
+        let martyrologyItem = martyrology.find((item) => item.martyrologyId === pointer.id);
 
         // Otherwise, add it.
         if (!martyrologyItem) {
           martyrology.push(
             (martyrologyItem = {
-              id: pointer.id,
+              martyrologyId: pointer.id,
               ...this.#config.martyrologyCatalog[pointer.id],
             }),
           );
@@ -285,10 +285,9 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
         // If the martyrology catalog as 0 items, we take the assumption that a new romcal instance
         // has been created, without a specified localized calendar. In this case romcal compute the
         // General Roman Calendar without localization and martyrology data.
-        if (
-          Object.keys(this.#config.martyrologyCatalog).length > 0 &&
-          this.#config.calendarName === GENERAL_ROMAN_NAME
-        ) {
+
+        // TODO: refactor this to have always martyrology data, even for the General Roman Calendar.
+        if (Object.keys(this.#config.martyrologyCatalog).length > 0 && this.#config.calendarName === 'general-roman') {
           throw new Error(
             `In the '${fromCalendarId}' calendar, a LiturgicalDay with the ID '${martyrologyId}', have a badly referenced martyrology item: '${pointer.id}'.`,
           );
@@ -301,7 +300,7 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
       martyrology.forEach((m, i) => {
         // TODO: refactor this to avoid non-null assertion
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        m.titles = this.#combineTitles(input.titles!, martyrology[i].id, previousDef);
+        m.titles = this.#combineTitles(input.titles!, martyrology[i].martyrologyId, previousDef);
       });
       if (martyrology.length === 0) {
         throw new Error(
@@ -327,7 +326,7 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
           // Use a [...new Set(array)] to remove duplicates in the array
           ...new Set([
             ...(titlesDef.prepend ?? []),
-            ...(previousDef?.martyrology.find((m) => m.id === martyrologyId)?.titles ??
+            ...(previousDef?.martyrology.find((m) => m.martyrologyId === martyrologyId)?.titles ??
               this.#config.martyrologyCatalog[martyrologyId].titles ??
               []),
             ...(titlesDef.append ?? []),
@@ -387,7 +386,7 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
 
       // martyrology
       ...(JSON.stringify(dayA.martyrology) !== JSON.stringify(dayB.martyrology)
-        ? { martyrology: dayA.martyrology.map((m) => m.id) }
+        ? { martyrology: dayA.martyrology.map((m) => m.martyrologyId) }
         : {}),
 
       // cycles.properCycle

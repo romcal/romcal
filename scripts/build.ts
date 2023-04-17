@@ -10,7 +10,6 @@ import rimraf from 'rimraf';
 import { PackageJson } from 'type-fest';
 import * as ts from 'typescript';
 
-import { GENERAL_ROMAN_NAME } from '../lib/constants/general-calendar-names';
 import { locales } from '../lib/locales';
 import { particularCalendars } from '../lib/particular-calendars';
 import { toPackageName, toPascalCase } from '../lib/utils/string';
@@ -104,7 +103,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
 
   // Calendars
   log(chalk.dim(`  ./tmp/constants/calendars.ts`));
-  const calendarNames = Object.keys(particularCalendars).concat([GENERAL_ROMAN_NAME]).sort();
+  const calendarNames = Object.keys(particularCalendars).concat(['general-roman']).sort();
   fs.writeFileSync(
     resolve(constantDir, 'calendars.ts'),
     formatCode(
@@ -243,7 +242,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
    * Add package.json and index.d.ts files to all calendar bundles
    */
   log(chalk.bold(`\n✓ Package calendar bundles as npm modules`));
-  const allCalendars = [GENERAL_ROMAN_NAME, ...Object.keys(particularCalendars)];
+  const allCalendars = ['general-roman', ...Object.keys(particularCalendars)];
 
   allCalendars.forEach((calendar) => {
     // mixed snake and underscore case to kebab case

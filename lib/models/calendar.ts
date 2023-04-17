@@ -1,12 +1,18 @@
-import { PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
-import { Periods } from '../constants/periods';
-import { PRECEDENCES, Precedences } from '../constants/precedences';
-import { Ranks } from '../constants/ranks';
-import { Seasons } from '../constants/seasons';
+import {
+  dateDifference,
+  isValidDate,
+  Period,
+  Precedence,
+  PRECEDENCES,
+  PROPER_OF_TIME_ID,
+  Rank,
+  Season,
+} from '@romcal/shared';
+
 import { BaseCalendar, ByIds, DatesIndex, LiturgicalBuiltData, LiturgicalCalendar } from '../types/calendar';
 import { Id } from '../types/common';
 import { RomcalCalendarMetadata } from '../types/liturgical-day';
-import { dateDifference, Dates, isValidDate } from '../utils/dates';
+import { Dates } from '../utils/dates';
 import { RomcalConfig } from './config';
 import LiturgicalDay from './liturgical-day';
 import { LiturgicalDayConfig } from './liturgical-day-config';
@@ -16,8 +22,8 @@ export class Calendar implements BaseCalendar {
   readonly #config: RomcalConfig;
   readonly #liturgicalDayConfig: LiturgicalDayConfig;
   readonly dates: Dates;
-  readonly #startOfSeasonsDic: Record<number, Record<Seasons, Date>> = {};
-  readonly #endOfSeasonsDic: Record<number, Record<Seasons, Date>> = {};
+  readonly #startOfSeasonsDic: Record<number, Record<Season, Date>> = {};
+  readonly #endOfSeasonsDic: Record<number, Record<Season, Date>> = {};
   readonly #startOfLaterOrdinaryTime: Date;
 
   constructor(config: RomcalConfig, liturgicalDayConfig: LiturgicalDayConfig) {
@@ -54,9 +60,9 @@ export class Calendar implements BaseCalendar {
     const startOfSeason = def.seasons.length ? startOfSeasonsDic[def.seasons[0]] : undefined;
     const endOfSeason = def.seasons.length ? endOfSeasonsDic[def.seasons[0]] : undefined;
 
-    const isLent = (baseData?.seasons ?? def.seasons).includes(Seasons.Lent);
+    const isLent = (baseData?.seasons ?? def.seasons).includes(Season.Lent);
     const isLateOrdinaryTime =
-      (baseData?.seasons ?? def.seasons).includes(Seasons.OrdinaryTime) &&
+      (baseData?.seasons ?? def.seasons).includes(Season.OrdinaryTime) &&
       date.getTime() >= this.#startOfLaterOrdinaryTime.getTime();
 
     let dayOfSeason =
@@ -92,8 +98,8 @@ export class Calendar implements BaseCalendar {
       nthDayOfWeekInMonth: Math.ceil(date.getUTCDate() / 7),
       startOfSeason: startOfSeason ? startOfSeason.toISOString().substr(0, 10) : '',
       endOfSeason: endOfSeason ? endOfSeason.toISOString().substr(0, 10) : '',
-      startOfLiturgicalYear: startOfSeasonsDic[Seasons.Advent].toISOString().substr(0, 10),
-      endOfLiturgicalYear: endOfSeasonsDic[Seasons.OrdinaryTime].toISOString().substr(0, 10),
+      startOfLiturgicalYear: startOfSeasonsDic[Season.Advent].toISOString().substr(0, 10),
+      endOfLiturgicalYear: endOfSeasonsDic[Season.OrdinaryTime].toISOString().substr(0, 10),
     };
   }
 
@@ -113,8 +119,8 @@ export class Calendar implements BaseCalendar {
       // in this case the `fromCalendarId` is taking the name of the particular calendar,
       // so we need to check the calendar name of the first item in the `fromExtendedCalendars`.
       const isFromProperOfTime =
-        def.fromCalendarId === PROPER_OF_TIME_NAME ||
-        (def.fromExtendedCalendars.length > 0 && def.fromExtendedCalendars[0].fromCalendarId === PROPER_OF_TIME_NAME);
+        def.fromCalendarId === PROPER_OF_TIME_ID ||
+        (def.fromExtendedCalendars.length > 0 && def.fromExtendedCalendars[0].fromCalendarId === PROPER_OF_TIME_ID);
 
       // In a Liturgical Calendar scope:
       // - Because a Liturgical Year is straddling 2 Gregorian year,
@@ -182,7 +188,7 @@ export class Calendar implements BaseCalendar {
            *    - Feasts: small hours are taken from the weekday.
            */
           const weekday: LiturgicalDay | null =
-            baseData && [Ranks.Feast, Ranks.Memorial].some((r) => r === def.rank) ? baseData : null;
+            baseData && [Rank.Feast, Rank.Memorial].some((r) => r === def.rank) ? baseData : null;
 
           // Create a new LiturgicalDay object, and add it to the builtData object.
           builtData.byIds[def.id] = [
@@ -356,9 +362,9 @@ export class Calendar implements BaseCalendar {
       //    day, or the Mass of any Saint inscribed in the Martyrology for that day, or a Mass
       //    for Various Needs, or a Votive Mass.
       if (
-        (defaultLiturgicalDay.precedence === Precedences.PrivilegedWeekday_9 ||
-          defaultLiturgicalDay.precedence === Precedences.Weekday_13) &&
-        !defaultLiturgicalDay.periods.includes(Periods.HolyWeek)
+        (defaultLiturgicalDay.precedence === Precedence.PrivilegedWeekday_9 ||
+          defaultLiturgicalDay.precedence === Precedence.Weekday_13) &&
+        !defaultLiturgicalDay.periods.includes(Period.HolyWeek)
       ) {
         optionalMemorials = optionalMemorials.concat(
           dates
@@ -366,10 +372,10 @@ export class Calendar implements BaseCalendar {
             .filter(
               (d) =>
                 [
-                  Precedences.GeneralMemorial_10,
-                  Precedences.ProperMemorial_SecondPatron_11a,
-                  Precedences.ProperMemorial_11b,
-                  Precedences.OptionalMemorial_12,
+                  Precedence.GeneralMemorial_10,
+                  Precedence.ProperMemorial_SecondPatron_11a,
+                  Precedence.ProperMemorial_11b,
+                  Precedence.OptionalMemorial_12,
                 ].some((p) => p === d.precedence) || d.isOptional,
             )
             .map((d) => (d.isOptional = true) && d),
@@ -385,7 +391,7 @@ export class Calendar implements BaseCalendar {
       if (defaultLiturgicalDay.allowSimilarRankItems && dates.length > 1) {
         const checkNextItems = (d: LiturgicalDay): boolean =>
           d.rank === defaultLiturgicalDay.rank &&
-          d.precedence !== Precedences.OptionalMemorial_12 &&
+          d.precedence !== Precedence.OptionalMemorial_12 &&
           !optionalMemorials.map((om) => om.id).includes(d.id);
 
         const nextAllowingSimilarItems = dates.slice(1).filter((d) => d.allowSimilarRankItems && checkNextItems(d));

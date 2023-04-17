@@ -1,126 +1,15 @@
-import { Seasons } from '../constants/seasons';
+import {
+  addDays,
+  calculateEasterDate,
+  getUtcDate,
+  isSameDate,
+  rangeOfDays,
+  Season,
+  startOfWeek,
+  subtractsDays,
+} from '@romcal/shared';
+
 import { RomcalConfig } from '../models/config';
-
-export const getUtcDate = (year: number, month: number, date: number): Date => {
-  return new Date(Date.UTC(year, month - 1, date, 0, 0, 0, 0));
-};
-
-export const getUtcDateFromString = (dateStr: string): Date => {
-  const [year, month, date] = dateStr.split('-').map((n) => parseInt(n, 10));
-  return getUtcDate(year, month, date);
-};
-
-export const addDays = (date: Date, days: number): Date => {
-  return new Date(date.valueOf() + 864e5 * days); // 864e5 = 24 * 60 * 60 * 1000
-};
-
-export const subtractsDays = (date: Date, days: number): Date => {
-  return new Date(date.valueOf() - 864e5 * days);
-};
-
-export const isSameDate = (date1: Date, date2: Date): boolean => {
-  return (
-    date1 &&
-    date2 &&
-    date1.getUTCFullYear() === date2.getUTCFullYear() &&
-    date1.getUTCMonth() === date2.getUTCMonth() &&
-    date1.getUTCDate() === date2.getUTCDate()
-  );
-};
-
-export const dateDifference = (date1: Date, date2: Date): number => {
-  return Math.abs(Math.floor((date2.getTime() - date1.getTime()) / (1000 * 60 * 60 * 24)));
-};
-
-export const startOfWeek = (date: Date): Date => {
-  return subtractsDays(date, date.getUTCDay());
-};
-
-export const isValidDate = (maybeDate: unknown): boolean => {
-  // it is a date
-  if (Object.prototype.toString.call(maybeDate) === '[object Date]') {
-    if (isNaN((maybeDate as Date).getTime())) return false; // date is not valid
-    return true; // date is valid
-  }
-  // not a date
-  return false;
-};
-
-/**
- * Get total number of days in a particular month
- *
- * @param      {Date}    date    Date of the month that should be considered
- * @return     {number}  Total number of dates in the particular month
- */
-export const daysInMonth = (date: Date): number => {
-  return new Date(date.getUTCFullYear(), date.getUTCMonth() + 1, 0).getUTCDate();
-};
-
-/**
- * For a given date, get the ISO week number
- *
- * @remarks This function was sourced from [StackOverflow](https://stackoverflow.com/a/6117889/3408342).
- *
- * @param    date - Date which should be considered
- * @returns  ISO week number of the specified date
- */
-export const getWeekNumber = (date: Date): number => {
-  const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
-  d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
-  return Math.ceil(((d.getTime() - new Date(Date.UTC(d.getUTCFullYear(), 0, 1)).getTime()) / 864e5 + 1) / 7);
-};
-
-/**
- * This algorithm is based on the algorithm of Oudin (1940) and quoted in
- * "Explanatory Supplement to the Astronomical Almanac", P. Kenneth
- * Seidelmann, editor.
- *
- * @param year The year on which to check when Easter falls (integer)
- */
-export const computeGregorianEasterDate = (year: number): Record<string, number> => {
-  const Y = year;
-  const C = Math.floor(Y / 100);
-  const N = Y - 19 * Math.floor(Y / 19);
-  const K = Math.floor((C - 17) / 25);
-  let I = C - Math.floor(C / 4) - Math.floor((C - K) / 3) + 19 * N + 15;
-
-  I = I - 30 * Math.floor(I / 30);
-  I = I - Math.floor(I / 28) * (1 - Math.floor(I / 28) * Math.floor(29 / (I + 1)) * Math.floor((21 - N) / 11));
-
-  let J = Y + Math.floor(Y / 4) + I + 2 - C + Math.floor(C / 4);
-  J = J - 7 * Math.floor(J / 7);
-
-  const L = I - J;
-  const M = 3 + Math.floor((L + 40) / 44);
-  const D = L + 28 - 31 * Math.floor(M / 4);
-
-  return { year: Y, month: M, day: D };
-};
-
-/**
- * Returns a range of dates between a given start and end date included
- * @param start The start date
- * @param end The end date
- * @returns An array of dates representing the range
- */
-export const rangeOfDays = (start: Date, end: Date): Date[] => {
-  const days = dateDifference(start, end);
-  const range: Date[] = [];
-  Array.from(new Array(days + 1), (_x, i) => {
-    range.push(addDays(start, i));
-  });
-  return range;
-};
-
-/**
- * Determines if a given date exists within a range of dates.
- * @param range The range to search against
- * @param date The date to search for in the range
- * @returns `true` if the date exists in the range or false if otherwise
- */
-export const rangeContainsDate = (range: Date[], date: Date): boolean => {
-  return range.map((d) => d.toISOString()).includes(date.toISOString());
-};
 
 export class Dates {
   readonly #config: RomcalConfig;
@@ -636,7 +525,7 @@ export class Dates {
    */
   easterSunday = (year = this.#year): Date => {
     if (this.#easter[year]) return this.#easter[year];
-    const { month, day } = computeGregorianEasterDate(year);
+    const { month, day } = calculateEasterDate(year);
     return (this.#easter[year] = getUtcDate(year, month, day));
   };
   #easter: Record<string, Date> = {};
@@ -1203,29 +1092,29 @@ export class Dates {
   };
   #exaltationOfTheHolyCross: Record<string, Date> = {};
 
-  startOfSeasons = (year = this.#year): Record<Seasons, Date> => {
+  startOfSeasons = (year = this.#year): Record<Season, Date> => {
     if (this.#startOfSeasons[year]) return this.#startOfSeasons[year];
     return (this.#startOfSeasons[year] = {
-      [Seasons.Advent]: this.firstSundayOfAdvent(year - 1),
-      [Seasons.ChristmasTime]: this.christmas(year - 1),
-      [Seasons.Lent]: this.ashWednesday(year),
-      [Seasons.PaschalTriduum]: this.holyThursday(year),
-      [Seasons.EasterTime]: this.easterSunday(year),
-      [Seasons.OrdinaryTime]: addDays(this.baptismOfTheLord(year), 1),
+      [Season.Advent]: this.firstSundayOfAdvent(year - 1),
+      [Season.ChristmasTime]: this.christmas(year - 1),
+      [Season.Lent]: this.ashWednesday(year),
+      [Season.PaschalTriduum]: this.holyThursday(year),
+      [Season.EasterTime]: this.easterSunday(year),
+      [Season.OrdinaryTime]: addDays(this.baptismOfTheLord(year), 1),
     });
   };
-  #startOfSeasons: Record<number, Record<Seasons, Date>> = {};
+  #startOfSeasons: Record<number, Record<Season, Date>> = {};
 
-  endOfSeasons = (year = this.#year): Record<Seasons, Date> => {
+  endOfSeasons = (year = this.#year): Record<Season, Date> => {
     if (this.#endOfSeasons[year]) return this.#endOfSeasons[year];
     return (this.#endOfSeasons[year] = {
-      [Seasons.Advent]: getUtcDate(year - 1, 12, 24),
-      [Seasons.ChristmasTime]: this.baptismOfTheLord(year),
-      [Seasons.Lent]: this.holyThursday(year),
-      [Seasons.PaschalTriduum]: this.easterSunday(year),
-      [Seasons.EasterTime]: this.pentecostSunday(year),
-      [Seasons.OrdinaryTime]: addDays(this.christTheKingSunday(year), 6),
+      [Season.Advent]: getUtcDate(year - 1, 12, 24),
+      [Season.ChristmasTime]: this.baptismOfTheLord(year),
+      [Season.Lent]: this.holyThursday(year),
+      [Season.PaschalTriduum]: this.easterSunday(year),
+      [Season.EasterTime]: this.pentecostSunday(year),
+      [Season.OrdinaryTime]: addDays(this.christTheKingSunday(year), 6),
     });
   };
-  #endOfSeasons: Record<number, Record<Seasons, Date>> = {};
+  #endOfSeasons: Record<number, Record<Season, Date>> = {};
 }

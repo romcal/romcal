@@ -1,17 +1,13 @@
+import { Color, Locale, MartyrologyMap, Season, toRomanNumber } from '@romcal/shared';
 import i18next, { i18n } from 'i18next';
 
-import { Color } from '../constants/colors';
-import { Season } from '../constants/seasons';
 import { GeneralRoman } from '../general-calendar/proper-of-saints';
 import { ProperOfTime } from '../general-calendar/proper-of-time';
 import { RomcalBundleObject } from '../types/bundle';
 import { CalendarDefInstance, LiturgicalDayDefinitions } from '../types/calendar-def';
 import { CalendarScope, IRomcalConfig, RomcalConfigInput, RomcalConfigOutput } from '../types/config';
 import { BaseCyclesMetadata } from '../types/cycles-metadata';
-import { Locale } from '../types/locale';
-import { MartyrologyCatalog } from '../types/martyrology';
 import { Dates } from '../utils/dates';
-import { toRomanNumber } from '../utils/numbers';
 import { sanitizeLocaleId } from '../utils/string';
 import { CalendarDef } from './calendar-def';
 
@@ -29,7 +25,7 @@ export class RomcalConfig implements IRomcalConfig {
   readonly scope: CalendarScope;
   readonly i18next: i18n;
   readonly dates: typeof Dates;
-  readonly martyrologyCatalog: MartyrologyCatalog;
+  readonly martyrologyCatalog: MartyrologyMap;
   readonly cyclesCache: Record<number, Pick<BaseCyclesMetadata, 'sundayCycle' | 'weekdayCycle'>> = {};
   readonly calendarsDef: InstanceType<CalendarDefInstance>[];
   liturgicalDayDef: LiturgicalDayDefinitions = {} as LiturgicalDayDefinitions;
@@ -50,7 +46,7 @@ export class RomcalConfig implements IRomcalConfig {
    */
   constructor(
     config?: RomcalConfigInput,
-    martyrologyCatalog?: MartyrologyCatalog,
+    martyrologyCatalog?: MartyrologyMap,
     locale?: Locale,
     particularCalendar?: typeof CalendarDef,
   ) {
@@ -70,7 +66,7 @@ export class RomcalConfig implements IRomcalConfig {
       config?.ascensionOnSunday ?? this.localizedCalendar?.particularConfig.ascensionOnSunday ?? false;
 
     const localeObj: Locale | undefined = this.localizedCalendar?.i18n ?? locale;
-    this.localeId = localeObj?.id ? sanitizeLocaleId(localeObj.id) : 'dev';
+    this.localeId = localeObj?.localeCode ? sanitizeLocaleId(localeObj.localeCode) : 'dev';
 
     // Create an instance and set up the i18next library.
     this.i18next = i18next.createInstance(
@@ -105,7 +101,7 @@ export class RomcalConfig implements IRomcalConfig {
     this.calendarsDef = [];
 
     // Initiate the Martyrology Catalog object.
-    this.martyrologyCatalog = this.localizedCalendar?.martyrology ?? martyrologyCatalog ?? ({} as MartyrologyCatalog);
+    this.martyrologyCatalog = this.localizedCalendar?.martyrology ?? martyrologyCatalog ?? ({} as MartyrologyMap);
 
     // In all cases, generate the ProperOfTime calendar
     this.calendarsDef.push(new ProperOfTime(this));
@@ -136,15 +132,15 @@ export class RomcalConfig implements IRomcalConfig {
    * @private
    */
   #addResourceBundles(locale: Locale): void {
-    this.i18next.addResourceBundle(locale.id, 'seasons', locale.seasons);
-    this.i18next.addResourceBundle(locale.id, 'periods', locale.periods);
-    this.i18next.addResourceBundle(locale.id, 'ranks', locale.ranks);
-    this.i18next.addResourceBundle(locale.id, 'cycles', locale.cycles);
-    this.i18next.addResourceBundle(locale.id, 'weekdays', locale.weekdays);
-    this.i18next.addResourceBundle(locale.id, 'months', locale.months);
-    this.i18next.addResourceBundle(locale.id, 'colors', locale.colors);
-    this.i18next.addResourceBundle(locale.id, 'ordinals', locale.ordinals);
-    this.i18next.addResourceBundle(locale.id, 'names', locale.names);
+    this.i18next.addResourceBundle(locale.localeCode, 'seasons', locale.seasons);
+    this.i18next.addResourceBundle(locale.localeCode, 'periods', locale.periods);
+    this.i18next.addResourceBundle(locale.localeCode, 'ranks', locale.ranks);
+    this.i18next.addResourceBundle(locale.localeCode, 'cycles', locale.cycles);
+    this.i18next.addResourceBundle(locale.localeCode, 'weekdays', locale.weekdays);
+    this.i18next.addResourceBundle(locale.localeCode, 'months', locale.months);
+    this.i18next.addResourceBundle(locale.localeCode, 'colors', locale.colors);
+    this.i18next.addResourceBundle(locale.localeCode, 'ordinals', locale.ordinals);
+    this.i18next.addResourceBundle(locale.localeCode, 'names', locale.names);
   }
 
   /**

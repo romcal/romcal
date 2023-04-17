@@ -1,4 +1,4 @@
-import { ProperCycle, PsalterWeekCycle, SundayCycle, WeekdayCycle } from '../constants/cycles';
+import { ProperCycle, PsalterWeekCycle, SundayCycle, WeekdayCycle } from '@romcal/shared';
 
 /**
  * Cycles Metadata

@@ -1,7 +1,7 @@
-import { Locale } from '../types/locale';
+import { Locale } from '@romcal/shared';
 
 export const locale: Locale = {
-  id: 'en-gb',
+  localeCode: 'en-GB',
 
   names: {
     bernardine_of_siena_priest: 'Saint Bernardine of Siena, Priest, Religious and Missionary', // TODO: This property should be removed after one can add titles within celebration definions.

@@ -1,4 +1,5 @@
-import { Locale } from '../types/locale';
+import { Locale } from '@romcal/shared';
+
 import { locale as Cs } from './cs';
 import { locale as En } from './en';
 import { locale as EnGb } from './en-gb';

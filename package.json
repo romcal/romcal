@@ -6,8 +6,8 @@
   "module": "dist/esm/romcal.js",
   "typings": "dist/index.d.ts",
   "engines": {
-    "node": "^18.16.0",
-    "pnpm": "^8.2.0"
+    "node": ">=18.16.0",
+    "pnpm": ">=8.2.0"
   },
   "scripts": {
     "clean": "rimraf coverage dist tmp",
@@ -60,6 +60,8 @@
   },
   "homepage": "https://github.com/romcal/romcal/blob/master/README.md",
   "dependencies": {
+    "@romcal/shared": "workspace:*",
+    "arrify": "^2.0.1",
     "i18next": "^21.6.0",
     "ts-deepmerge": "^6.0.3"
   },
@@ -73,6 +75,7 @@
     "@types/node": "~18.15.11",
     "chalk": "^4.1.2",
     "cli-progress": "^3.12.0",
+    "date-fns": "^2.29.3",
     "dts-bundle-generator": "^6.2.0",
     "esbuild": "~0.17.16",
     "glob": "^10.1.0",
@@ -82,6 +85,7 @@
     "prettier": "~2.8.7",
     "rimraf": "~4.4.1",
     "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0",
     "tslib": "^2.5.0",
     "type-fest": "^2.8.0",
     "typescript": "^4.9.3"

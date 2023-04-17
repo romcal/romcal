@@ -281,8 +281,8 @@ describe('Testing national calendar overrides', () => {
       const christopherMagallanesPriestAndCompanionsMartyrsMexico = mexicoDates.find(
         (d) => d.id === 'christopher_magallanes_priest_and_companions_martyrs',
       );
-      expect(christopherMagallanesPriestAndCompanionsMartyrs?.precedence).toEqual(Precedences.OptionalMemorial_12);
-      expect(christopherMagallanesPriestAndCompanionsMartyrsMexico?.precedence).toEqual(Precedences.ProperMemorial_11b);
+      expect(christopherMagallanesPriestAndCompanionsMartyrs?.precedence).toEqual(Precedence.OptionalMemorial_12);
+      expect(christopherMagallanesPriestAndCompanionsMartyrsMexico?.precedence).toEqual(Precedence.ProperMemorial_11b);
     });
   });
 
@@ -297,8 +297,8 @@ describe('Testing national calendar overrides', () => {
       const oliverPlunketBishopIreland = irelandDates.find((d) => d.id === 'oliver_plunket_bishop');
       const oliverPlunketBishopEngland = englandDates.find((d) => d.id === 'oliver_plunket_bishop');
 
-      expect(oliverPlunketBishopIreland?.precedence).toEqual(Precedences.ProperMemorial_11b);
-      expect(oliverPlunketBishopEngland?.precedence).toEqual(Precedences.OptionalMemorial_12);
+      expect(oliverPlunketBishopIreland?.precedence).toEqual(Precedence.ProperMemorial_11b);
+      expect(oliverPlunketBishopEngland?.precedence).toEqual(Precedence.OptionalMemorial_12);
     });
   });
 
@@ -329,7 +329,7 @@ describe('Testing national calendar overrides', () => {
         await new Romcal({ localizedCalendar: Slovakia_Sk }).generateCalendar(2018),
       ).flat();
       const ourLadyOfSorrowsPatronessOfSlovakia = slovakiaDates.find((d) => d.id === 'our_lady_of_sorrows');
-      expect(ourLadyOfSorrowsPatronessOfSlovakia?.precedence).toEqual(Precedences.ProperSolemnity_PrincipalPatron_4a);
+      expect(ourLadyOfSorrowsPatronessOfSlovakia?.precedence).toEqual(Precedence.ProperSolemnity_PrincipalPatron_4a);
       expect(ourLadyOfSorrowsPatronessOfSlovakia?.date === '2018-09-15').toBeTruthy();
     });
   });

@@ -269,7 +269,7 @@ describe('Testing seasons utility functions', () => {
           (d) => d.seasons.includes(Seasons.OrdinaryTime) && (d.rank === Ranks.Sunday || d.rank === Ranks.Weekday),
         )
         .forEach((date) => {
-          expect(date.colors[0]).toEqual(Colors.Green);
+          expect(date.colors[0]).toEqual(Color.Green);
         });
     });
 
@@ -286,12 +286,12 @@ describe('Testing seasons utility functions', () => {
         .forEach((date) => {
           if (date.id === 'lent_4_sunday' || date.id === 'advent_3_sunday') {
             // eslint-disable-next-line jest/no-conditional-expect
-            expect(date.colors[0]).toEqual(Colors.Rose);
+            expect(date.colors[0]).toEqual(Color.Rose);
             // eslint-disable-next-line jest/no-conditional-expect
-            expect(date.colors[1]).toEqual(Colors.Purple);
+            expect(date.colors[1]).toEqual(Color.Purple);
           } else {
             // eslint-disable-next-line jest/no-conditional-expect
-            expect(date.colors[0]).toEqual(Colors.Purple);
+            expect(date.colors[0]).toEqual(Color.Purple);
           }
         });
     });
@@ -308,7 +308,7 @@ describe('Testing seasons utility functions', () => {
         )
         .forEach((date) => {
           // eslint-disable-next-line jest/no-conditional-expect
-          expect(date.colors[0]).toEqual(Colors.White);
+          expect(date.colors[0]).toEqual(Color.White);
         });
     });
   });
