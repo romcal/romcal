@@ -16,7 +16,7 @@
     "downlevelIteration": true,
     "importHelpers": true,
     "allowJs": true,
-    "baseUrl": "."
+    "baseUrl": "./"
   },
   "exclude": ["node_modules"],
   "include": ["lib/**/*", "tests/**/*", "scripts/**/*", "tmp/bundles/**/*", "tmp/constants/**/*"],
