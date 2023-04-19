@@ -5,14 +5,14 @@ logs
 npm-debug.log*
 
 # Dependencies
-node_modules/
+node_modules
 
 # Coverage
-coverage/
+coverage
 
 # Transpiled files
-dist/
-tmp/
+dist
+tmp
 
 # Act (run GitHub Actions locally)
 *.event
@@ -38,5 +38,4 @@ tmp/
 local-*
 *.bak
 *.orig
-*code-workspace
 *~

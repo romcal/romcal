@@ -1,3 +1,6 @@
 module.exports = {
-  extends: ["@romcal/eslint-config"],
+  extends: ['@romcal/eslint-config'],
+  parserOptions: {
+    root: true,
+  },
 };

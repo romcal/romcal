@@ -1,11 +1,10 @@
 {
   "name": "@romcal/eslint-config",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.0",
+  "description": "Romcal eslint configuration",
   "main": ".eslintrc.js",
   "keywords": [],
   "author": "",
-  "license": "MIT",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "~5.58.0",
     "@typescript-eslint/parser": "~5.58.0",
@@ -14,5 +13,6 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-unused-imports": "^2.0.0"
-  }
+  },
+  "license": "MIT"
 }

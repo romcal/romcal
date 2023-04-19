@@ -16,13 +16,15 @@
     "downlevelIteration": true,
     "importHelpers": true,
     "allowJs": true,
-    "baseUrl": "./",
+    "noEmit": true,
+    "baseUrl": ".",
     "paths": {
-      "@romcal/shared": ["packages/shared/src"],
-      "@romcal/shared/*": ["packages/shared/src/*"]
+      "@romcal/build": ["./packages/build/src"],
+      "@romcal/build/*": ["./packages/build/src/*"],
+      "@romcal/shared": ["./packages/shared/src"],
+      "@romcal/shared/*": ["./packages/shared/src/*"]
     }
   },
-  "exclude": ["node_modules"],
-  "include": ["lib/**/*", "tests/**/*", "scripts/**/*", "tmp/bundles/**/*", "tmp/constants/**/*"],
+  "exclude": ["node_modules", "**/*/dist"],
   "files": ["global.d.ts"]
 }

@@ -1,0 +1,63 @@
+{
+  "folders": [
+    {
+      "name": "root",
+      "path": "."
+    },
+    {
+      "name": "packages/build",
+      "path": "packages/build"
+    },
+    {
+      "name": "packages/core",
+      "path": "packages/core"
+    },
+    {
+      "name": "packages/eslint-config",
+      "path": "packages/eslint-config"
+    },
+    {
+      "name": "packages/jest-config",
+      "path": "packages/jest-config"
+    },
+    {
+      "name": "packages/shared",
+      "path": "packages/shared"
+    }
+  ],
+  "settings": {
+    "search.exclude": {
+      "**/coverage": true,
+      "**/dist": true,
+      "**/node_modules": true,
+      "pnpm-lock.yaml": true
+    },
+
+    // Linters & Prettier extensions settings
+    "files.trimTrailingWhitespace": true,
+    "eslint.validate": ["typescript", "json"],
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true, // if developer has eslint extension enabled
+      "source.fixAll.tslint": false // if developer has tslint extension enabled
+    },
+    "eslint.format.enable": false, // let prettier do it, it is faster and safer
+
+    // Jest extension settings
+    "jest.disabledWorkspaceFolders": ["root", "packages/jest-config", "packages/eslint-config"],
+    "jest.rootPath": "./",
+    "jest.showCoverageOnLoad": false,
+    "jest.debugMode": false,
+    "jest.autoRun": "off",
+    "jest.jestCommandLine": "pnpm jest"
+  },
+  "extensions": {
+    "recommendations": [
+      "orta.vscode-jest",
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "editorconfig.editorconfig"
+    ]
+  }
+}
