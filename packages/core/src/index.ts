@@ -62,8 +62,8 @@ import {
 } from '@romcal/shared';
 
 import { version } from '../package.json';
-import { CALENDAR_PKG_NAMES, CALENDAR_VAR_NAMES } from '../tmp/constants/calendars';
-import { LOCALE_IDS, LOCALE_VAR_NAMES } from '../tmp/constants/locales';
+// import { CALENDAR_PKG_NAMES, CALENDAR_VAR_NAMES } from '../tmp/constants/calendars';
+// import { LOCALE_IDS, LOCALE_VAR_NAMES } from '../tmp/constants/locales';
 import { RomcalBundle } from './models/bundle';
 import { Calendar } from './models/calendar';
 import { CalendarDef } from './models/calendar-def';
@@ -133,7 +133,7 @@ class Romcal {
   /**
    * Sanitize the provided year
    * @param year
-   * @private
+   * @private0
    */
   static #sanitizeYear(year?: number | string): number | undefined {
     const y: number | undefined = typeof year === 'string' ? parseInt(year, 10) : year;
@@ -308,10 +308,10 @@ class Romcal {
   // utils/numbers.ts
   static toRomanNumber = toRomanNumber;
   // generated data from build
-  static CALENDAR_VAR_NAMES = CALENDAR_VAR_NAMES;
-  static CALENDAR_PKG_NAMES = CALENDAR_PKG_NAMES;
-  static LOCALE_VAR_NAMES = LOCALE_VAR_NAMES;
-  static LOCALE_IDS = LOCALE_IDS;
+  // static CALENDAR_VAR_NAMES = CALENDAR_VAR_NAMES;
+  // static CALENDAR_PKG_NAMES = CALENDAR_PKG_NAMES;
+  // static LOCALE_VAR_NAMES = LOCALE_VAR_NAMES;
+  // static LOCALE_IDS = LOCALE_IDS;
 }
 
 export default Romcal;

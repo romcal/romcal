@@ -1,0 +1,37 @@
+{
+  "name": "@romcal/core",
+  "version": "0.0.0",
+  "description": "Romcal core package",
+  "main": "dist/romcal.js",
+  "module": "dist/romcal.mjs",
+  "typings": "dist/index.d.ts",
+  "keywords": [],
+  "author": "",
+  "scripts": {
+    "clean": "rimraf coverage dist",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "prebuild": "npm run lint",
+    "prettier": "prettier -c --config .prettierrc ./*",
+    "prettier:fix": "prettier -w --config .prettierrc {.github,./*}",
+    "build": "node -r tsconfig-paths/register -r ts-node/register scripts/index.ts",
+    "test": "jest",
+    "test:coverage": "jest: --coverage",
+    "test:watch": "jest --watch",
+    "test:snapshot:update": "jest -u"
+  },
+  "dependencies": {
+    "@romcal/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "@romcal/build": "workspace:*",
+    "@romcal/eslint-config": "workspace:*",
+    "@romcal/jest-config": "workspace:*",
+    "@types/jest": "^29.5.0",
+    "jest": "^29.5.0",
+    "jest-extended": "^3.2.4",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0"
+  },
+  "license": "MIT"
+}
