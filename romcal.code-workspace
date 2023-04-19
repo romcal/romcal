@@ -25,14 +25,34 @@
       "path": "packages/shared"
     }
   ],
+  "launch": {
+    "configurations": [
+      {
+        "type": "node",
+        "name": "vscode-jest-tests.v2",
+        "request": "launch",
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen",
+        "cwd": "${workspaceFolder}",
+        "runtimeExecutable": "pnpm",
+        "args": [
+          "exec",
+          "jest",
+          "--runInBand",
+          "--no-cache",
+          "--runInBand",
+          "--watchAll=false",
+          "--testNamePattern",
+          "${jest.testNamePattern}",
+          "--runTestsByPath",
+          "${jest.testFile}"
+        ],
+        "disableOptimisticBPs": true
+      }
+    ],
+    "compounds": []
+  },
   "settings": {
-    "search.exclude": {
-      "**/coverage": true,
-      "**/dist": true,
-      "**/node_modules": true,
-      "pnpm-lock.yaml": true
-    },
-
     // Linters & Prettier extensions settings
     "files.trimTrailingWhitespace": true,
     "eslint.validate": ["typescript", "json"],
@@ -50,7 +70,16 @@
     "jest.showCoverageOnLoad": false,
     "jest.debugMode": false,
     "jest.autoRun": "off",
-    "jest.jestCommandLine": "pnpm jest"
+    "jest.jestCommandLine": "pnpm exec jest --runInBand --no-cache",
+
+    // Other settings
+    "search.exclude": {
+      "**/coverage": true,
+      "**/dist": true,
+      "**/node_modules": true,
+      "pnpm-lock.yaml": true
+    },
+    "cSpell.words": ["Romcal", "Triduum"]
   },
   "extensions": {
     "recommendations": [

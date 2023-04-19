@@ -9,6 +9,20 @@
     "source.fixAll.tslint": false // if developer has tslint extension enabled
   },
   "eslint.format.enable": false, // let prettier do it, it is faster and safer
+
   // Jest extension settings
-  "jest.autoRun": {}
+  "jest.rootPath": "./",
+  "jest.showCoverageOnLoad": false,
+  "jest.debugMode": false,
+  "jest.autoRun": "off",
+  "jest.jestCommandLine": "pnpm exec jest --runInBand --no-cache",
+
+  // Other settings
+  "search.exclude": {
+    "**/coverage": true,
+    "**/dist": true,
+    "**/node_modules": true,
+    "pnpm-lock.yaml": true
+  },
+  "cSpell.words": ["Romcal", "Triduum"]
 }
