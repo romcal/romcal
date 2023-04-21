@@ -24,5 +24,8 @@
     "**/node_modules": true,
     "pnpm-lock.yaml": true
   },
+  "yaml.schemas": {
+    "packages/locales/dist/Locale.schema.json": "packages/locales/src/**/*.yaml"
+  },
   "cSpell.words": ["Romcal", "Triduum"]
 }

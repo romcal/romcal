@@ -9,6 +9,10 @@
       "path": "packages/build"
     },
     {
+      "name": "packages/calendars",
+      "path": "packages/calendars"
+    },
+    {
       "name": "packages/core",
       "path": "packages/core"
     },
@@ -19,6 +23,10 @@
     {
       "name": "packages/jest-config",
       "path": "packages/jest-config"
+    },
+    {
+      "name": "packages/locales",
+      "path": "packages/locales"
     },
     {
       "name": "packages/shared",
@@ -78,6 +86,9 @@
       "**/dist": true,
       "**/node_modules": true,
       "pnpm-lock.yaml": true
+    },
+    "yaml.schemas": {
+      "./packages/locales/dist/Locale.schema.json": "packages/locales/src/**/*.yaml"
     },
     "cSpell.words": ["Romcal", "Triduum"]
   },

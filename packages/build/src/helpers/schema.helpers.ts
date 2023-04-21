@@ -10,6 +10,7 @@ type BuildJsonSchemaOptions = {
   outDir: string;
   outFileNameWithoutExt: string;
   onWriteFile?: (opt: BuiltFile) => void;
+  schemaFor?: string;
 };
 
 export const buildJsonSchema = async ({
@@ -17,6 +18,7 @@ export const buildJsonSchema = async ({
   outDir,
   outFileNameWithoutExt,
   onWriteFile,
+  schemaFor,
 }: BuildJsonSchemaOptions): Promise<void> => {
   log({ message: `Building entries: ${entryPoint}`, namespace: 'schema' });
 
@@ -24,7 +26,7 @@ export const buildJsonSchema = async ({
   const schema = createGenerator({
     path: entryPoint,
     tsconfig: 'tsconfig.json',
-  }).createSchema('*');
+  }).createSchema(schemaFor ?? '*');
   const schemaString = prettier.format(JSON.stringify(schema), { parser: 'json' });
 
   mkdirSync(outDir, { recursive: true });
