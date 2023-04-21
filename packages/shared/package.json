@@ -14,7 +14,7 @@
     "prebuild": "npm run lint",
     "prettier": "prettier -c --config .prettierrc ./*",
     "prettier:fix": "prettier -w --config .prettierrc {.github,./*}",
-    "build": "node -r tsconfig-paths/register -r ts-node/register scripts/index.ts",
+    "build": "node -r tsconfig-paths/register -r ts-node/register build/index.ts",
     "test": "jest",
     "test:coverage": "jest: --coverage",
     "test:watch": "jest --watch",
