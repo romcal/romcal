@@ -15,7 +15,7 @@ const distDir = 'dist';
   await Promise.all([
     buildJsonSchema({
       entryPoint: '../../shared/src/{constants,types}/**/*.ts',
-      outDir: distDir,
+      outDir: `${distDir}/schemas`,
       outFileNameWithoutExt: 'Locale.schema',
       schemaFor: 'Locale',
       onWriteFile,
