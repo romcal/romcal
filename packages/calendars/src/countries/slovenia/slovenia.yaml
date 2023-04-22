@@ -1,14 +1,10 @@
-import { CalendarDefInput, Precedence } from '@romcal/shared';
+calendarId: slovenia
 
-export const Slovenia: CalendarDefInput = {
-  calendarId: 'slovenia',
+basedOn:
+  - general-roman
+  - europe
 
-  basedOn: ['general-roman', 'europe'],
-
-  inputs: {
-    john_nepomucene_priest: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 5, date: 16 },
-    },
-  },
-};
+inputs:
+  john_nepomucene_priest:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 5-16

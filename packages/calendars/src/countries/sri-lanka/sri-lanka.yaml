@@ -1,24 +1,17 @@
-import { CalendarDefInput, Precedence } from '@romcal/shared';
+calendarId: sri-lanka
 
-export const SriLanka: CalendarDefInput = {
-  calendarId: 'sri-lanka',
+basedOn:
+  - general-roman
 
-  basedOn: ['general-roman'],
+inputs:
+  joseph_vaz_priest:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 1-16
 
-  inputs: {
-    joseph_vaz_priest: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 1, date: 16 },
-    },
+  our_lady_of_lanka:
+    precedence: 08F_PROPER_FEAST
+    dateDef: 2-4
 
-    our_lady_of_lanka: {
-      precedence: Precedence.ProperFeast_8f,
-      dateDef: { month: 2, date: 4 },
-    },
-
-    our_lady_of_madhu: {
-      precedence: Precedence.ProperFeast_8f,
-      dateDef: { month: 7, date: 2 },
-    },
-  },
-};
+  our_lady_of_madhu:
+    precedence: 08F_PROPER_FEAST
+    dateDef: 7-2

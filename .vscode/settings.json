@@ -25,6 +25,13 @@
     "pnpm-lock.yaml": true
   },
   "yaml.schemas": {
+    "packages/calendars/dist/schemas/CalendarDefInput.schema.json": [
+      "packages/calendars/src/continents/**/*.yaml",
+      "packages/calendars/src/countries/**/*.yaml",
+      "packages/calendars/src/general-roman/**/*.yaml",
+      "packages/calendars/src/regions/**/*.yaml"
+    ],
+    "packages/calendars/dist/schemas/MartyrologyMap.schema.json": "packages/calendars/src/martyrology.yaml",
     "packages/locales/dist/Locale.schema.json": "packages/locales/src/**/*.yaml"
   },
   "cSpell.words": ["Romcal", "Triduum"]

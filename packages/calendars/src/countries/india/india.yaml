@@ -1,54 +1,41 @@
-import { CalendarDefInput, Precedence } from '@romcal/shared';
+calendarId: india
 
-export const India: CalendarDefInput = {
-  calendarId: 'india',
+basedOn:
+  - general-roman
 
-  basedOn: ['general-roman'],
+inputs:
+  kuriakose_elias_of_the_holy_family_chavara_priest:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 1-3
 
-  inputs: {
-    kuriakose_elias_of_the_holy_family_chavara_priest: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 1, date: 3 },
-    },
+  joseph_vaz_priest:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 1-16
 
-    joseph_vaz_priest: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 1, date: 16 },
-    },
+  john_de_britto_priest:
+    precedence: 11B_PROPER_MEMORIAL
+    dateDef: 2-4
 
-    john_de_britto_priest: {
-      precedence: Precedence.ProperMemorial_11b,
-      dateDef: { month: 2, date: 4 },
-    },
+  gundisalvus_garcia_martyr:
+    precedence: 11B_PROPER_MEMORIAL
+    dateDef: 2-6
 
-    gundisalvus_garcia_martyr: {
-      precedence: Precedence.ProperMemorial_11b,
-      dateDef: { month: 2, date: 6 },
-    },
+  mary_theresa_chiramel_mankidiyan_virgin:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 6-8
 
-    mary_theresa_chiramel_mankidiyan_virgin: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 6, date: 8 },
-    },
+  thomas_apostle:
+    precedence: 04A_PROPER_SOLEMNITY__PRINCIPAL_PATRON
+    dateDef: 7-3
 
-    thomas_apostle: {
-      precedence: Precedence.ProperSolemnity_PrincipalPatron_4a,
-      dateDef: { month: 7, date: 3 },
-    },
+  alphonsa_of_the_immaculate_conception_muttathupadathu_virgin:
+    precedence: 11B_PROPER_MEMORIAL
+    dateDef: 7-28
 
-    alphonsa_of_the_immaculate_conception_muttathupadathu_virgin: {
-      precedence: Precedence.ProperMemorial_11b,
-      dateDef: { month: 7, date: 28 },
-    },
+  teresa_of_calcutta_religious:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 9-5
 
-    teresa_of_calcutta_religious: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 9, date: 5 },
-    },
-
-    francis_xavier_priest: {
-      precedence: Precedence.ProperSolemnity_PrincipalPatron_4a,
-      dateDef: { month: 12, date: 3 },
-    },
-  },
-};
+  francis_xavier_priest:
+    precedence: 04A_PROPER_SOLEMNITY__PRINCIPAL_PATRON
+    dateDef: 12-3

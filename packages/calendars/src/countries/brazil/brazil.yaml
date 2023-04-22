@@ -1,64 +1,60 @@
-import { CalendarDefInput, PatronTitle, Precedence } from '@romcal/shared';
+calendarId: brazil
 
-export const Brazil: CalendarDefInput = {
-  calendarId: 'brazil',
+basedOn:
+  - general-roman
+  - america
 
-  basedOn: ['general-roman', 'america'],
+inputs:
+  joseph_de_anchieta_priest:
+    precedence: 11B_PROPER_MEMORIAL
+    dateDef: 6-9
 
-  inputs: {
-    joseph_de_anchieta_priest: {
-      precedence: Precedence.ProperMemorial_11b,
-      dateDef: { month: 6, date: 9 },
-    },
+  albertina_berkenbrock_virgin:
+    precedence: 11B_PROPER_MEMORIAL
+    dateDef: 6-15
 
-    albertina_berkenbrock_virgin: {
-      precedence: Precedence.ProperMemorial_11b,
-      dateDef: { month: 6, date: 15 },
-    },
+  paulina_of_the_agonizing_heart_of_jesus_visintainer_virgin:
+    precedence: 11B_PROPER_MEMORIAL
+    dateDef: 7-9
 
-    paulina_of_the_agonizing_heart_of_jesus_visintainer_virgin: {
-      precedence: Precedence.ProperMemorial_11b,
-      dateDef: { month: 7, date: 9 },
-    },
+  our_lady_of_mount_carmel:
+    precedence: 08F_PROPER_FEAST
+    dateDef: 7-16
 
-    our_lady_of_mount_carmel: {
-      precedence: Precedence.ProperFeast_8f,
-      dateDef: { month: 7, date: 16 },
-    },
+  ignatius_de_azevedo_priest_and_companions_martyrs:
+    precedence: 11B_PROPER_MEMORIAL
+    dateDef: 7-17
+    martyrology:
+      - ignatius_de_azevedo_priest
+      - companions_martyrs
 
-    ignatius_de_azevedo_priest_and_companions_martyrs: {
-      precedence: Precedence.ProperMemorial_11b,
-      dateDef: { month: 7, date: 17 },
-      martyrology: ['ignatius_de_azevedo_priest', 'companions_martyrs'],
-    },
+  rose_of_lima_virgin:
+    precedence: 08F_PROPER_FEAST
+    dateDef: 8-23
 
-    rose_of_lima_virgin: {
-      precedence: Precedence.ProperFeast_8f,
-      dateDef: { month: 8, date: 23 },
-    },
+  andrew_de_soveral_and_ambrose_francis_ferro_priests:
+    precedence: 11B_PROPER_MEMORIAL
+    dateDef: 10-3
+    martyrology:
+      - andrew_de_soveral_priest
+      - ambrose_francis_ferro_priest
 
-    andrew_de_soveral_and_ambrose_francis_ferro_priests: {
-      precedence: Precedence.ProperMemorial_11b,
-      dateDef: { month: 10, date: 3 },
-      martyrology: ['andrew_de_soveral_priest', 'ambrose_francis_ferro_priest'],
-    },
+  our_lady_of_aparecida:
+    customLocaleKey: our_lady_of_aparecida_patroness_of_brazil
+    precedence: 04A_PROPER_SOLEMNITY__PRINCIPAL_PATRON
+    dateDef: 10-12
+    titles:
+      append:
+        - PATRONESS_OF_BRAZIL
 
-    our_lady_of_aparecida: {
-      customLocaleKey: 'our_lady_of_aparecida_patroness_of_brazil',
-      precedence: Precedence.ProperSolemnity_PrincipalPatron_4a,
-      dateDef: { month: 10, date: 12 },
-      titles: { append: [PatronTitle.PatronessOfBrazil] },
-    },
+  anthony_of_saint_anne_galvao_priest:
+    precedence: 11B_PROPER_MEMORIAL
+    dateDef: 10-25
 
-    anthony_of_saint_anne_galvao_priest: {
-      precedence: Precedence.ProperMemorial_11b,
-      dateDef: { month: 10, date: 25 },
-    },
-
-    roch_gonzalez_alphonsus_rodriguez_and_john_del_castillo_priests: {
-      precedence: Precedence.ProperMemorial_11b,
-      dateDef: { month: 11, date: 19 },
-      martyrology: ['roch_gonzalez_priest', 'alphonsus_rodriguez_priest', 'john_del_castillo_priest'],
-    },
-  },
-};
+  roch_gonzalez_alphonsus_rodriguez_and_john_del_castillo_priests:
+    precedence: 11B_PROPER_MEMORIAL
+    dateDef: 11-19
+    martyrology:
+      - roch_gonzalez_priest
+      - alphonsus_rodriguez_priest
+      - john_del_castillo_priest

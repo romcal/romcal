@@ -1,59 +1,46 @@
-import { CalendarDefInput, Precedence } from '@romcal/shared';
+calendarId: finland
 
-export const Finland: CalendarDefInput = {
-  calendarId: 'finland',
+basedOn:
+  - general-roman
+  - europe
 
-  basedOn: ['general-roman', 'europe'],
+inputs:
+  henry_of_finland_bishop:
+    precedence: 04A_PROPER_SOLEMNITY__PRINCIPAL_PATRON
+    dateDef: 1-19
 
-  inputs: {
-    henry_of_finland_bishop: {
-      precedence: Precedence.ProperSolemnity_PrincipalPatron_4a,
-      dateDef: { month: 1, date: 19 },
-    },
+  eric_ix_of_sweden_martyr:
+    precedence: 11B_PROPER_MEMORIAL
+    dateDef: 5-18
 
-    eric_ix_of_sweden_martyr: {
-      precedence: Precedence.ProperMemorial_11b,
-      dateDef: { month: 5, date: 18 },
-    },
+  hemming_of_turku_bishop:
+    precedence: 11B_PROPER_MEMORIAL
+    dateDef: 5-22
 
-    hemming_of_turku_bishop: {
-      precedence: Precedence.ProperMemorial_11b,
-      dateDef: { month: 5, date: 22 },
-    },
+  mary_ursula_of_jesus_ledochowska_virgin:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 5-29
 
-    mary_ursula_of_jesus_ledochowska_virgin: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 5, date: 29 },
-    },
+  elizabeth_hesselblad_religious:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 6-4
 
-    elizabeth_hesselblad_religious: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 6, date: 4 },
-    },
+  josemaria_escriva_de_balaguer_priest:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 6-26
 
-    josemaria_escriva_de_balaguer_priest: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 6, date: 26 },
-    },
+  canute_iv_of_denmark_martyr:
+    precedence: 11B_PROPER_MEMORIAL
+    dateDef: 7-10
 
-    canute_iv_of_denmark_martyr: {
-      precedence: Precedence.ProperMemorial_11b,
-      dateDef: { month: 7, date: 10 },
-    },
+  thorlac_of_iceland_bishop:
+    precedence: 11B_PROPER_MEMORIAL
+    dateDef: 7-20
 
-    thorlac_of_iceland_bishop: {
-      precedence: Precedence.ProperMemorial_11b,
-      dateDef: { month: 7, date: 20 },
-    },
+  olaf_ii_of_norway_martyr:
+    precedence: 11B_PROPER_MEMORIAL
+    dateDef: 5-29
 
-    olaf_ii_of_norway_martyr: {
-      precedence: Precedence.ProperMemorial_11b,
-      dateDef: { month: 5, date: 29 },
-    },
-
-    nicholas_steno_bishop: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 11, date: 25 },
-    },
-  },
-};
+  nicholas_steno_bishop:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 11-25

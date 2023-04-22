@@ -1,31 +1,29 @@
-import { CalendarDefInput, PatronTitle, Precedence, Title } from '@romcal/shared';
+calendarId: italy
 
-export const Italy: CalendarDefInput = {
-  calendarId: 'italy',
+basedOn:
+  - general-roman
+  - europe
 
-  basedOn: ['general-roman', 'europe'],
+inputs:
+  catherine_of_siena_virgin:
+    customLocaleKey: catherine_of_siena_virgin_copatroness_of_italy_and_europe
+    precedence: 08C_PROPER_FEAST__PRINCIPAL_PATRON_OF_A_REGION
+    titles:
+      - VIRGIN
+      - DOCTOR_OF_THE_CHURCH
+      - COPATRONESS_OF_ITALY_AND_EUROPE
 
-  inputs: {
-    catherine_of_siena_virgin: {
-      customLocaleKey: 'catherine_of_siena_virgin_copatroness_of_italy_and_europe',
-      precedence: Precedence.ProperFeast_PrincipalPatronOfARegion_8c,
-      titles: [Title.Virgin, Title.DoctorOfTheChurch, PatronTitle.CopatronessOfItalyAndEurope],
-    },
+  norbert_of_xanten_bishop:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 6-6
 
-    norbert_of_xanten_bishop: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 6, date: 6 },
-    },
+  mary_magdalene:
+    precedence: 08F_PROPER_FEAST
+    dateDef: 7-22
 
-    mary_magdalene: {
-      precedence: Precedence.ProperFeast_8f,
-      dateDef: { month: 7, date: 22 },
-    },
-
-    francis_of_assisi: {
-      customLocaleKey: 'francis_of_assisi_patron_of_italy',
-      precedence: Precedence.ProperFeast_PrincipalPatronOfARegion_8c,
-      titles: { append: [PatronTitle.PatronOfItaly] },
-    },
-  },
-};
+  francis_of_assisi:
+    customLocaleKey: francis_of_assisi_patron_of_italy
+    precedence: 08C_PROPER_FEAST__PRINCIPAL_PATRON_OF_A_REGION
+    titles:
+      append:
+        - PATRON_OF_ITALY

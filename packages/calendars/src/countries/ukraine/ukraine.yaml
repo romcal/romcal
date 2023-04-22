@@ -1,84 +1,68 @@
-import { CalendarDefInput, Precedence } from '@romcal/shared';
+calendarId: ukraine
 
-export const Ukraine: CalendarDefInput = {
-  calendarId: 'ukraine',
+basedOn:
+  - general-roman
+  - europe
 
-  basedOn: ['general-roman', 'europe'],
+inputs:
+  marcelina_darowska_religious:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 1-5
 
-  inputs: {
-    marcelina_darowska_religious: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 1, date: 5 },
-    },
+  bronislaw_markiewicz_priest:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 1-30
 
-    bronislaw_markiewicz_priest: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 1, date: 30 },
-    },
+  mary_mother_of_the_church:
+    precedence: 08F_PROPER_FEAST
 
-    mary_mother_of_the_church: {
-      precedence: Precedence.ProperFeast_8f,
-    },
+  andrew_bobola_priest:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 5-16
 
-    andrew_bobola_priest: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 5, date: 16 },
-    },
+  john_nepomucene_priest:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 5-21
 
-    john_nepomucene_priest: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 5, date: 21 },
-    },
+  albert_chmielowski_religious:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 6-17
 
-    albert_chmielowski_religious: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 6, date: 17 },
-    },
+  zygmunt_gorazdowski_priest:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 6-26
 
-    zygmunt_gorazdowski_priest: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 6, date: 26 },
-    },
+  john_of_dukla_priest:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 7-8
 
-    john_of_dukla_priest: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 7, date: 8 },
-    },
+  hedwig_of_poland:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 7-18
 
-    hedwig_of_poland: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 7, date: 18 },
-    },
+  olga_of_kiev:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 7-24
 
-    olga_of_kiev: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 7, date: 24 },
-    },
+  vladimir_i_the_great_of_kiev:
+    precedence: 11B_PROPER_MEMORIAL
+    dateDef: 7-28
 
-    vladimir_i_the_great_of_kiev: {
-      precedence: Precedence.ProperMemorial_11b,
-      dateDef: { month: 7, date: 28 },
-    },
+  our_lady_of_czestochowa:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 8-26
 
-    our_lady_of_czestochowa: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 8, date: 26 },
-    },
+  wladyslaw_bladzinski_priest_and_companions_martyrs:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 9-9
+    martyrology:
+      - wladyslaw_bladzinski_priest
+      - companions_martyrs
 
-    wladyslaw_bladzinski_priest_and_companions_martyrs: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 9, date: 9 },
-      martyrology: ['wladyslaw_bladzinski_priest', 'companions_martyrs'],
-    },
+  stanislaus_kostka_religious:
+    precedence: 11B_PROPER_MEMORIAL
+    dateDef: 9-18
 
-    stanislaus_kostka_religious: {
-      precedence: Precedence.ProperMemorial_11b,
-      dateDef: { month: 9, date: 18 },
-    },
-
-    joseph_bilczewski_bishop: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 10, date: 23 },
-    },
-  },
-};
+  joseph_bilczewski_bishop:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 10-23

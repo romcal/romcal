@@ -1,53 +1,41 @@
-import { CalendarDefInput, Precedence } from '@romcal/shared';
+calendarId: lithuania
 
-export const Lithuania: CalendarDefInput = {
-  calendarId: 'lithuania',
+basedOn:
+  - general-roman
+  - europe
 
-  basedOn: ['general-roman', 'europe'],
+inputs:
+  george_matulaitis_bishop:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 1-27
 
-  inputs: {
-    george_matulaitis_bishop: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 1, date: 27 },
-    },
+  casimir_of_poland:
+    precedence: 08F_PROPER_FEAST
+    dateDef: 3-4
 
-    casimir_of_poland: {
-      precedence: Precedence.ProperFeast_8f,
-      dateDef: { month: 3, date: 4 },
-    },
+  bruno_of_querfurt_bishop:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 3-9
 
-    bruno_of_querfurt_bishop: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 3, date: 9 },
-    },
+  adalbert_of_prague_bishop:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 4-23
 
-    adalbert_of_prague_bishop: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 4, date: 23 },
-    },
+  andrew_bobola_priest:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 5-16
 
-    andrew_bobola_priest: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 5, date: 16 },
-    },
+  our_lady_of_the_gate_of_dawn:
+    precedence: 04A_PROPER_SOLEMNITY__PRINCIPAL_PATRON
+    dateDef: 11-16
 
-    our_lady_of_the_gate_of_dawn: {
-      precedence: Precedence.ProperSolemnity_PrincipalPatron_4a,
-      dateDef: { month: 11, date: 16 },
-    },
+  roch_of_montpellier:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 8-16
 
-    roch_of_montpellier: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 8, date: 16 },
-    },
+  hyacinth_of_poland_priest:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 8-17
 
-    hyacinth_of_poland_priest: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 8, date: 17 },
-    },
-
-    nativity_of_the_blessed_virgin_mary: {
-      precedence: Precedence.ProperSolemnity_PrincipalPatron_4a,
-    },
-  },
-};
+  nativity_of_the_blessed_virgin_mary:
+    precedence: 04A_PROPER_SOLEMNITY__PRINCIPAL_PATRON

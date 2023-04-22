@@ -1,19 +1,14 @@
-import { CalendarDefInput, Precedence } from '@romcal/shared';
+calendarId: austria
 
-export const Austria: CalendarDefInput = {
-  calendarId: 'austria',
+basedOn:
+  - general-roman
+  - europe
+  - austria-germany-switzerland
 
-  basedOn: ['general-roman', 'europe'],
+inputs:
+  john_nepomucene_priest:
+    precedence: 11B_PROPER_MEMORIAL
 
-  inputs: {
-    john_nepomucene_priest: {
-      precedence: Precedence.ProperMemorial_11b,
-      dateDef: { month: 5, date: 16 },
-    },
-
-    charles_i_of_austria: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 10, date: 21 },
-    },
-  },
-};
+  charles_i_of_austria:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 10-21

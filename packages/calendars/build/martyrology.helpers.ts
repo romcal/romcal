@@ -1,7 +1,7 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 
-import { BuiltFile, log, logError } from '@romcal/build';
+import { BuiltFile, log, logError, yamlImports } from '@romcal/build';
 import {
   MartyrologyItem,
   MartyrologyItemId,
@@ -10,8 +10,6 @@ import {
   RomcalTitle,
   TitlesDef,
 } from '@romcal/shared';
-
-import { Martyrology } from '../src/martyrology';
 
 // import { yamlImports } from './yaml.helpers';
 
@@ -122,27 +120,26 @@ export const inputToManyMartyrologyItems = ({
 };
 
 type BuildMartyrologyOptions = {
-  // entryPoint: string;
+  entryPoint: string;
   outPath: string;
   onWriteFile?: (opt: BuiltFile) => void;
 };
 
 export const buildMartyrology = async ({
-  // entryPoint,
+  entryPoint,
   outPath,
   onWriteFile,
 }: BuildMartyrologyOptions): Promise<MartyrologyMap> => {
   let allMartyrologyMap: MartyrologyMap = {};
 
   try {
-    // log({ message: `Building martyrology: ${entryPoint}`, namespace: 'json' });
-    log({ message: `Building martyrology data`, namespace: 'json' });
+    log({ message: `Building martyrology: ${entryPoint}`, namespace: 'json' });
 
-    // allMartyrologyMap = Object.values(yamlImports<MartyrologyMap>({ entryPoints: entryPoint }))[0];
+    allMartyrologyMap = Object.values(yamlImports<MartyrologyMap>({ entryPoints: entryPoint }))[0];
 
     // Remove the deprecated name property.
     allMartyrologyMap = Object.fromEntries(
-      Object.entries(Martyrology).map(([key, value]) => [key, { ...value, name: undefined }]),
+      Object.entries(allMartyrologyMap).map(([key, value]) => [key, { ...value, name: undefined }]),
     );
 
     mkdirSync(path.dirname(outPath), { recursive: true });

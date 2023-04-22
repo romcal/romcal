@@ -1,20 +1,17 @@
-import { CalendarDefInput, Precedence, ProperCycle } from '@romcal/shared';
+calendarId: sweden
 
-export const Sweden: CalendarDefInput = {
-  calendarId: 'sweden',
+basedOn:
+  - general-roman
+  - europe
 
-  basedOn: ['general-roman', 'europe'],
+inputs:
+  elizabeth_hesselblad_religious:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 6-4
 
-  inputs: {
-    elizabeth_hesselblad_religious: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 6, date: 4 },
-    },
-
-    our_lord_jesus_christ_the_eternal_high_priest: {
-      precedence: Precedence.ProperFeast_8f,
-      dateDef: { dateFn: 'pentecostSunday', addDay: 4 },
-      properCycle: ProperCycle.ProperOfTime,
-    },
-  },
-};
+  our_lord_jesus_christ_the_eternal_high_priest:
+    precedence: 08F_PROPER_FEAST
+    dateDef:
+      dateFn: pentecostSunday
+      addDay: 4
+    properCycle: PROPER_OF_TIME

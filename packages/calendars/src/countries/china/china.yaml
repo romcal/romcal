@@ -1,181 +1,161 @@
-import { CalendarDefInput, DayOfWeek, Precedence, ProperCycle } from '@romcal/shared';
+calendarId: china
 
-export const China: CalendarDefInput = {
-  calendarId: 'china',
+basedOn:
+  - general-roman
 
-  basedOn: ['general-roman'],
+inputs:
+  odoric_of_pordenone_priest:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 1-14
 
-  inputs: {
-    odoric_of_pordenone_priest: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 1, date: 14 },
-    },
+  francis_ferdinand_de_capillas_priest:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 1-15
 
-    francis_ferdinand_de_capillas_priest: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 1, date: 15 },
-    },
+  lawrence_bai_xiaoman_martyr:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 1-23
 
-    lawrence_bai_xiaoman_martyr: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 1, date: 23 },
-    },
+  augustine_zhao_rong_priest:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 1-27
 
-    augustine_zhao_rong_priest: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 1, date: 27 },
-    },
+  laurence_wang_bing_and_companions_martyrs:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 1-29
+    martyrology:
+      - laurence_wang_bing_martyr
+      - companions_martyrs
 
-    laurence_wang_bing_and_companions_martyrs: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 1, date: 29 },
-      martyrology: ['laurence_wang_bing_martyr', 'companions_martyrs'],
-    },
+  joseph_freinademetz_priest:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 1-29
 
-    joseph_freinademetz_priest: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 1, date: 29 },
-    },
+  john_of_triora_priest:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 2-13
 
-    john_of_triora_priest: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 2, date: 13 },
-    },
+  martin_wu_xuesheng_and_companions_martyrs:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 2-17
+    martyrology:
+      - martin_wu_xuesheng_martyr
+      - companions_martyrs
 
-    martin_wu_xuesheng_and_companions_martyrs: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 2, date: 17 },
-      martyrology: ['martin_wu_xuesheng_martyr', 'companions_martyrs'],
-    },
+  lucy_yi_zhenmei_virgin:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 2-19
 
-    lucy_yi_zhenmei_virgin: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 2, date: 19 },
-    },
+  paul_liu_hanzuo_priest:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 2-21
 
-    paul_liu_hanzuo_priest: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 2, date: 21 },
-    },
+  aloysius_versiglia_bishop_and_callistus_caravario_priest_martyrs:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 2-25
+    martyrology:
+      - aloysius_versiglia_bishop
+      - callistus_caravario_priest
 
-    aloysius_versiglia_bishop_and_callistus_caravario_priest_martyrs: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 2, date: 25 },
-      martyrology: ['aloysius_versiglia_bishop', 'callistus_caravario_priest'],
-    },
+  agnes_cao_guiying_martyr:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 3-1
 
-    agnes_cao_guiying_martyr: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 3, date: 1 },
-    },
+  joseph_zhang_dapeng_martyr:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 3-12
 
-    joseph_zhang_dapeng_martyr: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 3, date: 12 },
-    },
+  mary_assunta_pallotta_virgin:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 4-8
 
-    mary_assunta_pallotta_virgin: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 4, date: 8 },
-    },
+  john_martin_moye_priest:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 5-4
 
-    john_martin_moye_priest: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 5, date: 4 },
-    },
+  our_lady_of_china:
+    precedence: 11B_PROPER_MEMORIAL
+    dateDef:
+      month: 5
+      dayOfWeek: 6
+      nthWeekInMonth: 2
 
-    our_lady_of_china: {
-      precedence: Precedence.ProperMemorial_11b,
-      dateDef: { month: 5, dayOfWeek: DayOfWeek.Saturday, nthWeekInMonth: 2 },
-    },
+  peter_liu_wenyuan_martyr:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 5-14
 
-    peter_liu_wenyuan_martyr: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 5, date: 14 },
-    },
+  peter_sanz_bishop:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 5-27
 
-    peter_sanz_bishop: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 5, date: 27 },
-    },
+  joachim_he_kaizhi_martyr:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 5-29
 
-    joachim_he_kaizhi_martyr: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 5, date: 29 },
-    },
+  gregory_grassi_francis_fogolla_and_anthony_fantosati_bishops_and_companions_martyrs:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 6-20
+    martyrology:
+      - gregory_grassi_bishop
+      - francis_fogolla_bishop
+      - anthony_fantosati_bishop
+      - companions_martyrs
 
-    gregory_grassi_francis_fogolla_and_anthony_fantosati_bishops_and_companions_martyrs: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 6, date: 20 },
-      martyrology: [
-        'gregory_grassi_bishop',
-        'francis_fogolla_bishop',
-        'anthony_fantosati_bishop',
-        'companions_martyrs',
-      ],
-    },
+  joseph_yuan_gengyin_priest:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 6-23
 
-    joseph_yuan_gengyin_priest: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 6, date: 23 },
-    },
+  seven_martyred_nuns_from_the_franciscan_missionaries_of_mary:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 7-8
 
-    seven_martyred_nuns_from_the_franciscan_missionaries_of_mary: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 7, date: 8 },
-    },
+  augustine_zhao_rong_priest_and_companions_martyrs:
+    precedence: 04A_PROPER_SOLEMNITY__PRINCIPAL_PATRON
 
-    augustine_zhao_rong_priest_and_companions_martyrs: {
-      precedence: Precedence.ProperSolemnity_PrincipalPatron_4a,
-    },
+  leo_ignatius_mangin_priest_and_companions_martyrs:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 7-20
+    martyrology:
+      - leo_ignatius_mangin_priest
+      - companions_martyrs
 
-    leo_ignatius_mangin_priest_and_companions_martyrs: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 7, date: 20 },
-      martyrology: ['leo_ignatius_mangin_priest', 'companions_martyrs'],
-    },
+  alberic_crescitelli_priest:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 7-21
 
-    alberic_crescitelli_priest: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 7, date: 21 },
-    },
+  paul_chen_changpin_and_companions_martyrs:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 7-28
+    martyrology:
+      - paul_chen_changpin_martyr
+      - companions_martyrs
 
-    paul_chen_changpin_and_companions_martyrs: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 7, date: 28 },
-      martyrology: ['paul_chen_changpin_martyr', 'companions_martyrs'],
-    },
+  maurice_tornay_priest:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 8-11
 
-    maurice_tornay_priest: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 8, date: 11 },
-    },
+  john_gabriel_perboyre_priest:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 9-11
 
-    john_gabriel_perboyre_priest: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 9, date: 11 },
-    },
+  francis_diaz_del_rincon_priest_and_companions_martyrs:
+    precedence: 11B_PROPER_MEMORIAL
+    dateDef: 10-27
+    martyrology:
+      - francis_diaz_del_rincon_priest
+      - companions_martyrs
 
-    francis_diaz_del_rincon_priest_and_companions_martyrs: {
-      precedence: Precedence.ProperMemorial_11b,
-      dateDef: { month: 10, date: 27 },
-      martyrology: ['francis_diaz_del_rincon_priest', 'companions_martyrs'],
-    },
+  peter_wu_guosheng_martyr:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 11-7
 
-    peter_wu_guosheng_martyr: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 11, date: 7 },
-    },
+  gabriel_taurin_dufresse_bishop:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 11-27
 
-    gabriel_taurin_dufresse_bishop: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 11, date: 27 },
-    },
-
-    our_lord_jesus_christ_the_eternal_high_priest: {
-      precedence: Precedence.ProperFeast_8f,
-      dateDef: { dateFn: 'pentecostSunday', addDay: 4 },
-      properCycle: ProperCycle.ProperOfTime,
-    },
-  },
-};
+  our_lord_jesus_christ_the_eternal_high_priest:
+    precedence: 08F_PROPER_FEAST
+    dateDef:
+      dateFn: pentecostSunday
+      addDay: 4
+    properCycle: PROPER_OF_TIME

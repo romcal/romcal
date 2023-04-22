@@ -17,6 +17,9 @@
     "test:watch": "jest --watch",
     "test:snapshot:update": "jest -u"
   },
+  "dependencies": {
+    "recursive-diff": "^1.0.9"
+  },
   "devDependencies": {
     "@romcal/build": "workspace:*",
     "@romcal/eslint-config": "workspace:*",
@@ -29,8 +32,5 @@
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.2.0"
   },
-  "license": "MIT",
-  "dependencies": {
-    "recursive-diff": "^1.0.9"
-  }
+  "license": "MIT"
 }

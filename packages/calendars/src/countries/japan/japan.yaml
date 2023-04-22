@@ -1,40 +1,33 @@
-import { CalendarDefInput, Precedence } from '@romcal/shared';
+calendarId: japan
 
-export const Japan: CalendarDefInput = {
-  calendarId: 'japan',
+basedOn:
+  - general-roman
 
-  basedOn: ['general-roman'],
+inputs:
+  paul_miki_and_companions_martyrs:
+    precedence: 08F_PROPER_FEAST
 
-  inputs: {
-    paul_miki_and_companions_martyrs: {
-      precedence: Precedence.ProperFeast_8f,
-    },
+  our_lady_of_the_discovery_of_the_hidden_christians:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 3-17
 
-    our_lady_of_the_discovery_of_the_hidden_christians: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 3, date: 17 },
-    },
+  peter_kibe_priest_and_companions_martyrs:
+    precedence: 11B_PROPER_MEMORIAL
+    dateDef: 7-1
+    martyrology:
+      - peter_kibe_priest
+      - companions_martyrs
+  205_blessed_martyrs_of_japan:
+    precedence: 11B_PROPER_MEMORIAL
+    dateDef: 9-10
 
-    peter_kibe_priest_and_companions_martyrs: {
-      precedence: Precedence.ProperMemorial_11b,
-      dateDef: { month: 7, date: 1 },
-      martyrology: ['peter_kibe_priest', 'companions_martyrs'],
-    },
+  thomas_hioji_rokuzayemon_nishi_priest_and_companions_martyrs:
+    precedence: 11B_PROPER_MEMORIAL
+    dateDef: 9-28
+    martyrology:
+      - thomas_hioji_rokuzayemon_nishi_priest
+      - companions_martyrs
 
-    '205_blessed_martyrs_of_japan': {
-      precedence: Precedence.ProperMemorial_11b,
-      dateDef: { month: 9, date: 10 },
-    },
-
-    thomas_hioji_rokuzayemon_nishi_priest_and_companions_martyrs: {
-      precedence: Precedence.ProperMemorial_11b,
-      dateDef: { month: 9, date: 28 },
-      martyrology: ['thomas_hioji_rokuzayemon_nishi_priest', 'companions_martyrs'],
-    },
-
-    francis_xavier_priest: {
-      precedence: Precedence.ProperFeast_8f,
-      dateDef: { month: 12, date: 3 },
-    },
-  },
-};
+  francis_xavier_priest:
+    precedence: 08F_PROPER_FEAST
+    dateDef: 12-3

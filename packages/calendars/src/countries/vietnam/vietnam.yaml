@@ -1,14 +1,9 @@
-import { CalendarDefInput, Precedence } from '@romcal/shared';
+calendarId: vietnam
 
-export const Vietnam: CalendarDefInput = {
-  calendarId: 'vietnam',
+basedOn:
+  - general-roman
 
-  basedOn: ['general-roman'],
-
-  inputs: {
-    andrew_dung_lac_priest_and_companions_martyrs: {
-      precedence: Precedence.ProperFeast_8f,
-      dateDef: { month: 11, date: 13 },
-    },
-  },
-};
+inputs:
+  andrew_dung_lac_priest_and_companions_martyrs:
+    precedence: 08F_PROPER_FEAST
+    dateDef: 11-13

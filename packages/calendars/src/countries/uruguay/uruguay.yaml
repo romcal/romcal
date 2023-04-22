@@ -1,15 +1,14 @@
-import { CalendarDefInput, Precedence, ProperCycle } from '@romcal/shared';
+calendarId: uruguay
 
-export const Uruguay: CalendarDefInput = {
-  calendarId: 'uruguay',
+basedOn:
+  - general-roman
+  - america
+  - south-america
 
-  basedOn: ['general-roman', 'america'],
-
-  inputs: {
-    our_lord_jesus_christ_the_eternal_high_priest: {
-      precedence: Precedence.ProperFeast_8f,
-      dateDef: { dateFn: 'pentecostSunday', addDay: 4 },
-      properCycle: ProperCycle.ProperOfTime,
-    },
-  },
-};
+inputs:
+  our_lord_jesus_christ_the_eternal_high_priest:
+    precedence: 08F_PROPER_FEAST
+    dateDef:
+      dateFn: pentecostSunday
+      addDay: 4
+    properCycle: PROPER_OF_TIME

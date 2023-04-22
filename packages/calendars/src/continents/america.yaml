@@ -1,15 +1,12 @@
-import { CalendarDefInput, PatronTitle, Precedence } from '@romcal/shared';
+calendarId: america
 
-export const America: CalendarDefInput = {
-  calendarId: 'america',
+basedOn:
+  - general-roman
 
-  basedOn: ['general-roman'],
-
-  inputs: {
-    our_lady_of_guadalupe: {
-      customLocaleKey: 'our_lady_of_guadalupe_patroness_of_the_americas',
-      precedence: Precedence.ProperFeast_PrincipalPatronOfARegion_8c,
-      titles: { append: [PatronTitle.PatronessOfTheAmericas] },
-    },
-  },
-};
+inputs:
+  our_lady_of_guadalupe:
+    customLocaleKey: our_lady_of_guadalupe_patroness_of_the_americas
+    precedence: 08C_PROPER_FEAST__PRINCIPAL_PATRON_OF_A_REGION
+    titles:
+      append:
+        - PATRONESS_OF_THE_AMERICAS

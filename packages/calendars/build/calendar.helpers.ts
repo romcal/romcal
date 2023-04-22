@@ -1,7 +1,7 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 
-import { BuiltFile, log, logError } from '@romcal/build';
+import { BuiltFile, log, logError, yamlImports } from '@romcal/build';
 import {
   CalendarDef,
   CalendarDefConfig,
@@ -34,7 +34,6 @@ import arrify from 'arrify';
 import chalk from 'chalk';
 import { getDiff } from 'recursive-diff';
 
-import * as allCalendars from '../src';
 import { inputToManyMartyrologyItems, inputToTitles } from './martyrology.helpers';
 
 export const inputToDateDef = (input: DateDefInput | undefined): DateDef | undefined => {
@@ -165,29 +164,28 @@ export const mergeLiturgicalDayDefsHelper = ({
 };
 
 type BuildCalendarsOptions = {
-  // entryPoints: string;
+  entryPoints: string;
   martyrology: MartyrologyMap;
   outDir: string;
   onWriteFile?: (opt: BuiltFile) => void;
 };
 
 export const buildCalendars = async ({
-  // entryPoints,
+  entryPoints,
   outDir,
   onWriteFile,
   martyrology,
 }: BuildCalendarsOptions): Promise<void> => {
   try {
-    // log({ message: `Building calendars: ${entryPoints}`, namespace: 'json' });
-    log({ message: `Building calendars data`, namespace: 'json' });
+    log({ message: `Building calendars: ${entryPoints}`, namespace: 'json' });
 
-    // const allCalendars = yamlImports<CalendarDefInput>({
-    //   entryPoints,
-    //   getId: (calendarDef) => calendarDef.calendarId,
-    //   onFindDuplicates: (duplicatedIds) => {
-    //     throw new Error(`Duplicated calendar IDs: ${duplicatedIds.join(', ')}`);
-    //   },
-    // });
+    const allCalendars = yamlImports<CalendarDefInput>({
+      entryPoints,
+      getId: (calendarDef) => calendarDef.calendarId,
+      onFindDuplicates: (duplicatedIds) => {
+        throw new Error(`Duplicated calendar IDs: ${duplicatedIds.join(', ')}`);
+      },
+    });
 
     mkdirSync(outDir, { recursive: true });
 

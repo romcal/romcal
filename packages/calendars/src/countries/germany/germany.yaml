@@ -1,325 +1,272 @@
-import { CalendarDefInput, Precedence, Title } from '@romcal/shared';
+calendarId: germany
 
-export const Germany: CalendarDefInput = {
-  calendarId: 'germany',
+basedOn:
+  - general-roman
+  - europe
+  - austria-germany-switzerland
 
-  basedOn: ['general-roman', 'europe'],
+inputs:
+  john_nepomucene_neumann_bishop:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 1-5
 
-  inputs: {
-    john_nepomucene_neumann_bishop: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 1, date: 5 },
-    },
+  valentine_of_raetia_bishop:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 1-7
 
-    valentine_of_raetia_bishop: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 1, date: 7 },
-    },
+  severinus_of_noricum_monk:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 1-8
 
-    severinus_of_noricum_monk: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 1, date: 8 },
-    },
+  meinrad_of_einsiedeln_martyr:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 1-21
 
-    meinrad_of_einsiedeln_martyr: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 1, date: 21 },
-    },
+  henry_suso_priest:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 1-23
 
-    henry_suso_priest: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 1, date: 23 },
-    },
+  rabanus_maurus_bishop:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 2-4
 
-    rabanus_maurus_bishop: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 2, date: 4 },
-    },
+  matthias_apostle:
+    precedence: 11B_PROPER_MEMORIAL
+    dateDef: 2-24
 
-    matthias_apostle: {
-      precedence: Precedence.ProperMemorial_11b,
-      dateDef: { month: 2, date: 24 },
-    },
+  walpurga_of_heidenheim_abbess:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 2-25
 
-    walpurga_of_heidenheim_abbess: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 2, date: 25 },
-    },
+  fridolin_of_sackingen_monk:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 3-6
 
-    fridolin_of_sackingen_monk: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 3, date: 6 },
-    },
+  bruno_of_querfurt_bishop:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 3-9
 
-    bruno_of_querfurt_bishop: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 3, date: 9 },
-    },
+  matilda_of_ringelheim:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 3-14
 
-    matilda_of_ringelheim: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 3, date: 14 },
-    },
+  clement_mary_hofbauer_priest:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 3-15
 
-    clement_mary_hofbauer_priest: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 3, date: 15 },
-    },
+  gertrude_of_nivelles_abbess:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 3-17
 
-    gertrude_of_nivelles_abbess: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 3, date: 17 },
-    },
+  ludger_of_munster_bishop:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 3-26
 
-    ludger_of_munster_bishop: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 3, date: 26 },
-    },
+  leo_ix_pope:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 4-19
 
-    leo_ix_pope: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 4, date: 19 },
-    },
+  marcel_callo_martyr:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 4-19
 
-    marcel_callo_martyr: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 4, date: 19 },
-    },
+  conrad_of_parzham_religious:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 4-21
 
-    conrad_of_parzham_religious: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 4, date: 21 },
-    },
+  peter_canisius_priest:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 4-27
 
-    peter_canisius_priest: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 4, date: 27 },
-    },
+  florian_of_lorch_and_companions_martyrs:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 5-4
+    martyrology:
+      - florian_of_lorch_martyr
+      - companions_martyrs
 
-    florian_of_lorch_and_companions_martyrs: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 5, date: 4 },
-      martyrology: ['florian_of_lorch_martyr', 'companions_martyrs'],
-    },
+  gotthard_of_hildesheim_bishop:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 5-5
 
-    gotthard_of_hildesheim_bishop: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 5, date: 5 },
-    },
+  hermann_joseph_of_steinfeld_priest:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 5-21
 
-    john_nepomucene_priest: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 5, date: 16 },
-    },
+  vitus_of_lucania_martyr:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 6-15
 
-    hermann_joseph_of_steinfeld_priest: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 5, date: 21 },
-    },
+  benno_of_meissen_bishop:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 6-16
 
-    vitus_of_lucania_martyr: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 6, date: 15 },
-    },
+  hemma_of_gurk:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 6-27
 
-    benno_of_meissen_bishop: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 6, date: 16 },
-    },
+  otto_of_bamberg_bishop:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 6-30
 
-    hemma_of_gurk: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 6, date: 27 },
-    },
+  visitation_of_mary:
+    precedence: 08F_PROPER_FEAST
+    dateDef: 7-2
 
-    otto_of_bamberg_bishop: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 6, date: 30 },
-    },
+  ulrich_of_augsburg_bishop:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 7-4
 
-    visitation_of_mary: {
-      precedence: Precedence.ProperFeast_8f,
-      dateDef: { month: 7, date: 2 },
-    },
+  willibald_of_eichstatt_bishop:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 7-7
 
-    ulrich_of_augsburg_bishop: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 7, date: 4 },
-    },
+  kilian_of_wurzburg_bishop_and_companions_martyrs:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 7-8
+    martyrology:
+      - kilian_of_wurzburg_bishop
+      - companions_martyrs
 
-    willibald_of_eichstatt_bishop: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 7, date: 7 },
-    },
+  canute_iv_of_denmark_eric_ix_of_sweden_and_olaf_ii_of_norway_martyrs:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 7-10
+    martyrology:
+      - canute_iv_of_denmark_martyr
+      - eric_ix_of_sweden_martyr
+      - olaf_ii_of_norway_martyr
 
-    kilian_of_wurzburg_bishop_and_companions_martyrs: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 7, date: 8 },
-      martyrology: ['kilian_of_wurzburg_bishop', 'companions_martyrs'],
-    },
+  henry_ii_emperor_and_cunigunde_of_luxembourg:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 7-13
+    martyrology:
+      - henry_ii_emperor
+      - cunigunde_of_luxembourg
 
-    canute_iv_of_denmark_eric_ix_of_sweden_and_olaf_ii_of_norway_martyrs: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 7, date: 10 },
-      martyrology: ['canute_iv_of_denmark_martyr', 'eric_ix_of_sweden_martyr', 'olaf_ii_of_norway_martyr'],
-    },
+  margaret_of_antioch_virgin:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 7-20
 
-    henry_ii_emperor_and_cunigunde_of_luxembourg: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 7, date: 13 },
-      martyrology: ['henry_ii_emperor', 'cunigunde_of_luxembourg'],
-    },
+  christopher_of_palestine_martyr:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 7-24
 
-    margaret_of_antioch_virgin: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 7, date: 20 },
-    },
+  paulinus_of_trier_bishop:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 8-31
 
-    christopher_of_palestine_martyr: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 7, date: 24 },
-    },
+  lambert_of_maastricht_bishop:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 9-18
 
-    paulinus_of_trier_bishop: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 8, date: 31 },
-    },
+  maurice_of_agaunum_and_companions_martyrs:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 9-22
+    martyrology:
+      - maurice_of_agaunum_martyr
+      - companions_martyrs
 
-    lambert_of_maastricht_bishop: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 9, date: 18 },
-    },
+  rupert_of_salzburg_and_virgilius_of_salzburg_bishops:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 9-24
+    martyrology:
+      - rupert_of_salzburg_bishop
+      - virgilius_of_salzburg_bishop
 
-    maurice_of_agaunum_and_companions_martyrs: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 9, date: 22 },
-      martyrology: ['maurice_of_agaunum_martyr', 'companions_martyrs'],
-    },
+  nicholas_of_flue_hermit:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 9-25
 
-    rupert_of_salzburg_and_virgilius_of_salzburg_bishops: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 9, date: 24 },
-      martyrology: ['rupert_of_salzburg_bishop', 'virgilius_of_salzburg_bishop'],
-    },
+  leoba_of_tauberbischofsheim_abbess:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 9-28
 
-    nicholas_of_flue_hermit: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 9, date: 25 },
-    },
+  gall_of_switzerland_abbot:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 10-16
 
-    leoba_of_tauberbischofsheim_abbess: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 9, date: 28 },
-    },
+  wendelin_of_trier_hermit:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 10-20
 
-    gall_of_switzerland_abbot: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 10, date: 16 },
-    },
+  ursula_of_cologne_and_companions_virgins:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 10-21
+    martyrology:
+      - ursula_of_cologne_virgin
+      - id: companions_martyrs
+        titles:
+          append:
+            - VIRGIN
 
-    wendelin_of_trier_hermit: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 10, date: 20 },
-    },
+  wolfgang_of_regensburg_bishop:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 10-31
 
-    ursula_of_cologne_and_companions_virgins: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 10, date: 21 },
-      martyrology: [
-        'ursula_of_cologne_virgin',
-        {
-          id: 'companions_martyrs',
-          titles: { append: [Title.Virgin] },
-        },
-      ],
-    },
+  hubert_of_liege_bishop:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 11-3
 
-    wolfgang_of_regensburg_bishop: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 10, date: 31 },
-    },
+  pirmin_of_hornbach_abbot:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 11-3
 
-    hubert_of_liege_bishop: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 11, date: 3 },
-    },
+  leonard_of_noblac_hermit:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 11-6
 
-    pirmin_of_hornbach_abbot: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 11, date: 3 },
-    },
+  willibrord_of_utrecht_bishop:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 11-7
 
-    leonard_of_noblac_hermit: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 11, date: 6 },
-    },
+  leopold_iii_of_babenberg:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 11-15
 
-    willibrord_of_utrecht_bishop: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 11, date: 7 },
-    },
+  gertrude_the_great_virgin:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 11-17
 
-    leopold_iii_of_babenberg: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 11, date: 15 },
-    },
+  elizabeth_of_hungary_religious:
+    precedence: 11B_PROPER_MEMORIAL
+    dateDef: 11-19
 
-    gertrude_the_great_virgin: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 11, date: 17 },
-    },
+  corbinian_of_freising_bishop:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 11-20
 
-    elizabeth_of_hungary_religious: {
-      precedence: Precedence.ProperMemorial_11b,
-      dateDef: { month: 11, date: 19 },
-    },
+  conrad_of_constance_and_gebhard_of_constance_bishops:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 11-26
+    martyrology:
+      - conrad_of_constance_bishop
+      - gebhard_of_constance_bishop
 
-    corbinian_of_freising_bishop: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 11, date: 20 },
-    },
+  lucius_of_chur_bishop:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 12-2
 
-    conrad_of_constance_and_gebhard_of_constance_bishops: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 11, date: 26 },
-      martyrology: ['conrad_of_constance_bishop', 'gebhard_of_constance_bishop'],
-    },
+  barbara_of_heliopolis_virgin:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 12-4
 
-    lucius_of_chur_bishop: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 12, date: 2 },
-    },
+  adolph_kolping_priest:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 12-4
 
-    barbara_of_heliopolis_virgin: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 12, date: 4 },
-    },
+  anno_of_cologne_bishop:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 12-5
 
-    adolph_kolping_priest: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 12, date: 4 },
-    },
+  odile_of_alsace_abbess:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 12-13
 
-    anno_of_cologne_bishop: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 12, date: 5 },
-    },
+  stephen_the_first_martyr:
+    isHolyDayOfObligation: true
 
-    odile_of_alsace_abbess: {
-      precedence: Precedence.OptionalMemorial_12,
-      dateDef: { month: 12, date: 13 },
-    },
+  easter_monday:
+    isHolyDayOfObligation: true
 
-    stephen_the_first_martyr: {
-      isHolyDayOfObligation: true,
-    },
-
-    easter_monday: {
-      isHolyDayOfObligation: true,
-    },
-
-    mary_mother_of_the_church: {
-      isHolyDayOfObligation: true,
-    },
-  },
-};
+  mary_mother_of_the_church:
+    isHolyDayOfObligation: true
