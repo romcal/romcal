@@ -1,5 +1,4 @@
 import { buildJsonSchema, log, onWriteFile } from '@romcal/build';
-import chalk from 'chalk';
 import rimraf from 'rimraf';
 
 import { buildLocales } from './locale.helpers';
@@ -7,8 +6,6 @@ import { buildLocales } from './locale.helpers';
 const distDir = 'dist';
 
 (async (): Promise<void> => {
-  log({ message: `${chalk.bold.red('Romcal')} package/data builder` });
-
   log({ message: 'Cleaning output packages/locales/dist folder' });
   rimraf.nativeSync(distDir);
 

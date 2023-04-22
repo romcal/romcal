@@ -16,7 +16,7 @@
     "prebuild": "pnpm lint",
     "prettier": "prettier -c --config .prettierrc {.github,./*}",
     "prettier:fix": "prettier -w --config .prettierrc {.github,./*}",
-    "build": "node -r ts-node/register scripts/build.ts",
+    "build": "echo nothing to build",
     "doc": "node -r ts-node/register scripts/bundle-doc.ts",
     "test": "jest",
     "test:coverage": "jest --coverage",

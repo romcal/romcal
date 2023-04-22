@@ -1,5 +1,4 @@
 import { buildJsonSchema, log, onWriteFile } from '@romcal/build';
-import chalk from 'chalk';
 import rimraf from 'rimraf';
 
 import { buildCalendars } from './calendar.helpers';
@@ -8,9 +7,7 @@ import { buildMartyrology } from './martyrology.helpers';
 const distDir = 'dist';
 
 (async (): Promise<void> => {
-  log({ message: `${chalk.bold.red('Romcal')} package/data builder` });
-
-  log({ message: 'Cleaning output packages/locales/dist folder' });
+  log({ message: 'Cleaning output packages/calendars/dist folder' });
   rimraf.nativeSync(distDir);
 
   await Promise.all([

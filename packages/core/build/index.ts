@@ -4,7 +4,7 @@ import rimraf from 'rimraf';
 const distDir = 'dist';
 
 (async (): Promise<void> => {
-  log({ message: 'Cleaning output packages/shared folder' });
+  log({ message: 'Cleaning output packages/core/dist folder' });
   rimraf.nativeSync(distDir);
 
   buildTypeScriptFiles({
