@@ -20,7 +20,7 @@ export const DATE_FN = [
 /**
  * A date function name, that can be used in calendar definitions.
  */
-export type DateFn = (typeof DATE_FN)[number];
+export type DateFn = (typeof DATE_FN)[number] | string;
 
 /**
  * List all liturgical day IDs that can be used in the proper of time.
