@@ -1,0 +1,9 @@
+calendarId: austria-germany-switzerland
+
+basedOn:
+  - general-roman
+
+inputs:
+  john_nepomucene_priest:
+    precedence: 12_OPTIONAL_MEMORIAL
+    dateDef: 5-16

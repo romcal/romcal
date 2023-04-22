@@ -1,0 +1,6 @@
+calendarId: asia
+
+basedOn:
+  - general-roman
+
+inputs: {}

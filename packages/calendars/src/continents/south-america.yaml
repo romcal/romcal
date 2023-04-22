@@ -1,0 +1,6 @@
+calendarId: south-america
+
+basedOn:
+  - general-roman
+
+inputs: {}

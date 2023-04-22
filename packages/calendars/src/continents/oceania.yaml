@@ -1,0 +1,6 @@
+calendarId: oceania
+
+basedOn:
+  - general-roman
+
+inputs: {}

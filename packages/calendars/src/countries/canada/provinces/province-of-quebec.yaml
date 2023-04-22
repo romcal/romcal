@@ -1,0 +1,18 @@
+calendarId: canada.province-of-quebec
+
+basedOn:
+  - general-roman
+  - america
+  - north-america
+  - canada
+
+inputs:
+  joachim_and_anne_parents_of_mary:
+    customLocaleKey: joachim_and_anne_patroness_of_the_province_of_quebec_parents_of_mary
+    precedence: 08C_PROPER_FEAST__PRINCIPAL_PATRON_OF_A_REGION
+    martyrology:
+      - id: anne_mother_of_mary
+        titles:
+          append:
+            - PATRONESS_OF_THE_PROVINCE_OF_QUEBEC
+      - joachim_father_of_mary

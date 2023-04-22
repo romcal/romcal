@@ -1,0 +1,8 @@
+calendarId: europe.russia
+
+basedOn:
+  - general-roman
+  - europe
+  - russia
+
+inputs: {}

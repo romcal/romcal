@@ -1,0 +1,6 @@
+calendarId: africa
+
+basedOn:
+  - general-roman
+
+inputs: {}

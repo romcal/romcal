@@ -1,0 +1,6 @@
+calendarId: north-america
+
+basedOn:
+  - general-roman
+
+inputs: {}

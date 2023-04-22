@@ -1,0 +1,6 @@
+calendarId: antarctica
+
+basedOn:
+  - general-roman
+
+inputs: {}

@@ -1,0 +1,6 @@
+calendarId: central-america
+
+basedOn:
+  - general-roman
+
+inputs: {}
