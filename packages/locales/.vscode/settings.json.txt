@@ -1,6 +1,0 @@
-{
-  // "yaml.schemas": {
-  //   "/Users/etienne/projects/romcal-monorepo/romcal/packages/shared/dist/schema.json#/definitions/Locale": "src/**/*.yaml"
-  //   // "./../shared/dist/schema.json#/definitions/Locale": "src/**/*.yaml"
-  // }
-}
