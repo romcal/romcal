@@ -11,4 +11,12 @@ export enum Color {
   Black = 'BLACK',
 }
 
-export const COLORS = [Color.Red, Color.Rose, Color.Purple, Color.Green, Color.White, Color.Gold, Color.Black] as const;
+export const COLORS = [
+  Color.Red,
+  Color.Rose,
+  Color.Purple,
+  Color.Green,
+  Color.White,
+  Color.Gold,
+  Color.Black,
+] as const;

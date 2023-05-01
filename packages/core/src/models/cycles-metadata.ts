@@ -27,7 +27,12 @@ export class CyclesMetadata implements BaseCyclesMetadata {
   #psalterWeekName?: string;
   #config: RomcalConfig;
 
-  constructor(date: Date, calendar: RomcalCalendarMetadata, properCycle: ProperCycle, config: RomcalConfig) {
+  constructor(
+    date: Date,
+    calendar: RomcalCalendarMetadata,
+    properCycle: ProperCycle,
+    config: RomcalConfig,
+  ) {
     this.#config = config;
 
     const year = parseInt(calendar.startOfLiturgicalYear, 10);
@@ -80,20 +85,26 @@ export class CyclesMetadata implements BaseCyclesMetadata {
 
   get sundayCycleName(): string {
     if (this.#sundayCycleName !== undefined) return this.#sundayCycleName;
-    this.#sundayCycleName = this.#config.i18next.t(`cycles:sunday_${this.sundayCycle.toLowerCase()}`);
+    this.#sundayCycleName = this.#config.i18next.t(
+      `cycles:sunday_${this.sundayCycle.toLowerCase()}`,
+    );
     console.log(this.#config.i18next.t(`cycles:sunday_${this.sundayCycle.toLowerCase()}`));
     return this.#sundayCycleName;
   }
 
   get weekdayCycleName(): string {
     if (this.#weekdayCycleName !== undefined) return this.#weekdayCycleName;
-    this.#weekdayCycleName = this.#config.i18next.t(`cycles:weekday_${this.weekdayCycle.toLowerCase()}`);
+    this.#weekdayCycleName = this.#config.i18next.t(
+      `cycles:weekday_${this.weekdayCycle.toLowerCase()}`,
+    );
     return this.#weekdayCycleName;
   }
 
   get psalterWeekName(): string {
     if (this.#psalterWeekName !== undefined) return this.#psalterWeekName;
-    this.#psalterWeekName = this.#config.i18next.t(`cycles:psalter_${this.psalterWeek.toLowerCase()}`);
+    this.#psalterWeekName = this.#config.i18next.t(
+      `cycles:psalter_${this.psalterWeek.toLowerCase()}`,
+    );
     return this.#psalterWeekName;
   }
 

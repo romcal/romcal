@@ -11,11 +11,17 @@ type YamlImportsOptions<T> = {
   onFindDuplicates?: (duplicatedIds: string[]) => void;
 };
 
-export const yamlImports = <T>({ entryPoints, getId, onFindDuplicates }: YamlImportsOptions<T>): Record<string, T> => {
+export const yamlImports = <T>({
+  entryPoints,
+  getId,
+  onFindDuplicates,
+}: YamlImportsOptions<T>): Record<string, T> => {
   const entryPointsArray = glob.sync(entryPoints);
 
   const allItems = entryPointsArray.reduce<Record<string, T>>((acc, entryPoint) => {
-    const filePath = path.isAbsolute(entryPoint) ? entryPoint : path.join(process.cwd(), entryPoint);
+    const filePath = path.isAbsolute(entryPoint)
+      ? entryPoint
+      : path.join(process.cwd(), entryPoint);
     const fileContent = readFileSync(filePath);
     const item = yaml.load(new TextDecoder().decode(fileContent)) as T;
     acc[entryPoint] = item;

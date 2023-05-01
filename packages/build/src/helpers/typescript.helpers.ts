@@ -52,7 +52,8 @@ export const buildTypeScriptFiles = async ({
 
       if (onWriteFile) {
         onWriteFile({ outPath: option.outfile, namespace: option.format });
-        if (outputSourcemap) onWriteFile({ outPath: `${option.outfile}.map`, namespace: option.format });
+        if (outputSourcemap)
+          onWriteFile({ outPath: `${option.outfile}.map`, namespace: option.format });
       }
     }),
 

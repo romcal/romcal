@@ -1,4 +1,12 @@
-import { Color, MartyrologyItem, Period, Precedence, PROPER_OF_TIME_ID, Rank, Season } from '@romcal/shared';
+import {
+  Color,
+  MartyrologyItem,
+  Period,
+  Precedence,
+  PROPER_OF_TIME_ID,
+  Rank,
+  Season,
+} from '@romcal/shared';
 
 import { Id } from '../types/common';
 import {
@@ -51,7 +59,9 @@ class LiturgicalDay implements BaseLiturgicalDay {
   #colorNames?: string[];
   public get colorNames(): string[] {
     if (this.#colorNames !== undefined) return this.#colorNames;
-    return (this.#colorNames = this.#liturgicalDayConfig.config.getLiturgicalColorNames(this.colors));
+    return (this.#colorNames = this.#liturgicalDayConfig.config.getLiturgicalColorNames(
+      this.colors,
+    ));
   }
 
   #seasonNames?: string[];
@@ -133,12 +143,19 @@ class LiturgicalDay implements BaseLiturgicalDay {
      * and all the weekdays of Lent have precedence over Obligatory Memorials.
      */
     this.colors =
-      weekday?.precedence === Precedence.PrivilegedWeekday_9 && this.rank === Rank.Memorial ? [] : def.colors;
+      weekday?.precedence === Precedence.PrivilegedWeekday_9 && this.rank === Rank.Memorial
+        ? []
+        : def.colors;
 
     this.martyrology = def.martyrology;
     this.titles = def.titles;
     this.calendar = baseData?.calendar ?? calendar;
-    this.cycles = new CyclesMetadata(date, calendar, def.cycles.properCycle, liturgicalDayConfig.config);
+    this.cycles = new CyclesMetadata(
+      date,
+      calendar,
+      def.cycles.properCycle,
+      liturgicalDayConfig.config,
+    );
     this.fromCalendarId = def.fromCalendarId;
     this.fromExtendedCalendars = def.fromExtendedCalendars;
 

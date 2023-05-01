@@ -106,7 +106,8 @@ export class Dates {
     if (this.#unprivilegedWeekdayOfAdvent[id] !== undefined) {
       return this.#unprivilegedWeekdayOfAdvent[id];
     }
-    if (dow < 1 || dow > 6 || week < 1 || week > 4) return (this.#unprivilegedWeekdayOfAdvent[id] = null);
+    if (dow < 1 || dow > 6 || week < 1 || week > 4)
+      return (this.#unprivilegedWeekdayOfAdvent[id] = null);
     let date: Date | null = addDays(this.firstSundayOfAdvent(year), (week - 1) * 7 + dow);
     if (date.getUTCDate() >= 17 && date.getUTCMonth() === 11 && date.getUTCDay() !== 0) date = null;
     return (this.#unprivilegedWeekdayOfAdvent[id] = date);
@@ -139,7 +140,10 @@ export class Dates {
    * @param week Nth week of season, from 1 to 4
    * @param year Gregorian year
    */
-  sundayOfAdvent = (week: number, year = this.#isLiturgicalYear ? this.#year - 1 : this.#year): Date | null => {
+  sundayOfAdvent = (
+    week: number,
+    year = this.#isLiturgicalYear ? this.#year - 1 : this.#year,
+  ): Date | null => {
     const id = `${year}_${week}`;
     if (this.#sundayOfAdvent[id] !== undefined) return this.#sundayOfAdvent[id];
     if (week < 1 || week > 4) return (this.#sundayOfAdvent[id] = null);
@@ -176,7 +180,9 @@ export class Dates {
    * (from Christmas to Mary Mother of God, inclusive)
    * @param year Gregorian year
    */
-  allDatesInOctaveOfChristmas = (year = this.#isLiturgicalYear ? this.#year - 1 : this.#year): Date[] => {
+  allDatesInOctaveOfChristmas = (
+    year = this.#isLiturgicalYear ? this.#year - 1 : this.#year,
+  ): Date[] => {
     if (this.#allDatesInOctaveOfChristmas[year]) return this.#allDatesInOctaveOfChristmas[year];
     return (this.#allDatesInOctaveOfChristmas[year] = rangeOfDays(
       this.christmas(year),
@@ -199,7 +205,8 @@ export class Dates {
     if (this.#weekdayWithinOctaveOfChristmas[id] !== undefined) {
       return this.#weekdayWithinOctaveOfChristmas[id];
     }
-    if (dayOfOctave < 1 || dayOfOctave > 8) return (this.#weekdayWithinOctaveOfChristmas[id] = null);
+    if (dayOfOctave < 1 || dayOfOctave > 8)
+      return (this.#weekdayWithinOctaveOfChristmas[id] = null);
     let date: Date | null = addDays(this.christmas(year), dayOfOctave - 1);
     if (isSameDate(date, this.holyFamily(year))) date = null;
     return (this.#weekdayWithinOctaveOfChristmas[id] = date);
@@ -237,7 +244,10 @@ export class Dates {
    * @param year Gregorian year
    * @param epiphanyOnSunday Is Epiphany is fixed on a Sunday
    */
-  secondSundayAfterChristmas = (year = this.#year, epiphanyOnSunday = this.#config.epiphanyOnSunday): Date | null => {
+  secondSundayAfterChristmas = (
+    year = this.#year,
+    epiphanyOnSunday = this.#config.epiphanyOnSunday,
+  ): Date | null => {
     const id = year + epiphanyOnSunday.toString();
     if (this.#secondSundayAfterChristmas[id] !== undefined) {
       return this.#secondSundayAfterChristmas[id];
@@ -255,7 +265,10 @@ export class Dates {
    * @param year Gregorian year
    * @param epiphanyOnSunday Is Epiphany is fixed on a Sunday
    */
-  allDatesBeforeEpiphany = (year = this.#year, epiphanyOnSunday = this.#config.epiphanyOnSunday): Date[] => {
+  allDatesBeforeEpiphany = (
+    year = this.#year,
+    epiphanyOnSunday = this.#config.epiphanyOnSunday,
+  ): Date[] => {
     const id = year + epiphanyOnSunday.toString();
     if (this.#allDatesBeforeEpiphany[id]) return this.#allDatesBeforeEpiphany[id];
     const start = addDays(this.maryMotherOfGod(year), 1);
@@ -284,7 +297,8 @@ export class Dates {
     if (this.#weekdayBeforeEpiphany[id] !== undefined) return this.#weekdayBeforeEpiphany[id];
     if (day < 2 || day > 8) return (this.#weekdayBeforeEpiphany[id] = null);
     return (this.#weekdayBeforeEpiphany[id] =
-      this.allDatesBeforeEpiphany(year, epiphanyOnSunday).find((d) => d.getUTCDate() === day) ?? null);
+      this.allDatesBeforeEpiphany(year, epiphanyOnSunday).find((d) => d.getUTCDate() === day) ??
+      null);
   };
   #weekdayBeforeEpiphany: Record<string, Date | null> = {};
 
@@ -336,7 +350,10 @@ export class Dates {
    * @param year Gregorian year
    * @param epiphanyOnSunday Is Epiphany is fixed on a Sunday
    */
-  allDatesAfterEpiphany = (year = this.#year, epiphanyOnSunday = this.#config.epiphanyOnSunday): Date[] => {
+  allDatesAfterEpiphany = (
+    year = this.#year,
+    epiphanyOnSunday = this.#config.epiphanyOnSunday,
+  ): Date[] => {
     const id = year + epiphanyOnSunday.toString();
     if (this.#allDatesAfterEpiphany[id]) return this.#allDatesAfterEpiphany[id];
     const start = addDays(this.epiphany(year, epiphanyOnSunday), 1);
@@ -365,7 +382,8 @@ export class Dates {
     if (this.#weekdayAfterEpiphany[id] !== undefined) return this.#weekdayAfterEpiphany[id];
     if (dow < 1 || dow > 6) return (this.#weekdayAfterEpiphany[id] = null);
     return (this.#weekdayAfterEpiphany[id] =
-      this.allDatesAfterEpiphany(year, epiphanyOnSunday).find((d) => d.getUTCDay() === dow) ?? null);
+      this.allDatesAfterEpiphany(year, epiphanyOnSunday).find((d) => d.getUTCDay() === dow) ??
+      null);
   };
   #weekdayAfterEpiphany: Record<string, Date | null> = {};
 
@@ -630,7 +648,10 @@ export class Dates {
    * @param year Gregorian year
    * @param epiphanyOnSunday Is Epiphany is fixed on a Sunday
    */
-  allDatesOfOrdinaryTime = (year = this.#year, epiphanyOnSunday = this.#config.epiphanyOnSunday): Date[] => {
+  allDatesOfOrdinaryTime = (
+    year = this.#year,
+    epiphanyOnSunday = this.#config.epiphanyOnSunday,
+  ): Date[] => {
     const id = year + epiphanyOnSunday.toString();
     if (this.#allDatesOfOrdinaryTime[id]) return this.#allDatesOfOrdinaryTime[id];
     return (this.#allDatesOfOrdinaryTime[id] = [
@@ -651,7 +672,10 @@ export class Dates {
    * @param year Gregorian year
    * @param epiphanyOnSunday Is Epiphany is fixed on a Sunday
    */
-  allDatesOfEarlyOrdinaryTime = (year = this.#year, epiphanyOnSunday = this.#config.epiphanyOnSunday): Date[] => {
+  allDatesOfEarlyOrdinaryTime = (
+    year = this.#year,
+    epiphanyOnSunday = this.#config.epiphanyOnSunday,
+  ): Date[] => {
     const id = year + epiphanyOnSunday.toString();
     if (this.#allDatesOfEarlyOrdinaryTime[id]) return this.#allDatesOfEarlyOrdinaryTime[id];
     const start = addDays(this.baptismOfTheLord(year, epiphanyOnSunday), 1);
@@ -728,7 +752,10 @@ export class Dates {
       const corpusChristi = this.corpusChristi(year).getTime();
       const mostSacredHeartOfJesus = this.mostSacredHeartOfJesus(year).getTime();
 
-      const groupBy = (dates: Date[], isEarlyOrdinaryTime: boolean): Record<string, Record<string, Date | null>> =>
+      const groupBy = (
+        dates: Date[],
+        isEarlyOrdinaryTime: boolean,
+      ): Record<string, Record<string, Date | null>> =>
         dates.reduce((result: Record<string, Record<string, Date | null>>, item, idx) => {
           let weekNumber = isEarlyOrdinaryTime
             ? // Early Ordinary Time
@@ -742,15 +769,21 @@ export class Dates {
 
           // When the Baptism of the Lord is observed on Monday, Ordinary Time starts on Tuesday.
           // So in this case, the Monday (from the group of 7 days computed above) takes place in the next week.
-          if (isEarlyOrdinaryTime && baptismOfTheLordIsMonday && item.getUTCDay() === 1) weekNumber++;
+          if (isEarlyOrdinaryTime && baptismOfTheLordIsMonday && item.getUTCDay() === 1)
+            weekNumber++;
 
           const dateTime = item.getTime();
           const date =
-            dateTime === trinitySunday || dateTime === corpusChristi || dateTime === mostSacredHeartOfJesus
+            dateTime === trinitySunday ||
+            dateTime === corpusChristi ||
+            dateTime === mostSacredHeartOfJesus
               ? null
               : item;
 
-          return { ...result, [weekNumber]: { ...(result[weekNumber] || []), [item.getUTCDay()]: date } };
+          return {
+            ...result,
+            [weekNumber]: { ...(result[weekNumber] || []), [item.getUTCDay()]: date },
+          };
         }, {});
 
       this.#dateOfOrdinaryTime[id] = {
@@ -890,7 +923,9 @@ export class Dates {
    * @param year Gregorian year
    *
    */
-  immaculateConceptionOfMary = (year = this.#isLiturgicalYear ? this.#year - 1 : this.#year): Date => {
+  immaculateConceptionOfMary = (
+    year = this.#isLiturgicalYear ? this.#year - 1 : this.#year,
+  ): Date => {
     if (this.#immaculateConceptionOfMary[year]) return this.#immaculateConceptionOfMary[year];
     let date = getUtcDate(year, 12, 8);
     // If this solemnity falls on a Sunday, is transferred to the
@@ -959,7 +994,10 @@ export class Dates {
    * @param year Gregorian year
    * @param corpusChristiOnSunday Is Corpus Christi is fixed on a Sunday
    */
-  corpusChristi = (year = this.#year, corpusChristiOnSunday = this.#config.corpusChristiOnSunday): Date => {
+  corpusChristi = (
+    year = this.#year,
+    corpusChristiOnSunday = this.#config.corpusChristiOnSunday,
+  ): Date => {
     const id = year + corpusChristiOnSunday.toString();
     if (this.#corpusChristi[id]) return this.#corpusChristi[id];
     return (this.#corpusChristi[id] = corpusChristiOnSunday
@@ -1033,7 +1071,10 @@ export class Dates {
    * @param year Gregorian year
    * @param epiphanyOnSunday Is Epiphany is fixed on a Sunday
    */
-  baptismOfTheLord = (year = this.#year, epiphanyOnSunday = this.#config.epiphanyOnSunday): Date => {
+  baptismOfTheLord = (
+    year = this.#year,
+    epiphanyOnSunday = this.#config.epiphanyOnSunday,
+  ): Date => {
     const id = year + epiphanyOnSunday.toString();
     if (this.#baptismOfTheLord[id]) return this.#baptismOfTheLord[id];
 
@@ -1046,7 +1087,10 @@ export class Dates {
     }
     // If Epiphany occurs on Sunday Jan. 7 or Sunday Jan. 8,
     //  then the Baptism of the Lord is the next day (Monday)
-    if ((epiphany.getUTCDay() === 0 && epiphany.getUTCDate() === 7) || epiphany.getUTCDate() === 8) {
+    if (
+      (epiphany.getUTCDay() === 0 && epiphany.getUTCDate() === 7) ||
+      epiphany.getUTCDate() === 8
+    ) {
       return addDays(epiphany, 1);
     }
     // If Epiphany occurs before Jan. 6, the Sunday

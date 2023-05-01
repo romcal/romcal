@@ -13,7 +13,10 @@ describe('Testing specific feasts and memorials', () => {
       const maryMotherOfTheChurch = await romcal.getOneLiturgicalDay('mary_mother_of_the_church', {
         computeInWholeYear: true,
       });
-      const dayBeforeMaryMotherOfTheChurch = subtractsDays(getUtcDateFromString(maryMotherOfTheChurch!.date), 1);
+      const dayBeforeMaryMotherOfTheChurch = subtractsDays(
+        getUtcDateFromString(maryMotherOfTheChurch!.date),
+        1,
+      );
       expect(getUtcDateFromString(maryMotherOfTheChurch!.date).getUTCDay()).toEqual(1);
       expect(dayBeforeMaryMotherOfTheChurch.getUTCDay()).toEqual(0);
       expect(isSameDate(dayBeforeMaryMotherOfTheChurch, pentecostSunday)).toBeTruthy();

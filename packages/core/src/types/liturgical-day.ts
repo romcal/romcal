@@ -545,12 +545,17 @@ export type LiturgicalDayProperOfTimeInput = Pick<
   | 'dateDef'
   | 'dateExceptions'
 > &
-  Partial<Pick<LiturgicalDayRoot, 'allowSimilarRankItems' | 'isHolyDayOfObligation' | 'isOptional'>>;
+  Partial<
+    Pick<LiturgicalDayRoot, 'allowSimilarRankItems' | 'isHolyDayOfObligation' | 'isOptional'>
+  >;
 
 /**
  * Generated object with computed date within a specific year
  */
-export type BaseLiturgicalDay = Omit<LiturgicalDayRoot, 'properCycle' | 'calendarMetadata' | 'drop'> & {
+export type BaseLiturgicalDay = Omit<
+  LiturgicalDayRoot,
+  'properCycle' | 'calendarMetadata' | 'drop'
+> & {
   /**
    * An ID of the liturgical day.
    */

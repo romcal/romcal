@@ -137,7 +137,14 @@ export type DiffResult =
  */
 export type LiturgicalDayDefInput = Omit<
   LiturgicalDayDef,
-  'dateDef' | 'rank' | 'dateExceptions' | 'colors' | 'titles' | 'martyrology' | 'fromCalendarId' | 'diff'
+  | 'dateDef'
+  | 'rank'
+  | 'dateExceptions'
+  | 'colors'
+  | 'titles'
+  | 'martyrology'
+  | 'fromCalendarId'
+  | 'diff'
 > & {
   /**
    * Date definition

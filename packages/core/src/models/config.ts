@@ -5,7 +5,12 @@ import { GeneralRoman } from '../general-calendar/proper-of-saints';
 import { ProperOfTime } from '../general-calendar/proper-of-time';
 import { RomcalBundleObject } from '../types/bundle';
 import { CalendarDefInstance, LiturgicalDayDefinitions } from '../types/calendar-def';
-import { CalendarScope, IRomcalConfig, RomcalConfigInput, RomcalConfigOutput } from '../types/config';
+import {
+  CalendarScope,
+  IRomcalConfig,
+  RomcalConfigInput,
+  RomcalConfigOutput,
+} from '../types/config';
 import { BaseCyclesMetadata } from '../types/cycles-metadata';
 import { Dates } from '../utils/dates';
 import { sanitizeLocaleId } from '../utils/string';
@@ -26,7 +31,8 @@ export class RomcalConfig implements IRomcalConfig {
   readonly i18next: i18n;
   readonly dates: typeof Dates;
   readonly martyrologyCatalog: MartyrologyMap;
-  readonly cyclesCache: Record<number, Pick<BaseCyclesMetadata, 'sundayCycle' | 'weekdayCycle'>> = {};
+  readonly cyclesCache: Record<number, Pick<BaseCyclesMetadata, 'sundayCycle' | 'weekdayCycle'>> =
+    {};
   readonly calendarsDef: InstanceType<CalendarDefInstance>[];
   liturgicalDayDef: LiturgicalDayDefinitions = {} as LiturgicalDayDefinitions;
 
@@ -59,11 +65,17 @@ export class RomcalConfig implements IRomcalConfig {
     this.scope = config?.scope ?? 'gregorian';
 
     this.epiphanyOnSunday =
-      config?.epiphanyOnSunday ?? this.localizedCalendar?.particularConfig.epiphanyOnSunday ?? false;
+      config?.epiphanyOnSunday ??
+      this.localizedCalendar?.particularConfig.epiphanyOnSunday ??
+      false;
     this.corpusChristiOnSunday =
-      config?.corpusChristiOnSunday ?? this.localizedCalendar?.particularConfig.corpusChristiOnSunday ?? true;
+      config?.corpusChristiOnSunday ??
+      this.localizedCalendar?.particularConfig.corpusChristiOnSunday ??
+      true;
     this.ascensionOnSunday =
-      config?.ascensionOnSunday ?? this.localizedCalendar?.particularConfig.ascensionOnSunday ?? false;
+      config?.ascensionOnSunday ??
+      this.localizedCalendar?.particularConfig.ascensionOnSunday ??
+      false;
 
     const localeObj: Locale | undefined = this.localizedCalendar?.i18n ?? locale;
     this.localeId = localeObj?.localeCode ? sanitizeLocaleId(localeObj.localeCode) : 'dev';
@@ -101,7 +113,8 @@ export class RomcalConfig implements IRomcalConfig {
     this.calendarsDef = [];
 
     // Initiate the Martyrology Catalog object.
-    this.martyrologyCatalog = this.localizedCalendar?.martyrology ?? martyrologyCatalog ?? ({} as MartyrologyMap);
+    this.martyrologyCatalog =
+      this.localizedCalendar?.martyrology ?? martyrologyCatalog ?? ({} as MartyrologyMap);
 
     // In all cases, generate the ProperOfTime calendar
     this.calendarsDef.push(new ProperOfTime(this));
@@ -120,7 +133,8 @@ export class RomcalConfig implements IRomcalConfig {
     }
 
     this.calendarName =
-      config?.localizedCalendar?.calendarName ?? this.calendarsDef[this.calendarsDef.length - 1].calendarName;
+      config?.localizedCalendar?.calendarName ??
+      this.calendarsDef[this.calendarsDef.length - 1].calendarName;
 
     // Update the config by checking if a particularConfig is present in all CalendarDef objects.
     this.calendarsDef.map((cal) => cal.updateConfig(config));

@@ -5,7 +5,9 @@ import { MartyrologyItemRedefined } from '../types';
  * @param maybeItem
  * @returns
  */
-export const isMartyrologyItemRedefined = (maybeItem: unknown): maybeItem is MartyrologyItemRedefined => {
+export const isMartyrologyItemRedefined = (
+  maybeItem: unknown,
+): maybeItem is MartyrologyItemRedefined => {
   return (
     typeof maybeItem === 'object' &&
     maybeItem !== null &&

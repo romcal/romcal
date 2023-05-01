@@ -34,5 +34,6 @@
     "packages/calendars/dist/schemas/MartyrologyMap.schema.json": "packages/calendars/src/martyrology.yaml",
     "packages/locales/dist/schemas/Locale.schema.json": "packages/locales/src/**/*.yaml"
   },
-  "cSpell.words": ["Romcal", "Triduum"]
+  "cSpell.words": ["Romcal", "Triduum"],
+  "editor.rulers": [100]
 }

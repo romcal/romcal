@@ -28,7 +28,10 @@ module.exports = {
     'import/no-unused-modules': 'error',
     'no-unused-vars': 'off',
     'object-shorthand': 'error',
-    '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', ignoreRestSiblings: true }],
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      { argsIgnorePattern: '^_', ignoreRestSiblings: true },
+    ],
     'unused-imports/no-unused-imports': 'error',
     '@typescript-eslint/explicit-module-boundary-types': 'error',
     '@typescript-eslint/explicit-function-return-type': 'error',

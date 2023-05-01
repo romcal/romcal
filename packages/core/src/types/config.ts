@@ -76,6 +76,8 @@ export type RomcalConfigInput = Omit<Partial<BaseRomcalConfig>, 'localeId' | 'ca
 /**
  * Output object of the romcal config.
  */
-export type RomcalConfigOutput = Required<Omit<BaseRomcalConfig, 'localizedCalendar' | 'calendarsDef'>>;
+export type RomcalConfigOutput = Required<
+  Omit<BaseRomcalConfig, 'localizedCalendar' | 'calendarsDef'>
+>;
 
 export type CalendarScope = 'gregorian' | 'liturgical';

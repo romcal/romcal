@@ -9,7 +9,13 @@ import {
   Season,
 } from '@romcal/shared';
 
-import { BaseCalendar, ByIds, DatesIndex, LiturgicalBuiltData, LiturgicalCalendar } from '../types/calendar';
+import {
+  BaseCalendar,
+  ByIds,
+  DatesIndex,
+  LiturgicalBuiltData,
+  LiturgicalCalendar,
+} from '../types/calendar';
 import { Id } from '../types/common';
 import { RomcalCalendarMetadata } from '../types/liturgical-day';
 import { Dates } from '../utils/dates';
@@ -39,23 +45,31 @@ export class Calendar implements BaseCalendar {
    * @param date
    * @param baseData
    */
-  #buildCalendarMetadata(def: LiturgicalDayDef, date: Date, baseData: LiturgicalDay | null): RomcalCalendarMetadata {
+  #buildCalendarMetadata(
+    def: LiturgicalDayDef,
+    date: Date,
+    baseData: LiturgicalDay | null,
+  ): RomcalCalendarMetadata {
     let currentYear = this.#liturgicalDayConfig.year;
 
     if (
       this.#config.scope === 'gregorian' &&
-      this.#liturgicalDayConfig.dates.firstSundayOfAdvent(this.#liturgicalDayConfig.year).getTime() <= date.getTime()
+      this.#liturgicalDayConfig.dates
+        .firstSundayOfAdvent(this.#liturgicalDayConfig.year)
+        .getTime() <= date.getTime()
     ) {
       currentYear++;
     }
 
     const startOfSeasonsDic =
       this.#startOfSeasonsDic[currentYear] ||
-      (this.#startOfSeasonsDic[currentYear] = this.#liturgicalDayConfig.dates.startOfSeasons(currentYear));
+      (this.#startOfSeasonsDic[currentYear] =
+        this.#liturgicalDayConfig.dates.startOfSeasons(currentYear));
 
     const endOfSeasonsDic =
       this.#endOfSeasonsDic[currentYear] ||
-      (this.#endOfSeasonsDic[currentYear] = this.#liturgicalDayConfig.dates.endOfSeasons(currentYear));
+      (this.#endOfSeasonsDic[currentYear] =
+        this.#liturgicalDayConfig.dates.endOfSeasons(currentYear));
 
     const startOfSeason = def.seasons.length ? startOfSeasonsDic[def.seasons[0]] : undefined;
     const endOfSeason = def.seasons.length ? endOfSeasonsDic[def.seasons[0]] : undefined;
@@ -84,7 +98,9 @@ export class Calendar implements BaseCalendar {
     let weekOfSeason =
       baseData?.calendar.weekOfSeason ??
       def.calendarMetadata.weekOfSeason ??
-      (startOfSeason ? Math.ceil((dayOfSeason + startOfSeason.getUTCDay()) / 7) + weekOfSeasonOffset : NaN);
+      (startOfSeason
+        ? Math.ceil((dayOfSeason + startOfSeason.getUTCDay()) / 7) + weekOfSeasonOffset
+        : NaN);
 
     // In late Ordinary Time, we need to compute the week number from the remaining days of the liturgical year
     if (isLateOrdinaryTime) {
@@ -120,7 +136,8 @@ export class Calendar implements BaseCalendar {
       // so we need to check the calendar name of the first item in the `fromExtendedCalendars`.
       const isFromProperOfTime =
         def.fromCalendarId === PROPER_OF_TIME_ID ||
-        (def.fromExtendedCalendars.length > 0 && def.fromExtendedCalendars[0].fromCalendarId === PROPER_OF_TIME_ID);
+        (def.fromExtendedCalendars.length > 0 &&
+          def.fromExtendedCalendars[0].fromCalendarId === PROPER_OF_TIME_ID);
 
       // In a Liturgical Calendar scope:
       // - Because a Liturgical Year is straddling 2 Gregorian year,
@@ -394,7 +411,9 @@ export class Calendar implements BaseCalendar {
           d.precedence !== Precedence.OptionalMemorial_12 &&
           !optionalMemorials.map((om) => om.id).includes(d.id);
 
-        const nextAllowingSimilarItems = dates.slice(1).filter((d) => d.allowSimilarRankItems && checkNextItems(d));
+        const nextAllowingSimilarItems = dates
+          .slice(1)
+          .filter((d) => d.allowSimilarRankItems && checkNextItems(d));
         optionalMemorials = [...optionalMemorials, ...nextAllowingSimilarItems];
 
         const nextItem = dates.slice(1).find((d) => !d.allowSimilarRankItems && checkNextItems(d));

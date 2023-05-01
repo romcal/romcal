@@ -56,7 +56,9 @@ export const inputToOneMartyrologyItem = ({
   if (itemsPointer === undefined) return undefined;
 
   if (typeof itemsPointer === 'string') {
-    const existingMartyrologyItem = existingItems?.find((item) => item.martyrologyId === itemsPointer);
+    const existingMartyrologyItem = existingItems?.find(
+      (item) => item.martyrologyId === itemsPointer,
+    );
     if (existingMartyrologyItem) return existingMartyrologyItem;
 
     if (!Object.hasOwnProperty.call(catalog, itemsPointer)) {
@@ -85,7 +87,11 @@ export const inputToOneMartyrologyItem = ({
     ...martyrologyItem,
     ...(typeof itemsPointer.hideTitles === 'boolean' && { hideTitles: itemsPointer.hideTitles }),
     ...(itemsPointer.titles !== undefined && {
-      titles: inputToTitles({ existingTitles: martyrologyItem.titles, input: itemsPointer.titles, onEmptyTitleList }),
+      titles: inputToTitles({
+        existingTitles: martyrologyItem.titles,
+        input: itemsPointer.titles,
+        onEmptyTitleList,
+      }),
     }),
     ...(itemsPointer.count !== undefined && { count: itemsPointer.count }),
   };

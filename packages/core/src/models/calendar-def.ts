@@ -60,10 +60,14 @@ export class CalendarDef implements BaseCalendarDef {
     // and the sanitized configuration.
 
     this.#config.epiphanyOnSunday =
-      input?.epiphanyOnSunday ?? this.particularConfig?.epiphanyOnSunday ?? this.#config.epiphanyOnSunday;
+      input?.epiphanyOnSunday ??
+      this.particularConfig?.epiphanyOnSunday ??
+      this.#config.epiphanyOnSunday;
 
     this.#config.ascensionOnSunday =
-      input?.ascensionOnSunday ?? this.particularConfig?.ascensionOnSunday ?? this.#config.ascensionOnSunday;
+      input?.ascensionOnSunday ??
+      this.particularConfig?.ascensionOnSunday ??
+      this.#config.ascensionOnSunday;
 
     this.#config.corpusChristiOnSunday =
       input?.corpusChristiOnSunday ??

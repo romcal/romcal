@@ -49,7 +49,10 @@ export const inputToDateDef = (input: DateDefInput | undefined): DateDef | undef
   return input;
 };
 
-const getLiturgicalDayDefDiff = (existingItem: LiturgicalDayDef, newItem: LiturgicalDayDef): LiturgicalDayDiff => {
+const getLiturgicalDayDefDiff = (
+  existingItem: LiturgicalDayDef,
+  newItem: LiturgicalDayDef,
+): LiturgicalDayDiff => {
   const { diff: prevDiff, fromCalendarId: prevCalId, ...existingItemToCompare } = existingItem;
   const { diff: newDiff, fromCalendarId: newCalId, ...newItemToCompare } = newItem;
   return {
@@ -87,16 +90,19 @@ export const mergeLiturgicalDayDefsHelper = ({
 
   const rank: Rank | undefined = precedence ? RanksFromPrecedence[precedence] : undefined;
 
-  const allowSimilarRankItems: boolean | undefined = input.allowSimilarRankItems ?? existingItem?.allowSimilarRankItems;
+  const allowSimilarRankItems: boolean | undefined =
+    input.allowSimilarRankItems ?? existingItem?.allowSimilarRankItems;
 
-  const isHolyDayOfObligation: boolean | undefined = input.isHolyDayOfObligation ?? existingItem?.isHolyDayOfObligation;
+  const isHolyDayOfObligation: boolean | undefined =
+    input.isHolyDayOfObligation ?? existingItem?.isHolyDayOfObligation;
 
   const properCycle: ProperCycle | undefined =
     input.properCycle ?? existingItem?.properCycle ?? !isProperOfTimeId(liturgicalDayId)
       ? ProperCycle.ProperOfSaints
       : undefined;
 
-  const customLocaleKey: LocaleKey | undefined = input.customLocaleKey ?? existingItem?.customLocaleKey;
+  const customLocaleKey: LocaleKey | undefined =
+    input.customLocaleKey ?? existingItem?.customLocaleKey;
 
   const martyrology: MartyrologyItem[] | undefined = inputToManyMartyrologyItems({
     catalog: martyrologyCatalog,
@@ -106,11 +112,15 @@ export const mergeLiturgicalDayDefsHelper = ({
       throw new Error(`Martyrology item ${itemId} not found in ${calendarId}.`);
     },
     onEmptyTitleList: () => {
-      throw new Error(`The titles property must contain at least one title for ${liturgicalDayId} in ${calendarId}.`);
+      throw new Error(
+        `The titles property must contain at least one title for ${liturgicalDayId} in ${calendarId}.`,
+      );
     },
   });
 
-  const martyrologyTitles: RomcalTitle[] | undefined = martyrology?.reduce<RomcalTitle[] | undefined>((acc, item) => {
+  const martyrologyTitles: RomcalTitle[] | undefined = martyrology?.reduce<
+    RomcalTitle[] | undefined
+  >((acc, item) => {
     if (Array.isArray(item.titles)) return [...(acc ?? []), ...item.titles];
     return acc;
   }, undefined);
@@ -122,7 +132,9 @@ export const mergeLiturgicalDayDefsHelper = ({
         : undefined,
     input: input.titles,
     onEmptyTitleList: () => {
-      throw new Error(`The titles property must contain at least one title for ${liturgicalDayId} in ${calendarId}.`);
+      throw new Error(
+        `The titles property must contain at least one title for ${liturgicalDayId} in ${calendarId}.`,
+      );
     },
   });
 
@@ -199,34 +211,41 @@ export const buildCalendars = async ({
           const calendarDefTree: CalendarDefInput[] = [
             ...calendar.basedOn.map((cal) => {
               const basedCal = Object.values(allCalendars).find((c) => c.calendarId === cal);
-              if (!basedCal) throw new Error(`Based-on a missing calendar ${cal} in ${calendar.calendarId}.`);
+              if (!basedCal)
+                throw new Error(`Based-on a missing calendar ${cal} in ${calendar.calendarId}.`);
               return basedCal;
             }),
             calendar,
           ];
 
           // Merge all configs from the based-on calendars and this proper calendar.
-          const config: CalendarDefConfig = calendarDefTree.reduce<CalendarDefConfig>((acc, cal) => {
-            return { ...acc, ...cal.config };
-          }, DEFAULT_CALENDAR_CONFIG);
+          const config: CalendarDefConfig = calendarDefTree.reduce<CalendarDefConfig>(
+            (acc, cal) => {
+              return { ...acc, ...cal.config };
+            },
+            DEFAULT_CALENDAR_CONFIG,
+          );
 
           // Merge all inputs from the based-on calendars and this proper calendar.
-          const definitions: LiturgicalDayDefMap = calendarDefTree.reduce<LiturgicalDayDefMap>((acc, cal) => {
-            Object.keys(cal.inputs).forEach((liturgicalDayId) => {
-              const existingItem: LiturgicalDayDef | undefined =
-                liturgicalDayId in acc ? acc[liturgicalDayId] : undefined;
+          const definitions: LiturgicalDayDefMap = calendarDefTree.reduce<LiturgicalDayDefMap>(
+            (acc, cal) => {
+              Object.keys(cal.inputs).forEach((liturgicalDayId) => {
+                const existingItem: LiturgicalDayDef | undefined =
+                  liturgicalDayId in acc ? acc[liturgicalDayId] : undefined;
 
-              acc[liturgicalDayId] = mergeLiturgicalDayDefsHelper({
-                liturgicalDayId,
-                calendarId: cal.calendarId,
-                existingItem,
-                input: cal.inputs[liturgicalDayId],
-                martyrologyCatalog: martyrology,
+                acc[liturgicalDayId] = mergeLiturgicalDayDefsHelper({
+                  liturgicalDayId,
+                  calendarId: cal.calendarId,
+                  existingItem,
+                  input: cal.inputs[liturgicalDayId],
+                  martyrologyCatalog: martyrology,
+                });
               });
-            });
 
-            return acc;
-          }, {});
+              return acc;
+            },
+            {},
+          );
 
           const calendarDef: CalendarDef = {
             calendarId: calendar.calendarId,

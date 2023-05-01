@@ -30,6 +30,8 @@ describe('toRomanNumber', () => {
   });
 
   it('should throw an error when passed a number greater than 3999', () => {
-    expect(() => toRomanNumber(4000)).toThrow('Cannot convert numbers greater than 3999 to Roman numerals');
+    expect(() => toRomanNumber(4000)).toThrow(
+      'Cannot convert numbers greater than 3999 to Roman numerals',
+    );
   });
 });

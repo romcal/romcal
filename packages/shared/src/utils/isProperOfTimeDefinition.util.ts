@@ -1,7 +1,9 @@
 import { PROPER_OF_TIME_ID } from '../constants';
 import { CalendarDef } from '../types';
 
-export function isProperOfTimeDefinition(maybeProperOfTime?: unknown): maybeProperOfTime is CalendarDef {
+export function isProperOfTimeDefinition(
+  maybeProperOfTime?: unknown,
+): maybeProperOfTime is CalendarDef {
   return (
     typeof maybeProperOfTime === 'object' &&
     maybeProperOfTime !== null &&

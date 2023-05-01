@@ -57,7 +57,13 @@ export enum Rank {
   Weekday = 'WEEKDAY',
 }
 
-export const RANKS = [Rank.Solemnity, Rank.Sunday, Rank.Feast, Rank.Memorial, Rank.Weekday] as const;
+export const RANKS = [
+  Rank.Solemnity,
+  Rank.Sunday,
+  Rank.Feast,
+  Rank.Memorial,
+  Rank.Weekday,
+] as const;
 
 /**
  * Ranks from precedence.

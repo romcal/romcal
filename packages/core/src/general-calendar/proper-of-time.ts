@@ -59,7 +59,12 @@ export class ProperOfTime extends CalendarDef {
    * @private
    */
   #newLiturgicalDayDef(id: Id, input: LiturgicalDayProperOfTimeInput): void {
-    new LiturgicalDayDef(id, { properCycle: ProperCycle.ProperOfTime, ...input }, PROPER_OF_TIME_ID, this.#config);
+    new LiturgicalDayDef(
+      id,
+      { properCycle: ProperCycle.ProperOfTime, ...input },
+      PROPER_OF_TIME_ID,
+      this.#config,
+    );
   }
 
   /**
@@ -90,7 +95,10 @@ export class ProperOfTime extends CalendarDef {
           ...(week === 3 && dow === 0 ? [Color.Rose] : []), // Gaudete
           Color.Purple,
         ],
-        i18nDef: dow === 0 ? ['seasons:advent.sunday', { week }] : ['seasons:advent.weekday', { week, dow }],
+        i18nDef:
+          dow === 0
+            ? ['seasons:advent.sunday', { week }]
+            : ['seasons:advent.weekday', { week, dow }],
       });
     }
 
@@ -313,7 +321,8 @@ export class ProperOfTime extends CalendarDef {
           ...(week === 4 && dow === 0 ? [Color.Rose] : []), // Laetare
           Color.Purple,
         ],
-        i18nDef: dow === 0 ? ['seasons:lent.sunday', { week }] : ['seasons:lent.weekday', { week, dow }],
+        i18nDef:
+          dow === 0 ? ['seasons:lent.sunday', { week }] : ['seasons:lent.weekday', { week, dow }],
       });
     }
 
@@ -441,7 +450,10 @@ export class ProperOfTime extends CalendarDef {
         periods: [],
         calendarMetadata: { weekOfSeason: week, dayOfSeason: i + 1, dayOfWeek: dow },
         colors: [Color.White],
-        i18nDef: dow === 0 ? ['seasons:easter_time.sunday', { week }] : ['seasons:easter_time.weekday', { week, dow }],
+        i18nDef:
+          dow === 0
+            ? ['seasons:easter_time.sunday', { week }]
+            : ['seasons:easter_time.weekday', { week, dow }],
       };
       // The Ascension of the Lord
       if (week === 6 && dow === 4) {
@@ -526,7 +538,9 @@ export class ProperOfTime extends CalendarDef {
         calendarMetadata: { weekOfSeason: week, dayOfWeek: dow },
         colors: [Color.Green],
         i18nDef:
-          dow === 0 ? ['seasons:ordinary_time.sunday', { week }] : ['seasons:ordinary_time.weekday', { week, dow }],
+          dow === 0
+            ? ['seasons:ordinary_time.sunday', { week }]
+            : ['seasons:ordinary_time.weekday', { week, dow }],
       };
 
       // Sunday of the Word of God

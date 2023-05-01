@@ -22,9 +22,13 @@ describe('Testing national calendar overrides', () => {
     let spainDates2020: LiturgicalDay[];
 
     beforeAll(async () => {
-      franceDates2021 = Object.values(await new Romcal({ localizedCalendar: France_Fr }).generateCalendar(2021)).flat();
+      franceDates2021 = Object.values(
+        await new Romcal({ localizedCalendar: France_Fr }).generateCalendar(2021),
+      ).flat();
       generalDates2020 = Object.values(await new Romcal().generateCalendar(2020)).flat();
-      spainDates2020 = Object.values(await new Romcal({ localizedCalendar: Spain_Es }).generateCalendar(2020)).flat();
+      spainDates2020 = Object.values(
+        await new Romcal({ localizedCalendar: Spain_Es }).generateCalendar(2020),
+      ).flat();
     });
 
     test('The optional memory of the Most Holy Name of Jesus is available on the 3th of January, in addition to the weekday', () => {
@@ -54,15 +58,21 @@ describe('Testing national calendar overrides', () => {
     beforeAll(async () => {
       year = 2008;
       generalDates = Object.values(await new Romcal().generateCalendar(year)).flat();
-      spainDates = Object.values(await new Romcal({ localizedCalendar: Spain_Es }).generateCalendar(year)).flat();
+      spainDates = Object.values(
+        await new Romcal({ localizedCalendar: Spain_Es }).generateCalendar(year),
+      ).flat();
     });
 
     test('The feast of Saint Isidore of Seville is celebrated on April 4 every year', () => {
-      const date = generalDates.filter((d) => d.date === `${year}-04-04` && d.id === 'isidore_of_seville_bishop');
+      const date = generalDates.filter(
+        (d) => d.date === `${year}-04-04` && d.id === 'isidore_of_seville_bishop',
+      );
       expect(date.length).toEqual(1);
     });
     test('However, in the national calendar of Spain, this same feast is celebrated on the 26th of April every year', () => {
-      const date = spainDates.filter((d) => d.date === `${year}-04-26` && d.id === 'isidore_of_seville_bishop');
+      const date = spainDates.filter(
+        (d) => d.date === `${year}-04-26` && d.id === 'isidore_of_seville_bishop',
+      );
       expect(date.length).toEqual(1);
     });
     test('Therefore, national calendar of spain should only have one occurrence of this feast on the 26th of April', () => {
@@ -76,7 +86,9 @@ describe('Testing national calendar overrides', () => {
       const generalDates = Object.values(await new Romcal().generateCalendar(2023)).flat();
       const generalDate = generalDates.find((d) => d.id === 'joseph_spouse_of_mary');
 
-      const skDates = Object.values(await new Romcal({ localizedCalendar: Slovakia_Sk }).generateCalendar(2023)).flat();
+      const skDates = Object.values(
+        await new Romcal({ localizedCalendar: Slovakia_Sk }).generateCalendar(2023),
+      ).flat();
       const skDate = skDates.find((d) => d.id === 'joseph_spouse_of_mary');
 
       expect(generalDate?.date).toEqual(skDate?.date);
@@ -114,7 +126,10 @@ describe('Testing national calendar overrides', () => {
     test('Should fall on February 14, 2017 in the general calendar', async () => {
       const dates = Object.values(await new Romcal().generateCalendar(2017)).flat();
       const date = dates.find((d) => {
-        return d.id === 'cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop';
+        return (
+          d.id ===
+          'cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop'
+        );
       });
       expect(date?.date).toEqual('2017-02-14');
     });
@@ -153,10 +168,14 @@ describe('Testing national calendar overrides', () => {
           await new Romcal({ localizedCalendar: England_En }).generateCalendar(2011),
         ).flat();
 
-        const lateOrdinaryTimeDates2009: LiturgicalDay[] = Object.values(await new Romcal().generateCalendar(2009))
+        const lateOrdinaryTimeDates2009: LiturgicalDay[] = Object.values(
+          await new Romcal().generateCalendar(2009),
+        )
           .flat()
           .filter((d) => d.periods.includes(Periods.LateOrdinaryTime));
-        const lateOrdinaryTimeDates2011: LiturgicalDay[] = Object.values(await new Romcal().generateCalendar(2011))
+        const lateOrdinaryTimeDates2011: LiturgicalDay[] = Object.values(
+          await new Romcal().generateCalendar(2011),
+        )
           .flat()
           .filter((d) => d.periods.includes(Periods.LateOrdinaryTime));
 
@@ -168,10 +187,18 @@ describe('Testing national calendar overrides', () => {
           (d) => d.id === 'ordinary_time_20_sunday',
         );
 
-        const walesAssumption2009 = wales2009Dates.find((d) => d.id === 'assumption_of_the_blessed_virgin_mary');
-        const englandAssumption2009 = england2009Dates.find((d) => d.id === 'assumption_of_the_blessed_virgin_mary');
-        const walesAssumption2011 = wales2011Dates.find((d) => d.id === 'assumption_of_the_blessed_virgin_mary');
-        const englandAssumption2011 = england2011Dates.find((d) => d.id === 'assumption_of_the_blessed_virgin_mary');
+        const walesAssumption2009 = wales2009Dates.find(
+          (d) => d.id === 'assumption_of_the_blessed_virgin_mary',
+        );
+        const englandAssumption2009 = england2009Dates.find(
+          (d) => d.id === 'assumption_of_the_blessed_virgin_mary',
+        );
+        const walesAssumption2011 = wales2011Dates.find(
+          (d) => d.id === 'assumption_of_the_blessed_virgin_mary',
+        );
+        const englandAssumption2011 = england2011Dates.find(
+          (d) => d.id === 'assumption_of_the_blessed_virgin_mary',
+        );
 
         expect(
           walesAssumption2009 &&
@@ -198,9 +225,9 @@ describe('Testing national calendar overrides', () => {
 
     describe('If the feast of the Assumption of the Blessed Virgin Mary falls on Sunday', () => {
       test('It replaces the 20th Sunday of OT', async () => {
-        const twentiethSundayOfOrdinaryTime: LiturgicalDay = (await new Romcal().generateCalendar(2010))[
-          '2010-08-15'
-        ][0];
+        const twentiethSundayOfOrdinaryTime: LiturgicalDay = (
+          await new Romcal().generateCalendar(2010)
+        )['2010-08-15'][0];
 
         expect(twentiethSundayOfOrdinaryTime.id).toEqual('assumption_of_the_blessed_virgin_mary');
       });
@@ -213,7 +240,9 @@ describe('Testing national calendar overrides', () => {
       const englandDates = Object.values(
         await new Romcal({ localizedCalendar: England_En }).generateCalendar(2008),
       ).flat();
-      const walesDates = Object.values(await new Romcal({ localizedCalendar: Wales_En }).generateCalendar(2008)).flat();
+      const walesDates = Object.values(
+        await new Romcal({ localizedCalendar: Wales_En }).generateCalendar(2008),
+      ).flat();
       // So All Saints should be celebrated on Sunday
       const allSaintsEngland = englandDates.find((d) => d.id === 'all_saints');
       const allSaintsWales = walesDates.find((d) => d.id === 'all_saints');
@@ -228,11 +257,17 @@ describe('Testing national calendar overrides', () => {
       const englandDates = Object.values(
         await new Romcal({ localizedCalendar: England_En }).generateCalendar(2008),
       ).flat();
-      const walesDates = Object.values(await new Romcal({ localizedCalendar: Wales_En }).generateCalendar(2008)).flat();
+      const walesDates = Object.values(
+        await new Romcal({ localizedCalendar: Wales_En }).generateCalendar(2008),
+      ).flat();
       // So All Saints should be celebrated on Sunday
       // and All Souls will be celebrated on Monday
-      const allSaintsEngland = englandDates.find((d) => d.id === 'commemoration_of_all_the_faithful_departed');
-      const allSaintsWales = walesDates.find((d) => d.id === 'commemoration_of_all_the_faithful_departed');
+      const allSaintsEngland = englandDates.find(
+        (d) => d.id === 'commemoration_of_all_the_faithful_departed',
+      );
+      const allSaintsWales = walesDates.find(
+        (d) => d.id === 'commemoration_of_all_the_faithful_departed',
+      );
       expect(getUtcDateFromString(allSaintsEngland!.date).getUTCDay()).toEqual(1);
       expect(getUtcDateFromString(allSaintsWales!.date).getUTCDay()).toEqual(1);
     });
@@ -281,8 +316,12 @@ describe('Testing national calendar overrides', () => {
       const christopherMagallanesPriestAndCompanionsMartyrsMexico = mexicoDates.find(
         (d) => d.id === 'christopher_magallanes_priest_and_companions_martyrs',
       );
-      expect(christopherMagallanesPriestAndCompanionsMartyrs?.precedence).toEqual(Precedence.OptionalMemorial_12);
-      expect(christopherMagallanesPriestAndCompanionsMartyrsMexico?.precedence).toEqual(Precedence.ProperMemorial_11b);
+      expect(christopherMagallanesPriestAndCompanionsMartyrs?.precedence).toEqual(
+        Precedence.OptionalMemorial_12,
+      );
+      expect(christopherMagallanesPriestAndCompanionsMartyrsMexico?.precedence).toEqual(
+        Precedence.ProperMemorial_11b,
+      );
     });
   });
 
@@ -311,14 +350,18 @@ describe('Testing national calendar overrides', () => {
     });
 
     test('Should be celebrated on the 15th of April 2015 as a feast in the national calendar of Malta', async () => {
-      const maltaDates = Object.values(await new Romcal({ localizedCalendar: Malta_En }).generateCalendar(2015)).flat();
+      const maltaDates = Object.values(
+        await new Romcal({ localizedCalendar: Malta_En }).generateCalendar(2015),
+      ).flat();
       const ourLadyOfSorrows = maltaDates.find((d) => d.id === 'our_lady_of_sorrows');
       expect(ourLadyOfSorrows?.rank).toEqual(Ranks.Feast);
       expect(ourLadyOfSorrows?.date).toEqual('2015-04-15');
     });
 
     test('Should be replaced by the 3rd Sunday of Easter in 2018 in the national calendar of Malta due to precedence', async () => {
-      const maltaDates = Object.values(await new Romcal({ localizedCalendar: Malta_En }).generateCalendar(2018)).flat();
+      const maltaDates = Object.values(
+        await new Romcal({ localizedCalendar: Malta_En }).generateCalendar(2018),
+      ).flat();
       const ourLadyOfSorrows = '2018-04-15';
       const thirdSundayOfEaster = maltaDates.find((d) => d.id === 'easter_time_3_sunday');
       expect(thirdSundayOfEaster!.date).toEqual(ourLadyOfSorrows);
@@ -328,8 +371,12 @@ describe('Testing national calendar overrides', () => {
       const slovakiaDates = Object.values(
         await new Romcal({ localizedCalendar: Slovakia_Sk }).generateCalendar(2018),
       ).flat();
-      const ourLadyOfSorrowsPatronessOfSlovakia = slovakiaDates.find((d) => d.id === 'our_lady_of_sorrows');
-      expect(ourLadyOfSorrowsPatronessOfSlovakia?.precedence).toEqual(Precedence.ProperSolemnity_PrincipalPatron_4a);
+      const ourLadyOfSorrowsPatronessOfSlovakia = slovakiaDates.find(
+        (d) => d.id === 'our_lady_of_sorrows',
+      );
+      expect(ourLadyOfSorrowsPatronessOfSlovakia?.precedence).toEqual(
+        Precedence.ProperSolemnity_PrincipalPatron_4a,
+      );
       expect(ourLadyOfSorrowsPatronessOfSlovakia?.date === '2018-09-15').toBeTruthy();
     });
   });

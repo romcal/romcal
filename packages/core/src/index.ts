@@ -216,7 +216,10 @@ class Romcal {
         }
 
         this.getAllDefinitions().then(() => {
-          this.#computedCalendars[ldConfig.year] = new Calendar(this.#config, ldConfig).generateCalendar();
+          this.#computedCalendars[ldConfig.year] = new Calendar(
+            this.#config,
+            ldConfig,
+          ).generateCalendar();
           resolve(this.#computedCalendars[ldConfig.year]);
         });
       } catch (e) {

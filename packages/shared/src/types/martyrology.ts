@@ -80,7 +80,11 @@ export type SaintCount = number | 'many';
  */
 export type SaintDate = string | number;
 
-export type SaintDateDef = SaintDate | { between: [SaintDate, SaintDate] } | { or: SaintDate[] } | { century: number };
+export type SaintDateDef =
+  | SaintDate
+  | { between: [SaintDate, SaintDate] }
+  | { or: SaintDate[] }
+  | { century: number };
 
 /**
  * The associated titles of a liturgical day.

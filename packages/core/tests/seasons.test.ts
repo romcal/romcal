@@ -66,7 +66,9 @@ describe('Testing date range functions', () => {
       const romcal = new Romcal();
       for (let i = 1900, il = 2200; i <= il; i++) {
         const dates = romcal.dates(i);
-        expect(isSameDate(subtractsDays(dates.allSundaysOfLent()[0], 4), dates.ashWednesday())).toEqual(true);
+        expect(
+          isSameDate(subtractsDays(dates.allSundaysOfLent()[0], 4), dates.ashWednesday()),
+        ).toEqual(true);
       }
     });
 
@@ -156,8 +158,12 @@ describe('Testing date range functions', () => {
         const ordinaryTime = dates.allDatesOfEarlyOrdinaryTime();
         const [firstDayInEarlyOrdinaryTime] = ordinaryTime;
         const [lastDayInEarlyOrdinaryTime] = ordinaryTime.reverse();
-        expect(isSameDate(subtractsDays(firstDayInEarlyOrdinaryTime, 1), dates.baptismOfTheLord())).toEqual(true);
-        expect(isSameDate(addDays(lastDayInEarlyOrdinaryTime, 1), dates.ashWednesday())).toEqual(true);
+        expect(
+          isSameDate(subtractsDays(firstDayInEarlyOrdinaryTime, 1), dates.baptismOfTheLord()),
+        ).toEqual(true);
+        expect(isSameDate(addDays(lastDayInEarlyOrdinaryTime, 1), dates.ashWednesday())).toEqual(
+          true,
+        );
       }
     });
 
@@ -181,8 +187,12 @@ describe('Testing date range functions', () => {
         const [firstDayInLateOrdinaryTime] = lateOrdinaryTime;
         const [lastDayInLateOrdinaryTime] = lateOrdinaryTime.reverse();
         expect(sundays.length).toBeOneOf([23, 24, 25, 26, 27, 28, 29]);
-        expect(isSameDate(subtractsDays(firstDayInLateOrdinaryTime, 1), dates.pentecostSunday())).toEqual(true);
-        expect(isSameDate(addDays(lastDayInLateOrdinaryTime, 1), dates.allSundaysOfAdvent()[0])).toEqual(true);
+        expect(
+          isSameDate(subtractsDays(firstDayInLateOrdinaryTime, 1), dates.pentecostSunday()),
+        ).toEqual(true);
+        expect(
+          isSameDate(addDays(lastDayInLateOrdinaryTime, 1), dates.allSundaysOfAdvent()[0]),
+        ).toEqual(true);
       }
     });
   });
@@ -266,7 +276,9 @@ describe('Testing seasons utility functions', () => {
       const calendar = Object.values(await new Romcal().generateCalendar(2015)).flat();
       calendar
         .filter(
-          (d) => d.seasons.includes(Seasons.OrdinaryTime) && (d.rank === Ranks.Sunday || d.rank === Ranks.Weekday),
+          (d) =>
+            d.seasons.includes(Seasons.OrdinaryTime) &&
+            (d.rank === Ranks.Sunday || d.rank === Ranks.Weekday),
         )
         .forEach((date) => {
           expect(date.colors[0]).toEqual(Color.Green);

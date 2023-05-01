@@ -68,24 +68,37 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
     const year = this.year + (dateDef.yearOffset ?? 0) + yearOffset;
 
     // DateDefMonthDate
-    if (isInteger(dateDef.month) && isInteger(dateDef.date) && dateDef.month > 0 && dateDef.date > 0) {
+    if (
+      isInteger(dateDef.month) &&
+      isInteger(dateDef.date) &&
+      dateDef.month > 0 &&
+      dateDef.date > 0
+    ) {
       date = getUtcDate(year, dateDef.month, dateDef.date);
     }
 
     // DateDefDateFnAddDay or DateDefDateFnSubtractDay
-    else if (typeof dateDef.dateFn === 'string' && Object.prototype.hasOwnProperty.call(this.dates, dateDef.dateFn)) {
+    else if (
+      typeof dateDef.dateFn === 'string' &&
+      Object.prototype.hasOwnProperty.call(this.dates, dateDef.dateFn)
+    ) {
       const args = [...(dateDef.dateArgs ?? []), year];
       // TODO: improve TS typing here
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const dates = this.dates[dateDef.dateFn].apply<ThisType<Dates>, any, any>(this, args);
-      date = (Array.isArray(dates) ? dates.find((e) => e) : isValidDate(dates) ? dates : null) || null;
+      date =
+        (Array.isArray(dates) ? dates.find((e) => e) : isValidDate(dates) ? dates : null) || null;
 
       if (date && isInteger(dateDef.addDay)) date = addDays(date, dateDef.addDay);
       if (date && isInteger(dateDef.subtractDay)) date = subtractsDays(date, dateDef.subtractDay);
     }
 
     // DateDefMonthDowNthWeekInMonth
-    else if (isInteger(dateDef.month) && isInteger(dateDef.dayOfWeek) && isInteger(dateDef.nthWeekInMonth)) {
+    else if (
+      isInteger(dateDef.month) &&
+      isInteger(dateDef.dayOfWeek) &&
+      isInteger(dateDef.nthWeekInMonth)
+    ) {
       const firstDayOf7Days = getUtcDate(year, dateDef.month, 7 * dateDef.nthWeekInMonth - 6);
 
       date = LiturgicalDayConfig.#getNextDayOfWeek(firstDayOf7Days, dateDef.dayOfWeek);
@@ -99,7 +112,10 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
         6,
       );
 
-      date = LiturgicalDayConfig.#getNextDayOfWeek(firstDayOfLast7DaysOfMonth, dateDef.lastDayOfWeekInMonth);
+      date = LiturgicalDayConfig.#getNextDayOfWeek(
+        firstDayOfLast7DaysOfMonth,
+        dateDef.lastDayOfWeekInMonth,
+      );
     }
 
     return date;

@@ -506,7 +506,9 @@ describe('Testing specific liturgical date functions', () => {
     test('When it occurs on the same day as another memorial, both memorials are output', async () => {
       const romcal = new Romcal();
       const ids = (await romcal.generateCalendar(2015))['2015-06-13'].map((d) => d.id);
-      expect(JSON.stringify(ids)).toEqual(JSON.stringify(['immaculate_heart_of_mary', 'anthony_of_padua_priest']));
+      expect(JSON.stringify(ids)).toEqual(
+        JSON.stringify(['immaculate_heart_of_mary', 'anthony_of_padua_priest']),
+      );
     });
 
     test('When it occurs on a weekday, only one item is output for this day', async () => {
@@ -621,13 +623,27 @@ describe('Testing specific liturgical date functions', () => {
       });
 
       test('Its earliest occurring date is Jan 2 and latest occurring date is Jan 8', () => {
-        expect(new Romcal().dates().epiphany(1999, true).getUTCDate()).toBeOneOf([2, 3, 4, 5, 6, 7, 8]);
-        expect(new Romcal().dates().epiphany(2000, true).getUTCDate()).toBeOneOf([2, 3, 4, 5, 6, 7, 8]);
-        expect(new Romcal().dates().epiphany(2001, true).getUTCDate()).toBeOneOf([2, 3, 4, 5, 6, 7, 8]);
-        expect(new Romcal().dates().epiphany(2002, true).getUTCDate()).toBeOneOf([2, 3, 4, 5, 6, 7, 8]);
-        expect(new Romcal().dates().epiphany(2003, true).getUTCDate()).toBeOneOf([2, 3, 4, 5, 6, 7, 8]);
-        expect(new Romcal().dates().epiphany(2004, true).getUTCDate()).toBeOneOf([2, 3, 4, 5, 6, 7, 8]);
-        expect(new Romcal().dates().epiphany(2005, true).getUTCDate()).toBeOneOf([2, 3, 4, 5, 6, 7, 8]);
+        expect(new Romcal().dates().epiphany(1999, true).getUTCDate()).toBeOneOf([
+          2, 3, 4, 5, 6, 7, 8,
+        ]);
+        expect(new Romcal().dates().epiphany(2000, true).getUTCDate()).toBeOneOf([
+          2, 3, 4, 5, 6, 7, 8,
+        ]);
+        expect(new Romcal().dates().epiphany(2001, true).getUTCDate()).toBeOneOf([
+          2, 3, 4, 5, 6, 7, 8,
+        ]);
+        expect(new Romcal().dates().epiphany(2002, true).getUTCDate()).toBeOneOf([
+          2, 3, 4, 5, 6, 7, 8,
+        ]);
+        expect(new Romcal().dates().epiphany(2003, true).getUTCDate()).toBeOneOf([
+          2, 3, 4, 5, 6, 7, 8,
+        ]);
+        expect(new Romcal().dates().epiphany(2004, true).getUTCDate()).toBeOneOf([
+          2, 3, 4, 5, 6, 7, 8,
+        ]);
+        expect(new Romcal().dates().epiphany(2005, true).getUTCDate()).toBeOneOf([
+          2, 3, 4, 5, 6, 7, 8,
+        ]);
       });
     });
   });
@@ -694,7 +710,8 @@ describe('Testing specific liturgical date functions', () => {
 
         expect(
           // If it falls during Holy Week (or after)
-          (date.getTime() >= palmSunday.getTime() && isSameDate(computedDate, subtractsDays(palmSunday, 1))) ||
+          (date.getTime() >= palmSunday.getTime() &&
+            isSameDate(computedDate, subtractsDays(palmSunday, 1))) ||
             // If March 19 is a Sunday
             date.getUTCDay() === 0 ||
             // Otherwise, the computed date must be March 19
@@ -725,7 +742,11 @@ describe('Testing specific liturgical date functions', () => {
         const [lastDayInOctaveOfEaster] = octaveOfEasterDates.reverse();
         const octaveRange = rangeOfDays(firstDayInOctaveOfEaster, lastDayInOctaveOfEaster);
 
-        if (!rangeContainsDate(holyWeekRange, date) && !rangeContainsDate(octaveRange, date) && !isOnASundayOfLent) {
+        if (
+          !rangeContainsDate(holyWeekRange, date) &&
+          !rangeContainsDate(octaveRange, date) &&
+          !isOnASundayOfLent
+        ) {
           // eslint-disable-next-line jest/no-conditional-expect
           expect(new Romcal().dates().annunciation(i).getUTCDay()).toEqual(25);
         } else {
@@ -758,7 +779,10 @@ describe('Testing specific liturgical date functions', () => {
         if (rangeContainsDate(holyWeekRange, date) && !rangeContainsDate(octaveRange, date)) {
           // eslint-disable-next-line jest/no-conditional-expect
           expect(
-            isSameDate(new Romcal().dates().annunciation(i), addDays(new Romcal().dates().divineMercySunday(i), 1)),
+            isSameDate(
+              new Romcal().dates().annunciation(i),
+              addDays(new Romcal().dates().divineMercySunday(i), 1),
+            ),
           ).toEqual(true);
         } else {
           // This test case specifically doesn't care about what happens if one or
@@ -789,7 +813,10 @@ describe('Testing specific liturgical date functions', () => {
           // Happens in the Octave of Easter, move to one day after Low Sunday
           // eslint-disable-next-line jest/no-conditional-expect
           expect(
-            isSameDate(new Romcal().dates().annunciation(i), addDays(new Romcal().dates().divineMercySunday(i), 1)),
+            isSameDate(
+              new Romcal().dates().annunciation(i),
+              addDays(new Romcal().dates().divineMercySunday(i), 1),
+            ),
           ).toEqual(true);
         } else {
           // This test case specifically doesn't care about what happens if one or
@@ -807,7 +834,10 @@ describe('Testing specific liturgical date functions', () => {
         for (let i = 1900, il = 2100; i <= il; i++) {
           const epiphany = new Romcal().dates().epiphany(i, false);
           expect(
-            isSameDate(startOfWeek(addDays(epiphany, 7)), new Romcal().dates().baptismOfTheLord(i, false)),
+            isSameDate(
+              startOfWeek(addDays(epiphany, 7)),
+              new Romcal().dates().baptismOfTheLord(i, false),
+            ),
           ).toEqual(true);
         }
       });
@@ -820,7 +850,9 @@ describe('Testing specific liturgical date functions', () => {
           expect(epiphany.getUTCDay()).toEqual(0);
           if (epiphany.getUTCDate() === 7 || epiphany.getUTCDate() === 8) {
             // eslint-disable-next-line jest/no-conditional-expect
-            expect(isSameDate(addDays(epiphany, 1), new Romcal().dates().baptismOfTheLord(i, true))).toEqual(true);
+            expect(
+              isSameDate(addDays(epiphany, 1), new Romcal().dates().baptismOfTheLord(i, true)),
+            ).toEqual(true);
           }
         }
       });
@@ -832,7 +864,10 @@ describe('Testing specific liturgical date functions', () => {
           if (epiphany.getUTCDate() < 6) {
             // eslint-disable-next-line jest/no-conditional-expect
             expect(
-              isSameDate(startOfWeek(addDays(epiphany, 7)), new Romcal().dates().baptismOfTheLord(i, true)),
+              isSameDate(
+                startOfWeek(addDays(epiphany, 7)),
+                new Romcal().dates().baptismOfTheLord(i, true),
+              ),
             ).toEqual(true);
           }
         }
@@ -845,7 +880,10 @@ describe('Testing specific liturgical date functions', () => {
           if (epiphany.getUTCDate() === 6) {
             // eslint-disable-next-line jest/no-conditional-expect
             expect(
-              isSameDate(startOfWeek(addDays(epiphany, 7)), new Romcal().dates().baptismOfTheLord(i, true)),
+              isSameDate(
+                startOfWeek(addDays(epiphany, 7)),
+                new Romcal().dates().baptismOfTheLord(i, true),
+              ),
             ).toEqual(true);
           }
         }
@@ -875,7 +913,9 @@ describe('Testing specific liturgical date functions', () => {
 
         if (!onSundayOfAdvent) {
           // eslint-disable-next-line jest/no-conditional-expect
-          expect(date.getUTCDate()).toEqual(new Romcal().dates().immaculateConceptionOfMary(i).getUTCDate());
+          expect(date.getUTCDate()).toEqual(
+            new Romcal().dates().immaculateConceptionOfMary(i).getUTCDate(),
+          );
         }
       }
     });

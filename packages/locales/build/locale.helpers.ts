@@ -11,7 +11,11 @@ type BuildLocalesOptions = {
   onWriteFile?: (opt: BuiltFile) => void;
 };
 
-export const buildLocales = async ({ entryPoints, outDir, onWriteFile }: BuildLocalesOptions): Promise<void> => {
+export const buildLocales = async ({
+  entryPoints,
+  outDir,
+  onWriteFile,
+}: BuildLocalesOptions): Promise<void> => {
   try {
     log({ message: `Building locales: ${entryPoints}`, namespace: 'json' });
 

@@ -38,7 +38,9 @@ describe('sanitizeConfig', () => {
     const config = sanitizeConfig({
       year: 2022,
       epiphanyOnSunday: true,
-      calendar: { config: { epiphanyOnSunday: false, ascensionOnSunday: false, corpusChristiOnSunday: false } },
+      calendar: {
+        config: { epiphanyOnSunday: false, ascensionOnSunday: false, corpusChristiOnSunday: false },
+      },
     });
 
     expect(config.year).toBe(2022);

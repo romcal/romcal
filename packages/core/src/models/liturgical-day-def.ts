@@ -100,12 +100,17 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
 
     this.id = id;
 
-    const previousDef: LiturgicalDayDef | undefined = Object.prototype.hasOwnProperty.call(config.liturgicalDayDef, id)
+    const previousDef: LiturgicalDayDef | undefined = Object.prototype.hasOwnProperty.call(
+      config.liturgicalDayDef,
+      id,
+    )
       ? config.liturgicalDayDef[id]
       : undefined;
 
     if (!input.dateDef && !previousDef) {
-      throw new Error(`In the '${fromCalendarId}' calendar, the property 'dateDef' for '${id}' must be defined.`);
+      throw new Error(
+        `In the '${fromCalendarId}' calendar, the property 'dateDef' for '${id}' must be defined.`,
+      );
     }
     // TODO: refactor this to avoid non-null assertion
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -120,16 +125,20 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
       : [];
 
     if (!input.precedence && !previousDef) {
-      throw new Error(`In the '${fromCalendarId}' calendar, the property 'precedence' for '${id}' must be defined.`);
+      throw new Error(
+        `In the '${fromCalendarId}' calendar, the property 'precedence' for '${id}' must be defined.`,
+      );
     }
     // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
     this.precedence = input.precedence ?? previousDef!.precedence;
 
     this.rank = LiturgicalDayDef.precedenceToRank(this.precedence, id);
 
-    this.allowSimilarRankItems = input.allowSimilarRankItems ?? previousDef?.allowSimilarRankItems ?? false;
+    this.allowSimilarRankItems =
+      input.allowSimilarRankItems ?? previousDef?.allowSimilarRankItems ?? false;
 
-    this.isHolyDayOfObligation = input.isHolyDayOfObligation ?? previousDef?.isHolyDayOfObligation ?? false;
+    this.isHolyDayOfObligation =
+      input.isHolyDayOfObligation ?? previousDef?.isHolyDayOfObligation ?? false;
 
     this.isOptional = input.isOptional ?? previousDef?.isOptional ?? false;
 
@@ -137,7 +146,9 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
       const data = input as LiturgicalDayProperOfTimeInput;
       this.i18nDef = data.i18nDef;
     } else {
-      this.i18nDef = input.customLocaleId ? [`names:${input.customLocaleId}`] : previousDef?.i18nDef || [`names:${id}`];
+      this.i18nDef = input.customLocaleId
+        ? [`names:${input.customLocaleId}`]
+        : previousDef?.i18nDef || [`names:${id}`];
     }
 
     if (isLiturgicalDayProperOfTimeInput(input)) {
@@ -169,7 +180,8 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
       : (arrify(this.titles.some((t) => isMartyr(t)) ? Color.Red : Color.White) as Color[]);
 
     this.cycles = {
-      properCycle: input.properCycle ?? previousDef?.cycles.properCycle ?? ProperCycle.ProperOfSaints,
+      properCycle:
+        input.properCycle ?? previousDef?.cycles.properCycle ?? ProperCycle.ProperOfSaints,
     };
 
     this.fromCalendarId = fromCalendarId;
@@ -244,56 +256,61 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
     // [1] Then, check if Martyrology data exists from the date definition;
     // [2] if martyrology data do not exist, but an inherited LiturgicalDay exists: do nothing more;
     // [3] if martyrology no not exists, and there is no inheritance: take the def ID as the martyrology item ID.
-    (input.martyrology ?? (previousDef && []) ?? [id]).forEach((martyrologyId: string | MartyrologyItemRedefined) => {
-      const pointer = typeof martyrologyId === 'string' ? { id: martyrologyId } : martyrologyId;
+    (input.martyrology ?? (previousDef && []) ?? [id]).forEach(
+      (martyrologyId: string | MartyrologyItemRedefined) => {
+        const pointer = typeof martyrologyId === 'string' ? { id: martyrologyId } : martyrologyId;
 
-      // Add the matching Martyrology item in the Martyrology list defined above this forEach loop.
-      if (this.#config.martyrologyCatalog[pointer.id]) {
-        // Check if the matching Martyrology item already exists
-        let martyrologyItem = martyrology.find((item) => item.martyrologyId === pointer.id);
+        // Add the matching Martyrology item in the Martyrology list defined above this forEach loop.
+        if (this.#config.martyrologyCatalog[pointer.id]) {
+          // Check if the matching Martyrology item already exists
+          let martyrologyItem = martyrology.find((item) => item.martyrologyId === pointer.id);
 
-        // Otherwise, add it.
-        if (!martyrologyItem) {
-          martyrology.push(
-            (martyrologyItem = {
-              martyrologyId: pointer.id,
-              ...this.#config.martyrologyCatalog[pointer.id],
-            }),
-          );
+          // Otherwise, add it.
+          if (!martyrologyItem) {
+            martyrology.push(
+              (martyrologyItem = {
+                martyrologyId: pointer.id,
+                ...this.#config.martyrologyCatalog[pointer.id],
+              }),
+            );
+          }
+
+          // Combine `hideTitles` if provided.
+          if (typeof pointer.hideTitles === 'boolean') {
+            martyrologyItem.hideTitles = pointer.hideTitles;
+          }
+
+          // Combine `count` if provided.
+          if (typeof pointer.count === 'number' || pointer.count === 'many') {
+            martyrologyItem.count = pointer.count;
+          }
+
+          // Combine specific martyrology item `titles`, if provided.
+          if (pointer.titles) {
+            martyrologyItem.titles = this.#combineTitles(pointer.titles, pointer.id, previousDef);
+          }
         }
+        // If the Martyrology item is not found, it means this item is badly referenced in the date definition.
+        // In this situation, romcal must report en error.
+        // Note: romcal do not report an error when the liturgical day ID is used to find a martyrology item,
+        // because this liturgical day definition may not be related to a martyrology item.
+        else if (input.martyrology) {
+          // If the martyrology catalog as 0 items, we take the assumption that a new romcal instance
+          // has been created, without a specified localized calendar. In this case romcal compute the
+          // General Roman Calendar without localization and martyrology data.
 
-        // Combine `hideTitles` if provided.
-        if (typeof pointer.hideTitles === 'boolean') {
-          martyrologyItem.hideTitles = pointer.hideTitles;
+          // TODO: refactor this to have always martyrology data, even for the General Roman Calendar.
+          if (
+            Object.keys(this.#config.martyrologyCatalog).length > 0 &&
+            this.#config.calendarName === 'general-roman'
+          ) {
+            throw new Error(
+              `In the '${fromCalendarId}' calendar, a LiturgicalDay with the ID '${martyrologyId}', have a badly referenced martyrology item: '${pointer.id}'.`,
+            );
+          }
         }
-
-        // Combine `count` if provided.
-        if (typeof pointer.count === 'number' || pointer.count === 'many') {
-          martyrologyItem.count = pointer.count;
-        }
-
-        // Combine specific martyrology item `titles`, if provided.
-        if (pointer.titles) {
-          martyrologyItem.titles = this.#combineTitles(pointer.titles, pointer.id, previousDef);
-        }
-      }
-      // If the Martyrology item is not found, it means this item is badly referenced in the date definition.
-      // In this situation, romcal must report en error.
-      // Note: romcal do not report an error when the liturgical day ID is used to find a martyrology item,
-      // because this liturgical day definition may not be related to a martyrology item.
-      else if (input.martyrology) {
-        // If the martyrology catalog as 0 items, we take the assumption that a new romcal instance
-        // has been created, without a specified localized calendar. In this case romcal compute the
-        // General Roman Calendar without localization and martyrology data.
-
-        // TODO: refactor this to have always martyrology data, even for the General Roman Calendar.
-        if (Object.keys(this.#config.martyrologyCatalog).length > 0 && this.#config.calendarName === 'general-roman') {
-          throw new Error(
-            `In the '${fromCalendarId}' calendar, a LiturgicalDay with the ID '${martyrologyId}', have a badly referenced martyrology item: '${pointer.id}'.`,
-          );
-        }
-      }
-    });
+      },
+    );
 
     // Combine `titles` from the main date definition, if provided.
     if (input.titles) {
@@ -318,7 +335,11 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
    * @param martyrologyId
    * @param previousDef
    */
-  #combineTitles(titlesDef: TitlesDef, martyrologyId: Id, previousDef?: LiturgicalDayDef): RomcalTitles {
+  #combineTitles(
+    titlesDef: TitlesDef,
+    martyrologyId: Id,
+    previousDef?: LiturgicalDayDef,
+  ): RomcalTitles {
     return Array.isArray(titlesDef)
       ? titlesDef
       : typeof titlesDef === 'object'
@@ -350,7 +371,9 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
       //   : {}),
 
       // dateDef
-      ...(JSON.stringify(dayA.dateDef) !== JSON.stringify(dayB.dateDef) ? { dateDef: dayA.dateDef } : {}),
+      ...(JSON.stringify(dayA.dateDef) !== JSON.stringify(dayB.dateDef)
+        ? { dateDef: dayA.dateDef }
+        : {}),
 
       // dateExceptions
       ...(JSON.stringify(dayA.dateExceptions) !== JSON.stringify(dayB.dateExceptions)
@@ -372,7 +395,9 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
       ...(dayA.isOptional !== dayB.isOptional ? { isOptional: dayA.isOptional } : {}),
 
       // i18n
-      ...(JSON.stringify(dayA.i18nDef) !== JSON.stringify(dayB.i18nDef) ? { i18nDef: dayA.i18nDef } : {}),
+      ...(JSON.stringify(dayA.i18nDef) !== JSON.stringify(dayB.i18nDef)
+        ? { i18nDef: dayA.i18nDef }
+        : {}),
 
       // colors
       ...(dayA.colors
@@ -382,7 +407,9 @@ export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
         : {}),
 
       // titles
-      ...(JSON.stringify(dayA.titles) !== JSON.stringify(dayB.titles) ? { titles: dayA.titles } : {}),
+      ...(JSON.stringify(dayA.titles) !== JSON.stringify(dayB.titles)
+        ? { titles: dayA.titles }
+        : {}),
 
       // martyrology
       ...(JSON.stringify(dayA.martyrology) !== JSON.stringify(dayB.martyrology)
