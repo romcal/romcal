@@ -9,7 +9,7 @@ inputs:
     precedence: 08F_PROPER_FEAST
     dateDef:
       month: 1
-      dayOfWeek: SUNDAY
+      dayOfWeek: sunday
       nthWeekInMonth: 3
 
   peter_baptist_blasquez_paul_miki_and_companions_martyrs:
@@ -36,7 +36,7 @@ inputs:
         setDate:
           dateFn: palmSunday
           subtractDay: 1
-      - ifIsDayOfWeek: SUNDAY
+      - ifIsDayOfWeek: sunday
         setDate:
           dateFn: palmSunday
           subtractDay: 1

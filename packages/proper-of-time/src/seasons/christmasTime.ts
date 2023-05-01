@@ -1,0 +1,196 @@
+import {
+  Color,
+  DAYS_OF_WEEK,
+  LiturgicalDayDef,
+  MONTHS,
+  Period,
+  Precedence,
+  PROPER_OF_TIME_ID,
+  Season,
+} from '@romcal/shared';
+
+/**
+ * Compute the Proper of the first part of the Christmas Time,
+ * which is in the first Gregorian year of the liturgical year.
+ * e.g.: A liturgical year that occur between the years 2019-2020,
+ * it returns the Proper that correspond to the year 2019.
+ * @param yearOffset A Liturgical year offset
+ */
+export const earlyChristmasTime = (yearOffset = 0): LiturgicalDayDef[] => {
+  const definitions: LiturgicalDayDef[] = [];
+
+  // The Nativity of the Lord.
+  definitions.push({
+    liturgicalDayId: `nativity_of_the_lord`,
+    precedence: Precedence.ProperOfTimeSolemnity_2,
+    dateDef: { dateFn: 'nativityOfTheLord', yearOffset: -1 + yearOffset },
+    isHolyDayOfObligation: true,
+    seasons: [{ season: Season.ChristmasTime, weekOfSeason: 1, dayOfSeason: 1 }],
+    periods: [
+      { period: Period.ChristmasOctave },
+      { period: Period.ChristmasToPresentationOfTheLord },
+    ],
+    colors: [Color.White],
+    i18nDef: [`names:nativity_of_the_lord`],
+    fromCalendarId: PROPER_OF_TIME_ID,
+  });
+
+  // Octave of the Nativity of the Lord (without December 25 and January 1).
+  for (let count = 2; count < 8; count++) {
+    definitions.push({
+      liturgicalDayId: `christmas_octave_day_${count}`,
+      precedence: Precedence.PrivilegedWeekday_9,
+      dateDef: {
+        dateFn: 'weekdayWithinOctaveOfChristmas',
+        dateArgs: [count],
+        yearOffset: -1 + yearOffset,
+      },
+      seasons: [{ season: Season.ChristmasTime, dayOfSeason: count }],
+      periods: [
+        { period: Period.ChristmasOctave },
+        { period: Period.ChristmasToPresentationOfTheLord },
+      ],
+      colors: [Color.White],
+      i18nDef: ['seasons:christmas_time.octave', { count }],
+      fromCalendarId: PROPER_OF_TIME_ID,
+    });
+  }
+
+  // The Sunday within the Octave of the Nativity of the Lord,
+  // Feast of the Holy Family of Jesus, Mary and Joseph.
+  definitions.push({
+    liturgicalDayId: `holy_family_of_jesus_mary_and_joseph`,
+    precedence: Precedence.GeneralLordFeast_5,
+    dateDef: { dateFn: 'holyFamily', yearOffset: -1 + yearOffset },
+    seasons: [{ season: Season.ChristmasTime }],
+    periods: [
+      { period: Period.ChristmasOctave },
+      { period: Period.ChristmasToPresentationOfTheLord },
+    ],
+    colors: [Color.White],
+    i18nDef: [`names:holy_family_of_jesus_mary_and_joseph`],
+    fromCalendarId: PROPER_OF_TIME_ID,
+  });
+
+  return definitions;
+};
+
+/**
+ * Compute the Proper of the second part of the Christmas Time,
+ * which is in the second Gregorian year of the liturgical year.
+ * e.g.: A liturgical year that occur between the years 2019-2020,
+ * it returns the Proper that correspond to the year 2020.
+ * @param yearOffset A Liturgical year offset
+ */
+export const lateChristmasTime = (yearOffset = 0): LiturgicalDayDef[] => {
+  const definitions: LiturgicalDayDef[] = [];
+
+  // Solemnity of Mary, the Holy Mother of God.
+  definitions.push({
+    liturgicalDayId: `mary_mother_of_god`,
+    precedence: Precedence.GeneralSolemnity_3,
+    dateDef: { month: 1, date: 1, yearOffset },
+    isHolyDayOfObligation: true,
+    seasons: [{ season: Season.ChristmasTime, dayOfSeason: 8 }],
+    periods: [
+      { period: Period.ChristmasOctave },
+      { period: Period.ChristmasToPresentationOfTheLord },
+    ],
+    colors: [Color.White],
+    i18nDef: ['names:mary_mother_of_god'],
+    fromCalendarId: PROPER_OF_TIME_ID,
+  });
+
+  // Second Sunday after the Nativity.
+  definitions.push({
+    liturgicalDayId: `second_sunday_after_christmas`,
+    precedence: Precedence.UnprivilegedSunday_6,
+    dateDef: { dateFn: 'secondSundayAfterChristmas', yearOffset },
+    isHolyDayOfObligation: true,
+    seasons: [{ season: Season.ChristmasTime }],
+    periods: [
+      // Note: before / from Epiphany flag is added during the creation of the liturgical day object,
+      // because this can only be determined within a liturgical year scope.
+      { period: Period.ChristmasToPresentationOfTheLord },
+    ],
+    colors: [Color.White],
+    i18nDef: ['seasons:christmas_time.second_sunday_after_christmas'],
+    fromCalendarId: PROPER_OF_TIME_ID,
+  });
+
+  // Weekdays of Christmas Time, before the Epiphany of the Lord.
+  for (let day = 2; day < 9; day++) {
+    definitions.push({
+      liturgicalDayId: `christmas_time_${MONTHS[0]}_${day}`,
+      precedence: Precedence.Weekday_13,
+      dateDef: { dateFn: 'weekdayBeforeEpiphany', dateArgs: [day], yearOffset },
+      seasons: [{ season: Season.ChristmasTime, dayOfSeason: 7 + day }],
+      periods: [
+        { period: Period.DaysBeforeEpiphany },
+        { period: Period.ChristmasToPresentationOfTheLord },
+      ],
+      colors: [Color.White],
+      i18nDef: ['seasons:christmas_time.before_epiphany', { day }],
+      fromCalendarId: PROPER_OF_TIME_ID,
+    });
+  }
+
+  // The Epiphany of the Lord.
+  definitions.push({
+    liturgicalDayId: `epiphany_of_the_lord`,
+    precedence: Precedence.ProperOfTimeSolemnity_2,
+    dateDef: { dateFn: 'epiphany', yearOffset },
+    isHolyDayOfObligation: true,
+    seasons: [{ season: Season.ChristmasTime }],
+    periods: [
+      { period: Period.DaysFromEpiphany },
+      { period: Period.ChristmasToPresentationOfTheLord },
+    ],
+    colors: [Color.White],
+    i18nDef: ['names:epiphany_of_the_lord'],
+    fromCalendarId: PROPER_OF_TIME_ID,
+  });
+
+  // Weekdays of Christmas Time, after the Epiphany of the Lord.
+  for (let dow = 1; dow < 7; dow++) {
+    definitions.push({
+      liturgicalDayId: `${DAYS_OF_WEEK[dow]}_after_epiphany`,
+      precedence: Precedence.Weekday_13,
+      dateDef: { dateFn: 'weekdayAfterEpiphany', dateArgs: [dow], yearOffset },
+      seasons: [{ season: Season.ChristmasTime }],
+      periods: [
+        { period: Period.DaysFromEpiphany },
+        { period: Period.ChristmasToPresentationOfTheLord },
+      ],
+      colors: [Color.White],
+      i18nDef: ['seasons:christmas_time.after_epiphany', { dow }],
+      fromCalendarId: PROPER_OF_TIME_ID,
+    });
+  }
+
+  // The Baptism of the Lord.
+  definitions.push({
+    liturgicalDayId: `baptism_of_the_lord`,
+    precedence: Precedence.ProperOfTimeSolemnity_2,
+    dateDef: { dateFn: 'baptismOfTheLord', yearOffset },
+    seasons: [{ season: Season.ChristmasTime }],
+    periods: [
+      { period: Period.DaysFromEpiphany },
+      { period: Period.ChristmasToPresentationOfTheLord },
+    ],
+    colors: [Color.White],
+    i18nDef: ['names:baptism_of_the_lord'],
+    fromCalendarId: PROPER_OF_TIME_ID,
+  });
+
+  return definitions;
+};
+
+/**
+ * Compute the Proper of the Christmas Time
+ * @param yearOffset A Liturgical year offset
+ */
+export const christmasTime = (yearOffset = 0): LiturgicalDayDef[] => [
+  ...earlyChristmasTime(yearOffset),
+  ...lateChristmasTime(yearOffset),
+];

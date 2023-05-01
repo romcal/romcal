@@ -1,4 +1,4 @@
-import { LiturgicalDayDefInputMap, LiturgicalDayDefMap } from './liturgical-day';
+import { LiturgicalDayDef, LiturgicalDayDefInputMap } from './liturgical-day';
 
 /**
  * Calendar identifier.
@@ -26,7 +26,7 @@ export type CalendarDef = {
   /**
    * Collection of liturgical date definitions.
    */
-  definitions: LiturgicalDayDefMap;
+  definitions: LiturgicalDayDef[];
 };
 
 export type CalendarDefInput = Pick<CalendarDef, 'calendarId'> & {

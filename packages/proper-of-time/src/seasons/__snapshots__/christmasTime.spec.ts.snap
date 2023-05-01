@@ -1,0 +1,1675 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`christmasTime should match snapshot 1`] = `
+[
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateFn": "nativityOfTheLord",
+      "yearOffset": -1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "names:nativity_of_the_lord",
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "nativity_of_the_lord",
+    "periods": [
+      {
+        "period": "CHRISTMAS_OCTAVE",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "02_PROPER_OF_TIME_SOLEMNITY",
+    "seasons": [
+      {
+        "dayOfSeason": 1,
+        "season": "CHRISTMAS_TIME",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        2,
+      ],
+      "dateFn": "weekdayWithinOctaveOfChristmas",
+      "yearOffset": -1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.octave",
+      {
+        "count": 2,
+      },
+    ],
+    "liturgicalDayId": "christmas_octave_day_2",
+    "periods": [
+      {
+        "period": "CHRISTMAS_OCTAVE",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 2,
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        3,
+      ],
+      "dateFn": "weekdayWithinOctaveOfChristmas",
+      "yearOffset": -1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.octave",
+      {
+        "count": 3,
+      },
+    ],
+    "liturgicalDayId": "christmas_octave_day_3",
+    "periods": [
+      {
+        "period": "CHRISTMAS_OCTAVE",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 3,
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        4,
+      ],
+      "dateFn": "weekdayWithinOctaveOfChristmas",
+      "yearOffset": -1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.octave",
+      {
+        "count": 4,
+      },
+    ],
+    "liturgicalDayId": "christmas_octave_day_4",
+    "periods": [
+      {
+        "period": "CHRISTMAS_OCTAVE",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 4,
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        5,
+      ],
+      "dateFn": "weekdayWithinOctaveOfChristmas",
+      "yearOffset": -1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.octave",
+      {
+        "count": 5,
+      },
+    ],
+    "liturgicalDayId": "christmas_octave_day_5",
+    "periods": [
+      {
+        "period": "CHRISTMAS_OCTAVE",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 5,
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        6,
+      ],
+      "dateFn": "weekdayWithinOctaveOfChristmas",
+      "yearOffset": -1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.octave",
+      {
+        "count": 6,
+      },
+    ],
+    "liturgicalDayId": "christmas_octave_day_6",
+    "periods": [
+      {
+        "period": "CHRISTMAS_OCTAVE",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 6,
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        7,
+      ],
+      "dateFn": "weekdayWithinOctaveOfChristmas",
+      "yearOffset": -1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.octave",
+      {
+        "count": 7,
+      },
+    ],
+    "liturgicalDayId": "christmas_octave_day_7",
+    "periods": [
+      {
+        "period": "CHRISTMAS_OCTAVE",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 7,
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateFn": "holyFamily",
+      "yearOffset": -1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "names:holy_family_of_jesus_mary_and_joseph",
+    ],
+    "liturgicalDayId": "holy_family_of_jesus_mary_and_joseph",
+    "periods": [
+      {
+        "period": "CHRISTMAS_OCTAVE",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "05_GENERAL_LORD_FEAST",
+    "seasons": [
+      {
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "date": 1,
+      "month": 1,
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "names:mary_mother_of_god",
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "mary_mother_of_god",
+    "periods": [
+      {
+        "period": "CHRISTMAS_OCTAVE",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "03_GENERAL_SOLEMNITY",
+    "seasons": [
+      {
+        "dayOfSeason": 8,
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateFn": "secondSundayAfterChristmas",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.second_sunday_after_christmas",
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "second_sunday_after_christmas",
+    "periods": [
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "06_UNPRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        2,
+      ],
+      "dateFn": "weekdayBeforeEpiphany",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.before_epiphany",
+      {
+        "day": 2,
+      },
+    ],
+    "liturgicalDayId": "christmas_time_january_2",
+    "periods": [
+      {
+        "period": "DAYS_BEFORE_EPIPHANY",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 9,
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        3,
+      ],
+      "dateFn": "weekdayBeforeEpiphany",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.before_epiphany",
+      {
+        "day": 3,
+      },
+    ],
+    "liturgicalDayId": "christmas_time_january_3",
+    "periods": [
+      {
+        "period": "DAYS_BEFORE_EPIPHANY",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 10,
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        4,
+      ],
+      "dateFn": "weekdayBeforeEpiphany",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.before_epiphany",
+      {
+        "day": 4,
+      },
+    ],
+    "liturgicalDayId": "christmas_time_january_4",
+    "periods": [
+      {
+        "period": "DAYS_BEFORE_EPIPHANY",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 11,
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        5,
+      ],
+      "dateFn": "weekdayBeforeEpiphany",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.before_epiphany",
+      {
+        "day": 5,
+      },
+    ],
+    "liturgicalDayId": "christmas_time_january_5",
+    "periods": [
+      {
+        "period": "DAYS_BEFORE_EPIPHANY",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 12,
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        6,
+      ],
+      "dateFn": "weekdayBeforeEpiphany",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.before_epiphany",
+      {
+        "day": 6,
+      },
+    ],
+    "liturgicalDayId": "christmas_time_january_6",
+    "periods": [
+      {
+        "period": "DAYS_BEFORE_EPIPHANY",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 13,
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        7,
+      ],
+      "dateFn": "weekdayBeforeEpiphany",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.before_epiphany",
+      {
+        "day": 7,
+      },
+    ],
+    "liturgicalDayId": "christmas_time_january_7",
+    "periods": [
+      {
+        "period": "DAYS_BEFORE_EPIPHANY",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 14,
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        8,
+      ],
+      "dateFn": "weekdayBeforeEpiphany",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.before_epiphany",
+      {
+        "day": 8,
+      },
+    ],
+    "liturgicalDayId": "christmas_time_january_8",
+    "periods": [
+      {
+        "period": "DAYS_BEFORE_EPIPHANY",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 15,
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateFn": "epiphany",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "names:epiphany_of_the_lord",
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "epiphany_of_the_lord",
+    "periods": [
+      {
+        "period": "DAYS_FROM_EPIPHANY",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "02_PROPER_OF_TIME_SOLEMNITY",
+    "seasons": [
+      {
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        1,
+      ],
+      "dateFn": "weekdayAfterEpiphany",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.after_epiphany",
+      {
+        "dow": 1,
+      },
+    ],
+    "liturgicalDayId": "monday_after_epiphany",
+    "periods": [
+      {
+        "period": "DAYS_FROM_EPIPHANY",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        2,
+      ],
+      "dateFn": "weekdayAfterEpiphany",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.after_epiphany",
+      {
+        "dow": 2,
+      },
+    ],
+    "liturgicalDayId": "tuesday_after_epiphany",
+    "periods": [
+      {
+        "period": "DAYS_FROM_EPIPHANY",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        3,
+      ],
+      "dateFn": "weekdayAfterEpiphany",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.after_epiphany",
+      {
+        "dow": 3,
+      },
+    ],
+    "liturgicalDayId": "wednesday_after_epiphany",
+    "periods": [
+      {
+        "period": "DAYS_FROM_EPIPHANY",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        4,
+      ],
+      "dateFn": "weekdayAfterEpiphany",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.after_epiphany",
+      {
+        "dow": 4,
+      },
+    ],
+    "liturgicalDayId": "thursday_after_epiphany",
+    "periods": [
+      {
+        "period": "DAYS_FROM_EPIPHANY",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        5,
+      ],
+      "dateFn": "weekdayAfterEpiphany",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.after_epiphany",
+      {
+        "dow": 5,
+      },
+    ],
+    "liturgicalDayId": "friday_after_epiphany",
+    "periods": [
+      {
+        "period": "DAYS_FROM_EPIPHANY",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        6,
+      ],
+      "dateFn": "weekdayAfterEpiphany",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.after_epiphany",
+      {
+        "dow": 6,
+      },
+    ],
+    "liturgicalDayId": "saturday_after_epiphany",
+    "periods": [
+      {
+        "period": "DAYS_FROM_EPIPHANY",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateFn": "baptismOfTheLord",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "names:baptism_of_the_lord",
+    ],
+    "liturgicalDayId": "baptism_of_the_lord",
+    "periods": [
+      {
+        "period": "DAYS_FROM_EPIPHANY",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "02_PROPER_OF_TIME_SOLEMNITY",
+    "seasons": [
+      {
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+]
+`;
+
+exports[`christmasTime should match snapshot with year offset to +1 1`] = `
+[
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateFn": "nativityOfTheLord",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "names:nativity_of_the_lord",
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "nativity_of_the_lord",
+    "periods": [
+      {
+        "period": "CHRISTMAS_OCTAVE",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "02_PROPER_OF_TIME_SOLEMNITY",
+    "seasons": [
+      {
+        "dayOfSeason": 1,
+        "season": "CHRISTMAS_TIME",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        2,
+      ],
+      "dateFn": "weekdayWithinOctaveOfChristmas",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.octave",
+      {
+        "count": 2,
+      },
+    ],
+    "liturgicalDayId": "christmas_octave_day_2",
+    "periods": [
+      {
+        "period": "CHRISTMAS_OCTAVE",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 2,
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        3,
+      ],
+      "dateFn": "weekdayWithinOctaveOfChristmas",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.octave",
+      {
+        "count": 3,
+      },
+    ],
+    "liturgicalDayId": "christmas_octave_day_3",
+    "periods": [
+      {
+        "period": "CHRISTMAS_OCTAVE",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 3,
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        4,
+      ],
+      "dateFn": "weekdayWithinOctaveOfChristmas",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.octave",
+      {
+        "count": 4,
+      },
+    ],
+    "liturgicalDayId": "christmas_octave_day_4",
+    "periods": [
+      {
+        "period": "CHRISTMAS_OCTAVE",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 4,
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        5,
+      ],
+      "dateFn": "weekdayWithinOctaveOfChristmas",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.octave",
+      {
+        "count": 5,
+      },
+    ],
+    "liturgicalDayId": "christmas_octave_day_5",
+    "periods": [
+      {
+        "period": "CHRISTMAS_OCTAVE",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 5,
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        6,
+      ],
+      "dateFn": "weekdayWithinOctaveOfChristmas",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.octave",
+      {
+        "count": 6,
+      },
+    ],
+    "liturgicalDayId": "christmas_octave_day_6",
+    "periods": [
+      {
+        "period": "CHRISTMAS_OCTAVE",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 6,
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        7,
+      ],
+      "dateFn": "weekdayWithinOctaveOfChristmas",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.octave",
+      {
+        "count": 7,
+      },
+    ],
+    "liturgicalDayId": "christmas_octave_day_7",
+    "periods": [
+      {
+        "period": "CHRISTMAS_OCTAVE",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 7,
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateFn": "holyFamily",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "names:holy_family_of_jesus_mary_and_joseph",
+    ],
+    "liturgicalDayId": "holy_family_of_jesus_mary_and_joseph",
+    "periods": [
+      {
+        "period": "CHRISTMAS_OCTAVE",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "05_GENERAL_LORD_FEAST",
+    "seasons": [
+      {
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "date": 1,
+      "month": 1,
+      "yearOffset": 1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "names:mary_mother_of_god",
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "mary_mother_of_god",
+    "periods": [
+      {
+        "period": "CHRISTMAS_OCTAVE",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "03_GENERAL_SOLEMNITY",
+    "seasons": [
+      {
+        "dayOfSeason": 8,
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateFn": "secondSundayAfterChristmas",
+      "yearOffset": 1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.second_sunday_after_christmas",
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "second_sunday_after_christmas",
+    "periods": [
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "06_UNPRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        2,
+      ],
+      "dateFn": "weekdayBeforeEpiphany",
+      "yearOffset": 1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.before_epiphany",
+      {
+        "day": 2,
+      },
+    ],
+    "liturgicalDayId": "christmas_time_january_2",
+    "periods": [
+      {
+        "period": "DAYS_BEFORE_EPIPHANY",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 9,
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        3,
+      ],
+      "dateFn": "weekdayBeforeEpiphany",
+      "yearOffset": 1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.before_epiphany",
+      {
+        "day": 3,
+      },
+    ],
+    "liturgicalDayId": "christmas_time_january_3",
+    "periods": [
+      {
+        "period": "DAYS_BEFORE_EPIPHANY",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 10,
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        4,
+      ],
+      "dateFn": "weekdayBeforeEpiphany",
+      "yearOffset": 1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.before_epiphany",
+      {
+        "day": 4,
+      },
+    ],
+    "liturgicalDayId": "christmas_time_january_4",
+    "periods": [
+      {
+        "period": "DAYS_BEFORE_EPIPHANY",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 11,
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        5,
+      ],
+      "dateFn": "weekdayBeforeEpiphany",
+      "yearOffset": 1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.before_epiphany",
+      {
+        "day": 5,
+      },
+    ],
+    "liturgicalDayId": "christmas_time_january_5",
+    "periods": [
+      {
+        "period": "DAYS_BEFORE_EPIPHANY",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 12,
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        6,
+      ],
+      "dateFn": "weekdayBeforeEpiphany",
+      "yearOffset": 1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.before_epiphany",
+      {
+        "day": 6,
+      },
+    ],
+    "liturgicalDayId": "christmas_time_january_6",
+    "periods": [
+      {
+        "period": "DAYS_BEFORE_EPIPHANY",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 13,
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        7,
+      ],
+      "dateFn": "weekdayBeforeEpiphany",
+      "yearOffset": 1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.before_epiphany",
+      {
+        "day": 7,
+      },
+    ],
+    "liturgicalDayId": "christmas_time_january_7",
+    "periods": [
+      {
+        "period": "DAYS_BEFORE_EPIPHANY",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 14,
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        8,
+      ],
+      "dateFn": "weekdayBeforeEpiphany",
+      "yearOffset": 1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.before_epiphany",
+      {
+        "day": 8,
+      },
+    ],
+    "liturgicalDayId": "christmas_time_january_8",
+    "periods": [
+      {
+        "period": "DAYS_BEFORE_EPIPHANY",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 15,
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateFn": "epiphany",
+      "yearOffset": 1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "names:epiphany_of_the_lord",
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "epiphany_of_the_lord",
+    "periods": [
+      {
+        "period": "DAYS_FROM_EPIPHANY",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "02_PROPER_OF_TIME_SOLEMNITY",
+    "seasons": [
+      {
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        1,
+      ],
+      "dateFn": "weekdayAfterEpiphany",
+      "yearOffset": 1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.after_epiphany",
+      {
+        "dow": 1,
+      },
+    ],
+    "liturgicalDayId": "monday_after_epiphany",
+    "periods": [
+      {
+        "period": "DAYS_FROM_EPIPHANY",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        2,
+      ],
+      "dateFn": "weekdayAfterEpiphany",
+      "yearOffset": 1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.after_epiphany",
+      {
+        "dow": 2,
+      },
+    ],
+    "liturgicalDayId": "tuesday_after_epiphany",
+    "periods": [
+      {
+        "period": "DAYS_FROM_EPIPHANY",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        3,
+      ],
+      "dateFn": "weekdayAfterEpiphany",
+      "yearOffset": 1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.after_epiphany",
+      {
+        "dow": 3,
+      },
+    ],
+    "liturgicalDayId": "wednesday_after_epiphany",
+    "periods": [
+      {
+        "period": "DAYS_FROM_EPIPHANY",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        4,
+      ],
+      "dateFn": "weekdayAfterEpiphany",
+      "yearOffset": 1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.after_epiphany",
+      {
+        "dow": 4,
+      },
+    ],
+    "liturgicalDayId": "thursday_after_epiphany",
+    "periods": [
+      {
+        "period": "DAYS_FROM_EPIPHANY",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        5,
+      ],
+      "dateFn": "weekdayAfterEpiphany",
+      "yearOffset": 1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.after_epiphany",
+      {
+        "dow": 5,
+      },
+    ],
+    "liturgicalDayId": "friday_after_epiphany",
+    "periods": [
+      {
+        "period": "DAYS_FROM_EPIPHANY",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        6,
+      ],
+      "dateFn": "weekdayAfterEpiphany",
+      "yearOffset": 1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:christmas_time.after_epiphany",
+      {
+        "dow": 6,
+      },
+    ],
+    "liturgicalDayId": "saturday_after_epiphany",
+    "periods": [
+      {
+        "period": "DAYS_FROM_EPIPHANY",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateFn": "baptismOfTheLord",
+      "yearOffset": 1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "names:baptism_of_the_lord",
+    ],
+    "liturgicalDayId": "baptism_of_the_lord",
+    "periods": [
+      {
+        "period": "DAYS_FROM_EPIPHANY",
+      },
+      {
+        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+      },
+    ],
+    "precedence": "02_PROPER_OF_TIME_SOLEMNITY",
+    "seasons": [
+      {
+        "season": "CHRISTMAS_TIME",
+      },
+    ],
+  },
+]
+`;

@@ -182,17 +182,17 @@ export type CalendarMetadata = {
  * Calendar Metadata
  */
 export type RomcalCalendarMetadata = {
-  /**
-   * The week number of the liturgical season.
-   * Starts from `1`, except in the seasons of lent,
-   * the week of Ash Wednesday to the next Saturday is count as `0`.
-   */
-  weekOfSeason: number;
+  // /**
+  //  * The week number of the liturgical season.
+  //  * Starts from `1`, except in the seasons of lent,
+  //  * the week of Ash Wednesday to the next Saturday is count as `0`.
+  //  */
+  // weekOfSeason: number;
 
-  /**
-   * The day number within the whole season.
-   */
-  dayOfSeason: number;
+  // /**
+  //  * The day number within the whole season.
+  //  */
+  // dayOfSeason: number;
 
   /**
    * The day of the week.
@@ -215,15 +215,15 @@ export type RomcalCalendarMetadata = {
    */
   endOfLiturgicalYear: string;
 
-  /**
-   * The first day of the current liturgical season.
-   */
-  startOfSeason: string;
+  // /**
+  //  * The first day of the current liturgical season.
+  //  */
+  // startOfSeason: string;
 
-  /**
-   * The last day of the current liturgical season.
-   */
-  endOfSeason: string;
+  // /**
+  //  * The last day of the current liturgical season.
+  //  */
+  // endOfSeason: string;
 };
 
 /**

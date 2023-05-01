@@ -1,0 +1,3249 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`easterTime should match snapshot 1`] = `
+[
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "addDay": 1,
+      "dateFn": "easterSunday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.octave",
+      {
+        "dow": 1,
+      },
+    ],
+    "liturgicalDayId": "easter_monday",
+    "periods": [
+      {
+        "period": "EASTER_OCTAVE",
+      },
+    ],
+    "precedence": "02_WEEKDAY_OF_EASTER_OCTAVE",
+    "seasons": [
+      {
+        "dayOfSeason": 2,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "addDay": 2,
+      "dateFn": "easterSunday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.octave",
+      {
+        "dow": 2,
+      },
+    ],
+    "liturgicalDayId": "easter_tuesday",
+    "periods": [
+      {
+        "period": "EASTER_OCTAVE",
+      },
+    ],
+    "precedence": "02_WEEKDAY_OF_EASTER_OCTAVE",
+    "seasons": [
+      {
+        "dayOfSeason": 3,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "addDay": 3,
+      "dateFn": "easterSunday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.octave",
+      {
+        "dow": 3,
+      },
+    ],
+    "liturgicalDayId": "easter_wednesday",
+    "periods": [
+      {
+        "period": "EASTER_OCTAVE",
+      },
+    ],
+    "precedence": "02_WEEKDAY_OF_EASTER_OCTAVE",
+    "seasons": [
+      {
+        "dayOfSeason": 4,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "addDay": 4,
+      "dateFn": "easterSunday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.octave",
+      {
+        "dow": 4,
+      },
+    ],
+    "liturgicalDayId": "easter_thursday",
+    "periods": [
+      {
+        "period": "EASTER_OCTAVE",
+      },
+    ],
+    "precedence": "02_WEEKDAY_OF_EASTER_OCTAVE",
+    "seasons": [
+      {
+        "dayOfSeason": 5,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "addDay": 5,
+      "dateFn": "easterSunday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.octave",
+      {
+        "dow": 5,
+      },
+    ],
+    "liturgicalDayId": "easter_friday",
+    "periods": [
+      {
+        "period": "EASTER_OCTAVE",
+      },
+    ],
+    "precedence": "02_WEEKDAY_OF_EASTER_OCTAVE",
+    "seasons": [
+      {
+        "dayOfSeason": 6,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "addDay": 6,
+      "dateFn": "easterSunday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.octave",
+      {
+        "dow": 6,
+      },
+    ],
+    "liturgicalDayId": "easter_saturday",
+    "periods": [
+      {
+        "period": "EASTER_OCTAVE",
+      },
+    ],
+    "precedence": "02_WEEKDAY_OF_EASTER_OCTAVE",
+    "seasons": [
+      {
+        "dayOfSeason": 7,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateFn": "divineMercySunday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "names:divine_mercy_sunday",
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "divine_mercy_sunday",
+    "periods": [
+      {
+        "period": "EASTER_OCTAVE",
+      },
+    ],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 8,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        1,
+        2,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 1,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_2_monday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 9,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        2,
+        2,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 2,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_2_tuesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 10,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        3,
+        2,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 3,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_2_wednesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 11,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        4,
+        2,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 4,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_2_thursday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 12,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        5,
+        2,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 5,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_2_friday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 13,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        6,
+        2,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 6,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_2_saturday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 14,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        0,
+        3,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.sunday",
+      {
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "easter_time_3_sunday",
+    "periods": [],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 15,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        1,
+        3,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 1,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_3_monday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 16,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        2,
+        3,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 2,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_3_tuesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 17,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        3,
+        3,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 3,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_3_wednesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 18,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        4,
+        3,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 4,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_3_thursday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 19,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        5,
+        3,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 5,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_3_friday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 20,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        6,
+        3,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 6,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_3_saturday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 21,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        0,
+        4,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.sunday",
+      {
+        "week": 4,
+      },
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "easter_time_4_sunday",
+    "periods": [],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 22,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 4,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        1,
+        4,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 1,
+        "week": 4,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_4_monday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 23,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 4,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        2,
+        4,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 2,
+        "week": 4,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_4_tuesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 24,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 4,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        3,
+        4,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 3,
+        "week": 4,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_4_wednesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 25,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 4,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        4,
+        4,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 4,
+        "week": 4,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_4_thursday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 26,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 4,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        5,
+        4,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 5,
+        "week": 4,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_4_friday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 27,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 4,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        6,
+        4,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 6,
+        "week": 4,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_4_saturday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 28,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 4,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        0,
+        5,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.sunday",
+      {
+        "week": 5,
+      },
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "easter_time_5_sunday",
+    "periods": [],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 29,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 5,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        1,
+        5,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 1,
+        "week": 5,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_5_monday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 30,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 5,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        2,
+        5,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 2,
+        "week": 5,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_5_tuesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 31,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 5,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        3,
+        5,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 3,
+        "week": 5,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_5_wednesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 32,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 5,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        4,
+        5,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 4,
+        "week": 5,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_5_thursday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 33,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 5,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        5,
+        5,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 5,
+        "week": 5,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_5_friday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 34,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 5,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        6,
+        5,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 6,
+        "week": 5,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_5_saturday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 35,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 5,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        0,
+        6,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.sunday",
+      {
+        "week": 6,
+      },
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "easter_time_6_sunday",
+    "periods": [],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 36,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 6,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        1,
+        6,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 1,
+        "week": 6,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_6_monday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 37,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 6,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        2,
+        6,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 2,
+        "week": 6,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_6_tuesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 38,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 6,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        3,
+        6,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 3,
+        "week": 6,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_6_wednesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 39,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 6,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateFn": "ascension",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "names:ascension_of_the_lord",
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "ascension_of_the_lord",
+    "periods": [],
+    "precedence": "02_PROPER_OF_TIME_SOLEMNITY",
+    "seasons": [
+      {
+        "dayOfSeason": 40,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 6,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        4,
+        6,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 4,
+        "week": 6,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_6_thursday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 40,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 6,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        5,
+        6,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 5,
+        "week": 6,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_6_friday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 41,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 6,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        6,
+        6,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 6,
+        "week": 6,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_6_saturday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 42,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 6,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        0,
+        7,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.sunday",
+      {
+        "week": 7,
+      },
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "easter_time_7_sunday",
+    "periods": [],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 43,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 7,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        1,
+        7,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 1,
+        "week": 7,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_7_monday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 44,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 7,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        2,
+        7,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 2,
+        "week": 7,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_7_tuesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 45,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 7,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        3,
+        7,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 3,
+        "week": 7,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_7_wednesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 46,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 7,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        4,
+        7,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 4,
+        "week": 7,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_7_thursday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 47,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 7,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        5,
+        7,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 5,
+        "week": 7,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_7_friday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 48,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 7,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        6,
+        7,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 6,
+        "week": 7,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_7_saturday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 49,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 7,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "RED",
+    ],
+    "dateDef": {
+      "dateFn": "pentecostSunday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "names:pentecost_sunday",
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "pentecost_sunday",
+    "periods": [],
+    "precedence": "02_PROPER_OF_TIME_SOLEMNITY",
+    "seasons": [
+      {
+        "dayOfSeason": 50,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 8,
+      },
+    ],
+  },
+]
+`;
+
+exports[`easterTime should match snapshot with year offset to +1 1`] = `
+[
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "addDay": 1,
+      "dateFn": "easterSunday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.octave",
+      {
+        "dow": 1,
+      },
+    ],
+    "liturgicalDayId": "easter_monday",
+    "periods": [
+      {
+        "period": "EASTER_OCTAVE",
+      },
+    ],
+    "precedence": "02_WEEKDAY_OF_EASTER_OCTAVE",
+    "seasons": [
+      {
+        "dayOfSeason": 2,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "addDay": 2,
+      "dateFn": "easterSunday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.octave",
+      {
+        "dow": 2,
+      },
+    ],
+    "liturgicalDayId": "easter_tuesday",
+    "periods": [
+      {
+        "period": "EASTER_OCTAVE",
+      },
+    ],
+    "precedence": "02_WEEKDAY_OF_EASTER_OCTAVE",
+    "seasons": [
+      {
+        "dayOfSeason": 3,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "addDay": 3,
+      "dateFn": "easterSunday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.octave",
+      {
+        "dow": 3,
+      },
+    ],
+    "liturgicalDayId": "easter_wednesday",
+    "periods": [
+      {
+        "period": "EASTER_OCTAVE",
+      },
+    ],
+    "precedence": "02_WEEKDAY_OF_EASTER_OCTAVE",
+    "seasons": [
+      {
+        "dayOfSeason": 4,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "addDay": 4,
+      "dateFn": "easterSunday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.octave",
+      {
+        "dow": 4,
+      },
+    ],
+    "liturgicalDayId": "easter_thursday",
+    "periods": [
+      {
+        "period": "EASTER_OCTAVE",
+      },
+    ],
+    "precedence": "02_WEEKDAY_OF_EASTER_OCTAVE",
+    "seasons": [
+      {
+        "dayOfSeason": 5,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "addDay": 5,
+      "dateFn": "easterSunday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.octave",
+      {
+        "dow": 5,
+      },
+    ],
+    "liturgicalDayId": "easter_friday",
+    "periods": [
+      {
+        "period": "EASTER_OCTAVE",
+      },
+    ],
+    "precedence": "02_WEEKDAY_OF_EASTER_OCTAVE",
+    "seasons": [
+      {
+        "dayOfSeason": 6,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "addDay": 6,
+      "dateFn": "easterSunday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.octave",
+      {
+        "dow": 6,
+      },
+    ],
+    "liturgicalDayId": "easter_saturday",
+    "periods": [
+      {
+        "period": "EASTER_OCTAVE",
+      },
+    ],
+    "precedence": "02_WEEKDAY_OF_EASTER_OCTAVE",
+    "seasons": [
+      {
+        "dayOfSeason": 7,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateFn": "divineMercySunday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "names:divine_mercy_sunday",
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "divine_mercy_sunday",
+    "periods": [
+      {
+        "period": "EASTER_OCTAVE",
+      },
+    ],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 8,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        1,
+        2,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 1,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_2_monday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 9,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        2,
+        2,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 2,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_2_tuesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 10,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        3,
+        2,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 3,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_2_wednesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 11,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        4,
+        2,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 4,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_2_thursday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 12,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        5,
+        2,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 5,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_2_friday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 13,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        6,
+        2,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 6,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_2_saturday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 14,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        0,
+        3,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.sunday",
+      {
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "easter_time_3_sunday",
+    "periods": [],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 15,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        1,
+        3,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 1,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_3_monday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 16,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        2,
+        3,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 2,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_3_tuesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 17,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        3,
+        3,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 3,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_3_wednesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 18,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        4,
+        3,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 4,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_3_thursday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 19,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        5,
+        3,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 5,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_3_friday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 20,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        6,
+        3,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 6,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_3_saturday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 21,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        0,
+        4,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.sunday",
+      {
+        "week": 4,
+      },
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "easter_time_4_sunday",
+    "periods": [],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 22,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 4,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        1,
+        4,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 1,
+        "week": 4,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_4_monday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 23,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 4,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        2,
+        4,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 2,
+        "week": 4,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_4_tuesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 24,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 4,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        3,
+        4,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 3,
+        "week": 4,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_4_wednesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 25,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 4,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        4,
+        4,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 4,
+        "week": 4,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_4_thursday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 26,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 4,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        5,
+        4,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 5,
+        "week": 4,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_4_friday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 27,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 4,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        6,
+        4,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 6,
+        "week": 4,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_4_saturday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 28,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 4,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        0,
+        5,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.sunday",
+      {
+        "week": 5,
+      },
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "easter_time_5_sunday",
+    "periods": [],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 29,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 5,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        1,
+        5,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 1,
+        "week": 5,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_5_monday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 30,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 5,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        2,
+        5,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 2,
+        "week": 5,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_5_tuesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 31,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 5,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        3,
+        5,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 3,
+        "week": 5,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_5_wednesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 32,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 5,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        4,
+        5,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 4,
+        "week": 5,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_5_thursday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 33,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 5,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        5,
+        5,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 5,
+        "week": 5,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_5_friday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 34,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 5,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        6,
+        5,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 6,
+        "week": 5,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_5_saturday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 35,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 5,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        0,
+        6,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.sunday",
+      {
+        "week": 6,
+      },
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "easter_time_6_sunday",
+    "periods": [],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 36,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 6,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        1,
+        6,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 1,
+        "week": 6,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_6_monday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 37,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 6,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        2,
+        6,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 2,
+        "week": 6,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_6_tuesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 38,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 6,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        3,
+        6,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 3,
+        "week": 6,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_6_wednesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 39,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 6,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateFn": "ascension",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "names:ascension_of_the_lord",
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "ascension_of_the_lord",
+    "periods": [],
+    "precedence": "02_PROPER_OF_TIME_SOLEMNITY",
+    "seasons": [
+      {
+        "dayOfSeason": 40,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 6,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        4,
+        6,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 4,
+        "week": 6,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_6_thursday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 40,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 6,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        5,
+        6,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 5,
+        "week": 6,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_6_friday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 41,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 6,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        6,
+        6,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 6,
+        "week": 6,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_6_saturday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 42,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 6,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        0,
+        7,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.sunday",
+      {
+        "week": 7,
+      },
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "easter_time_7_sunday",
+    "periods": [],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 43,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 7,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        1,
+        7,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 1,
+        "week": 7,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_7_monday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 44,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 7,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        2,
+        7,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 2,
+        "week": 7,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_7_tuesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 45,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 7,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        3,
+        7,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 3,
+        "week": 7,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_7_wednesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 46,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 7,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        4,
+        7,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 4,
+        "week": 7,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_7_thursday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 47,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 7,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        5,
+        7,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 5,
+        "week": 7,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_7_friday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 48,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 7,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        6,
+        7,
+      ],
+      "dateFn": "weekdayOrSundayOfEasterTime",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:easter_time.weekday",
+      {
+        "dow": 6,
+        "week": 7,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "easter_time_7_saturday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 49,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 7,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "RED",
+    ],
+    "dateDef": {
+      "dateFn": "pentecostSunday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "names:pentecost_sunday",
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "pentecost_sunday",
+    "periods": [],
+    "precedence": "02_PROPER_OF_TIME_SOLEMNITY",
+    "seasons": [
+      {
+        "dayOfSeason": 50,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 8,
+      },
+    ],
+  },
+]
+`;

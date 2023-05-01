@@ -1,16 +1,16 @@
 export enum Month {
-  January = 'JANUARY',
-  February = 'FEBRUARY',
-  March = 'MARCH',
-  April = 'APRIL',
-  May = 'MAY',
-  June = 'JUNE',
-  July = 'JULY',
-  August = 'AUGUST',
-  September = 'SEPTEMBER',
-  October = 'OCTOBER',
-  November = 'NOVEMBER',
-  December = 'DECEMBER',
+  January = 'january',
+  February = 'february',
+  March = 'march',
+  April = 'april',
+  May = 'may',
+  June = 'june',
+  July = 'july',
+  August = 'august',
+  September = 'september',
+  October = 'october',
+  November = 'november',
+  December = 'december',
 }
 
 export const MONTHS = [

@@ -1,0 +1,2975 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`lent should match snapshot 1`] = `
+[
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "names:ash_wednesday",
+    ],
+    "liturgicalDayId": "ash_wednesday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "02_ASH_WEDNESDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 1,
+        "season": "LENT",
+        "weekOfSeason": 0,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 1,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.day_after_ash_wed",
+      {
+        "dow": 4,
+      },
+    ],
+    "liturgicalDayId": "thursday_after_ash_wednesday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 2,
+        "season": "LENT",
+        "weekOfSeason": 0,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 2,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.day_after_ash_wed",
+      {
+        "dow": 5,
+      },
+    ],
+    "liturgicalDayId": "friday_after_ash_wednesday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 3,
+        "season": "LENT",
+        "weekOfSeason": 0,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 3,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.day_after_ash_wed",
+      {
+        "dow": 6,
+      },
+    ],
+    "liturgicalDayId": "saturday_after_ash_wednesday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 4,
+        "season": "LENT",
+        "weekOfSeason": 0,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 4,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.sunday",
+      {
+        "week": 1,
+      },
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "lent_1_sunday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 5,
+        "season": "LENT",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 5,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 1,
+        "week": 1,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_1_monday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 6,
+        "season": "LENT",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 6,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 2,
+        "week": 1,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_1_tuesday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 7,
+        "season": "LENT",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 7,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 3,
+        "week": 1,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_1_wednesday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 8,
+        "season": "LENT",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 8,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 4,
+        "week": 1,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_1_thursday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 9,
+        "season": "LENT",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 9,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 5,
+        "week": 1,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_1_friday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 10,
+        "season": "LENT",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 10,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 6,
+        "week": 1,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_1_saturday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 11,
+        "season": "LENT",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 11,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.sunday",
+      {
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "lent_2_sunday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 12,
+        "season": "LENT",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 12,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 1,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_2_monday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 13,
+        "season": "LENT",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 13,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 2,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_2_tuesday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 14,
+        "season": "LENT",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 14,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 3,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_2_wednesday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 15,
+        "season": "LENT",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 15,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 4,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_2_thursday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 16,
+        "season": "LENT",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 16,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 5,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_2_friday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 17,
+        "season": "LENT",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 17,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 6,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_2_saturday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 18,
+        "season": "LENT",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 18,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.sunday",
+      {
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "lent_3_sunday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 19,
+        "season": "LENT",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 19,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 1,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_3_monday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 20,
+        "season": "LENT",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 20,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 2,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_3_tuesday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 21,
+        "season": "LENT",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 21,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 3,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_3_wednesday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 22,
+        "season": "LENT",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 22,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 4,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_3_thursday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 23,
+        "season": "LENT",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 23,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 5,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_3_friday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 24,
+        "season": "LENT",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 24,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 6,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_3_saturday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 25,
+        "season": "LENT",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "ROSE",
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 25,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.sunday",
+      {
+        "week": 4,
+      },
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "lent_4_sunday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 26,
+        "season": "LENT",
+        "weekOfSeason": 4,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 26,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 1,
+        "week": 4,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_4_monday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 27,
+        "season": "LENT",
+        "weekOfSeason": 4,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 27,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 2,
+        "week": 4,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_4_tuesday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 28,
+        "season": "LENT",
+        "weekOfSeason": 4,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 28,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 3,
+        "week": 4,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_4_wednesday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 29,
+        "season": "LENT",
+        "weekOfSeason": 4,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 29,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 4,
+        "week": 4,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_4_thursday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 30,
+        "season": "LENT",
+        "weekOfSeason": 4,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 30,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 5,
+        "week": 4,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_4_friday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 31,
+        "season": "LENT",
+        "weekOfSeason": 4,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 31,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 6,
+        "week": 4,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_4_saturday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 32,
+        "season": "LENT",
+        "weekOfSeason": 4,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 32,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.sunday",
+      {
+        "week": 5,
+      },
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "lent_5_sunday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 33,
+        "season": "LENT",
+        "weekOfSeason": 5,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 33,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 1,
+        "week": 5,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_5_monday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 34,
+        "season": "LENT",
+        "weekOfSeason": 5,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 34,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 2,
+        "week": 5,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_5_tuesday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 35,
+        "season": "LENT",
+        "weekOfSeason": 5,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 35,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 3,
+        "week": 5,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_5_wednesday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 36,
+        "season": "LENT",
+        "weekOfSeason": 5,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 36,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 4,
+        "week": 5,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_5_thursday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 37,
+        "season": "LENT",
+        "weekOfSeason": 5,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 37,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 5,
+        "week": 5,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_5_friday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 38,
+        "season": "LENT",
+        "weekOfSeason": 5,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 38,
+      "dateFn": "ashWednesday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 6,
+        "week": 5,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_5_saturday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 39,
+        "season": "LENT",
+        "weekOfSeason": 5,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "RED",
+    ],
+    "dateDef": {
+      "dateFn": "palmSunday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "names:palm_sunday_of_the_passion_of_the_lord",
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "palm_sunday_of_the_passion_of_the_lord",
+    "periods": [
+      {
+        "period": "HOLY_WEEK",
+      },
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 40,
+        "season": "LENT",
+        "weekOfSeason": 6,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 1,
+      "dateFn": "palmSunday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.holy_week_day",
+      {
+        "dow": 1,
+      },
+    ],
+    "liturgicalDayId": "holy_monday",
+    "periods": [
+      {
+        "period": "HOLY_WEEK",
+      },
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 41,
+        "season": "LENT",
+        "weekOfSeason": 6,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 2,
+      "dateFn": "palmSunday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.holy_week_day",
+      {
+        "dow": 2,
+      },
+    ],
+    "liturgicalDayId": "holy_tuesday",
+    "periods": [
+      {
+        "period": "HOLY_WEEK",
+      },
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 42,
+        "season": "LENT",
+        "weekOfSeason": 6,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 3,
+      "dateFn": "palmSunday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.holy_week_day",
+      {
+        "dow": 3,
+      },
+    ],
+    "liturgicalDayId": "holy_wednesday",
+    "periods": [
+      {
+        "period": "HOLY_WEEK",
+      },
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 43,
+        "season": "LENT",
+        "weekOfSeason": 6,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 4,
+      "dateFn": "palmSunday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.holy_week_day",
+      {
+        "dow": 4,
+      },
+    ],
+    "liturgicalDayId": "holy_thursday",
+    "periods": [
+      {
+        "period": "HOLY_WEEK",
+      },
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 44,
+        "season": "LENT",
+        "weekOfSeason": 6,
+      },
+    ],
+  },
+]
+`;
+
+exports[`lent should match snapshot with year offset to +1 1`] = `
+[
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "names:ash_wednesday",
+    ],
+    "liturgicalDayId": "ash_wednesday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "02_ASH_WEDNESDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 1,
+        "season": "LENT",
+        "weekOfSeason": 0,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 1,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.day_after_ash_wed",
+      {
+        "dow": 4,
+      },
+    ],
+    "liturgicalDayId": "thursday_after_ash_wednesday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 2,
+        "season": "LENT",
+        "weekOfSeason": 0,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 2,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.day_after_ash_wed",
+      {
+        "dow": 5,
+      },
+    ],
+    "liturgicalDayId": "friday_after_ash_wednesday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 3,
+        "season": "LENT",
+        "weekOfSeason": 0,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 3,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.day_after_ash_wed",
+      {
+        "dow": 6,
+      },
+    ],
+    "liturgicalDayId": "saturday_after_ash_wednesday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 4,
+        "season": "LENT",
+        "weekOfSeason": 0,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 4,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.sunday",
+      {
+        "week": 1,
+      },
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "lent_1_sunday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 5,
+        "season": "LENT",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 5,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 1,
+        "week": 1,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_1_monday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 6,
+        "season": "LENT",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 6,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 2,
+        "week": 1,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_1_tuesday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 7,
+        "season": "LENT",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 7,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 3,
+        "week": 1,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_1_wednesday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 8,
+        "season": "LENT",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 8,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 4,
+        "week": 1,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_1_thursday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 9,
+        "season": "LENT",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 9,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 5,
+        "week": 1,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_1_friday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 10,
+        "season": "LENT",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 10,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 6,
+        "week": 1,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_1_saturday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 11,
+        "season": "LENT",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 11,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.sunday",
+      {
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "lent_2_sunday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 12,
+        "season": "LENT",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 12,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 1,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_2_monday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 13,
+        "season": "LENT",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 13,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 2,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_2_tuesday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 14,
+        "season": "LENT",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 14,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 3,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_2_wednesday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 15,
+        "season": "LENT",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 15,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 4,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_2_thursday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 16,
+        "season": "LENT",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 16,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 5,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_2_friday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 17,
+        "season": "LENT",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 17,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 6,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_2_saturday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 18,
+        "season": "LENT",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 18,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.sunday",
+      {
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "lent_3_sunday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 19,
+        "season": "LENT",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 19,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 1,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_3_monday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 20,
+        "season": "LENT",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 20,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 2,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_3_tuesday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 21,
+        "season": "LENT",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 21,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 3,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_3_wednesday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 22,
+        "season": "LENT",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 22,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 4,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_3_thursday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 23,
+        "season": "LENT",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 23,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 5,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_3_friday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 24,
+        "season": "LENT",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 24,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 6,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_3_saturday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 25,
+        "season": "LENT",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "ROSE",
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 25,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.sunday",
+      {
+        "week": 4,
+      },
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "lent_4_sunday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 26,
+        "season": "LENT",
+        "weekOfSeason": 4,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 26,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 1,
+        "week": 4,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_4_monday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 27,
+        "season": "LENT",
+        "weekOfSeason": 4,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 27,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 2,
+        "week": 4,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_4_tuesday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 28,
+        "season": "LENT",
+        "weekOfSeason": 4,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 28,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 3,
+        "week": 4,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_4_wednesday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 29,
+        "season": "LENT",
+        "weekOfSeason": 4,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 29,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 4,
+        "week": 4,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_4_thursday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 30,
+        "season": "LENT",
+        "weekOfSeason": 4,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 30,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 5,
+        "week": 4,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_4_friday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 31,
+        "season": "LENT",
+        "weekOfSeason": 4,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 31,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 6,
+        "week": 4,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_4_saturday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 32,
+        "season": "LENT",
+        "weekOfSeason": 4,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 32,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.sunday",
+      {
+        "week": 5,
+      },
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "lent_5_sunday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 33,
+        "season": "LENT",
+        "weekOfSeason": 5,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 33,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 1,
+        "week": 5,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_5_monday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 34,
+        "season": "LENT",
+        "weekOfSeason": 5,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 34,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 2,
+        "week": 5,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_5_tuesday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 35,
+        "season": "LENT",
+        "weekOfSeason": 5,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 35,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 3,
+        "week": 5,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_5_wednesday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 36,
+        "season": "LENT",
+        "weekOfSeason": 5,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 36,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 4,
+        "week": 5,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_5_thursday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 37,
+        "season": "LENT",
+        "weekOfSeason": 5,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 37,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 5,
+        "week": 5,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_5_friday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 38,
+        "season": "LENT",
+        "weekOfSeason": 5,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 38,
+      "dateFn": "ashWednesday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.weekday",
+      {
+        "dow": 6,
+        "week": 5,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "lent_5_saturday",
+    "periods": [
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 39,
+        "season": "LENT",
+        "weekOfSeason": 5,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "RED",
+    ],
+    "dateDef": {
+      "dateFn": "palmSunday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "names:palm_sunday_of_the_passion_of_the_lord",
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "palm_sunday_of_the_passion_of_the_lord",
+    "periods": [
+      {
+        "period": "HOLY_WEEK",
+      },
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 40,
+        "season": "LENT",
+        "weekOfSeason": 6,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 1,
+      "dateFn": "palmSunday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.holy_week_day",
+      {
+        "dow": 1,
+      },
+    ],
+    "liturgicalDayId": "holy_monday",
+    "periods": [
+      {
+        "period": "HOLY_WEEK",
+      },
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 41,
+        "season": "LENT",
+        "weekOfSeason": 6,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 2,
+      "dateFn": "palmSunday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.holy_week_day",
+      {
+        "dow": 2,
+      },
+    ],
+    "liturgicalDayId": "holy_tuesday",
+    "periods": [
+      {
+        "period": "HOLY_WEEK",
+      },
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 42,
+        "season": "LENT",
+        "weekOfSeason": 6,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 3,
+      "dateFn": "palmSunday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.holy_week_day",
+      {
+        "dow": 3,
+      },
+    ],
+    "liturgicalDayId": "holy_wednesday",
+    "periods": [
+      {
+        "period": "HOLY_WEEK",
+      },
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 43,
+        "season": "LENT",
+        "weekOfSeason": 6,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "addDay": 4,
+      "dateFn": "palmSunday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:lent.holy_week_day",
+      {
+        "dow": 4,
+      },
+    ],
+    "liturgicalDayId": "holy_thursday",
+    "periods": [
+      {
+        "period": "HOLY_WEEK",
+      },
+      {
+        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+      },
+    ],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 44,
+        "season": "LENT",
+        "weekOfSeason": 6,
+      },
+    ],
+  },
+]
+`;

@@ -94,14 +94,14 @@ inputs:
       # Like Ash Wednesday, All Souls is, technically, without rank.
       # However, in countries (not England & Wales) where it falls
       # on a Sunday it replaces the Sunday.
-      ifIsDayOfWeek: SATURDAY
+      ifIsDayOfWeek: saturday
       setDate:
         addDay: 1
 
   commemoration_of_all_the_faithful_departed:
     dateDef: 11-2
     dateExceptions:
-      ifIsDayOfWeek: SUNDAY
+      ifIsDayOfWeek: sunday
       setDate:
         addDay: 1
 
@@ -121,10 +121,10 @@ inputs:
     dateExceptions:
       # In England and Wales when the celebration falls on either a
       # Saturday or a Monday it is transferred to the Sunday.
-      - ifIsDayOfWeek: MONDAY
+      - ifIsDayOfWeek: monday
         setDate:
           subtractDay: 1
-      - ifIsDayOfWeek: SATURDAY
+      - ifIsDayOfWeek: saturday
         setDate:
           addDay: 1
 
@@ -132,10 +132,10 @@ inputs:
     dateExceptions:
       # In England and Wales when the celebration falls on either a
       # Saturday or a Monday it is transferred to the Sunday.
-      - ifIsDayOfWeek: MONDAY
+      - ifIsDayOfWeek: monday
         setDate:
           subtractDay: 1
-      - ifIsDayOfWeek: SATURDAY
+      - ifIsDayOfWeek: saturday
         setDate:
           addDay: 1
 

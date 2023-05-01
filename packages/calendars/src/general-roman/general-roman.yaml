@@ -183,7 +183,7 @@ inputs:
     precedence: 03_GENERAL_SOLEMNITY
     dateDef: 3-19
     dateExceptions:
-      - ifIsDayOfWeek: SUNDAY
+      - ifIsDayOfWeek: sunday
         setDate:
           addDay: 1
       - ifIsBetween:
@@ -918,7 +918,7 @@ inputs:
     customLocaleKey: dedication_of_consecrated_churches
     dateDef:
       month: 10
-      lastDayOfWeekInMonth: SUNDAY
+      lastDayOfWeekInMonth: sunday
     isOptional: true
 
   simon_and_jude_apostles:
@@ -1045,7 +1045,7 @@ inputs:
     dateExceptions:
       # If this solemnity falls on a Sunday, is transferred to the
       # following Monday.
-      - ifIsDayOfWeek: SUNDAY
+      - ifIsDayOfWeek: sunday
         setDate:
           addDay: 1
     isHolyDayOfObligation: true

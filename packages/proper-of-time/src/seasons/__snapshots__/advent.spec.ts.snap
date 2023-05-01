@@ -1,0 +1,1815 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`advent should match snapshot 1`] = `
+[
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        1,
+      ],
+      "dateFn": "sundayOfAdvent",
+      "yearOffset": -1,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.sunday",
+      {
+        "week": 1,
+      },
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "advent_1_sunday",
+    "periods": [],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 1,
+        "season": "ADVENT",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        1,
+        1,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": -1,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 1,
+        "week": 1,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_1_monday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 2,
+        "season": "ADVENT",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        2,
+        1,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": -1,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 2,
+        "week": 1,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_1_tuesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 3,
+        "season": "ADVENT",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        3,
+        1,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": -1,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 3,
+        "week": 1,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_1_wednesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 4,
+        "season": "ADVENT",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        4,
+        1,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": -1,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 4,
+        "week": 1,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_1_thursday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 5,
+        "season": "ADVENT",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        5,
+        1,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": -1,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 5,
+        "week": 1,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_1_friday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 6,
+        "season": "ADVENT",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        6,
+        1,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": -1,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 6,
+        "week": 1,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_1_saturday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 7,
+        "season": "ADVENT",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        2,
+      ],
+      "dateFn": "sundayOfAdvent",
+      "yearOffset": -1,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.sunday",
+      {
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "advent_2_sunday",
+    "periods": [],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 8,
+        "season": "ADVENT",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        1,
+        2,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": -1,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 1,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_2_monday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 9,
+        "season": "ADVENT",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        2,
+        2,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": -1,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 2,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_2_tuesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 10,
+        "season": "ADVENT",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        3,
+        2,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": -1,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 3,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_2_wednesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 11,
+        "season": "ADVENT",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        4,
+        2,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": -1,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 4,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_2_thursday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 12,
+        "season": "ADVENT",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        5,
+        2,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": -1,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 5,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_2_friday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 13,
+        "season": "ADVENT",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        6,
+        2,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": -1,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 6,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_2_saturday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 14,
+        "season": "ADVENT",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "ROSE",
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        3,
+      ],
+      "dateFn": "sundayOfAdvent",
+      "yearOffset": -1,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.sunday",
+      {
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "advent_3_sunday",
+    "periods": [],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 15,
+        "season": "ADVENT",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        1,
+        3,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": -1,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 1,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_3_monday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 16,
+        "season": "ADVENT",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        2,
+        3,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": -1,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 2,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_3_tuesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 17,
+        "season": "ADVENT",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        3,
+        3,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": -1,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 3,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_3_wednesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 18,
+        "season": "ADVENT",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        4,
+        3,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": -1,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 4,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_3_thursday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 19,
+        "season": "ADVENT",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        5,
+        3,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": -1,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 5,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_3_friday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 20,
+        "season": "ADVENT",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        4,
+      ],
+      "dateFn": "sundayOfAdvent",
+      "yearOffset": -1,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.sunday",
+      {
+        "week": 4,
+      },
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "advent_4_sunday",
+    "periods": [],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 22,
+        "season": "ADVENT",
+        "weekOfSeason": 4,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        17,
+      ],
+      "dateFn": "privilegedWeekdayOfAdvent",
+      "yearOffset": -1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.privileged_weekday",
+      {
+        "day": 17,
+      },
+    ],
+    "liturgicalDayId": "advent_december_17",
+    "periods": [],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "season": "ADVENT",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        18,
+      ],
+      "dateFn": "privilegedWeekdayOfAdvent",
+      "yearOffset": -1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.privileged_weekday",
+      {
+        "day": 18,
+      },
+    ],
+    "liturgicalDayId": "advent_december_18",
+    "periods": [],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "season": "ADVENT",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        19,
+      ],
+      "dateFn": "privilegedWeekdayOfAdvent",
+      "yearOffset": -1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.privileged_weekday",
+      {
+        "day": 19,
+      },
+    ],
+    "liturgicalDayId": "advent_december_19",
+    "periods": [],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "season": "ADVENT",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        20,
+      ],
+      "dateFn": "privilegedWeekdayOfAdvent",
+      "yearOffset": -1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.privileged_weekday",
+      {
+        "day": 20,
+      },
+    ],
+    "liturgicalDayId": "advent_december_20",
+    "periods": [],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "season": "ADVENT",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        21,
+      ],
+      "dateFn": "privilegedWeekdayOfAdvent",
+      "yearOffset": -1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.privileged_weekday",
+      {
+        "day": 21,
+      },
+    ],
+    "liturgicalDayId": "advent_december_21",
+    "periods": [],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "season": "ADVENT",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        22,
+      ],
+      "dateFn": "privilegedWeekdayOfAdvent",
+      "yearOffset": -1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.privileged_weekday",
+      {
+        "day": 22,
+      },
+    ],
+    "liturgicalDayId": "advent_december_22",
+    "periods": [],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "season": "ADVENT",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        23,
+      ],
+      "dateFn": "privilegedWeekdayOfAdvent",
+      "yearOffset": -1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.privileged_weekday",
+      {
+        "day": 23,
+      },
+    ],
+    "liturgicalDayId": "advent_december_23",
+    "periods": [],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "season": "ADVENT",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        24,
+      ],
+      "dateFn": "privilegedWeekdayOfAdvent",
+      "yearOffset": -1,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.privileged_weekday",
+      {
+        "day": 24,
+      },
+    ],
+    "liturgicalDayId": "advent_december_24",
+    "periods": [],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "season": "ADVENT",
+      },
+    ],
+  },
+]
+`;
+
+exports[`advent should match snapshot with year offset to +1 1`] = `
+[
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        1,
+      ],
+      "dateFn": "sundayOfAdvent",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.sunday",
+      {
+        "week": 1,
+      },
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "advent_1_sunday",
+    "periods": [],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 1,
+        "season": "ADVENT",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        1,
+        1,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 1,
+        "week": 1,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_1_monday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 2,
+        "season": "ADVENT",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        2,
+        1,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 2,
+        "week": 1,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_1_tuesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 3,
+        "season": "ADVENT",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        3,
+        1,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 3,
+        "week": 1,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_1_wednesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 4,
+        "season": "ADVENT",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        4,
+        1,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 4,
+        "week": 1,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_1_thursday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 5,
+        "season": "ADVENT",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        5,
+        1,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 5,
+        "week": 1,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_1_friday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 6,
+        "season": "ADVENT",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        6,
+        1,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 6,
+        "week": 1,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_1_saturday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 7,
+        "season": "ADVENT",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        2,
+      ],
+      "dateFn": "sundayOfAdvent",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.sunday",
+      {
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "advent_2_sunday",
+    "periods": [],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 8,
+        "season": "ADVENT",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        1,
+        2,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 1,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_2_monday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 9,
+        "season": "ADVENT",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        2,
+        2,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 2,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_2_tuesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 10,
+        "season": "ADVENT",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        3,
+        2,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 3,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_2_wednesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 11,
+        "season": "ADVENT",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        4,
+        2,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 4,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_2_thursday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 12,
+        "season": "ADVENT",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        5,
+        2,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 5,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_2_friday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 13,
+        "season": "ADVENT",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        6,
+        2,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 6,
+        "week": 2,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_2_saturday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 14,
+        "season": "ADVENT",
+        "weekOfSeason": 2,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "ROSE",
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        3,
+      ],
+      "dateFn": "sundayOfAdvent",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.sunday",
+      {
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "advent_3_sunday",
+    "periods": [],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 15,
+        "season": "ADVENT",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        1,
+        3,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 1,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 1,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_3_monday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 16,
+        "season": "ADVENT",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        2,
+        3,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 2,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 2,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_3_tuesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 17,
+        "season": "ADVENT",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        3,
+        3,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 3,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 3,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_3_wednesday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 18,
+        "season": "ADVENT",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        4,
+        3,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 4,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_3_thursday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 19,
+        "season": "ADVENT",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        5,
+        3,
+      ],
+      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.weekday",
+      {
+        "dow": 5,
+        "week": 3,
+      },
+    ],
+    "isHolyDayOfObligation": false,
+    "liturgicalDayId": "advent_3_friday",
+    "periods": [],
+    "precedence": "13_WEEKDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 20,
+        "season": "ADVENT",
+        "weekOfSeason": 3,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        4,
+      ],
+      "dateFn": "sundayOfAdvent",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.sunday",
+      {
+        "week": 4,
+      },
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "advent_4_sunday",
+    "periods": [],
+    "precedence": "02_PRIVILEGED_SUNDAY",
+    "seasons": [
+      {
+        "dayOfSeason": 22,
+        "season": "ADVENT",
+        "weekOfSeason": 4,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        17,
+      ],
+      "dateFn": "privilegedWeekdayOfAdvent",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.privileged_weekday",
+      {
+        "day": 17,
+      },
+    ],
+    "liturgicalDayId": "advent_december_17",
+    "periods": [],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "season": "ADVENT",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        18,
+      ],
+      "dateFn": "privilegedWeekdayOfAdvent",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.privileged_weekday",
+      {
+        "day": 18,
+      },
+    ],
+    "liturgicalDayId": "advent_december_18",
+    "periods": [],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "season": "ADVENT",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        19,
+      ],
+      "dateFn": "privilegedWeekdayOfAdvent",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.privileged_weekday",
+      {
+        "day": 19,
+      },
+    ],
+    "liturgicalDayId": "advent_december_19",
+    "periods": [],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "season": "ADVENT",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        20,
+      ],
+      "dateFn": "privilegedWeekdayOfAdvent",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.privileged_weekday",
+      {
+        "day": 20,
+      },
+    ],
+    "liturgicalDayId": "advent_december_20",
+    "periods": [],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "season": "ADVENT",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        21,
+      ],
+      "dateFn": "privilegedWeekdayOfAdvent",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.privileged_weekday",
+      {
+        "day": 21,
+      },
+    ],
+    "liturgicalDayId": "advent_december_21",
+    "periods": [],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "season": "ADVENT",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        22,
+      ],
+      "dateFn": "privilegedWeekdayOfAdvent",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.privileged_weekday",
+      {
+        "day": 22,
+      },
+    ],
+    "liturgicalDayId": "advent_december_22",
+    "periods": [],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "season": "ADVENT",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        23,
+      ],
+      "dateFn": "privilegedWeekdayOfAdvent",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.privileged_weekday",
+      {
+        "day": 23,
+      },
+    ],
+    "liturgicalDayId": "advent_december_23",
+    "periods": [],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "season": "ADVENT",
+      },
+    ],
+  },
+  {
+    "colors": [
+      "PURPLE",
+    ],
+    "dateDef": {
+      "dateArgs": [
+        24,
+      ],
+      "dateFn": "privilegedWeekdayOfAdvent",
+      "yearOffset": 0,
+    },
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "seasons:advent.privileged_weekday",
+      {
+        "day": 24,
+      },
+    ],
+    "liturgicalDayId": "advent_december_24",
+    "periods": [],
+    "precedence": "09_PRIVILEGED_WEEKDAY",
+    "seasons": [
+      {
+        "season": "ADVENT",
+      },
+    ],
+  },
+]
+`;

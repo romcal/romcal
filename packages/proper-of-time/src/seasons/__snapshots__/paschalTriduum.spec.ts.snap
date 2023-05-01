@@ -1,0 +1,243 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`paschalTriduum should match snapshot 1`] = `
+[
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateFn": "holyThursday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "names:thursday_of_the_lords_supper",
+    ],
+    "liturgicalDayId": "thursday_of_the_lords_supper",
+    "periods": [
+      {
+        "period": "HOLY_WEEK",
+      },
+    ],
+    "precedence": "01_TRIDUUM",
+    "seasons": [
+      {
+        "dayOfSeason": 0,
+        "season": "PASCHAL_TRIDUUM",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "RED",
+    ],
+    "dateDef": {
+      "dateFn": "goodFriday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "names:friday_of_the_passion_of_the_lord",
+    ],
+    "liturgicalDayId": "friday_of_the_passion_of_the_lord",
+    "periods": [
+      {
+        "period": "HOLY_WEEK",
+      },
+    ],
+    "precedence": "01_TRIDUUM",
+    "seasons": [
+      {
+        "dayOfSeason": 1,
+        "season": "PASCHAL_TRIDUUM",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [],
+    "dateDef": {
+      "dateFn": "holySaturday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "names:holy_saturday",
+    ],
+    "liturgicalDayId": "holy_saturday",
+    "periods": [
+      {
+        "period": "HOLY_WEEK",
+      },
+    ],
+    "precedence": "01_TRIDUUM",
+    "seasons": [
+      {
+        "dayOfSeason": 2,
+        "season": "PASCHAL_TRIDUUM",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateFn": "easterSunday",
+      "yearOffset": 0,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "names:easter_sunday",
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "easter_sunday",
+    "periods": [
+      {
+        "period": "EASTER_OCTAVE",
+      },
+    ],
+    "precedence": "01_TRIDUUM",
+    "seasons": [
+      {
+        "dayOfSeason": 3,
+        "season": "PASCHAL_TRIDUUM",
+        "weekOfSeason": 1,
+      },
+      {
+        "dayOfSeason": 1,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+]
+`;
+
+exports[`paschalTriduum should match snapshot with year offset to +1 1`] = `
+[
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateFn": "holyThursday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 4,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "names:thursday_of_the_lords_supper",
+    ],
+    "liturgicalDayId": "thursday_of_the_lords_supper",
+    "periods": [
+      {
+        "period": "HOLY_WEEK",
+      },
+    ],
+    "precedence": "01_TRIDUUM",
+    "seasons": [
+      {
+        "dayOfSeason": 0,
+        "season": "PASCHAL_TRIDUUM",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "RED",
+    ],
+    "dateDef": {
+      "dateFn": "goodFriday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 5,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "names:friday_of_the_passion_of_the_lord",
+    ],
+    "liturgicalDayId": "friday_of_the_passion_of_the_lord",
+    "periods": [
+      {
+        "period": "HOLY_WEEK",
+      },
+    ],
+    "precedence": "01_TRIDUUM",
+    "seasons": [
+      {
+        "dayOfSeason": 1,
+        "season": "PASCHAL_TRIDUUM",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [],
+    "dateDef": {
+      "dateFn": "holySaturday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 6,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "names:holy_saturday",
+    ],
+    "liturgicalDayId": "holy_saturday",
+    "periods": [
+      {
+        "period": "HOLY_WEEK",
+      },
+    ],
+    "precedence": "01_TRIDUUM",
+    "seasons": [
+      {
+        "dayOfSeason": 2,
+        "season": "PASCHAL_TRIDUUM",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+  {
+    "colors": [
+      "WHITE",
+    ],
+    "dateDef": {
+      "dateFn": "easterSunday",
+      "yearOffset": 1,
+    },
+    "dayOfWeek": 0,
+    "fromCalendarId": "proper-of-time",
+    "i18nDef": [
+      "names:easter_sunday",
+    ],
+    "isHolyDayOfObligation": true,
+    "liturgicalDayId": "easter_sunday",
+    "periods": [
+      {
+        "period": "EASTER_OCTAVE",
+      },
+    ],
+    "precedence": "01_TRIDUUM",
+    "seasons": [
+      {
+        "dayOfSeason": 3,
+        "season": "PASCHAL_TRIDUUM",
+        "weekOfSeason": 1,
+      },
+      {
+        "dayOfSeason": 1,
+        "season": "EASTER_TIME",
+        "weekOfSeason": 1,
+      },
+    ],
+  },
+]
+`;

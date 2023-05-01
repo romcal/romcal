@@ -1,7 +1,15 @@
-import { Color, Precedence, ProperCycle, Rank } from '../constants';
+import {
+  Color,
+  Period,
+  Precedence,
+  ProperCycle,
+  PsalterWeekCycle,
+  Rank,
+  Season,
+} from '../constants';
 import { CalendarId } from './calendar-def';
 import { DateDef, DateDefException, DateDefInput } from './date-def';
-import { LocaleKey } from './locale';
+import { i18nDef, LocaleKey } from './locale';
 import { MartyrologyItem, MartyrologyItemPointer, RomcalTitle, TitlesDef } from './martyrology';
 
 /**
@@ -10,14 +18,14 @@ import { MartyrologyItem, MartyrologyItemPointer, RomcalTitle, TitlesDef } from 
  */
 export type LiturgicalDayId = string;
 
-export type LiturgicalDayDefMap = Record<LiturgicalDayId, LiturgicalDayDef>;
-
 export type LiturgicalDayDefInputMap = Record<LiturgicalDayId, LiturgicalDayDefInput>;
 
 /**
  * A liturgical day definition.
  */
 export type LiturgicalDayDef = {
+  liturgicalDayId: LiturgicalDayId;
+
   /**
    * Date definition
    */
@@ -105,7 +113,57 @@ export type LiturgicalDayDef = {
    */
   fromCalendarId: CalendarId;
 
+  seasons?: SeasonDef[];
+
+  periods?: PeriodDef[];
+
+  /**
+   * The i18n definition
+   */
+  i18nDef?: i18nDef;
+
+  /**
+   * The day of the week.
+   * Returns a number from 0 (Sunday) to 6 (Saturday).
+   */
+  dayOfWeek?: number; // 0 | 1 | 2 | 3 | 4 | 5 | 6;
+
   diff?: LiturgicalDayDiff[];
+};
+
+export type SeasonDef = {
+  season: Season;
+
+  /**
+   * The week number of the liturgical season.
+   * Starts from `1`, except in the seasons of lent,
+   * the week of Ash Wednesday to the next Saturday is count as `0`.
+   */
+  weekOfSeason?: number;
+
+  /**
+   * The day number within the whole season.
+   */
+  dayOfSeason?: number;
+
+  /**
+   * The psalter week cycle in which the liturgical day is part
+   */
+  psalterWeek?: PsalterWeekCycle;
+
+  /**
+   * The first day of the current liturgical season.
+   */
+  startOfSeason?: string;
+
+  /**
+   * The last day of the current liturgical season.
+   */
+  endOfSeason?: string;
+};
+
+export type PeriodDef = {
+  period: Period;
 };
 
 export type LiturgicalDayDiff = {
@@ -137,6 +195,7 @@ export type DiffResult =
  */
 export type LiturgicalDayDefInput = Omit<
   LiturgicalDayDef,
+  | 'liturgicalDayId'
   | 'dateDef'
   | 'rank'
   | 'dateExceptions'

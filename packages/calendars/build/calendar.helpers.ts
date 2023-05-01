@@ -17,7 +17,6 @@ import {
   isProperOfTimeId,
   LiturgicalDayDef,
   LiturgicalDayDefInput,
-  LiturgicalDayDefMap,
   LiturgicalDayDiff,
   LiturgicalDayId,
   LocaleKey,
@@ -152,6 +151,7 @@ export const mergeLiturgicalDayDefsHelper = ({
   const fromCalendarId: CalendarId = calendarId;
 
   const newItem: LiturgicalDayDef = {
+    liturgicalDayId,
     dateDef,
     dateExceptions,
     precedence,
@@ -227,24 +227,30 @@ export const buildCalendars = async ({
           );
 
           // Merge all inputs from the based-on calendars and this proper calendar.
-          const definitions: LiturgicalDayDefMap = calendarDefTree.reduce<LiturgicalDayDefMap>(
+          const definitions: LiturgicalDayDef[] = calendarDefTree.reduce<LiturgicalDayDef[]>(
             (acc, cal) => {
               Object.keys(cal.inputs).forEach((liturgicalDayId) => {
-                const existingItem: LiturgicalDayDef | undefined =
-                  liturgicalDayId in acc ? acc[liturgicalDayId] : undefined;
+                const existingItem: LiturgicalDayDef | undefined = acc.find(
+                  (item) => item.liturgicalDayId === liturgicalDayId,
+                );
 
-                acc[liturgicalDayId] = mergeLiturgicalDayDefsHelper({
+                const newItem = mergeLiturgicalDayDefsHelper({
                   liturgicalDayId,
                   calendarId: cal.calendarId,
                   existingItem,
                   input: cal.inputs[liturgicalDayId],
                   martyrologyCatalog: martyrology,
                 });
+
+                // Update existing item or add a new one.
+                acc = existingItem
+                  ? acc.map((item) => (item.liturgicalDayId === liturgicalDayId ? newItem : item))
+                  : [...acc, newItem];
               });
 
               return acc;
             },
-            {},
+            [],
           );
 
           const calendarDef: CalendarDef = {

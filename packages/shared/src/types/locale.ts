@@ -152,3 +152,8 @@ export type LocaleColors = {
  * @propertyNames { "pattern": "^[a-z\\d]+(?:_[a-z\\d]+)*$" }
  */
 export type LocaleLiturgicalDayNames = Record<LocaleKey, string>;
+
+/**
+ * i18n definitions
+ */
+export type i18nDef = [string] | [string, { [key: string]: unknown } | string];
