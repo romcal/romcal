@@ -17,30 +17,34 @@ export const advent = (yearOffset = 0): LiturgicalDayDef[] => {
 
   // All days, from the 1st Sunday of Advent to the Friday of the 3rd week of Advent.
   for (let i = 0; i < 20; i++) {
-    const week = Math.floor(i / 7) + 1;
-    const dow = i - (week - 1) * 7;
+    const weekOfSeason = Math.floor(i / 7) + 1;
+    const dayOfWeek = i - (weekOfSeason - 1) * 7;
 
     definitions.push({
-      liturgicalDayId: `advent_${week}_${DAYS_OF_WEEK[dow]}`,
-      precedence: dow === 0 ? Precedence.PrivilegedSunday_2 : Precedence.Weekday_13,
+      liturgicalDayId: `advent_${weekOfSeason}_${DAYS_OF_WEEK[dayOfWeek]}`,
+      precedence: dayOfWeek === 0 ? Precedence.PrivilegedSunday_2 : Precedence.Weekday_13,
       dateDef:
-        dow === 0
-          ? { dateFn: 'sundayOfAdvent', dateArgs: [week], yearOffset: -1 + yearOffset }
+        dayOfWeek === 0
+          ? {
+              sundayOfAdvent: { weekOfSeason },
+              yearOffset: -1 + yearOffset,
+            }
           : {
-              dateFn: 'unprivilegedWeekdayOfAdvent',
-              dateArgs: [dow, week],
+              unprivilegedWeekdayOfAdvent: { dayOfWeek, weekOfSeason },
               yearOffset: -1 + yearOffset,
             },
-      isHolyDayOfObligation: dow === 0,
-      seasons: [{ season: Season.Advent, weekOfSeason: week, dayOfSeason: i + 1 }],
+      isHolyDayOfObligation: dayOfWeek === 0,
+      seasons: [{ season: Season.Advent, weekOfSeason, dayOfSeason: i + 1 }],
       periods: [],
-      dayOfWeek: dow,
+      dayOfWeek,
       colors: [
-        ...(week === 3 && dow === 0 ? [Color.Rose] : []), // Gaudete
+        ...(weekOfSeason === 3 && dayOfWeek === 0 ? [Color.Rose] : []), // Gaudete
         Color.Purple,
       ],
       i18nDef:
-        dow === 0 ? ['seasons:advent.sunday', { week }] : ['seasons:advent.weekday', { week, dow }],
+        dayOfWeek === 0
+          ? ['seasons:advent.sunday', { week: weekOfSeason }]
+          : ['seasons:advent.weekday', { week: weekOfSeason, dow: dayOfWeek }],
       fromCalendarId: PROPER_OF_TIME_ID,
     });
   }
@@ -49,7 +53,10 @@ export const advent = (yearOffset = 0): LiturgicalDayDef[] => {
   definitions.push({
     liturgicalDayId: `advent_4_${DAYS_OF_WEEK[0]}`,
     precedence: Precedence.PrivilegedSunday_2,
-    dateDef: { dateFn: 'sundayOfAdvent', dateArgs: [4], yearOffset: -1 + yearOffset },
+    dateDef: {
+      sundayOfAdvent: { weekOfSeason: 4 },
+      yearOffset: -1 + yearOffset,
+    },
     isHolyDayOfObligation: true,
     seasons: [{ season: Season.Advent, weekOfSeason: 4, dayOfSeason: 22 }],
     periods: [],
@@ -60,19 +67,18 @@ export const advent = (yearOffset = 0): LiturgicalDayDef[] => {
   });
 
   // Week before Christmas, from the 17 to 24 December.
-  for (let day = 17; day < 25; day++) {
+  for (let dayOfMonth = 17; dayOfMonth < 25; dayOfMonth++) {
     definitions.push({
-      liturgicalDayId: `advent_${MONTHS[11]}_${day}`,
+      liturgicalDayId: `advent_${MONTHS[11]}_${dayOfMonth}`,
       precedence: Precedence.PrivilegedWeekday_9,
       dateDef: {
-        dateFn: 'privilegedWeekdayOfAdvent',
-        dateArgs: [day],
+        privilegedWeekdayOfAdvent: { dayOfMonth },
         yearOffset: -1 + yearOffset,
       },
       seasons: [{ season: Season.Advent }],
       periods: [],
       colors: [Color.Purple],
-      i18nDef: ['seasons:advent.privileged_weekday', { day }],
+      i18nDef: ['seasons:advent.privileged_weekday', { day: dayOfMonth }],
       fromCalendarId: PROPER_OF_TIME_ID,
     });
   }

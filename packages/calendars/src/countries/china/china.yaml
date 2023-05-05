@@ -77,8 +77,8 @@ inputs:
     precedence: 11B_PROPER_MEMORIAL
     dateDef:
       month: 5
-      dayOfWeek: 6
       nthWeekInMonth: 2
+      dayOfWeek: saturday
 
   peter_liu_wenyuan_martyr:
     precedence: 12_OPTIONAL_MEMORIAL
@@ -156,6 +156,6 @@ inputs:
   our_lord_jesus_christ_the_eternal_high_priest:
     precedence: 08F_PROPER_FEAST
     dateDef:
-      dateFn: pentecostSunday
-      addDay: 4
+      pentecostSunday:
+      dayOffset: +4
     properCycle: PROPER_OF_TIME

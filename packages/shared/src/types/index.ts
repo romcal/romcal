@@ -4,3 +4,4 @@ export * from './date-def';
 export * from './liturgical-day';
 export * from './locale';
 export * from './martyrology';
+export * from './proper-of-time-dates';

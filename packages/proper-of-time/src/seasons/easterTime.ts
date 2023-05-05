@@ -16,16 +16,20 @@ export const easterTime = (yearOffset = 0): LiturgicalDayDef[] => {
   const definitions: LiturgicalDayDef[] = [];
 
   // Octave of Easter.
-  for (let dow = 1; dow < 7; dow++) {
+  for (let dayOfWeek = 1; dayOfWeek < 7; dayOfWeek++) {
     definitions.push({
-      liturgicalDayId: `easter_${DAYS_OF_WEEK[dow]}`,
+      liturgicalDayId: `easter_${DAYS_OF_WEEK[dayOfWeek]}`,
       precedence: Precedence.WeekdayOfEasterOctave_2,
-      dateDef: { dateFn: 'easterSunday', addDay: dow, yearOffset },
-      seasons: [{ season: Season.EasterTime, weekOfSeason: 1, dayOfSeason: dow + 1 }],
+      dateDef: {
+        easterSunday: {},
+        dayOffset: dayOfWeek,
+        yearOffset,
+      },
+      seasons: [{ season: Season.EasterTime, weekOfSeason: 1, dayOfSeason: dayOfWeek + 1 }],
       periods: [{ period: Period.EasterOctave }],
-      dayOfWeek: dow,
+      dayOfWeek,
       colors: [Color.White],
-      i18nDef: ['seasons:easter_time.octave', { dow }],
+      i18nDef: ['seasons:easter_time.octave', { dow: dayOfWeek }],
       fromCalendarId: PROPER_OF_TIME_ID,
     });
   }
@@ -34,7 +38,7 @@ export const easterTime = (yearOffset = 0): LiturgicalDayDef[] => {
   definitions.push({
     liturgicalDayId: `divine_mercy_sunday`,
     precedence: Precedence.PrivilegedSunday_2,
-    dateDef: { dateFn: 'divineMercySunday', yearOffset },
+    dateDef: { divineMercySunday: {}, yearOffset },
     isHolyDayOfObligation: true,
     seasons: [{ season: Season.EasterTime, weekOfSeason: 2, dayOfSeason: 8 }],
     periods: [{ period: Period.EasterOctave }],
@@ -46,41 +50,40 @@ export const easterTime = (yearOffset = 0): LiturgicalDayDef[] => {
 
   // All days, from the 2nd Monday to the 7th Saturday of Easter Time.
   for (let i = 8; i < 49; i++) {
-    const week = Math.floor(i / 7) + 1;
-    const dow = i - (week - 1) * 7;
+    const weekOfSeason = Math.floor(i / 7) + 1;
+    const dayOfWeek = i - (weekOfSeason - 1) * 7;
 
     const data: Omit<LiturgicalDayDef, 'liturgicalDayId'> = {
-      precedence: dow === 0 ? Precedence.PrivilegedSunday_2 : Precedence.Weekday_13,
+      precedence: dayOfWeek === 0 ? Precedence.PrivilegedSunday_2 : Precedence.Weekday_13,
       dateDef: {
-        dateFn: 'weekdayOrSundayOfEasterTime',
-        dateArgs: [dow, week],
+        weekdayOrSundayOfEasterTime: { dayOfWeek, weekOfSeason },
         yearOffset,
       },
-      isHolyDayOfObligation: dow === 0,
-      seasons: [{ season: Season.EasterTime, weekOfSeason: week, dayOfSeason: i + 1 }],
+      isHolyDayOfObligation: dayOfWeek === 0,
+      seasons: [{ season: Season.EasterTime, weekOfSeason, dayOfSeason: i + 1 }],
       periods: [],
-      dayOfWeek: dow,
+      dayOfWeek,
       colors: [Color.White],
       i18nDef:
-        dow === 0
-          ? ['seasons:easter_time.sunday', { week }]
-          : ['seasons:easter_time.weekday', { week, dow }],
+        dayOfWeek === 0
+          ? ['seasons:easter_time.sunday', { week: weekOfSeason }]
+          : ['seasons:easter_time.weekday', { week: weekOfSeason, dow: dayOfWeek }],
       fromCalendarId: PROPER_OF_TIME_ID,
     };
     // The Ascension of the Lord
-    if (week === 6 && dow === 4) {
+    if (weekOfSeason === 6 && dayOfWeek === 4) {
       definitions.push({
         liturgicalDayId: `ascension_of_the_lord`,
         ...data,
         precedence: Precedence.ProperOfTimeSolemnity_2,
-        dateDef: { dateFn: 'ascension', yearOffset },
+        dateDef: { ascension: {}, yearOffset },
         isHolyDayOfObligation: true,
         i18nDef: [`names:ascension_of_the_lord`],
       });
     }
     // All other Sundays and weekdays.
     definitions.push({
-      liturgicalDayId: `easter_time_${week}_${DAYS_OF_WEEK[dow]}`,
+      liturgicalDayId: `easter_time_${weekOfSeason}_${DAYS_OF_WEEK[dayOfWeek]}`,
       ...data,
     });
   }
@@ -89,7 +92,7 @@ export const easterTime = (yearOffset = 0): LiturgicalDayDef[] => {
   definitions.push({
     liturgicalDayId: `pentecost_sunday`,
     precedence: Precedence.ProperOfTimeSolemnity_2,
-    dateDef: { dateFn: 'pentecostSunday', yearOffset },
+    dateDef: { pentecostSunday: {}, yearOffset },
     isHolyDayOfObligation: true,
     seasons: [{ season: Season.EasterTime, weekOfSeason: 8, dayOfSeason: 50 }],
     periods: [],

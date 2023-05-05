@@ -1,12 +1,12 @@
-import { DateFn, DayOfWeek, MonthIndex } from '../constants';
+import { DayOfWeek, MonthIndex } from '../constants';
+import { OneOfDatesFn } from './proper-of-time-dates';
 
 /**
  * The liturgical day date definition.
  */
 export type DateDef =
   | DateDefMonthDate
-  | DateDefDateFnAddDay
-  | DateDefDateFnSubtractDay
+  | DateDefFn
   | DateDefMonthDowNthWeekInMonth
   | DateDefMonthLastDowInMonth;
 
@@ -38,48 +38,17 @@ export type DateDefMonthDate = {
   yearOffset?: number;
 };
 
-export type DateDefDateFnAddDay = {
-  /**
-   * A date function name from the [Date] class.
-   */
-  dateFn: DateFn;
-
-  /**
-   * Possible date function arguments that may be required.
-   */
-  dateArgs?: number[];
-
-  /**
-   * Add additional day(s) to the date computed from the 'dateFn' option.
-   */
-  addDay?: number;
-
+export type DateDefFn = OneOfDatesFn & {
   /**
    * Offset the current year to compute dates in the scope of different years.
    */
   yearOffset?: number;
-};
-
-export type DateDefDateFnSubtractDay = {
-  /**
-   * A date function name from the [Date] class.
-   */
-  dateFn: DateFn;
 
   /**
-   * Possible date function arguments that may be required.
+   * Offset the computed date, to target the desired date.
+   * @pattern ^[\-+][1-9]\d*$
    */
-  dateArgs?: number[];
-
-  /**
-   * Subtract some day(s) to the date computed from the 'dateFn' option.
-   */
-  subtractDay?: number;
-
-  /**
-   * Offset the current year to compute dates in the scope of different years.
-   */
-  yearOffset?: number;
+  dayOffset?: number;
 };
 
 export type DateDefMonthDowNthWeekInMonth = {

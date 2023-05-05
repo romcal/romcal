@@ -188,13 +188,13 @@ inputs:
           addDay: 1
       - ifIsBetween:
           from:
-            dateFn: palmSunday
+            palmSunday:
           to:
-            dateFn: divineMercySunday
+            divineMercySunday:
           inclusive: true
         setDate:
-          dateFn: palmSunday
-          subtractDay: 1
+          palmSunday:
+          dayOffset: -1
     isHolyDayOfObligation: true
     colors: WHITE
 
@@ -210,13 +210,13 @@ inputs:
       # it is transferred to the Monday of the Second Week of Easter.
       - ifIsBetween:
           from:
-            dateFn: palmSunday
+            palmSunday:
           to:
-            dateFn: divineMercySunday
+            divineMercySunday:
           inclusive: true
         setDate:
-          dateFn: divineMercySunday
-          addDay: 1
+          divineMercySunday:
+          dayOffset: +1
     colors: WHITE
 
   francis_of_paola_hermit:
@@ -381,16 +381,16 @@ inputs:
   mary_mother_of_the_church:
     precedence: 10_GENERAL_MEMORIAL
     dateDef:
-      dateFn: pentecostSunday
-      addDay: 1
+      pentecostSunday:
+      dayOffset: +1
     properCycle: PROPER_OF_TIME
 
   immaculate_heart_of_mary:
     precedence: 10_GENERAL_MEMORIAL
     dateDef:
       # The Saturday, after the Solemnity of the Most Sacred Heart of Jesus
-      dateFn: easterSunday
-      addDay: 69
+      easterSunday:
+      dayOffset: 69
     # If this liturgical day and a memorial occur on the same day,
     # do not replace the latter, but output them both.
     allowSimilarRankItems: true

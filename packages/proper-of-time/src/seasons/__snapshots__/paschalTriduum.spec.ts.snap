@@ -7,7 +7,7 @@ exports[`paschalTriduum should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateFn": "holyThursday",
+      "holyThursday": {},
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -35,7 +35,7 @@ exports[`paschalTriduum should match snapshot 1`] = `
       "RED",
     ],
     "dateDef": {
-      "dateFn": "goodFriday",
+      "goodFriday": {},
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -61,7 +61,7 @@ exports[`paschalTriduum should match snapshot 1`] = `
   {
     "colors": [],
     "dateDef": {
-      "dateFn": "holySaturday",
+      "holySaturday": {},
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -89,7 +89,7 @@ exports[`paschalTriduum should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateFn": "easterSunday",
+      "easterSunday": {},
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -128,7 +128,7 @@ exports[`paschalTriduum should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateFn": "holyThursday",
+      "holyThursday": {},
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -156,7 +156,7 @@ exports[`paschalTriduum should match snapshot with year offset to +1 1`] = `
       "RED",
     ],
     "dateDef": {
-      "dateFn": "goodFriday",
+      "goodFriday": {},
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -182,7 +182,7 @@ exports[`paschalTriduum should match snapshot with year offset to +1 1`] = `
   {
     "colors": [],
     "dateDef": {
-      "dateFn": "holySaturday",
+      "holySaturday": {},
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -210,7 +210,7 @@ exports[`paschalTriduum should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateFn": "easterSunday",
+      "easterSunday": {},
       "yearOffset": 1,
     },
     "dayOfWeek": 0,

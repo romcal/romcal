@@ -4,66 +4,21 @@ import {
   CalendarScope,
   getUtcDate,
   isSameDate,
+  OneOfDatesFn,
   rangeOfDays,
   RomcalConfig,
   RomcalConfigInput,
   sanitizeConfig,
   startOfWeek,
   subtractsDays,
+  YearProp,
 } from '@romcal/shared';
+import type { UnionToIntersection } from 'type-fest';
 
-export interface IProperOfTimeDates {
-  firstSundayOfAdvent: (year?: number) => Date;
-  unprivilegedWeekdayOfAdvent: (
-    dayOfWeek: number,
-    weekOfSeason: number,
-    year: number,
-  ) => Date | null;
-  privilegedWeekdayOfAdvent: (dayOfMonth: number, year: number) => Date | null;
-  sundayOfAdvent: (weekOfSeason: number, year?: number) => Date | null;
-  nativityOfTheLord: (year?: number) => Date;
-  holyFamily: (year?: number) => Date;
-  weekdayWithinOctaveOfChristmas: (dayOfOctave: number, year?: number) => Date | null;
-  maryMotherOfGod: (year?: number) => Date;
-  secondSundayAfterChristmas: (year?: number, epiphanyOnSunday?: boolean) => Date | null;
-  weekdayBeforeEpiphany: (
-    dayOfMonth: number,
-    year?: number,
-    epiphanyOnSunday?: boolean,
-  ) => Date | null;
-  epiphany: (year?: number, epiphanyOnSunday?: boolean) => Date;
-  weekdayAfterEpiphany: (
-    dayOfWeek: number,
-    year?: number,
-    epiphanyOnSunday?: boolean,
-  ) => Date | null;
-  baptismOfTheLord: (year?: number) => Date;
-  ashWednesday: (year?: number) => Date;
-  palmSunday: (year?: number) => Date;
-  holyThursday: (year?: number) => Date;
-  goodFriday: (year?: number) => Date;
-  holySaturday: (year?: number) => Date;
-  easterSunday: (year?: number) => Date;
-  weekdayOrSundayOfEasterTime: (
-    dayOfWeek: number,
-    weekOfSeason: number,
-    year?: number,
-    ascensionOnSunday?: boolean,
-  ) => Date | null;
-  divineMercySunday: (year?: number) => Date;
-  ascension: (year?: number, ascensionOnSunday?: boolean) => Date;
-  pentecostSunday: (year?: number) => Date;
-  weekdayOrSundayOfOrdinaryTime: (
-    dayOfWeek: number,
-    weekOfSeason: number,
-    year?: number,
-    epiphanyOnSunday?: boolean,
-  ) => Date | null;
-  trinitySunday: (year?: number) => Date;
-  corpusChristi: (year?: number, corpusChristiOnSunday?: boolean) => Date;
-  mostSacredHeartOfJesus: (year?: number) => Date;
-  christTheKingSunday: (year?: number) => Date;
-}
+type AllDatesFn = UnionToIntersection<OneOfDatesFn>;
+type IProperOfTimeDates = {
+  [K in keyof AllDatesFn]: (arg: Parameters<(arg: AllDatesFn[K]) => void>[0]) => Date | null;
+};
 
 /**
  * Calculate the date of a single day of the liturgical year.
@@ -83,16 +38,17 @@ class ProperOfTimeDates implements IProperOfTimeDates {
   /**
    * Get the date of the first Sunday of Advent.
    */
-  firstSundayOfAdvent = (year = this.#isLiturgicalYear ? this.#year - 1 : this.#year): Date => {
+  firstSundayOfAdvent = (arg?: AllDatesFn['firstSundayOfAdvent']): Date => {
+    const { year = this.#isLiturgicalYear ? this.#year - 1 : this.#year } = arg || {};
     if (this.#__firstSundayOfAdvent[year]) return this.#__firstSundayOfAdvent[year];
-    return (this.#__firstSundayOfAdvent[year] = ProperOfTimeDates.firstSundayOfAdvent(year));
+    return (this.#__firstSundayOfAdvent[year] = ProperOfTimeDates.firstSundayOfAdvent({ year }));
   };
   #__firstSundayOfAdvent: Record<string, Date> = {};
 
   /**
    * Get the date of the first Sunday of Advent.
    */
-  static firstSundayOfAdvent = (year: number): Date => {
+  static firstSundayOfAdvent = ({ year }: YearProp): Date => {
     switch (ProperOfTimeDates.nativityOfTheLord(year).getUTCDay()) {
       case 0: // Sunday
         return getUtcDate(year, 11, 27);
@@ -122,11 +78,12 @@ class ProperOfTimeDates implements IProperOfTimeDates {
    * retain the penitential character of Advent and serve as an opportunity for Catholics to prepare
    * themselves spiritually for the celebration of Christmas.
    */
-  unprivilegedWeekdayOfAdvent = (
-    dayOfWeek: number,
-    weekOfSeason: number,
-    year = this.#isLiturgicalYear ? this.#year - 1 : this.#year,
-  ): Date | null => {
+  unprivilegedWeekdayOfAdvent = (arg: AllDatesFn['unprivilegedWeekdayOfAdvent']): Date | null => {
+    const {
+      dayOfWeek,
+      weekOfSeason,
+      year = this.#isLiturgicalYear ? this.#year - 1 : this.#year,
+    } = arg || {};
     const id = `${year}_${weekOfSeason}_${dayOfWeek}`;
     if (this.#__unprivilegedWeekdayOfAdvent[id] !== undefined) {
       return this.#__unprivilegedWeekdayOfAdvent[id];
@@ -134,7 +91,7 @@ class ProperOfTimeDates implements IProperOfTimeDates {
     if (dayOfWeek < 1 || dayOfWeek > 6 || weekOfSeason < 1 || weekOfSeason > 4)
       return (this.#__unprivilegedWeekdayOfAdvent[id] = null);
     let date: Date | null = addDays(
-      this.firstSundayOfAdvent(year),
+      this.firstSundayOfAdvent({ year }),
       (weekOfSeason - 1) * 7 + dayOfWeek,
     );
     if (date.getUTCDate() >= 17 && date.getUTCMonth() === 11 && date.getUTCDay() !== 0) date = null;
@@ -152,10 +109,8 @@ class ProperOfTimeDates implements IProperOfTimeDates {
    * The O Antiphons are an ancient tradition that dates back to at least the 8th century and are
    * still used in many Christian denominations today.
    */
-  privilegedWeekdayOfAdvent = (
-    dayOfMonth: number,
-    year = this.#isLiturgicalYear ? this.#year - 1 : this.#year,
-  ): Date | null => {
+  privilegedWeekdayOfAdvent = (arg: AllDatesFn['privilegedWeekdayOfAdvent']): Date | null => {
+    const { dayOfMonth, year = this.#isLiturgicalYear ? this.#year - 1 : this.#year } = arg || {};
     const id = `${year}_${dayOfMonth}`;
     if (this.#__privilegedWeekdayOfAdvent[id] !== undefined) {
       return this.#__privilegedWeekdayOfAdvent[id];
@@ -176,15 +131,13 @@ class ProperOfTimeDates implements IProperOfTimeDates {
    * - Third Sunday of Advent (also known as Gaudete Sunday)
    * - Fourth Sunday of Advent
    */
-  sundayOfAdvent = (
-    weekOfSeason: number,
-    year = this.#isLiturgicalYear ? this.#year - 1 : this.#year,
-  ): Date | null => {
+  sundayOfAdvent = (arg: AllDatesFn['sundayOfAdvent']): Date | null => {
+    const { weekOfSeason, year = this.#isLiturgicalYear ? this.#year - 1 : this.#year } = arg || {};
     const id = `${year}_${weekOfSeason}`;
     if (this.#__sundayOfAdvent[id] !== undefined) return this.#__sundayOfAdvent[id];
     if (weekOfSeason < 1 || weekOfSeason > 4) return (this.#__sundayOfAdvent[id] = null);
     return (this.#__sundayOfAdvent[id] = addDays(
-      this.firstSundayOfAdvent(year),
+      this.firstSundayOfAdvent({ year }),
       7 * (weekOfSeason - 1),
     ));
   };
@@ -193,7 +146,8 @@ class ProperOfTimeDates implements IProperOfTimeDates {
   /**
    * Get the date of the Solemnity of the Nativity of the Lord (Christmas).
    */
-  nativityOfTheLord = (year = this.#isLiturgicalYear ? this.#year - 1 : this.#year): Date => {
+  nativityOfTheLord = (arg?: AllDatesFn['nativityOfTheLord']): Date => {
+    const { year = this.#isLiturgicalYear ? this.#year - 1 : this.#year } = arg || {};
     if (this.#__nativityOfTheLord[year]) return this.#__nativityOfTheLord[year];
     return (this.#__nativityOfTheLord[year] = ProperOfTimeDates.nativityOfTheLord(year));
   };
@@ -209,14 +163,15 @@ class ProperOfTimeDates implements IProperOfTimeDates {
   /**
    * Get the date of the feast of the Holy Family.
    */
-  holyFamily = (year = this.#isLiturgicalYear ? this.#year - 1 : this.#year): Date => {
+  holyFamily = (arg?: AllDatesFn['holyFamily']): Date => {
+    const { year = this.#isLiturgicalYear ? this.#year - 1 : this.#year } = arg || {};
     if (this.#__holyFamily[year]) return this.#__holyFamily[year];
     return (this.#__holyFamily[year] =
-      this.nativityOfTheLord(year).getUTCDay() === 0
+      this.nativityOfTheLord({ year }).getUTCDay() === 0
         ? // If Christmas is on Sunday, then Holy Family occurs the December 30th.
           getUtcDate(year, 12, 30)
         : // Otherwise, Holy Family occur the Sunday during the Christmas octave.
-          startOfWeek(addDays(this.nativityOfTheLord(year), 7)));
+          startOfWeek(addDays(this.nativityOfTheLord({ year }), 7)));
   };
   #__holyFamily: Record<string, Date> = {};
 
@@ -226,17 +181,17 @@ class ProperOfTimeDates implements IProperOfTimeDates {
    * Christmas octave (which is Solemnity of Mary, Mother of God), and the feast of the Holy Family.
    */
   weekdayWithinOctaveOfChristmas = (
-    dayOfOctave: number,
-    year = this.#isLiturgicalYear ? this.#year - 1 : this.#year,
+    arg: AllDatesFn['weekdayWithinOctaveOfChristmas'],
   ): Date | null => {
+    const { dayOfOctave, year = this.#isLiturgicalYear ? this.#year - 1 : this.#year } = arg || {};
     const id = `${year}_${dayOfOctave}`;
     if (this.#__weekdayWithinOctaveOfChristmas[id] !== undefined) {
       return this.#__weekdayWithinOctaveOfChristmas[id];
     }
     if (dayOfOctave < 2 || dayOfOctave > 7)
       return (this.#__weekdayWithinOctaveOfChristmas[id] = null);
-    let date: Date | null = addDays(this.nativityOfTheLord(year), dayOfOctave - 1);
-    if (isSameDate(date, this.holyFamily(year))) date = null;
+    let date: Date | null = addDays(this.nativityOfTheLord({ year }), dayOfOctave - 1);
+    if (isSameDate(date, this.holyFamily({ year }))) date = null;
     return (this.#__weekdayWithinOctaveOfChristmas[id] = date);
   };
   #__weekdayWithinOctaveOfChristmas: Record<string, Date | null> = {};
@@ -244,7 +199,8 @@ class ProperOfTimeDates implements IProperOfTimeDates {
   /**
    * Get the date of the Solemnity of Mary, Mother of God.
    */
-  maryMotherOfGod = (year = this.#year): Date => {
+  maryMotherOfGod = (arg?: AllDatesFn['maryMotherOfGod']): Date => {
+    const { year = this.#year } = arg || {};
     if (this.#__maryMotherOfGod[year]) return this.#__maryMotherOfGod[year];
     return (this.#__maryMotherOfGod[year] = getUtcDate(year, 1, 1));
   };
@@ -255,10 +211,8 @@ class ProperOfTimeDates implements IProperOfTimeDates {
    * which is not the Epiphany or the Baptism of the Lord.
    * This can occur only when Epiphany is celebrated the 6 January.
    */
-  secondSundayAfterChristmas = (
-    year = this.#year,
-    epiphanyOnSunday = this.#config.epiphanyOnSunday,
-  ): Date | null => {
+  secondSundayAfterChristmas = (arg?: AllDatesFn['secondSundayAfterChristmas']): Date | null => {
+    const { epiphanyOnSunday = this.#config.epiphanyOnSunday, year = this.#year } = arg || {};
     const id = year + epiphanyOnSunday.toString();
     if (this.#__secondSundayAfterChristmas[id] !== undefined) {
       return this.#__secondSundayAfterChristmas[id];
@@ -275,11 +229,12 @@ class ProperOfTimeDates implements IProperOfTimeDates {
    * Get a date of a weekday from January 2nd and the day before the Solemnity of the Epiphany of
    * the Lord.
    */
-  weekdayBeforeEpiphany = (
-    dayOfMonth: number,
-    year = this.#year,
-    epiphanyOnSunday = this.#config.epiphanyOnSunday,
-  ): Date | null => {
+  weekdayBeforeEpiphany = (arg: AllDatesFn['weekdayBeforeEpiphany']): Date | null => {
+    const {
+      dayOfMonth,
+      year = this.#year,
+      epiphanyOnSunday = this.#config.epiphanyOnSunday,
+    } = arg || {};
     const id = `${dayOfMonth}_${year}_${epiphanyOnSunday.toString()}`;
     if (this.#__weekdayBeforeEpiphany[id] !== undefined) return this.#__weekdayBeforeEpiphany[id];
     if (dayOfMonth < 2 || dayOfMonth > 8) return (this.#__weekdayBeforeEpiphany[id] = null);
@@ -293,7 +248,8 @@ class ProperOfTimeDates implements IProperOfTimeDates {
   /**
    * Get the date of the Solemnity of the Epiphany of the Lord.
    */
-  epiphany = (year = this.#year, epiphanyOnSunday = this.#config.epiphanyOnSunday): Date => {
+  epiphany = (arg?: AllDatesFn['epiphany']): Date => {
+    const { year = this.#year, epiphanyOnSunday = this.#config.epiphanyOnSunday } = arg || {};
     const id = year + epiphanyOnSunday.toString();
     if (this.#__epiphany[id]) return this.#__epiphany[id];
 
@@ -325,11 +281,12 @@ class ProperOfTimeDates implements IProperOfTimeDates {
    * Get a date of a weekday from the day after the Solemnity of the Epiphany of the Lord,
    * to the day before the Solemnity of the Baptism of the Lord.
    */
-  weekdayAfterEpiphany = (
-    dayOfWeek: number,
-    year = this.#year,
-    epiphanyOnSunday = this.#config.epiphanyOnSunday,
-  ): Date | null => {
+  weekdayAfterEpiphany = (arg: AllDatesFn['weekdayAfterEpiphany']): Date | null => {
+    const {
+      dayOfWeek,
+      year = this.#year,
+      epiphanyOnSunday = this.#config.epiphanyOnSunday,
+    } = arg || {};
     const id = `${dayOfWeek}_${year}_${epiphanyOnSunday.toString()}`;
     if (this.#__weekdayAfterEpiphany[id] !== undefined) return this.#__weekdayAfterEpiphany[id];
     if (dayOfWeek < 1 || dayOfWeek > 6) return (this.#__weekdayAfterEpiphany[id] = null);
@@ -343,13 +300,11 @@ class ProperOfTimeDates implements IProperOfTimeDates {
   /**
    * Get the date of the Feast of the Baptism of the Lord.
    */
-  baptismOfTheLord = (
-    year = this.#year,
-    epiphanyOnSunday = this.#config.epiphanyOnSunday,
-  ): Date => {
+  baptismOfTheLord = (arg?: AllDatesFn['baptismOfTheLord']): Date => {
+    const { year = this.#year, epiphanyOnSunday = this.#config.epiphanyOnSunday } = arg || {};
     const id = year + epiphanyOnSunday.toString();
     if (this.#__baptismOfTheLord[id]) return this.#__baptismOfTheLord[id];
-    const epiphany = this.epiphany(year, epiphanyOnSunday);
+    const epiphany = this.epiphany({ year, epiphanyOnSunday });
 
     // Epiphany on January 6 => Baptism of the Lord on the next Sunday.
     if (epiphany.getUTCDate() === 6) {
@@ -371,52 +326,58 @@ class ProperOfTimeDates implements IProperOfTimeDates {
   /**
    * Get the date of Ash Wednesday.
    */
-  ashWednesday = (year = this.#year): Date => {
+  ashWednesday = (arg?: AllDatesFn['ashWednesday']): Date => {
+    const { year = this.#year } = arg || {};
     if (this.#__ashWednesday[year]) return this.#__ashWednesday[year];
-    return (this.#__ashWednesday[year] = subtractsDays(this.easterSunday(year), 46));
+    return (this.#__ashWednesday[year] = subtractsDays(this.easterSunday({ year }), 46));
   };
   #__ashWednesday: Record<string, Date> = {};
 
   /**
    * Get the date of Palm Sunday.
    */
-  palmSunday = (year = this.#year): Date => {
+  palmSunday = (arg?: AllDatesFn['palmSunday']): Date => {
+    const { year = this.#year } = arg || {};
     if (this.#__palmSunday[year]) return this.#__palmSunday[year];
-    return (this.#__palmSunday[year] = subtractsDays(this.easterSunday(year), 7));
+    return (this.#__palmSunday[year] = subtractsDays(this.easterSunday({ year }), 7));
   };
   #__palmSunday: Record<string, Date> = {};
 
   /**
    * Get the date of Holy Thursday.
    */
-  holyThursday = (year = this.#year): Date => {
+  holyThursday = (arg?: AllDatesFn['holyThursday']): Date => {
+    const { year = this.#year } = arg || {};
     if (this.#__holyThursday[year]) return this.#__holyThursday[year];
-    return (this.#__holyThursday[year] = subtractsDays(this.easterSunday(year), 3));
+    return (this.#__holyThursday[year] = subtractsDays(this.easterSunday({ year }), 3));
   };
   #__holyThursday: Record<string, Date> = {};
 
   /**
    * Get the date of Good Friday (Holy Friday).
    */
-  goodFriday = (year = this.#year): Date => {
+  goodFriday = (arg?: AllDatesFn['goodFriday']): Date => {
+    const { year = this.#year } = arg || {};
     if (this.#__goodFriday[year]) return this.#__goodFriday[year];
-    return (this.#__goodFriday[year] = subtractsDays(this.easterSunday(year), 2));
+    return (this.#__goodFriday[year] = subtractsDays(this.easterSunday({ year }), 2));
   };
   #__goodFriday: Record<string, Date> = {};
 
   /**
    * Get the date of Holy Saturday.
    */
-  holySaturday = (year = this.#year): Date => {
+  holySaturday = (arg?: AllDatesFn['holySaturday']): Date => {
+    const { year = this.#year } = arg || {};
     if (this.#__holySaturday[year]) return this.#__holySaturday[year];
-    return (this.#__holySaturday[year] = subtractsDays(this.easterSunday(year), 1));
+    return (this.#__holySaturday[year] = subtractsDays(this.easterSunday({ year }), 1));
   };
   #__holySaturday: Record<string, Date> = {};
 
   /**
    * Get the date of Easter Sunday.
    */
-  easterSunday = (year = this.#year): Date => {
+  easterSunday = (arg?: AllDatesFn['easterSunday']): Date => {
+    const { year = this.#year } = arg || {};
     if (this.#__easter[year]) return this.#__easter[year];
     const { month, day } = calculateEasterDate(year);
     return (this.#__easter[year] = getUtcDate(year, month, day));
@@ -426,12 +387,13 @@ class ProperOfTimeDates implements IProperOfTimeDates {
   /**
    * Get a date of a weekday or a Sunday of Easter Time.
    */
-  weekdayOrSundayOfEasterTime = (
-    dayOfWeek: number,
-    weekOfSeason: number,
-    year = this.#year,
-    ascensionOnSunday = this.#config.ascensionOnSunday,
-  ): Date | null => {
+  weekdayOrSundayOfEasterTime = (arg: AllDatesFn['weekdayOrSundayOfEasterTime']): Date | null => {
+    const {
+      dayOfWeek,
+      weekOfSeason,
+      ascensionOnSunday = this.#config.ascensionOnSunday,
+      year = this.#year,
+    } = arg || {};
     const id = `${year}_${ascensionOnSunday}_${weekOfSeason}_${dayOfWeek}`;
     if (this.#__weekdayOrSundayOfEasterTime[id] !== undefined) {
       return this.#__weekdayOrSundayOfEasterTime[id];
@@ -439,9 +401,9 @@ class ProperOfTimeDates implements IProperOfTimeDates {
     if (weekOfSeason < 1 || weekOfSeason > 7 || dayOfWeek < 0 || dayOfWeek > 6) {
       return (this.#__weekdayOrSundayOfEasterTime[id] = null);
     }
-    const easterSunday = this.easterSunday(year);
+    const easterSunday = this.easterSunday({ year });
     const date = addDays(easterSunday, (weekOfSeason - 1) * 7 + dayOfWeek);
-    const ascension = this.ascension(year, ascensionOnSunday);
+    const ascension = this.ascension({ year, ascensionOnSunday });
     return (this.#__weekdayOrSundayOfEasterTime[id] =
       isSameDate(ascension, date) || isSameDate(easterSunday, date) ? null : date);
   };
@@ -450,32 +412,35 @@ class ProperOfTimeDates implements IProperOfTimeDates {
   /**
    * Get the date of Divine Mercy (second Sunday of Easter).
    */
-  divineMercySunday = (year = this.#year): Date => {
+  divineMercySunday = (arg?: AllDatesFn['divineMercySunday']): Date => {
+    const { year = this.#year } = arg || {};
     if (this.#__divineMercySunday[year]) return this.#__divineMercySunday[year];
-    return (this.#__divineMercySunday[year] = addDays(this.easterSunday(year), 7));
+    return (this.#__divineMercySunday[year] = addDays(this.easterSunday({ year }), 7));
   };
   #__divineMercySunday: Record<string, Date> = {};
 
   /**
    * Get the date of the Solemnity of the Ascension of the Lord.
    */
-  ascension = (year = this.#year, ascensionOnSunday = this.#config.ascensionOnSunday): Date => {
+  ascension = (arg?: AllDatesFn['ascension']): Date => {
+    const { year = this.#year, ascensionOnSunday = this.#config.ascensionOnSunday } = arg || {};
     const id = year + ascensionOnSunday.toString();
     if (this.#__ascension[id]) return this.#__ascension[id];
     return (this.#__ascension[id] = ascensionOnSunday
       ? // If specified, move Ascension to the following Sunday
-        addDays(this.easterSunday(year), 42)
+        addDays(this.easterSunday({ year }), 42)
       : // else by default, Ascension on Thursday
-        addDays(this.easterSunday(year), 39));
+        addDays(this.easterSunday({ year }), 39));
   };
   #__ascension: Record<string, Date> = {};
 
   /**
    * Get the date of the Solemnity of Pentecost Sunday.
    */
-  pentecostSunday = (year = this.#year): Date => {
+  pentecostSunday = (arg?: AllDatesFn['pentecostSunday']): Date => {
+    const { year = this.#year } = arg || {};
     if (this.#__pentecostSunday[year]) return this.#__pentecostSunday[year];
-    return (this.#__pentecostSunday[year] = addDays(this.easterSunday(year), 49));
+    return (this.#__pentecostSunday[year] = addDays(this.easterSunday({ year }), 49));
   };
   #__pentecostSunday: Record<string, Date> = {};
 
@@ -483,12 +448,15 @@ class ProperOfTimeDates implements IProperOfTimeDates {
    * Get a date of a weekday or a Sunday of Ordinary Time.
    */
   weekdayOrSundayOfOrdinaryTime = (
-    dayOfWeek: number,
-    weekOfSeason: number,
-    year = this.#year,
-    epiphanyOnSunday = this.#config.epiphanyOnSunday,
-    corpusChristiOnSunday = this.#config.corpusChristiOnSunday,
+    arg: AllDatesFn['weekdayOrSundayOfOrdinaryTime'],
   ): Date | null => {
+    const {
+      dayOfWeek,
+      weekOfSeason,
+      epiphanyOnSunday = this.#config.epiphanyOnSunday,
+      corpusChristiOnSunday = this.#config.corpusChristiOnSunday,
+      year = this.#year,
+    } = arg || {};
     const id = year + epiphanyOnSunday.toString() + corpusChristiOnSunday.toString();
 
     if (dayOfWeek < 0 || dayOfWeek > 6 || weekOfSeason < 1 || weekOfSeason > 34) {
@@ -500,12 +468,12 @@ class ProperOfTimeDates implements IProperOfTimeDates {
       const late = this.#__allDatesOfLateOrdinaryTime(year);
       const lateOrdinaryStartWeekCount = Math.floor(35 - (late.length + 1) / 7);
       const baptismOfTheLordIsMonday =
-        this.baptismOfTheLord(year, epiphanyOnSunday).getUTCDay() === 1;
+        this.baptismOfTheLord({ year, epiphanyOnSunday }).getUTCDay() === 1;
 
-      const trinitySunday = this.trinitySunday(year).getTime();
-      const corpusChristi = this.corpusChristi(year, corpusChristiOnSunday).getTime();
-      const mostSacredHeartOfJesus = this.mostSacredHeartOfJesus(year).getTime();
-      const christTheKingSunday = this.christTheKingSunday(year).getTime();
+      const trinitySunday = this.trinitySunday({ year }).getTime();
+      const corpusChristi = this.corpusChristi({ year, corpusChristiOnSunday }).getTime();
+      const mostSacredHeartOfJesus = this.mostSacredHeartOfJesus({ year }).getTime();
+      const christTheKingSunday = this.christTheKingSunday({ year }).getTime();
 
       const groupBy = (
         dates: Date[],
@@ -556,51 +524,49 @@ class ProperOfTimeDates implements IProperOfTimeDates {
   /**
    * Get the date of the Solemnity of the Most Holy Trinity.
    */
-  trinitySunday = (year = this.#year): Date => {
+  trinitySunday = (arg?: AllDatesFn['trinitySunday']): Date => {
+    const { year = this.#year } = arg || {};
     if (this.#__trinitySunday[year]) return this.#__trinitySunday[year];
-    return (this.#__trinitySunday[year] = addDays(this.easterSunday(year), 56));
+    return (this.#__trinitySunday[year] = addDays(this.easterSunday({ year }), 56));
   };
   #__trinitySunday: Record<string, Date> = {};
 
   /**
    * Get the date of the Solemnity of the Most Holy Body and Blood of Christ (Corpus Christi).
    */
-  corpusChristi = (
-    year = this.#year,
-    corpusChristiOnSunday = this.#config.corpusChristiOnSunday,
-  ): Date => {
+  corpusChristi = (arg?: AllDatesFn['corpusChristi']): Date => {
+    const { year = this.#year, corpusChristiOnSunday = this.#config.corpusChristiOnSunday } =
+      arg || {};
     const id = year + corpusChristiOnSunday.toString();
     if (this.#__corpusChristi[id]) return this.#__corpusChristi[id];
     return (this.#__corpusChristi[id] = corpusChristiOnSunday
       ? // By default Corpus Christi on Sunday
-        addDays(this.easterSunday(year), 63)
+        addDays(this.easterSunday({ year }), 63)
       : // If specified, move Corpus Christi to Thursday
-        addDays(this.easterSunday(year), 60));
+        addDays(this.easterSunday({ year }), 60));
   };
   #__corpusChristi: Record<string, Date> = {};
 
   /**
    * Get the date of the Solemnity of the Most Sacred Heart of Jesus.
    */
-  mostSacredHeartOfJesus = (year = this.#year): Date => {
+  mostSacredHeartOfJesus = (arg?: AllDatesFn['mostSacredHeartOfJesus']): Date => {
+    const { year = this.#year } = arg || {};
     if (this.#__mostSacredHeartOfJesus[year]) return this.#__mostSacredHeartOfJesus[year];
-    return (this.#__mostSacredHeartOfJesus[year] = addDays(this.easterSunday(year), 68));
+    return (this.#__mostSacredHeartOfJesus[year] = addDays(this.easterSunday({ year }), 68));
   };
   #__mostSacredHeartOfJesus: Record<string, Date> = {};
 
   /**
    * Get the date of the Solemnity of Our Lord Jesus Christ, King of the Universe (Christ the King).
    */
-  christTheKingSunday = (year = this.#year): Date => {
-    /**
-     * Get the date of the Solemnity of Christ the King
-     *
-     * *The Solemnity of Christ the King is always the 34th (and last) Sunday of Ordinary Time
-     * and is the week before the First Sunday of Advent. The Sundays of Ordinary Time in the
-     * latter part of the year are numbered backwards from Christ the King to Pentecost.*
-     */
+  christTheKingSunday = (arg?: AllDatesFn['christTheKingSunday']): Date => {
+    const { year = this.#year } = arg || {};
     if (this.#__christTheKingSunday[year]) return this.#__christTheKingSunday[year];
-    return (this.#__christTheKingSunday[year] = subtractsDays(this.firstSundayOfAdvent(year), 7));
+    return (this.#__christTheKingSunday[year] = subtractsDays(
+      this.firstSundayOfAdvent({ year }),
+      7,
+    ));
   };
   #__christTheKingSunday: Record<string, Date> = {};
 
@@ -614,8 +580,8 @@ class ProperOfTimeDates implements IProperOfTimeDates {
   ): Date[] => {
     const id = year + epiphanyOnSunday.toString();
     if (this.#__allDatesBeforeEpiphanyCache[id]) return this.#__allDatesBeforeEpiphanyCache[id];
-    const start = addDays(this.maryMotherOfGod(year), 1);
-    const epiphany = this.epiphany(year, epiphanyOnSunday);
+    const start = addDays(this.maryMotherOfGod({ year }), 1);
+    const epiphany = this.epiphany({ year, epiphanyOnSunday });
 
     // If there are no days between Mary, Mother of God and Epiphany
     if (isSameDate(start, epiphany)) return (this.#__allDatesBeforeEpiphanyCache[id] = []);
@@ -635,8 +601,8 @@ class ProperOfTimeDates implements IProperOfTimeDates {
   ): Date[] => {
     const id = year + epiphanyOnSunday.toString();
     if (this.#__allDatesAfterEpiphanyCache[id]) return this.#__allDatesAfterEpiphanyCache[id];
-    const start = addDays(this.epiphany(year, epiphanyOnSunday), 1);
-    const baptismOfTheLord = this.baptismOfTheLord(year, epiphanyOnSunday);
+    const start = addDays(this.epiphany({ year, epiphanyOnSunday }), 1);
+    const baptismOfTheLord = this.baptismOfTheLord({ year, epiphanyOnSunday });
 
     // If there are no days between Epiphany and Baptism of the Lord
     if (isSameDate(start, baptismOfTheLord)) return (this.#__allDatesAfterEpiphanyCache[id] = []);
@@ -658,8 +624,8 @@ class ProperOfTimeDates implements IProperOfTimeDates {
     if (this.#__allDatesOfEarlyOrdinaryTimeCache[id]) {
       return this.#__allDatesOfEarlyOrdinaryTimeCache[id];
     }
-    const start = addDays(this.baptismOfTheLord(year, epiphanyOnSunday), 1);
-    const end = subtractsDays(this.ashWednesday(year), 1);
+    const start = addDays(this.baptismOfTheLord({ year, epiphanyOnSunday }), 1);
+    const end = subtractsDays(this.ashWednesday({ year }), 1);
     return (this.#__allDatesOfEarlyOrdinaryTimeCache[id] = rangeOfDays(start, end));
   };
   #__allDatesOfEarlyOrdinaryTimeCache: Record<string, Date[]> = {};
@@ -673,8 +639,8 @@ class ProperOfTimeDates implements IProperOfTimeDates {
     if (this.#__allDatesOfLateOrdinaryTimeCache[year]) {
       return this.#__allDatesOfLateOrdinaryTimeCache[year];
     }
-    const start = addDays(this.pentecostSunday(year), 1);
-    const end = subtractsDays(this.firstSundayOfAdvent(year), 1);
+    const start = addDays(this.pentecostSunday({ year }), 1);
+    const end = subtractsDays(this.firstSundayOfAdvent({ year }), 1);
     return (this.#__allDatesOfLateOrdinaryTimeCache[year] = rangeOfDays(start, end));
   };
   #__allDatesOfLateOrdinaryTimeCache: Record<string, Date[]> = {};

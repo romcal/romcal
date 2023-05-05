@@ -7,7 +7,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateFn": "trinitySunday",
+      "trinitySunday": {},
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -30,7 +30,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateFn": "corpusChristi",
+      "corpusChristi": {},
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -52,7 +52,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateFn": "mostSacredHeartOfJesus",
+      "mostSacredHeartOfJesus": {},
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -75,11 +75,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        1,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 1,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -107,11 +106,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        1,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 1,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -139,11 +137,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        1,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 1,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -171,11 +168,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        1,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 1,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -203,11 +199,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        1,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 1,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -235,11 +230,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        1,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 1,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -267,11 +261,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        2,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -298,11 +291,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        2,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -330,11 +322,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        2,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -362,11 +353,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        2,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -394,11 +384,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        2,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -426,11 +415,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        2,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -458,11 +446,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        2,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -490,11 +477,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        3,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -518,11 +504,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        3,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -550,11 +535,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        3,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -582,11 +566,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        3,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -614,11 +597,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        3,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -646,11 +628,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        3,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -678,11 +659,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        3,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -710,11 +690,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        4,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 4,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -741,11 +720,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        4,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 4,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -773,11 +751,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        4,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 4,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -805,11 +782,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        4,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 4,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -837,11 +813,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        4,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 4,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -869,11 +844,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        4,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 4,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -901,11 +875,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        4,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 4,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -933,11 +906,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        5,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 5,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -964,11 +936,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        5,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 5,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -996,11 +967,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        5,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 5,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -1028,11 +998,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        5,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 5,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -1060,11 +1029,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        5,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 5,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -1092,11 +1060,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        5,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 5,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -1124,11 +1091,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        5,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 5,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -1156,11 +1122,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        6,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 6,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -1187,11 +1152,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        6,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 6,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -1219,11 +1183,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        6,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 6,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -1251,11 +1214,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        6,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 6,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -1283,11 +1245,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        6,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 6,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -1315,11 +1276,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        6,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 6,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -1347,11 +1307,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        6,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 6,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -1379,11 +1338,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        7,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 7,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -1410,11 +1368,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        7,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 7,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -1442,11 +1399,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        7,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 7,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -1474,11 +1430,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        7,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 7,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -1506,11 +1461,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        7,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 7,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -1538,11 +1492,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        7,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 7,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -1570,11 +1523,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        7,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 7,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -1602,11 +1554,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        8,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 8,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -1633,11 +1584,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        8,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 8,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -1665,11 +1615,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        8,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 8,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -1697,11 +1646,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        8,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 8,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -1729,11 +1677,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        8,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 8,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -1761,11 +1708,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        8,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 8,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -1793,11 +1739,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        8,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 8,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -1825,11 +1770,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        9,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 9,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -1856,11 +1800,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        9,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 9,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -1888,11 +1831,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        9,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 9,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -1920,11 +1862,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        9,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 9,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -1952,11 +1893,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        9,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 9,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -1984,11 +1924,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        9,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 9,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -2016,11 +1955,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        9,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 9,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -2048,11 +1986,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        10,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 10,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -2079,11 +2016,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        10,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 10,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -2111,11 +2047,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        10,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 10,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -2143,11 +2078,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        10,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 10,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -2175,11 +2109,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        10,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 10,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -2207,11 +2140,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        10,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 10,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -2239,11 +2171,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        10,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 10,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -2271,11 +2202,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        11,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 11,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -2302,11 +2232,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        11,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 11,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -2334,11 +2263,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        11,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 11,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -2366,11 +2294,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        11,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 11,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -2398,11 +2325,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        11,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 11,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -2430,11 +2356,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        11,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 11,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -2462,11 +2387,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        11,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 11,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -2494,11 +2418,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        12,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 12,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -2525,11 +2448,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        12,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 12,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -2557,11 +2479,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        12,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 12,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -2589,11 +2510,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        12,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 12,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -2621,11 +2541,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        12,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 12,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -2653,11 +2572,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        12,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 12,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -2685,11 +2603,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        12,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 12,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -2717,11 +2634,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        13,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 13,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -2748,11 +2664,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        13,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 13,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -2780,11 +2695,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        13,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 13,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -2812,11 +2726,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        13,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 13,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -2844,11 +2757,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        13,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 13,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -2876,11 +2788,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        13,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 13,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -2908,11 +2819,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        13,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 13,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -2940,11 +2850,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        14,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 14,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -2971,11 +2880,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        14,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 14,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -3003,11 +2911,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        14,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 14,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -3035,11 +2942,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        14,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 14,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -3067,11 +2973,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        14,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 14,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -3099,11 +3004,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        14,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 14,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -3131,11 +3035,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        14,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 14,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -3163,11 +3066,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        15,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 15,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -3194,11 +3096,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        15,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 15,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -3226,11 +3127,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        15,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 15,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -3258,11 +3158,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        15,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 15,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -3290,11 +3189,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        15,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 15,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -3322,11 +3220,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        15,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 15,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -3354,11 +3251,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        15,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 15,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -3386,11 +3282,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        16,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 16,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -3417,11 +3312,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        16,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 16,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -3449,11 +3343,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        16,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 16,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -3481,11 +3374,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        16,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 16,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -3513,11 +3405,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        16,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 16,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -3545,11 +3436,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        16,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 16,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -3577,11 +3467,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        16,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 16,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -3609,11 +3498,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        17,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 17,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -3640,11 +3528,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        17,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 17,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -3672,11 +3559,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        17,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 17,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -3704,11 +3590,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        17,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 17,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -3736,11 +3621,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        17,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 17,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -3768,11 +3652,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        17,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 17,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -3800,11 +3683,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        17,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 17,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -3832,11 +3714,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        18,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 18,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -3863,11 +3744,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        18,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 18,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -3895,11 +3775,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        18,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 18,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -3927,11 +3806,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        18,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 18,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -3959,11 +3837,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        18,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 18,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -3991,11 +3868,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        18,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 18,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -4023,11 +3899,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        18,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 18,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -4055,11 +3930,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        19,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 19,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -4086,11 +3960,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        19,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 19,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -4118,11 +3991,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        19,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 19,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -4150,11 +4022,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        19,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 19,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -4182,11 +4053,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        19,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 19,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -4214,11 +4084,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        19,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 19,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -4246,11 +4115,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        19,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 19,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -4278,11 +4146,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        20,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 20,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -4309,11 +4176,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        20,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 20,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -4341,11 +4207,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        20,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 20,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -4373,11 +4238,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        20,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 20,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -4405,11 +4269,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        20,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 20,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -4437,11 +4300,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        20,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 20,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -4469,11 +4331,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        20,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 20,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -4501,11 +4362,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        21,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 21,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -4532,11 +4392,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        21,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 21,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -4564,11 +4423,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        21,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 21,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -4596,11 +4454,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        21,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 21,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -4628,11 +4485,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        21,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 21,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -4660,11 +4516,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        21,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 21,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -4692,11 +4547,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        21,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 21,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -4724,11 +4578,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        22,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 22,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -4755,11 +4608,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        22,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 22,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -4787,11 +4639,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        22,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 22,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -4819,11 +4670,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        22,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 22,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -4851,11 +4701,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        22,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 22,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -4883,11 +4732,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        22,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 22,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -4915,11 +4763,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        22,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 22,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -4947,11 +4794,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        23,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 23,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -4978,11 +4824,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        23,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 23,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -5010,11 +4855,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        23,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 23,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -5042,11 +4886,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        23,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 23,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -5074,11 +4917,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        23,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 23,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -5106,11 +4948,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        23,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 23,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -5138,11 +4979,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        23,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 23,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -5170,11 +5010,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        24,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 24,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -5201,11 +5040,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        24,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 24,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -5233,11 +5071,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        24,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 24,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -5265,11 +5102,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        24,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 24,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -5297,11 +5133,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        24,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 24,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -5329,11 +5164,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        24,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 24,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -5361,11 +5195,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        24,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 24,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -5393,11 +5226,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        25,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 25,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -5424,11 +5256,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        25,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 25,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -5456,11 +5287,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        25,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 25,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -5488,11 +5318,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        25,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 25,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -5520,11 +5349,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        25,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 25,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -5552,11 +5380,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        25,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 25,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -5584,11 +5411,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        25,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 25,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -5616,11 +5442,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        26,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 26,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -5647,11 +5472,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        26,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 26,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -5679,11 +5503,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        26,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 26,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -5711,11 +5534,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        26,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 26,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -5743,11 +5565,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        26,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 26,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -5775,11 +5596,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        26,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 26,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -5807,11 +5627,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        26,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 26,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -5839,11 +5658,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        27,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 27,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -5870,11 +5688,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        27,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 27,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -5902,11 +5719,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        27,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 27,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -5934,11 +5750,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        27,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 27,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -5966,11 +5781,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        27,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 27,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -5998,11 +5812,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        27,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 27,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -6030,11 +5843,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        27,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 27,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -6062,11 +5874,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        28,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 28,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -6093,11 +5904,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        28,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 28,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -6125,11 +5935,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        28,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 28,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -6157,11 +5966,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        28,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 28,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -6189,11 +5997,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        28,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 28,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -6221,11 +6028,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        28,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 28,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -6253,11 +6059,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        28,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 28,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -6285,11 +6090,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        29,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 29,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -6316,11 +6120,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        29,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 29,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -6348,11 +6151,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        29,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 29,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -6380,11 +6182,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        29,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 29,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -6412,11 +6213,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        29,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 29,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -6444,11 +6244,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        29,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 29,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -6476,11 +6275,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        29,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 29,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -6508,11 +6306,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        30,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 30,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -6539,11 +6336,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        30,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 30,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -6571,11 +6367,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        30,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 30,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -6603,11 +6398,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        30,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 30,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -6635,11 +6429,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        30,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 30,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -6667,11 +6460,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        30,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 30,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -6699,11 +6491,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        30,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 30,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -6731,11 +6522,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        31,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 31,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -6762,11 +6552,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        31,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 31,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -6794,11 +6583,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        31,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 31,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -6826,11 +6614,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        31,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 31,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -6858,11 +6645,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        31,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 31,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -6890,11 +6676,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        31,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 31,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -6922,11 +6707,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        31,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 31,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -6954,11 +6738,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        32,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 32,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -6985,11 +6768,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        32,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 32,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -7017,11 +6799,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        32,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 32,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -7049,11 +6830,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        32,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 32,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -7081,11 +6861,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        32,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 32,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -7113,11 +6892,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        32,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 32,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -7145,11 +6923,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        32,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 32,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -7177,11 +6954,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        33,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 33,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -7208,11 +6984,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        33,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 33,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -7240,11 +7015,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        33,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 33,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -7272,11 +7046,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        33,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 33,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -7304,11 +7077,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        33,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 33,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -7336,11 +7108,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        33,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 33,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -7368,11 +7139,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        33,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 33,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -7400,11 +7170,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        34,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 34,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -7428,11 +7197,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        34,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 34,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -7460,11 +7228,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        34,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 34,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -7492,11 +7259,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        34,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 34,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -7524,11 +7290,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        34,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 34,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -7556,11 +7321,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        34,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 34,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -7588,11 +7352,10 @@ exports[`ordinaryTime should match snapshot 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        34,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 34,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -7625,7 +7388,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateFn": "trinitySunday",
+      "trinitySunday": {},
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -7648,7 +7411,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateFn": "corpusChristi",
+      "corpusChristi": {},
       "yearOffset": 1,
     },
     "fromCalendarId": "proper-of-time",
@@ -7670,7 +7433,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateFn": "mostSacredHeartOfJesus",
+      "mostSacredHeartOfJesus": {},
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -7693,11 +7456,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        1,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 1,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -7725,11 +7487,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        1,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 1,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -7757,11 +7518,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        1,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 1,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -7789,11 +7549,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        1,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 1,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -7821,11 +7580,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        1,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 1,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -7853,11 +7611,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        1,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 1,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -7885,11 +7642,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        2,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -7916,11 +7672,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        2,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -7948,11 +7703,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        2,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -7980,11 +7734,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        2,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -8012,11 +7765,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        2,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -8044,11 +7796,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        2,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -8076,11 +7827,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        2,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -8108,11 +7858,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        3,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -8136,11 +7885,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        3,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -8168,11 +7916,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        3,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -8200,11 +7947,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        3,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -8232,11 +7978,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        3,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -8264,11 +8009,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        3,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -8296,11 +8040,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        3,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -8328,11 +8071,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        4,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 4,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -8359,11 +8101,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        4,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 4,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -8391,11 +8132,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        4,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 4,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -8423,11 +8163,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        4,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 4,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -8455,11 +8194,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        4,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 4,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -8487,11 +8225,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        4,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 4,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -8519,11 +8256,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        4,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 4,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -8551,11 +8287,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        5,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 5,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -8582,11 +8317,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        5,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 5,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -8614,11 +8348,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        5,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 5,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -8646,11 +8379,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        5,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 5,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -8678,11 +8410,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        5,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 5,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -8710,11 +8441,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        5,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 5,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -8742,11 +8472,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        5,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 5,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -8774,11 +8503,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        6,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 6,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -8805,11 +8533,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        6,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 6,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -8837,11 +8564,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        6,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 6,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -8869,11 +8595,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        6,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 6,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -8901,11 +8626,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        6,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 6,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -8933,11 +8657,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        6,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 6,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -8965,11 +8688,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        6,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 6,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -8997,11 +8719,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        7,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 7,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -9028,11 +8749,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        7,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 7,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -9060,11 +8780,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        7,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 7,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -9092,11 +8811,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        7,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 7,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -9124,11 +8842,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        7,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 7,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -9156,11 +8873,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        7,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 7,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -9188,11 +8904,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        7,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 7,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -9220,11 +8935,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        8,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 8,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -9251,11 +8965,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        8,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 8,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -9283,11 +8996,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        8,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 8,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -9315,11 +9027,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        8,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 8,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -9347,11 +9058,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        8,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 8,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -9379,11 +9089,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        8,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 8,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -9411,11 +9120,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        8,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 8,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -9443,11 +9151,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        9,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 9,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -9474,11 +9181,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        9,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 9,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -9506,11 +9212,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        9,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 9,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -9538,11 +9243,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        9,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 9,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -9570,11 +9274,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        9,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 9,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -9602,11 +9305,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        9,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 9,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -9634,11 +9336,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        9,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 9,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -9666,11 +9367,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        10,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 10,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -9697,11 +9397,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        10,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 10,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -9729,11 +9428,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        10,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 10,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -9761,11 +9459,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        10,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 10,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -9793,11 +9490,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        10,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 10,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -9825,11 +9521,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        10,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 10,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -9857,11 +9552,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        10,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 10,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -9889,11 +9583,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        11,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 11,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -9920,11 +9613,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        11,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 11,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -9952,11 +9644,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        11,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 11,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -9984,11 +9675,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        11,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 11,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -10016,11 +9706,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        11,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 11,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -10048,11 +9737,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        11,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 11,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -10080,11 +9768,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        11,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 11,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -10112,11 +9799,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        12,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 12,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -10143,11 +9829,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        12,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 12,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -10175,11 +9860,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        12,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 12,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -10207,11 +9891,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        12,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 12,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -10239,11 +9922,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        12,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 12,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -10271,11 +9953,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        12,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 12,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -10303,11 +9984,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        12,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 12,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -10335,11 +10015,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        13,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 13,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -10366,11 +10045,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        13,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 13,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -10398,11 +10076,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        13,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 13,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -10430,11 +10107,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        13,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 13,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -10462,11 +10138,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        13,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 13,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -10494,11 +10169,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        13,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 13,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -10526,11 +10200,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        13,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 13,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -10558,11 +10231,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        14,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 14,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -10589,11 +10261,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        14,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 14,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -10621,11 +10292,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        14,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 14,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -10653,11 +10323,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        14,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 14,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -10685,11 +10354,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        14,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 14,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -10717,11 +10385,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        14,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 14,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -10749,11 +10416,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        14,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 14,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -10781,11 +10447,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        15,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 15,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -10812,11 +10477,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        15,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 15,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -10844,11 +10508,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        15,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 15,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -10876,11 +10539,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        15,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 15,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -10908,11 +10570,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        15,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 15,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -10940,11 +10601,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        15,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 15,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -10972,11 +10632,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        15,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 15,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -11004,11 +10663,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        16,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 16,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -11035,11 +10693,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        16,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 16,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -11067,11 +10724,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        16,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 16,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -11099,11 +10755,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        16,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 16,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -11131,11 +10786,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        16,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 16,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -11163,11 +10817,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        16,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 16,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -11195,11 +10848,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        16,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 16,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -11227,11 +10879,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        17,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 17,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -11258,11 +10909,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        17,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 17,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -11290,11 +10940,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        17,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 17,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -11322,11 +10971,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        17,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 17,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -11354,11 +11002,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        17,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 17,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -11386,11 +11033,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        17,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 17,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -11418,11 +11064,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        17,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 17,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -11450,11 +11095,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        18,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 18,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -11481,11 +11125,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        18,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 18,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -11513,11 +11156,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        18,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 18,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -11545,11 +11187,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        18,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 18,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -11577,11 +11218,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        18,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 18,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -11609,11 +11249,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        18,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 18,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -11641,11 +11280,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        18,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 18,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -11673,11 +11311,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        19,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 19,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -11704,11 +11341,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        19,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 19,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -11736,11 +11372,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        19,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 19,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -11768,11 +11403,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        19,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 19,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -11800,11 +11434,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        19,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 19,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -11832,11 +11465,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        19,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 19,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -11864,11 +11496,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        19,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 19,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -11896,11 +11527,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        20,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 20,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -11927,11 +11557,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        20,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 20,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -11959,11 +11588,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        20,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 20,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -11991,11 +11619,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        20,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 20,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -12023,11 +11650,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        20,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 20,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -12055,11 +11681,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        20,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 20,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -12087,11 +11712,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        20,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 20,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -12119,11 +11743,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        21,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 21,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -12150,11 +11773,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        21,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 21,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -12182,11 +11804,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        21,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 21,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -12214,11 +11835,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        21,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 21,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -12246,11 +11866,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        21,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 21,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -12278,11 +11897,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        21,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 21,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -12310,11 +11928,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        21,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 21,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -12342,11 +11959,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        22,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 22,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -12373,11 +11989,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        22,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 22,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -12405,11 +12020,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        22,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 22,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -12437,11 +12051,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        22,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 22,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -12469,11 +12082,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        22,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 22,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -12501,11 +12113,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        22,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 22,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -12533,11 +12144,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        22,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 22,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -12565,11 +12175,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        23,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 23,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -12596,11 +12205,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        23,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 23,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -12628,11 +12236,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        23,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 23,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -12660,11 +12267,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        23,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 23,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -12692,11 +12298,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        23,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 23,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -12724,11 +12329,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        23,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 23,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -12756,11 +12360,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        23,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 23,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -12788,11 +12391,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        24,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 24,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -12819,11 +12421,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        24,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 24,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -12851,11 +12452,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        24,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 24,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -12883,11 +12483,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        24,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 24,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -12915,11 +12514,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        24,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 24,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -12947,11 +12545,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        24,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 24,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -12979,11 +12576,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        24,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 24,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -13011,11 +12607,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        25,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 25,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -13042,11 +12637,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        25,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 25,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -13074,11 +12668,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        25,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 25,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -13106,11 +12699,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        25,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 25,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -13138,11 +12730,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        25,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 25,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -13170,11 +12761,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        25,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 25,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -13202,11 +12792,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        25,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 25,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -13234,11 +12823,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        26,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 26,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -13265,11 +12853,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        26,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 26,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -13297,11 +12884,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        26,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 26,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -13329,11 +12915,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        26,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 26,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -13361,11 +12946,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        26,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 26,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -13393,11 +12977,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        26,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 26,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -13425,11 +13008,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        26,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 26,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -13457,11 +13039,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        27,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 27,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -13488,11 +13069,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        27,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 27,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -13520,11 +13100,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        27,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 27,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -13552,11 +13131,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        27,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 27,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -13584,11 +13162,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        27,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 27,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -13616,11 +13193,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        27,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 27,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -13648,11 +13224,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        27,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 27,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -13680,11 +13255,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        28,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 28,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -13711,11 +13285,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        28,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 28,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -13743,11 +13316,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        28,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 28,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -13775,11 +13347,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        28,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 28,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -13807,11 +13378,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        28,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 28,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -13839,11 +13409,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        28,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 28,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -13871,11 +13440,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        28,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 28,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -13903,11 +13471,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        29,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 29,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -13934,11 +13501,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        29,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 29,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -13966,11 +13532,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        29,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 29,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -13998,11 +13563,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        29,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 29,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -14030,11 +13594,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        29,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 29,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -14062,11 +13625,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        29,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 29,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -14094,11 +13656,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        29,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 29,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -14126,11 +13687,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        30,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 30,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -14157,11 +13717,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        30,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 30,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -14189,11 +13748,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        30,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 30,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -14221,11 +13779,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        30,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 30,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -14253,11 +13810,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        30,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 30,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -14285,11 +13841,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        30,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 30,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -14317,11 +13872,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        30,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 30,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -14349,11 +13903,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        31,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 31,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -14380,11 +13933,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        31,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 31,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -14412,11 +13964,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        31,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 31,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -14444,11 +13995,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        31,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 31,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -14476,11 +14026,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        31,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 31,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -14508,11 +14057,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        31,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 31,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -14540,11 +14088,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        31,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 31,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -14572,11 +14119,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        32,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 32,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -14603,11 +14149,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        32,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 32,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -14635,11 +14180,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        32,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 32,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -14667,11 +14211,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        32,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 32,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -14699,11 +14242,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        32,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 32,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -14731,11 +14273,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        32,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 32,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -14763,11 +14304,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        32,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 32,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -14795,11 +14335,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        33,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 33,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -14826,11 +14365,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        33,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 33,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -14858,11 +14396,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        33,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 33,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -14890,11 +14427,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        33,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 33,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -14922,11 +14458,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        33,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 33,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -14954,11 +14489,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        33,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 33,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -14986,11 +14520,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        33,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 33,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -15018,11 +14551,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        34,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 34,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -15046,11 +14578,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        34,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 34,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -15078,11 +14609,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        34,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 34,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -15110,11 +14640,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        34,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 34,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -15142,11 +14671,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        34,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 34,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -15174,11 +14702,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        34,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 34,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -15206,11 +14733,10 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
       "GREEN",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        34,
-      ],
-      "dateFn": "weekdayOrSundayOfOrdinaryTime",
+      "weekdayOrSundayOfOrdinaryTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 34,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,

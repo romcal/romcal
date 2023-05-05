@@ -45,13 +45,13 @@ inputs:
       # it is transferred to the Monday after the Second Sunday of Easter
       ifIsBetween:
         from:
-          dateFn: palmSunday
+          palmSunday:
         to:
-          dateFn: divineMercySunday
+          divineMercySunday:
         inclusive: true
       setDate:
-        dateFn: divineMercySunday
-        addDay: 1
+        divineMercySunday:
+        dayOffset: +1
     titles:
       append:
         - PATRON_OF_POLAND
@@ -326,13 +326,13 @@ inputs:
   mary_mother_of_the_church:
     precedence: 08F_PROPER_FEAST
     dateDef:
-      dateFn: pentecostSunday
-      addDay: 1
+      pentecostSunday:
+      dayOffset: +1
     properCycle: PROPER_OF_TIME
 
   our_lord_jesus_christ_the_eternal_high_priest:
     precedence: 08F_PROPER_FEAST
     dateDef:
-      dateFn: pentecostSunday
-      addDay: 4
+      pentecostSunday:
+      dayOffset: +4
     properCycle: PROPER_OF_TIME

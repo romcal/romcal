@@ -304,6 +304,9 @@ importers:
       '@romcal/shared':
         specifier: workspace:*
         version: link:../shared
+      type-fest:
+        specifier: ^2.8.0
+        version: 2.8.0
     devDependencies:
       '@romcal/build':
         specifier: workspace:*
@@ -5159,7 +5162,6 @@ packages:
   /type-fest@2.8.0:
     resolution: {integrity: sha512-O+V9pAshf9C6loGaH0idwsmugI2LxVNR7DtS40gVo2EXZVYFgz9OuNtOhgHLdHdapOEWNdvz9Ob/eeuaWwwlxA==}
     engines: {node: '>=12.20'}
-    dev: true
 
   /typed-array-length@1.0.4:
     resolution: {integrity: sha512-KjZypGq+I/H7HI5HlOoGHkWUUGq+Q0TPhQurLbyrVrvnKTBgzLhIJ7j6J/XTQOi0d1RjyZ0wdas8bKs2p0x3Ng==}

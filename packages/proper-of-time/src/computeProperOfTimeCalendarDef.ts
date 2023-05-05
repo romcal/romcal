@@ -1,9 +1,4 @@
-import {
-  CalendarDef,
-  CalendarScope,
-  DEFAULT_CALENDAR_CONFIG,
-  PROPER_OF_TIME_ID,
-} from '@romcal/shared';
+import { CalendarDef, CalendarScope, DEFAULT_CALENDAR_CONFIG, PROPER_OF_TIME_ID } from '@romcal/shared';
 
 import {
   advent,

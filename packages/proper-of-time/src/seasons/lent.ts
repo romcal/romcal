@@ -19,7 +19,7 @@ export const lent = (yearOffset = 0): LiturgicalDayDef[] => {
   definitions.push({
     liturgicalDayId: `ash_wednesday`,
     precedence: Precedence.AshWednesday_2,
-    dateDef: { dateFn: 'ashWednesday', yearOffset },
+    dateDef: { ashWednesday: {}, yearOffset },
     seasons: [{ season: Season.Lent, weekOfSeason: 0, dayOfSeason: 1 }],
     periods: [{ period: Period.PresentationOfTheLordToHolyThursday }],
     dayOfWeek: 3,
@@ -29,16 +29,20 @@ export const lent = (yearOffset = 0): LiturgicalDayDef[] => {
   });
 
   // Days after Ash Wednesday.
-  for (let dow = 4; dow < 7; dow++) {
+  for (let dayOfWeek = 4; dayOfWeek < 7; dayOfWeek++) {
     definitions.push({
-      liturgicalDayId: `${DAYS_OF_WEEK[dow]}_after_ash_wednesday`,
+      liturgicalDayId: `${DAYS_OF_WEEK[dayOfWeek]}_after_ash_wednesday`,
       precedence: Precedence.PrivilegedWeekday_9,
-      dateDef: { dateFn: 'ashWednesday', addDay: dow - 3, yearOffset },
-      seasons: [{ season: Season.Lent, weekOfSeason: 0, dayOfSeason: dow - 2 }],
+      dateDef: {
+        ashWednesday: {},
+        dayOffset: dayOfWeek - 3,
+        yearOffset,
+      },
+      seasons: [{ season: Season.Lent, weekOfSeason: 0, dayOfSeason: dayOfWeek - 2 }],
       periods: [{ period: Period.PresentationOfTheLordToHolyThursday }],
-      dayOfWeek: dow,
+      dayOfWeek,
       colors: [Color.Purple],
-      i18nDef: ['seasons:lent.day_after_ash_wed', { dow }],
+      i18nDef: ['seasons:lent.day_after_ash_wed', { dow: dayOfWeek }],
       fromCalendarId: PROPER_OF_TIME_ID,
     });
   }
@@ -50,7 +54,11 @@ export const lent = (yearOffset = 0): LiturgicalDayDef[] => {
     definitions.push({
       liturgicalDayId: `lent_${week}_${DAYS_OF_WEEK[dow]}`,
       precedence: dow === 0 ? Precedence.PrivilegedSunday_2 : Precedence.PrivilegedWeekday_9,
-      dateDef: { dateFn: 'ashWednesday', addDay: i + 4, yearOffset },
+      dateDef: {
+        ashWednesday: {},
+        dayOffset: i + 4,
+        yearOffset,
+      },
       isHolyDayOfObligation: dow === 0,
       seasons: [{ season: Season.Lent, weekOfSeason: week, dayOfSeason: i + 5 }],
       periods: [{ period: Period.PresentationOfTheLordToHolyThursday }],
@@ -69,7 +77,7 @@ export const lent = (yearOffset = 0): LiturgicalDayDef[] => {
   definitions.push({
     liturgicalDayId: `palm_sunday_of_the_passion_of_the_lord`,
     precedence: Precedence.PrivilegedSunday_2,
-    dateDef: { dateFn: 'palmSunday', yearOffset },
+    dateDef: { palmSunday: {}, yearOffset },
     isHolyDayOfObligation: true,
     seasons: [{ season: Season.Lent, weekOfSeason: 6, dayOfSeason: 40 }],
     periods: [{ period: Period.HolyWeek }, { period: Period.PresentationOfTheLordToHolyThursday }],
@@ -80,19 +88,23 @@ export const lent = (yearOffset = 0): LiturgicalDayDef[] => {
   });
 
   // Holy Week, Monday to Thursday.
-  for (let dow = 1; dow < 5; dow++) {
+  for (let dayOfWeek = 1; dayOfWeek < 5; dayOfWeek++) {
     definitions.push({
-      liturgicalDayId: `holy_${DAYS_OF_WEEK[dow]}`,
+      liturgicalDayId: `holy_${DAYS_OF_WEEK[dayOfWeek]}`,
       precedence: Precedence.PrivilegedWeekday_9,
-      dateDef: { dateFn: 'palmSunday', addDay: dow, yearOffset },
-      seasons: [{ season: Season.Lent, weekOfSeason: 6, dayOfSeason: 40 + dow }],
+      dateDef: {
+        palmSunday: {},
+        dayOffset: dayOfWeek,
+        yearOffset,
+      },
+      seasons: [{ season: Season.Lent, weekOfSeason: 6, dayOfSeason: 40 + dayOfWeek }],
       periods: [
         { period: Period.HolyWeek },
         { period: Period.PresentationOfTheLordToHolyThursday },
       ],
-      dayOfWeek: dow,
+      dayOfWeek,
       colors: [Color.Purple],
-      i18nDef: ['seasons:lent.holy_week_day', { dow }],
+      i18nDef: ['seasons:lent.holy_week_day', { dow: dayOfWeek }],
       fromCalendarId: PROPER_OF_TIME_ID,
     });
   }

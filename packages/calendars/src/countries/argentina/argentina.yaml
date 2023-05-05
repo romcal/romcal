@@ -92,6 +92,6 @@ inputs:
   our_lady_of_the_valley:
     precedence: 11B_PROPER_MEMORIAL
     dateDef:
-      dateFn: divineMercySunday
-      addDay: 6
+      divineMercySunday:
+      dayOffset: +6
     properCycle: PROPER_OF_TIME

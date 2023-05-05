@@ -18,7 +18,8 @@
     "test:snapshot:update": "jest -u"
   },
   "dependencies": {
-    "@romcal/shared": "workspace:*"
+    "@romcal/shared": "workspace:*",
+    "type-fest": "^2.8.0"
   },
   "devDependencies": {
     "@romcal/build": "workspace:*",

@@ -7,8 +7,8 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "addDay": 1,
-      "dateFn": "easterSunday",
+      "dayOffset": 1,
+      "easterSunday": {},
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -39,8 +39,8 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "addDay": 2,
-      "dateFn": "easterSunday",
+      "dayOffset": 2,
+      "easterSunday": {},
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -71,8 +71,8 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "addDay": 3,
-      "dateFn": "easterSunday",
+      "dayOffset": 3,
+      "easterSunday": {},
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -103,8 +103,8 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "addDay": 4,
-      "dateFn": "easterSunday",
+      "dayOffset": 4,
+      "easterSunday": {},
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -135,8 +135,8 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "addDay": 5,
-      "dateFn": "easterSunday",
+      "dayOffset": 5,
+      "easterSunday": {},
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -167,8 +167,8 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "addDay": 6,
-      "dateFn": "easterSunday",
+      "dayOffset": 6,
+      "easterSunday": {},
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -199,7 +199,7 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateFn": "divineMercySunday",
+      "divineMercySunday": {},
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -228,11 +228,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        2,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -261,11 +260,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        2,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -294,11 +292,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        2,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -327,11 +324,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        2,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -360,11 +356,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        2,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -393,11 +388,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        2,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -426,11 +420,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        3,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -458,11 +451,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        3,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -491,11 +483,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        3,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -524,11 +515,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        3,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -557,11 +547,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        3,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -590,11 +579,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        3,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -623,11 +611,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        3,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -656,11 +643,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        4,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 4,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -688,11 +674,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        4,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 4,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -721,11 +706,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        4,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 4,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -754,11 +738,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        4,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 4,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -787,11 +770,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        4,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 4,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -820,11 +802,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        4,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 4,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -853,11 +834,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        4,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 4,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -886,11 +866,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        5,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 5,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -918,11 +897,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        5,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 5,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -951,11 +929,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        5,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 5,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -984,11 +961,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        5,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 5,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -1017,11 +993,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        5,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 5,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -1050,11 +1025,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        5,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 5,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -1083,11 +1057,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        5,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 5,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -1116,11 +1089,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        6,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 6,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -1148,11 +1120,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        6,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 6,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -1181,11 +1152,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        6,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 6,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -1214,11 +1184,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        6,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 6,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -1247,7 +1216,7 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateFn": "ascension",
+      "ascension": {},
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -1272,11 +1241,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        6,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 6,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -1305,11 +1273,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        6,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 6,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -1338,11 +1305,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        6,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 6,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -1371,11 +1337,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        7,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 7,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -1403,11 +1368,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        7,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 7,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -1436,11 +1400,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        7,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 7,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -1469,11 +1432,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        7,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 7,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -1502,11 +1464,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        7,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 7,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -1535,11 +1496,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        7,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 7,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -1568,11 +1528,10 @@ exports[`easterTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        7,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 7,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -1601,7 +1560,7 @@ exports[`easterTime should match snapshot 1`] = `
       "RED",
     ],
     "dateDef": {
-      "dateFn": "pentecostSunday",
+      "pentecostSunday": {},
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -1631,8 +1590,8 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "addDay": 1,
-      "dateFn": "easterSunday",
+      "dayOffset": 1,
+      "easterSunday": {},
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -1663,8 +1622,8 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "addDay": 2,
-      "dateFn": "easterSunday",
+      "dayOffset": 2,
+      "easterSunday": {},
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -1695,8 +1654,8 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "addDay": 3,
-      "dateFn": "easterSunday",
+      "dayOffset": 3,
+      "easterSunday": {},
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -1727,8 +1686,8 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "addDay": 4,
-      "dateFn": "easterSunday",
+      "dayOffset": 4,
+      "easterSunday": {},
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -1759,8 +1718,8 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "addDay": 5,
-      "dateFn": "easterSunday",
+      "dayOffset": 5,
+      "easterSunday": {},
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -1791,8 +1750,8 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "addDay": 6,
-      "dateFn": "easterSunday",
+      "dayOffset": 6,
+      "easterSunday": {},
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -1823,7 +1782,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateFn": "divineMercySunday",
+      "divineMercySunday": {},
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -1852,11 +1811,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        2,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -1885,11 +1843,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        2,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -1918,11 +1875,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        2,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -1951,11 +1907,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        2,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -1984,11 +1939,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        2,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -2017,11 +1971,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        2,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -2050,11 +2003,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        3,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -2082,11 +2034,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        3,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -2115,11 +2066,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        3,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -2148,11 +2098,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        3,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -2181,11 +2130,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        3,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -2214,11 +2162,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        3,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -2247,11 +2194,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        3,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -2280,11 +2226,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        4,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 4,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -2312,11 +2257,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        4,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 4,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -2345,11 +2289,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        4,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 4,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -2378,11 +2321,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        4,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 4,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -2411,11 +2353,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        4,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 4,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -2444,11 +2385,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        4,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 4,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -2477,11 +2417,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        4,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 4,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -2510,11 +2449,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        5,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 5,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -2542,11 +2480,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        5,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 5,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -2575,11 +2512,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        5,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 5,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -2608,11 +2544,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        5,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 5,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -2641,11 +2576,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        5,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 5,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -2674,11 +2608,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        5,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 5,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -2707,11 +2640,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        5,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 5,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -2740,11 +2672,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        6,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 6,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -2772,11 +2703,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        6,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 6,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -2805,11 +2735,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        6,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 6,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -2838,11 +2767,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        6,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 6,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -2871,7 +2799,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateFn": "ascension",
+      "ascension": {},
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -2896,11 +2824,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        6,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 6,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -2929,11 +2856,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        6,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 6,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -2962,11 +2888,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        6,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 6,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -2995,11 +2920,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        0,
-        7,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 0,
+        "weekOfSeason": 7,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 0,
@@ -3027,11 +2951,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        7,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 7,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 1,
@@ -3060,11 +2983,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        7,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 7,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 2,
@@ -3093,11 +3015,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        7,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 7,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 3,
@@ -3126,11 +3047,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        7,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 7,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 4,
@@ -3159,11 +3079,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        7,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 7,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 5,
@@ -3192,11 +3111,10 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        7,
-      ],
-      "dateFn": "weekdayOrSundayOfEasterTime",
+      "weekdayOrSundayOfEasterTime": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 7,
+      },
       "yearOffset": 1,
     },
     "dayOfWeek": 6,
@@ -3225,7 +3143,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
       "RED",
     ],
     "dateDef": {
-      "dateFn": "pentecostSunday",
+      "pentecostSunday": {},
       "yearOffset": 1,
     },
     "dayOfWeek": 0,

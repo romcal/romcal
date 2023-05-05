@@ -7,7 +7,7 @@ exports[`christmasTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateFn": "nativityOfTheLord",
+      "nativityOfTheLord": {},
       "yearOffset": -1,
     },
     "fromCalendarId": "proper-of-time",
@@ -38,10 +38,9 @@ exports[`christmasTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-      ],
-      "dateFn": "weekdayWithinOctaveOfChristmas",
+      "weekdayWithinOctaveOfChristmas": {
+        "dayOfOctave": 2,
+      },
       "yearOffset": -1,
     },
     "fromCalendarId": "proper-of-time",
@@ -73,10 +72,9 @@ exports[`christmasTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-      ],
-      "dateFn": "weekdayWithinOctaveOfChristmas",
+      "weekdayWithinOctaveOfChristmas": {
+        "dayOfOctave": 3,
+      },
       "yearOffset": -1,
     },
     "fromCalendarId": "proper-of-time",
@@ -108,10 +106,9 @@ exports[`christmasTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-      ],
-      "dateFn": "weekdayWithinOctaveOfChristmas",
+      "weekdayWithinOctaveOfChristmas": {
+        "dayOfOctave": 4,
+      },
       "yearOffset": -1,
     },
     "fromCalendarId": "proper-of-time",
@@ -143,10 +140,9 @@ exports[`christmasTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-      ],
-      "dateFn": "weekdayWithinOctaveOfChristmas",
+      "weekdayWithinOctaveOfChristmas": {
+        "dayOfOctave": 5,
+      },
       "yearOffset": -1,
     },
     "fromCalendarId": "proper-of-time",
@@ -178,10 +174,9 @@ exports[`christmasTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-      ],
-      "dateFn": "weekdayWithinOctaveOfChristmas",
+      "weekdayWithinOctaveOfChristmas": {
+        "dayOfOctave": 6,
+      },
       "yearOffset": -1,
     },
     "fromCalendarId": "proper-of-time",
@@ -213,10 +208,9 @@ exports[`christmasTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        7,
-      ],
-      "dateFn": "weekdayWithinOctaveOfChristmas",
+      "weekdayWithinOctaveOfChristmas": {
+        "dayOfOctave": 7,
+      },
       "yearOffset": -1,
     },
     "fromCalendarId": "proper-of-time",
@@ -248,7 +242,7 @@ exports[`christmasTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateFn": "holyFamily",
+      "holyFamily": {},
       "yearOffset": -1,
     },
     "fromCalendarId": "proper-of-time",
@@ -307,7 +301,7 @@ exports[`christmasTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateFn": "secondSundayAfterChristmas",
+      "secondSundayAfterChristmas": {},
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -333,10 +327,9 @@ exports[`christmasTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-      ],
-      "dateFn": "weekdayBeforeEpiphany",
+      "weekdayBeforeEpiphany": {
+        "dayOfMonth": 2,
+      },
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -368,10 +361,9 @@ exports[`christmasTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-      ],
-      "dateFn": "weekdayBeforeEpiphany",
+      "weekdayBeforeEpiphany": {
+        "dayOfMonth": 3,
+      },
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -403,10 +395,9 @@ exports[`christmasTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-      ],
-      "dateFn": "weekdayBeforeEpiphany",
+      "weekdayBeforeEpiphany": {
+        "dayOfMonth": 4,
+      },
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -438,10 +429,9 @@ exports[`christmasTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-      ],
-      "dateFn": "weekdayBeforeEpiphany",
+      "weekdayBeforeEpiphany": {
+        "dayOfMonth": 5,
+      },
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -473,10 +463,9 @@ exports[`christmasTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-      ],
-      "dateFn": "weekdayBeforeEpiphany",
+      "weekdayBeforeEpiphany": {
+        "dayOfMonth": 6,
+      },
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -508,10 +497,9 @@ exports[`christmasTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        7,
-      ],
-      "dateFn": "weekdayBeforeEpiphany",
+      "weekdayBeforeEpiphany": {
+        "dayOfMonth": 7,
+      },
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -543,10 +531,9 @@ exports[`christmasTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        8,
-      ],
-      "dateFn": "weekdayBeforeEpiphany",
+      "weekdayBeforeEpiphany": {
+        "dayOfMonth": 8,
+      },
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -578,7 +565,7 @@ exports[`christmasTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateFn": "epiphany",
+      "epiphany": {},
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -607,10 +594,9 @@ exports[`christmasTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-      ],
-      "dateFn": "weekdayAfterEpiphany",
+      "weekdayAfterEpiphany": {
+        "dayOfWeek": 1,
+      },
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -641,10 +627,9 @@ exports[`christmasTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-      ],
-      "dateFn": "weekdayAfterEpiphany",
+      "weekdayAfterEpiphany": {
+        "dayOfWeek": 2,
+      },
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -675,10 +660,9 @@ exports[`christmasTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-      ],
-      "dateFn": "weekdayAfterEpiphany",
+      "weekdayAfterEpiphany": {
+        "dayOfWeek": 3,
+      },
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -709,10 +693,9 @@ exports[`christmasTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-      ],
-      "dateFn": "weekdayAfterEpiphany",
+      "weekdayAfterEpiphany": {
+        "dayOfWeek": 4,
+      },
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -743,10 +726,9 @@ exports[`christmasTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-      ],
-      "dateFn": "weekdayAfterEpiphany",
+      "weekdayAfterEpiphany": {
+        "dayOfWeek": 5,
+      },
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -777,10 +759,9 @@ exports[`christmasTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-      ],
-      "dateFn": "weekdayAfterEpiphany",
+      "weekdayAfterEpiphany": {
+        "dayOfWeek": 6,
+      },
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -811,7 +792,7 @@ exports[`christmasTime should match snapshot 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateFn": "baptismOfTheLord",
+      "baptismOfTheLord": {},
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -844,7 +825,7 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateFn": "nativityOfTheLord",
+      "nativityOfTheLord": {},
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -875,10 +856,9 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-      ],
-      "dateFn": "weekdayWithinOctaveOfChristmas",
+      "weekdayWithinOctaveOfChristmas": {
+        "dayOfOctave": 2,
+      },
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -910,10 +890,9 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-      ],
-      "dateFn": "weekdayWithinOctaveOfChristmas",
+      "weekdayWithinOctaveOfChristmas": {
+        "dayOfOctave": 3,
+      },
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -945,10 +924,9 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-      ],
-      "dateFn": "weekdayWithinOctaveOfChristmas",
+      "weekdayWithinOctaveOfChristmas": {
+        "dayOfOctave": 4,
+      },
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -980,10 +958,9 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-      ],
-      "dateFn": "weekdayWithinOctaveOfChristmas",
+      "weekdayWithinOctaveOfChristmas": {
+        "dayOfOctave": 5,
+      },
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -1015,10 +992,9 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-      ],
-      "dateFn": "weekdayWithinOctaveOfChristmas",
+      "weekdayWithinOctaveOfChristmas": {
+        "dayOfOctave": 6,
+      },
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -1050,10 +1026,9 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        7,
-      ],
-      "dateFn": "weekdayWithinOctaveOfChristmas",
+      "weekdayWithinOctaveOfChristmas": {
+        "dayOfOctave": 7,
+      },
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -1085,7 +1060,7 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateFn": "holyFamily",
+      "holyFamily": {},
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -1144,7 +1119,7 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateFn": "secondSundayAfterChristmas",
+      "secondSundayAfterChristmas": {},
       "yearOffset": 1,
     },
     "fromCalendarId": "proper-of-time",
@@ -1170,10 +1145,9 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-      ],
-      "dateFn": "weekdayBeforeEpiphany",
+      "weekdayBeforeEpiphany": {
+        "dayOfMonth": 2,
+      },
       "yearOffset": 1,
     },
     "fromCalendarId": "proper-of-time",
@@ -1205,10 +1179,9 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-      ],
-      "dateFn": "weekdayBeforeEpiphany",
+      "weekdayBeforeEpiphany": {
+        "dayOfMonth": 3,
+      },
       "yearOffset": 1,
     },
     "fromCalendarId": "proper-of-time",
@@ -1240,10 +1213,9 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-      ],
-      "dateFn": "weekdayBeforeEpiphany",
+      "weekdayBeforeEpiphany": {
+        "dayOfMonth": 4,
+      },
       "yearOffset": 1,
     },
     "fromCalendarId": "proper-of-time",
@@ -1275,10 +1247,9 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-      ],
-      "dateFn": "weekdayBeforeEpiphany",
+      "weekdayBeforeEpiphany": {
+        "dayOfMonth": 5,
+      },
       "yearOffset": 1,
     },
     "fromCalendarId": "proper-of-time",
@@ -1310,10 +1281,9 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-      ],
-      "dateFn": "weekdayBeforeEpiphany",
+      "weekdayBeforeEpiphany": {
+        "dayOfMonth": 6,
+      },
       "yearOffset": 1,
     },
     "fromCalendarId": "proper-of-time",
@@ -1345,10 +1315,9 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        7,
-      ],
-      "dateFn": "weekdayBeforeEpiphany",
+      "weekdayBeforeEpiphany": {
+        "dayOfMonth": 7,
+      },
       "yearOffset": 1,
     },
     "fromCalendarId": "proper-of-time",
@@ -1380,10 +1349,9 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        8,
-      ],
-      "dateFn": "weekdayBeforeEpiphany",
+      "weekdayBeforeEpiphany": {
+        "dayOfMonth": 8,
+      },
       "yearOffset": 1,
     },
     "fromCalendarId": "proper-of-time",
@@ -1415,7 +1383,7 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateFn": "epiphany",
+      "epiphany": {},
       "yearOffset": 1,
     },
     "fromCalendarId": "proper-of-time",
@@ -1444,10 +1412,9 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-      ],
-      "dateFn": "weekdayAfterEpiphany",
+      "weekdayAfterEpiphany": {
+        "dayOfWeek": 1,
+      },
       "yearOffset": 1,
     },
     "fromCalendarId": "proper-of-time",
@@ -1478,10 +1445,9 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-      ],
-      "dateFn": "weekdayAfterEpiphany",
+      "weekdayAfterEpiphany": {
+        "dayOfWeek": 2,
+      },
       "yearOffset": 1,
     },
     "fromCalendarId": "proper-of-time",
@@ -1512,10 +1478,9 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-      ],
-      "dateFn": "weekdayAfterEpiphany",
+      "weekdayAfterEpiphany": {
+        "dayOfWeek": 3,
+      },
       "yearOffset": 1,
     },
     "fromCalendarId": "proper-of-time",
@@ -1546,10 +1511,9 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-      ],
-      "dateFn": "weekdayAfterEpiphany",
+      "weekdayAfterEpiphany": {
+        "dayOfWeek": 4,
+      },
       "yearOffset": 1,
     },
     "fromCalendarId": "proper-of-time",
@@ -1580,10 +1544,9 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-      ],
-      "dateFn": "weekdayAfterEpiphany",
+      "weekdayAfterEpiphany": {
+        "dayOfWeek": 5,
+      },
       "yearOffset": 1,
     },
     "fromCalendarId": "proper-of-time",
@@ -1614,10 +1577,9 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-      ],
-      "dateFn": "weekdayAfterEpiphany",
+      "weekdayAfterEpiphany": {
+        "dayOfWeek": 6,
+      },
       "yearOffset": 1,
     },
     "fromCalendarId": "proper-of-time",
@@ -1648,7 +1610,7 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
       "WHITE",
     ],
     "dateDef": {
-      "dateFn": "baptismOfTheLord",
+      "baptismOfTheLord": {},
       "yearOffset": 1,
     },
     "fromCalendarId": "proper-of-time",

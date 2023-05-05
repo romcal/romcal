@@ -18,7 +18,7 @@ export const paschalTriduum = (yearOffset = 0): LiturgicalDayDef[] => {
   definitions.push({
     liturgicalDayId: `thursday_of_the_lords_supper`,
     precedence: Precedence.Triduum_1,
-    dateDef: { dateFn: 'holyThursday', yearOffset },
+    dateDef: { holyThursday: {}, yearOffset },
     seasons: [{ season: Season.PaschalTriduum, weekOfSeason: 1, dayOfSeason: 0 }],
     periods: [{ period: Period.HolyWeek }],
     dayOfWeek: 4,
@@ -31,7 +31,7 @@ export const paschalTriduum = (yearOffset = 0): LiturgicalDayDef[] => {
   definitions.push({
     liturgicalDayId: `friday_of_the_passion_of_the_lord`,
     precedence: Precedence.Triduum_1,
-    dateDef: { dateFn: 'goodFriday', yearOffset },
+    dateDef: { goodFriday: {}, yearOffset },
     seasons: [{ season: Season.PaschalTriduum, weekOfSeason: 1, dayOfSeason: 1 }],
     periods: [{ period: Period.HolyWeek }],
     dayOfWeek: 5,
@@ -44,7 +44,7 @@ export const paschalTriduum = (yearOffset = 0): LiturgicalDayDef[] => {
   definitions.push({
     liturgicalDayId: `holy_saturday`,
     precedence: Precedence.Triduum_1,
-    dateDef: { dateFn: 'holySaturday', yearOffset },
+    dateDef: { holySaturday: {}, yearOffset },
     seasons: [{ season: Season.PaschalTriduum, weekOfSeason: 1, dayOfSeason: 2 }],
     periods: [{ period: Period.HolyWeek }],
     dayOfWeek: 6,
@@ -57,7 +57,7 @@ export const paschalTriduum = (yearOffset = 0): LiturgicalDayDef[] => {
   definitions.push({
     liturgicalDayId: `easter_sunday`,
     precedence: Precedence.Triduum_1,
-    dateDef: { dateFn: 'easterSunday', yearOffset },
+    dateDef: { easterSunday: {}, yearOffset },
     isHolyDayOfObligation: true,
     seasons: [
       { season: Season.PaschalTriduum, weekOfSeason: 1, dayOfSeason: 3 },

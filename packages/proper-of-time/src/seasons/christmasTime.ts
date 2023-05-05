@@ -23,7 +23,10 @@ export const earlyChristmasTime = (yearOffset = 0): LiturgicalDayDef[] => {
   definitions.push({
     liturgicalDayId: `nativity_of_the_lord`,
     precedence: Precedence.ProperOfTimeSolemnity_2,
-    dateDef: { dateFn: 'nativityOfTheLord', yearOffset: -1 + yearOffset },
+    dateDef: {
+      nativityOfTheLord: {},
+      yearOffset: -1 + yearOffset,
+    },
     isHolyDayOfObligation: true,
     seasons: [{ season: Season.ChristmasTime, weekOfSeason: 1, dayOfSeason: 1 }],
     periods: [
@@ -36,22 +39,21 @@ export const earlyChristmasTime = (yearOffset = 0): LiturgicalDayDef[] => {
   });
 
   // Octave of the Nativity of the Lord (without December 25 and January 1).
-  for (let count = 2; count < 8; count++) {
+  for (let dayOfOctave = 2; dayOfOctave < 8; dayOfOctave++) {
     definitions.push({
-      liturgicalDayId: `christmas_octave_day_${count}`,
+      liturgicalDayId: `christmas_octave_day_${dayOfOctave}`,
       precedence: Precedence.PrivilegedWeekday_9,
       dateDef: {
-        dateFn: 'weekdayWithinOctaveOfChristmas',
-        dateArgs: [count],
+        weekdayWithinOctaveOfChristmas: { dayOfOctave },
         yearOffset: -1 + yearOffset,
       },
-      seasons: [{ season: Season.ChristmasTime, dayOfSeason: count }],
+      seasons: [{ season: Season.ChristmasTime, dayOfSeason: dayOfOctave }],
       periods: [
         { period: Period.ChristmasOctave },
         { period: Period.ChristmasToPresentationOfTheLord },
       ],
       colors: [Color.White],
-      i18nDef: ['seasons:christmas_time.octave', { count }],
+      i18nDef: ['seasons:christmas_time.octave', { count: dayOfOctave }],
       fromCalendarId: PROPER_OF_TIME_ID,
     });
   }
@@ -61,7 +63,10 @@ export const earlyChristmasTime = (yearOffset = 0): LiturgicalDayDef[] => {
   definitions.push({
     liturgicalDayId: `holy_family_of_jesus_mary_and_joseph`,
     precedence: Precedence.GeneralLordFeast_5,
-    dateDef: { dateFn: 'holyFamily', yearOffset: -1 + yearOffset },
+    dateDef: {
+      holyFamily: {},
+      yearOffset: -1 + yearOffset,
+    },
     seasons: [{ season: Season.ChristmasTime }],
     periods: [
       { period: Period.ChristmasOctave },
@@ -105,7 +110,7 @@ export const lateChristmasTime = (yearOffset = 0): LiturgicalDayDef[] => {
   definitions.push({
     liturgicalDayId: `second_sunday_after_christmas`,
     precedence: Precedence.UnprivilegedSunday_6,
-    dateDef: { dateFn: 'secondSundayAfterChristmas', yearOffset },
+    dateDef: { secondSundayAfterChristmas: {}, yearOffset },
     isHolyDayOfObligation: true,
     seasons: [{ season: Season.ChristmasTime }],
     periods: [
@@ -119,18 +124,18 @@ export const lateChristmasTime = (yearOffset = 0): LiturgicalDayDef[] => {
   });
 
   // Weekdays of Christmas Time, before the Epiphany of the Lord.
-  for (let day = 2; day < 9; day++) {
+  for (let dayOfMonth = 2; dayOfMonth < 9; dayOfMonth++) {
     definitions.push({
-      liturgicalDayId: `christmas_time_${MONTHS[0]}_${day}`,
+      liturgicalDayId: `christmas_time_${MONTHS[0]}_${dayOfMonth}`,
       precedence: Precedence.Weekday_13,
-      dateDef: { dateFn: 'weekdayBeforeEpiphany', dateArgs: [day], yearOffset },
-      seasons: [{ season: Season.ChristmasTime, dayOfSeason: 7 + day }],
+      dateDef: { weekdayBeforeEpiphany: { dayOfMonth }, yearOffset },
+      seasons: [{ season: Season.ChristmasTime, dayOfSeason: 7 + dayOfMonth }],
       periods: [
         { period: Period.DaysBeforeEpiphany },
         { period: Period.ChristmasToPresentationOfTheLord },
       ],
       colors: [Color.White],
-      i18nDef: ['seasons:christmas_time.before_epiphany', { day }],
+      i18nDef: ['seasons:christmas_time.before_epiphany', { day: dayOfMonth }],
       fromCalendarId: PROPER_OF_TIME_ID,
     });
   }
@@ -139,7 +144,7 @@ export const lateChristmasTime = (yearOffset = 0): LiturgicalDayDef[] => {
   definitions.push({
     liturgicalDayId: `epiphany_of_the_lord`,
     precedence: Precedence.ProperOfTimeSolemnity_2,
-    dateDef: { dateFn: 'epiphany', yearOffset },
+    dateDef: { epiphany: {}, yearOffset },
     isHolyDayOfObligation: true,
     seasons: [{ season: Season.ChristmasTime }],
     periods: [
@@ -152,18 +157,18 @@ export const lateChristmasTime = (yearOffset = 0): LiturgicalDayDef[] => {
   });
 
   // Weekdays of Christmas Time, after the Epiphany of the Lord.
-  for (let dow = 1; dow < 7; dow++) {
+  for (let dayOfWeek = 1; dayOfWeek < 7; dayOfWeek++) {
     definitions.push({
-      liturgicalDayId: `${DAYS_OF_WEEK[dow]}_after_epiphany`,
+      liturgicalDayId: `${DAYS_OF_WEEK[dayOfWeek]}_after_epiphany`,
       precedence: Precedence.Weekday_13,
-      dateDef: { dateFn: 'weekdayAfterEpiphany', dateArgs: [dow], yearOffset },
+      dateDef: { weekdayAfterEpiphany: { dayOfWeek }, yearOffset },
       seasons: [{ season: Season.ChristmasTime }],
       periods: [
         { period: Period.DaysFromEpiphany },
         { period: Period.ChristmasToPresentationOfTheLord },
       ],
       colors: [Color.White],
-      i18nDef: ['seasons:christmas_time.after_epiphany', { dow }],
+      i18nDef: ['seasons:christmas_time.after_epiphany', { dow: dayOfWeek }],
       fromCalendarId: PROPER_OF_TIME_ID,
     });
   }
@@ -172,7 +177,7 @@ export const lateChristmasTime = (yearOffset = 0): LiturgicalDayDef[] => {
   definitions.push({
     liturgicalDayId: `baptism_of_the_lord`,
     precedence: Precedence.ProperOfTimeSolemnity_2,
-    dateDef: { dateFn: 'baptismOfTheLord', yearOffset },
+    dateDef: { baptismOfTheLord: {}, yearOffset },
     seasons: [{ season: Season.ChristmasTime }],
     periods: [
       { period: Period.DaysFromEpiphany },

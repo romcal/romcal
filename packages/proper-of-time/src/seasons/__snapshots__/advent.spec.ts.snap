@@ -7,10 +7,9 @@ exports[`advent should match snapshot 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-      ],
-      "dateFn": "sundayOfAdvent",
+      "sundayOfAdvent": {
+        "weekOfSeason": 1,
+      },
       "yearOffset": -1,
     },
     "dayOfWeek": 0,
@@ -38,11 +37,10 @@ exports[`advent should match snapshot 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        1,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 1,
+      },
       "yearOffset": -1,
     },
     "dayOfWeek": 1,
@@ -71,11 +69,10 @@ exports[`advent should match snapshot 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        1,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 1,
+      },
       "yearOffset": -1,
     },
     "dayOfWeek": 2,
@@ -104,11 +101,10 @@ exports[`advent should match snapshot 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        1,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 1,
+      },
       "yearOffset": -1,
     },
     "dayOfWeek": 3,
@@ -137,11 +133,10 @@ exports[`advent should match snapshot 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        1,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 1,
+      },
       "yearOffset": -1,
     },
     "dayOfWeek": 4,
@@ -170,11 +165,10 @@ exports[`advent should match snapshot 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        1,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 1,
+      },
       "yearOffset": -1,
     },
     "dayOfWeek": 5,
@@ -203,11 +197,10 @@ exports[`advent should match snapshot 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        1,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 1,
+      },
       "yearOffset": -1,
     },
     "dayOfWeek": 6,
@@ -236,10 +229,9 @@ exports[`advent should match snapshot 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-      ],
-      "dateFn": "sundayOfAdvent",
+      "sundayOfAdvent": {
+        "weekOfSeason": 2,
+      },
       "yearOffset": -1,
     },
     "dayOfWeek": 0,
@@ -267,11 +259,10 @@ exports[`advent should match snapshot 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        2,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 2,
+      },
       "yearOffset": -1,
     },
     "dayOfWeek": 1,
@@ -300,11 +291,10 @@ exports[`advent should match snapshot 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        2,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 2,
+      },
       "yearOffset": -1,
     },
     "dayOfWeek": 2,
@@ -333,11 +323,10 @@ exports[`advent should match snapshot 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        2,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 2,
+      },
       "yearOffset": -1,
     },
     "dayOfWeek": 3,
@@ -366,11 +355,10 @@ exports[`advent should match snapshot 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        2,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 2,
+      },
       "yearOffset": -1,
     },
     "dayOfWeek": 4,
@@ -399,11 +387,10 @@ exports[`advent should match snapshot 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        2,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 2,
+      },
       "yearOffset": -1,
     },
     "dayOfWeek": 5,
@@ -432,11 +419,10 @@ exports[`advent should match snapshot 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        2,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 2,
+      },
       "yearOffset": -1,
     },
     "dayOfWeek": 6,
@@ -466,10 +452,9 @@ exports[`advent should match snapshot 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-      ],
-      "dateFn": "sundayOfAdvent",
+      "sundayOfAdvent": {
+        "weekOfSeason": 3,
+      },
       "yearOffset": -1,
     },
     "dayOfWeek": 0,
@@ -497,11 +482,10 @@ exports[`advent should match snapshot 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        3,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 3,
+      },
       "yearOffset": -1,
     },
     "dayOfWeek": 1,
@@ -530,11 +514,10 @@ exports[`advent should match snapshot 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        3,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 3,
+      },
       "yearOffset": -1,
     },
     "dayOfWeek": 2,
@@ -563,11 +546,10 @@ exports[`advent should match snapshot 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        3,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 3,
+      },
       "yearOffset": -1,
     },
     "dayOfWeek": 3,
@@ -596,11 +578,10 @@ exports[`advent should match snapshot 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        3,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 3,
+      },
       "yearOffset": -1,
     },
     "dayOfWeek": 4,
@@ -629,11 +610,10 @@ exports[`advent should match snapshot 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        3,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 3,
+      },
       "yearOffset": -1,
     },
     "dayOfWeek": 5,
@@ -662,10 +642,9 @@ exports[`advent should match snapshot 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-      ],
-      "dateFn": "sundayOfAdvent",
+      "sundayOfAdvent": {
+        "weekOfSeason": 4,
+      },
       "yearOffset": -1,
     },
     "dayOfWeek": 0,
@@ -693,10 +672,9 @@ exports[`advent should match snapshot 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        17,
-      ],
-      "dateFn": "privilegedWeekdayOfAdvent",
+      "privilegedWeekdayOfAdvent": {
+        "dayOfMonth": 17,
+      },
       "yearOffset": -1,
     },
     "fromCalendarId": "proper-of-time",
@@ -720,10 +698,9 @@ exports[`advent should match snapshot 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        18,
-      ],
-      "dateFn": "privilegedWeekdayOfAdvent",
+      "privilegedWeekdayOfAdvent": {
+        "dayOfMonth": 18,
+      },
       "yearOffset": -1,
     },
     "fromCalendarId": "proper-of-time",
@@ -747,10 +724,9 @@ exports[`advent should match snapshot 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        19,
-      ],
-      "dateFn": "privilegedWeekdayOfAdvent",
+      "privilegedWeekdayOfAdvent": {
+        "dayOfMonth": 19,
+      },
       "yearOffset": -1,
     },
     "fromCalendarId": "proper-of-time",
@@ -774,10 +750,9 @@ exports[`advent should match snapshot 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        20,
-      ],
-      "dateFn": "privilegedWeekdayOfAdvent",
+      "privilegedWeekdayOfAdvent": {
+        "dayOfMonth": 20,
+      },
       "yearOffset": -1,
     },
     "fromCalendarId": "proper-of-time",
@@ -801,10 +776,9 @@ exports[`advent should match snapshot 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        21,
-      ],
-      "dateFn": "privilegedWeekdayOfAdvent",
+      "privilegedWeekdayOfAdvent": {
+        "dayOfMonth": 21,
+      },
       "yearOffset": -1,
     },
     "fromCalendarId": "proper-of-time",
@@ -828,10 +802,9 @@ exports[`advent should match snapshot 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        22,
-      ],
-      "dateFn": "privilegedWeekdayOfAdvent",
+      "privilegedWeekdayOfAdvent": {
+        "dayOfMonth": 22,
+      },
       "yearOffset": -1,
     },
     "fromCalendarId": "proper-of-time",
@@ -855,10 +828,9 @@ exports[`advent should match snapshot 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        23,
-      ],
-      "dateFn": "privilegedWeekdayOfAdvent",
+      "privilegedWeekdayOfAdvent": {
+        "dayOfMonth": 23,
+      },
       "yearOffset": -1,
     },
     "fromCalendarId": "proper-of-time",
@@ -882,10 +854,9 @@ exports[`advent should match snapshot 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        24,
-      ],
-      "dateFn": "privilegedWeekdayOfAdvent",
+      "privilegedWeekdayOfAdvent": {
+        "dayOfMonth": 24,
+      },
       "yearOffset": -1,
     },
     "fromCalendarId": "proper-of-time",
@@ -914,10 +885,9 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-      ],
-      "dateFn": "sundayOfAdvent",
+      "sundayOfAdvent": {
+        "weekOfSeason": 1,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -945,11 +915,10 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        1,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 1,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -978,11 +947,10 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        1,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 1,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -1011,11 +979,10 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        1,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 1,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -1044,11 +1011,10 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        1,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 1,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -1077,11 +1043,10 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        1,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 1,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -1110,11 +1075,10 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        1,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 1,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -1143,10 +1107,9 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-      ],
-      "dateFn": "sundayOfAdvent",
+      "sundayOfAdvent": {
+        "weekOfSeason": 2,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -1174,11 +1137,10 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        2,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -1207,11 +1169,10 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        2,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -1240,11 +1201,10 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        2,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -1273,11 +1233,10 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        2,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -1306,11 +1265,10 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        2,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -1339,11 +1297,10 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        6,
-        2,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 6,
+        "weekOfSeason": 2,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 6,
@@ -1373,10 +1330,9 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-      ],
-      "dateFn": "sundayOfAdvent",
+      "sundayOfAdvent": {
+        "weekOfSeason": 3,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -1404,11 +1360,10 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        1,
-        3,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 1,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 1,
@@ -1437,11 +1392,10 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        2,
-        3,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 2,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 2,
@@ -1470,11 +1424,10 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        3,
-        3,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 3,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 3,
@@ -1503,11 +1456,10 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-        3,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 4,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 4,
@@ -1536,11 +1488,10 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        5,
-        3,
-      ],
-      "dateFn": "unprivilegedWeekdayOfAdvent",
+      "unprivilegedWeekdayOfAdvent": {
+        "dayOfWeek": 5,
+        "weekOfSeason": 3,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 5,
@@ -1569,10 +1520,9 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        4,
-      ],
-      "dateFn": "sundayOfAdvent",
+      "sundayOfAdvent": {
+        "weekOfSeason": 4,
+      },
       "yearOffset": 0,
     },
     "dayOfWeek": 0,
@@ -1600,10 +1550,9 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        17,
-      ],
-      "dateFn": "privilegedWeekdayOfAdvent",
+      "privilegedWeekdayOfAdvent": {
+        "dayOfMonth": 17,
+      },
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -1627,10 +1576,9 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        18,
-      ],
-      "dateFn": "privilegedWeekdayOfAdvent",
+      "privilegedWeekdayOfAdvent": {
+        "dayOfMonth": 18,
+      },
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -1654,10 +1602,9 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        19,
-      ],
-      "dateFn": "privilegedWeekdayOfAdvent",
+      "privilegedWeekdayOfAdvent": {
+        "dayOfMonth": 19,
+      },
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -1681,10 +1628,9 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        20,
-      ],
-      "dateFn": "privilegedWeekdayOfAdvent",
+      "privilegedWeekdayOfAdvent": {
+        "dayOfMonth": 20,
+      },
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -1708,10 +1654,9 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        21,
-      ],
-      "dateFn": "privilegedWeekdayOfAdvent",
+      "privilegedWeekdayOfAdvent": {
+        "dayOfMonth": 21,
+      },
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -1735,10 +1680,9 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        22,
-      ],
-      "dateFn": "privilegedWeekdayOfAdvent",
+      "privilegedWeekdayOfAdvent": {
+        "dayOfMonth": 22,
+      },
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -1762,10 +1706,9 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        23,
-      ],
-      "dateFn": "privilegedWeekdayOfAdvent",
+      "privilegedWeekdayOfAdvent": {
+        "dayOfMonth": 23,
+      },
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",
@@ -1789,10 +1732,9 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
       "PURPLE",
     ],
     "dateDef": {
-      "dateArgs": [
-        24,
-      ],
-      "dateFn": "privilegedWeekdayOfAdvent",
+      "privilegedWeekdayOfAdvent": {
+        "dayOfMonth": 24,
+      },
       "yearOffset": 0,
     },
     "fromCalendarId": "proper-of-time",

@@ -1,28 +1,4 @@
 /**
- * List available date function names, that can be used in calendar definitions.
- */
-export const DATE_FN = [
-  'firstSundayOfAdvent',
-  'christmas',
-  'holyFamily',
-  'epiphany',
-  'baptismOfTheLord',
-  'ashWednesday',
-  'palmSunday',
-  'easterSunday',
-  'divineMercySunday',
-  'pentecostSunday',
-  'ascension',
-  'corpusChristi',
-  'christTheKingSunday',
-] as const;
-
-/**
- * A date function name, that can be used in calendar definitions.
- */
-export type DateFn = (typeof DATE_FN)[number] | string;
-
-/**
  * List all liturgical day IDs that can be used in the proper of time.
  */
 export const PROPER_OF_TIME_IDS = [
