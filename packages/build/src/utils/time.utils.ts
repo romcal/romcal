@@ -1,6 +1,6 @@
 import humanizeDuration, { Unit, UnitTranslationOptions } from 'humanize-duration';
 
-export const getDuration = (initialTime: Date): string => {
+export function getDuration(initialTime: Date): string {
   const units: Unit[] = ['h', 'm', 's'];
   const shortEnglishHumanizer = humanizeDuration.humanizer({
     language: 'shortEn',
@@ -15,4 +15,4 @@ export const getDuration = (initialTime: Date): string => {
   return shortEnglishHumanizer(new Date().getTime() - initialTime.getTime(), {
     units,
   }).replace(/(\d+)\s/g, '$1');
-};
+}

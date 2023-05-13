@@ -1,26 +1,19 @@
-import { buildJsonSchema, log, onWriteFile } from '@romcal/build';
+import { buildTypeScriptFiles, log, onWriteFile } from '@romcal/build';
 import rimraf from 'rimraf';
-
-import { buildLocales } from './locale.helpers';
 
 const distDir = 'dist';
 
 (async (): Promise<void> => {
-  log({ message: 'Cleaning output packages/locales/dist folder' });
+  log({ message: 'Cleaning output packages/proper-of-time/dist folder' });
   rimraf.nativeSync(distDir);
 
   await Promise.all([
-    buildJsonSchema({
-      entryPoint: '../../shared/src/{constants,types}/**/*.ts',
-      outDir: `${distDir}/schemas`,
-      outFileNameWithoutExt: 'Locale.schema',
-      schemaFor: 'Locale',
-      onWriteFile,
-    }),
-
-    buildLocales({
-      entryPoints: 'src/*.yaml',
+    buildTypeScriptFiles({
+      entryPoint: 'src/index.ts',
       outDir: distDir,
+      outFileNameWithoutExt: 'index',
+      outputDts: true,
+      outputSourcemap: true,
       onWriteFile,
     }),
   ]);

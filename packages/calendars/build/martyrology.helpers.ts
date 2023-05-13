@@ -13,7 +13,7 @@ import {
 
 // import { yamlImports } from './yaml.helpers';
 
-export const inputToTitles = ({
+export function inputToTitles({
   existingTitles,
   input,
   onEmptyTitleList,
@@ -21,7 +21,7 @@ export const inputToTitles = ({
   existingTitles: RomcalTitle[] | undefined;
   input: TitlesDef | undefined;
   onEmptyTitleList?: () => void;
-}): RomcalTitle[] | undefined => {
+}): RomcalTitle[] | undefined {
   if (!input) {
     return [...new Set(existingTitles)];
   }
@@ -38,9 +38,9 @@ export const inputToTitles = ({
   }
 
   return [...new Set([...prepend, ...(existingTitles ?? []), ...append])];
-};
+}
 
-export const inputToOneMartyrologyItem = ({
+export function inputToOneMartyrologyItem({
   catalog: catalog,
   itemsPointer,
   existingItems,
@@ -52,7 +52,7 @@ export const inputToOneMartyrologyItem = ({
   existingItems?: MartyrologyItem[];
   onMartyrologyItemNotFound?: (id: MartyrologyItemId) => void;
   onEmptyTitleList?: () => void;
-}): MartyrologyItem | undefined => {
+}): MartyrologyItem | undefined {
   if (itemsPointer === undefined) return undefined;
 
   if (typeof itemsPointer === 'string') {
@@ -95,9 +95,9 @@ export const inputToOneMartyrologyItem = ({
     }),
     ...(itemsPointer.count !== undefined && { count: itemsPointer.count }),
   };
-};
+}
 
-export const inputToManyMartyrologyItems = ({
+export function inputToManyMartyrologyItems({
   catalog,
   allItemsPointers,
   existingItems,
@@ -109,7 +109,7 @@ export const inputToManyMartyrologyItems = ({
   existingItems?: MartyrologyItem[];
   onMartyrologyItemNotFound?: (id: MartyrologyItemId) => void;
   onEmptyTitleList?: () => void;
-}): MartyrologyItem[] | undefined => {
+}): MartyrologyItem[] | undefined {
   if (allItemsPointers === undefined) return existingItems;
 
   return allItemsPointers.reduce<MartyrologyItem[]>((acc, itemPointer) => {
@@ -123,7 +123,7 @@ export const inputToManyMartyrologyItems = ({
     if (item) acc.push(item);
     return acc;
   }, []);
-};
+}
 
 type BuildMartyrologyOptions = {
   entryPoint: string;
@@ -131,11 +131,11 @@ type BuildMartyrologyOptions = {
   onWriteFile?: (opt: BuiltFile) => void;
 };
 
-export const buildMartyrology = async ({
+export async function buildMartyrology({
   entryPoint,
   outPath,
   onWriteFile,
-}: BuildMartyrologyOptions): Promise<MartyrologyMap> => {
+}: BuildMartyrologyOptions): Promise<MartyrologyMap> {
   let allMartyrologyMap: MartyrologyMap = {};
 
   try {
@@ -157,4 +157,4 @@ export const buildMartyrology = async ({
   }
 
   return allMartyrologyMap;
-};
+}

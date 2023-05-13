@@ -11,11 +11,11 @@ type YamlImportsOptions<T> = {
   onFindDuplicates?: (duplicatedIds: string[]) => void;
 };
 
-export const yamlImports = <T>({
+export function yamlImports<T>({
   entryPoints,
   getId,
   onFindDuplicates,
-}: YamlImportsOptions<T>): Record<string, T> => {
+}: YamlImportsOptions<T>): Record<string, T> {
   const entryPointsArray = glob.sync(entryPoints);
 
   const allItems = entryPointsArray.reduce<Record<string, T>>((acc, entryPoint) => {
@@ -37,4 +37,4 @@ export const yamlImports = <T>({
   }
 
   return allItems;
-};
+}

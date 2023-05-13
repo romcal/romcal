@@ -35,7 +35,7 @@ import { getDiff } from 'recursive-diff';
 
 import { inputToManyMartyrologyItems, inputToTitles } from './martyrology.helpers';
 
-export const inputToDateDef = (input: DateDefInput | undefined): DateDef | undefined => {
+export function inputToDateDef(input: DateDefInput | undefined): DateDef | undefined {
   if (typeof input === 'string') {
     const inputArray = input.split('-');
     const month = parseInt(inputArray[0], 10);
@@ -46,21 +46,21 @@ export const inputToDateDef = (input: DateDefInput | undefined): DateDef | undef
   }
 
   return input;
-};
+}
 
-const getLiturgicalDayDefDiff = (
+function getLiturgicalDayDefDiff(
   existingItem: LiturgicalDayDef,
   newItem: LiturgicalDayDef,
-): LiturgicalDayDiff => {
+): LiturgicalDayDiff {
   const { diff: prevDiff, fromCalendarId: prevCalId, ...existingItemToCompare } = existingItem;
   const { diff: newDiff, fromCalendarId: newCalId, ...newItemToCompare } = newItem;
   return {
     fromCalendarId: prevCalId,
     diff: getDiff(existingItemToCompare, newItemToCompare, true),
   };
-};
+}
 
-export const mergeLiturgicalDayDefsHelper = ({
+export function mergeLiturgicalDayDefsHelper({
   liturgicalDayId,
   calendarId,
   existingItem,
@@ -72,7 +72,7 @@ export const mergeLiturgicalDayDefsHelper = ({
   existingItem: LiturgicalDayDef | undefined;
   input: LiturgicalDayDefInput;
   martyrologyCatalog: MartyrologyMap;
-}): LiturgicalDayDef => {
+}): LiturgicalDayDef {
   const dateDef: DateDef | undefined = inputToDateDef(input.dateDef) ?? existingItem?.dateDef;
   if (!isProperOfTimeId(liturgicalDayId) && !dateDef) {
     throw new Error(`Missing dateDef property for ${liturgicalDayId} in ${calendarId}.`);
@@ -173,7 +173,7 @@ export const mergeLiturgicalDayDefsHelper = ({
     : undefined;
 
   return { ...newItem, diff };
-};
+}
 
 type BuildCalendarsOptions = {
   entryPoints: string;
@@ -182,12 +182,12 @@ type BuildCalendarsOptions = {
   onWriteFile?: (opt: BuiltFile) => void;
 };
 
-export const buildCalendars = async ({
+export async function buildCalendars({
   entryPoints,
   outDir,
   onWriteFile,
   martyrology,
-}: BuildCalendarsOptions): Promise<void> => {
+}: BuildCalendarsOptions): Promise<void> {
   try {
     log({ message: `Building calendars: ${entryPoints}`, namespace: 'json' });
 
@@ -273,4 +273,4 @@ export const buildCalendars = async ({
   } catch (error) {
     error instanceof Error ? logError(error.message) : logError(`${error}`);
   }
-};
+}

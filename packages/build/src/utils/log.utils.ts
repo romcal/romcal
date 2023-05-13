@@ -8,7 +8,7 @@ export type BuiltFile = {
   namespace?: string;
 };
 
-function getFilesizeInBytes(filename: string): string {
+function getFileSizeInBytes(filename: string): string {
   const stats = statSync(filename);
   const fileSizeInBytes = stats.size;
   return prettyBytes(fileSizeInBytes);
@@ -19,7 +19,7 @@ export type LogOptions = {
   namespace?: string;
   type?: 'info' | 'success' | 'warn' | 'error';
 };
-export const log = ({ message, namespace = 'CLI', type = 'info' }: LogOptions): void => {
+export function log({ message, namespace = 'CLI', type = 'info' }: LogOptions): void {
   const typeToColor = {
     info: chalk.blue,
     success: chalk.green,
@@ -29,18 +29,22 @@ export const log = ({ message, namespace = 'CLI', type = 'info' }: LogOptions): 
   const pad = chalk.dim(' '.repeat(Math.max(6 - namespace.length, 0)));
   const ns = typeToColor(namespace.toUpperCase()) + pad;
   return console.log(`${ns} ${message}`);
-};
+}
 
-export const onWriteFile = ({ outPath, namespace: format }: BuiltFile): void => {
+export function onWriteFile({ outPath, namespace: format }: BuiltFile): void {
   const pad = chalk.dim('.'.repeat(Math.max(45 - outPath.length, 0)));
-  const size = chalk.cyan(getFilesizeInBytes(outPath));
+  const size = chalk.cyan(getFileSizeInBytes(outPath));
   return log({
     message: `${chalk.bold(outPath)} ${pad} ${size}`,
     namespace: format,
     type: 'success',
   });
-};
+}
 
-export const logError = (message: string): void =>
-  log({ message, type: 'error', namespace: 'ERROR' });
-export const logWarn = (message: string): void => log({ message, type: 'warn', namespace: 'WARN' });
+export function logError(message: string): void {
+  return log({ message, type: 'error', namespace: 'ERROR' });
+}
+
+export function logWarn(message: string): void {
+  return log({ message, type: 'warn', namespace: 'WARN' });
+}

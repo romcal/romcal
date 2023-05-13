@@ -13,13 +13,13 @@ type BuildJsonSchemaOptions = {
   schemaFor?: string;
 };
 
-export const buildJsonSchema = async ({
+export async function buildJsonSchema({
   entryPoint,
   outDir,
   outFileNameWithoutExt,
   onWriteFile,
   schemaFor,
-}: BuildJsonSchemaOptions): Promise<void> => {
+}: BuildJsonSchemaOptions): Promise<void> {
   log({ message: `Building entries: ${entryPoint}`, namespace: 'schema' });
 
   const outPath = `${outDir}/${outFileNameWithoutExt}.json`;
@@ -33,4 +33,4 @@ export const buildJsonSchema = async ({
   writeFileSync(outPath, schemaString);
 
   if (onWriteFile) onWriteFile({ outPath, namespace: 'schema' });
-};
+}

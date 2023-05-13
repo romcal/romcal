@@ -17,7 +17,7 @@ type BuildJsOptions = {
   onWriteFile?: (opt: BuiltFile) => void;
 };
 
-export const buildTypeScriptFiles = async ({
+export async function buildTypeScriptFiles({
   entryPoint,
   outDir,
   outFileNameWithoutExt,
@@ -26,7 +26,7 @@ export const buildTypeScriptFiles = async ({
   outputDts,
   outputSourcemap,
   onWriteFile,
-}: BuildJsOptions): Promise<void> => {
+}: BuildJsOptions): Promise<void> {
   const esbuildOption: Required<Pick<esbuild.BuildOptions, 'format' | 'outfile'>>[] = [
     { format: 'cjs', outfile: `${outDir}/${outFileNameWithoutExt}.mjs` },
     { format: 'esm', outfile: `${outDir}/${outFileNameWithoutExt}.js` },
@@ -78,4 +78,4 @@ export const buildTypeScriptFiles = async ({
       if (onWriteFile) onWriteFile({ outPath, namespace });
     })(),
   ]);
-};
+}
