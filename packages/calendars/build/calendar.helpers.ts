@@ -60,7 +60,7 @@ function getLiturgicalDayDefDiff(
   };
 }
 
-export function mergeLiturgicalDayDefsHelper({
+export function combineLiturgicalDayDefs({
   liturgicalDayId,
   calendarId,
   existingItem,
@@ -182,6 +182,95 @@ type BuildCalendarsOptions = {
   onWriteFile?: (opt: BuiltFile) => void;
 };
 
+/**
+ * Imports the calendars from the specified entry points and returns them as a map of calendar file
+ * paths to calendar definitions.
+ */
+export function getCalendarDefInputs(
+  entryPoints: BuildCalendarsOptions['entryPoints'],
+): Record<string, CalendarDefInput> {
+  return yamlImports<CalendarDefInput>({
+    entryPoints,
+    getId: (calendarDef) => calendarDef.calendarId,
+    onFindDuplicates: (duplicatedIds) => {
+      throw new Error(`Duplicated calendar IDs: ${duplicatedIds.join(', ')}`);
+    },
+  });
+}
+
+/**
+ * Construct the calendar definition tree, that will be used to merge all configs and inputs.
+ */
+export function getCalendarDefTree(
+  calendar: CalendarDefInput,
+  allCalendars: Record<string, CalendarDefInput>,
+): CalendarDefInput[] {
+  return [
+    ...calendar.basedOn.map((cal) => {
+      const basedCal = Object.values(allCalendars).find((c) => c.calendarId === cal);
+      if (!basedCal)
+        throw new Error(`Based-on a missing calendar ${cal} in ${calendar.calendarId}.`);
+      return basedCal;
+    }),
+    calendar,
+  ];
+}
+
+/**
+ *  Combine all configs from the based-on calendars and this proper calendar.
+ */
+export function combineCalendarConfigs(calendarDefTree: CalendarDefInput[]): CalendarDefConfig {
+  return calendarDefTree.reduce<CalendarDefConfig>((acc, cal) => {
+    return { ...acc, ...cal.config };
+  }, DEFAULT_CALENDAR_CONFIG);
+}
+
+/**
+ * Combine all inputs from the based-on calendars to this proper calendar.
+ */
+export function combineCalendarDefinitions(
+  calendarDefTree: CalendarDefInput[],
+  martyrology: MartyrologyMap,
+): LiturgicalDayDef[] {
+  // Merge all inputs from the based-on calendars and this proper calendar.
+  return calendarDefTree.reduce<LiturgicalDayDef[]>((acc, cal) => {
+    Object.keys(cal.inputs).forEach((liturgicalDayId) => {
+      const existingItem: LiturgicalDayDef | undefined = acc.find(
+        (item) => item.liturgicalDayId === liturgicalDayId,
+      );
+
+      const newItem = combineLiturgicalDayDefs({
+        liturgicalDayId,
+        calendarId: cal.calendarId,
+        existingItem,
+        input: cal.inputs[liturgicalDayId],
+        martyrologyCatalog: martyrology,
+      });
+
+      // Update existing item or add a new one.
+      acc = existingItem
+        ? acc.map((item) => (item.liturgicalDayId === liturgicalDayId ? newItem : item))
+        : [...acc, newItem];
+    });
+
+    return acc;
+  }, []);
+}
+
+/**
+ * Write the calendar JSON file to the output directory.
+ */
+export function writeCalendarFile(
+  calendarDef: CalendarDef,
+  outDir: string,
+  onWriteFile?: BuildCalendarsOptions['onWriteFile'],
+): void {
+  const jsonFileName = `${calendarDef.calendarId.toLowerCase()}.json`;
+  const jsonOutPath = path.join(outDir, jsonFileName);
+  writeFileSync(jsonOutPath, JSON.stringify(calendarDef), { encoding: 'utf-8' });
+  if (onWriteFile) onWriteFile({ outPath: jsonOutPath, namespace: 'json' });
+}
+
 export async function buildCalendars({
   entryPoints,
   outDir,
@@ -191,67 +280,16 @@ export async function buildCalendars({
   try {
     log({ message: `Building calendars: ${entryPoints}`, namespace: 'json' });
 
-    const allCalendars = yamlImports<CalendarDefInput>({
-      entryPoints,
-      getId: (calendarDef) => calendarDef.calendarId,
-      onFindDuplicates: (duplicatedIds) => {
-        throw new Error(`Duplicated calendar IDs: ${duplicatedIds.join(', ')}`);
-      },
-    });
+    const allCalendars = getCalendarDefInputs(entryPoints);
 
     mkdirSync(outDir, { recursive: true });
 
     await Promise.all(
       Object.entries(allCalendars).map(async ([entryPoint, calendar]) => {
         try {
-          const fileName = `${calendar.calendarId.toLowerCase()}.json`;
-          const outPath = path.join(outDir, fileName);
-
-          // Construct the calendar definition tree, that will be used to merge all configs and inputs.
-          const calendarDefTree: CalendarDefInput[] = [
-            ...calendar.basedOn.map((cal) => {
-              const basedCal = Object.values(allCalendars).find((c) => c.calendarId === cal);
-              if (!basedCal)
-                throw new Error(`Based-on a missing calendar ${cal} in ${calendar.calendarId}.`);
-              return basedCal;
-            }),
-            calendar,
-          ];
-
-          // Merge all configs from the based-on calendars and this proper calendar.
-          const config: CalendarDefConfig = calendarDefTree.reduce<CalendarDefConfig>(
-            (acc, cal) => {
-              return { ...acc, ...cal.config };
-            },
-            DEFAULT_CALENDAR_CONFIG,
-          );
-
-          // Merge all inputs from the based-on calendars and this proper calendar.
-          const definitions: LiturgicalDayDef[] = calendarDefTree.reduce<LiturgicalDayDef[]>(
-            (acc, cal) => {
-              Object.keys(cal.inputs).forEach((liturgicalDayId) => {
-                const existingItem: LiturgicalDayDef | undefined = acc.find(
-                  (item) => item.liturgicalDayId === liturgicalDayId,
-                );
-
-                const newItem = mergeLiturgicalDayDefsHelper({
-                  liturgicalDayId,
-                  calendarId: cal.calendarId,
-                  existingItem,
-                  input: cal.inputs[liturgicalDayId],
-                  martyrologyCatalog: martyrology,
-                });
-
-                // Update existing item or add a new one.
-                acc = existingItem
-                  ? acc.map((item) => (item.liturgicalDayId === liturgicalDayId ? newItem : item))
-                  : [...acc, newItem];
-              });
-
-              return acc;
-            },
-            [],
-          );
+          const calendarDefTree = getCalendarDefTree(calendar, allCalendars);
+          const config = combineCalendarConfigs(calendarDefTree);
+          const definitions = combineCalendarDefinitions(calendarDefTree, martyrology);
 
           const calendarDef: CalendarDef = {
             calendarId: calendar.calendarId,
@@ -260,9 +298,7 @@ export async function buildCalendars({
             definitions,
           };
 
-          writeFileSync(outPath, JSON.stringify(calendarDef, null, 2));
-
-          if (onWriteFile) onWriteFile({ outPath, namespace: 'json' });
+          writeCalendarFile(calendarDef, outDir, onWriteFile);
         } catch (error) {
           error instanceof Error
             ? logError(`${chalk.bold(entryPoint)}: ${error.message}`)

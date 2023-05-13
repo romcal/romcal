@@ -12,8 +12,8 @@ type BuildLocalesOptions = {
 };
 
 /**
- * Imports the locales from the specified entry points and returns them as a map of locale codes
- * to locales.
+ * Imports the locales from the specified entry points and returns them as a map of locale file
+ * paths to locales.
  */
 export function getLocales(
   entryPoints: BuildLocalesOptions['entryPoints'],
@@ -45,7 +45,7 @@ export function mergeWithBasedLocale(locale: Locale, allLocales: Record<string, 
 /**
  * Write the locale JSON file to the output directory.
  */
-export function writeFile(
+export function writeLocaleFile(
   locale: Locale,
   outDir: string,
   onWriteFile?: BuildLocalesOptions['onWriteFile'],
@@ -75,7 +75,7 @@ export async function buildLocales({
     await Promise.all(
       Object.values(allLocales).map(async (locale) => {
         const mergedLocale = mergeWithBasedLocale(locale, allLocales);
-        writeFile(mergedLocale, outDir, onWriteFile);
+        writeLocaleFile(mergedLocale, outDir, onWriteFile);
       }),
     );
   } catch (error) {

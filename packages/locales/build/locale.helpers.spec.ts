@@ -5,7 +5,7 @@ import path from 'node:path';
 import { logError } from '@romcal/build';
 import rimraf from 'rimraf';
 
-import { buildLocales, getLocales, mergeWithBasedLocale, writeFile } from './locale.helpers';
+import { buildLocales, getLocales, mergeWithBasedLocale, writeLocaleFile } from './locale.helpers';
 
 jest.mock('@romcal/build', () => ({
   ...jest.requireActual('@romcal/build'),
@@ -66,7 +66,7 @@ describe('locale.helpers', () => {
     });
   });
 
-  describe('writeLocale', () => {
+  describe('writeLocaleFile', () => {
     beforeEach(() => {
       rimraf.nativeSync(outDir);
       mkdirSync(outDir, { recursive: true });
@@ -81,7 +81,7 @@ describe('locale.helpers', () => {
       };
 
       const onWriteFile = jest.fn();
-      writeFile(locale, outDir, onWriteFile);
+      writeLocaleFile(locale, outDir, onWriteFile);
       const writtenFileContent = JSON.parse(
         readFileSync(path.join(outDir, 'en-zz.json'), { encoding: 'utf-8' }),
       );
