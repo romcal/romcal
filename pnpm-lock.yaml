@@ -195,6 +195,9 @@ importers:
 
   packages/core:
     dependencies:
+      '@romcal/proper-of-time':
+        specifier: workspace:*
+        version: link:../proper-of-time
       '@romcal/shared':
         specifier: workspace:*
         version: link:../shared

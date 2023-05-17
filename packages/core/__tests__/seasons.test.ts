@@ -1,4 +1,4 @@
-import Romcal, { LiturgicalDay } from '../src';
+import Romcal, { LiturgicalDay } from '../src-old';
 
 const { Colors, Seasons, Ranks, addDays, isSameDate, subtractsDays } = Romcal;
 

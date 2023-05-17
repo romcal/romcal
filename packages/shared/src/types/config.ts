@@ -1,3 +1,5 @@
+import { ProperOfTimeDates } from '@romcal/proper-of-time';
+
 import { CalendarScope } from '../constants';
 import { CalendarDef, CalendarDefConfig } from './calendar-def';
 import { Locale } from './locale';
@@ -40,7 +42,10 @@ export type RomcalConfig = CalendarDefConfig & {
   readonly scope: CalendarScope;
 };
 
-export type RomcalConfigInput = Partial<RomcalConfig>;
+export type RomcalConfigInput = Partial<RomcalConfig> & {
+  properOfTimeCalendarDef: CalendarDef;
+  properOfTimeDates: ProperOfTimeDates;
+};
 
 // export interface IRomcalConfig extends BaseRomcalConfig {
 //   readonly i18next: i18n;

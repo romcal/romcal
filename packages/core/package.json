@@ -21,6 +21,7 @@
     "test:snapshot:update": "jest -u"
   },
   "dependencies": {
+    "@romcal/proper-of-time": "workspace:*",
     "@romcal/shared": "workspace:*"
   },
   "devDependencies": {

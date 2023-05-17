@@ -131,8 +131,20 @@ export type LiturgicalDayDef = {
   diff?: LiturgicalDayDiff[];
 };
 
+// export type LiturgicalDay = Pick<
+//   LiturgicalDayDef,
+//   | 'liturgicalDayId'
+//   | 'dateDef'
+//   | 'dateExceptions'
+//   | 'precedence'
+//   | 'rank'
+//   | 'allowSimilarRankItems'
+//   | 'isHolyDayOfObligation'
+// > & {};
+
 export type SeasonDef = {
-  season: Season;
+  key: Season;
+  name: string;
 
   /**
    * The week number of the liturgical season.
@@ -163,7 +175,7 @@ export type SeasonDef = {
 };
 
 export type PeriodDef = {
-  period: Period;
+  key: Period;
 };
 
 export type LiturgicalDayDiff = {

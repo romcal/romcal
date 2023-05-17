@@ -21,83 +21,73 @@ export type DateDefInput = MonthDateString | DateDef;
  */
 export type MonthDateString = string;
 
-export type DateDefMonthDate = {
-  /**
-   * The month of this liturgical day.
-   */
-  month: MonthIndex;
-
-  /**
-   * The date of this liturgical day.
-   */
-  date: number;
-
-  /**
-   * Offset the current year to compute dates in the scope of different years.
-   */
-  yearOffset?: number;
-};
-
-export type DateDefFn = OneOfDatesFn & {
-  /**
-   * Offset the current year to compute dates in the scope of different years.
-   */
-  yearOffset?: number;
-
+/*
+ * Partial types for DateDef types.
+ */
+export type DayOffsetForDateDef = {
   /**
    * Offset the computed date, to target the desired date.
    * @pattern ^[\-+][1-9]\d*$
    */
   dayOffset?: number;
 };
-
-export type DateDefMonthDowNthWeekInMonth = {
+export type YearOffsetForDateDef = {
+  /**
+   * Offset the current year to compute dates in the scope of different years.
+   * @pattern ^[\-+][1-9]\d*$
+   */
+  yearOffset?: number;
+};
+export type MonthIndexForDateDef = {
   /**
    * The month of this liturgical day.
+   * @pattern ^[1-9]|1[012]$
    */
   month: MonthIndex;
-
+};
+export type DayOfMonthForDateDef = {
+  /**
+   * The day of month of this liturgical day.
+   */
+  date: number;
+};
+export type DayOfWeekForDateDef = {
   /**
    * The day of week this liturgical year must occur.
    */
   dayOfWeek: DayOfWeek;
-
+};
+export type NthWeekInMonthForDateDef = {
   /**
    * The nth week in the month this liturgical year must occur.
    */
   nthWeekInMonth: number;
-
-  /**
-   * Offset the current year to compute dates in the scope of different years.
-   */
-  yearOffset?: number;
 };
 
-export type DateDefMonthLastDowInMonth = {
-  /**
-   * The month of this liturgical day.
-   */
-  month: MonthIndex;
-
+export type LastDayOfWeekInMonthForDateDef = {
   /**
    * The last day of week in the month this liturgical year must occur.
    */
   lastDayOfWeekInMonth: DayOfWeek;
-
-  /**
-   * Offset the current year to compute dates in the scope of different years.
-   */
-  yearOffset?: number;
 };
+
+/*
+ * DateDef types.
+ */
+export type DateDefMonthDate = MonthIndexForDateDef & DayOfMonthForDateDef & YearOffsetForDateDef;
+export type DateDefFn = OneOfDatesFn & DayOffsetForDateDef & YearOffsetForDateDef;
+export type DateDefMonthDowNthWeekInMonth = MonthIndexForDateDef &
+  DayOfWeekForDateDef &
+  NthWeekInMonthForDateDef &
+  YearOffsetForDateDef;
+export type DateDefMonthLastDowInMonth = MonthIndexForDateDef &
+  LastDayOfWeekInMonthForDateDef &
+  YearOffsetForDateDef;
 
 /**
  * The liturgical day date definition, can extend a previously defined date
  */
-export type DateDefExtended = DateDef | DateDefAddDay | DateDefSubtractDay;
-
-export type DateDefAddDay = { addDay: number };
-
-export type DateDefSubtractDay = { subtractDay: number };
+export type DateDefExtended = DateDef | DayOffsetForDateDef;
 
 /**
  * The liturgical day date exception

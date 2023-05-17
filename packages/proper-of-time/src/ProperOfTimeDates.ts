@@ -15,7 +15,7 @@ import {
 } from '@romcal/shared';
 import type { UnionToIntersection } from 'type-fest';
 
-type AllDatesFn = UnionToIntersection<OneOfDatesFn>;
+export type AllDatesFn = UnionToIntersection<OneOfDatesFn>;
 type IProperOfTimeDates = {
   [K in keyof AllDatesFn]: (arg: Parameters<(arg: AllDatesFn[K]) => void>[0]) => Date | null;
 };
@@ -645,5 +645,10 @@ class ProperOfTimeDates implements IProperOfTimeDates {
   };
   #__allDatesOfLateOrdinaryTimeCache: Record<string, Date[]> = {};
 }
+
+export const DATES_FN = Object.getOwnPropertyNames(new ProperOfTimeDates()) as (keyof AllDatesFn)[];
+
+export const isDateFn = (unknownName: unknown): unknownName is keyof AllDatesFn =>
+  typeof unknownName === 'string' && DATES_FN.includes(unknownName as keyof ProperOfTimeDates);
 
 export { ProperOfTimeDates };

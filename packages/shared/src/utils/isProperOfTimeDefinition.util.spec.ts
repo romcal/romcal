@@ -1,4 +1,7 @@
-import { isProperOfTimeDefinition } from './isProperOfTimeDefinition.util';
+import {
+  assertIsProperOfTimeDefinition,
+  isProperOfTimeDefinition,
+} from './isProperOfTimeDefinition.util';
 
 describe('isProperOfTimeDefinition', () => {
   it('should return true for a valid proper of time definition object', () => {
@@ -27,5 +30,17 @@ describe('isProperOfTimeDefinition', () => {
     expect(isProperOfTimeDefinition('string')).toBe(false);
     expect(isProperOfTimeDefinition(123)).toBe(false);
     expect(isProperOfTimeDefinition(true)).toBe(false);
+  });
+
+  it('should throw an error for an invalid proper of time definition object', () => {
+    const definition = {
+      calendarId: 'INVALID',
+      calendarTree: [],
+      config: {},
+      definitions: [],
+    };
+    expect(() => assertIsProperOfTimeDefinition(definition)).toThrow(
+      'The provided element is not a proper of time definition.',
+    );
   });
 });

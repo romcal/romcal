@@ -21,8 +21,11 @@
     "paths": {
       "@romcal/build": ["./packages/build/src"],
       "@romcal/build/*": ["./packages/build/src/*"],
+      "@romcal/proper-of-time": ["./packages/proper-of-time/src"],
+      "@romcal/proper-of-time/*": ["./packages/proper-of-time/src/*"],
       "@romcal/shared": ["./packages/shared/src"],
-      "@romcal/shared/*": ["./packages/shared/src/*"]
+      "@romcal/shared/*": ["./packages/shared/src/*"],
+      "@romcal/package.json": ["./package.json"]
     }
   },
   "exclude": ["node_modules", "**/*/dist"],

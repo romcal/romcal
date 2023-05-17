@@ -1,4 +1,4 @@
-import { ProperOfTimeDates } from './ProperOfTimeDates';
+import { DATES_FN, ProperOfTimeDates } from './ProperOfTimeDates';
 
 /**
  * Convert date string to Date object.
@@ -671,6 +671,41 @@ describe('ProperOfTimeDates', () => {
     it('should return the correct date for a valid year', () => {
       expect(dates.christTheKingSunday({ year: 2023 })).toEqual(date('2023-11-26'));
       expect(dates.christTheKingSunday({ year: 2024 })).toEqual(date('2024-11-24'));
+    });
+  });
+
+  describe('dates function list', () => {
+    it('should contain all the dates function names', () => {
+      expect(DATES_FN).toStrictEqual([
+        'firstSundayOfAdvent',
+        'unprivilegedWeekdayOfAdvent',
+        'privilegedWeekdayOfAdvent',
+        'sundayOfAdvent',
+        'nativityOfTheLord',
+        'holyFamily',
+        'weekdayWithinOctaveOfChristmas',
+        'maryMotherOfGod',
+        'secondSundayAfterChristmas',
+        'weekdayBeforeEpiphany',
+        'epiphany',
+        'weekdayAfterEpiphany',
+        'baptismOfTheLord',
+        'ashWednesday',
+        'palmSunday',
+        'holyThursday',
+        'goodFriday',
+        'holySaturday',
+        'easterSunday',
+        'weekdayOrSundayOfEasterTime',
+        'divineMercySunday',
+        'ascension',
+        'pentecostSunday',
+        'weekdayOrSundayOfOrdinaryTime',
+        'trinitySunday',
+        'corpusChristi',
+        'mostSacredHeartOfJesus',
+        'christTheKingSunday',
+      ]);
     });
   });
 });

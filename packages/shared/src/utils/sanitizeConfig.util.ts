@@ -1,10 +1,10 @@
 import { CalendarScope, DEFAULT_CALENDAR_CONFIG } from '../constants';
 import { RomcalConfig, RomcalConfigInput } from '../types';
-import { assertYearIsValid } from './isYearValid.util';
+import { assertIsValidYear } from './isYearValid.util';
 
 export const sanitizeConfig = (config?: RomcalConfigInput): RomcalConfig => {
   const year = config?.year ?? new Date().getFullYear();
-  assertYearIsValid(year);
+  assertIsValidYear(year);
 
   const epiphanyOnSunday =
     config?.epiphanyOnSunday ??
