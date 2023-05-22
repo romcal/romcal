@@ -8,19 +8,21 @@ import {
   LiturgicalDayDiff,
   LiturgicalDayId,
   MartyrologyItem,
-  PeriodDef,
+  PeriodMetadata,
   Precedence,
   ProperCycle,
   Rank,
   RomcalConfig,
   RomcalTitle,
-  SeasonDef,
+  SeasonMetadata,
   SundayCycle,
   utcDateToDateString,
   WeekdayCycle,
 } from '@romcal/shared';
 
 import { enrichColors, enrichPeriods, enrichPrecedence, enrichRank } from './helpers';
+import { enrichHolyDayOfObligation } from './helpers/enrichHolyDayOfObligation.helper';
+import { enrichSeasons } from './helpers/enrichSeasons.helper';
 
 export type LiturgicalDayParams = {
   dayDefinition: LiturgicalDayDef;
@@ -46,8 +48,8 @@ class LiturgicalDay implements LiturgicalDayDef {
   readonly allowSimilarRankItems: boolean;
   readonly isHolyDayOfObligation: boolean;
   isOptional?: boolean | undefined;
-  readonly seasons: SeasonDef[];
-  readonly periods: PeriodDef[];
+  readonly seasons: SeasonMetadata[];
+  readonly periods: PeriodMetadata[];
   readonly colors: Color[];
   readonly colorNames: string[];
   readonly martyrology: MartyrologyItem[];
@@ -62,6 +64,7 @@ class LiturgicalDay implements LiturgicalDayDef {
   readonly sundayCycleName: string;
   readonly weekdayCycle: WeekdayCycle;
   readonly weekdayCycleName: string;
+  readonly customLocaleKey?: string;
   readonly i18nDef: i18nDef;
   readonly fromCalendarId: string;
   readonly diff?: LiturgicalDayDiff[];
@@ -91,12 +94,13 @@ class LiturgicalDay implements LiturgicalDayDef {
     this.name = ''; // TODO: Add the name
 
     this.date = utcDateToDateString(computedDate);
-    if (!dayDefinition.dateDef || !baseData?.dateDef) {
+    const dateDef = dayDefinition.dateDef ?? baseData?.dateDef;
+    if (!dateDef) {
       throw new Error(
         `The DateDef of the liturgical day ${dayDefinition.liturgicalDayId} is missing.`,
       );
     }
-    this.dateDef = dayDefinition.dateDef ?? baseData?.dateDef;
+    this.dateDef = dateDef;
     this.dateExceptions = dayDefinition.dateExceptions ?? baseData?.dateExceptions;
 
     this.precedence = enrichPrecedence(params);
@@ -104,18 +108,15 @@ class LiturgicalDay implements LiturgicalDayDef {
     this.rankName = ''; // TODO: Add the rank name
 
     this.allowSimilarRankItems = !!dayDefinition.allowSimilarRankItems;
-    this.isHolyDayOfObligation =
-      (dayDefinition.dayOfWeek ?? computedDate.getUTCDay()) === 0
-        ? true
-        : !!(dayDefinition.isHolyDayOfObligation ?? baseData?.isHolyDayOfObligation);
+    this.isHolyDayOfObligation = enrichHolyDayOfObligation(params);
     this.isOptional = dayDefinition.isOptional ?? baseData?.isOptional;
 
-    this.seasons = dayDefinition.seasons ?? baseData?.seasons;
+    this.seasons = enrichSeasons(params);
     this.periods = enrichPeriods(params);
     this.colors = enrichColors(params);
     this.colorNames = []; // TODO: Add the color names
-    this.martyrology = dayDefinition.martyrology ?? baseData?.martyrology;
-    this.titles = dayDefinition.titles ?? baseData?.titles;
+    this.martyrology = dayDefinition.martyrology ?? baseData?.martyrology ?? [];
+    this.titles = dayDefinition.titles ?? baseData?.titles ?? [];
 
     this.dayOfWeek = dayDefinition.dayOfWeek ?? computedDate.getUTCDay();
     this.nthDayOfWeekInMonth = 0; // TODO: Add the nth day of week in month
@@ -130,7 +131,9 @@ class LiturgicalDay implements LiturgicalDayDef {
     this.weekdayCycle = WeekdayCycle.Year1; // TODO: Add the weekday cycle
     this.weekdayCycleName = ''; // TODO: Add the weekday cycle name
 
-    this.i18nDef = dayDefinition.i18nDef ?? baseData?.i18nDef;
+    this.customLocaleKey = dayDefinition.customLocaleKey ?? baseData?.customLocaleKey;
+    this.i18nDef = dayDefinition.i18nDef ??
+      baseData?.i18nDef ?? [`names:${this.customLocaleKey ?? this.liturgicalDayId}`];
 
     this.fromCalendarId = dayDefinition.fromCalendarId;
     this.diff = dayDefinition.diff;

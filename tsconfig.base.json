@@ -29,5 +29,8 @@
     }
   },
   "exclude": ["node_modules", "**/*/dist"],
-  "files": ["global.d.ts"]
+  "files": ["global.d.ts"],
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  }
 }

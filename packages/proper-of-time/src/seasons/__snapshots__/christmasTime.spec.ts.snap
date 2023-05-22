@@ -18,17 +18,17 @@ exports[`christmasTime should match snapshot 1`] = `
     "liturgicalDayId": "nativity_of_the_lord",
     "periods": [
       {
-        "period": "CHRISTMAS_OCTAVE",
+        "key": "CHRISTMAS_OCTAVE",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "02_PROPER_OF_TIME_SOLEMNITY",
     "seasons": [
       {
         "dayOfSeason": 1,
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
         "weekOfSeason": 1,
       },
     ],
@@ -53,17 +53,17 @@ exports[`christmasTime should match snapshot 1`] = `
     "liturgicalDayId": "christmas_octave_day_2",
     "periods": [
       {
-        "period": "CHRISTMAS_OCTAVE",
+        "key": "CHRISTMAS_OCTAVE",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 2,
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -87,17 +87,17 @@ exports[`christmasTime should match snapshot 1`] = `
     "liturgicalDayId": "christmas_octave_day_3",
     "periods": [
       {
-        "period": "CHRISTMAS_OCTAVE",
+        "key": "CHRISTMAS_OCTAVE",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 3,
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -121,17 +121,17 @@ exports[`christmasTime should match snapshot 1`] = `
     "liturgicalDayId": "christmas_octave_day_4",
     "periods": [
       {
-        "period": "CHRISTMAS_OCTAVE",
+        "key": "CHRISTMAS_OCTAVE",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 4,
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -155,17 +155,17 @@ exports[`christmasTime should match snapshot 1`] = `
     "liturgicalDayId": "christmas_octave_day_5",
     "periods": [
       {
-        "period": "CHRISTMAS_OCTAVE",
+        "key": "CHRISTMAS_OCTAVE",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 5,
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -189,17 +189,17 @@ exports[`christmasTime should match snapshot 1`] = `
     "liturgicalDayId": "christmas_octave_day_6",
     "periods": [
       {
-        "period": "CHRISTMAS_OCTAVE",
+        "key": "CHRISTMAS_OCTAVE",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 6,
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -223,17 +223,17 @@ exports[`christmasTime should match snapshot 1`] = `
     "liturgicalDayId": "christmas_octave_day_7",
     "periods": [
       {
-        "period": "CHRISTMAS_OCTAVE",
+        "key": "CHRISTMAS_OCTAVE",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 7,
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -252,16 +252,16 @@ exports[`christmasTime should match snapshot 1`] = `
     "liturgicalDayId": "holy_family_of_jesus_mary_and_joseph",
     "periods": [
       {
-        "period": "CHRISTMAS_OCTAVE",
+        "key": "CHRISTMAS_OCTAVE",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "05_GENERAL_LORD_FEAST",
     "seasons": [
       {
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -282,17 +282,17 @@ exports[`christmasTime should match snapshot 1`] = `
     "liturgicalDayId": "mary_mother_of_god",
     "periods": [
       {
-        "period": "CHRISTMAS_OCTAVE",
+        "key": "CHRISTMAS_OCTAVE",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "03_GENERAL_SOLEMNITY",
     "seasons": [
       {
         "dayOfSeason": 8,
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -312,13 +312,13 @@ exports[`christmasTime should match snapshot 1`] = `
     "liturgicalDayId": "second_sunday_after_christmas",
     "periods": [
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -342,17 +342,17 @@ exports[`christmasTime should match snapshot 1`] = `
     "liturgicalDayId": "christmas_time_january_2",
     "periods": [
       {
-        "period": "DAYS_BEFORE_EPIPHANY",
+        "key": "DAYS_BEFORE_EPIPHANY",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 9,
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -376,17 +376,17 @@ exports[`christmasTime should match snapshot 1`] = `
     "liturgicalDayId": "christmas_time_january_3",
     "periods": [
       {
-        "period": "DAYS_BEFORE_EPIPHANY",
+        "key": "DAYS_BEFORE_EPIPHANY",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 10,
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -410,17 +410,17 @@ exports[`christmasTime should match snapshot 1`] = `
     "liturgicalDayId": "christmas_time_january_4",
     "periods": [
       {
-        "period": "DAYS_BEFORE_EPIPHANY",
+        "key": "DAYS_BEFORE_EPIPHANY",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 11,
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -444,17 +444,17 @@ exports[`christmasTime should match snapshot 1`] = `
     "liturgicalDayId": "christmas_time_january_5",
     "periods": [
       {
-        "period": "DAYS_BEFORE_EPIPHANY",
+        "key": "DAYS_BEFORE_EPIPHANY",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 12,
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -478,17 +478,17 @@ exports[`christmasTime should match snapshot 1`] = `
     "liturgicalDayId": "christmas_time_january_6",
     "periods": [
       {
-        "period": "DAYS_BEFORE_EPIPHANY",
+        "key": "DAYS_BEFORE_EPIPHANY",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 13,
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -512,17 +512,17 @@ exports[`christmasTime should match snapshot 1`] = `
     "liturgicalDayId": "christmas_time_january_7",
     "periods": [
       {
-        "period": "DAYS_BEFORE_EPIPHANY",
+        "key": "DAYS_BEFORE_EPIPHANY",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 14,
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -546,17 +546,17 @@ exports[`christmasTime should match snapshot 1`] = `
     "liturgicalDayId": "christmas_time_january_8",
     "periods": [
       {
-        "period": "DAYS_BEFORE_EPIPHANY",
+        "key": "DAYS_BEFORE_EPIPHANY",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 15,
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -576,16 +576,16 @@ exports[`christmasTime should match snapshot 1`] = `
     "liturgicalDayId": "epiphany_of_the_lord",
     "periods": [
       {
-        "period": "DAYS_FROM_EPIPHANY",
+        "key": "DAYS_FROM_EPIPHANY",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "02_PROPER_OF_TIME_SOLEMNITY",
     "seasons": [
       {
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -609,16 +609,16 @@ exports[`christmasTime should match snapshot 1`] = `
     "liturgicalDayId": "monday_after_epiphany",
     "periods": [
       {
-        "period": "DAYS_FROM_EPIPHANY",
+        "key": "DAYS_FROM_EPIPHANY",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -642,16 +642,16 @@ exports[`christmasTime should match snapshot 1`] = `
     "liturgicalDayId": "tuesday_after_epiphany",
     "periods": [
       {
-        "period": "DAYS_FROM_EPIPHANY",
+        "key": "DAYS_FROM_EPIPHANY",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -675,16 +675,16 @@ exports[`christmasTime should match snapshot 1`] = `
     "liturgicalDayId": "wednesday_after_epiphany",
     "periods": [
       {
-        "period": "DAYS_FROM_EPIPHANY",
+        "key": "DAYS_FROM_EPIPHANY",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -708,16 +708,16 @@ exports[`christmasTime should match snapshot 1`] = `
     "liturgicalDayId": "thursday_after_epiphany",
     "periods": [
       {
-        "period": "DAYS_FROM_EPIPHANY",
+        "key": "DAYS_FROM_EPIPHANY",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -741,16 +741,16 @@ exports[`christmasTime should match snapshot 1`] = `
     "liturgicalDayId": "friday_after_epiphany",
     "periods": [
       {
-        "period": "DAYS_FROM_EPIPHANY",
+        "key": "DAYS_FROM_EPIPHANY",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -774,16 +774,16 @@ exports[`christmasTime should match snapshot 1`] = `
     "liturgicalDayId": "saturday_after_epiphany",
     "periods": [
       {
-        "period": "DAYS_FROM_EPIPHANY",
+        "key": "DAYS_FROM_EPIPHANY",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -802,16 +802,16 @@ exports[`christmasTime should match snapshot 1`] = `
     "liturgicalDayId": "baptism_of_the_lord",
     "periods": [
       {
-        "period": "DAYS_FROM_EPIPHANY",
+        "key": "DAYS_FROM_EPIPHANY",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "02_PROPER_OF_TIME_SOLEMNITY",
     "seasons": [
       {
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -836,17 +836,17 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "nativity_of_the_lord",
     "periods": [
       {
-        "period": "CHRISTMAS_OCTAVE",
+        "key": "CHRISTMAS_OCTAVE",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "02_PROPER_OF_TIME_SOLEMNITY",
     "seasons": [
       {
         "dayOfSeason": 1,
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
         "weekOfSeason": 1,
       },
     ],
@@ -871,17 +871,17 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "christmas_octave_day_2",
     "periods": [
       {
-        "period": "CHRISTMAS_OCTAVE",
+        "key": "CHRISTMAS_OCTAVE",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 2,
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -905,17 +905,17 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "christmas_octave_day_3",
     "periods": [
       {
-        "period": "CHRISTMAS_OCTAVE",
+        "key": "CHRISTMAS_OCTAVE",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 3,
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -939,17 +939,17 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "christmas_octave_day_4",
     "periods": [
       {
-        "period": "CHRISTMAS_OCTAVE",
+        "key": "CHRISTMAS_OCTAVE",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 4,
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -973,17 +973,17 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "christmas_octave_day_5",
     "periods": [
       {
-        "period": "CHRISTMAS_OCTAVE",
+        "key": "CHRISTMAS_OCTAVE",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 5,
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -1007,17 +1007,17 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "christmas_octave_day_6",
     "periods": [
       {
-        "period": "CHRISTMAS_OCTAVE",
+        "key": "CHRISTMAS_OCTAVE",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 6,
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -1041,17 +1041,17 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "christmas_octave_day_7",
     "periods": [
       {
-        "period": "CHRISTMAS_OCTAVE",
+        "key": "CHRISTMAS_OCTAVE",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 7,
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -1070,16 +1070,16 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "holy_family_of_jesus_mary_and_joseph",
     "periods": [
       {
-        "period": "CHRISTMAS_OCTAVE",
+        "key": "CHRISTMAS_OCTAVE",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "05_GENERAL_LORD_FEAST",
     "seasons": [
       {
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -1100,17 +1100,17 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "mary_mother_of_god",
     "periods": [
       {
-        "period": "CHRISTMAS_OCTAVE",
+        "key": "CHRISTMAS_OCTAVE",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "03_GENERAL_SOLEMNITY",
     "seasons": [
       {
         "dayOfSeason": 8,
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -1130,13 +1130,13 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "second_sunday_after_christmas",
     "periods": [
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -1160,17 +1160,17 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "christmas_time_january_2",
     "periods": [
       {
-        "period": "DAYS_BEFORE_EPIPHANY",
+        "key": "DAYS_BEFORE_EPIPHANY",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 9,
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -1194,17 +1194,17 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "christmas_time_january_3",
     "periods": [
       {
-        "period": "DAYS_BEFORE_EPIPHANY",
+        "key": "DAYS_BEFORE_EPIPHANY",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 10,
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -1228,17 +1228,17 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "christmas_time_january_4",
     "periods": [
       {
-        "period": "DAYS_BEFORE_EPIPHANY",
+        "key": "DAYS_BEFORE_EPIPHANY",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 11,
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -1262,17 +1262,17 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "christmas_time_january_5",
     "periods": [
       {
-        "period": "DAYS_BEFORE_EPIPHANY",
+        "key": "DAYS_BEFORE_EPIPHANY",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 12,
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -1296,17 +1296,17 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "christmas_time_january_6",
     "periods": [
       {
-        "period": "DAYS_BEFORE_EPIPHANY",
+        "key": "DAYS_BEFORE_EPIPHANY",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 13,
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -1330,17 +1330,17 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "christmas_time_january_7",
     "periods": [
       {
-        "period": "DAYS_BEFORE_EPIPHANY",
+        "key": "DAYS_BEFORE_EPIPHANY",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 14,
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -1364,17 +1364,17 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "christmas_time_january_8",
     "periods": [
       {
-        "period": "DAYS_BEFORE_EPIPHANY",
+        "key": "DAYS_BEFORE_EPIPHANY",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 15,
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -1394,16 +1394,16 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "epiphany_of_the_lord",
     "periods": [
       {
-        "period": "DAYS_FROM_EPIPHANY",
+        "key": "DAYS_FROM_EPIPHANY",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "02_PROPER_OF_TIME_SOLEMNITY",
     "seasons": [
       {
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -1427,16 +1427,16 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "monday_after_epiphany",
     "periods": [
       {
-        "period": "DAYS_FROM_EPIPHANY",
+        "key": "DAYS_FROM_EPIPHANY",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -1460,16 +1460,16 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "tuesday_after_epiphany",
     "periods": [
       {
-        "period": "DAYS_FROM_EPIPHANY",
+        "key": "DAYS_FROM_EPIPHANY",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -1493,16 +1493,16 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "wednesday_after_epiphany",
     "periods": [
       {
-        "period": "DAYS_FROM_EPIPHANY",
+        "key": "DAYS_FROM_EPIPHANY",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -1526,16 +1526,16 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "thursday_after_epiphany",
     "periods": [
       {
-        "period": "DAYS_FROM_EPIPHANY",
+        "key": "DAYS_FROM_EPIPHANY",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -1559,16 +1559,16 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "friday_after_epiphany",
     "periods": [
       {
-        "period": "DAYS_FROM_EPIPHANY",
+        "key": "DAYS_FROM_EPIPHANY",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -1592,16 +1592,16 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "saturday_after_epiphany",
     "periods": [
       {
-        "period": "DAYS_FROM_EPIPHANY",
+        "key": "DAYS_FROM_EPIPHANY",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },
@@ -1620,16 +1620,16 @@ exports[`christmasTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "baptism_of_the_lord",
     "periods": [
       {
-        "period": "DAYS_FROM_EPIPHANY",
+        "key": "DAYS_FROM_EPIPHANY",
       },
       {
-        "period": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
+        "key": "CHRISTMAS_TO_PRESENTATION_OF_THE_LORD",
       },
     ],
     "precedence": "02_PROPER_OF_TIME_SOLEMNITY",
     "seasons": [
       {
-        "season": "CHRISTMAS_TIME",
+        "key": "CHRISTMAS_TIME",
       },
     ],
   },

@@ -22,14 +22,14 @@ exports[`easterTime should match snapshot 1`] = `
     "liturgicalDayId": "easter_monday",
     "periods": [
       {
-        "period": "EASTER_OCTAVE",
+        "key": "EASTER_OCTAVE",
       },
     ],
     "precedence": "02_WEEKDAY_OF_EASTER_OCTAVE",
     "seasons": [
       {
         "dayOfSeason": 2,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 1,
       },
     ],
@@ -54,14 +54,14 @@ exports[`easterTime should match snapshot 1`] = `
     "liturgicalDayId": "easter_tuesday",
     "periods": [
       {
-        "period": "EASTER_OCTAVE",
+        "key": "EASTER_OCTAVE",
       },
     ],
     "precedence": "02_WEEKDAY_OF_EASTER_OCTAVE",
     "seasons": [
       {
         "dayOfSeason": 3,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 1,
       },
     ],
@@ -86,14 +86,14 @@ exports[`easterTime should match snapshot 1`] = `
     "liturgicalDayId": "easter_wednesday",
     "periods": [
       {
-        "period": "EASTER_OCTAVE",
+        "key": "EASTER_OCTAVE",
       },
     ],
     "precedence": "02_WEEKDAY_OF_EASTER_OCTAVE",
     "seasons": [
       {
         "dayOfSeason": 4,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 1,
       },
     ],
@@ -118,14 +118,14 @@ exports[`easterTime should match snapshot 1`] = `
     "liturgicalDayId": "easter_thursday",
     "periods": [
       {
-        "period": "EASTER_OCTAVE",
+        "key": "EASTER_OCTAVE",
       },
     ],
     "precedence": "02_WEEKDAY_OF_EASTER_OCTAVE",
     "seasons": [
       {
         "dayOfSeason": 5,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 1,
       },
     ],
@@ -150,14 +150,14 @@ exports[`easterTime should match snapshot 1`] = `
     "liturgicalDayId": "easter_friday",
     "periods": [
       {
-        "period": "EASTER_OCTAVE",
+        "key": "EASTER_OCTAVE",
       },
     ],
     "precedence": "02_WEEKDAY_OF_EASTER_OCTAVE",
     "seasons": [
       {
         "dayOfSeason": 6,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 1,
       },
     ],
@@ -182,14 +182,14 @@ exports[`easterTime should match snapshot 1`] = `
     "liturgicalDayId": "easter_saturday",
     "periods": [
       {
-        "period": "EASTER_OCTAVE",
+        "key": "EASTER_OCTAVE",
       },
     ],
     "precedence": "02_WEEKDAY_OF_EASTER_OCTAVE",
     "seasons": [
       {
         "dayOfSeason": 7,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 1,
       },
     ],
@@ -211,14 +211,14 @@ exports[`easterTime should match snapshot 1`] = `
     "liturgicalDayId": "divine_mercy_sunday",
     "periods": [
       {
-        "period": "EASTER_OCTAVE",
+        "key": "EASTER_OCTAVE",
       },
     ],
     "precedence": "02_PRIVILEGED_SUNDAY",
     "seasons": [
       {
         "dayOfSeason": 8,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 2,
       },
     ],
@@ -250,7 +250,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 9,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 2,
       },
     ],
@@ -282,7 +282,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 10,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 2,
       },
     ],
@@ -314,7 +314,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 11,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 2,
       },
     ],
@@ -346,7 +346,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 12,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 2,
       },
     ],
@@ -378,7 +378,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 13,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 2,
       },
     ],
@@ -410,7 +410,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 14,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 2,
       },
     ],
@@ -441,7 +441,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 15,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 3,
       },
     ],
@@ -473,7 +473,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 16,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 3,
       },
     ],
@@ -505,7 +505,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 17,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 3,
       },
     ],
@@ -537,7 +537,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 18,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 3,
       },
     ],
@@ -569,7 +569,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 19,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 3,
       },
     ],
@@ -601,7 +601,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 20,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 3,
       },
     ],
@@ -633,7 +633,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 21,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 3,
       },
     ],
@@ -664,7 +664,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 22,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 4,
       },
     ],
@@ -696,7 +696,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 23,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 4,
       },
     ],
@@ -728,7 +728,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 24,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 4,
       },
     ],
@@ -760,7 +760,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 25,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 4,
       },
     ],
@@ -792,7 +792,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 26,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 4,
       },
     ],
@@ -824,7 +824,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 27,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 4,
       },
     ],
@@ -856,7 +856,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 28,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 4,
       },
     ],
@@ -887,7 +887,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 29,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 5,
       },
     ],
@@ -919,7 +919,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 30,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 5,
       },
     ],
@@ -951,7 +951,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 31,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 5,
       },
     ],
@@ -983,7 +983,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 32,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 5,
       },
     ],
@@ -1015,7 +1015,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 33,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 5,
       },
     ],
@@ -1047,7 +1047,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 34,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 5,
       },
     ],
@@ -1079,7 +1079,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 35,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 5,
       },
     ],
@@ -1110,7 +1110,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 36,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 6,
       },
     ],
@@ -1142,7 +1142,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 37,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 6,
       },
     ],
@@ -1174,7 +1174,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 38,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 6,
       },
     ],
@@ -1206,7 +1206,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 39,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 6,
       },
     ],
@@ -1231,7 +1231,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 40,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 6,
       },
     ],
@@ -1263,7 +1263,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 40,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 6,
       },
     ],
@@ -1295,7 +1295,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 41,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 6,
       },
     ],
@@ -1327,7 +1327,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 42,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 6,
       },
     ],
@@ -1358,7 +1358,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 43,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 7,
       },
     ],
@@ -1390,7 +1390,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 44,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 7,
       },
     ],
@@ -1422,7 +1422,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 45,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 7,
       },
     ],
@@ -1454,7 +1454,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 46,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 7,
       },
     ],
@@ -1486,7 +1486,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 47,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 7,
       },
     ],
@@ -1518,7 +1518,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 48,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 7,
       },
     ],
@@ -1550,7 +1550,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 49,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 7,
       },
     ],
@@ -1575,7 +1575,7 @@ exports[`easterTime should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 50,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 8,
       },
     ],
@@ -1605,14 +1605,14 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "easter_monday",
     "periods": [
       {
-        "period": "EASTER_OCTAVE",
+        "key": "EASTER_OCTAVE",
       },
     ],
     "precedence": "02_WEEKDAY_OF_EASTER_OCTAVE",
     "seasons": [
       {
         "dayOfSeason": 2,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 1,
       },
     ],
@@ -1637,14 +1637,14 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "easter_tuesday",
     "periods": [
       {
-        "period": "EASTER_OCTAVE",
+        "key": "EASTER_OCTAVE",
       },
     ],
     "precedence": "02_WEEKDAY_OF_EASTER_OCTAVE",
     "seasons": [
       {
         "dayOfSeason": 3,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 1,
       },
     ],
@@ -1669,14 +1669,14 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "easter_wednesday",
     "periods": [
       {
-        "period": "EASTER_OCTAVE",
+        "key": "EASTER_OCTAVE",
       },
     ],
     "precedence": "02_WEEKDAY_OF_EASTER_OCTAVE",
     "seasons": [
       {
         "dayOfSeason": 4,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 1,
       },
     ],
@@ -1701,14 +1701,14 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "easter_thursday",
     "periods": [
       {
-        "period": "EASTER_OCTAVE",
+        "key": "EASTER_OCTAVE",
       },
     ],
     "precedence": "02_WEEKDAY_OF_EASTER_OCTAVE",
     "seasons": [
       {
         "dayOfSeason": 5,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 1,
       },
     ],
@@ -1733,14 +1733,14 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "easter_friday",
     "periods": [
       {
-        "period": "EASTER_OCTAVE",
+        "key": "EASTER_OCTAVE",
       },
     ],
     "precedence": "02_WEEKDAY_OF_EASTER_OCTAVE",
     "seasons": [
       {
         "dayOfSeason": 6,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 1,
       },
     ],
@@ -1765,14 +1765,14 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "easter_saturday",
     "periods": [
       {
-        "period": "EASTER_OCTAVE",
+        "key": "EASTER_OCTAVE",
       },
     ],
     "precedence": "02_WEEKDAY_OF_EASTER_OCTAVE",
     "seasons": [
       {
         "dayOfSeason": 7,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 1,
       },
     ],
@@ -1794,14 +1794,14 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "divine_mercy_sunday",
     "periods": [
       {
-        "period": "EASTER_OCTAVE",
+        "key": "EASTER_OCTAVE",
       },
     ],
     "precedence": "02_PRIVILEGED_SUNDAY",
     "seasons": [
       {
         "dayOfSeason": 8,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 2,
       },
     ],
@@ -1833,7 +1833,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 9,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 2,
       },
     ],
@@ -1865,7 +1865,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 10,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 2,
       },
     ],
@@ -1897,7 +1897,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 11,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 2,
       },
     ],
@@ -1929,7 +1929,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 12,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 2,
       },
     ],
@@ -1961,7 +1961,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 13,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 2,
       },
     ],
@@ -1993,7 +1993,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 14,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 2,
       },
     ],
@@ -2024,7 +2024,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 15,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 3,
       },
     ],
@@ -2056,7 +2056,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 16,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 3,
       },
     ],
@@ -2088,7 +2088,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 17,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 3,
       },
     ],
@@ -2120,7 +2120,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 18,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 3,
       },
     ],
@@ -2152,7 +2152,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 19,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 3,
       },
     ],
@@ -2184,7 +2184,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 20,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 3,
       },
     ],
@@ -2216,7 +2216,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 21,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 3,
       },
     ],
@@ -2247,7 +2247,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 22,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 4,
       },
     ],
@@ -2279,7 +2279,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 23,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 4,
       },
     ],
@@ -2311,7 +2311,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 24,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 4,
       },
     ],
@@ -2343,7 +2343,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 25,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 4,
       },
     ],
@@ -2375,7 +2375,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 26,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 4,
       },
     ],
@@ -2407,7 +2407,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 27,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 4,
       },
     ],
@@ -2439,7 +2439,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 28,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 4,
       },
     ],
@@ -2470,7 +2470,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 29,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 5,
       },
     ],
@@ -2502,7 +2502,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 30,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 5,
       },
     ],
@@ -2534,7 +2534,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 31,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 5,
       },
     ],
@@ -2566,7 +2566,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 32,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 5,
       },
     ],
@@ -2598,7 +2598,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 33,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 5,
       },
     ],
@@ -2630,7 +2630,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 34,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 5,
       },
     ],
@@ -2662,7 +2662,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 35,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 5,
       },
     ],
@@ -2693,7 +2693,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 36,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 6,
       },
     ],
@@ -2725,7 +2725,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 37,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 6,
       },
     ],
@@ -2757,7 +2757,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 38,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 6,
       },
     ],
@@ -2789,7 +2789,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 39,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 6,
       },
     ],
@@ -2814,7 +2814,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 40,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 6,
       },
     ],
@@ -2846,7 +2846,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 40,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 6,
       },
     ],
@@ -2878,7 +2878,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 41,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 6,
       },
     ],
@@ -2910,7 +2910,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 42,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 6,
       },
     ],
@@ -2941,7 +2941,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 43,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 7,
       },
     ],
@@ -2973,7 +2973,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 44,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 7,
       },
     ],
@@ -3005,7 +3005,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 45,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 7,
       },
     ],
@@ -3037,7 +3037,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 46,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 7,
       },
     ],
@@ -3069,7 +3069,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 47,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 7,
       },
     ],
@@ -3101,7 +3101,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 48,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 7,
       },
     ],
@@ -3133,7 +3133,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 49,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 7,
       },
     ],
@@ -3158,7 +3158,7 @@ exports[`easterTime should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 50,
-        "season": "EASTER_TIME",
+        "key": "EASTER_TIME",
         "weekOfSeason": 8,
       },
     ],

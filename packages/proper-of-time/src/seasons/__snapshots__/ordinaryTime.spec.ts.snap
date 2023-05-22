@@ -21,7 +21,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "03_GENERAL_SOLEMNITY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
       },
     ],
   },
@@ -43,7 +43,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "03_GENERAL_SOLEMNITY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
       },
     ],
   },
@@ -66,7 +66,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "03_GENERAL_SOLEMNITY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
       },
     ],
   },
@@ -96,7 +96,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 1,
       },
     ],
@@ -127,7 +127,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 1,
       },
     ],
@@ -158,7 +158,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 1,
       },
     ],
@@ -189,7 +189,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 1,
       },
     ],
@@ -220,7 +220,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 1,
       },
     ],
@@ -251,7 +251,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 1,
       },
     ],
@@ -281,7 +281,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 2,
       },
     ],
@@ -312,7 +312,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 2,
       },
     ],
@@ -343,7 +343,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 2,
       },
     ],
@@ -374,7 +374,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 2,
       },
     ],
@@ -405,7 +405,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 2,
       },
     ],
@@ -436,7 +436,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 2,
       },
     ],
@@ -467,7 +467,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 2,
       },
     ],
@@ -494,7 +494,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 3,
       },
     ],
@@ -525,7 +525,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 3,
       },
     ],
@@ -556,7 +556,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 3,
       },
     ],
@@ -587,7 +587,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 3,
       },
     ],
@@ -618,7 +618,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 3,
       },
     ],
@@ -649,7 +649,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 3,
       },
     ],
@@ -680,7 +680,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 3,
       },
     ],
@@ -710,7 +710,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 4,
       },
     ],
@@ -741,7 +741,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 4,
       },
     ],
@@ -772,7 +772,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 4,
       },
     ],
@@ -803,7 +803,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 4,
       },
     ],
@@ -834,7 +834,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 4,
       },
     ],
@@ -865,7 +865,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 4,
       },
     ],
@@ -896,7 +896,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 4,
       },
     ],
@@ -926,7 +926,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 5,
       },
     ],
@@ -957,7 +957,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 5,
       },
     ],
@@ -988,7 +988,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 5,
       },
     ],
@@ -1019,7 +1019,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 5,
       },
     ],
@@ -1050,7 +1050,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 5,
       },
     ],
@@ -1081,7 +1081,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 5,
       },
     ],
@@ -1112,7 +1112,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 5,
       },
     ],
@@ -1142,7 +1142,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 6,
       },
     ],
@@ -1173,7 +1173,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 6,
       },
     ],
@@ -1204,7 +1204,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 6,
       },
     ],
@@ -1235,7 +1235,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 6,
       },
     ],
@@ -1266,7 +1266,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 6,
       },
     ],
@@ -1297,7 +1297,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 6,
       },
     ],
@@ -1328,7 +1328,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 6,
       },
     ],
@@ -1358,7 +1358,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 7,
       },
     ],
@@ -1389,7 +1389,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 7,
       },
     ],
@@ -1420,7 +1420,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 7,
       },
     ],
@@ -1451,7 +1451,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 7,
       },
     ],
@@ -1482,7 +1482,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 7,
       },
     ],
@@ -1513,7 +1513,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 7,
       },
     ],
@@ -1544,7 +1544,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 7,
       },
     ],
@@ -1574,7 +1574,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 8,
       },
     ],
@@ -1605,7 +1605,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 8,
       },
     ],
@@ -1636,7 +1636,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 8,
       },
     ],
@@ -1667,7 +1667,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 8,
       },
     ],
@@ -1698,7 +1698,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 8,
       },
     ],
@@ -1729,7 +1729,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 8,
       },
     ],
@@ -1760,7 +1760,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 8,
       },
     ],
@@ -1790,7 +1790,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 9,
       },
     ],
@@ -1821,7 +1821,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 9,
       },
     ],
@@ -1852,7 +1852,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 9,
       },
     ],
@@ -1883,7 +1883,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 9,
       },
     ],
@@ -1914,7 +1914,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 9,
       },
     ],
@@ -1945,7 +1945,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 9,
       },
     ],
@@ -1976,7 +1976,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 9,
       },
     ],
@@ -2006,7 +2006,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 10,
       },
     ],
@@ -2037,7 +2037,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 10,
       },
     ],
@@ -2068,7 +2068,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 10,
       },
     ],
@@ -2099,7 +2099,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 10,
       },
     ],
@@ -2130,7 +2130,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 10,
       },
     ],
@@ -2161,7 +2161,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 10,
       },
     ],
@@ -2192,7 +2192,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 10,
       },
     ],
@@ -2222,7 +2222,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 11,
       },
     ],
@@ -2253,7 +2253,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 11,
       },
     ],
@@ -2284,7 +2284,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 11,
       },
     ],
@@ -2315,7 +2315,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 11,
       },
     ],
@@ -2346,7 +2346,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 11,
       },
     ],
@@ -2377,7 +2377,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 11,
       },
     ],
@@ -2408,7 +2408,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 11,
       },
     ],
@@ -2438,7 +2438,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 12,
       },
     ],
@@ -2469,7 +2469,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 12,
       },
     ],
@@ -2500,7 +2500,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 12,
       },
     ],
@@ -2531,7 +2531,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 12,
       },
     ],
@@ -2562,7 +2562,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 12,
       },
     ],
@@ -2593,7 +2593,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 12,
       },
     ],
@@ -2624,7 +2624,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 12,
       },
     ],
@@ -2654,7 +2654,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 13,
       },
     ],
@@ -2685,7 +2685,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 13,
       },
     ],
@@ -2716,7 +2716,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 13,
       },
     ],
@@ -2747,7 +2747,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 13,
       },
     ],
@@ -2778,7 +2778,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 13,
       },
     ],
@@ -2809,7 +2809,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 13,
       },
     ],
@@ -2840,7 +2840,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 13,
       },
     ],
@@ -2870,7 +2870,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 14,
       },
     ],
@@ -2901,7 +2901,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 14,
       },
     ],
@@ -2932,7 +2932,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 14,
       },
     ],
@@ -2963,7 +2963,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 14,
       },
     ],
@@ -2994,7 +2994,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 14,
       },
     ],
@@ -3025,7 +3025,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 14,
       },
     ],
@@ -3056,7 +3056,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 14,
       },
     ],
@@ -3086,7 +3086,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 15,
       },
     ],
@@ -3117,7 +3117,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 15,
       },
     ],
@@ -3148,7 +3148,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 15,
       },
     ],
@@ -3179,7 +3179,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 15,
       },
     ],
@@ -3210,7 +3210,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 15,
       },
     ],
@@ -3241,7 +3241,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 15,
       },
     ],
@@ -3272,7 +3272,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 15,
       },
     ],
@@ -3302,7 +3302,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 16,
       },
     ],
@@ -3333,7 +3333,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 16,
       },
     ],
@@ -3364,7 +3364,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 16,
       },
     ],
@@ -3395,7 +3395,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 16,
       },
     ],
@@ -3426,7 +3426,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 16,
       },
     ],
@@ -3457,7 +3457,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 16,
       },
     ],
@@ -3488,7 +3488,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 16,
       },
     ],
@@ -3518,7 +3518,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 17,
       },
     ],
@@ -3549,7 +3549,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 17,
       },
     ],
@@ -3580,7 +3580,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 17,
       },
     ],
@@ -3611,7 +3611,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 17,
       },
     ],
@@ -3642,7 +3642,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 17,
       },
     ],
@@ -3673,7 +3673,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 17,
       },
     ],
@@ -3704,7 +3704,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 17,
       },
     ],
@@ -3734,7 +3734,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 18,
       },
     ],
@@ -3765,7 +3765,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 18,
       },
     ],
@@ -3796,7 +3796,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 18,
       },
     ],
@@ -3827,7 +3827,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 18,
       },
     ],
@@ -3858,7 +3858,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 18,
       },
     ],
@@ -3889,7 +3889,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 18,
       },
     ],
@@ -3920,7 +3920,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 18,
       },
     ],
@@ -3950,7 +3950,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 19,
       },
     ],
@@ -3981,7 +3981,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 19,
       },
     ],
@@ -4012,7 +4012,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 19,
       },
     ],
@@ -4043,7 +4043,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 19,
       },
     ],
@@ -4074,7 +4074,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 19,
       },
     ],
@@ -4105,7 +4105,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 19,
       },
     ],
@@ -4136,7 +4136,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 19,
       },
     ],
@@ -4166,7 +4166,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 20,
       },
     ],
@@ -4197,7 +4197,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 20,
       },
     ],
@@ -4228,7 +4228,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 20,
       },
     ],
@@ -4259,7 +4259,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 20,
       },
     ],
@@ -4290,7 +4290,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 20,
       },
     ],
@@ -4321,7 +4321,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 20,
       },
     ],
@@ -4352,7 +4352,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 20,
       },
     ],
@@ -4382,7 +4382,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 21,
       },
     ],
@@ -4413,7 +4413,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 21,
       },
     ],
@@ -4444,7 +4444,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 21,
       },
     ],
@@ -4475,7 +4475,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 21,
       },
     ],
@@ -4506,7 +4506,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 21,
       },
     ],
@@ -4537,7 +4537,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 21,
       },
     ],
@@ -4568,7 +4568,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 21,
       },
     ],
@@ -4598,7 +4598,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 22,
       },
     ],
@@ -4629,7 +4629,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 22,
       },
     ],
@@ -4660,7 +4660,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 22,
       },
     ],
@@ -4691,7 +4691,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 22,
       },
     ],
@@ -4722,7 +4722,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 22,
       },
     ],
@@ -4753,7 +4753,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 22,
       },
     ],
@@ -4784,7 +4784,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 22,
       },
     ],
@@ -4814,7 +4814,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 23,
       },
     ],
@@ -4845,7 +4845,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 23,
       },
     ],
@@ -4876,7 +4876,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 23,
       },
     ],
@@ -4907,7 +4907,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 23,
       },
     ],
@@ -4938,7 +4938,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 23,
       },
     ],
@@ -4969,7 +4969,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 23,
       },
     ],
@@ -5000,7 +5000,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 23,
       },
     ],
@@ -5030,7 +5030,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 24,
       },
     ],
@@ -5061,7 +5061,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 24,
       },
     ],
@@ -5092,7 +5092,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 24,
       },
     ],
@@ -5123,7 +5123,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 24,
       },
     ],
@@ -5154,7 +5154,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 24,
       },
     ],
@@ -5185,7 +5185,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 24,
       },
     ],
@@ -5216,7 +5216,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 24,
       },
     ],
@@ -5246,7 +5246,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 25,
       },
     ],
@@ -5277,7 +5277,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 25,
       },
     ],
@@ -5308,7 +5308,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 25,
       },
     ],
@@ -5339,7 +5339,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 25,
       },
     ],
@@ -5370,7 +5370,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 25,
       },
     ],
@@ -5401,7 +5401,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 25,
       },
     ],
@@ -5432,7 +5432,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 25,
       },
     ],
@@ -5462,7 +5462,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 26,
       },
     ],
@@ -5493,7 +5493,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 26,
       },
     ],
@@ -5524,7 +5524,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 26,
       },
     ],
@@ -5555,7 +5555,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 26,
       },
     ],
@@ -5586,7 +5586,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 26,
       },
     ],
@@ -5617,7 +5617,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 26,
       },
     ],
@@ -5648,7 +5648,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 26,
       },
     ],
@@ -5678,7 +5678,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 27,
       },
     ],
@@ -5709,7 +5709,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 27,
       },
     ],
@@ -5740,7 +5740,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 27,
       },
     ],
@@ -5771,7 +5771,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 27,
       },
     ],
@@ -5802,7 +5802,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 27,
       },
     ],
@@ -5833,7 +5833,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 27,
       },
     ],
@@ -5864,7 +5864,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 27,
       },
     ],
@@ -5894,7 +5894,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 28,
       },
     ],
@@ -5925,7 +5925,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 28,
       },
     ],
@@ -5956,7 +5956,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 28,
       },
     ],
@@ -5987,7 +5987,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 28,
       },
     ],
@@ -6018,7 +6018,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 28,
       },
     ],
@@ -6049,7 +6049,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 28,
       },
     ],
@@ -6080,7 +6080,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 28,
       },
     ],
@@ -6110,7 +6110,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 29,
       },
     ],
@@ -6141,7 +6141,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 29,
       },
     ],
@@ -6172,7 +6172,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 29,
       },
     ],
@@ -6203,7 +6203,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 29,
       },
     ],
@@ -6234,7 +6234,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 29,
       },
     ],
@@ -6265,7 +6265,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 29,
       },
     ],
@@ -6296,7 +6296,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 29,
       },
     ],
@@ -6326,7 +6326,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 30,
       },
     ],
@@ -6357,7 +6357,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 30,
       },
     ],
@@ -6388,7 +6388,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 30,
       },
     ],
@@ -6419,7 +6419,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 30,
       },
     ],
@@ -6450,7 +6450,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 30,
       },
     ],
@@ -6481,7 +6481,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 30,
       },
     ],
@@ -6512,7 +6512,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 30,
       },
     ],
@@ -6542,7 +6542,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 31,
       },
     ],
@@ -6573,7 +6573,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 31,
       },
     ],
@@ -6604,7 +6604,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 31,
       },
     ],
@@ -6635,7 +6635,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 31,
       },
     ],
@@ -6666,7 +6666,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 31,
       },
     ],
@@ -6697,7 +6697,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 31,
       },
     ],
@@ -6728,7 +6728,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 31,
       },
     ],
@@ -6758,7 +6758,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 32,
       },
     ],
@@ -6789,7 +6789,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 32,
       },
     ],
@@ -6820,7 +6820,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 32,
       },
     ],
@@ -6851,7 +6851,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 32,
       },
     ],
@@ -6882,7 +6882,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 32,
       },
     ],
@@ -6913,7 +6913,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 32,
       },
     ],
@@ -6944,7 +6944,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 32,
       },
     ],
@@ -6974,7 +6974,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 33,
       },
     ],
@@ -7005,7 +7005,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 33,
       },
     ],
@@ -7036,7 +7036,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 33,
       },
     ],
@@ -7067,7 +7067,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 33,
       },
     ],
@@ -7098,7 +7098,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 33,
       },
     ],
@@ -7129,7 +7129,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 33,
       },
     ],
@@ -7160,7 +7160,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 33,
       },
     ],
@@ -7187,7 +7187,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "03_GENERAL_SOLEMNITY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 34,
       },
     ],
@@ -7218,7 +7218,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 34,
       },
     ],
@@ -7249,7 +7249,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 34,
       },
     ],
@@ -7280,7 +7280,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 34,
       },
     ],
@@ -7311,7 +7311,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 34,
       },
     ],
@@ -7342,7 +7342,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 34,
       },
     ],
@@ -7373,7 +7373,7 @@ exports[`ordinaryTime should match snapshot 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 34,
       },
     ],
@@ -7402,7 +7402,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "03_GENERAL_SOLEMNITY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
       },
     ],
   },
@@ -7424,7 +7424,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "03_GENERAL_SOLEMNITY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
       },
     ],
   },
@@ -7447,7 +7447,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "03_GENERAL_SOLEMNITY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
       },
     ],
   },
@@ -7477,7 +7477,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 1,
       },
     ],
@@ -7508,7 +7508,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 1,
       },
     ],
@@ -7539,7 +7539,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 1,
       },
     ],
@@ -7570,7 +7570,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 1,
       },
     ],
@@ -7601,7 +7601,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 1,
       },
     ],
@@ -7632,7 +7632,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 1,
       },
     ],
@@ -7662,7 +7662,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 2,
       },
     ],
@@ -7693,7 +7693,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 2,
       },
     ],
@@ -7724,7 +7724,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 2,
       },
     ],
@@ -7755,7 +7755,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 2,
       },
     ],
@@ -7786,7 +7786,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 2,
       },
     ],
@@ -7817,7 +7817,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 2,
       },
     ],
@@ -7848,7 +7848,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 2,
       },
     ],
@@ -7875,7 +7875,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 3,
       },
     ],
@@ -7906,7 +7906,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 3,
       },
     ],
@@ -7937,7 +7937,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 3,
       },
     ],
@@ -7968,7 +7968,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 3,
       },
     ],
@@ -7999,7 +7999,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 3,
       },
     ],
@@ -8030,7 +8030,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 3,
       },
     ],
@@ -8061,7 +8061,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 3,
       },
     ],
@@ -8091,7 +8091,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 4,
       },
     ],
@@ -8122,7 +8122,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 4,
       },
     ],
@@ -8153,7 +8153,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 4,
       },
     ],
@@ -8184,7 +8184,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 4,
       },
     ],
@@ -8215,7 +8215,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 4,
       },
     ],
@@ -8246,7 +8246,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 4,
       },
     ],
@@ -8277,7 +8277,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 4,
       },
     ],
@@ -8307,7 +8307,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 5,
       },
     ],
@@ -8338,7 +8338,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 5,
       },
     ],
@@ -8369,7 +8369,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 5,
       },
     ],
@@ -8400,7 +8400,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 5,
       },
     ],
@@ -8431,7 +8431,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 5,
       },
     ],
@@ -8462,7 +8462,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 5,
       },
     ],
@@ -8493,7 +8493,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 5,
       },
     ],
@@ -8523,7 +8523,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 6,
       },
     ],
@@ -8554,7 +8554,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 6,
       },
     ],
@@ -8585,7 +8585,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 6,
       },
     ],
@@ -8616,7 +8616,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 6,
       },
     ],
@@ -8647,7 +8647,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 6,
       },
     ],
@@ -8678,7 +8678,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 6,
       },
     ],
@@ -8709,7 +8709,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 6,
       },
     ],
@@ -8739,7 +8739,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 7,
       },
     ],
@@ -8770,7 +8770,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 7,
       },
     ],
@@ -8801,7 +8801,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 7,
       },
     ],
@@ -8832,7 +8832,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 7,
       },
     ],
@@ -8863,7 +8863,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 7,
       },
     ],
@@ -8894,7 +8894,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 7,
       },
     ],
@@ -8925,7 +8925,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 7,
       },
     ],
@@ -8955,7 +8955,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 8,
       },
     ],
@@ -8986,7 +8986,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 8,
       },
     ],
@@ -9017,7 +9017,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 8,
       },
     ],
@@ -9048,7 +9048,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 8,
       },
     ],
@@ -9079,7 +9079,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 8,
       },
     ],
@@ -9110,7 +9110,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 8,
       },
     ],
@@ -9141,7 +9141,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 8,
       },
     ],
@@ -9171,7 +9171,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 9,
       },
     ],
@@ -9202,7 +9202,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 9,
       },
     ],
@@ -9233,7 +9233,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 9,
       },
     ],
@@ -9264,7 +9264,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 9,
       },
     ],
@@ -9295,7 +9295,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 9,
       },
     ],
@@ -9326,7 +9326,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 9,
       },
     ],
@@ -9357,7 +9357,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 9,
       },
     ],
@@ -9387,7 +9387,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 10,
       },
     ],
@@ -9418,7 +9418,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 10,
       },
     ],
@@ -9449,7 +9449,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 10,
       },
     ],
@@ -9480,7 +9480,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 10,
       },
     ],
@@ -9511,7 +9511,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 10,
       },
     ],
@@ -9542,7 +9542,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 10,
       },
     ],
@@ -9573,7 +9573,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 10,
       },
     ],
@@ -9603,7 +9603,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 11,
       },
     ],
@@ -9634,7 +9634,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 11,
       },
     ],
@@ -9665,7 +9665,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 11,
       },
     ],
@@ -9696,7 +9696,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 11,
       },
     ],
@@ -9727,7 +9727,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 11,
       },
     ],
@@ -9758,7 +9758,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 11,
       },
     ],
@@ -9789,7 +9789,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 11,
       },
     ],
@@ -9819,7 +9819,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 12,
       },
     ],
@@ -9850,7 +9850,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 12,
       },
     ],
@@ -9881,7 +9881,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 12,
       },
     ],
@@ -9912,7 +9912,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 12,
       },
     ],
@@ -9943,7 +9943,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 12,
       },
     ],
@@ -9974,7 +9974,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 12,
       },
     ],
@@ -10005,7 +10005,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 12,
       },
     ],
@@ -10035,7 +10035,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 13,
       },
     ],
@@ -10066,7 +10066,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 13,
       },
     ],
@@ -10097,7 +10097,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 13,
       },
     ],
@@ -10128,7 +10128,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 13,
       },
     ],
@@ -10159,7 +10159,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 13,
       },
     ],
@@ -10190,7 +10190,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 13,
       },
     ],
@@ -10221,7 +10221,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 13,
       },
     ],
@@ -10251,7 +10251,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 14,
       },
     ],
@@ -10282,7 +10282,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 14,
       },
     ],
@@ -10313,7 +10313,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 14,
       },
     ],
@@ -10344,7 +10344,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 14,
       },
     ],
@@ -10375,7 +10375,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 14,
       },
     ],
@@ -10406,7 +10406,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 14,
       },
     ],
@@ -10437,7 +10437,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 14,
       },
     ],
@@ -10467,7 +10467,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 15,
       },
     ],
@@ -10498,7 +10498,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 15,
       },
     ],
@@ -10529,7 +10529,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 15,
       },
     ],
@@ -10560,7 +10560,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 15,
       },
     ],
@@ -10591,7 +10591,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 15,
       },
     ],
@@ -10622,7 +10622,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 15,
       },
     ],
@@ -10653,7 +10653,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 15,
       },
     ],
@@ -10683,7 +10683,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 16,
       },
     ],
@@ -10714,7 +10714,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 16,
       },
     ],
@@ -10745,7 +10745,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 16,
       },
     ],
@@ -10776,7 +10776,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 16,
       },
     ],
@@ -10807,7 +10807,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 16,
       },
     ],
@@ -10838,7 +10838,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 16,
       },
     ],
@@ -10869,7 +10869,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 16,
       },
     ],
@@ -10899,7 +10899,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 17,
       },
     ],
@@ -10930,7 +10930,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 17,
       },
     ],
@@ -10961,7 +10961,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 17,
       },
     ],
@@ -10992,7 +10992,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 17,
       },
     ],
@@ -11023,7 +11023,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 17,
       },
     ],
@@ -11054,7 +11054,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 17,
       },
     ],
@@ -11085,7 +11085,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 17,
       },
     ],
@@ -11115,7 +11115,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 18,
       },
     ],
@@ -11146,7 +11146,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 18,
       },
     ],
@@ -11177,7 +11177,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 18,
       },
     ],
@@ -11208,7 +11208,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 18,
       },
     ],
@@ -11239,7 +11239,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 18,
       },
     ],
@@ -11270,7 +11270,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 18,
       },
     ],
@@ -11301,7 +11301,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 18,
       },
     ],
@@ -11331,7 +11331,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 19,
       },
     ],
@@ -11362,7 +11362,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 19,
       },
     ],
@@ -11393,7 +11393,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 19,
       },
     ],
@@ -11424,7 +11424,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 19,
       },
     ],
@@ -11455,7 +11455,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 19,
       },
     ],
@@ -11486,7 +11486,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 19,
       },
     ],
@@ -11517,7 +11517,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 19,
       },
     ],
@@ -11547,7 +11547,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 20,
       },
     ],
@@ -11578,7 +11578,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 20,
       },
     ],
@@ -11609,7 +11609,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 20,
       },
     ],
@@ -11640,7 +11640,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 20,
       },
     ],
@@ -11671,7 +11671,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 20,
       },
     ],
@@ -11702,7 +11702,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 20,
       },
     ],
@@ -11733,7 +11733,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 20,
       },
     ],
@@ -11763,7 +11763,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 21,
       },
     ],
@@ -11794,7 +11794,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 21,
       },
     ],
@@ -11825,7 +11825,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 21,
       },
     ],
@@ -11856,7 +11856,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 21,
       },
     ],
@@ -11887,7 +11887,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 21,
       },
     ],
@@ -11918,7 +11918,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 21,
       },
     ],
@@ -11949,7 +11949,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 21,
       },
     ],
@@ -11979,7 +11979,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 22,
       },
     ],
@@ -12010,7 +12010,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 22,
       },
     ],
@@ -12041,7 +12041,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 22,
       },
     ],
@@ -12072,7 +12072,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 22,
       },
     ],
@@ -12103,7 +12103,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 22,
       },
     ],
@@ -12134,7 +12134,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 22,
       },
     ],
@@ -12165,7 +12165,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 22,
       },
     ],
@@ -12195,7 +12195,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 23,
       },
     ],
@@ -12226,7 +12226,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 23,
       },
     ],
@@ -12257,7 +12257,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 23,
       },
     ],
@@ -12288,7 +12288,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 23,
       },
     ],
@@ -12319,7 +12319,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 23,
       },
     ],
@@ -12350,7 +12350,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 23,
       },
     ],
@@ -12381,7 +12381,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 23,
       },
     ],
@@ -12411,7 +12411,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 24,
       },
     ],
@@ -12442,7 +12442,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 24,
       },
     ],
@@ -12473,7 +12473,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 24,
       },
     ],
@@ -12504,7 +12504,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 24,
       },
     ],
@@ -12535,7 +12535,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 24,
       },
     ],
@@ -12566,7 +12566,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 24,
       },
     ],
@@ -12597,7 +12597,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 24,
       },
     ],
@@ -12627,7 +12627,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 25,
       },
     ],
@@ -12658,7 +12658,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 25,
       },
     ],
@@ -12689,7 +12689,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 25,
       },
     ],
@@ -12720,7 +12720,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 25,
       },
     ],
@@ -12751,7 +12751,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 25,
       },
     ],
@@ -12782,7 +12782,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 25,
       },
     ],
@@ -12813,7 +12813,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 25,
       },
     ],
@@ -12843,7 +12843,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 26,
       },
     ],
@@ -12874,7 +12874,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 26,
       },
     ],
@@ -12905,7 +12905,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 26,
       },
     ],
@@ -12936,7 +12936,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 26,
       },
     ],
@@ -12967,7 +12967,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 26,
       },
     ],
@@ -12998,7 +12998,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 26,
       },
     ],
@@ -13029,7 +13029,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 26,
       },
     ],
@@ -13059,7 +13059,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 27,
       },
     ],
@@ -13090,7 +13090,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 27,
       },
     ],
@@ -13121,7 +13121,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 27,
       },
     ],
@@ -13152,7 +13152,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 27,
       },
     ],
@@ -13183,7 +13183,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 27,
       },
     ],
@@ -13214,7 +13214,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 27,
       },
     ],
@@ -13245,7 +13245,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 27,
       },
     ],
@@ -13275,7 +13275,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 28,
       },
     ],
@@ -13306,7 +13306,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 28,
       },
     ],
@@ -13337,7 +13337,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 28,
       },
     ],
@@ -13368,7 +13368,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 28,
       },
     ],
@@ -13399,7 +13399,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 28,
       },
     ],
@@ -13430,7 +13430,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 28,
       },
     ],
@@ -13461,7 +13461,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 28,
       },
     ],
@@ -13491,7 +13491,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 29,
       },
     ],
@@ -13522,7 +13522,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 29,
       },
     ],
@@ -13553,7 +13553,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 29,
       },
     ],
@@ -13584,7 +13584,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 29,
       },
     ],
@@ -13615,7 +13615,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 29,
       },
     ],
@@ -13646,7 +13646,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 29,
       },
     ],
@@ -13677,7 +13677,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 29,
       },
     ],
@@ -13707,7 +13707,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 30,
       },
     ],
@@ -13738,7 +13738,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 30,
       },
     ],
@@ -13769,7 +13769,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 30,
       },
     ],
@@ -13800,7 +13800,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 30,
       },
     ],
@@ -13831,7 +13831,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 30,
       },
     ],
@@ -13862,7 +13862,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 30,
       },
     ],
@@ -13893,7 +13893,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 30,
       },
     ],
@@ -13923,7 +13923,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 31,
       },
     ],
@@ -13954,7 +13954,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 31,
       },
     ],
@@ -13985,7 +13985,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 31,
       },
     ],
@@ -14016,7 +14016,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 31,
       },
     ],
@@ -14047,7 +14047,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 31,
       },
     ],
@@ -14078,7 +14078,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 31,
       },
     ],
@@ -14109,7 +14109,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 31,
       },
     ],
@@ -14139,7 +14139,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 32,
       },
     ],
@@ -14170,7 +14170,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 32,
       },
     ],
@@ -14201,7 +14201,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 32,
       },
     ],
@@ -14232,7 +14232,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 32,
       },
     ],
@@ -14263,7 +14263,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 32,
       },
     ],
@@ -14294,7 +14294,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 32,
       },
     ],
@@ -14325,7 +14325,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 32,
       },
     ],
@@ -14355,7 +14355,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "06_UNPRIVILEGED_SUNDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 33,
       },
     ],
@@ -14386,7 +14386,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 33,
       },
     ],
@@ -14417,7 +14417,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 33,
       },
     ],
@@ -14448,7 +14448,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 33,
       },
     ],
@@ -14479,7 +14479,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 33,
       },
     ],
@@ -14510,7 +14510,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 33,
       },
     ],
@@ -14541,7 +14541,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 33,
       },
     ],
@@ -14568,7 +14568,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "03_GENERAL_SOLEMNITY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 34,
       },
     ],
@@ -14599,7 +14599,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 34,
       },
     ],
@@ -14630,7 +14630,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 34,
       },
     ],
@@ -14661,7 +14661,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 34,
       },
     ],
@@ -14692,7 +14692,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 34,
       },
     ],
@@ -14723,7 +14723,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 34,
       },
     ],
@@ -14754,7 +14754,7 @@ exports[`ordinaryTime should match snapshot with year offset to +1 1`] = `
     "precedence": "13_WEEKDAY",
     "seasons": [
       {
-        "season": "ORDINARY_TIME",
+        "key": "ORDINARY_TIME",
         "weekOfSeason": 34,
       },
     ],

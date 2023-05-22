@@ -144,7 +144,11 @@ export type LiturgicalDayDef = {
 
 export type SeasonDef = {
   key: Season;
-  name: string;
+
+  /**
+   * The name of the liturgical season.
+   */
+  name?: string;
 
   /**
    * The week number of the liturgical season.
@@ -174,9 +178,13 @@ export type SeasonDef = {
   endOfSeason?: string;
 };
 
+export type SeasonMetadata = Required<SeasonDef>;
+
 export type PeriodDef = {
   key: Period;
 };
+
+export type PeriodMetadata = Required<PeriodDef>;
 
 export type LiturgicalDayDiff = {
   fromCalendarId: CalendarId;

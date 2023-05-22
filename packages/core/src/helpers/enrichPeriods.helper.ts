@@ -1,8 +1,15 @@
-import { Period, PeriodDef, PROPER_OF_TIME_ID, Season, SeasonDef } from '@romcal/shared';
+import {
+  Period,
+  PeriodDef,
+  PeriodMetadata,
+  PROPER_OF_TIME_ID,
+  Season,
+  SeasonDef,
+} from '@romcal/shared';
 
 import { LiturgicalDayParams } from '../LiturgicalDay';
 
-export const enrichPeriods = (params: LiturgicalDayParams): PeriodDef[] => {
+export const enrichPeriods = (params: LiturgicalDayParams): PeriodMetadata[] => {
   const { dayDefinition, computedDate, properOfTimeDates, baseData } = params;
   const periods: PeriodDef[] = dayDefinition.periods ?? baseData?.periods ?? [];
   const seasons: SeasonDef[] = dayDefinition.seasons ?? baseData?.seasons ?? [];

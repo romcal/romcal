@@ -4,6 +4,7 @@ module.exports = {
     '^.+\\.tsx?$': ['esbuild-jest', { sourcemap: true }],
   },
   moduleNameMapper: {
+    '@romcal/package.json': '<rootDir>/package.json',
     '@romcal/([^/]*)(.*)': '<rootDir>../$1/src$2',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],

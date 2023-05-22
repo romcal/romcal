@@ -18,14 +18,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "ash_wednesday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "02_ASH_WEDNESDAY",
     "seasons": [
       {
         "dayOfSeason": 1,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 0,
       },
     ],
@@ -50,14 +50,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "thursday_after_ash_wednesday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 2,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 0,
       },
     ],
@@ -82,14 +82,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "friday_after_ash_wednesday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 3,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 0,
       },
     ],
@@ -114,14 +114,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "saturday_after_ash_wednesday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 4,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 0,
       },
     ],
@@ -147,14 +147,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_1_sunday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "02_PRIVILEGED_SUNDAY",
     "seasons": [
       {
         "dayOfSeason": 5,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 1,
       },
     ],
@@ -181,14 +181,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_1_monday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 6,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 1,
       },
     ],
@@ -215,14 +215,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_1_tuesday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 7,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 1,
       },
     ],
@@ -249,14 +249,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_1_wednesday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 8,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 1,
       },
     ],
@@ -283,14 +283,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_1_thursday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 9,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 1,
       },
     ],
@@ -317,14 +317,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_1_friday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 10,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 1,
       },
     ],
@@ -351,14 +351,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_1_saturday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 11,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 1,
       },
     ],
@@ -384,14 +384,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_2_sunday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "02_PRIVILEGED_SUNDAY",
     "seasons": [
       {
         "dayOfSeason": 12,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 2,
       },
     ],
@@ -418,14 +418,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_2_monday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 13,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 2,
       },
     ],
@@ -452,14 +452,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_2_tuesday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 14,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 2,
       },
     ],
@@ -486,14 +486,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_2_wednesday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 15,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 2,
       },
     ],
@@ -520,14 +520,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_2_thursday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 16,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 2,
       },
     ],
@@ -554,14 +554,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_2_friday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 17,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 2,
       },
     ],
@@ -588,14 +588,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_2_saturday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 18,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 2,
       },
     ],
@@ -621,14 +621,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_3_sunday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "02_PRIVILEGED_SUNDAY",
     "seasons": [
       {
         "dayOfSeason": 19,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 3,
       },
     ],
@@ -655,14 +655,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_3_monday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 20,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 3,
       },
     ],
@@ -689,14 +689,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_3_tuesday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 21,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 3,
       },
     ],
@@ -723,14 +723,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_3_wednesday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 22,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 3,
       },
     ],
@@ -757,14 +757,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_3_thursday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 23,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 3,
       },
     ],
@@ -791,14 +791,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_3_friday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 24,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 3,
       },
     ],
@@ -825,14 +825,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_3_saturday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 25,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 3,
       },
     ],
@@ -859,14 +859,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_4_sunday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "02_PRIVILEGED_SUNDAY",
     "seasons": [
       {
         "dayOfSeason": 26,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 4,
       },
     ],
@@ -893,14 +893,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_4_monday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 27,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 4,
       },
     ],
@@ -927,14 +927,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_4_tuesday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 28,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 4,
       },
     ],
@@ -961,14 +961,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_4_wednesday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 29,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 4,
       },
     ],
@@ -995,14 +995,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_4_thursday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 30,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 4,
       },
     ],
@@ -1029,14 +1029,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_4_friday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 31,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 4,
       },
     ],
@@ -1063,14 +1063,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_4_saturday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 32,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 4,
       },
     ],
@@ -1096,14 +1096,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_5_sunday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "02_PRIVILEGED_SUNDAY",
     "seasons": [
       {
         "dayOfSeason": 33,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 5,
       },
     ],
@@ -1130,14 +1130,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_5_monday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 34,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 5,
       },
     ],
@@ -1164,14 +1164,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_5_tuesday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 35,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 5,
       },
     ],
@@ -1198,14 +1198,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_5_wednesday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 36,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 5,
       },
     ],
@@ -1232,14 +1232,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_5_thursday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 37,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 5,
       },
     ],
@@ -1266,14 +1266,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_5_friday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 38,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 5,
       },
     ],
@@ -1300,14 +1300,14 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "lent_5_saturday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 39,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 5,
       },
     ],
@@ -1329,17 +1329,17 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "palm_sunday_of_the_passion_of_the_lord",
     "periods": [
       {
-        "period": "HOLY_WEEK",
+        "key": "HOLY_WEEK",
       },
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "02_PRIVILEGED_SUNDAY",
     "seasons": [
       {
         "dayOfSeason": 40,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 6,
       },
     ],
@@ -1364,17 +1364,17 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "holy_monday",
     "periods": [
       {
-        "period": "HOLY_WEEK",
+        "key": "HOLY_WEEK",
       },
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 41,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 6,
       },
     ],
@@ -1399,17 +1399,17 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "holy_tuesday",
     "periods": [
       {
-        "period": "HOLY_WEEK",
+        "key": "HOLY_WEEK",
       },
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 42,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 6,
       },
     ],
@@ -1434,17 +1434,17 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "holy_wednesday",
     "periods": [
       {
-        "period": "HOLY_WEEK",
+        "key": "HOLY_WEEK",
       },
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 43,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 6,
       },
     ],
@@ -1469,17 +1469,17 @@ exports[`lent should match snapshot 1`] = `
     "liturgicalDayId": "holy_thursday",
     "periods": [
       {
-        "period": "HOLY_WEEK",
+        "key": "HOLY_WEEK",
       },
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 44,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 6,
       },
     ],
@@ -1505,14 +1505,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "ash_wednesday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "02_ASH_WEDNESDAY",
     "seasons": [
       {
         "dayOfSeason": 1,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 0,
       },
     ],
@@ -1537,14 +1537,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "thursday_after_ash_wednesday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 2,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 0,
       },
     ],
@@ -1569,14 +1569,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "friday_after_ash_wednesday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 3,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 0,
       },
     ],
@@ -1601,14 +1601,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "saturday_after_ash_wednesday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 4,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 0,
       },
     ],
@@ -1634,14 +1634,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_1_sunday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "02_PRIVILEGED_SUNDAY",
     "seasons": [
       {
         "dayOfSeason": 5,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 1,
       },
     ],
@@ -1668,14 +1668,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_1_monday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 6,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 1,
       },
     ],
@@ -1702,14 +1702,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_1_tuesday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 7,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 1,
       },
     ],
@@ -1736,14 +1736,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_1_wednesday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 8,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 1,
       },
     ],
@@ -1770,14 +1770,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_1_thursday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 9,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 1,
       },
     ],
@@ -1804,14 +1804,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_1_friday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 10,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 1,
       },
     ],
@@ -1838,14 +1838,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_1_saturday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 11,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 1,
       },
     ],
@@ -1871,14 +1871,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_2_sunday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "02_PRIVILEGED_SUNDAY",
     "seasons": [
       {
         "dayOfSeason": 12,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 2,
       },
     ],
@@ -1905,14 +1905,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_2_monday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 13,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 2,
       },
     ],
@@ -1939,14 +1939,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_2_tuesday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 14,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 2,
       },
     ],
@@ -1973,14 +1973,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_2_wednesday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 15,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 2,
       },
     ],
@@ -2007,14 +2007,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_2_thursday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 16,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 2,
       },
     ],
@@ -2041,14 +2041,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_2_friday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 17,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 2,
       },
     ],
@@ -2075,14 +2075,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_2_saturday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 18,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 2,
       },
     ],
@@ -2108,14 +2108,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_3_sunday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "02_PRIVILEGED_SUNDAY",
     "seasons": [
       {
         "dayOfSeason": 19,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 3,
       },
     ],
@@ -2142,14 +2142,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_3_monday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 20,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 3,
       },
     ],
@@ -2176,14 +2176,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_3_tuesday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 21,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 3,
       },
     ],
@@ -2210,14 +2210,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_3_wednesday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 22,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 3,
       },
     ],
@@ -2244,14 +2244,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_3_thursday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 23,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 3,
       },
     ],
@@ -2278,14 +2278,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_3_friday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 24,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 3,
       },
     ],
@@ -2312,14 +2312,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_3_saturday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 25,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 3,
       },
     ],
@@ -2346,14 +2346,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_4_sunday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "02_PRIVILEGED_SUNDAY",
     "seasons": [
       {
         "dayOfSeason": 26,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 4,
       },
     ],
@@ -2380,14 +2380,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_4_monday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 27,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 4,
       },
     ],
@@ -2414,14 +2414,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_4_tuesday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 28,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 4,
       },
     ],
@@ -2448,14 +2448,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_4_wednesday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 29,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 4,
       },
     ],
@@ -2482,14 +2482,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_4_thursday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 30,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 4,
       },
     ],
@@ -2516,14 +2516,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_4_friday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 31,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 4,
       },
     ],
@@ -2550,14 +2550,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_4_saturday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 32,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 4,
       },
     ],
@@ -2583,14 +2583,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_5_sunday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "02_PRIVILEGED_SUNDAY",
     "seasons": [
       {
         "dayOfSeason": 33,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 5,
       },
     ],
@@ -2617,14 +2617,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_5_monday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 34,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 5,
       },
     ],
@@ -2651,14 +2651,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_5_tuesday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 35,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 5,
       },
     ],
@@ -2685,14 +2685,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_5_wednesday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 36,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 5,
       },
     ],
@@ -2719,14 +2719,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_5_thursday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 37,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 5,
       },
     ],
@@ -2753,14 +2753,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_5_friday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 38,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 5,
       },
     ],
@@ -2787,14 +2787,14 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "lent_5_saturday",
     "periods": [
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 39,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 5,
       },
     ],
@@ -2816,17 +2816,17 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "palm_sunday_of_the_passion_of_the_lord",
     "periods": [
       {
-        "period": "HOLY_WEEK",
+        "key": "HOLY_WEEK",
       },
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "02_PRIVILEGED_SUNDAY",
     "seasons": [
       {
         "dayOfSeason": 40,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 6,
       },
     ],
@@ -2851,17 +2851,17 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "holy_monday",
     "periods": [
       {
-        "period": "HOLY_WEEK",
+        "key": "HOLY_WEEK",
       },
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 41,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 6,
       },
     ],
@@ -2886,17 +2886,17 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "holy_tuesday",
     "periods": [
       {
-        "period": "HOLY_WEEK",
+        "key": "HOLY_WEEK",
       },
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 42,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 6,
       },
     ],
@@ -2921,17 +2921,17 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "holy_wednesday",
     "periods": [
       {
-        "period": "HOLY_WEEK",
+        "key": "HOLY_WEEK",
       },
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 43,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 6,
       },
     ],
@@ -2956,17 +2956,17 @@ exports[`lent should match snapshot with year offset to +1 1`] = `
     "liturgicalDayId": "holy_thursday",
     "periods": [
       {
-        "period": "HOLY_WEEK",
+        "key": "HOLY_WEEK",
       },
       {
-        "period": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
+        "key": "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       },
     ],
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
         "dayOfSeason": 44,
-        "season": "LENT",
+        "key": "LENT",
         "weekOfSeason": 6,
       },
     ],

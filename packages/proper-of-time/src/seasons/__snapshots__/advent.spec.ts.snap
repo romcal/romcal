@@ -27,7 +27,7 @@ exports[`advent should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 1,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 1,
       },
     ],
@@ -59,7 +59,7 @@ exports[`advent should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 2,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 1,
       },
     ],
@@ -91,7 +91,7 @@ exports[`advent should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 3,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 1,
       },
     ],
@@ -123,7 +123,7 @@ exports[`advent should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 4,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 1,
       },
     ],
@@ -155,7 +155,7 @@ exports[`advent should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 5,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 1,
       },
     ],
@@ -187,7 +187,7 @@ exports[`advent should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 6,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 1,
       },
     ],
@@ -219,7 +219,7 @@ exports[`advent should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 7,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 1,
       },
     ],
@@ -249,7 +249,7 @@ exports[`advent should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 8,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 2,
       },
     ],
@@ -281,7 +281,7 @@ exports[`advent should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 9,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 2,
       },
     ],
@@ -313,7 +313,7 @@ exports[`advent should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 10,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 2,
       },
     ],
@@ -345,7 +345,7 @@ exports[`advent should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 11,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 2,
       },
     ],
@@ -377,7 +377,7 @@ exports[`advent should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 12,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 2,
       },
     ],
@@ -409,7 +409,7 @@ exports[`advent should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 13,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 2,
       },
     ],
@@ -441,7 +441,7 @@ exports[`advent should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 14,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 2,
       },
     ],
@@ -472,7 +472,7 @@ exports[`advent should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 15,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 3,
       },
     ],
@@ -504,7 +504,7 @@ exports[`advent should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 16,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 3,
       },
     ],
@@ -536,7 +536,7 @@ exports[`advent should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 17,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 3,
       },
     ],
@@ -568,7 +568,7 @@ exports[`advent should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 18,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 3,
       },
     ],
@@ -600,7 +600,7 @@ exports[`advent should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 19,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 3,
       },
     ],
@@ -632,7 +632,7 @@ exports[`advent should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 20,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 3,
       },
     ],
@@ -662,7 +662,7 @@ exports[`advent should match snapshot 1`] = `
     "seasons": [
       {
         "dayOfSeason": 22,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 4,
       },
     ],
@@ -689,7 +689,7 @@ exports[`advent should match snapshot 1`] = `
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
-        "season": "ADVENT",
+        "key": "ADVENT",
       },
     ],
   },
@@ -715,7 +715,7 @@ exports[`advent should match snapshot 1`] = `
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
-        "season": "ADVENT",
+        "key": "ADVENT",
       },
     ],
   },
@@ -741,7 +741,7 @@ exports[`advent should match snapshot 1`] = `
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
-        "season": "ADVENT",
+        "key": "ADVENT",
       },
     ],
   },
@@ -767,7 +767,7 @@ exports[`advent should match snapshot 1`] = `
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
-        "season": "ADVENT",
+        "key": "ADVENT",
       },
     ],
   },
@@ -793,7 +793,7 @@ exports[`advent should match snapshot 1`] = `
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
-        "season": "ADVENT",
+        "key": "ADVENT",
       },
     ],
   },
@@ -819,7 +819,7 @@ exports[`advent should match snapshot 1`] = `
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
-        "season": "ADVENT",
+        "key": "ADVENT",
       },
     ],
   },
@@ -845,7 +845,7 @@ exports[`advent should match snapshot 1`] = `
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
-        "season": "ADVENT",
+        "key": "ADVENT",
       },
     ],
   },
@@ -871,7 +871,7 @@ exports[`advent should match snapshot 1`] = `
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
-        "season": "ADVENT",
+        "key": "ADVENT",
       },
     ],
   },
@@ -905,7 +905,7 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 1,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 1,
       },
     ],
@@ -937,7 +937,7 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 2,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 1,
       },
     ],
@@ -969,7 +969,7 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 3,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 1,
       },
     ],
@@ -1001,7 +1001,7 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 4,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 1,
       },
     ],
@@ -1033,7 +1033,7 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 5,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 1,
       },
     ],
@@ -1065,7 +1065,7 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 6,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 1,
       },
     ],
@@ -1097,7 +1097,7 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 7,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 1,
       },
     ],
@@ -1127,7 +1127,7 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 8,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 2,
       },
     ],
@@ -1159,7 +1159,7 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 9,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 2,
       },
     ],
@@ -1191,7 +1191,7 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 10,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 2,
       },
     ],
@@ -1223,7 +1223,7 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 11,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 2,
       },
     ],
@@ -1255,7 +1255,7 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 12,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 2,
       },
     ],
@@ -1287,7 +1287,7 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 13,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 2,
       },
     ],
@@ -1319,7 +1319,7 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 14,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 2,
       },
     ],
@@ -1350,7 +1350,7 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 15,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 3,
       },
     ],
@@ -1382,7 +1382,7 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 16,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 3,
       },
     ],
@@ -1414,7 +1414,7 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 17,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 3,
       },
     ],
@@ -1446,7 +1446,7 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 18,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 3,
       },
     ],
@@ -1478,7 +1478,7 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 19,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 3,
       },
     ],
@@ -1510,7 +1510,7 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 20,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 3,
       },
     ],
@@ -1540,7 +1540,7 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
     "seasons": [
       {
         "dayOfSeason": 22,
-        "season": "ADVENT",
+        "key": "ADVENT",
         "weekOfSeason": 4,
       },
     ],
@@ -1567,7 +1567,7 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
-        "season": "ADVENT",
+        "key": "ADVENT",
       },
     ],
   },
@@ -1593,7 +1593,7 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
-        "season": "ADVENT",
+        "key": "ADVENT",
       },
     ],
   },
@@ -1619,7 +1619,7 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
-        "season": "ADVENT",
+        "key": "ADVENT",
       },
     ],
   },
@@ -1645,7 +1645,7 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
-        "season": "ADVENT",
+        "key": "ADVENT",
       },
     ],
   },
@@ -1671,7 +1671,7 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
-        "season": "ADVENT",
+        "key": "ADVENT",
       },
     ],
   },
@@ -1697,7 +1697,7 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
-        "season": "ADVENT",
+        "key": "ADVENT",
       },
     ],
   },
@@ -1723,7 +1723,7 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
-        "season": "ADVENT",
+        "key": "ADVENT",
       },
     ],
   },
@@ -1749,7 +1749,7 @@ exports[`advent should match snapshot with year offset to +1 1`] = `
     "precedence": "09_PRIVILEGED_WEEKDAY",
     "seasons": [
       {
-        "season": "ADVENT",
+        "key": "ADVENT",
       },
     ],
   },

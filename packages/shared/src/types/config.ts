@@ -43,8 +43,8 @@ export type RomcalConfig = CalendarDefConfig & {
 };
 
 export type RomcalConfigInput = Partial<RomcalConfig> & {
-  properOfTimeCalendarDef: CalendarDef;
-  properOfTimeDates: ProperOfTimeDates;
+  properOfTimeCalendarDef?: CalendarDef;
+  properOfTimeDates?: ProperOfTimeDates;
 };
 
 // export interface IRomcalConfig extends BaseRomcalConfig {

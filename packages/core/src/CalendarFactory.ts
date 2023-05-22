@@ -330,11 +330,9 @@ export class CalendarFactory {
    * Generate a liturgical calendar according to the precedence rules between liturgical days.
    */
   computeCalendar(): LiturgicalCalendar {
-    const finalData: LiturgicalCalendar = {};
-
     const builtData = this.#buildDatesData();
 
-    Object.keys(builtData.datesIndex).forEach((dateStr) => {
+    return Object.keys(builtData.datesIndex).reduce<LiturgicalCalendar>((finalData, dateStr) => {
       // Order the LiturgicalDays objects, following the precedence rules defined in the UNLY #49.
       const dates: LiturgicalDay[] = builtData.datesIndex[dateStr]
         .reduce<LiturgicalDay[]>((acc, id) => {
@@ -513,9 +511,9 @@ export class CalendarFactory {
         ...optionalMemorials,
         ...(thursdayOfTheLordsSupper ? [thursdayOfTheLordsSupper] : []),
       ];
-    });
 
-    return finalData;
+      return finalData;
+    }, {});
   }
 
   /**
