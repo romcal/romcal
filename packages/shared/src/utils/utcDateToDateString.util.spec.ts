@@ -1,4 +1,4 @@
-import { utcDateToDateString } from './dateToDateString.util';
+import { utcDateToDateString } from './utcDateToDateString.util';
 
 describe('dateToDateString', () => {
   it('returns a string in the format yyyy-mm-dd', () => {
