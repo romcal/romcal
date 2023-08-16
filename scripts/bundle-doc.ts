@@ -9,6 +9,7 @@ import { particularCalendars } from '../lib/particular-calendars';
 import { toPackageName } from '../lib/utils/string';
 import { getDuration } from './time';
 
+// eslint-disable-next-line no-console
 const log = console.log;
 const time = new Date();
 

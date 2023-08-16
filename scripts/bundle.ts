@@ -27,6 +27,7 @@ import LiturgicalDayDef from '../lib/models/liturgical-day-def';
 import { particularCalendars } from '../lib/particular-calendars';
 import { sanitizeLocaleId, toPascalCase } from '../lib/utils/string';
 
+// eslint-disable-next-line no-console
 const log = console.log;
 
 /**

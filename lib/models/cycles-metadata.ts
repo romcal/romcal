@@ -80,7 +80,6 @@ export class CyclesMetadata implements BaseCyclesMetadata {
   get sundayCycleName(): string {
     if (this.#sundayCycleName !== undefined) return this.#sundayCycleName;
     this.#sundayCycleName = this.#config.i18next.t(`cycles:sunday_${this.sundayCycle.toLowerCase()}`);
-    console.log(this.#config.i18next.t(`cycles:sunday_${this.sundayCycle.toLowerCase()}`));
     return this.#sundayCycleName;
   }
 

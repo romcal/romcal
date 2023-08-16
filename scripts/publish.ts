@@ -7,23 +7,26 @@ const tag = 'dev';
 const dryRun = false;
 const token = process.env.NPM_TOKEN;
 
+// eslint-disable-next-line no-console
+const log = console.log;
+
 /**
  * Provide a feedback message after a package is published to NPM
  * @param data
  */
 const afterPublish = (data: Results): void => {
   if (data.oldVersion !== data.version) {
-    console.log(` ✓ Package "${data.package}" published: ${data.oldVersion} → ${data.version} (${data.tag})\n`);
+    log(` ✓ Package "${data.package}" published: ${data.oldVersion} → ${data.version} (${data.tag})\n`);
   } else if (data.oldVersion === data.version) {
-    console.log(` ✓ Package "${data.package}" is already published: ${data.version} (${data.tag})\n`);
+    log(` ✓ Package "${data.package}" is already published: ${data.version} (${data.tag})\n`);
   } else {
-    console.log(data, '\n');
+    log(data, '\n');
   }
 };
 
 (async (): Promise<void> => {
   // Start by publishing the main romcal library
-  console.log(` - Publishing romcal`);
+  log(` - Publishing romcal`);
   const mainData = await npmPublish({
     package: path.join(__dirname, '../package.json'),
     access: 'public',
@@ -42,7 +45,7 @@ const afterPublish = (data: Results): void => {
 
   // Then, publish every calendar bundles as standalone NPM packages
   for (let i = 0; i < bundleNames.length; i++) {
-    console.log(` - Publishing bundle: ${bundleNames[i]}`);
+    log(` - Publishing bundle: ${bundleNames[i]}`);
     const calendarData = await npmPublish({
       package: path.join(bundlesBasePath, bundleNames[i], 'package.json'),
       access: 'public',
