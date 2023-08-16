@@ -53,7 +53,7 @@ export const isValidDate = (maybeDate: unknown): boolean => {
  * @return     {number}  Total number of dates in the particular month
  */
 export const daysInMonth = (date: Date): number => {
-  return new Date(date.getUTCFullYear(), date.getUTCMonth() + 1, 0).getUTCDate();
+  return new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth() + 1, 0)).getUTCDate();
 };
 
 /**
