@@ -19,6 +19,7 @@ import { RomcalBundler } from './bundle';
 import { getDuration } from './time';
 
 const tsConfigPath = './tsconfig.release.json';
+// eslint-disable-next-line no-console
 const log = console.log;
 const formatCode = (code: string): string => prettier.format(code, { parser: 'typescript', singleQuote: true });
 

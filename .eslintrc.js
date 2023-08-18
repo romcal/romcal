@@ -19,6 +19,7 @@ module.exports = {
     'prettier',
   ],
   rules: {
+    'no-console': 'error',
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
     'import/first': 'error',
