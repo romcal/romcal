@@ -17,7 +17,6 @@ tmp/
 *.event
 
 # Romcal codebase
-examples/
 LICENSE
 
 # Misc

@@ -170,12 +170,12 @@ const romcal = new Romcal({
 
 For further information about romcal configuration and the default options: :books: [Configuration options](docs/general-usage.md#configuration-options).
 
-You can also take a look to the [./examples](./examples) directory, which contain additional examples:
+You can also take a look to the [romcal/romcal-examples repository](https://github.com/romcal/romcal-examples), which contain additional examples:
 
-- [html-web-page](./examples/html-web-page) – loading romcal in a HTML script tag (`iife`).
-- [react-app](./examples/react-app) – a basic React application loading and displaying romcal data.
-- [rest-api-with-express](./examples/rest-api-with-express) – a REST API using Node.js and Express, written as CommonJs (`cjs`).
-- [rest-api-with-fastify](./examples/rest-api-with-fastify) – a REST API using Node.js and Fastify, written as ES Module (`esm`).
+- [html-web-page](https://github.com/romcal/romcal-examples/tree/main/html-web-page) – loading romcal in a HTML script tag (`iife`).
+- [react-app](https://github.com/romcal/romcal-examples/tree/main/react-app) – a basic React application loading and displaying romcal data.
+- [rest-api-with-express](https://github.com/romcal/romcal-examples/tree/main//rest-api-with-express) – a REST API using Node.js and Express, written as CommonJs (`cjs`).
+- [rest-api-with-fastify](https://github.com/romcal/romcal-examples/tree/main//rest-api-with-fastify) – a REST API using Node.js and Fastify, written as ES Module (`esm`).
 
 ### Generate a calendar `.generateCalendar(year)`
 
