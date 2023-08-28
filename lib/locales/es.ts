@@ -189,7 +189,7 @@ export const locale: Locale = {
     andrew_apostle_patron_of_scotland: 'San Andrés, apóstol y Patrono de Escocia',
     andrew_dung_lac_priest_and_companions_martyrs: 'Santos Andrés Dung-Lac, presbítero, y compañeros, mártires',
     andrew_kim_tae_gon_priest_paul_chong_ha_sang_and_companions_martyrs:
-      'Santos Andrés Kim Taegŏn, presbítero, Pablo Chŏng Hasang, y compañeros, mártires',
+      'Santos Andrés Kim Taegon, presbítero, Pablo Chong Hasang y compañeros, mártires',
     angela_merici_virgin: 'Santa Ángela Merici, virgen',
     annunciation_of_the_lord: 'Anunciación',
     anselm_of_canterbury_bishop: 'San Anselmo de Canterbury, obispo y doctor de la Iglesia',
