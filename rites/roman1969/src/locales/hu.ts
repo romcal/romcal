@@ -537,9 +537,9 @@ export const locale: Locale = {
     john_of_kanty_priest: 'Saint John of Kanty, Priest',
     john_of_the_cross_priest: 'Saint John of the Cross, Priest and Doctor of the Church',
     john_of_triora_priest: 'Saint John of Triora, Priest and Martyr',
-    john_ogilvie_priest: 'Saint John Ogilvie, Priest and Martyr',
-    john_paul_ii_pope: 'Saint John Paul II, Pope',
-    john_roberts_priest: 'Saint John Roberts, Priest and Martyr',
+    john_ogilvie_priest: 'Saint John Ogilvie, Priest and Martyr',*/
+    john_paul_ii_pope: 'Szent II. János Pál pápa',
+    /*john_roberts_priest: 'Saint John Roberts, Priest and Martyr',
     john_sarkander_priest: 'Saint John Sarkander, Priest and Martyr',
     john_scheffler_bishop: 'Blessed John Scheffler, Bishop and Martyr',*/
     john_xxiii_pope: 'Szent XXIII. János pápa',
@@ -622,9 +622,9 @@ export const locale: Locale = {
     marcellinus_of_rome_and_peter_the_exorcist_martyrs: 'Saints Marcellinus and Peter, Martyrs',
     marcellus_of_paris_bishop: 'Saint Marcellus of Paris, Bishop',
     margaret_clitherow_anne_line_and_margaret_ward_virgin_martyrs: 'Saints Margaret Clitherow, Anne Line and Margaret Ward, Virgin, Martyrs',
-    margaret_mary_alacoque_virgin: 'Saint Margaret Mary Alacoque, Virgin',
-    margaret_of_antioch_virgin: 'Saint Margaret of Antioch, Virgin and Martyr',
-    margaret_of_hungary_religious: 'Saint Margaret of Hungary, Religious',
+    margaret_mary_alacoque_virgin: 'Saint Margaret Mary Alacoque, Virgin',*/
+    margaret_of_antioch_virgin: 'Antiokheai Szent Margit, szűz és vértanú',
+   /* margaret_of_hungary_religious: 'Saint Margaret of Hungary, Religious',
     margaret_of_scotland: 'Saint Margaret of Scotland',
     marguerite_bourgeoys_virgin: 'Saint Marguerite Bourgeoys, Virgin',
     marguerite_dyouville_religious: 'Saint Marguerite d’Youville, Religious',
@@ -863,8 +863,8 @@ export const locale: Locale = {
     stanislaus_kazimierczyk_priest: 'Saint Stanislaus Kazimierczyk, Priest',
     stanislaus_kostka_religious: 'Saint Stanislaus Kostka, Religious',
     stanislaus_of_szczepanow_bishop: 'Saint Stanislaus, Bishop and Martyr',
-    stanislaus_of_szczepanow_bishop_patron_of_poland: 'Saint Stanislaus, Bishop and Martyr, Patron of Poland',
-    stephen_i_of_hungary: 'Saint Stephen of Hungary',*/
+    stanislaus_of_szczepanow_bishop_patron_of_poland: 'Saint Stanislaus, Bishop and Martyr, Patron of Poland',*/
+    stephen_i_of_hungary: 'Szent István király, Magyarország fővédőszentje',
     stephen_the_first_martyr: 'Szent István diakónus, első vértanú',
     sunday_of_the_word_of_god: 'Évközi III. vasárnap vagy az Isten Igéjének vasárnapja',
     /*sunniva_of_norway_virgin: 'Saint Sunniva, Virgin and Martyr',
