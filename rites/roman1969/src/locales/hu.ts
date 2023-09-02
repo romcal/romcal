@@ -211,7 +211,7 @@ export const locale: Locale = {
     // arbogast_of_strasbourg_bishop_patron_of_the_archdiocese_of_strasbourg: 'Saint Arbogast, Bishop, Patron of the Archdiocese of Strasbourg',
     // asaph_of_wales_bishop: 'Saint Asaph, Bishop',
     // ascension_of_the_lord: 'The Ascension of the Lord',
-    // ash_wednesday: 'Ash Wednesday',
+    ash_wednesday: 'Hamvazószerda',
     // asicus_of_elphin_bishop: 'Saint Asicus, Bishop',
     // assumption_of_the_blessed_virgin_mary: 'The Assumption of the Blessed Virgin Mary',
     athanasius_of_alexandria_bishop: 'Szent Atanáz püspök és egyháztanító',  // src: mr_hu_1991_ed2
@@ -259,7 +259,7 @@ export const locale: Locale = {
     // bruno_of_querfurt_bishop: 'Saint Bruno of Querfurt, Bishop And Martyr',
     // caesarius_of_arles_bishop: 'Saint Caesarius of Arles, Bishop',
     // cajetan_of_thiene_priest: 'Saint Cajetan, Priest',
-    // callistus_i_pope: 'Saint Callistus I, Pope and Martyr',
+    callistus_i_pope: 'Szent I. Kallixtusz pápa és vértanú', // src: mr_hu_1991_ed2
     // camillus_de_lellis_priest: 'Saint Camillus de Lellis, Priest',
     // canice_of_kilkenny_abbot: 'Saint Canice, Abbot',
     // canute_iv_of_denmark_eric_ix_of_sweden_and_olaf_ii_of_norway_martyrs: 'Saints Canute, Eric and Olaf, Martyrs',
@@ -283,7 +283,7 @@ export const locale: Locale = {
     // ceslaus_of_poland_priest: 'Blessed Ceslaus, Priest',
     // chad_of_mercia_and_cedd_of_lastingham_bishops: 'Saints Chad and Cedd, Bishops',
     chair_of_saint_peter_the_apostle: 'Szent Péter apostol székfoglalása',  // src: mr_hu_1991_ed2
-    // charles_borromeo_bishop: 'Saint Charles Borromeo, Bishop',
+    charles_borromeo_bishop: 'Borromeo Szent Károly püspök', // src: mr_hu_1991_ed2
     // charles_i_of_austria: 'Blessed Charles of Austria',
     // charles_lwanga_and_companions_martyrs: 'Saints Charles Lwanga and Companions, Martyrs',
     // charles_of_jesus_de_foucauld: 'Saint Charles de Foucauld, Priest',
@@ -490,7 +490,7 @@ export const locale: Locale = {
     // ivan_merz: 'Blessed Ivan Merz',
     // ivo_of_kermartin_priest: 'Saint Ivo, Priest',
     // jacinta_marto_and_francisco_marto: 'Saints Jacinta and Francisco Marto',
-    // james_apostle: 'Saint James, Apostle',
+    james_apostle: 'Szent Jakab apostol',
     // james_apostle_patron_of_spain: 'Saint James, Apostle, Patron of Spain',
     // james_strzemie_bishop: 'Blessed James Strzemię, Bishop',
     // jane_frances_de_chantal_religious: 'Saint Jane Frances de Chantal, Religious',
