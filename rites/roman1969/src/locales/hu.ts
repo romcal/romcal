@@ -148,7 +148,7 @@ export const locale: Locale = {
   names: {
     // '205_blessed_martyrs_of_japan': '205 Blessed Martyrs of Japan',
     adalbert_of_prague_bishop: 'Szent Adalbert püspök és vértanú',  // src: mr_hu_1991_ed2
-    adalbert_of_prague_bishop_patron_of_poland: 'Szent Adalbert püspök és vértanú, Legyelország védőszentje',  // src: mr_hu_1991_ed2; I am not sure whether we should use `védőszentje or `fővédőszentje`
+    adalbert_of_prague_bishop_patron_of_poland: 'Szent Adalbert püspök és vértanú, Legyelország védőszentje',  // src: mr_hu_1991_ed2
     // adelaide_of_burgundy_empress: 'Saint Adelaide of Burgundy, Empress',
     // adelphus_of_metz_bishop: 'Saint Adelphus, Bishop',
     // adolph_kolping_priest: 'Blessed Adolph Kolping, Priest',
@@ -156,7 +156,7 @@ export const locale: Locale = {
     // aengus_of_tallaght_bishop: 'Saint Aengus, Bishop and Abbot',
     agatha_of_sicily_virgin: 'Szent Ágota szűz és vértanú',  // src: mr_hu_1991_ed2
     // agnes_cao_guiying_martyr: 'Saint Agnes Cao Guiying, Martyr',
-    // agnes_of_bohemia_virgin: 'Saint Agnes of Bohemia, Virgin',
+    agnes_of_bohemia_virgin: 'Prágai Szent Ágnes szűz',  // src: mr_hu_1991_ed2
     agnes_of_rome_virgin: 'Szent Ágnes szűz és vértanú',  // src: mr_hu_1991_ed2
     // aidan_of_ferns_bishop: 'Saint Aidan, Bishop',
     // aidan_of_lindisfarne_bishop: 'Saint Aidan of Lindisfarne, Bishop and Missionary',
@@ -166,33 +166,33 @@ export const locale: Locale = {
     // alban_of_britain_martyr: 'Saint Alban, Martyr',
     // alberic_crescitelli_priest: 'Saint Alberic Crescitelli, Priest and Martyr',
     // albert_chmielowski_religious: 'Saint Albert Chmielowski, Religious',
-    // albert_the_great_bishop: 'Saint Albert the Great, Bishop and Doctor of the Church',
+    albert_the_great_bishop: 'Nagy Szent Albert püspök és egyháztanító',  // src: mr_hu_1991_ed2
     // albertina_berkenbrock_virgin: 'Blessed Albertina Berkenbrock, Virgin and Martyr',
     // alberto_hurtado_priest: 'Saint Alberto Hurtado, Priest',
-    all_saints: 'Mindenszentek',
+    all_saints: 'Mindenszentek',  // src: mr_hu_1991_ed2
     // all_saints_of_ireland: 'All Saints of Ireland',
     // all_saints_of_the_archdiocese_of_paris: 'All Saints of the Archdiocese of Paris',
     // all_saints_of_the_diocese_of_saint_denis: 'All Saints of the Diocese of Saint-Denis',
     // all_saints_of_wales: 'All Saints of Wales',
-    // aloysius_gonzaga_religious: 'Saint Aloysius Gonzaga, Religious',
+    aloysius_gonzaga_religious: 'Gonzága Szent Alajos szerzetes',  // src: mr_hu_1991_ed2
     // aloysius_stepinac_bishop: 'Blessed Aloysius Stepinac, Bishop and Martyr',
     // aloysius_versiglia_bishop_and_callistus_caravario_priest_martyrs: 'Saints Aloysius Versiglia, Bishop and Callistus Caravario, Priest, Martyrs',
     // alphonsa_of_the_immaculate_conception_muttathupadathu_virgin: 'Saint Alphonsa of the Immaculate Conception Muttathupadathu, Virgin',
-    // alphonsus_mary_liguori_bishop: 'Saint Alphonsus Mary Liguori, Bishop and Doctor of the Church',
+    alphonsus_mary_liguori_bishop: 'Liguori Szent Alfonz Mária püspök és egyháztanító',  // src: mr_hu_1991_ed2
     // amand_of_maastricht_bishop: 'Saint Amand, Bishop',
     // amandus_of_strasbourg_bishop: 'Saint Amandus of Strasbourg, Bishop',
     // amarin_of_alsace_abbot: 'Saint Amarin, Abbot and Martyr',
-    // ambrose_of_milan_bishop: 'Saint Ambrose, Bishop and Doctor of the Church',
+    ambrose_of_milan_bishop: 'Szent Ambrus püspök és egyháztanító',  // src: mr_hu_1991_ed2
     // andre_bessette_religious: 'Saint André Bessette, Religious',
     // andre_grasset_priest: 'Blessed André Grasset, Priest and Martyr',
-    andrew_apostle: 'Szent András apostol',
-    andrew_apostle_patron_of_russia: 'Szent András apostol, Oroszország védőszentje',  // I am not sure whether we should use `védőszentje or `fővédőszentje`
-    andrew_apostle_patron_of_scotland: 'Szent András apostol, Skócia védőszentje',  // I am not sure whether we should use `védőszentje or `fővédőszentje`
+    andrew_apostle: 'Szent András apostol',  // src: mr_hu_1991_ed2
+    andrew_apostle_patron_of_russia: 'Szent András apostol, Oroszország védőszentje',  // based on: mr_hu_1991_ed2
+    andrew_apostle_patron_of_scotland: 'Szent András apostol, Skócia védőszentje',  // based on: mr_hu_1991_ed2
     // andrew_bobola_priest: 'Saint Andrew Bobola, Priest and Martyr',
     // andrew_de_soveral_and_ambrose_francis_ferro_priests: 'Saints Andrew de Soveral and Ambrose Francis Ferro, Priests and Martyrs',
-    // andrew_dung_lac_priest_and_companions_martyrs: 'Saint Andrew Dũng-Lạc, Priest, and Companions, Martyrs',
-    // andrew_kim_tae_gon_priest_paul_chong_ha_sang_and_companions_martyrs: 'Saints Andrew Kim Tae-gŏn, Priest, Paul Chŏng Ha-sang and Companions, Martyrs',
-    // andrew_zorard_of_nitra_and_benedict_of_skalka_hermits: 'Saints Andrew Zorard and Benedict, Hermits',
+    andrew_dung_lac_priest_and_companions_martyrs: 'Dung-lac Szent Ándrás áldozópap és társai vértanúk',  // src: mr_hu_1991_ed2
+    andrew_kim_tae_gon_priest_paul_chong_ha_sang_and_companions_martyrs: 'Kim Taegon Szent András áldozópap, Csong Haszang Szent Pál és társaik vértanúk',  // src: mr_hu_1991_ed2
+    andrew_zorard_of_nitra_and_benedict_of_skalka_hermits: 'Szent Zoerárd-András és Benedek remeték',  // src: mr_hu_1991_ed2
     angela_merici_virgin: 'Merici Szent Angéla szűz',  // src: mr_hu_1991_ed2
     // angela_salawa_virgin: 'Blessed Angela Salawa, Virgin',
     // anno_of_cologne_bishop: 'Saint Anno of Cologne, Bishop',
@@ -200,33 +200,33 @@ export const locale: Locale = {
     anselm_of_canterbury_bishop: 'Szent Anzelm püspök és egyháztanító',  // src: mr_hu_1991_ed2
     ansgar_of_hamburg_bishop: 'Szent Anszgár (Oszkár) püspök',  // src: mr_hu_1991_ed2
     // anthony_julian_nowowiejski_bishop_and_companions_martyrs: 'Blessed Anthony Julian Nowowiejski, Bishop, and Companions, Martyrs',
-    // anthony_mary_claret_bishop: 'Saint Anthony Mary Claret, Bishop',
+    anthony_mary_claret_bishop: 'Claret Szent Antal Mária püspök',  // src: mr_hu_1991_ed2
     anthony_of_egypt_abbot: 'Szent Antal apát',  // src: mr_hu_1991_ed2
-    // anthony_of_padua_priest: 'Saint Anthony of Padua, Priest and Doctor of the Church',
+    anthony_of_padua_priest: 'Páduai Szent Antal áldozópap és egyháztanító',  // src: mr_hu_1991_ed2
     // anthony_of_saint_anne_galvao_priest: 'Saint Anthony of Saint Anne Galvão, Priest',
     // anthony_of_the_caves_monk: 'Saint Anthony of the Caves, Monk',
-    // anthony_zaccaria_priest: 'Saint Anthony Zaccaria, Priest',
+    anthony_zaccaria_priest: 'Zaccaria Szent Antal Mária áldozópap',  // src: mr_hu_1991_ed2
     // apollinaris_of_ravenna_bishop: 'Saint Apollinaris, Bishop and Martyr',
     // arbogast_of_strasbourg_bishop: 'Saint Arbogast, Bishop',
     // arbogast_of_strasbourg_bishop_patron_of_the_archdiocese_of_strasbourg: 'Saint Arbogast, Bishop, Patron of the Archdiocese of Strasbourg',
     // asaph_of_wales_bishop: 'Saint Asaph, Bishop',
     // ascension_of_the_lord: 'The Ascension of the Lord',
-    ash_wednesday: 'Hamvazószerda',
+    ash_wednesday: 'Hamvazószerda',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=68
     // asicus_of_elphin_bishop: 'Saint Asicus, Bishop',
-    // assumption_of_the_blessed_virgin_mary: 'The Assumption of the Blessed Virgin Mary',
+    assumption_of_the_blessed_virgin_mary: 'Szűz Mária mennybevétele (Nagyboldogasszony)',  // src: mr_hu_1991_ed2
     athanasius_of_alexandria_bishop: 'Szent Atanáz püspök és egyháztanító',  // src: mr_hu_1991_ed2
     // attracta_of_killaraght_virgin: 'Saint Attracta, Virgin',
     // audoen_of_rouen_bishop: 'Saint Audoen, Bishop',
     // augustine_kazotic_bishop: 'Blessed Augustine Kažotić, Bishop and Martyr',
     augustine_of_canterbury_bishop: 'Canterburyi Szent Ágoston püspök',  // src: mr_hu_1991_ed2
-    // augustine_of_hippo_bishop: 'Saint Augustine, Bishop and Doctor of the Church',
+    augustine_of_hippo_bishop: 'Szent Ágoston püspök és egyháztanító',  // src: mr_hu_1991_ed2
     // augustine_zhao_rong_priest: 'Saint Augustine Zhao Rong, Priest and Martyr',
     // augustine_zhao_rong_priest_and_companions_martyrs: 'Saint Augustine Zhao Rong, Priest, and Companions, Martyrs',
     // aurelia_of_strasbourg_virgin: 'Saint Aurelia of Strasbourg, Virgin',
     baptism_of_the_lord: 'Urunk megkeresztelkedése',  // src: mr_hu_1991_ed2
     // barbara_of_heliopolis_virgin: 'Saint Barbara, Virgin and Martyr',
-    barnabas_apostle: 'Saint Barnabás apostol',
-    // bartholomew_apostle: 'Saint Bartholomew, Apostle',
+    barnabas_apostle: 'Szent Barnabás apostol',  // src: mr_hu_1991_ed2
+    bartholomew_apostle: 'Szent Bertalan apostol',  // src: mr_hu_1991_ed2
     // bartholomew_dias_laurel_religious: 'Blessed Bartholomew Días Laurel, Religious and Martyr',
     // bartholomew_of_the_martyrs_fernandes_bishop: 'Saint Bartholomew of the Martyrs Fernandes, Bishop',
     basil_the_great_and_gregory_nazianzen_bishops: 'Nagy Szent Vazul és Nazianzi Szent Gergely püspökök és egyháztanítók',  // src: mr_hu_1991_ed2
@@ -234,33 +234,33 @@ export const locale: Locale = {
     bede_the_venerable_priest: 'Tiszteletreméltó Szent Béda áldozópap és egyháztanító',  // src: mr_hu_1991_ed2
     // benedict_of_aniane_abbot: 'Saint Benedict of Aniane, Abbot',
     // benedict_of_jesus_valdivielso_saez_religious: 'Saint Benedict of Jesus Valdivielso Sáez, Religious and Martyr',
-    // benedict_of_nursia_abbot: 'Saint Benedict, Abbot',
-    // benedict_of_nursia_abbot_patron_of_europe: 'Saint Benedict, Abbot, Patron of Europe',
+    benedict_of_nursia_abbot: 'Szent Benedek apát',  // src: mr_hu_1991_ed2
+    benedict_of_nursia_abbot_patron_of_europe: 'Szent Benedek apát, Európa fővédőszentje',  // src: mr_hu_1991_ed2
     // benno_of_meissen_bishop: 'Saint Benno of Meissen, Bishop',
     bernadette_soubirous_virgin: 'Soubirous Szent Mária Bernadett szűz',  // src: mr_hu_1991_ed2
-    // bernard_of_clairvaux_abbot: 'Saint Bernard, Abbot and Doctor of the Church',
+    bernard_of_clairvaux_abbot: 'Szent Bernát apát és egyháztanító',  // src: mr_hu_1991_ed2
     bernardine_of_siena_priest: 'Sienai Szent Bernardin áldozópap',  // src: mr_hu_1991_ed2
     // beuno_of_wales_abbot: 'Saint Beuno, Abbot',
     blaise_of_sebaste_bishop: 'Szent Balázs püspök és vértanú',  // src: mr_hu_1991_ed2
     // blessed_martyrs_of_paris: 'Blessed Martyrs of Paris',
     // bogumilus_of_dobrow_bishop: 'Blessed Bogumilus, Bishop',
     // boleslawa_mary_lament_virgin: 'Blessed Boleslawa Mary Lament, Virgin',
-    // bonaventure_of_bagnoregio_bishop: 'Saint Bonaventure, Bishop and Doctor of the Church',
-    // boniface_of_mainz_bishop: 'Saint Boniface, Bishop and Martyr',
+    bonaventure_of_bagnoregio_bishop: 'Szent Bonaventura püspök és egyháztanító',  // src: mr_hu_1991_ed2
+    boniface_of_mainz_bishop: 'Szent Bonifác püspök és vértanú',  // src: mr_hu_1991_ed2
     // boris_of_kiev_and_gleb_of_kiev_martyrs: 'Saints Boris and Gleb, Martyrs',
     // brendan_of_clonfert_abbot: 'Saint Brendan, Abbot',
-    // bridget_of_sweden_religious: 'Saint Bridget, Religious',
-    // bridget_of_sweden_religious_copatroness_of_europe: 'Saint Bridget, Religious, Copatroness of Europe',
+    bridget_of_sweden_religious: 'Szent Brigitta szerzetesnő',  // src: mr_hu_1991_ed2
+    bridget_of_sweden_religious_copatroness_of_europe: 'Szent Brigitta szerzetesnő, A Fülöp-szigetek társpatrónája',  // based on: mr_hu_1991_ed2
     // brigid_of_kildare_virgin: 'Saint Brigid, Abbess',
     // brigid_of_kildare_virgin_copatroness_of_ireland: 'Saint Brigid, Virgin, Copatroness of Ireland',
     // bronislava_of_poland_virgin: 'Blessed Bronislava, Virgin',
     // bronislaw_markiewicz_priest: 'Blessed Bronisław Markiewicz, Priest',
-    // bruno_of_cologne_priest: 'Saint Bruno, Priest',
+    bruno_of_cologne_priest: 'Szent Brúnó áldozópap',  // src: mr_hu_1991_ed2
     // bruno_of_querfurt_bishop: 'Saint Bruno of Querfurt, Bishop And Martyr',
     // caesarius_of_arles_bishop: 'Saint Caesarius of Arles, Bishop',
-    // cajetan_of_thiene_priest: 'Saint Cajetan, Priest',
-    callistus_i_pope: 'Szent I. Kallixtusz pápa és vértanú', // src: mr_hu_1991_ed2
-    // camillus_de_lellis_priest: 'Saint Camillus de Lellis, Priest',
+    cajetan_of_thiene_priest: 'Szent Kajetán áldozópap',  // src: mr_hu_1991_ed2
+    callistus_i_pope: 'Szent I. Kallixtusz pápa és vértanú',  // src: mr_hu_1991_ed2
+    camillus_de_lellis_priest: 'Lellisi Szent Kamill áldozópap',  // src: mr_hu_1991_ed2
     // canice_of_kilkenny_abbot: 'Saint Canice, Abbot',
     // canute_iv_of_denmark_eric_ix_of_sweden_and_olaf_ii_of_norway_martyrs: 'Saints Canute, Eric and Olaf, Martyrs',
     // canute_iv_of_denmark_martyr: 'Saint Canute, Martyr',
@@ -272,28 +272,28 @@ export const locale: Locale = {
     // catherine_of_alexandria_virgin: 'Saint Catherine of Alexandria, Virgin and Martyr',
     // catherine_of_saint_augustine_de_simon_de_longpre_virgin: 'Blessed Catherine of Saint Augustine, Virgin',
     catherine_of_siena_virgin: 'Sienai Szent Katalin szűz és egyháztanító',  // src: mr_hu_1991_ed2
-    catherine_of_siena_virgin_copatroness_of_europe: 'Sienai Szent Katalin szűz és egyháztanító, Európa társvédőszentje',  // src: mr_hu_1991_ed2 (patronage title copied from other celebration names)
-    catherine_of_siena_virgin_copatroness_of_italy_and_europe: 'Sienai Szent Katalin szűz és egyháztanító, Olaszország és Európa társvédőszentje',  // src: mr_hu_1991_ed2 (patronage title copied from other celebration names)
+    catherine_of_siena_virgin_copatroness_of_europe: 'Sienai Szent Katalin szűz és egyháztanító, Európa társvédőszentje',  // based on: mr_hu_1991_ed2
+    catherine_of_siena_virgin_copatroness_of_italy_and_europe: 'Sienai Szent Katalin szűz és egyháztanító, Olaszország és Európa társvédőszentje',  // based on: mr_hu_1991_ed2
     // catherine_zoe_laboure_virgin: 'Saint Catherine Labouré, Virgin',
     // ceallach_of_armagh_bishop: 'Saint Ceallach, Bishop',
-    // cecilia_of_rome_virgin: 'Saint Cecilia, Virgin and Martyr',
+    cecilia_of_rome_virgin: 'Szent Cecília szűz és vértanú',  // src: mr_hu_1991_ed2
     // ceferino_gimenez_malla_martyr: 'Blessed Ceferino Giménez Malla, Martyr',
     // ceraunus_of_paris_bishop: 'Saint Ceraunus of Paris, Bishop',
     // ceslaus_of_poland_and_hyacinth_of_poland_priests: 'Blessed Ceslaus and Saint Hyacinth, Priests',
     // ceslaus_of_poland_priest: 'Blessed Ceslaus, Priest',
     // chad_of_mercia_and_cedd_of_lastingham_bishops: 'Saints Chad and Cedd, Bishops',
     chair_of_saint_peter_the_apostle: 'Szent Péter apostol székfoglalása',  // src: mr_hu_1991_ed2
-    charles_borromeo_bishop: 'Borromeo Szent Károly püspök', // src: mr_hu_1991_ed2
+    charles_borromeo_bishop: 'Borromeo Szent Károly püspök',  // src: mr_hu_1991_ed2
     // charles_i_of_austria: 'Blessed Charles of Austria',
-    // charles_lwanga_and_companions_martyrs: 'Saints Charles Lwanga and Companions, Martyrs',
+    charles_lwanga_and_companions_martyrs: 'Lwanga Szent Károly és társai vértanúk',  // src: mr_hu_1991_ed2
     // charles_of_jesus_de_foucauld: 'Saint Charles de Foucauld, Priest',
     // charles_spinola_and_jerome_de_angelis_priests: 'Blesseds Charles Spinola and Jerome de Angelis, Priests and Martyrs',
     // charles_spinola_priest: 'Blessed Charles Spinola, Priest and Martyr',
     // christopher_magallanes_priest_and_companions_martyrs: 'Saint Christopher Magallanes, Priest, and Companions, Martyrs',
     // christopher_of_palestine_martyr: 'Saint Christopher, Martyr',
     // ciaran_of_clonmacnoise_abbot: 'Saint Ciaran, Abbot',
-    // clare_of_assisi_virgin: 'Saint Clare, Virgin',
-    // clement_i_pope: 'Saint Clement I, Pope and Martyr',
+    clare_of_assisi_virgin: 'Szent Klára szűz',  // src: mr_hu_1991_ed2
+    clement_i_pope: 'Szent I. Kelemen pápa és vértanú',  // src: mr_hu_1991_ed2
     // clement_mary_hofbauer_priest: 'Saint Clement Mary Hofbauer, Priest',
     // clement_of_ohrid_and_gorazd_of_moravia_bishops_and_companions: 'Saints Clement of Ohrid and Gorazd, Bishops, and Companions',
     // clotilde_of_burgundy: 'Saint Clotilde',
@@ -303,23 +303,23 @@ export const locale: Locale = {
     // columba_marmion_priest: 'Blessed Columba Marmion, Priest',
     // columba_of_iona_abbot: 'Saint Columba, Abbot',
     // columba_of_iona_abbot_copatron_of_ireland: 'Saint Columba, Abbot and Missionary, Copatron of Ireland',
-    // columban_of_luxeuil_abbot: 'Saint Columban, Abbot',
+    columban_of_luxeuil_abbot: 'Szent Kolumbán apát',  // src: mr_hu_1991_ed2
     // comgall_of_bangor_abbot: 'Saint Comgall, Abbot',
-    // commemoration_of_all_the_faithful_departed: 'The Commemoration of All the Faithful Departed (All Soul’s Day)',
+    commemoration_of_all_the_faithful_departed: 'Halottak napja',  // src: mr_hu_1991_ed2
     // conleth_of_kildare_bishop: 'Saint Conleth, Bishop',
     // conrad_of_constance_and_gebhard_of_constance_bishops: 'Saints Conrad and Gebhard of Constance, Bishops',
     // conrad_of_parzham_religious: 'Saint Conrad of Parzham, Religious',
     conversion_of_saint_paul_the_apostle: 'Szent Pál apostol megtérése (Pál fordulása)',  // src: mr_hu_1991_ed2
     // corbinian_of_freising_bishop: 'Saint Corbinian, Bishop',
-    // cornelius_i_pope_and_cyprian_of_carthage_bishop_martyrs: 'Saints Cornelius, Pope, and Cyprian, Bishop, Martyrs',
-    // cosmas_of_cilicia_and_damian_of_cilicia_martyrs: 'Saints Cosmas and Damian, Martyrs',
+    cornelius_i_pope_and_cyprian_of_carthage_bishop_martyrs: 'Szent Kornél pápa és Szent Ciprián püspök vértanúk',  // src: mr_hu_1991_ed2
+    cosmas_of_cilicia_and_damian_of_cilicia_martyrs: 'Szent Kozma és Damján vértanúk',  // src: mr_hu_1991_ed2
     // cuthbert_of_lindisfarne_bishop: 'Saint Cuthbert, Bishop',
     cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop: 'Szent Cirill szerzetes és Szent Metód puspök',  // src: mr_hu_1991_ed2
     cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop_copatrons_of_europe: 'Szent Cirill szerzetes és Szent Metód puspök, Európa társvédőszentjei',  // src: mr_hu_1991_ed2
     cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop_slavic_missionaries_copatrons_of_europe: 'Szent Cirill szerzetes és Szent Metód puspök, Sláv apostolok, Európa társvédőszentjei',  // based on: mr_hu_1991_ed2 + https://hu.wikipedia.org/w/index.php?title=Szent_Cirill&oldid=26358926
-    // cyril_of_alexandria_bishop: 'Saint Cyril of Alexandria, Bishop and Doctor of the Church',
+    cyril_of_alexandria_bishop: 'Alexandriai Szent Cirill püspök és egyháztanító',  // src: mr_hu_1991_ed2
     cyril_of_jerusalem_bishop: 'Jeruzsálemi Szent Cirill püspök és egyháztanító',  // src: mr_hu_1991_ed2
-    // damasus_i_pope: 'Saint Damasus I, Pope',
+    damasus_i_pope: 'Szent I. Damazusz pápa',  // src: mr_hu_1991_ed2
     // damien_de_veuster_priest: 'Saint Damien de Veuster, Priest',
     // daniel_brottier_priest: 'Blessed Daniel Brottier, Priest',
     // david_lewis_priest: 'Saint David Lewis, Priest and Martyr',
@@ -327,22 +327,22 @@ export const locale: Locale = {
     // david_of_wales_bishop_patron_of_wales: 'Saint David, Bishop, Patron of Wales',
     // davnet_of_sliabh_beagh_virgin: 'Saint Davnet, Virgin',
     // declan_of_ardmore_bishop: 'Saint Declan, Bishop',
-    // dedication_of_consecrated_churches: 'The Dedication of Consecrated Churches Whose Date of Consecration is Unknown',
-    // dedication_of_the_basilica_of_saint_mary_major: 'The Dedication of the Basilica of Saint Mary Major',
-    // dedication_of_the_basilicas_of_saints_peter_and_paul_apostles: 'The Dedication of the Basilicas of Saints Peter and Paul, Apostles',
+    dedication_of_consecrated_churches: 'A saját templom felszentelése (amennyiben annak napja nem ismeretes)',  // src: mr_hu_1991_ed2
+    dedication_of_the_basilica_of_saint_mary_major: 'Szűz Mária római főtemplomának felszentelése (Havas Boldogasszony)',  // src: mr_hu_1991_ed2
+    dedication_of_the_basilicas_of_saints_peter_and_paul_apostles: 'Szent Péter- és Szent Pál-bazilikák felszentelése',  // src: mr_hu_1991_ed2
     // dedication_of_the_cathedral_basilica_of_saint_denis_france: 'The Dedication of the Cathedral Basilica of Saint-Denis, France',
     // dedication_of_the_cathedral_of_notre_dame_de_strasbourg_france: 'The Dedication of the Cathedral of Notre-Dame of Strasbourg',
-    // dedication_of_the_lateran_basilica: 'The Dedication of the Lateran Basilica',
+    dedication_of_the_lateran_basilica: 'A lateráni-bazilika felszentelése',  // src: mr_hu_1991_ed2
     // dedication_of_the_notre_dame_de_paris_cathedral_paris_france: 'The Dedication of the Notre-Dame de Paris Cathedral, Paris',
     // deiniol_of_bangor_bishop: 'Saint Deiniol, Bishop',
     // demetrius_of_thessaloniki_martyr: 'Saint Demetrius of Thessaloniki, Martyr',
-    // denis_of_paris_bishop_and_companions_martyrs: 'Saint Denis, Bishop, and Companions, Martyrs',
-    // denis_of_paris_bishop_patron_of_the_archdiocese_of_paris: 'Saint Denis, Bishop and Martyr, Patron of the Archdiocese of Paris',
-    // denis_of_paris_bishop_patron_of_the_city_and_of_the_diocese_of_saint_denis: 'Saint Denis, Bishop and Martyr, Patron of the City and of the Diocese of Saint-Denis',
+    denis_of_paris_bishop_and_companions_martyrs: 'Szent Dénes püspök és társai vértanúk',  // src: mr_hu_1991_ed2
+    denis_of_paris_bishop_patron_of_the_archdiocese_of_paris: 'Szent Dénes püspök és társai vértanúk, a Párizsi főegyházmegye védőszentje',  // based on: mr_hu_1991_ed2
+    denis_of_paris_bishop_patron_of_the_city_and_of_the_diocese_of_saint_denis: 'Szent Dénes püspök és társai vértanúk, A Saint-Denis-i város és egyházmegye védőszentje',  // based on: mr_hu_1991_ed2
     // dina_belanger_virgin: 'Blessed Dina Bélanger, Virgin',
     // dionysius_the_areopagite_bishop: 'Saint Dionysius the Areopagite, Bishop and Martyr',
     // divine_mercy_sunday: 'Second Sunday of Easter or Sunday of Divine Mercy',
-    // dominic_de_guzman_priest: 'Saint Dominic, Priest',
+    dominic_de_guzman_priest: 'Szent Domonkos áldozópap',  // src: mr_hu_1991_ed2
     // dominic_of_the_mother_of_god_barberi_priest: 'Blessed Dominic of the Mother of God Barberi, Priest',
     // dunstan_of_canterbury_bishop: 'Saint Dunstan, Bishop',
     // dyfrig_of_wales_bishop: 'Saint Dyfrig, Bishop',
@@ -356,14 +356,14 @@ export const locale: Locale = {
     // elijah_prophet: 'Saint Elijah, Prophet',
     // elizabeth_ann_seton_religious: 'Saint Elizabeth Ann Seton, Religious',
     // elizabeth_hesselblad_religious: 'Saint Elizabeth Hesselblad, Religious',
-    // elizabeth_of_hungary_religious: 'Saint Elizabeth of Hungary, Religious',
-    // elizabeth_of_portugal: 'Saint Elizabeth of Portugal',
-    // emeric_of_hungary: 'Saint Emeric',
+    elizabeth_of_hungary_religious: 'Árpád-házi Szent Erzsébet',  // src: mr_hu_1991_ed2
+    elizabeth_of_portugal: 'Portugáliai Szent Erzsébet',  // src: mr_hu_1991_ed2
+    emeric_of_hungary: 'Szent Imre herceg',  // src: mr_hu_1991_ed2
     // emilie_tavernier_gamelin_religious: 'Blessed Émilie Tavernier-Gamelin, Religious',
     // enda_of_aran_abbot: 'Saint Enda, Abbot',
     // english_martyrs: 'English Martyrs',
     // eoghan_of_ardstraw_bishop: 'Saint Eoghan, Bishop',
-    // ephrem_the_syrian_deacon: 'Saint Ephrem, Deacon and Doctor of the Church',
+    ephrem_the_syrian_deacon: 'Szent Efrém diakónus és egyháztanító',  // src: mr_hu_1991_ed2
     epiphany_of_the_lord: 'Urunk megjelenése (Vízkereszt)',  // src: mr_hu_1991_ed2
     // eric_ix_of_sweden_martyr: 'Saint Eric IX of Sweden, Martyr',
     // etheldreda_of_ely_abbess: 'Saint Etheldreda, Abbess',
@@ -373,8 +373,8 @@ export const locale: Locale = {
     // eulalia_of_merida_virgin: 'Saint Eulalia of Merida, Virgin and Martyr',
     // eulogius_of_cordoba_bishop: 'Saint Eulogius of Córdoba, Bishop',
     // eusebius_of_esztergom_priest: 'Blessed Eusebius of Esztergom, Priest',
-    // eusebius_of_vercelli_bishop: 'Saint Eusebius of Vercelli, Bishop',
-    // exaltation_of_the_holy_cross: 'The Exaltation of the Holy Cross',
+    eusebius_of_vercelli_bishop: 'Vercelli Szent Özséb püspök',  // src: mr_hu_1991_ed2
+    exaltation_of_the_holy_cross: 'A Szent Kereszt felmagasztalása',  // src: mr_hu_1991_ed2
     // eysteinn_of_nidaros_bishop: 'Saint Eysteinn of Nidaros, Bishop',
     // ezequiel_moreno_bishop: 'Saint Ezequiel Moreno, Bishop',
     fabian_i_pope: 'Szent Fábián pápa és vértanú',  // src: mr_hu_1991_ed2
@@ -388,7 +388,7 @@ export const locale: Locale = {
     // finding_of_the_holy_cross: 'Finding of the Holy Cross',
     // finnian_of_clonard_bishop: 'Saint Finian, Bishop',
     // fintan_of_clonenagh_abbot: 'Saint Fintan, Abbot',
-    // first_martyrs_of_the_holy_roman_church: 'The First Martyrs of the Holy Roman Church',
+    first_martyrs_of_the_holy_roman_church: 'A római Egyház első szent vértanúi',  // src: mr_hu_1991_ed2
     // first_polish_martyrs: 'Saints Benedict, John, Matthew, Isaac and Christian, the First Polish Martyrs',
     // five_wounds_of_the_lord: 'Five Wounds of the Lord',
     // flannan_of_killaloe_bishop: 'Saint Flannan, Bishop',
@@ -401,16 +401,16 @@ export const locale: Locale = {
     francis_de_sales_bishop: 'Szalézi Szent Ferenc püspök és egyháztanító',  // src: mr_hu_1991_ed2
     // francis_diaz_del_rincon_priest_and_companions_martyrs: 'Saint Francis Díaz del Rincon, Priest, and Companions, Martyrs',
     // francis_ferdinand_de_capillas_priest: 'Saint Francis Ferdinand de Capillas, Priest and Martyr',*/
-    francis_of_assisi: 'Assisi Szent Ferenc',
-    francis_of_assisi_patron_of_italy: 'Assisi Szent Ferenc, Olaszország védőszentje',  // I am not sure whether we should use `védőszentje or `fővédőszentje`
+    francis_of_assisi: 'Assisi Szent Ferenc',  // src: mr_hu_1991_ed2
+    francis_of_assisi_patron_of_italy: 'Assisi Szent Ferenc, Olaszország védőszentje',  // src: mr_hu_1991_ed2
     francis_of_paola_hermit: 'Paolai Szent Ferenc remete',  // src: mr_hu_1991_ed2
     // francis_solanus_priest: 'Saint Francis Solanus, Priest',
-    // francis_xavier_priest: 'Saint Francis Xavier, Priest',
+    francis_xavier_priest: 'Xavéri Szent Ferenc áldozópap',  // src: mr_hu_1991_ed2
     // francis_xavier_seelos_priest: 'Blessed Francis Xavier Seelos, priest',
     // francois_de_montmorency_laval_bishop: 'Saint François de Laval, Bishop',
     // frederic_janssoone_priest: 'Blessed Frédéric Janssoone, Priest',
     // frederic_ozanam_founder: 'Blessed Frédéric Ozanam, Founder',
-    // friday_of_the_passion_of_the_lord: 'Friday of the Passion of the Lord',
+    friday_of_the_passion_of_the_lord: 'Az Úr szenvedésének ünneplése',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=87
     // fridolin_of_sackingen_monk: 'Saint Fridolin of Säckingen, Monk',
     // fructuosus_of_braga_martin_of_braga_and_gerald_of_braga_bishops: 'Saints Fructuosus, Martin and Gerald of Braga, Bishops',
     // fructuosus_of_tarragona_bishop_and_augurius_of_tarragona_and_eulogius_of_tarragona_deacons_martyrs: 'Saints Fructuosus, Bishop, Augurius and Eulogius, Deacons, Martyrs',
@@ -422,30 +422,30 @@ export const locale: Locale = {
     george_of_lydda_martyr: 'Szent György vértanú',  // src: mr_hu_1991_ed2
     // george_of_lydda_martyr_patron_of_england: 'Saint George, Martyr, Patron of England',
     // george_preca_priest: 'Saint George Preca, Priest',
-    // gerard_of_csanad_bishop: 'Saint Gerard of Csanád, Bishop and Martyr',
+    gerard_of_csanad_bishop: 'Szent Gellért püspök és vértanú',  // src: mr_hu_1991_ed2
     // germain_of_paris_bishop: 'Saint Germain of Paris, Bishop',
     // germanus_of_auxerre_bishop: 'Saint Germanus of Auxerre, Bishop',
     // gertrude_of_nivelles_abbess: 'Saint Gertrude of Nivelles, Abbess',
-    // gertrude_the_great_virgin: 'Saint Gertrude, Virgin',
+    gertrude_the_great_virgin: 'Nagy Szent Gertrúd szűz',  // src: mr_hu_1991_ed2
     gisela_of_hungary: 'Boldog Gizella',  // src: mr_hu_1991_ed2
     // gobnait_of_ballyvourney_virgin: 'Saint Gobnait, Virgin',
     // gorazd_of_moravia_and_companions: 'Saint Gorazd and Companions',
     // gotthard_of_hildesheim_bishop: 'Saint Gotthard, Bishop',
     // gratia_of_cattaro_religious: 'Blessed Gratia of Cattaro, Religious',
     // gregory_grassi_francis_fogolla_and_anthony_fantosati_bishops_and_companions_martyrs: 'Saints Gregory Grassi, Francis Fogolla and Anthony Fantosati, Bishops, and Companions, Martyrs',
-    // gregory_i_the_great_pope: 'Saint Gregory the Great, Pope and Doctor of the Church',
+    gregory_i_the_great_pope: 'Nagy Szent Gergely pápa és egyháztanító',  // src: mr_hu_1991_ed2
     // gregory_of_narek_abbot: 'Saint Gregory of Narek, Abbot and Doctor of the Church',
     gregory_vii_pope: 'Szent VII. Gergely pápa',  // src: mr_hu_1991_ed2
     guardian_angel_of_portugal: 'Portugália Őrzőangyala',
     // gundisalvus_garcia_martyr: 'Saint Gundisalvus Garcia, Martyr',
     // gundisalvus_of_amarante_priest: 'Blessed Gundisalvus of Amarante, Priest',
     // gundisalvus_of_lagos_priest: 'Blessed Gundisalvus of Lagos, Priest',
-    // hedwig_of_poland: 'Saint Hedwig of Poland',
-    // hedwig_of_silesia_religious: 'Saint Hedwig, Religious',
+    hedwig_of_poland: 'Boldog Hedvig királyné',  // src: mr_hu_1991_ed2
+    hedwig_of_silesia_religious: 'Szent Hedvig szerzetesnő',  // src: mr_hu_1991_ed2
     // helena_of_constantinople: 'Saint Helena',
     // hemma_of_gurk: 'Saint Hemma of Gurk',
     // hemming_of_turku_bishop: 'Blessed Hemming of Turku, Bishop',
-    // henry_ii_emperor: 'Saint Henry',
+    henry_ii_emperor: 'Szent Henrik',  // src: mr_hu_1991_ed2
     // henry_ii_emperor_and_cunigunde_of_luxembourg: 'Saints Henry and Cunigunde',
     // henry_of_finland_bishop: 'Saint Henry, Bishop and Martyr',
     // henry_suso_priest: 'Blessed Henry Suso, Priest',
@@ -455,31 +455,31 @@ export const locale: Locale = {
     // hilda_of_whitby_abbess: 'Saint Hilda, Abbess',
     // hildegard_of_bingen_abbess: 'Saint Hildegard of Bingen, Abbess and Doctor of the Church',
     // holy_child_of_cebu: 'The Holy Child of Cebú',
-    // holy_family_of_jesus_mary_and_joseph: 'The Holy Family of Jesus, Mary and Joseph',
-    holy_guardian_angels: 'Szent Őrzőangyalok',
-    // holy_innocents_martyrs: 'The Holy Innocents, Martyrs',
-    // holy_saturday: 'Holy Saturday/Easter Vigil',
-    // holy_thursday: 'Holy Thursday',
+    holy_family_of_jesus_mary_and_joseph: 'A Szent Család',  // src: mr_hu_1991_ed2
+    holy_guardian_angels: 'Szent Őrzőangyalok',  // src: mr_hu_1991_ed2
+    holy_innocents_martyrs: 'Aprószentek, vértanúk',  // src: mr_hu_1991_ed2
+    holy_saturday: 'Nagyszombat/Húsvéti vigília',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=88 + https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=92
+    holy_thursday: 'Nagycsütörtök',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=81
     // honorat_kozminski_priest: 'Blessed Honorat Koźmiński, Priest',
     // hosanna_of_cattaro_virgin: 'Blessed Hosanna of Cattaro, Virgin',
     // hroznata_of_bohemia_martyr: 'Blessed Hroznata, Martyr',
     // hubert_of_liege_bishop: 'Saint Hubert, Bishop',
     // hugh_of_lincoln_bishop: 'Saint Hugh of Lincoln, Bishop',
-    // hungarian_saints_and_blesseds: 'Magyar szentek és boldogok',
+    hungarian_saints_and_blesseds: 'Magyar szentek és boldogok',  // src: mr_hu_1991_ed2
     // hyacinth_of_poland_priest: 'Saint Hyacinth, Priest',
     // ignatius_de_azevedo_priest_and_companions_martyrs: 'Blessed Ignatius de Azevedo, Priest, and Companions, Martyrs',
     // ignatius_falzon: 'Blessed Ignatius Falzon',
-    // ignatius_of_antioch_bishop: 'Saint Ignatius of Antioch, Bishop and Martyr',
-    // ignatius_of_loyola_priest: 'Saint Ignatius of Loyola, Priest',
+    ignatius_of_antioch_bishop: 'Antiochiai Szent Ignác püspök és vértanú',  // src: mr_hu_1991_ed2
+    ignatius_of_loyola_priest: 'Loyolai Szent Ignác áldozópap',  // src: mr_hu_1991_ed2
     // ildephonsus_of_toledo_bishop: 'Saint Ildephonsus of Toledo, Bishop',
     // illtud_the_knight_abbot: 'Saint Illtud, Abbot',
-    // immaculate_conception_of_the_blessed_virgin_mary: 'The Immaculate Conception of the Blessed Virgin Mary',
-    // immaculate_conception_of_the_blessed_virgin_mary_patroness_of_the_philippines: 'The Immaculate Conception of the Blessed Virgin Mary, Patroness of the Philippines',
-    // immaculate_conception_of_the_blessed_virgin_mary_patroness_of_the_usa: 'The Immaculate Conception of the Blessed Virgin Mary, Patroness of the USA',
+    immaculate_conception_of_the_blessed_virgin_mary: 'A Boldogságos Szűz Mária szeplőtelen fogantatása',  // src: mr_hu_1991_ed2
+    immaculate_conception_of_the_blessed_virgin_mary_patroness_of_the_philippines: 'A Boldogságos Szűz Mária szeplőtelen fogantatása, a Fülöp-szigetek védőszentje',  // based on: mr_hu_1991_ed2
+    immaculate_conception_of_the_blessed_virgin_mary_patroness_of_the_usa: 'A Boldogságos Szűz Mária szeplőtelen fogantatása, az Egyesült Államok védőszentje',  // based on: mr_hu_1991_ed2
     immaculate_heart_of_mary: 'A Boldogságos Szűz Mária Szeplőtelen Szíve',  // src: mr_hu_1991_ed2
-    // innocent_v_pope: 'Blessed Innocent V, Pope',
-    // innocent_xi_pope: 'Blessed Innocent XI, Pope',
-    // irenaeus_of_lyon_bishop: 'Saint Irenaeus, Bishop, Martyr and Doctor of the Church',
+    innocent_v_pope: 'Boldog V. Ince Pápa',  // based on: mr_hu_1991_ed2
+    innocent_xi_pope: 'Boldog XI. Ince Pápa',  // src: mr_hu_1991_ed2
+    irenaeus_of_lyon_bishop: 'Szent Iréneusz püspök és vértanú',  // src: mr_hu_1991_ed2
     // irene_of_macedonia: 'Saint Irene',
     // irish_martyrs: 'Irish Martyrs',
     // isabelle_of_france_virgin: 'Blessed Isabelle of France, Virgin',
@@ -490,50 +490,50 @@ export const locale: Locale = {
     // ivan_merz: 'Blessed Ivan Merz',
     // ivo_of_kermartin_priest: 'Saint Ivo, Priest',
     // jacinta_marto_and_francisco_marto: 'Saints Jacinta and Francisco Marto',
-    james_apostle: 'Szent Jakab apostol',
-    // james_apostle_patron_of_spain: 'Saint James, Apostle, Patron of Spain',
+    james_apostle: 'Szent Jakab apostol',  // src: mr_hu_1991_ed2
+    james_apostle_patron_of_spain: 'Szent Jakab apostol, Spanyolország védőszentje',  // based on: mr_hu_1991_ed2
     // james_strzemie_bishop: 'Blessed James Strzemię, Bishop',
-    // jane_frances_de_chantal_religious: 'Saint Jane Frances de Chantal, Religious',
-    // januarius_i_of_benevento_bishop: 'Saint Januarius, Bishop and Martyr',
+    jane_frances_de_chantal_religious: 'Chantal Szent Johanna Franciska szerzetesnő',  // src: mr_hu_1991_ed2
+    januarius_i_of_benevento_bishop: 'Szent Januáriusz püspök és vértanú',  // src: mr_hu_1991_ed2
     // jarlath_of_tuam_bishop: 'Saint Jarlath, Bishop',
     jerome_emiliani: 'Emiliáni Szent Jeromos',  // src: mr_hu_1991_ed2
-    // jerome_of_stridon_priest: 'Saint Jerome, Priest and Doctor of the Church',
-    // joachim_and_anne_parents_of_mary: 'Saints Joachim and Anne, Parents of the Blessed Virgin Mary',
-    // joachim_and_anne_patroness_of_the_province_of_quebec_parents_of_mary: 'Saints Anne, Patroness of the Province of Quebec, and Joachim, Parents of the Blessed Virgin Mary',
+    jerome_of_stridon_priest: 'Szent Jeromos áldozópap és egyháztanító',  // src: mr_hu_1991_ed2
+    joachim_and_anne_parents_of_mary: 'Szent Joakim és Szent Anna, a Boldogságos Szűz Mária szülei',  // src: mr_hu_1991_ed2
+    joachim_and_anne_patroness_of_the_province_of_quebec_parents_of_mary: 'Szent Anna, Quebec tartomány védőszentje, és Szent Joakim, a Boldogságos Szűz Mária szülei',  // based on: mr_hu_1991_ed2 + https://divany.hu/kultbait/2020/06/24/keresztelo-szent-janos/
     // joachim_he_kaizhi_martyr: 'Saint Joachim He Kaizhi, Martyr',
     // joan_of_arc_virgin_copatroness_of_france: 'Saint Joan of Arc, Virgin, Copatroness of France',
     // joan_of_portugal_virgin: 'Blessed Joan of Portugal, Virgin',
     // joaquina_of_saint_francis_of_assisi_de_vedruna_religious: 'Saint Joaquina of Saint Francis of Assisi de Vedruna, Religious',
-    // john_apostle: 'Szent János apostol és evangelista',
+    john_apostle: 'Szent János apostol és evangélista',  // src: mr_hu_1991_ed2
     john_baptist_de_la_salle_priest: 'De la Salle Szent János áldozópap',  // src: mr_hu_1991_ed2
     // john_berchmans_religious: 'Saint John Berchmans, Religious',
     // john_beyzym_priest: 'Blessed John Beyzym, Priest',
     john_bosco_priest: 'Bosco Szent János áldozópap',  // src: mr_hu_1991_ed2
     // john_brenner_priest: 'Blessed John Brenner, Priest and Martyr',
     // john_cassian_priest: 'Saint John Cassian, Priest',
-    // john_chrysostom_bishop: 'Saint John Chrysostom, Bishop and Doctor of the Church',
-    // john_damascene_priest: 'Saint John Damascene, Priest and Doctor of the Church',
-    // john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs: 'Saints John de Brébeuf and Isaac Jogues, Priests, and Companions, Martyrs',
-    // john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs_copatrons_of_canada: 'Saints John de Brébeuf and Isaac Jogues, Priests, and Companions, Martyrs, Copatrons of Canada',
+    john_chrysostom_bishop: 'Aranyszájú (Krizosztomosz) Szent János püspök és egyháztanító',  // src: mr_hu_1991_ed2
+    john_damascene_priest: 'Damaszkuszi Szent János áldozópap és egyháztanító',  // src: mr_hu_1991_ed2
+    john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs: 'De Brébeuf Szent János és Jogues Szent Izsák áldozópapok és társaik vértanúk',  // src: mr_hu_1991_ed2
+    john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs_copatrons_of_canada: 'De Brébeuf Szent János és Jogues Szent Izsák áldozópapok és társaik vértanúk, Kanada társvédőszentje',  // based on: mr_hu_1991_ed2
     // john_de_britto_priest: 'Saint John de Brito, Priest and Martyr',
-    // john_eudes_priest: 'Saint John Eudes, Priest',
-    // john_fisher_bishop_and_thomas_more_martyrs: 'Saints John Fisher, Bishop, and Thomas More, Martyrs',
+    john_eudes_priest: 'Eudes Szent János áldozópap',  // src: mr_hu_1991_ed2
+    john_fisher_bishop_and_thomas_more_martyrs: 'Fisher Szent János püspök és Morus Szent Tamás vértanúk',  // src: mr_hu_1991_ed2
     // john_gabriel_perboyre_priest: 'Saint John Gabriel Perboyre, Priest and Martyr',
     // john_henry_newman_priest: 'Saint John Henry Newman, Priest',
     john_i_pope: 'Szent I. János pápa és vértanú',  // src: mr_hu_1991_ed2
     // john_jones_priest: 'Saint John Jones, Priest and Martyr',
-    // john_leonardi_priest: 'Saint John Leonardi, Priest',
+    john_leonardi_priest: 'Leonardi Szent János áldozópap',  // src: mr_hu_1991_ed2
     // john_macias_religious: 'Saint John Macías, Religious',
     // john_martin_moye_priest: 'Blessed John Martin Moye, Priest',
-    // john_mary_vianney_priest: 'Saint John Mary Vianney, Priest',
+    john_mary_vianney_priest: 'Vianney Szent János Mária áldozópap',  // src: mr_hu_1991_ed2
     // john_nepomucene_neumann_bishop: 'Saint John Neumann, Bishop',
     john_nepomucene_priest: 'Nepomuki Szent János áldozópap és vértanú',  // src: mr_hu_1991_ed2
     // john_of_avila_priest: 'Saint John of Ávila, Priest and Doctor of the Church',
-    // john_of_capistrano_priest: 'Saint John of Capistrano, Priest',
+    john_of_capistrano_priest: 'Kapisztrán Szent János áldozópap',  // src: mr_hu_1991_ed2
     // john_of_dukla_priest: 'Saint John of Dukla, Priest',
     john_of_god_duarte_cidade_religious: 'Istenes Szent János szerzetes',  // src: mr_hu_1991_ed2
-    // john_of_kanty_priest: 'Saint John of Kanty, Priest',
-    // john_of_the_cross_priest: 'Saint John of the Cross, Priest and Doctor of the Church',
+    john_of_kanty_priest: 'Kęty Szent János áldozópap',  // src: mr_hu_1991_ed2
+    john_of_the_cross_priest: 'Keresztes Szent János áldozópap és egyháztanító',  // src: mr_hu_1991_ed2
     // john_of_triora_priest: 'Saint John of Triora, Priest and Martyr',
     // john_ogilvie_priest: 'Saint John Ogilvie, Priest and Martyr',
     john_paul_ii_pope: 'Szent II. János Pál pápa',  // based on: mr_hu_1991_ed2
@@ -541,16 +541,16 @@ export const locale: Locale = {
     // john_sarkander_priest: 'Saint John Sarkander, Priest and Martyr',
     // john_scheffler_bishop: 'Blessed John Scheffler, Bishop and Martyr',
     john_xxiii_pope: 'Szent XXIII. János pápa',
-    // josaphat_kuntsevych_bishop: 'Saint Josaphat, Bishop and Martyr',
+    josaphat_kuntsevych_bishop: 'Szent Jozafát püspök és vértanú',  // src: mr_hu_1991_ed2
     // jose_maria_de_yermo_y_parres_priest: 'Saint José Maria de Yermo y Parres, Priest',
     // josemaria_escriva_de_balaguer_priest: 'Saint Josemaría Escrivá de Balaguer, Priest',
     // joseph_bilczewski_bishop: 'Saint Joseph Bilczewski, Bishop',
     // joseph_de_anchieta_priest: 'Saint Joseph de Anchieta, Priest',
     // joseph_freinademetz_priest: 'Saint Joseph Freinademetz, Priest',
-    // joseph_of_calasanz_priest: 'Saint Joseph of Calasanz, Priest',
+    joseph_of_calasanz_priest: 'Kalazanci Szent József áldozópap',  // src: mr_hu_1991_ed2
     // joseph_sebastian_pelczar_bishop: 'Saint Joseph Sebastian Pelczar, Bishop',
     joseph_spouse_of_mary: 'Szent József, a Boldogságos Szűz Mária jegyese',  // src: mr_hu_1991_ed2
-    joseph_spouse_of_mary_patron_of_canada: 'Szent József, a Boldogságos Szűz Mária jegyese, Kanada védőszentje',  // based on: mr_hu_1991_ed2; I am not sure whether we should use `védőszentje or `fővédőszentje`
+    joseph_spouse_of_mary_patron_of_canada: 'Szent József, a Boldogságos Szűz Mária jegyese, Kanada védőszentje',  // based on: mr_hu_1991_ed2
     joseph_the_worker: 'Szent József, a munkás',  // src: mr_hu_1991_ed2
     // joseph_vaz_priest: 'Saint Joseph Vaz, Priest',
     // joseph_yuan_gengyin_priest: 'Saint Joseph Yuan Gengyin, Priest and Martyr',
@@ -568,11 +568,11 @@ export const locale: Locale = {
     // kieran_of_saigir_bishop: 'Saint Kieran, Bishop',
     // kilian_of_wurzburg_bishop: 'Saint Kilian, Bishop and Martyr',
     // kilian_of_wurzburg_bishop_and_companions_martyrs: 'Saint Kilian, Bishop, and Companions, Martyrs',
-    // kinga_of_poland_virgin: 'Saint Kinga, Virgin',
+    kinga_of_poland_virgin: 'Árpád-házi Boldog Kinga szűz',  // src: mr_hu_1991_ed2
     // kuriakose_elias_of_the_holy_family_chavara_priest: 'Saint Kuriakose Elias of the Holy Family Chavara, priest',
     // ladislas_of_gielniow_priest: 'Blessed Ladislas of Gielniow, Priest',
     // ladislaus_batthyany_strattmann: 'Blessed Ladislaus Batthyány-Strattmann',
-    // ladislaus_i_of_hungary: 'Saint Ladislaus',
+    ladislaus_i_of_hungary: 'Szent László király',  // src: mr_hu_1991_ed2
     // lambert_of_maastricht_bishop: 'Saint Lambert of Maastricht, Bishop and Martyr',
     // landry_of_paris_bishop: 'Saint Landry of Paris, Bishop',
     // laserian_of_leighlin_bishop: 'Saint Laserian, Bishop',
@@ -580,12 +580,12 @@ export const locale: Locale = {
     // laurence_otoole_bishop: 'Saint Laurence O’Toole, Bishop',
     // laurence_wang_bing_and_companions_martyrs: 'Saint Laurence Wang Bing and Companions, Martyrs',
     // lawrence_bai_xiaoman_martyr: 'Saint Lawrence Bai Xiaoman, Martyr',
-    // lawrence_of_brindisi_priest: 'Saint Lawrence of Brindisi, Priest and Doctor of the Church',
-    // lawrence_of_rome_deacon: 'Saint Lawrence, Deacon and Martyr',
-    // lawrence_ruiz_and_companions_martyrs: 'Saint Lawrence Ruiz and Companions, Martyrs',
+    lawrence_of_brindisi_priest: 'Brindisi Szent Lőrinc áldozópap és egyháztanító',  // src: mr_hu_1991_ed2
+    lawrence_of_rome_deacon: 'Szent Lőrinc diakónus és vértanú',  // src: mr_hu_1991_ed2
+    lawrence_ruiz_and_companions_martyrs: 'Ruiz Szent Lőrinc és társai vértanúk',  // src: mr_hu_1991_ed2
     // leander_of_seville_bishop: 'Saint Leander of Seville, Bishop',
     // lelia_of_killeely_virgin: 'Saint Lelia, Virgin',
-    // leo_i_the_great_pope: 'Saint Leo the Great, Pope and Doctor of the Church',
+    leo_i_the_great_pope: 'Nagy Szent Leó pápa és egyháztanító',  // src: mr_hu_1991_ed2
     // leo_ignatius_mangin_priest_and_companions_martyrs: 'Saint Leo Ignatius Mangin, Priest, and Companions, Martyrs',
     leo_ix_pope: 'Szent IX. Leó pápa',
     // leoba_of_tauberbischofsheim_abbess: 'Saint Leoba, Abbess',
@@ -596,17 +596,17 @@ export const locale: Locale = {
     // leopold_mandic_priest: 'Saint Leopold Mandić, Priest',
     // louis_bertrand_priest: 'Saint Louis Bertrand, Priest',
     // louis_grignion_de_montfort_priest: 'Saint Louis Grignion de Montfort, Priest',
-    // louis_ix_of_france: 'Saint Louis',
+    louis_ix_of_france: 'Szent Lajos',  // src: mr_hu_1991_ed2
     // louis_zephirin_moreau_bishop: 'Blessed Louis-Zéphirin Moreau, Bishop',
     // louise_de_marillac_religious: 'Saint Louise de Marillac, Religious',
     // lucius_of_chur_bishop: 'Saint Lucius of Chur, Bishop and Martyr',
-    // lucy_of_syracuse_virgin: 'Saint Lucy, Virgin and Martyr',
+    lucy_of_syracuse_virgin: 'Szent Lúcia szűz és vértanú',  // src: mr_hu_1991_ed2
     // lucy_yi_zhenmei_virgin: 'Saint Lucy Yi Zhenmei, Virgin and Martyr',
     // ludan_of_scotland_pilgrim: 'Saint Ludan, Pilgrim',
     // ludger_of_munster_bishop: 'Saint Ludger of Münster, Bishop',
     // ludmila_of_bohemia_martyr: 'Saint Ludmila, Martyr',
     // luigi_orione_priest: 'Saint Luigi Orione, Priest',
-    luke_evangelist: 'Szent Lukács evangélista',
+    luke_evangelist: 'Szent Lukács evangélista',  // src: mr_hu_1991_ed2
     // lydia_of_philippi: 'Saint Lydia of Philippi',
     // mac_nissi_of_connor_bishop: 'Saint Mac Nissi, Bishop',
     // macartan_of_clogher_bishop: 'Saint Macartan, Bishop',
@@ -620,13 +620,13 @@ export const locale: Locale = {
     marcellinus_of_rome_and_peter_the_exorcist_martyrs: 'Szent Marcellínusz és Szent Péter vértanúk',  // src: mr_hu_1991_ed2
     // marcellus_of_paris_bishop: 'Saint Marcellus of Paris, Bishop',
     // margaret_clitherow_anne_line_and_margaret_ward_virgin_martyrs: 'Saints Margaret Clitherow, Anne Line and Margaret Ward, Virgin, Martyrs',
-    // margaret_mary_alacoque_virgin: 'Saint Margaret Mary Alacoque, Virgin',
+    margaret_mary_alacoque_virgin: 'Alacogue Szent Margit Mária szűz',  // src: mr_hu_1991_ed2
     margaret_of_antioch_virgin: 'Antiochiai Szent Margit szűz és vértanú',
     margaret_of_hungary_religious: 'Árpád-házi Szent Margit szűz',  // src: mr_hu_1991_ed2
-    // margaret_of_scotland: 'Saint Margaret of Scotland',
+    margaret_of_scotland: 'Skóciai Szent Margit',  // src: mr_hu_1991_ed2
     // marguerite_bourgeoys_virgin: 'Saint Marguerite Bourgeoys, Virgin',
     // marguerite_dyouville_religious: 'Saint Marguerite d’Youville, Religious',
-    // maria_goretti_virgin: 'Saint Maria Goretti, Virgin and Martyr',
+    maria_goretti_virgin: 'Goretti Szent Mária szűz és vértanú',  // src: mr_hu_1991_ed2
     // maria_guadalupe_garcia_zavala_virgin: 'Saint María Guadalupe García Zavala, Virgin',
     // maria_micaela_of_the_blessed_sacrament_desmaisieres_virgin: 'Saint María Micaela of the Blessed Sacrament Desmaisières, Virgin',
     // mariana_of_jesus_de_paredes_virgin: 'Saint Mariana of Jesus de Paredes, Virgin',
@@ -636,18 +636,18 @@ export const locale: Locale = {
     // marie_leonie_paradis_virgin: 'Blessed Marie-Léonie Paradis, Virgin',
     // marie_rose_durocher_virgin: 'Blessed Marie Rose Durocher, Virgin',
     mark_evangelist: 'Szent Márk evangélista',  // src: mr_hu_1991_ed2
-    // marko_krizin_melchior_grodziecki_and_stephen_pongracz_priests: 'Saints Marko Krizin, Melchior Grodziecki and Stephen Pongrácz, Priests and Martyrs',
-    // marko_krizin_priest: 'Saint Marko Krizin, Priest and Martyr',
+    marko_krizin_melchior_grodziecki_and_stephen_pongracz_priests: 'Szent Márk, Szent István és Szent Menyhért áldozópapok, kassai vértanúk',  // based on: mr_hu_1991_ed2; src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=150
+    marko_krizin_priest: 'Szent Márk áldozópap és vértanú',  // based on: mr_hu_1991_ed2
     // maron_of_syria_hermit: 'Saint Maroun, Hermit',
-    // martha_of_bethany_mary_of_bethany_and_lazarus_of_bethany: 'Saints Martha, Mary and Lazarus',
-    // martin_de_porres_religious: 'Saint Martin de Porres, Religious',
+    martha_of_bethany_mary_of_bethany_and_lazarus_of_bethany: 'Szent Márta, Szent Mária és Szent Lázár',  // based on: mr_hu_1991_ed2, src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=134
+    martin_de_porres_religious: 'Porres Szent Márton szerzetes',  // src: mr_hu_1991_ed2
     martin_i_pope: 'Szent I. Márton pápa és vértanú',  // src: mr_hu_1991_ed2
-    // martin_of_tours_bishop: 'Saint Martin of Tours, Bishop',
+    martin_of_tours_bishop: 'Tours-i Szent Márton püspök',  // src: mr_hu_1991_ed2
     // martin_wu_xuesheng_and_companions_martyrs: 'Saint Martin Wu Xuesheng and Companions, Martyrs',
     // mary_adeodata_pisani_virgin: 'Blessed Mary Adeodata Pisani, Virgin',
     // mary_angela_truszkowska_virgin: 'Blessed Mary Angela Truszkowska, Virgin',
     // mary_assunta_pallotta_virgin: 'Blessed Mary Assunta Pallotta, Virgin',
-    // mary_magdalene: 'Saint Mary Magdalene',
+    mary_magdalene: 'Szent Mária Magdolna',  // src: mr_hu_1991_ed2
     mary_magdalene_de_pazzi_virgin: 'Pazzi Szent Mária Magdolna szűz',  // src: mr_hu_1991_ed2
     mary_mother_of_god: 'Karácsony nyolcada (Kiskarácsony): Szűz Mária, Isten anyja (Újév)',  // src: mr_hu_1991_ed2
     // mary_mother_of_the_church: 'Blessed Virgin Mary, Mother of the Church',
@@ -669,44 +669,44 @@ export const locale: Locale = {
     // maternus_of_cologne_valerius_of_trier_and_eucharius_of_trier_bishops: 'Saints Maternus, Valerius and Eucharius, Bishops',
     // matilda_of_ringelheim: 'Saint Matilda',
     matthew_apostle: 'Szent Mátyás apostol',  // src: mr_hu_1991_ed2
-    // matthias_apostle: 'Saint Matthias, Apostle',
+    matthias_apostle: 'Szent Máté apostol és evangélista',  // src: mr_hu_1991_ed2
     // maurice_of_agaunum_and_companions_martyrs: 'Saint Maurice and Companions, Martyrs',
     // maurice_tornay_priest: 'Blessed Maurice Tornay, Priest and Martyr',
-    // maurus_of_pecs_bishop: 'Saint Maurus, Bishop',
-    // maximilian_mary_raymund_kolbe_priest: 'Saint Maximilian Mary Kolbe, Priest and Martyr',
+    maurus_of_pecs_bishop: 'Boldog Mór püspök',  // src: mr_hu_1991_ed2
+    maximilian_mary_raymund_kolbe_priest: 'Szent Maximilián Mária Kolbe áldozópap és vértanú',  // src: mr_hu_1991_ed2
     // mederic_of_autun_and_droctoveus_of_autun_abbots: 'Saints Mederic and Droctoveus, Abbots',
     // meinrad_of_einsiedeln_martyr: 'Saint Meinrad of Einsiedeln, Martyr',
     // mel_of_ardagh_bishop: 'Saint Mel, Bishop',
     // melchior_grodziecki_priest: 'Saint Melchior Grodziecki, Priest and Martyr',
-    // michael_gabriel_and_raphael_archangels: 'Saints Michael, Gabriel and Raphael, Archangels',
+    michael_gabriel_and_raphael_archangels: 'Szent Mihály, Szent Gábor és Szent Rafael főangyalok',  // src: mr_hu_1991_ed2
     // michael_kozal_bishop: 'Blessed Michael Kozal, Bishop and Martyr',
     // miguel_agustin_pro_priest: 'Blessed Miguel Agustín Pro, Priest and Martyr',
     // miguel_febres_cordero_religious: 'Saint Miguel Febres Cordero, Religious',
     // modestus_andlauer_and_andrew_bauer_martyrs: 'Saints Modestus Andlauer and Andrew Bauer, Martyrs',
     // modestus_andlauer_martyr: 'Saint Modestus Andlauer, Martyr',
-    // monica_of_hippo: 'Szent Mónika',
+    monica_of_hippo: 'Szent Mónika',  // src: mr_hu_1991_ed2
     // moninne_of_killeavy_virgin: 'Saint Moninne, Virgin',
     // morand_of_cluny_monk: 'Saint Morand, Monk',
     most_holy_body_and_blood_of_christ: 'Krisztus Szent Teste és Vére',  // src: mr_hu_1991_ed2
-    // most_holy_name_of_jesus: 'The Most Holy Name of Jesus',
-    // most_holy_name_of_mary: 'The Most Holy Name of Mary',
+    most_holy_name_of_jesus: 'Jézus Szent Neve',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=46
+    most_holy_name_of_mary: 'Szűz Mária szent neve',  // src: mr_hu_1991_ed2
     most_holy_trinity: 'Szentháromság vasárnapja',  // src: mr_hu_1991_ed2
     most_sacred_heart_of_jesus: 'Jézus Szent Szíve',  // src: mr_hu_1991_ed2
     // munchin_of_limerick_bishop: 'Saint Munchin, Bishop',
     // muredach_of_killala_bishop: 'Saint Muredach, Bishop',
     // mutien_marie_wiaux_religious: 'Saint Mutien-Marie Wiaux, Religious',
-    // nativity_of_john_the_baptist: 'The Nativity of Saint John the Baptist',
-    // nativity_of_the_blessed_virgin_mary: 'The Nativity of the Blessed Virgin Mary',
-    // nativity_of_the_lord: 'The Nativity of the Lord (Christmas)',
+    nativity_of_john_the_baptist: 'Keresztelő Szent János születése',  // src: mr_hu_1991_ed2
+    nativity_of_the_blessed_virgin_mary: 'Szűz Mária születése (Kisboldogasszony)',  // src: mr_hu_1991_ed2
+    nativity_of_the_lord: 'Urunk születése: Karácsony',  // src: mr_hu_1991_ed2
     // nazaria_ignacia_of_saint_teresa_of_jesus_march_mesa_virgin: 'Saint Nazaria Ignacia of Saint Teresa of Jesus March Mesa, Virgin',
     nereus_of_terracina_and_achilleus_of_terracina_martyrs: 'Szent Néreusz és Szent Achilleusz vértanúk',  // src: mr_hu_1991_ed2
     // nicholas_barre_priest: 'Blessed Nicholas Barré, Priest',
     // nicholas_of_flue_hermit: 'Saint Nicholas of Flüe, Hermit',
-    // nicholas_of_myra_bishop: 'Saint Nicholas, Bishop',
+    nicholas_of_myra_bishop: 'Szent Miklós püspök',  // src: mr_hu_1991_ed2
     // nicholas_steno_bishop: 'Blessed Nicholas Steno, Bishop',
     // nicholas_tavelic_priest: 'Saint Nicholas Tavelić, Priest and Martyr',
     // ninian_of_whithorn_bishop: 'Saint Ninian, Bishop',
-    // norbert_of_xanten_bishop: 'Saint Norbert, Bishop',
+    norbert_of_xanten_bishop: 'Szent Norbert püspök',  // src: mr_hu_1991_ed2
     // nuno_of_saint_mary_pereira_religious: 'Saint Nuno of Saint Mary Pereira, Religious',
     // nykyta_budka_and_vasyl_velychkovsky_bishops: 'Blesseds Nykyta Budka and Vasyl Velychkovsky, Bishops and Martyrs',
     // odile_of_alsace_abbess: 'Saint Odile, Abbess',
@@ -731,7 +731,7 @@ export const locale: Locale = {
     // our_lady_of_guadalupe: 'Our Lady of Guadalupe',
     // our_lady_of_guadalupe_patroness_of_the_americas: 'Our Lady of Guadalupe, Patroness of the Americas',
     // our_lady_of_guadalupe_patroness_of_the_philippines: 'Our Lady of Guadalupe, Patroness of the Philippines',
-    // our_lady_of_hungary_patroness_of_hungary: 'Our Lady of Hungary, Patroness of Hungary',
+    our_lady_of_hungary_patroness_of_hungary: 'Szűz Mária, Magyarok Nagyasszonya, Magyarország Főpátronája',  // src: mr_hu_1991_ed2
     // our_lady_of_itati: 'Our Lady of Itatí',
     // our_lady_of_knock: 'Our Lady of Knock',
     // our_lady_of_lanka: 'Our Lady of Lanka',
@@ -742,40 +742,40 @@ export const locale: Locale = {
     // our_lady_of_madhu: 'Our Lady of Madhu',
     // our_lady_of_marija_bistrica: 'Our Lady of Marija Bistrica',
     // our_lady_of_mercy: 'Our Lady of Mercy',
-    // our_lady_of_mount_carmel: 'Our Lady of Mount Carmel',
-    // our_lady_of_mount_carmel_mother_and_queen_of_chile: 'Our Lady of Mount Carmel, Mother and Queen of Chile',
+    our_lady_of_mount_carmel: 'Kármel-hegyi Boldogasszony',  // src: mr_hu_1991_ed2
+    our_lady_of_mount_carmel_mother_and_queen_of_chile: 'Kármel-hegyi Boldogasszony, Chile anyja és királynője',  // based on: mr_hu_1991_ed2 + http://www.archivioradiovaticana.va/storico/2018/01/16/ferenc_p%C3%A1pa_besz%C3%A9de_a_chilei_hat%C3%B3s%C3%A1g_k%C3%A9pvisel%C5%91ihez_chile_meg_tudta/hu-1359089
     // our_lady_of_perpetual_help: 'Our Lady of Perpetual Help',
-    // our_lady_of_sorrows: 'Our Lady of Sorrows',
-    // our_lady_of_sorrows_patroness_of_slovakia: 'Our Lady of Sorrows, Patroness of Slovakia',
+    our_lady_of_sorrows: 'A Fájdalmas Szűzanya',  // src: mr_hu_1991_ed2
+    our_lady_of_sorrows_patroness_of_slovakia: 'A Fájdalmas Szűzanya, Slovákia védőszentje',  // based on: mr_hu_1991_ed2
     // our_lady_of_the_discovery_of_the_hidden_christians: 'Our Lady of the Discovery of the Hidden Christians',
     // our_lady_of_the_gate_of_dawn: 'Our Lady of the Gate of Dawn',
     // our_lady_of_the_miraculous_medal: 'Our Lady of the Miraculous Medal',
     // our_lady_of_the_pillar: 'Our Lady of the Pillar',
-    // our_lady_of_the_rosary: 'Our Lady of the Rosary',
+    our_lady_of_the_rosary: 'Rózsafüzér Királynője',  // src: mr_hu_1991_ed2
     // our_lady_of_the_valley: 'Our Lady of the Valley',
     // our_lady_of_vladimir: 'Our Lady of Vladimir',
     // our_lady_of_walsingham: 'Our Lady of Walsingham',
     // our_lady_queen_of_peace: 'Our Lady of Peace',
     // our_lady_queen_of_poland: 'Our Lady, Queen of Poland',
     // our_lady_refuge_of_sinners: 'Our Lady, Refuge of Sinners',
-    // our_lord_jesus_christ_king_of_the_universe: 'Our Lord Jesus Christ, King of the Universe',
+    our_lord_jesus_christ_king_of_the_universe: 'Krisztus, a Mindenség Királya',  // src: mr_hu_1991_ed2
     our_lord_jesus_christ_the_eternal_high_priest: 'A mi Urunk, Jézus Krisztus, az Örök Főpap',  // presumably src: mr_hu_2023_ed3; actually: https://www.liturgia.hu/l/referensi-szakmai-nap-az-uj-magyar-nyelvu-romai-misekonyvrol/
     // our_lord_of_miracles: 'Our Lord of Miracles',
-    // palm_sunday_of_the_passion_of_the_lord: 'Palm Sunday of the Passion of the Lord',
+    palm_sunday_of_the_passion_of_the_lord: 'Urunk szenvedésének vasárnapja – Virágvasárnap',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=79
     pancras_of_rome_martyr: 'Szent Pongrác vértanú',  // src: mr_hu_1991_ed2
     // pantaleon_of_nicomedia_martyr: 'Saint Pantaleon of Nicomedia, Martyr',
     // paschal_baylon_religious: 'Saint Paschal Baylón, Religious',
-    // passion_of_saint_john_the_baptist: 'The Passion of Saint John the Baptist',
+    passion_of_saint_john_the_baptist: 'Keresztelő Szent János vértanúsága',  // src: mr_hu_1991_ed2
     patrick_of_ireland_bishop: 'Szent Patrik püspök',  // src: mr_hu_1991_ed2
-    patrick_of_ireland_bishop_patron_of_ireland: 'Szent Patrik püspök, Írország védőszentje',  // based on: mr_hu_1991_ed2 + https://hu.wikipedia.org/w/index.php?title=Szent_Patrik&oldid=26115930; I am not sure if it shouldn't be rather `fővédőszentje` (principal patron)
+    patrick_of_ireland_bishop_patron_of_ireland: 'Szent Patrik püspök, Írország védőszentje',  // based on: mr_hu_1991_ed2 + https://hu.wikipedia.org/w/index.php?title=Szent_Patrik&oldid=26115930
     // paul_chen_changpin_and_companions_martyrs: 'Saint Paul Chen Changpin and Companions, Martyrs',
     // paul_liu_hanzuo_priest: 'Saint Paul Liu Hanzuo, Priest and Martyr',
     paul_miki_and_companions_martyrs: 'Miki Szent Pál és társai vértanúk',  // src: mr_hu_1991_ed2
-    // paul_of_the_cross_priest: 'Saint Paul of the Cross, Priest',
+    paul_of_the_cross_priest: 'Keresztes Szent Pál áldozópap',  // src: mr_hu_1991_ed2
     paul_of_thebes_hermit: 'Remete Szent Pál',  // src: mr_hu_1991_ed2
     // paul_vi_pope: 'Saint Paul VI, Pope',
     // paulina_of_the_agonizing_heart_of_jesus_visintainer_virgin: 'Saint Paulina of the Agonizing Heart of Jesus Visintainer, Virgin',
-    // paulinus_of_nola_bishop: 'Saint Paulinus of Nola, Bishop',
+    paulinus_of_nola_bishop: 'Nolai Szent Paulinusz püspök',  // src: mr_hu_1991_ed2
     // paulinus_of_trier_bishop: 'Saint Paulinus of Trier, Bishop',
     // paulinus_of_york_bishop: 'Saint Paulinus of York, Bishop',
     // pavel_peter_gojdic_bishop: 'Blessed Pavel Peter Gojdič, Bishop and Martyr',
@@ -783,12 +783,12 @@ export const locale: Locale = {
     // pelagius_of_cordoba_martyr: 'Saint Pelagius of Córdoba, Martyr',
     // pentecost_sunday: 'Pünkösdvasárnap',
     perpetua_of_carthage_and_felicity_of_carthage_martyrs: 'Szent Perpétua és Felicitász vértanúk',  // src: mr_hu_1991_ed2
-    peter_and_paul_apostles: 'Szent Péter és Szent Pál apostolok',
+    peter_and_paul_apostles: 'Szent Péter és Szent Pál apostolok',  // src: mr_hu_1991_ed2
     // peter_baptist_blasquez_paul_miki_and_companions_martyrs: 'Saints Peter Baptist Blásquez, Paul Miki and Companions, Martyrs',
-    // peter_canisius_priest: 'Saint Peter Canisius, Priest and Doctor of the Church',
+    peter_canisius_priest: 'Kaníziusz Szent Péter áldozópap és egyháztanító',  // src: mr_hu_1991_ed2
     peter_chanel_priest: 'Chanel Szent Péter áldozópap és vértanú',  // src: mr_hu_1991_ed2
     peter_chanel_priest_patron_of_oceania: 'Chanel Szent Péter áldozópap és vértanú, Óceánia első vértanú, Óceánia védőszentje',  // based on: mr_hu_1991_ed2 + https://archiv.katolikus.hu/szentek2/SZENTEK/00000231.HTM
-    // peter_chrysologus_bishop: 'Saint Peter Chrysologus, Bishop and Doctor of the Church',
+    peter_chrysologus_bishop: 'Aranyszavú (Krizológ) Szent Péter püspök és egyháztanító',  // src: mr_hu_1991_ed2
     // peter_claver_priest: 'Saint Peter Claver, Priest',
     peter_damian_bishop: 'Damiáni Szent Péter püspök és egyháztanító',  // src: mr_hu_1991_ed2
     // peter_de_zuniga_and_louis_flores_priests: 'Blesseds Peter de Zúñiga and Louis Flores, Priests and Martyrs',
@@ -810,14 +810,14 @@ export const locale: Locale = {
     pius_v_pope: 'Szent V. Piusz pápa',  // src: mr_hu_1991_ed2
     pius_x_pope: 'Szent X. Piusz pápa',  // src: mr_hu_1991_ed2
     polycarp_of_smyrna_bishop: 'Szent Polikárp püspök és vértanú',  // src: mr_hu_1991_ed2
-    // pontian_i_pope_and_hippolytus_of_rome_priest: 'Saints Pontian, Pope, and Hippolytus, Priest, Martyrs',
+    pontian_i_pope_and_hippolytus_of_rome_priest: 'Szent Ponciánusz pápa és Szent Hippolitusz áldozópap vértanúk',  // src: mr_hu_1991_ed2
     // pothinus_of_lyon_bishop_blandina_of_lyon_virgin_and_companions_martyrs: 'Saints Pothinus, Bishop, Blandina, Virgin, and Companions, Martyrs',
-    // presentation_of_the_blessed_virgin_mary: 'The Presentation of the Blessed Virgin Mary',
+    presentation_of_the_blessed_virgin_mary: 'A Boldogságos Szűz Mária bemutatása a templomban',  // src: mr_hu_1991_ed2
     presentation_of_the_lord: 'Urunk bemutatása (Gyertyaszentelő Boldogasszony)',  // src: mr_hu_1991_ed2
     // procopius_of_sazava_abbot: 'Saint Procopius of Sázava, Abbot',
     // publius_of_malta_bishop: 'Saint Publius, Bishop',
-    // queenship_of_the_blessed_virgin_mary: 'The Queenship of the Blessed Virgin Mary',
-    // quirinus_of_sescia_bishop: 'Saint Quirinus of Sescia, Bishop and Martyr',
+    queenship_of_the_blessed_virgin_mary: 'Boldogságos Szűz Mária Királynő',  // src: mr_hu_1991_ed2
+    quirinus_of_sescia_bishop: 'Szent Quirinus püspök és vértanú',  // src: mr_hu_1991_ed2
     // rabanus_maurus_bishop: 'Saint Rabanus Maurus, Bishop',
     // radim_of_gniezno_bishop: 'Saint Radim, Bishop',
     // rafqa_pietra_choboq_ar_rayes_virgin: 'Saint Rafqa Pietra Choboq Ar-Rayès, Virgin',
@@ -830,13 +830,13 @@ export const locale: Locale = {
     // richard_of_chichester_bishop: 'Saint Richard of Chichester, Bishop',
     // richardis_of_swabia_empress: 'Saint Richardis, Empress',
     rita_of_cascia_religious: 'Szent Rita özvegy',  // src: mr_hu_1991_ed2
-    // robert_bellarmine_bishop: 'Saint Robert Bellarmine, Bishop and Doctor of the Church',
+    robert_bellarmine_bishop: 'Bellarmin Szent Róbert püspök és egyháztanító',  // src: mr_hu_1991_ed2
     // roch_gonzalez_alphonsus_rodriguez_and_john_del_castillo_priests: 'Saints Roch González, Alphonsus Rodríguez and John del Castillo, Priests and Martyrs',
     // roch_of_montpellier: 'Saint Roch',
-    // romuald_of_ravenna_abbot: 'Saint Romuald, Abbot',
+    romuald_of_ravenna_abbot: 'Szent Romuald apát',  // src: mr_hu_1991_ed2
     // rosalie_jeanne_marie_rendu_virgin: 'Blessed Rosalie Rendu, Virgin',
-    // rose_of_lima_virgin: 'Saint Rose of Lima, Virgin',
-    // rose_of_lima_virgin_copatroness_of_the_philippines: 'Saint Rose of Lima, Virgin, Copatroness of the Philippines',
+    rose_of_lima_virgin: 'Limai Szent Róza szűz',  // src: mr_hu_1991_ed2
+    rose_of_lima_virgin_copatroness_of_the_philippines: 'Limai Szent Róza szűz, Copatroness of the Philippines',  // src: mr_hu_1991_ed2
     // rose_philippine_duchesne_virgin: 'Saint Rose Philippine Duchesne, Virgin',
     // rupert_of_salzburg_and_virgilius_of_salzburg_bishops: 'Saints Rupert and Virgilius of Salzburg, Bishops',
     // salomea_of_poland_religious: 'Blessed Salomea of Poland, Religious',
@@ -853,47 +853,47 @@ export const locale: Locale = {
     // shipwreck_of_saint_paul_apostle: 'Shipwreck of Saint Paul, Apostle',
     // sigismund_of_burgundy_martyr: 'Saint Sigismund, Martyr',
     // sigmund_felix_felinski_bishop: 'Saint Sigmund Felix Feliński, Bishop',
-    // simon_and_jude_apostles: 'Saints Simon and Jude, Apostles',
+    simon_and_jude_apostles: 'Szent Simon és Szent Júdás Tádé apostolok',  // src: mr_hu_1991_ed2
     // simon_of_lipnica_priest: 'Saint Simon of Lipnica, Priest',
     // six_welsh_martyrs_and_companions: 'Six Welsh Martyrs and Companions',
-    // sixtus_ii_pope_and_companions_martyrs: 'Saint Sixtus II, Pope, and Companions, Martyrs',
+    sixtus_ii_pope_and_companions_martyrs: 'Szent II. Szixtusz pápa és társai vértanúk',  // src: mr_hu_1991_ed2
     // spyridon_of_trimythous_bishop: 'Saint Spyridon, Bishop',
     // stanislaus_kazimierczyk_priest: 'Saint Stanislaus Kazimierczyk, Priest',
     // stanislaus_kostka_religious: 'Saint Stanislaus Kostka, Religious',
     stanislaus_of_szczepanow_bishop: 'Szent Szaniszló püspök és vértanú',  // src: mr_hu_1991_ed2
     stanislaus_of_szczepanow_bishop_patron_of_poland: 'Szent Szaniszló püspök és vértanú, Lengyelország védőszentje',  // based on: mr_hu_1991_ed2 + https://hu.wikipedia.org/w/index.php?title=Szent_Szaniszl%C3%B3&oldid=23069409
-    stephen_i_of_hungary: 'Szent István király, Magyarország fővédőszentje',  // TODO: Split this to the general key and one with patronage title.
-    stephen_the_first_martyr: 'Szent István diakónus, első vértanú',
-    sunday_of_the_word_of_god: 'Évközi III. vasárnap vagy az Isten Igéjének vasárnapja',
+    stephen_i_of_hungary: 'Szent István király',  // src: mr_hu_1991_ed2
+    stephen_the_first_martyr: 'Szent István első vértanú',  // src: mr_hu_1991_ed2
+    sunday_of_the_word_of_god: 'Évközi III. vasárnap – Isten Igéjének vasárnapja',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=55
     // sunniva_of_norway_virgin: 'Saint Sunniva, Virgin and Martyr',
     // swithun_of_winchester_bishop: 'Saint Swithun, Bishop',
-    sylvester_i_pope: 'Szent I. Szilveszter pápa',
+    sylvester_i_pope: 'Szent I. Szilveszter pápa',  // src: mr_hu_1991_ed2
     szilard_bogdanffy_bishop: 'Boldog Bogdánffy Szilárd püspök és vértanú',
     // teilo_of_llandaff_bishop: 'Saint Teilo, Bishop',
     // teresa_benedicta_of_the_cross_stein_virgin: 'Saint Teresa Benedicta of the Cross Stein, Virgin and Martyr',
     // teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe: 'Saint Teresa Benedicta of the Cross Stein, Virgin and Martyr, Copatroness of Europe',
     teresa_of_calcutta_religious: 'Kalkuttai Szent Teréz',
     // teresa_of_jesus_jornet_ibars_virgin: 'Saint Teresa of Jesus Jornet Ibars, Virgin',
-    // teresa_of_jesus_of_avila_virgin: 'Saint Teresa of Jesus, Virgin and Doctor of the Church',
+    teresa_of_jesus_of_avila_virgin: 'A Jézusról nevezett (Avilai) Szent Teréz szűz és egyháztanító',  // src: mr_hu_1991_ed2
     // teresa_of_jesus_of_los_andes_virgin: 'Saint Teresa of Jesus of Los Andes, Virgin',
     // teresa_of_portugal_religious: 'Blessed Teresa of Portugal, Religious',
     // theodore_of_canterbury_bishop: 'Saint Theodore of Canterbury, Bishop',
     // theodore_romzha_bishop: 'Blessed Theodore Romzha, Bishop and Martyr',
     // theodosius_of_the_caves_abbot: 'Saint Theodosius of the Caves, Abbot',
     // theotonius_of_coimbra_priest: 'Saint Theotonius of Coimbra, Priest',
-    // therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin: 'Saint Thérèse of the Child Jesus, Virgin and Doctor of the Church',
-    // therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin_copatroness_of_france: 'Saint Thérèse of the Child Jesus, Virgin and Doctor of the Church, Copatroness of France',
-    thomas_apostle: 'Szent Tamás apostol',
+    therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin: 'A Gyermek Jézusról nevezett (Lisieux-i) Szent Teréz szűz és egyháztanító',  // src: mr_hu_1991_ed2 + `Doctor of the Church` title
+    therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin_copatroness_of_france: 'A Gyermek Jézusról nevezett (Lisieux-i) Szent Teréz szűz és egyháztanító, Franciaország társvédőszentje',  // based on: mr_hu_1991_ed2
+    thomas_apostle: 'Szent Tamás apostol',  // src: mr_hu_1991_ed2
     thomas_aquinas_priest: 'Aquinói Szent Tamás áldozópap és egyháztanító',  // src: mr_hu_1991_ed2
-    thomas_becket_bishop: 'Becket Szent Tamás püspök és vértanú',
+    thomas_becket_bishop: 'Becket Szent Tamás püspök és vértanú',  // src: mr_hu_1991_ed2
     // thomas_hioji_rokuzayemon_nishi_priest_and_companions_martyrs: 'Saint Thomas Hioji Rokuzayemon Nishi, Priest, and Companions, Martyrs',
     // thomas_jean_georges_rehm_priest: 'Blessed Thomas Jean-Georges Rehm, Priest and Martyr',
     // thomas_of_villanova_bishop: 'Saint Thomas of Villanova, Bishop',
     // thorfinn_of_hamar_bishop: 'Saint Thorfinn, Bishop',
     // thorlac_of_iceland_bishop: 'Saint Thorlac, Bishop',
-    // thursday_of_the_lords_supper: 'Thursday of the Lord’s Supper',
+    thursday_of_the_lords_supper: 'Az utolsó vacsora emlékére',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=85
     timothy_of_ephesus_and_titus_of_crete_bishops: 'Szent Timóteus és Szent Titusz püspökök',  // src: mr_hu_1991_ed2
-    // transfiguration_of_the_lord: 'The Transfiguration of the Lord',
+    transfiguration_of_the_lord: 'Urunk színeváltozása',  // src: mr_hu_1991_ed2
     // translation_of_the_relics_of_odile_of_alsace_abbess: 'Translation of the Relics of Saint Odile',
     translation_of_the_relics_of_saint_stephen_of_hungary: 'Szent István király ereklyéinek átvitele',  // src: mr_hu_1991_ed2
     turibius_of_mogrovejo_bishop: 'Mongrovejói Szent Turibiusz püspök',  // based on: mr_hu_1991_ed2
@@ -902,21 +902,21 @@ export const locale: Locale = {
     // ursula_of_cologne_and_companions_virgins: 'Saint Ursula and Companions, Virgins and Martyrs',
     // valentine_of_raetia_bishop: 'Saint Valentine of Raetia, Bishop',
     // valerius_of_trier_bishop: 'Saint Valerius, Bishop',
-    // vincent_de_paul_priest: 'Saint Vincent de Paul, Priest',
+    vincent_de_paul_priest: 'Páli Szent Vince áldozópap',  // src: mr_hu_1991_ed2
     vincent_ferrer_priest: 'Ferrer Szent Vince áldozópap',  // src: mr_hu_1991_ed2
     // vincent_kadlubek_bishop: 'Blessed Vincent Kadłubek, Bishop',
     // vincent_lewoniuk_and_companions_martyrs: 'Blessed Vincent Lewoniuk and Companions, Martyrs',
     vincent_of_saragossa_deacon: 'Szent Vince diakónus és vértanú',  // src: mr_hu_1991_ed2
     // vincent_pallotti_priest: 'Saint Vincent Pallotti, Priest',
     // virgilius_of_salzburg_bishop: 'Saint Virgilius, Bishop and Missionary',
-    // visitation_of_mary: 'The Visitation of the Blessed Virgin Mary',
+    visitation_of_mary: 'Szűz Mária látogatása Erzsébetnél (Sarlós Boldogasszony)',  // src: mr_hu_1991_ed2
     // vitus_of_lucania_martyr: 'Saint Vitus, Martyr',
     // vladimir_ghika_priest: 'Blessed Vladimir Ghika, Priest and Martyr',
     // vladimir_i_the_great_of_kiev: 'Saint Vladimir the Great',
     // waitangi_day: 'Waitangi Day',
     // walpurga_of_heidenheim_abbess: 'Saint Walpurga of Heidenheim, Abbess',
-    // wenceslaus_i_of_bohemia_martyr: 'Saint Wenceslaus, Martyr',
-    // wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation: 'Saint Wenceslaus, Martyr, Patron of the Czech nation',
+    wenceslaus_i_of_bohemia_martyr: 'Szent Vencel vértanú',  // src: mr_hu_1991_ed2
+    wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation: 'Szent Vencel vértanú, a cseh nemzet védőszentje',  // based on: mr_hu_1991_ed2
     // wendelin_of_trier_hermit: 'Saint Wendelin, Hermit',
     // wilfrid_of_york_bishop: 'Saint Wilfrid, Bishop',
     william_apor_bishop: 'Boldog Apor Vilmos püspök és vértanú',
@@ -926,7 +926,7 @@ export const locale: Locale = {
     // wladyslaw_bladzinski_priest_and_companions_martyrs: 'Blessed Wladyslaw Błądziński, Priest, and Companions, Martyrs',
     // wolfgang_of_regensburg_bishop: 'Saint Wolfgang of Regensburg, Bishop',
     // wulstan_of_worcester_bishop: 'Saint Wulstan, Bishop',
-    // yolanda_of_poland_religious: 'Blessed Yolanda, Religious',
+    yolanda_of_poland_religious: 'Árpád-házi Boldog Jolán szerzetesnő',  // src: mr_hu_1991_ed2
     // zdenka_cecilia_schelingova_virgin: 'Blessed Zdenka Cecilia Schelingová, Virgin and Martyr',
     // zdislava_of_lemberk: 'Saint Zdislava',
     // zepherin_namuncura: 'Blessed Zepherin Namuncurá',
