@@ -5,63 +5,63 @@ export const locale: Locale = {
 
   seasons: {
     advent: {
-      season: 'Advent',
-      // weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Advent',
-      // sunday: '$t(ordinals:{{week}}, capitalize) Sunday of Advent',
-      // privileged_weekday: '$t(months:11, capitalize) {{day}}',
+      season: 'Adventi idő',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=29
+              weekday: 'Advent {{week, romanize}}. hete $t(weekdays:{{dow}})',  // src: https://kattima.hu/hu/app/pray/bences-zsolozsma-l-a-u-d-e-s-advent-ii.-hete-hetfo-80378
+      sunday: 'Advent {{week, romanize}}. vasárnapja',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=30
+      privileged_weekday: '$t(months:11, capitalize) {{day}}.',  // src: https://kattima.hu/hu/app/pray/bences-zsolozsma-l-a-u-d-e-s-december-17.-szombat-80429
     },
 
     christmas_time: {
-      season: 'Karácsonyi idő',
-      // day: '$t(weekdays:{{dow}}, capitalize) of Christmas Time',
-      // octave: '$t(ordinals:{{count}}, capitalize) Day within the Octave of the Nativity of the Lord',
-      // second_sunday_after_christmas: 'Second Sunday after the Nativity of the Lord',
-      // before_epiphany: '$t(months:0, capitalize) {{day}}',
-      // after_epiphany: '$t(weekdays:{{dow}}, capitalize) after the Epiphany of the Lord',
+      season: 'Karácsonyi idő',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=40
+      day: '$t(weekdays:{{dow}}, capitalize) karácsonyi időben',
+      octave: 'Karácsony nyolcada alatti $t(ordinals:{{count}}, romanize). nap',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=43
+      second_sunday_after_christmas: 'Karácsony utáni II. vasárnap',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=46
+      before_epiphany: '$t(months:0, capitalize) {{day}}.',
+      after_epiphany: '$t(weekdays:{{dow}}, capitalize) az Úrunk megjelenése után',
     },
 
     ordinary_time: {
-      season: 'Évközi idő',
-      // weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Ordinary Time',
-      // sunday: '$t(ordinals:{{week}}, capitalize) Sunday in Ordinary Time',
+      season: 'Évközi idő',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=50
+      weekday: '$t(weekdays:{{dow}}, capitalize) évközi időben, {{week, romanize}}. hét',  // src: https://kattima.hu/hu/app/pray/bences-zsolozsma-k-o-m-p-l-e-t-o-r-i-u-m-csutortok-evkozi-idoben-i.-het-77548
+      sunday: 'Évközi {{week, romanize}}. vasárnap',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=52
     },
 
     lent: {
-      season: 'Nagyböjt',
-      // weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Lent',
-      // sunday: '$t(ordinals:{{week}}, capitalize) Sunday of Lent',
-      // day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) after Ash Wednesday',
-      // holy_week_day: '$t(weekdays:{{dow}}, capitalize) of Holy Week',
+      season: 'Nagyböjti idő',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=67
+      weekday: '$t(weekdays:{{dow}}, capitalize) nagyböjtben, {{week, romanize}}. hét',  // src: https://kattima.hu/hu/app/pray/bences-zsolozsma-l-a-u-d-e-s-pentek-nagybojtben-i.-het-70402
+      sunday: 'Nagyböjt {{week, romanize}}. vasárnapja',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=70
+      day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) Hamvazószerda után',  // src: https://kattima.hu/hu/app/pray/bences-zsolozsma-l-a-u-d-e-s-pentek-hamvazoszerda-utan-69960
+      holy_week_day: 'Nagy$t(weekdays:{{dow}}, capitalize)',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=80
     },
 
     paschal_triduum: {
-      // season: 'Paschal Triduum',
+      season: 'A Húsvéti Szent Háromnap',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=82
     },
 
     easter_time: {
-      season: 'Húsvéti idő',
-      // weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Easter',
-      // sunday: '$t(ordinals:{{week}}, capitalize) Sunday of Easter',
-      // octave: '$t(weekdays:{{dow}}, capitalize) within the Octave of Easter',
+      season: 'Húsvéti idő',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=89
+      weekday: '$t(weekdays:{{dow}}, capitalize) húsvét {{week, romanize}}. hetében',  // src: https://kattima.hu/hu/app/pray/bences-zsolozsma-l-a-u-d-e-s-hetfo-husvet-ii.-heteben-94426
+      sunday: 'Húsvét {{week, romanize}}. vasárnapja',  // src: https://kattima.hu/hu/app/pray/bences-zsolozsma-l-a-u-d-e-s-husvet-iii.-vasarnapja-94450
+      octave: '$t(weekdays:{{dow}}, capitalize) húsvét nyolcadában',  // src: https://kattima.hu/hu/app/prayer-list/111?date=2023-04-11
     },
   },
 
   periods: {
-    // epiphany: 'Epiphany',
-    // holy_week: 'Holy Week',
+    epiphany: 'Urunk megjelenése',  // based on: mr_hu_1991_ed2
+    holy_week: 'Nagyhét',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=14
   },
 
   ranks: {
-    solemnity: 'főünnep',
-    sunday: 'vasárnap',
-    feast: 'ünnep',
-    memorial: 'emléknap',
-    weekday: 'hétköznap',
+    solemnity: 'főünnep',  // src: mr_hu_1991_ed2
+    sunday: 'vasárnap',  // src: mr_hu_1991_ed2
+    feast: 'ünnep',  // src: mr_hu_1991_ed2
+    memorial: 'emléknap',  // src: mr_hu_1991_ed2
+    weekday: 'hétköznap',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=29
   },
 
   cycles: {
-    // proper_of_time: 'Proper of Time',
-    // proper_of_saints: 'Proper of Saints',
+    proper_of_time: 'temporále',  // src: http://nyilvanos.otka-palyazat.hu/index.php?menuid=930&num=109058
+    proper_of_saints: 'szanktorále',  // src: http://vallastudomany.elte.hu/sites/default/files/kiadvanyok/MRH3%20BS/BS_Kutata%CC%81sto%CC%88rte%CC%81neti%20a%CC%81ttekinte%CC%81s.pdf#page=5
     sunday_year_a: 'A év',
     sunday_year_b: 'B év',
     sunday_year_c: 'C év',
@@ -99,13 +99,13 @@ export const locale: Locale = {
   },
 
   colors: {
-    black: 'fekete',
+    black: 'fekete',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=172
     gold: 'arany',
-    green: 'zöld',
-    purple: 'lila',
-    red: 'piros',
-    rose: 'rózsaszín',
-    white: 'fehér',
+    green: 'zöld',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=135
+    purple: 'viola',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=172
+    red: 'piros',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=176
+    rose: 'rózsaszín',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=35
+    white: 'fehér',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=135
   },
 
   ordinals: {
@@ -210,7 +210,7 @@ export const locale: Locale = {
     // arbogast_of_strasbourg_bishop: 'Saint Arbogast, Bishop',
     // arbogast_of_strasbourg_bishop_patron_of_the_archdiocese_of_strasbourg: 'Saint Arbogast, Bishop, Patron of the Archdiocese of Strasbourg',
     // asaph_of_wales_bishop: 'Saint Asaph, Bishop',
-    // ascension_of_the_lord: 'The Ascension of the Lord',
+    ascension_of_the_lord: 'Urunk mennybemenetele',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=110
     ash_wednesday: 'Hamvazószerda',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=68
     // asicus_of_elphin_bishop: 'Saint Asicus, Bishop',
     assumption_of_the_blessed_virgin_mary: 'Szűz Mária mennybevétele (Nagyboldogasszony)',  // src: mr_hu_1991_ed2
@@ -220,8 +220,8 @@ export const locale: Locale = {
     // augustine_kazotic_bishop: 'Blessed Augustine Kažotić, Bishop and Martyr',
     augustine_of_canterbury_bishop: 'Canterburyi Szent Ágoston püspök',  // src: mr_hu_1991_ed2
     augustine_of_hippo_bishop: 'Szent Ágoston püspök és egyháztanító',  // src: mr_hu_1991_ed2
-    // augustine_zhao_rong_priest: 'Saint Augustine Zhao Rong, Priest and Martyr',
-    // augustine_zhao_rong_priest_and_companions_martyrs: 'Saint Augustine Zhao Rong, Priest, and Companions, Martyrs',
+    augustine_zhao_rong_priest: 'Zhao Rong Szent Ágoston áldozópap és vértanú',  // based on: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=127
+    augustine_zhao_rong_priest_and_companions_martyrs: 'Zhao Rong Szent Ágoston áldozópap és társai vértanúk',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=127, without comma before `vértanúk`
     // aurelia_of_strasbourg_virgin: 'Saint Aurelia of Strasbourg, Virgin',
     baptism_of_the_lord: 'Urunk megkeresztelkedése',  // src: mr_hu_1991_ed2
     // barbara_of_heliopolis_virgin: 'Saint Barbara, Virgin and Martyr',
@@ -250,7 +250,7 @@ export const locale: Locale = {
     // boris_of_kiev_and_gleb_of_kiev_martyrs: 'Saints Boris and Gleb, Martyrs',
     // brendan_of_clonfert_abbot: 'Saint Brendan, Abbot',
     bridget_of_sweden_religious: 'Szent Brigitta szerzetesnő',  // src: mr_hu_1991_ed2
-    bridget_of_sweden_religious_copatroness_of_europe: 'Szent Brigitta szerzetesnő, A Fülöp-szigetek társpatrónája',  // based on: mr_hu_1991_ed2
+    bridget_of_sweden_religious_copatroness_of_europe: 'Szent Brigitta szerzetesnő, a Fülöp-szigetek társpatrónája',  // based on: mr_hu_1991_ed2
     // brigid_of_kildare_virgin: 'Saint Brigid, Abbess',
     // brigid_of_kildare_virgin_copatroness_of_ireland: 'Saint Brigid, Virgin, Copatroness of Ireland',
     // bronislava_of_poland_virgin: 'Blessed Bronislava, Virgin',
@@ -277,7 +277,7 @@ export const locale: Locale = {
     // catherine_zoe_laboure_virgin: 'Saint Catherine Labouré, Virgin',
     // ceallach_of_armagh_bishop: 'Saint Ceallach, Bishop',
     cecilia_of_rome_virgin: 'Szent Cecília szűz és vértanú',  // src: mr_hu_1991_ed2
-    // ceferino_gimenez_malla_martyr: 'Blessed Ceferino Giménez Malla, Martyr',
+    ceferino_gimenez_malla_martyr: 'Boldog Ceferino Giménez Malla vértanú',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=101
     // ceraunus_of_paris_bishop: 'Saint Ceraunus of Paris, Bishop',
     // ceslaus_of_poland_and_hyacinth_of_poland_priests: 'Blessed Ceslaus and Saint Hyacinth, Priests',
     // ceslaus_of_poland_priest: 'Blessed Ceslaus, Priest',
@@ -289,7 +289,7 @@ export const locale: Locale = {
     // charles_of_jesus_de_foucauld: 'Saint Charles de Foucauld, Priest',
     // charles_spinola_and_jerome_de_angelis_priests: 'Blesseds Charles Spinola and Jerome de Angelis, Priests and Martyrs',
     // charles_spinola_priest: 'Blessed Charles Spinola, Priest and Martyr',
-    // christopher_magallanes_priest_and_companions_martyrs: 'Saint Christopher Magallanes, Priest, and Companions, Martyrs',
+    christopher_magallanes_priest_and_companions_martyrs: 'Magallán Szent Kristóf áldozópap és társai vértanúk',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=107, without a comma before `vértanúk`
     // christopher_of_palestine_martyr: 'Saint Christopher, Martyr',
     // ciaran_of_clonmacnoise_abbot: 'Saint Ciaran, Abbot',
     clare_of_assisi_virgin: 'Szent Klára szűz',  // src: mr_hu_1991_ed2
@@ -341,7 +341,7 @@ export const locale: Locale = {
     denis_of_paris_bishop_patron_of_the_city_and_of_the_diocese_of_saint_denis: 'Szent Dénes püspök és társai vértanúk, a Saint-Denis-i város és egyházmegye védőszentjei',  // based on: mr_hu_1991_ed2
     // dina_belanger_virgin: 'Blessed Dina Bélanger, Virgin',
     // dionysius_the_areopagite_bishop: 'Saint Dionysius the Areopagite, Bishop and Martyr',
-    // divine_mercy_sunday: 'Second Sunday of Easter or Sunday of Divine Mercy',
+    divine_mercy_sunday: 'Húsvét II. vasárnapja, az isteni irgalmasság vasárnapja',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=98
     dominic_de_guzman_priest: 'Szent Domonkos áldozópap',  // src: mr_hu_1991_ed2
     // dominic_of_the_mother_of_god_barberi_priest: 'Blessed Dominic of the Mother of God Barberi, Priest',
     // dunstan_of_canterbury_bishop: 'Saint Dunstan, Bishop',
@@ -372,7 +372,7 @@ export const locale: Locale = {
     // eugenia_of_alsace_and_attala_of_alsace_virgins: 'Saints Eugenia and Attala, Virgins',
     // eulalia_of_merida_virgin: 'Saint Eulalia of Merida, Virgin and Martyr',
     // eulogius_of_cordoba_bishop: 'Saint Eulogius of Córdoba, Bishop',
-    // eusebius_of_esztergom_priest: 'Blessed Eusebius of Esztergom, Priest',
+    eusebius_of_esztergom_priest: 'Boldog Özséb áldozópap',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=53
     eusebius_of_vercelli_bishop: 'Vercelli Szent Özséb püspök',  // src: mr_hu_1991_ed2
     exaltation_of_the_holy_cross: 'A Szent Kereszt felmagasztalása',  // src: mr_hu_1991_ed2
     // eysteinn_of_nidaros_bishop: 'Saint Eysteinn of Nidaros, Bishop',
@@ -380,7 +380,7 @@ export const locale: Locale = {
     fabian_i_pope: 'Szent Fábián pápa és vértanú',  // src: mr_hu_1991_ed2
     // fachanan_of_kilfenora_bishop: 'Saint Fachanan, Bishop',
     // fachtna_of_rosscarbery_bishop: 'Saint Fachtna, Bishop',
-    // faustina_kowalska_virgin: 'Saint Faustina Kowalska, Virgin',
+    faustina_kowalska_virgin: 'Szent Faustina Kowalska szűz',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=161
     // ferdinand_iii_of_castile: 'Saint Ferdinand III of Castile',
     // fiacre_of_breuil_monk: 'Saint Fiacre, Monk',
     fidelis_of_sigmaringen_priest: 'Sigmaringeni Szent Fidél áldozópap és vértanú',  // src: mr_hu_1991_ed2
@@ -453,9 +453,9 @@ export const locale: Locale = {
     // hermenegild_the_visigoths_martyr: 'Saint Hermenegild, Martyr',
     hilary_of_poitiers_bishop: 'Szent Hiláriusz (Vidor) püspök és egyháztanító',  // src: mr_hu_1991_ed2
     // hilda_of_whitby_abbess: 'Saint Hilda, Abbess',
-    // hildegard_of_bingen_abbess: 'Saint Hildegard of Bingen, Abbess and Doctor of the Church',
+    hildegard_of_bingen_abbess: 'Bingeni Szent Hildegárd apátnő és egyháztanító',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=154
     // holy_child_of_cebu: 'The Holy Child of Cebú',
-    holy_family_of_jesus_mary_and_joseph: 'A Szent Család',  // src: mr_hu_1991_ed2
+    holy_family_of_jesus_mary_and_joseph: 'A Szent Család: Jézus, Mária és József',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=42
     holy_guardian_angels: 'Szent Őrzőangyalok',  // src: mr_hu_1991_ed2
     holy_innocents_martyrs: 'Aprószentek, vértanúk',  // src: mr_hu_1991_ed2
     holy_saturday: 'Nagyszombat/Húsvéti vigília',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=88 + https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=92
@@ -485,7 +485,7 @@ export const locale: Locale = {
     // isabelle_of_france_virgin: 'Blessed Isabelle of France, Virgin',
     isidore_of_seville_bishop: 'Szent Izidor püspök és egyháztanító',  // src: mr_hu_1991_ed2
     // isidore_the_farmer: 'Saint Isidore',
-    // istvan_sandor_religious: 'Blessed István Sándor, Religious and Martyr',
+    istvan_sandor_religious: 'Boldog Sándor István vértanú',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=115
     // ita_of_killeedy_virgin: 'Saint Ita, Virgin',
     // ivan_merz: 'Blessed Ivan Merz',
     // ivo_of_kermartin_priest: 'Saint Ivo, Priest',
@@ -509,7 +509,7 @@ export const locale: Locale = {
     // john_berchmans_religious: 'Saint John Berchmans, Religious',
     // john_beyzym_priest: 'Blessed John Beyzym, Priest',
     john_bosco_priest: 'Bosco Szent János áldozópap',  // src: mr_hu_1991_ed2
-    // john_brenner_priest: 'Blessed John Brenner, Priest and Martyr',
+    john_brenner_priest: 'Boldog Brenner János áldozópap és vértanú',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=35
     // john_cassian_priest: 'Saint John Cassian, Priest',
     john_chrysostom_bishop: 'Aranyszájú (Krizosztomosz) Szent János püspök és egyháztanító',  // src: mr_hu_1991_ed2
     john_damascene_priest: 'Damaszkuszi Szent János áldozópap és egyháztanító',  // src: mr_hu_1991_ed2
@@ -528,7 +528,7 @@ export const locale: Locale = {
     john_mary_vianney_priest: 'Vianney Szent János Mária áldozópap',  // src: mr_hu_1991_ed2
     // john_nepomucene_neumann_bishop: 'Saint John Neumann, Bishop',
     john_nepomucene_priest: 'Nepomuki Szent János áldozópap és vértanú',  // src: mr_hu_1991_ed2
-    // john_of_avila_priest: 'Saint John of Ávila, Priest and Doctor of the Church',
+    john_of_avila_priest: 'De Avila Szent János áldozópap és egyháztanító',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=104
     john_of_capistrano_priest: 'Kapisztrán Szent János áldozópap',  // src: mr_hu_1991_ed2
     // john_of_dukla_priest: 'Saint John of Dukla, Priest',
     john_of_god_duarte_cidade_religious: 'Istenes Szent János szerzetes',  // src: mr_hu_1991_ed2
@@ -539,7 +539,7 @@ export const locale: Locale = {
     john_paul_ii_pope: 'Szent II. János Pál pápa',  // based on: mr_hu_1991_ed2
     // john_roberts_priest: 'Saint John Roberts, Priest and Martyr',
     // john_sarkander_priest: 'Saint John Sarkander, Priest and Martyr',
-    // john_scheffler_bishop: 'Blessed John Scheffler, Bishop and Martyr',
+    john_scheffler_bishop: 'Boldog Scheffler János püspök és vértanú',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=106
     john_xxiii_pope: 'Szent XXIII. János pápa',
     josaphat_kuntsevych_bishop: 'Szent Jozafát püspök és vértanú',  // src: mr_hu_1991_ed2
     // jose_maria_de_yermo_y_parres_priest: 'Saint José Maria de Yermo y Parres, Priest',
@@ -555,8 +555,8 @@ export const locale: Locale = {
     // joseph_vaz_priest: 'Saint Joseph Vaz, Priest',
     // joseph_yuan_gengyin_priest: 'Saint Joseph Yuan Gengyin, Priest and Martyr',
     // joseph_zhang_dapeng_martyr: 'Saint Joseph Zhang Dapeng, Martyr',
-    // josephine_bakhita_virgin: 'Saint Josephine Bakhita, Virgin',
-    // juan_diego_cuauhtlatoatzin: 'Saint Juan Diego Cuauhtlatoatzin',
+    josephine_bakhita_virgin: 'Bakhita Szent Jozefina szűz',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=60
+    juan_diego_cuauhtlatoatzin: 'Szent Juan Diego Cuauhtlatoatzin',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=33
     // juliana_of_liege_virgin: 'Saint Juliana of Liège, Virgin',
     // julie_billiart_virgin: 'Saint Julie Billiart, Virgin',
     // junipero_serra_priest: 'Saint Junípero Serra, Priest',
@@ -595,7 +595,7 @@ export const locale: Locale = {
     // leopold_iii_of_babenberg: 'Saint Leopold III of Babenberg',
     // leopold_mandic_priest: 'Saint Leopold Mandić, Priest',
     // louis_bertrand_priest: 'Saint Louis Bertrand, Priest',
-    // louis_grignion_de_montfort_priest: 'Saint Louis Grignion de Montfort, Priest',
+    louis_grignion_de_montfort_priest: 'Montforti Grignion Szent Lajos Mária áldozópap',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=99
     louis_ix_of_france: 'Szent Lajos',  // src: mr_hu_1991_ed2
     // louis_zephirin_moreau_bishop: 'Blessed Louis-Zéphirin Moreau, Bishop',
     // louise_de_marillac_religious: 'Saint Louise de Marillac, Religious',
@@ -650,7 +650,7 @@ export const locale: Locale = {
     mary_magdalene: 'Szent Mária Magdolna',  // src: mr_hu_1991_ed2
     mary_magdalene_de_pazzi_virgin: 'Pazzi Szent Mária Magdolna szűz',  // src: mr_hu_1991_ed2
     mary_mother_of_god: 'Karácsony nyolcada (Kiskarácsony): Szűz Mária, Isten anyja (Újév)',  // src: mr_hu_1991_ed2
-    // mary_mother_of_the_church: 'Blessed Virgin Mary, Mother of the Church',
+    mary_mother_of_the_church: 'Boldogságos Szűz Mária az Egyház anyja',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=114
     // mary_of_jesus_crucified_petkovic_virgin: 'Blessed Mary of Jesus Crucified Petković, Virgin',
     // mary_of_jesus_in_the_blessed_sacrament_venegas_de_la_torre_virgin: 'Saint Mary of Jesus in the Blessed Sacrament Venegas de la Torre, Virgin',
     // mary_of_jesus_the_good_shepherd_siedliska_virgin: 'Blessed Mary of Jesus the Good Shepherd Siedliska, Virgin',
@@ -726,17 +726,17 @@ export const locale: Locale = {
     // our_lady_of_bethlehem: 'Our Lady of Bethlehem',
     // our_lady_of_china: 'Our Lady of China',
     // our_lady_of_czestochowa: 'Our Lady of Częstochowa',
-    // our_lady_of_fatima: 'Our Lady of Fatima',
+    our_lady_of_fatima: 'A Fatimai Boldogságos Szűz Mária',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=105
     // our_lady_of_good_counsel: 'Our Lady of Good Counsel',
-    // our_lady_of_guadalupe: 'Our Lady of Guadalupe',
-    // our_lady_of_guadalupe_patroness_of_the_americas: 'Our Lady of Guadalupe, Patroness of the Americas',
-    // our_lady_of_guadalupe_patroness_of_the_philippines: 'Our Lady of Guadalupe, Patroness of the Philippines',
+    our_lady_of_guadalupe: 'A Guadalupei Boldogságos Szűz Mária',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=35
+    our_lady_of_guadalupe_patroness_of_the_americas: 'A Guadalupei Boldogságos Szűz Mária, Amerikák védőszentje',  // based on: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=35
+    our_lady_of_guadalupe_patroness_of_the_philippines: 'A Guadalupei Boldogságos Szűz Mária, a Fülöp-szigetek védőszentje',  // based on: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=35
     our_lady_of_hungary_patroness_of_hungary: 'Szűz Mária, Magyarok Nagyasszonya, Magyarország Főpátronája',  // src: mr_hu_1991_ed2
     // our_lady_of_itati: 'Our Lady of Itatí',
     // our_lady_of_knock: 'Our Lady of Knock',
     // our_lady_of_lanka: 'Our Lady of Lanka',
     // our_lady_of_lebanon: 'Our Lady of Lebanon',
-    // our_lady_of_loreto: 'Our Lady of Loreto',
+    our_lady_of_loreto: 'A Loretói Boldogságos Szűz Mária',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=34
     our_lady_of_lourdes: 'A Lourdes-i Boldogságos Szűz Mária',  // src: mr_hu_1991_ed2
     // our_lady_of_lujan_patroness_of_argentina: 'Our Lady of Luján, Patroness of Argentina',
     // our_lady_of_madhu: 'Our Lady of Madhu',
@@ -781,7 +781,7 @@ export const locale: Locale = {
     // pavel_peter_gojdic_bishop: 'Blessed Pavel Peter Gojdič, Bishop and Martyr',
     // pedro_calungsod_martyr: 'Saint Pedro Calungsod, Martyr',
     // pelagius_of_cordoba_martyr: 'Saint Pelagius of Córdoba, Martyr',
-    // pentecost_sunday: 'Pünkösdvasárnap',
+    pentecost_sunday: 'Pünkösdvasárnap',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=113
     perpetua_of_carthage_and_felicity_of_carthage_martyrs: 'Szent Perpétua és Felicitász vértanúk',  // src: mr_hu_1991_ed2
     peter_and_paul_apostles: 'Szent Péter és Szent Pál apostolok',  // src: mr_hu_1991_ed2
     // peter_baptist_blasquez_paul_miki_and_companions_martyrs: 'Saints Peter Baptist Blásquez, Paul Miki and Companions, Martyrs',
@@ -789,7 +789,7 @@ export const locale: Locale = {
     peter_chanel_priest: 'Chanel Szent Péter áldozópap és vértanú',  // src: mr_hu_1991_ed2
     peter_chanel_priest_patron_of_oceania: 'Chanel Szent Péter áldozópap és vértanú, Óceánia első vértanú, Óceánia védőszentje',  // based on: mr_hu_1991_ed2 + https://archiv.katolikus.hu/szentek2/SZENTEK/00000231.HTM
     peter_chrysologus_bishop: 'Aranyszavú (Krizológ) Szent Péter püspök és egyháztanító',  // src: mr_hu_1991_ed2
-    // peter_claver_priest: 'Saint Peter Claver, Priest',
+    peter_claver_priest: 'Claver Szent Péter áldozópap',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=151
     peter_damian_bishop: 'Damiáni Szent Péter püspök és egyháztanító',  // src: mr_hu_1991_ed2
     // peter_de_zuniga_and_louis_flores_priests: 'Blesseds Peter de Zúñiga and Louis Flores, Priests and Martyrs',
     // peter_julian_eymard_priest: 'Saint Peter Julian Eymard, Priest',
@@ -805,7 +805,7 @@ export const locale: Locale = {
     // philip_of_jesus_de_las_casas_martyr: 'Saint Philip of Jesus de las Casas, Martyr',
     // philip_of_jesus_de_las_casas_paul_miki_and_companions_martyrs: 'Saints Philip of Jesus de las Casas, Paul Miki and Companions, Martyrs',
     // pirmin_of_hornbach_abbot: 'Saint Pirmin, Abbot',
-    // pius_francesco_forgione_priest: 'Saint Pius of Pietrelcina, Priest',
+    pius_francesco_forgione_priest: 'Pietrelcinai Szent Pió áldozópap',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=156
     pius_ix_pope: 'Boldog IX. Piusz pápa',  // based on: mr_hu_1991_ed2
     pius_v_pope: 'Szent V. Piusz pápa',  // src: mr_hu_1991_ed2
     pius_x_pope: 'Szent X. Piusz pápa',  // src: mr_hu_1991_ed2
@@ -841,15 +841,15 @@ export const locale: Locale = {
     // rupert_of_salzburg_and_virgilius_of_salzburg_bishops: 'Saints Rupert and Virgilius of Salzburg, Bishops',
     // salomea_of_poland_religious: 'Blessed Salomea of Poland, Religious',
     // sancha_of_portugal_and_mafalda_of_portugal_virgins: 'Blessed Sancha and Mafalda, Virgins',
-    sara_salkahazi_virgin: 'Boldog Salkaházi Sára szűz és vértanú',
-    scholastica_of_nursia_virgin: 'Saint Scholastica, Virgin',  // src: mr_hu_1991_ed2
+    sara_salkahazi_virgin: 'Boldog Salkaházi Sára szűz és vértanú',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=104, without a comma before the titles
+    scholastica_of_nursia_virgin: 'Szent Skolasztika szűz',  // src: mr_hu_1991_ed2
     // sebastian_de_aparicio_religious: 'Blessed Sebastian de Aparicio, Religious',
     sebastian_of_milan_martyr: 'Szent Sebestyén vértanú',  // src: mr_hu_1991_ed2
     // senan_of_inis_cathaigh_bishop: 'Saint Senan, Bishop',
     seven_holy_founders_of_the_servite_order: 'A szervita rend hét szent alapítója',  // src: mr_hu_1991_ed2
     // seven_martyred_nuns_from_the_franciscan_missionaries_of_mary: 'Seven Martyred Nuns from the Franciscan Missionaries of Mary',
     // severinus_of_noricum_monk: 'Saint Severinus of Noricum, Monk',
-    // sharbel_makhluf_priest: 'Saint Sharbel Makhlūf, Priest',
+    sharbel_makhluf_priest: 'Szent Charbel Makhlouf áldozópap',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=134
     // shipwreck_of_saint_paul_apostle: 'Shipwreck of Saint Paul, Apostle',
     // sigismund_of_burgundy_martyr: 'Saint Sigismund, Martyr',
     // sigmund_felix_felinski_bishop: 'Saint Sigmund Felix Feliński, Bishop',
@@ -870,15 +870,15 @@ export const locale: Locale = {
     sylvester_i_pope: 'Szent I. Szilveszter pápa',  // src: mr_hu_1991_ed2
     szilard_bogdanffy_bishop: 'Boldog Bogdánffy Szilárd püspök és vértanú',
     // teilo_of_llandaff_bishop: 'Saint Teilo, Bishop',
-    // teresa_benedicta_of_the_cross_stein_virgin: 'Saint Teresa Benedicta of the Cross Stein, Virgin and Martyr',
-    // teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe: 'Saint Teresa Benedicta of the Cross Stein, Virgin and Martyr, Copatroness of Europe',
+    teresa_benedicta_of_the_cross_stein_virgin: 'A keresztről nevezett Szent Terézia Benedikta (Edith Stein) szűz és vértanú',  // based on: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=138
+    teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe: 'A keresztről nevezett Szent Terézia Benedikta (Edith Stein) szűz és vértanú, Európa társvédőszentje',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=138
     teresa_of_calcutta_religious: 'Kalkuttai Szent Teréz',
     // teresa_of_jesus_jornet_ibars_virgin: 'Saint Teresa of Jesus Jornet Ibars, Virgin',
     teresa_of_jesus_of_avila_virgin: 'A Jézusról nevezett (Avilai) Szent Teréz szűz és egyháztanító',  // src: mr_hu_1991_ed2
     // teresa_of_jesus_of_los_andes_virgin: 'Saint Teresa of Jesus of Los Andes, Virgin',
     // teresa_of_portugal_religious: 'Blessed Teresa of Portugal, Religious',
     // theodore_of_canterbury_bishop: 'Saint Theodore of Canterbury, Bishop',
-    // theodore_romzha_bishop: 'Blessed Theodore Romzha, Bishop and Martyr',
+    theodore_romzha_bishop: 'Boldog Romzsa Tódor püspök és vértanú',  // src: https://tar.liturgia.hu/Naptar/DIR2022_JAV_2021-12-13.pdf#page=171
     // theodosius_of_the_caves_abbot: 'Saint Theodosius of the Caves, Abbot',
     // theotonius_of_coimbra_priest: 'Saint Theotonius of Coimbra, Priest',
     therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin: 'A Gyermek Jézusról nevezett (Lisieux-i) Szent Teréz szűz és egyháztanító',  // src: mr_hu_1991_ed2 + `Doctor of the Church` title
