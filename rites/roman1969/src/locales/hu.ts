@@ -337,7 +337,7 @@ export const locale: Locale = {
     // deiniol_of_bangor_bishop: 'Saint Deiniol, Bishop',
     // demetrius_of_thessaloniki_martyr: 'Saint Demetrius of Thessaloniki, Martyr',
     denis_of_paris_bishop_and_companions_martyrs: 'Szent Dénes püspök és társai vértanúk',  // src: mr_hu_1991_ed2
-    denis_of_paris_bishop_patron_of_the_archdiocese_of_paris: 'Szent Dénes püspök és társai vértanúk, a Párizsi főegyházmegye védőszentje',  // based on: mr_hu_1991_ed2
+    denis_of_paris_bishop_patron_of_the_archdiocese_of_paris: 'Szent Dénes püspök és társai vértanúk, a párizsi főegyházmegye védőszentje',  // based on: mr_hu_1991_ed2
     denis_of_paris_bishop_patron_of_the_city_and_of_the_diocese_of_saint_denis: 'Szent Dénes püspök és társai vértanúk, A Saint-Denis-i város és egyházmegye védőszentje',  // based on: mr_hu_1991_ed2
     // dina_belanger_virgin: 'Blessed Dina Bélanger, Virgin',
     // dionysius_the_areopagite_bishop: 'Saint Dionysius the Areopagite, Bishop and Martyr',
