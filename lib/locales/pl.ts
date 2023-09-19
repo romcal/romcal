@@ -217,7 +217,7 @@ export const locale: Locale = {
     dedication_of_the_basilicas_of_saints_peter_and_paul_apostles:
       'Rocznica poświęcenia rzymskich bazylik świętych apostołów Piotra i Pawła',
     dedication_of_the_cathedral_basilica_of_saint_denis_france:
-      'Rocznica poświęcenia Bazyliki Katedralnej Saint-Denis, Francji',
+      'Rocznica poświęcenia Bazyliki Katedralnej Saint-Denis, Francja',
     dedication_of_the_cathedral_of_notre_dame_de_strasbourg_france:
       'Rocznica poświęcenia Katedry Notre-Dame de Strasbourg, Francja',
     dedication_of_the_lateran_basilica: 'Rocznica poświęcenia Bazyliki Laterańskiej',
