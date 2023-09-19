@@ -40,7 +40,7 @@ export const locale: Locale = {
 
     easter_time: {
       season: 'Wielkanoc',
-      weekday: '$t(weekdays:{{dow}}, capitalize) {{week}} tygodnia wielkanocy',
+      weekday: '$t(weekdays:{{dow}}, capitalize) {{week}} tygodnia Wielkanocy',
       sunday: '{{week}} Niedziela Wielkanocy',
       octave: '$t(weekdays:{{dow}}, capitalize) w oktawie Wielkanocy',
     },
