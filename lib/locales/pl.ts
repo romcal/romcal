@@ -6,30 +6,30 @@ export const locale: Locale = {
   seasons: {
     advent: {
       season: 'Adwent',
-      weekday: '$t(weekdays:{{dow}}, capitalize) {{week}}. tygodnia Adwentu',
-      sunday: '{{week}}. Niedziela Adwentu',
+      weekday: '$t(weekdays:{{dow}}, capitalize) {{week}} tygodnia Adwentu',
+      sunday: '{{week}} Niedziela Adwentu',
       privileged_weekday: '{{day}} $t(months:11)',
     },
 
     christmas_time: {
       season: 'Narodzenie Pańskie',
-      day: '$t(weekdays:{{dow}}, capitalize) boże Narodzenie',
-      octave: '{{count}}. dzień w oktawie Narodzenia Pańskiego',
-      second_sunday_after_christmas: 'Druga Niedziela po Narodzeniu Pańskim',
+      day: '$t(weekdays:{{dow}}, capitalize) okresu Bożego Narodzenia',
+      octave: '{{count}} dzień w oktawie Narodzenia Pańskiego',
+      second_sunday_after_christmas: '2 Niedziela po Narodzeniu Pańskim',
       before_epiphany: '{{day}} $t(months:0)',
       after_epiphany: '$t(weekdays:{{dow}}, capitalize) po Objawieniu Pańskim',
     },
 
     ordinary_time: {
       season: 'Okres Zwykły',
-      weekday: '$t(weekdays:{{dow}}, capitalize) {{week}}. tygodnia zwykłego',
-      sunday: '{{week}}. Niedziela zwykła',
+      weekday: '$t(weekdays:{{dow}}, capitalize) {{week}} tygodnia zwykłego',
+      sunday: '{{week}} Niedziela zwykła',
     },
 
     lent: {
       season: 'Wielki Post',
-      weekday: '$t(weekdays:{{dow}}, capitalize) {{week}}. tygodnia Wielkiego Postu',
-      sunday: '{{week}}. Niedziela Wielkiego Postu',
+      weekday: '$t(weekdays:{{dow}}, capitalize) {{week}} tygodnia Wielkiego Postu',
+      sunday: '{{week}} Niedziela Wielkiego Postu',
       day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) po Popielcu',
       holy_week_day: '$t(weekdays:{{dow}}, capitalize) Wielkiego Tygodnia',
     },
@@ -40,8 +40,8 @@ export const locale: Locale = {
 
     easter_time: {
       season: 'Wielkanoc',
-      weekday: '$t(weekdays:{{dow}}, capitalize) {{week}}. tygodnia wielkanocnego',
-      sunday: '{{week}}. Niedziela Wielkanocna',
+      weekday: '$t(weekdays:{{dow}}, capitalize) {{week}} tygodnia Wielkanocy',
+      sunday: '{{week}} Niedziela Wielkanocy',
       octave: '$t(weekdays:{{dow}}, capitalize) w oktawie Wielkanocy',
     },
   },
@@ -230,7 +230,7 @@ export const locale: Locale = {
       'Św. Dionizego, biskupa i męczennika, patrona miasta i diecezji Saint-Denis',
     divine_mercy_sunday: '2 Niedziela Wielkanocna czyli Niedziela Miłosierdzia Bożego',
     dominic_de_guzman_priest: 'Św. Dominika, prezbitera',
-    easter_sunday: 'Niedziela Wielkanocna Zmartwychwstania Pańskiego',
+    easter_sunday: 'Niedziela Wielkanocy Zmartwychwstania Pańskiego',
     edmund_bojanowski: 'Bł. Edmunda Bojanowskiego',
     eligius_of_noyon_bishop: 'Św. Eligiusza, biskupa',
     elizabeth_of_hungary_religious: 'Św. Elżbiety Węgierskiej, zakonnicy',
@@ -258,7 +258,7 @@ export const locale: Locale = {
     francis_of_paola_hermit: 'Św. Franciszka z Paoli, pustelnika',
     francis_xavier_priest: 'Św. Franciszka Ksawerego, prezbitera',
     frederic_ozanam_founder: 'Bł. Fryderyka Ozanama, założyciela',
-    friday_of_the_passion_of_the_lord: 'Wielki Piątek',
+    friday_of_the_passion_of_the_lord: 'Wielki Piątek Męki Pańskiej',
     gabriel_taurin_dufresse_bishop: 'Św. Gabriel-Taurina Dufresse, biskupa i męczennika',
     george_matulaitis_bishop: 'Bł. Jerzego Matulewicza, biskupa',
     george_of_lydda_martyr: 'Św. Grzegorza, męczennika',
