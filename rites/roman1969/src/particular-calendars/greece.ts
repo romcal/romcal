@@ -32,11 +32,20 @@ export class Greece extends CalendarDef {
       dateDef: { month: 5, date: 5 },
     },
 
+    mary_mother_of_the_church: {
+      precedence: Precedences.ProperMemorial_11b,
+      dateDef: { month: 5, date: 13 },
+    },
+
     our_lady_of_fatima: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 5, date: 15 },
     },
 
+    isidore_the_farmer: {
+      precedence: Precedences.OptionalMemorial_12,
+      dateDef: { month: 5, date: 15 },
+    },
     cyril_of_alexandria_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 6, date: 27 },
