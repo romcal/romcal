@@ -790,6 +790,7 @@ export const locale: Locale = {
     our_lady_of_bethlehem: 'B. Mariæ Virginis de Bethlehem',
     our_lady_of_china: 'B. Mariæ Virginis Sinæ',
     our_lady_of_czestochowa: 'B. Mariæ Virginis de Częstochowa',
+    our_lady_of_faneromeni: 'B. Mariæ Virginis de Faneromeni',
     our_lady_of_fatima: 'B. Mariæ Virginis de Fatima',
     our_lady_of_good_counsel: 'B. Mariæ Virginis boni Consilii Matris',
     our_lady_of_guadalupe: 'B. Mariæ Virginis de Guadalupe',
