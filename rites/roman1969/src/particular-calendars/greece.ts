@@ -62,6 +62,11 @@ export class Greece extends CalendarDef {
       dateDef: { month: 6, date: 27 },
     },
 
+    eric_ix_of_sweden_martyr: {
+      precedence: Precedences.OptionalMemorial_12,
+      dateDef: { month: 7, date: 13 },
+    },
+
     margaret_of_antioch_virgin: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 7, date: 17 },
