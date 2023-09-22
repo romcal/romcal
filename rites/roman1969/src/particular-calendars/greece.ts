@@ -82,6 +82,11 @@ export class Greece extends CalendarDef {
       dateDef: { month: 8, date: 3 },
     },
 
+    our_lady_of_faneromeni: {
+      precedence: Precedences.OptionalMemorial_12,
+      dateDef: { month: 9, date: 24 },
+    },
+
     cosmas_of_cilicia_and_damian_of_cilicia_martyrs: {
       precedence: Precedences.ProperMemorial_11b,
     },

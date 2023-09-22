@@ -3204,6 +3204,9 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     our_lady_of_czestochowa: {
       name: 'Our Lady of Częstochowa',
     },
+    our_lady_of_faneromeni: {
+      name: 'Our Lady of Faneromeni',
+    },
     our_lady_of_fatima: {
       name: 'Our Lady of Fatima',
     },
