@@ -46,6 +46,17 @@ export class Greece extends CalendarDef {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 5, date: 15 },
     },
+
+    marcellin_champagnat_priest: {
+      precedence: Precedences.OptionalMemorial_12,
+      dateDef: { month: 6, date: 6 },
+    },
+
+    emilie_de_vialar_virgin: {
+      precedence: Precedences.OptionalMemorial_12,
+      dateDef: { month: 6, date: 17 },
+    },
+
     cyril_of_alexandria_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 6, date: 27 },

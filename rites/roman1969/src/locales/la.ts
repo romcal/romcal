@@ -404,6 +404,7 @@ export const locale: Locale = {
     elizabeth_of_hungary_religious: 'S. Elisabeth Hungariæ, religiosæ',
     elizabeth_of_portugal: 'S. Elisabeth Lusitaniæ',
     emeric_of_hungary: 'S. Emerici',
+    emilie_de_vialar_virgin: 'S. Æmilia de Vialar, virginis',
     emilie_tavernier_gamelin_religious: 'B. Æmilia Tavernier Gamelin, religiosæ',
     enda_of_aran_abbot: 'S. Endei, abbatis',
     english_martyrs: 'Ss. Martyrum Angliæ',
