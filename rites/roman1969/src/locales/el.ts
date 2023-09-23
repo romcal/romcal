@@ -285,8 +285,8 @@ export const locale: Locale = {
     cyril_of_alexandria_bishop: 'Αγίου Κυρίλλου της Αλεξάνδρειας, επισκόπου και διδασκάλου της Εκκλησίας',
     cyril_of_jerusalem_bishop: 'Αγίου Κυρίλλου των Ιεροσολύμων, επισκόπου και διδασκάλου της Εκκλησίας',
     damasus_i_pope: 'Αγίου Δαμάσου, πάπα',
-    dedication_of_the_basilica_of_our_lady_of_snows:
-      'Των Εγκαινίων της Βασιλικής της Αγίας Μαρίας, της Παναγίας των Χιόνων', // Cathedral of Tinos, Grece
+    dedication_of_the_basilica_of_our_lady_of_the_snows_tinos_grece:
+      'Των Εγκαινίων της Βασιλικής της Αγίας Μαρίας, της Παναγίας των Χιόνων',
     dedication_of_the_basilica_of_saint_mary_major: 'Τα Εγκαίνια της βασιλικής της Αγίας Μαρίας',
     dedication_of_the_basilicas_of_saints_peter_and_paul_apostles:
       'Εγκαινίων των Βασιλικών των Αγίων Πέτρου Και Παύλου, αποστόλων',
