@@ -643,6 +643,7 @@ export const locale: Locale = {
     laurence_otoole_bishop: 'Saint Laurence O’Toole, Bishop',
     laurence_wang_bing_and_companions_martyrs: 'Saint Laurence Wang Bing and Companions, Martyrs',
     lawrence_bai_xiaoman_martyr: 'Saint Lawrence Bai Xiaoman, Martyr',
+    lawrence_justinian: 'Saint Lawrence Justinian, bishop',
     lawrence_of_brindisi_priest: 'Saint Lawrence of Brindisi, Priest and Doctor of the Church',
     lawrence_of_rome_deacon: 'Saint Lawrence, Deacon and Martyr',
     lawrence_ruiz_and_companions_martyrs: 'Saint Lawrence Ruiz and Companions, Martyrs',
@@ -682,6 +683,7 @@ export const locale: Locale = {
     marcel_callo_martyr: 'Blessed Marcel Callo, Martyr',
     marcelina_darowska_religious: 'Blessed Marcelina Darowska, Religious',
     marcellin_champagnat_priest: 'Saint Marcellin Champagnat, Priest',
+    marcellinus_of_ancona_bishop: 'Saint Marcellinus of Ancona, Bishop',
     marcellinus_of_rome_and_peter_the_exorcist_martyrs: 'Saints Marcellinus and Peter, Martyrs',
     marcellus_of_paris_bishop: 'Saint Marcellus of Paris, Bishop',
     margaret_clitherow_anne_line_and_margaret_ward_virgin_martyrs:
@@ -758,6 +760,7 @@ export const locale: Locale = {
     michael_kozal_bishop: 'Blessed Michael Kozal, Bishop and Martyr',
     miguel_agustin_pro_priest: 'Blessed Miguel Agustín Pro, Priest and Martyr',
     miguel_febres_cordero_religious: 'Saint Miguel Febres Cordero, Religious',
+    miltiades_pope: 'Saint Miltiades, Pope',
     modestus_andlauer_and_andrew_bauer_martyrs: 'Saints Modestus Andlauer and Andrew Bauer, Martyrs',
     modestus_andlauer_martyr: 'Saint Modestus Andlauer, Martyr',
     monica_of_hippo: 'Saint Monica',
