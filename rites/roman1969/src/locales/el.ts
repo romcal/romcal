@@ -218,7 +218,7 @@ export const locale: Locale = {
     aloysius_gonzaga_religious: 'Αγίου Αλοϊσίου Gonzaga, μοναχού',
     alphonsus_mary_liguori_bishop: 'Αγίου Αλφόνσου Μαρία de Liguori, επισκόπου και διδασκάλου της Εκκλησίας',
     ambrose_of_milan_bishop: 'Αγίου Αμβροσίου, επισκόπου και διδασκάλου της Εκκλησιάς',
-    andrew_apostle: 'Αγίου Ανδρέα, απόστολου',
+    andrew_apostle: 'Αγίου Ανδρέα, Απόστολου',
     andrew_dung_lac_priest_and_companions_martyrs: 'Αγίων Ανδρέα Dung Lac, πρεσβυτέρου, και συντρόφων, μαρτύρων',
     andrew_kim_tae_gon_priest_paul_chong_ha_sang_and_companions_martyrs:
       'Αγίου Ανδρέα Kim Tae-gon, πρεσβυτέρου, Αγίου Παύλου Chong Ha-sang, και συντρόφων, μαρτύρων',
