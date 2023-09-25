@@ -39,6 +39,11 @@ export interface BaseRomcalConfig {
   readonly ascensionOnSunday?: boolean;
 
   /**
+   * Determines if the date of Easter is calculated using the Gregorian calendar or the Julian calendar.
+   */
+  readonly easterCalculationType: EasterCalculationType;
+
+  /**
    * The calendar scope to query for.
    *
    * The scope can be specified either as:
@@ -79,3 +84,5 @@ export type RomcalConfigInput = Omit<Partial<BaseRomcalConfig>, 'localeId' | 'ca
 export type RomcalConfigOutput = Required<Omit<BaseRomcalConfig, 'localizedCalendar' | 'calendarsDef'>>;
 
 export type CalendarScope = 'gregorian' | 'liturgical';
+
+export type EasterCalculationType = 'gregorian' | 'julian';

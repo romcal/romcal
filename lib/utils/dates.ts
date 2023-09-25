@@ -1,5 +1,7 @@
 import { Seasons } from '../constants/seasons';
 import { RomcalConfig } from '../models/config';
+import { EasterCalculationType } from '../types/config';
+import { calculateGregorianEasterDate, calculateJulianEasterDateToGregorianDate } from './easter.dates';
 
 export const getUtcDate = (year: number, month: number, date: number): Date => {
   return new Date(Date.UTC(year, month - 1, date, 0, 0, 0, 0));
@@ -68,33 +70,6 @@ export const getWeekNumber = (date: Date): number => {
   const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
   d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
   return Math.ceil(((d.getTime() - new Date(Date.UTC(d.getUTCFullYear(), 0, 1)).getTime()) / 864e5 + 1) / 7);
-};
-
-/**
- * This algorithm is based on the algorithm of Oudin (1940) and quoted in
- * "Explanatory Supplement to the Astronomical Almanac", P. Kenneth
- * Seidelmann, editor.
- *
- * @param year The year on which to check when Easter falls (integer)
- */
-export const computeGregorianEasterDate = (year: number): Record<string, number> => {
-  const Y = year;
-  const C = Math.floor(Y / 100);
-  const N = Y - 19 * Math.floor(Y / 19);
-  const K = Math.floor((C - 17) / 25);
-  let I = C - Math.floor(C / 4) - Math.floor((C - K) / 3) + 19 * N + 15;
-
-  I = I - 30 * Math.floor(I / 30);
-  I = I - Math.floor(I / 28) * (1 - Math.floor(I / 28) * Math.floor(29 / (I + 1)) * Math.floor((21 - N) / 11));
-
-  let J = Y + Math.floor(Y / 4) + I + 2 - C + Math.floor(C / 4);
-  J = J - 7 * Math.floor(J / 7);
-
-  const L = I - J;
-  const M = 3 + Math.floor((L + 40) / 44);
-  const D = L + 28 - 31 * Math.floor(M / 4);
-
-  return { year: Y, month: M, day: D };
 };
 
 /**
@@ -634,9 +609,15 @@ export class Dates {
    * Get the date of Easter
    * @param year Gregorian year
    */
-  easterSunday = (year = this.#year): Date => {
+  easterSunday = (
+    year = this.#year,
+    easterCalculationType: EasterCalculationType = this.#config.easterCalculationType,
+  ): Date => {
     if (this.#easter[year]) return this.#easter[year];
-    const { month, day } = computeGregorianEasterDate(year);
+    const { month, day } =
+      easterCalculationType === 'gregorian'
+        ? calculateGregorianEasterDate(year)
+        : calculateJulianEasterDateToGregorianDate(year);
     return (this.#easter[year] = getUtcDate(year, month, day));
   };
   #easter: Record<string, Date> = {};

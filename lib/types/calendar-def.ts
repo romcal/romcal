@@ -9,7 +9,7 @@ import { LiturgicalDayBundleInput, LiturgicalDayInput } from './liturgical-day';
  * Specific and proper configuration of a particular calendar
  */
 export type ParticularConfig = Partial<
-  Pick<RomcalConfig, 'ascensionOnSunday' | 'epiphanyOnSunday' | 'corpusChristiOnSunday'>
+  Pick<RomcalConfig, 'ascensionOnSunday' | 'epiphanyOnSunday' | 'corpusChristiOnSunday' | 'easterCalculationType'>
 >;
 
 /**
