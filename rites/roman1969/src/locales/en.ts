@@ -711,7 +711,6 @@ export const locale: Locale = {
       'Saints Marko Krizin, Melchior Grodziecki and Stephen Pongrácz, Priests and Martyrs',
     marko_krizin_priest: 'Saint Marko Krizin, Priest and Martyr',
     maron_of_syria_hermit: 'Saint Maroun, Hermit',
-    martha_of_bethany: 'Saint Martha',
     martha_of_bethany_mary_of_bethany_and_lazarus_of_bethany: 'Saints Martha, Mary and Lazarus',
     martin_de_porres_religious: 'Saint Martin de Porres, Religious',
     martin_i_pope: 'Saint Martin I, Pope and Martyr',
