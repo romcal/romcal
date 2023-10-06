@@ -264,6 +264,7 @@ export const locale: Locale = {
     clement_i_pope: 'San Clemente I, papa e martire',
     columba_of_iona_abbot: 'San Colombano, abate',
     columba_of_iona_abbot_copatron_of_ireland: 'San Colombano, abate e patrono secondario dell’Irlanda',
+    columban_of_luxeuil_abbot: 'San Colombano, abate', // src: missal_it_2020_ed3
     commemoration_of_all_the_faithful_departed: 'Commemorazione di tutti i fedeli defunti',
     conversion_of_saint_paul_the_apostle: 'Conversione di San Paolo apostolo',
     cornelius_i_pope_and_cyprian_of_carthage_bishop_martyrs: 'Santi Cornelio, papa e Cipriano, vescovo, martiri',
@@ -276,6 +277,8 @@ export const locale: Locale = {
     cyril_of_jerusalem_bishop: 'San Cirillo di Gerusalemme, vescovo e dottore della Chiesa',
     damasus_i_pope: 'San Damaso I, papa',
     daniel_brottier_priest: 'Beato Daniel Brottier, sacerdote',
+    dedication_of_consecrated_churches:
+      'Dedicazione di chiese consacrate di cui non si conosce la data di consacrazione',
     dedication_of_the_basilica_of_saint_mary_major: 'Dedicazione della Basilica di Santa Maria Maggiore',
     dedication_of_the_basilicas_of_saints_peter_and_paul_apostles:
       'Dedicazione delle Basiliche dei Santi Pietro e Paolo apostoli',
@@ -304,6 +307,7 @@ export const locale: Locale = {
     eusebius_of_vercelli_bishop: 'Sant’Eusebio di Vercelli, vescovo',
     exaltation_of_the_holy_cross: 'Esaltazione della Santa Croce',
     fabian_i_pope: 'San Fabiano, papa e martire',
+    faustina_kowalska_virgin: 'Santa Faustina Kowalska, vergine', // src: https://it.wikipedia.org/wiki/Maria_Faustina_Kowalska
     fidelis_of_sigmaringen_priest: 'San Fedele da Sigmaringen, sacerdote e martire',
     first_martyrs_of_the_holy_roman_church: 'Santi Primi Martiri della Chiesa Romana',
     florentius_of_strasbourg_bishop: 'San Fiorenzo, vescovo',
@@ -326,6 +330,7 @@ export const locale: Locale = {
     henry_ii_emperor: 'Sant’Enrico',
     henry_of_finland_bishop: 'Sant’Enrico, vescovo e martire',
     hilary_of_poitiers_bishop: 'Sant’Ilario, vescovo e dottore della Chiesa',
+    hildegard_of_bingen_abbess: 'Ildegarda di Bingen, badessa e dottore della Chiesa', // src: https://it.wikipedia.org/wiki/Ildegarda_di_Bingen
     holy_family_of_jesus_mary_and_joseph: 'Santa Famiglia di Gesú, Maria e Giuseppe',
     holy_guardian_angels: 'Santi Angeli Custodi',
     holy_innocents_martyrs: 'Santi Innocenti, martiri',
@@ -357,6 +362,7 @@ export const locale: Locale = {
     john_i_pope: 'San Giovanni I, papa e martire',
     john_leonardi_priest: 'San Giovanni Leonardi, sacerdote',
     john_mary_vianney_priest: 'San Giovanni Maria Vianney, sacerdote',
+    john_of_avila_priest: 'San Giovanni d’Avila, sacerdote e dottore della Chiesa', // src: https://it.wikipedia.org/wiki/Giovanni_d%27Avila
     john_of_capistrano_priest: 'San Giovanni da Capestrano, sacerdote',
     john_of_god_duarte_cidade_religious: 'San Giovanni di Dio, religioso',
     john_of_kanty_priest: 'San Giovanni da Keti, sacerdote',
@@ -432,6 +438,7 @@ export const locale: Locale = {
     our_lady_of_fatima: 'Beata Vergine Maria di Fatima',
     our_lady_of_guadalupe: 'Beata Vergine Maria di Guadalupe',
     our_lady_of_guadalupe_patroness_of_the_americas: 'Beata Vergine Maria di Guadalupe, Patrona delle Americhe',
+    our_lady_of_loreto: 'Beata Vergine Maria di Loreto', // src: missal_it_2020_ed3
     our_lady_of_lourdes: 'Beata Vergine Maria di Lourdes',
     our_lady_of_mount_carmel: 'Beata Vergine Maria del Carmelo',
     our_lady_of_sorrows: 'Beata Vergine Maria Addolorata',
@@ -447,6 +454,7 @@ export const locale: Locale = {
     patrick_of_ireland_bishop_patron_of_ireland: 'San Patrizio, vescovo e patrono dell’Irlanda',
     paul_miki_and_companions_martyrs: 'San Paolo Miki sacerdote e compagni, martiri',
     paul_of_the_cross_priest: 'San Paolo della Croce, sacerdote',
+    paul_vi_pope: 'San Paolo VI, papa', // missal_it_2020_ed3
     paulinus_of_nola_bishop: 'San Paolino di Nola, vescovo',
     pentecost_sunday: 'Domenica di Pentecoste',
     perpetua_of_carthage_and_felicity_of_carthage_martyrs: 'Sante Perpetua e Felicita, martiri',

@@ -199,6 +199,7 @@ export const locale: Locale = {
     clement_i_pope: 'Św. Klemensa I, papieża i męczennika',
     columba_of_iona_abbot: 'Św. Kolumbana, zakonnika',
     columba_of_iona_abbot_copatron_of_ireland: 'Św. Kolumbana, zakonnika, patrona Irlandii',
+    columban_of_luxeuil_abbot: 'Św. Kolumbana, opata', // src: https://pl.wikipedia.org/wiki/Kolumban_M%C5%82odszy
     commemoration_of_all_the_faithful_departed: 'Wspomnienie wszystkich wiernych zmarłych',
     conversion_of_saint_paul_the_apostle: 'Nawrócenie św. Pawła, Apostoła',
     cornelius_i_pope_and_cyprian_of_carthage_bishop_martyrs:
@@ -275,6 +276,7 @@ export const locale: Locale = {
     henry_ii_emperor: 'Św. Henryka',
     henry_of_finland_bishop: 'Św. Henryka, biskupa i męczennika',
     hilary_of_poitiers_bishop: 'Św. Hilarego, biskupa i doktora Kościoła',
+    hildegard_of_bingen_abbess: 'Św. Hildegardy z Bingen, opatki i doktora Kościoła', // src: https://pl.wikipedia.org/wiki/Hildegarda_z_Bingen
     holy_family_of_jesus_mary_and_joseph: 'Świętej Rodziny Jezusa, Maryi i Józefa',
     holy_guardian_angels: 'Świętych Aniołów Stróżów',
     holy_innocents_martyrs: 'Św. Młodzianków, męczenników',
@@ -313,6 +315,7 @@ export const locale: Locale = {
     john_leonardi_priest: 'Św. Jana Leonardiego, prezbitera',
     john_martin_moye_priest: 'Bł. Jana Marcina Moyego, prezbitera',
     john_mary_vianney_priest: 'Św. Jana Marii Vianneya, prezbitera',
+    john_of_avila_priest: 'Św. Jana z Ávili, prezbitera i doktora Kościoła', // src: https://pl.wikipedia.org/wiki/Jan_z_%C3%81vili
     john_of_capistrano_priest: 'Św. Jana Kapistrana, prezbitera',
     john_of_dukla_priest: 'Św. Jana z Dukli, prezbitera',
     john_of_god_duarte_cidade_religious: 'Św. Jana Bożego, zakonnika',
@@ -410,6 +413,8 @@ export const locale: Locale = {
     nicholas_barre_priest: 'Bł. Mikołaja Barré, prezbitera',
     nicholas_of_myra_bishop: 'Św. Mikołaja, biskupa',
     norbert_of_xanten_bishop: 'Św. Norberta, biskupa',
+    odile_of_alsace_abbess: 'Św. Otylii, ksieni',
+    odile_of_alsace_abbess_patroness_of_alsace: 'Św. Otylii, ksieni, patronka Alzacji',
     odoric_of_pordenone_priest: 'Bł. Odoryka z Pordenone, prezbitera',
     otto_of_bamberg_bishop: 'Św. Ottona, biskupa',
     our_lady_help_of_christians: 'Najświętszej Maryi Panny, Wspomożycielki Wiernych',
@@ -438,6 +443,7 @@ export const locale: Locale = {
     paul_liu_hanzuo_priest: 'Św. Pawła Liu Hanzuo, prezbitera i męczennika',
     paul_miki_and_companions_martyrs: 'Świętych męczenników Pawła Miki i Towarzyszy',
     paul_of_the_cross_priest: 'Św. Pawła od Krzyża, prezbitera',
+    paul_vi_pope: 'Św. Paweł VI, papieża', // src: https://pl.wikipedia.org/wiki/Pawe%C5%82_VI
     paulinus_of_nola_bishop: 'Św. Paulina z Noli, biskupa',
     pentecost_sunday: 'Niedziela Zesłania Ducha Świętego',
     perpetua_of_carthage_and_felicity_of_carthage_martyrs: 'Świętych męczennic Perpetuy i Felicyty',
@@ -503,8 +509,6 @@ export const locale: Locale = {
     timothy_of_ephesus_and_titus_of_crete_bishops: 'Świętych biskupów Tymoteusza i Tytusa',
     transfiguration_of_the_lord: 'Przemienienie Pańskie',
     translation_of_the_relics_of_odile_of_alsace_abbess: 'Przeniesienie relikwii św. Otylii',
-    odile_of_alsace_abbess: 'Św. Otylii, ksieni',
-    odile_of_alsace_abbess_patroness_of_alsace: 'Św. Otylii, ksieni, patronka Alzacji',
     turibius_of_mogrovejo_bishop: 'Św. Turybiusza z Mongrovejo, biskupa',
     urban_i_pope: 'Św. Urbana I, papieża',
     valerius_of_trier_bishop: 'Św. Waleriusza, biskupa',
@@ -518,7 +522,6 @@ export const locale: Locale = {
     wenceslaus_i_of_bohemia_martyr: 'Św. Wacława, męczennika',
     wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation: 'Św. Wacława, męczennika, patrona narodu czeskiego',
     wendelin_of_trier_hermit: 'Św. Wendelina, pustelnika',
-    wladyslaw_of_gielniow_priest: 'Bł. Władysława z Gielniowa, prezbitera',
     yolanda_of_poland_religious: 'Bł. Jolanty, zakonnicy',
     zdislava_of_lemberk: 'Św. Zdzisławy',
     zygmunt_gorazdowski_priest: 'Św. Zygmunta Gorazdowskiego, prezbitera',

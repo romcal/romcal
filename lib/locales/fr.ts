@@ -169,11 +169,11 @@ export const locale: Locale = {
     amandus_of_strasbourg_bishop: 'Saint Amand, premier évêque de Strasbourg († v. 346)',
     amarin_of_alsace_abbot: 'Saint Amarin, abbé et martyr († 674 ou 676)',
     ambrose_of_milan_bishop: 'Saint Ambroise, évêque de Milan et docteur de l’Église († 397)',
-    andre_bauer_martyr: 'Saint André Bauer, martyr († 1900)',
     andre_bessette_religious: 'Saint frère André Bessette, religieux († 1937)',
     andre_grasset_priest: 'Bienheureux André Grasset, prêtre, canadien martyr de la révolution française († 1792)',
     andrew_apostle: 'Saint André, apôtre',
     andrew_apostle_patron_of_scotland: 'Saint André, apôtre et patron de l’Écosse',
+    andrew_bauer_martyr: 'Saint André Bauer, martyr († 1900)',
     andrew_dung_lac_priest_and_companions_martyrs:
       'Saint André Dung Lac, prêtre, et ses compagnons, martyrs († entre 1745 et 1862)',
     andrew_kim_tae_gon_priest_paul_chong_ha_sang_and_companions_martyrs:
@@ -272,6 +272,8 @@ export const locale: Locale = {
     damasus_i_pope: 'Saint Damase Ier, pape († 384)',
     damien_de_veuster_priest: 'Saint Père Damien, prêtre et Missionnaire Picpus († 1889)',
     daniel_brottier_priest: 'Binheureux Daniel Brottier, prêtre, apôtre des Orphelins d’Auteuil († 1936 à Paris)',
+    dedication_of_consecrated_churches:
+      'Dédicace des églises consacrées dont on ne connaît pas la date de consécration', // src: missal_fr_2021_ed3
     dedication_of_the_basilica_of_saint_mary_major: 'Dédicace de la basilique Sainte-Marie Majeure',
     dedication_of_the_basilicas_of_saints_peter_and_paul_apostles:
       'Dédicace des basiliques de Saint Pierre et Saint Paul, apôtres, à Rome',
