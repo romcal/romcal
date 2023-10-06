@@ -1,10 +1,14 @@
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
-import { Inputs } from '../types/calendar-def';
+import { Inputs, ParticularConfig } from '../types/calendar-def';
 import { Europe } from './europe';
 
 export class Greece extends CalendarDef {
   parentCalendar = Europe;
+
+  particularConfig: ParticularConfig = {
+    easterCalculationType: 'julian',
+  };
 
   inputs: Inputs = {
     cyril_of_jerusalem_bishop: {

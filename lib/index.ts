@@ -94,7 +94,6 @@ import {
 import { MartyrologyCatalog, MartyrologyItem, SaintCount, SaintDate, SaintDateDef } from './types/martyrology';
 import {
   addDays,
-  computeGregorianEasterDate,
   dateDifference,
   Dates,
   daysInMonth,
@@ -108,6 +107,7 @@ import {
   startOfWeek,
   subtractsDays,
 } from './utils/dates';
+import { calculateGregorianEasterDate, calculateJulianEasterDateToGregorianDate } from './utils/easter.dates';
 import { isInteger, toRomanNumber } from './utils/numbers';
 
 class Romcal {
@@ -316,7 +316,8 @@ class Romcal {
   static isValidDate = isValidDate;
   static daysInMonth = daysInMonth;
   static getWeekNumber = getWeekNumber;
-  static computeGregorianEasterDate = computeGregorianEasterDate;
+  static computeGregorianEasterDate = calculateGregorianEasterDate;
+  static computeJulianEasterDate = calculateJulianEasterDateToGregorianDate;
   static rangeContainsDate = rangeContainsDate;
   static rangeOfDays = rangeOfDays;
   // utils/numbers.ts
