@@ -264,7 +264,7 @@ export const locale: Locale = {
     clement_i_pope: 'San Clemente I, papa e martire',
     columba_of_iona_abbot: 'San Colombano, abate',
     columba_of_iona_abbot_copatron_of_ireland: 'San Colombano, abate e patrono secondario dell’Irlanda',
-    columban_of_luxeuil_abbot: 'San Colombano, abate', // src: missal_it_2020_ed3
+    columban_of_luxeuil_abbot: 'San Colombano, abate', // src: mr_it_2020_ed3
     commemoration_of_all_the_faithful_departed: 'Commemorazione di tutti i fedeli defunti',
     conversion_of_saint_paul_the_apostle: 'Conversione di San Paolo apostolo',
     cornelius_i_pope_and_cyprian_of_carthage_bishop_martyrs: 'Santi Cornelio, papa e Cipriano, vescovo, martiri',
@@ -438,7 +438,7 @@ export const locale: Locale = {
     our_lady_of_fatima: 'Beata Vergine Maria di Fatima',
     our_lady_of_guadalupe: 'Beata Vergine Maria di Guadalupe',
     our_lady_of_guadalupe_patroness_of_the_americas: 'Beata Vergine Maria di Guadalupe, Patrona delle Americhe',
-    our_lady_of_loreto: 'Beata Vergine Maria di Loreto', // src: missal_it_2020_ed3
+    our_lady_of_loreto: 'Beata Vergine Maria di Loreto', // src: mr_it_2020_ed3
     our_lady_of_lourdes: 'Beata Vergine Maria di Lourdes',
     our_lady_of_mount_carmel: 'Beata Vergine Maria del Carmelo',
     our_lady_of_sorrows: 'Beata Vergine Maria Addolorata',
@@ -454,7 +454,7 @@ export const locale: Locale = {
     patrick_of_ireland_bishop_patron_of_ireland: 'San Patrizio, vescovo e patrono dell’Irlanda',
     paul_miki_and_companions_martyrs: 'San Paolo Miki sacerdote e compagni, martiri',
     paul_of_the_cross_priest: 'San Paolo della Croce, sacerdote',
-    paul_vi_pope: 'San Paolo VI, papa', // missal_it_2020_ed3
+    paul_vi_pope: 'San Paolo VI, papa', // src: mr_it_2020_ed3
     paulinus_of_nola_bishop: 'San Paolino di Nola, vescovo',
     pentecost_sunday: 'Domenica di Pentecoste',
     perpetua_of_carthage_and_felicity_of_carthage_martyrs: 'Sante Perpetua e Felicita, martiri',

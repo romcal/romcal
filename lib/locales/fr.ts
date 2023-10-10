@@ -273,7 +273,7 @@ export const locale: Locale = {
     damien_de_veuster_priest: 'Saint Père Damien, prêtre et Missionnaire Picpus († 1889)',
     daniel_brottier_priest: 'Binheureux Daniel Brottier, prêtre, apôtre des Orphelins d’Auteuil († 1936 à Paris)',
     dedication_of_consecrated_churches:
-      'Dédicace des églises consacrées dont on ne connaît pas la date de consécration', // src: missal_fr_2021_ed3
+      'Dédicace des églises consacrées dont on ne connaît pas la date de consécration', // src: mr_fr_2021_ed3
     dedication_of_the_basilica_of_saint_mary_major: 'Dédicace de la basilique Sainte-Marie Majeure',
     dedication_of_the_basilicas_of_saints_peter_and_paul_apostles:
       'Dédicace des basiliques de Saint Pierre et Saint Paul, apôtres, à Rome',

@@ -39,7 +39,11 @@ import { particularCalendars } from '../lib/particular-calendars';
 import { toPackageName } from '../lib/utils/string';
 import { RomcalBuilder } from './bundle';
 
-type LabelType = 'info' | 'warn' | 'error';
+enum LogLevel {
+  INFO = 'info',
+  WARN = 'warn',
+  ERROR = 'error',
+}
 
 type StringSetRecord = Record<string, Set<string>>;
 type StringArrayRecord = Record<string, string[]>;
@@ -53,12 +57,12 @@ let hasErrors = false;
 let hasWarnings = false;
 
 const u = chalk.underline;
-const color: Record<LabelType, chalk.Chalk> = {
+const color: Record<LogLevel, chalk.Chalk> = {
   info: chalk.greenBright,
   warn: chalk.yellowBright,
   error: chalk.redBright,
 };
-const bgColor: Record<LabelType, chalk.Chalk> = {
+const bgColor: Record<LogLevel, chalk.Chalk> = {
   info: chalk.bgGreenBright.black,
   warn: chalk.bgYellow.black,
   error: chalk.bgRed.whiteBright,
@@ -66,34 +70,34 @@ const bgColor: Record<LabelType, chalk.Chalk> = {
 
 const dasherize = (item: string): string => `       - ${item}`;
 
-const label = (type: LabelType): string => {
-  switch (type) {
-    case 'info':
-      return bgColor[type].bold('\n  OK  ') + ' ';
-    case 'warn':
+const label = (logLevel: LogLevel): string => {
+  switch (logLevel) {
+    case LogLevel.INFO:
+      return bgColor[logLevel].bold('\n  OK  ') + ' ';
+    case LogLevel.WARN:
       hasWarnings = true;
-      return bgColor[type].bold('\n WARN ') + ' ';
-    case 'error':
+      return bgColor[logLevel].bold('\n WARN ') + ' ';
+    case LogLevel.ERROR:
       hasErrors = true;
-      return bgColor[type].bold('\n ERR  ') + ' ';
+      return bgColor[logLevel].bold('\n ERR  ') + ' ';
   }
 };
 
-const list = (type: LabelType, items: string[]): string => color[type](items.map(dasherize).join('\n'));
+const list = (logLevel: LogLevel, items: string[]): string => color[logLevel](items.map(dasherize).join('\n'));
 
 /**
  * Output log if the values are not falsy.
  */
-const logIf = (type: 'warn' | 'error', description: string, values: string[] | StringArrayRecord | boolean): void => {
+const logIf = (logLevel: LogLevel, description: string, values: string[] | StringArrayRecord | boolean): void => {
   if (values === false) return;
-  console[type](label(type) + chalk.bold(description));
+  console[logLevel](label(logLevel) + chalk.bold(description));
   if (values === true) return;
   if (Array.isArray(values)) {
-    console[type](list(type, values));
+    console[logLevel](list(logLevel, values));
   } else {
     Object.entries(values).forEach(([namespace, keys]) => {
-      console[type]('       ' + color[type].bold(`${namespace}:`));
-      console[type](list(type, keys));
+      console[logLevel](`       ${color[logLevel].bold(`${namespace}:`)}`);
+      console[logLevel](list(logLevel, keys));
     });
   }
 };
@@ -167,6 +171,11 @@ const findMissingLocalizedItems = (
   return findMissingInArrayWithNamespacedLocaleKeys(Array.from(localeComputedKeys), locale, option);
 };
 
+const isObjectPropsSortedAlphabetically = (obj: Record<string, unknown>): boolean => {
+  const props = Object.keys(obj);
+  return props.sort().join('') !== props.join('');
+};
+
 const devLocale = { id: 'dev' };
 const allCalendars: (typeof CalendarDef)[] = [GeneralRoman, ...Object.values(particularCalendars)];
 const allMartyrologyKeys = new Set<string>();
@@ -186,7 +195,7 @@ const metaI18nKeys: string[] = [
 ];
 
 /**
- * Compute data to check
+ * Compute data to check.
  */
 for (let i = 0; i < allCalendars.length; i++) {
   const calendar = allCalendars[i];
@@ -249,19 +258,19 @@ for (let i = 0; i < allCalendars.length; i++) {
  * [1] If there are useless martyrology items.
  */
 const uselessMartyrologyKeys = findMissingInArray(Object.keys(Martyrology.catalog), allMartyrologyKeys);
-logIf('error', `Useless martyrology items:`, uselessMartyrologyKeys);
+logIf(LogLevel.ERROR, `Useless martyrology items:`, uselessMartyrologyKeys);
 
 /**
  * [2] If there are missing martyrology items.
  */
 const missingMartyrologyKeys = findMissingInArray(allMartyrologyKeys, Object.keys(Martyrology.catalog));
-logIf('error', `Missing martyrology items:`, missingMartyrologyKeys);
+logIf(LogLevel.ERROR, `Missing martyrology items:`, missingMartyrologyKeys);
 
 /**
- * [3] If there are missing localized 'en' items
+ * [3] If there are missing localized 'en' items.
  */
 const missingEnLocaleKeys = findMissingLocalizedItems('En', allLocalesKeys);
-logIf('error', `Missing localized '${u('en')}' items:`, missingEnLocaleKeys);
+logIf(LogLevel.ERROR, `Missing localized '${u('en')}' items:`, missingEnLocaleKeys);
 
 Object.keys(Martyrology.catalog).forEach((key) => allLocalesKeys.add(`names:${key}`));
 
@@ -273,25 +282,21 @@ Object.keys(locales).forEach((localeKey) => {
     reverse: true,
     localeKeyNamesOnly: true,
   });
-  logIf('error', `Useless localized '${toPackageName(localeKey)}' items:`, uselessLocalizedKeys);
+  logIf(LogLevel.ERROR, `Useless localized '${toPackageName(localeKey)}' items:`, uselessLocalizedKeys);
 });
 
 /**
  * [5] If the martyrology items are not sorted alphabetically.
  */
-const areNotSortedMartyrologyKeys =
-  Object.keys(Martyrology.catalog).sort().join('') !== Object.keys(Martyrology.catalog).join('');
-logIf('error', `Martyrology keys are not sorted alphabetically.`, areNotSortedMartyrologyKeys);
+const areNotSortedMartyrologyKeys = isObjectPropsSortedAlphabetically(Martyrology.catalog);
+logIf(LogLevel.ERROR, `Martyrology keys are not sorted alphabetically.`, areNotSortedMartyrologyKeys);
 
 /**
  * [6] If the localized name items are not sorted alphabetically.
  */
 Object.values(locales).forEach((locale) => {
-  const areNotSortedNames =
-    Object.keys(locale.names ?? {})
-      .sort()
-      .join('') !== Object.keys(locale.names ?? {}).join('');
-  logIf('error', `Localized '${u(locale.id)}' names are not sorted alphabetically.`, areNotSortedNames);
+  const areNotSortedNames = isObjectPropsSortedAlphabetically(locale.names ?? {});
+  logIf(LogLevel.ERROR, `Localized '${u(locale.id)}' names are not sorted alphabetically.`, areNotSortedNames);
 });
 
 /**
@@ -302,7 +307,7 @@ Object.keys(locales)
   .forEach((localeKey) => {
     const missingLocaleNames = findMissingLocalizedItems(localeKey, allCalendarData['GeneralRoman'].localeComputedKeys);
     logIf(
-      'warn',
+      LogLevel.WARN,
       `Missing localized '${u(toPackageName(localeKey))}' items for the ${u('Proper of Time')} and the ${u(
         'General Roman Calendar',
       )}:`,
@@ -311,8 +316,8 @@ Object.keys(locales)
   });
 
 /**
- * End of checks
+ * End of checks.
  */
-if (!hasErrors && !hasWarnings) console.info(label('info') + color['info']('Locale checks passed!'));
+if (!hasErrors && !hasWarnings) console.info(label(LogLevel.INFO) + color[LogLevel.INFO]('Locale checks passed!'));
 console.log(''); // Add extra line to clear results in the console
 if (hasErrors) process.exit(1); // Exit with error code if there are errors
