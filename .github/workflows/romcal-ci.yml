@@ -28,4 +28,4 @@ jobs:
 
       - run: npm run test:without-coverage
 
-      - run: npm run locale:checks
+      - run: npm run data:checks
