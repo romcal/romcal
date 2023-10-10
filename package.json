@@ -16,7 +16,7 @@
     "prettier": "prettier -c --config .prettierrc {.github,./*}",
     "prettier:fix": "prettier -w --config .prettierrc {.github,./*}",
     "build": "node -r ts-node/register scripts/build.ts",
-    "locale:checks": "node -r ts-node/register scripts/locale-checks.ts",
+    "data:checks": "node -r ts-node/register scripts/data-checks.ts",
     "doc": "node -r ts-node/register scripts/bundle-doc.ts",
     "test": "jest --coverage",
     "test:without-coverage": "jest",

@@ -1,5 +1,5 @@
 /**
- * This script is used to check the consistency of the locale files.
+ * This script is used to check the consistency of the data files.
  *
  * It reports errors when:
  *   - [1] There are useless martyrology items.
