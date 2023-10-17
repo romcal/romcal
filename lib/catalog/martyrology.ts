@@ -978,9 +978,6 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Declan',
       titles: [Titles.Bishop],
     },
-    dedication_of_consecrated_churches: {
-      name: 'Dedication of Consecrated Churches whose date of Consecration is unknown',
-    },
     dedication_of_the_basilica_of_saint_mary_major: {
       name: 'Dedication of the Basilica of Saint Mary Major',
     },
@@ -2833,6 +2830,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Titles.Priest, Titles.Martyr],
       dateOfDeath: 1941,
     },
+    mederic_of_autun_abbot: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Mederic',
+      titles: [Titles.Bishop],
+      dateOfDeath: {
+        century: 7,
+      },
+    },
     meinrad_of_einsiedeln_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Meinrad of Einsiedeln',
@@ -2847,14 +2852,6 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Melchior Grodziecki',
       titles: [Titles.Priest, Titles.Martyr],
-    },
-    merry_abbot: {
-      canonizationLevel: CanonizationLevels.Saint,
-      name: 'Mederic',
-      titles: [Titles.Bishop],
-      dateOfDeath: {
-        century: 7,
-      },
     },
     methodius_michael_of_thessaloniki_bishop: {
       canonizationLevel: CanonizationLevels.Saint,

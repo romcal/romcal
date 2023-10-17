@@ -251,8 +251,7 @@ export const locale: Locale = {
     cyril_of_jerusalem_bishop: 'São Cirilo de Jerusalém, bispo e doutor da Igreja',
     damasus_i_pope: 'São Dâmaso I, papa',
     daniel_brottier_priest: 'Beato Daniel Brottier, presbítero',
-    dedication_of_consecrated_churches_on_last_sunday_of_october: 'Dedicação de Igrejas Consagradas no Último Domingo de Outubro',
-    dedication_of_consecrated_churches_on_october_25: 'Dedicação de Igrejas Consagradas em 25 de Outubro',
+    dedication_of_consecrated_churches: 'Dedicação de Igrejas Consagradas', // TODO: l10n to review: Dedication of Consecrated Churches Whose Date of Consecration is Unknown
     dedication_of_the_basilica_of_saint_mary_major: 'Dedicação da basílica de Santa Maria Maior',
     dedication_of_the_basilicas_of_saints_peter_and_paul_apostles: 'Dedicação das Basílicas dos Santos Pedro e Paulo, Apóstolos',
     dedication_of_the_cathedral_basilica_of_saint_denis_france: 'Dedicação da Catedral Basílica de Saint-Denis, França',

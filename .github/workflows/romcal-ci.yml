@@ -14,8 +14,18 @@ jobs:
       CI: true
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: volta-cli/action@v1
+      - name: Git checkout dev branch
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
       - run: npm ci --no-audit
+
       - run: npm run build
+
       - run: npm run test:without-coverage
+
+      - run: npm run data:checks

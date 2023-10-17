@@ -272,9 +272,7 @@ export const locale: Locale = {
     daniel_brottier_priest: 'Beato Daniel Brottier, presbítero',
     david_of_wales_bishop: 'San David, obispo',
     david_of_wales_bishop_patron_of_wales: 'San David, obispo y Patrono de Gales',
-    dedication_of_consecrated_churches_on_last_sunday_of_october:
-      'Dedicación de iglesias consagradas el último domingo de octubre',
-    dedication_of_consecrated_churches_on_october_25: 'Dedicación de iglesias consagradas el 25 de octubre',
+    dedication_of_consecrated_churches: 'Dedicación de iglesias consagradas cuya fecha de Consagración se desconoce', // TODO: l10n to review: Dedication of Consecrated Churches Whose Date of Consecration is Unknown
     dedication_of_the_basilica_of_saint_mary_major: 'Dedicación de la Basílica de Santa María Mayor',
     dedication_of_the_basilicas_of_saints_peter_and_paul_apostles:
       'Dedicación de las Basílicas de San Pedro y San Pablo, apóstoles',

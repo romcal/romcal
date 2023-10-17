@@ -33,7 +33,7 @@ const log = console.log;
 /**
  * Class helper, used to build the localized calendar bundles.
  */
-class RomcalBuilder {
+export class RomcalBuilder {
   readonly #config: RomcalConfig;
   #martyrologyIds: string[] = [];
 
