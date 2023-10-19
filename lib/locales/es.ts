@@ -283,7 +283,7 @@ export const locale: Locale = {
     dedication_of_the_lateran_basilica: 'Dedicación de la basílica de Letrán',
     dedication_of_the_notre_dame_de_paris_cathedral_paris_france:
       'Dedicación de la catedral de Notre-Dame de París, Francia',
-    denis_of_paris_bishop_and_companions_martyrs: 'Satos Dionisio, obispo, y compañeros, mártires',
+    denis_of_paris_bishop_and_companions_martyrs: 'Santos Dionisio, obispo, y compañeros, mártires',
     denis_of_paris_bishop_patron_of_the_archdiocese_of_paris:
       'San Dionisio, obispo y mártir, Patrono de la Arquidiócesis de París',
     denis_of_paris_bishop_patron_of_the_city_and_of_the_diocese_of_saint_denis:
@@ -316,8 +316,8 @@ export const locale: Locale = {
     francis_de_sales_bishop: 'San Francisco de Sales, obispo y doctor de la Iglesia',
     francis_diaz_del_rincon_priest_and_companions_martyrs: 'San Francisco Díaz, presbítero y Compañeros, mártires',
     francis_ferdinand_de_capillas_priest: 'San Francisco Fernández de Capillas, presbítero y mártir',
-    francis_of_assisi: 'San Francisco of Asís',
-    francis_of_assisi_patron_of_italy: 'San Francisco of Asís, Patrono de Italia',
+    francis_of_assisi: 'San Francisco de Asís',
+    francis_of_assisi_patron_of_italy: 'San Francisco de Asís, Patrono de Italia',
     francis_of_paola_hermit: 'San Francisco de Paula, ermitaño',
     francis_solanus_priest: 'San Francisco Solano, presbítero',
     francis_xavier_priest: 'San Francisco Javier, presbítero',
