@@ -1,4 +1,4 @@
-import Romcal from '../lib';
+import { Romcal } from '../lib';
 
 const { RomcalConfig, LiturgicalDayConfig } = Romcal;
 

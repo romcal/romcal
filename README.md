@@ -133,13 +133,13 @@ Before generating any kind of data, you must first generate a `new Romcal()` obj
 
 ```ts
 // as esm
-import Romcal from 'romcal';
+import { Romcal } from 'romcal';
 import { France_Fr } from '@romcal/calendar.france';
 ```
 
 ```ts
 // or as cjs
-const Romcal = require('romcal');
+const { Romcal } = require('romcal');
 const { France_Fr } = require('@romcal/calendar.france');
 ```
 

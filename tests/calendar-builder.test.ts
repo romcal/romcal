@@ -6,10 +6,10 @@ import { Hungary_En } from 'romcal/dist/bundles/hungary';
 import { Ireland_En } from 'romcal/dist/bundles/ireland';
 import { Slovakia_Sk } from 'romcal/dist/bundles/slovakia';
 
-import Romcal, { CalendarScope, Id, LiturgicalCalendar, LiturgicalDayDef } from '../lib';
+import { CalendarScope, Id, LiturgicalCalendar, LiturgicalDayDef, Romcal } from '../lib';
 import { Periods } from '../lib/constants/periods';
 import { Seasons } from '../lib/constants/seasons';
-import LiturgicalDay from '../lib/models/liturgical-day';
+import { LiturgicalDay } from '../lib/models/liturgical-day';
 import { dateDifference } from '../lib/utils/dates';
 
 const { Colors, isMartyr, Titles, Ranks, getUtcDate, getUtcDateFromString, isSameDate, subtractsDays } = Romcal;

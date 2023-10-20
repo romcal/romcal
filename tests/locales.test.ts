@@ -1,7 +1,7 @@
 import { Brazil_PtBr } from 'romcal/dist/bundles/brazil';
 import { France_Fr } from 'romcal/dist/bundles/france';
 
-import Romcal from '../lib';
+import { Romcal } from '../lib';
 
 describe('Testing localization functionality', () => {
   test('If the locale is set to "fr", romcal should output text in French', async () => {

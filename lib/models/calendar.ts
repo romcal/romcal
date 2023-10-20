@@ -8,9 +8,9 @@ import { Id } from '../types/common';
 import { RomcalCalendarMetadata } from '../types/liturgical-day';
 import { dateDifference, Dates, isValidDate } from '../utils/dates';
 import { RomcalConfig } from './config';
-import LiturgicalDay from './liturgical-day';
+import { LiturgicalDay } from './liturgical-day';
 import { LiturgicalDayConfig } from './liturgical-day-config';
-import LiturgicalDayDef from './liturgical-day-def';
+import { LiturgicalDayDef } from './liturgical-day-def';
 
 export class Calendar implements BaseCalendar {
   readonly #config: RomcalConfig;
