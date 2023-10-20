@@ -4,6 +4,7 @@ import { CalendarDef } from '../models/calendar-def';
 import { Inputs, ParticularConfig } from '../types/calendar-def';
 import { Europe } from './europe';
 
+// src: mr_fr_2021_ed3
 export class France extends CalendarDef {
   parentCalendar = Europe;
 
@@ -29,6 +30,11 @@ export class France extends CalendarDef {
       dateDef: { month: 2, date: 18 },
     },
 
+    louise_de_marillac_religious: {
+      precedence: Precedences.OptionalMemorial_12,
+      dateDef: { month: 5, date: 9 },
+    },
+
     ivo_of_kermartin_priest: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 5, date: 19 },
@@ -52,9 +58,22 @@ export class France extends CalendarDef {
       dateDef: { month: 6, date: 4 },
     },
 
+    louis_ix_of_france: {
+      precedence: Precedences.ProperMemorial_11b,
+    },
+
+    joseph_of_calasanz_priest: {
+      dateDef: { month: 8, date: 26 },
+    },
+
     caesarius_of_arles_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 8, date: 26 },
+    },
+
+    our_lady_of_la_salette: {
+      precedence: Precedences.OptionalMemorial_12,
+      dateDef: { month: 9, date: 19 },
     },
 
     therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin: {
