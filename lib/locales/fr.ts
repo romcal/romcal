@@ -237,6 +237,7 @@ export const locale: Locale = {
     cajetan_of_thiene_priest: 'Saint Gaétan de Thienne, prêtre († 1547)',
     callistus_i_pope: 'Saint Calixte Ier, pape et martyr († 222)',
     camillus_de_lellis_priest: 'Saint Camille de Lellis, prêtre († 1614)',
+    canada_day: 'Fête du Canada', // src: mr_fr_2021_ed3
     carmelites_of_compiegne_virgins_and_martyrs:
       'Bienheureuses Carmélites de Compiègne : Mère Thérèse et ses 15 compagnes, martyres († guillotinées en 1794)',
     casimir_of_poland: 'Saint Casimir († 1484)',
@@ -415,6 +416,7 @@ export const locale: Locale = {
     justin_martyr: 'Saint Justin, martyr († 165)',
     justus_of_lyon_bishop: 'Saint Just, évêque († v. 389)', // src: mr_fr_2014_ed2_lyon
     kateri_tekakwitha_virgin: 'Sainte Kateri Tekakwitha, vierge Amérindienne († 1680)',
+    labour_day: 'Fête du travail', // src: mr_fr_2021_ed3
     lambert_of_maastricht_bishop: 'Saint Lambert, évêque et martyr († 705)',
     landry_of_paris_bishop: 'Saint Landry, évêque de Paris († au 7e s.)',
     lawrence_of_brindisi_priest: 'Saint Laurent de Brindisi, prêtre et docteur de l’Église († 1619)',
@@ -574,6 +576,7 @@ export const locale: Locale = {
     teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe:
       'Sainte Thérèse-Bénédicte de la Croix (Edith Stein), Carmélite, martyr en Pologne, co-patronne de l’Europe († 1942)',
     teresa_of_jesus_of_avila_virgin: 'Sainte Thérèse de Jésus (d’Avila), vierge et docteur de l’Église († 1582)',
+    thanksgiving_day: 'Jour de l’action de grâce', // src: mr_fr_2021_ed3
     therese_marie_victoire_couderc_virgin: 'Sainte Thérèse Couderc, vierge († 1885)', // src: mr_fr_2014_ed2_lyon
     therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin:
       'Sainte Thérèse de l’Enfant-Jésus, vierge et docteur de l’Église († 1897)',

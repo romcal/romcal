@@ -273,6 +273,7 @@ export const locale: Locale = {
     cajetan_of_thiene_priest: 'Saint Cajetan, Priest',
     callistus_i_pope: 'Saint Callistus I, Pope and Martyr',
     camillus_de_lellis_priest: 'Saint Camillus de Lellis, Priest',
+    canada_day: 'Canada Day',
     canice_of_kilkenny_abbot: 'Saint Canice, Abbot',
     canute_iv_of_denmark_eric_ix_of_sweden_and_olaf_ii_of_norway_martyrs: 'Saints Canute, Eric and Olaf, Martyrs',
     canute_iv_of_denmark_martyr: 'Saint Canute, Martyr',
@@ -622,6 +623,7 @@ export const locale: Locale = {
     kilian_of_wurzburg_bishop_and_companions_martyrs: 'Saint Kilian, Bishop, and Companions, Martyrs',
     kinga_of_poland_virgin: 'Saint Kinga, Virgin',
     kuriakose_elias_of_the_holy_family_chavara_priest: 'Saint Kuriakose Elias of the Holy Family Chavara, priest',
+    labour_day: 'Labour Day',
     ladislas_of_gielniow_priest: 'Blessed Ladislas of Gielniow, Priest',
     ladislaus_batthyany_strattmann: 'Blessed Ladislaus Batthyány-Strattmann',
     ladislaus_i_of_hungary: 'Saint Ladislaus',
@@ -952,6 +954,7 @@ export const locale: Locale = {
     teresa_of_jesus_of_avila_virgin: 'Saint Teresa of Jesus, Virgin and Doctor of the Church',
     teresa_of_jesus_of_los_andes_virgin: 'Saint Teresa of Jesus of Los Andes, Virgin',
     teresa_of_portugal_religious: 'Blessed Teresa of Portugal, Religious',
+    thanksgiving_day: 'Thanksgiving Day', // src: mr_en_2011_ed3_us
     theodore_of_canterbury_bishop: 'Saint Theodore of Canterbury, Bishop',
     theodore_romzha_bishop: 'Blessed Theodore Romzha, Bishop and Martyr',
     theodosius_of_the_caves_abbot: 'Saint Theodosius of the Caves, Abbot',
