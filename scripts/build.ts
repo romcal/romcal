@@ -21,7 +21,7 @@ import { getDuration } from './time';
 const tsConfigPath = './tsconfig.release.json';
 // eslint-disable-next-line no-console
 const log = console.log;
-const formatCode = (code: string): string => prettier.format(code, { parser: 'typescript', singleQuote: true });
+const formatCode = (code: string): Promise<string> => prettier.format(code, { parser: 'typescript', singleQuote: true });
 
 function reportDiagnostics(diagnostics: ts.Diagnostic[]): void {
   diagnostics.forEach((diagnostic) => {
@@ -95,7 +95,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
   const localeNames = Object.keys(locales);
   fs.writeFileSync(
     resolve(constantDir, 'locales.ts'),
-    formatCode(
+    await formatCode(
       `import { toPackageName } from "../../lib/utils/string";\n\n` +
         `export const LOCALE_VAR_NAMES: string[] = ${JSON.stringify(localeNames)};\n\n` +
         `export const LOCALE_IDS: string[] = LOCALE_VAR_NAMES.map(c => toPackageName(c));\n`,
@@ -108,7 +108,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
   const calendarNames = Object.keys(particularCalendars).concat([GENERAL_ROMAN_NAME]).sort();
   fs.writeFileSync(
     resolve(constantDir, 'calendars.ts'),
-    formatCode(
+    await formatCode(
       `import { toPackageName } from "../../lib/utils/string";\n\n` +
         `export const CALENDAR_VAR_NAMES: string[] = ${JSON.stringify(calendarNames)};\n\n` +
         `export const CALENDAR_PKG_NAMES: string[] = CALENDAR_VAR_NAMES` +
