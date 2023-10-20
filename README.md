@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  Supports Node v14+, Modern Browsers (desktop and mobile).
+  Supports Node v18+, Modern Browsers (desktop and mobile).
 </p>
 
 <p align="center">
