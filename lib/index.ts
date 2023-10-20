@@ -43,9 +43,9 @@ import { Calendar } from './models/calendar';
 import { CalendarDef } from './models/calendar-def';
 import { RomcalConfig } from './models/config';
 import { CyclesMetadata } from './models/cycles-metadata';
-import LiturgicalDay from './models/liturgical-day';
+import { LiturgicalDay } from './models/liturgical-day';
 import { LiturgicalDayConfig } from './models/liturgical-day-config';
-import LiturgicalDayDef from './models/liturgical-day-def';
+import { LiturgicalDayDef } from './models/liturgical-day-def';
 import { RomcalBundleObject } from './types/bundle';
 import { LiturgicalCalendar } from './types/calendar';
 import {
@@ -329,7 +329,7 @@ class Romcal {
   static LOCALE_IDS = LOCALE_IDS;
 }
 
-export default Romcal;
+export { Romcal };
 
 export {
   Calendar,

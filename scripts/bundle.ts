@@ -23,7 +23,7 @@ import { locales } from '../lib/locales';
 import { RomcalBundle } from '../lib/models/bundle';
 import { CalendarDef } from '../lib/models/calendar-def';
 import { RomcalConfig } from '../lib/models/config';
-import LiturgicalDayDef from '../lib/models/liturgical-day-def';
+import { LiturgicalDayDef } from '../lib/models/liturgical-day-def';
 import { particularCalendars } from '../lib/particular-calendars';
 import { sanitizeLocaleId, toPascalCase } from '../lib/utils/string';
 

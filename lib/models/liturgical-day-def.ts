@@ -27,7 +27,7 @@ import {
 import { MartyrologyItem } from '../types/martyrology';
 import { RomcalConfig } from './config';
 
-export default class LiturgicalDayDef implements BaseLiturgicalDayDef {
+export class LiturgicalDayDef implements BaseLiturgicalDayDef {
   readonly #config: RomcalConfig;
   readonly id: Id;
   readonly dateDef: DateDef;

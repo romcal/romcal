@@ -1,7 +1,7 @@
 /**
  * Liturgical Calendar, containing LiturgicalDay objects, within the context of a year
  */
-import LiturgicalDay from '../models/liturgical-day';
+import { LiturgicalDay } from '../models/liturgical-day';
 import { Dates } from '../utils/dates';
 import { Id } from './common';
 

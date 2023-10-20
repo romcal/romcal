@@ -19,9 +19,9 @@ import { LiturgicalDayConfigOutput } from '../types/liturgical-day-config';
 import { MartyrologyItem } from '../types/martyrology';
 import { CyclesMetadata } from './cycles-metadata';
 import { LiturgicalDayConfig } from './liturgical-day-config';
-import LiturgicalDayDef from './liturgical-day-def';
+import { LiturgicalDayDef } from './liturgical-day-def';
 
-class LiturgicalDay implements BaseLiturgicalDay {
+export class LiturgicalDay implements BaseLiturgicalDay {
   readonly #liturgicalDayDef: LiturgicalDayDef;
   readonly #liturgicalDayConfig: LiturgicalDayConfig;
   readonly id: Id;
@@ -160,5 +160,3 @@ class LiturgicalDay implements BaseLiturgicalDay {
     }
   }
 }
-
-export default LiturgicalDay;

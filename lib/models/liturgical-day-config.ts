@@ -4,7 +4,7 @@ import { BaseLiturgicalDayConfig, LiturgicalDayConfigOutput } from '../types/lit
 import { addDays, Dates, daysInMonth, getUtcDate, isSameDate, isValidDate, subtractsDays } from '../utils/dates';
 import { isInteger } from '../utils/numbers';
 import { RomcalConfig } from './config';
-import LiturgicalDayDef from './liturgical-day-def';
+import { LiturgicalDayDef } from './liturgical-day-def';
 
 export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
   readonly config: RomcalConfig;

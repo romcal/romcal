@@ -1,5 +1,5 @@
 import { RomcalConfig } from '../models/config';
-import LiturgicalDayDef from '../models/liturgical-day-def';
+import { LiturgicalDayDef } from '../models/liturgical-day-def';
 import { Dates } from '../utils/dates';
 import { Id, XOR } from './common';
 import { RomcalConfigInput } from './config';

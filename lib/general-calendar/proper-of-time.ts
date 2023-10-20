@@ -8,7 +8,7 @@ import { Seasons } from '../constants/seasons';
 import { WEEKDAYS } from '../constants/weekdays';
 import { CalendarDef } from '../models/calendar-def';
 import { RomcalConfig } from '../models/config';
-import LiturgicalDayDef from '../models/liturgical-day-def';
+import { LiturgicalDayDef } from '../models/liturgical-day-def';
 import { BundleInputs } from '../types/calendar-def';
 import { Id } from '../types/common';
 import { LiturgicalDayProperOfTimeInput } from '../types/liturgical-day';
