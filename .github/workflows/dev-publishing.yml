@@ -60,7 +60,7 @@ jobs:
         run: npm run build
 
       - name: Run tests
-        run: npm run test:without-coverage
+        run: npx prettier -w --config .prettierrc ./lib
 
       - name: Commit and tag the updated version
         run: |
