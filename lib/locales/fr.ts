@@ -482,6 +482,7 @@ export const locale: Locale = {
     our_lady_of_good_counsel: 'Notre-Dame du Bon Conseil',
     our_lady_of_guadalupe: 'Notre-Dame de Guadalupé',
     our_lady_of_guadalupe_patroness_of_the_americas: 'Notre-Dame de Guadalupé, patronne des Amériques',
+    our_lady_of_la_salette: 'Bienheureuse Vierge Marie de La Salette', // src: mr_fr_2021_ed3
     our_lady_of_loreto: 'Notre-Dame de Lorette',
     our_lady_of_lourdes: 'Notre-Dame de Lourdes',
     our_lady_of_mount_carmel: 'Notre-Dame du Mont-Carmel',

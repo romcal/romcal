@@ -775,6 +775,7 @@ export const locale: Locale = {
     our_lady_of_hungary_patroness_of_hungary: 'Our Lady of Hungary, Patroness of Hungary',
     our_lady_of_itati: 'Our Lady of Itatí',
     our_lady_of_knock: 'Our Lady of Knock',
+    our_lady_of_la_salette: 'Our Lady of La Salette', // src: https://en.wikipedia.org/wiki/Our_Lady_of_La_Salette
     our_lady_of_lanka: 'Our Lady of Lanka',
     our_lady_of_lebanon: 'Our Lady of Lebanon',
     our_lady_of_loreto: 'Our Lady of Loreto',
