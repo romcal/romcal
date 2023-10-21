@@ -182,7 +182,9 @@ export class Calendar implements BaseCalendar {
            *    - Feasts: small hours are taken from the weekday.
            */
           const weekday: LiturgicalDay | null =
-            baseData && [Ranks.Feast, Ranks.Memorial].some((r) => r === def.rank) ? baseData : null;
+            baseData && [Ranks.Feast, Ranks.Memorial, Ranks.OptionalMemorial].some((r) => r === def.rank)
+              ? baseData
+              : null;
 
           // Create a new LiturgicalDay object, and add it to the builtData object.
           builtData.byIds[def.id] = [

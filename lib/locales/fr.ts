@@ -56,11 +56,12 @@ export const locale: Locale = {
   },
 
   ranks: {
-    solemnity: 'Solennité',
-    sunday: 'Dimanche',
-    feast: 'Fête',
-    memorial: 'Mémoire',
-    weekday: 'Férie',
+    solemnity: 'solennité',
+    sunday: 'dimanche',
+    feast: 'fête',
+    memorial: 'mémoire',
+    optional_memorial: 'mémoire facultative',
+    weekday: 'férie',
   },
 
   cycles: {

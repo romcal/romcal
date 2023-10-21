@@ -144,7 +144,9 @@ describe('Testing calendar generation functions', () => {
       defs
         .filter(
           (d) =>
-            d.rank === Ranks.Memorial && !d.titles.includes(Titles.Apostle) && !d.titles.includes(Titles.Evangelist),
+            [Ranks.Memorial, Ranks.OptionalMemorial].includes(d.rank) &&
+            !d.titles.includes(Titles.Apostle) &&
+            !d.titles.includes(Titles.Evangelist),
         )
         .forEach((d) => {
           if (isMartyr(d.titles)) {

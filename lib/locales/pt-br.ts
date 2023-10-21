@@ -56,6 +56,7 @@ export const locale: Locale = {
     sunday: 'domingo',
     feast: 'festa',
     memorial: 'memória',
+    optional_memorial: 'memória facultativa',
     weekday: 'dia de semana',
   },
 

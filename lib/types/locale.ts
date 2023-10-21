@@ -52,6 +52,7 @@ export interface Locale {
     sunday?: string;
     feast?: string;
     memorial?: string;
+    optional_memorial?: string;
     weekday?: string;
   };
   cycles?: {

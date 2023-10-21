@@ -138,7 +138,10 @@ class LiturgicalDay implements BaseLiturgicalDay {
      * and all the weekdays of Lent have precedence over Obligatory Memorials.
      */
     this.colors =
-      weekday?.precedence === Precedences.PrivilegedWeekday_9 && this.rank === Ranks.Memorial ? [] : def.colors;
+      weekday?.precedence === Precedences.PrivilegedWeekday_9 &&
+      [Ranks.Memorial, Ranks.OptionalMemorial].includes(this.rank)
+        ? []
+        : def.colors;
 
     this.martyrology = def.martyrology;
     this.titles = def.titles;
