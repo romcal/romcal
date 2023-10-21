@@ -53,6 +53,9 @@ jobs:
       - name: Update browsers list (caniuse)
         run: npx browserslist@latest --update-db
 
+      - name: Run Prettier fix
+        run: npm run prettier:fix
+
       - name: Build romcal project (romcal + all calendar bundles)
         run: npm run build
 
