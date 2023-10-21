@@ -136,34 +136,33 @@ export type DateDefSubtractDay = { subtractDay: number };
 /**
  * The liturgical day date exception
  */
-export type DateDefException =
-  | AllXOR<
-      [
-        {
-          /**
-           * Add an exception if the computed date occur between two dates.
-           */
-          ifIsBetween: { from: DateDef; to: DateDef; inclusive: boolean };
-        },
-        {
-          /**
-           * Add an exception if the computed date occur the same day as another date.
-           */
-          ifIsSameAsDate: DateDef;
-        },
-        {
-          /**
-           * Add an exception if the computed date occur on a specific day of week.
-           */
-          ifIsDayOfWeek: DayOfWeek;
-        },
-      ]
-    > & {
+export type DateDefException = AllXOR<
+  [
+    {
       /**
-       * Set an updated date from the exception rules
+       * Add an exception if the computed date occur between two dates.
        */
-      setDate: DateDefExtended;
-    };
+      ifIsBetween: { from: DateDef; to: DateDef; inclusive: boolean };
+    },
+    {
+      /**
+       * Add an exception if the computed date occur the same day as another date.
+       */
+      ifIsSameAsDate: DateDef;
+    },
+    {
+      /**
+       * Add an exception if the computed date occur on a specific day of week.
+       */
+      ifIsDayOfWeek: DayOfWeek;
+    },
+  ]
+> & {
+  /**
+   * Set an updated date from the exception rules
+   */
+  setDate: DateDefExtended;
+};
 
 /**
  * Calendar definition, to compute then the calendar metadata

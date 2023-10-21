@@ -181,9 +181,11 @@ export const locale: Locale = {
     amarin_of_alsace_abbot: 'São Amarino, abade e mártir',
     ambrose_of_milan_bishop: 'Santo Ambrósio de Milão, bispo e doutor da Igreja',
     andrew_apostle: 'Santo André, apóstolo',
-    andrew_de_soveral_and_ambrose_francis_ferro_priests: 'Santo André de Soveral e Santo Ambrósio Francisco Ferro, presbíteros e mártires',
+    andrew_de_soveral_and_ambrose_francis_ferro_priests:
+      'Santo André de Soveral e Santo Ambrósio Francisco Ferro, presbíteros e mártires',
     andrew_dung_lac_priest_and_companions_martyrs: 'Santo André Dũng-Lạc e Companheiros, mártires',
-    andrew_kim_tae_gon_priest_paul_chong_ha_sang_and_companions_martyrs: 'Santos André Kim Taegon, presbítero, Paulo Chang Hasang e Companheiros, mártires',
+    andrew_kim_tae_gon_priest_paul_chong_ha_sang_and_companions_martyrs:
+      'Santos André Kim Taegon, presbítero, Paulo Chang Hasang e Companheiros, mártires',
     angela_merici_virgin: 'Santa Angela Merici, virgem',
     annunciation_of_the_lord: 'Anunciação do Senhor',
     anselm_of_canterbury_bishop: 'Santo Anselmo de Cantuária, bispo e doutor da Igreja',
@@ -195,7 +197,8 @@ export const locale: Locale = {
     anthony_zaccaria_priest: 'Santo Antônio Maria Zacarias, presbítero',
     apollinaris_of_ravenna_bishop: 'Santo Apolinário, bispo e mártir',
     arbogast_of_strasbourg_bishop: 'São Arbogasto, bispo',
-    arbogast_of_strasbourg_bishop_patron_of_the_archdiocese_of_strasbourg: 'São Arbogasto, bispo e patrono da Arquidiocese de Estrasburgo',
+    arbogast_of_strasbourg_bishop_patron_of_the_archdiocese_of_strasbourg:
+      'São Arbogasto, bispo e patrono da Arquidiocese de Estrasburgo',
     ascension_of_the_lord: 'Ascensão do Senhor',
     ash_wednesday: 'Quarta-feira de Cinzas',
     assumption_of_the_blessed_virgin_mary: 'Assunção da Bem Aventurada Virgem Maria',
@@ -203,13 +206,15 @@ export const locale: Locale = {
     audoen_of_rouen_bishop: 'São Audoeno, bispo',
     augustine_of_canterbury_bishop: 'Santo Agostinho de Cantuária, bispo',
     augustine_of_hippo_bishop: 'Santo Agostinho, bispo e doutor da Igreja',
-    augustine_zhao_rong_priest_and_companions_martyrs: 'Santos Agostinho Zhao Rong, presbítero, e Companheiros, mártires',
+    augustine_zhao_rong_priest_and_companions_martyrs:
+      'Santos Agostinho Zhao Rong, presbítero, e Companheiros, mártires',
     aurelia_of_strasbourg_virgin: 'Santa Aurélia de Estrasburgo, virgem',
     baptism_of_the_lord: 'Batismo do Senhor',
     barnabas_apostle: 'São Barnabé, apóstolo',
     bartholomew_apostle: 'São Bartolomeu, apóstolo',
     bartholomew_of_the_martyrs_fernandes_bishop: 'São Bartolomeu dos mártires, bispo',
-    basil_the_great_and_gregory_nazianzen_bishops: 'São Basílio Magno e São Gregório Nazianzeno, bispos e doutores da Igreja',
+    basil_the_great_and_gregory_nazianzen_bishops:
+      'São Basílio Magno e São Gregório Nazianzeno, bispos e doutores da Igreja',
     beatrice_da_silva_meneses_virgin: 'Santa Beatriz da Silva, virgem',
     bede_the_venerable_priest: 'São Beda Venerável, presbítero e doutor da Igreja',
     benedict_of_aniane_abbot: 'São Bento de Aniane, abade',
@@ -238,7 +243,8 @@ export const locale: Locale = {
     charles_borromeo_bishop: 'São Carlos Borromeu, bispo',
     charles_lwanga_and_companions_martyrs: 'Santos Carlos Lwanga e companheiros, mártires',
     charles_of_jesus_de_foucauld: 'São Carlos de Foucauld, presbítero',
-    christopher_magallanes_priest_and_companions_martyrs: 'Santos Cristóvão de Magalhães, presbítero, e Companheiros, mártires',
+    christopher_magallanes_priest_and_companions_martyrs:
+      'Santos Cristóvão de Magalhães, presbítero, e Companheiros, mártires',
     clare_of_assisi_virgin: 'Santa Clara de Assis, virgem',
     clement_i_pope: 'São Clemente I, papa e mártir',
     columban_of_luxeuil_abbot: 'São Columbano, abade',
@@ -246,21 +252,27 @@ export const locale: Locale = {
     conversion_of_saint_paul_the_apostle: 'Conversão de São Paulo, Apóstolo',
     cornelius_i_pope_and_cyprian_of_carthage_bishop_martyrs: 'Santos Cornélio, papa, e Cipriano, bispo, mártires',
     cosmas_of_cilicia_and_damian_of_cilicia_martyrs: 'Santos Cosme e Damião, mártires',
-    cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop: 'São Cirilo o Filósofo, monge, e São Metódio, bispo',
+    cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop:
+      'São Cirilo o Filósofo, monge, e São Metódio, bispo',
     cyril_of_alexandria_bishop: 'São Cirilo de Alexandria, bispo e doutor da Igreja',
     cyril_of_jerusalem_bishop: 'São Cirilo de Jerusalém, bispo e doutor da Igreja',
     damasus_i_pope: 'São Dâmaso I, papa',
     daniel_brottier_priest: 'Beato Daniel Brottier, presbítero',
     dedication_of_consecrated_churches: 'Dedicação de Igrejas Consagradas', // TODO: l10n to review: Dedication of Consecrated Churches Whose Date of Consecration is Unknown
     dedication_of_the_basilica_of_saint_mary_major: 'Dedicação da basílica de Santa Maria Maior',
-    dedication_of_the_basilicas_of_saints_peter_and_paul_apostles: 'Dedicação das Basílicas dos Santos Pedro e Paulo, Apóstolos',
+    dedication_of_the_basilicas_of_saints_peter_and_paul_apostles:
+      'Dedicação das Basílicas dos Santos Pedro e Paulo, Apóstolos',
     dedication_of_the_cathedral_basilica_of_saint_denis_france: 'Dedicação da Catedral Basílica de Saint-Denis, França',
-    dedication_of_the_cathedral_of_notre_dame_de_strasbourg_france: 'Dedicação da Catedral de Notre-Dame de Estrasburgo, França',
+    dedication_of_the_cathedral_of_notre_dame_de_strasbourg_france:
+      'Dedicação da Catedral de Notre-Dame de Estrasburgo, França',
     dedication_of_the_lateran_basilica: 'Dedicação da basílica de Latrão',
-    dedication_of_the_notre_dame_de_paris_cathedral_paris_france: 'Dedicação da Catedral de Notre-Dame de Paris, França',
+    dedication_of_the_notre_dame_de_paris_cathedral_paris_france:
+      'Dedicação da Catedral de Notre-Dame de Paris, França',
     denis_of_paris_bishop_and_companions_martyrs: 'São Dionísio, bispo, e companheiros, mártires',
-    denis_of_paris_bishop_patron_of_the_archdiocese_of_paris: 'São Dionísio, bispo e mártir, patrono da Arquidiocese de Paris',
-    denis_of_paris_bishop_patron_of_the_city_and_of_the_diocese_of_saint_denis: 'São Dionísio, bispo e mártir, patrono da Cidade e da Diocese de Saint-Denis',
+    denis_of_paris_bishop_patron_of_the_archdiocese_of_paris:
+      'São Dionísio, bispo e mártir, patrono da Arquidiocese de Paris',
+    denis_of_paris_bishop_patron_of_the_city_and_of_the_diocese_of_saint_denis:
+      'São Dionísio, bispo e mártir, patrono da Cidade e da Diocese de Saint-Denis',
     divine_mercy_sunday: '{{week}}º Domingo do Tempo Pascal ou Domingo da Misericórdia',
     dominic_de_guzman_priest: 'São Domingos, presbítero',
     easter_sunday: 'Domingo da Páscoa',
@@ -286,7 +298,8 @@ export const locale: Locale = {
     francis_xavier_priest: 'São Francisco Xavier, presbítero',
     frederic_ozanam_founder: 'Beato Frederico Ozanam, fundador',
     friday_of_the_passion_of_the_lord: 'Sexta-feira Santa',
-    fructuosus_of_braga_martin_of_braga_and_gerald_of_braga_bishops: 'São Frutuoso de Braga, São Martinho de Braga e São Geraldoo de Braga, bispos',
+    fructuosus_of_braga_martin_of_braga_and_gerald_of_braga_bishops:
+      'São Frutuoso de Braga, São Martinho de Braga e São Geraldoo de Braga, bispos',
     george_of_lydda_martyr: 'São Jorge, mártir',
     germain_of_paris_bishop: 'São Germano, bispo',
     gertrude_the_great_virgin: 'Santa Gertrudes, virgem',
@@ -327,7 +340,8 @@ export const locale: Locale = {
     john_bosco_priest: 'São João Bosco, presbítero',
     john_chrysostom_bishop: 'São João Crisóstomo, bispo e doutor da Igreja',
     john_damascene_priest: 'São João Damasceno, presbítero e doutor da Igreja',
-    john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs: 'Santos João de Brébeuf, Isaac Jogues, presbíteros, e Companheiros, mártires',
+    john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs:
+      'Santos João de Brébeuf, Isaac Jogues, presbíteros, e Companheiros, mártires',
     john_de_britto_priest: 'São João de Brito, presbítero e mártir',
     john_eudes_priest: 'São João Eudes, presbítero',
     john_fisher_bishop_and_thomas_more_martyrs: ' Santos João Fisher, bispo, e Tomás Moro, mártires',
@@ -380,7 +394,8 @@ export const locale: Locale = {
     mary_of_the_incarnation_barbara_acarie_religious: 'Beata Maria da Encarnação Bárbara Acarie, religiosa',
     mary_of_the_incarnation_marie_guyart_religious: 'Santa Maria da Encarnação Maria Guyart, religiosa',
     mary_of_the_providence_eugenie_smet_virgin: 'Beata Maria da Providência Eugênia Smet, virgem',
-    mary_of_the_sacred_heart_sophie_therese_de_soubiran_la_louviere_virgin: 'Beata Maria Teresa de Soubiran La Louvière, virgem',
+    mary_of_the_sacred_heart_sophie_therese_de_soubiran_la_louviere_virgin:
+      'Beata Maria Teresa de Soubiran La Louvière, virgem',
     maternus_of_cologne_bishop: 'São Materno, bispo',
     maternus_of_cologne_valerius_of_trier_and_eucharius_of_trier_bishops: 'Santos Materno, Valério e Eucário, bispos',
     matthew_apostle: 'São Mateus, apóstolo e evangelista',
@@ -437,7 +452,8 @@ export const locale: Locale = {
     paul_miki_and_companions_martyrs: 'Santos Paulo Miki e Companheiros, mártires',
     paul_of_the_cross_priest: 'São Paulo da Cruz, presbítero',
     paul_vi_pope: 'São Paulo VI, papa',
-    paulina_of_the_agonizing_heart_of_jesus_visintainer_virgin: 'Santa Paulina do Coração Agonizante de Jesus Visintainer, virgem',
+    paulina_of_the_agonizing_heart_of_jesus_visintainer_virgin:
+      'Santa Paulina do Coração Agonizante de Jesus Visintainer, virgem',
     paulinus_of_nola_bishop: 'São Paulino de Nola, bispo',
     pentecost_sunday: 'Pentecostes',
     perpetua_of_carthage_and_felicity_of_carthage_martyrs: 'Santas Perpétua e Felicidade, mártires',
@@ -462,7 +478,8 @@ export const locale: Locale = {
     richardis_of_swabia_empress: 'Santa Ricarda, imperatriz',
     rita_of_cascia_religious: 'Santa Rita de Cássia, religiosa',
     robert_bellarmine_bishop: 'São Roberto Belarmino, bispo e doutor da Igreja',
-    roch_gonzalez_alphonsus_rodriguez_and_john_del_castillo_priests: 'São Roque González Alfonso Rodríguez e São João del Castillo, presbíteros e mártires',
+    roch_gonzalez_alphonsus_rodriguez_and_john_del_castillo_priests:
+      'São Roque González Alfonso Rodríguez e São João del Castillo, presbíteros e mártires',
     romuald_of_ravenna_abbot: 'São Romualdo, abade',
     rosalie_jeanne_marie_rendu_virgin: 'Beata Rosália Rendu, virgem',
     rose_of_lima_virgin: 'Santa Rosa de Lima, virgem',
@@ -482,7 +499,8 @@ export const locale: Locale = {
     teresa_of_jesus_of_avila_virgin: 'São João de Ávila, presbítero e doutor da Igreja',
     teresa_of_portugal_religious: 'Beata Teresa de Portugal, religiosa',
     theotonius_of_coimbra_priest: 'Santo Teotónio, presbítero',
-    therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin: 'Santa Teresinha do Menino Jesus, virgem e doutora da Igreja',
+    therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin:
+      'Santa Teresinha do Menino Jesus, virgem e doutora da Igreja',
     thomas_apostle: 'São Tomé, apóstolo',
     thomas_aquinas_priest: 'São Tomás de Aquino, presbítero e doutor da Igreja',
     thomas_becket_bishop: 'São Tomás de Cantuária, bispo',
