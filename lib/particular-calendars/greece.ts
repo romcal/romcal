@@ -31,14 +31,39 @@ export class Greece extends CalendarDef {
       dateDef: { month: 5, date: 5 },
     },
 
+    mary_mother_of_the_church: {
+      precedence: Precedences.ProperMemorial_11b,
+      dateDef: { month: 5, date: 13 },
+    },
+
     our_lady_of_fatima: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 5, date: 15 },
     },
 
+    isidore_the_farmer: {
+      precedence: Precedences.OptionalMemorial_12,
+      dateDef: { month: 5, date: 15 },
+    },
+
+    marcellin_champagnat_priest: {
+      precedence: Precedences.OptionalMemorial_12,
+      dateDef: { month: 6, date: 6 },
+    },
+
+    emilie_de_vialar_virgin: {
+      precedence: Precedences.OptionalMemorial_12,
+      dateDef: { month: 6, date: 17 },
+    },
+
     cyril_of_alexandria_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 6, date: 27 },
+    },
+
+    eric_ix_of_sweden_martyr: {
+      precedence: Precedences.OptionalMemorial_12,
+      dateDef: { month: 7, date: 13 },
     },
 
     margaret_of_antioch_virgin: {
@@ -54,6 +79,11 @@ export class Greece extends CalendarDef {
     lydia_of_philippi: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 8, date: 3 },
+    },
+
+    our_lady_of_faneromeni: {
+      precedence: Precedences.OptionalMemorial_12,
+      dateDef: { month: 9, date: 24 },
     },
 
     cosmas_of_cilicia_and_damian_of_cilicia_martyrs: {

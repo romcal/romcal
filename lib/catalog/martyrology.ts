@@ -53,6 +53,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Aengus',
       titles: [Titles.Bishop, Titles.Abbot],
     },
+    agapitus_of_palestrina_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Agapitus',
+      titles: [Titles.Martyr],
+      dateOfDeath: 274,
+    },
     agatha_of_sicily_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Agatha',
@@ -787,6 +793,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Titles.Priest, Titles.Martyr],
       dateOfDeath: 1927,
     },
+    christopher_of_anatolia_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Christopher',
+      titles: [Titles.Martyr],
+      dateOfDeath: 251,
+    },
     christopher_of_palestine_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Christopher',
@@ -916,6 +928,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Cornelius',
       titles: [Titles.Bishop, Titles.Martyr],
       dateOfDeath: '258-09-14',
+    },
+    cyriacus_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Cyriacus',
+      titles: [Titles.Deacon, Titles.Martyr],
+      dateOfDeath: 303,
     },
     cyril_constantine_the_philosopher_monk: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -2298,6 +2316,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Lawrence Bai Xiaoman',
       titles: [Titles.Martyr],
     },
+    lawrence_justinian: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Lawrence Justinian',
+      titles: [Titles.Bishop],
+      dateOfDeath: '1456-01-08',
+    },
     lawrence_of_brindisi_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Lawrence of Brindisi',
@@ -2499,6 +2523,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Malachy',
       titles: [Titles.Bishop],
     },
+    mammes_of_caesarea_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Mammes of Caesarea',
+      titles: [Titles.Martyr],
+      dateOfDeath: 275,
+    },
     marcel_callo_martyr: {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Marcel Callo',
@@ -2513,6 +2543,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Marcellin Champagnat',
       titles: [Titles.Priest],
+    },
+    marcellinus_of_ancona_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Marcellinus of Ancona',
+      titles: [Titles.Bishop],
+      dateOfDeath: 566,
     },
     marcellinus_of_rome_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -2706,6 +2742,9 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Virgin Mary, Mother of the Church',
     },
+    mary_mother_of_hope: {
+      name: 'Blessed Virgin Mary, Mother of Hope',
+    },
     mary_of_bethany: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Mary',
@@ -2878,6 +2917,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Miguel Febres Cordero',
       titles: [Titles.Religious],
+    },
+    miltiades_pope: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Miltiades',
+      titles: [Titles.Pope],
+      dateOfDeath: 314,
     },
     modestus_andlauer_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -3057,6 +3102,9 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     our_lady_mother_of_divine_providence: {
       name: 'Our Lady, Mother of Divine Providence',
     },
+    our_lady_of_angels: {
+      name: 'Our Lady of Angels',
+    },
     our_lady_of_aparecida: {
       name: 'Our Lady of Aparecida',
     },
@@ -3068,6 +3116,9 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     },
     our_lady_of_czestochowa: {
       name: 'Our Lady of Częstochowa',
+    },
+    our_lady_of_faneromeni: {
+      name: 'Our Lady of Faneromeni',
     },
     our_lady_of_fatima: {
       name: 'Our Lady of Fatima',
@@ -3268,6 +3319,11 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Pedro Calungsod',
       titles: [Titles.Martyr],
+    },
+    pelagia_the_penitent_virgin: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Pelagia the Penitent',
+      titles: [Titles.Virgin],
     },
     pelagius_of_cordoba_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -3548,6 +3604,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Roch',
     },
+    romanus_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Romanus',
+      titles: [Titles.Martyr],
+      dateOfDeath: 258,
+    },
     romuald_of_ravenna_abbot: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Romuald',
@@ -3773,6 +3835,11 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Teresa of Portugal',
       titles: [Titles.Religious],
     },
+    thecla_of_iconium_virgin: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Thecla of Iconium',
+      titles: [Titles.Virgin, Titles.Martyr],
+    },
     theodore_of_canterbury_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Theodore of Canterbury',
@@ -3782,6 +3849,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Theodore Romzha',
       titles: [Titles.Bishop, Titles.Martyr],
+    },
+    theodore_stratelates: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Theodore Stratelates',
+      titles: [Titles.Martyr],
+      dateOfDeath: 319,
     },
     theodosius_of_the_caves_abbot: {
       canonizationLevel: CanonizationLevels.Saint,
