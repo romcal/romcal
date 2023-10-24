@@ -31,25 +31,25 @@ export enum Ranks {
   Feast = 'FEAST',
 
   /**
-   * Obligatory Memorials are liturgical commemorations of saints, events, or aspects of the faith.
-   * Their observance is mandatory and integrated into the celebration of the occurring weekday,
-   * following the liturgical norms outlined in the General Instruction of the Roman Missal and the
-   * Liturgy of the Hours.
-   * When an Obligatory Memorial falls on a weekday during the liturgical season of Lent or a
-   * privileged weekday of Advent, it must only be celebrated as an Optional Memorial, as Lent and
-   * Advent have their own specific liturgical observances that take precedence.
+   * **Obligatory memorials** are liturgical commemorations of saints, events, or aspects of the
+   * faith. Their observance is mandatory and integrated into the celebration of the occurring
+   * weekday, following the liturgical norms outlined in the General Instruction of the Roman Missal
+   * and the Liturgy of the Hours.
+   * When an **obligatory memorial** falls on a weekday during the liturgical season of Lent or a
+   * privileged weekday of Advent, it must only be celebrated as an **optional memorial**, as Lent
+   * and Advent have their own specific liturgical observances that take precedence.
    */
   Memorial = 'MEMORIAL',
 
   /**
-   * Optional Memorials are liturgical commemorations of saints, events, or aspects of the faith,
-   * but they are not obligatory.
+   * **Optional memorials** are liturgical commemorations of saints, events, or aspects of the
+   * faith, but they are not obligatory.
    * Their observance is integrated into the celebration of the occurring weekday, adhering to the
    * liturgical norms provided in the General Instruction of the Roman Missal and the Liturgy of
    * the Hours.
-   * In cases where multiple Optional Memorials are designated on the same day in the liturgical
+   * In cases where multiple **optional memorials** are designated on the same day in the liturgical
    * calendar, only one of them may be celebrated, and the others must be omitted (UNLY #14).
-   * This allows for some flexibility in choosing which Optional Memorial to commemorate when
+   * This allows for some flexibility in choosing which optional memorial to commemorate when
    * multiple options are available.
    */
   OptionalMemorial = 'OPTIONAL_MEMORIAL',
