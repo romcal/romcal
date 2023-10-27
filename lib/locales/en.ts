@@ -431,7 +431,7 @@ export const locale: Locale = {
     francis_borgia_priest: 'Saint Francis Borgia, Priest',
     francis_de_sales_bishop: 'Saint Francis de Sales, Bishop and Doctor of the Church',
     francis_de_sales_bishop_patron_of_the_clergy_of_the_archdiocese_of_lyon:
-      'Saint Francis de Sales, Bishop and Doctor of the Church, Patron of the Lyon clergy',
+      'Saint Francis de Sales, Bishop and Doctor of the Church, Patron of the Clergy of the Archdiocese of Lyon',
     francis_diaz_del_rincon_priest_and_companions_martyrs:
       'Saint Francis Díaz del Rincon, Priest, and Companions, Martyrs',
     francis_ferdinand_de_capillas_priest: 'Saint Francis Ferdinand de Capillas, Priest and Martyr',
