@@ -122,6 +122,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Alberto Hurtado',
       titles: [Titles.Priest],
     },
+    // src: mr_fr_2014_ed2_lyon
     alexander_of_lyon_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Alexander',
@@ -294,6 +295,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
         century: 1,
       },
     },
+    // src: mr_fr_2014_ed2_lyon
     annemund_of_lyon_bishop: {
       name: 'Annemund',
       titles: [Titles.Bishop, Titles.Martyr],
@@ -330,6 +332,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Anthony Julian Nowowiejski',
       titles: [Titles.Bishop, Titles.Martyr],
     },
+    // src: mr_fr_2014_ed2_lyon
     anthony_mary_claret_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Anthony Mary Claret',
@@ -365,6 +368,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Titles.Priest],
       dateOfDeath: 1539,
     },
+    // src: mr_fr_2014_ed2_lyon
     anthony_chevrier_priest: {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Anthony Chevrier',
@@ -463,6 +467,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Aurelia',
       titles: [Titles.Virgin],
     },
+    // src: mr_fr_2014_ed2_lyon
     baldomerus_of_lyon_religious: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Saint Galmier',
@@ -595,6 +600,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Boleslawa Mary Lament',
       titles: [Titles.Virgin],
     },
+    // src: mr_fr_2014_ed2_lyon
     bonaventure_of_bagnoregio_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Bonaventure',
@@ -830,6 +836,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Clare',
       titles: [Titles.Virgin],
     },
+    // src: mr_fr_2014_ed2_lyon
     marie_of_saint_ignatius_claudine_thevenet_religious: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Claudine Thévenet',
@@ -1052,6 +1059,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Dionysius the Areopagite',
       titles: [Titles.Bishop, Titles.Martyr],
     },
+    // src: mr_fr_2014_ed2_lyon
     dismas_the_good_thief: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Dismas the Good Thief',
@@ -1180,6 +1188,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     epiphany_of_the_lord: {
       name: 'The Epiphany of the Lord',
     },
+    // src: mr_fr_2014_ed2_lyon
     epipodius_of_lyon_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Epipodius',
@@ -1196,6 +1205,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Etheldreda',
       titles: [Titles.Abbess],
     },
+    // src: mr_fr_2014_ed2_lyon
     eucherius_of_lyon_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Eucharius',
@@ -1442,6 +1452,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Titles.Priest],
       dateOfDeath: 1916,
     },
+    // src: mr_fr_2014_ed2_lyon
     frederic_ozanam_founder: {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Frédéric Ozanam',
@@ -1613,6 +1624,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Titles.Pope],
       dateOfDeath: 1085,
     },
+    // src: mr_fr_2014_ed2_lyon
     gregory_x_pope: {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Gregory X',
@@ -1803,6 +1815,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     immaculate_heart_of_mary: {
       name: 'The Immaculate Heart of the Blessed Virgin Mary',
     },
+    // src: mr_fr_2014_ed2_lyon
     innocent_v_pope: {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Innocent V',
@@ -1816,6 +1829,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Innocent XI',
       titles: [Titles.Pope],
     },
+    // src: mr_fr_2014_ed2_lyon
     irenaeus_of_lyon_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Irenaeus',
@@ -1879,6 +1893,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Jacinta Marto',
     },
+    // src: mr_fr_2014_ed2_lyon
     jacques_jules_bonnaud_priest: {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Jacques Jules Bonnaud',
@@ -1914,12 +1929,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Jarlath',
       titles: [Titles.Bishop],
     },
+    // src: mr_fr_2014_ed2_lyon
     jean_louis_bonnard_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Jean-Louis Bonnard',
       titles: [Titles.Priest, Titles.Martyr],
       dateOfDeath: '1852-5-01',
     },
+    // src: mr_fr_2014_ed2_lyon
     jean_pierre_neel_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Jean-Pierre Néel',
@@ -2049,6 +2066,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Titles.Bishop, Titles.Martyr],
       dateOfDeath: '1535-06-22',
     },
+    // src: mr_fr_2014_ed2_lyon
     john_francis_regis_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'John Francis Regis',
@@ -2098,6 +2116,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'John Martin Moye',
       titles: [Titles.Priest],
     },
+    // src: mr_fr_2014_ed2_lyon
     john_mary_vianney_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'John Vianney',
@@ -2296,6 +2315,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Titles.Martyr],
       dateOfDeath: 165,
     },
+    // src: mr_fr_2014_ed2_lyon
     justus_of_lyon_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Justus of Lyon',
@@ -2608,6 +2628,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Marcelina Darowska',
       titles: [Titles.Religious],
     },
+    // src: mr_fr_2014_ed2_lyon
     marcellin_champagnat_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Marcellin Champagnat',
@@ -2910,6 +2931,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Matthias',
       titles: [Titles.Apostle],
     },
+    // src: mr_fr_2014_ed2_lyon
     maurice_of_agaunum_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Maurice',
@@ -3090,6 +3112,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Ninian',
       titles: [Titles.Bishop],
     },
+    // src: mr_fr_2014_ed2_lyon
     nicetius_of_lyon_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Nicetius',
@@ -3181,6 +3204,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     our_lady_of_fatima: {
       name: 'Our Lady of Fatima',
     },
+    // src: mr_fr_2014_ed2_lyon
     our_lady_of_fourviere: {
       name: 'Our Lady of Fourvière',
     },
@@ -3440,6 +3464,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Peter de Zúñiga',
       titles: [Titles.Priest, Titles.Martyr],
     },
+    // src: mr_fr_2014_ed2_lyon
     peter_julian_eymard_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Peter Julian Eymard',
@@ -3906,6 +3931,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Theotonius of Coimbra',
       titles: [Titles.Priest],
     },
+    // src: mr_fr_2014_ed2_lyon
     therese_marie_victoire_couderc_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Thérèse Couderc',
@@ -4032,6 +4058,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Titles.Bishop, Titles.Martyr],
       dateOfDeath: 1973,
     },
+    // src: mr_fr_2014_ed2_lyon
     viator_of_lyon: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Viator of Lyons',
