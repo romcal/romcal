@@ -14,8 +14,8 @@ export class France_Lyon extends CalendarDef {
     },
 
     francis_de_sales_bishop: {
-      customLocaleId: 'francis_de_sales_bishop_patron_of_lyon_clergy',
-      titles: { append: [PatronTitles.PatronOfTheLyonClergy] },
+      customLocaleId: 'francis_de_sales_bishop_patron_of_the_clergy_of_the_archdiocese_of_lyon',
+      titles: { append: [PatronTitles.PatronOfTheClergyOfTheArchdioceseOfLyon] },
     },
 
     marie_of_saint_ignatius_claudine_thevenet_religious: {

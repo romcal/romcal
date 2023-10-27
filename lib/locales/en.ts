@@ -430,7 +430,7 @@ export const locale: Locale = {
     frances_xavier_cabrini_virgin: 'Saint Frances Xavier Cabrini, Virgin',
     francis_borgia_priest: 'Saint Francis Borgia, Priest',
     francis_de_sales_bishop: 'Saint Francis de Sales, Bishop and Doctor of the Church',
-    francis_de_sales_bishop_patron_of_lyon_clergy:
+    francis_de_sales_bishop_patron_of_the_clergy_of_the_archdiocese_of_lyon:
       'Saint Francis de Sales, Bishop and Doctor of the Church, Patron of the Lyon clergy',
     francis_diaz_del_rincon_priest_and_companions_martyrs:
       'Saint Francis Díaz del Rincon, Priest, and Companions, Martyrs',
@@ -521,7 +521,7 @@ export const locale: Locale = {
     innocent_xi_pope: 'Blessed Innocent XI, Pope',
     irenaeus_of_lyon_bishop: 'Saint Irenaeus, Bishop, Martyr and Doctor of the Church',
     irenaeus_of_lyon_bishop_patron_of_the_archdiocese_of_lyon_and_companions_martyrs:
-      'Saints Irenaeus, Bishop and Doctor of the Church, Principal Patron of the Archdiocese of Lyon, and Companions, Martyrs',
+      'Saints Irenaeus, Bishop and Doctor of the Church, Patron of the Archdiocese of Lyon, and Companions, Martyrs',
     irene_of_macedonia: 'Saint Irene',
     irish_martyrs: 'Irish Martyrs',
     isabelle_of_france_virgin: 'Blessed Isabelle of France, Virgin',

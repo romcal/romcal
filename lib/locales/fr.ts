@@ -320,7 +320,7 @@ export const locale: Locale = {
     florentius_of_strasbourg_bishop: 'Saint Florent, évêque († VIIème s.)',
     frances_of_rome_religious: 'Sainte Françoise Romaine, religieuse († 1440)',
     francis_de_sales_bishop: 'Saint François de Sales, évêque et docteur de l’Église († 1622)',
-    francis_de_sales_bishop_patron_of_lyon_clergy:
+    francis_de_sales_bishop_patron_of_the_clergy_of_the_archdiocese_of_lyon:
       'Saint François de Sales, évêque et docteur de l’Église, patron du clergé lyonnais († 1622)',
     francis_of_assisi: 'Saint François d’Assise, fondateur de l’ordre des Frères mineurs († 1226)',
     francis_of_assisi_patron_of_italy:
