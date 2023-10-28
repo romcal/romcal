@@ -56,6 +56,7 @@ export const locale: Locale = {
     sunday: 'neděle',
     feast: 'svátek',
     memorial: 'památka',
+    optional_memorial: 'nezávazná památka',
     weekday: 'ferie',
   },
 

@@ -52,11 +52,12 @@ export const locale: Locale = {
   },
 
   ranks: {
-    solemnity: 'Solennità',
-    sunday: 'Domenica',
-    feast: 'Festa',
-    memorial: 'Memoria',
-    weekday: 'Feria',
+    solemnity: 'solennità',
+    sunday: 'domenica',
+    feast: 'festa',
+    memorial: 'memoria',
+    optional_memorial: 'memoria facoltativa',
+    weekday: 'feria',
   },
 
   cycles: {

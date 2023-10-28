@@ -8,7 +8,15 @@ The romcal v3 is a major rewrite of the core library, with performance and archi
 As a result, romcal v3 is now up to 10x faster than v2 and v1.
 The new architecture helped to introduce new features without performance and code quality impacts.
 
-### Added
+### v 3.0.0@dev-52
+
+#### Breaking change
+
+- The `OPTIONAL_MEMORIAL` rank is being reintroduced, which was previously available as `OPT_MEMORIAL` until Romcal v2. This re-introduction includes related localizations for all currently supported locales.
+
+### v 3.0.0@dev-1
+
+#### Added
 
 - Locales & Internationalization:
   - introducing a new internationalization library, [i18next](https://www.i18next.com/).
@@ -29,7 +37,7 @@ The new architecture helped to introduce new features without performance and co
   - When computing a calendar, the corresponding metadata are also integrated in the final `LiturgicalDay` object.
   - This is just a start, new metadata could be added or refined.
 
-### Changed
+#### Changed
 
 - Build: the build process have been completely rewritten.
   - The core library do not contain anymore all the calendar and localization files, to lightweight the size of the library (it only contain a lightweight version of the General Roman Calendar, without translation and extra metadata).
@@ -58,7 +66,7 @@ The new architecture helped to introduce new features without performance and co
   - `seasons` are now following closely the _General Norms for the Liturgical Year and the Calendar_. There is no more a Holy Week season (moved to the period metadata), Holy Thursday have 2 possible liturgical days (the Holy Thursday which is the last day of Lent, and the Thursday of the Lord's Supper which start the Paschal Triduum), Easter Sunday take place in 2 seasons (the Paschal Triduum and the Easter Time).
   - `periods` include additional information, like early/late ordinary time, and special liturgical periods coming from the monastic traditions.
 
-### Removed
+#### Removed
 
 - Options to group and filters `LiturgicalDay` objects by predefined criteria is now removed. The reason is that is now very easy to group or filter a JavaScript object, and hard to cover all possible user requirement. However, produced data is by default sorted and grouped by dates.
 

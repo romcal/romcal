@@ -31,15 +31,28 @@ export enum Ranks {
   Feast = 'FEAST',
 
   /**
-   * Memorials are either obligatory or optional; their observance is integrated into
-   * the celebration of the occurring weekday in accordance with the norms set forth in the
-   * General Instruction of the Roman Missal and of the Liturgy of the Hours.
-   * Obligatory Memorials which fall on weekdays of Lent may only be celebrated as
-   * Optional Memorials.
-   * If several Optional Memorials are inscribed in the Calendar on the same day, only
-   * one may be celebrated, the others being omitted. (UNLY #14)
+   * **Obligatory memorials** are liturgical commemorations of saints, events, or aspects of the
+   * faith. Their observance is mandatory and integrated into the celebration of the occurring
+   * weekday, following the liturgical norms outlined in the General Instruction of the Roman Missal
+   * and the Liturgy of the Hours.
+   * When an **obligatory memorial** falls on a weekday during the liturgical season of Lent or a
+   * privileged weekday of Advent, it must only be celebrated as an **optional memorial**, as Lent
+   * and Advent have their own specific liturgical observances that take precedence.
    */
   Memorial = 'MEMORIAL',
+
+  /**
+   * **Optional memorials** are liturgical commemorations of saints, events, or aspects of the
+   * faith, but they are not obligatory.
+   * Their observance is integrated into the celebration of the occurring weekday, adhering to the
+   * liturgical norms provided in the General Instruction of the Roman Missal and the Liturgy of
+   * the Hours.
+   * In cases where multiple **optional memorials** are designated on the same day in the liturgical
+   * calendar, only one of them may be celebrated, and the others must be omitted (UNLY #14).
+   * This allows for some flexibility in choosing which optional memorial to commemorate when
+   * multiple options are available.
+   */
+  OptionalMemorial = 'OPTIONAL_MEMORIAL',
 
   /**
    * The days of the week that follow Sunday are called weekdays; however, they are
@@ -57,9 +70,14 @@ export enum Ranks {
   Weekday = 'WEEKDAY',
 }
 
-export const RANKS = Object.keys(Ranks).filter(
-  (key) => typeof Ranks[key as keyof typeof Ranks] === 'string',
-) as Uppercase<keyof typeof Ranks>[];
+export const RANKS = [
+  Ranks.Solemnity,
+  Ranks.Sunday,
+  Ranks.Feast,
+  Ranks.Memorial,
+  Ranks.OptionalMemorial,
+  Ranks.Weekday,
+] as const;
 
 export type Rank = (typeof RANKS)[number];
 
@@ -89,6 +107,6 @@ export const RanksFromPrecedence: Record<Precedence, Rank> = {
   [Precedences.GeneralMemorial_10]: Ranks.Memorial,
   [Precedences.ProperMemorial_SecondPatron_11a]: Ranks.Memorial,
   [Precedences.ProperMemorial_11b]: Ranks.Memorial,
-  [Precedences.OptionalMemorial_12]: Ranks.Memorial,
+  [Precedences.OptionalMemorial_12]: Ranks.OptionalMemorial,
   [Precedences.Weekday_13]: Ranks.Weekday,
 };

@@ -19,9 +19,11 @@
 
 <p align="center">
   <a href="https://www.npmjs.com/package/romcal/v/latest" target="_blank" rel="noopener noreferrer"><img alt="latest" src="https://img.shields.io/npm/v/romcal/latest?style=flat-square&logo=npm"></a>
-  <a href="https://www.npmjs.com/package/romcal/v/beta" target="_blank" rel="noopener noreferrer"><img alt="beta" src="https://img.shields.io/npm/v/romcal/beta?style=flat-square&logo=npm"></a>
   <a href="https://www.npmjs.com/package/romcal/v/dev" target="_blank" rel="noopener noreferrer"><img alt="dev" src="https://img.shields.io/npm/v/romcal/dev?style=flat-square&logo=npm"></a>
 </p>
+
+> **Note**
+> This project is still in beta (using the `dev` npm distribution tag) until it reaches final version 3.0.0. There could be breaking changes between minor versions. Please refer to the [changelog](CHANGELOG.md) for significant updates and breaking changes.
 
 ## Documentation
 
