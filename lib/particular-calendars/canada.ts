@@ -8,9 +8,9 @@ export class Canada extends CalendarDef {
   parentCalendar = Americas;
 
   particularConfig: ParticularConfig = {
-    epiphanyOnSunday: true,
-    ascensionOnSunday: true,
-    corpusChristiOnSunday: true,
+    epiphanyOnSunday: true, // src: mr_fr_2021_ed3
+    ascensionOnSunday: true, // src: https://www.cccb.ca/wp-content/uploads/2023/09/2023-2024.pdf#page=6
+    corpusChristiOnSunday: true, // src: https://www.cccb.ca/wp-content/uploads/2023/05/Ordo_Pastoral_Notes.pdf#page=92
   };
 
   inputs: Inputs = {
@@ -130,7 +130,7 @@ export class Canada extends CalendarDef {
     },
 
     // src: mr_fr_2021_ed3
-    labour_day: {
+    labor_day: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 9, nthWeekInMonth: 1, dayOfWeek: 1 },
     },
@@ -195,9 +195,6 @@ export class Canada extends CalendarDef {
     },
 
     // src: mr_fr_2021_ed3
-    dedication_of_consecrated_churches_on_october_25: {
-      dateDef: { month: 10, date: 25 },
-    },
     dedication_of_consecrated_churches_on_last_sunday_of_october: {
       drop: true,
     },

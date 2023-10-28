@@ -623,7 +623,7 @@ export const locale: Locale = {
     kilian_of_wurzburg_bishop_and_companions_martyrs: 'Saint Kilian, Bishop, and Companions, Martyrs',
     kinga_of_poland_virgin: 'Saint Kinga, Virgin',
     kuriakose_elias_of_the_holy_family_chavara_priest: 'Saint Kuriakose Elias of the Holy Family Chavara, priest',
-    labour_day: 'Labour Day',
+    labor_day: 'Labor Day',
     ladislas_of_gielniow_priest: 'Blessed Ladislas of Gielniow, Priest',
     ladislaus_batthyany_strattmann: 'Blessed Ladislaus Batthyány-Strattmann',
     ladislaus_i_of_hungary: 'Saint Ladislaus',

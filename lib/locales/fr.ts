@@ -416,7 +416,7 @@ export const locale: Locale = {
     justin_martyr: 'Saint Justin, martyr († 165)',
     justus_of_lyon_bishop: 'Saint Just, évêque († v. 389)', // src: mr_fr_2014_ed2_lyon
     kateri_tekakwitha_virgin: 'Sainte Kateri Tekakwitha, vierge Amérindienne († 1680)',
-    labour_day: 'Fête du travail', // src: mr_fr_2021_ed3
+    labor_day: 'Fête du travail', // src: mr_fr_2021_ed3
     lambert_of_maastricht_bishop: 'Saint Lambert, évêque et martyr († 705)',
     landry_of_paris_bishop: 'Saint Landry, évêque de Paris († au 7e s.)',
     lawrence_of_brindisi_priest: 'Saint Laurent de Brindisi, prêtre et docteur de l’Église († 1619)',
