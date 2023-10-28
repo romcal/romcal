@@ -20,13 +20,13 @@ jobs:
 
     steps:
       - name: Git checkout dev branch
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           ref: dev
           token: ${{ secrets.REPO_TOKEN }}
 
       - name: Install node.js and npm
-        uses: volta-cli/action@v1
+        uses: volta-cli/action@v4
 
       - name: Automated version bump
         uses: phips28/gh-action-bump-version@master
@@ -41,7 +41,7 @@ jobs:
           skip-tag: 'true'
 
       - name: Read package.json
-        uses: culshaw/read-package-node-version-actions@v1
+        uses: beaconbrigade/package-json-version@v0.3
         id: package
 
       - name: Display bumped version
