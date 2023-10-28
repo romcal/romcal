@@ -1,10 +1,6 @@
 {
   "name": "romcal",
-<<<<<<< Updated upstream
-  "version": "3.0.0",
-=======
   "version": "3.0.0-dev.52",
->>>>>>> Stashed changes
   "description": "JavaScript library that generates liturgical calendars of the Roman Rite of the Roman Catholic Church.",
   "main": "dist/cjs/romcal.js",
   "module": "dist/esm/romcal.js",
