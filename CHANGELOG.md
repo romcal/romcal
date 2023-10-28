@@ -12,7 +12,7 @@ The new architecture helped to introduce new features without performance and co
 
 #### Breaking change
 
-- The `OPTIONAL_MEMORIAL` `rank` is being reintroduced, which was previously available as `OPT_MEMORIAL` until Romcal v2. This re-introduction includes related localizations for all currently supported locales.
+- The `OPTIONAL_MEMORIAL` rank is being reintroduced, which was previously available as `OPT_MEMORIAL` until Romcal v2. This re-introduction includes related localizations for all currently supported locales.
 
 ### v 3.0.0@dev-1
 
