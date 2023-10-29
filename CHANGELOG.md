@@ -8,6 +8,17 @@ The romcal v3 is a major rewrite of the core library, with performance and archi
 As a result, romcal v3 is now up to 10x faster than v2 and v1.
 The new architecture helped to introduce new features without performance and code quality impacts.
 
+### v 3.0.0@dev-55
+
+#### Breaking change
+
+- Now exporting Romcal (and other internal modules) as a named export [#465](https://github.com/romcal/romcal/pull/465).
+  - To import Romcal, you now should use:
+    - `import { Romcal } from 'romcal'` instead of `import Romcal from 'romcal'`.
+    - `const { Romcal } = require('romcal')` instead of `const Romcal = require('romcal')`.
+- Set Node 18+ as minimum version, and updating some npm dependencies [#465](https://github.com/romcal/romcal/pull/465).
+- Updating hybrid NPM package setup (CJS + ESM), following the new recommended way by NPM [#465](https://github.com/romcal/romcal/pull/465).
+
 ### v 3.0.0@dev-52
 
 #### Breaking change
