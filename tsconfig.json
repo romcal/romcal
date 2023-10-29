@@ -1,8 +1,7 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es2017",
-    "lib": ["ES2018", "ES2019", "ES2020", "ESNext"],
+    "module": "CommonJS",
+    "target": "ES2022",
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,

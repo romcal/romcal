@@ -1,9 +1,8 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "module": "es2020",
-    "target": "es2020",
-    "lib": ["ES2020", "ESNext"],
+    "module": "ESNext",
+    "target": "ES2022",
     "moduleResolution": "node",
     "rootDir": ".",
     "removeComments": true,

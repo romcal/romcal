@@ -21,7 +21,8 @@ import { getDuration } from './time';
 const tsConfigPath = './tsconfig.release.json';
 // eslint-disable-next-line no-console
 const log = console.log;
-const formatCode = (code: string): Promise<string> => prettier.format(code, { parser: 'typescript', singleQuote: true });
+const formatCode = (code: string): Promise<string> =>
+  prettier.format(code, { parser: 'typescript', singleQuote: true });
 
 function reportDiagnostics(diagnostics: ts.Diagnostic[]): void {
   diagnostics.forEach((diagnostic) => {
@@ -198,19 +199,22 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
     log(chalk.bold(`\n✓ Building the codebase using the ${chalk.green.bold(format)} format`));
     const fromFormats: Record<Format, Platform> = { cjs: 'node', esm: 'neutral', iife: 'browser' };
     const platform: Platform = fromFormats[format];
+    const subPackageJson = JSON.stringify({ type: format === 'esm' ? 'module' : 'commonjs' }, null, 2);
 
     log(chalk.dim(`  ./lib/index.ts → dist/${format}/romcal.js`));
     await build({
       bundle: true,
       minify: true,
-      globalName: 'Romcal',
       sourcemap: 'external',
+      ...(format === 'iife' ? { globalName: 'Romcal' } : {}),
       ...(format === 'iife' ? {} : { external: ['i18next'] }),
-      ...(format === 'esm' ? { entryPoints: ['lib/index.ts'] } : { entryPoints: ['lib/exports.ts'] }),
+      entryPoints: ['lib/index.ts'],
       banner: { js: LICENSE },
       format,
-      outfile: `dist/${format}/romcal.${format === 'esm' ? 'mjs' : 'js'}`,
+      outfile: `dist/${format}/romcal.js`,
+      target: format === 'esm' ? 'ESNext' : 'ES2022',
     }).catch(() => process.exit(1));
+    fs.writeFileSync(resolve(`dist/${format}/package.json`), subPackageJson, 'utf-8');
 
     log(chalk.dim(`  ./tmp/bundles/**/*.ts → dist/bundles/[calendar]/${format}/[locale].js`));
     for (const p of bundles) {
@@ -232,10 +236,11 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
           banner: { js: LICENSE },
           format,
           keepNames: true,
-          outfile: `dist/bundles/${calendar}/${format}/${locale}.${format === 'esm' ? 'mjs' : 'js'}`,
+          outfile: `dist/bundles/${calendar}/${format}/${locale}.js`,
           sourcemap: false,
-          target: 'es2019',
+          target: format === 'esm' ? 'ESNext' : 'ES2022',
         }).catch(() => process.exit(1));
+        fs.writeFileSync(resolve(`dist/bundles/${calendar}/${format}/package.json`), subPackageJson, 'utf-8');
       }
     }
   }
@@ -256,8 +261,14 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
       name: `@romcal/calendar.${pkgName}`,
       version: pkg.version,
       description: `Localized romcal calendar for ${calendar}`,
+      module: './esm/index.js',
       main: './cjs/index.js',
-      module: './esm/index.mjs',
+      exports: {
+        '.': {
+          import: './esm/index.js',
+          require: './cjs/index.js',
+        },
+      },
       typings: './index.d.ts',
       engines: pkg.engines,
       repository: pkg.repository,
