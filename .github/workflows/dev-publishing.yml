@@ -47,6 +47,13 @@ jobs:
       - name: Display bumped version
         run: 'echo "New romcal version: ${{ steps.package.outputs.version }}"'
 
+      - name: Check bumped version format
+        run: |
+          if [[ ! ${{ steps.package.outputs.version }} =~ ^[0-9]+\.[0-9]+\.[0-9]+-dev\.[0-9]+$ ]]; then
+            echo "Incorrect version format, breaking script."
+            exit 1
+          fi
+
       - name: Install npm dependencies
         run: npm ci --no-audit
 
