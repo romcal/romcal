@@ -43,9 +43,9 @@ import { Calendar } from './models/calendar';
 import { CalendarDef } from './models/calendar-def';
 import { RomcalConfig } from './models/config';
 import { CyclesMetadata } from './models/cycles-metadata';
-import LiturgicalDay from './models/liturgical-day';
+import { LiturgicalDay } from './models/liturgical-day';
 import { LiturgicalDayConfig } from './models/liturgical-day-config';
-import LiturgicalDayDef from './models/liturgical-day-def';
+import { LiturgicalDayDef } from './models/liturgical-day-def';
 import { RomcalBundleObject } from './types/bundle';
 import { LiturgicalCalendar } from './types/calendar';
 import {
@@ -94,7 +94,6 @@ import {
 import { MartyrologyCatalog, MartyrologyItem, SaintCount, SaintDate, SaintDateDef } from './types/martyrology';
 import {
   addDays,
-  computeGregorianEasterDate,
   dateDifference,
   Dates,
   daysInMonth,
@@ -108,6 +107,7 @@ import {
   startOfWeek,
   subtractsDays,
 } from './utils/dates';
+import { calculateGregorianEasterDate, calculateJulianEasterDateToGregorianDate } from './utils/easter.dates';
 import { isInteger, toRomanNumber } from './utils/numbers';
 
 class Romcal {
@@ -316,7 +316,8 @@ class Romcal {
   static isValidDate = isValidDate;
   static daysInMonth = daysInMonth;
   static getWeekNumber = getWeekNumber;
-  static computeGregorianEasterDate = computeGregorianEasterDate;
+  static computeGregorianEasterDate = calculateGregorianEasterDate;
+  static computeJulianEasterDate = calculateJulianEasterDateToGregorianDate;
   static rangeContainsDate = rangeContainsDate;
   static rangeOfDays = rangeOfDays;
   // utils/numbers.ts
@@ -328,7 +329,7 @@ class Romcal {
   static LOCALE_IDS = LOCALE_IDS;
 }
 
-export default Romcal;
+export { Romcal };
 
 export {
   Calendar,

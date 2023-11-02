@@ -8,9 +8,9 @@ import { Id } from '../types/common';
 import { RomcalCalendarMetadata } from '../types/liturgical-day';
 import { dateDifference, Dates, isValidDate } from '../utils/dates';
 import { RomcalConfig } from './config';
-import LiturgicalDay from './liturgical-day';
+import { LiturgicalDay } from './liturgical-day';
 import { LiturgicalDayConfig } from './liturgical-day-config';
-import LiturgicalDayDef from './liturgical-day-def';
+import { LiturgicalDayDef } from './liturgical-day-def';
 
 export class Calendar implements BaseCalendar {
   readonly #config: RomcalConfig;
@@ -182,7 +182,9 @@ export class Calendar implements BaseCalendar {
            *    - Feasts: small hours are taken from the weekday.
            */
           const weekday: LiturgicalDay | null =
-            baseData && [Ranks.Feast, Ranks.Memorial].some((r) => r === def.rank) ? baseData : null;
+            baseData && [Ranks.Feast, Ranks.Memorial, Ranks.OptionalMemorial].some((r) => r === def.rank)
+              ? baseData
+              : null;
 
           // Create a new LiturgicalDay object, and add it to the builtData object.
           builtData.byIds[def.id] = [

@@ -6,7 +6,13 @@ import { GeneralRoman } from '../general-calendar/proper-of-saints';
 import { ProperOfTime } from '../general-calendar/proper-of-time';
 import { RomcalBundleObject } from '../types/bundle';
 import { CalendarDefInstance, LiturgicalDayDefinitions } from '../types/calendar-def';
-import { CalendarScope, IRomcalConfig, RomcalConfigInput, RomcalConfigOutput } from '../types/config';
+import {
+  CalendarScope,
+  EasterCalculationType,
+  IRomcalConfig,
+  RomcalConfigInput,
+  RomcalConfigOutput,
+} from '../types/config';
 import { BaseCyclesMetadata } from '../types/cycles-metadata';
 import { Locale } from '../types/locale';
 import { MartyrologyCatalog } from '../types/martyrology';
@@ -26,6 +32,7 @@ export class RomcalConfig implements IRomcalConfig {
   epiphanyOnSunday: boolean;
   corpusChristiOnSunday: boolean;
   ascensionOnSunday: boolean;
+  easterCalculationType: EasterCalculationType;
   readonly scope: CalendarScope;
   readonly i18next: i18n;
   readonly dates: typeof Dates;
@@ -60,6 +67,7 @@ export class RomcalConfig implements IRomcalConfig {
       this.localizedCalendar = config.localizedCalendar;
     }
 
+    this.easterCalculationType = config?.easterCalculationType ?? 'gregorian';
     this.scope = config?.scope ?? 'gregorian';
 
     this.epiphanyOnSunday =
@@ -179,6 +187,7 @@ export class RomcalConfig implements IRomcalConfig {
       ascensionOnSunday: this.ascensionOnSunday,
       localeId: this.localeId,
       calendarName: this.calendarName,
+      easterCalculationType: this.easterCalculationType,
       scope: this.scope,
     };
   }

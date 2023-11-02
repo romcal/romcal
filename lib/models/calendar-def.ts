@@ -10,7 +10,7 @@ import { RomcalConfigInput } from '../types/config';
 import { LiturgicalDayBundleInput } from '../types/liturgical-day';
 import { Dates } from '../utils/dates';
 import { RomcalConfig } from './config';
-import LiturgicalDayDef from './liturgical-day-def';
+import { LiturgicalDayDef } from './liturgical-day-def';
 
 export class CalendarDef implements BaseCalendarDef {
   readonly #config: RomcalConfig;

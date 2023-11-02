@@ -26,6 +26,7 @@ module.exports = {
     'import/newline-after-import': 'error',
     'import/no-duplicates': 'error',
     'import/no-unused-modules': 'error',
+    'import/no-default-export': 'error',
     'no-unused-vars': 'off',
     'object-shorthand': 'error',
     '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', ignoreRestSiblings: true }],

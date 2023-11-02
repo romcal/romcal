@@ -58,6 +58,7 @@ export const locale: Locale = {
     sunday: 'dominica',
     feast: 'festum',
     memorial: 'memoria',
+    optional_memorial: 'memoria ad libitum',
     weekday: 'feria',
   },
 
@@ -742,7 +743,8 @@ export const locale: Locale = {
     mary_mother_of_god: 'In octava Nativitatis. Sollemnitas Sanctæ Dei Genetricis Mariæ',
     mary_mother_of_the_church: 'B. Mariæ Virginis Ecclesiæ Matris',
     mary_of_jesus_crucified_petkovic_virgin: 'B. Mariæ a Iesu Crucifixo Petković, virginis',
-    mary_of_jesus_in_the_blessed_sacrament_venegas_virgin: 'S. Mariæ a Iesu Sacramentato Venegas de la Torre, virginis',
+    mary_of_jesus_in_the_blessed_sacrament_venegas_de_la_torre_virgin:
+      'S. Mariæ a Iesu Sacramentato Venegas de la Torre, virginis',
     mary_of_jesus_the_good_shepherd_siedliska_virgin: 'B. Mariæ a Iesu Bono Pastore Siedliska, virginis',
     mary_of_the_cross_mackillop_virgin: 'S. Mariæ a Cruce MacKillop, virginis',
     mary_of_the_incarnation_barbara_acarie_religious: 'B. Mariæ ab Incarnatione Barbaræ Acarie, religiosæ',

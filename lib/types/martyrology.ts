@@ -37,13 +37,25 @@ export type MartyrologyDef = {
   hideTitles?: boolean;
 
   /**
+   * Date of Birth, as a Number (year), a String (in 'YYYY-MM' or 'YYYY-MM-DD' format),
+   * or an object describing date range, multiple possible date, or a century.
+   */
+  dateOfBirth?: SaintDateDef;
+
+  /**
+   * Specify whether an approximate indicator should be added, when the date is displayed.
+   * For example in English: 'c. 201'.
+   */
+  dateOfBirthIsApproximative?: boolean;
+
+  /**
    * Date of Death, as a Number (year), a String (in 'YYYY-MM' or 'YYYY-MM-DD' format),
    * or an object describing date range, multiple possible date, or a century.
    */
   dateOfDeath?: SaintDateDef;
 
   /**
-   * Specify if an approximative indicator should be added, when the date is displayed.
+   * Specify whether an approximate indicator should be added, when the date is displayed.
    * For example in English: 'c. 201'.
    */
   dateOfDeathIsApproximative?: boolean;

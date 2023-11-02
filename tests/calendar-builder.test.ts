@@ -6,10 +6,10 @@ import { Hungary_En } from 'romcal/dist/bundles/hungary';
 import { Ireland_En } from 'romcal/dist/bundles/ireland';
 import { Slovakia_Sk } from 'romcal/dist/bundles/slovakia';
 
-import Romcal, { CalendarScope, Id, LiturgicalCalendar, LiturgicalDayDef } from '../lib';
+import { CalendarScope, Id, LiturgicalCalendar, LiturgicalDayDef, Romcal } from '../lib';
 import { Periods } from '../lib/constants/periods';
 import { Seasons } from '../lib/constants/seasons';
-import LiturgicalDay from '../lib/models/liturgical-day';
+import { LiturgicalDay } from '../lib/models/liturgical-day';
 import { dateDifference } from '../lib/utils/dates';
 
 const { Colors, isMartyr, Titles, Ranks, getUtcDate, getUtcDateFromString, isSameDate, subtractsDays } = Romcal;
@@ -114,7 +114,9 @@ describe('Testing calendar generation functions', () => {
   describe('Testing liturgical colors', () => {
     test('The proper color of a Memorial or a Feast is white except for martyrs in which case it is red, and All Souls which is purple', async () => {
       const defs: LiturgicalDayDef[] = Object.values(
-        (await new Romcal({ localizedCalendar: GeneralRoman_En }).getAllDefinitions()) as LiturgicalDayDef[][],
+        (await new Romcal({
+          localizedCalendar: GeneralRoman_En,
+        }).getAllDefinitions()) as unknown as LiturgicalDayDef[][],
       ).flat();
 
       defs
@@ -142,7 +144,9 @@ describe('Testing calendar generation functions', () => {
       defs
         .filter(
           (d) =>
-            d.rank === Ranks.Memorial && !d.titles.includes(Titles.Apostle) && !d.titles.includes(Titles.Evangelist),
+            [Ranks.Memorial, Ranks.OptionalMemorial].includes(d.rank) &&
+            !d.titles.includes(Titles.Apostle) &&
+            !d.titles.includes(Titles.Evangelist),
         )
         .forEach((d) => {
           if (isMartyr(d.titles)) {
@@ -360,6 +364,22 @@ describe('Testing calendar generation functions', () => {
       expect(date?.id).not.toEqual(
         'cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop',
       );
+    });
+  });
+
+  describe('Testing the Easter Date calculation', () => {
+    it('should calculate the Gregorian Easter date for the year 2019', async () => {
+      const calendar = Object.values(await new Romcal().generateCalendar(2019)).flat();
+      const easter = calendar.find((item) => item.id === 'easter_sunday');
+      expect(easter?.date).toEqual('2019-04-21');
+    });
+
+    it('should calculate the Julian Easter date for the year 2019', async () => {
+      const calendar = Object.values(
+        await new Romcal({ easterCalculationType: 'julian' }).generateCalendar(2019),
+      ).flat();
+      const easter = calendar.find((item) => item.id === 'easter_sunday');
+      expect(easter?.date).toEqual('2019-04-28');
     });
   });
 });

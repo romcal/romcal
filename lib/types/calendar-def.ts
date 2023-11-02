@@ -1,5 +1,5 @@
 import { RomcalConfig } from '../models/config';
-import LiturgicalDayDef from '../models/liturgical-day-def';
+import { LiturgicalDayDef } from '../models/liturgical-day-def';
 import { Dates } from '../utils/dates';
 import { Id, XOR } from './common';
 import { RomcalConfigInput } from './config';
@@ -9,7 +9,7 @@ import { LiturgicalDayBundleInput, LiturgicalDayInput } from './liturgical-day';
  * Specific and proper configuration of a particular calendar
  */
 export type ParticularConfig = Partial<
-  Pick<RomcalConfig, 'ascensionOnSunday' | 'epiphanyOnSunday' | 'corpusChristiOnSunday'>
+  Pick<RomcalConfig, 'ascensionOnSunday' | 'epiphanyOnSunday' | 'corpusChristiOnSunday' | 'easterCalculationType'>
 >;
 
 /**

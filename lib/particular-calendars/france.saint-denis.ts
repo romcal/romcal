@@ -22,7 +22,6 @@ export class France_SaintDenis extends CalendarDef {
     },
 
     louise_de_marillac_religious: {
-      precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 3, date: 15 },
     },
 

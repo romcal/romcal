@@ -56,6 +56,7 @@ export const locale: Locale = {
     sunday: 'Domingo',
     feast: 'fiesta',
     memorial: 'memoria',
+    optional_memorial: 'memoria opcional',
     weekday: 'ferial',
   },
 
@@ -272,9 +273,7 @@ export const locale: Locale = {
     daniel_brottier_priest: 'Beato Daniel Brottier, presbítero',
     david_of_wales_bishop: 'San David, obispo',
     david_of_wales_bishop_patron_of_wales: 'San David, obispo y Patrono de Gales',
-    dedication_of_consecrated_churches_on_last_sunday_of_october:
-      'Dedicación de iglesias consagradas el último domingo de octubre',
-    dedication_of_consecrated_churches_on_october_25: 'Dedicación de iglesias consagradas el 25 de octubre',
+    dedication_of_consecrated_churches: 'Dedicación de iglesias consagradas cuya fecha de Consagración se desconoce', // TODO: l10n to review: Dedication of Consecrated Churches Whose Date of Consecration is Unknown
     dedication_of_the_basilica_of_saint_mary_major: 'Dedicación de la Basílica de Santa María Mayor',
     dedication_of_the_basilicas_of_saints_peter_and_paul_apostles:
       'Dedicación de las Basílicas de San Pedro y San Pablo, apóstoles',
@@ -285,7 +284,7 @@ export const locale: Locale = {
     dedication_of_the_lateran_basilica: 'Dedicación de la basílica de Letrán',
     dedication_of_the_notre_dame_de_paris_cathedral_paris_france:
       'Dedicación de la catedral de Notre-Dame de París, Francia',
-    denis_of_paris_bishop_and_companions_martyrs: 'Satos Dionisio, obispo, y compañeros, mártires',
+    denis_of_paris_bishop_and_companions_martyrs: 'Santos Dionisio, obispo, y compañeros, mártires',
     denis_of_paris_bishop_patron_of_the_archdiocese_of_paris:
       'San Dionisio, obispo y mártir, Patrono de la Arquidiócesis de París',
     denis_of_paris_bishop_patron_of_the_city_and_of_the_diocese_of_saint_denis:
@@ -318,8 +317,8 @@ export const locale: Locale = {
     francis_de_sales_bishop: 'San Francisco de Sales, obispo y doctor de la Iglesia',
     francis_diaz_del_rincon_priest_and_companions_martyrs: 'San Francisco Díaz, presbítero y Compañeros, mártires',
     francis_ferdinand_de_capillas_priest: 'San Francisco Fernández de Capillas, presbítero y mártir',
-    francis_of_assisi: 'San Francisco of Asís',
-    francis_of_assisi_patron_of_italy: 'San Francisco of Asís, Patrono de Italia',
+    francis_of_assisi: 'San Francisco de Asís',
+    francis_of_assisi_patron_of_italy: 'San Francisco de Asís, Patrono de Italia',
     francis_of_paola_hermit: 'San Francisco de Paula, ermitaño',
     francis_solanus_priest: 'San Francisco Solano, presbítero',
     francis_xavier_priest: 'San Francisco Javier, presbítero',
