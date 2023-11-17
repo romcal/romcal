@@ -150,7 +150,7 @@ export const locale: Locale = {
     '205_blessed_martyrs_of_japan': '205 முத்திப்பேறுபெற்ற ஜப்பானிய வேத சாட்சிகள்',
     adalbert_of_prague_bishop: 'புனித அடால்பெர்ட் - ஆயர், மறைச்சாட்சி',
     adalbert_of_prague_bishop_patron_of_poland: 'புனித அடால்பெர்ட் - ஆயர், மறைச்சாட்சி, போலந்து பாதுகாவலர்',
-    adelaide_of_burgundy_empress: 'பெர்கண்டியின் புனித அடலைய்ட் ',
+    adelaide_of_burgundy_empress: 'பெர்கண்டியின் புனித அடலைய்ட்',
     adelphus_of_metz_bishop: 'புனித அடொல்பஸ், ஆயர்',
     adolph_kolping_priest: 'முத்திபேறுபெற்ற அடொல்ப் கொல்பிங், அருட்பணியாளர்',
     aelred_of_rievaulx_abbot: 'புனித எய்ல்ரெட் றிவோ, மடாதிபதி',
