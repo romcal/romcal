@@ -261,7 +261,7 @@ export const locale: Locale = {
     clement_i_pope: 'San Clemente I, papa y mártir',
     clotilde_of_burgundy: 'Santa Clotilde',
     columban_of_luxeuil_abbot: 'San Columbano, Abad',
-    commemoration_of_all_the_faithful_departed: 'Conmemoración de todos los fieles difuntos',  // src: https://www.conferenciaepiscopal.es/wp-content/uploads/2022/11/CLP-y-salmos-responsoriales-2022-2023_internet.pdf#page=342
+    commemoration_of_all_the_faithful_departed: 'Conmemoración de todos los fieles difuntos', // src: https://www.conferenciaepiscopal.es/wp-content/uploads/2022/11/CLP-y-salmos-responsoriales-2022-2023_internet.pdf#page=342
     conversion_of_saint_paul_the_apostle: 'Conversión de San Pablo, apóstol',
     cornelius_i_pope_and_cyprian_of_carthage_bishop_martyrs: 'San Cornelio, papa, y Cipriano, obispo, mártires',
     cosmas_of_cilicia_and_damian_of_cilicia_martyrs: 'Santos Cosme y Damián, mártires',
