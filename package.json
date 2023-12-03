@@ -8,6 +8,11 @@
   "engines": {
     "node": ">=18.0.0"
   },
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/esm/romcal.js",
+    "require": "./dist/cjs/romcal.js"
+  },
   "scripts": {
     "clean": "rimraf coverage dist tmp",
     "lint": "eslint . --ext .ts",

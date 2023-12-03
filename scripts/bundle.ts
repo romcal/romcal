@@ -244,7 +244,7 @@ export const RomcalBundler = (): void => {
      */
     const indexImports = Object.entries(calVarObj).reduce((acc, [locale, varName]) => {
       const importFileName = locale.replace(/([A-Z])/g, '-$1').toLowerCase();
-      return acc + `import { ${varName} } from './${importFileName}';\n`;
+      return acc + `import { ${varName} } from './${importFileName}.js';\n`;
     }, '');
     const indexExports = Object.entries(calVarObj).reduce((acc, [, varName]) => acc + `    ${varName},\n`, '');
     const indexOutput =
