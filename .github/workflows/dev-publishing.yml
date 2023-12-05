@@ -58,7 +58,7 @@ jobs:
 
       - name: Install npm dependencies
         # using -q to silent info outputs
-        run: npm -q ci --no-audit
+        run: npm -q --no-progress ci --no-audit
 
       - name: Update browsers list (caniuse)
         run: npx browserslist@latest --update-db

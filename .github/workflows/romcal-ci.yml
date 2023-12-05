@@ -23,7 +23,7 @@ jobs:
           node-version-file: '.nvmrc'
 
       # using -q to silent info outputs
-      - run: npm -q ci --no-audit
+      - run: npm -q --no-progress ci --no-audit
 
       - run: npm run build
 
