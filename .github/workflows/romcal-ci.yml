@@ -20,9 +20,10 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version-file: '.nvmrc'
 
-      - run: npm ci --no-audit
+      # using -q to silent info outputs
+      - run: npm -q ci --no-audit
 
       - run: npm run build
 
