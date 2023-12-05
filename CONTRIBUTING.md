@@ -34,3 +34,23 @@ Please do not be afraid of contributing code, make sure it follows these rules:
 - An overview or context is provided as the description (initial message) of the pull request. It does not need to be too extensive.
 
 Extra points if your code comes with tests!
+
+#### Bootstrapping code!
+
+We leverage `nvm` to standardize our node version usage. You can use the same version we use for tests & development with 2 simple commands:
+```shell
+$ nvm install
+$ nvm use
+```
+
+assuming you have nvm installed, obviously.
+
+Learn more: [nvm](https://github.com/nvm-sh/nvm)
+Automatic nvm switching: [deeper shell integration](https://github.com/nvm-sh/nvm#deeper-shell-integration)
+
+After that, you just have to install dependencies:
+```shell
+$ npm ci
+```
+
+And you're bootstrapped. Thanks for contributing!

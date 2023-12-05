@@ -102,9 +102,5 @@
     "type-fest": "^2.8.0",
     "typescript": "~5.2.2"
   },
-  "volta": {
-    "node": "20.8.1",
-    "npm": "10.1.0"
-  },
   "license": "MIT"
 }

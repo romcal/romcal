@@ -45,12 +45,13 @@ for (let i = 0; i < allCalendars.length; i++) {
 }
 
 // Prettify the generated documentation
-mdTemplate = prettier.format(mdTemplate, { parser: 'markdown' });
+prettier.format(mdTemplate, { parser: 'markdown' }).then((mdFormatted) => {
+  fs.writeFileSync(path.resolve('./docs/', 'calendar-plugins.md'), mdFormatted, 'utf-8');
 
-fs.writeFileSync(path.resolve('./docs/', 'calendar-plugins.md'), mdTemplate, 'utf-8');
-
-/**
- * Init and display duration helpers
- */
-const duration = getDuration(time);
-log(chalk.green(`\n✨ Done in ${chalk.bold(duration)}`));
+  /**
+   * Init and display duration helpers
+   */
+  const duration = getDuration(time);
+  log(chalk.green(`\n✨ Done in ${chalk.bold(duration)}`));
+  process.exit(0);
+});
