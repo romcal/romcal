@@ -6,32 +6,32 @@ export const locale: Locale = {
   seasons: {
     advent: {
       season: 'திருவருகைக்காலம்',
-      weekday: '$t(weekdays:{{dow}}, capitalize) - $t(ordinals:{{week}}) திருவருகைக்கால வாரநாள்',
-      sunday: '$t(ordinals:{{week}}, capitalize) திருவருகைக்கால ஞாயிறு',
-      privileged_weekday: '$t(months:11, capitalize) {{day}}',
+      weekday: '$t(weekdays:{{dow}}) - $t(ordinals:{{week}}) திருவருகைக்கால வாரநாள்',
+      sunday: '$t(ordinals:{{week}}) திருவருகைக்கால ஞாயிறு',
+      privileged_weekday: '$t(months:11) {{day}}',
     },
 
     christmas_time: {
       season: 'கிறிஸ்து பிறப்பு காலம்',
-      day: '$t(weekdays:{{dow}}, capitalize) கிறிஸ்து பிறப்பு காலம்',
+      day: '$t(weekdays:{{dow}}) கிறிஸ்து பிறப்பு காலம்',
       octave: '{{count}}ஆம் நாள் கிறிஸ்து பிறப்பின் எண்கிழமை',
       second_sunday_after_christmas: 'கிறிஸ்து பிறப்பிற்குப் பின் இரண்டாம் ஞாயிறு',
-      before_epiphany: 'திருக்காட்சிக்கு முன் - $t(months:0, capitalize) {{day}}',
-      after_epiphany: 'திருக்காட்சிக்கு பின் $t(weekdays:{{dow}}, capitalize)',
+      before_epiphany: 'திருக்காட்சிக்கு முன் - $t(months:0) {{day}}',
+      after_epiphany: 'திருக்காட்சிக்கு பின் $t(weekdays:{{dow}})',
     },
 
     ordinary_time: {
       season: 'பொதுக்காலம்',
-      weekday: '$t(weekdays:{{dow}}, capitalize) - $t(ordinals:{{week}}) பொதுக்கால வாரநாள்',
-      sunday: '$t(ordinals:{{week}}, capitalize) பொதுக்கால ஞாயிறு',
+      weekday: '$t(weekdays:{{dow}}) - $t(ordinals:{{week}}) பொதுக்கால வாரநாள்',
+      sunday: '$t(ordinals:{{week}}) பொதுக்கால ஞாயிறு',
     },
 
     lent: {
       season: 'தவக்காலம்',
-      weekday: '$t(weekdays:{{dow}}, capitalize) - $t(ordinals:{{week}}) தவக்கால வாரநாள்',
-      sunday: '$t(ordinals:{{week}}, capitalize) தவக்கால ஞாயிறு',
-      day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) விபூதி புதனுக்குப் பின்',
-      holy_week_day: '$t(weekdays:{{dow}}, capitalize) - புனித வாரம்',
+      weekday: '$t(weekdays:{{dow}}) - $t(ordinals:{{week}}) தவக்கால வாரநாள்',
+      sunday: '$t(ordinals:{{week}}) தவக்கால ஞாயிறு',
+      day_after_ash_wed: '$t(weekdays:{{dow}}) விபூதி புதனுக்குப் பின்',
+      holy_week_day: '$t(weekdays:{{dow}}) - புனித வாரம்',
     },
 
     paschal_triduum: {
@@ -40,9 +40,9 @@ export const locale: Locale = {
 
     easter_time: {
       season: 'பாஸ்காக்காலம்',
-      weekday: '$t(weekdays:{{dow}}, capitalize) - $t(ordinals:{{week}}) பாஸ்காக்காலம் வாரநாள்',
-      sunday: '$t(ordinals:{{week}}, capitalize) பாஸ்காகாலம் ஞாயிறு',
-      octave: '$t(weekdays:{{dow}}, capitalize) பாஸ்கா எண்கிழமை',
+      weekday: '$t(weekdays:{{dow}}) - $t(ordinals:{{week}}) பாஸ்காக்காலம் வாரநாள்',
+      sunday: '$t(ordinals:{{week}}) பாஸ்காகாலம் ஞாயிறு',
+      octave: '$t(weekdays:{{dow}}) பாஸ்கா எண்கிழமை',
     },
   },
 
