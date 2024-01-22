@@ -171,8 +171,8 @@ export const locale: Locale = {
     adalbert_of_prague_bishop: 'San Adalberto, obispo y mártir',
     adelaide_of_burgundy_empress: 'Santa Adelaida de Borgoña, Emperatriz',
     adelphus_of_metz_bishop: 'San Adelfus de Métis, obispo',
-    agatha_of_sicily_virgin: 'Santa Ágatha, virgen y mártir',
-    agnes_of_rome_virgin: 'Santa Agnes, virgen y mártir',
+    agatha_of_sicily_virgin: 'Santa Ágata, virgen y mártir', // Vatican news source: https://www.vaticannews.va/es/santos/02/05/s--agata--virgen-y-martir-de-catania.html
+    agnes_of_rome_virgin: 'Santa Inés, virgen y mártir',
     alban_of_britain_martyr: 'San Albano, mártir',
     albert_the_great_bishop: 'San Alberto Magno, obispo y doctor de la Iglesia',
     alberto_hurtado_priest: 'San Alberto Hurtado, presbítero',
