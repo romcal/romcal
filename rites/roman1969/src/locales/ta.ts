@@ -285,9 +285,9 @@ export const locale: Locale = {
     catherine_of_saint_augustine_de_simon_de_longpre_virgin: 'புனித அகுஸ்தினின் புனித கத்தரின் - கன்னி',
     catherine_of_siena_virgin: 'சியன்னாவின் புனித கத்தரின் - கன்னி, மறைவல்லுநர்',
     catherine_of_siena_virgin_copatroness_of_europe:
-      'சியன்னாவின் புனித கத்தரின் - கன்னி, மறைவல்லுநர், இத்தாலி, ஐரோப்பவின் பாதுகாவலி',
+      'சியன்னாவின் புனித கத்தரின் - கன்னி, மறைவல்லுநர், ஐரோப்பவின் பாதுகாவலி',
     catherine_of_siena_virgin_copatroness_of_italy_and_europe:
-      'சியன்னாவின் புனித கத்தரின் - கன்னி, இத்தாலி, ஐரோப்பவின் பாதுகாவலி',
+      'சியன்னாவின் புனித கத்தரின் - கன்னி, ஐரோப்பா மற்றும் இத்தாலியின் பாதுகாவலி',
     catherine_zoe_laboure_virgin: 'புனித கத்தரின் லாபோரே - துறவி',
     ceallach_of_armagh_bishop: 'புனித சியாலெச் - ஆயர்',
     cecilia_of_rome_virgin: 'புனித சிசிலியா - கன்னி, மறைசாட்சி',
@@ -337,7 +337,7 @@ export const locale: Locale = {
     cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop_copatrons_of_europe:
       'புனித சிரில் - துறவி, புனித மெதோடியஸ் - ஆயர், ஐரோப்பாவின் பாதுகாவலர்கள்',
     cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop_slavic_missionaries_copatrons_of_europe:
-      'புனித சிரில், புனித் மெதோடியஸ் - சிலாவிக்கின் மறை போதகர்கள்',
+      'புனித சிரில், புனித் மெதோடியஸ் - ஸ்லாவிக்கின் மறை போதகர்கள்',
     cyril_of_alexandria_bishop: 'அலெக்சாந்திரியா நகர புனித சிரில் - ஆயர், மறைவல்லுநர்',
     cyril_of_jerusalem_bishop: 'ஜெருசலெம் நகர புனித சிரில் - ஆயர், மறைவல்லுநர்',
     damasus_i_pope: 'புனித முதலாம் டமேசுஸ் - திருத்தந்தை',
