@@ -6,45 +6,43 @@ export const locale: Locale = {
   seasons: {
     advent: {
       season: 'Περίοδος της Παρουσίας',
-      weekday: '$t(weekdays:{{dow}}) της $t(ordinals:{{week}}, {"context": "abbreviation"}) Εβδομάδας της Παρουσίας',
-      sunday: '$t(ordinals:{{week}}) Κυριακή της Παρουσίας',
-      privileged_weekday: '{{day}} $t(months:11)',
+      weekday: '$t(weekdays:{{dow}}) της $t(ordinals:{{week}}, {"context": "abbreviation"}) Εβδομάδας της Παρουσίας',  // src: mr_el_2006_ed3, p141
+      sunday: '$t(ordinals:{{week}}) Κυριακή της Παρουσίας',  // src: mr_el_2006_ed3, p???
+      privileged_weekday: '{{day}} $t(months:11)',  // src: mr_el_2006_ed3, p163
     },
 
     christmas_time: {
-      season: 'Περίοδος των Χριστουγέννων',
+      season: 'Περίοδος των Χριστουγέννων',  // src: mr_el_2006_ed3, p???
       day: '$t(weekdays:{{dow}}) των Χριστουγέννων',
-      octave: '{{count}}η ημέρα της Ογδοάδας των Χριστουγέννων',
+      octave: '{{count}}η ημέρα της Ογδοάδας των Χριστουγέννων',  // src: mr_el_2006_ed3, p185
       second_sunday_after_christmas: 'Δεύτερη Κυριακή μετά τα Χριστούγεννα',
       before_epiphany: '{{day}} $t(months:0)',
       after_epiphany: '$t(weekdays:{{dow}}) μετά την πανήγυρη των Θεοφανίων',
     },
 
     ordinary_time: {
-      season: 'Κοινή περίοδος του έτους',
-      weekday:
-        '$t(weekdays:{{dow}}) της $t(ordinals:{{week}}, {"context": "genitive"}) της κοινής περίοδου του έτους',
-      sunday: '$t(ordinals:{{week}}) Κυριακή της κοινής περίοδου του έτους',
+      season: 'Κοινή περίοδος του έτους',  // src: mr_el_2006_ed3, p???
+      weekday: '$t(weekdays:{{dow}}) της $t(ordinals:{{week}}, {"context": "genitive"}) της κοινής περιόδου του έτους',
+      sunday: '$t(ordinals:{{week}}) Κυριακή της κοινής περιόδου του έτους',  // src: mr_el_2006_ed3, p611
     },
 
     lent: {
-      season: 'Περίοδος της αγίας Τεσσαρακοστής',
-      weekday:
-        '$t(weekdays:{{dow}}) της $t(ordinals:{{week}}, {"context": "abbreviation"}) Εβδομάδας της Τεσσαρακοστής',
-      sunday: '$t(ordinals:{{week}}) Κυριακή της Τεσσαρακοστής',
-      day_after_ash_wed: '$t(weekdays:{{dow}}) των Τεφρών',
-      holy_week_day: 'Μεγάλη $t(weekdays:{{dow}})',
+      season: 'Περίοδος της αγίας Τεσσαρακοστής',  // src: mr_el_2006_ed3, p???
+      weekday: '$t(weekdays:{{dow}}) της $t(ordinals:{{week}}, {"context": "abbreviation"}) Εβδομάδας της Τεσσαρακοστής',  // src: mr_el_2006_ed3, p227
+      sunday: '$t(ordinals:{{week}}) Κυριακή της Τεσσαρακοστής',  // src: mr_el_2006_ed3, p???
+      day_after_ash_wed: '$t(weekdays:{{dow}}) των Τεφρών',  // src: mr_el_2006_ed3, p219
+      holy_week_day: 'Μεγάλη $t(weekdays:{{dow}})',  // src: mr_el_2006_ed3, p???
     },
 
     paschal_triduum: {
-      season: 'Πασχαλινό τριήμερο'
+      season: 'Ιερό Πασχαλινό Τριήμερο'  // src: mr_el_2006_ed3, p???
     },
 
     easter_time: {
-      season: 'Περίοδος του Πάσχα',
+      season: 'Περίοδος του Πάσχα',  // src: mr_el_2006_ed3, p???
       weekday: '$t(weekdays:{{dow}}) της $t(ordinals:{{week}}, {"context": "abbreviation"}) Εβδομάδας του Πάσχα',
       sunday: '$t(ordinals:{{week}}) Κυριακή του Πάσχα',
-      octave: '$t(weekdays:{{dow}}) της Διακαινησίμου',
+      octave: '$t(weekdays:{{dow}}) της Διακαινησίμου',  // src: mr_el_2006_ed3, p???
     },
   },
 
@@ -57,8 +55,8 @@ export const locale: Locale = {
   },
 
   cycles: {
-    proper_of_time: 'Ιδιαίτερο του περιόδου',
-    proper_of_saints: 'Ιδιαίτερο των αγίων',
+    proper_of_time: 'Ιδιαίτερο της περιόδου',  // src: mr_el_2006_ed3, p???
+    proper_of_saints: 'Ιδιαίτερο των αγίων',  // src: mr_el_2006_ed3, p???
     sunday_year_a: 'Κύκλος Α΄',
     sunday_year_b: 'Κύκλος Β΄',
     sunday_year_c: 'Κύκλος Γ΄',
@@ -232,6 +230,8 @@ export const locale: Locale = {
     anthony_of_padua_priest: 'Αγίου Αντωνίου της Παδούης, πρεσβυτέρου και διδασκάλου της Εκκλησίας',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Ιούνιος, p36
     anthony_zaccaria_priest: 'Αγίου Αντωνίου Μαρία Ζαχαρία, πρεσβυτέρου',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Ιούλιος, p37
     apollinaris_of_ravenna_bishop: 'Αγίου Απολλιναρίου, επισκόπου και μάρτυρος',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Ιούλιος, p37
+    ascension_of_the_lord: 'Της Αγίας Τριάδος',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Μάϊος, p35
+    ash_wednesday: 'Τετάρτη των Τεφρών',  // src: https://episkopisyrou.gr/tetarti-ton-tefron-archi-tessarakostis-2/
     assumption_of_the_blessed_virgin_mary: 'Της Μεταστάσεως της Υπεραγίας Θεοτόκου και Αειπαρθένου Μαρίας',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Αύγουστος, p38
     athanasius_of_alexandria_bishop: 'Αγίου Αθανασίου, επισκόπου και διδασκάλου της Εκκλησίας',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Μάϊος, p35
     augustine_of_canterbury_bishop: 'Αγίου Αυγουστίνου Cantuariensis, επισκόπου',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Μάϊος, p35
@@ -268,7 +268,7 @@ export const locale: Locale = {
     christopher_of_anatolia_martyr: 'Αγίου Χριστοφόρου, μάρτυρος',
     clare_of_assisi_virgin: 'Αγίας Κλάρας, παρθένου',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Αύγουστος, p38
     clement_i_pope: 'Αγίου Κλήμεντος Αʹ, πάπα και μάρτυρος',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Νοέμβριος, p41
-    columba_of_iona_abbot: 'Αγίου Κολουμβανού, αββά',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Νοέμβριος, p41
+    columban_of_luxeuil_abbot: 'Αγίου Κολουμβανού, αββά',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Νοέμβριος, p41
     commemoration_of_all_the_faithful_departed: 'Μνήμη Όλων Των Κεκοιμημένων Πιστών',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Νοέμβριος, p41
     conversion_of_saint_paul_the_apostle: 'Η μεταστροφή του Αποστόλου Παύλου',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Ιανουάριος, p31
     cornelius_i_pope_and_cyprian_of_carthage_bishop_martyrs: 'Αγίων Κορνηλίου, Πάπα, και Κυπριανού, επισκόπου, μαρτύρων',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Σεπτέμβριος, p39
@@ -287,16 +287,15 @@ export const locale: Locale = {
     demetrius_of_thessaloniki_martyr: 'Αγίου Δημητρίου, μάρτυρος',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Οκτώβριος, p40
     denis_of_paris_bishop_and_companions_martyrs: 'Αγίου Διονυσίου, επισκόπου, και συντρόφων, μαρτύρων',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Οκτώβριος, p40
     dionysius_the_areopagite_bishop: 'Αγίου Διονυσίου του Αρεοπαγίτου, επισκόπου και μάρτυρος',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Οκτώβριος, p40
-    divine_mercy_sunday: 'Δεύτερη Κυριακή του Πάσχα ή της θείας Ευσπλαχωίας',
+    divine_mercy_sunday: 'Δεύτερη Κυριακή του Πάσχα ή της θείας Ευσπλαχνίας',  // src: mr_el_2006_ed3, p???
     dominic_de_guzman_priest: 'Αγίου Δομινίκου, πρεσβυτέρου',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Αύγουστος, p38
-    easter_sunday: 'Κυριακή του Πάσχα της Αναστάσεως του Κύριου',
+    easter_sunday: 'Κυριακή του Πάσχα της Αναστάσεως του Κύριου',  // src: mr_el_2006_ed3, p???
     elijah_prophet: 'Αγίου Ηλία, προφήτη',
     elizabeth_of_hungary_religious: 'Αγίας Ελισάβετ της Ουγγαρίας, μοναχής',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Νοέμβριος, p41
     elizabeth_of_portugal: 'Αγίας Ελισάβετ της Πορτογαλίας',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Ιούλιος, p37
     emilie_de_vialar_virgin: 'Αγίας Αιμιλίας de Vialar, παρθένου',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Ιούνιος, p36
     ephrem_the_syrian_deacon: 'Αγίου Εφραίμ, διακόνου και διδασκάλου της Εκκλησίας',
     epiphany_of_the_lord: 'Των Θεοφανίων',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Ιανουάριος, p31
-    eric_ix_of_sweden_martyr: 'Αγίου Ερρίκου',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Ιούλιος, p37
     eusebius_of_vercelli_bishop: 'Αγίου Ευσεβίου των Βερκελλών, επισκόπου',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Αύγουστος, p38
     exaltation_of_the_holy_cross: 'Ύψωση του Τιμίου Σταυρού',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Σεπτέμβριος, p39
     fabian_i_pope: 'Αγίου Φαβιανού, πάπα και μάρτυρος',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Ιανουάριος, p31
@@ -308,18 +307,21 @@ export const locale: Locale = {
     francis_of_assisi: 'Αγίου Φραγκίσκου της Ασσίζης',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Οκτώβριος, p40
     francis_of_paola_hermit: 'Αγίου Φραγκίσκου de Paola, ερημίτη',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Απρίλιος, p34
     francis_xavier_priest: 'Αγίου Φραγκίσκου Ξαβερίου, πρεσβυτέρου',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Δεκέμβριος, p42
+    friday_of_the_passion_of_the_lord: 'Μεγάλη Παρασκευή',  // src: mr_el_2006_ed3, p???
     genevieve_of_paris_virgin: 'Αγίας Γενεβιέβης, παρθένου',
     george_of_lydda_martyr: 'Αγίου Γεωργίου, μάρτυρος',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Απρίλιος, p34
-    gregory_of_narek_abbot: 'Αγίου Γρηγορίου του Narek, μοναχού και διδασκάλου της Εκκλησίας',
     gertrude_the_great_virgin: 'Αγίας Γερτρούδης, παρθένου',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Νοέμβριος, p41
+    gregory_of_narek_abbot: 'Αγίου Γρηγορίου του Narek, μοναχού και διδασκάλου της Εκκλησίας',
     gregory_i_the_great_pope: 'Αγίου Γεωργίου του Μεγάλου, πάπα και διδασκάλου της Εκκλησίας',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Σεπτέμβριος, p39
     gregory_vii_pope: 'Αγίου Γρηγορίου Ζʹ, πάπα',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Μάϊος, p35
-    hedwig_of_poland: 'Αγίας Εδβίγης, μοναχής',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Οκτώβριος, p40
+    hedwig_of_silesia_religious: 'Αγίας Εδβίγης, μοναχής',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Οκτώβριος, p40
+    henry_ii_emperor: 'Αγίου Ερρίκου',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Ιούλιος, p37
     hilary_of_poitiers_bishop: 'Αγίου Ιλαρίου, επισκόπου και διδασκάλου της Εκκλησίας',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Ιανουάριος, p31
     hildegard_of_bingen_abbess: 'Αγίας Χίλντεγκαρντ, παρθένου και διδασκάλου της Εκκλησίας',
     holy_family_of_jesus_mary_and_joseph: 'Της Αγίας Οικογένειας: Ιήσου, Μαρίας και Ιωσήφ',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Δεκέμβριος, p42
     holy_guardian_angels: 'Αγίων Φυλάκων Αγγέλων',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Οκτώβριος, p40
     holy_innocents_martyrs: 'Αγίων Αθώων Νηπίων, Μαρτύρων',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Δεκέμβριος, p42
+    holy_saturday: 'Μεγάλο Σάββατο',  // src: https://el.wikipedia.org/w/index.php?title=%CE%9C%CE%B5%CE%B3%CE%AC%CE%BB%CE%BF_%CE%A3%CE%AC%CE%B2%CE%B2%CE%B1%CF%84%CE%BF&oldid=10005382
     ignatius_of_antioch_bishop: 'Αγίου Ιγνατίου της Αντιοχείας, επισκόπου και μάρτυρος',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Οκτώβριος, p40
     ignatius_of_loyola_priest: 'Αγίου Ιγνατίου de Loyola, πρεσβυτέρου',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Ιούλιος, p37
     immaculate_conception_of_the_blessed_virgin_mary: 'Της Αμίαντου Συλλήψεως της Μακαριάς και Αειπαρθένου Μαρίας',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Δεκέμβριος, p42
@@ -345,11 +347,12 @@ export const locale: Locale = {
     john_i_pope: 'Αγίου Ιωάννη Αʹ, πάπα και μάρτυρος',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Μάϊος, p35
     john_leonardi_priest: 'Αγίου Ιωάννη Leonardi, πρεσβυτέρου',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Οκτώβριος, p40
     john_mary_vianney_priest: 'Αγίου Ιωάννη Μαρία Vianney, πρεσβυτέρου',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Αύγουστος, p38
+    john_of_avila_priest: 'Αγίου Ιωάννη της Άβιλα, πρεσβυτέρου και διδασκάλου της Εκκλησίας',  // src: manually translated by @tukusejssirs using `john_of_the_cross_priest` and `teresa_of_jesus_of_avila_virgin` from `mr_el_2006_ed3`
     john_of_capistrano_priest: 'Αγίου Ιωάννη de Capestrano, πρεσβυτέρου',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Οκτώβριος, p40
     john_of_god_duarte_cidade_religious: 'Αγίου Ιωάννη του Θεού, μοναχού',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Μάρτιος, p33
     john_of_kanty_priest: 'Αγίου Ιωάννη de Kety, πρεσβυτέρου',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Δεκέμβριος, p42
     john_of_the_cross_priest: 'Αγίου Ιωάννη του Σταυρού, πρεσβυτέρου και διδασκάλου της Εκκλησίας',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Δεκέμβριος, p42
-    john_paul_ii_pope: 'Αγίου Ιωάννη Παύλου Βʹ, πάπα',
+    john_paul_ii_pope: 'Αγίου Ιωάννη Παύλου Βʹ, Πάπα',  // src: https://episkopisyrou.gr/22-oktovriou-mnimi-tou-agiou-ioanni-pavlou-v-papa-romis/
     john_xxiii_pope: 'Αγίου Ιωάννη ΚΓ΄, πάπα',
     josaphat_kuntsevych_bishop: 'Αγίου Ιωσαφάτ, επισκόπου και μάρτυρος',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Νοέμβριος, p41
     joseph_of_calasanz_priest: 'Αγίου Ιωσήφ de Calasanz, πρεσβυτέρου',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Αύγουστος, p38
@@ -422,9 +425,10 @@ export const locale: Locale = {
     patrick_of_ireland_bishop: 'Αγίου Πατρικίου, επισκόπου',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Μάρτιος, p33
     paul_miki_and_companions_martyrs: 'Αγίων Παύλου Miki και συντρόφων, μαρτύρων',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Φεβρουάριος, p32
     paul_of_the_cross_priest: 'Αγίου Παύλου του Σταυρού, πρεσβυτέρου',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Οκτώβριος, p40
+    paul_vi_pope: 'Αγίου Παύλου ΣΤʹ, Πάπα',  // src: https://el.wikipedia.org/w/index.php?title=%CE%A0%CE%AC%CF%80%CE%B1%CF%82_%CE%A0%CE%B1%CF%8D%CE%BB%CE%BF%CF%82_%CE%A3%CE%A4%CE%84&oldid=9892699
     paulinus_of_nola_bishop: 'Αγίου Παυλίνου Nolani, επισκόπου',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Ιούνιος, p36
     pelagia_the_penitent_virgin: 'Αγίας Πελαγίας της Μετανοούσης',
-    pentecost_sunday: 'Κυριακή της Πεντηκοστής',
+    pentecost_sunday: 'Κυριακή της Πεντηκοστής',  // src: mr_el_2006_ed3, p???
     perpetua_of_carthage_and_felicity_of_carthage_martyrs: 'Αγίων Περπέτουας και Φηλικίτης, μαρτύρων',
     peter_and_paul_apostles: 'Αγίων Πέτρου και Παύλου, Αποστόλων',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Ιούνιος, p36
     peter_canisius_priest: 'Αγίου Πέτρου Κανισίου, πρεσβυτέρου και διδασκάλου της Εκκλησίας',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Δεκέμβριος, p42
@@ -460,6 +464,7 @@ export const locale: Locale = {
     stanislaus_of_szczepanow_bishop: 'Αγίου Στανισλάου, επισκόπου και μάρτυρος',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Απρίλιος, p34
     stephen_i_of_hungary: 'Αγίου Στέφανου της Ουγγαρίας',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Αύγουστος, p38
     stephen_the_first_martyr: 'Αγίου Στέφανου, Πρωτομάρτυρος',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Δεκέμβριος, p42
+    sunday_of_the_word_of_god: '3η Κυριακή της κοινής περιόδου του έτους ή Κυριακής του Λόγου του Θεού',  // src: https://episkopisyrou.gr/eortasmos-tis-kyriakis-tou-logou-tou-theou/
     sylvester_i_pope: 'Αγίου Σιλβέστρου Αʹ, πάπα',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Δεκέμβριος, p42
     teresa_benedicta_of_the_cross_stein_virgin: 'Αγίας Θηρεσίας Βενεδίκτης a Cruce (Edith Stein), παρθένου και μάρτυρος',  // based on: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Αύγουστος, p38
     teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe: 'Αγίας Θηρεσίας Βενεδίκτης a Cruce (Edith Stein), παρθένου και μάρτυρος, προστάτιδας της Ευρώπης',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Αύγουστος, p38
@@ -471,6 +476,7 @@ export const locale: Locale = {
     thomas_apostle: 'Αγίου Θωμά, Αποστόλου',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Ιούλιος, p37
     thomas_aquinas_priest: 'Αγίου Θωμά του Ακινάτη, πρεσβυτέρου και διδασκάλου της Εκκλησίας',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Ιανουάριος, p31
     thomas_becket_bishop: 'Αγίου Θωμά Becket, επισκόπου και μάρτυρος',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Δεκέμβριος, p42
+    thursday_of_the_lords_supper: 'Μεγάλη Πέμπτη στο Μυστικό δείπνο',  // src: mr_el_2006_ed3, p???
     timothy_of_ephesus_and_titus_of_crete_bishops: 'Αγίων Τιμοθέου και Τίτου, επισκόπων',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Ιανουάριος, p31
     timothy_of_ephesus_and_titus_the_first_bishop_of_crete_bishops: 'Αγίου Τίτου, πρώτου επισκόπου Κρήτης και Αγίου Τιμοθέου, επισκόπου',  // based on: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Ιανουάριος, p31
     transfiguration_of_the_lord: 'Η Μεταμόρφωση του Κυρίου',  // src: mr_el_2006_ed3, Γενικό Ρωμαϊκό εορτολόγιο, Αύγουστος, p38
