@@ -64,7 +64,7 @@ export const locale: Locale = {
     black: 'negro',
     gold: 'dorado',
     green: 'verde',
-    purple: 'modaro',
+    purple: 'morado',
     red: 'rojo',
     rose: 'rosa',
     white: 'blanco',
