@@ -61,13 +61,13 @@ export const locale: Locale = {
   },
 
   colors: {
-    black: 'negro',
-    gold: 'dorado',
-    green: 'verde',
-    purple: 'modaro',
-    red: 'rojo',
-    rose: 'rosa',
-    white: 'blanco',
+    black: 'negro', // src: GIRM, 346e (https://www.santaclaradeestella.es/BIBLIOTECA/ENCICLICAS/INSTRUCCI%C3%93N_GENERAL_DEL_MISAL_ROMANO.htm)
+    gold: 'dorado', // src: GIRM, 346g (https://www.santaclaradeestella.es/BIBLIOTECA/ENCICLICAS/INSTRUCCI%C3%93N_GENERAL_DEL_MISAL_ROMANO.htm)
+    green: 'verde', // src: GIRM, 346c (https://www.santaclaradeestella.es/BIBLIOTECA/ENCICLICAS/INSTRUCCI%C3%93N_GENERAL_DEL_MISAL_ROMANO.htm)
+    purple: 'morado', // src: GIRM, 346d (https://www.santaclaradeestella.es/BIBLIOTECA/ENCICLICAS/INSTRUCCI%C3%93N_GENERAL_DEL_MISAL_ROMANO.htm)
+    red: 'rojo', // src: GIRM, 346b (https://www.santaclaradeestella.es/BIBLIOTECA/ENCICLICAS/INSTRUCCI%C3%93N_GENERAL_DEL_MISAL_ROMANO.htm)
+    rose: 'rosa', // src: GIRM, 346f (https://www.santaclaradeestella.es/BIBLIOTECA/ENCICLICAS/INSTRUCCI%C3%93N_GENERAL_DEL_MISAL_ROMANO.htf)
+    white: 'blanco', // src: GIRM, 346a (https://www.santaclaradeestella.es/BIBLIOTECA/ENCICLICAS/INSTRUCCI%C3%93N_GENERAL_DEL_MISAL_ROMANO.htm)
   },
 
   weekdays: {
