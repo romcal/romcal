@@ -61,13 +61,13 @@ export const locale: Locale = {
   },
 
   colors: {
-    black: 'negro',
-    gold: 'dorado',
-    green: 'verde',
-    purple: 'morado',
-    red: 'rojo',
-    rose: 'rosa',
-    white: 'blanco',
+    black: 'negro', // src: GIRM, 346e (https://www.santaclaradeestella.es/BIBLIOTECA/ENCICLICAS/INSTRUCCI%C3%93N_GENERAL_DEL_MISAL_ROMANO.htm)
+    gold: 'dorado', // src: GIRM, 346g (https://www.santaclaradeestella.es/BIBLIOTECA/ENCICLICAS/INSTRUCCI%C3%93N_GENERAL_DEL_MISAL_ROMANO.htm)
+    green: 'verde', // src: GIRM, 346c (https://www.santaclaradeestella.es/BIBLIOTECA/ENCICLICAS/INSTRUCCI%C3%93N_GENERAL_DEL_MISAL_ROMANO.htm)
+    purple: 'morado', // src: GIRM, 346d (https://www.santaclaradeestella.es/BIBLIOTECA/ENCICLICAS/INSTRUCCI%C3%93N_GENERAL_DEL_MISAL_ROMANO.htm)
+    red: 'rojo', // src: GIRM, 346b (https://www.santaclaradeestella.es/BIBLIOTECA/ENCICLICAS/INSTRUCCI%C3%93N_GENERAL_DEL_MISAL_ROMANO.htm)
+    rose: 'rosa', // src: GIRM, 346f (https://www.santaclaradeestella.es/BIBLIOTECA/ENCICLICAS/INSTRUCCI%C3%93N_GENERAL_DEL_MISAL_ROMANO.htf)
+    white: 'blanco', // src: GIRM, 346a (https://www.santaclaradeestella.es/BIBLIOTECA/ENCICLICAS/INSTRUCCI%C3%93N_GENERAL_DEL_MISAL_ROMANO.htm)
   },
 
   weekdays: {
@@ -171,7 +171,7 @@ export const locale: Locale = {
     adalbert_of_prague_bishop: 'San Adalberto, obispo y mártir',
     adelaide_of_burgundy_empress: 'Santa Adelaida de Borgoña, Emperatriz',
     adelphus_of_metz_bishop: 'San Adelfus de Métis, obispo',
-    agatha_of_sicily_virgin: 'Santa Águeda, virgen y mártir', // scr: https://liturgiapapal.org/attachments/article/1093/PROPIO%20DE%20LOS%20SANTOS.pdf#page=4
+    agatha_of_sicily_virgin: 'Santa Águeda, virgen y mártir', // src: https://liturgiapapal.org/attachments/article/1093/PROPIO%20DE%20LOS%20SANTOS.pdf#page=4
     agnes_of_rome_virgin: 'Santa Inés, virgen y mártir', // src: https://liturgiapapal.org/attachments/article/1093/PROPIO%20DE%20LOS%20SANTOS.pdf#page=3
     alban_of_britain_martyr: 'San Albano, mártir',
     albert_the_great_bishop: 'San Alberto Magno, obispo y doctor de la Iglesia',
