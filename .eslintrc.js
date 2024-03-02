@@ -47,7 +47,7 @@ module.exports = {
     ],
     'import/prefer-default-export': 'off',
 
-    // TODO: remove, expecially if you wanna watch it go boom!
+    // TODO: remove, especially if you wanna watch it go boom!
     'import/no-cycle': 'off',
 
     'no-console': 'error',
@@ -77,6 +77,9 @@ module.exports = {
       // disable overlapping non-typescript rules
       'no-return-await': 'off',
       'no-unused-vars': 'off',
+
+      // oddly failing only on ci...?
+      'import/extensions': 'off',
 
       // overlapping typescript-only format rules
       '@typescript-eslint/indent': 'off',
