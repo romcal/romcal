@@ -105,7 +105,7 @@ export const Precedences = {
    * and of a religious province, without prejudice to the prescriptions given under no. 4.
    */
   ProperFeast_TitleOrFounderOrPrimaryPatronOfAReligiousOrg_8d:
-    'PROPER_SOLEMNITY__TITLE_OR_FOUNDER_OR_PRIMARY_PATRON_OF_A_RELIGIOUS_ORG_4D' as const,
+    'PROPER_SOLEMNITY__TITLE_OR_FOUNDER_OR_PRIMARY_PATRON_OF_A_RELIGIOUS_ORG_8D' as const,
 
   /**
    * 8e - Other Feast, proper to an individual church.

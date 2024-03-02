@@ -8,7 +8,7 @@ import { glob } from 'glob';
 import prettier from 'prettier';
 import rimraf from 'rimraf';
 import { PackageJson } from 'type-fest';
-import * as ts from 'typescript';
+import ts from 'typescript';
 
 import { GENERAL_ROMAN_NAME } from '../lib/constants/general-calendar-names';
 import { locales } from '../lib/locales';

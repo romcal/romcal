@@ -232,18 +232,17 @@ export type i18nDef = [string] | [string, StringMap | string];
  * Definition for a title needing prefix(es) and suffix(es)
  */
 export type RomcalTitles = (Title | PatronTitle)[];
-export type TitlesDef =
-  | RomcalTitles
-  | {
-      /**
-       * Add title(s) to the end of the existing list of title(s).
-       */
-      append?: RomcalTitles;
-      /**
-       * Add title(s) to the  beginning of the existing list of title(s).
-       */
-      prepend?: RomcalTitles;
-    };
+export type CompoundTitle = {
+  /**
+   * Add title(s) to the end of the existing list of title(s).
+   */
+  append?: RomcalTitles;
+  /**
+   * Add title(s) to the  beginning of the existing list of title(s).
+   */
+  prepend?: RomcalTitles;
+};
+export type TitlesDef = RomcalTitles | CompoundTitle;
 
 /**
  * The associated martyrology item.
