@@ -23,10 +23,10 @@
     "build": "node -r ts-node/register scripts/build.ts",
     "data:checks": "node -r ts-node/register scripts/data-checks.ts",
     "doc": "node -r ts-node/register scripts/bundle-doc.ts",
-    "test": "jest --coverage",
-    "test:without-coverage": "jest",
-    "test:watch": "jest --watch",
-    "test:snapshot:update": "jest -u"
+    "test": "TZ=UTC jest --coverage",
+    "test:without-coverage": "TZ=UTC jest",
+    "test:watch": "TZ=UTC jest --watch",
+    "test:snapshot:update": "TZ=UTC jest -u"
   },
   "repository": {
     "type": "git",
