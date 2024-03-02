@@ -1,9 +1,9 @@
 import { dirname, resolve } from 'node:path';
+import fs from 'fs';
 
 import chalk from 'chalk';
 import { generateDtsBundle } from 'dts-bundle-generator';
 import { build, Format, Platform } from 'esbuild';
-import fs from 'fs';
 import { glob } from 'glob';
 import prettier from 'prettier';
 import rimraf from 'rimraf';
@@ -15,12 +15,13 @@ import { locales } from '../lib/locales';
 import { particularCalendars } from '../lib/particular-calendars';
 import { toPackageName, toPascalCase } from '../lib/utils/string';
 import pkg from '../package.json';
+
 import { RomcalBundler } from './bundle';
 import { getDuration } from './time';
 
 const tsConfigPath = './tsconfig.release.json';
-// eslint-disable-next-line no-console
-const log = console.log;
+
+const { log } = console;
 const formatCode = (code: string): Promise<string> =>
   prettier.format(code, { parser: 'typescript', singleQuote: true });
 
@@ -31,7 +32,7 @@ function reportDiagnostics(diagnostics: ts.Diagnostic[]): void {
       const { line, character } = diagnostic.file.getLineAndCharacterOfPosition(diagnostic.start);
       message += ` ${diagnostic.file.fileName} (${line + 1},${character + 1})`;
     }
-    message += ': ' + ts.flattenDiagnosticMessageText(diagnostic.messageText, '\n');
+    message += `: ${ts.flattenDiagnosticMessageText(diagnostic.messageText, '\n')}`;
     log(chalk.yellow(message));
   });
 }
@@ -84,8 +85,8 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
   // Init directory
   log(
     chalk.bold(
-      `\n✓ Write constants into ${chalk.cyan.bold('./tmp/constants/')}, to list available calendars and locales`,
-    ),
+      `\n✓ Write constants into ${chalk.cyan.bold('./tmp/constants/')}, to list available calendars and locales`
+    )
   );
   const constantDir = './tmp/constants';
   rimraf.sync(resolve(constantDir));
@@ -96,12 +97,12 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
   const localeNames = Object.keys(locales);
   fs.writeFileSync(
     resolve(constantDir, 'locales.ts'),
-    await formatCode(
-      `import { toPackageName } from "../../lib/utils/string";\n\n` +
-        `export const LOCALE_VAR_NAMES: string[] = ${JSON.stringify(localeNames)};\n\n` +
-        `export const LOCALE_IDS: string[] = LOCALE_VAR_NAMES.map(c => toPackageName(c));\n`,
-    ),
-    'utf-8',
+    await formatCode(`import { toPackageName } from "../../lib/utils/string";
+
+    export const LOCALE_VAR_NAMES: string[] = ${JSON.stringify(localeNames)};
+    export const LOCALE_IDS: string[] = LOCALE_VAR_NAMES.map(c => toPackageName(c));
+    `),
+    'utf-8'
   );
 
   // Calendars
@@ -109,13 +110,12 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
   const calendarNames = Object.keys(particularCalendars).concat([GENERAL_ROMAN_NAME]).sort();
   fs.writeFileSync(
     resolve(constantDir, 'calendars.ts'),
-    await formatCode(
-      `import { toPackageName } from "../../lib/utils/string";\n\n` +
-        `export const CALENDAR_VAR_NAMES: string[] = ${JSON.stringify(calendarNames)};\n\n` +
-        `export const CALENDAR_PKG_NAMES: string[] = CALENDAR_VAR_NAMES` +
-        '.map(c => `@romcal/calendar.${toPackageName(c)}`);\n',
-    ),
-    'utf-8',
+    await formatCode(`import { toPackageName } from "../../lib/utils/string";
+
+      export const CALENDAR_VAR_NAMES: string[] = ${JSON.stringify(calendarNames)};
+      export const CALENDAR_PKG_NAMES: string[] = CALENDAR_VAR_NAMES.map(c => \`@romcal/calendar.\${toPackageName(c)}\`);
+    `),
+    'utf-8'
   );
 
   /**
@@ -158,7 +158,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
         },
       },
     ],
-    { preferredConfigPath: tsConfigPath },
+    { preferredConfigPath: tsConfigPath }
   );
   fs.writeFileSync(resolve('dist', 'index.d.ts'), dts.join('\n'), 'utf-8');
   log(chalk.dim(`  ./tmp/dts/lib/index.d.ts → dist/index.d.ts`));
@@ -176,74 +176,75 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
       .split('.')
       .map((s) => toPascalCase(s))
       .join('_');
-    return varName + '_' + toPascalCase(locale);
+    return `${varName}_${toPascalCase(locale)}`;
   };
 
   /**
    * Retrieve the license, and wrap it in code comments
    */
-  const LICENSE =
-    `/**\n` +
-    fs
-      .readFileSync('./LICENSE', 'utf8')
-      .trim()
-      .split(/\n/g)
-      .map((l) => ` * ${l}`)
-      .join('\n') +
-    `\n */\n`;
+  const LICENSE = `/**\n${fs
+    .readFileSync('./LICENSE', 'utf8')
+    .trim()
+    .split(/\n/g)
+    .map((l) => ` * ${l}`)
+    .join('\n')}\n */\n`;
 
   /**
    * Build the core library and all calendar bundles
    */
-  for (const format of ['cjs', 'esm', 'iife'] as Format[]) {
-    log(chalk.bold(`\n✓ Building the codebase using the ${chalk.green.bold(format)} format`));
-    const fromFormats: Record<Format, Platform> = { cjs: 'node', esm: 'neutral', iife: 'browser' };
-    const platform: Platform = fromFormats[format];
-    const subPackageJson = JSON.stringify({ type: format === 'esm' ? 'module' : 'commonjs' }, null, 2);
+  await Promise.all(
+    (['cjs', 'esm', 'iife'] as Format[]).map(async (format) => {
+      log(chalk.bold(`\n✓ Building the codebase using the ${chalk.green.bold(format)} format`));
+      const fromFormats: Record<Format, Platform> = { cjs: 'node', esm: 'neutral', iife: 'browser' };
+      const platform: Platform = fromFormats[format];
+      const subPackageJson = JSON.stringify({ type: format === 'esm' ? 'module' : 'commonjs' }, null, 2);
 
-    log(chalk.dim(`  ./lib/index.ts → dist/${format}/romcal.js`));
-    await build({
-      bundle: true,
-      minify: true,
-      sourcemap: 'external',
-      ...(format === 'iife' ? { globalName: 'Romcal' } : {}),
-      ...(format === 'iife' ? {} : { external: ['i18next'] }),
-      entryPoints: ['lib/index.ts'],
-      banner: { js: LICENSE },
-      format,
-      outfile: `dist/${format}/romcal.js`,
-      target: format === 'esm' ? 'ESNext' : 'ES2022',
-    }).catch(() => process.exit(1));
-    fs.writeFileSync(resolve(`dist/${format}/package.json`), subPackageJson, 'utf-8');
+      log(chalk.dim(`  ./lib/index.ts → dist/${format}/romcal.js`));
+      await build({
+        bundle: true,
+        minify: true,
+        sourcemap: 'external',
+        ...(format === 'iife' ? { globalName: 'Romcal' } : {}),
+        ...(format === 'iife' ? {} : { external: ['i18next'] }),
+        entryPoints: ['lib/index.ts'],
+        banner: { js: LICENSE },
+        format,
+        outfile: `dist/${format}/romcal.js`,
+        target: format === 'esm' ? 'ESNext' : 'ES2022',
+      }).catch(() => process.exit(1));
+      fs.writeFileSync(resolve(`dist/${format}/package.json`), subPackageJson, 'utf-8');
 
-    log(chalk.dim(`  ./tmp/bundles/**/*.ts → dist/bundles/[calendar]/${format}/[locale].js`));
-    for (const p of bundles) {
-      // Do not output index.ts on iife format
-      // and only output locale.iife.js on iife format
-      if (
-        (format !== 'iife' || !/[\\/]index\.ts$/.exec(p)) &&
-        ((/.iife\.ts$/.exec(p) && format === 'iife') || (!/.iife\.ts$/.exec(p) && format !== 'iife'))
-      ) {
-        const calendar = /([^\\/]+)[\\/]+[^\\/]+$/.exec(p)?.[1];
-        const locale = /([^\\/]+)\.\w+$/.exec(p)?.[1].replace('.iife', '');
-        await build({
-          minify: true,
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-          ...(format === 'iife' ? { globalName: toGlobalName(calendar!, locale!) } : {}),
-          bundle: format === 'iife',
-          platform,
-          entryPoints: [p],
-          banner: { js: LICENSE },
-          format,
-          keepNames: true,
-          outfile: `dist/bundles/${calendar}/${format}/${locale}.js`,
-          sourcemap: false,
-          target: format === 'esm' ? 'ESNext' : 'ES2022',
-        }).catch(() => process.exit(1));
-        fs.writeFileSync(resolve(`dist/bundles/${calendar}/${format}/package.json`), subPackageJson, 'utf-8');
-      }
-    }
-  }
+      log(chalk.dim(`  ./tmp/bundles/**/*.ts → dist/bundles/[calendar]/${format}/[locale].js`));
+      await Promise.all(
+        bundles.map(async (p) => {
+          // Do not output index.ts on iife format
+          // and only output locale.iife.js on iife format
+          if (
+            (format !== 'iife' || !/[\\/]index\.ts$/.exec(p)) &&
+            ((/.iife\.ts$/.exec(p) && format === 'iife') || (!/.iife\.ts$/.exec(p) && format !== 'iife'))
+          ) {
+            const calendar = /([^\\/]+)[\\/]+[^\\/]+$/.exec(p)?.[1];
+            const locale = /([^\\/]+)\.\w+$/.exec(p)?.[1].replace('.iife', '');
+            await build({
+              minify: true,
+              // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+              ...(format === 'iife' ? { globalName: toGlobalName(calendar!, locale!) } : {}),
+              bundle: format === 'iife',
+              platform,
+              entryPoints: [p],
+              banner: { js: LICENSE },
+              format,
+              keepNames: true,
+              outfile: `dist/bundles/${calendar}/${format}/${locale}.js`,
+              sourcemap: false,
+              target: format === 'esm' ? 'ESNext' : 'ES2022',
+            }).catch(() => process.exit(1));
+            fs.writeFileSync(resolve(`dist/bundles/${calendar}/${format}/package.json`), subPackageJson, 'utf-8');
+          }
+        })
+      ).catch(() => process.exit(1));
+    })
+  ).catch(() => process.exit(1));
 
   /**
    * Add package.json and index.d.ts files to all calendar bundles

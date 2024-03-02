@@ -20,7 +20,6 @@
  * to distinguish them from the keys that are directly defined in the source files.
  */
 
-/* eslint-disable no-console */
 import chalk from 'chalk';
 import merge from 'ts-deepmerge';
 
@@ -37,6 +36,7 @@ import { locales } from '../lib/locales';
 import { CalendarDef } from '../lib/models/calendar-def';
 import { particularCalendars } from '../lib/particular-calendars';
 import { toPackageName } from '../lib/utils/string';
+
 import { RomcalBuilder } from './bundle';
 
 enum LogLevel {
@@ -72,14 +72,15 @@ const dasherize = (item: string): string => `       - ${item}`;
 
 const label = (logLevel: LogLevel): string => {
   switch (logLevel) {
-    case LogLevel.INFO:
-      return bgColor[logLevel].bold('\n  OK  ') + ' ';
     case LogLevel.WARN:
       hasWarnings = true;
-      return bgColor[logLevel].bold('\n WARN ') + ' ';
+      return `${bgColor[logLevel].bold('\n WARN ')} `;
     case LogLevel.ERROR:
       hasErrors = true;
-      return bgColor[logLevel].bold('\n ERR  ') + ' ';
+      return `${bgColor[logLevel].bold('\n ERR  ')} `;
+    case LogLevel.INFO:
+    default:
+      return `${bgColor[logLevel].bold('\n  OK  ')} `;
   }
 };
 
@@ -110,17 +111,15 @@ const isObject = (obj: unknown): obj is Record<string, unknown> =>
 
 const getNestedPropertyNames = (obj: Record<string, unknown>, parentKey?: string): string[] => {
   const result: string[] = [];
-  for (const key in obj) {
-    if (Object.prototype.hasOwnProperty.call(obj, key)) {
-      const currentKey = parentKey ? `${parentKey}.${key}` : key;
-      const currentValue = obj[key];
-      if (isObject(currentValue)) {
-        result.push(...getNestedPropertyNames(currentValue, currentKey));
-      } else {
-        result.push(currentKey);
-      }
+  Object.keys(obj).forEach((key) => {
+    const currentKey = parentKey ? `${parentKey}.${key}` : key;
+    const currentValue = obj[key];
+    if (isObject(currentValue)) {
+      result.push(...getNestedPropertyNames(currentValue, currentKey));
+    } else {
+      result.push(currentKey);
     }
-  }
+  });
   return result;
 };
 
@@ -132,7 +131,7 @@ const findMissingInArray = (arr1: string[] | Set<string>, arr2: string[] | Set<s
 const findMissingInArrayWithNamespacedLocaleKeys = (
   computedNamespacedKeys: string[],
   locale: Locale,
-  option?: { reverse?: boolean; localeKeyNamesOnly?: boolean },
+  option?: { reverse?: boolean; localeKeyNamesOnly?: boolean }
 ): StringArrayRecord | false => {
   const groupByNamespace = computedNamespacedKeys.reduce<StringSetRecord>((acc, item) => {
     const namespace = getNamespace(item);
@@ -142,25 +141,25 @@ const findMissingInArrayWithNamespacedLocaleKeys = (
   }, {});
 
   return Object.entries(locale)
-    .filter(([key]) => key != 'id')
+    .filter(([key]) => key !== 'id')
     .filter(([key]) => !option?.localeKeyNamesOnly || (option?.localeKeyNamesOnly && key === 'names'))
     .reduce<StringArrayRecord | false>((acc, [namespace, obj]) => {
+      const rec = { ...(acc || {}) };
       const props = getNestedPropertyNames(obj);
       const missingItem = option?.reverse
         ? props.filter((item) => !Array.from(groupByNamespace[namespace] ?? []).includes(item))
         : Array.from(groupByNamespace[namespace] ?? []).filter((item) => !props.includes(item));
       if (missingItem.length) {
-        if (acc === false) acc = {};
-        acc[namespace] = missingItem;
+        rec[namespace] = missingItem;
       }
-      return acc;
+      return rec;
     }, false);
 };
 
 const findMissingLocalizedItems = (
   localeKey: string,
   localeComputedKeys: string[] | Set<string>,
-  option?: { reverse?: boolean; localeKeyNamesOnly?: boolean },
+  option?: { reverse?: boolean; localeKeyNamesOnly?: boolean }
 ): StringArrayRecord | false => {
   // For a region locale (XxXx), merge it with the base locale (Xx) if exists
   const locale =
@@ -197,7 +196,7 @@ const metaI18nKeys: string[] = [
 /**
  * Compute data to check.
  */
-for (let i = 0; i < allCalendars.length; i++) {
+for (let i = 0; i < allCalendars.length; i += 1) {
   const calendar = allCalendars[i];
 
   // Init config
@@ -225,7 +224,7 @@ for (let i = 0; i < allCalendars.length; i++) {
       }
       return acc;
     },
-    {},
+    {}
   );
 
   // Now, retrieve martyrology keys evaluated from inputs, to combine them with the ones from definitions.
@@ -242,7 +241,7 @@ for (let i = 0; i < allCalendars.length; i++) {
   // Retrieve locale computed keys from inputs
   const localeComputedKeys = Object.values(inputs).reduce<string[]>(
     (acc, value) => [...acc, value.i18nDef[0]],
-    metaI18nKeys,
+    metaI18nKeys
   );
 
   allCalendarData[calendar.name] = {
@@ -305,13 +304,13 @@ Object.values(locales).forEach((locale) => {
 Object.keys(locales)
   .filter((l) => l !== 'En') // Ignore English locale has it is already checked before
   .forEach((localeKey) => {
-    const missingLocaleNames = findMissingLocalizedItems(localeKey, allCalendarData['GeneralRoman'].localeComputedKeys);
+    const missingLocaleNames = findMissingLocalizedItems(localeKey, allCalendarData.GeneralRoman.localeComputedKeys);
     logIf(
       LogLevel.WARN,
       `Missing localized '${u(toPackageName(localeKey))}' items for the ${u('Proper of Time')} and the ${u(
-        'General Roman Calendar',
+        'General Roman Calendar'
       )}:`,
-      missingLocaleNames,
+      missingLocaleNames
     );
   });
 

@@ -1,7 +1,10 @@
-import { Seasons } from '../constants/seasons';
+import { Season } from '../constants/seasons';
 import { RomcalConfig } from '../models/config';
 import { EasterCalculationType } from '../types/config';
+
 import { calculateGregorianEasterDate, calculateJulianEasterDateToGregorianDate } from './easter.dates';
+
+const { isNaN } = Number;
 
 export const getUtcDate = (year: number, month: number, date: number): Date => {
   return new Date(Date.UTC(year, month - 1, date, 0, 0, 0, 0));
@@ -80,11 +83,9 @@ export const getWeekNumber = (date: Date): number => {
  */
 export const rangeOfDays = (start: Date, end: Date): Date[] => {
   const days = dateDifference(start, end);
-  const range: Date[] = [];
-  Array.from(new Array(days + 1), (_x, i) => {
-    range.push(addDays(start, i));
+  return Array.from(new Array(days + 1), (_x, i) => {
+    return addDays(start, i);
   });
-  return range;
 };
 
 /**
@@ -99,7 +100,9 @@ export const rangeContainsDate = (range: Date[], date: Date): boolean => {
 
 export class Dates {
   readonly #config: RomcalConfig;
+
   readonly #year: number;
+
   readonly #isLiturgicalYear: boolean;
 
   constructor(config: RomcalConfig, year: number) {
@@ -123,6 +126,7 @@ export class Dates {
     const end = subtractsDays(this.christmas(year), 1);
     return (this.#allDatesOfAdvent[year] = rangeOfDays(start, end));
   };
+
   #allDatesOfAdvent: Record<string, Date[]> = {};
 
   /**
@@ -139,6 +143,7 @@ export class Dates {
       addDays(firstSunday, 21),
     ]);
   };
+
   #allSundaysOfAdvent: Record<string, Date[]> = {};
 
   /**
@@ -150,6 +155,7 @@ export class Dates {
     if (this.#firstSundayOfAdvent[year]) return this.#firstSundayOfAdvent[year];
     return (this.#firstSundayOfAdvent[year] = Dates.firstSundayOfAdvent(year));
   };
+
   #firstSundayOfAdvent: Record<string, Date> = {};
 
   /**
@@ -186,7 +192,7 @@ export class Dates {
   unprivilegedWeekdayOfAdvent = (
     dow: number,
     week: number,
-    year = this.#isLiturgicalYear ? this.#year - 1 : this.#year,
+    year = this.#isLiturgicalYear ? this.#year - 1 : this.#year
   ): Date | null => {
     const id = `${year}_${week}_${dow}`;
     if (this.#unprivilegedWeekdayOfAdvent[id] !== undefined) {
@@ -197,6 +203,7 @@ export class Dates {
     if (date.getUTCDate() >= 17 && date.getUTCMonth() === 11 && date.getUTCDay() !== 0) date = null;
     return (this.#unprivilegedWeekdayOfAdvent[id] = date);
   };
+
   #unprivilegedWeekdayOfAdvent: Record<string, Date | null> = {};
 
   /**
@@ -207,7 +214,7 @@ export class Dates {
    */
   privilegedWeekdayOfAdvent = (
     day: number,
-    year = this.#isLiturgicalYear ? this.#year - 1 : this.#year,
+    year = this.#isLiturgicalYear ? this.#year - 1 : this.#year
   ): Date | null => {
     const id = `${year}_${day}`;
     if (this.#privilegedWeekdayOfAdvent[id] !== undefined) {
@@ -218,6 +225,7 @@ export class Dates {
     if (date.getUTCDay() === 0) date = null;
     return (this.#privilegedWeekdayOfAdvent[id] = date);
   };
+
   #privilegedWeekdayOfAdvent: Record<string, Date | null> = {};
 
   /**
@@ -231,6 +239,7 @@ export class Dates {
     if (week < 1 || week > 4) return (this.#sundayOfAdvent[id] = null);
     return (this.#sundayOfAdvent[id] = addDays(this.firstSundayOfAdvent(year), 7 * (week - 1)));
   };
+
   #sundayOfAdvent: Record<string, Date | null> = {};
 
   /**
@@ -246,6 +255,7 @@ export class Dates {
     if (this.#christmas[year]) return this.#christmas[year];
     return (this.#christmas[year] = Dates.christmas(year));
   };
+
   #christmas: Record<string, Date> = {};
 
   /**
@@ -266,9 +276,10 @@ export class Dates {
     if (this.#allDatesInOctaveOfChristmas[year]) return this.#allDatesInOctaveOfChristmas[year];
     return (this.#allDatesInOctaveOfChristmas[year] = rangeOfDays(
       this.christmas(year),
-      addDays(this.christmas(year), 6),
+      addDays(this.christmas(year), 6)
     ).concat(this.maryMotherOfGod(year)));
   };
+
   #allDatesInOctaveOfChristmas: Record<string, Date[]> = {};
 
   /**
@@ -279,7 +290,7 @@ export class Dates {
    */
   weekdayWithinOctaveOfChristmas = (
     dayOfOctave: number,
-    year = this.#isLiturgicalYear ? this.#year - 1 : this.#year,
+    year = this.#isLiturgicalYear ? this.#year - 1 : this.#year
   ): Date | null => {
     const id = `${year}_${dayOfOctave}`;
     if (this.#weekdayWithinOctaveOfChristmas[id] !== undefined) {
@@ -290,6 +301,7 @@ export class Dates {
     if (isSameDate(date, this.holyFamily(year))) date = null;
     return (this.#weekdayWithinOctaveOfChristmas[id] = date);
   };
+
   #weekdayWithinOctaveOfChristmas: Record<string, Date | null> = {};
 
   /**
@@ -306,7 +318,7 @@ export class Dates {
    */
   allDatesOfChristmasTime = (
     year = this.#isLiturgicalYear ? this.#year - 1 : this.#year,
-    epiphanyOnSunday = this.#config.epiphanyOnSunday,
+    epiphanyOnSunday = this.#config.epiphanyOnSunday
   ): Date[] => {
     const id = year + epiphanyOnSunday.toString();
     if (this.#allDatesOfChristmasTime[id]) return this.#allDatesOfChristmasTime[id];
@@ -314,6 +326,7 @@ export class Dates {
     const end = this.baptismOfTheLord(year + 1, epiphanyOnSunday);
     return (this.#allDatesOfChristmasTime[id] = rangeOfDays(start, end));
   };
+
   #allDatesOfChristmasTime: Record<string, Date[]> = {};
 
   /**
@@ -334,6 +347,7 @@ export class Dates {
       this.allDatesAfterEpiphany(year, epiphanyOnSunday).find((d) => d.getUTCDay() === 0);
     return (this.#secondSundayAfterChristmas[id] = date ?? null);
   };
+
   #secondSundayAfterChristmas: Record<string, Date | null> = {};
 
   /**
@@ -353,6 +367,7 @@ export class Dates {
     const end = subtractsDays(epiphany, 1);
     return (this.#allDatesBeforeEpiphany[id] = rangeOfDays(start, end));
   };
+
   #allDatesBeforeEpiphany: Record<string, Date[]> = {};
 
   /**
@@ -364,7 +379,7 @@ export class Dates {
   weekdayBeforeEpiphany = (
     day: number,
     year = this.#year,
-    epiphanyOnSunday = this.#config.epiphanyOnSunday,
+    epiphanyOnSunday = this.#config.epiphanyOnSunday
   ): Date | null => {
     const id = `${day}_${year}_${epiphanyOnSunday.toString()}`;
     if (this.#weekdayBeforeEpiphany[id] !== undefined) return this.#weekdayBeforeEpiphany[id];
@@ -372,6 +387,7 @@ export class Dates {
     return (this.#weekdayBeforeEpiphany[id] =
       this.allDatesBeforeEpiphany(year, epiphanyOnSunday).find((d) => d.getUTCDate() === day) ?? null);
   };
+
   #weekdayBeforeEpiphany: Record<string, Date | null> = {};
 
   /**
@@ -415,6 +431,7 @@ export class Dates {
 
     return (this.#epiphany[id] = date);
   };
+
   #epiphany: Record<string, Date> = {};
 
   /**
@@ -434,6 +451,7 @@ export class Dates {
     const end = subtractsDays(baptismOfTheLord, 1);
     return (this.#allDatesAfterEpiphany[id] = rangeOfDays(start, end));
   };
+
   #allDatesAfterEpiphany: Record<string, Date[]> = {};
 
   /**
@@ -445,7 +463,7 @@ export class Dates {
   weekdayAfterEpiphany = (
     dow: number,
     year = this.#year,
-    epiphanyOnSunday = this.#config.epiphanyOnSunday,
+    epiphanyOnSunday = this.#config.epiphanyOnSunday
   ): Date | null => {
     const id = `${dow}_${year}_${epiphanyOnSunday.toString()}`;
     if (this.#weekdayAfterEpiphany[id] !== undefined) return this.#weekdayAfterEpiphany[id];
@@ -453,6 +471,7 @@ export class Dates {
     return (this.#weekdayAfterEpiphany[id] =
       this.allDatesAfterEpiphany(year, epiphanyOnSunday).find((d) => d.getUTCDay() === dow) ?? null);
   };
+
   #weekdayAfterEpiphany: Record<string, Date | null> = {};
 
   /**
@@ -473,6 +492,7 @@ export class Dates {
     if (this.#ashWednesday[year]) return this.#ashWednesday[year];
     return (this.#ashWednesday[year] = subtractsDays(this.easterSunday(year), 46));
   };
+
   #ashWednesday: Record<string, Date> = {};
 
   /**
@@ -491,6 +511,7 @@ export class Dates {
       addDays(firstSunday, 35),
     ]);
   };
+
   #allSundaysOfLent: Record<string, Date[]> = {};
 
   /**
@@ -503,6 +524,7 @@ export class Dates {
     const end = this.holyThursday(year);
     return (this.#allDatesOfLent[year] = rangeOfDays(start, end));
   };
+
   #allDatesOfLent: Record<string, Date[]> = {};
 
   /**
@@ -513,6 +535,7 @@ export class Dates {
     if (this.#palmSunday[year]) return this.#palmSunday[year];
     return (this.#palmSunday[year] = subtractsDays(this.easterSunday(year), 7));
   };
+
   #palmSunday: Record<string, Date> = {};
 
   /**
@@ -527,6 +550,7 @@ export class Dates {
     if (this.#holyThursday[year]) return this.#holyThursday[year];
     return (this.#holyThursday[year] = subtractsDays(this.easterSunday(year), 3));
   };
+
   #holyThursday: Record<string, Date> = {};
 
   /**
@@ -542,6 +566,7 @@ export class Dates {
     if (this.#goodFriday[year]) return this.#goodFriday[year];
     return (this.#goodFriday[year] = subtractsDays(this.easterSunday(year), 2));
   };
+
   #goodFriday: Record<string, Date> = {};
 
   /**
@@ -559,6 +584,7 @@ export class Dates {
     if (this.#holySaturday[year]) return this.#holySaturday[year];
     return (this.#holySaturday[year] = subtractsDays(this.easterSunday(year), 1));
   };
+
   #holySaturday: Record<string, Date> = {};
 
   /**
@@ -578,6 +604,7 @@ export class Dates {
     const end = this.holySaturday(year);
     return (this.#allDatesOfHolyWeek[year] = rangeOfDays(start, end));
   };
+
   #allDatesOfHolyWeek: Record<string, Date[]> = {};
 
   /**
@@ -599,6 +626,7 @@ export class Dates {
     const end = this.easterSunday(year);
     return (this.#allDatesOfPaschalTriduum[year] = rangeOfDays(start, end));
   };
+
   #allDatesOfPaschalTriduum: Record<string, Date[]> = {};
 
   /**
@@ -607,11 +635,12 @@ export class Dates {
 
   /**
    * Get the date of Easter
-   * @param year Gregorian year
+   * @param {number} [year=this.#year] Gregorian year
+   * @param {EasterCalculationType} [easterCalculationType=this.#config.easterCalculationType] The type of calculation to use to determine the date of Easter
    */
   easterSunday = (
-    year = this.#year,
-    easterCalculationType: EasterCalculationType = this.#config.easterCalculationType,
+    year: number = this.#year,
+    easterCalculationType: EasterCalculationType = this.#config.easterCalculationType
   ): Date => {
     if (this.#easter[year]) return this.#easter[year];
     const { month, day } =
@@ -620,6 +649,7 @@ export class Dates {
         : calculateJulianEasterDateToGregorianDate(year);
     return (this.#easter[year] = getUtcDate(year, month, day));
   };
+
   #easter: Record<string, Date> = {};
 
   /**
@@ -633,6 +663,7 @@ export class Dates {
     const end = this.divineMercySunday(year);
     return (this.#allDatesInOctaveOfEaster[year] = rangeOfDays(start, end));
   };
+
   #allDatesInOctaveOfEaster: Record<string, Date[]> = {};
 
   /**
@@ -657,13 +688,14 @@ export class Dates {
       addDays(firstSunday, 49),
     ]);
   };
+
   #allSundaysOfEaster: Record<string, Date[]> = {};
 
   weekdayOrSundayOfEasterTime = (
     dow: number,
     week: number,
     year = this.#year,
-    ascensionOnSunday = this.#config.ascensionOnSunday,
+    ascensionOnSunday = this.#config.ascensionOnSunday
   ): Date | null => {
     const id = `${year}_${ascensionOnSunday}_${week}_${dow}`;
     if (this.#weekdayOrSundayOfEasterTime[id] !== undefined) {
@@ -676,6 +708,7 @@ export class Dates {
     const ascension = this.ascension(year, ascensionOnSunday);
     return (this.#weekdayOrSundayOfEasterTime[id] = isSameDate(ascension, date) ? null : date);
   };
+
   #weekdayOrSundayOfEasterTime: Record<string, Date | null> = {};
 
   /**
@@ -689,6 +722,7 @@ export class Dates {
     const end = this.pentecostSunday(year);
     return (this.#allDatesOfEasterTime[year] = rangeOfDays(start, end));
   };
+
   #allDatesOfEasterTime: Record<string, Date[]> = {};
 
   /**
@@ -700,6 +734,7 @@ export class Dates {
     if (this.#divineMercySunday[year]) return this.#divineMercySunday[year];
     return (this.#divineMercySunday[year] = addDays(this.easterSunday(year), 7));
   };
+
   #divineMercySunday: Record<string, Date> = {};
 
   /**
@@ -711,11 +746,12 @@ export class Dates {
     if (this.#pentecostSunday[year]) return this.#pentecostSunday[year];
     return (this.#pentecostSunday[year] = addDays(this.easterSunday(year), 49));
   };
+
   #pentecostSunday: Record<string, Date> = {};
 
-  //==================================================================================
+  //= =================================================================================
   // Ordinary Time
-  //==================================================================================
+  //= =================================================================================
 
   /**
    * Get all the dates occurring in Ordinary Time
@@ -730,6 +766,7 @@ export class Dates {
       ...this.allDatesOfLateOrdinaryTime(year),
     ]);
   };
+
   #allDatesOfOrdinaryTime: Record<string, Date[]> = {};
 
   /**
@@ -750,6 +787,7 @@ export class Dates {
     const end = subtractsDays(this.ashWednesday(year), 1);
     return (this.#allDatesOfEarlyOrdinaryTime[id] = rangeOfDays(start, end));
   };
+
   #allDatesOfEarlyOrdinaryTime: Record<string, Date[]> = {};
 
   /**
@@ -759,9 +797,10 @@ export class Dates {
   sundaysOfEarlyOrdinaryTime = (year = this.#year): Date[] => {
     if (this.#sundaysOfEarlyOrdinaryTime[year]) return this.#sundaysOfEarlyOrdinaryTime[year];
     return (this.#sundaysOfEarlyOrdinaryTime[year] = this.allDatesOfEarlyOrdinaryTime(year).filter(
-      (d) => d.getUTCDay() === 0,
+      (d) => d.getUTCDay() === 0
     ));
   };
+
   #sundaysOfEarlyOrdinaryTime: Record<string, Date[]> = {};
 
   /**
@@ -775,6 +814,7 @@ export class Dates {
     const end = subtractsDays(this.firstSundayOfAdvent(year), 1);
     return (this.#allDatesOfLateOrdinaryTime[year] = rangeOfDays(start, end));
   };
+
   #allDatesOfLateOrdinaryTime: Record<string, Date[]> = {};
 
   /**
@@ -784,9 +824,10 @@ export class Dates {
   allSundaysOfLateOrdinaryTime = (year = this.#year): Date[] => {
     if (this.#allSundaysOfLateOrdinaryTime[year]) return this.#allSundaysOfLateOrdinaryTime[year];
     return (this.#allSundaysOfLateOrdinaryTime[year] = this.allDatesOfLateOrdinaryTime(year).filter(
-      (d) => d.getUTCDay() === 0,
+      (d) => d.getUTCDay() === 0
     ));
   };
+
   #allSundaysOfLateOrdinaryTime: Record<string, Date[]> = {};
 
   christTheKingSunday = (year = this.#year): Date => {
@@ -800,13 +841,14 @@ export class Dates {
     if (this.#christTheKingSunday[year]) return this.#christTheKingSunday[year];
     return (this.#christTheKingSunday[year] = subtractsDays(this.firstSundayOfAdvent(year), 7));
   };
+
   #christTheKingSunday: Record<string, Date> = {};
 
   dateOfOrdinaryTime = (
     dow: number,
     week: number,
     year = this.#year,
-    epiphanyOnSunday = this.#config.epiphanyOnSunday,
+    epiphanyOnSunday = this.#config.epiphanyOnSunday
   ): Date | null => {
     const id = year + epiphanyOnSunday.toString();
 
@@ -822,19 +864,20 @@ export class Dates {
 
       const groupBy = (dates: Date[], isEarlyOrdinaryTime: boolean): Record<string, Record<string, Date | null>> =>
         dates.reduce((result: Record<string, Record<string, Date | null>>, item, idx) => {
+          const lateOrdinaryTime =
+            item.getUTCDay() === 0
+              ? lateOrdinaryStartWeekCount + Math.floor(idx / 7) + 1
+              : lateOrdinaryStartWeekCount + Math.floor(idx / 7);
+          const earlyOrdinaryTime = item.getUTCDay() === 0 ? Math.floor(idx / 7) + 2 : Math.floor(idx / 7) + 1;
           let weekNumber = isEarlyOrdinaryTime
             ? // Early Ordinary Time
-              item.getUTCDay() === 0
-              ? Math.floor(idx / 7) + 2
-              : Math.floor(idx / 7) + 1
+              earlyOrdinaryTime
             : // Late Ordinary Time
-            item.getUTCDay() === 0
-            ? lateOrdinaryStartWeekCount + Math.floor(idx / 7) + 1
-            : lateOrdinaryStartWeekCount + Math.floor(idx / 7);
+              lateOrdinaryTime;
 
           // When the Baptism of the Lord is observed on Monday, Ordinary Time starts on Tuesday.
           // So in this case, the Monday (from the group of 7 days computed above) takes place in the next week.
-          if (isEarlyOrdinaryTime && baptismOfTheLordIsMonday && item.getUTCDay() === 1) weekNumber++;
+          if (isEarlyOrdinaryTime && baptismOfTheLordIsMonday && item.getUTCDay() === 1) weekNumber += 1;
 
           const dateTime = item.getTime();
           const date =
@@ -853,11 +896,12 @@ export class Dates {
 
     return this.#dateOfOrdinaryTime[id][week]?.[dow] ?? null;
   };
+
   #dateOfOrdinaryTime: Record<string, Record<string, Record<string, Date | null>>> = {};
 
-  //==================================================================================
+  //= =================================================================================
   // Fixed and movable Solemnities
-  //==================================================================================
+  //= =================================================================================
 
   /**
    * Get the date of the Solemnity of Mary, Holy Mother of God
@@ -876,6 +920,7 @@ export class Dates {
     if (this.#maryMotherOfGod[year]) return this.#maryMotherOfGod[year];
     return (this.#maryMotherOfGod[year] = getUtcDate(year, 1, 1));
   };
+
   #maryMotherOfGod: Record<string, Date> = {};
 
   /**
@@ -901,6 +946,7 @@ export class Dates {
 
     return (this.#annunciation[year] = date);
   };
+
   #annunciation: Record<string, Date> = {};
 
   /**
@@ -920,6 +966,7 @@ export class Dates {
     if (this.#nativityOfJohnTheBaptist[year]) return this.#nativityOfJohnTheBaptist[year];
     return (this.#nativityOfJohnTheBaptist[year] = getUtcDate(year, 6, 24));
   };
+
   #nativityOfJohnTheBaptist: Record<string, Date> = {};
 
   /**
@@ -937,6 +984,7 @@ export class Dates {
     if (this.#peterAndPaulApostles[year]) return this.#peterAndPaulApostles[year];
     return (this.#peterAndPaulApostles[year] = getUtcDate(year, 6, 29));
   };
+
   #peterAndPaulApostles: Record<string, Date> = {};
 
   /**
@@ -952,6 +1000,7 @@ export class Dates {
     if (this.#assumption[year]) return this.#assumption[year];
     return (this.#assumption[year] = getUtcDate(year, 8, 15));
   };
+
   #assumption: Record<string, Date> = {};
 
   /**
@@ -967,6 +1016,7 @@ export class Dates {
     if (this.#allSaints[year]) return this.#allSaints[year];
     return (this.#allSaints[year] = getUtcDate(year, 11, 1));
   };
+
   #allSaints: Record<string, Date> = {};
 
   /**
@@ -990,6 +1040,7 @@ export class Dates {
     if (date.getUTCDay() === 0) date = addDays(date, 1);
     return (this.#immaculateConceptionOfMary[year] = date);
   };
+
   #immaculateConceptionOfMary: Record<string, Date> = {};
 
   /**
@@ -1015,6 +1066,7 @@ export class Dates {
       : // else by default, Ascension on Thursday
         addDays(this.easterSunday(year), 39));
   };
+
   #ascension: Record<string, Date> = {};
 
   /**
@@ -1026,6 +1078,7 @@ export class Dates {
     if (this.#maryMotherOfTheChurch[year]) return this.#maryMotherOfTheChurch[year];
     return (this.#maryMotherOfTheChurch[year] = addDays(this.easterSunday(year), 50));
   };
+
   #maryMotherOfTheChurch: Record<string, Date> = {};
 
   /**
@@ -1037,6 +1090,7 @@ export class Dates {
     if (this.#trinitySunday[year]) return this.#trinitySunday[year];
     return (this.#trinitySunday[year] = addDays(this.easterSunday(year), 56));
   };
+
   #trinitySunday: Record<string, Date> = {};
 
   /**
@@ -1060,6 +1114,7 @@ export class Dates {
       : // If specified, move Corpus Christi to Thursday
         addDays(this.easterSunday(year), 60));
   };
+
   #corpusChristi: Record<string, Date> = {};
 
   /**
@@ -1071,6 +1126,7 @@ export class Dates {
     if (this.#mostSacredHeartOfJesus[year]) return this.#mostSacredHeartOfJesus[year];
     return (this.#mostSacredHeartOfJesus[year] = addDays(this.easterSunday(year), 68));
   };
+
   #mostSacredHeartOfJesus: Record<string, Date> = {};
 
   /**
@@ -1082,6 +1138,7 @@ export class Dates {
     if (this.#immaculateHeartOfMary[year]) return this.#immaculateHeartOfMary[year];
     return (this.#immaculateHeartOfMary[year] = addDays(this.easterSunday(year), 69));
   };
+
   #immaculateHeartOfMary: Record<string, Date> = {};
 
   /**
@@ -1108,6 +1165,7 @@ export class Dates {
         : // Holy Family is 1 week after Christmas when Christmas is on a weekday
           startOfWeek(addDays(this.christmas(year), 7)));
   };
+
   #holyFamily: Record<string, Date> = {};
 
   /**
@@ -1145,6 +1203,7 @@ export class Dates {
     // following Epiphany is the Baptism of the Lord.
     return (this.#baptismOfTheLord[id] = startOfWeek(addDays(epiphany, 7)));
   };
+
   #baptismOfTheLord: Record<string, Date> = {};
 
   /**
@@ -1162,6 +1221,7 @@ export class Dates {
     if (this.#presentationOfTheLord[year]) return this.#presentationOfTheLord[year];
     return (this.#presentationOfTheLord[year] = getUtcDate(year, 2, 2));
   };
+
   #presentationOfTheLord: Record<string, Date> = {};
 
   /**
@@ -1172,6 +1232,7 @@ export class Dates {
     if (this.#transfiguration[year]) return this.#transfiguration[year];
     return (this.#transfiguration[year] = getUtcDate(year, 8, 6));
   };
+
   #transfiguration: Record<string, Date> = {};
 
   /**
@@ -1182,31 +1243,34 @@ export class Dates {
     if (this.#exaltationOfTheHolyCross[year]) return this.#exaltationOfTheHolyCross[year];
     return (this.#exaltationOfTheHolyCross[year] = getUtcDate(year, 9, 14));
   };
+
   #exaltationOfTheHolyCross: Record<string, Date> = {};
 
-  startOfSeasons = (year = this.#year): Record<Seasons, Date> => {
+  startOfSeasons = (year = this.#year): Record<Season, Date> => {
     if (this.#startOfSeasons[year]) return this.#startOfSeasons[year];
     return (this.#startOfSeasons[year] = {
-      [Seasons.Advent]: this.firstSundayOfAdvent(year - 1),
-      [Seasons.ChristmasTime]: this.christmas(year - 1),
-      [Seasons.Lent]: this.ashWednesday(year),
-      [Seasons.PaschalTriduum]: this.holyThursday(year),
-      [Seasons.EasterTime]: this.easterSunday(year),
-      [Seasons.OrdinaryTime]: addDays(this.baptismOfTheLord(year), 1),
+      [Season.Advent]: this.firstSundayOfAdvent(year - 1),
+      [Season.ChristmasTime]: this.christmas(year - 1),
+      [Season.Lent]: this.ashWednesday(year),
+      [Season.PaschalTriduum]: this.holyThursday(year),
+      [Season.EasterTime]: this.easterSunday(year),
+      [Season.OrdinaryTime]: addDays(this.baptismOfTheLord(year), 1),
     });
   };
-  #startOfSeasons: Record<number, Record<Seasons, Date>> = {};
 
-  endOfSeasons = (year = this.#year): Record<Seasons, Date> => {
+  #startOfSeasons: Record<number, Record<Season, Date>> = {};
+
+  endOfSeasons = (year = this.#year): Record<Season, Date> => {
     if (this.#endOfSeasons[year]) return this.#endOfSeasons[year];
     return (this.#endOfSeasons[year] = {
-      [Seasons.Advent]: getUtcDate(year - 1, 12, 24),
-      [Seasons.ChristmasTime]: this.baptismOfTheLord(year),
-      [Seasons.Lent]: this.holyThursday(year),
-      [Seasons.PaschalTriduum]: this.easterSunday(year),
-      [Seasons.EasterTime]: this.pentecostSunday(year),
-      [Seasons.OrdinaryTime]: addDays(this.christTheKingSunday(year), 6),
+      [Season.Advent]: getUtcDate(year - 1, 12, 24),
+      [Season.ChristmasTime]: this.baptismOfTheLord(year),
+      [Season.Lent]: this.holyThursday(year),
+      [Season.PaschalTriduum]: this.easterSunday(year),
+      [Season.EasterTime]: this.pentecostSunday(year),
+      [Season.OrdinaryTime]: addDays(this.christTheKingSunday(year), 6),
     });
   };
-  #endOfSeasons: Record<number, Record<Seasons, Date>> = {};
+
+  #endOfSeasons: Record<number, Record<Season, Date>> = {};
 }

@@ -2,7 +2,6 @@ import { StringMap } from 'i18next';
 
 import { Color } from '../constants/colors';
 import { ProperCycle } from '../constants/cycles';
-import { PatronTitle, Title } from '../constants/martyrology-metadata';
 import { MonthIndex } from '../constants/months';
 import { Period } from '../constants/periods';
 import { Precedence } from '../constants/precedences';
@@ -12,6 +11,8 @@ import { DayOfWeek } from '../constants/weekdays';
 import { LiturgicalDay } from '../models/liturgical-day';
 import { LiturgicalDayDef } from '../models/liturgical-day-def';
 import { Dates } from '../utils/dates';
+import { PatronTitle, Title } from '../constants/martyrology-metadata';
+
 import { AllXOR, Id, XOR } from './common';
 import { BaseCyclesMetadata, PartialCyclesDef } from './cycles-metadata';
 import { MartyrologyItem, SaintCount } from './martyrology';
@@ -224,10 +225,11 @@ export type RomcalCalendarMetadata = {
 /**
  * i18n definitions
  */
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export type i18nDef = [string] | [string, StringMap | string];
 
 /**
- * The associated titles of a liturgical day.
+ * Definition for a title needing prefix(es) and suffix(es)
  */
 export type RomcalTitles = (Title | PatronTitle)[];
 export type TitlesDef =

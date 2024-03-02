@@ -1,12 +1,13 @@
 import { ProperCycles } from '../constants/cycles';
-import { PatronTitles } from '../constants/martyrology-metadata';
+import { PatronTitle } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { Inputs } from '../types/calendar-def';
+
 import { Americas } from './americas';
 
 export class Argentina extends CalendarDef {
-  parentCalendar = Americas;
+  ParentCalendar = Americas;
 
   inputs: Inputs = {
     laura_vicuna_virgin: {
@@ -28,7 +29,7 @@ export class Argentina extends CalendarDef {
       customLocaleId: 'our_lady_of_lujan_patroness_of_argentina',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       dateDef: { month: 5, date: 8 },
-      titles: { append: [PatronTitles.PatronessOfArgentina] },
+      titles: { append: [PatronTitle.PatronessOfArgentina] },
     },
 
     isidore_the_farmer: {

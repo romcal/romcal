@@ -2,7 +2,7 @@
  * Utility types
  */
 
-export type Without<T, U> = { [P in Exclude<keyof T, keyof U>]?: never };
+type Without<T, U> = { [P in Exclude<keyof T, keyof U>]?: never };
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 export type XOR<T, U> = T | U extends object ? (Without<T, U> & U) | (Without<U, T> & T) : T | U;
@@ -11,40 +11,14 @@ export type XOR<T, U> = T | U extends object ? (Without<T, U> & U) | (Without<U,
 export type AllXOR<T extends any[]> = T extends [infer Only]
   ? Only
   : T extends [infer A, infer B, ...infer Rest]
-  ? AllXOR<[XOR<A, B>, ...Rest]>
-  : never;
+    ? AllXOR<[XOR<A, B>, ...Rest]>
+    : never;
 
 /**
  * Template literal types
  */
 
-type UpperChar =
-  | 'A'
-  | 'B'
-  | 'C'
-  | 'D'
-  | 'E'
-  | 'F'
-  | 'G'
-  | 'H'
-  | 'I'
-  | 'J'
-  | 'K'
-  | 'L'
-  | 'M'
-  | 'N'
-  | 'O'
-  | 'P'
-  | 'Q'
-  | 'R'
-  | 'S'
-  | 'T'
-  | 'U'
-  | 'V'
-  | 'W'
-  | 'X'
-  | 'Y'
-  | 'Z';
+type UpperChar = Uppercase<string> & { length: 1 };
 
 /**
  * PascalCaseToUpperSnakeCase
@@ -74,16 +48,16 @@ export type CamelToUpperSnakeCase<S extends string> = S extends `${infer C0}${in
                               ? `_${Uppercase<C0>}_${Uppercase<C1>}_${Uppercase<C2>}`
                               : `${Uppercase<C0>}${Uppercase<C1>}${Uppercase<C2>}`}`}`}`}`}`}`}${CamelToUpperSnakeCase<R>}`
   : S extends `${infer C0}${infer C1}${infer R}`
-  ? `${`${C0}${C1}` extends `${UpperChar}${Lowercase<C1>}`
-      ? `_${Uppercase<C0>}${Uppercase<C1>}`
-      : `${`${C0}${C1}` extends `${Lowercase<C0>}${UpperChar}`
-          ? `${Uppercase<C0>}_${Uppercase<C1>}`
-          : `${`${C0}${C1}` extends `${UpperChar}${UpperChar}`
-              ? `_${Uppercase<C0>}_${Uppercase<C1>}`
-              : `${Uppercase<C0>}${Uppercase<C1>}`}`}`}${CamelToUpperSnakeCase<R>}`
-  : S extends `${infer C0}${infer R}`
-  ? `${C0 extends UpperChar ? '_' : ''}${Uppercase<C0>}${CamelToUpperSnakeCase<R>}`
-  : S;
+    ? `${`${C0}${C1}` extends `${UpperChar}${Lowercase<C1>}`
+        ? `_${Uppercase<C0>}${Uppercase<C1>}`
+        : `${`${C0}${C1}` extends `${Lowercase<C0>}${UpperChar}`
+            ? `${Uppercase<C0>}_${Uppercase<C1>}`
+            : `${`${C0}${C1}` extends `${UpperChar}${UpperChar}`
+                ? `_${Uppercase<C0>}_${Uppercase<C1>}`
+                : `${Uppercase<C0>}${Uppercase<C1>}`}`}`}${CamelToUpperSnakeCase<R>}`
+    : S extends `${infer C0}${infer R}`
+      ? `${C0 extends UpperChar ? '_' : ''}${Uppercase<C0>}${CamelToUpperSnakeCase<R>}`
+      : S;
 
 /**
  * An ID, in lower_underscore_case

@@ -1,11 +1,12 @@
-import { PatronTitles } from '../constants/martyrology-metadata';
+import { PatronTitle } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { Inputs } from '../types/calendar-def';
+
 import { Europe } from './europe';
 
 export class Russia extends CalendarDef {
-  parentCalendar = Europe;
+  ParentCalendar = Europe;
 
   inputs: Inputs = {
     george_matulaitis_bishop: {
@@ -96,7 +97,7 @@ export class Russia extends CalendarDef {
     andrew_apostle: {
       customLocaleId: 'andrew_apostle_patron_of_russia',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      titles: { append: [PatronTitles.PatronOfRussia] },
+      titles: { append: [PatronTitle.PatronOfRussia] },
     },
 
     barbara_of_heliopolis_virgin: {

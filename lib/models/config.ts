@@ -19,6 +19,7 @@ import { MartyrologyCatalog } from '../types/martyrology';
 import { Dates } from '../utils/dates';
 import { toRomanNumber } from '../utils/numbers';
 import { sanitizeLocaleId } from '../utils/string';
+
 import { CalendarDef } from './calendar-def';
 
 /**
@@ -26,19 +27,33 @@ import { CalendarDef } from './calendar-def';
  */
 export class RomcalConfig implements IRomcalConfig {
   readonly #input: RomcalConfigInput;
+
   readonly localizedCalendar?: RomcalBundleObject;
+
   readonly localeId: string;
+
   readonly calendarName: string;
+
   epiphanyOnSunday: boolean;
+
   corpusChristiOnSunday: boolean;
+
   ascensionOnSunday: boolean;
+
   easterCalculationType: EasterCalculationType;
+
   readonly scope: CalendarScope;
+
   readonly i18next: i18n;
+
   readonly dates: typeof Dates;
+
   readonly martyrologyCatalog: MartyrologyCatalog;
+
   readonly cyclesCache: Record<number, Pick<BaseCyclesMetadata, 'sundayCycle' | 'weekdayCycle'>> = {};
+
   readonly calendarsDef: InstanceType<CalendarDefInstance>[];
+
   liturgicalDayDef: LiturgicalDayDefinitions = {} as LiturgicalDayDefinitions;
 
   /**
@@ -50,16 +65,16 @@ export class RomcalConfig implements IRomcalConfig {
 
   /**
    * Constructs a new [[Config]] object.
-   * @param config [[RomcalConfig]] object representing all settings.
+   * @param {RomcalConfigInput} config object representing all settings.
    * @param martyrologyCatalog
    * @param locale
-   * @param particularCalendar
+   * @param ParticularCalendar
    */
   constructor(
     config?: RomcalConfigInput,
     martyrologyCatalog?: MartyrologyCatalog,
     locale?: Locale,
-    particularCalendar?: typeof CalendarDef,
+    ParticularCalendar?: typeof CalendarDef
   ) {
     this.#input = config || {};
 
@@ -99,7 +114,7 @@ export class RomcalConfig implements IRomcalConfig {
       },
       (err) => {
         if (err) throw new Error(err);
-      },
+      }
     );
 
     // If another locale is specified, load associated resources in the
@@ -126,8 +141,8 @@ export class RomcalConfig implements IRomcalConfig {
     // probably by using the RomcalBuilder class helper, or Romcal without a specific localizedCalendar.
     else {
       this.calendarsDef.push(new GeneralRoman(this));
-      if (particularCalendar) {
-        this.calendarsDef.push(new particularCalendar(this));
+      if (ParticularCalendar) {
+        this.calendarsDef.push(new ParticularCalendar(this));
       }
     }
 

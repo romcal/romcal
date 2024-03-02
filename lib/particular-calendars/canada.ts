@@ -1,11 +1,12 @@
-import { PatronTitles } from '../constants/martyrology-metadata';
+import { PatronTitle } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { Inputs, ParticularConfig } from '../types/calendar-def';
+
 import { Americas } from './americas';
 
 export class Canada extends CalendarDef {
-  parentCalendar = Americas;
+  ParentCalendar = Americas;
 
   particularConfig: ParticularConfig = {
     epiphanyOnSunday: true, // src: mr_fr_2021_ed3
@@ -35,7 +36,7 @@ export class Canada extends CalendarDef {
     joseph_spouse_of_mary: {
       customLocaleId: 'joseph_spouse_of_mary_patron_of_canada',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      titles: { append: [PatronTitles.PatronOfCanada] },
+      titles: { append: [PatronTitle.PatronOfCanada] },
     },
 
     // src: mr_fr_2021_ed3
@@ -117,7 +118,7 @@ export class Canada extends CalendarDef {
       martyrology: [
         {
           id: 'anne_mother_of_mary',
-          titles: { append: [PatronTitles.PatronessOfTheProvinceOfQuebec] },
+          titles: { append: [PatronTitle.PatronessOfTheProvinceOfQuebec] },
         },
         'joachim_father_of_mary',
       ],
@@ -163,7 +164,7 @@ export class Canada extends CalendarDef {
       customLocaleId: 'john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs_copatrons_of_canada',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       dateDef: { month: 9, date: 26 },
-      titles: { append: [PatronTitles.CopatronOfCanada] },
+      titles: { append: [PatronTitle.CopatronOfCanada] },
     },
 
     // src: mr_fr_2021_ed3

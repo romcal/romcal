@@ -6,7 +6,7 @@ import { toScreamingSnakeCase } from '../utils/string';
  * Liturgical seasons are distinguished by specific names that signify the character
  * of the season.
  */
-export enum Seasons {
+export enum Season {
   Advent = 'ADVENT',
   ChristmasTime = 'CHRISTMAS_TIME',
   Lent = 'LENT',
@@ -18,8 +18,6 @@ export enum Seasons {
 /**
  * A dynamically generated constant consisting of all the enum IDs in [[LITURGICAL_SEASONS]]
  */
-export const SEASONS = Object.keys(Seasons)
-  .filter((id) => typeof Seasons[id as keyof typeof Seasons] === 'string')
-  .map((id) => toScreamingSnakeCase(id)) as ScreamingSnakeCase<keyof typeof Seasons>[];
-
-export type Season = (typeof SEASONS)[number];
+export const SEASONS = Object.keys(Season)
+  .filter((id) => typeof Season[id as keyof typeof Season] === 'string')
+  .map((id) => toScreamingSnakeCase(id)) as ScreamingSnakeCase<keyof typeof Season>[];

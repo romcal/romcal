@@ -1,11 +1,12 @@
-import { PatronTitles, Titles } from '../constants/martyrology-metadata';
+import { PatronTitle, Title } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { Inputs } from '../types/calendar-def';
+
 import { France } from './france';
 
 export class France_Strasbourg extends CalendarDef {
-  parentCalendar = France;
+  ParentCalendar = France;
 
   inputs: Inputs = {
     amarin_of_alsace_abbot: {
@@ -74,7 +75,7 @@ export class France_Strasbourg extends CalendarDef {
       precedence: Precedences.ProperFeast_PrincipalPatronOfADiocese_8a,
       customLocaleId: 'arbogast_of_strasbourg_bishop_patron_of_the_archdiocese_of_strasbourg',
       dateDef: { month: 7, date: 21 },
-      titles: { append: [PatronTitles.PatronOfTheDiocese] },
+      titles: { append: [PatronTitle.PatronOfTheDiocese] },
     },
 
     thomas_jean_georges_rehm_priest: {
@@ -147,7 +148,7 @@ export class France_Strasbourg extends CalendarDef {
     amandus_of_strasbourg_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 10, date: 26 },
-      titles: [Titles.FirstBishop],
+      titles: [Title.FirstBishop],
     },
 
     pirmin_of_hornbach_abbot: {
@@ -169,7 +170,7 @@ export class France_Strasbourg extends CalendarDef {
       precedence: Precedences.ProperFeast_PrincipalPatronOfADiocese_8a,
       customLocaleId: 'odile_of_alsace_abbess_patroness_of_alsace',
       dateDef: { month: 12, date: 13 },
-      titles: { append: [PatronTitles.PatronessOfAlsace] },
+      titles: { append: [PatronTitle.PatronessOfAlsace] },
     },
 
     lucy_of_syracuse_virgin: {

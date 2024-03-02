@@ -54,7 +54,7 @@ export const unCapitalize = (string: string): string =>
  */
 export const sanitizeLocaleId = (localeId: string): string => {
   if (localeId?.length >= 5) {
-    return localeId.substring(0, 2).toLowerCase() + '-' + localeId.substring(3, 5).toUpperCase();
+    return `${localeId.substring(0, 2).toLowerCase()}-${localeId.substring(3, 5).toUpperCase()}`;
   }
   return localeId.toLowerCase();
 };

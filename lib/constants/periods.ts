@@ -1,7 +1,7 @@
 import { ScreamingSnakeCase } from '../types/common';
 import { toScreamingSnakeCase } from '../utils/string';
 
-export enum Periods {
+export enum Period {
   ChristmasOctave = 'CHRISTMAS_OCTAVE',
   DaysBeforeEpiphany = 'DAYS_BEFORE_EPIPHANY',
   DaysFromEpiphany = 'DAYS_FROM_EPIPHANY',
@@ -16,8 +16,6 @@ export enum Periods {
 /**
  * A dynamically generated constant consisting of all the enum IDs in [[LITURGICAL_PERIODS]]
  */
-export const PERIODS = Object.keys(Periods)
-  .filter((id) => typeof Periods[id as keyof typeof Periods] === 'string')
-  .map((id) => toScreamingSnakeCase(id)) as ScreamingSnakeCase<keyof typeof Periods>[];
-
-export type Period = (typeof PERIODS)[number];
+export const PERIODS: ScreamingSnakeCase<keyof typeof Period>[] = Object.keys(Period)
+  .filter((id) => typeof Period[id as keyof typeof Period] === 'string')
+  .map((id) => toScreamingSnakeCase(id)) as ScreamingSnakeCase<keyof typeof Period>[];

@@ -1,12 +1,13 @@
 import { ProperCycles } from '../constants/cycles';
-import { PatronTitles } from '../constants/martyrology-metadata';
+import { PatronTitle } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { Inputs, ParticularConfig } from '../types/calendar-def';
+
 import { Europe } from './europe';
 
 export class CzechRepublic extends CalendarDef {
-  parentCalendar = Europe;
+  ParentCalendar = Europe;
 
   particularConfig: ParticularConfig = {
     epiphanyOnSunday: false,
@@ -132,7 +133,7 @@ export class CzechRepublic extends CalendarDef {
     wenceslaus_i_of_bohemia_martyr: {
       customLocaleId: 'wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      titles: { append: [PatronTitles.PatronOfTheCzechNation] },
+      titles: { append: [PatronTitle.PatronOfTheCzechNation] },
     },
 
     lawrence_ruiz_and_companions_martyrs: {

@@ -5,7 +5,7 @@ const { Colors, Seasons, Ranks, addDays, isSameDate, subtractsDays } = Romcal;
 describe('Testing date range functions', () => {
   describe('The Season of Advent', () => {
     test('There are always 4 Sundays in advent', () => {
-      for (let i = 1900, il = 2100; i <= il; i++) {
+      for (let i = 1900, il = 2100; i <= il; i += 1) {
         expect(new Romcal().dates(i).allSundaysOfAdvent().length).toEqual(4);
       }
     });
@@ -57,14 +57,14 @@ describe('Testing date range functions', () => {
   describe('The Season of Lent in the Liturgical Calendar', () => {
     test('It is typically 6 weeks long', () => {
       const romcal = new Romcal();
-      for (let i = 1900, il = 2200; i <= il; i++) {
+      for (let i = 1900, il = 2200; i <= il; i += 1) {
         expect(romcal.dates(i).allSundaysOfLent().length).toEqual(6);
       }
     });
 
     test('The first Sunday of Lent should be 4 days after Ash Wednesday', () => {
       const romcal = new Romcal();
-      for (let i = 1900, il = 2200; i <= il; i++) {
+      for (let i = 1900, il = 2200; i <= il; i += 1) {
         const dates = romcal.dates(i);
         expect(isSameDate(subtractsDays(dates.allSundaysOfLent()[0], 4), dates.ashWednesday())).toEqual(true);
       }
@@ -72,7 +72,7 @@ describe('Testing date range functions', () => {
 
     test('The last Sunday of Lent should be Palm Sunday', () => {
       const romcal = new Romcal();
-      for (let i = 1900, il = 2200; i <= il; i++) {
+      for (let i = 1900, il = 2200; i <= il; i += 1) {
         const dates = romcal.dates(i);
         const [lastSundayOfLent] = dates.allSundaysOfLent().reverse();
         expect(isSameDate(lastSundayOfLent, dates.palmSunday())).toEqual(true);
@@ -97,14 +97,14 @@ describe('Testing date range functions', () => {
   describe('The Octave of Easter', () => {
     test('Should be 8 days long', () => {
       const romcal = new Romcal();
-      for (let i = 1900, il = 2100; i <= il; i++) {
+      for (let i = 1900, il = 2100; i <= il; i += 1) {
         expect(romcal.dates(i).allDatesInOctaveOfEaster().length).toEqual(8);
       }
     });
 
     test('The first day of the octave should be on Easter Sunday', () => {
       const romcal = new Romcal();
-      for (let i = 1900, il = 2100; i <= il; i++) {
+      for (let i = 1900, il = 2100; i <= il; i += 1) {
         const dates = romcal.dates(i);
         expect(isSameDate(dates.allDatesInOctaveOfEaster()[0], dates.easterSunday())).toEqual(true);
       }
@@ -112,7 +112,7 @@ describe('Testing date range functions', () => {
 
     test('The last day of the octave should be on Divine Mercy Sunday', () => {
       const romcal = new Romcal();
-      for (let i = 1900, il = 2100; i <= il; i++) {
+      for (let i = 1900, il = 2100; i <= il; i += 1) {
         const dates = romcal.dates(i);
         const [lastDayInTheOctaveOfEaster] = dates.allDatesInOctaveOfEaster().reverse();
         expect(isSameDate(lastDayInTheOctaveOfEaster, dates.divineMercySunday())).toEqual(true);
@@ -123,7 +123,7 @@ describe('Testing date range functions', () => {
   describe('Eastertide', () => {
     test('Should be 50 days long', () => {
       const romcal = new Romcal();
-      for (let i = 1900, il = 2100; i <= il; i++) {
+      for (let i = 1900, il = 2100; i <= il; i += 1) {
         const dates = romcal.dates(i);
         expect(dates.allDatesOfEasterTime().length).toEqual(50);
       }
@@ -131,7 +131,7 @@ describe('Testing date range functions', () => {
 
     test('The first Sunday of Easter should start on Easter Sunday', () => {
       const romcal = new Romcal();
-      for (let i = 1900, il = 2100; i <= il; i++) {
+      for (let i = 1900, il = 2100; i <= il; i += 1) {
         const dates = romcal.dates(i);
         const [firstSundayOfEaster] = dates.allSundaysOfEaster();
         expect(isSameDate(firstSundayOfEaster, dates.easterSunday())).toEqual(true);
@@ -140,7 +140,7 @@ describe('Testing date range functions', () => {
 
     test('The last Sunday of Easter should be on Pentecost Sunday', () => {
       const romcal = new Romcal();
-      for (let i = 1900, il = 2100; i <= il; i++) {
+      for (let i = 1900, il = 2100; i <= il; i += 1) {
         const dates = romcal.dates(i);
         const [lastSundayOfEaster] = dates.allSundaysOfEaster().reverse();
         expect(isSameDate(lastSundayOfEaster, dates.pentecostSunday())).toEqual(true);
@@ -151,7 +151,7 @@ describe('Testing date range functions', () => {
   describe('Ordinary Time in the Liturgical Calendar', () => {
     test('The end of Christmastide is on Baptism of the Lord, so Ordinary time starts the next day', () => {
       const romcal = new Romcal();
-      for (let i = 1900, il = 2200; i <= il; i++) {
+      for (let i = 1900, il = 2200; i <= il; i += 1) {
         const dates = romcal.dates(i);
         const ordinaryTime = dates.allDatesOfEarlyOrdinaryTime();
         const [firstDayInEarlyOrdinaryTime] = ordinaryTime;
@@ -163,7 +163,7 @@ describe('Testing date range functions', () => {
 
     test('There are typically 3 to 8 Sundays (and on rare occasions, 9 Sundays) in ordinary Time between the Baptism of the Lord to Ash Wednesday', () => {
       const romcal = new Romcal();
-      for (let i = 1900, il = 2200; i <= il; i++) {
+      for (let i = 1900, il = 2200; i <= il; i += 1) {
         const dates = romcal.dates(i);
         const days = dates.allDatesOfEarlyOrdinaryTime();
         const sundays = dates.sundaysOfEarlyOrdinaryTime();
@@ -174,7 +174,7 @@ describe('Testing date range functions', () => {
 
     test('There are typically 24 to 29 Sundays in Ordinary Time between the Pentecost to the 1st Sunday of Advent', () => {
       const romcal = new Romcal();
-      for (let i = 1900, il = 2100; i <= il; i++) {
+      for (let i = 1900, il = 2100; i <= il; i += 1) {
         const dates = romcal.dates(i);
         const lateOrdinaryTime = dates.allDatesOfLateOrdinaryTime();
         const sundays = dates.allSundaysOfLateOrdinaryTime();
@@ -190,7 +190,7 @@ describe('Testing date range functions', () => {
   describe('The Octave of Christmas', () => {
     const romcal = new Romcal();
     test('Should be 8 days long from Christmas to the feast of the Holy Family', () => {
-      for (let i = 1900, il = 2100; i <= il; i++) {
+      for (let i = 1900, il = 2100; i <= il; i += 1) {
         const dates = romcal.dates(i);
         expect(dates.allDatesInOctaveOfChristmas().length).toEqual(8);
       }
@@ -201,7 +201,7 @@ describe('Testing date range functions', () => {
     describe('If Epiphany is celebrated on Jan 6', () => {
       test('The last day of Christmas is always on Sunday on the feast of the Baptism of the Lord, if following the Ordinary Liturgical Calendar of the Western Roman Rite', () => {
         const romcal = new Romcal({ epiphanyOnSunday: false });
-        for (let i = 1900, il = 2100; i <= il; i++) {
+        for (let i = 1900, il = 2100; i <= il; i += 1) {
           const dates = romcal.dates(i);
           const [lastDayInChristmastide] = dates.allDatesOfChristmasTime().reverse();
           expect(lastDayInChristmastide.getUTCDay()).toEqual(0);
@@ -212,7 +212,7 @@ describe('Testing date range functions', () => {
     describe('If Epiphany is not celebrated on Jan 6 (i.e. on a Sunday)', () => {
       test('The last day of Christmas is the feast of the Baptism of the Lord', () => {
         const romcal = new Romcal();
-        for (let i = 1900, il = 2100; i <= il; i++) {
+        for (let i = 1900, il = 2100; i <= il; i += 1) {
           const dates = romcal.dates(i);
           const [lastDayInChristmastide] = dates.allDatesOfChristmasTime(i).reverse();
           expect(isSameDate(lastDayInChristmastide, dates.baptismOfTheLord(i + 1))).toEqual(true);
@@ -266,7 +266,7 @@ describe('Testing seasons utility functions', () => {
       const calendar = Object.values(await new Romcal().generateCalendar(2015)).flat();
       calendar
         .filter(
-          (d) => d.seasons.includes(Seasons.OrdinaryTime) && (d.rank === Ranks.Sunday || d.rank === Ranks.Weekday),
+          (d) => d.seasons.includes(Seasons.OrdinaryTime) && (d.rank === Ranks.Sunday || d.rank === Ranks.Weekday)
         )
         .forEach((date) => {
           expect(date.colors[0]).toEqual(Colors.Green);
@@ -281,7 +281,7 @@ describe('Testing seasons utility functions', () => {
           (d) =>
             (d.seasons.includes(Seasons.Lent) || d.seasons.includes(Seasons.Advent)) &&
             (d.rank === Ranks.Sunday || d.rank === Ranks.Weekday) &&
-            d.id !== 'palm_sunday_of_the_passion_of_the_lord',
+            d.id !== 'palm_sunday_of_the_passion_of_the_lord'
         )
         .forEach((date) => {
           if (date.id === 'lent_4_sunday' || date.id === 'advent_3_sunday') {
@@ -304,7 +304,7 @@ describe('Testing seasons utility functions', () => {
           (d) =>
             (d.seasons.includes(Seasons.ChristmasTime) || d.seasons.includes(Seasons.EasterTime)) &&
             (d.rank === Ranks.Sunday || d.rank === Ranks.Weekday) &&
-            d.id !== 'pentecost_sunday',
+            d.id !== 'pentecost_sunday'
         )
         .forEach((date) => {
           // eslint-disable-next-line jest/no-conditional-expect

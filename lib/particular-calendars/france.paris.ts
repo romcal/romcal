@@ -1,11 +1,12 @@
-import { PatronTitles, Titles } from '../constants/martyrology-metadata';
+import { PatronTitle, Title } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { Inputs } from '../types/calendar-def';
+
 import { France } from './france';
 
 export class France_Paris extends CalendarDef {
-  parentCalendar = France;
+  ParentCalendar = France;
 
   inputs: Inputs = {
     genevieve_of_paris_virgin: {
@@ -131,7 +132,7 @@ export class France_Paris extends CalendarDef {
       precedence: Precedences.ProperFeast_PrincipalPatronOfADiocese_8a,
       customLocaleId: 'denis_of_paris_bishop_patron_of_the_archdiocese_of_paris',
       dateDef: { month: 10, date: 9 },
-      titles: [Titles.Martyr, Titles.FirstBishop, PatronTitles.PatronOfTheDiocese],
+      titles: [Title.Martyr, Title.FirstBishop, PatronTitle.PatronOfTheDiocese],
     },
 
     denis_of_paris_bishop_and_companions_martyrs: {

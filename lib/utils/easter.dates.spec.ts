@@ -10,6 +10,7 @@ import {
 
 describe('Easter calculation', () => {
   describe('calculateGregorianEasterDate', () => {
+    // TODO: move this to a fixture after #477 is merged (it introduces fixtures)
     const expectedDates: Record<string, EasterDate> = {
       '2001': { year: 2001, month: 4, day: 15 },
       '2002': { year: 2002, month: 3, day: 31 },
@@ -38,15 +39,15 @@ describe('Easter calculation', () => {
       '2025': { year: 2025, month: 4, day: 20 },
     };
 
-    for (const year in expectedDates) {
-      it(`should calculate Gregorian Easter date for year ${year} correctly`, () => {
-        const expected: EasterDate = expectedDates[year];
-        expect(calculateGregorianEasterDate(parseInt(year))).toEqual(expected);
+    Object.entries(expectedDates).forEach(([year, expected]) => {
+      it(`should calculate Gregorian Easter date for year ${year}`, () => {
+        expect(calculateGregorianEasterDate(parseInt(year, 10))).toEqual(expected);
       });
-    }
+    });
   });
 
   describe('calculateJulianEasterDateToGregorianDate', () => {
+    // TODO: move this to a fixture after #477 is merged (it introduces fixtures)
     const expectedDates: Record<string, EasterDate> = {
       '2001': { year: 2001, month: 4, day: 15 },
       '2002': { year: 2002, month: 5, day: 5 },
@@ -75,16 +76,15 @@ describe('Easter calculation', () => {
       '2025': { year: 2025, month: 4, day: 20 },
     };
 
-    for (const year in expectedDates) {
+    Object.entries(expectedDates).forEach(([year, expected]) => {
       it(`should calculate Julian Easter date for year ${year}`, () => {
-        const expected: EasterDate = expectedDates[year];
-        expect(calculateJulianEasterDateToGregorianDate(parseInt(year))).toEqual(expected);
+        expect(calculateJulianEasterDateToGregorianDate(parseInt(year, 10))).toEqual(expected);
       });
-    }
+    });
 
     it('should throw an error for a year before 326 AD', () => {
       expect(() => calculateJulianEasterDateToGregorianDate(200)).toThrow(
-        'Easter date calculation within the Julian calendar is not valid for years before 326 AD',
+        'Easter date calculation within the Julian calendar is not valid for years before 326 AD'
       );
     });
   });

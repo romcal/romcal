@@ -1,17 +1,18 @@
-import { PatronTitles, Titles } from '../constants/martyrology-metadata';
+import { PatronTitle, Title } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { Inputs } from '../types/calendar-def';
+
 import { Europe } from './europe';
 
 export class Italy extends CalendarDef {
-  parentCalendar = Europe;
+  ParentCalendar = Europe;
 
   inputs: Inputs = {
     catherine_of_siena_virgin: {
       customLocaleId: 'catherine_of_siena_virgin_copatroness_of_italy_and_europe',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      titles: [Titles.Virgin, Titles.DoctorOfTheChurch, PatronTitles.CopatronessOfItalyAndEurope],
+      titles: [Title.Virgin, Title.DoctorOfTheChurch, PatronTitle.CopatronessOfItalyAndEurope],
     },
 
     norbert_of_xanten_bishop: {
@@ -27,7 +28,7 @@ export class Italy extends CalendarDef {
     francis_of_assisi: {
       customLocaleId: 'francis_of_assisi_patron_of_italy',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
-      titles: { append: [PatronTitles.PatronOfItaly] },
+      titles: { append: [PatronTitle.PatronOfItaly] },
     },
   };
 }

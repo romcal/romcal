@@ -1,11 +1,12 @@
-import { PatronTitles } from '../constants/martyrology-metadata';
+import { PatronTitle } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { Inputs } from '../types/calendar-def';
+
 import { Americas } from './americas';
 
 export class Brazil extends CalendarDef {
-  parentCalendar = Americas;
+  ParentCalendar = Americas;
 
   inputs: Inputs = {
     joseph_de_anchieta_priest: {
@@ -49,7 +50,7 @@ export class Brazil extends CalendarDef {
       customLocaleId: 'our_lady_of_aparecida_patroness_of_brazil',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       dateDef: { month: 10, date: 12 },
-      titles: { append: [PatronTitles.PatronessOfBrazil] },
+      titles: { append: [PatronTitle.PatronessOfBrazil] },
     },
 
     anthony_of_saint_anne_galvao_priest: {
