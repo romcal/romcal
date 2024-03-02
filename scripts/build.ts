@@ -97,11 +97,11 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
   const localeNames = Object.keys(locales);
   fs.writeFileSync(
     resolve(constantDir, 'locales.ts'),
-    await formatCode(`import { toPackageName } from "../../lib/utils/string";
-
-    export const LOCALE_VAR_NAMES: string[] = ${JSON.stringify(localeNames)};
-    export const LOCALE_IDS: string[] = LOCALE_VAR_NAMES.map(c => toPackageName(c));
-    `),
+    await formatCode(
+      `import { toPackageName } from "../../lib/utils/string";\n\n` +
+        `export const LOCALE_VAR_NAMES: string[] = ${JSON.stringify(localeNames)};\n\n` +
+        `export const LOCALE_IDS: string[] = LOCALE_VAR_NAMES.map(c => toPackageName(c));\n`
+    ),
     'utf-8'
   );
 
@@ -110,11 +110,13 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
   const calendarNames = Object.keys(particularCalendars).concat([GENERAL_ROMAN_NAME]).sort();
   fs.writeFileSync(
     resolve(constantDir, 'calendars.ts'),
-    await formatCode(`import { toPackageName } from "../../lib/utils/string";
-
-      export const CALENDAR_VAR_NAMES: string[] = ${JSON.stringify(calendarNames)};
-      export const CALENDAR_PKG_NAMES: string[] = CALENDAR_VAR_NAMES.map(c => \`@romcal/calendar.\${toPackageName(c)}\`);
-    `),
+    await formatCode(
+      `import { toPackageName } from "../../lib/utils/string";\n\n` +
+        `export const CALENDAR_VAR_NAMES: string[] = ${JSON.stringify(calendarNames)};\n\n` +
+        `export const CALENDAR_PKG_NAMES: string[] = CALENDAR_VAR_NAMES` +
+        // eslint-disable-next-line no-template-curly-in-string
+        '.map(c => `@romcal/calendar.${toPackageName(c)}`);\n'
+    ),
     'utf-8'
   );
 
