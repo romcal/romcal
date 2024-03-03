@@ -20,7 +20,8 @@ import { getDuration } from './time';
 const tsConfigPath = './tsconfig.release.json';
 
 const { log } = console;
-function reportDiagnostics(diagnostics: ts.Diagnostic[]): void {
+
+const reportDiagnostics = (diagnostics: ts.Diagnostic[]): void => {
   diagnostics.forEach((diagnostic) => {
     let message = 'Error';
     if (diagnostic.file && diagnostic.start) {
@@ -30,9 +31,8 @@ function reportDiagnostics(diagnostics: ts.Diagnostic[]): void {
     message += `: ${ts.flattenDiagnosticMessageText(diagnostic.messageText, '\n')}`;
     log(chalk.yellow(message));
   });
-}
-
-function readConfigFile(configFileName: string): ts.ParsedCommandLine {
+};
+const readConfigFile = (configFileName: string): ts.ParsedCommandLine => {
   // Read config file
   const configFileText = fs.readFileSync(configFileName).toString();
 
@@ -41,6 +41,7 @@ function readConfigFile(configFileName: string): ts.ParsedCommandLine {
   const configObject = result.config;
   if (!configObject) {
     if (result.error) reportDiagnostics([result.error]);
+    log(`${chalk.red('Error:')}: Could not parse ${configFileName}`);
     process.exit(1);
   }
 
@@ -48,12 +49,12 @@ function readConfigFile(configFileName: string): ts.ParsedCommandLine {
   const configParseResult = ts.parseJsonConfigFileContent(configObject, ts.sys, dirname(configFileName));
   if (configParseResult.errors.length > 0) {
     reportDiagnostics(configParseResult.errors);
+    log(`${chalk.red('Error:')}: Errors found`);
     process.exit(1);
   }
   return configParseResult;
-}
-
-function compile(configFileName: string): void {
+};
+const compile = (configFileName: string): void => {
   // Extract configuration from config file
   const config = readConfigFile(configFileName);
 
@@ -63,10 +64,14 @@ function compile(configFileName: string): void {
 
   // Report errors
   reportDiagnostics(ts.getPreEmitDiagnostics(program).concat(emitResult.diagnostics));
-}
 
-log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
-
+  // Return code
+  const exitCode = emitResult.emitSkipped ? 1 : 0;
+  if (exitCode !== 1) {
+    log(chalk.cyan('Emit not skipped, exiting'));
+    process.exit(exitCode);
+  }
+};
 const buildPipeline = async (): Promise<void> => {
   const time = new Date();
 
@@ -164,7 +169,10 @@ const buildPipeline = async (): Promise<void> => {
         format,
         outfile: `dist/${format}/romcal.js`,
         target: format === 'esm' ? 'ESNext' : 'ES2022',
-      }).catch(() => process.exit(1));
+      }).catch(() => {
+        log(`${chalk.red('Error:')} Failed to build the core library using the ${format} format.`);
+        process.exit(1);
+      });
       fs.writeFileSync(resolve(`dist/${format}/package.json`), subPackageJson, 'utf-8');
 
       log(chalk.dim(`  ./tmp/bundles/**/*.ts → dist/bundles/[calendar]/${format}/[locale].js`));
@@ -191,13 +199,22 @@ const buildPipeline = async (): Promise<void> => {
               outfile: `dist/bundles/${calendar}/${format}/${locale}.js`,
               sourcemap: false,
               target: format === 'esm' ? 'ESNext' : 'ES2022',
-            }).catch(() => process.exit(1));
+            }).catch(() => {
+              log(`${chalk.red('Error:')} Failed to build the ${calendar} calendar using the ${format} format.`);
+              process.exit(1);
+            });
             fs.writeFileSync(resolve(`dist/bundles/${calendar}/${format}/package.json`), subPackageJson, 'utf-8');
           }
         })
-      ).catch(() => process.exit(1));
+      ).catch(() => {
+        log(`${chalk.red('Error:')} Failed to build the calendar bundles using the ${format} format.`);
+        process.exit(1);
+      });
     })
-  ).catch(() => process.exit(1));
+  ).catch(() => {
+    log(`${chalk.red('Error:')} Failed to build the codebase.`);
+    process.exit(1);
+  });
 
   /**
    * Add package.json and index.d.ts files to all calendar bundles
@@ -252,5 +269,6 @@ const buildPipeline = async (): Promise<void> => {
 };
 
 (async (): Promise<void> => {
+  log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
   await buildPipeline();
 })();

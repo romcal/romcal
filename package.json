@@ -99,7 +99,7 @@
     "ts-node": "^10.9.2",
     "tslib": "^2.6.2",
     "type-fest": "^2.8.0",
-    "typescript": "~5.3.3"
+    "typescript": "~5.2.2"
   },
   "license": "MIT"
 }
