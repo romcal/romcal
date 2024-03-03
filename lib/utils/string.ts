@@ -16,9 +16,9 @@ export const toScreamingSnakeCase = (string: string): string =>
  */
 export const toPackageName = (string: string, prefix: boolean = false): string => {
   const packageName = string
-    .replace(/([a-z0-9])([A-Z])/, '$1-$2')
-    .replace(/([A-Z][a-z]+)/, '-$1')
-    .replace(/_/, '.');
+    .replace(/([a-z0-9]|^)([A-Z])/g, (_, m1, m2) => (m1 ? `${m1}-${m2}` : m2))
+    .replace(/_/, '.')
+    .toLowerCase();
   return prefix ? `@romcal/calendar.${packageName}` : packageName;
 };
 

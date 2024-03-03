@@ -63,10 +63,6 @@ function compile(configFileName: string): void {
 
   // Report errors
   reportDiagnostics(ts.getPreEmitDiagnostics(program).concat(emitResult.diagnostics));
-
-  // Return code
-  const exitCode = emitResult.emitSkipped ? 1 : 0;
-  if (exitCode !== 1) process.exit(exitCode);
 }
 
 log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
