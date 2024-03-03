@@ -5,7 +5,7 @@ import chalk from 'chalk';
 import { generateDtsBundle } from 'dts-bundle-generator';
 import { build, Format, Platform } from 'esbuild';
 import { glob } from 'glob';
-import rimraf from 'rimraf';
+import { rimraf } from 'rimraf';
 import { PackageJson } from 'type-fest';
 import ts from 'typescript';
 
