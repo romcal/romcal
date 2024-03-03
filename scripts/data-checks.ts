@@ -90,11 +90,12 @@ const list = (logLevel: LogLevel, items: string[]): string => color[logLevel](it
  * Output log if the values are not falsy.
  */
 const logIf = (logLevel: LogLevel, description: string, values: string[] | StringArrayRecord | boolean): void => {
-  if (values === false) return;
-  console[logLevel](label(logLevel) + chalk.bold(description));
-  if (values === true) return;
-  if (Array.isArray(values)) {
-    console[logLevel](list(logLevel, values));
+  const loggable = (Array.isArray(values) && (values as string[]).length > 0) || Object.values(values)?.length;
+  if (!loggable) return;
+  const log = console[logLevel];
+  log(label(logLevel) + chalk.bold(description));
+  if (Array.isArray(values) && (values as string[]).length > 0) {
+    log(list(logLevel, values));
   } else {
     Object.entries(values).forEach(([namespace, keys]) => {
       console[logLevel](`       ${color[logLevel].bold(`${namespace}:`)}`);
