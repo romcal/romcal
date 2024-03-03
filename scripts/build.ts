@@ -5,13 +5,11 @@ import chalk from 'chalk';
 import { generateDtsBundle } from 'dts-bundle-generator';
 import { build, Format, Platform } from 'esbuild';
 import { glob } from 'glob';
-import prettier from 'prettier';
 import rimraf from 'rimraf';
 import { PackageJson } from 'type-fest';
 import ts from 'typescript';
 
 import { GENERAL_ROMAN_NAME } from '../lib/constants/general-calendar-names';
-import { locales } from '../lib/locales';
 import { particularCalendars } from '../lib/particular-calendars';
 import { toPackageName, toPascalCase } from '../lib/utils/string';
 import pkg from '../package.json';
@@ -22,9 +20,6 @@ import { getDuration } from './time';
 const tsConfigPath = './tsconfig.release.json';
 
 const { log } = console;
-const formatCode = (code: string): Promise<string> =>
-  prettier.format(code, { parser: 'typescript', singleQuote: true });
-
 function reportDiagnostics(diagnostics: ts.Diagnostic[]): void {
   diagnostics.forEach((diagnostic) => {
     let message = 'Error';
@@ -75,50 +70,9 @@ function compile(configFileName: string): void {
 }
 
 log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
-(async (): Promise<void> => {
+
+const buildPipeline = async (): Promise<void> => {
   const time = new Date();
-
-  /**
-   * Create constants from locales, calendars and martyrology data
-   */
-
-  // Init directory
-  log(
-    chalk.bold(
-      `\n✓ Write constants into ${chalk.cyan.bold('./tmp/constants/')}, to list available calendars and locales`
-    )
-  );
-  const constantDir = './tmp/constants';
-  rimraf.sync(resolve(constantDir));
-  fs.mkdirSync('./tmp/constants', { recursive: true });
-
-  // Locales
-  log(chalk.dim(`  ./tmp/constants/locales.ts`));
-  const localeNames = Object.keys(locales);
-  fs.writeFileSync(
-    resolve(constantDir, 'locales.ts'),
-    await formatCode(
-      `import { toPackageName } from "../../lib/utils/string";\n\n` +
-        `export const LOCALE_VAR_NAMES: string[] = ${JSON.stringify(localeNames)};\n\n` +
-        `export const LOCALE_IDS: string[] = LOCALE_VAR_NAMES.map(c => toPackageName(c));\n`
-    ),
-    'utf-8'
-  );
-
-  // Calendars
-  log(chalk.dim(`  ./tmp/constants/calendars.ts`));
-  const calendarNames = Object.keys(particularCalendars).concat([GENERAL_ROMAN_NAME]).sort();
-  fs.writeFileSync(
-    resolve(constantDir, 'calendars.ts'),
-    await formatCode(
-      `import { toPackageName } from "../../lib/utils/string";\n\n` +
-        `export const CALENDAR_VAR_NAMES: string[] = ${JSON.stringify(calendarNames)};\n\n` +
-        `export const CALENDAR_PKG_NAMES: string[] = CALENDAR_VAR_NAMES` +
-        // eslint-disable-next-line no-template-curly-in-string
-        '.map(c => `@romcal/calendar.${toPackageName(c)}`);\n'
-    ),
-    'utf-8'
-  );
 
   /**
    * Compiling sources and checking types of the romcal library
@@ -126,6 +80,7 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
   log(chalk.bold(`\n✓ Compiling sources and checking types of the romcal library`));
   rimraf.sync(resolve('tmp/dts'));
   compile(tsConfigPath);
+  // TODO: seems to stop printing before this log
   log(chalk.dim(`  .d.ts files created in ./tmp/dts/`));
 
   /**
@@ -298,4 +253,8 @@ log(chalk.bold(`\n  –– ${chalk.red('Romcal')} builder ––`));
    */
   const duration = getDuration(time);
   log(chalk.green(`\n✨ Done in ${chalk.bold(duration)}`));
+};
+
+(async (): Promise<void> => {
+  await buildPipeline();
 })();

@@ -1,7 +1,7 @@
 import { version } from '../package.json';
-import { CALENDAR_PKG_NAMES, CALENDAR_VAR_NAMES } from '../tmp/constants/calendars';
-import { LOCALE_IDS, LOCALE_VAR_NAMES } from '../tmp/constants/locales';
 
+import { CALENDAR_PKG_NAMES, CALENDAR_VAR_NAMES } from './constants/calendars';
+import { LOCALE_IDS, LOCALE_VAR_NAMES } from './constants/locales';
 import { Color, COLORS, Colors, isColor } from './constants/colors';
 import {
   PROPER_CYCLES,
@@ -281,7 +281,7 @@ class Romcal {
 
   static PSALTER_WEEKS = PSALTER_WEEKS;
 
-  // constants/general-calendar-names.ts
+  // constants/general-calendars.ts
   static PROPER_OF_TIME_NAME = PROPER_OF_TIME_NAME;
 
   static GENERAL_ROMAN_NAME = GENERAL_ROMAN_NAME;

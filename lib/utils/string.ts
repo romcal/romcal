@@ -12,14 +12,15 @@ export const toScreamingSnakeCase = (string: string): string =>
 /**
  * Convert a class name from camelCase to kebab-case, replacing the _ namespace separator to a dot.
  * @param string
+ * @param prefix
  */
-export const toPackageName = (string: string): string =>
-  string
-    .replace(/_/g, '.')
-    .replace(/([^.])([A-Z][a-z]+)/g, '$1-$2')
-    .replace(/([A-Z][a-z]+)([0-9])/g, '$1-$2')
-    .replace(/([a-z0-9])([A-Z])/g, '$1_$2')
-    .toLowerCase();
+export const toPackageName = (string: string, prefix: boolean = false): string => {
+  const packageName = string
+    .replace(/([a-z0-9])([A-Z])/, '$1-$2')
+    .replace(/([A-Z][a-z]+)/, '-$1')
+    .replace(/_/, '.');
+  return prefix ? `@romcal/calendar.${packageName}` : packageName;
+};
 
 /**
  * Convert the string to camelCase
