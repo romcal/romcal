@@ -5,7 +5,7 @@ import * as fs from 'fs';
 import chalk from 'chalk';
 import cliProgress from 'cli-progress';
 import { rimraf } from 'rimraf';
-import merge from 'ts-deepmerge';
+import { merge } from 'ts-deepmerge';
 
 import {
   BundleInputs,

@@ -21,7 +21,7 @@
  */
 
 import chalk from 'chalk';
-import merge from 'ts-deepmerge';
+import { merge } from 'ts-deepmerge';
 
 import { Locale } from '../lib';
 import { Martyrology } from '../lib/catalog/martyrology';
