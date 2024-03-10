@@ -9,6 +9,5 @@ module.exports = {
   coverageDirectory: 'coverage',
   collectCoverageFrom: ['lib/**/*.{ts,tsx,js,jsx}', '!lib/**/*.d.ts','!dist/**'],
   coveragePathIgnorePatterns: ['lib/locales', 'lib/particular-calendars'],
-  globalSetup: '<rootDir>/dotenv/dotenv.jest.js',
   setupFilesAfterEnv: ['jest-extended/all'],
 };
