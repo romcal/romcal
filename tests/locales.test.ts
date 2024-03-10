@@ -2,6 +2,7 @@ import { Brazil_PtBr } from 'romcal/dist/bundles/brazil';
 import { France_Fr } from 'romcal/dist/bundles/france';
 
 import { Romcal } from '../lib';
+
 import { seasonalWeekNumberLocalisationFixture } from './fixtures/seasonal-week-number-localisation.fixture';
 
 describe('Testing localization functionality', () => {
@@ -17,13 +18,13 @@ describe('Testing localization functionality', () => {
 });
 
 describe('Testing whether celebration names from `.names` object with seasonal week return the correct localized name', () => {
-  for (const i of seasonalWeekNumberLocalisationFixture) {
+  seasonalWeekNumberLocalisationFixture.forEach((i) => {
     const r = new Romcal({ localizedCalendar: i.calendar });
 
-    for (const d of i.tests) {
+    i.tests.forEach((d) => {
       test(`- ${`\`${i.calendar.i18n.id}\``.padEnd(8, ' ')}: \`${d.k}\``, async () => {
         expect((await r.getOneLiturgicalDay(d.key))?.name).toBe(d.value);
       });
-    }
-  }
+    });
+  });
 });
