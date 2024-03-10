@@ -12,14 +12,15 @@ export const toScreamingSnakeCase = (string: string): string =>
 /**
  * Convert a class name from camelCase to kebab-case, replacing the _ namespace separator to a dot.
  * @param string
+ * @param prefix
  */
-export const toPackageName = (string: string): string =>
-  string
-    .replace(/_/g, '.')
-    .replace(/([^.])([A-Z][a-z]+)/g, '$1-$2')
-    .replace(/([A-Z][a-z]+)([0-9])/g, '$1-$2')
-    .replace(/([a-z0-9])([A-Z])/g, '$1_$2')
+export const toPackageName = (string: string, prefix: boolean = false): string => {
+  const packageName = string
+    .replace(/([a-z0-9]|^)([A-Z])/g, (_, m1, m2) => (m1 ? `${m1}-${m2}` : m2))
+    .replace(/_/, '.')
     .toLowerCase();
+  return prefix ? `@romcal/calendar.${packageName}` : packageName;
+};
 
 /**
  * Convert the string to camelCase
@@ -54,7 +55,7 @@ export const unCapitalize = (string: string): string =>
  */
 export const sanitizeLocaleId = (localeId: string): string => {
   if (localeId?.length >= 5) {
-    return localeId.substring(0, 2).toLowerCase() + '-' + localeId.substring(3, 5).toUpperCase();
+    return `${localeId.substring(0, 2).toLowerCase()}-${localeId.substring(3, 5).toUpperCase()}`;
   }
   return localeId.toLowerCase();
 };

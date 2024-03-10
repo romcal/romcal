@@ -1,5 +1,5 @@
 import { ProperCycles } from '../constants/cycles';
-import { PatronTitles, Titles } from '../constants/martyrology-metadata';
+import { PatronTitle, Title } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { Inputs, ParticularConfig } from '../types/calendar-def';
@@ -26,7 +26,7 @@ export class Australia extends CalendarDef {
       customLocaleId: 'peter_chanel_priest_patron_of_oceania',
       precedence: Precedences.ProperMemorial_11b,
       martyrology: ['peter_chanel_priest'],
-      titles: [Titles.ProtoMartyrOfOceania, PatronTitles.PatronOfOceania],
+      titles: [Title.ProtoMartyrOfOceania, PatronTitle.PatronOfOceania],
     },
 
     our_lady_help_of_christians: {

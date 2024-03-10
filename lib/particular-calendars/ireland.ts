@@ -1,11 +1,12 @@
-import { PatronTitles, Titles } from '../constants/martyrology-metadata';
+import { PatronTitle, Title } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { Inputs } from '../types/calendar-def';
+
 import { Europe } from './europe';
 
 export class Ireland extends CalendarDef {
-  parentCalendar = Europe;
+  ParentCalendar = Europe;
 
   inputs: Inputs = {
     munchin_of_limerick_bishop: {
@@ -32,7 +33,7 @@ export class Ireland extends CalendarDef {
       customLocaleId: 'brigid_of_kildare_virgin_copatroness_of_ireland',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       dateDef: { month: 2, date: 1 },
-      titles: { append: [PatronTitles.CopatronessOfIreland] },
+      titles: { append: [PatronTitle.CopatronessOfIreland] },
     },
 
     mel_of_ardagh_bishop: {
@@ -74,7 +75,7 @@ export class Ireland extends CalendarDef {
       customLocaleId: 'patrick_of_ireland_bishop_patron_of_ireland',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       isHolyDayOfObligation: true,
-      titles: { append: [PatronTitles.PatronOfIreland] },
+      titles: { append: [PatronTitle.PatronOfIreland] },
     },
 
     enda_of_aran_abbot: {
@@ -146,7 +147,7 @@ export class Ireland extends CalendarDef {
       customLocaleId: 'columba_of_iona_abbot_copatron_of_ireland',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       dateDef: { month: 6, date: 9 },
-      titles: { append: [Titles.Missionary, PatronTitles.CopatronOfIreland] },
+      titles: { append: [Title.Missionary, PatronTitle.CopatronOfIreland] },
     },
 
     davnet_of_sliabh_beagh_virgin: {
@@ -307,7 +308,7 @@ export class Ireland extends CalendarDef {
     virgilius_of_salzburg_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 11, date: 27 },
-      titles: { append: [Titles.Missionary] },
+      titles: { append: [Title.Missionary] },
     },
 
     finnian_of_clonard_bishop: {

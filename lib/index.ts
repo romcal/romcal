@@ -1,6 +1,7 @@
 import { version } from '../package.json';
-import { CALENDAR_PKG_NAMES, CALENDAR_VAR_NAMES } from '../tmp/constants/calendars';
-import { LOCALE_IDS, LOCALE_VAR_NAMES } from '../tmp/constants/locales';
+
+import { CALENDAR_PKG_NAMES, CALENDAR_VAR_NAMES } from './constants/calendars';
+import { LOCALE_IDS, LOCALE_VAR_NAMES } from './constants/locales';
 import { Color, COLORS, Colors, isColor } from './constants/colors';
 import {
   PROPER_CYCLES,
@@ -24,19 +25,17 @@ import {
   isMartyr,
   PATRON_TITLES,
   PatronTitle,
-  PatronTitles,
   Sex,
   SEXES,
   Sexes,
   Title,
   TITLES,
-  Titles,
 } from './constants/martyrology-metadata';
 import { Month, MonthIndex, MONTHS } from './constants/months';
-import { Period, PERIODS, Periods } from './constants/periods';
+import { Period, PERIODS } from './constants/periods';
 import { Precedence, PRECEDENCES, Precedences } from './constants/precedences';
 import { Rank, RANKS, Ranks, RanksFromPrecedence } from './constants/ranks';
-import { Season, SEASONS, Seasons } from './constants/seasons';
+import { Season, SEASONS } from './constants/seasons';
 import { DayOfWeek, Weekday, WEEKDAYS } from './constants/weekdays';
 import { RomcalBundle } from './models/bundle';
 import { Calendar } from './models/calendar';
@@ -112,7 +111,9 @@ import { isInteger, toRomanNumber } from './utils/numbers';
 
 class Romcal {
   readonly #config: RomcalConfig;
+
   #computedCalendars: Record<number, LiturgicalCalendar> = {};
+
   #dates: Record<number, Dates> = {};
 
   /**
@@ -171,7 +172,7 @@ class Romcal {
     id: Id,
     options: { year?: number | string; computeInWholeYear?: boolean } = {
       computeInWholeYear: false,
-    },
+    }
   ): Promise<LiturgicalDay | null | undefined> {
     return new Promise((resolve, reject) => {
       try {
@@ -187,7 +188,7 @@ class Romcal {
             resolve(
               Object.values(value)
                 .flat()
-                .find((d) => d.id === id),
+                .find((d) => d.id === id)
             );
           });
         });
@@ -211,7 +212,8 @@ class Romcal {
 
         // Return cached data, if the calendar has been already computed
         if (this.#computedCalendars[ldConfig.year]) {
-          return resolve(this.#computedCalendars[ldConfig.year]);
+          resolve(this.#computedCalendars[ldConfig.year]);
+          return;
         }
 
         this.getAllDefinitions().then(() => {
@@ -243,6 +245,7 @@ class Romcal {
   /**
    * Get Romcal version
    */
+  // eslint-disable-next-line class-methods-use-this
   getVersion(): string {
     return Romcal.getVersion();
   }
@@ -256,82 +259,141 @@ class Romcal {
 
   // constants/colors.ts
   static Colors = Colors;
-  static COLORS = COLORS;
+
+  static COLORS: Color[] = COLORS;
+
   static isColor = isColor;
+
   // constants/cycles.ts
   static ProperCycles = ProperCycles;
+
   static PROPER_CYCLE = PROPER_CYCLES;
+
   static SundayCycles = SundayCycles;
+
   static SUNDAYS_CYCLE = SUNDAY_CYCLES;
+
   static WeekdayCycles = WeekdayCycles;
+
   static WEEKDAYS_CYCLE = WEEKDAY_CYCLES;
+
   static PsalterWeekCycles = PsalterWeekCycles;
+
   static PSALTER_WEEKS = PSALTER_WEEKS;
-  // constants/general-calendar-names.ts
+
+  // constants/general-calendars.ts
   static PROPER_OF_TIME_NAME = PROPER_OF_TIME_NAME;
+
   static GENERAL_ROMAN_NAME = GENERAL_ROMAN_NAME;
+
   static CanonizationLevels = CanonizationLevels;
+
   static CANONIZATION_LEVEL = CANONIZATION_LEVEL;
+
   static Sexes = Sexes;
+
   static SEXES = SEXES;
-  static Titles = Titles;
+
+  static Titles = Title;
+
   static TITLES = TITLES;
+
   static isMartyr = isMartyr;
-  static PatronTitles = PatronTitles;
+
+  static PatronTitles = PatronTitle;
+
   static PATRON_TITLES = PATRON_TITLES;
+
   // constants/months.ts
   static MONTHS = MONTHS;
+
   // constants/periods.ts
-  static Periods = Periods;
+  static Periods = Period;
+
   static PERIODS = PERIODS;
+
   // constants/precedences.ts
   static Precedences = Precedences;
+
   static PRECEDENCES = PRECEDENCES;
+
   // constants/ranks.ts
   static Ranks = Ranks;
+
   static RANKS = RANKS;
+
   static RanksFromPrecedence = RanksFromPrecedence;
+
   // constants/seasons.ts
-  static Seasons = Seasons;
+  static Seasons = Season;
+
   static SEASONS = SEASONS;
+
   // constants/weekdays.ts
   static WEEKDAYS = WEEKDAYS;
+
   // models/*
   static RomcalBundle = RomcalBundle;
+
   static Calendar = Calendar;
+
   static CalendarDef = CalendarDef;
+
   static RomcalConfig = RomcalConfig;
+
   static CyclesMetadata = CyclesMetadata;
+
   static LiturgicalDay = LiturgicalDay;
+
   static LiturgicalDayConfig = LiturgicalDayConfig;
+
   static LiturgicalDayDef = LiturgicalDayDef;
+
   // utils/dates.ts
   static getUtcDate = getUtcDate;
+
   static getUtcDateFromString = getUtcDateFromString;
+
   static addDays = addDays;
+
   static subtractsDays = subtractsDays;
+
   static isSameDate = isSameDate;
+
   static dateDifference = dateDifference;
+
   static startOfWeek = startOfWeek;
+
   static isValidDate = isValidDate;
+
   static daysInMonth = daysInMonth;
+
   static getWeekNumber = getWeekNumber;
+
   static computeGregorianEasterDate = calculateGregorianEasterDate;
+
   static computeJulianEasterDate = calculateJulianEasterDateToGregorianDate;
+
   static rangeContainsDate = rangeContainsDate;
+
   static rangeOfDays = rangeOfDays;
+
   // utils/numbers.ts
   static toRomanNumber = toRomanNumber;
+
   // generated data from build
   static CALENDAR_VAR_NAMES = CALENDAR_VAR_NAMES;
+
   static CALENDAR_PKG_NAMES = CALENDAR_PKG_NAMES;
+
   static LOCALE_VAR_NAMES = LOCALE_VAR_NAMES;
+
   static LOCALE_IDS = LOCALE_IDS;
 }
 
-export { Romcal };
-
+/* eslint-disable import/no-unused-modules */
 export {
+  Romcal,
   Calendar,
   CalendarDef,
   CyclesMetadata,
@@ -340,9 +402,6 @@ export {
   LiturgicalDayDef,
   RomcalBundle,
   RomcalConfig,
-};
-
-export {
   // types/cycles-metadata.ts
   BaseCyclesMetadata,
   // types/liturgical-day.ts

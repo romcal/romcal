@@ -1,11 +1,12 @@
-import { Titles } from '../constants/martyrology-metadata';
+import { Title } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { Inputs } from '../types/calendar-def';
+
 import { Europe } from './europe';
 
 export class Germany extends CalendarDef {
-  parentCalendar = Europe;
+  ParentCalendar = Europe;
 
   inputs: Inputs = {
     john_nepomucene_neumann_bishop: {
@@ -231,7 +232,7 @@ export class Germany extends CalendarDef {
         'ursula_of_cologne_virgin',
         {
           id: 'companions_martyrs',
-          titles: { append: [Titles.Virgin] },
+          titles: { append: [Title.Virgin] },
         },
       ],
     },

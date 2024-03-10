@@ -1,12 +1,13 @@
 import { ProperCycles } from '../constants/cycles';
-import { PatronTitles } from '../constants/martyrology-metadata';
+import { PatronTitle } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { Inputs } from '../types/calendar-def';
+
 import { Europe } from './europe';
 
 export class Spain extends CalendarDef {
-  parentCalendar = Europe;
+  ParentCalendar = Europe;
 
   inputs: Inputs = {
     eulogius_of_cordoba_bishop: {
@@ -83,7 +84,7 @@ export class Spain extends CalendarDef {
     james_apostle: {
       customLocaleId: 'james_apostle_patron_of_spain',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      titles: { append: [PatronTitles.PatronOfSpain] },
+      titles: { append: [PatronTitle.PatronOfSpain] },
     },
 
     ezequiel_moreno_bishop: {

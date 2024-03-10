@@ -10,6 +10,7 @@ import {
 import { BaseCyclesMetadata, PlainCyclesMetadata } from '../types/cycles-metadata';
 import { RomcalCalendarMetadata } from '../types/liturgical-day';
 import { getUtcDateFromString } from '../utils/dates';
+
 import { RomcalConfig } from './config';
 
 /**
@@ -17,14 +18,22 @@ import { RomcalConfig } from './config';
  */
 export class CyclesMetadata implements BaseCyclesMetadata {
   properCycle: ProperCycle;
+
   #properCycleName?: string;
+
   sundayCycle: SundayCycle;
+
   #sundayCycleName?: string;
+
   weekdayCycle: WeekdayCycle;
+
   #weekdayCycleName?: string;
+
   psalterWeek: PsalterWeekCycle;
+
   #psalterWeekName?: string;
-  #config: RomcalConfig;
+
+  readonly #config: RomcalConfig;
 
   constructor(date: Date, calendar: RomcalCalendarMetadata, properCycle: ProperCycle, config: RomcalConfig) {
     this.#config = config;

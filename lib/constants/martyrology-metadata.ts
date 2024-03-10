@@ -20,7 +20,7 @@ export type CanonizationLevel = (typeof CANONIZATION_LEVEL)[number];
 /**
  * Titles of Saints and Blessed from the Martyrology catalog.
  */
-export enum Titles {
+export enum Title {
   Abbess = 'ABBESS',
   Abbot = 'ABBOT',
   Apostle = 'APOSTLE',
@@ -53,11 +53,9 @@ export enum Titles {
   Virgin = 'VIRGIN',
 }
 
-export const TITLES = Object.keys(Titles)
-  .filter((key) => typeof Titles[key as keyof typeof Titles] === 'string')
-  .map((key) => toScreamingSnakeCase(key)) as ScreamingSnakeCase<keyof typeof Titles>[];
-
-export type Title = (typeof TITLES)[number];
+export const TITLES = Object.keys(Title)
+  .filter((key) => typeof Title[key as keyof typeof Title] === 'string')
+  .map((key) => toScreamingSnakeCase(key)) as ScreamingSnakeCase<keyof typeof Title>[];
 
 /**
  * Return true if the provided title contain at least one Martyr title
@@ -65,16 +63,16 @@ export type Title = (typeof TITLES)[number];
  */
 export const isMartyr = (titles: RomcalTitles): boolean => {
   return (
-    titles.includes(Titles.Martyr) ||
-    titles.includes(Titles.TheFirstMartyr) ||
-    titles.includes(Titles.ProtoMartyrOfOceania)
+    titles.includes(Title.Martyr) ||
+    titles.includes(Title.TheFirstMartyr) ||
+    titles.includes(Title.ProtoMartyrOfOceania)
   );
 };
 
 /**
  *  Patron Titles of Saints and Blessed from the Martyrology catalog.
  */
-export enum PatronTitles {
+export enum PatronTitle {
   CopatronOfEurope = 'COPATRON_OF_EUROPE',
   CopatronOfIreland = 'COPATRON_OF_IRELAND',
   CopatronOfCanada = 'COPATRON_OF_CANADA',
@@ -110,11 +108,9 @@ export enum PatronTitles {
   PatronOfTheCityOfLyon = 'PATRON_OF_THE_CITY_OF_LYON',
 }
 
-export const PATRON_TITLES = Object.keys(PatronTitles)
-  .filter((key) => typeof PatronTitles[key as keyof typeof PatronTitles] === 'string')
-  .map((key) => toScreamingSnakeCase(key)) as ScreamingSnakeCase<keyof typeof PatronTitles>[];
-
-export type PatronTitle = (typeof PATRON_TITLES)[number];
+export const PATRON_TITLES = Object.keys(PatronTitle)
+  .filter((key) => typeof PatronTitle[key as keyof typeof PatronTitle] === 'string')
+  .map((key) => toScreamingSnakeCase(key)) as ScreamingSnakeCase<keyof typeof PatronTitle>[];
 
 /**
  * Determine if a Saint or a Blessed is a male or a female.

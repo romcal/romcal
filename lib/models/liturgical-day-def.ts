@@ -11,6 +11,7 @@ import { PartialCyclesDef } from '../types/cycles-metadata';
 import {
   BaseLiturgicalDayDef,
   CalendarMetadata,
+  CompoundTitle,
   DateDef,
   DateDefException,
   FromCalendarId,
@@ -25,31 +26,53 @@ import {
   TitlesDef,
 } from '../types/liturgical-day';
 import { MartyrologyItem } from '../types/martyrology';
+import { safeWrapArray } from '../utils/arrays';
+
 import { RomcalConfig } from './config';
 
 export class LiturgicalDayDef implements BaseLiturgicalDayDef {
   readonly #config: RomcalConfig;
+
   readonly id: Id;
+
   readonly dateDef: DateDef;
+
   readonly dateExceptions: DateDefException[];
+
   readonly precedence: Precedence;
+
   readonly rank: Rank;
+
   readonly isHolyDayOfObligation: boolean;
+
   readonly allowSimilarRankItems: boolean;
+
   readonly isOptional: boolean;
+
   readonly i18nDef: i18nDef;
+
   readonly seasons: Season[];
+
   readonly periods: Period[];
+
   readonly calendarMetadata: CalendarMetadata;
+
   readonly colors: Color[];
+
   readonly martyrology: MartyrologyItem[];
+
   readonly titles: RomcalTitles;
+
   readonly cycles: PartialCyclesDef;
+
   readonly fromCalendarId: FromCalendarId;
+
   readonly fromExtendedCalendars: LiturgyDayDiff[];
+
   readonly input: LiturgicalDayBundleInput[];
 
   #name?: string;
+
   public get name(): string {
     if (this.#name !== undefined) return this.#name;
     let name: string;
@@ -67,6 +90,7 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
   }
 
   #rankName?: string;
+
   public get rankName(): string {
     if (this.#rankName !== undefined) return this.#rankName;
     const id = `ranks:${(this.rank ?? '').toLowerCase()}`;
@@ -74,12 +98,14 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
   }
 
   #seasonNames?: string[];
+
   public get seasonNames(): string[] {
     if (this.#seasonNames !== undefined) return this.#seasonNames;
     return (this.#seasonNames = this.#config.getSeasonNames(this.seasons));
   }
 
   #colorNames?: string[];
+
   public get colorNames(): string[] {
     if (this.#colorNames !== undefined) return this.#colorNames;
     return (this.#colorNames = this.#config.getLiturgicalColorNames(this.colors));
@@ -89,8 +115,9 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
     id: Id,
     input: LiturgicalDayProperOfTimeInput | LiturgicalDayInput | LiturgicalDayBundleInput,
     fromCalendarId: FromCalendarId,
-    config: RomcalConfig,
+    config: RomcalConfig
   ) {
+    // TODO: should config track changes on config, or is it intended to be an initial state?
     this.#config = config;
 
     this.id = id;
@@ -106,13 +133,7 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     this.dateDef = input.dateDef ?? previousDef!.dateDef;
 
-    this.dateExceptions = Array.isArray(input.dateExceptions)
-      ? input.dateExceptions
-      : input.dateExceptions
-      ? [input.dateExceptions]
-      : previousDef
-      ? previousDef.dateExceptions
-      : [];
+    this.dateExceptions = safeWrapArray(input.dateExceptions) ?? (previousDef ? previousDef.dateExceptions : []);
 
     if (!input.precedence && !previousDef) {
       throw new Error(`In the '${fromCalendarId}' calendar, the property 'precedence' for '${id}' must be defined.`);
@@ -157,16 +178,12 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
     // are placed at the end of the array (not between the contained titles).
     this.titles = [...new Set(this.martyrology.flatMap((m) => m.titles || []).reverse())].reverse();
 
-    this.colors = Array.isArray(input.colors)
-      ? input.colors
-      : input.colors
-      ? [input.colors]
-      : Array.isArray(previousDef?.colors)
-      ? // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
-        previousDef!.colors
-      : isMartyr(this.titles)
-      ? [Colors.Red]
-      : [Colors.White];
+    const martyrColors = isMartyr(this.titles) ? [Colors.Red] : [Colors.White];
+    const colors: Color[] | undefined = safeWrapArray<Color>(input.colors);
+    // this is a generally safe cast, there's no way in typescript to say "if this param is defined, the return type is always defined"
+    const prevColors: Color[] = safeWrapArray<Color>(previousDef?.colors, martyrColors) as Color[];
+
+    this.colors = colors ?? prevColors;
 
     this.cycles = {
       properCycle: input.properCycle ?? previousDef?.cycles.properCycle ?? ProperCycles.ProperOfSaints,
@@ -178,7 +195,7 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
     // and the new one
     this.fromExtendedCalendars = previousDef?.fromExtendedCalendars ?? [];
     if (previousDef) {
-      const diff = this.#getLiturgicalDayDiff(previousDef, this);
+      const diff = LiturgicalDayDef.#getLiturgicalDayDiff(previousDef, this);
       // Store object diffs in the new LiturgicalDay object
       if (diff) this.fromExtendedCalendars.push(diff);
     }
@@ -190,21 +207,21 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
     if (input.drop) {
       if (!previousDef) {
         throw new Error(
-          `In the '${fromCalendarId}' calendar, trying to drop a LiturgicalDay that doesn't exists: '${id}'.`,
+          `In the '${fromCalendarId}' calendar, trying to drop a LiturgicalDay that doesn't exists: '${id}'.`
         );
       } else if (previousDef.fromCalendarId === PROPER_OF_TIME_NAME) {
         throw new Error(
-          `In the '${fromCalendarId}' calendar, you can't drop a LiturgicalDay from the Proper of Time: '${id}'.`,
+          `In the '${fromCalendarId}' calendar, you can't drop a LiturgicalDay from the Proper of Time: '${id}'.`
         );
       } else {
-        delete config.liturgicalDayDef[id];
+        delete this.#config.liturgicalDayDef[id];
       }
 
       return;
     }
 
     // Add or combine the new definition to the collection
-    config.liturgicalDayDef[id] = this;
+    this.#config.liturgicalDayDef[id] = this;
   }
 
   /**
@@ -235,7 +252,7 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
     id: Id,
     input: LiturgicalDayInput,
     fromCalendarId: Id,
-    previousDef?: LiturgicalDayDef,
+    previousDef?: LiturgicalDayDef
   ): MartyrologyItem[] {
     // Retrieve the Martyrology items from the inherited LiturgicalDay object,
     // or create a new empty list.
@@ -258,7 +275,7 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
             (martyrologyItem = {
               id: pointer.id,
               ...this.#config.martyrologyCatalog[pointer.id],
-            }),
+            })
           );
         }
 
@@ -290,7 +307,7 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
           this.#config.calendarName === GENERAL_ROMAN_NAME
         ) {
           throw new Error(
-            `In the '${fromCalendarId}' calendar, a LiturgicalDay with the ID '${martyrologyId}', have a badly referenced martyrology item: '${pointer.id}'.`,
+            `In the '${fromCalendarId}' calendar, a LiturgicalDay with the ID '${martyrologyId}', have a badly referenced martyrology item: '${pointer.id}'.`
           );
         }
       }
@@ -300,12 +317,12 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
     if (input.titles) {
       martyrology.forEach((m, i) => {
         // TODO: refactor this to avoid non-null assertion
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion, no-param-reassign
         m.titles = this.#combineTitles(input.titles!, martyrology[i].id, previousDef);
       });
       if (martyrology.length === 0) {
         throw new Error(
-          `In the '${fromCalendarId}' calendar, in the LiturgicalDay with the ID '${id}', you cannot add titles because there is no martyrology items associated.`,
+          `In the '${fromCalendarId}' calendar, in the LiturgicalDay with the ID '${id}', you cannot add titles because there is no martyrology items associated.`
         );
       }
     }
@@ -320,20 +337,20 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
    * @param previousDef
    */
   #combineTitles(titlesDef: TitlesDef, martyrologyId: Id, previousDef?: LiturgicalDayDef): RomcalTitles {
-    return Array.isArray(titlesDef)
-      ? titlesDef
-      : typeof titlesDef === 'object'
-      ? [
-          // Use a [...new Set(array)] to remove duplicates in the array
-          ...new Set([
-            ...(titlesDef.prepend ?? []),
-            ...(previousDef?.martyrology.find((m) => m.id === martyrologyId)?.titles ??
-              this.#config.martyrologyCatalog[martyrologyId].titles ??
-              []),
-            ...(titlesDef.append ?? []),
-          ]),
-        ]
-      : [];
+    const titleObj: RomcalTitles =
+      typeof titlesDef === 'object'
+        ? [
+            // Use a [...new Set(array)] to remove duplicates in the array
+            ...new Set([
+              ...((titlesDef as CompoundTitle).prepend ?? []),
+              ...(previousDef?.martyrology.find((m) => m.id === martyrologyId)?.titles ??
+                this.#config.martyrologyCatalog[martyrologyId].titles ??
+                []),
+              ...((titlesDef as CompoundTitle).append ?? []),
+            ]),
+          ]
+        : [];
+    return Array.isArray(titlesDef) ? titlesDef : titleObj;
   }
 
   /**
@@ -343,7 +360,7 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
    * @param dayA
    * @param dayB
    */
-  #getLiturgicalDayDiff(dayA: LiturgicalDayDef, dayB: LiturgicalDayDef): LiturgyDayDiff | null {
+  static #getLiturgicalDayDiff(dayA: LiturgicalDayDef, dayB: LiturgicalDayDef): LiturgyDayDiff | null {
     const diff = {
       // date
       // ...(dayA instanceof LiturgicalDay && dayB instanceof LiturgicalDay && dayA.date !== dayB.date

@@ -1,11 +1,12 @@
-import { PatronTitles } from '../constants/martyrology-metadata';
+import { PatronTitle } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { Inputs, ParticularConfig } from '../types/calendar-def';
+
 import { Europe } from './europe';
 
 export class France extends CalendarDef {
-  parentCalendar = Europe;
+  ParentCalendar = Europe;
 
   particularConfig: ParticularConfig = {
     epiphanyOnSunday: true,
@@ -49,7 +50,7 @@ export class France extends CalendarDef {
       customLocaleId: 'joan_of_arc_virgin_copatroness_of_france',
       precedence: Precedences.ProperMemorial_SecondPatron_11a,
       dateDef: { month: 5, date: 30 },
-      titles: { append: [PatronTitles.CopatronessOfFrance] },
+      titles: { append: [PatronTitle.CopatronessOfFrance] },
     },
 
     // src: mr_fr_2021_ed3
@@ -90,7 +91,7 @@ export class France extends CalendarDef {
     // src: mr_fr_2021_ed3
     therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin: {
       customLocaleId: 'therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin_copatroness_of_france',
-      titles: { append: [PatronTitles.CopatronessOfFrance] },
+      titles: { append: [PatronTitle.CopatronessOfFrance] },
     },
   };
 }

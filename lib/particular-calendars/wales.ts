@@ -1,12 +1,13 @@
 import { ProperCycles } from '../constants/cycles';
-import { PatronTitles } from '../constants/martyrology-metadata';
+import { PatronTitle } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { Inputs } from '../types/calendar-def';
+
 import { Europe } from './europe';
 
 export class Wales extends CalendarDef {
-  parentCalendar = Europe;
+  ParentCalendar = Europe;
 
   inputs: Inputs = {
     teilo_of_llandaff_bishop: {
@@ -18,7 +19,7 @@ export class Wales extends CalendarDef {
       customLocaleId: 'david_of_wales_bishop_patron_of_wales',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       dateDef: { month: 3, date: 1 },
-      titles: { append: [PatronTitles.PatronOfWales] },
+      titles: { append: [PatronTitle.PatronOfWales] },
     },
 
     beuno_of_wales_abbot: {

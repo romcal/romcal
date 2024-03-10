@@ -1,11 +1,12 @@
-import { PatronTitles, Titles } from '../constants/martyrology-metadata';
+import { PatronTitle, Title } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { Inputs } from '../types/calendar-def';
+
 import { France } from './france';
 
 export class France_Lyon extends CalendarDef {
-  parentCalendar = France;
+  ParentCalendar = France;
 
   inputs: Inputs = {
     // src: mr_fr_2014_ed2_lyon
@@ -17,7 +18,7 @@ export class France_Lyon extends CalendarDef {
     // src: mr_fr_2014_ed2_lyon
     francis_de_sales_bishop: {
       customLocaleId: 'francis_de_sales_bishop_patron_of_the_clergy_of_the_archdiocese_of_lyon',
-      titles: { append: [PatronTitles.PatronOfTheClergyOfTheArchdioceseOfLyon] },
+      titles: { append: [PatronTitle.PatronOfTheClergyOfTheArchdioceseOfLyon] },
     },
 
     // src: mr_fr_2014_ed2_lyon
@@ -70,7 +71,7 @@ export class France_Lyon extends CalendarDef {
       martyrology: [
         {
           id: 'pothinus_of_lyon_bishop',
-          titles: [Titles.Bishop, PatronTitles.PatronOfTheCityOfLyon, Titles.Martyr],
+          titles: [Title.Bishop, PatronTitle.PatronOfTheCityOfLyon, Title.Martyr],
         },
         'blandina_of_lyon_virgin',
         'companions_martyrs',
@@ -107,7 +108,7 @@ export class France_Lyon extends CalendarDef {
       martyrology: [
         {
           id: 'irenaeus_of_lyon_bishop',
-          titles: { append: [PatronTitles.PatronOfTheDiocese] },
+          titles: { append: [PatronTitle.PatronOfTheDiocese] },
         },
         'companions_martyrs',
       ],

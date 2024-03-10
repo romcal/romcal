@@ -32,8 +32,8 @@ const getNumberOfWeekDaysInRange = ({
         1 -
         // Calculate the nb of days before the next target day (e.g. next Sunday after start)
         ((7 + dayOfWeek - start.getUTCDay()) % 7),
-      0,
-    ) / 7,
+      0
+    ) / 7
   );
 };
 
@@ -81,7 +81,7 @@ describe('Testing specific liturgical date functions', () => {
     });
 
     test('Its earliest occurring date is Feb 4 and latest occurring date is March 17 and its always on Wednesday', () => {
-      for (let i = 1800, il = 2015; i <= il; i++) {
+      for (let i = 1800, il = 2015; i <= il; i += 1) {
         expect(new Romcal().dates().ashWednesday(i).getUTCMonth()).toBeOneOf([1, 2]);
         expect(new Romcal().dates().ashWednesday(i).getUTCDay()).toEqual(3);
       }
@@ -108,7 +108,7 @@ describe('Testing specific liturgical date functions', () => {
     });
 
     test('Its earliest occurring date is March 15 and latest occurring date is April 18', () => {
-      for (let i = 1850, il = 2015; i <= il; i++) {
+      for (let i = 1850, il = 2015; i <= il; i += 1) {
         expect(new Romcal().dates().palmSunday(i).getUTCMonth()).toBeOneOf([2, 3]);
       }
     });
@@ -176,7 +176,7 @@ describe('Testing specific liturgical date functions', () => {
 
   describe('Holy Week + Easter Triduum is from Palm Sunday to Holy Saturday', () => {
     test('The first day of Holy Week should start on Palm Sunday', () => {
-      for (let i = 1950, il = 2100; i <= il; i++) {
+      for (let i = 1950, il = 2100; i <= il; i += 1) {
         const [fistDayOfHolyWeek] = new Romcal().dates().allDatesOfHolyWeek(i);
         const palmSunday = new Romcal().dates().palmSunday(i);
         expect(isSameDate(fistDayOfHolyWeek, palmSunday)).toEqual(true);
@@ -184,7 +184,7 @@ describe('Testing specific liturgical date functions', () => {
     });
 
     test('The last day of Holy Week should be on Holy Saturday', () => {
-      for (let i = 1950, il = 2050; i <= il; i++) {
+      for (let i = 1950, il = 2050; i <= il; i += 1) {
         const [lastDayOfHolyWeek] = new Romcal().dates().allDatesOfHolyWeek(i).reverse();
         const holySaturday = new Romcal().dates().holySaturday(i);
         expect(isSameDate(lastDayOfHolyWeek, holySaturday)).toEqual(true);
@@ -212,7 +212,7 @@ describe('Testing specific liturgical date functions', () => {
     });
 
     test('Its earliest occurring date is March 22 and latest occurring date is April 25', () => {
-      for (let i = 1900, il = 2100; i <= il; i++) {
+      for (let i = 1900, il = 2100; i <= il; i += 1) {
         const range = rangeOfDays(getUtcDate(i, 3, 22), getUtcDate(i, 4, 25));
         const easter = new Romcal().dates().easterSunday(i);
         expect(rangeContainsDate(range, easter)).toBeTruthy();
@@ -261,7 +261,7 @@ describe('Testing specific liturgical date functions', () => {
       });
 
       test('It can occur anytime between April 30 and June 3 (inclusive)', () => {
-        for (let i = 1900, il = 2100; i <= il; i++) {
+        for (let i = 1900, il = 2100; i <= il; i += 1) {
           const range = rangeOfDays(getUtcDate(i, 4, 30), getUtcDate(i, 6, 3));
           const ascension = new Romcal().dates().ascension(i);
           expect(rangeContainsDate(range, ascension)).toBeTruthy();
@@ -271,7 +271,7 @@ describe('Testing specific liturgical date functions', () => {
 
     describe('The Nativity of John the Baptist', () => {
       test('Occurs every year on June 24', () => {
-        for (let i = 1900, il = 2100; i <= il; i++) {
+        for (let i = 1900, il = 2100; i <= il; i += 1) {
           expect(new Romcal().dates().nativityOfJohnTheBaptist(i).getUTCDate()).toEqual(24);
           expect(new Romcal().dates().nativityOfJohnTheBaptist(i).getUTCMonth()).toEqual(5);
         }
@@ -280,7 +280,7 @@ describe('Testing specific liturgical date functions', () => {
 
     describe('The feast of Peter and Paul, Apostles', () => {
       test('Occurs every year on June 29', () => {
-        for (let i = 1900, il = 2100; i <= il; i++) {
+        for (let i = 1900, il = 2100; i <= il; i += 1) {
           expect(new Romcal().dates().peterAndPaulApostles(i).getUTCDate()).toEqual(29);
           expect(new Romcal().dates().peterAndPaulApostles(i).getUTCMonth()).toEqual(5);
         }
@@ -289,7 +289,7 @@ describe('Testing specific liturgical date functions', () => {
 
     describe('The feast of the Assumption', () => {
       test('Occurs every year on August 15', () => {
-        for (let i = 1900, il = 2100; i <= il; i++) {
+        for (let i = 1900, il = 2100; i <= il; i += 1) {
           expect(new Romcal().dates().assumption(i).getUTCDate()).toEqual(15);
           expect(new Romcal().dates().assumption(i).getUTCMonth()).toEqual(7);
         }
@@ -298,7 +298,7 @@ describe('Testing specific liturgical date functions', () => {
 
     describe('The feast of the All Saints', () => {
       test('Occurs every year on November 1', () => {
-        for (let i = 1900, il = 2100; i <= il; i++) {
+        for (let i = 1900, il = 2100; i <= il; i += 1) {
           expect(new Romcal().dates().allSaints(i).getUTCDate()).toEqual(1);
           expect(new Romcal().dates().allSaints(i).getUTCMonth()).toEqual(10);
         }
@@ -325,7 +325,7 @@ describe('Testing specific liturgical date functions', () => {
       });
 
       test('It can occur anytime between May 3 and June 6 (inclusive)', () => {
-        for (let i = 1900, il = 2100; i <= il; i++) {
+        for (let i = 1900, il = 2100; i <= il; i += 1) {
           const range = rangeOfDays(getUtcDate(i, 5, 3), getUtcDate(i, 6, 6));
           const ascension = new Romcal().dates().ascension(i, true);
           expect(rangeContainsDate(range, ascension)).toBeTruthy();
@@ -354,7 +354,7 @@ describe('Testing specific liturgical date functions', () => {
     });
 
     test('It can occur anytime between May 10 and June 13 (inclusive)', () => {
-      for (let i = 1900, il = 2100; i <= il; i++) {
+      for (let i = 1900, il = 2100; i <= il; i += 1) {
         const range = rangeOfDays(getUtcDate(i, 5, 10), getUtcDate(i, 6, 13));
         const pentecostSunday = new Romcal().dates().pentecostSunday(i);
         expect(rangeContainsDate(range, pentecostSunday)).toBeTruthy();
@@ -382,7 +382,7 @@ describe('Testing specific liturgical date functions', () => {
     });
 
     test('It can occur anytime between May 17 and June 20 (inclusive)', () => {
-      for (let i = 1900, il = 2100; i <= il; i++) {
+      for (let i = 1900, il = 2100; i <= il; i += 1) {
         const range = rangeOfDays(getUtcDate(i, 5, 17), getUtcDate(i, 6, 20));
         const trinitySunday = new Romcal().dates().trinitySunday(i);
         expect(rangeContainsDate(range, trinitySunday)).toBeTruthy();
@@ -411,7 +411,7 @@ describe('Testing specific liturgical date functions', () => {
       });
 
       test('It can occur anytime between May 24 and June 27 (inclusive)', () => {
-        for (let i = 1900, il = 2100; i <= il; i++) {
+        for (let i = 1900, il = 2100; i <= il; i += 1) {
           const range = rangeOfDays(getUtcDate(i, 5, 24), getUtcDate(i, 6, 27));
           const corpusChristi = new Romcal().dates().corpusChristi(i, true);
           expect(rangeContainsDate(range, corpusChristi)).toBeTruthy();
@@ -439,7 +439,7 @@ describe('Testing specific liturgical date functions', () => {
       });
 
       test('It can occur anytime between May 21 and June 24 (inclusive)', () => {
-        for (let i = 1900, il = 2100; i <= il; i++) {
+        for (let i = 1900, il = 2100; i <= il; i += 1) {
           const range = rangeOfDays(getUtcDate(i, 5, 21), getUtcDate(i, 6, 24));
           const corpusChristi = new Romcal().dates().corpusChristi(i, false);
           expect(rangeContainsDate(range, corpusChristi)).toBeTruthy();
@@ -468,7 +468,7 @@ describe('Testing specific liturgical date functions', () => {
     });
 
     test('It can occur anytime between May 29 and Jul 2 (inclusive)', () => {
-      for (let i = 1900, il = 2100; i <= il; i++) {
+      for (let i = 1900, il = 2100; i <= il; i += 1) {
         const range = rangeOfDays(getUtcDate(i, 5, 29), getUtcDate(i, 7, 2));
         const mostSacredHeartOfJesus = new Romcal().dates().mostSacredHeartOfJesus(i);
         expect(rangeContainsDate(range, mostSacredHeartOfJesus)).toBeTruthy();
@@ -496,7 +496,7 @@ describe('Testing specific liturgical date functions', () => {
     });
 
     test('It can occur anytime between May 30 and Jul 3 (inclusive)', () => {
-      for (let i = 1900, il = 2100; i <= il; i++) {
+      for (let i = 1900, il = 2100; i <= il; i += 1) {
         const range = rangeOfDays(getUtcDate(i, 5, 30), getUtcDate(i, 7, 3));
         const immaculateHeartOfMary = new Romcal().dates().immaculateHeartOfMary(i);
         expect(rangeContainsDate(range, immaculateHeartOfMary)).toBeTruthy();
@@ -518,7 +518,7 @@ describe('Testing specific liturgical date functions', () => {
 
   describe('Christ the King is always the 34th (and last) Sunday of Ordinary Time and is the week before the First Sunday of Advent', () => {
     test('It can occur anytime between Nov 20 and Nov 26 (inclusive)', () => {
-      for (let i = 1900, il = 2100; i <= il; i++) {
+      for (let i = 1900, il = 2100; i <= il; i += 1) {
         const range = rangeOfDays(getUtcDate(i, 11, 20), getUtcDate(i, 11, 26));
         const christTheKingSunday = new Romcal().dates().christTheKingSunday(i);
         expect(rangeContainsDate(range, christTheKingSunday)).toBeTruthy();
@@ -528,7 +528,7 @@ describe('Testing specific liturgical date functions', () => {
 
   describe('Christmas day is celebrated on the 25th of December', () => {
     test('Always falls on the 25th of December every year', () => {
-      for (let i = 1900, il = 2100; i <= il; i++) {
+      for (let i = 1900, il = 2100; i <= il; i += 1) {
         expect(new Romcal().dates().christmas(i).getUTCDate()).toEqual(25);
         expect(new Romcal().dates().christmas(i).getUTCMonth()).toEqual(11);
       }
@@ -634,7 +634,7 @@ describe('Testing specific liturgical date functions', () => {
 
   describe('The Solemnity of Joseph, Husband of Mary', () => {
     test('Should fall on the 19th of March every year if not on a Sunday of Lent or during Holy Week', async () => {
-      for (let i = 1950, il = 2050; i <= il; i++) {
+      for (let i = 1950, il = 2050; i <= il; i += 1) {
         const romcal = new Romcal();
         const dates = romcal.dates(i);
         const palmSunday = dates.palmSunday();
@@ -651,13 +651,13 @@ describe('Testing specific liturgical date functions', () => {
             // If March 19 is a Sunday
             date.getUTCDay() === 0 ||
             // Otherwise, the computed date must be March 19
-            isSameDate(computedDate, date),
+            isSameDate(computedDate, date)
         ).toBeTruthy();
       }
     });
 
     test('If it falls on a Sunday of Lent, it should be moved to the following Monday', async () => {
-      for (let i = 1950, il = 2050; i <= il; i++) {
+      for (let i = 1950, il = 2050; i <= il; i += 1) {
         const romcal = new Romcal();
         const dates = romcal.dates(i);
         const palmSunday = dates.palmSunday();
@@ -674,14 +674,14 @@ describe('Testing specific liturgical date functions', () => {
             // If March 19 is a Sunday, the feast is moved to a Monday
             (date.getUTCDay() === 0 && computedDate.getUTCDay() === 1) ||
             // Otherwise, the computed date must be March 19
-            isSameDate(computedDate, date),
+            isSameDate(computedDate, date)
         ).toBeTruthy();
       }
     });
 
     test('If it falls during Holy Week, it should be moved to the Saturday preceding Palm Sunday', async () => {
       // Year 2006 fulfils this condition
-      for (let i = 2006, il = 2006; i <= il; i++) {
+      for (let i = 2006, il = 2006; i <= il; i += 1) {
         const romcal = new Romcal();
         const dates = romcal.dates(i);
         const palmSunday = dates.palmSunday();
@@ -698,7 +698,7 @@ describe('Testing specific liturgical date functions', () => {
             // If March 19 is a Sunday
             date.getUTCDay() === 0 ||
             // Otherwise, the computed date must be March 19
-            isSameDate(computedDate, date),
+            isSameDate(computedDate, date)
         ).toBeTruthy();
       }
     });
@@ -708,7 +708,7 @@ describe('Testing specific liturgical date functions', () => {
     test('Should fall on the 25th of March every year if not during a Sunday of Lent, Holy Week or the the Octave of Easter', () => {
       const dates = new Romcal().dates();
 
-      for (let i = 2018, il = 2018; i <= il; i++) {
+      for (let i = 2018, il = 2018; i <= il; i += 1) {
         const date = getUtcDate(i, 3, 25);
         const sundaysOfLent = dates.allSundaysOfLent(i);
         const isOnASundayOfLent = rangeContainsDate(sundaysOfLent, date);
@@ -740,7 +740,7 @@ describe('Testing specific liturgical date functions', () => {
     test('If it occurs during Holy Week, it should be moved to the Monday after Divine Mercy Sunday', () => {
       const dates = new Romcal().dates();
 
-      for (let i = 1950, il = 2050; i <= il; i++) {
+      for (let i = 1950, il = 2050; i <= il; i += 1) {
         const date = getUtcDate(i, 3, 25);
 
         // Shouldn't happen within holy week
@@ -758,7 +758,7 @@ describe('Testing specific liturgical date functions', () => {
         if (rangeContainsDate(holyWeekRange, date) && !rangeContainsDate(octaveRange, date)) {
           // eslint-disable-next-line jest/no-conditional-expect
           expect(
-            isSameDate(new Romcal().dates().annunciation(i), addDays(new Romcal().dates().divineMercySunday(i), 1)),
+            isSameDate(new Romcal().dates().annunciation(i), addDays(new Romcal().dates().divineMercySunday(i), 1))
           ).toEqual(true);
         } else {
           // This test case specifically doesn't care about what happens if one or
@@ -772,7 +772,7 @@ describe('Testing specific liturgical date functions', () => {
     test('If it occurs during the Octave of Easter, it should be moved to the Saturday preceding Palm Sunday', () => {
       const dates = new Romcal().dates();
 
-      for (let i = 1950, il = 2050; i <= il; i++) {
+      for (let i = 1950, il = 2050; i <= il; i += 1) {
         const date = getUtcDate(i, 3, 25);
 
         const holyWeekDates = dates.allDatesOfHolyWeek(i);
@@ -789,7 +789,7 @@ describe('Testing specific liturgical date functions', () => {
           // Happens in the Octave of Easter, move to one day after Low Sunday
           // eslint-disable-next-line jest/no-conditional-expect
           expect(
-            isSameDate(new Romcal().dates().annunciation(i), addDays(new Romcal().dates().divineMercySunday(i), 1)),
+            isSameDate(new Romcal().dates().annunciation(i), addDays(new Romcal().dates().divineMercySunday(i), 1))
           ).toEqual(true);
         } else {
           // This test case specifically doesn't care about what happens if one or
@@ -804,10 +804,10 @@ describe('Testing specific liturgical date functions', () => {
   describe('The Baptism of the Lord', () => {
     describe('When Epiphany of the Lord is celebrated on the 6th of Jan', () => {
       test('The Sunday following Jan 6 is the Baptism of the Lord', () => {
-        for (let i = 1900, il = 2100; i <= il; i++) {
+        for (let i = 1900, il = 2100; i <= il; i += 1) {
           const epiphany = new Romcal().dates().epiphany(i, false);
           expect(
-            isSameDate(startOfWeek(addDays(epiphany, 7)), new Romcal().dates().baptismOfTheLord(i, false)),
+            isSameDate(startOfWeek(addDays(epiphany, 7)), new Romcal().dates().baptismOfTheLord(i, false))
           ).toEqual(true);
         }
       });
@@ -815,7 +815,7 @@ describe('Testing specific liturgical date functions', () => {
 
     describe('When Epiphany of the Lord is not celebrated on Jan. 6 (i.e. celebrated on a Sunday)', () => {
       test('If Epiphany of the Lord occurs on Sunday Jan. 7 or Sunday Jan. 8, then the Baptism of the Lord is the next day (Monday)', () => {
-        for (let i = 1900, il = 2100; i <= il; i++) {
+        for (let i = 1900, il = 2100; i <= il; i += 1) {
           const epiphany = new Romcal().dates().epiphany(i, true);
           expect(epiphany.getUTCDay()).toEqual(0);
           if (epiphany.getUTCDate() === 7 || epiphany.getUTCDate() === 8) {
@@ -826,26 +826,26 @@ describe('Testing specific liturgical date functions', () => {
       });
 
       test('If Epiphany of the Lord occurs on a Sunday before Jan. 6, the Sunday following Epiphany of the Lord is the Baptism of the Lord.', () => {
-        for (let i = 1900, il = 2100; i <= il; i++) {
+        for (let i = 1900, il = 2100; i <= il; i += 1) {
           const epiphany = new Romcal().dates().epiphany(i, true);
           expect(epiphany.getUTCDay()).toEqual(0);
           if (epiphany.getUTCDate() < 6) {
             // eslint-disable-next-line jest/no-conditional-expect
             expect(
-              isSameDate(startOfWeek(addDays(epiphany, 7)), new Romcal().dates().baptismOfTheLord(i, true)),
+              isSameDate(startOfWeek(addDays(epiphany, 7)), new Romcal().dates().baptismOfTheLord(i, true))
             ).toEqual(true);
           }
         }
       });
 
       test('If Epiphany of the Lord occurs on Sunday Jan. 6, the Baptism of the Lord occurs on the following Sunday', () => {
-        for (let i = 1900, il = 2100; i <= il; i++) {
+        for (let i = 1900, il = 2100; i <= il; i += 1) {
           const epiphany = new Romcal().dates().epiphany(i, true);
           expect(epiphany.getUTCDay()).toEqual(0);
           if (epiphany.getUTCDate() === 6) {
             // eslint-disable-next-line jest/no-conditional-expect
             expect(
-              isSameDate(startOfWeek(addDays(epiphany, 7)), new Romcal().dates().baptismOfTheLord(i, true)),
+              isSameDate(startOfWeek(addDays(epiphany, 7)), new Romcal().dates().baptismOfTheLord(i, true))
             ).toEqual(true);
           }
         }
@@ -855,7 +855,7 @@ describe('Testing specific liturgical date functions', () => {
 
   describe('The Presentation of the Lord', () => {
     test('Should always fall on the 2nd of February', () => {
-      for (let i = 1900, il = 2100; i <= il; i++) {
+      for (let i = 1900, il = 2100; i <= il; i += 1) {
         expect(new Romcal().dates().presentationOfTheLord(i).getUTCMonth()).toEqual(1);
         expect(new Romcal().dates().presentationOfTheLord(i).getUTCDate()).toEqual(2);
       }
@@ -864,7 +864,7 @@ describe('Testing specific liturgical date functions', () => {
 
   describe('The Solemnity of the Immaculate Conception', () => {
     test('Should fall on the 8th of December every year if not on a Sunday of Advent', () => {
-      for (let i = 1900, il = 2100; i <= il; i++) {
+      for (let i = 1900, il = 2100; i <= il; i += 1) {
         const date = getUtcDate(i, 12, 8);
         const sundays = new Romcal().dates().allSundaysOfAdvent(i);
 
@@ -881,7 +881,7 @@ describe('Testing specific liturgical date functions', () => {
     });
 
     test('If it falls on a Sunday of Advent, it should be moved to the following Monday', () => {
-      for (let i = 1900, il = 2100; i <= il; i++) {
+      for (let i = 1900, il = 2100; i <= il; i += 1) {
         const date = getUtcDate(i, 12, 8);
         const sundays = new Romcal().dates().allSundaysOfAdvent(i);
 

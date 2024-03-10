@@ -1,4 +1,4 @@
-import { PatronTitles } from '../constants/martyrology-metadata';
+import { PatronTitle } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { Inputs } from '../types/calendar-def';
@@ -58,7 +58,7 @@ export class Philippines extends CalendarDef {
       customLocaleId: 'rose_of_lima_virgin_copatroness_of_the_philippines',
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 8, date: 23 },
-      titles: { append: [PatronTitles.CopatronessOfThePhilippines] },
+      titles: { append: [PatronTitle.CopatronessOfThePhilippines] },
     },
 
     lawrence_ruiz_and_companions_martyrs: {
@@ -69,13 +69,13 @@ export class Philippines extends CalendarDef {
       customLocaleId: 'immaculate_conception_of_the_blessed_virgin_mary_patroness_of_the_philippines',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       dateDef: { month: 12, date: 8 },
-      titles: { append: [PatronTitles.PatronessOfThePhilippines] },
+      titles: { append: [PatronTitle.PatronessOfThePhilippines] },
     },
 
     our_lady_of_guadalupe: {
       customLocaleId: 'our_lady_of_guadalupe_patroness_of_the_philippines',
       precedence: Precedences.ProperMemorial_11b,
-      titles: { append: [PatronTitles.PatronessOfThePhilippines] },
+      titles: { append: [PatronTitle.PatronessOfThePhilippines] },
     },
   };
 }

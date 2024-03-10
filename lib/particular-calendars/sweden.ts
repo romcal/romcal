@@ -2,10 +2,11 @@ import { ProperCycles } from '../constants/cycles';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { Inputs } from '../types/calendar-def';
+
 import { Europe } from './europe';
 
 export class Sweden extends CalendarDef {
-  parentCalendar = Europe;
+  ParentCalendar = Europe;
 
   inputs: Inputs = {
     elizabeth_hesselblad_religious: {

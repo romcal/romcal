@@ -3,12 +3,15 @@ import { DateDef, DateDefExtended } from '../types/liturgical-day';
 import { BaseLiturgicalDayConfig, LiturgicalDayConfigOutput } from '../types/liturgical-day-config';
 import { addDays, Dates, daysInMonth, getUtcDate, isSameDate, isValidDate, subtractsDays } from '../utils/dates';
 import { isInteger } from '../utils/numbers';
+
 import { RomcalConfig } from './config';
 import { LiturgicalDayDef } from './liturgical-day-def';
 
 export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
   readonly config: RomcalConfig;
+
   readonly year: number;
+
   readonly dates: Dates;
 
   /**
@@ -20,6 +23,13 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
     this.config = config;
 
     const currentYear = new Date().getUTCFullYear();
+    const currentLiturgicalYear =
+      new Date().getTime() < Dates.firstSundayOfAdvent(currentYear + 1).getTime()
+        ? // We are before the first Sunday of Advent, taking the current year
+          currentYear
+        : // We are after the first Sunday of Advent, setting the next Gregorian year
+          // hat represent the main part of this Liturgical year
+          currentYear + 1;
     this.year =
       year ??
       // When year is undefined, determine the current year
@@ -27,12 +37,7 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
         ? // Current Gregorian year
           currentYear
         : // Current Liturgical year
-        new Date().getTime() < Dates.firstSundayOfAdvent(currentYear + 1).getTime()
-        ? // We are before the first Sunday of Advent, taking the current year
-          currentYear
-        : // We are after the first Sunday of Advent, setting the next Gregorian year
-          // hat represent the main part of this Liturgical year
-          currentYear + 1);
+          currentLiturgicalYear);
 
     // Initialise the Dates class
     this.dates = new Dates(config, this.year);
@@ -68,7 +73,8 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
       // TODO: improve TS typing here
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const dates = this.dates[dateDef.dateFn].apply<ThisType<Dates>, any, any>(this, args);
-      date = (Array.isArray(dates) ? dates.find((e) => e) : isValidDate(dates) ? dates : null) || null;
+      const validDate = isValidDate(dates) ? dates : null;
+      date = (Array.isArray(dates) ? dates.find((e) => e) : validDate) || null;
 
       if (date && isInteger(dateDef.addDay)) date = addDays(date, dateDef.addDay);
       if (date && isInteger(dateDef.subtractDay)) date = subtractsDays(date, dateDef.subtractDay);
@@ -86,7 +92,7 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
       const firstDayOfMonth = getUtcDate(year, dateDef.month, 1);
       const firstDayOfLast7DaysOfMonth = subtractsDays(
         getUtcDate(year, dateDef.month, daysInMonth(firstDayOfMonth)),
-        6,
+        6
       );
 
       date = LiturgicalDayConfig.#getNextDayOfWeek(firstDayOfLast7DaysOfMonth, dateDef.lastDayOfWeekInMonth);
@@ -130,10 +136,8 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
             }
           }
           // From-To exclusive
-          else {
-            if (date.getTime() > from.getTime() && date.getTime() < to.getTime()) {
-              setDate(exception.setDate);
-            }
+          else if (date.getTime() > from.getTime() && date.getTime() < to.getTime()) {
+            setDate(exception.setDate);
           }
         }
       }

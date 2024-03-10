@@ -9,16 +9,23 @@ import { Id } from '../types/common';
 import { RomcalConfigInput } from '../types/config';
 import { LiturgicalDayBundleInput } from '../types/liturgical-day';
 import { Dates } from '../utils/dates';
+
 import { RomcalConfig } from './config';
 import { LiturgicalDayDef } from './liturgical-day-def';
 
 export class CalendarDef implements BaseCalendarDef {
   readonly #config: RomcalConfig;
+
   readonly dates: typeof Dates;
-  parentCalendar?: CalendarDefInstance | null;
+
+  ParentCalendar?: CalendarDefInstance | null;
+
   parentCalendarInstance?: InstanceType<CalendarDefInstance>;
+
   readonly particularConfig?: ParticularConfig;
+
   inputs: CalendarDefInputs = {};
+
   #definitionsBuilt = false;
 
   /**
@@ -33,6 +40,7 @@ export class CalendarDef implements BaseCalendarDef {
     }
     return this.#calendarName;
   }
+
   #calendarName?: Id;
 
   constructor(config: RomcalConfig, inputs?: BundleInputs) {
@@ -48,8 +56,8 @@ export class CalendarDef implements BaseCalendarDef {
    */
   updateConfig(input?: RomcalConfigInput): void {
     // Init the parent calendar
-    if (this.parentCalendar) {
-      this.parentCalendarInstance = new this.parentCalendar(this.#config);
+    if (this.ParentCalendar) {
+      this.parentCalendarInstance = new this.ParentCalendar(this.#config);
 
       // Update first the configuration from the parent calendar(s)
       this.parentCalendarInstance.updateConfig(input);
@@ -110,9 +118,9 @@ export class CalendarDef implements BaseCalendarDef {
    * @param input
    * @private
    */
-  #buildDefinition(id: Id, input: LiturgicalDayBundleInput): void {
+  #buildDefinition(id: Id, input: LiturgicalDayBundleInput): LiturgicalDayDef {
     // Create a new LiturgicalDay object from its definition
-    new LiturgicalDayDef(
+    return new LiturgicalDayDef(
       id,
       {
         dateDef: input.dateDef,
@@ -129,7 +137,7 @@ export class CalendarDef implements BaseCalendarDef {
         drop: input.drop,
       },
       input.fromCalendarId ?? this.calendarName,
-      this.#config,
+      this.#config
     );
   }
 }

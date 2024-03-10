@@ -1,13 +1,14 @@
 import { Colors } from '../constants/colors';
 import { ProperCycles } from '../constants/cycles';
-import { PatronTitles } from '../constants/martyrology-metadata';
+import { PatronTitle } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { Inputs } from '../types/calendar-def';
+
 import { Europe } from './europe';
 
 export class Hungary extends CalendarDef {
-  parentCalendar = Europe;
+  ParentCalendar = Europe;
 
   inputs: Inputs = {
     paul_of_thebes_hermit: {
@@ -214,7 +215,7 @@ export class Hungary extends CalendarDef {
       customLocaleId: 'our_lady_of_hungary_patroness_of_hungary',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       dateDef: { month: 10, date: 8 },
-      titles: { append: [PatronTitles.PatronessOfHungary] },
+      titles: { append: [PatronTitle.PatronessOfHungary] },
     },
 
     charles_i_of_austria: {

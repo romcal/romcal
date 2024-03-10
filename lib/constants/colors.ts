@@ -15,7 +15,7 @@ export enum Colors {
  * A dynamically generated constant consisting of all the enum keys in [[LITURGICAL_COLORS]]
  */
 export const COLORS = Object.keys(Colors).filter(
-  (key) => typeof Colors[key as keyof typeof Colors] === 'string',
+  (key) => typeof Colors[key as keyof typeof Colors] === 'string'
 ) as Uppercase<keyof typeof Colors>[];
 
 export type Color = (typeof COLORS)[number];
