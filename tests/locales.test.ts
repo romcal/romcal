@@ -18,11 +18,11 @@ describe('Testing localization functionality', () => {
 
 describe('Testing whether celebration names from `.names` object with seasonal week return the correct localized name', () => {
   for (const i of nameFixtures) {
-    const r = new Romcal({ localizedCalendar: i.c });
+    const r = new Romcal({ localizedCalendar: i.calendar });
 
-    for (const d of i.t) {
-      test(`- ${`\`${i.c.i18n.id}\``.padEnd(8, ' ')}: \`${d.k}\``, async () => {
-        expect((await r.getOneLiturgicalDay(d.k))?.name).toBe(d.v);
+    for (const d of i.tests) {
+      test(`- ${`\`${i.calendar.i18n.id}\``.padEnd(8, ' ')}: \`${d.k}\``, async () => {
+        expect((await r.getOneLiturgicalDay(d.key))?.name).toBe(d.value);
       });
     }
   }
