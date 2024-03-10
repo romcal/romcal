@@ -14,7 +14,7 @@ import {
 
 import { Fixture } from '../type/fixture.type';
 
-export const fixture: Fixture = [
+export const seasonalWeekNumberLocalisationFixture: Fixture = [
   {
     calendar: GeneralRoman_Cs,
     tests: [
