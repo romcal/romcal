@@ -12,7 +12,21 @@ import {
   GeneralRoman_Sk,
 } from 'romcal/dist/bundles/general-roman';
 
-export const fixture = [
+import { BaseRomcalBundle } from '../../lib/types/bundle'
+
+type Fixture = ({
+  /** Base romcal bundle instance */
+  c: BaseRomcalBundle,
+  /** Localization tests definition */
+  t: ({
+    /** Liturgical celebration localization key name */
+    k: string,
+    /** Expected value of a localized liturgical celebration name */
+    v: string,
+  })[]
+})[]
+
+export const fixture: Fixture = [
   {
     c: GeneralRoman_Cs,
     t: [
