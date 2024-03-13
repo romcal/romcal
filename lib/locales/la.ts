@@ -970,7 +970,7 @@ export const locale: Locale = {
     stanislaus_of_szczepanow_bishop_patron_of_poland: 'S. Stanislai, episcopi, martyris, patroni Poloniæ',
     stephen_i_of_hungary: 'S. Stephani Hungariæ',
     stephen_the_first_martyr: 'S. Stephani, protomartyris',
-    sunday_of_the_word_of_god: 'Dominica $t(ordinals:{{week}}) per annum, seu Dominica Verbi Dei',
+    sunday_of_the_word_of_god: 'Dominica tertia per annum, seu Dominica Verbi Dei',
     sunniva_of_norway_virgin: 'S. Sunnivæ, virginis et martyris',
     swithun_of_winchester_bishop: 'S. Swithuni, episcopi',
     sylvester_i_pope: 'S. Silvestri I, papæ',
