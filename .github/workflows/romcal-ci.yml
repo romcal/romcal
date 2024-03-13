@@ -27,7 +27,7 @@ jobs:
 
       - run: npm run lint
 
-      - run: npm run prettier
+      - run: prettier -v && npm run prettier
 
       - run: npm run build
 
