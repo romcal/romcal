@@ -24,6 +24,7 @@ jobs:
 
       # using -q to silent info outputs
       - run: npm -q --no-progress ci --no-audit
+      - run: npm run prettier
 
       - run: npm run build
 
