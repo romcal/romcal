@@ -38,6 +38,7 @@ Extra points if your code comes with tests!
 #### Bootstrapping code!
 
 We leverage `nvm` to standardize our node version usage. You can use the same version we use for tests & development with 2 simple commands:
+
 ```shell
 $ nvm install
 $ nvm use
@@ -49,6 +50,7 @@ Learn more: [nvm](https://github.com/nvm-sh/nvm)
 Automatic nvm switching: [deeper shell integration](https://github.com/nvm-sh/nvm#deeper-shell-integration)
 
 After that, you just have to install dependencies:
+
 ```shell
 $ npm ci
 ```

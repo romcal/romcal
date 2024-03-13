@@ -19,7 +19,5 @@
   },
   "exclude": ["node_modules"],
   "include": ["lib/**/*", "tests/**/*", "scripts/**/*", "tmp/bundles/**/*", "tmp/constants/**/*"],
-  "files": [
-    "tests/global.d.ts"
-  ]
+  "files": ["tests/global.d.ts"]
 }

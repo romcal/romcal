@@ -1,34 +1,34 @@
 version: 2
 updates:
   - package-ecosystem: npm
-    directory: "/"
+    directory: '/'
     schedule:
-      interval: "weekly"
-      day: "saturday"
-      time: "00:00"
+      interval: 'weekly'
+      day: 'saturday'
+      time: '00:00'
     commit-message:
-      prefix: "chore"
-      prefix-development: "dev"
-      include: "scope"
+      prefix: 'chore'
+      prefix-development: 'dev'
+      include: 'scope'
     labels:
-      - "dependencies"
+      - 'dependencies'
     open-pull-requests-limit: 10
     pull-request-branch-name:
-      separator: "-"
-    rebase-strategy: "auto"
+      separator: '-'
+    rebase-strategy: 'auto'
   - package-ecosystem: github-actions
-    directory: "/"
+    directory: '/'
     schedule:
-      interval: "weekly"
-      day: "saturday"
-      time: "00:00"
+      interval: 'weekly'
+      day: 'saturday'
+      time: '00:00'
     commit-message:
-      prefix: "ci"
-      prefix-development: "dev"
-      include: "scope"
+      prefix: 'ci'
+      prefix-development: 'dev'
+      include: 'scope'
     labels:
-      - "dependencies"
+      - 'dependencies'
     open-pull-requests-limit: 10
     pull-request-branch-name:
-      separator: "-"
-    rebase-strategy: "auto"
+      separator: '-'
+    rebase-strategy: 'auto'
