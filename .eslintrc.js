@@ -7,7 +7,7 @@ module.exports = {
   },
   parserOptions: {
     project: 'tsconfig.json',
-    sourceType: 'module'
+    sourceType: 'module',
   },
   extends: [
     'airbnb-base',
@@ -42,8 +42,8 @@ module.exports = {
     'import/no-extraneous-dependencies': [
       'error',
       {
-        devDependencies: ['tests/**', 'scripts/**']
-      }
+        devDependencies: ['tests/**', 'scripts/**'],
+      },
     ],
     'import/prefer-default-export': 'off',
 
@@ -69,72 +69,78 @@ module.exports = {
     ],
   },
   // override specific to test files
-  overrides: [{
-    files: ['scripts/**/*.ts', 'lib/**/*.ts', 'tests/**/*.ts'],
-    parser: '@typescript-eslint/parser',
-    plugins: ['@typescript-eslint'],
-    rules: {
-      // disable overlapping non-typescript rules
-      'no-return-await': 'off',
-      'no-unused-vars': 'off',
+  overrides: [
+    {
+      files: ['scripts/**/*.ts', 'lib/**/*.ts', 'tests/**/*.ts'],
+      parser: '@typescript-eslint/parser',
+      plugins: ['@typescript-eslint'],
+      rules: {
+        // disable overlapping non-typescript rules
+        'no-return-await': 'off',
+        'no-unused-vars': 'off',
 
-      // oddly failing only on ci...?
-      'import/extensions': 'off',
+        // oddly failing only on ci...?
+        'import/extensions': 'off',
 
-      // overlapping typescript-only format rules
-      '@typescript-eslint/indent': 'off',
-      '@typescript-eslint/comma-dangle': 'off',
+        // overlapping typescript-only format rules
+        '@typescript-eslint/indent': 'off',
+        '@typescript-eslint/comma-dangle': 'off',
 
-      '@typescript-eslint/explicit-module-boundary-types': 'error',
-      '@typescript-eslint/explicit-function-return-type': 'error',
-      '@typescript-eslint/no-non-null-assertion': 'error',
-      '@typescript-eslint/no-explicit-any': 'error',
-      '@typescript-eslint/no-use-before-define': 'error',
-      '@typescript-eslint/no-shadow': ['error'],
+        '@typescript-eslint/explicit-module-boundary-types': 'error',
+        '@typescript-eslint/explicit-function-return-type': 'error',
+        '@typescript-eslint/no-non-null-assertion': 'error',
+        '@typescript-eslint/no-explicit-any': 'error',
+        '@typescript-eslint/no-use-before-define': 'error',
+        '@typescript-eslint/no-shadow': ['error'],
 
-      '@typescript-eslint/return-await': ['error', 'always'],
-      '@typescript-eslint/array-type': ['error', { default: 'array' }],
-      '@typescript-eslint/class-literal-property-style': ['error', 'getters'],
-      '@typescript-eslint/prefer-readonly': 'error',
-      '@typescript-eslint/no-confusing-non-null-assertion': 'error',
-      '@typescript-eslint/no-extraneous-class': 'error',
-      '@typescript-eslint/prefer-includes': 'error',
-      '@typescript-eslint/prefer-optional-chain': 'error',
-      '@typescript-eslint/prefer-regexp-exec': 'error',
-      '@typescript-eslint/require-array-sort-compare': ['error', { ignoreStringArrays: true }],
+        '@typescript-eslint/return-await': ['error', 'always'],
+        '@typescript-eslint/array-type': ['error', { default: 'array' }],
+        '@typescript-eslint/class-literal-property-style': ['error', 'getters'],
+        '@typescript-eslint/prefer-readonly': 'error',
+        '@typescript-eslint/no-confusing-non-null-assertion': 'error',
+        '@typescript-eslint/no-extraneous-class': 'error',
+        '@typescript-eslint/prefer-includes': 'error',
+        '@typescript-eslint/prefer-optional-chain': 'error',
+        '@typescript-eslint/prefer-regexp-exec': 'error',
+        '@typescript-eslint/require-array-sort-compare': ['error', { ignoreStringArrays: true }],
+      },
+      // i know the nesting is weird, but this keeps all the tests inheriting ts base configs
+      overrides: [
+        {
+          files: ['scripts/**/*.ts', 'lib/types/**/*.ts', 'lib/utils/**/*.ts', 'lib/constants/**/*.ts'],
+          rules: {
+            // scripts don't export, and utils are always needed!
+            // turn this off to see if there's anything unused worth removing
+            'import/no-unused-modules': 'off',
+            'no-console': 'off',
+          },
+        },
+        {
+          files: ['lib/particular-calendars/*.ts'],
+          rules: {
+            '@typescript-eslint/naming-convention': [
+              'error',
+              {
+                selector: 'class',
+                format: null,
+                custom: {
+                  regex: '^([A-Z][a-z]+)+(?:_([A-Z][a-z]+)+)*$',
+                  match: true,
+                },
+              },
+            ],
+          },
+        },
+        {
+          files: ['tests/**/*.ts', '**/*.spec.ts'],
+          extends: ['plugin:jest/recommended'],
+          plugins: ['jest'],
+          rules: {
+            // tests don't export
+            'import/no-unused-modules': 'off',
+          },
+        },
+      ],
     },
-    // i know the nesting is weird, but this keeps all the tests inheriting ts base configs
-    overrides: [{
-      files: ['scripts/**/*.ts', 'lib/types/**/*.ts', 'lib/utils/**/*.ts', 'lib/constants/**/*.ts'],
-      rules: {
-        // scripts don't export, and utils are always needed!
-        // turn this off to see if there's anything unused worth removing
-        'import/no-unused-modules': 'off',
-        'no-console': 'off',
-      }
-    }, {
-      files: ['lib/particular-calendars/*.ts'],
-      rules: {
-        '@typescript-eslint/naming-convention': [
-          'error',
-          {
-            selector: 'class',
-            format: null,
-            custom: {
-              regex: '^([A-Z][a-z]+)+(?:_([A-Z][a-z]+)+)*$',
-              match: true,
-            },
-          }
-        ]
-      }
-    }, {
-      files: ['tests/**/*.ts', '**/*.spec.ts'],
-      extends: ['plugin:jest/recommended'],
-      plugins: ['jest'],
-      rules: {
-        // tests don't export
-        'import/no-unused-modules': 'off',
-      }
-    }],
-  }]
+  ],
 };
