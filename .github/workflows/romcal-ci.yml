@@ -23,16 +23,16 @@ jobs:
           node-version-file: '.nvmrc'
 
       # using -q to silent info outputs
-      - name: Install dependencies
+      - name: Install Dependencies
         run: npm -q --no-progress ci --no-audit
 
       - name: Lint
         run: npm run lint
 
-      - name: Check Formatting
+      - name: Formatting
         run: npm run prettier
 
-      - name: Ensure Build Runs Successfully
+      - name: Build
         run: npm run build
 
       - name: Test (no coverage)
