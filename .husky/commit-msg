@@ -1,0 +1,3 @@
+echo "Running COMMIT MESSAGE hook"
+
+npx --no -- commitlint --edit $1
