@@ -5,4 +5,4 @@ echo "Running PRE-COMMIT hook"
 npx lint-staged
 npm dedupe
 
-echo "Don't for get to commit your deduped package-lock.json!"
+echo "Don't forget to commit your deduped package-lock.json!"
