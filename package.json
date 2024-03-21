@@ -113,6 +113,9 @@
     ],
     "*.{json,yaml,yml}": [
       "prettier --write"
+    ],
+    "package.json, package-lock.json": [
+      "npm dedupe"
     ]
   },
   "license": "MIT"

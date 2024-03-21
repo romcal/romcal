@@ -3,6 +3,3 @@
 echo "Running PRE-COMMIT hook"
 
 npx lint-staged
-npm -q --no-progress dedupe
-
-echo "Don't forget to commit your deduped package-lock.json!"
