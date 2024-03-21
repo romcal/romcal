@@ -144,16 +144,16 @@ General format/terminology:
 
 Here are some guardrails to follow:
 
-When "type" one of the keys, the scopes allowed are as follows:
+When the "type" is one of the keys, the scopes allowed are as follows:
 
 - `ci` (updates to automation or the release process): No scope allowed
 - `build` (updates to build scripts): No scope allowed
 - `docs` (documentation): No Scope allowed
 - `feat` (net-new feature):
-  - Any of the calendar ids (`general` or `europe`, or `slovakia`, etc.)
-  - Any of the locale ids (`en`, `fr`, `es`, etc.)
-  - 'l10n' for changes to localization, either multiple locales or not specific to one
-  - 'calendar' for changes to calendars, either multiple or not specific to one
+  - Any of the calendar IDs (`general` or `europe`, or `slovakia`, etc.)
+  - Any of the locale IDs (`en`, `fr`, `es`, etc.)
+  - `l10n` for changes to localization, either multiple locales or not specific to one
+  - `calendar` for changes to calendars, either multiple or not specific to one
 - `enh` (enhancement): see `feat`
 - `fix` (bug fix): see `feat`
 - `refactor` (refactoring of code): see `feat`
@@ -165,11 +165,11 @@ When "type" one of the keys, the scopes allowed are as follows:
 
 (of staged files)
 
-Files you stage & commit are automatically linted, and fixes applied.
+Files you stage & commit are automatically linted, and fixes are applied to your commit.
 
 If it fails linting, your commit will fail.
 
 ### Dependency Deduping
 
-Will be performed automatically, but you are responsible for committing it at your convenience.
+Dependency deduping will be performed automatically, but you are responsible for committing it at your convenience.
 Dedupe checking is performed in GitHub Actions, and if it fails, the build will fail.

@@ -12,7 +12,7 @@ const typesEnumScoped = {
   build: empty,
   // Documentation only changes
   docs: empty,
-  // Features, net-new functionality
+  // Features, new functionality
   feat: calendarScopes,
   // Enhancing existing functionality
   enh: calendarScopes,
