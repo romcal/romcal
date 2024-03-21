@@ -142,9 +142,7 @@ General format/terminology:
 [optional footer(s)]
 ```
 
-Here are some rules to follow:
-
-When the "type" is one of the keys, the scopes allowed follow the successive rules:
+In the following list, you can find what scopes can be used for each allowed type.
 
 - `ci`:
   - scopes: No scope allowed
