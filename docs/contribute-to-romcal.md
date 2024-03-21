@@ -1,6 +1,6 @@
 **:warning: The documentation above is written for romcal v2, and has not been updated yet to romcal v3.**
 
-# Install, Build, Run and Test romcal locally
+# Install, Build, Run and Test romcal Locally
 
 This section describes how to run the romcal source code in your machine, and how to contribute to this project.
 You might also be interested in reading the general [contribution guide](../CONTRIBUTING.md).
@@ -12,7 +12,7 @@ You might also be interested in reading the general [contribution guide](../CONT
 - [Test](#test)
 - [Coverage reporting](#coverage-reporting)
 
-## Retrieve the codebase
+## Retrieve the Codebase
 
 1. [Fork the repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo#fork-an-example-repository).
 
@@ -122,11 +122,11 @@ npm run test -t ./src/utils/object/object.test.ts
 
 _pass the `-t` flag and the path of the file_
 
-## Coverage reporting
+## Coverage Reporting
 
 A coverage report is generated for every core branch build and published to [gh-pages]().
 
-## Committing changes
+## Committing Changes
 
 ### Message Format
 
@@ -142,26 +142,46 @@ General format/terminology:
 [optional footer(s)]
 ```
 
-Here are some guardrails to follow:
+Here are some rules to follow:
 
 When the "type" is one of the keys, the scopes allowed are as follows:
 
-- `ci` (updates to automation or the release process): No scope allowed
-- `build` (updates to build scripts): No scope allowed
-- `docs` (documentation): No Scope allowed
-- `feat` (net-new feature):
-  - Any of the calendar IDs (`general` or `europe`, or `slovakia`, etc.)
-  - Any of the locale IDs (`en`, `fr`, `es`, etc.)
-  - `l10n` for changes to localization, either multiple locales or not specific to one
-  - `calendar` for changes to calendars, either multiple or not specific to one
-- `enh` (enhancement): see `feat`
-- `fix` (bug fix): see `feat`
-- `refactor` (refactoring of code): see `feat`
-- `perf` (performance improvements): see `feat`
-- `test` (adding or updating tests): see `feat`
-- `style` (formatting, missing semi-colons, etc; no code change): see for `feat`
+- `ci`:
+  - scopes: No scope allowed
+  - use: Updates to automation or the release process
+- `build`:
+  - scopes: No scope allowed
+  - use: updates to build scripts
+- `docs`:
+  - scopes: No Scope allowed
+  - use: documentation changes, updates, or additions
+- `feat`:
+  - scopes:
+    - Any of the calendar IDs (`general` or `europe`, or `slovakia`, etc.)
+    - Any of the locale IDs (`en`, `fr`, `es`, etc.)
+    - `l10n` for changes to localization, either multiple locales or not specific to one
+    - `calendar` for changes to calendars, either multiple or not specific to one
+  - use: new features
+- `enh`:
+  - scopes: see `feat`
+  - use: enhancements to existing features
+- `fix`:
+  - scopes: see `feat`
+  - use: bug fixes
+- `refactor`:
+  - scopes: see `feat`
+  - use: refactoring code, maintaining the same behaviors
+- `perf`:
+  - scopes: see `feat`
+  - use: performance improvements, but not changing behavior
+- `test`:
+  - scopes: see `feat`
+  - use: adding or updating tests
+- `style`:
+  - scopes: see for `feat`
+  - use: formatting, missing semicolons, etc.; no code change
 
-### Automatic linting
+### Automatic Linting
 
 (of staged files)
 

@@ -3,7 +3,7 @@ import { LOCALE_IDS } from './lib/constants/locales';
 import { CALENDAR_IDS } from './lib/constants/calendars';
 
 const empty = [null];
-const calendarScopes = [...CALENDAR_IDS, ...LOCALE_IDS, 'l10n', 'calendar'];
+const scopes = [...CALENDAR_IDS, ...LOCALE_IDS, 'l10n', 'calendar'];
 
 const typesEnumScoped = {
   // Updates to the automation or release process
@@ -13,19 +13,19 @@ const typesEnumScoped = {
   // Documentation only changes
   docs: empty,
   // Features, new functionality
-  feat: calendarScopes,
+  feat: scopes,
   // Enhancing existing functionality
-  enh: calendarScopes,
+  enh: scopes,
   // Bug fixes
-  fix: calendarScopes,
+  fix: scopes,
   // Refactoring, no behavior changes
-  refactor: calendarScopes,
+  refactor: scopes,
   // Performance improvements
-  perf: calendarScopes,
+  perf: scopes,
   // Add or correct tests
-  test: calendarScopes,
-  // Changes that affect
-  style: calendarScopes,
+  test: scopes,
+  // Changes that affect style, linting, formatting and grammar
+  style: scopes,
 };
 
 export default {
@@ -43,7 +43,7 @@ export default {
       2,
       'always',
       // From `commitlint` point of view, allow all scopes regardless of the type
-      [...calendarScopes].filter(Boolean),
+      scopes,
     ],
     // Use `selective-scope` to make sure that the scopes are only allowed when they are defined for a particular type
     'selective-scope': [2, 'always', typesEnumScoped],
