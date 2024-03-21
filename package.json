@@ -111,7 +111,7 @@
       "eslint --fix",
       "prettier --write"
     ],
-    "*.{json,yaml,yml}": [
+    "*.{json,yaml,yml,md}": [
       "prettier --write"
     ],
     "package.json, package-lock.json": [

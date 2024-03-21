@@ -129,9 +129,11 @@ A coverage report is generated for every core branch build and published to [gh-
 ## Committing changes
 
 ### Message Format
+
 When you are ready to commit your changes, your commit message should follow the conventional commit format
 
 General format/terminology:
+
 ```
 <type>[optional scope]: <description>
 
@@ -143,6 +145,7 @@ General format/terminology:
 Here are some guardrails to follow:
 
 When "type" one of the keys, the scopes allowed are as follows:
+
 - `ci` (updates to automation or the release process): No scope allowed
 - `build` (updates to build scripts): No scope allowed
 - `docs` (documentation): No Scope allowed
@@ -159,6 +162,7 @@ When "type" one of the keys, the scopes allowed are as follows:
 - `style` (formatting, missing semi-colons, etc; no code change): see for `feat`
 
 ### Automatic linting
+
 (of staged files)
 
 Files you stage & commit are automatically linted, and fixes applied.
