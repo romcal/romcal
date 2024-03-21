@@ -144,7 +144,7 @@ General format/terminology:
 
 Here are some rules to follow:
 
-When the "type" is one of the keys, the scopes allowed are as follows:
+When the "type" is one of the keys, the scopes allowed follow the successive rules:
 
 - `ci`:
   - scopes: No scope allowed
