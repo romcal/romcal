@@ -17,7 +17,6 @@
     "clean": "rimraf coverage dist tmp",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
-    "prebuild": "npm run lint",
     "prettier": "prettier -c .",
     "prettier:fix": "prettier -w .",
     "build": "node -r ts-node/register scripts/build.ts",
@@ -26,7 +25,8 @@
     "test": "TZ=UTC jest --coverage",
     "test:without-coverage": "TZ=UTC jest",
     "test:watch": "TZ=UTC jest --watch",
-    "test:snapshot:update": "TZ=UTC jest -u"
+    "test:snapshot:update": "TZ=UTC jest -u",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -69,6 +69,9 @@
     "ts-deepmerge": "^7.0.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.1.0",
+    "@commitlint/config-conventional": "^19.1.0",
+    "@commitlint/types": "^19.0.3",
     "@jsdevtools/npm-publish": "^1.4.3",
     "@types/cli-progress": "^3.11.5",
     "@types/humanize-duration": "^3.27.4",
@@ -78,6 +81,7 @@
     "@typescript-eslint/parser": "^7.1.0",
     "chalk": "^4.1.2",
     "cli-progress": "^3.12.0",
+    "commitlint-plugin-selective-scope": "^1.0.1",
     "dts-bundle-generator": "^9.3.1",
     "esbuild": "~0.20.1",
     "esbuild-jest": "~0.5.0",
@@ -91,6 +95,7 @@
     "eslint-plugin-unused-imports": "^3.1.0",
     "glob": "^10.3.10",
     "humanize-duration": "^3.31.0",
+    "husky": "^9.0.11",
     "jest": "^29.7.0",
     "jest-extended": "^4.0.2",
     "prettier": "~3.2.5",
@@ -100,6 +105,18 @@
     "tslib": "^2.6.2",
     "type-fest": "^4.10.3",
     "typescript": "~5.2.2"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,yaml,yml,md}": [
+      "prettier --write"
+    ],
+    "package.json, package-lock.json": [
+      "npm dedupe"
+    ]
   },
   "license": "MIT"
 }
