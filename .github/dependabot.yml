@@ -7,9 +7,7 @@ updates:
       day: 'saturday'
       time: '00:00'
     commit-message:
-      prefix: 'chore'
-      prefix-development: 'dev'
-      include: 'scope'
+      prefix: 'ci'
     labels:
       - 'dependencies'
     open-pull-requests-limit: 10
@@ -24,8 +22,6 @@ updates:
       time: '00:00'
     commit-message:
       prefix: 'ci'
-      prefix-development: 'dev'
-      include: 'scope'
     labels:
       - 'dependencies'
     open-pull-requests-limit: 10
