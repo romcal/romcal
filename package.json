@@ -65,7 +65,7 @@
   },
   "homepage": "https://github.com/romcal/romcal/blob/master/README.md",
   "dependencies": {
-    "i18next": "^21.6.0",
+    "i18next": "^23.10.1",
     "ts-deepmerge": "^7.0.0"
   },
   "devDependencies": {
