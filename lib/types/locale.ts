@@ -61,8 +61,8 @@ export interface Locale {
     sunday_year_a?: string;
     sunday_year_b?: string;
     sunday_year_c?: string;
-    weekday_year_1?: string;
-    weekday_year_2?: string;
+    weekday_cycle_1?: string;
+    weekday_cycle_2?: string;
     psalter_week_1?: string;
     psalter_week_2?: string;
     psalter_week_3?: string;

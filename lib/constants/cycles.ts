@@ -56,8 +56,8 @@ export type SundayCycle = (typeof SUNDAY_CYCLES)[number];
  * Odd-numbered years are the Cycle I (year 1); even-numbered ones are the Cycle II (year 2).
  */
 export const WeekdayCycles = {
-  Year1: 'YEAR_1',
-  Year2: 'YEAR_2',
+  Cycle1: 'CYCLE_1',
+  Cycle2: 'CYCLE_2',
 } as const;
 
 /**
