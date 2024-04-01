@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo "Running PRE-COMMIT hook"
+
+npx lint-staged

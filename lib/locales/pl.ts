@@ -494,7 +494,7 @@ export const locale: Locale = {
     stanislaus_of_szczepanow_bishop_patron_of_poland: 'Św. Stanisława, biskupa i męczennika, głównego patrona Polski',
     stephen_i_of_hungary: 'Św. Stefana Węgierskiego',
     stephen_the_first_martyr: 'Św. Szczepana, pierwszego męczennika',
-    sunday_of_the_word_of_god: '{{week}} Niedziela zwykła, czyli Niedziela Słowa Bożego',
+    sunday_of_the_word_of_god: '3 Niedziela zwykła, czyli Niedziela Słowa Bożego',
     sylvester_i_pope: 'Św. Sylwestra I, papieża',
     teresa_benedicta_of_the_cross_stein_virgin: 'Św. Teresy Benedykty od Krzyża, dziewicy i męczennicy',
     teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe:

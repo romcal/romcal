@@ -1,16 +1,17 @@
-import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
+
+import chalk from 'chalk';
 import prettier from 'prettier';
 
 import { GeneralRoman } from '../lib/general-calendar/proper-of-saints';
 import { CalendarDef } from '../lib/models/calendar-def';
 import { particularCalendars } from '../lib/particular-calendars';
 import { toPackageName } from '../lib/utils/string';
+
 import { getDuration } from './time';
 
-// eslint-disable-next-line no-console
-const log = console.log;
+const { log } = console;
 const time = new Date();
 
 log(chalk.bold(`\n✓ Update the documentation of all calendar plugins in ${chalk.cyan('./docs/calendar-plugins.md')}`));
@@ -38,7 +39,7 @@ Below the list of all available calendar plugins:
 | Name | NPM Package name |
 | -----|------------------|\n`;
 
-for (let i = 0; i < allCalendars.length; i++) {
+for (let i = 0; i < allCalendars.length; i += 1) {
   const calendar = allCalendars[i];
   const humanName = calendar.name.replace(/([A-Z])/g, ' $1').replace('_', ' /');
   mdTemplate += `|${humanName}|\`@romcal/calendar.${toPackageName(calendar.name)}@dev\`|\n`;

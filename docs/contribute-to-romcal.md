@@ -1,6 +1,6 @@
 **:warning: The documentation above is written for romcal v2, and has not been updated yet to romcal v3.**
 
-# Install, Build, Run and Test romcal locally
+# Install, Build, Run and Test romcal Locally
 
 This section describes how to run the romcal source code in your machine, and how to contribute to this project.
 You might also be interested in reading the general [contribution guide](../CONTRIBUTING.md).
@@ -12,7 +12,7 @@ You might also be interested in reading the general [contribution guide](../CONT
 - [Test](#test)
 - [Coverage reporting](#coverage-reporting)
 
-## Retrieve the codebase
+## Retrieve the Codebase
 
 1. [Fork the repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo#fork-an-example-repository).
 
@@ -122,6 +122,72 @@ npm run test -t ./src/utils/object/object.test.ts
 
 _pass the `-t` flag and the path of the file_
 
-## Coverage reporting
+## Coverage Reporting
 
 A coverage report is generated for every core branch build and published to [gh-pages]().
+
+## Committing Changes
+
+### Message Format
+
+When you are ready to commit your changes, your commit message should follow the conventional commit format
+
+General format/terminology:
+
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+In the following list, you can find what scopes can be used for each allowed type.
+
+- `ci`:
+  - scopes: No scope allowed
+  - use: Updates to automation or the release process
+- `build`:
+  - scopes: No scope allowed
+  - use: updates to build scripts
+- `docs`:
+  - scopes: No Scope allowed
+  - use: documentation changes, updates, or additions
+- `feat`:
+  - scopes:
+    - Any of the calendar IDs (`general` or `europe`, or `slovakia`, etc.)
+    - Any of the locale IDs (`en`, `fr`, `es`, etc.)
+    - `l10n` for changes to localization, either multiple locales or not specific to one
+    - `calendar` for changes to calendars, either multiple or not specific to one
+  - use: new features
+- `enh`:
+  - scopes: see `feat`
+  - use: enhancements to existing features
+- `fix`:
+  - scopes: see `feat`
+  - use: bug fixes
+- `refactor`:
+  - scopes: see `feat`
+  - use: refactoring code, maintaining the same behaviors
+- `perf`:
+  - scopes: see `feat`
+  - use: performance improvements, but not changing behavior
+- `test`:
+  - scopes: see `feat`
+  - use: adding or updating tests
+- `style`:
+  - scopes: see for `feat`
+  - use: formatting, missing semicolons, etc.; no code change
+
+### Automatic Linting
+
+(of staged files)
+
+Files you stage & commit are automatically linted, and fixes are applied to your commit.
+
+If it fails linting, your commit will fail.
+
+### Dependency Deduping
+
+Dependency deduping will be performed automatically, but you are responsible for committing it at your convenience.
+Dedupe checking is performed in GitHub Actions, and if it fails, the build will fail.

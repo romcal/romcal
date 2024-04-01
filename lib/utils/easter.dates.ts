@@ -20,11 +20,11 @@ export const calculateGregorianEasterDate = (year: number): EasterDate => {
   const K = Math.floor((C - 17) / 25);
   let I = C - Math.floor(C / 4) - Math.floor((C - K) / 3) + 19 * N + 15;
 
-  I = I - 30 * Math.floor(I / 30);
-  I = I - Math.floor(I / 28) * (1 - Math.floor(I / 28) * Math.floor(29 / (I + 1)) * Math.floor((21 - N) / 11));
+  I -= 30 * Math.floor(I / 30);
+  I -= Math.floor(I / 28) * (1 - Math.floor(I / 28) * Math.floor(29 / (I + 1)) * Math.floor((21 - N) / 11));
 
   let J = Y + Math.floor(Y / 4) + I + 2 - C + Math.floor(C / 4);
-  J = J - 7 * Math.floor(J / 7);
+  J -= 7 * Math.floor(J / 7);
 
   const L = I - J;
   const M = 3 + Math.floor((L + 40) / 44);
@@ -47,6 +47,11 @@ export const isLeapGregorianYear = (year: number): boolean => {
   return year % 4 === 0 && !(year % 100 === 0 && year % 400 !== 0);
 };
 
+const leapDay = (year: number, month: number): number => {
+  const leapOffset = isLeapGregorianYear(year) ? -1 : -2;
+  return month <= 2 ? 0 : leapOffset;
+};
+
 export const gregorianToJulianDay = (year: number, month: number, day: number): number => {
   return (
     GREGORIAN_EPOCH -
@@ -55,7 +60,7 @@ export const gregorianToJulianDay = (year: number, month: number, day: number): 
     Math.floor((year - 1) / 4) +
     -Math.floor((year - 1) / 100) +
     Math.floor((year - 1) / 400) +
-    Math.floor((367 * month - 362) / 12 + (month <= 2 ? 0 : isLeapGregorianYear(year) ? -1 : -2) + day)
+    Math.floor((367 * month - 362) / 12 + leapDay(year, month) + day)
   );
 };
 
@@ -105,7 +110,8 @@ export const julianDayToGregorian = (julianDay: number): Date => {
   }
 
   const yearday = wjd - gregorianToJulianDay(year, 1, 1);
-  const leapadj = wjd < gregorianToJulianDay(year, 3, 1) ? 0 : isLeapGregorianYear(year) ? 1 : 2;
+  const leapdayOffset = isLeapGregorianYear(year) ? 1 : 2;
+  const leapadj = wjd < gregorianToJulianDay(year, 3, 1) ? 0 : leapdayOffset;
   const month = Math.floor(((yearday + leapadj) * 12 + 373) / 367);
   const day = wjd - gregorianToJulianDay(year, month, 1) + 1;
 

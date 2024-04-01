@@ -6,9 +6,13 @@ import { MartyrologyCatalog } from '../types/martyrology';
 
 export class RomcalBundle implements BaseRomcalBundle {
   calendarName: Id;
+
   particularConfig: ParticularConfig;
+
   inputs: BundleInputs;
+
   martyrology: MartyrologyCatalog;
+
   i18n: Locale;
 
   constructor(input: BaseRomcalBundle) {

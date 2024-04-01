@@ -1,12 +1,13 @@
 import { ProperCycles } from '../constants/cycles';
-import { PatronTitles } from '../constants/martyrology-metadata';
+import { PatronTitle } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { Inputs } from '../types/calendar-def';
+
 import { Americas } from './americas';
 
 export class PuertoRico extends CalendarDef {
-  parentCalendar = Americas;
+  ParentCalendar = Americas;
 
   inputs: Inputs = {
     most_holy_name_of_jesus: {
@@ -59,7 +60,7 @@ export class PuertoRico extends CalendarDef {
       customLocaleId: 'our_lady_mother_of_divine_providence_patroness_of_puerto_rico',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       dateDef: { month: 11, date: 19 },
-      titles: { append: [PatronTitles.PatronessOfPuertoRico] },
+      titles: { append: [PatronTitle.PatronessOfPuertoRico] },
     },
 
     our_lord_jesus_christ_the_eternal_high_priest: {

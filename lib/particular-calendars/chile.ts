@@ -1,12 +1,13 @@
 import { ProperCycles } from '../constants/cycles';
-import { Titles } from '../constants/martyrology-metadata';
+import { Title } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { Inputs } from '../types/calendar-def';
+
 import { Americas } from './americas';
 
 export class Chile extends CalendarDef {
-  parentCalendar = Americas;
+  ParentCalendar = Americas;
 
   inputs: Inputs = {
     laura_vicuna_virgin: {
@@ -47,7 +48,7 @@ export class Chile extends CalendarDef {
       customLocaleId: 'our_lady_of_mount_carmel_mother_and_queen_of_chile',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       dateDef: { month: 7, date: 16 },
-      titles: { append: [Titles.MotherAndQueenOfChile] },
+      titles: { append: [Title.MotherAndQueenOfChile] },
     },
 
     alberto_hurtado_priest: {

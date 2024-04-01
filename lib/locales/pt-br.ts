@@ -274,7 +274,7 @@ export const locale: Locale = {
       'São Dionísio, bispo e mártir, patrono da Arquidiocese de Paris',
     denis_of_paris_bishop_patron_of_the_city_and_of_the_diocese_of_saint_denis:
       'São Dionísio, bispo e mártir, patrono da Cidade e da Diocese de Saint-Denis',
-    divine_mercy_sunday: '{{week}}º Domingo do Tempo Pascal ou Domingo da Misericórdia',
+    divine_mercy_sunday: '2º Domingo do Tempo Pascal ou Domingo da Misericórdia',
     dominic_de_guzman_priest: 'São Domingos, presbítero',
     easter_sunday: 'Domingo da Páscoa',
     eligius_of_noyon_bishop: 'Santo Elígio, bispo',
@@ -494,7 +494,7 @@ export const locale: Locale = {
     stanislaus_of_szczepanow_bishop: 'Santo Estanislau, bispo e mártir',
     stephen_i_of_hungary: 'Santo Estêvão da Hungria',
     stephen_the_first_martyr: 'Santo Estêvão, primeiro mártir',
-    sunday_of_the_word_of_god: '{{week}}º Domingo do Tempo Comum, ou Domingo da Palavra de Deus',
+    sunday_of_the_word_of_god: '3º Domingo do Tempo Comum, ou Domingo da Palavra de Deus',
     sylvester_i_pope: 'São Silvestre I, papa',
     teresa_benedicta_of_the_cross_stein_virgin: 'Santa Teresa Benedita da Cruz, virgem e mártir',
     teresa_of_jesus_of_avila_virgin: 'São João de Ávila, presbítero e doutor da Igreja',

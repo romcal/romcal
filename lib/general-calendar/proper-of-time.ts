@@ -2,9 +2,9 @@ import { Colors } from '../constants/colors';
 import { ProperCycles } from '../constants/cycles';
 import { PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
 import { MONTHS } from '../constants/months';
-import { Periods } from '../constants/periods';
+import { Period } from '../constants/periods';
 import { Precedences } from '../constants/precedences';
-import { Seasons } from '../constants/seasons';
+import { Season } from '../constants/seasons';
 import { WEEKDAYS } from '../constants/weekdays';
 import { CalendarDef } from '../models/calendar-def';
 import { RomcalConfig } from '../models/config';
@@ -15,9 +15,12 @@ import { LiturgicalDayProperOfTimeInput } from '../types/liturgical-day';
 
 export class ProperOfTime extends CalendarDef {
   readonly #config: RomcalConfig;
+
   readonly #weekdays = WEEKDAYS;
+
   readonly #months = MONTHS;
-  #calendarName: string = PROPER_OF_TIME_NAME;
+
+  readonly #calendarName: string = PROPER_OF_TIME_NAME;
 
   public get calendarName(): string {
     return this.#calendarName;
@@ -55,8 +58,13 @@ export class ProperOfTime extends CalendarDef {
    * @param input
    * @private
    */
-  #newLiturgicalDayDef(id: Id, input: LiturgicalDayProperOfTimeInput): void {
-    new LiturgicalDayDef(id, { properCycle: ProperCycles.ProperOfTime, ...input }, PROPER_OF_TIME_NAME, this.#config);
+  #newLiturgicalDayDef(id: Id, input: LiturgicalDayProperOfTimeInput): LiturgicalDayDef {
+    return new LiturgicalDayDef(
+      id,
+      { properCycle: ProperCycles.ProperOfTime, ...input },
+      PROPER_OF_TIME_NAME,
+      this.#config
+    );
   }
 
   /**
@@ -65,7 +73,7 @@ export class ProperOfTime extends CalendarDef {
    */
   advent(yearOffset = 0): void {
     // All days, from the 1st Sunday of Advent to the Friday of the 3rd week of Advent.
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 20; i += 1) {
       const week = Math.floor(i / 7) + 1;
       const dow = i - (week - 1) * 7;
 
@@ -80,7 +88,7 @@ export class ProperOfTime extends CalendarDef {
                 yearOffset: -1 + yearOffset,
               },
         isHolyDayOfObligation: dow === 0,
-        seasons: [Seasons.Advent],
+        seasons: [Season.Advent],
         periods: [],
         calendarMetadata: { weekOfSeason: week, dayOfSeason: i + 1, dayOfWeek: dow },
         colors: [
@@ -96,7 +104,7 @@ export class ProperOfTime extends CalendarDef {
       precedence: Precedences.PrivilegedSunday_2,
       dateDef: { dateFn: 'sundayOfAdvent', dateArgs: [4], yearOffset: -1 + yearOffset },
       isHolyDayOfObligation: true,
-      seasons: [Seasons.Advent],
+      seasons: [Season.Advent],
       periods: [],
       calendarMetadata: { weekOfSeason: 4, dayOfSeason: 22, dayOfWeek: 0 },
       colors: [Colors.Purple],
@@ -104,7 +112,7 @@ export class ProperOfTime extends CalendarDef {
     });
 
     // Week before Christmas, from the 17 to 24 December.
-    for (let day = 17; day < 25; day++) {
+    for (let day = 17; day < 25; day += 1) {
       this.#newLiturgicalDayDef(`advent_${this.#months[11]}_${day}`, {
         precedence: Precedences.PrivilegedWeekday_9,
         dateDef: {
@@ -112,7 +120,7 @@ export class ProperOfTime extends CalendarDef {
           dateArgs: [day],
           yearOffset: -1 + yearOffset,
         },
-        seasons: [Seasons.Advent],
+        seasons: [Season.Advent],
         periods: [],
         calendarMetadata: {},
         colors: [Colors.Purple],
@@ -143,15 +151,15 @@ export class ProperOfTime extends CalendarDef {
       precedence: Precedences.ProperOfTimeSolemnity_2,
       dateDef: { dateFn: 'christmas', yearOffset: -1 + yearOffset },
       isHolyDayOfObligation: true,
-      seasons: [Seasons.ChristmasTime],
-      periods: [Periods.ChristmasOctave, Periods.ChristmasToPresentationOfTheLord],
+      seasons: [Season.ChristmasTime],
+      periods: [Period.ChristmasOctave, Period.ChristmasToPresentationOfTheLord],
       calendarMetadata: { weekOfSeason: 1, dayOfSeason: 1 },
       colors: [Colors.White],
       i18nDef: [`names:nativity_of_the_lord`],
     });
 
     // Octave of the Nativity of the Lord (without December 25 and January 1).
-    for (let count = 2; count < 8; count++) {
+    for (let count = 2; count < 8; count += 1) {
       this.#newLiturgicalDayDef(`christmas_octave_day_${count}`, {
         precedence: Precedences.PrivilegedWeekday_9,
         dateDef: {
@@ -159,8 +167,8 @@ export class ProperOfTime extends CalendarDef {
           dateArgs: [count],
           yearOffset: -1 + yearOffset,
         },
-        seasons: [Seasons.ChristmasTime],
-        periods: [Periods.ChristmasOctave, Periods.ChristmasToPresentationOfTheLord],
+        seasons: [Season.ChristmasTime],
+        periods: [Period.ChristmasOctave, Period.ChristmasToPresentationOfTheLord],
         calendarMetadata: { dayOfSeason: count },
         colors: [Colors.White],
         i18nDef: ['seasons:christmas_time.octave', { count }],
@@ -172,8 +180,8 @@ export class ProperOfTime extends CalendarDef {
     this.#newLiturgicalDayDef(`holy_family_of_jesus_mary_and_joseph`, {
       precedence: Precedences.GeneralLordFeast_5,
       dateDef: { dateFn: 'holyFamily', yearOffset: -1 + yearOffset },
-      seasons: [Seasons.ChristmasTime],
-      periods: [Periods.ChristmasOctave, Periods.ChristmasToPresentationOfTheLord],
+      seasons: [Season.ChristmasTime],
+      periods: [Period.ChristmasOctave, Period.ChristmasToPresentationOfTheLord],
       calendarMetadata: {},
       colors: [Colors.White],
       i18nDef: [`names:holy_family_of_jesus_mary_and_joseph`],
@@ -193,8 +201,8 @@ export class ProperOfTime extends CalendarDef {
       precedence: Precedences.GeneralSolemnity_3,
       dateDef: { dateFn: 'maryMotherOfGod', yearOffset },
       isHolyDayOfObligation: true,
-      seasons: [Seasons.ChristmasTime],
-      periods: [Periods.ChristmasOctave, Periods.ChristmasToPresentationOfTheLord],
+      seasons: [Season.ChristmasTime],
+      periods: [Period.ChristmasOctave, Period.ChristmasToPresentationOfTheLord],
       calendarMetadata: { dayOfSeason: 8 },
       colors: [Colors.White],
       i18nDef: ['names:mary_mother_of_god'],
@@ -205,11 +213,11 @@ export class ProperOfTime extends CalendarDef {
       precedence: Precedences.UnprivilegedSunday_6,
       dateDef: { dateFn: 'secondSundayAfterChristmas', yearOffset },
       isHolyDayOfObligation: true,
-      seasons: [Seasons.ChristmasTime],
+      seasons: [Season.ChristmasTime],
       periods: [
         // Note: before / from Epiphany flag is added during the creation of the liturgical day object,
         // because this can only be determined within a liturgical year scope.
-        Periods.ChristmasToPresentationOfTheLord,
+        Period.ChristmasToPresentationOfTheLord,
       ],
       calendarMetadata: {},
       colors: [Colors.White],
@@ -217,12 +225,12 @@ export class ProperOfTime extends CalendarDef {
     });
 
     // Weekdays of Christmas Time, before the Epiphany of the Lord.
-    for (let day = 2; day < 9; day++) {
+    for (let day = 2; day < 9; day += 1) {
       this.#newLiturgicalDayDef(`christmas_time_${this.#months[0]}_${day}`, {
         precedence: Precedences.Weekday_13,
         dateDef: { dateFn: 'weekdayBeforeEpiphany', dateArgs: [day], yearOffset },
-        seasons: [Seasons.ChristmasTime],
-        periods: [Periods.DaysBeforeEpiphany, Periods.ChristmasToPresentationOfTheLord],
+        seasons: [Season.ChristmasTime],
+        periods: [Period.DaysBeforeEpiphany, Period.ChristmasToPresentationOfTheLord],
         calendarMetadata: { dayOfSeason: 7 + day },
         colors: [Colors.White],
         i18nDef: ['seasons:christmas_time.before_epiphany', { day }],
@@ -234,20 +242,20 @@ export class ProperOfTime extends CalendarDef {
       precedence: Precedences.ProperOfTimeSolemnity_2,
       dateDef: { dateFn: 'epiphany', yearOffset },
       isHolyDayOfObligation: true,
-      seasons: [Seasons.ChristmasTime],
-      periods: [Periods.DaysFromEpiphany, Periods.ChristmasToPresentationOfTheLord],
+      seasons: [Season.ChristmasTime],
+      periods: [Period.DaysFromEpiphany, Period.ChristmasToPresentationOfTheLord],
       calendarMetadata: {},
       colors: [Colors.White],
       i18nDef: ['names:epiphany_of_the_lord'],
     });
 
     // Weekdays of Christmas Time, after the Epiphany of the Lord.
-    for (let dow = 1; dow < 7; dow++) {
+    for (let dow = 1; dow < 7; dow += 1) {
       this.#newLiturgicalDayDef(`${this.#weekdays[dow]}_after_epiphany`, {
         precedence: Precedences.Weekday_13,
         dateDef: { dateFn: 'weekdayAfterEpiphany', dateArgs: [dow], yearOffset },
-        seasons: [Seasons.ChristmasTime],
-        periods: [Periods.DaysFromEpiphany, Periods.ChristmasToPresentationOfTheLord],
+        seasons: [Season.ChristmasTime],
+        periods: [Period.DaysFromEpiphany, Period.ChristmasToPresentationOfTheLord],
         calendarMetadata: {},
         colors: [Colors.White],
         i18nDef: ['seasons:christmas_time.after_epiphany', { dow }],
@@ -258,8 +266,8 @@ export class ProperOfTime extends CalendarDef {
     this.#newLiturgicalDayDef(`baptism_of_the_lord`, {
       precedence: Precedences.ProperOfTimeSolemnity_2,
       dateDef: { dateFn: 'baptismOfTheLord', yearOffset },
-      seasons: [Seasons.ChristmasTime],
-      periods: [Periods.DaysFromEpiphany, Periods.ChristmasToPresentationOfTheLord],
+      seasons: [Season.ChristmasTime],
+      periods: [Period.DaysFromEpiphany, Period.ChristmasToPresentationOfTheLord],
       calendarMetadata: {},
       colors: [Colors.White],
       i18nDef: ['names:baptism_of_the_lord'],
@@ -275,20 +283,20 @@ export class ProperOfTime extends CalendarDef {
     this.#newLiturgicalDayDef(`ash_wednesday`, {
       precedence: Precedences.AshWednesday_2,
       dateDef: { dateFn: 'ashWednesday', yearOffset },
-      seasons: [Seasons.Lent],
-      periods: [Periods.PresentationOfTheLordToHolyThursday],
+      seasons: [Season.Lent],
+      periods: [Period.PresentationOfTheLordToHolyThursday],
       calendarMetadata: { weekOfSeason: 0, dayOfSeason: 1, dayOfWeek: 3 },
       colors: [Colors.Purple],
       i18nDef: [`names:ash_wednesday`],
     });
 
     // Days after Ash Wednesday.
-    for (let dow = 4; dow < 7; dow++) {
+    for (let dow = 4; dow < 7; dow += 1) {
       this.#newLiturgicalDayDef(`${this.#weekdays[dow]}_after_ash_wednesday`, {
         precedence: Precedences.PrivilegedWeekday_9,
         dateDef: { dateFn: 'ashWednesday', addDay: dow - 3, yearOffset },
-        seasons: [Seasons.Lent],
-        periods: [Periods.PresentationOfTheLordToHolyThursday],
+        seasons: [Season.Lent],
+        periods: [Period.PresentationOfTheLordToHolyThursday],
         calendarMetadata: { weekOfSeason: 0, dayOfSeason: dow - 2, dayOfWeek: dow },
         colors: [Colors.Purple],
         i18nDef: ['seasons:lent.day_after_ash_wed', { dow }],
@@ -296,15 +304,15 @@ export class ProperOfTime extends CalendarDef {
     }
 
     // All days, from the 1st Sunday of Lent to the Saturday of the 5th week of Lent.
-    for (let i = 0; i < 35; i++) {
+    for (let i = 0; i < 35; i += 1) {
       const week = Math.floor(i / 7) + 1;
       const dow = i - (week - 1) * 7;
       this.#newLiturgicalDayDef(`lent_${week}_${this.#weekdays[dow]}`, {
         precedence: dow === 0 ? Precedences.PrivilegedSunday_2 : Precedences.PrivilegedWeekday_9,
         dateDef: { dateFn: 'ashWednesday', addDay: i + 4, yearOffset },
         isHolyDayOfObligation: dow === 0,
-        seasons: [Seasons.Lent],
-        periods: [Periods.PresentationOfTheLordToHolyThursday],
+        seasons: [Season.Lent],
+        periods: [Period.PresentationOfTheLordToHolyThursday],
         calendarMetadata: { weekOfSeason: week, dayOfSeason: i + 5, dayOfWeek: dow },
         colors: [
           ...(week === 4 && dow === 0 ? [Colors.Rose] : []), // Laetare
@@ -319,20 +327,20 @@ export class ProperOfTime extends CalendarDef {
       precedence: Precedences.PrivilegedSunday_2,
       dateDef: { dateFn: 'palmSunday', yearOffset },
       isHolyDayOfObligation: true,
-      seasons: [Seasons.Lent],
-      periods: [Periods.HolyWeek, Periods.PresentationOfTheLordToHolyThursday],
+      seasons: [Season.Lent],
+      periods: [Period.HolyWeek, Period.PresentationOfTheLordToHolyThursday],
       calendarMetadata: { weekOfSeason: 6, dayOfSeason: 40, dayOfWeek: 0 },
       colors: [Colors.Red],
       i18nDef: [`names:palm_sunday_of_the_passion_of_the_lord`],
     });
 
     // Holy Week, Monday to Thursday.
-    for (let dow = 1; dow < 5; dow++) {
+    for (let dow = 1; dow < 5; dow += 1) {
       this.#newLiturgicalDayDef(`holy_${this.#weekdays[dow]}`, {
         precedence: Precedences.PrivilegedWeekday_9,
         dateDef: { dateFn: 'palmSunday', addDay: dow, yearOffset },
-        seasons: [Seasons.Lent],
-        periods: [Periods.HolyWeek, Periods.PresentationOfTheLordToHolyThursday],
+        seasons: [Season.Lent],
+        periods: [Period.HolyWeek, Period.PresentationOfTheLordToHolyThursday],
         calendarMetadata: { weekOfSeason: 6, dayOfSeason: 40 + dow, dayOfWeek: dow },
         colors: [Colors.Purple],
         i18nDef: ['seasons:lent.holy_week_day', { dow }],
@@ -349,8 +357,8 @@ export class ProperOfTime extends CalendarDef {
     this.#newLiturgicalDayDef(`thursday_of_the_lords_supper`, {
       precedence: Precedences.Triduum_1,
       dateDef: { dateFn: 'holyThursday', yearOffset },
-      seasons: [Seasons.PaschalTriduum],
-      periods: [Periods.HolyWeek],
+      seasons: [Season.PaschalTriduum],
+      periods: [Period.HolyWeek],
       calendarMetadata: { weekOfSeason: 1, dayOfSeason: 0, dayOfWeek: 4 },
       colors: [Colors.White],
       i18nDef: [`names:thursday_of_the_lords_supper`],
@@ -360,8 +368,8 @@ export class ProperOfTime extends CalendarDef {
     this.#newLiturgicalDayDef(`friday_of_the_passion_of_the_lord`, {
       precedence: Precedences.Triduum_1,
       dateDef: { dateFn: 'goodFriday', yearOffset },
-      seasons: [Seasons.PaschalTriduum],
-      periods: [Periods.HolyWeek],
+      seasons: [Season.PaschalTriduum],
+      periods: [Period.HolyWeek],
       calendarMetadata: { weekOfSeason: 1, dayOfSeason: 1, dayOfWeek: 5 },
       colors: [Colors.Red],
       i18nDef: [`names:friday_of_the_passion_of_the_lord`],
@@ -371,8 +379,8 @@ export class ProperOfTime extends CalendarDef {
     this.#newLiturgicalDayDef(`holy_saturday`, {
       precedence: Precedences.Triduum_1,
       dateDef: { dateFn: 'holySaturday', yearOffset },
-      seasons: [Seasons.PaschalTriduum],
-      periods: [Periods.HolyWeek],
+      seasons: [Season.PaschalTriduum],
+      periods: [Period.HolyWeek],
       calendarMetadata: { weekOfSeason: 1, dayOfSeason: 2, dayOfWeek: 6 },
       colors: [],
       i18nDef: [`names:holy_saturday`],
@@ -383,8 +391,8 @@ export class ProperOfTime extends CalendarDef {
       precedence: Precedences.Triduum_1,
       dateDef: { dateFn: 'easterSunday', yearOffset },
       isHolyDayOfObligation: true,
-      seasons: [Seasons.PaschalTriduum, Seasons.EasterTime],
-      periods: [Periods.EasterOctave],
+      seasons: [Season.PaschalTriduum, Season.EasterTime],
+      periods: [Period.EasterOctave],
       calendarMetadata: { weekOfSeason: 1, dayOfSeason: 1, dayOfWeek: 0 },
       colors: [Colors.White],
       i18nDef: [`names:easter_sunday`],
@@ -397,12 +405,12 @@ export class ProperOfTime extends CalendarDef {
    */
   easterTime(yearOffset = 0): void {
     // Octave of Easter.
-    for (let dow = 1; dow < 7; dow++) {
+    for (let dow = 1; dow < 7; dow += 1) {
       this.#newLiturgicalDayDef(`easter_${this.#weekdays[dow]}`, {
         precedence: Precedences.WeekdayOfEasterOctave_2,
         dateDef: { dateFn: 'easterSunday', addDay: dow, yearOffset },
-        seasons: [Seasons.EasterTime],
-        periods: [Periods.EasterOctave],
+        seasons: [Season.EasterTime],
+        periods: [Period.EasterOctave],
         calendarMetadata: { weekOfSeason: 1, dayOfSeason: dow + 1, dayOfWeek: dow },
         colors: [Colors.White],
         i18nDef: ['seasons:easter_time.octave', { dow }],
@@ -414,15 +422,15 @@ export class ProperOfTime extends CalendarDef {
       precedence: Precedences.PrivilegedSunday_2,
       dateDef: { dateFn: 'divineMercySunday', yearOffset },
       isHolyDayOfObligation: true,
-      seasons: [Seasons.EasterTime],
-      periods: [Periods.EasterOctave],
+      seasons: [Season.EasterTime],
+      periods: [Period.EasterOctave],
       calendarMetadata: { weekOfSeason: 2, dayOfSeason: 8, dayOfWeek: 0 },
       colors: [Colors.White],
       i18nDef: [`names:divine_mercy_sunday`],
     });
 
     // All days, from the 2nd Monday to the 7th Saturday of Easter Time.
-    for (let i = 8; i < 49; i++) {
+    for (let i = 8; i < 49; i += 1) {
       const week = Math.floor(i / 7) + 1;
       const dow = i - (week - 1) * 7;
 
@@ -434,7 +442,7 @@ export class ProperOfTime extends CalendarDef {
           yearOffset,
         },
         isHolyDayOfObligation: dow === 0,
-        seasons: [Seasons.EasterTime],
+        seasons: [Season.EasterTime],
         periods: [],
         calendarMetadata: { weekOfSeason: week, dayOfSeason: i + 1, dayOfWeek: dow },
         colors: [Colors.White],
@@ -460,7 +468,7 @@ export class ProperOfTime extends CalendarDef {
       precedence: Precedences.ProperOfTimeSolemnity_2,
       dateDef: { dateFn: 'pentecostSunday', yearOffset },
       isHolyDayOfObligation: true,
-      seasons: [Seasons.EasterTime],
+      seasons: [Season.EasterTime],
       periods: [],
       calendarMetadata: { weekOfSeason: 8, dayOfSeason: 50, dayOfWeek: 0 },
       colors: [Colors.Red],
@@ -478,7 +486,7 @@ export class ProperOfTime extends CalendarDef {
       precedence: Precedences.GeneralSolemnity_3,
       dateDef: { dateFn: 'trinitySunday', yearOffset },
       isHolyDayOfObligation: true,
-      seasons: [Seasons.OrdinaryTime],
+      seasons: [Season.OrdinaryTime],
       periods: [],
       calendarMetadata: { dayOfWeek: 0 },
       colors: [Colors.White],
@@ -490,7 +498,7 @@ export class ProperOfTime extends CalendarDef {
       precedence: Precedences.GeneralSolemnity_3,
       dateDef: { dateFn: 'corpusChristi', yearOffset },
       isHolyDayOfObligation: true,
-      seasons: [Seasons.OrdinaryTime],
+      seasons: [Season.OrdinaryTime],
       periods: [],
       calendarMetadata: {},
       colors: [Colors.White],
@@ -502,7 +510,7 @@ export class ProperOfTime extends CalendarDef {
       precedence: Precedences.GeneralSolemnity_3,
       dateDef: { dateFn: 'mostSacredHeartOfJesus', yearOffset },
       isHolyDayOfObligation: false,
-      seasons: [Seasons.OrdinaryTime],
+      seasons: [Season.OrdinaryTime],
       periods: [],
       calendarMetadata: { dayOfWeek: 5 },
       colors: [Colors.White],
@@ -510,7 +518,7 @@ export class ProperOfTime extends CalendarDef {
     });
 
     // Ordinary Time.
-    for (let i = 1; i < 238; i++) {
+    for (let i = 1; i < 238; i += 1) {
       const week = Math.floor(i / 7) + 1;
       const dow = i - (week - 1) * 7;
 
@@ -518,7 +526,7 @@ export class ProperOfTime extends CalendarDef {
         precedence: dow === 0 ? Precedences.UnprivilegedSunday_6 : Precedences.Weekday_13,
         dateDef: { dateFn: 'dateOfOrdinaryTime', dateArgs: [dow, week], yearOffset },
         isHolyDayOfObligation: dow === 0,
-        seasons: [Seasons.OrdinaryTime],
+        seasons: [Season.OrdinaryTime],
         periods: [],
         calendarMetadata: { weekOfSeason: week, dayOfWeek: dow },
         colors: [Colors.Green],

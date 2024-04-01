@@ -1,11 +1,12 @@
-import { PatronTitles } from '../constants/martyrology-metadata';
+import { PatronTitle } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { Inputs } from '../types/calendar-def';
+
 import { Europe } from './europe';
 
 export class Scotland extends CalendarDef {
-  parentCalendar = Europe;
+  ParentCalendar = Europe;
 
   inputs: Inputs = {
     kentigern_of_scotland_bishop: {
@@ -41,7 +42,7 @@ export class Scotland extends CalendarDef {
     andrew_apostle: {
       customLocaleId: 'andrew_apostle_patron_of_scotland',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      titles: { append: [PatronTitles.PatronOfScotland] },
+      titles: { append: [PatronTitle.PatronOfScotland] },
     },
   };
 }

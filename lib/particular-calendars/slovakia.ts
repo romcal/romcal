@@ -1,13 +1,14 @@
 import { Colors } from '../constants/colors';
 import { ProperCycles } from '../constants/cycles';
-import { PatronTitles, Titles } from '../constants/martyrology-metadata';
+import { PatronTitle, Title } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { Inputs, ParticularConfig } from '../types/calendar-def';
+
 import { Europe } from './europe';
 
 export class Slovakia extends CalendarDef {
-  parentCalendar = Europe;
+  ParentCalendar = Europe;
 
   particularConfig: ParticularConfig = {
     epiphanyOnSunday: false,
@@ -57,7 +58,7 @@ export class Slovakia extends CalendarDef {
         'cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop_slavic_missionaries_copatrons_of_europe',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       dateDef: { month: 7, date: 5 },
-      titles: [Titles.SlavicMissionary],
+      titles: [Title.SlavicMissionary],
     },
 
     anthony_zaccaria_priest: {
@@ -96,7 +97,7 @@ export class Slovakia extends CalendarDef {
     our_lady_of_sorrows: {
       customLocaleId: 'our_lady_of_sorrows_patroness_of_slovakia',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      titles: { append: [PatronTitles.PatronessOfSlovakia] },
+      titles: { append: [PatronTitle.PatronessOfSlovakia] },
     },
 
     gall_of_switzerland_abbot: {

@@ -61,13 +61,13 @@ export const locale: Locale = {
   },
 
   colors: {
-    black: 'negro',
-    gold: 'dorado',
-    green: 'verde',
-    purple: 'modaro',
-    red: 'rojo',
-    rose: 'rosa',
-    white: 'blanco',
+    black: 'negro', // src: GIRM, 346e (https://www.santaclaradeestella.es/BIBLIOTECA/ENCICLICAS/INSTRUCCI%C3%93N_GENERAL_DEL_MISAL_ROMANO.htm)
+    gold: 'dorado', // src: GIRM, 346g (https://www.santaclaradeestella.es/BIBLIOTECA/ENCICLICAS/INSTRUCCI%C3%93N_GENERAL_DEL_MISAL_ROMANO.htm)
+    green: 'verde', // src: GIRM, 346c (https://www.santaclaradeestella.es/BIBLIOTECA/ENCICLICAS/INSTRUCCI%C3%93N_GENERAL_DEL_MISAL_ROMANO.htm)
+    purple: 'morado', // src: GIRM, 346d (https://www.santaclaradeestella.es/BIBLIOTECA/ENCICLICAS/INSTRUCCI%C3%93N_GENERAL_DEL_MISAL_ROMANO.htm)
+    red: 'rojo', // src: GIRM, 346b (https://www.santaclaradeestella.es/BIBLIOTECA/ENCICLICAS/INSTRUCCI%C3%93N_GENERAL_DEL_MISAL_ROMANO.htm)
+    rose: 'rosa', // src: GIRM, 346f (https://www.santaclaradeestella.es/BIBLIOTECA/ENCICLICAS/INSTRUCCI%C3%93N_GENERAL_DEL_MISAL_ROMANO.htf)
+    white: 'blanco', // src: GIRM, 346a (https://www.santaclaradeestella.es/BIBLIOTECA/ENCICLICAS/INSTRUCCI%C3%93N_GENERAL_DEL_MISAL_ROMANO.htm)
   },
 
   weekdays: {
@@ -289,7 +289,7 @@ export const locale: Locale = {
       'San Dionisio, obispo y mártir, Patrono de la Arquidiócesis de París',
     denis_of_paris_bishop_patron_of_the_city_and_of_the_diocese_of_saint_denis:
       'San Dionisio, obispo y mártir, Patrono de la ciudad y de la Diócesis de Saint-Denis',
-    divine_mercy_sunday: '{{week}}º domingo de Pascua o Domingo de la Divina Misericordia',
+    divine_mercy_sunday: '2º domingo de Pascua o Domingo de la Divina Misericordia',
     dominic_de_guzman_priest: 'Santo Domingo de Guzmán, presbítero',
     easter_sunday: 'Domingo de Pascua',
     eligius_of_noyon_bishop: 'San Eligio, obispo',
@@ -558,7 +558,7 @@ export const locale: Locale = {
     stanislaus_of_szczepanow_bishop: 'San Estanislao de Cracovia, obispo y mártir',
     stephen_i_of_hungary: 'San Esteban de Hungría',
     stephen_the_first_martyr: 'San Esteban, Primer mártir',
-    sunday_of_the_word_of_god: '{{week}}º domingo del Tiempo Ordinario, o domingo de la Palabra de Dios',
+    sunday_of_the_word_of_god: '3º domingo del Tiempo Ordinario, o domingo de la Palabra de Dios',
     sylvester_i_pope: 'San Silvestre I, papa',
     teresa_benedicta_of_the_cross_stein_virgin: 'Santa Teresa Benedicta de la Cruz (Edith Stein), virgen y mártir',
     teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe:

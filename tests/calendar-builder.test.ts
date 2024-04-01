@@ -6,10 +6,7 @@ import { Hungary_En } from 'romcal/dist/bundles/hungary';
 import { Ireland_En } from 'romcal/dist/bundles/ireland';
 import { Slovakia_Sk } from 'romcal/dist/bundles/slovakia';
 
-import { CalendarScope, Id, LiturgicalCalendar, LiturgicalDayDef, Romcal } from '../lib';
-import { Periods } from '../lib/constants/periods';
-import { Seasons } from '../lib/constants/seasons';
-import { LiturgicalDay } from '../lib/models/liturgical-day';
+import { CalendarScope, Id, LiturgicalCalendar, LiturgicalDayDef, Romcal, Period, Season, LiturgicalDay } from '../lib';
 import { dateDifference } from '../lib/utils/dates';
 
 const { Colors, isMartyr, Titles, Ranks, getUtcDate, getUtcDateFromString, isSameDate, subtractsDays } = Romcal;
@@ -60,7 +57,7 @@ describe('Testing calendar generation functions', () => {
             d.name !== undefined &&
             d.rankName !== undefined &&
             d.seasonNames !== undefined &&
-            d.colorNames !== undefined,
+            d.colorNames !== undefined
         );
 
       expect(test).toBeTruthy();
@@ -116,12 +113,12 @@ describe('Testing calendar generation functions', () => {
       const defs: LiturgicalDayDef[] = Object.values(
         (await new Romcal({
           localizedCalendar: GeneralRoman_En,
-        }).getAllDefinitions()) as unknown as LiturgicalDayDef[][],
+        }).getAllDefinitions()) as unknown as LiturgicalDayDef[][]
       ).flat();
 
       defs
         .filter(
-          (d) => d.rank === Ranks.Feast && !d.titles.includes(Titles.Apostle) && !d.titles.includes(Titles.Evangelist),
+          (d) => d.rank === Ranks.Feast && !d.titles.includes(Titles.Apostle) && !d.titles.includes(Titles.Evangelist)
         )
         .forEach((d) => {
           if (d.id === 'exaltation_of_the_holy_cross' || d.id === 'mark_evangelist') {
@@ -146,7 +143,7 @@ describe('Testing calendar generation functions', () => {
           (d) =>
             [Ranks.Memorial, Ranks.OptionalMemorial].includes(d.rank) &&
             !d.titles.includes(Titles.Apostle) &&
-            !d.titles.includes(Titles.Evangelist),
+            !d.titles.includes(Titles.Evangelist)
         )
         .forEach((d) => {
           if (isMartyr(d.titles)) {
@@ -216,7 +213,7 @@ describe('Testing calendar generation functions', () => {
 
   describe('Testing calendar metadata', () => {
     const testCalendarMetadata = async (scope: CalendarScope): Promise<void> => {
-      for (let year = 2010; year <= 2050; year++) {
+      for (let year = 2010; year <= 2050; year += 1) {
         const romcal = new Romcal({ scope });
         const data: LiturgicalDay[] = Object.values(await romcal.generateCalendar(year)).flatMap((d) => d[0]);
 
@@ -228,7 +225,7 @@ describe('Testing calendar generation functions', () => {
         let dayOfOrdinaryTime = 0;
         const lastDayOfOT = subtractsDays(
           romcal.dates(scope === 'liturgical' ? year + 1 : year).firstSundayOfAdvent(),
-          1,
+          1
         );
 
         const nthDayOfWeekInMonth: Record<number, number | undefined> = {
@@ -241,7 +238,7 @@ describe('Testing calendar generation functions', () => {
           6: undefined,
         };
 
-        for (let i = 0; i < data.length; i++) {
+        for (let i = 0; i < data.length; i += 1) {
           const day = data[i];
           const date = new Date(day.date);
           const dow = date.getUTCDay();
@@ -251,7 +248,7 @@ describe('Testing calendar generation functions', () => {
             dayOfSeason = 0;
             weekOfSeason = 0;
 
-            if (day.periods.includes(Periods.LateOrdinaryTime) && dayOfSeason === 0) {
+            if (day.periods.includes(Period.LateOrdinaryTime) && dayOfSeason === 0) {
               weekOfSeason = 35 - Math.ceil((dateDifference(lastDayOfOT, date) + 1) / 7);
             }
           }
@@ -260,7 +257,7 @@ describe('Testing calendar generation functions', () => {
           // Days of week
           if (nthDayOfWeekInMonth[dow] === undefined) nthDayOfWeekInMonth[dow] = Math.ceil(date.getUTCDate() / 7) - 1;
           if (date.getUTCDate() === 1) {
-            for (let j = 0; j < 7; j++) {
+            for (let j = 0; j < 7; j += 1) {
               nthDayOfWeekInMonth[j] = 0;
             }
           }
@@ -268,16 +265,16 @@ describe('Testing calendar generation functions', () => {
           expect(day.calendar.nthDayOfWeekInMonth).toBe(nthDayOfWeekInMonth[dow]);
 
           // Day of season
-          dayOfSeason++;
-          if (day.seasons.includes(Seasons.OrdinaryTime)) {
-            dayOfOrdinaryTime++;
+          dayOfSeason += 1;
+          if (day.seasons.includes(Season.OrdinaryTime)) {
+            dayOfOrdinaryTime += 1;
             dayOfSeason = dayOfOrdinaryTime;
           }
           expect(day.calendar.dayOfSeason).toBe(dayOfSeason);
 
           // Week of season
           if (dayOfSeason === 1) {
-            weekOfSeason = day.seasons.includes(Seasons.Lent) ? 0 : 1;
+            weekOfSeason = day.seasons.includes(Season.Lent) ? 0 : 1;
           }
           expect(day.calendar.weekOfSeason).toBe(weekOfSeason);
 
@@ -286,10 +283,10 @@ describe('Testing calendar generation functions', () => {
           expect(day.calendar.dayOfWeek).toBe(dayOfWeek);
 
           // Compute data for next day
-          dayOfWeek++;
+          dayOfWeek += 1;
           if (dayOfWeek === 7) {
             dayOfWeek = 0;
-            weekOfSeason++;
+            weekOfSeason += 1;
           }
         }
       }
@@ -329,7 +326,7 @@ describe('Testing calendar generation functions', () => {
       const hungaryCal = await new Romcal({ localizedCalendar: Hungary_En });
 
       const getDayAfter = async (romcal: Romcal, id: Id): Promise<LiturgicalDay> => {
-        const date = (await romcal.getOneLiturgicalDay(id))!.date;
+        const { date } = (await romcal.getOneLiturgicalDay(id))!;
         const calendar = await romcal.generateCalendar();
         const dayAfter = Object.values(calendar)[Object.keys(calendar).findIndex((k) => k === date) + 1];
         return dayAfter[0];
@@ -362,7 +359,7 @@ describe('Testing calendar generation functions', () => {
     test('A dropped liturgical day should not be appended in the final calendar', () => {
       const date = testDates.find((d) => isSameDate(getUtcDateFromString(d.date), getUtcDate(2020, 12, 4)));
       expect(date?.id).not.toEqual(
-        'cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop',
+        'cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop'
       );
     });
   });
@@ -376,7 +373,7 @@ describe('Testing calendar generation functions', () => {
 
     it('should calculate the Julian Easter date for the year 2019', async () => {
       const calendar = Object.values(
-        await new Romcal({ easterCalculationType: 'julian' }).generateCalendar(2019),
+        await new Romcal({ easterCalculationType: 'julian' }).generateCalendar(2019)
       ).flat();
       const easter = calendar.find((item) => item.id === 'easter_sunday');
       expect(easter?.date).toEqual('2019-04-28');

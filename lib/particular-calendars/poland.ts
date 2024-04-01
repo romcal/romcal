@@ -1,12 +1,13 @@
 import { ProperCycles } from '../constants/cycles';
-import { PatronTitles, Titles } from '../constants/martyrology-metadata';
+import { PatronTitle, Title } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { Inputs } from '../types/calendar-def';
+
 import { Europe } from './europe';
 
 export class Poland extends CalendarDef {
-  parentCalendar = Europe;
+  ParentCalendar = Europe;
 
   inputs: Inputs = {
     joseph_sebastian_pelczar_bishop: {
@@ -59,7 +60,7 @@ export class Poland extends CalendarDef {
         },
         setDate: { dateFn: 'divineMercySunday', addDay: 1 },
       },
-      titles: { append: [PatronTitles.PatronOfPoland] },
+      titles: { append: [PatronTitle.PatronOfPoland] },
     },
 
     our_lady_queen_of_poland: {
@@ -90,7 +91,7 @@ export class Poland extends CalendarDef {
       customLocaleId: 'stanislaus_of_szczepanow_bishop_patron_of_poland',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       dateDef: { month: 5, date: 8 },
-      titles: { append: [PatronTitles.PatronOfPoland] },
+      titles: { append: [PatronTitle.PatronOfPoland] },
     },
 
     andrew_bobola_priest: {
@@ -247,7 +248,7 @@ export class Poland extends CalendarDef {
         'mary_stella_of_the_blessed_sacrament_mardosewicz_virgin',
         {
           id: 'companions_martyrs',
-          titles: { prepend: [Titles.Virgin] },
+          titles: { prepend: [Title.Virgin] },
         },
       ],
     },

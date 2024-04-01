@@ -493,7 +493,7 @@ export const locale: Locale = {
     stanislaus_of_szczepanow_bishop_patron_of_poland: 'Santo Stanislao, vescovo, martire e patrono della Polonia',
     stephen_i_of_hungary: 'Santo Stefano di Ungheria',
     stephen_the_first_martyr: 'Santo Stefano, primo martire',
-    sunday_of_the_word_of_god: '{{week, romanize}} domenica del Tempo Ordinario, o Domenica della Parola di Dio',
+    sunday_of_the_word_of_god: 'III domenica del Tempo Ordinario, o Domenica della Parola di Dio',
     sylvester_i_pope: 'San Silvestro I, papa',
     teresa_benedicta_of_the_cross_stein_virgin: 'Santa Teresa Benedetta della Croce, vergine e martire',
     teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe:

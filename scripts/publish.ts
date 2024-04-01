@@ -1,14 +1,14 @@
-import npmPublish from '@jsdevtools/npm-publish';
-import { Results } from '@jsdevtools/npm-publish/lib/results';
 import fs from 'fs';
 import path from 'path';
+
+import npmPublish from '@jsdevtools/npm-publish';
+import { Results } from '@jsdevtools/npm-publish/lib/results';
 
 const tag = 'dev';
 const dryRun = false;
 const token = process.env.NPM_TOKEN;
 
-// eslint-disable-next-line no-console
-const log = console.log;
+const { log } = console;
 
 /**
  * Provide a feedback message after a package is published to NPM
@@ -44,7 +44,7 @@ const afterPublish = (data: Results): void => {
     .map((dirent) => dirent.name);
 
   // Then, publish every calendar bundles as standalone NPM packages
-  for (let i = 0; i < bundleNames.length; i++) {
+  for (let i = 0; i < bundleNames.length; i += 1) {
     log(` - Publishing bundle: ${bundleNames[i]}`);
     const calendarData = await npmPublish({
       package: path.join(bundlesBasePath, bundleNames[i], 'package.json'),

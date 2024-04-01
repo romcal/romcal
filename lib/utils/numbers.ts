@@ -20,12 +20,14 @@ const numerals: Record<string, number> = {
  */
 export const toRomanNumber = (number: number): string => {
   const keys = Object.keys(numerals);
+  let arabic = number;
   let str = '';
 
-  for (let i = 0; i < keys.length; i++) {
+  for (let i = 0; i < keys.length; i += 1) {
     const key = keys[i];
-    str += key.repeat((number / numerals[key]) >>> 0);
-    number %= numerals[key];
+    // eslint-disable-next-line no-bitwise
+    str += key.repeat((arabic / numerals[key]) >>> 0);
+    arabic %= numerals[key];
   }
   return str;
 };

@@ -1,12 +1,13 @@
 import { ProperCycles } from '../constants/cycles';
-import { PatronTitles } from '../constants/martyrology-metadata';
+import { PatronTitle } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { Inputs } from '../types/calendar-def';
+
 import { Europe } from './europe';
 
 export class England extends CalendarDef {
-  parentCalendar = Europe;
+  ParentCalendar = Europe;
 
   inputs: Inputs = {
     aelred_of_rievaulx_abbot: {
@@ -43,7 +44,7 @@ export class England extends CalendarDef {
         },
         setDate: { dateFn: 'divineMercySunday', addDay: 1 },
       },
-      titles: { append: [PatronTitles.PatronOfEngland] },
+      titles: { append: [PatronTitle.PatronOfEngland] },
     },
 
     adalbert_of_prague_bishop: {

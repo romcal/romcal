@@ -1,11 +1,12 @@
-import { PatronTitles } from '../constants/martyrology-metadata';
+import { PatronTitle } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { Inputs, ParticularConfig } from '../types/calendar-def';
+
 import { Americas } from './americas';
 
 export class UnitedStates extends CalendarDef {
-  parentCalendar = Americas;
+  ParentCalendar = Americas;
 
   particularConfig: ParticularConfig = {
     epiphanyOnSunday: true,
@@ -123,7 +124,7 @@ export class UnitedStates extends CalendarDef {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       isHolyDayOfObligation: true,
       // isHolyDayOfObligation: () => this.dates.immaculateConceptionOfMary().day() === 0,
-      titles: { append: [PatronTitles.PatronessOfTheUSA] },
+      titles: { append: [PatronTitle.PatronessOfTheUSA] },
       // afterBuild: (def) => {
       //   def.isHolyDayOfObligation = this.dates.immaculateConceptionOfMary().day() === 0;
       // },
