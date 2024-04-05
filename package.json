@@ -72,8 +72,7 @@
     ],
     "package*.json": [
       "npx prettier --write",
-      "npm dedupe",
-      "npx sort-package-json package*.json && :"
+      "npm dedupe"
     ]
   },
   "dependencies": {
