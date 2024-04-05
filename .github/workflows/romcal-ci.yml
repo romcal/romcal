@@ -82,5 +82,7 @@ jobs:
 
       - name: Check for dependency duplicates
         run: |
+          npx prettier --write package*.json
           npm dedupe
+          npx sort-package-json package*.json
           git diff --exit-code || (echo "package-lock.json is not up-to-date" && exit 1)
