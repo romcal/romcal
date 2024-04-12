@@ -1,4 +1,4 @@
-import { UserConfig } from '@commitlint/types';
+import { UserConfig, RuleConfigSeverity } from '@commitlint/types';
 import { LOCALE_IDS } from './lib/constants/locales';
 import { CALENDAR_IDS } from './lib/constants/calendars';
 
@@ -39,6 +39,7 @@ export default {
   },
   plugins: ['selective-scope'],
   rules: {
+    'body-max-line-length': [RuleConfigSeverity.Disabled] as const,
     'scope-enum': [
       2,
       'always',
