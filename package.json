@@ -83,7 +83,7 @@
     "@commitlint/cli": "^19.2.1",
     "@commitlint/config-conventional": "^19.1.0",
     "@commitlint/types": "^19.0.3",
-    "@jsdevtools/npm-publish": "^1.4.3",
+    "@jsdevtools/npm-publish": "^3.1.1",
     "@types/cli-progress": "^3.11.5",
     "@types/humanize-duration": "^3.27.4",
     "@types/jest": "^29.5.12",
