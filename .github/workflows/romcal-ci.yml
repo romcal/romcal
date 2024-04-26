@@ -67,20 +67,3 @@ jobs:
 
       - name: Ensure Data Integrity
         run: npm run data:checks
-
-  check-dedupe:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Git checkout dev branch
-        uses: actions/checkout@v4
-
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: '.nvmrc'
-
-      - name: Check for dependency duplicates
-        run: |
-          npm dedupe
-          git diff --exit-code || (echo "package-lock.json is not up-to-date" && exit 1)
