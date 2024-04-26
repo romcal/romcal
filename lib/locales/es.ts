@@ -357,7 +357,7 @@ export const locale: Locale = {
     innocent_xi_pope: 'Beato Inocencio XI, papa',
     irenaeus_of_lyon_bishop: 'San Ireneo de Lyon, obispo, mártir y doctor de la Iglesia',
     isabelle_of_france_virgin: 'Beata Isabel de Francia, virgen',
-    isidore_of_seville_bishop: 'San Isidro de Sevilla, obispo y doctor de la Iglesia',
+    isidore_of_seville_bishop: 'San Isidoro, obispo y doctor de la Iglesia', // src: https://liturgiapapal.org/attachments/article/1093/PROPIO%20DE%20LOS%20SANTOS.pdf#page=5
     isidore_the_farmer: 'San Isidro Labrador',
     jacinta_marto_and_francisco_marto: 'Beatos Jacinta y Francisco Marto',
     james_apostle: 'Santiago, apóstol',
