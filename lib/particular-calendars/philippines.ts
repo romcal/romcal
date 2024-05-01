@@ -50,7 +50,17 @@ export class Philippines extends CalendarDef {
     },
 
     ezequiel_moreno_bishop: {
-      precedence: Precedences.OptionalMemorial_12,
+      /*
+       * src: https://recoletos.ph/2024/02/01/cbcp-elevates-st-ezekiel-moreno-memorial-as-obligatory/;
+       * old:
+       *   rank: Precedences.OptionalMemorial_12
+       *   since: unknown
+       *   until: 28 Jan 2024
+       * new:
+       *   rank: Precedences.ProperMemorial_11b
+       *   since: 29 Jan 2024
+       */
+      precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 8, date: 19 },
     },
 
