@@ -3,7 +3,8 @@ import { LOCALE_IDS } from './lib/constants/locales';
 import { CALENDAR_IDS } from './lib/constants/calendars';
 
 const empty = [null];
-const scopes = [...CALENDAR_IDS, ...LOCALE_IDS, 'l10n', 'calendar'];
+const scopes = [...CALENDAR_IDS, ...LOCALE_IDS, 'calendar', 'l10n', 'util'];
+const styleScopes = ['commitlint', 'editorconfig', 'eslint', 'prettier'];
 
 const typesEnumScoped = {
   // Updates to the automation or release process
@@ -25,7 +26,7 @@ const typesEnumScoped = {
   // Add or correct tests
   test: scopes,
   // Changes that affect style, linting, formatting and grammar
-  style: scopes,
+  style: [...scopes, ...styleScopes],
 };
 
 export default {
@@ -44,7 +45,7 @@ export default {
       2,
       'always',
       // From `commitlint` point of view, allow all scopes regardless of the type
-      scopes,
+      [...scopes, ...styleScopes],
     ],
     // Use `selective-scope` to make sure that the scopes are only allowed when they are defined for a particular type
     'selective-scope': [2, 'always', typesEnumScoped],
