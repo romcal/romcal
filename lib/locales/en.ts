@@ -789,6 +789,10 @@ export const locale: Locale = {
     our_lady_mother_of_christian_unity: 'Our Lady, Mother of Christian Unity',
     our_lady_mother_of_divine_providence_patroness_of_puerto_rico:
       'Our Lady, Mother of Divine Providence, Patroness of Puerto Rico',
+    /*
+     * src: https://gcatholic.org/calendar/2024/CR-en.htm
+     */
+    our_lady_of_angels: 'Our Lady of Angels',
     our_lady_of_aparecida_patroness_of_brazil: 'Our Lady of Aparecida, Patroness of Brazil',
     our_lady_of_bethlehem: 'Our Lady of Bethlehem',
     our_lady_of_china: 'Our Lady of China',

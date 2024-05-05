@@ -3189,6 +3189,9 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     our_lady_mother_of_divine_providence: {
       name: 'Our Lady, Mother of Divine Providence',
     },
+    our_lady_of_angels: {
+      name: 'Our Lady of Angels',
+    },
     our_lady_of_aparecida: {
       name: 'Our Lady of Aparecida',
     },
