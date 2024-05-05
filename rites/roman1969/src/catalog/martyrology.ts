@@ -56,7 +56,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     agapitus_of_palestrina_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Agapitus',
-      titles: [Titles.Martyr],
+      titles: [Title.Martyr],
       dateOfDeath: 274,
     },
     agatha_of_sicily_virgin: {
@@ -830,7 +830,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     christopher_of_anatolia_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Christopher',
-      titles: [Titles.Martyr],
+      titles: [Title.Martyr],
       dateOfDeath: 251,
     },
     christopher_of_palestine_martyr: {
@@ -973,7 +973,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     cyriacus_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Cyriacus',
-      titles: [Titles.Deacon, Titles.Martyr],
+      titles: [Title.Deacon, Title.Martyr],
       dateOfDeath: 303,
     },
     cyril_constantine_the_philosopher_monk: {
@@ -2438,7 +2438,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     lawrence_justinian: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Lawrence Justinian',
-      titles: [Titles.Bishop],
+      titles: [Title.Bishop],
       dateOfDeath: '1456-01-08',
     },
     lawrence_of_brindisi_priest: {
@@ -2645,7 +2645,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     mammes_of_caesarea_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Mammes of Caesarea',
-      titles: [Titles.Martyr],
+      titles: [Title.Martyr],
       dateOfDeath: 275,
     },
     marcel_callo_martyr: {
@@ -2669,7 +2669,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     marcellinus_of_ancona_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Marcellinus of Ancona',
-      titles: [Titles.Bishop],
+      titles: [Title.Bishop],
       dateOfDeath: 566,
     },
     marcellinus_of_rome_martyr: {
@@ -3046,7 +3046,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     miltiades_pope: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Miltiades',
-      titles: [Titles.Pope],
+      titles: [Title.Pope],
       dateOfDeath: 314,
     },
     modestus_andlauer_martyr: {
@@ -3459,7 +3459,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     pelagia_the_penitent_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Pelagia the Penitent',
-      titles: [Titles.Virgin],
+      titles: [Title.Virgin],
     },
     pelagius_of_cordoba_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -3745,7 +3745,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     romanus_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Romanus',
-      titles: [Titles.Martyr],
+      titles: [Title.Martyr],
       dateOfDeath: 258,
     },
     romuald_of_ravenna_abbot: {
@@ -3976,7 +3976,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     thecla_of_iconium_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Thecla of Iconium',
-      titles: [Titles.Virgin, Titles.Martyr],
+      titles: [Title.Virgin, Title.Martyr],
     },
     theodore_of_canterbury_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -3991,7 +3991,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     theodore_stratelates: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Theodore Stratelates',
-      titles: [Titles.Martyr],
+      titles: [Title.Martyr],
       dateOfDeath: 319,
     },
     theodosius_of_the_caves_abbot: {
