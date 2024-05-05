@@ -10,10 +10,5 @@
   },
   "eslint.format.enable": false, // let prettier do it, it is faster and safer
   // Jest extension settings
-  "jest.autoRun": {},
-  "i18n-ally.localesPaths": [
-    "lib/locales",
-    "rites/roman1969/src/locales",
-    "rites/roman1969/coverage/lcov-report/locales"
-  ]
+  "jest.runMode": "on-demand"
 }
