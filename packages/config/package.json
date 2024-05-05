@@ -1,0 +1,11 @@
+{
+  "name": "@romcal/config",
+  "version": "0.0.0",
+  "description": "Configuration files for the Romcal project",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "license": "MIT"
+}

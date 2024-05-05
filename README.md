@@ -302,7 +302,7 @@ Also, some properties like `colors`, `ranks`, `precedence` might be updated in a
 
 You might only need the `Date` of a liturgical day, without computing all other metadata or a whole calendar.
 
-This gives you access to all methods from the `Dates` class: [./lib/utils/dates.ts](./lib/utils/dates.ts).
+This gives you access to all methods from the `Dates` class: [./rites/roman1969/src/utils/dates.ts](./rites/roman1969/src/utils/dates.ts).
 
 The `year` parameter is optional (taking the current year by default, if not provided).
 

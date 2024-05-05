@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "ES2022",
+    "moduleResolution": "node",
+    "rootDir": ".",
+    "removeComments": true,
+    "declaration": true,
+    "declarationDir": "tmp/dts",
+    "emitDeclarationOnly": true
+  },
+  "include": ["src/**/*", "tmp/constants/**/*"]
+}

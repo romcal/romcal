@@ -40,33 +40,27 @@
     }
   ],
   "exports": {
-    "types": "./dist/index.d.ts",
-    "import": "./dist/esm/romcal.js",
-    "require": "./dist/cjs/romcal.js"
+    "types": "./rites/roman1969/dist/index.d.ts",
+    "import": "./rites/roman1969/dist/esm/romcal.js",
+    "require": "./rites/roman1969/dist/cjs/romcal.js"
   },
-  "main": "dist/cjs/romcal.js",
-  "module": "dist/esm/romcal.js",
-  "typings": "dist/index.d.ts",
+  "main": "rites/roman1969/dist/cjs/romcal.js",
+  "module": "rites/roman1969/dist/esm/romcal.js",
+  "typings": "rites/roman1969/dist/index.d.ts",
   "scripts": {
-    "build": "node -r ts-node/register scripts/build.ts",
-    "clean": "rimraf coverage dist tmp",
-    "data:checks": "node -r ts-node/register scripts/data-checks.ts",
-    "doc": "node -r ts-node/register scripts/bundle-doc.ts",
-    "docs:check-links": "node scripts/docs/check-broken-links.mjs ./docs",
-    "docs:sort-glossary": "node scripts/docs/sort-glossary.mjs ./docs",
-    "lint": "eslint .",
-    "lint:fix": "npm run lint -- --fix",
+    "build": "npm run build -w=@romcal/easter && npm run build -w=@romcal/rite-roman1969",
+    "clean": "npm run clean -w=@romcal/easter && npm run clean -w=@romcal/rite-roman1969",
+    "data:checks": "npm run data:checks -w=@romcal/rite-roman1969",
+    "doc": "npm run doc -w=@romcal/rite-roman1969",
+    "lint": "npm run lint -w=@romcal/rite-roman1969",
+    "lint:fix": "npm run lint -w=@romcal/rite-roman1969 -- --fix",
     "prepare": "husky",
     "prettier": "prettier -c .",
     "prettier:fix": "prettier -w .",
-    "test": "TZ=UTC jest --coverage",
-    "test:snapshot:update": "TZ=UTC jest -u",
-    "test:watch": "TZ=UTC jest --watch",
-    "test:without-coverage": "TZ=UTC jest"
-  },
-  "dependencies": {
-    "i18next": "^21.6.0",
-    "ts-deepmerge": "^7.0.0"
+    "test": "npm run test -w=@romcal/easter && npm run test -w=@romcal/rite-roman1969",
+    "test:snapshot:update": "npm run test:snapshot:update -w=@romcal/rite-roman1969",
+    "test:watch": "npm run test:watch -w=@romcal/rite-roman1969",
+    "test:without-coverage": "npm run test:without-coverage -w=@romcal/rite-roman1969"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.25.1",
@@ -120,5 +114,9 @@
   },
   "engines": {
     "node": ">=18.0.0"
-  }
+  },
+  "workspaces": [
+    "rites/*",
+    "packages/*"
+  ]
 }

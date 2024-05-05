@@ -1,0 +1,14 @@
+{
+  "name": "@romcal/easter",
+  "version": "0.0.0",
+  "description": "Calculate the date of Easter in both the Gregorian and Julian calendars.",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tsc --project tsconfig.release.json",
+    "clean": "rimraf coverage dist",
+    "test": "TZ=UTC jest"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "license": "MIT"
+}
