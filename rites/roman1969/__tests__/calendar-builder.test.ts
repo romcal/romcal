@@ -1,11 +1,9 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { England_En } from '../dist/bundles/england';
 import { GeneralRoman_En } from '../dist/bundles/general-roman';
 import { Germany_En } from '../dist/bundles/germany';
 import { Hungary_En } from '../dist/bundles/hungary';
 import { Ireland_En } from '../dist/bundles/ireland';
 import { Slovakia_Sk } from '../dist/bundles/slovakia';
-
 import { CalendarScope, Id, LiturgicalCalendar, LiturgicalDay, LiturgicalDayDef, Period, Romcal, Season } from '../src';
 import { dateDifference } from '../src/utils/dates';
 

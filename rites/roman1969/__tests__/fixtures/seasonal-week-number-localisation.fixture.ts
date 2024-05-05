@@ -11,7 +11,6 @@ import {
   GeneralRoman_PtBr,
   GeneralRoman_Sk,
 } from '../../dist/bundles/general-roman';
-
 import { Fixture } from '../type/fixture.type';
 
 export const seasonalWeekNumberLocalisationFixture: Fixture = [

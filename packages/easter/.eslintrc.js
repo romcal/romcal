@@ -1,7 +1,8 @@
 module.exports = {
-  extends: ['@romcal/config/.eslintrc.js'],
+  extends: ['../config/.eslintrc.js'],
   parserOptions: {
     root: true,
+    tsconfigRootDir: __dirname,
     project: 'tsconfig.json',
   },
 };

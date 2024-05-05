@@ -12,7 +12,7 @@ coverage/
 # Main codebase
 .github/
 lib/
-scripts/
+build/
 tests/
 .editorconfig
 .eslintignore

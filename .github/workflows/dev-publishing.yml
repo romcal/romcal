@@ -108,4 +108,4 @@ jobs:
       - name: Npm publish a new 'dev' version (romcal + all calendar bundles)
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: node -r ts-node/register rites/roman1969/scripts/publish.ts
+        run: node -r ts-node/register rites/roman1969/build/publish.ts

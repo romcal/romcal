@@ -1,8 +1,8 @@
+import { calculateGregorianEasterDate, calculateJulianEasterDateToGregorianDate } from '@romcal/easter';
+
 import { Season } from '../constants/seasons';
 import { RomcalConfig } from '../models/config';
 import { EasterCalculationType } from '../types/config';
-
-import { calculateGregorianEasterDate, calculateJulianEasterDateToGregorianDate } from '@romcal/easter';
 
 const { isNaN } = Number;
 

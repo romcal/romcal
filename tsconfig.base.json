@@ -24,8 +24,8 @@
       "@romcal/package.json": ["./package.json"]
     }
   },
-  "exclude": ["node_modules", "rites/roman1969/scripts/docs/**", "**/*/dist"],
-  "include": ["lib/**/*", "tests/**/*", "rites/roman1969/scripts/**/*", "tmp/bundles/**/*", "tmp/constants/**/*"],
+  "exclude": ["node_modules", "rites/roman1969/build/docs/**", "**/*/dist"],
+  "include": ["lib/**/*", "tests/**/*", "rites/roman1969/build/**/*", "tmp/bundles/**/*", "tmp/constants/**/*"],
   "files": ["global.d.ts"],
   "ts-node": {
     "require": ["tsconfig-paths/register"]

@@ -1,3 +1,5 @@
+/* eslint-disable import/no-unused-modules */
+
 export type EasterDate = {
   year: number;
   month: number;

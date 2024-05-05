@@ -218,7 +218,7 @@ export const RomcalBundler = (): void => {
       const jsOutput =
         '/* eslint-disable */\n' +
         "import { RomcalBundleObject } from '../../../src';\n\n" +
-        'export const ${calVarName}: RomcalBundleObject = ${data}';
+        `export const ${calVarName}: RomcalBundleObject = ${data}`;
 
       // Write the calendar bundle file.
       if (!existsSync(dir)) mkdirSync(dir, { recursive: true });

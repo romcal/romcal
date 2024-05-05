@@ -6,9 +6,14 @@
   "scripts": {
     "build": "tsc --project tsconfig.release.json",
     "clean": "rimraf coverage dist",
+    "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix",
+    "prettier": "prettier -c .",
     "test": "TZ=UTC jest"
   },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "@romcal/config": "file:../../packages/config"
+  },
   "license": "MIT"
 }

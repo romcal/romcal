@@ -1,5 +1,4 @@
 import { GeneralRoman_La } from '../../dist/bundles/general-roman';
-
 import { Fixture } from '../type/fixture.type';
 
 export const laOrdinalNumberGenderFixture: Fixture = [

@@ -1,7 +1,5 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { France_Fr } from '../dist/bundles/france';
 import { UnitedStates_En } from '../dist/bundles/united-states';
-
 import { Romcal } from '../src';
 
 /**

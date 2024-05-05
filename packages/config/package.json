@@ -3,9 +3,25 @@
   "version": "0.0.0",
   "description": "Configuration files for the Romcal project",
   "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix",
+    "prettier": "prettier -c .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.25.7",
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/parser": "^7.8.0",
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^18.0.0",
+    "eslint-config-prettier": "~9.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jest": "^28.8.3",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-unused-imports": "^3.2.0",
+    "jest": "^29.7.0",
+    "jest-extended": "^4.0.2"
+  },
   "license": "MIT"
 }

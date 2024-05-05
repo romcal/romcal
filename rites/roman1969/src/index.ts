@@ -1,3 +1,5 @@
+import { calculateGregorianEasterDate, calculateJulianEasterDateToGregorianDate } from '@romcal/easter';
+
 import { version } from '../package.json';
 
 import { CALENDAR_PKG_NAMES, CALENDAR_VAR_NAMES } from './constants/calendars';
@@ -106,7 +108,6 @@ import {
   startOfWeek,
   subtractsDays,
 } from './utils/dates';
-import { calculateGregorianEasterDate, calculateJulianEasterDateToGregorianDate } from '@romcal/easter';
 import { isInteger, toRomanNumber } from './utils/numbers';
 
 class Romcal {

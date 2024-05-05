@@ -10,7 +10,7 @@ import stringify from 'remark-stringify';
 
 const isCI = process.env.CI === 'true';
 const dir = import.meta.dirname;
-const file = resolve(dir, '../../docs/glossary.md');
+const file = resolve(dir, '../../../../docs/glossary.md');
 
 /** Sort second-level headings alphabetically */
 const sortHeadings = (tree) => {
@@ -78,6 +78,7 @@ const sortHeadings = (tree) => {
 
 /** Read, sort and write the Markdown file */
 const processFile = () => {
+  console.info(`Sorting glossary items in ${file}`);
   readFile(file, 'utf8', (readError, data) => {
     if (readError) {
       console.error(readError);
@@ -135,4 +136,4 @@ const processFile = () => {
   });
 };
 
-processFile(file, file);
+processFile();

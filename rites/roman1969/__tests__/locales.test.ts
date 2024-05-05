@@ -1,6 +1,5 @@
 import { Brazil_PtBr } from '../dist/bundles/brazil';
 import { France_Fr } from '../dist/bundles/france';
-
 import { Romcal } from '../src';
 
 import { laOrdinalNumberGenderFixture } from './fixtures/la-ordinal-number-gender.fixture';

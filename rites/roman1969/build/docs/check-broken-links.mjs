@@ -148,6 +148,7 @@ const checkLinks = async (path) => {
   const files = (await isDir(path)) ? await getMarkdownFiles(path) : [path];
 
   for (const file of files) {
+    console.info(`Checking links in ${file}`);
     await processFile(file, path);
   }
 };

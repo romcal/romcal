@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { CzechRepublic_Cs } from '../dist/bundles/czech-republic';
 import { England_En } from '../dist/bundles/england';
 import { France_Fr } from '../dist/bundles/france';
@@ -10,7 +9,6 @@ import { Mexico_Es } from '../dist/bundles/mexico';
 import { Slovakia_Sk } from '../dist/bundles/slovakia';
 import { Spain_Es } from '../dist/bundles/spain';
 import { Wales_En } from '../dist/bundles/wales';
-
 import { LiturgicalDay, Romcal } from '../src';
 
 const { Ranks, Periods, Precedences, getUtcDateFromString } = Romcal;

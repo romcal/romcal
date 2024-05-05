@@ -3,6 +3,7 @@
 import fs from 'fs';
 import { dirname, join, resolve } from 'node:path';
 
+import pkg from '@romcal/package.json';
 import chalk from 'chalk';
 import { generateDtsBundle } from 'dts-bundle-generator';
 import { Format, Platform, build } from 'esbuild';
@@ -10,7 +11,6 @@ import { glob } from 'glob';
 import { rimraf } from 'rimraf';
 import { PackageJson } from 'type-fest';
 import ts from 'typescript';
-import pkg from '@romcal/package.json';
 
 import { GENERAL_ROMAN_NAME } from '../src/constants/general-calendar-names';
 import { particularCalendars } from '../src/particular-calendars';
