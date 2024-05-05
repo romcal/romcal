@@ -346,7 +346,7 @@ export const locale: Locale = {
     // dominic_of_the_mother_of_god_barberi_priest: 'Blessed Dominic of the Mother of God Barberi, Priest',
     // dunstan_of_canterbury_bishop: 'Saint Dunstan, Bishop',
     // dyfrig_of_wales_bishop: 'Saint Dyfrig, Bishop',
-    // easter_sunday: 'Easter Sunday of the Resurrection of the Lord',
+    easter_sunday: 'Húsvétvasárnap, Urunk feltámadása',
     // edmund_bojanowski: 'Blessed Edmund Bojanowski',
     // edmund_campion_priest: 'Saint Edmund Campion, Priest and Martyr',
     // edmund_ignatius_rice_religious: 'Blessed Edmund Rice, Religious',
@@ -773,7 +773,7 @@ export const locale: Locale = {
     paul_miki_and_companions_martyrs: 'Miki Szent Pál és társai vértanúk',  // src: mr_hu_1991_ed2
     paul_of_the_cross_priest: 'Keresztes Szent Pál áldozópap',  // src: mr_hu_1991_ed2
     paul_of_thebes_hermit: 'Remete Szent Pál',  // src: mr_hu_1991_ed2
-    // paul_vi_pope: 'Saint Paul VI, Pope',
+    paul_vi_pope: 'Szent VI. Pál pápa',
     // paulina_of_the_agonizing_heart_of_jesus_visintainer_virgin: 'Saint Paulina of the Agonizing Heart of Jesus Visintainer, Virgin',
     paulinus_of_nola_bishop: 'Nolai Szent Paulinusz püspök',  // src: mr_hu_1991_ed2
     // paulinus_of_trier_bishop: 'Saint Paulinus of Trier, Bishop',
