@@ -1,12 +1,12 @@
 import fs from 'fs';
 import path from 'path';
 
-import npmPublish from '@jsdevtools/npm-publish';
+import { npmPublish } from '@jsdevtools/npm-publish';
 import { Results } from '@jsdevtools/npm-publish/lib/results';
 
 const tag = 'dev';
-const dryRun = false;
-const token = process.env.NPM_TOKEN;
+const dryRun = process.argv.includes('--dry-run');
+const token = process.env.NPM_TOKEN ?? 'invalid_token';
 
 const { log } = console;
 
@@ -16,9 +16,9 @@ const { log } = console;
  */
 const afterPublish = (data: Results): void => {
   if (data.oldVersion !== data.version) {
-    log(` ✓ Package "${data.package}" published: ${data.oldVersion} → ${data.version} (${data.tag})\n`);
+    log(` ✓ Package "${data.name}" published: ${data.oldVersion} → ${data.version} (${data.tag})\n`);
   } else if (data.oldVersion === data.version) {
-    log(` ✓ Package "${data.package}" is already published: ${data.version} (${data.tag})\n`);
+    log(` ✓ Package "${data.name}" is already published: ${data.version} (${data.tag})\n`);
   } else {
     log(data, '\n');
   }
