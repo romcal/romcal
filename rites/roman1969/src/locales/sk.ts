@@ -371,6 +371,8 @@ export const locale: Locale = {
     dunstan_of_canterbury_bishop: 'Svätého Dunstana z Canterbury, biskupa',
     dyfrig_of_wales_bishop: 'Svätého Dubrícia z Walesu, biskupa',
     easter_sunday: 'Nedeľa Pánovho zmŕtvychvstania',
+    // TODO: get @tukusejssirs feedback on this translation
+    easter_vigil: 'Veľkonočná vigília',
     edmund_bojanowski: 'Blahoslaveného Edmunda Bojanowského',
     edmund_campion_priest: 'Svätého Edmunda Kampiána, kňaza a mučeníka',
     edmund_ignatius_rice_religious: 'Blahoslaveného Edmunda Ignáca Rica, rehoľníka',
