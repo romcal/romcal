@@ -378,6 +378,8 @@ export const locale: Locale = {
     dunstan_of_canterbury_bishop: 'Saint Dunstan, Bishop',
     dyfrig_of_wales_bishop: 'Saint Dyfrig, Bishop',
     easter_sunday: 'Easter Sunday of the Resurrection of the Lord',
+    // TODO: ref needed, checking exact name
+    easter_vigil: 'Easter Vigil',
     edmund_bojanowski: 'Blessed Edmund Bojanowski',
     edmund_campion_priest: 'Saint Edmund Campion, Priest and Martyr',
     edmund_ignatius_rice_religious: 'Blessed Edmund Rice, Religious',
@@ -498,7 +500,7 @@ export const locale: Locale = {
     holy_family_of_jesus_mary_and_joseph: 'The Holy Family of Jesus, Mary and Joseph',
     holy_guardian_angels: 'The Holy Guardian Angels',
     holy_innocents_martyrs: 'The Holy Innocents, Martyrs',
-    holy_saturday: 'Holy Saturday/Easter Vigil',
+    holy_saturday: 'Holy Saturday',
     holy_thursday: 'Holy Thursday',
     honorat_kozminski_priest: 'Blessed Honorat Koźmiński, Priest',
     hosanna_of_cattaro_virgin: 'Blessed Hosanna of Cattaro, Virgin',

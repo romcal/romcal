@@ -385,6 +385,15 @@ export class ProperOfTime extends CalendarDef {
       colors: [],
       i18nDef: [`names:holy_saturday`],
     });
+    this.#newLiturgicalDayDef('easter_vigil', {
+      precedence: Precedences.Triduum_1,
+      dateDef: { dateFn: 'holySaturday', yearOffset },
+      seasons: [Season.PaschalTriduum],
+      periods: [Period.HolyWeek],
+      calendarMetadata: { weekOfSeason: 1, dayOfSeason: 2, dayOfWeek: 6 },
+      colors: [Colors.White],
+      i18nDef: [`names:easter_vigil`],
+    });
 
     // Easter Sunday of the Resurrection of the Lord.
     this.#newLiturgicalDayDef(`easter_sunday`, {

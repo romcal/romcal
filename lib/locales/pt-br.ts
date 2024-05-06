@@ -277,6 +277,7 @@ export const locale: Locale = {
     divine_mercy_sunday: '2º Domingo do Tempo Pascal ou Domingo da Misericórdia',
     dominic_de_guzman_priest: 'São Domingos, presbítero',
     easter_sunday: 'Domingo da Páscoa',
+    easter_vigil: 'Vigília Pascal',
     eligius_of_noyon_bishop: 'Santo Elígio, bispo',
     elizabeth_of_hungary_religious: 'Santa Isabel da Hungria, religiosa',
     elizabeth_of_portugal: 'Santa Isabel de Portugal',

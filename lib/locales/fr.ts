@@ -299,6 +299,7 @@ export const locale: Locale = {
     divine_mercy_sunday: 'Deuxième dimanche de Pâques ou de la Divine Miséricorde',
     dominic_de_guzman_priest: 'Saint Dominique de Guzman, prêtre, fondateur de l’Ordre des Frères prêcheurs († 1221)',
     easter_sunday: 'Dimanche de Pâques - La résurrection du Seigneur',
+    easter_vigil: 'Veillée pascale',
     eligius_of_noyon_bishop: 'Saint Éloi, évêque',
     elijah_prophet: 'Saint Élie, prophète († IXe s. av. J.-C.)',
     elizabeth_of_hungary_religious: 'Sainte Élisabeth de Hongrie († 1231)',
