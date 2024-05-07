@@ -23,7 +23,7 @@
 </p>
 
 <p align="center">
-  <a href="https://www.codetriage.com/romcal/romcal" target="_blank" rel="noopener noreferrer"><img alt="Code Triage Hellpers" src="https://www.codetriage.com/romcal/romcal/badges/users.svg" /></a>
+  <a href="https://www.codetriage.com/romcal/romcal" target="_blank" rel="noopener noreferrer"><img alt="Code Triage Helpers" src="https://www.codetriage.com/romcal/romcal/badges/users.svg" /></a>
 </p>
 
 > **Note**
