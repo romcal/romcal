@@ -22,6 +22,10 @@
   <a href="https://www.npmjs.com/package/romcal/v/dev" target="_blank" rel="noopener noreferrer"><img alt="dev" src="https://img.shields.io/npm/v/romcal/dev?style=flat-square&logo=npm"></a>
 </p>
 
+<p align="center">
+  <a href="https://www.codetriage.com/romcal/romcal" target="_blank" rel="noopener noreferrer"><img alt="Code Triage Hellpers" src="https://www.codetriage.com/romcal/romcal/badges/users.svg" /></a>
+</p>
+
 > **Note**
 > This project is still in beta (using the `dev` npm distribution tag) until it reaches final version 3.0.0. There could be breaking changes between minor versions. Please refer to the [changelog](CHANGELOG.md) for significant updates and breaking changes.
 
