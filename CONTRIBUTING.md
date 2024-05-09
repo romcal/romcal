@@ -59,7 +59,7 @@ And you're bootstrapped. Thanks for contributing!
 
 #### Code Style
 
-We leverage typescript eslint and prettier to enforce code style. You can run the following command to check if your code is compliant:
+We leverage `@typescript-eslint` and `prettier` to enforce code style. You can run the following command to check if your code is compliant:
 
 Code style:
 
@@ -70,7 +70,7 @@ $ npm run lint
 $ npm run lint:fix
 ```
 
-File formatting (prettier):
+File formatting (Prettier):
 
 ```shell
 $ npm run prettier
