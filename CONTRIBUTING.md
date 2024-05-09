@@ -56,3 +56,25 @@ $ npm ci
 ```
 
 And you're bootstrapped. Thanks for contributing!
+
+#### Code Style
+
+We leverage `@typescript-eslint` and `prettier` to enforce code style. You can run the following command to check if your code is compliant:
+
+Code style:
+
+```shell
+$ npm run lint
+
+# to fix it
+$ npm run lint:fix
+```
+
+File formatting (Prettier):
+
+```shell
+$ npm run prettier
+
+# to fix it
+$ npm run prettier:fix
+```
