@@ -12,19 +12,21 @@ export class Greece extends CalendarDef {
   };
 
   inputs: Inputs = {
+    louise_de_marillac_religious: {
+      precedence: Precedences.OptionalMemorial_12,
+      dateDef: { month: 3, date: 15 },
+    },
+
     cyril_of_jerusalem_bishop: {
       precedence: Precedences.ProperMemorial_11b,
-      dateDef: { month: 3, date: 18 },
     },
 
     adalbert_of_prague_bishop: {
-      precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 4, date: 22 },
     },
 
     george_of_lydda_martyr: {
       precedence: Precedences.ProperMemorial_11b,
-      dateDef: { month: 4, date: 23 },
     },
 
     irene_of_macedonia: {
@@ -38,7 +40,6 @@ export class Greece extends CalendarDef {
     },
 
     our_lady_of_fatima: {
-      precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 5, date: 15 },
     },
 
@@ -59,12 +60,6 @@ export class Greece extends CalendarDef {
 
     cyril_of_alexandria_bishop: {
       precedence: Precedences.ProperMemorial_11b,
-      dateDef: { month: 6, date: 27 },
-    },
-
-    eric_ix_of_sweden_martyr: {
-      precedence: Precedences.OptionalMemorial_12,
-      dateDef: { month: 7, date: 13 },
     },
 
     margaret_of_antioch_virgin: {
@@ -77,7 +72,7 @@ export class Greece extends CalendarDef {
       dateDef: { month: 7, date: 27 },
     },
 
-    lydia_of_philippi: {
+    lydia_of_philippi_the_first_christian_of_europe: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 8, date: 3 },
     },
@@ -103,7 +98,6 @@ export class Greece extends CalendarDef {
 
     presentation_of_the_blessed_virgin_mary: {
       precedence: Precedences.ProperFeast_8f,
-      dateDef: { month: 11, date: 21 },
     },
 
     barbara_of_heliopolis_virgin: {
@@ -113,7 +107,10 @@ export class Greece extends CalendarDef {
 
     nicholas_of_myra_bishop: {
       precedence: Precedences.ProperMemorial_11b,
-      dateDef: { month: 12, date: 6 },
+    },
+
+    our_lady_of_guadalupe: {
+      dateDef: { month: 12, date: 10 },
     },
 
     spyridon_of_trimythous_bishop: {

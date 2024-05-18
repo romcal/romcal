@@ -2602,7 +2602,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Luke',
       titles: [Title.Evangelist],
     },
-    lydia_of_philippi: {
+    lydia_of_philippi_the_first_christian_of_europe: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Lydia of Philippi',
     },

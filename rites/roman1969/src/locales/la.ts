@@ -662,7 +662,7 @@ export const locale: Locale = {
     ludmila_of_bohemia_martyr: 'S. Ludmilæ, martyris',
     luigi_orione_priest: 'S. Aloisii Orione, presbyteri',
     luke_evangelist: 'S. Lucæ, evangelistæ',
-    lydia_of_philippi: 'S. Lydiæ',
+    lydia_of_philippi_the_first_christian_of_europe: 'S. Lydiæ, protochristianæ Europæ',
     mac_nissi_of_connor_bishop: 'S. Macnisi, episcopi',
     macartan_of_clogher_bishop: 'S. Macartini, episcopi',
     madeleine_sophie_barat_virgin: 'S. Magdalenæ Sophiæ Barat, virginis',
