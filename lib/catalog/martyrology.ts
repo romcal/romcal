@@ -3322,6 +3322,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     },
     passion_of_saint_john_the_baptist: {
       name: 'Passion of Saint John the Baptist',
+      titles: [Title.Martyr],
     },
     patrick_of_ireland_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
