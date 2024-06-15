@@ -3059,6 +3059,8 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: 1917,
     },
     nativity_of_john_the_baptist: {
+      // Note: The title of Martyr is not indicated here, as Saint John the Baptist is not yet a Martyr at his birth.
+      // Therefore, this celebration will be celebrated in white (src: GIRM, 308a).
       name: 'The Nativity of Saint John the Baptist',
     },
     nativity_of_the_blessed_virgin_mary: {
@@ -3321,7 +3323,10 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Religious],
     },
     passion_of_saint_john_the_baptist: {
+      // Note: unlike the celebration of the Nativity of Saint John the Baptist, here his title of Martyr is indeed indicated.
+      // Therefore, this celebration will be celebrated in red (src: GIRM, 308b).
       name: 'Passion of Saint John the Baptist',
+      titles: [Title.Martyr],
     },
     patrick_of_ireland_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
