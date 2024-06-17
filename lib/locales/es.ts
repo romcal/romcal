@@ -501,8 +501,8 @@ export const locale: Locale = {
     our_lady_of_the_valley: 'Nuestra Señora del Valle',
     our_lady_queen_of_peace: 'Nuestra Señora, Reina de la Paz',
     our_lady_refuge_of_sinners: 'Nuestra Señora, refugio de los pecadores',
-    our_lord_jesus_christ_king_of_the_universe: 'Cristo Rey del Universo', // src: https://textosparalaliturgia.blogspot.com/2014/09/misal-romano-jesucristo-rey-del-universo.html
-    our_lord_jesus_christ_the_eternal_high_priest: 'Nuestro Señor Jesucristo, Sumo y Eterno sacerdote', // src: https://textosparalaliturgia.blogspot.com/2014/05/misal-romano-jesucristo-sumo-y-eterno.html
+    our_lord_jesus_christ_king_of_the_universe: 'Jesucristo, Rey del Universo', // src: https://textosparalaliturgia.blogspot.com/2014/09/misal-romano-jesucristo-rey-del-universo.html
+    our_lord_jesus_christ_the_eternal_high_priest: 'Jesucristo, Sumo y Eterno Sacerdote', // src: https://textosparalaliturgia.blogspot.com/2014/05/misal-romano-jesucristo-sumo-y-eterno.html
     our_lord_of_miracles: 'Nuestro Señor de los Milagros',
     palm_sunday_of_the_passion_of_the_lord: 'Domingo de Ramos',
     pancras_of_rome_martyr: 'San Pancracio, mártir',
