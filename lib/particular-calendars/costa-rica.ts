@@ -24,6 +24,7 @@ export class CostaRica extends CalendarDef {
        */
       dateDef: { month: 8, date: 2 },
       titles: { append: [PatronTitle.PatronessOfCostaRica] },
+      customLocaleId: 'our_lady_of_angels_patroness_of_costa_rica',
     },
   };
 }
