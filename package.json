@@ -76,7 +76,7 @@
     ]
   },
   "dependencies": {
-    "i18next": "^21.6.0",
+    "i18next": "^23.11.5",
     "ts-deepmerge": "^7.0.0"
   },
   "devDependencies": {
