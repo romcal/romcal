@@ -477,6 +477,15 @@ export const locale: Locale = {
     odile_of_alsace_abbess_patroness_of_alsace: 'Santa Odilia, abadesa, Patrona de Alsacia',
     olga_of_kiev: 'Santa Olga',
     our_lady_help_of_christians: 'Nuestra Señora, Auxilio de los Cristianos',
+    /*
+     * src: https://gcatholic.org/calendar/2024/CR-en.htm
+     */
+    our_lady_of_angels: 'Nuestra Señora de los Ángeles',
+    /*
+     * src: https://lacecor-my.sharepoint.com/personal/repositorioweb_iglesiacr_org/_layouts/15/download.aspx?UniqueId=c6e7f2ef-edfa-445d-8a73-b640bc704bc8#page=96
+     */
+    our_lady_of_angels_patroness_of_costa_rica: 'Nuestra Señora de los Ángeles, patrona de Costa Rica',
+
     our_lady_of_aparecida_patroness_of_brazil: 'Nuestra Señora de Aparecida, Patrona de Brasil',
     our_lady_of_bethlehem: 'Nuestra Señora de Belén',
     our_lady_of_fatima: 'Nuestra Señora de Fátima',

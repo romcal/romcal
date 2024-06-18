@@ -106,6 +106,7 @@ export enum PatronTitle {
   PatronessOfTheUSA = 'PATRONESS_OF_THE_U_S_A',
   PatronOfTheClergyOfTheArchdioceseOfLyon = 'PATRON_OF_THE_CLERGY_OF_THE_ARCHDIOCESE_OF_LYON',
   PatronOfTheCityOfLyon = 'PATRON_OF_THE_CITY_OF_LYON',
+  PatronessOfCostaRica = 'PATRONESS_OF_COSTA_RICA',
 }
 
 export const PATRON_TITLES = Object.keys(PatronTitle)

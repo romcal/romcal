@@ -793,6 +793,10 @@ export const locale: Locale = {
      * src: https://gcatholic.org/calendar/2024/CR-en.htm
      */
     our_lady_of_angels: 'Our Lady of Angels',
+    /*
+     * src: @TobiTenno direct translation of the Spanish title
+     */
+    our_lady_of_angels_patroness_of_costa_rica: 'Our Lady of Angels, Patroness of Costa Rica',
     our_lady_of_aparecida_patroness_of_brazil: 'Our Lady of Aparecida, Patroness of Brazil',
     our_lady_of_bethlehem: 'Our Lady of Bethlehem',
     our_lady_of_china: 'Our Lady of China',
