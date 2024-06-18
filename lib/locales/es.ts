@@ -478,10 +478,6 @@ export const locale: Locale = {
     olga_of_kiev: 'Santa Olga',
     our_lady_help_of_christians: 'Nuestra Señora, Auxilio de los Cristianos',
     /*
-     * src: https://gcatholic.org/calendar/2024/CR-en.htm
-     */
-    our_lady_of_angels: 'Nuestra Señora de los Ángeles',
-    /*
      * src: https://lacecor-my.sharepoint.com/personal/repositorioweb_iglesiacr_org/_layouts/15/download.aspx?UniqueId=c6e7f2ef-edfa-445d-8a73-b640bc704bc8#page=96
      */
     our_lady_of_angels_patroness_of_costa_rica: 'Nuestra Señora de los Ángeles, patrona de Costa Rica',

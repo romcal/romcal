@@ -790,11 +790,7 @@ export const locale: Locale = {
     our_lady_mother_of_divine_providence_patroness_of_puerto_rico:
       'Our Lady, Mother of Divine Providence, Patroness of Puerto Rico',
     /*
-     * src: https://gcatholic.org/calendar/2024/CR-en.htm
-     */
-    our_lady_of_angels: 'Our Lady of Angels',
-    /*
-     * src: @TobiTenno direct translation of the Spanish title
+     * src: https://gcatholic.org/calendar/2024/CR-en.htm + @TobiTenno direct translation of the Spanish title
      */
     our_lady_of_angels_patroness_of_costa_rica: 'Our Lady of Angels, Patroness of Costa Rica',
     our_lady_of_aparecida_patroness_of_brazil: 'Our Lady of Aparecida, Patroness of Brazil',
