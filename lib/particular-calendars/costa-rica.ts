@@ -20,8 +20,9 @@ export class CostaRica extends CalendarDef {
       precedence: Precedences.GeneralSolemnity_3,
       /*
        * Ordo Temporis 2023-2024
-     * src: https://lacecor-my.sharepoint.com/:b:/g/personal/repositorioweb_iglesiacr_org/Ee_y58b67V1EinO2QLxwS8gBb3zFtlgpRFG0_KBU9l_kCQ?e=TVe9YR
-     * page: 96
+       * Ordo Temporis 2023-2024
+       * src: https://lacecor-my.sharepoint.com/:b:/g/personal/repositorioweb_iglesiacr_org/Ee_y58b67V1EinO2QLxwS8gBb3zFtlgpRFG0_KBU9l_kCQ?e=TVe9YR
+       * page: 96
        */
       dateDef: { month: 8, date: 2 },
       titles: { append: [PatronTitle.PatronessOfCostaRica] },
