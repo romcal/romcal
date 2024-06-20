@@ -478,6 +478,7 @@ export const locale: Locale = {
     olga_of_kiev: 'Santa Olga',
     our_lady_help_of_christians: 'Nuestra Señora, Auxilio de los Cristianos',
     /*
+     * Ordo Temporis 2023-2024
      * src: https://lacecor-my.sharepoint.com/:b:/g/personal/repositorioweb_iglesiacr_org/Ee_y58b67V1EinO2QLxwS8gBb3zFtlgpRFG0_KBU9l_kCQ?e=TVe9YR
      * page: 96
      */
