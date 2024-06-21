@@ -41,6 +41,7 @@ export default {
   plugins: ['selective-scope'],
   rules: {
     'body-max-line-length': [RuleConfigSeverity.Disabled] as const,
+    'header-max-length': [RuleConfigSeverity.Disabled] as const,
     'scope-enum': [
       2,
       'always',
