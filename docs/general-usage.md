@@ -44,7 +44,7 @@ Romcal.calendarFor(2020);
 ```
 
 Then, the `calendarFor`method will produce an `Array` of `LiturgicalDay` objects (by default, one object per each day of the year, except if you specified to also output optional memorials).
-For further information: :books: [Output data and JSON schema](docs/data-output.md).
+For further information: :books: [Output data and JSON schema](./data-output.md).
 
 Note that romcal always produce data **asynchronously**:
 

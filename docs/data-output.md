@@ -80,7 +80,7 @@ romcal returns an array of liturgical date objects in the following structure
 - `fromCalendar`: The name of the calendar from which this liturgical day is defined
 - `fromExtendedCalendars`: The names and the object diff of the calendar(s) from which this liturgical day is extended.
 - `metadata`: An object that holds additional information about the liturgical day, especially when it refers to a liturgical day coming from the Sanctoral or Martyrology.
-  - `titles`: An array of [titles](#titles) that may be assigned to this liturgical day
+  - `titles`: An array of [titles](#celebration-titles) that may be assigned to this liturgical day
 
 ## Liturgical Day Ranks
 
@@ -202,7 +202,9 @@ _CommonJS_
 var LITURGICAL_PERIODS = require('romcal').LITURGICAL_PERIODS;
 ```
 
-## Liturgical Cycles: Years and Weeks <a name="cycles"></a>
+## Liturgical Cycles: Years and Weeks
+
+### Cycles
 
 Romcal automatically calculates the correct cycles for the given liturgical date.
 Cycle information can be read via the `dates[idx].cycles` property in each date element in the array that `calendarFor` returns:
@@ -252,7 +254,7 @@ The weekday cycle is used mainly for weekday readings.
 
 Inside every liturgical year, another psalter week cycle will determine which psalms and prayer to follow for the liturgy of hours.
 
-With the exception of the Easter Octave, each week in the liturgical year is assigned readings from the [Psalter](https://en.wikipedia.org/wiki/Roman_Breviary#The_Psalter).
+Except the Easter Octave, each week in the liturgical year is assigned readings from the [Psalter](https://en.wikipedia.org/wiki/Roman_Breviary#The_Psalter).
 The psalter week cycle is composed of a repeated sequence of 4 four weeks. It restarts at the beginning of each season.
 There are also some rules that govern the set of Psalter readings used on particular occasions or seasons of the year.
 
@@ -325,7 +327,7 @@ romcal generates dates that come from 4 different internal sources:
 
 Each date is assigned a source with one of the four calendar sources above.
 
-Calendar sources play an important role in how romcal manages coinciding dates (see [overriding dates](#overidding)).
+Calendar sources play an important role in how romcal manages coinciding dates (see [overriding dates](#overriding-dates)).
 
 ### liturgical
 
@@ -406,4 +408,10 @@ A new `national` calendar for a country can be defined by creating a new `.ts` f
 
 Dates from `src/calendars/<countryName>.ts` will be assigned the source key `n`
 
-See [Overriding dates](#overridingDates) for more examples.
+See [Overriding dates](#overriding-dates) for more examples.
+
+## Overriding Dates
+
+- [Overriding a date by its key](./calendar-definitions#overriding-a-liturgical-day-by-its-key)
+- [Overriding a date by its priority](./calendar-definitions#overriding-a-liturgical-day-by-its-priority)
+- [Removing general dates in national calendar output](./calendar-definitions#removing-liturgical-day-of-the-general-calendar-in-particular-calendar-output)

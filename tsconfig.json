@@ -17,7 +17,7 @@
     "allowJs": true,
     "baseUrl": "."
   },
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "scripts/docs/**"],
   "include": ["lib/**/*", "tests/**/*", "scripts/**/*", "tmp/bundles/**/*", "tmp/constants/**/*"],
   "files": ["tests/global.d.ts"]
 }

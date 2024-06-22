@@ -1,7 +1,7 @@
 import {
+  EasterDate,
   calculateGregorianEasterDate,
   calculateJulianEasterDateToGregorianDate,
-  EasterDate,
   gregorianToJulianDay,
   isLeapGregorianYear,
   julianToGregorian,

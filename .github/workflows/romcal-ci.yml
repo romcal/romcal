@@ -66,4 +66,7 @@ jobs:
         run: npm run test:without-coverage
 
       - name: Ensure Data Integrity
-        run: npm run data:checks
+        run: |
+          npm run data:checks
+          npm run docs:check-links
+          npm run docs:sort-glossary

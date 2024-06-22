@@ -2,6 +2,7 @@ import { StringMap } from 'i18next';
 
 import { Color } from '../constants/colors';
 import { ProperCycle } from '../constants/cycles';
+import { PatronTitle, Title } from '../constants/martyrology-metadata';
 import { MonthIndex } from '../constants/months';
 import { Period } from '../constants/periods';
 import { Precedence } from '../constants/precedences';
@@ -11,7 +12,6 @@ import { DayOfWeek } from '../constants/weekdays';
 import { LiturgicalDay } from '../models/liturgical-day';
 import { LiturgicalDayDef } from '../models/liturgical-day-def';
 import { Dates } from '../utils/dates';
-import { PatronTitle, Title } from '../constants/martyrology-metadata';
 
 import { AllXOR, Id, XOR } from './common';
 import { BaseCyclesMetadata, PartialCyclesDef } from './cycles-metadata';

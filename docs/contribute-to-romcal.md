@@ -92,9 +92,9 @@ Note: all file names starting with `local-` are not included in the romcal codeb
 
 romcal code is unit tested using the [jest](https://jestjs.io/) framework.
 
-:heavy_check_mark: [TravisCI](https://travis-ci.org/romcal/romcal) automates test runs to ensure that romcal's functionality is working as expected.
+:heavy_check_mark: [GitHub Actions](https://github.com/romcal/romcal/actions) automates test runs to ensure that romcal's functionality is working as expected.
 
-[`package.json`](../package.json#L21) exposes test scripts:
+[`package.json`](../package.json) exposes test scripts:
 
 - For running all test suites in a single run:
 
@@ -105,7 +105,7 @@ npm test
 - When computed data has changed due to a codebase update, data snapshot tests will fail. To update the snapshots, run:
 
 ```bash
-npx jest --updateSnapshot
+npm run test:snapshot:update
 ```
 
 - For running all test suites and then watch the source directory for changes:

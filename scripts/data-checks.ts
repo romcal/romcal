@@ -258,13 +258,13 @@ for (let i = 0; i < allCalendars.length; i += 1) {
  * [1] If there are useless martyrology items.
  */
 const uselessMartyrologyKeys = findMissingInArray(Object.keys(Martyrology.catalog), allMartyrologyKeys);
-logIf(LogLevel.ERROR, `Useless martyrology items:`, uselessMartyrologyKeys);
+logIf(LogLevel.ERROR, 'Useless martyrology items:', uselessMartyrologyKeys);
 
 /**
  * [2] If there are missing martyrology items.
  */
 const missingMartyrologyKeys = findMissingInArray(allMartyrologyKeys, Object.keys(Martyrology.catalog));
-logIf(LogLevel.ERROR, `Missing martyrology items:`, missingMartyrologyKeys);
+logIf(LogLevel.ERROR, 'Missing martyrology items:', missingMartyrologyKeys);
 
 /**
  * [3] If there are missing localized 'en' items.
@@ -289,7 +289,7 @@ Object.keys(locales).forEach((localeKey) => {
  * [5] If the martyrology items are not sorted alphabetically.
  */
 const areNotSortedMartyrologyKeys = isObjectPropsSortedAlphabetically(Martyrology.catalog);
-logIf(LogLevel.ERROR, `Martyrology keys are not sorted alphabetically.`, areNotSortedMartyrologyKeys);
+logIf(LogLevel.ERROR, 'Martyrology keys are not sorted alphabetically.', areNotSortedMartyrologyKeys);
 
 /**
  * [6] If the localized name items are not sorted alphabetically.

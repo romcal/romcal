@@ -1,7 +1,7 @@
 import { DayOfWeek } from '../constants/weekdays';
 import { DateDef, DateDefExtended } from '../types/liturgical-day';
 import { BaseLiturgicalDayConfig, LiturgicalDayConfigOutput } from '../types/liturgical-day-config';
-import { addDays, Dates, daysInMonth, getUtcDate, isSameDate, isValidDate, subtractsDays } from '../utils/dates';
+import { Dates, addDays, daysInMonth, getUtcDate, isSameDate, isValidDate, subtractsDays } from '../utils/dates';
 import { isInteger } from '../utils/numbers';
 
 import { RomcalConfig } from './config';
@@ -65,10 +65,9 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
     // DateDefMonthDate
     if (isInteger(dateDef.month) && isInteger(dateDef.date) && dateDef.month > 0 && dateDef.date > 0) {
       date = getUtcDate(year, dateDef.month, dateDef.date);
-    }
 
-    // DateDefDateFnAddDay or DateDefDateFnSubtractDay
-    else if (typeof dateDef.dateFn === 'string' && Object.prototype.hasOwnProperty.call(this.dates, dateDef.dateFn)) {
+      // DateDefDateFnAddDay or DateDefDateFnSubtractDay
+    } else if (typeof dateDef.dateFn === 'string' && Object.prototype.hasOwnProperty.call(this.dates, dateDef.dateFn)) {
       const args = [...(dateDef.dateArgs ?? []), year];
       // TODO: improve TS typing here
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -78,17 +77,15 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
 
       if (date && isInteger(dateDef.addDay)) date = addDays(date, dateDef.addDay);
       if (date && isInteger(dateDef.subtractDay)) date = subtractsDays(date, dateDef.subtractDay);
-    }
 
-    // DateDefMonthDowNthWeekInMonth
-    else if (isInteger(dateDef.month) && isInteger(dateDef.dayOfWeek) && isInteger(dateDef.nthWeekInMonth)) {
+      // DateDefMonthDowNthWeekInMonth
+    } else if (isInteger(dateDef.month) && isInteger(dateDef.dayOfWeek) && isInteger(dateDef.nthWeekInMonth)) {
       const firstDayOf7Days = getUtcDate(year, dateDef.month, 7 * dateDef.nthWeekInMonth - 6);
 
       date = LiturgicalDayConfig.#getNextDayOfWeek(firstDayOf7Days, dateDef.dayOfWeek);
-    }
 
-    // DateDefMonthLastDowInMonth
-    else if (isInteger(dateDef.month) && isInteger(dateDef.lastDayOfWeekInMonth)) {
+      // DateDefMonthLastDowInMonth
+    } else if (isInteger(dateDef.month) && isInteger(dateDef.lastDayOfWeekInMonth)) {
       const firstDayOfMonth = getUtcDate(year, dateDef.month, 1);
       const firstDayOfLast7DaysOfMonth = subtractsDays(
         getUtcDate(year, dateDef.month, daysInMonth(firstDayOfMonth)),
@@ -134,24 +131,22 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
             if (date.getTime() >= from.getTime() && date.getTime() <= to.getTime()) {
               setDate(exception.setDate);
             }
-          }
-          // From-To exclusive
-          else if (date.getTime() > from.getTime() && date.getTime() < to.getTime()) {
+
+            // From-To exclusive
+          } else if (date.getTime() > from.getTime() && date.getTime() < to.getTime()) {
             setDate(exception.setDate);
           }
         }
-      }
 
-      // ifIsSameAsDate
-      else if (typeof exception.ifIsSameAsDate === 'object') {
+        // ifIsSameAsDate
+      } else if (typeof exception.ifIsSameAsDate === 'object') {
         const dateComparison = this.#dateLookup(exception.ifIsSameAsDate, yearOffset);
         if (dateComparison && isSameDate(dateComparison, date)) {
           setDate(exception.setDate);
         }
-      }
 
-      // ifIsDayOfWeek
-      else if (Number.isInteger(exception.ifIsDayOfWeek)) {
+        // ifIsDayOfWeek
+      } else if (Number.isInteger(exception.ifIsDayOfWeek)) {
         if (date.getUTCDay() === exception.ifIsDayOfWeek) {
           setDate(exception.setDate);
         }

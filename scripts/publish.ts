@@ -26,7 +26,7 @@ const afterPublish = (data: Results): void => {
 
 (async (): Promise<void> => {
   // Start by publishing the main romcal library
-  log(` - Publishing romcal`);
+  log(' - Publishing romcal');
   const mainData = await npmPublish({
     package: path.join(__dirname, '../package.json'),
     access: 'public',

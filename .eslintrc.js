@@ -5,17 +5,7 @@ module.exports = {
     es6: true,
     node: true,
   },
-  parserOptions: {
-    project: 'tsconfig.json',
-    sourceType: 'module',
-  },
-  extends: [
-    'airbnb-base',
-    // although this is typescript, it has to be here to have it's imported rules configured for
-    //  typescript and not re-apply them in the typescript inherited portion
-    'airbnb-typescript/base',
-    'plugin:prettier/recommended',
-  ],
+  extends: ['airbnb-base', 'plugin:prettier/recommended'],
   plugins: ['unused-imports'],
   rules: {
     // disable conflicting prettier-adjacent rules
@@ -37,12 +27,16 @@ module.exports = {
       {
         groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
         'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
       },
     ],
     'import/no-extraneous-dependencies': [
       'error',
       {
-        devDependencies: ['tests/**', 'scripts/**'],
+        devDependencies: ['tests/**/*', 'scripts/**/*'],
       },
     ],
     'import/prefer-default-export': 'off',
@@ -52,21 +46,11 @@ module.exports = {
 
     'no-console': 'error',
     'object-shorthand': 'error',
-    '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', ignoreRestSiblings: true }],
     'unused-imports/no-unused-imports': 'error',
     'no-return-assign': ['error', 'except-parens'],
 
     // gotta do it sometimes
     'no-await-in-loop': 'off',
-
-    // prettier
-    'prettier/prettier': [
-      'error',
-      {},
-      {
-        usePrettierrc: true,
-      },
-    ],
   },
   // override specific to test files
   overrides: [
@@ -74,7 +58,14 @@ module.exports = {
       files: ['scripts/**/*.ts', 'lib/**/*.ts', 'tests/**/*.ts'],
       parser: '@typescript-eslint/parser',
       plugins: ['@typescript-eslint'],
+      parserOptions: {
+        project: 'tsconfig.json',
+        sourceType: 'module',
+      },
+      extends: ['airbnb-typescript/base'],
       rules: {
+        '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', ignoreRestSiblings: true }],
+
         // disable overlapping non-typescript rules
         'no-return-await': 'off',
         'no-unused-vars': 'off',
@@ -113,6 +104,8 @@ module.exports = {
             // turn this off to see if there's anything unused worth removing
             'import/no-unused-modules': 'off',
             'no-console': 'off',
+            'no-restricted-syntax': 'off',
+            'import/no-extraneous-dependencies': 'off',
           },
         },
         {
@@ -141,6 +134,29 @@ module.exports = {
           },
         },
       ],
+    },
+    {
+      files: ['*.mjs', '*.js'],
+      extends: ['airbnb-base', 'plugin:prettier/recommended'],
+      plugins: ['unused-imports'],
+      parser: '@babel/eslint-parser',
+      parserOptions: {
+        sourceType: 'module',
+        ecmaVersion: 2018,
+        requireConfigFile: false,
+      },
+      rules: {
+        'no-console': 'off',
+        'no-restricted-syntax': ['error', 'ForInStatement'],
+        'import/no-extraneous-dependencies': [
+          'error',
+          {
+            devDependencies: true,
+          },
+        ],
+        'no-await-in-loop': 'off',
+        'no-nested-ternary': 'off',
+      },
     },
   ],
 };

@@ -6,7 +6,7 @@ import { Season } from '../constants/seasons';
 import { BaseCalendar, ByIds, DatesIndex, LiturgicalBuiltData, LiturgicalCalendar } from '../types/calendar';
 import { Id } from '../types/common';
 import { RomcalCalendarMetadata } from '../types/liturgical-day';
-import { dateDifference, Dates, isValidDate } from '../utils/dates';
+import { Dates, dateDifference, isValidDate } from '../utils/dates';
 
 import { RomcalConfig } from './config';
 import { LiturgicalDay } from './liturgical-day';

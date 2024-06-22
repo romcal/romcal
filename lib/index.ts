@@ -1,13 +1,12 @@
 import { version } from '../package.json';
 
 import { CALENDAR_PKG_NAMES, CALENDAR_VAR_NAMES } from './constants/calendars';
-import { LOCALE_IDS, LOCALE_VAR_NAMES } from './constants/locales';
-import { Color, COLORS, Colors, isColor } from './constants/colors';
+import { COLORS, Color, Colors, isColor } from './constants/colors';
 import {
   PROPER_CYCLES,
+  PSALTER_WEEKS,
   ProperCycle,
   ProperCycles,
-  PSALTER_WEEKS,
   PsalterWeekCycle,
   PsalterWeekCycles,
   SUNDAY_CYCLES,
@@ -18,25 +17,26 @@ import {
   WeekdayCycles,
 } from './constants/cycles';
 import { GENERAL_ROMAN_NAME, PROPER_OF_TIME_NAME } from './constants/general-calendar-names';
+import { LOCALE_IDS, LOCALE_VAR_NAMES } from './constants/locales';
 import {
   CANONIZATION_LEVEL,
   CanonizationLevel,
   CanonizationLevels,
-  isMartyr,
   PATRON_TITLES,
   PatronTitle,
-  Sex,
   SEXES,
+  Sex,
   Sexes,
-  Title,
   TITLES,
+  Title,
+  isMartyr,
 } from './constants/martyrology-metadata';
-import { Month, MonthIndex, MONTHS } from './constants/months';
-import { Period, PERIODS } from './constants/periods';
-import { Precedence, PRECEDENCES, Precedences } from './constants/precedences';
-import { Rank, RANKS, Ranks, RanksFromPrecedence } from './constants/ranks';
-import { Season, SEASONS } from './constants/seasons';
-import { DayOfWeek, Weekday, WEEKDAYS } from './constants/weekdays';
+import { MONTHS, Month, MonthIndex } from './constants/months';
+import { PERIODS, Period } from './constants/periods';
+import { PRECEDENCES, Precedence, Precedences } from './constants/precedences';
+import { RANKS, Rank, Ranks, RanksFromPrecedence } from './constants/ranks';
+import { SEASONS, Season } from './constants/seasons';
+import { DayOfWeek, WEEKDAYS, Weekday } from './constants/weekdays';
 import { RomcalBundle } from './models/bundle';
 import { Calendar } from './models/calendar';
 import { CalendarDef } from './models/calendar-def';
@@ -72,7 +72,6 @@ import {
   DateDefMonthLastDowInMonth,
   DateDefSubtractDay,
   FromCalendarId,
-  i18nDef,
   LiturgicalDayInput,
   LiturgyDayDiff,
   MartyrologyItemPointer,
@@ -80,6 +79,7 @@ import {
   RomcalCalendarMetadata,
   RomcalTitles,
   TitlesDef,
+  i18nDef,
 } from './types/liturgical-day';
 import { LiturgicalDayConfigOutput } from './types/liturgical-day-config';
 import {
@@ -92,9 +92,9 @@ import {
 } from './types/locale';
 import { MartyrologyCatalog, MartyrologyItem, SaintCount, SaintDate, SaintDateDef } from './types/martyrology';
 import {
+  Dates,
   addDays,
   dateDifference,
-  Dates,
   daysInMonth,
   getUtcDate,
   getUtcDateFromString,

@@ -147,7 +147,7 @@ export class ProperOfTime extends CalendarDef {
    */
   earlyChristmasTime(yearOffset = 0): void {
     // The Nativity of the Lord.
-    this.#newLiturgicalDayDef(`nativity_of_the_lord`, {
+    this.#newLiturgicalDayDef('nativity_of_the_lord', {
       precedence: Precedences.ProperOfTimeSolemnity_2,
       dateDef: { dateFn: 'christmas', yearOffset: -1 + yearOffset },
       isHolyDayOfObligation: true,
@@ -155,7 +155,7 @@ export class ProperOfTime extends CalendarDef {
       periods: [Period.ChristmasOctave, Period.ChristmasToPresentationOfTheLord],
       calendarMetadata: { weekOfSeason: 1, dayOfSeason: 1 },
       colors: [Colors.White],
-      i18nDef: [`names:nativity_of_the_lord`],
+      i18nDef: ['names:nativity_of_the_lord'],
     });
 
     // Octave of the Nativity of the Lord (without December 25 and January 1).
@@ -177,14 +177,14 @@ export class ProperOfTime extends CalendarDef {
 
     // The Sunday within the Octave of the Nativity of the Lord,
     // Feast of the Holy Family of Jesus, Mary and Joseph.
-    this.#newLiturgicalDayDef(`holy_family_of_jesus_mary_and_joseph`, {
+    this.#newLiturgicalDayDef('holy_family_of_jesus_mary_and_joseph', {
       precedence: Precedences.GeneralLordFeast_5,
       dateDef: { dateFn: 'holyFamily', yearOffset: -1 + yearOffset },
       seasons: [Season.ChristmasTime],
       periods: [Period.ChristmasOctave, Period.ChristmasToPresentationOfTheLord],
       calendarMetadata: {},
       colors: [Colors.White],
-      i18nDef: [`names:holy_family_of_jesus_mary_and_joseph`],
+      i18nDef: ['names:holy_family_of_jesus_mary_and_joseph'],
     });
   }
 
@@ -197,7 +197,7 @@ export class ProperOfTime extends CalendarDef {
    */
   lateChristmasTime(yearOffset = 0): void {
     // Solemnity of Mary, the Holy Mother of God.
-    this.#newLiturgicalDayDef(`mary_mother_of_god`, {
+    this.#newLiturgicalDayDef('mary_mother_of_god', {
       precedence: Precedences.GeneralSolemnity_3,
       dateDef: { dateFn: 'maryMotherOfGod', yearOffset },
       isHolyDayOfObligation: true,
@@ -209,7 +209,7 @@ export class ProperOfTime extends CalendarDef {
     });
 
     // Second Sunday after the Nativity.
-    this.#newLiturgicalDayDef(`second_sunday_after_christmas`, {
+    this.#newLiturgicalDayDef('second_sunday_after_christmas', {
       precedence: Precedences.UnprivilegedSunday_6,
       dateDef: { dateFn: 'secondSundayAfterChristmas', yearOffset },
       isHolyDayOfObligation: true,
@@ -238,7 +238,7 @@ export class ProperOfTime extends CalendarDef {
     }
 
     // The Epiphany of the Lord.
-    this.#newLiturgicalDayDef(`epiphany_of_the_lord`, {
+    this.#newLiturgicalDayDef('epiphany_of_the_lord', {
       precedence: Precedences.ProperOfTimeSolemnity_2,
       dateDef: { dateFn: 'epiphany', yearOffset },
       isHolyDayOfObligation: true,
@@ -263,7 +263,7 @@ export class ProperOfTime extends CalendarDef {
     }
 
     // The Baptism of the Lord.
-    this.#newLiturgicalDayDef(`baptism_of_the_lord`, {
+    this.#newLiturgicalDayDef('baptism_of_the_lord', {
       precedence: Precedences.ProperOfTimeSolemnity_2,
       dateDef: { dateFn: 'baptismOfTheLord', yearOffset },
       seasons: [Season.ChristmasTime],
@@ -280,14 +280,14 @@ export class ProperOfTime extends CalendarDef {
    */
   lent(yearOffset = 0): void {
     // Ash Wednesday.
-    this.#newLiturgicalDayDef(`ash_wednesday`, {
+    this.#newLiturgicalDayDef('ash_wednesday', {
       precedence: Precedences.AshWednesday_2,
       dateDef: { dateFn: 'ashWednesday', yearOffset },
       seasons: [Season.Lent],
       periods: [Period.PresentationOfTheLordToHolyThursday],
       calendarMetadata: { weekOfSeason: 0, dayOfSeason: 1, dayOfWeek: 3 },
       colors: [Colors.Purple],
-      i18nDef: [`names:ash_wednesday`],
+      i18nDef: ['names:ash_wednesday'],
     });
 
     // Days after Ash Wednesday.
@@ -323,7 +323,7 @@ export class ProperOfTime extends CalendarDef {
     }
 
     // Palm Sunday of the Passion of the Lord.
-    this.#newLiturgicalDayDef(`palm_sunday_of_the_passion_of_the_lord`, {
+    this.#newLiturgicalDayDef('palm_sunday_of_the_passion_of_the_lord', {
       precedence: Precedences.PrivilegedSunday_2,
       dateDef: { dateFn: 'palmSunday', yearOffset },
       isHolyDayOfObligation: true,
@@ -331,7 +331,7 @@ export class ProperOfTime extends CalendarDef {
       periods: [Period.HolyWeek, Period.PresentationOfTheLordToHolyThursday],
       calendarMetadata: { weekOfSeason: 6, dayOfSeason: 40, dayOfWeek: 0 },
       colors: [Colors.Red],
-      i18nDef: [`names:palm_sunday_of_the_passion_of_the_lord`],
+      i18nDef: ['names:palm_sunday_of_the_passion_of_the_lord'],
     });
 
     // Holy Week, Monday to Thursday.
@@ -354,40 +354,40 @@ export class ProperOfTime extends CalendarDef {
    */
   paschalTriduum(yearOffset = 0): void {
     // Thursday of the Lord's Supper (at the Evening Mass).
-    this.#newLiturgicalDayDef(`thursday_of_the_lords_supper`, {
+    this.#newLiturgicalDayDef('thursday_of_the_lords_supper', {
       precedence: Precedences.Triduum_1,
       dateDef: { dateFn: 'holyThursday', yearOffset },
       seasons: [Season.PaschalTriduum],
       periods: [Period.HolyWeek],
       calendarMetadata: { weekOfSeason: 1, dayOfSeason: 0, dayOfWeek: 4 },
       colors: [Colors.White],
-      i18nDef: [`names:thursday_of_the_lords_supper`],
+      i18nDef: ['names:thursday_of_the_lords_supper'],
     });
 
     // Friday of the Passion of the Lord.
-    this.#newLiturgicalDayDef(`friday_of_the_passion_of_the_lord`, {
+    this.#newLiturgicalDayDef('friday_of_the_passion_of_the_lord', {
       precedence: Precedences.Triduum_1,
       dateDef: { dateFn: 'goodFriday', yearOffset },
       seasons: [Season.PaschalTriduum],
       periods: [Period.HolyWeek],
       calendarMetadata: { weekOfSeason: 1, dayOfSeason: 1, dayOfWeek: 5 },
       colors: [Colors.Red],
-      i18nDef: [`names:friday_of_the_passion_of_the_lord`],
+      i18nDef: ['names:friday_of_the_passion_of_the_lord'],
     });
 
     // Holy Saturday
-    this.#newLiturgicalDayDef(`holy_saturday`, {
+    this.#newLiturgicalDayDef('holy_saturday', {
       precedence: Precedences.Triduum_1,
       dateDef: { dateFn: 'holySaturday', yearOffset },
       seasons: [Season.PaschalTriduum],
       periods: [Period.HolyWeek],
       calendarMetadata: { weekOfSeason: 1, dayOfSeason: 2, dayOfWeek: 6 },
       colors: [],
-      i18nDef: [`names:holy_saturday`],
+      i18nDef: ['names:holy_saturday'],
     });
 
     // Easter Sunday of the Resurrection of the Lord.
-    this.#newLiturgicalDayDef(`easter_sunday`, {
+    this.#newLiturgicalDayDef('easter_sunday', {
       precedence: Precedences.Triduum_1,
       dateDef: { dateFn: 'easterSunday', yearOffset },
       isHolyDayOfObligation: true,
@@ -395,7 +395,7 @@ export class ProperOfTime extends CalendarDef {
       periods: [Period.EasterOctave],
       calendarMetadata: { weekOfSeason: 1, dayOfSeason: 1, dayOfWeek: 0 },
       colors: [Colors.White],
-      i18nDef: [`names:easter_sunday`],
+      i18nDef: ['names:easter_sunday'],
     });
   }
 
@@ -418,7 +418,7 @@ export class ProperOfTime extends CalendarDef {
     }
 
     // Second Sunday of Easter, or of Divine Mercy.
-    this.#newLiturgicalDayDef(`divine_mercy_sunday`, {
+    this.#newLiturgicalDayDef('divine_mercy_sunday', {
       precedence: Precedences.PrivilegedSunday_2,
       dateDef: { dateFn: 'divineMercySunday', yearOffset },
       isHolyDayOfObligation: true,
@@ -426,7 +426,7 @@ export class ProperOfTime extends CalendarDef {
       periods: [Period.EasterOctave],
       calendarMetadata: { weekOfSeason: 2, dayOfSeason: 8, dayOfWeek: 0 },
       colors: [Colors.White],
-      i18nDef: [`names:divine_mercy_sunday`],
+      i18nDef: ['names:divine_mercy_sunday'],
     });
 
     // All days, from the 2nd Monday to the 7th Saturday of Easter Time.
@@ -450,13 +450,13 @@ export class ProperOfTime extends CalendarDef {
       };
       // The Ascension of the Lord
       if (week === 6 && dow === 4) {
-        this.#newLiturgicalDayDef(`ascension_of_the_lord`, {
+        this.#newLiturgicalDayDef('ascension_of_the_lord', {
           ...data,
           precedence: Precedences.ProperOfTimeSolemnity_2,
           dateDef: { dateFn: 'ascension', yearOffset },
           isHolyDayOfObligation: true,
           calendarMetadata: {},
-          i18nDef: [`names:ascension_of_the_lord`],
+          i18nDef: ['names:ascension_of_the_lord'],
         });
       }
       // All other Sundays and weekdays.
@@ -464,7 +464,7 @@ export class ProperOfTime extends CalendarDef {
     }
 
     // Pentecost Sunday.
-    this.#newLiturgicalDayDef(`pentecost_sunday`, {
+    this.#newLiturgicalDayDef('pentecost_sunday', {
       precedence: Precedences.ProperOfTimeSolemnity_2,
       dateDef: { dateFn: 'pentecostSunday', yearOffset },
       isHolyDayOfObligation: true,
@@ -472,7 +472,7 @@ export class ProperOfTime extends CalendarDef {
       periods: [],
       calendarMetadata: { weekOfSeason: 8, dayOfSeason: 50, dayOfWeek: 0 },
       colors: [Colors.Red],
-      i18nDef: [`names:pentecost_sunday`],
+      i18nDef: ['names:pentecost_sunday'],
     });
   }
 
@@ -482,7 +482,7 @@ export class ProperOfTime extends CalendarDef {
    */
   ordinaryTime(yearOffset = 0): void {
     // The Most Holy Trinity.
-    this.#newLiturgicalDayDef(`most_holy_trinity`, {
+    this.#newLiturgicalDayDef('most_holy_trinity', {
       precedence: Precedences.GeneralSolemnity_3,
       dateDef: { dateFn: 'trinitySunday', yearOffset },
       isHolyDayOfObligation: true,
@@ -490,11 +490,11 @@ export class ProperOfTime extends CalendarDef {
       periods: [],
       calendarMetadata: { dayOfWeek: 0 },
       colors: [Colors.White],
-      i18nDef: [`names:most_holy_trinity`],
+      i18nDef: ['names:most_holy_trinity'],
     });
 
     // The Most Holy Body and Blood of Christ (Corpus Christi).
-    this.#newLiturgicalDayDef(`most_holy_body_and_blood_of_christ`, {
+    this.#newLiturgicalDayDef('most_holy_body_and_blood_of_christ', {
       precedence: Precedences.GeneralSolemnity_3,
       dateDef: { dateFn: 'corpusChristi', yearOffset },
       isHolyDayOfObligation: true,
@@ -502,11 +502,11 @@ export class ProperOfTime extends CalendarDef {
       periods: [],
       calendarMetadata: {},
       colors: [Colors.White],
-      i18nDef: [`names:most_holy_body_and_blood_of_christ`],
+      i18nDef: ['names:most_holy_body_and_blood_of_christ'],
     });
 
     // The Most Sacred Heart of Jesus.
-    this.#newLiturgicalDayDef(`most_sacred_heart_of_jesus`, {
+    this.#newLiturgicalDayDef('most_sacred_heart_of_jesus', {
       precedence: Precedences.GeneralSolemnity_3,
       dateDef: { dateFn: 'mostSacredHeartOfJesus', yearOffset },
       isHolyDayOfObligation: false,
@@ -514,7 +514,7 @@ export class ProperOfTime extends CalendarDef {
       periods: [],
       calendarMetadata: { dayOfWeek: 5 },
       colors: [Colors.White],
-      i18nDef: [`names:most_sacred_heart_of_jesus`],
+      i18nDef: ['names:most_sacred_heart_of_jesus'],
     });
 
     // Ordinary Time.
@@ -537,25 +537,22 @@ export class ProperOfTime extends CalendarDef {
       // Sunday of the Word of God
       // http://www.vatican.va/content/francesco/en/motu_proprio/documents/papa-francesco-motu-proprio-20190930_aperuit-illis.html
       if (week === 3 && dow === 0) {
-        this.#newLiturgicalDayDef(`sunday_of_the_word_of_god`, {
+        this.#newLiturgicalDayDef('sunday_of_the_word_of_god', {
           ...data,
-          i18nDef: [`names:sunday_of_the_word_of_god`],
+          i18nDef: ['names:sunday_of_the_word_of_god'],
         });
-      }
 
-      // 34th week in Ordinary Time,
-      // or the Solemnity of our Lord Jesus Christ, King of the Universe.
-      else if (week === 34 && dow === 0) {
-        this.#newLiturgicalDayDef(`our_lord_jesus_christ_king_of_the_universe`, {
+        // 34th week in Ordinary Time,
+        // or the Solemnity of our Lord Jesus Christ, King of the Universe.
+      } else if (week === 34 && dow === 0) {
+        this.#newLiturgicalDayDef('our_lord_jesus_christ_king_of_the_universe', {
           ...data,
           precedence: Precedences.GeneralSolemnity_3,
           colors: [Colors.White],
-          i18nDef: [`names:our_lord_jesus_christ_king_of_the_universe`],
+          i18nDef: ['names:our_lord_jesus_christ_king_of_the_universe'],
         });
-      }
-
-      // All other Sundays and weekdays.
-      else {
+        // All other Sundays and weekdays.
+      } else {
         this.#newLiturgicalDayDef(`ordinary_time_${week}_${this.#weekdays[dow]}`, data);
       }
     }
