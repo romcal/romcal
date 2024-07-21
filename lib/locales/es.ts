@@ -477,6 +477,13 @@ export const locale: Locale = {
     odile_of_alsace_abbess_patroness_of_alsace: 'Santa Odilia, abadesa, Patrona de Alsacia',
     olga_of_kiev: 'Santa Olga',
     our_lady_help_of_christians: 'Nuestra Señora, Auxilio de los Cristianos',
+    /*
+     * Ordo Temporis 2023-2024
+     * src: https://lacecor-my.sharepoint.com/:b:/g/personal/repositorioweb_iglesiacr_org/Ee_y58b67V1EinO2QLxwS8gBb3zFtlgpRFG0_KBU9l_kCQ?e=TVe9YR
+     * page: 96
+     */
+    our_lady_of_angels_patroness_of_costa_rica: 'Nuestra Señora de los Ángeles, patrona de Costa Rica',
+
     our_lady_of_aparecida_patroness_of_brazil: 'Nuestra Señora de Aparecida, Patrona de Brasil',
     our_lady_of_bethlehem: 'Nuestra Señora de Belén',
     our_lady_of_fatima: 'Nuestra Señora de Fátima',
@@ -501,8 +508,8 @@ export const locale: Locale = {
     our_lady_of_the_valley: 'Nuestra Señora del Valle',
     our_lady_queen_of_peace: 'Nuestra Señora, Reina de la Paz',
     our_lady_refuge_of_sinners: 'Nuestra Señora, refugio de los pecadores',
-    our_lord_jesus_christ_king_of_the_universe: 'Cristo Rey',
-    our_lord_jesus_christ_the_eternal_high_priest: 'Nuestro Señor Jesucristo, Sumo y Eterno presbítero',
+    our_lord_jesus_christ_king_of_the_universe: 'Jesucristo, Rey del Universo', // src: https://textosparalaliturgia.blogspot.com/2014/09/misal-romano-jesucristo-rey-del-universo.html
+    our_lord_jesus_christ_the_eternal_high_priest: 'Jesucristo, Sumo y Eterno Sacerdote', // src: https://textosparalaliturgia.blogspot.com/2014/05/misal-romano-jesucristo-sumo-y-eterno.html
     our_lord_of_miracles: 'Nuestro Señor de los Milagros',
     palm_sunday_of_the_passion_of_the_lord: 'Domingo de Ramos',
     pancras_of_rome_martyr: 'San Pancracio, mártir',

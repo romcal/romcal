@@ -519,6 +519,8 @@ export class GeneralRoman extends CalendarDef {
     },
 
     nativity_of_john_the_baptist: {
+      // Note: The title of Martyr is not indicated here, as Saint John the Baptist is not yet a Martyr at his birth.
+      // Therefore, this celebration will be celebrated in white (src: GIRM, 308a).
       precedence: Precedences.GeneralSolemnity_3,
       // 06-24
       dateDef: { dateFn: 'nativityOfJohnTheBaptist' },
@@ -808,8 +810,11 @@ export class GeneralRoman extends CalendarDef {
     },
 
     passion_of_saint_john_the_baptist: {
+      // Note: here we consider Saint John the Baptist as a martyr, although the title of Martyr is not indicated
+      // in the name of this memorial. Therefore, we explicitly specify the red color, but omit the title of Martyr.
       precedence: Precedences.GeneralMemorial_10,
       dateDef: { month: 8, date: 29 },
+      colors: Colors.Red,
     },
 
     gregory_i_the_great_pope: {

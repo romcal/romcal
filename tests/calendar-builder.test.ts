@@ -146,7 +146,7 @@ describe('Testing calendar generation functions', () => {
             !d.titles.includes(Titles.Evangelist)
         )
         .forEach((d) => {
-          if (isMartyr(d.titles)) {
+          if (isMartyr(d.titles) || d.id === 'passion_of_saint_john_the_baptist') {
             // eslint-disable-next-line jest/no-conditional-expect
             expect(d.colors[0]).toEqual(Colors.Red);
           } else {
