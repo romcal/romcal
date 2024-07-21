@@ -224,6 +224,7 @@ export const locale: Locale = {
     benedict_of_aniane_abbot: 'San Benito de Aniano, Abad',
     benedict_of_jesus_valdivielso_saez_religious: 'San Héctor Valdivielso Sáez, mártir',
     benedict_of_nursia_abbot: 'San Benito, abad, patrono de Europa,',
+    benedict_of_nursia_abbot_patron_of_europe: 'San Benito, abad, patrono de Europa,',
     bernard_of_clairvaux_abbot: 'San Bernardo de Clairvaux, Abad y doctor de la Iglesia',
     bernardine_of_siena_priest: 'San Bernardino de Siena, presbítero',
     beuno_of_wales_abbot: 'San Beuno, Abad',
