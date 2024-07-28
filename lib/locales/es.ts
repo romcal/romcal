@@ -223,8 +223,14 @@ export const locale: Locale = {
     bede_the_venerable_priest: 'San Beda el Venerable, presbítero y doctor de la Iglesia',
     benedict_of_aniane_abbot: 'San Benito de Aniano, Abad',
     benedict_of_jesus_valdivielso_saez_religious: 'San Héctor Valdivielso Sáez, mártir',
-    benedict_of_nursia_abbot: 'San Benito, abad, patrono de Europa,',
-    benedict_of_nursia_abbot_patron_of_europe: 'San Benito, abad, patrono de Europa,',
+    /**
+     * src: https://liturgiapapal.org/attachments/article/1093/PROPIO%20DE%20LOS%20SANTOS.pdf#page=9
+     */
+    benedict_of_nursia_abbot: 'San Benito, abad',
+    /**
+     * based on: https://liturgiapapal.org/attachments/article/1093/PROPIO%20DE%20LOS%20SANTOS.pdf#page=9
+     */
+    benedict_of_nursia_abbot_patron_of_europe: 'San Benito, abad, patrono de Europa',
     bernard_of_clairvaux_abbot: 'San Bernardo de Clairvaux, Abad y doctor de la Iglesia',
     bernardine_of_siena_priest: 'San Bernardino de Siena, presbítero',
     beuno_of_wales_abbot: 'San Beuno, Abad',
@@ -232,7 +238,13 @@ export const locale: Locale = {
     blessed_martyrs_of_paris: 'Beatos mártires de París en la Revolución Francesa',
     bonaventure_of_bagnoregio_bishop: 'San Buenaventura, obispo y doctor de la Iglesia',
     boniface_of_mainz_bishop: 'San Bonifacio, obispo y mártir',
+    /**
+     * src: https://liturgiapapal.org/attachments/article/1093/PROPIO%20DE%20LOS%20SANTOS.pdf#page=9
+     */
     bridget_of_sweden_religious: 'Santa Brígida, religiosa',
+    /**
+     * based on: https://liturgiapapal.org/attachments/article/1093/PROPIO%20DE%20LOS%20SANTOS.pdf#page=9
+     */
     bridget_of_sweden_religious_copatroness_of_europe: 'Santa Brígida, religiosa, patrona de Europa',
     brigid_of_kildare_virgin: 'Santa Brígida de Kildare, Abadesa',
     brigid_of_kildare_virgin_copatroness_of_ireland: 'Santa Brígida de Kildare, virgen y Patrona Secundaria de Irlanda',
