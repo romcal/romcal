@@ -1,5 +1,6 @@
 import { Brazil_PtBr } from '@dist/rite-roman1969/bundles/brazil';
 import { France_Fr } from '@dist/rite-roman1969/bundles/france';
+import { Germany_De } from '@dist/rite-roman1969/bundles/germany';
 import { Romcal } from '@src/rite-roman1969';
 
 import { laOrdinalNumberGenderFixture } from './fixtures/la-ordinal-number-gender.fixture';
@@ -17,6 +18,13 @@ describe('Testing localization functionality', () => {
     test('If the locale is set to "pt-BR", romcal should output text in Portuguese', async () => {
       const date = await new Romcal({ localizedCalendar: Brazil_PtBr }).getOneLiturgicalDay('all_saints');
       expect(date?.name).toBe('Todos os Santos');
+    });
+  });
+
+  describe('Test the German locale', () => {
+    test('If the locale is set to "De", romcal should output text in German', async () => {
+      const date = await new Romcal({ localizedCalendar: Germany_De }).generateCalendar(2024);
+      expect(date['2024-12-02'][0].name).toBe('Montag der 1. Adventswoche');
     });
   });
 
