@@ -1,8 +1,8 @@
 import { ProperCycles } from '../constants/cycles';
+import { PatronTitle } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
 import { Inputs } from '../types/calendar-def';
-import { PatronTitle } from '../constants/martyrology-metadata';
 
 import { Americas } from './americas';
 

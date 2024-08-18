@@ -6,7 +6,7 @@ import { Hungary_En } from 'romcal/dist/bundles/hungary';
 import { Ireland_En } from 'romcal/dist/bundles/ireland';
 import { Slovakia_Sk } from 'romcal/dist/bundles/slovakia';
 
-import { CalendarScope, Id, LiturgicalCalendar, LiturgicalDayDef, Romcal, Period, Season, LiturgicalDay } from '../lib';
+import { CalendarScope, Id, LiturgicalCalendar, LiturgicalDay, LiturgicalDayDef, Period, Romcal, Season } from '../lib';
 import { dateDifference } from '../lib/utils/dates';
 
 const { Colors, isMartyr, Titles, Ranks, getUtcDate, getUtcDateFromString, isSameDate, subtractsDays } = Romcal;

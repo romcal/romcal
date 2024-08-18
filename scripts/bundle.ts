@@ -1,6 +1,6 @@
-import * as util from 'util';
-import path from 'path';
-import * as fs from 'fs';
+import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { inspect } from 'node:util';
 
 import chalk from 'chalk';
 import cliProgress from 'cli-progress';
@@ -100,7 +100,7 @@ export class RomcalBuilder {
 }
 
 export const RomcalBundler = (): void => {
-  rimraf.sync(path.resolve('tmp/bundles'));
+  rimraf.sync(resolve('tmp/bundles'));
   const isCI = process.env.CI === 'true';
 
   const gauge = new cliProgress.SingleBar(
@@ -207,29 +207,28 @@ export const RomcalBundler = (): void => {
       });
 
       // Prepare the bundled calendars file content.
-      const dir = path.resolve(__dirname, '../tmp/bundles/', enclosingDir);
+      const dir = resolve(__dirname, '../tmp/bundles/', enclosingDir);
       const calVarName = `${calendarConstructorName}_${toPascalCase(locale.id)}`;
       calVarObj[locale.id] = calVarName;
-      const data = util
-        .inspect(bundle, false, 99)
+      const data = inspect(bundle, false, 99)
         .replace(/^RomcalBundle\s/, '') // Remove object type name
         .replace(/(\n\s*\S+:\sundefined,)/gi, '') // Remove undefined properties
         .replace(/\n\s*(!:seasons|periods)\s:\[],/gi, ''); // Remove empty arrays
       const jsOutput =
-        `/* eslint-disable */\n` +
-        `import { RomcalBundleObject } from '../../../lib';\n\n` +
+        '/* eslint-disable */\n' +
+        "import { RomcalBundleObject } from '../../../lib';\n\n" +
         `export const ${calVarName}: RomcalBundleObject = ${data}`;
 
       // Write the calendar bundle file.
-      if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-      fs.writeFileSync(path.resolve(dir, filename), jsOutput, 'utf-8');
+      if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
+      writeFileSync(resolve(dir, filename), jsOutput, 'utf-8');
 
       // Add another calendar bundle file for the IIFE format, that will output the calendar
       // bundle in a global variable, for iife usage.
       // Note: will not be required if this issue is addressed: https://github.com/evanw/esbuild/issues/1182
       const jsIifeOutput = `import { ${calVarName} } from './${locale.id.toLowerCase()}';\nmodule.exports = ${calVarName};\n`;
       const iifeFilename = filename.replace(/\.ts$/, '.iife.ts');
-      fs.writeFileSync(path.resolve(dir, iifeFilename), jsIifeOutput, 'utf-8');
+      writeFileSync(resolve(dir, iifeFilename), jsIifeOutput, 'utf-8');
     }
 
     // Define package name, variable name and package dist.
@@ -237,7 +236,7 @@ export const RomcalBundler = (): void => {
       .replace(/([^_]+)([A-Z])/g, '$1-$2')
       .replace(/_/g, '.')
       .toLowerCase();
-    const dir = path.resolve(__dirname, '../tmp/bundles/', pkgName);
+    const dir = resolve(__dirname, '../tmp/bundles/', pkgName);
 
     /**
      * Write index.ts file within all calendar directories
@@ -248,7 +247,7 @@ export const RomcalBundler = (): void => {
     }, '');
     const indexExports = Object.entries(calVarObj).reduce((acc, [, varName]) => `${acc}    ${varName},\n`, '');
     const indexOutput = `import { RomcalBundleObject } from '../../../lib';\n${indexImports}\nexport {\n${indexExports}};`;
-    fs.writeFileSync(path.resolve(dir, `index.ts`), indexOutput, 'utf-8');
+    writeFileSync(resolve(dir, 'index.ts'), indexOutput, 'utf-8');
 
     /**
      * Write index.d.ts files
@@ -258,7 +257,7 @@ export const RomcalBundler = (): void => {
       ''
     );
     const dtsOutput = `import { RomcalBundleObject } from 'romcal';\n\n${dtsExports}`;
-    fs.writeFileSync(path.resolve(dir, `index.d.ts`), dtsOutput, 'utf-8');
+    writeFileSync(resolve(dir, 'index.d.ts'), dtsOutput, 'utf-8');
   }
 
   if (!isCI) gauge.stop();

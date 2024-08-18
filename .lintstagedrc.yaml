@@ -1,0 +1,15 @@
+'*.ts':
+  - eslint --fix
+  - prettier --write
+'*.{json,yaml,yml,md},!package*.json,!docs/**/*.md':
+  - prettier --write
+'.*rc.*': # .eslintrc, .prettierrc, etc.
+  - prettier --write
+package*.json:
+  - npx prettier --write
+  - npm dedupe
+docs/**/*.md:
+  # Prettier last, configured to have the same italics characters
+  - npm run docs:check-links
+  - cross-env CI=true npm run docs:sort-glossary
+  - prettier --write

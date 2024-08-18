@@ -1,9 +1,9 @@
-import { dirname, resolve } from 'node:path';
 import fs from 'fs';
+import { dirname, resolve } from 'node:path';
 
 import chalk from 'chalk';
 import { generateDtsBundle } from 'dts-bundle-generator';
-import { build, Format, Platform } from 'esbuild';
+import { Format, Platform, build } from 'esbuild';
 import { glob } from 'glob';
 import { rimraf } from 'rimraf';
 import { PackageJson } from 'type-fest';
@@ -78,11 +78,11 @@ const buildPipeline = async (): Promise<void> => {
   /**
    * Compiling sources and checking types of the romcal library
    */
-  log(chalk.bold(`\n✓ Compiling sources and checking types of the romcal library`));
+  log(chalk.bold('\n✓ Compiling sources and checking types of the romcal library'));
   rimraf.sync(resolve('tmp/dts'));
   compile(tsConfigPath);
   // TODO: seems to stop printing before this log
-  log(chalk.dim(`  .d.ts files created in ./tmp/dts/`));
+  log(chalk.dim('  .d.ts files created in ./tmp/dts/'));
 
   /**
    * Create calendar bundle files
@@ -119,7 +119,7 @@ const buildPipeline = async (): Promise<void> => {
     { preferredConfigPath: tsConfigPath }
   );
   fs.writeFileSync(resolve('dist', 'index.d.ts'), dts.join('\n'), 'utf-8');
-  log(chalk.dim(`  ./tmp/dts/lib/index.d.ts → dist/index.d.ts`));
+  log(chalk.dim('  ./tmp/dts/lib/index.d.ts → dist/index.d.ts'));
 
   /**
    * Retrieve all calendar bundles
@@ -219,7 +219,7 @@ const buildPipeline = async (): Promise<void> => {
   /**
    * Add package.json and index.d.ts files to all calendar bundles
    */
-  log(chalk.bold(`\n✓ Package calendar bundles as npm modules`));
+  log(chalk.bold('\n✓ Package calendar bundles as npm modules'));
   const allCalendars = [GENERAL_ROMAN_NAME, ...Object.keys(particularCalendars)];
 
   allCalendars.forEach((calendar) => {
@@ -258,8 +258,8 @@ const buildPipeline = async (): Promise<void> => {
     fs.copyFileSync(currentPath, destinationPath);
   });
   log(chalk.dim(`  created ${allCalendars.length} modules in ./dist/bundles/`));
-  log(chalk.dim(`  created ./package.json to each modules`));
-  log(chalk.dim(`  /tmp/bundles/[calendar]/index.d.ts → dist/bundles/[calendar]/index.d.ts`));
+  log(chalk.dim('  created ./package.json to each modules'));
+  log(chalk.dim('  /tmp/bundles/[calendar]/index.d.ts → dist/bundles/[calendar]/index.d.ts'));
 
   /**
    * Init and display duration helpers

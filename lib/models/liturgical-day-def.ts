@@ -15,8 +15,6 @@ import {
   DateDef,
   DateDefException,
   FromCalendarId,
-  i18nDef,
-  isLiturgicalDayProperOfTimeInput,
   LiturgicalDayBundleInput,
   LiturgicalDayInput,
   LiturgicalDayProperOfTimeInput,
@@ -24,6 +22,8 @@ import {
   MartyrologyItemRedefined,
   RomcalTitles,
   TitlesDef,
+  i18nDef,
+  isLiturgicalDayProperOfTimeInput,
 } from '../types/liturgical-day';
 import { MartyrologyItem } from '../types/martyrology';
 import { safeWrapArray } from '../utils/arrays';
@@ -79,9 +79,9 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
     // i18nDef from the proper of time already contains the ID
     if (this.fromCalendarId === PROPER_OF_TIME_NAME) {
       name = this.#config.i18next.t(this.i18nDef[0], this.i18nDef[1]);
-    }
-    // i18nDef from general or particular calendars
-    else {
+
+      // i18nDef from general or particular calendars
+    } else {
       name = this.#config.i18next.t(this.i18nDef[0], this.i18nDef[1]);
     }
     this.#name = name;
@@ -293,12 +293,12 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
         if (pointer.titles) {
           martyrologyItem.titles = this.#combineTitles(pointer.titles, pointer.id, previousDef);
         }
-      }
-      // If the Martyrology item is not found, it means this item is badly referenced in the date definition.
-      // In this situation, romcal must report en error.
-      // Note: romcal do not report an error when the liturgical day ID is used to find a martyrology item,
-      // because this liturgical day definition may not be related to a martyrology item.
-      else if (input.martyrology) {
+
+        // If the Martyrology item is not found, it means this item is badly referenced in the date definition.
+        // In this situation, romcal must report en error.
+        // Note: romcal do not report an error when the liturgical day ID is used to find a martyrology item,
+        // because this liturgical day definition may not be related to a martyrology item.
+      } else if (input.martyrology) {
         // If the martyrology catalog as 0 items, we take the assumption that a new romcal instance
         // has been created, without a specified localized calendar. In this case romcal compute the
         // General Roman Calendar without localization and martyrology data.

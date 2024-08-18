@@ -1,6 +1,6 @@
 import {
-  ProperCycle,
   PSALTER_WEEKS,
+  ProperCycle,
   PsalterWeekCycle,
   SUNDAY_CYCLES,
   SundayCycle,

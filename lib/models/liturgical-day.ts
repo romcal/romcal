@@ -10,10 +10,10 @@ import {
   DateDef,
   DateDefException,
   FromCalendarId,
-  i18nDef,
   LiturgyDayDiff,
   RomcalCalendarMetadata,
   RomcalTitles,
+  i18nDef,
 } from '../types/liturgical-day';
 import { LiturgicalDayConfigOutput } from '../types/liturgical-day-config';
 import { MartyrologyItem } from '../types/martyrology';
