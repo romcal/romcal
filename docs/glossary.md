@@ -127,7 +127,7 @@ Liturgical seasons are the periods of time in the liturgical year that are marke
 
 ## Sunday Cycle
 
-A three-year cycle for Sunday Mass readings (and some solemnities), designated by A, B, or C. Each cycle begins on the First Sunday of Advent of the previous civil year and ends on Saturday after the Christ the King Solemnity. The cycles follow each other in alphabetical order. C year is always divisible by 3, A has remainder of 1, and B remainder of 2.
+A three-year cycle for Sunday Mass readings (and some solemnities), designated by A, B, or C. Each cycle begins on the First Sunday of Advent of the previous civil year and ends on Saturday after the Christ the King Solemnity. The cycles follow each other in alphabetical order. Year C is always the Gregorian year divisible by 3, while Year A leaves a remainder of 1, and Year B a remainder of 2.
 
 ## Temporal
 
