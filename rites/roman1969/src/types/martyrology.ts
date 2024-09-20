@@ -9,6 +9,18 @@ export type MartyrologyDef = {
   canonizationLevel?: CanonizationLevel;
 
   /**
+   * Date of Canonization, as a Number (year), a String (in 'YYYY-MM' or 'YYYY-MM-DD' format),
+   * or an object describing date range, multiple possible date, or a century.
+   */
+  dateOfCanonization?: SaintDateDef;
+
+  /**
+   * Date of Beatification, as a Number (year), a String (in 'YYYY-MM' or 'YYYY-MM-DD' format),
+   * or an object describing date range, multiple possible date, or a century.
+   */
+  dateOfBeatification?: SaintDateDef;
+
+  /**
    * Specify if the canonization level should not be displayed.
    * It's generally the case when the canonization are already included in the name.
    */
@@ -36,6 +48,13 @@ export type MartyrologyDef = {
    * It's generally the case when titles are already included in the name.
    */
   hideTitles?: boolean;
+
+  /**
+   * Date of Dedication of a church, basilica, or cathedral (or other place of worship),
+   * as a Number (year), a String (in 'YYYY-MM' or 'YYYY-MM-DD' format),
+   * or an object describing date range, multiple possible date, or a century.
+   */
+  dateOfDedication?: SaintDateDef;
 
   /**
    * Date of Birth, as a Number (year), a String (in 'YYYY-MM' or 'YYYY-MM-DD' format),

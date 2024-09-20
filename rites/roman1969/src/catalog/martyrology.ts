@@ -13,6 +13,18 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Aaron',
       titles: [Title.Martyr],
     },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/bienheureux-achard-eveque-davranches
+    // - https://en.wikipedia.org/wiki/Achard_of_Saint_Victor
+    achard_of_saint_victor_bishop: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Achard',
+      titles: [Title.Bishop],
+      dateOfBirth: 1100,
+      dateOfBirthIsApproximative: true,
+      dateOfDeath: 1171,
+    },
     achilleus_of_terracina_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Achilleus',
@@ -29,6 +41,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Adelaide of Burgundy',
       titles: [Title.Empress],
       dateOfDeath: '999-12-16',
+    },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/sainte-adeline-de-mortain-et-les-saints-de-savigny
+    // - https://fr.wikipedia.org/wiki/Adeline#:~:text=Adeline%20(%E2%80%A0%201125)%2C%20s%C5%93ur,tout%20l'Ordre%20de%20Savigny.
+    adeline_de_mortain_abbess: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Adeline de Mortain',
+      titles: [Title.Abbess],
+      dateOfDeath: 1125,
+      dateOfDeathIsApproximative: true,
     },
     adelphus_of_metz_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -426,6 +449,18 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Attracta',
       titles: [Title.Virgin],
     },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-aubert-eveque-davranches
+    // - https://en.wikipedia.org/wiki/Aubert_of_Avranches
+    aubert_of_avranches_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Aubert',
+      titles: [Title.Bishop],
+      dateOfBirth: 660,
+      dateOfBirthIsApproximative: true,
+      dateOfDeath: '725-06-18',
+    },
     audoen_of_rouen_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Audoen',
@@ -436,6 +471,18 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Augurius',
       titles: [Title.Deacon, Title.Martyr],
+    },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/bienheureux-auguste-chapdelaine-pretre-et-martyr
+    // - https://en.wikipedia.org/wiki/Auguste_Chapdelaine
+    auguste_chapdelaine_priest: {
+      canonizationLevel: CanonizationLevels.Saint,
+      dateOfCanonization: '2000-10-01',
+      name: 'Auguste Chapdelaine',
+      titles: [Title.Priest, Title.Martyr],
+      dateOfBirth: '1814-01-06',
+      dateOfDeath: '1856-02-29',
     },
     augustine_kazotic_bishop: {
       canonizationLevel: CanonizationLevels.Blessed,
@@ -729,11 +776,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: 305,
       dateOfDeathIsApproximative: true,
     },
+    // src:
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/bienheureuse-marie-catherine-de-saint-augustin-vierge
+    // - https://en.wikipedia.org/wiki/Catherine_of_St._Augustine
     catherine_of_saint_augustine_de_simon_de_longpre_virgin: {
       canonizationLevel: CanonizationLevels.Blessed,
+      dateOfBeatification: '1989-04-23',
       name: 'Catherine of Saint Augustine',
       titles: [Title.Virgin],
-      dateOfDeath: 1668,
+      dateOfBirth: '1632-05-03',
+      dateOfDeath: '1668-05-08',
     },
     catherine_of_siena_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -830,6 +882,19 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Ciaran',
       titles: [Title.Abbot],
+    },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-clair-pretre-et-martyr
+    // - https://fr.wikipedia.org/wiki/Clair_de_Normandie
+    clair_of_normandy_priest: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Clair',
+      titles: [Title.Priest, Title.Martyr],
+      dateOfBirth: 845,
+      dateOfBirthIsApproximative: true,
+      dateOfDeath: 884,
+      dateOfDeathIsApproximative: true,
     },
     clare_of_assisi_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -1018,6 +1083,20 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Declan',
       titles: [Title.Bishop],
+    },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/dedicace-de-la-cathedrale-de-coutances
+    // - https://en.wikipedia.org/wiki/Coutances_Cathedral
+    dedication_of_the_cathedral_of_coutances_france: {
+      dateOfDedication: '1057-12-03',
+    },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/dedicace-de-la-basilique-du-mont-saint-michel
+    // - https://en.wikipedia.org/wiki/Mont-Saint-Michel_Abbey
+    dedication_of_the_basilica_of_mont_saint_michel_france: {
+      dateOfDedication: '709-10-16',
     },
     dedication_of_the_basilica_of_saint_mary_major: {
       name: 'Dedication of the Basilica of Saint Mary Major',
@@ -1372,6 +1451,19 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Florian',
       titles: [Title.Martyr],
     },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-floscel-martyr
+    // - https://nrm.m.wikipedia.org/wiki/Saint_Flosc%C3%A9%27
+    floscel_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Floscel',
+      titles: [Title.Martyr],
+      dateOfBirth: 280,
+      dateOfBirthIsApproximative: true,
+      dateOfDeath: 296,
+      dateOfDeathIsApproximative: true,
+    },
     frances_of_rome_religious: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Frances of Rome',
@@ -1469,6 +1561,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: '540-3-6',
       dateOfDeathIsApproximative: true,
     },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-fromond-eveque-de-coutances
+    // - https://fr.wikipedia.org/wiki/Fromond_de_Coutances
+    fromundus_of_coutances_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Fromond',
+      titles: [Title.Bishop],
+      dateOfDeath: 691,
+      dateOfDeathIsApproximative: true,
+    },
     fructuosus_of_braga_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Fructuosus of Braga',
@@ -1502,6 +1605,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
         or: [641, 646],
       },
     },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-gaud-eveque
+    // - https://en.wikipedia.org/wiki/Gaud_d%27%C3%89vreux
+    gaud_of_evreux_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Gaud',
+      titles: [Title.Bishop],
+      dateOfDeath: 491,
+      dateOfDeathIsApproximative: true,
+    },
     gebhard_of_constance_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Gebhard of Constance',
@@ -1512,6 +1626,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Genevieve',
       titles: [Title.Virgin],
       dateOfDeath: 500,
+    },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/sainte-adeline-de-mortain-et-les-saints-de-savigny
+    // - https://fr.wikipedia.org/wiki/Adeline#:~:text=Adeline%20(%E2%80%A0%201125)%2C%20s%C5%93ur,tout%20l'Ordre%20de%20Savigny.
+    geoffrey_of_savigny_abbot: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Geoffrey of Savigny',
+      titles: [Title.Abbot],
     },
     george_matulaitis_bishop: {
       canonizationLevel: CanonizationLevels.Blessed,
@@ -1550,6 +1673,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Germanus of Auxerre',
       titles: [Title.Bishop],
       dateOfDeath: 448,
+    },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-germain-de-la-mer-eveque-et-martyr
+    // - https://en.wikipedia.org/wiki/Germanus_of_Normandy
+    germanus_of_normandy_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Germanus of Normandy',
+      titles: [Title.Bishop, Title.Martyr],
+      dateOfDeath: 480,
+      dateOfDeathIsApproximative: true,
     },
     gertrude_of_nivelles_abbess: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -1634,6 +1768,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     guardian_angel_of_portugal: {
       name: 'Guardian Angel of Portugal',
     },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/sainte-adeline-de-mortain-et-les-saints-de-savigny
+    // - https://fr.wikipedia.org/wiki/Adeline#:~:text=Adeline%20(%E2%80%A0%201125)%2C%20s%C5%93ur,tout%20l'Ordre%20de%20Savigny.
+    guillaume_niobe_of_savigny_religious: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Guillaume Niobe of Savigny',
+      titles: [Title.Religious],
+    },
     gundisalvus_garcia_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Gundisalvus Garcia',
@@ -1662,6 +1805,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     helena_of_constantinople: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Helena',
+    },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-helier-martyr
+    // - https://en.wikipedia.org/wiki/Helier
+    helier_of_jersey_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Helier',
+      titles: [Title.Martyr],
+      dateOfDeath: 552,
+      dateOfDeathIsApproximative: true,
     },
     hemma_of_gurk: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -1893,6 +2047,19 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Jacinta Marto',
     },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/bienheureux-francois-lefranc-et-les-martyrs-de-la-revolution
+    // - https://en.wikipedia.org/wiki/Jacques-Fran%C3%A7ois_Lefranc
+    jacques_francois_lefranc_martyr: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Jacques François Lefranc',
+      titles: [Title.Martyr],
+      dateOfBirth: '1739-03-30',
+      dateOfDeath: {
+        between: ['1792-09-02', '1792-09-03'],
+      },
+    },
     // src: mr_fr_2014_ed2_lyon
     jacques_jules_bonnaud_priest: {
       canonizationLevel: CanonizationLevels.Blessed,
@@ -2038,10 +2205,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Priest, Title.DoctorOfTheChurch],
       dateOfDeath: 749,
     },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-jean-de-brebeuf-et-ses-compagnons-martyrs
+    // - https://en.wikipedia.org/wiki/Jean_de_Br%C3%A9beuf
     john_de_brebeuf_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'John de Brébeuf',
       titles: [Title.Priest, Title.Martyr],
+      dateOfBirth: '1593-03-25',
       dateOfDeath: '1649-03-16',
     },
     john_de_britto_priest: {
@@ -2054,11 +2226,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Roch González',
       titles: [Title.Priest, Title.Martyr],
     },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-jean-eudes-pretre
+    // - https://en.wikipedia.org/wiki/John_Eudes
     john_eudes_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'John Eudes',
       titles: [Title.Priest],
-      dateOfDeath: 1680,
+      dateOfBirth: '1601-11-14',
+      dateOfDeath: '1680-08-19',
     },
     john_fisher_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -2397,6 +2574,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Laserian',
       titles: [Title.Bishop],
     },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-lo-eveque-de-coutances-patron-du-diocese
+    // - https://en.wikipedia.org/wiki/Laud_of_Coutances
+    laud_of_coutances_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Laud',
+      titles: [Title.Bishop],
+      dateOfDeath: 566,
+    },
     laura_vicuna_virgin: {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Laura Vicuña',
@@ -2482,6 +2669,19 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
         or: [679, 680],
       },
     },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-leon-de-carentan-eveque-et-martyr
+    // - https://fr.wikipedia.org/wiki/L%C3%A9on_de_Carentan
+    leon_de_carentan_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Leon de Carentan',
+      titles: [Title.Bishop, Title.Martyr],
+      dateOfBirth: 856,
+      dateOfBirthIsApproximative: true,
+      dateOfDeath: 890,
+      dateOfDeathIsApproximative: true,
+    },
     leonard_of_noblac_hermit: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Leonard of Noblac',
@@ -2511,11 +2711,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Louis Flores',
       titles: [Title.Priest, Title.Martyr],
     },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-louis-marie-grignion-de-montfort-pretre
+    // - https://en.wikipedia.org/wiki/Louis_de_Montfort
     louis_grignion_de_montfort_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Louis Grignion de Montfort',
       titles: [Title.Priest],
-      dateOfDeath: 1716,
+      dateOfBirth: '1673-01-31',
+      dateOfDeath: '1716-4-28',
     },
     louis_ix_of_france: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -2608,6 +2813,20 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Mafalda',
       titles: [Title.Virgin],
     },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-magloire-moine-a-lile-de-sercq
+    // - https://en.wikipedia.org/wiki/Magloire
+    magloire_of_dol_monk: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Magloire',
+      titles: [Title.Monk],
+      dateOfBirth: 535,
+      dateOfBirthIsApproximative: true,
+      dateOfDeath: {
+        between: [586, 617],
+      },
+    },
     magnus_erlendsson_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Magnus',
@@ -2649,6 +2868,19 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: {
         century: 5,
       },
+    },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-marcouf-abbe
+    // - https://en.wikipedia.org/wiki/Marculf
+    marculf_abbot: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Marculf',
+      titles: [Title.Abbot],
+      dateOfBirth: 490,
+      dateOfBirthIsApproximative: true,
+      dateOfDeath: 558,
+      dateOfDeathIsApproximative: true,
     },
     margaret_clitherow_virgin_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -2737,6 +2969,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Virgin],
       dateOfDeath: 1912,
     },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/sainte-marie-madeleine-postel-vierge
+    // - https://en.wikipedia.org/wiki/Marie-Madeleine_Postel
+    marie_madeleine_postel_virgin: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Marie Madeleine Postel',
+      titles: [Title.Virgin],
+      dateOfBirth: '1756-11-28',
+      dateOfDeath: '1846-07-16',
+    },
     marie_rose_durocher_virgin: {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Marie Rose Durocher',
@@ -2764,6 +3007,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: {
         century: 1,
       },
+    },
+    // src:
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/bienheureuse-marthe-le-bouteiller-vierge
+    // - https://en.wikipedia.org/wiki/Aim%C3%A9e-Ad%C3%A8le_Le_Bouteiller
+    marthe_aimee_adele_le_bouteiller_virgin: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      dateOfBeatification: '1990-11-04',
+      name: 'Marthe-Aimée-Adèle Le Bouteiller',
+      titles: [Title.Virgin],
+      dateOfBirth: '1816-12-02',
+      dateOfDeath: '1883-03-18',
     },
     martin_de_porres_religious: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -3167,6 +3421,29 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Oliver Plunket',
       titles: [Title.Bishop, Title.Martyr],
     },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-omer-eveque
+    // - https://en.wikipedia.org/wiki/Audomar
+    omer_audomar_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Omer',
+      titles: [Title.Bishop],
+      dateOfBirth: 600,
+      dateOfDeath: '670-11-01',
+    },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-ortaire-abbe
+    // - https://fr.wikipedia.org/wiki/Ortaire_de_Landelles
+    ortaire_de_landelles_abbot: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Ortaire ',
+      titles: [Title.Abbot],
+      dateOfBirth: 482,
+      dateOfBirthIsApproximative: true,
+      dateOfDeath: '580-04-15',
+    },
     otteran_of_iona_monk: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Otteran',
@@ -3256,6 +3533,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     our_lady_of_perpetual_help: {
       name: 'Our Lady of Perpetual Help',
     },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/notre-dame-de-pontmain/
+    // - https://en.wikipedia.org/wiki/Our_Lady_of_Pontmain
+    our_lady_of_pontmain: {
+      name: 'Our Lady of Pontmain',
+    },
     our_lady_of_sorrows: {
       name: 'Our Lady of Sorrows',
     },
@@ -3325,6 +3609,19 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     },
     passion_of_saint_john_the_baptist: {
       name: 'Passion of Saint John the Baptist',
+    },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-pair-eveque-davranches-et-saint-scubillion-abbe
+    // - https://fr.wikipedia.org/wiki/Paterne_d%27Avranches
+    paterne_of_avranches_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Paterne',
+      titles: [Title.Bishop],
+      dateOfBirth: 480,
+      dateOfBirthIsApproximative: true,
+      dateOfDeath: 565,
+      dateOfDeathIsApproximative: true,
     },
     patrick_of_ireland_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -3532,6 +3829,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Philip of Jesus de las Casas',
       titles: [Title.Martyr],
     },
+    // src:
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/bienheureux-pierre-adrien-toulorge-martyr
+    // - https://en.wikipedia.org/wiki/Pierre-Adrien_Toulorge
+    pierre_adrien_toulorge_priest: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      dateOfBeatification: '2012-04-29',
+      name: 'Pierre-Adrien Toulorge',
+      titles: [Title.Priest, Title.Martyr],
+      dateOfBirth: '1757-05-04',
+      dateOfDeath: '1793-10-13',
+    },
     pirmin_of_hornbach_abbot: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Pirmin',
@@ -3560,6 +3868,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Pius X',
       titles: [Title.Pope],
       dateOfDeath: 1914,
+    },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/bienheureuse-placide-viel-vierge
+    // - https://en.wikipedia.org/wiki/Placide_Viel
+    placide_eulalie_victoire_jacqueline_viel_virgin: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Placide Viel',
+      titles: [Title.Virgin],
+      dateOfBirth: '1815-09-26',
+      dateOfDeath: '1877-03-04',
     },
     polycarp_of_smyrna_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -3712,6 +4031,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Rose Philippine Duchesne',
       titles: [Title.Virgin],
     },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-romphaire-eveque-de-coutances
+    // - https://fr.wikipedia.org/wiki/Romphaire_de_Coutances
+    rumpharius_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Rumpharius',
+      titles: [Title.Bishop],
+      dateOfDeath: { century: 6 },
+    },
     rupert_of_salzburg_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Rupert Salzburg',
@@ -3743,6 +4072,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Virgin],
       dateOfDeath: 543,
     },
+    // src: https://fr.wikipedia.org/wiki/Paterne_d%27Avranches
+    scubilion_abbot: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Scubilion',
+      titles: [Title.Abbot],
+      dateOfDeath: 565,
+      dateOfDeathIsApproximative: true,
+    },
     sebastian_de_aparicio_religious: {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Sebastian de Aparicio',
@@ -3760,6 +4097,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Senan',
       titles: [Title.Bishop],
     },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-senier-eveque-davranches
+    // - https://fr.wikipedia.org/wiki/Liste_des_%C3%A9v%C3%AAques_d%27Avranches
+    senerius_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Senerius',
+      titles: [Title.Bishop],
+      dateOfDeath: 574,
+      dateOfDeathIsApproximative: true,
+    },
     seven_holy_founders_of_the_servite_order: {
       name: 'Seven Holy Founders of the Servite Order',
       count: 7,
@@ -3773,6 +4121,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Severinus of Noricum',
       titles: [Title.Monk],
+    },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-sever-eveque-davranches
+    // - https://en.wikipedia.org/wiki/Severus_of_Avranches
+    severus_of_avranches_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Severus',
+      titles: [Title.Bishop],
+      dateOfDeath: 578,
+      dateOfDeathIsApproximative: true,
     },
     sharbel_makhluf_priest: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -3959,11 +4318,31 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Priest, Title.DoctorOfTheChurch],
       dateOfDeath: 1274,
     },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-thomas-becket-eveque-et-martyr
+    // - https://en.wikipedia.org/wiki/Thomas_Becket
     thomas_becket_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Thomas Becket',
       titles: [Title.Bishop, Title.Martyr],
-      dateOfDeath: 1170,
+      dateOfBirth: {
+        or: ['1118-12-21', '1120-12-21'],
+      },
+      dateOfDeath: '1170-12-29',
+    },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/bienheureux-thomas-helye-pretre
+    // - https://fr.wikipedia.org/wiki/Thomas_H%C3%A9lye
+    thomas_helye_priest: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Thomas Hélye',
+      titles: [Title.Priest],
+      dateOfBirth: {
+        between: [1180, 1887],
+      },
+      dateOfDeath: '1257-10-19',
     },
     thomas_hioji_rokuzayemon_nishi_priest: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -4111,6 +4490,18 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     visitation_of_mary: {
       name: 'Visitation of the Blessed Virgin Mary',
     },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-vital-abbe-de-savigny
+    // - https://en.wikipedia.org/wiki/Vitalis_of_Savigny
+    vitalis_of_savigny_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Vitalis of Savigny',
+      titles: [Title.Bishop],
+      dateOfBirth: 1050,
+      dateOfBirthIsApproximative: true,
+      dateOfDeath: '1122-09-16',
+    },
     vitus_of_lucania_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Vitus',
@@ -4154,6 +4545,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'William Apor',
       titles: [Title.Bishop, Title.Martyr],
+    },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-guillaume-firmat-abbe
+    // - https://en.wikipedia.org/wiki/William_Firmatus
+    william_firmatus_abbot: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'William Firmatus',
+      titles: [Title.Abbot],
+      dateOfBirth: 1026,
+      dateOfDeath: '1103-04-24',
     },
     willibald_of_eichstatt_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
