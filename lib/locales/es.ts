@@ -604,7 +604,7 @@ export const locale: Locale = {
     turibius_of_mogrovejo_bishop: 'Santo Toribio de Mogrovejo, obispo',
     urban_i_pope: 'San Urbano I, papa',
     valerius_of_trier_bishop: 'San Valerio, obispo',
-    vincent_de_paul_priest: 'San Vicente de Paúl, obispo',
+    vincent_de_paul_priest: 'San Vicente de Paúl, presbítero', // src: https://liturgiapapal.org/attachments/article/1093/PROPIO%20DE%20LOS%20SANTOS.pdf#page=10
     vincent_ferrer_priest: 'San Vicente Ferrer, presbítero',
     vincent_of_saragossa_deacon: 'San Vicente de Zaragoza, diácono y mártir',
     visitation_of_mary: 'Visitación de la Santísima Virgen María',
