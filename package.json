@@ -87,7 +87,7 @@
     "cross-env": "^7.0.3",
     "diff": "^7.0.0",
     "dts-bundle-generator": "^9.3.1",
-    "esbuild": "~0.23.0",
+    "esbuild": "~0.24.0",
     "esbuild-jest": "~0.5.0",
     "eslint": "^8.57.0",
     "eslint-config-airbnb-base": "^15.0.0",
