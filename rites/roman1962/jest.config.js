@@ -1,3 +1,1 @@
-module.exports = {
-  ...require('@internal/config/jest/jest.config'),
-};
+module.exports = require('@internal/config/jest/jest.config');
