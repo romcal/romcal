@@ -1,9 +1,7 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable import/no-unused-modules */
 import fs from 'fs';
 import { dirname, join, resolve } from 'node:path';
 
-import pkg from '@romcal/package.json';
+import pkg from '@internal/package.json';
 import chalk from 'chalk';
 import { generateDtsBundle } from 'dts-bundle-generator';
 import { Format, Platform, build } from 'esbuild';

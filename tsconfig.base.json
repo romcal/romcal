@@ -17,11 +17,15 @@
     "allowJs": true,
     "baseUrl": ".",
     "paths": {
-      "@romcal/rite-roman1962": ["./rites/roman1962"],
-      "@romcal/rite-roman1969": ["./rites/roman1969"],
-      "@romcal/config": ["./packages/config"],
-      "@romcal/easter": ["./packages/easter"],
-      "@romcal/package.json": ["./package.json"]
+      "@internal/rite-roman1962": ["./rites/roman1962"],
+      "@dist/rite-roman1962/*": ["./rites/roman1962/dist/*"],
+      "@src/rite-roman1962": ["./rites/roman1962/src"],
+      "@internal/rite-roman1969": ["./rites/roman1969"],
+      "@dist/rite-roman1969/*": ["./rites/roman1969/dist/*"],
+      "@src/rite-roman1969": ["./rites/roman1969/src"],
+      "@internal/config": ["./packages/config"],
+      "@internal/easter": ["./packages/easter"],
+      "@internal/package.json": ["./package.json"]
     }
   },
   "exclude": ["node_modules", "rites/roman1969/build/docs/**", "**/*/dist"],

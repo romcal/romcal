@@ -1,6 +1,6 @@
-import { France_Fr } from '../dist/bundles/france';
-import { UnitedStates_En } from '../dist/bundles/united-states';
-import { Romcal } from '../src';
+import { France_Fr } from '@dist/rite-roman1969/bundles/france';
+import { UnitedStates_En } from '@dist/rite-roman1969/bundles/united-states';
+import { Romcal } from '@src/rite-roman1969';
 
 /**
  * Gets the number of week days in range, including the end date

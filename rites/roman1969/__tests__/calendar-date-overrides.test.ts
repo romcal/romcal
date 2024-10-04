@@ -1,15 +1,15 @@
-import { CzechRepublic_Cs } from '../dist/bundles/czech-republic';
-import { England_En } from '../dist/bundles/england';
-import { France_Fr } from '../dist/bundles/france';
-import { Germany_En } from '../dist/bundles/germany';
-import { Hungary_En } from '../dist/bundles/hungary';
-import { Ireland_En } from '../dist/bundles/ireland';
-import { Malta_En } from '../dist/bundles/malta';
-import { Mexico_Es } from '../dist/bundles/mexico';
-import { Slovakia_Sk } from '../dist/bundles/slovakia';
-import { Spain_Es } from '../dist/bundles/spain';
-import { Wales_En } from '../dist/bundles/wales';
-import { LiturgicalDay, Romcal } from '../src';
+import { CzechRepublic_Cs } from '@dist/rite-roman1969/bundles/czech-republic';
+import { England_En } from '@dist/rite-roman1969/bundles/england';
+import { France_Fr } from '@dist/rite-roman1969/bundles/france';
+import { Germany_En } from '@dist/rite-roman1969/bundles/germany';
+import { Hungary_En } from '@dist/rite-roman1969/bundles/hungary';
+import { Ireland_En } from '@dist/rite-roman1969/bundles/ireland';
+import { Malta_En } from '@dist/rite-roman1969/bundles/malta';
+import { Mexico_Es } from '@dist/rite-roman1969/bundles/mexico';
+import { Slovakia_Sk } from '@dist/rite-roman1969/bundles/slovakia';
+import { Spain_Es } from '@dist/rite-roman1969/bundles/spain';
+import { Wales_En } from '@dist/rite-roman1969/bundles/wales';
+import { LiturgicalDay, Romcal } from '@src/rite-roman1969';
 
 const { Ranks, Periods, Precedences, getUtcDateFromString } = Romcal;
 

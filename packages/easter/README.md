@@ -5,7 +5,7 @@ This package provides a utility to calculate the date of Easter in both the Greg
 ## Usage
 
 ```ts
-import { easterDate } from '@romcal/easter-date';
+import { easterDate } from '@internal/easter-date';
 
 const gregorianEasterDate = calculateGregorianEasterDate(2021);
 

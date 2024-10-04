@@ -1,4 +1,4 @@
-import { calculateGregorianEasterDate, calculateJulianEasterDateToGregorianDate } from '@romcal/easter';
+import { calculateGregorianEasterDate, calculateJulianEasterDateToGregorianDate } from '@internal/easter';
 
 import { version } from '../package.json';
 

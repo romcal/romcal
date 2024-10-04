@@ -1,10 +1,20 @@
-import { England_En } from '../dist/bundles/england';
-import { GeneralRoman_En } from '../dist/bundles/general-roman';
-import { Germany_En } from '../dist/bundles/germany';
-import { Hungary_En } from '../dist/bundles/hungary';
-import { Ireland_En } from '../dist/bundles/ireland';
-import { Slovakia_Sk } from '../dist/bundles/slovakia';
-import { CalendarScope, Id, LiturgicalCalendar, LiturgicalDay, LiturgicalDayDef, Period, Romcal, Season } from '../src';
+import { England_En } from '@dist/rite-roman1969/bundles/england';
+import { GeneralRoman_En } from '@dist/rite-roman1969/bundles/general-roman';
+import { Germany_En } from '@dist/rite-roman1969/bundles/germany';
+import { Hungary_En } from '@dist/rite-roman1969/bundles/hungary';
+import { Ireland_En } from '@dist/rite-roman1969/bundles/ireland';
+import { Slovakia_Sk } from '@dist/rite-roman1969/bundles/slovakia';
+import {
+  CalendarScope,
+  Id,
+  LiturgicalCalendar,
+  LiturgicalDay,
+  LiturgicalDayDef,
+  Period,
+  Romcal,
+  Season,
+} from '@src/rite-roman1969';
+
 import { dateDifference } from '../src/utils/dates';
 
 const { Colors, isMartyr, Titles, Ranks, getUtcDate, getUtcDateFromString, isSameDate, subtractsDays } = Romcal;

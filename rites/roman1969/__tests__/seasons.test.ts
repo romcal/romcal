@@ -1,4 +1,4 @@
-import { LiturgicalDay, Romcal } from '../src';
+import { LiturgicalDay, Romcal } from '@src/rite-roman1969';
 
 const { Colors, Seasons, Ranks, addDays, isSameDate, subtractsDays } = Romcal;
 

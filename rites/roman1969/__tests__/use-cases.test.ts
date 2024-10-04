@@ -1,5 +1,5 @@
-import { Slovakia_Sk } from '../dist/bundles/slovakia';
-import { Romcal } from '../src';
+import { Slovakia_Sk } from '@dist/rite-roman1969/bundles/slovakia';
+import { Romcal } from '@src/rite-roman1969';
 
 const { Ranks, getUtcDateFromString, isSameDate, subtractsDays } = Romcal;
 

@@ -1,5 +1,5 @@
 {
-  "name": "@romcal/rite-roman1969",
+  "name": "@internal/rite-roman1969",
   "version": "0.0.0",
   "description": "Liturgical calendar for the Roman Rite according to the 1969 reform",
   "exports": {
@@ -28,7 +28,7 @@
     "test:without-coverage": "TZ=UTC jest"
   },
   "dependencies": {
-    "@romcal/easter": "file:../../packages/easter",
+    "@internal/easter": "file:../../packages/easter",
     "i18next": "^21.6.0",
     "ts-deepmerge": "^7.0.1"
   },
@@ -38,7 +38,7 @@
     "@commitlint/types": "^19.0.3",
     "@jsdevtools/npm-publish": "^3.1.1",
     "@jsdevtools/rehype-url-inspector": "^2.0.2",
-    "@romcal/config": "file:../../packages/config",
+    "@internal/config": "file:../../packages/config",
     "@types/cli-progress": "^3.11.6",
     "@types/humanize-duration": "^3.27.4",
     "@types/jest": "^29.5.13",

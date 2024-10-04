@@ -1,4 +1,4 @@
-import { Romcal } from '../src';
+import { Romcal } from '@src/rite-roman1969';
 
 const { RomcalConfig, LiturgicalDayConfig } = Romcal;
 

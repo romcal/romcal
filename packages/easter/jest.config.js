@@ -1,3 +1,1 @@
-module.exports = {
-  ...require('@romcal/config/jest.config'),
-};
+module.exports = require('@internal/config/jest.config');

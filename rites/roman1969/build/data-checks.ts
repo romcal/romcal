@@ -20,8 +20,6 @@
  * to distinguish them from the keys that are directly defined in the source files.
  */
 
-/* eslint-disable no-console */
-/* eslint-disable import/no-extraneous-dependencies */
 import chalk from 'chalk';
 import { merge } from 'ts-deepmerge';
 

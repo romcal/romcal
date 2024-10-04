@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { inspect } from 'node:util';

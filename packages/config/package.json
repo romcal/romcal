@@ -1,5 +1,5 @@
 {
-  "name": "@romcal/config",
+  "name": "@internal/config",
   "version": "0.0.0",
   "description": "Configuration files for the Romcal project",
   "scripts": {

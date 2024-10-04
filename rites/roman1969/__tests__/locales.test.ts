@@ -1,6 +1,6 @@
-import { Brazil_PtBr } from '../dist/bundles/brazil';
-import { France_Fr } from '../dist/bundles/france';
-import { Romcal } from '../src';
+import { Brazil_PtBr } from '@dist/rite-roman1969/bundles/brazil';
+import { France_Fr } from '@dist/rite-roman1969/bundles/france';
+import { Romcal } from '@src/rite-roman1969';
 
 import { laOrdinalNumberGenderFixture } from './fixtures/la-ordinal-number-gender.fixture';
 import { seasonalWeekNumberLocalisationFixture } from './fixtures/seasonal-week-number-localisation.fixture';

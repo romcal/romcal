@@ -1,5 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-
 import humanizeDuration, { Unit, UnitTranslationOptions } from 'humanize-duration';
 
 /**

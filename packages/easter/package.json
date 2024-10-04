@@ -1,5 +1,5 @@
 {
-  "name": "@romcal/easter",
+  "name": "@internal/easter",
   "version": "0.0.0",
   "description": "Calculate the date of Easter in both the Gregorian and Julian calendars.",
   "main": "dist/src/index.js",
@@ -13,7 +13,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@romcal/config": "file:../../packages/config"
+    "@internal/config": "file:../../packages/config"
   },
   "license": "MIT"
 }

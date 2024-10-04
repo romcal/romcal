@@ -1,3 +1,3 @@
 module.exports = {
-  ...require('@romcal/config/jest/jest.config'),
+  ...require('@internal/config/jest/jest.config'),
 };

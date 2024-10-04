@@ -1,5 +1,5 @@
 {
-  "name": "@romcal/rite-roman1962",
+  "name": "@internal/rite-roman1962",
   "version": "0.0.0",
   "description": "Liturgical calendar for the Roman Rite according to the 1962 reform",
   "main": "index.js",
