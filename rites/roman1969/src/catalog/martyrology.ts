@@ -1630,7 +1630,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     // src:
     // - mr_fr_1982_ed2_coutances
     // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/sainte-adeline-de-mortain-et-les-saints-de-savigny
-    // - https://fr.wikipedia.org/wiki/Adeline#:~:text=Adeline%20(%E2%80%A0%201125)%2C%20s%C5%93ur,tout%20l'Ordre%20de%20Savigny.
+    // - https://fr.wikipedia.org/wiki/Adeline#:~:text=Adeline%20(%E2%80%A0%201125)%2C%20s%C5%93ur,tout%20l'Ordre%20de%20Savigny
     geoffrey_of_savigny_abbot: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Geoffrey of Savigny',
@@ -1771,7 +1771,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     // src:
     // - mr_fr_1982_ed2_coutances
     // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/sainte-adeline-de-mortain-et-les-saints-de-savigny
-    // - https://fr.wikipedia.org/wiki/Adeline#:~:text=Adeline%20(%E2%80%A0%201125)%2C%20s%C5%93ur,tout%20l'Ordre%20de%20Savigny.
+    // - https://fr.wikipedia.org/wiki/Adeline#:~:text=Adeline%20(%E2%80%A0%201125)%2C%20s%C5%93ur,tout%20l'Ordre%20de%20Savigny
     guillaume_niobe_of_savigny_religious: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Guillaume Niobe of Savigny',
