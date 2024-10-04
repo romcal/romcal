@@ -23,7 +23,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Bishop],
       dateOfBirth: 1100,
       dateOfBirthIsApproximative: true,
-      dateOfDeath: 1171,
+      dateOfDeath: '1171-03-29',
     },
     achilleus_of_terracina_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -45,7 +45,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     // src:
     // - mr_fr_1982_ed2_coutances
     // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/sainte-adeline-de-mortain-et-les-saints-de-savigny
-    // - https://fr.wikipedia.org/wiki/Adeline#:~:text=Adeline%20(%E2%80%A0%201125)%2C%20s%C5%93ur,tout%20l'Ordre%20de%20Savigny.
+    // - https://fr.wikipedia.org/wiki/Adeline#:~:text=Adeline%20(%E2%80%A0%201125)%2C%20s%C5%93ur,tout%20l'Ordre%20de%20Savigny
     adeline_de_mortain_abbess: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Adeline de Mortain',
@@ -779,7 +779,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     // src:
     // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/bienheureuse-marie-catherine-de-saint-augustin-vierge
     // - https://en.wikipedia.org/wiki/Catherine_of_St._Augustine
-    catherine_of_saint_augustine_de_simon_de_longpre_virgin: {
+    mary_catherine_of_saint_augustine_catherine_de_simon_de_longpre_virgin: {
       canonizationLevel: CanonizationLevels.Blessed,
       dateOfBeatification: '1989-04-23',
       name: 'Catherine of Saint Augustine',
@@ -1455,7 +1455,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     // - mr_fr_1982_ed2_coutances
     // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-floscel-martyr
     // - https://nrm.m.wikipedia.org/wiki/Saint_Flosc%C3%A9%27
-    floscel_martyr: {
+    floscellus_of_normandy_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Floscel',
       titles: [Title.Martyr],
@@ -2873,7 +2873,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     // - mr_fr_1982_ed2_coutances
     // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-marcouf-abbe
     // - https://en.wikipedia.org/wiki/Marculf
-    marculf_abbot: {
+    marculf_of_normandy_abbot: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Marculf',
       titles: [Title.Abbot],
@@ -4035,7 +4035,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     // - mr_fr_1982_ed2_coutances
     // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-romphaire-eveque-de-coutances
     // - https://fr.wikipedia.org/wiki/Romphaire_de_Coutances
-    rumpharius_bishop: {
+    rumpharius_of_coutances_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Rumpharius',
       titles: [Title.Bishop],
@@ -4072,7 +4072,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Virgin],
       dateOfDeath: 543,
     },
-    // src: https://fr.wikipedia.org/wiki/Paterne_d%27Avranches
+    // src: https://maryourhelp.org/saints/saint-paternus-bishop-of-avranches.html
     scubilion_abbot: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Scubilion',
@@ -4101,7 +4101,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     // - mr_fr_1982_ed2_coutances
     // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-senier-eveque-davranches
     // - https://fr.wikipedia.org/wiki/Liste_des_%C3%A9v%C3%AAques_d%27Avranches
-    senerius_bishop: {
+    senerius_of_normandy_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Senerius',
       titles: [Title.Bishop],

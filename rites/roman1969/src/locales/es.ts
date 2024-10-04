@@ -256,7 +256,8 @@ export const locale: Locale = {
     carmelites_of_compiegne_virgins_and_martyrs: 'Beatas Carmelitas de Compiègne, vírgenes y mártires',
     casimir_of_poland: 'San Casimiro',
     catherine_of_alexandria_virgin: 'Santa Catalina de Alexandria, virgen y mártir',
-    catherine_of_saint_augustine_de_simon_de_longpre_virgin: 'Beata María Catalina de San Agustín, virgen',
+    mary_catherine_of_saint_augustine_catherine_de_simon_de_longpre_virgin:
+      'Beata María Catalina de San Agustín, virgen',
     catherine_of_siena_virgin: 'Santa Catalina de Siena, virgen y doctora de la Iglesia',
     catherine_of_siena_virgin_copatroness_of_europe:
       'Santa Catalina de Siena, virgen, doctora de la Iglesia y Patrona Secundaria de Europa',

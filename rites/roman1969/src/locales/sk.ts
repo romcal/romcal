@@ -279,7 +279,7 @@ export const locale: Locale = {
     carthage_of_lismore_bishop: 'Svätého Kartága z Lismore, biskupa',
     casimir_of_poland: 'Svätého Kazimíra',
     catherine_of_alexandria_virgin: 'Svätej Kataríny Alexandrijskej, panny a mučenice',
-    catherine_of_saint_augustine_de_simon_de_longpre_virgin:
+    mary_catherine_of_saint_augustine_catherine_de_simon_de_longpre_virgin:
       'Blahoslavenej Kataríny od sv. Augustína de Simon de Longpré, panny',
     catherine_of_siena_virgin: 'Svätej Kataríny Sienskej, panny a učiteľky Cirkvi',
     catherine_of_siena_virgin_copatroness_of_europe:

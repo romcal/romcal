@@ -300,7 +300,7 @@ export const locale: Locale = {
     carthage_of_lismore_bishop: 'S. Carthagi, episcopi',
     casimir_of_poland: 'S. Casimiri',
     catherine_of_alexandria_virgin: 'S. Catharinæ Alexandrinæ, virginis et martyris',
-    catherine_of_saint_augustine_de_simon_de_longpre_virgin:
+    mary_catherine_of_saint_augustine_catherine_de_simon_de_longpre_virgin:
       'B. Mariæ Catharinæ a S. Augustino de Simon de Longpré, virginis',
     catherine_of_siena_virgin: 'S. Catharinæ Senensis, virginis et Ecclesiæ doctoris',
     catherine_of_siena_virgin_copatroness_of_europe:

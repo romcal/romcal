@@ -250,7 +250,7 @@ export const locale: Locale = {
       'Bienheureuses Carmélites de Compiègne : Mère Thérèse et ses 15 compagnes, martyres († guillotinées en 1794)',
     casimir_of_poland: 'Saint Casimir († 1484)',
     catherine_of_alexandria_virgin: 'Sainte Catherine d’Alexandrie, vierge et martyre († IVème s.)',
-    catherine_of_saint_augustine_de_simon_de_longpre_virgin:
+    mary_catherine_of_saint_augustine_catherine_de_simon_de_longpre_virgin:
       'Bienheureuse Catherine de Saint-Augustin, vierge († 1668)', // src: mr_fr_2021_ed3, mr_fr_1982_ed2_coutances
     catherine_of_siena_virgin: 'Sainte Catherine de Sienne, vierge et docteur de l’Église († 1380)',
     catherine_of_siena_virgin_copatroness_of_europe:
@@ -330,7 +330,7 @@ export const locale: Locale = {
     fidelis_of_sigmaringen_priest: 'Saint Fidèle de Sigmaringen, prêtre et martyr († 1622)',
     first_martyrs_of_the_holy_roman_church: 'Premiers martyrs de l’Église de Rome († 64)',
     florentius_of_strasbourg_bishop: 'Saint Florent, évêque († VIIème s.)',
-    floscel_martyr: 'Saint Floscel, martyr († v. 296)', // src: mr_fr_1982_ed2_coutances
+    floscellus_of_normandy_martyr: 'Saint Floscel, martyr († v. 296)', // src: mr_fr_1982_ed2_coutances
     frances_of_rome_religious: 'Sainte Françoise Romaine, religieuse († 1440)',
     francis_de_sales_bishop: 'Saint François de Sales, évêque et docteur de l’Église († 1622)',
     francis_de_sales_bishop_patron_of_the_clergy_of_the_archdiocese_of_lyon:
@@ -462,7 +462,7 @@ export const locale: Locale = {
     marcellin_champagnat_priest: 'Saint Marcellin Champagnat, prêtre († 1840)', // src: mr_fr_2014_ed2_lyon
     marcellinus_of_rome_and_peter_the_exorcist_martyrs: 'Saints Marcellin et Pierre, martyrs († 304)',
     marcellus_of_paris_bishop: 'Saint Marcel, évêque de Paris († vers 430)',
-    marculf_abbot: 'Saint Marcouf, abbé († v. 558)', // src: mr_fr_1982_ed2_coutances
+    marculf_of_normandy_abbot: 'Saint Marcouf, abbé († v. 558)', // src: mr_fr_1982_ed2_coutances
     margaret_mary_alacoque_virgin: 'Sainte Marguerite-Marie Alacoque, Visitandine à Paray-le-Monial († 1690)',
     margaret_of_scotland: 'Sainte Marguerite d’Ecosse († 1093)',
     marguerite_bourgeoys_virgin:
@@ -593,10 +593,10 @@ export const locale: Locale = {
     romuald_of_ravenna_abbot: 'Saint Romuald, anachorète et père des moines Camaldules († 1027)',
     rosalie_jeanne_marie_rendu_virgin: 'Bienheureuse Rosalie Rendu, vierge († 1856)',
     rose_of_lima_virgin: 'Sainte Rose de Lima, vierge († 1617)',
-    rumpharius_bishop: 'Saint Romphaire, évêque de Coutance († VIème s.)', // src: mr_fr_1982_ed2_coutances
+    rumpharius_of_coutances_bishop: 'Saint Romphaire, évêque de Coutance († VIème s.)', // src: mr_fr_1982_ed2_coutances
     scholastica_of_nursia_virgin: 'Sainte Scholastique, Moniale, sœur de Saint Benoît († 543)',
     sebastian_of_milan_martyr: 'Saint Sébastien, martyr († v. 284)',
-    senerius_bishop: 'Saint Senier, évêque d’Avranches († v. 574)', // src: mr_fr_1982_ed2_coutances
+    senerius_of_normandy_bishop: 'Saint Senier, évêque d’Avranches († v. 574)', // src: mr_fr_1982_ed2_coutances
     seven_holy_founders_of_the_servite_order: 'Saint Alexis Falconieri et les fondateurs des Servites († 1310)',
     severus_of_avranches_bishop: 'Saint Sever, évêque d’Avranches († 578)', // src: mr_fr_1982_ed2_coutances
     sharbel_makhluf_priest: 'Saint Charbel Makhlouf, moine prêtre Maronite († 1898)',

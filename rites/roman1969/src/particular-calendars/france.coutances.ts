@@ -63,16 +63,13 @@ export class France_Coutances extends CalendarDef {
     },
 
     // src: mr_fr_1982_ed2_coutances
-    louis_grignion_de_montfort_priest: {},
-
-    // src: mr_fr_1982_ed2_coutances
     achard_of_saint_victor_bishop: {
       dateDef: { month: 4, date: 29 },
       precedence: Precedences.OptionalMemorial_12,
     },
 
     // src: mr_fr_1982_ed2_coutances
-    marculf_abbot: {
+    marculf_of_normandy_abbot: {
       dateDef: { month: 5, date: 4 },
       precedence: Precedences.ProperMemorial_11b,
     },
@@ -84,7 +81,7 @@ export class France_Coutances extends CalendarDef {
     },
 
     // src: https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/bienheureuse-marie-catherine-de-saint-augustin-vierge
-    catherine_of_saint_augustine_de_simon_de_longpre_virgin: {
+    mary_catherine_of_saint_augustine_catherine_de_simon_de_longpre_virgin: {
       dateDef: { month: 5, date: 8 },
       precedence: Precedences.OptionalMemorial_12,
     },
@@ -131,7 +128,9 @@ export class France_Coutances extends CalendarDef {
     },
 
     // src: mr_fr_1982_ed2_coutances
-    john_eudes_priest: {},
+    john_eudes_priest: {
+      precedence: Precedences.ProperMemorial_11b,
+    },
 
     // src: mr_fr_1982_ed2_coutances
     jacques_francois_lefranc_martyr_and_martyrs_of_the_revolution: {
@@ -153,13 +152,13 @@ export class France_Coutances extends CalendarDef {
     },
 
     // src: mr_fr_1982_ed2_coutances
-    floscel_martyr: {
+    floscellus_of_normandy_martyr: {
       dateDef: { month: 9, date: 17 },
       precedence: Precedences.OptionalMemorial_12,
     },
 
     // src: mr_fr_1982_ed2_coutances
-    senerius_bishop: {
+    senerius_of_normandy_bishop: {
       dateDef: { month: 9, date: 18 },
       precedence: Precedences.OptionalMemorial_12,
     },
@@ -236,7 +235,7 @@ export class France_Coutances extends CalendarDef {
     },
 
     // src: mr_fr_1982_ed2_coutances
-    rumpharius_bishop: {
+    rumpharius_of_coutances_bishop: {
       dateDef: { month: 11, date: 19 },
       precedence: Precedences.ProperMemorial_11b,
     },
