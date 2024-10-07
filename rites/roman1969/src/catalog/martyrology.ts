@@ -776,17 +776,6 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: 305,
       dateOfDeathIsApproximative: true,
     },
-    // src:
-    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/bienheureuse-marie-catherine-de-saint-augustin-vierge
-    // - https://en.wikipedia.org/wiki/Catherine_of_St._Augustine
-    mary_catherine_of_saint_augustine_catherine_de_simon_de_longpre_virgin: {
-      canonizationLevel: CanonizationLevels.Blessed,
-      dateOfBeatification: '1989-04-23',
-      name: 'Catherine of Saint Augustine',
-      titles: [Title.Virgin],
-      dateOfBirth: '1632-05-03',
-      dateOfDeath: '1668-05-08',
-    },
     catherine_of_siena_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Catherine of Siena',
@@ -3061,6 +3050,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Mary Assunta Pallotta',
       titles: [Title.Virgin],
+    },
+    // src:
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/bienheureuse-marie-catherine-de-saint-augustin-vierge
+    // - https://en.wikipedia.org/wiki/Catherine_of_St._Augustine
+    mary_catherine_of_saint_augustine_catherine_de_simon_de_longpre_virgin: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      dateOfBeatification: '1989-04-23',
+      name: 'Catherine of Saint Augustine',
+      titles: [Title.Virgin],
+      dateOfBirth: '1632-05-03',
+      dateOfDeath: '1668-05-08',
     },
     mary_magdalene: {
       canonizationLevel: CanonizationLevels.Saint,
