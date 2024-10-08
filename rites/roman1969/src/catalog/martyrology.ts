@@ -1446,7 +1446,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     // - https://nrm.m.wikipedia.org/wiki/Saint_Flosc%C3%A9%27
     floscellus_of_normandy_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
-      name: 'Floscel',
+      name: 'Floscellus',
       titles: [Title.Martyr],
       dateOfBirth: 280,
       dateOfBirthIsApproximative: true,
