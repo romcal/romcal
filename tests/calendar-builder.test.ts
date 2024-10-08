@@ -201,13 +201,13 @@ describe('Testing calendar generation functions', () => {
     });
 
     test('Should have the right weekday cycle', async () => {
-      expect(easter2020?.cycles.weekdayCycle).toBe('YEAR_2');
-      expect(easter2021?.cycles.weekdayCycle).toBe('YEAR_1');
-      expect(easter2022?.cycles.weekdayCycle).toBe('YEAR_2');
+      expect(easter2020?.cycles.weekdayCycle).toBe('CYCLE_2');
+      expect(easter2021?.cycles.weekdayCycle).toBe('CYCLE_1');
+      expect(easter2022?.cycles.weekdayCycle).toBe('CYCLE_2');
 
-      expect(christmas2020?.cycles.weekdayCycle).toBe('YEAR_1');
-      expect(christmas2021?.cycles.weekdayCycle).toBe('YEAR_2');
-      expect(christmas2022?.cycles.weekdayCycle).toBe('YEAR_1');
+      expect(christmas2020?.cycles.weekdayCycle).toBe('CYCLE_1');
+      expect(christmas2021?.cycles.weekdayCycle).toBe('CYCLE_2');
+      expect(christmas2022?.cycles.weekdayCycle).toBe('CYCLE_1');
     });
   });
 
