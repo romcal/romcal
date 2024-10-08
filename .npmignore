@@ -11,20 +11,30 @@ coverage/
 
 # Main codebase
 .github/
-lib/
-build/
-tests/
+.husky/
+rites/*/*
+packages/
+.commitlintrc.ts
 .editorconfig
 .eslintignore
 .eslintrc.js
+.lintstagedrc.yaml
+.nvmrc
 .prettierignore
 .prettierrc
+CODE_OF_CONDUCT.md
+global.d.ts
 jest.config.js
 tsconfig.*
 
+# But keep the dist folder for the rites/roman1969 package
+!rites/roman1969/
+!rites/roman1969/dist
+
 # Transpiled files
-dist/bundles/
+rites/roman1969/dist/bundles/
 tmp/
+
 
 # Act (run GitHub Actions locally)
 *.event
