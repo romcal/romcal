@@ -5,10 +5,10 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true, // if developer has eslint extension enabled
-    "source.fixAll.tslint": false // if developer has tslint extension enabled
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.tslint": "never"
   },
   "eslint.format.enable": false, // let prettier do it, it is faster and safer
   // Jest extension settings
-  "jest.autoRun": {}
+  "jest.runMode": "on-demand"
 }

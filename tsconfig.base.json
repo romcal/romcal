@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ES2022",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "downlevelIteration": true,
+    "importHelpers": true,
+    "allowJs": true,
+    "baseUrl": ".",
+    "paths": {
+      "@internal/rite-roman1962": ["./rites/roman1962"],
+      "@dist/rite-roman1962/*": ["./rites/roman1962/dist/*"],
+      "@src/rite-roman1962": ["./rites/roman1962/src"],
+      "@internal/rite-roman1969": ["./rites/roman1969"],
+      "@dist/rite-roman1969/*": ["./rites/roman1969/dist/*"],
+      "@src/rite-roman1969": ["./rites/roman1969/src"],
+      "@internal/config": ["./packages/config"],
+      "@internal/easter": ["./packages/easter"],
+      "@internal/package.json": ["./package.json"]
+    }
+  },
+  "exclude": ["node_modules", "rites/roman1969/build/docs/**", "**/*/dist"],
+  "include": ["lib/**/*", "tests/**/*", "rites/roman1969/build/**/*", "tmp/bundles/**/*", "tmp/constants/**/*"],
+  "files": ["global.d.ts"],
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  }
+}

@@ -87,7 +87,7 @@ jobs:
         run: npx browserslist@latest --update-db
 
       - name: Run Prettier fix
-        run: npx prettier -w --config .prettierrc ./lib
+        run: npx prettier -w --config .prettierrc ./rites ./packages
 
       - name: Build romcal project (romcal + all calendar bundles)
         run: npm run build
@@ -108,4 +108,4 @@ jobs:
       - name: Npm publish a new 'dev' version (romcal + all calendar bundles)
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: node -r ts-node/register scripts/publish.ts
+        run: node -r ts-node/register rites/roman1969/build/publish.ts

@@ -1,9 +1,9 @@
 import { UserConfig, RuleConfigSeverity } from '@commitlint/types';
-import { LOCALE_IDS } from './lib/constants/locales';
-import { CALENDAR_IDS } from './lib/constants/calendars';
+import { LOCALE_IDS } from './rites/roman1969/src/constants/locales';
+import { CALENDAR_IDS } from './rites/roman1969/src/constants/calendars';
 
 const empty = [null];
-const scopes = [...CALENDAR_IDS, ...LOCALE_IDS, 'calendar', 'l10n', 'util'];
+const scopes = [...CALENDAR_IDS, ...LOCALE_IDS, 'calendar', 'l10n', 'util', 'package'];
 const styleScopes = ['commitlint', 'editorconfig', 'eslint', 'prettier'];
 
 const typesEnumScoped = {
