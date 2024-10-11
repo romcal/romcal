@@ -1,6 +1,5 @@
 import { calculateGregorianEasterDate, calculateJulianEasterDateToGregorianDate } from '@internal/easter';
-
-import { version } from '../package.json';
+import { version } from '@internal/package.json';
 
 import { CALENDAR_PKG_NAMES, CALENDAR_VAR_NAMES } from './constants/calendars';
 import { COLORS, Color, Colors, isColor } from './constants/colors';
