@@ -145,12 +145,34 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Alberto Hurtado',
       titles: [Title.Priest],
     },
+    // src:
+    // - mr_fr_2022_ed3_angers
+    // - https://en.wikipedia.org/wiki/Albinus_of_Angers
+    albinus_of_angers_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Albinus',
+      titles: [Title.Bishop],
+      dateOfBirth: 468,
+      dateOfBirthIsApproximative: true,
+      dateOfDeath: '550-03-01',
+    },
     // src: mr_fr_2014_ed2_lyon
     alexander_of_lyon_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Alexander',
       dateOfDeath: 178,
       titles: [Title.Martyr],
+    },
+    // src:
+    // - mr_fr_2022_ed3_angers
+    // - https://fr.wikipedia.org/wiki/Liste_des_%C3%A9v%C3%AAques_d%27Angers
+    all_holy_bishops_of_the_diocese_of_angers: {
+      canonizationLevel: CanonizationLevels.Saint,
+      hideCanonizationLevel: true,
+      name: 'All Holy Bishops of the Diocese of Angers',
+      count: 'many',
+      titles: [Title.Bishop],
+      hideTitles: true,
     },
     // src:
     // - mr_fr_1982_ed2_coutances
@@ -188,11 +210,6 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'All Saints of the Archdiocese of Paris',
       count: 'many',
     },
-    all_saints_of_the_diocese_of_saint_denis: {
-      canonizationLevel: CanonizationLevels.Saint,
-      name: 'All Saints of the Diocese of Saint-Denis',
-      count: 'many',
-    },
     // src:
     // - mr_fr_1982_ed2_coutances
     // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/tous-les-saints-de-coutances-et-avranches
@@ -200,6 +217,11 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       hideCanonizationLevel: true,
       name: 'All Saints of the Diocese of Coutances and Avranches',
+      count: 'many',
+    },
+    all_saints_of_the_diocese_of_saint_denis: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'All Saints of the Diocese of Saint-Denis',
       count: 'many',
     },
     all_saints_of_wales: {
@@ -675,10 +697,21 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Virgin, Title.Martyr],
       dateOfDeath: 177,
     },
+    // src:
+    // - mr_fr_2022_ed3_angers
+    // - https://fr.wikipedia.org/wiki/Martyrs_d%27Angers
+    blessed_martyrs_of_angers: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Martyrs of Angers',
+      count: 'many',
+      titles: [Title.Martyr],
+      hideTitles: true,
+    },
     blessed_martyrs_of_paris: {
       canonizationLevel: CanonizationLevels.Blessed,
-      name: 'Blessed martyrs of Paris',
+      name: 'Martyrs of Paris',
       count: 'many',
+      titles: [Title.Martyr],
       hideTitles: true,
     },
     bogumilus_of_dobrow_bishop: {
@@ -1139,6 +1172,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Apostle],
       count: 2,
     },
+    // src:
+    // - mr_fr_2022_ed3_angers
+    // - https://en.wikipedia.org/wiki/Angers_Cathedral
+    dedication_of_the_cathedral_of_saint_maurice_of_agaunum_angers_france: {
+      dateOfDedication: 1096,
+    },
     dedication_of_the_lateran_basilica: {
       name: 'Dedication of the Lateran Basilica',
     },
@@ -1470,6 +1509,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Flannan',
       titles: [Title.Bishop],
+    },
+    // src:
+    // - mr_fr_2022_ed3_angers
+    // - https://fr.wikipedia.org/wiki/Florent_d%27Anjou
+    florentius_of_anjou_abbot: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Florentius',
+      titles: [Title.Abbot],
+      dateOfDeath: { century: 5 },
     },
     florentius_of_strasbourg_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -1916,6 +1964,11 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'The Holy Guardian Angels',
       count: 'many',
     },
+    // src: mr_fr_2022_ed3_angers
+    holy_hermits_and_evangelists: {
+      titles: [Title.Hermit, Title.Evangelist],
+      count: 'many',
+    },
     holy_innocents_martyrs: {
       name: 'Holy Innocents',
       titles: [Title.Martyr],
@@ -2126,6 +2179,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Jarlath',
       titles: [Title.Bishop],
     },
+    // src:
+    // - mr_fr_2022_ed3_angers
+    // - https://en.wikipedia.org/wiki/19_martyrs_of_Algeria
+    jean_chevillard_martyr: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Jean Chevillard',
+      titles: [Title.Religious, Title.Martyr],
+      dateOfBirth: '1925-08-27',
+      dateOfDeath: '1994-12-27',
+    },
     // src: mr_fr_2014_ed2_lyon
     jean_louis_bonnard_priest: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -2139,6 +2202,36 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Jean-Pierre Néel',
       titles: [Title.Priest, Title.Martyr],
       dateOfDeath: '1862-2-18',
+    },
+    // src:
+    // - mr_fr_2022_ed3_angers
+    // - https://en.wikipedia.org/wiki/Holy_September_Martyrs
+    jean_robert_queneau_martyr: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Jean-Robert Queneau',
+      titles: [Title.Priest, Title.Martyr],
+      dateOfBirth: '1758-04-09',
+      dateOfDeath: '1792-09-02',
+    },
+    // src:
+    // - mr_fr_2022_ed3_angers
+    // - https://en.wikipedia.org/wiki/Th%C3%A9ophane_V%C3%A9nard
+    jean_theophane_venard_priest: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Jean Théophane Venard',
+      titles: [Title.Priest, Title.Martyr],
+      dateOfBirth: '1829-11-21',
+      dateOfDeath: '1861-02-02',
+    },
+    // src:
+    // - mr_fr_2022_ed3_angers
+    // - https://en.wikipedia.org/wiki/Jeanne_Delanoue
+    jeanne_delanoue_of_the_cross_religious: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Jeanne Delanoue',
+      titles: [Title.Religious],
+      dateOfBirth: '1666-06-18',
+      dateOfDeath: '1736-08-17',
     },
     jerome_de_angelis_priest: {
       canonizationLevel: CanonizationLevels.Blessed,
@@ -2731,6 +2824,18 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Leopold Mandić',
       titles: [Title.Priest],
     },
+    // src:
+    // - mr_fr_2022_ed3_angers
+    // - https://en.wikipedia.org/wiki/Licinius_of_Angers
+    licinius_of_angers_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Licinius',
+      titles: [Title.Bishop],
+      dateOfBirth: 540,
+      dateOfBirthIsApproximative: true,
+      dateOfDeath: 610,
+      dateOfDeathIsApproximative: true,
+    },
     louis_bertrand_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Louis Bertrand',
@@ -2742,15 +2847,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Priest, Title.Martyr],
     },
     // src:
-    // - mr_fr_1982_ed2_coutances
-    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-louis-marie-grignion-de-montfort-pretre
+    // - mr_fr_2021_ed3
     // - https://en.wikipedia.org/wiki/Louis_de_Montfort
     louis_grignion_de_montfort_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Louis Grignion de Montfort',
       titles: [Title.Priest],
       dateOfBirth: '1673-01-31',
-      dateOfDeath: '1716-4-28',
+      dateOfDeath: '1716-04-28',
     },
     louis_ix_of_france: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -3111,6 +3215,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfBirth: '1632-05-03',
       dateOfDeath: '1668-05-08',
     },
+    // src:
+    // - mr_fr_2022_ed3_angers
+    // - https://en.wikipedia.org/wiki/Mary_Euphrasia_Pelletier
+    mary_euphrasia_pelletier_religious: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Mary Euphrasia Pelletier',
+      titles: [Title.Religious],
+      dateOfBirth: '1796-07-31',
+      dateOfDeath: '1868-04-24',
+    },
     mary_magdalene: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Mary Magdalene',
@@ -3234,11 +3348,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Matthias',
       titles: [Title.Apostle],
     },
-    // src: mr_fr_2014_ed2_lyon
+    // src:
+    // - mr_fr_2022_ed3_angers
+    // - mr_fr_2014_ed2_lyon
+    // - https://en.wikipedia.org/wiki/Saint_Maurice
     maurice_of_agaunum_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Maurice',
       titles: [Title.Martyr],
+      dateOfBirth: { century: 3 },
+      dateOfBirthIsApproximative: true,
       dateOfDeath: 287,
       dateOfDeathIsApproximative: true,
     },
@@ -3246,6 +3365,27 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Maurice Tornay',
       titles: [Title.Priest, Title.Martyr],
+    },
+    // src:
+    // - mr_fr_2022_ed3_angers
+    // - https://en.wikipedia.org/wiki/Maurilius_of_Angers
+    maurilius_of_angers_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Maurilius',
+      titles: [Title.Bishop],
+      dateOfBirth: 363,
+      dateOfBirthIsApproximative: true,
+      dateOfDeath: '453-09-13',
+    },
+    // src:
+    // - mr_fr_2022_ed3_angers
+    // - https://en.wikipedia.org/wiki/Saint_Maurus
+    maurus_of_glanfeuil_abbot: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Maurus',
+      titles: [Title.Abbot],
+      dateOfBirth: '512-01-01',
+      dateOfDeath: '584-01-15',
     },
     maurus_of_pecs_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -3421,6 +3561,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Nicetius',
       titles: [Title.Bishop],
       dateOfDeath: '573-4-2',
+    },
+    // src:
+    // - mr_fr_2022_ed3_angers
+    // - https://en.wikipedia.org/wiki/No%C3%ABl_Pinot
+    noel_pinot_priest: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Noël Pinot',
+      titles: [Title.Priest, Title.Martyr],
+      dateOfBirth: '1747-12-19',
+      dateOfDeath: '1794-02-21',
     },
     norbert_of_xanten_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -3813,13 +3963,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Peter de Zúñiga',
       titles: [Title.Priest, Title.Martyr],
     },
-    // src: mr_fr_2014_ed2_lyon
+    // src:
+    // - mr_fr_2021_ed3
+    // - mr_fr_2022_ed3_angers
+    // - mr_fr_2014_ed2_lyon
+    // - https://en.wikipedia.org/wiki/Peter_Julian_Eymard
     peter_julian_eymard_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Peter Julian Eymard',
       titles: [Title.Priest],
-      dateOfBirth: 1811,
-      dateOfDeath: 1868,
+      dateOfBirth: '1811-02-04',
+      dateOfDeath: '1868-08-01',
     },
     peter_kibe_priest: {
       canonizationLevel: CanonizationLevels.Blessed,
@@ -4006,6 +4160,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Remigius',
       titles: [Title.Bishop],
       dateOfDeath: 530,
+    },
+    // src:
+    // - mr_fr_2022_ed3_angers
+    // - https://en.wikipedia.org/wiki/Ren%C3%A9_Goupil
+    rene_goupil_religious: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'René Goupil',
+      titles: [Title.Religious, Title.Martyr],
+      dateOfBirth: '1608-05-15',
+      dateOfDeath: '1642-09-29',
     },
     richard_gwyn_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
