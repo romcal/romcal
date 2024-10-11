@@ -26,7 +26,7 @@ export class France_Coutances extends CalendarDef {
     },
 
     // src: mr_fr_1982_ed2_coutances
-    auguste_chapdelaine_priest: {
+    augustus_chapdelaine_priest: {
       dateDef: { month: 2, date: 28 },
       precedence: Precedences.ProperMemorial_11b,
     },
@@ -50,9 +50,9 @@ export class France_Coutances extends CalendarDef {
     },
 
     // src: mr_fr_1982_ed2_coutances
-    paterne_of_avranches_bishop_and_scubilion_abbot: {
+    paternus_of_avranches_bishop_and_scubilion_abbot: {
       dateDef: { month: 4, date: 16 },
-      martyrology: ['paterne_of_avranches_bishop', 'scubilion_abbot'],
+      martyrology: ['paternus_of_avranches_bishop', 'scubilion_abbot'],
       precedence: Precedences.ProperMemorial_11b,
     },
 
@@ -87,7 +87,7 @@ export class France_Coutances extends CalendarDef {
     },
 
     // src: mr_fr_1982_ed2_coutances
-    ortaire_de_landelles_abbot: {
+    ortaire_of_landelles_abbot: {
       dateDef: { month: 5, date: 21 },
       precedence: Precedences.OptionalMemorial_12,
     },
@@ -104,7 +104,7 @@ export class France_Coutances extends CalendarDef {
     },
 
     // src: mr_fr_1982_ed2_coutances
-    dedication_of_the_cathedral_of_coutances_france: {
+    dedication_of_the_cathedral_of_notre_dame_of_coutances_france: {
       dateDef: { month: 7, date: 12 },
       precedence: Precedences.ProperFeast_DedicationOfTheCathedralChurch_8b,
     },
@@ -116,7 +116,7 @@ export class France_Coutances extends CalendarDef {
     },
 
     // src: mr_fr_1982_ed2_coutances
-    marie_madeleine_postel_virgin: {
+    marie_madeleine_julie_francoise_catherine_postel_virgin: {
       dateDef: { month: 7, date: 17 },
       precedence: Precedences.ProperMemorial_11b,
     },
@@ -136,11 +136,11 @@ export class France_Coutances extends CalendarDef {
     jacques_francois_lefranc_martyr_and_martyrs_of_the_revolution: {
       dateDef: { month: 9, date: 2 },
       precedence: Precedences.ProperMemorial_11b,
-      martyrology: ['jacques_francois_lefranc_martyr', { id: 'companions_martyrs', count: 23 }],
+      martyrology: ['jacques_francois_lefranc_martyr', { id: 'martyrs_of_the_french_revolution', count: 23 }],
     },
 
     // src: mr_fr_1982_ed2_coutances
-    omer_audomar_bishop: {
+    audomar_of_therouanne_bishop: {
       dateDef: { month: 9, date: 9 },
       precedence: Precedences.OptionalMemorial_12,
     },
@@ -164,7 +164,7 @@ export class France_Coutances extends CalendarDef {
     },
 
     // src: mr_fr_1982_ed2_coutances
-    vitalis_of_savigny_bishop: {
+    vitalis_of_savigny_abbot: {
       dateDef: { month: 9, date: 19 },
       precedence: Precedences.ProperMemorial_11b,
     },
@@ -186,13 +186,13 @@ export class France_Coutances extends CalendarDef {
     },
 
     // src: mr_fr_1982_ed2_coutances
-    all_holy_bishops_of_the_diocese_of_coutances: {
+    all_holy_bishops_and_priests_of_the_diocese_of_coutances: {
       dateDef: { month: 10, date: 12 },
       precedence: Precedences.ProperMemorial_11b,
     },
 
     // src: https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/bienheureux-pierre-adrien-toulorge-martyr
-    pierre_adrien_toulorge_priest: {
+    peter_adrian_toulorge_priest: {
       dateDef: { month: 10, date: 13 },
       precedence: Precedences.ProperMemorial_11b,
     },
@@ -217,7 +217,7 @@ export class France_Coutances extends CalendarDef {
     },
 
     // src: mr_fr_1982_ed2_coutances
-    magloire_of_dol_monk: {
+    maglorius_of_dol_monk: {
       dateDef: { month: 10, date: 25 },
       precedence: Precedences.OptionalMemorial_12,
     },
