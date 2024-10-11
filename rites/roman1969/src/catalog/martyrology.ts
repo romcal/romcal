@@ -152,6 +152,29 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: 178,
       titles: [Title.Martyr],
     },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saints-eveques-de-coutances-et-davranches
+    // - https://fr.wikipedia.org/wiki/Liste_des_%C3%A9v%C3%AAques_de_Coutances_et_Avranches
+    all_holy_bishops_of_the_diocese_of_coutances: {
+      canonizationLevel: CanonizationLevels.Saint,
+      hideCanonizationLevel: true,
+      name: 'The Holy Bishops of the diocese of Coutances and Avranches',
+      count: 'many',
+      titles: [Title.Bishop],
+      hideTitles: true,
+    },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saints-eveques-de-coutances-et-davranches
+    all_holy_priest_of_the_diocese_of_coutances: {
+      canonizationLevel: CanonizationLevels.Saint,
+      hideCanonizationLevel: true,
+      name: 'The Holy Priests of the diocese of Coutances and Avranches',
+      count: 'many',
+      titles: [Title.Priest],
+      hideTitles: true,
+    },
     all_saints: {
       name: 'All Saints',
     },
@@ -168,6 +191,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     all_saints_of_the_diocese_of_saint_denis: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'All Saints of the Diocese of Saint-Denis',
+      count: 'many',
+    },
+    // src:
+    // - mr_fr_1982_ed2_coutances
+    // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/tous-les-saints-de-coutances-et-avranches
+    all_saints_of_the_diocese_of_coutances: {
+      canonizationLevel: CanonizationLevels.Saint,
+      hideCanonizationLevel: true,
+      name: 'All Saints of the Diocese of Coutances and Avranches',
       count: 'many',
     },
     all_saints_of_wales: {

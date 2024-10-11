@@ -189,6 +189,7 @@ export class France_Coutances extends CalendarDef {
     all_holy_bishops_and_priests_of_the_diocese_of_coutances: {
       dateDef: { month: 10, date: 12 },
       precedence: Precedences.ProperMemorial_11b,
+      martyrology: ['all_holy_bishops_of_the_diocese_of_coutances', 'all_holy_priest_of_the_diocese_of_coutances'],
     },
 
     // src: https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/bienheureux-pierre-adrien-toulorge-martyr
