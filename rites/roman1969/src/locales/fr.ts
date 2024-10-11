@@ -166,11 +166,11 @@ export const locale: Locale = {
       'Saint Albert le Grand, frère prêcheur, évêque de Ratisbonne, docteur de l’Église († 1280)',
     all_holy_bishops_of_the_archdiocese_of_lyon: 'Tous les Saints Évêques du diocèse de Lyon',
     all_holy_bishops_and_priests_of_the_diocese_of_coutances:
-      'Les Saints Évêques de Coutances et d’Avranches, et les prêtres, leurs coopérateurs', // src: mr_fr_1982_ed2_coutances
+      'Tous les Saints Évêques du diocèse de Coutances et Avranches, et les prêtres, leurs coopérateurs', // src: mr_fr_1982_ed2_coutances
     all_saints: 'Tous les Saints',
     all_saints_of_the_archdiocese_of_lyon: 'Tous les Saints du diocèse de Lyon', // src: mr_fr_2014_ed2_lyon
     all_saints_of_the_archdiocese_of_paris: 'Tous les Saints du diocèse de Paris',
-    all_saints_of_the_diocese_of_coutances: 'Tous les saints du diocèse de Coutances et d’Avranches', // src: mr_fr_1982_ed2_coutances
+    all_saints_of_the_diocese_of_coutances: 'Tous les Saints du diocèse de Coutances et Avranches', // src: mr_fr_1982_ed2_coutances
     all_saints_of_the_diocese_of_saint_denis: 'Tous les Saints du diocèse de Saint-Denis',
     aloysius_gonzaga_religious: 'Saint Louis de Gonzague, religieux Jésuite († 1591)',
     alphonsus_mary_liguori_bishop: 'Saint Alphonse-Marie de Liguori, évêque et docteur de l’Église',
