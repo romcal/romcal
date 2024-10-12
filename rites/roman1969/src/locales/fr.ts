@@ -349,7 +349,7 @@ export const locale: Locale = {
     fridolin_of_sackingen_monk: 'Saint Fridolin, moine missionnaire († 540)',
     fromundus_of_coutances_bishop: 'Saint Fromond, évêque de Coutances († v. 691)', // src: mr_fr_1982_ed2_coutances
     gall_of_switzerland_abbot: 'Saint Gall, abbé et missionnaire († 641 ou 646)',
-    gaud_of_evreux_bishop: 'Saint Gaug, évêque († v. 491)', // src: mr_fr_1982_ed2_coutances
+    gaud_of_evreux_bishop: 'Saint Gaud, évêque († v. 491)', // src: mr_fr_1982_ed2_coutances
     genevieve_of_paris_virgin: 'Sainte Geneviève, vierge († 500)',
     george_of_lydda_martyr: 'Saint Georges, martyr († 303)',
     george_of_lydda_martyr_patron_of_england: 'Saint Georges, martyr et patron de l’Angleterre († 303)',
