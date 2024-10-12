@@ -81,7 +81,7 @@ export class Canada extends CalendarDef {
     },
 
     // src: mr_fr_2021_ed3
-    catherine_of_saint_augustine_de_simon_de_longpre_virgin: {
+    mary_catherine_of_saint_augustine_catherine_de_simon_de_longpre_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 5, date: 8 },
     },

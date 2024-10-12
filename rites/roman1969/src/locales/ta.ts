@@ -282,7 +282,7 @@ export const locale: Locale = {
     carthage_of_lismore_bishop: 'புனித கார்தேஜ் - ஆயர்',
     casimir_of_poland: 'போலந்தின் புனித காஸ்மிர்',
     catherine_of_alexandria_virgin: 'அலெக்சான்றியாவின் புனித கத்தரின் - கன்னி, மறைசாட்சி',
-    catherine_of_saint_augustine_de_simon_de_longpre_virgin: 'புனித அகுஸ்தினின் புனித கத்தரின் - கன்னி',
+    mary_catherine_of_saint_augustine_catherine_de_simon_de_longpre_virgin: 'புனித அகுஸ்தினின் புனித கத்தரின் - கன்னி',
     catherine_of_siena_virgin: 'சியன்னாவின் புனித கத்தரின் - கன்னி, மறைவல்லுநர்',
     catherine_of_siena_virgin_copatroness_of_europe:
       'சியன்னாவின் புனித கத்தரின் - கன்னி, மறைவல்லுநர், ஐரோப்பவின் பாதுகாவலி',

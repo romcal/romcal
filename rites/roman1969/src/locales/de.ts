@@ -284,7 +284,8 @@ export const locale: Locale = {
     carthage_of_lismore_bishop: 'Hl. Carthage, Bischof',
     casimir_of_poland: 'Hl. Kasimir',
     catherine_of_alexandria_virgin: 'Hl. Katharina von Alexandrien, Jungfrau und Märtyrerin',
-    catherine_of_saint_augustine_de_simon_de_longpre_virgin: 'Sel. Katharina von Sankt Augustin, Jungfrau',
+    mary_catherine_of_saint_augustine_catherine_de_simon_de_longpre_virgin:
+      'Sel. Katharina von Sankt Augustin, Jungfrau',
     catherine_of_siena_virgin: 'Hl. Katharina von Siena, Jungfrau und Kirchenlehrerin',
     catherine_of_siena_virgin_copatroness_of_europe:
       'Hl. Katharina von Siena, Jungfrau und Kirchenlehrerin, Mitpatronin Europas',
