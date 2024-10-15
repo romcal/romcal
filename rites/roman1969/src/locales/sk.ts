@@ -641,7 +641,7 @@ export const locale: Locale = {
     ludmila_of_bohemia_martyr: 'Svätej Ľudmily, mučenice',
     luigi_orione_priest: 'Svätého Alojza Orioneho, kňaza',
     luke_evangelist: 'Svätého Lukáša, evanjelistu',
-    lydia_of_philippi: 'Svätej Lýdie z Filíp',
+    lydia_of_philippi_the_first_christian_of_europe: 'Svätej Lýdie z Filíp, prvej kresťanky Európy',
     mac_nissi_of_connor_bishop: 'Svätého Mac Nissi, biskupa',
     macartan_of_clogher_bishop: 'Svätého Makartána, biskupa',
     madeleine_sophie_barat_virgin: 'Svätej Magdalény Žofie Baratovej, panny',
