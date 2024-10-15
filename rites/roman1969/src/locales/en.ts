@@ -171,10 +171,12 @@ export const locale: Locale = {
     albert_chmielowski_religious: 'Saint Albert Chmielowski, Religious',
     albert_the_great_bishop: 'Saint Albert the Great, Bishop and Doctor of the Church',
     albertina_berkenbrock_virgin: 'Blessed Albertina Berkenbrock, Virgin and Martyr',
+    albinus_of_angers_bishop: 'Saint Albinus of Angers, Abbot', // mr_fr_2022_ed3_angers
     alberto_hurtado_priest: 'Saint Alberto Hurtado, Priest',
-    all_holy_bishops_of_the_archdiocese_of_lyon: 'All Holy Bishops of the Archdiocese of Lyon',
     all_holy_bishops_and_priests_of_the_diocese_of_coutances:
       'The Holy Bishops of the diocese of Coutances and Avranches, and the priests, their collaborators',
+    all_holy_bishops_of_the_archdiocese_of_lyon: 'All Holy Bishops of the Archdiocese of Lyon',
+    all_holy_bishops_of_the_diocese_of_angers: 'All Holy Bishops of the Diocese of Angers', // mr_fr_2022_ed3_angers
     all_saints: 'All Saints',
     all_saints_of_ireland: 'All Saints of Ireland',
     all_saints_of_the_archdiocese_of_lyon: 'All Saints of the Archdiocese of Lyon',
@@ -263,6 +265,7 @@ export const locale: Locale = {
     bernardine_of_siena_priest: 'Saint Bernardine of Siena, Priest',
     beuno_of_wales_abbot: 'Saint Beuno, Abbot',
     blaise_of_sebaste_bishop: 'Saint Blaise, Bishop and Martyr',
+    blessed_martyrs_of_angers: 'Blessed Martyrs of Angers', // mr_fr_2022_ed3_angers
     blessed_martyrs_of_paris: 'Blessed Martyrs of Paris',
     bogumilus_of_dobrow_bishop: 'Blessed Bogumilus, Bishop',
     boleslawa_mary_lament_virgin: 'Blessed Boleslawa Mary Lament, Virgin',
@@ -373,6 +376,8 @@ export const locale: Locale = {
       'The Dedication of the Cathedral of Notre-Dame of Strasbourg',
     dedication_of_the_cathedral_of_saint_john_the_baptist_lyon_france:
       'The Dedication of the Cathedral of Saint John the Baptist, Lyon',
+    dedication_of_the_cathedral_of_saint_maurice_of_agaunum_angers_france:
+      'The Dedication of the Cathedral Saint Maurice of Angers, France', // mr_fr_2022_ed3_angers
     dedication_of_the_lateran_basilica: 'The Dedication of the Lateran Basilica',
     dedication_of_the_notre_dame_de_paris_cathedral_paris_france:
       'The Dedication of the Notre-Dame de Paris Cathedral, Paris',
@@ -439,6 +444,7 @@ export const locale: Locale = {
     first_polish_martyrs: 'Saints Benedict, John, Matthew, Isaac and Christian, the First Polish Martyrs',
     five_wounds_of_the_lord: 'Five Wounds of the Lord',
     flannan_of_killaloe_bishop: 'Saint Flannan, Bishop',
+    florentius_of_anjou_abbot: 'Saint Florentius, Abbot', // mr_fr_2022_ed3_angers
     florentius_of_strasbourg_bishop: 'Saint Florentius, Bishop',
     florian_of_lorch_and_companions_martyrs: 'Saint Florian and Companions, Martyrs',
     florian_of_lorch_martyr: 'Saint Florian, Martyr',
@@ -517,6 +523,7 @@ export const locale: Locale = {
     holy_family_of_jesus_mary_and_joseph: 'The Holy Family of Jesus, Mary and Joseph',
     holy_guardian_angels: 'The Holy Guardian Angels',
     holy_innocents_martyrs: 'The Holy Innocents, Martyrs',
+    holy_hermits_and_evangelists: 'The Holy Hermits and Evangelists', // mr_fr_2022_ed3_angers
     holy_saturday: 'Holy Saturday/Easter Vigil',
     holy_thursday: 'Holy Thursday',
     honorat_kozminski_priest: 'Blessed Honorat Koźmiński, Priest',
@@ -563,8 +570,12 @@ export const locale: Locale = {
     jane_frances_de_chantal_religious: 'Saint Jane Frances de Chantal, Religious',
     januarius_i_of_benevento_bishop: 'Saint Januarius, Bishop and Martyr',
     jarlath_of_tuam_bishop: 'Saint Jarlath, Bishop',
+    jean_chevillard_and_companions_martyrs: 'Blessed Jean Chevillard and Companions, Religious and Martyrs', // mr_fr_2022_ed3_angers
     jean_louis_bonnard_priest: 'Saint Jean-Louis Bonnard, Priest and Martyr',
     jean_pierre_neel_priest: 'Saint Jean Pierre Néel, Priest and Martyr',
+    jean_robert_queneau_and_companions_martyrs: 'Blessed Jean-Robert Queneau, Priest, and Companions, Martyrs', // mr_fr_2022_ed3_angers
+    jean_theophane_venard_priest: 'Saint Théophane Vénard, Priest and Martyr', // mr_fr_2022_ed3_angers
+    jeanne_delanoue_of_the_cross_religious: 'Saint Jeanne Delanoue, Religious', // mr_fr_2022_ed3_angers
     jerome_emiliani: 'Saint Jerome Emiliani',
     jerome_of_stridon_priest: 'Saint Jerome, Priest and Doctor of the Church',
     joachim_and_anne_parents_of_mary: 'Saints Joachim and Anne, Parents of the Blessed Virgin Mary',
@@ -675,6 +686,7 @@ export const locale: Locale = {
     leonid_feodorov_priest: 'Blessed Leonid Feodorov, Priest and Martyr',
     leopold_iii_of_babenberg: 'Saint Leopold III of Babenberg',
     leopold_mandic_priest: 'Saint Leopold Mandić, Priest',
+    licinius_of_angers_bishop: 'Saint Licinius of Angers, Bishop', // mr_fr_2022_ed3_angers
     louis_bertrand_priest: 'Saint Louis Bertrand, Priest',
     louis_grignion_de_montfort_priest: 'Saint Louis Grignion de Montfort, Priest',
     louis_ix_of_france: 'Saint Louis',
@@ -737,6 +749,7 @@ export const locale: Locale = {
     mary_adeodata_pisani_virgin: 'Blessed Mary Adeodata Pisani, Virgin',
     mary_angela_truszkowska_virgin: 'Blessed Mary Angela Truszkowska, Virgin',
     mary_assunta_pallotta_virgin: 'Blessed Mary Assunta Pallotta, Virgin',
+    mary_euphrasia_pelletier_religious: 'Saint Mary Euphrasia Pelletier, Religious', // mr_fr_2022_ed3_angers
     mary_magdalene: 'Saint Mary Magdalene',
     mary_magdalene_de_pazzi_virgin: 'Saint Mary Magdalene de’ Pazzi, Virgin',
     mary_mother_of_god: 'The Octave Day of the Nativity of the Lord: Solemnity of Mary, the Holy Mother of God',
@@ -765,7 +778,12 @@ export const locale: Locale = {
     matthew_apostle: 'Saint Matthew, Apostle and Evangelist',
     matthias_apostle: 'Saint Matthias, Apostle',
     maurice_of_agaunum_and_companions_martyrs: 'Saint Maurice and Companions, Martyrs',
+    maurice_of_agaunum_and_companions_martyrs_patron_of_the_diocese_of_angers:
+      'Saint Maurice and Companions, Martyrs and Patrons of the city and the diocese of Angers', // mr_fr_2022_ed3_angers
     maurice_tornay_priest: 'Blessed Maurice Tornay, Priest and Martyr',
+    maurilius_of_angers_bishop_second_patron_of_the_diocese_of_angers:
+      'Saint Maurilius, Bishop and Copatron of the diocese of Angers', // mr_fr_2022_ed3_angers
+    maurus_of_glanfeuil_abbot: 'Saint Maurus, Abbot', // mr_fr_2022_ed3_angers
     maurus_of_pecs_bishop: 'Saint Maurus, Bishop',
     maximilian_mary_raymund_kolbe_priest: 'Saint Maximilian Mary Kolbe, Priest and Martyr',
     mederic_of_autun_and_droctoveus_of_autun_abbots: 'Saints Mederic and Droctoveus, Abbots',
@@ -802,6 +820,7 @@ export const locale: Locale = {
     nicholas_tavelic_priest: 'Saint Nicholas Tavelić, Priest and Martyr',
     ninian_of_whithorn_bishop: 'Saint Ninian, Bishop',
     nicetius_of_lyon_bishop: 'Saint Nicetius, Bishop',
+    noel_pinot_priest: 'Blessed Noël Pinot, Priest and Martyr', // mr_fr_2022_ed3_angers
     norbert_of_xanten_bishop: 'Saint Norbert, Bishop',
     nuno_of_saint_mary_pereira_religious: 'Saint Nuno of Saint Mary Pereira, Religious',
     nykyta_budka_and_vasyl_velychkovsky_bishops: 'Blesseds Nykyta Budka and Vasyl Velychkovsky, Bishops and Martyrs',
@@ -940,6 +959,7 @@ export const locale: Locale = {
     raphael_of_saint_joseph_kalinowski_priest: 'Saint Raphael of Saint Joseph Kalinowski, Priest',
     raymond_of_penyafort_priest: 'Saint Raymond of Penyafort, Priest',
     remigius_of_reims_bishop: 'Saint Remigius, Bishop',
+    rene_goupil_religious: 'Saint René Goupil, Religious and Martyr', // mr_fr_2022_ed3_angers
     richard_gwyn_martyr: 'Saint Richard Gwyn, Martyr',
     richard_of_chichester_bishop: 'Saint Richard of Chichester, Bishop',
     richardis_of_swabia_empress: 'Saint Richardis, Empress',
