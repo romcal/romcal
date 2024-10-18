@@ -15,6 +15,7 @@ import {
   Season,
 } from '@src/rite-roman1969';
 
+import { Precedences } from '../src/constants/precedences';
 import { dateDifference } from '../src/utils/dates';
 
 const { Colors, isMartyr, Titles, Ranks, getUtcDate, getUtcDateFromString, isSameDate, subtractsDays } = Romcal;
@@ -386,6 +387,68 @@ describe('Testing calendar generation functions', () => {
       const easter = calendar.find((item) => item.id === 'easter_sunday');
       expect(easter?.date).toEqual('2019-04-28');
     });
+  });
+});
+
+describe('Testing the Elevated Memorial option', () => {
+  it('should get two optional memorials on January 20th on the General Roman Calendar', async () => {
+    const calendar = Object.values(await new Romcal().generateCalendar(2024)).flat();
+    const optionalMemorials = calendar.filter(
+      (item) => item.date === '2024-10-16' && item.rank === Ranks.OptionalMemorial
+    );
+
+    expect(optionalMemorials.length).toBe(2);
+    expect(optionalMemorials[0].id).toBe('hedwig_of_silesia_religious');
+    expect(optionalMemorials[1].id).toBe('margaret_mary_alacoque_virgin');
+  });
+
+  it('should elevate the memorial of Saint Margaret Mary Alacoque to a General Memorial', async () => {
+    const calendar = Object.values(
+      await new Romcal({ elevatedMemorialIds: ['margaret_mary_alacoque_virgin'] }).generateCalendar(2024)
+    ).flat();
+    const optionalMemorials = calendar.filter(
+      (item) => item.date === '2024-10-16' && item.rank === Ranks.OptionalMemorial
+    );
+    const memorials = calendar.filter((item) => item.date === '2024-10-16' && item.rank === Ranks.Memorial);
+
+    expect(optionalMemorials.length).toBe(0);
+    expect(memorials.length).toBe(1);
+    expect(memorials[0].id).toBe('margaret_mary_alacoque_virgin');
+    expect(memorials[0].precedence).toBe(Precedences.GeneralMemorial_10);
+  });
+
+  it('should elevate the memorial of Saint Gall to a Proper Memorial', async () => {
+    const calendar = Object.values(
+      await new Romcal({
+        localizedCalendar: Slovakia_Sk,
+        elevatedMemorialIds: ['gall_of_switzerland_abbot'],
+      }).generateCalendar(2024)
+    ).flat();
+    const optionalMemorials = calendar.filter(
+      (item) => item.date === '2024-10-16' && item.rank === Ranks.OptionalMemorial
+    );
+    const memorials = calendar.filter((item) => item.date === '2024-10-16' && item.rank === Ranks.Memorial);
+
+    expect(optionalMemorials.length).toBe(0);
+    expect(memorials.length).toBe(1);
+    expect(memorials[0].id).toBe('gall_of_switzerland_abbot');
+    expect(memorials[0].precedence).toBe(Precedences.ProperMemorial_11b);
+  });
+
+  it('should keep only the first defined memorial if multiple optional memorials are elevated for the same day', async () => {
+    const calendar = Object.values(
+      await new Romcal({
+        elevatedMemorialIds: ['margaret_mary_alacoque_virgin', 'hedwig_of_silesia_religious'],
+      }).generateCalendar(2024)
+    ).flat();
+    const optionalMemorials = calendar.filter(
+      (item) => item.date === '2024-10-16' && item.rank === Ranks.OptionalMemorial
+    );
+    const memorials = calendar.filter((item) => item.date === '2024-10-16' && item.rank === Ranks.Memorial);
+
+    expect(optionalMemorials.length).toBe(0);
+    expect(memorials.length).toBe(1);
+    expect(memorials[0].id).toBe('hedwig_of_silesia_religious');
   });
 });
 
