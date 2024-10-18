@@ -40,6 +40,8 @@ export class RomcalConfig implements IRomcalConfig {
 
   ascensionOnSunday: boolean;
 
+  elevatedMemorialIds: string[] = [];
+
   easterCalculationType: EasterCalculationType;
 
   readonly scope: CalendarScope;
@@ -91,6 +93,8 @@ export class RomcalConfig implements IRomcalConfig {
       config?.corpusChristiOnSunday ?? this.localizedCalendar?.particularConfig.corpusChristiOnSunday ?? true;
     this.ascensionOnSunday =
       config?.ascensionOnSunday ?? this.localizedCalendar?.particularConfig.ascensionOnSunday ?? false;
+
+    this.elevatedMemorialIds = config?.elevatedMemorialIds ?? [];
 
     const localeObj: Locale | undefined = this.localizedCalendar?.i18n ?? locale;
     this.localeId = localeObj?.id ? sanitizeLocaleId(localeObj.id) : 'dev';
@@ -200,6 +204,7 @@ export class RomcalConfig implements IRomcalConfig {
       epiphanyOnSunday: this.epiphanyOnSunday,
       corpusChristiOnSunday: this.corpusChristiOnSunday,
       ascensionOnSunday: this.ascensionOnSunday,
+      elevatedMemorialIds: this.elevatedMemorialIds,
       localeId: this.localeId,
       calendarName: this.calendarName,
       easterCalculationType: this.easterCalculationType,
