@@ -171,6 +171,7 @@ const romcal = new Romcal({
   epiphanyOnSunday: true | false, // Epiphany always a Sunday (between January 2 - 8), or on January 6
   corpusChristiOnSunday: true | false, // Corpus Christi always a Sunday, or the Thursday after Trinity Sunday
   ascensionOnSunday: true | false, // Ascension always a Sunday, or the 40th day of Easter (a Thursday)
+  elevatedMemorialIds: ['john_paul_ii_pope', 'our_lady_of_fatima'], // List of optional memorials to be elevated to mandatory memorials
 });
 ```
 
