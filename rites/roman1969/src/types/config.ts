@@ -39,6 +39,28 @@ export interface BaseRomcalConfig {
   readonly ascensionOnSunday?: boolean;
 
   /**
+   * The `elevatedMemorialIds` is a list of optional liturgical memorials that are to be elevated
+   * to the rank of mandatory memorials within the liturgical calendar.
+   * Each ID in the list corresponds to a specific optional memorial that, according
+   * to particular liturgical norms or decisions, must be celebrated as a mandatory memorial.
+   *
+   * Note:
+   * - If multiple optional memorials occur on the same day, and one of them is elevated,
+   *   then only the elevated memorial will be retained in the generated calendar. The other
+   *   optional memorials are removed, as the elevated (mandatory) memorial takes precedence over
+   *   the others.
+   * - If multiple memorials are elevated for the same day, only the first elevated memorial
+   *   defined in the calendar will be retained, as there can only be one mandatory memorial on a
+   *   given liturgical day.
+   *
+   * Example:
+   * ```ts
+   * elevatedMemorialIds = ['john_paul_ii_pope', 'our_lady_of_fatima'];
+   * ```
+   */
+  readonly elevatedMemorialIds?: string[];
+
+  /**
    * Determines if the date of Easter is calculated using the Gregorian calendar or the Julian calendar.
    */
   readonly easterCalculationType: EasterCalculationType;

@@ -1,6 +1,6 @@
 import { Color, Colors } from '../constants/colors';
 import { ProperCycles } from '../constants/cycles';
-import { GENERAL_ROMAN_NAME, PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
+import { GENERAL_ROMAN_ID, GENERAL_ROMAN_NAME, PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
 import { isMartyr } from '../constants/martyrology-metadata';
 import { Period } from '../constants/periods';
 import { Precedence, Precedences } from '../constants/precedences';
@@ -126,20 +126,28 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
       ? config.liturgicalDayDef[id]
       : undefined;
 
-    if (!input.dateDef && !previousDef) {
+    if (input.dateDef) {
+      this.dateDef = input.dateDef;
+    } else if (previousDef && previousDef.dateDef) {
+      this.dateDef = previousDef.dateDef;
+    } else {
       throw new Error(`In the '${fromCalendarId}' calendar, the property 'dateDef' for '${id}' must be defined.`);
     }
-    // TODO: refactor this to avoid non-null assertion
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    this.dateDef = input.dateDef ?? previousDef!.dateDef;
 
     this.dateExceptions = safeWrapArray(input.dateExceptions) ?? (previousDef ? previousDef.dateExceptions : []);
 
-    if (!input.precedence && !previousDef) {
+    if (input.precedence) {
+      this.precedence = input.precedence;
+    } else if (previousDef?.precedence) {
+      this.precedence = previousDef.precedence;
+    } else {
       throw new Error(`In the '${fromCalendarId}' calendar, the property 'precedence' for '${id}' must be defined.`);
     }
-    // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
-    this.precedence = input.precedence ?? previousDef!.precedence;
+
+    if (this.precedence === Precedences.OptionalMemorial_12 && this.#config.elevatedMemorialIds.includes(this.id)) {
+      this.precedence =
+        fromCalendarId === GENERAL_ROMAN_ID ? Precedences.GeneralMemorial_10 : Precedences.ProperMemorial_11b;
+    }
 
     this.rank = LiturgicalDayDef.precedenceToRank(this.precedence, id);
 
