@@ -1,4 +1,5 @@
 import { Color, Colors } from '../constants/colors';
+import { CommonDefinition } from '../constants/commons';
 import { ProperCycles } from '../constants/cycles';
 import { GENERAL_ROMAN_ID, GENERAL_ROMAN_NAME, PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
 import { isMartyr } from '../constants/martyrology-metadata';
@@ -42,6 +43,8 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
   readonly precedence: Precedence;
 
   readonly rank: Rank;
+
+  readonly commonsDefinition: CommonDefinition[];
 
   readonly isHolyDayOfObligation: boolean;
 
@@ -147,6 +150,13 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
     if (this.precedence === Precedences.OptionalMemorial_12 && this.#config.elevatedMemorialIds.includes(this.id)) {
       this.precedence =
         fromCalendarId === GENERAL_ROMAN_ID ? Precedences.GeneralMemorial_10 : Precedences.ProperMemorial_11b;
+    }
+
+    if (isLiturgicalDayProperOfTimeInput(input)) {
+      this.commonsDefinition = previousDef?.commonsDefinition || [];
+    } else {
+      const commonsInput = input.commons ? ([] as CommonDefinition[]).concat(input.commons) : undefined;
+      this.commonsDefinition = commonsInput || previousDef?.commonsDefinition || [];
     }
 
     this.rank = LiturgicalDayDef.precedenceToRank(this.precedence, id);
