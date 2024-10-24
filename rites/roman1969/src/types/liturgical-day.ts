@@ -393,6 +393,14 @@ type LiturgicalDayRoot = {
   titles: RomcalTitles;
 
   /**
+   * The **Common** refers to a set of prayers, readings, and chants used for celebrating saints or
+   * feasts that belong to a specific category, such as martyrs, virgins, pastors, or the Blessed
+   * Virgin Mary.
+   * These prayers are used when no specific texts (Proper) are assigned for a particular feast day.
+   */
+  commonsDef?: CommonDefinition[];
+
+  /**
    * Cycle metadata of a liturgical day.
    */
   cycles: BaseCyclesMetadata;
@@ -511,7 +519,7 @@ export type LiturgicalDayInput = Partial<
    * Virgin Mary.
    * These prayers are used when no specific texts (Proper) are assigned for a particular feast day.
    */
-  commons?: CommonDefinition | CommonDefinition[];
+  commonsDef?: CommonDefinition | CommonDefinition[];
 
   /**
    * The liturgical color(s) of the liturgical day.

@@ -1,4 +1,5 @@
 import { Color } from '../constants/colors';
+import { CommonDefinition } from '../constants/commons';
 import { PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
 import { Period } from '../constants/periods';
 import { Precedence, Precedences } from '../constants/precedences';
@@ -52,6 +53,8 @@ export class LiturgicalDay implements BaseLiturgicalDay {
   readonly periods: Period[];
 
   readonly colors: Color[];
+
+  readonly commonsDef: CommonDefinition[];
 
   readonly martyrology: MartyrologyItem[];
 
@@ -120,6 +123,7 @@ export class LiturgicalDay implements BaseLiturgicalDay {
     this.precedence = def.precedence;
     this.rank = def.rank;
     this.allowSimilarRankItems = def.allowSimilarRankItems;
+    this.commonsDef = def.commonsDef;
     this.isHolyDayOfObligation = calendar.dayOfWeek === 0 ? true : def.isHolyDayOfObligation;
     this.isOptional = def.isOptional;
     this.i18nDef = def.i18nDef;
