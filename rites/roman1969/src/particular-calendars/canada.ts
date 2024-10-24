@@ -196,8 +196,10 @@ export class Canada extends CalendarDef {
     },
 
     // src: mr_fr_2021_ed3
-    dedication_of_consecrated_churches_on_last_sunday_of_october: {
-      drop: true,
+    dedication_of_consecrated_churches: {
+      precedence: Precedences.ProperSolemnity_DedicationOfTheOwnChurch_4b,
+      dateDef: { month: 10, date: 25 },
+      isOptional: true,
     },
   };
 }

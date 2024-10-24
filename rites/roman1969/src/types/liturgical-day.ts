@@ -282,9 +282,9 @@ export type MartyrologyItemRedefined = {
 };
 
 /**
- * Base object extended by other derived Liturgical Day objects
+ * Date definition of a liturgical day
  */
-type LiturgicalDayRoot = {
+export type FullDateDefinition = {
   /**
    * Date definition
    */
@@ -294,6 +294,18 @@ type LiturgicalDayRoot = {
    * Date definition exception
    */
   dateExceptions?: DateDefException[];
+};
+
+/**
+ * Base object extended by other derived Liturgical Day objects
+ */
+type LiturgicalDayRoot = FullDateDefinition & {
+  /**
+   * Optional alternative transfer dates for this liturgical day.
+   *
+   * e.g. `dedication_of_consecrated_churches` on 25th October, or on the last Sunday of October.
+   */
+  alternativeTransferDateDefs?: FullDateDefinition[];
 
   /**
    * Computed date, in ISO 8601 format: YYYY-MM-DD
@@ -499,6 +511,7 @@ export type LiturgicalDayInput = Partial<
   Pick<
     LiturgicalDayRoot,
     | 'dateDef'
+    | 'alternativeTransferDateDefs'
     | 'precedence'
     | 'allowSimilarRankItems'
     | 'isHolyDayOfObligation'

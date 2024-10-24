@@ -1,4 +1,5 @@
 import { England_En } from '@dist/rite-roman1969/bundles/england';
+import { France_Fr } from '@dist/rite-roman1969/bundles/france';
 import { GeneralRoman_En } from '@dist/rite-roman1969/bundles/general-roman';
 import { Germany_En } from '@dist/rite-roman1969/bundles/germany';
 import { Hungary_En } from '@dist/rite-roman1969/bundles/hungary';
@@ -406,6 +407,28 @@ describe('Testing calendar generation functions', () => {
       const easter = calendar.find((item) => item.id === 'easter_sunday');
       expect(easter?.date).toEqual('2019-04-28');
     });
+  });
+});
+
+describe('Testing the alternativeTransferDateDefs property', () => {
+  it('should not have a dedication_of_consecrated_churches defined on the General Roman Calendar', async () => {
+    const calendar = Object.values(await new Romcal().generateCalendar(2024)).flat();
+    const day = calendar.find((item) => item.id === 'dedication_of_consecrated_churches');
+    expect(day).toBeUndefined();
+  });
+
+  it('should have a dedication_of_consecrated_churches defined on the calendar of France with an alternative transfert date', async () => {
+    const calendar = Object.values(await new Romcal({ localizedCalendar: France_Fr }).generateCalendar(2024)).flat();
+    const day = calendar.find((item) => item.id === 'dedication_of_consecrated_churches');
+    expect(day?.date).toEqual('2024-10-25');
+    expect(day?.alternativeTransferDateDefs).toEqual([{ dateDef: { month: 10, lastDayOfWeekInMonth: 0 } }]);
+  });
+
+  it('should have a dedication_of_consecrated_churches defined on the calendar of Slovakia with no alternative transfert date', async () => {
+    const calendar = Object.values(await new Romcal({ localizedCalendar: Slovakia_Sk }).generateCalendar(2024)).flat();
+    const day = calendar.find((item) => item.id === 'dedication_of_consecrated_churches');
+    expect(day?.date).toEqual('2024-10-26');
+    expect(day?.alternativeTransferDateDefs).toEqual([]);
   });
 });
 

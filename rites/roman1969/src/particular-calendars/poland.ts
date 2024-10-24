@@ -350,8 +350,10 @@ export class Poland extends CalendarDef {
       dateDef: { month: 10, date: 23 },
     },
 
-    dedication_of_consecrated_churches_on_october_25: {
-      drop: true,
+    dedication_of_consecrated_churches: {
+      precedence: Precedences.ProperSolemnity_DedicationOfTheOwnChurch_4b,
+      dateDef: { month: 10, lastDayOfWeekInMonth: 0 },
+      isOptional: true,
     },
 
     first_polish_martyrs: {
