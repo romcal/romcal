@@ -15,6 +15,7 @@ import {
   Season,
 } from '@src/rite-roman1969';
 
+import { CommonDefinition } from '../src/constants/commons';
 import { Precedences } from '../src/constants/precedences';
 import { dateDifference } from '../src/utils/dates';
 
@@ -309,6 +310,24 @@ describe('Testing calendar generation functions', () => {
     // eslint-disable-next-line jest/expect-expect
     test('Testing calendar metadata in a liturgical scope, from 2010 to 2050', async () => {
       await testCalendarMetadata('liturgical');
+    });
+  });
+
+  describe('Testing Commons definition property', () => {
+    test('Saints Basil and Gregory Nazianzen have no Commons definition', async () => {
+      const allSaintsInGeneralCalendar: LiturgicalDay = (await new Romcal().getOneLiturgicalDay(
+        'basil_the_great_and_gregory_nazianzen_bishops'
+      ))!;
+      expect(allSaintsInGeneralCalendar.commonsDef).toEqual([CommonDefinition.None]);
+    });
+    test('Hilary of Poitiers has a Commons definition with two items', async () => {
+      const allSaintsInGeneralCalendar: LiturgicalDay = (await new Romcal().getOneLiturgicalDay(
+        'hilary_of_poitiers_bishop'
+      ))!;
+      expect(allSaintsInGeneralCalendar.commonsDef).toEqual([
+        CommonDefinition.Bishops,
+        CommonDefinition.DoctorsOfTheChurch,
+      ]);
     });
   });
 

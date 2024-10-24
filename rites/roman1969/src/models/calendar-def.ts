@@ -129,6 +129,7 @@ export class CalendarDef implements BaseCalendarDef {
         allowSimilarRankItems: input.allowSimilarRankItems,
         customLocaleId: input.customLocaleId,
         isHolyDayOfObligation: input.isHolyDayOfObligation,
+        commonsDef: input.commonsDef,
         isOptional: input.isOptional,
         colors: input.colors,
         martyrology: input.martyrology,

@@ -1,4 +1,5 @@
 import { Color, Colors } from '../constants/colors';
+import { CommonDefinition } from '../constants/commons';
 import { ProperCycles } from '../constants/cycles';
 import { GENERAL_ROMAN_ID, GENERAL_ROMAN_NAME, PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
 import { isMartyr } from '../constants/martyrology-metadata';
@@ -42,6 +43,8 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
   readonly precedence: Precedence;
 
   readonly rank: Rank;
+
+  readonly commonsDef: CommonDefinition[];
 
   readonly isHolyDayOfObligation: boolean;
 
@@ -152,6 +155,13 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
     this.rank = LiturgicalDayDef.precedenceToRank(this.precedence, id);
 
     this.allowSimilarRankItems = input.allowSimilarRankItems ?? previousDef?.allowSimilarRankItems ?? false;
+
+    if (isLiturgicalDayProperOfTimeInput(input)) {
+      this.commonsDef = previousDef?.commonsDef || [];
+    } else {
+      const commonsInput = input.commonsDef ? ([] as CommonDefinition[]).concat(input.commonsDef) : undefined;
+      this.commonsDef = commonsInput || previousDef?.commonsDef || [];
+    }
 
     this.isHolyDayOfObligation = input.isHolyDayOfObligation ?? previousDef?.isHolyDayOfObligation ?? false;
 
@@ -388,6 +398,9 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
 
       // rank
       ...(dayA.rank !== dayB.rank ? { rank: dayA.rank } : {}),
+
+      // commonsDef
+      ...(JSON.stringify(dayA.commonsDef) !== JSON.stringify(dayB.commonsDef) ? { commonsDef: dayA.commonsDef } : {}),
 
       // isHolyDayOfObligation
       ...(dayA.isHolyDayOfObligation !== dayB.isHolyDayOfObligation

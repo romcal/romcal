@@ -1,6 +1,7 @@
 import { StringMap } from 'i18next';
 
 import { Color } from '../constants/colors';
+import { CommonDefinition } from '../constants/commons';
 import { ProperCycle } from '../constants/cycles';
 import { PatronTitle, Title } from '../constants/martyrology-metadata';
 import { MonthIndex } from '../constants/months';
@@ -392,6 +393,14 @@ type LiturgicalDayRoot = {
   titles: RomcalTitles;
 
   /**
+   * The **Common** refers to a set of prayers, readings, and chants used for celebrating saints or
+   * feasts that belong to a specific category, such as martyrs, virgins, pastors, or the Blessed
+   * Virgin Mary.
+   * These prayers are used when no specific texts (Proper) are assigned for a particular feast day.
+   */
+  commonsDef?: CommonDefinition[];
+
+  /**
    * Cycle metadata of a liturgical day.
    */
   cycles: BaseCyclesMetadata;
@@ -505,6 +514,14 @@ export type LiturgicalDayInput = Partial<
   dateExceptions?: DateDefException | DateDefException[];
 
   /**
+   * The **Common** refers to a set of prayers, readings, and chants used for celebrating saints or
+   * feasts that belong to a specific category, such as martyrs, virgins, pastors, or the Blessed
+   * Virgin Mary.
+   * These prayers are used when no specific texts (Proper) are assigned for a particular feast day.
+   */
+  commonsDef?: CommonDefinition | CommonDefinition[];
+
+  /**
    * The liturgical color(s) of the liturgical day.
    */
   colors?: Color | Color[];
@@ -577,6 +594,5 @@ export type LiturgyDayDiff = Pick<LiturgicalDayDef, 'fromCalendarId'> &
  * Check if the provided object is a [LiturgicalDayProperOfTimeInput] object
  * @param maybeObj
  */
-export const isLiturgicalDayProperOfTimeInput = (maybeObj: unknown): boolean => {
-  return typeof maybeObj === 'object' && Object.prototype.hasOwnProperty.call(maybeObj, 'periods');
-};
+export const isLiturgicalDayProperOfTimeInput = (maybeObj: unknown): maybeObj is LiturgicalDayProperOfTimeInput =>
+  typeof maybeObj === 'object' && Object.prototype.hasOwnProperty.call(maybeObj, 'periods');
