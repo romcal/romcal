@@ -16,6 +16,7 @@ import {
   DateDef,
   DateDefException,
   FromCalendarId,
+  FullDateDefinition,
   LiturgicalDayBundleInput,
   LiturgicalDayInput,
   LiturgicalDayProperOfTimeInput,
@@ -39,6 +40,8 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
   readonly dateDef: DateDef;
 
   readonly dateExceptions: DateDefException[];
+
+  readonly alternativeTransferDateDefs: FullDateDefinition[] = [];
 
   readonly precedence: Precedence;
 
@@ -138,6 +141,10 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
     }
 
     this.dateExceptions = safeWrapArray(input.dateExceptions) ?? (previousDef ? previousDef.dateExceptions : []);
+
+    this.alternativeTransferDateDefs = isLiturgicalDayProperOfTimeInput(input)
+      ? []
+      : ([] as FullDateDefinition[]).concat(input.alternativeTransferDateDefs || []) || [];
 
     if (input.precedence) {
       this.precedence = input.precedence;
@@ -391,6 +398,11 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
       // dateExceptions
       ...(JSON.stringify(dayA.dateExceptions) !== JSON.stringify(dayB.dateExceptions)
         ? { dateExceptions: dayA.dateExceptions }
+        : {}),
+
+      // alternativeTransferDateDefs
+      ...(JSON.stringify(dayA.alternativeTransferDateDefs) !== JSON.stringify(dayB.alternativeTransferDateDefs)
+        ? { alternativeTransferDateDefs: dayA.alternativeTransferDateDefs }
         : {}),
 
       // precedence

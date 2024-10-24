@@ -11,6 +11,7 @@ import {
   DateDef,
   DateDefException,
   FromCalendarId,
+  FullDateDefinition,
   LiturgyDayDiff,
   RomcalCalendarMetadata,
   RomcalTitles,
@@ -35,6 +36,8 @@ export class LiturgicalDay implements BaseLiturgicalDay {
   readonly dateDef: DateDef;
 
   readonly dateExceptions: DateDefException[];
+
+  readonly alternativeTransferDateDefs: FullDateDefinition[];
 
   readonly precedence: Precedence;
 
@@ -120,6 +123,7 @@ export class LiturgicalDay implements BaseLiturgicalDay {
     this.date = date.toISOString().substring(0, 10);
     this.dateDef = def.dateDef;
     this.dateExceptions = def.dateExceptions;
+    this.alternativeTransferDateDefs = def.alternativeTransferDateDefs;
     this.precedence = def.precedence;
     this.rank = def.rank;
     this.allowSimilarRankItems = def.allowSimilarRankItems;

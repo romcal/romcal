@@ -93,5 +93,13 @@ export class France extends CalendarDef {
       customLocaleId: 'therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin_copatroness_of_france',
       titles: { append: [PatronTitle.CopatronessOfFrance] },
     },
+
+    // src: mr_fr_2021_ed3
+    dedication_of_consecrated_churches: {
+      precedence: Precedences.ProperSolemnity_DedicationOfTheOwnChurch_4b,
+      dateDef: { month: 10, date: 25 },
+      alternativeTransferDateDefs: [{ dateDef: { month: 10, lastDayOfWeekInMonth: 0 } }],
+      isOptional: true,
+    },
   };
 }

@@ -1407,20 +1407,6 @@ export class GeneralRoman extends CalendarDef {
       commonsDef: [Common.Missionaries, Common.Bishops],
     },
 
-    dedication_of_consecrated_churches_on_october_25: {
-      precedence: Precedences.ProperSolemnity_DedicationOfTheOwnChurch_4b,
-      customLocaleId: 'dedication_of_consecrated_churches',
-      dateDef: { month: 10, date: 25 },
-      isOptional: true,
-    },
-
-    dedication_of_consecrated_churches_on_last_sunday_of_october: {
-      precedence: Precedences.ProperSolemnity_DedicationOfTheOwnChurch_4b,
-      customLocaleId: 'dedication_of_consecrated_churches',
-      dateDef: { month: 10, lastDayOfWeekInMonth: 0 },
-      isOptional: true,
-    },
-
     // src: mr_la_2008_ed3
     simon_and_jude_apostles: {
       precedence: Precedences.GeneralFeast_7,

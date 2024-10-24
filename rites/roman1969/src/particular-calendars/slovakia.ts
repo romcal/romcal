@@ -110,12 +110,10 @@ export class Slovakia extends CalendarDef {
       dateDef: { month: 10, date: 25 },
     },
 
-    dedication_of_consecrated_churches_on_october_25: {
+    dedication_of_consecrated_churches: {
+      precedence: Precedences.ProperSolemnity_DedicationOfTheOwnChurch_4b,
       dateDef: { month: 10, date: 26 },
-    },
-
-    dedication_of_consecrated_churches_on_last_sunday_of_october: {
-      drop: true,
+      isOptional: true,
     },
 
     commemoration_of_all_the_faithful_departed: {

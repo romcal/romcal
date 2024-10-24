@@ -41,9 +41,9 @@ export const startOfWeek = (date: Date): Date => {
   return subtractsDays(date, date.getUTCDay());
 };
 
-export const isValidDate = (maybeDate: unknown): boolean => {
+export const isValidDate = (maybeDate: unknown): maybeDate is Date => {
   // it is a date
-  if (Object.prototype.toString.call(maybeDate) === '[object Date]') {
+  if (maybeDate && Object.prototype.toString.call(maybeDate) === '[object Date]') {
     if (isNaN((maybeDate as Date).getTime())) return false; // date is not valid
     return true; // date is valid
   }

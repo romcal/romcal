@@ -48,6 +48,14 @@ export class Belgium extends CalendarDef {
       dateDef: { month: 9, date: 17 },
     },
 
+    // src: mr_fr_2021_ed3
+    dedication_of_consecrated_churches: {
+      precedence: Precedences.ProperSolemnity_DedicationOfTheOwnChurch_4b,
+      dateDef: { month: 10, date: 25 },
+      alternativeTransferDateDefs: [{ dateDef: { month: 10, lastDayOfWeekInMonth: 0 } }],
+      isOptional: true,
+    },
+
     hubert_of_liege_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 11, date: 3 },
