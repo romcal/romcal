@@ -1,3 +1,4 @@
+import { CommonDefinition as Common } from '../constants/commons';
 import { PatronTitle } from '../constants/martyrology-metadata';
 import { Precedences } from '../constants/precedences';
 import { CalendarDef } from '../models/calendar-def';
@@ -19,6 +20,7 @@ export class Canada extends CalendarDef {
     andre_bessette_religious: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 1, date: 7 },
+      commonsDef: Common.None,
     },
 
     // src: mr_fr_2021_ed3
@@ -30,6 +32,7 @@ export class Canada extends CalendarDef {
     marguerite_bourgeoys_virgin: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 1, date: 12 },
+      commonsDef: Common.None,
     },
 
     // src: mr_fr_2021_ed3
@@ -43,24 +46,28 @@ export class Canada extends CalendarDef {
     kateri_tekakwitha_virgin: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 4, date: 17 },
+      commonsDef: Common.None,
     },
 
     // src: mr_fr_2021_ed3
     marie_anne_blondin_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 4, date: 18 },
+      commonsDef: Common.Virgins,
     },
 
     // src: mr_fr_2021_ed3
     our_lady_of_good_counsel: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 4, date: 26 },
+      commonsDef: Common.None,
     },
 
     // src: mr_fr_2021_ed3
     mary_of_the_incarnation_marie_guyart_religious: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 4, date: 30 },
+      commonsDef: Common.None,
     },
 
     // src: mr_fr_2021_ed3
@@ -72,36 +79,42 @@ export class Canada extends CalendarDef {
     marie_leonie_paradis_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 5, date: 4 },
+      commonsDef: Common.Virgins,
     },
 
     // src: mr_fr_2021_ed3
     francois_de_montmorency_laval_bishop: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 5, date: 6 },
+      commonsDef: Common.None,
     },
 
     // src: mr_fr_2021_ed3
     mary_catherine_of_saint_augustine_catherine_de_simon_de_longpre_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 5, date: 8 },
+      commonsDef: [Common.Virgins, Common.MercyWorkers],
     },
 
     // src: mr_fr_2021_ed3
     eugene_de_mazenod_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 5, date: 21 },
+      commonsDef: [Common.Bishops, Common.Missionaries],
     },
 
     // src: mr_fr_2021_ed3
     louis_zephirin_moreau_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 5, date: 24 },
+      commonsDef: Common.Bishops,
     },
 
     // src: mr_fr_2021_ed3
     nykyta_budka_and_vasyl_velychkovsky_bishops: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 6, date: 27 },
+      commonsDef: [Common.Martyrs, Common.Pastors],
       martyrology: ['nykyta_budka_bishop', 'vasyl_velychkovsky_bishop'],
     },
 
@@ -109,6 +122,7 @@ export class Canada extends CalendarDef {
     canada_day: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 7, date: 1 },
+      commonsDef: Common.None,
     },
 
     // src: mr_fr_2021_ed3
@@ -128,30 +142,35 @@ export class Canada extends CalendarDef {
     frederic_janssoone_priest: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 8, date: 5 },
+      commonsDef: Common.Pastors,
     },
 
     // src: mr_fr_2021_ed3
     labor_day: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 9, nthWeekInMonth: 1, dayOfWeek: 1 },
+      commonsDef: Common.None,
     },
 
     // src: mr_fr_2021_ed3
     andre_grasset_priest: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 9, date: 2 },
+      commonsDef: [Common.Martyrs, Common.Pastors],
     },
 
     // src: mr_fr_2021_ed3
     dina_belanger_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 9, date: 4 },
+      commonsDef: Common.Virgins,
     },
 
     // src: mr_fr_2021_ed3
     emilie_tavernier_gamelin_religious: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 9, date: 24 },
+      commonsDef: Common.Religious,
     },
 
     // src: mr_fr_2021_ed3
@@ -164,6 +183,7 @@ export class Canada extends CalendarDef {
       customLocaleId: 'john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs_copatrons_of_canada',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       dateDef: { month: 9, date: 26 },
+      commonsDef: Common.None,
       titles: { append: [PatronTitle.CopatronOfCanada] },
     },
 
@@ -171,18 +191,21 @@ export class Canada extends CalendarDef {
     marie_rose_durocher_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 10, date: 6 },
+      commonsDef: Common.Virgins,
     },
 
     // src: mr_fr_2021_ed3
     thanksgiving_day: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 10, nthWeekInMonth: 2, dayOfWeek: 1 },
+      commonsDef: Common.None,
     },
 
     // src: mr_fr_2021_ed3
     marguerite_dyouville_religious: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 10, date: 16 },
+      commonsDef: Common.None,
     },
 
     // src: mr_fr_2021_ed3
@@ -200,6 +223,7 @@ export class Canada extends CalendarDef {
       precedence: Precedences.ProperSolemnity_DedicationOfTheOwnChurch_4b,
       dateDef: { month: 10, date: 25 },
       isOptional: true,
+      commonsDef: Common.DedicationAnniversary_Inside,
     },
   };
 }
