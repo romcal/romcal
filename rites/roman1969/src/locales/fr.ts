@@ -206,7 +206,9 @@ export const locale: Locale = {
       'Saint Arbogast, évêque, patron du diocèse de Strasbourg († 678)',
     ascension_of_the_lord: 'Ascension du Seigneur',
     ash_wednesday: 'Mercredi des Cendres',
-    assumption_of_the_blessed_virgin_mary: 'Assomption de la vierge Marie',
+    assumption_of_the_blessed_virgin_mary: 'Assomption de la bienheureuse Vierge Marie',
+    assumption_of_the_blessed_virgin_mary_patroness_of_france:
+      'Assomption de la bienheureuse Vierge Marie, patronne principale de la France',
     athanasius_of_alexandria_bishop: 'Saint Athanase, évêque, docteur et père de l’Église († 373)',
     aubert_of_avranches_bishop: 'Saint Aubert, évêque († 725)', // src: mr_fr_1982_ed2_coutances
     audoen_of_rouen_bishop: 'Saint Ouen, évêque',

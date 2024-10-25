@@ -230,6 +230,8 @@ export const locale: Locale = {
     ash_wednesday: 'Ash Wednesday',
     asicus_of_elphin_bishop: 'Saint Asicus, Bishop',
     assumption_of_the_blessed_virgin_mary: 'The Assumption of the Blessed Virgin Mary',
+    assumption_of_the_blessed_virgin_mary_patroness_of_france:
+      'The Assumption of the Blessed Virgin Mary, Patroness of France',
     athanasius_of_alexandria_bishop: 'Saint Athanasius, Bishop and Doctor of the Church',
     attracta_of_killaraght_virgin: 'Saint Attracta, Virgin',
     aubert_of_avranches_bishop: 'Saint Aubert, Bishop',

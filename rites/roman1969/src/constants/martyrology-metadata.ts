@@ -84,6 +84,7 @@ export enum PatronTitle {
   PatronOfCanada = 'PATRON_OF_CANADA',
   PatronOfEngland = 'PATRON_OF_ENGLAND',
   PatronOfEurope = 'PATRON_OF_EUROPE',
+  PatronOfFrance = 'PATRON_OF_FRANCE',
   PatronOfIreland = 'PATRON_OF_IRELAND',
   PatronOfItaly = 'PATRON_OF_ITALY',
   PatronOfOceania = 'PATRON_OF_OCEANIA',
