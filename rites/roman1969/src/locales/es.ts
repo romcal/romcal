@@ -283,6 +283,7 @@ export const locale: Locale = {
     cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop:
       'Santos Cirilo, monje, y Metodio, obispo',
     cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop_copatrons_of_europe: 'Santos Cirilo, monje, y Metodio, obispo, patronos de Europa', // src: https://www.conferenciaepiscopal.es/wp-content/uploads/2022/11/CLP-y-salmos-responsoriales-2022-2023_internet.pdf#page=105
+    cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop_slavic_missionaries_copatrons_of_europe: 'Santos Cirilo, monje, y Metodio, obispo, apóstoles de los eslavos, patronos de Europa', // src: https://es.wikipedia.org/wiki/Cirilo_y_Metodio#:~:text=conocidos%20como%20los-,ap%C3%B3stoles%20de%20los%20eslavos,-%2C2%E2%80%8B%20fueron and https://abcblogs.abc.es/cronicas-nomada/otros-temas/cirilo-y-metodio-artifices-de-los-idiomas-eslavos.html#:~:text=Ap%C3%B3stoles%20de%20los%20eslavos
     cyril_of_alexandria_bishop: 'San Cirilio de Alexandria, obispo y doctor de la Iglesia',
     cyril_of_jerusalem_bishop: 'San Cirilio de Jerusalén, obispo y doctor de la Iglesia',
     damasus_i_pope: 'San Dámaso I, papa',
