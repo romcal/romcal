@@ -282,6 +282,7 @@ export const locale: Locale = {
     cosmas_of_cilicia_and_damian_of_cilicia_martyrs: 'Santos Cosme y Damián, mártires',
     cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop:
       'Santos Cirilo, monje, y Metodio, obispo',
+    cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop_copatrons_of_europe: 'Santos Cirilo, monje, y Metodio, obispo, patronos de Europa', // src: https://www.conferenciaepiscopal.es/wp-content/uploads/2022/11/CLP-y-salmos-responsoriales-2022-2023_internet.pdf#page=105
     cyril_of_alexandria_bishop: 'San Cirilio de Alexandria, obispo y doctor de la Iglesia',
     cyril_of_jerusalem_bishop: 'San Cirilio de Jerusalén, obispo y doctor de la Iglesia',
     damasus_i_pope: 'San Dámaso I, papa',
