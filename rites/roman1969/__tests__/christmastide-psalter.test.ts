@@ -1,6 +1,6 @@
 import { LiturgicalCalendar, Romcal } from '@src/rite-roman1969';
 
-import { cache } from './fixtures/lh.hbs.sk.fixture';
+import { cache } from './fixtures/lh.kbs.sk.fixture';
 
 describe('Psalter weeks after Christmas', () => {
   let romcal: LiturgicalCalendar;
