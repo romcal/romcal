@@ -293,8 +293,9 @@ export class Dates {
     year = this.#isLiturgicalYear ? this.#year - 1 : this.#year
   ): Date | null => {
     const id = `${year}_${dayOfOctave}`;
-    if (this.#weekdayWithinOctaveOfChristmas[id] !== undefined) {
-      return this.#weekdayWithinOctaveOfChristmas[id];
+    const existing = this.#weekdayWithinOctaveOfChristmas[id];
+    if (existing) {
+      return existing;
     }
     if (dayOfOctave < 1 || dayOfOctave > 8) return (this.#weekdayWithinOctaveOfChristmas[id] = null);
     let date: Date | null = addDays(this.christmas(year), dayOfOctave - 1);

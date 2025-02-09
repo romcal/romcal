@@ -42,7 +42,7 @@ describe('Testing localization functionality', () => {
               expect(day?.name).toBe(d.value);
             } else {
               /* eslint-disable-next-line no-console */
-              console.log(
+              console.debug(
                 `\`${i.calendar.i18n.id}\`: \`${d.key}\` is not celebrated in ${new Date().getUTCFullYear()}`
               );
             }
