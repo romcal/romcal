@@ -8,7 +8,7 @@ module.exports = {
     project: '../../tsconfig.base.json',
     sourceType: 'module',
   },
-  ignorePatterns: ['node_modules', 'dist', 'coverage', 'tmp', '__snapshots__', '*.js', '*.json'],
+  ignorePatterns: ['node_modules', 'dist', 'coverage', 'tmp', '__snapshots__', '*.json'],
   extends: ['airbnb-base', 'plugin:prettier/recommended'],
   plugins: ['unused-imports'],
   rules: {
