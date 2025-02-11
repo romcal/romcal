@@ -100,6 +100,7 @@ export class Calendar implements BaseCalendar {
       endOfSeason: endOfSeason ? endOfSeason.toISOString().substr(0, 10) : '',
       startOfLiturgicalYear: startOfSeasonsDic[Season.Advent].toISOString().substr(0, 10),
       endOfLiturgicalYear: endOfSeasonsDic[Season.OrdinaryTime].toISOString().substr(0, 10),
+      seasons: baseData?.seasons ?? def.seasons,
     };
   }
 

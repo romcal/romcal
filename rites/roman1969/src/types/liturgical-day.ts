@@ -221,6 +221,11 @@ export type RomcalCalendarMetadata = {
    * The last day of the current liturgical season.
    */
   endOfSeason: string;
+
+  /**
+   * Seasons used in calculating other metadata
+   */
+  seasons: Season[];
 };
 
 /**
