@@ -91,6 +91,11 @@ export class Calendar implements BaseCalendar {
       weekOfSeason = endOfSeason ? Math.ceil(34 - dateDifference(date, endOfSeason) / 7) : NaN;
     }
 
+    // Get the day of week for the Nativity of the Lord
+    // Note: We need to get the day of week to properly define the psalter week number for the first week of Christmas Time.
+    const isChristmasTime = (baseData?.seasons ?? def.seasons).includes(Season.ChristmasTime);
+    const nativityOfTheLordDow = isChristmasTime ? new Date(`${currentYear}-12-25T00:00:00.000Z`).getUTCDay() : 0;
+
     return {
       weekOfSeason,
       dayOfSeason,
@@ -100,6 +105,7 @@ export class Calendar implements BaseCalendar {
       endOfSeason: endOfSeason ? endOfSeason.toISOString().substr(0, 10) : '',
       startOfLiturgicalYear: startOfSeasonsDic[Season.Advent].toISOString().substr(0, 10),
       endOfLiturgicalYear: endOfSeasonsDic[Season.OrdinaryTime].toISOString().substr(0, 10),
+      ...(isChristmasTime ? { isNativityOfTheLordOnWeekday: nativityOfTheLordDow !== 0 } : {}),
     };
   }
 

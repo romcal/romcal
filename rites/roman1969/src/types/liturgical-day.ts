@@ -221,6 +221,13 @@ export type RomcalCalendarMetadata = {
    * The last day of the current liturgical season.
    */
   endOfSeason: string;
+
+  /**
+   * Whether the Nativity of the Lord occurs on a weekday
+   *
+   * @remarks The property is defined only dates during Christmas Time.
+   */
+  isNativityOfTheLordOnWeekday?: boolean;
 };
 
 /**

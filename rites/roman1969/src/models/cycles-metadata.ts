@@ -68,11 +68,17 @@ export class CyclesMetadata implements BaseCyclesMetadata {
       };
     }
 
+    // Get the psalter week cycle
     // Psalter week cycle restart to 1 at the beginning of each season.
-    // Except during the four first days of lent (ash wednesday to the next saturday),
+    // There are two exceptions to this:
+    // 1. During the first four days of Lent (Ash Wednesday to the next Saturday),
     // which are in week 4, to start on week 1 after the first sunday of lent.
+    // 2. According to GILH §133, we should not restart the psalter week cycle
+    // for Christmas Time. This is due the fact that the first day of the season
+    // (December 25) does not always start on Sunday, unlike other seasons.
     const weekIndex = (calendar.weekOfSeason % 4) - 1;
-    const psalterWeek = PSALTER_WEEKS[weekIndex > -1 ? weekIndex : 3];
+    const psalterWeek =
+      PSALTER_WEEKS[calendar?.isNativityOfTheLordOnWeekday ? (2 + calendar.weekOfSeason) % 4 : (weekIndex + 4) % 4];
 
     this.properCycle = properCycle;
     this.sundayCycle = this.#config.cyclesCache[year].sundayCycle;
