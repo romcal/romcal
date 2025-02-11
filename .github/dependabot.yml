@@ -3,10 +3,6 @@ updates:
   - package-ecosystem: npm
     directories:
       - '/'
-      - '/packages/config'
-      - '/packages/easter'
-      - 'rites/roman1962'
-      - 'rites/roman1969'
     schedule:
       interval: 'weekly'
       day: 'saturday'
@@ -19,6 +15,7 @@ updates:
     pull-request-branch-name:
       separator: '-'
     rebase-strategy: 'auto'
+    versioning-strategy: increase
   - package-ecosystem: github-actions
     directory: '/'
     schedule:
