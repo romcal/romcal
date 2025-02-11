@@ -1,3 +1,5 @@
+import { Season } from '@src/rite-roman1969';
+
 import {
   PSALTER_WEEKS,
   ProperCycle,
@@ -77,8 +79,10 @@ export class CyclesMetadata implements BaseCyclesMetadata {
     // for Christmas Time. This is due the fact that the first day of the season
     // (December 25) does not always start on Sunday, unlike other seasons.
     const weekIndex = (calendar.weekOfSeason % 4) - 1;
-    const psalterWeek =
-      PSALTER_WEEKS[calendar?.isNativityOfTheLordOnWeekday ? (2 + calendar.weekOfSeason) % 4 : (weekIndex + 4) % 4];
+    const useChristmasPsalterWeek = Boolean(
+      calendar?.seasons.includes(Season.ChristmasTime) ? new Date(`${year}-12-25T00:00:00.000Z`).getUTCDay() : 0
+    );
+    const psalterWeek = PSALTER_WEEKS[useChristmasPsalterWeek ? (2 + calendar.weekOfSeason) % 4 : (weekIndex + 4) % 4];
 
     this.properCycle = properCycle;
     this.sundayCycle = this.#config.cyclesCache[year].sundayCycle;

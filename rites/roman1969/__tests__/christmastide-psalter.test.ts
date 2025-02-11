@@ -1,43 +1,55 @@
-import { LiturgicalCalendar, Romcal } from '@src/rite-roman1969';
+import { CalendarScope, Romcal } from '@src/rite-roman1969';
 
-import { cache } from './fixtures/lh.kbs.sk.fixture';
+import { liturgical, gregorian } from './fixtures/lh.kbs.sk.fixture';
+
+const scopes: { fixture: Record<string, number | null>; year: number; scope: CalendarScope }[] = [
+  {
+    scope: 'liturgical',
+    fixture: liturgical,
+    year: 2025,
+  },
+  {
+    scope: 'gregorian',
+    fixture: gregorian,
+    year: 2024,
+  },
+];
 
 describe('Psalter weeks after Christmas', () => {
-  let romcal: LiturgicalCalendar;
+  scopes.forEach(({ scope, fixture, year }) => {
+    test(`should match lh.kbs.sk (${scope})`, async () => {
+      const romcal = await new Romcal({ scope }).generateCalendar(year);
 
-  beforeAll(async () => {
-    romcal = await new Romcal({ scope: 'liturgical' }).generateCalendar(2025);
-  }, 1000000);
-  test('Psalter weeks after Christmas should match lh.kbs.sk', async () => {
-    let results = [];
+      let results = [];
 
-    // eslint-disable-next-line no-restricted-syntax
-    for await (const date of Object.keys(romcal)) {
-      const day0 = romcal[date][0];
+      // eslint-disable-next-line no-restricted-syntax
+      for await (const date of Object.keys(romcal)) {
+        const day0 = romcal[date][0];
 
-      const dateParts = date.split('-').map(Number);
-      const psalterWeekRomcal = +(/[0-9]+$/.exec(day0.cycles.psalterWeek)?.[0] ?? 0);
-      const psalterWeekTemp = cache[`${dateParts[0]}-${dateParts[1]}-${dateParts[2]}`];
+        const dateParts = date.split('-').map(Number);
+        const psalterWeekRomcal = +(/[0-9]+$/.exec(day0.cycles.psalterWeek)?.[0] ?? 0);
+        const psalterWeekTemp = fixture[`${dateParts[0]}-${dateParts[1]}-${dateParts[2]}`];
 
-      results.push({
-        date,
-        id: day0.id,
-        psalterWeekRomcal,
-        psalterWeekTemp,
-        result: psalterWeekTemp === psalterWeekRomcal,
-      });
-    }
+        results.push({
+          date,
+          id: day0.id,
+          psalterWeekRomcal,
+          psalterWeekTemp,
+          result: psalterWeekTemp === psalterWeekRomcal,
+        });
+      }
 
-    results = results
-      .filter(
-        (i) =>
-          // Results with not matching psalter week numbers
-          !i.result &&
-          // Exclude results where there is no psalter week on breviar.sk (those should be using Proper, therefore, no psalter week should be actually used)
-          i.psalterWeekTemp !== null
-      )
-      .sort((a, b) => new Date(a.date).valueOf() - new Date(b.date).valueOf());
+      results = results
+        .filter(
+          (i) =>
+            // Results with not matching psalter week numbers
+            !i.result &&
+            // Exclude results where there is no psalter week on breviar.sk (those should be using Proper, therefore, no psalter week should be actually used)
+            i.psalterWeekTemp !== null
+        )
+        .sort((a, b) => new Date(a.date).valueOf() - new Date(b.date).valueOf());
 
-    expect(results?.length).toEqual(0);
+      expect(results?.length).toEqual(0);
+    });
   });
 });

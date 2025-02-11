@@ -223,11 +223,9 @@ export type RomcalCalendarMetadata = {
   endOfSeason: string;
 
   /**
-   * Whether the Nativity of the Lord occurs on a weekday
-   *
-   * @remarks The property is defined only dates during Christmas Time.
+   * Seasons used in calculating other metadata
    */
-  isNativityOfTheLordOnWeekday?: boolean;
+  seasons: Season[];
 };
 
 /**
