@@ -5,8 +5,7 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
-    "prettier": "prettier -c .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prettier": "prettier -c ."
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.25.7",

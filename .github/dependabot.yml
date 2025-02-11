@@ -1,7 +1,12 @@
 version: 2
 updates:
   - package-ecosystem: npm
-    directory: '/'
+    directories:
+      - '/'
+      - '/packages/config'
+      - '/packages/easter'
+      - 'rites/roman1962'
+      - 'rites/roman1969'
     schedule:
       interval: 'weekly'
       day: 'saturday'
