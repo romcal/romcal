@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   testEnvironment: 'node',
   transform: {
     '^.+\\.tsx?$': ['esbuild-jest', { sourcemap: true }],

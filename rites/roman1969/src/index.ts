@@ -245,7 +245,6 @@ class Romcal {
   /**
    * Get Romcal version
    */
-  // eslint-disable-next-line class-methods-use-this
   getVersion(): string {
     return Romcal.getVersion();
   }
@@ -391,7 +390,6 @@ class Romcal {
   static LOCALE_IDS = LOCALE_IDS;
 }
 
-/* eslint-disable import/no-unused-modules */
 export {
   Romcal,
   Calendar,

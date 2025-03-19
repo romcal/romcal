@@ -24,7 +24,7 @@ packages/
 .prettierrc
 CODE_OF_CONDUCT.md
 global.d.ts
-jest.config.js
+packages/easter/jest.config.mjs
 tsconfig.*
 
 # But keep the dist folder for the rites/roman1969 package

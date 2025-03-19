@@ -335,8 +335,7 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
     if (input.titles) {
       martyrology.forEach((m, i) => {
         // TODO: refactor this to avoid non-null assertion
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion, no-param-reassign
-        m.titles = this.#combineTitles(input.titles!, martyrology[i].id, previousDef);
+        if (input.titles) m.titles = this.#combineTitles(input.titles, martyrology[i].id, previousDef);
       });
       if (martyrology.length === 0) {
         throw new Error(

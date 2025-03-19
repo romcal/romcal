@@ -22,7 +22,6 @@ describe('Psalter weeks after Christmas', () => {
 
       let results = [];
 
-      // eslint-disable-next-line no-restricted-syntax
       for await (const date of Object.keys(romcal)) {
         const day0 = romcal[date][0];
 

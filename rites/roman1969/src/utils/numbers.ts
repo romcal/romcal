@@ -25,7 +25,6 @@ export const toRomanNumber = (number: number): string => {
 
   for (let i = 0; i < keys.length; i += 1) {
     const key = keys[i];
-    // eslint-disable-next-line no-bitwise
     str += key.repeat((arabic / numerals[key]) >>> 0);
     arabic %= numerals[key];
   }

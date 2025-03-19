@@ -72,7 +72,6 @@ const sortHeadings = (tree) => {
   });
   newChildren.unshift(top.heading);
 
-  // eslint-disable-next-line no-param-reassign
   tree.children = newChildren;
 };
 

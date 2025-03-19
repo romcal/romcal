@@ -17,8 +17,6 @@
     "doc": "node -r ts-node/register build/bundle-doc.ts",
     "docs:check-links": "node build/docs/check-broken-links.mjs ../../docs",
     "docs:sort-glossary": "node build/docs/sort-glossary.mjs",
-    "lint": "eslint .",
-    "lint:fix": "npm run lint -- --fix",
     "prepare": "husky",
     "prettier": "prettier -c .",
     "prettier:fix": "prettier -w .",
