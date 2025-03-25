@@ -1,3 +1,5 @@
+import { StringMap } from 'i18next';
+
 import { Color, Colors } from '../constants/colors';
 import { CommonDefinition } from '../constants/commons';
 import { ProperCycles } from '../constants/cycles';
@@ -81,16 +83,9 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
 
   public get name(): string {
     if (this.#name !== undefined) return this.#name;
-    let name: string;
     // i18nDef from the proper of time already contains the ID
-    if (this.fromCalendarId === PROPER_OF_TIME_NAME) {
-      name = this.#config.i18next.t(this.i18nDef[0], this.i18nDef[1]);
-
-      // i18nDef from general or particular calendars
-    } else {
-      name = this.#config.i18next.t(this.i18nDef[0], this.i18nDef[1]);
-    }
-    this.#name = name;
+    // i18nDef from general or particular calendars
+    this.#name = this.#config.i18next.t(this.i18nDef[0], this.i18nDef[1] as StringMap);
 
     return this.#name;
   }
