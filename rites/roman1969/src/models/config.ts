@@ -104,7 +104,7 @@ export class RomcalConfig implements IRomcalConfig {
       {
         fallbackLng: ['dev'],
         lng: this.localeId,
-        initImmediate: false,
+        initAsync: false,
         // contextSeparator: '__',
         interpolation: {
           format(value, format) {
