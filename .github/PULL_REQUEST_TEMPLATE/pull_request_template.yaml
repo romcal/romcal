@@ -1,8 +1,8 @@
 name: Pull Request
 description: Submit a Pull Request
-labels: ["change: feature request"]
+labels: ['change: feature request']
 assignees:
-  - @romcal/romcal-contributors
+  - '@romcal/romcal-contributors'
 body:
   - type: markdown
     attributes:
@@ -12,7 +12,7 @@ body:
     id: what-should-happen
     attributes:
       label: What do you want to see happen?
-      value: "I want something new!"
+      value: 'I want something new!'
     validations:
       required: true
   - type: dropdown
@@ -43,4 +43,3 @@ body:
       options:
         - label: I agree to follow this project's Code of Conduct
           required: true
-
