@@ -6,7 +6,7 @@ This list recognizes contributors to romcal past and present.
 
 ### Active Contributors
 
-As of September 2021
+As of March 2025:
 
 - [Etienne Magnier](https://github.com/emagnier)
 - [Tukusej’s Sirs](https://github.com/tukusejssirs)

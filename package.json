@@ -48,6 +48,7 @@
   "module": "rites/roman1969/dist/esm/romcal.js",
   "typings": "rites/roman1969/dist/index.d.ts",
   "scripts": {
+    "prebuild": "npm run clean",
     "build": "npm run build -w=@internal/easter -w=@internal/rite-roman1969",
     "clean": "rimraf coverage dist tmp && npm run clean -w=@internal/easter -w=@internal/rite-roman1969",
     "data:checks": "npm run data:checks -w=@internal/rite-roman1969",
@@ -70,7 +71,7 @@
     "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
     "tslib": "^2.6.2",
-    "typescript": "~5.2.2"
+    "typescript": "~5.8.2"
   },
   "dependencies": {
     "i18next": "^25.1.3"
