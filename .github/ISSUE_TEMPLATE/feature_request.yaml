@@ -1,0 +1,48 @@
+name: Feature Request
+description: File a Feature Request
+labels: ["change: feature request"]
+assignees:
+  - @romcal/romcal-contributors
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: textarea
+    id: what-changed
+    attributes:
+      label: What did you do?
+      value: "I fixed #1234!"
+    validations:
+      required: true
+  - type: dropdown
+    id: concept
+    attributes:
+      label: What concept does this feature request relate to?
+      description: What part of the project does this feature request relate to?
+      options:
+        - Infrastructure
+        - Localization
+        - Calendar Definition
+        - Discussion
+        - Documentation
+      default: 0
+    validations:
+      required: true
+  - type: dropdown
+    id: form
+    attributes:
+      label: What format is this feature in?
+      options:
+        - Language Problem
+        - Want a New Language
+        - Question
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](./CODE_OF_CONDUCT.md).
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
+

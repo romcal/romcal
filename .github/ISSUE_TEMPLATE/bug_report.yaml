@@ -1,0 +1,63 @@
+name: Bug Report
+description: File a bug report.
+title: "[Bug]: "
+labels: ["change: bug"]
+assignees:
+  - @romcal/romcal-contributors
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Also tell us, what did you expect to happen?
+      placeholder: Tell us what you see!
+      value: "A bug happened!"
+    validations:
+      required: true
+  - type: dropdown
+    id: installation
+    attributes:
+      label: Installation Method
+      description: What installation are you using to consume romcal?
+      options:
+        - ESM Module
+        - CommonJS Module
+        - IIFE Script
+      default: 0
+    validations:
+      required: true
+  - type: dropdown
+    id: usage
+    attributes:
+      label: Usage Method
+      description: How are you using romcal?
+      options:
+        - Node.js
+        - Browser
+        - Deno
+        - Other
+      default: 0
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: shell
+  - type: textarea
+    id: code
+    attributes:
+      label: Code Sample
+      description: Please include a code sample for your usage.
+      render: typescript
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](./CODE_OF_CONDUCT.md).
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
