@@ -59,7 +59,7 @@
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.1",
     "remark-stringify": "^11.0.0",
-    "type-fest": "^4.37.0",
+    "type-fest": "^4.38.0",
     "unified": "^11.0.5"
   },
   "license": "MIT"
