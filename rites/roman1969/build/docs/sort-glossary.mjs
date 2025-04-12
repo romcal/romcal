@@ -80,8 +80,8 @@ const processFile = () => {
   console.info(`Sorting glossary items in ${file}`);
   readFile(file, 'utf8', (readError, data) => {
     if (readError) {
-      console.error(readError);
-      return;
+      process.stdout.write(readError);
+      process.exit(1);
     }
 
     remark()
@@ -133,6 +133,7 @@ const processFile = () => {
         });
       });
   });
+  process.exit(0);
 };
 
 processFile();
