@@ -5,7 +5,7 @@
 </h1>
 
 <p align="center">
-  Generates liturgical calendars of the Roman Rite of the Roman Catholic Church.
+  Generates liturgical calendars of the Roman Rite of the Catholic Church.
 </p>
 
 <p align="center">
@@ -15,6 +15,7 @@
 <p align="center">
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/romcal/romcal?color=blue&style=flat-square"></a>
   <a href="https://www.npmjs.com/package/romcal" target="_blank" rel="noopener noreferrer"><img alt="Downloads" src="https://img.shields.io/npm/dm/romcal?color=blue&style=flat-square"></a>
+  <a href="https://discord.gg/MgWcwE4HZD" target="_blank" rel="noopener noreferrer"><img alt="Discord" src="https://img.shields.io/discord/1353897152119570655?color=blue&label=Discord&logo=discord&style=flat-square"></a>
 </p>
 
 <p align="center">
@@ -26,8 +27,11 @@
   <a href="https://www.codetriage.com/romcal/romcal" target="_blank" rel="noopener noreferrer"><img alt="Code Triage Helpers" src="https://www.codetriage.com/romcal/romcal/badges/users.svg" /></a>
 </p>
 
-> **Note**
-> This project is still in beta (using the `dev` npm distribution tag) until it reaches final version 3.0.0. There could be breaking changes between minor versions. Please refer to the [changelog](CHANGELOG.md) for significant updates and breaking changes.
+
+> [!NOTE]
+> This project is still in beta (using the `dev` npm distribution tag) until it reaches final version 3.0.0.
+> There could be breaking changes between minor versions.
+> Please refer to the [changelog](CHANGELOG.md) for significant updates and breaking changes.
 
 ## Documentation
 

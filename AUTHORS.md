@@ -11,6 +11,7 @@ As of September 2021
 - [Etienne Magnier](https://github.com/emagnier)
 - [Tukusej’s Sirs](https://github.com/tukusejssirs)
 - [Julian Pereira](https://github.com/pejulian)
+- [Matej Voboril](https://github.com/tobitenno)
 
 ### All contributors
 
