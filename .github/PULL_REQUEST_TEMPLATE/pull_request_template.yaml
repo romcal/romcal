@@ -32,7 +32,7 @@ body:
   - type: textarea
     id: code
     attributes:
-      label: How would you like to use this feature?
+      label: Demonstrate how to use the new behavior
       description: Please include a code sample for your usage.
       render: typescript
   - type: checkboxes
