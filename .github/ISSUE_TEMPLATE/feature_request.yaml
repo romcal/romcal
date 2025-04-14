@@ -7,25 +7,19 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report!
-  - type: textarea
-    id: what-changed
-    attributes:
-      label: What did you do?
-      value: 'I fixed #1234!'
-    validations:
-      required: true
+        Thanks for taking the time to fill out this feature request!
   - type: dropdown
     id: concept
     attributes:
       label: What concept does this feature request relate to?
       description: What part of the project does this feature request relate to?
       options:
-        - Infrastructure
-        - Localization
         - Calendar Definition
         - Discussion
         - Documentation
+        - Infrastructure
+        - Localization
+        - Martyrology / Celebration Definition
       default: 0
     validations:
       required: true
