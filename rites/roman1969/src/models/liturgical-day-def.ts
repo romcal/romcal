@@ -334,7 +334,6 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
     // Combine `titles` from the main date definition, if provided.
     if (input.titles) {
       martyrology.forEach((m, i) => {
-        // TODO: refactor this to avoid non-null assertion
         if (input.titles) m.titles = this.#combineTitles(input.titles, martyrology[i].id, previousDef);
       });
       if (martyrology.length === 0) {
