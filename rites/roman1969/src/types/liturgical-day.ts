@@ -1,5 +1,3 @@
-import { StringMap } from 'i18next';
-
 import { Color } from '../constants/colors';
 import { CommonDefinition } from '../constants/commons';
 import { ProperCycle } from '../constants/cycles';
@@ -232,7 +230,7 @@ export type RomcalCalendarMetadata = {
  * i18n definitions
  */
 // eslint-disable-next-line @typescript-eslint/naming-convention
-export type i18nDef = [string] | [string, StringMap | string];
+export type i18nDef = [string] | [string, Record<string, string | number> | string];
 
 /**
  * Definition for a title needing prefix(es) and suffix(es)

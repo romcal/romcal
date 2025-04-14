@@ -73,7 +73,7 @@
     "typescript": "~5.2.2"
   },
   "dependencies": {
-    "i18next": "^21.6.0"
+    "i18next": "^24.2.3"
   },
   "engines": {
     "node": ">=18.0.0"

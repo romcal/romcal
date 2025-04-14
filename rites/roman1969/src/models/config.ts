@@ -104,7 +104,7 @@ export class RomcalConfig implements IRomcalConfig {
       {
         fallbackLng: ['dev'],
         lng: this.localeId,
-        initImmediate: false,
+        initAsync: false,
         // contextSeparator: '__',
         interpolation: {
           format(value, format) {
@@ -163,15 +163,15 @@ export class RomcalConfig implements IRomcalConfig {
    * @private
    */
   #addResourceBundles(locale: Locale): void {
-    this.i18next.addResourceBundle(locale.id, 'seasons', locale.seasons);
-    this.i18next.addResourceBundle(locale.id, 'periods', locale.periods);
-    this.i18next.addResourceBundle(locale.id, 'ranks', locale.ranks);
-    this.i18next.addResourceBundle(locale.id, 'cycles', locale.cycles);
-    this.i18next.addResourceBundle(locale.id, 'weekdays', locale.weekdays);
-    this.i18next.addResourceBundle(locale.id, 'months', locale.months);
-    this.i18next.addResourceBundle(locale.id, 'colors', locale.colors);
-    this.i18next.addResourceBundle(locale.id, 'ordinals', locale.ordinals);
-    this.i18next.addResourceBundle(locale.id, 'names', locale.names);
+    this.i18next.addResourceBundle(locale.id, 'seasons', locale.seasons ?? {});
+    this.i18next.addResourceBundle(locale.id, 'periods', locale.periods ?? {});
+    this.i18next.addResourceBundle(locale.id, 'ranks', locale.ranks ?? {});
+    this.i18next.addResourceBundle(locale.id, 'cycles', locale.cycles ?? {});
+    this.i18next.addResourceBundle(locale.id, 'weekdays', locale.weekdays ?? {});
+    this.i18next.addResourceBundle(locale.id, 'months', locale.months ?? {});
+    this.i18next.addResourceBundle(locale.id, 'colors', locale.colors ?? {});
+    this.i18next.addResourceBundle(locale.id, 'ordinals', locale.ordinals ?? {});
+    this.i18next.addResourceBundle(locale.id, 'names', locale.names ?? {});
   }
 
   /**
