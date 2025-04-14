@@ -36,6 +36,12 @@ body:
       default: 0
     validations:
       required: true
+  - type: textarea
+    id: installation-version
+    attributes:
+      label: Installation Version
+      description: What version of romcal are you using?
+      placeholder: 'e.g. 1.0.0'
   - type: dropdown
     id: usage
     attributes:
@@ -47,6 +53,12 @@ body:
         - Deno
         - Other
       default: 0
+  - type: textarea
+    id: runtime-version
+    attributes:
+      label: Runtime Version
+      description: What version of the runtime are you using?
+      placeholder: 'e.g. Node.js v18.0.0'
   - type: textarea
     id: logs
     attributes:
