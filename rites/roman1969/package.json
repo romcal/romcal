@@ -30,7 +30,7 @@
   "dependencies": {
     "@internal/easter": "file:../../packages/easter",
     "i18next": "^25.0.1",
-    "ts-deepmerge": "^7.0.1"
+    "ts-deepmerge": "^7.0.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.0",
