@@ -93,8 +93,14 @@ jobs:
         run: npm run build
 
       - name: Run tests
-        run: npm run test:without-coverage
+        run: npm run data:checks && npm run test:without-coverage
 
+      - name: Npm publish a new 'dev' version (romcal + all calendar bundles)
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: tsx ./rites/roman1969/build/publish.ts
+
+      # move this after npm publish so we don't tag until npm worked
       - name: Commit and tag the updated version
         run: |
           git config user.name ${{ env.GITHUB_USER }}
@@ -104,8 +110,3 @@ jobs:
           git push
           git tag v${{ steps.package.outputs.version }}
           git push --tags
-
-      - name: Npm publish a new 'dev' version (romcal + all calendar bundles)
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: tsx ./rites/roman1969/build/publish.ts
