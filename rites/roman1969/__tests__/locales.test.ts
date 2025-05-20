@@ -39,10 +39,6 @@ describe('Testing localization functionality', () => {
 
             if (day) {
               expect(day?.name).toBe(d.value);
-            } else {
-              console.log(
-                `\`${i.calendar.i18n.id}\`: \`${d.key}\` is not celebrated in ${new Date().getUTCFullYear()}`
-              );
             }
           });
         });
