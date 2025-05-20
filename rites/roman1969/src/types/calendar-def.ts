@@ -25,9 +25,26 @@ export type LiturgicalDayDefinitions = Record<Id, LiturgicalDayDef>;
  * Base [CalendarDef] interface
  */
 export interface BaseCalendarDef {
-  ParentCalendar?: CalendarDefInstance | null;
-  parentCalendarInstance?: InstanceType<CalendarDefInstance>;
+  /**
+   * List of all parent CalendarDef definitions (excluding the general Roman calendar)
+   * that serve as the base for the current calendar. The order of this list is important,
+   * as it determines the priority of calendars (from the most general to the most local).
+   * This hierarchy allows for proper inheritance and overriding of liturgical definitions.
+   */
+  ParentCalendars?: CalendarDefInstance[] | null;
+  parentCalendarInstances?: InstanceType<CalendarDefInstance>[];
+  /**
+   * Configuration options specific to this calendar.
+   * These settings can override or extend the default Romcal configuration or any parent calendar
+   * configuration.
+   */
   particularConfig?: ParticularConfig;
+  /**
+   * Collection of liturgical day definitions specific to this calendar.
+   * Each entry is identified by a unique ID and describes the date, precedence, commons, and other
+   * attributes. This collection may also include definitions that supplement or override those from
+   * parent calendars.
+   */
   inputs: CalendarDefInputs;
   dates: typeof Dates;
   updateConfig: (config?: RomcalConfigInput) => void;

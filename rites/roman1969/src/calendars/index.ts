@@ -48,7 +48,7 @@ import { Poland } from './countries/poland';
 import { Portugal } from './countries/portugal';
 import { PuertoRico } from './countries/puerto-rico';
 import { Romania } from './countries/romania';
-import { Russia } from './countries/russia';
+import { AsianRussia, EuropeanRussia, Russia } from './countries/russia';
 import { Scotland } from './countries/scotland';
 import { Slovakia } from './countries/slovakia';
 import { Slovenia } from './countries/slovenia';
@@ -63,11 +63,15 @@ import { Venezuela } from './countries/venezuela';
 import { Vietnam } from './countries/vietnam';
 import { Wales } from './countries/wales';
 import { GeneralRoman } from './general-roman';
+import { Africa } from './regions/africa';
 import { Americas } from './regions/americas';
+import { Asia } from './regions/asia';
 import { Europe } from './regions/europe';
 
 export const calendarDefinitions: Record<string, typeof CalendarDef> = {
+  Africa,
   Americas,
+  Asia,
   Argentina,
   Australia,
   Austria,
@@ -117,6 +121,8 @@ export const calendarDefinitions: Record<string, typeof CalendarDef> = {
   PuertoRico,
   Romania,
   Russia,
+  AsianRussia,
+  EuropeanRussia,
   Scotland,
   Slovakia,
   Slovenia,

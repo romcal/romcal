@@ -5,7 +5,7 @@ import { Inputs } from '../../../types/calendar-def';
 import { Americas } from '../../regions/americas';
 
 export class Peru extends CalendarDef {
-  ParentCalendar = Americas;
+  ParentCalendars = [Americas];
 
   inputs: Inputs = {
     finding_of_the_holy_cross: {

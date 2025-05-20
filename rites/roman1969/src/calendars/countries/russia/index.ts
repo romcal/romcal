@@ -2,10 +2,12 @@ import { PatronTitle } from '../../../constants/martyrology-metadata';
 import { Precedences } from '../../../constants/precedences';
 import { CalendarDef } from '../../../models/calendar-def';
 import { Inputs } from '../../../types/calendar-def';
-import { Europe } from '../../regions/europe';
+
+import { AsianRussia } from './asian-russia';
+import { EuropeanRussia } from './european-russia';
 
 export class Russia extends CalendarDef {
-  ParentCalendar = Europe;
+  ParentCalendars = [];
 
   inputs: Inputs = {
     george_matulaitis_bishop: {
@@ -110,3 +112,5 @@ export class Russia extends CalendarDef {
     },
   };
 }
+
+export { AsianRussia, EuropeanRussia };

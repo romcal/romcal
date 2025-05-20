@@ -5,7 +5,7 @@ import { Inputs } from '../../../types/calendar-def';
 import { Europe } from '../../regions/europe';
 
 export class Scotland extends CalendarDef {
-  ParentCalendar = Europe;
+  ParentCalendars = [Europe];
 
   inputs: Inputs = {
     kentigern_of_scotland_bishop: {

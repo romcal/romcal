@@ -6,7 +6,7 @@ import { Inputs } from '../../../types/calendar-def';
 import { Americas } from '../../regions/americas';
 
 export class CostaRica extends CalendarDef {
-  ParentCalendar = Americas;
+  ParentCalendars = [Americas];
 
   inputs: Inputs = {
     our_lord_jesus_christ_the_eternal_high_priest: {

@@ -4,7 +4,7 @@ import { Inputs } from '../../../types/calendar-def';
 import { Europe } from '../../regions/europe';
 
 export class Norway extends CalendarDef {
-  ParentCalendar = Europe;
+  ParentCalendars = [Europe];
 
   inputs: Inputs = {
     thorfinn_of_hamar_bishop: {

@@ -5,7 +5,7 @@ import { Inputs } from '../../../types/calendar-def';
 import { Europe } from '../../regions/europe';
 
 export class Italy extends CalendarDef {
-  ParentCalendar = Europe;
+  ParentCalendars = [Europe];
 
   inputs: Inputs = {
     catherine_of_siena_virgin: {

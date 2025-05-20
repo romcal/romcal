@@ -5,7 +5,7 @@ import { Inputs } from '../../../types/calendar-def';
 import { Europe } from '../../regions/europe';
 
 export class Germany extends CalendarDef {
-  ParentCalendar = Europe;
+  ParentCalendars = [Europe];
 
   inputs: Inputs = {
     john_nepomucene_neumann_bishop: {

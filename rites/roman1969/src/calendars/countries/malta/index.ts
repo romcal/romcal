@@ -4,7 +4,7 @@ import { Inputs } from '../../../types/calendar-def';
 import { Europe } from '../../regions/europe';
 
 export class Malta extends CalendarDef {
-  ParentCalendar = Europe;
+  ParentCalendars = [Europe];
 
   inputs: Inputs = {
     publius_of_malta_bishop: {

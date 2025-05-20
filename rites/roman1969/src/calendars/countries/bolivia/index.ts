@@ -5,7 +5,7 @@ import { Inputs } from '../../../types/calendar-def';
 import { Americas } from '../../regions/americas';
 
 export class Bolivia extends CalendarDef {
-  ParentCalendar = Americas;
+  ParentCalendars = [Americas];
 
   inputs: Inputs = {
     philip_of_jesus_de_las_casas_paul_miki_and_companions_martyrs: {

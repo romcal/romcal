@@ -2,11 +2,12 @@ import { PatronTitle, Title } from '../../../constants/martyrology-metadata';
 import { Precedences } from '../../../constants/precedences';
 import { CalendarDef } from '../../../models/calendar-def';
 import { Inputs } from '../../../types/calendar-def';
+import { Europe } from '../../regions/europe';
 
 import { France } from '.';
 
 export class France_Paris extends CalendarDef {
-  ParentCalendar = France;
+  ParentCalendars = [Europe, France];
 
   inputs: Inputs = {
     genevieve_of_paris_virgin: {

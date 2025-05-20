@@ -6,7 +6,7 @@ import { Inputs } from '../../../types/calendar-def';
 import { Americas } from '../../regions/americas';
 
 export class Argentina extends CalendarDef {
-  ParentCalendar = Americas;
+  ParentCalendars = [Americas];
 
   inputs: Inputs = {
     laura_vicuna_virgin: {

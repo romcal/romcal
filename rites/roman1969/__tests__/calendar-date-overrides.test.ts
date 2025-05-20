@@ -1,11 +1,16 @@
+import { AsianRussia_En } from '@dist/rite-roman1969/bundles/asian-russia';
 import { CzechRepublic_Cs } from '@dist/rite-roman1969/bundles/czech-republic';
 import { England_En } from '@dist/rite-roman1969/bundles/england';
+import { Europe_En } from '@dist/rite-roman1969/bundles/europe';
+import { EuropeanRussia_En } from '@dist/rite-roman1969/bundles/european-russia';
 import { France_Fr } from '@dist/rite-roman1969/bundles/france';
+import { France_Paris_Fr } from '@dist/rite-roman1969/bundles/france.paris';
 import { Germany_En } from '@dist/rite-roman1969/bundles/germany';
 import { Hungary_En } from '@dist/rite-roman1969/bundles/hungary';
 import { Ireland_En } from '@dist/rite-roman1969/bundles/ireland';
 import { Malta_En } from '@dist/rite-roman1969/bundles/malta';
 import { Mexico_Es } from '@dist/rite-roman1969/bundles/mexico';
+import { Russia_En } from '@dist/rite-roman1969/bundles/russia';
 import { Slovakia_Sk } from '@dist/rite-roman1969/bundles/slovakia';
 import { Spain_Es } from '@dist/rite-roman1969/bundles/spain';
 import { Wales_En } from '@dist/rite-roman1969/bundles/wales';
@@ -329,6 +334,87 @@ describe('Testing national calendar overrides', () => {
       const ourLadyOfSorrowsPatronessOfSlovakia = slovakiaDates.find((d) => d.id === 'our_lady_of_sorrows');
       expect(ourLadyOfSorrowsPatronessOfSlovakia?.precedence).toEqual(Precedences.ProperSolemnity_PrincipalPatron_4a);
       expect(ourLadyOfSorrowsPatronessOfSlovakia?.date === '2018-09-15').toBeTruthy();
+    });
+  });
+
+  describe('Parent calendar inheritance for Russia and its regions', () => {
+    let europeanRussiaDates: LiturgicalDay[];
+    let asianRussiaDates: LiturgicalDay[];
+    let europeDates: LiturgicalDay[];
+    let russiaDates: LiturgicalDay[];
+
+    beforeAll(async () => {
+      europeanRussiaDates = Object.values(
+        await new Romcal({ localizedCalendar: EuropeanRussia_En }).generateCalendar(2025)
+      ).flat();
+      asianRussiaDates = Object.values(
+        await new Romcal({ localizedCalendar: AsianRussia_En }).generateCalendar(2025)
+      ).flat();
+      europeDates = Object.values(await new Romcal({ localizedCalendar: Europe_En }).generateCalendar(2025)).flat();
+      russiaDates = Object.values(await new Romcal({ localizedCalendar: Russia_En }).generateCalendar(2025)).flat();
+    });
+
+    test('"catherine_of_siena_virgin" is present in all calendars, but with the correct precedence according to the calendar hierarchy', () => {
+      const inEurope = europeDates.find((d) => d.id === 'catherine_of_siena_virgin');
+      const inEuropeanRussia = europeanRussiaDates.find((d) => d.id === 'catherine_of_siena_virgin');
+      const inAsianRussia = asianRussiaDates.find((d) => d.id === 'catherine_of_siena_virgin');
+      expect(inEurope).toBeTruthy();
+      expect(inEuropeanRussia).toBeTruthy();
+      expect(inAsianRussia).toBeTruthy();
+      expect(inEurope?.precedence).toEqual(Precedences.ProperFeast_PrincipalPatronOfARegion_8c);
+      expect(inEuropeanRussia?.precedence).toEqual(Precedences.ProperFeast_PrincipalPatronOfARegion_8c);
+      expect(inAsianRussia?.precedence).toEqual(Precedences.GeneralMemorial_10);
+    });
+
+    test('"george_matulaitis_bishop" is present in Russia, EuropeanRussia, and AsianRussia', () => {
+      const inRussia = russiaDates.some((d) => d.id === 'george_matulaitis_bishop');
+      const inEuropeanRussia = europeanRussiaDates.some((d) => d.id === 'george_matulaitis_bishop');
+      const inAsianRussia = asianRussiaDates.some((d) => d.id === 'george_matulaitis_bishop');
+      expect(inRussia).toBeTruthy();
+      expect(inEuropeanRussia).toBeTruthy();
+      expect(inAsianRussia).toBeTruthy();
+    });
+  });
+
+  describe('Parent calendar inheritance for France and the Diocese of Paris', () => {
+    let generalDates: LiturgicalDay[];
+    let franceDates: LiturgicalDay[];
+    let franceParisDates: LiturgicalDay[];
+
+    beforeAll(async () => {
+      generalDates = Object.values(await new Romcal().generateCalendar(2025)).flat();
+      franceDates = Object.values(await new Romcal({ localizedCalendar: France_Fr }).generateCalendar(2025)).flat();
+      franceParisDates = Object.values(
+        await new Romcal({ localizedCalendar: France_Paris_Fr }).generateCalendar(2025)
+      ).flat();
+    });
+
+    test('"most_holy_name_of_jesus" is present on January 3 in the general and France calendars', () => {
+      const mhnojGeneral = generalDates.find((d) => d.id === 'most_holy_name_of_jesus');
+      const mhnojFrance = franceDates.find((d) => d.id === 'most_holy_name_of_jesus');
+      expect(mhnojGeneral).toBeTruthy();
+      expect(mhnojFrance).toBeTruthy();
+      expect(mhnojGeneral?.date).toMatch(/-01-03$/);
+      expect(mhnojFrance?.date).toMatch(/-01-03$/);
+    });
+
+    test('"most_holy_name_of_jesus" is present on January 4 in the Diocese of Paris calendar (France_Paris)', () => {
+      const mhnojParis = franceParisDates.find((d) => d.id === 'most_holy_name_of_jesus');
+      expect(mhnojParis).toBeTruthy();
+      expect(mhnojParis?.date).toMatch(/-01-04$/);
+    });
+
+    test('"genevieve_of_paris_virgin" is only present in the France and Diocese of Paris calendars, with correct date and precedence', () => {
+      const genevieveGeneral = generalDates.find((d) => d.id === 'genevieve_of_paris_virgin');
+      const genevieveFrance = franceDates.find((d) => d.id === 'genevieve_of_paris_virgin');
+      const genevieveParis = franceParisDates.find((d) => d.id === 'genevieve_of_paris_virgin');
+      expect(genevieveGeneral).toBeFalsy();
+      expect(genevieveFrance).toBeTruthy();
+      expect(genevieveFrance?.date).toMatch(/-01-03$/);
+      expect(genevieveFrance?.precedence).toEqual(Precedences.OptionalMemorial_12);
+      expect(genevieveParis).toBeTruthy();
+      expect(genevieveParis?.date).toMatch(/-01-03$/);
+      expect(genevieveParis?.precedence).toEqual(Precedences.ProperSolemnity_PrincipalPatron_4a);
     });
   });
 });
