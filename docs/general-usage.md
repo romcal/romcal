@@ -50,7 +50,7 @@ new Romcal({ localizedCalendar: GeneralRoman_En }).generateCalendar(2020).then(f
 });
 
 // Or access data using async/await
-const myCalendar2 = await new Romcal().generateCalendar({ localizedCalendar: GeneralRoman_En }).generateCalendar(2020);
+const myCalendar2 = await new Romcal({ localizedCalendar: GeneralRoman_En }).generateCalendar(2020);
 console.log(myCalendar2);
 ```
 
