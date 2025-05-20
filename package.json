@@ -69,6 +69,9 @@
     "test:watch": "npm run test:watch -w=@internal/rite-roman1969",
     "test:without-coverage": "npm run test:without-coverage -w=@internal/rite-roman1969"
   },
+  "dependencies": {
+    "i18next": "^25.2.0"
+  },
   "devDependencies": {
     "@babel/eslint-parser": "^7.27.1",
     "@typescript-eslint/eslint-plugin": "^8.32.1",
