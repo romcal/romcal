@@ -88,6 +88,11 @@ export interface BaseRomcalConfig {
    * The calendar name
    */
   readonly calendarName: string;
+
+  /**
+   * Output options
+   */
+  readonly outputOptions: OutputOptions;
 }
 
 export interface IRomcalConfig extends BaseRomcalConfig {
@@ -108,3 +113,10 @@ export type RomcalConfigOutput = Required<Omit<BaseRomcalConfig, 'localizedCalen
 export type CalendarScope = 'gregorian' | 'liturgical';
 
 export type EasterCalculationType = 'gregorian' | 'julian';
+
+export interface OutputOptions {
+  /**
+   * If `true`, the output will be in JSON format, rather than some of the fields being not enumerated
+   */
+  calculateProperties?: boolean;
+}

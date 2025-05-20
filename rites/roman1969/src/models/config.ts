@@ -10,6 +10,7 @@ import {
   CalendarScope,
   EasterCalculationType,
   IRomcalConfig,
+  OutputOptions,
   RomcalConfigInput,
   RomcalConfigOutput,
 } from '../types/config';
@@ -57,6 +58,8 @@ export class RomcalConfig implements IRomcalConfig {
   readonly calendarsDef: InstanceType<CalendarDefInstance>[];
 
   liturgicalDayDef: LiturgicalDayDefinitions = {} as LiturgicalDayDefinitions;
+
+  readonly outputOptions: OutputOptions;
 
   /**
    * Clone the RomcalConfig object
@@ -155,6 +158,8 @@ export class RomcalConfig implements IRomcalConfig {
 
     // Update the config by checking if a particularConfig is present in all CalendarDef objects.
     this.calendarsDef.map((cal) => cal.updateConfig(config));
+
+    this.outputOptions = this.#input?.outputOptions ?? { calculateProperties: false };
   }
 
   /**
@@ -209,6 +214,7 @@ export class RomcalConfig implements IRomcalConfig {
       calendarName: this.calendarName,
       easterCalculationType: this.easterCalculationType,
       scope: this.scope,
+      outputOptions: this.outputOptions,
     };
   }
 }

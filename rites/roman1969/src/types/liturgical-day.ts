@@ -301,7 +301,7 @@ export type FullDateDefinition = {
 /**
  * Base object extended by other derived Liturgical Day objects
  */
-type LiturgicalDayRoot = FullDateDefinition & {
+export type LiturgicalDayRoot = FullDateDefinition & {
   /**
    * Optional alternative transfer dates for this liturgical day.
    *

@@ -427,6 +427,15 @@ export class Calendar implements BaseCalendar {
       ];
     });
 
+    if (this.#config?.outputOptions?.calculateProperties) {
+      const calculatedData: LiturgicalCalendar = {};
+      // run toJson on each liturgical day and set it on the map
+      Object.keys(finalData).forEach((dateStr) => {
+        calculatedData[dateStr] = finalData[dateStr].map((d) => d.toJson());
+      });
+      return calculatedData;
+    }
+
     return finalData;
   }
 }
