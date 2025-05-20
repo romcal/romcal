@@ -83,7 +83,7 @@ import Romcal from './src';
 You can call your `local-test-file.ts` directly from the bash (e.g. in the romcal directory):
 
 ```bash
-node -r ts-node/register -r tsconfig-paths/register ./sample-test-file.ts
+tsx ./sample-test-file.ts
 ```
 
 Note: all file names starting with `local-` are not included in the romcal codebase.

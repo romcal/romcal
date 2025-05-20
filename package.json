@@ -69,27 +69,23 @@
     "test:watch": "npm run test:watch -w=@internal/rite-roman1969",
     "test:without-coverage": "npm run test:without-coverage -w=@internal/rite-roman1969"
   },
-  "dependencies": {
-    "i18next": "^24.2.3"
-  },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.27.0",
-    "@typescript-eslint/eslint-plugin": "^8.29.1",
-    "@typescript-eslint/parser": "^8.29.1",
-    "eslint": "^9.24.0",
-    "eslint-config-prettier": "~10.1.2",
+    "@babel/eslint-parser": "^7.27.1",
+    "@typescript-eslint/eslint-plugin": "^8.32.1",
+    "@typescript-eslint/parser": "^8.32.1",
+    "eslint": "^9.27.0",
+    "eslint-config-prettier": "~10.1.5",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jest": "^28.11.0",
-    "eslint-plugin-prettier": "^5.2.6",
+    "eslint-plugin-prettier": "^5.4.0",
     "eslint-plugin-unused-imports": "^4.1.4",
-    "globals": "^16.0.0",
+    "globals": "^16.1.0",
     "husky": "^9.1.7",
     "prettier": "~3.5.3",
     "rimraf": "^6.0.1",
-    "ts-node": "^10.9.2",
-    "tslib": "^2.8.1",
-    "typescript": "~5.8.2",
-    "typescript-eslint": "^8.29.1"
+    "tsx": "^4.19.4",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.32.1"
   },
   "engines": {
     "node": ">=18.0.0"
