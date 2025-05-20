@@ -379,7 +379,6 @@ export class Calendar implements BaseCalendar {
                   Precedences.OptionalMemorial_12,
                 ].some((p) => p === d.precedence) || d.isOptional
             )
-            // eslint-disable-next-line no-param-reassign
             .map((d) => (d.isOptional = true) && d)
         );
       }

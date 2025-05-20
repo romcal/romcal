@@ -30,9 +30,15 @@ jobs:
         if: github.event_name == 'push'
         run: npx commitlint --last --verbose
 
-      - name: Validate PR commits with commitlint
+      - name: Validate with commitlint (pull_request)
         if: github.event_name == 'pull_request'
         run: npx commitlint --from ${{ github.event.pull_request.head.sha }}~${{ github.event.pull_request.commits }} --to ${{ github.event.pull_request.head.sha }} --verbose
+
+      - name: Lint Title (pull_request)
+        if: github.event_name == 'pull_request'
+        env:
+          TITLE: ${{ github.event.pull_request.title }}
+        run: npx --no-install commitlint <<< "$TITLE"
 
   build:
     runs-on: ubuntu-latest

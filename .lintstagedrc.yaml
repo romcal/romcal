@@ -8,6 +8,7 @@
 package*.json:
   - npx prettier --write
   - npm dedupe
+  - npx sort-package-json
 docs/**/*.md:
   # Prettier last, configured to have the same italics characters
   - npm run docs:check-links

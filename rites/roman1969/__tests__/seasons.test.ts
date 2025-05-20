@@ -24,31 +24,24 @@ describe('Testing date range functions', () => {
     test('Depending on the day of Christmas, the number of days in Advent varies', () => {
       const romcal = new Romcal();
       if (romcal.dates().christmas(2005).getUTCDay() === 0) {
-        // eslint-disable-next-line jest/no-conditional-expect
         expect(romcal.dates(2005).allDatesOfAdvent().length).toEqual(28);
       }
       if (romcal.dates().christmas(2000).getUTCDay() === 1) {
-        // eslint-disable-next-line jest/no-conditional-expect
         expect(romcal.dates(2000).allDatesOfAdvent().length).toEqual(22);
       }
       if (romcal.dates().christmas(2001).getUTCDay() === 2) {
-        // eslint-disable-next-line jest/no-conditional-expect
         expect(romcal.dates(2001).allDatesOfAdvent().length).toEqual(23);
       }
       if (romcal.dates().christmas(2002).getUTCDay() === 3) {
-        // eslint-disable-next-line jest/no-conditional-expect
         expect(romcal.dates(2002).allDatesOfAdvent().length).toEqual(24);
       }
       if (romcal.dates().christmas(2003).getUTCDay() === 4) {
-        // eslint-disable-next-line jest/no-conditional-expect
         expect(romcal.dates(2003).allDatesOfAdvent().length).toEqual(25);
       }
       if (romcal.dates().christmas(1998).getUTCDay() === 5) {
-        // eslint-disable-next-line jest/no-conditional-expect
         expect(romcal.dates(1998).allDatesOfAdvent().length).toEqual(26);
       }
       if (romcal.dates().christmas(1999).getUTCDay() === 6) {
-        // eslint-disable-next-line jest/no-conditional-expect
         expect(romcal.dates(1999).allDatesOfAdvent().length).toEqual(27);
       }
     });
@@ -285,12 +278,9 @@ describe('Testing seasons utility functions', () => {
         )
         .forEach((date) => {
           if (date.id === 'lent_4_sunday' || date.id === 'advent_3_sunday') {
-            // eslint-disable-next-line jest/no-conditional-expect
             expect(date.colors[0]).toEqual(Colors.Rose);
-            // eslint-disable-next-line jest/no-conditional-expect
             expect(date.colors[1]).toEqual(Colors.Purple);
           } else {
-            // eslint-disable-next-line jest/no-conditional-expect
             expect(date.colors[0]).toEqual(Colors.Purple);
           }
         });
@@ -307,7 +297,6 @@ describe('Testing seasons utility functions', () => {
             d.id !== 'pentecost_sunday'
         )
         .forEach((date) => {
-          // eslint-disable-next-line jest/no-conditional-expect
           expect(date.colors[0]).toEqual(Colors.White);
         });
     });

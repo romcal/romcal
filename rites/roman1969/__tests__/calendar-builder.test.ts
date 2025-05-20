@@ -133,18 +133,13 @@ describe('Testing calendar generation functions', () => {
         )
         .forEach((d) => {
           if (d.id === 'exaltation_of_the_holy_cross' || d.id === 'mark_evangelist') {
-            // eslint-disable-next-line jest/no-conditional-expect
             expect(d.colors[0]).toEqual(Colors.Red);
           } else if (d.id === 'commemoration_of_all_the_faithful_departed') {
-            // eslint-disable-next-line jest/no-conditional-expect
             expect(d.colors[0]).toEqual(Colors.Purple);
-            // eslint-disable-next-line jest/no-conditional-expect
             expect(d.colors[1]).toEqual(Colors.Black);
           } else if (isMartyr(d.titles)) {
-            // eslint-disable-next-line jest/no-conditional-expect
             expect(d.colors[0]).toEqual(Colors.Red);
           } else {
-            // eslint-disable-next-line jest/no-conditional-expect
             expect(d.colors[0]).toEqual(Colors.White);
           }
         });
@@ -158,10 +153,8 @@ describe('Testing calendar generation functions', () => {
         )
         .forEach((d) => {
           if (isMartyr(d.titles) || d.id === 'passion_of_saint_john_the_baptist') {
-            // eslint-disable-next-line jest/no-conditional-expect
             expect(d.colors[0]).toEqual(Colors.Red);
           } else {
-            // eslint-disable-next-line jest/no-conditional-expect
             expect(d.colors[0]).toEqual(Colors.White);
           }
         });
@@ -303,12 +296,10 @@ describe('Testing calendar generation functions', () => {
       }
     };
 
-    // eslint-disable-next-line jest/expect-expect
     test('Testing calendar metadata in a gregorian scope, from 2010 to 2050', async () => {
       await testCalendarMetadata('gregorian');
     });
 
-    // eslint-disable-next-line jest/expect-expect
     test('Testing calendar metadata in a liturgical scope, from 2010 to 2050', async () => {
       await testCalendarMetadata('liturgical');
     });

@@ -175,7 +175,6 @@ export const RomcalBundler = (): void => {
             id,
             ((): MartyrologyCatalog => {
               // Extract the 'name' property since it's deprecated in the item definition.
-              // eslint-disable-next-line @typescript-eslint/no-unused-vars
               const { name, ...martyrologyData } = data;
               return martyrologyData as MartyrologyCatalog;
             })(),

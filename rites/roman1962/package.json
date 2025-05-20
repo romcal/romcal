@@ -2,9 +2,11 @@
   "name": "@internal/rite-roman1962",
   "version": "0.0.0",
   "description": "Liturgical calendar for the Roman Rite according to the 1962 reform",
+  "license": "MIT",
   "main": "index.js",
   "scripts": {},
   "dependencies": {},
-  "devDependencies": {},
-  "license": "MIT"
+  "devDependencies": {
+    "@internal/config": "file:../../packages/config"
+  }
 }

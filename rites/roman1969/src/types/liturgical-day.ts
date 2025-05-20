@@ -229,7 +229,6 @@ export type RomcalCalendarMetadata = {
 /**
  * i18n definitions
  */
-// eslint-disable-next-line @typescript-eslint/naming-convention
 export type i18nDef = [string] | [string, Record<string, string | number> | string];
 
 /**

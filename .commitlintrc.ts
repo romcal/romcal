@@ -1,6 +1,7 @@
 import { UserConfig, RuleConfigSeverity } from '@commitlint/types';
-import { LOCALE_IDS } from './rites/roman1969/src/constants/locales';
+
 import { CALENDAR_IDS } from './rites/roman1969/src/constants/calendars';
+import { LOCALE_IDS } from './rites/roman1969/src/constants/locales';
 
 const empty = [null];
 const scopes = [...CALENDAR_IDS, ...LOCALE_IDS, 'calendar', 'l10n', 'util', 'package'];

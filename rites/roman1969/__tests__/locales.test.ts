@@ -38,10 +38,8 @@ describe('Testing localization functionality', () => {
             const day = await r.getOneLiturgicalDay(d.key);
 
             if (day) {
-              /* eslint-disable-next-line jest/no-conditional-expect */
               expect(day?.name).toBe(d.value);
             } else {
-              /* eslint-disable-next-line no-console */
               console.log(
                 `\`${i.calendar.i18n.id}\`: \`${d.key}\` is not celebrated in ${new Date().getUTCFullYear()}`
               );
