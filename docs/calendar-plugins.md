@@ -38,6 +38,8 @@ Below the list of all available calendar plugins:
 | Europe               | `@romcal/calendar.europe@dev`             |
 | Finland              | `@romcal/calendar.finland@dev`            |
 | France               | `@romcal/calendar.france@dev`             |
+| France / Angers      | `@romcal/calendar.france.angers@dev`      |
+| France / Coutances   | `@romcal/calendar.france.coutances@dev`   |
 | France / Lyon        | `@romcal/calendar.france.lyon@dev`        |
 | France / Paris       | `@romcal/calendar.france.paris@dev`       |
 | France / Saint Denis | `@romcal/calendar.france.saint-denis@dev` |
