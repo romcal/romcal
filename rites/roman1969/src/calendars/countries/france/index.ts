@@ -13,7 +13,7 @@ import { France_SaintDenis } from './diocese-of-saint-denis';
 import { France_Strasbourg } from './diocese-of-strasbourg';
 
 export class France extends CalendarDef {
-  ParentCalendar = Europe;
+  ParentCalendars = [Europe];
 
   particularConfig: ParticularConfig = {
     epiphanyOnSunday: true,

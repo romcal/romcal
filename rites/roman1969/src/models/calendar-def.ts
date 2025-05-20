@@ -18,9 +18,9 @@ export class CalendarDef implements BaseCalendarDef {
 
   readonly dates: typeof Dates;
 
-  ParentCalendar?: CalendarDefInstance | null;
+  ParentCalendars?: CalendarDefInstance[] | null;
 
-  parentCalendarInstance?: InstanceType<CalendarDefInstance>;
+  parentCalendarInstances?: InstanceType<CalendarDefInstance>[];
 
   readonly particularConfig?: ParticularConfig;
 
@@ -56,11 +56,14 @@ export class CalendarDef implements BaseCalendarDef {
    */
   updateConfig(input?: RomcalConfigInput): void {
     // Init the parent calendar
-    if (this.ParentCalendar) {
-      this.parentCalendarInstance = new this.ParentCalendar(this.#config);
+    if (this.ParentCalendars) {
+      this.parentCalendarInstances = this.ParentCalendars.map((ParentCal) => {
+        const parentCalInstance = new ParentCal(this.#config);
 
-      // Update first the configuration from the parent calendar(s)
-      this.parentCalendarInstance.updateConfig(input);
+        // Update first the configuration from the parent calendar(s)
+        parentCalInstance.updateConfig(input);
+        return parentCalInstance;
+      });
     }
 
     // Combine the provided user configuration,
@@ -86,8 +89,10 @@ export class CalendarDef implements BaseCalendarDef {
    * @private
    */
   #retrieveParentCalInputs(parentCal: InstanceType<CalendarDefInstance>): void {
-    if (parentCal.parentCalendarInstance) {
-      this.#retrieveParentCalInputs(parentCal.parentCalendarInstance);
+    if (parentCal.parentCalendarInstances) {
+      parentCal.parentCalendarInstances.forEach((parent) => {
+        this.#retrieveParentCalInputs(parent);
+      });
     }
 
     parentCal.buildAllDefinitions();
@@ -98,8 +103,10 @@ export class CalendarDef implements BaseCalendarDef {
 
     const inputs = Object.keys(this.inputs);
 
-    if (this.parentCalendarInstance) {
-      this.#retrieveParentCalInputs(this.parentCalendarInstance);
+    if (this.parentCalendarInstances) {
+      this.parentCalendarInstances.forEach((parent) => {
+        this.#retrieveParentCalInputs(parent);
+      });
     }
 
     inputs.forEach((id) => {

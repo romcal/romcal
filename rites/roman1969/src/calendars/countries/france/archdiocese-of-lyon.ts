@@ -2,11 +2,12 @@ import { PatronTitle, Title } from '../../../constants/martyrology-metadata';
 import { Precedences } from '../../../constants/precedences';
 import { CalendarDef } from '../../../models/calendar-def';
 import { Inputs } from '../../../types/calendar-def';
+import { Europe } from '../../regions/europe';
 
 import { France } from '.';
 
 export class France_Lyon extends CalendarDef {
-  ParentCalendar = France;
+  ParentCalendars = [Europe, France];
 
   inputs: Inputs = {
     // src: mr_fr_2014_ed2_lyon

@@ -2,6 +2,7 @@ import { PatronTitle } from '../../../constants/martyrology-metadata';
 import { Precedences } from '../../../constants/precedences';
 import { CalendarDef } from '../../../models/calendar-def';
 import { Inputs } from '../../../types/calendar-def';
+import { Europe } from '../../regions/europe';
 
 import { France } from '.';
 
@@ -10,9 +11,8 @@ import { France } from '.';
 // - https://foi.diocese49.org/IMG/pdf/2022-09-28_missel_propre_format_a5_.pdf
 // - https://en.wikipedia.org/wiki/Roman_Catholic_Diocese_of_Angers
 // - https://www.diocese49.org/mon-diocese/les-saints-de-lanjou/
-
 export class France_Angers extends CalendarDef {
-  ParentCalendar = France;
+  ParentCalendars = [Europe, France];
 
   inputs: Inputs = {
     // src: mr_fr_2022_ed3_angers

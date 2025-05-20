@@ -6,7 +6,7 @@ import { Inputs, ParticularConfig } from '../../../types/calendar-def';
 import { Europe } from '../../regions/europe';
 
 export class CzechRepublic extends CalendarDef {
-  ParentCalendar = Europe;
+  ParentCalendars = [Europe];
 
   particularConfig: ParticularConfig = {
     epiphanyOnSunday: false,

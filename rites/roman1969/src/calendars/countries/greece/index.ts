@@ -4,7 +4,7 @@ import { Inputs, ParticularConfig } from '../../../types/calendar-def';
 import { Europe } from '../../regions/europe';
 
 export class Greece extends CalendarDef {
-  ParentCalendar = Europe;
+  ParentCalendars = [Europe];
 
   particularConfig: ParticularConfig = {
     easterCalculationType: 'julian',

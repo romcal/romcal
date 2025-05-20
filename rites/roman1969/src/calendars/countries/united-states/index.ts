@@ -5,7 +5,7 @@ import { Inputs, ParticularConfig } from '../../../types/calendar-def';
 import { Americas } from '../../regions/americas';
 
 export class UnitedStates extends CalendarDef {
-  ParentCalendar = Americas;
+  ParentCalendars = [Americas];
 
   particularConfig: ParticularConfig = {
     epiphanyOnSunday: true,
