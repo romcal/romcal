@@ -21,11 +21,11 @@ import {
   RomcalConfigInput,
   RomcalConfigOutput,
 } from '../src';
+import { calendarDefinitions } from '../src/calendars';
+import { GeneralRoman } from '../src/calendars/general-roman';
 import { Martyrology } from '../src/catalog/martyrology';
 import { PROPER_OF_TIME_NAME } from '../src/constants/general-calendar-names';
-import { GeneralRoman } from '../src/general-calendar/proper-of-saints';
 import { locales } from '../src/locales';
-import { particularCalendars } from '../src/particular-calendars';
 import { sanitizeLocaleId, toPascalCase } from '../src/utils/string';
 
 const { log } = console;
@@ -111,7 +111,7 @@ export const RomcalBundler = (): void => {
     },
     cliProgress.Presets.shades_classic
   );
-  const allCalendars: (typeof CalendarDef)[] = [GeneralRoman, ...Object.values(particularCalendars)];
+  const allCalendars: (typeof CalendarDef)[] = Object.values(calendarDefinitions);
   const allLocaleIds = Object.keys(locales);
 
   log(chalk.bold(`\n✓ Generate calendar bundle files into ${chalk.cyan('./tmp/bundles/')}`));

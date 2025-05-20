@@ -1,9 +1,9 @@
 import i18next, { i18n } from 'i18next';
 
+import { GeneralRoman } from '../calendars/general-roman';
 import { Color } from '../constants/colors';
 import { Season } from '../constants/seasons';
-import { GeneralRoman } from '../general-calendar/proper-of-saints';
-import { ProperOfTime } from '../general-calendar/proper-of-time';
+import { ProperOfTime } from '../proper-of-time/proper-of-time';
 import { RomcalBundleObject } from '../types/bundle';
 import { CalendarDefInstance, LiturgicalDayDefinitions } from '../types/calendar-def';
 import {

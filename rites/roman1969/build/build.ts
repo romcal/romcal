@@ -10,8 +10,7 @@ import { rimraf } from 'rimraf';
 import { PackageJson } from 'type-fest';
 import ts from 'typescript';
 
-import { GENERAL_ROMAN_NAME } from '../src/constants/general-calendar-names';
-import { particularCalendars } from '../src/particular-calendars';
+import { calendarDefinitions } from '../src/calendars';
 import { toPackageName, toPascalCase } from '../src/utils/string';
 
 import { RomcalBundler } from './bundle';
@@ -216,7 +215,7 @@ const buildPipeline = async (): Promise<void> => {
    * Add package.json and index.d.ts files to all calendar bundles
    */
   log(chalk.bold('\n✓ Package calendar bundles as npm modules'));
-  const allCalendars = [GENERAL_ROMAN_NAME, ...Object.keys(particularCalendars)];
+  const allCalendars = Object.keys(calendarDefinitions);
 
   allCalendars.forEach((calendar) => {
     // mixed snake and underscore case to kebab case

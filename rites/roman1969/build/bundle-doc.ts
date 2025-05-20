@@ -4,9 +4,8 @@ import path from 'path';
 import chalk from 'chalk';
 import prettier from 'prettier';
 
-import { GeneralRoman } from '../src/general-calendar/proper-of-saints';
+import { calendarDefinitions } from '../src/calendars';
 import { CalendarDef } from '../src/models/calendar-def';
-import { particularCalendars } from '../src/particular-calendars';
 import { toPackageName } from '../src/utils/string';
 
 import { getDuration } from './time';
@@ -16,7 +15,7 @@ const time = new Date();
 
 log(chalk.bold(`\n✓ Update the documentation of all calendar plugins in ${chalk.cyan('./docs/calendar-plugins.md')}`));
 
-const allCalendars: (typeof CalendarDef)[] = [GeneralRoman, ...Object.values(particularCalendars)];
+const allCalendars: (typeof CalendarDef)[] = Object.values(calendarDefinitions);
 
 let mdTemplate = `# Calendar plugins
 

@@ -24,6 +24,8 @@ import chalk from 'chalk';
 import { merge } from 'ts-deepmerge';
 
 import { Locale } from '../src';
+import { calendarDefinitions } from '../src/calendars';
+import { GeneralRoman } from '../src/calendars/general-roman';
 import { Martyrology } from '../src/catalog/martyrology';
 import { COLORS } from '../src/constants/colors';
 import { PROPER_CYCLES, PSALTER_WEEKS, SUNDAY_CYCLES, WEEKDAY_CYCLES } from '../src/constants/cycles';
@@ -31,10 +33,8 @@ import { MONTHS } from '../src/constants/months';
 import { RANKS } from '../src/constants/ranks';
 import { SEASONS } from '../src/constants/seasons';
 import { WEEKDAYS } from '../src/constants/weekdays';
-import { GeneralRoman } from '../src/general-calendar/proper-of-saints';
 import { locales } from '../src/locales';
 import { CalendarDef } from '../src/models/calendar-def';
-import { particularCalendars } from '../src/particular-calendars';
 import { toPackageName } from '../src/utils/string';
 
 import { RomcalBuilder } from './bundle';
@@ -177,7 +177,7 @@ const isObjectPropsSortedAlphabetically = (obj: Record<string, unknown>): boolea
 };
 
 const devLocale = { id: 'dev' };
-const allCalendars: (typeof CalendarDef)[] = [GeneralRoman, ...Object.values(particularCalendars)];
+const allCalendars: (typeof CalendarDef)[] = Object.values(calendarDefinitions);
 const allMartyrologyKeys = new Set<string>();
 const allLocalesKeys = new Set<string>();
 const allCalendarData: Record<string, CalendarData> = {};
