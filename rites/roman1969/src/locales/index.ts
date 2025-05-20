@@ -2,6 +2,7 @@ import { Locale } from '../types/locale';
 
 import { locale as Cs } from './cs';
 import { locale as De } from './de';
+import { locale as El } from './el';
 import { locale as En } from './en';
 import { locale as EnGb } from './en-gb';
 import { locale as EnIe } from './en-ie';
@@ -21,6 +22,7 @@ import { locale as Ta } from './ta';
 export const locales: Record<string, Locale> = {
   Cs,
   De,
+  El,
   EnGb,
   EnIe,
   En,
