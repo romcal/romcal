@@ -65,12 +65,8 @@ const compile = (configFileName: string): void => {
   // Report errors
   reportDiagnostics(ts.getPreEmitDiagnostics(program).concat(emitResult.diagnostics));
 
-  // Return code
-  const exitCode = emitResult.emitSkipped ? 1 : 0;
-  if (exitCode !== 1) {
-    log(chalk.cyan('Emit not skipped, exiting'));
-    process.exit(exitCode);
-  }
+  log(chalk.dim('  emitSkipped:', emitResult.emitSkipped));
+  log(chalk.dim('  diagnostics:', emitResult.diagnostics.length));
 };
 const buildPipeline = async (): Promise<void> => {
   const time = new Date();
@@ -81,7 +77,7 @@ const buildPipeline = async (): Promise<void> => {
   log(chalk.bold('\n✓ Compiling sources and checking types of the romcal library'));
   rimraf.sync(resolve('tmp/dts'));
   compile(tsConfigPath);
-  // TODO: seems to stop printing before this log
+  log(chalk.dim('  ./src/**/*.ts → ./tmp/dts/'));
   log(chalk.dim('  .d.ts files created in ./tmp/dts/'));
 
   /**
