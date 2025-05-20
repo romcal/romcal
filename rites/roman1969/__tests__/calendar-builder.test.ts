@@ -399,6 +399,39 @@ describe('Testing calendar generation functions', () => {
       expect(easter?.date).toEqual('2019-04-28');
     });
   });
+
+  describe('Calendar Output Options', () => {
+    it('should calculate localized fields', async () => {
+      const calendar = Object.values(
+        await new Romcal({
+          localizedCalendar: GeneralRoman_En,
+          outputOptions: {
+            calculateProperties: true,
+          },
+        }).generateCalendar(2025)
+      ).flat();
+
+      calendar.forEach((day) => {
+        const flatDay = JSON.parse(JSON.stringify(day));
+        expect(flatDay.name).toMatch(day.date === '2025-04-14' ? 'Monday of Holy Week' : '');
+        expect(typeof flatDay.name).toEqual('string');
+      });
+    });
+
+    it('should not calculate localized fields', async () => {
+      const calendar = Object.values(
+        await new Romcal({
+          outputOptions: {
+            calculateProperties: false,
+          },
+        }).generateCalendar(2024)
+      ).flat();
+
+      calendar.forEach((day) => {
+        expect(typeof JSON.parse(JSON.stringify(day)).name).toEqual('undefined');
+      });
+    });
+  });
 });
 
 describe('Testing the alternativeTransferDateDefs property', () => {

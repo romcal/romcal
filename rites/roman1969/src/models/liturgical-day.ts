@@ -24,6 +24,8 @@ import { CyclesMetadata } from './cycles-metadata';
 import { LiturgicalDayConfig } from './liturgical-day-config';
 import { LiturgicalDayDef } from './liturgical-day-def';
 
+const COMPUTED_FIELDS = ['name', 'colorNames', 'seasonNames', 'rankName', 'definition', 'config'];
+
 export class LiturgicalDay implements BaseLiturgicalDay {
   readonly #liturgicalDayDef: LiturgicalDayDef;
 
@@ -190,5 +192,18 @@ export class LiturgicalDay implements BaseLiturgicalDay {
     } else {
       delete this.weekday;
     }
+  }
+
+  toJson(): LiturgicalDay {
+    const temp: LiturgicalDay = {
+      ...this,
+    };
+    // add computed fields to the object
+    COMPUTED_FIELDS.forEach((field: string) => {
+      (temp as unknown as Record<string, unknown>)[field] = (
+        this.#liturgicalDayDef as unknown as Record<string, unknown>
+      )[field];
+    });
+    return temp satisfies LiturgicalDay;
   }
 }

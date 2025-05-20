@@ -12,5 +12,5 @@ package*.json:
 docs/**/*.md:
   # Prettier last, configured to have the same italics characters
   - npm run docs:check-links
-  - cross-env CI=true npm run docs:sort-glossary
+  - npm run docs:sort-glossary
   - prettier --write

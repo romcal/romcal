@@ -2,6 +2,7 @@
   "name": "@internal/rite-roman1969",
   "version": "0.0.0",
   "description": "Liturgical calendar for the Roman Rite according to the 1969 reform",
+  "license": "MIT",
   "exports": {
     "types": "./dist/index.d.ts",
     "import": "./dist/esm/romcal.js",
@@ -11,10 +12,10 @@
   "module": "dist/esm/romcal.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "build": "node -r ts-node/register build/build.ts",
+    "build": "tsx build/build.ts",
     "clean": "rimraf coverage dist tmp",
-    "data:checks": "node -r ts-node/register build/data-checks.ts",
-    "doc": "node -r ts-node/register build/bundle-doc.ts",
+    "data:checks": "tsx build/data-checks.ts",
+    "doc": "tsx build/bundle-doc.ts",
     "docs:check-links": "node build/docs/check-broken-links.mjs ../../docs",
     "docs:sort-glossary": "node build/docs/sort-glossary.mjs",
     "prepare": "husky",
@@ -34,9 +35,9 @@
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@commitlint/types": "^19.0.3",
+    "@internal/config": "file:../../packages/config",
     "@jsdevtools/npm-publish": "^3.1.1",
     "@jsdevtools/rehype-url-inspector": "^2.0.2",
-    "@internal/config": "file:../../packages/config",
     "@types/cli-progress": "^3.11.6",
     "@types/humanize-duration": "^3.27.4",
     "@types/jest": "^29.5.13",
@@ -59,6 +60,5 @@
     "remark-stringify": "^11.0.0",
     "type-fest": "^4.41.0",
     "unified": "^11.0.5"
-  },
-  "license": "MIT"
+  }
 }

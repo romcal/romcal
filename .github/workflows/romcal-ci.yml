@@ -57,7 +57,7 @@ jobs:
 
       # using -q to silent info outputs
       - name: Install Dependencies
-        run: npm -q --no-progress ci --no-audit
+        run: npm -q --no-progress ci --no-audit && npm i -g tsx
 
       - name: Lint
         run: npm run lint
@@ -76,3 +76,6 @@ jobs:
           npm run data:checks
           npm run docs:check-links
           npm run docs:sort-glossary
+
+      - name: Dry run publish
+        run: tsx ./rites/roman1969/build/publish.ts --dry-run

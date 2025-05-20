@@ -16,4 +16,6 @@ export default {
   coverageDirectory: 'coverage',
   collectCoverageFrom: ['src/**/*.{ts,tsx,js,jsx}', 'build/**/*.{ts,tsx,js,jsx}', '!**/types/**/*.ts', '!**/index.ts'],
   setupFilesAfterEnv: ['jest-extended/all'],
+  coverageReporters: ['clover', 'json', 'lcov', ['text', { skipFull: true }]],
+  coveragePathIgnorePatterns: ['/particular-calendars/'],
 };
