@@ -16,13 +16,15 @@ import { CzechRepublic } from './countries/czech-republic';
 import { Denmark } from './countries/denmark';
 import { England } from './countries/england';
 import { Finland } from './countries/finland';
-import { France } from './countries/france';
-import { France_Lyon } from './countries/france/archdiocese-of-lyon';
-import { France_Paris } from './countries/france/archdiocese-of-paris';
-import { France_Angers } from './countries/france/diocese-of-angers';
-import { France_Coutances } from './countries/france/diocese-of-coutances';
-import { France_SaintDenis } from './countries/france/diocese-of-saint-denis';
-import { France_Strasbourg } from './countries/france/diocese-of-strasbourg';
+import {
+  France,
+  France_Angers,
+  France_Coutances,
+  France_Lyon,
+  France_Paris,
+  France_SaintDenis,
+  France_Strasbourg,
+} from './countries/france';
 import { Germany } from './countries/germany';
 import { Greece } from './countries/greece';
 import { Guatemala } from './countries/guatemala';

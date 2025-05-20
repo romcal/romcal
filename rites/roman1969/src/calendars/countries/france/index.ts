@@ -5,6 +5,13 @@ import { CalendarDef } from '../../../models/calendar-def';
 import { Inputs, ParticularConfig } from '../../../types/calendar-def';
 import { Europe } from '../../regions/europe';
 
+import { France_Lyon } from './archdiocese-of-lyon';
+import { France_Paris } from './archdiocese-of-paris';
+import { France_Angers } from './diocese-of-angers';
+import { France_Coutances } from './diocese-of-coutances';
+import { France_SaintDenis } from './diocese-of-saint-denis';
+import { France_Strasbourg } from './diocese-of-strasbourg';
+
 export class France extends CalendarDef {
   ParentCalendar = Europe;
 
@@ -132,3 +139,5 @@ export class France extends CalendarDef {
     },
   };
 }
+
+export { France_Lyon, France_Paris, France_Angers, France_Coutances, France_SaintDenis, France_Strasbourg };
