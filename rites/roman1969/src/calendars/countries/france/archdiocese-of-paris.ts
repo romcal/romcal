@@ -1,10 +1,10 @@
-import { PatronTitle, Title } from '../../../../constants/martyrology-metadata';
-import { Precedences } from '../../../../constants/precedences';
-import { CalendarDef } from '../../../../models/calendar-def';
-import { Inputs } from '../../../../types/calendar-def';
-import { France } from '../france';
+import { PatronTitle, Title } from '../../../constants/martyrology-metadata';
+import { Precedences } from '../../../constants/precedences';
+import { CalendarDef } from '../../../models/calendar-def';
+import { Inputs } from '../../../types/calendar-def';
 
-/* eslint-disable @typescript-eslint/naming-convention */
+import { France } from '.';
+
 export class France_Paris extends CalendarDef {
   ParentCalendar = France;
 

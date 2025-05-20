@@ -1,14 +1,15 @@
-import { PatronTitle } from '../../../../constants/martyrology-metadata';
-import { Precedences } from '../../../../constants/precedences';
-import { CalendarDef } from '../../../../models/calendar-def';
-import { Inputs } from '../../../../types/calendar-def';
-import { France } from '../france';
+import { PatronTitle } from '../../../constants/martyrology-metadata';
+import { Precedences } from '../../../constants/precedences';
+import { CalendarDef } from '../../../models/calendar-def';
+import { Inputs } from '../../../types/calendar-def';
+
+import { France } from '.';
 
 // src:
 // - mr_fr_1982_ed2_coutances
 // - https://en.wikipedia.org/wiki/Roman_Catholic_Diocese_of_Coutances
 // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese
-/* eslint-disable @typescript-eslint/naming-convention */
+
 export class France_Coutances extends CalendarDef {
   ParentCalendar = France;
 

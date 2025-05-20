@@ -22,7 +22,7 @@ import {
   RomcalConfigOutput,
 } from '../src';
 import { calendarDefinitions } from '../src/calendars';
-import { GeneralRoman } from '../src/calendars/general-roman/general-roman';
+import { GeneralRoman } from '../src/calendars/general-roman';
 import { Martyrology } from '../src/catalog/martyrology';
 import { PROPER_OF_TIME_NAME } from '../src/constants/general-calendar-names';
 import { locales } from '../src/locales';

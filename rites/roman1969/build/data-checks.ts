@@ -25,7 +25,7 @@ import { merge } from 'ts-deepmerge';
 
 import { Locale } from '../src';
 import { calendarDefinitions } from '../src/calendars';
-import { GeneralRoman } from '../src/calendars/general-roman/general-roman';
+import { GeneralRoman } from '../src/calendars/general-roman';
 import { Martyrology } from '../src/catalog/martyrology';
 import { COLORS } from '../src/constants/colors';
 import { PROPER_CYCLES, PSALTER_WEEKS, SUNDAY_CYCLES, WEEKDAY_CYCLES } from '../src/constants/cycles';
