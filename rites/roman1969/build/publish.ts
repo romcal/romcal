@@ -3,6 +3,7 @@ import path from 'path';
 
 import { npmPublish } from '@jsdevtools/npm-publish';
 import { Results } from '@jsdevtools/npm-publish/lib/results';
+import chalk from 'chalk';
 
 const tag = 'dev';
 const dryRun = process.argv.includes('--dry-run');
@@ -26,7 +27,7 @@ const afterPublish = (data: Results): void => {
 
 (async (): Promise<void> => {
   // Start by publishing the main romcal library
-  log(' - Publishing romcal');
+  log(` - Publishing romcal${dryRun ? chalk.gray(' (dry-run) ') : ''}`);
   const mainData = await npmPublish({
     package: path.join(__dirname, '../../../package.json'),
     access: 'public',
