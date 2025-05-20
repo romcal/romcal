@@ -80,8 +80,8 @@ jobs:
           fi
 
       - name: Install npm dependencies
-        # using -q to silent info outputs
-        run: npm -q --no-progress ci --no-audit
+        # using -q to silent info outputs // tsx doesn't globalize from local deps
+        run: npm -q --no-progress ci --no-audit && npm i -g tsx
 
       - name: Update browsers list (caniuse)
         run: npx browserslist@latest --update-db
