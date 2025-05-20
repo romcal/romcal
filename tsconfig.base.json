@@ -30,5 +30,5 @@
   },
   "exclude": ["node_modules", "rites/roman1969/build/docs/**", "**/*/dist"],
   "include": ["lib/**/*", "tests/**/*", "rites/roman1969/build/**/*", "tmp/bundles/**/*", "tmp/constants/**/*"],
-  "files": ["global.d.ts"],
+  "files": ["global.d.ts"]
 }
