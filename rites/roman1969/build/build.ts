@@ -231,6 +231,7 @@ const buildPipeline = async (): Promise<void> => {
       main: './cjs/index.js',
       exports: {
         '.': {
+          types: './index.d.ts',
           import: './esm/index.js',
           require: './cjs/index.js',
         },
