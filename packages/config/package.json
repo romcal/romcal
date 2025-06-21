@@ -8,7 +8,7 @@
     "prettier": "prettier -c ."
   },
   "devDependencies": {
-    "jest": "^30.0.0",
+    "jest": "^30.0.2",
     "jest-extended": "^6.0.0"
   },
   "license": "MIT"

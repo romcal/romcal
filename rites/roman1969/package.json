@@ -40,7 +40,7 @@
     "@jsdevtools/rehype-url-inspector": "^2.0.2",
     "@types/cli-progress": "^3.11.6",
     "@types/humanize-duration": "^3.27.4",
-    "@types/jest": "^29.5.13",
+    "@types/jest": "^30.0.0",
     "@types/node": "~24.0.3",
     "chalk": "^4.1.2",
     "cli-progress": "^3.12.0",
