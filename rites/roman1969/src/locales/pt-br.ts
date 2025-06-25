@@ -497,7 +497,8 @@ export const locale: Locale = {
     sunday_of_the_word_of_god: '3º Domingo do Tempo Comum, ou Domingo da Palavra de Deus',
     sylvester_i_pope: 'São Silvestre I, papa',
     teresa_benedicta_of_the_cross_stein_virgin: 'Santa Teresa Benedita da Cruz, virgem e mártir',
-    teresa_of_jesus_of_avila_virgin: 'São João de Ávila, presbítero e doutor da Igreja',
+    // src: https://www.cnbb.org.br/liturgia-diaria/ 15-Oct-2025 (Retrieved 24-Jun-2025)
+    teresa_of_jesus_of_avila_virgin: 'Santa Teresa de Jesus, virgem e doutora da Igreja',
     teresa_of_portugal_religious: 'Beata Teresa de Portugal, religiosa',
     theotonius_of_coimbra_priest: 'Santo Teotónio, presbítero',
     therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin:
