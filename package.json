@@ -1,6 +1,6 @@
 {
   "name": "romcal",
-  "version": "3.0.0-dev.107",
+  "version": "3.0.0-dev.108",
   "description": "JavaScript library that generates liturgical calendars of the Roman Rite of the Roman Catholic Church.",
   "keywords": [
     "roman",
@@ -48,8 +48,8 @@
   "module": "rites/roman1969/dist/esm/romcal.js",
   "typings": "rites/roman1969/dist/index.d.ts",
   "workspaces": [
-    "rites/*",
-    "packages/*"
+    "packages/*",
+    "rites/*"
   ],
   "scripts": {
     "prebuild": "npm run clean",
