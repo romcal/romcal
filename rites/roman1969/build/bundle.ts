@@ -157,6 +157,11 @@ export const RomcalBundler = (): void => {
         .map((def) => def.i18nDef[0].substr(6))
         .reduce((obj: LocaleLiturgicalDayNames, id: string) => {
           const update: LocaleLiturgicalDayNames = { ...obj };
+          if (locales.En && !Object.prototype.hasOwnProperty.call(locales.En.names, id)) {
+            throw new Error(
+              `Locale ID 'names:${id}' is missing in the locale 'en'. Ensure the value is included in rites/roman1969/src/locales/en.ts.`
+            );
+          }
           if (locale.names && Object.prototype.hasOwnProperty.call(locale.names, id)) {
             update[id] = locale.names[id];
           } else if (locales.En.names && Object.prototype.hasOwnProperty.call(locales.En.names, id)) {
