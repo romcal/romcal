@@ -1235,6 +1235,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Abbot],
       dateOfDeath: 558,
     },
+    // https://www.causesanti.va/it/santi-e-beati/dulce-lopes-pontes.html
+    dulce_lopes_pontes_virgin: {
+      canonizationLevel: CanonizationLevels.Saint,
+      dateOfBeatification: '2011-05-22',
+      dateOfCanonization: '2019-10-13',
+      name: 'Dulce Lopes Pontes',
+      titles: [Title.Virgin],
+      dateOfBirth: '1914-05-26',
+      dateOfDeath: '1992-03-13',
+      sex: 'FEMALE',
+    },
     dunstan_of_canterbury_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Dunstan',

@@ -396,6 +396,7 @@ export const locale: Locale = {
     divine_mercy_sunday: 'Second Sunday of Easter or Sunday of Divine Mercy',
     dominic_de_guzman_priest: 'Saint Dominic, Priest',
     dominic_of_the_mother_of_god_barberi_priest: 'Blessed Dominic of the Mother of God Barberi, Priest',
+    dulce_lopes_pontes_virgin: 'Saint Dulce of the Poor, Virgin',
     dunstan_of_canterbury_bishop: 'Saint Dunstan, Bishop',
     dyfrig_of_wales_bishop: 'Saint Dyfrig, Bishop',
     easter_sunday: 'Easter Sunday of the Resurrection of the Lord',
