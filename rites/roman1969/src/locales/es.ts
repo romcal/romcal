@@ -448,7 +448,7 @@ export const locale: Locale = {
     marie_eugenie_of_jesus_milleret_de_brou_virgin:
       'Santa María Eugenia de Jesús Milleret de Brou, virgen y Fundatrice',
     mark_evangelist: 'San Marcos, evangelista',
-    martha_of_bethany_mary_of_bethany_and_lazarus_of_bethany: 'Santa Marta, María y Lázaro',
+    martha_of_bethany_mary_of_bethany_and_lazarus_of_bethany: 'Santos Marta, María y Lázaro', // src: https://liturgiapapal.org/attachments/article/1093/PROPIO%20DE%20LOS%20SANTOS.pdf#page=9
     martin_de_porres_religious: 'San Martín de Porres, religioso',
     martin_i_pope: 'San Martín I, papa y mártir',
     martin_of_tours_bishop: 'San Martín de Tours, obispo',
