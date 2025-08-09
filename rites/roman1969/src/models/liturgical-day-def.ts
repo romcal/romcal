@@ -127,7 +127,7 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
 
     if (input.dateDef) {
       this.dateDef = input.dateDef;
-    } else if (previousDef && previousDef.dateDef) {
+    } else if (previousDef?.dateDef) {
       this.dateDef = previousDef.dateDef;
     } else {
       throw new Error(`In the '${fromCalendarId}' calendar, the property 'dateDef' for '${id}' must be defined.`);
