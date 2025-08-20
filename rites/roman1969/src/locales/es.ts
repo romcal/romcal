@@ -231,7 +231,7 @@ export const locale: Locale = {
      * based on: https://liturgiapapal.org/attachments/article/1093/PROPIO%20DE%20LOS%20SANTOS.pdf#page=9
      */
     benedict_of_nursia_abbot_patron_of_europe: 'San Benito, abad, patrono de Europa',
-    bernard_of_clairvaux_abbot: 'San Bernardo de Clairvaux, Abad y doctor de la Iglesia',
+    bernard_of_clairvaux_abbot: 'San Bernardo, abad y doctor de la Iglesia', // src: https://liturgiapapal.org/attachments/article/1093/PROPIO%20DE%20LOS%20SANTOS.pdf#page=10
     bernardine_of_siena_priest: 'San Bernardino de Siena, presbítero',
     beuno_of_wales_abbot: 'San Beuno, Abad',
     blaise_of_sebaste_bishop: 'San Blás, obispo y mártir',
