@@ -1,6 +1,6 @@
-import { CanonizationLevel, Sex } from '../constants/martyrology-metadata';
+import type { CanonizationLevel, Sex } from '../constants/martyrology-metadata';
 
-import { RomcalTitles } from './liturgical-day';
+import type { RomcalTitles } from './liturgical-day';
 
 export type MartyrologyDef = {
   /**
@@ -15,10 +15,22 @@ export type MartyrologyDef = {
   dateOfCanonization?: SaintDateDef;
 
   /**
+   * Specify whether an approximate indicator should be added, when the date is displayed.
+   * For example in English: 'c. 201'.
+   */
+  dateOfCanonizationIsApproximative?: boolean;
+
+  /**
    * Date of Beatification, as a Number (year), a String (in 'YYYY-MM' or 'YYYY-MM-DD' format),
    * or an object describing date range, multiple possible date, or a century.
    */
   dateOfBeatification?: SaintDateDef;
+
+  /**
+   * Specify whether an approximate indicator should be added, when the date is displayed.
+   * For example in English: 'c. 201'.
+   */
+  dateOfBeatificationIsApproximative?: boolean;
 
   /**
    * Specify if the canonization level should not be displayed.
