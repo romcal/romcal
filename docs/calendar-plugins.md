@@ -18,7 +18,9 @@ Below the list of all available calendar plugins:
 
 | Name                 | NPM Package name                          |
 | -------------------- | ----------------------------------------- |
+| Africa               | `@romcal/calendar.africa@dev`             |
 | Americas             | `@romcal/calendar.americas@dev`           |
+| Asia                 | `@romcal/calendar.asia@dev`               |
 | Argentina            | `@romcal/calendar.argentina@dev`          |
 | Australia            | `@romcal/calendar.australia@dev`          |
 | Austria              | `@romcal/calendar.austria@dev`            |
@@ -43,6 +45,7 @@ Below the list of all available calendar plugins:
 | France / Paris       | `@romcal/calendar.france.paris@dev`       |
 | France / Saint Denis | `@romcal/calendar.france.saint-denis@dev` |
 | France / Strasbourg  | `@romcal/calendar.france.strasbourg@dev`  |
+| France / Toulouse    | `@romcal/calendar.france.toulouse@dev`    |
 | General Roman        | `@romcal/calendar.general-roman@dev`      |
 | Germany              | `@romcal/calendar.germany@dev`            |
 | Greece               | `@romcal/calendar.greece@dev`             |
@@ -68,6 +71,8 @@ Below the list of all available calendar plugins:
 | Puerto Rico          | `@romcal/calendar.puerto-rico@dev`        |
 | Romania              | `@romcal/calendar.romania@dev`            |
 | Russia               | `@romcal/calendar.russia@dev`             |
+| Asian Russia         | `@romcal/calendar.asian-russia@dev`       |
+| European Russia      | `@romcal/calendar.european-russia@dev`    |
 | Scotland             | `@romcal/calendar.scotland@dev`           |
 | Slovakia             | `@romcal/calendar.slovakia@dev`           |
 | Slovenia             | `@romcal/calendar.slovenia@dev`           |

@@ -1,4 +1,4 @@
-import { CalendarDef } from '../models/calendar-def';
+import type { CalendarDef } from '../models/calendar-def';
 
 import { Argentina } from './countries/argentina';
 import { Australia } from './countries/australia';
@@ -24,6 +24,7 @@ import {
   France_Paris,
   France_SaintDenis,
   France_Strasbourg,
+  France_Toulouse,
 } from './countries/france';
 import { Germany } from './countries/germany';
 import { Greece } from './countries/greece';
@@ -96,6 +97,7 @@ export const calendarDefinitions: Record<string, typeof CalendarDef> = {
   France_Paris,
   France_SaintDenis,
   France_Strasbourg,
+  France_Toulouse,
   GeneralRoman,
   Germany,
   Greece,

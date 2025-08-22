@@ -10,5 +10,8 @@
   },
   "eslint.format.enable": false, // let prettier do it, it is faster and safer
   // Jest extension settings
-  "jest.runMode": "on-demand"
+  "jest.runMode": "on-demand",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

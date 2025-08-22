@@ -1,4 +1,4 @@
-import { Locale } from '../types/locale';
+import type { Locale } from '../types/locale';
 
 export const locale: Locale = {
   id: 'en',
@@ -237,6 +237,7 @@ export const locale: Locale = {
     athanasius_of_alexandria_bishop: 'Saint Athanasius, Bishop and Doctor of the Church',
     attracta_of_killaraght_virgin: 'Saint Attracta, Virgin',
     aubert_of_avranches_bishop: 'Saint Aubert, Bishop',
+    aventin_of_larboust_martyr: 'Saint Aventin of Larboust, Martyr',
     audoen_of_rouen_bishop: 'Saint Audoen, Bishop',
     audomar_of_therouanne_bishop: 'Saint Audomar, Bishop',
     augustine_kazotic_bishop: 'Blessed Augustine Kažotić, Bishop and Martyr',
@@ -265,6 +266,7 @@ export const locale: Locale = {
     bernadette_soubirous_virgin: 'Saint Bernadette Soubirous, Virgin',
     bernard_of_clairvaux_abbot: 'Saint Bernard, Abbot and Doctor of the Church',
     bernardine_of_siena_priest: 'Saint Bernardine of Siena, Priest',
+    bertrand_of_comminges_bishop: 'Saint Bertrand of Comminges, Bishop',
     beuno_of_wales_abbot: 'Saint Beuno, Abbot',
     blaise_of_sebaste_bishop: 'Saint Blaise, Bishop and Martyr',
     blessed_martyrs_of_angers: 'Blessed Martyrs of Angers', // mr_fr_2022_ed3_angers
@@ -380,6 +382,8 @@ export const locale: Locale = {
       'The Dedication of the Cathedral of Saint John the Baptist, Lyon',
     dedication_of_the_cathedral_of_saint_maurice_of_agaunum_angers_france:
       'The Dedication of the Cathedral Saint Maurice of Angers, France', // mr_fr_2022_ed3_angers
+    dedication_of_the_cathedral_of_saint_stephen_of_toulouse_france:
+      'The Dedication of the Cathedral of Saint Stephen of Toulouse, France',
     dedication_of_the_lateran_basilica: 'The Dedication of the Lateran Basilica',
     dedication_of_the_notre_dame_de_paris_cathedral_paris_france:
       'The Dedication of the Notre-Dame de Paris Cathedral, Paris',
@@ -419,6 +423,7 @@ export const locale: Locale = {
     epiphany_of_the_lord: 'The Epiphany of the Lord',
     epipodius_of_lyon_and_alexander_of_lyon_martyrs: 'Saints Epipodius and Alexander, Martyrs',
     eric_ix_of_sweden_martyr: 'Saint Eric IX of Sweden, Martyr',
+    erembert_of_toulouse_bishop: 'Saint Erembert of Toulouse, Bishop',
     etheldreda_of_ely_abbess: 'Saint Etheldreda, Abbess',
     eucherius_of_lyon_bishop: 'Saint Eucherius, Bishop',
     eucharius_of_trier_bishop: 'Saint Eucharius, Bishop',
@@ -429,6 +434,7 @@ export const locale: Locale = {
     eusebius_of_esztergom_priest: 'Blessed Eusebius of Esztergom, Priest',
     eusebius_of_vercelli_bishop: 'Saint Eusebius of Vercelli, Bishop',
     exaltation_of_the_holy_cross: 'The Exaltation of the Holy Cross',
+    exuperius_of_toulouse_bishop: 'Saint Exuperius of Toulouse, Bishop',
     eysteinn_of_nidaros_bishop: 'Saint Eysteinn of Nidaros, Bishop',
     ezequiel_moreno_bishop: 'Saint Ezequiel Moreno, Bishop',
     fabian_i_pope: 'Saint Fabian, Pope and Martyr',
@@ -487,6 +493,7 @@ export const locale: Locale = {
     george_preca_priest: 'Saint George Preca, Priest',
     gerard_of_csanad_bishop: 'Saint Gerard of Csanád, Bishop and Martyr',
     germain_of_paris_bishop: 'Saint Germain of Paris, Bishop',
+    germaine_cousin_virgin: 'Saint Germaine Cousin, Virgin',
     germanus_of_auxerre_bishop: 'Saint Germanus of Auxerre, Bishop',
     germanus_of_normandy_bishop: 'Saint Germanus of Normandy, Bishop and Martyr',
     gertrude_of_nivelles_abbess: 'Saint Gertrude of Nivelles, Abbess',
@@ -518,6 +525,8 @@ export const locale: Locale = {
     henry_suso_priest: 'Blessed Henry Suso, Priest',
     hermann_joseph_of_steinfeld_priest: 'Saint Hermann Joseph, Priest',
     hermenegild_the_visigoths_martyr: 'Saint Hermenegild, Martyr',
+    hilarius_of_toulouse_bishop: 'Saint Hilary of Toulouse, Bishop',
+    hilarius_of_toulouse_bishop_and_sylvius_of_toulouse_bishops: 'Saints Hilary and Sylvius of Toulouse, Bishops',
     hilary_of_poitiers_bishop: 'Saint Hilary, Bishop and Doctor of the Church',
     hilda_of_whitby_abbess: 'Saint Hilda, Abbess',
     hildegard_of_bingen_abbess: 'Saint Hildegard of Bingen, Abbess and Doctor of the Church',
@@ -691,6 +700,7 @@ export const locale: Locale = {
     licinius_of_angers_bishop: 'Saint Licinius of Angers, Bishop', // mr_fr_2022_ed3_angers
     louis_bertrand_priest: 'Saint Louis Bertrand, Priest',
     louis_grignion_de_montfort_priest: 'Saint Louis Grignion de Montfort, Priest',
+    louis_of_toulouse_bishop: 'Saint Louis of Toulouse, Bishop',
     louis_ix_of_france: 'Saint Louis',
     louis_zephirin_moreau_bishop: 'Blessed Louis-Zéphirin Moreau, Bishop',
     louise_de_marillac_religious: 'Saint Louise de Marillac, Religious',
@@ -901,6 +911,7 @@ export const locale: Locale = {
     paul_of_the_cross_priest: 'Saint Paul of the Cross, Priest',
     paul_of_thebes_hermit: 'Blessed Paul of Thebes, Hermit',
     paul_vi_pope: 'Saint Paul VI, Pope',
+    paul_of_narbonne_bishop: 'Saint Paul of Narbonne, Bishop',
     paulina_of_the_agonizing_heart_of_jesus_visintainer_virgin:
       'Saint Paulina of the Agonizing Heart of Jesus Visintainer, Virgin',
     paulinus_of_nola_bishop: 'Saint Paulinus of Nola, Bishop',
@@ -925,6 +936,7 @@ export const locale: Locale = {
     peter_julian_eymard_priest: 'Saint Peter Julian Eymard, Priest',
     peter_kibe_priest_and_companions_martyrs: 'Blessed Peter Kibe, Priest, and Companions, Martyrs',
     peter_liu_wenyuan_martyr: 'Saint Peter Liu Wenyuan, Martyr',
+    peter_nolasco_religious: 'Saint Peter Nolasco, Religious',
     peter_of_alcantara_priest: 'Saint Peter of Alcántara, Priest',
     peter_sanz_bishop: 'Saint Peter Sanz, Bishop and Martyr',
     peter_to_rot_martyr: 'Blessed Peter To Rot, Martyr',
@@ -960,6 +972,9 @@ export const locale: Locale = {
     raphael_guizar_y_valencia_bishop: 'Saint Raphael Guízar y Valencia, Bishop',
     raphael_of_saint_joseph_kalinowski_priest: 'Saint Raphael of Saint Joseph Kalinowski, Priest',
     raymond_of_penyafort_priest: 'Saint Raymond of Penyafort, Priest',
+    raymond_costeran_and_companions_martyrs: 'Blessed Raymond Costeran and Companions, Martyrs',
+    raymond_costeran_martyr: 'Blessed Raymond Costeran, Martyr',
+    raymond_gayrard_religious: 'Saint Raymond Gayrard, Religious',
     remigius_of_reims_bishop: 'Saint Remigius, Bishop',
     rene_goupil_religious: 'Saint René Goupil, Religious and Martyr', // mr_fr_2022_ed3_angers
     richard_gwyn_martyr: 'Saint Richard Gwyn, Martyr',
@@ -980,6 +995,7 @@ export const locale: Locale = {
     salomea_of_poland_religious: 'Blessed Salomea of Poland, Religious',
     sancha_of_portugal_and_mafalda_of_portugal_virgins: 'Blessed Sancha and Mafalda, Virgins',
     sara_salkahazi_virgin: 'Blessed Sára Salkaházi, Virgin and Martyr',
+    saturnin_of_toulouse_bishop: 'Saint Saturnin of Toulouse, Bishop and Martyr',
     scholastica_of_nursia_virgin: 'Saint Scholastica, Virgin',
     sebastian_de_aparicio_religious: 'Blessed Sebastian de Aparicio, Religious',
     sebastian_of_milan_martyr: 'Saint Sebastian, Martyr',
@@ -1005,10 +1021,13 @@ export const locale: Locale = {
     stanislaus_of_szczepanow_bishop_patron_of_poland: 'Saint Stanislaus, Bishop and Martyr, Patron of Poland',
     stephen_i_of_hungary: 'Saint Stephen of Hungary',
     stephen_the_first_martyr: 'Saint Stephen, the First Martyr',
+    stephen_the_first_martyr_and_principal_patron_of_the_archdiocese_of_toulouse:
+      'Saint Stephen, the First Martyr, Principal Patron of the Archdiocese of Toulouse',
     sunday_of_the_word_of_god: 'Third Sunday in Ordinary Time, or Sunday of the Word of God',
     sunniva_of_norway_virgin: 'Saint Sunniva, Virgin and Martyr',
     swithun_of_winchester_bishop: 'Saint Swithun, Bishop',
     sylvester_i_pope: 'Saint Sylvester I, Pope',
+    sylvius_of_toulouse_bishop: 'Saint Sylvius of Toulouse, Bishop',
     szilard_bogdanffy_bishop: 'Blessed Szilárd Bogdánffy, Bishop and Martyr',
     teilo_of_llandaff_bishop: 'Saint Teilo, Bishop',
     teresa_benedicta_of_the_cross_stein_virgin: 'Saint Teresa Benedicta of the Cross Stein, Virgin and Martyr',
@@ -1047,6 +1066,8 @@ export const locale: Locale = {
     turibius_of_mogrovejo_bishop: 'Saint Turibius of Mogrovejo, Bishop',
     ulrich_of_augsburg_bishop: 'Saint Ulrich of Augsburg, Bishop',
     urban_i_pope: 'Saint Urban I, Pope',
+    urban_ii_pope: 'Blessed Urban II, Pope',
+    urban_v_pope: 'Blessed Urban V, Pope',
     ursula_of_cologne_and_companions_virgins: 'Saint Ursula and Companions, Virgins and Martyrs',
     valentine_of_raetia_bishop: 'Saint Valentine of Raetia, Bishop',
     valerius_of_trier_bishop: 'Saint Valerius, Bishop',

@@ -1,5 +1,5 @@
-import { ScreamingSnakeCase } from '../types/common';
-import { RomcalTitles } from '../types/liturgical-day';
+import type { ScreamingSnakeCase } from '../types/common';
+import type { RomcalTitles } from '../types/liturgical-day';
 import { toScreamingSnakeCase } from '../utils/string';
 
 /**
@@ -108,6 +108,7 @@ export enum PatronTitle {
   PatronOfTheClergyOfTheArchdioceseOfLyon = 'PATRON_OF_THE_CLERGY_OF_THE_ARCHDIOCESE_OF_LYON',
   PatronOfTheCityOfLyon = 'PATRON_OF_THE_CITY_OF_LYON',
   PatronessOfCostaRica = 'PATRONESS_OF_COSTA_RICA',
+  PrincipalPatronOfTheDiocese = 'PRINCIPAL_PATRON_OF_THE_DIOCESE',
   SecondPatronOfTheDiocese = 'SECOND_PATRON_OF_THE_DIOCESE',
 }
 

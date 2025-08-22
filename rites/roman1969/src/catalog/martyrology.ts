@@ -1,5 +1,5 @@
 import { CanonizationLevels, Title } from '../constants/martyrology-metadata';
-import { MartyrologyCatalog } from '../types/martyrology';
+import type { MartyrologyCatalog } from '../types/martyrology';
 
 export const Martyrology: { catalog: MartyrologyCatalog } = {
   catalog: {
@@ -580,6 +580,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Aurelia',
       titles: [Title.Virgin],
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://en.wikipedia.org/wiki/Aventin
+    aventin_of_larboust_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Aventin',
+      titles: [Title.Martyr],
+      dateOfDeath: { century: 8 },
+    },
     // src: mr_fr_2014_ed2_lyon
     baldomerus_of_lyon_religious: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -679,6 +688,20 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Bernardine of Siena',
       titles: [Title.Priest],
       dateOfDeath: 1444,
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://en.wikipedia.org/wiki/Bertrand_of_Comminges
+    bertrand_of_comminges_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Bertrand of Comminges',
+      titles: [Title.Bishop],
+      dateOfBirth: 1050,
+      dateOfBirthIsApproximative: true,
+      dateOfDeath: 1126,
+      dateOfBeatification: 1220,
+      dateOfBeatificationIsApproximative: true,
+      dateOfCanonization: 1309,
     },
     beuno_of_wales_abbot: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -1178,6 +1201,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     dedication_of_the_cathedral_of_saint_maurice_of_agaunum_angers_france: {
       dateOfDedication: 1096,
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://en.wikipedia.org/wiki/Toulouse_Cathedral
+    dedication_of_the_cathedral_of_saint_stephen_of_toulouse_france: {
+      dateOfDedication: '1592-08-30',
+    },
     dedication_of_the_lateran_basilica: {
       name: 'Dedication of the Lateran Basilica',
     },
@@ -1346,6 +1375,18 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: 178,
       titles: [Title.Martyr],
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://en.wikipedia.org/wiki/Erembert_of_Toulouse
+    erembert_of_toulouse_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Erembert',
+      titles: [Title.Bishop],
+      dateOfBirth: 615,
+      dateOfBirthIsApproximative: true,
+      dateOfDeath: 672,
+      dateOfDeathIsApproximative: true,
+    },
     eric_ix_of_sweden_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Eric IX of Sweden',
@@ -1416,6 +1457,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     },
     exaltation_of_the_holy_cross: {
       name: 'The Exaltation of the Holy Cross',
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://en.wikipedia.org/wiki/Exuperius
+    exuperius_of_toulouse_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Exuperius',
+      titles: [Title.Bishop],
+      dateOfDeath: 410,
+      dateOfDeathIsApproximative: true,
     },
     eysteinn_of_nidaros_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -1748,6 +1799,18 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Bishop],
       dateOfDeath: 576,
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://en.wikipedia.org/wiki/Germaine_Cousin
+    germaine_cousin_virgin: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Germaine Cousin',
+      titles: [Title.Virgin],
+      dateOfBirth: 1579,
+      dateOfDeath: 1601,
+      dateOfBeatification: '1854-05-07',
+      dateOfCanonization: '1867-06-29',
+    },
     germanus_of_auxerre_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Germanus of Auxerre',
@@ -1931,6 +1994,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Hermenegild',
       titles: [Title.Martyr],
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://en.wikipedia.org/wiki/Roman_Catholic_Archdiocese_of_Toulouse
+    hilarius_of_toulouse_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Hilarius',
+      titles: [Title.Bishop],
+      dateOfDeath: 360,
+      dateOfDeathIsApproximative: true,
     },
     hilary_of_poitiers_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -2366,13 +2439,18 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Bishop, Title.Martyr],
       dateOfDeath: '1535-06-22',
     },
-    // src: mr_fr_2014_ed2_lyon
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - mr_fr_2014_ed2_lyon
+    // - https://en.wikipedia.org/wiki/John_Francis_Regis
     john_francis_regis_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'John Francis Regis',
       titles: [Title.Priest, Title.Missionary],
-      dateOfBirth: 1597,
+      dateOfBirth: '1597-01-31',
       dateOfDeath: '1640-12-31',
+      dateOfBeatification: '1716-05-18',
+      dateOfCanonization: '1737-04-05',
     },
     john_gabriel_perboyre_priest: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -2861,6 +2939,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Louis',
       titles: [Title.King],
       dateOfDeath: 1270,
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://en.wikipedia.org/wiki/Louis_of_Toulouse
+    louis_of_toulouse_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Louis of Toulouse',
+      titles: [Title.Bishop],
+      dateOfBirth: '1274-02-09',
+      dateOfDeath: '1297-08-19',
+      dateOfCanonization: '1317-04-07',
     },
     louis_zephirin_moreau_bishop: {
       canonizationLevel: CanonizationLevels.Blessed,
@@ -3846,6 +3935,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Martyr],
       dateOfDeath: 1597,
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://en.wikipedia.org/wiki/Paul_of_Narbonne
+    paul_of_narbonne_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Paul of Narbonne',
+      titles: [Title.Bishop],
+      dateOfDeath: { century: 3 },
+    },
     paul_of_the_cross_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Paul of the Cross',
@@ -3984,6 +4082,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Peter Liu Wenyuan',
       titles: [Title.Martyr],
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://en.wikipedia.org/wiki/Peter_Nolasco
+    peter_nolasco_religious: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Peter Nolasco',
+      titles: [Title.Religious],
+      dateOfBirth: 1189,
+      dateOfDeath: '1256-05-06',
+      dateOfCanonization: '1628-09-30',
     },
     peter_of_alcantara_priest: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -4149,11 +4258,27 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Raphael of Saint Joseph Kalinowski',
       titles: [Title.Priest],
     },
+    // src: mr_fr_1974_ed1_region_apostolique_du_midi
+    raymond_costeran_martyr: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Raymond Costeran',
+      titles: [Title.Martyr],
+      dateOfDeath: '1242-05-29',
+    },
     raymond_of_penyafort_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Raymond of Penyafort',
       titles: [Title.Priest],
       dateOfDeath: 1275,
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://en.wikipedia.org/wiki/Raymond_of_Toulouse_(saint)
+    raymond_gayrard_religious: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Raymond Gayrard',
+      titles: [Title.Religious],
+      dateOfDeath: '1118-07-03',
     },
     remigius_of_reims_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -4267,6 +4392,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Sára Salkaházi',
       titles: [Title.Virgin, Title.Martyr],
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://en.wikipedia.org/wiki/Saturnin
+    saturnin_of_toulouse_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Saturnin',
+      titles: [Title.Bishop, Title.Martyr],
+      dateOfBirth: { century: 3 },
+      dateOfDeath: 257,
+      dateOfDeathIsApproximative: true,
     },
     scholastica_of_nursia_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -4408,6 +4544,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Stephen Pongrácz',
       titles: [Title.Priest, Title.Martyr],
     },
+    // src: https://en.wikipedia.org/wiki/Stephen_of_Toulouse
     stephen_the_first_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Stephen',
@@ -4432,6 +4569,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Sylvester I',
       titles: [Title.Pope],
       dateOfDeath: 335,
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://en.wikipedia.org/wiki/Sylvius_of_Toulouse
+    sylvius_of_toulouse_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Sylvius',
+      titles: [Title.Bishop],
+      dateOfDeath: 400,
+      dateOfDeathIsApproximative: true,
     },
     szilard_bogdanffy_bishop: {
       canonizationLevel: CanonizationLevels.Blessed,
@@ -4514,11 +4661,18 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Thomas',
       titles: [Title.Apostle],
     },
+    // src:
+    // - mr_fr_2021_ed3
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://en.wikipedia.org/wiki/Thomas_Aquinas
     thomas_aquinas_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Thomas Aquinas',
       titles: [Title.Priest, Title.DoctorOfTheChurch],
-      dateOfDeath: 1274,
+      dateOfBirth: 1225,
+      dateOfBirthIsApproximative: true,
+      dateOfDeath: '1274-03-07',
+      dateOfCanonization: '1323-07-19',
     },
     // src:
     // - mr_fr_1982_ed2_coutances
@@ -4619,6 +4773,28 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: {
         century: 3,
       },
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://en.wikipedia.org/wiki/Pope_Urban_II
+    urban_ii_pope: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Urban II',
+      titles: [Title.Pope],
+      dateOfBirth: 1035,
+      dateOfBirthIsApproximative: true,
+      dateOfDeath: '1099-07-29',
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://en.wikipedia.org/wiki/Pope_Urban_V
+    urban_v_pope: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Urban V',
+      titles: [Title.Pope],
+      dateOfBirth: 1310,
+      dateOfDeath: '1370-12-19',
+      dateOfBeatification: '1870-05-10',
     },
     ursula_of_cologne_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
