@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Testing calendar snapshots General Roman Calendar in gregorian year 1`] = `
 {
@@ -24755,6 +24755,118 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 1`]
         "ORDINARY_TIME",
       ],
       "titles": [],
+    },
+    LiturgicalDay {
+      "allowSimilarRankItems": false,
+      "alternativeTransferDateDefs": [],
+      "calendar": {
+        "dayOfSeason": 141,
+        "dayOfWeek": 6,
+        "endOfLiturgicalYear": "2020-11-28",
+        "endOfSeason": "2020-11-28",
+        "nthDayOfWeekInMonth": 1,
+        "seasons": [
+          "ORDINARY_TIME",
+        ],
+        "startOfLiturgicalYear": "2019-12-01",
+        "startOfSeason": "2020-01-13",
+        "weekOfSeason": 22,
+      },
+      "colors": [
+        "WHITE",
+      ],
+      "commonsDef": [
+        "Virgins",
+      ],
+      "cycles": CyclesMetadata {
+        "properCycle": "PROPER_OF_SAINTS",
+        "psalterWeek": "WEEK_2",
+        "sundayCycle": "YEAR_A",
+        "weekdayCycle": "YEAR_2",
+      },
+      "date": "2020-09-05",
+      "dateDef": {
+        "date": 5,
+        "month": 9,
+      },
+      "dateExceptions": [],
+      "fromCalendarId": "general_roman",
+      "fromExtendedCalendars": [],
+      "i18nDef": [
+        "names:teresa_of_calcutta_virgin",
+      ],
+      "id": "teresa_of_calcutta_virgin",
+      "isHolyDayOfObligation": false,
+      "isOptional": true,
+      "martyrology": [],
+      "periods": [
+        "LATE_ORDINARY_TIME",
+      ],
+      "precedence": "OPTIONAL_MEMORIAL_12",
+      "rank": "OPTIONAL_MEMORIAL",
+      "seasons": [
+        "ORDINARY_TIME",
+      ],
+      "titles": [],
+      "weekday": LiturgicalDay {
+        "allowSimilarRankItems": false,
+        "alternativeTransferDateDefs": [],
+        "calendar": {
+          "dayOfSeason": 141,
+          "dayOfWeek": 6,
+          "endOfLiturgicalYear": "2020-11-28",
+          "endOfSeason": "2020-11-28",
+          "nthDayOfWeekInMonth": 1,
+          "seasons": [
+            "ORDINARY_TIME",
+          ],
+          "startOfLiturgicalYear": "2019-12-01",
+          "startOfSeason": "2020-01-13",
+          "weekOfSeason": 22,
+        },
+        "colors": [
+          "GREEN",
+        ],
+        "commonsDef": [],
+        "cycles": CyclesMetadata {
+          "properCycle": "PROPER_OF_TIME",
+          "psalterWeek": "WEEK_2",
+          "sundayCycle": "YEAR_A",
+          "weekdayCycle": "YEAR_2",
+        },
+        "date": "2020-09-05",
+        "dateDef": {
+          "dateArgs": [
+            6,
+            22,
+          ],
+          "dateFn": "dateOfOrdinaryTime",
+          "yearOffset": 0,
+        },
+        "dateExceptions": [],
+        "fromCalendarId": "ProperOfTime",
+        "fromExtendedCalendars": [],
+        "i18nDef": [
+          "seasons:ordinary_time.weekday",
+          {
+            "dow": 6,
+            "week": 22,
+          },
+        ],
+        "id": "ordinary_time_22_saturday",
+        "isHolyDayOfObligation": false,
+        "isOptional": false,
+        "martyrology": [],
+        "periods": [
+          "LATE_ORDINARY_TIME",
+        ],
+        "precedence": "WEEKDAY_13",
+        "rank": "WEEKDAY",
+        "seasons": [
+          "ORDINARY_TIME",
+        ],
+        "titles": [],
+      },
     },
   ],
   "2020-09-06": [
@@ -98968,6 +99080,118 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 3`]
       ],
       "titles": [],
     },
+    LiturgicalDay {
+      "allowSimilarRankItems": false,
+      "alternativeTransferDateDefs": [],
+      "calendar": {
+        "dayOfSeason": 143,
+        "dayOfWeek": 1,
+        "endOfLiturgicalYear": "2022-11-26",
+        "endOfSeason": "2022-11-26",
+        "nthDayOfWeekInMonth": 1,
+        "seasons": [
+          "ORDINARY_TIME",
+        ],
+        "startOfLiturgicalYear": "2021-11-28",
+        "startOfSeason": "2022-01-10",
+        "weekOfSeason": 23,
+      },
+      "colors": [
+        "WHITE",
+      ],
+      "commonsDef": [
+        "Virgins",
+      ],
+      "cycles": CyclesMetadata {
+        "properCycle": "PROPER_OF_SAINTS",
+        "psalterWeek": "WEEK_3",
+        "sundayCycle": "YEAR_C",
+        "weekdayCycle": "YEAR_2",
+      },
+      "date": "2022-09-05",
+      "dateDef": {
+        "date": 5,
+        "month": 9,
+      },
+      "dateExceptions": [],
+      "fromCalendarId": "general_roman",
+      "fromExtendedCalendars": [],
+      "i18nDef": [
+        "names:teresa_of_calcutta_virgin",
+      ],
+      "id": "teresa_of_calcutta_virgin",
+      "isHolyDayOfObligation": false,
+      "isOptional": true,
+      "martyrology": [],
+      "periods": [
+        "LATE_ORDINARY_TIME",
+      ],
+      "precedence": "OPTIONAL_MEMORIAL_12",
+      "rank": "OPTIONAL_MEMORIAL",
+      "seasons": [
+        "ORDINARY_TIME",
+      ],
+      "titles": [],
+      "weekday": LiturgicalDay {
+        "allowSimilarRankItems": false,
+        "alternativeTransferDateDefs": [],
+        "calendar": {
+          "dayOfSeason": 143,
+          "dayOfWeek": 1,
+          "endOfLiturgicalYear": "2022-11-26",
+          "endOfSeason": "2022-11-26",
+          "nthDayOfWeekInMonth": 1,
+          "seasons": [
+            "ORDINARY_TIME",
+          ],
+          "startOfLiturgicalYear": "2021-11-28",
+          "startOfSeason": "2022-01-10",
+          "weekOfSeason": 23,
+        },
+        "colors": [
+          "GREEN",
+        ],
+        "commonsDef": [],
+        "cycles": CyclesMetadata {
+          "properCycle": "PROPER_OF_TIME",
+          "psalterWeek": "WEEK_3",
+          "sundayCycle": "YEAR_C",
+          "weekdayCycle": "YEAR_2",
+        },
+        "date": "2022-09-05",
+        "dateDef": {
+          "dateArgs": [
+            1,
+            23,
+          ],
+          "dateFn": "dateOfOrdinaryTime",
+          "yearOffset": 0,
+        },
+        "dateExceptions": [],
+        "fromCalendarId": "ProperOfTime",
+        "fromExtendedCalendars": [],
+        "i18nDef": [
+          "seasons:ordinary_time.weekday",
+          {
+            "dow": 1,
+            "week": 23,
+          },
+        ],
+        "id": "ordinary_time_23_monday",
+        "isHolyDayOfObligation": false,
+        "isOptional": false,
+        "martyrology": [],
+        "periods": [
+          "LATE_ORDINARY_TIME",
+        ],
+        "precedence": "WEEKDAY_13",
+        "rank": "WEEKDAY",
+        "seasons": [
+          "ORDINARY_TIME",
+        ],
+        "titles": [],
+      },
+    },
   ],
   "2022-09-06": [
     LiturgicalDay {
@@ -139174,6 +139398,118 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 1`
         "ORDINARY_TIME",
       ],
       "titles": [],
+    },
+    LiturgicalDay {
+      "allowSimilarRankItems": false,
+      "alternativeTransferDateDefs": [],
+      "calendar": {
+        "dayOfSeason": 141,
+        "dayOfWeek": 6,
+        "endOfLiturgicalYear": "2020-11-28",
+        "endOfSeason": "2020-11-28",
+        "nthDayOfWeekInMonth": 1,
+        "seasons": [
+          "ORDINARY_TIME",
+        ],
+        "startOfLiturgicalYear": "2019-12-01",
+        "startOfSeason": "2020-01-13",
+        "weekOfSeason": 22,
+      },
+      "colors": [
+        "WHITE",
+      ],
+      "commonsDef": [
+        "Virgins",
+      ],
+      "cycles": CyclesMetadata {
+        "properCycle": "PROPER_OF_SAINTS",
+        "psalterWeek": "WEEK_2",
+        "sundayCycle": "YEAR_A",
+        "weekdayCycle": "YEAR_2",
+      },
+      "date": "2020-09-05",
+      "dateDef": {
+        "date": 5,
+        "month": 9,
+      },
+      "dateExceptions": [],
+      "fromCalendarId": "general_roman",
+      "fromExtendedCalendars": [],
+      "i18nDef": [
+        "names:teresa_of_calcutta_virgin",
+      ],
+      "id": "teresa_of_calcutta_virgin",
+      "isHolyDayOfObligation": false,
+      "isOptional": true,
+      "martyrology": [],
+      "periods": [
+        "LATE_ORDINARY_TIME",
+      ],
+      "precedence": "OPTIONAL_MEMORIAL_12",
+      "rank": "OPTIONAL_MEMORIAL",
+      "seasons": [
+        "ORDINARY_TIME",
+      ],
+      "titles": [],
+      "weekday": LiturgicalDay {
+        "allowSimilarRankItems": false,
+        "alternativeTransferDateDefs": [],
+        "calendar": {
+          "dayOfSeason": 141,
+          "dayOfWeek": 6,
+          "endOfLiturgicalYear": "2020-11-28",
+          "endOfSeason": "2020-11-28",
+          "nthDayOfWeekInMonth": 1,
+          "seasons": [
+            "ORDINARY_TIME",
+          ],
+          "startOfLiturgicalYear": "2019-12-01",
+          "startOfSeason": "2020-01-13",
+          "weekOfSeason": 22,
+        },
+        "colors": [
+          "GREEN",
+        ],
+        "commonsDef": [],
+        "cycles": CyclesMetadata {
+          "properCycle": "PROPER_OF_TIME",
+          "psalterWeek": "WEEK_2",
+          "sundayCycle": "YEAR_A",
+          "weekdayCycle": "YEAR_2",
+        },
+        "date": "2020-09-05",
+        "dateDef": {
+          "dateArgs": [
+            6,
+            22,
+          ],
+          "dateFn": "dateOfOrdinaryTime",
+          "yearOffset": 0,
+        },
+        "dateExceptions": [],
+        "fromCalendarId": "ProperOfTime",
+        "fromExtendedCalendars": [],
+        "i18nDef": [
+          "seasons:ordinary_time.weekday",
+          {
+            "dow": 6,
+            "week": 22,
+          },
+        ],
+        "id": "ordinary_time_22_saturday",
+        "isHolyDayOfObligation": false,
+        "isOptional": false,
+        "martyrology": [],
+        "periods": [
+          "LATE_ORDINARY_TIME",
+        ],
+        "precedence": "WEEKDAY_13",
+        "rank": "WEEKDAY",
+        "seasons": [
+          "ORDINARY_TIME",
+        ],
+        "titles": [],
+      },
     },
   ],
   "2020-09-06": [
@@ -213386,6 +213722,118 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 3`
         "ORDINARY_TIME",
       ],
       "titles": [],
+    },
+    LiturgicalDay {
+      "allowSimilarRankItems": false,
+      "alternativeTransferDateDefs": [],
+      "calendar": {
+        "dayOfSeason": 143,
+        "dayOfWeek": 1,
+        "endOfLiturgicalYear": "2022-11-26",
+        "endOfSeason": "2022-11-26",
+        "nthDayOfWeekInMonth": 1,
+        "seasons": [
+          "ORDINARY_TIME",
+        ],
+        "startOfLiturgicalYear": "2021-11-28",
+        "startOfSeason": "2022-01-10",
+        "weekOfSeason": 23,
+      },
+      "colors": [
+        "WHITE",
+      ],
+      "commonsDef": [
+        "Virgins",
+      ],
+      "cycles": CyclesMetadata {
+        "properCycle": "PROPER_OF_SAINTS",
+        "psalterWeek": "WEEK_3",
+        "sundayCycle": "YEAR_C",
+        "weekdayCycle": "YEAR_2",
+      },
+      "date": "2022-09-05",
+      "dateDef": {
+        "date": 5,
+        "month": 9,
+      },
+      "dateExceptions": [],
+      "fromCalendarId": "general_roman",
+      "fromExtendedCalendars": [],
+      "i18nDef": [
+        "names:teresa_of_calcutta_virgin",
+      ],
+      "id": "teresa_of_calcutta_virgin",
+      "isHolyDayOfObligation": false,
+      "isOptional": true,
+      "martyrology": [],
+      "periods": [
+        "LATE_ORDINARY_TIME",
+      ],
+      "precedence": "OPTIONAL_MEMORIAL_12",
+      "rank": "OPTIONAL_MEMORIAL",
+      "seasons": [
+        "ORDINARY_TIME",
+      ],
+      "titles": [],
+      "weekday": LiturgicalDay {
+        "allowSimilarRankItems": false,
+        "alternativeTransferDateDefs": [],
+        "calendar": {
+          "dayOfSeason": 143,
+          "dayOfWeek": 1,
+          "endOfLiturgicalYear": "2022-11-26",
+          "endOfSeason": "2022-11-26",
+          "nthDayOfWeekInMonth": 1,
+          "seasons": [
+            "ORDINARY_TIME",
+          ],
+          "startOfLiturgicalYear": "2021-11-28",
+          "startOfSeason": "2022-01-10",
+          "weekOfSeason": 23,
+        },
+        "colors": [
+          "GREEN",
+        ],
+        "commonsDef": [],
+        "cycles": CyclesMetadata {
+          "properCycle": "PROPER_OF_TIME",
+          "psalterWeek": "WEEK_3",
+          "sundayCycle": "YEAR_C",
+          "weekdayCycle": "YEAR_2",
+        },
+        "date": "2022-09-05",
+        "dateDef": {
+          "dateArgs": [
+            1,
+            23,
+          ],
+          "dateFn": "dateOfOrdinaryTime",
+          "yearOffset": 0,
+        },
+        "dateExceptions": [],
+        "fromCalendarId": "ProperOfTime",
+        "fromExtendedCalendars": [],
+        "i18nDef": [
+          "seasons:ordinary_time.weekday",
+          {
+            "dow": 1,
+            "week": 23,
+          },
+        ],
+        "id": "ordinary_time_23_monday",
+        "isHolyDayOfObligation": false,
+        "isOptional": false,
+        "martyrology": [],
+        "periods": [
+          "LATE_ORDINARY_TIME",
+        ],
+        "precedence": "WEEKDAY_13",
+        "rank": "WEEKDAY",
+        "seasons": [
+          "ORDINARY_TIME",
+        ],
+        "titles": [],
+      },
     },
   ],
   "2022-09-06": [
