@@ -1109,6 +1109,14 @@ export class GeneralRoman extends CalendarDef {
       commonsDef: Common.None,
     },
 
+    // Decree on the inscription of Saint Teresa of Calcutta, virgin, in the General Roman Calendar
+    // src: https://press.vatican.va/content/salastampa/en/bollettino/pubblico/2025/02/11/250211b.html
+    teresa_of_calcutta_virgin: {
+      precedence: Precedences.OptionalMemorial_12,
+      dateDef: { month: 9, date: 5 },
+      commonsDef: Common.Virgins,
+    },
+
     // src: mr_la_2008_ed3
     nativity_of_the_blessed_virgin_mary: {
       precedence: Precedences.GeneralFeast_7,

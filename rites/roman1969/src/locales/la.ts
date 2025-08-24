@@ -945,7 +945,7 @@ export const locale: Locale = {
     teresa_benedicta_of_the_cross_stein_virgin: 'S. Teresiæ Benedictæ a Cruce Stein, virginis et martyris',
     teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe:
       'S. Teresiæ Benedictæ a Cruce Stein, virginis, martyris, patronæ secundariæ Europæ',
-    teresa_of_calcutta_religious: 'S. Teresiæ de Calcutta, religiosi',
+    teresa_of_calcutta_virgin: 'S. Teresiæ de Calcutta, virginis',
     teresa_of_jesus_jornet_ibars_virgin: 'S. Teresiæ a Iesu Jornet Ibars, virginis',
     teresa_of_jesus_of_avila_virgin: 'S. Teresiæ a Iesu, virginis et Ecclesiæ doctoris',
     teresa_of_jesus_of_los_andes_virgin: 'S. Teresiæ a Iesu de Los Andes, virginis',

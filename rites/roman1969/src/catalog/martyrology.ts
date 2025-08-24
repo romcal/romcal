@@ -4596,10 +4596,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Virgin, Title.Martyr],
       dateOfDeath: 1942,
     },
-    teresa_of_calcutta_religious: {
+    // Decree on the inscription of Saint Teresa of Calcutta, virgin, in the General Roman Calendar
+    // src: https://press.vatican.va/content/salastampa/en/bollettino/pubblico/2025/02/11/250211b.html
+    teresa_of_calcutta_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Teresa of Calcutta',
-      titles: [Title.Religious],
+      titles: [Title.Virgin],
     },
     teresa_of_jesus_jornet_ibars_virgin: {
       canonizationLevel: CanonizationLevels.Saint,

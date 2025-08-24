@@ -862,7 +862,7 @@ export const locale: Locale = {
     teresa_benedicta_of_the_cross_stein_virgin: 'Sv. Terezie Benedikty od Kříže, panny a mučednice',
     teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe:
       'Sv. Terezie Benedikty od Kříže, panny, mučednice a spolupatronky Evropy',
-    teresa_of_calcutta_religious: 'Sv. Terezy z Kalkaty, řeholnice',
+    teresa_of_calcutta_virgin: 'Sv. Terezy z Kalkaty, panny',
     teresa_of_jesus_jornet_ibars_virgin: 'Sv. Terezie od Ježíše Jornet Ibars, panny',
     teresa_of_jesus_of_avila_virgin: 'Sv. Terezie od Ježíše z Ávily, panny a učitelky církve',
     teresa_of_jesus_of_los_andes_virgin: 'Sv. Terezie od Ježíše z Los Andes, panny',
