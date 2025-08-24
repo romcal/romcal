@@ -589,7 +589,7 @@ export const locale: Locale = {
     teresa_benedicta_of_the_cross_stein_virgin: 'Santa Teresa Benedicta de la Cruz (Edith Stein), virgen y mártir',
     teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe:
       'Santa Teresa Benedicta de la Cruz (Edith Stein), virgen, mártir y Patrona Secundaria de Europa',
-    teresa_of_calcutta_religious: 'Santa Teresa de Calcuta, religiosa',
+    teresa_of_calcutta_virgin: 'Santa Teresa de Calcuta, virgen',
     teresa_of_jesus_jornet_ibars_virgin: 'Santa Teresa de Jesús Jornet e Ibars, virgen',
     teresa_of_jesus_of_avila_virgin: 'Santa Teresa de Jesús, virgen y doctora de la Iglesia',
     teresa_of_jesus_of_los_andes_virgin: 'Santa Teresa de Los Andes, virgen',

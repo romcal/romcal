@@ -185,11 +185,6 @@ export class Hungary extends CalendarDef {
       dateDef: { month: 8, date: 20 },
     },
 
-    teresa_of_calcutta_religious: {
-      precedence: Precedences.OptionalMemorial_12,
-      dateDef: { month: 9, date: 5 },
-    },
-
     marko_krizin_melchior_grodziecki_and_stephen_pongracz_priests: {
       precedence: Precedences.ProperFeast_8f,
       dateDef: { month: 9, date: 7 },

@@ -928,7 +928,7 @@ export const locale: Locale = {
     teresa_benedicta_of_the_cross_stein_virgin: 'சிலுவை ஸ்டெயினின் புனித தெரெசா பெனெடிக்டா - கன்னி, மறைசாட்சி',
     teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe:
       'சிலுவை ஸ்டெயினின் புனித தெரெசா பெனெடிக்டா - கன்னி, மறைசாட்சி, ஐரோப்பாவின் பாதுகாவலி',
-    teresa_of_calcutta_religious: 'கல்கத்தாவின் புனித அன்னை தெரெசம்மாள்',
+    teresa_of_calcutta_virgin: 'கல்கத்தாவின் புனித அன்னை தெரெசம்மாள்',
     teresa_of_jesus_jornet_ibars_virgin: 'இயேசு ஜோர்னட் இபார்சின் புனித தெரெசாள் - கன்னி',
     teresa_of_jesus_of_avila_virgin: 'அவிலா இயேசுவின் புனித தெரெசாள் - கன்னி, மறைவல்லுனர்',
     teresa_of_jesus_of_los_andes_virgin: 'லொஸ் அண்டேஸ் இயேசுவின் புனித தெரெசாள் - கன்னி',

@@ -4596,7 +4596,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Virgin, Title.Martyr],
       dateOfDeath: 1942,
     },
-    teresa_of_calcutta_religious: {
+    teresa_of_calcutta_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Teresa of Calcutta',
       titles: [Title.Religious],

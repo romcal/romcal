@@ -39,11 +39,6 @@ export class India extends CalendarDef {
       dateDef: { month: 7, date: 28 },
     },
 
-    teresa_of_calcutta_religious: {
-      precedence: Precedences.OptionalMemorial_12,
-      dateDef: { month: 9, date: 5 },
-    },
-
     francis_xavier_priest: {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       dateDef: { month: 12, date: 3 },
