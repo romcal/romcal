@@ -486,7 +486,7 @@ export const locale: Locale = {
     most_holy_trinity: 'Domingo de la Santísima Trinidad',
     most_sacred_heart_of_jesus: 'Sagrado Corazón de Jesús',
     nativity_of_john_the_baptist: 'Nacimiento de Juan Bautista',
-    nativity_of_the_blessed_virgin_mary: 'Nacimiento de la Santísima Virgen María',
+    nativity_of_the_blessed_virgin_mary: 'Natividad de la Bienaventurada Virgen María', // src: https://liturgiapapal.org/attachments/article/1093/PROPIO%20DE%20LOS%20SANTOS.pdf#page=11
     nativity_of_the_lord: 'Navidad',
     nereus_of_terracina_and_achilleus_of_terracina_martyrs: 'Santos Nereo y Aquileo, mártires',
     nicholas_barre_priest: 'Beato Nicolás Barré, presbítero',
