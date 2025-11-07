@@ -126,6 +126,12 @@ export class Spain extends CalendarDef {
       dateDef: { month: 10, date: 19 },
     },
 
+    // src: https://www.conferenciaepiscopal.es/wp-content/uploads/2024/11/CLP-2024-2025.pdf#page=334
+    peter_poveda_and_innocent_of_mary_immaculate_canoura_priests_and_companions_martyrs: {
+      precedence: Precedences.GeneralMemorial_10,
+      dateDef: { month: 11, date: 6 },
+    },
+
     leander_of_seville_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 11, date: 13 },

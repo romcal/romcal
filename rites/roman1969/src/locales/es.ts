@@ -551,6 +551,8 @@ export const locale: Locale = {
     peter_de_zuniga_and_louis_flores_priests: 'Beatos Pedro Zuniga y Luis Flores, presbíteros y mártires',
     peter_julian_eymard_priest: 'San Pedro Julián Eymard, presbítero',
     peter_of_alcantara_priest: 'San Pedro de Alcántara, presbítero',
+    peter_poveda_and_innocent_of_mary_immaculate_canoura_priests_and_companions_martyrs:
+      'Santos Pedro Poveda Castroverde e Inocencio de la Inmaculada Canoura Arnau, presbíteros, y compañeros, mártires', // src: https://www.conferenciaepiscopal.es/wp-content/uploads/2024/11/CLP-2024-2025.pdf#page=334
     philip_and_james_apostles: 'Santos Felipe y Santiago, apóstoles',
     philip_neri_priest: 'San Felipe Neri, presbítero',
     philip_of_jesus_de_las_casas_martyr: 'San Felipe de Jesús de las Casas, mártir',
