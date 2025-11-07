@@ -939,6 +939,7 @@ export const locale: Locale = {
     peter_nolasco_religious: 'Saint Peter Nolasco, Religious',
     peter_of_alcantara_priest: 'Saint Peter of Alcántara, Priest',
     peter_poveda_and_innocent_of_mary_immaculate_canoura_priests_and_companions_martyrs:
+      // src: https://en.wikipedia.org/wiki/Pedro_Poveda_Castroverde, https://en.wikipedia.org/wiki/Inocencio_of_Mary_Immaculate, 
       'Saints Peter Poveda Castroverde and Innocent of Mary Immaculate Canoura Arnau, Priests, and Companions Martyrs',
     peter_sanz_bishop: 'Saint Peter Sanz, Bishop and Martyr',
     peter_to_rot_martyr: 'Blessed Peter To Rot, Martyr',
