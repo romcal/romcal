@@ -1458,7 +1458,7 @@ export class GeneralRoman extends CalendarDef {
 
     // src: mr_la_2008_ed3
     dedication_of_the_lateran_basilica: {
-      precedence: Precedences.GeneralFeast_7,
+      precedence: Precedences.GeneralLordFeast_5,
       dateDef: { month: 11, date: 9 },
       commonsDef: Common.None,
     },
