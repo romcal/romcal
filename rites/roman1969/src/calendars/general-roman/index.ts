@@ -1456,9 +1456,9 @@ export class GeneralRoman extends CalendarDef {
       commonsDef: Common.Bishops,
     },
 
-    // src: mr_la_2008_ed3
+    // src: Calendarium Romanum 1969 https://archive.org/details/CalendariumRomanum1969/page/n29/mode/2up
     dedication_of_the_lateran_basilica: {
-      precedence: Precedences.GeneralFeast_7,
+      precedence: Precedences.GeneralLordFeast_5,
       dateDef: { month: 11, date: 9 },
       commonsDef: Common.None,
     },

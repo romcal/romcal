@@ -31958,7 +31958,7 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 1`]
       "periods": [
         "LATE_ORDINARY_TIME",
       ],
-      "precedence": "GENERAL_FEAST_7",
+      "precedence": "GENERAL_LORD_FEAST_5",
       "rank": "FEAST",
       "seasons": [
         "ORDINARY_TIME",
@@ -68909,7 +68909,7 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 2`]
       "periods": [
         "LATE_ORDINARY_TIME",
       ],
-      "precedence": "GENERAL_FEAST_7",
+      "precedence": "GENERAL_LORD_FEAST_5",
       "rank": "FEAST",
       "seasons": [
         "ORDINARY_TIME",
@@ -106043,7 +106043,7 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 3`]
       "periods": [
         "LATE_ORDINARY_TIME",
       ],
-      "precedence": "GENERAL_FEAST_7",
+      "precedence": "GENERAL_LORD_FEAST_5",
       "rank": "FEAST",
       "seasons": [
         "ORDINARY_TIME",
@@ -146601,7 +146601,7 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 1`
       "periods": [
         "LATE_ORDINARY_TIME",
       ],
-      "precedence": "GENERAL_FEAST_7",
+      "precedence": "GENERAL_LORD_FEAST_5",
       "rank": "FEAST",
       "seasons": [
         "ORDINARY_TIME",
@@ -183552,7 +183552,7 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 2`
       "periods": [
         "LATE_ORDINARY_TIME",
       ],
-      "precedence": "GENERAL_FEAST_7",
+      "precedence": "GENERAL_LORD_FEAST_5",
       "rank": "FEAST",
       "seasons": [
         "ORDINARY_TIME",
@@ -220686,7 +220686,7 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 3`
       "periods": [
         "LATE_ORDINARY_TIME",
       ],
-      "precedence": "GENERAL_FEAST_7",
+      "precedence": "GENERAL_LORD_FEAST_5",
       "rank": "FEAST",
       "seasons": [
         "ORDINARY_TIME",
