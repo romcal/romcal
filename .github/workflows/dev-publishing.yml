@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -43,7 +43,7 @@ jobs:
 
     steps:
       - name: Git checkout dev branch
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           ref: dev
           token: ${{ secrets.REPO_TOKEN }}
