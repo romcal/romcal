@@ -1234,6 +1234,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Virgin],
       dateOfDeath: 1929,
     },
+    dulce_lopes_pontes_virgin: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Dulce Lopes Pontes',
+      titles: [Title.Virgin, Title.Religious],
+      dateOfBirth: '1914-05-26',
+      dateOfDeath: '1992-03-13',
+      dateOfCanonization: '2019-10-13',
+    },
     dionysius_the_areopagite_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Dionysius the Areopagite',

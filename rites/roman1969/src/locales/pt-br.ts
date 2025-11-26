@@ -31,7 +31,7 @@ export const locale: Locale = {
       weekday: '$t(weekdays:{{dow}}, capitalize) da {{week}}ª semana da Quaresma',
       sunday: '{{week}}º Domingo da Quaresma',
       day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) depois da Quarta-feira de Cinzas',
-      holy_week_day: '$t(weekdays:{{dow}}, capitalize) of Semana Santa',
+      holy_week_day: '$t(weekdays:{{dow}}, capitalize) da Semana Santa',
     },
 
     paschal_triduum: {
@@ -58,6 +58,20 @@ export const locale: Locale = {
     memorial: 'memória',
     optional_memorial: 'memória facultativa',
     weekday: 'dia de semana',
+  },
+
+  cycles: {
+    proper_of_time: 'Próprio do Tempo',
+    proper_of_saints: 'Próprio dos Santos',
+    sunday_year_a: 'Ano A',
+    sunday_year_b: 'Ano B',
+    sunday_year_c: 'Ano C',
+    weekday_year_1: 'Ciclo I',
+    weekday_year_2: 'Ciclo II',
+    psalter_week_1: 'Semana I',
+    psalter_week_2: 'Semana II',
+    psalter_week_3: 'Semana III',
+    psalter_week_4: 'Semana IV',
   },
 
   weekdays: {
@@ -91,7 +105,7 @@ export const locale: Locale = {
     green: 'verde',
     purple: 'roxo',
     red: 'vermelho',
-    rose: 'roséo',
+    rose: 'rosa',
     white: 'branco',
   },
 
@@ -276,6 +290,7 @@ export const locale: Locale = {
       'São Dionísio, bispo e mártir, patrono da Cidade e da Diocese de Saint-Denis',
     divine_mercy_sunday: '2º Domingo do Tempo Pascal ou Domingo da Misericórdia',
     dominic_de_guzman_priest: 'São Domingos, presbítero',
+    dulce_lopes_pontes_virgin: 'Santa Dulce Lopes Pontes, virgem e religiosa',
     easter_sunday: 'Domingo da Páscoa',
     eligius_of_noyon_bishop: 'Santo Elígio, bispo',
     elizabeth_of_hungary_religious: 'Santa Isabel da Hungria, religiosa',
@@ -465,6 +480,7 @@ export const locale: Locale = {
     peter_claver_priest: 'São Pedro Claver, presbítero',
     peter_damian_bishop: 'São Pedro Damião, bispo e doutor da Igreja',
     peter_julian_eymard_priest: 'São Pedro Juliano Eymard, presbítero',
+    peter_of_alcantara_priest: 'São Pedro de Alcântara, presbítero',
     philip_and_james_apostles: 'São Filipe e Tiago, apóstolos',
     philip_neri_priest: 'São Filipe Néri, presbítero',
     pius_francesco_forgione_priest: 'São Pio de Pietrelcina, presbítero',
