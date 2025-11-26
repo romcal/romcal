@@ -290,6 +290,7 @@ export const locale: Locale = {
       'São Dionísio, bispo e mártir, patrono da Cidade e da Diocese de Saint-Denis',
     divine_mercy_sunday: '2º Domingo do Tempo Pascal ou Domingo da Misericórdia',
     dominic_de_guzman_priest: 'São Domingos, presbítero',
+    // src: Calendário Próprio do Brasil - CNBB
     dulce_lopes_pontes_virgin: 'Santa Dulce Lopes Pontes, virgem e religiosa',
     easter_sunday: 'Domingo da Páscoa',
     eligius_of_noyon_bishop: 'Santo Elígio, bispo',
@@ -480,6 +481,7 @@ export const locale: Locale = {
     peter_claver_priest: 'São Pedro Claver, presbítero',
     peter_damian_bishop: 'São Pedro Damião, bispo e doutor da Igreja',
     peter_julian_eymard_priest: 'São Pedro Juliano Eymard, presbítero',
+    // src: Calendário Próprio do Brasil - CNBB
     peter_of_alcantara_priest: 'São Pedro de Alcântara, presbítero',
     philip_and_james_apostles: 'São Filipe e Tiago, apóstolos',
     philip_neri_priest: 'São Filipe Néri, presbítero',
