@@ -395,6 +395,7 @@ export const locale: Locale = {
     denis_of_paris_bishop_patron_of_the_city_and_of_the_diocese_of_saint_denis:
       'Saint Denis, Bishop and Martyr, Patron of the City and of the Diocese of Saint-Denis',
     dina_belanger_virgin: 'Blessed Dina Bélanger, Virgin',
+    dulce_lopes_pontes_virgin: 'Saint Dulce Lopes Pontes, Virgin',
     dionysius_the_areopagite_bishop: 'Saint Dionysius the Areopagite, Bishop and Martyr',
     dismas_the_good_thief: 'Dismas the Good Thief',
     divine_mercy_sunday: 'Second Sunday of Easter or Sunday of Divine Mercy',

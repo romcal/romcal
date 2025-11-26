@@ -290,7 +290,8 @@ export const locale: Locale = {
       'São Dionísio, bispo e mártir, patrono da Cidade e da Diocese de Saint-Denis',
     divine_mercy_sunday: '2º Domingo do Tempo Pascal ou Domingo da Misericórdia',
     dominic_de_guzman_priest: 'São Domingos, presbítero',
-    dulce_lopes_pontes_virgin: 'Santa Dulce Lopes Pontes, virgem e religiosa', // src: Calendário Próprio do Brasil - CNBB
+    // src: https://www.cnbb.org.br/liturgia-diaria/ 13-August-2025 Retrieved 26-November-2025
+    dulce_lopes_pontes_virgin: 'Santa Dulce Lopes Pontes, virgem e religiosa',
     easter_sunday: 'Domingo da Páscoa',
     eligius_of_noyon_bishop: 'Santo Elígio, bispo',
     elizabeth_of_hungary_religious: 'Santa Isabel da Hungria, religiosa',
@@ -513,7 +514,8 @@ export const locale: Locale = {
     sunday_of_the_word_of_god: '3º Domingo do Tempo Comum, ou Domingo da Palavra de Deus',
     sylvester_i_pope: 'São Silvestre I, papa',
     teresa_benedicta_of_the_cross_stein_virgin: 'Santa Teresa Benedita da Cruz, virgem e mártir',
-    teresa_of_jesus_of_avila_virgin: 'Santa Teresa de Jesus, virgem e doutora da Igreja', // src: https://www.cnbb.org.br/liturgia-diaria/ 15-Oct-2025 (Retrieved 24-Jun-2025)
+    // src: https://www.cnbb.org.br/liturgia-diaria/ 15-Oct-2025 (Retrieved 24-Jun-2025)
+    teresa_of_jesus_of_avila_virgin: 'Santa Teresa de Jesus, virgem e doutora da Igreja',
     teresa_of_portugal_religious: 'Beata Teresa de Portugal, religiosa',
     theotonius_of_coimbra_priest: 'Santo Teotónio, presbítero',
     therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin:
@@ -522,7 +524,7 @@ export const locale: Locale = {
     thomas_aquinas_priest: 'São Tomás de Aquino, presbítero e doutor da Igreja',
     thomas_becket_bishop: 'São Tomás de Cantuária, bispo',
     thomas_jean_georges_rehm_priest: 'Beato Tomás João Jorge Rehm, presbítero e mártir',
-    thursday_of_the_lords_supper: 'Quinta-feira Santa',
+    thursday_of_the_lords_supper: '$(names:holy_thursday)',
     timothy_of_ephesus_and_titus_of_crete_bishops: 'Santos Timóteo e Tito, bispos',
     transfiguration_of_the_lord: 'Transfiguração do Senhor',
     translation_of_the_relics_of_odile_of_alsace_abbess: 'Trasladação dos restos mortais da Santa Odília',

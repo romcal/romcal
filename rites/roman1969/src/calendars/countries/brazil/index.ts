@@ -9,12 +9,12 @@ export class Brazil extends CalendarDef {
 
   inputs: Inputs = {
     peter_and_paul_apostles: {
-      // No Brasil, quando a celebração cai entre 28 de junho e 4 de julho,
-      // é transferida para o domingo entre essas datas.
-      // Como não podemos combinar condições, vamos usar apenas ifIsBetween
-      // e transferir para o primeiro domingo de julho (que sempre será entre 1 e 7 de julho).
-      // Nota: Esta é uma aproximação. A regra exata seria transferir para o domingo
-      // mais próximo quando cair entre 28 jun e 4 jul, mas isso requer lógica mais complexa.
+      // In Brazil, when the celebration falls between June 28 and July 4,
+      //  it is moved to the Sunday between those dates.
+      // Since we cannot combine conditions, we will only use ifIsBetween and move it to the first Sunday of July
+      //  (which will always be between July 1 and 7).
+      // Note: This is an approximation. The exact rule would be to move it to the nearest Sunday when
+      //  it falls between June 28 and July 4, but that requires more complex logic.
       dateExceptions: [
         {
           ifIsBetween: {
@@ -22,10 +22,9 @@ export class Brazil extends CalendarDef {
             to: { month: 7, date: 4 },
             inclusive: true,
           },
-          // Transferir para o primeiro domingo de julho
-          // Como não temos uma função para calcular o próximo domingo,
-          // vamos usar uma data fixa que será ajustada dinamicamente.
-          // Por enquanto, vamos usar uma solução que funciona na maioria dos casos.
+          // To move to the first Sunday of July, since we don't have a function to calculate the next Sunday,
+          //  we'll use a fixed date that will be dynamically adjusted.
+          //  For now, we'll use a solution that works in most cases.
           setDate: {
             month: 7,
             nthWeekInMonth: 1,
@@ -64,6 +63,7 @@ export class Brazil extends CalendarDef {
     dulce_lopes_pontes_virgin: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 8, date: 13 },
+      // src: https://www.cnbb.org.br/liturgia-diaria/ 13-August-2025 Retrieved 26-November-2025
     },
 
     rose_of_lima_virgin: {
