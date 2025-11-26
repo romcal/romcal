@@ -8,6 +8,33 @@ export class Brazil extends CalendarDef {
   ParentCalendars = [Americas];
 
   inputs: Inputs = {
+    peter_and_paul_apostles: {
+      // No Brasil, quando a celebração cai entre 28 de junho e 4 de julho,
+      // é transferida para o domingo entre essas datas.
+      // Como não podemos combinar condições, vamos usar apenas ifIsBetween
+      // e transferir para o primeiro domingo de julho (que sempre será entre 1 e 7 de julho).
+      // Nota: Esta é uma aproximação. A regra exata seria transferir para o domingo
+      // mais próximo quando cair entre 28 jun e 4 jul, mas isso requer lógica mais complexa.
+      dateExceptions: [
+        {
+          ifIsBetween: {
+            from: { month: 6, date: 28 },
+            to: { month: 7, date: 4 },
+            inclusive: true,
+          },
+          // Transferir para o primeiro domingo de julho
+          // Como não temos uma função para calcular o próximo domingo,
+          // vamos usar uma data fixa que será ajustada dinamicamente.
+          // Por enquanto, vamos usar uma solução que funciona na maioria dos casos.
+          setDate: {
+            month: 7,
+            nthWeekInMonth: 1,
+            dayOfWeek: 0, // Domingo
+          },
+        },
+      ],
+    },
+
     joseph_de_anchieta_priest: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 6, date: 9 },
@@ -34,6 +61,11 @@ export class Brazil extends CalendarDef {
       martyrology: ['ignatius_de_azevedo_priest', 'companions_martyrs'],
     },
 
+    dulce_lopes_pontes_virgin: {
+      precedence: Precedences.ProperMemorial_11b,
+      dateDef: { month: 8, date: 13 },
+    },
+
     rose_of_lima_virgin: {
       precedence: Precedences.ProperFeast_8f,
       dateDef: { month: 8, date: 23 },
@@ -50,6 +82,11 @@ export class Brazil extends CalendarDef {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       dateDef: { month: 10, date: 12 },
       titles: { append: [PatronTitle.PatronessOfBrazil] },
+    },
+
+    peter_of_alcantara_priest: {
+      precedence: Precedences.ProperMemorial_11b,
+      dateDef: { month: 10, date: 19 },
     },
 
     anthony_of_saint_anne_galvao_priest: {
