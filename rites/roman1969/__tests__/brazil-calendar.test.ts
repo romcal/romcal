@@ -51,11 +51,7 @@ describe('Testing Brazilian calendar specific celebrations', () => {
 
       // 2024: June 29 is Saturday
       const calendar2024 = await romcal.generateCalendar(2024);
-      const june29_2024 = calendar2024['2024-06-29'];
       const july7_2024 = calendar2024['2024-07-07'];
-
-      // On June 29, Peter and Paul should not be the main celebration (it's Saturday)
-      const peterPaulOnJune29 = june29_2024?.find((day) => day.id === 'peter_and_paul_apostles');
 
       // On July 7 (first Sunday of July), Peter and Paul should be celebrated
       const peterPaulOnJuly7 = july7_2024?.find((day) => day.id === 'peter_and_paul_apostles');
@@ -66,7 +62,6 @@ describe('Testing Brazilian calendar specific celebrations', () => {
 
       // 2026: June 29 is Monday
       const calendar2026 = await romcal.generateCalendar(2026);
-      const june29_2026 = calendar2026['2026-06-29'];
       const july5_2026 = calendar2026['2026-07-05'];
 
       // On July 5 (first Sunday of July), Peter and Paul should be celebrated

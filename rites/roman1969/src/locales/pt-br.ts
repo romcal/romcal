@@ -481,7 +481,7 @@ export const locale: Locale = {
     peter_claver_priest: 'São Pedro Claver, presbítero',
     peter_damian_bishop: 'São Pedro Damião, bispo e doutor da Igreja',
     peter_julian_eymard_priest: 'São Pedro Juliano Eymard, presbítero',
-    peter_of_alcantara_priest: 'São Pedro de Alcântara, presbítero', // src: Calendário Próprio do Brasil - CNBB
+    peter_of_alcantara_priest: 'São Pedro de Alcântara, presbítero', // src: translated by @sljunior
     philip_and_james_apostles: 'São Filipe e Tiago, apóstolos',
     philip_neri_priest: 'São Filipe Néri, presbítero',
     pius_francesco_forgione_priest: 'São Pio de Pietrelcina, presbítero',
