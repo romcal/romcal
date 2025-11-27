@@ -84,6 +84,7 @@ export class Brazil extends CalendarDef {
       titles: { append: [PatronTitle.PatronessOfBrazil] },
     },
 
+    // src: translated by @sljunior (not found in CNBB calendar, using same date as Spain calendar)
     peter_of_alcantara_priest: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 10, date: 19 },
