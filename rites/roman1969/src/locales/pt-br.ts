@@ -290,7 +290,6 @@ export const locale: Locale = {
       'São Dionísio, bispo e mártir, patrono da Cidade e da Diocese de Saint-Denis',
     divine_mercy_sunday: '2º Domingo do Tempo Pascal ou Domingo da Misericórdia',
     dominic_de_guzman_priest: 'São Domingos, presbítero',
-    // src: https://www.cnbb.org.br/liturgia-diaria/ 13-August-2025 Retrieved 26-November-2025
     dulce_lopes_pontes_virgin: 'Santa Dulce Lopes Pontes, virgem e religiosa',
     easter_sunday: 'Domingo da Páscoa',
     eligius_of_noyon_bishop: 'Santo Elígio, bispo',
@@ -481,7 +480,7 @@ export const locale: Locale = {
     peter_claver_priest: 'São Pedro Claver, presbítero',
     peter_damian_bishop: 'São Pedro Damião, bispo e doutor da Igreja',
     peter_julian_eymard_priest: 'São Pedro Juliano Eymard, presbítero',
-    peter_of_alcantara_priest: 'São Pedro de Alcântara, presbítero', // src: translated by @sljunior
+    peter_of_alcantara_priest: 'São Pedro de Alcântara, presbítero',
     philip_and_james_apostles: 'São Filipe e Tiago, apóstolos',
     philip_neri_priest: 'São Filipe Néri, presbítero',
     pius_francesco_forgione_priest: 'São Pio de Pietrelcina, presbítero',
@@ -514,7 +513,6 @@ export const locale: Locale = {
     sunday_of_the_word_of_god: '3º Domingo do Tempo Comum, ou Domingo da Palavra de Deus',
     sylvester_i_pope: 'São Silvestre I, papa',
     teresa_benedicta_of_the_cross_stein_virgin: 'Santa Teresa Benedita da Cruz, virgem e mártir',
-    // src: https://www.cnbb.org.br/liturgia-diaria/ 15-Oct-2025 (Retrieved 24-Jun-2025)
     teresa_of_jesus_of_avila_virgin: 'Santa Teresa de Jesus, virgem e doutora da Igreja',
     teresa_of_portugal_religious: 'Beata Teresa de Portugal, religiosa',
     theotonius_of_coimbra_priest: 'Santo Teotónio, presbítero',
