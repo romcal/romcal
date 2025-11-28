@@ -1,6 +1,9 @@
 import { Brazil_PtBr } from '@dist/rite-roman1969/bundles/brazil';
 import { Romcal } from '@src/rite-roman1969';
 
+import { Precedences } from '../src/constants/precedences';
+import { Ranks } from '../src/constants/ranks';
+
 describe('Testing Brazilian calendar specific celebrations', () => {
   const romcal = new Romcal({ localizedCalendar: Brazil_PtBr });
 
@@ -13,8 +16,8 @@ describe('Testing Brazilian calendar specific celebrations', () => {
 
       expect(dulce).toBeDefined();
       expect(dulce?.name).toBe('Santa Dulce Lopes Pontes, virgem e religiosa');
-      expect(dulce?.rank).toBe('MEMORIAL');
-      expect(dulce?.precedence).toBe('PROPER_MEMORIAL_11b');
+      expect(dulce?.rank).toBe(Ranks.Memorial);
+      expect(dulce?.precedence).toBe(Precedences.ProperMemorial_11b);
     });
 
     test('São Pedro de Alcântara should be celebrated on October 19', async () => {
@@ -25,8 +28,8 @@ describe('Testing Brazilian calendar specific celebrations', () => {
 
       expect(peter).toBeDefined();
       expect(peter?.name).toBe('São Pedro de Alcântara, presbítero');
-      expect(peter?.rank).toBe('MEMORIAL');
-      expect(peter?.precedence).toBe('PROPER_MEMORIAL_11b');
+      expect(peter?.rank).toBe(Ranks.Memorial);
+      expect(peter?.precedence).toBe(Precedences.ProperMemorial_11b);
     });
 
     test('Nossa Senhora Aparecida should be celebrated on October 12 as a solemnity', async () => {
@@ -37,8 +40,8 @@ describe('Testing Brazilian calendar specific celebrations', () => {
 
       expect(aparecida).toBeDefined();
       expect(aparecida?.name).toBe('Nossa Senhora Aparecida');
-      expect(aparecida?.rank).toBe('SOLEMNITY');
-      expect(aparecida?.precedence).toBe('PROPER_SOLEMNITY_PRINCIPAL_PATRON_4a');
+      expect(aparecida?.rank).toBe(Ranks.Solemnity);
+      expect(aparecida?.precedence).toBe(Precedences.ProperSolemnity_PrincipalPatron_4a);
     });
   });
 
