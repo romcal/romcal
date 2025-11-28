@@ -103,26 +103,22 @@ export class RomcalConfig implements IRomcalConfig {
     this.localeId = localeObj?.id ? sanitizeLocaleId(localeObj.id) : 'dev';
 
     // Create an instance and set up the i18next library.
-    this.i18next = i18next.createInstance(
-      {
-        fallbackLng: ['dev'],
-        lng: this.localeId,
-        initAsync: false,
-        // contextSeparator: '__',
-        interpolation: {
-          format(value, format) {
-            if (value === '') return value;
-            if (format === 'romanize') return toRomanNumber(parseInt(value, 10));
-            if (format === 'uppercase') return value.toUpperCase();
-            if (format === 'capitalize') return value[0].toUpperCase() + value.slice(1);
-            return value;
-          },
+    this.i18next = i18next.createInstance();
+    this.i18next.init({
+      fallbackLng: ['dev'],
+      lng: this.localeId,
+      initImmediate: false,
+      // contextSeparator: '__',
+      interpolation: {
+        format(value, format) {
+          if (value === '') return value;
+          if (format === 'romanize') return toRomanNumber(parseInt(value, 10));
+          if (format === 'uppercase') return value.toUpperCase();
+          if (format === 'capitalize') return value[0].toUpperCase() + value.slice(1);
+          return value;
         },
       },
-      (err) => {
-        if (err) throw new Error(err);
-      }
-    );
+    });
 
     // If another locale is specified, load associated resources in the
     // i18next library.
