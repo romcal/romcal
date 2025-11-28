@@ -89,8 +89,11 @@ describe('Testing Brazilian calendar specific celebrations', () => {
 
   describe('Other Brazilian celebrations', () => {
     test('São José de Anchieta should be celebrated on June 9', async () => {
-      const calendar = await romcal.generateCalendar(2024);
-      const june9 = calendar['2024-06-09'];
+      const calendar = await romcal.generateCalendar(2023);
+      const june9 = calendar['2023-06-09'];
+
+      expect(june9).toBeDefined();
+      expect(june9).toBeArray();
 
       const anchieta = june9?.find((day) => day.id === 'joseph_de_anchieta_priest');
 
