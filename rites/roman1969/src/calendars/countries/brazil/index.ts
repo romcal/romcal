@@ -10,11 +10,7 @@ export class Brazil extends CalendarDef {
   inputs: Inputs = {
     peter_and_paul_apostles: {
       // In Brazil, when the celebration falls between June 28 and July 4,
-      //  it is moved to the Sunday between those dates.
-      // Since we cannot combine conditions, we will only use ifIsBetween and move it to the first Sunday of July
-      //  (which will always be between July 1 and 7).
-      // Note: This is an approximation. The exact rule would be to move it to the nearest Sunday when
-      //  it falls between June 28 and July 4, but that requires more complex logic.
+      // it is moved to the first Sunday of July, unless June 29 is already a Sunday.
       dateExceptions: [
         {
           ifIsBetween: {
@@ -22,15 +18,10 @@ export class Brazil extends CalendarDef {
             to: { month: 7, date: 4 },
             inclusive: true,
           },
-          // To move to the first Sunday of July, since we don't have a function to calculate the next Sunday,
-          //  we'll use a fixed date that will be dynamically adjusted.
-          //  For now, we'll use a solution that works in most cases.
-          setDate: {
-            month: 7,
-            nthWeekInMonth: 1,
-            dayOfWeek: 0, // Domingo
-          },
+          setDate: { month: 7, nthWeekInMonth: 1, dayOfWeek: 0 },
         },
+        // If June 29 is already Sunday, keep it on that date
+        { ifIsDayOfWeek: 0, setDate: { month: 6, date: 29 } },
       ],
     },
 
