@@ -234,6 +234,7 @@ export const locale: Locale = {
     bede_the_venerable_priest: 'São Beda Venerável, presbítero e doutor da Igreja',
     benedict_of_aniane_abbot: 'São Bento de Aniane, abade',
     benedict_of_nursia_abbot: 'São Bento, abade',
+    benedict_the_moor_religious: 'São Benedito, o Negro, religioso',
     bernard_of_clairvaux_abbot: 'São Bernardo, abade e doutor da Igreja',
     bernardine_of_siena_priest: 'São Bernardino de Sena, presbítero',
     blaise_of_sebaste_bishop: 'São Brás, bispo e mártir',

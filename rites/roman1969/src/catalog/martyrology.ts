@@ -666,6 +666,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Hermit],
       dateOfDeath: 1012,
     },
+    benedict_the_moor_religious: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Benedict the Moor',
+      titles: [Title.Religious],
+      dateOfBirth: '1524-03-31',
+      dateOfDeath: '1589-04-04',
+    },
     benno_of_meissen_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Benno of Meissen',
