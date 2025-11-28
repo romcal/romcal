@@ -84,8 +84,7 @@ export class Brazil extends CalendarDef {
       titles: { append: [PatronTitle.PatronessOfBrazil] },
     },
 
-    // src: Calendário Próprio do Brasil - CNBB (São Pedro de Alcântara not explicitly listed in CNBB online calendar,
-    // but included in Brazilian liturgical tradition, using same date as Spain calendar)
+    // src: https://www.cnbb.org.br/missal-romano-calendario-proprio-dos-santos-brasil/
     peter_of_alcantara_priest: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 10, date: 19 },
