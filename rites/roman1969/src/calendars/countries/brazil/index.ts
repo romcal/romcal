@@ -76,6 +76,12 @@ export class Brazil extends CalendarDef {
     },
 
     // src: https://www.cnbb.org.br/missal-romano-calendario-proprio-dos-santos-brasil/
+    benedict_the_moor_religious: {
+      precedence: Precedences.ProperMemorial_11b,
+      dateDef: { month: 10, date: 5 },
+    },
+
+    // src: https://www.cnbb.org.br/missal-romano-calendario-proprio-dos-santos-brasil/
     peter_of_alcantara_priest: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 10, date: 19 },

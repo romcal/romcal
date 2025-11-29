@@ -660,6 +660,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: 547,
       dateOfDeathIsApproximative: true,
     },
+    // src: https://www.cnbb.org.br/missal-romano-calendario-proprio-dos-santos-brasil/, https://en.wikipedia.org/wiki/Benedict_the_Moor
+    benedict_the_moor_religious: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Benedict the Moor',
+      titles: [Title.Religious],
+      dateOfBirth: '1524-03-31',
+      dateOfDeath: '1589-04-04',
+      dateOfCanonization: '1807-05-24',
+    },
     benedict_of_skalka_hermit: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Benedict',
