@@ -290,7 +290,8 @@ export const locale: Locale = {
       'São Dionísio, bispo e mártir, patrono da Cidade e da Diocese de Saint-Denis',
     divine_mercy_sunday: '2º Domingo do Tempo Pascal ou Domingo da Misericórdia',
     dominic_de_guzman_priest: 'São Domingos, presbítero',
-    dulce_lopes_pontes_virgin: 'Santa Dulce Lopes Pontes, virgem e religiosa',
+    // src: https://www.cnbb.org.br/missal-romano-calendario-proprio-dos-santos-brasil/
+    dulce_lopes_pontes_virgin: 'Santa Dulce Lopes Pontes, virgem',
     easter_sunday: 'Domingo da Páscoa',
     eligius_of_noyon_bishop: 'Santo Elígio, bispo',
     elizabeth_of_hungary_religious: 'Santa Isabel da Hungria, religiosa',

@@ -7,10 +7,19 @@ import { Ranks } from '../src/constants/ranks';
 describe('Testing Brazilian calendar specific celebrations', () => {
   const romcal = new Romcal({ localizedCalendar: Brazil_PtBr });
 
+  let calendar2024: Awaited<ReturnType<typeof romcal.generateCalendar>>;
+  let calendar2025: Awaited<ReturnType<typeof romcal.generateCalendar>>;
+  let calendar2026: Awaited<ReturnType<typeof romcal.generateCalendar>>;
+
+  beforeAll(async () => {
+    calendar2024 = await romcal.generateCalendar(2024);
+    calendar2025 = await romcal.generateCalendar(2025);
+    calendar2026 = await romcal.generateCalendar(2026);
+  });
+
   describe('Brazilian saints', () => {
-    test('Santa Dulce Lopes Pontes should be celebrated on August 13', async () => {
-      const calendar = await romcal.generateCalendar(2024);
-      const august13 = calendar['2024-08-13'];
+    test('Santa Dulce Lopes Pontes should be celebrated on August 13', () => {
+      const august13 = calendar2024['2024-08-13'];
 
       const dulce = august13?.find((day) => day.id === 'dulce_lopes_pontes_virgin');
 
@@ -20,9 +29,8 @@ describe('Testing Brazilian calendar specific celebrations', () => {
       expect(dulce?.precedence).toBe(Precedences.ProperMemorial_11b);
     });
 
-    test('São Pedro de Alcântara should be celebrated on October 19', async () => {
-      const calendar = await romcal.generateCalendar(2024);
-      const october19 = calendar['2024-10-19'];
+    test('São Pedro de Alcântara should be celebrated on October 19', () => {
+      const october19 = calendar2024['2024-10-19'];
 
       const peter = october19?.find((day) => day.id === 'peter_of_alcantara_priest');
 
@@ -32,9 +40,8 @@ describe('Testing Brazilian calendar specific celebrations', () => {
       expect(peter?.precedence).toBe(Precedences.ProperMemorial_11b);
     });
 
-    test('Nossa Senhora Aparecida should be celebrated on October 12 as a solemnity', async () => {
-      const calendar = await romcal.generateCalendar(2024);
-      const october12 = calendar['2024-10-12'];
+    test('Nossa Senhora Aparecida should be celebrated on October 12 as a solemnity', () => {
+      const october12 = calendar2024['2024-10-12'];
 
       const aparecida = october12?.find((day) => day.id === 'our_lady_of_aparecida');
 
@@ -46,14 +53,13 @@ describe('Testing Brazilian calendar specific celebrations', () => {
   });
 
   describe('Peter and Paul transfer to Sunday in Brazil', () => {
-    test('When Peter and Paul falls between June 28 and July 4, it should be transferred to the first Sunday of July', async () => {
+    test('When Peter and Paul falls between June 28 and July 4, it should be transferred to the first Sunday of July', () => {
       // Test years where June 29 falls on different days of the week
       // 2024: June 29 is Saturday -> should be transferred to July 7 (first Sunday of July)
       // 2025: June 29 is Sunday -> no transfer needed
       // 2026: June 29 is Monday -> should be transferred to July 5 (first Sunday of July)
 
       // 2024: June 29 is Saturday
-      const calendar2024 = await romcal.generateCalendar(2024);
       const july7_2024 = calendar2024['2024-07-07'];
 
       // On July 7 (first Sunday of July), Peter and Paul should be celebrated
@@ -62,9 +68,10 @@ describe('Testing Brazilian calendar specific celebrations', () => {
       // The transfer should work - Peter and Paul should be on July 7
       expect(peterPaulOnJuly7).toBeDefined();
       expect(peterPaulOnJuly7?.name).toBe('São Pedro e São Paulo, Apóstolos');
+      expect(peterPaulOnJuly7?.rank).toBe(Ranks.Solemnity);
+      expect(peterPaulOnJuly7?.precedence).toBe(Precedences.Solemnity_General_2);
 
       // 2026: June 29 is Monday
-      const calendar2026 = await romcal.generateCalendar(2026);
       const july5_2026 = calendar2026['2026-07-05'];
 
       // On July 5 (first Sunday of July), Peter and Paul should be celebrated
@@ -72,11 +79,12 @@ describe('Testing Brazilian calendar specific celebrations', () => {
 
       expect(peterPaulOnJuly5).toBeDefined();
       expect(peterPaulOnJuly5?.name).toBe('São Pedro e São Paulo, Apóstolos');
+      expect(peterPaulOnJuly5?.rank).toBe(Ranks.Solemnity);
+      expect(peterPaulOnJuly5?.precedence).toBe(Precedences.Solemnity_General_2);
     });
 
-    test('When Peter and Paul falls on Sunday (outside the transfer range), it should not be transferred', async () => {
+    test('When Peter and Paul falls on Sunday (outside the transfer range), it should not be transferred', () => {
       // 2025: June 29 is Sunday, so it should be celebrated on that day
-      const calendar2025 = await romcal.generateCalendar(2025);
       const june29_2025 = calendar2025['2025-06-29'];
 
       const peterPaul = june29_2025?.find((day) => day.id === 'peter_and_paul_apostles');
@@ -84,41 +92,43 @@ describe('Testing Brazilian calendar specific celebrations', () => {
       expect(peterPaul).toBeDefined();
       expect(peterPaul?.name).toBe('São Pedro e São Paulo, Apóstolos');
       expect(peterPaul?.date).toBe('2025-06-29');
+      expect(peterPaul?.rank).toBe(Ranks.Solemnity);
+      expect(peterPaul?.precedence).toBe(Precedences.Solemnity_General_2);
     });
   });
 
   describe('Other Brazilian celebrations', () => {
-    test('São José de Anchieta should be celebrated on June 9', async () => {
-      const calendar = await romcal.generateCalendar(2023);
-      const june9 = calendar['2023-06-09'];
-
-      expect(june9).toBeDefined();
-      expect(june9).toBeArray();
+    test('São José de Anchieta should be celebrated on June 9', () => {
+      const june9 = calendar2024['2024-06-09'];
 
       const anchieta = june9?.find((day) => day.id === 'joseph_de_anchieta_priest');
 
       expect(anchieta).toBeDefined();
       expect(anchieta?.name).toBe('São José de Anchieta, presbítero');
+      expect(anchieta?.rank).toBe(Ranks.Memorial);
+      expect(anchieta?.precedence).toBe(Precedences.ProperMemorial_11b);
     });
 
-    test('Santa Paulina should be celebrated on July 9', async () => {
-      const calendar = await romcal.generateCalendar(2024);
-      const july9 = calendar['2024-07-09'];
+    test('Santa Paulina should be celebrated on July 9', () => {
+      const july9 = calendar2024['2024-07-09'];
 
       const paulina = july9?.find((day) => day.id === 'paulina_of_the_agonizing_heart_of_jesus_visintainer_virgin');
 
       expect(paulina).toBeDefined();
       expect(paulina?.name).toBe('Santa Paulina do Coração Agonizante de Jesus Visintainer, virgem');
+      expect(paulina?.rank).toBe(Ranks.Memorial);
+      expect(paulina?.precedence).toBe(Precedences.ProperMemorial_11b);
     });
 
-    test("Santo Antônio de Sant'Anna Galvão should be celebrated on October 25", async () => {
-      const calendar = await romcal.generateCalendar(2024);
-      const october25 = calendar['2024-10-25'];
+    test("Santo Antônio de Sant'Anna Galvão should be celebrated on October 25", () => {
+      const october25 = calendar2024['2024-10-25'];
 
       const galvao = october25?.find((day) => day.id === 'anthony_of_saint_anne_galvao_priest');
 
       expect(galvao).toBeDefined();
       expect(galvao?.name).toBe("Santo Antônio de Sant'Anna Galvão, presbítero");
+      expect(galvao?.rank).toBe(Ranks.Memorial);
+      expect(galvao?.precedence).toBe(Precedences.ProperMemorial_11b);
     });
   });
 });

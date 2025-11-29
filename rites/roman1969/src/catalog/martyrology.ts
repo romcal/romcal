@@ -1234,6 +1234,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Virgin],
       dateOfDeath: 1929,
     },
+    // src: https://www.cnbb.org.br/missal-romano-calendario-proprio-dos-santos-brasil/, https://en.wikipedia.org/wiki/Dulce_Lopes_Pontes
     dulce_lopes_pontes_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Dulce Lopes Pontes',
