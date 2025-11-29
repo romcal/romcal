@@ -1243,14 +1243,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Virgin],
       dateOfDeath: 1929,
     },
-    // src: https://www.cnbb.org.br/missal-romano-calendario-proprio-dos-santos-brasil/, https://en.wikipedia.org/wiki/Dulce_Lopes_Pontes
+    // src: https://www.cnbb.org.br/missal-romano-calendario-proprio-dos-santos-brasil/
     dulce_lopes_pontes_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
-      name: 'Dulce Lopes Pontes',
+      name: 'Dulce Lopes Pontes', // src: https://en.wikipedia.org/wiki/Irm%C3%A3_Dulce
       titles: [Title.Virgin, Title.Religious],
-      dateOfBirth: '1914-05-26',
-      dateOfDeath: '1992-03-13',
-      dateOfCanonization: '2019-10-13',
+      dateOfBirth: '1914-05-26', // listed on wikipedia
+      dateOfDeath: '1992-03-13', // src: https://www.vaticannews.va/en/church/news/2019-10/biography-dulce-lopes-pontes-nobel-nominee.html
+      dateOfCanonization: '2019-10-13', // src: https://www.vaticannews.va/en/church/news/2019-10/biography-dulce-lopes-pontes-nobel-nominee.html
+      dateOfBeatification: '2011-05-22', // src: https://www.vaticannews.va/en/church/news/2019-10/biography-dulce-lopes-pontes-nobel-nominee.html
     },
     dionysius_the_areopagite_bishop: {
       canonizationLevel: CanonizationLevels.Saint,

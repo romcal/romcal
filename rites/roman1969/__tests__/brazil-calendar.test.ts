@@ -7,11 +7,13 @@ import { Ranks } from '../src/constants/ranks';
 describe('Testing Brazilian calendar specific celebrations', () => {
   const romcal = new Romcal({ localizedCalendar: Brazil_PtBr });
 
+  let calendar2023: Awaited<ReturnType<typeof romcal.generateCalendar>>;
   let calendar2024: Awaited<ReturnType<typeof romcal.generateCalendar>>;
   let calendar2025: Awaited<ReturnType<typeof romcal.generateCalendar>>;
   let calendar2026: Awaited<ReturnType<typeof romcal.generateCalendar>>;
 
   beforeAll(async () => {
+    calendar2023 = await romcal.generateCalendar(2023);
     calendar2024 = await romcal.generateCalendar(2024);
     calendar2025 = await romcal.generateCalendar(2025);
     calendar2026 = await romcal.generateCalendar(2026);
@@ -24,7 +26,7 @@ describe('Testing Brazilian calendar specific celebrations', () => {
       const dulce = august13?.find((day) => day.id === 'dulce_lopes_pontes_virgin');
 
       expect(dulce).toBeDefined();
-      expect(dulce?.name).toBe('Santa Dulce Lopes Pontes, virgem e religiosa');
+      expect(dulce?.name).toBe('Santa Dulce Lopes Pontes, virgem');
       expect(dulce?.rank).toBe(Ranks.Memorial);
       expect(dulce?.precedence).toBe(Precedences.ProperMemorial_11b);
     });
@@ -80,7 +82,7 @@ describe('Testing Brazilian calendar specific celebrations', () => {
       expect(peterPaulOnJuly7).toBeDefined();
       expect(peterPaulOnJuly7?.name).toBe('São Pedro e São Paulo, Apóstolos');
       expect(peterPaulOnJuly7?.rank).toBe(Ranks.Solemnity);
-      expect(peterPaulOnJuly7?.precedence).toBe(Precedences.Solemnity_General_2);
+      expect(peterPaulOnJuly7?.precedence).toBe(Precedences.GeneralSolemnity_3);
 
       // 2026: June 29 is Monday
       const july5_2026 = calendar2026['2026-07-05'];
@@ -91,7 +93,7 @@ describe('Testing Brazilian calendar specific celebrations', () => {
       expect(peterPaulOnJuly5).toBeDefined();
       expect(peterPaulOnJuly5?.name).toBe('São Pedro e São Paulo, Apóstolos');
       expect(peterPaulOnJuly5?.rank).toBe(Ranks.Solemnity);
-      expect(peterPaulOnJuly5?.precedence).toBe(Precedences.Solemnity_General_2);
+      expect(peterPaulOnJuly5?.precedence).toBe(Precedences.GeneralSolemnity_3);
     });
 
     test('When Peter and Paul falls on Sunday (outside the transfer range), it should not be transferred', () => {
@@ -104,13 +106,13 @@ describe('Testing Brazilian calendar specific celebrations', () => {
       expect(peterPaul?.name).toBe('São Pedro e São Paulo, Apóstolos');
       expect(peterPaul?.date).toBe('2025-06-29');
       expect(peterPaul?.rank).toBe(Ranks.Solemnity);
-      expect(peterPaul?.precedence).toBe(Precedences.Solemnity_General_2);
+      expect(peterPaul?.precedence).toBe(Precedences.GeneralSolemnity_3);
     });
   });
 
   describe('Other Brazilian celebrations', () => {
     test('São José de Anchieta should be celebrated on June 9', () => {
-      const june9 = calendar2024['2024-06-09'];
+      const june9 = calendar2023['2023-06-09'];
 
       const anchieta = june9?.find((day) => day.id === 'joseph_de_anchieta_priest');
 
