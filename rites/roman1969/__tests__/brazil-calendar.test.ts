@@ -40,6 +40,17 @@ describe('Testing Brazilian calendar specific celebrations', () => {
       expect(peter?.precedence).toBe(Precedences.ProperMemorial_11b);
     });
 
+    test('São Benedito, o Negro should be celebrated on October 5', () => {
+      const october5 = calendar2024['2024-10-05'];
+
+      const benedict = october5?.find((day) => day.id === 'benedict_the_moor_religious');
+
+      expect(benedict).toBeDefined();
+      expect(benedict?.name).toBe('São Benedito, o Negro, religioso');
+      expect(benedict?.rank).toBe(Ranks.Memorial);
+      expect(benedict?.precedence).toBe(Precedences.ProperMemorial_11b);
+    });
+
     test('Nossa Senhora Aparecida should be celebrated on October 12 as a solemnity', () => {
       const october12 = calendar2024['2024-10-12'];
 
