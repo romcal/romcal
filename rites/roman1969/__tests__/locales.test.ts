@@ -58,3 +58,24 @@ describe('Testing whether celebration names from `.names` object with seasonal w
     });
   });
 });
+
+describe('English Locale', () => {
+  const English = Romcal.LOCALES.En;
+  const NonEnglish = Object.values(Romcal.LOCALES).filter((locale) => locale.id !== 'en');
+  test('Has all keys from all other locales', () => {
+    const missing: Array<{ locale: string; key: string }> = [];
+    NonEnglish.forEach((locale) => {
+      Object.keys(locale.names!).forEach((key) => {
+        if (!English.names!.hasOwnProperty(key)) {
+          missing.push({ locale: locale.id, key });
+        }
+      });
+    });
+    if (missing.length > 0) {
+      console.error(
+        `The English locale is missing the following keys:\n${missing.map((m) => `- [${m.locale}]: ${m.key}`).join('\n')}`
+      );
+    }
+    expect(missing.length).toEqual(0);
+  });
+});

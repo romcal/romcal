@@ -18,7 +18,7 @@ import {
   WeekdayCycles,
 } from './constants/cycles';
 import { GENERAL_ROMAN_NAME, PROPER_OF_TIME_NAME } from './constants/general-calendar-names';
-import { LOCALE_IDS, LOCALE_VAR_NAMES } from './constants/locales';
+import { LOCALE_IDS, LOCALE_VAR_NAMES, LOCALES } from './constants/locales';
 import {
   CANONIZATION_LEVEL,
   CanonizationLevel,
@@ -388,6 +388,8 @@ class Romcal {
   static LOCALE_VAR_NAMES = LOCALE_VAR_NAMES;
 
   static LOCALE_IDS = LOCALE_IDS;
+
+  static LOCALES = LOCALES;
 }
 
 export {

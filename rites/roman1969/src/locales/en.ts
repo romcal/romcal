@@ -200,6 +200,7 @@ export const locale: Locale = {
     andrew_apostle: 'Saint Andrew, Apostle',
     andrew_apostle_patron_of_russia: 'Saint Andrew, Apostle, Patron of Russia',
     andrew_apostle_patron_of_scotland: 'Saint Andrew, Apostle, Patron of Scotland',
+    andrew_bauer_martyr: 'Saint Andrew Bauer, Martyr', // src: https://en.wikipedia.org/wiki/Martyr_Saints_of_China
     andrew_bobola_priest: 'Saint Andrew Bobola, Priest and Martyr',
     andrew_de_soveral_and_ambrose_francis_ferro_priests:
       'Saints Andrew de Soveral and Ambrose Francis Ferro, Priests and Martyrs',
@@ -806,8 +807,8 @@ export const locale: Locale = {
     michael_kozal_bishop: 'Blessed Michael Kozal, Bishop and Martyr',
     miguel_agustin_pro_priest: 'Blessed Miguel Agustín Pro, Priest and Martyr',
     miguel_febres_cordero_religious: 'Saint Miguel Febres Cordero, Religious',
-    modestus_andlauer_and_andrew_bauer_martyrs: 'Saints Modestus Andlauer and Andrew Bauer, Martyrs',
-    modestus_andlauer_martyr: 'Saint Modestus Andlauer, Martyr',
+    modestus_andlauer_and_andrew_bauer_martyrs: 'Saints Modeste Andlauer and Andrew Bauer, Martyrs',
+    modestus_andlauer_martyr: 'Saint Modeste Andlauer, Martyr', // src: https://en.wikipedia.org/wiki/Martyr_Saints_of_China
     monica_of_hippo: 'Saint Monica',
     moninne_of_killeavy_virgin: 'Saint Moninne, Virgin',
     morand_of_cluny_monk: 'Saint Morand, Monk',
@@ -855,6 +856,7 @@ export const locale: Locale = {
      * src: https://gcatholic.org/calendar/2024/CR-en.htm + @TobiTenno direct translation of the Spanish title
      */
     our_lady_of_angels_patroness_of_costa_rica: 'Our Lady of Angels, Patroness of Costa Rica',
+    our_lady_of_aparecida: 'Our Lady of Aparecida', // src: https://en.wikipedia.org/wiki/Our_Lady_of_Aparecida
     our_lady_of_aparecida_patroness_of_brazil: 'Our Lady of Aparecida, Patroness of Brazil',
     our_lady_of_bethlehem: 'Our Lady of Bethlehem',
     our_lady_of_china: 'Our Lady of China',
@@ -873,6 +875,7 @@ export const locale: Locale = {
     our_lady_of_lebanon: 'Our Lady of Lebanon',
     our_lady_of_loreto: 'Our Lady of Loreto',
     our_lady_of_lourdes: 'Our Lady of Lourdes',
+    our_lady_of_lujan: 'Our Lady of Luján', // src: https://en.wikipedia.org/wiki/Our_Lady_of_Luj%C3%A1n
     our_lady_of_lujan_patroness_of_argentina: 'Our Lady of Luján, Patroness of Argentina',
     our_lady_of_madhu: 'Our Lady of Madhu',
     our_lady_of_marija_bistrica: 'Our Lady of Marija Bistrica',
