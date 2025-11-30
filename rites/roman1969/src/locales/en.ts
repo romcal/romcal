@@ -262,7 +262,7 @@ export const locale: Locale = {
     benedict_of_aniane_abbot: 'Saint Benedict of Aniane, Abbot',
     benedict_of_jesus_valdivielso_saez_religious: 'Saint Benedict of Jesus Valdivielso Sáez, Religious and Martyr',
     benedict_of_nursia_abbot: 'Saint Benedict, Abbot',
-    benedict_the_moor_religious: 'Saint Benedict the Moor, Religious',
+    benedict_the_moor_religious: 'Saint Benedict the Moor, Religious', // src: https://en.wikipedia.org/wiki/Benedict_the_Moor
     benedict_of_nursia_abbot_patron_of_europe: 'Saint Benedict, Abbot, Patron of Europe',
     benno_of_meissen_bishop: 'Saint Benno of Meissen, Bishop',
     bernadette_soubirous_virgin: 'Saint Bernadette Soubirous, Virgin',
