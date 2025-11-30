@@ -20,7 +20,7 @@ describe('Testing Brazilian calendar specific celebrations', () => {
   });
 
   describe('Brazilian saints', () => {
-    test('Santa Dulce Lopes Pontes should be celebrated on August 13', () => {
+    test('St. Dulce Lopes Pontes should be celebrated on August 13', () => {
       const august13 = calendar2024['2024-08-13'];
 
       const dulce = august13?.find((day) => day.id === 'dulce_lopes_pontes_virgin');
@@ -31,7 +31,7 @@ describe('Testing Brazilian calendar specific celebrations', () => {
       expect(dulce?.precedence).toBe(Precedences.ProperMemorial_11b);
     });
 
-    test('São Pedro de Alcântara should be celebrated on October 19', () => {
+    test('St. Peter of Alcântara should be celebrated on October 19', () => {
       const october19 = calendar2024['2024-10-19'];
 
       const peter = october19?.find((day) => day.id === 'peter_of_alcantara_priest');
@@ -42,7 +42,7 @@ describe('Testing Brazilian calendar specific celebrations', () => {
       expect(peter?.precedence).toBe(Precedences.ProperMemorial_11b);
     });
 
-    test('São Benedito, o Negro should be celebrated on October 5', () => {
+    test('St. Benedict the Moo should be celebrated on October 5', () => {
       const october5 = calendar2024['2024-10-05'];
 
       const benedict = october5?.find((day) => day.id === 'benedict_the_moor_religious');
@@ -53,7 +53,7 @@ describe('Testing Brazilian calendar specific celebrations', () => {
       expect(benedict?.precedence).toBe(Precedences.ProperMemorial_11b);
     });
 
-    test('Nossa Senhora Aparecida should be celebrated on October 12 as a solemnity', () => {
+    test('Our Lady of Aparecida should be celebrated on October 12 as a solemnity', () => {
       const october12 = calendar2024['2024-10-12'];
 
       const aparecida = october12?.find((day) => day.id === 'our_lady_of_aparecida');
@@ -65,8 +65,8 @@ describe('Testing Brazilian calendar specific celebrations', () => {
     });
   });
 
-  describe('Peter and Paul transfer to Sunday in Brazil', () => {
-    test('When Peter and Paul falls between June 28 and July 4, it should be transferred to the first Sunday of July', () => {
+  describe('Sts. Peter and Paul transfer to Sunday in Brazil', () => {
+    test('When falling between June 28 and July 4, it should be transferred to the first Sunday of July', () => {
       // Test years where June 29 falls on different days of the week
       // 2024: June 29 is Saturday -> should be transferred to July 7 (first Sunday of July)
       // 2025: June 29 is Sunday -> no transfer needed
@@ -96,7 +96,7 @@ describe('Testing Brazilian calendar specific celebrations', () => {
       expect(peterPaulOnJuly5?.precedence).toBe(Precedences.GeneralSolemnity_3);
     });
 
-    test('When Peter and Paul falls on Sunday (outside the transfer range), it should not be transferred', () => {
+    test('When falling on Sunday (outside the transfer range), it should not be transferred', () => {
       // 2025: June 29 is Sunday, so it should be celebrated on that day
       const june29_2025 = calendar2025['2025-06-29'];
 
@@ -111,7 +111,7 @@ describe('Testing Brazilian calendar specific celebrations', () => {
   });
 
   describe('Other Brazilian celebrations', () => {
-    test('São José de Anchieta should be celebrated on June 9', () => {
+    test('St. Joseph of Anchieta should be celebrated on June 9', () => {
       const june9 = calendar2023['2023-06-09'];
 
       const anchieta = june9?.find((day) => day.id === 'joseph_de_anchieta_priest');
@@ -122,7 +122,7 @@ describe('Testing Brazilian calendar specific celebrations', () => {
       expect(anchieta?.precedence).toBe(Precedences.ProperMemorial_11b);
     });
 
-    test('Santa Paulina should be celebrated on July 9', () => {
+    test('St. Paulina should be celebrated on July 9', () => {
       const july9 = calendar2024['2024-07-09'];
 
       const paulina = july9?.find((day) => day.id === 'paulina_of_the_agonizing_heart_of_jesus_visintainer_virgin');
@@ -133,7 +133,7 @@ describe('Testing Brazilian calendar specific celebrations', () => {
       expect(paulina?.precedence).toBe(Precedences.ProperMemorial_11b);
     });
 
-    test("Santo Antônio de Sant'Anna Galvão should be celebrated on October 25", () => {
+    test('St. Anthony of St. Anne Galvao should be celebrated on October 25', () => {
       const october25 = calendar2024['2024-10-25'];
 
       const galvao = october25?.find((day) => day.id === 'anthony_of_saint_anne_galvao_priest');
