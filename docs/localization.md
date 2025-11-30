@@ -68,5 +68,7 @@ Each entry in the locale file corresponds to a specific part of the liturgical c
         - `fr` = is the locale of the Missal;
         - `2022` = publication year;
         - `ed3` = editio typica tertia;
-        - `angers` = optional suffix when variations exist (e.g. English Missals are published e.g. in the UK, the US, Australia; French Missals are published per diocese in France, but maybe in Canada too).
+        - `angers` = optional suffix when variations exist (examples below)
+          - English Missals are published e.g. in the UK, the US, Australia
+          - French Missals are published per diocese in France, but maybe in Canada too
       - so this would be the full reference: `// src: mr_fr_2022_ed3_angers`
