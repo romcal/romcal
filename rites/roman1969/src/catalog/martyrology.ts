@@ -1247,7 +1247,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     dulce_lopes_pontes_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Dulce Lopes Pontes', // src: https://en.wikipedia.org/wiki/Irm%C3%A3_Dulce
-      titles: [Title.Virgin, Title.Religious],
+      titles: [Title.Virgin],
       dateOfBirth: '1914-05-26', // listed on wikipedia
       dateOfDeath: '1992-03-13', // src: https://www.vaticannews.va/en/church/news/2019-10/biography-dulce-lopes-pontes-nobel-nominee.html
       dateOfCanonization: '2019-10-13', // src: https://www.vaticannews.va/en/church/news/2019-10/biography-dulce-lopes-pontes-nobel-nominee.html
