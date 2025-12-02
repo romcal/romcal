@@ -63,7 +63,7 @@ Each entry in the locale file corresponds to a specific part of the liturgical c
         - when the key value can be found exactly in the referenced document
       - `// based on: $sourceName`
         - when the key value is adapted from the referenced document
-      - For a given missal or document, the following short form is used: (values are examples)
+      - For missals, the following short form is used: (values are examples)
         - `mr` = Missale Romanum;
         - `fr` = is the locale of the Missal;
         - `2022` = publication year;
