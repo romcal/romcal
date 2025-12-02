@@ -56,7 +56,7 @@ Each entry in the locale file corresponds to a specific part of the liturgical c
 - `names`: Localized names for specific liturgical days, such as feasts of saints and titles of Our Lord and Our Blessed Mother.
   - Each entry for any name that is added to a specific locale other than `en` must also exist in the `en` locale file, as this is the main source of truth.
   - If a name is not found in the specified locale, romcal will look for it in the fallback locales, ending with `en`.
-  - There are also tests to ensure that all names in other locales exist in the `en` locale file. (pending #992)
+  - There are also tests to ensure that all names in other locales exist in the `en` locale file.
   - Each entry should have a corresponding src comment with a link to the source of the translation, if applicable.
     - If a reference to a missal is used instead, this is the format we've decided to use:
       - `// src: $sourceName`
