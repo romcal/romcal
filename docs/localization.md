@@ -57,7 +57,7 @@ Each entry in the locale file corresponds to a specific part of the liturgical c
   - Each entry for any name that is added to a specific locale other than `en` must also exist in the `en` locale file, as this is the main source of truth.
   - If a name is not found in the specified locale, romcal will look for it in the fallback locales, ending with `en`.
   - There are also tests to ensure that all names in other locales exist in the `en` locale file.
-  - Each entry should have a corresponding src comment with a link to the source of the translation, if applicable.
+  - Each entry should have a corresponding source comment with a link to the source of the translation, if applicable.
     - If a reference to a missal is used instead, this is the format we've decided to use:
       - `// src: $sourceName`
         - when the key value can be found exactly in the referenced document
@@ -71,4 +71,4 @@ Each entry in the locale file corresponds to a specific part of the liturgical c
         - `angers` = optional suffix when variations exist (examples below)
           - English Missals are published e.g. in the UK, the US, Australia
           - French Missals are published per diocese in France, but maybe in Canada too
-      - so this would be the full reference: `// src: mr_fr_2022_ed3_angers`
+      - the parts above are joined with an underscore (`_`): `// src: mr_fr_2022_ed3_angers`

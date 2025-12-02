@@ -56,7 +56,7 @@ In the `england` calendar, we will only define a new entry with its `key` and th
 
 It's generally a good practice to extend an existing liturgical day, with its specifications for a particular calendar, instead of redefining multiple time the same liturgical day in different calendars.
 
-For any extension or redefinition, there must be a corresponding src reference in the calendar to provide context for the definition. See [localization documentation](./localization.md) for more details on how these references should be structured.
+For any extension or redefinition, there must be a corresponding source reference in the calendar to provide context for the definition. See [localization documentation](./localization.md) for more details on how these references should be structured.
 
 ### Overriding a liturgical day by its key
 
