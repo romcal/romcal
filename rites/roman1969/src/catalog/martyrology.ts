@@ -314,7 +314,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Andrew Bauer',
       titles: [Title.Martyr],
-      dateOfDeath: '1900-7-9',
+      dateOfDeath: '1900-07-09',
     },
     andrew_bobola_priest: {
       canonizationLevel: CanonizationLevels.Saint,
