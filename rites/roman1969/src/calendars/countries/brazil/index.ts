@@ -25,6 +25,12 @@ export class Brazil extends CalendarDef {
       ],
     },
 
+    ephrem_the_syrian_deacon: {
+      // In Brazil, St Ephrem is transferred to June 8
+      // because St Joseph de Anchieta is celebrated on June 9
+      dateDef: { month: 6, date: 8 },
+    },
+
     joseph_de_anchieta_priest: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 6, date: 9 },
@@ -33,6 +39,12 @@ export class Brazil extends CalendarDef {
     albertina_berkenbrock_virgin: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 6, date: 15 },
+    },
+
+    augustine_zhao_rong_priest_and_companions_martyrs: {
+      // In Brazil, St Augustine Zhao Rong and companions are transferred to July 8
+      // because St Paulina is celebrated on July 9
+      dateDef: { month: 7, date: 8 },
     },
 
     paulina_of_the_agonizing_heart_of_jesus_visintainer_virgin: {
@@ -74,6 +86,13 @@ export class Brazil extends CalendarDef {
       martyrology: ['andrew_de_soveral_priest', 'ambrose_francis_ferro_priest'],
     },
 
+    faustina_kowalska_virgin: {
+      // In Brazil, St Faustina Kowalska is transferred to October 6
+      // because St Benedict the Moor is celebrated on October 5
+      // Note: This date should be verified in the official Brazilian Ordo
+      dateDef: { month: 10, date: 6 },
+    },
+
     // src: https://www.cnbb.org.br/missal-romano-calendario-proprio-dos-santos-brasil/
     benedict_the_moor_religious: {
       precedence: Precedences.ProperMemorial_11b,
@@ -91,6 +110,13 @@ export class Brazil extends CalendarDef {
     peter_of_alcantara_priest: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 10, date: 19 },
+    },
+
+    john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs: {
+      // In Brazil, Sts John de Brebeuf, Isaac Jogues and companions are transferred to October 20
+      // because St Peter of Alcântara is celebrated on October 19
+      // Note: This date should be verified in the official Brazilian Ordo
+      dateDef: { month: 10, date: 20 },
     },
 
     anthony_of_saint_anne_galvao_priest: {
