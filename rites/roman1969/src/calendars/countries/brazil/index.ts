@@ -51,6 +51,12 @@ export class Brazil extends CalendarDef {
       martyrology: ['ignatius_de_azevedo_priest', 'companions_martyrs'],
     },
 
+    pontian_i_pope_and_hippolytus_of_rome_priest: {
+      // In Brazil, Sts Pontian and Hippolytus are transferred to August 12
+      // because St Dulce Lopes Pontes is celebrated on August 13
+      dateDef: { month: 8, date: 12 },
+    },
+
     dulce_lopes_pontes_virgin: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 8, date: 13 },
@@ -68,17 +74,17 @@ export class Brazil extends CalendarDef {
       martyrology: ['andrew_de_soveral_priest', 'ambrose_francis_ferro_priest'],
     },
 
+    // src: https://www.cnbb.org.br/missal-romano-calendario-proprio-dos-santos-brasil/
+    benedict_the_moor_religious: {
+      precedence: Precedences.ProperMemorial_11b,
+      dateDef: { month: 10, date: 5 },
+    },
+
     our_lady_of_aparecida: {
       customLocaleId: 'our_lady_of_aparecida_patroness_of_brazil',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       dateDef: { month: 10, date: 12 },
       titles: { append: [PatronTitle.PatronessOfBrazil] },
-    },
-
-    // src: https://www.cnbb.org.br/missal-romano-calendario-proprio-dos-santos-brasil/
-    benedict_the_moor_religious: {
-      precedence: Precedences.ProperMemorial_11b,
-      dateDef: { month: 10, date: 5 },
     },
 
     // src: https://www.cnbb.org.br/missal-romano-calendario-proprio-dos-santos-brasil/
