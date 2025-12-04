@@ -31,7 +31,7 @@ export const locale: Locale = {
       weekday: '$t(weekdays:{{dow}}, capitalize) da {{week}}ª semana da Quaresma',
       sunday: '{{week}}º Domingo da Quaresma',
       day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) depois da Quarta-feira de Cinzas',
-      holy_week_day: '$t(weekdays:{{dow}}, capitalize) of Semana Santa',
+      holy_week_day: '$t(weekdays:{{dow}}, capitalize) da Semana Santa',
     },
 
     paschal_triduum: {
@@ -58,6 +58,20 @@ export const locale: Locale = {
     memorial: 'memória',
     optional_memorial: 'memória facultativa',
     weekday: 'dia de semana',
+  },
+
+  cycles: {
+    proper_of_time: 'Próprio do Tempo',
+    proper_of_saints: 'Próprio dos Santos',
+    sunday_year_a: 'Ano A',
+    sunday_year_b: 'Ano B',
+    sunday_year_c: 'Ano C',
+    weekday_year_1: 'Ciclo I',
+    weekday_year_2: 'Ciclo II',
+    psalter_week_1: 'Semana I',
+    psalter_week_2: 'Semana II',
+    psalter_week_3: 'Semana III',
+    psalter_week_4: 'Semana IV',
   },
 
   weekdays: {
@@ -91,7 +105,7 @@ export const locale: Locale = {
     green: 'verde',
     purple: 'roxo',
     red: 'vermelho',
-    rose: 'roséo',
+    rose: 'rosa',
     white: 'branco',
   },
 
@@ -220,6 +234,7 @@ export const locale: Locale = {
     bede_the_venerable_priest: 'São Beda Venerável, presbítero e doutor da Igreja',
     benedict_of_aniane_abbot: 'São Bento de Aniane, abade',
     benedict_of_nursia_abbot: 'São Bento, abade',
+    benedict_the_moor_religious: 'São Benedito, o Negro, religioso', // src: https://www.scribd.com/document/697173100/Direto-rio-da-Liturgia-2024
     bernard_of_clairvaux_abbot: 'São Bernardo, abade e doutor da Igreja',
     bernardine_of_siena_priest: 'São Bernardino de Sena, presbítero',
     blaise_of_sebaste_bishop: 'São Brás, bispo e mártir',
@@ -276,6 +291,8 @@ export const locale: Locale = {
       'São Dionísio, bispo e mártir, patrono da Cidade e da Diocese de Saint-Denis',
     divine_mercy_sunday: '2º Domingo do Tempo Pascal ou Domingo da Misericórdia',
     dominic_de_guzman_priest: 'São Domingos, presbítero',
+    // src: https://www.cnbb.org.br/missal-romano-calendario-proprio-dos-santos-brasil/
+    dulce_lopes_pontes_virgin: 'Santa Dulce Lopes Pontes, virgem',
     easter_sunday: 'Domingo da Páscoa',
     eligius_of_noyon_bishop: 'Santo Elígio, bispo',
     elizabeth_of_hungary_religious: 'Santa Isabel da Hungria, religiosa',
@@ -312,7 +329,7 @@ export const locale: Locale = {
     gundisalvus_of_lagos_priest: 'São Gonçalo de Lagos, presbítero',
     hedwig_of_silesia_religious: 'Santa Edviges, religiosa',
     henry_ii_emperor: 'Santo Henrique',
-    hilary_of_poitiers_bishop: ' Santo Hilário, bispo e doutor da Igreja',
+    hilary_of_poitiers_bishop: 'Santo Hilário, bispo e doutor da Igreja', // src: arquidiocesemilitar.org.br/wp-content/uploads/2025/01/DIRETORIO-LITURGICO-OMB-2025-1_compressed.pdf#page=49
     hildegard_of_bingen_abbess: 'Santa Hildegarda de Bingen, virgem e doutora da Igreja',
     holy_family_of_jesus_mary_and_joseph: 'Sagrada Família',
     holy_guardian_angels: 'Santos Anjos da Guarda',
@@ -345,7 +362,7 @@ export const locale: Locale = {
       'Santos João de Brébeuf, Isaac Jogues, presbíteros, e Companheiros, mártires',
     john_de_britto_priest: 'São João de Brito, presbítero e mártir',
     john_eudes_priest: 'São João Eudes, presbítero',
-    john_fisher_bishop_and_thomas_more_martyrs: ' Santos João Fisher, bispo, e Tomás Moro, mártires',
+    john_fisher_bishop_and_thomas_more_martyrs: 'Santos João Fisher, bispo e Tomás More, mártires', // src: arquidiocesemilitar.org.br/wp-content/uploads/2025/01/DIRETORIO-LITURGICO-OMB-2025-1_compressed.pdf#page=81
     john_i_pope: 'São João I, papa e mártir',
     john_leonardi_priest: 'São João Leonardi, presbítero',
     john_mary_vianney_priest: 'São João Maria Vianney, presbítero',
@@ -465,6 +482,7 @@ export const locale: Locale = {
     peter_claver_priest: 'São Pedro Claver, presbítero',
     peter_damian_bishop: 'São Pedro Damião, bispo e doutor da Igreja',
     peter_julian_eymard_priest: 'São Pedro Juliano Eymard, presbítero',
+    peter_of_alcantara_priest: 'São Pedro de Alcântara, presbítero', // src: arquidiocesemilitar.org.br/wp-content/uploads/2025/01/DIRETORIO-LITURGICO-OMB-2025-1_compressed.pdf#page=104
     philip_and_james_apostles: 'São Filipe e Tiago, apóstolos',
     philip_neri_priest: 'São Filipe Néri, presbítero',
     pius_francesco_forgione_priest: 'São Pio de Pietrelcina, presbítero',
@@ -497,8 +515,7 @@ export const locale: Locale = {
     sunday_of_the_word_of_god: '3º Domingo do Tempo Comum, ou Domingo da Palavra de Deus',
     sylvester_i_pope: 'São Silvestre I, papa',
     teresa_benedicta_of_the_cross_stein_virgin: 'Santa Teresa Benedita da Cruz, virgem e mártir',
-    // src: https://www.cnbb.org.br/liturgia-diaria/ 15-Oct-2025 (Retrieved 24-Jun-2025)
-    teresa_of_jesus_of_avila_virgin: 'Santa Teresa de Jesus, virgem e doutora da Igreja',
+    teresa_of_jesus_of_avila_virgin: 'Santa Teresa de Jesus, virgem e doutora da Igreja', // src: arquidiocesemilitar.org.br/wp-content/uploads/2025/01/DIRETORIO-LITURGICO-OMB-2025-1_compressed.pdf#page=103
     teresa_of_portugal_religious: 'Beata Teresa de Portugal, religiosa',
     theotonius_of_coimbra_priest: 'Santo Teotónio, presbítero',
     therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin:

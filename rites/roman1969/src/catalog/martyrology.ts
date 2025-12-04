@@ -660,6 +660,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: 547,
       dateOfDeathIsApproximative: true,
     },
+    // src: https://www.cnbb.org.br/missal-romano-calendario-proprio-dos-santos-brasil/, https://en.wikipedia.org/wiki/Benedict_the_Moor
+    benedict_the_moor_religious: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Benedict the Moor',
+      titles: [Title.Religious],
+      dateOfBirth: '1524-03-31',
+      dateOfDeath: '1589-04-04',
+      dateOfCanonization: '1807-05-24',
+    },
     benedict_of_skalka_hermit: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Benedict',
@@ -1233,6 +1242,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Dina Bélanger',
       titles: [Title.Virgin],
       dateOfDeath: 1929,
+    },
+    // src: https://www.cnbb.org.br/missal-romano-calendario-proprio-dos-santos-brasil/
+    dulce_lopes_pontes_virgin: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Dulce Lopes Pontes', // src: https://en.wikipedia.org/wiki/Irm%C3%A3_Dulce
+      titles: [Title.Virgin],
+      dateOfBirth: '1914-05-26', // listed on wikipedia
+      dateOfDeath: '1992-03-13', // src: https://www.vaticannews.va/en/church/news/2019-10/biography-dulce-lopes-pontes-nobel-nominee.html
+      dateOfCanonization: '2019-10-13', // src: https://www.vaticannews.va/en/church/news/2019-10/biography-dulce-lopes-pontes-nobel-nominee.html
+      dateOfBeatification: '2011-05-22', // src: https://www.vaticannews.va/en/church/news/2019-10/biography-dulce-lopes-pontes-nobel-nominee.html
     },
     dionysius_the_areopagite_bishop: {
       canonizationLevel: CanonizationLevels.Saint,

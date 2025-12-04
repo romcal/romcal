@@ -262,6 +262,7 @@ export const locale: Locale = {
     benedict_of_aniane_abbot: 'Saint Benedict of Aniane, Abbot',
     benedict_of_jesus_valdivielso_saez_religious: 'Saint Benedict of Jesus Valdivielso Sáez, Religious and Martyr',
     benedict_of_nursia_abbot: 'Saint Benedict, Abbot',
+    benedict_the_moor_religious: 'Saint Benedict the Moor, Religious', // src: https://en.wikipedia.org/wiki/Benedict_the_Moor
     benedict_of_nursia_abbot_patron_of_europe: 'Saint Benedict, Abbot, Patron of Europe',
     benno_of_meissen_bishop: 'Saint Benno of Meissen, Bishop',
     bernadette_soubirous_virgin: 'Saint Bernadette Soubirous, Virgin',
@@ -396,6 +397,7 @@ export const locale: Locale = {
     denis_of_paris_bishop_patron_of_the_city_and_of_the_diocese_of_saint_denis:
       'Saint Denis, Bishop and Martyr, Patron of the City and of the Diocese of Saint-Denis',
     dina_belanger_virgin: 'Blessed Dina Bélanger, Virgin',
+    dulce_lopes_pontes_virgin: 'Saint Dulce Lopes Pontes, Virgin', // src: https://en.wikipedia.org/wiki/Irm%C3%A3_Dulce
     dionysius_the_areopagite_bishop: 'Saint Dionysius the Areopagite, Bishop and Martyr',
     dismas_the_good_thief: 'Dismas the Good Thief',
     divine_mercy_sunday: 'Second Sunday of Easter or Sunday of Divine Mercy',
