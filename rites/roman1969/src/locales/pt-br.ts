@@ -515,6 +515,7 @@ export const locale: Locale = {
     sunday_of_the_word_of_god: '3º Domingo do Tempo Comum, ou Domingo da Palavra de Deus',
     sylvester_i_pope: 'São Silvestre I, papa',
     teresa_benedicta_of_the_cross_stein_virgin: 'Santa Teresa Benedita da Cruz, virgem e mártir',
+    teresa_of_calcutta_virgin: 'Santa Teresa de Calcutá, virgem', // src: https://press.vatican.va/content/salastampa/it/bollettino/pubblico/2025/02/11/0125/00250.html#portoghese
     teresa_of_jesus_of_avila_virgin: 'Santa Teresa de Jesus, virgem e doutora da Igreja', // src: https://arquidiocesemilitar.org.br/wp-content/uploads/2025/01/DIRETORIO-LITURGICO-OMB-2025-1_compressed.pdf#page=103
     teresa_of_portugal_religious: 'Beata Teresa de Portugal, religiosa',
     theotonius_of_coimbra_priest: 'Santo Teotónio, presbítero',
