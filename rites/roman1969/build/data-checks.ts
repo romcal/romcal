@@ -2,18 +2,21 @@
  * This script is used to check the consistency of the data files.
  *
  * It reports errors when:
- *   - [1] There are useless martyrology items.
- *   - [2] There are missing martyrology items.
- *   - [3] There are missing localized 'en' items (in the Romcal project,
+ *   - [1] There are missing martyrology items.
+ *   - [2] There are missing localized 'en' items (in the Romcal project,
  *         English takes precedence as the primary language, so all content
  *         should be localized in English).
- *   - [4] There are useless localized items.
- *   - [5] The martyrology items are not sorted alphabetically.
- *   - [6] The localized name items are not sorted alphabetically.
+ *   - [3] There are useless localized items.
+ *   - [4] The martyrology items are not sorted alphabetically.
+ *   - [5] The localized name items are not sorted alphabetically.
  *
  * It issues warnings when:
- *   - [7] There are missing localized items for the Proper of Time
+ *   - [6] There are missing localized items for the Proper of Time
  *         and the General Roman calendar.
+ *
+ * It provides informational messages when:
+ *   - [7] There are martyrology items not yet used by any calendar
+ *         (valid entries reserved for future use).
  *
  * Note: in the codebase below, all *ComputedKeys variables are the keys
  * that are computed by Romcal (from the inputs and definitions),
@@ -255,19 +258,13 @@ for (let i = 0; i < allCalendars.length; i += 1) {
 }
 
 /**
- * [1] If there are useless martyrology items.
- */
-const uselessMartyrologyKeys = findMissingInArray(Object.keys(Martyrology.catalog), allMartyrologyKeys);
-logIf(LogLevel.ERROR, 'Useless martyrology items:', uselessMartyrologyKeys);
-
-/**
- * [2] If there are missing martyrology items.
+ * [1] If there are missing martyrology items.
  */
 const missingMartyrologyKeys = findMissingInArray(allMartyrologyKeys, Object.keys(Martyrology.catalog));
 logIf(LogLevel.ERROR, 'Missing martyrology items:', missingMartyrologyKeys);
 
 /**
- * [3] If there are missing localized 'en' items.
+ * [2] If there are missing localized 'en' items.
  */
 const missingEnLocaleKeys = findMissingLocalizedItems('En', allLocalesKeys);
 logIf(LogLevel.ERROR, `Missing localized '${u('en')}' items:`, missingEnLocaleKeys);
@@ -275,7 +272,7 @@ logIf(LogLevel.ERROR, `Missing localized '${u('en')}' items:`, missingEnLocaleKe
 Object.keys(Martyrology.catalog).forEach((key) => allLocalesKeys.add(`names:${key}`));
 
 /**
- * [4] If there are useless localized name items.
+ * [3] If there are useless localized name items.
  */
 Object.keys(locales).forEach((localeKey) => {
   const uselessLocalizedKeys = findMissingLocalizedItems(localeKey, allLocalesKeys, {
@@ -286,13 +283,13 @@ Object.keys(locales).forEach((localeKey) => {
 });
 
 /**
- * [5] If the martyrology items are not sorted alphabetically.
+ * [4] If the martyrology items are not sorted alphabetically.
  */
 const areNotSortedMartyrologyKeys = isObjectPropsSortedAlphabetically(Martyrology.catalog);
 logIf(LogLevel.ERROR, 'Martyrology keys are not sorted alphabetically.', areNotSortedMartyrologyKeys);
 
 /**
- * [6] If the localized name items are not sorted alphabetically.
+ * [5] If the localized name items are not sorted alphabetically.
  */
 Object.values(locales).forEach((locale) => {
   const areNotSortedNames = isObjectPropsSortedAlphabetically(locale.names ?? {});
@@ -300,7 +297,7 @@ Object.values(locales).forEach((locale) => {
 });
 
 /**
- * [7] If there are missing localized items for the Proper of Time and the General Roman calendar.
+ * [6] If there are missing localized items for the Proper of Time and the General Roman calendar.
  */
 Object.keys(locales)
   .filter((l) => l !== 'En') // Ignore English locale has it is already checked before
@@ -314,6 +311,16 @@ Object.keys(locales)
       missingLocaleNames
     );
   });
+
+/**
+ * [7] If there are martyrology items not yet used by any calendar.
+ */
+const unusedMartyrologyKeys = findMissingInArray(Object.keys(Martyrology.catalog), allMartyrologyKeys);
+logIf(
+  LogLevel.INFO,
+  'Martyrology items not yet used by any calendar (reserved for future use):',
+  unusedMartyrologyKeys
+);
 
 /**
  * End of checks.
