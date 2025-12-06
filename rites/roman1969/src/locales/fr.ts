@@ -658,6 +658,7 @@ export const locale: Locale = {
       'Sainte Thérèse-Bénédicte de la Croix (Edith Stein), Carmélite, martyr en Pologne († 1942)',
     teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe:
       'Sainte Thérèse-Bénédicte de la Croix (Edith Stein), Carmélite, martyr en Pologne, co-patronne de l’Europe († 1942)',
+    teresa_of_calcutta_virgin: 'Sainte Teresa de Calcutta, vierge', // src: https://press.vatican.va/content/salastampa/it/bollettino/pubblico/2025/02/11/0125/00250.html#francese
     teresa_of_jesus_of_avila_virgin: 'Sainte Thérèse de Jésus (d’Avila), vierge et docteur de l’Église († 1582)',
     thanksgiving_day: 'Jour de l’action de grâce', // src: mr_fr_2021_ed3
     therese_marie_victoire_couderc_virgin: 'Sainte Thérèse Couderc, vierge († 1885)', // src: mr_fr_2014_ed2_lyon
