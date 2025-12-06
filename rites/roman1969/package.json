@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
-    "@commitlint/config-conventional": "^20.0.0",
+    "@commitlint/config-conventional": "^20.2.0",
     "@commitlint/types": "^20.0.0",
     "@internal/config": "file:../../packages/config",
     "@jsdevtools/npm-publish": "^4.1.1",
