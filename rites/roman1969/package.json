@@ -21,6 +21,8 @@
     "prepare": "husky",
     "prettier": "prettier -c .",
     "prettier:fix": "prettier -w .",
+    "sort-data:check": "tsx build/sort-data.ts check",
+    "sort-data:fix": "tsx build/sort-data.ts fix",
     "test": "TZ=UTC jest --coverage",
     "test:snapshot:update": "TZ=UTC jest -u",
     "test:watch": "TZ=UTC jest --watch",
