@@ -164,8 +164,8 @@ export const locale: Locale = {
     '32_feminine': 'trigesima secunda',
     '33_masculine': 'trigesimus tertius',
     '33_feminine': 'trigesima tertia',
-    '34_masculine': 'trigesimus quartrus',
-    '34_feminine': 'trigesima quartra',
+    '34_masculine': 'trigesimus quartus',
+    '34_feminine': 'trigesima quarta',
   },
 
   names: {
