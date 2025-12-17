@@ -8,7 +8,7 @@ export const locale: Locale = {
       season: 'Adventus',
       weekday: '$t(weekdays:{{dow}}, capitalize), hebdomada $t(ordinals:{{week}}, { "context": "feminine" }) Adventus',
       sunday: 'Dominica $t(ordinals:{{week}}, { "context": "feminine" }) Adventus',
-      privileged_weekday: 'Dia {{day}} $t(months:11)',
+      privileged_weekday: 'Die {{day}} $t(months:11)',
     },
 
     christmas_time: {
