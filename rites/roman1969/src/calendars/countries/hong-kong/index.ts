@@ -4,6 +4,7 @@ import { Precedences } from '../../../constants/precedences';
 import { CalendarDef } from '../../../models/calendar-def';
 import { Inputs } from '../../../types/calendar-def';
 
+// Source: http://catholic-dlc.org.hk/English_Liturgy.htm
 export class HongKong extends CalendarDef {
   particularConfig = {
     ascensionOnSunday: true,
