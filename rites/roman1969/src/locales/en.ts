@@ -147,6 +147,10 @@ export const locale: Locale = {
   },
 
   names: {
+    gabriele_maria_allegra_priest: 'Blessed Gabriele Maria Allegra, Priest',
+    holy_martyrs_and_blesseds_of_china: 'The Holy Martyrs and Blesseds of China',
+    dedication_of_the_cathedral_of_the_immaculate_conception_hong_kong:
+      'The Dedication of the Cathedral of the Immaculate Conception, Hong Kong',
     '205_blessed_martyrs_of_japan': '205 Blessed Martyrs of Japan',
     achard_of_saint_victor_bishop: 'Blessed Achard of Saint Victor, Bishop',
     adalbert_of_prague_bishop: 'Saint Adalbert, Bishop and Martyr',

@@ -563,6 +563,11 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
         between: [1648, 1930],
       },
     },
+    holy_martyrs_and_blesseds_of_china: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'The Holy Martyrs and Blesseds of China',
+      count: 'many',
+    },
     // src:
     // - mr_fr_1982_ed2_coutances
     // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/bienheureux-auguste-chapdelaine-pretre-et-martyr
@@ -1216,6 +1221,9 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     dedication_of_the_cathedral_of_saint_stephen_of_toulouse_france: {
       dateOfDedication: '1592-08-30',
     },
+    dedication_of_the_cathedral_of_the_immaculate_conception_hong_kong: {
+      name: 'Dedication of the Cathedral of the Immaculate Conception, Hong Kong',
+    },
     dedication_of_the_lateran_basilica: {
       name: 'Dedication of the Lateran Basilica',
     },
@@ -1746,6 +1754,11 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Gabriel-Taurin Dufresse',
       titles: [Title.Bishop, Title.Martyr],
+    },
+    gabriele_maria_allegra_priest: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Gabriele Maria Allegra',
+      titles: [Title.Priest],
     },
     gall_of_switzerland_abbot: {
       canonizationLevel: CanonizationLevels.Saint,

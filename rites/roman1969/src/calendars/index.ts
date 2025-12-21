@@ -29,6 +29,7 @@ import {
 import { Germany } from './countries/germany';
 import { Greece } from './countries/greece';
 import { Guatemala } from './countries/guatemala';
+import { HongKong } from './countries/hong-kong';
 import { Hungary } from './countries/hungary';
 import { India } from './countries/india';
 import { Ireland } from './countries/ireland';
@@ -102,6 +103,7 @@ export const calendarDefinitions: Record<string, typeof CalendarDef> = {
   Germany,
   Greece,
   Guatemala,
+  HongKong,
   Hungary,
   India,
   Ireland,
