@@ -1,4 +1,3 @@
-import { ProperCycles } from '../../../constants/cycles';
 import { PatronTitle } from '../../../constants/martyrology-metadata';
 import { Precedences } from '../../../constants/precedences';
 import { CalendarDef } from '../../../models/calendar-def';
@@ -7,6 +6,7 @@ import { Inputs } from '../../../types/calendar-def';
 export class HongKong extends CalendarDef {
   particularConfig = {
     ascensionOnSunday: true,
+    epiphanyOnSunday: true,
     corpusChristiOnSunday: true,
   };
 
@@ -65,7 +65,7 @@ export class HongKong extends CalendarDef {
       dateDef: { month: 12, date: 3 },
     },
 
-    // src: http://catholic-dlc.org.hk/English_Liturgy.htm
+    // src: http://catholic-dlc.org.hk/st/Dec/8/8.htm, http://catholic-dlc.org.hk/st/bydate.htm, http://catholic-dlc.org.hk/2023_%E6%95%99%E5%8D%80%E4%B8%BB%E4%BF%9D_%E8%8B%B1.pdf
     immaculate_conception_of_the_blessed_virgin_mary: {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       dateDef: { month: 12, date: 8 },
@@ -76,13 +76,6 @@ export class HongKong extends CalendarDef {
     dedication_of_the_cathedral_of_the_immaculate_conception_hong_kong: {
       precedence: Precedences.ProperFeast_DedicationOfTheCathedralChurch_8b,
       dateDef: { month: 12, date: 9 },
-    },
-
-    // src: http://catholic-dlc.org.hk/English_Liturgy.htm
-    our_lord_jesus_christ_the_eternal_high_priest: {
-      precedence: Precedences.ProperFeast_8f,
-      dateDef: { dateFn: 'pentecostSunday', addDay: 4 },
-      properCycle: ProperCycles.ProperOfTime,
     },
   };
 }
