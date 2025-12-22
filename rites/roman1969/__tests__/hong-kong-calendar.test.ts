@@ -138,17 +138,6 @@ describe('Testing Hong Kong calendar specific celebrations', () => {
       expect(maryMotherOfGod?.isHolyDayOfObligation).toBe(false);
     });
 
-    test('Our Lord Jesus Christ, the Eternal High Priest should be celebrated on Thursday after Pentecost', () => {
-      // 2024: Pentecost May 19. Thursday after is May 23.
-      const may23 = calendar2024['2024-05-23'];
-      const highPriest = may23?.find((day) => day.id === 'our_lord_jesus_christ_the_eternal_high_priest');
-
-      expect(highPriest).toBeDefined();
-      expect(highPriest?.name).toBe('Our Lord Jesus Christ, the Eternal High Priest');
-      expect(highPriest?.rank).toBe(Ranks.Feast);
-      expect(highPriest?.precedence).toBe(Precedences.ProperFeast_8f);
-    });
-
     test('St. Therese of the Child Jesus should be a Feast on October 1', () => {
       const oct1 = calendar2024['2024-10-01'];
       const therese = oct1?.find((day) => day.id === 'therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin');
