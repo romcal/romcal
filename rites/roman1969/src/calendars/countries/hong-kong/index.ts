@@ -28,7 +28,7 @@ export class HongKong extends CalendarDef {
       dateDef: { month: 1, date: 30 },
     },
 
-    // src: http://catholic-dlc.org.hk/English_Liturgy.htm
+    // src: http://catholic-dlc.org.hk/sup_massindex.htm
     aloysius_versiglia_bishop_and_callistus_caravario_priest_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 2, date: 25 },
@@ -53,7 +53,7 @@ export class HongKong extends CalendarDef {
       dateDef: { month: 7, date: 9 },
     },
 
-    // src: http://catholic-dlc.org.hk/English_Liturgy.htm
+    // src: http://catholic-dlc.org.hk/10-01Saint_The%CC%81re%CC%80se_of_the_Child_Jesus.doc
     therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin: {
       precedence: Precedences.ProperFeast_8f,
       dateDef: { month: 10, date: 1 },
