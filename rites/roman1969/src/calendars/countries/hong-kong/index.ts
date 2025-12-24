@@ -47,7 +47,7 @@ export class HongKong extends CalendarDef {
       dateDef: { month: 5, date: 24 },
     },
 
-    // src: http://catholic-dlc.org.hk/English_Liturgy.htm
+    // src: http://catholic-dlc.org.hk/st/Jul/9/9.htm
     holy_martyrs_and_blesseds_of_china: {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       dateDef: { month: 7, date: 9 },
