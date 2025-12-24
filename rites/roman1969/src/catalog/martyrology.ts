@@ -563,6 +563,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
         between: [1648, 1930],
       },
     },
+    // src: http://catholic-dlc.org.hk/st/Jul/9/9.htm
     holy_martyrs_and_blesseds_of_china: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'The Holy Martyrs and Blesseds of China',
