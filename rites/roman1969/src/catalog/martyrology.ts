@@ -1756,6 +1756,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Gabriel-Taurin Dufresse',
       titles: [Title.Bishop, Title.Martyr],
     },
+    // src: http://catholic-dlc.org.hk/viewer.htm?doc=0130_Blessed_Gabriele_Maria_Allegra.docx
     gabriele_maria_allegra_priest: {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Gabriele Maria Allegra',
