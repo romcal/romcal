@@ -59,7 +59,7 @@ export class HongKong extends CalendarDef {
       dateDef: { month: 10, date: 1 },
     },
 
-    // src: http://catholic-dlc.org.hk/English_Liturgy.htm
+    // src: http://catholic-dlc.org.hk/1203-Francis_Xavier.pdf
     francis_xavier_priest: {
       precedence: Precedences.ProperFeast_8f,
       dateDef: { month: 12, date: 3 },
