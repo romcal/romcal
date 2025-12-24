@@ -16,7 +16,7 @@ export class HongKong extends CalendarDef {
       isHolyDayOfObligation: false,
     },
 
-    // src: http://catholic-dlc.org.hk/English_Liturgy.htm
+    // src: http://catholic-dlc.org.hk/English_Liturgy.htm#:~:text=29,Memorial
     joseph_freinademetz_priest: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 1, date: 29 },
