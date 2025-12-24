@@ -543,7 +543,7 @@ export const locale: Locale = {
     holy_guardian_angels: 'The Holy Guardian Angels',
     holy_innocents_martyrs: 'The Holy Innocents, Martyrs',
     holy_hermits_and_evangelists: 'The Holy Hermits and Evangelists', // mr_fr_2022_ed3_angers
-    // src: http://catholic-dlc.org.hk/English_Liturgy.htm, http://catholic-dlc.org.hk/st/Jul/9/9.htm
+    // src: http://catholic-dlc.org.hk/st/Jul/9/9.htm
     holy_martyrs_and_blesseds_of_china: 'The Holy Martyrs and Blesseds of China',
     holy_saturday: 'Holy Saturday/Easter Vigil',
     holy_thursday: 'Holy Thursday',
