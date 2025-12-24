@@ -72,7 +72,7 @@ export class HongKong extends CalendarDef {
       titles: { append: [PatronTitle.PrincipalPatronOfTheDiocese] },
     },
 
-    // src: http://catholic-dlc.org.hk/English_Liturgy.htm
+    // src: http://catholic-dlc.org.hk/1209_Dedication_of_the_Cathedral-enA5.pdf
     dedication_of_the_cathedral_of_the_immaculate_conception_hong_kong: {
       precedence: Precedences.ProperFeast_DedicationOfTheCathedralChurch_8b,
       dateDef: { month: 12, date: 9 },
