@@ -22,7 +22,7 @@ export class HongKong extends CalendarDef {
       dateDef: { month: 1, date: 29 },
     },
 
-    // src: http://catholic-dlc.org.hk/English_Liturgy.htm
+    // src: http://catholic-dlc.org.hk/viewer.htm?doc=0130_Blessed_Gabriele_Maria_Allegra.docx
     gabriele_maria_allegra_priest: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 1, date: 30 },
