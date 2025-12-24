@@ -386,7 +386,7 @@ export const locale: Locale = {
       'The Dedication of the Cathedral Saint Maurice of Angers, France', // mr_fr_2022_ed3_angers
     dedication_of_the_cathedral_of_saint_stephen_of_toulouse_france:
       'The Dedication of the Cathedral of Saint Stephen of Toulouse, France',
-    // src: http://catholic-dlc.org.hk/English_Liturgy.htm, http://catholic-dlc.org.hk/st/Dec/9/9.htm
+    // src: http://catholic-dlc.org.hk/1209_Dedication_of_the_Cathedral-enA5.pdf
     dedication_of_the_cathedral_of_the_immaculate_conception_hong_kong:
       'The Dedication of the Cathedral of the Immaculate Conception, Hong Kong',
     dedication_of_the_lateran_basilica: 'The Dedication of the Lateran Basilica',
