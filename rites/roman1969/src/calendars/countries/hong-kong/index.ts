@@ -35,7 +35,7 @@ export class HongKong extends CalendarDef {
       martyrology: ['aloysius_versiglia_bishop', 'callistus_caravario_priest'],
     },
 
-    // src: http://catholic-dlc.org.hk/English_Liturgy.htm
+    // src: http://catholic-dlc.org.hk/viewer.htm?doc=our_lady_of_china.doc
     our_lady_of_china: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 5, dayOfWeek: 6, nthWeekInMonth: 2 },
