@@ -490,7 +490,7 @@ export const locale: Locale = {
       'Saints Fructuosus, Bishop, Augurius and Eulogius, Deacons, Martyrs',
     fursa_of_peronne_abbot: 'Saint Fursa, Abbot and Missionary',
     gabriel_taurin_dufresse_bishop: 'Saint Gabriel-Taurin Dufresse, Bishop and Martyr',
-    // src: http://catholic-dlc.org.hk/English_Liturgy.htm, https://en.wikipedia.org/wiki/Gabriele_Allegra
+    // src: http://catholic-dlc.org.hk/viewer.htm?doc=0130_Blessed_Gabriele_Maria_Allegra.docx
     gabriele_maria_allegra_priest: 'Blessed Gabriele Maria Allegra, Priest',
     gall_of_switzerland_abbot: 'Saint Gall, Abbot and Missionary',
     gaud_of_evreux_bishop: 'Saint Gaud, Bishop',
