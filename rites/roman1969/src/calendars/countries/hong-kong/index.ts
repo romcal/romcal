@@ -41,9 +41,9 @@ export class HongKong extends CalendarDef {
       dateDef: { month: 5, dayOfWeek: 6, nthWeekInMonth: 2 },
     },
 
-    // src: http://catholic-dlc.org.hk/English_Liturgy.htm
+    // src: http://catholic-dlc.org.hk/viewer.htm?doc=0524e.doc
     our_lady_help_of_christians: {
-      precedence: Precedences.OptionalMemorial_12,
+      precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 5, date: 24 },
     },
 
