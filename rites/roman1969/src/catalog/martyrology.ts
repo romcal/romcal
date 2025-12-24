@@ -1222,7 +1222,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDedication: '1592-08-30',
     },
     dedication_of_the_cathedral_of_the_immaculate_conception_hong_kong: {
-      name: 'Dedication of the Cathedral of the Immaculate Conception, Hong Kong',
+      name: 'Dedication of the Cathedral of the Immaculate Conception, Hong Kong', // src: http://catholic-dlc.org.hk/1209_Dedication_of_the_Cathedral-enA5.pdf
     },
     dedication_of_the_lateran_basilica: {
       name: 'Dedication of the Lateran Basilica',
