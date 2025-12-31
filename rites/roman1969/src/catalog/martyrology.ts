@@ -1222,8 +1222,9 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     dedication_of_the_cathedral_of_saint_stephen_of_toulouse_france: {
       dateOfDedication: '1592-08-30',
     },
+    // src: http://catholic-dlc.org.hk/1209_Dedication_of_the_Cathedral-enA5.pdf
     dedication_of_the_cathedral_of_the_immaculate_conception_hong_kong: {
-      name: 'Dedication of the Cathedral of the Immaculate Conception, Hong Kong', // src: http://catholic-dlc.org.hk/1209_Dedication_of_the_Cathedral-enA5.pdf
+      name: 'Dedication of the Cathedral of the Immaculate Conception, Hong Kong',
     },
     dedication_of_the_lateran_basilica: {
       name: 'Dedication of the Lateran Basilica',
