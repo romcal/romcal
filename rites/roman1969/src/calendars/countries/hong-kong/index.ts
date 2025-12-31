@@ -28,7 +28,7 @@ export class HongKong extends CalendarDef {
       dateDef: { month: 1, date: 30 },
     },
 
-    // src: http://catholic-dlc.org.hk/sup_massindex.htm
+    // src: http://catholic-dlc.org.hk/sup_massindex.htm#:~:text=%E8%81%96%E9%9B%B7%E9%B3%B4%E9%81%93%E4%B8%BB%E6%95%99%E5%8F%8A%E8%81%96%E9%AB%98%E6%83%A0%E9%BB%8E%E5%8F%B8%E9%90%B8%EF%BC%88Ss%2E%20Louis%20Versiglia%20%26%20Callistus%20Caravario%20%EF%BC%89
     aloysius_versiglia_bishop_and_callistus_caravario_priest_martyrs: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 2, date: 25 },
