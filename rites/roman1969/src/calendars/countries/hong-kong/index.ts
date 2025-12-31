@@ -11,7 +11,7 @@ export class HongKong extends CalendarDef {
   };
 
   inputs: Inputs = {
-    // src: http://catholic-dlc.org.hk/English_Liturgy.htm
+    // src: http://catholic-dlc.org.hk/st/bydate.htm#:~:text=God-,%2A%E9%81%87%E4%B8%8A,%E7%B5%90%E6%9D%9F
     mary_mother_of_god: {
       isHolyDayOfObligation: false,
     },
