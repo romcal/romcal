@@ -84,7 +84,7 @@
     "eslint-plugin-unused-imports": "^4.3.0",
     "globals": "^17.1.0",
     "husky": "^9.1.7",
-    "prettier": "~3.8.0",
+    "prettier": "~3.8.1",
     "rimraf": "^6.1.2",
     "tsx": "^4.21.0",
     "typescript": "~5.9.3",
