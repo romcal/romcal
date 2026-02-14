@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@internal/easter": "file:../../packages/easter",
-    "i18next": "^25.8.4",
+    "i18next": "^25.8.7",
     "ts-deepmerge": "^7.0.3"
   },
   "devDependencies": {
