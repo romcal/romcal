@@ -76,7 +76,7 @@
     "@babel/eslint-parser": "^7.28.6",
     "@typescript-eslint/eslint-plugin": "^8.32.1",
     "@typescript-eslint/parser": "^8.32.1",
-    "eslint": "^9.27.0",
+    "eslint": "^10.0.0",
     "eslint-config-prettier": "~10.1.8",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jest": "^29.12.2",
