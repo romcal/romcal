@@ -32,7 +32,7 @@
     "ts-deepmerge": "^7.0.3"
   },
   "devDependencies": {
-    "@commitlint/cli": "^20.4.1",
+    "@commitlint/cli": "^20.4.2",
     "@commitlint/config-conventional": "^20.4.1",
     "@commitlint/types": "^20.4.0",
     "@internal/config": "file:../../packages/config",
