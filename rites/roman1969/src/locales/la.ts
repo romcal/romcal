@@ -8,7 +8,7 @@ export const locale: Locale = {
       season: 'Adventus',
       weekday: '$t(weekdays:{{dow}}, capitalize), hebdomada $t(ordinals:{{week}}, { "context": "feminine" }) Adventus',
       sunday: 'Dominica $t(ordinals:{{week}}, { "context": "feminine" }) Adventus',
-      privileged_weekday: 'Die {{day}} $t(months:11)',
+      privileged_weekday: 'Dia {{day}} $t(months:11)',
     },
 
     christmas_time: {
@@ -164,8 +164,8 @@ export const locale: Locale = {
     '32_feminine': 'trigesima secunda',
     '33_masculine': 'trigesimus tertius',
     '33_feminine': 'trigesima tertia',
-    '34_masculine': 'trigesimus quartus',
-    '34_feminine': 'trigesima quarta',
+    '34_masculine': 'trigesimus quartrus',
+    '34_feminine': 'trigesima quartra',
   },
 
   names: {

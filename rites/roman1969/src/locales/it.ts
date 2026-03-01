@@ -498,6 +498,7 @@ export const locale: Locale = {
     teresa_benedicta_of_the_cross_stein_virgin: 'Santa Teresa Benedetta della Croce, vergine e martire',
     teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe:
       'Santa Teresa Benedetta della Croce, vergine, martire e patrona secondaria d’Europa',
+    teresa_of_calcutta_virgin: 'Santa Teresa di Calcutta, vergine', // src: https://press.vatican.va/content/salastampa/it/bollettino/pubblico/2025/02/11/0125/00250.html#italiana
     teresa_of_jesus_of_avila_virgin: 'Santa Teresa di Gesù d’Avila, vergine e dottore della Chiesa',
     therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin:
       'Santa Teresa di Gesu’ Bambino, vergine e dottore della Chiesa',
