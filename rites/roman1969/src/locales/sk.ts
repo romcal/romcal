@@ -1,88 +1,31 @@
 import { Locale } from '../types/locale';
 
 export const locale: Locale = {
-  id: 'sk',
-
-  seasons: {
-    advent: {
-      season: 'Adventné obdobie',
-      weekday: '$t(weekdays:{{dow}}, capitalize) po {{week}}. adventnej nedeli',
-      sunday: '{{week}}. adventná nedeľa',
-      privileged_weekday: '{{day}} $t(months:11)',
-    },
-
-    christmas_time: {
-      season: 'Vianočné obdobie',
-      day: '$t(weekdays:{{dow}}, capitalize) vo Vianočnom období',
-      octave: '{{count}}. deň v oktáve narodenia Pána',
-      second_sunday_after_christmas: 'Druhá nedeľa po narodení Pána',
-      before_epiphany: '{{day}}. $t(months:0) vo vianočnom období',
-      after_epiphany: '$t(weekdays:{{dow}}, capitalize) po Zjavení Pána',
-    },
-
-    ordinary_time: {
-      season: 'Cezročné obdobie',
-      weekday: '$t(weekdays:{{dow}}, capitalize) {{week}}. týždňa v Cezročnom období',
-      sunday: '{{week}}. nedeľa v Cezročnom období',
-    },
-
-    lent: {
-      season: 'Pôstne obdobie',
-      weekday: '$t(weekdays:{{dow}}, capitalize) po {{week}}. pôstnej nedeli',
-      sunday: '{{week}}. pôstna nedeľa',
-      day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) po Popolcovej strede',
-      holy_week_day: '$t(weekdays:{{dow}}, capitalize) Svätého týždňa',
-    },
-
-    paschal_triduum: {
-      season: 'Veľkonočné trojdnie',
-    },
-
-    easter_time: {
-      season: 'Veľkonočné obdobie',
-      weekday: '$t(weekdays:{{dow}}, capitalize) po {{week}}. veľkonočnej nedeli',
-      sunday: '{{week}}. veľkonočná nedeľa',
-      octave: 'Veľkonočný $t(weekdays:{{dow}}, capitalize)',
-    },
-  },
-
-  periods: {
-    epiphany: 'Zjavenie Pána',
-    holy_week: 'Svätý týždeň',
-  },
-
-  ranks: {
-    solemnity: 'slávnosť',
-    sunday: 'nedeľa',
-    feast: 'sviatok',
-    memorial: 'spomienka',
-    optional_memorial: 'ľubovoľná spomienka',
-    weekday: 'féria',
+  colors: {
+    black: 'čierna',
+    gold: 'zlatá',
+    green: 'zelená',
+    purple: 'fialová',
+    red: 'červená',
+    rose: 'ružová',
+    white: 'biela',
   },
 
   cycles: {
-    proper_of_time: 'temporál',
     proper_of_saints: 'sanktorál',
+    proper_of_time: 'temporál',
+    psalter_week_1: '1. týždeň žaltára',
+    psalter_week_2: '2. týždeň žaltára',
+    psalter_week_3: '3. týždeň žaltára',
+    psalter_week_4: '4. týždeň žaltára',
     sunday_year_a: 'rok A',
     sunday_year_b: 'rok B',
     sunday_year_c: 'rok C',
     weekday_year_1: 'cyklus I.',
     weekday_year_2: 'cyklus II.',
-    psalter_week_1: '1. týždeň žaltára',
-    psalter_week_2: '2. týždeň žaltára',
-    psalter_week_3: '3. týždeň žaltára',
-    psalter_week_4: '4. týždeň žaltára',
   },
 
-  weekdays: {
-    0: 'nedeľa',
-    1: 'pondelok',
-    2: 'utorok',
-    3: 'streda',
-    4: 'štvrtok',
-    5: 'piatok',
-    6: 'sobota',
-  },
+  id: 'sk',
 
   months: {
     0: 'január',
@@ -97,54 +40,6 @@ export const locale: Locale = {
     9: 'október',
     10: 'november',
     11: 'december',
-  },
-
-  colors: {
-    black: 'čierna',
-    gold: 'zlatá',
-    green: 'zelená',
-    purple: 'fialová',
-    red: 'červená',
-    rose: 'ružová',
-    white: 'biela',
-  },
-
-  ordinals: {
-    '1_masculine': 'prvý',
-    '1_feminine': 'prvá',
-    '2': 'druhý',
-    '3': 'tretí',
-    '4': 'štvrtý',
-    '5': 'piaty',
-    '6': 'šiesty',
-    '7': 'siedmy',
-    '8': 'ôsmy',
-    '9': 'deviaty',
-    '10': 'desiaty',
-    '11': 'jedenásty',
-    '12': 'dvanácty',
-    '13': 'trinásty',
-    '14': 'štrnásty',
-    '15': 'pätnásty',
-    '16': 'šestnásty',
-    '17': 'sedemnásty',
-    '18': 'osemnásty',
-    '19': 'devätnásty',
-    '20': 'dvadsiaty',
-    '21': 'dvadsiaty prvý',
-    '22': 'dvadsiaty druhý',
-    '23': 'dvadsiaty tretí',
-    '24': 'dvadsiaty štvrtý',
-    '25': 'dvadsiaty piaty',
-    '26': 'dvadsiaty šiesty',
-    '27': 'dvadsiaty siedmy',
-    '28': 'dvadsiaty ôsmy',
-    '29': 'dvadsiaty deviaty',
-    '30': 'tridsiaty',
-    '31': 'tridsiaty prvý',
-    '32': 'tridsiaty druhý',
-    '33': 'tridsiaty tretí',
-    '34': 'tridsiaty štvrtý',
   },
 
   names: {
@@ -279,8 +174,6 @@ export const locale: Locale = {
     carthage_of_lismore_bishop: 'Svätého Kartága z Lismore, biskupa',
     casimir_of_poland: 'Svätého Kazimíra',
     catherine_of_alexandria_virgin: 'Svätej Kataríny Alexandrijskej, panny a mučenice',
-    mary_catherine_of_saint_augustine_catherine_de_simon_de_longpre_virgin:
-      'Blahoslavenej Kataríny od sv. Augustína de Simon de Longpré, panny',
     catherine_of_siena_virgin: 'Svätej Kataríny Sienskej, panny a učiteľky Cirkvi',
     catherine_of_siena_virgin_copatroness_of_europe:
       'Svätej Kataríny Sienskej, panny a učiteľky Cirkvi, patrónky Európy',
@@ -684,6 +577,8 @@ export const locale: Locale = {
     mary_adeodata_pisani_virgin: 'Blahoslavenej Márie Adeodaty Pisaniovej, panny',
     mary_angela_truszkowska_virgin: 'Blahoslavenej Márie Angely Truszkowskej, panny',
     mary_assunta_pallotta_virgin: 'Blahoslavenej Márie Assunty Pallottovej, panny',
+    mary_catherine_of_saint_augustine_catherine_de_simon_de_longpre_virgin:
+      'Blahoslavenej Kataríny od sv. Augustína de Simon de Longpré, panny',
     mary_magdalene: 'Svätej Márie Magdalény',
     mary_magdalene_de_pazzi_virgin: 'Svätej Márie Magdalény de Pazzi, panny',
     mary_mother_of_god: 'Oktáva Narodenia Pána. Slávnosť Panny Márie Bohorodičky',
@@ -990,5 +885,110 @@ export const locale: Locale = {
     zepherin_namuncura: 'Blahoslaveného Zefirína Namuncurá',
     zoltan_lajos_meszlenyi_bishop: 'Blahoslaveného Zoltána Ľudovíta Meszlényiho, biskupa a mučeníka',
     zygmunt_gorazdowski_priest: 'Svätého Žigmunda Gorazdowského, kňaza',
+  },
+
+  ordinals: {
+    '1_feminine': 'prvá',
+    '1_masculine': 'prvý',
+    '2': 'druhý',
+    '3': 'tretí',
+    '4': 'štvrtý',
+    '5': 'piaty',
+    '6': 'šiesty',
+    '7': 'siedmy',
+    '8': 'ôsmy',
+    '9': 'deviaty',
+    '10': 'desiaty',
+    '11': 'jedenásty',
+    '12': 'dvanácty',
+    '13': 'trinásty',
+    '14': 'štrnásty',
+    '15': 'pätnásty',
+    '16': 'šestnásty',
+    '17': 'sedemnásty',
+    '18': 'osemnásty',
+    '19': 'devätnásty',
+    '20': 'dvadsiaty',
+    '21': 'dvadsiaty prvý',
+    '22': 'dvadsiaty druhý',
+    '23': 'dvadsiaty tretí',
+    '24': 'dvadsiaty štvrtý',
+    '25': 'dvadsiaty piaty',
+    '26': 'dvadsiaty šiesty',
+    '27': 'dvadsiaty siedmy',
+    '28': 'dvadsiaty ôsmy',
+    '29': 'dvadsiaty deviaty',
+    '30': 'tridsiaty',
+    '31': 'tridsiaty prvý',
+    '32': 'tridsiaty druhý',
+    '33': 'tridsiaty tretí',
+    '34': 'tridsiaty štvrtý',
+  },
+
+  periods: {
+    epiphany: 'Zjavenie Pána',
+    holy_week: 'Svätý týždeň',
+  },
+
+  ranks: {
+    feast: 'sviatok',
+    memorial: 'spomienka',
+    optional_memorial: 'ľubovoľná spomienka',
+    solemnity: 'slávnosť',
+    sunday: 'nedeľa',
+    weekday: 'féria',
+  },
+
+  seasons: {
+    advent: {
+      privileged_weekday: '{{day}} $t(months:11)',
+      season: 'Adventné obdobie',
+      sunday: '{{week}}. adventná nedeľa',
+      weekday: '$t(weekdays:{{dow}}, capitalize) po {{week}}. adventnej nedeli',
+    },
+
+    christmas_time: {
+      after_epiphany: '$t(weekdays:{{dow}}, capitalize) po Zjavení Pána',
+      before_epiphany: '{{day}}. $t(months:0) vo vianočnom období',
+      day: '$t(weekdays:{{dow}}, capitalize) vo Vianočnom období',
+      octave: '{{count}}. deň v oktáve narodenia Pána',
+      season: 'Vianočné obdobie',
+      second_sunday_after_christmas: 'Druhá nedeľa po narodení Pána',
+    },
+
+    easter_time: {
+      octave: 'Veľkonočný $t(weekdays:{{dow}}, capitalize)',
+      season: 'Veľkonočné obdobie',
+      sunday: '{{week}}. veľkonočná nedeľa',
+      weekday: '$t(weekdays:{{dow}}, capitalize) po {{week}}. veľkonočnej nedeli',
+    },
+
+    lent: {
+      day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) po Popolcovej strede',
+      holy_week_day: '$t(weekdays:{{dow}}, capitalize) Svätého týždňa',
+      season: 'Pôstne obdobie',
+      sunday: '{{week}}. pôstna nedeľa',
+      weekday: '$t(weekdays:{{dow}}, capitalize) po {{week}}. pôstnej nedeli',
+    },
+
+    ordinary_time: {
+      season: 'Cezročné obdobie',
+      sunday: '{{week}}. nedeľa v Cezročnom období',
+      weekday: '$t(weekdays:{{dow}}, capitalize) {{week}}. týždňa v Cezročnom období',
+    },
+
+    paschal_triduum: {
+      season: 'Veľkonočné trojdnie',
+    },
+  },
+
+  weekdays: {
+    0: 'nedeľa',
+    1: 'pondelok',
+    2: 'utorok',
+    3: 'streda',
+    4: 'štvrtok',
+    5: 'piatok',
+    6: 'sobota',
   },
 };

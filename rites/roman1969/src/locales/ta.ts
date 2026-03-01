@@ -1,88 +1,31 @@
 import { Locale } from '../types/locale';
 
 export const locale: Locale = {
-  id: 'ta',
-
-  seasons: {
-    advent: {
-      season: 'திருவருகைக்காலம்',
-      weekday: '$t(weekdays:{{dow}}) - $t(ordinals:{{week}}) திருவருகைக்கால வாரநாள்',
-      sunday: '$t(ordinals:{{week}}) திருவருகைக்கால ஞாயிறு',
-      privileged_weekday: '$t(months:11) {{day}}',
-    },
-
-    christmas_time: {
-      season: 'கிறிஸ்து பிறப்பு காலம்',
-      day: '$t(weekdays:{{dow}}) கிறிஸ்து பிறப்பு காலம்',
-      octave: '{{count}}ஆம் நாள் கிறிஸ்து பிறப்பின் எண்கிழமை',
-      second_sunday_after_christmas: 'கிறிஸ்து பிறப்பிற்குப் பின் இரண்டாம் ஞாயிறு',
-      before_epiphany: 'திருக்காட்சிக்கு முன் - $t(months:0) {{day}}',
-      after_epiphany: 'திருக்காட்சிக்கு பின் $t(weekdays:{{dow}})',
-    },
-
-    ordinary_time: {
-      season: 'பொதுக்காலம்',
-      weekday: '$t(weekdays:{{dow}}) - $t(ordinals:{{week}}) பொதுக்கால வாரநாள்',
-      sunday: '$t(ordinals:{{week}}) பொதுக்கால ஞாயிறு',
-    },
-
-    lent: {
-      season: 'தவக்காலம்',
-      weekday: '$t(weekdays:{{dow}}) - $t(ordinals:{{week}}) தவக்கால வாரநாள்',
-      sunday: '$t(ordinals:{{week}}) தவக்கால ஞாயிறு',
-      day_after_ash_wed: '$t(weekdays:{{dow}}) விபூதி புதனுக்குப் பின்',
-      holy_week_day: '$t(weekdays:{{dow}}) - புனித வாரம்',
-    },
-
-    paschal_triduum: {
-      season: 'பாஸ்காவின் மூன்று புனித நாட்கள்',
-    },
-
-    easter_time: {
-      season: 'பாஸ்காக்காலம்',
-      weekday: '$t(weekdays:{{dow}}) - $t(ordinals:{{week}}) பாஸ்காக்காலம் வாரநாள்',
-      sunday: '$t(ordinals:{{week}}) பாஸ்காகாலம் ஞாயிறு',
-      octave: '$t(weekdays:{{dow}}) பாஸ்கா எண்கிழமை',
-    },
-  },
-
-  periods: {
-    epiphany: 'திருக்காட்சி',
-    holy_week: 'புனித வாரம்',
-  },
-
-  ranks: {
-    solemnity: 'பெருவிழா',
-    sunday: 'ஞாயிறு',
-    feast: 'திருவிழா',
-    memorial: 'விசேட நினைவு',
-    optional_memorial: 'நினைவு',
-    weekday: 'வாரநாள்',
+  colors: {
+    black: 'கறுப்பு',
+    gold: 'தங்கம்',
+    green: 'பச்சை',
+    purple: 'ஊதா',
+    red: 'சிவப்பு',
+    rose: 'ரோஸ்',
+    white: 'வெள்ளை',
   },
 
   cycles: {
-    proper_of_time: 'காலத்தின் சிறப்ப',
     proper_of_saints: 'புனிதர்களின் சிறப்பு',
+    proper_of_time: 'காலத்தின் சிறப்ப',
+    psalter_week_1: 'வாரம் ஒன்று',
+    psalter_week_2: 'வாரம் இரண்டு',
+    psalter_week_3: 'வாரம் மூன்று',
+    psalter_week_4: 'வாரம் நான்கு',
     sunday_year_a: 'முதலாம் ஆண்டு',
     sunday_year_b: 'இரண்டாம் ஆண்டு',
     sunday_year_c: 'மூன்றாம் ஆண்டு',
     weekday_year_1: 'வட்டம் ஒன்று',
     weekday_year_2: 'வட்டம் இரண்டு',
-    psalter_week_1: 'வாரம் ஒன்று',
-    psalter_week_2: 'வாரம் இரண்டு',
-    psalter_week_3: 'வாரம் மூன்று',
-    psalter_week_4: 'வாரம் நான்கு',
   },
 
-  weekdays: {
-    0: 'ஞாயிறு',
-    1: 'திங்கள்',
-    2: 'செவ்வாய்',
-    3: 'புதன்',
-    4: 'வியாழன்',
-    5: 'வெள்ளி',
-    6: 'சனி',
-  },
+  id: 'ta',
 
   months: {
     0: 'சனவரி',
@@ -97,53 +40,6 @@ export const locale: Locale = {
     9: 'அக்டோபர்',
     10: 'நவம்பர்',
     11: 'டிசம்பர்',
-  },
-
-  colors: {
-    black: 'கறுப்பு',
-    gold: 'தங்கம்',
-    green: 'பச்சை',
-    purple: 'ஊதா',
-    red: 'சிவப்பு',
-    rose: 'ரோஸ்',
-    white: 'வெள்ளை',
-  },
-
-  ordinals: {
-    '1': 'முதலாம்',
-    '2': 'இரண்டாம்',
-    '3': 'மூன்றாம்',
-    '4': 'நான்காம்',
-    '5': 'ஐந்தாம்',
-    '6': 'ஆறாம்',
-    '7': 'எழாம்',
-    '8': 'எட்டாம்',
-    '9': 'ஒன்பதாம்',
-    '10': 'பத்தாம்',
-    '11': 'பதினொன்றாம்',
-    '12': 'பனிரெண்டாம்',
-    '13': 'பதின்மூன்றாம்',
-    '14': 'பதினான்காம்',
-    '15': 'பதினைந்தாம்',
-    '16': 'பதினாறாம்',
-    '17': 'பதினேழாம்',
-    '18': 'பதினெட்டாம்',
-    '19': 'பத்தொன்பதாம்',
-    '20': 'இருபதாம்',
-    '21': 'இருபத்தோரம்',
-    '22': 'இருபத்தி இண்டாம்',
-    '23': 'இருபத்தி மூன்றாம்',
-    '24': 'இருபத்தி நான்காம்',
-    '25': 'இருபத்தி ஐந்தாம்',
-    '26': 'இருபத்தி ஆறாம்',
-    '27': 'இருபத்தி ஏழாம்',
-    '28': 'இருபத்தி எட்டாம்',
-    '29': 'இருபத்தி ஒன்பதாம்',
-    '30': 'முப்பதாம்',
-    '31': 'முப்பத்தி ஒன்றாம்',
-    '32': 'முப்பத்தி இரண்டாம்',
-    '33': 'முப்பத்தி மூன்றாம்',
-    '34': 'முப்பத்தி நான்காம்',
   },
 
   names: {
@@ -282,7 +178,6 @@ export const locale: Locale = {
     carthage_of_lismore_bishop: 'புனித கார்தேஜ் - ஆயர்',
     casimir_of_poland: 'போலந்தின் புனித காஸ்மிர்',
     catherine_of_alexandria_virgin: 'அலெக்சான்றியாவின் புனித கத்தரின் - கன்னி, மறைசாட்சி',
-    mary_catherine_of_saint_augustine_catherine_de_simon_de_longpre_virgin: 'புனித அகுஸ்தினின் புனித கத்தரின் - கன்னி',
     catherine_of_siena_virgin: 'சியன்னாவின் புனித கத்தரின் - கன்னி, மறைவல்லுநர்',
     catherine_of_siena_virgin_copatroness_of_europe:
       'சியன்னாவின் புனித கத்தரின் - கன்னி, மறைவல்லுநர், ஐரோப்பவின் பாதுகாவலி',
@@ -687,6 +582,7 @@ export const locale: Locale = {
     mary_adeodata_pisani_virgin: 'முத்திப்பேறுபெற்ற மரிய அடியோடா பிசானி - கன்னி',
     mary_angela_truszkowska_virgin: 'முத்திப்பேறுபெற்ற மரிய அஞ்ஜெலா திரஸ்கௌஸ்கா - கன்னி',
     mary_assunta_pallotta_virgin: 'முத்திப்பேறுபெற்ர மரிய அசுந்தா பலோடா - கன்னி',
+    mary_catherine_of_saint_augustine_catherine_de_simon_de_longpre_virgin: 'புனித அகுஸ்தினின் புனித கத்தரின் - கன்னி',
     mary_magdalene: 'புனித மரிய மக்தெலேனா',
     mary_magdalene_de_pazzi_virgin: 'புனித மரிய மக்தெலேனா டி பாஸ்சி - கன்னி',
     mary_mother_of_god: 'தூய கன்னி மரியா, திரு அவையின் அன்னை',
@@ -994,5 +890,109 @@ export const locale: Locale = {
     zepherin_namuncura: 'முத்திப்பேறுபெற்ற செபரின் நமுன்சூறா',
     zoltan_lajos_meszlenyi_bishop: 'முத்திபேறுபெற்ர சோல்டன் லஜொஸ் மெஸ்லென்யி - ஆயர், மறைசாட்சி',
     zygmunt_gorazdowski_priest: 'புனித சிக்மண்ட் கொரஸ்ட்டௌஸ்கி - அருட்பணியாளர்',
+  },
+
+  ordinals: {
+    '1': 'முதலாம்',
+    '2': 'இரண்டாம்',
+    '3': 'மூன்றாம்',
+    '4': 'நான்காம்',
+    '5': 'ஐந்தாம்',
+    '6': 'ஆறாம்',
+    '7': 'எழாம்',
+    '8': 'எட்டாம்',
+    '9': 'ஒன்பதாம்',
+    '10': 'பத்தாம்',
+    '11': 'பதினொன்றாம்',
+    '12': 'பனிரெண்டாம்',
+    '13': 'பதின்மூன்றாம்',
+    '14': 'பதினான்காம்',
+    '15': 'பதினைந்தாம்',
+    '16': 'பதினாறாம்',
+    '17': 'பதினேழாம்',
+    '18': 'பதினெட்டாம்',
+    '19': 'பத்தொன்பதாம்',
+    '20': 'இருபதாம்',
+    '21': 'இருபத்தோரம்',
+    '22': 'இருபத்தி இண்டாம்',
+    '23': 'இருபத்தி மூன்றாம்',
+    '24': 'இருபத்தி நான்காம்',
+    '25': 'இருபத்தி ஐந்தாம்',
+    '26': 'இருபத்தி ஆறாம்',
+    '27': 'இருபத்தி ஏழாம்',
+    '28': 'இருபத்தி எட்டாம்',
+    '29': 'இருபத்தி ஒன்பதாம்',
+    '30': 'முப்பதாம்',
+    '31': 'முப்பத்தி ஒன்றாம்',
+    '32': 'முப்பத்தி இரண்டாம்',
+    '33': 'முப்பத்தி மூன்றாம்',
+    '34': 'முப்பத்தி நான்காம்',
+  },
+
+  periods: {
+    epiphany: 'திருக்காட்சி',
+    holy_week: 'புனித வாரம்',
+  },
+
+  ranks: {
+    feast: 'திருவிழா',
+    memorial: 'விசேட நினைவு',
+    optional_memorial: 'நினைவு',
+    solemnity: 'பெருவிழா',
+    sunday: 'ஞாயிறு',
+    weekday: 'வாரநாள்',
+  },
+
+  seasons: {
+    advent: {
+      privileged_weekday: '$t(months:11) {{day}}',
+      season: 'திருவருகைக்காலம்',
+      sunday: '$t(ordinals:{{week}}) திருவருகைக்கால ஞாயிறு',
+      weekday: '$t(weekdays:{{dow}}) - $t(ordinals:{{week}}) திருவருகைக்கால வாரநாள்',
+    },
+
+    christmas_time: {
+      after_epiphany: 'திருக்காட்சிக்கு பின் $t(weekdays:{{dow}})',
+      before_epiphany: 'திருக்காட்சிக்கு முன் - $t(months:0) {{day}}',
+      day: '$t(weekdays:{{dow}}) கிறிஸ்து பிறப்பு காலம்',
+      octave: '{{count}}ஆம் நாள் கிறிஸ்து பிறப்பின் எண்கிழமை',
+      season: 'கிறிஸ்து பிறப்பு காலம்',
+      second_sunday_after_christmas: 'கிறிஸ்து பிறப்பிற்குப் பின் இரண்டாம் ஞாயிறு',
+    },
+
+    easter_time: {
+      octave: '$t(weekdays:{{dow}}) பாஸ்கா எண்கிழமை',
+      season: 'பாஸ்காக்காலம்',
+      sunday: '$t(ordinals:{{week}}) பாஸ்காகாலம் ஞாயிறு',
+      weekday: '$t(weekdays:{{dow}}) - $t(ordinals:{{week}}) பாஸ்காக்காலம் வாரநாள்',
+    },
+
+    lent: {
+      day_after_ash_wed: '$t(weekdays:{{dow}}) விபூதி புதனுக்குப் பின்',
+      holy_week_day: '$t(weekdays:{{dow}}) - புனித வாரம்',
+      season: 'தவக்காலம்',
+      sunday: '$t(ordinals:{{week}}) தவக்கால ஞாயிறு',
+      weekday: '$t(weekdays:{{dow}}) - $t(ordinals:{{week}}) தவக்கால வாரநாள்',
+    },
+
+    ordinary_time: {
+      season: 'பொதுக்காலம்',
+      sunday: '$t(ordinals:{{week}}) பொதுக்கால ஞாயிறு',
+      weekday: '$t(weekdays:{{dow}}) - $t(ordinals:{{week}}) பொதுக்கால வாரநாள்',
+    },
+
+    paschal_triduum: {
+      season: 'பாஸ்காவின் மூன்று புனித நாட்கள்',
+    },
+  },
+
+  weekdays: {
+    0: 'ஞாயிறு',
+    1: 'திங்கள்',
+    2: 'செவ்வாய்',
+    3: 'புதன்',
+    4: 'வியாழன்',
+    5: 'வெள்ளி',
+    6: 'சனி',
   },
 };

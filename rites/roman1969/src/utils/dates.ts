@@ -641,7 +641,7 @@ export class Dates {
     easterCalculationType: EasterCalculationType = this.#config.easterCalculationType
   ): Date => {
     if (this.#easter[year]) return this.#easter[year];
-    const { month, day } =
+    const { day, month } =
       easterCalculationType === 'gregorian'
         ? calculateGregorianEasterDate(year)
         : calculateJulianEasterDateToGregorianDate(year);
@@ -1249,10 +1249,10 @@ export class Dates {
     return (this.#startOfSeasons[year] = {
       [Season.Advent]: this.firstSundayOfAdvent(year - 1),
       [Season.ChristmasTime]: this.christmas(year - 1),
-      [Season.Lent]: this.ashWednesday(year),
-      [Season.PaschalTriduum]: this.holyThursday(year),
       [Season.EasterTime]: this.easterSunday(year),
+      [Season.Lent]: this.ashWednesday(year),
       [Season.OrdinaryTime]: addDays(this.baptismOfTheLord(year), 1),
+      [Season.PaschalTriduum]: this.holyThursday(year),
     });
   };
 
@@ -1263,10 +1263,10 @@ export class Dates {
     return (this.#endOfSeasons[year] = {
       [Season.Advent]: getUtcDate(year - 1, 12, 24),
       [Season.ChristmasTime]: this.baptismOfTheLord(year),
-      [Season.Lent]: this.holyThursday(year),
-      [Season.PaschalTriduum]: this.easterSunday(year),
       [Season.EasterTime]: this.pentecostSunday(year),
+      [Season.Lent]: this.holyThursday(year),
       [Season.OrdinaryTime]: addDays(this.christTheKingSunday(year), 6),
+      [Season.PaschalTriduum]: this.easterSunday(year),
     });
   };
 
