@@ -499,6 +499,7 @@ export const locale: Locale = {
     teresa_benedicta_of_the_cross_stein_virgin: 'Św. Teresy Benedykty od Krzyża, dziewicy i męczennicy',
     teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe:
       'Św. Teresy Benedykty od Krzyża, dziewicy i męczennicy, patronki Europy',
+    teresa_of_calcutta_virgin: 'Świętej Teresy z Kalkuty, dziewicy', // src: https://liturgia.wiara.pl/doc/9143462.Swieta-Teresa-z-Kalkuty-w-Powszechnym-Kalendarzu-Rzymskim
     teresa_of_jesus_of_avila_virgin: 'Św. Teresy od Jezusa, dziewicy i doktora Kościoła',
     therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin:
       'Św. Teresy od Dzieciątka Jezus, dziewicy i doktora Kościoła',

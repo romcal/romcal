@@ -951,7 +951,7 @@ export const locale: Locale = {
     teresa_benedicta_of_the_cross_stein_virgin: 'Hl. Teresa Benedicta vom Kreuz Stein, Jungfrau und Märtyrerin',
     teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe:
       'Hl. Teresa Benedicta vom Kreuz Stein, Jungfrau und Märtyrerin, Mitpatronin Europas',
-    teresa_of_calcutta_virgin: 'Hl. Teresa von Kalkutta, Jungfrau',
+    teresa_of_calcutta_virgin: 'Hl. Teresa von Kolkata, Jungfrau', // src: https://press.vatican.va/content/salastampa/it/bollettino/pubblico/2025/02/11/0125/00250.html#tedesca
     teresa_of_jesus_jornet_ibars_virgin: 'Hl. Teresa von Jesus Jornet Ibars, Jungfrau',
     teresa_of_jesus_of_avila_virgin: 'Hl. Teresa von Ávila, Jungfrau und Kirchenlehrerin',
     teresa_of_jesus_of_los_andes_virgin: 'Hl. Teresa von Jesus von Los Andes, Jungfrau',

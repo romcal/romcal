@@ -1043,7 +1043,7 @@ export const locale: Locale = {
       'Saint Teresa Benedicta of the Cross Stein, Virgin and Martyr, Copatroness of Europe',
     // Decree on the inscription of Saint Teresa of Calcutta, virgin, in the General Roman Calendar
     // src: https://press.vatican.va/content/salastampa/en/bollettino/pubblico/2025/02/11/250211b.html
-    teresa_of_calcutta_virgin: 'Saint Teresa of Calcutta, Virgin',
+    teresa_of_calcutta_virgin: 'Saint Teresa of Calcutta, Virgin', // src: https://press.vatican.va/content/salastampa/it/bollettino/pubblico/2025/02/11/0125/00250.html#inglese
     teresa_of_jesus_jornet_ibars_virgin: 'Saint Teresa of Jesus Jornet Ibars, Virgin',
     teresa_of_jesus_of_avila_virgin: 'Saint Teresa of Jesus, Virgin and Doctor of the Church',
     teresa_of_jesus_of_los_andes_virgin: 'Saint Teresa of Jesus of Los Andes, Virgin',
