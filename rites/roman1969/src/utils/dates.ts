@@ -1259,7 +1259,7 @@ export class Dates {
   #lunarNewYear: Record<string, Date> = {};
 
   static lunarNewYear = (utcOffset: number, year: number): Date => {
-    const { month, day } = calculateLunarNewYear(year, utcOffset);
+    const { day, month } = calculateLunarNewYear(year, utcOffset);
     return getUtcDate(year, month, day);
   };
 
