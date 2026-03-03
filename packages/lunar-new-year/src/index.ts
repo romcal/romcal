@@ -1,10 +1,7 @@
 /**
  * Lunar New Year date computation based on:
- * Jean Meeus, "Astronomical Algorithms", 2nd ed., Willmann-Bell, 1998.
- * ISBN 0-943396-61-1
- *
+ * Jean Meeus, "Astronomical Algorithms", Willmann-Bell, 1991.
  * https://archive.org/details/astronomicalalgorithmsjeanmeeus1991
- * Reference implementation: https://github.com/soniakeys/meeus
  */
 
 export type LunarNewYearDate = { year: number; month: number; day: number };
@@ -53,7 +50,7 @@ const jdeToDate = (jde: number, utcOffset: number): LunarNewYearDate => {
 
 /**
  * Compute the Julian Ephemeris Day of the December solstice for a given year.
- * Meeus, Ch. 27 (2nd ed.) / Ch. 26 (1st ed.).
+ * Meeus, Ch. 26.
  */
 const winterSolsticeJDE = (year: number): number => {
   const Y = (year - 2000) / 1000;
@@ -96,7 +93,7 @@ const winterSolsticeJDE = (year: number): number => {
 /**
  * Compute the JDE of the new moon for lunation cycle k.
  * k = 0 corresponds to the new moon of 2000 Jan 6.
- * Meeus, Ch. 49 (2nd ed.) / Ch. 47 (1st ed.).
+ * Meeus, Ch. 47.
  */
 const newMoonJDE = (k: number): number => {
   const T = k / 1236.85;
