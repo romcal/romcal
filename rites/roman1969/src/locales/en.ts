@@ -1,88 +1,31 @@
 import type { Locale } from '../types/locale';
 
 export const locale: Locale = {
-  id: 'en',
-
-  seasons: {
-    advent: {
-      season: 'Advent',
-      weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Advent',
-      sunday: '$t(ordinals:{{week}}, capitalize) Sunday of Advent',
-      privileged_weekday: '$t(months:11, capitalize) {{day}}',
-    },
-
-    christmas_time: {
-      season: 'Christmas Time',
-      day: '$t(weekdays:{{dow}}, capitalize) of Christmas Time',
-      octave: '$t(ordinals:{{count}}, capitalize) Day within the Octave of the Nativity of the Lord',
-      second_sunday_after_christmas: 'Second Sunday after the Nativity of the Lord',
-      before_epiphany: '$t(months:0, capitalize) {{day}}',
-      after_epiphany: '$t(weekdays:{{dow}}, capitalize) after the Epiphany of the Lord',
-    },
-
-    ordinary_time: {
-      season: 'Ordinary Time',
-      weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Ordinary Time',
-      sunday: '$t(ordinals:{{week}}, capitalize) Sunday in Ordinary Time',
-    },
-
-    lent: {
-      season: 'Lent',
-      weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Lent',
-      sunday: '$t(ordinals:{{week}}, capitalize) Sunday of Lent',
-      day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) after Ash Wednesday',
-      holy_week_day: '$t(weekdays:{{dow}}, capitalize) of Holy Week',
-    },
-
-    paschal_triduum: {
-      season: 'Paschal Triduum',
-    },
-
-    easter_time: {
-      season: 'Easter Time',
-      weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Easter',
-      sunday: '$t(ordinals:{{week}}, capitalize) Sunday of Easter',
-      octave: '$t(weekdays:{{dow}}, capitalize) within the Octave of Easter',
-    },
-  },
-
-  periods: {
-    epiphany: 'Epiphany',
-    holy_week: 'Holy Week',
-  },
-
-  ranks: {
-    solemnity: 'solemnity',
-    sunday: 'Sunday',
-    feast: 'feast',
-    memorial: 'memorial',
-    optional_memorial: 'optional memorial',
-    weekday: 'weekday',
+  colors: {
+    black: 'black',
+    gold: 'gold',
+    green: 'green',
+    purple: 'purple',
+    red: 'red',
+    rose: 'rose',
+    white: 'white',
   },
 
   cycles: {
-    proper_of_time: 'Proper of Time',
     proper_of_saints: 'Proper of Saints',
+    proper_of_time: 'Proper of Time',
+    psalter_week_1: 'Week I',
+    psalter_week_2: 'Week II',
+    psalter_week_3: 'Week III',
+    psalter_week_4: 'Week IV',
     sunday_year_a: 'Year A',
     sunday_year_b: 'Year B',
     sunday_year_c: 'Year C',
     weekday_year_1: 'Cycle I',
     weekday_year_2: 'Cycle II',
-    psalter_week_1: 'Week I',
-    psalter_week_2: 'Week II',
-    psalter_week_3: 'Week III',
-    psalter_week_4: 'Week IV',
   },
 
-  weekdays: {
-    0: 'Sunday',
-    1: 'Monday',
-    2: 'Tuesday',
-    3: 'Wednesday',
-    4: 'Thursday',
-    5: 'Friday',
-    6: 'Saturday',
-  },
+  id: 'en',
 
   months: {
     0: 'January',
@@ -97,53 +40,6 @@ export const locale: Locale = {
     9: 'October',
     10: 'November',
     11: 'December',
-  },
-
-  colors: {
-    black: 'black',
-    gold: 'gold',
-    green: 'green',
-    purple: 'purple',
-    red: 'red',
-    rose: 'rose',
-    white: 'white',
-  },
-
-  ordinals: {
-    '1': 'first',
-    '2': 'second',
-    '3': 'third',
-    '4': 'fourth',
-    '5': 'fifth',
-    '6': 'sixth',
-    '7': 'seventh',
-    '8': 'eighth',
-    '9': 'ninth',
-    '10': 'tenth',
-    '11': 'eleventh',
-    '12': 'twelfth',
-    '13': 'thirteenth',
-    '14': 'fourteenth',
-    '15': 'fifteenth',
-    '16': 'sixteenth',
-    '17': 'seventeenth',
-    '18': 'eighteenth',
-    '19': 'nineteenth',
-    '20': 'twentieth',
-    '21': 'twenty-first',
-    '22': 'twenty-second',
-    '23': 'twenty-third',
-    '24': 'twenty-fourth',
-    '25': 'twenty-fifth',
-    '26': 'twenty-sixth',
-    '27': 'twenty-seventh',
-    '28': 'twenty-eighth',
-    '29': 'twenty-ninth',
-    '30': 'thirtieth',
-    '31': 'thirty-first',
-    '32': 'thirty-second',
-    '33': 'thirty-third',
-    '34': 'thirty-fourth',
   },
 
   names: {
@@ -171,8 +67,8 @@ export const locale: Locale = {
     albert_chmielowski_religious: 'Saint Albert Chmielowski, Religious',
     albert_the_great_bishop: 'Saint Albert the Great, Bishop and Doctor of the Church',
     albertina_berkenbrock_virgin: 'Blessed Albertina Berkenbrock, Virgin and Martyr',
-    albinus_of_angers_bishop: 'Saint Albinus of Angers, Abbot', // mr_fr_2022_ed3_angers
     alberto_hurtado_priest: 'Saint Alberto Hurtado, Priest',
+    albinus_of_angers_bishop: 'Saint Albinus of Angers, Abbot', // mr_fr_2022_ed3_angers
     all_holy_bishops_and_priests_of_the_diocese_of_coutances:
       'The Holy Bishops of the diocese of Coutances and Avranches, and the priests, their collaborators',
     all_holy_bishops_of_the_archdiocese_of_lyon: 'All Holy Bishops of the Archdiocese of Lyon',
@@ -238,7 +134,6 @@ export const locale: Locale = {
     athanasius_of_alexandria_bishop: 'Saint Athanasius, Bishop and Doctor of the Church',
     attracta_of_killaraght_virgin: 'Saint Attracta, Virgin',
     aubert_of_avranches_bishop: 'Saint Aubert, Bishop',
-    aventin_of_larboust_martyr: 'Saint Aventin of Larboust, Martyr',
     audoen_of_rouen_bishop: 'Saint Audoen, Bishop',
     audomar_of_therouanne_bishop: 'Saint Audomar, Bishop',
     augustine_kazotic_bishop: 'Blessed Augustine Kažotić, Bishop and Martyr',
@@ -248,6 +143,7 @@ export const locale: Locale = {
     augustine_zhao_rong_priest_and_companions_martyrs: 'Saint Augustine Zhao Rong, Priest, and Companions, Martyrs',
     augustus_chapdelaine_priest: 'Saint Auguste Chapdelaine, Priest and Martyr',
     aurelia_of_strasbourg_virgin: 'Saint Aurelia of Strasbourg, Virgin',
+    aventin_of_larboust_martyr: 'Saint Aventin of Larboust, Martyr',
     baldomerus_of_lyon_religious: 'Saint Baldomerus, Religious',
     baptism_of_the_lord: 'The Baptism of the Lord',
     barbara_of_heliopolis_virgin: 'Saint Barbara, Virgin and Martyr',
@@ -262,8 +158,8 @@ export const locale: Locale = {
     benedict_of_aniane_abbot: 'Saint Benedict of Aniane, Abbot',
     benedict_of_jesus_valdivielso_saez_religious: 'Saint Benedict of Jesus Valdivielso Sáez, Religious and Martyr',
     benedict_of_nursia_abbot: 'Saint Benedict, Abbot',
-    benedict_the_moor_religious: 'Saint Benedict the Moor, Religious', // src: https://en.wikipedia.org/wiki/Benedict_the_Moor
     benedict_of_nursia_abbot_patron_of_europe: 'Saint Benedict, Abbot, Patron of Europe',
+    benedict_the_moor_religious: 'Saint Benedict the Moor, Religious', // src: https://en.wikipedia.org/wiki/Benedict_the_Moor
     benno_of_meissen_bishop: 'Saint Benno of Meissen, Bishop',
     bernadette_soubirous_virgin: 'Saint Bernadette Soubirous, Virgin',
     bernard_of_clairvaux_abbot: 'Saint Bernard, Abbot and Doctor of the Church',
@@ -301,8 +197,6 @@ export const locale: Locale = {
     carthage_of_lismore_bishop: 'Saint Carthage, Bishop',
     casimir_of_poland: 'Saint Casimir',
     catherine_of_alexandria_virgin: 'Saint Catherine of Alexandria, Virgin and Martyr',
-    mary_catherine_of_saint_augustine_catherine_de_simon_de_longpre_virgin:
-      'Blessed Catherine of Saint Augustine, Virgin',
     catherine_of_siena_virgin: 'Saint Catherine of Siena, Virgin and Doctor of the Church',
     catherine_of_siena_virgin_copatroness_of_europe:
       'Saint Catherine of Siena, Virgin and Doctor of the Church, Copatroness of Europe',
@@ -369,17 +263,17 @@ export const locale: Locale = {
     davnet_of_sliabh_beagh_virgin: 'Saint Davnet, Virgin',
     declan_of_ardmore_bishop: 'Saint Declan, Bishop',
     dedication_of_consecrated_churches: 'The Dedication of Consecrated Churches Whose Date of Consecration is Unknown',
-    dedication_of_the_basilica_of_saint_mary_major: 'The Dedication of the Basilica of Saint Mary Major',
     dedication_of_the_basilica_of_mont_saint_michel_france:
       'The Dedication of the Basilica of Mont-Saint-Michel, France',
+    dedication_of_the_basilica_of_saint_mary_major: 'The Dedication of the Basilica of Saint Mary Major',
     dedication_of_the_basilicas_of_saints_peter_and_paul_apostles:
       'The Dedication of the Basilicas of Saints Peter and Paul, Apostles',
     dedication_of_the_cathedral_basilica_of_saint_denis_france:
       'The Dedication of the Cathedral Basilica of Saint-Denis, France',
-    dedication_of_the_cathedral_of_notre_dame_of_coutances_france:
-      'The Dedication of the Cathedral of Coutances, France',
     dedication_of_the_cathedral_of_notre_dame_de_strasbourg_france:
       'The Dedication of the Cathedral of Notre-Dame of Strasbourg',
+    dedication_of_the_cathedral_of_notre_dame_of_coutances_france:
+      'The Dedication of the Cathedral of Coutances, France',
     dedication_of_the_cathedral_of_saint_john_the_baptist_lyon_france:
       'The Dedication of the Cathedral of Saint John the Baptist, Lyon',
     dedication_of_the_cathedral_of_saint_maurice_of_agaunum_angers_france:
@@ -397,12 +291,12 @@ export const locale: Locale = {
     denis_of_paris_bishop_patron_of_the_city_and_of_the_diocese_of_saint_denis:
       'Saint Denis, Bishop and Martyr, Patron of the City and of the Diocese of Saint-Denis',
     dina_belanger_virgin: 'Blessed Dina Bélanger, Virgin',
-    dulce_lopes_pontes_virgin: 'Saint Dulce Lopes Pontes, Virgin', // src: https://en.wikipedia.org/wiki/Irm%C3%A3_Dulce
     dionysius_the_areopagite_bishop: 'Saint Dionysius the Areopagite, Bishop and Martyr',
     dismas_the_good_thief: 'Dismas the Good Thief',
     divine_mercy_sunday: 'Second Sunday of Easter or Sunday of Divine Mercy',
     dominic_de_guzman_priest: 'Saint Dominic, Priest',
     dominic_of_the_mother_of_god_barberi_priest: 'Blessed Dominic of the Mother of God Barberi, Priest',
+    dulce_lopes_pontes_virgin: 'Saint Dulce Lopes Pontes, Virgin', // src: https://en.wikipedia.org/wiki/Irm%C3%A3_Dulce
     dunstan_of_canterbury_bishop: 'Saint Dunstan, Bishop',
     dyfrig_of_wales_bishop: 'Saint Dyfrig, Bishop',
     easter_sunday: 'Easter Sunday of the Resurrection of the Lord',
@@ -425,11 +319,11 @@ export const locale: Locale = {
     ephrem_the_syrian_deacon: 'Saint Ephrem, Deacon and Doctor of the Church',
     epiphany_of_the_lord: 'The Epiphany of the Lord',
     epipodius_of_lyon_and_alexander_of_lyon_martyrs: 'Saints Epipodius and Alexander, Martyrs',
-    eric_ix_of_sweden_martyr: 'Saint Eric IX of Sweden, Martyr',
     erembert_of_toulouse_bishop: 'Saint Erembert of Toulouse, Bishop',
+    eric_ix_of_sweden_martyr: 'Saint Eric IX of Sweden, Martyr',
     etheldreda_of_ely_abbess: 'Saint Etheldreda, Abbess',
-    eucherius_of_lyon_bishop: 'Saint Eucherius, Bishop',
     eucharius_of_trier_bishop: 'Saint Eucharius, Bishop',
+    eucherius_of_lyon_bishop: 'Saint Eucherius, Bishop',
     eugene_de_mazenod_bishop: 'Saint Eugène de Mazenod, Bishop',
     eugenia_of_alsace_and_attala_of_alsace_virgins: 'Saints Eugenia and Attala, Virgins',
     eulalia_of_merida_virgin: 'Saint Eulalia of Merida, Virgin and Martyr',
@@ -536,8 +430,8 @@ export const locale: Locale = {
     holy_child_of_cebu: 'The Holy Child of Cebú',
     holy_family_of_jesus_mary_and_joseph: 'The Holy Family of Jesus, Mary and Joseph',
     holy_guardian_angels: 'The Holy Guardian Angels',
-    holy_innocents_martyrs: 'The Holy Innocents, Martyrs',
     holy_hermits_and_evangelists: 'The Holy Hermits and Evangelists', // mr_fr_2022_ed3_angers
+    holy_innocents_martyrs: 'The Holy Innocents, Martyrs',
     holy_saturday: 'Holy Saturday/Easter Vigil',
     holy_thursday: 'Holy Thursday',
     honorat_kozminski_priest: 'Blessed Honorat Koźmiński, Priest',
@@ -678,10 +572,10 @@ export const locale: Locale = {
     lambert_of_maastricht_bishop: 'Saint Lambert of Maastricht, Bishop and Martyr',
     landry_of_paris_bishop: 'Saint Landry of Paris, Bishop',
     laserian_of_leighlin_bishop: 'Saint Laserian, Bishop',
-    laura_vicuna_virgin: 'Blessed Laura Vicuña, Virgin',
     laud_of_coutances_bishop: 'Saint Laud, Bishop',
     laud_of_coutances_bishop_patron_of_the_diocese_of_coutances:
       'Saint Laud, Bishop, Patron of the Diocese of Coutances',
+    laura_vicuna_virgin: 'Blessed Laura Vicuña, Virgin',
     laurence_otoole_bishop: 'Saint Laurence O’Toole, Bishop',
     laurence_wang_bing_and_companions_martyrs: 'Saint Laurence Wang Bing and Companions, Martyrs',
     lawrence_bai_xiaoman_martyr: 'Saint Lawrence Bai Xiaoman, Martyr',
@@ -703,8 +597,8 @@ export const locale: Locale = {
     licinius_of_angers_bishop: 'Saint Licinius of Angers, Bishop', // mr_fr_2022_ed3_angers
     louis_bertrand_priest: 'Saint Louis Bertrand, Priest',
     louis_grignion_de_montfort_priest: 'Saint Louis Grignion de Montfort, Priest',
-    louis_of_toulouse_bishop: 'Saint Louis of Toulouse, Bishop',
     louis_ix_of_france: 'Saint Louis',
+    louis_of_toulouse_bishop: 'Saint Louis of Toulouse, Bishop',
     louis_zephirin_moreau_bishop: 'Blessed Louis-Zéphirin Moreau, Bishop',
     louise_de_marillac_religious: 'Saint Louise de Marillac, Religious',
     lucius_of_chur_bishop: 'Saint Lucius of Chur, Bishop and Martyr',
@@ -764,6 +658,8 @@ export const locale: Locale = {
     mary_adeodata_pisani_virgin: 'Blessed Mary Adeodata Pisani, Virgin',
     mary_angela_truszkowska_virgin: 'Blessed Mary Angela Truszkowska, Virgin',
     mary_assunta_pallotta_virgin: 'Blessed Mary Assunta Pallotta, Virgin',
+    mary_catherine_of_saint_augustine_catherine_de_simon_de_longpre_virgin:
+      'Blessed Catherine of Saint Augustine, Virgin',
     mary_euphrasia_pelletier_religious: 'Saint Mary Euphrasia Pelletier, Religious', // mr_fr_2022_ed3_angers
     mary_magdalene: 'Saint Mary Magdalene',
     mary_magdalene_de_pazzi_virgin: 'Saint Mary Magdalene de’ Pazzi, Virgin',
@@ -828,13 +724,13 @@ export const locale: Locale = {
     nazaria_ignacia_of_saint_teresa_of_jesus_march_mesa_virgin:
       'Saint Nazaria Ignacia of Saint Teresa of Jesus March Mesa, Virgin',
     nereus_of_terracina_and_achilleus_of_terracina_martyrs: 'Saints Nereus and Achilleus, Martyrs',
+    nicetius_of_lyon_bishop: 'Saint Nicetius, Bishop',
     nicholas_barre_priest: 'Blessed Nicholas Barré, Priest',
     nicholas_of_flue_hermit: 'Saint Nicholas of Flüe, Hermit',
     nicholas_of_myra_bishop: 'Saint Nicholas, Bishop',
     nicholas_steno_bishop: 'Blessed Nicholas Steno, Bishop',
     nicholas_tavelic_priest: 'Saint Nicholas Tavelić, Priest and Martyr',
     ninian_of_whithorn_bishop: 'Saint Ninian, Bishop',
-    nicetius_of_lyon_bishop: 'Saint Nicetius, Bishop',
     noel_pinot_priest: 'Blessed Noël Pinot, Priest and Martyr', // mr_fr_2022_ed3_angers
     norbert_of_xanten_bishop: 'Saint Norbert, Bishop',
     nuno_of_saint_mary_pereira_religious: 'Saint Nuno of Saint Mary Pereira, Religious',
@@ -907,16 +803,16 @@ export const locale: Locale = {
     pantaleon_of_nicomedia_martyr: 'Saint Pantaleon of Nicomedia, Martyr',
     paschal_baylon_religious: 'Saint Paschal Baylón, Religious',
     passion_of_saint_john_the_baptist: 'The Passion of Saint John the Baptist',
+    paternus_of_avranches_bishop_and_scubilion_abbot: 'Saint Paternus, Bishop, and Scubilion, Abbot',
     patrick_of_ireland_bishop: 'Saint Patrick, Bishop',
     patrick_of_ireland_bishop_patron_of_ireland: 'Saint Patrick, Bishop, Patron of Ireland',
-    paternus_of_avranches_bishop_and_scubilion_abbot: 'Saint Paternus, Bishop, and Scubilion, Abbot',
     paul_chen_changpin_and_companions_martyrs: 'Saint Paul Chen Changpin and Companions, Martyrs',
     paul_liu_hanzuo_priest: 'Saint Paul Liu Hanzuo, Priest and Martyr',
     paul_miki_and_companions_martyrs: 'Saint Paul Miki and Companions, Martyrs',
+    paul_of_narbonne_bishop: 'Saint Paul of Narbonne, Bishop',
     paul_of_the_cross_priest: 'Saint Paul of the Cross, Priest',
     paul_of_thebes_hermit: 'Blessed Paul of Thebes, Hermit',
     paul_vi_pope: 'Saint Paul VI, Pope',
-    paul_of_narbonne_bishop: 'Saint Paul of Narbonne, Bishop',
     paulina_of_the_agonizing_heart_of_jesus_visintainer_virgin:
       'Saint Paulina of the Agonizing Heart of Jesus Visintainer, Virgin',
     paulinus_of_nola_bishop: 'Saint Paulinus of Nola, Bishop',
@@ -979,10 +875,10 @@ export const locale: Locale = {
     raphael_chylinski_priest: 'Blessed Raphael Chyliński, Priest',
     raphael_guizar_y_valencia_bishop: 'Saint Raphael Guízar y Valencia, Bishop',
     raphael_of_saint_joseph_kalinowski_priest: 'Saint Raphael of Saint Joseph Kalinowski, Priest',
-    raymond_of_penyafort_priest: 'Saint Raymond of Penyafort, Priest',
     raymond_costeran_and_companions_martyrs: 'Blessed Raymond Costeran and Companions, Martyrs',
     raymond_costeran_martyr: 'Blessed Raymond Costeran, Martyr',
     raymond_gayrard_religious: 'Saint Raymond Gayrard, Religious',
+    raymond_of_penyafort_priest: 'Saint Raymond of Penyafort, Priest',
     remigius_of_reims_bishop: 'Saint Remigius, Bishop',
     rene_goupil_religious: 'Saint René Goupil, Religious and Martyr', // mr_fr_2022_ed3_angers
     richard_gwyn_martyr: 'Saint Richard Gwyn, Martyr',
@@ -1114,5 +1010,109 @@ export const locale: Locale = {
     zepherin_namuncura: 'Blessed Zepherin Namuncurá',
     zoltan_lajos_meszlenyi_bishop: 'Blessed Zoltán Lajos Meszlényi, Bishop and Martyr',
     zygmunt_gorazdowski_priest: 'Saint Zygmunt Gorazdowski, Priest',
+  },
+
+  ordinals: {
+    '1': 'first',
+    '2': 'second',
+    '3': 'third',
+    '4': 'fourth',
+    '5': 'fifth',
+    '6': 'sixth',
+    '7': 'seventh',
+    '8': 'eighth',
+    '9': 'ninth',
+    '10': 'tenth',
+    '11': 'eleventh',
+    '12': 'twelfth',
+    '13': 'thirteenth',
+    '14': 'fourteenth',
+    '15': 'fifteenth',
+    '16': 'sixteenth',
+    '17': 'seventeenth',
+    '18': 'eighteenth',
+    '19': 'nineteenth',
+    '20': 'twentieth',
+    '21': 'twenty-first',
+    '22': 'twenty-second',
+    '23': 'twenty-third',
+    '24': 'twenty-fourth',
+    '25': 'twenty-fifth',
+    '26': 'twenty-sixth',
+    '27': 'twenty-seventh',
+    '28': 'twenty-eighth',
+    '29': 'twenty-ninth',
+    '30': 'thirtieth',
+    '31': 'thirty-first',
+    '32': 'thirty-second',
+    '33': 'thirty-third',
+    '34': 'thirty-fourth',
+  },
+
+  periods: {
+    epiphany: 'Epiphany',
+    holy_week: 'Holy Week',
+  },
+
+  ranks: {
+    feast: 'feast',
+    memorial: 'memorial',
+    optional_memorial: 'optional memorial',
+    solemnity: 'solemnity',
+    sunday: 'Sunday',
+    weekday: 'weekday',
+  },
+
+  seasons: {
+    advent: {
+      privileged_weekday: '$t(months:11, capitalize) {{day}}',
+      season: 'Advent',
+      sunday: '$t(ordinals:{{week}}, capitalize) Sunday of Advent',
+      weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Advent',
+    },
+
+    christmas_time: {
+      after_epiphany: '$t(weekdays:{{dow}}, capitalize) after the Epiphany of the Lord',
+      before_epiphany: '$t(months:0, capitalize) {{day}}',
+      day: '$t(weekdays:{{dow}}, capitalize) of Christmas Time',
+      octave: '$t(ordinals:{{count}}, capitalize) Day within the Octave of the Nativity of the Lord',
+      season: 'Christmas Time',
+      second_sunday_after_christmas: 'Second Sunday after the Nativity of the Lord',
+    },
+
+    easter_time: {
+      octave: '$t(weekdays:{{dow}}, capitalize) within the Octave of Easter',
+      season: 'Easter Time',
+      sunday: '$t(ordinals:{{week}}, capitalize) Sunday of Easter',
+      weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Easter',
+    },
+
+    lent: {
+      day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) after Ash Wednesday',
+      holy_week_day: '$t(weekdays:{{dow}}, capitalize) of Holy Week',
+      season: 'Lent',
+      sunday: '$t(ordinals:{{week}}, capitalize) Sunday of Lent',
+      weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Lent',
+    },
+
+    ordinary_time: {
+      season: 'Ordinary Time',
+      sunday: '$t(ordinals:{{week}}, capitalize) Sunday in Ordinary Time',
+      weekday: '$t(weekdays:{{dow}}, capitalize) of the $t(ordinals:{{week}}) week of Ordinary Time',
+    },
+
+    paschal_triduum: {
+      season: 'Paschal Triduum',
+    },
+  },
+
+  weekdays: {
+    0: 'Sunday',
+    1: 'Monday',
+    2: 'Tuesday',
+    3: 'Wednesday',
+    4: 'Thursday',
+    5: 'Friday',
+    6: 'Saturday',
   },
 };

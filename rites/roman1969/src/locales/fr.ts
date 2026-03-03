@@ -1,92 +1,31 @@
 import type { Locale } from '../types/locale';
 
 export const locale: Locale = {
-  id: 'fr',
-
-  seasons: {
-    advent: {
-      season: 'Temps de l’Avent',
-      weekday:
-        '$t(weekdays:{{dow}}, capitalize) de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine de l’Avent',
-      sunday: '$t(ordinals:{{week}}, capitalize) dimanche de l’Avent',
-      privileged_weekday: '{{day}} $t(months:11)',
-    },
-
-    christmas_time: {
-      season: 'Temps de Noël',
-      day: '$t(weekdays:{{dow}}, capitalize) dans le Temps de Noël',
-      octave: '{{count}}ᵉ jour dans l’Octave de la Nativité',
-      second_sunday_after_christmas: 'Deuxième dimanche après la Nativité',
-      before_epiphany: '{{day}} $t(months:0)',
-      after_epiphany: '$t(weekdays:{{dow}}, capitalize) après l’Épiphanie',
-    },
-
-    ordinary_time: {
-      season: 'Temps Ordinaire',
-      weekday:
-        '$t(weekdays:{{dow}}, capitalize) de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine du Temps Ordinaire',
-      sunday: '$t(ordinals:{{week}}, capitalize) $t(weekdays:0) du Temps Ordinaire',
-    },
-
-    lent: {
-      season: 'Temps du Carême',
-      weekday:
-        '$t(weekdays:{{dow}}, capitalize) de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine de Carême',
-      sunday: '$t(ordinals:{{week}}, capitalize) dimanche de Carême',
-      day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) après les Cendres',
-      holy_week_day: '$t(weekdays:{{dow}}, capitalize) Saint',
-    },
-
-    paschal_triduum: {
-      season: 'Triduum Pascal',
-    },
-
-    easter_time: {
-      season: 'Temps Pascal',
-      weekday:
-        '$t(weekdays:{{dow}}, capitalize) de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine de Pâques',
-      sunday: '$t(ordinals:{{week}}, capitalize) dimanche de Pâques',
-      octave: '$t(weekdays:{{dow}}, capitalize) dans l’Octave de Pâques',
-    },
-  },
-
-  periods: {
-    epiphany: 'Épiphanie',
-    holy_week: 'Semaine Sainte',
-  },
-
-  ranks: {
-    solemnity: 'solennité',
-    sunday: 'dimanche',
-    feast: 'fête',
-    memorial: 'mémoire',
-    optional_memorial: 'mémoire facultative',
-    weekday: 'férie',
+  colors: {
+    black: 'noir',
+    gold: 'doré',
+    green: 'vert',
+    purple: 'violet',
+    red: 'rouge',
+    rose: 'rose',
+    white: 'blanc',
   },
 
   cycles: {
-    proper_of_time: 'Propre du Temps',
     proper_of_saints: 'Propre des Saints',
+    proper_of_time: 'Propre du Temps',
+    psalter_week_1: 'Semaine I des Psaumes',
+    psalter_week_2: 'Semaine II des Psaumes',
+    psalter_week_3: 'Semaine III des Psaumes',
+    psalter_week_4: 'Semaine IV des Psaumes',
     sunday_year_a: 'Année A',
     sunday_year_b: 'Année B',
     sunday_year_c: 'Année C',
     weekday_year_1: 'Année impaire',
     weekday_year_2: 'Année paire',
-    psalter_week_1: 'Semaine I des Psaumes',
-    psalter_week_2: 'Semaine II des Psaumes',
-    psalter_week_3: 'Semaine III des Psaumes',
-    psalter_week_4: 'Semaine IV des Psaumes',
   },
 
-  weekdays: {
-    0: 'dimanche',
-    1: 'lundi',
-    2: 'mardi',
-    3: 'mercredi',
-    4: 'jeudi',
-    5: 'vendredi',
-    6: 'samedi',
-  },
+  id: 'fr',
 
   months: {
     0: 'janvier',
@@ -101,54 +40,6 @@ export const locale: Locale = {
     9: 'octobre',
     10: 'novembre',
     11: 'décembre',
-  },
-
-  colors: {
-    black: 'noir',
-    gold: 'doré',
-    green: 'vert',
-    purple: 'violet',
-    red: 'rouge',
-    rose: 'rose',
-    white: 'blanc',
-  },
-
-  ordinals: {
-    '1': 'premier',
-    '1_feminine': 'première',
-    '2': 'deuxième',
-    '3': 'troisième',
-    '4': 'quatrième',
-    '5': 'cinquième',
-    '6': 'sixième',
-    '7': 'septième',
-    '8': 'huitième',
-    '9': 'neuvième',
-    '10': 'dixième',
-    '11': 'onzième',
-    '12': 'douzième',
-    '13': 'treizième',
-    '14': 'quatorzième',
-    '15': 'quinzième',
-    '16': 'seizième',
-    '17': 'dix-septième',
-    '18': 'dix-huitième',
-    '19': 'dix-neuvième',
-    '20': 'vingtième',
-    '21': 'vingt et unième',
-    '22': 'vingt-deuxième',
-    '23': 'vingt-troisième',
-    '24': 'vingt-quatrième',
-    '25': 'vingt-cinquième',
-    '26': 'vingt-sixième',
-    '27': 'vingt-septième',
-    '28': 'vingt-huitième',
-    '29': 'vingt-neuvième',
-    '30': 'trentième',
-    '31': 'trente et unième',
-    '32': 'trente-deuxième',
-    '33': 'trente-troisième',
-    '34': 'trente-quatrième',
   },
 
   names: {
@@ -213,7 +104,6 @@ export const locale: Locale = {
       'Assomption de la bienheureuse Vierge Marie, patronne principale de la France',
     athanasius_of_alexandria_bishop: 'Saint Athanase, évêque, docteur et père de l’Église († 373)',
     aubert_of_avranches_bishop: 'Saint Aubert, évêque († 725)', // src: mr_fr_1982_ed2_coutances
-    aventin_of_larboust_martyr: 'Saint Aventin, martyr († VIIIème s.)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     audoen_of_rouen_bishop: 'Saint Ouen, évêque',
     audomar_of_therouanne_bishop: 'Saint Omer, évêque († 670)', // src: mr_fr_1982_ed2_coutances
     augustine_of_canterbury_bishop: 'Saint Augustin, évêque de Cantorbéry en Angleterre († 604)',
@@ -222,6 +112,7 @@ export const locale: Locale = {
       'Saints Augustin Zhao Rong et ses compagnons, martyrs en Chine († entre 1648 et 1930)',
     augustus_chapdelaine_priest: 'Saint Auguste Chapdelaine, prêtre et martyr († 1856)', // src: mr_fr_1982_ed2_coutances
     aurelia_of_strasbourg_virgin: 'Sainte Aurélie, vierge († IVème s.)',
+    aventin_of_larboust_martyr: 'Saint Aventin, martyr († VIIIème s.)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     baldomerus_of_lyon_religious: 'Saint Galmier, religieux († v. 630)', // src: mr_fr_2014_ed2_lyon
     baptism_of_the_lord: 'Baptême du Seigneur',
     barnabas_apostle: 'Saint Barnabé, apôtre',
@@ -259,8 +150,6 @@ export const locale: Locale = {
       'Bienheureuses Carmélites de Compiègne : Mère Thérèse et ses 15 compagnes, martyres († guillotinées en 1794)',
     casimir_of_poland: 'Saint Casimir († 1484)',
     catherine_of_alexandria_virgin: 'Sainte Catherine d’Alexandrie, vierge et martyre († IVème s.)',
-    mary_catherine_of_saint_augustine_catherine_de_simon_de_longpre_virgin:
-      'Bienheureuse Catherine de Saint-Augustin, vierge († 1668)', // src: mr_fr_2021_ed3, mr_fr_1982_ed2_coutances
     catherine_of_siena_virgin: 'Sainte Catherine de Sienne, vierge et docteur de l’Église († 1380)',
     catherine_of_siena_virgin_copatroness_of_europe:
       'Sainte Catherine de Sienne, vierge, docteur de l’Église, co-patronne de l’Europe († 1380)',
@@ -298,13 +187,13 @@ export const locale: Locale = {
     daniel_brottier_priest: 'Bienheureux Daniel Brottier, prêtre, apôtre des Orphelins d’Auteuil († 1936 à Paris)',
     dedication_of_consecrated_churches:
       'Dédicace des églises consacrées dont on ne connaît pas la date de consécration', // src: mr_fr_2021_ed3
-    dedication_of_the_basilica_of_saint_mary_major: 'Dédicace de la basilique Sainte-Marie Majeure',
     dedication_of_the_basilica_of_mont_saint_michel_france: 'Dédicace de la basilique du Mont-Saint-Michel', // src: mr_fr_1982_ed2_coutances
+    dedication_of_the_basilica_of_saint_mary_major: 'Dédicace de la basilique Sainte-Marie Majeure',
     dedication_of_the_basilicas_of_saints_peter_and_paul_apostles:
       'Dédicace des basiliques de Saint Pierre et Saint Paul, apôtres, à Rome',
     dedication_of_the_cathedral_basilica_of_saint_denis_france: 'Dédicace de la cathédrale de Saint-Denis',
-    dedication_of_the_cathedral_of_notre_dame_of_coutances_france: 'Dédicace de la cathédrale de Coutances', // src: mr_fr_1982_ed2_coutances
     dedication_of_the_cathedral_of_notre_dame_de_strasbourg_france: 'Dédicace de la cathédrale de Strasbourg',
+    dedication_of_the_cathedral_of_notre_dame_of_coutances_france: 'Dédicace de la cathédrale de Coutances', // src: mr_fr_1982_ed2_coutances
     dedication_of_the_cathedral_of_saint_john_the_baptist_lyon_france: 'Dédicace de la cathédrale primatiale', // src: mr_fr_2014_ed2_lyon
     dedication_of_the_cathedral_of_saint_maurice_of_agaunum_angers_france: 'Dédicace de la Cathédrale Saint-Maurice', // mr_fr_2022_ed3_angers
     dedication_of_the_cathedral_of_saint_stephen_of_toulouse_france: 'Dédicace de la cathédrale Saint-Étienne', // src: mr_fr_1974_ed1_region_apostolique_du_midi
@@ -328,8 +217,8 @@ export const locale: Locale = {
       'Bienheureuse Émilie Tavernier-Gamelin, religieuse, fondatrice des Sœurs de la Providence de Montréal († 1851)',
     ephrem_the_syrian_deacon: 'Saint Ephrem, diacre et docteur de l’Église, († 373)',
     epiphany_of_the_lord: 'Épiphanie du Seigneur',
-    erembert_of_toulouse_bishop: 'Saint Érembert, évêque († v. 672)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     epipodius_of_lyon_and_alexander_of_lyon_martyrs: 'Saints Épipode et Alexandre, martyrs († 178)', // src: mr_fr_2014_ed2_lyon
+    erembert_of_toulouse_bishop: 'Saint Érembert, évêque († v. 672)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     eucharius_of_trier_bishop: 'Saint Euchaire, évêque († IVème s.)',
     eucherius_of_lyon_bishop: 'Saint Eucher, évêque († v. 449)', // src: mr_fr_2014_ed2_lyon
     eugene_de_mazenod_bishop:
@@ -514,6 +403,8 @@ export const locale: Locale = {
     martin_de_porres_religious: 'Saint Martin de Porrès, religieux Dominicain à Lima († 1639)',
     martin_i_pope: 'Saint Martin Ier, pape et martyr († 656)',
     martin_of_tours_bishop: 'Saint Martin de Tours, évêque († 397)',
+    mary_catherine_of_saint_augustine_catherine_de_simon_de_longpre_virgin:
+      'Bienheureuse Catherine de Saint-Augustin, vierge († 1668)', // src: mr_fr_2021_ed3, mr_fr_1982_ed2_coutances
     mary_euphrasia_pelletier_religious: 'Sainte Marie-Euphrasie Pelletier, religieuse († 1868)', // mr_fr_2022_ed3_angers
     mary_magdalene: 'Sainte Marie-Madeleine, disciple du Christ († Ier s.)',
     mary_magdalene_de_pazzi_virgin: 'Sainte Marie-Madeleine de Pazzi, vierge de l’Ordre du Carmel († 1607)',
@@ -554,9 +445,9 @@ export const locale: Locale = {
     nativity_of_the_blessed_virgin_mary: 'Nativité de la vierge Marie',
     nativity_of_the_lord: 'Nativité du Seigneur',
     nereus_of_terracina_and_achilleus_of_terracina_martyrs: 'Saints Nérée et Achillée, martyrs à Rome († v. 304)',
+    nicetius_of_lyon_bishop: 'Saint Nizier, évêque († 573)', // src: mr_fr_2014_ed2_lyon
     nicholas_barre_priest: 'Bienheureux. Nicolas Barré, prêtre († 1686 à Paris)',
     nicholas_of_myra_bishop: 'Saint Nicolas, évêque de Myre († v. 350)',
-    nicetius_of_lyon_bishop: 'Saint Nizier, évêque († 573)', // src: mr_fr_2014_ed2_lyon
     noel_pinot_priest: 'Bienheureux Noël Pinot, prêtre et martyr († 1794)', // mr_fr_2022_ed3_angers
     norbert_of_xanten_bishop: 'Saint Norbert, évêque († 1134)',
     nykyta_budka_and_vasyl_velychkovsky_bishops:
@@ -622,10 +513,10 @@ export const locale: Locale = {
     presentation_of_the_blessed_virgin_mary: 'Présentation de la vierge Marie',
     presentation_of_the_lord: 'Présentation du Seigneur au Temple',
     queenship_of_the_blessed_virgin_mary: 'Vierge Marie, reine',
-    raymond_of_penyafort_priest: 'Saint Raymond de Peñafort, prêtre († 1275)',
     raymond_costeran_and_companions_martyrs: 'Bienheureux Raymond et ses compagnons, martyrs († 1242)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     raymond_costeran_martyr: 'Bienheureux Raymond, martyr († 1242)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     raymond_gayrard_religious: 'Saint Raymond Gayrard, religieux († 1118)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
+    raymond_of_penyafort_priest: 'Saint Raymond de Peñafort, prêtre († 1275)',
     remigius_of_reims_bishop: 'Saint Remi, évêque de Reims († 530)',
     rene_goupil_religious: 'Saint René Goupil, religieux et martyr († 1642)', // mr_fr_2022_ed3_angers
     richardis_of_swabia_empress: 'Sainte Richarde, impératrice († 894 ou 896)',
@@ -669,8 +560,8 @@ export const locale: Locale = {
     thomas_apostle: 'Saint Thomas, apôtre',
     thomas_aquinas_priest: 'Saint Thomas d’Aquin, prêtre et docteur de l’Église († 1274)', // src: mr_fr_2021_ed3, mr_fr_1974_ed1_region_apostolique_du_midi
     thomas_becket_bishop: 'Saint Thomas Becket, évêque et martyr († 1170)',
-    thomas_jean_georges_rehm_priest: 'Bienheureux Jean-Georges Rehm, prêtre et martyr († 1794)',
     thomas_helye_priest: 'Bienheureux Thomas Hélye, prêtre († 1257)', // src: mr_fr_1982_ed2_coutances
+    thomas_jean_georges_rehm_priest: 'Bienheureux Jean-Georges Rehm, prêtre et martyr († 1794)',
     thursday_of_the_lords_supper: 'Mémoire de la Cène du Seigneur',
     timothy_of_ephesus_and_titus_of_crete_bishops:
       'Saints Timothée et Tite, évêques, disciples et compagnons de Saint Paul († Ier s.)',
@@ -694,5 +585,114 @@ export const locale: Locale = {
       'Saint Venceslas, martyr et patron de la nation tchèque († 929)',
     wendelin_of_trier_hermit: 'Saint Wendelin, ermite',
     william_firmatus_abbot: 'Saint Guillaume Firmat, abbé († 1103)', // src: mr_fr_1982_ed2_coutances
+  },
+
+  ordinals: {
+    '1': 'premier',
+    '1_feminine': 'première',
+    '2': 'deuxième',
+    '3': 'troisième',
+    '4': 'quatrième',
+    '5': 'cinquième',
+    '6': 'sixième',
+    '7': 'septième',
+    '8': 'huitième',
+    '9': 'neuvième',
+    '10': 'dixième',
+    '11': 'onzième',
+    '12': 'douzième',
+    '13': 'treizième',
+    '14': 'quatorzième',
+    '15': 'quinzième',
+    '16': 'seizième',
+    '17': 'dix-septième',
+    '18': 'dix-huitième',
+    '19': 'dix-neuvième',
+    '20': 'vingtième',
+    '21': 'vingt et unième',
+    '22': 'vingt-deuxième',
+    '23': 'vingt-troisième',
+    '24': 'vingt-quatrième',
+    '25': 'vingt-cinquième',
+    '26': 'vingt-sixième',
+    '27': 'vingt-septième',
+    '28': 'vingt-huitième',
+    '29': 'vingt-neuvième',
+    '30': 'trentième',
+    '31': 'trente et unième',
+    '32': 'trente-deuxième',
+    '33': 'trente-troisième',
+    '34': 'trente-quatrième',
+  },
+
+  periods: {
+    epiphany: 'Épiphanie',
+    holy_week: 'Semaine Sainte',
+  },
+
+  ranks: {
+    feast: 'fête',
+    memorial: 'mémoire',
+    optional_memorial: 'mémoire facultative',
+    solemnity: 'solennité',
+    sunday: 'dimanche',
+    weekday: 'férie',
+  },
+
+  seasons: {
+    advent: {
+      privileged_weekday: '{{day}} $t(months:11)',
+      season: 'Temps de l’Avent',
+      sunday: '$t(ordinals:{{week}}, capitalize) dimanche de l’Avent',
+      weekday:
+        '$t(weekdays:{{dow}}, capitalize) de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine de l’Avent',
+    },
+
+    christmas_time: {
+      after_epiphany: '$t(weekdays:{{dow}}, capitalize) après l’Épiphanie',
+      before_epiphany: '{{day}} $t(months:0)',
+      day: '$t(weekdays:{{dow}}, capitalize) dans le Temps de Noël',
+      octave: '{{count}}ᵉ jour dans l’Octave de la Nativité',
+      season: 'Temps de Noël',
+      second_sunday_after_christmas: 'Deuxième dimanche après la Nativité',
+    },
+
+    easter_time: {
+      octave: '$t(weekdays:{{dow}}, capitalize) dans l’Octave de Pâques',
+      season: 'Temps Pascal',
+      sunday: '$t(ordinals:{{week}}, capitalize) dimanche de Pâques',
+      weekday:
+        '$t(weekdays:{{dow}}, capitalize) de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine de Pâques',
+    },
+
+    lent: {
+      day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) après les Cendres',
+      holy_week_day: '$t(weekdays:{{dow}}, capitalize) Saint',
+      season: 'Temps du Carême',
+      sunday: '$t(ordinals:{{week}}, capitalize) dimanche de Carême',
+      weekday:
+        '$t(weekdays:{{dow}}, capitalize) de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine de Carême',
+    },
+
+    ordinary_time: {
+      season: 'Temps Ordinaire',
+      sunday: '$t(ordinals:{{week}}, capitalize) $t(weekdays:0) du Temps Ordinaire',
+      weekday:
+        '$t(weekdays:{{dow}}, capitalize) de la $t(ordinals:{{week}}, { "context": "feminine" }) semaine du Temps Ordinaire',
+    },
+
+    paschal_triduum: {
+      season: 'Triduum Pascal',
+    },
+  },
+
+  weekdays: {
+    0: 'dimanche',
+    1: 'lundi',
+    2: 'mardi',
+    3: 'mercredi',
+    4: 'jeudi',
+    5: 'vendredi',
+    6: 'samedi',
   },
 };
