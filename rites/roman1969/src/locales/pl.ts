@@ -233,6 +233,8 @@ export const locale: Locale = {
     divine_mercy_sunday: '2 Niedziela Wielkanocna czyli Niedziela Miłosierdzia Bożego',
     dominic_de_guzman_priest: 'Św. Dominika, prezbitera',
     easter_sunday: 'Niedziela Wielkanocy Zmartwychwstania Pańskiego',
+    // TODO: get a proper (non-google translate) translation
+    easter_vigil: 'Wigilia Wielkanocna',
     edmund_bojanowski: 'Bł. Edmunda Bojanowskiego',
     eligius_of_noyon_bishop: 'Św. Eligiusza, biskupa',
     elizabeth_of_hungary_religious: 'Św. Elżbiety Węgierskiej, zakonnicy',

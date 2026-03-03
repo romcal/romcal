@@ -1293,6 +1293,9 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Dyfrig',
       titles: [Title.Bishop],
     },
+    easter_vigil: {
+      name: 'Easter Vigil',
+    },
     easter_sunday: {
       name: 'Easter Sunday of the Resurrection of the Lord',
     },
@@ -2069,7 +2072,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeathIsApproximative: true,
     },
     holy_saturday: {
-      name: 'Holy Saturday/Easter Vigil',
+      name: 'Holy Saturday',
     },
     holy_thursday: {
       name: 'Holy Thursday',

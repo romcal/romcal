@@ -294,6 +294,7 @@ export const locale: Locale = {
     // src: https://www.cnbb.org.br/missal-romano-calendario-proprio-dos-santos-brasil/
     dulce_lopes_pontes_virgin: 'Santa Dulce Lopes Pontes, virgem',
     easter_sunday: 'Domingo da Páscoa',
+    easter_vigil: 'Vigília Pascal',
     eligius_of_noyon_bishop: 'Santo Elígio, bispo',
     elizabeth_of_hungary_religious: 'Santa Isabel da Hungria, religiosa',
     elizabeth_of_portugal: 'Santa Isabel de Portugal',
