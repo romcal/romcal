@@ -1,4 +1,5 @@
 import { calculateGregorianEasterDate, calculateJulianEasterDateToGregorianDate } from '@internal/easter';
+import { calculateLunarNewYear } from '@internal/lunar-new-year';
 
 import { Season } from '../constants/seasons';
 import { RomcalConfig } from '../models/config';
@@ -1243,6 +1244,24 @@ export class Dates {
   };
 
   #exaltationOfTheHolyCross: Record<string, Date> = {};
+
+  /**
+   * Get the date of Lunar New Year for the given year.
+   * @param utcOffset UTC offset for the target timezone (e.g. 8 for China/HK/Taiwan, 9 for Korea/Japan, 7 for Vietnam)
+   * @param year Gregorian year
+   */
+  lunarNewYear = (utcOffset: number, year = this.#year): Date => {
+    const id = `${utcOffset}:${year}`;
+    if (this.#lunarNewYear[id]) return this.#lunarNewYear[id];
+    return (this.#lunarNewYear[id] = Dates.lunarNewYear(utcOffset, year));
+  };
+
+  #lunarNewYear: Record<string, Date> = {};
+
+  static lunarNewYear = (utcOffset: number, year: number): Date => {
+    const { month, day } = calculateLunarNewYear(year, utcOffset);
+    return getUtcDate(year, month, day);
+  };
 
   startOfSeasons = (year = this.#year): Record<Season, Date> => {
     if (this.#startOfSeasons[year]) return this.#startOfSeasons[year];
