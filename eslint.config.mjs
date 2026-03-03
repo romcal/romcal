@@ -109,6 +109,7 @@ export default [
         project: [
           './tsconfig.base.json',
           './packages/easter/tsconfig.json',
+          './packages/lunar-new-year/tsconfig.json',
           './rites/roman1962/tsconfig.json',
           './rites/roman1969/tsconfig.json',
         ],
@@ -138,6 +139,7 @@ export default [
         project: [
           './tsconfig.base.json',
           './packages/easter/tsconfig.json',
+          './packages/lunar-new-year/tsconfig.json',
           './rites/roman1962/tsconfig.json',
           './rites/roman1969/tsconfig.json',
         ],
