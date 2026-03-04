@@ -1,74 +1,17 @@
 import { Locale } from '../types/locale';
 
 export const locale: Locale = {
+  colors: {
+    black: 'czarny',
+    gold: 'złoty',
+    green: 'zielony',
+    purple: 'fioletowy',
+    red: 'czerwony',
+    rose: 'różowy',
+    white: 'biały',
+  },
+
   id: 'pl',
-
-  seasons: {
-    advent: {
-      season: 'Adwent',
-      weekday: '$t(weekdays:{{dow}}, capitalize) {{week}} tygodnia Adwentu',
-      sunday: '{{week}} Niedziela Adwentu',
-      privileged_weekday: '{{day}} $t(months:11)',
-    },
-
-    christmas_time: {
-      season: 'Narodzenie Pańskie',
-      day: '$t(weekdays:{{dow}}, capitalize) okresu Bożego Narodzenia',
-      octave: '{{count}} dzień w oktawie Narodzenia Pańskiego',
-      second_sunday_after_christmas: '2 Niedziela po Narodzeniu Pańskim',
-      before_epiphany: '{{day}} $t(months:0)',
-      after_epiphany: '$t(weekdays:{{dow}}, capitalize) po Objawieniu Pańskim',
-    },
-
-    ordinary_time: {
-      season: 'Okres Zwykły',
-      weekday: '$t(weekdays:{{dow}}, capitalize) {{week}} tygodnia zwykłego',
-      sunday: '{{week}} Niedziela zwykła',
-    },
-
-    lent: {
-      season: 'Wielki Post',
-      weekday: '$t(weekdays:{{dow}}, capitalize) {{week}} tygodnia Wielkiego Postu',
-      sunday: '{{week}} Niedziela Wielkiego Postu',
-      day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) po Popielcu',
-      holy_week_day: '$t(weekdays:{{dow}}, capitalize) Wielkiego Tygodnia',
-    },
-
-    paschal_triduum: {
-      season: 'Triduum Paschalne',
-    },
-
-    easter_time: {
-      season: 'Wielkanoc',
-      weekday: '$t(weekdays:{{dow}}, capitalize) {{week}} tygodnia Wielkanocy',
-      sunday: '{{week}} Niedziela Wielkanocy',
-      octave: '$t(weekdays:{{dow}}, capitalize) w oktawie Wielkanocy',
-    },
-  },
-
-  periods: {
-    epiphany: 'Objawienie Pańskie',
-    holy_week: 'Wielki Tydzień',
-  },
-
-  ranks: {
-    solemnity: 'uroczystość',
-    sunday: 'niedziela',
-    feast: 'święto',
-    memorial: 'wspomnienie obowiązkowe',
-    optional_memorial: 'wspomnienie dowolne',
-    weekday: 'dzień powszedni',
-  },
-
-  weekdays: {
-    0: 'niedziela',
-    1: 'poniedziałek',
-    2: 'wtorek',
-    3: 'środa',
-    4: 'czwartek',
-    5: 'piątek',
-    6: 'sobota',
-  },
 
   months: {
     0: 'stycznia',
@@ -83,16 +26,6 @@ export const locale: Locale = {
     9: 'października',
     10: 'listopada',
     11: 'grudnia',
-  },
-
-  colors: {
-    black: 'czarny',
-    gold: 'złoty',
-    green: 'zielony',
-    purple: 'fioletowy',
-    red: 'czerwony',
-    rose: 'różowy',
-    white: 'biały',
   },
 
   names: {
@@ -499,6 +432,7 @@ export const locale: Locale = {
     teresa_benedicta_of_the_cross_stein_virgin: 'Św. Teresy Benedykty od Krzyża, dziewicy i męczennicy',
     teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe:
       'Św. Teresy Benedykty od Krzyża, dziewicy i męczennicy, patronki Europy',
+    teresa_of_calcutta_virgin: 'Świętej Teresy z Kalkuty, dziewicy', // src: https://liturgia.wiara.pl/doc/9143462.Swieta-Teresa-z-Kalkuty-w-Powszechnym-Kalendarzu-Rzymskim
     teresa_of_jesus_of_avila_virgin: 'Św. Teresy od Jezusa, dziewicy i doktora Kościoła',
     therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin:
       'Św. Teresy od Dzieciątka Jezus, dziewicy i doktora Kościoła',
@@ -526,5 +460,72 @@ export const locale: Locale = {
     yolanda_of_poland_religious: 'Bł. Jolanty, zakonnicy',
     zdislava_of_lemberk: 'Św. Zdzisławy',
     zygmunt_gorazdowski_priest: 'Św. Zygmunta Gorazdowskiego, prezbitera',
+  },
+
+  periods: {
+    epiphany: 'Objawienie Pańskie',
+    holy_week: 'Wielki Tydzień',
+  },
+
+  ranks: {
+    feast: 'święto',
+    memorial: 'wspomnienie obowiązkowe',
+    optional_memorial: 'wspomnienie dowolne',
+    solemnity: 'uroczystość',
+    sunday: 'niedziela',
+    weekday: 'dzień powszedni',
+  },
+
+  seasons: {
+    advent: {
+      privileged_weekday: '{{day}} $t(months:11)',
+      season: 'Adwent',
+      sunday: '{{week}} Niedziela Adwentu',
+      weekday: '$t(weekdays:{{dow}}, capitalize) {{week}} tygodnia Adwentu',
+    },
+
+    christmas_time: {
+      after_epiphany: '$t(weekdays:{{dow}}, capitalize) po Objawieniu Pańskim',
+      before_epiphany: '{{day}} $t(months:0)',
+      day: '$t(weekdays:{{dow}}, capitalize) okresu Bożego Narodzenia',
+      octave: '{{count}} dzień w oktawie Narodzenia Pańskiego',
+      season: 'Narodzenie Pańskie',
+      second_sunday_after_christmas: '2 Niedziela po Narodzeniu Pańskim',
+    },
+
+    easter_time: {
+      octave: '$t(weekdays:{{dow}}, capitalize) w oktawie Wielkanocy',
+      season: 'Wielkanoc',
+      sunday: '{{week}} Niedziela Wielkanocy',
+      weekday: '$t(weekdays:{{dow}}, capitalize) {{week}} tygodnia Wielkanocy',
+    },
+
+    lent: {
+      day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) po Popielcu',
+      holy_week_day: '$t(weekdays:{{dow}}, capitalize) Wielkiego Tygodnia',
+      season: 'Wielki Post',
+      sunday: '{{week}} Niedziela Wielkiego Postu',
+      weekday: '$t(weekdays:{{dow}}, capitalize) {{week}} tygodnia Wielkiego Postu',
+    },
+
+    ordinary_time: {
+      season: 'Okres Zwykły',
+      sunday: '{{week}} Niedziela zwykła',
+      weekday: '$t(weekdays:{{dow}}, capitalize) {{week}} tygodnia zwykłego',
+    },
+
+    paschal_triduum: {
+      season: 'Triduum Paschalne',
+    },
+  },
+
+  weekdays: {
+    0: 'niedziela',
+    1: 'poniedziałek',
+    2: 'wtorek',
+    3: 'środa',
+    4: 'czwartek',
+    5: 'piątek',
+    6: 'sobota',
   },
 };

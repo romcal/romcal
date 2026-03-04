@@ -1,88 +1,31 @@
 import { Locale } from '../types/locale';
 
 export const locale: Locale = {
-  id: 'pt-br',
-
-  seasons: {
-    advent: {
-      season: 'Advento',
-      weekday: '$t(weekdays:{{dow}}, capitalize) da {{week}}ª semana do Advento',
-      sunday: '{{week}}º Domingo do Advento',
-      privileged_weekday: '{{day}} de $t(months:11)',
-    },
-
-    christmas_time: {
-      season: 'Natal',
-      day: '$t(weekdays:{{dow}}, capitalize) do Tempo do Natal',
-      octave: '{{count}}º dia da Oitava de Natal',
-      second_sunday_after_christmas: 'Segundo Domingo do Natal',
-      before_epiphany: '{{day}} de $t(months:0)',
-      after_epiphany: '$t(weekdays:{{dow}}, capitalize) depois da Epifania do Senhor',
-    },
-
-    ordinary_time: {
-      season: 'Tempo Comum',
-      weekday: '$t(weekdays:{{dow}}, capitalize) da {{week}}ª semana do Tempo Comum',
-      sunday: '{{week}}º Domingo do Tempo Comum',
-    },
-
-    lent: {
-      season: 'Quaresma',
-      weekday: '$t(weekdays:{{dow}}, capitalize) da {{week}}ª semana da Quaresma',
-      sunday: '{{week}}º Domingo da Quaresma',
-      day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) depois da Quarta-feira de Cinzas',
-      holy_week_day: '$t(weekdays:{{dow}}, capitalize) da Semana Santa',
-    },
-
-    paschal_triduum: {
-      season: 'Tríduo Pascal',
-    },
-
-    easter_time: {
-      season: 'Páscoa',
-      weekday: '$t(weekdays:{{dow}}, capitalize) da {{week}}ª semana do Tempo Pascal',
-      sunday: '{{week}}º Domingo do Tempo Pascal',
-      octave: 'Tempo Pascal $t(weekdays:{{dow}}, capitalize)',
-    },
-  },
-
-  periods: {
-    epiphany: 'Epifania do Senhor',
-    holy_week: 'Semana Santa',
-  },
-
-  ranks: {
-    solemnity: 'solenidade',
-    sunday: 'domingo',
-    feast: 'festa',
-    memorial: 'memória',
-    optional_memorial: 'memória facultativa',
-    weekday: 'dia de semana',
+  colors: {
+    black: 'preto',
+    gold: 'dourado',
+    green: 'verde',
+    purple: 'roxo',
+    red: 'vermelho',
+    rose: 'rosa',
+    white: 'branco',
   },
 
   cycles: {
-    proper_of_time: 'Próprio do Tempo',
     proper_of_saints: 'Próprio dos Santos',
+    proper_of_time: 'Próprio do Tempo',
+    psalter_week_1: 'Semana I',
+    psalter_week_2: 'Semana II',
+    psalter_week_3: 'Semana III',
+    psalter_week_4: 'Semana IV',
     sunday_year_a: 'Ano A',
     sunday_year_b: 'Ano B',
     sunday_year_c: 'Ano C',
     weekday_year_1: 'Ciclo I',
     weekday_year_2: 'Ciclo II',
-    psalter_week_1: 'Semana I',
-    psalter_week_2: 'Semana II',
-    psalter_week_3: 'Semana III',
-    psalter_week_4: 'Semana IV',
   },
 
-  weekdays: {
-    0: 'Domingo',
-    1: 'Segunda-feira',
-    2: 'Terça-feira',
-    3: 'Quarta-feira',
-    4: 'Quinta-feira',
-    5: 'Sexta-feira',
-    6: 'Sábado',
-  },
+  id: 'pt-br',
 
   months: {
     0: 'Janeiro',
@@ -97,87 +40,6 @@ export const locale: Locale = {
     9: 'Outubro',
     10: 'Novembro',
     11: 'Dezembro',
-  },
-
-  colors: {
-    black: 'preto',
-    gold: 'dourado',
-    green: 'verde',
-    purple: 'roxo',
-    red: 'vermelho',
-    rose: 'rosa',
-    white: 'branco',
-  },
-
-  ordinals: {
-    '1': 'primeiro',
-    '1_feminine': 'primeira',
-    '2': 'segundo',
-    '2_feminine': 'segunda',
-    '3': 'terceiro',
-    '3_feminine': 'terceira',
-    '4': 'quarto',
-    '4_feminine': 'quarta',
-    '5': 'quinto',
-    '5_feminine': 'quinta',
-    '6': 'sexto',
-    '6_feminine': 'sexta',
-    '7': 'sétimo',
-    '7_feminine': 'sétima',
-    '8': 'oitavo',
-    '8_feminine': 'oitava',
-    '9': 'nono',
-    '9_feminine': 'nona',
-    '10': 'décimo',
-    '10_feminine': 'décima',
-    '11': 'décimo primeiro',
-    '11_feminine': 'décima primeira',
-    '12': 'décimo segundo',
-    '12_feminine': 'décima segunda',
-    '13': 'décimo terceiro',
-    '13_feminine': 'décima terceira',
-    '14': 'décimo quarto',
-    '14_feminine': 'décima quarta',
-    '15': 'décimo quinto',
-    '15_feminine': 'décima quinta',
-    '16': 'décimo sexto',
-    '16_feminine': 'décima sexta',
-    '17': 'décimo sétimo',
-    '17_feminine': 'décima sétima',
-    '18': 'décimo oitavo',
-    '18_feminine': 'décima oitava',
-    '19': 'décimo nono',
-    '19_feminine': 'décima nona',
-    '20': 'vigésimo',
-    '20_feminine': 'vigésima',
-    '21': 'vigésimo primeiro',
-    '21_feminine': 'vigésima primeira',
-    '22': 'vigésimo segundo',
-    '22_feminine': 'vigésima segunda',
-    '23': 'vigésimo terceiro',
-    '23_feminine': 'vigésima terceira',
-    '24': 'vigésimo quarto',
-    '24_feminine': 'vigésima quarta',
-    '25': 'vigésimo quinto',
-    '25_feminine': 'vigésima quinta',
-    '26': 'vigésimo sexto',
-    '26_feminine': 'vigésima sexta',
-    '27': 'vigésimo sétimo',
-    '27_feminine': 'vigésima sétima',
-    '28': 'vigésimo oitavo',
-    '28_feminine': 'vigésima oitava',
-    '29': 'vigésimo nono',
-    '29_feminine': 'vigésima nona',
-    '30': 'trigésimo',
-    '30_feminine': 'trigésima',
-    '31': 'trigésimo primeiro',
-    '31_feminine': 'trigésima primeira',
-    '32': 'trigésimo segundo',
-    '32_feminine': 'trigésima segunda',
-    '33': 'trigésimo terceiro',
-    '33_feminine': 'trigésima terceira',
-    '34': 'trigésimo quarto',
-    '34_feminine': 'trigésima quarta',
   },
 
   names: {
@@ -197,7 +59,7 @@ export const locale: Locale = {
     ambrose_of_milan_bishop: 'Santo Ambrósio de Milão, bispo e doutor da Igreja',
     andrew_apostle: 'Santo André, apóstolo',
     andrew_de_soveral_and_ambrose_francis_ferro_priests:
-      'Santo André de Soveral e Santo Ambrósio Francisco Ferro, presbíteros e mártires',
+      'Santos André de Soveral e Ambrósio Francisco Ferro, presbíteros e mártires', // based on: https://arquidiocesemilitar.org.br/wp-content/uploads/2025/01/DIRETORIO-LITURGICO-OMB-2025-1_compressed.pdf#page=101
     andrew_dung_lac_priest_and_companions_martyrs: 'Santo André Dũng-Lạc e Companheiros, mártires',
     andrew_kim_tae_gon_priest_paul_chong_ha_sang_and_companions_martyrs:
       'Santos André Kim Taegon, presbítero, Paulo Chang Hasang e Companheiros, mártires',
@@ -208,7 +70,7 @@ export const locale: Locale = {
     anthony_mary_claret_bishop: 'Santo Antônio Maria Claret, bispo',
     anthony_of_egypt_abbot: 'Santo Antão, abade',
     anthony_of_padua_priest: 'Santo Antônio, presbítero e doutor da Igreja',
-    anthony_of_saint_anne_galvao_priest: "Santo Antônio de Sant'Anna Galvão, presbítero",
+    anthony_of_saint_anne_galvao_priest: 'Santo Antônio de Sant’Ana Galvão, presbítero', // based on: https://arquidiocesemilitar.org.br/wp-content/uploads/2025/01/DIRETORIO-LITURGICO-OMB-2025-1_compressed.pdf#page=105
     anthony_zaccaria_priest: 'Santo Antônio Maria Zacarias, presbítero',
     apollinaris_of_ravenna_bishop: 'Santo Apolinário, bispo e mártir',
     arbogast_of_strasbourg_bishop: 'São Arbogasto, bispo',
@@ -216,7 +78,7 @@ export const locale: Locale = {
       'São Arbogasto, bispo e patrono da Arquidiocese de Estrasburgo',
     ascension_of_the_lord: 'Ascensão do Senhor',
     ash_wednesday: 'Quarta-feira de Cinzas',
-    assumption_of_the_blessed_virgin_mary: 'Assunção da Bem Aventurada Virgem Maria',
+    assumption_of_the_blessed_virgin_mary: 'Assunção da Bem-aventurada Virgem Maria', // src: https://arquidiocesemilitar.org.br/wp-content/uploads/2025/01/DIRETORIO-LITURGICO-OMB-2025-1_compressed.pdf#page=93
     athanasius_of_alexandria_bishop: 'Santo Atanásio, bispo e doutor da Igreja',
     audoen_of_rouen_bishop: 'São Audoeno, bispo',
     augustine_of_canterbury_bishop: 'Santo Agostinho de Cantuária, bispo',
@@ -297,7 +159,7 @@ export const locale: Locale = {
     eligius_of_noyon_bishop: 'Santo Elígio, bispo',
     elizabeth_of_hungary_religious: 'Santa Isabel da Hungria, religiosa',
     elizabeth_of_portugal: 'Santa Isabel de Portugal',
-    ephrem_the_syrian_deacon: 'Santo Efrém, o Sírio, diácono',
+    ephrem_the_syrian_deacon: 'Santo Efrém, diácono e doutor da Igreja', // src: https://arquidiocesemilitar.org.br/wp-content/uploads/2025/01/DIRETORIO-LITURGICO-OMB-2025-1_compressed.pdf#page=79
     epiphany_of_the_lord: 'Epifania do Senhor',
     eucharius_of_trier_bishop: 'Santo Eucario, bispo',
     eugenia_of_alsace_and_attala_of_alsace_virgins: 'Santas Eugenia e Attala, virgens',
@@ -329,14 +191,15 @@ export const locale: Locale = {
     gundisalvus_of_lagos_priest: 'São Gonçalo de Lagos, presbítero',
     hedwig_of_silesia_religious: 'Santa Edviges, religiosa',
     henry_ii_emperor: 'Santo Henrique',
-    hilary_of_poitiers_bishop: 'Santo Hilário, bispo e doutor da Igreja', // src: arquidiocesemilitar.org.br/wp-content/uploads/2025/01/DIRETORIO-LITURGICO-OMB-2025-1_compressed.pdf#page=49
+    hilary_of_poitiers_bishop: 'Santo Hilário, bispo e doutor da Igreja', // src: https://arquidiocesemilitar.org.br/wp-content/uploads/2025/01/DIRETORIO-LITURGICO-OMB-2025-1_compressed.pdf#page=49
     hildegard_of_bingen_abbess: 'Santa Hildegarda de Bingen, virgem e doutora da Igreja',
     holy_family_of_jesus_mary_and_joseph: 'Sagrada Família',
     holy_guardian_angels: 'Santos Anjos da Guarda',
     holy_innocents_martyrs: 'Santos Inocentes, mártires',
     holy_saturday: 'Sábado Santo',
     holy_thursday: 'Quinta-feira Santa',
-    ignatius_de_azevedo_priest_and_companions_martyrs: 'Beatos Inácio de Azevedo, presbítero, e companheiros, mártires',
+    ignatius_de_azevedo_priest_and_companions_martyrs:
+      'Bem-aventurado Inácio de Azevedo, presbítero, e companheiros, mártires', // src: https://arquidiocesemilitar.org.br/wp-content/uploads/2025/01/DIRETORIO-LITURGICO-OMB-2025-1_compressed.pdf#page=87
     ignatius_of_antioch_bishop: 'Santo Inácio de Antioquia, bispo e mártir',
     ignatius_of_loyola_priest: 'Santo Inácio de Loiola, presbítero',
     immaculate_conception_of_the_blessed_virgin_mary: 'Imaculada Conceição',
@@ -359,10 +222,10 @@ export const locale: Locale = {
     john_chrysostom_bishop: 'São João Crisóstomo, bispo e doutor da Igreja',
     john_damascene_priest: 'São João Damasceno, presbítero e doutor da Igreja',
     john_de_brebeuf_isaac_jogues_priests_and_companions_martyrs:
-      'Santos João de Brébeuf, Isaac Jogues, presbíteros, e Companheiros, mártires',
+      'Santos João de Brébeuf e Isaac Jogues, presbíteros e companheiros, mártires', // src: https://arquidiocesemilitar.org.br/wp-content/uploads/2025/01/DIRETORIO-LITURGICO-OMB-2025-1_compressed.pdf#page=104
     john_de_britto_priest: 'São João de Brito, presbítero e mártir',
     john_eudes_priest: 'São João Eudes, presbítero',
-    john_fisher_bishop_and_thomas_more_martyrs: 'Santos João Fisher, bispo e Tomás More, mártires', // src: arquidiocesemilitar.org.br/wp-content/uploads/2025/01/DIRETORIO-LITURGICO-OMB-2025-1_compressed.pdf#page=81
+    john_fisher_bishop_and_thomas_more_martyrs: 'Santos João Fisher, bispo e Tomás More, mártires', // src: https://arquidiocesemilitar.org.br/wp-content/uploads/2025/01/DIRETORIO-LITURGICO-OMB-2025-1_compressed.pdf#page=81
     john_i_pope: 'São João I, papa e mártir',
     john_leonardi_priest: 'São João Leonardi, presbítero',
     john_mary_vianney_priest: 'São João Maria Vianney, presbítero',
@@ -443,8 +306,8 @@ export const locale: Locale = {
     our_lady_help_of_christians: 'Nossa Senhora, Auxílio dos Cristãos',
     our_lady_mediatrix_of_all_grace: 'Nossa Senhora, Medianeira de todas as Graças',
     our_lady_mother_of_divine_providence_patroness_of_puerto_rico: 'Nossa Senhora, Mãe da Divina Providência',
-    our_lady_of_aparecida: 'Nossa Senhora da Conceição Aparecida',
-    our_lady_of_aparecida_patroness_of_brazil: 'Nossa Senhora Aparecida',
+    our_lady_of_aparecida: 'Nossa Senhora da Conceição Aparecida', // src: https://arquidiocesemilitar.org.br/wp-content/uploads/2025/01/DIRETORIO-LITURGICO-OMB-2025-1_compressed.pdf#page=102
+    our_lady_of_aparecida_patroness_of_brazil: 'Nossa Senhora da Conceição Aparecida, Padroeira do Brasil', // src: https://diocesedeipameri.com.br/wp-content/uploads/2022/01/Direto%CC%81rio-da-Liturgia.pdf#page=66
     our_lady_of_china: 'Nossa Senhora da China',
     our_lady_of_fatima: 'Nossa Senhora de Fatima',
     our_lady_of_good_counsel: 'Nossa Senhora do Bom Conselho',
@@ -453,7 +316,7 @@ export const locale: Locale = {
     our_lady_of_loreto: 'Nossa Senhora de Loreto',
     our_lady_of_lourdes: 'Nossa Senhora de Lourdes',
     our_lady_of_lujan_patroness_of_argentina: 'Nossa Senhora de Luján, padroeira da Argentina',
-    our_lady_of_mount_carmel: 'Nossa Senhora do Monte Carmelo',
+    our_lady_of_mount_carmel: 'Nossa Senhora do Monte Carmelo', // src: https://arquidiocesemilitar.org.br/wp-content/uploads/2025/01/DIRETORIO-LITURGICO-OMB-2025-1_compressed.pdf#page=86
     our_lady_of_perpetual_help: 'Nossa Senhora do Perpétuo Socorro',
     our_lady_of_sorrows: 'Nossa Senhora das Dores',
     our_lady_of_the_gate_of_dawn: 'Nossa Senhora da Porta da Aurora',
@@ -470,8 +333,7 @@ export const locale: Locale = {
     paul_miki_and_companions_martyrs: 'Santos Paulo Miki e Companheiros, mártires',
     paul_of_the_cross_priest: 'São Paulo da Cruz, presbítero',
     paul_vi_pope: 'São Paulo VI, papa',
-    paulina_of_the_agonizing_heart_of_jesus_visintainer_virgin:
-      'Santa Paulina do Coração Agonizante de Jesus Visintainer, virgem',
+    paulina_of_the_agonizing_heart_of_jesus_visintainer_virgin: 'Santa Paulina do Coração Agonizante de Jesus, virgem', // src: https://arquidiocesemilitar.org.br/wp-content/uploads/2025/01/DIRETORIO-LITURGICO-OMB-2025-1_compressed.pdf#page=85
     paulinus_of_nola_bishop: 'São Paulino de Nola, bispo',
     pentecost_sunday: 'Pentecostes',
     perpetua_of_carthage_and_felicity_of_carthage_martyrs: 'Santas Perpétua e Felicidade, mártires',
@@ -482,14 +344,14 @@ export const locale: Locale = {
     peter_claver_priest: 'São Pedro Claver, presbítero',
     peter_damian_bishop: 'São Pedro Damião, bispo e doutor da Igreja',
     peter_julian_eymard_priest: 'São Pedro Juliano Eymard, presbítero',
-    peter_of_alcantara_priest: 'São Pedro de Alcântara, presbítero', // src: arquidiocesemilitar.org.br/wp-content/uploads/2025/01/DIRETORIO-LITURGICO-OMB-2025-1_compressed.pdf#page=104
+    peter_of_alcantara_priest: 'São Pedro de Alcântara, presbítero', // src: https://arquidiocesemilitar.org.br/wp-content/uploads/2025/01/DIRETORIO-LITURGICO-OMB-2025-1_compressed.pdf#page=104
     philip_and_james_apostles: 'São Filipe e Tiago, apóstolos',
     philip_neri_priest: 'São Filipe Néri, presbítero',
     pius_francesco_forgione_priest: 'São Pio de Pietrelcina, presbítero',
     pius_v_pope: 'São Pio V, papa',
     pius_x_pope: 'São Pio X, papa',
     polycarp_of_smyrna_bishop: 'São Policarpo, bispo e mártir',
-    pontian_i_pope_and_hippolytus_of_rome_priest: 'Santos Pôncio I, papa, e Hipólito de Roma, presbítero',
+    pontian_i_pope_and_hippolytus_of_rome_priest: 'Santos Ponciano, papa, e Hipólito, presbítero, mártires', // src: https://arquidiocesemilitar.org.br/wp-content/uploads/2025/01/DIRETORIO-LITURGICO-OMB-2025-1_compressed.pdf#page=92
     presentation_of_the_blessed_virgin_mary: 'Apresentação da Virgem Maria',
     presentation_of_the_lord: 'Apresentação do Senhor',
     queenship_of_the_blessed_virgin_mary: 'Bem-aventurada virgem Maria, Rainha do Céu',
@@ -498,10 +360,10 @@ export const locale: Locale = {
     rita_of_cascia_religious: 'Santa Rita de Cássia, religiosa',
     robert_bellarmine_bishop: 'São Roberto Belarmino, bispo e doutor da Igreja',
     roch_gonzalez_alphonsus_rodriguez_and_john_del_castillo_priests:
-      'São Roque González Alfonso Rodríguez e São João del Castillo, presbíteros e mártires',
+      'Santos Roque González, Afonso Rodríguez e João de Castillo, presbíteros e mártires', // src: https://arquidiocesemilitar.org.br/wp-content/uploads/2025/01/DIRETORIO-LITURGICO-OMB-2025-1_compressed.pdf#page=110
     romuald_of_ravenna_abbot: 'São Romualdo, abade',
     rosalie_jeanne_marie_rendu_virgin: 'Beata Rosália Rendu, virgem',
-    rose_of_lima_virgin: 'Santa Rosa de Lima, virgem',
+    rose_of_lima_virgin: 'Santa Rosa de Lima, virgem', // based on: https://arquidiocesemilitar.org.br/wp-content/uploads/2025/01/DIRETORIO-LITURGICO-OMB-2025-1_compressed.pdf#page=94
     sancha_of_portugal_and_mafalda_of_portugal_virgins: 'Beatas Sancha e Mafalda, virgens, e Teresa, religiosa',
     scholastica_of_nursia_virgin: 'Santa Escolástica, virgem',
     sebastian_of_milan_martyr: 'São Sebastião, mártir',
@@ -515,7 +377,8 @@ export const locale: Locale = {
     sunday_of_the_word_of_god: '3º Domingo do Tempo Comum, ou Domingo da Palavra de Deus',
     sylvester_i_pope: 'São Silvestre I, papa',
     teresa_benedicta_of_the_cross_stein_virgin: 'Santa Teresa Benedita da Cruz, virgem e mártir',
-    teresa_of_jesus_of_avila_virgin: 'Santa Teresa de Jesus, virgem e doutora da Igreja', // src: arquidiocesemilitar.org.br/wp-content/uploads/2025/01/DIRETORIO-LITURGICO-OMB-2025-1_compressed.pdf#page=103
+    teresa_of_calcutta_virgin: 'Santa Teresa de Calcutá, virgem', // src: https://press.vatican.va/content/salastampa/it/bollettino/pubblico/2025/02/11/0125/00250.html#portoghese
+    teresa_of_jesus_of_avila_virgin: 'Santa Teresa de Jesus, virgem e doutora da Igreja', // src: https://arquidiocesemilitar.org.br/wp-content/uploads/2025/01/DIRETORIO-LITURGICO-OMB-2025-1_compressed.pdf#page=103
     teresa_of_portugal_religious: 'Beata Teresa de Portugal, religiosa',
     theotonius_of_coimbra_priest: 'Santo Teotónio, presbítero',
     therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin:
@@ -538,5 +401,143 @@ export const locale: Locale = {
     wenceslaus_i_of_bohemia_martyr: 'São Venceslau, mártir',
     wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation: 'São Venceslau, mártir e patrono da nação tcheca',
     wendelin_of_trier_hermit: 'São Vendelino, eremita',
+  },
+
+  ordinals: {
+    '1': 'primeiro',
+    '1_feminine': 'primeira',
+    '2': 'segundo',
+    '2_feminine': 'segunda',
+    '3': 'terceiro',
+    '3_feminine': 'terceira',
+    '4': 'quarto',
+    '4_feminine': 'quarta',
+    '5': 'quinto',
+    '5_feminine': 'quinta',
+    '6': 'sexto',
+    '6_feminine': 'sexta',
+    '7': 'sétimo',
+    '7_feminine': 'sétima',
+    '8': 'oitavo',
+    '8_feminine': 'oitava',
+    '9': 'nono',
+    '9_feminine': 'nona',
+    '10': 'décimo',
+    '10_feminine': 'décima',
+    '11': 'décimo primeiro',
+    '11_feminine': 'décima primeira',
+    '12': 'décimo segundo',
+    '12_feminine': 'décima segunda',
+    '13': 'décimo terceiro',
+    '13_feminine': 'décima terceira',
+    '14': 'décimo quarto',
+    '14_feminine': 'décima quarta',
+    '15': 'décimo quinto',
+    '15_feminine': 'décima quinta',
+    '16': 'décimo sexto',
+    '16_feminine': 'décima sexta',
+    '17': 'décimo sétimo',
+    '17_feminine': 'décima sétima',
+    '18': 'décimo oitavo',
+    '18_feminine': 'décima oitava',
+    '19': 'décimo nono',
+    '19_feminine': 'décima nona',
+    '20': 'vigésimo',
+    '20_feminine': 'vigésima',
+    '21': 'vigésimo primeiro',
+    '21_feminine': 'vigésima primeira',
+    '22': 'vigésimo segundo',
+    '22_feminine': 'vigésima segunda',
+    '23': 'vigésimo terceiro',
+    '23_feminine': 'vigésima terceira',
+    '24': 'vigésimo quarto',
+    '24_feminine': 'vigésima quarta',
+    '25': 'vigésimo quinto',
+    '25_feminine': 'vigésima quinta',
+    '26': 'vigésimo sexto',
+    '26_feminine': 'vigésima sexta',
+    '27': 'vigésimo sétimo',
+    '27_feminine': 'vigésima sétima',
+    '28': 'vigésimo oitavo',
+    '28_feminine': 'vigésima oitava',
+    '29': 'vigésimo nono',
+    '29_feminine': 'vigésima nona',
+    '30': 'trigésimo',
+    '30_feminine': 'trigésima',
+    '31': 'trigésimo primeiro',
+    '31_feminine': 'trigésima primeira',
+    '32': 'trigésimo segundo',
+    '32_feminine': 'trigésima segunda',
+    '33': 'trigésimo terceiro',
+    '33_feminine': 'trigésima terceira',
+    '34': 'trigésimo quarto',
+    '34_feminine': 'trigésima quarta',
+  },
+
+  periods: {
+    epiphany: 'Epifania do Senhor',
+    holy_week: 'Semana Santa',
+  },
+
+  ranks: {
+    feast: 'festa',
+    memorial: 'memória',
+    optional_memorial: 'memória facultativa',
+    solemnity: 'solenidade',
+    sunday: 'domingo',
+    weekday: 'dia de semana',
+  },
+
+  seasons: {
+    advent: {
+      privileged_weekday: '{{day}} de $t(months:11)',
+      season: 'Advento',
+      sunday: '{{week}}º Domingo do Advento',
+      weekday: '$t(weekdays:{{dow}}, capitalize) da {{week}}ª semana do Advento',
+    },
+
+    christmas_time: {
+      after_epiphany: '$t(weekdays:{{dow}}, capitalize) depois da Epifania do Senhor',
+      before_epiphany: '{{day}} de $t(months:0)',
+      day: '$t(weekdays:{{dow}}, capitalize) do Tempo do Natal',
+      octave: '{{count}}º dia da Oitava de Natal',
+      season: 'Natal',
+      second_sunday_after_christmas: 'Segundo Domingo do Natal',
+    },
+
+    easter_time: {
+      octave: 'Tempo Pascal $t(weekdays:{{dow}}, capitalize)',
+      season: 'Páscoa',
+      sunday: '{{week}}º Domingo do Tempo Pascal',
+      weekday: '$t(weekdays:{{dow}}, capitalize) da {{week}}ª semana do Tempo Pascal',
+    },
+
+    lent: {
+      day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) depois da Quarta-feira de Cinzas',
+      holy_week_day: '$t(weekdays:{{dow}}, capitalize) da Semana Santa',
+      season: 'Quaresma',
+      sunday: '{{week}}º Domingo da Quaresma',
+      weekday: '$t(weekdays:{{dow}}, capitalize) da {{week}}ª semana da Quaresma',
+    },
+
+    ordinary_time: {
+      season: 'Tempo Comum',
+      sunday: '{{week}}º Domingo do Tempo Comum',
+      weekday: '$t(weekdays:{{dow}}, capitalize) da {{week}}ª semana do Tempo Comum',
+    },
+
+    paschal_triduum: {
+      season: 'Tríduo Pascal',
+    },
+  },
+
+  weekdays: {
+    0: 'Domingo',
+    1: 'Segunda-feira',
+    2: 'Terça-feira',
+    3: 'Quarta-feira',
+    4: 'Quinta-feira',
+    5: 'Sexta-feira',
+    6: 'Sábado',
   },
 };

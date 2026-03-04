@@ -8,26 +8,26 @@ const scopes = [...CALENDAR_IDS, ...LOCALE_IDS, 'calendar', 'l10n', 'util', 'pac
 const styleScopes = ['commitlint', 'editorconfig', 'eslint', 'prettier'];
 
 const typesEnumScoped = {
-  // Updates to the automation or release process
-  ci: empty,
   // Changes to build scripts
   build: empty,
+  // Updates to the automation or release process
+  ci: empty,
   // Documentation only changes
   docs: empty,
-  // Features, new functionality
-  feat: scopes,
   // Enhancing existing functionality
   enh: scopes,
+  // Features, new functionality
+  feat: scopes,
   // Bug fixes
   fix: scopes,
-  // Refactoring, no behavior changes
-  refactor: scopes,
   // Performance improvements
   perf: scopes,
-  // Add or correct tests
-  test: scopes,
+  // Refactoring, no behavior changes
+  refactor: scopes,
   // Changes that affect style, linting, formatting and grammar
   style: [...scopes, ...styleScopes],
+  // Add or correct tests
+  test: scopes,
 };
 
 export default {

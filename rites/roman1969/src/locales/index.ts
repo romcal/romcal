@@ -21,9 +21,9 @@ import { locale as Ta } from './ta';
 export const locales: Record<string, Locale> = {
   Cs,
   De,
+  En,
   EnGb,
   EnIe,
-  En,
   Es,
   Fr,
   It,

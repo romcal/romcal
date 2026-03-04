@@ -884,4 +884,69 @@ describe('Testing specific liturgical date functions', () => {
       }
     });
   });
+
+  describe('Lunar New Year', () => {
+    test('In 2026, Lunar New Year (UTC+7, Vietnam) is February 17', () => {
+      const date = new Romcal().dates().lunarNewYear(7, 2026);
+      expect(date.getUTCFullYear()).toEqual(2026);
+      expect(date.getUTCMonth()).toEqual(1);
+      expect(date.getUTCDate()).toEqual(17);
+    });
+
+    test('In 2026, Lunar New Year (UTC+8, China/Hong Kong/Taiwan) is February 17', () => {
+      const date = new Romcal().dates().lunarNewYear(8, 2026);
+      expect(date.getUTCFullYear()).toEqual(2026);
+      expect(date.getUTCMonth()).toEqual(1);
+      expect(date.getUTCDate()).toEqual(17);
+    });
+
+    test('In 2026, Lunar New Year (UTC+9, Korea/Japan) is February 17', () => {
+      const date = new Romcal().dates().lunarNewYear(9, 2026);
+      expect(date.getUTCFullYear()).toEqual(2026);
+      expect(date.getUTCMonth()).toEqual(1);
+      expect(date.getUTCDate()).toEqual(17);
+    });
+
+    test('In 2028, Lunar New Year (UTC+7, Vietnam) is January 26', () => {
+      const date = new Romcal().dates().lunarNewYear(7, 2028);
+      expect(date.getUTCFullYear()).toEqual(2028);
+      expect(date.getUTCMonth()).toEqual(0);
+      expect(date.getUTCDate()).toEqual(26);
+    });
+
+    test('In 2028, Lunar New Year (UTC+8, China/Hong Kong/Taiwan) is January 26', () => {
+      const date = new Romcal().dates().lunarNewYear(8, 2028);
+      expect(date.getUTCFullYear()).toEqual(2028);
+      expect(date.getUTCMonth()).toEqual(0);
+      expect(date.getUTCDate()).toEqual(26);
+    });
+
+    test('In 2028, Lunar New Year (UTC+9, Korea/Japan) is January 27', () => {
+      const date = new Romcal().dates().lunarNewYear(9, 2028);
+      expect(date.getUTCFullYear()).toEqual(2028);
+      expect(date.getUTCMonth()).toEqual(0);
+      expect(date.getUTCDate()).toEqual(27);
+    });
+
+    test('In 2030, Lunar New Year (UTC+7, Vietnam) is February 2', () => {
+      const date = new Romcal().dates().lunarNewYear(7, 2030);
+      expect(date.getUTCFullYear()).toEqual(2030);
+      expect(date.getUTCMonth()).toEqual(1);
+      expect(date.getUTCDate()).toEqual(2);
+    });
+
+    test('In 2030, Lunar New Year (UTC+8, China/Hong Kong/Taiwan) is February 3', () => {
+      const date = new Romcal().dates().lunarNewYear(8, 2030);
+      expect(date.getUTCFullYear()).toEqual(2030);
+      expect(date.getUTCMonth()).toEqual(1);
+      expect(date.getUTCDate()).toEqual(3);
+    });
+
+    test('In 2030, Lunar New Year (UTC+9, Korea/Japan) is February 3', () => {
+      const date = new Romcal().dates().lunarNewYear(9, 2030);
+      expect(date.getUTCFullYear()).toEqual(2030);
+      expect(date.getUTCMonth()).toEqual(1);
+      expect(date.getUTCDate()).toEqual(3);
+    });
+  });
 });

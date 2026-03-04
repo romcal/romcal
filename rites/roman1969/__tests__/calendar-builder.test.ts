@@ -13,6 +13,7 @@ import {
   LiturgicalDayDef,
   Period,
   Romcal,
+  RomcalBundleObject,
   Season,
 } from '@src/rite-roman1969';
 
@@ -515,6 +516,52 @@ describe('Testing the Elevated Memorial option', () => {
     expect(optionalMemorials.length).toBe(0);
     expect(memorials.length).toBe(1);
     expect(memorials[0].id).toBe('hedwig_of_silesia_religious');
+  });
+
+  describe('Lunar New Year dateFn resolution (2028)', () => {
+    const makeTestBundle = (utcOffset: number): RomcalBundleObject => ({
+      ...GeneralRoman_En,
+      calendarName: 'test_lunar_new_year',
+      inputs: {
+        ...GeneralRoman_En.inputs,
+        lunar_new_year_test: [
+          {
+            dateDef: { dateFn: 'lunarNewYear', dateArgs: [utcOffset] },
+            precedence: 'PROPER_FEAST_8F',
+            commonsDef: 'None',
+            fromCalendarId: 'test_lunar_new_year',
+          },
+        ],
+      },
+      i18n: {
+        ...GeneralRoman_En.i18n,
+        names: {
+          ...GeneralRoman_En.i18n.names,
+          lunar_new_year_test: 'Lunar New Year Test',
+        },
+      },
+    });
+
+    test('UTC+7 resolves to January 26', async () => {
+      const calendar = await new Romcal({ localizedCalendar: makeTestBundle(7) }).generateCalendar(2028);
+      const entry = calendar['2028-01-26'].find((d) => d.id === 'lunar_new_year_test');
+      expect(entry).toBeDefined();
+      expect(entry!.name).toBe('Lunar New Year Test');
+    });
+
+    test('UTC+8 resolves to January 26', async () => {
+      const calendar = await new Romcal({ localizedCalendar: makeTestBundle(8) }).generateCalendar(2028);
+      const entry = calendar['2028-01-26'].find((d) => d.id === 'lunar_new_year_test');
+      expect(entry).toBeDefined();
+      expect(entry!.name).toBe('Lunar New Year Test');
+    });
+
+    test('UTC+9 resolves to January 27', async () => {
+      const calendar = await new Romcal({ localizedCalendar: makeTestBundle(9) }).generateCalendar(2028);
+      const entry = calendar['2028-01-27'].find((d) => d.id === 'lunar_new_year_test');
+      expect(entry).toBeDefined();
+      expect(entry!.name).toBe('Lunar New Year Test');
+    });
   });
 });
 

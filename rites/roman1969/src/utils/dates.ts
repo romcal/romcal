@@ -1,4 +1,5 @@
 import { calculateGregorianEasterDate, calculateJulianEasterDateToGregorianDate } from '@internal/easter';
+import { calculateLunarNewYear } from '@internal/lunar-new-year';
 
 import { Season } from '../constants/seasons';
 import { RomcalConfig } from '../models/config';
@@ -25,9 +26,7 @@ export const subtractsDays = (date: Date, days: number): Date => {
 
 export const isSameDate = (date1: Date, date2: Date): boolean => {
   return (
-    date1 &&
-    date2 &&
-    date1.getUTCFullYear() === date2.getUTCFullYear() &&
+    date1?.getUTCFullYear() === date2?.getUTCFullYear() &&
     date1.getUTCMonth() === date2.getUTCMonth() &&
     date1.getUTCDate() === date2.getUTCDate()
   );
@@ -643,7 +642,7 @@ export class Dates {
     easterCalculationType: EasterCalculationType = this.#config.easterCalculationType
   ): Date => {
     if (this.#easter[year]) return this.#easter[year];
-    const { month, day } =
+    const { day, month } =
       easterCalculationType === 'gregorian'
         ? calculateGregorianEasterDate(year)
         : calculateJulianEasterDateToGregorianDate(year);
@@ -1246,15 +1245,33 @@ export class Dates {
 
   #exaltationOfTheHolyCross: Record<string, Date> = {};
 
+  /**
+   * Get the date of Lunar New Year for the given year.
+   * @param utcOffset UTC offset for the target timezone (e.g. 8 for China/HK/Taiwan, 9 for Korea/Japan, 7 for Vietnam)
+   * @param year Gregorian year
+   */
+  lunarNewYear = (utcOffset: number, year = this.#year): Date => {
+    const id = `${utcOffset}:${year}`;
+    if (this.#lunarNewYear[id]) return this.#lunarNewYear[id];
+    return (this.#lunarNewYear[id] = Dates.lunarNewYear(utcOffset, year));
+  };
+
+  #lunarNewYear: Record<string, Date> = {};
+
+  static lunarNewYear = (utcOffset: number, year: number): Date => {
+    const { day, month } = calculateLunarNewYear(year, utcOffset);
+    return getUtcDate(year, month, day);
+  };
+
   startOfSeasons = (year = this.#year): Record<Season, Date> => {
     if (this.#startOfSeasons[year]) return this.#startOfSeasons[year];
     return (this.#startOfSeasons[year] = {
       [Season.Advent]: this.firstSundayOfAdvent(year - 1),
       [Season.ChristmasTime]: this.christmas(year - 1),
-      [Season.Lent]: this.ashWednesday(year),
-      [Season.PaschalTriduum]: this.holyThursday(year),
       [Season.EasterTime]: this.easterSunday(year),
+      [Season.Lent]: this.ashWednesday(year),
       [Season.OrdinaryTime]: addDays(this.baptismOfTheLord(year), 1),
+      [Season.PaschalTriduum]: this.holyThursday(year),
     });
   };
 
@@ -1265,10 +1282,10 @@ export class Dates {
     return (this.#endOfSeasons[year] = {
       [Season.Advent]: getUtcDate(year - 1, 12, 24),
       [Season.ChristmasTime]: this.baptismOfTheLord(year),
-      [Season.Lent]: this.holyThursday(year),
-      [Season.PaschalTriduum]: this.easterSunday(year),
       [Season.EasterTime]: this.pentecostSunday(year),
+      [Season.Lent]: this.holyThursday(year),
       [Season.OrdinaryTime]: addDays(this.christTheKingSunday(year), 6),
+      [Season.PaschalTriduum]: this.easterSunday(year),
     });
   };
 

@@ -1,65 +1,6 @@
 import { Locale } from '../types/locale';
 
 export const locale: Locale = {
-  id: 'es',
-
-  seasons: {
-    advent: {
-      season: 'Adviento',
-      weekday: '$t(weekdays:{{dow}}, capitalize) de la {{week}}ª semana de Adviento',
-      sunday: '{{week}}º domingo de Adviento',
-      privileged_weekday: '{{day}} de $t(months:11)',
-    },
-
-    christmas_time: {
-      season: 'Navidad',
-      day: '$t(weekdays:{{dow}}, capitalize) de Navidad',
-      octave: '{{count}}º día de la Octava de Navidad',
-      second_sunday_after_christmas: '2º domingo de Navidad',
-      before_epiphany: '{{day}} de $t(months:0)',
-      after_epiphany: '$t(weekdays:{{dow}}, capitalize) después de la Epifanía',
-    },
-
-    ordinary_time: {
-      season: 'Tiempo Ordinario',
-      weekday: '$t(weekdays:{{dow}}, capitalize) de la {{week}}ª semana del Tiempo Ordinario',
-      sunday: '{{week}}º domingo del Tiempo Ordinario',
-    },
-
-    lent: {
-      season: 'Cuaresma',
-      weekday: '$t(weekdays:{{dow}}, capitalize) de la {{week}}ª semana de Cuaresma',
-      sunday: '{{week}}º domingo de Cuaresma',
-      day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) después de Miércoles de Ceniza',
-      holy_week_day: '$t(weekdays:{{dow}}, capitalize) de Semana Santa',
-    },
-
-    paschal_triduum: {
-      season: 'Triduo Pascual',
-    },
-
-    easter_time: {
-      season: 'Pascua',
-      weekday: '$t(weekdays:{{dow}}, capitalize) de la {{week}}ª semana de Pascua',
-      sunday: '{{week}}º domingo de Pascua',
-      octave: '$t(weekdays:{{dow}}, capitalize) día de la Octava de Pascua',
-    },
-  },
-
-  periods: {
-    epiphany: 'Epifanía',
-    holy_week: 'Semana Santa',
-  },
-
-  ranks: {
-    solemnity: 'solemnidades',
-    sunday: 'Domingo',
-    feast: 'fiesta',
-    memorial: 'memoria',
-    optional_memorial: 'memoria opcional',
-    weekday: 'ferial',
-  },
-
   colors: {
     black: 'negro', // src: GIRM, 346e (https://www.santaclaradeestella.es/BIBLIOTECA/ENCICLICAS/INSTRUCCI%C3%93N_GENERAL_DEL_MISAL_ROMANO.htm)
     gold: 'dorado', // src: GIRM, 346g (https://www.santaclaradeestella.es/BIBLIOTECA/ENCICLICAS/INSTRUCCI%C3%93N_GENERAL_DEL_MISAL_ROMANO.htm)
@@ -70,15 +11,7 @@ export const locale: Locale = {
     white: 'blanco', // src: GIRM, 346a (https://www.santaclaradeestella.es/BIBLIOTECA/ENCICLICAS/INSTRUCCI%C3%93N_GENERAL_DEL_MISAL_ROMANO.htm)
   },
 
-  weekdays: {
-    0: 'domingo',
-    1: 'lunes',
-    2: 'martes',
-    3: 'miércoles',
-    4: 'jueves',
-    5: 'viernes',
-    6: 'sábado',
-  },
+  id: 'es',
 
   months: {
     0: 'enero',
@@ -93,77 +26,6 @@ export const locale: Locale = {
     9: 'octubre',
     10: 'noviembre',
     11: 'diciembre',
-  },
-
-  ordinals: {
-    '1': 'primero',
-    '1_feminine': 'primera',
-    '2': 'segundo',
-    '2_feminine': 'segunda',
-    '3': 'tercer',
-    '3_feminine': 'tercera',
-    '4': 'cuarto',
-    '4_feminine': 'cuarta',
-    '5': 'quinto',
-    '5_feminine': 'quinta',
-    '6': 'sexto',
-    '6_feminine': 'sexta',
-    '7': 'séptimo',
-    '7_feminine': 'séptima',
-    '8': 'octavo',
-    '8_feminine': 'octava',
-    '9': 'noveno',
-    '9_feminine': 'novena',
-    '10': 'décimo',
-    '10_feminine': 'décima',
-    '11': 'undécimo',
-    '11_feminine': 'undécima',
-    '12': 'duodécimo',
-    '12_feminine': 'duodécima',
-    '13': 'decimotercer',
-    '13_feminine': 'decimotercera',
-    '14': 'decimocuarto',
-    '14_feminine': 'decimocuarta',
-    '15': 'decimoquinto',
-    '15_feminine': 'decimoquinta',
-    '16': 'decimosexto',
-    '16_feminine': 'decimosexta',
-    '17': 'decimoséptimo',
-    '17_feminine': 'decimoséptima',
-    '18': 'decimoctavo',
-    '18_feminine': 'decimoctava',
-    '19': 'decimonoveno',
-    '19_feminine': 'decimonovena',
-    '20': 'vigésimo',
-    '20_feminine': 'vigésima',
-    '21': 'vigésimo primero',
-    '21_feminine': 'vigésima primera',
-    '22': 'vigésimo segundo',
-    '22_feminine': 'vigésima segunda',
-    '23': 'vigésimo tercer',
-    '23_feminine': 'vigésima tercera',
-    '24': 'vigésimo cuarto',
-    '24_feminine': 'vigésima cuarta',
-    '25': 'vigésimo quinto',
-    '25_feminine': 'vigésima quinta',
-    '26': 'vigésimo sexto',
-    '26_feminine': 'vigésima sexta',
-    '27': 'vigésimo séptimo',
-    '27_feminine': 'vigésima séptima',
-    '28': 'vigésimo octavo',
-    '28_feminine': 'vigésima octava',
-    '29': 'vigésimo noveno',
-    '29_feminine': 'vigésima novena',
-    '30': 'trigésimo',
-    '30_feminine': 'trigésima',
-    '31': 'trigésimo primero',
-    '31_feminine': 'trigésima primera',
-    '32': 'trigésimo segundo',
-    '32_feminine': 'trigésima segunda',
-    '33': 'trigésimo tercer',
-    '33_feminine': 'trigésima tercera',
-    '34': 'trigésima cuarto',
-    '34_feminine': 'trigésima cuarta',
   },
 
   names: {
@@ -256,8 +118,6 @@ export const locale: Locale = {
     carmelites_of_compiegne_virgins_and_martyrs: 'Beatas Carmelitas de Compiègne, vírgenes y mártires',
     casimir_of_poland: 'San Casimiro',
     catherine_of_alexandria_virgin: 'Santa Catalina de Alexandria, virgen y mártir',
-    mary_catherine_of_saint_augustine_catherine_de_simon_de_longpre_virgin:
-      'Beata María Catalina de San Agustín, virgen',
     catherine_of_siena_virgin: 'Santa Catalina de Siena, virgen y doctora de la Iglesia',
     catherine_of_siena_virgin_copatroness_of_europe:
       'Santa Catalina de Siena, virgen, doctora de la Iglesia y Patrona Secundaria de Europa',
@@ -452,6 +312,8 @@ export const locale: Locale = {
     martin_de_porres_religious: 'San Martín de Porres, religioso',
     martin_i_pope: 'San Martín I, papa y mártir',
     martin_of_tours_bishop: 'San Martín de Tours, obispo',
+    mary_catherine_of_saint_augustine_catherine_de_simon_de_longpre_virgin:
+      'Beata María Catalina de San Agustín, virgen',
     mary_magdalene: 'Santa María Magdalena',
     mary_magdalene_de_pazzi_virgin: 'Santa María Magdalena de Pazzi, virgen',
     mary_mother_of_god: 'María, Madre de Dios',
@@ -591,7 +453,7 @@ export const locale: Locale = {
     teresa_benedicta_of_the_cross_stein_virgin: 'Santa Teresa Benedicta de la Cruz (Edith Stein), virgen y mártir',
     teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe:
       'Santa Teresa Benedicta de la Cruz (Edith Stein), virgen, mártir y Patrona Secundaria de Europa',
-    teresa_of_calcutta_virgin: 'Santa Teresa de Calcuta, virgen',
+    teresa_of_calcutta_virgin: 'Santa Teresa de Calcuta, virgen', // src: https://press.vatican.va/content/salastampa/it/bollettino/pubblico/2025/02/11/0125/00250.html#spagnola
     teresa_of_jesus_jornet_ibars_virgin: 'Santa Teresa de Jesús Jornet e Ibars, virgen',
     teresa_of_jesus_of_avila_virgin: 'Santa Teresa de Jesús, virgen y doctora de la Iglesia',
     teresa_of_jesus_of_los_andes_virgin: 'Santa Teresa de Los Andes, virgen',
@@ -620,5 +482,143 @@ export const locale: Locale = {
       'San Wenceslao de Bohemia, mártir y Patrono de la nación checa',
     wendelin_of_trier_hermit: 'San Vendelino, Ermitaño',
     zepherin_namuncura: 'Beato Ceferino Namuncurá',
+  },
+
+  ordinals: {
+    '1': 'primero',
+    '1_feminine': 'primera',
+    '2': 'segundo',
+    '2_feminine': 'segunda',
+    '3': 'tercer',
+    '3_feminine': 'tercera',
+    '4': 'cuarto',
+    '4_feminine': 'cuarta',
+    '5': 'quinto',
+    '5_feminine': 'quinta',
+    '6': 'sexto',
+    '6_feminine': 'sexta',
+    '7': 'séptimo',
+    '7_feminine': 'séptima',
+    '8': 'octavo',
+    '8_feminine': 'octava',
+    '9': 'noveno',
+    '9_feminine': 'novena',
+    '10': 'décimo',
+    '10_feminine': 'décima',
+    '11': 'undécimo',
+    '11_feminine': 'undécima',
+    '12': 'duodécimo',
+    '12_feminine': 'duodécima',
+    '13': 'decimotercer',
+    '13_feminine': 'decimotercera',
+    '14': 'decimocuarto',
+    '14_feminine': 'decimocuarta',
+    '15': 'decimoquinto',
+    '15_feminine': 'decimoquinta',
+    '16': 'decimosexto',
+    '16_feminine': 'decimosexta',
+    '17': 'decimoséptimo',
+    '17_feminine': 'decimoséptima',
+    '18': 'decimoctavo',
+    '18_feminine': 'decimoctava',
+    '19': 'decimonoveno',
+    '19_feminine': 'decimonovena',
+    '20': 'vigésimo',
+    '20_feminine': 'vigésima',
+    '21': 'vigésimo primero',
+    '21_feminine': 'vigésima primera',
+    '22': 'vigésimo segundo',
+    '22_feminine': 'vigésima segunda',
+    '23': 'vigésimo tercer',
+    '23_feminine': 'vigésima tercera',
+    '24': 'vigésimo cuarto',
+    '24_feminine': 'vigésima cuarta',
+    '25': 'vigésimo quinto',
+    '25_feminine': 'vigésima quinta',
+    '26': 'vigésimo sexto',
+    '26_feminine': 'vigésima sexta',
+    '27': 'vigésimo séptimo',
+    '27_feminine': 'vigésima séptima',
+    '28': 'vigésimo octavo',
+    '28_feminine': 'vigésima octava',
+    '29': 'vigésimo noveno',
+    '29_feminine': 'vigésima novena',
+    '30': 'trigésimo',
+    '30_feminine': 'trigésima',
+    '31': 'trigésimo primero',
+    '31_feminine': 'trigésima primera',
+    '32': 'trigésimo segundo',
+    '32_feminine': 'trigésima segunda',
+    '33': 'trigésimo tercer',
+    '33_feminine': 'trigésima tercera',
+    '34': 'trigésima cuarto',
+    '34_feminine': 'trigésima cuarta',
+  },
+
+  periods: {
+    epiphany: 'Epifanía',
+    holy_week: 'Semana Santa',
+  },
+
+  ranks: {
+    feast: 'fiesta',
+    memorial: 'memoria',
+    optional_memorial: 'memoria opcional',
+    solemnity: 'solemnidades',
+    sunday: 'Domingo',
+    weekday: 'ferial',
+  },
+
+  seasons: {
+    advent: {
+      privileged_weekday: '{{day}} de $t(months:11)',
+      season: 'Adviento',
+      sunday: '{{week}}º domingo de Adviento',
+      weekday: '$t(weekdays:{{dow}}, capitalize) de la {{week}}ª semana de Adviento',
+    },
+
+    christmas_time: {
+      after_epiphany: '$t(weekdays:{{dow}}, capitalize) después de la Epifanía',
+      before_epiphany: '{{day}} de $t(months:0)',
+      day: '$t(weekdays:{{dow}}, capitalize) de Navidad',
+      octave: '{{count}}º día de la Octava de Navidad',
+      season: 'Navidad',
+      second_sunday_after_christmas: '2º domingo de Navidad',
+    },
+
+    easter_time: {
+      octave: '$t(weekdays:{{dow}}, capitalize) día de la Octava de Pascua',
+      season: 'Pascua',
+      sunday: '{{week}}º domingo de Pascua',
+      weekday: '$t(weekdays:{{dow}}, capitalize) de la {{week}}ª semana de Pascua',
+    },
+
+    lent: {
+      day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) después de Miércoles de Ceniza',
+      holy_week_day: '$t(weekdays:{{dow}}, capitalize) de Semana Santa',
+      season: 'Cuaresma',
+      sunday: '{{week}}º domingo de Cuaresma',
+      weekday: '$t(weekdays:{{dow}}, capitalize) de la {{week}}ª semana de Cuaresma',
+    },
+
+    ordinary_time: {
+      season: 'Tiempo Ordinario',
+      sunday: '{{week}}º domingo del Tiempo Ordinario',
+      weekday: '$t(weekdays:{{dow}}, capitalize) de la {{week}}ª semana del Tiempo Ordinario',
+    },
+
+    paschal_triduum: {
+      season: 'Triduo Pascual',
+    },
+  },
+
+  weekdays: {
+    0: 'domingo',
+    1: 'lunes',
+    2: 'martes',
+    3: 'miércoles',
+    4: 'jueves',
+    5: 'viernes',
+    6: 'sábado',
   },
 };

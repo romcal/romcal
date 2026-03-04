@@ -1,74 +1,17 @@
 import { Locale } from '../types/locale';
 
 export const locale: Locale = {
+  colors: {
+    black: 'černá',
+    gold: 'zlatá',
+    green: 'zelená',
+    purple: 'fialová',
+    red: 'červená',
+    rose: 'růžová',
+    white: 'bílá',
+  },
+
   id: 'cs',
-
-  seasons: {
-    advent: {
-      season: 'Doba adventní',
-      weekday: '$t(weekdays:{{dow}}, capitalize) po {{week}}. neděli adventní',
-      sunday: '{{week}}. neděle adventní',
-      privileged_weekday: '{{day}}. $t(months:11)',
-    },
-
-    christmas_time: {
-      season: 'Doba vánoční',
-      day: '$t(weekdays:{{dow}}, capitalize) po oktávu Narození Páně',
-      octave: '{{count}}. den v oktávu Narození Páně',
-      second_sunday_after_christmas: 'Druhá neděle po Narození Páně',
-      before_epiphany: '{{day}}. $t(months:0)',
-      after_epiphany: '$t(weekdays:{{dow}}, capitalize) po Zjevení Páně',
-    },
-
-    ordinary_time: {
-      season: 'Liturgické mezidobí',
-      weekday: '$t(weekdays:{{dow}}, capitalize) {{week}}. týdne v mezidobí',
-      sunday: '{{week}}. neděle v mezidobí',
-    },
-
-    lent: {
-      season: 'Doba postní',
-      weekday: '$t(weekdays:{{dow}}, capitalize) po {{week}}. neděli postní',
-      sunday: '{{week}}. neděle postní',
-      day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) po Popeleční středě',
-      holy_week_day: '$t(weekdays:{{dow}}, capitalize) Svatého týdne',
-    },
-
-    paschal_triduum: {
-      season: 'Velikonoční triduum',
-    },
-
-    easter_time: {
-      season: 'Doba velikonoční',
-      weekday: '$t(weekdays:{{dow}}, capitalize) po {{week}}. neděli velikonoční',
-      sunday: '{{week}}. neděle velikonoční',
-      octave: '$t(weekdays:{{dow}}, capitalize) v oktávu velikonočním',
-    },
-  },
-
-  periods: {
-    epiphany: 'Zjevení Páně',
-    holy_week: 'Svatý týden',
-  },
-
-  ranks: {
-    solemnity: 'slavnost',
-    sunday: 'neděle',
-    feast: 'svátek',
-    memorial: 'památka',
-    optional_memorial: 'nezávazná památka',
-    weekday: 'ferie',
-  },
-
-  weekdays: {
-    0: 'neděle',
-    1: 'pondělí',
-    2: 'úterý',
-    3: 'středa',
-    4: 'čtvrtek',
-    5: 'pátek',
-    6: 'sobota',
-  },
 
   months: {
     0: 'leden',
@@ -83,16 +26,6 @@ export const locale: Locale = {
     9: 'říjen',
     10: 'listopad',
     11: 'prosinec',
-  },
-
-  colors: {
-    black: 'černá',
-    gold: 'zlatá',
-    green: 'zelená',
-    purple: 'fialová',
-    red: 'červená',
-    rose: 'růžová',
-    white: 'bílá',
   },
 
   names: {
@@ -226,7 +159,6 @@ export const locale: Locale = {
     carthage_of_lismore_bishop: 'Sv. Kartága z Lismore, biskupa',
     casimir_of_poland: 'Sv. Kazimíra',
     catherine_of_alexandria_virgin: 'Sv. Kateřiny Alexandrijské, panny a mučednice',
-    mary_catherine_of_saint_augustine_catherine_de_simon_de_longpre_virgin: 'Bl. Kateřiny od sv. Augustina, panny',
     catherine_of_siena_virgin: 'Sv. Kateřiny Sienské, panny a učitelky církve',
     catherine_of_siena_virgin_copatroness_of_europe:
       'Sv. Kateřiny Sienské, panny, učitelky církve a spolupatronky Evropy',
@@ -625,6 +557,7 @@ export const locale: Locale = {
     mary_adeodata_pisani_virgin: 'Bl. Marie Adeodaty Pisani, panny',
     mary_angela_truszkowska_virgin: 'Bl. Marie Anděly Truszkowské, panny',
     mary_assunta_pallotta_virgin: 'Bl. Marie Assunty Pallottové, panny',
+    mary_catherine_of_saint_augustine_catherine_de_simon_de_longpre_virgin: 'Bl. Kateřiny od sv. Augustina, panny',
     mary_magdalene: 'Sv. Marie Magdalény',
     mary_magdalene_de_pazzi_virgin: 'Sv. Marie Magdalény de’ Pazzi, panny',
     mary_mother_of_god: 'Matky Boží, Panny Marie',
@@ -925,5 +858,72 @@ export const locale: Locale = {
     zepherin_namuncura: 'Bl. Zeffirína Namuncurá',
     zoltan_lajos_meszlenyi_bishop: 'Bl. Zoltána Ludvíka Meszlényiho, biskupa a mučedníka',
     zygmunt_gorazdowski_priest: 'Sv. Zikmunda Gorazdowského, kněze',
+  },
+
+  periods: {
+    epiphany: 'Zjevení Páně',
+    holy_week: 'Svatý týden',
+  },
+
+  ranks: {
+    feast: 'svátek',
+    memorial: 'památka',
+    optional_memorial: 'nezávazná památka',
+    solemnity: 'slavnost',
+    sunday: 'neděle',
+    weekday: 'ferie',
+  },
+
+  seasons: {
+    advent: {
+      privileged_weekday: '{{day}}. $t(months:11)',
+      season: 'Doba adventní',
+      sunday: '{{week}}. neděle adventní',
+      weekday: '$t(weekdays:{{dow}}, capitalize) po {{week}}. neděli adventní',
+    },
+
+    christmas_time: {
+      after_epiphany: '$t(weekdays:{{dow}}, capitalize) po Zjevení Páně',
+      before_epiphany: '{{day}}. $t(months:0)',
+      day: '$t(weekdays:{{dow}}, capitalize) po oktávu Narození Páně',
+      octave: '{{count}}. den v oktávu Narození Páně',
+      season: 'Doba vánoční',
+      second_sunday_after_christmas: 'Druhá neděle po Narození Páně',
+    },
+
+    easter_time: {
+      octave: '$t(weekdays:{{dow}}, capitalize) v oktávu velikonočním',
+      season: 'Doba velikonoční',
+      sunday: '{{week}}. neděle velikonoční',
+      weekday: '$t(weekdays:{{dow}}, capitalize) po {{week}}. neděli velikonoční',
+    },
+
+    lent: {
+      day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) po Popeleční středě',
+      holy_week_day: '$t(weekdays:{{dow}}, capitalize) Svatého týdne',
+      season: 'Doba postní',
+      sunday: '{{week}}. neděle postní',
+      weekday: '$t(weekdays:{{dow}}, capitalize) po {{week}}. neděli postní',
+    },
+
+    ordinary_time: {
+      season: 'Liturgické mezidobí',
+      sunday: '{{week}}. neděle v mezidobí',
+      weekday: '$t(weekdays:{{dow}}, capitalize) {{week}}. týdne v mezidobí',
+    },
+
+    paschal_triduum: {
+      season: 'Velikonoční triduum',
+    },
+  },
+
+  weekdays: {
+    0: 'neděle',
+    1: 'pondělí',
+    2: 'úterý',
+    3: 'středa',
+    4: 'čtvrtek',
+    5: 'pátek',
+    6: 'sobota',
   },
 };

@@ -1,88 +1,31 @@
 import { Locale } from '../types/locale';
 
 export const locale: Locale = {
-  id: 'de',
-
-  seasons: {
-    advent: {
-      season: 'Advent',
-      weekday: '$t(weekdays:{{dow}}, capitalize) der $t(ordinals:{{week}}) Adventswoche',
-      sunday: '$t(ordinals:{{week}}, capitalize) Advent',
-      privileged_weekday: '$t(months:11, capitalize) {{day}}',
-    },
-
-    christmas_time: {
-      season: 'Weihnachten',
-      day: '$t(weekdays:{{dow}}, capitalize) of Christmas Time',
-      octave: '$t(ordinals:{{count}}, capitalize) Tag der Weihnachtsoktav',
-      second_sunday_after_christmas: '2. Sonntag nach Weihnachten',
-      before_epiphany: '$t(months:0, capitalize) {{day}}',
-      after_epiphany: '$t(weekdays:{{dow}}, capitalize) nach Erscheinung des Herrn',
-    },
-
-    ordinary_time: {
-      season: 'Zeit im Jahreskreis',
-      weekday: '$t(weekdays:{{dow}}, capitalize) der $t(ordinals:{{week}}) Woche im Jahreskreis',
-      sunday: '$t(ordinals:{{week}}, capitalize) Sonntag im Jahreskreis',
-    },
-
-    lent: {
-      season: 'Fastenzeit',
-      weekday: '$t(weekdays:{{dow}}, capitalize) der $t(ordinals:{{week}}) Fastenwoche',
-      sunday: '$t(ordinals:{{week}}, capitalize) Fastensonntag',
-      day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) nach Aschermittwoch',
-      holy_week_day: '$t(weekdays:{{dow}}, capitalize) der Karwoche',
-    },
-
-    paschal_triduum: {
-      season: 'Drei Österlichen Tage',
-    },
-
-    easter_time: {
-      season: 'Osterzeit',
-      weekday: '$t(weekdays:{{dow}}, capitalize) der $t(ordinals:{{week}}) Osterwoche',
-      sunday: '$t(ordinals:{{week}}, capitalize) Sonntag der Osterzeit',
-      octave: '$t(weekdays:{{dow}}, capitalize) der Osteroktav',
-    },
-  },
-
-  periods: {
-    epiphany: 'Epiphanie',
-    holy_week: 'Karwoche',
-  },
-
-  ranks: {
-    solemnity: 'Hochfest',
-    sunday: 'Sonntag',
-    feast: 'Fest',
-    memorial: 'Gebotener Gedenktag',
-    optional_memorial: 'Nichtgebotener Gedenktag',
-    weekday: 'Wochentag',
+  colors: {
+    black: 'schwarz',
+    gold: 'gold',
+    green: 'grün',
+    purple: 'violett',
+    red: 'rot',
+    rose: 'rosa',
+    white: 'weiß',
   },
 
   cycles: {
-    proper_of_time: 'Proper of Time',
     proper_of_saints: 'Proper of Saints',
+    proper_of_time: 'Proper of Time',
+    psalter_week_1: 'I. Woche',
+    psalter_week_2: 'II. Woche',
+    psalter_week_3: 'III. Woche',
+    psalter_week_4: 'IV. Woche',
     sunday_year_a: 'Lesejahr A',
     sunday_year_b: 'Lesejahr B',
     sunday_year_c: 'Lesejahr C',
     weekday_year_1: 'Zyklus I',
     weekday_year_2: 'Zyklus II',
-    psalter_week_1: 'I. Woche',
-    psalter_week_2: 'II. Woche',
-    psalter_week_3: 'III. Woche',
-    psalter_week_4: 'IV. Woche',
   },
 
-  weekdays: {
-    0: 'Sonntag',
-    1: 'Montag',
-    2: 'Dienstag',
-    3: 'Mittwoch',
-    4: 'Donnerstag',
-    5: 'Freitag',
-    6: 'Samstag',
-  },
+  id: 'de',
 
   months: {
     0: 'Januar',
@@ -97,53 +40,6 @@ export const locale: Locale = {
     9: 'Oktober',
     10: 'November',
     11: 'Dezember',
-  },
-
-  colors: {
-    black: 'schwarz',
-    gold: 'gold',
-    green: 'grün',
-    purple: 'violett',
-    red: 'rot',
-    rose: 'rosa',
-    white: 'weiß',
-  },
-
-  ordinals: {
-    '1': '1.',
-    '2': '2.',
-    '3': '3.',
-    '4': '4.',
-    '5': '5.',
-    '6': '6.',
-    '7': '7.',
-    '8': '8.',
-    '9': '9.',
-    '10': '10.',
-    '11': '11.',
-    '12': '12.',
-    '13': '13.',
-    '14': '14.',
-    '15': '15.',
-    '16': '16.',
-    '17': '17.',
-    '18': '18.',
-    '19': '19.',
-    '20': '20.',
-    '21': '21.',
-    '22': '22.',
-    '23': '23.',
-    '24': '24.',
-    '25': '25.',
-    '26': '26.',
-    '27': '27.',
-    '28': '28.',
-    '29': '29.',
-    '30': '30',
-    '31': '31.',
-    '32': '32.',
-    '33': '33.',
-    '34': '34.',
   },
 
   names: {
@@ -284,8 +180,6 @@ export const locale: Locale = {
     carthage_of_lismore_bishop: 'Hl. Carthage, Bischof',
     casimir_of_poland: 'Hl. Kasimir',
     catherine_of_alexandria_virgin: 'Hl. Katharina von Alexandrien, Jungfrau und Märtyrerin',
-    mary_catherine_of_saint_augustine_catherine_de_simon_de_longpre_virgin:
-      'Sel. Katharina von Sankt Augustin, Jungfrau',
     catherine_of_siena_virgin: 'Hl. Katharina von Siena, Jungfrau und Kirchenlehrerin',
     catherine_of_siena_virgin_copatroness_of_europe:
       'Hl. Katharina von Siena, Jungfrau und Kirchenlehrerin, Mitpatronin Europas',
@@ -397,8 +291,8 @@ export const locale: Locale = {
     epipodius_of_lyon_and_alexander_of_lyon_martyrs: 'Hl. Epipodius und Alexander, Märtyrer',
     eric_ix_of_sweden_martyr: 'Hl. Erik IX. von Schweden, Märtyrer',
     etheldreda_of_ely_abbess: 'Hl. Æthelthryth, Äbtissin',
-    eucherius_of_lyon_bishop: 'Hl. Eucherius, Bischof',
     eucharius_of_trier_bishop: 'Hl. Eucharius, Bischof',
+    eucherius_of_lyon_bishop: 'Hl. Eucherius, Bischof',
     eugene_de_mazenod_bishop: 'Hl. Eugène de Mazenod, Bischof',
     eugenia_of_alsace_and_attala_of_alsace_virgins: 'Hl. Eugenia und Attala, Jungfrauen',
     eulalia_of_merida_virgin: 'Hl. Eulalia von Mérida, Jungfrau und Märtyrerin',
@@ -705,6 +599,8 @@ export const locale: Locale = {
     mary_adeodata_pisani_virgin: 'Sel. Maria Adeodata Pisani, Jungfrau',
     mary_angela_truszkowska_virgin: 'Sel. Maria Angela Truszkowska, Jungfrau',
     mary_assunta_pallotta_virgin: 'Sel. Maria Assunta Pallotta, Jungfrau',
+    mary_catherine_of_saint_augustine_catherine_de_simon_de_longpre_virgin:
+      'Sel. Katharina von Sankt Augustin, Jungfrau',
     mary_magdalene: 'Hl. Maria Magdalena',
     mary_magdalene_de_pazzi_virgin: 'Hl. Maria Magdalena von Pazzi, Jungfrau',
     mary_mother_of_god: 'Hochfest der Gottesmutter Maria',
@@ -763,13 +659,13 @@ export const locale: Locale = {
     nazaria_ignacia_of_saint_teresa_of_jesus_march_mesa_virgin:
       'Hl. Nazaria Ignacia von der heiligen Teresa von Jesus March Mesa, Jungfrau',
     nereus_of_terracina_and_achilleus_of_terracina_martyrs: 'Hl. Nereus und Achilleus, Märtyrer',
+    nicetius_of_lyon_bishop: 'Hl. Nizier, Bischof',
     nicholas_barre_priest: 'Sel. Nikolaus Barré, Priester',
     nicholas_of_flue_hermit: 'Hl. Niklaus von Flüe, Einsiedler',
     nicholas_of_myra_bishop: 'Hl. Nikolaus, Bischof',
     nicholas_steno_bishop: 'Sel. Nikolaus Steno, Bischof',
     nicholas_tavelic_priest: 'Hl. Nikolaus Tavelić, Priester und Märtyrer',
     ninian_of_whithorn_bishop: 'Hl. Ninian, Bischof',
-    nicetius_of_lyon_bishop: 'Hl. Nizier, Bischof',
     norbert_of_xanten_bishop: 'Hl. Norbert, Bischof',
     nuno_of_saint_mary_pereira_religious: 'Hl. Nuno von Santa Maria Pereira, Ordensmann',
     nykyta_budka_and_vasyl_velychkovsky_bishops: 'Sel.n Nykyta Budka und Vasyl Velychkovsky, Bischöfe und Märtyrer',
@@ -951,7 +847,7 @@ export const locale: Locale = {
     teresa_benedicta_of_the_cross_stein_virgin: 'Hl. Teresa Benedicta vom Kreuz Stein, Jungfrau und Märtyrerin',
     teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe:
       'Hl. Teresa Benedicta vom Kreuz Stein, Jungfrau und Märtyrerin, Mitpatronin Europas',
-    teresa_of_calcutta_virgin: 'Hl. Teresa von Kalkutta, Jungfrau',
+    teresa_of_calcutta_virgin: 'Hl. Teresa von Kolkata, Jungfrau', // src: https://press.vatican.va/content/salastampa/it/bollettino/pubblico/2025/02/11/0125/00250.html#tedesca
     teresa_of_jesus_jornet_ibars_virgin: 'Hl. Teresa von Jesus Jornet Ibars, Jungfrau',
     teresa_of_jesus_of_avila_virgin: 'Hl. Teresa von Ávila, Jungfrau und Kirchenlehrerin',
     teresa_of_jesus_of_los_andes_virgin: 'Hl. Teresa von Jesus von Los Andes, Jungfrau',
@@ -1018,5 +914,109 @@ export const locale: Locale = {
     zepherin_namuncura: 'Sel. Zephyrinus Namuncurá',
     zoltan_lajos_meszlenyi_bishop: 'Sel. Zoltán Lajos Meszlényi, Bischof und Märtyrer',
     zygmunt_gorazdowski_priest: 'Hl. Zygmunt Gorazdowski, Priester',
+  },
+
+  ordinals: {
+    '1': '1.',
+    '2': '2.',
+    '3': '3.',
+    '4': '4.',
+    '5': '5.',
+    '6': '6.',
+    '7': '7.',
+    '8': '8.',
+    '9': '9.',
+    '10': '10.',
+    '11': '11.',
+    '12': '12.',
+    '13': '13.',
+    '14': '14.',
+    '15': '15.',
+    '16': '16.',
+    '17': '17.',
+    '18': '18.',
+    '19': '19.',
+    '20': '20.',
+    '21': '21.',
+    '22': '22.',
+    '23': '23.',
+    '24': '24.',
+    '25': '25.',
+    '26': '26.',
+    '27': '27.',
+    '28': '28.',
+    '29': '29.',
+    '30': '30',
+    '31': '31.',
+    '32': '32.',
+    '33': '33.',
+    '34': '34.',
+  },
+
+  periods: {
+    epiphany: 'Epiphanie',
+    holy_week: 'Karwoche',
+  },
+
+  ranks: {
+    feast: 'Fest',
+    memorial: 'Gebotener Gedenktag',
+    optional_memorial: 'Nichtgebotener Gedenktag',
+    solemnity: 'Hochfest',
+    sunday: 'Sonntag',
+    weekday: 'Wochentag',
+  },
+
+  seasons: {
+    advent: {
+      privileged_weekday: '$t(months:11, capitalize) {{day}}',
+      season: 'Advent',
+      sunday: '$t(ordinals:{{week}}, capitalize) Advent',
+      weekday: '$t(weekdays:{{dow}}, capitalize) der $t(ordinals:{{week}}) Adventswoche',
+    },
+
+    christmas_time: {
+      after_epiphany: '$t(weekdays:{{dow}}, capitalize) nach Erscheinung des Herrn',
+      before_epiphany: '$t(months:0, capitalize) {{day}}',
+      day: '$t(weekdays:{{dow}}, capitalize) of Christmas Time',
+      octave: '$t(ordinals:{{count}}, capitalize) Tag der Weihnachtsoktav',
+      season: 'Weihnachten',
+      second_sunday_after_christmas: '2. Sonntag nach Weihnachten',
+    },
+
+    easter_time: {
+      octave: '$t(weekdays:{{dow}}, capitalize) der Osteroktav',
+      season: 'Osterzeit',
+      sunday: '$t(ordinals:{{week}}, capitalize) Sonntag der Osterzeit',
+      weekday: '$t(weekdays:{{dow}}, capitalize) der $t(ordinals:{{week}}) Osterwoche',
+    },
+
+    lent: {
+      day_after_ash_wed: '$t(weekdays:{{dow}}, capitalize) nach Aschermittwoch',
+      holy_week_day: '$t(weekdays:{{dow}}, capitalize) der Karwoche',
+      season: 'Fastenzeit',
+      sunday: '$t(ordinals:{{week}}, capitalize) Fastensonntag',
+      weekday: '$t(weekdays:{{dow}}, capitalize) der $t(ordinals:{{week}}) Fastenwoche',
+    },
+
+    ordinary_time: {
+      season: 'Zeit im Jahreskreis',
+      sunday: '$t(ordinals:{{week}}, capitalize) Sonntag im Jahreskreis',
+      weekday: '$t(weekdays:{{dow}}, capitalize) der $t(ordinals:{{week}}) Woche im Jahreskreis',
+    },
+
+    paschal_triduum: {
+      season: 'Drei Österlichen Tage',
+    },
+  },
+
+  weekdays: {
+    0: 'Sonntag',
+    1: 'Montag',
+    2: 'Dienstag',
+    3: 'Mittwoch',
+    4: 'Donnerstag',
+    5: 'Freitag',
+    6: 'Samstag',
   },
 };

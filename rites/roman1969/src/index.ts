@@ -373,6 +373,8 @@ class Romcal {
 
   static computeJulianEasterDate = calculateJulianEasterDateToGregorianDate;
 
+  static computeLunarNewYear = Dates.lunarNewYear;
+
   static rangeContainsDate = rangeContainsDate;
 
   static rangeOfDays = rangeOfDays;

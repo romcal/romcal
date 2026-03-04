@@ -1,0 +1,17 @@
+{
+  "name": "@internal/lunar-new-year",
+  "version": "0.0.0",
+  "description": "Calculate the date of Lunar New Year using Meeus's astronomical algorithms.",
+  "license": "MIT",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tsc --project tsconfig.release.json",
+    "clean": "rimraf coverage dist",
+    "prettier": "prettier -c .",
+    "test": "TZ=UTC jest"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@internal/config": "file:../../packages/config"
+  }
+}
