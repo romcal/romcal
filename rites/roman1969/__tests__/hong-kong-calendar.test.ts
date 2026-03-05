@@ -9,10 +9,12 @@ describe('Testing Hong Kong calendar specific celebrations', () => {
 
   let calendar2024: LiturgicalCalendar;
   let calendar2025: LiturgicalCalendar;
+  let calendar2026: LiturgicalCalendar;
 
   beforeAll(async () => {
     calendar2024 = await romcal.generateCalendar(2024);
     calendar2025 = await romcal.generateCalendar(2025);
+    calendar2026 = await romcal.generateCalendar(2026);
   });
 
   describe('Hong Kong Saints and Blesseds', () => {
@@ -80,8 +82,16 @@ describe('Testing Hong Kong calendar specific celebrations', () => {
 
       expect(helpChristians).toBeDefined();
       expect(helpChristians?.name).toBe('Our Lady, Help of Christians');
-      expect(helpChristians?.rank).toBe(Ranks.OptionalMemorial);
-      expect(helpChristians?.precedence).toBe(Precedences.OptionalMemorial_12);
+      expect(helpChristians?.rank).toBe(Ranks.Memorial);
+      expect(helpChristians?.precedence).toBe(Precedences.ProperMemorial_11b);
+    });
+
+    test('Our Lady, Help of Christians should be omitted or optional on May 24, 2026 (Pentecost Sunday)', () => {
+      const may24 = calendar2026['2026-05-24'];
+      const helpChristians = may24?.find((day) => day.id === 'our_lady_help_of_christians');
+
+      // Pentecost is a Solemnity and a Sunday of Easter. Memorials are omitted.
+      expect(helpChristians).toBeUndefined();
     });
 
     test('Immaculate Conception should be a Solemnity on December 8 (Principal Patron)', () => {
