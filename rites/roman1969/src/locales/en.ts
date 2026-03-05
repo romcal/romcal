@@ -280,6 +280,8 @@ export const locale: Locale = {
       'The Dedication of the Cathedral Saint Maurice of Angers, France', // mr_fr_2022_ed3_angers
     dedication_of_the_cathedral_of_saint_stephen_of_toulouse_france:
       'The Dedication of the Cathedral of Saint Stephen of Toulouse, France',
+    dedication_of_the_cathedral_of_the_immaculate_conception_hong_kong:
+      'The Dedication of the Cathedral of the Immaculate Conception, Hong Kong',
     dedication_of_the_lateran_basilica: 'The Dedication of the Lateran Basilica',
     dedication_of_the_notre_dame_de_paris_cathedral_paris_france:
       'The Dedication of the Notre-Dame de Paris Cathedral, Paris',
@@ -381,6 +383,7 @@ export const locale: Locale = {
       'Saints Fructuosus, Bishop, Augurius and Eulogius, Deacons, Martyrs',
     fursa_of_peronne_abbot: 'Saint Fursa, Abbot and Missionary',
     gabriel_taurin_dufresse_bishop: 'Saint Gabriel-Taurin Dufresse, Bishop and Martyr',
+    gabriele_maria_allegra_priest: 'Blessed Gabriele Maria Allegra, Priest',
     gall_of_switzerland_abbot: 'Saint Gall, Abbot and Missionary',
     gaud_of_evreux_bishop: 'Saint Gaud, Bishop',
     genevieve_of_paris_virgin: 'Saint Genevieve, Virgin',
@@ -432,6 +435,7 @@ export const locale: Locale = {
     holy_guardian_angels: 'The Holy Guardian Angels',
     holy_hermits_and_evangelists: 'The Holy Hermits and Evangelists', // mr_fr_2022_ed3_angers
     holy_innocents_martyrs: 'The Holy Innocents, Martyrs',
+    holy_martyrs_and_blesseds_of_china: 'The Holy Martyrs and Blesseds of China',
     holy_saturday: 'Holy Saturday/Easter Vigil',
     holy_thursday: 'Holy Thursday',
     honorat_kozminski_priest: 'Blessed Honorat Koźmiński, Priest',
