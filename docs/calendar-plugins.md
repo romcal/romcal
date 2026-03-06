@@ -50,6 +50,7 @@ Below the list of all available calendar plugins:
 | Germany              | `@romcal/calendar.germany@dev`            |
 | Greece               | `@romcal/calendar.greece@dev`             |
 | Guatemala            | `@romcal/calendar.guatemala@dev`          |
+| Hong Kong            | `@romcal/calendar.hong-kong@dev`          |
 | Hungary              | `@romcal/calendar.hungary@dev`            |
 | India                | `@romcal/calendar.india@dev`              |
 | Ireland              | `@romcal/calendar.ireland@dev`            |
