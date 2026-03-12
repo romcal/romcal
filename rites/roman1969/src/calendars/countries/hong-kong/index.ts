@@ -68,14 +68,53 @@ export class HongKong extends CalendarDef {
     // src: http://catholic-dlc.org.hk/2023_%E6%95%99%E5%8D%80%E4%B8%BB%E4%BF%9D_%E8%8B%B1.pdf
     immaculate_conception_of_the_blessed_virgin_mary: {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      dateDef: { month: 12, date: 8 },
+      dateDef: { dateFn: 'immaculateConceptionOfMary' },
       titles: { append: [PatronTitle.PrincipalPatronOfTheDiocese] },
     },
 
     // src: http://catholic-dlc.org.hk/1209_Dedication_of_the_Cathedral-enA5.pdf
     dedication_of_the_cathedral_of_the_immaculate_conception_hong_kong: {
       precedence: Precedences.ProperFeast_DedicationOfTheCathedralChurch_8b,
+      isOptional: true,
       dateDef: { month: 12, date: 9 },
+    },
+
+    // Lunar New Year celebrations
+    // src: http://catholic-dlc.org.hk/English_Liturgy.htm#:~:text=LUNAR,%20lunar
+
+    // Thanksgiving Mass on Lunar New Year Eve (day before Lunar New Year)
+    thanksgiving_mass_on_lunar_new_year_eve: {
+      precedence: Precedences.OptionalMemorial_12,
+      allowSimilarRankItems: true,
+      isOptional: true,
+      dateDef: {
+        dateFn: 'lunarNewYear',
+        dateArgs: [8], // UTC+8 for Hong Kong
+        subtractDay: 1,
+      },
+    },
+
+    // Eucharistic Celebration on Lunar New Year Day
+    eucharistic_celebration_on_lunar_new_year_day: {
+      precedence: Precedences.OptionalMemorial_12,
+      allowSimilarRankItems: true,
+      isOptional: true,
+      dateDef: {
+        dateFn: 'lunarNewYear',
+        dateArgs: [8], // UTC+8 for Hong Kong
+      },
+    },
+
+    // Sunday after Lunar New Year's Day
+    // If Lunar New Year is Sunday, this falls on the same day
+    sunday_after_lunar_new_years_day: {
+      precedence: Precedences.OptionalMemorial_12,
+      allowSimilarRankItems: true,
+      isOptional: true,
+      dateDef: {
+        dateFn: 'sundayOnOrAfterLunarNewYear',
+        dateArgs: [8], // UTC+8 for Hong Kong
+      },
     },
   };
 }
