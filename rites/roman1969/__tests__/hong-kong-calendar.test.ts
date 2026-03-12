@@ -180,4 +180,36 @@ describe('Testing Hong Kong calendar specific celebrations', () => {
       expect(dedication?.precedence).toBe(Precedences.ProperFeast_DedicationOfTheCathedralChurch_8b);
     });
   });
+
+  describe('Lunar New Year Celebrations', () => {
+    test('Thanksgiving Mass on Lunar New Year Eve should be one day before Lunar New Year', () => {
+      // 2025: LNY is Jan 29, so LNY Eve is Jan 28
+      const jan28_2025 = calendar2025['2025-01-28'];
+      const lnyEve2025 = jan28_2025?.find((day) => day.id === 'thanksgiving_mass_on_lunar_new_year_eve');
+      expect(lnyEve2025).toBeDefined();
+      expect(lnyEve2025?.rank).toBe(Ranks.OptionalMemorial);
+      expect(lnyEve2025?.precedence).toBe(Precedences.OptionalMemorial_12);
+      expect(lnyEve2025?.isOptional).toBe(true);
+    });
+
+    test('Eucharistic Celebration on Lunar New Year Day should be on Lunar New Year', () => {
+      // 2024: LNY is Feb 10
+      const feb10_2024 = calendar2024['2024-02-10'];
+      const lnyDay2024 = feb10_2024?.find((day) => day.id === 'eucharistic_celebration_on_lunar_new_year_day');
+      expect(lnyDay2024).toBeDefined();
+      expect(lnyDay2024?.rank).toBe(Ranks.OptionalMemorial);
+      expect(lnyDay2024?.precedence).toBe(Precedences.OptionalMemorial_12);
+      expect(lnyDay2024?.isOptional).toBe(true);
+    });
+
+    test('Sunday after Lunar New Year should be on Sunday on or after LNY', () => {
+      // 2024: LNY is Feb 10, Sunday after is Feb 11
+      const feb11_2024 = calendar2024['2024-02-11'];
+      const sundayAfterLny2024 = feb11_2024?.find((day) => day.id === 'sunday_after_lunar_new_years_day');
+      expect(sundayAfterLny2024).toBeDefined();
+      expect(sundayAfterLny2024?.rank).toBe(Ranks.OptionalMemorial);
+      expect(sundayAfterLny2024?.precedence).toBe(Precedences.OptionalMemorial_12);
+      expect(sundayAfterLny2024?.isOptional).toBe(true);
+    });
+  });
 });

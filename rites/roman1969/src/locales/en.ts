@@ -324,6 +324,7 @@ export const locale: Locale = {
     erembert_of_toulouse_bishop: 'Saint Erembert of Toulouse, Bishop',
     eric_ix_of_sweden_martyr: 'Saint Eric IX of Sweden, Martyr',
     etheldreda_of_ely_abbess: 'Saint Etheldreda, Abbess',
+    eucharistic_celebration_on_lunar_new_year_day: 'Eucharistic Celebration on Lunar New Year Day',
     eucharius_of_trier_bishop: 'Saint Eucharius, Bishop',
     eucherius_of_lyon_bishop: 'Saint Eucherius, Bishop',
     eugene_de_mazenod_bishop: 'Saint Eugène de Mazenod, Bishop',
@@ -931,6 +932,7 @@ export const locale: Locale = {
     stephen_the_first_martyr: 'Saint Stephen, the First Martyr',
     stephen_the_first_martyr_and_principal_patron_of_the_archdiocese_of_toulouse:
       'Saint Stephen, the First Martyr, Principal Patron of the Archdiocese of Toulouse',
+    sunday_after_lunar_new_years_day: "Sunday after Lunar New Year's Day",
     sunday_of_the_word_of_god: 'Third Sunday in Ordinary Time, or Sunday of the Word of God',
     sunniva_of_norway_virgin: 'Saint Sunniva, Virgin and Martyr',
     swithun_of_winchester_bishop: 'Saint Swithun, Bishop',
@@ -949,6 +951,7 @@ export const locale: Locale = {
     teresa_of_jesus_of_los_andes_virgin: 'Saint Teresa of Jesus of Los Andes, Virgin',
     teresa_of_portugal_religious: 'Blessed Teresa of Portugal, Religious',
     thanksgiving_day: 'Thanksgiving Day', // src: mr_en_2011_ed3_us
+    thanksgiving_mass_on_lunar_new_year_eve: 'Thanksgiving Mass on Lunar New Year Eve',
     theodore_of_canterbury_bishop: 'Saint Theodore of Canterbury, Bishop',
     theodore_romzha_bishop: 'Blessed Theodore Romzha, Bishop and Martyr',
     theodosius_of_the_caves_abbot: 'Saint Theodosius of the Caves, Abbot',

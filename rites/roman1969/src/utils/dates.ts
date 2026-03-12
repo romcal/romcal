@@ -1263,6 +1263,28 @@ export class Dates {
     return getUtcDate(year, month, day);
   };
 
+  /**
+   * Calculate the Sunday on or after Lunar New Year for a given year.
+   * If Lunar New Year falls on a Sunday, the result is the same day.
+   *
+   * @param utcOffset UTC offset for the target timezone (e.g. 8 for China/HK/Taiwan, 9 for Korea/Japan, 7 for Vietnam)
+   * @param year Gregorian year
+   */
+  sundayOnOrAfterLunarNewYear = (utcOffset: number, year = this.#year): Date => {
+    const id = `${utcOffset}:${year}`;
+    if (this.#sundayOnOrAfterLunarNewYear[id]) return this.#sundayOnOrAfterLunarNewYear[id];
+    return (this.#sundayOnOrAfterLunarNewYear[id] = Dates.sundayOnOrAfterLunarNewYear(utcOffset, year));
+  };
+
+  #sundayOnOrAfterLunarNewYear: Record<string, Date> = {};
+
+  static sundayOnOrAfterLunarNewYear = (utcOffset: number, year: number): Date => {
+    const lny = Dates.lunarNewYear(utcOffset, year);
+    const dayOfWeek = lny.getUTCDay(); // 0 = Sunday, 1 = Monday, etc.
+    const daysUntilSunday = (7 - dayOfWeek) % 7; // 0 if already Sunday
+    return addDays(lny, daysUntilSunday);
+  };
+
   startOfSeasons = (year = this.#year): Record<Season, Date> => {
     if (this.#startOfSeasons[year]) return this.#startOfSeasons[year];
     return (this.#startOfSeasons[year] = {
