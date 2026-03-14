@@ -29,7 +29,7 @@
   "dependencies": {
     "@internal/easter": "file:../../packages/easter",
     "@internal/lunar-new-year": "file:../../packages/lunar-new-year",
-    "i18next": "^25.8.14",
+    "i18next": "^25.8.18",
     "ts-deepmerge": "^7.0.3"
   },
   "devDependencies": {
