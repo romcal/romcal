@@ -13,6 +13,7 @@ import { locale as Pl } from './pl';
 import { locale as PtBr } from './pt-br';
 import { locale as Sk } from './sk';
 import { locale as Ta } from './ta';
+import { locale as ZhCn } from './zh-cn';
 
 /**
  * An BCP-47 IETF tag to value mapping of all supported locale resource files
@@ -32,4 +33,5 @@ export const locales: Record<string, Locale> = {
   PtBr,
   Sk,
   Ta,
+  ZhCn,
 };
