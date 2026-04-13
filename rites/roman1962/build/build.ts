@@ -105,7 +105,21 @@ const run = async (): Promise<void> => {
       format,
       outfile: `dist/${format}/romcal.js`,
       target: format === 'esm' ? 'ESNext' : 'ES2022',
-      platform: format === 'esm' ? 'neutral' : 'node',
+      platform: 'node',
+      ...(format === 'esm'
+        ? {
+            banner: {
+              js: [
+                "import{createRequire as __cr}from'node:module';",
+                "import{fileURLToPath as __fp}from'node:url';",
+                "import{dirname as __dn}from'node:path';",
+                'const require=__cr(import.meta.url);',
+                'const __filename=__fp(import.meta.url);',
+                'const __dirname=__dn(__filename);',
+              ].join(''),
+            },
+          }
+        : {}),
     });
     fs.writeFileSync(resolve(`dist/${format}/package.json`), subPkg, 'utf-8');
     log(chalk.dim(`  src/index.ts → dist/${format}/romcal.js`));
