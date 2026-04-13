@@ -21,6 +21,7 @@
     "test:without-coverage": "TZ=UTC jest"
   },
   "dependencies": {
+    "@internal/easter": "file:../../packages/easter",
     "@internal/rite-roman1969": "*",
     "i18next": "^26.0.3"
   },
