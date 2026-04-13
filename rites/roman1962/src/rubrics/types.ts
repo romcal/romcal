@@ -1,7 +1,7 @@
 import type { Rank1962 } from '../constants/rank-1962';
 import type { DayOfWeek, ProperOfTimeSeason } from '../proper-of-time';
 import type { Color, SanctoralCommemoration, SanctoralPropersRef } from '../sanctoral';
-import type { OctaveInfo, RubricFlags1962 } from '../types/liturgical-day-1962';
+import type { MassPropers, OctaveInfo, PropersBlock, RubricFlags1962 } from '../types/liturgical-day-1962';
 
 export type Class1962 = 1 | 2 | 3 | 4;
 
@@ -19,6 +19,8 @@ export interface Celebration1962 {
   octave?: OctaveInfo;
   vigil?: { of: string };
   inlineCommemorations?: SanctoralCommemoration[];
+  propers?: MassPropers;
+  extraSections?: Record<string, PropersBlock>;
 }
 
 export interface ResolvedDay1962 {

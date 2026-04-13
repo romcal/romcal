@@ -31,6 +31,8 @@ export type {
 } from './sanctoral';
 export { buildLiturgicalYear1962 } from './calendar-year';
 export type { Celebration1962, ResolvedDay1962, ResolvedYear1962 } from './calendar-year';
+export { attachPropers, resolvePropers } from './propers';
+export type { AttachPropersOptions, ResolvedPropers, ResolvePropersOptions } from './propers';
 export { RANKS_1962, Rank1962Values } from './constants/rank-1962';
 export type { Rank1962 } from './constants/rank-1962';
 export type {
