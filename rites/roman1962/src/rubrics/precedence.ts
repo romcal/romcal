@@ -20,8 +20,25 @@ const ADVENT_SUNDAY = /^Adv[1-4]-0$/;
 const HOLY_WEEK_FERIA = /^Quad6-[1-3]$/;
 const EASTER_WEEK_FERIA = /^Pasc0-[1-6]$/;
 
-const LORD_FEAST_NAME =
-  /Domini|Christi|Jesu|Iesu|Trinitatis|Corporis Christi|Ss\. Cordis|Nativit|Circumcis|Epiphani|Pentecostes|Assumptione|Trinit/i;
+/**
+ * Sancti `key`s for fixed-date Class I + Class II feasts of the Lord.
+ * Per Codex Rubricarum 1960 §15, these win over a coinciding Class II
+ * Sunday with the Sunday commemorated. The +200 fine adjustment is
+ * what makes Transfiguration (08-06, Class II) beat a Class II Sunday
+ * (e.g. Pent11-0) when they coincide (1961-08-06, 1967-08-06, …).
+ *
+ * Kept narrow on purpose — only feasts whose class is I or II, since
+ * Class III/IV Lord feasts don't trigger §15.
+ */
+const LORD_FEAST_KEYS: Set<string> = new Set([
+  '01-01', // Octava Nativitatis (Circumcision)
+  '01-06', // Epiphania Domini
+  '02-02', // Purificatio Beatae Mariae Virginis (1960 Lord-feast)
+  '07-01', // Pretiosissimi Sanguinis D.N.J.C.
+  '08-06', // Transfiguratio Domini
+  '09-14', // Exaltatio Sanctae Crucis
+  '12-25', // Nativitas Domini
+]);
 
 function fineAdjustment(c: Celebration1962): number {
   if (c.kind === 'tempora') {
@@ -39,7 +56,7 @@ function fineAdjustment(c: Celebration1962): number {
     return 0;
   }
   // Sancti: elevate feasts of the Lord within their class.
-  if (c.classOf1962 <= 2 && LORD_FEAST_NAME.test(c.name)) return 200;
+  if (c.classOf1962 <= 2 && LORD_FEAST_KEYS.has(c.key)) return 200;
   return 0;
 }
 

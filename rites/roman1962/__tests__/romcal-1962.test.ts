@@ -7,6 +7,7 @@ describe('M7 Romcal1962 public API', () => {
       includePropers: false,
       propersLocales: ['la'],
       attachToCommemorations: false,
+      commemorationLimit: 'all',
     });
     const cal = await r.generateCalendar(1962);
     const easter = cal.get('1962-04-22');

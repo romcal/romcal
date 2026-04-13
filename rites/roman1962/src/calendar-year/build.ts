@@ -102,8 +102,12 @@ export function buildLiturgicalYear1962(year: number): ResolvedYear1962 {
 
   // Strip transferred feasts out of their original day's commemoration list.
   const transferredKeys = new Set<string>();
+  const transferredNames = new Set<string>();
   for (const day of final.values()) {
-    if (day.transferredFrom) transferredKeys.add(`${day.transferredFrom}::${day.primary.key}`);
+    if (day.transferredFrom) {
+      transferredKeys.add(`${day.transferredFrom}::${day.primary.key}`);
+      transferredNames.add(day.primary.name);
+    }
   }
   if (transferredKeys.size > 0) {
     for (const [date, day] of final) {
@@ -111,6 +115,22 @@ export function buildLiturgicalYear1962(year: number): ResolvedYear1962 {
       if (filtered.length !== day.commemorations.length) {
         final.set(date, { ...day, commemorations: filtered });
       }
+    }
+  }
+
+  // Vigil suppression (Rubricae 1960 §10): when a feast is transferred,
+  // its vigil is omitted. Rebuild any day whose primary or
+  // commemoration is a vigil of a transferred feast.
+  if (transferredNames.size > 0) {
+    for (const [date, day] of final) {
+      const primaryHits = day.primary.vigil && transferredNames.has(day.primary.vigil.of);
+      const commemHits = day.commemorations.some((c) => c.vigil && transferredNames.has(c.vigil.of));
+      if (!primaryHits && !commemHits) continue;
+
+      const t = tempora.get(date);
+      const sancti = (sanctoral.get(date) ?? []).filter((s) => !s.vigil || !transferredNames.has(s.vigil.of));
+      const rebuilt = buildDay(date, t, sancti);
+      if (rebuilt) final.set(date, { ...rebuilt, transferredFrom: day.transferredFrom });
     }
   }
 

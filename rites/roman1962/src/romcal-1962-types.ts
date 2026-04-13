@@ -1,3 +1,5 @@
+import type { CommemorationCapMode } from './rubrics/commemoration-cap';
+
 export interface Romcal1962ConfigInput {
   /**
    * When true, `generateCalendar` runs `attachPropers` so each
@@ -17,10 +19,18 @@ export interface Romcal1962ConfigInput {
    * `includePropers` is true.
    */
   attachToCommemorations?: boolean;
+
+  /**
+   * Cap the number of commemorations per day per Codex Rubricarum
+   * 1960 §111–113. `'solemn'` = max 3 (sung Mass with Gloria/Credo),
+   * `'private'` = max 1 (low Mass), `'all'` = no cap (default).
+   */
+  commemorationLimit?: CommemorationCapMode;
 }
 
 export interface Romcal1962ConfigOutput {
   includePropers: boolean;
   propersLocales: string[];
   attachToCommemorations: boolean;
+  commemorationLimit: CommemorationCapMode;
 }

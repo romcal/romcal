@@ -25,6 +25,7 @@ Tracking design & implementation of 1962 Roman Rite (Missale Romanum 1962 / Rubr
 - [12 — M5 Rubrics engine & per-day resolution plan](./12-m5-rubrics.md)
 - [13 — M6 Mass-propers resolver plan](./13-m6-propers.md)
 - [14 — M7 Public API & release packaging plan](./14-m7-public-api.md)
+- [15 — M8 Rubrics polish & commemoration cap plan](./15-m8-rubrics-polish.md)
 
 ## Status
 
@@ -35,3 +36,4 @@ Tracking design & implementation of 1962 Roman Rite (Missale Romanum 1962 / Rubr
 - M5 — Rubrics engine: done. `buildLiturgicalYear1962(year)` merges M3 + M4 into a `Map<isoDate, ResolvedDay1962>` by applying 1960 occurrence, commemoration, and forward-transfer rules. Concurrence (First Vespers conflict) and Class II feast-of-the-Lord transfer are documented gaps. See [12](./12-m5-rubrics.md).
 - M6 — Mass-propers resolver: done. `resolvePropers(celebration)` and `attachPropers(year)` materialise each celebration's Mass sections (`introit, collect, epistle, …`) and any non-canonical extras (e.g. ember-day `LectioL*`) by walking inline blocks, per-section `ref` pointers, entry-level `references`, and a Sunday-Mass fallback for ferial weekday tempora. Known data gaps (multi-Mass days like Christmas, special liturgies like Good Friday/Holy Saturday/Pentecost Vigil, commemoration-only sancti) flow through as empty `propers` and are tracked for M8+. See [13](./13-m6-propers.md).
 - M7 — Public API: done. `Romcal1962` class wraps the build pipeline with a single config (`includePropers`, `propersLocales`, `attachToCommemorations`), Promise-returning `generateCalendar(year)` and `getOneLiturgicalDay(date)`, and per-instance year cache. Package quick-start at [`rites/roman1962/README.md`](../../rites/roman1962/README.md). See [14](./14-m7-public-api.md).
+- M8 — Rubrics polish: done. Replaced the Lord-feast name regex with an auditable `LORD_FEAST_KEYS` set, added vigil suppression on parent-feast transfer (Rubricae §10), and added `applyCommemorationCap(year, { mode })` plus a `commemorationLimit` config option for the `Romcal1962` class implementing §111–113 (`solemn` ≤ 3, `private` ≤ 1, `all` = no cap). Concurrence reclassified as out-of-scope-by-rubric (Office only). See [15](./15-m8-rubrics-polish.md).

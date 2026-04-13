@@ -22,19 +22,27 @@ We re-implement the rubrics in TypeScript; we do not port Perl.
 
 **Explicitly deferred**
 
-- **Concurrence**. Concurrence is a Divine-Office rule about First
-  Vespers of the following day colliding with Second Vespers of the
-  current day. Our scope is Mass (see 05-milestones.md non-goals), so
-  concurrence is not implemented.
-- **Class II feast-of-the-Lord transfer** (distinct from Class I).
-  Rubricae 1960 §15 transfers Class II feasts of the Lord that fall on
-  Sundays. The surface area is small (Transfiguration 08-06, Exaltation
-  of the Cross 09-14, Holy Trinity — already movable). Skipped for M5
-  baseline; documented as a known gap.
+- **Concurrence — out of scope by rubric.** Concurrence is a
+  Divine-Office rule (Codex Rubricarum 1960 §107) about First Vespers
+  of the following day colliding with Second Vespers of the current
+  day. It has **zero impact on Mass**. Since this project's scope is
+  the Mass calendar (see 05-milestones.md non-goals), concurrence is
+  not a Mass-calendar gap; it is out of scope by rubric.
+- **Class II feast-of-the-Lord precedence over Class II Sundays.**
+  An earlier draft of this doc described §15 as a "transfer" rule;
+  it is in fact a **precedence** rule — the Lord feast _wins_ with
+  the Sunday commemorated. The fine adjustment in `precedence.ts`
+  (Class II Lord +200 vs Class II Sunday +150) already implements
+  this. M8 added explicit synthetic-year tests
+  (1961-08-06 Transfiguration, 1958-09-14 Exaltation) and replaced
+  the brittle name regex with an explicit `LORD_FEAST_KEYS` set
+  keyed on sancti `key`. See [15 — M8 rubrics polish](./15-m8-rubrics-polish.md).
 - **Pre-1960 exceptions** (Tridentine, Divino Afflatu). Not in this
   project's scope.
 - **Commemoration-count caps** (max 3 at solemn Mass, 1 at private).
-  We emit all qualifying commemorations; the caller can trim.
+  M5 emits all qualifying commemorations; M8 added
+  `applyCommemorationCap(year, { mode })` and the
+  `Romcal1962({ commemorationLimit })` config option to trim.
 - **Resolving commemoration-by-name** (Kalendarium rows store
   commemorations by Latin name only). We surface the raw Latin; a
   downstream slug-resolver is M6's job.

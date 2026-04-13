@@ -33,6 +33,8 @@ export { buildLiturgicalYear1962 } from './calendar-year';
 export type { Celebration1962, ResolvedDay1962, ResolvedYear1962 } from './calendar-year';
 export { attachPropers, resolvePropers } from './propers';
 export type { AttachPropersOptions, ResolvedPropers, ResolvePropersOptions } from './propers';
+export { applyCommemorationCap } from './rubrics';
+export type { CommemorationCapMode, CommemorationCapOptions } from './rubrics';
 export { Romcal1962 } from './romcal-1962';
 export type { Romcal1962ConfigInput, Romcal1962ConfigOutput } from './romcal-1962-types';
 export { RANKS_1962, Rank1962Values } from './constants/rank-1962';

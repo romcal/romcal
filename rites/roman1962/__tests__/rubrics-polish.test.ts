@@ -1,0 +1,126 @@
+import { buildLiturgicalYear1962 } from '../src/calendar-year';
+import { Romcal1962 } from '../src/romcal-1962';
+import { applyCommemorationCap } from '../src/rubrics/commemoration-cap';
+
+describe('M8 rubrics polish', () => {
+  describe('Class II Lord feast vs Class II Sunday (§15)', () => {
+    test('1961-08-06 Transfiguration on Pent11-0 → Transfiguration wins', () => {
+      const year = buildLiturgicalYear1962(1961);
+      const day = year.get('1961-08-06');
+      expect(day).toBeDefined();
+      expect(day!.primary.kind).toBe('sancti');
+      expect(day!.primary.key).toBe('08-06');
+      expect(day!.primary.name).toMatch(/Transfiguratione|Transfiguratio/);
+      const sundayCommem = day!.commemorations.find((c) => c.key === 'Pent11-0');
+      expect(sundayCommem).toBeDefined();
+    });
+
+    test('1958-09-14 Exaltation on Pent16-0 → Exaltation wins', () => {
+      const year = buildLiturgicalYear1962(1958);
+      const day = year.get('1958-09-14');
+      expect(day).toBeDefined();
+      expect(day!.primary.kind).toBe('sancti');
+      expect(day!.primary.key).toBe('09-14');
+      const sundayCommem = day!.commemorations.find((c) => c.key === 'Pent16-0');
+      expect(sundayCommem).toBeDefined();
+    });
+  });
+
+  describe('Greater Ferials of Advent (Dec 17–23)', () => {
+    test('all Dec 17–23 ferias are Class II', () => {
+      const year = buildLiturgicalYear1962(1962);
+      for (const d of ['1962-12-17', '1962-12-18', '1962-12-19', '1962-12-20', '1962-12-22']) {
+        const day = year.get(d);
+        expect(day).toBeDefined();
+        // 12-21 is St Thomas (Class II sancti); 12-23 is the Sunday — others are tempora ferias.
+        if (day!.primary.kind === 'tempora') {
+          expect(day!.primary.classOf1962).toBeLessThanOrEqual(2);
+        }
+      }
+    });
+  });
+
+  describe('applyCommemorationCap', () => {
+    const year = buildLiturgicalYear1962(1962);
+
+    test("'all' is identity (same map reference is allowed but same data)", () => {
+      const out = applyCommemorationCap(year, { mode: 'all' });
+      // 'all' returns input unchanged.
+      expect(out).toBe(year);
+    });
+
+    test("'private' caps every day to ≤1 commemoration", () => {
+      const out = applyCommemorationCap(year, { mode: 'private' });
+      for (const day of out.values()) {
+        expect(day.commemorations.length).toBeLessThanOrEqual(1);
+      }
+    });
+
+    test("'solemn' caps every day to ≤3 commemorations", () => {
+      const out = applyCommemorationCap(year, { mode: 'solemn' });
+      for (const day of out.values()) {
+        expect(day.commemorations.length).toBeLessThanOrEqual(3);
+      }
+    });
+
+    test('cap preserves precedence-desc ordering (top-N kept)', () => {
+      // 1961-08-06 has Pent11-0 (Class II Sunday) + Ss. Xysti (Class IV).
+      // Under 'private', Pent11-0 must survive.
+      const y61 = buildLiturgicalYear1962(1961);
+      const out = applyCommemorationCap(y61, { mode: 'private' });
+      const day = out.get('1961-08-06');
+      expect(day!.commemorations.length).toBe(1);
+      expect(day!.commemorations[0].key).toBe('Pent11-0');
+    });
+
+    test('cap does not mutate input', () => {
+      const before = JSON.stringify(year.get('1961-08-06')?.commemorations ?? []);
+      applyCommemorationCap(year, { mode: 'private' });
+      const after = JSON.stringify(year.get('1961-08-06')?.commemorations ?? []);
+      expect(after).toBe(before);
+    });
+  });
+
+  describe('Romcal1962 commemorationLimit config', () => {
+    test("default 'all' leaves commemorations untouched", async () => {
+      const r = new Romcal1962();
+      const cal = await r.generateCalendar(1961);
+      const day = cal.get('1961-08-06');
+      expect(day!.commemorations.length).toBeGreaterThanOrEqual(2);
+    });
+
+    test("'private' caps end-to-end through the class API", async () => {
+      const r = new Romcal1962({ commemorationLimit: 'private' });
+      const cal = await r.generateCalendar(1961);
+      for (const day of cal.values()) {
+        expect(day.commemorations.length).toBeLessThanOrEqual(1);
+      }
+    });
+
+    test("'solemn' caps end-to-end through the class API", async () => {
+      const r = new Romcal1962({ commemorationLimit: 'solemn' });
+      const cal = await r.generateCalendar(1962);
+      for (const day of cal.values()) {
+        expect(day.commemorations.length).toBeLessThanOrEqual(3);
+      }
+    });
+  });
+
+  describe('Vigil suppression on parent transfer', () => {
+    test('1962 has no parent-feast transfers that strip a vigil (no regression)', () => {
+      // No vigil-bearing parent feast transfers in 1962. This test
+      // pins the no-op behavior so the suppression code does not
+      // accidentally drop a legitimate vigil. Vigils that survive:
+      // 06-23 (St John Baptist), 06-28 (P&P), 08-09 (St Lawrence),
+      // 08-14 (Assumption), 12-24 (Christmas).
+      const year = buildLiturgicalYear1962(1962);
+      const survivors = ['1962-06-23', '1962-06-28', '1962-08-09', '1962-08-14', '1962-12-24'];
+      for (const date of survivors) {
+        const day = year.get(date);
+        const hasVigilSomewhere =
+          day?.primary.vigil !== undefined || day?.commemorations.some((c) => c.vigil !== undefined);
+        expect(hasVigilSomewhere).toBe(true);
+      }
+    });
+  });
+});

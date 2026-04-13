@@ -2,6 +2,7 @@ import { buildLiturgicalYear1962, type ResolvedDay1962, type ResolvedYear1962 } 
 import { attachPropers } from './propers';
 import { Romcal1962Config } from './romcal-1962-config';
 import type { Romcal1962ConfigInput, Romcal1962ConfigOutput } from './romcal-1962-types';
+import { applyCommemorationCap } from './rubrics/commemoration-cap';
 
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -56,12 +57,16 @@ export class Romcal1962 {
           return;
         }
         const built = buildLiturgicalYear1962(y);
-        const finished = this.#config.includePropers
+        const withPropers = this.#config.includePropers
           ? attachPropers(built, {
               locales: this.#config.propersLocales,
               attachToCommemorations: this.#config.attachToCommemorations,
             })
           : built;
+        const finished =
+          this.#config.commemorationLimit === 'all'
+            ? withPropers
+            : applyCommemorationCap(withPropers, { mode: this.#config.commemorationLimit });
         this.#computedYears.set(y, finished);
         resolve(finished);
       } catch (e) {

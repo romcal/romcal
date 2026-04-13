@@ -12,8 +12,9 @@ out of scope.
 import { Romcal1962 } from '@internal/rite-roman1962';
 
 const r = new Romcal1962({
-  includePropers: true,    // attach Mass proper texts (default: false)
-  propersLocales: ['la'],  // currently only Latin ships content
+  includePropers: true,         // attach Mass proper texts (default: false)
+  propersLocales: ['la'],       // currently only Latin ships content
+  commemorationLimit: 'solemn', // 'solemn' (≤3) | 'private' (≤1) | 'all' (default)
 });
 
 // Map<isoDate, ResolvedDay1962>
@@ -72,10 +73,12 @@ const withPropers = attachPropers(year, { locales: ['la'] });
 | Forward transfer            | ✅ M5       |
 | Mass propers (Latin)        | ✅ M6       |
 | Public class API            | ✅ M7       |
-| Concurrence (1st Vespers)   | ⏳ M8+      |
-| Class II Lord transfer      | ⏳ M8+      |
-| Christmas multi-Mass        | ⏳ M8+      |
-| Good Fri / Holy Sat / Vigil | ⏳ M8+      |
+| Class II Lord precedence    | ✅ M8       |
+| Vigil suppression           | ✅ M8       |
+| Commemoration cap (3 / 1)   | ✅ M8       |
+| Concurrence (1st Vespers)   | ❌ scope    |
+| Christmas multi-Mass        | ⏳ M9+      |
+| Good Fri / Holy Sat / Vigil | ⏳ M9+      |
 | Vernacular propers          | ⏳ external |
 | Divine Office               | ❌ scope    |
 

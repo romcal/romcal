@@ -1,5 +1,7 @@
 export { celebrationFromSancti, celebrationFromTempora } from './candidates';
 export { selectCommemorations } from './commemoration';
+export { applyCommemorationCap } from './commemoration-cap';
+export type { CommemorationCapMode, CommemorationCapOptions } from './commemoration-cap';
 export { resolveOccurrence } from './occurrence';
 export type { OccurrenceResult } from './occurrence';
 export { scorePrecedence } from './precedence';

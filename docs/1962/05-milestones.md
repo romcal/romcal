@@ -45,8 +45,17 @@
   per-instance year cache.
 - Package quick-start `rites/roman1962/README.md`.
 - See [14 — M7 Public API & release packaging plan](./14-m7-public-api.md).
-- **Deferred to M8+**: integration into the root `docs/general-usage.md`,
+- **Deferred to M9+**: integration into the root `docs/general-usage.md`,
   `docs/calendar-definitions.md`, changeset / version bump (release-cut work).
+
+### M8 — Rubrics polish & commemoration cap
+
+- Auditable `LORD_FEAST_KEYS` set replacing the old name regex.
+- Vigil suppression on parent-feast transfer (Rubricae §10).
+- `applyCommemorationCap(year, { mode })` and `Romcal1962`
+  `commemorationLimit` config (`solemn` ≤ 3, `private` ≤ 1, `all`).
+- Concurrence reclassified as out-of-scope-by-rubric (Office only).
+- See [15 — M8 Rubrics polish & commemoration cap plan](./15-m8-rubrics-polish.md).
 
 ## Decisions (resolved)
 
