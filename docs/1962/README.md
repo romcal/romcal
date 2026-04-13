@@ -18,6 +18,7 @@ Tracking design & implementation of 1962 Roman Rite (Missale Romanum 1962 / Rubr
 - [05 — Milestones & decisions](./05-milestones.md)
 - [06 — Octave handling](./06-octaves.md)
 - [07 — Pre-port decisions](./07-pre-port-decisions.md)
+- [08 — M1 scaffolding plan](./08-m1-scaffolding.md)
 
 ## Status
 

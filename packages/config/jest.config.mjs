@@ -6,6 +6,7 @@ export default {
   moduleNameMapper: {
     '@internal/package.json': '<rootDir>/package.json',
     '@internal/rite-([^/]*)/(.*)': '<rootDir>../../rites/$1/src/$2',
+    '@internal/rite-([^/]*)$': '<rootDir>../../rites/$1/src',
     '@internal/([^/]*)(.*)': '<rootDir>../../packages/$1/src$2',
     '@dist/rite-([^/]*)/(.*)': '<rootDir>../../rites/$1/dist/$2',
     '@src/rite-([^/]*)': '<rootDir>../../rites/$1/src',

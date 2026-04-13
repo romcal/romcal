@@ -40,9 +40,16 @@
     }
   ],
   "exports": {
-    "types": "./rites/roman1969/dist/index.d.ts",
-    "import": "./rites/roman1969/dist/esm/romcal.js",
-    "require": "./rites/roman1969/dist/cjs/romcal.js"
+    ".": {
+      "types": "./rites/roman1969/dist/index.d.ts",
+      "import": "./rites/roman1969/dist/esm/romcal.js",
+      "require": "./rites/roman1969/dist/cjs/romcal.js"
+    },
+    "./1962": {
+      "types": "./rites/roman1962/dist/index.d.ts",
+      "import": "./rites/roman1962/dist/esm/romcal.js",
+      "require": "./rites/roman1962/dist/cjs/romcal.js"
+    }
   },
   "main": "rites/roman1969/dist/cjs/romcal.js",
   "module": "rites/roman1969/dist/esm/romcal.js",
@@ -53,8 +60,8 @@
   ],
   "scripts": {
     "prebuild": "npm run clean",
-    "build": "npm run build -w=@internal/easter -w=@internal/lunar-new-year -w=@internal/rite-roman1969",
-    "clean": "rimraf coverage dist tmp && npm run clean -w=@internal/easter -w=@internal/lunar-new-year -w=@internal/rite-roman1969",
+    "build": "npm run build -w=@internal/easter -w=@internal/lunar-new-year -w=@internal/rite-roman1969 -w=@internal/rite-roman1962",
+    "clean": "rimraf coverage dist tmp && npm run clean -w=@internal/easter -w=@internal/lunar-new-year -w=@internal/rite-roman1969 -w=@internal/rite-roman1962",
     "data:checks": "npm run data:checks -w=@internal/rite-roman1969",
     "doc": "npm run doc -w=@internal/rite-roman1969",
     "docs:check-links": "npm run docs:check-links -w=@internal/rite-roman1969",

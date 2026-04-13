@@ -1,0 +1,29 @@
+/**
+ * 1962 Roman Rite — scaffolding stub.
+ * Re-exports the 1969 public API verbatim so downstream code can import
+ * `Romcal` from `romcal/1962`. Real 1962-specific logic lands in M2+.
+ * See docs/1962/08-m1-scaffolding.md.
+ */
+
+export * from '@internal/rite-roman1969';
+
+export { COMMONS_1962 } from './constants/common-1962';
+export type { Common1962 } from './constants/common-1962';
+export { OCTAVE_IDS } from './constants/octaves';
+export type { OctaveDayKind, OctaveDayNumber, OctaveId, OctaveRank } from './constants/octaves';
+export { PREFACE_IDS } from './constants/prefaces';
+export type { PrefaceId } from './constants/prefaces';
+export { RANKS_1962, Rank1962Values, TRIDENTINE_RANKS } from './constants/rank-1962';
+export type { Rank1962, TridentineRank } from './constants/rank-1962';
+export type {
+  Commemoration1962,
+  LiturgicalDay1962Extensions,
+  LocalizedText,
+  MassPropers,
+  OctaveInfo,
+  PropersBlock,
+  ProperRef1962,
+  RubricFlags1962,
+} from './types/liturgical-day-1962';
+
+export const RITE_ID = 'roman1962' as const;

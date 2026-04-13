@@ -1,0 +1,68 @@
+import type { Common1962 } from '../constants/common-1962';
+import type { OctaveDayKind, OctaveDayNumber, OctaveId, OctaveRank } from '../constants/octaves';
+import type { PrefaceId } from '../constants/prefaces';
+import type { Rank1962, TridentineRank } from '../constants/rank-1962';
+
+export type LocaleId = string;
+export type LocalizedText = Record<LocaleId, string>;
+
+export type PropersBlockItem =
+  | { type: 'text'; lang: LocaleId; value: string }
+  | { type: 'scriptureRef'; ref: string }
+  | { type: 'directive'; value: string };
+
+export type PropersBlock = PropersBlockItem[];
+
+export interface MassPropers {
+  introit?: LocalizedText;
+  collect?: LocalizedText;
+  epistle?: LocalizedText;
+  gradual?: LocalizedText;
+  alleluia?: LocalizedText;
+  tract?: LocalizedText;
+  sequence?: LocalizedText;
+  gospel?: LocalizedText;
+  offertory?: LocalizedText;
+  secret?: LocalizedText;
+  preface?: LocalizedText;
+  communion?: LocalizedText;
+  postcommunion?: LocalizedText;
+}
+
+export interface OctaveInfo {
+  id: OctaveId;
+  parentFeastId: string;
+  day: OctaveDayNumber;
+  kind: OctaveDayKind;
+  rank: OctaveRank;
+}
+
+export interface RubricFlags1962 {
+  gloria: boolean;
+  credo: boolean;
+  preface?: PrefaceId;
+  lastGospel?: 'ultimum' | 'proper' | 'none';
+  ite?: 'ite' | 'benedicamus' | 'requiescant';
+}
+
+export interface Commemoration1962 {
+  id: string;
+  source: 'tempora' | 'sancti' | 'commune';
+}
+
+export interface ProperRef1962 {
+  source: string;
+  commune?: Common1962;
+}
+
+export interface LiturgicalDay1962Extensions {
+  rank1962?: Rank1962;
+  class1962?: 1 | 2 | 3 | 4;
+  tridentineRank?: TridentineRank;
+  rubrics?: RubricFlags1962;
+  octave?: OctaveInfo;
+  vigil?: { of: string };
+  commemorations?: Commemoration1962[];
+  properRef?: ProperRef1962;
+  propers?: MassPropers;
+}
