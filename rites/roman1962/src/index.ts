@@ -21,6 +21,14 @@ export type {
   ProperOfTimeYear,
   TemporaSlotKind,
 } from './proper-of-time';
+export { buildSanctoral1962 } from './sanctoral';
+export type {
+  Color,
+  SanctoralCommemoration,
+  SanctoralEntry1962,
+  SanctoralPropersRef,
+  Sanctoral1962Year,
+} from './sanctoral';
 export { RANKS_1962, Rank1962Values } from './constants/rank-1962';
 export type { Rank1962 } from './constants/rank-1962';
 export type {

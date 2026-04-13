@@ -21,9 +21,11 @@ Tracking design & implementation of 1962 Roman Rite (Missale Romanum 1962 / Rubr
 - [08 — M1 scaffolding plan](./08-m1-scaffolding.md)
 - [09 — M2 importer plan](./09-m2-importer.md)
 - [10 — M3 Proper of Time plan](./10-m3-proper-of-time.md)
+- [11 — M4 Proper of Saints plan](./11-m4-sanctoral.md)
 
 ## Status
 
 - M1 — scaffolding: done (commit `8d1a4f3`).
 - M2 — divinum-officium importer: done. Emits `rites/roman1962/data/{calendar-1960,tempora,sancti,commune,source}.json`. See [09](./09-m2-importer.md) and [07 §12](./07-pre-port-decisions.md) for the rank-vocabulary decision.
 - M3 — Proper of Time: done. `buildProperOfTime1962(year)` emits a sparse `Map<isoDate, ProperOfTimeEntry>` covering the Tempora backbone (Dec 29 – Saturday before Advent I), skipping Sancti-owned dates.
+- M4 — Proper of Saints: done. `buildSanctoral1962(year)` emits `Map<isoDate, SanctoralEntry1962[]>` with authoritative 1960 ranks, commune pointers, vigils, and the surviving Christmas-octave day. See [11](./11-m4-sanctoral.md) for the rank-source fix (kalendarium vs Mass-file).
