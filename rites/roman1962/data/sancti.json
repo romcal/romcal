@@ -1109,6 +1109,7 @@
     "file": "01-07.txt",
     "id": "sancti/01-07",
     "names": {
+      "de": "Zweiter Tag der Epiphanie-Oktav",
       "en": "Second Day within the Epiphany Octave"
     },
     "rank": {
@@ -1144,6 +1145,7 @@
     "file": "01-08.txt",
     "id": "sancti/01-08",
     "names": {
+      "de": "Dritter Tag der Epiphanie-Oktav",
       "en": "Third Day Within the Epiphany Octave"
     },
     "rank": {
@@ -1193,6 +1195,7 @@
     "file": "01-09.txt",
     "id": "sancti/01-09",
     "names": {
+      "de": "Vierter Tag der Epiphanie-Oktav",
       "en": "Fourth Day Within the Epiphany Octave"
     },
     "rank": {
@@ -1228,6 +1231,7 @@
     "file": "01-10.txt",
     "id": "sancti/01-10",
     "names": {
+      "de": "Fünfter Tag der Epiphanie-Oktav",
       "en": "Fifth Day Within the Epiphany Octave"
     },
     "rank": {
@@ -1263,6 +1267,7 @@
     "file": "01-11.txt",
     "id": "sancti/01-11",
     "names": {
+      "de": "Sechster Tag der Epiphanie-Oktav",
       "en": "Sixth Day Within the Epiphany Octave"
     },
     "rank": {
@@ -1360,6 +1365,7 @@
     "file": "01-12.txt",
     "id": "sancti/01-12",
     "names": {
+      "de": "Siebter Tag der Epiphanie-Oktav",
       "en": "Seventh Day Within the Epiphany Octave"
     },
     "rank": {
@@ -3170,6 +3176,7 @@
     "file": "01-24.txt",
     "id": "sancti/01-24",
     "names": {
+      "de": "Hl. Timotheus, Bischof und Märtyrer",
       "en": "St. Timothy, Bishop and Martyr"
     },
     "officium": "S. Timothei Episcopi et Martyris",
@@ -4180,6 +4187,7 @@
     "file": "01-28.txt",
     "id": "sancti/01-28",
     "names": {
+      "de": "Hl. Petrus Nolaskus, Bekenner",
       "en": "St. Peter Nolasco, Confessor"
     },
     "officium": "S. Petri Nolasci Confessoris",
@@ -4260,6 +4268,7 @@
     "file": "01-28t.txt",
     "id": "sancti/01-28t",
     "names": {
+      "de": "Hl. Agnetis, Jungfrau und Märtyrerin",
       "en": "S. Agnes Virgin and Martyr, second"
     },
     "officium": "S. Agnetis Virginis et Martyris secundo",
@@ -5142,6 +5151,7 @@
     "file": "02-02.txt",
     "id": "sancti/02-02",
     "names": {
+      "de": "Mariä Lichtmess (Darstellung des Herrn)",
       "en": "Purification of the Blessed Virgin Mary"
     },
     "rank": {
@@ -7040,6 +7050,7 @@
     "file": "02-11.txt",
     "id": "sancti/02-11",
     "names": {
+      "de": "Erscheinung der seligsten Jungfrau Maria von Lourdes",
       "en": "The Apparition of the Blessed Virgin Mary at Lourdes"
     },
     "rank": {
@@ -12282,6 +12293,7 @@
     "file": "04-13.txt",
     "id": "sancti/04-13",
     "names": {
+      "de": "Hl. Hermenegild, Märtyrer",
       "en": "St. Hermenegild, Martyr"
     },
     "officium": "S. Hermenegildi Martyris",
@@ -12682,6 +12694,7 @@
     "file": "04-14t.txt",
     "id": "sancti/04-14t",
     "names": {
+      "de": "Hll. Tiburtii, Valeriani, und Maximi, Märtyrer",
       "en": "Sts. Tiburtius, Valerian et Maximus, Martyrs"
     },
     "officium": "Ss. Tiburtii, Valeriani, et Maximi Martyrum",
@@ -14517,6 +14530,7 @@
     "file": "05-01c.txt",
     "id": "sancti/05-01c",
     "names": {
+      "de": "Hl. Joseph Sponsi B.M.V., Bekenner",
       "en": "Patronage of St. Joseph, Spouse of the Blessed Virgin Mary, Confessor"
     },
     "officium": "S. Joseph Sponsi B.M.V. Confessoris",
@@ -14576,6 +14590,7 @@
     "file": "05-01r.txt",
     "id": "sancti/05-01r",
     "names": {
+      "de": "Hl. Joseph der Arbeiter",
       "en": "St. Joseph the Worker"
     },
     "officium": "S. Joseph Opificis",
@@ -15964,6 +15979,9 @@
     ],
     "file": "05-04pl.txt",
     "id": "sancti/05-04pl",
+    "names": {
+      "de": "Hl. Floriani, Märtyrer"
+    },
     "officium": "S. Floriani Martyris",
     "rank": {
       "class1962": 3,
@@ -16925,6 +16943,9 @@
     ],
     "file": "05-11r.txt",
     "id": "sancti/05-11r",
+    "names": {
+      "de": "Hll. Apostel Philippus und Jakobus"
+    },
     "rank": {
       "class1962": 2,
       "classText": "Duplex II classis",
@@ -18324,6 +18345,7 @@
     "file": "05-23.txt",
     "id": "sancti/05-23",
     "names": {
+      "de": "Hl. Joannis Baptistae de Rossi, Bekenner",
       "en": "St. John Baptist de Rossi Confessor"
     },
     "officium": "S. Joannis Baptistæ de Rossi Confessoris",
@@ -19485,6 +19507,7 @@
     "file": "05-31.txt",
     "id": "sancti/05-31",
     "names": {
+      "de": "Maria Königin",
       "en": "Queenship of the Blessed Virgin Mary"
     },
     "rank": {
@@ -20193,6 +20216,7 @@
     "file": "06-03n.txt",
     "id": "sancti/06-03n",
     "names": {
+      "de": "Hll. Caroli Lwanga, Matthiae Murumba und Gefährten, Märtyrer",
       "en": "Ss. Charles Lwanga and companions, martyrs"
     },
     "officium": "Ss. Caroli Lwanga, Matthiæ Murumba et Sociorum Martyrum",
@@ -25566,6 +25590,9 @@
     ],
     "file": "06-30oct.txt",
     "id": "sancti/06-30oct",
+    "names": {
+      "de": "Siebter Tag der Weihnachtsoktav"
+    },
     "officium": "Die septima infra Octavam Nativitatis S. Joannis Baptistæ",
     "rank": {
       "class1962": 4,
@@ -25628,6 +25655,7 @@
     "file": "07-01.txt",
     "id": "sancti/07-01",
     "names": {
+      "de": "Kostbares Blut unseres Herrn Jesus Christus",
       "en": "Most Precious Blood of Our Lord Jesus Christ"
     },
     "rank": {
@@ -26507,6 +26535,9 @@
     ],
     "file": "07-03r.txt",
     "id": "sancti/07-03r",
+    "names": {
+      "de": "Hl. Irenäus, Bischof und Märtyrer"
+    },
     "rank": {
       "class1962": 3,
       "classText": "Duplex",
@@ -33378,6 +33409,7 @@
     "file": "08-06.txt",
     "id": "sancti/08-06",
     "names": {
+      "de": "Verklärung unseres Herrn Jesus Christus",
       "en": "Transfiguration of Our Lord Jesus Christ"
     },
     "rank": {
@@ -33770,6 +33802,7 @@
     "file": "08-07n.txt",
     "id": "sancti/08-07n",
     "names": {
+      "de": "Hl. Sixti II, Papae, und Sociorum, Märtyrer",
       "en": "St. Sixtus II, Pope, and Companions, Martyrs"
     },
     "officium": "S. Sixti II, Papæ, et Sociorum, Martyrum",
@@ -35088,6 +35121,7 @@
     "file": "08-11oct.txt",
     "id": "sancti/08-11oct",
     "names": {
+      "de": "Secunda die infra Octavam Hl. Laurentii, Märtyrer",
       "en": "Second Day Within the Octave of St. Lawrence"
     },
     "officium": "Secunda die infra Octavam S. Laurentii Martyris",
@@ -35160,6 +35194,7 @@
     "file": "08-12oct.txt",
     "id": "sancti/08-12oct",
     "names": {
+      "de": "Tertia die infra Octavam Hl. Laurentii, Märtyrer",
       "en": "Third Day Within the Octave of St. Lawrence"
     },
     "officium": "Tertia die infra Octavam S. Laurentii Martyris",
@@ -35304,6 +35339,7 @@
     "file": "08-13oct.txt",
     "id": "sancti/08-13oct",
     "names": {
+      "de": "Quarta die infra Octavam Hl. Laurentii, Märtyrer",
       "en": "Fourth Day Within the Octave of St. Lawrence"
     },
     "officium": "Quarta die infra Octavam S. Laurentii Martyris",
@@ -35336,6 +35372,7 @@
     "file": "08-14.txt",
     "id": "sancti/08-14",
     "names": {
+      "de": "Vigil von Mariä Aufnahme in den Himmel",
       "en": "Vigil of the Assumption of the Blessed Virgin Mary"
     },
     "rank": {
@@ -35518,6 +35555,7 @@
     "file": "08-14cc.txt",
     "id": "sancti/08-14cc",
     "names": {
+      "de": "Hl. Eusebii, Bekenner",
       "en": "S. Eusebius, Confessor"
     },
     "officium": "S. Eusebii Confessoris",
@@ -35578,6 +35616,7 @@
     "file": "08-14oct.txt",
     "id": "sancti/08-14oct",
     "names": {
+      "de": "Quinta die infra Octavam Hl. Laurentii, Märtyrer",
       "en": "Fifth Day Within the Octave of St. Lawrence"
     },
     "officium": "Quinta die infra Octavam S. Laurentii Martyris",
@@ -36394,6 +36433,7 @@
     "file": "08-16oct.txt",
     "id": "sancti/08-16oct",
     "names": {
+      "de": "Septima die infra Octavam Hl. Laurentii, Märtyrer",
       "en": "Seventh day in the Octave of S. Lawrence"
     },
     "officium": "Septima die infra Octavam S. Laurentii Martyris",
@@ -40755,6 +40795,7 @@
     "file": "09-09n.txt",
     "id": "sancti/09-09n",
     "names": {
+      "de": "Hl. Petri Claver, Bekenner",
       "en": "S. Peter Claver, priest"
     },
     "officium": "S. Petri Claver Confessoris",
@@ -43976,6 +44017,7 @@
     "file": "09-24.txt",
     "id": "sancti/09-24",
     "names": {
+      "de": "Maria von der Erlösung der Sklaven",
       "en": "Our Lady of Ransom"
     },
     "rank": {
@@ -44166,6 +44208,7 @@
     "file": "09-26n.txt",
     "id": "sancti/09-26n",
     "names": {
+      "de": "Hll. Isaaci Jogues, Joannis de Brébeuf und Gefährten, Märtyrer",
       "en": "Sts. Isaac Jogues, Jean de Brébeuf and Companions, Martyrs"
     },
     "officium": "Ss. Isaaci Jogues, Joannis de Brébeuf et Sociorum Martyrum",
@@ -46980,6 +47023,9 @@
     ],
     "file": "10-09pl.txt",
     "id": "sancti/10-09pl",
+    "names": {
+      "de": "b. Vincenti, Bischof und Bekenner"
+    },
     "officium": "b. Vincenti Episcopi et Confessoris",
     "references": {},
     "rubrics": {
@@ -48383,6 +48429,7 @@
     "file": "10-19n.txt",
     "id": "sancti/10-19n",
     "names": {
+      "de": "Hll. Isaaci Jogues, Joannis de Brebeuf und Gefährten, Märtyrer",
       "en": "Ss. Jean de Brébeuf, Isaac Jogues, priests and companions, Martyrs"
     },
     "officium": "Ss. Isaaci Jogues, Joannis de Brebeuf et Sociorum Martyrum",
@@ -49590,6 +49637,7 @@
     "file": "10-25n.txt",
     "id": "sancti/10-25n",
     "names": {
+      "de": "Hl. Isidori Agricolae, Bekenner",
       "en": "St. Isidore the Farmer, Confessor"
     },
     "officium": "S. Isidori Agricolæ Confessoris",
@@ -53627,6 +53675,7 @@
     "file": "11-18r.txt",
     "id": "sancti/11-18r",
     "names": {
+      "de": "Weihe der Basiliken der hll. Apostel Petrus und Paulus",
       "en": "Dedication of the Basilicas of the Apostles Sts. Peter and Paul"
     },
     "rank": {
@@ -55609,6 +55658,9 @@
     ],
     "file": "12-04pl.txt",
     "id": "sancti/12-04pl",
+    "names": {
+      "de": "Hl. Barbarae, Jungfrau und Märtyrerin"
+    },
     "officium": "S. Barbaræ Virginis et Martyris",
     "references": {},
     "rubrics": {
@@ -57143,6 +57195,9 @@
     ],
     "file": "12-13r.txt",
     "id": "sancti/12-13r",
+    "names": {
+      "de": "Hl. Lucia, Jungfrau und Märtyrerin"
+    },
     "references": {},
     "rubrics": {
       "raw": []
@@ -59996,6 +60051,9 @@
     ],
     "file": "12-28r.txt",
     "id": "sancti/12-28r",
+    "names": {
+      "de": "Vierter Tag der Weihnachtsoktav"
+    },
     "references": {},
     "rubrics": {
       "credo": true,
@@ -60258,6 +60316,9 @@
     ],
     "file": "12-29r.txt",
     "id": "sancti/12-29r",
+    "names": {
+      "de": "Hl. Thomae Cantuariensis, Bischof und Märtyrer"
+    },
     "officium": "S. Thomæ Cantuariensis Episcopi et Martyris",
     "rank": {
       "class1962": 4,
@@ -60472,6 +60533,9 @@
     ],
     "file": "12-31r.txt",
     "id": "sancti/12-31r",
+    "names": {
+      "de": "Hl. Silvestri, Papst und Bekenner"
+    },
     "officium": "S. Silvestri Papæ et Confessoris",
     "rank": {
       "class1962": 4,

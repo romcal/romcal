@@ -6,6 +6,7 @@ import chalk from 'chalk';
 
 import { buildCalendar1960 } from './calendar';
 import { deriveColor } from './colors';
+import { sanctiDeFromKeyOrLatin, temporaDeFromKey } from './de-name-overrides';
 import { writeJson } from './emit';
 import { ImportError } from './errors';
 import { parseFile } from './parser';
@@ -201,6 +202,38 @@ function mergeLocalizedNames(entries: Record<string, MassEntry>, dir: string, la
   return count;
 }
 
+/**
+ * After divinum-officium's vernacular has been merged, walk every entry and
+ * synthesize a German name where one is still missing. divinum-officium does
+ * not localize most ferias (Lent, Pentecost ordinary time, etc.) and ships
+ * sparse Sancti coverage in German. We need *some* name per day for the German
+ * UI — without this layer the UI would display Latin titles to a German user.
+ */
+function fillMissingDeNames(
+  tempora: Record<string, MassEntry>,
+  sancti: Record<string, MassEntry>
+): { tempora: number; sancti: number } {
+  let t = 0;
+  let s = 0;
+  for (const [key, entry] of Object.entries(tempora)) {
+    if (entry.names?.de) continue;
+    const de = temporaDeFromKey(key);
+    if (!de) continue;
+    entry.names ??= {};
+    entry.names.de = de;
+    t++;
+  }
+  for (const [key, entry] of Object.entries(sancti)) {
+    if (entry.names?.de) continue;
+    const de = sanctiDeFromKeyOrLatin(key, entry.officium);
+    if (!de) continue;
+    entry.names ??= {};
+    entry.names.de = de;
+    s++;
+  }
+  return { tempora: t, sancti: s };
+}
+
 function resolveSha(): string {
   try {
     return execSync('git rev-parse HEAD', { cwd: DO_ROOT }).toString().trim();
@@ -250,6 +283,10 @@ function main(): void {
     const nc = mergeLocalizedNames(commune, path.join(DO_ROOT, `web/www/horas/${folder}/Commune`), lang);
     log(chalk.dim(`  names: tempora ${nt}, sancti ${ns}, commune ${nc}`));
   }
+
+  const filled = fillMissingDeNames(tempora, sancti);
+  log(chalk.bold(`\n✓ filling missing German names (override layer)`));
+  log(chalk.dim(`  tempora ${filled.tempora}, sancti ${filled.sancti}`));
 
   const source: SourceMeta = {
     sha: resolveSha(),

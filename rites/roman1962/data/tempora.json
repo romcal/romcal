@@ -5150,6 +5150,7 @@
     "file": "Epi1-1.txt",
     "id": "tempora/Epi1-1",
     "names": {
+      "de": "Montag in der 1. Woche nach Erscheinung des Herrn",
       "en": "Feria II infra Hebdomadam I post Epiphaniam"
     },
     "officium": "Feria II infra Hebdomadam I post Epiphaniam",
@@ -5181,6 +5182,7 @@
     "file": "Epi1-2.txt",
     "id": "tempora/Epi1-2",
     "names": {
+      "de": "Dienstag in der 1. Woche nach Erscheinung des Herrn",
       "en": "Feria III infra Hebdomadam I post Epiphaniam"
     },
     "officium": "Feria III infra Hebdomadam I post Epiphaniam",
@@ -5212,6 +5214,7 @@
     "file": "Epi1-3.txt",
     "id": "tempora/Epi1-3",
     "names": {
+      "de": "Mittwoch in der 1. Woche nach Erscheinung des Herrn",
       "en": "Feria IV infra Hebdomadam I post Epiphaniam"
     },
     "officium": "Feria IV infra Hebdomadam I post Epiphaniam",
@@ -5243,6 +5246,7 @@
     "file": "Epi1-4.txt",
     "id": "tempora/Epi1-4",
     "names": {
+      "de": "Donnerstag in der 1. Woche nach Erscheinung des Herrn",
       "en": "Feria V infra Hebdomadam I post Epiphaniam"
     },
     "officium": "Feria V infra Hebdomadam I post Epiphaniam",
@@ -5274,6 +5278,7 @@
     "file": "Epi1-5.txt",
     "id": "tempora/Epi1-5",
     "names": {
+      "de": "Freitag in der 1. Woche nach Erscheinung des Herrn",
       "en": "Feria VI infra Hebdomadam I post Epiphaniam"
     },
     "officium": "Feria VI infra Hebdomadam I post Epiphaniam",
@@ -5305,6 +5310,7 @@
     "file": "Epi1-6.txt",
     "id": "tempora/Epi1-6",
     "names": {
+      "de": "Samstag in der 1. Woche nach Erscheinung des Herrn",
       "en": "Sabbato infra Hebdomadam I post Epiphaniam"
     },
     "officium": "Sabbato infra Hebdomadam I post Epiphaniam",
@@ -5616,6 +5622,7 @@
     "file": "Epi2-1.txt",
     "id": "tempora/Epi2-1",
     "names": {
+      "de": "Montag in der 2. Woche nach Erscheinung des Herrn",
       "en": "Feria II infra Hebdomadam II post Epiphaniam"
     },
     "officium": "Feria II infra Hebdomadam II post Epiphaniam",
@@ -5647,6 +5654,7 @@
     "file": "Epi2-2.txt",
     "id": "tempora/Epi2-2",
     "names": {
+      "de": "Dienstag in der 2. Woche nach Erscheinung des Herrn",
       "en": "Feria III infra Hebdomadam II post Epiphaniam"
     },
     "officium": "Feria III infra Hebdomadam II post Epiphaniam",
@@ -5678,6 +5686,7 @@
     "file": "Epi2-3.txt",
     "id": "tempora/Epi2-3",
     "names": {
+      "de": "Mittwoch in der 2. Woche nach Erscheinung des Herrn",
       "en": "Feria IV infra Hebdomadam II post Epiphaniam"
     },
     "officium": "Feria IV infra Hebdomadam II post Epiphaniam",
@@ -5709,6 +5718,7 @@
     "file": "Epi2-4.txt",
     "id": "tempora/Epi2-4",
     "names": {
+      "de": "Donnerstag in der 2. Woche nach Erscheinung des Herrn",
       "en": "Feria V infra Hebdomadam II post Epiphaniam"
     },
     "officium": "Feria V infra Hebdomadam II post Epiphaniam",
@@ -5740,6 +5750,7 @@
     "file": "Epi2-5.txt",
     "id": "tempora/Epi2-5",
     "names": {
+      "de": "Freitag in der 2. Woche nach Erscheinung des Herrn",
       "en": "Feria VI infra Hebdomadam II post Epiphaniam"
     },
     "officium": "Feria VI infra Hebdomadam II post Epiphaniam",
@@ -5771,6 +5782,7 @@
     "file": "Epi2-6.txt",
     "id": "tempora/Epi2-6",
     "names": {
+      "de": "Samstag in der 2. Woche nach Erscheinung des Herrn",
       "en": "Sabbato infra Hebdomadam II post Epiphaniam"
     },
     "officium": "Sabbato infra Hebdomadam II post Epiphaniam",
@@ -6086,6 +6098,7 @@
     "file": "Epi3-1.txt",
     "id": "tempora/Epi3-1",
     "names": {
+      "de": "Montag in der 3. Woche nach Erscheinung des Herrn",
       "en": "Feria II infra Hebdomadam III post Epiphaniam"
     },
     "officium": "Feria II infra Hebdomadam III post Epiphaniam",
@@ -6117,6 +6130,7 @@
     "file": "Epi3-2.txt",
     "id": "tempora/Epi3-2",
     "names": {
+      "de": "Dienstag in der 3. Woche nach Erscheinung des Herrn",
       "en": "Feria III infra Hebdomadam III post Epiphaniam"
     },
     "officium": "Feria III infra Hebdomadam III post Epiphaniam",
@@ -6148,6 +6162,7 @@
     "file": "Epi3-3.txt",
     "id": "tempora/Epi3-3",
     "names": {
+      "de": "Mittwoch in der 3. Woche nach Erscheinung des Herrn",
       "en": "Feria IV infra Hebdomadam III post Epiphaniam"
     },
     "officium": "Feria IV infra Hebdomadam III post Epiphaniam",
@@ -6179,6 +6194,7 @@
     "file": "Epi3-4.txt",
     "id": "tempora/Epi3-4",
     "names": {
+      "de": "Donnerstag in der 3. Woche nach Erscheinung des Herrn",
       "en": "Feria V infra Hebdomadam III post Epiphaniam"
     },
     "officium": "Feria V infra Hebdomadam III post Epiphaniam",
@@ -6210,6 +6226,7 @@
     "file": "Epi3-5.txt",
     "id": "tempora/Epi3-5",
     "names": {
+      "de": "Freitag in der 3. Woche nach Erscheinung des Herrn",
       "en": "Feria VI infra Hebdomadam III post Epiphaniam"
     },
     "officium": "Feria VI infra Hebdomadam III post Epiphaniam",
@@ -6241,6 +6258,7 @@
     "file": "Epi3-6.txt",
     "id": "tempora/Epi3-6",
     "names": {
+      "de": "Samstag in der 3. Woche nach Erscheinung des Herrn",
       "en": "Sabbato infra Hebdomadam III post Epiphaniam"
     },
     "officium": "Sabbato infra Hebdomadam III post Epiphaniam",
@@ -6506,6 +6524,7 @@
     "file": "Epi4-1.txt",
     "id": "tempora/Epi4-1",
     "names": {
+      "de": "Montag in der 4. Woche nach Erscheinung des Herrn",
       "en": "Feria Secunda infra Hebdomadam IV post Epiphaniam"
     },
     "officium": "Feria Secunda infra Hebdomadam IV post Epiiphaniam",
@@ -6537,6 +6556,7 @@
     "file": "Epi4-2.txt",
     "id": "tempora/Epi4-2",
     "names": {
+      "de": "Dienstag in der 4. Woche nach Erscheinung des Herrn",
       "en": "Feria Tertia infra Hebdomadam IV post Epiphaniam"
     },
     "officium": "Feria Tertia infra Hebdomadam IV post Epiphaniam",
@@ -6568,6 +6588,7 @@
     "file": "Epi4-3.txt",
     "id": "tempora/Epi4-3",
     "names": {
+      "de": "Mittwoch in der 4. Woche nach Erscheinung des Herrn",
       "en": "Feria IV infra Hebdomadam IV post Epiphaniam"
     },
     "officium": "Feria IV infra Hebdomadam IV post Epiphaniam",
@@ -6599,6 +6620,7 @@
     "file": "Epi4-4.txt",
     "id": "tempora/Epi4-4",
     "names": {
+      "de": "Donnerstag in der 4. Woche nach Erscheinung des Herrn",
       "en": "Feria V infra Hebdomadam IV post Epiphaniam"
     },
     "officium": "Feria V infra Hebdomadam IV post Epiphaniam",
@@ -6630,6 +6652,7 @@
     "file": "Epi4-5.txt",
     "id": "tempora/Epi4-5",
     "names": {
+      "de": "Freitag in der 4. Woche nach Erscheinung des Herrn",
       "en": "Feria VI infra Hebdomadam IV post Epiphaniam"
     },
     "officium": "Feria VI infra Hebdomadam IV post Epiphaniam",
@@ -6661,6 +6684,7 @@
     "file": "Epi4-6.txt",
     "id": "tempora/Epi4-6",
     "names": {
+      "de": "Samstag in der 4. Woche nach Erscheinung des Herrn",
       "en": "Sabbato infra Hebdomadam IV post Epiphaniam"
     },
     "officium": "Sabbato infra Hebdomadam IV post Epiphaniam",
@@ -6942,6 +6966,7 @@
     "file": "Epi5-1.txt",
     "id": "tempora/Epi5-1",
     "names": {
+      "de": "Montag in der 5. Woche nach Erscheinung des Herrn",
       "en": "Feria II infra Hebdomadam V post Epiphaniam"
     },
     "officium": "Feria II infra Hebdomadam V post Epiphaniam",
@@ -6973,6 +6998,7 @@
     "file": "Epi5-2.txt",
     "id": "tempora/Epi5-2",
     "names": {
+      "de": "Dienstag in der 5. Woche nach Erscheinung des Herrn",
       "en": "Feria III infra Hebdomadam V post Epiphaniam"
     },
     "officium": "Feria III infra Hebdomadam V post Epiphaniam",
@@ -7004,6 +7030,7 @@
     "file": "Epi5-3.txt",
     "id": "tempora/Epi5-3",
     "names": {
+      "de": "Mittwoch in der 5. Woche nach Erscheinung des Herrn",
       "en": "Feria IV infra Hebdomadam V post Epiphaniam"
     },
     "officium": "Feria IV infra Hebdomadam V post Epiphaniam",
@@ -7035,6 +7062,7 @@
     "file": "Epi5-4.txt",
     "id": "tempora/Epi5-4",
     "names": {
+      "de": "Donnerstag in der 5. Woche nach Erscheinung des Herrn",
       "en": "Feria V infra Hebdomadam V post Epiphaniam"
     },
     "officium": "Feria V infra Hebdomadam V post Epiphaniam",
@@ -7066,6 +7094,7 @@
     "file": "Epi5-5.txt",
     "id": "tempora/Epi5-5",
     "names": {
+      "de": "Freitag in der 5. Woche nach Erscheinung des Herrn",
       "en": "Feria VI infra Hebdomadam V post Epiphaniam"
     },
     "officium": "Feria VI infra Hebdomadam V post Epiphaniam",
@@ -7097,6 +7126,7 @@
     "file": "Epi5-6.txt",
     "id": "tempora/Epi5-6",
     "names": {
+      "de": "Samstag in der 5. Woche nach Erscheinung des Herrn",
       "en": "Sabbato infra Hebdomadam V post Epiphaniam"
     },
     "officium": "Sabbato infra Hebdomadam V post Epiphaniam",
@@ -7367,6 +7397,7 @@
     "file": "Epi6-1.txt",
     "id": "tempora/Epi6-1",
     "names": {
+      "de": "Montag in der 6. Woche nach Erscheinung des Herrn",
       "en": "Feria II infra Hebdomadam VI post Epiphaniam"
     },
     "officium": "Feria II infra Hebdomadam VI post Epiphaniam",
@@ -7398,6 +7429,7 @@
     "file": "Epi6-2.txt",
     "id": "tempora/Epi6-2",
     "names": {
+      "de": "Dienstag in der 6. Woche nach Erscheinung des Herrn",
       "en": "Feria III infra Hebdomadam VI post Epiphaniam"
     },
     "officium": "Feria III infra Hebdomadam VI post Epiphaniam",
@@ -7429,6 +7461,7 @@
     "file": "Epi6-3.txt",
     "id": "tempora/Epi6-3",
     "names": {
+      "de": "Mittwoch in der 6. Woche nach Erscheinung des Herrn",
       "en": "Feria IV infra Hebdomadam VI post Epiphaniam"
     },
     "officium": "Feria IV infra Hebdomadam VI post Epiphaniam",
@@ -7460,6 +7493,7 @@
     "file": "Epi6-4.txt",
     "id": "tempora/Epi6-4",
     "names": {
+      "de": "Donnerstag in der 6. Woche nach Erscheinung des Herrn",
       "en": "Feria V infra Hebdomadam VI post Epiphaniam"
     },
     "officium": "Feria V infra Hebdomadam VI post Epiphaniam",
@@ -7491,6 +7525,7 @@
     "file": "Epi6-5.txt",
     "id": "tempora/Epi6-5",
     "names": {
+      "de": "Freitag in der 6. Woche nach Erscheinung des Herrn",
       "en": "Feria VI infra Hebdomadam VI post Epiphaniam"
     },
     "officium": "Feria VI infra Hebdomadam VI post Epiphaniam",
@@ -7522,6 +7557,7 @@
     "file": "Epi6-6.txt",
     "id": "tempora/Epi6-6",
     "names": {
+      "de": "Samstag in der 6. Woche nach Erscheinung des Herrn",
       "en": "Sabbato infra Hebdomadam VI post Epiphaniam"
     },
     "officium": "Sabbato infra Hebdomadam VI post Epiphaniam",
@@ -7552,6 +7588,9 @@
     ],
     "file": "Nat02.txt",
     "id": "tempora/Nat02",
+    "names": {
+      "de": "2. Tag der Weihnachtsoktav"
+    },
     "officium": "Ad Romános, cap. 5",
     "rank": {
       "class1962": 4,
@@ -7583,6 +7622,9 @@
     ],
     "file": "Nat03.txt",
     "id": "tempora/Nat03",
+    "names": {
+      "de": "3. Tag der Weihnachtsoktav"
+    },
     "officium": "Ad Romános, cap. 6",
     "rank": {
       "class1962": 4,
@@ -7614,6 +7656,9 @@
     ],
     "file": "Nat04.txt",
     "id": "tempora/Nat04",
+    "names": {
+      "de": "4. Tag der Weihnachtsoktav"
+    },
     "officium": "Ad Romános, cap. 7",
     "rank": {
       "class1962": 4,
@@ -7645,6 +7690,9 @@
     ],
     "file": "Nat05.txt",
     "id": "tempora/Nat05",
+    "names": {
+      "de": "5. Tag der Weihnachtsoktav"
+    },
     "officium": "Ad Romános, cap. 8",
     "rank": {
       "class1962": 4,
@@ -12164,6 +12212,7 @@
     "file": "Pasc1-1.txt",
     "id": "tempora/Pasc1-1",
     "names": {
+      "de": "Montag in der Weißen Woche",
       "en": "Feria Secunda infra Hebdomadam I post Octavam Paschae"
     },
     "officium": "Feria Secunda infra Hebdomadam I post Octavam Paschæ",
@@ -12197,6 +12246,7 @@
     "file": "Pasc1-2.txt",
     "id": "tempora/Pasc1-2",
     "names": {
+      "de": "Dienstag in der Weißen Woche",
       "en": "Feria Tertia infra Hebdomadam I post Octavam Paschae"
     },
     "officium": "Feria Tertia infra Hebdomadam I post Octavam Paschæ",
@@ -12230,6 +12280,7 @@
     "file": "Pasc1-3.txt",
     "id": "tempora/Pasc1-3",
     "names": {
+      "de": "Mittwoch in der Weißen Woche",
       "en": "Feria Quarta infra Hebdomadam I post Octavam Paschae"
     },
     "officium": "Feria Quarta infra Hebdomadam I post Octavam Paschæ",
@@ -12263,6 +12314,7 @@
     "file": "Pasc1-4.txt",
     "id": "tempora/Pasc1-4",
     "names": {
+      "de": "Donnerstag in der Weißen Woche",
       "en": "Feria Quinta infra Hebdomadam I post Octavam Paschae"
     },
     "officium": "Feria Quinta infra Hebdomadam I post Octavam Paschæ",
@@ -12296,6 +12348,7 @@
     "file": "Pasc1-5.txt",
     "id": "tempora/Pasc1-5",
     "names": {
+      "de": "Freitag in der Weißen Woche",
       "en": "Feria Sexta infra Hebdomadam I post Octavam Paschae"
     },
     "officium": "Feria Sexta infra Hebdomadam I post Octavam Paschae",
@@ -12329,6 +12382,7 @@
     "file": "Pasc1-6.txt",
     "id": "tempora/Pasc1-6",
     "names": {
+      "de": "Samstag in der Weißen Woche",
       "en": "Sabbato infra Hebdomadam I post Octavam Paschae"
     },
     "officium": "Sabbato infra Hebdomadam I post Octavam Paschæ",
@@ -27088,6 +27142,7 @@
     "file": "Pent04-1.txt",
     "id": "tempora/Pent04-1",
     "names": {
+      "de": "Montag in der 4. Woche nach Pfingsten",
       "en": "Feria secunda infra Hebdomadam IV post Octavam Pentecostes"
     },
     "officium": "Feria secunda infra Hebdomadam IV post Octavam Pentecostes",
@@ -27143,6 +27198,7 @@
     "file": "Pent04-2.txt",
     "id": "tempora/Pent04-2",
     "names": {
+      "de": "Dienstag in der 4. Woche nach Pfingsten",
       "en": "Feria tertia infra Hebdomadam IV post Octavam Pentecostes"
     },
     "officium": "Feria tertia infra Hebdomadam IV post Octavam Pentecostes",
@@ -27198,6 +27254,7 @@
     "file": "Pent04-3.txt",
     "id": "tempora/Pent04-3",
     "names": {
+      "de": "Mittwoch in der 4. Woche nach Pfingsten",
       "en": "Feria quarta infra Hebdomadam IV post Octavam Pentecostes"
     },
     "officium": "Feria quarta infra Hebdomadam IV post Octavam Pentecostes",
@@ -27253,6 +27310,7 @@
     "file": "Pent04-4.txt",
     "id": "tempora/Pent04-4",
     "names": {
+      "de": "Donnerstag in der 4. Woche nach Pfingsten",
       "en": "Feria quinta infra Hebdomadam IV post Octavam Pentecostes"
     },
     "officium": "Feria quinta infra Hebdomadam IV post Octavam Pentecostes",
@@ -27282,6 +27340,7 @@
     "file": "Pent04-5.txt",
     "id": "tempora/Pent04-5",
     "names": {
+      "de": "Freitag in der 4. Woche nach Pfingsten",
       "en": "Feria sexta infra Hebdomadam IV post Octavam Pentecostes"
     },
     "officium": "Feria sexta infra Hebdomadam IV post Octavam Pentecostes",
@@ -27337,6 +27396,7 @@
     "file": "Pent04-6.txt",
     "id": "tempora/Pent04-6",
     "names": {
+      "de": "Samstag in der 4. Woche nach Pfingsten",
       "en": "Sabbato infra Hebdomadam IV post Octavam Pentecostes"
     },
     "officium": "Sabbato infra Hebdomadam IV post Octavam Pentecostes",
@@ -27885,6 +27945,7 @@
     "file": "Pent05-1.txt",
     "id": "tempora/Pent05-1",
     "names": {
+      "de": "Montag in der 5. Woche nach Pfingsten",
       "en": "Feria secunda infra Hebdomadam V post Octavam Pentecostes"
     },
     "officium": "Feria secunda infra Hebdomadam V post Octavam Pentecostes",
@@ -27914,6 +27975,7 @@
     "file": "Pent05-2.txt",
     "id": "tempora/Pent05-2",
     "names": {
+      "de": "Dienstag in der 5. Woche nach Pfingsten",
       "en": "Feria tertia infra Hebdomadam V post Octavam Pentecostes"
     },
     "officium": "Feria tertia infra Hebdomadam V post Octavam Pentecostes",
@@ -27943,6 +28005,7 @@
     "file": "Pent05-3.txt",
     "id": "tempora/Pent05-3",
     "names": {
+      "de": "Mittwoch in der 5. Woche nach Pfingsten",
       "en": "Feria quarta infra Hebdomadam V post Octavam Pentecostes"
     },
     "officium": "Feria quarta infra Hebdomadam V post Octavam Pentecostes",
@@ -27972,6 +28035,7 @@
     "file": "Pent05-4.txt",
     "id": "tempora/Pent05-4",
     "names": {
+      "de": "Donnerstag in der 5. Woche nach Pfingsten",
       "en": "Feria quinta infra Hebdomadam V post Octavam Pentecostes"
     },
     "officium": "Feria quinta infra Hebdomadam V post Octavam Pentecostes",
@@ -28001,6 +28065,7 @@
     "file": "Pent05-5.txt",
     "id": "tempora/Pent05-5",
     "names": {
+      "de": "Freitag in der 5. Woche nach Pfingsten",
       "en": "Feria sexta infra Hebdomadam V post Octavam Pentecostes"
     },
     "officium": "Feria sexta infra Hebdomadam V post Octavam Pentecostes",
@@ -28030,6 +28095,7 @@
     "file": "Pent05-6.txt",
     "id": "tempora/Pent05-6",
     "names": {
+      "de": "Samstag in der 5. Woche nach Pfingsten",
       "en": "Sabbato infra Hebdomadam V post Octavam Pentecostes"
     },
     "officium": "Sabbato infra Hebdomadam V post Octavam Pentecostes",
@@ -28323,6 +28389,7 @@
     "file": "Pent06-1.txt",
     "id": "tempora/Pent06-1",
     "names": {
+      "de": "Montag in der 6. Woche nach Pfingsten",
       "en": "Feria secunda infra Hebdomadam VI post Octavam Pentecostes"
     },
     "officium": "Feria secunda infra Hebdomadam VI post Octavam Pentecostes",
@@ -28352,6 +28419,7 @@
     "file": "Pent06-2.txt",
     "id": "tempora/Pent06-2",
     "names": {
+      "de": "Dienstag in der 6. Woche nach Pfingsten",
       "en": "Feria tertia infra Hebdomadam VI post Octavam Pentecostes"
     },
     "officium": "Feria tertia infra Hebdomadam VI post Octavam Pentecostes",
@@ -28381,6 +28449,7 @@
     "file": "Pent06-3.txt",
     "id": "tempora/Pent06-3",
     "names": {
+      "de": "Mittwoch in der 6. Woche nach Pfingsten",
       "en": "Feria quarta infra Hebdomadam VI post Octavam Pentecostes"
     },
     "officium": "Feria quarta infra Hebdomadam VI post Octavam Pentecostes",
@@ -28410,6 +28479,7 @@
     "file": "Pent06-4.txt",
     "id": "tempora/Pent06-4",
     "names": {
+      "de": "Donnerstag in der 6. Woche nach Pfingsten",
       "en": "Feria quinta infra Hebdomadam VI post Octavam Pentecostes"
     },
     "officium": "Feria quinta infra Hebdomadam VI post Octavam Pentecostes",
@@ -28439,6 +28509,7 @@
     "file": "Pent06-5.txt",
     "id": "tempora/Pent06-5",
     "names": {
+      "de": "Freitag in der 6. Woche nach Pfingsten",
       "en": "Feria sexta infra Hebdomadam VI post Octavam Pentecostes"
     },
     "officium": "Feria sexta infra Hebdomadam VI post Octavam Pentecostes",
@@ -28468,6 +28539,7 @@
     "file": "Pent06-6.txt",
     "id": "tempora/Pent06-6",
     "names": {
+      "de": "Samstag in der 6. Woche nach Pfingsten",
       "en": "Sabbato infra Hebdomadam VI post Octavam Pentecostes"
     },
     "officium": "Sabbato infra Hebdomadam VI post Octavam Pentecostes",
@@ -28762,6 +28834,7 @@
     "file": "Pent07-1.txt",
     "id": "tempora/Pent07-1",
     "names": {
+      "de": "Montag in der 7. Woche nach Pfingsten",
       "en": "Feria secunda infra Hebdomadam VII post Octavam Pentecostes"
     },
     "officium": "Feria secunda infra Hebdomadam VII post Octavam Pentecostes",
@@ -28791,6 +28864,7 @@
     "file": "Pent07-2.txt",
     "id": "tempora/Pent07-2",
     "names": {
+      "de": "Dienstag in der 7. Woche nach Pfingsten",
       "en": "Feria tertia infra Hebdomadam VII post Octavam Pentecostes"
     },
     "officium": "Feria tertia infra Hebdomadam VII post Octavam Pentecostes",
@@ -28820,6 +28894,7 @@
     "file": "Pent07-3.txt",
     "id": "tempora/Pent07-3",
     "names": {
+      "de": "Mittwoch in der 7. Woche nach Pfingsten",
       "en": "Feria quarta infra Hebdomadam VII post Octavam Pentecostes"
     },
     "officium": "Feria quarta infra Hebdomadam VII post Octavam Pentecostes",
@@ -28849,6 +28924,7 @@
     "file": "Pent07-4.txt",
     "id": "tempora/Pent07-4",
     "names": {
+      "de": "Donnerstag in der 7. Woche nach Pfingsten",
       "en": "Feria quinta infra Hebdomadam VII post Octavam Pentecostes"
     },
     "officium": "Feria quinta infra Hebdomadam VII post Octavam Pentecostes",
@@ -28878,6 +28954,7 @@
     "file": "Pent07-5.txt",
     "id": "tempora/Pent07-5",
     "names": {
+      "de": "Freitag in der 7. Woche nach Pfingsten",
       "en": "Feria sexta infra Hebdomadam VII post Octavam Pentecostes"
     },
     "officium": "Feria sexta infra Hebdomadam VII post Octavam Pentecostes",
@@ -28907,6 +28984,7 @@
     "file": "Pent07-6.txt",
     "id": "tempora/Pent07-6",
     "names": {
+      "de": "Samstag in der 7. Woche nach Pfingsten",
       "en": "Sabbato II infra Hebdomadam VII post Octavam Pentecostes"
     },
     "officium": "Sabbato II infra Hebdomadam VII post Octavam Pentecostes",
@@ -29204,6 +29282,7 @@
     "file": "Pent08-1.txt",
     "id": "tempora/Pent08-1",
     "names": {
+      "de": "Montag in der 8. Woche nach Pfingsten",
       "en": "Feria secunda infra Hebdomadam VIII post Octavam Pentecostes"
     },
     "officium": "Feria secunda infra Hebdomadam VIII post Octavam Pentecostes",
@@ -29233,6 +29312,7 @@
     "file": "Pent08-2.txt",
     "id": "tempora/Pent08-2",
     "names": {
+      "de": "Dienstag in der 8. Woche nach Pfingsten",
       "en": "Feria tertia infra Hebdomadam VIII post Octavam Pentecostes"
     },
     "officium": "Feria tertia infra Hebdomadam VIII post Octavam Pentecostes",
@@ -29262,6 +29342,7 @@
     "file": "Pent08-3.txt",
     "id": "tempora/Pent08-3",
     "names": {
+      "de": "Mittwoch in der 8. Woche nach Pfingsten",
       "en": "Feria quarta infra Hebdomadam VIII post Octavam Pentecostes"
     },
     "officium": "Feria quarta infra Hebdomadam VIII post Octavam Pentecostes",
@@ -29291,6 +29372,7 @@
     "file": "Pent08-4.txt",
     "id": "tempora/Pent08-4",
     "names": {
+      "de": "Donnerstag in der 8. Woche nach Pfingsten",
       "en": "Feria quinta infra Hebdomadam VIII post Octavam Pentecostes"
     },
     "officium": "Feria quinta infra Hebdomadam VIII post Octavam Pentecostes",
@@ -29320,6 +29402,7 @@
     "file": "Pent08-5.txt",
     "id": "tempora/Pent08-5",
     "names": {
+      "de": "Freitag in der 8. Woche nach Pfingsten",
       "en": "Feria sexta infra Hebdomadam VIII post Octavam Pentecostes"
     },
     "officium": "Feria sexta infra Hebdomadam VIII post Octavam Pentecostes",
@@ -29349,6 +29432,7 @@
     "file": "Pent08-6.txt",
     "id": "tempora/Pent08-6",
     "names": {
+      "de": "Samstag in der 8. Woche nach Pfingsten",
       "en": "Sabbato infra Hebdomadam VIII post Octavam Pentecostes"
     },
     "officium": "Sabbato infra Hebdomadam VIII post Octavam Pentecostes",
@@ -29647,6 +29731,7 @@
     "file": "Pent09-1.txt",
     "id": "tempora/Pent09-1",
     "names": {
+      "de": "Montag in der 9. Woche nach Pfingsten",
       "en": "Feria secunda infra Hebdomadam IX post Octavam Pentecostes"
     },
     "officium": "Feria secunda infra Hebdomadam IX post Octavam Pentecostes",
@@ -29676,6 +29761,7 @@
     "file": "Pent09-2.txt",
     "id": "tempora/Pent09-2",
     "names": {
+      "de": "Dienstag in der 9. Woche nach Pfingsten",
       "en": "Feria tertia infra Hebdomadam IX post Octavam Pentecostes"
     },
     "officium": "Feria tertia infra Hebdomadam IX post Octavam Pentecostes",
@@ -29705,6 +29791,7 @@
     "file": "Pent09-3.txt",
     "id": "tempora/Pent09-3",
     "names": {
+      "de": "Mittwoch in der 9. Woche nach Pfingsten",
       "en": "Feria quarta infra Hebdomadam IX post Octavam Pentecostes"
     },
     "officium": "Feria quarta infra Hebdomadam IX post Octavam Pentecostes",
@@ -29734,6 +29821,7 @@
     "file": "Pent09-4.txt",
     "id": "tempora/Pent09-4",
     "names": {
+      "de": "Donnerstag in der 9. Woche nach Pfingsten",
       "en": "Feria quinta infra Hebdomadam IX post Octavam Pentecostes"
     },
     "officium": "Feria quinta infra Hebdomadam IX post Octavam Pentecostes",
@@ -29763,6 +29851,7 @@
     "file": "Pent09-5.txt",
     "id": "tempora/Pent09-5",
     "names": {
+      "de": "Freitag in der 9. Woche nach Pfingsten",
       "en": "Feria sexta infra Hebdomadam IX post Octavam Pentecostes"
     },
     "officium": "Feria sexta infra Hebdomadam IX post Octavam Pentecostes",
@@ -29792,6 +29881,7 @@
     "file": "Pent09-6.txt",
     "id": "tempora/Pent09-6",
     "names": {
+      "de": "Samstag in der 9. Woche nach Pfingsten",
       "en": "Sabbato secunda infra Hebdomadam IX post Octavam Pentecostes"
     },
     "officium": "Sabbato secunda infra Hebdomadam IX post Octavam Pentecostes",
@@ -30090,6 +30180,7 @@
     "file": "Pent10-1.txt",
     "id": "tempora/Pent10-1",
     "names": {
+      "de": "Montag in der 10. Woche nach Pfingsten",
       "en": "Feria secunda infra Hebdomadam X post Octavam Pentecostes"
     },
     "officium": "Feria secunda infra Hebdomadam X post Octavam Pentecostes",
@@ -30119,6 +30210,7 @@
     "file": "Pent10-2.txt",
     "id": "tempora/Pent10-2",
     "names": {
+      "de": "Dienstag in der 10. Woche nach Pfingsten",
       "en": "Feria tertia infra Hebdomadam X post Octavam Pentecostes"
     },
     "officium": "Feria tertia infra Hebdomadam X post Octavam Pentecostes",
@@ -30148,6 +30240,7 @@
     "file": "Pent10-3.txt",
     "id": "tempora/Pent10-3",
     "names": {
+      "de": "Mittwoch in der 10. Woche nach Pfingsten",
       "en": "Feria quarta infra Hebdomadam X post Octavam Pentecostes"
     },
     "officium": "Feria quarta infra Hebdomadam X post Octavam Pentecostes",
@@ -30177,6 +30270,7 @@
     "file": "Pent10-4.txt",
     "id": "tempora/Pent10-4",
     "names": {
+      "de": "Donnerstag in der 10. Woche nach Pfingsten",
       "en": "Feria quinta infra Hebdomadam X post Octavam Pentecostes"
     },
     "officium": "Feria quinta infra Hebdomadam X post Octavam Pentecostes",
@@ -30206,6 +30300,7 @@
     "file": "Pent10-5.txt",
     "id": "tempora/Pent10-5",
     "names": {
+      "de": "Freitag in der 10. Woche nach Pfingsten",
       "en": "Feria sexta infra Hebdomadam X post Octavam Pentecostes"
     },
     "officium": "Feria sexta infra Hebdomadam X post Octavam Pentecostes",
@@ -30235,6 +30330,7 @@
     "file": "Pent10-6.txt",
     "id": "tempora/Pent10-6",
     "names": {
+      "de": "Samstag in der 10. Woche nach Pfingsten",
       "en": "Sabbato infra Hebdomadam X post Octavam Pentecostes"
     },
     "officium": "Sabbato infra Hebdomadam X post Octavam Pentecostes",
@@ -30528,6 +30624,7 @@
     "file": "Pent11-1.txt",
     "id": "tempora/Pent11-1",
     "names": {
+      "de": "Montag in der 11. Woche nach Pfingsten",
       "en": "Feria secunda infra Hebdomadam XI post Octavam Pentecostes"
     },
     "officium": "Feria secunda infra Hebdomadam XI post Octavam Pentecostes",
@@ -30557,6 +30654,7 @@
     "file": "Pent11-2.txt",
     "id": "tempora/Pent11-2",
     "names": {
+      "de": "Dienstag in der 11. Woche nach Pfingsten",
       "en": "Feria tertia infra Hebdomadam XI post Octavam Pentecostes"
     },
     "officium": "Feria tertia infra Hebdomadam XI post Octavam Pentecostes",
@@ -30586,6 +30684,7 @@
     "file": "Pent11-3.txt",
     "id": "tempora/Pent11-3",
     "names": {
+      "de": "Mittwoch in der 11. Woche nach Pfingsten",
       "en": "Feria quarta infra Hebdomadam XI post Octavam Pentecostes"
     },
     "officium": "Feria quarta infra Hebdomadam XI post Octavam Pentecostes",
@@ -30615,6 +30714,7 @@
     "file": "Pent11-4.txt",
     "id": "tempora/Pent11-4",
     "names": {
+      "de": "Donnerstag in der 11. Woche nach Pfingsten",
       "en": "Feria quinta infra Hebdomadam XI post Octavam Pentecostes"
     },
     "officium": "Feria quinta infra Hebdomadam XI post Octavam Pentecostes",
@@ -30644,6 +30744,7 @@
     "file": "Pent11-5.txt",
     "id": "tempora/Pent11-5",
     "names": {
+      "de": "Freitag in der 11. Woche nach Pfingsten",
       "en": "Feria sexta infra Hebdomadam XI post Octavam Pentecostes"
     },
     "officium": "Feria sexta infra Hebdomadam XI post Octavam Pentecostes",
@@ -30673,6 +30774,7 @@
     "file": "Pent11-6.txt",
     "id": "tempora/Pent11-6",
     "names": {
+      "de": "Samstag in der 11. Woche nach Pfingsten",
       "en": "Sabbato infra Hebdomadam XI post Octavam Octavam Pentecostes"
     },
     "officium": "Sabbato infra Hebdomadam XI post Octavam Pentecostes",
@@ -30960,6 +31062,7 @@
     "file": "Pent12-1.txt",
     "id": "tempora/Pent12-1",
     "names": {
+      "de": "Montag in der 12. Woche nach Pfingsten",
       "en": "Feria secunda infra Hebdomadam XII post Octavam Pentecostes"
     },
     "officium": "Feria secunda infra Hebdomadam XII post Octavam Pentecostes",
@@ -30989,6 +31092,7 @@
     "file": "Pent12-2.txt",
     "id": "tempora/Pent12-2",
     "names": {
+      "de": "Dienstag in der 12. Woche nach Pfingsten",
       "en": "Feria Tertia infra Hebdomadam XII post Octavam Pentecostes"
     },
     "officium": "Feria Tertia infra Hebdomadam XII post Octavam Pentecostes",
@@ -31018,6 +31122,7 @@
     "file": "Pent12-3.txt",
     "id": "tempora/Pent12-3",
     "names": {
+      "de": "Mittwoch in der 12. Woche nach Pfingsten",
       "en": "Feria Quarta infra Hebdomadam XII post Octavam Pentecostes"
     },
     "officium": "Feria Quarta infra Hebdomadam XII post Octavam Pentecostes",
@@ -31047,6 +31152,7 @@
     "file": "Pent12-4.txt",
     "id": "tempora/Pent12-4",
     "names": {
+      "de": "Donnerstag in der 12. Woche nach Pfingsten",
       "en": "Feria Quinta infra Hebdomadam XII post Octavam Pentecostes"
     },
     "officium": "Feria Quinta infra Hebdomadam XII post Octavam Pentecostes",
@@ -31076,6 +31182,7 @@
     "file": "Pent12-5.txt",
     "id": "tempora/Pent12-5",
     "names": {
+      "de": "Freitag in der 12. Woche nach Pfingsten",
       "en": "Feria Sexta infra Hebdomadam XII post Octavam Pentecostes"
     },
     "officium": "Feria Sexta infra Hebdomadam XII post Octavam Pentecostes",
@@ -31105,6 +31212,7 @@
     "file": "Pent12-6.txt",
     "id": "tempora/Pent12-6",
     "names": {
+      "de": "Samstag in der 12. Woche nach Pfingsten",
       "en": "Sabbato infra Hebdomadam XII post Octavam Pentecostes"
     },
     "officium": "Sabbato infra Hebdomadam XII post Octavam Pentecostes",
@@ -31393,6 +31501,7 @@
     "file": "Pent13-1.txt",
     "id": "tempora/Pent13-1",
     "names": {
+      "de": "Montag in der 13. Woche nach Pfingsten",
       "en": "Feria Secunda infra Hebdomadam XIII post Octavam Pentecostes"
     },
     "officium": "Feria Secunda infra Hebdomadam XIII post Octavam Pentecostes",
@@ -31422,6 +31531,7 @@
     "file": "Pent13-2.txt",
     "id": "tempora/Pent13-2",
     "names": {
+      "de": "Dienstag in der 13. Woche nach Pfingsten",
       "en": "Feria Tertia infra Hebdomadam XIII post Octavam Pentecostes"
     },
     "officium": "Feria Tertia infra Hebdomadam XIII post Octavam Pentecostes",
@@ -31451,6 +31561,7 @@
     "file": "Pent13-3.txt",
     "id": "tempora/Pent13-3",
     "names": {
+      "de": "Mittwoch in der 13. Woche nach Pfingsten",
       "en": "Feria Quarta infra Hebdomadam XIII post Octavam Pentecostes"
     },
     "officium": "Feria Quarta infra Hebdomadam XIII post Octavam Pentecostes",
@@ -31480,6 +31591,7 @@
     "file": "Pent13-4.txt",
     "id": "tempora/Pent13-4",
     "names": {
+      "de": "Donnerstag in der 13. Woche nach Pfingsten",
       "en": "Feria Quinta infra Hebdomadam XIII post Octavam Pentecostes"
     },
     "officium": "Feria Quinta infra Hebdomadam XIII post Octavam Pentecostes",
@@ -31509,6 +31621,7 @@
     "file": "Pent13-5.txt",
     "id": "tempora/Pent13-5",
     "names": {
+      "de": "Freitag in der 13. Woche nach Pfingsten",
       "en": "Feria Sexta infra Hebdomadam XIII post Octavam Pentecostes"
     },
     "officium": "Feria Sexta infra Hebdomadam XIII post Octavam Pentecostes",
@@ -31538,6 +31651,7 @@
     "file": "Pent13-6.txt",
     "id": "tempora/Pent13-6",
     "names": {
+      "de": "Samstag in der 13. Woche nach Pfingsten",
       "en": "Sabbato infra Hebdomadam XIII post Octavam Pentecostes"
     },
     "officium": "Sabbato infra Hebdomadam XIII post Octavam Pentecostes",
@@ -31827,6 +31941,7 @@
     "file": "Pent14-1.txt",
     "id": "tempora/Pent14-1",
     "names": {
+      "de": "Montag in der 14. Woche nach Pfingsten",
       "en": "Feria Secunda infra Hebdomadam XIV post Octavam Pentecostes"
     },
     "officium": "Feria Secunda infra Hebdomadam XIV post Octavam Pentecostes",
@@ -31856,6 +31971,7 @@
     "file": "Pent14-2.txt",
     "id": "tempora/Pent14-2",
     "names": {
+      "de": "Dienstag in der 14. Woche nach Pfingsten",
       "en": "Feria Tertia infra Hebdomadam XIV post Octavam Pentecostes"
     },
     "officium": "Feria Tertia infra Hebdomadam XIV post Octavam Pentecostes",
@@ -31885,6 +32001,7 @@
     "file": "Pent14-3.txt",
     "id": "tempora/Pent14-3",
     "names": {
+      "de": "Mittwoch in der 14. Woche nach Pfingsten",
       "en": "Feria Quarta infra Hebdomadam XIV post Octavam Pentecostes"
     },
     "officium": "Feria Quarta infra Hebdomadam XIV post Octavam Pentecostes",
@@ -31914,6 +32031,7 @@
     "file": "Pent14-4.txt",
     "id": "tempora/Pent14-4",
     "names": {
+      "de": "Donnerstag in der 14. Woche nach Pfingsten",
       "en": "Feria Quinta infra Hebdomadam XIV post Octavam Pentecostes"
     },
     "officium": "Feria Quinta infra Hebdomadam XIV post Octavam Pentecostes",
@@ -31943,6 +32061,7 @@
     "file": "Pent14-5.txt",
     "id": "tempora/Pent14-5",
     "names": {
+      "de": "Freitag in der 14. Woche nach Pfingsten",
       "en": "Feria Sexta infra Hebdomadam XIV post Octavam Pentecostes"
     },
     "officium": "Feria Sexta infra Hebdomadam XIV post Octavam Pentecostes",
@@ -31972,6 +32091,7 @@
     "file": "Pent14-6.txt",
     "id": "tempora/Pent14-6",
     "names": {
+      "de": "Samstag in der 14. Woche nach Pfingsten",
       "en": "Sabbato infra Hebdomadam XIV post Octavam Pentecostes"
     },
     "officium": "Sabbato infra Hebdomadam XIV post Octavam Pentecostes",
@@ -32248,6 +32368,7 @@
     "file": "Pent15-1.txt",
     "id": "tempora/Pent15-1",
     "names": {
+      "de": "Montag in der 15. Woche nach Pfingsten",
       "en": "Feria Secunda infra Hebdomadam XV post Octavam Pentecostes"
     },
     "officium": "Feria Secunda infra Hebdomadam XV post Octavam Pentecostes",
@@ -32277,6 +32398,7 @@
     "file": "Pent15-2.txt",
     "id": "tempora/Pent15-2",
     "names": {
+      "de": "Dienstag in der 15. Woche nach Pfingsten",
       "en": "Feria Tertia infra Hebdomadam XV post Octavam Pentecostes"
     },
     "officium": "Feria Tertia infra Hebdomadam XV post Octavam Pentecostes",
@@ -32306,6 +32428,7 @@
     "file": "Pent15-3.txt",
     "id": "tempora/Pent15-3",
     "names": {
+      "de": "Mittwoch in der 15. Woche nach Pfingsten",
       "en": "Feria Quarta infra Hebdomadam XV post Octavam Pentecostes"
     },
     "officium": "Feria Quarta infra Hebdomadam XV post Octavam Pentecostes",
@@ -32335,6 +32458,7 @@
     "file": "Pent15-4.txt",
     "id": "tempora/Pent15-4",
     "names": {
+      "de": "Donnerstag in der 15. Woche nach Pfingsten",
       "en": "Feria Quinta infra Hebdomadam XV post Octavam Pentecostes"
     },
     "officium": "Feria Quinta infra Hebdomadam XV post Octavam Pentecostes",
@@ -32364,6 +32488,7 @@
     "file": "Pent15-5.txt",
     "id": "tempora/Pent15-5",
     "names": {
+      "de": "Freitag in der 15. Woche nach Pfingsten",
       "en": "Feria Sexta infra Hebdomadam XV post Octavam Pentecostes"
     },
     "officium": "Feria Sexta infra Hebdomadam XV post Octavam Pentecostes",
@@ -32393,6 +32518,7 @@
     "file": "Pent15-6.txt",
     "id": "tempora/Pent15-6",
     "names": {
+      "de": "Samstag in der 15. Woche nach Pfingsten",
       "en": "Sabbato infra Hebdomadam XV post Octavam Pentecostes"
     },
     "officium": "Sabbato infra Hebdomadam XV post Octavam Pentecostes",
@@ -32681,6 +32807,7 @@
     "file": "Pent16-1.txt",
     "id": "tempora/Pent16-1",
     "names": {
+      "de": "Montag in der 16. Woche nach Pfingsten",
       "en": "Feria Secunda infra Hebdomadam XVI post Octavam Pentecostes"
     },
     "officium": "Feria Secunda infra Hebdomadam XVI post Octavam Pentecostes",
@@ -32710,6 +32837,7 @@
     "file": "Pent16-2.txt",
     "id": "tempora/Pent16-2",
     "names": {
+      "de": "Dienstag in der 16. Woche nach Pfingsten",
       "en": "Feria Tertia infra Hebdomadam XVI post Octavam Pentecostes"
     },
     "officium": "Feria Tertia infra Hebdomadam XVI post Octavam Pentecostes",
@@ -32739,6 +32867,7 @@
     "file": "Pent16-3.txt",
     "id": "tempora/Pent16-3",
     "names": {
+      "de": "Mittwoch in der 16. Woche nach Pfingsten",
       "en": "Feria Quarta infra Hebdomadam XVI post Octavam Pentecostes"
     },
     "officium": "Feria Quarta infra Hebdomadam XVI post Octavam Pentecostes",
@@ -32768,6 +32897,7 @@
     "file": "Pent16-4.txt",
     "id": "tempora/Pent16-4",
     "names": {
+      "de": "Donnerstag in der 16. Woche nach Pfingsten",
       "en": "Feria Quinta infra Hebdomadam XVI post Octavam Pentecostes"
     },
     "officium": "Feria Quinta infra Hebdomadam XVI post Octavam Pentecostes",
@@ -32797,6 +32927,7 @@
     "file": "Pent16-5.txt",
     "id": "tempora/Pent16-5",
     "names": {
+      "de": "Freitag in der 16. Woche nach Pfingsten",
       "en": "Feria Sexta infra Hebdomadam XVI post Octavam Pentecostes"
     },
     "officium": "Feria Sexta infra Hebdomadam XVI post Octavam Pentecostes",
@@ -32826,6 +32957,7 @@
     "file": "Pent16-6.txt",
     "id": "tempora/Pent16-6",
     "names": {
+      "de": "Samstag in der 16. Woche nach Pfingsten",
       "en": "Sabbato infra Hebdomadam XVI post Octavam Pentecostes"
     },
     "officium": "Sabbato infra Hebdomadam XVI post Octavam Pentecostes",
@@ -33111,6 +33243,7 @@
     "file": "Pent17-1.txt",
     "id": "tempora/Pent17-1",
     "names": {
+      "de": "Montag in der 17. Woche nach Pfingsten",
       "en": "Feria Secunda infra Hebdomadam XVII post Octavam Pentecostes"
     },
     "officium": "Feria Secunda infra Hebdomadam XVII post Octavam Pentecostes",
@@ -33140,6 +33273,7 @@
     "file": "Pent17-2.txt",
     "id": "tempora/Pent17-2",
     "names": {
+      "de": "Dienstag in der 17. Woche nach Pfingsten",
       "en": "Feria Tertia infra Hebdomadam XVII post Octavam Pentecostes"
     },
     "officium": "Feria Tertia infra Hebdomadam XVII post Octavam Pentecostes",
@@ -33169,6 +33303,7 @@
     "file": "Pent17-3.txt",
     "id": "tempora/Pent17-3",
     "names": {
+      "de": "Mittwoch in der 17. Woche nach Pfingsten",
       "en": "Feria Quarta infra Hebdomadam XVII post Octavam Pentecostes"
     },
     "officium": "Feria Quarta infra Hebdomadam XVII post Octavam Pentecostes",
@@ -33198,6 +33333,7 @@
     "file": "Pent17-4.txt",
     "id": "tempora/Pent17-4",
     "names": {
+      "de": "Donnerstag in der 17. Woche nach Pfingsten",
       "en": "Feria Quinta infra Hebdomadam XVII post Octavam Pentecostes"
     },
     "officium": "Feria Quinta infra Hebdomadam XVII post Octavam Pentecostes",
@@ -33227,6 +33363,7 @@
     "file": "Pent17-5.txt",
     "id": "tempora/Pent17-5",
     "names": {
+      "de": "Freitag in der 17. Woche nach Pfingsten",
       "en": "Feria Sexta infra Hebdomadam XVII post Octavam Pentecostes"
     },
     "officium": "Feria Sexta infra Hebdomadam XVII post Octavam Pentecostes",
@@ -33256,6 +33393,7 @@
     "file": "Pent17-6.txt",
     "id": "tempora/Pent17-6",
     "names": {
+      "de": "Samstag in der 17. Woche nach Pfingsten",
       "en": "Sabbato infra Hebdomadam XVII post Octavam Pentecostes"
     },
     "officium": "Sabbato infra Hebdomadam XVII post Octavam Pentecostes",
@@ -33544,6 +33682,7 @@
     "file": "Pent18-1.txt",
     "id": "tempora/Pent18-1",
     "names": {
+      "de": "Montag in der 18. Woche nach Pfingsten",
       "en": "Feria Secunda infra Hebdomadam XVIII post Octavam Pentecostes"
     },
     "officium": "Feria Secunda infra Hebdomadam XVIII post Octavam Pentecostes",
@@ -33573,6 +33712,7 @@
     "file": "Pent18-2.txt",
     "id": "tempora/Pent18-2",
     "names": {
+      "de": "Dienstag in der 18. Woche nach Pfingsten",
       "en": "Feria Tertia infra Hebdomadam XVIII post Octavam Pentecostes"
     },
     "officium": "Feria Tertia infra Hebdomadam XVIII post Octavam Pentecostes",
@@ -33602,6 +33742,7 @@
     "file": "Pent18-3.txt",
     "id": "tempora/Pent18-3",
     "names": {
+      "de": "Mittwoch in der 18. Woche nach Pfingsten",
       "en": "Feria Quarta infra Hebdomadam XVIII post Octavam Pentecostes"
     },
     "officium": "Feria Quarta infra Hebdomadam XVIII post Octavam Pentecostes",
@@ -33631,6 +33772,7 @@
     "file": "Pent18-4.txt",
     "id": "tempora/Pent18-4",
     "names": {
+      "de": "Donnerstag in der 18. Woche nach Pfingsten",
       "en": "Feria Quinta infra Hebdomadam XVIII post Octavam Pentecostes"
     },
     "officium": "Feria Quinta infra Hebdomadam XVIII post Octavam Pentecostes",
@@ -33660,6 +33802,7 @@
     "file": "Pent18-5.txt",
     "id": "tempora/Pent18-5",
     "names": {
+      "de": "Freitag in der 18. Woche nach Pfingsten",
       "en": "Feria Sexta infra Hebdomadam XVIII post Octavam Pentecostes"
     },
     "officium": "Feria Sexta infra Hebdomadam XVIII post Octavam Pentecostes",
@@ -33688,6 +33831,7 @@
     "file": "Pent18-6.txt",
     "id": "tempora/Pent18-6",
     "names": {
+      "de": "Samstag in der 18. Woche nach Pfingsten",
       "en": "Sabbato infra Hebdomadam XVIII post Octavam Pentecostes"
     },
     "officium": "Sabbato infra Hebdomadam XVIII post Octavam Pentecostes",
@@ -33972,6 +34116,7 @@
     "file": "Pent19-1.txt",
     "id": "tempora/Pent19-1",
     "names": {
+      "de": "Montag in der 19. Woche nach Pfingsten",
       "en": "Feria Secunda infra Hebdomadam XIX post Octavam Pentecostes"
     },
     "officium": "Feria Secunda infra Hebdomadam XIX post Octavam Pentecostes",
@@ -34001,6 +34146,7 @@
     "file": "Pent19-2.txt",
     "id": "tempora/Pent19-2",
     "names": {
+      "de": "Dienstag in der 19. Woche nach Pfingsten",
       "en": "Feria Tertia infra Hebdomadam XIX post Octavam Pentecostes"
     },
     "officium": "Feria Tertia infra Hebdomadam XIX post Octavam Pentecostes",
@@ -34030,6 +34176,7 @@
     "file": "Pent19-3.txt",
     "id": "tempora/Pent19-3",
     "names": {
+      "de": "Mittwoch in der 19. Woche nach Pfingsten",
       "en": "Feria Quarta infra Hebdomadam XIX post Octavam Pentecostes"
     },
     "officium": "Feria Quarta infra Hebdomadam XIX post Octavam Pentecostes",
@@ -34059,6 +34206,7 @@
     "file": "Pent19-4.txt",
     "id": "tempora/Pent19-4",
     "names": {
+      "de": "Donnerstag in der 19. Woche nach Pfingsten",
       "en": "Feria Quinta infra Hebdomadam XIX post Octavam Pentecostes"
     },
     "officium": "Feria Quinta infra Hebdomadam XIX post Octavam Pentecostes",
@@ -34088,6 +34236,7 @@
     "file": "Pent19-5.txt",
     "id": "tempora/Pent19-5",
     "names": {
+      "de": "Freitag in der 19. Woche nach Pfingsten",
       "en": "Feria Sexta infra Hebdomadam XIX post Octavam Pentecostes"
     },
     "officium": "Feria Sexta infra Hebdomadam XIX post Octavam Pentecostes",
@@ -34117,6 +34266,7 @@
     "file": "Pent19-6.txt",
     "id": "tempora/Pent19-6",
     "names": {
+      "de": "Samstag in der 19. Woche nach Pfingsten",
       "en": "Sabbato infra Hebdomadam XIX post Octavam Pentecostes"
     },
     "officium": "Sabbato infra Hebdomadam XIX post Octavam Pentecostes",
@@ -34402,6 +34552,7 @@
     "file": "Pent20-1.txt",
     "id": "tempora/Pent20-1",
     "names": {
+      "de": "Montag in der 20. Woche nach Pfingsten",
       "en": "Feria Secunda infra Hebdomadam XX post Octavam Pentecostes"
     },
     "officium": "Feria Secunda infra Hebdomadam XX post Octavam Pentecostes",
@@ -34431,6 +34582,7 @@
     "file": "Pent20-2.txt",
     "id": "tempora/Pent20-2",
     "names": {
+      "de": "Dienstag in der 20. Woche nach Pfingsten",
       "en": "Feria Tertia infra Hebdomadam XX post Octavam Pentecostes"
     },
     "officium": "Feria Tertia infra Hebdomadam XX post Octavam Pentecostes",
@@ -34460,6 +34612,7 @@
     "file": "Pent20-3.txt",
     "id": "tempora/Pent20-3",
     "names": {
+      "de": "Mittwoch in der 20. Woche nach Pfingsten",
       "en": "Feria Quarta infra Hebdomadam XX post Octavam Pentecostes"
     },
     "officium": "Feria Quarta infra Hebdomadam XX post Octavam Pentecostes",
@@ -34489,6 +34642,7 @@
     "file": "Pent20-4.txt",
     "id": "tempora/Pent20-4",
     "names": {
+      "de": "Donnerstag in der 20. Woche nach Pfingsten",
       "en": "Feria Quinta infra Hebdomadam XX post Octavam Pentecostes"
     },
     "officium": "Feria Quinta infra Hebdomadam XX post Octavam Pentecostes",
@@ -34518,6 +34672,7 @@
     "file": "Pent20-5.txt",
     "id": "tempora/Pent20-5",
     "names": {
+      "de": "Freitag in der 20. Woche nach Pfingsten",
       "en": "Feria Sexta infra Hebdomadam XX post Octavam Pentecostes"
     },
     "officium": "Feria Sexta infra Hebdomadam XX post Octavam Pentecostes",
@@ -34547,6 +34702,7 @@
     "file": "Pent20-6.txt",
     "id": "tempora/Pent20-6",
     "names": {
+      "de": "Samstag in der 20. Woche nach Pfingsten",
       "en": "Sabbato infra Hebdomadam XX post Octavam Pentecostes"
     },
     "officium": "Sabbato infra Hebdomadam XX post Octavam Pentecostes",
@@ -34844,6 +35000,7 @@
     "file": "Pent21-1.txt",
     "id": "tempora/Pent21-1",
     "names": {
+      "de": "Montag in der 21. Woche nach Pfingsten",
       "en": "Feria Secunda infra Hebdomadam XXI post Octavam Pentecostes"
     },
     "officium": "Feria Secunda infra Hebdomadam XXI post Octavam Pentecostes",
@@ -34873,6 +35030,7 @@
     "file": "Pent21-2.txt",
     "id": "tempora/Pent21-2",
     "names": {
+      "de": "Dienstag in der 21. Woche nach Pfingsten",
       "en": "Feria Tertia infra Hebdomadam XXI post Octavam Pentecostes"
     },
     "officium": "Feria Tertia infra Hebdomadam XXI post Octavam Pentecostes",
@@ -34902,6 +35060,7 @@
     "file": "Pent21-3.txt",
     "id": "tempora/Pent21-3",
     "names": {
+      "de": "Mittwoch in der 21. Woche nach Pfingsten",
       "en": "Feria Quarta infra Hebdomadam XXI post Octavam Pentecostes"
     },
     "officium": "Feria Quarta infra Hebdomadam XXI post Octavam Pentecostes",
@@ -34931,6 +35090,7 @@
     "file": "Pent21-4.txt",
     "id": "tempora/Pent21-4",
     "names": {
+      "de": "Donnerstag in der 21. Woche nach Pfingsten",
       "en": "Feria Quinta infra Hebdomadam XXI post Octavam Pentecostes"
     },
     "officium": "Feria Quinta infra Hebdomadam XXI post Octavam Pentecostes",
@@ -34960,6 +35120,7 @@
     "file": "Pent21-5.txt",
     "id": "tempora/Pent21-5",
     "names": {
+      "de": "Freitag in der 21. Woche nach Pfingsten",
       "en": "Feria Sexta infra Hebdomadam XXI post Octavam Pentecostes"
     },
     "officium": "Feria Sexta infra Hebdomadam XXI post Octavam Pentecostes",
@@ -34989,6 +35150,7 @@
     "file": "Pent21-6.txt",
     "id": "tempora/Pent21-6",
     "names": {
+      "de": "Samstag in der 21. Woche nach Pfingsten",
       "en": "Sabbato infra Hebdomadam XXI post Octavam Pentecostes"
     },
     "officium": "Sabbato infra Hebdomadam XXI post Octavam Pentecostes",
@@ -35291,6 +35453,7 @@
     "file": "Pent22-1.txt",
     "id": "tempora/Pent22-1",
     "names": {
+      "de": "Montag in der 22. Woche nach Pfingsten",
       "en": "Feria Secunda infra Hebdomadam XXII post Octavam Pentecostes"
     },
     "officium": "Feria Secunda infra Hebdomadam XXII post Octavam Pentecostes",
@@ -35320,6 +35483,7 @@
     "file": "Pent22-2.txt",
     "id": "tempora/Pent22-2",
     "names": {
+      "de": "Dienstag in der 22. Woche nach Pfingsten",
       "en": "Feria Tertia infra Hebdomadam XXII post Octavam Pentecostes"
     },
     "officium": "Feria Tertia infra Hebdomadam XXII post Octavam Pentecostes",
@@ -35349,6 +35513,7 @@
     "file": "Pent22-3.txt",
     "id": "tempora/Pent22-3",
     "names": {
+      "de": "Mittwoch in der 22. Woche nach Pfingsten",
       "en": "Feria Quarta infra Hebdomadam XXII post Octavam Pentecostes"
     },
     "officium": "Feria Quarta infra Hebdomadam XXII post Octavam Pentecostes",
@@ -35378,6 +35543,7 @@
     "file": "Pent22-4.txt",
     "id": "tempora/Pent22-4",
     "names": {
+      "de": "Donnerstag in der 22. Woche nach Pfingsten",
       "en": "Feria Quinta infra Hebdomadam XXII post Octavam Pentecostes"
     },
     "officium": "Feria Quinta infra Hebdomadam XXII post Octavam Pentecostes",
@@ -35407,6 +35573,7 @@
     "file": "Pent22-5.txt",
     "id": "tempora/Pent22-5",
     "names": {
+      "de": "Freitag in der 22. Woche nach Pfingsten",
       "en": "Feria Sexta infra Hebdomadam XXII post Octavam Pentecostes"
     },
     "officium": "Feria Sexta infra Hebdomadam XXII post Octavam Pentecostes",
@@ -35436,6 +35603,7 @@
     "file": "Pent22-6.txt",
     "id": "tempora/Pent22-6",
     "names": {
+      "de": "Samstag in der 22. Woche nach Pfingsten",
       "en": "Sabbato infra Hebdomadam XXII post Octavam Pentecostes"
     },
     "officium": "Sabbato infra Hebdomadam XXII post Octavam Pentecostes",
@@ -35751,6 +35919,7 @@
     "file": "Pent23-1.txt",
     "id": "tempora/Pent23-1",
     "names": {
+      "de": "Montag in der 23. Woche nach Pfingsten",
       "en": "Feria Secunda infra Hebdomadam XXIII post Octavam Pentecostes"
     },
     "officium": "Feria Secunda infra Hebdomadam XXIII post Octavam Pentecostes",
@@ -35780,6 +35949,7 @@
     "file": "Pent23-2.txt",
     "id": "tempora/Pent23-2",
     "names": {
+      "de": "Dienstag in der 23. Woche nach Pfingsten",
       "en": "Feria Tertia infra Hebdomadam XXIII post Octavam Pentecostes"
     },
     "officium": "Feria Tertia infra Hebdomadam XXIII post Octavam Pentecostes",
@@ -35809,6 +35979,7 @@
     "file": "Pent23-3.txt",
     "id": "tempora/Pent23-3",
     "names": {
+      "de": "Mittwoch in der 23. Woche nach Pfingsten",
       "en": "Feria Quarta infra Hebdomadam XXIII post Octavam Pentecostes"
     },
     "officium": "Feria Quarta infra Hebdomadam XXIII post Octavam Pentecostes",
@@ -35838,6 +36009,7 @@
     "file": "Pent23-4.txt",
     "id": "tempora/Pent23-4",
     "names": {
+      "de": "Donnerstag in der 23. Woche nach Pfingsten",
       "en": "Feria Quinta infra Hebdomadam XXIII post Octavam Pentecostes"
     },
     "officium": "Feria Quinta infra Hebdomadam XXIII post Octavam Pentecostes",
@@ -35867,6 +36039,7 @@
     "file": "Pent23-5.txt",
     "id": "tempora/Pent23-5",
     "names": {
+      "de": "Freitag in der 23. Woche nach Pfingsten",
       "en": "Feria Sexta infra Hebdomadam XXIII post Octavam Pentecostes"
     },
     "officium": "Feria Sexta infra Hebdomadam XXIII post Octavam Pentecostes",
@@ -35896,6 +36069,7 @@
     "file": "Pent23-6.txt",
     "id": "tempora/Pent23-6",
     "names": {
+      "de": "Samstag in der 23. Woche nach Pfingsten",
       "en": "Sabbato infra Hebdomadam XXIII post Octavam Pentecostes"
     },
     "officium": "Sabbato infra Hebdomadam XXIII post Octavam Pentecostes",
@@ -36061,6 +36235,7 @@
     "file": "Pent24-1.txt",
     "id": "tempora/Pent24-1",
     "names": {
+      "de": "Montag in der 24. Woche nach Pfingsten",
       "en": "Feria Secunda infra Hebdomadam XXIV post Octavam Pentecostes"
     },
     "officium": "Feria Secunda infra Hebdomadam XXIV post Octavam Pentecostes",
@@ -36090,6 +36265,7 @@
     "file": "Pent24-2.txt",
     "id": "tempora/Pent24-2",
     "names": {
+      "de": "Dienstag in der 24. Woche nach Pfingsten",
       "en": "Feria Tertia infra Hebdomadam XXIV post Octavam Pentecostes"
     },
     "officium": "Feria Tertia infra Hebdomadam XXIV post Octavam Pentecostes",
@@ -36119,6 +36295,7 @@
     "file": "Pent24-3.txt",
     "id": "tempora/Pent24-3",
     "names": {
+      "de": "Mittwoch in der 24. Woche nach Pfingsten",
       "en": "Feria Quarta infra Hebdomadam XXIV post Octavam Pentecostes"
     },
     "officium": "Feria Quarta infra Hebdomadam XXIV post Octavam Pentecostes",
@@ -36148,6 +36325,7 @@
     "file": "Pent24-4.txt",
     "id": "tempora/Pent24-4",
     "names": {
+      "de": "Donnerstag in der 24. Woche nach Pfingsten",
       "en": "Feria Quinta infra Hebdomadam XXIV post Octavam Pentecostes"
     },
     "officium": "Feria Quinta infra Hebdomadam XXIV post Octavam Pentecostes",
@@ -36177,6 +36355,7 @@
     "file": "Pent24-5.txt",
     "id": "tempora/Pent24-5",
     "names": {
+      "de": "Freitag in der 24. Woche nach Pfingsten",
       "en": "Feria Sexta infra Hebdomadam XXIV post Octavam Pentecostes"
     },
     "officium": "Feria Sexta infra Hebdomadam XXIV post Octavam Pentecostes",
@@ -36206,6 +36385,7 @@
     "file": "Pent24-6.txt",
     "id": "tempora/Pent24-6",
     "names": {
+      "de": "Samstag in der 24. Woche nach Pfingsten",
       "en": "Sabbato infra Hebdomadam XXIV post Octavam Pentecostes"
     },
     "officium": "Sabbato infra Hebdomadam XXIV post Octavam Pentecostes",
@@ -36234,6 +36414,9 @@
     ],
     "file": "PentEpi3-0.txt",
     "id": "tempora/PentEpi3-0",
+    "names": {
+      "de": "3. wiederaufgenommener Sonntag nach Erscheinung des Herrn"
+    },
     "officium": "Dominica III quæ superfuit Post Epiphaniam",
     "rank": {
       "class1962": 2,
@@ -36295,6 +36478,9 @@
     ],
     "file": "PentEpi3-1.txt",
     "id": "tempora/PentEpi3-1",
+    "names": {
+      "de": "Montag in der 3. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+    },
     "officium": "Feria II infra Hebdomadam III quæ superfuit post Epiphaniam",
     "rank": {
       "class1962": 4,
@@ -36321,6 +36507,9 @@
     ],
     "file": "PentEpi3-2.txt",
     "id": "tempora/PentEpi3-2",
+    "names": {
+      "de": "Dienstag in der 3. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+    },
     "officium": "Feria III infra Hebdomadam III quæ superfuit post Epiphaniam",
     "rank": {
       "class1962": 4,
@@ -36347,6 +36536,9 @@
     ],
     "file": "PentEpi3-3.txt",
     "id": "tempora/PentEpi3-3",
+    "names": {
+      "de": "Mittwoch in der 3. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+    },
     "officium": "Feria IV infra Hebdomadam III quæ superfuit post Epiphaniam",
     "rank": {
       "class1962": 4,
@@ -36373,6 +36565,9 @@
     ],
     "file": "PentEpi3-4.txt",
     "id": "tempora/PentEpi3-4",
+    "names": {
+      "de": "Donnerstag in der 3. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+    },
     "officium": "Feria V infra Hebdomadam III quæ superfuit post Epiphaniam",
     "rank": {
       "class1962": 4,
@@ -36399,6 +36594,9 @@
     ],
     "file": "PentEpi3-5.txt",
     "id": "tempora/PentEpi3-5",
+    "names": {
+      "de": "Freitag in der 3. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+    },
     "officium": "Feria VI infra Hebdomadam III quæ superfuit post Epiphaniam",
     "rank": {
       "class1962": 4,
@@ -36425,6 +36623,9 @@
     ],
     "file": "PentEpi3-6.txt",
     "id": "tempora/PentEpi3-6",
+    "names": {
+      "de": "Samstag in der 3. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+    },
     "officium": "Sabbato infra Hebdomadam III quæ superfuit post Epiphaniam",
     "rank": {
       "class1962": 4,
@@ -36451,6 +36652,9 @@
     ],
     "file": "PentEpi4-0.txt",
     "id": "tempora/PentEpi4-0",
+    "names": {
+      "de": "4. wiederaufgenommener Sonntag nach Erscheinung des Herrn"
+    },
     "officium": "Dominica IV quæ superfuit Post Epiphaniam",
     "rank": {
       "class1962": 2,
@@ -36512,6 +36716,9 @@
     ],
     "file": "PentEpi4-1.txt",
     "id": "tempora/PentEpi4-1",
+    "names": {
+      "de": "Montag in der 4. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+    },
     "officium": "Feria Secunda infra Hebdomadam IV quæ superfuit post Epiiphaniam",
     "rank": {
       "class1962": 4,
@@ -36538,6 +36745,9 @@
     ],
     "file": "PentEpi4-2.txt",
     "id": "tempora/PentEpi4-2",
+    "names": {
+      "de": "Dienstag in der 4. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+    },
     "officium": "Feria Tertia infra Hebdomadam IV quæ superfuit post Epiphaniam",
     "rank": {
       "class1962": 4,
@@ -36564,6 +36774,9 @@
     ],
     "file": "PentEpi4-3.txt",
     "id": "tempora/PentEpi4-3",
+    "names": {
+      "de": "Mittwoch in der 4. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+    },
     "officium": "Feria IV infra Hebdomadam IV quæ superfuit post Epiphaniam",
     "rank": {
       "class1962": 4,
@@ -36590,6 +36803,9 @@
     ],
     "file": "PentEpi4-4.txt",
     "id": "tempora/PentEpi4-4",
+    "names": {
+      "de": "Donnerstag in der 4. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+    },
     "officium": "Feria V infra Hebdomadam IV quæ superfuit post Epiphaniam",
     "rank": {
       "class1962": 4,
@@ -36616,6 +36832,9 @@
     ],
     "file": "PentEpi4-5.txt",
     "id": "tempora/PentEpi4-5",
+    "names": {
+      "de": "Freitag in der 4. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+    },
     "officium": "Feria VI infra Hebdomadam IV quæ superfuit post Epiphaniam",
     "rank": {
       "class1962": 4,
@@ -36642,6 +36861,9 @@
     ],
     "file": "PentEpi4-6.txt",
     "id": "tempora/PentEpi4-6",
+    "names": {
+      "de": "Samstag in der 4. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+    },
     "officium": "Sabbato infra Hebdomadam IV quæ superfuit post Epiphaniam",
     "rank": {
       "class1962": 4,
@@ -36668,6 +36890,9 @@
     ],
     "file": "PentEpi5-0.txt",
     "id": "tempora/PentEpi5-0",
+    "names": {
+      "de": "5. wiederaufgenommener Sonntag nach Erscheinung des Herrn"
+    },
     "officium": "Dominica V quæ superfuit Post Epiphaniam",
     "rank": {
       "class1962": 2,
@@ -36729,6 +36954,9 @@
     ],
     "file": "PentEpi5-1.txt",
     "id": "tempora/PentEpi5-1",
+    "names": {
+      "de": "Montag in der 5. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+    },
     "officium": "Feria II infra Hebdomadam V quæ superfuit post Epiphaniam",
     "rank": {
       "class1962": 4,
@@ -36755,6 +36983,9 @@
     ],
     "file": "PentEpi5-2.txt",
     "id": "tempora/PentEpi5-2",
+    "names": {
+      "de": "Dienstag in der 5. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+    },
     "officium": "Feria III infra Hebdomadam V quæ superfuit post Epiphaniam",
     "rank": {
       "class1962": 4,
@@ -36781,6 +37012,9 @@
     ],
     "file": "PentEpi5-3.txt",
     "id": "tempora/PentEpi5-3",
+    "names": {
+      "de": "Mittwoch in der 5. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+    },
     "officium": "Feria IV infra Hebdomadam V quæ superfuit post Epiphaniam",
     "rank": {
       "class1962": 4,
@@ -36807,6 +37041,9 @@
     ],
     "file": "PentEpi5-4.txt",
     "id": "tempora/PentEpi5-4",
+    "names": {
+      "de": "Donnerstag in der 5. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+    },
     "officium": "Feria V infra Hebdomadam V quæ superfuit post Epiphaniam",
     "rank": {
       "class1962": 4,
@@ -36833,6 +37070,9 @@
     ],
     "file": "PentEpi5-5.txt",
     "id": "tempora/PentEpi5-5",
+    "names": {
+      "de": "Freitag in der 5. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+    },
     "officium": "Feria VI infra Hebdomadam V quæ superfuit post Epiphaniam",
     "rank": {
       "class1962": 4,
@@ -36859,6 +37099,9 @@
     ],
     "file": "PentEpi5-6.txt",
     "id": "tempora/PentEpi5-6",
+    "names": {
+      "de": "Samstag in der 5. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+    },
     "officium": "Sabbato infra Hebdomadam V quæ superfuit post Epiphaniam",
     "rank": {
       "class1962": 4,
@@ -36885,6 +37128,9 @@
     ],
     "file": "PentEpi6-0.txt",
     "id": "tempora/PentEpi6-0",
+    "names": {
+      "de": "6. wiederaufgenommener Sonntag nach Erscheinung des Herrn"
+    },
     "officium": "Dominica VI quæ superfuit Post Epiphaniam",
     "rank": {
       "class1962": 2,
@@ -36946,6 +37192,9 @@
     ],
     "file": "PentEpi6-1.txt",
     "id": "tempora/PentEpi6-1",
+    "names": {
+      "de": "Montag in der 6. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+    },
     "officium": "Feria II infra Hebdomadam VI quæ superfuit post Epiphaniam",
     "rank": {
       "class1962": 4,
@@ -36972,6 +37221,9 @@
     ],
     "file": "PentEpi6-2.txt",
     "id": "tempora/PentEpi6-2",
+    "names": {
+      "de": "Dienstag in der 6. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+    },
     "officium": "Feria III infra Hebdomadam VI quæ superfuit post Epiphaniam",
     "rank": {
       "class1962": 4,
@@ -36998,6 +37250,9 @@
     ],
     "file": "PentEpi6-3.txt",
     "id": "tempora/PentEpi6-3",
+    "names": {
+      "de": "Mittwoch in der 6. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+    },
     "officium": "Feria IV infra Hebdomadam VI quæ superfuit post Epiphaniam",
     "rank": {
       "class1962": 4,
@@ -37024,6 +37279,9 @@
     ],
     "file": "PentEpi6-4.txt",
     "id": "tempora/PentEpi6-4",
+    "names": {
+      "de": "Donnerstag in der 6. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+    },
     "officium": "Feria V infra Hebdomadam VI quæ superfuit post Epiphaniam",
     "rank": {
       "class1962": 4,
@@ -37050,6 +37308,9 @@
     ],
     "file": "PentEpi6-5.txt",
     "id": "tempora/PentEpi6-5",
+    "names": {
+      "de": "Freitag in der 6. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+    },
     "officium": "Feria VI infra Hebdomadam VI quæ superfuit post Epiphaniam",
     "rank": {
       "class1962": 4,
@@ -37076,6 +37337,9 @@
     ],
     "file": "PentEpi6-6.txt",
     "id": "tempora/PentEpi6-6",
+    "names": {
+      "de": "Samstag in der 6. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+    },
     "officium": "Sabbato infra Hebdomadam VI quæ superfuit post Epiphaniam",
     "rank": {
       "class1962": 4,
@@ -37512,6 +37776,7 @@
     "file": "Quad1-1.txt",
     "id": "tempora/Quad1-1",
     "names": {
+      "de": "Montag in der 1. Fastenwoche",
       "en": "Feria Secunda infra Hebdomadam I in Quadragesima"
     },
     "officium": "Feria Secunda infra Hebdomadam I in Quadragesima",
@@ -37846,6 +38111,7 @@
     "file": "Quad1-2.txt",
     "id": "tempora/Quad1-2",
     "names": {
+      "de": "Dienstag in der 1. Fastenwoche",
       "en": "Feria Tertia infra Hebdomadam I in Quadragesima"
     },
     "officium": "Feria Tertia infra Hebdomadam I in Quadragesima",
@@ -38500,6 +38766,7 @@
     "file": "Quad1-4.txt",
     "id": "tempora/Quad1-4",
     "names": {
+      "de": "Donnerstag in der 1. Fastenwoche",
       "en": "Feria Quinta infra Hebdomadam I in Quadragesima"
     },
     "officium": "Feria Quinta infra Hebdomadam I in Quadragesima",
@@ -40021,6 +40288,7 @@
     "file": "Quad2-1.txt",
     "id": "tempora/Quad2-1",
     "names": {
+      "de": "Montag in der 2. Fastenwoche",
       "en": "Feria Secunda infra Hebdomadam II in Quadragesima"
     },
     "officium": "Feria Secunda infra Hebdomadam II in Quadragesima",
@@ -40354,6 +40622,7 @@
     "file": "Quad2-2.txt",
     "id": "tempora/Quad2-2",
     "names": {
+      "de": "Dienstag in der 2. Fastenwoche",
       "en": "Feria Tertia infra Hebdomadam II in Quadragesima"
     },
     "officium": "Feria Tertia infra Hebdomadam II in Quadragesima",
@@ -40639,6 +40908,7 @@
     "file": "Quad2-3.txt",
     "id": "tempora/Quad2-3",
     "names": {
+      "de": "Mittwoch in der 2. Fastenwoche",
       "en": "Feria Quarta infra Hebdomadam II in Quadragesima"
     },
     "officium": "Feria Quarta infra Hebdomadam II in Quadragesima",
@@ -40972,6 +41242,7 @@
     "file": "Quad2-4.txt",
     "id": "tempora/Quad2-4",
     "names": {
+      "de": "Donnerstag in der 2. Fastenwoche",
       "en": "Feria Quinta infra Hebdomadam II in Quadragesima"
     },
     "officium": "Feria Quinta infra Hebdomadam II in Quadragesima",
@@ -41249,6 +41520,7 @@
     "file": "Quad2-5.txt",
     "id": "tempora/Quad2-5",
     "names": {
+      "de": "Freitag in der 2. Fastenwoche",
       "en": "Feria Sexta infra Hebdomadam II in Quadragesima"
     },
     "officium": "Feria Sexta infra Hebdomadam II in Quadragesima",
@@ -41579,6 +41851,7 @@
     "file": "Quad2-6.txt",
     "id": "tempora/Quad2-6",
     "names": {
+      "de": "Samstag in der 2. Fastenwoche",
       "en": "Sabbato infra Hebdomadam II in Quadragesima"
     },
     "officium": "Sabbato infra Hebdomadam II in Quadragesima",
@@ -42153,6 +42426,7 @@
     "file": "Quad3-1.txt",
     "id": "tempora/Quad3-1",
     "names": {
+      "de": "Montag in der 3. Fastenwoche",
       "en": "Feria Secunda infra Hebdomadam III in Quadragesima"
     },
     "officium": "Feria Secunda infra Hebdomadam III in Quadragesima",
@@ -42487,6 +42761,7 @@
     "file": "Quad3-2.txt",
     "id": "tempora/Quad3-2",
     "names": {
+      "de": "Dienstag in der 3. Fastenwoche",
       "en": "Feria Tertia infra Hebdomadam III in Quadragesima"
     },
     "officium": "Feria Tertia infra Hebdomadam III in Quadragesima",
@@ -42773,6 +43048,7 @@
     "file": "Quad3-3.txt",
     "id": "tempora/Quad3-3",
     "names": {
+      "de": "Mittwoch in der 3. Fastenwoche",
       "en": "Feria Quarta infra Hebdomadam III in Quadragesima"
     },
     "officium": "Feria Quarta infra Hebdomadam III in Quadragesima",
@@ -43446,6 +43722,7 @@
     "file": "Quad3-4.txt",
     "id": "tempora/Quad3-4",
     "names": {
+      "de": "Donnerstag in der 3. Fastenwoche",
       "en": "Feria Quinta infra Hebdomadam III in Quadragesima"
     },
     "officium": "Feria Quinta infra Hebdomadam III in Quadragesima",
@@ -44003,6 +44280,7 @@
     "file": "Quad3-5.txt",
     "id": "tempora/Quad3-5",
     "names": {
+      "de": "Freitag in der 3. Fastenwoche",
       "en": "Feria Sexta infra Hebdomadam III in Quadragesima"
     },
     "officium": "Feria Sexta infra Hebdomadam III in Quadragesima",
@@ -44679,6 +44957,7 @@
     "file": "Quad3-6.txt",
     "id": "tempora/Quad3-6",
     "names": {
+      "de": "Samstag in der 3. Fastenwoche",
       "en": "Sabbato infra Hebdomadam III in Quadragesima"
     },
     "officium": "Sabbato infra Hebdomadam III in Quadragesima",
@@ -45791,6 +46070,7 @@
     "file": "Quad4-1.txt",
     "id": "tempora/Quad4-1",
     "names": {
+      "de": "Montag in der 4. Fastenwoche",
       "en": "Feria Secunda infra Hebdomadam IV in Quadragesima"
     },
     "officium": "Feria Secunda infra Hebdomadam IV in Quadragesima",
@@ -46129,6 +46409,7 @@
     "file": "Quad4-2.txt",
     "id": "tempora/Quad4-2",
     "names": {
+      "de": "Dienstag in der 4. Fastenwoche",
       "en": "Feria Tertia infra Hebdomadam IV in Quadragesima"
     },
     "officium": "Feria Tertia infra Hebdomadam IV in Quadragesima",
@@ -46673,6 +46954,7 @@
     "file": "Quad4-3.txt",
     "id": "tempora/Quad4-3",
     "names": {
+      "de": "Mittwoch in der 4. Fastenwoche",
       "en": "Feria Quarta infra Hebdomadam IV in Quadragesima"
     },
     "officium": "Feria Quarta infra Hebdomadam IV in Quadragesima",
@@ -47462,6 +47744,7 @@
     "file": "Quad4-4.txt",
     "id": "tempora/Quad4-4",
     "names": {
+      "de": "Donnerstag in der 4. Fastenwoche",
       "en": "Feria Quinta infra Hebdomadam IV in Quadragesima"
     },
     "officium": "Feria Quinta infra Hebdomadam IV in Quadragesima",
@@ -48033,6 +48316,7 @@
     "file": "Quad4-5.txt",
     "id": "tempora/Quad4-5",
     "names": {
+      "de": "Freitag in der 4. Fastenwoche",
       "en": "Feria Sexta infra Hebdomadam IV in Quadragesima"
     },
     "officium": "Feria Sexta infra Hebdomadam IV in Quadragesima",
@@ -48670,6 +48954,7 @@
     "file": "Quad4-6.txt",
     "id": "tempora/Quad4-6",
     "names": {
+      "de": "Samstag in der 4. Fastenwoche",
       "en": "Sabbato infra Hebdomadam IV in Quadragesima"
     },
     "officium": "Sabbato infra Hebdomadam IV in Quadragesima",
@@ -49562,6 +49847,7 @@
     "file": "Quad5-1.txt",
     "id": "tempora/Quad5-1",
     "names": {
+      "de": "Montag in der Passionswoche",
       "en": "Feria Secunda infra Hebdomadam Passionis"
     },
     "officium": "Feria Secunda infra Hebdomadam Passionis",
@@ -49895,6 +50181,7 @@
     "file": "Quad5-2.txt",
     "id": "tempora/Quad5-2",
     "names": {
+      "de": "Dienstag in der Passionswoche",
       "en": "Feria Tertia infra Hebdomadam Passionis"
     },
     "officium": "Feria Tertia infra Hebdomadam Passionis",
@@ -50460,6 +50747,7 @@
     "file": "Quad5-3.txt",
     "id": "tempora/Quad5-3",
     "names": {
+      "de": "Mittwoch in der Passionswoche",
       "en": "Feria Quarta infra Hebdomadam Passionis"
     },
     "officium": "Feria Quarta infra Hebdomadam Passionis",
@@ -51120,6 +51408,7 @@
     "file": "Quad5-4.txt",
     "id": "tempora/Quad5-4",
     "names": {
+      "de": "Donnerstag in der Passionswoche",
       "en": "Feria Quinta infra Hebdomadam Passionis"
     },
     "officium": "Feria Quinta infra Hebdomadam Passionis",
@@ -53126,6 +53415,7 @@
     "file": "Quad5-6.txt",
     "id": "tempora/Quad5-6",
     "names": {
+      "de": "Samstag in der Passionswoche",
       "en": "Sabbato infra Hebdomadam Passionis"
     },
     "officium": "Sabbato infra Hebdomadam Passionis",
@@ -84830,6 +85120,7 @@
     "file": "Quadp1-1.txt",
     "id": "tempora/Quadp1-1",
     "names": {
+      "de": "Montag in der Septuagesima-Woche",
       "en": "Feria II infra Hebdomadam Septuagesimae"
     },
     "officium": "Feria II infra Hebdomadam Septuagesimæ",
@@ -84872,6 +85163,7 @@
     "file": "Quadp1-2.txt",
     "id": "tempora/Quadp1-2",
     "names": {
+      "de": "Dienstag in der Septuagesima-Woche",
       "en": "Feria III infra Hebdomadam Septuagesimae"
     },
     "officium": "Feria III infra Hebdomadam Septuagesimæ",
@@ -84914,6 +85206,7 @@
     "file": "Quadp1-3.txt",
     "id": "tempora/Quadp1-3",
     "names": {
+      "de": "Mittwoch in der Septuagesima-Woche",
       "en": "Feria IV infra Hebdomadam Septuagesimae"
     },
     "officium": "Feria IV infra Hebdomadam Septuagesimæ",
@@ -84956,6 +85249,7 @@
     "file": "Quadp1-4.txt",
     "id": "tempora/Quadp1-4",
     "names": {
+      "de": "Donnerstag in der Septuagesima-Woche",
       "en": "Feria V infra Hebdomadam Septuagesimae"
     },
     "officium": "Feria V infra Hebdomadam Septuagesimæ",
@@ -84998,6 +85292,7 @@
     "file": "Quadp1-5.txt",
     "id": "tempora/Quadp1-5",
     "names": {
+      "de": "Freitag in der Septuagesima-Woche",
       "en": "Feria VI infra Hebdomadam Septuagesimae"
     },
     "officium": "Feria VI infra Hebdomadam Septuagesimæ",
@@ -85040,6 +85335,7 @@
     "file": "Quadp1-6.txt",
     "id": "tempora/Quadp1-6",
     "names": {
+      "de": "Samstag in der Septuagesima-Woche",
       "en": "Sabbato infra Hebdomadam Septuagesimae"
     },
     "officium": "Sabbato infra Hebdomadam Septuagesimæ",
@@ -85396,6 +85692,7 @@
     "file": "Quadp2-1.txt",
     "id": "tempora/Quadp2-1",
     "names": {
+      "de": "Montag in der Sexagesima-Woche",
       "en": "Feria II infra Hebdomadam Sexagesimae"
     },
     "officium": "Feria II infra Hebdomadam Sexagesimæ",
@@ -85438,6 +85735,7 @@
     "file": "Quadp2-2.txt",
     "id": "tempora/Quadp2-2",
     "names": {
+      "de": "Dienstag in der Sexagesima-Woche",
       "en": "Feria III infra Hebdomadam Sexagesimae"
     },
     "officium": "Feria III infra Hebdomadam Sexagesimæ",
@@ -85480,6 +85778,7 @@
     "file": "Quadp2-3.txt",
     "id": "tempora/Quadp2-3",
     "names": {
+      "de": "Mittwoch in der Sexagesima-Woche",
       "en": "Feria IV infra Hebdomadam Sexagesimae"
     },
     "officium": "Feria IV infra Hebdomadam Sexagesimæ",
@@ -85522,6 +85821,7 @@
     "file": "Quadp2-4.txt",
     "id": "tempora/Quadp2-4",
     "names": {
+      "de": "Donnerstag in der Sexagesima-Woche",
       "en": "Feria V infra Hebdomadam Sexagesimae"
     },
     "officium": "Feria V infra Hebdomadam Sexagesimæ",
@@ -85564,6 +85864,7 @@
     "file": "Quadp2-5.txt",
     "id": "tempora/Quadp2-5",
     "names": {
+      "de": "Freitag in der Sexagesima-Woche",
       "en": "Feria VI infra Hebdomadam Sexagesimae"
     },
     "officium": "Feria VI infra Hebdomadam Sexagesimæ",
@@ -85606,6 +85907,7 @@
     "file": "Quadp2-6.txt",
     "id": "tempora/Quadp2-6",
     "names": {
+      "de": "Samstag in der Sexagesima-Woche",
       "en": "Sabbato infra Hebdomadam Sexagesimae"
     },
     "officium": "Sabbato infra Hebdomadam Sexagesimæ",
