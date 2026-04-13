@@ -58,6 +58,7 @@
     "rites/roman1969/dist",
     "rites/roman1969/package.json",
     "rites/roman1962/dist",
+    "rites/roman1962/data",
     "rites/roman1962/package.json"
   ],
   "workspaces": [
