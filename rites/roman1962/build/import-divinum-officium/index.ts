@@ -218,10 +218,22 @@ function fillMissingNames(
   temporaFn: (key: string) => string | undefined,
   sanctiFn: (key: string, latin: string | undefined) => string | undefined
 ): { tempora: number; sancti: number } {
+  // Treat an existing name that's identical to the Latin officium as missing:
+  // divinum-officium's English horas often files Latin literals (e.g. "Sabbato
+  // Sancto" instead of "Holy Saturday"), and we want our override to take over.
+  // Normalize æ/œ ligatures before comparing — the vernacular merge normalizes
+  // them away while the officium keeps the ligature, so a strict equality
+  // check would miss entries like "Die II infra octavam Paschæ".
+  const normalize = (s: string | undefined): string => (s ?? '').replace(/æ/g, 'ae').replace(/œ/g, 'oe');
+  const isMissing = (entry: MassEntry): boolean => {
+    const existing = entry.names?.[lang];
+    return !existing || normalize(existing) === normalize(entry.officium);
+  };
+
   let t = 0;
   let s = 0;
   for (const [key, entry] of Object.entries(tempora)) {
-    if (entry.names?.[lang]) continue;
+    if (!isMissing(entry)) continue;
     const name = temporaFn(key);
     if (!name) continue;
     entry.names ??= {};
@@ -229,7 +241,7 @@ function fillMissingNames(
     t++;
   }
   for (const [key, entry] of Object.entries(sancti)) {
-    if (entry.names?.[lang]) continue;
+    if (!isMissing(entry)) continue;
     const name = sanctiFn(key, entry.officium);
     if (!name) continue;
     entry.names ??= {};

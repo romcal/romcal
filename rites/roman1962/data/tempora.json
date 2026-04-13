@@ -1171,7 +1171,7 @@
     "id": "tempora/Adv1-0",
     "names": {
       "de": "Erster Adventssonntag",
-      "en": "Dominica I Adventus"
+      "en": "1st Sunday of Advent"
     },
     "officium": "Dominica I Adventus",
     "rank": {
@@ -1471,7 +1471,7 @@
     "id": "tempora/Adv1-1",
     "names": {
       "de": "Montag nach dem ersten Sonntag im Advent",
-      "en": "Feria II infra Hebdomadam I Adventus"
+      "en": "Monday in the 1st Week of Advent"
     },
     "officium": "Feria II infra Hebdomadam I Adventus",
     "rank": {
@@ -1519,7 +1519,7 @@
     "id": "tempora/Adv1-2",
     "names": {
       "de": "Dienstag nach dem ersten Sonntag im Advent",
-      "en": "Feria III infra Hebdomadam I Adventus"
+      "en": "Tuesday in the 1st Week of Advent"
     },
     "officium": "Feria III infra Hebdomadam I Adventus",
     "rank": {
@@ -1567,7 +1567,7 @@
     "id": "tempora/Adv1-3",
     "names": {
       "de": "Mittwoch nach dem ersten Sonntag im Advent",
-      "en": "Feria IV infra Hebdomadam I Adventus"
+      "en": "Wednesday in the 1st Week of Advent"
     },
     "officium": "Feria IV infra Hebdomadam I Adventus",
     "rank": {
@@ -1615,7 +1615,7 @@
     "id": "tempora/Adv1-4",
     "names": {
       "de": "Donnerstag nach dem ersten Sonntag im Advent",
-      "en": "Feria V infra Hebdomadam I Adventus"
+      "en": "Thursday in the 1st Week of Advent"
     },
     "officium": "Feria V infra Hebdomadam I Adventus",
     "rank": {
@@ -1663,7 +1663,7 @@
     "id": "tempora/Adv1-5",
     "names": {
       "de": "Freitag nach dem ersten Sonntag im Advent",
-      "en": "Feria VI infra Hebdomadam I Adventus"
+      "en": "Friday in the 1st Week of Advent"
     },
     "officium": "Feria VI infra Hebdomadam I Adventus",
     "rank": {
@@ -1711,7 +1711,7 @@
     "id": "tempora/Adv1-6",
     "names": {
       "de": "Samstag nach dem ersten Sonntag im Advent",
-      "en": "Sabbato infra Hebdomadam I Adventus"
+      "en": "Saturday in the 1st Week of Advent"
     },
     "officium": "Sabbato infra Hebdomadam I Adventus",
     "rank": {
@@ -1759,7 +1759,7 @@
     "id": "tempora/Adv2-0",
     "names": {
       "de": "Zweiter Sonntag im Advent",
-      "en": "Dominica II Adventus"
+      "en": "2nd Sunday of Advent"
     },
     "officium": "Dominica II Adventus",
     "rank": {
@@ -2058,7 +2058,7 @@
     "id": "tempora/Adv2-1",
     "names": {
       "de": "Montag nach dem zweiten Sonntag im Advent",
-      "en": "Feria II infra Hebdomadam II Adventus"
+      "en": "Monday in the 2nd Week of Advent"
     },
     "officium": "Feria II infra Hebdomadam II Adventus",
     "rank": {
@@ -2106,7 +2106,7 @@
     "id": "tempora/Adv2-2",
     "names": {
       "de": "Dienstag nach dem zweiten Sonntag im Advent",
-      "en": "Feria III infra Hebdomadam II Adventus"
+      "en": "Tuesday in the 2nd Week of Advent"
     },
     "officium": "Feria III infra Hebdomadam II Adventus",
     "rank": {
@@ -2154,7 +2154,7 @@
     "id": "tempora/Adv2-3",
     "names": {
       "de": "Mittwoch nach dem zweiten Sonntag im Advent",
-      "en": "Feria IV infra Hebdomadam II Adventus"
+      "en": "Wednesday in the 2nd Week of Advent"
     },
     "officium": "Feria IV infra Hebdomadam II Adventus",
     "rank": {
@@ -2202,7 +2202,7 @@
     "id": "tempora/Adv2-4",
     "names": {
       "de": "Donnerstag nach dem zweiten Sonntag im Advent",
-      "en": "Feria V infra Hebdomadam II Adventus"
+      "en": "Thursday in the 2nd Week of Advent"
     },
     "officium": "Feria V infra Hebdomadam II Adventus",
     "rank": {
@@ -2250,7 +2250,7 @@
     "id": "tempora/Adv2-5",
     "names": {
       "de": "Freitag nach dem zweiten Sonntag im Advent",
-      "en": "Feria VI infra Hebdomadam II Adventus"
+      "en": "Friday in the 2nd Week of Advent"
     },
     "officium": "Feria VI infra Hebdomadam II Adventus",
     "rank": {
@@ -2298,7 +2298,7 @@
     "id": "tempora/Adv2-6",
     "names": {
       "de": "Samstag nach dem zweiten Sonntag im Advent",
-      "en": "Sabbato infra Hebdomadam II Adventus"
+      "en": "Saturday in the 2nd Week of Advent"
     },
     "officium": "Sabbato infra Hebdomadam II Adventus",
     "rank": {
@@ -2346,7 +2346,7 @@
     "id": "tempora/Adv3-0",
     "names": {
       "de": "Dritter Sonntag im Advent",
-      "en": "Dominica III Adventus"
+      "en": "3rd Sunday of Advent"
     },
     "officium": "Dominica III Adventus",
     "rank": {
@@ -2642,7 +2642,7 @@
     "id": "tempora/Adv3-1",
     "names": {
       "de": "Montag nach dem dritten Sonntag im Advent",
-      "en": "Feria II infra Hebdomadam III Adventus"
+      "en": "Monday in the 3rd Week of Advent"
     },
     "officium": "Feria II infra Hebdomadam III Adventus",
     "rank": {
@@ -2690,7 +2690,7 @@
     "id": "tempora/Adv3-2",
     "names": {
       "de": "Dienstag nach dem dritten Sonntag im Advent",
-      "en": "Feria III infra Hebdomadam III Adventus"
+      "en": "Tuesday in the 3rd Week of Advent"
     },
     "officium": "Feria III infra Hebdomadam III Adventus",
     "rank": {
@@ -2738,7 +2738,7 @@
     "id": "tempora/Adv3-3",
     "names": {
       "de": "Quatembermittwoch im Advent",
-      "en": "Feria IV Quattuor Temporum in Adventu"
+      "en": "Wednesday in the 3rd Week of Advent"
     },
     "officium": "Feria IV Quattuor Temporum in Adventu",
     "rank": {
@@ -3068,7 +3068,7 @@
     "id": "tempora/Adv3-4",
     "names": {
       "de": "Donnerstag nach dem dritten Sonntag im Advent",
-      "en": "Feria V infra Hebdomadam III Adventus"
+      "en": "Thursday in the 3rd Week of Advent"
     },
     "officium": "Feria V infra Hebdomadam III Adventus",
     "rank": {
@@ -3116,7 +3116,7 @@
     "id": "tempora/Adv3-5",
     "names": {
       "de": "Quatemberfreitag im Advent",
-      "en": "Feria VI Quattuor Temporum in Adventu"
+      "en": "Friday in the 3rd Week of Advent"
     },
     "officium": "Feria VI Quattuor Temporum in Adventu",
     "rank": {
@@ -3365,7 +3365,7 @@
     "id": "tempora/Adv3-6",
     "names": {
       "de": "Quatembersamstag im Advent",
-      "en": "Sabbato Quattuor Temporum in Adventu"
+      "en": "Saturday in the 3rd Week of Advent"
     },
     "officium": "Sabbato Quattuor Temporum in Adventu",
     "rank": {
@@ -3968,7 +3968,7 @@
     "id": "tempora/Adv4-0",
     "names": {
       "de": "Vierter Sonntag im Advent",
-      "en": "Dominica IV Adventus"
+      "en": "4th Sunday of Advent"
     },
     "officium": "Dominica IV Adventus",
     "rank": {
@@ -4248,7 +4248,7 @@
     "id": "tempora/Adv4-1",
     "names": {
       "de": "Montag nach dem vierten Sonntag im Advent",
-      "en": "Feria II infra Hebdomadam IV Adventus"
+      "en": "Monday in the 4th Week of Advent"
     },
     "officium": "Feria II infra Hebdomadam IV Adventus",
     "rank": {
@@ -4296,7 +4296,7 @@
     "id": "tempora/Adv4-2",
     "names": {
       "de": "Dienstag nach dem vierten Sonntag im Advent",
-      "en": "Feria III infra Hebdomadam IV Adventus"
+      "en": "Tuesday in the 4th Week of Advent"
     },
     "officium": "Feria III infra Hebdomadam IV Adventus",
     "rank": {
@@ -4344,7 +4344,7 @@
     "id": "tempora/Adv4-3",
     "names": {
       "de": "Mittwoch nach dem vierten Sonntag im Advent",
-      "en": "Feria IV infra Hebdomadam IV Adventus"
+      "en": "Wednesday in the 4th Week of Advent"
     },
     "officium": "Feria IV infra Hebdomadam IV Adventus",
     "rank": {
@@ -4392,7 +4392,7 @@
     "id": "tempora/Adv4-4",
     "names": {
       "de": "Donnerstag nach dem vierten Sonntag im Advent",
-      "en": "Feria V infra Hebdomadam IV Adventus"
+      "en": "Thursday in the 4th Week of Advent"
     },
     "officium": "Feria V infra Hebdomadam IV Adventus",
     "rank": {
@@ -4440,7 +4440,7 @@
     "id": "tempora/Adv4-5",
     "names": {
       "de": "Freitag nach dem vierten Sonntag im Advent",
-      "en": "Feria VI infra Hebdomadam IV Adventus"
+      "en": "Friday in the 4th Week of Advent"
     },
     "officium": "Feria VI infra Hebdomadam IV Adventus",
     "rank": {
@@ -4488,7 +4488,7 @@
     "id": "tempora/Epi1-0",
     "names": {
       "de": "Fest der Heiligen Familie Jesus, Maria und Joseph",
-      "en": "Sanctae Familiae Jesu Mariae Joseph"
+      "en": "1st Sunday after Epiphany"
     },
     "officium": "Sanctæ Familiæ Jesu Mariæ Joseph",
     "rank": {
@@ -5151,7 +5151,7 @@
     "id": "tempora/Epi1-1",
     "names": {
       "de": "Montag in der 1. Woche nach Erscheinung des Herrn",
-      "en": "Feria II infra Hebdomadam I post Epiphaniam"
+      "en": "Monday in the 1st Week after Epiphany"
     },
     "officium": "Feria II infra Hebdomadam I post Epiphaniam",
     "rank": {
@@ -5183,7 +5183,7 @@
     "id": "tempora/Epi1-2",
     "names": {
       "de": "Dienstag in der 1. Woche nach Erscheinung des Herrn",
-      "en": "Feria III infra Hebdomadam I post Epiphaniam"
+      "en": "Tuesday in the 1st Week after Epiphany"
     },
     "officium": "Feria III infra Hebdomadam I post Epiphaniam",
     "rank": {
@@ -5215,7 +5215,7 @@
     "id": "tempora/Epi1-3",
     "names": {
       "de": "Mittwoch in der 1. Woche nach Erscheinung des Herrn",
-      "en": "Feria IV infra Hebdomadam I post Epiphaniam"
+      "en": "Wednesday in the 1st Week after Epiphany"
     },
     "officium": "Feria IV infra Hebdomadam I post Epiphaniam",
     "rank": {
@@ -5247,7 +5247,7 @@
     "id": "tempora/Epi1-4",
     "names": {
       "de": "Donnerstag in der 1. Woche nach Erscheinung des Herrn",
-      "en": "Feria V infra Hebdomadam I post Epiphaniam"
+      "en": "Thursday in the 1st Week after Epiphany"
     },
     "officium": "Feria V infra Hebdomadam I post Epiphaniam",
     "rank": {
@@ -5279,7 +5279,7 @@
     "id": "tempora/Epi1-5",
     "names": {
       "de": "Freitag in der 1. Woche nach Erscheinung des Herrn",
-      "en": "Feria VI infra Hebdomadam I post Epiphaniam"
+      "en": "Friday in the 1st Week after Epiphany"
     },
     "officium": "Feria VI infra Hebdomadam I post Epiphaniam",
     "rank": {
@@ -5311,7 +5311,7 @@
     "id": "tempora/Epi1-6",
     "names": {
       "de": "Samstag in der 1. Woche nach Erscheinung des Herrn",
-      "en": "Sabbato infra Hebdomadam I post Epiphaniam"
+      "en": "Saturday in the 1st Week after Epiphany"
     },
     "officium": "Sabbato infra Hebdomadam I post Epiphaniam",
     "rank": {
@@ -5343,7 +5343,7 @@
     "id": "tempora/Epi2-0",
     "names": {
       "de": "Zweiter Sonntag nach Erscheinung",
-      "en": "Dominica II post Epiphaniam"
+      "en": "2nd Sunday after Epiphany"
     },
     "officium": "Dominica II post Epiphaniam",
     "rank": {
@@ -5623,7 +5623,7 @@
     "id": "tempora/Epi2-1",
     "names": {
       "de": "Montag in der 2. Woche nach Erscheinung des Herrn",
-      "en": "Feria II infra Hebdomadam II post Epiphaniam"
+      "en": "Monday in the 2nd Week after Epiphany"
     },
     "officium": "Feria II infra Hebdomadam II post Epiphaniam",
     "rank": {
@@ -5655,7 +5655,7 @@
     "id": "tempora/Epi2-2",
     "names": {
       "de": "Dienstag in der 2. Woche nach Erscheinung des Herrn",
-      "en": "Feria III infra Hebdomadam II post Epiphaniam"
+      "en": "Tuesday in the 2nd Week after Epiphany"
     },
     "officium": "Feria III infra Hebdomadam II post Epiphaniam",
     "rank": {
@@ -5687,7 +5687,7 @@
     "id": "tempora/Epi2-3",
     "names": {
       "de": "Mittwoch in der 2. Woche nach Erscheinung des Herrn",
-      "en": "Feria IV infra Hebdomadam II post Epiphaniam"
+      "en": "Wednesday in the 2nd Week after Epiphany"
     },
     "officium": "Feria IV infra Hebdomadam II post Epiphaniam",
     "rank": {
@@ -5719,7 +5719,7 @@
     "id": "tempora/Epi2-4",
     "names": {
       "de": "Donnerstag in der 2. Woche nach Erscheinung des Herrn",
-      "en": "Feria V infra Hebdomadam II post Epiphaniam"
+      "en": "Thursday in the 2nd Week after Epiphany"
     },
     "officium": "Feria V infra Hebdomadam II post Epiphaniam",
     "rank": {
@@ -5751,7 +5751,7 @@
     "id": "tempora/Epi2-5",
     "names": {
       "de": "Freitag in der 2. Woche nach Erscheinung des Herrn",
-      "en": "Feria VI infra Hebdomadam II post Epiphaniam"
+      "en": "Friday in the 2nd Week after Epiphany"
     },
     "officium": "Feria VI infra Hebdomadam II post Epiphaniam",
     "rank": {
@@ -5783,7 +5783,7 @@
     "id": "tempora/Epi2-6",
     "names": {
       "de": "Samstag in der 2. Woche nach Erscheinung des Herrn",
-      "en": "Sabbato infra Hebdomadam II post Epiphaniam"
+      "en": "Saturday in the 2nd Week after Epiphany"
     },
     "officium": "Sabbato infra Hebdomadam II post Epiphaniam",
     "rank": {
@@ -5815,7 +5815,7 @@
     "id": "tempora/Epi3-0",
     "names": {
       "de": "Dritter Sonntag nach Erscheinung",
-      "en": "Dominica III Post Epiphaniam"
+      "en": "3rd Sunday after Epiphany"
     },
     "officium": "Dominica III Post Epiphaniam",
     "rank": {
@@ -6099,7 +6099,7 @@
     "id": "tempora/Epi3-1",
     "names": {
       "de": "Montag in der 3. Woche nach Erscheinung des Herrn",
-      "en": "Feria II infra Hebdomadam III post Epiphaniam"
+      "en": "Monday in the 3rd Week after Epiphany"
     },
     "officium": "Feria II infra Hebdomadam III post Epiphaniam",
     "rank": {
@@ -6131,7 +6131,7 @@
     "id": "tempora/Epi3-2",
     "names": {
       "de": "Dienstag in der 3. Woche nach Erscheinung des Herrn",
-      "en": "Feria III infra Hebdomadam III post Epiphaniam"
+      "en": "Tuesday in the 3rd Week after Epiphany"
     },
     "officium": "Feria III infra Hebdomadam III post Epiphaniam",
     "rank": {
@@ -6163,7 +6163,7 @@
     "id": "tempora/Epi3-3",
     "names": {
       "de": "Mittwoch in der 3. Woche nach Erscheinung des Herrn",
-      "en": "Feria IV infra Hebdomadam III post Epiphaniam"
+      "en": "Wednesday in the 3rd Week after Epiphany"
     },
     "officium": "Feria IV infra Hebdomadam III post Epiphaniam",
     "rank": {
@@ -6195,7 +6195,7 @@
     "id": "tempora/Epi3-4",
     "names": {
       "de": "Donnerstag in der 3. Woche nach Erscheinung des Herrn",
-      "en": "Feria V infra Hebdomadam III post Epiphaniam"
+      "en": "Thursday in the 3rd Week after Epiphany"
     },
     "officium": "Feria V infra Hebdomadam III post Epiphaniam",
     "rank": {
@@ -6227,7 +6227,7 @@
     "id": "tempora/Epi3-5",
     "names": {
       "de": "Freitag in der 3. Woche nach Erscheinung des Herrn",
-      "en": "Feria VI infra Hebdomadam III post Epiphaniam"
+      "en": "Friday in the 3rd Week after Epiphany"
     },
     "officium": "Feria VI infra Hebdomadam III post Epiphaniam",
     "rank": {
@@ -6259,7 +6259,7 @@
     "id": "tempora/Epi3-6",
     "names": {
       "de": "Samstag in der 3. Woche nach Erscheinung des Herrn",
-      "en": "Sabbato infra Hebdomadam III post Epiphaniam"
+      "en": "Saturday in the 3rd Week after Epiphany"
     },
     "officium": "Sabbato infra Hebdomadam III post Epiphaniam",
     "rank": {
@@ -6291,7 +6291,7 @@
     "id": "tempora/Epi4-0",
     "names": {
       "de": "Vierter Sonntag nach Erscheinung",
-      "en": "Dominica IV Post Epiphaniam"
+      "en": "4th Sunday after Epiphany"
     },
     "officium": "Dominica IV Post Epiphaniam",
     "rank": {
@@ -6557,7 +6557,7 @@
     "id": "tempora/Epi4-2",
     "names": {
       "de": "Dienstag in der 4. Woche nach Erscheinung des Herrn",
-      "en": "Feria Tertia infra Hebdomadam IV post Epiphaniam"
+      "en": "Tuesday in the 4th Week after Epiphany"
     },
     "officium": "Feria Tertia infra Hebdomadam IV post Epiphaniam",
     "rank": {
@@ -6589,7 +6589,7 @@
     "id": "tempora/Epi4-3",
     "names": {
       "de": "Mittwoch in der 4. Woche nach Erscheinung des Herrn",
-      "en": "Feria IV infra Hebdomadam IV post Epiphaniam"
+      "en": "Wednesday in the 4th Week after Epiphany"
     },
     "officium": "Feria IV infra Hebdomadam IV post Epiphaniam",
     "rank": {
@@ -6621,7 +6621,7 @@
     "id": "tempora/Epi4-4",
     "names": {
       "de": "Donnerstag in der 4. Woche nach Erscheinung des Herrn",
-      "en": "Feria V infra Hebdomadam IV post Epiphaniam"
+      "en": "Thursday in the 4th Week after Epiphany"
     },
     "officium": "Feria V infra Hebdomadam IV post Epiphaniam",
     "rank": {
@@ -6653,7 +6653,7 @@
     "id": "tempora/Epi4-5",
     "names": {
       "de": "Freitag in der 4. Woche nach Erscheinung des Herrn",
-      "en": "Feria VI infra Hebdomadam IV post Epiphaniam"
+      "en": "Friday in the 4th Week after Epiphany"
     },
     "officium": "Feria VI infra Hebdomadam IV post Epiphaniam",
     "rank": {
@@ -6685,7 +6685,7 @@
     "id": "tempora/Epi4-6",
     "names": {
       "de": "Samstag in der 4. Woche nach Erscheinung des Herrn",
-      "en": "Sabbato infra Hebdomadam IV post Epiphaniam"
+      "en": "Saturday in the 4th Week after Epiphany"
     },
     "officium": "Sabbato infra Hebdomadam IV post Epiphaniam",
     "rank": {
@@ -6717,7 +6717,7 @@
     "id": "tempora/Epi5-0",
     "names": {
       "de": "Fünfter Sonntag nach Erscheinung",
-      "en": "Dominica V Post Epiphaniam"
+      "en": "5th Sunday after Epiphany"
     },
     "officium": "Dominica V Post Epiphaniam",
     "rank": {
@@ -6967,7 +6967,7 @@
     "id": "tempora/Epi5-1",
     "names": {
       "de": "Montag in der 5. Woche nach Erscheinung des Herrn",
-      "en": "Feria II infra Hebdomadam V post Epiphaniam"
+      "en": "Monday in the 5th Week after Epiphany"
     },
     "officium": "Feria II infra Hebdomadam V post Epiphaniam",
     "rank": {
@@ -6999,7 +6999,7 @@
     "id": "tempora/Epi5-2",
     "names": {
       "de": "Dienstag in der 5. Woche nach Erscheinung des Herrn",
-      "en": "Feria III infra Hebdomadam V post Epiphaniam"
+      "en": "Tuesday in the 5th Week after Epiphany"
     },
     "officium": "Feria III infra Hebdomadam V post Epiphaniam",
     "rank": {
@@ -7031,7 +7031,7 @@
     "id": "tempora/Epi5-3",
     "names": {
       "de": "Mittwoch in der 5. Woche nach Erscheinung des Herrn",
-      "en": "Feria IV infra Hebdomadam V post Epiphaniam"
+      "en": "Wednesday in the 5th Week after Epiphany"
     },
     "officium": "Feria IV infra Hebdomadam V post Epiphaniam",
     "rank": {
@@ -7063,7 +7063,7 @@
     "id": "tempora/Epi5-4",
     "names": {
       "de": "Donnerstag in der 5. Woche nach Erscheinung des Herrn",
-      "en": "Feria V infra Hebdomadam V post Epiphaniam"
+      "en": "Thursday in the 5th Week after Epiphany"
     },
     "officium": "Feria V infra Hebdomadam V post Epiphaniam",
     "rank": {
@@ -7095,7 +7095,7 @@
     "id": "tempora/Epi5-5",
     "names": {
       "de": "Freitag in der 5. Woche nach Erscheinung des Herrn",
-      "en": "Feria VI infra Hebdomadam V post Epiphaniam"
+      "en": "Friday in the 5th Week after Epiphany"
     },
     "officium": "Feria VI infra Hebdomadam V post Epiphaniam",
     "rank": {
@@ -7127,7 +7127,7 @@
     "id": "tempora/Epi5-6",
     "names": {
       "de": "Samstag in der 5. Woche nach Erscheinung des Herrn",
-      "en": "Sabbato infra Hebdomadam V post Epiphaniam"
+      "en": "Saturday in the 5th Week after Epiphany"
     },
     "officium": "Sabbato infra Hebdomadam V post Epiphaniam",
     "rank": {
@@ -7159,7 +7159,7 @@
     "id": "tempora/Epi6-0",
     "names": {
       "de": "Sechster Sonntag nach Erscheinung",
-      "en": "Dominica VI Post Epiphaniam"
+      "en": "6th Sunday after Epiphany"
     },
     "officium": "Dominica VI Post Epiphaniam",
     "rank": {
@@ -7398,7 +7398,7 @@
     "id": "tempora/Epi6-1",
     "names": {
       "de": "Montag in der 6. Woche nach Erscheinung des Herrn",
-      "en": "Feria II infra Hebdomadam VI post Epiphaniam"
+      "en": "Monday in the 6th Week after Epiphany"
     },
     "officium": "Feria II infra Hebdomadam VI post Epiphaniam",
     "rank": {
@@ -7430,7 +7430,7 @@
     "id": "tempora/Epi6-2",
     "names": {
       "de": "Dienstag in der 6. Woche nach Erscheinung des Herrn",
-      "en": "Feria III infra Hebdomadam VI post Epiphaniam"
+      "en": "Tuesday in the 6th Week after Epiphany"
     },
     "officium": "Feria III infra Hebdomadam VI post Epiphaniam",
     "rank": {
@@ -7462,7 +7462,7 @@
     "id": "tempora/Epi6-3",
     "names": {
       "de": "Mittwoch in der 6. Woche nach Erscheinung des Herrn",
-      "en": "Feria IV infra Hebdomadam VI post Epiphaniam"
+      "en": "Wednesday in the 6th Week after Epiphany"
     },
     "officium": "Feria IV infra Hebdomadam VI post Epiphaniam",
     "rank": {
@@ -7494,7 +7494,7 @@
     "id": "tempora/Epi6-4",
     "names": {
       "de": "Donnerstag in der 6. Woche nach Erscheinung des Herrn",
-      "en": "Feria V infra Hebdomadam VI post Epiphaniam"
+      "en": "Thursday in the 6th Week after Epiphany"
     },
     "officium": "Feria V infra Hebdomadam VI post Epiphaniam",
     "rank": {
@@ -7526,7 +7526,7 @@
     "id": "tempora/Epi6-5",
     "names": {
       "de": "Freitag in der 6. Woche nach Erscheinung des Herrn",
-      "en": "Feria VI infra Hebdomadam VI post Epiphaniam"
+      "en": "Friday in the 6th Week after Epiphany"
     },
     "officium": "Feria VI infra Hebdomadam VI post Epiphaniam",
     "rank": {
@@ -7558,7 +7558,7 @@
     "id": "tempora/Epi6-6",
     "names": {
       "de": "Samstag in der 6. Woche nach Erscheinung des Herrn",
-      "en": "Sabbato infra Hebdomadam VI post Epiphaniam"
+      "en": "Saturday in the 6th Week after Epiphany"
     },
     "officium": "Sabbato infra Hebdomadam VI post Epiphaniam",
     "rank": {
@@ -8609,7 +8609,7 @@
     "id": "tempora/Pasc0-0",
     "names": {
       "de": "Sonntag der Auferstehung des Herrn",
-      "en": "Dominica Resurrectionis"
+      "en": "Easter Sunday"
     },
     "officium": "Dominica Resurrectionis",
     "rank": {
@@ -8969,7 +8969,7 @@
     "id": "tempora/Pasc0-1",
     "names": {
       "de": "Ostermontag",
-      "en": "Die II infra octavam Paschae"
+      "en": "Easter Monday"
     },
     "officium": "Die II infra octavam Paschæ",
     "rank": {
@@ -9245,7 +9245,7 @@
     "id": "tempora/Pasc0-2",
     "names": {
       "de": "Osterdienstag",
-      "en": "Die III infra octavam Paschae"
+      "en": "Easter Tuesday"
     },
     "officium": "Die III infra octavam Paschæ",
     "rank": {
@@ -9803,7 +9803,7 @@
     "id": "tempora/Pasc0-3",
     "names": {
       "de": "Mittwoch in der Osteroktav",
-      "en": "Die IV infra octavam Paschae"
+      "en": "Easter Wednesday"
     },
     "officium": "Die IV infra octavam Paschæ",
     "rank": {
@@ -10350,7 +10350,7 @@
     "id": "tempora/Pasc0-4",
     "names": {
       "de": "Donnerstag in der Osteroktav",
-      "en": "Die V infra octavam Paschae"
+      "en": "Easter Thursday"
     },
     "officium": "Die V infra octavam Paschæ",
     "rank": {
@@ -10872,7 +10872,7 @@
     "id": "tempora/Pasc0-5",
     "names": {
       "de": "Freitag in der Osteroktav",
-      "en": "Die VI infra octavam Paschæ"
+      "en": "Easter Friday"
     },
     "officium": "Die VI infra octavam Paschæ",
     "rank": {
@@ -11388,7 +11388,7 @@
     "id": "tempora/Pasc0-6",
     "names": {
       "de": "Weißer Samstag",
-      "en": "Sabbato in Albis"
+      "en": "Easter Saturday"
     },
     "officium": "Sabbato in Albis",
     "rank": {
@@ -11942,7 +11942,7 @@
     "id": "tempora/Pasc1-0",
     "names": {
       "de": "Weißer Sonntag, Oktav der Auferstehung",
-      "en": "Dominica in Albis in Octava Paschæ"
+      "en": "Low Sunday"
     },
     "officium": "Dominica in Albis in Octava Paschæ",
     "rank": {
@@ -12217,7 +12217,7 @@
     "id": "tempora/Pasc1-1",
     "names": {
       "de": "Montag in der Weißen Woche",
-      "en": "Feria Secunda infra Hebdomadam I post Octavam Paschae"
+      "en": "Monday in Low Week"
     },
     "officium": "Feria Secunda infra Hebdomadam I post Octavam Paschæ",
     "rank": {
@@ -12251,7 +12251,7 @@
     "id": "tempora/Pasc1-2",
     "names": {
       "de": "Dienstag in der Weißen Woche",
-      "en": "Feria Tertia infra Hebdomadam I post Octavam Paschae"
+      "en": "Tuesday in Low Week"
     },
     "officium": "Feria Tertia infra Hebdomadam I post Octavam Paschæ",
     "rank": {
@@ -12285,7 +12285,7 @@
     "id": "tempora/Pasc1-3",
     "names": {
       "de": "Mittwoch in der Weißen Woche",
-      "en": "Feria Quarta infra Hebdomadam I post Octavam Paschae"
+      "en": "Wednesday in Low Week"
     },
     "officium": "Feria Quarta infra Hebdomadam I post Octavam Paschæ",
     "rank": {
@@ -12319,7 +12319,7 @@
     "id": "tempora/Pasc1-4",
     "names": {
       "de": "Donnerstag in der Weißen Woche",
-      "en": "Feria Quinta infra Hebdomadam I post Octavam Paschae"
+      "en": "Thursday in Low Week"
     },
     "officium": "Feria Quinta infra Hebdomadam I post Octavam Paschæ",
     "rank": {
@@ -12353,7 +12353,7 @@
     "id": "tempora/Pasc1-5",
     "names": {
       "de": "Freitag in der Weißen Woche",
-      "en": "Feria Sexta infra Hebdomadam I post Octavam Paschae"
+      "en": "Friday in Low Week"
     },
     "officium": "Feria Sexta infra Hebdomadam I post Octavam Paschae",
     "rank": {
@@ -12387,7 +12387,7 @@
     "id": "tempora/Pasc1-6",
     "names": {
       "de": "Samstag in der Weißen Woche",
-      "en": "Sabbato infra Hebdomadam I post Octavam Paschae"
+      "en": "Saturday in Low Week"
     },
     "officium": "Sabbato infra Hebdomadam I post Octavam Paschæ",
     "rank": {
@@ -12421,7 +12421,7 @@
     "id": "tempora/Pasc2-0",
     "names": {
       "de": "Zweiter Sonntag nach Ostern",
-      "en": "Dominica II Post Pascha"
+      "en": "2nd Sunday after Easter"
     },
     "officium": "Dominica II Post Pascha",
     "rank": {
@@ -12675,7 +12675,7 @@
     "id": "tempora/Pasc2-1",
     "names": {
       "de": "Montag der zweiten Woche nach der Osteroktav",
-      "en": "Feria Secunda infra Hebdomadam II post Octavam Paschae"
+      "en": "Monday after the 2nd Sunday after Easter"
     },
     "officium": "Feria Secunda infra Hebdomadam II post Octavam Paschæ",
     "rank": {
@@ -12709,7 +12709,7 @@
     "id": "tempora/Pasc2-2",
     "names": {
       "de": "Dienstag der zweiten Woche nach der Osteroktav",
-      "en": "Feria Tertia infra Hebdomadam II post Octavam Paschae"
+      "en": "Tuesday after the 2nd Sunday after Easter"
     },
     "officium": "Feria Tertia infra Hebdomadam II post Octavam Paschæ",
     "rank": {
@@ -12773,7 +12773,7 @@
     "id": "tempora/Pasc2-3",
     "names": {
       "de": "Schutzfest des Hl. Josephs, Bekenner, Bräutigam der allerseeligsten Gottestmutter",
-      "en": "Patrocinii St. Joseph Confessoris Sponsi B.M.V. confessoris"
+      "en": "Wednesday after the 2nd Sunday after Easter"
     },
     "officium": "Patrocinii St. Joseph Confessoris Sponsi B.M.V. confessoris",
     "rank": {
@@ -14328,7 +14328,7 @@
     "id": "tempora/Pasc3-4",
     "names": {
       "de": "Donnerstag der dritten Woche nach der Osteroktav",
-      "en": "Feria Quinta infra Hebdomadam III post Octavam Paschae"
+      "en": "Thursday after the 3rd Sunday after Easter"
     },
     "officium": "Feria Quinta infra Hebdomadam III post Octavam Paschæ",
     "rank": {
@@ -14362,7 +14362,7 @@
     "id": "tempora/Pasc3-5",
     "names": {
       "de": "Freitag der dritten Woche nach der Osteroktav",
-      "en": "Feria Sexta infra Hebdomadam III post Octavam Paschae"
+      "en": "Friday after the 3rd Sunday after Easter"
     },
     "officium": "Feria Sexta infra Hebdomadam III post Octavam Paschæ",
     "rank": {
@@ -14396,7 +14396,7 @@
     "id": "tempora/Pasc3-6",
     "names": {
       "de": "Samstag der dritten Woche nach der Osteroktav",
-      "en": "Sabbato infra Hebdomadam III post Octavam Paschae"
+      "en": "Saturday after the 3rd Sunday after Easter"
     },
     "officium": "Sabbato infra Hebdomadam III post Octavam Paschæ",
     "rank": {
@@ -14430,7 +14430,7 @@
     "id": "tempora/Pasc4-0",
     "names": {
       "de": "Vierter Sonntag nach Ostern",
-      "en": "Dominica IV Post Pascha"
+      "en": "4th Sunday after Easter"
     },
     "officium": "Dominica IV Post Pascha",
     "rank": {
@@ -14948,7 +14948,7 @@
     "id": "tempora/Pasc4-1",
     "names": {
       "de": "Montag der vierten Woche nach der Osteroktav",
-      "en": "Feria Secunda infra Hebdomadam IV post Octavam Paschae"
+      "en": "Monday after the 4th Sunday after Easter"
     },
     "officium": "Feria Secunda infra Hebdomadam IV post Octavam Paschæ",
     "rank": {
@@ -14982,7 +14982,7 @@
     "id": "tempora/Pasc4-2",
     "names": {
       "de": "Dienstag der vierten Woche nach der Osteroktav",
-      "en": "Feria Tertia infra Hebdomadam IV post Octavam Paschae"
+      "en": "Tuesday after the 4th Sunday after Easter"
     },
     "officium": "Feria Tertia infra Hebdomadam IV post Octavam Paschæ",
     "rank": {
@@ -15016,7 +15016,7 @@
     "id": "tempora/Pasc4-3",
     "names": {
       "de": "Mittwoch der vierten Woche nach der Osteroktav",
-      "en": "Feria Quarta infra Hebdomadam IV post Octavam Paschae"
+      "en": "Wednesday after the 4th Sunday after Easter"
     },
     "officium": "Feria Quarta infra Hebdomadam IV post Octavam Paschæ",
     "rank": {
@@ -15050,7 +15050,7 @@
     "id": "tempora/Pasc4-4",
     "names": {
       "de": "Donnerstag der vierten Woche nach der Osteroktav",
-      "en": "Feria Quinta infra Hebdomadam IV post Octavam Paschae"
+      "en": "Thursday after the 4th Sunday after Easter"
     },
     "officium": "Feria Quinta infra Hebdomadam IV post Octavam Paschæ",
     "rank": {
@@ -15084,7 +15084,7 @@
     "id": "tempora/Pasc4-5",
     "names": {
       "de": "Freitag der vierten Woche nach der Osteroktav",
-      "en": "Feria Sexta infra Hebdomadam IV post Octavam Paschae"
+      "en": "Friday after the 4th Sunday after Easter"
     },
     "officium": "Feria Sexta infra Hebdomadam IV post Octavam Paschæ",
     "rank": {
@@ -15148,7 +15148,7 @@
     "id": "tempora/Pasc4-6",
     "names": {
       "de": "Samstag der vierten Woche nach der Osteroktav",
-      "en": "Sabbato infra Hebdomadam IV post Octavam Paschae"
+      "en": "Saturday after the 4th Sunday after Easter"
     },
     "officium": "Sabbato infra Hebdomadam IV post Octavam Paschæ",
     "rank": {
@@ -15182,7 +15182,7 @@
     "id": "tempora/Pasc5-0",
     "names": {
       "de": "Fünfter Sonntag nach Ostern",
-      "en": "Dominica V Post Pascha"
+      "en": "5th Sunday after Easter"
     },
     "officium": "Dominica V Post Pascha",
     "rank": {
@@ -15691,7 +15691,7 @@
     "id": "tempora/Pasc5-1",
     "names": {
       "de": "Bittmontag",
-      "en": "Feria Secunda in Rogationibus"
+      "en": "Monday after the 5th Sunday after Easter"
     },
     "officium": "Feria Secunda in Rogationibus",
     "rank": {
@@ -16212,7 +16212,7 @@
     "id": "tempora/Pasc5-2",
     "names": {
       "de": "Bittdienstag",
-      "en": "Feria Tertia in Rogationibus"
+      "en": "Tuesday after the 5th Sunday after Easter"
     },
     "officium": "Feria Tertia in Rogationibus",
     "rank": {
@@ -16603,7 +16603,7 @@
     "id": "tempora/Pasc5-4",
     "names": {
       "de": "Fest der Himmelfahrt des Herrn",
-      "en": "In Ascensione Domini"
+      "en": "Thursday after the 5th Sunday after Easter"
     },
     "officium": "In Ascensione Domini",
     "rank": {
@@ -16872,7 +16872,7 @@
     "id": "tempora/Pasc5-5",
     "names": {
       "de": "Freitag in der Oktav der Himmelfahrt",
-      "en": "Feria VI infra Octavam Ascensionis"
+      "en": "Friday after the 5th Sunday after Easter"
     },
     "officium": "Feria VI infra Octavam Ascensionis",
     "rank": {
@@ -16907,7 +16907,7 @@
     "id": "tempora/Pasc5-6",
     "names": {
       "de": "Samstag in der Oktav der Himmelfahrt",
-      "en": "Sabbato infra Octavam Ascensionis"
+      "en": "Saturday after the 5th Sunday after Easter"
     },
     "officium": "Sabbato infra Octavam Ascensionis",
     "rank": {
@@ -16973,7 +16973,7 @@
     "id": "tempora/Pasc6-0",
     "names": {
       "de": "Sonntag in der Oktav der Himmelfahrt",
-      "en": "Dominica infra Octavam Ascensionis"
+      "en": "Sunday within the Octave of the Ascension"
     },
     "officium": "Dominica infra Octavam Ascensionis",
     "rank": {
@@ -17279,7 +17279,7 @@
     "id": "tempora/Pasc6-1",
     "names": {
       "de": "Montag in der Oktav der Himmelfahrt",
-      "en": "Feria II infra Octavam Ascensionis"
+      "en": "Monday after the 6th Sunday after Easter"
     },
     "officium": "Feria II infra Octavam Ascensionis",
     "rank": {
@@ -17314,7 +17314,7 @@
     "id": "tempora/Pasc6-2",
     "names": {
       "de": "Dienstag in der Oktav der Himmelfahrt",
-      "en": "Feria III infra Octavam Ascensionis"
+      "en": "Tuesday after the 6th Sunday after Easter"
     },
     "officium": "Feria III infra Octavam Ascensionis",
     "rank": {
@@ -17380,7 +17380,7 @@
     "id": "tempora/Pasc6-3",
     "names": {
       "de": "Mittwoch in der Oktav der Himmelfahrt",
-      "en": "Feria IV infra Octavam Ascensionis"
+      "en": "Wednesday after the 6th Sunday after Easter"
     },
     "officium": "Feria IV infra Octavam Ascensionis",
     "rank": {
@@ -17415,7 +17415,7 @@
     "id": "tempora/Pasc6-4",
     "names": {
       "de": "Oktavtag der Himmelfahrt",
-      "en": "Feria V in Octava Ascensionis"
+      "en": "Thursday after the 6th Sunday after Easter"
     },
     "officium": "Feria V in Octava Ascensionis",
     "rank": {
@@ -17511,7 +17511,7 @@
     "id": "tempora/Pasc6-5",
     "names": {
       "de": "Freitag nach der Oktav der Himmelfahrt",
-      "en": "Feria VI post Octavam Ascensionis"
+      "en": "Friday after the 6th Sunday after Easter"
     },
     "officium": "Feria VI post Octavam Ascensionis",
     "rank": {
@@ -18078,7 +18078,7 @@
     "id": "tempora/Pasc7-0",
     "names": {
       "de": "Pfingstsonntag",
-      "en": "Dominica Pentecostes"
+      "en": "Pentecost Sunday"
     },
     "officium": "Dominica Pentecostes",
     "rank": {
@@ -21877,7 +21877,7 @@
     "id": "tempora/Pent01-0",
     "names": {
       "de": "Fest der allerheiligsten Dreifaltigkeit",
-      "en": "Dominica Sanctissimae Trinitatis"
+      "en": "Trinity Sunday"
     },
     "officium": "Dominica Sanctissimæ Trinitatis",
     "rank": {
@@ -23036,7 +23036,7 @@
     "id": "tempora/Pent01-1",
     "names": {
       "de": "Montag der ersten Woche nach der Pfingsoktav",
-      "en": "Feria Secunda infra Hebdomadam I post Octavam Pentecostes"
+      "en": "Monday in the 1st Week after Pentecost"
     },
     "officium": "Feria Secunda infra Hebdomadam I post Octavam Pentecostes",
     "rank": {
@@ -23118,7 +23118,7 @@
     "id": "tempora/Pent01-2",
     "names": {
       "de": "Dienstag der ersten Woche nach der Pfingsoktav",
-      "en": "Feria Tertia infra Hebdomadam I post Octavam Pentecostes"
+      "en": "Tuesday in the 1st Week after Pentecost"
     },
     "officium": "Feria Tertia infra Hebdomadam I post Octavam Pentecostes",
     "rank": {
@@ -23179,7 +23179,7 @@
     "id": "tempora/Pent01-3",
     "names": {
       "de": "Mittwoch der ersten Woche nach der Pfingsoktav",
-      "en": "Feria Quarta infra Hebdomadam I post Octavam Pentecostes"
+      "en": "Wednesday in the 1st Week after Pentecost"
     },
     "officium": "Feria Quarta infra Hebdomadam I post Octavam Pentecostes",
     "rank": {
@@ -23240,7 +23240,7 @@
     "id": "tempora/Pent01-4",
     "names": {
       "de": "Fronleichnam",
-      "en": "Festum Sanctissimi Corporis Christi"
+      "en": "Corpus Christi"
     },
     "officium": "Festum Sanctissimi Corporis Christi",
     "rank": {
@@ -24386,7 +24386,7 @@
     "id": "tempora/Pent01-5",
     "names": {
       "de": "Freitag in der Fronleichnamsoktav",
-      "en": "Feria Sexta infra octavam Corporis Christi"
+      "en": "Friday in the 1st Week after Pentecost"
     },
     "officium": "Feria Sexta infra octavam Corporis Christi",
     "rank": {
@@ -24449,7 +24449,7 @@
     "id": "tempora/Pent01-6",
     "names": {
       "de": "Samstag in der Fronleichnamsoktav",
-      "en": "Sabbato infra octavam Corporis Christi"
+      "en": "Saturday in the 1st Week after Pentecost"
     },
     "officium": "Sabbato infra octavam Corporis Christi",
     "rank": {
@@ -24893,7 +24893,7 @@
     "id": "tempora/Pent02-1",
     "names": {
       "de": "Montag in der Fronleichnamsoktav",
-      "en": "Feria Secunda infra Octavam Corporis Christi"
+      "en": "Monday in the 2nd Week after Pentecost"
     },
     "officium": "Feria Secunda infra Octavam Corporis Christi",
     "rank": {
@@ -24930,7 +24930,7 @@
     "id": "tempora/Pent02-2",
     "names": {
       "de": "Dienstag in der Fronleichnamsoktav",
-      "en": "Feria Tertia infra Octavam Corporis Christi"
+      "en": "Tuesday in the 2nd Week after Pentecost"
     },
     "officium": "Feria Tertia infra Octavam Corporis Christi",
     "rank": {
@@ -24967,7 +24967,7 @@
     "id": "tempora/Pent02-3",
     "names": {
       "de": "Mittwoch in der Fronleichnamsoktav",
-      "en": "Feria Quarta infra Octavam Corporis Christi"
+      "en": "Wednesday in the 2nd Week after Pentecost"
     },
     "officium": "Feria Quarta infra Octavam Corporis Christi",
     "rank": {
@@ -25076,7 +25076,7 @@
     "id": "tempora/Pent02-5",
     "names": {
       "de": "Allerheiligstes Herz unseres Herrn Jesus Christus",
-      "en": "Sacratissimi Cordis Domini Nostri Jesu Christi"
+      "en": "Friday in the 2nd Week after Pentecost"
     },
     "officium": "Sacratissimi Cordis Domini Nostri Jesu Christi",
     "rank": {
@@ -25786,7 +25786,7 @@
     "id": "tempora/Pent02-6",
     "names": {
       "de": "Zweiter Tag der Herz-Jesu-Oktav",
-      "en": "Die II infra Octavam SSmi Cordis Jesu"
+      "en": "Saturday in the 2nd Week after Pentecost"
     },
     "officium": "Die II infra Octavam SSmi Cordis Jesu",
     "rank": {
@@ -26197,7 +26197,7 @@
     "id": "tempora/Pent03-1",
     "names": {
       "de": "Vierter Tag der Herz-Jesu-Oktav",
-      "en": "Die IV infra Octavam SSmi Cordis Jesu"
+      "en": "Monday in the 3rd Week after Pentecost"
     },
     "officium": "Die IV infra Octavam SSmi Cordis Jesu",
     "rank": {
@@ -26288,7 +26288,7 @@
     "id": "tempora/Pent03-2",
     "names": {
       "de": "Fünfter Tag der Herz-Jesu-Oktav",
-      "en": "Die V infra Octavam SSmi Cordis Jesu"
+      "en": "Tuesday in the 3rd Week after Pentecost"
     },
     "officium": "Die V infra Octavam SSmi Cordis Jesu",
     "rank": {
@@ -26379,7 +26379,7 @@
     "id": "tempora/Pent03-3",
     "names": {
       "de": "Sechster Tag der Herz-Jesu-Oktav",
-      "en": "Die VI infra Octavam SSmi Cordis Jesu"
+      "en": "Wednesday in the 3rd Week after Pentecost"
     },
     "officium": "Die VI infra Octavam SSmi Cordis Jesu",
     "rank": {
@@ -26444,7 +26444,7 @@
     "id": "tempora/Pent03-4",
     "names": {
       "de": "Siebter Tag der Herz-Jesu-Oktav",
-      "en": "Die VII infra Octavam SSmi Cordis Jesu"
+      "en": "Thursday in the 3rd Week after Pentecost"
     },
     "officium": "Die VII infra Octavam SSmi Cordis Jesu",
     "rank": {
@@ -26509,7 +26509,7 @@
     "id": "tempora/Pent03-5",
     "names": {
       "de": "Oktavtag des allerheiligsten Herzen Jesu",
-      "en": "Die Octava SSmi Cordis Jesu"
+      "en": "Friday in the 3rd Week after Pentecost"
     },
     "officium": "Die Octava SSmi Cordis Jesu",
     "rank": {
@@ -26600,7 +26600,7 @@
     "id": "tempora/Pent03-6",
     "names": {
       "de": "Samstag der dritten Woche nach der Pfingsoktav",
-      "en": "Sabbato infra Hebdomadam III post Octavam Pentecostes"
+      "en": "Saturday in the 3rd Week after Pentecost"
     },
     "officium": "Sabbato infra Hebdomadam III post Octavam Pentecostes",
     "rank": {
@@ -26656,7 +26656,7 @@
     "id": "tempora/Pent04-0",
     "names": {
       "de": "Vierter Sonntag nach Pfingsten",
-      "en": "Dominica IV Post Pentecosten"
+      "en": "4th Sunday after Pentecost"
     },
     "officium": "Dominica IV Post Pentecosten",
     "rank": {
@@ -27147,7 +27147,7 @@
     "id": "tempora/Pent04-1",
     "names": {
       "de": "Montag in der 4. Woche nach Pfingsten",
-      "en": "Feria secunda infra Hebdomadam IV post Octavam Pentecostes"
+      "en": "Monday in the 4th Week after Pentecost"
     },
     "officium": "Feria secunda infra Hebdomadam IV post Octavam Pentecostes",
     "rank": {
@@ -27203,7 +27203,7 @@
     "id": "tempora/Pent04-2",
     "names": {
       "de": "Dienstag in der 4. Woche nach Pfingsten",
-      "en": "Feria tertia infra Hebdomadam IV post Octavam Pentecostes"
+      "en": "Tuesday in the 4th Week after Pentecost"
     },
     "officium": "Feria tertia infra Hebdomadam IV post Octavam Pentecostes",
     "rank": {
@@ -27259,7 +27259,7 @@
     "id": "tempora/Pent04-3",
     "names": {
       "de": "Mittwoch in der 4. Woche nach Pfingsten",
-      "en": "Feria quarta infra Hebdomadam IV post Octavam Pentecostes"
+      "en": "Wednesday in the 4th Week after Pentecost"
     },
     "officium": "Feria quarta infra Hebdomadam IV post Octavam Pentecostes",
     "rank": {
@@ -27315,7 +27315,7 @@
     "id": "tempora/Pent04-4",
     "names": {
       "de": "Donnerstag in der 4. Woche nach Pfingsten",
-      "en": "Feria quinta infra Hebdomadam IV post Octavam Pentecostes"
+      "en": "Thursday in the 4th Week after Pentecost"
     },
     "officium": "Feria quinta infra Hebdomadam IV post Octavam Pentecostes",
     "rank": {
@@ -27345,7 +27345,7 @@
     "id": "tempora/Pent04-5",
     "names": {
       "de": "Freitag in der 4. Woche nach Pfingsten",
-      "en": "Feria sexta infra Hebdomadam IV post Octavam Pentecostes"
+      "en": "Friday in the 4th Week after Pentecost"
     },
     "officium": "Feria sexta infra Hebdomadam IV post Octavam Pentecostes",
     "rank": {
@@ -27401,7 +27401,7 @@
     "id": "tempora/Pent04-6",
     "names": {
       "de": "Samstag in der 4. Woche nach Pfingsten",
-      "en": "Sabbato infra Hebdomadam IV post Octavam Pentecostes"
+      "en": "Saturday in the 4th Week after Pentecost"
     },
     "officium": "Sabbato infra Hebdomadam IV post Octavam Pentecostes",
     "rank": {
@@ -27431,7 +27431,7 @@
     "id": "tempora/Pent05-0",
     "names": {
       "de": "Fünfter Sonntag nach Pfingsten",
-      "en": "Dominica V Post Pentecosten"
+      "en": "5th Sunday after Pentecost"
     },
     "officium": "Dominica V Post Pentecosten",
     "rank": {
@@ -27950,7 +27950,7 @@
     "id": "tempora/Pent05-1",
     "names": {
       "de": "Montag in der 5. Woche nach Pfingsten",
-      "en": "Feria secunda infra Hebdomadam V post Octavam Pentecostes"
+      "en": "Monday in the 5th Week after Pentecost"
     },
     "officium": "Feria secunda infra Hebdomadam V post Octavam Pentecostes",
     "rank": {
@@ -27980,7 +27980,7 @@
     "id": "tempora/Pent05-2",
     "names": {
       "de": "Dienstag in der 5. Woche nach Pfingsten",
-      "en": "Feria tertia infra Hebdomadam V post Octavam Pentecostes"
+      "en": "Tuesday in the 5th Week after Pentecost"
     },
     "officium": "Feria tertia infra Hebdomadam V post Octavam Pentecostes",
     "rank": {
@@ -28010,7 +28010,7 @@
     "id": "tempora/Pent05-3",
     "names": {
       "de": "Mittwoch in der 5. Woche nach Pfingsten",
-      "en": "Feria quarta infra Hebdomadam V post Octavam Pentecostes"
+      "en": "Wednesday in the 5th Week after Pentecost"
     },
     "officium": "Feria quarta infra Hebdomadam V post Octavam Pentecostes",
     "rank": {
@@ -28040,7 +28040,7 @@
     "id": "tempora/Pent05-4",
     "names": {
       "de": "Donnerstag in der 5. Woche nach Pfingsten",
-      "en": "Feria quinta infra Hebdomadam V post Octavam Pentecostes"
+      "en": "Thursday in the 5th Week after Pentecost"
     },
     "officium": "Feria quinta infra Hebdomadam V post Octavam Pentecostes",
     "rank": {
@@ -28070,7 +28070,7 @@
     "id": "tempora/Pent05-5",
     "names": {
       "de": "Freitag in der 5. Woche nach Pfingsten",
-      "en": "Feria sexta infra Hebdomadam V post Octavam Pentecostes"
+      "en": "Friday in the 5th Week after Pentecost"
     },
     "officium": "Feria sexta infra Hebdomadam V post Octavam Pentecostes",
     "rank": {
@@ -28100,7 +28100,7 @@
     "id": "tempora/Pent05-6",
     "names": {
       "de": "Samstag in der 5. Woche nach Pfingsten",
-      "en": "Sabbato infra Hebdomadam V post Octavam Pentecostes"
+      "en": "Saturday in the 5th Week after Pentecost"
     },
     "officium": "Sabbato infra Hebdomadam V post Octavam Pentecostes",
     "rank": {
@@ -28130,7 +28130,7 @@
     "id": "tempora/Pent06-0",
     "names": {
       "de": "Sechster Sonntag nach Pfingsten",
-      "en": "Dominica VI Post Pentecosten"
+      "en": "6th Sunday after Pentecost"
     },
     "officium": "Dominica VI Post Pentecosten",
     "rank": {
@@ -28394,7 +28394,7 @@
     "id": "tempora/Pent06-1",
     "names": {
       "de": "Montag in der 6. Woche nach Pfingsten",
-      "en": "Feria secunda infra Hebdomadam VI post Octavam Pentecostes"
+      "en": "Monday in the 6th Week after Pentecost"
     },
     "officium": "Feria secunda infra Hebdomadam VI post Octavam Pentecostes",
     "rank": {
@@ -28424,7 +28424,7 @@
     "id": "tempora/Pent06-2",
     "names": {
       "de": "Dienstag in der 6. Woche nach Pfingsten",
-      "en": "Feria tertia infra Hebdomadam VI post Octavam Pentecostes"
+      "en": "Tuesday in the 6th Week after Pentecost"
     },
     "officium": "Feria tertia infra Hebdomadam VI post Octavam Pentecostes",
     "rank": {
@@ -28454,7 +28454,7 @@
     "id": "tempora/Pent06-3",
     "names": {
       "de": "Mittwoch in der 6. Woche nach Pfingsten",
-      "en": "Feria quarta infra Hebdomadam VI post Octavam Pentecostes"
+      "en": "Wednesday in the 6th Week after Pentecost"
     },
     "officium": "Feria quarta infra Hebdomadam VI post Octavam Pentecostes",
     "rank": {
@@ -28484,7 +28484,7 @@
     "id": "tempora/Pent06-4",
     "names": {
       "de": "Donnerstag in der 6. Woche nach Pfingsten",
-      "en": "Feria quinta infra Hebdomadam VI post Octavam Pentecostes"
+      "en": "Thursday in the 6th Week after Pentecost"
     },
     "officium": "Feria quinta infra Hebdomadam VI post Octavam Pentecostes",
     "rank": {
@@ -28514,7 +28514,7 @@
     "id": "tempora/Pent06-5",
     "names": {
       "de": "Freitag in der 6. Woche nach Pfingsten",
-      "en": "Feria sexta infra Hebdomadam VI post Octavam Pentecostes"
+      "en": "Friday in the 6th Week after Pentecost"
     },
     "officium": "Feria sexta infra Hebdomadam VI post Octavam Pentecostes",
     "rank": {
@@ -28544,7 +28544,7 @@
     "id": "tempora/Pent06-6",
     "names": {
       "de": "Samstag in der 6. Woche nach Pfingsten",
-      "en": "Sabbato infra Hebdomadam VI post Octavam Pentecostes"
+      "en": "Saturday in the 6th Week after Pentecost"
     },
     "officium": "Sabbato infra Hebdomadam VI post Octavam Pentecostes",
     "rank": {
@@ -28574,7 +28574,7 @@
     "id": "tempora/Pent07-0",
     "names": {
       "de": "Siebter Sonntag nach Pfingsten",
-      "en": "Dominica VII Post Pentecosten"
+      "en": "7th Sunday after Pentecost"
     },
     "officium": "Dominica VII Post Pentecosten",
     "rank": {
@@ -28839,7 +28839,7 @@
     "id": "tempora/Pent07-1",
     "names": {
       "de": "Montag in der 7. Woche nach Pfingsten",
-      "en": "Feria secunda infra Hebdomadam VII post Octavam Pentecostes"
+      "en": "Monday in the 7th Week after Pentecost"
     },
     "officium": "Feria secunda infra Hebdomadam VII post Octavam Pentecostes",
     "rank": {
@@ -28869,7 +28869,7 @@
     "id": "tempora/Pent07-2",
     "names": {
       "de": "Dienstag in der 7. Woche nach Pfingsten",
-      "en": "Feria tertia infra Hebdomadam VII post Octavam Pentecostes"
+      "en": "Tuesday in the 7th Week after Pentecost"
     },
     "officium": "Feria tertia infra Hebdomadam VII post Octavam Pentecostes",
     "rank": {
@@ -28899,7 +28899,7 @@
     "id": "tempora/Pent07-3",
     "names": {
       "de": "Mittwoch in der 7. Woche nach Pfingsten",
-      "en": "Feria quarta infra Hebdomadam VII post Octavam Pentecostes"
+      "en": "Wednesday in the 7th Week after Pentecost"
     },
     "officium": "Feria quarta infra Hebdomadam VII post Octavam Pentecostes",
     "rank": {
@@ -28929,7 +28929,7 @@
     "id": "tempora/Pent07-4",
     "names": {
       "de": "Donnerstag in der 7. Woche nach Pfingsten",
-      "en": "Feria quinta infra Hebdomadam VII post Octavam Pentecostes"
+      "en": "Thursday in the 7th Week after Pentecost"
     },
     "officium": "Feria quinta infra Hebdomadam VII post Octavam Pentecostes",
     "rank": {
@@ -28959,7 +28959,7 @@
     "id": "tempora/Pent07-5",
     "names": {
       "de": "Freitag in der 7. Woche nach Pfingsten",
-      "en": "Feria sexta infra Hebdomadam VII post Octavam Pentecostes"
+      "en": "Friday in the 7th Week after Pentecost"
     },
     "officium": "Feria sexta infra Hebdomadam VII post Octavam Pentecostes",
     "rank": {
@@ -28989,7 +28989,7 @@
     "id": "tempora/Pent07-6",
     "names": {
       "de": "Samstag in der 7. Woche nach Pfingsten",
-      "en": "Sabbato II infra Hebdomadam VII post Octavam Pentecostes"
+      "en": "Saturday in the 7th Week after Pentecost"
     },
     "officium": "Sabbato II infra Hebdomadam VII post Octavam Pentecostes",
     "rank": {
@@ -29019,7 +29019,7 @@
     "id": "tempora/Pent08-0",
     "names": {
       "de": "Achter Sonntag nach Pfingsten",
-      "en": "Dominica VIII Post Pentecosten"
+      "en": "8th Sunday after Pentecost"
     },
     "officium": "Dominica VIII Post Pentecosten",
     "rank": {
@@ -29287,7 +29287,7 @@
     "id": "tempora/Pent08-1",
     "names": {
       "de": "Montag in der 8. Woche nach Pfingsten",
-      "en": "Feria secunda infra Hebdomadam VIII post Octavam Pentecostes"
+      "en": "Monday in the 8th Week after Pentecost"
     },
     "officium": "Feria secunda infra Hebdomadam VIII post Octavam Pentecostes",
     "rank": {
@@ -29317,7 +29317,7 @@
     "id": "tempora/Pent08-2",
     "names": {
       "de": "Dienstag in der 8. Woche nach Pfingsten",
-      "en": "Feria tertia infra Hebdomadam VIII post Octavam Pentecostes"
+      "en": "Tuesday in the 8th Week after Pentecost"
     },
     "officium": "Feria tertia infra Hebdomadam VIII post Octavam Pentecostes",
     "rank": {
@@ -29347,7 +29347,7 @@
     "id": "tempora/Pent08-3",
     "names": {
       "de": "Mittwoch in der 8. Woche nach Pfingsten",
-      "en": "Feria quarta infra Hebdomadam VIII post Octavam Pentecostes"
+      "en": "Wednesday in the 8th Week after Pentecost"
     },
     "officium": "Feria quarta infra Hebdomadam VIII post Octavam Pentecostes",
     "rank": {
@@ -29377,7 +29377,7 @@
     "id": "tempora/Pent08-4",
     "names": {
       "de": "Donnerstag in der 8. Woche nach Pfingsten",
-      "en": "Feria quinta infra Hebdomadam VIII post Octavam Pentecostes"
+      "en": "Thursday in the 8th Week after Pentecost"
     },
     "officium": "Feria quinta infra Hebdomadam VIII post Octavam Pentecostes",
     "rank": {
@@ -29407,7 +29407,7 @@
     "id": "tempora/Pent08-5",
     "names": {
       "de": "Freitag in der 8. Woche nach Pfingsten",
-      "en": "Feria sexta infra Hebdomadam VIII post Octavam Pentecostes"
+      "en": "Friday in the 8th Week after Pentecost"
     },
     "officium": "Feria sexta infra Hebdomadam VIII post Octavam Pentecostes",
     "rank": {
@@ -29437,7 +29437,7 @@
     "id": "tempora/Pent08-6",
     "names": {
       "de": "Samstag in der 8. Woche nach Pfingsten",
-      "en": "Sabbato infra Hebdomadam VIII post Octavam Pentecostes"
+      "en": "Saturday in the 8th Week after Pentecost"
     },
     "officium": "Sabbato infra Hebdomadam VIII post Octavam Pentecostes",
     "rank": {
@@ -29467,7 +29467,7 @@
     "id": "tempora/Pent09-0",
     "names": {
       "de": "Neunter Sonntag nach Pfingsten",
-      "en": "Dominica IX Post Pentecosten"
+      "en": "9th Sunday after Pentecost"
     },
     "officium": "Dominica IX Post Pentecosten",
     "rank": {
@@ -29736,7 +29736,7 @@
     "id": "tempora/Pent09-1",
     "names": {
       "de": "Montag in der 9. Woche nach Pfingsten",
-      "en": "Feria secunda infra Hebdomadam IX post Octavam Pentecostes"
+      "en": "Monday in the 9th Week after Pentecost"
     },
     "officium": "Feria secunda infra Hebdomadam IX post Octavam Pentecostes",
     "rank": {
@@ -29766,7 +29766,7 @@
     "id": "tempora/Pent09-2",
     "names": {
       "de": "Dienstag in der 9. Woche nach Pfingsten",
-      "en": "Feria tertia infra Hebdomadam IX post Octavam Pentecostes"
+      "en": "Tuesday in the 9th Week after Pentecost"
     },
     "officium": "Feria tertia infra Hebdomadam IX post Octavam Pentecostes",
     "rank": {
@@ -29796,7 +29796,7 @@
     "id": "tempora/Pent09-3",
     "names": {
       "de": "Mittwoch in der 9. Woche nach Pfingsten",
-      "en": "Feria quarta infra Hebdomadam IX post Octavam Pentecostes"
+      "en": "Wednesday in the 9th Week after Pentecost"
     },
     "officium": "Feria quarta infra Hebdomadam IX post Octavam Pentecostes",
     "rank": {
@@ -29826,7 +29826,7 @@
     "id": "tempora/Pent09-4",
     "names": {
       "de": "Donnerstag in der 9. Woche nach Pfingsten",
-      "en": "Feria quinta infra Hebdomadam IX post Octavam Pentecostes"
+      "en": "Thursday in the 9th Week after Pentecost"
     },
     "officium": "Feria quinta infra Hebdomadam IX post Octavam Pentecostes",
     "rank": {
@@ -29856,7 +29856,7 @@
     "id": "tempora/Pent09-5",
     "names": {
       "de": "Freitag in der 9. Woche nach Pfingsten",
-      "en": "Feria sexta infra Hebdomadam IX post Octavam Pentecostes"
+      "en": "Friday in the 9th Week after Pentecost"
     },
     "officium": "Feria sexta infra Hebdomadam IX post Octavam Pentecostes",
     "rank": {
@@ -29886,7 +29886,7 @@
     "id": "tempora/Pent09-6",
     "names": {
       "de": "Samstag in der 9. Woche nach Pfingsten",
-      "en": "Sabbato secunda infra Hebdomadam IX post Octavam Pentecostes"
+      "en": "Saturday in the 9th Week after Pentecost"
     },
     "officium": "Sabbato secunda infra Hebdomadam IX post Octavam Pentecostes",
     "rank": {
@@ -29916,7 +29916,7 @@
     "id": "tempora/Pent10-0",
     "names": {
       "de": "Zehnter Sonntag nach Pfingsten",
-      "en": "Dominica X Post Pentecosten"
+      "en": "10th Sunday after Pentecost"
     },
     "officium": "Dominica X Post Pentecosten",
     "rank": {
@@ -30185,7 +30185,7 @@
     "id": "tempora/Pent10-1",
     "names": {
       "de": "Montag in der 10. Woche nach Pfingsten",
-      "en": "Feria secunda infra Hebdomadam X post Octavam Pentecostes"
+      "en": "Monday in the 10th Week after Pentecost"
     },
     "officium": "Feria secunda infra Hebdomadam X post Octavam Pentecostes",
     "rank": {
@@ -30215,7 +30215,7 @@
     "id": "tempora/Pent10-2",
     "names": {
       "de": "Dienstag in der 10. Woche nach Pfingsten",
-      "en": "Feria tertia infra Hebdomadam X post Octavam Pentecostes"
+      "en": "Tuesday in the 10th Week after Pentecost"
     },
     "officium": "Feria tertia infra Hebdomadam X post Octavam Pentecostes",
     "rank": {
@@ -30245,7 +30245,7 @@
     "id": "tempora/Pent10-3",
     "names": {
       "de": "Mittwoch in der 10. Woche nach Pfingsten",
-      "en": "Feria quarta infra Hebdomadam X post Octavam Pentecostes"
+      "en": "Wednesday in the 10th Week after Pentecost"
     },
     "officium": "Feria quarta infra Hebdomadam X post Octavam Pentecostes",
     "rank": {
@@ -30275,7 +30275,7 @@
     "id": "tempora/Pent10-4",
     "names": {
       "de": "Donnerstag in der 10. Woche nach Pfingsten",
-      "en": "Feria quinta infra Hebdomadam X post Octavam Pentecostes"
+      "en": "Thursday in the 10th Week after Pentecost"
     },
     "officium": "Feria quinta infra Hebdomadam X post Octavam Pentecostes",
     "rank": {
@@ -30305,7 +30305,7 @@
     "id": "tempora/Pent10-5",
     "names": {
       "de": "Freitag in der 10. Woche nach Pfingsten",
-      "en": "Feria sexta infra Hebdomadam X post Octavam Pentecostes"
+      "en": "Friday in the 10th Week after Pentecost"
     },
     "officium": "Feria sexta infra Hebdomadam X post Octavam Pentecostes",
     "rank": {
@@ -30335,7 +30335,7 @@
     "id": "tempora/Pent10-6",
     "names": {
       "de": "Samstag in der 10. Woche nach Pfingsten",
-      "en": "Sabbato infra Hebdomadam X post Octavam Pentecostes"
+      "en": "Saturday in the 10th Week after Pentecost"
     },
     "officium": "Sabbato infra Hebdomadam X post Octavam Pentecostes",
     "rank": {
@@ -30365,7 +30365,7 @@
     "id": "tempora/Pent11-0",
     "names": {
       "de": "Elfter Sonntag nach Pfingsten",
-      "en": "Dominica XI Post Pentecosten"
+      "en": "11th Sunday after Pentecost"
     },
     "officium": "Dominica XI Post Pentecosten",
     "rank": {
@@ -30629,7 +30629,7 @@
     "id": "tempora/Pent11-1",
     "names": {
       "de": "Montag in der 11. Woche nach Pfingsten",
-      "en": "Feria secunda infra Hebdomadam XI post Octavam Pentecostes"
+      "en": "Monday in the 11th Week after Pentecost"
     },
     "officium": "Feria secunda infra Hebdomadam XI post Octavam Pentecostes",
     "rank": {
@@ -30659,7 +30659,7 @@
     "id": "tempora/Pent11-2",
     "names": {
       "de": "Dienstag in der 11. Woche nach Pfingsten",
-      "en": "Feria tertia infra Hebdomadam XI post Octavam Pentecostes"
+      "en": "Tuesday in the 11th Week after Pentecost"
     },
     "officium": "Feria tertia infra Hebdomadam XI post Octavam Pentecostes",
     "rank": {
@@ -30689,7 +30689,7 @@
     "id": "tempora/Pent11-3",
     "names": {
       "de": "Mittwoch in der 11. Woche nach Pfingsten",
-      "en": "Feria quarta infra Hebdomadam XI post Octavam Pentecostes"
+      "en": "Wednesday in the 11th Week after Pentecost"
     },
     "officium": "Feria quarta infra Hebdomadam XI post Octavam Pentecostes",
     "rank": {
@@ -30719,7 +30719,7 @@
     "id": "tempora/Pent11-4",
     "names": {
       "de": "Donnerstag in der 11. Woche nach Pfingsten",
-      "en": "Feria quinta infra Hebdomadam XI post Octavam Pentecostes"
+      "en": "Thursday in the 11th Week after Pentecost"
     },
     "officium": "Feria quinta infra Hebdomadam XI post Octavam Pentecostes",
     "rank": {
@@ -30749,7 +30749,7 @@
     "id": "tempora/Pent11-5",
     "names": {
       "de": "Freitag in der 11. Woche nach Pfingsten",
-      "en": "Feria sexta infra Hebdomadam XI post Octavam Pentecostes"
+      "en": "Friday in the 11th Week after Pentecost"
     },
     "officium": "Feria sexta infra Hebdomadam XI post Octavam Pentecostes",
     "rank": {
@@ -30809,7 +30809,7 @@
     "id": "tempora/Pent12-0",
     "names": {
       "de": "Zwölfter Sonntag nach Pfingsten",
-      "en": "Dominica XII Post Pentecosten"
+      "en": "12th Sunday after Pentecost"
     },
     "officium": "Dominica XII Post Pentecosten",
     "rank": {
@@ -31067,7 +31067,7 @@
     "id": "tempora/Pent12-1",
     "names": {
       "de": "Montag in der 12. Woche nach Pfingsten",
-      "en": "Feria secunda infra Hebdomadam XII post Octavam Pentecostes"
+      "en": "Monday in the 12th Week after Pentecost"
     },
     "officium": "Feria secunda infra Hebdomadam XII post Octavam Pentecostes",
     "rank": {
@@ -31097,7 +31097,7 @@
     "id": "tempora/Pent12-2",
     "names": {
       "de": "Dienstag in der 12. Woche nach Pfingsten",
-      "en": "Feria Tertia infra Hebdomadam XII post Octavam Pentecostes"
+      "en": "Tuesday in the 12th Week after Pentecost"
     },
     "officium": "Feria Tertia infra Hebdomadam XII post Octavam Pentecostes",
     "rank": {
@@ -31127,7 +31127,7 @@
     "id": "tempora/Pent12-3",
     "names": {
       "de": "Mittwoch in der 12. Woche nach Pfingsten",
-      "en": "Feria Quarta infra Hebdomadam XII post Octavam Pentecostes"
+      "en": "Wednesday in the 12th Week after Pentecost"
     },
     "officium": "Feria Quarta infra Hebdomadam XII post Octavam Pentecostes",
     "rank": {
@@ -31157,7 +31157,7 @@
     "id": "tempora/Pent12-4",
     "names": {
       "de": "Donnerstag in der 12. Woche nach Pfingsten",
-      "en": "Feria Quinta infra Hebdomadam XII post Octavam Pentecostes"
+      "en": "Thursday in the 12th Week after Pentecost"
     },
     "officium": "Feria Quinta infra Hebdomadam XII post Octavam Pentecostes",
     "rank": {
@@ -31187,7 +31187,7 @@
     "id": "tempora/Pent12-5",
     "names": {
       "de": "Freitag in der 12. Woche nach Pfingsten",
-      "en": "Feria Sexta infra Hebdomadam XII post Octavam Pentecostes"
+      "en": "Friday in the 12th Week after Pentecost"
     },
     "officium": "Feria Sexta infra Hebdomadam XII post Octavam Pentecostes",
     "rank": {
@@ -31217,7 +31217,7 @@
     "id": "tempora/Pent12-6",
     "names": {
       "de": "Samstag in der 12. Woche nach Pfingsten",
-      "en": "Sabbato infra Hebdomadam XII post Octavam Pentecostes"
+      "en": "Saturday in the 12th Week after Pentecost"
     },
     "officium": "Sabbato infra Hebdomadam XII post Octavam Pentecostes",
     "rank": {
@@ -31247,7 +31247,7 @@
     "id": "tempora/Pent13-0",
     "names": {
       "de": "13. Sonntag nach Pfingsten",
-      "en": "Dominica XIII Post Pentecosten"
+      "en": "13th Sunday after Pentecost"
     },
     "officium": "Dominica XIII Post Pentecosten",
     "rank": {
@@ -31506,7 +31506,7 @@
     "id": "tempora/Pent13-1",
     "names": {
       "de": "Montag in der 13. Woche nach Pfingsten",
-      "en": "Feria Secunda infra Hebdomadam XIII post Octavam Pentecostes"
+      "en": "Monday in the 13th Week after Pentecost"
     },
     "officium": "Feria Secunda infra Hebdomadam XIII post Octavam Pentecostes",
     "rank": {
@@ -31536,7 +31536,7 @@
     "id": "tempora/Pent13-2",
     "names": {
       "de": "Dienstag in der 13. Woche nach Pfingsten",
-      "en": "Feria Tertia infra Hebdomadam XIII post Octavam Pentecostes"
+      "en": "Tuesday in the 13th Week after Pentecost"
     },
     "officium": "Feria Tertia infra Hebdomadam XIII post Octavam Pentecostes",
     "rank": {
@@ -31566,7 +31566,7 @@
     "id": "tempora/Pent13-3",
     "names": {
       "de": "Mittwoch in der 13. Woche nach Pfingsten",
-      "en": "Feria Quarta infra Hebdomadam XIII post Octavam Pentecostes"
+      "en": "Wednesday in the 13th Week after Pentecost"
     },
     "officium": "Feria Quarta infra Hebdomadam XIII post Octavam Pentecostes",
     "rank": {
@@ -31596,7 +31596,7 @@
     "id": "tempora/Pent13-4",
     "names": {
       "de": "Donnerstag in der 13. Woche nach Pfingsten",
-      "en": "Feria Quinta infra Hebdomadam XIII post Octavam Pentecostes"
+      "en": "Thursday in the 13th Week after Pentecost"
     },
     "officium": "Feria Quinta infra Hebdomadam XIII post Octavam Pentecostes",
     "rank": {
@@ -31626,7 +31626,7 @@
     "id": "tempora/Pent13-5",
     "names": {
       "de": "Freitag in der 13. Woche nach Pfingsten",
-      "en": "Feria Sexta infra Hebdomadam XIII post Octavam Pentecostes"
+      "en": "Friday in the 13th Week after Pentecost"
     },
     "officium": "Feria Sexta infra Hebdomadam XIII post Octavam Pentecostes",
     "rank": {
@@ -31656,7 +31656,7 @@
     "id": "tempora/Pent13-6",
     "names": {
       "de": "Samstag in der 13. Woche nach Pfingsten",
-      "en": "Sabbato infra Hebdomadam XIII post Octavam Pentecostes"
+      "en": "Saturday in the 13th Week after Pentecost"
     },
     "officium": "Sabbato infra Hebdomadam XIII post Octavam Pentecostes",
     "rank": {
@@ -31686,7 +31686,7 @@
     "id": "tempora/Pent14-0",
     "names": {
       "de": "14. Sonntag nach Pfingsten",
-      "en": "Dominica XIV Post Pentecosten"
+      "en": "14th Sunday after Pentecost"
     },
     "officium": "Dominica XIV Post Pentecosten",
     "rank": {
@@ -31946,7 +31946,7 @@
     "id": "tempora/Pent14-1",
     "names": {
       "de": "Montag in der 14. Woche nach Pfingsten",
-      "en": "Feria Secunda infra Hebdomadam XIV post Octavam Pentecostes"
+      "en": "Monday in the 14th Week after Pentecost"
     },
     "officium": "Feria Secunda infra Hebdomadam XIV post Octavam Pentecostes",
     "rank": {
@@ -31976,7 +31976,7 @@
     "id": "tempora/Pent14-2",
     "names": {
       "de": "Dienstag in der 14. Woche nach Pfingsten",
-      "en": "Feria Tertia infra Hebdomadam XIV post Octavam Pentecostes"
+      "en": "Tuesday in the 14th Week after Pentecost"
     },
     "officium": "Feria Tertia infra Hebdomadam XIV post Octavam Pentecostes",
     "rank": {
@@ -32006,7 +32006,7 @@
     "id": "tempora/Pent14-3",
     "names": {
       "de": "Mittwoch in der 14. Woche nach Pfingsten",
-      "en": "Feria Quarta infra Hebdomadam XIV post Octavam Pentecostes"
+      "en": "Wednesday in the 14th Week after Pentecost"
     },
     "officium": "Feria Quarta infra Hebdomadam XIV post Octavam Pentecostes",
     "rank": {
@@ -32036,7 +32036,7 @@
     "id": "tempora/Pent14-4",
     "names": {
       "de": "Donnerstag in der 14. Woche nach Pfingsten",
-      "en": "Feria Quinta infra Hebdomadam XIV post Octavam Pentecostes"
+      "en": "Thursday in the 14th Week after Pentecost"
     },
     "officium": "Feria Quinta infra Hebdomadam XIV post Octavam Pentecostes",
     "rank": {
@@ -32066,7 +32066,7 @@
     "id": "tempora/Pent14-5",
     "names": {
       "de": "Freitag in der 14. Woche nach Pfingsten",
-      "en": "Feria Sexta infra Hebdomadam XIV post Octavam Pentecostes"
+      "en": "Friday in the 14th Week after Pentecost"
     },
     "officium": "Feria Sexta infra Hebdomadam XIV post Octavam Pentecostes",
     "rank": {
@@ -32096,7 +32096,7 @@
     "id": "tempora/Pent14-6",
     "names": {
       "de": "Samstag in der 14. Woche nach Pfingsten",
-      "en": "Sabbato infra Hebdomadam XIV post Octavam Pentecostes"
+      "en": "Saturday in the 14th Week after Pentecost"
     },
     "officium": "Sabbato infra Hebdomadam XIV post Octavam Pentecostes",
     "rank": {
@@ -32126,7 +32126,7 @@
     "id": "tempora/Pent15-0",
     "names": {
       "de": "15. Sonntag nach Pfingsten",
-      "en": "Dominica XV Post Pentecosten"
+      "en": "15th Sunday after Pentecost"
     },
     "officium": "Dominica XV Post Pentecosten",
     "rank": {
@@ -32373,7 +32373,7 @@
     "id": "tempora/Pent15-1",
     "names": {
       "de": "Montag in der 15. Woche nach Pfingsten",
-      "en": "Feria Secunda infra Hebdomadam XV post Octavam Pentecostes"
+      "en": "Monday in the 15th Week after Pentecost"
     },
     "officium": "Feria Secunda infra Hebdomadam XV post Octavam Pentecostes",
     "rank": {
@@ -32403,7 +32403,7 @@
     "id": "tempora/Pent15-2",
     "names": {
       "de": "Dienstag in der 15. Woche nach Pfingsten",
-      "en": "Feria Tertia infra Hebdomadam XV post Octavam Pentecostes"
+      "en": "Tuesday in the 15th Week after Pentecost"
     },
     "officium": "Feria Tertia infra Hebdomadam XV post Octavam Pentecostes",
     "rank": {
@@ -32433,7 +32433,7 @@
     "id": "tempora/Pent15-3",
     "names": {
       "de": "Mittwoch in der 15. Woche nach Pfingsten",
-      "en": "Feria Quarta infra Hebdomadam XV post Octavam Pentecostes"
+      "en": "Wednesday in the 15th Week after Pentecost"
     },
     "officium": "Feria Quarta infra Hebdomadam XV post Octavam Pentecostes",
     "rank": {
@@ -32463,7 +32463,7 @@
     "id": "tempora/Pent15-4",
     "names": {
       "de": "Donnerstag in der 15. Woche nach Pfingsten",
-      "en": "Feria Quinta infra Hebdomadam XV post Octavam Pentecostes"
+      "en": "Thursday in the 15th Week after Pentecost"
     },
     "officium": "Feria Quinta infra Hebdomadam XV post Octavam Pentecostes",
     "rank": {
@@ -32493,7 +32493,7 @@
     "id": "tempora/Pent15-5",
     "names": {
       "de": "Freitag in der 15. Woche nach Pfingsten",
-      "en": "Feria Sexta infra Hebdomadam XV post Octavam Pentecostes"
+      "en": "Friday in the 15th Week after Pentecost"
     },
     "officium": "Feria Sexta infra Hebdomadam XV post Octavam Pentecostes",
     "rank": {
@@ -32523,7 +32523,7 @@
     "id": "tempora/Pent15-6",
     "names": {
       "de": "Samstag in der 15. Woche nach Pfingsten",
-      "en": "Sabbato infra Hebdomadam XV post Octavam Pentecostes"
+      "en": "Saturday in the 15th Week after Pentecost"
     },
     "officium": "Sabbato infra Hebdomadam XV post Octavam Pentecostes",
     "rank": {
@@ -32553,7 +32553,7 @@
     "id": "tempora/Pent16-0",
     "names": {
       "de": "16. Sonntag nach Pfingsten",
-      "en": "Dominica XVI Post Pentecosten"
+      "en": "16th Sunday after Pentecost"
     },
     "officium": "Dominica XVI Post Pentecosten",
     "rank": {
@@ -32812,7 +32812,7 @@
     "id": "tempora/Pent16-1",
     "names": {
       "de": "Montag in der 16. Woche nach Pfingsten",
-      "en": "Feria Secunda infra Hebdomadam XVI post Octavam Pentecostes"
+      "en": "Monday in the 16th Week after Pentecost"
     },
     "officium": "Feria Secunda infra Hebdomadam XVI post Octavam Pentecostes",
     "rank": {
@@ -32842,7 +32842,7 @@
     "id": "tempora/Pent16-2",
     "names": {
       "de": "Dienstag in der 16. Woche nach Pfingsten",
-      "en": "Feria Tertia infra Hebdomadam XVI post Octavam Pentecostes"
+      "en": "Tuesday in the 16th Week after Pentecost"
     },
     "officium": "Feria Tertia infra Hebdomadam XVI post Octavam Pentecostes",
     "rank": {
@@ -32872,7 +32872,7 @@
     "id": "tempora/Pent16-3",
     "names": {
       "de": "Mittwoch in der 16. Woche nach Pfingsten",
-      "en": "Feria Quarta infra Hebdomadam XVI post Octavam Pentecostes"
+      "en": "Wednesday in the 16th Week after Pentecost"
     },
     "officium": "Feria Quarta infra Hebdomadam XVI post Octavam Pentecostes",
     "rank": {
@@ -32902,7 +32902,7 @@
     "id": "tempora/Pent16-4",
     "names": {
       "de": "Donnerstag in der 16. Woche nach Pfingsten",
-      "en": "Feria Quinta infra Hebdomadam XVI post Octavam Pentecostes"
+      "en": "Thursday in the 16th Week after Pentecost"
     },
     "officium": "Feria Quinta infra Hebdomadam XVI post Octavam Pentecostes",
     "rank": {
@@ -32932,7 +32932,7 @@
     "id": "tempora/Pent16-5",
     "names": {
       "de": "Freitag in der 16. Woche nach Pfingsten",
-      "en": "Feria Sexta infra Hebdomadam XVI post Octavam Pentecostes"
+      "en": "Friday in the 16th Week after Pentecost"
     },
     "officium": "Feria Sexta infra Hebdomadam XVI post Octavam Pentecostes",
     "rank": {
@@ -32962,7 +32962,7 @@
     "id": "tempora/Pent16-6",
     "names": {
       "de": "Samstag in der 16. Woche nach Pfingsten",
-      "en": "Sabbato infra Hebdomadam XVI post Octavam Pentecostes"
+      "en": "Saturday in the 16th Week after Pentecost"
     },
     "officium": "Sabbato infra Hebdomadam XVI post Octavam Pentecostes",
     "rank": {
@@ -32992,7 +32992,7 @@
     "id": "tempora/Pent17-0",
     "names": {
       "de": "17. Sonntag nach Pfingsten",
-      "en": "Dominica XVII Post Pentecosten"
+      "en": "17th Sunday after Pentecost"
     },
     "officium": "Dominica XVII Post Pentecosten",
     "rank": {
@@ -33248,7 +33248,7 @@
     "id": "tempora/Pent17-1",
     "names": {
       "de": "Montag in der 17. Woche nach Pfingsten",
-      "en": "Feria Secunda infra Hebdomadam XVII post Octavam Pentecostes"
+      "en": "Monday in the 17th Week after Pentecost"
     },
     "officium": "Feria Secunda infra Hebdomadam XVII post Octavam Pentecostes",
     "rank": {
@@ -33278,7 +33278,7 @@
     "id": "tempora/Pent17-2",
     "names": {
       "de": "Dienstag in der 17. Woche nach Pfingsten",
-      "en": "Feria Tertia infra Hebdomadam XVII post Octavam Pentecostes"
+      "en": "Tuesday in the 17th Week after Pentecost"
     },
     "officium": "Feria Tertia infra Hebdomadam XVII post Octavam Pentecostes",
     "rank": {
@@ -33308,7 +33308,7 @@
     "id": "tempora/Pent17-3",
     "names": {
       "de": "Mittwoch in der 17. Woche nach Pfingsten",
-      "en": "Feria Quarta infra Hebdomadam XVII post Octavam Pentecostes"
+      "en": "Wednesday in the 17th Week after Pentecost"
     },
     "officium": "Feria Quarta infra Hebdomadam XVII post Octavam Pentecostes",
     "rank": {
@@ -33338,7 +33338,7 @@
     "id": "tempora/Pent17-4",
     "names": {
       "de": "Donnerstag in der 17. Woche nach Pfingsten",
-      "en": "Feria Quinta infra Hebdomadam XVII post Octavam Pentecostes"
+      "en": "Thursday in the 17th Week after Pentecost"
     },
     "officium": "Feria Quinta infra Hebdomadam XVII post Octavam Pentecostes",
     "rank": {
@@ -33368,7 +33368,7 @@
     "id": "tempora/Pent17-5",
     "names": {
       "de": "Freitag in der 17. Woche nach Pfingsten",
-      "en": "Feria Sexta infra Hebdomadam XVII post Octavam Pentecostes"
+      "en": "Friday in the 17th Week after Pentecost"
     },
     "officium": "Feria Sexta infra Hebdomadam XVII post Octavam Pentecostes",
     "rank": {
@@ -33398,7 +33398,7 @@
     "id": "tempora/Pent17-6",
     "names": {
       "de": "Samstag in der 17. Woche nach Pfingsten",
-      "en": "Sabbato infra Hebdomadam XVII post Octavam Pentecostes"
+      "en": "Saturday in the 17th Week after Pentecost"
     },
     "officium": "Sabbato infra Hebdomadam XVII post Octavam Pentecostes",
     "rank": {
@@ -33428,7 +33428,7 @@
     "id": "tempora/Pent18-0",
     "names": {
       "de": "18. Sonntag nach Pfingsten",
-      "en": "Dominica XVIII Post Pentecosten"
+      "en": "18th Sunday after Pentecost"
     },
     "officium": "Dominica XVIII Post Pentecosten",
     "rank": {
@@ -33687,7 +33687,7 @@
     "id": "tempora/Pent18-1",
     "names": {
       "de": "Montag in der 18. Woche nach Pfingsten",
-      "en": "Feria Secunda infra Hebdomadam XVIII post Octavam Pentecostes"
+      "en": "Monday in the 18th Week after Pentecost"
     },
     "officium": "Feria Secunda infra Hebdomadam XVIII post Octavam Pentecostes",
     "rank": {
@@ -33717,7 +33717,7 @@
     "id": "tempora/Pent18-2",
     "names": {
       "de": "Dienstag in der 18. Woche nach Pfingsten",
-      "en": "Feria Tertia infra Hebdomadam XVIII post Octavam Pentecostes"
+      "en": "Tuesday in the 18th Week after Pentecost"
     },
     "officium": "Feria Tertia infra Hebdomadam XVIII post Octavam Pentecostes",
     "rank": {
@@ -33747,7 +33747,7 @@
     "id": "tempora/Pent18-3",
     "names": {
       "de": "Mittwoch in der 18. Woche nach Pfingsten",
-      "en": "Feria Quarta infra Hebdomadam XVIII post Octavam Pentecostes"
+      "en": "Wednesday in the 18th Week after Pentecost"
     },
     "officium": "Feria Quarta infra Hebdomadam XVIII post Octavam Pentecostes",
     "rank": {
@@ -33777,7 +33777,7 @@
     "id": "tempora/Pent18-4",
     "names": {
       "de": "Donnerstag in der 18. Woche nach Pfingsten",
-      "en": "Feria Quinta infra Hebdomadam XVIII post Octavam Pentecostes"
+      "en": "Thursday in the 18th Week after Pentecost"
     },
     "officium": "Feria Quinta infra Hebdomadam XVIII post Octavam Pentecostes",
     "rank": {
@@ -33807,7 +33807,7 @@
     "id": "tempora/Pent18-5",
     "names": {
       "de": "Freitag in der 18. Woche nach Pfingsten",
-      "en": "Feria Sexta infra Hebdomadam XVIII post Octavam Pentecostes"
+      "en": "Friday in the 18th Week after Pentecost"
     },
     "officium": "Feria Sexta infra Hebdomadam XVIII post Octavam Pentecostes",
     "rank": {
@@ -33836,7 +33836,7 @@
     "id": "tempora/Pent18-6",
     "names": {
       "de": "Samstag in der 18. Woche nach Pfingsten",
-      "en": "Sabbato infra Hebdomadam XVIII post Octavam Pentecostes"
+      "en": "Saturday in the 18th Week after Pentecost"
     },
     "officium": "Sabbato infra Hebdomadam XVIII post Octavam Pentecostes",
     "rank": {
@@ -33866,7 +33866,7 @@
     "id": "tempora/Pent19-0",
     "names": {
       "de": "19. Sonntag nach Pfingsten",
-      "en": "Dominica XIX Post Pentecosten"
+      "en": "19th Sunday after Pentecost"
     },
     "officium": "Dominica XIX Post Pentecosten",
     "rank": {
@@ -34121,7 +34121,7 @@
     "id": "tempora/Pent19-1",
     "names": {
       "de": "Montag in der 19. Woche nach Pfingsten",
-      "en": "Feria Secunda infra Hebdomadam XIX post Octavam Pentecostes"
+      "en": "Monday in the 19th Week after Pentecost"
     },
     "officium": "Feria Secunda infra Hebdomadam XIX post Octavam Pentecostes",
     "rank": {
@@ -34151,7 +34151,7 @@
     "id": "tempora/Pent19-2",
     "names": {
       "de": "Dienstag in der 19. Woche nach Pfingsten",
-      "en": "Feria Tertia infra Hebdomadam XIX post Octavam Pentecostes"
+      "en": "Tuesday in the 19th Week after Pentecost"
     },
     "officium": "Feria Tertia infra Hebdomadam XIX post Octavam Pentecostes",
     "rank": {
@@ -34181,7 +34181,7 @@
     "id": "tempora/Pent19-3",
     "names": {
       "de": "Mittwoch in der 19. Woche nach Pfingsten",
-      "en": "Feria Quarta infra Hebdomadam XIX post Octavam Pentecostes"
+      "en": "Wednesday in the 19th Week after Pentecost"
     },
     "officium": "Feria Quarta infra Hebdomadam XIX post Octavam Pentecostes",
     "rank": {
@@ -34211,7 +34211,7 @@
     "id": "tempora/Pent19-4",
     "names": {
       "de": "Donnerstag in der 19. Woche nach Pfingsten",
-      "en": "Feria Quinta infra Hebdomadam XIX post Octavam Pentecostes"
+      "en": "Thursday in the 19th Week after Pentecost"
     },
     "officium": "Feria Quinta infra Hebdomadam XIX post Octavam Pentecostes",
     "rank": {
@@ -34241,7 +34241,7 @@
     "id": "tempora/Pent19-5",
     "names": {
       "de": "Freitag in der 19. Woche nach Pfingsten",
-      "en": "Feria Sexta infra Hebdomadam XIX post Octavam Pentecostes"
+      "en": "Friday in the 19th Week after Pentecost"
     },
     "officium": "Feria Sexta infra Hebdomadam XIX post Octavam Pentecostes",
     "rank": {
@@ -34271,7 +34271,7 @@
     "id": "tempora/Pent19-6",
     "names": {
       "de": "Samstag in der 19. Woche nach Pfingsten",
-      "en": "Sabbato infra Hebdomadam XIX post Octavam Pentecostes"
+      "en": "Saturday in the 19th Week after Pentecost"
     },
     "officium": "Sabbato infra Hebdomadam XIX post Octavam Pentecostes",
     "rank": {
@@ -34301,7 +34301,7 @@
     "id": "tempora/Pent20-0",
     "names": {
       "de": "20. Sonntag nach Pfingsten",
-      "en": "Dominica XX Post Pentecosten"
+      "en": "20th Sunday after Pentecost"
     },
     "officium": "Dominica XX Post Pentecosten",
     "rank": {
@@ -34557,7 +34557,7 @@
     "id": "tempora/Pent20-1",
     "names": {
       "de": "Montag in der 20. Woche nach Pfingsten",
-      "en": "Feria Secunda infra Hebdomadam XX post Octavam Pentecostes"
+      "en": "Monday in the 20th Week after Pentecost"
     },
     "officium": "Feria Secunda infra Hebdomadam XX post Octavam Pentecostes",
     "rank": {
@@ -34587,7 +34587,7 @@
     "id": "tempora/Pent20-2",
     "names": {
       "de": "Dienstag in der 20. Woche nach Pfingsten",
-      "en": "Feria Tertia infra Hebdomadam XX post Octavam Pentecostes"
+      "en": "Tuesday in the 20th Week after Pentecost"
     },
     "officium": "Feria Tertia infra Hebdomadam XX post Octavam Pentecostes",
     "rank": {
@@ -34617,7 +34617,7 @@
     "id": "tempora/Pent20-3",
     "names": {
       "de": "Mittwoch in der 20. Woche nach Pfingsten",
-      "en": "Feria Quarta infra Hebdomadam XX post Octavam Pentecostes"
+      "en": "Wednesday in the 20th Week after Pentecost"
     },
     "officium": "Feria Quarta infra Hebdomadam XX post Octavam Pentecostes",
     "rank": {
@@ -34647,7 +34647,7 @@
     "id": "tempora/Pent20-4",
     "names": {
       "de": "Donnerstag in der 20. Woche nach Pfingsten",
-      "en": "Feria Quinta infra Hebdomadam XX post Octavam Pentecostes"
+      "en": "Thursday in the 20th Week after Pentecost"
     },
     "officium": "Feria Quinta infra Hebdomadam XX post Octavam Pentecostes",
     "rank": {
@@ -34677,7 +34677,7 @@
     "id": "tempora/Pent20-5",
     "names": {
       "de": "Freitag in der 20. Woche nach Pfingsten",
-      "en": "Feria Sexta infra Hebdomadam XX post Octavam Pentecostes"
+      "en": "Friday in the 20th Week after Pentecost"
     },
     "officium": "Feria Sexta infra Hebdomadam XX post Octavam Pentecostes",
     "rank": {
@@ -34707,7 +34707,7 @@
     "id": "tempora/Pent20-6",
     "names": {
       "de": "Samstag in der 20. Woche nach Pfingsten",
-      "en": "Sabbato infra Hebdomadam XX post Octavam Pentecostes"
+      "en": "Saturday in the 20th Week after Pentecost"
     },
     "officium": "Sabbato infra Hebdomadam XX post Octavam Pentecostes",
     "rank": {
@@ -34737,7 +34737,7 @@
     "id": "tempora/Pent21-0",
     "names": {
       "de": "21. Sonntag nach Pfingsten",
-      "en": "Dominica XXI Post Pentecosten"
+      "en": "21st Sunday after Pentecost"
     },
     "officium": "Dominica XXI Post Pentecosten",
     "rank": {
@@ -35005,7 +35005,7 @@
     "id": "tempora/Pent21-1",
     "names": {
       "de": "Montag in der 21. Woche nach Pfingsten",
-      "en": "Feria Secunda infra Hebdomadam XXI post Octavam Pentecostes"
+      "en": "Monday in the 21st Week after Pentecost"
     },
     "officium": "Feria Secunda infra Hebdomadam XXI post Octavam Pentecostes",
     "rank": {
@@ -35035,7 +35035,7 @@
     "id": "tempora/Pent21-2",
     "names": {
       "de": "Dienstag in der 21. Woche nach Pfingsten",
-      "en": "Feria Tertia infra Hebdomadam XXI post Octavam Pentecostes"
+      "en": "Tuesday in the 21st Week after Pentecost"
     },
     "officium": "Feria Tertia infra Hebdomadam XXI post Octavam Pentecostes",
     "rank": {
@@ -35065,7 +35065,7 @@
     "id": "tempora/Pent21-3",
     "names": {
       "de": "Mittwoch in der 21. Woche nach Pfingsten",
-      "en": "Feria Quarta infra Hebdomadam XXI post Octavam Pentecostes"
+      "en": "Wednesday in the 21st Week after Pentecost"
     },
     "officium": "Feria Quarta infra Hebdomadam XXI post Octavam Pentecostes",
     "rank": {
@@ -35095,7 +35095,7 @@
     "id": "tempora/Pent21-4",
     "names": {
       "de": "Donnerstag in der 21. Woche nach Pfingsten",
-      "en": "Feria Quinta infra Hebdomadam XXI post Octavam Pentecostes"
+      "en": "Thursday in the 21st Week after Pentecost"
     },
     "officium": "Feria Quinta infra Hebdomadam XXI post Octavam Pentecostes",
     "rank": {
@@ -35125,7 +35125,7 @@
     "id": "tempora/Pent21-5",
     "names": {
       "de": "Freitag in der 21. Woche nach Pfingsten",
-      "en": "Feria Sexta infra Hebdomadam XXI post Octavam Pentecostes"
+      "en": "Friday in the 21st Week after Pentecost"
     },
     "officium": "Feria Sexta infra Hebdomadam XXI post Octavam Pentecostes",
     "rank": {
@@ -35155,7 +35155,7 @@
     "id": "tempora/Pent21-6",
     "names": {
       "de": "Samstag in der 21. Woche nach Pfingsten",
-      "en": "Sabbato infra Hebdomadam XXI post Octavam Pentecostes"
+      "en": "Saturday in the 21st Week after Pentecost"
     },
     "officium": "Sabbato infra Hebdomadam XXI post Octavam Pentecostes",
     "rank": {
@@ -35185,7 +35185,7 @@
     "id": "tempora/Pent22-0",
     "names": {
       "de": "22. Sonntag nach Pfingsten",
-      "en": "Dominica XXII Post Pentecosten"
+      "en": "22nd Sunday after Pentecost"
     },
     "officium": "Dominica XXII Post Pentecosten",
     "rank": {
@@ -35458,7 +35458,7 @@
     "id": "tempora/Pent22-1",
     "names": {
       "de": "Montag in der 22. Woche nach Pfingsten",
-      "en": "Feria Secunda infra Hebdomadam XXII post Octavam Pentecostes"
+      "en": "Monday in the 22nd Week after Pentecost"
     },
     "officium": "Feria Secunda infra Hebdomadam XXII post Octavam Pentecostes",
     "rank": {
@@ -35488,7 +35488,7 @@
     "id": "tempora/Pent22-2",
     "names": {
       "de": "Dienstag in der 22. Woche nach Pfingsten",
-      "en": "Feria Tertia infra Hebdomadam XXII post Octavam Pentecostes"
+      "en": "Tuesday in the 22nd Week after Pentecost"
     },
     "officium": "Feria Tertia infra Hebdomadam XXII post Octavam Pentecostes",
     "rank": {
@@ -35518,7 +35518,7 @@
     "id": "tempora/Pent22-3",
     "names": {
       "de": "Mittwoch in der 22. Woche nach Pfingsten",
-      "en": "Feria Quarta infra Hebdomadam XXII post Octavam Pentecostes"
+      "en": "Wednesday in the 22nd Week after Pentecost"
     },
     "officium": "Feria Quarta infra Hebdomadam XXII post Octavam Pentecostes",
     "rank": {
@@ -35548,7 +35548,7 @@
     "id": "tempora/Pent22-4",
     "names": {
       "de": "Donnerstag in der 22. Woche nach Pfingsten",
-      "en": "Feria Quinta infra Hebdomadam XXII post Octavam Pentecostes"
+      "en": "Thursday in the 22nd Week after Pentecost"
     },
     "officium": "Feria Quinta infra Hebdomadam XXII post Octavam Pentecostes",
     "rank": {
@@ -35578,7 +35578,7 @@
     "id": "tempora/Pent22-5",
     "names": {
       "de": "Freitag in der 22. Woche nach Pfingsten",
-      "en": "Feria Sexta infra Hebdomadam XXII post Octavam Pentecostes"
+      "en": "Friday in the 22nd Week after Pentecost"
     },
     "officium": "Feria Sexta infra Hebdomadam XXII post Octavam Pentecostes",
     "rank": {
@@ -35608,7 +35608,7 @@
     "id": "tempora/Pent22-6",
     "names": {
       "de": "Samstag in der 22. Woche nach Pfingsten",
-      "en": "Sabbato infra Hebdomadam XXII post Octavam Pentecostes"
+      "en": "Saturday in the 22nd Week after Pentecost"
     },
     "officium": "Sabbato infra Hebdomadam XXII post Octavam Pentecostes",
     "rank": {
@@ -35638,7 +35638,7 @@
     "id": "tempora/Pent23-0",
     "names": {
       "de": "23. Sonntag nach Pfingsten",
-      "en": "Dominica XXIII Post Pentecosten"
+      "en": "23rd Sunday after Pentecost"
     },
     "officium": "Dominica XXIII Post Pentecosten",
     "rank": {
@@ -35924,7 +35924,7 @@
     "id": "tempora/Pent23-1",
     "names": {
       "de": "Montag in der 23. Woche nach Pfingsten",
-      "en": "Feria Secunda infra Hebdomadam XXIII post Octavam Pentecostes"
+      "en": "Monday in the 23rd Week after Pentecost"
     },
     "officium": "Feria Secunda infra Hebdomadam XXIII post Octavam Pentecostes",
     "rank": {
@@ -35954,7 +35954,7 @@
     "id": "tempora/Pent23-2",
     "names": {
       "de": "Dienstag in der 23. Woche nach Pfingsten",
-      "en": "Feria Tertia infra Hebdomadam XXIII post Octavam Pentecostes"
+      "en": "Tuesday in the 23rd Week after Pentecost"
     },
     "officium": "Feria Tertia infra Hebdomadam XXIII post Octavam Pentecostes",
     "rank": {
@@ -35984,7 +35984,7 @@
     "id": "tempora/Pent23-3",
     "names": {
       "de": "Mittwoch in der 23. Woche nach Pfingsten",
-      "en": "Feria Quarta infra Hebdomadam XXIII post Octavam Pentecostes"
+      "en": "Wednesday in the 23rd Week after Pentecost"
     },
     "officium": "Feria Quarta infra Hebdomadam XXIII post Octavam Pentecostes",
     "rank": {
@@ -36014,7 +36014,7 @@
     "id": "tempora/Pent23-4",
     "names": {
       "de": "Donnerstag in der 23. Woche nach Pfingsten",
-      "en": "Feria Quinta infra Hebdomadam XXIII post Octavam Pentecostes"
+      "en": "Thursday in the 23rd Week after Pentecost"
     },
     "officium": "Feria Quinta infra Hebdomadam XXIII post Octavam Pentecostes",
     "rank": {
@@ -36044,7 +36044,7 @@
     "id": "tempora/Pent23-5",
     "names": {
       "de": "Freitag in der 23. Woche nach Pfingsten",
-      "en": "Feria Sexta infra Hebdomadam XXIII post Octavam Pentecostes"
+      "en": "Friday in the 23rd Week after Pentecost"
     },
     "officium": "Feria Sexta infra Hebdomadam XXIII post Octavam Pentecostes",
     "rank": {
@@ -36074,7 +36074,7 @@
     "id": "tempora/Pent23-6",
     "names": {
       "de": "Samstag in der 23. Woche nach Pfingsten",
-      "en": "Sabbato infra Hebdomadam XXIII post Octavam Pentecostes"
+      "en": "Saturday in the 23rd Week after Pentecost"
     },
     "officium": "Sabbato infra Hebdomadam XXIII post Octavam Pentecostes",
     "rank": {
@@ -36104,7 +36104,7 @@
     "id": "tempora/Pent24-0",
     "names": {
       "de": "24. und letzter Sonntag nach Pfingsten",
-      "en": "Dominica XXIV et ultima Post Pentecosten"
+      "en": "24th Sunday after Pentecost"
     },
     "officium": "Dominica XXIV et ultima Post Pentecosten",
     "rank": {
@@ -36240,7 +36240,7 @@
     "id": "tempora/Pent24-1",
     "names": {
       "de": "Montag in der 24. Woche nach Pfingsten",
-      "en": "Feria Secunda infra Hebdomadam XXIV post Octavam Pentecostes"
+      "en": "Monday in the 24th Week after Pentecost"
     },
     "officium": "Feria Secunda infra Hebdomadam XXIV post Octavam Pentecostes",
     "rank": {
@@ -36270,7 +36270,7 @@
     "id": "tempora/Pent24-2",
     "names": {
       "de": "Dienstag in der 24. Woche nach Pfingsten",
-      "en": "Feria Tertia infra Hebdomadam XXIV post Octavam Pentecostes"
+      "en": "Tuesday in the 24th Week after Pentecost"
     },
     "officium": "Feria Tertia infra Hebdomadam XXIV post Octavam Pentecostes",
     "rank": {
@@ -36300,7 +36300,7 @@
     "id": "tempora/Pent24-3",
     "names": {
       "de": "Mittwoch in der 24. Woche nach Pfingsten",
-      "en": "Feria Quarta infra Hebdomadam XXIV post Octavam Pentecostes"
+      "en": "Wednesday in the 24th Week after Pentecost"
     },
     "officium": "Feria Quarta infra Hebdomadam XXIV post Octavam Pentecostes",
     "rank": {
@@ -36330,7 +36330,7 @@
     "id": "tempora/Pent24-4",
     "names": {
       "de": "Donnerstag in der 24. Woche nach Pfingsten",
-      "en": "Feria Quinta infra Hebdomadam XXIV post Octavam Pentecostes"
+      "en": "Thursday in the 24th Week after Pentecost"
     },
     "officium": "Feria Quinta infra Hebdomadam XXIV post Octavam Pentecostes",
     "rank": {
@@ -36360,7 +36360,7 @@
     "id": "tempora/Pent24-5",
     "names": {
       "de": "Freitag in der 24. Woche nach Pfingsten",
-      "en": "Feria Sexta infra Hebdomadam XXIV post Octavam Pentecostes"
+      "en": "Friday in the 24th Week after Pentecost"
     },
     "officium": "Feria Sexta infra Hebdomadam XXIV post Octavam Pentecostes",
     "rank": {
@@ -36390,7 +36390,7 @@
     "id": "tempora/Pent24-6",
     "names": {
       "de": "Samstag in der 24. Woche nach Pfingsten",
-      "en": "Sabbato infra Hebdomadam XXIV post Octavam Pentecostes"
+      "en": "Saturday in the 24th Week after Pentecost"
     },
     "officium": "Sabbato infra Hebdomadam XXIV post Octavam Pentecostes",
     "rank": {
@@ -37400,7 +37400,7 @@
     "id": "tempora/Quad1-0",
     "names": {
       "de": "Erster Sonntag der Fastenzeit",
-      "en": "Dominica I in Quadragesima"
+      "en": "1st Sunday of Lent"
     },
     "officium": "Dominica I in Quadragesima",
     "rank": {
@@ -37809,7 +37809,7 @@
     "id": "tempora/Quad1-1",
     "names": {
       "de": "Montag in der 1. Fastenwoche",
-      "en": "Feria Secunda infra Hebdomadam I in Quadragesima"
+      "en": "Monday in the 1st Week of Lent"
     },
     "officium": "Feria Secunda infra Hebdomadam I in Quadragesima",
     "rank": {
@@ -38144,7 +38144,7 @@
     "id": "tempora/Quad1-2",
     "names": {
       "de": "Dienstag in der 1. Fastenwoche",
-      "en": "Feria Tertia infra Hebdomadam I in Quadragesima"
+      "en": "Tuesday in the 1st Week of Lent"
     },
     "officium": "Feria Tertia infra Hebdomadam I in Quadragesima",
     "rank": {
@@ -38799,7 +38799,7 @@
     "id": "tempora/Quad1-4",
     "names": {
       "de": "Donnerstag in der 1. Fastenwoche",
-      "en": "Feria Quinta infra Hebdomadam I in Quadragesima"
+      "en": "Thursday in the 1st Week of Lent"
     },
     "officium": "Feria Quinta infra Hebdomadam I in Quadragesima",
     "rank": {
@@ -40027,7 +40027,7 @@
     "id": "tempora/Quad2-0",
     "names": {
       "de": "Zweiter Sonntag der Fastenzeit",
-      "en": "Dominica II in Quadragesima"
+      "en": "2nd Sunday of Lent"
     },
     "officium": "Dominica II in Quadragesima",
     "rank": {
@@ -40321,7 +40321,7 @@
     "id": "tempora/Quad2-1",
     "names": {
       "de": "Montag in der 2. Fastenwoche",
-      "en": "Feria Secunda infra Hebdomadam II in Quadragesima"
+      "en": "Monday in the 2nd Week of Lent"
     },
     "officium": "Feria Secunda infra Hebdomadam II in Quadragesima",
     "rank": {
@@ -40655,7 +40655,7 @@
     "id": "tempora/Quad2-2",
     "names": {
       "de": "Dienstag in der 2. Fastenwoche",
-      "en": "Feria Tertia infra Hebdomadam II in Quadragesima"
+      "en": "Tuesday in the 2nd Week of Lent"
     },
     "officium": "Feria Tertia infra Hebdomadam II in Quadragesima",
     "rank": {
@@ -40941,7 +40941,7 @@
     "id": "tempora/Quad2-3",
     "names": {
       "de": "Mittwoch in der 2. Fastenwoche",
-      "en": "Feria Quarta infra Hebdomadam II in Quadragesima"
+      "en": "Wednesday in the 2nd Week of Lent"
     },
     "officium": "Feria Quarta infra Hebdomadam II in Quadragesima",
     "rank": {
@@ -41275,7 +41275,7 @@
     "id": "tempora/Quad2-4",
     "names": {
       "de": "Donnerstag in der 2. Fastenwoche",
-      "en": "Feria Quinta infra Hebdomadam II in Quadragesima"
+      "en": "Thursday in the 2nd Week of Lent"
     },
     "officium": "Feria Quinta infra Hebdomadam II in Quadragesima",
     "rank": {
@@ -41553,7 +41553,7 @@
     "id": "tempora/Quad2-5",
     "names": {
       "de": "Freitag in der 2. Fastenwoche",
-      "en": "Feria Sexta infra Hebdomadam II in Quadragesima"
+      "en": "Friday in the 2nd Week of Lent"
     },
     "officium": "Feria Sexta infra Hebdomadam II in Quadragesima",
     "rank": {
@@ -41884,7 +41884,7 @@
     "id": "tempora/Quad2-6",
     "names": {
       "de": "Samstag in der 2. Fastenwoche",
-      "en": "Sabbato infra Hebdomadam II in Quadragesima"
+      "en": "Saturday in the 2nd Week of Lent"
     },
     "officium": "Sabbato infra Hebdomadam II in Quadragesima",
     "rank": {
@@ -42170,7 +42170,7 @@
     "id": "tempora/Quad3-0",
     "names": {
       "de": "Dritter Sonntag der Fastenzeit",
-      "en": "Dominica III in Quadragesima"
+      "en": "3rd Sunday of Lent"
     },
     "officium": "Dominica III in Quadragesima",
     "rank": {
@@ -42459,7 +42459,7 @@
     "id": "tempora/Quad3-1",
     "names": {
       "de": "Montag in der 3. Fastenwoche",
-      "en": "Feria Secunda infra Hebdomadam III in Quadragesima"
+      "en": "Monday in the 3rd Week of Lent"
     },
     "officium": "Feria Secunda infra Hebdomadam III in Quadragesima",
     "rank": {
@@ -42794,7 +42794,7 @@
     "id": "tempora/Quad3-2",
     "names": {
       "de": "Dienstag in der 3. Fastenwoche",
-      "en": "Feria Tertia infra Hebdomadam III in Quadragesima"
+      "en": "Tuesday in the 3rd Week of Lent"
     },
     "officium": "Feria Tertia infra Hebdomadam III in Quadragesima",
     "rank": {
@@ -43081,7 +43081,7 @@
     "id": "tempora/Quad3-3",
     "names": {
       "de": "Mittwoch in der 3. Fastenwoche",
-      "en": "Feria Quarta infra Hebdomadam III in Quadragesima"
+      "en": "Wednesday in the 3rd Week of Lent"
     },
     "officium": "Feria Quarta infra Hebdomadam III in Quadragesima",
     "rank": {
@@ -43755,7 +43755,7 @@
     "id": "tempora/Quad3-4",
     "names": {
       "de": "Donnerstag in der 3. Fastenwoche",
-      "en": "Feria Quinta infra Hebdomadam III in Quadragesima"
+      "en": "Thursday in the 3rd Week of Lent"
     },
     "officium": "Feria Quinta infra Hebdomadam III in Quadragesima",
     "rank": {
@@ -44313,7 +44313,7 @@
     "id": "tempora/Quad3-5",
     "names": {
       "de": "Freitag in der 3. Fastenwoche",
-      "en": "Feria Sexta infra Hebdomadam III in Quadragesima"
+      "en": "Friday in the 3rd Week of Lent"
     },
     "officium": "Feria Sexta infra Hebdomadam III in Quadragesima",
     "rank": {
@@ -44990,7 +44990,7 @@
     "id": "tempora/Quad3-6",
     "names": {
       "de": "Samstag in der 3. Fastenwoche",
-      "en": "Sabbato infra Hebdomadam III in Quadragesima"
+      "en": "Saturday in the 3rd Week of Lent"
     },
     "officium": "Sabbato infra Hebdomadam III in Quadragesima",
     "rank": {
@@ -45560,7 +45560,7 @@
     "id": "tempora/Quad4-0",
     "names": {
       "de": "Vierter Sonntag der Fastenzeit",
-      "en": "Dominica IV in Quadragesima"
+      "en": "4th Sunday of Lent"
     },
     "officium": "Dominica IV in Quadragesima",
     "rank": {
@@ -46103,7 +46103,7 @@
     "id": "tempora/Quad4-1",
     "names": {
       "de": "Montag in der 4. Fastenwoche",
-      "en": "Feria Secunda infra Hebdomadam IV in Quadragesima"
+      "en": "Monday in the 4th Week of Lent"
     },
     "officium": "Feria Secunda infra Hebdomadam IV in Quadragesima",
     "rank": {
@@ -46442,7 +46442,7 @@
     "id": "tempora/Quad4-2",
     "names": {
       "de": "Dienstag in der 4. Fastenwoche",
-      "en": "Feria Tertia infra Hebdomadam IV in Quadragesima"
+      "en": "Tuesday in the 4th Week of Lent"
     },
     "officium": "Feria Tertia infra Hebdomadam IV in Quadragesima",
     "rank": {
@@ -46987,7 +46987,7 @@
     "id": "tempora/Quad4-3",
     "names": {
       "de": "Mittwoch in der 4. Fastenwoche",
-      "en": "Feria Quarta infra Hebdomadam IV in Quadragesima"
+      "en": "Wednesday in the 4th Week of Lent"
     },
     "officium": "Feria Quarta infra Hebdomadam IV in Quadragesima",
     "rank": {
@@ -47777,7 +47777,7 @@
     "id": "tempora/Quad4-4",
     "names": {
       "de": "Donnerstag in der 4. Fastenwoche",
-      "en": "Feria Quinta infra Hebdomadam IV in Quadragesima"
+      "en": "Thursday in the 4th Week of Lent"
     },
     "officium": "Feria Quinta infra Hebdomadam IV in Quadragesima",
     "rank": {
@@ -48349,7 +48349,7 @@
     "id": "tempora/Quad4-5",
     "names": {
       "de": "Freitag in der 4. Fastenwoche",
-      "en": "Feria Sexta infra Hebdomadam IV in Quadragesima"
+      "en": "Friday in the 4th Week of Lent"
     },
     "officium": "Feria Sexta infra Hebdomadam IV in Quadragesima",
     "rank": {
@@ -48987,7 +48987,7 @@
     "id": "tempora/Quad4-6",
     "names": {
       "de": "Samstag in der 4. Fastenwoche",
-      "en": "Sabbato infra Hebdomadam IV in Quadragesima"
+      "en": "Saturday in the 4th Week of Lent"
     },
     "officium": "Sabbato infra Hebdomadam IV in Quadragesima",
     "rank": {
@@ -49557,7 +49557,7 @@
     "id": "tempora/Quad5-0",
     "names": {
       "de": "Passionssonntag",
-      "en": "Dominica de Passione"
+      "en": "Passion Sunday"
     },
     "officium": "Dominica de Passione",
     "rank": {
@@ -49880,7 +49880,7 @@
     "id": "tempora/Quad5-1",
     "names": {
       "de": "Montag in der Passionswoche",
-      "en": "Feria Secunda infra Hebdomadam Passionis"
+      "en": "Monday in Passion Week"
     },
     "officium": "Feria Secunda infra Hebdomadam Passionis",
     "rank": {
@@ -50214,7 +50214,7 @@
     "id": "tempora/Quad5-2",
     "names": {
       "de": "Dienstag in der Passionswoche",
-      "en": "Feria Tertia infra Hebdomadam Passionis"
+      "en": "Tuesday in Passion Week"
     },
     "officium": "Feria Tertia infra Hebdomadam Passionis",
     "rank": {
@@ -50780,7 +50780,7 @@
     "id": "tempora/Quad5-3",
     "names": {
       "de": "Mittwoch in der Passionswoche",
-      "en": "Feria Quarta infra Hebdomadam Passionis"
+      "en": "Wednesday in Passion Week"
     },
     "officium": "Feria Quarta infra Hebdomadam Passionis",
     "rank": {
@@ -51441,7 +51441,7 @@
     "id": "tempora/Quad5-4",
     "names": {
       "de": "Donnerstag in der Passionswoche",
-      "en": "Feria Quinta infra Hebdomadam Passionis"
+      "en": "Thursday in Passion Week"
     },
     "officium": "Feria Quinta infra Hebdomadam Passionis",
     "rank": {
@@ -51976,7 +51976,7 @@
     "id": "tempora/Quad5-5",
     "names": {
       "de": "Fest der Sieben Schmerzen der heiligen Jungfrau Maria",
-      "en": "Septem Dolorum Beatae Mariae Virgine"
+      "en": "Friday in Passion Week"
     },
     "officium": "Septem Dolorum Beatæ Mariæ Virgine",
     "rank": {
@@ -53448,7 +53448,7 @@
     "id": "tempora/Quad5-6",
     "names": {
       "de": "Samstag in der Passionswoche",
-      "en": "Sabbato infra Hebdomadam Passionis"
+      "en": "Saturday in Passion Week"
     },
     "officium": "Sabbato infra Hebdomadam Passionis",
     "rank": {
@@ -53733,7 +53733,7 @@
     "id": "tempora/Quad6-0",
     "names": {
       "de": "Palmsonntag",
-      "en": "Dominica in Palmis"
+      "en": "Palm Sunday"
     },
     "officium": "Dominica in Palmis",
     "rank": {
@@ -56955,7 +56955,7 @@
     "id": "tempora/Quad6-1",
     "names": {
       "de": "Montag in der Karwoche",
-      "en": "Feria Secunda Majoris Hebdomadæ"
+      "en": "Monday of Holy Week"
     },
     "officium": "Feria Secunda Majoris Hebdomadæ",
     "rank": {
@@ -57309,7 +57309,7 @@
     "id": "tempora/Quad6-2",
     "names": {
       "de": "Dienstag in der Karwoche",
-      "en": "Feria Tertia Majoris Hebdomadæ"
+      "en": "Tuesday of Holy Week"
     },
     "officium": "Feria Tertia Majoris Hebdomadæ",
     "rank": {
@@ -57703,7 +57703,7 @@
     "id": "tempora/Quad6-3",
     "names": {
       "de": "Mittwoch in der Karwoche",
-      "en": "Feria Quarta Majoris Hebdomadæ"
+      "en": "Wednesday of Holy Week"
     },
     "officium": "Feria Quarta Majoris Hebdomadæ",
     "rank": {
@@ -58230,7 +58230,7 @@
     "id": "tempora/Quad6-4",
     "names": {
       "de": "Gründonnerstag",
-      "en": "Feria Quinta in Cœna Domini"
+      "en": "Maundy Thursday"
     },
     "officium": "Feria Quinta in Cœna Domini",
     "rank": {
@@ -64175,7 +64175,7 @@
     "id": "tempora/Quad6-5",
     "names": {
       "de": "Karfreitag",
-      "en": "Feria Sexta in Parasceve"
+      "en": "Good Friday"
     },
     "officium": "Feria Sexta in Parasceve",
     "rank": {
@@ -73874,7 +73874,7 @@
     "id": "tempora/Quad6-6",
     "names": {
       "de": "Karsamstag",
-      "en": "Sabbato Sancto"
+      "en": "Holy Saturday"
     },
     "officium": "Sabbato Sancto",
     "rank": {
@@ -84834,7 +84834,7 @@
     "id": "tempora/Quadp1-0",
     "names": {
       "de": "Sonntag Septuagesima",
-      "en": "Dominica in Septuagesima"
+      "en": "Septuagesima Sunday"
     },
     "officium": "Dominica in Septuagesima",
     "rank": {
@@ -85153,7 +85153,7 @@
     "id": "tempora/Quadp1-1",
     "names": {
       "de": "Montag in der Septuagesima-Woche",
-      "en": "Feria II infra Hebdomadam Septuagesimae"
+      "en": "Monday in Septuagesima Week"
     },
     "officium": "Feria II infra Hebdomadam Septuagesimæ",
     "rank": {
@@ -85196,7 +85196,7 @@
     "id": "tempora/Quadp1-2",
     "names": {
       "de": "Dienstag in der Septuagesima-Woche",
-      "en": "Feria III infra Hebdomadam Septuagesimae"
+      "en": "Tuesday in Septuagesima Week"
     },
     "officium": "Feria III infra Hebdomadam Septuagesimæ",
     "rank": {
@@ -85239,7 +85239,7 @@
     "id": "tempora/Quadp1-3",
     "names": {
       "de": "Mittwoch in der Septuagesima-Woche",
-      "en": "Feria IV infra Hebdomadam Septuagesimae"
+      "en": "Wednesday in Septuagesima Week"
     },
     "officium": "Feria IV infra Hebdomadam Septuagesimæ",
     "rank": {
@@ -85282,7 +85282,7 @@
     "id": "tempora/Quadp1-4",
     "names": {
       "de": "Donnerstag in der Septuagesima-Woche",
-      "en": "Feria V infra Hebdomadam Septuagesimae"
+      "en": "Thursday in Septuagesima Week"
     },
     "officium": "Feria V infra Hebdomadam Septuagesimæ",
     "rank": {
@@ -85325,7 +85325,7 @@
     "id": "tempora/Quadp1-5",
     "names": {
       "de": "Freitag in der Septuagesima-Woche",
-      "en": "Feria VI infra Hebdomadam Septuagesimae"
+      "en": "Friday in Septuagesima Week"
     },
     "officium": "Feria VI infra Hebdomadam Septuagesimæ",
     "rank": {
@@ -85368,7 +85368,7 @@
     "id": "tempora/Quadp1-6",
     "names": {
       "de": "Samstag in der Septuagesima-Woche",
-      "en": "Sabbato infra Hebdomadam Septuagesimae"
+      "en": "Saturday in Septuagesima Week"
     },
     "officium": "Sabbato infra Hebdomadam Septuagesimæ",
     "rank": {
@@ -85411,7 +85411,7 @@
     "id": "tempora/Quadp2-0",
     "names": {
       "de": "Sonntag Sexagesima",
-      "en": "Dominica in Sexagesima"
+      "en": "Sexagesima Sunday"
     },
     "officium": "Dominica in Sexagesima",
     "rank": {
@@ -85725,7 +85725,7 @@
     "id": "tempora/Quadp2-1",
     "names": {
       "de": "Montag in der Sexagesima-Woche",
-      "en": "Feria II infra Hebdomadam Sexagesimae"
+      "en": "Monday in Sexagesima Week"
     },
     "officium": "Feria II infra Hebdomadam Sexagesimæ",
     "rank": {
@@ -85768,7 +85768,7 @@
     "id": "tempora/Quadp2-2",
     "names": {
       "de": "Dienstag in der Sexagesima-Woche",
-      "en": "Feria III infra Hebdomadam Sexagesimae"
+      "en": "Tuesday in Sexagesima Week"
     },
     "officium": "Feria III infra Hebdomadam Sexagesimæ",
     "rank": {
@@ -85811,7 +85811,7 @@
     "id": "tempora/Quadp2-3",
     "names": {
       "de": "Mittwoch in der Sexagesima-Woche",
-      "en": "Feria IV infra Hebdomadam Sexagesimae"
+      "en": "Wednesday in Sexagesima Week"
     },
     "officium": "Feria IV infra Hebdomadam Sexagesimæ",
     "rank": {
@@ -85854,7 +85854,7 @@
     "id": "tempora/Quadp2-4",
     "names": {
       "de": "Donnerstag in der Sexagesima-Woche",
-      "en": "Feria V infra Hebdomadam Sexagesimae"
+      "en": "Thursday in Sexagesima Week"
     },
     "officium": "Feria V infra Hebdomadam Sexagesimæ",
     "rank": {
@@ -85897,7 +85897,7 @@
     "id": "tempora/Quadp2-5",
     "names": {
       "de": "Freitag in der Sexagesima-Woche",
-      "en": "Feria VI infra Hebdomadam Sexagesimae"
+      "en": "Friday in Sexagesima Week"
     },
     "officium": "Feria VI infra Hebdomadam Sexagesimæ",
     "rank": {
@@ -85940,7 +85940,7 @@
     "id": "tempora/Quadp2-6",
     "names": {
       "de": "Samstag in der Sexagesima-Woche",
-      "en": "Sabbato infra Hebdomadam Sexagesimae"
+      "en": "Saturday in Sexagesima Week"
     },
     "officium": "Sabbato infra Hebdomadam Sexagesimæ",
     "rank": {
@@ -85983,7 +85983,7 @@
     "id": "tempora/Quadp3-0",
     "names": {
       "de": "Sonntag Quinquagesima",
-      "en": "Dominica in Quinquagesima"
+      "en": "Quinquagesima Sunday"
     },
     "officium": "Dominica in Quinquagesima",
     "rank": {
@@ -86297,7 +86297,7 @@
     "id": "tempora/Quadp3-1",
     "names": {
       "de": "Montag nach dem Sonntag Quinquagesima",
-      "en": "Feria II infra Hebdomadam Quinquagesimae"
+      "en": "Monday in Quinquagesima Week"
     },
     "officium": "Feria II infra Hebdomadam Quinquagesimæ",
     "rank": {
@@ -86340,7 +86340,7 @@
     "id": "tempora/Quadp3-2",
     "names": {
       "de": "Dienstag nach dem Sonntag Quinquagesima",
-      "en": "Feria III infra Hebdomadam Quinquagesimae"
+      "en": "Tuesday in Quinquagesima Week"
     },
     "officium": "Feria III infra Hebdomadam Quinquagesimæ",
     "rank": {
@@ -86383,7 +86383,7 @@
     "id": "tempora/Quadp3-3",
     "names": {
       "de": "Aschermittwoch",
-      "en": "Feria IV Cinerum"
+      "en": "Ash Wednesday"
     },
     "officium": "Feria IV Cinerum",
     "rank": {
@@ -87148,7 +87148,7 @@
     "id": "tempora/Quadp3-4",
     "names": {
       "de": "Donnerstag nach Aschermittwoch",
-      "en": "Feria V post Cineres"
+      "en": "Thursday after Ash Wednesday"
     },
     "officium": "Feria V post Cineres",
     "rank": {
@@ -87437,7 +87437,7 @@
     "id": "tempora/Quadp3-5",
     "names": {
       "de": "Freitag nach Aschermittwoch",
-      "en": "Feria VI post Cineres"
+      "en": "Friday after Ash Wednesday"
     },
     "officium": "Feria VI post Cineres",
     "rank": {
@@ -87767,7 +87767,7 @@
     "id": "tempora/Quadp3-6",
     "names": {
       "de": "Samstag nach Aschermittwoch",
-      "en": "Sabbato post Cineres"
+      "en": "Saturday after Ash Wednesday"
     },
     "officium": "Sabbato post Cineres",
     "rank": {

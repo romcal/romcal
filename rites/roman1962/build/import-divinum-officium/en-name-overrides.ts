@@ -37,10 +37,69 @@ function ordinal(n: number): string {
 }
 
 /**
+ * Distinctive temporal days that have a single canonical English name —
+ * Holy Week, Easter Octave, Trinity Sunday, etc. divinum-officium's English
+ * horas leaves these as Latin literals; this map gives them their proper
+ * traditional names. Consulted before the formulaic patterns below.
+ */
+const TEMPORA_EN: Record<string, string> = {
+  // Advent Sundays (3rd is "Gaudete" colloquially)
+  'Adv1-0': '1st Sunday of Advent',
+  'Adv2-0': '2nd Sunday of Advent',
+  'Adv3-0': '3rd Sunday of Advent',
+  'Adv4-0': '4th Sunday of Advent',
+  // Pre-Lent Sundays
+  'Quadp1-0': 'Septuagesima Sunday',
+  'Quadp2-0': 'Sexagesima Sunday',
+  'Quadp3-0': 'Quinquagesima Sunday',
+  // Ash Wednesday and the days following
+  'Quadp3-3': 'Ash Wednesday',
+  'Quadp3-4': 'Thursday after Ash Wednesday',
+  'Quadp3-5': 'Friday after Ash Wednesday',
+  'Quadp3-6': 'Saturday after Ash Wednesday',
+  // Lent Sundays (4th is "Laetare" colloquially)
+  'Quad1-0': '1st Sunday of Lent',
+  'Quad2-0': '2nd Sunday of Lent',
+  'Quad3-0': '3rd Sunday of Lent',
+  'Quad4-0': '4th Sunday of Lent',
+  'Quad5-0': 'Passion Sunday',
+  // Holy Week
+  'Quad6-0': 'Palm Sunday',
+  'Quad6-1': 'Monday of Holy Week',
+  'Quad6-2': 'Tuesday of Holy Week',
+  'Quad6-3': 'Wednesday of Holy Week',
+  'Quad6-4': 'Maundy Thursday',
+  'Quad6-5': 'Good Friday',
+  'Quad6-6': 'Holy Saturday',
+  // Easter Octave (Pasc0-N — N=0 is Easter Sunday itself)
+  'Pasc0-0': 'Easter Sunday',
+  'Pasc0-1': 'Easter Monday',
+  'Pasc0-2': 'Easter Tuesday',
+  'Pasc0-3': 'Easter Wednesday',
+  'Pasc0-4': 'Easter Thursday',
+  'Pasc0-5': 'Easter Friday',
+  'Pasc0-6': 'Easter Saturday',
+  // Easter-season Sundays
+  'Pasc1-0': 'Low Sunday',
+  'Pasc2-0': '2nd Sunday after Easter',
+  'Pasc3-0': '3rd Sunday after Easter',
+  'Pasc4-0': '4th Sunday after Easter',
+  'Pasc5-0': '5th Sunday after Easter',
+  'Pasc6-0': 'Sunday within the Octave of the Ascension',
+  'Pasc7-0': 'Pentecost Sunday',
+  // Major Pentecost-season feasts that share the Pent01-04 numbering
+  'Pent01-0': 'Trinity Sunday',
+  'Pent01-4': 'Corpus Christi',
+};
+
+/**
  * Convert a tempora key like "Quad3-2" into an English feria label, or undefined
  * if the key shape is unfamiliar. See de-name-overrides for the full key grammar.
  */
 export function temporaEnFromKey(key: string): string | undefined {
+  const explicit = TEMPORA_EN[key];
+  if (explicit) return explicit;
+
   // Christmas octave weekdays: Nat02..Nat06 → "2nd Day in the Octave of Christmas"
   const nat = /^Nat0([2-6])$/.exec(key);
   if (nat) return `${ordinal(parseInt(nat[1], 10))} Day in the Octave of Christmas`;
@@ -56,6 +115,10 @@ export function temporaEnFromKey(key: string): string | undefined {
     if (wd) return `${wd} in the Resumed ${ordinal(parseInt(pentEpi[1], 10))} Week after Epiphany`;
   }
 
+  // Pentecost-season Sundays: PentNN-0 (NN >= 02)
+  const pentSun = /^Pent(\d{2})-0$/.exec(key);
+  if (pentSun) return `${ordinal(parseInt(pentSun[1], 10))} Sunday after Pentecost`;
+
   // Pentecost ordinary weekdays: PentNN-M
   const pent = /^Pent(\d{2})-([1-6])$/.exec(key);
   if (pent) {
@@ -69,6 +132,13 @@ export function temporaEnFromKey(key: string): string | undefined {
   if (pasc) {
     const wd = weekdayFromFeriaIndex(pasc[1]);
     if (wd) return `${wd} in Low Week`;
+  }
+
+  // Other Easter-season weekdays (Pasc2..Pasc6)
+  const pascN = /^Pasc([2-6])-([1-6])$/.exec(key);
+  if (pascN) {
+    const wd = weekdayFromFeriaIndex(pascN[2]);
+    if (wd) return `${wd} after the ${ordinal(parseInt(pascN[1], 10))} Sunday after Easter`;
   }
 
   // Lent weeks Quad1..Quad4 feria
@@ -93,7 +163,18 @@ export function temporaEnFromKey(key: string): string | undefined {
     if (wd) return `${wd} in ${label} Week`;
   }
 
-  // Epiphany weekday after Epi5-M
+  // Advent ferias: AdvN-M
+  const adv = /^Adv([1-4])-([1-6])$/.exec(key);
+  if (adv) {
+    const wd = weekdayFromFeriaIndex(adv[2]);
+    if (wd) return `${wd} in the ${ordinal(parseInt(adv[1], 10))} Week of Advent`;
+  }
+
+  // Epiphany Sunday: EpiN-0
+  const epiSun = /^Epi(\d+)-0$/.exec(key);
+  if (epiSun) return `${ordinal(parseInt(epiSun[1], 10))} Sunday after Epiphany`;
+
+  // Epiphany weekday after EpiN-M
   const epi = /^Epi(\d+)-([1-6])$/.exec(key);
   if (epi) {
     const wd = weekdayFromFeriaIndex(epi[2]);
