@@ -10295,7 +10295,8 @@
     "file": "03-19t.txt",
     "id": "sancti/03-19t",
     "names": {
-      "de": "Hl. Joseph, Gemahl der hl. Jungfrau Maria, Bekenner"
+      "de": "Hl. Joseph, Gemahl der hl. Jungfrau Maria, Bekenner",
+      "en": "St. Joseph Sponsi B.M.V., Confessor"
     },
     "officium": "S. Joseph Sponsi B.M.V. Confessoris",
     "rank": {
@@ -15980,7 +15981,8 @@
     "file": "05-04pl.txt",
     "id": "sancti/05-04pl",
     "names": {
-      "de": "Hl. Floriani, Märtyrer"
+      "de": "Hl. Floriani, Märtyrer",
+      "en": "St. Floriani, Martyr"
     },
     "officium": "S. Floriani Martyris",
     "rank": {
@@ -16944,7 +16946,8 @@
     "file": "05-11r.txt",
     "id": "sancti/05-11r",
     "names": {
-      "de": "Hll. Apostel Philippus und Jakobus"
+      "de": "Hll. Apostel Philippus und Jakobus",
+      "en": "Sts. Philip and James, Apostles"
     },
     "rank": {
       "class1962": 2,
@@ -25591,7 +25594,8 @@
     "file": "06-30oct.txt",
     "id": "sancti/06-30oct",
     "names": {
-      "de": "Siebter Tag der Weihnachtsoktav"
+      "de": "Siebter Tag der Weihnachtsoktav",
+      "en": "7th Day in the Octave of Christmas"
     },
     "officium": "Die septima infra Octavam Nativitatis S. Joannis Baptistæ",
     "rank": {
@@ -26536,7 +26540,8 @@
     "file": "07-03r.txt",
     "id": "sancti/07-03r",
     "names": {
-      "de": "Hl. Irenäus, Bischof und Märtyrer"
+      "de": "Hl. Irenäus, Bischof und Märtyrer",
+      "en": "St. Irenaeus, Bishop and Martyr"
     },
     "rank": {
       "class1962": 3,
@@ -47024,7 +47029,8 @@
     "file": "10-09pl.txt",
     "id": "sancti/10-09pl",
     "names": {
-      "de": "b. Vincenti, Bischof und Bekenner"
+      "de": "b. Vincenti, Bischof und Bekenner",
+      "en": "b. Vincenti, Bishop and Confessor"
     },
     "officium": "b. Vincenti Episcopi et Confessoris",
     "references": {},
@@ -55659,7 +55665,8 @@
     "file": "12-04pl.txt",
     "id": "sancti/12-04pl",
     "names": {
-      "de": "Hl. Barbarae, Jungfrau und Märtyrerin"
+      "de": "Hl. Barbarae, Jungfrau und Märtyrerin",
+      "en": "St. Barbarae, Virgin and Martyr"
     },
     "officium": "S. Barbaræ Virginis et Martyris",
     "references": {},
@@ -57196,7 +57203,8 @@
     "file": "12-13r.txt",
     "id": "sancti/12-13r",
     "names": {
-      "de": "Hl. Lucia, Jungfrau und Märtyrerin"
+      "de": "Hl. Lucia, Jungfrau und Märtyrerin",
+      "en": "St. Lucy, Virgin and Martyr"
     },
     "references": {},
     "rubrics": {
@@ -60052,7 +60060,8 @@
     "file": "12-28r.txt",
     "id": "sancti/12-28r",
     "names": {
-      "de": "Vierter Tag der Weihnachtsoktav"
+      "de": "Vierter Tag der Weihnachtsoktav",
+      "en": "4th Day in the Octave of Christmas"
     },
     "references": {},
     "rubrics": {
@@ -60317,7 +60326,8 @@
     "file": "12-29r.txt",
     "id": "sancti/12-29r",
     "names": {
-      "de": "Hl. Thomae Cantuariensis, Bischof und Märtyrer"
+      "de": "Hl. Thomae Cantuariensis, Bischof und Märtyrer",
+      "en": "St. Thomae Cantuariensis, Bishop and Martyr"
     },
     "officium": "S. Thomæ Cantuariensis Episcopi et Martyris",
     "rank": {
@@ -60534,7 +60544,8 @@
     "file": "12-31r.txt",
     "id": "sancti/12-31r",
     "names": {
-      "de": "Hl. Silvestri, Papst und Bekenner"
+      "de": "Hl. Silvestri, Papst und Bekenner",
+      "en": "St. Silvestri, Pope and Confessor"
     },
     "officium": "S. Silvestri Papæ et Confessoris",
     "rank": {

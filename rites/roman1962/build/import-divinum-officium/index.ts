@@ -8,6 +8,7 @@ import { buildCalendar1960 } from './calendar';
 import { deriveColor } from './colors';
 import { sanctiDeFromKeyOrLatin, temporaDeFromKey } from './de-name-overrides';
 import { writeJson } from './emit';
+import { sanctiEnFromKeyOrLatin, temporaEnFromKey } from './en-name-overrides';
 import { ImportError } from './errors';
 import { parseFile } from './parser';
 import { parseRank } from './rank';
@@ -204,31 +205,35 @@ function mergeLocalizedNames(entries: Record<string, MassEntry>, dir: string, la
 
 /**
  * After divinum-officium's vernacular has been merged, walk every entry and
- * synthesize a German name where one is still missing. divinum-officium does
- * not localize most ferias (Lent, Pentecost ordinary time, etc.) and ships
- * sparse Sancti coverage in German. We need *some* name per day for the German
- * UI — without this layer the UI would display Latin titles to a German user.
+ * synthesize a vernacular name where one is still missing. divinum-officium
+ * does not localize most ferias (Lent, Pentecost ordinary time, etc.) and
+ * ships sparse Sancti coverage outside Latin. We need *some* name per day
+ * for the UI — without this layer the UI would display Latin titles to a
+ * vernacular user.
  */
-function fillMissingDeNames(
+function fillMissingNames(
   tempora: Record<string, MassEntry>,
-  sancti: Record<string, MassEntry>
+  sancti: Record<string, MassEntry>,
+  lang: string,
+  temporaFn: (key: string) => string | undefined,
+  sanctiFn: (key: string, latin: string | undefined) => string | undefined
 ): { tempora: number; sancti: number } {
   let t = 0;
   let s = 0;
   for (const [key, entry] of Object.entries(tempora)) {
-    if (entry.names?.de) continue;
-    const de = temporaDeFromKey(key);
-    if (!de) continue;
+    if (entry.names?.[lang]) continue;
+    const name = temporaFn(key);
+    if (!name) continue;
     entry.names ??= {};
-    entry.names.de = de;
+    entry.names[lang] = name;
     t++;
   }
   for (const [key, entry] of Object.entries(sancti)) {
-    if (entry.names?.de) continue;
-    const de = sanctiDeFromKeyOrLatin(key, entry.officium);
-    if (!de) continue;
+    if (entry.names?.[lang]) continue;
+    const name = sanctiFn(key, entry.officium);
+    if (!name) continue;
     entry.names ??= {};
-    entry.names.de = de;
+    entry.names[lang] = name;
     s++;
   }
   return { tempora: t, sancti: s };
@@ -284,9 +289,11 @@ function main(): void {
     log(chalk.dim(`  names: tempora ${nt}, sancti ${ns}, commune ${nc}`));
   }
 
-  const filled = fillMissingDeNames(tempora, sancti);
-  log(chalk.bold(`\n✓ filling missing German names (override layer)`));
-  log(chalk.dim(`  tempora ${filled.tempora}, sancti ${filled.sancti}`));
+  log(chalk.bold(`\n✓ filling missing vernacular names (override layer)`));
+  const filledDe = fillMissingNames(tempora, sancti, 'de', temporaDeFromKey, sanctiDeFromKeyOrLatin);
+  log(chalk.dim(`  de: tempora ${filledDe.tempora}, sancti ${filledDe.sancti}`));
+  const filledEn = fillMissingNames(tempora, sancti, 'en', temporaEnFromKey, sanctiEnFromKeyOrLatin);
+  log(chalk.dim(`  en: tempora ${filledEn.tempora}, sancti ${filledEn.sancti}`));
 
   const source: SourceMeta = {
     sha: resolveSha(),

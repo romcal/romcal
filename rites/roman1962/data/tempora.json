@@ -7589,7 +7589,8 @@
     "file": "Nat02.txt",
     "id": "tempora/Nat02",
     "names": {
-      "de": "2. Tag der Weihnachtsoktav"
+      "de": "2. Tag der Weihnachtsoktav",
+      "en": "2nd Day in the Octave of Christmas"
     },
     "officium": "Ad Romános, cap. 5",
     "rank": {
@@ -7623,7 +7624,8 @@
     "file": "Nat03.txt",
     "id": "tempora/Nat03",
     "names": {
-      "de": "3. Tag der Weihnachtsoktav"
+      "de": "3. Tag der Weihnachtsoktav",
+      "en": "3rd Day in the Octave of Christmas"
     },
     "officium": "Ad Romános, cap. 6",
     "rank": {
@@ -7657,7 +7659,8 @@
     "file": "Nat04.txt",
     "id": "tempora/Nat04",
     "names": {
-      "de": "4. Tag der Weihnachtsoktav"
+      "de": "4. Tag der Weihnachtsoktav",
+      "en": "4th Day in the Octave of Christmas"
     },
     "officium": "Ad Romános, cap. 7",
     "rank": {
@@ -7691,7 +7694,8 @@
     "file": "Nat05.txt",
     "id": "tempora/Nat05",
     "names": {
-      "de": "5. Tag der Weihnachtsoktav"
+      "de": "5. Tag der Weihnachtsoktav",
+      "en": "5th Day in the Octave of Christmas"
     },
     "officium": "Ad Romános, cap. 8",
     "rank": {
@@ -36415,7 +36419,8 @@
     "file": "PentEpi3-0.txt",
     "id": "tempora/PentEpi3-0",
     "names": {
-      "de": "3. wiederaufgenommener Sonntag nach Erscheinung des Herrn"
+      "de": "3. wiederaufgenommener Sonntag nach Erscheinung des Herrn",
+      "en": "Resumed 3rd Sunday after Epiphany"
     },
     "officium": "Dominica III quæ superfuit Post Epiphaniam",
     "rank": {
@@ -36479,7 +36484,8 @@
     "file": "PentEpi3-1.txt",
     "id": "tempora/PentEpi3-1",
     "names": {
-      "de": "Montag in der 3. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+      "de": "Montag in der 3. wiederaufgenommenen Woche nach Erscheinung des Herrn",
+      "en": "Monday in the Resumed 3rd Week after Epiphany"
     },
     "officium": "Feria II infra Hebdomadam III quæ superfuit post Epiphaniam",
     "rank": {
@@ -36508,7 +36514,8 @@
     "file": "PentEpi3-2.txt",
     "id": "tempora/PentEpi3-2",
     "names": {
-      "de": "Dienstag in der 3. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+      "de": "Dienstag in der 3. wiederaufgenommenen Woche nach Erscheinung des Herrn",
+      "en": "Tuesday in the Resumed 3rd Week after Epiphany"
     },
     "officium": "Feria III infra Hebdomadam III quæ superfuit post Epiphaniam",
     "rank": {
@@ -36537,7 +36544,8 @@
     "file": "PentEpi3-3.txt",
     "id": "tempora/PentEpi3-3",
     "names": {
-      "de": "Mittwoch in der 3. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+      "de": "Mittwoch in der 3. wiederaufgenommenen Woche nach Erscheinung des Herrn",
+      "en": "Wednesday in the Resumed 3rd Week after Epiphany"
     },
     "officium": "Feria IV infra Hebdomadam III quæ superfuit post Epiphaniam",
     "rank": {
@@ -36566,7 +36574,8 @@
     "file": "PentEpi3-4.txt",
     "id": "tempora/PentEpi3-4",
     "names": {
-      "de": "Donnerstag in der 3. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+      "de": "Donnerstag in der 3. wiederaufgenommenen Woche nach Erscheinung des Herrn",
+      "en": "Thursday in the Resumed 3rd Week after Epiphany"
     },
     "officium": "Feria V infra Hebdomadam III quæ superfuit post Epiphaniam",
     "rank": {
@@ -36595,7 +36604,8 @@
     "file": "PentEpi3-5.txt",
     "id": "tempora/PentEpi3-5",
     "names": {
-      "de": "Freitag in der 3. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+      "de": "Freitag in der 3. wiederaufgenommenen Woche nach Erscheinung des Herrn",
+      "en": "Friday in the Resumed 3rd Week after Epiphany"
     },
     "officium": "Feria VI infra Hebdomadam III quæ superfuit post Epiphaniam",
     "rank": {
@@ -36624,7 +36634,8 @@
     "file": "PentEpi3-6.txt",
     "id": "tempora/PentEpi3-6",
     "names": {
-      "de": "Samstag in der 3. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+      "de": "Samstag in der 3. wiederaufgenommenen Woche nach Erscheinung des Herrn",
+      "en": "Saturday in the Resumed 3rd Week after Epiphany"
     },
     "officium": "Sabbato infra Hebdomadam III quæ superfuit post Epiphaniam",
     "rank": {
@@ -36653,7 +36664,8 @@
     "file": "PentEpi4-0.txt",
     "id": "tempora/PentEpi4-0",
     "names": {
-      "de": "4. wiederaufgenommener Sonntag nach Erscheinung des Herrn"
+      "de": "4. wiederaufgenommener Sonntag nach Erscheinung des Herrn",
+      "en": "Resumed 4th Sunday after Epiphany"
     },
     "officium": "Dominica IV quæ superfuit Post Epiphaniam",
     "rank": {
@@ -36717,7 +36729,8 @@
     "file": "PentEpi4-1.txt",
     "id": "tempora/PentEpi4-1",
     "names": {
-      "de": "Montag in der 4. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+      "de": "Montag in der 4. wiederaufgenommenen Woche nach Erscheinung des Herrn",
+      "en": "Monday in the Resumed 4th Week after Epiphany"
     },
     "officium": "Feria Secunda infra Hebdomadam IV quæ superfuit post Epiiphaniam",
     "rank": {
@@ -36746,7 +36759,8 @@
     "file": "PentEpi4-2.txt",
     "id": "tempora/PentEpi4-2",
     "names": {
-      "de": "Dienstag in der 4. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+      "de": "Dienstag in der 4. wiederaufgenommenen Woche nach Erscheinung des Herrn",
+      "en": "Tuesday in the Resumed 4th Week after Epiphany"
     },
     "officium": "Feria Tertia infra Hebdomadam IV quæ superfuit post Epiphaniam",
     "rank": {
@@ -36775,7 +36789,8 @@
     "file": "PentEpi4-3.txt",
     "id": "tempora/PentEpi4-3",
     "names": {
-      "de": "Mittwoch in der 4. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+      "de": "Mittwoch in der 4. wiederaufgenommenen Woche nach Erscheinung des Herrn",
+      "en": "Wednesday in the Resumed 4th Week after Epiphany"
     },
     "officium": "Feria IV infra Hebdomadam IV quæ superfuit post Epiphaniam",
     "rank": {
@@ -36804,7 +36819,8 @@
     "file": "PentEpi4-4.txt",
     "id": "tempora/PentEpi4-4",
     "names": {
-      "de": "Donnerstag in der 4. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+      "de": "Donnerstag in der 4. wiederaufgenommenen Woche nach Erscheinung des Herrn",
+      "en": "Thursday in the Resumed 4th Week after Epiphany"
     },
     "officium": "Feria V infra Hebdomadam IV quæ superfuit post Epiphaniam",
     "rank": {
@@ -36833,7 +36849,8 @@
     "file": "PentEpi4-5.txt",
     "id": "tempora/PentEpi4-5",
     "names": {
-      "de": "Freitag in der 4. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+      "de": "Freitag in der 4. wiederaufgenommenen Woche nach Erscheinung des Herrn",
+      "en": "Friday in the Resumed 4th Week after Epiphany"
     },
     "officium": "Feria VI infra Hebdomadam IV quæ superfuit post Epiphaniam",
     "rank": {
@@ -36862,7 +36879,8 @@
     "file": "PentEpi4-6.txt",
     "id": "tempora/PentEpi4-6",
     "names": {
-      "de": "Samstag in der 4. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+      "de": "Samstag in der 4. wiederaufgenommenen Woche nach Erscheinung des Herrn",
+      "en": "Saturday in the Resumed 4th Week after Epiphany"
     },
     "officium": "Sabbato infra Hebdomadam IV quæ superfuit post Epiphaniam",
     "rank": {
@@ -36891,7 +36909,8 @@
     "file": "PentEpi5-0.txt",
     "id": "tempora/PentEpi5-0",
     "names": {
-      "de": "5. wiederaufgenommener Sonntag nach Erscheinung des Herrn"
+      "de": "5. wiederaufgenommener Sonntag nach Erscheinung des Herrn",
+      "en": "Resumed 5th Sunday after Epiphany"
     },
     "officium": "Dominica V quæ superfuit Post Epiphaniam",
     "rank": {
@@ -36955,7 +36974,8 @@
     "file": "PentEpi5-1.txt",
     "id": "tempora/PentEpi5-1",
     "names": {
-      "de": "Montag in der 5. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+      "de": "Montag in der 5. wiederaufgenommenen Woche nach Erscheinung des Herrn",
+      "en": "Monday in the Resumed 5th Week after Epiphany"
     },
     "officium": "Feria II infra Hebdomadam V quæ superfuit post Epiphaniam",
     "rank": {
@@ -36984,7 +37004,8 @@
     "file": "PentEpi5-2.txt",
     "id": "tempora/PentEpi5-2",
     "names": {
-      "de": "Dienstag in der 5. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+      "de": "Dienstag in der 5. wiederaufgenommenen Woche nach Erscheinung des Herrn",
+      "en": "Tuesday in the Resumed 5th Week after Epiphany"
     },
     "officium": "Feria III infra Hebdomadam V quæ superfuit post Epiphaniam",
     "rank": {
@@ -37013,7 +37034,8 @@
     "file": "PentEpi5-3.txt",
     "id": "tempora/PentEpi5-3",
     "names": {
-      "de": "Mittwoch in der 5. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+      "de": "Mittwoch in der 5. wiederaufgenommenen Woche nach Erscheinung des Herrn",
+      "en": "Wednesday in the Resumed 5th Week after Epiphany"
     },
     "officium": "Feria IV infra Hebdomadam V quæ superfuit post Epiphaniam",
     "rank": {
@@ -37042,7 +37064,8 @@
     "file": "PentEpi5-4.txt",
     "id": "tempora/PentEpi5-4",
     "names": {
-      "de": "Donnerstag in der 5. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+      "de": "Donnerstag in der 5. wiederaufgenommenen Woche nach Erscheinung des Herrn",
+      "en": "Thursday in the Resumed 5th Week after Epiphany"
     },
     "officium": "Feria V infra Hebdomadam V quæ superfuit post Epiphaniam",
     "rank": {
@@ -37071,7 +37094,8 @@
     "file": "PentEpi5-5.txt",
     "id": "tempora/PentEpi5-5",
     "names": {
-      "de": "Freitag in der 5. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+      "de": "Freitag in der 5. wiederaufgenommenen Woche nach Erscheinung des Herrn",
+      "en": "Friday in the Resumed 5th Week after Epiphany"
     },
     "officium": "Feria VI infra Hebdomadam V quæ superfuit post Epiphaniam",
     "rank": {
@@ -37100,7 +37124,8 @@
     "file": "PentEpi5-6.txt",
     "id": "tempora/PentEpi5-6",
     "names": {
-      "de": "Samstag in der 5. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+      "de": "Samstag in der 5. wiederaufgenommenen Woche nach Erscheinung des Herrn",
+      "en": "Saturday in the Resumed 5th Week after Epiphany"
     },
     "officium": "Sabbato infra Hebdomadam V quæ superfuit post Epiphaniam",
     "rank": {
@@ -37129,7 +37154,8 @@
     "file": "PentEpi6-0.txt",
     "id": "tempora/PentEpi6-0",
     "names": {
-      "de": "6. wiederaufgenommener Sonntag nach Erscheinung des Herrn"
+      "de": "6. wiederaufgenommener Sonntag nach Erscheinung des Herrn",
+      "en": "Resumed 6th Sunday after Epiphany"
     },
     "officium": "Dominica VI quæ superfuit Post Epiphaniam",
     "rank": {
@@ -37193,7 +37219,8 @@
     "file": "PentEpi6-1.txt",
     "id": "tempora/PentEpi6-1",
     "names": {
-      "de": "Montag in der 6. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+      "de": "Montag in der 6. wiederaufgenommenen Woche nach Erscheinung des Herrn",
+      "en": "Monday in the Resumed 6th Week after Epiphany"
     },
     "officium": "Feria II infra Hebdomadam VI quæ superfuit post Epiphaniam",
     "rank": {
@@ -37222,7 +37249,8 @@
     "file": "PentEpi6-2.txt",
     "id": "tempora/PentEpi6-2",
     "names": {
-      "de": "Dienstag in der 6. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+      "de": "Dienstag in der 6. wiederaufgenommenen Woche nach Erscheinung des Herrn",
+      "en": "Tuesday in the Resumed 6th Week after Epiphany"
     },
     "officium": "Feria III infra Hebdomadam VI quæ superfuit post Epiphaniam",
     "rank": {
@@ -37251,7 +37279,8 @@
     "file": "PentEpi6-3.txt",
     "id": "tempora/PentEpi6-3",
     "names": {
-      "de": "Mittwoch in der 6. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+      "de": "Mittwoch in der 6. wiederaufgenommenen Woche nach Erscheinung des Herrn",
+      "en": "Wednesday in the Resumed 6th Week after Epiphany"
     },
     "officium": "Feria IV infra Hebdomadam VI quæ superfuit post Epiphaniam",
     "rank": {
@@ -37280,7 +37309,8 @@
     "file": "PentEpi6-4.txt",
     "id": "tempora/PentEpi6-4",
     "names": {
-      "de": "Donnerstag in der 6. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+      "de": "Donnerstag in der 6. wiederaufgenommenen Woche nach Erscheinung des Herrn",
+      "en": "Thursday in the Resumed 6th Week after Epiphany"
     },
     "officium": "Feria V infra Hebdomadam VI quæ superfuit post Epiphaniam",
     "rank": {
@@ -37309,7 +37339,8 @@
     "file": "PentEpi6-5.txt",
     "id": "tempora/PentEpi6-5",
     "names": {
-      "de": "Freitag in der 6. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+      "de": "Freitag in der 6. wiederaufgenommenen Woche nach Erscheinung des Herrn",
+      "en": "Friday in the Resumed 6th Week after Epiphany"
     },
     "officium": "Feria VI infra Hebdomadam VI quæ superfuit post Epiphaniam",
     "rank": {
@@ -37338,7 +37369,8 @@
     "file": "PentEpi6-6.txt",
     "id": "tempora/PentEpi6-6",
     "names": {
-      "de": "Samstag in der 6. wiederaufgenommenen Woche nach Erscheinung des Herrn"
+      "de": "Samstag in der 6. wiederaufgenommenen Woche nach Erscheinung des Herrn",
+      "en": "Saturday in the Resumed 6th Week after Epiphany"
     },
     "officium": "Sabbato infra Hebdomadam VI quæ superfuit post Epiphaniam",
     "rank": {
