@@ -24,6 +24,7 @@ Tracking design & implementation of 1962 Roman Rite (Missale Romanum 1962 / Rubr
 - [11 — M4 Proper of Saints plan](./11-m4-sanctoral.md)
 - [12 — M5 Rubrics engine & per-day resolution plan](./12-m5-rubrics.md)
 - [13 — M6 Mass-propers resolver plan](./13-m6-propers.md)
+- [14 — M7 Public API & release packaging plan](./14-m7-public-api.md)
 
 ## Status
 
@@ -32,4 +33,5 @@ Tracking design & implementation of 1962 Roman Rite (Missale Romanum 1962 / Rubr
 - M3 — Proper of Time: done. `buildProperOfTime1962(year)` emits a sparse `Map<isoDate, ProperOfTimeEntry>` covering the Tempora backbone (Dec 29 – Saturday before Advent I), skipping Sancti-owned dates.
 - M4 — Proper of Saints: done. `buildSanctoral1962(year)` emits `Map<isoDate, SanctoralEntry1962[]>` with authoritative 1960 ranks, commune pointers, vigils, and the surviving Christmas-octave day. See [11](./11-m4-sanctoral.md) for the rank-source fix (kalendarium vs Mass-file).
 - M5 — Rubrics engine: done. `buildLiturgicalYear1962(year)` merges M3 + M4 into a `Map<isoDate, ResolvedDay1962>` by applying 1960 occurrence, commemoration, and forward-transfer rules. Concurrence (First Vespers conflict) and Class II feast-of-the-Lord transfer are documented gaps. See [12](./12-m5-rubrics.md).
-- M6 — Mass-propers resolver: done. `resolvePropers(celebration)` and `attachPropers(year)` materialise each celebration's Mass sections (`introit, collect, epistle, …`) and any non-canonical extras (e.g. ember-day `LectioL*`) by walking inline blocks, per-section `ref` pointers, entry-level `references`, and a Sunday-Mass fallback for ferial weekday tempora. Known data gaps (multi-Mass days like Christmas, special liturgies like Good Friday/Holy Saturday/Pentecost Vigil, commemoration-only sancti) flow through as empty `propers` and are tracked for M7+. See [13](./13-m6-propers.md).
+- M6 — Mass-propers resolver: done. `resolvePropers(celebration)` and `attachPropers(year)` materialise each celebration's Mass sections (`introit, collect, epistle, …`) and any non-canonical extras (e.g. ember-day `LectioL*`) by walking inline blocks, per-section `ref` pointers, entry-level `references`, and a Sunday-Mass fallback for ferial weekday tempora. Known data gaps (multi-Mass days like Christmas, special liturgies like Good Friday/Holy Saturday/Pentecost Vigil, commemoration-only sancti) flow through as empty `propers` and are tracked for M8+. See [13](./13-m6-propers.md).
+- M7 — Public API: done. `Romcal1962` class wraps the build pipeline with a single config (`includePropers`, `propersLocales`, `attachToCommemorations`), Promise-returning `generateCalendar(year)` and `getOneLiturgicalDay(date)`, and per-instance year cache. Package quick-start at [`rites/roman1962/README.md`](../../rites/roman1962/README.md). See [14](./14-m7-public-api.md).

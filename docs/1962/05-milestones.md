@@ -3,38 +3,50 @@
 ## Milestones
 
 ### M1 — Scaffolding
+
 - Populate `rites/roman1962/src/` mirroring `roman1969` layout.
 - Wire package into root build/test.
 - Re-export `Romcal` as a subpath `romcal/1962`.
 - Acceptance: `npm run build` produces a `rites/roman1962/dist/`, `npm test` green.
 
 ### M2 — Data import
+
 - Write `build/import-divinum-officium.ts`.
 - Emit `data/calendar-1960.json` and per-feast proper JSON.
 - Commit generated output.
 - Acceptance: importer re-runs idempotently; byte-equal diff between consecutive runs.
 
 ### M3 — Proper of Time (1962)
+
 - Advent through Pentecost cycle; Septuagesima; Ember Days; Vigils; Octaves.
 - Acceptance: snapshot test for liturgical year 1962 matches divinumofficium.com day-for-day.
 
 ### M4 — Proper of Saints & Commons
+
 - Load calendar-1960.json into `GeneralRoman1962` `CalendarDef`.
 - Commons referenced via `commonsDef`.
 - Acceptance: every `MM-DD` with a feast resolves to a `LiturgicalDay` carrying `rank1962`, `rubrics`, `properRef`.
 
 ### M5 — Rubrics engine
+
 - Occurrence, concurrence, commemoration, transfer.
 - Acceptance: 20 hand-picked tricky dates (e.g. 1962-04-22 Easter Monday displacing St Soter, 1962-12-08 Immaculate Conception vs 2nd Sunday of Advent) match reference output.
 
 ### M6 — Propers surfaced on the day
+
 - Config flag `includePropers`, locale filter.
 - Acceptance: `generateCalendar({ includePropers: true, propersLocales: ['la', 'en'] })` returns texts on each day.
 
-### M7 — Docs & release
-- Update `docs/general-usage.md`, `docs/calendar-definitions.md` with 1962 sections.
-- Add `rites/roman1962/README.md`.
-- Changeset + version bump.
+### M7 — Public API & release packaging
+
+- `Romcal1962` class with `includePropers` / `propersLocales` /
+  `attachToCommemorations` config, Promise-returning
+  `generateCalendar(year)` and `getOneLiturgicalDay(date)`,
+  per-instance year cache.
+- Package quick-start `rites/roman1962/README.md`.
+- See [14 — M7 Public API & release packaging plan](./14-m7-public-api.md).
+- **Deferred to M8+**: integration into the root `docs/general-usage.md`,
+  `docs/calendar-definitions.md`, changeset / version bump (release-cut work).
 
 ## Decisions (resolved)
 
