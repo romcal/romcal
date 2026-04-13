@@ -14,7 +14,15 @@ import { parseRules } from './rules';
 import { linesToBlock, sectionAsRef } from './section';
 import type { MassEntry, ParsedFile, SourceMeta } from './types';
 
-const IMPORTER_VERSION = '0.1.0';
+const IMPORTER_VERSION = '0.2.0';
+
+// Vernacular locales to merge on top of Latin. Keep keys short (match
+// BCP-47 prefixes); values are DO's folder names under web/www/missa/
+// and web/www/horas/.
+const VERNACULARS: Record<string, string> = {
+  en: 'English',
+  de: 'Deutsch',
+};
 
 const REPO_ROOT = path.resolve(__dirname, '../../../..');
 const DO_ROOT = path.join(REPO_ROOT, 'divinum-officium');
@@ -99,6 +107,100 @@ function importFolder(dir: string, source: 'tempora' | 'sancti' | 'commune'): Re
   return out;
 }
 
+/**
+ * Merge vernacular proper texts onto an already-imported Latin entry set.
+ * For each file present in both locales, append the vernacular's text
+ * tokens into the existing Latin section (tagged with the target `lang`).
+ * Non-text tokens (scriptureRef, ref, directive, rubric, separator) keep
+ * the Latin version — directives and refs are shared structure, not text.
+ * Sections absent from Latin are skipped with a warning on the entry.
+ * Files absent from Latin are skipped silently (vernacular may ship
+ * extras our 1962 calendar never references).
+ */
+function mergeLocale(
+  entries: Record<string, MassEntry>,
+  dir: string,
+  lang: string,
+  source: 'tempora' | 'sancti' | 'commune'
+): { files: number; sections: number; missing: number } {
+  let filesTouched = 0;
+  let sectionsTouched = 0;
+  let missing = 0;
+  for (const file of listTxt(dir)) {
+    const key = fileKeyFromPath(file);
+    const entry = entries[key];
+    if (!entry) {
+      missing++;
+      continue;
+    }
+    const parsed: ParsedFile = parseFile(file, source);
+    const structural = new Set(['Officium', 'Rank', 'Rule', 'Name']);
+    let touchedThisFile = false;
+    for (const block of parsed.blocks) {
+      if (structural.has(block.name)) continue;
+      const existing = entry.sections[block.name];
+      if (!existing) {
+        entry.warnings.push(`${lang} section [${block.name}] has no Latin counterpart`);
+        continue;
+      }
+      const tokens = linesToBlock(block.lines, lang);
+      const textItems = tokens.filter((t) => t.type === 'text');
+      if (textItems.length === 0) continue;
+      entry.sections[block.name] = [...existing, ...textItems];
+      sectionsTouched++;
+      touchedThisFile = true;
+    }
+    if (touchedThisFile) filesTouched++;
+  }
+  return { files: filesTouched, sections: sectionsTouched, missing };
+}
+
+/**
+ * Extract a human-readable name for a mass file from its horas/<Lang>/<Folder>/<file>.txt
+ * counterpart. divinum-officium stores the localized feast title either as the whole
+ * `[Officium]` body or as the first `;;`-delimited field of `[Rank]`. Tries both.
+ */
+function extractHorasName(file: string): string | undefined {
+  const parsed = parseFile(file, 'sancti');
+  const officium = parsed.blocks.find((b) => b.name === 'Officium');
+  if (officium) {
+    const line = officium.lines.find((l) => {
+      const t = l.trim();
+      return t.length > 0 && !t.startsWith('#') && !t.startsWith('(');
+    });
+    if (line) return line.trim();
+  }
+  const rank = parsed.blocks.find((b) => b.name === 'Rank');
+  if (rank) {
+    const line = rank.lines.find((l) => l.trim().length > 0 && !l.trim().startsWith('#'));
+    if (line) {
+      const first = line.split(';;')[0]?.trim();
+      if (first) return first;
+    }
+  }
+  return undefined;
+}
+
+/**
+ * Walk a horas/<Lang>/<Folder>/ directory and, for each file whose key matches an
+ * existing mass entry, attach a localized name under `entry.names[lang]`.
+ * Silently skips files with no Latin counterpart (horas ships more than missa).
+ */
+function mergeLocalizedNames(entries: Record<string, MassEntry>, dir: string, lang: string): number {
+  let count = 0;
+  for (const file of listTxt(dir)) {
+    const key = fileKeyFromPath(file);
+    const entry = entries[key];
+    if (!entry) continue;
+    const name = extractHorasName(file);
+    if (!name) continue;
+    entry.names ??= {};
+    entry.names[lang] = name;
+    count++;
+  }
+  return count;
+}
+
 function resolveSha(): string {
   try {
     return execSync('git rev-parse HEAD', { cwd: DO_ROOT }).toString().trim();
@@ -118,17 +220,36 @@ function main(): void {
   const calendar = buildCalendar1960(DO_ROOT);
   log(chalk.dim(`  ${Object.keys(calendar).length} dates`));
 
-  log(chalk.bold('\n✓ importing Tempora'));
+  log(chalk.bold('\n✓ importing Tempora (Latin)'));
   const tempora = importFolder(path.join(DO_ROOT, 'web/www/missa/Latin/Tempora'), 'tempora');
   log(chalk.dim(`  ${Object.keys(tempora).length} entries`));
 
-  log(chalk.bold('\n✓ importing Sancti'));
+  log(chalk.bold('\n✓ importing Sancti (Latin)'));
   const sancti = importFolder(path.join(DO_ROOT, 'web/www/missa/Latin/Sancti'), 'sancti');
   log(chalk.dim(`  ${Object.keys(sancti).length} entries`));
 
-  log(chalk.bold('\n✓ importing Commune (from horas/)'));
+  log(chalk.bold('\n✓ importing Commune (Latin, from horas/)'));
   const commune = importFolder(path.join(DO_ROOT, 'web/www/horas/Latin/Commune'), 'commune');
   log(chalk.dim(`  ${Object.keys(commune).length} entries`));
+
+  for (const [lang, folder] of Object.entries(VERNACULARS)) {
+    log(chalk.bold(`\n✓ merging vernacular ${chalk.cyan(lang)} (${folder})`));
+    const t = mergeLocale(tempora, path.join(DO_ROOT, `web/www/missa/${folder}/Tempora`), lang, 'tempora');
+    const s = mergeLocale(sancti, path.join(DO_ROOT, `web/www/missa/${folder}/Sancti`), lang, 'sancti');
+    const c = mergeLocale(commune, path.join(DO_ROOT, `web/www/horas/${folder}/Commune`), lang, 'commune');
+    log(
+      chalk.dim(
+        `  tempora: ${t.files}f/${t.sections}s, sancti: ${s.files}f/${s.sections}s, commune: ${c.files}f/${c.sections}s`
+      )
+    );
+    const totalMissing = t.missing + s.missing + c.missing;
+    if (totalMissing > 0) log(chalk.dim(`  ${totalMissing} vernacular files had no Latin counterpart`));
+
+    const nt = mergeLocalizedNames(tempora, path.join(DO_ROOT, `web/www/horas/${folder}/Tempora`), lang);
+    const ns = mergeLocalizedNames(sancti, path.join(DO_ROOT, `web/www/horas/${folder}/Sancti`), lang);
+    const nc = mergeLocalizedNames(commune, path.join(DO_ROOT, `web/www/horas/${folder}/Commune`), lang);
+    log(chalk.dim(`  names: tempora ${nt}, sancti ${ns}, commune ${nc}`));
+  }
 
   const source: SourceMeta = {
     sha: resolveSha(),

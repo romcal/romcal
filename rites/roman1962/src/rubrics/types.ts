@@ -9,6 +9,7 @@ export interface Celebration1962 {
   kind: 'tempora' | 'sancti';
   key: string;
   name: string;
+  names?: Record<string, string>;
   classOf1962: Class1962;
   rank1962: Rank1962;
   numericRank: number;

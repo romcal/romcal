@@ -1,6 +1,6 @@
 import type { Rank1962 } from '../constants/rank-1962';
 import type { ProperOfTimeEntry } from '../proper-of-time';
-import { loadTempora, type MassFileEntry, type MassFileMap } from '../sanctoral/data';
+import { loadSancti, loadTempora, type MassFileEntry, type MassFileMap } from '../sanctoral/data';
 import type { SanctoralEntry1962 } from '../sanctoral/types';
 
 import { scorePrecedence } from './precedence';
@@ -35,6 +35,7 @@ export function celebrationFromTempora(entry: ProperOfTimeEntry): Celebration196
     kind: 'tempora',
     key: entry.temporaKey,
     name: mass?.officium ?? entry.temporaKey,
+    ...(mass?.names ? { names: mass.names } : {}),
     classOf1962,
     rank1962: CLASS_TO_RANK[classOf1962],
     numericRank: mass?.rank?.numericRank ?? 0,
@@ -59,10 +60,13 @@ export function celebrationFromTempora(entry: ProperOfTimeEntry): Celebration196
  */
 export function celebrationFromSancti(entry: SanctoralEntry1962): Celebration1962 {
   const classOf1962 = (entry.class1962 ?? 4) as Class1962;
+  const mass = entry.source === 'sancti' ? loadSancti()[entry.fileKey] : loadTempora()[entry.fileKey];
+  const names = mass?.names;
   const celebration: Celebration1962 = {
     kind: 'sancti',
     key: entry.fileKey,
     name: entry.name,
+    ...(names ? { names } : {}),
     classOf1962,
     rank1962: entry.rank1962,
     numericRank: entry.numericRank,

@@ -29,6 +29,7 @@ export interface MassFileEntry {
   file: string;
   source: 'sancti' | 'tempora' | 'commune';
   officium?: string;
+  names?: Record<string, string>;
   colors: Color[];
   rank?: RankInfo;
   rubrics: {

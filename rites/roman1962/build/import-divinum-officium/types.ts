@@ -45,6 +45,7 @@ export interface MassEntry {
   source: 'tempora' | 'sancti' | 'commune';
   file: string;
   officium?: string;
+  names?: Record<string, string>;
   rank?: RankInfo;
   rubrics: RubricInfo;
   colors: string[];

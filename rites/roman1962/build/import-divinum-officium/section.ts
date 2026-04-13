@@ -1,7 +1,5 @@
 import type { PropersBlock, PropersBlockItem } from '../../src/types/liturgical-day-1962';
 
-const LANG = 'la';
-
 /**
  * Classify one raw line from a divinum-officium section body into a structured token.
  *
@@ -18,7 +16,7 @@ const LANG = 'la';
  */
 const SCRIPTURE_RE = /^([1-4]?\s?[A-Z][a-zA-Zéëàüöïç.]{1,12})\s+\d+([:.\-–,;\s\d]*)?$/;
 
-function classifyLine(raw: string): PropersBlockItem | null {
+function classifyLine(raw: string, lang: string): PropersBlockItem | null {
   const line = raw.trim();
   if (line.length === 0) return null;
 
@@ -45,20 +43,20 @@ function classifyLine(raw: string): PropersBlockItem | null {
   }
 
   if (/^v\.\s*/i.test(line)) {
-    return { type: 'text', lang: LANG, value: line.replace(/^v\.\s*/i, ''), role: 'verse' };
+    return { type: 'text', lang, value: line.replace(/^v\.\s*/i, ''), role: 'verse' };
   }
 
   if (/^\(.*\)$/.test(line)) {
     return { type: 'rubric', note: line.slice(1, -1).trim() };
   }
 
-  return { type: 'text', lang: LANG, value: line };
+  return { type: 'text', lang, value: line };
 }
 
-export function linesToBlock(lines: string[]): PropersBlock {
+export function linesToBlock(lines: string[], lang = 'la'): PropersBlock {
   const out: PropersBlock = [];
   for (const line of lines) {
-    const tok = classifyLine(line);
+    const tok = classifyLine(line, lang);
     if (tok) out.push(tok);
   }
   return out;
