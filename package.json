@@ -54,6 +54,12 @@
   "main": "rites/roman1969/dist/cjs/romcal.js",
   "module": "rites/roman1969/dist/esm/romcal.js",
   "typings": "rites/roman1969/dist/index.d.ts",
+  "files": [
+    "rites/roman1969/dist",
+    "rites/roman1969/package.json",
+    "rites/roman1962/dist",
+    "rites/roman1962/package.json"
+  ],
   "workspaces": [
     "packages/*",
     "rites/*"
@@ -68,6 +74,7 @@
     "docs:sort-glossary": "npm run docs:sort-glossary -w=@internal/rite-roman1969",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
+    "prepack": "npm run build",
     "prepare": "husky",
     "prettier": "prettier -c .",
     "prettier:fix": "prettier -w .",
