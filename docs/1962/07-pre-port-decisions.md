@@ -12,7 +12,7 @@ Fair point: "tridentine" in modern usage carries sociological baggage (tradition
 
 Options reconsidered:
 
-- **A.** No prefix at all. The rite package already namespaces ids (`romcal/1962` vs `romcal`). For a 1962-only feast, a bare `finding_of_the_holy_cross` is unambiguous *within* the 1962 rite.
+- **A.** No prefix at all. The rite package already namespaces ids (`romcal/1962` vs `romcal`). For a 1962-only feast, a bare `finding_of_the_holy_cross` is unambiguous _within_ the 1962 rite.
 - **B.** Neutral numeric suffix: `finding_of_the_holy_cross_1962`. Pure date reference, no ideological charge.
 - **C.** Source-Missal prefix: `mr1962_…` (Missale Romanum 1962). Technical, accurate, unused elsewhere.
 - ~~D. `tridentine_…`~~ — rejected (loaded).
@@ -71,6 +71,7 @@ The 1960 calendar has a small number of changes over its lifetime (e.g. canonisa
 ## 9. Test fixtures
 
 Pick reference years up front:
+
 - **1962** — first full year under Rubricae 1960.
 - **1969** — last year before Novus Ordo (natural benchmark).
 - **2000, 2025** — modern years, Easter late + early.
@@ -83,6 +84,14 @@ Snapshot Jest tests against divinumofficium.com HTML for these years, stored und
 - Keep package private: `"name": "@internal/rite-roman1962"`, `"private": true`.
 - Add `"@internal/rite-roman1969": "*"` as a dependency (for models/types reuse per decision §1 in milestones).
 - Expose as root sub-path export `"./1962"` → `rites/roman1962/dist/index.js` in root `package.json`.
+
+## 12. Historical rank vocabulary (Duplex/Semiduplex/Simplex) — DECIDED
+
+The 1960 Rubricae abolished the pre-1960 rank vocabulary (Duplex I classis, Duplex II classis, Duplex majus, Duplex, Semiduplex, Simplex) and replaced it with Class I–IV. Divinum-officium's `[Rank]` lines still carry the old vocabulary in the class-text field even inside `(rubrica 196)`-tagged blocks — e.g. `;;I classis Semiduplex;;6.9` mixes a 1960 prefix with the old "Semiduplex" word. The numeric rank field is the authoritative 1960 signal.
+
+**Decision:** the 1962 rite does **not** expose a `tridentineRank` / `TridentineRank` type. The canonical 1960 class comes from the numeric rank (`class1962: 1–4`, `rank1962: ClassI | ClassII | ClassIII | ClassIV | Ferial`). The raw class text is preserved on the importer's `RankInfo.classText` purely as historical reference. Calling it "Tridentine" inside a 1962 model was a category error: the Tridentine ranks are _pre_-1960.
+
+Structured modifiers that are meaningful in 1962 (e.g. "has an octave", "is a vigil") can be derived from the class text later, on demand — as separate flags on `RankInfo`, not as a rank enum.
 
 ## 11. Stop conditions for the importer
 

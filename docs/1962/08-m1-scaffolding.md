@@ -42,7 +42,7 @@ Acceptance:
 
 Write small constant modules so downstream code has stable names to import:
 
-- `src/constants/rank-1962.ts` — `Rank1962` (`ClassI`, `ClassII`, `ClassIII`, `ClassIV`, `Ferial`) and `TridentineRank` (optional, per docs 03).
+- `src/constants/rank-1962.ts` — `Rank1962` (`ClassI`, `ClassII`, `ClassIII`, `ClassIV`, `Ferial`). NB: no `TridentineRank` — see 07 §12.
 - `src/constants/prefaces.ts` — `PrefaceId` closed enum (Nat, Pasch, Apost, Trinitate, Communis, BMV, Quadragesimalis, Crucis, Ascensionis, Pentecostes, Defunctorum, Communis, etc. — seed set; importer will fail loudly on unknowns).
 - `src/constants/octaves.ts` — `OctaveId = 'christmas' | 'easter' | 'pentecost'`.
 - `src/constants/common-1962.ts` — `Common1962` enum for Commons files (seed with the ~15 Commune/\*.txt filenames).

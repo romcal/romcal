@@ -3,8 +3,8 @@
 Goal: expose 1962 through the same shape as 1969 so consumers can do
 
 ```ts
-import { Romcal } from 'romcal';          // 1969 (default, unchanged)
-import { Romcal } from 'romcal/1962';     // 1962 rite
+import { Romcal } from 'romcal'; // 1969 (default, unchanged)
+import { Romcal } from 'romcal/1962'; // 1962 rite
 ```
 
 with identical method signatures and a superset `LiturgicalDay`.
@@ -21,16 +21,15 @@ with identical method signatures and a superset `LiturgicalDay`.
 
 ```ts
 interface LiturgicalDay1962Extensions {
-  // Ranking
-  rank1962?: Rank1962;                       // ClassI | ClassII | ClassIII | ClassIV | Ferial
-  class1962?: 1 | 2 | 3 | 4;                 // numeric shorthand
-  tridentineRank?: TridentineRank;           // DuplexIClassis | DuplexIIClassis | DuplexMajus | Duplex | Semiduplex | Simplex (optional, for pre-1960 compatibility)
+  // Ranking (see docs/1962/07-pre-port-decisions.md §12 — no Tridentine enum)
+  rank1962?: Rank1962; // ClassI | ClassII | ClassIII | ClassIV | Ferial
+  class1962?: 1 | 2 | 3 | 4; // numeric shorthand
 
   // Rubrical flags
   rubrics?: {
     gloria: boolean;
     credo: boolean;
-    preface?: PrefaceId;                     // Nat | Pasch | Apost | Trinitate | Communis | …
+    preface?: PrefaceId; // Nat | Pasch | Apost | Trinitate | Communis | …
     lastGospel?: 'ultimum' | 'proper' | 'none';
     ite?: 'ite' | 'benedicamus' | 'requiescant';
   };
@@ -43,7 +42,7 @@ interface LiturgicalDay1962Extensions {
     kind: 'feast' | 'within' | 'octaveDay';
     rank: 'classI' | 'classII';
   };
-  vigil?: { of: string };                    // feast whose vigil this is
+  vigil?: { of: string }; // feast whose vigil this is
 
   // Commemorations that are said at this Mass
   commemorations?: Array<{
@@ -53,10 +52,10 @@ interface LiturgicalDay1962Extensions {
 
   // Proper text references — loaded on demand
   properRef?: {
-    source: string;                          // e.g. 'Tempora/Adv1-0'
-    commune?: string;                        // e.g. 'Commune/C4'
+    source: string; // e.g. 'Tempora/Adv1-0'
+    commune?: string; // e.g. 'Commune/C4'
   };
-  propers?: MassPropers;                     // populated when config.includePropers = true
+  propers?: MassPropers; // populated when config.includePropers = true
 }
 
 interface MassPropers {
@@ -82,13 +81,13 @@ type LocalizedText = { [locale: string]: string };
 
 Rather than invent a second enum, map `Rank1962` onto the existing precedence positions so downstream sort logic keeps working:
 
-| 1962                        | Maps near (1969 Precedence) |
-|-----------------------------|-----------------------------|
-| Class I (Easter Triduum)    | Triduum_1                   |
-| Class I (Sundays, solemn)   | GeneralSolemnity            |
-| Class II                    | ProperSolemnity / Feast_6   |
-| Class III                   | Memorial_10                 |
-| Class IV (ferias)           | Weekday_13                  |
+| 1962                      | Maps near (1969 Precedence) |
+| ------------------------- | --------------------------- |
+| Class I (Easter Triduum)  | Triduum_1                   |
+| Class I (Sundays, solemn) | GeneralSolemnity            |
+| Class II                  | ProperSolemnity / Feast_6   |
+| Class III                 | Memorial_10                 |
+| Class IV (ferias)         | Weekday_13                  |
 
 The real ordering happens via an internal 1962 comparator that respects the Rubricae 1960 occurrence table; the mapped `precedence` is mainly for API parity.
 
@@ -96,10 +95,10 @@ The real ordering happens via an internal 1962 comparator that respects the Rubr
 
 ```ts
 interface Romcal1962Config extends RomcalConfig {
-  includePropers?: boolean;          // default false
-  propersLocales?: string[];         // default ['la']
-  commemorations?: boolean;          // default true
-  rubricEdition?: '1960' | '1955' | 'tridentine';  // default '1960'
+  includePropers?: boolean; // default false
+  propersLocales?: string[]; // default ['la']
+  commemorations?: boolean; // default true
+  rubricEdition?: '1960' | '1955' | 'tridentine'; // default '1960'
 }
 ```
 
@@ -116,7 +115,7 @@ rites/roman1962/
 │   ├── index.ts
 │   ├── models/             # thin subclasses; reuse roman1969/models where possible
 │   ├── types/              # 1962 extensions to LiturgicalDay + enums
-│   ├── constants/          # Rank1962, TridentineRank, PrefaceId, …
+│   ├── constants/          # Rank1962, PrefaceId, …
 │   ├── calendars/
 │   │   └── general-roman-1962/
 │   ├── proper-of-time/     # Septuagesima, Sundays-after-Epiphany/Pentecost, Octaves, Vigils

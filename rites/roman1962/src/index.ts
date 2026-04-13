@@ -13,8 +13,8 @@ export { OCTAVE_IDS } from './constants/octaves';
 export type { OctaveDayKind, OctaveDayNumber, OctaveId, OctaveRank } from './constants/octaves';
 export { PREFACE_IDS } from './constants/prefaces';
 export type { PrefaceId } from './constants/prefaces';
-export { RANKS_1962, Rank1962Values, TRIDENTINE_RANKS } from './constants/rank-1962';
-export type { Rank1962, TridentineRank } from './constants/rank-1962';
+export { RANKS_1962, Rank1962Values } from './constants/rank-1962';
+export type { Rank1962 } from './constants/rank-1962';
 export type {
   Commemoration1962,
   LiturgicalDay1962Extensions,

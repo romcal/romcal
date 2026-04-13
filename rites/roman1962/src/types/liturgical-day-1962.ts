@@ -1,15 +1,20 @@
 import type { Common1962 } from '../constants/common-1962';
 import type { OctaveDayKind, OctaveDayNumber, OctaveId, OctaveRank } from '../constants/octaves';
 import type { PrefaceId } from '../constants/prefaces';
-import type { Rank1962, TridentineRank } from '../constants/rank-1962';
+import type { Rank1962 } from '../constants/rank-1962';
 
 export type LocaleId = string;
 export type LocalizedText = Record<LocaleId, string>;
 
+export type TextRole = 'verse' | 'antiphon' | 'body';
+
 export type PropersBlockItem =
-  | { type: 'text'; lang: LocaleId; value: string }
+  | { type: 'text'; lang: LocaleId; value: string; role?: TextRole }
   | { type: 'scriptureRef'; ref: string }
-  | { type: 'directive'; value: string };
+  | { type: 'directive'; value: string }
+  | { type: 'ref'; target: string }
+  | { type: 'rubric'; note: string }
+  | { type: 'separator' };
 
 export type PropersBlock = PropersBlockItem[];
 
@@ -58,7 +63,6 @@ export interface ProperRef1962 {
 export interface LiturgicalDay1962Extensions {
   rank1962?: Rank1962;
   class1962?: 1 | 2 | 3 | 4;
-  tridentineRank?: TridentineRank;
   rubrics?: RubricFlags1962;
   octave?: OctaveInfo;
   vigil?: { of: string };

@@ -9,14 +9,3 @@ export const Rank1962Values: Readonly<Record<Rank1962, Rank1962>> = {
   ClassIV: 'ClassIV',
   Ferial: 'Ferial',
 };
-
-export const TRIDENTINE_RANKS = [
-  'DuplexIClassis',
-  'DuplexIIClassis',
-  'DuplexMajus',
-  'Duplex',
-  'Semiduplex',
-  'Simplex',
-] as const;
-
-export type TridentineRank = (typeof TRIDENTINE_RANKS)[number];

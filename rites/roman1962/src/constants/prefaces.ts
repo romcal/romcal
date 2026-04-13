@@ -14,6 +14,11 @@ export const PREFACE_IDS = [
   'SanctiIoseph',
   'Apostolorum',
   'Defunctorum',
+  'SanctissimiSacramenti',
+  'OmniumSanctorum',
+  'Dedicationis',
+  'SanctiIoannisBaptistae',
+  'Chrismatis',
 ] as const;
 
 export type PrefaceId = (typeof PREFACE_IDS)[number];

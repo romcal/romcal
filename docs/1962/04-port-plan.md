@@ -20,16 +20,16 @@ We do **not** port Perl logic. We port **data** and re-implement rubrics from th
 4. **Normalise** into `MassEntry`:
    ```ts
    interface MassEntry {
-     id: string;                    // 'sancti_12_25_3' / 'tempora_adv_1_0'
+     id: string; // 'sancti_12_25_3' / 'tempora_adv_1_0'
      source: 'tempora' | 'sancti' | 'commune';
-     name: string;                  // Latin, from [Officium] or [Rank]
+     name: string; // Latin, from [Officium] or [Rank]
      rank1962: Rank1962;
      class1962?: 1 | 2 | 3 | 4;
-     tridentineRank?: TridentineRank;
-     rubrics: { gloria, credo, preface?, lastGospel?, ite? };
-     octave?: { id, day };
+     // NB: no TridentineRank — see docs/1962/07-pre-port-decisions.md §12.
+     rubrics: { gloria; credo; preface?; lastGospel?; ite? };
+     octave?: { id; day };
      vigil?: { of };
-     properRef: { source, commune? };
+     properRef: { source; commune? };
      propers: Partial<Record<SectionName, LocalizedText>>;
    }
    ```
@@ -49,6 +49,7 @@ We do **not** port Perl logic. We port **data** and re-implement rubrics from th
 Loop over `missa/<lang>/` for `lang ∈ {Latin, English, Francais, Deutsch, Italiano, Espanol, Magyar, Polski}`. Each language's section body goes into `LocalizedText[lang]`. Latin is required; others are optional.
 
 Mapping to our locale ids:
+
 - Latin → `la`
 - English → `en`
 - Francais → `fr`
@@ -63,6 +64,7 @@ Mapping to our locale ids:
 Source of truth: Rubricae Generales Missalis Romani (1960), cc. 91–114.
 
 Implement in `src/rubrics/`:
+
 - `occurrence.ts` — which of two coinciding days wins.
 - `concurrence.ts` — Vespers of a 1st-class feast vs. following 1st-class feast.
 - `commemoration.ts` — which loser-feasts are commemorated at the winner's Mass.
@@ -74,6 +76,7 @@ Each gets a focused unit test using a handful of canonical years (1962, 1963, 19
 ## Proper-of-time
 
 `rites/roman1962/src/proper-of-time/proper-of-time.ts` generates Sundays and weekdays from computed anchor dates:
+
 - Advent (I–IV)
 - Christmas & Octave
 - Sundays after Epiphany (up to VI)
