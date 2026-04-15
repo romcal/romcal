@@ -11,9 +11,9 @@
       "require": "./dist/cjs/romcal.js"
     },
     "./bundles/*": {
-      "types": "./dist/bundles/*.d.ts",
-      "import": "./dist/bundles/*.js",
-      "require": "./dist/bundles/*.cjs"
+      "types": "./dist/bundles/*/index.d.ts",
+      "import": "./dist/bundles/*/esm/index.js",
+      "require": "./dist/bundles/*/cjs/index.cjs"
     }
   },
   "main": "dist/cjs/romcal.js",
@@ -21,6 +21,7 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "build": "tsx build/build.ts",
+    "postbuild": "npm run bundle",
     "bundle": "tsx build/bundle.ts",
     "clean": "rimraf coverage dist tmp",
     "import:do": "tsx build/import-divinum-officium/index.ts",

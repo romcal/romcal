@@ -1,5 +1,6 @@
 /**
- * Emit per-locale self-contained bundles under `dist/bundles/`.
+ * Emit per-locale self-contained bundles under `dist/bundles/{lang}/` as
+ * publishable npm packages.
  *
  * Each bundle ships one locale's `Locale1962` (merged En→la so fallbacks are
  * baked in) plus every per-section proper-text map for the three sources
@@ -7,13 +8,17 @@
  * nor the per-locale JSON files in `data/propers/{lang}/`.
  *
  * Output per locale `{lang}`:
- *   dist/bundles/{lang}.js   (esbuild-bundled, esm)
- *   dist/bundles/{lang}.cjs  (esbuild-bundled, cjs)
- *   dist/bundles/{lang}.d.ts
+ *   dist/bundles/{lang}/esm/index.js   (esbuild-bundled, esm)
+ *   dist/bundles/{lang}/esm/package.json    ({ "type": "module" })
+ *   dist/bundles/{lang}/cjs/index.cjs  (esbuild-bundled, cjs)
+ *   dist/bundles/{lang}/cjs/package.json    ({ "type": "commonjs" })
+ *   dist/bundles/{lang}/index.d.ts
+ *   dist/bundles/{lang}/package.json        (publishable as @romcal/calendar1962.{lang})
  */
 import fs from 'node:fs';
 import path from 'node:path';
 
+import pkg from '@internal/package.json';
 import chalk from 'chalk';
 import { build } from 'esbuild';
 import { rimraf } from 'rimraf';
@@ -57,6 +62,33 @@ function emitSource(lang: string, i18n: Locale1962, propers: BundlePropers): str
   ].join('\n');
 }
 
+function bundlePackageJson(lang: string): string {
+  const modulePkg = {
+    name: `@romcal/calendar1962.${lang}`,
+    version: pkg.version,
+    description: `Self-contained romcal 1962 Mass calendar for locale "${lang}"`,
+    module: './esm/index.js',
+    main: './cjs/index.cjs',
+    exports: {
+      '.': {
+        types: './index.d.ts',
+        import: './esm/index.js',
+        require: './cjs/index.cjs',
+      },
+    },
+    typings: './index.d.ts',
+    engines: pkg.engines,
+    repository: pkg.repository,
+    keywords: pkg.keywords,
+    author: 'The Romcal Team (https://github.com/romcal/romcal)',
+    bugs: pkg.bugs,
+    homepage: pkg.homepage,
+    peerDependencies: { [pkg.name]: pkg.version },
+    license: pkg.license,
+  };
+  return JSON.stringify(modulePkg, null, 2);
+}
+
 async function run(): Promise<void> {
   log(chalk.bold(`\n  –– ${chalk.red('Romcal 1962')} bundler ––`));
 
@@ -69,7 +101,7 @@ async function run(): Promise<void> {
   const la = locales.la;
   const ids = Object.keys(locales);
 
-  log(chalk.bold(`\n✓ Writing ${ids.length} locale bundles → ${chalk.cyan('./dist/bundles/')}`));
+  log(chalk.bold(`\n✓ Writing ${ids.length} locale bundles → ${chalk.cyan('./dist/bundles/{lang}/')}`));
 
   for (const lang of ids) {
     const mergedI18n = (lang === 'la' ? la : merge(la, en, locales[lang])) as Locale1962;
@@ -79,27 +111,44 @@ async function run(): Promise<void> {
     const tsPath = path.join(TMP_DIR, `${lang}.ts`);
     fs.writeFileSync(tsPath, tsSource, 'utf8');
 
-    for (const format of ['esm', 'cjs'] as const) {
-      await build({
-        bundle: true,
-        minify: true,
-        sourcemap: 'external',
-        entryPoints: [tsPath],
-        format,
-        outfile: path.join(OUT_DIR, `${lang}.${format === 'esm' ? 'js' : 'cjs'}`),
-        target: format === 'esm' ? 'ESNext' : 'ES2022',
-        platform: 'node',
-      });
-    }
+    const bundleDir = path.join(OUT_DIR, lang);
+    fs.mkdirSync(path.join(bundleDir, 'esm'), { recursive: true });
+    fs.mkdirSync(path.join(bundleDir, 'cjs'), { recursive: true });
+
+    await build({
+      bundle: true,
+      minify: true,
+      sourcemap: 'external',
+      entryPoints: [tsPath],
+      format: 'esm',
+      outfile: path.join(bundleDir, 'esm/index.js'),
+      target: 'ESNext',
+      platform: 'neutral',
+    });
+    fs.writeFileSync(path.join(bundleDir, 'esm/package.json'), JSON.stringify({ type: 'module' }, null, 2), 'utf8');
+
+    await build({
+      bundle: true,
+      minify: true,
+      sourcemap: 'external',
+      entryPoints: [tsPath],
+      format: 'cjs',
+      outfile: path.join(bundleDir, 'cjs/index.cjs'),
+      target: 'ES2022',
+      platform: 'node',
+    });
+    fs.writeFileSync(path.join(bundleDir, 'cjs/package.json'), JSON.stringify({ type: 'commonjs' }, null, 2), 'utf8');
 
     const dts = [
-      "import type { RomcalBundle1962 } from '../../dist/index';",
+      "import type { RomcalBundle1962 } from '../../index';",
       '',
       'export declare const bundle: RomcalBundle1962;',
       'export default bundle;',
       '',
     ].join('\n');
-    fs.writeFileSync(path.join(OUT_DIR, `${lang}.d.ts`), dts, 'utf8');
+    fs.writeFileSync(path.join(bundleDir, 'index.d.ts'), dts, 'utf8');
+
+    fs.writeFileSync(path.join(bundleDir, 'package.json'), bundlePackageJson(lang), 'utf8');
 
     log(chalk.dim(`  • ${lang}`));
   }
