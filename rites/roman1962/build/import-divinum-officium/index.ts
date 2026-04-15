@@ -6,24 +6,100 @@ import chalk from 'chalk';
 
 import { buildCalendar1960 } from './calendar';
 import { deriveColor } from './colors';
-import { sanctiDeFromKeyOrLatin, temporaDeFromKey } from './de-name-overrides';
+import { SANCTI_DE, sanctiDeFromKeyOrLatin, temporaDeFromKey } from './de-name-overrides';
 import { writeJson } from './emit';
-import { sanctiEnFromKeyOrLatin, temporaEnFromKey } from './en-name-overrides';
+import { SANCTI_EN, TEMPORA_EN, sanctiEnFromKeyOrLatin, temporaEnFromKey } from './en-name-overrides';
 import { ImportError } from './errors';
+import { SANCTI_ES, TEMPORA_ES, sanctiEsFromKeyOrLatin, temporaEsFromKey } from './es-name-overrides';
+import { SANCTI_FR, TEMPORA_FR, sanctiFrFromKeyOrLatin, temporaFrFromKey } from './fr-name-overrides';
+import { SANCTI_IT, TEMPORA_IT, sanctiItFromKeyOrLatin, temporaItFromKey } from './it-name-overrides';
+import { SANCTI_NL, TEMPORA_NL, sanctiNlFromKeyOrLatin, temporaNlFromKey } from './nl-name-overrides';
 import { parseFile } from './parser';
+import { SANCTI_PT, TEMPORA_PT, sanctiPtFromKeyOrLatin, temporaPtFromKey } from './pt-name-overrides';
 import { parseRank } from './rank';
 import { parseRules } from './rules';
 import { linesToBlock, sectionAsRef } from './section';
 import type { MassEntry, ParsedFile, SourceMeta } from './types';
 
-const IMPORTER_VERSION = '0.2.0';
+const IMPORTER_VERSION = '0.3.0';
+
+type NameOverride = {
+  temporaFn: (key: string) => string | undefined;
+  sanctiFn: (key: string, latin: string | undefined) => string | undefined;
+  // Explicit per-key maps applied *unconditionally* — even when horas already
+  // filled a Latin-literal name. Without this, entries like 01-01 (where
+  // officium is undefined but horas set names.fr = "In Circumcisione Domini")
+  // would bypass the override layer because isNameMissing() returns false.
+  temporaExplicit?: Record<string, string>;
+  sanctiExplicit?: Record<string, string>;
+};
+
+// Name override layers: which locales have a synthesizer that fills gaps
+// left by divinum-officium's horas. Locales absent here fall back to Latin
+// for ferias and long-tail sancti.
+const NAME_OVERRIDES: Record<string, NameOverride> = {
+  en: {
+    temporaFn: temporaEnFromKey,
+    sanctiFn: sanctiEnFromKeyOrLatin,
+    temporaExplicit: TEMPORA_EN,
+    sanctiExplicit: SANCTI_EN,
+  },
+  de: { temporaFn: temporaDeFromKey, sanctiFn: sanctiDeFromKeyOrLatin, sanctiExplicit: SANCTI_DE },
+  fr: {
+    temporaFn: temporaFrFromKey,
+    sanctiFn: sanctiFrFromKeyOrLatin,
+    temporaExplicit: TEMPORA_FR,
+    sanctiExplicit: SANCTI_FR,
+  },
+  it: {
+    temporaFn: temporaItFromKey,
+    sanctiFn: sanctiItFromKeyOrLatin,
+    temporaExplicit: TEMPORA_IT,
+    sanctiExplicit: SANCTI_IT,
+  },
+  es: {
+    temporaFn: temporaEsFromKey,
+    sanctiFn: sanctiEsFromKeyOrLatin,
+    temporaExplicit: TEMPORA_ES,
+    sanctiExplicit: SANCTI_ES,
+  },
+  pt: {
+    temporaFn: temporaPtFromKey,
+    sanctiFn: sanctiPtFromKeyOrLatin,
+    temporaExplicit: TEMPORA_PT,
+    sanctiExplicit: SANCTI_PT,
+  },
+  nl: {
+    temporaFn: temporaNlFromKey,
+    sanctiFn: sanctiNlFromKeyOrLatin,
+    temporaExplicit: TEMPORA_NL,
+    sanctiExplicit: SANCTI_NL,
+  },
+};
 
 // Vernacular locales to merge on top of Latin. Keep keys short (match
 // BCP-47 prefixes); values are DO's folder names under web/www/missa/
 // and web/www/horas/.
+//
+// Coverage per locale varies wildly — Romance langs ship Latin titles in
+// their horas [Officium]/[Rank] fields, Slavic/Uralic/Czech ship native
+// vernacular titles, and Danish/Ukrainian/Cesky-Schaller ship nearly
+// nothing. `cs-schaller` is a variant Czech translation (no horas/Tempora
+// or Sancti); its text still merges from missa/.
 const VERNACULARS: Record<string, string> = {
   en: 'English',
   de: 'Deutsch',
+  fr: 'Francais',
+  it: 'Italiano',
+  es: 'Espanol',
+  pt: 'Portugues',
+  nl: 'Nederlands',
+  pl: 'Polski',
+  hu: 'Magyar',
+  cs: 'Bohemice',
+  'cs-schaller': 'Cesky-Schaller',
+  uk: 'Ukrainian',
+  da: 'Dansk',
 };
 
 const REPO_ROOT = path.resolve(__dirname, '../../../..');
@@ -211,6 +287,60 @@ function mergeLocalizedNames(entries: Record<string, MassEntry>, dir: string, la
  * for the UI — without this layer the UI would display Latin titles to a
  * vernacular user.
  */
+const normalize = (s: string | undefined): string => (s ?? '').replace(/æ/g, 'ae').replace(/œ/g, 'oe');
+
+function isNameMissing(entry: MassEntry, lang: string): boolean {
+  // Treat an existing name that's identical to the Latin officium as missing:
+  // divinum-officium's horas often files Latin literals (e.g. "Sabbato Sancto"
+  // instead of "Holy Saturday"), and we want the override to take over.
+  // Normalize æ/œ ligatures before comparing — the vernacular merge normalizes
+  // them away while the officium keeps the ligature, so a strict equality
+  // check would miss entries like "Die II infra octavam Paschæ".
+  const existing = entry.names?.[lang];
+  return !existing || normalize(existing) === normalize(entry.officium);
+}
+
+/**
+ * Unconditionally apply explicit per-key translations before the missing-name
+ * pass. This supersedes names horas may have filled with Latin literals
+ * (e.g. fr/it/es/nl horas file "In Circumcisione Domini" as the name.fr for
+ * 01-01). Only exact keys in the explicit maps are affected; everything else
+ * is left to fillMissingNames + pattern fallbacks.
+ */
+function applyExplicitOverrides(
+  tempora: Record<string, MassEntry>,
+  sancti: Record<string, MassEntry>,
+  lang: string,
+  temporaMap: Record<string, string> | undefined,
+  sanctiMap: Record<string, string> | undefined
+): { tempora: number; sancti: number } {
+  let t = 0;
+  let s = 0;
+  if (temporaMap) {
+    for (const [key, name] of Object.entries(temporaMap)) {
+      const entry = tempora[key];
+      if (!entry) continue;
+      entry.names ??= {};
+      if (entry.names[lang] !== name) {
+        entry.names[lang] = name;
+        t++;
+      }
+    }
+  }
+  if (sanctiMap) {
+    for (const [key, name] of Object.entries(sanctiMap)) {
+      const entry = sancti[key];
+      if (!entry) continue;
+      entry.names ??= {};
+      if (entry.names[lang] !== name) {
+        entry.names[lang] = name;
+        s++;
+      }
+    }
+  }
+  return { tempora: t, sancti: s };
+}
+
 function fillMissingNames(
   tempora: Record<string, MassEntry>,
   sancti: Record<string, MassEntry>,
@@ -218,22 +348,10 @@ function fillMissingNames(
   temporaFn: (key: string) => string | undefined,
   sanctiFn: (key: string, latin: string | undefined) => string | undefined
 ): { tempora: number; sancti: number } {
-  // Treat an existing name that's identical to the Latin officium as missing:
-  // divinum-officium's English horas often files Latin literals (e.g. "Sabbato
-  // Sancto" instead of "Holy Saturday"), and we want our override to take over.
-  // Normalize æ/œ ligatures before comparing — the vernacular merge normalizes
-  // them away while the officium keeps the ligature, so a strict equality
-  // check would miss entries like "Die II infra octavam Paschæ".
-  const normalize = (s: string | undefined): string => (s ?? '').replace(/æ/g, 'ae').replace(/œ/g, 'oe');
-  const isMissing = (entry: MassEntry): boolean => {
-    const existing = entry.names?.[lang];
-    return !existing || normalize(existing) === normalize(entry.officium);
-  };
-
   let t = 0;
   let s = 0;
   for (const [key, entry] of Object.entries(tempora)) {
-    if (!isMissing(entry)) continue;
+    if (!isNameMissing(entry, lang)) continue;
     const name = temporaFn(key);
     if (!name) continue;
     entry.names ??= {};
@@ -241,7 +359,7 @@ function fillMissingNames(
     t++;
   }
   for (const [key, entry] of Object.entries(sancti)) {
-    if (!isMissing(entry)) continue;
+    if (!isNameMissing(entry, lang)) continue;
     const name = sanctiFn(key, entry.officium);
     if (!name) continue;
     entry.names ??= {};
@@ -249,6 +367,103 @@ function fillMissingNames(
     s++;
   }
   return { tempora: t, sancti: s };
+}
+
+/**
+ * Walk every entry and count how many still have no localized name (either
+ * unset or stuck as the Latin officium). Produced per-language after all
+ * fill-ins have run so the summary log can surface gaps to the user.
+ */
+function countUntranslated(
+  tempora: Record<string, MassEntry>,
+  sancti: Record<string, MassEntry>,
+  lang: string
+): { tempora: string[]; sancti: string[] } {
+  const t: string[] = [];
+  const s: string[] = [];
+  for (const [key, entry] of Object.entries(tempora)) {
+    if (isNameMissing(entry, lang)) t.push(key);
+  }
+  for (const [key, entry] of Object.entries(sancti)) {
+    if (isNameMissing(entry, lang)) s.push(key);
+  }
+  return { tempora: t, sancti: s };
+}
+
+type LangStats = {
+  folder: string;
+  mergeTempora: { files: number; sections: number; missing: number };
+  mergeSancti: { files: number; sections: number; missing: number };
+  mergeCommune: { files: number; sections: number; missing: number };
+  namesFromHoras: { tempora: number; sancti: number; commune: number };
+  filled?: { tempora: number; sancti: number };
+  untranslated: { tempora: string[]; sancti: string[] };
+};
+
+/**
+ * Emit a per-language coverage report documenting which entries received a
+ * vernacular name, which fell back to the override layer, and which are
+ * still Latin (no horas translation + no override). Intended as a
+ * reviewable artifact checked into the repo after each import.
+ */
+function writeSummaryLog(
+  file: string,
+  stats: Record<string, LangStats>,
+  totals: { temporaTotal: number; sanctiTotal: number }
+): void {
+  const lines: string[] = [];
+  lines.push('# Vernacular Import Coverage');
+  lines.push('');
+  lines.push(
+    '_Generated by `rites/roman1962/build/import-divinum-officium`. Summarises how much of each locale comes from divinum-officium text vs. the override layer, and which entries remain Latin._'
+  );
+  lines.push('');
+  lines.push(`Corpus: ${totals.temporaTotal} Tempora entries, ${totals.sanctiTotal} Sancti entries.`);
+  lines.push('');
+  lines.push('## Coverage summary');
+  lines.push('');
+  lines.push(
+    '| Locale | Folder | Text (T/S/C files) | Names from horas (T/S/C) | Override filled (T/S) | Still Latin (T/S) |'
+  );
+  lines.push('| --- | --- | --- | --- | --- | --- |');
+  for (const [lang, st] of Object.entries(stats)) {
+    const text = `${st.mergeTempora.files}/${st.mergeSancti.files}/${st.mergeCommune.files}`;
+    const nm = `${st.namesFromHoras.tempora}/${st.namesFromHoras.sancti}/${st.namesFromHoras.commune}`;
+    const fld = st.filled ? `${st.filled.tempora}/${st.filled.sancti}` : '— _(no override)_';
+    const latin = `${st.untranslated.tempora.length}/${st.untranslated.sancti.length}`;
+    lines.push(`| \`${lang}\` | ${st.folder} | ${text} | ${nm} | ${fld} | ${latin} |`);
+  }
+  lines.push('');
+  lines.push('## Entries still falling back to Latin');
+  lines.push('');
+  for (const [lang, st] of Object.entries(stats)) {
+    const t = st.untranslated.tempora;
+    const s = st.untranslated.sancti;
+    if (t.length === 0 && s.length === 0) {
+      lines.push(`### \`${lang}\` — full coverage ✓`);
+      lines.push('');
+      continue;
+    }
+    lines.push(`### \`${lang}\` — ${t.length} Tempora, ${s.length} Sancti`);
+    lines.push('');
+    if (t.length > 0) {
+      lines.push('**Tempora keys:**');
+      lines.push('');
+      lines.push(`\`\`\``);
+      lines.push(t.join(' '));
+      lines.push(`\`\`\``);
+      lines.push('');
+    }
+    if (s.length > 0) {
+      lines.push('**Sancti keys:**');
+      lines.push('');
+      lines.push(`\`\`\``);
+      lines.push(s.join(' '));
+      lines.push(`\`\`\``);
+      lines.push('');
+    }
+  }
+  fs.writeFileSync(file, lines.join('\n'));
 }
 
 function resolveSha(): string {
@@ -282,6 +497,8 @@ function main(): void {
   const commune = importFolder(path.join(DO_ROOT, 'web/www/horas/Latin/Commune'), 'commune');
   log(chalk.dim(`  ${Object.keys(commune).length} entries`));
 
+  const stats: Record<string, LangStats> = {};
+
   for (const [lang, folder] of Object.entries(VERNACULARS)) {
     log(chalk.bold(`\n✓ merging vernacular ${chalk.cyan(lang)} (${folder})`));
     const t = mergeLocale(tempora, path.join(DO_ROOT, `web/www/missa/${folder}/Tempora`), lang, 'tempora');
@@ -299,13 +516,48 @@ function main(): void {
     const ns = mergeLocalizedNames(sancti, path.join(DO_ROOT, `web/www/horas/${folder}/Sancti`), lang);
     const nc = mergeLocalizedNames(commune, path.join(DO_ROOT, `web/www/horas/${folder}/Commune`), lang);
     log(chalk.dim(`  names: tempora ${nt}, sancti ${ns}, commune ${nc}`));
+
+    stats[lang] = {
+      folder,
+      mergeTempora: t,
+      mergeSancti: s,
+      mergeCommune: c,
+      namesFromHoras: { tempora: nt, sancti: ns, commune: nc },
+      untranslated: { tempora: [], sancti: [] },
+    };
   }
 
   log(chalk.bold(`\n✓ filling missing vernacular names (override layer)`));
-  const filledDe = fillMissingNames(tempora, sancti, 'de', temporaDeFromKey, sanctiDeFromKeyOrLatin);
-  log(chalk.dim(`  de: tempora ${filledDe.tempora}, sancti ${filledDe.sancti}`));
-  const filledEn = fillMissingNames(tempora, sancti, 'en', temporaEnFromKey, sanctiEnFromKeyOrLatin);
-  log(chalk.dim(`  en: tempora ${filledEn.tempora}, sancti ${filledEn.sancti}`));
+  for (const lang of Object.keys(VERNACULARS)) {
+    const entry = stats[lang];
+    if (!entry) continue;
+    const override = NAME_OVERRIDES[lang];
+    if (override) {
+      const explicit = applyExplicitOverrides(tempora, sancti, lang, override.temporaExplicit, override.sanctiExplicit);
+      const filled = fillMissingNames(tempora, sancti, lang, override.temporaFn, override.sanctiFn);
+      entry.filled = {
+        tempora: filled.tempora + explicit.tempora,
+        sancti: filled.sancti + explicit.sancti,
+      };
+      log(
+        chalk.dim(
+          `  ${lang}: tempora ${filled.tempora + explicit.tempora} (${explicit.tempora} explicit), sancti ${
+            filled.sancti + explicit.sancti
+          } (${explicit.sancti} explicit)`
+        )
+      );
+    } else {
+      log(chalk.dim(`  ${lang}: no override layer (names stay as-merged; gaps fall back to Latin)`));
+    }
+    entry.untranslated = countUntranslated(tempora, sancti, lang);
+  }
+
+  log(chalk.bold(`\n✓ writing vernacular-coverage summary`));
+  writeSummaryLog(path.join(OUT_DIR, '..', 'build', 'import-divinum-officium', 'IMPORT_LOG.md'), stats, {
+    temporaTotal: Object.keys(tempora).length,
+    sanctiTotal: Object.keys(sancti).length,
+  });
+  log(chalk.dim(`  wrote IMPORT_LOG.md`));
 
   const source: SourceMeta = {
     sha: resolveSha(),

@@ -211,7 +211,7 @@ export function autoTranslateLatinSaintToDe(latin: string | undefined): string |
  * possible. Keys with the `r` suffix are 1960-rubrics variants of the same
  * feast and share the same name.
  */
-const SANCTI_DE: Record<string, string> = {
+export const SANCTI_DE: Record<string, string> = {
   '01-07': 'Zweiter Tag der Epiphanie-Oktav',
   '01-08': 'Dritter Tag der Epiphanie-Oktav',
   '01-09': 'Vierter Tag der Epiphanie-Oktav',

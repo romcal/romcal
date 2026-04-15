@@ -42,7 +42,7 @@ function ordinal(n: number): string {
  * horas leaves these as Latin literals; this map gives them their proper
  * traditional names. Consulted before the formulaic patterns below.
  */
-const TEMPORA_EN: Record<string, string> = {
+export const TEMPORA_EN: Record<string, string> = {
   // Advent Sundays (3rd is "Gaudete" colloquially)
   'Adv1-0': '1st Sunday of Advent',
   'Adv2-0': '2nd Sunday of Advent',
@@ -284,7 +284,7 @@ export function autoTranslateLatinSaintToEn(latin: string | undefined): string |
  * horas collection skips). Keys with the `r` suffix are 1960-rubrics
  * variants of the same feast and share the same name.
  */
-const SANCTI_EN: Record<string, string> = {
+export const SANCTI_EN: Record<string, string> = {
   '01-07': '2nd Day in the Octave of the Epiphany',
   '01-08': '3rd Day in the Octave of the Epiphany',
   '01-09': '4th Day in the Octave of the Epiphany',
