@@ -27,6 +27,7 @@ Tracking design & implementation of 1962 Roman Rite (Missale Romanum 1962 / Rubr
 - [14 — M7 Public API & release packaging plan](./14-m7-public-api.md)
 - [15 — M8 Rubrics polish & commemoration cap plan](./15-m8-rubrics-polish.md)
 - [16 — M9 Localization alignment with 1969](./16-m9-localization.md)
+- [17 — M10 Divinum-Officium → readable slug key migration](./17-m10-key-migration.md)
 
 ## Status
 
@@ -39,3 +40,4 @@ Tracking design & implementation of 1962 Roman Rite (Missale Romanum 1962 / Rubr
 - M7 — Public API: done. `Romcal1962` class wraps the build pipeline with a single config (`includePropers`, `propersLocales`, `attachToCommemorations`), Promise-returning `generateCalendar(year)` and `getOneLiturgicalDay(date)`, and per-instance year cache. Package quick-start at [`rites/roman1962/README.md`](../../rites/roman1962/README.md). See [14](./14-m7-public-api.md).
 - M9 — Localization alignment: done. Pivoted `entry.names` into per-locale `src/locales/{lang}.ts` modules and moved section text tokens into `data/propers/{lang}/{source}.json` alongside a shared `data/propers/_structure/{source}.json` scaffold. Added i18next runtime (`createI18n1962`, `createNameTranslator`), reshaped `Celebration1962` to carry `name: string` instead of `names: Record<…>`, and introduced `localeId` to `Romcal1962Config`. Consumers can bundle with the i18next runtime or import self-contained pre-merged bundles from `@internal/rite-roman1962/bundles/{lang}`. See [16](./16-m9-localization.md).
 - M8 — Rubrics polish: done. Replaced the Lord-feast name regex with an auditable `LORD_FEAST_KEYS` set, added vigil suppression on parent-feast transfer (Rubricae §10), and added `applyCommemorationCap(year, { mode })` plus a `commemorationLimit` config option for the `Romcal1962` class implementing §111–113 (`solemn` ≤ 3, `private` ≤ 1, `all` = no cap). Concurrence reclassified as out-of-scope-by-rubric (Office only). See [15](./15-m8-rubrics-polish.md).
+- M10 — Divinum-Officium → readable slug key migration: done. Remaps the DO short keys (`Adv1-0`, `Quadp3-3`, `Pasc0-0`, `C5`, `07-22`) to snake_case slugs (`advent_1_sunday`, `quinquagesima_wednesday`, `easter_sunday`, `common_of_confessor_not_pontiff`, `mary_magdalene_penitent`) at the importer emit boundary. Runtime (`resolver`, `tempora-class`, `precedence`, `propers/resolve`) updated to emit and match slugs; 10 parity reuses with 1969 where feasts coincide. `key-shape.test.ts` guards the invariant. `IMPORTER_VERSION` → `0.5.0`. See [17](./17-m10-key-migration.md).

@@ -23,6 +23,8 @@ const year = await r.generateCalendar(1962);
 
 // Single-day lookup
 const easter = await r.getOneLiturgicalDay('1962-04-22');
+console.log(easter?.primary.key);
+// → 'easter_sunday'                           ← readable slug
 console.log(easter?.primary.name);
 // → 'Easter Sunday'
 console.log(easter?.primary.propers?.introit?.la);
@@ -30,6 +32,18 @@ console.log(easter?.primary.propers?.introit?.la);
 console.log(easter?.primary.propers?.introit?.en);
 // → 'I arose, and am still with Thee, ...'
 ```
+
+### Celebration keys
+
+`Celebration1962.key` values are human-readable snake_case slugs aligned with
+the 1969 rite where feasts coincide: `easter_sunday`, `trinity_sunday`,
+`holy_family`, `palm_sunday`, `quinquagesima_wednesday` (Ash Wednesday),
+`advent_1_sunday`, `after_pentecost_11_sunday`, `the_purification_of_the_blessed_virgin_mary_candlemas`,
+`common_of_confessor_not_pontiff`. Local/rubrical variants are suffixed
+(`..._rubrica1960`, `..._tridentine`, `..._poland`, `..._optional_variant`).
+The mapping from Divinum Officium's short keys lives under
+`build/import-divinum-officium/key-mapping/`. See
+[docs/1962/17-m10-key-migration.md](../../docs/1962/17-m10-key-migration.md).
 
 ## Localization
 
@@ -114,6 +128,7 @@ const withPropers = attachPropers(year, { locales: ['la'] });
 | Christmas multi-Mass        | ⏳ M9+      |
 | Good Fri / Holy Sat / Vigil | ⏳ M9+      |
 | Vernacular names + propers  | ✅ M9       |
+| Readable slug keys          | ✅ M10      |
 | Divine Office               | ❌ scope    |
 
 Design and milestone docs live at
