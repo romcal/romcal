@@ -1,23 +1,9 @@
 import type { Celebration1962 } from '../rubrics/types';
-import type { LocalizedText, PropersBlock } from '../types/liturgical-day-1962';
+import type { MassPropersBlocks, MassSectionField, PropersBlock } from '../types/liturgical-day-1962';
 
 import { blockToLocalized } from './locale';
 import { getEntry, parseRef, parseSource, type ResolvedRef as RefLike } from './lookup';
-import type { ResolvedPropers, ResolvePropersOptions } from './types';
-
-type MassSectionField =
-  | 'introit'
-  | 'collect'
-  | 'epistle'
-  | 'gradual'
-  | 'alleluia'
-  | 'tract'
-  | 'sequence'
-  | 'gospel'
-  | 'offertory'
-  | 'secret'
-  | 'communion'
-  | 'postcommunion';
+import type { ResolvedPropers, ResolvedPropersBlocks, ResolvePropersOptions } from './types';
 
 const SECTION_TO_FIELD: Record<string, MassSectionField> = {
   Introitus: 'introit',
@@ -49,10 +35,6 @@ function isJustRef(block: PropersBlock): boolean {
   return block.length === 1 && block[0].type === 'ref';
 }
 
-/**
- * Expand any nested `{ type: 'ref' }` items inside a block. Non-ref
- * items pass through verbatim.
- */
 function expandRefsInside(block: PropersBlock, ctx: ResolveCtx): PropersBlock {
   const out: PropersBlock = [];
   for (const item of block) {
@@ -69,13 +51,6 @@ function expandRefsInside(block: PropersBlock, ctx: ResolveCtx): PropersBlock {
   return out;
 }
 
-/**
- * Resolve section `sectionName` starting from the entry identified
- * by `ref`. Walks `{ type: 'ref' }` pointers inside the section and
- * the entry-level `references` fallback. Returns the block (with
- * all nested refs resolved) or undefined when the section cannot
- * be materialised.
- */
 function resolveSection(ref: RefLike, sectionName: string, ctx: ResolveCtx): PropersBlock | undefined {
   const visitKey = visitedKey(ref, sectionName);
   if (ctx.visited.has(visitKey)) return undefined;
@@ -89,7 +64,6 @@ function resolveSection(ref: RefLike, sectionName: string, ctx: ResolveCtx): Pro
     return expandRefsInside(inline, ctx);
   }
 
-  // Lone ref inside the section itself.
   if (inline && isJustRef(inline)) {
     const sub = parseRef((inline[0] as { target: string }).target);
     if (sub) {
@@ -97,7 +71,6 @@ function resolveSection(ref: RefLike, sectionName: string, ctx: ResolveCtx): Pro
     }
   }
 
-  // Entry-level fallback pointer.
   const fallback = entry.references?.[sectionName];
   if (fallback) {
     const sub = parseRef(fallback);
@@ -107,15 +80,16 @@ function resolveSection(ref: RefLike, sectionName: string, ctx: ResolveCtx): Pro
   return undefined;
 }
 
-function collectSections(
-  ref: RefLike,
-  communeSlug: string | undefined,
-  locales: string[] | undefined
-): ResolvedPropers {
-  const propers: Partial<Record<MassSectionField, LocalizedText>> = {};
+interface RawCollected {
+  sections: MassPropersBlocks;
+  extraSections: Record<string, PropersBlock>;
+}
+
+function collectRawBlocks(ref: RefLike, communeSlug: string | undefined): RawCollected {
+  const sections: MassPropersBlocks = {};
   const extraSections: Record<string, PropersBlock> = {};
   const entry = getEntry(ref);
-  if (!entry) return { propers, extraSections };
+  if (!entry) return { sections, extraSections };
 
   const sectionNames = new Set<string>([
     ...Object.keys(entry.sections ?? {}),
@@ -130,41 +104,26 @@ function collectSections(
     if (!block || block.length === 0) continue;
 
     const field = SECTION_TO_FIELD[sectionName];
-    if (field) {
-      propers[field] = blockToLocalized(block, locales);
-    } else {
-      extraSections[sectionName] = block;
-    }
+    if (field) sections[field] = block;
+    else extraSections[sectionName] = block;
   }
 
-  // For a feast whose only inline content is `references` pointing
-  // to a Commune, the above loop already handles it via
-  // resolveSection's fallback logic. The explicit communeSlug path
-  // covers the (rarer) case where the feast has zero inline
-  // sections and zero references but M4 still classified it as
-  // "inherited from Commune Cxx" via its rubric row.
-  if (communeSlug && Object.keys(propers).length === 0) {
+  // Commune-only fallback: the entry carried no inline content and no
+  // references, but M4 classified it as "inherited from Commune Cxx".
+  if (communeSlug && Object.keys(sections).length === 0) {
     const communeRef: RefLike = { bundle: 'commune', key: communeSlug };
     for (const sectionName of ALL_DO_SECTIONS) {
       const ctx: ResolveCtx = { visited: new Set(), communeSlug: undefined };
       const block = resolveSection(communeRef, sectionName, ctx);
       if (!block || block.length === 0) continue;
       const field = SECTION_TO_FIELD[sectionName];
-      if (field) propers[field] = blockToLocalized(block, locales);
+      if (field) sections[field] = block;
     }
   }
 
-  return { propers, extraSections };
+  return { sections, extraSections };
 }
 
-/**
- * In 1962 rubrics, a weekday tempora entry with no inline Mass
- * falls back to its Sunday Mass (`advent_2_friday` → `advent_2_sunday`,
- * `after_pentecost_15_thursday` → `after_pentecost_15_sunday`, etc.).
- * Jan 2-5 ferials fall back to the Sunday within the Christmas Octave.
- * This is not a rubrical "commemoration" — it's the Missal's own
- * construction (per rubrics 1960 §23c).
- */
 const WEEKDAY_TAIL = /_(monday|tuesday|wednesday|thursday|friday|saturday)$/;
 const SEASON_PREFIXES = [
   'advent',
@@ -181,38 +140,67 @@ const FALLBACK_PATTERN = new RegExp(
   `^(${SEASON_PREFIXES.map((p) => `(?:${p})(?:_\\d+)?`).join('|')})${WEEKDAY_TAIL.source}`
 );
 
+/**
+ * In 1962 rubrics, a weekday tempora entry with no inline Mass
+ * falls back to its Sunday Mass (`advent_2_friday` → `advent_2_sunday`,
+ * `after_pentecost_15_thursday` → `after_pentecost_15_sunday`, etc.).
+ * Jan 2-5 ferials fall back to the Sunday within the Christmas Octave.
+ * This is not a rubrical "commemoration" — it's the Missal's own
+ * construction (per rubrics 1960 §23c).
+ */
 function sundayFallback(temporaKey: string): string | undefined {
-  // Jan 2-5 ferials → Sunday within the Christmas Octave.
   if (/^christmas_time_january_[2-5]$/.test(temporaKey)) return 'sunday_within_octave_of_christmas';
-  // Dec 29-31 ferials (christmas_octave_day_5..7) → Sunday within the Octave.
   if (/^christmas_octave_day_[567]$/.test(temporaKey)) return 'sunday_within_octave_of_christmas';
-  // Weekday Masses fall back to the same week's Sunday.
   const m = FALLBACK_PATTERN.exec(temporaKey);
   if (m) return `${m[1]}_sunday`;
   return undefined;
 }
 
-function isEmpty(resolved: ResolvedPropers): boolean {
-  if (Object.keys(resolved.extraSections).length > 0) return false;
-  return Object.values(resolved.propers).every((v) => !v || !Object.values(v).some((s) => s));
+function isEmptyRaw(raw: RawCollected): boolean {
+  return Object.keys(raw.sections).length === 0 && Object.keys(raw.extraSections).length === 0;
+}
+
+function resolveBlocksForCelebration(celebration: Celebration1962): RawCollected {
+  const source = parseSource(celebration.properRef.source);
+  if (!source) return { sections: {}, extraSections: {} };
+
+  const first = collectRawBlocks(source, celebration.properRef.communeSlug);
+  if (!isEmptyRaw(first) || source.bundle !== 'tempora') return first;
+
+  const fallbackKey = sundayFallback(source.key);
+  if (!fallbackKey) return first;
+  return collectRawBlocks({ bundle: 'tempora', key: fallbackKey }, celebration.properRef.communeSlug);
+}
+
+/**
+ * Resolve all Mass proper sections for a celebration, returning the
+ * ref-walked PropersBlock stream for each section (text, scriptureRef,
+ * directive, rubric, separator items preserved in order). Callers that
+ * need `{ la, en, ... }` concatenated strings should use
+ * `resolvePropers` instead; this entry point is for consumers that
+ * need per-segment structure (e.g. zipping scriptureRef with the
+ * following text for external Bible lookup).
+ *
+ * Never throws; broken references yield an omitted section. Tempora
+ * ferial weekdays with no inline Mass fall back to the week's Sunday
+ * Mass (see `sundayFallback`).
+ */
+export function resolvePropersBlocks(celebration: Celebration1962): ResolvedPropersBlocks {
+  return resolveBlocksForCelebration(celebration);
 }
 
 /**
  * Resolve all Mass proper sections for a celebration. Returns
- * `{ propers, extraSections }`. Never throws; broken references
- * yield an omitted section. Tempora ferial weekdays with no inline
- * Mass fall back to the week's Sunday Mass (see `sundayFallback`).
+ * `{ propers, extraSections }` with text items concatenated per
+ * requested locale. Broken references yield an omitted section.
  */
 export function resolvePropers(celebration: Celebration1962, options: ResolvePropersOptions = {}): ResolvedPropers {
-  const source = parseSource(celebration.properRef.source);
-  if (!source) return { propers: {}, extraSections: {} };
-
-  const first = collectSections(source, celebration.properRef.communeSlug, options.locales);
-  if (!isEmpty(first) || source.bundle !== 'tempora') return first;
-
-  const fallbackKey = sundayFallback(source.key);
-  if (!fallbackKey) return first;
-  return collectSections({ bundle: 'tempora', key: fallbackKey }, celebration.properRef.communeSlug, options.locales);
+  const raw = resolveBlocksForCelebration(celebration);
+  const propers: ResolvedPropers['propers'] = {};
+  for (const [field, block] of Object.entries(raw.sections) as [MassSectionField, PropersBlock][]) {
+    if (block) propers[field] = blockToLocalized(block, options.locales);
+  }
+  return { propers, extraSections: raw.extraSections };
 }
 
 export function _forTest_expandRefsInside(block: PropersBlock, visited = new Set<string>()): PropersBlock {

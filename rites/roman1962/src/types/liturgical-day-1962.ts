@@ -18,21 +18,24 @@ export type PropersBlockItem =
 
 export type PropersBlock = PropersBlockItem[];
 
-export interface MassPropers {
-  introit?: LocalizedText;
-  collect?: LocalizedText;
-  epistle?: LocalizedText;
-  gradual?: LocalizedText;
-  alleluia?: LocalizedText;
-  tract?: LocalizedText;
-  sequence?: LocalizedText;
-  gospel?: LocalizedText;
-  offertory?: LocalizedText;
-  secret?: LocalizedText;
-  preface?: LocalizedText;
-  communion?: LocalizedText;
-  postcommunion?: LocalizedText;
-}
+export type MassSectionField =
+  | 'introit'
+  | 'collect'
+  | 'epistle'
+  | 'gradual'
+  | 'alleluia'
+  | 'tract'
+  | 'sequence'
+  | 'gospel'
+  | 'offertory'
+  | 'secret'
+  | 'preface'
+  | 'communion'
+  | 'postcommunion';
+
+export type MassPropers = Partial<Record<MassSectionField, LocalizedText>>;
+
+export type MassPropersBlocks = Partial<Record<MassSectionField, PropersBlock>>;
 
 export interface OctaveInfo {
   id: OctaveId;

@@ -105,10 +105,29 @@ import {
   buildLiturgicalYear1962,
   attachPropers,
   resolvePropers,
+  resolvePropersBlocks,
 } from '@internal/rite-roman1962';
 
 const year = buildLiturgicalYear1962(1962);
 const withPropers = attachPropers(year, { locales: ['la'] });
+```
+
+### Structured proper blocks
+
+`resolvePropers` returns text concatenated per locale (`LocalizedText`).
+Consumers that need per-segment structure (e.g. zipping `scriptureRef`
+items with the `text` items that follow them for external Bible
+lookup) can use `resolvePropersBlocks` instead — same ref-walk and
+Sunday-fallback logic, but returns the ordered `PropersBlock` stream
+for each section before locale collapse:
+
+```ts
+const primary = (await r.getOneLiturgicalDay('1962-11-01'))!.primary;
+const { sections } = resolvePropersBlocks(primary);
+for (const item of sections.epistle ?? []) {
+  if (item.type === 'scriptureRef') console.log(item.ref);
+  if (item.type === 'text' && item.lang === 'la') console.log(item.value);
+}
 ```
 
 ## Capabilities & known gaps

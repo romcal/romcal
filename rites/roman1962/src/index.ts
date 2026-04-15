@@ -44,8 +44,15 @@ export type {
   LocaleSeasons,
   LocaleWeekdays,
 } from './types/locale';
-export { attachPropers, resolvePropers } from './propers';
-export type { AttachPropersOptions, ResolvedPropers, ResolvePropersOptions } from './propers';
+export { attachPropers, parseRef, parseSource, resolvePropers, resolvePropersBlocks } from './propers';
+export type {
+  AttachPropersOptions,
+  Bundle,
+  ResolvedPropers,
+  ResolvedPropersBlocks,
+  ResolvedRef,
+  ResolvePropersOptions,
+} from './propers';
 export { applyCommemorationCap } from './rubrics';
 export type { CommemorationCapMode, CommemorationCapOptions } from './rubrics';
 export { Romcal1962 } from './romcal-1962';
@@ -57,10 +64,14 @@ export type {
   LiturgicalDay1962Extensions,
   LocalizedText,
   MassPropers,
+  MassPropersBlocks,
+  MassSectionField,
   OctaveInfo,
   PropersBlock,
+  PropersBlockItem,
   ProperRef1962,
   RubricFlags1962,
+  TextRole,
 } from './types/liturgical-day-1962';
 
 export type { RomcalBundle1962 } from './bundles/types';
