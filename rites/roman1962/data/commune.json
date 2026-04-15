@@ -1,8 +1,6 @@
 {
   "common_of_abbot": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C5b.txt",
     "id": "commune/common_of_abbot",
     "officium": "Commune Abbatis",
@@ -12,12 +10,7 @@
     },
     "rubrics": {
       "gloria": true,
-      "raw": [
-        "Psalmi Dominica",
-        "Antiphonas horas",
-        "Psalm5 Vespera=116",
-        "Gloria"
-      ]
+      "raw": ["Psalmi Dominica", "Antiphonas horas", "Psalm5 Vespera=116", "Gloria"]
     },
     "sections": {
       "Communio": [
@@ -108,9 +101,7 @@
     ]
   },
   "common_of_apostles": {
-    "colors": [
-      "Red"
-    ],
+    "colors": ["Red"],
     "file": "C1.txt",
     "id": "commune/common_of_apostles",
     "officium": "Commune Apostolorum",
@@ -121,12 +112,7 @@
       "Versum 3": ":Versum 2"
     },
     "rubrics": {
-      "raw": [
-        "Psalmi Dominica",
-        "Antiphonas horas",
-        "Psalm5 Vespera=116",
-        "Psalm5 Vespera3=138"
-      ]
+      "raw": ["Psalmi Dominica", "Antiphonas horas", "Psalm5 Vespera=116", "Psalm5 Vespera3=138"]
     },
     "sections": {
       "Ant Laudes": [
@@ -362,9 +348,7 @@
     "warnings": []
   },
   "common_of_apostles_paschaltide": {
-    "colors": [
-      "Red"
-    ],
+    "colors": ["Red"],
     "file": "C1p.txt",
     "id": "commune/common_of_apostles_paschaltide",
     "officium": "Commune Apostolorum tempore Paschali",
@@ -375,13 +359,7 @@
       "Versum 3": ":Versum 2"
     },
     "rubrics": {
-      "raw": [
-        "Psalmi Dominica",
-        "Antiphonas horas",
-        "Psalm5 Vespera=116",
-        "Psalm5 Vespera3=138",
-        "Una Antiphona"
-      ]
+      "raw": ["Psalmi Dominica", "Antiphonas horas", "Psalm5 Vespera=116", "Psalm5 Vespera3=138", "Una Antiphona"]
     },
     "sections": {
       "Ant Laudes": [
@@ -634,9 +612,7 @@
     ]
   },
   "common_of_apostles_vigil": {
-    "colors": [
-      "Red"
-    ],
+    "colors": ["Red"],
     "file": "C1v.txt",
     "id": "commune/common_of_apostles_vigil",
     "officium": "Vigilia Apostolorum",
@@ -648,13 +624,7 @@
     "rubrics": {
       "credo": false,
       "gloria": false,
-      "raw": [
-        "Responsory Feria",
-        "Preces feriales",
-        "no Gloria",
-        "no Credo",
-        "Suffr=Maria3;Ecclesiæ,Papa;;"
-      ]
+      "raw": ["Responsory Feria", "Preces feriales", "no Gloria", "no Credo", "Suffr=Maria3;Ecclesiæ,Papa;;"]
     },
     "sections": {
       "Communio": [
@@ -779,9 +749,7 @@
     "warnings": []
   },
   "common_of_confessor_not_pontiff": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C5.txt",
     "id": "commune/common_of_confessor_not_pontiff",
     "officium": "Commune Confessoris non pontificis",
@@ -792,11 +760,7 @@
       "Versum 3": ":Versum 2"
     },
     "rubrics": {
-      "raw": [
-        "Psalmi Dominica",
-        "Antiphonas horas",
-        "Psalm5 Vespera=116"
-      ]
+      "raw": ["Psalmi Dominica", "Antiphonas horas", "Psalm5 Vespera=116"]
     },
     "sections": {
       "Ant 2": [
@@ -1137,9 +1101,7 @@
     ]
   },
   "common_of_confessor_not_pontiff_office_2": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C5-1.txt",
     "id": "commune/common_of_confessor_not_pontiff_office_2",
     "references": {},
@@ -1249,9 +1211,7 @@
     ]
   },
   "common_of_dedication_of_a_church": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C8.txt",
     "id": "commune/common_of_dedication_of_a_church",
     "officium": "Commune Dedicationis Ecclesiae",
@@ -1630,9 +1590,7 @@
     ]
   },
   "common_of_doctor_not_pontiff": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C5a.txt",
     "id": "commune/common_of_doctor_not_pontiff",
     "officium": "Commune Doctoris non Pontificis",
@@ -1668,12 +1626,7 @@
     },
     "rubrics": {
       "gloria": true,
-      "raw": [
-        "Psalmi Dominica",
-        "Antiphonas horas",
-        "Psalm5 Vespera=116",
-        "Gloria"
-      ]
+      "raw": ["Psalmi Dominica", "Antiphonas horas", "Psalm5 Vespera=116", "Gloria"]
     },
     "sections": {
       "Ant 1": [
@@ -1861,9 +1814,7 @@
     "warnings": []
   },
   "common_of_doctor_pontiff": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C4a.txt",
     "id": "commune/common_of_doctor_pontiff",
     "officium": "Commune Doctoris Pontificis",
@@ -1872,13 +1823,7 @@
     },
     "rubrics": {
       "gloria": true,
-      "raw": [
-        "Psalmi Dominica",
-        "Antiphonas horas",
-        "Psalm5 Vespera=116",
-        "Psalm5 Vespera3=131",
-        "Gloria"
-      ]
+      "raw": ["Psalmi Dominica", "Antiphonas horas", "Psalm5 Vespera=116", "Psalm5 Vespera3=131", "Gloria"]
     },
     "sections": {
       "Ant 3": [
@@ -2078,9 +2023,7 @@
     ]
   },
   "common_of_evangelists": {
-    "colors": [
-      "Red"
-    ],
+    "colors": ["Red"],
     "file": "C1a.txt",
     "id": "commune/common_of_evangelists",
     "officium": "Commune Evangelistarum",
@@ -2137,9 +2080,7 @@
     "warnings": []
   },
   "common_of_evangelists_paschaltide": {
-    "colors": [
-      "Red"
-    ],
+    "colors": ["Red"],
     "file": "C1ap.txt",
     "id": "commune/common_of_evangelists_paschaltide",
     "officium": "Commune Evangelistarum tempore Paschali",
@@ -2217,9 +2158,7 @@
     "warnings": []
   },
   "common_of_feasts_of_the_blessed_virgin_mary": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C11.txt",
     "id": "commune/common_of_feasts_of_the_blessed_virgin_mary",
     "officium": "In Festis Beatae Mariae Virginis",
@@ -2241,14 +2180,7 @@
       "credo": true,
       "gloria": true,
       "preface": "BeataeMariaeVirginis",
-      "raw": [
-        "Psalmi Dominica",
-        "Antiphonas horas",
-        "Doxology=Nat",
-        "Gloria",
-        "Credo",
-        "Prefatio=Maria=Festivitate"
-      ]
+      "raw": ["Psalmi Dominica", "Antiphonas horas", "Doxology=Nat", "Gloria", "Credo", "Prefatio=Maria=Festivitate"]
     },
     "sections": {
       "Ant 44": [
@@ -2619,9 +2551,7 @@
     ]
   },
   "common_of_many_confessor_pontiffs": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C4c.txt",
     "id": "commune/common_of_many_confessor_pontiffs",
     "officium": "Commune plurium Confessorum Pontificum",
@@ -2676,9 +2606,7 @@
     ]
   },
   "common_of_many_confessors_not_pontiffs": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C5c.txt",
     "id": "commune/common_of_many_confessors_not_pontiffs",
     "officium": "Commune plurium Confessorum non Pontificum",
@@ -2720,9 +2648,7 @@
     "warnings": []
   },
   "common_of_many_martyrs": {
-    "colors": [
-      "Red"
-    ],
+    "colors": ["Red"],
     "file": "C3a.txt",
     "id": "commune/common_of_many_martyrs",
     "officium": "Commune Plurimorum Martyrum",
@@ -2844,9 +2770,7 @@
     ]
   },
   "common_of_many_martyrs_office_2": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C3a-1.txt",
     "id": "commune/common_of_many_martyrs_office_2",
     "officium": "@Commune/common_of_many_martyrs",
@@ -2955,15 +2879,10 @@
       ]
     },
     "source": "commune",
-    "warnings": [
-      "pt section [Comment] has no Latin counterpart",
-      "pl section [Comment] has no Latin counterpart"
-    ]
+    "warnings": ["pt section [Comment] has no Latin counterpart", "pl section [Comment] has no Latin counterpart"]
   },
   "common_of_many_martyrs_office_2_paschaltide": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C3a-1p.txt",
     "id": "commune/common_of_many_martyrs_office_2_paschaltide",
     "references": {
@@ -2998,9 +2917,7 @@
     "warnings": []
   },
   "common_of_many_martyrs_paschaltide": {
-    "colors": [
-      "Red"
-    ],
+    "colors": ["Red"],
     "file": "C3p.txt",
     "id": "commune/common_of_many_martyrs_paschaltide",
     "officium": "Commune Plurimorum Martyrum Tempore Paschali",
@@ -3140,9 +3057,7 @@
     "warnings": []
   },
   "common_of_many_martyrs_pontiffs": {
-    "colors": [
-      "Red"
-    ],
+    "colors": ["Red"],
     "file": "C3.txt",
     "id": "commune/common_of_many_martyrs_pontiffs",
     "officium": "Commune Plurimorum Martyrum Pontificum",
@@ -3158,12 +3073,7 @@
       "Versum 3": ":Versum 2"
     },
     "rubrics": {
-      "raw": [
-        "Psalmi Dominica",
-        "Antiphonas horas",
-        "Psalm5 Vespera=116",
-        "Psalm5 Vespera3=115"
-      ]
+      "raw": ["Psalmi Dominica", "Antiphonas horas", "Psalm5 Vespera=116", "Psalm5 Vespera3=115"]
     },
     "sections": {
       "Ant Laudes": [
@@ -3526,9 +3436,7 @@
     ]
   },
   "common_of_many_martyrs_variant_paschaltide": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C3ap.txt",
     "id": "commune/common_of_many_martyrs_variant_paschaltide",
     "references": {
@@ -3563,9 +3471,7 @@
     "warnings": []
   },
   "common_of_many_non_virgin_martyrs": {
-    "colors": [
-      "Red"
-    ],
+    "colors": ["Red"],
     "file": "C7b.txt",
     "id": "commune/common_of_many_non_virgin_martyrs",
     "officium": "Commune plurimarum non Virginum Martyrum",
@@ -3650,9 +3556,7 @@
     "warnings": []
   },
   "common_of_many_supreme_pontiffs_martyrs": {
-    "colors": [
-      "Red"
-    ],
+    "colors": ["Red"],
     "file": "C3b.txt",
     "id": "commune/common_of_many_supreme_pontiffs_martyrs",
     "officium": "Commune plurium Summorum Pontificum Martyrum",
@@ -3673,10 +3577,7 @@
     },
     "rubrics": {
       "preface": "Apostolorum",
-      "raw": [
-        "@Commune/C3",
-        "Prefatio=Apostolis"
-      ]
+      "raw": ["@Commune/C3", "Prefatio=Apostolis"]
     },
     "sections": {
       "Communio": [
@@ -3768,9 +3669,7 @@
     "warnings": []
   },
   "common_of_many_supreme_pontiffs_martyrs_paschaltide": {
-    "colors": [
-      "Red"
-    ],
+    "colors": ["Red"],
     "file": "C3bp.txt",
     "id": "commune/common_of_many_supreme_pontiffs_martyrs_paschaltide",
     "officium": "Commune plurium Summorum Pontificum Martyrum Tempore Paschali",
@@ -3791,9 +3690,7 @@
       "Tractus": "Commune/common_of_supreme_pontiff_confessor"
     },
     "rubrics": {
-      "raw": [
-        "@Commune/C3b"
-      ]
+      "raw": ["@Commune/C3b"]
     },
     "sections": {
       "Communio": [
@@ -3885,9 +3782,7 @@
     "warnings": []
   },
   "common_of_many_virgin_martyrs": {
-    "colors": [
-      "Red"
-    ],
+    "colors": ["Red"],
     "file": "C6b.txt",
     "id": "commune/common_of_many_virgin_martyrs",
     "officium": "Commune Plurium Virginum Martyrum",
@@ -3974,9 +3869,7 @@
     ]
   },
   "common_of_non_virgins_non_martyrs": {
-    "colors": [
-      "Red"
-    ],
+    "colors": ["Red"],
     "file": "C7a.txt",
     "id": "commune/common_of_non_virgins_non_martyrs",
     "officium": "Commune non Virginum non Martyrum",
@@ -4136,9 +4029,7 @@
     ]
   },
   "common_of_one_confessor_pontiff": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C4.txt",
     "id": "commune/common_of_one_confessor_pontiff",
     "officium": "Commune unius Confessoris Pontificis",
@@ -4158,12 +4049,7 @@
       "Versum 3": ":Versum 2"
     },
     "rubrics": {
-      "raw": [
-        "Psalmi Dominica",
-        "Antiphonas horas",
-        "Psalm5 Vespera=116",
-        "Psalm5 Vespera3=131"
-      ]
+      "raw": ["Psalmi Dominica", "Antiphonas horas", "Psalm5 Vespera=116", "Psalm5 Vespera3=131"]
     },
     "sections": {
       "Ant Laudes": [
@@ -4524,9 +4410,7 @@
     ]
   },
   "common_of_one_confessor_pontiff_office_2": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C4-1.txt",
     "id": "commune/common_of_one_confessor_pontiff_office_2",
     "references": {
@@ -4620,15 +4504,10 @@
       ]
     },
     "source": "commune",
-    "warnings": [
-      "pt section [Comment] has no Latin counterpart",
-      "pl section [Comment] has no Latin counterpart"
-    ]
+    "warnings": ["pt section [Comment] has no Latin counterpart", "pl section [Comment] has no Latin counterpart"]
   },
   "common_of_one_martyr": {
-    "colors": [
-      "Red"
-    ],
+    "colors": ["Red"],
     "file": "C2a.txt",
     "id": "commune/common_of_one_martyr",
     "officium": "Commune Unius Martyris",
@@ -4789,9 +4668,7 @@
     ]
   },
   "common_of_one_martyr_office_2": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C2a-1.txt",
     "id": "commune/common_of_one_martyr_office_2",
     "references": {
@@ -4927,15 +4804,10 @@
       ]
     },
     "source": "commune",
-    "warnings": [
-      "pt section [Comment] has no Latin counterpart",
-      "pl section [Comment] has no Latin counterpart"
-    ]
+    "warnings": ["pt section [Comment] has no Latin counterpart", "pl section [Comment] has no Latin counterpart"]
   },
   "common_of_one_martyr_office_2_paschaltide": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C2a-1p.txt",
     "id": "commune/common_of_one_martyr_office_2_paschaltide",
     "references": {
@@ -4970,9 +4842,7 @@
     "warnings": []
   },
   "common_of_one_martyr_paschaltide": {
-    "colors": [
-      "Red"
-    ],
+    "colors": ["Red"],
     "file": "C2p.txt",
     "id": "commune/common_of_one_martyr_paschaltide",
     "officium": "Commune unius Martyris Tempore Paschali",
@@ -4994,9 +4864,7 @@
       "Secreta": "Commune/common_of_one_martyr_pontiff"
     },
     "rubrics": {
-      "raw": [
-        "@Commune/C2"
-      ]
+      "raw": ["@Commune/C2"]
     },
     "sections": {
       "Ant Matutinum": [
@@ -5209,15 +5077,10 @@
       ]
     },
     "source": "commune",
-    "warnings": [
-      "pt section [Comment] has no Latin counterpart",
-      "pl section [Comment] has no Latin counterpart"
-    ]
+    "warnings": ["pt section [Comment] has no Latin counterpart", "pl section [Comment] has no Latin counterpart"]
   },
   "common_of_one_martyr_pontiff": {
-    "colors": [
-      "Red"
-    ],
+    "colors": ["Red"],
     "file": "C2.txt",
     "id": "commune/common_of_one_martyr_pontiff",
     "officium": "Commune Unius Martyris Pontificis",
@@ -5233,12 +5096,7 @@
       "Versum 3": ":Versum 2"
     },
     "rubrics": {
-      "raw": [
-        "Psalmi Dominica",
-        "Antiphonas horas",
-        "Psalm5 Vespera=116",
-        "Psalm5 Vespera3=115"
-      ]
+      "raw": ["Psalmi Dominica", "Antiphonas horas", "Psalm5 Vespera=116", "Psalm5 Vespera3=115"]
     },
     "sections": {
       "Ant Laudes": [
@@ -5571,9 +5429,7 @@
     ]
   },
   "common_of_one_martyr_pontiff_office_2": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C2-1.txt",
     "id": "commune/common_of_one_martyr_pontiff_office_2",
     "references": {
@@ -5684,9 +5540,7 @@
     ]
   },
   "common_of_one_martyr_pontiff_office_2_paschaltide": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C2-1p.txt",
     "id": "commune/common_of_one_martyr_pontiff_office_2_paschaltide",
     "references": {
@@ -5721,9 +5575,7 @@
     "warnings": []
   },
   "common_of_one_martyr_variant_paschaltide": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C2ap.txt",
     "id": "commune/common_of_one_martyr_variant_paschaltide",
     "references": {
@@ -5779,9 +5631,7 @@
     "warnings": []
   },
   "common_of_one_non_virgin_martyr": {
-    "colors": [
-      "Red"
-    ],
+    "colors": ["Red"],
     "file": "C7.txt",
     "id": "commune/common_of_one_non_virgin_martyr",
     "officium": "Commune Unius non Virginis Martyris",
@@ -6037,9 +5887,7 @@
     "warnings": []
   },
   "common_of_one_supreme_pontiff_martyr": {
-    "colors": [
-      "Red"
-    ],
+    "colors": ["Red"],
     "file": "C2b.txt",
     "id": "commune/common_of_one_supreme_pontiff_martyr",
     "officium": "Commune unius Summi Pontificis et Martyris",
@@ -6061,10 +5909,7 @@
     },
     "rubrics": {
       "preface": "Apostolorum",
-      "raw": [
-        "@Commune/C2",
-        "Prefatio=Apostolis"
-      ]
+      "raw": ["@Commune/C2", "Prefatio=Apostolis"]
     },
     "sections": {
       "Communio": [
@@ -6171,14 +6016,10 @@
       ]
     },
     "source": "commune",
-    "warnings": [
-      "cs-schaller section [Comment] has no Latin counterpart"
-    ]
+    "warnings": ["cs-schaller section [Comment] has no Latin counterpart"]
   },
   "common_of_one_supreme_pontiff_martyr_office_2": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C2b-1.txt",
     "id": "commune/common_of_one_supreme_pontiff_martyr_office_2",
     "references": {
@@ -6202,10 +6043,7 @@
     },
     "rubrics": {
       "preface": "Apostolorum",
-      "raw": [
-        "@Commune/C2",
-        "Prefatio=Apostolis"
-      ]
+      "raw": ["@Commune/C2", "Prefatio=Apostolis"]
     },
     "sections": {
       "Communio": [
@@ -6315,9 +6153,7 @@
     "warnings": []
   },
   "common_of_one_supreme_pontiff_martyr_office_2_paschaltide": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C2b-1p.txt",
     "id": "commune/common_of_one_supreme_pontiff_martyr_office_2_paschaltide",
     "references": {
@@ -6341,10 +6177,7 @@
     },
     "rubrics": {
       "preface": "Apostolorum",
-      "raw": [
-        "@Commune/C2",
-        "Prefatio=Apostolis"
-      ]
+      "raw": ["@Commune/C2", "Prefatio=Apostolis"]
     },
     "sections": {
       "Communio": [
@@ -6454,9 +6287,7 @@
     "warnings": []
   },
   "common_of_one_supreme_pontiff_martyr_paschaltide": {
-    "colors": [
-      "Red"
-    ],
+    "colors": ["Red"],
     "file": "C2bp.txt",
     "id": "commune/common_of_one_supreme_pontiff_martyr_paschaltide",
     "officium": "Commune unius Summi Pontificis et Martyris Tempore Paschali",
@@ -6481,10 +6312,7 @@
     },
     "rubrics": {
       "preface": "Apostolorum",
-      "raw": [
-        "@Commune/C2",
-        "Prefatio=Apostolis"
-      ]
+      "raw": ["@Commune/C2", "Prefatio=Apostolis"]
     },
     "sections": {
       "Communio": [
@@ -6594,9 +6422,7 @@
     "warnings": []
   },
   "common_of_one_virgin_martyr": {
-    "colors": [
-      "Red"
-    ],
+    "colors": ["Red"],
     "file": "C6.txt",
     "id": "commune/common_of_one_virgin_martyr",
     "officium": "Commune Unius Virginis et Martyris",
@@ -6612,10 +6438,7 @@
       "Versum 3": ":Versum 2"
     },
     "rubrics": {
-      "raw": [
-        "Psalmi Dominica",
-        "Antiphonas horas"
-      ]
+      "raw": ["Psalmi Dominica", "Antiphonas horas"]
     },
     "sections": {
       "Ant 3": [
@@ -6979,9 +6802,7 @@
     ]
   },
   "common_of_one_virgin_martyr_office_2": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C6-1.txt",
     "id": "commune/common_of_one_virgin_martyr_office_2",
     "references": {},
@@ -7086,14 +6907,10 @@
       ]
     },
     "source": "commune",
-    "warnings": [
-      "cs-schaller section [Comment] has no Latin counterpart"
-    ]
+    "warnings": ["cs-schaller section [Comment] has no Latin counterpart"]
   },
   "common_of_supreme_pontiff_confessor": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C4b.txt",
     "id": "commune/common_of_supreme_pontiff_confessor",
     "officium": "Commune Summorum Pontificum Confessorum",
@@ -7108,10 +6925,7 @@
     },
     "rubrics": {
       "preface": "Apostolorum",
-      "raw": [
-        "@Commune/C4",
-        "Prefatio=Apostolis"
-      ]
+      "raw": ["@Commune/C4", "Prefatio=Apostolis"]
     },
     "sections": {
       "Ant 3": [
@@ -7258,9 +7072,7 @@
     ]
   },
   "common_of_supreme_pontiff_confessor_office_2": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C4b-1.txt",
     "id": "commune/common_of_supreme_pontiff_confessor_office_2",
     "references": {
@@ -7286,10 +7098,7 @@
     },
     "rubrics": {
       "preface": "Apostolorum",
-      "raw": [
-        "@Commune/C4",
-        "Prefatio=Apostolis"
-      ]
+      "raw": ["@Commune/C4", "Prefatio=Apostolis"]
     },
     "sections": {
       "Ant 3": [
@@ -7411,9 +7220,7 @@
     "warnings": []
   },
   "common_of_supreme_pontiff_confessor_office_3": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C4b-2.txt",
     "id": "commune/common_of_supreme_pontiff_confessor_office_3",
     "references": {
@@ -7438,10 +7245,7 @@
     },
     "rubrics": {
       "preface": "Apostolorum",
-      "raw": [
-        "@Commune/C4a",
-        "Prefatio=Apostolis"
-      ]
+      "raw": ["@Commune/C4a", "Prefatio=Apostolis"]
     },
     "sections": {
       "Communio": [
@@ -7557,9 +7361,7 @@
     "warnings": []
   },
   "common_of_virgins": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C6a.txt",
     "id": "commune/common_of_virgins",
     "officium": "Commune Virginum tantum",
@@ -7704,9 +7506,7 @@
     ]
   },
   "common_of_virgins_office_2": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C6a-1.txt",
     "id": "commune/common_of_virgins_office_2",
     "references": {
@@ -7794,9 +7594,7 @@
     "warnings": []
   },
   "little_office_of_the_blessed_virgin_mary": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C12.txt",
     "id": "commune/little_office_of_the_blessed_virgin_mary",
     "officium": "Officium parvum Beatæ Maríæ Virginis",
@@ -7806,9 +7604,7 @@
       "numericRank": 1,
       "rank1962": "Ferial",
       "raw": ";;Simplex;;1;;ex C11",
-      "sourceRefs": [
-        "ex C11"
-      ]
+      "sourceRefs": ["ex C11"]
     },
     "references": {
       "Ant 3": ":Ant 1",
@@ -9050,14 +8846,10 @@
       ]
     },
     "source": "commune",
-    "warnings": [
-      "duplicate section [Minor final]"
-    ]
+    "warnings": ["duplicate section [Minor final]"]
   },
   "little_office_of_the_blessed_virgin_mary_christmas_time": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C12N.txt",
     "id": "commune/little_office_of_the_blessed_virgin_mary_christmas_time",
     "officium": "Officium parvum Beatae Mariae Virginis Tempora Nativitatis",
@@ -9358,9 +9150,7 @@
     "warnings": []
   },
   "little_office_of_the_blessed_virgin_mary_septuagesima_to_holy_saturday": {
-    "colors": [
-      "Purple"
-    ],
+    "colors": ["Purple"],
     "file": "C12Q.txt",
     "id": "commune/little_office_of_the_blessed_virgin_mary_septuagesima_to_holy_saturday",
     "officium": "Officium Parvum Beatae Mariae Virginis tempore Septuagesimae usque Sabbato Sancto",
@@ -9374,23 +9164,14 @@
     },
     "references": {},
     "rubrics": {
-      "raw": [
-        "Ave only",
-        "Doxology=Nat",
-        "Omit Suffragium",
-        "Special Benedictio",
-        "Votive nocturn",
-        "no Te Deum"
-      ]
+      "raw": ["Ave only", "Doxology=Nat", "Omit Suffragium", "Special Benedictio", "Votive nocturn", "no Te Deum"]
     },
     "sections": {},
     "source": "commune",
     "warnings": []
   },
   "little_office_of_the_blessed_virgin_mary_variant_2": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C12A.txt",
     "id": "commune/little_office_of_the_blessed_virgin_mary_variant_2",
     "officium": "Officium parvum Beatae Mariae Virginis",
@@ -9422,14 +9203,7 @@
       "Versum 3": ":Versum 1"
     },
     "rubrics": {
-      "raw": [
-        "Ave only",
-        "Doxology=Nat",
-        "Omit Suffragium",
-        "Special Benedictio",
-        "Votive nocturn",
-        "no Te Deum"
-      ]
+      "raw": ["Ave only", "Doxology=Nat", "Omit Suffragium", "Special Benedictio", "Votive nocturn", "no Te Deum"]
     },
     "sections": {
       "Ant 1": [
@@ -9846,9 +9620,7 @@
     "warnings": []
   },
   "office_of_the_dead": {
-    "colors": [
-      "Black"
-    ],
+    "colors": ["Black"],
     "file": "C9.txt",
     "id": "commune/office_of_the_dead",
     "officium": "Officium Defunctorum",
@@ -10207,15 +9979,10 @@
       ]
     },
     "source": "commune",
-    "warnings": [
-      "duplicate section [Oratio1]",
-      "duplicate section [Oratio2]"
-    ]
+    "warnings": ["duplicate section [Oratio1]", "duplicate section [Oratio2]"]
   },
   "saturday_office_of_the_blessed_virgin_mary": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C10.txt",
     "id": "commune/saturday_office_of_the_blessed_virgin_mary",
     "officium": "Sanctæ Mariæ Sabbato",
@@ -10225,9 +9992,7 @@
       "numericRank": 1.3,
       "rank1962": "Ferial",
       "raw": ";;Simplex;;1.3;;vide C10",
-      "sourceRefs": [
-        "vide C10"
-      ]
+      "sourceRefs": ["vide C10"]
     },
     "references": {
       "Ant Laudes": "Commune/common_of_feasts_of_the_blessed_virgin_mary",
@@ -10628,9 +10393,7 @@
     ]
   },
   "saturday_office_of_the_blessed_virgin_mary_christmas_time": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C10n.txt",
     "id": "commune/saturday_office_of_the_blessed_virgin_mary_christmas_time",
     "references": {
@@ -10672,9 +10435,7 @@
     "warnings": []
   },
   "saturday_office_of_the_blessed_virgin_mary_paschaltide": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C10Pasc.txt",
     "id": "commune/saturday_office_of_the_blessed_virgin_mary_paschaltide",
     "references": {
@@ -10707,9 +10468,7 @@
     ]
   },
   "saturday_office_of_the_blessed_virgin_mary_variant_2": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C10a.txt",
     "id": "commune/saturday_office_of_the_blessed_virgin_mary_variant_2",
     "references": {
@@ -10799,9 +10558,7 @@
     ]
   },
   "saturday_office_of_the_blessed_virgin_mary_variant_3": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C10b.txt",
     "id": "commune/saturday_office_of_the_blessed_virgin_mary_variant_3",
     "references": {
@@ -10902,9 +10659,7 @@
     ]
   },
   "saturday_office_of_the_blessed_virgin_mary_variant_4": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "C10c.txt",
     "id": "commune/saturday_office_of_the_blessed_virgin_mary_variant_4",
     "references": {
@@ -10935,15 +10690,10 @@
       ]
     },
     "source": "commune",
-    "warnings": [
-      "en section [Comment] has no Latin counterpart",
-      "pl section [Comment] has no Latin counterpart"
-    ]
+    "warnings": ["en section [Comment] has no Latin counterpart", "pl section [Comment] has no Latin counterpart"]
   },
   "votive_mass_coronation_of_a_pope": {
-    "colors": [
-      "White"
-    ],
+    "colors": ["White"],
     "file": "Coronatio.txt",
     "id": "commune/votive_mass_coronation_of_a_pope",
     "officium": "Missa Votiva in Creatione et Coronatione Papae et in die anniversarii",
@@ -10954,11 +10704,7 @@
       "credo": true,
       "gloria": true,
       "preface": "Apostolorum",
-      "raw": [
-        "Gloria",
-        "Credo",
-        "Prefatio=Apostolis"
-      ]
+      "raw": ["Gloria", "Credo", "Prefatio=Apostolis"]
     },
     "sections": {
       "Communio": [

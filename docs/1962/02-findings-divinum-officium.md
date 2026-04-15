@@ -17,11 +17,13 @@ missa/
 ```
 
 Calendars by rubric edition in `divinum-officium/web/www/Tabulae/Kalendaria/`:
+
 - Historic: `1570.txt`, `1888.txt`, `1906.txt`, `1939.txt`, `1954.txt`, `1955.txt`
 - Target: `1960.txt` (Rubricae 1960 — the "1962 Missal" calendar)
 - `OP1962.txt` (Dominican 1962 — ignore for phase 1)
 
 `divinum-officium/web/www/Tabulae/data.txt` registers rubric versions and inheritance:
+
 ```
 Rubrics 1960 - 1960,1960,1960,1960,Reduced - 1955
 ```
@@ -69,6 +71,7 @@ $Qui vivis
 - `;;Simplex;;1.4;;vide Sancti/12-26`
 
 Classes:
+
 - Pre-1960 Tridentine: Duplex I classis, Duplex II classis, Duplex majus, Duplex, Semiduplex, Simplex.
 - 1960 rubrics: Class I, II, III, IV (reported numerically; ~7 = I, 5–6 = II, 4–5 = III, 1–3 = IV).
 
@@ -77,6 +80,7 @@ Multiple `[Rank]` blocks may coexist, tagged `(rubrica tridentina)`, `(rubrica 1
 ### `[Rule]` grammar
 
 Space/newline-separated keywords plus `Key=Value` pairs. Relevant ones:
+
 - `Gloria` / `no Gloria`
 - `Credo` / `no Credo`
 - `Prefatio=Nat` (Nativitas, Paschalis, Apostolorum, Trinitatis, Communis, …)
@@ -93,14 +97,16 @@ Space/newline-separated keywords plus `Key=Value` pairs. Relevant ones:
 ## Calendar tables
 
 `Tabulae/Kalendaria/1960.txt` applies deltas over the 1955 base:
+
 ```
 01-18=01-18r=S Priscae Virginis=1=
 01-25=01-25r=In Conversione S. Pauli Apostoli=4=
 05-03=05-03r=Ss. Alexandri et sociorum Martyrum=1=
 ```
+
 Format: `origDate=newDateFlag=FeastName=Class=`.
 
-## What is *not* in the data
+## What is _not_ in the data
 
 - Concurrence / occurrence resolution (when two feasts land on the same day).
 - Transfer rules (moving an impeded feast forward).

@@ -2,19 +2,20 @@
 
 ## What an octave is
 
-An **octave** is an 8-day extension of a principal feast. Day 1 is the feast itself; days 2–7 are "days within the octave" (*infra octavam*); day 8 is the **octave day** (*dies octava*), a liturgical echo of the feast.
+An **octave** is an 8-day extension of a principal feast. Day 1 is the feast itself; days 2–7 are "days within the octave" (_infra octavam_); day 8 is the **octave day** (_dies octava_), a liturgical echo of the feast.
 
 Under the Rubricae 1960 only three octaves remain, all privileged:
 
-| Octave     | Day 1                 | Day 8                         |
-|------------|-----------------------|-------------------------------|
-| Christmas  | Dec 25 Nativity       | Jan 1 Circumcision / Octave   |
-| Easter     | Easter Sunday         | Low Sunday (Dom. in Albis)    |
-| Pentecost  | Pentecost Sunday      | Trinity eve (Saturday)        |
+| Octave    | Day 1            | Day 8                       |
+| --------- | ---------------- | --------------------------- |
+| Christmas | Dec 25 Nativity  | Jan 1 Circumcision / Octave |
+| Easter    | Easter Sunday    | Low Sunday (Dom. in Albis)  |
+| Pentecost | Pentecost Sunday | Trinity eve (Saturday)      |
 
 Before 1955 there were ~15 octaves (Epiphany, Ascension, Corpus Christi, St Stephen, etc.). We don't model those — scope is 1960.
 
 Key liturgical facts per octave day:
+
 - **Rank changes day-by-day.** Easter Monday & Tuesday are Class I; Wed–Sat of Easter Week are Class I but lower; the octave day (Low Sunday) is Class I Sunday. Christmas octave days are mostly Class II with specific feasts (St Stephen, etc.) keeping their own rank but with octave commemorations.
 - **Propers differ per day.** The Mass texts on Day 3 of the Christmas octave aren't the same as Day 1.
 - **Commemoration of the octave.** When a feast falls within an octave, the octave is commemorated at its Mass (extra collect / secret / postcommunion).
@@ -39,11 +40,11 @@ A dedicated optional field on `LiturgicalDay`:
 
 ```ts
 interface OctaveInfo {
-  id: OctaveId;                        // 'christmas' | 'easter' | 'pentecost'
-  parentFeastId: string;               // 'nativity_of_the_lord' / 'easter_sunday' / 'pentecost'
-  day: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;  // 1 = feast itself, 8 = octave day
+  id: OctaveId; // 'christmas' | 'easter' | 'pentecost'
+  parentFeastId: string; // 'nativity_of_the_lord' / 'easter_sunday' / 'pentecost'
+  day: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8; // 1 = feast itself, 8 = octave day
   kind: 'feast' | 'within' | 'octaveDay';
-  rank: 'classI' | 'classII';          // octave privilege
+  rank: 'classI' | 'classII'; // octave privilege
 }
 
 interface LiturgicalDay1962Extensions {
@@ -61,7 +62,8 @@ interface LiturgicalDay1962Extensions {
 
 ### Interaction with `rank1962`
 
-`octave` is **additive metadata**, not a replacement for `rank1962`. A day within the Christmas octave that is *also* the feast of St Stephen carries:
+`octave` is **additive metadata**, not a replacement for `rank1962`. A day within the Christmas octave that is _also_ the feast of St Stephen carries:
+
 - `rank1962: ClassII` (St Stephen)
 - `octave: { id: 'christmas', day: 2, kind: 'within', rank: 'classII' }`
 - `commemorations: [{ id: 'christmas', source: 'tempora' }]`
@@ -93,4 +95,4 @@ Filter-friendly without string parsing.
 ## Open items
 
 - **Privileged-octave commemoration on impeded feasts.** When a Class II Sanctoral feast occurs within Christmas octave, the octave is commemorated at its Mass — confirm that `commemorations[]` is the right home for this rather than inferring it from `octave` presence.
-- **Octave-day propers.** Some octave days (e.g. Circumcision on Jan 1) have their own named identity in the calendar *and* are day 8 of the Christmas octave. Test that consumers get both the feast identity and the octave metadata without duplication.
+- **Octave-day propers.** Some octave days (e.g. Circumcision on Jan 1) have their own named identity in the calendar _and_ are day 8 of the Christmas octave. Test that consumers get both the feast identity and the octave metadata without duplication.

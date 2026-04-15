@@ -12,8 +12,8 @@ out of scope.
 import { Romcal1962 } from '@internal/rite-roman1962';
 
 const r = new Romcal1962({
-  localeId: 'en',               // language for celebration names (default: 'la')
-  includePropers: true,         // attach Mass proper texts (default: false)
+  localeId: 'en', // language for celebration names (default: 'la')
+  includePropers: true, // attach Mass proper texts (default: false)
   propersLocales: ['la', 'en'], // Mass-text languages (default: [localeId])
   commemorationLimit: 'solemn', // 'solemn' (≤3) | 'private' (≤1) | 'all' (default)
 });
@@ -70,8 +70,8 @@ self-contained bundle under `dist/bundles/`:
 ```ts
 import bundle from '@internal/rite-roman1962/bundles/fr';
 
-bundle.i18n.names['sancti/01-01'];  // 'La Circoncision du Seigneur'
-bundle.propers.sancti['01-01'].Oratio[0];  // 'Deus, qui salútis ætérnæ...'
+bundle.i18n.names['sancti/01-01']; // 'La Circoncision du Seigneur'
+bundle.propers.sancti['01-01'].Oratio[0]; // 'Deus, qui salútis ætérnæ...'
 ```
 
 Generate the bundles with `npm run bundle -w @internal/rite-roman1962`.
@@ -101,12 +101,7 @@ When `includePropers: true`, every `Celebration1962` also carries:
 If you'd rather call the underlying functions directly:
 
 ```ts
-import {
-  buildLiturgicalYear1962,
-  attachPropers,
-  resolvePropers,
-  resolvePropersBlocks,
-} from '@internal/rite-roman1962';
+import { buildLiturgicalYear1962, attachPropers, resolvePropers, resolvePropersBlocks } from '@internal/rite-roman1962';
 
 const year = buildLiturgicalYear1962(1962);
 const withPropers = attachPropers(year, { locales: ['la'] });
@@ -132,23 +127,23 @@ for (const item of sections.epistle ?? []) {
 
 ## Capabilities & known gaps
 
-| Area                        | Status      |
-| --------------------------- | ----------- |
-| Tempora cycle (Advent–Pent) | ✅ M3       |
-| Sanctoral 1960 calendar     | ✅ M4       |
-| Occurrence + commemoration  | ✅ M5       |
-| Forward transfer            | ✅ M5       |
-| Mass propers (Latin)        | ✅ M6       |
-| Public class API            | ✅ M7       |
-| Class II Lord precedence    | ✅ M8       |
-| Vigil suppression           | ✅ M8       |
-| Commemoration cap (3 / 1)   | ✅ M8       |
-| Concurrence (1st Vespers)   | ❌ scope    |
-| Christmas multi-Mass        | ⏳ M9+      |
-| Good Fri / Holy Sat / Vigil | ⏳ M9+      |
-| Vernacular names + propers  | ✅ M9       |
-| Readable slug keys          | ✅ M10      |
-| Divine Office               | ❌ scope    |
+| Area                        | Status   |
+| --------------------------- | -------- |
+| Tempora cycle (Advent–Pent) | ✅ M3    |
+| Sanctoral 1960 calendar     | ✅ M4    |
+| Occurrence + commemoration  | ✅ M5    |
+| Forward transfer            | ✅ M5    |
+| Mass propers (Latin)        | ✅ M6    |
+| Public class API            | ✅ M7    |
+| Class II Lord precedence    | ✅ M8    |
+| Vigil suppression           | ✅ M8    |
+| Commemoration cap (3 / 1)   | ✅ M8    |
+| Concurrence (1st Vespers)   | ❌ scope |
+| Christmas multi-Mass        | ⏳ M9+   |
+| Good Fri / Holy Sat / Vigil | ⏳ M9+   |
+| Vernacular names + propers  | ✅ M9    |
+| Readable slug keys          | ✅ M10   |
+| Divine Office               | ❌ scope |
 
 Design and milestone docs live at
 [`docs/1962/`](../../docs/1962/README.md) at the repo root.

@@ -2,8 +2,7 @@
 
 Counts: **total 523** — 1969-parity 10, explicit 6, en 441, la 52, placeholder 14.
 
-## 0 collisions (disambiguated with _N)
-
+## 0 collisions (disambiguated with \_N)
 
 ## 10 1969 parity reuses
 
