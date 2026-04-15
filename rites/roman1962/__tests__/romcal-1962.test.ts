@@ -4,6 +4,7 @@ describe('M7 Romcal1962 public API', () => {
   test('1) default config — no propers attached', async () => {
     const r = new Romcal1962();
     expect(r.config).toEqual({
+      localeId: 'la',
       includePropers: false,
       propersLocales: ['la'],
       attachToCommemorations: false,
@@ -25,11 +26,11 @@ describe('M7 Romcal1962 public API', () => {
     expect(allSaints!.primary.propers!.introit!.la).toMatch(/Gaudeámus|Gaudeamus/i);
   });
 
-  test('3) propersLocales filter — en returns empty strings', async () => {
+  test('3) propersLocales filter — en yields English proper text', async () => {
     const r = new Romcal1962({ includePropers: true, propersLocales: ['en'] });
     const cal = await r.generateCalendar(1962);
     const day = cal.get('1962-11-01');
-    expect(day!.primary.propers!.introit!.en).toBe('');
+    expect(day!.primary.propers!.introit!.en).toMatch(/rejoice/i);
   });
 
   test('4) getOneLiturgicalDay matches generateCalendar result', async () => {

@@ -1,6 +1,7 @@
 import type { Rank1962 } from '../constants/rank-1962';
+import type { NameTranslator } from '../i18n/init';
 import type { ProperOfTimeEntry } from '../proper-of-time';
-import { loadSancti, loadTempora, type MassFileEntry, type MassFileMap } from '../sanctoral/data';
+import { loadTempora, type MassFileEntry, type MassFileMap } from '../sanctoral/data';
 import type { SanctoralEntry1962 } from '../sanctoral/types';
 
 import { scorePrecedence } from './precedence';
@@ -14,6 +15,8 @@ const CLASS_TO_RANK: Record<Class1962, Rank1962> = {
   4: 'ClassIV',
 };
 
+const identityTranslator: NameTranslator = (_source, _key, fallback) => fallback;
+
 function pickTemporaMass(temporaKey: string, tempora: MassFileMap): MassFileEntry | undefined {
   if (temporaKey in tempora) return tempora[temporaKey];
   // Some movable sunday keys have '-0a' variants (e.g. Epi1-0a) that M3 already emits verbatim.
@@ -25,17 +28,24 @@ function pickTemporaMass(temporaKey: string, tempora: MassFileMap): MassFileEntr
  * from M5's rubric-based classifier (which encodes 1960 §§20-25),
  * not from the DO mass-file rank — those sometimes disagree for
  * privileged Lent ferias.
+ *
+ * `translateName` is consulted with `('tempora', key, latinFallback)` to
+ * produce the localized `name`. Defaults to a pass-through (Latin) when
+ * called from the functional API without a configured i18n instance.
  */
-export function celebrationFromTempora(entry: ProperOfTimeEntry): Celebration1962 {
+export function celebrationFromTempora(
+  entry: ProperOfTimeEntry,
+  translateName: NameTranslator = identityTranslator
+): Celebration1962 {
   const tempora = loadTempora();
   const mass = pickTemporaMass(entry.temporaKey, tempora);
   const classOf1962 = classifyTempora(entry);
 
+  const latin = mass?.officium ?? entry.temporaKey;
   const celebration: Celebration1962 = {
     kind: 'tempora',
     key: entry.temporaKey,
-    name: mass?.officium ?? entry.temporaKey,
-    ...(mass?.names ? { names: mass.names } : {}),
+    name: translateName('tempora', entry.temporaKey, latin),
     classOf1962,
     rank1962: CLASS_TO_RANK[classOf1962],
     numericRank: mass?.rank?.numericRank ?? 0,
@@ -56,17 +66,20 @@ export function celebrationFromTempora(entry: ProperOfTimeEntry): Celebration196
 
 /**
  * Build a Celebration1962 from a Sanctoral entry. Uses the rank
- * already authoritatively resolved by M4 (`class1962`).
+ * already authoritatively resolved by M4 (`class1962`). The name is
+ * resolved through `translateName(source, key, latinFallback)`; the
+ * Latin fallback is the kalendarium's own `entry.name` (already
+ * Latin), keeping the historical behavior when no i18n is wired in.
  */
-export function celebrationFromSancti(entry: SanctoralEntry1962): Celebration1962 {
+export function celebrationFromSancti(
+  entry: SanctoralEntry1962,
+  translateName: NameTranslator = identityTranslator
+): Celebration1962 {
   const classOf1962 = (entry.class1962 ?? 4) as Class1962;
-  const mass = entry.source === 'sancti' ? loadSancti()[entry.fileKey] : loadTempora()[entry.fileKey];
-  const names = mass?.names;
   const celebration: Celebration1962 = {
     kind: 'sancti',
     key: entry.fileKey,
-    name: entry.name,
-    ...(names ? { names } : {}),
+    name: translateName(entry.source, entry.fileKey, entry.name),
     classOf1962,
     rank1962: entry.rank1962,
     numericRank: entry.numericRank,

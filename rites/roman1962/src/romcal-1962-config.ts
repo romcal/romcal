@@ -1,23 +1,33 @@
+import type { i18n } from 'i18next';
+
+import { createI18n1962, createNameTranslator, type NameTranslator } from './i18n/init';
 import type { Romcal1962ConfigInput, Romcal1962ConfigOutput } from './romcal-1962-types';
 import type { CommemorationCapMode } from './rubrics/commemoration-cap';
 
-const DEFAULT_LOCALES: readonly string[] = ['la'];
+const DEFAULT_LOCALE_ID = 'la';
 
 export class Romcal1962Config {
+  readonly localeId: string;
   readonly includePropers: boolean;
   readonly propersLocales: string[];
   readonly attachToCommemorations: boolean;
   readonly commemorationLimit: CommemorationCapMode;
+  readonly i18next: i18n;
+  readonly translateName: NameTranslator;
 
   constructor(input: Romcal1962ConfigInput = {}) {
+    this.localeId = input.localeId ?? DEFAULT_LOCALE_ID;
     this.includePropers = input.includePropers ?? false;
-    this.propersLocales = [...(input.propersLocales ?? DEFAULT_LOCALES)];
+    this.propersLocales = [...(input.propersLocales ?? [this.localeId])];
     this.attachToCommemorations = input.attachToCommemorations ?? false;
     this.commemorationLimit = input.commemorationLimit ?? 'all';
+    this.i18next = createI18n1962(this.localeId);
+    this.translateName = createNameTranslator(this.i18next);
   }
 
   toObject(): Romcal1962ConfigOutput {
     return {
+      localeId: this.localeId,
       includePropers: this.includePropers,
       propersLocales: [...this.propersLocales],
       attachToCommemorations: this.attachToCommemorations,

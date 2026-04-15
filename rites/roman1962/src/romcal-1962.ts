@@ -56,7 +56,7 @@ export class Romcal1962 {
           resolve(cached);
           return;
         }
-        const built = buildLiturgicalYear1962(y);
+        const built = buildLiturgicalYear1962(y, { translateName: this.#config.translateName });
         const withPropers = this.#config.includePropers
           ? attachPropers(built, {
               locales: this.#config.propersLocales,

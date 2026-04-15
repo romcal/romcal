@@ -1,3 +1,4 @@
+import type { NameTranslator } from '../i18n/init';
 import { buildProperOfTime1962, type ProperOfTimeEntry } from '../proper-of-time';
 import {
   celebrationFromSancti,
@@ -11,6 +12,10 @@ import {
 } from '../rubrics';
 import type { Celebration1962 } from '../rubrics/types';
 import { buildSanctoral1962, type SanctoralEntry1962 } from '../sanctoral';
+
+export interface BuildLiturgicalYearOptions {
+  translateName?: NameTranslator;
+}
 
 function listDatesInYear(year: number): string[] {
   const out: string[] = [];
@@ -29,11 +34,12 @@ function dayOfWeekUTC(isoDate: string): 0 | 1 | 2 | 3 | 4 | 5 | 6 {
 function buildDay(
   date: string,
   temporaEntry: ProperOfTimeEntry | undefined,
-  sanctiEntries: SanctoralEntry1962[]
+  sanctiEntries: SanctoralEntry1962[],
+  translateName: NameTranslator | undefined
 ): ResolvedDay1962 | undefined {
   const candidates: Celebration1962[] = [];
-  if (temporaEntry) candidates.push(celebrationFromTempora(temporaEntry));
-  for (const s of sanctiEntries) candidates.push(celebrationFromSancti(s));
+  if (temporaEntry) candidates.push(celebrationFromTempora(temporaEntry, translateName));
+  for (const s of sanctiEntries) candidates.push(celebrationFromSancti(s, translateName));
 
   if (candidates.length === 0) return undefined;
 
@@ -54,7 +60,8 @@ function buildDay(
  * Proper of Time and M4 Proper of Saints, applies occurrence rules,
  * and forward-transfers impeded Class I sanctoral feasts.
  */
-export function buildLiturgicalYear1962(year: number): ResolvedYear1962 {
+export function buildLiturgicalYear1962(year: number, options: BuildLiturgicalYearOptions = {}): ResolvedYear1962 {
+  const { translateName } = options;
   const tempora = buildProperOfTime1962(year);
   const sanctoral = buildSanctoral1962(year);
 
@@ -64,7 +71,7 @@ export function buildLiturgicalYear1962(year: number): ResolvedYear1962 {
   for (const date of listDatesInYear(year)) {
     const t = tempora.get(date);
     const s = sanctoral.get(date) ?? [];
-    const day = buildDay(date, t, s);
+    const day = buildDay(date, t, s, translateName);
     if (!day) continue;
 
     // Capture Class I sancti losers for transfer.
@@ -129,7 +136,7 @@ export function buildLiturgicalYear1962(year: number): ResolvedYear1962 {
 
       const t = tempora.get(date);
       const sancti = (sanctoral.get(date) ?? []).filter((s) => !s.vigil || !transferredNames.has(s.vigil.of));
-      const rebuilt = buildDay(date, t, sancti);
+      const rebuilt = buildDay(date, t, sancti, translateName);
       if (rebuilt) final.set(date, { ...rebuilt, transferredFrom: day.transferredFrom });
     }
   }

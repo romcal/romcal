@@ -37,11 +37,11 @@ describe('M6 propers resolver', () => {
     expect(propers.gospel!.la.length).toBeGreaterThan(0);
   });
 
-  test('4) Locale filter — requesting "en" returns empty strings (deferred data)', () => {
+  test('4) Locale filter — requesting "en" yields English proper text', () => {
     const primary = day('1962-11-01').primary;
     const { propers } = resolvePropers(primary, { locales: ['en'] });
     expect(propers.introit).toBeDefined();
-    expect(propers.introit!.en).toBe('');
+    expect(propers.introit!.en).toMatch(/rejoice/i);
   });
 
   test('5) extraSections — Ember Saturday Quad1-6 surfaces LectioL* under extraSections', () => {

@@ -30,7 +30,20 @@ export type {
   Sanctoral1962Year,
 } from './sanctoral';
 export { buildLiturgicalYear1962 } from './calendar-year';
-export type { Celebration1962, ResolvedDay1962, ResolvedYear1962 } from './calendar-year';
+export type { BuildLiturgicalYearOptions, Celebration1962, ResolvedDay1962, ResolvedYear1962 } from './calendar-year';
+export { createI18n1962, createNameTranslator } from './i18n/init';
+export type { NameTranslator } from './i18n/init';
+export { locales as locales1962, localeIds as localeIds1962 } from './locales';
+export type {
+  Locale1962,
+  LocaleColors,
+  LocaleId,
+  LocaleMonths,
+  LocaleNames,
+  LocaleRanks,
+  LocaleSeasons,
+  LocaleWeekdays,
+} from './types/locale';
 export { attachPropers, resolvePropers } from './propers';
 export type { AttachPropersOptions, ResolvedPropers, ResolvePropersOptions } from './propers';
 export { applyCommemorationCap } from './rubrics';
@@ -49,5 +62,7 @@ export type {
   ProperRef1962,
   RubricFlags1962,
 } from './types/liturgical-day-1962';
+
+export type { RomcalBundle1962 } from './bundles/types';
 
 export const RITE_ID = 'roman1962' as const;

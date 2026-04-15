@@ -8,6 +8,8 @@ import { buildCalendar1960 } from './calendar';
 import { deriveColor } from './colors';
 import { SANCTI_DE, sanctiDeFromKeyOrLatin, temporaDeFromKey } from './de-name-overrides';
 import { writeJson } from './emit';
+import { emitLocales } from './emit-locales';
+import { emitPropers } from './emit-propers';
 import { SANCTI_EN, TEMPORA_EN, sanctiEnFromKeyOrLatin, temporaEnFromKey } from './en-name-overrides';
 import { ImportError } from './errors';
 import { SANCTI_ES, TEMPORA_ES, sanctiEsFromKeyOrLatin, temporaEsFromKey } from './es-name-overrides';
@@ -21,7 +23,7 @@ import { parseRules } from './rules';
 import { linesToBlock, sectionAsRef } from './section';
 import type { MassEntry, ParsedFile, SourceMeta } from './types';
 
-const IMPORTER_VERSION = '0.3.0';
+const IMPORTER_VERSION = '0.4.0';
 
 type NameOverride = {
   temporaFn: (key: string) => string | undefined;
@@ -474,6 +476,28 @@ function resolveSha(): string {
   }
 }
 
+/**
+ * Drop translation payloads that have been pivoted into per-locale files:
+ *   - `entry.names` (now lives in src/locales/{lang}.ts)
+ *   - text tokens inside `entry.sections[*]` (now live in data/propers/{lang}/{source}.json,
+ *     with a canonical scaffold in data/propers/_structure/{source}.json)
+ * Non-text tokens (scriptureRef, ref, directive, rubric, separator) are kept
+ * inline since they're shared structure, not localized content.
+ */
+function stripLocalizedPayloads(entries: Record<string, MassEntry>): void {
+  for (const entry of Object.values(entries)) {
+    delete entry.names;
+    for (const [name, block] of Object.entries(entry.sections)) {
+      const stripped = block.filter((item) => item.type !== 'text');
+      if (stripped.length === 0) {
+        delete entry.sections[name];
+      } else {
+        entry.sections[name] = stripped;
+      }
+    }
+  }
+}
+
 function main(): void {
   if (!fs.existsSync(DO_ROOT)) {
     throw new ImportError(`divinum-officium clone not found at ${DO_ROOT}. See docs/1962/07-pre-port-decisions.md §1.`);
@@ -558,6 +582,39 @@ function main(): void {
     sanctiTotal: Object.keys(sancti).length,
   });
   log(chalk.dim(`  wrote IMPORT_LOG.md`));
+
+  log(chalk.bold('\n✓ emitting per-locale name files'));
+  const supportedLocales = [...Object.keys(VERNACULARS), 'la'];
+  const localeStats = emitLocales(
+    tempora,
+    sancti,
+    commune,
+    supportedLocales,
+    path.join(REPO_ROOT, 'rites/roman1962/src/locales')
+  );
+  log(chalk.dim(`  ${localeStats.locales} locales, ${localeStats.total} names`));
+
+  log(chalk.bold('\n✓ emitting per-locale proper-text files'));
+  const propersStats = emitPropers(
+    [
+      { source: 'sancti', entries: sancti },
+      { source: 'tempora', entries: tempora },
+      { source: 'commune', entries: commune },
+    ],
+    path.join(OUT_DIR, 'propers')
+  );
+  log(
+    chalk.dim(
+      `  ${propersStats.entries} entries with text, ${propersStats.langs.size} langs across ${propersStats.sources} sources`
+    )
+  );
+
+  // Strip name + text payloads from the main JSON now that they've been
+  // pivoted into per-locale files. The main files keep only the canonical
+  // structural data (rank, rubrics, colors, references, scaffolding).
+  stripLocalizedPayloads(tempora);
+  stripLocalizedPayloads(sancti);
+  stripLocalizedPayloads(commune);
 
   const source: SourceMeta = {
     sha: resolveSha(),

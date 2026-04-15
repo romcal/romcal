@@ -2,14 +2,22 @@ import type { CommemorationCapMode } from './rubrics/commemoration-cap';
 
 export interface Romcal1962ConfigInput {
   /**
+   * BCP-47-ish locale id used to translate celebration names and
+   * structural labels (colors, ranks, seasons, months, weekdays).
+   * Falls back through `en` to `la`. Default: `'la'`.
+   */
+  localeId?: string;
+
+  /**
    * When true, `generateCalendar` runs `attachPropers` so each
    * celebration carries `propers` + `extraSections`. Default: false.
    */
   includePropers?: boolean;
 
   /**
-   * Locale filter forwarded to `attachPropers`. Currently only `la`
-   * ships content; other locales return empty strings. Default: ['la'].
+   * Locale filter for *proper-text* content (introits, collects, …).
+   * Independent of `localeId`, which controls names/labels.
+   * Default: `[localeId]`.
    */
   propersLocales?: string[];
 
@@ -29,6 +37,7 @@ export interface Romcal1962ConfigInput {
 }
 
 export interface Romcal1962ConfigOutput {
+  localeId: string;
   includePropers: boolean;
   propersLocales: string[];
   attachToCommemorations: boolean;

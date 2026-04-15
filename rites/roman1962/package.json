@@ -5,15 +5,23 @@
   "description": "Liturgical calendar for the Roman Rite according to the 1962 Missale Romanum (Rubricae 1960)",
   "license": "MIT",
   "exports": {
-    "types": "./dist/index.d.ts",
-    "import": "./dist/esm/romcal.js",
-    "require": "./dist/cjs/romcal.js"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/esm/romcal.js",
+      "require": "./dist/cjs/romcal.js"
+    },
+    "./bundles/*": {
+      "types": "./dist/bundles/*.d.ts",
+      "import": "./dist/bundles/*.js",
+      "require": "./dist/bundles/*.cjs"
+    }
   },
   "main": "dist/cjs/romcal.js",
   "module": "dist/esm/romcal.js",
   "typings": "dist/index.d.ts",
   "scripts": {
     "build": "tsx build/build.ts",
+    "bundle": "tsx build/bundle.ts",
     "clean": "rimraf coverage dist tmp",
     "import:do": "tsx build/import-divinum-officium/index.ts",
     "test": "TZ=UTC jest --coverage",
