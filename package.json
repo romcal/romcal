@@ -82,7 +82,7 @@
     "test": "npm run test --workspaces --if-present",
     "test:snapshot:update": "npm run test:snapshot:update -w=@internal/rite-roman1969",
     "test:watch": "npm run test:watch -w=@internal/rite-roman1969",
-    "test:without-coverage": "npm run test:without-coverage -w=@internal/rite-roman1969"
+    "test:without-coverage": "npm run test:without-coverage --workspaces --if-present"
   },
   "dependencies": {
     "i18next": "^26.0.4"
