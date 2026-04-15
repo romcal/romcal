@@ -19,11 +19,12 @@ import { SANCTI_NL, TEMPORA_NL, sanctiNlFromKeyOrLatin, temporaNlFromKey } from 
 import { parseFile } from './parser';
 import { SANCTI_PT, TEMPORA_PT, sanctiPtFromKeyOrLatin, temporaPtFromKey } from './pt-name-overrides';
 import { parseRank } from './rank';
+import { remapCalendar, remapEntries } from './remap-entries';
 import { parseRules } from './rules';
 import { linesToBlock, sectionAsRef } from './section';
 import type { MassEntry, ParsedFile, SourceMeta } from './types';
 
-const IMPORTER_VERSION = '0.4.0';
+const IMPORTER_VERSION = '0.5.0';
 
 type NameOverride = {
   temporaFn: (key: string) => string | undefined;
@@ -583,12 +584,31 @@ function main(): void {
   });
   log(chalk.dim(`  wrote IMPORT_LOG.md`));
 
+  // Pivot from Divinum-Officium file keys (01-01, Adv1-0, C5) to readable
+  // slugs (the_circumcision_of_the_lord, advent_1_sunday, …) before emit.
+  // All downstream artifacts — main JSONs, per-locale name files, proper
+  // scaffolds + text, calendar-1960 — share the same slug taxonomy after
+  // this point; the pre-remap pipeline keeps DO keys so the override layer
+  // and color lookup tables continue to work unchanged.
+  log(chalk.bold('\n✓ remapping DO keys → readable slugs'));
+  const temporaSlugged = remapEntries(tempora, 'tempora');
+  const sanctiSlugged = remapEntries(sancti, 'sancti');
+  const communeSlugged = remapEntries(commune, 'commune');
+  const calendarSlugged = remapCalendar(calendar);
+  log(
+    chalk.dim(
+      `  ${Object.keys(temporaSlugged).length} tempora, ${Object.keys(sanctiSlugged).length} sancti, ${
+        Object.keys(communeSlugged).length
+      } commune`
+    )
+  );
+
   log(chalk.bold('\n✓ emitting per-locale name files'));
   const supportedLocales = [...Object.keys(VERNACULARS), 'la'];
   const localeStats = emitLocales(
-    tempora,
-    sancti,
-    commune,
+    temporaSlugged,
+    sanctiSlugged,
+    communeSlugged,
     supportedLocales,
     path.join(REPO_ROOT, 'rites/roman1962/src/locales')
   );
@@ -597,9 +617,9 @@ function main(): void {
   log(chalk.bold('\n✓ emitting per-locale proper-text files'));
   const propersStats = emitPropers(
     [
-      { source: 'sancti', entries: sancti },
-      { source: 'tempora', entries: tempora },
-      { source: 'commune', entries: commune },
+      { source: 'sancti', entries: sanctiSlugged },
+      { source: 'tempora', entries: temporaSlugged },
+      { source: 'commune', entries: communeSlugged },
     ],
     path.join(OUT_DIR, 'propers')
   );
@@ -612,9 +632,9 @@ function main(): void {
   // Strip name + text payloads from the main JSON now that they've been
   // pivoted into per-locale files. The main files keep only the canonical
   // structural data (rank, rubrics, colors, references, scaffolding).
-  stripLocalizedPayloads(tempora);
-  stripLocalizedPayloads(sancti);
-  stripLocalizedPayloads(commune);
+  stripLocalizedPayloads(temporaSlugged);
+  stripLocalizedPayloads(sanctiSlugged);
+  stripLocalizedPayloads(communeSlugged);
 
   const source: SourceMeta = {
     sha: resolveSha(),
@@ -625,10 +645,10 @@ function main(): void {
 
   log(chalk.bold('\n✓ writing JSON'));
   writeJson(path.join(OUT_DIR, 'source.json'), source);
-  writeJson(path.join(OUT_DIR, 'calendar-1960.json'), calendar);
-  writeJson(path.join(OUT_DIR, 'tempora.json'), tempora);
-  writeJson(path.join(OUT_DIR, 'sancti.json'), sancti);
-  writeJson(path.join(OUT_DIR, 'commune.json'), commune);
+  writeJson(path.join(OUT_DIR, 'calendar-1960.json'), calendarSlugged);
+  writeJson(path.join(OUT_DIR, 'tempora.json'), temporaSlugged);
+  writeJson(path.join(OUT_DIR, 'sancti.json'), sanctiSlugged);
+  writeJson(path.join(OUT_DIR, 'commune.json'), communeSlugged);
 
   log(chalk.green('\n✨ done'));
 }

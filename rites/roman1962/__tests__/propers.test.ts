@@ -44,11 +44,11 @@ describe('M6 propers resolver', () => {
     expect(propers.introit!.en).toMatch(/rejoice/i);
   });
 
-  test('5) extraSections — Ember Saturday Quad1-6 surfaces LectioL* under extraSections', () => {
-    // 1962-03-17 resolves to primary = Quad1-6 feria (per M5 test 12).
+  test('5) extraSections — Ember Saturday lent_1_saturday surfaces LectioL* under extraSections', () => {
+    // 1962-03-17 resolves to primary = lent_1_saturday feria (per M5 test 12).
     const primary = day('1962-03-17').primary;
     expect(primary.kind).toBe('tempora');
-    expect(primary.key).toBe('Quad1-6');
+    expect(primary.key).toBe('lent_1_saturday');
     const { extraSections } = resolvePropers(primary);
     const lessonKeys = Object.keys(extraSections).filter((k) => /^LectioL\d$/.test(k));
     expect(lessonKeys.length).toBeGreaterThanOrEqual(4);

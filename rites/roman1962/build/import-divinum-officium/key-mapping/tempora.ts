@@ -28,10 +28,15 @@ const EXPLICIT: Record<string, string> = {
   // uses Epi1-0a; retain this distinct slug for DO's Tridentine variant.
   'Nat1-0a': 'holy_family_within_christmas_octave',
   'Nat2-0': 'second_sunday_after_christmas',
-  Nat02: 'christmas_time_december_27',
-  Nat03: 'christmas_time_december_28',
-  Nat04: 'christmas_time_december_29',
-  Nat05: 'christmas_time_december_30',
+  // Nat02..Nat05 are the Jan 2-5 ferials in missa/ (Die Secunda Januarii…).
+  // DO reuses the same file keys in horas/ to label Dec 27-30 of the
+  // Christmas octave; missa/ wins for our slug taxonomy because the 1962
+  // calendar resolver emits these keys for Jan 2-5.
+  Nat02: 'christmas_time_january_2',
+  Nat03: 'christmas_time_january_3',
+  Nat04: 'christmas_time_january_4',
+  Nat05: 'christmas_time_january_5',
+  // Dec 29-31 intra-octave ferials (5th/6th/7th day of the Christmas octave).
   Nat29: 'christmas_octave_day_5',
   Nat30: 'christmas_octave_day_6',
   Nat31: 'christmas_octave_day_7',

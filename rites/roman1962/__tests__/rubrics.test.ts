@@ -9,17 +9,17 @@ describe('M5 rubrics engine — spot-checks from docs/1962/12-m5-rubrics.md', ()
     return d;
   }
 
-  test('1) 1962-04-22 Easter Sunday — Pasc0-0 wins, no sancti', () => {
+  test('1) 1962-04-22 Easter Sunday — easter_sunday wins, no sancti', () => {
     const d = day('1962-04-22');
     expect(d.primary.kind).toBe('tempora');
-    expect(d.primary.key).toBe('Pasc0-0');
+    expect(d.primary.key).toBe('easter_sunday');
     expect(d.primary.classOf1962).toBe(1);
   });
 
-  test('2) 1962-04-15 Palm Sunday — Quad6-0 wins', () => {
+  test('2) 1962-04-15 Palm Sunday — palm_sunday wins', () => {
     const d = day('1962-04-15');
     expect(d.primary.kind).toBe('tempora');
-    expect(d.primary.key).toBe('Quad6-0');
+    expect(d.primary.key).toBe('palm_sunday');
   });
 
   test('3) 1962-03-19 St Joseph wins over Lent feria', () => {
@@ -27,13 +27,13 @@ describe('M5 rubrics engine — spot-checks from docs/1962/12-m5-rubrics.md', ()
     expect(d.primary.kind).toBe('sancti');
     expect(d.primary.name).toMatch(/Joseph/);
     expect(d.primary.classOf1962).toBe(1);
-    expect(d.commemorations.some((c) => c.kind === 'tempora' && c.key.startsWith('Quad2-'))).toBe(true);
+    expect(d.commemorations.some((c) => c.kind === 'tempora' && c.key.startsWith('lent_2_'))).toBe(true);
   });
 
   test('4) 1962-03-25 Annunciation transfers away from Lent III Sunday', () => {
     const d = day('1962-03-25');
     expect(d.primary.kind).toBe('tempora');
-    expect(d.primary.key).toBe('Quad3-0');
+    expect(d.primary.key).toBe('lent_3_sunday');
     // Annunciation must reappear later as a transferred primary.
     const transferred = [...year1962.values()].find(
       (x) => x.primary.name.includes('Annuntiatione') && x.transferredFrom === '1962-03-25'
@@ -46,7 +46,7 @@ describe('M5 rubrics engine — spot-checks from docs/1962/12-m5-rubrics.md', ()
     const d = y1968.get('1968-12-08');
     expect(d).toBeDefined();
     expect(d!.primary.kind).toBe('tempora');
-    expect(d!.primary.key).toBe('Adv2-0');
+    expect(d!.primary.key).toBe('advent_2_sunday');
     const transferred = [...y1968.values()].find(
       (x) => x.primary.name.includes('Immaculata') && x.transferredFrom === '1968-12-08'
     );
@@ -93,10 +93,10 @@ describe('M5 rubrics engine — spot-checks from docs/1962/12-m5-rubrics.md', ()
     expect(d.primary.classOf1962).toBe(2);
   });
 
-  test('12) 1962-03-17 St Patrick loses to privileged Lent feria (Quad1-6)', () => {
+  test('12) 1962-03-17 St Patrick loses to privileged Lent feria (lent_1_saturday)', () => {
     const d = day('1962-03-17');
     expect(d.primary.kind).toBe('tempora');
-    expect(d.primary.key).toBe('Quad1-6');
+    expect(d.primary.key).toBe('lent_1_saturday');
     expect(d.commemorations.some((c) => c.kind === 'sancti' && c.name.includes('Patri'))).toBe(true);
   });
 
@@ -149,10 +149,10 @@ describe('M5 rubrics engine — spot-checks from docs/1962/12-m5-rubrics.md', ()
     expect(d.primary.classOf1962).toBe(1);
   });
 
-  test('20) 1962-02-18 Septuagesima Sunday — Tempora Quadp1-0', () => {
+  test('20) 1962-02-18 Septuagesima Sunday — Tempora septuagesima_sunday', () => {
     const d = day('1962-02-18');
     expect(d.primary.kind).toBe('tempora');
-    expect(d.primary.key).toBe('Quadp1-0');
+    expect(d.primary.key).toBe('septuagesima_sunday');
     expect(d.primary.classOf1962).toBe(2);
   });
 });

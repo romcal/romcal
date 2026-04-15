@@ -17,49 +17,49 @@ describe('buildProperOfTime1962 — 1962 spot checks', () => {
     expect(map.has('1962-01-06')).toBe(false);
   });
 
-  test('Holy Family = first Sunday after Epiphany → Epi1-0a', () => {
+  test('Holy Family = first Sunday after Epiphany → holy_family', () => {
     const entry = map.get('1962-01-07');
-    expect(entry?.temporaKey).toBe('Epi1-0a');
+    expect(entry?.temporaKey).toBe('holy_family');
     expect(entry?.kind).toBe('feast');
   });
 
-  test('Ash Wednesday 1962 = March 7 → Quadp3-3', () => {
+  test('Ash Wednesday 1962 = March 7 → quinquagesima_wednesday', () => {
     const entry = map.get('1962-03-07');
-    expect(entry?.temporaKey).toBe('Quadp3-3');
+    expect(entry?.temporaKey).toBe('quinquagesima_wednesday');
     expect(entry?.season).toBe('Septuagesima');
   });
 
-  test('Palm Sunday 1962 = April 15 → Quad6-0', () => {
+  test('Palm Sunday 1962 = April 15 → palm_sunday', () => {
     const entry = map.get('1962-04-15');
-    expect(entry?.temporaKey).toBe('Quad6-0');
+    expect(entry?.temporaKey).toBe('palm_sunday');
     expect(entry?.season).toBe('HolyWeek');
   });
 
-  test('Easter Sunday 1962 = April 22 → Pasc0-0', () => {
+  test('Easter Sunday 1962 = April 22 → easter_sunday', () => {
     const entry = map.get('1962-04-22');
-    expect(entry?.temporaKey).toBe('Pasc0-0');
+    expect(entry?.temporaKey).toBe('easter_sunday');
     expect(entry?.season).toBe('EasterWeek');
   });
 
-  test('Ascension Thursday 1962 = May 31 → Pasc5-4', () => {
+  test('Ascension Thursday 1962 = May 31 → easter_time_5_thursday', () => {
     const entry = map.get('1962-05-31');
-    expect(entry?.temporaKey).toBe('Pasc5-4');
+    expect(entry?.temporaKey).toBe('easter_time_5_thursday');
   });
 
-  test('Pentecost Sunday 1962 = June 10 → Pasc7-0', () => {
+  test('Pentecost Sunday 1962 = June 10 → easter_time_7_sunday', () => {
     const entry = map.get('1962-06-10');
-    expect(entry?.temporaKey).toBe('Pasc7-0');
+    expect(entry?.temporaKey).toBe('easter_time_7_sunday');
   });
 
-  test('Trinity Sunday 1962 = June 17 → Pent01-0', () => {
+  test('Trinity Sunday 1962 = June 17 → trinity_sunday', () => {
     const entry = map.get('1962-06-17');
-    expect(entry?.temporaKey).toBe('Pent01-0');
+    expect(entry?.temporaKey).toBe('trinity_sunday');
     expect(entry?.season).toBe('TimeAfterPentecost');
   });
 
-  test('Advent I 1962 = December 2 → Adv1-0', () => {
+  test('Advent I 1962 = December 2 → advent_1_sunday', () => {
     const entry = map.get('1962-12-02');
-    expect(entry?.temporaKey).toBe('Adv1-0');
+    expect(entry?.temporaKey).toBe('advent_1_sunday');
     expect(entry?.season).toBe('Advent');
   });
 
@@ -67,32 +67,35 @@ describe('buildProperOfTime1962 — 1962 spot checks', () => {
     expect(map.has('1962-12-25')).toBe(false);
   });
 
-  test('Sunday within Christmas Octave 1962 = Dec 30 → Nat1-0', () => {
+  test('Sunday within Christmas Octave 1962 = Dec 30 → sunday_within_octave_of_christmas', () => {
     const entry = map.get('1962-12-30');
-    expect(entry?.temporaKey).toBe('Nat1-0');
+    expect(entry?.temporaKey).toBe('sunday_within_octave_of_christmas');
   });
 });
 
 describe('buildProperOfTime1962 — edge years', () => {
-  test('2008 (Easter very early, March 23) produces resumed PentEpi Sundays', () => {
+  test('2008 (Easter very early, March 23) produces resumed_epiphany Sundays', () => {
     const map = buildProperOfTime1962(2008);
-    const hasPentEpi = [...map.values()].some((e) => e.temporaKey.startsWith('PentEpi') && e.kind === 'sunday');
-    expect(hasPentEpi).toBe(true);
-    // Pent24-0 is always the final Sunday before Advent
-    const advent1 = [...map.values()].find((e) => e.temporaKey === 'Adv1-0' && e.date.startsWith('2008-'));
+    const hasResumed = [...map.values()].some(
+      (e) => e.temporaKey.startsWith('resumed_epiphany_') && e.temporaKey.endsWith('_sunday') && e.kind === 'sunday'
+    );
+    expect(hasResumed).toBe(true);
+    const advent1 = [...map.values()].find((e) => e.temporaKey === 'advent_1_sunday' && e.date.startsWith('2008-'));
     expect(advent1).toBeDefined();
   });
 
-  test('2011 (Easter late, April 24) has no resumed PentEpi Sundays', () => {
+  test('2011 (Easter late, April 24) has no resumed_epiphany Sundays', () => {
     const map = buildProperOfTime1962(2011);
-    const hasPentEpi = [...map.values()].some((e) => e.temporaKey.startsWith('PentEpi'));
-    expect(hasPentEpi).toBe(false);
+    const hasResumed = [...map.values()].some((e) => e.temporaKey.startsWith('resumed_epiphany_'));
+    expect(hasResumed).toBe(false);
   });
 
-  test('Pent24-0 is always the last Sunday before Advent I', () => {
+  test('after_pentecost_24_sunday is always the last Sunday before Advent I', () => {
     for (const year of [1962, 2008, 2011]) {
       const map = buildProperOfTime1962(year);
-      const pent24 = [...map.values()].find((e) => e.temporaKey === 'Pent24-0' && e.date.startsWith(`${year}-`));
+      const pent24 = [...map.values()].find(
+        (e) => e.temporaKey === 'after_pentecost_24_sunday' && e.date.startsWith(`${year}-`)
+      );
       expect(pent24).toBeDefined();
     }
   });

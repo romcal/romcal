@@ -1,6 +1,8 @@
 import { addDays, computeAnchors, dayOfWeek, isoDate } from './anchors';
 import type { DayOfWeek, ProperOfTimeSeason, ProperOfTimeYear, TemporaSlotKind } from './types';
 
+const WEEKDAYS = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'] as const;
+
 const SANCTORAL_OWNED = new Set([
   '12-24', // Vigil of Christmas
   '12-25', // Christmas Day
@@ -66,9 +68,9 @@ function walkChristmasTailEndOfYear({ year, map }: WalkArgs): void {
   const christmas = new Date(Date.UTC(year, 11, 25));
 
   const dates: [Date, string][] = [
-    [d29, 'Nat29'],
-    [d30, 'Nat30'],
-    [d31, 'Nat31'],
+    [d29, 'christmas_octave_day_5'],
+    [d30, 'christmas_octave_day_6'],
+    [d31, 'christmas_octave_day_7'],
   ];
   for (const [d, key] of dates) {
     push(map, d, key, 'ChristmasTide', 1, 'withinOctave');
@@ -76,7 +78,7 @@ function walkChristmasTailEndOfYear({ year, map }: WalkArgs): void {
 
   const sundayWithinOctave = christmas.getUTCDay() === 0 ? d30 : [d29, d30, d31].find((d) => d.getUTCDay() === 0);
   if (sundayWithinOctave) {
-    push(map, sundayWithinOctave, 'Nat1-0', 'ChristmasTide', 1, 'sunday');
+    push(map, sundayWithinOctave, 'sunday_within_octave_of_christmas', 'ChristmasTide', 1, 'sunday');
   }
 }
 
@@ -91,12 +93,12 @@ function walkHolyNameWindow({ year, map }: WalkArgs): void {
   const sunday = days.find((d) => d.getUTCDay() === 0);
 
   for (const d of days) {
-    const key = `Nat0${d.getUTCDate()}`;
+    const key = `christmas_time_january_${d.getUTCDate()}`;
     push(map, d, key, 'ChristmasTide', 2, 'feria');
   }
 
   const holyName = sunday ?? days[0];
-  push(map, holyName, 'Nat2-0', 'ChristmasTide', 2, 'feast');
+  push(map, holyName, 'second_sunday_after_christmas', 'ChristmasTide', 2, 'feast');
 }
 
 /**
@@ -125,16 +127,20 @@ function walkTimeAfterEpiphany({ year, map }: WalkArgs): void {
     const dow = d.getUTCDay() as DayOfWeek;
     if (dow === 0) {
       sundayCount += 1;
-      const key = sundayCount === 1 ? 'Epi1-0a' : `Epi${sundayCount}-0`;
+      const key = sundayCount === 1 ? 'holy_family' : `epiphany_${sundayCount}_sunday`;
       push(map, d, key, 'EpiphanyTide', sundayCount, sundayCount === 1 ? 'feast' : 'sunday');
-      // Weekdays after this Sunday belong to Epi<sundayCount + 1> … except
-      // the first block (before Holy Family) belongs to Epi1.
+      // Weekdays after this Sunday belong to epi<sundayCount + 1> … except
+      // the first block (before Holy Family) belongs to the octave week.
       epiWeek = sundayCount === 1 ? 1 : sundayCount;
       continue;
     }
-    // Weekdays before Holy Family keep Epi1 labelling (Octave of Epi).
-    const weekIdx = d < firstSundayAfterEpi ? 1 : epiWeek;
-    push(map, d, `Epi${weekIdx}-${dow}`, 'EpiphanyTide', weekIdx, 'feria');
+    // Weekdays of the Epi1 week (whether Jan 7-13 pre-Holy-Family or the
+    // Monday-Saturday following Holy Family Sunday) use DO's single Epi1-N
+    // file, which our slug taxonomy names `epiphany_octave_day_N`. Later
+    // weeks use the straightforward `epiphany_<week>_<weekday>` form.
+    const weekIdx = epiWeek;
+    const key = weekIdx === 1 ? `epiphany_octave_day_${dow + 1}` : `epiphany_${weekIdx}_${WEEKDAYS[dow]}`;
+    push(map, d, key, 'EpiphanyTide', weekIdx, 'feria');
   }
 }
 
@@ -147,11 +153,12 @@ function walkPreLent({ year, map }: WalkArgs): void {
   const anchors = computeAnchors(year);
   const lent1Sunday = anchors.lent1Sunday;
 
+  const seasons = ['septuagesima', 'sexagesima', 'quinquagesima'] as const;
   for (let d = anchors.septuagesima; d < lent1Sunday; d = addDays(d, 1)) {
     const daysFromSept = Math.round((d.getTime() - anchors.septuagesima.getTime()) / 86_400_000);
     const weekIdx = Math.floor(daysFromSept / 7) + 1; // 1, 2, 3
     const dow = d.getUTCDay() as DayOfWeek;
-    const key = `Quadp${weekIdx}-${dow}`;
+    const key = dow === 0 ? `${seasons[weekIdx - 1]}_sunday` : `${seasons[weekIdx - 1]}_${WEEKDAYS[dow]}`;
     const kind: TemporaSlotKind = dow === 0 ? 'sunday' : 'feria';
     const season: ProperOfTimeSeason = 'Septuagesima';
     push(map, d, key, season, weekIdx, kind);
@@ -168,7 +175,7 @@ function walkLent({ year, map }: WalkArgs): void {
     const daysFromLent1 = Math.round((d.getTime() - anchors.lent1Sunday.getTime()) / 86_400_000);
     const weekIdx = Math.floor(daysFromLent1 / 7) + 1; // 1..5
     const dow = d.getUTCDay() as DayOfWeek;
-    const key = `Quad${weekIdx}-${dow}`;
+    const key = `lent_${weekIdx}_${WEEKDAYS[dow]}`;
     const kind: TemporaSlotKind = dow === 0 ? 'sunday' : 'feria';
     const season: ProperOfTimeSeason = weekIdx >= 5 ? 'Passiontide' : 'Lent';
     push(map, d, key, season, weekIdx, kind);
@@ -178,22 +185,42 @@ function walkLent({ year, map }: WalkArgs): void {
 /**
  * Palm Sunday through Holy Saturday. Quad6-0 .. Quad6-6.
  */
+const HOLY_WEEK_SLUGS = [
+  'palm_sunday',
+  'holy_week_monday',
+  'holy_week_tuesday',
+  'holy_week_wednesday',
+  'maundy_thursday',
+  'good_friday',
+  'holy_saturday',
+] as const;
+
 function walkHolyWeek({ year, map }: WalkArgs): void {
   const { palmSunday, easter } = computeAnchors(year);
   for (let d = palmSunday; d < easter; d = addDays(d, 1)) {
     const dow = d.getUTCDay() as DayOfWeek;
-    push(map, d, `Quad6-${dow}`, 'HolyWeek', 6, dow === 0 ? 'sunday' : 'feria');
+    push(map, d, HOLY_WEEK_SLUGS[dow], 'HolyWeek', 6, dow === 0 ? 'sunday' : 'feria');
   }
 }
 
 /**
  * Easter Sunday through Easter Saturday. Pasc0-0..Pasc0-6.
  */
+const EASTER_OCTAVE_SLUGS = [
+  'easter_sunday',
+  'easter_monday',
+  'easter_tuesday',
+  'easter_wednesday',
+  'easter_thursday',
+  'easter_friday',
+  'easter_saturday',
+] as const;
+
 function walkEasterOctave({ year, map }: WalkArgs): void {
   const { easter } = computeAnchors(year);
   for (let i = 0; i < 7; i += 1) {
     const d = addDays(easter, i);
-    push(map, d, `Pasc0-${d.getUTCDay()}`, 'EasterWeek', 0, i === 0 ? 'sunday' : 'octaveDay');
+    push(map, d, EASTER_OCTAVE_SLUGS[d.getUTCDay()], 'EasterWeek', 0, i === 0 ? 'sunday' : 'octaveDay');
   }
 }
 
@@ -206,7 +233,7 @@ function walkPaschaltide({ year, map }: WalkArgs): void {
     const weeksFromLow = Math.floor((d.getTime() - lowSunday.getTime()) / (7 * 86_400_000));
     const weekIdx = weeksFromLow + 1; // 1..6
     const dow = d.getUTCDay() as DayOfWeek;
-    const key = `Pasc${weekIdx}-${dow}`;
+    const key = `easter_time_${weekIdx}_${WEEKDAYS[dow]}`;
     const kind: TemporaSlotKind = dow === 0 ? 'sunday' : 'feria';
     push(map, d, key, 'Paschaltide', weekIdx, kind);
   }
@@ -219,7 +246,8 @@ function walkPentecostWeek({ year, map }: WalkArgs): void {
   const { pentecost } = computeAnchors(year);
   for (let i = 0; i < 7; i += 1) {
     const d = addDays(pentecost, i);
-    push(map, d, `Pasc7-${d.getUTCDay()}`, 'Paschaltide', 7, i === 0 ? 'sunday' : 'octaveDay');
+    const key = `easter_time_7_${WEEKDAYS[d.getUTCDay()]}`;
+    push(map, d, key, 'Paschaltide', 7, i === 0 ? 'sunday' : 'octaveDay');
   }
 }
 
@@ -240,30 +268,37 @@ function walkTimeAfterPentecost({ year, map }: WalkArgs): void {
   const lastIdx = total - 1;
   const overflow = Math.max(0, total - 24);
 
-  const labels: string[] = [];
+  const prefixes: string[] = [];
   for (let i = 0; i < total; i += 1) {
     if (i === lastIdx) {
-      labels.push('Pent24');
+      prefixes.push('after_pentecost_24');
       continue;
     }
     if (i < 23) {
-      labels.push(`Pent${(i + 1).toString().padStart(2, '0')}`);
+      prefixes.push(`after_pentecost_${i + 1}`);
       continue;
     }
-    // Resumed Epi Sundays: i - 23 indexes into [PentEpi6, PentEpi5, PentEpi4, PentEpi3]
+    // Resumed Epi Sundays: i - 23 indexes into [epi6, epi5, epi4, epi3]
     // reversed so that the latest resumed slot lands closest to Pent24.
-    const resumedIndexFromEnd = overflow - (i - 23); // 4, 3, 2, 1 → PentEpiN
+    const resumedIndexFromEnd = overflow - (i - 23); // 4, 3, 2, 1 → N
     const n = 2 + resumedIndexFromEnd; // 6, 5, 4, 3
-    labels.push(`PentEpi${n}`);
+    prefixes.push(`resumed_epiphany_${n}`);
   }
 
   for (let s = 0; s < total; s += 1) {
     const sundayDate = sundays[s];
-    const prefix = labels[s];
+    const prefix = prefixes[s];
     const weekEnd = s + 1 < total ? sundays[s + 1] : advent1Sunday;
     for (let d = sundayDate; d < weekEnd; d = addDays(d, 1)) {
       const dow = d.getUTCDay() as DayOfWeek;
-      const key = `${prefix}-${dow}`;
+      // Week-1 Sunday is Trinity; week-1 Thursday is Corpus Christi; week-2
+      // Friday is the Sacred Heart of Jesus. Other days follow the
+      // after_pentecost_<N>_<weekday> template.
+      let key: string;
+      if (s === 0 && dow === 0) key = 'trinity_sunday';
+      else if (s === 0 && dow === 4) key = 'corpus_christi';
+      else if (s === 1 && dow === 5) key = 'sacred_heart_of_jesus';
+      else key = `${prefix}_${WEEKDAYS[dow]}`;
       const kind: TemporaSlotKind = dow === 0 ? 'sunday' : 'feria';
       push(map, d, key, 'TimeAfterPentecost', s + 1, kind);
     }
@@ -280,7 +315,7 @@ function walkAdvent({ year, map }: WalkArgs): void {
     const weeksFromAdv1 = Math.floor((d.getTime() - advent1Sunday.getTime()) / (7 * 86_400_000));
     const weekIdx = weeksFromAdv1 + 1; // 1..4
     const dow = d.getUTCDay() as DayOfWeek;
-    const key = `Adv${weekIdx}-${dow}`;
+    const key = `advent_${weekIdx}_${WEEKDAYS[dow]}`;
     const kind: TemporaSlotKind = dow === 0 ? 'sunday' : 'feria';
     push(map, d, key, 'Advent', weekIdx, kind);
   }

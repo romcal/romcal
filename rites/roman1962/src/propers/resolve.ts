@@ -159,16 +159,36 @@ function collectSections(
 
 /**
  * In 1962 rubrics, a weekday tempora entry with no inline Mass
- * falls back to its Sunday Mass (`Epi<w>-<d>` → `Epi<w>-0`,
- * `Pent<NN>-<d>` → `Pent<NN>-0`, etc.). Holy days within the
- * Christmas octave tail (`Nat02..Nat05`) fall back to `Nat1-0`
- * (Sunday within the Octave). This is not a rubrical "commemoration"
- * — it's the Missal's own construction (per rubrics 1960 §23c).
+ * falls back to its Sunday Mass (`advent_2_friday` → `advent_2_sunday`,
+ * `after_pentecost_15_thursday` → `after_pentecost_15_sunday`, etc.).
+ * Jan 2-5 ferials fall back to the Sunday within the Christmas Octave.
+ * This is not a rubrical "commemoration" — it's the Missal's own
+ * construction (per rubrics 1960 §23c).
  */
+const WEEKDAY_TAIL = /_(monday|tuesday|wednesday|thursday|friday|saturday)$/;
+const SEASON_PREFIXES = [
+  'advent',
+  'lent',
+  'easter_time',
+  'after_pentecost_\\d+',
+  'resumed_epiphany_\\d+',
+  'epiphany',
+  'septuagesima',
+  'sexagesima',
+  'quinquagesima',
+];
+const FALLBACK_PATTERN = new RegExp(
+  `^(${SEASON_PREFIXES.map((p) => `(?:${p})(?:_\\d+)?`).join('|')})${WEEKDAY_TAIL.source}`
+);
+
 function sundayFallback(temporaKey: string): string | undefined {
-  const m = /^(Adv\d|Epi\d|Pasc\d|Pent\d{2}|PentEpi\d|Quadp\d|Quad\d)-[1-6]$/.exec(temporaKey);
-  if (m) return `${m[1]}-0`;
-  if (/^Nat0[2-5]$/.test(temporaKey)) return 'Nat1-0';
+  // Jan 2-5 ferials → Sunday within the Christmas Octave.
+  if (/^christmas_time_january_[2-5]$/.test(temporaKey)) return 'sunday_within_octave_of_christmas';
+  // Dec 29-31 ferials (christmas_octave_day_5..7) → Sunday within the Octave.
+  if (/^christmas_octave_day_[567]$/.test(temporaKey)) return 'sunday_within_octave_of_christmas';
+  // Weekday Masses fall back to the same week's Sunday.
+  const m = FALLBACK_PATTERN.exec(temporaKey);
+  if (m) return `${m[1]}_sunday`;
   return undefined;
 }
 

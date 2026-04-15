@@ -11,7 +11,7 @@ export function deriveFixedOctave(mmdd: string): OctaveInfo | undefined {
   if (mmdd === '01-01') {
     return {
       id: 'christmas',
-      parentFeastId: 'nativity_of_the_lord',
+      parentFeastId: 'nativity_of_our_lord_jesus_christ',
       day: 8,
       kind: 'octaveDay',
       rank: 'classII',

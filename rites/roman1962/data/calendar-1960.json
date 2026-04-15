@@ -2,7 +2,7 @@
   "01-00": [
     {
       "class1962": 2,
-      "fileKey": "01-00",
+      "fileKey": "placeholder_01_00",
       "name": "Sanctissimi Nominis Iesu",
       "numericRank": 5,
       "rank1962": "ClassII"
@@ -11,7 +11,7 @@
   "01-01": [
     {
       "class1962": 3,
-      "fileKey": "01-01",
+      "fileKey": "the_circumcision_of_the_lord",
       "name": "In Circumcisione Domini",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -20,7 +20,7 @@
   "01-05": [
     {
       "class1962": 4,
-      "fileKey": "01-05cc",
+      "fileKey": "saint_telesphorus_pope_and_martyr_commemoration",
       "name": "S. Telesphori Papae et Martyris",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -29,7 +29,7 @@
   "01-06": [
     {
       "class1962": 1,
-      "fileKey": "01-06",
+      "fileKey": "epiphany_of_the_lord",
       "name": "Epiphaniae Domini",
       "numericRank": 6,
       "rank1962": "ClassI"
@@ -38,7 +38,7 @@
   "01-07": [
     {
       "class1962": 4,
-      "fileKey": "01-07",
+      "fileKey": "2nd_day_in_the_octave_of_the_epiphany",
       "name": "Secunda die infra Octavam Epiphaniae",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -47,7 +47,7 @@
   "01-08": [
     {
       "class1962": 4,
-      "fileKey": "01-08",
+      "fileKey": "3rd_day_in_the_octave_of_the_epiphany",
       "name": "Tertia die infra Octavam Epiphaniae",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -56,7 +56,7 @@
   "01-09": [
     {
       "class1962": 4,
-      "fileKey": "01-09",
+      "fileKey": "4th_day_in_the_octave_of_the_epiphany",
       "name": "Quarta die infra Octavam Epiphaniae",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -65,7 +65,7 @@
   "01-10": [
     {
       "class1962": 4,
-      "fileKey": "01-10",
+      "fileKey": "5th_day_in_the_octave_of_the_epiphany",
       "name": "Quinta die infra Octavam Epiphaniae",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -74,14 +74,14 @@
   "01-11": [
     {
       "class1962": 4,
-      "fileKey": "01-11",
+      "fileKey": "6th_day_in_the_octave_of_the_epiphany",
       "name": "Sexta die infra Octavam Epiphaniae",
       "numericRank": 2,
       "rank1962": "ClassIV"
     },
     {
       "class1962": 4,
-      "fileKey": "01-11cc",
+      "fileKey": "saint_hyginus_pope_and_martyr_commemoration",
       "name": "S. Hygini Papæ et Martyris",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -90,7 +90,7 @@
   "01-12": [
     {
       "class1962": 4,
-      "fileKey": "01-12",
+      "fileKey": "7th_day_in_the_octave_of_the_epiphany",
       "name": "Septima die infra Octavam Epiphaniae",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -99,7 +99,7 @@
   "01-13": [
     {
       "class1962": 3,
-      "fileKey": "01-13",
+      "fileKey": "octave_day_of_the_epiphany",
       "name": "Die Octava Epiphaniae",
       "numericRank": 4,
       "rank1962": "ClassIII"
@@ -108,14 +108,14 @@
   "01-14": [
     {
       "class1962": 3,
-      "fileKey": "01-14",
+      "fileKey": "saint_hilary_bishop_of_poitiers_confessor_and_doctor_of_the_church",
       "name": "S. Hilarii Episcopi Confessoris Ecclesiae Doctoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "01-14cc",
+      "fileKey": "saint_felix_priest_and_martyr_commemoration",
       "name": "S. Felicis Presbyteri et Mart",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -124,14 +124,14 @@
   "01-15": [
     {
       "class1962": 3,
-      "fileKey": "01-15",
+      "fileKey": "saint_paul_the_first_hermit_confessor",
       "name": "S. Pauli primi Eremitae et Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "01-15cc",
+      "fileKey": "s_maur_abbot_commemoration",
       "name": "S. Mauri Abbatis",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -140,7 +140,7 @@
   "01-16": [
     {
       "class1962": 4,
-      "fileKey": "01-16",
+      "fileKey": "saint_marcellus_pope_and_martyr",
       "name": "S. Marcelli Papae et Martyris",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -149,7 +149,7 @@
   "01-17": [
     {
       "class1962": 3,
-      "fileKey": "01-17",
+      "fileKey": "s_anthony_abbot",
       "name": "S. S. Antonii Abbatis",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -158,7 +158,7 @@
   "01-18": [
     {
       "class1962": 4,
-      "fileKey": "01-18r",
+      "fileKey": "saint_prisca_virgin_and_martyr_rubrica1960",
       "name": "S Priscae Virginis",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -167,14 +167,14 @@
   "01-19": [
     {
       "class1962": 4,
-      "fileKey": "01-19",
+      "fileKey": "ss_marius_martha_audifax_and_abachum_martyrs",
       "name": "S. Marii et Soc Mart",
       "numericRank": 1,
       "rank1962": "Ferial"
     },
     {
       "class1962": 4,
-      "fileKey": "01-19o",
+      "fileKey": "saint_canute_king_and_martyr_optional",
       "name": "S. Canuti Mart",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -183,7 +183,7 @@
   "01-20": [
     {
       "class1962": 3,
-      "fileKey": "01-20",
+      "fileKey": "ss_fabian_and_sebastian_martyrs",
       "name": "Ss. Fabiani et Sebastiani Martyrum",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -192,7 +192,7 @@
   "01-21": [
     {
       "class1962": 3,
-      "fileKey": "01-21",
+      "fileKey": "s_agnes_virgin_and_martyr",
       "name": "S. Agnetis Virginis et Martyris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -201,7 +201,7 @@
   "01-22": [
     {
       "class1962": 4,
-      "fileKey": "01-22",
+      "fileKey": "ss_vincent_and_anastasius_martyrs",
       "name": "Ss. Vincentii et Anastasii Martyrum",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -210,14 +210,14 @@
   "01-23": [
     {
       "class1962": 4,
-      "fileKey": "01-23",
+      "fileKey": "s_raymond_of_penafort_confessor",
       "name": "S. Raymundi de Penafort Confessoris",
       "numericRank": 2,
       "rank1962": "ClassIV"
     },
     {
       "class1962": 4,
-      "fileKey": "01-23o",
+      "fileKey": "saint_emerentiana_virgin_and_martyr_optional",
       "name": "S. Emerentianae Virginis et Martyris",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -226,7 +226,7 @@
   "01-24": [
     {
       "class1962": 4,
-      "fileKey": "01-24",
+      "fileKey": "saint_timothy_bishop_and_martyr",
       "name": "S. Timothei Episcopi et Martyris",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -235,7 +235,7 @@
   "01-25": [
     {
       "class1962": 3,
-      "fileKey": "01-25r",
+      "fileKey": "conversion_of_saint_paul_the_apostle_rubrica1960",
       "name": "In Conversione S. Pauli Apostoli",
       "numericRank": 4,
       "rank1962": "ClassIII"
@@ -244,7 +244,7 @@
   "01-26": [
     {
       "class1962": 4,
-      "fileKey": "01-26",
+      "fileKey": "saint_polycarp_bishop_and_martyr",
       "name": "S. Polycarpi Episcopi et Martyris",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -253,7 +253,7 @@
   "01-27": [
     {
       "class1962": 3,
-      "fileKey": "01-27",
+      "fileKey": "saint_john_chrysostom_bishop_confessor_and_doctor_of_the_church",
       "name": "S. Joannis Chrysostomi Episcopi Confessoris Ecclesiae Doctoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -262,14 +262,14 @@
   "01-28": [
     {
       "class1962": 3,
-      "fileKey": "01-28",
+      "fileKey": "saint_peter_nolasco_confessor",
       "name": "S. Petri Nolasci Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "01-28t",
+      "fileKey": "s_agnes_virgin_and_martyr_second_tridentine",
       "name": "S. Agnetis Virginis Martyris secundo",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -278,7 +278,7 @@
   "01-29": [
     {
       "class1962": 3,
-      "fileKey": "01-29",
+      "fileKey": "saint_francis_de_sales_bishop_confessor_and_doctor_of_the_church",
       "name": "S. Francisci Salesii Episcopi Confessoris Ecclesiae Doctoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -287,7 +287,7 @@
   "01-30": [
     {
       "class1962": 4,
-      "fileKey": "01-30",
+      "fileKey": "saint_martina_virgin_and_martyr",
       "name": "S. Martinae Virginis et Martyris",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -296,7 +296,7 @@
   "01-31": [
     {
       "class1962": 3,
-      "fileKey": "01-31",
+      "fileKey": "saint_john_bosco_confessor",
       "name": "S.Joannis Bosco Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -305,7 +305,7 @@
   "02-01": [
     {
       "class1962": 3,
-      "fileKey": "02-01",
+      "fileKey": "saint_ignatius_bishop_and_martyr",
       "name": "S. Ignatii Episcopi et Martyris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -314,7 +314,7 @@
   "02-02": [
     {
       "class1962": 2,
-      "fileKey": "02-02",
+      "fileKey": "the_purification_of_the_blessed_virgin_mary_candlemas",
       "name": "In Purificatione Beatae Mariae Virginis",
       "numericRank": 5,
       "rank1962": "ClassII"
@@ -323,7 +323,7 @@
   "02-03": [
     {
       "class1962": 4,
-      "fileKey": "02-03",
+      "fileKey": "saint_blase_bishop_and_martyr",
       "name": "S. S. Blasii Episcopi et Martyris",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -332,7 +332,7 @@
   "02-04": [
     {
       "class1962": 3,
-      "fileKey": "02-04",
+      "fileKey": "saint_andrew_corsini_bishop_and_confessor",
       "name": "S. Andreae Corsini Episcopi et Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -341,7 +341,7 @@
   "02-05": [
     {
       "class1962": 4,
-      "fileKey": "02-05",
+      "fileKey": "saint_agatha_virgin_and_martyr",
       "name": "S. Agathae Virginis et Martyris",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -350,14 +350,14 @@
   "02-06": [
     {
       "class1962": 3,
-      "fileKey": "02-06",
+      "fileKey": "saint_titus_bishop_and_confessor",
       "name": "S. Titi Episc et Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "02-06o",
+      "fileKey": "saint_dorothy_virgin_and_martyr_optional",
       "name": "S. Dorotheæ, Virginis et Martyris",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -366,7 +366,7 @@
   "02-07": [
     {
       "class1962": 3,
-      "fileKey": "02-07",
+      "fileKey": "saint_romuald_abbot",
       "name": "S. Romualdi Abbatis",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -375,7 +375,7 @@
   "02-08": [
     {
       "class1962": 3,
-      "fileKey": "02-08",
+      "fileKey": "saint_john_of_matha_confessor",
       "name": "S. S. Joannis de Matha Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -384,14 +384,14 @@
   "02-09": [
     {
       "class1962": 3,
-      "fileKey": "02-09",
+      "fileKey": "saint_cyril_of_alexandria_bishop_confessor_and_doctor_of_the_church",
       "name": "S. Cyrilli Episc Alexandrini Confessoris Ecclesiae Doctoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "02-09o",
+      "fileKey": "s_apollonia_virgin_and_martyr_optional",
       "name": "S. Apolloniae Virginis et Martyris",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -400,7 +400,7 @@
   "02-10": [
     {
       "class1962": 3,
-      "fileKey": "02-10",
+      "fileKey": "saint_scholastica_virgin",
       "name": "S. Scholasticae Virginis",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -409,7 +409,7 @@
   "02-11": [
     {
       "class1962": 3,
-      "fileKey": "02-11",
+      "fileKey": "apparition_of_the_blessed_virgin_mary_at_lourdes",
       "name": "In apparitione Beatae Mariae Virginis",
       "numericRank": 4,
       "rank1962": "ClassIII"
@@ -418,7 +418,7 @@
   "02-12": [
     {
       "class1962": 3,
-      "fileKey": "02-12",
+      "fileKey": "seven_holy_founders_of_the_order_of_the_servants_of_the_blessed_virgin_mary",
       "name": "Ss. Septem Fundatorum Ordinis Servorum B. M. V.",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -427,7 +427,7 @@
   "02-14": [
     {
       "class1962": 4,
-      "fileKey": "02-14",
+      "fileKey": "saint_valentine_priest_and_martyr",
       "name": "S. Valentini Presbyteri et Martyris",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -436,7 +436,7 @@
   "02-15": [
     {
       "class1962": 4,
-      "fileKey": "02-15",
+      "fileKey": "saints_faustinus_and_jovita_martyrs",
       "name": "Ss. Faustini et Jovitae Martyrum",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -445,7 +445,7 @@
   "02-18": [
     {
       "class1962": 4,
-      "fileKey": "02-18",
+      "fileKey": "saint_simeon_bishop_and_martyr",
       "name": "S. Simeonis Episcopi et Martyris",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -454,7 +454,7 @@
   "02-22": [
     {
       "class1962": 3,
-      "fileKey": "02-22",
+      "fileKey": "chair_of_saint_peter_at_antioch",
       "name": "In Cathedra S. Petri Ap Antiochiae",
       "numericRank": 4,
       "rank1962": "ClassIII"
@@ -463,7 +463,7 @@
   "02-23": [
     {
       "class1962": 3,
-      "fileKey": "02-23r",
+      "fileKey": "saint_peter_damian_confessor_and_doctor_of_the_church_rubrica1960",
       "name": "S. Petri Damiani",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -472,7 +472,7 @@
   "02-24": [
     {
       "class1962": 3,
-      "fileKey": "02-24",
+      "fileKey": "saint_matthias_the_apostle",
       "name": "S. Matthiae Apostoli",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -481,7 +481,7 @@
   "02-27": [
     {
       "class1962": 3,
-      "fileKey": "02-27",
+      "fileKey": "saint_gabriel_of_the_sorrowful_virgin_confessor",
       "name": "S. Gabrielis a Virgine Perdolente Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -490,14 +490,14 @@
   "03-04": [
     {
       "class1962": 4,
-      "fileKey": "03-04",
+      "fileKey": "saint_casimir_confessor",
       "name": "S. Casimiri",
       "numericRank": 2,
       "rank1962": "ClassIV"
     },
     {
       "class1962": 4,
-      "fileKey": "03-04cc",
+      "fileKey": "saint_lucius_pope_and_martyr_commemoration",
       "name": "S. Lucii I Papae et Martyris",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -506,7 +506,7 @@
   "03-06": [
     {
       "class1962": 3,
-      "fileKey": "03-06",
+      "fileKey": "saints_perpetua_and_felicity_martyrs",
       "name": "Ss. Perpetuae et Felicitatis Martyrum",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -515,7 +515,7 @@
   "03-07": [
     {
       "class1962": 3,
-      "fileKey": "03-07",
+      "fileKey": "saint_thomas_aquinas_confessor_and_doctor_of_the_church",
       "name": "S. Thomae de Aquino Confessoris Ecclesiae Doctoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -524,7 +524,7 @@
   "03-08": [
     {
       "class1962": 3,
-      "fileKey": "03-08",
+      "fileKey": "saint_john_of_god_confessor",
       "name": "S. Joannis de Deo Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -533,7 +533,7 @@
   "03-09": [
     {
       "class1962": 3,
-      "fileKey": "03-09",
+      "fileKey": "saint_frances_of_rome_widow",
       "name": "S. Franciscae Viduae Romanae",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -542,7 +542,7 @@
   "03-10": [
     {
       "class1962": 4,
-      "fileKey": "03-10",
+      "fileKey": "forty_holy_martyrs",
       "name": "Ss. Quadraginta Martyrum",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -551,7 +551,7 @@
   "03-12": [
     {
       "class1962": 3,
-      "fileKey": "03-12",
+      "fileKey": "s_gregory_the_great_pope_confessor_and_doctor_of_the_church",
       "name": "S. Gregorii Papae Confessoris et Eccl Doct",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -560,7 +560,7 @@
   "03-17": [
     {
       "class1962": 3,
-      "fileKey": "03-17",
+      "fileKey": "saint_patrick_bishop_and_confessor",
       "name": "S. Patritii Episcopi et Conf",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -569,7 +569,7 @@
   "03-18": [
     {
       "class1962": 3,
-      "fileKey": "03-18",
+      "fileKey": "saint_cyril_of_jerusalem_confessor_and_doctor_of_the_church",
       "name": "S. Cyrilli Episc Hierosolymitani Eccl Doct",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -578,7 +578,7 @@
   "03-19": [
     {
       "class1962": 1,
-      "fileKey": "03-19",
+      "fileKey": "saint_joseph_spouse_of_the_blessed_virgin_mary_confessor",
       "name": "S. Joseph sponsi BMV confessoris",
       "numericRank": 6,
       "rank1962": "ClassI"
@@ -587,7 +587,7 @@
   "03-21": [
     {
       "class1962": 3,
-      "fileKey": "03-21",
+      "fileKey": "saint_benedict_abbot",
       "name": "S. Benedicti Abbatis",
       "numericRank": 4,
       "rank1962": "ClassIII"
@@ -596,7 +596,7 @@
   "03-24": [
     {
       "class1962": 3,
-      "fileKey": "03-24",
+      "fileKey": "saint_gabriel_the_archangel",
       "name": "S. Gabrielis Archangeli",
       "numericRank": 4,
       "rank1962": "ClassIII"
@@ -605,7 +605,7 @@
   "03-25": [
     {
       "class1962": 2,
-      "fileKey": "03-25",
+      "fileKey": "annunciation_of_the_blessed_virgin_mary",
       "name": "In Annuntiatione Beate Mariæ Virginis",
       "numericRank": 5,
       "rank1962": "ClassII"
@@ -614,7 +614,7 @@
   "03-27": [
     {
       "class1962": 3,
-      "fileKey": "03-27",
+      "fileKey": "saint_john_damascene_confessor",
       "name": "S. Joannis Damascene Confessor et Ecclesiae Doctoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -623,7 +623,7 @@
   "03-28": [
     {
       "class1962": 4,
-      "fileKey": "03-28",
+      "fileKey": "saint_john_of_capistrano_confessor",
       "name": "S. Joannis Capistrano Confessoris",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -632,7 +632,7 @@
   "04-02": [
     {
       "class1962": 3,
-      "fileKey": "04-02",
+      "fileKey": "saint_francis_of_paula_confessor",
       "name": "S. Francisci de Paula Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -641,7 +641,7 @@
   "04-04": [
     {
       "class1962": 3,
-      "fileKey": "04-04",
+      "fileKey": "s_isidore_of_seville_bishop_confessor_and_doctor_of_the_church",
       "name": "S. Isidori Episc Confessoris et Ecclesiae Doctoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -650,7 +650,7 @@
   "04-05": [
     {
       "class1962": 3,
-      "fileKey": "04-05",
+      "fileKey": "saint_vincent_ferrer_confessor",
       "name": "S. Vincentii Ferrerii Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -659,7 +659,7 @@
   "04-11": [
     {
       "class1962": 3,
-      "fileKey": "04-11",
+      "fileKey": "saint_leo_the_great_pope_confessor_and_doctor_of_the_church",
       "name": "S. Leonis I Papae Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -668,7 +668,7 @@
   "04-13": [
     {
       "class1962": 4,
-      "fileKey": "04-13",
+      "fileKey": "saint_hermenegild_martyr",
       "name": "S. Hermenegildi Martyris",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -677,14 +677,14 @@
   "04-14": [
     {
       "class1962": 3,
-      "fileKey": "04-14",
+      "fileKey": "saint_justini_martyr",
       "name": "S. Justini Martyris",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "04-14t",
+      "fileKey": "saints_tiburtius_valerian_et_maximus_martyrs_tridentine",
       "name": "Ss. Tiburtii, Valeriani et Maximi, Martyrum",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -693,7 +693,7 @@
   "04-17": [
     {
       "class1962": 4,
-      "fileKey": "04-17",
+      "fileKey": "saint_anicetus_pope_and_martyr",
       "name": "S. Aniceti Papae et Martyris",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -702,7 +702,7 @@
   "04-21": [
     {
       "class1962": 3,
-      "fileKey": "04-21",
+      "fileKey": "saint_anselm_bishop_confessor_and_doctor_of_the_church",
       "name": "S. Anselmi Episcopi Confessoris et Ecclesiae Doctoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -711,7 +711,7 @@
   "04-22": [
     {
       "class1962": 4,
-      "fileKey": "04-22",
+      "fileKey": "saints_soter_and_caius_popes_and_martyrs",
       "name": "Ss. Soteris et Caji Pontifices et Martyres",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -720,7 +720,7 @@
   "04-23": [
     {
       "class1962": 4,
-      "fileKey": "04-23",
+      "fileKey": "saint_george_martyr",
       "name": "S. Georgii Martyris",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -729,7 +729,7 @@
   "04-24": [
     {
       "class1962": 3,
-      "fileKey": "04-24",
+      "fileKey": "saint_fidelis_of_sigmaringen_martyr",
       "name": "S. Fidelis Sigmaringa Martyris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -738,7 +738,7 @@
   "04-25": [
     {
       "class1962": 2,
-      "fileKey": "04-25",
+      "fileKey": "saint_mark_the_evangelist",
       "name": "S. Marci Evangelistae",
       "numericRank": 5,
       "rank1962": "ClassII"
@@ -747,7 +747,7 @@
   "04-26": [
     {
       "class1962": 4,
-      "fileKey": "04-26",
+      "fileKey": "saints_cletus_and_marcellinus_popes_and_martyrs",
       "name": "S. Cleti et Marcellini Pontif Martyrum",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -756,7 +756,7 @@
   "04-27": [
     {
       "class1962": 3,
-      "fileKey": "04-27",
+      "fileKey": "saint_peter_canisius_confessor_and_doctor_of_the_church",
       "name": "S. Petri Canisii Confessoris et Ecclesiae Doctoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -765,7 +765,7 @@
   "04-28": [
     {
       "class1962": 3,
-      "fileKey": "04-28",
+      "fileKey": "saint_paul_of_the_cross_confessor",
       "name": "S. Pauli a Cruce Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -774,7 +774,7 @@
   "04-29": [
     {
       "class1962": 3,
-      "fileKey": "04-29",
+      "fileKey": "saint_peter_the_martyr",
       "name": "S. Petri Martyris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -783,7 +783,7 @@
   "04-30": [
     {
       "class1962": 3,
-      "fileKey": "04-30",
+      "fileKey": "saint_catherine_of_siena_virgin",
       "name": "S. Catharinae Senensis Virginis",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -792,7 +792,7 @@
   "05-01": [
     {
       "class1962": 1,
-      "fileKey": "05-01r",
+      "fileKey": "saint_joseph_the_worker_rubrica1960",
       "name": "S. Joseph Opificis",
       "numericRank": 6,
       "rank1962": "ClassI"
@@ -801,7 +801,7 @@
   "05-02": [
     {
       "class1962": 3,
-      "fileKey": "05-02",
+      "fileKey": "s_athanasius_confessor_and_doctor_of_the_church",
       "name": "S. Athanasii Confessoris Ecclesiae Doctoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -810,7 +810,7 @@
   "05-03": [
     {
       "class1962": 4,
-      "fileKey": "05-03r",
+      "fileKey": "saints_alexander_and_companions_martyrs_rubrica1960",
       "name": "Ss. Alexandri et sociorum Martyrum",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -819,7 +819,7 @@
   "05-04": [
     {
       "class1962": 3,
-      "fileKey": "05-04",
+      "fileKey": "saint_monica_widow",
       "name": "S. Monica Vidua",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -828,7 +828,7 @@
   "05-05": [
     {
       "class1962": 3,
-      "fileKey": "05-05",
+      "fileKey": "saint_pius_v_pope_and_confessor",
       "name": "S. Pii V Papae Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -837,7 +837,7 @@
   "05-07": [
     {
       "class1962": 3,
-      "fileKey": "05-07",
+      "fileKey": "saint_stanislaus_bishop_and_martyr",
       "name": "S. Stanislai Episcopi Martyri",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -846,7 +846,7 @@
   "05-09": [
     {
       "class1962": 3,
-      "fileKey": "05-09",
+      "fileKey": "saint_gregory_nazianzen_bishop_confessor_and_doctor_of_the_church",
       "name": "S. Gregorii Nazianzi Episcopi Confessoris Ecclasiae Doctorum",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -855,14 +855,14 @@
   "05-10": [
     {
       "class1962": 3,
-      "fileKey": "05-10",
+      "fileKey": "saint_antoninus_bishop_and_confessor",
       "name": "S. Antonii Episcopi Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "05-10o",
+      "fileKey": "saints_gordian_and_epimachus_martyrs_optional",
       "name": "Ss. Gordiani et Epimachi Martyri",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -871,7 +871,7 @@
   "05-11": [
     {
       "class1962": 2,
-      "fileKey": "05-11r",
+      "fileKey": "saints_philip_and_james_apostles_rubrica1960",
       "name": "Ss. Philippi et Jacobi Apostolorum",
       "numericRank": 5,
       "rank1962": "ClassII"
@@ -880,7 +880,7 @@
   "05-12": [
     {
       "class1962": 4,
-      "fileKey": "05-12",
+      "fileKey": "ss_nereus_achilleus_and_domitilla_the_virgin_and_pancras_martyrs",
       "name": "Ss. Nerei, Achillei et Domitillae Virgini atque Pancratii Martyrum",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -889,7 +889,7 @@
   "05-13": [
     {
       "class1962": 3,
-      "fileKey": "05-13",
+      "fileKey": "saint_robert_bellarmine_bishop_confessor_and_doctor_of_the_church",
       "name": "S.Roberti Ballarmino Episcopi Confessoris et Ecclesiae Doctoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -898,7 +898,7 @@
   "05-14": [
     {
       "class1962": 4,
-      "fileKey": "05-14",
+      "fileKey": "saint_boniface_martyr",
       "name": "S. Bonifacii Martyri",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -907,7 +907,7 @@
   "05-15": [
     {
       "class1962": 3,
-      "fileKey": "05-15",
+      "fileKey": "saint_john_baptist_de_la_salle_confessor",
       "name": "S. Joanni Baptistae de la Salle Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -916,7 +916,7 @@
   "05-16": [
     {
       "class1962": 4,
-      "fileKey": "05-16",
+      "fileKey": "saint_ubald_bishop_and_confessor",
       "name": "S. Ubaldi Episcopi Confessoris",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -925,7 +925,7 @@
   "05-17": [
     {
       "class1962": 3,
-      "fileKey": "05-17",
+      "fileKey": "saint_pascal_baylon_confessor",
       "name": "S. Paschalis Baylon Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -934,7 +934,7 @@
   "05-18": [
     {
       "class1962": 3,
-      "fileKey": "05-18",
+      "fileKey": "saint_venantius_martyr",
       "name": "S. Venantii Martyris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -943,14 +943,14 @@
   "05-19": [
     {
       "class1962": 3,
-      "fileKey": "05-19",
+      "fileKey": "saint_peter_celestine_pope_and_confessor",
       "name": "S. Petri Celestini Papae Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "05-19o",
+      "fileKey": "saint_pudentiana_virgin_optional",
       "name": "S. Pudentianae",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -959,7 +959,7 @@
   "05-20": [
     {
       "class1962": 4,
-      "fileKey": "05-20",
+      "fileKey": "saint_bernardine_of_siena_confessor",
       "name": "S. Bernardini Senensis Confessoris",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -968,14 +968,14 @@
   "05-25": [
     {
       "class1962": 3,
-      "fileKey": "05-25",
+      "fileKey": "saint_gregory_vii_pope_and_confessor",
       "name": "S. Gregory VII Papae Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "05-25o",
+      "fileKey": "saint_urban_pope_and_martyr_optional",
       "name": "S. Urbani I Pp et Martyris",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -984,14 +984,14 @@
   "05-26": [
     {
       "class1962": 3,
-      "fileKey": "05-26",
+      "fileKey": "saint_philip_neri_confessor",
       "name": "S. Philippi Neri Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "05-26o",
+      "fileKey": "saint_eleutherius_pope_and_martyr_optional",
       "name": "S. Eleutherius pope and martyr",
       "numericRank": 0,
       "rank1962": "Ferial"
@@ -1000,14 +1000,14 @@
   "05-27": [
     {
       "class1962": 3,
-      "fileKey": "05-27",
+      "fileKey": "saint_bede_the_venerable_confessor_and_doctor_of_the_church",
       "name": "S. Bedæ Venerabilis Confessoris et Ecclesiæ Doctoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "05-27o",
+      "fileKey": "saint_john_i_pope_and_martyr_optional",
       "name": "S. Joanne Papa et Mart",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1016,7 +1016,7 @@
   "05-28": [
     {
       "class1962": 3,
-      "fileKey": "05-28",
+      "fileKey": "saint_augustine_of_canterbury_bishop_and_confessor",
       "name": "S. Augustini Episcopi Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -1025,7 +1025,7 @@
   "05-29": [
     {
       "class1962": 4,
-      "fileKey": "05-29",
+      "fileKey": "saint_mary_magdalene_de_pazzi_virgin",
       "name": "S. Mariae Magdalenae de Pazzis",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -1034,7 +1034,7 @@
   "05-30": [
     {
       "class1962": 4,
-      "fileKey": "05-30",
+      "fileKey": "saint_felix_pope_and_martyr",
       "name": "S. Felicis Papae et Martyris",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1043,14 +1043,14 @@
   "05-31": [
     {
       "class1962": 2,
-      "fileKey": "05-31",
+      "fileKey": "the_queenship_of_mary",
       "name": "Beatae Mariae Virginis Regina",
       "numericRank": 5,
       "rank1962": "ClassII"
     },
     {
       "class1962": 4,
-      "fileKey": "05-31o",
+      "fileKey": "saint_petronilla_virgin_optional",
       "name": "S. Petronillae Virginis",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1059,7 +1059,7 @@
   "06-01": [
     {
       "class1962": 3,
-      "fileKey": "06-01",
+      "fileKey": "saint_angela_merici_virgin",
       "name": "S. Angelae Mericiae Virginis",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -1068,7 +1068,7 @@
   "06-02": [
     {
       "class1962": 4,
-      "fileKey": "06-02",
+      "fileKey": "saints_marcellinus_peter_and_erasmus_martyrs",
       "name": "Ss. Marcellini, Petri, atque Erasmi Martyrum",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1077,7 +1077,7 @@
   "06-04": [
     {
       "class1962": 3,
-      "fileKey": "06-04",
+      "fileKey": "saint_francis_caracciolo_confessor",
       "name": "S. Francisci Caracciolo Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -1086,7 +1086,7 @@
   "06-05": [
     {
       "class1962": 3,
-      "fileKey": "06-05",
+      "fileKey": "saint_boniface_bishop_and_martyr",
       "name": "S. Bonifacii Episc et Mart",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -1095,7 +1095,7 @@
   "06-06": [
     {
       "class1962": 3,
-      "fileKey": "06-06",
+      "fileKey": "saint_norbert_bishop_and_confessor",
       "name": "S. Norberti Episc et Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -1104,7 +1104,7 @@
   "06-09": [
     {
       "class1962": 4,
-      "fileKey": "06-09",
+      "fileKey": "saints_primus_and_felician_martyrs",
       "name": "Ss. Primi et Feliciani Martyrum",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1113,7 +1113,7 @@
   "06-10": [
     {
       "class1962": 4,
-      "fileKey": "06-10",
+      "fileKey": "saint_margaret_queen_and_widow",
       "name": "S. Margaritae Reginae viduae",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -1122,7 +1122,7 @@
   "06-11": [
     {
       "class1962": 3,
-      "fileKey": "06-11",
+      "fileKey": "saint_barnabas_the_apostle",
       "name": "S. Barnabae Apostoli",
       "numericRank": 4,
       "rank1962": "ClassIII"
@@ -1131,14 +1131,14 @@
   "06-12": [
     {
       "class1962": 3,
-      "fileKey": "06-12",
+      "fileKey": "saint_john_of_saint_facundus_confessor",
       "name": "S. Joannis a S Facundo Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "06-12o",
+      "fileKey": "saints_basilides_cyrinus_nabor_and_nazarius_martyrs_optional",
       "name": "SS Martyrum",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1147,7 +1147,7 @@
   "06-13": [
     {
       "class1962": 3,
-      "fileKey": "06-13",
+      "fileKey": "saint_anthony_of_padua_confessor",
       "name": "S. Antonii de Padua Confessoris (1946: & Ecclesiae Doctoris)",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -1156,7 +1156,7 @@
   "06-14": [
     {
       "class1962": 3,
-      "fileKey": "06-14",
+      "fileKey": "saint_basil_the_great_confessor_and_doctor_of_the_church",
       "name": "S. Basilii Magni Confessoris et Ecclesiae Doctoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -1165,7 +1165,7 @@
   "06-15": [
     {
       "class1962": 4,
-      "fileKey": "06-15",
+      "fileKey": "saints_vitus_modestus_and_crescentia_martyrs",
       "name": "Ss. Viti, Modesti atque Crescentiae Martyrum",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1174,7 +1174,7 @@
   "06-17": [
     {
       "class1962": 3,
-      "fileKey": "06-17r",
+      "fileKey": "saint_gregory_barbarigo_bishop_and_confessor_rubrica1960",
       "name": "S. Gregorii Barbadici Ep. Conf",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -1183,14 +1183,14 @@
   "06-18": [
     {
       "class1962": 3,
-      "fileKey": "06-18",
+      "fileKey": "saint_ephraem_of_syria_confessor_and_doctor_of_the_church",
       "name": "S. Ephraem Syri Confessorem et Ecclesiae Doctorem",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "06-18t",
+      "fileKey": "saints_mark_and_marcellian_martyrs_tridentine",
       "name": "Ss. Marci et Marcellini Martyrum",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1199,14 +1199,14 @@
   "06-19": [
     {
       "class1962": 3,
-      "fileKey": "06-19",
+      "fileKey": "saint_juliana_falconeri_virgin",
       "name": "S. Julianae de Falconeriis Virginae",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "06-19o",
+      "fileKey": "ss_gervase_and_protase_martyrs_optional",
       "name": "Ss. Gervasii et Protasii Mart",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1215,7 +1215,7 @@
   "06-20": [
     {
       "class1962": 4,
-      "fileKey": "06-20",
+      "fileKey": "saint_silverius_pope_and_martyr",
       "name": "S. Sylverii Papae et Martyri",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1224,7 +1224,7 @@
   "06-21": [
     {
       "class1962": 3,
-      "fileKey": "06-21",
+      "fileKey": "saint_aloysius_gonzaga_confessor",
       "name": "S. Alosii Gonzage Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -1233,7 +1233,7 @@
   "06-22": [
     {
       "class1962": 3,
-      "fileKey": "06-22",
+      "fileKey": "saint_paulinus_of_nola_bishop_and_confessor",
       "name": "S. Paulini episcopi et Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -1242,7 +1242,7 @@
   "06-23": [
     {
       "class1962": 4,
-      "fileKey": "06-23",
+      "fileKey": "vigil_of_the_nativity_of_saint_john_the_baptist",
       "name": "Vigilia S. Joannis Baptistae",
       "numericRank": 1.5,
       "rank1962": "Ferial"
@@ -1251,7 +1251,7 @@
   "06-24": [
     {
       "class1962": 1,
-      "fileKey": "06-24",
+      "fileKey": "nativity_of_saint_john_the_baptist",
       "name": "In Nativitate S. Joannis Baptistae",
       "numericRank": 6,
       "rank1962": "ClassI"
@@ -1260,7 +1260,7 @@
   "06-25": [
     {
       "class1962": 3,
-      "fileKey": "06-25",
+      "fileKey": "saint_william_abbot",
       "name": "S. Gulielmi Abbatis",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -1269,7 +1269,7 @@
   "06-26": [
     {
       "class1962": 3,
-      "fileKey": "06-26",
+      "fileKey": "saints_john_and_paul_martyrs",
       "name": "Ss. Joannis et Pauli Martyrum",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -1278,7 +1278,7 @@
   "06-28": [
     {
       "class1962": 2,
-      "fileKey": "06-28r",
+      "fileKey": "vigil_of_saints_peter_and_paul_apostles_rubrica1960",
       "name": "Vigilia Ss. Petri et Pauli Apostolorum",
       "numericRank": 5,
       "rank1962": "ClassII"
@@ -1293,7 +1293,7 @@
           "numericRank": 0
         }
       ],
-      "fileKey": "06-29",
+      "fileKey": "saints_peter_and_paul_apostles",
       "name": "Ss. Apostolorum Petri et Pauli",
       "numericRank": 6,
       "rank1962": "ClassI"
@@ -1302,7 +1302,7 @@
   "06-30": [
     {
       "class1962": 3,
-      "fileKey": "06-30",
+      "fileKey": "commemoration_of_saint_paul_the_apostle",
       "name": "In Commemoratione Sancti Pauli Apostoli",
       "numericRank": 4,
       "rank1962": "ClassIII"
@@ -1311,7 +1311,7 @@
   "07-01": [
     {
       "class1962": 1,
-      "fileKey": "07-01",
+      "fileKey": "the_most_precious_blood_of_our_lord_jesus_christ",
       "name": "Pretiosissimi Sanguinis Domini Nostri Jesu Christi",
       "numericRank": 6,
       "rank1962": "ClassI"
@@ -1320,14 +1320,14 @@
   "07-02": [
     {
       "class1962": 2,
-      "fileKey": "07-02",
+      "fileKey": "visitation_of_the_blessed_virgin_mary",
       "name": "In Visitatione B Mariae Virginis",
       "numericRank": 5,
       "rank1962": "ClassII"
     },
     {
       "class1962": 4,
-      "fileKey": "07-02cc",
+      "fileKey": "ss_processus_et_martinian_martyrs_commemoration",
       "name": "Ss. Processi et Martiniani Martyrum",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1336,7 +1336,7 @@
   "07-03": [
     {
       "class1962": 3,
-      "fileKey": "07-03r",
+      "fileKey": "saint_irenaeus_bishop_and_martyr_rubrica1960",
       "name": "S. Irenaei Episcopi et Martyris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -1345,7 +1345,7 @@
   "07-05": [
     {
       "class1962": 3,
-      "fileKey": "07-05",
+      "fileKey": "saint_anthony_mary_zaccaria_confessor",
       "name": "S. Antonii Mariae Zacharia Confessor",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -1354,7 +1354,7 @@
   "07-07": [
     {
       "class1962": 3,
-      "fileKey": "07-07",
+      "fileKey": "saints_cyril_and_methodius_bishops_and_confessors",
       "name": "Ss. Cyrilli et Methodii Pont et Conf",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -1363,7 +1363,7 @@
   "07-08": [
     {
       "class1962": 4,
-      "fileKey": "07-08",
+      "fileKey": "saint_elizabeth_of_portugal_queen_and_widow",
       "name": "S. Elisabeth Reg Portugaliae Viduae",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -1372,7 +1372,7 @@
   "07-10": [
     {
       "class1962": 4,
-      "fileKey": "07-10",
+      "fileKey": "seven_brothers_martyrs_and_saints_rufina_and_secunda_virgins_and_martyrs",
       "name": "Ss. Septem Fratrum Martyrum, ac Rufinae et Secundae Virgini et Martyri",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -1381,7 +1381,7 @@
   "07-11": [
     {
       "class1962": 4,
-      "fileKey": "07-11",
+      "fileKey": "saint_pius_i_pope_and_martyr",
       "name": "S. Pii I Papae et Martyris",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1390,14 +1390,14 @@
   "07-12": [
     {
       "class1962": 3,
-      "fileKey": "07-12",
+      "fileKey": "saint_john_gualbert_abbot",
       "name": "S. Joannis Gualberti Abbatis",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "07-12o",
+      "fileKey": "saints_nabor_and_felix_martyrs_optional",
       "name": "Ss. Naboris et Felicis Mart",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1406,7 +1406,7 @@
   "07-14": [
     {
       "class1962": 3,
-      "fileKey": "07-14",
+      "fileKey": "saint_bonaventure_bishop_confessor_and_doctor_of_the_church",
       "name": "S. Bonaventurae Episcopi Confessoris (1588: et Ecclesiae Doctoris)",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -1415,7 +1415,7 @@
   "07-15": [
     {
       "class1962": 4,
-      "fileKey": "07-15",
+      "fileKey": "saint_henry_the_emperor_confessor",
       "name": "S. Henrici Imperatoris Confessoris",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -1424,7 +1424,7 @@
   "07-16": [
     {
       "class1962": 3,
-      "fileKey": "07-16",
+      "fileKey": "our_lady_of_mt_carmel",
       "name": "In Commemoratione Beatae Mariae Virginis de Monte Carmelo",
       "numericRank": 4,
       "rank1962": "ClassIII"
@@ -1433,7 +1433,7 @@
   "07-17": [
     {
       "class1962": 4,
-      "fileKey": "07-17",
+      "fileKey": "saint_alexis_confessor",
       "name": "S. Alexii Confessoris",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -1442,14 +1442,14 @@
   "07-18": [
     {
       "class1962": 3,
-      "fileKey": "07-18",
+      "fileKey": "saint_camillus_de_lellis_confessor",
       "name": "S. Camilli de Lellis Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "07-18o",
+      "fileKey": "s_symphorosa_with_her_seven_sons_martyrs_optional",
       "name": "pro Ss. Symphorosa et septem filiis Martyribus",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1458,7 +1458,7 @@
   "07-19": [
     {
       "class1962": 3,
-      "fileKey": "07-19",
+      "fileKey": "saint_vincent_de_paul_confessor",
       "name": "S. Vincentii a Paulo Conf",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -1467,14 +1467,14 @@
   "07-20": [
     {
       "class1962": 3,
-      "fileKey": "07-20",
+      "fileKey": "saint_jerome_emiliani_confessor",
       "name": "S. Hieronomy Emiliani Conf",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "07-20o",
+      "fileKey": "saint_margarita_virgin_and_martyr_optional",
       "name": "S. Margaritæ, Virginis et Martyris",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1483,14 +1483,14 @@
   "07-21": [
     {
       "class1962": 3,
-      "fileKey": "07-21r",
+      "fileKey": "saint_lawrence_of_brindisi_confessor_and_doctor_of_the_church_rubrica1960",
       "name": "S. Laurentii de Brundusio Confessoris et Ecclesiae Doctoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "07-21",
+      "fileKey": "saint_praxedes_virgin",
       "name": "S. Praxedis Virginis",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1499,7 +1499,7 @@
   "07-22": [
     {
       "class1962": 3,
-      "fileKey": "07-22",
+      "fileKey": "saint_mary_magdalene_penitent",
       "name": "S. Mariae Magdalenae Poenitentis",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -1508,14 +1508,14 @@
   "07-23": [
     {
       "class1962": 3,
-      "fileKey": "07-23",
+      "fileKey": "saint_apollinaris_bishop_and_martyr",
       "name": "S. Apollinaris Episcopi et Mart",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "07-23cc",
+      "fileKey": "saint_liborius_bishop_and_confessor_commemoration",
       "name": "S. Liborii Ep Conf",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1524,7 +1524,7 @@
   "07-24": [
     {
       "class1962": 4,
-      "fileKey": "07-24r",
+      "fileKey": "saint_christina_virgin_and_martyr_rubrica1960",
       "name": "S. Christinae Virginis Martyris",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1533,14 +1533,14 @@
   "07-25": [
     {
       "class1962": 2,
-      "fileKey": "07-25",
+      "fileKey": "saint_james_the_apostle",
       "name": "S. Jacobi Apostoli",
       "numericRank": 5,
       "rank1962": "ClassII"
     },
     {
       "class1962": 4,
-      "fileKey": "07-25cc",
+      "fileKey": "saint_christopher_martyr_commemoration",
       "name": "S. Christophori Mart",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1549,7 +1549,7 @@
   "07-26": [
     {
       "class1962": 2,
-      "fileKey": "07-26",
+      "fileKey": "saint_anne_mother_of_the_blessed_virgin_mary",
       "name": "S. Annae Matris BMV",
       "numericRank": 5,
       "rank1962": "ClassII"
@@ -1558,7 +1558,7 @@
   "07-27": [
     {
       "class1962": 4,
-      "fileKey": "07-27",
+      "fileKey": "s_pantaleon_martyr",
       "name": "S. Pantaleon Martyr",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1567,7 +1567,7 @@
   "07-28": [
     {
       "class1962": 4,
-      "fileKey": "07-28",
+      "fileKey": "saints_nazarius_and_celsus_martyr_pope_victor_i_martyr_and_pope_innocent_i_confessor",
       "name": "Ss. Nazarii et Celsi Martyrum",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -1576,14 +1576,14 @@
   "07-29": [
     {
       "class1962": 4,
-      "fileKey": "07-29",
+      "fileKey": "saint_martha_virgin",
       "name": "S. Marthae Virginis",
       "numericRank": 2,
       "rank1962": "ClassIV"
     },
     {
       "class1962": 4,
-      "fileKey": "07-29cc",
+      "fileKey": "saints_felix_simplicius_faustinus_and_beatrix_martyrs_commemoration",
       "name": "Ss. Felicis, Simplicii, Faustini et Beatricis Mart",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1592,7 +1592,7 @@
   "07-30": [
     {
       "class1962": 4,
-      "fileKey": "07-30",
+      "fileKey": "saint_abdon_and_sennen_martyr",
       "name": "S. Abdon et Senen Martyrum",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1601,7 +1601,7 @@
   "07-31": [
     {
       "class1962": 3,
-      "fileKey": "07-31",
+      "fileKey": "saint_ignatius_of_loyola_confessor",
       "name": "S. Ignatii Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -1610,7 +1610,7 @@
   "08-01": [
     {
       "class1962": 4,
-      "fileKey": "08-01r",
+      "fileKey": "the_holy_maccabean_martyrs_rubrica1960",
       "name": "Ss. Martyrum Machabaeorum",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1619,14 +1619,14 @@
   "08-02": [
     {
       "class1962": 3,
-      "fileKey": "08-02",
+      "fileKey": "saint_alphonsus_liguori_bishop_confessor_and_doctor_of_the_church",
       "name": "S. Alphonsi Mariae de Ligorio Episc Conf et Eccles Doct",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "08-02o",
+      "fileKey": "s_stephen_pope_and_martyr_optional",
       "name": "St Stephano Papae Martyris",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1635,7 +1635,7 @@
   "08-04": [
     {
       "class1962": 3,
-      "fileKey": "08-04",
+      "fileKey": "saint_dominic_the_confessor",
       "name": "S. Dominici Confessoris",
       "numericRank": 4,
       "rank1962": "ClassIII"
@@ -1644,7 +1644,7 @@
   "08-05": [
     {
       "class1962": 3,
-      "fileKey": "08-05",
+      "fileKey": "our_lady_of_the_snows",
       "name": "S. Mariae ad Nives",
       "numericRank": 4,
       "rank1962": "ClassIII"
@@ -1653,14 +1653,14 @@
   "08-06": [
     {
       "class1962": 3,
-      "fileKey": "08-06",
+      "fileKey": "the_transfiguration_of_our_lord_jesus_christ",
       "name": "Transfiguratio Domini Nostri Jesu Christi",
       "numericRank": 4,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "08-06cc",
+      "fileKey": "s_xystus_ii_pope_felicissimus_and_agapitus_martyrs_commemoration",
       "name": "Ss. Xysti Felicissimi et Agapiti Martyrum",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1669,14 +1669,14 @@
   "08-07": [
     {
       "class1962": 3,
-      "fileKey": "08-07",
+      "fileKey": "saint_cajetan_confessor",
       "name": "S. Cajetani Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "08-07o",
+      "fileKey": "saint_donatus_bishop_and_martyr_optional",
       "name": "S. Donati Ep et Mart",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1685,14 +1685,14 @@
   "08-08": [
     {
       "class1962": 3,
-      "fileKey": "08-09",
+      "fileKey": "saint_jean_marie_vianney_confessor",
       "name": "S. Joannis Vianney Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "08-08",
+      "fileKey": "saints_cyriacus_largus_and_smaragdus_martyrs",
       "name": "Ss. Cyriacii et socii maryres",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1701,14 +1701,14 @@
   "08-09": [
     {
       "class1962": 3,
-      "fileKey": "08-09t",
+      "fileKey": "vigil_of_saint_lawrence_martyr_tridentine",
       "name": "Vigilia S. Laurentii Martyris",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "08-09cc",
+      "fileKey": "saint_romanus_martyr_commemoration",
       "name": "S. Romanae Maryris",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1717,7 +1717,7 @@
   "08-10": [
     {
       "class1962": 2,
-      "fileKey": "08-10",
+      "fileKey": "saint_lawrence_martyr",
       "name": "S. Laurentii Martyris",
       "numericRank": 5,
       "rank1962": "ClassII"
@@ -1726,7 +1726,7 @@
   "08-11": [
     {
       "class1962": 4,
-      "fileKey": "08-11",
+      "fileKey": "saints_tiburtius_and_susanna_martyrs",
       "name": "Ss. Tiburtii et Susannae Virg. Martyrum",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1735,7 +1735,7 @@
   "08-12": [
     {
       "class1962": 3,
-      "fileKey": "08-12",
+      "fileKey": "saint_clare_virgin",
       "name": "S. Clarae Virginis",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -1744,7 +1744,7 @@
   "08-13": [
     {
       "class1962": 4,
-      "fileKey": "08-13",
+      "fileKey": "saints_hippolytus_and_cassian_martyrs",
       "name": "Ss. Hippolity et Cassiano Martyrum",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1753,14 +1753,14 @@
   "08-14": [
     {
       "class1962": 4,
-      "fileKey": "08-14",
+      "fileKey": "vigil_of_the_assumption_of_the_blessed_virgin_mary",
       "name": "Vigilia Assumptionis B.M.V.",
       "numericRank": 1.5,
       "rank1962": "Ferial"
     },
     {
       "class1962": 4,
-      "fileKey": "08-14cc",
+      "fileKey": "s_eusebius_confessor_commemoration",
       "name": "S. Eusebii",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1769,7 +1769,7 @@
   "08-15": [
     {
       "class1962": 1,
-      "fileKey": "08-15",
+      "fileKey": "assumption_of_the_blessed_virgin_mary",
       "name": "Assumptione Beatae Mariae Virginis",
       "numericRank": 6,
       "rank1962": "ClassI"
@@ -1778,7 +1778,7 @@
   "08-16": [
     {
       "class1962": 2,
-      "fileKey": "08-16",
+      "fileKey": "saint_joachim_confessor_father_of_the_blessed_virgin_mary",
       "name": "S. Joachim Confessoris",
       "numericRank": 5,
       "rank1962": "ClassII"
@@ -1787,7 +1787,7 @@
   "08-17": [
     {
       "class1962": 3,
-      "fileKey": "08-17",
+      "fileKey": "saint_hyacinth_confessor",
       "name": "S. Hyacinthi Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -1796,7 +1796,7 @@
   "08-18": [
     {
       "class1962": 4,
-      "fileKey": "08-18r",
+      "fileKey": "saint_agapitus_martyr_rubrica1960",
       "name": "S. Agapiti Martyris",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1805,7 +1805,7 @@
   "08-19": [
     {
       "class1962": 3,
-      "fileKey": "08-19",
+      "fileKey": "saint_john_eudes_confessor",
       "name": "S. Joannis Eudes Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -1814,7 +1814,7 @@
   "08-20": [
     {
       "class1962": 3,
-      "fileKey": "08-20",
+      "fileKey": "saint_bernard_of_clairvaux_abbot_and_doctor_of_the_church",
       "name": "S. Bernardi Abbatis et Ecclesiae Doctoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -1823,7 +1823,7 @@
   "08-21": [
     {
       "class1962": 3,
-      "fileKey": "08-21",
+      "fileKey": "saint_jeanne_francoise_fremiot_de_chantal_widow_duplex",
       "name": "S. Joanne Franciscae Fremiot de Chantal Viduae",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -1832,14 +1832,14 @@
   "08-22": [
     {
       "class1962": 3,
-      "fileKey": "08-22",
+      "fileKey": "immaculate_heart_of_the_blessed_virgin_mary",
       "name": "Festum Immaculati Cordis Beatae Mariae Virginis",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "08-22cc",
+      "fileKey": "saints_timothy_hippolytus_and_symphorianus_martyrs_commemoration",
       "name": "Ss. Timothei, Hippolyti et Symphoriani Mart",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1848,7 +1848,7 @@
   "08-23": [
     {
       "class1962": 3,
-      "fileKey": "08-23",
+      "fileKey": "saint_philip_benizi_confessor",
       "name": "S. Philippi Beniti Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -1857,7 +1857,7 @@
   "08-24": [
     {
       "class1962": 2,
-      "fileKey": "08-24",
+      "fileKey": "saint_bartholomew_the_apostle",
       "name": "S. Bartholomaei Apostoli",
       "numericRank": 5,
       "rank1962": "ClassII"
@@ -1866,7 +1866,7 @@
   "08-25": [
     {
       "class1962": 4,
-      "fileKey": "08-25",
+      "fileKey": "saint_louis_confessor",
       "name": "S. Ludovioci Confessoris",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -1875,7 +1875,7 @@
   "08-26": [
     {
       "class1962": 4,
-      "fileKey": "08-26",
+      "fileKey": "saint_zephyrinus_pope_and_martyr",
       "name": "S. Zephirini Papae et Martyris",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1884,7 +1884,7 @@
   "08-27": [
     {
       "class1962": 3,
-      "fileKey": "08-27",
+      "fileKey": "saint_joseph_calasanz_confessor",
       "name": "S. Josephi Calasantini Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -1893,14 +1893,14 @@
   "08-28": [
     {
       "class1962": 3,
-      "fileKey": "08-28",
+      "fileKey": "saint_augustine_of_hippo_bishop_confessor_and_doctor_of_the_church",
       "name": "S. Augustini Episcopi et Confessoris et Ecclesiae Doctoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "08-28cc",
+      "fileKey": "saint_hermes_martyr_commemoration",
       "name": "S. Hermetis Mart",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1909,14 +1909,14 @@
   "08-29": [
     {
       "class1962": 3,
-      "fileKey": "08-29",
+      "fileKey": "beheading_of_saint_john_the_baptist",
       "name": "Decollatione S. Joannis Baptistae",
       "numericRank": 4,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "08-29cc",
+      "fileKey": "saint_sabina_martyr_commemoration",
       "name": "S. Sabinae Mart",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1925,14 +1925,14 @@
   "08-30": [
     {
       "class1962": 3,
-      "fileKey": "08-30",
+      "fileKey": "saint_rose_of_lima_virgin",
       "name": "S. Rosae a Sancta Maria Limange Virgini",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "08-30o",
+      "fileKey": "saint_felix_and_adauctus_martyrs_optional",
       "name": "Ss. Felicis et Soc. Mart.",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1941,7 +1941,7 @@
   "08-31": [
     {
       "class1962": 3,
-      "fileKey": "08-31",
+      "fileKey": "saint_raymond_nonnatus_confessor",
       "name": "S. Raymundi Nonnati Confessori",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -1950,14 +1950,14 @@
   "09-01": [
     {
       "class1962": 4,
-      "fileKey": "09-01",
+      "fileKey": "saint_giles_abbot",
       "name": "S. Aegidii Abbatis",
       "numericRank": 1,
       "rank1962": "Ferial"
     },
     {
       "class1962": 4,
-      "fileKey": "09-01cc",
+      "fileKey": "twelve_holy_brothers_martyrs_commemoration",
       "name": "Ss. Duodecim Fratrum Mm",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -1966,7 +1966,7 @@
   "09-02": [
     {
       "class1962": 4,
-      "fileKey": "09-02",
+      "fileKey": "saint_stephen_king_of_hungary_confessor",
       "name": "S. Stephani Hungariae Regis Confessoris",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -1975,7 +1975,7 @@
   "09-03": [
     {
       "class1962": 3,
-      "fileKey": "09-03",
+      "fileKey": "saint_pius_x_pope_and_confessor",
       "name": "S. Pius X Papae Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -1984,7 +1984,7 @@
   "09-05": [
     {
       "class1962": 4,
-      "fileKey": "09-05",
+      "fileKey": "saint_lawrence_justinian_bishop_and_confessor",
       "name": "S. Laurentii Justiniani Episcopi et Confessoris",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -1993,14 +1993,14 @@
   "09-08": [
     {
       "class1962": 3,
-      "fileKey": "09-08",
+      "fileKey": "nativity_of_the_blessed_virgin_mary",
       "name": "Nativitate Beatae Mariae Virginis",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "09-08cc",
+      "fileKey": "saint_adrian_martyr_commemoration",
       "name": "S. Adriani Mart",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -2009,7 +2009,7 @@
   "09-09": [
     {
       "class1962": 4,
-      "fileKey": "09-09",
+      "fileKey": "s_gorgonius_martyr",
       "name": "S. Gorgonii mart",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -2018,7 +2018,7 @@
   "09-10": [
     {
       "class1962": 3,
-      "fileKey": "09-10",
+      "fileKey": "saint_nicholas_of_tolentino_confessor",
       "name": "S. Nicolai de Tolentino Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2027,7 +2027,7 @@
   "09-11": [
     {
       "class1962": 4,
-      "fileKey": "09-11",
+      "fileKey": "saints_protus_and_hyacinth_martyrs",
       "name": "Ss. Proti et Hyacinthi Martyrum",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -2036,7 +2036,7 @@
   "09-12": [
     {
       "class1962": 3,
-      "fileKey": "09-12",
+      "fileKey": "holy_name_of_the_blessed_virgin_mary",
       "name": "S. Nominis Beatae Mariae Virginis",
       "numericRank": 4,
       "rank1962": "ClassIII"
@@ -2045,7 +2045,7 @@
   "09-14": [
     {
       "class1962": 3,
-      "fileKey": "09-14",
+      "fileKey": "exaltation_of_the_holy_cross",
       "name": "In Exaltatione Sanctae crucis",
       "numericRank": 4,
       "rank1962": "ClassIII"
@@ -2054,14 +2054,14 @@
   "09-15": [
     {
       "class1962": 2,
-      "fileKey": "09-15",
+      "fileKey": "seven_sorrows_of_the_blessed_virgin_mary",
       "name": "Septem Dolorum Beatae Mariae Virginis",
       "numericRank": 5,
       "rank1962": "ClassII"
     },
     {
       "class1962": 4,
-      "fileKey": "09-15cc",
+      "fileKey": "saint_nicomedes_martyr_commemoration",
       "name": "S. Nicomedis",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -2070,14 +2070,14 @@
   "09-16": [
     {
       "class1962": 4,
-      "fileKey": "09-16",
+      "fileKey": "saints_cornelius_pope_and_cyprian_bishop_martyrs",
       "name": "Ss. Cornelii et Cypriani Pontificium et Martyrum",
       "numericRank": 2,
       "rank1962": "ClassIV"
     },
     {
       "class1962": 4,
-      "fileKey": "09-16cc",
+      "fileKey": "ss_euphemia_lucy_and_geminian_martyrs_commemoration",
       "name": "Ss. Euphemiae, Luciae et Geminiani Martyrum",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -2086,7 +2086,7 @@
   "09-17": [
     {
       "class1962": 3,
-      "fileKey": "09-17",
+      "fileKey": "impression_of_the_stigmata_of_saint_francis",
       "name": "Impressionis Stigmatum S. Francisci",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2095,7 +2095,7 @@
   "09-18": [
     {
       "class1962": 3,
-      "fileKey": "09-18",
+      "fileKey": "saint_joseph_of_cupertino_confessor",
       "name": "S. Joseph Cupertino",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2104,7 +2104,7 @@
   "09-19": [
     {
       "class1962": 3,
-      "fileKey": "09-19",
+      "fileKey": "saint_januarius_bishop_and_companions_martyrs",
       "name": "S. Januarii Episcopi et Sociorum Martyrum",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2113,7 +2113,7 @@
   "09-20": [
     {
       "class1962": 3,
-      "fileKey": "09-20",
+      "fileKey": "s_eustachius_and_companions_martyrs",
       "name": "S. Eustachii et Sociorum Martyrum",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2122,7 +2122,7 @@
   "09-21": [
     {
       "class1962": 3,
-      "fileKey": "09-21",
+      "fileKey": "saint_matthew_apostle_and_evangelist",
       "name": "S. Matthaei Apostoli et Evangelistae",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2131,14 +2131,14 @@
   "09-22": [
     {
       "class1962": 3,
-      "fileKey": "09-22",
+      "fileKey": "saint_thomas_of_villanova_bishop_and_confessor",
       "name": "S. Thomae de Villanove Episcopi et Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "09-22o",
+      "fileKey": "ss_maurice_and_companions_martyrs_optional",
       "name": "Ss. Martyris Mauritii et Sociorum",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -2147,14 +2147,14 @@
   "09-23": [
     {
       "class1962": 4,
-      "fileKey": "09-23",
+      "fileKey": "saint_linus_pope_and_martyr",
       "name": "S. Linae Papae et Martyris",
       "numericRank": 2,
       "rank1962": "ClassIV"
     },
     {
       "class1962": 4,
-      "fileKey": "09-23cc",
+      "fileKey": "saint_thecla_virgin_martyr_commemoration",
       "name": "S. Theclae Virgini et Martyri",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -2163,7 +2163,7 @@
   "09-24": [
     {
       "class1962": 3,
-      "fileKey": "09-24",
+      "fileKey": "our_lady_of_ransom",
       "name": "Beatae Mariae Virginis de Mercede",
       "numericRank": 4,
       "rank1962": "ClassIII"
@@ -2172,7 +2172,7 @@
   "09-26": [
     {
       "class1962": 4,
-      "fileKey": "09-26",
+      "fileKey": "saints_cyprian_and_justina_martyrs",
       "name": "Ss. Cypriani et Justinae Martyri",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -2181,7 +2181,7 @@
   "09-27": [
     {
       "class1962": 4,
-      "fileKey": "09-27",
+      "fileKey": "saints_cosmas_and_damian_martyrs",
       "name": "S. Cosmae et Damiani Martyrum",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -2190,7 +2190,7 @@
   "09-28": [
     {
       "class1962": 4,
-      "fileKey": "09-28",
+      "fileKey": "saint_wenceslaus_duke_and_martyr",
       "name": "S. Wenceslai Ducis et Martyris",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -2199,7 +2199,7 @@
   "09-29": [
     {
       "class1962": 3,
-      "fileKey": "09-29",
+      "fileKey": "dedication_of_the_archbasilica_of_saint_michael_the_archangel",
       "name": "In dedicatione S. Michaelis Archangelis",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2208,7 +2208,7 @@
   "09-30": [
     {
       "class1962": 3,
-      "fileKey": "09-30",
+      "fileKey": "saint_jerome_priest_confessor_and_doctor_of_the_church",
       "name": "S. Hieronomy Presbitery Confessorie et Ecclesiae Doctoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2217,7 +2217,7 @@
   "10-01": [
     {
       "class1962": 4,
-      "fileKey": "10-01",
+      "fileKey": "saint_remigius_bishop_and_confessor",
       "name": "S. Remigii Episcopi Confessoris",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -2226,7 +2226,7 @@
   "10-02": [
     {
       "class1962": 3,
-      "fileKey": "10-02",
+      "fileKey": "guardian_angels",
       "name": "Ss. Angelorum Custodum",
       "numericRank": 4,
       "rank1962": "ClassIII"
@@ -2235,7 +2235,7 @@
   "10-03": [
     {
       "class1962": 3,
-      "fileKey": "10-03",
+      "fileKey": "saint_therese_of_the_child_jesus_virgin",
       "name": "S. Theresiae a Jesu Infante Virginis",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2244,7 +2244,7 @@
   "10-04": [
     {
       "class1962": 3,
-      "fileKey": "10-04",
+      "fileKey": "saint_francis_of_assisi_confessor",
       "name": "S. Francisci Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2253,7 +2253,7 @@
   "10-05": [
     {
       "class1962": 4,
-      "fileKey": "10-05",
+      "fileKey": "saints_placidus_and_companions_martyrs",
       "name": "S. Placidi et Sociorum Martyrum",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -2262,7 +2262,7 @@
   "10-06": [
     {
       "class1962": 3,
-      "fileKey": "10-06",
+      "fileKey": "saint_bruno_confessor",
       "name": "S. Brunonis Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2271,14 +2271,14 @@
   "10-07": [
     {
       "class1962": 2,
-      "fileKey": "10-07",
+      "fileKey": "our_lady_of_the_rosary",
       "name": "Festum Beatae Mariae Virginis a Rosario",
       "numericRank": 5,
       "rank1962": "ClassII"
     },
     {
       "class1962": 4,
-      "fileKey": "10-07t",
+      "fileKey": "saint_mark_pope_and_confessor_tridentine",
       "name": "S. Marci Papae Confessoris",
       "numericRank": 0,
       "rank1962": "Ferial"
@@ -2287,14 +2287,14 @@
   "10-08": [
     {
       "class1962": 3,
-      "fileKey": "10-08",
+      "fileKey": "saint_birgitta_widow",
       "name": "S. Brigittae Viduae",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "10-07cc",
+      "fileKey": "saints_sergius_bacchus_marcellus_and_apuleius_martyrs_commemoration",
       "name": "Ss. Martyrum Sergii, Bacchi, Marcelli et Apuleji",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -2303,14 +2303,14 @@
   "10-09": [
     {
       "class1962": 3,
-      "fileKey": "10-09",
+      "fileKey": "saint_john_leonard_confessor",
       "name": "S. Joannis Leonardi Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "10-09t",
+      "fileKey": "saints_denis_bishop_rusticus_et_eleutherius_martyrs_tridentine",
       "name": "S. Dionysii Episcopi Rustici et Eleuthery Martyrum",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -2319,7 +2319,7 @@
   "10-10": [
     {
       "class1962": 4,
-      "fileKey": "10-10",
+      "fileKey": "saint_francis_borgia_confessor",
       "name": "S. Francisci Borgiae Confessoris",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -2328,7 +2328,7 @@
   "10-11": [
     {
       "class1962": 2,
-      "fileKey": "10-11",
+      "fileKey": "maternity_of_the_blessed_virgin_mary",
       "name": "Maternitatis Beatae Mariae Virginis",
       "numericRank": 5,
       "rank1962": "ClassII"
@@ -2337,7 +2337,7 @@
   "10-13": [
     {
       "class1962": 4,
-      "fileKey": "10-13",
+      "fileKey": "saint_edward_the_confessor_king",
       "name": "S. Eduardi Regis Confessoris",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -2346,7 +2346,7 @@
   "10-14": [
     {
       "class1962": 4,
-      "fileKey": "10-14",
+      "fileKey": "saint_callistus_pope_and_martyr",
       "name": "S. Callisti Papae et Martyris",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -2355,7 +2355,7 @@
   "10-15": [
     {
       "class1962": 3,
-      "fileKey": "10-15",
+      "fileKey": "saint_teresa_of_avila_virgin",
       "name": "S. Teresiae Virginis",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2364,7 +2364,7 @@
   "10-16": [
     {
       "class1962": 4,
-      "fileKey": "10-16",
+      "fileKey": "saint_hedwig_widow",
       "name": "S. Hedwigis Viduae",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -2373,7 +2373,7 @@
   "10-17": [
     {
       "class1962": 3,
-      "fileKey": "10-17",
+      "fileKey": "saint_marguerite_marie_alacoque_virgin",
       "name": "S. Margaritae Mariae Alaquoque Virginis",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2382,7 +2382,7 @@
   "10-18": [
     {
       "class1962": 3,
-      "fileKey": "10-18",
+      "fileKey": "saint_luke_the_evangelist",
       "name": "S. Lucae Evangelistae",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2391,7 +2391,7 @@
   "10-19": [
     {
       "class1962": 3,
-      "fileKey": "10-19",
+      "fileKey": "saint_peter_of_alcantara_confessor",
       "name": "S. Petri de Alcantara Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2400,7 +2400,7 @@
   "10-20": [
     {
       "class1962": 3,
-      "fileKey": "10-20",
+      "fileKey": "saint_john_cantius_confessor",
       "name": "S. Joannis Cantii Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2409,14 +2409,14 @@
   "10-21": [
     {
       "class1962": 4,
-      "fileKey": "10-21",
+      "fileKey": "saint_hilarion_abbot",
       "name": "S. Hilarionis Abbatis",
       "numericRank": 1,
       "rank1962": "Ferial"
     },
     {
       "class1962": 4,
-      "fileKey": "10-21cc",
+      "fileKey": "ss_ursula_and_companions_virg_and_mart_commemoration",
       "name": "Ss. Ursule et Soc Virg et Mart",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -2425,7 +2425,7 @@
   "10-23": [
     {
       "class1962": 3,
-      "fileKey": "10-23r",
+      "fileKey": "saint_anthony_mary_claret_bishop_and_confessor_rubrica1960",
       "name": "S. Antonii Mariae Claret Episcopi Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2434,7 +2434,7 @@
   "10-24": [
     {
       "class1962": 3,
-      "fileKey": "10-24",
+      "fileKey": "saint_raphael_the_archangel_duplex_majus",
       "name": "S. Raphaelis Archangeli",
       "numericRank": 4,
       "rank1962": "ClassIII"
@@ -2443,7 +2443,7 @@
   "10-25": [
     {
       "class1962": 4,
-      "fileKey": "10-25",
+      "fileKey": "saints_chrysanthus_and_daria_martyrs",
       "name": "Ss. Chrysanthi et Dariae Martyres",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -2452,7 +2452,7 @@
   "10-26": [
     {
       "class1962": 4,
-      "fileKey": "10-26",
+      "fileKey": "saint_evaristus_pope_and_martyr",
       "name": "S. Evaristi Papae et Martyri",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -2461,7 +2461,7 @@
   "10-28": [
     {
       "class1962": 3,
-      "fileKey": "10-28",
+      "fileKey": "saints_simon_and_jude_apostles",
       "name": "Ss. Simonis et Judae Apostolorum",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2470,7 +2470,7 @@
   "11-01": [
     {
       "class1962": 3,
-      "fileKey": "11-01",
+      "fileKey": "all_saints",
       "name": "Omnium Sanctorum",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2479,7 +2479,7 @@
   "11-02": [
     {
       "class1962": 3,
-      "fileKey": "11-02",
+      "fileKey": "all_souls",
       "name": "Commemoratio Omnium Fidelium Defunctorum",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2488,14 +2488,14 @@
   "11-04": [
     {
       "class1962": 3,
-      "fileKey": "11-04",
+      "fileKey": "saint_charles_borromeo_bishop_and_confessor",
       "name": "S. Caroli Episcopi et Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "11-04cc",
+      "fileKey": "saints_vitalis_and_agricola_martyrs_commemoration",
       "name": "Ss. Mart Vitalis et Agricolae",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -2504,7 +2504,7 @@
   "11-08": [
     {
       "class1962": 4,
-      "fileKey": "11-08r",
+      "fileKey": "four_crowned_martyrs_rubrica1960",
       "name": "Ss. Quatuor Coronatorum Martyrum",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -2513,14 +2513,14 @@
   "11-09": [
     {
       "class1962": 3,
-      "fileKey": "11-09",
+      "fileKey": "dedication_of_the_lateran_basilica_of_our_savior",
       "name": "In dedicatione Basilicae Ss. Salvatoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "11-09cc",
+      "fileKey": "saint_theodore_martyr_commemoration",
       "name": "S. Theodori",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -2529,14 +2529,14 @@
   "11-10": [
     {
       "class1962": 3,
-      "fileKey": "11-10",
+      "fileKey": "saint_andrew_avellino_confessor",
       "name": "S.Andreae Avellini Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "11-10o",
+      "fileKey": "saints_tryphon_respicius_et_nympha_martyrs_optional",
       "name": "Ss. Tryphonis et Sociorum Martyris",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -2545,7 +2545,7 @@
   "11-11": [
     {
       "class1962": 3,
-      "fileKey": "11-11",
+      "fileKey": "saint_martin_bishop_of_tours_confessor",
       "name": "S. Martini Episcopi et Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2554,7 +2554,7 @@
   "11-12": [
     {
       "class1962": 4,
-      "fileKey": "11-12",
+      "fileKey": "saint_martin_i_pope_and_martyr",
       "name": "S. Martini Papae et Martyris",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -2563,7 +2563,7 @@
   "11-13": [
     {
       "class1962": 4,
-      "fileKey": "11-13",
+      "fileKey": "saint_didacus_confessor",
       "name": "S. Didaci Confessoris",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -2572,7 +2572,7 @@
   "11-14": [
     {
       "class1962": 3,
-      "fileKey": "11-14",
+      "fileKey": "saint_josaphat_bishop_and_martyr",
       "name": "S. Josaphat Episcopi et Martyris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2581,7 +2581,7 @@
   "11-15": [
     {
       "class1962": 3,
-      "fileKey": "11-15",
+      "fileKey": "saint_albert_the_great_bishop_confessor_and_doctor_of_the_church",
       "name": "S. Albertus Magnus Ep Conf et Eccl Doctoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2590,7 +2590,7 @@
   "11-16": [
     {
       "class1962": 3,
-      "fileKey": "11-16",
+      "fileKey": "saint_gertrude_virgin",
       "name": "S. Gertrudis Virginis",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2599,7 +2599,7 @@
   "11-17": [
     {
       "class1962": 4,
-      "fileKey": "11-17",
+      "fileKey": "saint_gregory_the_wonderworker_bishop_and_confessor",
       "name": "S. Gregorii Thaumaturgi Episcopi et Confessoris",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -2608,7 +2608,7 @@
   "11-18": [
     {
       "class1962": 3,
-      "fileKey": "11-18r",
+      "fileKey": "dedication_of_the_basilicas_of_saints_peter_and_paul_rubrica1960",
       "name": "In Dedicatione Basilicarum Ss. Apostolorum Petri et Pauli",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2617,14 +2617,14 @@
   "11-19": [
     {
       "class1962": 3,
-      "fileKey": "11-19",
+      "fileKey": "saint_elizabeth_widow",
       "name": "S. Elisabeth vidue",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "11-19o",
+      "fileKey": "saint_pontianus_pope_and_martyr_optional",
       "name": "S. Pontianae Papae et Martyre",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -2633,7 +2633,7 @@
   "11-20": [
     {
       "class1962": 3,
-      "fileKey": "11-20",
+      "fileKey": "saint_felix_de_valois_confessor",
       "name": "S. Felicis Valois Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2642,7 +2642,7 @@
   "11-21": [
     {
       "class1962": 3,
-      "fileKey": "11-21",
+      "fileKey": "presentation_of_the_blessed_virgin_mary",
       "name": "In Presentatione of Beatae Mariae Virginis",
       "numericRank": 4,
       "rank1962": "ClassIII"
@@ -2651,7 +2651,7 @@
   "11-22": [
     {
       "class1962": 4,
-      "fileKey": "11-22",
+      "fileKey": "saint_cecilia_virgin_and_martyr",
       "name": "S. Ceciliae Virginis et Martyrum",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -2660,14 +2660,14 @@
   "11-23": [
     {
       "class1962": 3,
-      "fileKey": "11-23",
+      "fileKey": "saint_clement_pope_and_martyr",
       "name": "S. Clement Papae et Martyris",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "11-23cc",
+      "fileKey": "saint_felicity_martyr_commemoration",
       "name": "S. Felicitatis Martyris",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -2676,14 +2676,14 @@
   "11-24": [
     {
       "class1962": 3,
-      "fileKey": "11-24",
+      "fileKey": "saint_john_of_the_cross_confessor_and_doctor_of_the_church",
       "name": "S. Joannis de Cruce Confessoris (1926: et Ecclesiae Doctoris)",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "11-24o",
+      "fileKey": "saint_chrysogonus_martyr_optional",
       "name": "S. Chrysogoni Martyris",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -2692,7 +2692,7 @@
   "11-25": [
     {
       "class1962": 3,
-      "fileKey": "11-25",
+      "fileKey": "saint_catharine_of_alexandria_virgin_and_martyr",
       "name": "S. Catharinae Virginis et Martyris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2701,14 +2701,14 @@
   "11-26": [
     {
       "class1962": 3,
-      "fileKey": "11-26",
+      "fileKey": "saint_sylvester_abbot",
       "name": "S. Silvesteri Abbatis Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "11-26t",
+      "fileKey": "saint_peter_of_alexandria_martyr_tridentine",
       "name": "S. Petri Alexandrini",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -2717,7 +2717,7 @@
   "11-29": [
     {
       "class1962": 4,
-      "fileKey": "11-29r",
+      "fileKey": "saint_saturninus_martyr_rubrica1960",
       "name": "S. Saturnini Martyris",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -2726,7 +2726,7 @@
   "11-30": [
     {
       "class1962": 3,
-      "fileKey": "11-30",
+      "fileKey": "saint_andrew_the_apostle",
       "name": "S. Andreae Apostoli",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2735,7 +2735,7 @@
   "12-02": [
     {
       "class1962": 4,
-      "fileKey": "12-02",
+      "fileKey": "saint_bibiana_virgin_and_martyr",
       "name": "S. Bibianae Virginis et Martyris",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -2744,7 +2744,7 @@
   "12-03": [
     {
       "class1962": 3,
-      "fileKey": "12-03",
+      "fileKey": "saint_francis_xavier_confessor",
       "name": "S. Francisci Xaverii Confessoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2753,14 +2753,14 @@
   "12-04": [
     {
       "class1962": 3,
-      "fileKey": "12-04",
+      "fileKey": "saint_peter_chrysologus_bishop_confessor_and_doctor_of_the_church",
       "name": "S. Petri Chrysologi Episcopi Confessoris Ecclesiae Doctoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
     },
     {
       "class1962": 4,
-      "fileKey": "12-04o",
+      "fileKey": "saint_barbara_virgin_and_martyr_optional",
       "name": "S. Barbarae Virginis et Martyris",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -2769,7 +2769,7 @@
   "12-05": [
     {
       "class1962": 4,
-      "fileKey": "12-05",
+      "fileKey": "saint_sabbas_abbot",
       "name": "S. Sabbae Abbatis",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -2778,7 +2778,7 @@
   "12-06": [
     {
       "class1962": 4,
-      "fileKey": "12-06",
+      "fileKey": "saint_nicholas_bishop_and_confessor",
       "name": "S. Nicolai Episcopi et confessoris",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -2787,7 +2787,7 @@
   "12-07": [
     {
       "class1962": 3,
-      "fileKey": "12-07",
+      "fileKey": "saint_ambrose_bishop_confessor_and_doctor_of_the_church",
       "name": "S. Ambrosii Episcopi Confesoris et Ecclesiae Doctoris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2796,7 +2796,7 @@
   "12-08": [
     {
       "class1962": 1,
-      "fileKey": "12-08",
+      "fileKey": "immaculate_conception_of_the_blessed_virgin_mary",
       "name": "Immaculata Conceptione Beatae Mariae Virginis",
       "numericRank": 6,
       "rank1962": "ClassI"
@@ -2805,7 +2805,7 @@
   "12-10": [
     {
       "class1962": 4,
-      "fileKey": "12-10o",
+      "fileKey": "saint_melchiades_pope_and_martyr_optional",
       "name": "S. Melchiadis Papae et Mart",
       "numericRank": 1,
       "rank1962": "Ferial"
@@ -2814,7 +2814,7 @@
   "12-11": [
     {
       "class1962": 4,
-      "fileKey": "12-11",
+      "fileKey": "saint_damasus_pope_and_confessor",
       "name": "S. Damasi Papae et confessoris",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -2823,7 +2823,7 @@
   "12-13": [
     {
       "class1962": 3,
-      "fileKey": "12-13r",
+      "fileKey": "saint_lucy_virgin_and_martyr_rubrica1960",
       "name": "S. Luciae Virginis et Martyris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2832,7 +2832,7 @@
   "12-16": [
     {
       "class1962": 4,
-      "fileKey": "12-16",
+      "fileKey": "saint_eusebius_bishop_and_martyr",
       "name": "S. Eusebii Episcopi et Martyris",
       "numericRank": 2,
       "rank1962": "ClassIV"
@@ -2841,7 +2841,7 @@
   "12-21": [
     {
       "class1962": 3,
-      "fileKey": "12-21",
+      "fileKey": "saint_thomas_the_apostle",
       "name": "S. Thomae Apostoli",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2850,7 +2850,7 @@
   "12-24": [
     {
       "class1962": 1,
-      "fileKey": "12-24",
+      "fileKey": "christmas_eve",
       "name": "Vigilia Nativitatis Domini",
       "numericRank": 6,
       "rank1962": "ClassI"
@@ -2859,7 +2859,7 @@
   "12-25": [
     {
       "class1962": 3,
-      "fileKey": "12-25",
+      "fileKey": "nativity_of_our_lord_jesus_christ",
       "name": "In Nativitate Domini",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2868,7 +2868,7 @@
   "12-26": [
     {
       "class1962": 3,
-      "fileKey": "12-26",
+      "fileKey": "saint_stephen_the_first_martyr",
       "name": "S. Stephani Protomartyris",
       "numericRank": 3,
       "rank1962": "ClassIII"
@@ -2877,7 +2877,7 @@
   "12-27": [
     {
       "class1962": 2,
-      "fileKey": "12-27",
+      "fileKey": "saint_john_the_apostle_evangelist",
       "name": "S. Joanni Apostoli",
       "numericRank": 5,
       "rank1962": "ClassII"
@@ -2892,7 +2892,7 @@
           "numericRank": 0
         }
       ],
-      "fileKey": "12-28r",
+      "fileKey": "4th_day_in_the_octave_of_christmas_rubrica1960",
       "name": "Die quarta infra octavam Nativitatis",
       "numericRank": 5,
       "rank1962": "ClassII"
@@ -2907,7 +2907,7 @@
           "numericRank": 0
         }
       ],
-      "fileKey": "12-29r",
+      "fileKey": "saint_thomae_cantuariensis_bishop_and_martyr_rubrica1960",
       "name": "Die quinta infra octavam Nativitatis",
       "numericRank": 5,
       "rank1962": "ClassII"
@@ -2922,7 +2922,7 @@
           "numericRank": 0
         }
       ],
-      "fileKey": "12-31r",
+      "fileKey": "saint_silvestri_pope_and_confessor_rubrica1960",
       "name": "Die septima infra octavam Nativitatis",
       "numericRank": 5,
       "rank1962": "ClassII"

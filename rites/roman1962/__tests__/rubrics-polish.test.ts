@@ -4,24 +4,24 @@ import { applyCommemorationCap } from '../src/rubrics/commemoration-cap';
 
 describe('M8 rubrics polish', () => {
   describe('Class II Lord feast vs Class II Sunday (§15)', () => {
-    test('1961-08-06 Transfiguration on Pent11-0 → Transfiguration wins', () => {
+    test('1961-08-06 Transfiguration on after_pentecost_11_sunday → Transfiguration wins', () => {
       const year = buildLiturgicalYear1962(1961);
       const day = year.get('1961-08-06');
       expect(day).toBeDefined();
       expect(day!.primary.kind).toBe('sancti');
-      expect(day!.primary.key).toBe('08-06');
+      expect(day!.primary.key).toBe('the_transfiguration_of_our_lord_jesus_christ');
       expect(day!.primary.name).toMatch(/Transfiguratione|Transfiguratio/);
-      const sundayCommem = day!.commemorations.find((c) => c.key === 'Pent11-0');
+      const sundayCommem = day!.commemorations.find((c) => c.key === 'after_pentecost_11_sunday');
       expect(sundayCommem).toBeDefined();
     });
 
-    test('1958-09-14 Exaltation on Pent16-0 → Exaltation wins', () => {
+    test('1958-09-14 Exaltation on after_pentecost_16_sunday → Exaltation wins', () => {
       const year = buildLiturgicalYear1962(1958);
       const day = year.get('1958-09-14');
       expect(day).toBeDefined();
       expect(day!.primary.kind).toBe('sancti');
-      expect(day!.primary.key).toBe('09-14');
-      const sundayCommem = day!.commemorations.find((c) => c.key === 'Pent16-0');
+      expect(day!.primary.key).toBe('exaltation_of_the_holy_cross');
+      const sundayCommem = day!.commemorations.find((c) => c.key === 'after_pentecost_16_sunday');
       expect(sundayCommem).toBeDefined();
     });
   });
@@ -64,13 +64,13 @@ describe('M8 rubrics polish', () => {
     });
 
     test('cap preserves precedence-desc ordering (top-N kept)', () => {
-      // 1961-08-06 has Pent11-0 (Class II Sunday) + Ss. Xysti (Class IV).
-      // Under 'private', Pent11-0 must survive.
+      // 1961-08-06 has after_pentecost_11_sunday (Class II Sunday) + Ss. Xysti (Class IV).
+      // Under 'private', the Class II Sunday must survive.
       const y61 = buildLiturgicalYear1962(1961);
       const out = applyCommemorationCap(y61, { mode: 'private' });
       const day = out.get('1961-08-06');
       expect(day!.commemorations.length).toBe(1);
-      expect(day!.commemorations[0].key).toBe('Pent11-0');
+      expect(day!.commemorations[0].key).toBe('after_pentecost_11_sunday');
     });
 
     test('cap does not mutate input', () => {
