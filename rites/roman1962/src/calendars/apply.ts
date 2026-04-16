@@ -74,13 +74,36 @@ export function applyOverlay(
     for (const entry of o.entries) {
       const calEntry = toCalendarEntry(entry);
       const existing = calendar[entry.mmdd];
-      if (entry.mode === 'replace' || !existing) {
+
+      if (entry.mode === 'raise' && existing) {
+        const idx = existing.findIndex((e) => e.fileKey === entry.fileKey);
+        if (idx >= 0) {
+          const next = [...existing];
+          next[idx] = { ...next[idx], ...calEntry };
+          calendar[entry.mmdd] = next;
+        } else {
+          calendar[entry.mmdd] = [calEntry, ...existing];
+        }
+      } else if (entry.mode === 'replace' || !existing) {
         calendar[entry.mmdd] = [calEntry];
       } else {
         calendar[entry.mmdd] = [calEntry, ...existing];
       }
+
       const mass = toMassFileEntry(entry);
-      if (mass) sancti[entry.fileKey] = mass;
+      if (mass) {
+        if (entry.mode === 'raise' && sancti[entry.fileKey]) {
+          // Preserve the universal Mass references/sections; just bump
+          // the rubrics/colors if the overlay specifies them.
+          sancti[entry.fileKey] = {
+            ...sancti[entry.fileKey],
+            colors: mass.colors.length ? mass.colors : sancti[entry.fileKey].colors,
+            rubrics: { ...sancti[entry.fileKey].rubrics, ...mass.rubrics },
+          };
+        } else {
+          sancti[entry.fileKey] = mass;
+        }
+      }
     }
   }
   return { calendar, sancti };

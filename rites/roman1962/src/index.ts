@@ -30,7 +30,20 @@ export type {
   SanctoralPropersRef,
   Sanctoral1962Year,
 } from './sanctoral';
-export { applyOverlay, calendarOverlays, collectOverlayNames, Europe, Switzerland, SwitzerlandChur } from './calendars';
+export {
+  applyOverlay,
+  calendarOverlays,
+  collectOverlayNames,
+  Europe,
+  Switzerland,
+  SwitzerlandBasel,
+  SwitzerlandChur,
+  SwitzerlandLausanneGenevaFribourg,
+  SwitzerlandLugano,
+  SwitzerlandSaintMauriceAbbey,
+  SwitzerlandSanktGallen,
+  SwitzerlandSion,
+} from './calendars';
 export type { CalendarOverlay1962, CalendarOverlayEntry, OverlayApplyResult } from './calendars';
 export { buildLiturgicalYear1962 } from './calendar-year';
 export type { BuildLiturgicalYearOptions, Celebration1962, ResolvedDay1962, ResolvedYear1962 } from './calendar-year';
