@@ -22,6 +22,16 @@ export type BundleInputs = Record<Id, LiturgicalDayBundleInput[]>;
 export type LiturgicalDayDefinitions = Record<Id, LiturgicalDayDef>;
 
 /**
+ * Flat-array view of a 1969 calendar's `inputs` record. Satisfies the
+ * shared `CalendarDef<E>.entries` contract without changing how 1969
+ * stores its per-id input map internally.
+ */
+export interface CalendarDefEntry1969 {
+  id: Id;
+  input: LiturgicalDayInput | LiturgicalDayBundleInput;
+}
+
+/**
  * Base [CalendarDef] interface
  */
 export interface BaseCalendarDef {
