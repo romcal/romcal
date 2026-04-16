@@ -28,13 +28,31 @@ wraps up so we always know where we are.
       `calendar-year/build.ts`). 1969 untouched this phase —
       `utils/dates.ts` delegates in Phase D. 656 tests across all
       workspaces remain green; full workspace build clean.
-- [ ] **Phase C — Extract `@internal/calendars`.** Define a generic
-      `CalendarDef<Rank, Entry>` abstract class + registry plumbing
-      (parent chain, id, inputs/entries, `apply`/`buildAll`). 1969's
-      `CalendarDef` becomes a type-specialization; 1962's
-      `CalendarOverlay1962` data object becomes a class instance. Both
-      rites share the same parent-flattening + dedup logic. This is
-      the structurally biggest phase — touches 57 country classes in 1969.
+- [~] **Phase C — Extract `@internal/calendars`.** Define a generic
+  `CalendarDef<Entry>` abstract class + `flattenCalendarChain`
+  helper. Scoped into sub-phases so the 1969 touch (57 country
+  classes) stays out of the 1962 migration: - [x] **C1 — Ship shared package + 1962 class migration.** Done
+  2026-04-16. `packages/calendars/` exports abstract
+  `CalendarDef<E>` (id getter, entries, parent chain) and
+  `flattenCalendarChain` with parents-first, id-deduped
+  walk. 9 1962 overlays converted to classes extending
+  `CalendarDef<CalendarOverlayEntry>`. `applyOverlay` +
+  `collectOverlayNames` now consume instances. Registry
+  `calendarOverlays` holds `CalendarDefConstructor` values
+  per dotted slug; `Romcal1962Config.calendar` accepts a
+  constructor and instantiates once internally. 659 tests
+  green across 6 workspaces; full build clean. - [ ] **C2 — Re-parent 1969's `CalendarDef` onto the shared
+  base.** Keep the 1969-specific lifecycle methods
+  (`updateConfig`, `buildAllDefinitions`, `calendarName`) as
+  an intermediate subclass; swap its data-carrying shape
+  for the shared `id`/`entries`/`parents` trio. No public
+  API change to the 57 country classes — only the class
+  they extend. - [ ] **C3 — 1969 slug migration.** Rename
+  `calendarDefinitions` keys from PascalCase (`Argentina`,
+  `UnitedStates`) to dotted slugs (`argentina`,
+  `united-states`) to match the 1962 convention. This is a
+  public-API-breaking change; batch it alone so downstream
+  consumers have a clean migration point.
 - [ ] **Phase D — Extract `@internal/romcal-core`.** Pull an abstract
       `RomcalBase<Config, Day, Year>` class with the shared shape
       (config + cache + `generateCalendar(year)` +
@@ -76,6 +94,7 @@ Record any scope changes or path pivots here, newest first.
 
 | Date       | Decision                                                                                                                                                                                    |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2026-04-16 | Phase C1 complete. `@internal/calendars` shipped; 1962 overlays migrated to class form; 1969 C2/C3 split off as follow-ups.                                                                 |
 | 2026-04-16 | Phase B complete. `@internal/proper-of-time` shipped; 1962 consumes it; 1969 deferred to Phase D.                                                                                           |
 | 2026-04-16 | Q4 resolved: `BaseLiturgicalDay` + rite-specific extension interfaces, discriminated by `rite: 'roman1969' \| 'roman1962'`.                                                                 |
 | 2026-04-16 | Q3 resolved: rank stays rite-local; unify via generic `CalendarDef<Rank, Entry>`. No shared rank enum.                                                                                      |

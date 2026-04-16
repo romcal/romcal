@@ -1,4 +1,6 @@
-import type { CalendarOverlay1962 } from '../../types';
+import { CalendarDef } from '@internal/calendars';
+
+import type { CalendarOverlayEntry } from '../../types';
 
 import { Switzerland } from '.';
 
@@ -15,10 +17,14 @@ import { Switzerland } from '.';
  * calendar) is *raised* to Class I for the diocese via the `raise`
  * mode — no duplication, just an in-place rank bump.
  */
-export const SwitzerlandLausanneGenevaFribourg: CalendarOverlay1962 = {
-  id: 'switzerland.lausanne-geneva-fribourg',
-  parents: [Switzerland],
-  entries: [
+export class SwitzerlandLausanneGenevaFribourg extends CalendarDef<CalendarOverlayEntry> {
+  get id(): string {
+    return 'switzerland.lausanne-geneva-fribourg';
+  }
+
+  readonly parents: readonly CalendarDef<CalendarOverlayEntry>[] = [new Switzerland()];
+
+  readonly entries: readonly CalendarOverlayEntry[] = [
     {
       mmdd: '12-06',
       fileKey: 'saint_nicholas_bishop_and_confessor',
@@ -35,5 +41,5 @@ export const SwitzerlandLausanneGenevaFribourg: CalendarOverlay1962 = {
         it: 'S. Nicola, Vescovo e Confessore, Patrono principale della Diocesi',
       },
     },
-  ],
-};
+  ];
+}

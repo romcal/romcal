@@ -24,7 +24,7 @@ export class Romcal1962Config {
     this.propersLocales = [...(input.propersLocales ?? [this.localeId])];
     this.attachToCommemorations = input.attachToCommemorations ?? false;
     this.commemorationLimit = input.commemorationLimit ?? 'all';
-    this.calendar = input.calendar;
+    this.calendar = input.calendar ? new input.calendar() : undefined;
     const extraNames = this.calendar ? collectOverlayNames(this.calendar) : undefined;
     this.i18next = createI18n1962(this.localeId, extraNames);
     this.translateName = createNameTranslator(this.i18next);

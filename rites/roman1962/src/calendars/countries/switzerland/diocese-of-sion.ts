@@ -1,4 +1,6 @@
-import type { CalendarOverlay1962 } from '../../types';
+import { CalendarDef } from '@internal/calendars';
+
+import type { CalendarOverlayEntry } from '../../types';
 
 import { Switzerland } from '.';
 
@@ -15,10 +17,14 @@ import { Switzerland } from '.';
  * (elsewhere 26 Aug is also attested); in the universal calendar Aug 16
  * is St. Joachim (Class II), which drops to commemoration here.
  */
-export const SwitzerlandSion: CalendarOverlay1962 = {
-  id: 'switzerland.sion',
-  parents: [Switzerland],
-  entries: [
+export class SwitzerlandSion extends CalendarDef<CalendarOverlayEntry> {
+  get id(): string {
+    return 'switzerland.sion';
+  }
+
+  readonly parents: readonly CalendarDef<CalendarOverlayEntry>[] = [new Switzerland()];
+
+  readonly entries: readonly CalendarOverlayEntry[] = [
     {
       mmdd: '08-16',
       fileKey: 'saint_theodore_of_octodurus_bishop_patron_of_the_diocese',
@@ -50,5 +56,5 @@ export const SwitzerlandSion: CalendarOverlay1962 = {
         it: 'S. Teodulo, Vescovo, Patrono principale della Diocesi',
       },
     },
-  ],
-};
+  ];
+}

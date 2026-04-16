@@ -1,4 +1,6 @@
-import type { CalendarOverlay1962 } from '../../types';
+import { CalendarDef } from '@internal/calendars';
+
+import type { CalendarOverlayEntry } from '../../types';
 
 import { Switzerland } from '.';
 
@@ -15,10 +17,14 @@ import { Switzerland } from '.';
  * of the diocese. St. Othmar (Otmar), the abbey's first abbot under the
  * rule of St. Benedict, is co-patron.
  */
-export const SwitzerlandSanktGallen: CalendarOverlay1962 = {
-  id: 'switzerland.sankt-gallen',
-  parents: [Switzerland],
-  entries: [
+export class SwitzerlandSanktGallen extends CalendarDef<CalendarOverlayEntry> {
+  get id(): string {
+    return 'switzerland.sankt-gallen';
+  }
+
+  readonly parents: readonly CalendarDef<CalendarOverlayEntry>[] = [new Switzerland()];
+
+  readonly entries: readonly CalendarOverlayEntry[] = [
     {
       mmdd: '10-16',
       fileKey: 'saint_gallus_abbot_patron_of_the_diocese',
@@ -81,5 +87,5 @@ export const SwitzerlandSanktGallen: CalendarOverlay1962 = {
         it: 'S. Otmaro, Abate, Compatrono della Diocesi',
       },
     },
-  ],
-};
+  ];
+}

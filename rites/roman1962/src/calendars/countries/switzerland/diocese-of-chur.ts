@@ -1,4 +1,6 @@
-import type { CalendarOverlay1962 } from '../../types';
+import { CalendarDef } from '@internal/calendars';
+
+import type { CalendarOverlayEntry } from '../../types';
 
 import { Switzerland } from '.';
 
@@ -22,10 +24,14 @@ import { Switzerland } from '.';
  * Common via `references`, since no official diocesan propers have been
  * digitised for this rite yet.
  */
-export const SwitzerlandChur: CalendarOverlay1962 = {
-  id: 'switzerland.chur',
-  parents: [Switzerland],
-  entries: [
+export class SwitzerlandChur extends CalendarDef<CalendarOverlayEntry> {
+  get id(): string {
+    return 'switzerland.chur';
+  }
+
+  readonly parents: readonly CalendarDef<CalendarOverlayEntry>[] = [new Switzerland()];
+
+  readonly entries: readonly CalendarOverlayEntry[] = [
     {
       // Principal patron of the Diocese of Chur; displaces the universal
       // feast of St Francis Xavier, which drops to commemoration under
@@ -160,5 +166,5 @@ export const SwitzerlandChur: CalendarOverlay1962 = {
         it: 'S. Geroldo, Eremita',
       },
     },
-  ],
-};
+  ];
+}

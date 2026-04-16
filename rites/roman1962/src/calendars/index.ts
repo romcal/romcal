@@ -1,3 +1,5 @@
+import type { CalendarDefConstructor } from '@internal/calendars';
+
 import { Switzerland } from './countries/switzerland';
 import { SwitzerlandSaintMauriceAbbey } from './countries/switzerland/abbey-of-saint-maurice';
 import { SwitzerlandBasel } from './countries/switzerland/diocese-of-basel';
@@ -7,7 +9,7 @@ import { SwitzerlandLugano } from './countries/switzerland/diocese-of-lugano';
 import { SwitzerlandSanktGallen } from './countries/switzerland/diocese-of-sankt-gallen';
 import { SwitzerlandSion } from './countries/switzerland/diocese-of-sion';
 import { Europe } from './regions/europe';
-import type { CalendarOverlay1962 } from './types';
+import type { CalendarOverlayEntry } from './types';
 
 export { applyOverlay, collectOverlayNames } from './apply';
 export type { OverlayApplyResult } from './apply';
@@ -24,11 +26,13 @@ export type { CalendarOverlay1962, CalendarOverlayEntry } from './types';
 
 /**
  * Registry of every regional/diocesan overlay shipped with the 1962
- * rite. Keys are the stable slugs used for bundle names
- * (`@romcal/calendar1962.{slug}.{locale}` in a future per-calendar
- * bundle pipeline) and for the runtime `calendar` config field.
+ * rite, keyed by stable dotted slug. Values are class constructors so
+ * consumers can instantiate on demand (matches the 1969 rite's
+ * `calendarDefinitions` shape). Slugs are used as bundle names
+ * (`@romcal/calendar1962.{slug}.{locale}`) and as the runtime
+ * `calendar` config field value.
  */
-export const calendarOverlays: Record<string, CalendarOverlay1962> = {
+export const calendarOverlays: Record<string, CalendarDefConstructor<CalendarOverlayEntry>> = {
   europe: Europe,
   switzerland: Switzerland,
   'switzerland.basel': SwitzerlandBasel,

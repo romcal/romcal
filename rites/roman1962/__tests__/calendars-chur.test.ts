@@ -4,7 +4,7 @@ import { buildSanctoral1962 } from '../src/sanctoral';
 
 describe('Diocese of Chur overlay — 1962 rite', () => {
   describe('sanctoral-level overlay merge', () => {
-    const map = buildSanctoral1962(1962, { overlay: SwitzerlandChur });
+    const map = buildSanctoral1962(1962, { overlay: new SwitzerlandChur() });
 
     test('St Lucius (Dec 3) ranks as Class I principal patron', () => {
       const entries = map.get('1962-12-03')!;

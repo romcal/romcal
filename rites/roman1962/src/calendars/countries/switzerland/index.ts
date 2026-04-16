@@ -1,5 +1,7 @@
+import { CalendarDef } from '@internal/calendars';
+
 import { Europe } from '../../regions/europe';
-import type { CalendarOverlay1962 } from '../../types';
+import type { CalendarOverlayEntry } from '../../types';
 
 /**
  * National-level Swiss overlay. Holds feasts common to every Swiss
@@ -13,10 +15,14 @@ import type { CalendarOverlay1962 } from '../../types';
  * Confederation, he outranks any universal feast on that day per
  * Rubricae 1960 §106 (Class I).
  */
-export const Switzerland: CalendarOverlay1962 = {
-  id: 'switzerland',
-  parents: [Europe],
-  entries: [
+export class Switzerland extends CalendarDef<CalendarOverlayEntry> {
+  get id(): string {
+    return 'switzerland';
+  }
+
+  readonly parents: readonly CalendarDef<CalendarOverlayEntry>[] = [new Europe()];
+
+  readonly entries: readonly CalendarOverlayEntry[] = [
     {
       mmdd: '09-25',
       fileKey: 'saint_nicholas_of_flue_hermit_patron_of_switzerland',
@@ -48,5 +54,5 @@ export const Switzerland: CalendarOverlay1962 = {
         it: 'S. Nicolao della Flüe, Eremita, Patrono principale della Svizzera',
       },
     },
-  ],
-};
+  ];
+}

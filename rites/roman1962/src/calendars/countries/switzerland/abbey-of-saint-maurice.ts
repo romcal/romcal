@@ -1,4 +1,6 @@
-import type { CalendarOverlay1962 } from '../../types';
+import { CalendarDef } from '@internal/calendars';
+
+import type { CalendarOverlayEntry } from '../../types';
 
 import { Switzerland } from '.';
 
@@ -15,10 +17,14 @@ import { Switzerland } from '.';
  * Ss. Maurice and Companions are principal patrons. The universal Sept
  * 22 entry is a Ferial/commemoration; the abbey raises it to Class I.
  */
-export const SwitzerlandSaintMauriceAbbey: CalendarOverlay1962 = {
-  id: 'switzerland.saint-maurice',
-  parents: [Switzerland],
-  entries: [
+export class SwitzerlandSaintMauriceAbbey extends CalendarDef<CalendarOverlayEntry> {
+  get id(): string {
+    return 'switzerland.saint-maurice';
+  }
+
+  readonly parents: readonly CalendarDef<CalendarOverlayEntry>[] = [new Switzerland()];
+
+  readonly entries: readonly CalendarOverlayEntry[] = [
     {
       mmdd: '09-22',
       fileKey: 'ss_maurice_and_companions_martyrs_optional',
@@ -35,5 +41,5 @@ export const SwitzerlandSaintMauriceAbbey: CalendarOverlay1962 = {
         it: 'Ss. Maurizio e Compagni, Martiri, Patroni principali dell’Abbazia',
       },
     },
-  ],
-};
+  ];
+}

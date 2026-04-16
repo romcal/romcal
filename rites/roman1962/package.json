@@ -30,6 +30,7 @@
     "test:without-coverage": "TZ=UTC jest"
   },
   "dependencies": {
+    "@internal/calendars": "file:../../packages/calendars",
     "@internal/easter": "file:../../packages/easter",
     "@internal/proper-of-time": "file:../../packages/proper-of-time",
     "@internal/rite-roman1969": "*",

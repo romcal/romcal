@@ -1,25 +1,8 @@
+import { flattenCalendarChain } from '@internal/calendars';
+
 import type { Calendar1960, CalendarEntry, MassFileEntry, MassFileMap } from '../sanctoral/data';
 
 import type { CalendarOverlay1962, CalendarOverlayEntry } from './types';
-
-/**
- * Walk an overlay's parent chain breadth-first, deduplicating by id so a
- * diocese referenced through both its country and its region is applied
- * only once. Parents apply first (base), then the overlay itself — so a
- * diocese can refine what the country-level overlay established.
- */
-function flattenOverlayChain(overlay: CalendarOverlay1962): CalendarOverlay1962[] {
-  const seen = new Set<string>();
-  const out: CalendarOverlay1962[] = [];
-  const walk = (o: CalendarOverlay1962): void => {
-    for (const p of o.parents ?? []) walk(p);
-    if (seen.has(o.id)) return;
-    seen.add(o.id);
-    out.push(o);
-  };
-  walk(overlay);
-  return out;
-}
 
 function toCalendarEntry(e: CalendarOverlayEntry): CalendarEntry {
   return {
@@ -70,7 +53,7 @@ export function applyOverlay(
   }
   const sancti: MassFileMap = { ...baseSancti };
 
-  for (const o of flattenOverlayChain(overlay)) {
+  for (const o of flattenCalendarChain(overlay)) {
     for (const entry of o.entries) {
       const calEntry = toCalendarEntry(entry);
       const existing = calendar[entry.mmdd];
@@ -116,7 +99,7 @@ export function applyOverlay(
  */
 export function collectOverlayNames(overlay: CalendarOverlay1962): Record<string, Record<string, string>> {
   const out: Record<string, Record<string, string>> = {};
-  for (const o of flattenOverlayChain(overlay)) {
+  for (const o of flattenCalendarChain(overlay)) {
     for (const entry of o.entries) {
       if (!entry.names) continue;
       for (const [lang, value] of Object.entries(entry.names)) {

@@ -108,6 +108,7 @@ export default [
         parser: '@typescript-eslint/parser',
         project: [
           './tsconfig.base.json',
+          './packages/calendars/tsconfig.json',
           './packages/easter/tsconfig.json',
           './packages/lunar-new-year/tsconfig.json',
           './packages/proper-of-time/tsconfig.json',
@@ -139,6 +140,7 @@ export default [
         parser: '@typescript-eslint/parser',
         project: [
           './tsconfig.base.json',
+          './packages/calendars/tsconfig.json',
           './packages/easter/tsconfig.json',
           './packages/lunar-new-year/tsconfig.json',
           './packages/proper-of-time/tsconfig.json',

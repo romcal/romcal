@@ -1,3 +1,5 @@
+import type { CalendarDef } from '@internal/calendars';
+
 import type { Rank1962 } from '../constants/rank-1962';
 import type { Color } from '../sanctoral/types';
 
@@ -35,8 +37,9 @@ export interface CalendarOverlayEntry {
   names?: Partial<Record<string, string>>;
 }
 
-export interface CalendarOverlay1962 {
-  id: string;
-  parents?: CalendarOverlay1962[];
-  entries: CalendarOverlayEntry[];
-}
+/**
+ * Public-facing alias for a 1962 overlay — a `CalendarDef` specialised
+ * to the 1962 entry shape. Per-rite naming keeps the 1962 vocabulary
+ * ("overlay") stable for consumers.
+ */
+export type CalendarOverlay1962 = CalendarDef<CalendarOverlayEntry>;

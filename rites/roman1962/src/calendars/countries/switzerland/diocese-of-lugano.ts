@@ -1,4 +1,6 @@
-import type { CalendarOverlay1962 } from '../../types';
+import { CalendarDef } from '@internal/calendars';
+
+import type { CalendarOverlayEntry } from '../../types';
 
 import { Switzerland } from '.';
 
@@ -18,10 +20,14 @@ import { Switzerland } from '.';
  * cross-border neighbour of Ticino and was the mother see of much of
  * Italian-speaking Switzerland before Lugano's own erection.
  */
-export const SwitzerlandLugano: CalendarOverlay1962 = {
-  id: 'switzerland.lugano',
-  parents: [Switzerland],
-  entries: [
+export class SwitzerlandLugano extends CalendarDef<CalendarOverlayEntry> {
+  get id(): string {
+    return 'switzerland.lugano';
+  }
+
+  readonly parents: readonly CalendarDef<CalendarOverlayEntry>[] = [new Switzerland()];
+
+  readonly entries: readonly CalendarOverlayEntry[] = [
     {
       mmdd: '11-04',
       fileKey: 'saint_charles_borromeo_bishop_and_confessor',
@@ -69,5 +75,5 @@ export const SwitzerlandLugano: CalendarOverlay1962 = {
         it: 'S. Abbondio, Vescovo e Confessore, Compatrono della Diocesi',
       },
     },
-  ],
-};
+  ];
+}

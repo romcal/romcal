@@ -1,4 +1,6 @@
-import type { CalendarOverlay1962 } from '../../types';
+import { CalendarDef } from '@internal/calendars';
+
+import type { CalendarOverlayEntry } from '../../types';
 
 import { Switzerland } from '.';
 
@@ -18,10 +20,14 @@ import { Switzerland } from '.';
  * Irish hermit-abbot of Saint-Ursanne in the Jura — secondary diocesan
  * patron.
  */
-export const SwitzerlandBasel: CalendarOverlay1962 = {
-  id: 'switzerland.basel',
-  parents: [Switzerland],
-  entries: [
+export class SwitzerlandBasel extends CalendarDef<CalendarOverlayEntry> {
+  get id(): string {
+    return 'switzerland.basel';
+  }
+
+  readonly parents: readonly CalendarDef<CalendarOverlayEntry>[] = [new Switzerland()];
+
+  readonly entries: readonly CalendarOverlayEntry[] = [
     {
       mmdd: '09-30',
       fileKey: 'saints_ursus_and_victor_of_solothurn_martyrs_patrons',
@@ -84,5 +90,5 @@ export const SwitzerlandBasel: CalendarOverlay1962 = {
         it: 'S. Ursicino, Abate',
       },
     },
-  ],
-};
+  ];
+}

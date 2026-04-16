@@ -1,0 +1,16 @@
+{
+  "name": "@internal/calendars",
+  "version": "0.0.0",
+  "description": "Shared CalendarDef abstraction used by every rite: id, parent chain, entries, flattening.",
+  "license": "MIT",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tsc --project tsconfig.release.json",
+    "clean": "rimraf coverage dist",
+    "prettier": "prettier -c .",
+    "test": "TZ=UTC jest"
+  },
+  "devDependencies": {
+    "@internal/config": "file:../../packages/config"
+  }
+}

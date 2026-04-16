@@ -1,4 +1,6 @@
-import type { CalendarOverlay1962 } from './calendars/types';
+import type { CalendarDefConstructor } from '@internal/calendars';
+
+import type { CalendarOverlayEntry } from './calendars/types';
 import type { CommemorationCapMode } from './rubrics/commemoration-cap';
 
 export interface Romcal1962ConfigInput {
@@ -37,12 +39,13 @@ export interface Romcal1962ConfigInput {
   commemorationLimit?: CommemorationCapMode;
 
   /**
-   * Regional/diocesan overlay to apply on top of the universal 1962
-   * calendar (e.g. `SwitzerlandChur`). Merges diocesan feasts into the
+   * Regional/diocesan overlay class to apply on top of the universal
+   * 1962 calendar (e.g. `SwitzerlandChur`). Pass the class itself —
+   * Romcal1962 instantiates it. Merges diocesan feasts into the
    * sanctoral and wires up any per-locale name translations the overlay
    * ships. Leave unset for the pure universal calendar.
    */
-  calendar?: CalendarOverlay1962;
+  calendar?: CalendarDefConstructor<CalendarOverlayEntry>;
 }
 
 export interface Romcal1962ConfigOutput {

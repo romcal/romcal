@@ -14,7 +14,7 @@ import { buildSanctoral1962 } from '../src/sanctoral';
 
 describe('Switzerland national overlay (Nicholas of Flüe)', () => {
   test('Sep 25 has Nicholas of Flüe as ClassI principal patron on the bare national overlay', () => {
-    const map = buildSanctoral1962(1962, { overlay: Switzerland });
+    const map = buildSanctoral1962(1962, { overlay: new Switzerland() });
     const entries = map.get('1962-09-25');
     expect(entries).toBeDefined();
     const klaus = entries!.find((e) => e.fileKey === 'saint_nicholas_of_flue_hermit_patron_of_switzerland');
@@ -92,7 +92,7 @@ describe('Diocese of Sion (Sitten)', () => {
 
 describe('Diocese of Lugano', () => {
   test('`raise` mode elevates Charles Borromeo (Nov 4) without duplicating the entry', () => {
-    const map = buildSanctoral1962(1962, { overlay: SwitzerlandLugano });
+    const map = buildSanctoral1962(1962, { overlay: new SwitzerlandLugano() });
     const entries = map.get('1962-11-04')!;
     const borromeo = entries.filter((e) => e.fileKey === 'saint_charles_borromeo_bishop_and_confessor');
     expect(borromeo).toHaveLength(1);
@@ -117,7 +117,7 @@ describe('Diocese of Lugano', () => {
 
 describe('Diocese of Lausanne–Geneva–Fribourg', () => {
   test('`raise` elevates universal St Nicholas (Dec 6) to ClassI in place', () => {
-    const map = buildSanctoral1962(1962, { overlay: SwitzerlandLausanneGenevaFribourg });
+    const map = buildSanctoral1962(1962, { overlay: new SwitzerlandLausanneGenevaFribourg() });
     const entries = map.get('1962-12-06')!;
     const nicholas = entries.filter((e) => e.fileKey === 'saint_nicholas_bishop_and_confessor');
     expect(nicholas).toHaveLength(1);
