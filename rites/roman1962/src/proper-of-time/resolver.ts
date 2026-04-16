@@ -1,4 +1,5 @@
-import { addDays, computeAnchors, dayOfWeek, isoDate } from './anchors';
+import { addDays, computeAnchors, dayOfWeek, isoDate } from '@internal/proper-of-time';
+
 import type { DayOfWeek, ProperOfTimeSeason, ProperOfTimeYear, TemporaSlotKind } from './types';
 
 const WEEKDAYS = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'] as const;

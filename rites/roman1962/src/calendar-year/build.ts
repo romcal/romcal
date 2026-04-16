@@ -1,3 +1,5 @@
+import { dayOfWeek, listDatesInYear } from '@internal/proper-of-time';
+
 import type { CalendarOverlay1962 } from '../calendars/types';
 import type { NameTranslator } from '../i18n/init';
 import { buildProperOfTime1962, type ProperOfTimeEntry } from '../proper-of-time';
@@ -19,18 +21,8 @@ export interface BuildLiturgicalYearOptions {
   overlay?: CalendarOverlay1962;
 }
 
-function listDatesInYear(year: number): string[] {
-  const out: string[] = [];
-  const start = new Date(Date.UTC(year, 0, 1));
-  const end = new Date(Date.UTC(year + 1, 0, 1));
-  for (let d = start; d < end; d = new Date(d.getTime() + 86_400_000)) {
-    out.push(d.toISOString().slice(0, 10));
-  }
-  return out;
-}
-
 function dayOfWeekUTC(isoDate: string): 0 | 1 | 2 | 3 | 4 | 5 | 6 {
-  return new Date(`${isoDate}T00:00:00Z`).getUTCDay() as 0 | 1 | 2 | 3 | 4 | 5 | 6;
+  return dayOfWeek(new Date(`${isoDate}T00:00:00Z`));
 }
 
 function buildDay(

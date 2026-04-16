@@ -1,3 +1,7 @@
+import type { DayOfWeek, ProperOfTimeYear as BaseProperOfTimeYear } from '@internal/proper-of-time';
+
+export type { DayOfWeek };
+
 export type ProperOfTimeSeason =
   | 'Advent'
   | 'ChristmasTide'
@@ -13,8 +17,6 @@ export type ProperOfTimeSeason =
 
 export type TemporaSlotKind = 'sunday' | 'feria' | 'feast' | 'vigil' | 'octaveDay' | 'withinOctave';
 
-export type DayOfWeek = 0 | 1 | 2 | 3 | 4 | 5 | 6;
-
 export interface ProperOfTimeEntry {
   date: string;
   temporaKey: string;
@@ -24,4 +26,4 @@ export interface ProperOfTimeEntry {
   kind: TemporaSlotKind;
 }
 
-export type ProperOfTimeYear = Map<string, ProperOfTimeEntry>;
+export type ProperOfTimeYear = BaseProperOfTimeYear<ProperOfTimeEntry>;
