@@ -1,3 +1,4 @@
+import type { CalendarOverlay1962 } from './calendars/types';
 import type { CommemorationCapMode } from './rubrics/commemoration-cap';
 
 export interface Romcal1962ConfigInput {
@@ -34,6 +35,14 @@ export interface Romcal1962ConfigInput {
    * `'private'` = max 1 (low Mass), `'all'` = no cap (default).
    */
   commemorationLimit?: CommemorationCapMode;
+
+  /**
+   * Regional/diocesan overlay to apply on top of the universal 1962
+   * calendar (e.g. `SwitzerlandChur`). Merges diocesan feasts into the
+   * sanctoral and wires up any per-locale name translations the overlay
+   * ships. Leave unset for the pure universal calendar.
+   */
+  calendar?: CalendarOverlay1962;
 }
 
 export interface Romcal1962ConfigOutput {
@@ -42,4 +51,5 @@ export interface Romcal1962ConfigOutput {
   propersLocales: string[];
   attachToCommemorations: boolean;
   commemorationLimit: CommemorationCapMode;
+  calendarId?: string;
 }

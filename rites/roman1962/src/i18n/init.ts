@@ -5,6 +5,13 @@ import type { Locale1962 } from '../types/locale';
 
 const NAMESPACES = ['names', 'colors', 'ranks', 'seasons', 'months', 'weekdays'] as const;
 
+/**
+ * Per-locale additions on top of the ship-with-the-package locales.
+ * Primary use: regional/diocesan overlays injecting their own
+ * `sancti/{fileKey}` names without forking the core locale files.
+ */
+export type ExtraLocaleNames = Record<string, Record<string, string>>;
+
 function addBundles(instance: i18n, locale: Locale1962): void {
   instance.addResourceBundle(locale.id, 'names', locale.names ?? {}, true, true);
   if (locale.colors) instance.addResourceBundle(locale.id, 'colors', locale.colors, true, true);
@@ -20,7 +27,7 @@ function addBundles(instance: i18n, locale: Locale1962): void {
  * fallback, Latin floor — Latin always exists since the importer pivots
  * `entry.officium` into `la`).
  */
-export function createI18n1962(localeId: string): i18n {
+export function createI18n1962(localeId: string, extraNames?: ExtraLocaleNames): i18n {
   const instance = i18next.createInstance();
   instance.init(
     {
@@ -38,6 +45,11 @@ export function createI18n1962(localeId: string): i18n {
 
   for (const locale of Object.values(ALL_LOCALES)) {
     addBundles(instance, locale);
+  }
+  if (extraNames) {
+    for (const [lang, names] of Object.entries(extraNames)) {
+      instance.addResourceBundle(lang, 'names', names, true, true);
+    }
   }
   return instance;
 }

@@ -1,5 +1,7 @@
 import type { i18n } from 'i18next';
 
+import { collectOverlayNames } from './calendars/apply';
+import type { CalendarOverlay1962 } from './calendars/types';
 import { createI18n1962, createNameTranslator, type NameTranslator } from './i18n/init';
 import type { Romcal1962ConfigInput, Romcal1962ConfigOutput } from './romcal-1962-types';
 import type { CommemorationCapMode } from './rubrics/commemoration-cap';
@@ -12,6 +14,7 @@ export class Romcal1962Config {
   readonly propersLocales: string[];
   readonly attachToCommemorations: boolean;
   readonly commemorationLimit: CommemorationCapMode;
+  readonly calendar?: CalendarOverlay1962;
   readonly i18next: i18n;
   readonly translateName: NameTranslator;
 
@@ -21,7 +24,9 @@ export class Romcal1962Config {
     this.propersLocales = [...(input.propersLocales ?? [this.localeId])];
     this.attachToCommemorations = input.attachToCommemorations ?? false;
     this.commemorationLimit = input.commemorationLimit ?? 'all';
-    this.i18next = createI18n1962(this.localeId);
+    this.calendar = input.calendar;
+    const extraNames = this.calendar ? collectOverlayNames(this.calendar) : undefined;
+    this.i18next = createI18n1962(this.localeId, extraNames);
     this.translateName = createNameTranslator(this.i18next);
   }
 
@@ -32,6 +37,7 @@ export class Romcal1962Config {
       propersLocales: [...this.propersLocales],
       attachToCommemorations: this.attachToCommemorations,
       commemorationLimit: this.commemorationLimit,
+      ...(this.calendar ? { calendarId: this.calendar.id } : {}),
     };
   }
 }

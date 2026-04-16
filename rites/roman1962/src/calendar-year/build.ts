@@ -1,3 +1,4 @@
+import type { CalendarOverlay1962 } from '../calendars/types';
 import type { NameTranslator } from '../i18n/init';
 import { buildProperOfTime1962, type ProperOfTimeEntry } from '../proper-of-time';
 import {
@@ -15,6 +16,7 @@ import { buildSanctoral1962, type SanctoralEntry1962 } from '../sanctoral';
 
 export interface BuildLiturgicalYearOptions {
   translateName?: NameTranslator;
+  overlay?: CalendarOverlay1962;
 }
 
 function listDatesInYear(year: number): string[] {
@@ -61,9 +63,9 @@ function buildDay(
  * and forward-transfers impeded Class I sanctoral feasts.
  */
 export function buildLiturgicalYear1962(year: number, options: BuildLiturgicalYearOptions = {}): ResolvedYear1962 {
-  const { translateName } = options;
+  const { translateName, overlay } = options;
   const tempora = buildProperOfTime1962(year);
-  const sanctoral = buildSanctoral1962(year);
+  const sanctoral = buildSanctoral1962(year, { overlay });
 
   const firstPass: ResolvedYear1962 = new Map();
   const pending: PendingTransfer[] = [];

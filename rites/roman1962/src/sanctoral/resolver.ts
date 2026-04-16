@@ -1,3 +1,5 @@
+import { applyOverlay } from '../calendars/apply';
+import type { CalendarOverlay1962 } from '../calendars/types';
 import type { Rank1962 } from '../constants/rank-1962';
 import type { RubricFlags1962 } from '../types/liturgical-day-1962';
 
@@ -14,6 +16,10 @@ import {
 import { deriveFixedOctave } from './octave';
 import type { SanctoralCommemoration, SanctoralEntry1962, Sanctoral1962Year } from './types';
 import { detectVigil } from './vigil';
+
+export interface BuildSanctoralOptions {
+  overlay?: CalendarOverlay1962;
+}
 
 function isoDateUTC(year: number, monthIdx0: number, day: number): string {
   const y = year.toString().padStart(4, '0');
@@ -121,10 +127,13 @@ function buildEntry(
   };
 }
 
-export function buildSanctoral1962(year: number): Sanctoral1962Year {
-  const calendar: Calendar1960 = loadCalendar1960();
-  const sancti = loadSancti();
+export function buildSanctoral1962(year: number, options: BuildSanctoralOptions = {}): Sanctoral1962Year {
+  const baseCalendar: Calendar1960 = loadCalendar1960();
+  const baseSancti = loadSancti();
   const tempora = loadTempora();
+  const { calendar, sancti } = options.overlay
+    ? applyOverlay(baseCalendar, baseSancti, options.overlay)
+    : { calendar: baseCalendar, sancti: baseSancti };
 
   const out: Sanctoral1962Year = new Map();
   for (const [mmdd, entries] of Object.entries(calendar)) {
