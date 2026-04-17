@@ -5,9 +5,10 @@ import { buildLiturgicalYear1962, type LiturgicalCalendar1962 } from './calendar
 import { Colors1962, COLORS_1962, isColor1962 } from './constants/colors-1962';
 import { RANKS_1962, Rank1962Values } from './constants/rank-1962';
 import { Seasons1962, SEASONS_1962 } from './constants/seasons-1962';
-import { buildDefinitions1962, type Definitions1962 } from './definitions';
+import { buildAllDefinitions } from './definitions';
 import { Romcal1962Config } from './models/config';
 import type { LiturgicalDay1962 } from './models/liturgical-day';
+import type { LiturgicalDayDefinitions1962 } from './models/liturgical-day-def';
 import { buildProperOfTime1962 } from './proper-of-time';
 import { attachPropers } from './propers';
 import type { Romcal1962ConfigInput, Romcal1962ConfigOutput } from './romcal-1962-types';
@@ -45,7 +46,7 @@ export class Romcal1962 {
   readonly #config: Romcal1962Config;
   readonly #computedYears = new Map<number, LiturgicalCalendar1962>();
   readonly #anchors = new Map<number, YearAnchors>();
-  #definitions?: Definitions1962;
+  #definitions?: LiturgicalDayDefinitions1962;
 
   constructor(input: Romcal1962ConfigInput = {}) {
     this.#config = new Romcal1962Config(input);
@@ -80,11 +81,11 @@ export class Romcal1962 {
    * parsing can yield to a microtask; result is memoized per
    * instance.
    */
-  getAllDefinitions(): Promise<Definitions1962> {
+  getAllDefinitions(): Promise<LiturgicalDayDefinitions1962> {
     return new Promise((resolve, reject) => {
       try {
         if (!this.#definitions) {
-          this.#definitions = buildDefinitions1962(this.#config.calendar);
+          this.#definitions = buildAllDefinitions(this.#config.calendar);
         }
         resolve(this.#definitions);
       } catch (e) {
