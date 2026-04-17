@@ -17,11 +17,7 @@ import { Switzerland } from '.';
  * (elsewhere 26 Aug is also attested); in the universal calendar Aug 16
  * is St. Joachim (Class II), which drops to commemoration here.
  */
-export class SwitzerlandSion extends CalendarDef<CalendarOverlayEntry> {
-  get id(): string {
-    return 'switzerland.sion';
-  }
-
+export class Switzerland_Sion extends CalendarDef<CalendarOverlayEntry> {
   readonly parents: readonly CalendarDef<CalendarOverlayEntry>[] = [new Switzerland()];
 
   readonly entries: readonly CalendarOverlayEntry[] = [

@@ -24,11 +24,7 @@ import { Switzerland } from '.';
  * Common via `references`, since no official diocesan propers have been
  * digitised for this rite yet.
  */
-export class SwitzerlandChur extends CalendarDef<CalendarOverlayEntry> {
-  get id(): string {
-    return 'switzerland.chur';
-  }
-
+export class Switzerland_Chur extends CalendarDef<CalendarOverlayEntry> {
   readonly parents: readonly CalendarDef<CalendarOverlayEntry>[] = [new Switzerland()];
 
   readonly entries: readonly CalendarOverlayEntry[] = [

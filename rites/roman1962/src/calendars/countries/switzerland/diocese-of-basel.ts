@@ -20,11 +20,7 @@ import { Switzerland } from '.';
  * Irish hermit-abbot of Saint-Ursanne in the Jura — secondary diocesan
  * patron.
  */
-export class SwitzerlandBasel extends CalendarDef<CalendarOverlayEntry> {
-  get id(): string {
-    return 'switzerland.basel';
-  }
-
+export class Switzerland_Basel extends CalendarDef<CalendarOverlayEntry> {
   readonly parents: readonly CalendarDef<CalendarOverlayEntry>[] = [new Switzerland()];
 
   readonly entries: readonly CalendarOverlayEntry[] = [

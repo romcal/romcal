@@ -17,10 +17,6 @@ import { RomcalConfig } from './config';
 import { LiturgicalDayDef } from './liturgical-day-def';
 
 export class CalendarDef extends SharedCalendarDef<CalendarDefEntry1969> implements BaseCalendarDef {
-  get id(): Id {
-    return this.calendarName;
-  }
-
   get entries(): readonly CalendarDefEntry1969[] {
     const out: CalendarDefEntry1969[] = [];
     for (const id of Object.keys(this.inputs)) {

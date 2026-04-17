@@ -8,9 +8,5 @@ import type { CalendarOverlayEntry } from '../types';
  * defined place to land without restructuring descendants.
  */
 export class Europe extends CalendarDef<CalendarOverlayEntry> {
-  get id(): string {
-    return 'europe';
-  }
-
   readonly entries: readonly CalendarOverlayEntry[] = [];
 }

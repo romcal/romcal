@@ -20,11 +20,7 @@ import { Switzerland } from '.';
  * cross-border neighbour of Ticino and was the mother see of much of
  * Italian-speaking Switzerland before Lugano's own erection.
  */
-export class SwitzerlandLugano extends CalendarDef<CalendarOverlayEntry> {
-  get id(): string {
-    return 'switzerland.lugano';
-  }
-
+export class Switzerland_Lugano extends CalendarDef<CalendarOverlayEntry> {
   readonly parents: readonly CalendarDef<CalendarOverlayEntry>[] = [new Switzerland()];
 
   readonly entries: readonly CalendarOverlayEntry[] = [

@@ -17,11 +17,7 @@ import { Switzerland } from '.';
  * of the diocese. St. Othmar (Otmar), the abbey's first abbot under the
  * rule of St. Benedict, is co-patron.
  */
-export class SwitzerlandSanktGallen extends CalendarDef<CalendarOverlayEntry> {
-  get id(): string {
-    return 'switzerland.sankt-gallen';
-  }
-
+export class Switzerland_Sankt_Gallen extends CalendarDef<CalendarOverlayEntry> {
   readonly parents: readonly CalendarDef<CalendarOverlayEntry>[] = [new Switzerland()];
 
   readonly entries: readonly CalendarOverlayEntry[] = [

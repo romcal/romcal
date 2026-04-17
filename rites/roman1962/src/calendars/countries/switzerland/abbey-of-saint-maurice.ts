@@ -17,11 +17,7 @@ import { Switzerland } from '.';
  * Ss. Maurice and Companions are principal patrons. The universal Sept
  * 22 entry is a Ferial/commemoration; the abbey raises it to Class I.
  */
-export class SwitzerlandSaintMauriceAbbey extends CalendarDef<CalendarOverlayEntry> {
-  get id(): string {
-    return 'switzerland.saint-maurice';
-  }
-
+export class Switzerland_Saint_Maurice_Abbey extends CalendarDef<CalendarOverlayEntry> {
   readonly parents: readonly CalendarDef<CalendarOverlayEntry>[] = [new Switzerland()];
 
   readonly entries: readonly CalendarOverlayEntry[] = [

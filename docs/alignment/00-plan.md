@@ -51,12 +51,22 @@ wraps up so we always know where we are.
   default empty `parents` and keeps its own parent-traversal
   lifecycle unchanged. Zero public API change: the 57
   country classes compile and run without edits. 485 tests
-  green; full build clean. - [ ] **C3 — 1969 slug migration.** Rename
-  `calendarDefinitions` keys from PascalCase (`Argentina`,
-  `UnitedStates`) to dotted slugs (`argentina`,
-  `united-states`) to match the 1962 convention. This is a
-  public-API-breaking change; batch it alone so downstream
-  consumers have a clean migration point.
+  green; full build clean. - [x] **C3 — Align 1962 overlay naming to 1969's convention.**
+  Done 2026-04-17. Direction flipped (align 1962 → 1969, not
+  the reverse) so 1969's external API stays untouched. Shared
+  `CalendarDef` base now provides the default `id` getter
+  (class-name → snake_case, exactly the algorithm 1969's
+  `calendarName` has always used); 1969's override deleted
+  (inherits default). 1962 diocesan/abbey overlays renamed to
+  the `Country_Diocese` convention (`SwitzerlandBasel` →
+  `Switzerland_Basel`, …, `SwitzerlandSaintMauriceAbbey` →
+  `Switzerland_Saint_Maurice_Abbey`) and per-class `get id()`
+  overrides dropped. `calendarOverlays` registry now keyed by
+  PascalCase class name (matches 1969's `calendarDefinitions`
+  exactly). `Romcal1962Config.toObject().calendarId` now
+  reports the derived snake_case id (e.g. `switzerland__chur`).
+  Only 1962-side breaking change; 1969 untouched. All 485
+  tests green; full build clean.
 - [ ] **Phase D — Extract `@internal/romcal-core`.** Pull an abstract
       `RomcalBase<Config, Day, Year>` class with the shared shape
       (config + cache + `generateCalendar(year)` +
@@ -96,17 +106,18 @@ happen _around_ them.
 
 Record any scope changes or path pivots here, newest first.
 
-| Date       | Decision                                                                                                                                                                                             |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2026-04-16 | Phase C2 complete. 1969's `CalendarDef` re-parented onto `@internal/calendars` via `SharedCalendarDef<CalendarDefEntry1969>`. Zero public-API change; existing parent-traversal machinery preserved. |
-| 2026-04-16 | Phase C1 complete. `@internal/calendars` shipped; 1962 overlays migrated to class form; 1969 C2/C3 split off as follow-ups.                                                                          |
-| 2026-04-16 | Phase B complete. `@internal/proper-of-time` shipped; 1962 consumes it; 1969 deferred to Phase D.                                                                                                    |
-| 2026-04-16 | Q4 resolved: `BaseLiturgicalDay` + rite-specific extension interfaces, discriminated by `rite: 'roman1969' \| 'roman1962'`.                                                                          |
-| 2026-04-16 | Q3 resolved: rank stays rite-local; unify via generic `CalendarDef<Rank, Entry>`. No shared rank enum.                                                                                               |
-| 2026-04-16 | Q2 resolved: registry keys use dotted slugs (`switzerland.basel`). 1969 migrates from PascalCase to slug during Phase C.                                                                             |
-| 2026-04-16 | Q1 resolved: **Option A** — per-file class for every 1962 overlay. 9 files rewritten during Phase C to extend generic `CalendarDef<Rank1962, CalendarOverlayEntry>`. No data+adapter split.          |
-| 2026-04-16 | Phase A complete — see `01-phase-a-audit.md`.                                                                                                                                                        |
-| 2026-04-16 | Initial plan adopted. Start with Phase A.                                                                                                                                                            |
+| Date       | Decision                                                                                                                                                                                                     |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 2026-04-17 | Phase C3 complete. Direction flipped: 1962 aligns to 1969, not vice-versa. Shared base owns `id` default; 1962 overlays renamed to `Country_Diocese`, registry keys PascalCase. 1969 external API unchanged. |
+| 2026-04-16 | Phase C2 complete. 1969's `CalendarDef` re-parented onto `@internal/calendars` via `SharedCalendarDef<CalendarDefEntry1969>`. Zero public-API change; existing parent-traversal machinery preserved.         |
+| 2026-04-16 | Phase C1 complete. `@internal/calendars` shipped; 1962 overlays migrated to class form; 1969 C2/C3 split off as follow-ups.                                                                                  |
+| 2026-04-16 | Phase B complete. `@internal/proper-of-time` shipped; 1962 consumes it; 1969 deferred to Phase D.                                                                                                            |
+| 2026-04-16 | Q4 resolved: `BaseLiturgicalDay` + rite-specific extension interfaces, discriminated by `rite: 'roman1969' \| 'roman1962'`.                                                                                  |
+| 2026-04-16 | Q3 resolved: rank stays rite-local; unify via generic `CalendarDef<Rank, Entry>`. No shared rank enum.                                                                                                       |
+| 2026-04-16 | Q2 resolved: registry keys use dotted slugs (`switzerland.basel`). 1969 migrates from PascalCase to slug during Phase C.                                                                                     |
+| 2026-04-16 | Q1 resolved: **Option A** — per-file class for every 1962 overlay. 9 files rewritten during Phase C to extend generic `CalendarDef<Rank1962, CalendarOverlayEntry>`. No data+adapter split.                  |
+| 2026-04-16 | Phase A complete — see `01-phase-a-audit.md`.                                                                                                                                                                |
+| 2026-04-16 | Initial plan adopted. Start with Phase A.                                                                                                                                                                    |
 
 ## Notes
 

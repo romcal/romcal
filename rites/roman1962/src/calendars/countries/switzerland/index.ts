@@ -16,10 +16,6 @@ import type { CalendarOverlayEntry } from '../../types';
  * Rubricae 1960 §106 (Class I).
  */
 export class Switzerland extends CalendarDef<CalendarOverlayEntry> {
-  get id(): string {
-    return 'switzerland';
-  }
-
   readonly parents: readonly CalendarDef<CalendarOverlayEntry>[] = [new Europe()];
 
   readonly entries: readonly CalendarOverlayEntry[] = [

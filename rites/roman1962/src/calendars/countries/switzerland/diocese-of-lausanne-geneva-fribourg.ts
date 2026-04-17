@@ -17,11 +17,7 @@ import { Switzerland } from '.';
  * calendar) is *raised* to Class I for the diocese via the `raise`
  * mode — no duplication, just an in-place rank bump.
  */
-export class SwitzerlandLausanneGenevaFribourg extends CalendarDef<CalendarOverlayEntry> {
-  get id(): string {
-    return 'switzerland.lausanne-geneva-fribourg';
-  }
-
+export class Switzerland_Lausanne_Geneva_Fribourg extends CalendarDef<CalendarOverlayEntry> {
   readonly parents: readonly CalendarDef<CalendarOverlayEntry>[] = [new Switzerland()];
 
   readonly entries: readonly CalendarOverlayEntry[] = [

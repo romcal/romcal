@@ -1,11 +1,11 @@
 import {
-  SwitzerlandBasel,
-  SwitzerlandChur,
-  SwitzerlandLausanneGenevaFribourg,
-  SwitzerlandLugano,
-  SwitzerlandSaintMauriceAbbey,
-  SwitzerlandSanktGallen,
-  SwitzerlandSion,
+  Switzerland_Basel,
+  Switzerland_Chur,
+  Switzerland_Lausanne_Geneva_Fribourg,
+  Switzerland_Lugano,
+  Switzerland_Saint_Maurice_Abbey,
+  Switzerland_Sankt_Gallen,
+  Switzerland_Sion,
   Switzerland,
   calendarOverlays,
 } from '../src/calendars';
@@ -24,13 +24,13 @@ describe('Switzerland national overlay (Nicholas of Flüe)', () => {
 
   test('Nicholas of Flüe propagates to every diocesan overlay via parent inheritance', async () => {
     for (const overlay of [
-      SwitzerlandBasel,
-      SwitzerlandChur,
-      SwitzerlandSanktGallen,
-      SwitzerlandSion,
-      SwitzerlandLugano,
-      SwitzerlandLausanneGenevaFribourg,
-      SwitzerlandSaintMauriceAbbey,
+      Switzerland_Basel,
+      Switzerland_Chur,
+      Switzerland_Sankt_Gallen,
+      Switzerland_Sion,
+      Switzerland_Lugano,
+      Switzerland_Lausanne_Geneva_Fribourg,
+      Switzerland_Saint_Maurice_Abbey,
     ]) {
       const r = new Romcal1962({ calendar: overlay, localeId: 'de' });
       const day = await r.getOneLiturgicalDay('1962-09-25');
@@ -43,7 +43,7 @@ describe('Switzerland national overlay (Nicholas of Flüe)', () => {
 
 describe('Diocese of Basel', () => {
   test('Sts Ursus & Victor (Sep 30) are ClassI, outranking universal St Jerome', async () => {
-    const r = new Romcal1962({ calendar: SwitzerlandBasel });
+    const r = new Romcal1962({ calendar: Switzerland_Basel });
     const day = await r.getOneLiturgicalDay('1962-09-30');
     expect(day!.primary.key).toBe('saints_ursus_and_victor_of_solothurn_martyrs_patrons');
     expect(day!.primary.rank1962).toBe('ClassI');
@@ -53,7 +53,7 @@ describe('Diocese of Basel', () => {
   });
 
   test('St Ursicinus (Dec 20) is commemorated on the Advent feria (ClassII outranks ClassIII)', async () => {
-    const r = new Romcal1962({ calendar: SwitzerlandBasel });
+    const r = new Romcal1962({ calendar: Switzerland_Basel });
     const day = await r.getOneLiturgicalDay('1962-12-20');
     // Advent III Thursday is a ClassII privileged feria which outranks the
     // ClassIII diocesan saint — Ursicinus correctly falls to commemoration.
@@ -64,14 +64,14 @@ describe('Diocese of Basel', () => {
 
 describe('Diocese of Sankt Gallen', () => {
   test('St Gallus (Oct 16) is ClassI principal patron', async () => {
-    const r = new Romcal1962({ calendar: SwitzerlandSanktGallen });
+    const r = new Romcal1962({ calendar: Switzerland_Sankt_Gallen });
     const day = await r.getOneLiturgicalDay('1962-10-16');
     expect(day!.primary.key).toBe('saint_gallus_abbot_patron_of_the_diocese');
     expect(day!.primary.rank1962).toBe('ClassI');
   });
 
   test('St Othmar (Nov 16) is ClassII co-patron, outranking universal St Gertrude', async () => {
-    const r = new Romcal1962({ calendar: SwitzerlandSanktGallen });
+    const r = new Romcal1962({ calendar: Switzerland_Sankt_Gallen });
     const day = await r.getOneLiturgicalDay('1962-11-16');
     expect(day!.primary.key).toBe('saint_otmar_abbot_copatron_of_the_diocese');
     expect(day!.primary.rank1962).toBe('ClassII');
@@ -80,7 +80,7 @@ describe('Diocese of Sankt Gallen', () => {
 
 describe('Diocese of Sion (Sitten)', () => {
   test('St Theodore/Théodule (Aug 16) is ClassI principal patron, outranking St Joachim', async () => {
-    const r = new Romcal1962({ calendar: SwitzerlandSion });
+    const r = new Romcal1962({ calendar: Switzerland_Sion });
     const day = await r.getOneLiturgicalDay('1962-08-16');
     expect(day!.primary.key).toBe('saint_theodore_of_octodurus_bishop_patron_of_the_diocese');
     expect(day!.primary.rank1962).toBe('ClassI');
@@ -92,7 +92,7 @@ describe('Diocese of Sion (Sitten)', () => {
 
 describe('Diocese of Lugano', () => {
   test('`raise` mode elevates Charles Borromeo (Nov 4) without duplicating the entry', () => {
-    const map = buildSanctoral1962(1962, { overlay: new SwitzerlandLugano() });
+    const map = buildSanctoral1962(1962, { overlay: new Switzerland_Lugano() });
     const entries = map.get('1962-11-04')!;
     const borromeo = entries.filter((e) => e.fileKey === 'saint_charles_borromeo_bishop_and_confessor');
     expect(borromeo).toHaveLength(1);
@@ -101,14 +101,14 @@ describe('Diocese of Lugano', () => {
   });
 
   test('Charles Borromeo Nov 4 primary in Lugano carries the overlay patron name', async () => {
-    const r = new Romcal1962({ calendar: SwitzerlandLugano, localeId: 'it' });
+    const r = new Romcal1962({ calendar: Switzerland_Lugano, localeId: 'it' });
     const day = await r.getOneLiturgicalDay('1962-11-04');
     expect(day!.primary.name).toMatch(/Carlo Borromeo/);
     expect(day!.primary.name).toMatch(/Patrono/);
   });
 
   test('St Abbondio (Aug 31) is ClassII secondary patron', async () => {
-    const r = new Romcal1962({ calendar: SwitzerlandLugano });
+    const r = new Romcal1962({ calendar: Switzerland_Lugano });
     const day = await r.getOneLiturgicalDay('1962-08-31');
     expect(day!.primary.key).toBe('saint_abundius_of_como_bishop_copatron_of_the_diocese');
     expect(day!.primary.rank1962).toBe('ClassII');
@@ -117,7 +117,7 @@ describe('Diocese of Lugano', () => {
 
 describe('Diocese of Lausanne–Geneva–Fribourg', () => {
   test('`raise` elevates universal St Nicholas (Dec 6) to ClassI in place', () => {
-    const map = buildSanctoral1962(1962, { overlay: new SwitzerlandLausanneGenevaFribourg() });
+    const map = buildSanctoral1962(1962, { overlay: new Switzerland_Lausanne_Geneva_Fribourg() });
     const entries = map.get('1962-12-06')!;
     const nicholas = entries.filter((e) => e.fileKey === 'saint_nicholas_bishop_and_confessor');
     expect(nicholas).toHaveLength(1);
@@ -125,7 +125,7 @@ describe('Diocese of Lausanne–Geneva–Fribourg', () => {
   });
 
   test('Dec 6 primary is St Nicholas with the patron suffix in French locale', async () => {
-    const r = new Romcal1962({ calendar: SwitzerlandLausanneGenevaFribourg, localeId: 'fr' });
+    const r = new Romcal1962({ calendar: Switzerland_Lausanne_Geneva_Fribourg, localeId: 'fr' });
     const day = await r.getOneLiturgicalDay('1962-12-06');
     expect(day!.primary.name).toMatch(/Nicolas/);
     expect(day!.primary.name).toMatch(/Patron principal/);
@@ -134,7 +134,7 @@ describe('Diocese of Lausanne–Geneva–Fribourg', () => {
 
 describe('Territorial Abbey of Saint-Maurice', () => {
   test('Ss Maurice & Companions (Sep 22) raised to ClassI for the abbey', async () => {
-    const r = new Romcal1962({ calendar: SwitzerlandSaintMauriceAbbey });
+    const r = new Romcal1962({ calendar: Switzerland_Saint_Maurice_Abbey });
     const day = await r.getOneLiturgicalDay('1962-09-22');
     expect(day!.primary.key).toBe('ss_maurice_and_companions_martyrs_optional');
     expect(day!.primary.rank1962).toBe('ClassI');
@@ -144,18 +144,18 @@ describe('Territorial Abbey of Saint-Maurice', () => {
 });
 
 describe('Registry + backwards compatibility', () => {
-  test('every Swiss overlay is registered with a stable slug', () => {
+  test('every Swiss overlay is registered by PascalCase class name', () => {
     expect(Object.keys(calendarOverlays).sort()).toEqual(
       [
-        'europe',
-        'switzerland',
-        'switzerland.basel',
-        'switzerland.chur',
-        'switzerland.lausanne-geneva-fribourg',
-        'switzerland.lugano',
-        'switzerland.saint-maurice',
-        'switzerland.sankt-gallen',
-        'switzerland.sion',
+        'Europe',
+        'Switzerland',
+        'Switzerland_Basel',
+        'Switzerland_Chur',
+        'Switzerland_Lausanne_Geneva_Fribourg',
+        'Switzerland_Lugano',
+        'Switzerland_Saint_Maurice_Abbey',
+        'Switzerland_Sankt_Gallen',
+        'Switzerland_Sion',
       ].sort()
     );
   });

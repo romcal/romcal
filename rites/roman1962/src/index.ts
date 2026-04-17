@@ -36,13 +36,13 @@ export {
   collectOverlayNames,
   Europe,
   Switzerland,
-  SwitzerlandBasel,
-  SwitzerlandChur,
-  SwitzerlandLausanneGenevaFribourg,
-  SwitzerlandLugano,
-  SwitzerlandSaintMauriceAbbey,
-  SwitzerlandSanktGallen,
-  SwitzerlandSion,
+  Switzerland_Basel,
+  Switzerland_Chur,
+  Switzerland_Lausanne_Geneva_Fribourg,
+  Switzerland_Lugano,
+  Switzerland_Saint_Maurice_Abbey,
+  Switzerland_Sankt_Gallen,
+  Switzerland_Sion,
 } from './calendars';
 export type { CalendarOverlay1962, CalendarOverlayEntry, OverlayApplyResult } from './calendars';
 export { buildLiturgicalYear1962 } from './calendar-year';
