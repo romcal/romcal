@@ -31,6 +31,7 @@
     "@internal/constants": "file:../../packages/constants",
     "@internal/easter": "file:../../packages/easter",
     "@internal/lunar-new-year": "file:../../packages/lunar-new-year",
+    "@internal/romcal-core": "file:../../packages/romcal-core",
     "i18next": "^26.0.4",
     "ts-deepmerge": "^7.0.3"
   },

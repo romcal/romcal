@@ -1,4 +1,5 @@
 import { computeAnchors, type YearAnchors } from '@internal/proper-of-time';
+import type { ILiturgicalDayConfigRoot } from '@internal/romcal-core';
 
 import type { Romcal1962ConfigOutput } from '../romcal-1962-types';
 
@@ -21,7 +22,7 @@ export interface LiturgicalDayConfig1962Output extends Romcal1962ConfigOutput {
  *
  * Cached per `(config, year)` on the `Romcal1962` instance.
  */
-export class LiturgicalDayConfig1962 {
+export class LiturgicalDayConfig1962 implements ILiturgicalDayConfigRoot<Romcal1962Config> {
   readonly config: Romcal1962Config;
   readonly year: number;
   readonly anchors: YearAnchors;

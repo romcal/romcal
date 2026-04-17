@@ -1,3 +1,5 @@
+import type { ILiturgicalDayDefRoot } from '@internal/romcal-core';
+
 import type { Rank1962 } from '../constants/rank-1962';
 import type { Color } from '../sanctoral/types';
 
@@ -27,7 +29,7 @@ export interface LiturgicalDayDef1962Init {
  * and overlay entries carry their fixed `mmdd` (the first one found
  * for sancti reached through multiple dates, e.g. octave days).
  */
-export class LiturgicalDayDef1962 {
+export class LiturgicalDayDef1962 implements ILiturgicalDayDefRoot {
   readonly key: string;
   readonly source: LiturgicalDayDef1962Source;
   readonly name: string;

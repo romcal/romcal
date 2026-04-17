@@ -1,0 +1,15 @@
+{
+  "name": "@internal/romcal-core",
+  "version": "0.0.0",
+  "description": "Rite-neutral structural contracts shared by every romcal rite (Romcal, LiturgicalDay, LiturgicalDayConfig).",
+  "license": "MIT",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tsc --project tsconfig.release.json",
+    "clean": "rimraf coverage dist",
+    "prettier": "prettier -c ."
+  },
+  "devDependencies": {
+    "@internal/config": "file:../../packages/config"
+  }
+}
