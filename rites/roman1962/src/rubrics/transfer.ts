@@ -1,8 +1,8 @@
-import type { Celebration1962 } from '../models/liturgical-day';
+import type { LiturgicalDay1962 } from '../models/liturgical-day';
 
 export interface PendingTransfer {
   originalDate: string;
-  feast: Celebration1962;
+  feast: LiturgicalDay1962;
 }
 
 /**
@@ -11,7 +11,7 @@ export interface PendingTransfer {
  * transferred feast (Class I) displaces the current primary, which
  * then becomes a commemoration (if eligible).
  */
-export function isTransferTarget(primary: Celebration1962): boolean {
+export function isTransferTarget(primary: LiturgicalDay1962): boolean {
   return primary.classOf1962 >= 3;
 }
 

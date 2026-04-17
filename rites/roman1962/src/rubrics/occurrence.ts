@@ -1,8 +1,8 @@
-import type { Celebration1962 } from '../models/liturgical-day';
+import type { LiturgicalDay1962 } from '../models/liturgical-day';
 
 export interface OccurrenceResult {
-  primary: Celebration1962;
-  losers: Celebration1962[];
+  primary: LiturgicalDay1962;
+  losers: LiturgicalDay1962[];
 }
 
 /**
@@ -15,7 +15,7 @@ export interface OccurrenceResult {
  * Returns the winner plus the remaining losers sorted by precedence
  * descending (for downstream commemoration selection).
  */
-export function resolveOccurrence(candidates: Celebration1962[]): OccurrenceResult {
+export function resolveOccurrence(candidates: LiturgicalDay1962[]): OccurrenceResult {
   if (candidates.length === 0) {
     throw new Error('resolveOccurrence called with empty candidate pool');
   }

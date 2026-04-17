@@ -2,7 +2,7 @@ import { listDatesInYear } from '@internal/proper-of-time';
 
 import type { CalendarOverlay1962 } from '../calendars/types';
 import type { NameTranslator } from '../i18n/init';
-import type { Celebration1962, ResolvedYear1962 } from '../models/liturgical-day';
+import type { LiturgicalDay1962, LiturgicalCalendar1962 } from '../models/liturgical-day';
 import { buildProperOfTime1962, type ProperOfTimeEntry } from '../proper-of-time';
 import {
   celebrationFromSancti,
@@ -19,7 +19,7 @@ export interface BuildLiturgicalYearOptions {
   overlay?: CalendarOverlay1962;
 }
 
-function withSeason(celebration: Celebration1962, temporaEntry: ProperOfTimeEntry | undefined): Celebration1962 {
+function withSeason(celebration: LiturgicalDay1962, temporaEntry: ProperOfTimeEntry | undefined): LiturgicalDay1962 {
   if (!temporaEntry) return celebration;
   return { ...celebration, season: temporaEntry.season };
 }
@@ -29,8 +29,8 @@ function buildDay(
   temporaEntry: ProperOfTimeEntry | undefined,
   sanctiEntries: SanctoralEntry1962[],
   translateName: NameTranslator | undefined
-): Celebration1962[] | undefined {
-  const candidates: Celebration1962[] = [];
+): LiturgicalDay1962[] | undefined {
+  const candidates: LiturgicalDay1962[] = [];
   if (temporaEntry) candidates.push(celebrationFromTempora(temporaEntry, date, translateName));
   for (const s of sanctiEntries) candidates.push(celebrationFromSancti(s, date, translateName));
 
@@ -47,16 +47,19 @@ function buildDay(
  * Proper of Time and M4 Proper of Saints, applies occurrence rules,
  * and forward-transfers impeded Class I sanctoral feasts.
  *
- * Return shape: `Record<date, Celebration1962[]>`. Index 0 of every
+ * Return shape: `Record<date, LiturgicalDay1962[]>`. Index 0 of every
  * list is the primary celebration; subsequent entries are
  * commemorations in precedence order.
  */
-export function buildLiturgicalYear1962(year: number, options: BuildLiturgicalYearOptions = {}): ResolvedYear1962 {
+export function buildLiturgicalYear1962(
+  year: number,
+  options: BuildLiturgicalYearOptions = {}
+): LiturgicalCalendar1962 {
   const { translateName, overlay } = options;
   const tempora = buildProperOfTime1962(year);
   const sanctoral = buildSanctoral1962(year, { overlay });
 
-  const firstPass: ResolvedYear1962 = {};
+  const firstPass: LiturgicalCalendar1962 = {};
   const pending: PendingTransfer[] = [];
 
   for (const date of listDatesInYear(year)) {
@@ -82,7 +85,7 @@ export function buildLiturgicalYear1962(year: number, options: BuildLiturgicalYe
   // date-ascending first pass), so earlier impediments claim their
   // landing slot first; later transfers skip over anything the
   // earlier one landed on (it's no longer a transfer target).
-  const final: ResolvedYear1962 = { ...firstPass };
+  const final: LiturgicalCalendar1962 = { ...firstPass };
   const allDates = listDatesInYear(year);
   for (const transfer of pending) {
     const startIdx = allDates.indexOf(transfer.originalDate);
@@ -94,7 +97,7 @@ export function buildLiturgicalYear1962(year: number, options: BuildLiturgicalYe
       const [primary, ...commems] = day;
       if (!isTransferTarget(primary)) continue;
 
-      const transferred: Celebration1962 = {
+      const transferred: LiturgicalDay1962 = {
         ...transfer.feast,
         date: landingDate,
         isTransferredReplacement: true,

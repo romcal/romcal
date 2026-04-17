@@ -8,4 +8,4 @@ export { scorePrecedence } from './precedence';
 export { classifyTempora } from './tempora-class';
 export { isTransferTarget, popEarliest } from './transfer';
 export type { PendingTransfer } from './transfer';
-export type { Celebration1962, Class1962, ResolvedYear1962 } from '../models/liturgical-day';
+export type { LiturgicalDay1962, Class1962, LiturgicalCalendar1962 } from '../models/liturgical-day';

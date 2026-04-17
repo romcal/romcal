@@ -1,10 +1,10 @@
 import { buildLiturgicalYear1962 } from '../src/calendar-year';
-import type { Celebration1962 } from '../src/models/liturgical-day';
+import type { LiturgicalDay1962 } from '../src/models/liturgical-day';
 
 describe('M5 rubrics engine — spot-checks from docs/1962/12-m5-rubrics.md', () => {
   const year1962 = buildLiturgicalYear1962(1962);
 
-  function day(iso: string): Celebration1962[] {
+  function day(iso: string): LiturgicalDay1962[] {
     const d = year1962[iso];
     if (!d) throw new Error(`no resolved day for ${iso}`);
     return d;

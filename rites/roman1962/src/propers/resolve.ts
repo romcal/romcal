@@ -1,4 +1,4 @@
-import type { Celebration1962 } from '../models/liturgical-day';
+import type { LiturgicalDay1962 } from '../models/liturgical-day';
 import type { MassPropersBlocks, MassSectionField, PropersBlock } from '../types/liturgical-day-1962';
 
 import { blockToLocalized } from './locale';
@@ -160,7 +160,7 @@ function isEmptyRaw(raw: RawCollected): boolean {
   return Object.keys(raw.sections).length === 0 && Object.keys(raw.extraSections).length === 0;
 }
 
-function resolveBlocksForCelebration(celebration: Celebration1962): RawCollected {
+function resolveBlocksForCelebration(celebration: LiturgicalDay1962): RawCollected {
   const source = parseSource(celebration.properRef.source);
   if (!source) return { sections: {}, extraSections: {} };
 
@@ -185,7 +185,7 @@ function resolveBlocksForCelebration(celebration: Celebration1962): RawCollected
  * ferial weekdays with no inline Mass fall back to the week's Sunday
  * Mass (see `sundayFallback`).
  */
-export function resolvePropersBlocks(celebration: Celebration1962): ResolvedPropersBlocks {
+export function resolvePropersBlocks(celebration: LiturgicalDay1962): ResolvedPropersBlocks {
   return resolveBlocksForCelebration(celebration);
 }
 
@@ -194,7 +194,7 @@ export function resolvePropersBlocks(celebration: Celebration1962): ResolvedProp
  * `{ propers, extraSections }` with text items concatenated per
  * requested locale. Broken references yield an omitted section.
  */
-export function resolvePropers(celebration: Celebration1962, options: ResolvePropersOptions = {}): ResolvedPropers {
+export function resolvePropers(celebration: LiturgicalDay1962, options: ResolvePropersOptions = {}): ResolvedPropers {
   const raw = resolveBlocksForCelebration(celebration);
   const propers: ResolvedPropers['propers'] = {};
   for (const [field, block] of Object.entries(raw.sections) as [MassSectionField, PropersBlock][]) {

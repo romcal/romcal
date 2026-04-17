@@ -1,11 +1,11 @@
 import { buildLiturgicalYear1962 } from '../src/calendar-year';
-import type { Celebration1962 } from '../src/models/liturgical-day';
+import type { LiturgicalDay1962 } from '../src/models/liturgical-day';
 import { attachPropers, resolvePropers } from '../src/propers';
 
 describe('M6 propers resolver', () => {
   const year1962 = buildLiturgicalYear1962(1962);
 
-  function day(iso: string): Celebration1962[] {
+  function day(iso: string): LiturgicalDay1962[] {
     const d = year1962[iso];
     if (!d) throw new Error(`no resolved day for ${iso}`);
     return d;
@@ -73,7 +73,7 @@ describe('M6 propers resolver', () => {
   });
 
   test('8) No-throw on missing properRef source — returns empty propers', () => {
-    const fake: Celebration1962 = {
+    const fake: LiturgicalDay1962 = {
       kind: 'sancti',
       key: 'bogus',
       name: 'Bogus',
