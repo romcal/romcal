@@ -1,12 +1,12 @@
 import type { Rank1962 } from '../constants/rank-1962';
 import type { NameTranslator } from '../i18n/init';
+import type { Celebration1962, Class1962 } from '../models/liturgical-day';
 import type { ProperOfTimeEntry } from '../proper-of-time';
 import { loadTempora, type MassFileEntry, type MassFileMap } from '../sanctoral/data';
 import type { SanctoralEntry1962 } from '../sanctoral/types';
 
 import { scorePrecedence } from './precedence';
 import { classifyTempora } from './tempora-class';
-import type { Celebration1962, Class1962 } from './types';
 
 const CLASS_TO_RANK: Record<Class1962, Rank1962> = {
   1: 'ClassI',

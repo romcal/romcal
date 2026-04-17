@@ -1,4 +1,4 @@
-import type { ResolvedYear1962 } from './types';
+import type { ResolvedYear1962 } from '../models/liturgical-day';
 
 export type CommemorationCapMode = 'solemn' | 'private' | 'all';
 

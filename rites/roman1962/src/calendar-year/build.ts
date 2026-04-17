@@ -2,17 +2,16 @@ import { listDatesInYear } from '@internal/proper-of-time';
 
 import type { CalendarOverlay1962 } from '../calendars/types';
 import type { NameTranslator } from '../i18n/init';
+import type { Celebration1962, ResolvedYear1962 } from '../models/liturgical-day';
 import { buildProperOfTime1962, type ProperOfTimeEntry } from '../proper-of-time';
 import {
   celebrationFromSancti,
   celebrationFromTempora,
   isTransferTarget,
   type PendingTransfer,
-  type ResolvedYear1962,
   resolveOccurrence,
   selectCommemorations,
 } from '../rubrics';
-import type { Celebration1962 } from '../rubrics/types';
 import { buildSanctoral1962, type SanctoralEntry1962 } from '../sanctoral';
 
 export interface BuildLiturgicalYearOptions {

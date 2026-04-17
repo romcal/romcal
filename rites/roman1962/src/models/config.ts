@@ -1,10 +1,10 @@
 import type { i18n } from 'i18next';
 
-import { collectOverlayNames } from './calendars/apply';
-import type { CalendarOverlay1962 } from './calendars/types';
-import { createI18n1962, createNameTranslator, type NameTranslator } from './i18n/init';
-import type { Romcal1962ConfigInput, Romcal1962ConfigOutput } from './romcal-1962-types';
-import type { CommemorationCapMode } from './rubrics/commemoration-cap';
+import { collectOverlayNames } from '../calendars/apply';
+import type { CalendarOverlay1962 } from '../calendars/types';
+import { createI18n1962, createNameTranslator, type NameTranslator } from '../i18n/init';
+import type { Romcal1962ConfigInput, Romcal1962ConfigOutput } from '../romcal-1962-types';
+import type { CommemorationCapMode } from '../rubrics/commemoration-cap';
 
 const DEFAULT_LOCALE_ID = 'la';
 

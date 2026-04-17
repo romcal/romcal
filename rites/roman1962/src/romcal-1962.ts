@@ -6,13 +6,13 @@ import { Colors1962, COLORS_1962, isColor1962 } from './constants/colors-1962';
 import { RANKS_1962, Rank1962Values } from './constants/rank-1962';
 import { Seasons1962, SEASONS_1962 } from './constants/seasons-1962';
 import { buildDefinitions1962, type Definitions1962 } from './definitions';
+import { Romcal1962Config } from './models/config';
+import type { Celebration1962 } from './models/liturgical-day';
 import { buildProperOfTime1962 } from './proper-of-time';
 import { attachPropers } from './propers';
-import { Romcal1962Config } from './romcal-1962-config';
 import type { Romcal1962ConfigInput, Romcal1962ConfigOutput } from './romcal-1962-types';
 import { celebrationFromSancti, celebrationFromTempora } from './rubrics/candidates';
 import { applyCommemorationCap } from './rubrics/commemoration-cap';
-import type { Celebration1962 } from './rubrics/types';
 import { buildSanctoral1962 } from './sanctoral';
 
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;

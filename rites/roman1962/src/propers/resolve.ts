@@ -1,4 +1,4 @@
-import type { Celebration1962 } from '../rubrics/types';
+import type { Celebration1962 } from '../models/liturgical-day';
 import type { MassPropersBlocks, MassSectionField, PropersBlock } from '../types/liturgical-day-1962';
 
 import { blockToLocalized } from './locale';

@@ -1,4 +1,4 @@
-import type { Celebration1962, ResolvedYear1962 } from '../rubrics/types';
+import type { Celebration1962, ResolvedYear1962 } from '../models/liturgical-day';
 
 import { resolvePropers } from './resolve';
 import type { AttachPropersOptions, ResolvedPropers } from './types';

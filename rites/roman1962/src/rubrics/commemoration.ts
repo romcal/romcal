@@ -1,4 +1,4 @@
-import type { Celebration1962 } from './types';
+import type { Celebration1962 } from '../models/liturgical-day';
 
 /**
  * Filter losers down to the list of celebrations eligible to be
