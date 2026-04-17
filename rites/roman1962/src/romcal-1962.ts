@@ -1,21 +1,17 @@
 import { MONTHS, WEEKDAYS } from '@internal/constants';
 import type { YearAnchors } from '@internal/proper-of-time';
 
-import { buildLiturgicalYear1962, type LiturgicalCalendar1962 } from './calendar-year';
+import type { LiturgicalCalendar1962 } from './calendar-year';
 import { Colors1962, COLORS_1962, isColor1962 } from './constants/colors-1962';
 import { RANKS_1962, Rank1962Values } from './constants/rank-1962';
 import { Seasons1962, SEASONS_1962 } from './constants/seasons-1962';
 import { buildAllDefinitions } from './definitions';
+import { Calendar1962 } from './models/calendar';
 import { Romcal1962Config } from './models/config';
 import type { LiturgicalDay1962 } from './models/liturgical-day';
 import { LiturgicalDayConfig1962 } from './models/liturgical-day-config';
 import type { LiturgicalDayDefinitions1962 } from './models/liturgical-day-def';
-import { buildProperOfTime1962 } from './proper-of-time';
-import { attachPropers } from './propers';
 import type { Romcal1962ConfigInput, Romcal1962ConfigOutput } from './romcal-1962-types';
-import { celebrationFromSancti, celebrationFromTempora } from './rubrics/candidates';
-import { applyCommemorationCap } from './rubrics/commemoration-cap';
-import { buildSanctoral1962 } from './sanctoral';
 
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -35,13 +31,16 @@ function sanitizeYear(year: number | string): number {
 }
 
 /**
- * High-level entry point for the 1962 Roman Rite. Wraps the
- * functional pipeline (`buildLiturgicalYear1962` + `attachPropers`)
- * with a single config object and per-instance year cache.
+ * High-level entry point for the 1962 Roman Rite. Holds the shared
+ * `Romcal1962Config` and caches per-year `LiturgicalDayConfig1962`
+ * and computed calendars, delegating the actual year build to a
+ * `Calendar1962` orchestrator.
  *
- * The functional API stays available for one-shot scripts and tests;
- * use this class when you want a configured object you can pass
- * around.
+ * Parity with 1969's `Romcal`: same indirection
+ * (`Romcal → LiturgicalDayConfig → Calendar → LiturgicalDay`). The
+ * functional API (`buildLiturgicalYear1962`, `attachPropers`, …)
+ * remains available for one-shot scripts and tests; use this class
+ * when you want a configured object you can pass around.
  */
 export class Romcal1962 {
   readonly #config: Romcal1962Config;
@@ -113,20 +112,7 @@ export class Romcal1962 {
           resolve(cached);
           return;
         }
-        const built = buildLiturgicalYear1962(y, {
-          translateName: this.#config.translateName,
-          overlay: this.#config.calendar,
-        });
-        const withPropers = this.#config.includePropers
-          ? attachPropers(built, {
-              locales: this.#config.propersLocales,
-              attachToCommemorations: this.#config.attachToCommemorations,
-            })
-          : built;
-        const finished =
-          this.#config.commemorationLimit === 'all'
-            ? withPropers
-            : applyCommemorationCap(withPropers, { mode: this.#config.commemorationLimit });
+        const finished = new Calendar1962(this.#config, this.#getLdConfig(y)).generateCalendar();
         this.#computedYears.set(y, finished);
         resolve(finished);
       } catch (e) {
@@ -193,36 +179,12 @@ export class Romcal1962 {
             return;
           }
 
-          resolve(this.#buildPartial(id, y));
+          resolve(new Calendar1962(this.#config, this.#getLdConfig(y)).getOneLiturgicalDay(id));
         } catch (e) {
           reject(e);
         }
       })();
     });
-  }
-
-  #buildPartial(id: string, year: number): LiturgicalDay1962 | null {
-    const tempora = buildProperOfTime1962(year);
-    for (const [date, entry] of tempora) {
-      if (entry.temporaKey === id) {
-        return celebrationFromTempora(entry, date, this.#config.translateName);
-      }
-    }
-
-    // Sancti / overlay: iterate sanctoral by key.
-    const sanctoral = buildSanctoral1962(year, { overlay: this.#config.calendar });
-    for (const [date, entries] of sanctoral) {
-      for (const entry of entries) {
-        if (entry.fileKey === id) {
-          return celebrationFromSancti(entry, date, this.#config.translateName);
-        }
-      }
-    }
-
-    // id existed in definitions but didn't date in this year (e.g. a
-    // leap-day saint in a non-leap year, or a key reachable only via
-    // a mass-file that has no kalendarium slot).
-    return null;
   }
 
   // -- Static accessors: parity with 1969's `Romcal.*` statics. --
