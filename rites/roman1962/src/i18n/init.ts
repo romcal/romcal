@@ -1,4 +1,4 @@
-import i18next, { type i18n } from 'i18next';
+import { addBundles, createI18nInstance, type i18n } from '@internal/i18n';
 
 import { locales as ALL_LOCALES } from '../locales';
 import type { Locale1962 } from '../types/locale';
@@ -12,13 +12,21 @@ const NAMESPACES = ['names', 'colors', 'ranks', 'seasons', 'months', 'weekdays']
  */
 export type ExtraLocaleNames = Record<string, Record<string, string>>;
 
-function addBundles(instance: i18n, locale: Locale1962): void {
-  instance.addResourceBundle(locale.id, 'names', locale.names ?? {}, true, true);
-  if (locale.colors) instance.addResourceBundle(locale.id, 'colors', locale.colors, true, true);
-  if (locale.ranks) instance.addResourceBundle(locale.id, 'ranks', locale.ranks, true, true);
-  if (locale.seasons) instance.addResourceBundle(locale.id, 'seasons', locale.seasons, true, true);
-  if (locale.months) instance.addResourceBundle(locale.id, 'months', locale.months, true, true);
-  if (locale.weekdays) instance.addResourceBundle(locale.id, 'weekdays', locale.weekdays, true, true);
+function loadLocale(instance: i18n, locale: Locale1962): void {
+  addBundles(
+    instance,
+    locale.id,
+    {
+      names: locale.names ?? {},
+      ...(locale.colors ? { colors: locale.colors } : {}),
+      ...(locale.ranks ? { ranks: locale.ranks } : {}),
+      ...(locale.seasons ? { seasons: locale.seasons } : {}),
+      ...(locale.months ? { months: locale.months } : {}),
+      ...(locale.weekdays ? { weekdays: locale.weekdays } : {}),
+    },
+    true,
+    true
+  );
 }
 
 /**
@@ -28,23 +36,16 @@ function addBundles(instance: i18n, locale: Locale1962): void {
  * `entry.officium` into `la`).
  */
 export function createI18n1962(localeId: string, extraNames?: ExtraLocaleNames): i18n {
-  const instance = i18next.createInstance();
-  instance.init(
-    {
-      lng: localeId,
-      fallbackLng: localeId === 'la' ? ['la'] : ['en', 'la'],
-      ns: [...NAMESPACES],
-      defaultNS: 'names',
-      initAsync: false,
-      interpolation: { escapeValue: false },
-    },
-    (err) => {
-      if (err) throw err;
-    }
-  );
+  const instance = createI18nInstance({
+    lng: localeId,
+    fallbackLng: localeId === 'la' ? ['la'] : ['en', 'la'],
+    ns: [...NAMESPACES],
+    defaultNS: 'names',
+    interpolation: { escapeValue: false },
+  });
 
   for (const locale of Object.values(ALL_LOCALES)) {
-    addBundles(instance, locale);
+    loadLocale(instance, locale);
   }
   if (extraNames) {
     for (const [lang, names] of Object.entries(extraNames)) {
