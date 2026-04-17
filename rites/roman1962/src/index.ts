@@ -74,8 +74,13 @@ export { applyCommemorationCap } from './rubrics';
 export type { CommemorationCapMode, CommemorationCapOptions } from './rubrics';
 export { Romcal1962 } from './romcal-1962';
 export type { Romcal1962ConfigInput, Romcal1962ConfigOutput } from './romcal-1962-types';
-export { buildDefinitions1962 } from './definitions';
-export type { Definition1962, Definitions1962 } from './definitions';
+export { buildAllDefinitions } from './definitions';
+export { LiturgicalDayDef1962 } from './models/liturgical-day-def';
+export type {
+  LiturgicalDayDef1962Init,
+  LiturgicalDayDef1962Source,
+  LiturgicalDayDefinitions1962,
+} from './models/liturgical-day-def';
 export { COLORS_1962, Colors1962, isColor1962 } from './constants/colors-1962';
 export type { Color1962 } from './constants/colors-1962';
 export { RANKS_1962, Rank1962Values } from './constants/rank-1962';
