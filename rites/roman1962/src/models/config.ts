@@ -1,4 +1,4 @@
-import type { i18n } from 'i18next';
+import type { i18n } from '@internal/i18n';
 
 import { collectOverlayNames } from '../calendars/apply';
 import type { CalendarOverlay1962 } from '../calendars/types';
