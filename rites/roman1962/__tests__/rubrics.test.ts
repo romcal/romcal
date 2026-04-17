@@ -42,7 +42,7 @@ describe('M5 rubrics engine — spot-checks from docs/1962/12-m5-rubrics.md', ()
     expect(transferred).toBeDefined();
   });
 
-  test('5) 1968-12-08 Advent II Sunday beats Immaculate Conception (§15a); IC transfers', () => {
+  test('5) 1968-12-08 Advent II Sunday beats Immaculate Conception (§15a); IC transfers forward', () => {
     const y1968 = buildLiturgicalYear1962(1968);
     const d = y1968['1968-12-08'];
     expect(d).toBeDefined();
@@ -52,6 +52,11 @@ describe('M5 rubrics engine — spot-checks from docs/1962/12-m5-rubrics.md', ()
       (x) => x[0].name.includes('Immaculata') && x[0].transferredFromDate === '1968-12-08'
     );
     expect(transferred).toBeDefined();
+    // §50: the landing date must be *after* the impediment date, not
+    // an earlier open day. IC 1968 lands on the Monday 12-09 (first
+    // transfer target after 12-08).
+    expect(transferred![0].date > '1968-12-08').toBe(true);
+    expect(transferred![0].date).toBe('1968-12-09');
   });
 
   test('6) 1962-06-29 Ss. Peter & Paul win over Pent 4 Fri', () => {

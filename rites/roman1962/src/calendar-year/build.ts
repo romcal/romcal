@@ -76,27 +76,37 @@ export function buildLiturgicalYear1962(year: number, options: BuildLiturgicalYe
 
   if (pending.length === 0) return firstPass;
 
+  // Rubricae 1960 §50: an impeded Class I feast is transferred to
+  // the next open day *after* its original date. Scan forward per
+  // pending transfer, starting one day past the impediment. `pending`
+  // is already in impediment-date order (emitted from the
+  // date-ascending first pass), so earlier impediments claim their
+  // landing slot first; later transfers skip over anything the
+  // earlier one landed on (it's no longer a transfer target).
   const final: ResolvedYear1962 = { ...firstPass };
-  for (const date of listDatesInYear(year)) {
-    if (pending.length === 0) break;
-    const day = final[date];
-    if (!day) continue;
-    const [primary, ...commems] = day;
-    if (!isTransferTarget(primary)) continue;
+  const allDates = listDatesInYear(year);
+  for (const transfer of pending) {
+    const startIdx = allDates.indexOf(transfer.originalDate);
+    if (startIdx < 0) continue;
+    for (let i = startIdx + 1; i < allDates.length; i++) {
+      const landingDate = allDates[i];
+      const day = final[landingDate];
+      if (!day) continue;
+      const [primary, ...commems] = day;
+      if (!isTransferTarget(primary)) continue;
 
-    const transfer = pending.shift();
-    if (!transfer) break;
-
-    const transferred: Celebration1962 = {
-      ...transfer.feast,
-      date,
-      isTransferredReplacement: true,
-      transferredFromDate: transfer.originalDate,
-      ...(primary.season ? { season: primary.season } : {}),
-    };
-    const displaced = primary;
-    const newCommems = selectCommemorations(transferred, [displaced, ...commems.filter((c) => c !== transfer.feast)]);
-    final[date] = [transferred, ...newCommems];
+      const transferred: Celebration1962 = {
+        ...transfer.feast,
+        date: landingDate,
+        isTransferredReplacement: true,
+        transferredFromDate: transfer.originalDate,
+        ...(primary.season ? { season: primary.season } : {}),
+      };
+      const displaced = primary;
+      const newCommems = selectCommemorations(transferred, [displaced, ...commems.filter((c) => c !== transfer.feast)]);
+      final[landingDate] = [transferred, ...newCommems];
+      break;
+    }
   }
 
   // Strip transferred feasts out of their original day's commemoration list.
