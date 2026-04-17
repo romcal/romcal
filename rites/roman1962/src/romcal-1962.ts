@@ -1,5 +1,5 @@
 import { MONTHS, WEEKDAYS } from '@internal/constants';
-import { computeAnchors, type YearAnchors } from '@internal/proper-of-time';
+import type { YearAnchors } from '@internal/proper-of-time';
 
 import { buildLiturgicalYear1962, type LiturgicalCalendar1962 } from './calendar-year';
 import { Colors1962, COLORS_1962, isColor1962 } from './constants/colors-1962';
@@ -8,6 +8,7 @@ import { Seasons1962, SEASONS_1962 } from './constants/seasons-1962';
 import { buildAllDefinitions } from './definitions';
 import { Romcal1962Config } from './models/config';
 import type { LiturgicalDay1962 } from './models/liturgical-day';
+import { LiturgicalDayConfig1962 } from './models/liturgical-day-config';
 import type { LiturgicalDayDefinitions1962 } from './models/liturgical-day-def';
 import { buildProperOfTime1962 } from './proper-of-time';
 import { attachPropers } from './propers';
@@ -45,7 +46,7 @@ function sanitizeYear(year: number | string): number {
 export class Romcal1962 {
   readonly #config: Romcal1962Config;
   readonly #computedYears = new Map<number, LiturgicalCalendar1962>();
-  readonly #anchors = new Map<number, YearAnchors>();
+  readonly #ldConfigs = new Map<number, LiturgicalDayConfig1962>();
   #definitions?: LiturgicalDayDefinitions1962;
 
   constructor(input: Romcal1962ConfigInput = {}) {
@@ -56,21 +57,25 @@ export class Romcal1962 {
     return this.#config.toObject();
   }
 
+  #getLdConfig(year: number): LiturgicalDayConfig1962 {
+    const cached = this.#ldConfigs.get(year);
+    if (cached) return cached;
+    const fresh = new LiturgicalDayConfig1962(this.#config, year);
+    this.#ldConfigs.set(year, fresh);
+    return fresh;
+  }
+
   /**
    * Anchor-date library for `year`. Returns the `YearAnchors` bundle
    * (Easter, Advent I, Septuagesima, …) computed from
-   * `@internal/proper-of-time`. Cached per year. Parity with 1969's
-   * `Romcal#dates(year)` — 1962 has no rich `Dates` class (no weekday
-   * iterators), so we expose the raw anchor set consumers can derive
-   * everything else from.
+   * `@internal/proper-of-time`. Cached per year via the underlying
+   * `LiturgicalDayConfig1962`. Parity with 1969's `Romcal#dates(year)`
+   * — 1962 has no rich `Dates` class (no weekday iterators), so we
+   * expose the raw anchor set consumers can derive everything else
+   * from.
    */
   dates(year: number | string): YearAnchors {
-    const y = sanitizeYear(year);
-    const cached = this.#anchors.get(y);
-    if (cached) return cached;
-    const fresh = computeAnchors(y);
-    this.#anchors.set(y, fresh);
-    return fresh;
+    return this.#getLdConfig(sanitizeYear(year)).anchors;
   }
 
   /**
