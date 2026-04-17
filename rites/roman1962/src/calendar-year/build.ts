@@ -26,13 +26,14 @@ function withSeason(celebration: Celebration1962, temporaEntry: ProperOfTimeEntr
 }
 
 function buildDay(
+  date: string,
   temporaEntry: ProperOfTimeEntry | undefined,
   sanctiEntries: SanctoralEntry1962[],
   translateName: NameTranslator | undefined
 ): Celebration1962[] | undefined {
   const candidates: Celebration1962[] = [];
-  if (temporaEntry) candidates.push(celebrationFromTempora(temporaEntry, translateName));
-  for (const s of sanctiEntries) candidates.push(celebrationFromSancti(s, translateName));
+  if (temporaEntry) candidates.push(celebrationFromTempora(temporaEntry, date, translateName));
+  for (const s of sanctiEntries) candidates.push(celebrationFromSancti(s, date, translateName));
 
   if (candidates.length === 0) return undefined;
 
@@ -62,7 +63,7 @@ export function buildLiturgicalYear1962(year: number, options: BuildLiturgicalYe
   for (const date of listDatesInYear(year)) {
     const t = tempora.get(date);
     const s = sanctoral.get(date) ?? [];
-    const day = buildDay(t, s, translateName);
+    const day = buildDay(date, t, s, translateName);
     if (!day) continue;
 
     for (const celebration of day.slice(1)) {
@@ -88,6 +89,7 @@ export function buildLiturgicalYear1962(year: number, options: BuildLiturgicalYe
 
     const transferred: Celebration1962 = {
       ...transfer.feast,
+      date,
       isTransferredReplacement: true,
       transferredFromDate: transfer.originalDate,
       ...(primary.season ? { season: primary.season } : {}),
@@ -130,7 +132,7 @@ export function buildLiturgicalYear1962(year: number, options: BuildLiturgicalYe
 
       const t = tempora.get(date);
       const sancti = (sanctoral.get(date) ?? []).filter((s) => !s.vigil || !transferredNames.has(s.vigil.of));
-      const rebuilt = buildDay(t, sancti, translateName);
+      const rebuilt = buildDay(date, t, sancti, translateName);
       if (!rebuilt) continue;
       if (primary.isTransferredReplacement) {
         const [newPrimary, ...newCommems] = rebuilt;

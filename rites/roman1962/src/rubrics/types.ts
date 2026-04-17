@@ -9,6 +9,13 @@ export interface Celebration1962 {
   kind: 'tempora' | 'sancti';
   key: string;
   name: string;
+  /**
+   * ISO `YYYY-MM-DD` the celebration lands on. Matches the outer
+   * `ResolvedYear1962` record key for primaries and commemorations,
+   * and the post-transfer landing date for transferred feasts.
+   * Populated everywhere a Celebration1962 is constructed.
+   */
+  date: string;
   classOf1962: Class1962;
   rank1962: Rank1962;
   numericRank: number;

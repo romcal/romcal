@@ -32,6 +32,21 @@ console.log(easter?.[0].propers?.introit?.la);
 // → 'Resurréxi, et adhuc tecum sum, ...'
 console.log(easter?.[0].propers?.introit?.en);
 // → 'I arose, and am still with Thee, ...'
+
+// Single-id lookup (parity with the 1969 rite)
+const stJoseph = await r.getOneLiturgicalDay('saint_joseph_spouse_of_the_blessed_virgin_mary', {
+  year: 1962,
+});
+console.log(stJoseph?.date);
+// → '1962-03-19'                               ← partial: natural date, no rubric precedence
+
+// computeInWholeYear runs occurrence + transfer rules on the resolved year
+const easter = await r.getOneLiturgicalDay('easter_sunday', {
+  year: 1962,
+  computeInWholeYear: true,
+});
+console.log(easter?.date);
+// → '1962-04-22'
 ```
 
 ### Celebration keys

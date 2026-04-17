@@ -35,6 +35,7 @@ function pickTemporaMass(temporaKey: string, tempora: MassFileMap): MassFileEntr
  */
 export function celebrationFromTempora(
   entry: ProperOfTimeEntry,
+  date: string,
   translateName: NameTranslator = identityTranslator
 ): Celebration1962 {
   const tempora = loadTempora();
@@ -46,6 +47,7 @@ export function celebrationFromTempora(
     kind: 'tempora',
     key: entry.temporaKey,
     name: translateName('tempora', entry.temporaKey, latin),
+    date,
     classOf1962,
     rank1962: CLASS_TO_RANK[classOf1962],
     numericRank: mass?.rank?.numericRank ?? 0,
@@ -73,6 +75,7 @@ export function celebrationFromTempora(
  */
 export function celebrationFromSancti(
   entry: SanctoralEntry1962,
+  date: string,
   translateName: NameTranslator = identityTranslator
 ): Celebration1962 {
   const classOf1962 = (entry.class1962 ?? 4) as Class1962;
@@ -80,6 +83,7 @@ export function celebrationFromSancti(
     kind: 'sancti',
     key: entry.fileKey,
     name: translateName(entry.source, entry.fileKey, entry.name),
+    date,
     classOf1962,
     rank1962: entry.rank1962,
     numericRank: entry.numericRank,

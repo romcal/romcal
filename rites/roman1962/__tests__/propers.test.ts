@@ -77,6 +77,7 @@ describe('M6 propers resolver', () => {
       kind: 'sancti',
       key: 'bogus',
       name: 'Bogus',
+      date: '1962-01-01',
       classOf1962: 4,
       rank1962: 'ClassIV',
       numericRank: 0,

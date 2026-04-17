@@ -2,11 +2,14 @@ import { computeAnchors, type YearAnchors } from '@internal/proper-of-time';
 
 import { buildLiturgicalYear1962, type ResolvedYear1962 } from './calendar-year';
 import { buildDefinitions1962, type Definitions1962 } from './definitions';
+import { buildProperOfTime1962 } from './proper-of-time';
 import { attachPropers } from './propers';
 import { Romcal1962Config } from './romcal-1962-config';
 import type { Romcal1962ConfigInput, Romcal1962ConfigOutput } from './romcal-1962-types';
+import { celebrationFromSancti, celebrationFromTempora } from './rubrics/candidates';
 import { applyCommemorationCap } from './rubrics/commemoration-cap';
 import type { Celebration1962 } from './rubrics/types';
+import { buildSanctoral1962 } from './sanctoral';
 
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -132,5 +135,83 @@ export class Romcal1962 {
     const y = yearOf(date);
     const cal = await this.generateCalendar(y);
     return cal[date];
+  }
+
+  /**
+   * Look up a single celebration by its stable id (key). Parity with
+   * 1969's `Romcal#getOneLiturgicalDay(id, options)`.
+   *
+   * - `undefined` — `id` is not in this calendar's definitions.
+   * - `null` — `id` is defined but has no dated occurrence in `year`.
+   * - `Celebration1962` — the dated celebration.
+   *
+   * Default behavior (`computeInWholeYear: false`) returns a *partial*:
+   * the celebration at its natural date from tempora/sancti, without
+   * running occurrence, transfer, or commemoration rules. Useful for
+   * cheap lookups and metadata queries.
+   *
+   * With `computeInWholeYear: true`, the full year is generated and
+   * the celebration is returned in its final post-rubric form — which
+   * may sit on a different date than its natural one if it was
+   * forward-transferred.
+   */
+  getOneLiturgicalDay(
+    id: string,
+    options: { year?: number | string; computeInWholeYear?: boolean } = { computeInWholeYear: false }
+  ): Promise<Celebration1962 | null | undefined> {
+    return new Promise((resolve, reject) => {
+      (async (): Promise<void> => {
+        try {
+          const y = sanitizeYear(options.year ?? new Date().getUTCFullYear());
+          const defs = await this.getAllDefinitions();
+          if (!Object.prototype.hasOwnProperty.call(defs, id)) {
+            resolve(undefined);
+            return;
+          }
+
+          if (options.computeInWholeYear) {
+            const cal = await this.generateCalendar(y);
+            for (const celebrations of Object.values(cal)) {
+              for (const c of celebrations) {
+                if (c.key === id) {
+                  resolve(c);
+                  return;
+                }
+              }
+            }
+            resolve(null);
+            return;
+          }
+
+          resolve(this.#buildPartial(id, y));
+        } catch (e) {
+          reject(e);
+        }
+      })();
+    });
+  }
+
+  #buildPartial(id: string, year: number): Celebration1962 | null {
+    const tempora = buildProperOfTime1962(year);
+    for (const [date, entry] of tempora) {
+      if (entry.temporaKey === id) {
+        return celebrationFromTempora(entry, date, this.#config.translateName);
+      }
+    }
+
+    // Sancti / overlay: iterate sanctoral by key.
+    const sanctoral = buildSanctoral1962(year, { overlay: this.#config.calendar });
+    for (const [date, entries] of sanctoral) {
+      for (const entry of entries) {
+        if (entry.fileKey === id) {
+          return celebrationFromSancti(entry, date, this.#config.translateName);
+        }
+      }
+    }
+
+    // id existed in definitions but didn't date in this year (e.g. a
+    // leap-day saint in a non-leap year, or a key reachable only via
+    // a mass-file that has no kalendarium slot).
+    return null;
   }
 }
