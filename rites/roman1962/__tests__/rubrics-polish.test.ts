@@ -6,22 +6,22 @@ describe('M8 rubrics polish', () => {
   describe('Class II Lord feast vs Class II Sunday (§15)', () => {
     test('1961-08-06 Transfiguration on after_pentecost_11_sunday → Transfiguration wins', () => {
       const year = buildLiturgicalYear1962(1961);
-      const day = year.get('1961-08-06');
+      const day = year['1961-08-06'];
       expect(day).toBeDefined();
-      expect(day!.primary.kind).toBe('sancti');
-      expect(day!.primary.key).toBe('the_transfiguration_of_our_lord_jesus_christ');
-      expect(day!.primary.name).toMatch(/Transfiguratione|Transfiguratio/);
-      const sundayCommem = day!.commemorations.find((c) => c.key === 'after_pentecost_11_sunday');
+      expect(day[0].kind).toBe('sancti');
+      expect(day[0].key).toBe('the_transfiguration_of_our_lord_jesus_christ');
+      expect(day[0].name).toMatch(/Transfiguratione|Transfiguratio/);
+      const sundayCommem = day.slice(1).find((c) => c.key === 'after_pentecost_11_sunday');
       expect(sundayCommem).toBeDefined();
     });
 
     test('1958-09-14 Exaltation on after_pentecost_16_sunday → Exaltation wins', () => {
       const year = buildLiturgicalYear1962(1958);
-      const day = year.get('1958-09-14');
+      const day = year['1958-09-14'];
       expect(day).toBeDefined();
-      expect(day!.primary.kind).toBe('sancti');
-      expect(day!.primary.key).toBe('exaltation_of_the_holy_cross');
-      const sundayCommem = day!.commemorations.find((c) => c.key === 'after_pentecost_16_sunday');
+      expect(day[0].kind).toBe('sancti');
+      expect(day[0].key).toBe('exaltation_of_the_holy_cross');
+      const sundayCommem = day.slice(1).find((c) => c.key === 'after_pentecost_16_sunday');
       expect(sundayCommem).toBeDefined();
     });
   });
@@ -30,11 +30,11 @@ describe('M8 rubrics polish', () => {
     test('all Dec 17–23 ferias are Class II', () => {
       const year = buildLiturgicalYear1962(1962);
       for (const d of ['1962-12-17', '1962-12-18', '1962-12-19', '1962-12-20', '1962-12-22']) {
-        const day = year.get(d);
+        const day = year[d];
         expect(day).toBeDefined();
         // 12-21 is St Thomas (Class II sancti); 12-23 is the Sunday — others are tempora ferias.
-        if (day!.primary.kind === 'tempora') {
-          expect(day!.primary.classOf1962).toBeLessThanOrEqual(2);
+        if (day[0].kind === 'tempora') {
+          expect(day[0].classOf1962).toBeLessThanOrEqual(2);
         }
       }
     });
@@ -51,15 +51,15 @@ describe('M8 rubrics polish', () => {
 
     test("'private' caps every day to ≤1 commemoration", () => {
       const out = applyCommemorationCap(year, { mode: 'private' });
-      for (const day of out.values()) {
-        expect(day.commemorations.length).toBeLessThanOrEqual(1);
+      for (const day of Object.values(out)) {
+        expect(day.slice(1).length).toBeLessThanOrEqual(1);
       }
     });
 
     test("'solemn' caps every day to ≤3 commemorations", () => {
       const out = applyCommemorationCap(year, { mode: 'solemn' });
-      for (const day of out.values()) {
-        expect(day.commemorations.length).toBeLessThanOrEqual(3);
+      for (const day of Object.values(out)) {
+        expect(day.slice(1).length).toBeLessThanOrEqual(3);
       }
     });
 
@@ -68,15 +68,15 @@ describe('M8 rubrics polish', () => {
       // Under 'private', the Class II Sunday must survive.
       const y61 = buildLiturgicalYear1962(1961);
       const out = applyCommemorationCap(y61, { mode: 'private' });
-      const day = out.get('1961-08-06');
-      expect(day!.commemorations.length).toBe(1);
-      expect(day!.commemorations[0].key).toBe('after_pentecost_11_sunday');
+      const day = out['1961-08-06'];
+      expect(day.slice(1).length).toBe(1);
+      expect(day[1].key).toBe('after_pentecost_11_sunday');
     });
 
     test('cap does not mutate input', () => {
-      const before = JSON.stringify(year.get('1961-08-06')?.commemorations ?? []);
+      const before = JSON.stringify(year['1961-08-06']?.slice(1) ?? []);
       applyCommemorationCap(year, { mode: 'private' });
-      const after = JSON.stringify(year.get('1961-08-06')?.commemorations ?? []);
+      const after = JSON.stringify(year['1961-08-06']?.slice(1) ?? []);
       expect(after).toBe(before);
     });
   });
@@ -85,23 +85,23 @@ describe('M8 rubrics polish', () => {
     test("default 'all' leaves commemorations untouched", async () => {
       const r = new Romcal1962();
       const cal = await r.generateCalendar(1961);
-      const day = cal.get('1961-08-06');
-      expect(day!.commemorations.length).toBeGreaterThanOrEqual(2);
+      const day = cal['1961-08-06'];
+      expect(day.slice(1).length).toBeGreaterThanOrEqual(2);
     });
 
     test("'private' caps end-to-end through the class API", async () => {
       const r = new Romcal1962({ commemorationLimit: 'private' });
       const cal = await r.generateCalendar(1961);
-      for (const day of cal.values()) {
-        expect(day.commemorations.length).toBeLessThanOrEqual(1);
+      for (const day of Object.values(cal)) {
+        expect(day.slice(1).length).toBeLessThanOrEqual(1);
       }
     });
 
     test("'solemn' caps end-to-end through the class API", async () => {
       const r = new Romcal1962({ commemorationLimit: 'solemn' });
       const cal = await r.generateCalendar(1962);
-      for (const day of cal.values()) {
-        expect(day.commemorations.length).toBeLessThanOrEqual(3);
+      for (const day of Object.values(cal)) {
+        expect(day.slice(1).length).toBeLessThanOrEqual(3);
       }
     });
   });
@@ -116,9 +116,8 @@ describe('M8 rubrics polish', () => {
       const year = buildLiturgicalYear1962(1962);
       const survivors = ['1962-06-23', '1962-06-28', '1962-08-09', '1962-08-14', '1962-12-24'];
       for (const date of survivors) {
-        const day = year.get(date);
-        const hasVigilSomewhere =
-          day?.primary.vigil !== undefined || day?.commemorations.some((c) => c.vigil !== undefined);
+        const day = year[date];
+        const hasVigilSomewhere = day[0]?.vigil !== undefined || day.slice(1).some((c) => c.vigil !== undefined);
         expect(hasVigilSomewhere).toBe(true);
       }
     });

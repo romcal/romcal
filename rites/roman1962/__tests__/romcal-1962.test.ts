@@ -11,33 +11,33 @@ describe('M7 Romcal1962 public API', () => {
       commemorationLimit: 'all',
     });
     const cal = await r.generateCalendar(1962);
-    const easter = cal.get('1962-04-22');
+    const easter = cal['1962-04-22'];
     expect(easter).toBeDefined();
-    expect(easter!.primary.propers).toBeUndefined();
-    expect(easter!.primary.extraSections).toBeUndefined();
+    expect(easter![0].propers).toBeUndefined();
+    expect(easter![0].extraSections).toBeUndefined();
   });
 
   test('2) includePropers attaches Mass texts', async () => {
     const r = new Romcal1962({ includePropers: true });
     const cal = await r.generateCalendar(1962);
-    const easter = cal.get('1962-04-22');
-    expect(easter!.primary.propers!.introit!.la).toMatch(/Resurréxi|Resurrexi/i);
-    const allSaints = cal.get('1962-11-01');
-    expect(allSaints!.primary.propers!.introit!.la).toMatch(/Gaudeámus|Gaudeamus/i);
+    const easter = cal['1962-04-22'];
+    expect(easter![0].propers!.introit!.la).toMatch(/Resurréxi|Resurrexi/i);
+    const allSaints = cal['1962-11-01'];
+    expect(allSaints![0].propers!.introit!.la).toMatch(/Gaudeámus|Gaudeamus/i);
   });
 
   test('3) propersLocales filter — en yields English proper text', async () => {
     const r = new Romcal1962({ includePropers: true, propersLocales: ['en'] });
     const cal = await r.generateCalendar(1962);
-    const day = cal.get('1962-11-01');
-    expect(day!.primary.propers!.introit!.en).toMatch(/rejoice/i);
+    const day = cal['1962-11-01'];
+    expect(day![0].propers!.introit!.en).toMatch(/rejoice/i);
   });
 
-  test('4) getOneLiturgicalDay matches generateCalendar result', async () => {
+  test('4) resolveDate matches generateCalendar result', async () => {
     const r = new Romcal1962({ includePropers: true });
     const cal = await r.generateCalendar(1962);
-    const fromYear = cal.get('1962-04-22');
-    const fromOne = await r.getOneLiturgicalDay('1962-04-22');
+    const fromYear = cal['1962-04-22'];
+    const fromOne = await r.resolveDate('1962-04-22');
     expect(fromOne).toBe(fromYear);
   });
 
@@ -52,8 +52,8 @@ describe('M7 Romcal1962 public API', () => {
     const r = new Romcal1962({ includePropers: true, attachToCommemorations: true });
     const cal = await r.generateCalendar(1962);
     let withCommem = 0;
-    for (const day of cal.values()) {
-      for (const c of day.commemorations) {
+    for (const day of Object.values(cal)) {
+      for (const c of day.slice(1)) {
         if (c.propers && Object.values(c.propers).some((v) => v)) withCommem++;
       }
     }
@@ -69,7 +69,7 @@ describe('M7 Romcal1962 public API', () => {
 
   test('8) invalid date rejected', async () => {
     const r = new Romcal1962();
-    await expect(r.getOneLiturgicalDay('1962/04/22')).rejects.toThrow(/Invalid ISO date/);
+    await expect(r.resolveDate('1962/04/22')).rejects.toThrow(/Invalid ISO date/);
   });
 
   test('9) invalid year rejected', async () => {

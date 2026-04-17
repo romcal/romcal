@@ -4,13 +4,13 @@ import { resolvePropers, resolvePropersBlocks } from '../src/propers';
 describe('resolvePropersBlocks — structured PropersBlock output', () => {
   const year1962 = buildLiturgicalYear1962(1962);
   const day = (iso: string) => {
-    const d = year1962.get(iso);
+    const d = year1962[iso];
     if (!d) throw new Error(`no resolved day for ${iso}`);
     return d;
   };
 
   test('returns ref-walked blocks with original PropersBlockItem structure', () => {
-    const primary = day('1962-04-22').primary; // Easter Sunday
+    const primary = day('1962-04-22')[0]; // Easter Sunday
     const { sections } = resolvePropersBlocks(primary);
     expect(sections.introit).toBeDefined();
     const items = sections.introit!;
@@ -23,7 +23,7 @@ describe('resolvePropersBlocks — structured PropersBlock output', () => {
 
   test('preserves scriptureRef items alongside the text they introduce', () => {
     // All Saints has scripture-cited sections — pick any section with both items.
-    const primary = day('1962-11-01').primary;
+    const primary = day('1962-11-01')[0];
     const { sections } = resolvePropersBlocks(primary);
     const sectionsWithScripture = Object.values(sections).filter((block) =>
       block!.some((i) => i.type === 'scriptureRef')
@@ -39,7 +39,7 @@ describe('resolvePropersBlocks — structured PropersBlock output', () => {
 
   test('applies the ferial → Sunday fallback (advent_1_monday → advent_1_sunday)', () => {
     // 1962-12-03 is the Monday after Advent I Sunday.
-    const primary = day('1962-12-03').primary;
+    const primary = day('1962-12-03')[0];
     const { sections } = resolvePropersBlocks(primary);
     // Ferial weekday pulls the Sunday Mass Introit.
     expect(sections.introit).toBeDefined();
@@ -47,7 +47,7 @@ describe('resolvePropersBlocks — structured PropersBlock output', () => {
   });
 
   test('resolvePropers stays in sync with resolvePropersBlocks (Latin concat matches blocks)', () => {
-    const primary = day('1962-04-22').primary;
+    const primary = day('1962-04-22')[0];
     const { sections } = resolvePropersBlocks(primary);
     const { propers } = resolvePropers(primary, { locales: ['la'] });
     const blockIntroitLa = (sections.introit ?? [])
@@ -59,7 +59,7 @@ describe('resolvePropersBlocks — structured PropersBlock output', () => {
   });
 
   test('broken properRef yields empty sections without throwing', () => {
-    const primary = day('1962-04-22').primary;
+    const primary = day('1962-04-22')[0];
     const bogus = { ...primary, properRef: { source: 'not-a-real-source', communeSlug: undefined } };
     const { sections, extraSections } = resolvePropersBlocks(bogus);
     expect(sections).toEqual({});

@@ -1,4 +1,4 @@
-import type { Celebration1962, ResolvedDay1962, ResolvedYear1962 } from '../rubrics/types';
+import type { Celebration1962, ResolvedYear1962 } from '../rubrics/types';
 
 import { resolvePropers } from './resolve';
 import type { AttachPropersOptions, ResolvedPropers } from './types';
@@ -32,17 +32,14 @@ export function attachPropers(year: ResolvedYear1962, options: AttachPropersOpti
     return resolved;
   };
 
-  const out: ResolvedYear1962 = new Map();
-  for (const [date, day] of year) {
-    const primaryResolved = resolveCached(day.primary);
-    const primary = withPropers(day.primary, primaryResolved);
+  const out: ResolvedYear1962 = {};
+  for (const [date, celebrations] of Object.entries(year)) {
+    const [primary, ...commems] = celebrations;
+    const newPrimary = withPropers(primary, resolveCached(primary));
 
-    const commemorations = options.attachToCommemorations
-      ? day.commemorations.map((c) => withPropers(c, resolveCached(c)))
-      : day.commemorations;
+    const newCommems = options.attachToCommemorations ? commems.map((c) => withPropers(c, resolveCached(c))) : commems;
 
-    const newDay: ResolvedDay1962 = { ...day, primary, commemorations };
-    out.set(date, newDay);
+    out[date] = [newPrimary, ...newCommems];
   }
   return out;
 }

@@ -57,36 +57,36 @@ describe('Diocese of Chur overlay — 1962 rite', () => {
   describe('full-calendar integration via Romcal1962', () => {
     test('Dec 3 primary celebration is St Lucius, with Francis Xavier commemorated', async () => {
       const r = new Romcal1962({ calendar: Switzerland_Chur });
-      const day = await r.getOneLiturgicalDay('1962-12-03');
+      const day = await r.resolveDate('1962-12-03');
       expect(day).toBeDefined();
-      expect(day!.primary.key).toBe('saint_lucius_of_chur_bishop_and_martyr_patron');
-      expect(day!.primary.rank1962).toBe('ClassI');
-      expect(day!.commemorations.some((c) => c.key === 'saint_francis_xavier_confessor')).toBe(true);
+      expect(day![0].key).toBe('saint_lucius_of_chur_bishop_and_martyr_patron');
+      expect(day![0].rank1962).toBe('ClassI');
+      expect(day!.slice(1).some((c) => c.key === 'saint_francis_xavier_confessor')).toBe(true);
     });
 
     test('July 11 primary is Placidus & Sigisbert in the Chur calendar', async () => {
       const r = new Romcal1962({ calendar: Switzerland_Chur });
-      const day = await r.getOneLiturgicalDay('1962-07-11');
-      expect(day!.primary.key).toBe('saints_placidus_and_sigisbert_martyrs');
+      const day = await r.resolveDate('1962-07-11');
+      expect(day![0].key).toBe('saints_placidus_and_sigisbert_martyrs');
     });
 
     test('locale "de" renders Chur-overlay German names from the overlay itself', async () => {
       const r = new Romcal1962({ calendar: Switzerland_Chur, localeId: 'de' });
-      const day = await r.getOneLiturgicalDay('1962-12-03');
-      expect(day!.primary.name).toMatch(/Luzius/);
-      expect(day!.primary.name).toMatch(/Bistums|Diözese/);
+      const day = await r.resolveDate('1962-12-03');
+      expect(day![0].name).toMatch(/Luzius/);
+      expect(day![0].name).toMatch(/Bistums|Diözese/);
     });
 
     test('locale "en" falls back through overlay en entry', async () => {
       const r = new Romcal1962({ calendar: Switzerland_Chur, localeId: 'en' });
-      const florinus = await r.getOneLiturgicalDay('1962-11-17');
-      expect(florinus!.primary.name).toMatch(/Florinus/);
+      const florinus = await r.resolveDate('1962-11-17');
+      expect(florinus![0].name).toMatch(/Florinus/);
     });
 
     test('Romcal1962 without `calendar` leaves universal calendar untouched', async () => {
       const r = new Romcal1962();
-      const day = await r.getOneLiturgicalDay('1962-12-03');
-      expect(day!.primary.key).toBe('saint_francis_xavier_confessor');
+      const day = await r.resolveDate('1962-12-03');
+      expect(day![0].key).toBe('saint_francis_xavier_confessor');
     });
 
     test('config.calendarId exposes the overlay id', () => {
@@ -96,9 +96,9 @@ describe('Diocese of Chur overlay — 1962 rite', () => {
 
     test('propers resolve via commune for Chur overlay feasts', async () => {
       const r = new Romcal1962({ calendar: Switzerland_Chur, includePropers: true, propersLocales: ['la'] });
-      const lucius = await r.getOneLiturgicalDay('1962-12-03');
-      expect(lucius!.primary.propers).toBeDefined();
-      expect(lucius!.primary.properRef.communeSlug).toBeDefined();
+      const lucius = await r.resolveDate('1962-12-03');
+      expect(lucius![0].propers).toBeDefined();
+      expect(lucius![0].properRef.communeSlug).toBeDefined();
     });
   });
 });

@@ -13,13 +13,14 @@ export { OCTAVE_IDS } from './constants/octaves';
 export type { OctaveDayKind, OctaveDayNumber, OctaveId, OctaveRank } from './constants/octaves';
 export { PREFACE_IDS } from './constants/prefaces';
 export type { PrefaceId } from './constants/prefaces';
-export { buildProperOfTime1962 } from './proper-of-time';
+export { buildProperOfTime1962, computeAnchors } from './proper-of-time';
 export type {
   DayOfWeek,
   ProperOfTimeEntry,
   ProperOfTimeSeason,
   ProperOfTimeYear,
   TemporaSlotKind,
+  YearAnchors,
 } from './proper-of-time';
 export { buildSanctoral1962 } from './sanctoral';
 export type {
@@ -46,7 +47,7 @@ export {
 } from './calendars';
 export type { CalendarOverlay1962, CalendarOverlayEntry, OverlayApplyResult } from './calendars';
 export { buildLiturgicalYear1962 } from './calendar-year';
-export type { BuildLiturgicalYearOptions, Celebration1962, ResolvedDay1962, ResolvedYear1962 } from './calendar-year';
+export type { BuildLiturgicalYearOptions, Celebration1962, ResolvedYear1962 } from './calendar-year';
 export { createI18n1962, createNameTranslator } from './i18n/init';
 export type { NameTranslator } from './i18n/init';
 export { locales as locales1962, localeIds as localeIds1962 } from './locales';
@@ -73,6 +74,8 @@ export { applyCommemorationCap } from './rubrics';
 export type { CommemorationCapMode, CommemorationCapOptions } from './rubrics';
 export { Romcal1962 } from './romcal-1962';
 export type { Romcal1962ConfigInput, Romcal1962ConfigOutput } from './romcal-1962-types';
+export { buildDefinitions1962 } from './definitions';
+export type { Definition1962, Definitions1962 } from './definitions';
 export { RANKS_1962, Rank1962Values } from './constants/rank-1962';
 export type { Rank1962 } from './constants/rank-1962';
 export type {

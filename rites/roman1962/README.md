@@ -18,18 +18,19 @@ const r = new Romcal1962({
   commemorationLimit: 'solemn', // 'solemn' (≤3) | 'private' (≤1) | 'all' (default)
 });
 
-// Map<isoDate, ResolvedDay1962>
+// Record<isoDate, Celebration1962[]> — index 0 is the primary,
+// subsequent entries are commemorations.
 const year = await r.generateCalendar(1962);
 
-// Single-day lookup
-const easter = await r.getOneLiturgicalDay('1962-04-22');
-console.log(easter?.primary.key);
+// Single-date lookup
+const easter = await r.resolveDate('1962-04-22');
+console.log(easter?.[0].key);
 // → 'easter_sunday'                           ← readable slug
-console.log(easter?.primary.name);
+console.log(easter?.[0].name);
 // → 'Easter Sunday'
-console.log(easter?.primary.propers?.introit?.la);
+console.log(easter?.[0].propers?.introit?.la);
 // → 'Resurréxi, et adhuc tecum sum, ...'
-console.log(easter?.primary.propers?.introit?.en);
+console.log(easter?.[0].propers?.introit?.en);
 // → 'I arose, and am still with Thee, ...'
 ```
 
@@ -78,15 +79,24 @@ Generate the bundles with `npm run bundle -w @internal/rite-roman1962`.
 
 ## What you get back
 
-Each `ResolvedDay1962` has:
+Each entry of `Record<isoDate, Celebration1962[]>` is the precedence-ordered
+list of celebrations for that date:
 
-- `primary: Celebration1962` — the day's principal celebration after
+- **Index 0** — the primary: the Mass that is actually said, after
   occurrence and transfer rules are applied.
-- `commemorations: Celebration1962[]` — surviving commemorations (Class I+II
-  losers, ferial Sundays under feasts, etc.).
-- `transferred?: { from: string; original: Celebration1962 }` — set when the
-  primary was forward-transferred from an earlier date that lost it to a
-  higher-ranked feast.
+- **Indices ≥ 1** — surviving commemorations (Class I+II losers, ferial
+  Sundays under feasts, etc.) in precedence order.
+
+Every `Celebration1962` carries:
+
+- `key`, `name`, `kind: 'tempora' | 'sancti'`, `classOf1962` (1–4),
+  `rank1962`, `numericRank`, `precedence`, `colors`, `rubrics`.
+- `season?: ProperOfTimeSeason` — season of the date this celebration falls
+  on. Propagated from the tempora entry, so every celebration on the same
+  date reports the same season.
+- `isTransferredReplacement?: boolean` + `transferredFromDate?: string` —
+  set on a primary that was forward-transferred onto this date from an
+  earlier one.
 
 When `includePropers: true`, every `Celebration1962` also carries:
 
@@ -117,7 +127,7 @@ Sunday-fallback logic, but returns the ordered `PropersBlock` stream
 for each section before locale collapse:
 
 ```ts
-const primary = (await r.getOneLiturgicalDay('1962-11-01'))!.primary;
+const primary = (await r.resolveDate('1962-11-01'))![0];
 const { sections } = resolvePropersBlocks(primary);
 for (const item of sections.epistle ?? []) {
   if (item.type === 'scriptureRef') console.log(item.ref);
