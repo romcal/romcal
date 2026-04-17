@@ -1,4 +1,4 @@
-import type { Celebration1962 } from '../models/liturgical-day';
+import type { LiturgicalDay1962 } from '../models/liturgical-day';
 
 /**
  * Filter losers down to the list of celebrations eligible to be
@@ -14,8 +14,8 @@ import type { Celebration1962 } from '../models/liturgical-day';
  * The caller decides how many to actually render (1960 caps at 3 at
  * solemn Mass, 1 at private).
  */
-export function selectCommemorations(primary: Celebration1962, losers: Celebration1962[]): Celebration1962[] {
-  const out: Celebration1962[] = [];
+export function selectCommemorations(primary: LiturgicalDay1962, losers: LiturgicalDay1962[]): LiturgicalDay1962[] {
+  const out: LiturgicalDay1962[] = [];
   for (const loser of losers) {
     if (loser.kind === 'tempora' && loser.classOf1962 === 4) continue;
     out.push(loser);

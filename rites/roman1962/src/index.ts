@@ -47,7 +47,7 @@ export {
 } from './calendars';
 export type { CalendarOverlay1962, CalendarOverlayEntry, OverlayApplyResult } from './calendars';
 export { buildLiturgicalYear1962 } from './calendar-year';
-export type { BuildLiturgicalYearOptions, Celebration1962, ResolvedYear1962 } from './calendar-year';
+export type { BuildLiturgicalYearOptions, LiturgicalDay1962, LiturgicalCalendar1962 } from './calendar-year';
 export { createI18n1962, createNameTranslator } from './i18n/init';
 export type { NameTranslator } from './i18n/init';
 export { locales as locales1962, localeIds as localeIds1962 } from './locales';

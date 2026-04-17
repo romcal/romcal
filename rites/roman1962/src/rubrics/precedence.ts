@@ -1,4 +1,4 @@
-import type { Celebration1962 } from '../models/liturgical-day';
+import type { LiturgicalDay1962 } from '../models/liturgical-day';
 
 const CLASS_BASE: Record<1 | 2 | 3 | 4, number> = {
   1: 4000,
@@ -45,7 +45,7 @@ const LORD_FEAST_KEYS: Set<string> = new Set([
   'nativity_of_the_lord_during_the_day', // 12-25 m3
 ]);
 
-function fineAdjustment(c: Celebration1962): number {
+function fineAdjustment(c: LiturgicalDay1962): number {
   if (c.kind === 'tempora') {
     if (TRIDUUM.has(c.key)) return 400;
     if (EASTER_PENTECOST.has(c.key)) return 380;
@@ -65,6 +65,6 @@ function fineAdjustment(c: Celebration1962): number {
   return 0;
 }
 
-export function scorePrecedence(c: Celebration1962): number {
+export function scorePrecedence(c: LiturgicalDay1962): number {
   return CLASS_BASE[c.classOf1962] + fineAdjustment(c) + (c.numericRank || 0) * 0.01;
 }

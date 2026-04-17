@@ -26,7 +26,7 @@ export function parseRef(target: string): ResolvedRef | undefined {
 }
 
 /**
- * Parse a Celebration1962.properRef.source like 'sancti/11-01' or
+ * Parse a LiturgicalDay1962.properRef.source like 'sancti/11-01' or
  * 'tempora/Pasc0-0' into a bundle + key pair. Always lowercase.
  */
 export function parseSource(source: string): ResolvedRef | undefined {

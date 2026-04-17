@@ -18,7 +18,7 @@ const r = new Romcal1962({
   commemorationLimit: 'solemn', // 'solemn' (≤3) | 'private' (≤1) | 'all' (default)
 });
 
-// Record<isoDate, Celebration1962[]> — index 0 is the primary,
+// Record<isoDate, LiturgicalDay1962[]> — index 0 is the primary,
 // subsequent entries are commemorations.
 const year = await r.generateCalendar(1962);
 
@@ -51,7 +51,7 @@ console.log(easter?.date);
 
 ### Celebration keys
 
-`Celebration1962.key` values are human-readable snake_case slugs aligned with
+`LiturgicalDay1962.key` values are human-readable snake_case slugs aligned with
 the 1969 rite where feasts coincide: `easter_sunday`, `trinity_sunday`,
 `holy_family`, `palm_sunday`, `quinquagesima_wednesday` (Ash Wednesday),
 `advent_1_sunday`, `after_pentecost_11_sunday`, `the_purification_of_the_blessed_virgin_mary_candlemas`,
@@ -94,7 +94,7 @@ Generate the bundles with `npm run bundle -w @internal/rite-roman1962`.
 
 ## What you get back
 
-Each entry of `Record<isoDate, Celebration1962[]>` is the precedence-ordered
+Each entry of `Record<isoDate, LiturgicalDay1962[]>` is the precedence-ordered
 list of celebrations for that date:
 
 - **Index 0** — the primary: the Mass that is actually said, after
@@ -102,7 +102,7 @@ list of celebrations for that date:
 - **Indices ≥ 1** — surviving commemorations (Class I+II losers, ferial
   Sundays under feasts, etc.) in precedence order.
 
-Every `Celebration1962` carries:
+Every `LiturgicalDay1962` carries:
 
 - `key`, `name`, `kind: 'tempora' | 'sancti'`, `classOf1962` (1–4),
   `rank1962`, `numericRank`, `precedence`, `colors`, `rubrics`.
@@ -113,7 +113,7 @@ Every `Celebration1962` carries:
   set on a primary that was forward-transferred onto this date from an
   earlier one.
 
-When `includePropers: true`, every `Celebration1962` also carries:
+When `includePropers: true`, every `LiturgicalDay1962` also carries:
 
 - `propers?: MassPropers` — the canonical Mass sections (`introit`, `collect`,
   `epistle`, `gradual`, `alleluia`, `tract`, `sequence`, `gospel`, `offertory`,

@@ -1,4 +1,4 @@
-import type { ResolvedYear1962 } from '../models/liturgical-day';
+import type { LiturgicalCalendar1962 } from '../models/liturgical-day';
 
 export type CommemorationCapMode = 'solemn' | 'private' | 'all';
 
@@ -24,12 +24,15 @@ const LIMITS: Record<CommemorationCapMode, number> = {
  *
  * Returns a new record; input is not mutated.
  */
-export function applyCommemorationCap(year: ResolvedYear1962, options: CommemorationCapOptions = {}): ResolvedYear1962 {
+export function applyCommemorationCap(
+  year: LiturgicalCalendar1962,
+  options: CommemorationCapOptions = {}
+): LiturgicalCalendar1962 {
   const mode = options.mode ?? 'all';
   const limit = LIMITS[mode];
   if (!Number.isFinite(limit)) return year;
 
-  const out: ResolvedYear1962 = {};
+  const out: LiturgicalCalendar1962 = {};
   for (const [date, celebrations] of Object.entries(year)) {
     const [primary, ...commems] = celebrations;
     const capped = commems.slice(0, limit);

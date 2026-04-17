@@ -1,9 +1,9 @@
-import type { Celebration1962, ResolvedYear1962 } from '../models/liturgical-day';
+import type { LiturgicalDay1962, LiturgicalCalendar1962 } from '../models/liturgical-day';
 
 import { resolvePropers } from './resolve';
 import type { AttachPropersOptions, ResolvedPropers } from './types';
 
-function withPropers(c: Celebration1962, resolved: ResolvedPropers): Celebration1962 {
+function withPropers(c: LiturgicalDay1962, resolved: ResolvedPropers): LiturgicalDay1962 {
   return {
     ...c,
     propers: resolved.propers,
@@ -12,7 +12,7 @@ function withPropers(c: Celebration1962, resolved: ResolvedPropers): Celebration
 }
 
 /**
- * Return a new ResolvedYear1962 with `propers` + `extraSections`
+ * Return a new LiturgicalCalendar1962 with `propers` + `extraSections`
  * attached to every primary celebration. Commemorations are
  * augmented too when `attachToCommemorations` is true (default
  * false — keeps the payload small).
@@ -21,9 +21,12 @@ function withPropers(c: Celebration1962, resolved: ResolvedPropers): Celebration
  * `${properRef.source}::${communeSlug ?? ''}` so feasts that share
  * a Mass pay the resolution cost once.
  */
-export function attachPropers(year: ResolvedYear1962, options: AttachPropersOptions = {}): ResolvedYear1962 {
+export function attachPropers(
+  year: LiturgicalCalendar1962,
+  options: AttachPropersOptions = {}
+): LiturgicalCalendar1962 {
   const cache = new Map<string, ResolvedPropers>();
-  const resolveCached = (c: Celebration1962): ResolvedPropers => {
+  const resolveCached = (c: LiturgicalDay1962): ResolvedPropers => {
     const cacheKey = `${c.properRef.source}::${c.properRef.communeSlug ?? ''}`;
     const hit = cache.get(cacheKey);
     if (hit) return hit;
@@ -32,7 +35,7 @@ export function attachPropers(year: ResolvedYear1962, options: AttachPropersOpti
     return resolved;
   };
 
-  const out: ResolvedYear1962 = {};
+  const out: LiturgicalCalendar1962 = {};
   for (const [date, celebrations] of Object.entries(year)) {
     const [primary, ...commems] = celebrations;
     const newPrimary = withPropers(primary, resolveCached(primary));

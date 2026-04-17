@@ -1,13 +1,13 @@
 import { MONTHS, WEEKDAYS } from '@internal/constants';
 import { computeAnchors, type YearAnchors } from '@internal/proper-of-time';
 
-import { buildLiturgicalYear1962, type ResolvedYear1962 } from './calendar-year';
+import { buildLiturgicalYear1962, type LiturgicalCalendar1962 } from './calendar-year';
 import { Colors1962, COLORS_1962, isColor1962 } from './constants/colors-1962';
 import { RANKS_1962, Rank1962Values } from './constants/rank-1962';
 import { Seasons1962, SEASONS_1962 } from './constants/seasons-1962';
 import { buildDefinitions1962, type Definitions1962 } from './definitions';
 import { Romcal1962Config } from './models/config';
-import type { Celebration1962 } from './models/liturgical-day';
+import type { LiturgicalDay1962 } from './models/liturgical-day';
 import { buildProperOfTime1962 } from './proper-of-time';
 import { attachPropers } from './propers';
 import type { Romcal1962ConfigInput, Romcal1962ConfigOutput } from './romcal-1962-types';
@@ -43,7 +43,7 @@ function sanitizeYear(year: number | string): number {
  */
 export class Romcal1962 {
   readonly #config: Romcal1962Config;
-  readonly #computedYears = new Map<number, ResolvedYear1962>();
+  readonly #computedYears = new Map<number, LiturgicalCalendar1962>();
   readonly #anchors = new Map<number, YearAnchors>();
   #definitions?: Definitions1962;
 
@@ -98,7 +98,7 @@ export class Romcal1962 {
    * heavy computation can be scheduled in a microtask. Repeated
    * calls with the same `year` return the cached value.
    */
-  generateCalendar(year: number | string): Promise<ResolvedYear1962> {
+  generateCalendar(year: number | string): Promise<LiturgicalCalendar1962> {
     return new Promise((resolve, reject) => {
       try {
         const y = sanitizeYear(year);
@@ -135,7 +135,7 @@ export class Romcal1962 {
    * Returns undefined if the date has no resolved celebrations
    * (e.g. an empty tempora slot before Advent in some years).
    */
-  async resolveDate(date: string): Promise<Celebration1962[] | undefined> {
+  async resolveDate(date: string): Promise<LiturgicalDay1962[] | undefined> {
     const y = yearOf(date);
     const cal = await this.generateCalendar(y);
     return cal[date];
@@ -147,7 +147,7 @@ export class Romcal1962 {
    *
    * - `undefined` — `id` is not in this calendar's definitions.
    * - `null` — `id` is defined but has no dated occurrence in `year`.
-   * - `Celebration1962` — the dated celebration.
+   * - `LiturgicalDay1962` — the dated celebration.
    *
    * Default behavior (`computeInWholeYear: false`) returns a *partial*:
    * the celebration at its natural date from tempora/sancti, without
@@ -162,7 +162,7 @@ export class Romcal1962 {
   getOneLiturgicalDay(
     id: string,
     options: { year?: number | string; computeInWholeYear?: boolean } = { computeInWholeYear: false }
-  ): Promise<Celebration1962 | null | undefined> {
+  ): Promise<LiturgicalDay1962 | null | undefined> {
     return new Promise((resolve, reject) => {
       (async (): Promise<void> => {
         try {
@@ -195,7 +195,7 @@ export class Romcal1962 {
     });
   }
 
-  #buildPartial(id: string, year: number): Celebration1962 | null {
+  #buildPartial(id: string, year: number): LiturgicalDay1962 | null {
     const tempora = buildProperOfTime1962(year);
     for (const [date, entry] of tempora) {
       if (entry.temporaKey === id) {
