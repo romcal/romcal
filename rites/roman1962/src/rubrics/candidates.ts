@@ -1,6 +1,6 @@
 import type { Rank1962 } from '../constants/rank-1962';
 import type { NameTranslator } from '../i18n/init';
-import type { LiturgicalDay1962, Class1962 } from '../models/liturgical-day';
+import { LiturgicalDay1962, type LiturgicalDay1962Init, type Class1962 } from '../models/liturgical-day';
 import type { ProperOfTimeEntry } from '../proper-of-time';
 import { loadTempora, type MassFileEntry, type MassFileMap } from '../sanctoral/data';
 import type { SanctoralEntry1962 } from '../sanctoral/types';
@@ -43,7 +43,7 @@ export function celebrationFromTempora(
   const classOf1962 = classifyTempora(entry);
 
   const latin = mass?.officium ?? entry.temporaKey;
-  const celebration: LiturgicalDay1962 = {
+  const init: LiturgicalDay1962Init = {
     kind: 'tempora',
     key: entry.temporaKey,
     name: translateName('tempora', entry.temporaKey, latin),
@@ -62,8 +62,8 @@ export function celebrationFromTempora(
     },
     colors: mass?.colors ?? [],
   };
-  celebration.precedence = scorePrecedence(celebration);
-  return celebration;
+  init.precedence = scorePrecedence(init);
+  return new LiturgicalDay1962(init);
 }
 
 /**
@@ -79,7 +79,7 @@ export function celebrationFromSancti(
   translateName: NameTranslator = identityTranslator
 ): LiturgicalDay1962 {
   const classOf1962 = (entry.class1962 ?? 4) as Class1962;
-  const celebration: LiturgicalDay1962 = {
+  const init: LiturgicalDay1962Init = {
     kind: 'sancti',
     key: entry.fileKey,
     name: translateName(entry.source, entry.fileKey, entry.name),
@@ -98,6 +98,6 @@ export function celebrationFromSancti(
     ...(entry.vigil ? { vigil: entry.vigil } : {}),
     ...(entry.commemorations.length > 0 ? { inlineCommemorations: entry.commemorations } : {}),
   };
-  celebration.precedence = scorePrecedence(celebration);
-  return celebration;
+  init.precedence = scorePrecedence(init);
+  return new LiturgicalDay1962(init);
 }
