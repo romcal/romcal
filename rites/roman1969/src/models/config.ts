@@ -1,4 +1,5 @@
 import { addBundles, createI18nInstance, type i18n } from '@internal/i18n';
+import type { IRomcalConfigRoot } from '@internal/romcal-core';
 
 import { GeneralRoman } from '../calendars/general-roman';
 import { Color } from '../constants/colors';
@@ -26,7 +27,7 @@ import { CalendarDef } from './calendar-def';
 /**
  * The [[Config]] class encapsulates all options that can be sent to this library to adjust date output.
  */
-export class RomcalConfig implements IRomcalConfig {
+export class RomcalConfig implements IRomcalConfig, IRomcalConfigRoot {
   readonly #input: RomcalConfigInput;
 
   readonly localizedCalendar?: RomcalBundleObject;

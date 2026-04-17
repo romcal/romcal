@@ -1,4 +1,5 @@
 import type { i18n } from '@internal/i18n';
+import type { IRomcalConfigRoot } from '@internal/romcal-core';
 
 import { collectOverlayNames } from '../calendars/apply';
 import type { CalendarOverlay1962 } from '../calendars/types';
@@ -8,7 +9,7 @@ import type { CommemorationCapMode } from '../rubrics/commemoration-cap';
 
 const DEFAULT_LOCALE_ID = 'la';
 
-export class Romcal1962Config {
+export class Romcal1962Config implements IRomcalConfigRoot {
   readonly localeId: string;
   readonly includePropers: boolean;
   readonly propersLocales: string[];

@@ -80,6 +80,7 @@ export type {
   ILiturgicalDayDefRoot,
   ILiturgicalDayRoot,
   IRomcal,
+  IRomcalConfigRoot,
 } from '@internal/romcal-core';
 export { buildAllDefinitions } from './definitions';
 export { Calendar1962 } from './models/calendar';

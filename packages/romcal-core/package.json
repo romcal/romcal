@@ -9,6 +9,9 @@
     "clean": "rimraf coverage dist",
     "prettier": "prettier -c ."
   },
+  "dependencies": {
+    "@internal/i18n": "file:../../packages/i18n"
+  },
   "devDependencies": {
     "@internal/config": "file:../../packages/config"
   }
