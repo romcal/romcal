@@ -109,6 +109,7 @@ export default [
         project: [
           './tsconfig.base.json',
           './packages/calendars/tsconfig.json',
+          './packages/constants/tsconfig.json',
           './packages/easter/tsconfig.json',
           './packages/lunar-new-year/tsconfig.json',
           './packages/proper-of-time/tsconfig.json',
@@ -141,6 +142,7 @@ export default [
         project: [
           './tsconfig.base.json',
           './packages/calendars/tsconfig.json',
+          './packages/constants/tsconfig.json',
           './packages/easter/tsconfig.json',
           './packages/lunar-new-year/tsconfig.json',
           './packages/proper-of-time/tsconfig.json',

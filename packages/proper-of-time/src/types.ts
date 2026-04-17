@@ -1,8 +1,6 @@
-/**
- * Day-of-week literal: matches `Date.prototype.getUTCDay()`.
- * Sunday = 0, Saturday = 6.
- */
-export type DayOfWeek = 0 | 1 | 2 | 3 | 4 | 5 | 6;
+// Kept as a re-export for callers that import `DayOfWeek` from this
+// package historically. The canonical home is `@internal/constants`.
+export type { DayOfWeek } from '@internal/constants';
 
 /**
  * A year's worth of resolved Proper-of-Time entries, keyed by ISO date

@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@internal/calendars": "file:../../packages/calendars",
+    "@internal/constants": "file:../../packages/constants",
     "@internal/easter": "file:../../packages/easter",
     "@internal/lunar-new-year": "file:../../packages/lunar-new-year",
     "i18next": "^26.0.4",
