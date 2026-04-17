@@ -1,4 +1,4 @@
-import i18next, { i18n } from 'i18next';
+import { addBundles, createI18nInstance, type i18n } from '@internal/i18n';
 
 import { GeneralRoman } from '../calendars/general-roman';
 import { Color } from '../constants/colors';
@@ -102,27 +102,19 @@ export class RomcalConfig implements IRomcalConfig {
     const localeObj: Locale | undefined = this.localizedCalendar?.i18n ?? locale;
     this.localeId = localeObj?.id ? sanitizeLocaleId(localeObj.id) : 'dev';
 
-    // Create an instance and set up the i18next library.
-    this.i18next = i18next.createInstance(
-      {
-        fallbackLng: ['dev'],
-        lng: this.localeId,
-        initAsync: false,
-        // contextSeparator: '__',
-        interpolation: {
-          format(value, format) {
-            if (value === '') return value;
-            if (format === 'romanize') return toRomanNumber(parseInt(value, 10));
-            if (format === 'uppercase') return value.toUpperCase();
-            if (format === 'capitalize') return value[0].toUpperCase() + value.slice(1);
-            return value;
-          },
+    this.i18next = createI18nInstance({
+      fallbackLng: ['dev'],
+      lng: this.localeId,
+      interpolation: {
+        format(value, format) {
+          if (value === '') return value;
+          if (format === 'romanize') return toRomanNumber(parseInt(value, 10));
+          if (format === 'uppercase') return value.toUpperCase();
+          if (format === 'capitalize') return value[0].toUpperCase() + value.slice(1);
+          return value;
         },
       },
-      (err) => {
-        if (err) throw new Error(err);
-      }
-    );
+    });
 
     // If another locale is specified, load associated resources in the
     // i18next library.
@@ -168,15 +160,17 @@ export class RomcalConfig implements IRomcalConfig {
    * @private
    */
   #addResourceBundles(locale: Locale): void {
-    this.i18next.addResourceBundle(locale.id, 'seasons', locale.seasons ?? {});
-    this.i18next.addResourceBundle(locale.id, 'periods', locale.periods ?? {});
-    this.i18next.addResourceBundle(locale.id, 'ranks', locale.ranks ?? {});
-    this.i18next.addResourceBundle(locale.id, 'cycles', locale.cycles ?? {});
-    this.i18next.addResourceBundle(locale.id, 'weekdays', locale.weekdays ?? {});
-    this.i18next.addResourceBundle(locale.id, 'months', locale.months ?? {});
-    this.i18next.addResourceBundle(locale.id, 'colors', locale.colors ?? {});
-    this.i18next.addResourceBundle(locale.id, 'ordinals', locale.ordinals ?? {});
-    this.i18next.addResourceBundle(locale.id, 'names', locale.names ?? {});
+    addBundles(this.i18next, locale.id, {
+      seasons: locale.seasons ?? {},
+      periods: locale.periods ?? {},
+      ranks: locale.ranks ?? {},
+      cycles: locale.cycles ?? {},
+      weekdays: locale.weekdays ?? {},
+      months: locale.months ?? {},
+      colors: locale.colors ?? {},
+      ordinals: locale.ordinals ?? {},
+      names: locale.names ?? {},
+    });
   }
 
   /**
