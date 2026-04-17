@@ -1,19 +1,14 @@
 import type { DayOfWeek, ProperOfTimeYear as BaseProperOfTimeYear } from '@internal/proper-of-time';
 
+import type { Season1962 } from '../constants/seasons-1962';
+
 export type { DayOfWeek };
 
-export type ProperOfTimeSeason =
-  | 'Advent'
-  | 'ChristmasTide'
-  | 'EpiphanyTide'
-  | 'Septuagesima'
-  | 'Lent'
-  | 'Passiontide'
-  | 'HolyWeek'
-  | 'EasterWeek'
-  | 'Paschaltide'
-  | 'AscensionTide'
-  | 'TimeAfterPentecost';
+/**
+ * Alias retained for historical callers. Canonical home is
+ * `constants/seasons-1962.ts` as `Season1962`.
+ */
+export type ProperOfTimeSeason = Season1962;
 
 export type TemporaSlotKind = 'sunday' | 'feria' | 'feast' | 'vigil' | 'octaveDay' | 'withinOctave';
 

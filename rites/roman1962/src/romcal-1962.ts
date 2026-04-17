@@ -1,6 +1,10 @@
+import { MONTHS, WEEKDAYS } from '@internal/constants';
 import { computeAnchors, type YearAnchors } from '@internal/proper-of-time';
 
 import { buildLiturgicalYear1962, type ResolvedYear1962 } from './calendar-year';
+import { Colors1962, COLORS_1962, isColor1962 } from './constants/colors-1962';
+import { RANKS_1962, Rank1962Values } from './constants/rank-1962';
+import { Seasons1962, SEASONS_1962 } from './constants/seasons-1962';
 import { buildDefinitions1962, type Definitions1962 } from './definitions';
 import { buildProperOfTime1962 } from './proper-of-time';
 import { attachPropers } from './propers';
@@ -214,4 +218,34 @@ export class Romcal1962 {
     // a mass-file that has no kalendarium slot).
     return null;
   }
+
+  // -- Static accessors: parity with 1969's `Romcal.*` statics. --
+  //
+  // Shared constants (MONTHS, WEEKDAYS) come from `@internal/constants`
+  // and are identical between rites. Rite-specific constants (colors,
+  // ranks, seasons) differ — 1962 ships its own set under the same
+  // static-access pattern consumers already expect.
+
+  // constants/months.ts (shared via @internal/constants)
+  static MONTHS = MONTHS;
+
+  // constants/weekdays.ts (shared via @internal/constants)
+  static WEEKDAYS = WEEKDAYS;
+
+  // constants/colors-1962.ts
+  static Colors = Colors1962;
+
+  static COLORS = COLORS_1962;
+
+  static isColor = isColor1962;
+
+  // constants/rank-1962.ts
+  static Ranks = Rank1962Values;
+
+  static RANKS = RANKS_1962;
+
+  // constants/seasons-1962.ts
+  static Seasons = Seasons1962;
+
+  static SEASONS = SEASONS_1962;
 }

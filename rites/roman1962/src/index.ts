@@ -76,8 +76,12 @@ export { Romcal1962 } from './romcal-1962';
 export type { Romcal1962ConfigInput, Romcal1962ConfigOutput } from './romcal-1962-types';
 export { buildDefinitions1962 } from './definitions';
 export type { Definition1962, Definitions1962 } from './definitions';
+export { COLORS_1962, Colors1962, isColor1962 } from './constants/colors-1962';
+export type { Color1962 } from './constants/colors-1962';
 export { RANKS_1962, Rank1962Values } from './constants/rank-1962';
 export type { Rank1962 } from './constants/rank-1962';
+export { SEASONS_1962, Seasons1962 } from './constants/seasons-1962';
+export type { Season1962 } from './constants/seasons-1962';
 export type {
   Commemoration1962,
   LiturgicalDay1962Extensions,

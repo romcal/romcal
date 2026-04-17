@@ -11,6 +11,7 @@
     "test": "TZ=UTC jest"
   },
   "dependencies": {
+    "@internal/constants": "file:../../packages/constants",
     "@internal/easter": "file:../../packages/easter"
   },
   "devDependencies": {
