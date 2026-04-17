@@ -67,8 +67,8 @@
   ],
   "scripts": {
     "prebuild": "npm run clean",
-    "build": "npm run build -w=@internal/constants -w=@internal/romcal-core -w=@internal/i18n -w=@internal/easter -w=@internal/proper-of-time -w=@internal/calendars -w=@internal/lunar-new-year -w=@internal/rite-roman1969 -w=@internal/rite-roman1962",
-    "clean": "rimraf coverage dist tmp && npm run clean -w=@internal/constants -w=@internal/romcal-core -w=@internal/i18n -w=@internal/easter -w=@internal/proper-of-time -w=@internal/calendars -w=@internal/lunar-new-year -w=@internal/rite-roman1969 -w=@internal/rite-roman1962",
+    "build": "npm run build -w=@internal/constants -w=@internal/i18n -w=@internal/romcal-core -w=@internal/easter -w=@internal/proper-of-time -w=@internal/calendars -w=@internal/lunar-new-year -w=@internal/rite-roman1969 -w=@internal/rite-roman1962",
+    "clean": "rimraf coverage dist tmp && npm run clean -w=@internal/constants -w=@internal/i18n -w=@internal/romcal-core -w=@internal/easter -w=@internal/proper-of-time -w=@internal/calendars -w=@internal/lunar-new-year -w=@internal/rite-roman1969 -w=@internal/rite-roman1962",
     "data:checks": "npm run data:checks -w=@internal/rite-roman1969",
     "doc": "npm run doc -w=@internal/rite-roman1969",
     "docs:check-links": "npm run docs:check-links -w=@internal/rite-roman1969",
