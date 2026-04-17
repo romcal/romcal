@@ -1,5 +1,6 @@
 import { calculateGregorianEasterDate, calculateJulianEasterDateToGregorianDate } from '@internal/easter';
 import { version } from '@internal/package.json';
+import type { IRomcal } from '@internal/romcal-core';
 
 import { CALENDAR_PKG_NAMES, CALENDAR_VAR_NAMES } from './constants/calendars';
 import { COLORS, Color, Colors, isColor } from './constants/colors';
@@ -109,7 +110,7 @@ import {
 } from './utils/dates';
 import { isInteger, toRomanNumber } from './utils/numbers';
 
-class Romcal {
+class Romcal implements IRomcal<LiturgicalDay, LiturgicalCalendar, LiturgicalDayDefinitions, Dates> {
   readonly #config: RomcalConfig;
 
   #computedCalendars: Record<number, LiturgicalCalendar> = {};

@@ -74,6 +74,13 @@ export { applyCommemorationCap } from './rubrics';
 export type { CommemorationCapMode, CommemorationCapOptions } from './rubrics';
 export { Romcal1962 } from './romcal-1962';
 export type { Romcal1962ConfigInput, Romcal1962ConfigOutput } from './romcal-1962-types';
+export type {
+  GetOneLiturgicalDayOptions,
+  ILiturgicalDayConfigRoot,
+  ILiturgicalDayDefRoot,
+  ILiturgicalDayRoot,
+  IRomcal,
+} from '@internal/romcal-core';
 export { buildAllDefinitions } from './definitions';
 export { Calendar1962 } from './models/calendar';
 export { LiturgicalDayConfig1962 } from './models/liturgical-day-config';

@@ -1,3 +1,5 @@
+import type { ILiturgicalDayRoot } from '@internal/romcal-core';
+
 import { Color } from '../constants/colors';
 import { CommonDefinition } from '../constants/commons';
 import { PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
@@ -26,7 +28,7 @@ import { LiturgicalDayDef } from './liturgical-day-def';
 
 const COMPUTED_FIELDS = ['name', 'colorNames', 'seasonNames', 'rankName', 'definition', 'config'];
 
-export class LiturgicalDay implements BaseLiturgicalDay {
+export class LiturgicalDay implements BaseLiturgicalDay, ILiturgicalDayRoot {
   readonly #liturgicalDayDef: LiturgicalDayDef;
 
   readonly #liturgicalDayConfig: LiturgicalDayConfig;

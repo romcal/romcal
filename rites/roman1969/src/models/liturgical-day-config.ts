@@ -1,3 +1,5 @@
+import type { ILiturgicalDayConfigRoot } from '@internal/romcal-core';
+
 import { DayOfWeek } from '../constants/weekdays';
 import { DateDef, DateDefExtended } from '../types/liturgical-day';
 import { BaseLiturgicalDayConfig, LiturgicalDayConfigOutput } from '../types/liturgical-day-config';
@@ -7,7 +9,7 @@ import { isInteger } from '../utils/numbers';
 import { RomcalConfig } from './config';
 import { LiturgicalDayDef } from './liturgical-day-def';
 
-export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
+export class LiturgicalDayConfig implements BaseLiturgicalDayConfig, ILiturgicalDayConfigRoot<RomcalConfig> {
   readonly config: RomcalConfig;
 
   readonly year: number;

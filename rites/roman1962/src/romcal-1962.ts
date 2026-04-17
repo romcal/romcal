@@ -1,5 +1,6 @@
 import { MONTHS, WEEKDAYS } from '@internal/constants';
 import type { YearAnchors } from '@internal/proper-of-time';
+import type { IRomcal } from '@internal/romcal-core';
 
 import type { LiturgicalCalendar1962 } from './calendar-year';
 import { Colors1962, COLORS_1962, isColor1962 } from './constants/colors-1962';
@@ -42,7 +43,12 @@ function sanitizeYear(year: number | string): number {
  * remains available for one-shot scripts and tests; use this class
  * when you want a configured object you can pass around.
  */
-export class Romcal1962 {
+export class Romcal1962 implements IRomcal<
+  LiturgicalDay1962,
+  LiturgicalCalendar1962,
+  LiturgicalDayDefinitions1962,
+  YearAnchors
+> {
   readonly #config: Romcal1962Config;
   readonly #computedYears = new Map<number, LiturgicalCalendar1962>();
   readonly #ldConfigs = new Map<number, LiturgicalDayConfig1962>();

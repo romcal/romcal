@@ -1,3 +1,5 @@
+import type { ILiturgicalDayRoot } from '@internal/romcal-core';
+
 import type { Rank1962 } from '../constants/rank-1962';
 import type { ProperOfTimeSeason } from '../proper-of-time';
 import type { Color, SanctoralCommemoration, SanctoralPropersRef } from '../sanctoral';
@@ -44,7 +46,7 @@ export interface LiturgicalDay1962Init {
  * builders (rubrics, overlay-merge) assemble the init shape, then
  * wrap it in a `LiturgicalDay1962` once values are finalised.
  */
-export class LiturgicalDay1962 {
+export class LiturgicalDay1962 implements ILiturgicalDayRoot {
   readonly kind: 'tempora' | 'sancti';
   readonly key: string;
   readonly name: string;

@@ -35,6 +35,7 @@
     "@internal/easter": "file:../../packages/easter",
     "@internal/proper-of-time": "file:../../packages/proper-of-time",
     "@internal/rite-roman1969": "*",
+    "@internal/romcal-core": "file:../../packages/romcal-core",
     "i18next": "^26.0.3"
   },
   "devDependencies": {
