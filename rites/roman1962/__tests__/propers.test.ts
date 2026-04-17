@@ -1,6 +1,6 @@
 import { buildLiturgicalYear1962 } from '../src/calendar-year';
+import type { Celebration1962 } from '../src/models/liturgical-day';
 import { attachPropers, resolvePropers } from '../src/propers';
-import type { Celebration1962 } from '../src/rubrics/types';
 
 describe('M6 propers resolver', () => {
   const year1962 = buildLiturgicalYear1962(1962);

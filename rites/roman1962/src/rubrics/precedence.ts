@@ -1,4 +1,4 @@
-import type { Celebration1962 } from './types';
+import type { Celebration1962 } from '../models/liturgical-day';
 
 const CLASS_BASE: Record<1 | 2 | 3 | 4, number> = {
   1: 4000,

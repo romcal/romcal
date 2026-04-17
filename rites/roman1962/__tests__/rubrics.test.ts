@@ -1,5 +1,5 @@
 import { buildLiturgicalYear1962 } from '../src/calendar-year';
-import type { Celebration1962 } from '../src/rubrics/types';
+import type { Celebration1962 } from '../src/models/liturgical-day';
 
 describe('M5 rubrics engine — spot-checks from docs/1962/12-m5-rubrics.md', () => {
   const year1962 = buildLiturgicalYear1962(1962);

@@ -97,6 +97,6 @@ export type {
   TextRole,
 } from './types/liturgical-day-1962';
 
-export type { RomcalBundle1962 } from './bundles/types';
+export type { RomcalBundle1962 } from './models/bundle';
 
 export const RITE_ID = 'roman1962' as const;
