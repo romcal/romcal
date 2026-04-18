@@ -161,6 +161,7 @@ function buildEntry(parsed: ParsedFile): MassEntry {
     source: parsed.source,
     fileKey,
     officium,
+    rankName: rank?.raw.split(';;')[0]?.trim(),
   });
 
   return {

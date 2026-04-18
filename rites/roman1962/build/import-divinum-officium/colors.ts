@@ -4,13 +4,14 @@ interface ColorContext {
   source: 'tempora' | 'sancti' | 'commune';
   fileKey: string;
   officium?: string;
+  rankName?: string;
 }
 
 const RE_RED = /(Martyr|Martyrum|Martyrium|Sanguinis|Apostol|Evangelist|Passion|Exalt.*Crucis|Inv.*Crucis)/i;
 const RE_WHITE =
   /(Nativ|Epiphan|Jesu|Mariae|Virgin|Virginum|Confessor|Abbatis|Doctor|Joseph|Joannes\s+Baptistae|Angelorum|Archangel|Sanctissimi\s+Nominis|Transfigur|Assumptione|Conception|Annuntiat|Visitat|Purific|infra\s+Octavam|Dedicat|Corporis|Christi\s+Regis)/i;
 const RE_PURPLE =
-  /(Adventus|Quadragesim|Septuag|Sexag|Quinquag|Cinerum|Vigilia(?!\s+Nativ|\s+Pentecost|\s+Ascens|\s+Epiphan)|Rogat)/i;
+  /(Adventus|Quadragesim|Septuag|Sexag|Quinquag|Cinerum|Vigilia(?!\s+Pentecost|\s+Ascens|\s+Epiphan)|Rogat)/i;
 const RE_BLACK = /(Defunct|Requiem)/i;
 
 /**
@@ -47,7 +48,7 @@ function deriveTemporaColor(fileKey: string): ColorValue[] {
 export function deriveColor(ctx: ColorContext): ColorValue[] {
   if (ctx.source === 'tempora') return deriveTemporaColor(ctx.fileKey);
 
-  const text = [ctx.officium ?? '', ctx.fileKey].join(' ');
+  const text = [ctx.officium ?? '', ctx.rankName ?? '', ctx.fileKey].join(' ');
   if (RE_BLACK.test(text)) return ['Black'];
   if (RE_RED.test(text)) return ['Red'];
   if (RE_PURPLE.test(text)) return ['Purple'];

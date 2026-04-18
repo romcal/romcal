@@ -325,7 +325,7 @@
     "warnings": ["pt section [Comment] has no Latin counterpart", "pl section [Comment] has no Latin counterpart"]
   },
   "all_souls": {
-    "colors": ["White"],
+    "colors": ["Black"],
     "file": "11-02.txt",
     "id": "sancti/all_souls",
     "rank": {
@@ -345,7 +345,7 @@
     "warnings": []
   },
   "all_souls_first_mass": {
-    "colors": ["White"],
+    "colors": ["Black"],
     "file": "11-02m1.txt",
     "id": "sancti/all_souls_first_mass",
     "rank": {
@@ -407,7 +407,7 @@
     ]
   },
   "all_souls_second_mass": {
-    "colors": ["White"],
+    "colors": ["Black"],
     "file": "11-02m2.txt",
     "id": "sancti/all_souls_second_mass",
     "rank": {
@@ -474,7 +474,7 @@
     ]
   },
   "all_souls_third_mass": {
-    "colors": ["White"],
+    "colors": ["Black"],
     "file": "11-02m3.txt",
     "id": "sancti/all_souls_third_mass",
     "rank": {
@@ -547,7 +547,7 @@
     ]
   },
   "all_souls_tridentine": {
-    "colors": ["White"],
+    "colors": ["Black"],
     "file": "11-02t.txt",
     "id": "sancti/all_souls_tridentine",
     "rank": {
@@ -1652,7 +1652,7 @@
     "warnings": ["pt section [Comment] has no Latin counterpart", "pl section [Comment] has no Latin counterpart"]
   },
   "christmas_eve": {
-    "colors": ["White"],
+    "colors": ["Purple"],
     "file": "12-24.txt",
     "id": "sancti/christmas_eve",
     "rank": {
@@ -1759,7 +1759,7 @@
     "warnings": []
   },
   "christmas_eve_secondary": {
-    "colors": ["White"],
+    "colors": ["Purple"],
     "file": "12-24s.txt",
     "id": "sancti/christmas_eve_secondary",
     "rank": {
@@ -2417,7 +2417,7 @@
     "warnings": ["pt section [Comment] has no Latin counterpart", "pl section [Comment] has no Latin counterpart"]
   },
   "dedication_of_the_basilicas_of_saints_peter_and_paul_rubrica1960": {
-    "colors": ["White"],
+    "colors": ["Red"],
     "file": "11-18r.txt",
     "id": "sancti/dedication_of_the_basilicas_of_saints_peter_and_paul_rubrica1960",
     "rank": {
@@ -2468,7 +2468,7 @@
     ]
   },
   "dedication_of_the_basilicas_of_the_apostles_saints_peter_and_paul_optional": {
-    "colors": ["White"],
+    "colors": ["Red"],
     "file": "11-18o.txt",
     "id": "sancti/dedication_of_the_basilicas_of_the_apostles_saints_peter_and_paul_optional",
     "rank": {
@@ -2644,7 +2644,7 @@
     ]
   },
   "exaltation_of_the_holy_cross": {
-    "colors": ["White"],
+    "colors": ["Red"],
     "file": "09-14.txt",
     "id": "sancti/exaltation_of_the_holy_cross",
     "rank": {
@@ -3037,7 +3037,7 @@
     "warnings": []
   },
   "finding_of_the_holy_cross": {
-    "colors": ["White"],
+    "colors": ["Red"],
     "file": "05-03.txt",
     "id": "sancti/finding_of_the_holy_cross",
     "rank": {
@@ -3202,7 +3202,7 @@
     "warnings": ["pl section [Comment] has no Latin counterpart"]
   },
   "finding_of_the_holy_cross_tridentine": {
-    "colors": ["White"],
+    "colors": ["Red"],
     "file": "05-03t.txt",
     "id": "sancti/finding_of_the_holy_cross_tridentine",
     "rank": {
@@ -6263,7 +6263,7 @@
     ]
   },
   "placeholder_07_dp": {
-    "colors": ["White"],
+    "colors": ["Red"],
     "file": "07-DP.txt",
     "id": "sancti/placeholder_07_dp",
     "rank": {
@@ -6471,7 +6471,7 @@
     "warnings": []
   },
   "placeholder_11_18": {
-    "colors": ["White"],
+    "colors": ["Red"],
     "file": "11-18.txt",
     "id": "sancti/placeholder_11_18",
     "rank": {
@@ -14417,7 +14417,7 @@
     "warnings": ["pt section [Comment] has no Latin counterpart", "pl section [Comment] has no Latin counterpart"]
   },
   "saint_irenaeus_bishop_and_martyr_rubrica1960": {
-    "colors": ["White"],
+    "colors": ["Red"],
     "file": "07-03r.txt",
     "id": "sancti/saint_irenaeus_bishop_and_martyr_rubrica1960",
     "rank": {
@@ -16371,7 +16371,7 @@
     ]
   },
   "saint_john_the_apostle_evangelist_optional": {
-    "colors": ["White"],
+    "colors": ["Red"],
     "file": "12-27o.txt",
     "id": "sancti/saint_john_the_apostle_evangelist_optional",
     "rank": {
@@ -22826,7 +22826,7 @@
     ]
   },
   "saint_ubald_bishop_and_confessor_new": {
-    "colors": ["White"],
+    "colors": ["Red"],
     "file": "05-16n.txt",
     "id": "sancti/saint_ubald_bishop_and_confessor_new",
     "rank": {
@@ -27478,7 +27478,7 @@
     "warnings": ["pt section [Comment] has no Latin counterpart", "pl section [Comment] has no Latin counterpart"]
   },
   "the_most_precious_blood_of_our_lord_jesus_christ": {
-    "colors": ["White"],
+    "colors": ["Red"],
     "file": "07-01.txt",
     "id": "sancti/the_most_precious_blood_of_our_lord_jesus_christ",
     "rank": {
@@ -28876,7 +28876,7 @@
     "warnings": []
   },
   "vigil_of_the_assumption_of_the_blessed_virgin_mary": {
-    "colors": ["White"],
+    "colors": ["Purple"],
     "file": "08-14.txt",
     "id": "sancti/vigil_of_the_assumption_of_the_blessed_virgin_mary",
     "rank": {
