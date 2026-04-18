@@ -115,4 +115,8 @@ export type {
 
 export type { RomcalBundle1962 } from './models/bundle';
 
+// -- OOP skeleton (B2a). Will replace legacy engine in B2e. --
+export { LiturgicalDay1962OOP, Calendar1962OOP, Romcal1962OOP } from './oop';
+export type { LiturgicalDayCommemoration, OctaveOf } from './oop';
+
 export const RITE_ID = 'roman1962' as const;
