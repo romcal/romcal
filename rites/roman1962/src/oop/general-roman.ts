@@ -4,6 +4,9 @@ import path from 'node:path';
 import { CalendarDef, Color, Colors, LiturgicalDayInput, Precedence, Precedences } from '@internal/rite-roman1969';
 import type { Inputs, MonthIndex, ParticularConfig, Rank } from '@internal/rite-roman1969';
 
+import { setMeta1962 } from './meta-1962';
+import { detectVigil } from './vigil';
+
 // -- JSON shapes (mirrored locally so we don't reach into `src/sanctoral/*`,
 // which B2e will delete). -----------------------------------------------------
 
@@ -128,16 +131,34 @@ function pickMassFile(fileKey: string, sancti: MassFileMap, tempora: MassFileMap
   return undefined;
 }
 
+interface AuthoritativeRank {
+  readonly rank1962: Rank1962;
+  readonly numericRank: number;
+  readonly class1962?: 1 | 2 | 3 | 4;
+}
+
 /**
  * Mirrors legacy `sanctoral/resolver.ts#pickAuthoritativeRank`: take the max
  * of the calendar's integer rank and the mass file's (1960-era) decimal rank.
  * Empirically matches the 1962 universal calendar on edge cases (All Saints,
- * Vigil of Ss. Peter & Paul, St Patrick).
+ * Vigil of Ss. Peter & Paul, St Patrick). Extended here to also return the
+ * authoritative `class1962` + `numericRank` used by the OOP precedence
+ * scorer (§15 Lord-feast bumps need `class1962 <= 2`).
  */
-function pickAuthoritativeRank(calEntry: CalendarEntry, mass: MassFileEntry | undefined): Rank1962 {
+function pickAuthoritativeRank(calEntry: CalendarEntry, mass: MassFileEntry | undefined): AuthoritativeRank {
   const massRank = mass?.rank;
-  if (massRank && massRank.numericRank > calEntry.numericRank) return massRank.rank1962;
-  return calEntry.rank1962;
+  if (massRank && massRank.numericRank > calEntry.numericRank) {
+    return {
+      rank1962: massRank.rank1962,
+      numericRank: massRank.numericRank,
+      class1962: massRank.class1962 ?? calEntry.class1962,
+    };
+  }
+  return {
+    rank1962: calEntry.rank1962,
+    numericRank: calEntry.numericRank,
+    class1962: calEntry.class1962,
+  };
 }
 
 // -- Inputs construction -----------------------------------------------------
@@ -169,7 +190,8 @@ export function buildGeneralRoman1962Inputs(): Inputs {
 
     const primary = entries[0];
     const mass = pickMassFile(primary.fileKey, sancti, tempora);
-    const rank1962 = pickAuthoritativeRank(primary, mass);
+    const authoritative = pickAuthoritativeRank(primary, mass);
+    const { rank1962, numericRank } = authoritative;
     const { month, date } = parseMmdd(mmdd);
 
     const input: LiturgicalDayInput = {
@@ -179,6 +201,19 @@ export function buildGeneralRoman1962Inputs(): Inputs {
       isHolyDayOfObligation: false,
       isOptional: rank1962 === 'Ferial' || rank1962 === 'ClassIV',
     };
+
+    // Stamp 1962 metadata side-channel so LiturgicalDay1962OOP can surface
+    // `classOf1962`/`kind1962`/`key1962` fields and so the overridden
+    // `Calendar1962OOP#resolveOccurrence` can score by 1962 rubrics.
+    // Ferial entries with no `class1962` default to Class IV.
+    const vigilOf = detectVigil(primary.name);
+    setMeta1962(primary.fileKey, {
+      classOf1962: (authoritative.class1962 ?? 4) as 1 | 2 | 3 | 4,
+      kind1962: 'sancti',
+      key1962: primary.fileKey,
+      numericRank1962: numericRank,
+      ...(vigilOf ? { vigilOf } : {}),
+    });
 
     // Jan 1: Circumcision of the Lord is the Christmas octave-day. Tag it
     // with the declarative-octave seam so B2d can reason about it, but keep

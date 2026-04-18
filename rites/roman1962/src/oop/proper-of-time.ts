@@ -19,6 +19,9 @@ import {
 } from '@internal/rite-roman1969';
 import type { BundleInputs, Id } from '@internal/rite-roman1969';
 
+import { setMeta1962 } from './meta-1962';
+import { classifyTempora } from './tempora-class';
+
 // Narrow subset matching 1969's LiturgicalDayProperOfTimeInput shape, spelled
 // locally so we don't depend on a non-public type alias.
 type PoTInput = {
@@ -83,6 +86,17 @@ export class ProperOfTime1962 extends CalendarDef {
   };
 
   #emit(id: Id, input: PoTInput): LiturgicalDayDef {
+    // Stamp 1962 metadata side-channel so LiturgicalDay1962OOP can surface
+    // `classOf1962`/`kind1962`/`key1962` fields and so the overridden
+    // `Calendar1962OOP#resolveOccurrence` has enough context to score by
+    // the 1962 rubrics. `numericRank1962` is intentionally left undefined
+    // for tempora — `scorePrecedence` treats it as optional (`* 0.01`
+    // tiebreaker flows to 0 cleanly).
+    setMeta1962(id, {
+      classOf1962: classifyTempora(id),
+      kind1962: 'tempora',
+      key1962: id,
+    });
     return new LiturgicalDayDef(
       id,
       { properCycle: ProperCycles.ProperOfTime, ...input },
