@@ -1,9 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-import type { PropersBlock } from '../../src/types/liturgical-day-1962';
-
-import type { MassEntry } from './types';
+import type { MassEntry, PropersBlock } from './types';
 
 type Source = 'sancti' | 'tempora' | 'commune';
 

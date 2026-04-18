@@ -1,4 +1,19 @@
-import type { PropersBlock } from '../../src/types/liturgical-day-1962';
+// Importer-local copy of the structured-Propers token types. These used to live
+// in `src/types/liturgical-day-1962.ts` alongside the retired legacy runtime
+// types; the OOP engine never consumed them, so they now live here where the
+// divinum-officium importer is the only producer.
+export type LocaleId = string;
+export type TextRole = 'verse' | 'antiphon' | 'body';
+
+export type PropersBlockItem =
+  | { type: 'text'; lang: LocaleId; value: string; role?: TextRole }
+  | { type: 'scriptureRef'; ref: string }
+  | { type: 'directive'; value: string }
+  | { type: 'ref'; target: string }
+  | { type: 'rubric'; note: string }
+  | { type: 'separator' };
+
+export type PropersBlock = PropersBlockItem[];
 
 export type RubricTag = 'unmarked' | '1960' | 'tridentina' | 'innovata' | 'divino-afflatu' | 'other';
 

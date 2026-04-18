@@ -1,8 +1,8 @@
-import type { Color } from '../sanctoral/types';
+// Inline to avoid pulling on `sanctoral/` or `liturgical-day-1962`,
+// both of which delete in the B2e cutover.
+type Color = 'White' | 'Red' | 'Green' | 'Violet' | 'Black' | 'Rose' | string;
 
-import type { LocaleId } from './liturgical-day-1962';
-
-export type { LocaleId };
+export type LocaleId = string;
 
 export type LocaleNames = Record<string, string>;
 

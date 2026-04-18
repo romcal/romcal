@@ -1,4 +1,4 @@
-import type { Locale1962 } from '../types/locale';
+import type { Locale1962 } from './locale';
 
 type PropersText = Record<string, Record<string, string[]>>;
 

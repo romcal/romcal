@@ -1,7 +1,5 @@
 import type { LiturgicalCalendar } from '@internal/rite-roman1969';
 
-import { buildLiturgicalYear1962 } from '../calendar-year';
-
 import { LiturgicalDay1962OOP } from './liturgical-day';
 import { Romcal1962OOP } from './romcal';
 import { applyCap, filterCommemorations, isTransferTarget } from './transfer';
@@ -126,36 +124,6 @@ describe('1962 rubrics — forward transfer (§50) + vigil suppression (§10)', 
         const p = cal[d]?.[0];
         expect(p?.isTransferredReplacement ? p.id : undefined).not.toBe('saint_patrick_bishop_and_confessor');
       }
-    });
-  });
-
-  describe('parity smoke — OOP transfers match legacy buildLiturgicalYear1962', () => {
-    it('2024: every date with a transferred primary has the same (key, transferredFromDate) in OOP and legacy', async () => {
-      const oop = await new Romcal1962OOP().generateCalendar(2024);
-      const legacy = buildLiturgicalYear1962(2024);
-
-      const legacyTransfers = new Map<string, { key: string; from: string }>();
-      for (const [date, days] of Object.entries(legacy)) {
-        const p = days[0];
-        if (p?.isTransferredReplacement && p.transferredFromDate) {
-          legacyTransfers.set(date, { key: p.key, from: p.transferredFromDate });
-        }
-      }
-      const oopTransfers = new Map<string, { key: string; from: string }>();
-      for (const [date, days] of Object.entries(oop)) {
-        const p = days[0];
-        if (p.isTransferredReplacement && p.transferredFromDate) {
-          oopTransfers.set(date, { key: p.id, from: p.transferredFromDate });
-        }
-      }
-      expect([...oopTransfers.keys()].sort()).toEqual([...legacyTransfers.keys()].sort());
-      for (const [date, oopEntry] of oopTransfers) {
-        const legacyEntry = legacyTransfers.get(date)!;
-        expect(oopEntry.from).toBe(legacyEntry.from);
-        expect(oopEntry.key).toBe(legacyEntry.key);
-      }
-      // Sanity: at least one transfer actually occurred in 2024.
-      expect(oopTransfers.size).toBeGreaterThan(0);
     });
   });
 

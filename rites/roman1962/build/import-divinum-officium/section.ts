@@ -1,4 +1,4 @@
-import type { PropersBlock, PropersBlockItem } from '../../src/types/liturgical-day-1962';
+import type { PropersBlock, PropersBlockItem } from './types';
 
 /**
  * Classify one raw line from a divinum-officium section body into a structured token.

@@ -1,18 +1,71 @@
 /**
- * 1962 Roman Rite — scaffolding stub.
- * Re-exports the 1969 public API verbatim so downstream code can import
- * `Romcal` from `romcal/1962`. Real 1962-specific logic lands in M2+.
- * See docs/1962/08-m1-scaffolding.md.
+ * Public API of the 1962 Roman Rite (Missale Romanum 1962, Rubricae 1960).
+ *
+ * The 1962 calendar is implemented as a `Romcal` subclass over the shared
+ * 1969 engine (`@internal/rite-roman1969`): `Romcal1962 extends
+ * Romcal<LiturgicalDay1962>`, with `Calendar1962` / `LiturgicalDay1962` /
+ * `GeneralRoman1962` / `ProperOfTime1962` overriding the engine seams
+ * (`createCalendar`, `resolveOccurrence`, `postReduceDay`, etc.) that the
+ * generic `Romcal<T>` exposes for rite variants.
+ *
+ * Only a curated surface is re-exported from `@internal/rite-roman1969`;
+ * consumers needing the full 1969 API should import from that package
+ * directly.
  */
 
-export * from '@internal/rite-roman1969';
+// -- Shared engine (curated re-exports from the 1969 package) ---------------
+export { CalendarDef, LiturgicalDay, Romcal } from '@internal/rite-roman1969';
+export type {
+  CalendarMetadata,
+  Inputs,
+  LiturgicalCalendar,
+  LiturgicalDayInput,
+  MonthIndex,
+  ParticularConfig,
+  Precedence,
+  Rank,
+  RomcalCalendarMetadata,
+  RomcalConfig,
+  RomcalConfigInput,
+} from '@internal/rite-roman1969';
 
+// -- 1962 rite ----------------------------------------------------------------
+export { Calendar1962OOP, Romcal1962OOP, LiturgicalDay1962OOP } from './oop';
+export type { LiturgicalDay1962Extras, LiturgicalDayCommemoration, OctaveOf, Romcal1962OOPConfigInput } from './oop';
+export {
+  Europe,
+  GeneralRoman1962,
+  ProperOfTime1962,
+  Switzerland,
+  Switzerland_Basel,
+  Switzerland_Chur,
+  Switzerland_Lausanne_Geneva_Fribourg,
+  Switzerland_Lugano,
+  Switzerland_Saint_Maurice_Abbey,
+  Switzerland_Sankt_Gallen,
+  Switzerland_Sion,
+  buildGeneralRoman1962Inputs,
+  Overlays1962,
+} from './oop';
+export type { Overlay1962Name } from './oop';
+export { RomcalConfig1962 } from './oop';
+export type { CommemorationCapMode, RomcalConfig1962Input } from './oop';
+
+// -- Constants + 1962-flavoured value/type sets -----------------------------
 export { COMMONS_1962 } from './constants/common-1962';
 export type { Common1962 } from './constants/common-1962';
 export { OCTAVE_IDS } from './constants/octaves';
 export type { OctaveDayKind, OctaveDayNumber, OctaveId, OctaveRank } from './constants/octaves';
 export { PREFACE_IDS } from './constants/prefaces';
 export type { PrefaceId } from './constants/prefaces';
+export { COLORS_1962, Colors1962, isColor1962 } from './constants/colors-1962';
+export type { Color1962 } from './constants/colors-1962';
+export { RANKS_1962, Rank1962Values } from './constants/rank-1962';
+export type { Rank1962 } from './constants/rank-1962';
+export { SEASONS_1962, Seasons1962 } from './constants/seasons-1962';
+export type { Season1962 } from './constants/seasons-1962';
+
+// -- Proper of Time (legacy functional builder kept for imports/tests) ------
 export { buildProperOfTime1962, computeAnchors } from './proper-of-time';
 export type {
   DayOfWeek,
@@ -22,32 +75,8 @@ export type {
   TemporaSlotKind,
   YearAnchors,
 } from './proper-of-time';
-export { buildSanctoral1962 } from './sanctoral';
-export type {
-  BuildSanctoralOptions,
-  Color,
-  SanctoralCommemoration,
-  SanctoralEntry1962,
-  SanctoralPropersRef,
-  Sanctoral1962Year,
-} from './sanctoral';
-export {
-  applyOverlay,
-  calendarOverlays,
-  collectOverlayNames,
-  Europe,
-  Switzerland,
-  Switzerland_Basel,
-  Switzerland_Chur,
-  Switzerland_Lausanne_Geneva_Fribourg,
-  Switzerland_Lugano,
-  Switzerland_Saint_Maurice_Abbey,
-  Switzerland_Sankt_Gallen,
-  Switzerland_Sion,
-} from './calendars';
-export type { CalendarOverlay1962, CalendarOverlayEntry, OverlayApplyResult } from './calendars';
-export { buildLiturgicalYear1962 } from './calendar-year';
-export type { BuildLiturgicalYearOptions, LiturgicalDay1962, LiturgicalCalendar1962 } from './calendar-year';
+
+// -- i18n + locales ---------------------------------------------------------
 export { createI18n1962, createNameTranslator } from './i18n/init';
 export type { NameTranslator } from './i18n/init';
 export { locales as locales1962, localeIds as localeIds1962 } from './locales';
@@ -61,62 +90,8 @@ export type {
   LocaleSeasons,
   LocaleWeekdays,
 } from './types/locale';
-export { attachPropers, parseRef, parseSource, resolvePropers, resolvePropersBlocks } from './propers';
-export type {
-  AttachPropersOptions,
-  Bundle,
-  ResolvedPropers,
-  ResolvedPropersBlocks,
-  ResolvedRef,
-  ResolvePropersOptions,
-} from './propers';
-export { applyCommemorationCap } from './rubrics';
-export type { CommemorationCapMode, CommemorationCapOptions } from './rubrics';
-export { Romcal1962 } from './romcal-1962';
-export type { Romcal1962ConfigInput, Romcal1962ConfigOutput } from './romcal-1962-types';
-export type {
-  GetOneLiturgicalDayOptions,
-  ILiturgicalDayConfigRoot,
-  ILiturgicalDayDefRoot,
-  ILiturgicalDayRoot,
-  IRomcal,
-  IRomcalConfigRoot,
-} from './types/romcal-core';
-export { buildAllDefinitions } from './definitions';
-export { Calendar1962 } from './models/calendar';
-export { LiturgicalDayConfig1962 } from './models/liturgical-day-config';
-export type { LiturgicalDayConfig1962Output } from './models/liturgical-day-config';
-export { LiturgicalDayDef1962 } from './models/liturgical-day-def';
-export type {
-  LiturgicalDayDef1962Init,
-  LiturgicalDayDef1962Source,
-  LiturgicalDayDefinitions1962,
-} from './models/liturgical-day-def';
-export { COLORS_1962, Colors1962, isColor1962 } from './constants/colors-1962';
-export type { Color1962 } from './constants/colors-1962';
-export { RANKS_1962, Rank1962Values } from './constants/rank-1962';
-export type { Rank1962 } from './constants/rank-1962';
-export { SEASONS_1962, Seasons1962 } from './constants/seasons-1962';
-export type { Season1962 } from './constants/seasons-1962';
-export type {
-  Commemoration1962,
-  LiturgicalDay1962Extensions,
-  LocalizedText,
-  MassPropers,
-  MassPropersBlocks,
-  MassSectionField,
-  OctaveInfo,
-  PropersBlock,
-  PropersBlockItem,
-  ProperRef1962,
-  RubricFlags1962,
-  TextRole,
-} from './types/liturgical-day-1962';
 
-export type { RomcalBundle1962 } from './models/bundle';
-
-// -- OOP skeleton (B2a). Will replace legacy engine in B2e. --
-export { LiturgicalDay1962OOP, Calendar1962OOP, Romcal1962OOP } from './oop';
-export type { LiturgicalDayCommemoration, OctaveOf } from './oop';
+// -- Bundle type ------------------------------------------------------------
+export type { RomcalBundle1962 } from './types/bundle';
 
 export const RITE_ID = 'roman1962' as const;
