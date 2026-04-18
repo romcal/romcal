@@ -1,7 +1,7 @@
 # B1 — Engine extension points (for upstream review)
 
 Phase B1 of the upstream-feedback pivot. This commit lives on our fork
-at `34268ce`; it is what we'd like to propose as a PR against
+at `8a7dfd5`; it is what we'd like to propose as a PR against
 `github.com/romcal/romcal` _before_ the 1962 rite lands. The 1962 rite
 can then be a separate package that consumes these seams — matching
 the "Romcal1962 should be treated as a base new calendar, not an

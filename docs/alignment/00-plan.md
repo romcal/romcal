@@ -244,20 +244,37 @@ Default generic = current 1969 behavior; zero external API change.
 
 ## 1962 package shape after Phase B
 
+Actual post-B2e-3 layout (shipped). The planned nested
+`calendars/{regions,countries}/…` tree was flattened to a single
+`calendars/` dir — the CalendarDef inheritance chain expresses the
+region/country semantics without needing directory structure:
+
 ```
 rites/roman1962/src/
+├── calendar.ts                         # Calendar1962 extends Calendar<LiturgicalDay1962>
+├── liturgical-day.ts                   # LiturgicalDay1962 extends LiturgicalDay
+├── romcal-1962.ts                      # Romcal1962 extends Romcal<LiturgicalDay1962>
+├── config-1962.ts                      # RomcalConfig1962 + inputs type
+├── meta-1962.ts                        # metadata side-channel (Class1962, kind1962, …)
+├── precedence.ts                       # §15/§96 score function
+├── transfer.ts                         # §50 forward-transfer + §10 vigil suppression
+├── tempora-class.ts                    # Class1962 classifier for tempora days
+├── vigil.ts                            # vigil detection helper
+├── proper-of-time-def.ts               # ProperOfTime1962 extends CalendarDef (class form)
+├── proper-of-time/                     # functional year-builder (buildProperOfTime1962, computeAnchors)
 ├── calendars/
-│   ├── general-roman-1962/index.ts    # root CalendarDef, all 1962 sanctoral as inputs
-│   ├── regions/europe/index.ts
-│   └── countries/switzerland/
-│       ├── index.ts                    # Switzerland national overlay
-│       ├── diocese-of-basel.ts         # Switzerland_Basel (no _1962 suffix)
-│       └── …
-├── constants/                          # Rank1962, Commons1962, Prefaces (data only)
-├── locales/
-├── proper-of-time/                     # 1962-variant data feeding engine's '1962' branch
-├── romcal-1962.ts                      # thin Romcal subclass
-└── index.ts                            # explicit re-export list (no wildcard)
+│   ├── general-roman.ts                # GeneralRoman1962 extends CalendarDef (root overlay)
+│   ├── europe.ts                       # Europe extends GeneralRoman1962
+│   ├── switzerland.ts                  # Switzerland extends Europe
+│   ├── switzerland-basel.ts            # Switzerland_Basel (no _1962 suffix)
+│   ├── switzerland-chur.ts             # …
+│   ├── overlay-names.ts, overlay-support.ts
+│   └── index.ts
+├── constants/                          # Rank1962, Commons1962, Prefaces, Colors1962, …
+├── i18n/                               # createI18n1962, NameTranslator
+├── locales/                            # la/en/de/fr/…
+├── types/                              # Locale1962, RomcalBundle1962
+└── index.ts                            # curated public API (no wildcard)
 ```
 
 Naming: 1962 calendar classes drop the `_1962` suffix
@@ -265,6 +282,12 @@ Naming: 1962 calendar classes drop the `_1962` suffix
 package, so collision with 1969's identically-named classes is avoided
 by import path. `rites/roman1962/src/index.ts` uses an explicit
 re-export list — no `export * from '@internal/rite-roman1969'`.
+
+`proper-of-time-def.ts` is the OOP `CalendarDef` form (one
+`LiturgicalDayDef` per day of the civil year, consumed by the engine);
+`proper-of-time/` is the functional year-builder kept as a reusable
+building block (`buildProperOfTime1962`, `computeAnchors`,
+`ProperOfTimeYear<Entry>`). Different concerns, different files.
 
 ## Commit plan (4 commits across both phases)
 
@@ -274,7 +297,8 @@ green across all workspaces.
 
 ### Phase A — revert the reshape (1 commit)
 
-- [ ] **A1 — `refactor(package): revert shared-package reshape`.**
+- [x] **A1 — `refactor(package): revert shared-package reshape`.**
+      Done 2026-04-18 (commit `991be71`).
       Dissolve all five shared packages back into
       `rites/roman1969/src/`:
   - `@internal/romcal-core` — interfaces inlined locally to 1962
@@ -301,9 +325,10 @@ green across all workspaces.
 Each commit refactor-style: additive, default behavior unchanged until
 the final cutover in B2.
 
-- [ ] **B1 — `feat(1969): generic OOP extension points on engine`.**
-      Engine refactor in `rites/roman1969/src/`, zero behavior change.
-      Touches only 1969; no 1962 code yet.
+- [x] **B1 — `feat(1969): generic OOP extension points on engine`.**
+      Done 2026-04-18 (commit `8a7dfd5`). Engine refactor in
+      `rites/roman1969/src/`, zero behavior change. Touches only
+      1969; no 1962 code yet.
   - Make `Romcal` generic: `Romcal<T extends LiturgicalDay = LiturgicalDay>`.
     `generateCalendar` / `getOneLiturgicalDay` return types parameterized
     by `T`. Default `T = LiturgicalDay` preserves 1969's public API.
@@ -331,26 +356,67 @@ the final cutover in B2.
     virtual can be overridden and the engine dispatches to the override.
   - 1969 and 1962 test suites unchanged and passing.
 
-- [ ] **B2 — `feat(1962): Romcal1962 as Romcal<LiturgicalDay1962>
-    + new CalendarDef tree`.** The cutover. Bundles original B6–B10.
-  - Add `LiturgicalDay1962 extends LiturgicalDay` in
+- [x] \*\*B2 — `feat(1962): Romcal1962 as Romcal<LiturgicalDay1962>
+  - new CalendarDef tree`.\*\* Done 2026-04-18. The cutover. Planned
+    as a single commit; shipped as 7 sub-phases driven by reviewability
+    and parity-debugging feedback loops. Each sub-phase left the 1962
+  - 1969 test suites green. Sub-phases (oldest first):
+  * **B2a — OOP skeleton** (commit `c281a97`). `Romcal1962OOP extends
+Romcal<LiturgicalDay1962OOP>` shadow-classes alongside the legacy
+    engine. Scaffolding only — no rubrics, no real overrides.
+  * **B2b — Proper of Time + engine seam** (commit `4715601`).
+    `ProperOfTime1962 extends CalendarDef` producing one
+    `LiturgicalDayDef` per day of the civil year; `Calendar1962OOP`
+    overrides `createLiturgicalDay` to emit `LiturgicalDay1962OOP`.
+  * **B2c — Sanctoral port** (commit `b49c662`). `GeneralRoman1962
+extends CalendarDef` carrying 1962's sanctoral + commemorations
+    as declarative `Inputs`.
+  * **B2d — Rubrics + overlays port** (commit `0d1e5f7`).
+    `resolveOccurrence` (§15 Lord-feast elevation, §96 tempora>sancti
+    tie-break, §50 forward transfer, §10 vigil suppression) +
+    `postReduceDay` (§111–113 commemoration cap). 9 overlay classes
+    (Europe / Switzerland / 6 Swiss diocese / 1 abbey) as
+    `CalendarDef` subclasses. Parity pin added: 43 tests comparing
+    per-date coverage + transfer fingerprints + marker Class I
+    primaries against legacy `buildLiturgicalYear1962` for years
+    2024–2026 × 3 overlay configurations.
+  * **B2e-1 — Cutover** (commit `89addfa`). Deleted the 4,657-line
+    parallel engine (`sanctoral/`, `rubrics/`, `calendar-year/`,
+    `propers/`, `calendars/` legacy, `models/`, `definitions.ts`,
+    legacy `romcal-1962.ts`, and 11 legacy `__tests__/` files).
+    Relocated Bundle type to `types/bundle.ts`; inlined `Color` +
+    `LocaleId`; moved `PropersBlock`/`PropersBlockItem` to the
+    divinum-officium importer where they're the only consumers.
+    `src/index.ts` switched from wildcard to a curated public API.
+  * **B2e-2 — Rename OOP shadow symbols to canonical** (commit
+    `7ad3667`). `Calendar1962OOP` → `Calendar1962`, `LiturgicalDay1962OOP`
+    → `LiturgicalDay1962`, `Romcal1962OOP` → `Romcal1962`,
+    `Romcal1962OOPConfigInput` → `Romcal1962ConfigInput`. Replaced
+    the last `#`-prefix private fields in `proper-of-time.ts` with
+    `private` modifiers to clear the remaining tsc error.
+  * **B2e-3 — Flatten `src/oop/` into canonical layout** (commit
+    `efbaab5`). Promoted `src/oop/*` to `src/*` + `src/calendars/*`
+    (canonical structure matching the 1969 package).
+    `src/proper-of-time-def.ts` avoids collision with the existing
+    `src/proper-of-time/` functional-builder directory.
+  * Add `LiturgicalDay1962 extends LiturgicalDay` in
     `rites/roman1962/src/models/liturgical-day.ts` with
     `override readonly rite = 'roman1962' as const` +
     `commemorations`, `octaveOf`, `vigilOf`, `massReferences`.
-  - Build `GeneralRoman1962 extends CalendarDef` with 1962 sanctoral +
+  * Build `GeneralRoman1962 extends CalendarDef` with 1962 sanctoral +
     proper data as `inputs`; ClassI/II/III octaves as declarative
     `octave` input.
-  - Build `ProperOfTime1962 extends CalendarDef` with 1962 seasons
+  * Build `ProperOfTime1962 extends CalendarDef` with 1962 seasons
     (Septuagesima, Passiontide, within-octave weeks) via
     `buildAllDefinitions` override.
-  - Build `Calendar1962 extends Calendar<LiturgicalDay1962>`, overriding
+  * Build `Calendar1962 extends Calendar<LiturgicalDay1962>`, overriding
     the three engine virtuals: `createLiturgicalDay → new LiturgicalDay1962(…)`,
     `postReduceDay → commemoration cap (§111–113)`,
     `resolveOccurrence → forward-transfer + vigil suppression`.
-  - Port Europe / Switzerland / 6 Swiss diocese / 1 Swiss abbey
+  * Port Europe / Switzerland / 6 Swiss diocese / 1 Swiss abbey
     overlays as `CalendarDef` subclasses under `calendars/`. Drop
     `_1962` suffix.
-  - Rewrite `Romcal1962` as:
+  * Rewrite `Romcal1962` as:
     ```ts
     class Romcal1962 extends Romcal<LiturgicalDay1962> {
       constructor(input: Romcal1962ConfigInput = {}) {
@@ -358,35 +424,42 @@ the final cutover in B2.
       }
     }
     ```
-  - Parity test: for representative year range, old-engine output
+  * Parity test: for representative year range, old-engine output
     (`Calendar1962`) matches new-engine output (via new
     `Romcal1962`). Ship parity proof in the same commit as the
     deletion.
-  - Delete parallel engine: `Calendar1962`,
+  * Delete parallel engine: `Calendar1962`,
     `LiturgicalDayConfig1962`, `LiturgicalDayDef1962`,
     `Romcal1962Config`, `calendar-year/`, `rubrics/`, `sanctoral/`,
     `propers/`, `definitions.ts`, `romcal-1962-types.ts`,
     `calendars/apply.ts` + `types.ts`.
-  - Replace `index.ts` wildcard re-export with a curated list
+  * Replace `index.ts` wildcard re-export with a curated list
     (`Romcal`, `LiturgicalDay`, `CalendarDef`, engine types) +
     1962-local exports (`Romcal1962`, `LiturgicalDay1962`,
     `GeneralRoman1962`, `Switzerland_Basel`, …).
 
-- [ ] **B3 — `docs(alignment): record pivot completion + upstream PR
-  prep`.** Final plan doc update + start the upstream PR draft.
-      Narrative: the three `Calendar` virtuals + `Romcal.createCalendar`
-      factory are framed as **generic OOP extension points** any rite
-      variant could use, not "1962 flags." 1962 is a consumer, not the
-      motivation.
+- [x] **B3 — `docs(alignment): record pivot completion + upstream PR
+prep`.** Done 2026-04-18. Plan doc updated with actual sub-phase
+      history; `02-b1-changes-for-upstream.md` cleaned of authoring
+      cruft and ready to post against `github.com/romcal/romcal`. The
+      B1 narrative frames the three `Calendar` virtuals +
+      `Romcal.createCalendar` factory as **generic OOP extension
+      points** any rite variant (Ambrosian, Mozarabic, Dominican, …)
+      could use, not "1962 flags." 1962 is a consumer, not the
+      motivation — it ships as a separate package on our fork that
+      subclasses the seams without adding new hooks.
 
 ## Decisions log (pivot)
 
-| Date       | Decision                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2026-04-18 | **Revised B1 design.** 1962-specific fields live on `LiturgicalDay1962 extends LiturgicalDay`, NOT on optional fields on `BaseLiturgicalDay`. Reason: keep 1969 types clean of 1962 concepts. Supersedes 2026-04-16 Q4 decision to discriminate via optional fields on the base type.                                                                                                                                                              |
-| 2026-04-18 | **Revised B1 design.** Engine extensions land as virtual methods on `Calendar` (`createLiturgicalDay`, `postReduceDay`, `resolveOccurrence`) + a factory `Romcal.createCalendar()`, not on `CalendarDef`. Rationale: `Calendar` owns the full pipeline; `CalendarDef` is per-overlay so dispatch would be ambiguous. Proper-of-time extension continues via existing `ProperOfTime extends CalendarDef` seam — no new `buildProperOfTime` virtual. |
-| 2026-04-18 | **Revised B1 design.** `Romcal` becomes generic: `Romcal<T extends LiturgicalDay = LiturgicalDay>`. `Romcal1962 extends Romcal<LiturgicalDay1962>`. Default generic preserves 1969's public API.                                                                                                                                                                                                                                                   |
-| 2026-04-18 | Phase A complete (commit `5f2d442`). `packages/` back to upstream's 3; cross-rite sharing via `@internal/rite-roman1969`.                                                                                                                                                                                                                                                                                                                          |
-| 2026-04-18 | Upstream feedback: revert 5-package reshape; integrate `Romcal1962` as a `Romcal` subclass via a `GeneralRoman1962` CalendarDef. Pivot plan adopted; supersedes Phases C–E above.                                                                                                                                                                                                                                                                  |
-| 2026-04-18 | 1962 calendar classes drop the `_1962` suffix. Collision with 1969 names avoided by separate package / import path. Explicit re-export list in `rites/roman1962/src/index.ts`, no wildcard.                                                                                                                                                                                                                                                        |
-| 2026-04-18 | Commit plan compressed from 17 micro-commits to 4 focused commits (A1 + B1 + B2 + B3).                                                                                                                                                                                                                                                                                                                                                             |
+| Date       | Decision                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 2026-04-18 | **Revised B1 design.** 1962-specific fields live on `LiturgicalDay1962 extends LiturgicalDay`, NOT on optional fields on `BaseLiturgicalDay`. Reason: keep 1969 types clean of 1962 concepts. Supersedes 2026-04-16 Q4 decision to discriminate via optional fields on the base type.                                                                                                                                                                  |
+| 2026-04-18 | **Revised B1 design.** Engine extensions land as virtual methods on `Calendar` (`createLiturgicalDay`, `postReduceDay`, `resolveOccurrence`) + a factory `Romcal.createCalendar()`, not on `CalendarDef`. Rationale: `Calendar` owns the full pipeline; `CalendarDef` is per-overlay so dispatch would be ambiguous. Proper-of-time extension continues via existing `ProperOfTime extends CalendarDef` seam — no new `buildProperOfTime` virtual.     |
+| 2026-04-18 | **Revised B1 design.** `Romcal` becomes generic: `Romcal<T extends LiturgicalDay = LiturgicalDay>`. `Romcal1962 extends Romcal<LiturgicalDay1962>`. Default generic preserves 1969's public API.                                                                                                                                                                                                                                                       |
+| 2026-04-18 | Phase A complete (commit `5f2d442`). `packages/` back to upstream's 3; cross-rite sharing via `@internal/rite-roman1969`.                                                                                                                                                                                                                                                                                                                              |
+| 2026-04-18 | Upstream feedback: revert 5-package reshape; integrate `Romcal1962` as a `Romcal` subclass via a `GeneralRoman1962` CalendarDef. Pivot plan adopted; supersedes Phases C–E above.                                                                                                                                                                                                                                                                      |
+| 2026-04-18 | 1962 calendar classes drop the `_1962` suffix. Collision with 1969 names avoided by separate package / import path. Explicit re-export list in `rites/roman1962/src/index.ts`, no wildcard.                                                                                                                                                                                                                                                            |
+| 2026-04-18 | Commit plan compressed from 17 micro-commits to 4 focused commits (A1 + B1 + B2 + B3).                                                                                                                                                                                                                                                                                                                                                                 |
+| 2026-04-18 | B2 sub-phased (B2a–B2e-3) instead of one commit. Reason: parity work against the legacy engine surfaced scoring divergences (Class IV sancti centi-tiebreak, Nativity duplicate leapfrog) that needed isolated debug cycles, and B2e's 4,657-line deletion was safer to land after the OOP engine had stabilized under a coverage-level parity pin for 3 years × 3 overlays.                                                                           |
+| 2026-04-18 | Parity bar set at coverage-level, not per-date-primary equality. Legacy `buildLiturgicalYear1962` and the OOP engine diverge on ~34% of dates in 2024 by slug convention and by an intentional scoring trade-off (OOP's `resolveOccurrence` runs class+fine before kind tie-break to fix the Nativity case). Pinned invariants: date coverage equality, transferred-feast fingerprints, marker Class I primaries per overlay. Legacy deleted in B2e-1. |
+| 2026-04-18 | `ProperOfTime1962` file keeps `#`-prefix privates converted to `private` modifier (B2e-2) to avoid tslib helper emission under this workspace's tslib-free toolchain. Convention: `private readonly` fields, not `#`-prefix, for any new class in the 1962 package.                                                                                                                                                                                    |
