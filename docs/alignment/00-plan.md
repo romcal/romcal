@@ -163,28 +163,84 @@ This pivot supersedes Phases C–E of the plan above. Phase A (audit)
 and Phase B (proper-of-time extraction) were already merged; they get
 rolled back by the revert phase below.
 
-## Target `LiturgicalDay` shape
+## Target `LiturgicalDay` shape — revised 2026-04-18
 
-Previous plan decision (2026-04-16): `BaseLiturgicalDay` + discriminated
-extension via `rite: 'roman1969' | 'roman1962'`. Still correct. Once
-Phase B lands:
+**Revised:** 1962-specific fields stay on a `LiturgicalDay1962`
+subclass; 1969's `BaseLiturgicalDay` / `LiturgicalDay` do NOT gain
+1962-specific optional fields. Pushback: polluting the 1969 base type
+with 1962 concepts would leak rite-specific leaves into a neutral
+abstraction. This supersedes the 2026-04-16 decision to put optional
+1962 fields on `BaseLiturgicalDay`.
 
-- `BaseLiturgicalDay.rite: 'roman1969' | 'roman1962'`
-- Optional 1962-only fields: `commemorations`, `octaveOf`, `vigilOf`,
-  `massReferences`. 1969 leaves them undefined.
-- `LiturgicalDay1962` class deleted.
+New shape:
 
-## Engine extension points landing in `rites/roman1969/src/`
+```ts
+// rites/roman1969/src/models/liturgical-day.ts (1969 — unchanged)
+class LiturgicalDay {
+  readonly rite = 'roman1969' as const;
+  // …existing fields…
+}
 
-Four opt-in `ParticularConfig` flags, all defaulting to today's 1969
-behavior. Rite-neutral; 1962 flips them on via its root CalendarDef.
+// rites/roman1962/src/models/liturgical-day.ts (1962 — subclass)
+class LiturgicalDay1962 extends LiturgicalDay {
+  override readonly rite = 'roman1962' as const;
+  readonly commemorations: readonly LiturgicalDayCommemoration[];
+  readonly octaveOf?: OctaveOf;
+  readonly vigilOf?: Id;
+  readonly massReferences?: Record<string, string>;
+}
+```
 
-| Flag                                       | Hook                                      | 1962 setting                                            |
-| ------------------------------------------ | ----------------------------------------- | ------------------------------------------------------- |
-| `calendarEdition: '1969'\|'1962'`          | proper-of-time builder branch             | Builds Septuagesima + Passiontide + within-octave weeks |
-| `octave?: { rank, days }` (on `Inputs`)    | `buildAllDefinitions` expands octave days | ClassI/II/III octave days per feast                     |
-| `commemorationCap: 'rubricae1960'\|'none'` | post-reduction pass in reducer            | Rubricae 1960 §111–113 caps on commemoration count      |
-| `transferPolicy: 'forward-classI'\|'none'` | reducer transfers impeded feasts          | Forward-transfer + vigil suppression for ClassI         |
+The `rite` literal narrows via `day.rite === 'roman1962'` for
+consumers who hold a union. No shared `Rite` type alias in 1969 — each
+class owns its own literal; 1962 unions them locally if needed.
+
+## Engine extension points — revised 2026-04-18
+
+**Revised:** landing as virtual methods on `Calendar` (the engine
+model) + a factory on `Romcal`, NOT as enum flags on `ParticularConfig`
+and NOT on `CalendarDef`. `Calendar` owns `#buildDatesData` + the
+reducer, so it's the natural hook host; `CalendarDef` is per-overlay
+(multiple stacked) so dispatch would be ambiguous there. The hooks are
+framed as **generic OOP extension points** any rite variant
+(Ambrosian, Mozarabic, Dominican, …) could use. 1969's default
+implementations match today's behavior; 1962 subclasses
+`Calendar → Calendar1962`. This keeps 1969 clean — the engine defaults
+are not expressed in terms of 1962's existence.
+
+| Virtual method on `Calendar`             | Default in 1969 (base class) | 1962 override (on `Calendar1962`)                |
+| ---------------------------------------- | ---------------------------- | ------------------------------------------------ |
+| `createLiturgicalDay(def, …): T`         | `new LiturgicalDay(…) as T`  | `new LiturgicalDay1962(…)`                       |
+| `postReduceDay(day, candidates): T`      | identity                     | applies Rubricae 1960 §111–113 commemoration cap |
+| `resolveOccurrence(candidates, date): T` | current reducer (extracted)  | forward-transfer + vigil suppression             |
+
+| Virtual method on `Romcal<T>`                   | Default              | 1962 override (on `Romcal1962`) |
+| ----------------------------------------------- | -------------------- | ------------------------------- |
+| `createCalendar(config, ldConfig): Calendar<T>` | `new Calendar<T>(…)` | `new Calendar1962(…)`           |
+
+Proper-of-time extension continues to use the existing seam:
+`ProperOfTime` is already a `CalendarDef` subclass, so 1962 ships
+`ProperOfTime1962 extends CalendarDef` with 1962-specific seasons
+(Septuagesima, Passiontide, within-octave weeks) via the standard
+`buildAllDefinitions` override. No new `buildProperOfTime` virtual
+needed.
+
+Plus one declarative addition on `Inputs`:
+
+| Input field                             | Engine effect                             | 1962 use                                          |
+| --------------------------------------- | ----------------------------------------- | ------------------------------------------------- |
+| `octave?: { rank, days }` (on `Inputs`) | `buildAllDefinitions` expands octave days | ClassI/II/III octave days per feast (declarative) |
+
+`Romcal` goes generic over its day type:
+
+```ts
+class Romcal<T extends LiturgicalDay = LiturgicalDay> {
+  generateCalendar(year?): Promise<LiturgicalCalendar<T>> { … }
+}
+class Romcal1962 extends Romcal<LiturgicalDay1962> { … }
+```
+
+Default generic = current 1969 behavior; zero external API change.
 
 ## 1962 package shape after Phase B
 
@@ -242,45 +298,95 @@ green across all workspaces.
 
 ### Phase B — integrate `Romcal1962` into `Romcal` (3 commits)
 
-- [ ] **B1 — `feat(1969): rite-neutral engine extension points for
-    1962`.** Bundles original B1–B5:
-  - Add `rite: 'roman1969'|'roman1962'` discriminator + optional
-    `commemorations`/`octaveOf`/`vigilOf`/`massReferences` to
-    `BaseLiturgicalDay`. 1969 sets `rite: 'roman1969'`.
-  - `calendarEdition` branch in proper-of-time builder.
-  - `octave: { rank, days }` input on `CalendarDef.inputs`; engine
-    expands.
-  - `commemorationCap` post-reduction pass.
-  - `transferPolicy` forward-transfer + vigil-suppression pass.
-    All default to current 1969 behavior. Unit tests on fixture
-    CalendarDefs; existing 1969 + 1962 suites unchanged.
+Each commit refactor-style: additive, default behavior unchanged until
+the final cutover in B2.
 
-- [ ] **B2 — `feat(1962): Romcal1962 as Romcal subclass + new
-    CalendarDef tree`.** Bundles original B6–B10:
-  - Build `GeneralRoman1962` root CalendarDef, all sanctoral +
-    proper data as `inputs` + engine-extension `particularConfig`.
+- [ ] **B1 — `feat(1969): generic OOP extension points on engine`.**
+      Engine refactor in `rites/roman1969/src/`, zero behavior change.
+      Touches only 1969; no 1962 code yet.
+  - Make `Romcal` generic: `Romcal<T extends LiturgicalDay = LiturgicalDay>`.
+    `generateCalendar` / `getOneLiturgicalDay` return types parameterized
+    by `T`. Default `T = LiturgicalDay` preserves 1969's public API.
+  - Make `Calendar` generic: `Calendar<T extends LiturgicalDay = LiturgicalDay>`.
+  - Add `readonly rite = 'roman1969' as const` to `LiturgicalDay`.
+  - Add virtual methods to `Calendar` with default impls matching
+    today's behavior:
+    - `protected createLiturgicalDay(def, date, ldConfig, calendar, baseData, weekday): T`
+      — replace internal `new LiturgicalDay(…)` call sites with
+      `this.createLiturgicalDay(…)`.
+    - `protected postReduceDay(day: T, candidates: T[]): T` — hook called
+      after the reducer settles a date; default = identity.
+    - `protected resolveOccurrence(candidates: T[], date: Date): T` — hook
+      for occurrence / transfer resolution; default = current reducer
+      logic extracted into the method.
+  - Add factory to `Romcal<T>`:
+    - `protected createCalendar(config, ldConfig): Calendar<T>` —
+      default returns `new Calendar<T>(…)`; subclass overrides (e.g.
+      `Romcal1962` returns `new Calendar1962(…)`).
+  - Add declarative `octave?: { rank, days }` on `Inputs`;
+    `buildAllDefinitions` expands octave days when present, tagging
+    them for octave metadata (default: unused by 1969 inputs; no
+    behavior change).
+  - Fixture-based tests on a subclass `Calendar` / `Romcal` verify each
+    virtual can be overridden and the engine dispatches to the override.
+  - 1969 and 1962 test suites unchanged and passing.
+
+- [ ] **B2 — `feat(1962): Romcal1962 as Romcal<LiturgicalDay1962>
+    + new CalendarDef tree`.** The cutover. Bundles original B6–B10.
+  - Add `LiturgicalDay1962 extends LiturgicalDay` in
+    `rites/roman1962/src/models/liturgical-day.ts` with
+    `override readonly rite = 'roman1962' as const` +
+    `commemorations`, `octaveOf`, `vigilOf`, `massReferences`.
+  - Build `GeneralRoman1962 extends CalendarDef` with 1962 sanctoral +
+    proper data as `inputs`; ClassI/II/III octaves as declarative
+    `octave` input.
+  - Build `ProperOfTime1962 extends CalendarDef` with 1962 seasons
+    (Septuagesima, Passiontide, within-octave weeks) via
+    `buildAllDefinitions` override.
+  - Build `Calendar1962 extends Calendar<LiturgicalDay1962>`, overriding
+    the three engine virtuals: `createLiturgicalDay → new LiturgicalDay1962(…)`,
+    `postReduceDay → commemoration cap (§111–113)`,
+    `resolveOccurrence → forward-transfer + vigil suppression`.
   - Port Europe / Switzerland / 6 Swiss diocese / 1 Swiss abbey
-    overlays as `CalendarDef` subclasses under `calendars/` tree.
-    Drop `_1962` suffix.
-  - Rewrite `Romcal1962` as `extends Romcal { constructor… }`.
-    Parity test suite comparing old-engine output to new-engine
-    output before the cutover.
+    overlays as `CalendarDef` subclasses under `calendars/`. Drop
+    `_1962` suffix.
+  - Rewrite `Romcal1962` as:
+    ```ts
+    class Romcal1962 extends Romcal<LiturgicalDay1962> {
+      constructor(input: Romcal1962ConfigInput = {}) {
+        super({ ...input, localizedCalendar: input.calendar ?? GeneralRoman1962 });
+      }
+    }
+    ```
+  - Parity test: for representative year range, old-engine output
+    (`Calendar1962`) matches new-engine output (via new
+    `Romcal1962`). Ship parity proof in the same commit as the
+    deletion.
   - Delete parallel engine: `Calendar1962`,
     `LiturgicalDayConfig1962`, `LiturgicalDayDef1962`,
     `Romcal1962Config`, `calendar-year/`, `rubrics/`, `sanctoral/`,
     `propers/`, `definitions.ts`, `romcal-1962-types.ts`,
     `calendars/apply.ts` + `types.ts`.
-  - Replace `index.ts` wildcard re-export with a curated list.
+  - Replace `index.ts` wildcard re-export with a curated list
+    (`Romcal`, `LiturgicalDay`, `CalendarDef`, engine types) +
+    1962-local exports (`Romcal1962`, `LiturgicalDay1962`,
+    `GeneralRoman1962`, `Switzerland_Basel`, …).
 
 - [ ] **B3 — `docs(alignment): record pivot completion + upstream PR
-    prep`.** Final plan doc update + start the upstream PR draft
-      (leading with the 1969 engine extensions as rite-neutral).
+  prep`.** Final plan doc update + start the upstream PR draft.
+      Narrative: the three `Calendar` virtuals + `Romcal.createCalendar`
+      factory are framed as **generic OOP extension points** any rite
+      variant could use, not "1962 flags." 1962 is a consumer, not the
+      motivation.
 
 ## Decisions log (pivot)
 
-| Date       | Decision                                                                                                                                                                                       |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2026-04-18 | Upstream feedback: revert 5-package reshape; integrate `Romcal1962` as a `Romcal` subclass via a `GeneralRoman1962` CalendarDef. Pivot plan adopted; supersedes Phases C–E above.              |
-| 2026-04-18 | 1962 calendar classes drop the `_1962` suffix. Collision with 1969 names avoided by separate package / import path. Explicit re-export list in `rites/roman1962/src/index.ts`, no wildcard.    |
-| 2026-04-18 | Four engine extensions (`calendarEdition`, `octave`, `commemorationCap`, `transferPolicy`) land in `rites/roman1969/src/` as opt-in `ParticularConfig` flags. Default 1969 behavior unchanged. |
-| 2026-04-18 | Commit plan compressed from 17 micro-commits to 4 focused commits (A1 + B1 + B2 + B3).                                                                                                         |
+| Date       | Decision                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2026-04-18 | **Revised B1 design.** 1962-specific fields live on `LiturgicalDay1962 extends LiturgicalDay`, NOT on optional fields on `BaseLiturgicalDay`. Reason: keep 1969 types clean of 1962 concepts. Supersedes 2026-04-16 Q4 decision to discriminate via optional fields on the base type.                                                                                                                                                              |
+| 2026-04-18 | **Revised B1 design.** Engine extensions land as virtual methods on `Calendar` (`createLiturgicalDay`, `postReduceDay`, `resolveOccurrence`) + a factory `Romcal.createCalendar()`, not on `CalendarDef`. Rationale: `Calendar` owns the full pipeline; `CalendarDef` is per-overlay so dispatch would be ambiguous. Proper-of-time extension continues via existing `ProperOfTime extends CalendarDef` seam — no new `buildProperOfTime` virtual. |
+| 2026-04-18 | **Revised B1 design.** `Romcal` becomes generic: `Romcal<T extends LiturgicalDay = LiturgicalDay>`. `Romcal1962 extends Romcal<LiturgicalDay1962>`. Default generic preserves 1969's public API.                                                                                                                                                                                                                                                   |
+| 2026-04-18 | Phase A complete (commit `5f2d442`). `packages/` back to upstream's 3; cross-rite sharing via `@internal/rite-roman1969`.                                                                                                                                                                                                                                                                                                                          |
+| 2026-04-18 | Upstream feedback: revert 5-package reshape; integrate `Romcal1962` as a `Romcal` subclass via a `GeneralRoman1962` CalendarDef. Pivot plan adopted; supersedes Phases C–E above.                                                                                                                                                                                                                                                                  |
+| 2026-04-18 | 1962 calendar classes drop the `_1962` suffix. Collision with 1969 names avoided by separate package / import path. Explicit re-export list in `rites/roman1962/src/index.ts`, no wildcard.                                                                                                                                                                                                                                                        |
+| 2026-04-18 | Commit plan compressed from 17 micro-commits to 4 focused commits (A1 + B1 + B2 + B3).                                                                                                                                                                                                                                                                                                                                                             |
