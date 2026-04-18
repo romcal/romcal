@@ -1,19 +1,31 @@
-import { Calendar, LiturgicalDayConfig, Romcal, RomcalConfig, RomcalConfigInput } from '@internal/rite-roman1969';
+import {
+  Calendar,
+  CalendarDef,
+  LiturgicalDayConfig,
+  Romcal,
+  RomcalConfig,
+  RomcalConfigInput,
+} from '@internal/rite-roman1969';
 
 import { Calendar1962OOP } from './calendar';
+import { Overlays1962 } from './calendars';
+import { RomcalConfig1962, RomcalConfig1962Input } from './config-1962';
 import { GeneralRoman1962 } from './general-roman';
 import { LiturgicalDay1962OOP } from './liturgical-day';
 import { ProperOfTime1962 } from './proper-of-time';
 
-// B2a placeholder; B2b+ will add 1962-specific config (localeId, includePropers,
-// commemorationLimit, calendar-overlay constructor).
-export type Romcal1962OOPConfigInput = RomcalConfigInput;
+/**
+ * Public config input for {@link Romcal1962OOP}. Extends the 1969 input
+ * with 1962-specific knobs (see {@link RomcalConfig1962Input}).
+ */
+export type Romcal1962OOPConfigInput = RomcalConfig1962Input;
 
 /**
  * 1962 `Romcal` subclass. Overrides:
  * - `createConfig` to swap in `ProperOfTime1962` as the temporal cycle and
  *   `GeneralRoman1962` as the particular calendar (sanctoral + proper
- *   kalendar).
+ *   kalendar), and to return a {@link RomcalConfig1962} that carries the
+ *   1962-specific `commemorationMode` cap setting.
  * - `createCalendar` so generated days land as `LiturgicalDay1962OOP`.
  *
  * Note: the 1969 `GeneralRoman` is still pushed into `RomcalConfig.calendarsDef`
@@ -27,7 +39,32 @@ export class Romcal1962OOP extends Romcal<LiturgicalDay1962OOP> {
   }
 
   protected override createConfig(input?: RomcalConfigInput): RomcalConfig {
-    return new RomcalConfig(input, undefined, undefined, GeneralRoman1962, ProperOfTime1962);
+    // `RomcalConfig1962Input extends RomcalConfigInput`, so the parent's
+    // `createConfig(config)` relays the original input through unchanged;
+    // the cast below is just a type-level widening from the parent signature.
+    const input1962 = input as RomcalConfig1962Input | undefined;
+
+    // Resolve the particular-calendar selector. Accepts a string key
+    // into `Overlays1962` or a CalendarDef subclass directly; defaults
+    // to the plain 1962 sanctoral (`GeneralRoman1962`). All registered
+    // overlays chain via `ParentCalendars` back to `GeneralRoman1962`,
+    // so the engine's parent traversal builds the full stack in order
+    // (GeneralRoman1962 → Europe → Country → Diocese).
+    let particular: typeof CalendarDef = GeneralRoman1962;
+    const selector = input1962?.particularCalendar;
+    if (selector !== undefined) {
+      if (typeof selector === 'string') {
+        const cls = Overlays1962[selector];
+        if (!cls) {
+          throw new Error(`Unknown 1962 particular calendar overlay: '${selector}'`);
+        }
+        particular = cls as unknown as typeof CalendarDef;
+      } else {
+        particular = selector;
+      }
+    }
+
+    return new RomcalConfig1962(input1962, undefined, undefined, particular, ProperOfTime1962);
   }
 
   protected override createCalendar(

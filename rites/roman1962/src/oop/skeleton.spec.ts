@@ -38,11 +38,13 @@ describe('1962 OOP skeleton', () => {
     expect(days.every((d) => (d.rite as Rite) === 'roman1962')).toBe(true);
   });
 
-  it('every produced day has an empty commemorations array and undefined octaveOf', async () => {
+  it('every produced day has a commemorations array and undefined octaveOf', async () => {
+    // B2d-1 landed `postReduceDay` which populates `commemorations` from
+    // occurrence losers. `octaveOf` remains unpopulated until B2d-2.
     const romcal = new Romcal1962OOP();
     const result = await romcal.generateCalendar(2024);
     const days = Object.values(result).flat();
-    expect(days.every((d) => Array.isArray(d.commemorations) && d.commemorations.length === 0)).toBe(true);
+    expect(days.every((d) => Array.isArray(d.commemorations))).toBe(true);
     expect(days.every((d) => d.octaveOf === undefined)).toBe(true);
   });
 
