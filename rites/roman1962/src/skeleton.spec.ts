@@ -9,7 +9,7 @@ import {
 
 import { Calendar1962 } from './calendar';
 import { LiturgicalDay1962 } from './liturgical-day';
-import { Romcal1962 } from './romcal';
+import { Romcal1962 } from './romcal-1962';
 
 describe('1962 OOP skeleton', () => {
   it('Romcal1962 instantiates without throwing', () => {

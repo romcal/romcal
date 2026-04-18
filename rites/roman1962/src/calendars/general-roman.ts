@@ -4,8 +4,8 @@ import path from 'node:path';
 import { CalendarDef, Color, Colors, LiturgicalDayInput, Precedence, Precedences } from '@internal/rite-roman1969';
 import type { Inputs, MonthIndex, ParticularConfig, Rank } from '@internal/rite-roman1969';
 
-import { setMeta1962 } from './meta-1962';
-import { detectVigil } from './vigil';
+import { setMeta1962 } from '../meta-1962';
+import { detectVigil } from '../vigil';
 
 // -- JSON shapes (mirrored locally so we don't reach into `src/sanctoral/*`,
 // which B2e will delete). -----------------------------------------------------

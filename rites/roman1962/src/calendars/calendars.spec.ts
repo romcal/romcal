@@ -1,7 +1,7 @@
 import type { LiturgicalCalendar } from '@internal/rite-roman1969';
 
 import type { LiturgicalDay1962 } from '../liturgical-day';
-import { Romcal1962 } from '../romcal';
+import { Romcal1962 } from '../romcal-1962';
 
 import { Europe, Switzerland } from './index';
 
