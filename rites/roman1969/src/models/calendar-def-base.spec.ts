@@ -1,4 +1,9 @@
+import { Ranks } from '../constants/ranks';
+import { LiturgicalDayBundleInput } from '../types/liturgical-day';
+
+import { CalendarDef } from './calendar-def';
 import { CalendarDefBase, flattenCalendarChain } from './calendar-def-base';
+import { RomcalConfig } from './config';
 
 interface TestEntry {
   readonly name: string;
@@ -52,5 +57,31 @@ describe('flattenCalendarChain', () => {
 
   it('returns only the root when there are no parents', () => {
     expect(flattenCalendarChain(new Region()).map((c) => c.id)).toEqual(['europe']);
+  });
+});
+
+describe('CalendarDef declarative octave expansion', () => {
+  it('expands an input with octave into N additional shifted LiturgicalDayDefs', () => {
+    class OctaveCalendar extends CalendarDef {
+      inputs: Record<string, LiturgicalDayBundleInput> = {
+        some_feast: {
+          dateDef: { month: 6, date: 29 },
+          precedence: 'GENERAL_FEAST_7',
+          octave: { rank: Ranks.Memorial, days: 7 },
+        },
+      };
+    }
+    const config = new RomcalConfig();
+    const cal = new OctaveCalendar(config);
+    cal.buildAllDefinitions();
+    for (let n = 1; n <= 7; n += 1) {
+      const id = `some_feast_octave_day_${n}`;
+      expect(config.liturgicalDayDef[id]).toBeDefined();
+      expect(config.liturgicalDayDef[id].rank).toBe(Ranks.Memorial);
+    }
+    // The original anchor should also exist.
+    expect(config.liturgicalDayDef['some_feast']).toBeDefined();
+    // And we should NOT have an 8th day.
+    expect(config.liturgicalDayDef['some_feast_octave_day_8']).toBeUndefined();
   });
 });

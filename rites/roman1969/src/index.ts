@@ -77,6 +77,7 @@ import {
   LiturgyDayDiff,
   MartyrologyItemPointer,
   MartyrologyItemRedefined,
+  Rite,
   RomcalCalendarMetadata,
   RomcalTitles,
   TitlesDef,
@@ -113,10 +114,10 @@ import {
 } from './utils/dates';
 import { isInteger, toRomanNumber } from './utils/numbers';
 
-class Romcal {
+class Romcal<T extends LiturgicalDay = LiturgicalDay> {
   readonly #config: RomcalConfig;
 
-  #computedCalendars: Record<number, LiturgicalCalendar> = {};
+  #computedCalendars: Record<number, LiturgicalCalendar<T>> = {};
 
   #dates: Record<number, Dates> = {};
 
@@ -125,6 +126,14 @@ class Romcal {
    */
   constructor(config?: RomcalConfigInput) {
     this.#config = new RomcalConfig(config);
+  }
+
+  /**
+   * Virtual factory returning the Calendar instance used to compute a year.
+   * Subclasses override to plug in a rite-specific Calendar subclass.
+   */
+  protected createCalendar(config: RomcalConfig, ldConfig: LiturgicalDayConfig): Calendar<T> {
+    return new Calendar<T>(config, ldConfig);
   }
 
   /**
@@ -177,14 +186,14 @@ class Romcal {
     options: { year?: number | string; computeInWholeYear?: boolean } = {
       computeInWholeYear: false,
     }
-  ): Promise<LiturgicalDay | null | undefined> {
+  ): Promise<T | null | undefined> {
     return new Promise((resolve, reject) => {
       try {
         const y = Romcal.#sanitizeYear(options.year);
         const ldConfig = new LiturgicalDayConfig(this.#config, y);
 
         this.getAllDefinitions().then(() => {
-          const partialLd = new Calendar(this.#config, ldConfig).getOneLiturgicalDay(id);
+          const partialLd = this.createCalendar(this.#config, ldConfig).getOneLiturgicalDay(id);
           if (!options.computeInWholeYear) return resolve(partialLd);
 
           if (!partialLd) resolve(partialLd);
@@ -205,7 +214,7 @@ class Romcal {
   /**
    * Generate a liturgical calendar, within a Liturgical or Gregorian scope.
    */
-  generateCalendar(year?: number | string): Promise<LiturgicalCalendar> {
+  generateCalendar(year?: number | string): Promise<LiturgicalCalendar<T>> {
     // Wrap the calendar computing process in a Promise.
     // Even if this method is called with async/await, this makes this method running in a microtask queue:
     // it does not run on the main thread, meaning other things can occur (click events, rendering, etc.).
@@ -221,7 +230,7 @@ class Romcal {
         }
 
         this.getAllDefinitions().then(() => {
-          this.#computedCalendars[ldConfig.year] = new Calendar(this.#config, ldConfig).generateCalendar();
+          this.#computedCalendars[ldConfig.year] = this.createCalendar(this.#config, ldConfig).generateCalendar();
           resolve(this.#computedCalendars[ldConfig.year]);
         });
       } catch (e) {
@@ -472,6 +481,7 @@ export {
   PsalterWeekCycle,
   // constants/ranks.ts
   Rank,
+  Rite,
   // types/bundle.ts
   RomcalBundleObject,
   RomcalCalendarMetadata,
