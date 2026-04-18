@@ -78,7 +78,8 @@ export class RomcalConfig implements IRomcalConfig {
     config?: RomcalConfigInput,
     martyrologyCatalog?: MartyrologyCatalog,
     locale?: Locale,
-    ParticularCalendar?: typeof CalendarDef
+    ParticularCalendar?: typeof CalendarDef,
+    ProperOfTimeCalendar?: typeof CalendarDef
   ) {
     this.#input = config || {};
 
@@ -128,8 +129,9 @@ export class RomcalConfig implements IRomcalConfig {
     // Initiate the Martyrology Catalog object.
     this.martyrologyCatalog = this.localizedCalendar?.martyrology ?? martyrologyCatalog ?? ({} as MartyrologyCatalog);
 
-    // In all cases, generate the ProperOfTime calendar
-    this.calendarsDef.push(new ProperOfTime(this));
+    // In all cases, generate the ProperOfTime calendar.
+    // Seam for rite subclasses (e.g. 1962) to swap in a rite-specific temporal cycle.
+    this.calendarsDef.push(new (ProperOfTimeCalendar ?? ProperOfTime)(this));
 
     // Then, import input definitions within a new CalendarDef object
     if (config?.localizedCalendar) {

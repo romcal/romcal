@@ -125,7 +125,15 @@ class Romcal<T extends LiturgicalDay = LiturgicalDay> {
    * Utility helpers to compute the date(s) of specific liturgical days or seasons.
    */
   constructor(config?: RomcalConfigInput) {
-    this.#config = new RomcalConfig(config);
+    this.#config = this.createConfig(config);
+  }
+
+  /**
+   * Virtual factory returning the RomcalConfig instance. Subclasses override to
+   * inject a rite-specific temporal cycle (ProperOfTimeCalendar param).
+   */
+  protected createConfig(input?: RomcalConfigInput): RomcalConfig {
+    return new RomcalConfig(input);
   }
 
   /**
@@ -417,6 +425,14 @@ export {
   LiturgicalDayDef,
   RomcalBundle,
   RomcalConfig,
+  // constants/colors.ts — value re-export for rite subclasses
+  Colors,
+  // constants/precedences.ts — value re-export for rite subclasses
+  Precedences,
+  // constants/cycles.ts — value re-export for rite subclasses
+  ProperCycles,
+  // constants/general-calendar-names.ts — value re-export for rite subclasses
+  PROPER_OF_TIME_NAME,
   // types/cycles-metadata.ts
   BaseCyclesMetadata,
   // types/liturgical-day.ts
