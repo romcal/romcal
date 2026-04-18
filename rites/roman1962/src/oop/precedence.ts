@@ -95,7 +95,7 @@ export function scorePrecedence(c: PrecedenceCandidate): number {
 
 /**
  * Score without the `numericRank * 0.01` tiebreak. The primary sort
- * stage in `Calendar1962OOP#resolveOccurrence` uses this so that equal
+ * stage in `Calendar1962#resolveOccurrence` uses this so that equal
  * class + fine adjustment ties are broken by kind (§96 tempora > sancti)
  * rather than by numericRank — which would otherwise let a sancti
  * duplicate of a same-class tempora Lord feast (e.g. Nativity) jump

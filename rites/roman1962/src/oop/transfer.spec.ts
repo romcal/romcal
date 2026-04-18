@@ -1,15 +1,15 @@
 import type { LiturgicalCalendar } from '@internal/rite-roman1969';
 
-import { LiturgicalDay1962OOP } from './liturgical-day';
-import { Romcal1962OOP } from './romcal';
+import { LiturgicalDay1962 } from './liturgical-day';
+import { Romcal1962 } from './romcal';
 import { applyCap, filterCommemorations, isTransferTarget } from './transfer';
 
-type Cal = LiturgicalCalendar<LiturgicalDay1962OOP>;
+type Cal = LiturgicalCalendar<LiturgicalDay1962>;
 
 describe('1962 rubrics — forward transfer (§50) + vigil suppression (§10)', () => {
   describe('unit helpers', () => {
     it('isTransferTarget — Class III or IV primary accepts a transferred Class I feast', () => {
-      const cls = (c: 1 | 2 | 3 | 4) => ({ classOf1962: c }) as unknown as LiturgicalDay1962OOP;
+      const cls = (c: 1 | 2 | 3 | 4) => ({ classOf1962: c }) as unknown as LiturgicalDay1962;
       expect(isTransferTarget(cls(1))).toBe(false);
       expect(isTransferTarget(cls(2))).toBe(false);
       expect(isTransferTarget(cls(3))).toBe(true);
@@ -20,13 +20,13 @@ describe('1962 rubrics — forward transfer (§50) + vigil suppression (§10)', 
       // Leaked 1969-engine IDs (no 1962 meta stamp) bottom out at Class IV in
       // the scorer; mirror that assumption here so a latecomer sancti can
       // still displace them.
-      const mystery = {} as unknown as LiturgicalDay1962OOP;
+      const mystery = {} as unknown as LiturgicalDay1962;
       expect(isTransferTarget(mystery)).toBe(true);
     });
 
     it('filterCommemorations drops Class IV tempora ferials only', () => {
       const ld = (kind: 'tempora' | 'sancti', cls: 1 | 2 | 3 | 4) =>
-        ({ kind1962: kind, classOf1962: cls }) as unknown as LiturgicalDay1962OOP;
+        ({ kind1962: kind, classOf1962: cls }) as unknown as LiturgicalDay1962;
       const losers = [ld('tempora', 4), ld('tempora', 2), ld('sancti', 4), ld('sancti', 3)];
       const kept = filterCommemorations(losers);
       expect(kept).toHaveLength(3);
@@ -34,7 +34,7 @@ describe('1962 rubrics — forward transfer (§50) + vigil suppression (§10)', 
     });
 
     it('applyCap — "solemn" caps at 3, "private" at 1, "all" is unbounded', () => {
-      const pool = Array.from({ length: 5 }, (_, i) => ({ id: `c${i}` }) as unknown as LiturgicalDay1962OOP);
+      const pool = Array.from({ length: 5 }, (_, i) => ({ id: `c${i}` }) as unknown as LiturgicalDay1962);
       expect(applyCap(pool, 'solemn')).toHaveLength(3);
       expect(applyCap(pool, 'private')).toHaveLength(1);
       expect(applyCap(pool, 'all')).toHaveLength(5);
@@ -45,7 +45,7 @@ describe('1962 rubrics — forward transfer (§50) + vigil suppression (§10)', 
     let cal: Cal;
 
     beforeAll(async () => {
-      cal = await new Romcal1962OOP().generateCalendar(2024);
+      cal = await new Romcal1962().generateCalendar(2024);
     });
 
     it('Annunciation (03-25) is impeded in 2024 (falls in Holy Week) and transfers forward', () => {
@@ -139,7 +139,7 @@ describe('1962 rubrics — forward transfer (§50) + vigil suppression (§10)', 
       // 2024: transferredNames = [Annunciation, Immaculate Conception]; no
       // vigil in the Kalendarium has either as its `.of` → all vigils
       // survive as primaries on their assigned date.
-      const cal = await new Romcal1962OOP().generateCalendar(2024);
+      const cal = await new Romcal1962().generateCalendar(2024);
 
       // Spot-check each of the 1960-Kalendarium vigils is still present on
       // its assigned date (by id or commemoration).

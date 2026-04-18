@@ -17,7 +17,7 @@ export interface RomcalConfig1962Input extends RomcalConfigInput {
    *   - `private` (low Mass): at most 1
    *   - `all` (default): no cap
    *
-   * Enforced by `Calendar1962OOP#postReduceDay`.
+   * Enforced by `Calendar1962#postReduceDay`.
    */
   commemorationMode?: CommemorationCapMode;
 
@@ -34,7 +34,7 @@ export interface RomcalConfig1962Input extends RomcalConfigInput {
 /**
  * 1962 `RomcalConfig` subclass. Carries the 1962-specific commemoration
  * cap mode alongside the base 1969 config. Accessed by
- * `Calendar1962OOP#postReduceDay` via a runtime instanceof check.
+ * `Calendar1962#postReduceDay` via a runtime instanceof check.
  */
 export class RomcalConfig1962 extends RomcalConfig {
   readonly commemorationMode: CommemorationCapMode;

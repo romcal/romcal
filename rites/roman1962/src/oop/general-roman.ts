@@ -202,9 +202,9 @@ export function buildGeneralRoman1962Inputs(): Inputs {
       isOptional: rank1962 === 'Ferial' || rank1962 === 'ClassIV',
     };
 
-    // Stamp 1962 metadata side-channel so LiturgicalDay1962OOP can surface
+    // Stamp 1962 metadata side-channel so LiturgicalDay1962 can surface
     // `classOf1962`/`kind1962`/`key1962` fields and so the overridden
-    // `Calendar1962OOP#resolveOccurrence` can score by 1962 rubrics.
+    // `Calendar1962#resolveOccurrence` can score by 1962 rubrics.
     // Ferial entries with no `class1962` default to Class IV.
     const vigilOf = detectVigil(primary.name);
     setMeta1962(primary.fileKey, {
@@ -240,7 +240,7 @@ export function buildGeneralRoman1962Inputs(): Inputs {
  * particular-calendar seam (`RomcalConfig` 4th ctor arg).
  *
  * Only primary entries are emitted here. Commemorations are layered by
- * `Calendar1962OOP#postReduceDay` in B2d using the `commemorations`
+ * `Calendar1962#postReduceDay` in B2d using the `commemorations`
  * array stashed on each CalendarEntry.
  */
 export class GeneralRoman1962 extends CalendarDef {

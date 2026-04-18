@@ -33,7 +33,7 @@ export { clearOverlayNames, collectOverlayNamesForLocale, getOverlayNames, setOv
  * rite, keyed by PascalCase-with-underscore class name. The key IS the
  * class name (and, via `CalendarDef#calendarName`, maps 1:1 to the
  * slug `switzerland_basel` etc.) so string-based selection via
- * {@link Romcal1962OOP}'s `particularCalendar` option is direct.
+ * {@link Romcal1962}'s `particularCalendar` option is direct.
  */
 export const Overlays1962 = {
   Europe,

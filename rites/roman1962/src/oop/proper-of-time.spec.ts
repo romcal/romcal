@@ -1,4 +1,4 @@
-import { Romcal1962OOP } from './romcal';
+import { Romcal1962 } from './romcal';
 
 /**
  * Pick the first (primary) LiturgicalDay id at a given ISO date, or undefined.
@@ -20,7 +20,7 @@ describe('1962 Proper of Time — canonical dates', () => {
     let cal: Record<string, { id: string }[]>;
 
     beforeAll(async () => {
-      const r = new Romcal1962OOP();
+      const r = new Romcal1962();
       cal = (await r.generateCalendar(2024)) as unknown as Record<string, { id: string }[]>;
     });
 
@@ -86,7 +86,7 @@ describe('1962 Proper of Time — canonical dates', () => {
     let cal: Record<string, { id: string }[]>;
 
     beforeAll(async () => {
-      const r = new Romcal1962OOP();
+      const r = new Romcal1962();
       cal = (await r.generateCalendar(2025)) as unknown as Record<string, { id: string }[]>;
     });
 

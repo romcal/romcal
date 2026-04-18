@@ -1,9 +1,9 @@
 import type { LiturgicalCalendar } from '@internal/rite-roman1969';
 
-import { LiturgicalDay1962OOP } from './liturgical-day';
-import { Romcal1962OOP } from './romcal';
+import { LiturgicalDay1962 } from './liturgical-day';
+import { Romcal1962 } from './romcal';
 
-type Cal = LiturgicalCalendar<LiturgicalDay1962OOP>;
+type Cal = LiturgicalCalendar<LiturgicalDay1962>;
 
 function primaryId(cal: Cal, date: string): string | undefined {
   return cal[date]?.[0]?.id;
@@ -18,7 +18,7 @@ describe('1962 rubrics — precedence scoring + commemoration selection', () => 
     let cal: Cal;
 
     beforeAll(async () => {
-      cal = await new Romcal1962OOP().generateCalendar(2024);
+      cal = await new Romcal1962().generateCalendar(2024);
     });
 
     it('Assumption (2024-08-15, Class I sancti) wins over any coincident tempora feria', () => {
@@ -63,14 +63,14 @@ describe('1962 rubrics — precedence scoring + commemoration selection', () => 
 
   describe('commemoration selection + cap', () => {
     it('Class IV tempora losers are dropped (filter verified at Assumption — no weekday commem)', async () => {
-      const cal = await new Romcal1962OOP().generateCalendar(2024);
+      const cal = await new Romcal1962().generateCalendar(2024);
       // The tempora `after_pentecost_12_thursday` would coincide; it is Class IV
       // tempora (ferial) and therefore filtered out of commemorations.
       expect(commemIds(cal, '2024-08-15')).not.toContain('after_pentecost_12_thursday');
     });
 
     it('default cap is "all" — no upper bound on commemoration count', async () => {
-      const cal = await new Romcal1962OOP().generateCalendar(2024);
+      const cal = await new Romcal1962().generateCalendar(2024);
       const maxLen = Math.max(...Object.values(cal).map((d) => d[0].commemorations.length));
       // There exists at least one date with multiple commemorations in 2024
       // (e.g. 2024-01-07 Holy Family has two: epiphany octave + Raymond of Penyafort).
@@ -78,7 +78,7 @@ describe('1962 rubrics — precedence scoring + commemoration selection', () => 
     });
 
     it('solemn cap ≤ 3 on every date', async () => {
-      const cal = await new Romcal1962OOP({ commemorationMode: 'solemn' }).generateCalendar(2024);
+      const cal = await new Romcal1962({ commemorationMode: 'solemn' }).generateCalendar(2024);
       for (const [date, days] of Object.entries(cal)) {
         expect(days[0].commemorations.length).toBeLessThanOrEqual(3);
         void date;
@@ -86,7 +86,7 @@ describe('1962 rubrics — precedence scoring + commemoration selection', () => 
     });
 
     it('private cap ≤ 1 on every date', async () => {
-      const cal = await new Romcal1962OOP({ commemorationMode: 'private' }).generateCalendar(2024);
+      const cal = await new Romcal1962({ commemorationMode: 'private' }).generateCalendar(2024);
       for (const [date, days] of Object.entries(cal)) {
         expect(days[0].commemorations.length).toBeLessThanOrEqual(1);
         void date;
@@ -94,8 +94,8 @@ describe('1962 rubrics — precedence scoring + commemoration selection', () => 
     });
 
     it('private vs all produce strictly smaller commemoration counts where overflow exists', async () => {
-      const calAll = await new Romcal1962OOP({ commemorationMode: 'all' }).generateCalendar(2024);
-      const calPrivate = await new Romcal1962OOP({ commemorationMode: 'private' }).generateCalendar(2024);
+      const calAll = await new Romcal1962({ commemorationMode: 'all' }).generateCalendar(2024);
+      const calPrivate = await new Romcal1962({ commemorationMode: 'private' }).generateCalendar(2024);
       // Sum totals across all dates.
       const totalAll = Object.values(calAll).reduce((n, d) => n + d[0].commemorations.length, 0);
       const totalPrivate = Object.values(calPrivate).reduce((n, d) => n + d[0].commemorations.length, 0);
