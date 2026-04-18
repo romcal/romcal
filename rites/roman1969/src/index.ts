@@ -529,6 +529,10 @@ export {
 // constants/months.ts + constants/weekdays.ts
 export { MONTHS, WEEKDAYS };
 
+// locales/index.ts — 1969 locale bundle map (seasons/ordinals/etc) used by
+// 1962 i18n init to inherit nested season+ordinal data.
+export { locales as LOCALES_1969 } from './locales';
+
 // models/calendar-def-base.ts — abstract overlay base for 1962
 export { CalendarDefBase, flattenCalendarChain } from './models/calendar-def-base';
 export type { CalendarDefBaseConstructor } from './models/calendar-def-base';

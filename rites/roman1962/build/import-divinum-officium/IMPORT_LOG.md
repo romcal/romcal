@@ -6,21 +6,21 @@ Corpus: 523 Tempora entries, 523 Sancti entries.
 
 ## Coverage summary
 
-| Locale        | Folder         | Text (T/S/C files) | Names from horas (T/S/C) | Override filled (T/S) | Still Latin (T/S) |
-| ------------- | -------------- | ------------------ | ------------------------ | --------------------- | ----------------- |
-| `en`          | English        | 165/297/43         | 394/440/31               | 366/23                | 126/85            |
-| `de`          | Deutsch        | 0/36/38            | 186/387/31               | 238/44                | 99/93             |
-| `fr`          | Francais       | 160/326/43         | 390/423/30               | 363/125               | 126/105           |
-| `it`          | Italiano       | 164/306/41         | 394/432/31               | 366/227               | 131/118           |
-| `es`          | Espanol        | 95/244/40          | 395/431/25               | 364/265               | 130/123           |
-| `pt`          | Portugues      | 148/268/36         | 42/293/25                | 380/133               | 137/153           |
-| `nl`          | Nederlands     | 132/288/37         | 197/380/27               | 369/252               | 132/150           |
-| `pl`          | Polski         | 128/304/41         | 396/400/32               | — _(no override)_     | 131/125           |
-| `hu`          | Magyar         | 151/198/41         | 391/413/31               | — _(no override)_     | 154/110           |
-| `cs`          | Bohemice       | 47/52/41           | 248/299/28               | — _(no override)_     | 329/228           |
-| `cs-schaller` | Cesky-Schaller | 19/46/19           | 0/0/18                   | — _(no override)_     | 523/523           |
-| `uk`          | Ukrainian      | 63/24/6            | 14/6/3                   | — _(no override)_     | 523/520           |
-| `da`          | Dansk          | 0/4/12             | 14/10/7                  | — _(no override)_     | 523/519           |
+| Locale | Folder | Text (T/S/C files) | Names from horas (T/S/C) | Override filled (T/S) | Still Latin (T/S) |
+| --- | --- | --- | --- | --- | --- |
+| `en` | English | 165/297/43 | 394/440/31 | 366/23 | 126/85 |
+| `de` | Deutsch | 0/36/38 | 186/387/31 | 238/44 | 99/93 |
+| `fr` | Francais | 160/326/43 | 390/423/30 | 363/125 | 126/105 |
+| `it` | Italiano | 164/306/41 | 394/432/31 | 366/227 | 131/118 |
+| `es` | Espanol | 95/244/40 | 395/431/25 | 364/265 | 130/123 |
+| `pt` | Portugues | 148/268/36 | 42/293/25 | 380/133 | 137/153 |
+| `nl` | Nederlands | 132/288/37 | 197/380/27 | 369/252 | 132/150 |
+| `pl` | Polski | 128/304/41 | 396/400/32 | — _(no override)_ | 131/125 |
+| `hu` | Magyar | 151/198/41 | 391/413/31 | — _(no override)_ | 154/110 |
+| `cs` | Bohemice | 47/52/41 | 248/299/28 | — _(no override)_ | 329/228 |
+| `cs-schaller` | Cesky-Schaller | 19/46/19 | 0/0/18 | — _(no override)_ | 523/523 |
+| `uk` | Ukrainian | 63/24/6 | 14/6/3 | — _(no override)_ | 523/520 |
+| `da` | Dansk | 0/4/12 | 14/10/7 | — _(no override)_ | 523/519 |
 
 ## Entries still falling back to Latin
 

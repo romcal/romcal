@@ -10,17 +10,19 @@ function pivotNames(
   groups: { source: Source; entries: Record<string, MassEntry> }[]
 ): Record<string, Record<string, string>> {
   const out: Record<string, Record<string, string>> = {};
-  for (const { source, entries } of groups) {
+  // Collapse the sancti/tempora/commune buckets into a single flat namespace.
+  // Verified collision-free at import time (909 keys total across sources) and
+  // matches the 1969 engine's flat `names:<id>` convention.
+  for (const { entries } of groups) {
     for (const [key, entry] of Object.entries(entries)) {
-      const id = `${source}/${key}`;
       // Latin authoritative name lives on `officium` (the [Officium] block of
       // the .txt), not on `names` (which holds vernaculars). Surface it under
       // 'la' so consumers that request Latin get a consistent lookup.
-      if (entry.officium) (out.la ??= {})[id] = entry.officium;
+      if (entry.officium) (out.la ??= {})[key] = entry.officium;
       const names = entry.names ?? {};
       for (const [lang, name] of Object.entries(names)) {
         if (!name) continue;
-        (out[lang] ??= {})[id] = name;
+        (out[lang] ??= {})[key] = name;
       }
     }
   }

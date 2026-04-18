@@ -43,7 +43,7 @@ const EXPLICIT: Record<string, string> = {
 
   // Epiphany & its octave
   'Epi1-0': 'first_sunday_after_epiphany',
-  'Epi1-0a': 'holy_family',
+  'Epi1-0a': 'holy_family_of_jesus_mary_and_joseph',
   'Epi1-1': 'epiphany_octave_day_2',
   'Epi1-2': 'epiphany_octave_day_3',
   'Epi1-3': 'epiphany_octave_day_4',
@@ -57,15 +57,15 @@ const EXPLICIT: Record<string, string> = {
   'Quadp3-0': 'quinquagesima_sunday',
 
   // Lenten specials (1969 parity where applicable)
-  'Quad6-0': 'palm_sunday',
+  'Quad6-0': 'palm_sunday_of_the_passion_of_the_lord',
   'Quad6-1': 'holy_week_monday',
   'Quad6-2': 'holy_week_tuesday',
   'Quad6-3': 'holy_week_wednesday',
-  'Quad6-4': 'maundy_thursday',
-  'Quad6-5': 'good_friday',
+  'Quad6-4': 'thursday_of_the_lords_supper',
+  'Quad6-5': 'friday_of_the_passion_of_the_lord',
   'Quad6-6': 'holy_saturday',
-  'Quad6-4m1': 'maundy_thursday_chrism_mass',
-  'Quad6-4m2': 'maundy_thursday_evening_mass',
+  'Quad6-4m1': 'thursday_of_the_lords_supper_chrism_mass',
+  'Quad6-4m2': 'thursday_of_the_lords_supper_evening_mass',
 
   // Passion-week oddity
   'Quad5-5Feria': 'lent_5_friday_seven_sorrows_commemoration',
@@ -83,7 +83,7 @@ const EXPLICIT: Record<string, string> = {
   'Pent01-0': 'trinity_sunday',
   'Pent01-0a': 'trinity_sunday_alternative',
   'Pent01-4': 'corpus_christi',
-  'Pent02-5': 'sacred_heart_of_jesus',
+  'Pent02-5': 'most_sacred_heart_of_jesus',
 
   // Numeric legacy codes (rare internal IDs, documented in
   // docs/1962/17-m10-key-migration.md)
