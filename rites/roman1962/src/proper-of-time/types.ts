@@ -1,4 +1,4 @@
-import type { DayOfWeek, ProperOfTimeYear as BaseProperOfTimeYear } from '@internal/proper-of-time';
+import type { DayOfWeek, ProperOfTimeYear as BaseProperOfTimeYear } from '@internal/rite-roman1969';
 
 import type { Season1962 } from '../constants/seasons-1962';
 

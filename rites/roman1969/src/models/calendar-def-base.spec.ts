@@ -1,28 +1,27 @@
-import { CalendarDef } from './calendar-def';
-import { flattenCalendarChain } from './flatten';
+import { CalendarDefBase, flattenCalendarChain } from './calendar-def-base';
 
 interface TestEntry {
   readonly name: string;
 }
 
-class Region extends CalendarDef<TestEntry> {
+class Region extends CalendarDefBase<TestEntry> {
   readonly id = 'europe';
 
   readonly entries: readonly TestEntry[] = [{ name: 'europe-feast' }];
 }
 
-class Country extends CalendarDef<TestEntry> {
+class Country extends CalendarDefBase<TestEntry> {
   readonly id = 'switzerland';
 
-  readonly parents: readonly CalendarDef<TestEntry>[] = [new Region()];
+  readonly parents: readonly CalendarDefBase<TestEntry>[] = [new Region()];
 
   readonly entries: readonly TestEntry[] = [{ name: 'bruder-klaus' }];
 }
 
-class Diocese extends CalendarDef<TestEntry> {
+class Diocese extends CalendarDefBase<TestEntry> {
   readonly id = 'switzerland.basel';
 
-  readonly parents: readonly CalendarDef<TestEntry>[] = [new Country()];
+  readonly parents: readonly CalendarDefBase<TestEntry>[] = [new Country()];
 
   readonly entries: readonly TestEntry[] = [{ name: 'ursicinus' }];
 }
@@ -35,15 +34,15 @@ describe('flattenCalendarChain', () => {
 
   it('deduplicates calendars reached through more than one parent', () => {
     const europe = new Region();
-    class AsiaPacific extends CalendarDef<TestEntry> {
+    class AsiaPacific extends CalendarDefBase<TestEntry> {
       readonly id = 'asia-pacific';
 
       readonly entries: readonly TestEntry[] = [];
     }
-    class Hybrid extends CalendarDef<TestEntry> {
+    class Hybrid extends CalendarDefBase<TestEntry> {
       readonly id = 'hybrid';
 
-      readonly parents: readonly CalendarDef<TestEntry>[] = [europe, new AsiaPacific(), europe];
+      readonly parents: readonly CalendarDefBase<TestEntry>[] = [europe, new AsiaPacific(), europe];
 
       readonly entries: readonly TestEntry[] = [];
     }

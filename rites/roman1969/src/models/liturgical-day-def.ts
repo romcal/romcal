@@ -1,5 +1,3 @@
-import type { ILiturgicalDayDefRoot } from '@internal/romcal-core';
-
 import { Color, Colors } from '../constants/colors';
 import { CommonDefinition } from '../constants/commons';
 import { ProperCycles } from '../constants/cycles';
@@ -34,7 +32,7 @@ import { safeWrapArray } from '../utils/arrays';
 
 import { RomcalConfig } from './config';
 
-export class LiturgicalDayDef implements BaseLiturgicalDayDef, ILiturgicalDayDefRoot {
+export class LiturgicalDayDef implements BaseLiturgicalDayDef {
   readonly #config: RomcalConfig;
 
   readonly id: Id;

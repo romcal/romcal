@@ -1,4 +1,4 @@
-import type { CalendarDefConstructor } from '@internal/calendars';
+import type { CalendarDefBaseConstructor as CalendarDefConstructor } from '@internal/rite-roman1969';
 
 import type { CalendarOverlayEntry } from './calendars/types';
 import type { CommemorationCapMode } from './rubrics/commemoration-cap';

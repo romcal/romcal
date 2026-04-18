@@ -81,7 +81,7 @@ export type {
   ILiturgicalDayRoot,
   IRomcal,
   IRomcalConfigRoot,
-} from '@internal/romcal-core';
+} from './types/romcal-core';
 export { buildAllDefinitions } from './definitions';
 export { Calendar1962 } from './models/calendar';
 export { LiturgicalDayConfig1962 } from './models/liturgical-day-config';

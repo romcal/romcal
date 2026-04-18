@@ -1,11 +1,11 @@
-import type { i18n } from '@internal/i18n';
-import type { IRomcalConfigRoot } from '@internal/romcal-core';
+import type { i18n } from '@internal/rite-roman1969';
 
 import { collectOverlayNames } from '../calendars/apply';
 import type { CalendarOverlay1962 } from '../calendars/types';
 import { createI18n1962, createNameTranslator, type NameTranslator } from '../i18n/init';
 import type { Romcal1962ConfigInput, Romcal1962ConfigOutput } from '../romcal-1962-types';
 import type { CommemorationCapMode } from '../rubrics/commemoration-cap';
+import type { IRomcalConfigRoot } from '../types/romcal-core';
 
 const DEFAULT_LOCALE_ID = 'la';
 

@@ -1,4 +1,4 @@
-import { listDatesInYear } from '@internal/proper-of-time';
+import { listDatesInYear } from '@internal/rite-roman1969';
 
 import type { CalendarOverlay1962 } from '../calendars/types';
 import type { NameTranslator } from '../i18n/init';

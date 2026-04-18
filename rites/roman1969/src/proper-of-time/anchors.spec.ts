@@ -1,4 +1,6 @@
-import { computeAnchors, isoDate } from '.';
+import { isoDate } from '../utils/dates';
+
+import { computeAnchors } from './anchors';
 
 describe('computeAnchors', () => {
   test('2024 anchors match the known liturgical dates', () => {

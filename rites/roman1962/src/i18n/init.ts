@@ -1,4 +1,4 @@
-import { addBundles, createI18nInstance, type i18n } from '@internal/i18n';
+import { addBundles, createI18nInstance, type i18n } from '@internal/rite-roman1969';
 
 import { locales as ALL_LOCALES } from '../locales';
 import type { Locale1962 } from '../types/locale';

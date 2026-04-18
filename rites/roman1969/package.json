@@ -27,12 +27,8 @@
     "test:without-coverage": "TZ=UTC jest"
   },
   "dependencies": {
-    "@internal/calendars": "file:../../packages/calendars",
-    "@internal/constants": "file:../../packages/constants",
     "@internal/easter": "file:../../packages/easter",
-    "@internal/i18n": "file:../../packages/i18n",
     "@internal/lunar-new-year": "file:../../packages/lunar-new-year",
-    "@internal/romcal-core": "file:../../packages/romcal-core",
     "i18next": "^26.0.4",
     "ts-deepmerge": "^7.0.3"
   },

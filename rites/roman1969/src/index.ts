@@ -1,6 +1,5 @@
 import { calculateGregorianEasterDate, calculateJulianEasterDateToGregorianDate } from '@internal/easter';
 import { version } from '@internal/package.json';
-import type { IRomcal } from '@internal/romcal-core';
 
 import { CALENDAR_PKG_NAMES, CALENDAR_VAR_NAMES } from './constants/calendars';
 import { COLORS, Color, Colors, isColor } from './constants/colors';
@@ -97,20 +96,24 @@ import {
   Dates,
   addDays,
   dateDifference,
+  dayOfWeek,
   daysInMonth,
   getUtcDate,
   getUtcDateFromString,
   getWeekNumber,
   isSameDate,
   isValidDate,
+  isoDate,
+  listDatesInYear,
   rangeContainsDate,
   rangeOfDays,
   startOfWeek,
   subtractsDays,
+  utc,
 } from './utils/dates';
 import { isInteger, toRomanNumber } from './utils/numbers';
 
-class Romcal implements IRomcal<LiturgicalDay, LiturgicalCalendar, LiturgicalDayDefinitions, Dates> {
+class Romcal {
   readonly #config: RomcalConfig;
 
   #computedCalendars: Record<number, LiturgicalCalendar> = {};
@@ -490,3 +493,28 @@ export {
   Weekday,
   WeekdayCycle,
 };
+
+// -- Exports consumed by the 1962 rite through @internal/rite-roman1969 --
+//
+// Upstream romcal (1969) rejected the shared-package reshape, so the
+// engine bits 1962 needs live back here. 1962 imports them via the
+// sibling workspace dependency.
+
+// constants/months.ts + constants/weekdays.ts
+export { MONTHS, WEEKDAYS };
+
+// models/calendar-def-base.ts — abstract overlay base for 1962
+export { CalendarDefBase, flattenCalendarChain } from './models/calendar-def-base';
+export type { CalendarDefBaseConstructor } from './models/calendar-def-base';
+
+// proper-of-time/anchors.ts — Easter-anchored date math shared across rites
+export { computeAnchors } from './proper-of-time/anchors';
+export type { ComputeAnchorsOptions, EasterCalculation, YearAnchors } from './proper-of-time/anchors';
+export type { ProperOfTimeYear } from './proper-of-time/types';
+
+// utils/dates.ts — date helpers used by 1962's proper-of-time + calendar-year builders
+export { utc, dayOfWeek, isoDate, listDatesInYear, addDays, subtractsDays };
+
+// utils/i18n.ts — tiny i18next helpers both rites share
+export { addBundles, createI18nInstance } from './utils/i18n';
+export type { NamespaceBundles, InitOptions, TFunction, i18n } from './utils/i18n';

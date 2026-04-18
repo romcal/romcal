@@ -1,4 +1,4 @@
-import type { CalendarDefConstructor } from '@internal/calendars';
+import type { CalendarDefBaseConstructor as CalendarDefConstructor } from '@internal/rite-roman1969';
 
 import { Switzerland } from './countries/switzerland';
 import { Switzerland_Saint_Maurice_Abbey } from './countries/switzerland/abbey-of-saint-maurice';

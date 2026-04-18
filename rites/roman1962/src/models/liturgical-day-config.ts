@@ -1,7 +1,7 @@
-import { computeAnchors, type YearAnchors } from '@internal/proper-of-time';
-import type { ILiturgicalDayConfigRoot } from '@internal/romcal-core';
+import { computeAnchors, type YearAnchors } from '@internal/rite-roman1969';
 
 import type { Romcal1962ConfigOutput } from '../romcal-1962-types';
+import type { ILiturgicalDayConfigRoot } from '../types/romcal-core';
 
 import { Romcal1962Config } from './config';
 
@@ -17,7 +17,7 @@ export interface LiturgicalDayConfig1962Output extends Romcal1962ConfigOutput {
  * Parity with 1969's `LiturgicalDayConfig`: 1969 carries a rich
  * `Dates` instance with weekday iterators; 1962 has no weekday
  * helpers (Mass-only scope), so the per-year surface reduces to the
- * raw anchor set from `@internal/proper-of-time`. Consumers derive
+ * raw anchor set from `@internal/rite-roman1969`. Consumers derive
  * everything else from anchors.
  *
  * Cached per `(config, year)` on the `Romcal1962` instance.

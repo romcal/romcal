@@ -1,10 +1,25 @@
-import type { i18n } from 'i18next';
+import i18next, { type i18n, type InitOptions } from 'i18next';
 
 /**
  * Map of namespace → keyed strings (e.g. `{ names: { ... }, colors: { ... } }`).
  * Matches the shape both rites' locale objects already expose.
  */
 export type NamespaceBundles = Record<string, Record<string, unknown>>;
+
+/**
+ * Create a synchronously-initialised i18next instance. Both rites want
+ * `initAsync: false` so resources are available immediately; errors
+ * surface via throw (i18next reports them through the init callback,
+ * which is easy to forget). Caller owns all other option shape — locale,
+ * fallback, namespaces, interpolation.
+ */
+export function createI18nInstance(options: InitOptions): i18n {
+  const instance = i18next.createInstance();
+  instance.init({ initAsync: false, ...options }, (err) => {
+    if (err) throw err instanceof Error ? err : new Error(String(err));
+  });
+  return instance;
+}
 
 /**
  * Load every namespace in `bundles` under `localeId`. Thin wrapper over
@@ -23,3 +38,5 @@ export function addBundles(
     instance.addResourceBundle(localeId, namespace, bundle, deep, overwrite);
   }
 }
+
+export type { i18n, InitOptions, TFunction } from 'i18next';

@@ -1,6 +1,3 @@
-import { addBundles, createI18nInstance, type i18n } from '@internal/i18n';
-import type { IRomcalConfigRoot } from '@internal/romcal-core';
-
 import { GeneralRoman } from '../calendars/general-roman';
 import { Color } from '../constants/colors';
 import { Season } from '../constants/seasons';
@@ -19,6 +16,7 @@ import { BaseCyclesMetadata } from '../types/cycles-metadata';
 import { Locale } from '../types/locale';
 import { MartyrologyCatalog } from '../types/martyrology';
 import { Dates } from '../utils/dates';
+import { addBundles, createI18nInstance, type i18n } from '../utils/i18n';
 import { toRomanNumber } from '../utils/numbers';
 import { sanitizeLocaleId } from '../utils/string';
 
@@ -27,7 +25,7 @@ import { CalendarDef } from './calendar-def';
 /**
  * The [[Config]] class encapsulates all options that can be sent to this library to adjust date output.
  */
-export class RomcalConfig implements IRomcalConfig, IRomcalConfigRoot {
+export class RomcalConfig implements IRomcalConfig {
   readonly #input: RomcalConfigInput;
 
   readonly localizedCalendar?: RomcalBundleObject;

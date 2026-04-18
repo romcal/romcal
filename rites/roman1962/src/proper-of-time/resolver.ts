@@ -1,4 +1,4 @@
-import { addDays, computeAnchors, dayOfWeek, isoDate } from '@internal/proper-of-time';
+import { addDays, computeAnchors, dayOfWeek, isoDate } from '@internal/rite-roman1969';
 
 import type { DayOfWeek, ProperOfTimeSeason, ProperOfTimeYear, TemporaSlotKind } from './types';
 
