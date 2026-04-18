@@ -1,5 +1,5 @@
 import { buildGeneralRoman1962Inputs, GeneralRoman1962 } from './general-roman';
-import { Romcal1962OOP } from './romcal';
+import { Romcal1962 } from './romcal';
 
 /**
  * All LiturgicalDay ids at a given ISO date (in order), or [] if the date is
@@ -53,7 +53,7 @@ describe('1962 General Roman sanctoral — liturgical year 2024', () => {
   let cal: Record<string, { id: string }[]>;
 
   beforeAll(async () => {
-    const r = new Romcal1962OOP();
+    const r = new Romcal1962();
     cal = (await r.generateCalendar(2024)) as unknown as Record<string, { id: string }[]>;
   });
 

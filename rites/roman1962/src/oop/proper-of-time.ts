@@ -44,7 +44,7 @@ type PoTInput = {
  * 1969 precedence/season/color.
  */
 export class ProperOfTime1962 extends CalendarDef {
-  readonly #config: RomcalConfig;
+  private readonly config: RomcalConfig;
 
   public get calendarName(): string {
     return PROPER_OF_TIME_NAME;
@@ -52,43 +52,43 @@ export class ProperOfTime1962 extends CalendarDef {
 
   constructor(config: RomcalConfig, inputs?: BundleInputs) {
     super(config, inputs);
-    this.#config = config;
+    this.config = config;
   }
 
   buildAllDefinitions = (): void => {
-    if (Object.keys(this.#config.liturgicalDayDef).length > 0) return;
+    if (Object.keys(this.config.liturgicalDayDef).length > 0) return;
 
-    if (this.#config.scope === 'gregorian') {
-      this.#lateChristmasTime(0);
-      this.#timeAfterEpiphany(0);
-      this.#preLent(0);
-      this.#lent(0);
-      this.#passiontideAndHolyWeek(0);
-      this.#paschalTriduum(0);
-      this.#easterTime(0);
-      this.#pentecostOctave(0);
-      this.#timeAfterPentecost(0);
-      this.#advent(+1);
-      this.#earlyChristmasTime(+1);
+    if (this.config.scope === 'gregorian') {
+      this.lateChristmasTime(0);
+      this.timeAfterEpiphany(0);
+      this.preLent(0);
+      this.lent(0);
+      this.passiontideAndHolyWeek(0);
+      this.paschalTriduum(0);
+      this.easterTime(0);
+      this.pentecostOctave(0);
+      this.timeAfterPentecost(0);
+      this.advent(+1);
+      this.earlyChristmasTime(+1);
     } else {
-      this.#advent(0);
-      this.#earlyChristmasTime(0);
-      this.#lateChristmasTime(0);
-      this.#timeAfterEpiphany(0);
-      this.#preLent(0);
-      this.#lent(0);
-      this.#passiontideAndHolyWeek(0);
-      this.#paschalTriduum(0);
-      this.#easterTime(0);
-      this.#pentecostOctave(0);
-      this.#timeAfterPentecost(0);
+      this.advent(0);
+      this.earlyChristmasTime(0);
+      this.lateChristmasTime(0);
+      this.timeAfterEpiphany(0);
+      this.preLent(0);
+      this.lent(0);
+      this.passiontideAndHolyWeek(0);
+      this.paschalTriduum(0);
+      this.easterTime(0);
+      this.pentecostOctave(0);
+      this.timeAfterPentecost(0);
     }
   };
 
-  #emit(id: Id, input: PoTInput): LiturgicalDayDef {
-    // Stamp 1962 metadata side-channel so LiturgicalDay1962OOP can surface
+  private emit(id: Id, input: PoTInput): LiturgicalDayDef {
+    // Stamp 1962 metadata side-channel so LiturgicalDay1962 can surface
     // `classOf1962`/`kind1962`/`key1962` fields and so the overridden
-    // `Calendar1962OOP#resolveOccurrence` has enough context to score by
+    // `Calendar1962#resolveOccurrence` has enough context to score by
     // the 1962 rubrics. `numericRank1962` is intentionally left undefined
     // for tempora — `scorePrecedence` treats it as optional (`* 0.01`
     // tiebreaker flows to 0 cleanly).
@@ -101,18 +101,18 @@ export class ProperOfTime1962 extends CalendarDef {
       id,
       { properCycle: ProperCycles.ProperOfTime, ...input },
       PROPER_OF_TIME_NAME,
-      this.#config
+      this.config
     );
   }
 
   // -- Advent --------------------------------------------------------------
 
-  #advent(yearOffset: number): void {
+  private advent(yearOffset: number): void {
     // Advent I Sunday through Friday of week 3 (non-privileged weekdays).
     for (let i = 0; i < 20; i += 1) {
       const week = Math.floor(i / 7) + 1;
       const dow = i - (week - 1) * 7;
-      this.#emit(`advent_${week}_${WEEKDAYS[dow]}`, {
+      this.emit(`advent_${week}_${WEEKDAYS[dow]}`, {
         precedence: dow === 0 ? Precedences.PrivilegedSunday_2 : Precedences.Weekday_13,
         dateDef:
           dow === 0
@@ -127,7 +127,7 @@ export class ProperOfTime1962 extends CalendarDef {
       });
     }
     // Advent IV Sunday.
-    this.#emit(`advent_4_${WEEKDAYS[0]}`, {
+    this.emit(`advent_4_${WEEKDAYS[0]}`, {
       precedence: Precedences.PrivilegedSunday_2,
       dateDef: { dateFn: 'sundayOfAdvent', dateArgs: [4], yearOffset: -1 + yearOffset },
       isHolyDayOfObligation: true,
@@ -139,7 +139,7 @@ export class ProperOfTime1962 extends CalendarDef {
     });
     // Dec 17-23 privileged weekdays (Greater Ferias in 1962).
     for (let day = 17; day < 24; day += 1) {
-      this.#emit(`advent_${MONTHS[11]}_${day}`, {
+      this.emit(`advent_${MONTHS[11]}_${day}`, {
         precedence: Precedences.PrivilegedWeekday_9,
         dateDef: { dateFn: 'privilegedWeekdayOfAdvent', dateArgs: [day], yearOffset: -1 + yearOffset },
         seasons: [Season.Advent],
@@ -150,7 +150,7 @@ export class ProperOfTime1962 extends CalendarDef {
       });
     }
     // Vigil of the Nativity (Dec 24, Advent season in 1962).
-    this.#emit('vigil_of_christmas', {
+    this.emit('vigil_of_christmas', {
       precedence: Precedences.PrivilegedWeekday_9,
       dateDef: { dateFn: 'privilegedWeekdayOfAdvent', dateArgs: [24], yearOffset: -1 + yearOffset },
       seasons: [Season.Advent],
@@ -163,8 +163,8 @@ export class ProperOfTime1962 extends CalendarDef {
 
   // -- Christmas Time, early part (Dec 25 - Dec 31) -----------------------
 
-  #earlyChristmasTime(yearOffset: number): void {
-    this.#emit('nativity_of_the_lord', {
+  private earlyChristmasTime(yearOffset: number): void {
+    this.emit('nativity_of_the_lord', {
       precedence: Precedences.ProperOfTimeSolemnity_2,
       dateDef: { dateFn: 'christmas', yearOffset: -1 + yearOffset },
       isHolyDayOfObligation: true,
@@ -178,7 +178,7 @@ export class ProperOfTime1962 extends CalendarDef {
     // 29=Thomas of Canterbury, 30 & 31=Sylvester fall in here — we emit the weekday slots;
     // the sanctoral overlay later may extend, but the proper-of-time still needs to cover the dates.
     for (let count = 2; count < 8; count += 1) {
-      this.#emit(`christmas_octave_day_${count}`, {
+      this.emit(`christmas_octave_day_${count}`, {
         precedence: Precedences.PrivilegedWeekday_9,
         dateDef: { dateFn: 'weekdayWithinOctaveOfChristmas', dateArgs: [count], yearOffset: -1 + yearOffset },
         seasons: [Season.ChristmasTime],
@@ -189,7 +189,7 @@ export class ProperOfTime1962 extends CalendarDef {
       });
     }
     // Sunday within the Octave of Christmas (Dec 26-31 Sunday or Dec 30 fallback) — 1962 rubric.
-    this.#emit('sunday_within_octave_of_christmas', {
+    this.emit('sunday_within_octave_of_christmas', {
       precedence: Precedences.UnprivilegedSunday_6,
       dateDef: { dateFn: 'holyFamily', yearOffset: -1 + yearOffset },
       isHolyDayOfObligation: true,
@@ -203,9 +203,9 @@ export class ProperOfTime1962 extends CalendarDef {
 
   // -- Christmas Time, late part + Circumcision + Epiphany + Time after Epi --
 
-  #lateChristmasTime(yearOffset: number): void {
+  private lateChristmasTime(yearOffset: number): void {
     // Circumcision of the Lord / Octave Day of Christmas (Jan 1).
-    this.#emit('circumcision_of_the_lord', {
+    this.emit('circumcision_of_the_lord', {
       precedence: Precedences.GeneralSolemnity_3,
       dateDef: { dateFn: 'maryMotherOfGod', yearOffset },
       isHolyDayOfObligation: true,
@@ -217,7 +217,7 @@ export class ProperOfTime1962 extends CalendarDef {
     });
     // Jan 2-5: weekdays of Christmas Time (Most Holy Name of Jesus falls on the Sunday here).
     for (let day = 2; day < 6; day += 1) {
-      this.#emit(`christmas_time_january_${day}`, {
+      this.emit(`christmas_time_january_${day}`, {
         precedence: Precedences.Weekday_13,
         dateDef: { dateFn: 'weekdayBeforeEpiphany', dateArgs: [day], yearOffset },
         seasons: [Season.ChristmasTime],
@@ -230,7 +230,7 @@ export class ProperOfTime1962 extends CalendarDef {
     // Most Holy Name of Jesus — Sunday between Jan 2-5 (else Jan 2).
     // Emitted with the same dateDef as 1969's second_sunday_after_christmas;
     // will land on that Sunday when one exists.
-    this.#emit('most_holy_name_of_jesus', {
+    this.emit('most_holy_name_of_jesus', {
       precedence: Precedences.GeneralSolemnity_3,
       dateDef: { dateFn: 'secondSundayAfterChristmas', yearOffset },
       seasons: [Season.ChristmasTime],
@@ -241,9 +241,9 @@ export class ProperOfTime1962 extends CalendarDef {
     });
   }
 
-  #timeAfterEpiphany(yearOffset: number): void {
+  private timeAfterEpiphany(yearOffset: number): void {
     // Epiphany of the Lord (Jan 6).
-    this.#emit('epiphany_of_the_lord', {
+    this.emit('epiphany_of_the_lord', {
       precedence: Precedences.ProperOfTimeSolemnity_2,
       dateDef: { dateFn: 'epiphany', yearOffset },
       isHolyDayOfObligation: true,
@@ -255,7 +255,7 @@ export class ProperOfTime1962 extends CalendarDef {
     });
     // Weekdays within the Octave of Epiphany (Jan 7-13).
     for (let dow = 1; dow < 7; dow += 1) {
-      this.#emit(`${WEEKDAYS[dow]}_after_epiphany`, {
+      this.emit(`${WEEKDAYS[dow]}_after_epiphany`, {
         precedence: Precedences.Weekday_13,
         dateDef: { dateFn: 'weekdayAfterEpiphany', dateArgs: [dow], yearOffset },
         seasons: [Season.ChristmasTime],
@@ -266,7 +266,7 @@ export class ProperOfTime1962 extends CalendarDef {
       });
     }
     // Holy Family — first Sunday after Epiphany.
-    this.#emit('holy_family_of_jesus_mary_and_joseph', {
+    this.emit('holy_family_of_jesus_mary_and_joseph', {
       precedence: Precedences.GeneralLordFeast_5,
       dateDef: { dateFn: 'baptismOfTheLord', yearOffset },
       seasons: [Season.ChristmasTime],
@@ -282,7 +282,7 @@ export class ProperOfTime1962 extends CalendarDef {
     for (let i = 1; i < 6 * 7; i += 1) {
       const week = Math.floor(i / 7) + 1;
       const dow = i - (week - 1) * 7;
-      this.#emit(`epiphany_${week}_${WEEKDAYS[dow]}`, {
+      this.emit(`epiphany_${week}_${WEEKDAYS[dow]}`, {
         precedence: dow === 0 ? Precedences.UnprivilegedSunday_6 : Precedences.Weekday_13,
         dateDef: { dateFn: 'dateOfOrdinaryTime', dateArgs: [dow, week], yearOffset },
         isHolyDayOfObligation: dow === 0,
@@ -298,7 +298,7 @@ export class ProperOfTime1962 extends CalendarDef {
 
   // -- Pre-Lent (Septuagesima/Sexagesima/Quinquagesima) -------------------
 
-  #preLent(yearOffset: number): void {
+  private preLent(yearOffset: number): void {
     // Septuagesima = Easter - 63 = ashWednesday - 17.
     const preLentSeasons = ['septuagesima', 'sexagesima', 'quinquagesima'] as const;
     for (let w = 0; w < 3; w += 1) {
@@ -306,7 +306,7 @@ export class ProperOfTime1962 extends CalendarDef {
         // Day offset from ashWednesday: ashWed - 17 + w*7 + dow.
         const addDay = -17 + w * 7 + dow;
         const key = dow === 0 ? `${preLentSeasons[w]}_sunday` : `${preLentSeasons[w]}_${WEEKDAYS[dow]}`;
-        this.#emit(key, {
+        this.emit(key, {
           // 1962: pre-Lent Sundays outrank resumed Epiphany Sundays and any
           // weekday coincidence. Bump to PrivilegedSunday_2 so Septuagesima/
           // Sexagesima/Quinquagesima win over epiphany_N_sunday emissions on
@@ -327,9 +327,9 @@ export class ProperOfTime1962 extends CalendarDef {
 
   // -- Lent (Lent 1 Sun through Lent 4 Sat) -------------------------------
 
-  #lent(yearOffset: number): void {
+  private lent(yearOffset: number): void {
     // Ash Wednesday.
-    this.#emit('ash_wednesday', {
+    this.emit('ash_wednesday', {
       precedence: Precedences.AshWednesday_2,
       dateDef: { dateFn: 'ashWednesday', yearOffset },
       seasons: [Season.Lent],
@@ -340,7 +340,7 @@ export class ProperOfTime1962 extends CalendarDef {
     });
     // Thu-Sat after Ash Wednesday.
     for (let dow = 4; dow < 7; dow += 1) {
-      this.#emit(`${WEEKDAYS[dow]}_after_ash_wednesday`, {
+      this.emit(`${WEEKDAYS[dow]}_after_ash_wednesday`, {
         precedence: Precedences.PrivilegedWeekday_9,
         dateDef: { dateFn: 'ashWednesday', addDay: dow - 3, yearOffset },
         seasons: [Season.Lent],
@@ -354,7 +354,7 @@ export class ProperOfTime1962 extends CalendarDef {
     for (let i = 0; i < 28; i += 1) {
       const week = Math.floor(i / 7) + 1;
       const dow = i - (week - 1) * 7;
-      this.#emit(`lent_${week}_${WEEKDAYS[dow]}`, {
+      this.emit(`lent_${week}_${WEEKDAYS[dow]}`, {
         precedence: dow === 0 ? Precedences.PrivilegedSunday_2 : Precedences.PrivilegedWeekday_9,
         dateDef: { dateFn: 'ashWednesday', addDay: i + 4, yearOffset },
         isHolyDayOfObligation: dow === 0,
@@ -370,9 +370,9 @@ export class ProperOfTime1962 extends CalendarDef {
 
   // -- Passiontide (Passion Sunday + Passion Week) + Holy Week ------------
 
-  #passiontideAndHolyWeek(yearOffset: number): void {
+  private passiontideAndHolyWeek(yearOffset: number): void {
     // Passion Sunday (= Lent 5 Sunday; easter - 14).
-    this.#emit('passion_sunday', {
+    this.emit('passion_sunday', {
       precedence: Precedences.PrivilegedSunday_2,
       dateDef: { dateFn: 'palmSunday', subtractDay: 7, yearOffset },
       isHolyDayOfObligation: true,
@@ -385,7 +385,7 @@ export class ProperOfTime1962 extends CalendarDef {
     });
     // Passion week weekdays (Mon-Sat).
     for (let dow = 1; dow < 7; dow += 1) {
-      this.#emit(`passion_week_${WEEKDAYS[dow]}`, {
+      this.emit(`passion_week_${WEEKDAYS[dow]}`, {
         precedence: Precedences.PrivilegedWeekday_9,
         dateDef: { dateFn: 'palmSunday', subtractDay: 7 - dow, yearOffset },
         seasons: [Season.Lent],
@@ -396,7 +396,7 @@ export class ProperOfTime1962 extends CalendarDef {
       });
     }
     // Palm Sunday (= 2nd Sunday of Passion).
-    this.#emit('palm_sunday_of_the_passion_of_the_lord', {
+    this.emit('palm_sunday_of_the_passion_of_the_lord', {
       precedence: Precedences.PrivilegedSunday_2,
       dateDef: { dateFn: 'palmSunday', yearOffset },
       isHolyDayOfObligation: true,
@@ -408,7 +408,7 @@ export class ProperOfTime1962 extends CalendarDef {
     });
     // Holy Week Mon-Thu (Thursday weekday paired with Triduum Mass of the Lord's Supper).
     for (let dow = 1; dow < 5; dow += 1) {
-      this.#emit(`holy_${WEEKDAYS[dow]}`, {
+      this.emit(`holy_${WEEKDAYS[dow]}`, {
         precedence: Precedences.PrivilegedWeekday_9,
         dateDef: { dateFn: 'palmSunday', addDay: dow, yearOffset },
         seasons: [Season.Lent],
@@ -422,8 +422,8 @@ export class ProperOfTime1962 extends CalendarDef {
 
   // -- Paschal Triduum + Easter Sunday ------------------------------------
 
-  #paschalTriduum(yearOffset: number): void {
-    this.#emit('thursday_of_the_lords_supper', {
+  private paschalTriduum(yearOffset: number): void {
+    this.emit('thursday_of_the_lords_supper', {
       precedence: Precedences.Triduum_1,
       dateDef: { dateFn: 'holyThursday', yearOffset },
       seasons: [Season.PaschalTriduum],
@@ -432,7 +432,7 @@ export class ProperOfTime1962 extends CalendarDef {
       colors: [Colors.White],
       i18nDef: ['names:thursday_of_the_lords_supper'],
     });
-    this.#emit('friday_of_the_passion_of_the_lord', {
+    this.emit('friday_of_the_passion_of_the_lord', {
       precedence: Precedences.Triduum_1,
       dateDef: { dateFn: 'goodFriday', yearOffset },
       seasons: [Season.PaschalTriduum],
@@ -441,7 +441,7 @@ export class ProperOfTime1962 extends CalendarDef {
       colors: [Colors.Red],
       i18nDef: ['names:friday_of_the_passion_of_the_lord'],
     });
-    this.#emit('holy_saturday', {
+    this.emit('holy_saturday', {
       precedence: Precedences.Triduum_1,
       dateDef: { dateFn: 'holySaturday', yearOffset },
       seasons: [Season.PaschalTriduum],
@@ -450,7 +450,7 @@ export class ProperOfTime1962 extends CalendarDef {
       colors: [],
       i18nDef: ['names:holy_saturday'],
     });
-    this.#emit('easter_sunday', {
+    this.emit('easter_sunday', {
       precedence: Precedences.Triduum_1,
       dateDef: { dateFn: 'easterSunday', yearOffset },
       isHolyDayOfObligation: true,
@@ -464,10 +464,10 @@ export class ProperOfTime1962 extends CalendarDef {
 
   // -- Easter Time (octave + 5 Sundays after Easter + Rogations + Ascension) --
 
-  #easterTime(yearOffset: number): void {
+  private easterTime(yearOffset: number): void {
     // Easter Octave Mon-Sat (in albis).
     for (let dow = 1; dow < 7; dow += 1) {
-      this.#emit(`easter_${WEEKDAYS[dow]}`, {
+      this.emit(`easter_${WEEKDAYS[dow]}`, {
         precedence: Precedences.WeekdayOfEasterOctave_2,
         dateDef: { dateFn: 'easterSunday', addDay: dow, yearOffset },
         seasons: [Season.EasterTime],
@@ -482,7 +482,7 @@ export class ProperOfTime1962 extends CalendarDef {
       const week = Math.floor(i / 7) + 1;
       const dow = i - (week - 1) * 7;
       const isLowSunday = week === 2 && dow === 0;
-      this.#emit(`easter_time_${week}_${WEEKDAYS[dow]}`, {
+      this.emit(`easter_time_${week}_${WEEKDAYS[dow]}`, {
         precedence: dow === 0 ? Precedences.PrivilegedSunday_2 : Precedences.Weekday_13,
         dateDef: { dateFn: 'easterSunday', addDay: i, yearOffset },
         isHolyDayOfObligation: dow === 0,
@@ -494,7 +494,7 @@ export class ProperOfTime1962 extends CalendarDef {
       });
     }
     // Ascension of the Lord (easter + 39).
-    this.#emit('ascension_of_the_lord', {
+    this.emit('ascension_of_the_lord', {
       precedence: Precedences.ProperOfTimeSolemnity_2,
       dateDef: { dateFn: 'easterSunday', addDay: 39, yearOffset },
       isHolyDayOfObligation: true,
@@ -505,7 +505,7 @@ export class ProperOfTime1962 extends CalendarDef {
       i18nDef: ['names:ascension_of_the_lord'],
     });
     // Vigil of Pentecost (easter + 48).
-    this.#emit('vigil_of_pentecost', {
+    this.emit('vigil_of_pentecost', {
       precedence: Precedences.PrivilegedWeekday_9,
       dateDef: { dateFn: 'easterSunday', addDay: 48, yearOffset },
       seasons: [Season.EasterTime],
@@ -518,8 +518,8 @@ export class ProperOfTime1962 extends CalendarDef {
 
   // -- Pentecost Octave (1962 has a full octave; 1969 does not) -----------
 
-  #pentecostOctave(yearOffset: number): void {
-    this.#emit('pentecost_sunday', {
+  private pentecostOctave(yearOffset: number): void {
+    this.emit('pentecost_sunday', {
       precedence: Precedences.ProperOfTimeSolemnity_2,
       dateDef: { dateFn: 'pentecostSunday', yearOffset },
       isHolyDayOfObligation: true,
@@ -531,7 +531,7 @@ export class ProperOfTime1962 extends CalendarDef {
     });
     // Pentecost Mon-Sat.
     for (let dow = 1; dow < 7; dow += 1) {
-      this.#emit(`pentecost_octave_${WEEKDAYS[dow]}`, {
+      this.emit(`pentecost_octave_${WEEKDAYS[dow]}`, {
         precedence: Precedences.PrivilegedWeekday_9,
         dateDef: { dateFn: 'pentecostSunday', addDay: dow, yearOffset },
         seasons: [Season.EasterTime],
@@ -545,9 +545,9 @@ export class ProperOfTime1962 extends CalendarDef {
 
   // -- Time after Pentecost (Trinity through Sat before Advent I) ---------
 
-  #timeAfterPentecost(yearOffset: number): void {
+  private timeAfterPentecost(yearOffset: number): void {
     // Trinity Sunday (1 week after Pentecost).
-    this.#emit('trinity_sunday', {
+    this.emit('trinity_sunday', {
       precedence: Precedences.GeneralSolemnity_3,
       dateDef: { dateFn: 'trinitySunday', yearOffset },
       isHolyDayOfObligation: true,
@@ -558,7 +558,7 @@ export class ProperOfTime1962 extends CalendarDef {
       i18nDef: ['names:most_holy_trinity'],
     });
     // Corpus Christi (Thursday after Trinity).
-    this.#emit('corpus_christi', {
+    this.emit('corpus_christi', {
       precedence: Precedences.GeneralSolemnity_3,
       dateDef: { dateFn: 'corpusChristi', yearOffset },
       isHolyDayOfObligation: true,
@@ -569,7 +569,7 @@ export class ProperOfTime1962 extends CalendarDef {
       i18nDef: ['names:most_holy_body_and_blood_of_christ'],
     });
     // Sacred Heart of Jesus (Friday, easter + 68).
-    this.#emit('most_sacred_heart_of_jesus', {
+    this.emit('most_sacred_heart_of_jesus', {
       precedence: Precedences.GeneralSolemnity_3,
       dateDef: { dateFn: 'mostSacredHeartOfJesus', yearOffset },
       seasons: [Season.OrdinaryTime],
@@ -589,7 +589,7 @@ export class ProperOfTime1962 extends CalendarDef {
       // Sacred Heart (week 2, dow 5). We still need coverage for every other date.
       if ((week === 1 && dow === 0) || (week === 1 && dow === 4) || (week === 2 && dow === 5)) continue;
       const key = dow === 0 ? `after_pentecost_${week}_sunday` : `after_pentecost_${week}_${WEEKDAYS[dow]}`;
-      this.#emit(key, {
+      this.emit(key, {
         precedence: dow === 0 ? Precedences.UnprivilegedSunday_6 : Precedences.Weekday_13,
         dateDef: { dateFn: 'pentecostSunday', addDay: i, yearOffset },
         isHolyDayOfObligation: dow === 0,
@@ -604,7 +604,7 @@ export class ProperOfTime1962 extends CalendarDef {
       });
     }
     // Christ the King — last Sunday of October in 1962.
-    this.#emit('our_lord_jesus_christ_king_of_the_universe', {
+    this.emit('our_lord_jesus_christ_king_of_the_universe', {
       precedence: Precedences.GeneralSolemnity_3,
       dateDef: { month: 10, lastDayOfWeekInMonth: 0, yearOffset },
       isHolyDayOfObligation: true,

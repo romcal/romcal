@@ -30,16 +30,16 @@ export type LiturgicalDay1962Extras = {
  * skeleton fields; B2c/B2d will wire real data through `extras`.
  *
  * Note on `rite`: the base declares `readonly rite!: 'roman1969'`. Narrowing
- * to the 1962 literal at the TS level would break `LiturgicalDay1962OOP
- * extends LiturgicalDay` (and `Calendar<LiturgicalDay1962OOP>` by extension),
+ * to the 1962 literal at the TS level would break `LiturgicalDay1962
+ * extends LiturgicalDay` (and `Calendar<LiturgicalDay1962>` by extension),
  * so we override only the runtime value via `Object.defineProperty` in the
  * constructor. The static type remains `'roman1969'`; consumers that need to
  * narrow should use the exported `Rite` union.
  */
-export class LiturgicalDay1962OOP extends LiturgicalDay {
+export class LiturgicalDay1962 extends LiturgicalDay {
   /**
    * Commemorations attached to this day. Populated by
-   * `Calendar1962OOP#postReduceDay` from the occurrence losers; starts
+   * `Calendar1962#postReduceDay` from the occurrence losers; starts
    * empty and is filled in place, so the field is writable (unlike the
    * other extras which arrive via the constructor).
    */
@@ -54,7 +54,7 @@ export class LiturgicalDay1962OOP extends LiturgicalDay {
   /**
    * True if this instance is the product of forward-transferring an
    * impeded Class I sancti (Rubricae 1960 §50). Populated by
-   * {@link LiturgicalDay1962OOP.withTransfer}, never set by the
+   * {@link LiturgicalDay1962.withTransfer}, never set by the
    * constructor.
    */
   isTransferredReplacement?: boolean;
@@ -62,7 +62,7 @@ export class LiturgicalDay1962OOP extends LiturgicalDay {
   /**
    * The original ISO date (`YYYY-MM-DD`) the feast was assigned to in
    * the 1960 Kalendarium, when this instance is a transfer replacement.
-   * Populated by {@link LiturgicalDay1962OOP.withTransfer}.
+   * Populated by {@link LiturgicalDay1962.withTransfer}.
    */
   transferredFromDate?: string;
 
@@ -128,8 +128,8 @@ export class LiturgicalDay1962OOP extends LiturgicalDay {
 
   /**
    * Stamp transfer provenance on this instance (mutating in place) and
-   * return it. Used by `Calendar1962OOP#generateCalendar` after it has
-   * constructed a fresh `LiturgicalDay1962OOP` for the landing date via
+   * return it. Used by `Calendar1962#generateCalendar` after it has
+   * constructed a fresh `LiturgicalDay1962` for the landing date via
    * the normal `createLiturgicalDay` factory path.
    *
    * Why not a clone: the 1969 base `LiturgicalDay` ctor sets private
@@ -145,7 +145,7 @@ export class LiturgicalDay1962OOP extends LiturgicalDay {
    * an instance we own; this is the single escape hatch in the OOP
    * transfer pipeline.
    */
-  stampTransfer(originalDate: string): LiturgicalDay1962OOP {
+  stampTransfer(originalDate: string): LiturgicalDay1962 {
     (this as unknown as { isTransferredReplacement: boolean }).isTransferredReplacement = true;
     (this as unknown as { transferredFromDate: string }).transferredFromDate = originalDate;
     return this;

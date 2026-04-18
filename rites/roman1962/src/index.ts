@@ -30,8 +30,8 @@ export type {
 } from '@internal/rite-roman1969';
 
 // -- 1962 rite ----------------------------------------------------------------
-export { Calendar1962OOP, Romcal1962OOP, LiturgicalDay1962OOP } from './oop';
-export type { LiturgicalDay1962Extras, LiturgicalDayCommemoration, OctaveOf, Romcal1962OOPConfigInput } from './oop';
+export { Calendar1962, Romcal1962, LiturgicalDay1962 } from './oop';
+export type { LiturgicalDay1962Extras, LiturgicalDayCommemoration, OctaveOf, Romcal1962ConfigInput } from './oop';
 export {
   Europe,
   GeneralRoman1962,

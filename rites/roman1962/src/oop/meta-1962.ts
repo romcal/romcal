@@ -20,16 +20,16 @@ export interface LiturgicalDay1962Meta {
   /**
    * If this entry is a "Vigilia …" header, the Latin name fragment of
    * the feast it is a vigil OF (as returned by `detectVigil`). Used by
-   * `Calendar1962OOP#generateCalendar` to suppress vigils when their
+   * `Calendar1962#generateCalendar` to suppress vigils when their
    * parent feast is forward-transferred (Rubricae 1960 §10).
    */
   readonly vigilOf?: string;
 }
 
 /**
- * Module-scope metadata side-channel. `Calendar1962OOP#createLiturgicalDay`
+ * Module-scope metadata side-channel. `Calendar1962#createLiturgicalDay`
  * stays a thin factory; 1962-specific classification is stamped at input
- * build-time and read back here from the `LiturgicalDay1962OOP` constructor.
+ * build-time and read back here from the `LiturgicalDay1962` constructor.
  */
 const META: Map<string, LiturgicalDay1962Meta> = new Map();
 

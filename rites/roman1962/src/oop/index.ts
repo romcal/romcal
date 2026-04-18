@@ -1,4 +1,4 @@
-export { Calendar1962OOP } from './calendar';
+export { Calendar1962 } from './calendar';
 export {
   Europe,
   Overlays1962,
@@ -29,15 +29,15 @@ export type { Overlay1962Name, OverlayInputEntry } from './calendars';
 export { RomcalConfig1962 } from './config-1962';
 export type { CommemorationCapMode, RomcalConfig1962Input } from './config-1962';
 export { GeneralRoman1962, buildGeneralRoman1962Inputs } from './general-roman';
-export { LiturgicalDay1962OOP } from './liturgical-day';
+export { LiturgicalDay1962 } from './liturgical-day';
 export type { LiturgicalDay1962Extras, LiturgicalDayCommemoration, OctaveOf } from './liturgical-day';
 export { clearMeta1962, getMeta1962, setMeta1962 } from './meta-1962';
 export type { Class1962, Kind1962, LiturgicalDay1962Meta } from './meta-1962';
 export { scorePrecedence } from './precedence';
 export type { PrecedenceCandidate } from './precedence';
 export { ProperOfTime1962 } from './proper-of-time';
-export { Romcal1962OOP } from './romcal';
-export type { Romcal1962OOPConfigInput } from './romcal';
+export { Romcal1962 } from './romcal';
+export type { Romcal1962ConfigInput } from './romcal';
 export { classifyTempora } from './tempora-class';
 export { applyCap, filterCommemorations, isTransferTarget } from './transfer';
 export { detectVigil } from './vigil';

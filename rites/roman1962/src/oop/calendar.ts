@@ -8,7 +8,7 @@ import {
 } from '@internal/rite-roman1969';
 
 import { RomcalConfig1962, type CommemorationCapMode } from './config-1962';
-import { LiturgicalDay1962OOP } from './liturgical-day';
+import { LiturgicalDay1962 } from './liturgical-day';
 import type { Kind1962 } from './meta-1962';
 import { scorePrecedenceBase, type PrecedenceCandidate } from './precedence';
 import { applyCap, filterCommemorations, isTransferTarget } from './transfer';
@@ -16,12 +16,12 @@ import { applyCap, filterCommemorations, isTransferTarget } from './transfer';
 // -- Helpers ------------------------------------------------------------------
 
 /**
- * Narrow a {@link LiturgicalDay1962OOP} to the minimum shape required by
+ * Narrow a {@link LiturgicalDay1962} to the minimum shape required by
  * {@link scorePrecedenceBase}. Missing metadata falls back to Class IV + a
  * synthetic 'sancti' kind — those days flow to the bottom of the ordering
  * and will be culled by the transfer pass and overlays.
  */
-function toPc(d: LiturgicalDay1962OOP): PrecedenceCandidate {
+function toPc(d: LiturgicalDay1962): PrecedenceCandidate {
   return {
     kind1962: d.kind1962 ?? 'sancti',
     key1962: d.key1962 ?? d.id,
@@ -30,7 +30,7 @@ function toPc(d: LiturgicalDay1962OOP): PrecedenceCandidate {
   };
 }
 
-function kindOf(d: LiturgicalDay1962OOP): Kind1962 {
+function kindOf(d: LiturgicalDay1962): Kind1962 {
   return d.kind1962 ?? 'sancti';
 }
 
@@ -47,7 +47,7 @@ function modeOf(config: unknown): CommemorationCapMode {
 /**
  * 1962 subclass of `Calendar`. Overrides:
  *
- *   - `createLiturgicalDay` so generated days land as {@link LiturgicalDay1962OOP}.
+ *   - `createLiturgicalDay` so generated days land as {@link LiturgicalDay1962}.
  *   - `resolveOccurrence` to pick the winner by 1962 rubrics
  *     (CLASS_BASE + fine adjustments + §15 Lord-feast elevation), with
  *     tempora-beats-sancti ties (§96) and alphabetical-by-name fallback.
@@ -60,7 +60,7 @@ function modeOf(config: unknown): CommemorationCapMode {
  *
  * Overlays arrive in B2d-3.
  */
-export class Calendar1962OOP extends Calendar<LiturgicalDay1962OOP> {
+export class Calendar1962 extends Calendar<LiturgicalDay1962> {
   /**
    * Class I sancti that lost occurrence resolution on their assigned
    * date and are queued for forward-transfer. Populated by
@@ -71,7 +71,7 @@ export class Calendar1962OOP extends Calendar<LiturgicalDay1962OOP> {
    * doesn't reach for a tslib private-field helper (this package's
    * type-check environment doesn't have tslib available).
    */
-  private pendingTransfers: { originalDate: string; feast: LiturgicalDay1962OOP }[] = [];
+  private pendingTransfers: { originalDate: string; feast: LiturgicalDay1962 }[] = [];
 
   /**
    * Full candidate pool per date, cached from `postReduceDay`. Needed by
@@ -80,17 +80,17 @@ export class Calendar1962OOP extends Calendar<LiturgicalDay1962OOP> {
    * minus the vigil instead of trying to invert `commemorations` back
    * into candidates.
    */
-  private readonly candidatesByDate: Map<string, LiturgicalDay1962OOP[]> = new Map();
+  private readonly candidatesByDate: Map<string, LiturgicalDay1962[]> = new Map();
 
   protected override createLiturgicalDay(
     def: LiturgicalDayDef,
     date: Date,
     ldConfig: LiturgicalDayConfig,
     calendar: RomcalCalendarMetadata,
-    baseData: LiturgicalDay1962OOP | null,
-    weekday: LiturgicalDay1962OOP | null
-  ): LiturgicalDay1962OOP {
-    return new LiturgicalDay1962OOP(
+    baseData: LiturgicalDay1962 | null,
+    weekday: LiturgicalDay1962 | null
+  ): LiturgicalDay1962 {
+    return new LiturgicalDay1962(
       def,
       date,
       ldConfig,
@@ -107,14 +107,14 @@ export class Calendar1962OOP extends Calendar<LiturgicalDay1962OOP> {
    * `candidates` in place so the caller sees `candidates[0] === winner`,
    * as the engine expects.
    */
-  protected override resolveOccurrence(candidates: LiturgicalDay1962OOP[], _date: Date): LiturgicalDay1962OOP {
+  protected override resolveOccurrence(candidates: LiturgicalDay1962[], _date: Date): LiturgicalDay1962 {
     if (candidates.length === 0) {
       throw new Error('resolveOccurrence called with empty candidate pool');
     }
     // Sort by (1) class + fine adjustment desc, (2) kind (§96 tempora > sancti),
     // (3) numericRank desc (within-class decimal rank tiebreak from the 1960
     // Kalendarium), (4) alphabetical `name` as last-resort determinism.
-    const scored: [LiturgicalDay1962OOP, number, number][] = candidates.map((c) => {
+    const scored: [LiturgicalDay1962, number, number][] = candidates.map((c) => {
       const pc = toPc(c);
       return [c, scorePrecedenceBase(pc), pc.numericRank1962 ?? 0];
     });
@@ -147,10 +147,7 @@ export class Calendar1962OOP extends Calendar<LiturgicalDay1962OOP> {
    * rebuild pass, and queues any impeded Class I sancti for §50
    * forward-transfer.
    */
-  protected override postReduceDay(
-    day: LiturgicalDay1962OOP,
-    candidates: LiturgicalDay1962OOP[]
-  ): LiturgicalDay1962OOP {
+  protected override postReduceDay(day: LiturgicalDay1962, candidates: LiturgicalDay1962[]): LiturgicalDay1962 {
     const losers = candidates.slice(1);
     const eligible = filterCommemorations(losers);
     const capped = applyCap(eligible, modeOf(this.config));
@@ -177,9 +174,9 @@ export class Calendar1962OOP extends Calendar<LiturgicalDay1962OOP> {
    * applies Rubricae 1960 §50 forward-transfer and §10 vigil suppression
    * on top. Mirrors the algorithm in legacy
    * `src/calendar-year/build.ts#buildLiturgicalYear1962`, adapted to
-   * `LiturgicalDay1962OOP` instances and the OOP side-channel queues.
+   * `LiturgicalDay1962` instances and the OOP side-channel queues.
    */
-  override generateCalendar(): LiturgicalCalendar<LiturgicalDay1962OOP> {
+  override generateCalendar(): LiturgicalCalendar<LiturgicalDay1962> {
     this.pendingTransfers = [];
     this.candidatesByDate.clear();
 
@@ -188,7 +185,7 @@ export class Calendar1962OOP extends Calendar<LiturgicalDay1962OOP> {
     if (this.pendingTransfers.length === 0) return firstPass;
 
     // Take a mutable copy. Date keys are ISO so string-sort == date-sort.
-    const final: LiturgicalCalendar<LiturgicalDay1962OOP> = { ...firstPass };
+    const final: LiturgicalCalendar<LiturgicalDay1962> = { ...firstPass };
     const allDates = Object.keys(final).sort();
     const pending = this.pendingTransfers;
     const mode = modeOf(this.config);
@@ -299,7 +296,7 @@ export class Calendar1962OOP extends Calendar<LiturgicalDay1962OOP> {
   }
 
   /**
-   * Build a fresh `LiturgicalDay1962OOP` for the landing date of a
+   * Build a fresh `LiturgicalDay1962` for the landing date of a
    * forward-transfer, stamped with transfer provenance.
    *
    * Constructs the new instance via the normal `createLiturgicalDay`
@@ -312,11 +309,7 @@ export class Calendar1962OOP extends Calendar<LiturgicalDay1962OOP> {
    * date rather than the landing date, but that mirrors legacy output
    * and preserves parity for B2d-4.
    */
-  private buildTransferred(
-    feast: LiturgicalDay1962OOP,
-    landingDate: string,
-    originalDate: string
-  ): LiturgicalDay1962OOP {
+  private buildTransferred(feast: LiturgicalDay1962, landingDate: string, originalDate: string): LiturgicalDay1962 {
     const fresh = this.createLiturgicalDay(
       feast.definition,
       new Date(`${landingDate}T00:00:00Z`),

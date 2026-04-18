@@ -1,13 +1,13 @@
 import type { LiturgicalCalendar } from '@internal/rite-roman1969';
 
-import type { LiturgicalDay1962OOP } from '../liturgical-day';
-import { Romcal1962OOP } from '../romcal';
+import type { LiturgicalDay1962 } from '../liturgical-day';
+import { Romcal1962 } from '../romcal';
 
 import { Europe, Switzerland } from './index';
 
-type Cal = LiturgicalCalendar<LiturgicalDay1962OOP>;
+type Cal = LiturgicalCalendar<LiturgicalDay1962>;
 
-function dayAt(cal: Cal, date: string): LiturgicalDay1962OOP | undefined {
+function dayAt(cal: Cal, date: string): LiturgicalDay1962 | undefined {
   return (cal[date] ?? [])[0];
 }
 
@@ -29,7 +29,7 @@ describe('1962 OOP overlays — CalendarDef port of legacy overlays', () => {
   });
 
   it('Switzerland surfaces Nicholas of Flüe on 09-25 as Class I primary', async () => {
-    const r = new Romcal1962OOP({ particularCalendar: 'Switzerland' });
+    const r = new Romcal1962({ particularCalendar: 'Switzerland' });
     const cal = (await r.generateCalendar(2024)) as unknown as Cal;
     const day = dayAt(cal, '2024-09-25');
     expect(day).toBeDefined();
@@ -38,7 +38,7 @@ describe('1962 OOP overlays — CalendarDef port of legacy overlays', () => {
   });
 
   it('Lugano raises Charles Borromeo on 11-04 to Class I', async () => {
-    const r = new Romcal1962OOP({ particularCalendar: 'Switzerland_Lugano' });
+    const r = new Romcal1962({ particularCalendar: 'Switzerland_Lugano' });
     const cal = (await r.generateCalendar(2024)) as unknown as Cal;
     const day = dayAt(cal, '2024-11-04');
     expect(day?.id).toContain('charles_borromeo');
@@ -46,7 +46,7 @@ describe('1962 OOP overlays — CalendarDef port of legacy overlays', () => {
   });
 
   it('Lugano adds Abbondio on 08-31 as Class II sancti', async () => {
-    const r = new Romcal1962OOP({ particularCalendar: 'Switzerland_Lugano' });
+    const r = new Romcal1962({ particularCalendar: 'Switzerland_Lugano' });
     const cal = (await r.generateCalendar(2024)) as unknown as Cal;
     const day = dayAt(cal, '2024-08-31');
     expect(day?.id).toContain('abundius_of_como');
@@ -54,7 +54,7 @@ describe('1962 OOP overlays — CalendarDef port of legacy overlays', () => {
   });
 
   it('Saint-Maurice Abbey raises Ss. Maurice on 09-22 to Class I', async () => {
-    const r = new Romcal1962OOP({ particularCalendar: 'Switzerland_Saint_Maurice_Abbey' });
+    const r = new Romcal1962({ particularCalendar: 'Switzerland_Saint_Maurice_Abbey' });
     const cal = (await r.generateCalendar(2024)) as unknown as Cal;
     const day = dayAt(cal, '2024-09-22');
     expect(day?.id).toContain('maurice_and_companions');
@@ -65,7 +65,7 @@ describe('1962 OOP overlays — CalendarDef port of legacy overlays', () => {
     // Switzerland_Basel → Switzerland → Europe → GeneralRoman1962. Pick a
     // marker feast from each tier: Peter & Paul (universal), Nicholas of
     // Flüe (national), Ursus & Victor (diocesan).
-    const r = new Romcal1962OOP({ particularCalendar: 'Switzerland_Basel' });
+    const r = new Romcal1962({ particularCalendar: 'Switzerland_Basel' });
     const cal = (await r.generateCalendar(2024)) as unknown as Cal;
 
     const peterPaul = dayAt(cal, '2024-06-29');
@@ -80,14 +80,14 @@ describe('1962 OOP overlays — CalendarDef port of legacy overlays', () => {
   });
 
   it('String selector maps to a registered overlay class', () => {
-    expect(() => new Romcal1962OOP({ particularCalendar: 'Switzerland_Sion' })).not.toThrow();
+    expect(() => new Romcal1962({ particularCalendar: 'Switzerland_Sion' })).not.toThrow();
   });
 
   it('Unknown string selector throws a clear error', () => {
     // Cast through `any` so the invalid string value compiles — the runtime
     // assertion is what matters here.
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    expect(() => new Romcal1962OOP({ particularCalendar: 'NotARealOverlay' as any })).toThrow(
+    expect(() => new Romcal1962({ particularCalendar: 'NotARealOverlay' as any })).toThrow(
       /Unknown 1962 particular calendar overlay/
     );
   });
@@ -95,6 +95,6 @@ describe('1962 OOP overlays — CalendarDef port of legacy overlays', () => {
   it('Passing a CalendarDef class directly bypasses the registry', () => {
     // `Switzerland` is valid standalone; constructing via class reference
     // should produce the same national-overlay output as the string form.
-    expect(() => new Romcal1962OOP({ particularCalendar: Switzerland })).not.toThrow();
+    expect(() => new Romcal1962({ particularCalendar: Switzerland })).not.toThrow();
   });
 });

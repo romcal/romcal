@@ -7,18 +7,18 @@ import {
   RomcalConfigInput,
 } from '@internal/rite-roman1969';
 
-import { Calendar1962OOP } from './calendar';
+import { Calendar1962 } from './calendar';
 import { Overlays1962 } from './calendars';
 import { RomcalConfig1962, RomcalConfig1962Input } from './config-1962';
 import { GeneralRoman1962 } from './general-roman';
-import { LiturgicalDay1962OOP } from './liturgical-day';
+import { LiturgicalDay1962 } from './liturgical-day';
 import { ProperOfTime1962 } from './proper-of-time';
 
 /**
- * Public config input for {@link Romcal1962OOP}. Extends the 1969 input
+ * Public config input for {@link Romcal1962}. Extends the 1969 input
  * with 1962-specific knobs (see {@link RomcalConfig1962Input}).
  */
-export type Romcal1962OOPConfigInput = RomcalConfig1962Input;
+export type Romcal1962ConfigInput = RomcalConfig1962Input;
 
 /**
  * 1962 `Romcal` subclass. Overrides:
@@ -26,15 +26,15 @@ export type Romcal1962OOPConfigInput = RomcalConfig1962Input;
  *   `GeneralRoman1962` as the particular calendar (sanctoral + proper
  *   kalendar), and to return a {@link RomcalConfig1962} that carries the
  *   1962-specific `commemorationMode` cap setting.
- * - `createCalendar` so generated days land as `LiturgicalDay1962OOP`.
+ * - `createCalendar` so generated days land as `LiturgicalDay1962`.
  *
  * Note: the 1969 `GeneralRoman` is still pushed into `RomcalConfig.calendarsDef`
  * because the engine's particular-calendar seam layers on top of it. Its
  * inputs use disjoint IDs from the 1962 fileKeys, so there is no silent
  * override; stale 1969 memorials will be filtered by B2d's `postReduceDay`.
  */
-export class Romcal1962OOP extends Romcal<LiturgicalDay1962OOP> {
-  constructor(input?: Romcal1962OOPConfigInput) {
+export class Romcal1962 extends Romcal<LiturgicalDay1962> {
+  constructor(input?: Romcal1962ConfigInput) {
     super(input);
   }
 
@@ -67,10 +67,7 @@ export class Romcal1962OOP extends Romcal<LiturgicalDay1962OOP> {
     return new RomcalConfig1962(input1962, undefined, undefined, particular, ProperOfTime1962);
   }
 
-  protected override createCalendar(
-    config: RomcalConfig,
-    ldConfig: LiturgicalDayConfig
-  ): Calendar<LiturgicalDay1962OOP> {
-    return new Calendar1962OOP(config, ldConfig);
+  protected override createCalendar(config: RomcalConfig, ldConfig: LiturgicalDayConfig): Calendar<LiturgicalDay1962> {
+    return new Calendar1962(config, ldConfig);
   }
 }
