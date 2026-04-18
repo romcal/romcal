@@ -31,6 +31,12 @@ export class LiturgicalDay implements BaseLiturgicalDay {
 
   readonly #liturgicalDayConfig: LiturgicalDayConfig;
 
+  /**
+   * Rite discriminator for subclass narrowing. Defined non-enumerable so it does
+   * not appear in JSON output / snapshots, preserving backward compat.
+   */
+  readonly rite!: 'roman1969';
+
   readonly id: Id;
 
   readonly date: string;
@@ -121,6 +127,13 @@ export class LiturgicalDay implements BaseLiturgicalDay {
   ) {
     this.#liturgicalDayDef = def;
     this.#liturgicalDayConfig = liturgicalDayConfig;
+    // Non-enumerable so {...this} / JSON.stringify / jest snapshots don't see it.
+    Object.defineProperty(this, 'rite', {
+      value: 'roman1969',
+      writable: false,
+      enumerable: false,
+      configurable: true,
+    });
     this.id = def.id;
     this.date = date.toISOString().substring(0, 10);
     this.dateDef = def.dateDef;

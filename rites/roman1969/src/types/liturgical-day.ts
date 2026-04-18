@@ -17,6 +17,11 @@ import { BaseCyclesMetadata, PartialCyclesDef } from './cycles-metadata';
 import { MartyrologyItem, SaintCount } from './martyrology';
 
 /**
+ * Rite discriminator used to narrow subclassed LiturgicalDay values.
+ */
+export type Rite = 'roman1969' | 'roman1962';
+
+/**
  * The liturgical day date definition
  */
 export type DateDef = AllXOR<
@@ -550,6 +555,13 @@ export type LiturgicalDayInput = Partial<
    * Redefine the titles of each Saints linked to this date definition, from the martyrology catalog.
    */
   titles?: TitlesDef;
+
+  /**
+   * Declarative octave expansion: generates N additional LiturgicalDayDef entries
+   * (one per day after the anchor date), each inheriting the given rank.
+   * Unused by 1969 inputs; seam for 1962.
+   */
+  octave?: { rank: Rank; days: number };
 };
 
 export type LiturgicalDayBundleInput = XOR<LiturgicalDayInput, LiturgicalDayProperOfTimeInput> &
@@ -583,6 +595,11 @@ export type BaseLiturgicalDay = Omit<LiturgicalDayRoot, 'properCycle' | 'calenda
    * An ID of the liturgical day.
    */
   id: Id;
+
+  /**
+   * Rite discriminator set by subclasses (e.g. `'roman1969'`, `'roman1962'`).
+   */
+  rite?: Rite;
 };
 
 /**
