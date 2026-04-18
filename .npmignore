@@ -27,12 +27,15 @@ global.d.ts
 packages/easter/jest.config.mjs
 tsconfig.*
 
-# But keep the dist folder for the rites/roman1969 package
+# But keep the dist folder for the rites/roman1969 and rites/roman1962 packages
 !rites/roman1969/
 !rites/roman1969/dist
+!rites/roman1962/
+!rites/roman1962/dist
 
 # Transpiled files
 rites/roman1969/dist/bundles/
+rites/roman1962/dist/bundles/
 tmp/
 
 

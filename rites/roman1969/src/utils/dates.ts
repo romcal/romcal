@@ -2,6 +2,7 @@ import { calculateGregorianEasterDate, calculateJulianEasterDateToGregorianDate 
 import { calculateLunarNewYear } from '@internal/lunar-new-year';
 
 import { Season } from '../constants/seasons';
+import type { DayOfWeek } from '../constants/weekdays';
 import { RomcalConfig } from '../models/config';
 import { EasterCalculationType } from '../types/config';
 
@@ -11,6 +12,29 @@ export const getUtcDate = (year: number, month: number, date: number): Date => {
   return new Date(Date.UTC(year, month - 1, date, 0, 0, 0, 0));
 };
 
+/**
+ * Build a UTC-midnight `Date` from a zero-indexed month. Counterpart to
+ * `getUtcDate`, which takes a 1-indexed month. Used by the proper-of-time
+ * anchor math and 1962 date helpers that think in `Date.UTC(y, m, d)`
+ * terms.
+ */
+export const utc = (year: number, monthIdx0: number, day: number): Date => {
+  return new Date(Date.UTC(year, monthIdx0, day));
+};
+
+/** Zero-based UTC weekday (0 = Sunday … 6 = Saturday). */
+export const dayOfWeek = (date: Date): DayOfWeek => {
+  return date.getUTCDay() as DayOfWeek;
+};
+
+/** Format a `Date` as an ISO `YYYY-MM-DD` string in UTC. */
+export const isoDate = (date: Date): string => {
+  const y = date.getUTCFullYear().toString().padStart(4, '0');
+  const m = (date.getUTCMonth() + 1).toString().padStart(2, '0');
+  const d = date.getUTCDate().toString().padStart(2, '0');
+  return `${y}-${m}-${d}`;
+};
+
 export const getUtcDateFromString = (dateStr: string): Date => {
   const [year, month, date] = dateStr.split('-').map((n) => parseInt(n, 10));
   return getUtcDate(year, month, date);
@@ -18,6 +42,19 @@ export const getUtcDateFromString = (dateStr: string): Date => {
 
 export const addDays = (date: Date, days: number): Date => {
   return new Date(date.valueOf() + 864e5 * days); // 864e5 = 24 * 60 * 60 * 1000
+};
+
+/**
+ * Every ISO date (`YYYY-MM-DD`) in the given civil year, Jan 1 → Dec 31.
+ */
+export const listDatesInYear = (year: number): string[] => {
+  const out: string[] = [];
+  const start = utc(year, 0, 1);
+  const end = utc(year + 1, 0, 1);
+  for (let d = start; d < end; d = addDays(d, 1)) {
+    out.push(isoDate(d));
+  }
+  return out;
 };
 
 export const subtractsDays = (date: Date, days: number): Date => {
@@ -1280,8 +1317,8 @@ export class Dates {
 
   static sundayOnOrAfterLunarNewYear = (utcOffset: number, year: number): Date => {
     const lny = Dates.lunarNewYear(utcOffset, year);
-    const dayOfWeek = lny.getUTCDay(); // 0 = Sunday, 1 = Monday, etc.
-    const daysUntilSunday = (7 - dayOfWeek) % 7; // 0 if already Sunday
+    const dow = lny.getUTCDay(); // 0 = Sunday, 1 = Monday, etc.
+    const daysUntilSunday = (7 - dow) % 7; // 0 if already Sunday
     return addDays(lny, daysUntilSunday);
   };
 

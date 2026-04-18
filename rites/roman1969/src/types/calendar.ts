@@ -6,17 +6,17 @@ import { Dates } from '../utils/dates';
 
 import { Id } from './common';
 
-export type LiturgicalCalendar = Record<string, LiturgicalDay[]>;
+export type LiturgicalCalendar<T extends LiturgicalDay = LiturgicalDay> = Record<string, T[]>;
 
 /**
  * General date definition collection
  */
 
-export type ByIds = Record<Id, LiturgicalDay[]>;
+export type ByIds<T extends LiturgicalDay = LiturgicalDay> = Record<Id, T[]>;
 export type DatesIndex = Record<string, Id[]>;
 
-export type LiturgicalBuiltData = {
-  byIds: ByIds;
+export type LiturgicalBuiltData<T extends LiturgicalDay = LiturgicalDay> = {
+  byIds: ByIds<T>;
   datesIndex: DatesIndex;
 };
 

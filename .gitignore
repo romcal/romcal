@@ -40,3 +40,7 @@ local-*
 *.orig
 *code-workspace
 *~
+
+# Upstream data source for the 1962 porter; re-clone as needed.
+# See docs/1962/07-pre-port-decisions.md §1.
+/divinum-officium/

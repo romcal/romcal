@@ -193,7 +193,12 @@ export default [
     ignores: ['**/*.spec.ts', '**/__tests__/*.ts'],
     languageOptions: {
       parserOptions: {
-        project: ['./rites/roman1969/tsconfig.json', './tsconfig.base.json', './tsconfig.lint.json'],
+        project: [
+          './rites/roman1962/tsconfig.json',
+          './rites/roman1969/tsconfig.json',
+          './tsconfig.base.json',
+          './tsconfig.lint.json',
+        ],
       },
     },
     rules: {

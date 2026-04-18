@@ -56,4 +56,25 @@ const afterPublish = (data: Results): void => {
     });
     afterPublish(calendarData);
   }
+
+  // Publish every 1962 per-locale bundle as @romcal/calendar1962.{lang}
+  const bundles1962Path = path.join(__dirname, '../../roman1962/dist/bundles');
+  if (fs.existsSync(bundles1962Path)) {
+    const bundle1962Names = fs
+      .readdirSync(bundles1962Path, { withFileTypes: true })
+      .filter((dirent) => dirent.isDirectory())
+      .map((dirent) => dirent.name);
+
+    for (const name of bundle1962Names) {
+      log(` - Publishing 1962 bundle: ${name}`);
+      const data = await npmPublish({
+        package: path.join(bundles1962Path, name, 'package.json'),
+        access: 'public',
+        token,
+        tag,
+        dryRun,
+      });
+      afterPublish(data);
+    }
+  }
 })();

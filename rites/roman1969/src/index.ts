@@ -77,6 +77,7 @@ import {
   LiturgyDayDiff,
   MartyrologyItemPointer,
   MartyrologyItemRedefined,
+  Rite,
   RomcalCalendarMetadata,
   RomcalTitles,
   TitlesDef,
@@ -96,23 +97,27 @@ import {
   Dates,
   addDays,
   dateDifference,
+  dayOfWeek,
   daysInMonth,
   getUtcDate,
   getUtcDateFromString,
   getWeekNumber,
   isSameDate,
   isValidDate,
+  isoDate,
+  listDatesInYear,
   rangeContainsDate,
   rangeOfDays,
   startOfWeek,
   subtractsDays,
+  utc,
 } from './utils/dates';
 import { isInteger, toRomanNumber } from './utils/numbers';
 
-class Romcal {
+class Romcal<T extends LiturgicalDay = LiturgicalDay> {
   readonly #config: RomcalConfig;
 
-  #computedCalendars: Record<number, LiturgicalCalendar> = {};
+  #computedCalendars: Record<number, LiturgicalCalendar<T>> = {};
 
   #dates: Record<number, Dates> = {};
 
@@ -120,7 +125,23 @@ class Romcal {
    * Utility helpers to compute the date(s) of specific liturgical days or seasons.
    */
   constructor(config?: RomcalConfigInput) {
-    this.#config = new RomcalConfig(config);
+    this.#config = this.createConfig(config);
+  }
+
+  /**
+   * Virtual factory returning the RomcalConfig instance. Subclasses override to
+   * inject a rite-specific temporal cycle (ProperOfTimeCalendar param).
+   */
+  protected createConfig(input?: RomcalConfigInput): RomcalConfig {
+    return new RomcalConfig(input);
+  }
+
+  /**
+   * Virtual factory returning the Calendar instance used to compute a year.
+   * Subclasses override to plug in a rite-specific Calendar subclass.
+   */
+  protected createCalendar(config: RomcalConfig, ldConfig: LiturgicalDayConfig): Calendar<T> {
+    return new Calendar<T>(config, ldConfig);
   }
 
   /**
@@ -173,14 +194,14 @@ class Romcal {
     options: { year?: number | string; computeInWholeYear?: boolean } = {
       computeInWholeYear: false,
     }
-  ): Promise<LiturgicalDay | null | undefined> {
+  ): Promise<T | null | undefined> {
     return new Promise((resolve, reject) => {
       try {
         const y = Romcal.#sanitizeYear(options.year);
         const ldConfig = new LiturgicalDayConfig(this.#config, y);
 
         this.getAllDefinitions().then(() => {
-          const partialLd = new Calendar(this.#config, ldConfig).getOneLiturgicalDay(id);
+          const partialLd = this.createCalendar(this.#config, ldConfig).getOneLiturgicalDay(id);
           if (!options.computeInWholeYear) return resolve(partialLd);
 
           if (!partialLd) resolve(partialLd);
@@ -201,7 +222,7 @@ class Romcal {
   /**
    * Generate a liturgical calendar, within a Liturgical or Gregorian scope.
    */
-  generateCalendar(year?: number | string): Promise<LiturgicalCalendar> {
+  generateCalendar(year?: number | string): Promise<LiturgicalCalendar<T>> {
     // Wrap the calendar computing process in a Promise.
     // Even if this method is called with async/await, this makes this method running in a microtask queue:
     // it does not run on the main thread, meaning other things can occur (click events, rendering, etc.).
@@ -217,7 +238,7 @@ class Romcal {
         }
 
         this.getAllDefinitions().then(() => {
-          this.#computedCalendars[ldConfig.year] = new Calendar(this.#config, ldConfig).generateCalendar();
+          this.#computedCalendars[ldConfig.year] = this.createCalendar(this.#config, ldConfig).generateCalendar();
           resolve(this.#computedCalendars[ldConfig.year]);
         });
       } catch (e) {
@@ -404,6 +425,14 @@ export {
   LiturgicalDayDef,
   RomcalBundle,
   RomcalConfig,
+  // constants/colors.ts — value re-export for rite subclasses
+  Colors,
+  // constants/precedences.ts — value re-export for rite subclasses
+  Precedences,
+  // constants/cycles.ts — value re-export for rite subclasses
+  ProperCycles,
+  // constants/general-calendar-names.ts — value re-export for rite subclasses
+  PROPER_OF_TIME_NAME,
   // types/cycles-metadata.ts
   BaseCyclesMetadata,
   // types/liturgical-day.ts
@@ -468,6 +497,7 @@ export {
   PsalterWeekCycle,
   // constants/ranks.ts
   Rank,
+  Rite,
   // types/bundle.ts
   RomcalBundleObject,
   RomcalCalendarMetadata,
@@ -489,3 +519,28 @@ export {
   Weekday,
   WeekdayCycle,
 };
+
+// -- Exports consumed by the 1962 rite through @internal/rite-roman1969 --
+//
+// Upstream romcal (1969) rejected the shared-package reshape, so the
+// engine bits 1962 needs live back here. 1962 imports them via the
+// sibling workspace dependency.
+
+// constants/months.ts + constants/weekdays.ts
+export { MONTHS, WEEKDAYS };
+
+// models/calendar-def-base.ts — abstract overlay base for 1962
+export { CalendarDefBase, flattenCalendarChain } from './models/calendar-def-base';
+export type { CalendarDefBaseConstructor } from './models/calendar-def-base';
+
+// proper-of-time/anchors.ts — Easter-anchored date math shared across rites
+export { computeAnchors } from './proper-of-time/anchors';
+export type { ComputeAnchorsOptions, EasterCalculation, YearAnchors } from './proper-of-time/anchors';
+export type { ProperOfTimeYear } from './proper-of-time/types';
+
+// utils/dates.ts — date helpers used by 1962's proper-of-time + calendar-year builders
+export { utc, dayOfWeek, isoDate, listDatesInYear, addDays, subtractsDays };
+
+// utils/i18n.ts — tiny i18next helpers both rites share
+export { addBundles, createI18nInstance } from './utils/i18n';
+export type { NamespaceBundles, InitOptions, TFunction, i18n } from './utils/i18n';
