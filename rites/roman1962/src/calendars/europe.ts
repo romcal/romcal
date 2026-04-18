@@ -1,7 +1,7 @@
 import { CalendarDef } from '@internal/rite-roman1969';
 import type { Inputs } from '@internal/rite-roman1969';
 
-import { GeneralRoman1962 } from '../general-roman';
+import { GeneralRoman1962 } from './general-roman';
 
 /**
  * Empty European base overlay. Kept as an explicit anchor so future

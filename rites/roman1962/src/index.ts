@@ -30,12 +30,18 @@ export type {
 } from '@internal/rite-roman1969';
 
 // -- 1962 rite ----------------------------------------------------------------
-export { Calendar1962, Romcal1962, LiturgicalDay1962 } from './oop';
-export type { LiturgicalDay1962Extras, LiturgicalDayCommemoration, OctaveOf, Romcal1962ConfigInput } from './oop';
+export { Calendar1962 } from './calendar';
+export { LiturgicalDay1962 } from './liturgical-day';
+export type { LiturgicalDay1962Extras, LiturgicalDayCommemoration, OctaveOf } from './liturgical-day';
+export { Romcal1962 } from './romcal-1962';
+export type { Romcal1962ConfigInput } from './romcal-1962';
+export { RomcalConfig1962 } from './config-1962';
+export type { CommemorationCapMode, RomcalConfig1962Input } from './config-1962';
+export { ProperOfTime1962 } from './proper-of-time-def';
+export { GeneralRoman1962, buildGeneralRoman1962Inputs } from './calendars/general-roman';
 export {
   Europe,
-  GeneralRoman1962,
-  ProperOfTime1962,
+  Overlays1962,
   Switzerland,
   Switzerland_Basel,
   Switzerland_Chur,
@@ -44,12 +50,8 @@ export {
   Switzerland_Saint_Maurice_Abbey,
   Switzerland_Sankt_Gallen,
   Switzerland_Sion,
-  buildGeneralRoman1962Inputs,
-  Overlays1962,
-} from './oop';
-export type { Overlay1962Name } from './oop';
-export { RomcalConfig1962 } from './oop';
-export type { CommemorationCapMode, RomcalConfig1962Input } from './oop';
+} from './calendars';
+export type { Overlay1962Name } from './calendars';
 
 // -- Constants + 1962-flavoured value/type sets -----------------------------
 export { COMMONS_1962 } from './constants/common-1962';

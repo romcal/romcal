@@ -9,10 +9,10 @@ import {
 
 import { Calendar1962 } from './calendar';
 import { Overlays1962 } from './calendars';
+import { GeneralRoman1962 } from './calendars/general-roman';
 import { RomcalConfig1962, RomcalConfig1962Input } from './config-1962';
-import { GeneralRoman1962 } from './general-roman';
 import { LiturgicalDay1962 } from './liturgical-day';
-import { ProperOfTime1962 } from './proper-of-time';
+import { ProperOfTime1962 } from './proper-of-time-def';
 
 /**
  * Public config input for {@link Romcal1962}. Extends the 1969 input

@@ -1,5 +1,6 @@
+import { Romcal1962 } from '../romcal-1962';
+
 import { buildGeneralRoman1962Inputs, GeneralRoman1962 } from './general-roman';
-import { Romcal1962 } from './romcal';
 
 /**
  * All LiturgicalDay ids at a given ISO date (in order), or [] if the date is

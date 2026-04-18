@@ -1,4 +1,4 @@
-import { Romcal1962 } from './romcal';
+import { Romcal1962 } from './romcal-1962';
 
 /**
  * Pick the first (primary) LiturgicalDay id at a given ISO date, or undefined.
