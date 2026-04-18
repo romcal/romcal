@@ -1,6 +1,4 @@
-import { MONTHS, WEEKDAYS } from '@internal/constants';
-import type { YearAnchors } from '@internal/proper-of-time';
-import type { IRomcal } from '@internal/romcal-core';
+import { MONTHS, WEEKDAYS, type YearAnchors } from '@internal/rite-roman1969';
 
 import type { LiturgicalCalendar1962 } from './calendar-year';
 import { Colors1962, COLORS_1962, isColor1962 } from './constants/colors-1962';
@@ -13,6 +11,7 @@ import type { LiturgicalDay1962 } from './models/liturgical-day';
 import { LiturgicalDayConfig1962 } from './models/liturgical-day-config';
 import type { LiturgicalDayDefinitions1962 } from './models/liturgical-day-def';
 import type { Romcal1962ConfigInput, Romcal1962ConfigOutput } from './romcal-1962-types';
+import type { IRomcal } from './types/romcal-core';
 
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -72,8 +71,8 @@ export class Romcal1962 implements IRomcal<
 
   /**
    * Anchor-date library for `year`. Returns the `YearAnchors` bundle
-   * (Easter, Advent I, Septuagesima, …) computed from
-   * `@internal/proper-of-time`. Cached per year via the underlying
+   * (Easter, Advent I, Septuagesima, …) computed from the 1969
+   * sibling package. Cached per year via the underlying
    * `LiturgicalDayConfig1962`. Parity with 1969's `Romcal#dates(year)`
    * — 1962 has no rich `Dates` class (no weekday iterators), so we
    * expose the raw anchor set consumers can derive everything else
@@ -195,15 +194,16 @@ export class Romcal1962 implements IRomcal<
 
   // -- Static accessors: parity with 1969's `Romcal.*` statics. --
   //
-  // Shared constants (MONTHS, WEEKDAYS) come from `@internal/constants`
-  // and are identical between rites. Rite-specific constants (colors,
-  // ranks, seasons) differ — 1962 ships its own set under the same
-  // static-access pattern consumers already expect.
+  // Shared constants (MONTHS, WEEKDAYS) are re-exported from
+  // `@internal/rite-roman1969` and are identical between rites.
+  // Rite-specific constants (colors, ranks, seasons) differ — 1962
+  // ships its own set under the same static-access pattern consumers
+  // already expect.
 
-  // constants/months.ts (shared via @internal/constants)
+  // constants/months.ts (shared with 1969)
   static MONTHS = MONTHS;
 
-  // constants/weekdays.ts (shared via @internal/constants)
+  // constants/weekdays.ts (shared with 1969)
   static WEEKDAYS = WEEKDAYS;
 
   // constants/colors-1962.ts

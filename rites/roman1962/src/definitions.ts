@@ -1,4 +1,4 @@
-import { flattenCalendarChain } from '@internal/calendars';
+import { flattenCalendarChain } from '@internal/rite-roman1969';
 
 import type { CalendarOverlay1962 } from './calendars/types';
 import { LiturgicalDayDef1962, type LiturgicalDayDefinitions1962 } from './models/liturgical-day-def';

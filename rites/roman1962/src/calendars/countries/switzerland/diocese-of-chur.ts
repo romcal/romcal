@@ -1,4 +1,4 @@
-import { CalendarDef } from '@internal/calendars';
+import { CalendarDefBase as CalendarDef } from '@internal/rite-roman1969';
 
 import type { CalendarOverlayEntry } from '../../types';
 

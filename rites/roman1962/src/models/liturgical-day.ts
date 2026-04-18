@@ -1,9 +1,8 @@
-import type { ILiturgicalDayRoot } from '@internal/romcal-core';
-
 import type { Rank1962 } from '../constants/rank-1962';
 import type { ProperOfTimeSeason } from '../proper-of-time';
 import type { Color, SanctoralCommemoration, SanctoralPropersRef } from '../sanctoral';
 import type { MassPropers, OctaveInfo, PropersBlock, RubricFlags1962 } from '../types/liturgical-day-1962';
+import type { ILiturgicalDayRoot } from '../types/romcal-core';
 
 export type Class1962 = 1 | 2 | 3 | 4;
 

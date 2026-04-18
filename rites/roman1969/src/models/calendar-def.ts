@@ -1,9 +1,6 @@
-import { CalendarDef as SharedCalendarDef } from '@internal/calendars';
-
 import {
   BaseCalendarDef,
   BundleInputs,
-  CalendarDefEntry1969,
   CalendarDefInputs,
   CalendarDefInstance,
   ParticularConfig,
@@ -16,19 +13,7 @@ import { Dates } from '../utils/dates';
 import { RomcalConfig } from './config';
 import { LiturgicalDayDef } from './liturgical-day-def';
 
-export class CalendarDef extends SharedCalendarDef<CalendarDefEntry1969> implements BaseCalendarDef {
-  get entries(): readonly CalendarDefEntry1969[] {
-    const out: CalendarDefEntry1969[] = [];
-    for (const id of Object.keys(this.inputs)) {
-      const value = this.inputs[id];
-      const list = Array.isArray(value) ? value : [value];
-      for (const input of list) {
-        out.push({ id, input: input as LiturgicalDayBundleInput });
-      }
-    }
-    return out;
-  }
-
+export class CalendarDef implements BaseCalendarDef {
   readonly #config: RomcalConfig;
 
   readonly dates: typeof Dates;
@@ -59,7 +44,6 @@ export class CalendarDef extends SharedCalendarDef<CalendarDefEntry1969> impleme
   #calendarName?: Id;
 
   constructor(config: RomcalConfig, inputs?: BundleInputs) {
-    super();
     this.#config = config;
     this.dates = this.#config.dates;
     if (inputs) this.inputs = inputs;

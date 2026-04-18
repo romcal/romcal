@@ -1,4 +1,4 @@
-import type { CalendarDef } from '@internal/calendars';
+import type { CalendarDefBase as CalendarDef } from '@internal/rite-roman1969';
 
 import type { Rank1962 } from '../constants/rank-1962';
 import type { Color } from '../sanctoral/types';

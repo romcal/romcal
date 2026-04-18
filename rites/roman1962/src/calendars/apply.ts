@@ -1,4 +1,4 @@
-import { flattenCalendarChain } from '@internal/calendars';
+import { flattenCalendarChain } from '@internal/rite-roman1969';
 
 import type { Calendar1960, CalendarEntry, MassFileEntry, MassFileMap } from '../sanctoral/data';
 

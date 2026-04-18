@@ -1,4 +1,4 @@
-import { MONTHS, WEEKDAYS } from '@internal/constants';
+import { MONTHS, WEEKDAYS } from '@internal/rite-roman1969';
 
 import { COLORS_1962, Colors1962 } from '../src/constants/colors-1962';
 import { RANKS_1962, Rank1962Values } from '../src/constants/rank-1962';
@@ -6,7 +6,7 @@ import { SEASONS_1962, Seasons1962 } from '../src/constants/seasons-1962';
 import { Romcal1962 } from '../src/romcal-1962';
 
 describe('Romcal1962 — static constant accessors (1969 parity)', () => {
-  test('MONTHS + WEEKDAYS are the shared @internal/constants identities', () => {
+  test('MONTHS + WEEKDAYS are the shared @internal/rite-roman1969 identities', () => {
     // Reference-equal to the shared source (no accidental copies).
     expect(Romcal1962.MONTHS).toBe(MONTHS);
     expect(Romcal1962.WEEKDAYS).toBe(WEEKDAYS);

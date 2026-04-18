@@ -1,7 +1,6 @@
-import type { ILiturgicalDayDefRoot } from '@internal/romcal-core';
-
 import type { Rank1962 } from '../constants/rank-1962';
 import type { Color } from '../sanctoral/types';
+import type { ILiturgicalDayDefRoot } from '../types/romcal-core';
 
 import type { Class1962 } from './liturgical-day';
 

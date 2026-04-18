@@ -127,3 +127,160 @@ Record any scope changes or path pivots here, newest first.
   existing `easter`, `config`, `lunar-new-year` convention).
 - When a symbol lifts to shared, delete its per-rite definition — no
   stub re-exports, no backwards-compat shims.
+
+---
+
+# Upstream-feedback pivot (2026-04-18)
+
+Upstream maintainers reviewed the reshape and pushed back:
+
+> we already have a 1962 folder ready to use. the current shape
+> already leverages packages and rites, if you want to separate out
+> utilities from the 1969 package, that would be acceptable, but i
+> don't think the whole reshape is welcome.
+>
+> given that Romcal1962 needs to conform to the general type of
+> Romcal anyway, Romcal1962 should be treated as a base new calendar,
+> not an entirely calendar system.
+
+Two things to do:
+
+1. **Revert the reshape.** Roll back the 5 shared packages
+   (`@internal/calendars`, `@internal/proper-of-time`,
+   `@internal/romcal-core`, `@internal/i18n`, `@internal/constants`)
+   so `packages/` matches upstream's 3 (`config`, `easter`,
+   `lunar-new-year`). Cross-rite sharing continues through
+   `@internal/rite-roman1969` as a sibling workspace dep.
+2. **Integrate `Romcal1962` into `Romcal`.** Keep the class, but make
+   it a thin `Romcal` subclass driven by a new `GeneralRoman1962`
+   `CalendarDef` tree. Dissolve 1962's parallel engine (`Calendar1962`,
+   `LiturgicalDayConfig1962`, `LiturgicalDayDef1962`, `Romcal1962Config`,
+   `calendar-year/`, `rubrics/`, `sanctoral/`, `propers/`). Rite-specific
+   semantics land in the 1969 engine as opt-in, rite-neutral extension
+   points.
+
+This pivot supersedes Phases C–E of the plan above. Phase A (audit)
+and Phase B (proper-of-time extraction) were already merged; they get
+rolled back by the revert phase below.
+
+## Target `LiturgicalDay` shape
+
+Previous plan decision (2026-04-16): `BaseLiturgicalDay` + discriminated
+extension via `rite: 'roman1969' | 'roman1962'`. Still correct. Once
+Phase B lands:
+
+- `BaseLiturgicalDay.rite: 'roman1969' | 'roman1962'`
+- Optional 1962-only fields: `commemorations`, `octaveOf`, `vigilOf`,
+  `massReferences`. 1969 leaves them undefined.
+- `LiturgicalDay1962` class deleted.
+
+## Engine extension points landing in `rites/roman1969/src/`
+
+Four opt-in `ParticularConfig` flags, all defaulting to today's 1969
+behavior. Rite-neutral; 1962 flips them on via its root CalendarDef.
+
+| Flag                                       | Hook                                      | 1962 setting                                            |
+| ------------------------------------------ | ----------------------------------------- | ------------------------------------------------------- |
+| `calendarEdition: '1969'\|'1962'`          | proper-of-time builder branch             | Builds Septuagesima + Passiontide + within-octave weeks |
+| `octave?: { rank, days }` (on `Inputs`)    | `buildAllDefinitions` expands octave days | ClassI/II/III octave days per feast                     |
+| `commemorationCap: 'rubricae1960'\|'none'` | post-reduction pass in reducer            | Rubricae 1960 §111–113 caps on commemoration count      |
+| `transferPolicy: 'forward-classI'\|'none'` | reducer transfers impeded feasts          | Forward-transfer + vigil suppression for ClassI         |
+
+## 1962 package shape after Phase B
+
+```
+rites/roman1962/src/
+├── calendars/
+│   ├── general-roman-1962/index.ts    # root CalendarDef, all 1962 sanctoral as inputs
+│   ├── regions/europe/index.ts
+│   └── countries/switzerland/
+│       ├── index.ts                    # Switzerland national overlay
+│       ├── diocese-of-basel.ts         # Switzerland_Basel (no _1962 suffix)
+│       └── …
+├── constants/                          # Rank1962, Commons1962, Prefaces (data only)
+├── locales/
+├── proper-of-time/                     # 1962-variant data feeding engine's '1962' branch
+├── romcal-1962.ts                      # thin Romcal subclass
+└── index.ts                            # explicit re-export list (no wildcard)
+```
+
+Naming: 1962 calendar classes drop the `_1962` suffix
+(`Switzerland_Basel`, `Switzerland_Chur`, …). They live in a separate
+package, so collision with 1969's identically-named classes is avoided
+by import path. `rites/roman1962/src/index.ts` uses an explicit
+re-export list — no `export * from '@internal/rite-roman1969'`.
+
+## Commit plan (4 commits across both phases)
+
+Original 17-commit breakdown is in the team notes; compressed here to
+4 focused commits. Each commit leaves `npm run test` + `npm run build`
+green across all workspaces.
+
+### Phase A — revert the reshape (1 commit)
+
+- [ ] **A1 — `refactor(package): revert shared-package reshape`.**
+      Dissolve all five shared packages back into
+      `rites/roman1969/src/`:
+  - `@internal/romcal-core` — interfaces inlined locally to 1962
+    (deleted entirely in Phase B).
+  - `@internal/constants` — `MONTHS`/`WEEKDAYS` back into
+    `rites/roman1969/src/constants/`.
+  - `@internal/i18n` — `createI18nInstance` + `addBundles` into
+    `rites/roman1969/src/utils/i18n.ts` (or `models/i18n.ts`).
+  - `@internal/calendars` — abstract `CalendarDef<E>` +
+    `flattenCalendarChain` folded into the existing concrete
+    `rites/roman1969/src/models/calendar-def.ts`. Unfold the
+    re-parenting done in Phase C2.
+  - `@internal/proper-of-time` — `computeAnchors`, `YearAnchors`,
+    date utils back into `rites/roman1969/src/proper-of-time/` and
+    `utils/dates.ts`.
+    1962 imports all of the above from `@internal/rite-roman1969`.
+    Remove the 5 packages from `packages/` and workspace config.
+    Update `packages/` to upstream's 3 (`config`, `easter`,
+    `lunar-new-year`). Append this plan-doc update in the same
+    commit.
+
+### Phase B — integrate `Romcal1962` into `Romcal` (3 commits)
+
+- [ ] **B1 — `feat(1969): rite-neutral engine extension points for
+    1962`.** Bundles original B1–B5:
+  - Add `rite: 'roman1969'|'roman1962'` discriminator + optional
+    `commemorations`/`octaveOf`/`vigilOf`/`massReferences` to
+    `BaseLiturgicalDay`. 1969 sets `rite: 'roman1969'`.
+  - `calendarEdition` branch in proper-of-time builder.
+  - `octave: { rank, days }` input on `CalendarDef.inputs`; engine
+    expands.
+  - `commemorationCap` post-reduction pass.
+  - `transferPolicy` forward-transfer + vigil-suppression pass.
+    All default to current 1969 behavior. Unit tests on fixture
+    CalendarDefs; existing 1969 + 1962 suites unchanged.
+
+- [ ] **B2 — `feat(1962): Romcal1962 as Romcal subclass + new
+    CalendarDef tree`.** Bundles original B6–B10:
+  - Build `GeneralRoman1962` root CalendarDef, all sanctoral +
+    proper data as `inputs` + engine-extension `particularConfig`.
+  - Port Europe / Switzerland / 6 Swiss diocese / 1 Swiss abbey
+    overlays as `CalendarDef` subclasses under `calendars/` tree.
+    Drop `_1962` suffix.
+  - Rewrite `Romcal1962` as `extends Romcal { constructor… }`.
+    Parity test suite comparing old-engine output to new-engine
+    output before the cutover.
+  - Delete parallel engine: `Calendar1962`,
+    `LiturgicalDayConfig1962`, `LiturgicalDayDef1962`,
+    `Romcal1962Config`, `calendar-year/`, `rubrics/`, `sanctoral/`,
+    `propers/`, `definitions.ts`, `romcal-1962-types.ts`,
+    `calendars/apply.ts` + `types.ts`.
+  - Replace `index.ts` wildcard re-export with a curated list.
+
+- [ ] **B3 — `docs(alignment): record pivot completion + upstream PR
+    prep`.** Final plan doc update + start the upstream PR draft
+      (leading with the 1969 engine extensions as rite-neutral).
+
+## Decisions log (pivot)
+
+| Date       | Decision                                                                                                                                                                                       |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2026-04-18 | Upstream feedback: revert 5-package reshape; integrate `Romcal1962` as a `Romcal` subclass via a `GeneralRoman1962` CalendarDef. Pivot plan adopted; supersedes Phases C–E above.              |
+| 2026-04-18 | 1962 calendar classes drop the `_1962` suffix. Collision with 1969 names avoided by separate package / import path. Explicit re-export list in `rites/roman1962/src/index.ts`, no wildcard.    |
+| 2026-04-18 | Four engine extensions (`calendarEdition`, `octave`, `commemorationCap`, `transferPolicy`) land in `rites/roman1969/src/` as opt-in `ParticularConfig` flags. Default 1969 behavior unchanged. |
+| 2026-04-18 | Commit plan compressed from 17 micro-commits to 4 focused commits (A1 + B1 + B2 + B3).                                                                                                         |

@@ -1,6 +1,6 @@
 import { calculateGregorianEasterDate, calculateJulianEasterDateToGregorianDate } from '@internal/easter';
 
-import { addDays, utc } from './date-utils';
+import { addDays, utc } from '../utils/dates';
 
 /**
  * All liturgical "anchor" dates for a given civil year. Everything
