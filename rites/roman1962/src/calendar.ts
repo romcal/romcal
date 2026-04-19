@@ -102,8 +102,7 @@ export class Calendar1962 extends Calendar<LiturgicalDay1962> {
    * 1962 occurrence resolver. Sorts candidates by precedence slot
    * (ascending `PRECEDENCES_1962.indexOf(precedence1962)` — Rubricae
    * 1960 §91 tabula dierum liturgicorum), breaks ties by kind (§96
-   * tempora ante sancti), then by `numericRank1962` descending (1960
-   * Kalendarium decimal-rank), and finally alphabetical `name` for
+   * tempora ante sancti), and finally by alphabetical `name` for
    * determinism. Mutates `candidates` in place so the caller sees
    * `candidates[0] === winner`, as the engine expects.
    */
@@ -117,8 +116,6 @@ export class Calendar1962 extends Calendar<LiturgicalDay1962> {
       const aKind = kindOf(a);
       const bKind = kindOf(b);
       if (aKind !== bKind) return aKind === 'tempora' ? -1 : 1;
-      const rank = (b.numericRank1962 ?? 0) - (a.numericRank1962 ?? 0);
-      if (rank !== 0) return rank;
       return a.name.localeCompare(b.name);
     });
     return candidates[0];

@@ -20,8 +20,6 @@ const ENTRIES: readonly OverlayInputEntry[] = [
     fileKey: 'saint_charles_borromeo_bishop_and_confessor',
     name: 'S. Caroli Episcopi et Confessoris, Principalis Patroni Dioecesis',
     class1962: 1,
-    rank1962: 'ClassI',
-    numericRank: 6,
     mode: 'raise',
     names: {
       la: 'S. Caroli Episcopi et Confessoris, Principalis Patroni Dioecesis',
@@ -36,8 +34,6 @@ const ENTRIES: readonly OverlayInputEntry[] = [
     fileKey: 'saint_abundius_of_como_bishop_copatron_of_the_diocese',
     name: 'S. Abundii Episcopi et Confessoris, Compatroni Dioecesis',
     class1962: 2,
-    rank1962: 'ClassII',
-    numericRank: 5,
     mode: 'add',
     mass: { colors: ['White'], rubrics: { gloria: true, credo: true } },
     names: {

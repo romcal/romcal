@@ -22,8 +22,6 @@ const ENTRIES: readonly OverlayInputEntry[] = [
     fileKey: 'saint_nicholas_of_flue_hermit_patron_of_switzerland',
     name: 'S. Nicolai de Flüe Eremitae, Principalis Patroni Helvetiae',
     class1962: 1,
-    rank1962: 'ClassI',
-    numericRank: 6,
     mode: 'add',
     mass: {
       colors: ['White'],

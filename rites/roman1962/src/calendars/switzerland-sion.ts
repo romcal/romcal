@@ -19,8 +19,6 @@ const ENTRIES: readonly OverlayInputEntry[] = [
     fileKey: 'saint_theodore_of_octodurus_bishop_patron_of_the_diocese',
     name: 'S. Theodori Episcopi, Principalis Patroni Dioecesis',
     class1962: 1,
-    rank1962: 'ClassI',
-    numericRank: 6,
     mode: 'add',
     mass: { colors: ['White'], rubrics: { gloria: true, credo: true } },
     names: {

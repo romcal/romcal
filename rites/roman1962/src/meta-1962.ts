@@ -14,14 +14,6 @@ export interface LiturgicalDay1962Meta {
    */
   readonly key1962: string;
   /**
-   * Optional decimal rank from the 1960 Kalendarium. Used by
-   * `Calendar1962#resolveOccurrence` as the in-slot tiebreak after §96
-   * (tempora ante sancti); flows to 0 cleanly when undefined. Phase C6
-   * reassesses whether to keep this now that the JSON data rewrite
-   * (Phase C4) no longer needs numericRank for ordering.
-   */
-  readonly numericRank1962?: number;
-  /**
    * The `Precedence1962` slot this entry maps to under Rubricae 1960
    * §91 (see `precedence-1962-derive.ts`). Authoritative ordering field
    * consumed by `Calendar1962#resolveOccurrence` via

@@ -10,12 +10,10 @@ function loadJson<T>(name: string): T {
 
 describe('divinum-officium importer output', () => {
   test('calendar-1960.json resolves Conversio S. Pauli on Jan 25', () => {
-    const calendar =
-      loadJson<Record<string, Array<{ name: string; class1962: number; rank1962: string }>>>('calendar-1960.json');
+    const calendar = loadJson<Record<string, Array<{ name: string; class1962: number }>>>('calendar-1960.json');
     expect(calendar['01-25']).toBeDefined();
     expect(calendar['01-25'][0].name).toMatch(/Conversione S\. Pauli/i);
     expect(calendar['01-25'][0].class1962).toBe(3);
-    expect(calendar['01-25'][0].rank1962).toBe('ClassIII');
   });
 
   test('tempora.json is non-empty and has stable ids', () => {

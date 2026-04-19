@@ -4,6 +4,7 @@ import path from 'node:path';
 import { CalendarDef, Color, Colors, LiturgicalDayInput, Precedence, Precedences } from '@internal/rite-roman1969';
 import type { Inputs, MonthIndex, ParticularConfig, Rank } from '@internal/rite-roman1969';
 
+import type { Class1962 } from '../meta-1962';
 import { setMeta1962 } from '../meta-1962';
 import { derivePrecedence1962 } from '../precedence-1962-derive';
 import { detectVigil } from '../vigil';
@@ -11,34 +12,22 @@ import { detectVigil } from '../vigil';
 // -- JSON shapes (mirrored locally so we don't reach into `src/sanctoral/*`,
 // which B2e will delete). -----------------------------------------------------
 
-type Rank1962 = 'ClassI' | 'ClassII' | 'ClassIII' | 'ClassIV' | 'Ferial';
-
 interface CalendarCommemoration {
   readonly name: string;
-  readonly numericRank: number;
   readonly fileKey?: string;
 }
 
 interface CalendarEntry {
   readonly fileKey: string;
   readonly name: string;
-  readonly numericRank: number;
-  readonly class1962?: 1 | 2 | 3 | 4;
-  readonly rank1962: Rank1962;
+  readonly class1962: Class1962;
   readonly commemorations?: CalendarCommemoration[];
 }
 
 type Calendar1960 = Record<string, CalendarEntry[]>;
 
-interface RankInfo {
-  readonly numericRank: number;
-  readonly class1962?: 1 | 2 | 3 | 4;
-  readonly rank1962: Rank1962;
-}
-
 interface MassFileEntry {
   readonly colors?: string[];
-  readonly rank?: RankInfo;
 }
 
 type MassFileMap = Record<string, MassFileEntry>;
@@ -76,19 +65,23 @@ function loadTempora(): MassFileMap {
   return _tempora;
 }
 
-// -- Rank + color mapping ----------------------------------------------------
+// -- Class + color mapping --------------------------------------------------
 
 /**
- * Lossy Rank1962 → 1969 Precedence map. Keeps sanctoral ordering roughly
- * coherent under the 1969 engine's precedence comparator. Full 1962 rank
- * fidelity is layered by B2d via `postReduceDay` + `resolveOccurrence`.
+ * Lossy `Class1962` → 1969 `Precedence` map. The 1969 engine's occurrence
+ * resolver sorts `LiturgicalDayInput.precedence` first; `Calendar1962`
+ * then re-resolves via its own `PRECEDENCES_1962`-based comparator
+ * (see `calendar.ts#resolveOccurrence`), so this mapping only has to
+ * preserve enough ordering that the 1969 pipeline doesn't reject
+ * sanctoral entries outright. Also used by overlays
+ * (`overlay-support.ts`) so universal and overlay entries land on the
+ * same rough scale before the 1962 comparator reorders them.
  */
-const RANK_1962_TO_PRECEDENCE: Record<Rank1962, Precedence> = {
-  ClassI: Precedences.ProperSolemnity_PrincipalPatron_4a,
-  ClassII: Precedences.GeneralFeast_7,
-  ClassIII: Precedences.GeneralMemorial_10,
-  ClassIV: Precedences.OptionalMemorial_12,
-  Ferial: Precedences.Weekday_13,
+export const CLASS_1962_TO_PRECEDENCE: Record<Class1962, Precedence> = {
+  1: Precedences.ProperSolemnity_PrincipalPatron_4a,
+  2: Precedences.GeneralFeast_7,
+  3: Precedences.GeneralMemorial_10,
+  4: Precedences.OptionalMemorial_12,
 };
 
 /**
@@ -113,8 +106,6 @@ function mapColor(value: string): Color | undefined {
     case 'Gold':
       return Colors.Gold;
     default:
-      // TODO: if a future 1962 data revision introduces colors outside this
-      // set, extend the mapping or emit a warning.
       return undefined;
   }
 }
@@ -132,36 +123,6 @@ function pickMassFile(fileKey: string, sancti: MassFileMap, tempora: MassFileMap
   return undefined;
 }
 
-interface AuthoritativeRank {
-  readonly rank1962: Rank1962;
-  readonly numericRank: number;
-  readonly class1962?: 1 | 2 | 3 | 4;
-}
-
-/**
- * Mirrors legacy `sanctoral/resolver.ts#pickAuthoritativeRank`: take the max
- * of the calendar's integer rank and the mass file's (1960-era) decimal rank.
- * Empirically matches the 1962 universal calendar on edge cases (All Saints,
- * Vigil of Ss. Peter & Paul, St Patrick). Extended here to also return the
- * authoritative `class1962` + `numericRank` used by the OOP precedence
- * scorer (§15 Lord-feast bumps need `class1962 <= 2`).
- */
-function pickAuthoritativeRank(calEntry: CalendarEntry, mass: MassFileEntry | undefined): AuthoritativeRank {
-  const massRank = mass?.rank;
-  if (massRank && massRank.numericRank > calEntry.numericRank) {
-    return {
-      rank1962: massRank.rank1962,
-      numericRank: massRank.numericRank,
-      class1962: massRank.class1962 ?? calEntry.class1962,
-    };
-  }
-  return {
-    rank1962: calEntry.rank1962,
-    numericRank: calEntry.numericRank,
-    class1962: calEntry.class1962,
-  };
-}
-
 // -- Inputs construction -----------------------------------------------------
 
 function parseMmdd(mmdd: string): { month: MonthIndex; date: number } {
@@ -172,8 +133,8 @@ function parseMmdd(mmdd: string): { month: MonthIndex; date: number } {
 /**
  * Build the `Inputs` map for the 1962 sanctoral (+ proper-kalendar items that
  * live alongside the sanctoral in calendar-1960.json). Only the primary entry
- * per date is emitted; commemorations are deferred to B2d (`postReduceDay`
- * drains `calEntry.commemorations` onto the winning day).
+ * per date is emitted; commemorations are layered by `postReduceDay`
+ * selecting from the winning pool's losers.
  *
  * The "01-00" synthetic entry (Most Holy Name of Jesus) is skipped: the
  * movable Sunday is already emitted by `ProperOfTime1962`.
@@ -191,29 +152,26 @@ export function buildGeneralRoman1962Inputs(): Inputs {
 
     const primary = entries[0];
     const mass = pickMassFile(primary.fileKey, sancti, tempora);
-    const authoritative = pickAuthoritativeRank(primary, mass);
-    const { rank1962, numericRank } = authoritative;
     const { month, date } = parseMmdd(mmdd);
+    const classOf1962 = primary.class1962;
 
     const input: LiturgicalDayInput = {
-      precedence: RANK_1962_TO_PRECEDENCE[rank1962],
+      precedence: CLASS_1962_TO_PRECEDENCE[classOf1962],
       dateDef: { month, date },
       colors: resolveColors(mass),
       isHolyDayOfObligation: false,
-      isOptional: rank1962 === 'Ferial' || rank1962 === 'ClassIV',
+      isOptional: classOf1962 === 4,
     };
 
-    // Stamp 1962 metadata side-channel so LiturgicalDay1962 can surface
-    // `classOf1962`/`kind1962`/`key1962` fields and so the overridden
-    // `Calendar1962#resolveOccurrence` can score by 1962 rubrics.
-    // Ferial entries with no `class1962` default to Class IV.
+    // Stamp 1962 metadata side-channel so LiturgicalDay1962 surfaces
+    // `classOf1962`/`kind1962`/`key1962`/`precedence1962` fields and so
+    // the overridden `Calendar1962#resolveOccurrence` can sort by
+    // Rubricae 1960 §91 slot.
     const vigilOf = detectVigil(primary.name);
-    const classOf1962 = (authoritative.class1962 ?? 4) as 1 | 2 | 3 | 4;
     setMeta1962(primary.fileKey, {
       classOf1962,
       kind1962: 'sancti',
       key1962: primary.fileKey,
-      numericRank1962: numericRank,
       precedence1962: derivePrecedence1962(classOf1962, primary.fileKey, 'sancti'),
       ...(vigilOf ? { vigilOf } : {}),
     });
@@ -243,8 +201,7 @@ export function buildGeneralRoman1962Inputs(): Inputs {
  * particular-calendar seam (`RomcalConfig` 4th ctor arg).
  *
  * Only primary entries are emitted here. Commemorations are layered by
- * `Calendar1962#postReduceDay` in B2d using the `commemorations`
- * array stashed on each CalendarEntry.
+ * `Calendar1962#postReduceDay` in B2d from the winning pool's losers.
  */
 export class GeneralRoman1962 extends CalendarDef {
   particularConfig: ParticularConfig = {};

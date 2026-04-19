@@ -86,13 +86,6 @@ export class LiturgicalDay1962 extends LiturgicalDay {
   readonly key1962?: string;
 
   /**
-   * Decimal 1960 rank used as the in-slot tiebreak in
-   * `Calendar1962#resolveOccurrence` (after §96 tempora-ante-sancti).
-   * Optional because tempora entries don't carry one.
-   */
-  readonly numericRank1962?: number;
-
-  /**
    * The `Precedence1962` slot this entry maps to under Rubricae 1960 §91.
    * Populated from the meta side-channel; consumed by
    * `Calendar1962#resolveOccurrence` via `PRECEDENCES_1962.indexOf`.
@@ -126,7 +119,6 @@ export class LiturgicalDay1962 extends LiturgicalDay {
       this.classOf1962 = meta.classOf1962;
       this.kind1962 = meta.kind1962;
       this.key1962 = meta.key1962;
-      this.numericRank1962 = meta.numericRank1962;
       this.precedence1962 = meta.precedence1962;
       // Prefer explicit extras.vigilOf if the caller supplied one; otherwise
       // lift the stamped meta value. (Extras only flow through the OOP

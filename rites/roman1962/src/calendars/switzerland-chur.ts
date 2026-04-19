@@ -17,8 +17,6 @@ const ENTRIES: readonly OverlayInputEntry[] = [
     fileKey: 'saint_lucius_of_chur_bishop_and_martyr_patron',
     name: 'S. Lucii Episcopi et Martyris, Principalis Patroni Dioecesis',
     class1962: 1,
-    rank1962: 'ClassI',
-    numericRank: 6,
     mode: 'add',
     mass: { colors: ['Red'], rubrics: { gloria: true, credo: true } },
     names: {
@@ -34,8 +32,6 @@ const ENTRIES: readonly OverlayInputEntry[] = [
     fileKey: 'saints_placidus_and_sigisbert_martyrs',
     name: 'Ss. Placidi Martyris et Sigisberti Confessoris',
     class1962: 3,
-    rank1962: 'ClassIII',
-    numericRank: 3,
     mode: 'add',
     mass: { colors: ['Red'], rubrics: { gloria: true } },
     names: {
@@ -51,8 +47,6 @@ const ENTRIES: readonly OverlayInputEntry[] = [
     fileKey: 'saint_florinus_of_remus_confessor',
     name: 'S. Florini Confessoris',
     class1962: 3,
-    rank1962: 'ClassIII',
-    numericRank: 3,
     mode: 'add',
     mass: { colors: ['White'], rubrics: { gloria: true } },
     names: {
@@ -68,8 +62,6 @@ const ENTRIES: readonly OverlayInputEntry[] = [
     fileKey: 'saint_gerold_of_einsiedeln_hermit',
     name: 'S. Geroldi Eremitae',
     class1962: 4,
-    rank1962: 'ClassIV',
-    numericRank: 2,
     mode: 'add',
     mass: { colors: ['White'] },
     names: {

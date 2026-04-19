@@ -1,32 +1,14 @@
-import { Color, Colors, LiturgicalDayInput, Precedence, Precedences } from '@internal/rite-roman1969';
+import { Color, Colors, LiturgicalDayInput } from '@internal/rite-roman1969';
 import type { Inputs, MonthIndex } from '@internal/rite-roman1969';
 
+import type { Class1962 } from '../meta-1962';
 import { setMeta1962 } from '../meta-1962';
 import { derivePrecedence1962 } from '../precedence-1962-derive';
 import { detectVigil } from '../vigil';
 
+import { CLASS_1962_TO_PRECEDENCE } from './general-roman';
 import { setOverlayNames } from './overlay-names';
 
-type Rank1962 = 'ClassI' | 'ClassII' | 'ClassIII' | 'ClassIV' | 'Ferial';
-
-/**
- * Lossy Rank1962 → 1969 Precedence map. Kept in lockstep with
- * `general-roman.ts#RANK_1962_TO_PRECEDENCE` so universal and overlay
- * entries end up on the same precedence scale before the 1962 scorer
- * ranks them.
- */
-const RANK_1962_TO_PRECEDENCE: Record<Rank1962, Precedence> = {
-  ClassI: Precedences.ProperSolemnity_PrincipalPatron_4a,
-  ClassII: Precedences.GeneralFeast_7,
-  ClassIII: Precedences.GeneralMemorial_10,
-  ClassIV: Precedences.OptionalMemorial_12,
-  Ferial: Precedences.Weekday_13,
-};
-
-/**
- * Color string → 1969 `Color` enum. Duplicated (tiny) from
- * `general-roman.ts#mapColor` so overlays don't reach into that module.
- */
 function mapColor(value: string): Color | undefined {
   switch (value) {
     case 'Red':
@@ -68,9 +50,7 @@ export interface OverlayInputEntry {
   readonly mmdd: string;
   readonly fileKey: string;
   readonly name: string;
-  readonly class1962: 1 | 2 | 3 | 4;
-  readonly rank1962: Rank1962;
-  readonly numericRank: number;
+  readonly class1962: Class1962;
   readonly mode?: 'add' | 'raise' | 'replace';
   readonly mass?: {
     readonly colors: string[];
@@ -96,7 +76,6 @@ export function stampOverlayMeta(entries: readonly OverlayInputEntry[]): void {
       classOf1962: entry.class1962,
       kind1962: 'sancti',
       key1962: entry.fileKey,
-      numericRank1962: entry.numericRank,
       precedence1962: derivePrecedence1962(entry.class1962, entry.fileKey, 'sancti'),
       ...(vigilOf ? { vigilOf } : {}),
     });
@@ -144,14 +123,14 @@ export function buildOverlayInputs(entries: readonly OverlayInputEntry[]): Input
   for (const entry of entries) {
     const { month, date } = parseMmdd(entry.mmdd);
     const colors = resolveColors(entry.mass?.colors);
-    const rank1962 = entry.rank1962;
+    const classOf1962 = entry.class1962;
 
     const input: LiturgicalDayInput = {
-      precedence: RANK_1962_TO_PRECEDENCE[rank1962],
+      precedence: CLASS_1962_TO_PRECEDENCE[classOf1962],
       dateDef: { month, date },
       colors,
       isHolyDayOfObligation: false,
-      isOptional: rank1962 === 'Ferial' || rank1962 === 'ClassIV',
+      isOptional: classOf1962 === 4,
     };
 
     inputs[entry.fileKey] = input;

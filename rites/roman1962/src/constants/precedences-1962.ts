@@ -58,11 +58,11 @@ export const Precedences1962 = {
    * Precious Blood, …), Class I vigils other than Pentecost.
    *
    * All Class I days coinciding here fall to §96 tempora-ante-sancti
-   * (then numericRank + name) as the tiebreak — the legacy scorer's
-   * +200 bump for `classOf1962 <= 2 && LORD_FEAST_KEYS` is a bug at
-   * class=1 (e.g. it would float Precious Blood above tempora Sacred
-   * Heart on 2011-07-01, contra published ordos). §15 is Sunday-
-   * displacement only, not a bump among Class I days.
+   * (then alphabetical `name`) as the tiebreak — a former legacy scorer
+   * gave `classOf1962 <= 2 && LORD_FEAST_KEYS` a +200 bump, which was a
+   * bug at class=1 (it would float Precious Blood above tempora Sacred
+   * Heart on 2011-07-01, contra published ordos). §15 Rubricae 1960 is
+   * Sunday-displacement only, not a bump among Class I days.
    */
   ClassI_1h: 'CLASS_I_1H' as const,
 

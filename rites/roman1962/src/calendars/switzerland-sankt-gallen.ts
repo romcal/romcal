@@ -17,8 +17,6 @@ const ENTRIES: readonly OverlayInputEntry[] = [
     fileKey: 'saint_gallus_abbot_patron_of_the_diocese',
     name: 'S. Galli Abbatis, Principalis Patroni Dioecesis',
     class1962: 1,
-    rank1962: 'ClassI',
-    numericRank: 6,
     mode: 'add',
     mass: { colors: ['White'], rubrics: { gloria: true, credo: true } },
     names: {
@@ -34,8 +32,6 @@ const ENTRIES: readonly OverlayInputEntry[] = [
     fileKey: 'saint_otmar_abbot_copatron_of_the_diocese',
     name: 'S. Othmari Abbatis, Compatroni Dioecesis',
     class1962: 2,
-    rank1962: 'ClassII',
-    numericRank: 5,
     mode: 'add',
     mass: { colors: ['White'], rubrics: { gloria: true, credo: true } },
     names: {

@@ -18,8 +18,6 @@ const ENTRIES: readonly OverlayInputEntry[] = [
     fileKey: 'ss_maurice_and_companions_martyrs_optional',
     name: 'Ss. Mauritii et Sociorum Martyrum, Principalium Patronorum Abbatiae',
     class1962: 1,
-    rank1962: 'ClassI',
-    numericRank: 6,
     mode: 'raise',
     names: {
       la: 'Ss. Mauritii et Sociorum Martyrum, Principalium Patronorum Abbatiae',
