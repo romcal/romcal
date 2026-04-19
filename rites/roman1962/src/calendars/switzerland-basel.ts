@@ -15,7 +15,7 @@ import { Switzerland } from './switzerland';
 const ENTRIES: readonly OverlayInputEntry[] = [
   {
     mmdd: '09-30',
-    fileKey: 'saints_ursus_and_victor_of_solothurn_martyrs_patrons',
+    key: 'saints_ursus_and_victor_of_solothurn_martyrs_patrons',
     name: 'Ss. Ursi et Victoris Martyrum, Principalium Patronorum Dioecesis',
     class1962: 1,
     mode: 'add',
@@ -30,7 +30,7 @@ const ENTRIES: readonly OverlayInputEntry[] = [
   },
   {
     mmdd: '12-20',
-    fileKey: 'saint_ursicinus_of_saint_ursanne_abbot',
+    key: 'saint_ursicinus_of_saint_ursanne_abbot',
     name: 'S. Ursicini Abbatis',
     class1962: 3,
     mode: 'add',

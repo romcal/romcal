@@ -30,7 +30,7 @@ export type Romcal1962ConfigInput = RomcalConfig1962Input;
  *
  * Note: the 1969 `GeneralRoman` is still pushed into `RomcalConfig.calendarsDef`
  * because the engine's particular-calendar seam layers on top of it. Its
- * inputs use disjoint IDs from the 1962 fileKeys, so there is no silent
+ * inputs use disjoint IDs from the 1962 keys, so there is no silent
  * override; stale 1969 memorials will be filtered by B2d's `postReduceDay`.
  */
 export class Romcal1962 extends Romcal<LiturgicalDay1962> {

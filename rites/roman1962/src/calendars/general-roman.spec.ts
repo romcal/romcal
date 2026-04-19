@@ -19,7 +19,7 @@ describe('1962 General Roman sanctoral — raw inputs', () => {
     expect(INPUT_IDS.size).toBe(279);
   });
 
-  it('includes expected fileKeys', () => {
+  it('includes expected keys', () => {
     for (const id of [
       'the_circumcision_of_the_lord',
       'saint_patrick_bishop_and_confessor',
@@ -59,7 +59,7 @@ describe('1962 General Roman sanctoral — liturgical year 2024', () => {
   });
 
   // These assertions probe dates where the 1962 sanctoral winner either
-  // matches a shared fileKey with 1969 GeneralRoman (collision → 1962 inputs
+  // matches a shared key with 1969 GeneralRoman (collision → 1962 inputs
   // win via later-push order) or is the Proper-of-Time entry that
   // lexically contains the saint name. Dates where 1962 sanctoral would be
   // transferred/commemorated (e.g. St Patrick on Passion Sunday, Immaculate

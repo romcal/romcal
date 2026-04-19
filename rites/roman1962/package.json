@@ -24,7 +24,6 @@
     "postbuild": "npm run bundle",
     "bundle": "tsx build/bundle.ts",
     "clean": "rimraf coverage dist tmp",
-    "import:do": "tsx build/import-divinum-officium/index.ts",
     "test": "TZ=UTC jest --coverage",
     "test:watch": "TZ=UTC jest --watch",
     "test:without-coverage": "TZ=UTC jest"

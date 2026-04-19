@@ -17,7 +17,7 @@ import { Switzerland } from './switzerland';
 const ENTRIES: readonly OverlayInputEntry[] = [
   {
     mmdd: '11-04',
-    fileKey: 'saint_charles_borromeo_bishop_and_confessor',
+    key: 'saint_charles_borromeo_bishop_and_confessor',
     name: 'S. Caroli Episcopi et Confessoris, Principalis Patroni Dioecesis',
     class1962: 1,
     mode: 'raise',
@@ -31,7 +31,7 @@ const ENTRIES: readonly OverlayInputEntry[] = [
   },
   {
     mmdd: '08-31',
-    fileKey: 'saint_abundius_of_como_bishop_copatron_of_the_diocese',
+    key: 'saint_abundius_of_como_bishop_copatron_of_the_diocese',
     name: 'S. Abundii Episcopi et Confessoris, Compatroni Dioecesis',
     class1962: 2,
     mode: 'add',

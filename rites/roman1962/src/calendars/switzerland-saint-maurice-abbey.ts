@@ -15,7 +15,7 @@ import { Switzerland } from './switzerland';
 const ENTRIES: readonly OverlayInputEntry[] = [
   {
     mmdd: '09-22',
-    fileKey: 'ss_maurice_and_companions_martyrs_optional',
+    key: 'ss_maurice_and_companions_martyrs_optional',
     name: 'Ss. Mauritii et Sociorum Martyrum, Principalium Patronorum Abbatiae',
     class1962: 1,
     mode: 'raise',

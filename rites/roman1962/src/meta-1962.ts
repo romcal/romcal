@@ -8,7 +8,7 @@ export interface LiturgicalDay1962Meta {
   readonly kind1962: Kind1962;
   /**
    * Stable 1962 key for this day: the tempora slug for temporal entries,
-   * the sancti `fileKey` for sanctoral entries. Consumed by
+   * the sancti `key` for sanctoral entries. Consumed by
    * {@link derivePrecedence1962} when computing the {@link precedence1962}
    * slot.
    */

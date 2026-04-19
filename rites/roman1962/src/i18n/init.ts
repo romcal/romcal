@@ -8,7 +8,7 @@ const NAMESPACES = ['names', 'colors', 'ranks', 'seasons', 'months', 'weekdays',
 /**
  * Per-locale additions on top of the ship-with-the-package locales.
  * Primary use: regional/diocesan overlays injecting their own
- * `sancti/{fileKey}` names without forking the core locale files.
+ * `sancti/{key}` names without forking the core locale files.
  */
 export type ExtraLocaleNames = Record<string, Record<string, string>>;
 
@@ -85,8 +85,8 @@ function loadLocale(instance: i18n, locale: Locale1962): void {
 /**
  * Build an i18next instance preloaded with every 1962 locale bundle. The
  * fallback chain `requested → en → la` mirrors 1969 (English vernacular
- * fallback, Latin floor — Latin always exists since the importer pivots
- * `entry.officium` into `la`).
+ * fallback, Latin floor — every celebration has a Latin name in the `la`
+ * locale).
  */
 export function createI18n1962(localeId: string, extraNames?: ExtraLocaleNames): i18n {
   const instance = createI18nInstance({

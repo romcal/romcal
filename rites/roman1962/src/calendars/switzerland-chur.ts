@@ -14,7 +14,7 @@ import { Switzerland } from './switzerland';
 const ENTRIES: readonly OverlayInputEntry[] = [
   {
     mmdd: '12-03',
-    fileKey: 'saint_lucius_of_chur_bishop_and_martyr_patron',
+    key: 'saint_lucius_of_chur_bishop_and_martyr_patron',
     name: 'S. Lucii Episcopi et Martyris, Principalis Patroni Dioecesis',
     class1962: 1,
     mode: 'add',
@@ -29,7 +29,7 @@ const ENTRIES: readonly OverlayInputEntry[] = [
   },
   {
     mmdd: '07-11',
-    fileKey: 'saints_placidus_and_sigisbert_martyrs',
+    key: 'saints_placidus_and_sigisbert_martyrs',
     name: 'Ss. Placidi Martyris et Sigisberti Confessoris',
     class1962: 3,
     mode: 'add',
@@ -44,7 +44,7 @@ const ENTRIES: readonly OverlayInputEntry[] = [
   },
   {
     mmdd: '11-17',
-    fileKey: 'saint_florinus_of_remus_confessor',
+    key: 'saint_florinus_of_remus_confessor',
     name: 'S. Florini Confessoris',
     class1962: 3,
     mode: 'add',
@@ -59,7 +59,7 @@ const ENTRIES: readonly OverlayInputEntry[] = [
   },
   {
     mmdd: '04-19',
-    fileKey: 'saint_gerold_of_einsiedeln_hermit',
+    key: 'saint_gerold_of_einsiedeln_hermit',
     name: 'S. Geroldi Eremitae',
     class1962: 4,
     mode: 'add',

@@ -48,7 +48,7 @@ function parseMmdd(mmdd: string): { month: MonthIndex; date: number } {
  */
 export interface OverlayInputEntry {
   readonly mmdd: string;
-  readonly fileKey: string;
+  readonly key: string;
   readonly name: string;
   readonly class1962: Class1962;
   readonly mode?: 'add' | 'raise' | 'replace';
@@ -65,18 +65,18 @@ export interface OverlayInputEntry {
  * calendar construction order in the 1969 engine means the overlay's
  * inputs field (which calls this) runs BEFORE the parent's class
  * field init (which, for `GeneralRoman1962`, stamps a lower-class
- * meta for the same `fileKey` on `raise` mode). Each overlay's
+ * meta for the same `key` on `raise` mode). Each overlay's
  * `updateConfig` calls `stampOverlayMeta` again after super to
  * re-assert its own classes over any parent stamp.
  */
 export function stampOverlayMeta(entries: readonly OverlayInputEntry[]): void {
   for (const entry of entries) {
     const vigilOf = detectVigil(entry.name);
-    setMeta1962(entry.fileKey, {
+    setMeta1962(entry.key, {
       classOf1962: entry.class1962,
       kind1962: 'sancti',
-      key1962: entry.fileKey,
-      precedence1962: derivePrecedence1962(entry.class1962, entry.fileKey, 'sancti'),
+      key1962: entry.key,
+      precedence1962: derivePrecedence1962(entry.class1962, entry.key, 'sancti'),
       ...(vigilOf ? { vigilOf } : {}),
     });
 
@@ -86,7 +86,7 @@ export function stampOverlayMeta(entries: readonly OverlayInputEntry[]): void {
         if (typeof value === 'string') filtered[lang] = value;
       }
       if (Object.keys(filtered).length > 0) {
-        setOverlayNames(entry.fileKey, filtered);
+        setOverlayNames(entry.key, filtered);
       }
     }
   }
@@ -94,10 +94,10 @@ export function stampOverlayMeta(entries: readonly OverlayInputEntry[]): void {
 
 /**
  * Build an `Inputs` map for a single overlay. Each entry becomes a
- * `LiturgicalDayInput` keyed by its `fileKey`.
+ * `LiturgicalDayInput` keyed by its `key`.
  *
  * Mode handling:
- *   - `add`: emits a fresh input; if the fileKey is unique (the usual
+ *   - `add`: emits a fresh input; if the key is unique (the usual
  *     case) it stands alone. Overlay-local collisions lose to
  *     last-declared-wins via the engine's previousDef merge.
  *   - `raise`: re-declares an existing id from `GeneralRoman1962` with
@@ -133,7 +133,7 @@ export function buildOverlayInputs(entries: readonly OverlayInputEntry[]): Input
       isOptional: classOf1962 === 4,
     };
 
-    inputs[entry.fileKey] = input;
+    inputs[entry.key] = input;
   }
 
   return inputs;

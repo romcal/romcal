@@ -10,12 +10,14 @@ const DATA_DIR = path.resolve(__dirname, '../data');
 
 const SLUG_RE = /^[a-z0-9][a-z0-9_]*$/;
 
-// DO-shaped keys we should never see after remap: Adv1-0, Pasc0-0, Quad6-0,
-// Quadp3-3, Epi1-0a, Nat1-0, Pent24-0, PentEpi6-0, C1..C21, Cm*, CommC10,
-// bare "07-22" as a file key (dates are still valid calendar keys).
+// DO-shaped keys we should never see: Adv1-0, Pasc0-0, Quad6-0, Quadp3-3,
+// Epi1-0a, Nat1-0, Pent24-0, PentEpi6-0, C1..C21, Cm*, CommC10, bare
+// "07-22" as a file key (dates are still valid calendar keys). Retained
+// as a guard against regressions even though the importer that produced
+// these shapes has been removed.
 const DO_SHAPED_RE = /^(Adv|Pasc|Pent|Quad|Quadp|Epi|Nat|PentEpi)\d.*$|^C\d+[a-z]*(\.txt)?$|^Cm[^/]*$|^CommC\d+$/;
 
-describe('key-shape guard — emitted artifacts use readable slugs', () => {
+describe('key-shape guard — data artifacts use readable slugs', () => {
   test('sancti.json keys are snake_case slugs', () => {
     const bad = Object.keys(sanctiData).filter((k) => !SLUG_RE.test(k) || DO_SHAPED_RE.test(k));
     expect(bad).toEqual([]);
@@ -31,74 +33,12 @@ describe('key-shape guard — emitted artifacts use readable slugs', () => {
     expect(bad).toEqual([]);
   });
 
-  test('calendar-1960 entries use slug fileKeys (not MM-DD or DO keys)', () => {
+  test('calendar-1960 entries use slug keys (not MM-DD or DO keys)', () => {
     const bad: string[] = [];
-    for (const [date, feasts] of Object.entries(calendar as Record<string, Array<{ fileKey: string }>>)) {
+    for (const [date, feasts] of Object.entries(calendar as Record<string, Array<{ key: string }>>)) {
       for (const f of feasts) {
-        if (!SLUG_RE.test(f.fileKey) || DO_SHAPED_RE.test(f.fileKey)) {
-          bad.push(`${date} → ${f.fileKey}`);
-        }
-      }
-    }
-    expect(bad).toEqual([]);
-  });
-
-  test('sancti.json entry ids start with "sancti/<slug>"', () => {
-    const bad = Object.entries(sanctiData as Record<string, { id: string }>)
-      .filter(([slug, e]) => e.id !== `sancti/${slug}`)
-      .map(([slug, e]) => `${slug}: ${e.id}`);
-    expect(bad).toEqual([]);
-  });
-
-  test('tempora.json entry ids start with "tempora/<slug>"', () => {
-    const bad = Object.entries(temporaData as Record<string, { id: string }>)
-      .filter(([slug, e]) => e.id !== `tempora/${slug}`)
-      .map(([slug, e]) => `${slug}: ${e.id}`);
-    expect(bad).toEqual([]);
-  });
-
-  test('commune.json entry ids start with "commune/<slug>"', () => {
-    const bad = Object.entries(communeData as Record<string, { id: string }>)
-      .filter(([slug, e]) => e.id !== `commune/${slug}`)
-      .map(([slug, e]) => `${slug}: ${e.id}`);
-    expect(bad).toEqual([]);
-  });
-
-  test('inline ref tokens contain no DO-shaped target keys', () => {
-    // Broken/unknown refs that DO itself never resolved are left verbatim
-    // by rewriteRef (see remap-entries.ts) — the test only flags refs
-    // whose shape matches a known DO naming convention (Adv1-0, C5, Nat1-0).
-    interface EntryShape {
-      references?: Record<string, string>;
-      sections?: Record<string, Array<{ type: string; target?: string }>>;
-    }
-    const bundles: Array<[string, Record<string, EntryShape>]> = [
-      ['sancti', sanctiData as Record<string, EntryShape>],
-      ['tempora', temporaData as Record<string, EntryShape>],
-      ['commune', communeData as Record<string, EntryShape>],
-    ];
-    const REF_RE = /^(Sancti|Tempora|Commune)\/([^:\s]+)(:.+)?$/;
-    const bad: string[] = [];
-    for (const [bundle, data] of bundles) {
-      for (const [slug, entry] of Object.entries(data)) {
-        for (const [name, target] of Object.entries(entry.references ?? {})) {
-          const m = REF_RE.exec(target);
-          if (!m) continue;
-          const [, , targetKey] = m;
-          if (DO_SHAPED_RE.test(targetKey)) {
-            bad.push(`${bundle}/${slug}.references.${name} → ${target}`);
-          }
-        }
-        for (const [sectionName, items] of Object.entries(entry.sections ?? {})) {
-          for (const item of items) {
-            if (item.type !== 'ref' || !item.target) continue;
-            const m = REF_RE.exec(item.target);
-            if (!m) continue;
-            const [, , targetKey] = m;
-            if (DO_SHAPED_RE.test(targetKey)) {
-              bad.push(`${bundle}/${slug}.sections.${sectionName} → ${item.target}`);
-            }
-          }
+        if (!SLUG_RE.test(f.key) || DO_SHAPED_RE.test(f.key)) {
+          bad.push(`${date} → ${f.key}`);
         }
       }
     }

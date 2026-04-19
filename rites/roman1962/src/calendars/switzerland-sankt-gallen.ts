@@ -14,7 +14,7 @@ import { Switzerland } from './switzerland';
 const ENTRIES: readonly OverlayInputEntry[] = [
   {
     mmdd: '10-16',
-    fileKey: 'saint_gallus_abbot_patron_of_the_diocese',
+    key: 'saint_gallus_abbot_patron_of_the_diocese',
     name: 'S. Galli Abbatis, Principalis Patroni Dioecesis',
     class1962: 1,
     mode: 'add',
@@ -29,7 +29,7 @@ const ENTRIES: readonly OverlayInputEntry[] = [
   },
   {
     mmdd: '11-16',
-    fileKey: 'saint_otmar_abbot_copatron_of_the_diocese',
+    key: 'saint_otmar_abbot_copatron_of_the_diocese',
     name: 'S. Othmari Abbatis, Compatroni Dioecesis',
     class1962: 2,
     mode: 'add',

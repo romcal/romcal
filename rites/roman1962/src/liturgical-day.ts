@@ -81,7 +81,7 @@ export class LiturgicalDay1962 extends LiturgicalDay {
   /**
    * Stable 1962 key used by the precedence scorer (§15 Lord-feast
    * elevation, Triduum/Easter-octave bumps, etc.). For tempora this is
-   * the PoT slug; for sancti this is the `fileKey`.
+   * the PoT slug; for sancti this is the `key`.
    */
   readonly key1962?: string;
 

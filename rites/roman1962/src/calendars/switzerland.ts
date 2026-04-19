@@ -19,7 +19,7 @@ import { buildOverlayInputs, stampOverlayMeta, type OverlayInputEntry } from './
 const ENTRIES: readonly OverlayInputEntry[] = [
   {
     mmdd: '09-25',
-    fileKey: 'saint_nicholas_of_flue_hermit_patron_of_switzerland',
+    key: 'saint_nicholas_of_flue_hermit_patron_of_switzerland',
     name: 'S. Nicolai de Flüe Eremitae, Principalis Patroni Helvetiae',
     class1962: 1,
     mode: 'add',
@@ -49,7 +49,7 @@ export class Switzerland extends CalendarDef {
   override updateConfig(input?: RomcalConfigInput): void {
     super.updateConfig(input);
     // Re-stamp meta after super (which constructs parents → GR1962
-    // stamps a default class for any shared fileKey). Ensures `raise`
+    // stamps a default class for any shared key). Ensures `raise`
     // mode's class1962 bump survives.
     stampOverlayMeta(ENTRIES);
   }

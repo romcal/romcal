@@ -16,7 +16,7 @@ import { Switzerland } from './switzerland';
 const ENTRIES: readonly OverlayInputEntry[] = [
   {
     mmdd: '08-16',
-    fileKey: 'saint_theodore_of_octodurus_bishop_patron_of_the_diocese',
+    key: 'saint_theodore_of_octodurus_bishop_patron_of_the_diocese',
     name: 'S. Theodori Episcopi, Principalis Patroni Dioecesis',
     class1962: 1,
     mode: 'add',

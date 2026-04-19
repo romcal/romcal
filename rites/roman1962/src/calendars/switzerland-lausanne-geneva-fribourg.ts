@@ -17,7 +17,7 @@ import { Switzerland } from './switzerland';
 const ENTRIES: readonly OverlayInputEntry[] = [
   {
     mmdd: '12-06',
-    fileKey: 'saint_nicholas_bishop_and_confessor',
+    key: 'saint_nicholas_bishop_and_confessor',
     name: 'S. Nicolai Episcopi et Confessoris, Principalis Patroni Dioecesis',
     class1962: 1,
     mode: 'raise',

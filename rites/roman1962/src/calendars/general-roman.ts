@@ -14,11 +14,11 @@ import { detectVigil } from '../vigil';
 
 interface CalendarCommemoration {
   readonly name: string;
-  readonly fileKey?: string;
+  readonly key?: string;
 }
 
 interface CalendarEntry {
-  readonly fileKey: string;
+  readonly key: string;
   readonly name: string;
   readonly class1962: Class1962;
   readonly commemorations?: CalendarCommemoration[];
@@ -117,9 +117,9 @@ function resolveColors(mass: MassFileEntry | undefined): Color[] {
   return mapped.length > 0 ? mapped : [Colors.White];
 }
 
-function pickMassFile(fileKey: string, sancti: MassFileMap, tempora: MassFileMap): MassFileEntry | undefined {
-  if (fileKey in sancti) return sancti[fileKey];
-  if (fileKey in tempora) return tempora[fileKey];
+function pickMassFile(key: string, sancti: MassFileMap, tempora: MassFileMap): MassFileEntry | undefined {
+  if (key in sancti) return sancti[key];
+  if (key in tempora) return tempora[key];
   return undefined;
 }
 
@@ -151,7 +151,7 @@ export function buildGeneralRoman1962Inputs(): Inputs {
     if (entries.length === 0) continue;
 
     const primary = entries[0];
-    const mass = pickMassFile(primary.fileKey, sancti, tempora);
+    const mass = pickMassFile(primary.key, sancti, tempora);
     const { month, date } = parseMmdd(mmdd);
     const classOf1962 = primary.class1962;
 
@@ -168,11 +168,11 @@ export function buildGeneralRoman1962Inputs(): Inputs {
     // the overridden `Calendar1962#resolveOccurrence` can sort by
     // Rubricae 1960 §91 slot.
     const vigilOf = detectVigil(primary.name);
-    setMeta1962(primary.fileKey, {
+    setMeta1962(primary.key, {
       classOf1962,
       kind1962: 'sancti',
-      key1962: primary.fileKey,
-      precedence1962: derivePrecedence1962(classOf1962, primary.fileKey, 'sancti'),
+      key1962: primary.key,
+      precedence1962: derivePrecedence1962(classOf1962, primary.key, 'sancti'),
       ...(vigilOf ? { vigilOf } : {}),
     });
 
@@ -189,7 +189,7 @@ export function buildGeneralRoman1962Inputs(): Inputs {
       input.octave = { rank: 'FEAST' as Rank, days: 0 };
     }
 
-    inputs[primary.fileKey] = input;
+    inputs[primary.key] = input;
   }
 
   return inputs;
