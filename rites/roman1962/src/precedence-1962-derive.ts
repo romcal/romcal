@@ -16,7 +16,7 @@ import type { Class1962, Kind1962 } from './meta-1962';
 const TRIDUUM = new Set(['thursday_of_the_lords_supper', 'friday_of_the_passion_of_the_lord', 'holy_saturday']);
 const EASTER_PENTECOST_TRINITY = new Set(['easter_sunday', 'pentecost_sunday', 'trinity_sunday']);
 const PRIVILEGED_SOLEMN_SUNDAYS = new Set([
-  'easter_time_2_sunday', // Low Sunday / Octave Day of Easter
+  'easter_time_1_sunday', // Low Sunday / Octave Day of Easter / Dominica in Albis
   'palm_sunday_of_the_passion_of_the_lord',
 ]);
 const PRE_LENT_SUNDAYS = new Set(['septuagesima_sunday', 'sexagesima_sunday', 'quinquagesima_sunday']);

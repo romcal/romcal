@@ -478,11 +478,12 @@ export class ProperOfTime1962 extends CalendarDef {
         i18nDef: ['seasons:easter_time.octave', { dow }],
       });
     }
-    // Low Sunday + weeks after Easter (2-6, through Sat before Pentecost).
+    // Low Sunday + weeks after Easter (1-6, through Sat before Pentecost).
+    // Low Sunday = `easter_time_1_sunday` (Octave Day of Easter / Dominica in Albis).
     for (let i = 7; i < 49; i += 1) {
-      const week = Math.floor(i / 7) + 1;
-      const dow = i - (week - 1) * 7;
-      const isLowSunday = week === 2 && dow === 0;
+      const week = Math.floor(i / 7);
+      const dow = i - week * 7;
+      const isLowSunday = week === 1 && dow === 0;
       this.emit(`easter_time_${week}_${WEEKDAYS[dow]}`, {
         precedence: dow === 0 ? Precedences.PrivilegedSunday_2 : Precedences.Weekday_13,
         dateDef: { dateFn: 'easterSunday', addDay: i, yearOffset },

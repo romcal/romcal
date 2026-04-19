@@ -10,7 +10,7 @@ import type { Class1962 } from './meta-1962';
  *     `holy_saturday` (legacy used `maundy_thursday`/`good_friday`/`holy_saturday`).
  *   - Palm Sunday: `palm_sunday_of_the_passion_of_the_lord` (legacy `palm_sunday`).
  *   - Ash Wednesday: `ash_wednesday` (legacy also `quinquagesima_wednesday`).
- *   - Low Sunday: `easter_time_2_sunday` (legacy `easter_time_1_sunday`).
+ *   - Low Sunday: `easter_time_1_sunday` (Octave Day of Easter / Dominica in Albis).
  *   - Pentecost octave ferias: `pentecost_octave_{dow}` (legacy
  *     `easter_time_7_{dow}`).
  *   - Vigil of Pentecost: `vigil_of_pentecost` (legacy `easter_time_6_saturday`).
@@ -23,7 +23,7 @@ const TRIDUUM_KEYS = new Set(['thursday_of_the_lords_supper', 'friday_of_the_pas
 const CLASS_I_SOLEMN_SUNDAYS = new Set([
   'easter_sunday',
   'pentecost_sunday',
-  'easter_time_2_sunday', // Low Sunday (Octave Day of Easter)
+  'easter_time_1_sunday', // Low Sunday (Octave Day of Easter / Dominica in Albis)
   'palm_sunday_of_the_passion_of_the_lord',
 ]);
 
@@ -92,8 +92,9 @@ function isEasterWeekFeria(key: string): boolean {
 }
 
 function isPaschaltideWeekday(key: string): boolean {
-  // OOP uses weeks 2..7 for post-Easter (week 1 = Easter Octave, handled separately).
-  return /^easter_time_[2-7]_(monday|tuesday|wednesday|thursday|friday|saturday)$/.test(key);
+  // Weeks 1..6 post-octave (Low Week through Sat before Pentecost). Easter
+  // Octave ferias emit distinct `easter_{dow}` keys handled separately.
+  return /^easter_time_[1-6]_(monday|tuesday|wednesday|thursday|friday|saturday)$/.test(key);
 }
 
 function isPentecostOctaveWeekday(key: string): boolean {
