@@ -1,5 +1,6 @@
 import { LiturgicalDay, LiturgicalDayConfig, LiturgicalDayDef, RomcalCalendarMetadata } from '@internal/rite-roman1969';
 
+import type { Precedence1962 } from './constants/precedences-1962';
 import { getMeta1962, type Class1962, type Kind1962 } from './meta-1962';
 
 /**
@@ -90,6 +91,15 @@ export class LiturgicalDay1962 extends LiturgicalDay {
    */
   readonly numericRank1962?: number;
 
+  /**
+   * Phase-2 shadow field: the `Precedence1962` slot this entry maps to
+   * under the declarative precedence scheme. Populated from the same
+   * meta side-channel as `classOf1962`; consumed by the parity spec
+   * comparing `PRECEDENCES_1962.indexOf`-based ordering against legacy
+   * `scorePrecedenceBase`.
+   */
+  readonly precedence1962?: Precedence1962;
+
   constructor(
     def: LiturgicalDayDef,
     date: Date,
@@ -118,6 +128,7 @@ export class LiturgicalDay1962 extends LiturgicalDay {
       this.kind1962 = meta.kind1962;
       this.key1962 = meta.key1962;
       this.numericRank1962 = meta.numericRank1962;
+      this.precedence1962 = meta.precedence1962;
       // Prefer explicit extras.vigilOf if the caller supplied one; otherwise
       // lift the stamped meta value. (Extras only flow through the OOP
       // constructor in tests today; in production the meta side-channel is

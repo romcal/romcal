@@ -5,6 +5,7 @@ import { CalendarDef, Color, Colors, LiturgicalDayInput, Precedence, Precedences
 import type { Inputs, MonthIndex, ParticularConfig, Rank } from '@internal/rite-roman1969';
 
 import { setMeta1962 } from '../meta-1962';
+import { derivePrecedence1962 } from '../precedence-1962-derive';
 import { detectVigil } from '../vigil';
 
 // -- JSON shapes (mirrored locally so we don't reach into `src/sanctoral/*`,
@@ -207,11 +208,13 @@ export function buildGeneralRoman1962Inputs(): Inputs {
     // `Calendar1962#resolveOccurrence` can score by 1962 rubrics.
     // Ferial entries with no `class1962` default to Class IV.
     const vigilOf = detectVigil(primary.name);
+    const classOf1962 = (authoritative.class1962 ?? 4) as 1 | 2 | 3 | 4;
     setMeta1962(primary.fileKey, {
-      classOf1962: (authoritative.class1962 ?? 4) as 1 | 2 | 3 | 4,
+      classOf1962,
       kind1962: 'sancti',
       key1962: primary.fileKey,
       numericRank1962: numericRank,
+      precedence1962: derivePrecedence1962(classOf1962, primary.fileKey, 'sancti'),
       ...(vigilOf ? { vigilOf } : {}),
     });
 

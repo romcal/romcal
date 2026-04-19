@@ -2,6 +2,7 @@ import { Color, Colors, LiturgicalDayInput, Precedence, Precedences } from '@int
 import type { Inputs, MonthIndex } from '@internal/rite-roman1969';
 
 import { setMeta1962 } from '../meta-1962';
+import { derivePrecedence1962 } from '../precedence-1962-derive';
 import { detectVigil } from '../vigil';
 
 import { setOverlayNames } from './overlay-names';
@@ -96,6 +97,7 @@ export function stampOverlayMeta(entries: readonly OverlayInputEntry[]): void {
       kind1962: 'sancti',
       key1962: entry.fileKey,
       numericRank1962: entry.numericRank,
+      precedence1962: derivePrecedence1962(entry.class1962, entry.fileKey, 'sancti'),
       ...(vigilOf ? { vigilOf } : {}),
     });
 

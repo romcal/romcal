@@ -529,6 +529,11 @@ export {
 // constants/months.ts + constants/weekdays.ts
 export { MONTHS, WEEKDAYS };
 
+// constants/ranks.ts — the display-facing Rank enum, shared across rites.
+// The 1962 rite maps its own Precedence1962 slots to these via
+// RanksFromPrecedence1962, mirroring the 1969 RanksFromPrecedence pattern.
+export { RANKS, Ranks };
+
 // locales/index.ts — 1969 locale bundle map (seasons/ordinals/etc) used by
 // 1962 i18n init to inherit nested season+ordinal data.
 export { locales as LOCALES_1969 } from './locales';

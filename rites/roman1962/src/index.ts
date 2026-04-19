@@ -64,6 +64,14 @@ export { COLORS_1962, Colors1962, isColor1962 } from './constants/colors-1962';
 export type { Color1962 } from './constants/colors-1962';
 export { RANKS_1962, Rank1962Values } from './constants/rank-1962';
 export type { Rank1962 } from './constants/rank-1962';
+export { PRECEDENCES_1962, Precedences1962 } from './constants/precedences-1962';
+export type { Precedence1962 } from './constants/precedences-1962';
+export {
+  Class1962,
+  Class1962FromPrecedence1962,
+  Rank1962FromPrecedence1962,
+  RanksFromPrecedence1962,
+} from './constants/ranks-1962';
 export { SEASONS_1962, Seasons1962 } from './constants/seasons-1962';
 export type { Season1962 } from './constants/seasons-1962';
 

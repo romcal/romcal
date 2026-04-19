@@ -1,3 +1,5 @@
+import type { Precedence1962 } from './constants/precedences-1962';
+
 export type Kind1962 = 'tempora' | 'sancti';
 export type Class1962 = 1 | 2 | 3 | 4;
 
@@ -17,6 +19,15 @@ export interface LiturgicalDay1962Meta {
    * cleanly when undefined.
    */
   readonly numericRank1962?: number;
+  /**
+   * Phase-2 shadow field: the `Precedence1962` slot this entry maps to
+   * under the declarative precedence scheme (see `precedence-1962-derive.ts`).
+   * Surfaced on `LiturgicalDay1962` so the parity spec can compare
+   * `indexOf`-based ordering against the legacy `scorePrecedenceBase`.
+   * Phase 3 promotes this to the authoritative ordering field; Phase 4
+   * rewrites the JSON data to carry it directly.
+   */
+  readonly precedence1962?: Precedence1962;
   /**
    * If this entry is a "Vigilia …" header, the Latin name fragment of
    * the feast it is a vigil OF (as returned by `detectVigil`). Used by
