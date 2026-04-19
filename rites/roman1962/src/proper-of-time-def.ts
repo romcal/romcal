@@ -87,12 +87,11 @@ export class ProperOfTime1962 extends CalendarDef {
   };
 
   private emit(id: Id, input: PoTInput): LiturgicalDayDef {
-    // Stamp 1962 metadata side-channel so LiturgicalDay1962 can surface
-    // `classOf1962`/`kind1962`/`key1962` fields and so the overridden
-    // `Calendar1962#resolveOccurrence` has enough context to score by
-    // the 1962 rubrics. `numericRank1962` is intentionally left undefined
-    // for tempora — `scorePrecedence` treats it as optional (`* 0.01`
-    // tiebreaker flows to 0 cleanly).
+    // Stamp 1962 metadata side-channel so LiturgicalDay1962 surfaces
+    // `classOf1962`/`kind1962`/`key1962`/`precedence1962` and so the
+    // overridden `Calendar1962#resolveOccurrence` can sort by the
+    // Rubricae 1960 §91 slot. `numericRank1962` is intentionally left
+    // undefined for tempora (the in-slot tiebreak treats it as 0).
     const classOf1962 = classifyTempora(id);
     setMeta1962(id, {
       classOf1962,

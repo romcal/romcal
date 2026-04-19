@@ -13,8 +13,8 @@ function commemIds(cal: Cal, date: string): string[] {
   return (cal[date]?.[0]?.commemorations ?? []).map((c) => c.id);
 }
 
-describe('1962 rubrics — precedence scoring + commemoration selection', () => {
-  describe('precedence scoring (liturgical year 2024)', () => {
+describe('1962 rubrics — precedence ordering + commemoration selection', () => {
+  describe('precedence ordering (liturgical year 2024)', () => {
     let cal: Cal;
 
     beforeAll(async () => {
@@ -29,32 +29,34 @@ describe('1962 rubrics — precedence scoring + commemoration selection', () => 
     });
 
     it('Transfiguration (2024-08-06, Class II sancti) wins via §15 Lord-feast elevation', () => {
-      // classOf1962=2 + LORD_FEAST_KEYS bump (+200) outscores the coincident
-      // ClassIV tempora weekday (after-Pentecost-11-tuesday: 1000). The §15
-      // mechanism is explicit in `precedence.ts#fineAdjustment`.
+      // ClassIIFeastOfTheLord_2a slot sits above ClassII_2d and above the
+      // ClassIV_4a weekday (after-Pentecost-11-tuesday). The §15 mechanism
+      // lives in the slot assignment: `derivePrecedence1962` routes class=2
+      // sancti in LORD_FEAST_SANCTI_KEYS to the elevated slot.
       expect(primaryId(cal, '2024-08-06')).toBe('the_transfiguration_of_our_lord_jesus_christ');
     });
 
     it('Passion Sunday (2024-03-17) wins over coincident St Patrick, who drops to commemoration', () => {
-      // Class I tempora Sunday (score 4360) beats Class III sancti St Patrick.
+      // Class I tempora PrivilegedSunday_1c slot beats Class III sancti St Patrick.
       // St Patrick is retained as a commemoration (Class III sancti survive the filter).
       expect(primaryId(cal, '2024-03-17')).toBe('passion_sunday');
       expect(commemIds(cal, '2024-03-17')).toContain('saint_patrick_bishop_and_confessor');
     });
 
     it('Advent II Sunday (2024-12-08) wins over Immaculate Conception (which is then transferred forward)', () => {
-      // Class I Advent Sunday (4360) beats Class I Immaculate Conception sancti.
-      // Pre-B2d-2 the sancti stayed on 12-08 as a commemoration; since B2d-2
-      // landed §50 forward-transfer, the impeded Class I sancti moves to
-      // 12-09 (the next open day), so 12-08's commems do NOT retain it.
+      // Class I Advent Sunday (PrivilegedSunday_1c) beats Class I Immaculate
+      // Conception sancti (ClassI_1h). Pre-B2d-2 the sancti stayed on 12-08
+      // as a commemoration; since B2d-2 landed §50 forward-transfer, the
+      // impeded Class I sancti moves to 12-09 (the next open day), so
+      // 12-08's commems do NOT retain it.
       expect(primaryId(cal, '2024-12-08')).toBe('advent_2_sunday');
       expect(commemIds(cal, '2024-12-08')).not.toContain('immaculate_conception_of_the_blessed_virgin_mary');
       expect(primaryId(cal, '2024-12-09')).toBe('immaculate_conception_of_the_blessed_virgin_mary');
     });
 
     it('Nativity (2024-12-25) surfaces the tempora canonical source (tempora > sancti at §96 tie)', () => {
-      // Tempora `nativity_of_the_lord` and sancti `nativity_of_our_lord_jesus_christ`
-      // both score 4000 (Class I, no fine adjustment). §96 tempora-first tiebreak
+      // Both `nativity_of_the_lord` (tempora) and `nativity_of_our_lord_jesus_christ`
+      // (sancti) land in the ClassI_1h slot. §96 tempora-ante-sancti tiebreak
       // keeps the tempora on top; the sancti duplicate lands in commemorations.
       expect(primaryId(cal, '2024-12-25')).toBe('nativity_of_the_lord');
       expect(commemIds(cal, '2024-12-25')).toContain('nativity_of_our_lord_jesus_christ');

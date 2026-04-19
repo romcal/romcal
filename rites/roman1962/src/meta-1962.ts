@@ -7,25 +7,25 @@ export interface LiturgicalDay1962Meta {
   readonly classOf1962: Class1962;
   readonly kind1962: Kind1962;
   /**
-   * The stable 1962 key for this day: the tempora slug for temporal
-   * entries, the sancti `fileKey` for sanctoral entries. Used by
-   * `scorePrecedence` fine adjustments (e.g. Triduum bump, §15 Lord
-   * feast elevation).
+   * Stable 1962 key for this day: the tempora slug for temporal entries,
+   * the sancti `fileKey` for sanctoral entries. Consumed by
+   * {@link derivePrecedence1962} when computing the {@link precedence1962}
+   * slot.
    */
   readonly key1962: string;
   /**
    * Optional decimal rank from the 1960 Kalendarium. Used by
-   * `scorePrecedence` as a sub-centi tiebreaker (`* 0.01`); flows to 0
-   * cleanly when undefined.
+   * `Calendar1962#resolveOccurrence` as the in-slot tiebreak after §96
+   * (tempora ante sancti); flows to 0 cleanly when undefined. Phase C6
+   * reassesses whether to keep this now that the JSON data rewrite
+   * (Phase C4) no longer needs numericRank for ordering.
    */
   readonly numericRank1962?: number;
   /**
-   * Phase-2 shadow field: the `Precedence1962` slot this entry maps to
-   * under the declarative precedence scheme (see `precedence-1962-derive.ts`).
-   * Surfaced on `LiturgicalDay1962` so the parity spec can compare
-   * `indexOf`-based ordering against the legacy `scorePrecedenceBase`.
-   * Phase 3 promotes this to the authoritative ordering field; Phase 4
-   * rewrites the JSON data to carry it directly.
+   * The `Precedence1962` slot this entry maps to under Rubricae 1960
+   * §91 (see `precedence-1962-derive.ts`). Authoritative ordering field
+   * consumed by `Calendar1962#resolveOccurrence` via
+   * `PRECEDENCES_1962.indexOf`.
    */
   readonly precedence1962?: Precedence1962;
   /**

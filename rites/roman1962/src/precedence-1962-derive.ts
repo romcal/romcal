@@ -2,22 +2,15 @@ import { Precedence1962, Precedences1962 } from './constants/precedences-1962';
 import type { Class1962, Kind1962 } from './meta-1962';
 
 /**
- * Declarative form of the tier mapping that legacy `precedence.ts#fineAdjustment`
- * implemented procedurally. Given the metadata the input-build stage already
- * has (`class1962`, tempora/sancti `key1962`, `kind1962`), return the slot in
- * {@link PRECEDENCES_1962} the entry belongs to. Every tier the legacy scorer
- * produced (TRIDUUM +400, EASTER/PENTECOST +380, privileged Sunday +360, …)
- * corresponds to exactly one slot here; the legacy fine-adjustment deltas
- * become slot membership predicates.
+ * Map an entry's (`class1962`, `key1962`, `kind1962`) triple onto a slot
+ * in {@link PRECEDENCES_1962}. Rubricae 1960 §91 encodes the hierarchy
+ * positionally; this helper is the build-time stamp that lets
+ * `Calendar1962#resolveOccurrence` collapse to `indexOf` at runtime.
  *
  * Kept as a single top-down decision tree rather than a map lookup so the
  * ordering of membership checks is auditable — later checks only see keys
  * that fell through earlier ones (e.g. `ANY_SUNDAY` at the Class II level
  * never sees pre-Lent Sundays because they branch out one step earlier).
- *
- * Lives separate from `precedence.ts` deliberately: Phase 2 runs this
- * alongside the legacy scorer in a shadow-test parity spec; Phase 3
- * deletes `precedence.ts` once parity is proven.
  */
 
 const TRIDUUM = new Set(['thursday_of_the_lords_supper', 'friday_of_the_passion_of_the_lord', 'holy_saturday']);

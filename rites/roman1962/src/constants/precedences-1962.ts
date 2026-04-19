@@ -4,10 +4,9 @@
  * the 1969 `Precedences` enum (`rites/roman1969/src/constants/precedences.ts`)
  * so resolution collapses to `PRECEDENCES_1962.indexOf(a) - PRECEDENCES_1962.indexOf(b)`.
  *
- * Slot granularity is chosen to match the tiers the legacy
- * `scorePrecedenceBase` produced; finer rubrical sub-splits can be added
- * later without breaking downstream consumers since the array position
- * is the contract, not the slot count.
+ * Slot granularity tracks the rubrical tiers of §91; finer rubrical
+ * sub-splits can be added later without breaking downstream consumers
+ * since the array position is the contract, not the slot count.
  */
 export const Precedences1962 = {
   /**

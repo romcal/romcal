@@ -86,17 +86,16 @@ export class LiturgicalDay1962 extends LiturgicalDay {
   readonly key1962?: string;
 
   /**
-   * Decimal 1960 rank used as a sub-centi tiebreaker in the precedence
-   * scorer. Optional because tempora entries don't carry one.
+   * Decimal 1960 rank used as the in-slot tiebreak in
+   * `Calendar1962#resolveOccurrence` (after §96 tempora-ante-sancti).
+   * Optional because tempora entries don't carry one.
    */
   readonly numericRank1962?: number;
 
   /**
-   * Phase-2 shadow field: the `Precedence1962` slot this entry maps to
-   * under the declarative precedence scheme. Populated from the same
-   * meta side-channel as `classOf1962`; consumed by the parity spec
-   * comparing `PRECEDENCES_1962.indexOf`-based ordering against legacy
-   * `scorePrecedenceBase`.
+   * The `Precedence1962` slot this entry maps to under Rubricae 1960 §91.
+   * Populated from the meta side-channel; consumed by
+   * `Calendar1962#resolveOccurrence` via `PRECEDENCES_1962.indexOf`.
    */
   readonly precedence1962?: Precedence1962;
 

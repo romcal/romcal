@@ -8,26 +8,24 @@ import {
 } from '@internal/rite-roman1969';
 
 import { RomcalConfig1962, type CommemorationCapMode } from './config-1962';
+import { PRECEDENCES_1962 } from './constants/precedences-1962';
 import { LiturgicalDay1962 } from './liturgical-day';
 import type { Kind1962 } from './meta-1962';
-import { scorePrecedenceBase, type PrecedenceCandidate } from './precedence';
 import { applyCap, filterCommemorations, isTransferTarget } from './transfer';
 
 // -- Helpers ------------------------------------------------------------------
 
 /**
- * Narrow a {@link LiturgicalDay1962} to the minimum shape required by
- * {@link scorePrecedenceBase}. Missing metadata falls back to Class IV + a
- * synthetic 'sancti' kind — those days flow to the bottom of the ordering
- * and will be culled by the transfer pass and overlays.
+ * Slot index of a candidate's `precedence1962` in the ordered
+ * {@link PRECEDENCES_1962} array. Lower index = higher precedence.
+ * Candidates without `precedence1962` (shouldn't happen after B2c+B2d
+ * stamping, but defend anyway) land past the last slot so they fall to
+ * the bottom of the pool and get culled by the transfer / commemoration
+ * passes.
  */
-function toPc(d: LiturgicalDay1962): PrecedenceCandidate {
-  return {
-    kind1962: d.kind1962 ?? 'sancti',
-    key1962: d.key1962 ?? d.id,
-    classOf1962: d.classOf1962 ?? 4,
-    numericRank1962: d.numericRank1962,
-  };
+function slotIndex(d: LiturgicalDay1962): number {
+  const p = d.precedence1962;
+  return p ? PRECEDENCES_1962.indexOf(p) : PRECEDENCES_1962.length;
 }
 
 function kindOf(d: LiturgicalDay1962): Kind1962 {
@@ -101,35 +99,28 @@ export class Calendar1962 extends Calendar<LiturgicalDay1962> {
   }
 
   /**
-   * 1962 occurrence resolver. Scores every candidate via
-   * {@link scorePrecedence}, sorts descending, then breaks ties by
-   * tempora (§96) and finally by alphabetical `name`. Mutates
-   * `candidates` in place so the caller sees `candidates[0] === winner`,
-   * as the engine expects.
+   * 1962 occurrence resolver. Sorts candidates by precedence slot
+   * (ascending `PRECEDENCES_1962.indexOf(precedence1962)` — Rubricae
+   * 1960 §91 tabula dierum liturgicorum), breaks ties by kind (§96
+   * tempora ante sancti), then by `numericRank1962` descending (1960
+   * Kalendarium decimal-rank), and finally alphabetical `name` for
+   * determinism. Mutates `candidates` in place so the caller sees
+   * `candidates[0] === winner`, as the engine expects.
    */
   protected override resolveOccurrence(candidates: LiturgicalDay1962[], _date: Date): LiturgicalDay1962 {
     if (candidates.length === 0) {
       throw new Error('resolveOccurrence called with empty candidate pool');
     }
-    // Sort by (1) class + fine adjustment desc, (2) kind (§96 tempora > sancti),
-    // (3) numericRank desc (within-class decimal rank tiebreak from the 1960
-    // Kalendarium), (4) alphabetical `name` as last-resort determinism.
-    const scored: [LiturgicalDay1962, number, number][] = candidates.map((c) => {
-      const pc = toPc(c);
-      return [c, scorePrecedenceBase(pc), pc.numericRank1962 ?? 0];
-    });
-    scored.sort((a, b) => {
-      if (b[1] !== a[1]) return b[1] - a[1];
-      const aKind = kindOf(a[0]);
-      const bKind = kindOf(b[0]);
+    candidates.sort((a, b) => {
+      const slot = slotIndex(a) - slotIndex(b);
+      if (slot !== 0) return slot;
+      const aKind = kindOf(a);
+      const bKind = kindOf(b);
       if (aKind !== bKind) return aKind === 'tempora' ? -1 : 1;
-      if (b[2] !== a[2]) return b[2] - a[2];
-      return a[0].name.localeCompare(b[0].name);
+      const rank = (b.numericRank1962 ?? 0) - (a.numericRank1962 ?? 0);
+      if (rank !== 0) return rank;
+      return a.name.localeCompare(b.name);
     });
-    // Mutate the caller's array in place.
-    for (let i = 0; i < scored.length; i += 1) {
-      candidates[i] = scored[i][0];
-    }
     return candidates[0];
   }
 
